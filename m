@@ -2,84 +2,92 @@ Return-Path: <SRS0=dPMk=55=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no
-	version=3.4.0
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D42A4C2BA19
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 13 Apr 2020 18:15:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 65FBCC2BB86
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 13 Apr 2020 21:29:55 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A740420692
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 13 Apr 2020 18:15:34 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 38588206DA
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 13 Apr 2020 21:29:55 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="eSASFWYj";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="Hbruzb3c"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A740420692
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Zkix6IFT";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="dU+D1zkh"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 38588206DA
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:
-	Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=U0b9NzPY39K0SdpStnfLywY/t9DuYxkB4s0Wc1XFSLg=; b=eSASFWYjvEcVRhYRjciLofsOj
-	di5bd6RYftnZbDtQDG3Fv+7djD50BvgwMvZvDR7DgElVZhyZzk2P4M9JeAHvAU8MwRibcSaqaAoAZ
-	nu5mdyGSWK1Hid+pjCoY+q/B+eMR2feAK7TzFPRTpdctzSE857oh0aKLEw92dk2S1LjXt1zevIkmn
-	yj63ZMUAXx7y9nhcAO+lmdMJHQmlAtd1yWvw7J7GpjXtpbkYOEokICMIUapxlQwBuCL0LVB9AbL/x
-	CIRcqaQIjAZc9EfoqhHX56FpqUP7nZ9I3SeapAdFNkuqfLvqNDmjN4hWHNuk5wW2vCOaaoxN2Nv9/
-	ZJ4YGM/rA==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
+	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=99jo7wqg26WiiIM+4olPTtatH0fI/ba5JDbEb1P3eNs=; b=Zkix6IFTqIlPMl
+	NWV7P6yVb02HCjPztycmtw7v0fM0GBhiZ1BPQxFlR8AZpBIhdTnfbrn7rJp2vy6RlOfUVs+yby9l8
+	+klCQxIMS5rvZwo667YWegL/n3/Ex5faNxk4DimchmJK4iriLfMr3z0n0+RnlOt5Nu5wGerUzmE40
+	WmLbwzONHp96V2ulzGc/WySEk/vwXAJ75qbY2Q5+X8Ggn/0OOE8Wgp1cy/arrvSbt2GEc+GkSCeHY
+	7uZ8Ix3rngwYabg5mh1+kq1E4DlmJgReRRuVruzVSvp8Na7tt102HWwP9hrxXFijhFr4ANZE1fHbQ
+	+tzOaI37nff9fFQVy0tA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jO3cL-0006eI-MR; Mon, 13 Apr 2020 18:15:33 +0000
-Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
+	id 1jO6eP-0000Nu-P8; Mon, 13 Apr 2020 21:29:53 +0000
+Received: from esa6.hgst.iphmx.com ([216.71.154.45])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jO3cI-0006ds-Lv
- for linux-riscv@lists.infradead.org; Mon, 13 Apr 2020 18:15:33 +0000
-Received: by mail-wm1-x341.google.com with SMTP id g12so3041122wmh.3
- for <linux-riscv@lists.infradead.org>; Mon, 13 Apr 2020 11:15:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=U0b9NzPY39K0SdpStnfLywY/t9DuYxkB4s0Wc1XFSLg=;
- b=Hbruzb3cuEf+jmsmvPYHVR68AhAZUsovwc4DGJCIjSOhbnxayT24fhm2P6EsykYwnf
- I625p8bcWGrwk4Rd73b5139AAoKkNkW7Whik+GHQ2AiUKCWBdqzycilMSnh9JFgScc0j
- w0g2cmygKv/cuofAXVx4kvunYXT4CBcgY2S2lH1Wp6hHiZmG6CquyKNZPU04VMyxcAEM
- UpdmlcUQRbSOFWqlIdaKcvrBpGWuVj0K397RpPlGat9IeBzkylAo15HG66RYoBqSZdeG
- spGOUxTM9oAWGi8vWlybNlvP/oXi/WLu2C2KE/Q9KAkMHBWFZqj6ilihBihZ66r0hemQ
- 2+EQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=U0b9NzPY39K0SdpStnfLywY/t9DuYxkB4s0Wc1XFSLg=;
- b=mmfilu75YxO00eYvSL2sAueW3PhwN9jrAU4lVMYWiOpHWr1hoiOXxWlBEUoHuCfN1b
- cmnB+05AfMBX8tk8hXewP4kKee3C/SG/uEp+HOe44K5upO1+b/FkZX2rNZQUZnTtVJlQ
- N/AgjahucIoi5+IVoTmVUzIJYXsH8Ku3TeCjdanSker8E+5L4e3pFEd6zpfnp9iXMH/Z
- BuDiD/B2xNZ8IJLp/0ok88L6ntd+CEgCenZOyYXTAu2oBD4Bu3PuqVVbv+h2ML6s5/9g
- mFjLIIEroarSGTGdqi1c4B3z8C165huWf3srWokpZCf599G9cjhEjn3blobhO/FYD5HK
- WYFA==
-X-Gm-Message-State: AGi0PuYid3knSQx4sQ2sgAPWtmBrQ8+bQSN0JaoIz4Kz/yB26priEhGK
- vOLTsvSM8Na33xxb4xnUKe2S10EmbJ1WyA5aPBjK
-X-Google-Smtp-Source: APiQypLg93LRP/BVhNGBNRhikjsZJoRBPt6yu00OGS6dvk3/gNhLX1G68b48HcsUdewi9EMdApyJ2zpY7lOQI4WoUi4=
-X-Received: by 2002:a1c:ba09:: with SMTP id k9mr19280668wmf.176.1586801726232; 
- Mon, 13 Apr 2020 11:15:26 -0700 (PDT)
+ id 1jO6eN-0000Mo-8E; Mon, 13 Apr 2020 21:29:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1586813392; x=1618349392;
+ h=from:to:cc:subject:date:message-id:in-reply-to:
+ references:mime-version:content-transfer-encoding;
+ bh=pcOCtB5fv/YmPFx2fo9gEb+wBJbwEegEJHy3Q6vyD6w=;
+ b=dU+D1zkhkb6oMSyTF5wm92/iUVR3uTc6S/yu+z2k+qYQPDoK8DPz0kzI
+ OkXH1ZK+4IZ1+7FsEvPWaMnYA7/BOkYDx/YzayuWbYgkTtx6P7l8fzDIc
+ JG2XOTHmfFtJx7RZI/WM9oJHCLJpBrakzGwm1YaMZ1h06gAA50NUmKyf2
+ o1JUFxRRrIE+PPE2+gfKLMOcDyd1hXDDdKlY4pZ3LUbfToH53KlIihFsp
+ eQJW4F+SwQKQ/qJgrpPeY9lJ8G7rp41shvN26ZOiAlwij6l3SeZpCCtve
+ dtkAUto7KtILZaRFpb4Rcw6gpGufl2fGYeVW16XDyg2ADehSZnTmQTBMq Q==;
+IronPort-SDR: VREDIvMN/39HlnnHATb58KfGbGqXWlztK6EPA1MPC/aggQH1bQ73mglzadOg2ZdUvnFLdNqlkZ
+ tq62NziLEPtsqjAj0qvlKk99T80aFUVZHCgomxVAI2dyiGWKnrLTgHpFSdu1rRWfEDeFYNWnkN
+ nO8+6PShu6k95dmaFQFHHejFMiVpfprxtctl0h44vQO1NczwUZGB1+vG/MfdYQ6nH8KCPhPsMZ
+ Z/jSjtf6osPROJC5Zabunj8dsdeUzu5pvpIhoYBHYlH8uNwnA5Z0QzaRjLJkyvtzTqGg/k6Cov
+ PrE=
+X-IronPort-AV: E=Sophos;i="5.72,380,1580745600"; d="scan'208";a="136683324"
+Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
+ ([199.255.45.15])
+ by ob1.hgst.iphmx.com with ESMTP; 14 Apr 2020 05:29:30 +0800
+IronPort-SDR: N5e9e5Nmko9G7WXZtJdbBtjDJdD1WOVSb4bldFJ902BY9q9dGhc6F9KNcCW48WizN3RsNKwlUX
+ tFTXUyaj/vaCcxur930Vx+0Kqa7GMaGgxQUPE6E9hh9J+0COziAcsmJinR6TUrJftQgaB7cdP3
+ SJErJw23r7IH9HPJOog6q47Q6ypKKK5Jy6OMpqQAjdK8pVxhJXX+D4JPV0p/001hkGB/TX+7vg
+ gdScOqpcZKDoBZP10leUMqtFo7wa2kTgAKCajiFZqcNfjwGa0DbY+vhsma6pG27pcM3u6RP0sy
+ 8VfGqCbDr8HGscnH5ZR2151H
+Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
+ by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 13 Apr 2020 14:20:01 -0700
+IronPort-SDR: r8UFEQO5M4pHviXz4+biD+GAWKWN6A1nxhe91z8v+Dtoc6TV5nlLfDai33OTJWF23MoqCPRTqN
+ sml7yCm+YbC3KL9qJGHkS1x+KSwJJF5yMPRYcohpOaWSHRn5Z1KJpnJ15b5OzXTmnxT2FmpCtz
+ 2uTJ+WlEAzSE9eIF09bszfOxvtxA5GSDdNK8u/N4CAhG93tPMNGtjZpKJrGldf9s+QoloFc+lr
+ 2Z2XZHYk6WI8XZJyxyw1VVC4Py/0ANJUKzL50KeslFIQHMiu/JC7cHE+x79o9iRDZ9KLhNXrse
+ 0Oo=
+WDCIronportException: Internal
+Received: from 9dg4l72.ad.shared (HELO jedi-01.hgst.com) ([10.86.55.26])
+ by uls-op-cesaip01.wdc.com with ESMTP; 13 Apr 2020 14:29:30 -0700
+From: Atish Patra <atish.patra@wdc.com>
+To: linux-kernel@vger.kernel.org
+Subject: [v2 PATCH 1/5] efi: Move arm-stub to a common file
+Date: Mon, 13 Apr 2020 14:29:03 -0700
+Message-Id: <20200413212907.29244-2-atish.patra@wdc.com>
+X-Mailer: git-send-email 2.24.0
+In-Reply-To: <20200413212907.29244-1-atish.patra@wdc.com>
+References: <20200413212907.29244-1-atish.patra@wdc.com>
 MIME-Version: 1.0
-References: <1586762401-15697-1-git-send-email-vincent.chen@sifive.com>
-In-Reply-To: <1586762401-15697-1-git-send-email-vincent.chen@sifive.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Mon, 13 Apr 2020 11:15:15 -0700
-Message-ID: <CAOnJCULw9X-OOgtHN7t5L1iz=gzLC6kiP80n9m2fdW-Vp0bwQA@mail.gmail.com>
-Subject: Re: [PATCH] riscv: use vDSO common flow to reduce the latency of the
- time-related functions
-To: Vincent Chen <vincent.chen@sifive.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200413_111530_923989_D4D8E9FC 
-X-CRM114-Status: GOOD (  26.59  )
+X-CRM114-CacheID: sfid-20200413_142951_343399_125F0B72 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -91,484 +99,123 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Paul Walmsley <paul.walmsley@sifive.com>
+Cc: linux-efi@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Masahiro Yamada <masahiroy@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ Ard Biesheuvel <ardb@kernel.org>, Atish Patra <atish.patra@wdc.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>,
+ Ingo Molnar <mingo@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 13, 2020 at 12:20 AM Vincent Chen <vincent.chen@sifive.com> wrote:
->
-> Even if RISC-V has supported the vDSO feature, the latency of the functions
-> for obtaining the system time is still expensive. It is because these
-> functions still trigger a corresponding system call in the process, which
-> slows down the response time. If we want to remove the system call to
-> reduce the latency, the kernel should have the ability to output the system
-> clock information to userspace. This patch introduces the vDSO common flow
-> to enable the kernel to achieve the above feature and uses "rdtime"
-> instruction to obtain the current time in the user space. Under this
-> condition, the latency cost by the ecall from U-mode to S-mode can be
-> eliminated. After applying this patch, the latency of gettimeofday()
-> measured on the HiFive unleashed board can be reduced by %61.
->
-> Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-> ---
->  arch/riscv/Kconfig                         |  3 ++
->  arch/riscv/include/asm/clocksource.h       |  7 +++
->  arch/riscv/include/asm/processor.h         | 12 +----
->  arch/riscv/include/asm/vdso.h              |  3 --
->  arch/riscv/include/asm/vdso/clocksource.h  |  8 +++
->  arch/riscv/include/asm/vdso/gettimeofday.h | 79 ++++++++++++++++++++++++++++++
->  arch/riscv/include/asm/vdso/processor.h    | 19 +++++++
->  arch/riscv/include/asm/vdso/vsyscall.h     | 27 ++++++++++
->  arch/riscv/kernel/vdso.c                   |  4 +-
->  arch/riscv/kernel/vdso/Makefile            | 12 +++--
->  arch/riscv/kernel/vdso/clock_getres.S      | 18 -------
->  arch/riscv/kernel/vdso/clock_gettime.S     | 18 -------
->  arch/riscv/kernel/vdso/gettimeofday.S      | 18 -------
->  arch/riscv/kernel/vdso/vdso.lds.S          |  2 +
->  arch/riscv/kernel/vdso/vgettimeofday.c     | 25 ++++++++++
->  drivers/clocksource/timer-riscv.c          |  1 +
->  16 files changed, 184 insertions(+), 72 deletions(-)
->  create mode 100644 arch/riscv/include/asm/clocksource.h
->  create mode 100644 arch/riscv/include/asm/vdso/clocksource.h
->  create mode 100644 arch/riscv/include/asm/vdso/gettimeofday.h
->  create mode 100644 arch/riscv/include/asm/vdso/processor.h
->  create mode 100644 arch/riscv/include/asm/vdso/vsyscall.h
->  delete mode 100644 arch/riscv/kernel/vdso/clock_getres.S
->  delete mode 100644 arch/riscv/kernel/vdso/clock_gettime.S
->  delete mode 100644 arch/riscv/kernel/vdso/gettimeofday.S
->  create mode 100644 arch/riscv/kernel/vdso/vgettimeofday.c
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index a197258595ef..059ef492fa7f 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -68,6 +68,9 @@ config RISCV
->         select ARCH_HAS_GCOV_PROFILE_ALL
->         select HAVE_COPY_THREAD_TLS
->         select HAVE_ARCH_KASAN if MMU && 64BIT
-> +       select HAVE_GENERIC_VDSO
-> +       select GENERIC_TIME_VSYSCALL
-> +       select GENERIC_GETTIMEOFDAY
->
->  config ARCH_MMAP_RND_BITS_MIN
->         default 18 if 64BIT
-> diff --git a/arch/riscv/include/asm/clocksource.h b/arch/riscv/include/asm/clocksource.h
-> new file mode 100644
-> index 000000000000..482185566b0c
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/clocksource.h
-> @@ -0,0 +1,7 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef _ASM_CLOCKSOURCE_H
-> +#define _ASM_CLOCKSOURCE_H
-> +
-> +#include <asm/vdso/clocksource.h>
-> +
-> +#endif
-> diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-> index 3ddb798264f1..d6117b316e2b 100644
-> --- a/arch/riscv/include/asm/processor.h
-> +++ b/arch/riscv/include/asm/processor.h
-> @@ -8,6 +8,8 @@
->
->  #include <linux/const.h>
->
-> +#include <vdso/processor.h>
-> +
->  #include <asm/ptrace.h>
->
->  /*
-> @@ -58,16 +60,6 @@ static inline void release_thread(struct task_struct *dead_task)
->  extern unsigned long get_wchan(struct task_struct *p);
->
->
-> -static inline void cpu_relax(void)
-> -{
-> -#ifdef __riscv_muldiv
-> -       int dummy;
-> -       /* In lieu of a halt instruction, induce a long-latency stall. */
-> -       __asm__ __volatile__ ("div %0, %0, zero" : "=r" (dummy));
-> -#endif
-> -       barrier();
-> -}
-> -
->  static inline void wait_for_interrupt(void)
->  {
->         __asm__ __volatile__ ("wfi");
-> diff --git a/arch/riscv/include/asm/vdso.h b/arch/riscv/include/asm/vdso.h
-> index 7a7fce63c474..05689eab4083 100644
-> --- a/arch/riscv/include/asm/vdso.h
-> +++ b/arch/riscv/include/asm/vdso.h
-> @@ -10,9 +10,6 @@
->
->  #include <linux/types.h>
->
-> -struct vdso_data {
-> -};
-> -
->  /*
->   * The VDSO symbols are mapped into Linux so we can just use regular symbol
->   * addressing to get their offsets in userspace.  The symbols are mapped at an
-> diff --git a/arch/riscv/include/asm/vdso/clocksource.h b/arch/riscv/include/asm/vdso/clocksource.h
-> new file mode 100644
-> index 000000000000..df6ea65c1dec
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/vdso/clocksource.h
-> @@ -0,0 +1,8 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef __ASM_VDSOCLOCKSOURCE_H
-> +#define __ASM_VDSOCLOCKSOURCE_H
-> +
-> +#define VDSO_ARCH_CLOCKMODES   \
-> +       VDSO_CLOCKMODE_ARCHTIMER
-> +
-> +#endif
-> diff --git a/arch/riscv/include/asm/vdso/gettimeofday.h b/arch/riscv/include/asm/vdso/gettimeofday.h
-> new file mode 100644
-> index 000000000000..c8e818688ec1
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/vdso/gettimeofday.h
-> @@ -0,0 +1,79 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef __ASM_VDSO_GETTIMEOFDAY_H
-> +#define __ASM_VDSO_GETTIMEOFDAY_H
-> +
-> +#ifndef __ASSEMBLY__
-> +
-> +#include <asm/unistd.h>
-> +#include <asm/csr.h>
-> +#include <uapi/linux/time.h>
-> +
-> +#define VDSO_HAS_CLOCK_GETRES  1
-> +
-> +static __always_inline
-> +int gettimeofday_fallback(struct __kernel_old_timeval *_tv,
-> +                         struct timezone *_tz)
-> +{
-> +       register struct __kernel_old_timeval *tv asm("a0") = _tv;
-> +       register struct timezone *tz asm("a1") = _tz;
-> +       register long ret asm("a0");
-> +       register long nr asm("a7") = __NR_gettimeofday;
-> +
-> +       asm volatile ("ecall\n"
-> +                     : "=r" (ret)
-> +                     : "r"(tv), "r"(tz), "r"(nr)
-> +                     : "memory");
-> +
-> +       return ret;
-> +}
-> +
-> +static __always_inline
-> +long clock_gettime_fallback(clockid_t _clkid, struct __kernel_timespec *_ts)
-> +{
-> +       register clockid_t clkid asm("a0") = _clkid;
-> +       register struct __kernel_timespec *ts asm("a1") = _ts;
-> +       register long ret asm("a0");
-> +       register long nr asm("a7") = __NR_clock_gettime;
-> +
-> +       asm volatile ("ecall\n"
-> +                     : "=r" (ret)
-> +                     : "r"(clkid), "r"(ts), "r"(nr)
-> +                     : "memory");
-> +
-> +       return ret;
-> +}
-> +
-> +static __always_inline
-> +int clock_getres_fallback(clockid_t _clkid, struct __kernel_timespec *_ts)
-> +{
-> +       register clockid_t clkid asm("a0") = _clkid;
-> +       register struct __kernel_timespec *ts asm("a1") = _ts;
-> +       register long ret asm("a0");
-> +       register long nr asm("a7") = __NR_clock_getres;
-> +
-> +       asm volatile ("ecall\n"
-> +                     : "=r" (ret)
-> +                     : "r"(clkid), "r"(ts), "r"(nr)
-> +                     : "memory");
-> +
-> +       return ret;
-> +}
-> +
-> +static __always_inline u64 __arch_get_hw_counter(s32 clock_mode)
-> +{
-> +       /*
-> +        * The purpose of csr_read(CSR_TIME) is to trap the system into
-> +        * M-mode to obtain the value of CSR_TIME. Hence, unlike other
-> +        * architecture, no fence instructions surround the csr_read()
-> +        */
-> +       return csr_read(CSR_TIME);
-> +}
-> +
-> +static __always_inline const struct vdso_data *__arch_get_vdso_data(void)
-> +{
-> +       return _vdso_data;
-> +}
-> +
-> +#endif /* !__ASSEMBLY__ */
-> +
-> +#endif /* __ASM_VDSO_GETTIMEOFDAY_H */
-> diff --git a/arch/riscv/include/asm/vdso/processor.h b/arch/riscv/include/asm/vdso/processor.h
-> new file mode 100644
-> index 000000000000..82a5693b1861
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/vdso/processor.h
-> @@ -0,0 +1,19 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +#ifndef __ASM_VDSO_PROCESSOR_H
-> +#define __ASM_VDSO_PROCESSOR_H
-> +
-> +#ifndef __ASSEMBLY__
-> +
-> +static inline void cpu_relax(void)
-> +{
-> +#ifdef __riscv_muldiv
-> +       int dummy;
-> +       /* In lieu of a halt instruction, induce a long-latency stall. */
-> +       __asm__ __volatile__ ("div %0, %0, zero" : "=r" (dummy));
-> +#endif
-> +       barrier();
-> +}
-> +
-> +#endif /* __ASSEMBLY__ */
-> +
-> +#endif /* __ASM_VDSO_PROCESSOR_H */
-> diff --git a/arch/riscv/include/asm/vdso/vsyscall.h b/arch/riscv/include/asm/vdso/vsyscall.h
-> new file mode 100644
-> index 000000000000..82fd5d83bd60
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/vdso/vsyscall.h
-> @@ -0,0 +1,27 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef __ASM_VDSO_VSYSCALL_H
-> +#define __ASM_VDSO_VSYSCALL_H
-> +
-> +#ifndef __ASSEMBLY__
-> +
-> +#include <linux/timekeeper_internal.h>
-> +#include <vdso/datapage.h>
-> +
-> +extern struct vdso_data *vdso_data;
-> +
-> +/*
-> + * Update the vDSO data page to keep in sync with kernel timekeeping.
-> + */
-> +static __always_inline struct vdso_data *__riscv_get_k_vdso_data(void)
-> +{
-> +       return vdso_data;
-> +}
-> +
-> +#define __arch_get_k_vdso_data __riscv_get_k_vdso_data
-> +
-> +/* The asm-generic header needs to be included after the definitions above */
-> +#include <asm-generic/vdso/vsyscall.h>
-> +
-> +#endif /* !__ASSEMBLY__ */
-> +
-> +#endif /* __ASM_VDSO_VSYSCALL_H */
-> diff --git a/arch/riscv/kernel/vdso.c b/arch/riscv/kernel/vdso.c
-> index 484d95a70907..1495af602f00 100644
-> --- a/arch/riscv/kernel/vdso.c
-> +++ b/arch/riscv/kernel/vdso.c
-> @@ -11,8 +11,8 @@
->  #include <linux/slab.h>
->  #include <linux/binfmts.h>
->  #include <linux/err.h>
-> +#include <vdso/datapage.h>
->
-> -#include <asm/vdso.h>
->
->  extern char vdso_start[], vdso_end[];
->
-> @@ -26,7 +26,7 @@ static union {
->         struct vdso_data        data;
->         u8                      page[PAGE_SIZE];
->  } vdso_data_store __page_aligned_data;
-> -static struct vdso_data *vdso_data = &vdso_data_store.data;
-> +struct vdso_data *vdso_data = &vdso_data_store.data;
->
->  static int __init vdso_init(void)
->  {
-> diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
-> index 33b16f4212f7..9ad681e94ebe 100644
-> --- a/arch/riscv/kernel/vdso/Makefile
-> +++ b/arch/riscv/kernel/vdso/Makefile
-> @@ -1,12 +1,14 @@
->  # SPDX-License-Identifier: GPL-2.0-only
->  # Copied from arch/tile/kernel/vdso/Makefile
->
-> +# Absolute relocation type $(ARCH_REL_TYPE_ABS) needs to be defined before
-> +# the inclusion of generic Makefile.
-> +ARCH_REL_TYPE_ABS := R_RISCV_32|R_RISCV_64|R_RISCV_JUMP_SLOT
-> +include $(srctree)/lib/vdso/Makefile
->  # Symbols present in the vdso
->  vdso-syms  = rt_sigreturn
->  ifdef CONFIG_64BIT
-> -vdso-syms += gettimeofday
-> -vdso-syms += clock_gettime
-> -vdso-syms += clock_getres
-> +vdso-syms += vgettimeofday
->  endif
->  vdso-syms += getcpu
->  vdso-syms += flush_icache
-> @@ -14,6 +16,10 @@ vdso-syms += flush_icache
->  # Files to link into the vdso
->  obj-vdso = $(patsubst %, %.o, $(vdso-syms))
->
-> +ifneq ($(c-gettimeofday-y),)
-> +  CFLAGS_vgettimeofday.o += -include $(c-gettimeofday-y)
-> +endif
-> +
->  # Build rules
->  targets := $(obj-vdso) vdso.so vdso.so.dbg vdso.lds vdso-dummy.o
->  obj-vdso := $(addprefix $(obj)/, $(obj-vdso))
-> diff --git a/arch/riscv/kernel/vdso/clock_getres.S b/arch/riscv/kernel/vdso/clock_getres.S
-> deleted file mode 100644
-> index 91378a52eb22..000000000000
-> --- a/arch/riscv/kernel/vdso/clock_getres.S
-> +++ /dev/null
-> @@ -1,18 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0-only */
-> -/*
-> - * Copyright (C) 2017 SiFive
-> - */
-> -
-> -#include <linux/linkage.h>
-> -#include <asm/unistd.h>
-> -
-> -       .text
-> -/* int __vdso_clock_getres(clockid_t clock_id, struct timespec *res); */
-> -ENTRY(__vdso_clock_getres)
-> -       .cfi_startproc
-> -       /* For now, just do the syscall. */
-> -       li a7, __NR_clock_getres
-> -       ecall
-> -       ret
-> -       .cfi_endproc
-> -ENDPROC(__vdso_clock_getres)
-> diff --git a/arch/riscv/kernel/vdso/clock_gettime.S b/arch/riscv/kernel/vdso/clock_gettime.S
-> deleted file mode 100644
-> index 5371fd9bc01f..000000000000
-> --- a/arch/riscv/kernel/vdso/clock_gettime.S
-> +++ /dev/null
-> @@ -1,18 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0-only */
-> -/*
-> - * Copyright (C) 2017 SiFive
-> - */
-> -
-> -#include <linux/linkage.h>
-> -#include <asm/unistd.h>
-> -
-> -       .text
-> -/* int __vdso_clock_gettime(clockid_t clock_id, struct timespec *tp); */
-> -ENTRY(__vdso_clock_gettime)
-> -       .cfi_startproc
-> -       /* For now, just do the syscall. */
-> -       li a7, __NR_clock_gettime
-> -       ecall
-> -       ret
-> -       .cfi_endproc
-> -ENDPROC(__vdso_clock_gettime)
-> diff --git a/arch/riscv/kernel/vdso/gettimeofday.S b/arch/riscv/kernel/vdso/gettimeofday.S
-> deleted file mode 100644
-> index e6fb8af88632..000000000000
-> --- a/arch/riscv/kernel/vdso/gettimeofday.S
-> +++ /dev/null
-> @@ -1,18 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0-only */
-> -/*
-> - * Copyright (C) 2017 SiFive
-> - */
-> -
-> -#include <linux/linkage.h>
-> -#include <asm/unistd.h>
-> -
-> -       .text
-> -/* int __vdso_gettimeofday(struct timeval *tv, struct timezone *tz); */
-> -ENTRY(__vdso_gettimeofday)
-> -       .cfi_startproc
-> -       /* For now, just do the syscall. */
-> -       li a7, __NR_gettimeofday
-> -       ecall
-> -       ret
-> -       .cfi_endproc
-> -ENDPROC(__vdso_gettimeofday)
-> diff --git a/arch/riscv/kernel/vdso/vdso.lds.S b/arch/riscv/kernel/vdso/vdso.lds.S
-> index f66a091cb890..e6f558bca71b 100644
-> --- a/arch/riscv/kernel/vdso/vdso.lds.S
-> +++ b/arch/riscv/kernel/vdso/vdso.lds.S
-> @@ -2,11 +2,13 @@
->  /*
->   * Copyright (C) 2012 Regents of the University of California
->   */
-> +#include <asm/page.h>
->
->  OUTPUT_ARCH(riscv)
->
->  SECTIONS
->  {
-> +       PROVIDE(_vdso_data = . + PAGE_SIZE);
->         . = SIZEOF_HEADERS;
->
->         .hash           : { *(.hash) }                  :text
-> diff --git a/arch/riscv/kernel/vdso/vgettimeofday.c b/arch/riscv/kernel/vdso/vgettimeofday.c
-> new file mode 100644
-> index 000000000000..d264943e2e47
-> --- /dev/null
-> +++ b/arch/riscv/kernel/vdso/vgettimeofday.c
-> @@ -0,0 +1,25 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copied from arch/arm64/kernel/vdso/vgettimeofday.c
-> + *
-> + * Copyright (C) 2018 ARM Ltd.
-> + * Copyright (C) 2020 SiFive
-> + */
-> +
-> +#include <linux/time.h>
-> +#include <linux/types.h>
-> +
-> +int __vdso_clock_gettime(clockid_t clock, struct __kernel_timespec *ts)
-> +{
-> +       return __cvdso_clock_gettime(clock, ts);
-> +}
-> +
-> +int __vdso_gettimeofday(struct __kernel_old_timeval *tv, struct timezone *tz)
-> +{
-> +       return __cvdso_gettimeofday(tv, tz);
-> +}
-> +
-> +int __vdso_clock_getres(clockid_t clock_id, struct __kernel_timespec *res)
-> +{
-> +       return __cvdso_clock_getres(clock_id, res);
-> +}
-> diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
-> index c4f15c4068c0..adfef2736222 100644
-> --- a/drivers/clocksource/timer-riscv.c
-> +++ b/drivers/clocksource/timer-riscv.c
-> @@ -67,6 +67,7 @@ static struct clocksource riscv_clocksource = {
->         .mask           = CLOCKSOURCE_MASK(64),
->         .flags          = CLOCK_SOURCE_IS_CONTINUOUS,
->         .read           = riscv_clocksource_rdtime,
-> +       .vdso_clock_mode = VDSO_CLOCKMODE_ARCHTIMER,
->  };
->
->  static int riscv_timer_starting_cpu(unsigned int cpu)
-> --
-> 2.7.4
->
->
+Most of the arm-stub code is written in an architecture independent manner.
+As a result, RISC-V can reuse most of the arm-stub code.
 
-Looks good to me.
+Rename the arm-stub.c to efi-stub.c so that ARM, ARM64 and RISC-V can use it.
+This patch doesn't introduce any functional changes.
 
-Reviewed-by: Atish Patra <atish.patra@wdc.com>
+Signed-off-by: Atish Patra <atish.patra@wdc.com>
+---
+ arch/arm/Kconfig                                     |  2 +-
+ arch/arm64/Kconfig                                   |  2 +-
+ drivers/firmware/efi/Kconfig                         |  4 ++--
+ drivers/firmware/efi/libstub/Makefile                | 12 ++++++------
+ .../firmware/efi/libstub/{arm-stub.c => efi-stub.c}  |  0
+ 5 files changed, 10 insertions(+), 10 deletions(-)
+ rename drivers/firmware/efi/libstub/{arm-stub.c => efi-stub.c} (100%)
 
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index 66a04f6f4775..165987aa5bcd 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -1954,7 +1954,7 @@ config EFI
+ 	select UCS2_STRING
+ 	select EFI_PARAMS_FROM_FDT
+ 	select EFI_STUB
+-	select EFI_ARMSTUB
++	select EFI_GENERIC_STUB
+ 	select EFI_RUNTIME_WRAPPERS
+ 	---help---
+ 	  This option provides support for runtime services provided
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 40fb05d96c60..32d818c5ccda 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1785,7 +1785,7 @@ config EFI
+ 	select EFI_PARAMS_FROM_FDT
+ 	select EFI_RUNTIME_WRAPPERS
+ 	select EFI_STUB
+-	select EFI_ARMSTUB
++	select EFI_GENERIC_STUB
+ 	default y
+ 	help
+ 	  This option provides support for runtime services provided
+diff --git a/drivers/firmware/efi/Kconfig b/drivers/firmware/efi/Kconfig
+index 613828d3f106..2a2b2b96a1dc 100644
+--- a/drivers/firmware/efi/Kconfig
++++ b/drivers/firmware/efi/Kconfig
+@@ -106,12 +106,12 @@ config EFI_PARAMS_FROM_FDT
+ config EFI_RUNTIME_WRAPPERS
+ 	bool
+ 
+-config EFI_ARMSTUB
++config EFI_GENERIC_STUB
+ 	bool
+ 
+ config EFI_ARMSTUB_DTB_LOADER
+ 	bool "Enable the DTB loader"
+-	depends on EFI_ARMSTUB
++	depends on EFI_GENERIC_STUB
+ 	default y
+ 	help
+ 	  Select this config option to add support for the dtb= command
+diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
+index 094eabdecfe6..d590504541f6 100644
+--- a/drivers/firmware/efi/libstub/Makefile
++++ b/drivers/firmware/efi/libstub/Makefile
+@@ -23,7 +23,7 @@ cflags-$(CONFIG_ARM)		:= $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
+ 				   -fno-builtin -fpic \
+ 				   $(call cc-option,-mno-single-pic-base)
+ 
+-cflags-$(CONFIG_EFI_ARMSTUB)	+= -I$(srctree)/scripts/dtc/libfdt
++cflags-$(CONFIG_EFI_GENERIC_STUB)	+= -I$(srctree)/scripts/dtc/libfdt
+ 
+ KBUILD_CFLAGS			:= $(cflags-y) -DDISABLE_BRANCH_PROFILING \
+ 				   -include $(srctree)/drivers/firmware/efi/libstub/hidden.h \
+@@ -45,13 +45,13 @@ lib-y				:= efi-stub-helper.o gop.o secureboot.o tpm.o \
+ 				   skip_spaces.o lib-cmdline.o lib-ctype.o
+ 
+ # include the stub's generic dependencies from lib/ when building for ARM/arm64
+-arm-deps-y := fdt_rw.c fdt_ro.c fdt_wip.c fdt.c fdt_empty_tree.c fdt_sw.c
++efi-deps-y := fdt_rw.c fdt_ro.c fdt_wip.c fdt.c fdt_empty_tree.c fdt_sw.c
+ 
+ $(obj)/lib-%.o: $(srctree)/lib/%.c FORCE
+ 	$(call if_changed_rule,cc_o_c)
+ 
+-lib-$(CONFIG_EFI_ARMSTUB)	+= arm-stub.o fdt.o string.o \
+-				   $(patsubst %.c,lib-%.o,$(arm-deps-y))
++lib-$(CONFIG_EFI_GENERIC_STUB)		+= efi-stub.o fdt.o string.o \
++				   $(patsubst %.c,lib-%.o,$(efi-deps-y))
+ 
+ lib-$(CONFIG_ARM)		+= arm32-stub.o
+ lib-$(CONFIG_ARM64)		+= arm64-stub.o
+@@ -73,8 +73,8 @@ CFLAGS_arm64-stub.o		:= -DTEXT_OFFSET=$(TEXT_OFFSET)
+ # a verification pass to see if any absolute relocations exist in any of the
+ # object files.
+ #
+-extra-$(CONFIG_EFI_ARMSTUB)	:= $(lib-y)
+-lib-$(CONFIG_EFI_ARMSTUB)	:= $(patsubst %.o,%.stub.o,$(lib-y))
++extra-$(CONFIG_EFI_GENERIC_STUB)	:= $(lib-y)
++lib-$(CONFIG_EFI_GENERIC_STUB)	:= $(patsubst %.o,%.stub.o,$(lib-y))
+ 
+ STUBCOPY_FLAGS-$(CONFIG_ARM64)	+= --prefix-alloc-sections=.init \
+ 				   --prefix-symbols=__efistub_
+diff --git a/drivers/firmware/efi/libstub/arm-stub.c b/drivers/firmware/efi/libstub/efi-stub.c
+similarity index 100%
+rename from drivers/firmware/efi/libstub/arm-stub.c
+rename to drivers/firmware/efi/libstub/efi-stub.c
 -- 
-Regards,
-Atish
+2.24.0
+
 
