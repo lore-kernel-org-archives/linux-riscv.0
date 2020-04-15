@@ -2,89 +2,92 @@ Return-Path: <SRS0=Z8u2=57=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-11.7 required=3.0 tests=DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9D30BC2BA19
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2020 14:42:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 88E00C2BB85
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2020 19:54:49 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 70DBD2076D
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2020 14:42:30 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5BD6920768
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 15 Apr 2020 19:54:49 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="KFk9alLA";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.b="Rzm5dxhT"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 70DBD2076D
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="KbWqPvUM";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="BzmRUYqE"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5BD6920768
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=TrCr8YaKtrXKuZI1mDLlJ9OwmvLg/1PUlN/6+Ie7Iy0=; b=KFk9alLA+Oph1c9u+svhuzWcw
-	GBJ7zDZSCT5Z/XsC0Bvz/Dxea9STZsIbwckGSMGB28K3fBiZPZQAHawrhN9FC5xy9LXPQsRr0aICj
-	k/V679TZeVf4M8+30E1mgT8zpZD43hBQtLLnnD2xVy7CQDxVxsqu26pIoUTUduBnefr/ov80KRITW
-	kzOeosbNkMjJN3QOLXUYKjgPAzeh0gtiydax+ZmEIfnTTx5FYXyb9cj3ldhjrpWpK8oYuJB3Zq+V4
-	WPoKcTmuq6iBd+KRIoR43fRNDiFGLpw9LiFxzuPmlUN9qlgAawIMt23irg/NZTruzkm2qGJg8A2mm
-	QHDVKx2hg==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
+	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=T2uGqdcx6YILRVSAwfgDsYPFRNtG8sQ3iocQr323HHY=; b=KbWqPvUM5hAWUv
+	TYodDj42FBYE6g+guGqpmb8FwV0joleGIu2fwn3MaapKNVuYnwfymLYhDxFzPHdjuM26bjiJ6INvZ
+	WwjCiDNqbEaEUfxY7q5AV48fbuW9SdyiPj1l5NnyI29/mVUi14p2EkFOUZwF0qcYEUplC5BLytnUk
+	JPGTjiXGZKwndW1lkIsyThdtXtcFeyMrH7qL0PT/6xFoMQyZALMQKjzYiaaDPdC6pVD1cbyl6Oh0b
+	CnROxu5FW0r/ZLyfFmkjj05dXd3K1dIPAXwTzlq4VwNK0/X40e9GqATC3A5bcI1YXMrjMfhbEbOwQ
+	VQttsdoSzgq9yfL5h8EQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jOjFC-0007zD-Nk; Wed, 15 Apr 2020 14:42:26 +0000
-Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
+	id 1jOo7T-0007Xg-3t; Wed, 15 Apr 2020 19:54:47 +0000
+Received: from esa6.hgst.iphmx.com ([216.71.154.45])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jOjF9-0007yU-Bd
- for linux-riscv@lists.infradead.org; Wed, 15 Apr 2020 14:42:24 +0000
-Received: by mail-pf1-x443.google.com with SMTP id u65so49218pfb.4
- for <linux-riscv@lists.infradead.org>; Wed, 15 Apr 2020 07:42:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=TrCr8YaKtrXKuZI1mDLlJ9OwmvLg/1PUlN/6+Ie7Iy0=;
- b=Rzm5dxhTeaUONGsH972GQ1cAaKsulUeSHXueDBEsqI8cmXTh3SCPNcNqjQ5CFDTa5h
- EBQ9soIZStcseclUh0yP5zlUIowfh0ce0sZYGy/PfzX/U+/NGIrjEh3eABab7h+60/hz
- pgsokVn1zTw/hG3mJPqkplXu3r554x7uKaTXB0r0q3T6r1ELTx5v9wViytUbbto8Q8Ip
- dpym/NWKqOLMvWLZOorTFDWkgr536ve61EELqLbC0ALfHW0VWLJHXG9ZAzadzRLExZCW
- X2qP2xQy66PsBltBjdCkqzG3vbqeK2UOlflEoG9zaYgGLAsb6H997UH8MDClWBTP/Uka
- +rlw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=TrCr8YaKtrXKuZI1mDLlJ9OwmvLg/1PUlN/6+Ie7Iy0=;
- b=gW5t1SOEqp5w1+CVcXJhsivTuqGN2pXVXKZUN60Ghhnk6pFCfnLjXfwa0VNNdJ6mTs
- /JLz4kAYmXATmR7bDkBOc3YuQ+fV8T7fIwozSWXxGQKVmsahtFYSyoRagn2RzX0JiY1I
- DwC4LdD1rFCTMtHDuRyyOn5jkkHOOacFL4AAQgGahRP2L3MA/MJ4J8D/OZ2sCTv6oFhG
- IiQYvtuckOOihBgUqvCMfmPjZ2wi6ZkgqYwHPf8b/R39K1qaAvieQp+BO9F6Omc8OOVY
- MYoGXO5N2lJDV4221o+RDq+NCDfPLk4p8YBpAMBIaRsxOXRsFjUJG26mtlDUOmdyUBcB
- 4hLA==
-X-Gm-Message-State: AGi0PuYo+Wjom+XFguazuJusghJFlOHnqZalEu84FAhOLaMnizcEII9B
- jqhcPGo1JzQxSHlYINMD9uG4bw==
-X-Google-Smtp-Source: APiQypKrD/31MKHUWmycbWqZm3NAXgiF4vyGNvf1olANylF0PjsMdQ5ZiArHj6E665hYlxTSD05JxQ==
-X-Received: by 2002:aa7:8d97:: with SMTP id i23mr27432269pfr.325.1586961741436; 
- Wed, 15 Apr 2020 07:42:21 -0700 (PDT)
-Received: from google.com ([2620:15c:2ce:0:9efe:9f1:9267:2b27])
- by smtp.gmail.com with ESMTPSA id i15sm2199851pfo.195.2020.04.15.07.42.20
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 15 Apr 2020 07:42:20 -0700 (PDT)
-Date: Wed, 15 Apr 2020 07:42:17 -0700
-From: Fangrui Song <maskray@google.com>
-To: Ilie Halip <ilie.halip@gmail.com>
-Subject: Re: [PATCH v2] riscv: fix vdso build with lld
-Message-ID: <20200415144217.cxxdfeeepzgikp4n@google.com>
-References: <20200415142959.25673-1-ilie.halip@gmail.com>
+ id 1jOo7Q-0007WM-MX; Wed, 15 Apr 2020 19:54:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1586980484; x=1618516484;
+ h=from:to:cc:subject:date:message-id:in-reply-to:
+ references:mime-version:content-transfer-encoding;
+ bh=Djqlg8Cv1gfYTZdwhPlUmPWsMdIBfQD89t54SYqYujA=;
+ b=BzmRUYqEYLf0iiCWLIJfg7euvXJPMPVC4QVXxp6Ry/IvFAiG2kn5cyAv
+ 9FBBpb3udxWNVxyBdbNq+UZqkV5dg10Q1wqPKIzxnDVEExojZSeqJr7hD
+ ojx1XA0MOK9vC/L4KPgfBweFUbknEX1ZyO7oMoAp7f956MeNuZHjrmdi9
+ EXuPPy3JHZ6j5zTij9/ll92b1LJ+uZ5hm3sffFuU9pF2+4i9H1zdXjstQ
+ 3LWzStAGnuVyWo7hnC/DsVfPirqnUpvsVJzMfXoo3JkTre7ucx1B91Yqr
+ 7nmaV+b6DhckjSzM/YseNkMKuiYKDTVHszUG5+82P6BGcjMF56HerGX2S A==;
+IronPort-SDR: 3dC3dQPENfpaw4wsp9D8yKNGNeLflUUS2jIBOFBvapdTPI9EFN1VJ97RgZV+fXC0F88X2HGtZY
+ J5foz9GTI4uOM+qq1G21SOerZDYjTOqIbiUeGSNEOEO/WJeVyeESvPXGFaBU4dc+OLfPOv67qd
+ YAyqXLob6umsZ8yvPf15bz5OvTAWkeEiCG96APYmguEK1/laoiq5MNq7pGiuRWVBMZvpJEknfP
+ jpTxHL7L9ksQc78liR/+X85cSmUWknXceea44I0M5EYDxuwjoGQ80Z497pLRgioX1t5Iueqvxb
+ KJ8=
+X-IronPort-AV: E=Sophos;i="5.72,388,1580745600"; d="scan'208";a="136848622"
+Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
+ ([199.255.45.15])
+ by ob1.hgst.iphmx.com with ESMTP; 16 Apr 2020 03:54:40 +0800
+IronPort-SDR: oAWTmSe3ER941Q3FBhJeUx7fdXXskrbOgaEBxFKA5XSB4H2TqzVGKj5WbOOqW/5f5f0DQ7xH2m
+ lD/SUXu5X0+Pv6V6nHhnzwl/MYTNT70ih0SYWSSdwC0/rveCIROe2uYhb2TBdv7enbFgzZn5Ck
+ 6oOrg2lu75tcpGc91lDlmjcoMzXftexoJJzLrA7ADH5fyACpVlwWAwUdsmFX6IV7X6QylM5j2h
+ yqgxBHhxQfBcccErOC5gkMwnEtfdZ8N2fcXudAyG2JLFLoWHcOK25UWNwwV3W9wZQ5O5bphf7t
+ fKqYMJn0lgvXPHXTT0H2sVR4
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+ by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 15 Apr 2020 12:45:08 -0700
+IronPort-SDR: nSxPAvAlQJjzhHxPbWNQxGt8iiqTRn/CFCJkP1IW2hN5kyO5x8A0nRolmARO8ejzgeKfne+XP+
+ YhJ4lrEiUZ37oaoV0GyXFhQYDJ03SuhpCh0NrV2VvwhAhUgoNRfuHaBpEE/l/USJX50yxiOqJy
+ YTTxdcr6U/EaTqWNrfb+QPwLTSOhaX7knnoFdhHsKeiBV4tKN+5T0zEH4dBF0qLaMALMgKuIbZ
+ 7HNCWtfgqizgzP0T4PThCN2aQ7PrhPH4yMg4hhf5fq9zYKTHHBylCByOHlSkTlfb6aJV+U9QcM
+ MVE=
+WDCIronportException: Internal
+Received: from 6hj08h2.ad.shared (HELO jedi-01.hgst.com) ([10.86.55.244])
+ by uls-op-cesaip02.wdc.com with ESMTP; 15 Apr 2020 12:54:40 -0700
+From: Atish Patra <atish.patra@wdc.com>
+To: linux-kernel@vger.kernel.org
+Subject: [v3 PATCH 1/5] efi: Move arm-stub to a common file
+Date: Wed, 15 Apr 2020 12:54:18 -0700
+Message-Id: <20200415195422.19866-2-atish.patra@wdc.com>
+X-Mailer: git-send-email 2.24.0
+In-Reply-To: <20200415195422.19866-1-atish.patra@wdc.com>
+References: <20200415195422.19866-1-atish.patra@wdc.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii; format=flowed
-Content-Disposition: inline
-In-Reply-To: <20200415142959.25673-1-ilie.halip@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200415_074223_421396_7C33B3ED 
-X-CRM114-Status: GOOD (  11.18  )
+X-CRM114-CacheID: sfid-20200415_125444_834208_CF08146C 
+X-CRM114-Status: GOOD (  13.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -96,66 +99,123 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>,
+Cc: linux-efi@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jordan Rupprecht <rupprecht@google.com>,
- Nick Desaulniers <ndesaulniers@google.com>, linux-kernel@vger.kernel.org,
- clang-built-linux@googlegroups.com, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
- Thomas Gleixner <tglx@linutronix.de>, Mao Han <han_mao@c-sky.com>
+ Masahiro Yamada <masahiroy@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ Atish Patra <atish.patra@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, linux-riscv@lists.infradead.org,
+ Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+ linux-arm-kernel@lists.infradead.org
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2020-04-15, Ilie Halip wrote:
->When building with the LLVM linker this error occurrs:
->    LD      arch/riscv/kernel/vdso/vdso-syms.o
->  ld.lld: error: no input files
->
->This happens because the lld treats -R as an alias to -rpath, as opposed
->to ld where -R means --just-symbols.
->
->Use the long option name for compatibility between the two.
->
->Link: https://github.com/ClangBuiltLinux/linux/issues/805
->Reported-by: Dmitry Golovin <dima@golovin.in>
->Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
->Signed-off-by: Ilie Halip <ilie.halip@gmail.com>
->
->---
->Changed in v2:
->  * a comment line dropped, another one slightly reworded
->  * added Nick's Reviewed-by
->---
-> arch/riscv/kernel/vdso/Makefile | 6 +++---
-> 1 file changed, 3 insertions(+), 3 deletions(-)
->
->diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
->index 33b16f4212f7..a4ee3a0e7d20 100644
->--- a/arch/riscv/kernel/vdso/Makefile
->+++ b/arch/riscv/kernel/vdso/Makefile
->@@ -33,15 +33,15 @@ $(obj)/vdso.so.dbg: $(src)/vdso.lds $(obj-vdso) FORCE
-> 	$(call if_changed,vdsold)
->
-> # We also create a special relocatable object that should mirror the symbol
->-# table and layout of the linked DSO.  With ld -R we can then refer to
->-# these symbols in the kernel code rather than hand-coded addresses.
->+# table and layout of the linked DSO. With ld --just-symbols we can then
->+# refer to these symbols in the kernel code rather than hand-coded addresses.
->
-> SYSCFLAGS_vdso.so.dbg = -shared -s -Wl,-soname=linux-vdso.so.1 \
-> 	-Wl,--build-id -Wl,--hash-style=both
-> $(obj)/vdso-dummy.o: $(src)/vdso.lds $(obj)/rt_sigreturn.o FORCE
-> 	$(call if_changed,vdsold)
->
->-LDFLAGS_vdso-syms.o := -r -R
->+LDFLAGS_vdso-syms.o := -r --just-symbols
-> $(obj)/vdso-syms.o: $(obj)/vdso-dummy.o FORCE
-> 	$(call if_changed,ld)
->
->-- 
->2.17.1
+Most of the arm-stub code is written in an architecture independent manner.
+As a result, RISC-V can reuse most of the arm-stub code.
 
-https://lore.kernel.org/linux-riscv/20200402175354.pzhzhumlqsjk66nu@google.com/
+Rename the arm-stub.c to efi-stub.c so that ARM, ARM64 and RISC-V can use it.
+This patch doesn't introduce any functional changes.
 
-Reviewed-by: Fangrui Song <maskray@google.com>
+Signed-off-by: Atish Patra <atish.patra@wdc.com>
+---
+ arch/arm/Kconfig                                     |  2 +-
+ arch/arm64/Kconfig                                   |  2 +-
+ drivers/firmware/efi/Kconfig                         |  4 ++--
+ drivers/firmware/efi/libstub/Makefile                | 12 ++++++------
+ .../firmware/efi/libstub/{arm-stub.c => efi-stub.c}  |  0
+ 5 files changed, 10 insertions(+), 10 deletions(-)
+ rename drivers/firmware/efi/libstub/{arm-stub.c => efi-stub.c} (100%)
+
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index 66a04f6f4775..165987aa5bcd 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -1954,7 +1954,7 @@ config EFI
+ 	select UCS2_STRING
+ 	select EFI_PARAMS_FROM_FDT
+ 	select EFI_STUB
+-	select EFI_ARMSTUB
++	select EFI_GENERIC_STUB
+ 	select EFI_RUNTIME_WRAPPERS
+ 	---help---
+ 	  This option provides support for runtime services provided
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 40fb05d96c60..32d818c5ccda 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1785,7 +1785,7 @@ config EFI
+ 	select EFI_PARAMS_FROM_FDT
+ 	select EFI_RUNTIME_WRAPPERS
+ 	select EFI_STUB
+-	select EFI_ARMSTUB
++	select EFI_GENERIC_STUB
+ 	default y
+ 	help
+ 	  This option provides support for runtime services provided
+diff --git a/drivers/firmware/efi/Kconfig b/drivers/firmware/efi/Kconfig
+index 613828d3f106..2a2b2b96a1dc 100644
+--- a/drivers/firmware/efi/Kconfig
++++ b/drivers/firmware/efi/Kconfig
+@@ -106,12 +106,12 @@ config EFI_PARAMS_FROM_FDT
+ config EFI_RUNTIME_WRAPPERS
+ 	bool
+ 
+-config EFI_ARMSTUB
++config EFI_GENERIC_STUB
+ 	bool
+ 
+ config EFI_ARMSTUB_DTB_LOADER
+ 	bool "Enable the DTB loader"
+-	depends on EFI_ARMSTUB
++	depends on EFI_GENERIC_STUB
+ 	default y
+ 	help
+ 	  Select this config option to add support for the dtb= command
+diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
+index 2dbe4394f818..2b4e09bf987c 100644
+--- a/drivers/firmware/efi/libstub/Makefile
++++ b/drivers/firmware/efi/libstub/Makefile
+@@ -23,7 +23,7 @@ cflags-$(CONFIG_ARM)		:= $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
+ 				   -fno-builtin -fpic \
+ 				   $(call cc-option,-mno-single-pic-base)
+ 
+-cflags-$(CONFIG_EFI_ARMSTUB)	+= -I$(srctree)/scripts/dtc/libfdt
++cflags-$(CONFIG_EFI_GENERIC_STUB)	+= -I$(srctree)/scripts/dtc/libfdt
+ 
+ KBUILD_CFLAGS			:= $(cflags-y) -DDISABLE_BRANCH_PROFILING \
+ 				   -include $(srctree)/drivers/firmware/efi/libstub/hidden.h \
+@@ -46,13 +46,13 @@ lib-y				:= efi-stub-helper.o gop.o secureboot.o tpm.o \
+ 				   alignedmem.o relocate.o
+ 
+ # include the stub's generic dependencies from lib/ when building for ARM/arm64
+-arm-deps-y := fdt_rw.c fdt_ro.c fdt_wip.c fdt.c fdt_empty_tree.c fdt_sw.c
++efi-deps-y := fdt_rw.c fdt_ro.c fdt_wip.c fdt.c fdt_empty_tree.c fdt_sw.c
+ 
+ $(obj)/lib-%.o: $(srctree)/lib/%.c FORCE
+ 	$(call if_changed_rule,cc_o_c)
+ 
+-lib-$(CONFIG_EFI_ARMSTUB)	+= arm-stub.o fdt.o string.o \
+-				   $(patsubst %.c,lib-%.o,$(arm-deps-y))
++lib-$(CONFIG_EFI_GENERIC_STUB)		+= efi-stub.o fdt.o string.o \
++				   $(patsubst %.c,lib-%.o,$(efi-deps-y))
+ 
+ lib-$(CONFIG_ARM)		+= arm32-stub.o
+ lib-$(CONFIG_ARM64)		+= arm64-stub.o
+@@ -74,8 +74,8 @@ CFLAGS_arm64-stub.o		:= -DTEXT_OFFSET=$(TEXT_OFFSET)
+ # a verification pass to see if any absolute relocations exist in any of the
+ # object files.
+ #
+-extra-$(CONFIG_EFI_ARMSTUB)	:= $(lib-y)
+-lib-$(CONFIG_EFI_ARMSTUB)	:= $(patsubst %.o,%.stub.o,$(lib-y))
++extra-$(CONFIG_EFI_GENERIC_STUB)	:= $(lib-y)
++lib-$(CONFIG_EFI_GENERIC_STUB)	:= $(patsubst %.o,%.stub.o,$(lib-y))
+ 
+ STUBCOPY_FLAGS-$(CONFIG_ARM64)	+= --prefix-alloc-sections=.init \
+ 				   --prefix-symbols=__efistub_
+diff --git a/drivers/firmware/efi/libstub/arm-stub.c b/drivers/firmware/efi/libstub/efi-stub.c
+similarity index 100%
+rename from drivers/firmware/efi/libstub/arm-stub.c
+rename to drivers/firmware/efi/libstub/efi-stub.c
+-- 
+2.24.0
+
 
