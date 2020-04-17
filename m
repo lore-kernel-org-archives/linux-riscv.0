@@ -2,100 +2,95 @@ Return-Path: <SRS0=37zL=6B=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-2.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_GIT autolearn=no autolearn_force=no
-	version=3.4.0
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6EB42C2D0EF
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 17 Apr 2020 18:54:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7B88AC2BB1D
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 17 Apr 2020 22:59:10 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 02AF92223C
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 17 Apr 2020 18:54:01 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 4D450214D8
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 17 Apr 2020 22:59:10 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="fBLgQejg";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=oracle.com header.i=@oracle.com header.b="PCK2CWPB"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 02AF92223C
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=oracle.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="j5jWM5Cm";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=arista.com header.i=@arista.com header.b="XFfxS9KM"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4D450214D8
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=arista.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=gYVwjW9uIr3S+PxyOOpBOdl7Nnodqy4JmhYGCNmfQWM=; b=fBLgQejghya/tH
-	Mhfnw6V+EpERt6GIwib3/LnN1n7CryTwKk197pfTNKtsuMy33ONqNazVlePHBIsccx1wLgAKsYxvB
-	rxsPAWuRhT1vuFSLYWUkMOR8I4xEr7Q3zjLMZ4btpfLNlOa2bdxQ7b7VJ8x+RJEiTHwvAVon2iC6H
-	r2uORHiSgbNk9en0oj2kbdtnEzZEs5pn68NMoa+d4cV+lGb3Y6N/GbA4jRsb6CNnRU4vig3bKKjVX
-	WE5S+Ldjg0sQjXcTLy4uVvx0Amqe+kf+f2CN3BFLk8Qdd5bYBLYCLPw5Fw8qsWw6F8sWPsmy+gsHe
-	f3AfUUXm5OdQEMJ6+8GQ==;
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=9+eK9oKTOT3i8zAun0pqdW6UL+0nXAjeXn0xSjWy3ek=; b=j5jWM5Cm3VgWvI
+	r2VsptvriGxv7o2ClQkpEGyF42TZjR8H9reI02DAo/5vAnXP4jQHR+X6mvRvJnzxnqSsMuVIMyaV3
+	t3iT5gN/8upWaw1iKX3WKlNbQnlcpS49PmNi45qUkNklXwdj8tTdE7KPDsTInY3N6cYMPkK0bjT5e
+	vXB9/pavxkFXNvAUqOaPNMCu2Fu1p48T8VN9h3fscxwir9KckbLh3ixYR6WtLqoHz2XNLIdV0Bq9k
+	YxrqkqOmr7ItnBEVYFelbARSAK/gtzSIL6BTLwP3V/IBFxaZ0AWfZzWkFnEt1HtcXziQcY7ZOMyyC
+	S3kGUD+djeIhvK4yNbAA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jPW7h-0007Sb-P8; Fri, 17 Apr 2020 18:53:57 +0000
-Received: from userp2130.oracle.com ([156.151.31.86])
+	id 1jPZwy-0003iX-On; Fri, 17 Apr 2020 22:59:08 +0000
+Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jPW7V-0007GC-F6; Fri, 17 Apr 2020 18:53:47 +0000
-Received: from pps.filterd (userp2130.oracle.com [127.0.0.1])
- by userp2130.oracle.com (8.16.0.42/8.16.0.42) with SMTP id 03HIqHgt124145;
- Fri, 17 Apr 2020 18:53:11 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com;
- h=from : to : cc :
- subject : date : message-id : mime-version : content-transfer-encoding;
- s=corp-2020-01-29; bh=gYVwjW9uIr3S+PxyOOpBOdl7Nnodqy4JmhYGCNmfQWM=;
- b=PCK2CWPBOxDZpbIRlSU/o+jYUMdyVvyKxjAMbW+oUxjYTSaHIambzyU7BFyZHbzeF4L9
- jaKxiLm80n8l4nnHnZPGPepMUpf+V4l11YuMmLQTgL/OLSY2Mz2vAHKWucWhtfR0llkY
- l6FnrY9EjQzQknGNZpicgor/igM+VAitMhMbeYS+Ljh1G29ma/aYl84zvZNDQqNvFV1T
- I0DqNzDqA385q7pXjl+nwBs8ea8SGWdQYBnLwrPWWfNbrGTBulSYfDmkAUXiA0aLipGE
- aN2SOyDIr6aERMsWJLNV0utldXu2OdLE9KOASoTm/CY2HsDa4VHth5atxrHeASpUqunP xw== 
-Received: from aserp3020.oracle.com (aserp3020.oracle.com [141.146.126.70])
- by userp2130.oracle.com with ESMTP id 30e0aae8rg-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Fri, 17 Apr 2020 18:53:11 +0000
-Received: from pps.filterd (aserp3020.oracle.com [127.0.0.1])
- by aserp3020.oracle.com (8.16.0.42/8.16.0.42) with SMTP id 03HIcJ0Z118535;
- Fri, 17 Apr 2020 18:51:10 GMT
-Received: from userv0122.oracle.com (userv0122.oracle.com [156.151.31.75])
- by aserp3020.oracle.com with ESMTP id 30dn9ks84n-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Fri, 17 Apr 2020 18:51:10 +0000
-Received: from abhmp0006.oracle.com (abhmp0006.oracle.com [141.146.116.12])
- by userv0122.oracle.com (8.14.4/8.14.4) with ESMTP id 03HIotrG025242;
- Fri, 17 Apr 2020 18:50:55 GMT
-Received: from monkey.oracle.com (/71.63.128.209)
- by default (Oracle Beehive Gateway v4.0)
- with ESMTP ; Fri, 17 Apr 2020 11:50:55 -0700
-From: Mike Kravetz <mike.kravetz@oracle.com>
-To: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-doc@vger.kernel.org
-Subject: [PATCH v3 0/4] Clean up hugetlb boot command line processing
-Date: Fri, 17 Apr 2020 11:50:45 -0700
-Message-Id: <20200417185049.275845-1-mike.kravetz@oracle.com>
-X-Mailer: git-send-email 2.25.2
+ id 1jPZwv-0003i4-8u
+ for linux-riscv@lists.infradead.org; Fri, 17 Apr 2020 22:59:07 +0000
+Received: by mail-wr1-x443.google.com with SMTP id g13so2802301wrb.8
+ for <linux-riscv@lists.infradead.org>; Fri, 17 Apr 2020 15:59:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=arista.com; s=googlenew;
+ h=subject:to:cc:references:from:message-id:date:user-agent
+ :mime-version:in-reply-to:content-language:content-transfer-encoding;
+ bh=9+eK9oKTOT3i8zAun0pqdW6UL+0nXAjeXn0xSjWy3ek=;
+ b=XFfxS9KM5RUpYEecDU9LDOTUnYwrQ87bsghotn9o5G37xaObnMtd8FAwhQDPL53IAM
+ UdZR8vn7/AtBs/8VwzLToZRY7JA4FRDBCaGXC10UhrvN26Luq6/JzgwcWQrPcA6x5jcd
+ 3l/ZCADGoGHBAU7VnVJkKn0q3li6SfPlC5H1+4CI+57yfqchhhCT/wBS/Kh1ZoFWSDOq
+ W5HT3Q1M0eYUsQdbrrsRBReDHa+b4Y7g1reMHhQP9iaI6+naf/zOhmwNdFKkfkpXDuEr
+ 2WDaufDeHlN/+xRGdmp4nLIz2kGiaMc/NXIYDDXcvuedv/EQHV+eTS8pR1LxRKT/dRru
+ o3hA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:subject:to:cc:references:from:message-id:date
+ :user-agent:mime-version:in-reply-to:content-language
+ :content-transfer-encoding;
+ bh=9+eK9oKTOT3i8zAun0pqdW6UL+0nXAjeXn0xSjWy3ek=;
+ b=YhEppX5ZuJkqe0wSDCzf5C8YmZ2bprN59OZip7oRT9uTpGBWCMNfwvCiYScZXNeaY8
+ ejmBzBXjTwuMUPdArrNpXNZ4u28sPGlz/Vd9/a9aRhXZXLWQuKUXAAvkmBrkjBjdzy/V
+ 49A8DgZiwFnB8KBNJyMK7YJQn0FN/Z1rhzaw26QE4T0UEDpkGO/NT0zwwg3x4SZwa8ZF
+ WujPn+LAv7v8igjDXfEaegq7dyhMtOn236UgUjmCODrawdIqNWI881V7UsmHljY35wlH
+ 94owVUeUZxfFTPfo+Av/nUQ4hKCLZtEy4E71Y95yTEJ8FOjcSv2C88r884xBJe79pvnf
+ ZETg==
+X-Gm-Message-State: AGi0PuYiWS7qEmdQwF41rXN5iOEaJMAYyLqrRiTDblxSQ10zvnYUf9X5
+ Ma2Q8rEjgZoe0B25FxvmUoqlnw==
+X-Google-Smtp-Source: APiQypLqlt3uovyL1IBjjjc8qBljmPanbafSQqKnsPq+OIxxCLbZ6Nc44ailz0qCbC7ZjccZO5rHEw==
+X-Received: by 2002:a5d:4452:: with SMTP id x18mr5960505wrr.231.1587164343004; 
+ Fri, 17 Apr 2020 15:59:03 -0700 (PDT)
+Received: from ?IPv6:2a02:8084:e84:2480:228:f8ff:fe6f:83a8?
+ ([2a02:8084:e84:2480:228:f8ff:fe6f:83a8])
+ by smtp.gmail.com with ESMTPSA id p7sm34069559wrf.31.2020.04.17.15.59.01
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Fri, 17 Apr 2020 15:59:02 -0700 (PDT)
+Subject: Re: [PATCHv2 01/50] kallsyms/printk: Add loglvl to print_ip_sym()
+To: Joe Perches <joe@perches.com>, linux-kernel@vger.kernel.org
+References: <20200316143916.195608-1-dima@arista.com>
+ <20200316143916.195608-2-dima@arista.com>
+ <97ea305c0d336f3c36a804b37e6bbb4b1bbf24fd.camel@perches.com>
+From: Dmitry Safonov <dima@arista.com>
+Message-ID: <7d17eaf8-a3a8-eaba-ff80-e857135571e1@arista.com>
+Date: Fri, 17 Apr 2020 23:59:00 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.6.0
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9594
- signatures=668686
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxlogscore=999
- mlxscore=0 adultscore=0
- spamscore=0 phishscore=0 bulkscore=0 suspectscore=0 malwarescore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2003020000
- definitions=main-2004170142
-X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9594
- signatures=668686
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 bulkscore=0
- clxscore=1015
- impostorscore=0 mlxlogscore=999 mlxscore=0 lowpriorityscore=0
- suspectscore=0 adultscore=0 spamscore=0 malwarescore=0 phishscore=0
- priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2003020000 definitions=main-2004170142
+In-Reply-To: <97ea305c0d336f3c36a804b37e6bbb4b1bbf24fd.camel@perches.com>
+Content-Type: text/plain; charset=utf-8
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200417_115345_632490_87C3AB72 
-X-CRM114-Status: GOOD (  17.55  )
+X-CRM114-CacheID: sfid-20200417_155906_175439_BC04CD9C 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -107,83 +102,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- Heiko Carstens <heiko.carstens@de.ibm.com>, Peter Xu <peterx@redhat.com>,
- Paul Mackerras <paulus@samba.org>, Will Deacon <will@kernel.org>,
- Mina Almasry <almasrymina@google.com>, Jonathan Corbet <corbet@lwn.net>,
- Christian Borntraeger <borntraeger@de.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Longpeng <longpeng2@huawei.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Vasily Gorbik <gor@linux.ibm.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
- Christophe Leroy <christophe.leroy@c-s.fr>,
- Nitesh Narayan Lal <nitesh@redhat.com>, Randy Dunlap <rdunlap@infradead.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Andrew Morton <akpm@linux-foundation.org>,
- "David S . Miller" <davem@davemloft.net>,
- Mike Kravetz <mike.kravetz@oracle.com>
+Cc: Juri Lelli <juri.lelli@redhat.com>,
+ Tetsuo Handa <penguin-kernel@I-love.SAKURA.ne.jp>,
+ James Hogan <jhogan@kernel.org>, Dmitry Safonov <0x7f454c46@gmail.com>,
+ Ben Segall <bsegall@google.com>, linux-riscv@lists.infradead.org,
+ Vincent Chen <deanbo422@gmail.com>, Will Deacon <will@kernel.org>,
+ Ingo Molnar <mingo@kernel.org>, Vincent Guittot <vincent.guittot@linaro.org>,
+ Paul Burton <paulburton@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Mel Gorman <mgorman@suse.de>,
+ Jiri Slaby <jslaby@suse.com>, Petr Mladek <pmladek@suse.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Steven Rostedt <rostedt@goodmis.org>,
+ Greentime Hu <green.hu@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>, Michal Simek <monstr@monstr.eu>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-mips@vger.kernel.org,
+ Ralf Baechle <ralf@linux-mips.org>,
+ Sergey Senozhatsky <sergey.senozhatsky@gmail.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Andrew Morton <akpm@linux-foundation.org>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-v3 -
-   Used weak attribute method of defining arch_hugetlb_valid_size.
-     This eliminates changes to arch specific hugetlb.h files (Peter)
-   Updated documentation (Peter, Randy)
-   Fixed handling of implicitly specified gigantic page preallocation
-     in existing code and removed documentation of such.  There is now
-     no difference between handling of gigantic and non-gigantic pages.
-     (Peter, Nitesh).
-     This requires the most review as there is a small change to
-     undocumented behavior.  See patch 4 commit message for details.
-   Added Acks and Reviews (Mina, Peter)
+Hi Joe,
 
-v2 -
-   Fix build errors with patch 1 (Will)
-   Change arch_hugetlb_valid_size arg to unsigned long and remove
-     irrelevant 'extern' keyword (Christophe)
-   Documentation and other misc changes (Randy, Christophe, Mina)
-   Do not process command line options if !hugepages_supported()
-     (Dave, but it sounds like we may want to additional changes to
-      hugepages_supported() for x86?  If that is needed I would prefer
-      a separate patch.)
+On 3/16/20 3:29 PM, Joe Perches wrote:
+> On Mon, 2020-03-16 at 14:38 +0000, Dmitry Safonov wrote:
+>> print_ip_sym() needs to have a log level parameter to comply with other
+>> parts being printed. Otherwise, half of the expected backtrace would be
+>> printed and other may be missing with some logging level.
+> 
+> There are 15 instances of print_ip_sym.
+> 
+> Perhaps it'd be better to get rid of print_ip_sym
+> altogether by expanding it in-place instead.
 
-Longpeng(Mike) reported a weird message from hugetlb command line processing
-and proposed a solution [1].  While the proposed patch does address the
-specific issue, there are other related issues in command line processing.
-As hugetlbfs evolved, updates to command line processing have been made to
-meet immediate needs and not necessarily in a coordinated manner.  The result
-is that some processing is done in arch specific code, some is done in arch
-independent code and coordination is problematic.  Semantics can vary between
-architectures.
+I tried this and format-string + two casts to (void *) take some space
+and the resulting printk() doesn't fit 80 cols.
+I guess, it's minor and it can be done on the top of v3..
 
-The patch series does the following:
-- Define arch specific arch_hugetlb_valid_size routine used to validate
-  passed huge page sizes.
-- Move hugepagesz= command line parsing out of arch specific code and into
-  an arch independent routine.
-- Clean up command line processing to follow desired semantics and
-  document those semantics.
+> 
+>>  arch/microblaze/kernel/unwind.c | 2 +-
+>>  arch/mips/kernel/traps.c        | 4 ++--
+>>  arch/nds32/kernel/traps.c       | 4 ++--
+>>  arch/riscv/kernel/stacktrace.c  | 2 +-
+>>  include/linux/kallsyms.h        | 4 ++--
+>>  kernel/locking/lockdep.c        | 4 ++--
+>>  kernel/sched/core.c             | 6 ++----
+>>  kernel/trace/ftrace.c           | 8 ++++----
+>>  tools/include/linux/kallsyms.h  | 2 +-
+> 
+> 
 
-[1] https://lore.kernel.org/linux-mm/20200305033014.1152-1-longpeng2@huawei.com
-
-Mike Kravetz (4):
-  hugetlbfs: add arch_hugetlb_valid_size
-  hugetlbfs: move hugepagesz= parsing to arch independent code
-  hugetlbfs: remove hugetlb_add_hstate() warning for existing hstate
-  hugetlbfs: clean up command line processing
-
- .../admin-guide/kernel-parameters.txt         |  40 ++--
- Documentation/admin-guide/mm/hugetlbpage.rst  |  35 ++++
- arch/arm64/mm/hugetlbpage.c                   |  30 +--
- arch/powerpc/mm/hugetlbpage.c                 |  30 +--
- arch/riscv/mm/hugetlbpage.c                   |  24 +--
- arch/s390/mm/hugetlbpage.c                    |  24 +--
- arch/sparc/mm/init_64.c                       |  43 +---
- arch/x86/mm/hugetlbpage.c                     |  23 +--
- include/linux/hugetlb.h                       |   2 +-
- mm/hugetlb.c                                  | 190 +++++++++++++++---
- 10 files changed, 271 insertions(+), 170 deletions(-)
-
--- 
-2.25.2
+Thanks,
+          Dmitry
 
 
