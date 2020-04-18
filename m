@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-6.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 31034C352BE
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 18 Apr 2020 00:22:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5E442C352BE
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 18 Apr 2020 00:30:44 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 084142223D
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 18 Apr 2020 00:22:57 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2D0842223C
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 18 Apr 2020 00:30:44 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="tQhYjUgh";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="bgvlSUsa"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 084142223D
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="chpNzyVb";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="TJAxg6Nj"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2D0842223C
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,66 +26,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-Type:Mime-Version:Message-ID:To:From:
 	In-Reply-To:Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=GRok5Woa9WWOsNs1jcpZ9KNNS24Ffo2MvgJ7rPIOg/U=; b=tQhYjUghR9wiyP
-	NGGnXnd0z5wl1Az+ktJDsJr+cJz91s3OMTzXVxmw0KIMQ2lX9plbJyyx3+jPGGVC7I4U27juJCXTy
-	rfBXabF4AiqJdEAEIcHkT2Wqq6DkcYrPPK8JLUleEzok05B1ebxox5SqiLDa6F9Z1z5EWKJab5xnY
-	wvVBQmf1AvRDbO5dzzMCcRvmNMJMTJ5rLQ+mvcJZr9B4JiCNqGga1Swrhsv7gk9fROdh6+7WUOl4d
-	jYqAkLwS2k73yTrsE4a6xT2mKZtwaXabJjHv5dGoVmJivLqm50e4k0jm40V8bc+2O6nb6W3CpWJcV
-	5BERdCNCwhLPGwuhgUeA==;
+	List-Owner; bh=0AfeFitryBiJJWIKCCwY7N0WlSHnDG6Y0BrOA9pYIjg=; b=chpNzyVbYwKeNu
+	L9kpDZCno9j3+bgUXxMjQkmEpHVmoNs3p68XJyQGCyz0miN8obyCb3WNinsw/e6xXstfngqx+4Woy
+	kmrgdzkdr1clJQTq1RcANRAhBHfEOgEQDLa4eYKmxL917J0m4aGzDoYmzyGa8QSQGrPmhs4wxxPh/
+	EmyFP+B+8JGuLVuCmkfULm/Ng9m8OjTZIdzm10wyxvbp79QvaVmH2LTNGnDOtuxEOgZhMX592M1m8
+	qlJDFeRk9jiWuIfwLcZYj1V9CK0mS67nqMi7Ntri8+qsRANZU6YeQQTPLbGbAbt8t/wq0sZbKaXsL
+	/caf4qVPt85xB/VS9Tcw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jPbFz-0006PA-2v; Sat, 18 Apr 2020 00:22:51 +0000
+	id 1jPbNa-0004SR-TA; Sat, 18 Apr 2020 00:30:42 +0000
 Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jPbFv-0006Mw-NG
- for linux-riscv@lists.infradead.org; Sat, 18 Apr 2020 00:22:49 +0000
-Received: by mail-pf1-x444.google.com with SMTP id b8so1833169pfp.8
- for <linux-riscv@lists.infradead.org>; Fri, 17 Apr 2020 17:22:47 -0700 (PDT)
+ id 1jPbNY-0004Rn-3h
+ for linux-riscv@lists.infradead.org; Sat, 18 Apr 2020 00:30:41 +0000
+Received: by mail-pf1-x444.google.com with SMTP id k15so1848565pfh.6
+ for <linux-riscv@lists.infradead.org>; Fri, 17 Apr 2020 17:30:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=GRok5Woa9WWOsNs1jcpZ9KNNS24Ffo2MvgJ7rPIOg/U=;
- b=bgvlSUsamFDSr1amHP4tvPiHp4UOtDUQu1tL/hyFR8UFW5R6UfOQ2U2VSeLqYijz6n
- ybiFv2JXJC8I5Evx876gQhFYHDZSunxgwkuecl+z0eI3qCHeO3KdYVN6LqyBv/FoHRXm
- 2nMZY6cS5te+FGI8olA1/aVmtA9F+EF7SOzwI8mde4/RfWWJrxi/AiJkvyJcwCzHWGlv
- NOiWfP83rb8QVFkGbQoi4596HFnmBsVnSKF2i4mbufCHlsy8HZz1ql0w8skSQtasFP2X
- UWOBoMAi6HSO63EwH/3HeL+lUEc//knS5cZRkTx00FbX41bGhyFacOK/BDR51nC40hd0
- ffHw==
+ bh=0AfeFitryBiJJWIKCCwY7N0WlSHnDG6Y0BrOA9pYIjg=;
+ b=TJAxg6Nj7mvYe9W1fv1qsO7mUzp9flRqxmoqk6bQImYJehU7tMbjjTy3GYG7Ve8abr
+ ZhQ+lm4D3jFNcbv8/DP4L8GEWXfMvR2rODm0wJtp9r+UXsaXAwrwIN9Cl33l9WJCSbCt
+ NdY8K1h6whKlji5c2LAlvnwF3y+pMkt5FwHeW7vg+e4uPyQokPV3tPQKjjM7PeDGKVTc
+ YDguumzHMQZlK00MzNp39F2pNMNuFRqo7VyIzwlChH6/nYHAqZt6itpF9vdwQAj9nCAB
+ 9sSBfMw3IH6UpronKtIWKd80yXcjPiEc9DlSS7camZjQWhmFra0AvLCCfjUHPgoefSbi
+ YTYg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=GRok5Woa9WWOsNs1jcpZ9KNNS24Ffo2MvgJ7rPIOg/U=;
- b=aFEFBn6Ynfs8LaQgHd0NfMpHdViLJypoFW0VJg+OoJ1nXiuwrMnsKK78QlIgyhaMZ+
- ql/lW0+bKHXA8Y4mXfZ4bU2RN+Wo1yJOvHP0mM+lTgdkXWau4jAji8aaQMHNlJuYD0tS
- vd19rh4lNd0qUK8durUzWxfB6fewGjpEdZZubG0RrbLl2WOYmVnFnokJzj8LAWnZdhZb
- BxvdT6fKjVMCsZxxkbMTu5q2M/zkFm9pJ5TZLSA5qP3Ub+DoixeX16Ia6wRQP50L3PbK
- ODniziFFQVDMpTiKz/ZydK4F3CItGFfIKbxByMLJ6uySsCv1ZXZxptnX3/8YpCuPjk/6
- G8xg==
-X-Gm-Message-State: AGi0PubPsqLbwTJAg1lKOjIw+d6/XPSvUCgleBj/FJzZPV3joUgMauEY
- VC85xyW85Rhl7cdzOJpNa9A7fg==
-X-Google-Smtp-Source: APiQypLg8Xuh0Ps6p4qjMvXlFtS3kij0d8bmmGWxKhwyCoHtkq5F5OjDWuaNJBfKCap3dizlcnLxsw==
-X-Received: by 2002:a65:46c4:: with SMTP id n4mr3522023pgr.430.1587169366749; 
- Fri, 17 Apr 2020 17:22:46 -0700 (PDT)
+ bh=0AfeFitryBiJJWIKCCwY7N0WlSHnDG6Y0BrOA9pYIjg=;
+ b=HK3YmtY/VyRJg8vrAM3C5F0JmkNXpsSzR/gRMa2lY89u5NeVFWlelrJXoxRcr4QLXn
+ rrbdGaXLOKA2ErLObYiamnZctKe/Y89jjDkGV14EBzZxXaRSvY9gj9NvxFC9IOuCiqhb
+ 0+6RHcs3u1QR1bSxDQRHll7yZkNrU4sDhFNku9ahQZIs63ZWCMN+BoDVMaj94AaquS4v
+ 7mpMf3I7BeOb+6OrbhGbXXt4o5LQ8giCLqniyp9PfidgMqpmeX8hJ39l4HaZSycOTdHv
+ ahJzMtL+/i8Wr1TroKjq+efVSqaW8jHUZjlCRma9D/UPQz+9syYGtqqivS5IFrWgY0I2
+ E+dw==
+X-Gm-Message-State: AGi0PuYgnYkxCXbeEgQv1sscWBApqMZxDcTdh2on303Wpfzlf8wVvrxE
+ 32YX7P5MLMtij1KiVsFbnI4cLw==
+X-Google-Smtp-Source: APiQypKUElb866HEHEtPLanFvP/5xIzuLq3qC6Q5JBOUeVvdZeVNhGXGCLpmMGvSEMhaHzmc/riFIg==
+X-Received: by 2002:aa7:9722:: with SMTP id k2mr5789777pfg.147.1587169839258; 
+ Fri, 17 Apr 2020 17:30:39 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id s10sm20349668pfd.124.2020.04.17.17.22.45
+ by smtp.gmail.com with ESMTPSA id t103sm6764185pjb.46.2020.04.17.17.30.38
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 17 Apr 2020 17:22:46 -0700 (PDT)
-Date: Fri, 17 Apr 2020 17:22:46 -0700 (PDT)
-X-Google-Original-Date: Fri, 17 Apr 2020 17:07:13 PDT (-0700)
-Subject: Re: [PATCH v5 2/9] riscv: introduce interfaces to patch kernel code
-In-Reply-To: <6f145470ffdf83b303ecd83db4f6e06477b61220.1586332296.git.zong.li@sifive.com>
+ Fri, 17 Apr 2020 17:30:38 -0700 (PDT)
+Date: Fri, 17 Apr 2020 17:30:38 -0700 (PDT)
+X-Google-Original-Date: Fri, 17 Apr 2020 17:30:37 PDT (-0700)
+Subject: Re: [PATCH v5 9/9] riscv: add STRICT_KERNEL_RWX support
+In-Reply-To: <100e739c5fd722a96fcc640c8ee0c82fe34fcb6a.1586332296.git.zong.li@sifive.com>
 From: Palmer Dabbelt <palmer@dabbelt.com>
 To: zong.li@sifive.com
-Message-ID: <mhng-ad7c6b28-b8d0-4913-b28e-77f6df0555c6@palmerdabbelt-glaptop1>
+Message-ID: <mhng-09f91ec8-5821-41ad-a743-3842ca10f9e2@palmerdabbelt-glaptop1>
 Mime-Version: 1.0 (MHng)
 Content-Type: text/plain; charset=utf-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200417_172247_753988_D22867F2 
-X-CRM114-Status: GOOD (  21.77  )
+X-CRM114-CacheID: sfid-20200417_173040_148007_51FF840E 
+X-CRM114-Status: GOOD (  16.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -103,220 +103,119 @@ Cc: aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org, mhiramat@kernel.org,
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 08 Apr 2020 00:56:57 PDT (-0700), zong.li@sifive.com wrote:
-> On strict kernel memory permission, we couldn't patch code without
-> writable permission. Preserve two holes in fixmap area, so we can map
-> the kernel code temporarily to fixmap area, then patch the instructions.
+On Wed, 08 Apr 2020 00:57:04 PDT (-0700), zong.li@sifive.com wrote:
+> The commit contains that make text section as non-writable, rodata
+> section as read-only, and data section as non-executable.
 >
-> We need two pages here because we support the compressed instruction, so
-> the instruction might be align to 2 bytes. When patching the 32-bit
-> length instruction which is 2 bytes alignment, it will across two pages.
->
-> Introduce two interfaces to patch kernel code:
-> riscv_patch_text_nosync:
->  - patch code without synchronization, it's caller's responsibility to
->    synchronize all CPUs if needed.
-> riscv_patch_text:
->  - patch code and always synchronize with stop_machine()
+> The init section should be changed to non-executable.
 >
 > Signed-off-by: Zong Li <zong.li@sifive.com>
-> Suggested-by: Masami Hiramatsu <mhiramat@kernel.org>
 > ---
->  arch/riscv/include/asm/fixmap.h |   2 +
->  arch/riscv/include/asm/patch.h  |  12 +++
->  arch/riscv/kernel/Makefile      |   4 +-
->  arch/riscv/kernel/patch.c       | 128 ++++++++++++++++++++++++++++++++
->  4 files changed, 145 insertions(+), 1 deletion(-)
->  create mode 100644 arch/riscv/include/asm/patch.h
->  create mode 100644 arch/riscv/kernel/patch.c
+>  arch/riscv/Kconfig                  |  1 +
+>  arch/riscv/include/asm/set_memory.h |  8 ++++++
+>  arch/riscv/mm/init.c                | 44 +++++++++++++++++++++++++++++
+>  3 files changed, 53 insertions(+)
 >
-> diff --git a/arch/riscv/include/asm/fixmap.h b/arch/riscv/include/asm/fixmap.h
-> index 42d2c42f3cc9..2368d49eb4ef 100644
-> --- a/arch/riscv/include/asm/fixmap.h
-> +++ b/arch/riscv/include/asm/fixmap.h
-> @@ -27,6 +27,8 @@ enum fixed_addresses {
->  	FIX_FDT = FIX_FDT_END + FIX_FDT_SIZE / PAGE_SIZE - 1,
->  	FIX_PTE,
->  	FIX_PMD,
-> +	FIX_TEXT_POKE1,
-> +	FIX_TEXT_POKE0,
->  	FIX_EARLYCON_MEM_BASE,
->  	__end_of_fixed_addresses
->  };
-> diff --git a/arch/riscv/include/asm/patch.h b/arch/riscv/include/asm/patch.h
-> new file mode 100644
-> index 000000000000..9a7d7346001e
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/patch.h
-> @@ -0,0 +1,12 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (C) 2020 SiFive
-> + */
-> +
-> +#ifndef _ASM_RISCV_PATCH_H
-> +#define _ASM_RISCV_PATCH_H
-> +
-> +int patch_text_nosync(void *addr, const void *insns, size_t len);
-> +int patch_text(void *addr, u32 insn);
-> +
-> +#endif /* _ASM_RISCV_PATCH_H */
-> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-> index f40205cb9a22..d189bd3d8501 100644
-> --- a/arch/riscv/kernel/Makefile
-> +++ b/arch/riscv/kernel/Makefile
-> @@ -4,7 +4,8 @@
->  #
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 1e1efc998baf..58b556167d59 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -61,6 +61,7 @@ config RISCV
+>  	select ARCH_HAS_GIGANTIC_PAGE
+>  	select ARCH_HAS_SET_DIRECT_MAP
+>  	select ARCH_HAS_SET_MEMORY
+> +	select ARCH_HAS_STRICT_KERNEL_RWX
+>  	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
+>  	select SPARSEMEM_STATIC if 32BIT
+>  	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
+> diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
+> index 4c5bae7ca01c..c38df4771c09 100644
+> --- a/arch/riscv/include/asm/set_memory.h
+> +++ b/arch/riscv/include/asm/set_memory.h
+> @@ -22,6 +22,14 @@ static inline int set_memory_x(unsigned long addr, int numpages) { return 0; }
+>  static inline int set_memory_nx(unsigned long addr, int numpages) { return 0; }
+>  #endif
 >
->  ifdef CONFIG_FTRACE
-> -CFLAGS_REMOVE_ftrace.o = -pg
-> +CFLAGS_REMOVE_ftrace.o	= -pg
-> +CFLAGS_REMOVE_patch.o	= -pg
->  endif
->
->  extra-y += head.o
-> @@ -26,6 +27,7 @@ obj-y	+= traps.o
->  obj-y	+= riscv_ksyms.o
->  obj-y	+= stacktrace.o
->  obj-y	+= cacheinfo.o
-> +obj-y	+= patch.o
->  obj-$(CONFIG_MMU) += vdso.o vdso/
->
->  obj-$(CONFIG_RISCV_M_MODE)	+= clint.o
-> diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
-> new file mode 100644
-> index 000000000000..f16466123947
-> --- /dev/null
-> +++ b/arch/riscv/kernel/patch.c
-> @@ -0,0 +1,128 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2020 SiFive
-> + */
-> +
-> +#include <linux/mm.h>
-> +#include <linux/memory.h>
-> +#include <linux/uaccess.h>
-> +#include <linux/spinlock.h>
-> +#include <linux/stop_machine.h>
-> +#include <asm/fixmap.h>
-> +#include <asm/kprobes.h>
-> +#include <asm/cacheflush.h>
-> +
-> +struct patch_insn_patch {
-> +	void *addr;
-> +	u32 insn;
-> +	atomic_t cpu_count;
-> +};
-> +
-> +#ifdef CONFIG_MMU
-> +static void *patch_map(void *addr, int fixmap)
-> +{
-> +	uintptr_t uintaddr = (uintptr_t) addr;
-> +	struct page *page;
-> +
-> +	if (core_kernel_text(uintaddr))
-> +		page = phys_to_page(__pa_symbol(addr));
-> +	else if (IS_ENABLED(CONFIG_STRICT_MODULE_RWX))
-> +		page = vmalloc_to_page(addr);
-> +	else
-> +		return addr;
-> +
-> +	BUG_ON(!page);
-> +
-> +	return (void *)set_fixmap_offset(fixmap, page_to_phys(page) +
-> +					 (uintaddr & ~PAGE_MASK));
-> +}
-> +NOKPROBE_SYMBOL(patch_map);
-> +
-> +static void patch_unmap(int fixmap)
-> +{
-> +	clear_fixmap(fixmap);
-> +}
-> +NOKPROBE_SYMBOL(patch_unmap);
-> +
-> +static int patch_insn_write(void *addr, const void *insn, size_t len)
-> +{
-> +	void *waddr = addr;
-> +	bool across_pages = (((uintptr_t) addr & ~PAGE_MASK) + len) > PAGE_SIZE;
-> +	int ret;
-> +
-> +	/*
-> +	 * Before reaching here, it was expected to lock the text_mutex
-> +	 * already, so we don't need to give another lock here and could
-> +	 * ensure that it was safe between each cores.
-> +	 */
-> +	lockdep_assert_held(&text_mutex);
-> +
-> +	if (across_pages)
-> +		patch_map(addr + len, FIX_TEXT_POKE1);
-> +
-> +	waddr = patch_map(addr, FIX_TEXT_POKE0);
-> +
-> +	ret = probe_kernel_write(waddr, insn, len);
-> +
-> +	patch_unmap(FIX_TEXT_POKE0);
-> +
-> +	if (across_pages)
-> +		patch_unmap(FIX_TEXT_POKE1);
-> +
-> +	return ret;
-> +}
-> +NOKPROBE_SYMBOL(patch_insn_write);
+> +#ifdef CONFIG_STRICT_KERNEL_RWX
+> +void set_kernel_text_ro(void);
+> +void set_kernel_text_rw(void);
 > +#else
-> +static int patch_insn_write(void *addr, const void *insn, size_t len)
+> +static inline void set_kernel_text_ro(void) { }
+> +static inline void set_kernel_text_rw(void) { }
+> +#endif
+> +
+>  int set_direct_map_invalid_noflush(struct page *page);
+>  int set_direct_map_default_noflush(struct page *page);
+>
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index fab855963c73..b55be44ff9bd 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -12,6 +12,7 @@
+>  #include <linux/sizes.h>
+>  #include <linux/of_fdt.h>
+>  #include <linux/libfdt.h>
+> +#include <linux/set_memory.h>
+>
+>  #include <asm/fixmap.h>
+>  #include <asm/tlbflush.h>
+> @@ -477,6 +478,17 @@ static void __init setup_vm_final(void)
+>  	csr_write(CSR_SATP, PFN_DOWN(__pa_symbol(swapper_pg_dir)) | SATP_MODE);
+>  	local_flush_tlb_all();
+>  }
+> +
+> +void free_initmem(void)
 > +{
-> +	return probe_kernel_write(addr, insn, len);
-> +}
-> +NOKPROBE_SYMBOL(patch_insn_write);
-> +#endif /* CONFIG_MMU */
+> +	unsigned long init_begin = (unsigned long)__init_begin;
+> +	unsigned long init_end = (unsigned long)__init_end;
 > +
-> +int patch_text_nosync(void *addr, const void *insns, size_t len)
+> +	/* Make the region as non-execuatble. */
+> +	set_memory_nx(init_begin, (init_end - init_begin) >> PAGE_SHIFT);
+> +	free_initmem_default(POISON_FREE_INITMEM);
+> +}
+> +
+>  #else
+>  asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+>  {
+> @@ -488,6 +500,38 @@ static inline void setup_vm_final(void)
+>  }
+>  #endif /* CONFIG_MMU */
+>
+> +#ifdef CONFIG_STRICT_KERNEL_RWX
+> +void set_kernel_text_rw(void)
 > +{
-> +	u32 *tp = addr;
-> +	int ret;
+> +	unsigned long text_start = (unsigned long)_text;
+> +	unsigned long text_end = (unsigned long)_etext;
 > +
-> +	ret = patch_insn_write(tp, insns, len);
-> +
-> +	if (!ret)
-> +		flush_icache_range((uintptr_t) tp, (uintptr_t) tp + len);
-> +
-> +	return ret;
+> +	set_memory_rw(text_start, (text_end - text_start) >> PAGE_SHIFT);
 > +}
-> +NOKPROBE_SYMBOL(patch_text_nosync);
 > +
-> +static int patch_text_cb(void *data)
+> +void set_kernel_text_ro(void)
 > +{
-> +	struct patch_insn_patch *patch = data;
-> +	int ret = 0;
+> +	unsigned long text_start = (unsigned long)_text;
+> +	unsigned long text_end = (unsigned long)_etext;
 > +
-> +	if (atomic_inc_return(&patch->cpu_count) == 1) {
-> +		ret =
-> +		    patch_text_nosync(patch->addr, &patch->insn,
-> +					    GET_INSN_LENGTH(patch->insn));
-> +		atomic_inc(&patch->cpu_count);
-> +	} else {
-> +		while (atomic_read(&patch->cpu_count) <= num_online_cpus())
-> +			cpu_relax();
-> +		smp_mb();
-> +	}
-> +
-> +	return ret;
+> +	set_memory_ro(text_start, (text_end - text_start) >> PAGE_SHIFT);
 > +}
-> +NOKPROBE_SYMBOL(patch_text_cb);
 > +
-> +int patch_text(void *addr, u32 insn)
+> +void mark_rodata_ro(void)
 > +{
-> +	struct patch_insn_patch patch = {
-> +		.addr = addr,
-> +		.insn = insn,
-> +		.cpu_count = ATOMIC_INIT(0),
-> +	};
+> +	unsigned long text_start = (unsigned long)_text;
+> +	unsigned long text_end = (unsigned long)_etext;
+> +	unsigned long rodata_start = (unsigned long)__start_rodata;
+> +	unsigned long data_start = (unsigned long)_data;
+> +	unsigned long max_low = (unsigned long)(__va(PFN_PHYS(max_low_pfn)));
 > +
-> +	return stop_machine_cpuslocked(patch_text_cb,
-> +				       &patch, cpu_online_mask);
+> +	set_memory_ro(text_start, (text_end - text_start) >> PAGE_SHIFT);
+> +	set_memory_ro(rodata_start, (data_start - rodata_start) >> PAGE_SHIFT);
+> +	set_memory_nx(rodata_start, (data_start - rodata_start) >> PAGE_SHIFT);
+> +	set_memory_nx(data_start, (max_low - data_start) >> PAGE_SHIFT);
 > +}
-> +NOKPROBE_SYMBOL(patch_text);
+> +#endif
+> +
+>  void __init paging_init(void)
+>  {
+>  	setup_vm_final();
 
 Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
 
