@@ -2,90 +2,147 @@ Return-Path: <SRS0=uwsC=6H=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.8 required=3.0 tests=DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C14BEC54FCB
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 23 Apr 2020 15:43:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9AB96C54FD0
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 23 Apr 2020 18:19:23 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 92ED820767
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 23 Apr 2020 15:43:49 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6D53E2071C
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 23 Apr 2020 18:19:23 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="PROlrI17";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.b="IhwBsvqC"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 92ED820767
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="OJwelksY";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=web.de header.i=@web.de header.b="Xh1rc4a2"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6D53E2071C
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=web.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Mime-Version:Message-ID:To:From:
-	In-Reply-To:Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=naiEjarGJmHy037G60NXRczIZuNXv0o/OKI14B0jZVg=; b=PROlrI17aeyqLh
-	jt2NI1c9KJvr5uqjh3swGnVvEi8FgHW3l46crU88ecMh5F0Y2I+FAk5Lc5G3FlcpqqHNTr9H8mVqs
-	da4jLsTXdgxn4paC7b9qbo7fRuoJF89Wink8ScEAOTcjFkps4zJUzpsFaTc8GqZ0rYk8we1ovltJW
-	9oeFnuZgiJ5pgaV3BqMrNj71XmfKScZ1UDpKLkESYQrhd7RVW2TereDUnoNT8l4tfySWNBqNWVruw
-	7Y8n8nWI5jby8bKzcukfXL/Uci1dotCFUKDIgwY2cWAcx4lQv42RqUPcHOacrWspWKcpEN2zPMNV1
-	NWQu3Qt1ZSHa97ABdzlw==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Date:Message-ID:From:
+	Subject:To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2Jc5ETSxqq6NYY+alx24tGIp1ggMXAYlh7YmjtD5qYU=; b=OJwelksYZGDKD5
+	JhpLDj/M6O+NawRAGdnAtIgd2zxB5FZZp0xODarsJaXjxrvJjcG7y7nNvYse5nj+Q6aR0CPdqwjcq
+	Bul9T8eedTaZFfVorn4hnDASYmJv2+CVQOjCVKc5dd+sA/9X/VECe4Q8vwo9LQ5IfjAoJVyWAgZ4Q
+	4r19nhmLBd07OlrQbzhMGK43LO5GjL3SpO0lTJ/qWhIEX8frtnT9D4XG3ibjBXa5egidWZpnGI5Vu
+	gHmBfQDtfS5ACcUgRAXj9O5j+EQWDplaXdbzRXbj9BQwADIGknmWhpsT0tIoeZ8FaGoNiLqsl1j8t
+	Aspz/KPTGCd+KI4TzP0A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jRe0x-0000kp-JM; Thu, 23 Apr 2020 15:43:47 +0000
-Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
+	id 1jRgRS-0004yu-PF; Thu, 23 Apr 2020 18:19:18 +0000
+Received: from mout.web.de ([217.72.192.78])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jRe0Z-0000La-V9
- for linux-riscv@lists.infradead.org; Thu, 23 Apr 2020 15:43:31 +0000
-Received: by mail-pl1-x641.google.com with SMTP id d24so2494717pll.8
- for <linux-riscv@lists.infradead.org>; Thu, 23 Apr 2020 08:43:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=naiEjarGJmHy037G60NXRczIZuNXv0o/OKI14B0jZVg=;
- b=IhwBsvqCPzzzp1E+oRVvDL+D1p6d+q73df1F/elc1dKECwbpqSyjts4p+GfDM4PH0q
- F+LRndqkuPjILRlcC44Zw2kxXMlaYVQW5M9lueQu1BFNcoXV8U0232n4Mq0Lqe6c5Vha
- SJqYIdz9EHMbCUgvS2TJoawUZuonBXMRe2x3VcKBS1G27M0GS4XnH31Ra2cLv1b84TtN
- VyVDhZDvEFj39buQ7I9DhJj/+/fM44y1H/f8wNYSmyPft216pLRibRyk8H8vhtJNHna0
- 0W5Ktq/ge/e+tIzrWpFvlncmyFhO9k30J2R2Ux4SD0rJ4xpCBNG5OM8n8ndn2j6ki7l+
- kLBQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=naiEjarGJmHy037G60NXRczIZuNXv0o/OKI14B0jZVg=;
- b=PfUiCv7FohdOKDBe+DxwN54GvxMtU4hC4Yay2tCBZbI8yl+/Lskq1F2Zj5oE94cjfM
- AKPHyprsUyb09xBY1YuAnQFXevhD3o4ZbBxiw/H6ulIXyjihn3JFLYUadb0Nraa6fb8z
- iJ49MMbh5xiy5mIoNGIUIL7Wv8ODsmb6fSJxiq7gnP6ov3Ig2s+NldgFVgl8papRgoCj
- BECG3mnbAxvWp6XG3l9p1xGI5lSs+tUNATT9vHLYdyWkV21VWw977iCDizfdsg6+fIja
- +FCOAm2IdWJPWPtVn4HwKfJ1AU9YjWpXvV+SZZubegAMcTOTs+Ro++ec2Rx5/Dg9/Y2R
- Ldfw==
-X-Gm-Message-State: AGi0PuaWDPcZU3AW0UuA/NAZanJJRGOMtTy7nE5T3NpTWWQco+pQOaNf
- ikA8zu3acSCE5kZFCrGkFqBtGw==
-X-Google-Smtp-Source: APiQypIBgt3Ye6Uizvw379STfEYPTggCrYbyxj+uJi6i6O9VgGeXWIU7StKFAdfK1F6UiyMb033pVQ==
-X-Received: by 2002:a17:90a:2450:: with SMTP id
- h74mr1303260pje.57.1587656599117; 
- Thu, 23 Apr 2020 08:43:19 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id 23sm2730724pjb.11.2020.04.23.08.43.17
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 23 Apr 2020 08:43:18 -0700 (PDT)
-Date: Thu, 23 Apr 2020 08:43:18 -0700 (PDT)
-X-Google-Original-Date: Thu, 23 Apr 2020 08:42:24 PDT (-0700)
-Subject: Re: [PATCH v11 00/20] KVM RISC-V Support
-In-Reply-To: <CAAhSdy32E_aTPqij3Lgs3mekMWcHw0VfXSwFc=0K8j+GrC+Kug@mail.gmail.com>
-From: Palmer Dabbelt <palmerdabbelt@google.com>
-To: anup@brainfault.org
-Message-ID: <mhng-fc3ce6fc-01a4-45b7-92c5-370d2d6a0f9e@palmerdabbelt-glaptop1>
-Mime-Version: 1.0 (MHng)
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Transfer-Encoding: 8bit
+ id 1jQ3R9-0005kP-P4; Sun, 19 Apr 2020 06:28:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=web.de;
+ s=dbaedf251592; t=1587277511;
+ bh=R0GHJO7eG/0xS8Mj3Xwo95YcotDuEUImghkPfpCjkFc=;
+ h=X-UI-Sender-Class:To:Subject:From:Cc:Date;
+ b=Xh1rc4a2nTe2FRbuM2d3LFUpy2ATvwL6Mq2jASXH2Uj1VECi3BtaU5jTeDU96zUi+
+ gwYzUq+VcXKoRGDrodiVHQrXb1tznMtvGdEFxr0epor8v8528Eupg9FhX4N5yizX0i
+ J6tVmFc1f+jyCb7V0IZQSHGzySHfodHG+S60VHtQ=
+X-UI-Sender-Class: c548c8c5-30a9-4db5-a2e7-cb6cb037b8f9
+Received: from [192.168.1.2] ([2.243.85.208]) by smtp.web.de (mrweb103
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 0M9XM3-1jWsci0q1X-00Czel; Sun, 19
+ Apr 2020 08:25:11 +0200
+To: Dmitry Safonov <dima@arista.com>, clang-built-linux@googlegroups.com,
+ kgdb-bugreport@lists.sourceforge.net, linux-alpha@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-c6x-dev@linux-c6x.org,
+ linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org, linux-um@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, nios2-dev@lists.rocketboards.org,
+ openrisc@lists.librecores.org, sparclinux@vger.kernel.org,
+ uclinux-h8-devel@lists.sourceforge.jp, x86@kernel.org
+Subject: Re: [PATCH v3 00/50] Add log level to show_stack()
+From: Markus Elfring <Markus.Elfring@web.de>
+Autocrypt: addr=Markus.Elfring@web.de; prefer-encrypt=mutual; keydata=
+ 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 FEE=
+Message-ID: <510426be-c95f-adea-af6a-51e592f41ce0@web.de>
+Date: Sun, 19 Apr 2020 08:24:59 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.7.0
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Language: en-GB
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:fiBSRO5JZPPBGS/b+P/QruwXKgWy4xjJvI1a3z6iU6xtTvYTpCB
+ pGORkj/vSYtLOKKzKGbFfcSK/Mou5mOeNdeChPpnGK9+R6cV6V2QZpwk6eAyoINjSlTLuMo
+ Z/VyxDlhjzKREAtaxgxyanMkXCAvYMpuZTmfgusDDU3VdEOSrKPLcx0qIUljlW1Ka1EknhK
+ Eqtnj0zaaSVw0Vha1eRBw==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:ehBQdQ698Lk=:IdmHlujqBKzzQmVyxHxpoK
+ DFsD7gY9mP6ek2gQ6rxL1bwYQ1rb5wpstw3lT+rY1bU9hW5itp5hwllJEn+y1i5seCO4fcwLC
+ mZMroLfFVhVoOrgTwKR2VXilmctNTk7gJJQpMzH244yiH8Fz47UF/OibZfphqm0nIvrcwwpMl
+ gRz54IhzjzfUL+d7d/zfTucpak3ynHWOKZ0BiWupzUqdU7/korEZsWNpjEcHvCQNT8cfk5lLR
+ yQU0yAt431TPKozFgClZBlZUZv32ojrXjMkn4KLCnHcuhNEgT0QgjmTtTgHqEg3eExyILQsvc
+ 70eUl/OzAKzn6eeQOZ8o4UBMt+T8aB+sT387dq2b7khis+MP0w1QWLS6AKGCjIIljOtBSMVps
+ A3wbsAnJyLPAwOs/5pmMYVaosln4zLgVju3A1Hj184A0HVCRWS0Ev/Jiukh8CazfelYhw4DVC
+ LwpEsCuJ+BzliLsh5HQXbcLaSzSV1PsHks03z/kz93xBd5emcXaDXdyMOcPWC+J+ztYJ057Cw
+ FmuJUbfnbCyBHAmcOdXQ2L0r1VGVQaHzsYmhwLjVRqJVhZU2Ir4q62yurjtctQkq5CF43SHAS
+ r6HtFH3JuYVJnWkjNGRgFjEFerKMtvoLkJKr01VQEYpJEzZyUI0RlI3bMBNZFWnodsTzAcUh/
+ G9j4BmCAP1sQMVpn+WjR/Kx/lFAHk9mNgjgBMuY1XOyOCwgSIwb7xRY4gNbMeU68nH47zH4gj
+ dXwbZvnaZ0fRI/0H0w/SDpG9S+QIrg6EHeBdHvuQc8Id0cqP16ebg+/avJDTFH3QZdFalU7w6
+ 3lDZc7cqKqaMFwg2+zdEjIz2Nz5WbX5RaeJfFeRgx06rlgyCR95Tr8eHjOJucwr/OAYDRx1lN
+ 02JAqSH42LB0gjpvYRltpAx5o17WFhohio2K+8WYlrL2O7wOai1CsBWdxq6sNfrzBJH/epsOi
+ HWg2PMyaUccn3OjxKLf7Uf91fCAQbnFMa0+DhJVLA2U7AbbwhoMpVJ0cDx6sEhcPk4PTjPlT4
+ OWr3v5qv7OmtFlIcgGGyvMpc/ODK5bwQBcBsKDKt3HnH80LR+OUURQxbY26ROGtKsdylfz0zu
+ CnZ1aBsnFtd/p9jeOSUUh61PAUtgD/bKd2E9jIq75VtWI316Pz04pvz9Wfg/eKimP8IMb4aCS
+ tu+XVeQVahy9GAnATDTXNXqzET7vzkpRPlPAwcGWtvpMuKBV5pNuWHCGLcKJ6Vv4DB3VDSeD0
+ d4zoddkIxnUJnaDoQ
+X-Bad-Reply: 'Re:' in Subject but no References or In-Reply-To headers
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200423_084324_026684_B5B72DCD 
-X-CRM114-Status: GOOD (  14.56  )
+X-CRM114-CacheID: sfid-20200418_232816_151487_9E32E3E2 
+X-CRM114-Status: UNSURE (   7.52  )
+X-CRM114-Notice: Please train this message.
+X-Mailman-Approved-At: Thu, 23 Apr 2020 11:19:17 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -97,235 +154,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Alistair Francis <Alistair.Francis@wdc.com>, aou@eecs.berkeley.edu,
- kvm@vger.kernel.org, rkrcmar@redhat.com, Anup Patel <Anup.Patel@wdc.com>,
- Damien Le Moal <Damien.LeMoal@wdc.com>, linux-kernel@vger.kernel.org,
- Atish Patra <Atish.Patra@wdc.com>, graf@amazon.com,
- kvm-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>,
- pbonzini@redhat.com, linux-riscv@lists.infradead.org,
- Christoph Hellwig <hch@lst.de>
+Cc: Juri Lelli <juri.lelli@redhat.com>, Rich Felker <dalias@libc.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Petr Mladek <pmladek@suse.com>,
+ Len Brown <len.brown@intel.com>, Peter Zijlstra <peterz@infradead.org>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Tetsuo Handa <penguin-kernel@I-love.SAKURA.ne.jp>,
+ "James E. J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Dmitry Safonov <0x7f454c46@gmail.com>, Ben Segall <bsegall@google.com>,
+ Max Filippov <jcmvbkbc@gmail.com>, Guo Ren <guoren@kernel.org>,
+ Pavel Machek <pavel@ucw.cz>, "H. Peter Anvin" <hpa@zytor.com>,
+ Vincent Chen <deanbo422@gmail.com>, Will Deacon <will@kernel.org>,
+ Ingo Molnar <mingo@kernel.org>, Paul Mackerras <paulus@samba.org>,
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+ Jonas Bonn <jonas@southpole.se>, Daniel Thompson <daniel.thompson@linaro.org>,
+ Vincent Guittot <vincent.guittot@linaro.org>,
+ Brian Cain <bcain@codeaurora.org>, Michael Ellerman <mpe@ellerman.id.au>,
+ Helge Deller <deller@gmx.de>, "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+ Russell King <linux@armlinux.org.uk>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>,
+ =?UTF-8?Q?Christian_Borntr=c3=a4ger?= <borntraeger@de.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>, Mel Gorman <mgorman@suse.de>,
+ Catalin Marinas <catalin.marinas@arm.com>, James Hogan <jhogan@kernel.org>,
+ Matt Turner <mattst88@gmail.com>, Fenghua Yu <fenghua.yu@intel.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Vasily Gorbik <gor@linux.ibm.com>,
+ Heiko Carstens <heiko.carstens@de.ibm.com>, Jeff Dike <jdike@addtoit.com>,
+ Jiri Slaby <jslaby@suse.com>, Steven Rostedt <rostedt@goodmis.org>,
+ Aurelien Jacquiot <jacquiot.aurelien@gmail.com>,
+ Richard Weinberger <richard@nod.at>, Borislav Petkov <bp@alien8.de>,
+ Greentime Hu <green.hu@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Ley Foon Tan <lftan@altera.com>, Stafford Horne <shorne@gmail.com>,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Guan Xuetao <gxt@pku.edu.cn>, Dietmar Eggemann <dietmar.eggemann@arm.com>,
+ Richard Henderson <rth@twiddle.net>, Chris Zankel <chris@zankel.net>,
+ Michal Simek <monstr@monstr.eu>, Tony Luck <tony.luck@intel.com>,
+ Paul Burton <paulburton@kernel.org>, Vineet Gupta <vgupta@synopsys.com>,
+ "Rafael J. Wysocki" <rjw@rjwysocki.net>,
+ Douglas Anderson <dianders@chromium.org>,
+ =?UTF-8?Q?Ralf_B=c3=a4chle?= <ralf@linux-mips.org>,
+ Sergey Senozhatsky <sergey.senozhatsky@gmail.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Mark Salter <msalter@redhat.com>,
+ Jason Wessel <jason.wessel@windriver.com>,
+ Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ "David S. Miller" <davem@davemloft.net>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 17 Apr 2020 05:45:31 PDT (-0700), anup@brainfault.org wrote:
-> Hi Palmer,
->
-> On Fri, Mar 13, 2020 at 1:22 PM Anup Patel <anup.patel@wdc.com> wrote:
->>
->> This series adds initial KVM RISC-V support. Currently, we are able to boot
->> RISC-V 64bit Linux Guests with multiple VCPUs.
->>
->> Few key aspects of KVM RISC-V added by this series are:
->> 1. Minimal possible KVM world-switch which touches only GPRs and few CSRs.
->> 2. Full Guest/VM switch is done via vcpu_get/vcpu_put infrastructure.
->> 3. KVM ONE_REG interface for VCPU register access from user-space.
->> 4. PLIC emulation is done in user-space.
->> 5. Timer and IPI emuation is done in-kernel.
->> 6. MMU notifiers supported.
->> 7. FP lazy save/restore supported.
->> 8. SBI v0.1 emulation for KVM Guest available.
->> 9. Forward unhandled SBI calls to KVM userspace.
->> 10. Hugepage support for Guest/VM
->>
->> Here's a brief TODO list which we will work upon after this series:
->> 1. SBI v0.2 emulation in-kernel
->> 2. SBI v0.2 hart state management emulation in-kernel
->> 3. In-kernel PLIC emulation
->> 4. ..... and more .....
->>
->> This series can be found in riscv_kvm_v11 branch at:
->> https//github.com/avpatel/linux.git
->>
->> Our work-in-progress KVMTOOL RISC-V port can be found in riscv_v2 branch
->> at: https//github.com/avpatel/kvmtool.git
->>
->> The QEMU RISC-V hypervisor emulation is done by Alistair and is available
->> in mainline/anup/riscv-hyp-ext-v0.5.3 branch at:
->> https://github.com/kvm-riscv/qemu.git
->>
->> To play around with KVM RISC-V, refer KVM RISC-V wiki at:
->> https://github.com/kvm-riscv/howto/wiki
->> https://github.com/kvm-riscv/howto/wiki/KVM-RISCV64-on-QEMU
->>
->> Changes since v10:
->>  - Rebased patches on Linux-5.6-rc5
->>  - Reduce RISCV_ISA_EXT_MAX from 256 to 64
->>  - Separate PATCH for removing N-extension related defines
->>  - Added comments as requested by Palmer
->>  - Fixed HIDELEG CSR programming
->>
->> Changes since v9:
->>  - Squash PATCH19 and PATCH20 into PATCH5
->>  - Squash PATCH18 into PATCH11
->>  - Squash PATCH17 into PATCH16
->>  - Added ONE_REG interface for VCPU timer in PATCH13
->>  - Use HTIMEDELTA for VCPU timer in PATCH13
->>  - Updated KVM RISC-V mailing list in MAINTAINERS entry
->>  - Update KVM kconfig option to depend on RISCV_SBI and MMU
->>  - Check for SBI v0.2 and SBI v0.2 RFENCE extension at boot-time
->>  - Use SBI v0.2 RFENCE extension in VMID implementation
->>  - Use SBI v0.2 RFENCE extension in Stage2 MMU implementation
->>  - Use SBI v0.2 RFENCE extension in SBI implementation
->>  - Moved to RISC-V Hypervisor v0.5 draft spec
->>  - Updated Documentation/virt/kvm/api.txt for timer ONE_REG interface
->>  - Rebased patches on Linux-5.5-rc3
->>
->> Changes since v8:
->>  - Rebased series on Linux-5.4-rc3 and Atish's SBI v0.2 patches
->>  - Use HRTIMER_MODE_REL instead of HRTIMER_MODE_ABS in timer emulation
->>  - Fixed kvm_riscv_stage2_map() to handle hugepages
->>  - Added patch to forward unhandled SBI calls to user-space
->>  - Added patch for iterative/recursive stage2 page table programming
->>  - Added patch to remove per-CPU vsip_shadow variable
->>  - Added patch to fix race-condition in kvm_riscv_vcpu_sync_interrupts()
->>
->> Changes since v7:
->> - Rebased series on Linux-5.4-rc1 and Atish's SBI v0.2 patches
->> - Removed PATCH1, PATCH3, and PATCH20 because these already merged
->> - Use kernel doc style comments for ISA bitmap functions
->> - Don't parse X, Y, and Z extension in riscv_fill_hwcap() because it will
->>   be added in-future
->> - Mark KVM RISC-V kconfig option as EXPERIMENTAL
->> - Typo fix in commit description of PATCH6 of v7 series
->> - Use separate structs for CORE and CSR registers of ONE_REG interface
->> - Explicitly include asm/sbi.h in kvm/vcpu_sbi.c
->> - Removed implicit switch-case fall-through in kvm_riscv_vcpu_exit()
->> - No need to set VSSTATUS.MXR bit in kvm_riscv_vcpu_unpriv_read()
->> - Removed register for instruction length in kvm_riscv_vcpu_unpriv_read()
->> - Added defines for checking/decoding instruction length
->> - Added separate patch to forward unhandled SBI calls to userspace tool
->>
->> Changes since v6:
->> - Rebased patches on Linux-5.3-rc7
->> - Added "return_handled" in struct kvm_mmio_decode to ensure that
->>   kvm_riscv_vcpu_mmio_return() updates SEPC only once
->> - Removed trap_stval parameter from kvm_riscv_vcpu_unpriv_read()
->> - Updated git repo URL in MAINTAINERS entry
->>
->> Changes since v5:
->> - Renamed KVM_REG_RISCV_CONFIG_TIMEBASE register to
->>   KVM_REG_RISCV_CONFIG_TBFREQ register in ONE_REG interface
->> - Update SPEC in kvm_riscv_vcpu_mmio_return() for MMIO exits
->> - Use switch case instead of illegal instruction opcode table for simplicity
->> - Improve comments in stage2_remote_tlb_flush() for a potential remote TLB
->>   flush optimization
->> - Handle all unsupported SBI calls in default case of
->>   kvm_riscv_vcpu_sbi_ecall() function
->> - Fixed kvm_riscv_vcpu_sync_interrupts() for software interrupts
->> - Improved unprivilege reads to handle traps due to Guest stage1 page table
->> - Added separate patch to document RISC-V specific things in
->>   Documentation/virt/kvm/api.txt
->>
->> Changes since v4:
->> - Rebased patches on Linux-5.3-rc5
->> - Added Paolo's Acked-by and Reviewed-by
->> - Updated mailing list in MAINTAINERS entry
->>
->> Changes since v3:
->> - Moved patch for ISA bitmap from KVM prep series to this series
->> - Make vsip_shadow as run-time percpu variable instead of compile-time
->> - Flush Guest TLBs on all Host CPUs whenever we run-out of VMIDs
->>
->> Changes since v2:
->> - Removed references of KVM_REQ_IRQ_PENDING from all patches
->> - Use kvm->srcu within in-kernel KVM run loop
->> - Added percpu vsip_shadow to track last value programmed in VSIP CSR
->> - Added comments about irqs_pending and irqs_pending_mask
->> - Used kvm_arch_vcpu_runnable() in-place-of kvm_riscv_vcpu_has_interrupt()
->>   in system_opcode_insn()
->> - Removed unwanted smp_wmb() in kvm_riscv_stage2_vmid_update()
->> - Use kvm_flush_remote_tlbs() in kvm_riscv_stage2_vmid_update()
->> - Use READ_ONCE() in kvm_riscv_stage2_update_hgatp() for vmid
->>
->> Changes since v1:
->> - Fixed compile errors in building KVM RISC-V as module
->> - Removed unused kvm_riscv_halt_guest() and kvm_riscv_resume_guest()
->> - Set KVM_CAP_SYNC_MMU capability only after MMU notifiers are implemented
->> - Made vmid_version as unsigned long instead of atomic
->> - Renamed KVM_REQ_UPDATE_PGTBL to KVM_REQ_UPDATE_HGATP
->> - Renamed kvm_riscv_stage2_update_pgtbl() to kvm_riscv_stage2_update_hgatp()
->> - Configure HIDELEG and HEDELEG in kvm_arch_hardware_enable()
->> - Updated ONE_REG interface for CSR access to user-space
->> - Removed irqs_pending_lock and use atomic bitops instead
->> - Added separate patch for FP ONE_REG interface
->> - Added separate patch for updating MAINTAINERS file
->>
->> Anup Patel (16):
->>   RISC-V: Export riscv_cpuid_to_hartid_mask() API
->>   RISC-V: Add bitmap reprensenting ISA features common across CPUs
->>   RISC-V: Remove N-extension related defines
->>   RISC-V: Add hypervisor extension related CSR defines
->>   RISC-V: Add initial skeletal KVM support
->>   RISC-V: KVM: Implement VCPU create, init and destroy functions
->>   RISC-V: KVM: Implement VCPU interrupts and requests handling
->>   RISC-V: KVM: Implement KVM_GET_ONE_REG/KVM_SET_ONE_REG ioctls
->>   RISC-V: KVM: Implement VCPU world-switch
->>   RISC-V: KVM: Handle MMIO exits for VCPU
->>   RISC-V: KVM: Handle WFI exits for VCPU
->>   RISC-V: KVM: Implement VMID allocator
->>   RISC-V: KVM: Implement stage2 page table programming
->>   RISC-V: KVM: Implement MMU notifiers
->>   RISC-V: KVM: Document RISC-V specific parts of KVM API
->>   RISC-V: KVM: Add MAINTAINERS entry
->>
->> Atish Patra (4):
->>   RISC-V: KVM: Add timer functionality
->>   RISC-V: KVM: FP lazy save/restore
->>   RISC-V: KVM: Implement ONE REG interface for FP registers
->>   RISC-V: KVM: Add SBI v0.1 support
->>
->>  Documentation/virt/kvm/api.rst          | 193 ++++-
->>  MAINTAINERS                             |  11 +
->>  arch/riscv/Kconfig                      |   2 +
->>  arch/riscv/Makefile                     |   2 +
->>  arch/riscv/include/asm/csr.h            |  78 +-
->>  arch/riscv/include/asm/hwcap.h          |  22 +
->>  arch/riscv/include/asm/kvm_host.h       | 264 +++++++
->>  arch/riscv/include/asm/kvm_vcpu_timer.h |  44 ++
->>  arch/riscv/include/asm/pgtable-bits.h   |   1 +
->>  arch/riscv/include/uapi/asm/kvm.h       | 127 +++
->>  arch/riscv/kernel/asm-offsets.c         | 148 ++++
->>  arch/riscv/kernel/cpufeature.c          |  83 +-
->>  arch/riscv/kernel/smp.c                 |   2 +
->>  arch/riscv/kvm/Kconfig                  |  34 +
->>  arch/riscv/kvm/Makefile                 |  14 +
->>  arch/riscv/kvm/main.c                   |  97 +++
->>  arch/riscv/kvm/mmu.c                    | 762 ++++++++++++++++++
->>  arch/riscv/kvm/tlb.S                    |  43 +
->>  arch/riscv/kvm/vcpu.c                   | 997 ++++++++++++++++++++++++
->>  arch/riscv/kvm/vcpu_exit.c              | 639 +++++++++++++++
->>  arch/riscv/kvm/vcpu_sbi.c               | 171 ++++
->>  arch/riscv/kvm/vcpu_switch.S            | 382 +++++++++
->>  arch/riscv/kvm/vcpu_timer.c             | 225 ++++++
->>  arch/riscv/kvm/vm.c                     |  86 ++
->>  arch/riscv/kvm/vmid.c                   | 120 +++
->>  drivers/clocksource/timer-riscv.c       |   8 +
->>  include/clocksource/timer-riscv.h       |  16 +
->>  include/uapi/linux/kvm.h                |   8 +
->>  28 files changed, 4564 insertions(+), 15 deletions(-)
->>  create mode 100644 arch/riscv/include/asm/kvm_host.h
->>  create mode 100644 arch/riscv/include/asm/kvm_vcpu_timer.h
->>  create mode 100644 arch/riscv/include/uapi/asm/kvm.h
->>  create mode 100644 arch/riscv/kvm/Kconfig
->>  create mode 100644 arch/riscv/kvm/Makefile
->>  create mode 100644 arch/riscv/kvm/main.c
->>  create mode 100644 arch/riscv/kvm/mmu.c
->>  create mode 100644 arch/riscv/kvm/tlb.S
->>  create mode 100644 arch/riscv/kvm/vcpu.c
->>  create mode 100644 arch/riscv/kvm/vcpu_exit.c
->>  create mode 100644 arch/riscv/kvm/vcpu_sbi.c
->>  create mode 100644 arch/riscv/kvm/vcpu_switch.S
->>  create mode 100644 arch/riscv/kvm/vcpu_timer.c
->>  create mode 100644 arch/riscv/kvm/vm.c
->>  create mode 100644 arch/riscv/kvm/vmid.c
->>  create mode 100644 include/clocksource/timer-riscv.h
->>
->> --
->> 2.17.1
->>
->
-> Can you please consider PATCH1, PATCH2, and PATCH3 of
-> this series for Linux-5.7-rcX ??
+> Changes to v3:
+> - Collected more architectual Acks and Reviewed-by
 
-Sure.  Can you send them as their own patch set, based on a recent RC?
+* I suggest to avoid a typo in this description.
+
+* Please separate the tag =E2=80=9CPATCH=E2=80=9D from the version descrip=
+tor in the subject.
+  https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/=
+Documentation/process/submitting-patches.rst?id=3D50cc09c18985eacbbd666acf=
+d7be2391394733f5#n709
+
+Regards,
+Markus
 
