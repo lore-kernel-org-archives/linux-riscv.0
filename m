@@ -1,70 +1,71 @@
-Return-Path: <SRS0=ka1a=6C=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=DpDO=6D=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C25EBC38A30
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 18 Apr 2020 20:43:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 719C5C38A30
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 19 Apr 2020 18:14:55 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 957E821D6C
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 18 Apr 2020 20:43:10 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id EE90A21744
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 19 Apr 2020 18:14:54 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="mrxV10tn"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 957E821D6C
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=perches.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="XxuahIcm";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="F96kxGnw"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EE90A21744
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:Content-Type:References:In-Reply-To:
-	Date:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cLDkEWgVzRQV1VKAKDzCjiILlinOI2S6nU1JABdlLig=; b=mrxV10tnSrG6i9
-	dXzdTG3cGp2NFyu2Fh+orwjvhGgsT9AsGTCzqnvJ31YxaGQZkBL0Qkn1giH2wJgrHUXtPRzzygAja
-	u5jz+Al0U6B/JWWiCXjldAGPkrFnUnJP+PePpNJtPvnYz+TjGRFURmuf5K2FXsH/Zpr33VeVumbxe
-	dY1UcsEluv7xpr6JlfrZw2aPLGB3UjcasUfJ0UbDkDe76W/UGfB9+bA5Sm47gY+O0c8u2JOnAhTZZ
-	Eb3iap7+bQZgRFVWncmQBiCtRZ55518rmceJX40PHSPoDDV+HZwxGKKY2tL8KLzHRDkKD6p/pel+L
-	K3PFgmeRF+dQfelCcDKA==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:
+	From:Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=doXkJhIDPZJhVM33qWXsjFBlzfb7PKo4oDdeP4+/Dzk=; b=XxuahIcmxBxgvBbhRCVCIjeiZB
+	T+wmfX3mEoH+/nlysKZB9pZw1BK59a/ISgK2EcoeXaXtjq3aslCMpEVFKccQUCDgnwsJJt5upY+SX
+	AUfd+oYHo8wB5FOwPnxBkqTYo3V78/tD7fUx32QI1oStFAp8F6wgGfnMwLCQ7/5ol2OPS9pancBTC
+	nmkRJHnRlGKKN+c1+CxVSBuXtE9BKtPwBqXdO8arIFAJznNpxmHs7AjbwNvyNdYazb0yPL0J946+C
+	PGILnIgnXR8vri+zzWBQhF+1OCtcJbvWz2dS1fbl0Iz5Heip1P30wrcDtl/pi3J8xnGUyjxBc6W2n
+	bKZNkADA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jPuIv-0001p8-Lo; Sat, 18 Apr 2020 20:43:09 +0000
-Received: from smtprelay0153.hostedemail.com ([216.40.44.153]
- helo=smtprelay.hostedemail.com)
+	id 1jQESy-0005Gi-5u; Sun, 19 Apr 2020 18:14:52 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jPuIt-0001ol-1i
- for linux-riscv@lists.infradead.org; Sat, 18 Apr 2020 20:43:08 +0000
-Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net
- [216.40.38.60])
- by smtprelay01.hostedemail.com (Postfix) with ESMTP id C8D98100E7B43;
- Sat, 18 Apr 2020 20:43:03 +0000 (UTC)
-X-Session-Marker: 6A6F6540706572636865732E636F6D
-X-HE-Tag: bikes51_54543769da122
-X-Filterd-Recvd-Size: 3474
-Received: from XPS-9350.home (unknown [47.151.136.130])
- (Authenticated sender: joe@perches.com)
- by omf01.hostedemail.com (Postfix) with ESMTPA;
- Sat, 18 Apr 2020 20:42:59 +0000 (UTC)
-Message-ID: <24a1f021e52ccabfd53baa22b93947ef10e6bf3b.camel@perches.com>
-Subject: Re: [PATCHv3 01/50] kallsyms/printk: Add loglvl to print_ip_sym()
-From: Joe Perches <joe@perches.com>
-To: Dmitry Safonov <dima@arista.com>, linux-kernel@vger.kernel.org
-Date: Sat, 18 Apr 2020 13:40:45 -0700
-In-Reply-To: <20200418201944.482088-2-dima@arista.com>
-References: <20200418201944.482088-1-dima@arista.com>
- <20200418201944.482088-2-dima@arista.com>
-Content-Type: text/plain; charset="ISO-8859-1"
-User-Agent: Evolution 3.34.1-2 
+ id 1jQESm-00058e-Cu; Sun, 19 Apr 2020 18:14:41 +0000
+Received: from kernel.org (unknown [104.132.0.74])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 3440920771;
+ Sun, 19 Apr 2020 18:14:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1587320079;
+ bh=bOt9BTn/I9BtpLW6MYPux7kH7zXf1KQ4OwttSbOUgxw=;
+ h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+ b=F96kxGnwb5hbRo2uaveExMkh4pG5tmsfXC/X4f7LcIR9NVVk3+CXqwPimCRGIZsLq
+ 200DZ+NlYkyxPrNFkbuYootDCzDqqWFu0hJkAVPZpKUAgkDDPBPfI6mIZvHi8k+VtM
+ aJNXnDOzYimf/GSU7Z8wIQIZEF7kJxvbDOxdjZqA=
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20200416005549.9683-2-robh@kernel.org>
+References: <20200416005549.9683-1-robh@kernel.org>
+ <20200416005549.9683-2-robh@kernel.org>
+Subject: Re: [PATCH 2/2] dt-bindings: Remove cases of 'allOf' containing a
+ '$ref'
+From: Stephen Boyd <sboyd@kernel.org>
+To: Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Sun, 19 Apr 2020 11:14:38 -0700
+Message-ID: <158732007844.132238.3936257450130949073@swboyd.mtv.corp.google.com>
+User-Agent: alot/0.9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200418_134307_152137_4637782F 
-X-CRM114-Status: UNSURE (   8.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200419_111440_457683_E8764D4D 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -76,62 +77,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Juri Lelli <juri.lelli@redhat.com>,
- Tetsuo Handa <penguin-kernel@I-love.SAKURA.ne.jp>,
- James Hogan <jhogan@kernel.org>, Dmitry Safonov <0x7f454c46@gmail.com>,
- Ben Segall <bsegall@google.com>, linux-riscv@lists.infradead.org,
- Vincent Chen <deanbo422@gmail.com>, Will Deacon <will@kernel.org>,
- Ingo Molnar <mingo@kernel.org>, Vincent Guittot <vincent.guittot@linaro.org>,
- Paul Burton <paulburton@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Mel Gorman <mgorman@suse.de>,
- Jiri Slaby <jslaby@suse.com>, Petr Mladek <pmladek@suse.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Steven Rostedt <rostedt@goodmis.org>,
- Greentime Hu <green.hu@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Thomas Gleixner <tglx@linutronix.de>,
- Dietmar Eggemann <dietmar.eggemann@arm.com>, Michal Simek <monstr@monstr.eu>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-mips@vger.kernel.org,
- Ralf Baechle <ralf@linux-mips.org>,
- Sergey Senozhatsky <sergey.senozhatsky@gmail.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Andrew Morton <akpm@linux-foundation.org>
+Cc: Andrew Lunn <andrew@lunn.ch>, Ulf Hansson <ulf.hansson@linaro.org>,
+ Heiko Stuebner <heiko@sntech.de>, Sam Ravnborg <sam@ravnborg.org>,
+ linux-iio@vger.kernel.org, linux-pci@vger.kernel.org,
+ Linus Walleij <linus.walleij@linaro.org>, linux-remoteproc@vger.kernel.org,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ dri-devel@lists.freedesktop.org, Bjorn Andersson <bjorn.andersson@linaro.org>,
+ Thierry Reding <thierry.reding@gmail.com>, linux-mtd@lists.infradead.org,
+ linux-i2c@vger.kernel.org, Pavel Machek <pavel@ucw.cz>,
+ linux-riscv@lists.infradead.org, Lee Jones <lee.jones@linaro.org>,
+ linux-clk@vger.kernel.org, linux-leds@vger.kernel.org,
+ linux-rtc@vger.kernel.org, Florian Fainelli <f.fainelli@gmail.com>,
+ Fabio Estevam <festevam@gmail.com>,
+ Danie l Lezcano <daniel.lezcano@linaro.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>,
+ Bartosz Golaszewski <bgolaszewski@baylibre.com>, linux-serial@vger.kernel.org,
+ linux-input@vger.kernel.org, Guenter Roeck <linux@roeck-us.net>,
+ linux-media@vger.kernel.org, linux-pwm@vger.kernel.org,
+ Alexandre Torgue <alexandre.torgue@st.com>, alsa-devel@alsa-project.org,
+ Maxime Ripard <mripard@kernel.org>, linux-can@vger.kernel.org,
+ linux-gpio@vger.kernel.org, Mark Brown <broonie@kernel.org>,
+ Jacek Anaszewski <jacek.anaszewski@gmail.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-hwmon@vger.kernel.org,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, linux-mmc@vger.kernel.org,
+ Amit Kucheria <amit.kucheria@linaro.org>, linux-spi@vger.kernel.org,
+ Vinod Koul <vkoul@kernel.org>, netdev@vger.kernel.org,
+ Jonathan Cameron <jic23@kernel.org>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 2020-04-18 at 21:18 +0100, Dmitry Safonov wrote:
-> print_ip_sym() needs to have a log level parameter to comply with other
-> parts being printed. Otherwise, half of the expected backtrace would be
-> printed and other may be missing with some logging level.
+Quoting Rob Herring (2020-04-15 17:55:49)
+> json-schema versions draft7 and earlier have a weird behavior in that
+> any keywords combined with a '$ref' are ignored (silently). The correct
+> form was to put a '$ref' under an 'allOf'. This behavior is now changed
+> in the 2019-09 json-schema spec and '$ref' can be mixed with other
+> keywords. The json-schema library doesn't yet support this, but the
+> tooling now does a fixup for this and either way works.
+>=20
+> This has been a constant source of review comments, so let's change this
+> treewide so everyone copies the simpler syntax.
+>=20
+> Signed-off-by: Rob Herring <robh@kernel.org>
+> ---
+>  .../bindings/clock/fixed-factor-clock.yaml    |   5 +-
 
-I'd rather create another extension to %ps that also emits
-the [<address>] along with the symbol lookup and retire
-print_ip_sym altogether.
-
-Something like:
----
- lib/vsprintf.c | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/lib/vsprintf.c b/lib/vsprintf.c
-index 7c488a..8fce8f 100644
---- a/lib/vsprintf.c
-+++ b/lib/vsprintf.c
-@@ -2072,6 +2072,8 @@ char *fwnode_string(char *buf, char *end, struct fwnode_handle *fwnode,
-  * - 'S' For symbolic direct pointers (or function descriptors) with offset
-  * - 's' For symbolic direct pointers (or function descriptors) without offset
-  * - '[Ss]R' as above with __builtin_extract_return_addr() translation
-+ * - '[Ss]B' [<address>] and symbolic direct pointers as above
-+ *	     (was used previously used as print_ip_sym)
-  * - '[Ff]' %pf and %pF were obsoleted and later removed in favor of
-  *	    %ps and %pS. Be careful when re-using these specifiers.
-  * - 'B' For backtraced symbolic direct pointers with offset
-@@ -2183,6 +2185,8 @@ char *pointer(const char *fmt, char *buf, char *end, void *ptr,
- 	case 'S':
- 	case 's':
- 		ptr = dereference_symbol_descriptor(ptr);
-+		if (fmt[1] == 'B')
-+			buf += vsprintf(buf, end, "[<%px>] ", ptr);
- 		/* Fallthrough */
- 	case 'B':
- 		return symbol_string(buf, end, ptr, spec, fmt);
-
-
+Reviewed-by: Stephen Boyd <sboyd@kernel.org> # clock
 
