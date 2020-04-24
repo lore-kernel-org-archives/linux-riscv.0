@@ -2,76 +2,75 @@ Return-Path: <SRS0=rCLW=6I=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A83F3C55191
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 24 Apr 2020 11:08:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 13BBAC54FCB
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 24 Apr 2020 17:12:45 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7D89E20728
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 24 Apr 2020 11:08:53 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D1A8D2075A
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 24 Apr 2020 17:12:44 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="NvT6NaM9";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="Jnj5SANo"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7D89E20728
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="N19ec+yA"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D1A8D2075A
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ics.forth.gr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:
-	Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=av7dTh2ElNVV8YpwaW5sHDUFfVcuanj1A2AFuwlhev8=; b=NvT6NaM9tM1xbtxVpM02JNwiW
-	DGMWh55KVKL706g6W82xK9Q/ZdNmTMdBAKkPFQHp12HWgOYaq5XTKc4Hi16wWMtu9nAftYjWdgur6
-	bmFfwLF3RiCnd94xvluSnb+tkn5udyTIqXYIuwvVT05P6uOqQrMCx7KmOLFCcQ99AhYOFKlG/sLlV
-	PcJYe3X0dlDoJDxAMXaPsR+1vL7YJs679kMLr1aVoYTSjK42C+788WEiGLpGyoJRQH+kWMGGVnnq1
-	xbVEhqMAmV6xO+7jOlPUWeHlofMcq1r7BIBkjxmhlJDmnG7emM5bDHmUS5rTcw8GdDbmxeKWvKIE4
-	ij+cDwubg==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=cC0Rs4QibosjZ6vb6vPFIvfrOeraosDew6DLhj9XhYI=; b=N19ec+yAnCQkb8
+	+xwjdrcbvkJyX+uWGs4uzEsdv5bzN0aXDVCV4n9ZqxG4ra7oeEoNQPWBdphA4jE08aTcjp/E5NTCQ
+	wCq8eU8yiS4rr/R9jn0RgipbZYEC8zVVcKSEb13OfYNUITE4teOdioTQPkJiRYu1Jw66vj3oI2KCR
+	W2hZxEXd+kGfbp4m0sFA7O33uSOTkCQBh7hux4OFn15aDLo8rACCbI5p24R6J3HD3vdIcQYM0p4D4
+	weOGveSu4GcrM4dDdht/W1V3oIjmfPEnR6h0H8iY9GFxYazjzog6a800ZmIKj6KSbSSTsVIGAPAzX
+	2p+QHm7wjNexeTL/LLtA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jRwCO-0001PP-2O; Fri, 24 Apr 2020 11:08:48 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1jS1sX-0004BX-Pi; Fri, 24 Apr 2020 17:12:41 +0000
+Received: from mailgate.ics.forth.gr ([139.91.1.2])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jRwCM-0001Og-9b
- for linux-riscv@lists.infradead.org; Fri, 24 Apr 2020 11:08:47 +0000
-Received: from mail-io1-f52.google.com (mail-io1-f52.google.com
- [209.85.166.52])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 86769208E4
- for <linux-riscv@lists.infradead.org>; Fri, 24 Apr 2020 11:08:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1587726525;
- bh=MnUmGYZCMAXrwd9Wl8Sg0pLyPh749CA1ljHIriACt2A=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=Jnj5SANoBUUeCorqverdDXBjg8t7ipcS+zXEo3s1XcduJGjFq+j2TTNd7Apqwivbc
- btfinDDDCWuikp/WDLyZnC6TvgyJCrKDpqtVMRmwcZxM24IdU88/kdfCIYQ3jcz2Rh
- pq5wWGZOyJiQXLZB9+58rSy9T5zm27Nfiermab9o=
-Received: by mail-io1-f52.google.com with SMTP id o127so9941715iof.0
- for <linux-riscv@lists.infradead.org>; Fri, 24 Apr 2020 04:08:45 -0700 (PDT)
-X-Gm-Message-State: AGi0PubcG42pDcGIZR/A+SeEogpuap2Gul1YlyWTW6cCBOtYX3Q3UT+l
- y+SAhQguZksEDFR1LHarGDEUOaK/vw6qzov+HKE=
-X-Google-Smtp-Source: APiQypIUnt7TFxeHpKI1zpEX8iuyWx566eOngxlXKi72BOdbKYjwid5POj/g92SUU/MXl+TlKDzTYjGpWkLDD8VP3TA=
-X-Received: by 2002:a02:969a:: with SMTP id w26mr7461115jai.71.1587726524678; 
- Fri, 24 Apr 2020 04:08:44 -0700 (PDT)
+ id 1jS1sU-00049d-Mg
+ for linux-riscv@lists.infradead.org; Fri, 24 Apr 2020 17:12:40 +0000
+Received: from av3.ics.forth.gr (av3in.ics.forth.gr [139.91.1.77])
+ by mailgate.ics.forth.gr (8.15.2/ICS-FORTH/V10-1.8-GATE) with ESMTP id
+ 03OHCSKt094031; Fri, 24 Apr 2020 20:12:28 +0300 (EEST)
+X-AuditID: 8b5b014d-257ff700000045c5-bc-5ea31df7508d
+Received: from enigma.ics.forth.gr (enigma-2.ics.forth.gr [139.91.151.35])
+ by av3.ics.forth.gr (Symantec Messaging Gateway) with SMTP id
+ C7.23.17861.7FD13AE5; Fri, 24 Apr 2020 20:12:23 +0300 (EEST)
+X-ICS-AUTH-INFO: Authenticated user: mick@ics.forth.gr at ics.forth.gr
+From: Nick Kossifidis <mick@ics.forth.gr>
+To: linux-riscv@lists.infradead.org
+Subject: [PATCH 0/3] RISC-V: Add kexec/kdump support
+Date: Fri, 24 Apr 2020 20:12:11 +0300
+Message-Id: <20200424171214.1515457-1-mick@ics.forth.gr>
+X-Mailer: git-send-email 2.24.1
 MIME-Version: 1.0
-References: <20200422172414.6662-1-ardb@kernel.org>
- <mhng-f9b51803-74ca-494c-8433-59911c657b2f@palmerdabbelt-glaptop1>
-In-Reply-To: <mhng-f9b51803-74ca-494c-8433-59911c657b2f@palmerdabbelt-glaptop1>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Fri, 24 Apr 2020 13:08:33 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXFSKoK8CqzKkruGsne0Ht9xz1cfdyWGY6vu7Z1w7JcB=A@mail.gmail.com>
-Message-ID: <CAMj1kXFSKoK8CqzKkruGsne0Ht9xz1cfdyWGY6vu7Z1w7JcB=A@mail.gmail.com>
-Subject: Re: [PATCH v5 0/7] Add UEFI support for RISC-V
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprFLMWRmVeSWpSXmKPExsXSHT1dWfe77OI4g85zchYtH96xWixa8Z3F
+ YsvhR8wW2z63sFk0vzvHbvHycg+zRdssfoumF9eZHTg8pv4+w+LR9WMGq8ebly9ZPB5uusTk
+ sXlJvcel5uvsHu0HupkC2KO4bFJSczLLUov07RK4Mpavm8RUsIWrYu7Z8AbGBRxdjJwcEgIm
+ Er+2z2TpYuTiEBI4zijRv+MGG0TCTeL2/Z2sIDabgKbE/EsHgYo4OEQElCXm33MFqWcWOMYo
+ sWfFfCaQGmGgQW8+XGYEsVkEVCUe7d/KAmLzClhIzJ65lBFiprzE1m+fWCHighInZz4Bq2EG
+ ijdvnc08gZFnFpLULCSpBYxMqxgFEsuM9TKTi/XS8otKMvTSizYxgoOP0XcH4+3Nb/UOMTJx
+ MB5ilOBgVhLhjSlZFCfEm5JYWZValB9fVJqTWnyIUZqDRUmcN497eayQQHpiSWp2ampBahFM
+ lomDU6qBaU6lftFtI/3z9rPbPCbtjhO2qQ650/hC/d6CvH+v2Txsyh/3OS5YIKnjvWu9o/rG
+ UyuP+b2/22ZcE8dde8n2dOrTg8s0FkhoPv589e2UaR1sbjpLVj9/zXlsWUSGdsTJO+9XtaQy
+ rWx4YL55e3uz6Mcnrw48Ln8wo/OJZKKy0OqPk/fZtUcdOSx96hyXZ+kvO2ud7BTT5bsuvGvm
+ EZ/H8m5zaMJ+3V/NLdIm6zcZxX05njur6Zi80qFdgp7+ziovX9+SDtrC+07K6s1yqbD+Q1bM
+ fR/4Z9WyPzqSsfSw8YK4wr1HX2i+l2Nn+mlZp7a8atFh/0mfLzC9VN6zqT1Sukcz1o25KkM4
+ 43gP05tdU5VYijMSDbWYi4oTASVhK8etAgAA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200424_040846_360078_4458FA46 
-X-CRM114-Status: GOOD (  13.59  )
+X-CRM114-CacheID: sfid-20200424_101239_111591_518CE872 
+X-CRM114-Status: UNSURE (   8.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -83,34 +82,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Atish Patra <Atish.Patra@wdc.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- linux-efi <linux-efi@vger.kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
- Paul Walmsley <paul.walmsley@sifive.com>
+Cc: david.abdurachmanov@sifive.com, anup@brainfault.org, atish.patra@wdc.com,
+ yibin_liu@c-sky.com, palmer@dabbelt.com, paul.walmsley@sifive.com,
+ Nick Kossifidis <mick@ics.forth.gr>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 24 Apr 2020 at 00:43, Palmer Dabbelt <palmer@dabbelt.com> wrote:
->
-> On Wed, 22 Apr 2020 10:24:07 PDT (-0700), ardb@kernel.org wrote:
-> > This is a rework of Atish's series [0] to add EFI stub loader support
-> > to the RISC-V port. The purpose is to split the code in a way that makes
-> > it amenable to being merged via different trees during the same cycle.
-> > While at it, I added a patch to disable initrd= loading for new ports,
-> > given that it is deprecated and replaced with a method based on a
-> > special UEFI device path.
-> >
-> > My changes are logged in the individual patches.
-> >
-> > I propose to take the first four patches via the EFI tree, and expose
-> > them via a stable tag so that the RISC-V maintainers can merge it before
-> > applying the remaining patches. That will ensure that both trees remain
-> > in a buildable state, with working EFI stub support on the riscv branch.
->
-> Works for me.  Thanks!
->
+This patch series adds kexec/kdump and crash kernel
+support on RISC-V. For testing the patches a patched
+version of kexec-tools is needed. The patch is still
+a work in progress but a draft version can be found at:
 
-OK. I'll resend the final versions of the remaining patches (with the
-ISA_C tweak added) to be taken into the RISC-V tree once the first few
-patches have landed in tip/efi/core
+http://riscv.ics.forth.gr/kexec-tools.patch
+
+Nick Kossifidis (3):
+  RISC-V: Add kexec support
+  RISC-V: Add kdump support
+  RISC-V: Add crash kernel support
+
+ arch/riscv/Kconfig                  |  24 +++
+ arch/riscv/include/asm/kexec.h      |  54 +++++++
+ arch/riscv/include/uapi/asm/elf.h   |   6 +
+ arch/riscv/kernel/Makefile          |   3 +-
+ arch/riscv/kernel/crash_dump.c      |  46 ++++++
+ arch/riscv/kernel/crash_save_regs.S |  56 +++++++
+ arch/riscv/kernel/kexec_relocate.S  | 217 ++++++++++++++++++++++++++++
+ arch/riscv/kernel/machine_kexec.c   | 193 +++++++++++++++++++++++++
+ arch/riscv/kernel/setup.c           |  63 ++++++++
+ arch/riscv/mm/init.c                | 173 ++++++++++++++++++++++
+ include/uapi/linux/kexec.h          |   1 +
+ 11 files changed, 835 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/include/asm/kexec.h
+ create mode 100644 arch/riscv/kernel/crash_dump.c
+ create mode 100644 arch/riscv/kernel/crash_save_regs.S
+ create mode 100644 arch/riscv/kernel/kexec_relocate.S
+ create mode 100644 arch/riscv/kernel/machine_kexec.c
+
+-- 
+2.24.1
+
 
