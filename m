@@ -6,17 +6,17 @@ X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
 	SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 49839C2BA1A
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 24 Apr 2020 06:43:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7FAABC55186
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 24 Apr 2020 06:45:34 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 208B22084D
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 24 Apr 2020 06:43:14 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 564AB2074F
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 24 Apr 2020 06:45:34 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZnGeZX3R";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=linaro.org header.i=@linaro.org header.b="gLmkav9R"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 208B22084D
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="E1DNWF8L";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=linaro.org header.i=@linaro.org header.b="qaQCGMbh"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 564AB2074F
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,57 +25,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=hjgmIpG5MXRCE32YvJViE53MuBYQgsvIJYIDtBG1wUg=; b=ZnGeZX3RDmHbKuI6WRdf3Pz5a
-	wJpZvcNsI+HKea/6P0QOyHUvmULKOWodGtueYuv4oKgq0cwsoGrY24z/455jgu08Gikvn8Ri0b8rG
-	WsLkBMY67FYZSvSI5EPXMwe6uGP2JoBeh0F8q+8r4REdWpwQwQoRxVUh5MpF13/lUpIbqF5s55vKD
-	5jUgS2faWTBlRRGFEqz+8CQGnj/sK9gARtFd+f87az5pjxIylpwxsnvep26LsI2QfwyZJaGo4rOie
-	Q7lmffc/iiwab5k9DGX9mk5w+eXckWTd8CjvRiwKc3xbtVBz4CgxGkmYbe41h6FXyv+S2vofD494o
-	2RVZAHpAw==;
+	 bh=/5EA8JeRrfnBN/0CmhL4oF38pY+Q3bFW76pYDktcYRw=; b=E1DNWF8LR2kvpmh4MXeeMKAKh
+	WQRRNc7vEU1AfGrp6FpNq5wdY3X0Tpq/wxjByhb5LMK5WlGpEFxPIEH/jHQPJGg4uumQ5wSqizFiv
+	1P6uquQNtUSxQFAzY1l5MxNbhspPlgZK/DH0izXvD3MFq0KBLISfa4pVGbmqt4m3QylM2yeb3lvsX
+	iLN3gWESv7Muc7v1NE2pMZ7Daj9/e91Snd1tvJb6a/GKf2LCNRFFiDbIJI5G+LD6VgcLr331gDJzk
+	Gech2JwYjpYUBVIaMvWiB6/PesorrshgMcwXz8yTG0hBjXPVHmQkvOOn1R8RaXmG6CHLyVOAGNAsM
+	gXezE31Bw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jRs3M-0000wW-Eu; Fri, 24 Apr 2020 06:43:12 +0000
-Received: from mail-wr1-x442.google.com ([2a00:1450:4864:20::442])
+	id 1jRs5b-0004KE-Gv; Fri, 24 Apr 2020 06:45:31 +0000
+Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jRs3J-0000vs-Lh
- for linux-riscv@lists.infradead.org; Fri, 24 Apr 2020 06:43:11 +0000
-Received: by mail-wr1-x442.google.com with SMTP id t14so9355190wrw.12
- for <linux-riscv@lists.infradead.org>; Thu, 23 Apr 2020 23:43:08 -0700 (PDT)
+ id 1jRs5Z-0004B9-Gb
+ for linux-riscv@lists.infradead.org; Fri, 24 Apr 2020 06:45:30 +0000
+Received: by mail-wr1-x443.google.com with SMTP id d15so7765932wrx.3
+ for <linux-riscv@lists.infradead.org>; Thu, 23 Apr 2020 23:45:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
  h=date:from:to:cc:subject:message-id:references:mime-version
  :content-disposition:content-transfer-encoding:in-reply-to;
- bh=hjgmIpG5MXRCE32YvJViE53MuBYQgsvIJYIDtBG1wUg=;
- b=gLmkav9RefuhGDy7FRSB2b1Yb7ftPkLidmMm2HjjcuriXjUM2Q39OTFT7dZ2A4V4P+
- uPXtFR3lQTS5dHpBnEEt9s0wt06bG4CKz75P185mO2FJBqH08RAoyYkPXW2QsejTPM7S
- 0DfgXuitbLdLRmvVDkmWIHC8H9UMHQUj0r2GQeMCPQk7QIo+kAuEL0UFjla8kCzRe4+S
- rThlwaH9KWI+yUKHhOtCxxG9ULnxvwMPrS6AhJz4uu259X9Q1PVmdpJKZYyMWoE6LilL
- fCT5AC4sWEWxNEhr5GoZwvYGdJyjI7kjOojvnFThVfLgu+70HpDsoHMw/xgSHFkxJwU4
- ro1Q==
+ bh=/5EA8JeRrfnBN/0CmhL4oF38pY+Q3bFW76pYDktcYRw=;
+ b=qaQCGMbhx8IDtzfWMP5CF/r8O9LbhiUitChvAw/zVhGUUivyqv2bxkBE/bfelVQqli
+ rXSz6aa4D5EX0GOw2I9J3tyKgfhlgS2vNz1y9W20o7KblT7NrV6yCUkoPgwX8Ecd20M6
+ 0Q6Ez7OKeodE6A89xu8rFs/J31VJ/HkgcFFymO4Xt3EKKXjIxTJX2Tk1EaVAISp1u2OL
+ IX5sCJbjDAS8/EykFdYFoDqSGqyePkzGwnZHDCES0/z4ZdgDN5wDL0LNciszIrTFgiAg
+ il1oRZcQc2R+C9PCfYSRp0ubEqrs0Tayi0JweMScifN57VNRBGAyvykFw0++KSYFL3md
+ uhkg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:content-transfer-encoding
  :in-reply-to;
- bh=hjgmIpG5MXRCE32YvJViE53MuBYQgsvIJYIDtBG1wUg=;
- b=V1sRkUQ8pjDW864KnnlTFeVZ++FKbsBjmlrrPDhLVhr8Q9m67qxqF5YrTRG1yX5UxB
- hrLAVNgk+B0U423VXj5Y08UFH1e2YH9BTfNZ/hHdnfhMgasGcCKp/epaw2X778ljPdFs
- CxWURGkedZgPZojRbzYJKaCSldtObf7y9yRB8bGdeYSe2l7nJv683ohOUiqi+26XK+Se
- bzTaG6n8Fil1cbPx5+75KHgcCYktaCKkHeiuKsclEx3oNMv+dPGj88qzeA30XhNA/dLb
- JiaBpT53MlNplqlLagL6geC5lJPjl7mo31WlxMZXoiWUixememEgG9oDcaZRobhAy//3
- Wf7w==
-X-Gm-Message-State: AGi0PuYmNQYodWTMkLpDmdncjIzXGqihrVkgAq27C9PB7e+HZbEc0DZy
- CEmygJu8pygPMeWJAVaNXy6cMw==
-X-Google-Smtp-Source: APiQypIY4gxvEl5tps3s2Elwdzto0Ez6RpLP3/4Gfy9ggA/7GFzjOVp+QweqPybFmauP84QxQwgDtg==
-X-Received: by 2002:a5d:410a:: with SMTP id l10mr9004101wrp.355.1587710587668; 
- Thu, 23 Apr 2020 23:43:07 -0700 (PDT)
+ bh=/5EA8JeRrfnBN/0CmhL4oF38pY+Q3bFW76pYDktcYRw=;
+ b=P45Oq4wTN2e9UyscnfffrF4jxY2TQ4wk2vaxo/7kBjVXF7qSUUnQG3QcnE7nRi9Y2b
+ kDP8851ryquV8cfr3FVpSJ/vzKs7WTuwP3/XfLL/MK5XAtC5MDRDHcPP/D7h+ZwD4Xsh
+ qBrQYDvMee+/a0K4KsZwl03crtvzTq8tej4gVTbWLxgUwRVOIMHusMrjX/L1hgxVZnR8
+ T0SVpcYzGYg4OMMGH9FANFsdFPJPRaBDtZiZHwnVSxviMtaFP+2MAgkUBHGkt2eLnld4
+ WUH/Lxrln1HosL2op0SiFyFSMH7hWLTqKLLiH2wVZ+Ze0I8p5XZZXcBqrBBYO8MoDlhW
+ oJMA==
+X-Gm-Message-State: AGi0PuaKUcnmb1eXkSVrelc3ETlWOMRSvIS4V6iLz/1FrXAQN55T6kUE
+ bOuQ8zDhe5cX4JfcuvYpMk5w0g==
+X-Google-Smtp-Source: APiQypJKO9ZTEVxhHxuzk3DXA0gtm+wb8f+2rdl3cAcDpSyLV+FcCC5MuNqHtUpSdtqw4blucZ+P3g==
+X-Received: by 2002:adf:fe0e:: with SMTP id n14mr9781916wrr.247.1587710727165; 
+ Thu, 23 Apr 2020 23:45:27 -0700 (PDT)
 Received: from dell ([2.31.163.63])
- by smtp.gmail.com with ESMTPSA id n9sm6875262wrx.61.2020.04.23.23.43.05
+ by smtp.gmail.com with ESMTPSA id r2sm1570946wmg.2.2020.04.23.23.45.25
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 23 Apr 2020 23:43:06 -0700 (PDT)
-Date: Fri, 24 Apr 2020 07:43:03 +0100
+ Thu, 23 Apr 2020 23:45:26 -0700 (PDT)
+Date: Fri, 24 Apr 2020 07:45:24 +0100
 From: Lee Jones <lee.jones@linaro.org>
 To: Guru Das Srinagesh <gurus@codeaurora.org>
 Subject: Re: [PATCH v13 00/11] Convert PWM period and duty cycle to u64
-Message-ID: <20200424064303.GJ3612@dell>
+Message-ID: <20200424064524.GK3612@dell>
 References: <cover.1587523702.git.gurus@codeaurora.org>
  <20200423114857.GG3612@dell> <20200423215306.GA8670@codeaurora.org>
 MIME-Version: 1.0
@@ -84,8 +84,9 @@ Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 In-Reply-To: <20200423215306.GA8670@codeaurora.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200423_234309_721201_28F9280F 
-X-CRM114-Status: GOOD (  17.37  )
+X-CRM114-CacheID: sfid-20200423_234529_569817_15B60262 
+X-CRM114-Status: UNSURE (   9.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -139,47 +140,10 @@ On Thu, 23 Apr 2020, Guru Das Srinagesh wrote:
 > I'm not sure what you mean. My assumption is that first all the patches
 > need to get an Acked-by and only then will the series get applied by
 > Thierry... Could Thierry or Uwe weigh in on this point please?
-> 
-> > FYI, it's better to send all patches to all parties.  That way
-> > maintainers and interested persons can follow the discussion and
-> > progress, or lack there of.
-> 
-> Something I noticed with adding all the various mailing lists to the CC
-> list for this cover letter is that it is causing this cover letter email
-> and all its replies to not be archived properly on spinics or lore -
-> it's probably getting rejected by email filters somehow. Compare with
-> v12 [1] where I'd pruned the list considerably as an experiment - that
-> got archived correctly.
-> 
-> Any ideas on what might be going wrong? Once I fix this I can add all
-> parties to all patches knowing that there would be no issues in mail
-> archival.
 
-A great deal of mailing lists contain numerous protections against
-things like flooding and spamming.  One of those protections is a
-check for "Too many recipients to the message".  Most of the time this
-simply requires moderator intervention by way of review and approval,
-but this ultimately depends on the ML's configuration.
+Yes, that is the merge plan. :)
 
-The first thing to ascertain is why your recipients list is so large.
-Have you added every reviewer, subsystem-maintainer, maintainer and
-contributor suggested by get-maintainer.pl?  If so, consider pruning
-that a little.  Contributors do not tend to care about subsequent
-changes to a file.  As someone who receives a lot of patches, I tend
-to get fed-up when receiving patches simply because I made a change X
-years ago.  Stick to listed maintainers/reviewers in the first
-instance and see how far that takes you.
-
-If your recipients list is as succinct as reasonably possible, maybe
-just accept that every version isn't going to be archived by every
-ML.  It's still much more useful for the correct people to have
-visibility into the set than for it to be archived multiple times.
-
-> [1] https://www.spinics.net/lists/linux-pwm/msg12131.html
-> 
-> Thank you.
-> 
-> Guru Das.
+Whoever takes this will have to offer out an immutable PR.
 
 -- 
 Lee Jones [李琼斯]
