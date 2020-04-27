@@ -2,92 +2,69 @@ Return-Path: <SRS0=Khb+=6L=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 57095C5519A
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 27 Apr 2020 06:59:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CB659C54FD0
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 27 Apr 2020 07:49:53 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2ED7B206B6
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 27 Apr 2020 06:59:40 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 794D2206B6
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 27 Apr 2020 07:49:53 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="edxOzkEU";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="chxZwDHN"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2ED7B206B6
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Bmk34uZx";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="tM0MCyqE"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 794D2206B6
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ow7McboKHnEHo9r5OLmsIz4Khg2qeAiEPFCtI9iJ5vg=; b=edxOzkEU5ipE5N
-	h3ZXcFxBFKb0nVo4P8jjkH7SW7qVykMoH/nTI5fD2l/NI9Rw3uiEqZ+gQEWZ5g0qQ7FzgEnhBOsb0
-	RtBX0eIgbKHFkDGjYoD9mbQVwNhc8bWbO4yskEn6JGnpeFpdFj5LqIu523aACan5vgeT6Du50HR9T
-	Dc8IFsYx7r74LpuJcmfhsXx6j5w4akZJKBsw1bibppy3N2FErvvksjRU6poz9afZv923/CMvjJIaD
-	pJUa97DAHg4dQfLN9sjVVaJfiyVXqVj8o7I344Pno6h0GbnhJPBmr8cX7GRIT/fnhTdhxYNnZ8elF
-	rDBgiQiI8ZzASGYvyVWA==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=eyWzZnW1G9YgvbOb4A45elJWOnYyaLIsm09HE/vkfPY=; b=Bmk34uZxAEZmWsUX80LhZajYo
+	1L92qFAByzwVPfclXxPECUwIR5g7ztAFCD3nsHpYotdnY4DFakeIwlP6inwKrt+HTTDlhpK9NJsxu
+	uV41nUzkiJ/RAfNQ/ntLFBGc+GkEI6fVeh2AX+4Av3p9ZWyTmGmchOQ28HKe9X2xt/kDckNrEuLCm
+	BFEjCS1AL/zy4mtF7TvEJwWJ0uT0di3RJzmKIAP79/Z8hOX7Z4qjzW+C1FkUx22rgvdP2eYMvLkxk
+	0qstZzuFh6FhplL2NL0DMt+nkOEbcwBylMves3atxtFRfWBTTTQAJHM/8fC++SypdZS4VsOePY4Z0
+	XRIeXvcxg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jSxjs-0000LP-Jc; Mon, 27 Apr 2020 06:59:36 +0000
-Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
+	id 1jSyWQ-0004LW-56; Mon, 27 Apr 2020 07:49:46 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jSxjo-0000F0-2F
- for linux-riscv@lists.infradead.org; Mon, 27 Apr 2020 06:59:33 +0000
-Received: by mail-wm1-x342.google.com with SMTP id e26so18267989wmk.5
- for <linux-riscv@lists.infradead.org>; Sun, 26 Apr 2020 23:59:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=Ow7McboKHnEHo9r5OLmsIz4Khg2qeAiEPFCtI9iJ5vg=;
- b=chxZwDHNXTJ9LJOmjqpAusafVfgN00EstU/LDJ2x3UU47pnuc7h7KV8ZvK1X26+9cQ
- m0HnppQ06MM/x9JczH2v3crR6R0b5FE62JPp/F+lKJ2mSd6UsMg0SNJBsdEVIkSNQQQh
- 3xv7cS3VR3lkk5n0s8DKhUhGrUTRAtYosFliB+eaLaJJqr7LsQI4SD0MbG/Qsp7OQDUE
- 5L4gF1dXrH6DMlyQbT7i8tXJznHiRk2NgtMmfQEKB1bKpigiPhCwi/+V38yU1DE1T+lD
- EQOKi9Hl1Vimen90hq9H05/SwNfrbCpzUc4pDTUWnGVlg61A83AIbexOkQdIdDzuKXv+
- Lbjg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=Ow7McboKHnEHo9r5OLmsIz4Khg2qeAiEPFCtI9iJ5vg=;
- b=gEPvPRGAWMwukGRFg8E52OOp+pue6RuVFaSrJgVYWzELsYbvcl3XKMfmDuJQgjkGHl
- YsyndJA8EpO8vl5TdwLapZDIWuHoLCJz3N66aRieAOglCGXjxyEvFrLkOslhMFwCDezX
- 2ocAFuZAE8c9GBv0W/YoEG2UDkE1H24w6ZRWbGwdMPYSZztTqEcoYiDCPCYR83ePWolt
- FDg1ZkE62MRoS2jz1r2B8FAR2a8G86KU/2Ie5PpGnz3oVSo7WFufT0+aUVy3j+pZzYme
- 9EXvM0NUEHqmqI30/5Tc+E3CqrZaWcqTV/MB2MzGgep525/U4uZqKVF1hfp14FSq5mtB
- J6eA==
-X-Gm-Message-State: AGi0PuZ9emFgIje9UH98OB2qG0QTbHDAgFUwW8k1ixFh7QXErqsrKwDW
- 8z0W9AZM40FYM7CiWteMfkgULhlmKaduURGZIAkHBlaK9o8=
-X-Google-Smtp-Source: APiQypKYmlBRKfcnlZ4RrIfnnayIILRLq4PzWZAAMN7VbVCPvBLaBtWLo5XIGj35M13x6iC9IplFe3P35RKC13YmeCk=
-X-Received: by 2002:a7b:c755:: with SMTP id w21mr23998184wmk.120.1587970768932; 
- Sun, 26 Apr 2020 23:59:28 -0700 (PDT)
+ id 1jSyW2-0003zq-Eh; Mon, 27 Apr 2020 07:49:36 +0000
+Received: from willie-the-truck (236.31.169.217.in-addr.arpa [217.169.31.236])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+ bits)) (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 8EC0B20728;
+ Mon, 27 Apr 2020 07:49:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1587973761;
+ bh=gUEF4e+I+5LtkJ+KR7VccemOQ0DrTjrOVZmMSY/BJKo=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=tM0MCyqEbiKAHZFfSbvrulUKGmf63KAanMfop+yxY/F6lhWkM0zaQHm6rQTTcpbFO
+ HOLa2VqGqzrsyLsi9beTUDK/YUbfTbFXhIaq0lXicUQ2nltnRNrmYVf2nEyZ5hYtxm
+ L4qNVWY1RZq3IAt1JnQvY/wDdHSjRRAJ1cpgYvGY=
+Date: Mon, 27 Apr 2020 08:49:16 +0100
+From: Will Deacon <will@kernel.org>
+To: Zong Li <zong.li@sifive.com>
+Subject: Re: [PATCH 1/4] mm: add DEBUG_WX support
+Message-ID: <20200427074915.GA11787@willie-the-truck>
+References: <cover.1587455584.git.zong.li@sifive.com>
+ <23980cd0f0e5d79e24a92169116407c75bcc650d.1587455584.git.zong.li@sifive.com>
 MIME-Version: 1.0
-References: <20200426110740.123638-1-zong.li@sifive.com>
- <CAAhSdy3FCdzLV-nH03T=PBxB2tdZXhRrugcC2NcoA=22qpv+Lw@mail.gmail.com>
- <CANXhq0qW9ORoZ5qc5g8ikO9QdeYX=p0fwoP8pyFFkk02a7imnw@mail.gmail.com>
- <CAAhSdy2f2-SQP6TdgxA0HM2ft3eBJd6kEkB--RH=2gUuLktXLQ@mail.gmail.com>
- <CANXhq0pDYa2QfGZX87d5gyO5V2uzA3-ttPZXf7s1EkMUcG37Cw@mail.gmail.com>
- <CAAhSdy188_Kkfsz2bX05T3Rr12XDNtwGiwfqaT2TFVW7auGUaw@mail.gmail.com>
- <CANXhq0qGq33u34q7nhJE4GG03pZ8BBJrnusr=FgmTeJwtq-=4Q@mail.gmail.com>
- <CAHCEeh+FVYd6GKDuN4fXz9ku57vmdyVR1y_mzu89-sanNa_E3A@mail.gmail.com>
-In-Reply-To: <CAHCEeh+FVYd6GKDuN4fXz9ku57vmdyVR1y_mzu89-sanNa_E3A@mail.gmail.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Mon, 27 Apr 2020 12:29:17 +0530
-Message-ID: <CAAhSdy1=Ye4wwZMcGzQmnV05eMQzBV3steopKCx9iWJWbOORrw@mail.gmail.com>
-Subject: Re: [PATCH] irqchip/sifive-plic: allow many cores to handle IRQs
-To: Greentime Hu <greentime.hu@sifive.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <23980cd0f0e5d79e24a92169116407c75bcc650d.1587455584.git.zong.li@sifive.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200426_235932_108886_E5056675 
-X-CRM114-Status: GOOD (  27.86  )
+X-CRM114-CacheID: sfid-20200427_004930_770812_2100EB41 
+X-CRM114-Status: GOOD (  17.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -99,190 +76,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: David Abdurachmanov <david.abdurachmanov@sifive.com>,
- Marc Zyngier <maz@kernel.org>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Zong Li <zong.li@sifive.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
+Cc: tglx@linutronix.de, catalin.marinas@arm.com, x86@kernel.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org, mingo@redhat.com,
+ palmer@dabbelt.com, paul.walmsley@sifive.com, bp@alien8.de,
+ akpm@linux-foundation.org, hpa@zytor.com, linux-riscv@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 27, 2020 at 12:19 PM Greentime Hu <greentime.hu@sifive.com> wro=
-te:
->
-> Zong Li <zong.li@sifive.com> =E6=96=BC 2020=E5=B9=B44=E6=9C=8826=E6=97=A5=
- =E9=80=B1=E6=97=A5 =E4=B8=8B=E5=8D=8811:35=E5=AF=AB=E9=81=93=EF=BC=9A
-> >
-> > On Sun, Apr 26, 2020 at 11:21 PM Anup Patel <anup@brainfault.org> wrote=
-:
-> > >
-> > > On Sun, Apr 26, 2020 at 8:42 PM Zong Li <zong.li@sifive.com> wrote:
-> > > >
-> > > > On Sun, Apr 26, 2020 at 9:38 PM Anup Patel <anup@brainfault.org> wr=
-ote:
-> > > > >
-> > > > > +Mark Z
-> > > > >
-> > > > > On Sun, Apr 26, 2020 at 6:49 PM Zong Li <zong.li@sifive.com> wrot=
-e:
-> > > > > >
-> > > > > > On Sun, Apr 26, 2020 at 8:47 PM Anup Patel <anup@brainfault.org=
-> wrote:
-> > > > > > >
-> > > > > > > On Sun, Apr 26, 2020 at 4:37 PM Zong Li <zong.li@sifive.com> =
-wrote:
-> > > > > > > >
-> > > > > > > > Currently, driver forces the IRQs to be handled by only one=
- core. This
-> > > > > > > > patch provides the way to enable others cores to handle IRQ=
-s if needed,
-> > > > > > > > so users could decide how many cores they wanted on default=
- by boot
-> > > > > > > > argument.
-> > > > > > > >
-> > > > > > > > Use 'irqaffinity' boot argument to determine affinity. If t=
-here is no
-> > > > > > > > irqaffinity in dts or kernel configuration, use irq default=
- affinity,
-> > > > > > > > so all harts would try to claim IRQ.
-> > > > > > > >
-> > > > > > > > For example, add irqaffinity=3D0 in chosen node to set irq =
-affinity to
-> > > > > > > > hart 0. It also supports more than one harts to handle irq,=
- such as set
-> > > > > > > > irqaffinity=3D0,3,4.
-> > > > > > > >
-> > > > > > > > You can change IRQ affinity from user-space using procfs. F=
-or example,
-> > > > > > > > you can make CPU0 and CPU2 serve IRQ together by the follow=
-ing command:
-> > > > > > > >
-> > > > > > > > echo 4 > /proc/irq/<x>/smp_affinity
-> > > > > > > >
-> > > > > > > > Signed-off-by: Zong Li <zong.li@sifive.com>
-> > > > > > > > ---
-> > > > > > > >  drivers/irqchip/irq-sifive-plic.c | 21 +++++++------------=
---
-> > > > > > > >  1 file changed, 7 insertions(+), 14 deletions(-)
-> > > > > > > >
-> > > > > > > > diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/ir=
-qchip/irq-sifive-plic.c
-> > > > > > > > index d0a71febdadc..bc1440d54185 100644
-> > > > > > > > --- a/drivers/irqchip/irq-sifive-plic.c
-> > > > > > > > +++ b/drivers/irqchip/irq-sifive-plic.c
-> > > > > > > > @@ -111,15 +111,12 @@ static inline void plic_irq_toggle(co=
-nst struct cpumask *mask,
-> > > > > > > >  static void plic_irq_unmask(struct irq_data *d)
-> > > > > > > >  {
-> > > > > > > >         struct cpumask amask;
-> > > > > > > > -       unsigned int cpu;
-> > > > > > > >         struct plic_priv *priv =3D irq_get_chip_data(d->irq=
-);
-> > > > > > > >
-> > > > > > > >         cpumask_and(&amask, &priv->lmask, cpu_online_mask);
-> > > > > > > > -       cpu =3D cpumask_any_and(irq_data_get_affinity_mask(=
-d),
-> > > > > > > > -                                          &amask);
-> > > > > > > > -       if (WARN_ON_ONCE(cpu >=3D nr_cpu_ids))
-> > > > > > > > -               return;
-> > > > > > > > -       plic_irq_toggle(cpumask_of(cpu), d, 1);
-> > > > > > > > +       cpumask_and(&amask, &amask, irq_data_get_affinity_m=
-ask(d));
-> > > > > > > > +
-> > > > > > > > +       plic_irq_toggle(&amask, d, 1);
-> > > > > > > >  }
-> > > > > > > >
-> > > > > > > >  static void plic_irq_mask(struct irq_data *d)
-> > > > > > > > @@ -133,24 +130,20 @@ static void plic_irq_mask(struct irq_=
-data *d)
-> > > > > > > >  static int plic_set_affinity(struct irq_data *d,
-> > > > > > > >                              const struct cpumask *mask_val=
-, bool force)
-> > > > > > > >  {
-> > > > > > > > -       unsigned int cpu;
-> > > > > > > >         struct cpumask amask;
-> > > > > > > >         struct plic_priv *priv =3D irq_get_chip_data(d->irq=
-);
-> > > > > > > >
-> > > > > > > >         cpumask_and(&amask, &priv->lmask, mask_val);
-> > > > > > > >
-> > > > > > > >         if (force)
-> > > > > > > > -               cpu =3D cpumask_first(&amask);
-> > > > > > > > +               cpumask_copy(&amask, mask_val);
-> > > > > > > >         else
-> > > > > > > > -               cpu =3D cpumask_any_and(&amask, cpu_online_=
-mask);
-> > > > > > > > -
-> > > > > > > > -       if (cpu >=3D nr_cpu_ids)
-> > > > > > > > -               return -EINVAL;
-> > > > > > > > +               cpumask_and(&amask, &amask, cpu_online_mask=
-);
-> > > > > > > >
-> > > > > > > >         plic_irq_toggle(&priv->lmask, d, 0);
-> > > > > > > > -       plic_irq_toggle(cpumask_of(cpu), d, 1);
-> > > > > > > > +       plic_irq_toggle(&amask, d, 1);
-> > > > > > > >
-> > > > > > > > -       irq_data_update_effective_affinity(d, cpumask_of(cp=
-u));
-> > > > > > > > +       irq_data_update_effective_affinity(d, &amask);
-> > > > > > > >
-> > > > > > > >         return IRQ_SET_MASK_OK_DONE;
-> > > > > > > >  }
-> > > > > > > > --
-> > > > > > > > 2.26.1
-> > > > > > > >
-> > > > > > >
-> > > > > > > I strongly oppose (NACK) this patch due to performance reason=
-s.
-> > > > > > >
-> > > > > > > In PLIC, if we enable an IRQ X for N CPUs then when IRQ X occ=
-urs:
-> > > > > > > 1) All N CPUs will take interrupt
-> > > > > > > 2) All N CPUs will try to read PLIC CLAIM register
-> > > > > > > 3) Only one of the CPUs will see IRQ X using the CLAIM regist=
-er
-> > > > > > > but other N - 1 CPUs will see no interrupt and return back to=
- what
-> > > > > > > they were doing. In other words, N - 1 CPUs will just waste C=
-PU
-> > > > > > > every time IRQ X occurs.
-> > > > > > >
-> > > > > > > Example1, one Application doing heavy network traffic will
-> > > > > > > degrade performance of other applications because with every
-> > > > > > > network RX/TX interrupt N-1 CPUs will waste CPU trying to
-> > > > > > > process network interrupt.
-> > > > > > >
-> > > > > > > Example1, one Application doing heavy MMC/SD traffic will
-> > > > > > > degrade performance of other applications because with every
-> > > > > > > SPI read/write interrupt N-1 CPUs will waste CPU trying to
-> > > > > > > process it.
-> > > > > > >
->
-> Hi Anup,
->
-> If there is a case that there are a lot of interrupts from a single
-> irq number coming very quickly, the first hart is still serving the
-> first interrupt and still in its top half so it doesn't enable
-> interrupt yet but the second interrupt is coming and waiting, only the
-> rest of the harts can serve it. If they are masked, the interrupt
-> won't be able to be served it right away. In this case, I think this
-> patch can get better performance. Maybe we can still keep this patch
-> for user to define their usage in his case?
+On Tue, Apr 21, 2020 at 04:17:12PM +0800, Zong Li wrote:
+> Some architectures support DEBUG_WX function, it's verbatim from each
+> others. Extract to mm/Kconfig.debug for shared use.
+> 
+> Signed-off-by: Zong Li <zong.li@sifive.com>
+> Suggested-by: Palmer Dabbelt <palmer@dabbelt.com>
+> ---
+>  mm/Kconfig.debug | 33 +++++++++++++++++++++++++++++++++
+>  1 file changed, 33 insertions(+)
+> 
+> diff --git a/mm/Kconfig.debug b/mm/Kconfig.debug
+> index 0271b22e063f..077458ad968d 100644
+> --- a/mm/Kconfig.debug
+> +++ b/mm/Kconfig.debug
+> @@ -118,6 +118,39 @@ config DEBUG_RODATA_TEST
+>      ---help---
+>        This option enables a testcase for the setting rodata read-only.
+>  
+> +config ARCH_HAS_DEBUG_WX
+> +	bool
+> +
+> +config DEBUG_WX
+> +	bool "Warn on W+X mappings at boot"
+> +	depends on ARCH_HAS_DEBUG_WX
+> +	select PTDUMP_CORE
+> +	help
+> +	  Generate a warning if any W+X mappings are found at boot.
+> +
+> +	  This is useful for discovering cases where the kernel is leaving
+> +	  W+X mappings after applying NX, as such mappings are a security risk.
+> +	  This check also includes UXN, which should be set on all kernel
+> +	  mappings.
 
-The way you described issue, it clearly means that other device driver
-you are using does not have a optimized interrupt handler and the driver
-should be fixed right away. I don't see the point in hacking PLIC driver
-and slowing it down because some other device driver spending too
-much time in interrupt context.
+"UXN" is the name of a bit in the arm64 page-table descriptors, so this
+should be reworded now that it's in generic help text.
 
-Seeing your comment, I quickly looked at Cadance MACB driver which
-is very important on SiFive Unleashed. It turns out that Cadance MACB
-driver does not have well designed top-half and bottom-half. Best thing
-would be to change Candance MACB driver to use threaded irqs so that
-majority of packet processing work on SiFive unleashed is done in kernel
-thread (which is preemtible).
-
-Regards,
-Anup
+Will
 
