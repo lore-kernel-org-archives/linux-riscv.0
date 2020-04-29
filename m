@@ -1,105 +1,85 @@
-Return-Path: <SRS0=EOV2=6M=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=owx/=6N=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-0.5 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A89B7C8300A
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 28 Apr 2020 20:59:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 72E7EC83004
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 29 Apr 2020 07:41:00 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7CC532137B
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 28 Apr 2020 20:59:20 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 48C9F2073E
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 29 Apr 2020 07:41:00 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="T3azs4vD";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=oracle.com header.i=@oracle.com header.b="XrsK8xeo"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7CC532137B
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=oracle.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="FTxI1TcM";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="FDLgGsPF"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 48C9F2073E
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yafpg0ZcOknBY/UGErpDFCg6X+mq+m/vIF/cVy7REbg=; b=T3azs4vDx86CQf
-	QCSxY0kzFjko1sdVPud1lw/cDo4VFe9yTBvzuQyA2n/AKUNoHPmFcf1m0nWn8aTn3sJ5aVWzmqK4I
-	6BmTRXI3LsYXvsA5RXcO+cZTiknONgDqZ44qWQElHSCr0Lz3pk6IO97bmpwuEx3WD7UfrTd7iFQE3
-	Mjke0Ehq+NcccXvGB0b5T1s4iuguFWp7BE35JEQ6KY0bHY2b1IIr5VVPydNGGjtw0W9cxwUHjXuX7
-	97iOSDWwj4brCus4Uf1FqSY0cjdtzobPyS4w1qH142eD1Uzdp9rX5E4EcHOebQV1ExrIseVDXjAm4
-	Zw3tLY8NCW/FT9wOJc2g==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:
+	Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=S6vndLuaeXb6bB9uiepv0GIEKfn+kuOCySzTjAzHsMU=; b=FTxI1TcM168NhTo12HR+cYni0
+	AFhucaobpuFyB8SY0K4K2LLLamceRMceX7TmqYuEqMNFnyNcxLEGfQ447alOIBVpxH5UuhTiZS0Qk
+	tZTe51Di68P1Jz+aCfgrsWovkrX3KpHu2agykB1EAWFPB2JYmnFToZvuVOBkY2qkVF5jnoIW4RsX0
+	VPOh41K3QLpwN/COw1ZKjZ2vuLf6TnG6PXBS4d6+1DW2RXuHfimC3BnGCdvKhogzJYVY0vupcYpic
+	AR9z7Yvg64O9s1KsXFEG89e4RBDlFirShbW6Si3lSjNT23yaVIsE3a2ooAD749bxPLF5hYxPK6bZf
+	xRiGgrvEQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jTXK2-0002CB-V4; Tue, 28 Apr 2020 20:59:18 +0000
-Received: from userp2130.oracle.com ([156.151.31.86])
+	id 1jThKz-0003Tw-GB; Wed, 29 Apr 2020 07:40:57 +0000
+Received: from mail-lf1-x144.google.com ([2a00:1450:4864:20::144])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jTXJv-00005m-9O; Tue, 28 Apr 2020 20:59:13 +0000
-Received: from pps.filterd (userp2130.oracle.com [127.0.0.1])
- by userp2130.oracle.com (8.16.0.42/8.16.0.42) with SMTP id 03SKrEfT127581;
- Tue, 28 Apr 2020 20:56:31 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com;
- h=from : to : cc :
- subject : date : message-id : in-reply-to : references : mime-version :
- content-transfer-encoding; s=corp-2020-01-29;
- bh=yafpg0ZcOknBY/UGErpDFCg6X+mq+m/vIF/cVy7REbg=;
- b=XrsK8xeolwpyFzMVP4FN7eFg6N8v21y3lvojPKKtjc9TelN+4v4u0St8L2wCPmMjAlsr
- 3eoJJRP6TEGjNciIrzjM/W8OUs29A+/hNp+5bT1uayN9rUw4C5EFkCnvMaihEusch6OQ
- 0aA8ajw6C08TKnOrVfo3qtyh0fDeoOvwCvvC6FBeDuCDFCXVcnnO7Cct1qx3AGzyTw+0
- 9qMJPo5U7VOPBWqH11AW5kL1jAPNIn4NgYHSqObGclrhOXLW3tNkRyzjwHpydwY1APjC
- Ghe/P2meZhwVKqHDrkS4iScKnvP53SSMXM2ZeqrOV6bOBjUmkS/95BzEt+WFfl608pBF wA== 
-Received: from userp3020.oracle.com (userp3020.oracle.com [156.151.31.79])
- by userp2130.oracle.com with ESMTP id 30p01nrvqj-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Tue, 28 Apr 2020 20:56:31 +0000
-Received: from pps.filterd (userp3020.oracle.com [127.0.0.1])
- by userp3020.oracle.com (8.16.0.42/8.16.0.42) with SMTP id 03SKpujh172035;
- Tue, 28 Apr 2020 20:56:30 GMT
-Received: from userv0122.oracle.com (userv0122.oracle.com [156.151.31.75])
- by userp3020.oracle.com with ESMTP id 30mxx0rr6p-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Tue, 28 Apr 2020 20:56:30 +0000
-Received: from abhmp0015.oracle.com (abhmp0015.oracle.com [141.146.116.21])
- by userv0122.oracle.com (8.14.4/8.14.4) with ESMTP id 03SKuQY2015084;
- Tue, 28 Apr 2020 20:56:26 GMT
-Received: from monkey.oracle.com (/71.63.128.209)
- by default (Oracle Beehive Gateway v4.0)
- with ESMTP ; Tue, 28 Apr 2020 13:56:26 -0700
-From: Mike Kravetz <mike.kravetz@oracle.com>
-To: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-doc@vger.kernel.org
-Subject: [PATCH v4 2/4] hugetlbfs: move hugepagesz= parsing to arch
- independent code
-Date: Tue, 28 Apr 2020 13:56:12 -0700
-Message-Id: <20200428205614.246260-3-mike.kravetz@oracle.com>
-X-Mailer: git-send-email 2.25.4
-In-Reply-To: <20200428205614.246260-1-mike.kravetz@oracle.com>
-References: <20200428205614.246260-1-mike.kravetz@oracle.com>
+ id 1jThKv-0003TR-WD
+ for linux-riscv@lists.infradead.org; Wed, 29 Apr 2020 07:40:55 +0000
+Received: by mail-lf1-x144.google.com with SMTP id d25so786897lfi.11
+ for <linux-riscv@lists.infradead.org>; Wed, 29 Apr 2020 00:40:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=S6vndLuaeXb6bB9uiepv0GIEKfn+kuOCySzTjAzHsMU=;
+ b=FDLgGsPFHgxlMBjFNmkfnE/Jr4mIXNB0ns9FLOBMmwPRIyZAlEnLT6cTCgVk6vLaCW
+ ttoowgf6aOut7y2PxCcyMO7iByXRbafn3qJt+BEsv13U45mOcDHqmNm3MT7KhHXp02s8
+ qNIODLOep7LI6mc5PkRyIZQkcJPxNxdJbwAhk7uhCmWq48lMQcj25Pu5LwbYN2bIMoAn
+ gniHdU1zqIfIAJJQEwtEf1I9od2tl1RQ+3At4RTciCU3gNLSIxB+sLpX3Z4BQC9m6hiP
+ K9rXPnNmEK76QnKzxjl6YrH0FewLuscVAmm2rpuLKi0NVxWe4nau8n7rvoBvBx9GwCIt
+ 6YFg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=S6vndLuaeXb6bB9uiepv0GIEKfn+kuOCySzTjAzHsMU=;
+ b=CLnmrKQzv85p1OTHNN7dWKu913Xtpgq+jgbxvUIqjF7j60E7XI+nIQ+Fb3Vzha5PYK
+ dn7sUF1REYY6CsBdJUq/iuy7CKneExMHRpUNENyUW0rnlYC8sRaWhfbu299b1PEtKwyf
+ v4MVbTVALQTBkwFe+qs2bsI+2k8BK3Xmt513biFm1cxDI7whTm+wIUhDjG7dAUFA0zQ2
+ IyjLfAiKwsnshiBdXI0sJ61YsPE1psB9WK+xYsqdUY3VX9RDeCtld9wop0Qx623ETW9s
+ fl4e56HZGvnewHSni08AUiriOC6gCYo0xOuDvKSld2G8OE7n3Lkl0s58MKPK/3hp9nJM
+ 2fvg==
+X-Gm-Message-State: AGi0PuYJpwNxruLIjLhIMlHCMEOBIR4oauPqYb1VaIGip8akRtveWGzm
+ l//Hl7HzFCnSFq4ZCzW9UWWD3/BBlkYDF5Hm2lw=
+X-Google-Smtp-Source: APiQypLMoZakO/8ExLncaCmnnOtNMCr57sttCek7NXn2hztLvfuFdT+oQQxp8aJPkYV2kumt/lzBA/5xwKhJMFDHg7I=
+X-Received: by 2002:ac2:5c07:: with SMTP id r7mr22066594lfp.160.1588146051463; 
+ Wed, 29 Apr 2020 00:40:51 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9605
- signatures=668686
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0
- spamscore=0 bulkscore=0
- suspectscore=0 mlxlogscore=999 phishscore=0 malwarescore=0 mlxscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2003020000
- definitions=main-2004280163
-X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9605
- signatures=668686
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 bulkscore=0
- spamscore=0 clxscore=1011
- phishscore=0 mlxlogscore=999 adultscore=0 priorityscore=1501 mlxscore=0
- suspectscore=0 malwarescore=0 lowpriorityscore=0 impostorscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2003020000
- definitions=main-2004280163
+References: <1582175719-7401-1-git-send-email-yash.shah@sifive.com>
+ <MN2PR13MB3552ADB09621545F67A914E28CFA0@MN2PR13MB3552.namprd13.prod.outlook.com>
+In-Reply-To: <MN2PR13MB3552ADB09621545F67A914E28CFA0@MN2PR13MB3552.namprd13.prod.outlook.com>
+From: David Abdurachmanov <david.abdurachmanov@gmail.com>
+Date: Wed, 29 Apr 2020 10:40:15 +0300
+Message-ID: <CAEn-LTqUWfiV_QV3hyCQ9YouaHCzNFPq=WABfioNEiMJVP8ZVg@mail.gmail.com>
+Subject: Re: [PATCH v5 0/2] cacheinfo support to read no. of L2 cache ways
+ enabled
+To: Yash Shah <yash.shah@sifive.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200428_135911_477307_C25BD53B 
-X-CRM114-Status: GOOD (  20.56  )
+X-CRM114-CacheID: sfid-20200429_004054_032109_FDE4E353 
+X-CRM114-Status: GOOD (  20.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -111,272 +91,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- Heiko Carstens <heiko.carstens@de.ibm.com>, Peter Xu <peterx@redhat.com>,
- Paul Mackerras <paulus@samba.org>, Will Deacon <will@kernel.org>,
- Mina Almasry <almasrymina@google.com>, Jonathan Corbet <corbet@lwn.net>,
- Christian Borntraeger <borntraeger@de.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Longpeng <longpeng2@huawei.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Vasily Gorbik <gor@linux.ibm.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
- Gerald Schaefer <gerald.schaefer@de.ibm.com>,
- Christophe Leroy <christophe.leroy@c-s.fr>,
- Nitesh Narayan Lal <nitesh@redhat.com>, Randy Dunlap <rdunlap@infradead.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Andrew Morton <akpm@linux-foundation.org>,
- "David S . Miller" <davem@davemloft.net>,
- Mike Kravetz <mike.kravetz@oracle.com>
+Cc: "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+ "alexios.zavras@intel.com" <alexios.zavras@intel.com>,
+ "anup@brainfault.org" <anup@brainfault.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Sachin Ghadi <sachin.ghadi@sifive.com>,
+ "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+ "palmer@dabbelt.com" <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ "tglx@linutronix.de" <tglx@linutronix.de>, "bp@suse.de" <bp@suse.de>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that architectures provide arch_hugetlb_valid_size(), parsing
-of "hugepagesz=" can be done in architecture independent code.
-Create a single routine to handle hugepagesz= parsing and remove
-all arch specific routines.  We can also remove the interface
-hugetlb_bad_size() as this is no longer used outside arch independent
-code.
+Ping.
 
-This also provides consistent behavior of hugetlbfs command line
-options.  The hugepagesz= option should only be specified once for
-a specific size, but some architectures allow multiple instances.
-This appears to be more of an oversight when code was added by some
-architectures to set up ALL huge pages sizes.
+I think this one got lost in time. I don't see it in v5.6 or v5.7.
 
-Signed-off-by: Mike Kravetz <mike.kravetz@oracle.com>
-Acked-by: Mina Almasry <almasrymina@google.com>
-Reviewed-by: Peter Xu <peterx@redhat.com>
-Acked-by: Gerald Schaefer <gerald.schaefer@de.ibm.com>  [s390]
-Acked-by: Will Deacon <will@kernel.org>
----
- arch/arm64/mm/hugetlbpage.c   | 15 ---------------
- arch/powerpc/mm/hugetlbpage.c | 15 ---------------
- arch/riscv/mm/hugetlbpage.c   | 16 ----------------
- arch/s390/mm/hugetlbpage.c    | 18 ------------------
- arch/sparc/mm/init_64.c       | 22 ----------------------
- arch/x86/mm/hugetlbpage.c     | 16 ----------------
- include/linux/hugetlb.h       |  1 -
- mm/hugetlb.c                  | 23 +++++++++++++++++------
- 8 files changed, 17 insertions(+), 109 deletions(-)
+david
 
-diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
-index 069b96ee2aec..f706b821aba6 100644
---- a/arch/arm64/mm/hugetlbpage.c
-+++ b/arch/arm64/mm/hugetlbpage.c
-@@ -476,18 +476,3 @@ bool __init arch_hugetlb_valid_size(unsigned long size)
- 
- 	return false;
- }
--
--static __init int setup_hugepagesz(char *opt)
--{
--	unsigned long ps = memparse(opt, &opt);
--
--	if (arch_hugetlb_valid_size(ps)) {
--		add_huge_page_size(ps);
--		return 1;
--	}
--
--	hugetlb_bad_size();
--	pr_err("hugepagesz: Unsupported page size %lu K\n", ps >> 10);
--	return 0;
--}
--__setup("hugepagesz=", setup_hugepagesz);
-diff --git a/arch/powerpc/mm/hugetlbpage.c b/arch/powerpc/mm/hugetlbpage.c
-index de54d2a37830..2c3fa0a7787b 100644
---- a/arch/powerpc/mm/hugetlbpage.c
-+++ b/arch/powerpc/mm/hugetlbpage.c
-@@ -589,21 +589,6 @@ static int __init add_huge_page_size(unsigned long long size)
- 	return 0;
- }
- 
--static int __init hugepage_setup_sz(char *str)
--{
--	unsigned long long size;
--
--	size = memparse(str, &str);
--
--	if (add_huge_page_size(size) != 0) {
--		hugetlb_bad_size();
--		pr_err("Invalid huge page size specified(%llu)\n", size);
--	}
--
--	return 1;
--}
--__setup("hugepagesz=", hugepage_setup_sz);
--
- static int __init hugetlbpage_init(void)
- {
- 	bool configured = false;
-diff --git a/arch/riscv/mm/hugetlbpage.c b/arch/riscv/mm/hugetlbpage.c
-index da1f516bc451..4e5d7e9f0eef 100644
---- a/arch/riscv/mm/hugetlbpage.c
-+++ b/arch/riscv/mm/hugetlbpage.c
-@@ -22,22 +22,6 @@ bool __init arch_hugetlb_valid_size(unsigned long size)
- 		return false;
- }
- 
--static __init int setup_hugepagesz(char *opt)
--{
--	unsigned long ps = memparse(opt, &opt);
--
--	if (arch_hugetlb_valid_size(ps)) {
--		hugetlb_add_hstate(ilog2(ps) - PAGE_SHIFT);
--		return 1;
--	}
--
--	hugetlb_bad_size();
--	pr_err("hugepagesz: Unsupported page size %lu M\n", ps >> 20);
--	return 0;
--
--}
--__setup("hugepagesz=", setup_hugepagesz);
--
- #ifdef CONFIG_CONTIG_ALLOC
- static __init int gigantic_pages_init(void)
- {
-diff --git a/arch/s390/mm/hugetlbpage.c b/arch/s390/mm/hugetlbpage.c
-index ac25b207624c..242dfc0d462d 100644
---- a/arch/s390/mm/hugetlbpage.c
-+++ b/arch/s390/mm/hugetlbpage.c
-@@ -261,24 +261,6 @@ bool __init arch_hugetlb_valid_size(unsigned long size)
- 		return false;
- }
- 
--static __init int setup_hugepagesz(char *opt)
--{
--	unsigned long size;
--	char *string = opt;
--
--	size = memparse(opt, &opt);
--	if (arch_hugetlb_valid_size(size)) {
--		hugetlb_add_hstate(ilog2(size) - PAGE_SHIFT);
--	} else {
--		hugetlb_bad_size();
--		pr_err("hugepagesz= specifies an unsupported page size %s\n",
--			string);
--		return 0;
--	}
--	return 1;
--}
--__setup("hugepagesz=", setup_hugepagesz);
--
- static unsigned long hugetlb_get_unmapped_area_bottomup(struct file *file,
- 		unsigned long addr, unsigned long len,
- 		unsigned long pgoff, unsigned long flags)
-diff --git a/arch/sparc/mm/init_64.c b/arch/sparc/mm/init_64.c
-index 2bfe8e22b706..4618f96fd30f 100644
---- a/arch/sparc/mm/init_64.c
-+++ b/arch/sparc/mm/init_64.c
-@@ -397,28 +397,6 @@ bool __init arch_hugetlb_valid_size(unsigned long size)
- 
- 	return true;
- }
--
--static int __init setup_hugepagesz(char *string)
--{
--	unsigned long long hugepage_size;
--	int rc = 0;
--
--	hugepage_size = memparse(string, &string);
--
--	if (!arch_hugetlb_valid_size((unsigned long)hugepage_size)) {
--		hugetlb_bad_size();
--		pr_err("hugepagesz=%llu not supported by MMU.\n",
--			hugepage_size);
--		goto out;
--	}
--
--	add_huge_page_size(hugepage_size);
--	rc = 1;
--
--out:
--	return rc;
--}
--__setup("hugepagesz=", setup_hugepagesz);
- #endif	/* CONFIG_HUGETLB_PAGE */
- 
- void update_mmu_cache(struct vm_area_struct *vma, unsigned long address, pte_t *ptep)
-diff --git a/arch/x86/mm/hugetlbpage.c b/arch/x86/mm/hugetlbpage.c
-index 1c4372bfe782..937d640a89e3 100644
---- a/arch/x86/mm/hugetlbpage.c
-+++ b/arch/x86/mm/hugetlbpage.c
-@@ -191,22 +191,6 @@ bool __init arch_hugetlb_valid_size(unsigned long size)
- 		return false;
- }
- 
--static __init int setup_hugepagesz(char *opt)
--{
--	unsigned long ps = memparse(opt, &opt);
--
--	if (arch_hugetlb_valid_size(ps)) {
--		hugetlb_add_hstate(ilog2(ps) - PAGE_SHIFT);
--	} else {
--		hugetlb_bad_size();
--		printk(KERN_ERR "hugepagesz: Unsupported page size %lu M\n",
--			ps >> 20);
--		return 0;
--	}
--	return 1;
--}
--__setup("hugepagesz=", setup_hugepagesz);
--
- #ifdef CONFIG_CONTIG_ALLOC
- static __init int gigantic_pages_init(void)
- {
-diff --git a/include/linux/hugetlb.h b/include/linux/hugetlb.h
-index 2eb15f5ab01e..0c13706054ef 100644
---- a/include/linux/hugetlb.h
-+++ b/include/linux/hugetlb.h
-@@ -519,7 +519,6 @@ int huge_add_to_page_cache(struct page *page, struct address_space *mapping,
- int __init __alloc_bootmem_huge_page(struct hstate *h);
- int __init alloc_bootmem_huge_page(struct hstate *h);
- 
--void __init hugetlb_bad_size(void);
- void __init hugetlb_add_hstate(unsigned order);
- bool __init arch_hugetlb_valid_size(unsigned long size);
- struct hstate *size_to_hstate(unsigned long size);
-diff --git a/mm/hugetlb.c b/mm/hugetlb.c
-index 63ca4241ea87..6a8454bc2917 100644
---- a/mm/hugetlb.c
-+++ b/mm/hugetlb.c
-@@ -3262,12 +3262,6 @@ bool __init __attribute((weak)) arch_hugetlb_valid_size(unsigned long size)
- 	return size == HPAGE_SIZE;
- }
- 
--/* Should be called on processing a hugepagesz=... option */
--void __init hugetlb_bad_size(void)
--{
--	parsed_valid_hugepagesz = false;
--}
--
- void __init hugetlb_add_hstate(unsigned int order)
- {
- 	struct hstate *h;
-@@ -3337,6 +3331,23 @@ static int __init hugetlb_nrpages_setup(char *s)
- }
- __setup("hugepages=", hugetlb_nrpages_setup);
- 
-+static int __init hugepagesz_setup(char *s)
-+{
-+	unsigned long size;
-+
-+	size = (unsigned long)memparse(s, NULL);
-+
-+	if (!arch_hugetlb_valid_size(size)) {
-+		parsed_valid_hugepagesz = false;
-+		pr_err("HugeTLB: unsupported hugepagesz %s\n", s);
-+		return 0;
-+	}
-+
-+	hugetlb_add_hstate(ilog2(size) - PAGE_SHIFT);
-+	return 1;
-+}
-+__setup("hugepagesz=", hugepagesz_setup);
-+
- static int __init default_hugepagesz_setup(char *s)
- {
- 	unsigned long size;
--- 
-2.25.4
-
+On Fri, Mar 13, 2020 at 8:03 AM Yash Shah <yash.shah@sifive.com> wrote:
+>
+> Any comments or updates on this series?
+>
+> - Yash
+>
+> > -----Original Message-----
+> > From: Yash Shah <yash.shah@sifive.com>
+> > Sent: 20 February 2020 10:45
+> > To: palmer@dabbelt.com; Paul Walmsley ( Sifive)
+> > <paul.walmsley@sifive.com>
+> > Cc: aou@eecs.berkeley.edu; anup@brainfault.org;
+> > gregkh@linuxfoundation.org; alexios.zavras@intel.com; tglx@linutronix.de;
+> > bp@suse.de; linux-riscv@lists.infradead.org; linux-kernel@vger.kernel.org;
+> > Sachin Ghadi <sachin.ghadi@sifive.com>; Yash Shah
+> > <yash.shah@sifive.com>
+> > Subject: [PATCH v5 0/2] cacheinfo support to read no. of L2 cache ways
+> > enabled
+> >
+> > The patchset includes 2 patches. Patch 1 implements cache_get_priv_group
+> > which make use of a generic ops structure to return a private attribute group
+> > for custom cacheinfo. Patch 2 implements a private attribute named
+> > "number_of_ways_enabled" in the cacheinfo framework. Reading this
+> > attribute returns the number of L2 cache ways enabled at runtime,
+> >
+> > This patchset is based on Linux v5.6-rc2 and tested on HiFive Unleashed
+> > board.
+> >
+> > v5:
+> > - Since WayEnable is 8bits, mask out and return only the last 8 bit in
+> >   l2_largest_wayenabled()
+> > - Rebased on Linux v5.6-rc2
+> >
+> > v4:
+> > - Rename "sifive_l2_largest_wayenabled" to "l2_largest_wayenabled" and
+> >   make it a static function
+> >
+> > v3:
+> > - As per Anup Patel's suggestion[0], implement a new approach which uses
+> >   generic ops structure. Hence addition of patch 1 to this series and
+> >   corresponding changes to patch 2.
+> > - Dropped "riscv: dts: Add DT support for SiFive L2 cache controller"
+> >   patch since it is already merged
+> > - Rebased on Linux v5.5-rc6
+> >
+> > Changes in v2:
+> > - Rebase the series on v5.5-rc3
+> > - Remove the reserved-memory node from DT
+> >
+> > [0]: https://lore.kernel.org/linux-
+> > riscv/CAAhSdy0CXde5s_ya=4YvmA4UQ5f5gLU-
+> > Z_FaOr8LPni+s_615Q@mail.gmail.com/
+> >
+> > Yash Shah (2):
+> >   riscv: cacheinfo: Implement cache_get_priv_group with a generic ops
+> >     structure
+> >   riscv: Add support to determine no. of L2 cache way enabled
+> >
+> >  arch/riscv/include/asm/cacheinfo.h   | 15 ++++++++++++++
+> >  arch/riscv/kernel/cacheinfo.c        | 17 ++++++++++++++++
+> >  drivers/soc/sifive/sifive_l2_cache.c | 38
+> > ++++++++++++++++++++++++++++++++++++
+> >  3 files changed, 70 insertions(+)
+> >  create mode 100644 arch/riscv/include/asm/cacheinfo.h
+> >
+> > --
+> > 2.7.4
+>
+>
 
