@@ -2,66 +2,51 @@ Return-Path: <SRS0=owx/=6N=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EAA5EC83003
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 29 Apr 2020 12:16:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3BE9AC83000
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 29 Apr 2020 14:17:18 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B434B21D7A
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 29 Apr 2020 12:16:51 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 0ED43206B8
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 29 Apr 2020 14:17:18 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="lUu3FbPq";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="WoeR0IMj"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B434B21D7A
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="nwUBsLqn"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0ED43206B8
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hbk7/hzpG5afATkzOcU5bw28WrDjBkFAS/aygYpRebs=; b=lUu3FbPqwbL1vU
-	HaxoOKNHIN8G+0w3ASuXQFVjmUhZugnEvxz75+ynpJVzN/UluxFKbGAx6aWdNucaRKqeGSLKGFN+Z
-	5Lhy8m1IW75WevYnUSbQjK585ehE9weJlJZ+1XS8g/6VjoDkmwvDSlPs+O4D8uVRhTzBraCKjJJXl
-	1SGunCvD6r05XIr6Mpit1INMjMBw+Of/Ju5PsOu3yvXpIdzcWHGaJCLscVlNeWbQpJ9dy15K0J7ij
-	e2XSQErfk99CKW095SoGcWyQgBJOj+WHTeJjQLUMZvB7lfT/YekqQ8CwcUsbjnskN/OCf8PAE/1y7
-	LJgpVUoxqDbUsftqwymQ==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=ikRp1jMR1EzFxoc+o3VOCA2gMw8FZkS2U5Oi/2AUBbY=; b=nwUBsLqnBfehNoqAxyKtVXqIW
+	Ai5ZKhafIQB2SNGLN8IPlVy03ZFOJDK2OMFUqTrF3TJC9WIff1phE71hWMIXNHYaZFU0CxC04JUvh
+	1WnCy0y7CSlKHYI5v1jzBbkdo64U3wFfsEm3fIkuWxuAMJFz+prw0j8ob9JKtWiBcgDkpycmSUknu
+	RpwThCOTOZebVEBVacwQBymjK5eeZD3oX7fSYwRqN09AZKgxoHrBuAzvrUuGasO1kEceKj7TGG9a7
+	3ubBv+n+xC3SK0+XRypmKJx+Mbv8AOcusYae0YBelYtP5MhEuQ+W5/+cNKQLohKc9l9oTWiQTmUxy
+	rDj3xcvGQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jTldw-0004R4-Bd; Wed, 29 Apr 2020 12:16:48 +0000
-Received: from mail.kernel.org ([198.145.29.99])
- by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jTldt-0004Pj-8z; Wed, 29 Apr 2020 12:16:46 +0000
-Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 72BB621D7B;
- Wed, 29 Apr 2020 12:16:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1588162604;
- bh=vSBPyOKwrmQNqt7kyNkBHr9JqpNBLG1f44P+yYUwAD0=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=WoeR0IMjhESnMKZLgeFQpYaSM1Q0137VRdB9oM2DfU/SAAkdUyrTXqjy5uqkDMB4w
- A8OD0E3zWwQv5BZXvU0pC1x6W2MSkHROGVWsKhh68IOVd1n7tuhS5R+cHwtxzXCZoH
- XZaE67z9A52A2FknRpk/21Qqx9xMcUu4+BgH8q4Q=
-From: Mike Rapoport <rppt@kernel.org>
-To: linux-kernel@vger.kernel.org
-Subject: [PATCH v2 20/20] docs/vm: update memory-models documentation
-Date: Wed, 29 Apr 2020 15:11:26 +0300
-Message-Id: <20200429121126.17989-21-rppt@kernel.org>
-X-Mailer: git-send-email 2.26.1
-In-Reply-To: <20200429121126.17989-1-rppt@kernel.org>
+	id 1jTnWV-0001a5-2V; Wed, 29 Apr 2020 14:17:15 +0000
+Received: from hch by bombadil.infradead.org with local (Exim 4.92.3 #3 (Red
+ Hat Linux)) id 1jTnWM-0001Yh-RC; Wed, 29 Apr 2020 14:17:06 +0000
+Date: Wed, 29 Apr 2020 07:17:06 -0700
+From: Christoph Hellwig <hch@infradead.org>
+To: Mike Rapoport <rppt@kernel.org>
+Subject: Re: [PATCH v2 16/20] mm: remove early_pfn_in_nid() and
+ CONFIG_NODES_SPAN_OTHER_NODES
+Message-ID: <20200429141706.GA25142@infradead.org>
 References: <20200429121126.17989-1-rppt@kernel.org>
+ <20200429121126.17989-17-rppt@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200429_051645_363861_6A10F7FD 
-X-CRM114-Status: GOOD (  11.23  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20200429121126.17989-17-rppt@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -75,68 +60,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: Rich Felker <dalias@libc.org>, linux-ia64@vger.kernel.org,
  linux-doc@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
- Heiko Carstens <heiko.carstens@de.ibm.com>, Michal Hocko <mhocko@kernel.org>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Heiko Carstens <heiko.carstens@de.ibm.com>, x86@kernel.org,
+ Michal Hocko <mhocko@kernel.org>,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
  Max Filippov <jcmvbkbc@gmail.com>, Guo Ren <guoren@kernel.org>,
- linux-csky@vger.kernel.org, linux-parisc@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-hexagon@vger.kernel.org,
- linux-riscv@lists.infradead.org, Mike Rapoport <rppt@linux.ibm.com>,
- Greg Ungerer <gerg@linux-m68k.org>, linux-arch@vger.kernel.org,
- linux-s390@vger.kernel.org, linux-c6x-dev@linux-c6x.org,
- Baoquan He <bhe@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
- linux-sh@vger.kernel.org, Michael Ellerman <mpe@ellerman.id.au>,
- Helge Deller <deller@gmx.de>, x86@kernel.org,
- Russell King <linux@armlinux.org.uk>, Ley Foon Tan <ley.foon.tan@intel.com>,
- Yoshinori Sato <ysato@users.sourceforge.jp>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- linux-arm-kernel@lists.infradead.org, Mark Salter <msalter@redhat.com>,
+ Ley Foon Tan <ley.foon.tan@intel.com>, sparclinux@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Greg Ungerer <gerg@linux-m68k.org>,
+ linux-arch@vger.kernel.org, linux-s390@vger.kernel.org,
+ linux-c6x-dev@linux-c6x.org, Baoquan He <bhe@redhat.com>,
+ Jonathan Corbet <corbet@lwn.net>, linux-hexagon@vger.kernel.org,
+ Helge Deller <deller@gmx.de>, linux-sh@vger.kernel.org,
+ Russell King <linux@armlinux.org.uk>, linux-csky@vger.kernel.org,
+ Mike Rapoport <rppt@linux.ibm.com>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ Hoan Tran <Hoan@os.amperecomputing.com>, Mark Salter <msalter@redhat.com>,
  Matt Turner <mattst88@gmail.com>, linux-snps-arc@lists.infradead.org,
  uclinux-h8-devel@lists.sourceforge.jp, linux-xtensa@linux-xtensa.org,
- linux-alpha@vger.kernel.org, linux-um@lists.infradead.org,
- linux-m68k@lists.linux-m68k.org, Tony Luck <tony.luck@intel.com>,
- Qian Cai <cai@lca.pw>, Greentime Hu <green.hu@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Stafford Horne <shorne@gmail.com>,
- Guan Xuetao <gxt@pku.edu.cn>, Hoan Tran <Hoan@os.amperecomputing.com>,
- Michal Simek <monstr@monstr.eu>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Brian Cain <bcain@codeaurora.org>, Nick Hu <nickhu@andestech.com>,
- linux-mm@kvack.org, Vineet Gupta <vgupta@synopsys.com>,
- linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
- Richard Weinberger <richard@nod.at>, Andrew Morton <akpm@linux-foundation.org>,
+ Nick Hu <nickhu@andestech.com>, linux-um@lists.infradead.org,
+ linux-mips@vger.kernel.org, Richard Weinberger <richard@nod.at>,
+ linux-m68k@lists.linux-m68k.org,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Qian Cai <cai@lca.pw>,
+ Greentime Hu <green.hu@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Stafford Horne <shorne@gmail.com>, Guan Xuetao <gxt@pku.edu.cn>,
+ linux-arm-kernel@lists.infradead.org, Michal Simek <monstr@monstr.eu>,
+ Tony Luck <tony.luck@intel.com>, Yoshinori Sato <ysato@users.sourceforge.jp>,
+ linux-parisc@vger.kernel.org, linux-mm@kvack.org,
+ Vineet Gupta <vgupta@synopsys.com>, Brian Cain <bcain@codeaurora.org>,
+ linux-kernel@vger.kernel.org, openrisc@lists.librecores.org,
+ linux-alpha@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
  linuxppc-dev@lists.ozlabs.org, "David S. Miller" <davem@davemloft.net>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Mike Rapoport <rppt@linux.ibm.com>
+On Wed, Apr 29, 2020 at 03:11:22PM +0300, Mike Rapoport wrote:
+> From: Mike Rapoport <rppt@linux.ibm.com>
+> 
+> The commit f47ac088c406 ("mm: memmap_init: iterate over memblock regions
+> rather that check each PFN") made early_pfn_in_nid() obsolete and since
+> CONFIG_NODES_SPAN_OTHER_NODES is only used to pick a stub or a real
+> implementation of early_pfn_in_nid() it is also not needed anymore.
 
-to reflect the updates to free_area_init() family of functions.
-
-Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
----
- Documentation/vm/memory-model.rst | 9 ++++-----
- 1 file changed, 4 insertions(+), 5 deletions(-)
-
-diff --git a/Documentation/vm/memory-model.rst b/Documentation/vm/memory-model.rst
-index 58a12376b7df..91228044ed16 100644
---- a/Documentation/vm/memory-model.rst
-+++ b/Documentation/vm/memory-model.rst
-@@ -46,11 +46,10 @@ maps the entire physical memory. For most architectures, the holes
- have entries in the `mem_map` array. The `struct page` objects
- corresponding to the holes are never fully initialized.
- 
--To allocate the `mem_map` array, architecture specific setup code
--should call :c:func:`free_area_init_node` function or its convenience
--wrapper :c:func:`free_area_init`. Yet, the mappings array is not
--usable until the call to :c:func:`memblock_free_all` that hands all
--the memory to the page allocator.
-+To allocate the `mem_map` array, architecture specific setup code should
-+call :c:func:`free_area_init` function. Yet, the mappings array is not
-+usable until the call to :c:func:`memblock_free_all` that hands all the
-+memory to the page allocator.
- 
- If an architecture enables `CONFIG_ARCH_HAS_HOLES_MEMORYMODEL` option,
- it may free parts of the `mem_map` array that do not cover the
--- 
-2.26.1
-
+I don't think you can quote a commit id for something that hasn't been
+commited to mainline yet.  Then again I would have just merged this
+patch into the one that obsoleted early_pfn_in_nid anyway.
 
