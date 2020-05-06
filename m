@@ -2,84 +2,79 @@ Return-Path: <SRS0=sWS1=6U=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.5 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D5085C28CBC
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 May 2020 07:08:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4216DC4724C
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 May 2020 07:27:08 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A7D0420721
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 May 2020 07:08:40 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 1836420721
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 May 2020 07:27:08 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="p4G8+nyc";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="FLnYnHqJ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A7D0420721
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="geYUgwpe"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1836420721
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i1McQv5JxS+S3dpHPfoR+SRFx7AO1GcGwXm3Mh9ZmIw=; b=p4G8+nycYkvU7J
-	DMqtAdPKogo3sEySSm/ih+WQLFAYDS2hUyedq1E+hLgVQE7gp5ylEqpPbv03wA4cZhUbyWLVFO0vj
-	DruTr2NJYgdeXIKVA6KHdnEMEYqhUWM695ev7KghhzekCa+hVHGQfeQfAlZXlHukR7RAt4oa1FXKx
-	fgX0/ya/hQHy1PMbTcHfAt5Z71J3omQGIdI9GOkDJnyNqsVw99LeYreq0u3hS/6pmOlV1YsXBuA6f
-	xalD/rR6W5/ANZmbXK5s1oZ0LpXGRB8AkzWVmHgnOsHtmXHumBopyDeMCCr0HhywLK0WKsQefl/UV
-	pmpQ0y8G5zhBBZuClYow==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	MIME-Version:Message-ID:In-Reply-To:Date:References:Subject:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=nsLaH/YKDOzbyAfCRCFWuHYo4aY2b7KrvZtULVhYF9E=; b=geYUgwpeBeKHchUNu5KK7acTQ
+	bNy3T1OKtsGPn+K55DCXjLu5a28Q77prSyL0ElBwfyNDLQqk8z5x0WrkbdIhTzjRII1M4vMHmIu2B
+	/T1LdUXNx60wC0sdVKcFJ9Uhp5CenDZ1BN0zLyfNBGtyOgJtPO918NPkSI1cWCD/8OvhaSmFPTKcz
+	4qcGIZn0EoCVXFGJlDdfCT4AhKw4NSUGAwQ8lCCXdAOwhHpNeLvOVNN0bRzslH8YPoBGWUaW0uJyT
+	DU6i2rhQ8iru1xXgu2RcxnbXljEYoyoA2OHqJoOsMRmacRWkpq7+obQj4UKj4epRsoLdZtqDgQXgX
+	te2CCe3dQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jWEAZ-0008Ot-LW; Wed, 06 May 2020 07:08:39 +0000
-Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
+	id 1jWESJ-0005XI-1K; Wed, 06 May 2020 07:26:59 +0000
+Received: from mail-out.m-online.net ([212.18.0.10])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jWEAX-0008Mu-3f
- for linux-riscv@lists.infradead.org; Wed, 06 May 2020 07:08:38 +0000
-Received: by mail-wm1-x343.google.com with SMTP id x4so1309360wmj.1
- for <linux-riscv@lists.infradead.org>; Wed, 06 May 2020 00:08:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=i1McQv5JxS+S3dpHPfoR+SRFx7AO1GcGwXm3Mh9ZmIw=;
- b=FLnYnHqJH1U3gU09Sqx/ZBdsyli2VND4iZgspbc9VISSBTT3y17lgp5dXe4LxMa81+
- md7sot+kcTyCqcu6EeTMAt+0L0RSrhzzaZ4jQgttSiZnI/geHJzSEYoGJCsyx/LFb+7l
- 7eTHJKjUzfChc54f6iBO9xmmVE6VudIAtGAgwdD24JErTkCb8gUWQrfj6rViGZ2T4h9I
- 74bqVkmvA4qIHe9VW30CK3fvIsnh0d3FkTw0PPEuMwxasv3hi0HwiZClysYya7VZ23ym
- 0edoLm+0RDqUPgNpZCzrnY08bARddy+4zf3/0ZYjSQE1lklzrXFIUpfRPOxCipSizBvL
- WpjQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=i1McQv5JxS+S3dpHPfoR+SRFx7AO1GcGwXm3Mh9ZmIw=;
- b=V+FXxBp2oOTWkwvo3EU5L29tlBoBHjs0JTMWjGzRfOWhBQlJm1JGyktOup8xP3Y9Uo
- zkJ4NXj9fD3xs1GQ2ess3BBhnbvrZRga/Ly7gLPGPnINP3vt5v4XXs0BPQ6Ua8FO1nWq
- I23eJIhLD18m4J6DBQ0mufXnvrtScBxRi1x5umaDvXe0OpbH9YDN6ThtwgpzQ/FDVtJ6
- WX+UgAdX9kPF3iSMIwrh8xedVKNIqM/qymj97rbjzYFgjqHuRSw1kWYOdSypo4F6MiDu
- zKprmJFDqGiWYftLz9GDqrTK+8X0xBkoj+4bplQEAK/PJlkhpxzD1+mgrsOIdpPIKU4C
- wzYg==
-X-Gm-Message-State: AGi0Pua03PzgXDZPtGu8bWNKtz+vE6dGstxg4RuLGDNLXVrEzfRVpNFT
- KunjLJcsOPrAJH0fSL+PVKaavTqHZ31sa4s1W7k=
-X-Google-Smtp-Source: APiQypLonxc2SJgZ3t+ABye4ETFW+KuYGgzgoiH27uLerIQZ3u+pO2iInq911uZepzHOpZi9JGpmgKNSZrBBZK/DNrc=
-X-Received: by 2002:a1c:6787:: with SMTP id b129mr2820878wmc.165.1588748912923; 
- Wed, 06 May 2020 00:08:32 -0700 (PDT)
+ id 1jWESA-0005PC-AV; Wed, 06 May 2020 07:26:51 +0000
+Received: from frontend01.mail.m-online.net (unknown [192.168.8.182])
+ by mail-out.m-online.net (Postfix) with ESMTP id 49H7Sj70s3z1rx7x;
+ Wed,  6 May 2020 09:26:45 +0200 (CEST)
+Received: from localhost (dynscan1.mnet-online.de [192.168.6.70])
+ by mail.m-online.net (Postfix) with ESMTP id 49H7Sj52Hxz1qqkL;
+ Wed,  6 May 2020 09:26:45 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at mnet-online.de
+Received: from mail.mnet-online.de ([192.168.8.182])
+ by localhost (dynscan1.mail.m-online.net [192.168.6.70]) (amavisd-new,
+ port 10024)
+ with ESMTP id LgHs-hPbv2Fl; Wed,  6 May 2020 09:26:44 +0200 (CEST)
+X-Auth-Info: 2z9cDoItip41685WZkAmKeL5Dft+6xIYW+Pc0QNYXAd0dhdAMI46HXdeyiZo6LBw
+Received: from igel.home (ppp-46-244-183-249.dynamic.mnet-online.de
+ [46.244.183.249])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.mnet-online.de (Postfix) with ESMTPSA;
+ Wed,  6 May 2020 09:26:44 +0200 (CEST)
+Received: by igel.home (Postfix, from userid 1000)
+ id 1B3342C0D4E; Wed,  6 May 2020 09:26:44 +0200 (CEST)
+From: Andreas Schwab <schwab@linux-m68k.org>
+To: Anup Patel <anup@brainfault.org>
+Subject: Re: [PATCH 1/2] riscv: defconfig: enable spi nor on Hifive
+ Unleashed A00 board.
+References: <BN8PR13MB2611968A7252308925FF18B399A70@BN8PR13MB2611.namprd13.prod.outlook.com>
+ <mhng-29e22ca7-538a-4094-923f-8fbc0fd327b9@palmerdabbelt-glaptop1>
+ <BYAPR13MB2614FE811C8DD83BBDD3A26599A40@BYAPR13MB2614.namprd13.prod.outlook.com>
+ <CAAhSdy2-ECrOP=kZOTXxj1t+f8NrcYjbXKDRwPB3KU36mDmWWg@mail.gmail.com>
+X-Yow: I feel like I'm in a Toilet Bowl with a thumbtack in my forehead!!
+Date: Wed, 06 May 2020 09:26:44 +0200
+In-Reply-To: <CAAhSdy2-ECrOP=kZOTXxj1t+f8NrcYjbXKDRwPB3KU36mDmWWg@mail.gmail.com>
+ (Anup Patel's message of "Wed, 6 May 2020 10:39:39 +0530")
+Message-ID: <87d07h8qx7.fsf@igel.home>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/27.0.91 (gnu/linux)
 MIME-Version: 1.0
-References: <20200506000320.28965-1-luke.r.nels@gmail.com>
-In-Reply-To: <20200506000320.28965-1-luke.r.nels@gmail.com>
-From: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>
-Date: Wed, 6 May 2020 09:08:21 +0200
-Message-ID: <CAJ+HfNgbuBoMTrU+TM3JCd1stEM1Zi3hG5k=PazT=CxAWa4wBQ@mail.gmail.com>
-Subject: Re: [PATCH bpf-next 0/4] RV64 BPF JIT Optimizations
-To: Luke Nelson <lukenels@cs.washington.edu>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200506_000837_153398_DA7C713B 
-X-CRM114-Status: UNSURE (   9.99  )
+X-CRM114-CacheID: sfid-20200506_002650_512462_D6126939 
+X-CRM114-Status: UNSURE (   8.57  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -92,50 +87,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Song Liu <songliubraving@fb.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Daniel Borkmann <daniel@iogearbox.net>, Luke Nelson <luke.r.nels@gmail.com>,
- Netdev <netdev@vger.kernel.org>, John Fastabend <john.fastabend@gmail.com>,
- Alexei Starovoitov <ast@kernel.org>, linux-riscv@lists.infradead.org,
- LKML <linux-kernel@vger.kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, KP Singh <kpsingh@chromium.org>,
- Yonghong Song <yhs@fb.com>, bpf <bpf@vger.kernel.org>,
- Andrii Nakryiko <andriin@fb.com>, Martin KaFai Lau <kafai@fb.com>,
- Xi Wang <xi.wang@gmail.com>
+Cc: "vigneshr@ti.com" <vigneshr@ti.com>,
+ "tudor.ambarus@microchip.com" <tudor.ambarus@microchip.com>,
+ "richard@nod.at" <richard@nod.at>,
+ "miquel.raynal@bootlin.com" <miquel.raynal@bootlin.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Sagar Kadam <sagar.kadam@sifive.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ "linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 6 May 2020 at 02:03, Luke Nelson <lukenels@cs.washington.edu> wrote=
-:
->
-> This patch series introduces a set of optimizations to the BPF JIT
-> on RV64. The optimizations are related to the verifier zero-extension
-> optimization and BPF_JMP BPF_K.
->
-> We tested the optimizations on a QEMU riscv64 virt machine, using
-> lib/test_bpf and test_verifier, and formally verified their correctness
-> using Serval.
->
+On Mai 06 2020, Anup Patel wrote:
 
-Luke and Xi,
+> We had build issues in past by selecting major driver subsystems
+> in Kconfig.socs
+>
+> I suggest to select SPI_SIFIVE from Kconfig.socs
 
-Thanks a lot for working on this! Very nice series!
+SPI_SIFIVE can be m, don't override that.
 
-For the series:
-Reviewed-by: Bj=C3=B6rn T=C3=B6pel <bjorn.topel@gmail.com>
-Acked-by: Bj=C3=B6rn T=C3=B6pel <bjorn.topel@gmail.com>
+Andreas.
 
-> Luke Nelson (4):
->   bpf, riscv: Enable missing verifier_zext optimizations on RV64
->   bpf, riscv: Optimize FROM_LE using verifier_zext on RV64
->   bpf, riscv: Optimize BPF_JMP BPF_K when imm =3D=3D 0 on RV64
->   bpf, riscv: Optimize BPF_JSET BPF_K using andi on RV64
->
->  arch/riscv/net/bpf_jit_comp64.c | 64 ++++++++++++++++++++++-----------
->  1 file changed, 44 insertions(+), 20 deletions(-)
->
-> Cc: Xi Wang <xi.wang@gmail.com>
->
-> --
-> 2.17.1
->
+-- 
+Andreas Schwab, schwab@linux-m68k.org
+GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
+"And now for something completely different."
 
