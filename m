@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 28C63C47254
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 May 2020 00:03:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7C3ECC47247
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 May 2020 00:03:45 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id F096C20721
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 May 2020 00:03:40 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2BC2820721
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 May 2020 00:03:45 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pAgCUoK8";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=cs.washington.edu header.i=@cs.washington.edu header.b="WWgQHX+Y"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F096C20721
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="W5+YX+yG";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=cs.washington.edu header.i=@cs.washington.edu header.b="I6cMHC4+"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2BC2820721
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=cs.washington.edu
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,64 +26,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:MIME-Version:
 	Content-Type:Content-Transfer-Encoding:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Id4q2WjCYOrW61i2K14Kt2NNedsMqfC6xR/4pooTMDs=; b=pAgCUoK8FSKAd4
-	GGe9nUAlrFJpmi4Yc2GS5R9GZ9nwcn393Ynvf1QTYHM+Vk6AC9eLDuSCrkKcAtDrHwovl4DHm55b8
-	zaTpJPmd3yS/DiSKz7e/x6Wa/Gnog66LNz5EGYhZoaBSyCNejFszdZsRR8Vtc1dNlXdysTn77uGDq
-	PlGBlHqK8b4Qwn/sM7F5TomfKUJSxA9BRmohcsbIzNzDHzbk8dc1xwAIlKyCj71C+huzhkTDN7q7Y
-	FxvZZ95XvJQVz3OKcEXmg7czIS5v6tv6x8jvG1xWkMdtZ3fS2IgJQwSX5GrUMVi0b1l+8RgJ9Z97o
-	PaJ+03Jk4dBvO3ByQ/AQ==;
+	List-Owner; bh=lz68WQXWqBJ9Ra70jP1k6TPdklvjro5he/Cgs5XKfJQ=; b=W5+YX+yG12mNKq
+	RI4hKDs6zloLm9ODQ/U3wuHQR0VaUIIS6BBfAe6x+OIRRmbTDempOhrhZaOIBB2os0KR0VbrTM196
+	PuYct7LUwzcioIJCjs875m0QOvf37hV1OIaHCjQeN5XYLrdwPcyIrWBpiDq5qdbddye4LVICf4s5l
+	mlrWmgLLrq0d75mP7dxIocqrUA6NofIbyfJBC/XnxKWT2VsPmhs2QC2WYY9/abibeQ/NL3UkZUxgZ
+	rinlWelvQeC4bcoclqGPwA0xy2w9DMKZXqtcqLt/3eIO8kg8Uh3w5IZHTbSjMwNPPCZdlxqs1UgQe
+	V6f1D1+hcAuDAgDJpeiw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jW7XF-0007jE-6T; Wed, 06 May 2020 00:03:37 +0000
+	id 1jW7XJ-0007ps-79; Wed, 06 May 2020 00:03:41 +0000
 Received: from mail-pj1-x1043.google.com ([2607:f8b0:4864:20::1043])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jW7XB-0007eF-AE
- for linux-riscv@lists.infradead.org; Wed, 06 May 2020 00:03:34 +0000
-Received: by mail-pj1-x1043.google.com with SMTP id t40so6069pjb.3
- for <linux-riscv@lists.infradead.org>; Tue, 05 May 2020 17:03:32 -0700 (PDT)
+ id 1jW7XC-0007fl-CO
+ for linux-riscv@lists.infradead.org; Wed, 06 May 2020 00:03:35 +0000
+Received: by mail-pj1-x1043.google.com with SMTP id 7so1764033pjo.0
+ for <linux-riscv@lists.infradead.org>; Tue, 05 May 2020 17:03:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=cs.washington.edu; s=goo201206;
  h=from:to:cc:subject:date:message-id:in-reply-to:references;
- bh=Id4q2WjCYOrW61i2K14Kt2NNedsMqfC6xR/4pooTMDs=;
- b=WWgQHX+Y4p9hK1G/FEcHNTzvkaxWU0KQ8imb0c+RIKk5ZSkTMKVkHpqsV715tijoGT
- Z80hmH950M3h4QaqBw3xqEQI7fMdRBGHEKkN82NyEi9jO1C8Z9hczLrQpMZT6/QJ6stu
- UHfCqrxFw4PhETIA/3OdRRpCBlXcKXHPGGpyQ=
+ bh=lz68WQXWqBJ9Ra70jP1k6TPdklvjro5he/Cgs5XKfJQ=;
+ b=I6cMHC4+vQAr4egLJrgK3OkC44xCth/N7aOfzAvQ88GNlC28skwjZIiOcQKwNKba/m
+ FVZ8YHUtKiebf9iWuSRXzYTau4g4wEt2ut7eFApIaIPTmqwz9OgkAAmccDhLYdh7GSgL
+ udtSxu3Cbv9CJiLBN6cTo0VwR1ottraN5dnR0=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references;
- bh=Id4q2WjCYOrW61i2K14Kt2NNedsMqfC6xR/4pooTMDs=;
- b=QyJUuigsavyBisA9ap77mgp3Nf1JsOyjmFSlJaBanxA8WWgqQkOU2UzhX/EdK/PcWP
- vWl35UNFG+lPwmfR9Yml37G7Qr+luL0sS/lowQdF0/L1HFiuT/ci3NB7udbH/XHGkJvq
- tn708hNhW5Bao5g2pwbCFIEMxRM8vF7AwK8wa53Ev2+BDRF3yTGFLzHBfBQdXDVuXNEk
- ZahUWOELSIr9ApmnuGcttspaKjnVKBhdmL9lk5759JePQrAtQOFkbUdzWMZ2HBTic1ms
- cZo60NMBbWhfUiI5bhxfJtwfF18ejz/+GrtDH32UGGqJYbsuzbxP3iL3VMX71BKygBKw
- OK/g==
-X-Gm-Message-State: AGi0Pua8+Yu7YEVE6GiNHBDJI0hrxM3+eciBIovQAali2rI9vIWcngm4
- 3WIPirZsfMDpovwrRO63i+AiHA==
-X-Google-Smtp-Source: APiQypIGsXA7WERwt6mP7MtumZ6T6wthtsmMazY24L57aiRfQ7umVKhw5qH3l242C3V99Jnj+CTRdw==
-X-Received: by 2002:a17:90b:3751:: with SMTP id
- ne17mr5833508pjb.114.1588723411567; 
- Tue, 05 May 2020 17:03:31 -0700 (PDT)
+ bh=lz68WQXWqBJ9Ra70jP1k6TPdklvjro5he/Cgs5XKfJQ=;
+ b=jr3wXThg4MSH/Tf6at6AF/hqfwoGbnKDBQIJymfPusqsdCqj1OU/ru5CNNlAMqNV5T
+ FaqZAlPcV5i1szRryFmTUV1YKyf4npQweiDreEjM3VdRp/JKMwtY4np7kMZqbIa2SZOO
+ p22Ra5YHmDV5Cj72y7zRxGS/3Vs+U6Gb0FrZ3ZJj0CyPyYdcHKFqL3inqPO60kKYU/lS
+ d9ACKEtbgW+hy2ox0LUQmWDLDLuyQsloXFFLfsRXi5uprtzPWpIpqVTuGtwDp4hPbrCM
+ yxkWEbmES5NDD9gcHVKU57+p+nDi7G9ZBDDOL2RWHuD4eaq+Y7MevHY/YJyFHo//jIms
+ GPXA==
+X-Gm-Message-State: AGi0PuaJThLl1MWe6f4idwx1lxLGEHewGR6hIuw+JYe/GVDbUZMQUGPq
+ DNnbJqV64oaBG7JKDgPSiMmh9w==
+X-Google-Smtp-Source: APiQypLac7W0AQ0zsoyEUeh+HLIH71Pw99XQTxx+zpjnRrIO/fJRi7MugYIYZ/bW+GZIBXfAD086Qw==
+X-Received: by 2002:a17:902:854c:: with SMTP id
+ d12mr3949168plo.131.1588723413811; 
+ Tue, 05 May 2020 17:03:33 -0700 (PDT)
 Received: from localhost.localdomain (c-73-53-94-119.hsd1.wa.comcast.net.
  [73.53.94.119])
- by smtp.gmail.com with ESMTPSA id u3sm133912pfn.217.2020.05.05.17.03.30
+ by smtp.gmail.com with ESMTPSA id u3sm133912pfn.217.2020.05.05.17.03.32
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 05 May 2020 17:03:31 -0700 (PDT)
+ Tue, 05 May 2020 17:03:33 -0700 (PDT)
 From: Luke Nelson <lukenels@cs.washington.edu>
 X-Google-Original-From: Luke Nelson <luke.r.nels@gmail.com>
 To: bpf@vger.kernel.org
-Subject: [PATCH bpf-next 1/4] bpf,
- riscv: Enable missing verifier_zext optimizations on RV64
-Date: Tue,  5 May 2020 17:03:17 -0700
-Message-Id: <20200506000320.28965-2-luke.r.nels@gmail.com>
+Subject: [PATCH bpf-next 3/4] bpf,
+ riscv: Optimize BPF_JMP BPF_K when imm == 0 on RV64
+Date: Tue,  5 May 2020 17:03:19 -0700
+Message-Id: <20200506000320.28965-4-luke.r.nels@gmail.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20200506000320.28965-1-luke.r.nels@gmail.com>
 References: <20200506000320.28965-1-luke.r.nels@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200505_170333_350777_AD5EFC7D 
-X-CRM114-Status: UNSURE (   9.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200505_170334_420198_3F74C976 
+X-CRM114-Status: GOOD (  12.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -107,58 +106,52 @@ Cc: Song Liu <songliubraving@fb.com>, Albert Ou <aou@eecs.berkeley.edu>,
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Commit 66d0d5a854a6 ("riscv: bpf: eliminate zero extension code-gen")
-added support for the verifier zero-extension optimization on RV64 and
-commit 46dd3d7d287b ("bpf, riscv: Enable zext optimization for more
-RV64G ALU ops") enabled it for more instruction cases.
+This patch adds an optimization to BPF_JMP (32- and 64-bit) BPF_K for
+when the BPF immediate is zero.
 
-However, BPF_LSH BPF_X and BPF_{LSH,RSH,ARSH} BPF_K are still missing
-the optimization.
-
-This patch enables the zero-extension optimization for these remaining
-cases.
+When the immediate is zero, the code can directly use the RISC-V zero
+register instead of loading a zero immediate to a temporary register
+first.
 
 Co-developed-by: Xi Wang <xi.wang@gmail.com>
 Signed-off-by: Xi Wang <xi.wang@gmail.com>
 Signed-off-by: Luke Nelson <luke.r.nels@gmail.com>
 ---
- arch/riscv/net/bpf_jit_comp64.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ arch/riscv/net/bpf_jit_comp64.c | 15 ++++++++++-----
+ 1 file changed, 10 insertions(+), 5 deletions(-)
 
 diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-index d208a9fd6c52..e2636902a74e 100644
+index c3ce9a911b66..b07cef952019 100644
 --- a/arch/riscv/net/bpf_jit_comp64.c
 +++ b/arch/riscv/net/bpf_jit_comp64.c
-@@ -515,7 +515,7 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
- 	case BPF_ALU | BPF_LSH | BPF_X:
- 	case BPF_ALU64 | BPF_LSH | BPF_X:
- 		emit(is64 ? rv_sll(rd, rd, rs) : rv_sllw(rd, rd, rs), ctx);
--		if (!is64)
-+		if (!is64 && !aux->verifier_zext)
- 			emit_zext_32(rd, ctx);
- 		break;
- 	case BPF_ALU | BPF_RSH | BPF_X:
-@@ -692,19 +692,19 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
- 	case BPF_ALU | BPF_LSH | BPF_K:
- 	case BPF_ALU64 | BPF_LSH | BPF_K:
- 		emit(is64 ? rv_slli(rd, rd, imm) : rv_slliw(rd, rd, imm), ctx);
--		if (!is64)
-+		if (!is64 && !aux->verifier_zext)
- 			emit_zext_32(rd, ctx);
- 		break;
- 	case BPF_ALU | BPF_RSH | BPF_K:
- 	case BPF_ALU64 | BPF_RSH | BPF_K:
- 		emit(is64 ? rv_srli(rd, rd, imm) : rv_srliw(rd, rd, imm), ctx);
--		if (!is64)
-+		if (!is64 && !aux->verifier_zext)
- 			emit_zext_32(rd, ctx);
- 		break;
- 	case BPF_ALU | BPF_ARSH | BPF_K:
- 	case BPF_ALU64 | BPF_ARSH | BPF_K:
- 		emit(is64 ? rv_srai(rd, rd, imm) : rv_sraiw(rd, rd, imm), ctx);
--		if (!is64)
-+		if (!is64 && !aux->verifier_zext)
- 			emit_zext_32(rd, ctx);
+@@ -796,7 +796,13 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+ 	case BPF_JMP32 | BPF_JSET | BPF_K:
+ 		rvoff = rv_offset(i, off, ctx);
+ 		s = ctx->ninsns;
+-		emit_imm(RV_REG_T1, imm, ctx);
++		if (imm) {
++			emit_imm(RV_REG_T1, imm, ctx);
++			rs = RV_REG_T1;
++		} else {
++			/* If imm is 0, simply use zero register. */
++			rs = RV_REG_ZERO;
++		}
+ 		if (!is64) {
+ 			if (is_signed_bpf_cond(BPF_OP(code)))
+ 				emit_sext_32_rd(&rd, ctx);
+@@ -811,11 +817,10 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+ 		if (BPF_OP(code) == BPF_JSET) {
+ 			/* Adjust for and */
+ 			rvoff -= 4;
+-			emit(rv_and(RV_REG_T1, rd, RV_REG_T1), ctx);
+-			emit_branch(BPF_JNE, RV_REG_T1, RV_REG_ZERO, rvoff,
+-				    ctx);
++			emit(rv_and(rs, rd, rs), ctx);
++			emit_branch(BPF_JNE, rs, RV_REG_ZERO, rvoff, ctx);
+ 		} else {
+-			emit_branch(BPF_OP(code), rd, RV_REG_T1, rvoff, ctx);
++			emit_branch(BPF_OP(code), rd, rs, rvoff, ctx);
+ 		}
  		break;
  
 -- 
