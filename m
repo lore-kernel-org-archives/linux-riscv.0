@@ -1,4 +1,4 @@
-Return-Path: <SRS0=aSmP=6T=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=sWS1=6U=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
@@ -7,85 +7,76 @@ X-Spam-Status: No, score=-6.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1569AC47247
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  5 May 2020 23:55:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9E72CC47254
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 May 2020 00:00:24 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DD47A20659
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue,  5 May 2020 23:55:36 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 74D6020721
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 May 2020 00:00:24 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Jk5VIa0v";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="LCUE+epO"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DD47A20659
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sVcEc//R";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="nSJZu/Fo"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 74D6020721
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Mime-Version:Message-ID:To:From:
-	In-Reply-To:Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=ATXIubCTTXOBHXzWhZxzF+Sp5JyKqEJFksQsf+OAlCg=; b=Jk5VIa0vdEN2QE
-	QpoBdq0gBXIht4YhFchD9KVVXCPXZB3jsexS0vmf74PvCmjaOP3khVIz/iNYoNqpfse9DbClsB6YU
-	p3/GfCHmLmY8cSENkRqFhwiZi50gZI/PebjJrmgB8HklAiVZbLI/JSyzrK7E6ynlp8J/h1NJ9SgLH
-	AcxbCE2XnNiLg9vR9iUxjzsb7wJu0tULNlQXhLDVLm6NEw7VsdyOiaRxrgGF04dgrpcYv+Q5/XPDR
-	4j8odegMTkDQSt3slnXOwfiA7sr+JTZmX3pyDr/cNw7VSm1Oy0wTBuJha7MZmgFTcUg69iLOgLsmF
-	GSxSmeqg7cjDhHWIIByQ==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:
+	Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=3iD14m2oqtz2m5olanAMCvHCDcEx9U6emVEbdAioaj8=; b=sVcEc//RwXd/vn4ghKoE8D7z9
+	TxBMytUXMWugWnHSVUUT3b2DhJhlPQ59ZwwEgHqrwx3fDeUXp+kLk6SB6MnZLLE5L5VHX49ihwMdO
+	lP+x6MFFpYvl6nDfFROEtXu/DM1h5/LTqJwfPTuysLz7SU963Q3PO7RxeryNLkB7iZjhPt4QJgQM7
+	iVHlx0jB6fsqZSiSyUC9R/5RkUCmWZ1yvXFghLhXqDIwLFCvgLoOhs8uh1Q6quWuybTQmPX9Fnjun
+	QkHivac/3W5eHyQm5sAYDejndDRUDKpCe8LfUu/B8v21cMIXPRpw/UsANXxYRKfTTMMLkjvE57DsI
+	qe/umAH5Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jW7PQ-0003AO-EZ; Tue, 05 May 2020 23:55:32 +0000
-Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
+	id 1jW7U4-0006jN-Lv; Wed, 06 May 2020 00:00:20 +0000
+Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jW7PO-00039y-A7
- for linux-riscv@lists.infradead.org; Tue, 05 May 2020 23:55:31 +0000
-Received: by mail-pg1-x544.google.com with SMTP id q124so1761656pgq.13
- for <linux-riscv@lists.infradead.org>; Tue, 05 May 2020 16:55:30 -0700 (PDT)
+ id 1jW7U2-0006h4-6S
+ for linux-riscv@lists.infradead.org; Wed, 06 May 2020 00:00:19 +0000
+Received: by mail-wm1-x341.google.com with SMTP id u127so391663wmg.1
+ for <linux-riscv@lists.infradead.org>; Tue, 05 May 2020 17:00:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=ATXIubCTTXOBHXzWhZxzF+Sp5JyKqEJFksQsf+OAlCg=;
- b=LCUE+epOqJoR+Js3sGpG0U90X1zeIkkRcKpuwrTZTpRFnEKXfY5giOa0TSthpXBEVN
- 3p2yoVisoWm3Ql4CELeMvCLVV3zFKJO5Zb9KkLTcb9IlPfE0SpCg6hnmaBGuUwxNDzwc
- 85PgVaVDmb+KyOApTbH3RaSVKUhOF1ck8rMvupcZ8dQZqrseOXOd25uPak5H8kNy2zj3
- RQgFpOiMOcRgjwhPkTdVUD3qYni7JIFID0WxVWai7Lln1CV+bLzop2GC4P2wYxixDO6X
- FOou9ZBfpbxk8eXB0dj2oGB7ME+R8/4aiGr2NpmYjKbNEIhRM7O7tB6vm7MIt32nvEOD
- 1hKQ==
+ d=atishpatra.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=3iD14m2oqtz2m5olanAMCvHCDcEx9U6emVEbdAioaj8=;
+ b=nSJZu/FoIdJ+qkbbRlKX/R3Ewl+m3sPF9nEVWJt+/W45oSngIvx5d8Qphlbp4P08bN
+ Pu4Emc3Zg4MMm+MaCwmWTGETQmAMJ9sy8sUHu2MUHmTq8ZLHs9VkLM9MBJzyEbkYqVgU
+ EAx3O9Vf55SxohUSlOgAM62+r6tPhWgoLzQSI=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=ATXIubCTTXOBHXzWhZxzF+Sp5JyKqEJFksQsf+OAlCg=;
- b=ACticrlun8QoF5RYk4siBYFjqMHstpaNY8T00VwtXoK5BKZcrBMKw9Hu2CN5Uhtp5b
- AoAwtjuncnhnrPvOb8mFb9erp3Ns4CMCtGRGqvbwOLwuCaOACS8F4jvzBPvDSUAEqrsA
- Gy4AB3YVJ5EsZWE0t3DTydkpp9ZA1svkxi1TuyxhV0MpnkVH4nWerYKOnkp/VhC2Uwlw
- KLtrQfHZurQwMz+se+P5NlnVlkBddqmqr9M71Afoi7SJS/Nb6agvwsm0DwOHUa31OBX6
- qlY4HobJs0q9G5lXCMfqJckXAHGBULZj+SB/bpqPXXgjtpAYFGm7DbsYLdYf/7/lE/uv
- JtkA==
-X-Gm-Message-State: AGi0PuaWnquT6ZbAc3vxnM+9tLS6307dYrwzW9iLhgdIO6yx1EgwTmi1
- uPFRZnTrJYoH6PgSx3t7W9F0Hg==
-X-Google-Smtp-Source: APiQypJQ7iVowzFYXtx5BFr6e1gDDwQs19amgIfj5WG5z8x8u0u5C7Ec+ncx0Sl9ZJzKU6sM6IdFMQ==
-X-Received: by 2002:a65:4107:: with SMTP id w7mr4619921pgp.438.1588722929163; 
- Tue, 05 May 2020 16:55:29 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id 188sm122789pfg.218.2020.05.05.16.55.28
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 05 May 2020 16:55:28 -0700 (PDT)
-Date: Tue, 05 May 2020 16:55:28 -0700 (PDT)
-X-Google-Original-Date: Tue, 05 May 2020 16:42:29 PDT (-0700)
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=3iD14m2oqtz2m5olanAMCvHCDcEx9U6emVEbdAioaj8=;
+ b=c1Pu9n7rUoySN1DDvphD7B4JCnDctMAH3LN8yEJkXK3/ALgn/MtWyIp+JhA28ph1vm
+ EAVOieI2JVTwOxHowS5O8Ncf0UJW4bK3gfMWyibOVo+wvz3oeD9RG09jPGZF9GW5dH8X
+ HSM0w6EbIvj87uwVYsk7Luisd0T7PrQXqBpAMeJcmpXbN+1dpsW1IdQvXTpNwiDvD/27
+ za9alkZpfsTKn06HbPpY8/vO0jnvZC13eyCjtMI5882vNe1Zz5c2HDd6+FELsjcy4uVy
+ uz/CiTVEg68Ur8HljCTmEnXsqlCaKDNp6aCl1cTzgEZ5Rm+AvyIGwdYxqS9VKYJZQ+NV
+ ymWw==
+X-Gm-Message-State: AGi0PuYYxj2tFvCBfl1xADwnJLZRYifW1fou4dVJzlmKIpe2QgQxhI/8
+ BjAT8gnr1wdUpTBb/TCLlM6GATS+ZUGtkT5tXQVR
+X-Google-Smtp-Source: APiQypIMLYZZDdT77MeBbFFO6dqLUMN5K3k4qgrEOS96GhN+81eZdKIvX9PkmZg2Z83Itjj9g0U9RLobX+Eh/CL/mrQ=
+X-Received: by 2002:a7b:cdfa:: with SMTP id p26mr1122660wmj.186.1588723216414; 
+ Tue, 05 May 2020 17:00:16 -0700 (PDT)
+MIME-Version: 1.0
+References: <20200504040319.31423-1-atish.patra@wdc.com>
+ <mhng-a3f16502-c8cd-46db-afa1-86df18b3778d@palmerdabbelt-glaptop1>
+In-Reply-To: <mhng-a3f16502-c8cd-46db-afa1-86df18b3778d@palmerdabbelt-glaptop1>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Tue, 5 May 2020 17:00:05 -0700
+Message-ID: <CAOnJCUJtnVjYwfaHbiUdO4SqPk8rY0q0uYckNJpQpc7jK0Pz7g@mail.gmail.com>
 Subject: Re: [PATCH] RISC-V: Remove unused code from STRICT_KERNEL_RWX
-In-Reply-To: <20200504040319.31423-1-atish.patra@wdc.com>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Atish Patra <Atish.Patra@wdc.com>
-Message-ID: <mhng-a3f16502-c8cd-46db-afa1-86df18b3778d@palmerdabbelt-glaptop1>
-Mime-Version: 1.0 (MHng)
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Transfer-Encoding: 8bit
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200505_165530_349948_4861448C 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20200505_170018_298889_3CC26CD1 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -97,53 +88,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, Anup Patel <Anup.Patel@wdc.com>,
- linux-kernel@vger.kernel.org, Atish Patra <Atish.Patra@wdc.com>,
- zong.li@sifive.com, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv@lists.infradead.org
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <Anup.Patel@wdc.com>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Atish Patra <Atish.Patra@wdc.com>, Zong Li <zong.li@sifive.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 03 May 2020 21:03:19 PDT (-0700), Atish Patra wrote:
-> This patch removes the unused functions set_kernel_text_rw/ro.
-> Currently, it is not being invoked from anywhere and no other architecture
-> (except arm) uses this code. Even in ARM, these functions are not invoked
-> from anywhere currently.
+On Tue, May 5, 2020 at 4:55 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
 >
-> Fixes: d27c3c90817e ("riscv: add STRICT_KERNEL_RWX support")
+> On Sun, 03 May 2020 21:03:19 PDT (-0700), Atish Patra wrote:
+> > This patch removes the unused functions set_kernel_text_rw/ro.
+> > Currently, it is not being invoked from anywhere and no other architecture
+> > (except arm) uses this code. Even in ARM, these functions are not invoked
+> > from anywhere currently.
+> >
+> > Fixes: d27c3c90817e ("riscv: add STRICT_KERNEL_RWX support")
+> >
+> > Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> > ---
+> >  arch/riscv/mm/init.c | 16 ----------------
+> >  1 file changed, 16 deletions(-)
+> >
+> > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> > index b55be44ff9bd..ba60a581e9b6 100644
+> > --- a/arch/riscv/mm/init.c
+> > +++ b/arch/riscv/mm/init.c
+> > @@ -501,22 +501,6 @@ static inline void setup_vm_final(void)
+> >  #endif /* CONFIG_MMU */
+> >
+> >  #ifdef CONFIG_STRICT_KERNEL_RWX
+> > -void set_kernel_text_rw(void)
+> > -{
+> > -     unsigned long text_start = (unsigned long)_text;
+> > -     unsigned long text_end = (unsigned long)_etext;
+> > -
+> > -     set_memory_rw(text_start, (text_end - text_start) >> PAGE_SHIFT);
+> > -}
+> > -
+> > -void set_kernel_text_ro(void)
+> > -{
+> > -     unsigned long text_start = (unsigned long)_text;
+> > -     unsigned long text_end = (unsigned long)_etext;
+> > -
+> > -     set_memory_ro(text_start, (text_end - text_start) >> PAGE_SHIFT);
+> > -}
+> > -
+> >  void mark_rodata_ro(void)
+> >  {
+> >       unsigned long text_start = (unsigned long)_text;
 >
-> Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> ---
->  arch/riscv/mm/init.c | 16 ----------------
->  1 file changed, 16 deletions(-)
+> Thanks, this is on fixes.  Are you going to remove the ARM code as well?
 >
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index b55be44ff9bd..ba60a581e9b6 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -501,22 +501,6 @@ static inline void setup_vm_final(void)
->  #endif /* CONFIG_MMU */
->
->  #ifdef CONFIG_STRICT_KERNEL_RWX
-> -void set_kernel_text_rw(void)
-> -{
-> -	unsigned long text_start = (unsigned long)_text;
-> -	unsigned long text_end = (unsigned long)_etext;
-> -
-> -	set_memory_rw(text_start, (text_end - text_start) >> PAGE_SHIFT);
-> -}
-> -
-> -void set_kernel_text_ro(void)
-> -{
-> -	unsigned long text_start = (unsigned long)_text;
-> -	unsigned long text_end = (unsigned long)_etext;
-> -
-> -	set_memory_ro(text_start, (text_end - text_start) >> PAGE_SHIFT);
-> -}
-> -
->  void mark_rodata_ro(void)
->  {
->  	unsigned long text_start = (unsigned long)_text;
 
-Thanks, this is on fixes.  Are you going to remove the ARM code as well?
+Yeah and also I realized that I forgot to remove the declarations from
+the header file.
+My bad. I will send out a v2. Please drop this one and take v2.
+
+-- 
+Regards,
+Atish
 
