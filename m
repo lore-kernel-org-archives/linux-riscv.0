@@ -2,91 +2,83 @@ Return-Path: <SRS0=sWS1=6U=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 103BBC47254
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 May 2020 00:03:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6179BC47247
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 May 2020 00:03:39 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D0F1D20721
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 May 2020 00:03:25 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 32BFE2073B
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  6 May 2020 00:03:39 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Mv8mcis3";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="aS17fUgF"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D0F1D20721
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sPbm9ox4";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=cs.washington.edu header.i=@cs.washington.edu header.b="hBEgU4DY"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 32BFE2073B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=cs.washington.edu
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Mime-Version:Message-ID:To:From:
-	In-Reply-To:Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=HQ1Cigpl9A0g2ziQxfxPjRmKwSRMahcOzSHZQwuGlC0=; b=Mv8mcis3EH4EjV
-	snITt4TjSzQE6TCTWr3eiz4aEQ+BS2r0fHMRyzneVRTO4v718fZYqXhbWj3xOyjbegJQyXFj9caBZ
-	H3tr0ClhFWxfpTzcpnPd6gYnO0iLSCWJRFNrSVgjh5M1Kd4ol+VWc3x2d1DMW/Cp4C6MMSV0KU/GF
-	3iyzTi2zqGwO9NLUtakWBRGwXfM3p+UopZOo6aE2X3mBuJ3r1nv6z48ORd8RFoTt0WALSR5hSj+dq
-	dq0qCVbbeVsVdj7cwx4hDK87VeFwuw2RxTtzK1+nFJX3gmVy3JykmMd48xqhKDvF96JYDj/MSKO0G
-	xp6sMluOjRdGIt9VYgBg==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JxRTwli/svDqnOaBY0adT76Z0FFG8KkHdubVGApAA6g=; b=sPbm9ox4l/gBdpqSeMxnaDNU3O
+	s8H1BwIk5rCf6YJYK7xs3vrAzgGMzAZWhmMcBKZ9uGn3PoJRo10ZT6jEUNvGBvqcWrGPj/smKN9do
+	Jg9es2S6UZIUWzJyohyxwbrgM2ugP8I65O6JEeXOd9xiZhkoMqULMG0BwaJvnQUBba3fo/FqC0hOO
+	1qqoLD2hqSEbpOXJdLnp2vyTGhSGYOc8nYPaQrdlWcD5LrvlCmlSv6dTQ7aV/Lz9pgS6vnJMvCjBM
+	Vi7ySxNjQKDKPwS4tYjkJt9BpYk47qZAMfHaIH0XUb11OaG1ZxAcGCXW/rrRBW2H+rqAu5WebpB7I
+	moAticdA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jW7X0-0007W2-7j; Wed, 06 May 2020 00:03:22 +0000
-Received: from mail-pj1-x1042.google.com ([2607:f8b0:4864:20::1042])
+	id 1jW7XD-0007gn-Gv; Wed, 06 May 2020 00:03:35 +0000
+Received: from mail-pl1-x644.google.com ([2607:f8b0:4864:20::644])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jW7Wx-0007VA-Vr
- for linux-riscv@lists.infradead.org; Wed, 06 May 2020 00:03:21 +0000
-Received: by mail-pj1-x1042.google.com with SMTP id ms17so10833pjb.0
- for <linux-riscv@lists.infradead.org>; Tue, 05 May 2020 17:03:19 -0700 (PDT)
+ id 1jW7X9-0007dd-Dy
+ for linux-riscv@lists.infradead.org; Wed, 06 May 2020 00:03:33 +0000
+Received: by mail-pl1-x644.google.com with SMTP id s20so1542500plp.6
+ for <linux-riscv@lists.infradead.org>; Tue, 05 May 2020 17:03:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=HQ1Cigpl9A0g2ziQxfxPjRmKwSRMahcOzSHZQwuGlC0=;
- b=aS17fUgF3ZC88stcvJfNxTaoB+HmJk4Ad7IBO2Jbxa7DBT0xHZEzNR+EpuVvT3jKxK
- 3fNensYy9VMPP35dxWjkIE/G2AWSvUAtAUsfaCik58Kco16YYkIrxNAod0sW9c1NWlMQ
- kk/wKARGgNRrs/6+2L/Z8zvcdz8+1FVqbBSLfa96M3eHXdnC5bEp/V7dtDLUNdZzB4cR
- PBueW4BvuQgv1sdcX0JxRpzCTiYT1/iUHyB6GwkHI460ETnHumVG+jRbClGLPgWzoBTF
- IO71jMIzDcIgS/qnohBGUlCZC0XTb7LG1Lys3TPvPrd07M9QSQqQcdtB6rk98Q6zybf6
- gL0g==
+ d=cs.washington.edu; s=goo201206;
+ h=from:to:cc:subject:date:message-id;
+ bh=JxRTwli/svDqnOaBY0adT76Z0FFG8KkHdubVGApAA6g=;
+ b=hBEgU4DYNOg3qWU84rnU6AnFuKR981yS5BSoO3R/amg38P+jgdPsMbTP70YKHF3J76
+ ISfsmEBfrEtrkGLH2pkRg7Fe4lYwDNiRfjMrZkkcqUv2DWOZbq2+54F9b9bHiIE2Av7l
+ 8JnrloZFVv4BenXnGU9ff7pMXJwzMJFAUgcIs=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=HQ1Cigpl9A0g2ziQxfxPjRmKwSRMahcOzSHZQwuGlC0=;
- b=DAUyH2x34//kdGXYFCN5AUJ5X+pa03kgyRxXbfym4ZLVvr9vlRfv/h3FRkFYBq7Ias
- F4xUr5jUsd0GYIohuaTH0S2+ifq+jc/Sf/QeeikB4Sh9Wu+mCTofXrjrKduouQWVOo56
- yNEZ14LcYOONrhuuB5JzqNrWsubdnGE6peZ/1wK6PoM5jxuW+PioQtDrDVNackId5Ekf
- iLsrB1OLOYMhIWQfkp/EKkgQ8elSilk58w/qw+r7Y0H9Q3OlkCVg10J1P/YS3lM5JPCQ
- 556Q9oA1G9uBXM3f5WY3kZL8eGfLUuxjY2RUuBciHLYCI/m2pRLERJ7ytCO8Az3VEl4I
- J3yw==
-X-Gm-Message-State: AGi0PuYpmIvY+rhdPNUZmvwZHUn609Z1TqpVRFWHZMvkx71JzZwo+YrB
- vH37WTXjOeRJFZZIFDilnzFGPQ==
-X-Google-Smtp-Source: APiQypKgpYaqDCemgOAG6HlmVBw70Z+EdVZDEw8elHZMNfKM8/xCEHqZc+sWdHTnljPuqGXuPzSDCA==
-X-Received: by 2002:a17:90a:32ea:: with SMTP id
- l97mr6115115pjb.50.1588723398999; 
- Tue, 05 May 2020 17:03:18 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id r4sm220213pgi.6.2020.05.05.17.03.18
+ h=x-gm-message-state:from:to:cc:subject:date:message-id;
+ bh=JxRTwli/svDqnOaBY0adT76Z0FFG8KkHdubVGApAA6g=;
+ b=FzlQ+wGDKBoTC5e9lJf9QDUAylR3tISu4KRo47S8Ua7TF4CAjkZ4J0nomqJQ83Kbh2
+ ecub+D8rtDw2YwxlIVTxca+5TFAaJ9MLlulGwOIAm18b8EmXjU4u3TeUjlU+AADhZnYV
+ CeDn+o3LlWmELjo3iTmnoQ8P8AC9NB1FKOZppwxvgzU4Qr6kQIfNGk7Rm47GFOge5EaK
+ FKMaLTNHPCJHlYYgJhdDd2YenaURi7ur8zV1sdrrI87rybpXg0rvFM9EPyMdmfijrOs2
+ kafH1C5AP3cbf5SGbKdVcLhP3WH27TcCtbc8wAR4VwZHAPPuO2Kn3prp0EZnnh39oyjD
+ /f5A==
+X-Gm-Message-State: AGi0PuZFCwT3uMQ9EBW9JIXi+r1XrNoBiJTsjBPKJiWfNm5c13gIXscN
+ d4wTL/d/oK6Yt2q6Gnr5OHn6wQ==
+X-Google-Smtp-Source: APiQypL3GD15VTzPevJlQEL2Gpk1YRyV1HsaesDcgEeoRusw+eAllZFZbBCvSxvf7cmk2/iAjHnNkQ==
+X-Received: by 2002:a17:902:a40b:: with SMTP id
+ p11mr5668144plq.304.1588723410355; 
+ Tue, 05 May 2020 17:03:30 -0700 (PDT)
+Received: from localhost.localdomain (c-73-53-94-119.hsd1.wa.comcast.net.
+ [73.53.94.119])
+ by smtp.gmail.com with ESMTPSA id u3sm133912pfn.217.2020.05.05.17.03.29
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 05 May 2020 17:03:18 -0700 (PDT)
-Date: Tue, 05 May 2020 17:03:18 -0700 (PDT)
-X-Google-Original-Date: Tue, 05 May 2020 17:03:16 PDT (-0700)
-Subject: Re: [PATCH] RISC-V: Remove unused code from STRICT_KERNEL_RWX
-In-Reply-To: <CAOnJCUJtnVjYwfaHbiUdO4SqPk8rY0q0uYckNJpQpc7jK0Pz7g@mail.gmail.com>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: atishp@atishpatra.org
-Message-ID: <mhng-3b48ef6b-d427-40af-b8f7-1bdccc117927@palmerdabbelt-glaptop1>
-Mime-Version: 1.0 (MHng)
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Transfer-Encoding: 8bit
+ Tue, 05 May 2020 17:03:29 -0700 (PDT)
+From: Luke Nelson <lukenels@cs.washington.edu>
+X-Google-Original-From: Luke Nelson <luke.r.nels@gmail.com>
+To: bpf@vger.kernel.org
+Subject: [PATCH bpf-next 0/4] RV64 BPF JIT Optimizations
+Date: Tue,  5 May 2020 17:03:16 -0700
+Message-Id: <20200506000320.28965-1-luke.r.nels@gmail.com>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200505_170320_025525_69FD33EE 
-X-CRM114-Status: GOOD (  18.71  )
+X-CRM114-CacheID: sfid-20200505_170331_489685_DE4008AF 
+X-CRM114-Status: UNSURE (   5.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -98,132 +90,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, Anup Patel <Anup.Patel@wdc.com>,
- linux-kernel@vger.kernel.org, Atish Patra <Atish.Patra@wdc.com>,
- zong.li@sifive.com, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv@lists.infradead.org
+Cc: Song Liu <songliubraving@fb.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Daniel Borkmann <daniel@iogearbox.net>, Luke Nelson <luke.r.nels@gmail.com>,
+ =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn.topel@gmail.com>,
+ John Fastabend <john.fastabend@gmail.com>, Alexei Starovoitov <ast@kernel.org>,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ KP Singh <kpsingh@chromium.org>, Yonghong Song <yhs@fb.com>,
+ linux-riscv@lists.infradead.org, Andrii Nakryiko <andriin@fb.com>,
+ Martin KaFai Lau <kafai@fb.com>, Xi Wang <xi.wang@gmail.com>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 05 May 2020 17:00:05 PDT (-0700), atishp@atishpatra.org wrote:
-> On Tue, May 5, 2020 at 4:55 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
->>
->> On Sun, 03 May 2020 21:03:19 PDT (-0700), Atish Patra wrote:
->> > This patch removes the unused functions set_kernel_text_rw/ro.
->> > Currently, it is not being invoked from anywhere and no other architecture
->> > (except arm) uses this code. Even in ARM, these functions are not invoked
->> > from anywhere currently.
->> >
->> > Fixes: d27c3c90817e ("riscv: add STRICT_KERNEL_RWX support")
->> >
->> > Signed-off-by: Atish Patra <atish.patra@wdc.com>
->> > ---
->> >  arch/riscv/mm/init.c | 16 ----------------
->> >  1 file changed, 16 deletions(-)
->> >
->> > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
->> > index b55be44ff9bd..ba60a581e9b6 100644
->> > --- a/arch/riscv/mm/init.c
->> > +++ b/arch/riscv/mm/init.c
->> > @@ -501,22 +501,6 @@ static inline void setup_vm_final(void)
->> >  #endif /* CONFIG_MMU */
->> >
->> >  #ifdef CONFIG_STRICT_KERNEL_RWX
->> > -void set_kernel_text_rw(void)
->> > -{
->> > -     unsigned long text_start = (unsigned long)_text;
->> > -     unsigned long text_end = (unsigned long)_etext;
->> > -
->> > -     set_memory_rw(text_start, (text_end - text_start) >> PAGE_SHIFT);
->> > -}
->> > -
->> > -void set_kernel_text_ro(void)
->> > -{
->> > -     unsigned long text_start = (unsigned long)_text;
->> > -     unsigned long text_end = (unsigned long)_etext;
->> > -
->> > -     set_memory_ro(text_start, (text_end - text_start) >> PAGE_SHIFT);
->> > -}
->> > -
->> >  void mark_rodata_ro(void)
->> >  {
->> >       unsigned long text_start = (unsigned long)_text;
->>
->> Thanks, this is on fixes.  Are you going to remove the ARM code as well?
->>
->
-> Yeah and also I realized that I forgot to remove the declarations from
-> the header file.
-> My bad. I will send out a v2. Please drop this one and take v2.
+This patch series introduces a set of optimizations to the BPF JIT
+on RV64. The optimizations are related to the verifier zero-extension
+optimization and BPF_JMP BPF_K.
 
-I just fixed it up
+We tested the optimizations on a QEMU riscv64 virt machine, using
+lib/test_bpf and test_verifier, and formally verified their correctness
+using Serval.
 
-commit 73cb8e2a5863ccc5215660f5123db621bd57dff7
-gpg: Signature made Tue 05 May 2020 05:02:17 PM PDT
-gpg:                using RSA key 2B3C3747446843B24A943A7A2E1319F35FBB1889
-gpg:                issuer "palmer@dabbelt.com"
-gpg: Good signature from "Palmer Dabbelt <palmer@dabbelt.com>" [ultimate]
-gpg:                 aka "Palmer Dabbelt <palmerdabbelt@google.com>" [ultimate]
-Author: Atish Patra <atish.patra@wdc.com>
-Date:   Sun May 3 21:03:19 2020 -0700
+Luke Nelson (4):
+  bpf, riscv: Enable missing verifier_zext optimizations on RV64
+  bpf, riscv: Optimize FROM_LE using verifier_zext on RV64
+  bpf, riscv: Optimize BPF_JMP BPF_K when imm == 0 on RV64
+  bpf, riscv: Optimize BPF_JSET BPF_K using andi on RV64
 
-    RISC-V: Remove unused code from STRICT_KERNEL_RWX
-    
-    This patch removes the unused functions set_kernel_text_rw/ro.
-    Currently, it is not being invoked from anywhere and no other architecture
-    (except arm) uses this code. Even in ARM, these functions are not invoked
-    from anywhere currently.
-    
-    Fixes: d27c3c90817e ("riscv: add STRICT_KERNEL_RWX support")
-    Signed-off-by: Atish Patra <atish.patra@wdc.com>
-    Reviewed-by: Zong Li <zong.li@sifive.com>
-    Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
+ arch/riscv/net/bpf_jit_comp64.c | 64 ++++++++++++++++++++++-----------
+ 1 file changed, 44 insertions(+), 20 deletions(-)
 
-diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
-index c38df4771c09..4c5bae7ca01c 100644
---- a/arch/riscv/include/asm/set_memory.h
-+++ b/arch/riscv/include/asm/set_memory.h
-@@ -22,14 +22,6 @@ static inline int set_memory_x(unsigned long addr, int numpages) { return 0; }
- static inline int set_memory_nx(unsigned long addr, int numpages) { return 0; }
- #endif
- 
--#ifdef CONFIG_STRICT_KERNEL_RWX
--void set_kernel_text_ro(void);
--void set_kernel_text_rw(void);
--#else
--static inline void set_kernel_text_ro(void) { }
--static inline void set_kernel_text_rw(void) { }
--#endif
--
- int set_direct_map_invalid_noflush(struct page *page);
- int set_direct_map_default_noflush(struct page *page);
- 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 5b813532db59..27a334106708 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -502,22 +502,6 @@ static inline void setup_vm_final(void)
- #endif /* CONFIG_MMU */
- 
- #ifdef CONFIG_STRICT_KERNEL_RWX
--void set_kernel_text_rw(void)
--{
--	unsigned long text_start = (unsigned long)_text;
--	unsigned long text_end = (unsigned long)_etext;
--
--	set_memory_rw(text_start, (text_end - text_start) >> PAGE_SHIFT);
--}
--
--void set_kernel_text_ro(void)
--{
--	unsigned long text_start = (unsigned long)_text;
--	unsigned long text_end = (unsigned long)_etext;
--
--	set_memory_ro(text_start, (text_end - text_start) >> PAGE_SHIFT);
--}
--
- void mark_rodata_ro(void)
- {
- 	unsigned long text_start = (unsigned long)_text;
+Cc: Xi Wang <xi.wang@gmail.com>
+
+-- 
+2.17.1
 
 
