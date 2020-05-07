@@ -4,20 +4,20 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-15.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A260CC38A2A
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  7 May 2020 14:29:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1AF68C38A2A
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  7 May 2020 14:30:13 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7582E2084D
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  7 May 2020 14:29:09 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id DAAF020936
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  7 May 2020 14:30:12 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="fjWhv8l2";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="tXNFJl8K"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7582E2084D
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="D5WSjiHO";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="FQqvfO5t"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DAAF020936
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,47 +26,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2mFCGtFvpnBsxJTa06BfZNPWdvXCAwgI5OUr+zz8y10=; b=fjWhv8l2Q90ju+
-	CQrb073XFM3T4nnp16vvoWVaFQoIAA4E8b0c/NFVDxKtes8iUZxhtXMsHbC30FMsyQQdIL1xrx/la
-	ZAdcsj2R+FD4eDwS9BL8/uJWOF+LAbs7xIf65tqzLuGrtofNwsWD9GzDUXlA2eIvEr1TAwb2LGC2/
-	isAwr40W8xQ3cP11q43CBeJO11ngR03+0IL/hCjMqKEMWkdZd0AZdINjDnMQ5YP98SuTP9GRXTSFg
-	ZuF5P4jfbjv5uP12TVOC/BAofQAUfottUYbac27+5c1Hnm4+iyYdRDFdAepMPK93JGiKJINh3pO1N
-	MGU7L5bGEATNc9ovyHmA==;
+	List-Owner; bh=KafhaoNuUEGk0vhoXy3J3SfWsmyi4+ZDXQPBLXI3+UA=; b=D5WSjiHOP/MMEk
+	N5vyEqrSTnBOUdjrYRUrHWc5WRA9MzZm9FfSHpONwemCof/5KWIkY9RLjD8Z9jHOoZUpZy2s+2C62
+	yVj8IfZm2ISCG5UvbcfqIYeGH1MEh+akgx1PC+lFXpaqZjmsFz5ZTS3/OYrtNDgZdIfBVC9WQ3bRz
+	c1PHJV3iO3LecOjB0H+lNGvKeAXRXbGfR/ef6Pj7czOzeRbA4bEKnW7A8svZCGlIQvniEQyUxzhwh
+	i3LoyCXd4rEq75atLhXV4xXsuZEXp1/ypRixnb0Sd5g6WGfL/z34ir3cBw6UJwgevm5jACQnAaVKq
+	iIHVi2WY5duUFc80A2GA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jWhWM-0002dK-V9; Thu, 07 May 2020 14:29:06 +0000
+	id 1jWhXP-0003gx-Ew; Thu, 07 May 2020 14:30:11 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jWhVu-0002Av-0o
- for linux-riscv@lists.infradead.org; Thu, 07 May 2020 14:28:43 +0000
+ id 1jWhWd-0002sS-LI
+ for linux-riscv@lists.infradead.org; Thu, 07 May 2020 14:29:25 +0000
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net
  [73.47.72.35])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id E170020B1F;
- Thu,  7 May 2020 14:28:35 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 06FCD20838;
+ Thu,  7 May 2020 14:29:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1588861717;
- bh=8ZRbF1oT0PlniE7k0j5hKHHVmF3lXbnS8elI06OuwuY=;
+ s=default; t=1588861763;
+ bh=WmONSK4ctFdQWjz26WZgwfs5SpenNY5/I3xlW0g0H4U=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=tXNFJl8KbJPkblSiFy4yyduCW4E2uqJNnMlMSAKrRgTlrdocUY1PxoN2mtJOR9j4+
- jgrgS4GU04Q8iMrJhFh6RFPY6+LHuGJDBlxgrW9CWpLG3Lp3UNGWgvyo4BvZubvhaU
- XTDCKBUrylnj/WGI/5VfhrZuhzDS8PSRRhvD2uZk=
+ b=FQqvfO5tfX9OZ7ueEILjMGmXFb1BXnA/50lFO1nfrV6VtGeuwl5qh4DSnC1CuRZlQ
+ fm/lfQ8sbUTGZqXGrDPwojuAEirJrQzTz0w1ayV4fRPeo7ThFGRebQye51319OBmUT
+ H8FZgAYBgQkZj7XLKxbUS+uocJR6hsTSDlqbb5UI=
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Subject: [PATCH AUTOSEL 5.4 05/35] riscv: fix vdso build with lld
-Date: Thu,  7 May 2020 10:27:59 -0400
-Message-Id: <20200507142830.26239-5-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 4.19 04/20] riscv: fix vdso build with lld
+Date: Thu,  7 May 2020 10:29:00 -0400
+Message-Id: <20200507142917.26612-4-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20200507142830.26239-1-sashal@kernel.org>
-References: <20200507142830.26239-1-sashal@kernel.org>
+In-Reply-To: <20200507142917.26612-1-sashal@kernel.org>
+References: <20200507142917.26612-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200507_072838_109137_8569A744 
+X-CRM114-CacheID: sfid-20200507_072923_736678_7A95D96E 
 X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -111,10 +111,10 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
-index 33b16f4212f7a..a4ee3a0e7d20d 100644
+index 87f71a6cd3ef8..1dd134fc0d84a 100644
 --- a/arch/riscv/kernel/vdso/Makefile
 +++ b/arch/riscv/kernel/vdso/Makefile
-@@ -33,15 +33,15 @@ $(obj)/vdso.so.dbg: $(src)/vdso.lds $(obj-vdso) FORCE
+@@ -30,15 +30,15 @@ $(obj)/vdso.so.dbg: $(src)/vdso.lds $(obj-vdso) FORCE
  	$(call if_changed,vdsold)
  
  # We also create a special relocatable object that should mirror the symbol
@@ -124,7 +124,7 @@ index 33b16f4212f7a..a4ee3a0e7d20d 100644
 +# refer to these symbols in the kernel code rather than hand-coded addresses.
  
  SYSCFLAGS_vdso.so.dbg = -shared -s -Wl,-soname=linux-vdso.so.1 \
- 	-Wl,--build-id -Wl,--hash-style=both
+                             $(call cc-ldoption, -Wl$(comma)--hash-style=both)
  $(obj)/vdso-dummy.o: $(src)/vdso.lds $(obj)/rt_sigreturn.o FORCE
  	$(call if_changed,vdsold)
  
