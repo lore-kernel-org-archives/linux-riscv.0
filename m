@@ -2,72 +2,67 @@ Return-Path: <SRS0=t+Pg=6V=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1AF68C38A2A
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  7 May 2020 14:30:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 57FDEC38A2A
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  7 May 2020 15:07:08 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DAAF020936
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  7 May 2020 14:30:12 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 202B62083B
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  7 May 2020 15:07:08 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="D5WSjiHO";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="FQqvfO5t"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DAAF020936
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="VYE4qlOj"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 202B62083B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KafhaoNuUEGk0vhoXy3J3SfWsmyi4+ZDXQPBLXI3+UA=; b=D5WSjiHOP/MMEk
-	N5vyEqrSTnBOUdjrYRUrHWc5WRA9MzZm9FfSHpONwemCof/5KWIkY9RLjD8Z9jHOoZUpZy2s+2C62
-	yVj8IfZm2ISCG5UvbcfqIYeGH1MEh+akgx1PC+lFXpaqZjmsFz5ZTS3/OYrtNDgZdIfBVC9WQ3bRz
-	c1PHJV3iO3LecOjB0H+lNGvKeAXRXbGfR/ef6Pj7czOzeRbA4bEKnW7A8svZCGlIQvniEQyUxzhwh
-	i3LoyCXd4rEq75atLhXV4xXsuZEXp1/ypRixnb0Sd5g6WGfL/z34ir3cBw6UJwgevm5jACQnAaVKq
-	iIHVi2WY5duUFc80A2GA==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=eQ0Wcae1Whh/Y2FliPOSrKuM9423oQI7b63/+SbofrQ=; b=VYE4qlOjl34XoaPG6H2WaR/Mm
+	+Omb+rLdBEc3gp6FR3x5INfvorTVmybsYhxsdfzDN9mL6I7TkyaSdHQWlqn/aeNyf8azVY4RdfLPu
+	sCtJhSw93smtgRDJjhPBgPlNXCvvQgVC270sk8JRW/cQ9rJoFY95tzzX9cRji9nD0/LQM3XCZESaL
+	y+SJm80MElqLAQ/XtGnOEUhLoxYStMNBvheSwlSiFc4qG7UDuFX+Y6+5bW7olUETumeNH859Qze54
+	aX8Bf3WdH94sR+kmCKA6vSuXxIQSEex9Z5iX/pHqPLWxTzD9bew2qODxD38YoicKeZay+iVmubpZe
+	cI+RX04Ag==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jWhXP-0003gx-Ew; Thu, 07 May 2020 14:30:11 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1jWi79-00046x-38; Thu, 07 May 2020 15:07:07 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190] helo=huawei.com)
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jWhWd-0002sS-LI
- for linux-riscv@lists.infradead.org; Thu, 07 May 2020 14:29:25 +0000
-Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net
- [73.47.72.35])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 06FCD20838;
- Thu,  7 May 2020 14:29:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1588861763;
- bh=WmONSK4ctFdQWjz26WZgwfs5SpenNY5/I3xlW0g0H4U=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=FQqvfO5tfX9OZ7ueEILjMGmXFb1BXnA/50lFO1nfrV6VtGeuwl5qh4DSnC1CuRZlQ
- fm/lfQ8sbUTGZqXGrDPwojuAEirJrQzTz0w1ayV4fRPeo7ThFGRebQye51319OBmUT
- H8FZgAYBgQkZj7XLKxbUS+uocJR6hsTSDlqbb5UI=
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH AUTOSEL 4.19 04/20] riscv: fix vdso build with lld
-Date: Thu,  7 May 2020 10:29:00 -0400
-Message-Id: <20200507142917.26612-4-sashal@kernel.org>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20200507142917.26612-1-sashal@kernel.org>
-References: <20200507142917.26612-1-sashal@kernel.org>
+ id 1jWi1T-0005Ca-DW
+ for linux-riscv@lists.infradead.org; Thu, 07 May 2020 15:01:23 +0000
+Received: from DGGEMS403-HUB.china.huawei.com (unknown [172.30.72.59])
+ by Forcepoint Email with ESMTP id DB54F71F3AD21596FD66;
+ Thu,  7 May 2020 23:01:00 +0800 (CST)
+Received: from localhost.localdomain.localdomain (10.175.113.25) by
+ DGGEMS403-HUB.china.huawei.com (10.3.19.203) with Microsoft SMTP Server id
+ 14.3.487.0; Thu, 7 May 2020 23:00:54 +0800
+From: Kefeng Wang <wangkefeng.wang@huawei.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, <linux-kernel@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>
+Subject: [PATCH -next] riscv: perf: RISCV_BASE_PMU should be closeable
+Date: Thu, 7 May 2020 23:04:45 +0800
+Message-ID: <20200507150445.174390-2-wangkefeng.wang@huawei.com>
+X-Mailer: git-send-email 2.26.2
+In-Reply-To: <20200507150445.174390-1-wangkefeng.wang@huawei.com>
+References: <20200507150445.174390-1-wangkefeng.wang@huawei.com>
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.175.113.25]
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200507_072923_736678_7A95D96E 
-X-CRM114-Status: GOOD (  10.68  )
+X-CRM114-CacheID: sfid-20200507_080116_972987_D28BA9DC 
+X-CRM114-Status: UNSURE (   8.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -79,61 +74,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Sasha Levin <sashal@kernel.org>, Fangrui Song <maskray@google.com>,
- Ilie Halip <ilie.halip@gmail.com>, Palmer Dabbelt <palmerdabbelt@google.com>,
- Nick Desaulniers <ndesaulniers@google.com>, clang-built-linux@googlegroups.com,
- linux-riscv@lists.infradead.org, Dmitry Golovin <dima@golovin.in>
+Cc: Kefeng Wang <wangkefeng.wang@huawei.com>, Alan Kao <alankao@andestech.com>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Ilie Halip <ilie.halip@gmail.com>
+As 178e9fc47aae("perf: riscv: preliminary RISC-V support") said,
+For RISCV_BASE_PMU, 'this option can also be disable to reduce kernel size',
+but it could not work well, we need diable both RISCV_BASE_PMU and
+PERF_EVENTS manually, or build error will occur when only disable
+RISCV_BASE_PMU.
 
-[ Upstream commit 3c1918c8f54166598195d938564072664a8275b1 ]
-
-When building with the LLVM linker this error occurrs:
-    LD      arch/riscv/kernel/vdso/vdso-syms.o
-  ld.lld: error: no input files
-
-This happens because the lld treats -R as an alias to -rpath, as opposed
-to ld where -R means --just-symbols.
-
-Use the long option name for compatibility between the two.
-
-Link: https://github.com/ClangBuiltLinux/linux/issues/805
-Reported-by: Dmitry Golovin <dima@golovin.in>
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-Signed-off-by: Ilie Halip <ilie.halip@gmail.com>
-Reviewed-by: Fangrui Song <maskray@google.com>
-Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
+Cc: Alan Kao <alankao@andestech.com>
+Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
 ---
- arch/riscv/kernel/vdso/Makefile | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ arch/riscv/include/asm/perf_event.h | 8 ++------
+ arch/riscv/kernel/Makefile          | 2 +-
+ 2 files changed, 3 insertions(+), 7 deletions(-)
 
-diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
-index 87f71a6cd3ef8..1dd134fc0d84a 100644
---- a/arch/riscv/kernel/vdso/Makefile
-+++ b/arch/riscv/kernel/vdso/Makefile
-@@ -30,15 +30,15 @@ $(obj)/vdso.so.dbg: $(src)/vdso.lds $(obj-vdso) FORCE
- 	$(call if_changed,vdsold)
+diff --git a/arch/riscv/include/asm/perf_event.h b/arch/riscv/include/asm/perf_event.h
+index 0234048b12bc..062efd3a1d5d 100644
+--- a/arch/riscv/include/asm/perf_event.h
++++ b/arch/riscv/include/asm/perf_event.h
+@@ -12,19 +12,14 @@
+ #include <linux/ptrace.h>
+ #include <linux/interrupt.h>
  
- # We also create a special relocatable object that should mirror the symbol
--# table and layout of the linked DSO.  With ld -R we can then refer to
--# these symbols in the kernel code rather than hand-coded addresses.
-+# table and layout of the linked DSO. With ld --just-symbols we can then
-+# refer to these symbols in the kernel code rather than hand-coded addresses.
++#ifdef CONFIG_RISCV_BASE_PMU
+ #define RISCV_BASE_COUNTERS	2
  
- SYSCFLAGS_vdso.so.dbg = -shared -s -Wl,-soname=linux-vdso.so.1 \
-                             $(call cc-ldoption, -Wl$(comma)--hash-style=both)
- $(obj)/vdso-dummy.o: $(src)/vdso.lds $(obj)/rt_sigreturn.o FORCE
- 	$(call if_changed,vdsold)
+ /*
+  * The RISCV_MAX_COUNTERS parameter should be specified.
+  */
  
--LDFLAGS_vdso-syms.o := -r -R
-+LDFLAGS_vdso-syms.o := -r --just-symbols
- $(obj)/vdso-syms.o: $(obj)/vdso-dummy.o FORCE
- 	$(call if_changed,ld)
+-#ifdef CONFIG_RISCV_BASE_PMU
+ #define RISCV_MAX_COUNTERS	2
+-#endif
+-
+-#ifndef RISCV_MAX_COUNTERS
+-#error "Please provide a valid RISCV_MAX_COUNTERS for the PMU."
+-#endif
  
+ /*
+  * These are the indexes of bits in counteren register *minus* 1,
+@@ -82,6 +77,7 @@ struct riscv_pmu {
+ 	int		irq;
+ };
+ 
++#endif
+ #ifdef CONFIG_PERF_EVENTS
+ #define perf_arch_bpf_user_pt_regs(regs) (struct user_regs_struct *)regs
+ #endif
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index 1f5736e996fd..b355cf485671 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -43,7 +43,7 @@ obj-$(CONFIG_MODULE_SECTIONS)	+= module-sections.o
+ obj-$(CONFIG_FUNCTION_TRACER)	+= mcount.o ftrace.o
+ obj-$(CONFIG_DYNAMIC_FTRACE)	+= mcount-dyn.o
+ 
+-obj-$(CONFIG_PERF_EVENTS)	+= perf_event.o
++obj-$(CONFIG_RISCV_BASE_PMU)	+= perf_event.o
+ obj-$(CONFIG_PERF_EVENTS)	+= perf_callchain.o
+ obj-$(CONFIG_HAVE_PERF_REGS)	+= perf_regs.o
+ obj-$(CONFIG_RISCV_SBI)		+= sbi.o
 -- 
-2.20.1
+2.26.2
 
 
