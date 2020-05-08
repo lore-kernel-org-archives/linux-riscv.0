@@ -2,60 +2,116 @@ Return-Path: <SRS0=dogC=6W=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-6.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 757DAC35280
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  8 May 2020 03:10:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D7733C38A2A
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  8 May 2020 07:17:02 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3F47220725
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  8 May 2020 03:10:00 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 9E15D206B9
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  8 May 2020 07:17:02 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="oskJuZ+c"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3F47220725
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="RMy3sVmq";
+	dkim=pass (1024-bit key) header.d=sifive.com header.i=@sifive.com header.b="JVLhL9N5"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9E15D206B9
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4M+jFK132ONkQcnZxbuOk7aMhnulso50asch6Pu0M/Q=; b=oskJuZ+cB58XYa
-	09K9offb2wRzfxRjEmCDz7zG9Mhi4fRdpXnYfeQk6At5qR3OkdYsHLmrg6H4iW2c6wdqhyjvqxJl0
-	iauHHyUUogyVP8qKlCf4tfNKj5GHQ6RmXdt+6/UtzSN4KYKlAZbafaZs6YSg3UPIpZxqDsILGOa/T
-	Maf9lTuQEfVaOdl3SISseOr/lulQbD1qH50p0PtSIMWQls2RqrSsUEtA0dMf1OACw22c2FaOV+Dto
-	2is8ItcIkeGGgJIppM9qsS8wKIC4vxor+Q+T0lLrZX37dEMefGTsIt/MlQPcl3QaMxijzhYnr8+2Z
-	uyIZuxMaQts0ILWMeMYA==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=DtG5rnU+f5IjR+jUJdhoKXPoiqYYf7K6i7IKF4Sz6Cs=; b=RMy3sVmqTnQbCCLR0ypi9J7t8
+	wF9HXu0quAh0AmkEoKOpGHkM0FQZGsktZNFXe0ZncUy14GKTljtB6ANKZ7i20A5s+xVS7xJW9RBx1
+	bjBhocXkreEpjoJ2dh+S30VzGQrLJkdRzwK4CFXi6jLjkmf9LprR8REY2QlTiQQ3YL/XTW1A5O/pK
+	+7JIvl89elBDE7OUTMIQGlRKfNroow5ToEFyuru8YfZ+FZJu1TmpCfPcT6LLYb6G0S0GWRrxKeKZz
+	iDB38My9/+lTRJJ8dck9AQ/biZ0OQx2B1WiXxdyS2yW2tNsSZ1zsSUBlxe35ZibbOC1+7Qg5QnmG4
+	rj3UwrDaA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jWtOb-0001jC-QU; Fri, 08 May 2020 03:09:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
- by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jWtNv-000146-So; Fri, 08 May 2020 03:09:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B91FD1FB;
- Thu,  7 May 2020 20:09:10 -0700 (PDT)
-Received: from p8cg001049571a15.arm.com (unknown [10.163.73.155])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id AE1633F305;
- Thu,  7 May 2020 20:09:00 -0700 (PDT)
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-mm@kvack.org,
-	akpm@linux-foundation.org
-Subject: [PATCH V3 3/3] mm/hugetlb: Define a generic fallback for
- arch_clear_hugepage_flags()
-Date: Fri,  8 May 2020 08:37:51 +0530
-Message-Id: <1588907271-11920-4-git-send-email-anshuman.khandual@arm.com>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1588907271-11920-1-git-send-email-anshuman.khandual@arm.com>
-References: <1588907271-11920-1-git-send-email-anshuman.khandual@arm.com>
+	id 1jWxFg-0001yO-G3; Fri, 08 May 2020 07:16:56 +0000
+Received: from mail-eopbgr700083.outbound.protection.outlook.com
+ ([40.107.70.83] helo=NAM04-SN1-obe.outbound.protection.outlook.com)
+ by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1jWxFd-0001xb-Ch
+ for linux-riscv@lists.infradead.org; Fri, 08 May 2020 07:16:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=WF1YQkn+IPYsVPh4t94f3xuZbbklgAohBtCEQe36tiNI+Md6i7NBFE9LmetPV0Jnycj+E/ZtGWfHxqjtyITReN3zuE5Ypp0wRsY6kcc4C1i41JKfcyulpJz3fWFHle3p1/wa/F2GYKMOesg1e/jlFg7gScEBv0q411Dc610qxKyouJq/roijKxowwRh08sMHhRP6yLNAh6uwFCWfp+PvPF+ADaWRj+I9R7jhCoRHIJpAL6v58L6ZjYFtLt/+ZRwNcexWiI8pgy6Cx+Vj30SOz5ak6RA2N7UntIfoF+EqkT1PqiW47+el8JLwnnNq7IAwEtGe8c3HV9lh8bO7WmyA4Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DtG5rnU+f5IjR+jUJdhoKXPoiqYYf7K6i7IKF4Sz6Cs=;
+ b=P+QPFKCcOCSM5dijonDwsJ/pMfNwCxI82L0D3GHhUBwZYJfJQUo2wgb4DFvvzsT0j2XiaKaGowE3uFb7BQ0nAXbuKzPBSuqN9pDWH/vslmMPQtjILVsDD1HMGqEDGEI30jkiKRatEubIg/wea7lZs7C1PYVmlXFTv7pi1Xw3quJmztdc07GdYnE89Q+yWaB0c7TNhMnKS+lk5VJG+tDfK95+v1e7U5byAO5yeufYucZUh1aYnKEMv3O4255JoKc/M0EdHOZngeRscbk42a/2wWuyYhxDHNS/46UcDuQ8GbbXSI3YrWvE5tZOIjfmYzzTkyHUEJTrbLW4peSRDTe0Ng==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=sifive.com; dmarc=pass action=none header.from=sifive.com;
+ dkim=pass header.d=sifive.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DtG5rnU+f5IjR+jUJdhoKXPoiqYYf7K6i7IKF4Sz6Cs=;
+ b=JVLhL9N5uqvLVxI54T8wImWmtEatKjkd0ZbG/G4TaBI2oDRueg9ykIh0YUc5RI9t0ILGt7Jncfu8dD2tlnxL1tF0DU/Bge4k083YDWAuMNdl1F8S4pVzYdjwpNs3CKK1V8G5PlJv3BrmMUsiHopzh3IapB8nTd5Vk55tGZqswn0=
+Received: from BN8PR13MB2611.namprd13.prod.outlook.com (2603:10b6:408:81::17)
+ by BN8PR13MB2819.namprd13.prod.outlook.com (2603:10b6:408:8a::17)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2979.16; Fri, 8 May
+ 2020 07:16:49 +0000
+Received: from BN8PR13MB2611.namprd13.prod.outlook.com
+ ([fe80::c129:8fca:5ed:8929]) by BN8PR13MB2611.namprd13.prod.outlook.com
+ ([fe80::c129:8fca:5ed:8929%6]) with mapi id 15.20.3000.011; Fri, 8 May 2020
+ 07:16:49 +0000
+From: Sagar Kadam <sagar.kadam@sifive.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>, Greg KH <gregkh@linuxfoundation.org>
+Subject: RE: [PATCH] tty: serial: add missing spin_lock_init for SiFive UART
+Thread-Topic: [PATCH] tty: serial: add missing spin_lock_init for SiFive UART
+Thread-Index: AQHWI9xT6ew1lYdCokaBOkjqOFic/qicL7kAgACzkICAANvCgA==
+Date: Fri, 8 May 2020 07:16:49 +0000
+Message-ID: <BN8PR13MB261199F652ECCECE68A0C33299A20@BN8PR13MB2611.namprd13.prod.outlook.com>
+References: <20200507064958.GB798308@kroah.com>
+ <mhng-3c2de0bd-d2fb-4b5f-be6a-accdaa1cbc7a@palmerdabbelt-glaptop1>
+In-Reply-To: <mhng-3c2de0bd-d2fb-4b5f-be6a-accdaa1cbc7a@palmerdabbelt-glaptop1>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dabbelt.com; dkim=none (message not signed)
+ header.d=none;dabbelt.com; dmarc=none action=none header.from=sifive.com;
+x-originating-ip: [116.74.148.244]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: cf4859f8-f79b-484a-f980-08d7f31fc671
+x-ms-traffictypediagnostic: BN8PR13MB2819:
+x-ld-processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
+x-ms-exchange-transport-forked: True
+x-microsoft-antispam-prvs: <BN8PR13MB281951207970D4611D63A34E99A20@BN8PR13MB2819.namprd13.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:10000;
+x-forefront-prvs: 039735BC4E
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: BVS6LAOP0lD6oZu3gjXfOabmvI7x4x8WiBT7jxjS7QWLCxxU0XRL9HmCp668RATvMFhbhX3PvGnQGYgEwaYJxesRtYf30iyeQ6Lm3gn/uFD9dyaiffm62d09BwXoBpYq+Se+7+se1dQdZjGTPN/JYu4lgJwPvY6ZdaP1qThQPmqVa7VSRpsmjkXogTPf++tvd6lNVy7vjP+A7braua30krBz9s17otDO1Ith7mTsysKKIlZcH6d4ceJB0O+OEyuiw+lPTvF3AJ8evQoc1PiCZjEXNg7jVIrk9daNiRMfiZ1lMIv1znJmRynncWcgypOaeGM/5zFQcTKaPDmjf8cHB4/g1gTLsL8vetZRMAIc006unh+UkPtQwpxupUua84FXxXVKeuZeQV20P5pSigFiFzZZL33kIruygipD9WV0fbbXq1vhWBbywSxp/vQfAentNPCpwAVHtFcQ6EqLXlW33S8bPMadlvaiwH9BHu+jQaEsASgBRFAUYliMmkNYeAQJYAcObnQZ4wV3LwnQHeOqitEZ9e7Y/7vUBNCijBo4wsDDU5pTpeFLcKBSrTjwzRuTqjZ+VZJdj/sa1nCcYe5vIaLFdDp2Pt+7eMHCktNWZfU=
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:BN8PR13MB2611.namprd13.prod.outlook.com; PTR:; CAT:NONE;
+ SFTY:;
+ SFS:(6029001)(346002)(376002)(366004)(39850400004)(396003)(136003)(33430700001)(186003)(316002)(71200400001)(53546011)(2906002)(6506007)(5660300002)(7696005)(110136005)(4326008)(478600001)(9686003)(33440700001)(54906003)(966005)(52536014)(66476007)(44832011)(66556008)(66946007)(8936002)(55236004)(26005)(8676002)(83280400001)(83310400001)(83320400001)(83290400001)(55016002)(64756008)(33656002)(66446008)(76116006)(86362001)(83300400001);
+ DIR:OUT; SFP:1101; 
+x-ms-exchange-antispam-messagedata: xHMCOzbyeaWrdqjzncK5gIDw3loqVZ+kQg5/S6DyLoAWS5GFJnLBx98+nQr5NYg7GydEEfnyGVVzTdSAt5ADfrhkILbjlReDzRXC+l0sj/s8c2RJ3UON3KgCLVKdK5vUSQONUmBRAxs62duDuQ/IuTNdDp5oXv+VgZX9EFbijoI8OTWArN/jYGjUMR5bJg4vSMNgwCZ7sB7ZPMOO0VJ961kY3z/YjvtmgFAz9yyDTfGKGjJ58PQViwLvtCsh8aSYfkvrGt3BrU78Ce2WvFymgue842+N7FHYrmMvcHf2R2NZkNxH2hAUzZcsqUSiuVNuMlfZtAdIGfCBccQCFdR7Np4KNHtmegRgJyVTurWE8hGgNEGoEbb7+uEs27sFU8iYNzFYM022dCgrWEUlv1kG02CjSRfEbHKSkbAy633jdNEatJGkWJ4xo2tju82n85aUIGCVRzGiddOBNOZdUgg1CuW7wdYqQ6jY/M/mOzrnywk9sK2KyjqqmXLZxlB8HH2i
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-OriginatorOrg: sifive.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cf4859f8-f79b-484a-f980-08d7f31fc671
+X-MS-Exchange-CrossTenant-originalarrivaltime: 08 May 2020 07:16:49.4278 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: PX9poPEkLmuDYitdelfdRVURTCG8gPxeHQb5NR3/svPuV3Es1u+TGp0mLeUP0vk3tu8ijeV6uNrqvhUX0NwGcw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN8PR13MB2819
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200507_200912_031229_B09A56ED 
-X-CRM114-Status: GOOD (  12.92  )
+X-CRM114-CacheID: sfid-20200508_001653_497372_3634F8DE 
+X-CRM114-Status: GOOD (  24.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -67,253 +123,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rich Felker <dalias@libc.org>, linux-ia64@vger.kernel.org,
- linux-sh@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
- Heiko Carstens <heiko.carstens@de.ibm.com>, linux-kernel@vger.kernel.org,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Paul Mackerras <paulus@samba.org>, "H. Peter Anvin" <hpa@zytor.com>,
- sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
- Will Deacon <will@kernel.org>, linux-arch@vger.kernel.org,
- linux-s390@vger.kernel.org, Yoshinori Sato <ysato@users.sourceforge.jp>,
- Michael Ellerman <mpe@ellerman.id.au>, Helge Deller <deller@gmx.de>,
- x86@kernel.org, Russell King <linux@armlinux.org.uk>,
- Christian Borntraeger <borntraeger@de.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Fenghua Yu <fenghua.yu@intel.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Borislav Petkov <bp@alien8.de>, Paul Walmsley <paul.walmsley@sifive.com>,
- Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org,
- Tony Luck <tony.luck@intel.com>, linux-parisc@vger.kernel.org,
- linux-mips@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
- linuxppc-dev@lists.ozlabs.org, "David S. Miller" <davem@davemloft.net>,
- Mike Kravetz <mike.kravetz@oracle.com>
+Cc: Atish Patra <Atish.Patra@wdc.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ Anup Patel <Anup.Patel@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There are multiple similar definitions for arch_clear_hugepage_flags() on
-various platforms. Lets just add it's generic fallback definition for
-platforms that do not override. This help reduce code duplication.
-
-Cc: Russell King <linux@armlinux.org.uk>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Tony Luck <tony.luck@intel.com>
-Cc: Fenghua Yu <fenghua.yu@intel.com>
-Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-Cc: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>
-Cc: Helge Deller <deller@gmx.de>
-Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>
-Cc: Paul Mackerras <paulus@samba.org>
-Cc: Michael Ellerman <mpe@ellerman.id.au>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Heiko Carstens <heiko.carstens@de.ibm.com>
-Cc: Vasily Gorbik <gor@linux.ibm.com>
-Cc: Christian Borntraeger <borntraeger@de.ibm.com>
-Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
-Cc: Rich Felker <dalias@libc.org>
-Cc: "David S. Miller" <davem@davemloft.net>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: Ingo Molnar <mingo@redhat.com>
-Cc: Borislav Petkov <bp@alien8.de>
-Cc: "H. Peter Anvin" <hpa@zytor.com>
-Cc: Mike Kravetz <mike.kravetz@oracle.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: x86@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-ia64@vger.kernel.org
-Cc: linux-mips@vger.kernel.org
-Cc: linux-parisc@vger.kernel.org
-Cc: linuxppc-dev@lists.ozlabs.org
-Cc: linux-riscv@lists.infradead.org
-Cc: linux-s390@vger.kernel.org
-Cc: linux-sh@vger.kernel.org
-Cc: sparclinux@vger.kernel.org
-Cc: linux-mm@kvack.org
-Cc: linux-arch@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
----
- arch/arm/include/asm/hugetlb.h     | 1 +
- arch/arm64/include/asm/hugetlb.h   | 1 +
- arch/ia64/include/asm/hugetlb.h    | 4 ----
- arch/mips/include/asm/hugetlb.h    | 4 ----
- arch/parisc/include/asm/hugetlb.h  | 4 ----
- arch/powerpc/include/asm/hugetlb.h | 4 ----
- arch/riscv/include/asm/hugetlb.h   | 4 ----
- arch/s390/include/asm/hugetlb.h    | 1 +
- arch/sh/include/asm/hugetlb.h      | 1 +
- arch/sparc/include/asm/hugetlb.h   | 4 ----
- arch/x86/include/asm/hugetlb.h     | 4 ----
- include/linux/hugetlb.h            | 5 +++++
- 12 files changed, 9 insertions(+), 28 deletions(-)
-
-diff --git a/arch/arm/include/asm/hugetlb.h b/arch/arm/include/asm/hugetlb.h
-index 9ecd516d1ff7..d02d6ca88e92 100644
---- a/arch/arm/include/asm/hugetlb.h
-+++ b/arch/arm/include/asm/hugetlb.h
-@@ -18,5 +18,6 @@ static inline void arch_clear_hugepage_flags(struct page *page)
- {
- 	clear_bit(PG_dcache_clean, &page->flags);
- }
-+#define arch_clear_hugepage_flags arch_clear_hugepage_flags
- 
- #endif /* _ASM_ARM_HUGETLB_H */
-diff --git a/arch/arm64/include/asm/hugetlb.h b/arch/arm64/include/asm/hugetlb.h
-index 8f58e052697a..94ba0c5bced2 100644
---- a/arch/arm64/include/asm/hugetlb.h
-+++ b/arch/arm64/include/asm/hugetlb.h
-@@ -21,6 +21,7 @@ static inline void arch_clear_hugepage_flags(struct page *page)
- {
- 	clear_bit(PG_dcache_clean, &page->flags);
- }
-+#define arch_clear_hugepage_flags arch_clear_hugepage_flags
- 
- extern pte_t arch_make_huge_pte(pte_t entry, struct vm_area_struct *vma,
- 				struct page *page, int writable);
-diff --git a/arch/ia64/include/asm/hugetlb.h b/arch/ia64/include/asm/hugetlb.h
-index 6ef50b9a4bdf..7e46ebde8c0c 100644
---- a/arch/ia64/include/asm/hugetlb.h
-+++ b/arch/ia64/include/asm/hugetlb.h
-@@ -28,10 +28,6 @@ static inline void huge_ptep_clear_flush(struct vm_area_struct *vma,
- {
- }
- 
--static inline void arch_clear_hugepage_flags(struct page *page)
--{
--}
--
- #include <asm-generic/hugetlb.h>
- 
- #endif /* _ASM_IA64_HUGETLB_H */
-diff --git a/arch/mips/include/asm/hugetlb.h b/arch/mips/include/asm/hugetlb.h
-index 8b201e281f67..10e3be870df7 100644
---- a/arch/mips/include/asm/hugetlb.h
-+++ b/arch/mips/include/asm/hugetlb.h
-@@ -75,10 +75,6 @@ static inline int huge_ptep_set_access_flags(struct vm_area_struct *vma,
- 	return changed;
- }
- 
--static inline void arch_clear_hugepage_flags(struct page *page)
--{
--}
--
- #include <asm-generic/hugetlb.h>
- 
- #endif /* __ASM_HUGETLB_H */
-diff --git a/arch/parisc/include/asm/hugetlb.h b/arch/parisc/include/asm/hugetlb.h
-index 411d9d867baa..a69cf9efb0c1 100644
---- a/arch/parisc/include/asm/hugetlb.h
-+++ b/arch/parisc/include/asm/hugetlb.h
-@@ -42,10 +42,6 @@ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
- 					     unsigned long addr, pte_t *ptep,
- 					     pte_t pte, int dirty);
- 
--static inline void arch_clear_hugepage_flags(struct page *page)
--{
--}
--
- #include <asm-generic/hugetlb.h>
- 
- #endif /* _ASM_PARISC64_HUGETLB_H */
-diff --git a/arch/powerpc/include/asm/hugetlb.h b/arch/powerpc/include/asm/hugetlb.h
-index b167c869d72d..e6dfa63da552 100644
---- a/arch/powerpc/include/asm/hugetlb.h
-+++ b/arch/powerpc/include/asm/hugetlb.h
-@@ -61,10 +61,6 @@ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
- 			       unsigned long addr, pte_t *ptep,
- 			       pte_t pte, int dirty);
- 
--static inline void arch_clear_hugepage_flags(struct page *page)
--{
--}
--
- #include <asm-generic/hugetlb.h>
- 
- #else /* ! CONFIG_HUGETLB_PAGE */
-diff --git a/arch/riscv/include/asm/hugetlb.h b/arch/riscv/include/asm/hugetlb.h
-index 866f6ae6467c..a5c2ca1d1cd8 100644
---- a/arch/riscv/include/asm/hugetlb.h
-+++ b/arch/riscv/include/asm/hugetlb.h
-@@ -5,8 +5,4 @@
- #include <asm-generic/hugetlb.h>
- #include <asm/page.h>
- 
--static inline void arch_clear_hugepage_flags(struct page *page)
--{
--}
--
- #endif /* _ASM_RISCV_HUGETLB_H */
-diff --git a/arch/s390/include/asm/hugetlb.h b/arch/s390/include/asm/hugetlb.h
-index 7d27ea96ec2f..9ddf4a43a590 100644
---- a/arch/s390/include/asm/hugetlb.h
-+++ b/arch/s390/include/asm/hugetlb.h
-@@ -39,6 +39,7 @@ static inline void arch_clear_hugepage_flags(struct page *page)
- {
- 	clear_bit(PG_arch_1, &page->flags);
- }
-+#define arch_clear_hugepage_flags arch_clear_hugepage_flags
- 
- static inline void huge_pte_clear(struct mm_struct *mm, unsigned long addr,
- 				  pte_t *ptep, unsigned long sz)
-diff --git a/arch/sh/include/asm/hugetlb.h b/arch/sh/include/asm/hugetlb.h
-index 536ad2cb8aa4..ae4de7b89210 100644
---- a/arch/sh/include/asm/hugetlb.h
-+++ b/arch/sh/include/asm/hugetlb.h
-@@ -30,6 +30,7 @@ static inline void arch_clear_hugepage_flags(struct page *page)
- {
- 	clear_bit(PG_dcache_clean, &page->flags);
- }
-+#define arch_clear_hugepage_flags arch_clear_hugepage_flags
- 
- #include <asm-generic/hugetlb.h>
- 
-diff --git a/arch/sparc/include/asm/hugetlb.h b/arch/sparc/include/asm/hugetlb.h
-index a056fe1119f5..53838a173f62 100644
---- a/arch/sparc/include/asm/hugetlb.h
-+++ b/arch/sparc/include/asm/hugetlb.h
-@@ -47,10 +47,6 @@ static inline int huge_ptep_set_access_flags(struct vm_area_struct *vma,
- 	return changed;
- }
- 
--static inline void arch_clear_hugepage_flags(struct page *page)
--{
--}
--
- #define __HAVE_ARCH_HUGETLB_FREE_PGD_RANGE
- void hugetlb_free_pgd_range(struct mmu_gather *tlb, unsigned long addr,
- 			    unsigned long end, unsigned long floor,
-diff --git a/arch/x86/include/asm/hugetlb.h b/arch/x86/include/asm/hugetlb.h
-index cc98f79074d0..1721b1aadeb1 100644
---- a/arch/x86/include/asm/hugetlb.h
-+++ b/arch/x86/include/asm/hugetlb.h
-@@ -7,8 +7,4 @@
- 
- #define hugepages_supported() boot_cpu_has(X86_FEATURE_PSE)
- 
--static inline void arch_clear_hugepage_flags(struct page *page)
--{
--}
--
- #endif /* _ASM_X86_HUGETLB_H */
-diff --git a/include/linux/hugetlb.h b/include/linux/hugetlb.h
-index c01c0c6f7fd4..04bc794becfc 100644
---- a/include/linux/hugetlb.h
-+++ b/include/linux/hugetlb.h
-@@ -600,6 +600,11 @@ static inline int is_hugepage_only_range(struct mm_struct *mm,
- #define is_hugepage_only_range is_hugepage_only_range
- #endif
- 
-+#ifndef arch_clear_hugepage_flags
-+static inline void arch_clear_hugepage_flags(struct page *page) { }
-+#define arch_clear_hugepage_flags arch_clear_hugepage_flags
-+#endif
-+
- #ifndef arch_make_huge_pte
- static inline pte_t arch_make_huge_pte(pte_t entry, struct vm_area_struct *vma,
- 				       struct page *page, int writable)
--- 
-2.20.1
-
+SGVsbG8sDQoNCj4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0NCj4gRnJvbTogUGFsbWVyIERh
+YmJlbHQgPHBhbG1lckBkYWJiZWx0LmNvbT4NCj4gU2VudDogVGh1cnNkYXksIE1heSA3LCAyMDIw
+IDExOjAzIFBNDQo+IFRvOiBHcmVnIEtIIDxncmVna2hAbGludXhmb3VuZGF0aW9uLm9yZz4NCj4g
+Q2M6IFNhZ2FyIEthZGFtIDxzYWdhci5rYWRhbUBzaWZpdmUuY29tPjsgUGF1bCBXYWxtc2xleQ0K
+PiA8cGF1bC53YWxtc2xleUBzaWZpdmUuY29tPjsgbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
+Lm9yZzsgQXRpc2ggUGF0cmENCj4gPEF0aXNoLlBhdHJhQHdkYy5jb20+OyBBbnVwIFBhdGVsIDxB
+bnVwLlBhdGVsQHdkYy5jb20+DQo+IFN1YmplY3Q6IFJlOiBbUEFUQ0hdIHR0eTogc2VyaWFsOiBh
+ZGQgbWlzc2luZyBzcGluX2xvY2tfaW5pdCBmb3IgU2lGaXZlIFVBUlQNCj4gDQo+IFtFeHRlcm5h
+bCBFbWFpbF0gRG8gbm90IGNsaWNrIGxpbmtzIG9yIGF0dGFjaG1lbnRzIHVubGVzcyB5b3UgcmVj
+b2duaXplIHRoZQ0KPiBzZW5kZXIgYW5kIGtub3cgdGhlIGNvbnRlbnQgaXMgc2FmZQ0KPiANCj4g
+T24gV2VkLCAwNiBNYXkgMjAyMCAyMzo0OTo1OCBQRFQgKC0wNzAwKSwgR3JlZyBLSCB3cm90ZToN
+Cj4gPiBPbiBXZWQsIE1heSAwNiwgMjAyMCBhdCAxMjoyNjo1MlBNIC0wNzAwLCBTYWdhciBTaHJp
+a2FudCBLYWRhbSB3cm90ZToNCj4gPj4gVW5pbml0aWFsaXNlZCBzcGluIGxvY2sgb24gc2lmaXZl
+IHNlcmlhbCBwb3J0IChzc3ApIHJhaXNlZCBhIHJhY2UNCj4gPj4gY29uZGl0aW9uIGFuZCByZXN1
+bHRlZCBpbiBzcGluIGxvY2sgYmFkIG1hZ2ljIGFzIHJlcG9ydGVkIGFuZA0KPiA+PiBkaXNjdXNz
+ZWQgaGVyZSBbMV0gSW5pdGlhbGlzaW5nIHRoZSBzcGluIGxvY2sgcmVzb2x2ZXMgdGhlIGlzc3Vl
+Lg0KPiA+Pg0KPiA+PiBUaGUgZml4IGlzIHRlc3RlZCBvbiBIaUZpdmUgVW5sZWFzaGVkIEEwMCBi
+b2FyZCB3aXRoIExpbnV4IDUuNy1yYzQNCj4gPj4gYW5kIE9wZW5TQkkgdjAuNw0KPiA+Pg0KPiA+
+PiBbMV0NCj4gPj4gaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvcGlwZXJtYWlsL2xpbnV4LXJp
+c2N2LzIwMjAtTWF5LzAwOTcxMy5odG1sDQo+ID4NCj4gPiBJbiB0aGUgZnV0dXJlLCBjYW4geW91
+IGxpbmsgdG8gbG9yZS5rZXJuZWwub3JnIGluc3RlYWQ/DQo+ID4NClRoYW5rcyBmb3Igc3VnZ2Vz
+dGlvbnMsIEdyZWcuDQpZZXMsIHdpbGwgdXBkYXRlIGxpbmsgZnJvbSBsb3JlLmtlcm5lbC5vcmcN
+Cj4gPj4NCj4gPj4gRml4ZXM6IDQ1YzA1NGQwODE1YiAoInR0eTogc2VyaWFsOiBhZGQgZHJpdmVy
+IGZvciB0aGUgU2lGaXZlIFVBUlQiKQ0KPiA+DQo+ID4gU28gdGhpcyBzaG91bGQgYWxzbyBnbyB0
+byBzdGFibGUga2VybmVscywgcmlnaHQ/DQo+ID4NClllcywgSSB3aWxsIGluY2x1ZGUgbGludXgt
+a2VybmVsIGFuZCBsaW51eC1zZXJpYWwgYXMgd2VsbCBpbiBWMg0KDQo+ID4+IFJlcG9ydGVkLWJ5
+OiBBdGlzaCBQYXRyYSA8QXRpc2guUGF0cmFAd2RjLmNvbT4NCj4gPj4gU2lnbmVkLW9mZi1ieTog
+U2FnYXIgU2hyaWthbnQgS2FkYW0gPHNhZ2FyLmthZGFtQHNpZml2ZS5jb20+DQo+ID4+IC0tLQ0K
+PiA+PiAgZHJpdmVycy90dHkvc2VyaWFsL3NpZml2ZS5jIHwgMSArDQo+ID4+ICAxIGZpbGUgY2hh
+bmdlZCwgMSBpbnNlcnRpb24oKykNCj4gPj4NCj4gPj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvdHR5
+L3NlcmlhbC9zaWZpdmUuYw0KPiA+PiBiL2RyaXZlcnMvdHR5L3NlcmlhbC9zaWZpdmUuYyBpbmRl
+eCAxM2VhZGNiLi5iMDYxYmRiIDEwMDY0NA0KPiA+PiAtLS0gYS9kcml2ZXJzL3R0eS9zZXJpYWwv
+c2lmaXZlLmMNCj4gPj4gKysrIGIvZHJpdmVycy90dHkvc2VyaWFsL3NpZml2ZS5jDQo+ID4+IEBA
+IC05ODksNiArOTg5LDcgQEAgc3RhdGljIGludCBzaWZpdmVfc2VyaWFsX3Byb2JlKHN0cnVjdA0K
+PiBwbGF0Zm9ybV9kZXZpY2UgKnBkZXYpDQo+ID4+ICAgICAgc3NwLT5jbGsgPSBjbGs7DQo+ID4+
+ICAgICAgc3NwLT5jbGtfbm90aWZpZXIubm90aWZpZXJfY2FsbCA9IHNpZml2ZV9zZXJpYWxfY2xr
+X25vdGlmaWVyOw0KPiA+Pg0KPiA+PiArICAgIHNwaW5fbG9ja19pbml0KCZzc3AtPnBvcnQubG9j
+ayk7DQo+ID4NCj4gPiBTaG91bGRuJ3QgdGhlIHBvcnQgbG9jayBiZSBpbml0aWFsaXplZCBieSB0
+aGUgdHR5IGNvcmUgaW5zdGVhZD8gIEkNCj4gPiB0aGluayB0aGlzIGlzIHRoZSBzZWNvbmQgdGlt
+ZSBJJ3ZlIHNlZW4gdGhpcyB0eXBlIG9mIGZpeCBuZWVkZWQgcmVjZW50bHkuLi4NCj4gDQo+IFlh
+LCB0aGF0J3Mgd2hhdCB3YXMgYmxvY2tpbmcgbXkgcmV2aWV3ZWQtYnkuICBJdCBsb29rcyBsaWtl
+IHRoZSBzcGlubG9jayBpc24ndA0KPiBpbml0aWFsaXplZCBmb3IgY29uc29sZS4gIElESyB3aHkg
+dGhhdCdzIHRoZSBjYXNlLCBidXQgYXNzdW1pbmcgdGhhdCdzIHRoZSB3YXkNCj4gaXQncyBzdXBw
+b3NlZCB0byB3b3JrIHdlIHNob3VsZCBvbmx5IGluaXRpYWxpemUgdGhlIHNwaW5sb2NrIGlmIHdl
+IHNldCB1cCBhDQo+IGNvbnNvbGUgcG9ydCwgd2hpY2ggd2UgZG8gaW4gX19zc3BfYWRkX2NvbnNv
+bGVfcG9ydCgpLiAgSW4gb3RoZXIgd29yZHMsDQo+IHNvbWV0aGluZyBsaWtlIHRoaXMNCj4gDQoN
+ClRoYW5rcyBHcmVnIGFuZCBQYWxtZXIsIHlvdXIgaW5wdXRzIGFyZSB2YWx1YWJsZS4gSSBjb3Vs
+ZCBzZWUgdGhhdCB0aGUgdHR5IGNvcmUgZG9lcw0KIGluaXRpYWxpc2UgdGhlIHBvcnQgc3BpbiBs
+b2NrIHZpYSB0dHlfcG9ydF9pbml0IHdoaWxlIHJlZ2lzdGVyaW5nIHRoZSB1YXJ0X2RyaXZlciwg
+d2hpbGUgDQp0aGVyZSBpc24ndCBhbnkgbG9jayBpbml0aWFsaXplZCBmb3IgY29uc29sZS4gIFRo
+ZSBzZXJpYWxfY29yZSBlbnN1cmUgIHRoZSBzcGluIGxvY2sgZm9yIA0KY29uc29sZSBpcyBpbml0
+aWFsaXNlZCAodWFydF9wb3J0X3NwaW5fbG9ja19pbml0KSAgYW5kIHNpbmNlIGl0IGlzIG1pc3Np
+bmcgaW4gb3VyIGNhc2Ugd2UgDQplbmNvdW50ZXIgdGhlIHNwaW5fbG9jayBlcnJvci4gDQpJIGhh
+dmUgdmVyaWZpZWQgdGhhdCBzcGluX2xvY2sgaW5pdCBmb3Igc3NwIGNvbnNvbGUgd29ya3MsIGFu
+ZCB3aWxsIHN1Ym1pdCBhIHYyLg0KDQpUaGFua3MgJiBCUiwNClNhZ2FyIEthZGFtDQoNCj4gZGlm
+ZiAtLWdpdCBhL2RyaXZlcnMvdHR5L3NlcmlhbC9zaWZpdmUuYyBiL2RyaXZlcnMvdHR5L3Nlcmlh
+bC9zaWZpdmUuYyBpbmRleA0KPiAxM2VhZGNiOGFlYzQuLjBiNTExMGRhZDA1MSAxMDA2NDQNCj4g
+LS0tIGEvZHJpdmVycy90dHkvc2VyaWFsL3NpZml2ZS5jDQo+ICsrKyBiL2RyaXZlcnMvdHR5L3Nl
+cmlhbC9zaWZpdmUuYw0KPiBAQCAtODgzLDYgKzg4Myw3IEBAIGNvbnNvbGVfaW5pdGNhbGwoc2lm
+aXZlX2NvbnNvbGVfaW5pdCk7DQo+IA0KPiAgc3RhdGljIHZvaWQgX19zc3BfYWRkX2NvbnNvbGVf
+cG9ydChzdHJ1Y3Qgc2lmaXZlX3NlcmlhbF9wb3J0ICpzc3ApICB7DQo+ICsgICAgICAgc3Bpbl9s
+b2NrX2luaXQoJnNzcC0+cG9ydC5sb2NrKTsNCj4gICAgICAgICBzaWZpdmVfc2VyaWFsX2NvbnNv
+bGVfcG9ydHNbc3NwLT5wb3J0LmxpbmVdID0gc3NwOyAgfQ0KPiANCj4gPg0KPiA+IHRoYW5rcywN
+Cj4gPg0KPiA+IGdyZWcgay1oDQo=
 
