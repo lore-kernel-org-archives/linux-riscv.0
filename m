@@ -1,69 +1,54 @@
-Return-Path: <SRS0=+GVO=6X=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=ZuGm=6Y=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9BFF0C47255
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat,  9 May 2020 23:30:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7BDAAC54E8B
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 10 May 2020 07:55:58 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 66D9F20735
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat,  9 May 2020 23:30:12 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 18EDD20801
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 10 May 2020 07:55:58 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="GzMfPoTs";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="CF45wfgq"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 66D9F20735
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sMQcd2vr"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 18EDD20801
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=JOKbRckbuJVylYiw9v+2RudO+E1phIVhxr26Rrp4ZA8=; b=GzMfPoTsr1FiiZaUEXe7bInk0
-	SurZmLhYreIsyZjBm4Ew7JqLbRSmAAJhACsswUyarlSkN/Ge7ndTRcxcfzKpkeXMjb7Z4bMRJ1rn1
-	rhUPVLYkHHnBlRSIy+JL+2dSmPt0YzF0sDiQTezPKWMtWasQboQdWDSJql8OpjtepRCiDU8qgzKJW
-	e2DP2yX+u2fIOOM4fLH+yuUSbk7aawQi8gALbpHG/g2NG7wdELTWvgOlQE2J15NTlOzo3khCeN7Sg
-	M71wv1Erq2pbmoLAB00eYyrxlfRFm3SSVYqNr8MeQQ3pCNDqug6bOIiSiciLU+GrGCJhwSmZ8oTRY
-	gGzBiQ2QQ==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
+	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=f8uY0F5J9sPe3diCT135xJ/N/Dw+x4WW5zJnRGaybDU=; b=sMQcd2vrYJn9Uj
+	80OAcnAcQrpRzlFzAFDxZNLnn0aQYSKgPj30AwY9guvUT4pn6Z1bg8BkMnECci1W4TNRJOitl3DPa
+	h4yK+i5h25OY+Vv5x7ouhe5/GL5IaXgpcL11beHZ5/1Xv2eLdfWFdqgelQGh4rE5ELYfDnTFk7qK0
+	VnxAnzRW4Eq7XnZNCQ+3V43bYkQqBz4ssDPEKpqBCEqzlV0VJR6W76EJJQSZjd0bB2Z1+bYHu7Gyl
+	zNayQhIJw7Sig8g/w0afbuoVxJJacyw/kQ8YMWpeEadfkGvVgwAaTeGHEg+kbfK8/62cGgVBsRHen
+	bfiaJLGwmukI0T9oGbDw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jXYv2-0003BP-Jg; Sat, 09 May 2020 23:30:08 +0000
-Received: from mail.kernel.org ([198.145.29.99])
- by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jXYuz-00026y-SP
- for linux-riscv@lists.infradead.org; Sat, 09 May 2020 23:30:07 +0000
-Subject: Re: [GIT PULL] RISC-V Fixes for 5.7-rc5
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1589067004;
- bh=3m5vLMMt7xSTQVM1ToBPEDlQIEW02c2ZOV9SkMuqvoY=;
- h=From:In-Reply-To:References:Date:To:Cc:From;
- b=CF45wfgqyH6zN0ImOw/jdsgSCkyi+8NPxUyPWCiz1SslEJrtTNmje8IS2No4Kj22f
- Qi8tuKxEsRXt7M7JlXBvL+6zc+8VRGe/1l9ieqaSE++9nqX/r2TQ90yG3IZdPVaj8I
- QLhZHiwalGYleqUKmu/abD65Gv2/y4WQkNZrpn7w=
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <mhng-81c83c19-6f5d-4ed1-a0bb-26accf4b7d3a@palmerdabbelt-glaptop1>
-References: <mhng-81c83c19-6f5d-4ed1-a0bb-26accf4b7d3a@palmerdabbelt-glaptop1>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <mhng-81c83c19-6f5d-4ed1-a0bb-26accf4b7d3a@palmerdabbelt-glaptop1>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
- tags/riscv-for-linus-5.7-rc5
-X-PR-Tracked-Commit-Id: 73cb8e2a5863ccc5215660f5123db621bd57dff7
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 2e28f3b13a41b8a7d36a73ddf4bb41972a9c1dd9
-Message-Id: <158906700480.4509.666765554431792903.pr-tracker-bot@kernel.org>
-Date: Sat, 09 May 2020 23:30:04 +0000
-To: Palmer Dabbelt <palmer@dabbelt.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200509_163005_958152_07ED5C74 
-X-CRM114-Status: UNSURE (   0.80  )
-X-CRM114-Notice: Please train this message.
+	id 1jXgoO-0008Q1-9I; Sun, 10 May 2020 07:55:48 +0000
+Received: from [2001:4bb8:180:9d3f:c70:4a89:bc61:2] (helo=localhost)
+ by bombadil.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1jXgns-0007pB-5z; Sun, 10 May 2020 07:55:16 +0000
+From: Christoph Hellwig <hch@lst.de>
+To: Andrew Morton <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>,
+ Roman Zippel <zippel@linux-m68k.org>
+Subject: [PATCH 01/31] arm: fix the flush_icache_range arguments in
+ set_fiq_handler
+Date: Sun, 10 May 2020 09:54:40 +0200
+Message-Id: <20200510075510.987823-2-hch@lst.de>
+X-Mailer: git-send-email 2.26.2
+In-Reply-To: <20200510075510.987823-1-hch@lst.de>
+References: <20200510075510.987823-1-hch@lst.de>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -75,21 +60,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org,
- Linus Torvalds <torvalds@linux-foundation.org>, linux-kernel@vger.kernel.org
+Cc: linux-arch@vger.kernel.org, linux-xtensa@linux-xtensa.org,
+ Michal Simek <monstr@monstr.eu>, Jessica Yu <jeyu@kernel.org>,
+ linux-ia64@vger.kernel.org, linux-c6x-dev@linux-c6x.org,
+ linux-sh@vger.kernel.org, linux-hexagon@vger.kernel.org, x86@kernel.org,
+ linux-um@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-mm@kvack.org,
+ linux-m68k@lists.linux-m68k.org, openrisc@lists.librecores.org,
+ linux-alpha@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Fri, 08 May 2020 11:47:13 -0700 (PDT):
+The arguments passed look bogus, try to fix them to something that seems
+to make sense.
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.7-rc5
+Signed-off-by: Christoph Hellwig <hch@lst.de>
+---
+ arch/arm/kernel/fiq.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/2e28f3b13a41b8a7d36a73ddf4bb41972a9c1dd9
-
-Thank you!
-
+diff --git a/arch/arm/kernel/fiq.c b/arch/arm/kernel/fiq.c
+index cd1234c103fcd..98ca3e3fa8471 100644
+--- a/arch/arm/kernel/fiq.c
++++ b/arch/arm/kernel/fiq.c
+@@ -98,8 +98,8 @@ void set_fiq_handler(void *start, unsigned int length)
+ 
+ 	memcpy(base + offset, start, length);
+ 	if (!cache_is_vipt_nonaliasing())
+-		flush_icache_range((unsigned long)base + offset, offset +
+-				   length);
++		flush_icache_range((unsigned long)base + offset,
++				   (unsigned long)base + offset + length);
+ 	flush_icache_range(0xffff0000 + offset, 0xffff0000 + offset + length);
+ }
+ 
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.wiki.kernel.org/userdoc/prtracker
+2.26.2
+
 
