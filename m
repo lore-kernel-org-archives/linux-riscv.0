@@ -2,51 +2,48 @@ Return-Path: <SRS0=ZuGm=6Y=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+X-Spam-Status: No, score=-8.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7BDAAC54E8B
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 10 May 2020 07:55:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E7E61C54E8C
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 10 May 2020 07:56:05 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 18EDD20801
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 10 May 2020 07:55:58 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B67C420801
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 10 May 2020 07:56:05 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sMQcd2vr"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 18EDD20801
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="mpjafNwj"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B67C420801
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=f8uY0F5J9sPe3diCT135xJ/N/Dw+x4WW5zJnRGaybDU=; b=sMQcd2vrYJn9Uj
-	80OAcnAcQrpRzlFzAFDxZNLnn0aQYSKgPj30AwY9guvUT4pn6Z1bg8BkMnECci1W4TNRJOitl3DPa
-	h4yK+i5h25OY+Vv5x7ouhe5/GL5IaXgpcL11beHZ5/1Xv2eLdfWFdqgelQGh4rE5ELYfDnTFk7qK0
-	VnxAnzRW4Eq7XnZNCQ+3V43bYkQqBz4ssDPEKpqBCEqzlV0VJR6W76EJJQSZjd0bB2Z1+bYHu7Gyl
-	zNayQhIJw7Sig8g/w0afbuoVxJJacyw/kQ8YMWpeEadfkGvVgwAaTeGHEg+kbfK8/62cGgVBsRHen
-	bfiaJLGwmukI0T9oGbDw==;
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=7/gXVwxfQCALl/htOL9nGBBdk9CR2DqbWyS3c9DzJzg=; b=mpjafNwjsuLwHQ
+	kYnNKGlBZ2c/p7S2Shvfxc8G3Vky3iX+K9st+QXbbB2kZ2FM+d5x+F6rtOzPU4Y3jOwD0H2tw0C0b
+	21g2XA55Kefmh7igc5WqA6tkgSXNa4W6zCVb29HwMGCKAVYKpXZ1OdGBkCVhnO+g3j+D/lCsRhJG1
+	ZaYe2XWZ6hEvV4nm/x0N6VmVDg4r8aJfvt+JONND/ew9RCT1X2uZoNqLbfYIN0bO+KBK+zHxGItGJ
+	Ff6M5pHeSvl7SlQkScoj8PThLuwie+BhaRfr5jA3ymmb9F3mdK4+qrFEz0nh15i4tZOx12FznVGvk
+	7Jboyx9AgF3CdBA0C/2Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jXgoO-0008Q1-9I; Sun, 10 May 2020 07:55:48 +0000
+	id 1jXgoc-0000Jg-2d; Sun, 10 May 2020 07:56:02 +0000
 Received: from [2001:4bb8:180:9d3f:c70:4a89:bc61:2] (helo=localhost)
  by bombadil.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jXgns-0007pB-5z; Sun, 10 May 2020 07:55:16 +0000
+ id 1jXgno-0007lE-9T; Sun, 10 May 2020 07:55:13 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Andrew Morton <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>,
  Roman Zippel <zippel@linux-m68k.org>
-Subject: [PATCH 01/31] arm: fix the flush_icache_range arguments in
- set_fiq_handler
-Date: Sun, 10 May 2020 09:54:40 +0200
-Message-Id: <20200510075510.987823-2-hch@lst.de>
+Subject: sort out the flush_icache_range mess
+Date: Sun, 10 May 2020 09:54:39 +0200
+Message-Id: <20200510075510.987823-1-hch@lst.de>
 X-Mailer: git-send-email 2.26.2
-In-Reply-To: <20200510075510.987823-1-hch@lst.de>
-References: <20200510075510.987823-1-hch@lst.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -73,30 +70,36 @@ Cc: linux-arch@vger.kernel.org, linux-xtensa@linux-xtensa.org,
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The arguments passed look bogus, try to fix them to something that seems
-to make sense.
+Hi all,
 
-Signed-off-by: Christoph Hellwig <hch@lst.de>
----
- arch/arm/kernel/fiq.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+flush_icache_range is mostly used for kernel address, except for the following
+cases:
 
-diff --git a/arch/arm/kernel/fiq.c b/arch/arm/kernel/fiq.c
-index cd1234c103fcd..98ca3e3fa8471 100644
---- a/arch/arm/kernel/fiq.c
-+++ b/arch/arm/kernel/fiq.c
-@@ -98,8 +98,8 @@ void set_fiq_handler(void *start, unsigned int length)
- 
- 	memcpy(base + offset, start, length);
- 	if (!cache_is_vipt_nonaliasing())
--		flush_icache_range((unsigned long)base + offset, offset +
--				   length);
-+		flush_icache_range((unsigned long)base + offset,
-+				   (unsigned long)base + offset + length);
- 	flush_icache_range(0xffff0000 + offset, 0xffff0000 + offset + length);
- }
- 
--- 
-2.26.2
+ - the nommu brk and mmap implementations,
+ - the read_code helper that is only used for binfmt_flat, binfmt_elf_fdpic,
+   and binfmt_aout including the broken ia32 compat version
+ - binfmt_flat itself,
 
+none of which really are used by a typical MMU enabled kernel, as a.out can
+only be build for alpha and m68k to start with.
+
+But strangely enough commit ae92ef8a4424 ("PATCH] flush icache in correct
+context") added a "set_fs(KERNEL_DS)" around the flush_icache_range call
+in the module loader, because apparently m68k assumed user pointers.
+
+This series first cleans up the cacheflush implementations, largely by
+switching as much as possible to the asm-generic version after a few
+preparations, then moves the misnamed current flush_icache_user_range to
+a new name, to finally introduce a real flush_icache_user_range to be used
+for the above use cases to flush the instruction cache for a userspace
+address range.  The last patch then drops the set_fs in the module code
+and moves it into the m68k implementation.
+
+A git tree is available here:
+
+    git://git.infradead.org/users/hch/misc.git flush_icache_range
+
+Gitweb:
+
+    http://git.infradead.org/users/hch/misc.git/shortlog/refs/heads/flush_icache_range
 
