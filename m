@@ -4,19 +4,19 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 42DFAC54E49
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 10 May 2020 08:05:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 95E59C54E49
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 10 May 2020 08:06:15 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0AF0920731
-	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 10 May 2020 08:05:58 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 643B620731
+	for <infradead-linux-riscv@archiver.kernel.org>; Sun, 10 May 2020 08:06:15 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="QsWNn708"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0AF0920731
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="QjugOhon"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 643B620731
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,24 +25,25 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4ek5EujzgHPIbdEvHkQJFfygtnYVEDi+YXEorFGRVI0=; b=QsWNn708+3qs58
-	Qpbgxd8nGpAT439jiqK36JEseRiAB6X1/p4fEuT3VdlVdxpm2Vvz0bmTlRnnd1D2WI/2qNiFq3s2z
-	qhMbEUuRqhpJYZdIMdDb8JOR8PA9aQ0XSDhgJSxVSv1ebfOTqObLOQTly9nNzwtkIoMBkbFlCMCLE
-	Y+5U+VSSjE6Hk9M4rTWoJjLniqfjeJI2C9yDeljlhXxZBqwrp3F6KOBUgPXmYKAKK4+2JzluoiuA8
-	ttVo1FxpXIQ21IeM5R+Cp0vVmmEn+61kdxu0gyj6Vhloe++gw8ci16znnj/Ry25AzJXYXQfPfO+QL
-	ZCbFvNHG6eY8TM3ApAgw==;
+	List-Owner; bh=gbS3mnDejF/vbSIU5cFMJ7gbJPhVms+ouuUae9XApr4=; b=QjugOhonwaiPg1
+	S09dUq3QAGNQc0RwXOt1ddsKyYD6gzRZFQz3ZKFDOSfimMO37zt6Is++ZmpqNbKtpIaVp7VItDeZ3
+	iXK924fbqUrD4tKO371C0hO1LN1TvzKo2bYXXbDta7zOdl3pDQlZuLD7LH72dl/5wZhUA6/XeMWsA
+	O7PbzsqdxK7bKY0Lkiv9qUjnA3CpZvTr02mLAZEEZgmVTEYHyEA3KoK57rQi3Yd0POr/HjmaGFj/h
+	qaNQXQlPRWC262Lb2JUty8oOBNbxl5CyaDw/VGSlqGgZlTMmK8ewWjU99/AZ0MANUmBX+g5RlHkD+
+	ZJFPeNNN3uRqZsqG3ZXA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jXgy9-0007ct-Gr; Sun, 10 May 2020 08:05:53 +0000
+	id 1jXgyS-0007uy-92; Sun, 10 May 2020 08:06:12 +0000
 Received: from [2001:4bb8:180:9d3f:c70:4a89:bc61:2] (helo=localhost)
  by bombadil.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jXgpL-0001Mc-7G; Sun, 10 May 2020 07:56:47 +0000
+ id 1jXgpO-0001Pa-9R; Sun, 10 May 2020 07:56:50 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Andrew Morton <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>,
  Roman Zippel <zippel@linux-m68k.org>
-Subject: [PATCH 30/31] nommu: use flush_icache_user_range in brk and mmap
-Date: Sun, 10 May 2020 09:55:09 +0200
-Message-Id: <20200510075510.987823-31-hch@lst.de>
+Subject: [PATCH 31/31] module: move the set_fs hack for flush_icache_range to
+ m68k
+Date: Sun, 10 May 2020 09:55:10 +0200
+Message-Id: <20200510075510.987823-32-hch@lst.de>
 X-Mailer: git-send-email 2.26.2
 In-Reply-To: <20200510075510.987823-1-hch@lst.de>
 References: <20200510075510.987823-1-hch@lst.de>
@@ -72,35 +73,58 @@ Cc: linux-arch@vger.kernel.org, linux-xtensa@linux-xtensa.org,
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-These obviously operate on user addresses.
+flush_icache_range generally operates on kernel addresses, but for some
+reason m68k needed a set_fs override.  Move that into the m68k code
+insted of keeping it in the module loader.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
 ---
- mm/nommu.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/m68k/mm/cache.c | 4 ++++
+ kernel/module.c      | 8 --------
+ 2 files changed, 4 insertions(+), 8 deletions(-)
 
-diff --git a/mm/nommu.c b/mm/nommu.c
-index 318df4e236c99..aed7acaed2383 100644
---- a/mm/nommu.c
-+++ b/mm/nommu.c
-@@ -443,7 +443,7 @@ SYSCALL_DEFINE1(brk, unsigned long, brk)
+diff --git a/arch/m68k/mm/cache.c b/arch/m68k/mm/cache.c
+index 7915be3a09712..5ecb3310e8745 100644
+--- a/arch/m68k/mm/cache.c
++++ b/arch/m68k/mm/cache.c
+@@ -107,7 +107,11 @@ void flush_icache_user_range(unsigned long address, unsigned long endaddr)
+ 
+ void flush_icache_range(unsigned long address, unsigned long endaddr)
+ {
++	mm_segment_t old_fs = get_fs();
++
++	set_fs(KERNEL_DS);
+ 	flush_icache_user_range(address, endaddr);
++	set_fs(old_fs);
+ }
+ EXPORT_SYMBOL(flush_icache_range);
+ 
+diff --git a/kernel/module.c b/kernel/module.c
+index 646f1e2330d2b..b1673ed49594f 100644
+--- a/kernel/module.c
++++ b/kernel/module.c
+@@ -3312,12 +3312,6 @@ static int check_module_license_and_versions(struct module *mod)
+ 
+ static void flush_module_icache(const struct module *mod)
+ {
+-	mm_segment_t old_fs;
+-
+-	/* flush the icache in correct context */
+-	old_fs = get_fs();
+-	set_fs(KERNEL_DS);
+-
  	/*
- 	 * Ok, looks good - let it rip.
- 	 */
--	flush_icache_range(mm->brk, brk);
-+	flush_icache_user_range(mm->brk, brk);
- 	return mm->brk = brk;
+ 	 * Flush the instruction cache, since we've played with text.
+ 	 * Do it before processing of module parameters, so the module
+@@ -3329,8 +3323,6 @@ static void flush_module_icache(const struct module *mod)
+ 				   + mod->init_layout.size);
+ 	flush_icache_range((unsigned long)mod->core_layout.base,
+ 			   (unsigned long)mod->core_layout.base + mod->core_layout.size);
+-
+-	set_fs(old_fs);
  }
  
-@@ -1287,7 +1287,7 @@ unsigned long do_mmap(struct file *file,
- 	/* we flush the region from the icache only when the first executable
- 	 * mapping of it is made  */
- 	if (vma->vm_flags & VM_EXEC && !region->vm_icache_flushed) {
--		flush_icache_range(region->vm_start, region->vm_end);
-+		flush_icache_user_range(region->vm_start, region->vm_end);
- 		region->vm_icache_flushed = true;
- 	}
- 
+ int __weak module_frob_arch_sections(Elf_Ehdr *hdr,
 -- 
 2.26.2
 
