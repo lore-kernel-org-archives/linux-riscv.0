@@ -2,63 +2,65 @@ Return-Path: <SRS0=nRJq=62=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.9 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.4 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CEF7BC54E8B
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 May 2020 08:53:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7AC30C54E4A
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 May 2020 14:45:31 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A45712072B
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 May 2020 08:53:59 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 4C16E206D3
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 May 2020 14:45:31 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="GUnXENQx"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A45712072B
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="l7+PHwfP"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4C16E206D3
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	MIME-Version:Message-ID:In-Reply-To:Date:References:Subject:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=BlYORN9A/D1tLWU8DYJeMfxSqeQC/0CHapbgqNitItg=; b=GUnXENQxdeybi5FzarnFymhIi
-	WYDXErcBTrKxPK0LdsHP5qJxB95y/U3BgltmaGCR5OBAHRXZ23NtkL8vK8e430xxh3aYyQfkmOBY3
-	XWJ7X/S6+qMWYCyuqp6oI3x2YXyuy8BPxylh3LghCoYdx7vOtI53UV906yzAi/AOqxK2+rRA4VoWR
-	Yy2q0GW1d1pGgtJnH1/sUmK5/Fz194e7e3/guT2Ttd9OLMTkOizfMj1CHr71sXpFE6jngus5vTH2i
-	iGoEIMmK1lamN+zTAiZKEVwgtlQKwd90tqn5y6kiwRc+0KM7FIK55DiGwE6/XTn+lmZdDCvzN+unc
-	0Q2SKS1pA==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=OYcxV9NU5LAlW+nVZmc6oEr3s3LI41Fd2WWKeMpN6ak=; b=l7+PHwfPxnlZNm
+	xUJlrMZcpjMjKSLgZ3U+nUtKXM6K4t+/OjZ0BY22NJYqi8tLBZqB8RlNWOy+E8bes7O2zi63aZl5C
+	UkbehJbgll5yQFfUgvv9g456MlPh/sntjsXZspNMpNIQ6ZYmht1w/hP70H2xaYNkcUmMSSowFU35m
+	cvtzYYj+PRWPmDlEUl1Pe586jxHW+Q1EBllEclPq7t6xQZ2R3PKB2ZRBpysyZdVwLrQSJJCGnMo15
+	avjYHGLosWhSezsLdQ8A+jzDZEC3uji2Wiom5jno7JLuxF18J3JUezdQ2OlXaflW5L4cJ2kOtthZf
+	n+N4ePkpRO2q1fNohXdA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jYQfk-0003Io-Sj; Tue, 12 May 2020 08:53:56 +0000
-Received: from mx2.suse.de ([195.135.220.15])
+	id 1jYW9t-0005Jk-KT; Tue, 12 May 2020 14:45:25 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jYQfh-0003HZ-Ie
- for linux-riscv@lists.infradead.org; Tue, 12 May 2020 08:53:55 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx2.suse.de (Postfix) with ESMTP id 05E73ABC7;
- Tue, 12 May 2020 08:53:52 +0000 (UTC)
-From: Andreas Schwab <schwab@suse.de>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Subject: Re: [GIT PULL] RISC-V Fixes for 5.7-rc5
-References: <mhng-81c83c19-6f5d-4ed1-a0bb-26accf4b7d3a@palmerdabbelt-glaptop1>
- <CAHk-=win0EVU_GuO=GuJu3Ck0WG1B3+ub-CjncM3B1G9x5d9cw@mail.gmail.com>
- <mvmr1vqkhxb.fsf@suse.de>
- <CAHk-=wj8Cks7L2H9ToNWEMmqECYEfX0uyCXpW1OsZ+NAooi2Cw@mail.gmail.com>
-X-Yow: Two LITTLE black dots and one BIG black dot...nice 'n' FLUFFY!!
-Date: Tue, 12 May 2020 10:53:49 +0200
-In-Reply-To: <CAHk-=wj8Cks7L2H9ToNWEMmqECYEfX0uyCXpW1OsZ+NAooi2Cw@mail.gmail.com>
- (Linus Torvalds's message of "Mon, 11 May 2020 12:04:09 -0700")
-Message-ID: <mvmftc5jzz6.fsf@suse.de>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/27.0.91 (gnu/linux)
+ id 1jYW9g-0003gy-RE; Tue, 12 May 2020 14:45:14 +0000
+Received: from [10.44.0.192] (unknown [103.48.210.53])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id E64CB206A3;
+ Tue, 12 May 2020 14:45:03 +0000 (UTC)
+Subject: Re: [PATCH 16/31] m68knommu: use asm-generic/cacheflush.h
+To: Christoph Hellwig <hch@lst.de>, Andrew Morton
+ <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>,
+ Roman Zippel <zippel@linux-m68k.org>
+References: <20200510075510.987823-1-hch@lst.de>
+ <20200510075510.987823-17-hch@lst.de>
+From: Greg Ungerer <gerg@linux-m68k.org>
+Message-ID: <fb98853b-c02a-a682-443e-2ae62d0502d9@linux-m68k.org>
+Date: Wed, 13 May 2020 00:44:59 +1000
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.7.0
 MIME-Version: 1.0
-Content-Type: text/plain
+In-Reply-To: <20200510075510.987823-17-hch@lst.de>
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200512_015353_765551_27C2A3AD 
-X-CRM114-Status: GOOD (  10.39  )
+X-CRM114-CacheID: sfid-20200512_074512_903860_725493CE 
+X-CRM114-Status: GOOD (  14.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -70,32 +72,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Cc: linux-arch@vger.kernel.org, linux-xtensa@linux-xtensa.org,
+ Michal Simek <monstr@monstr.eu>, Jessica Yu <jeyu@kernel.org>,
+ linux-ia64@vger.kernel.org, linux-c6x-dev@linux-c6x.org,
+ linux-sh@vger.kernel.org, linux-hexagon@vger.kernel.org, x86@kernel.org,
+ linux-um@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-mm@kvack.org,
+ linux-m68k@lists.linux-m68k.org, openrisc@lists.librecores.org,
+ linux-alpha@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mai 11 2020, Linus Torvalds wrote:
+Hi Christoph,
 
-> Why is glibc doing it in the first place? Is it some historical thing
-> that is simply irrelevant on RISC-V simply because RISC-V doesn't have
-> that kind of history, perhaps?
+On 10/5/20 5:54 pm, Christoph Hellwig wrote:
+> m68knommu needs almost no cache flushing routines of its own.  Rely on
+> asm-generic/cacheflush.h for the defaults.
+> 
+> Signed-off-by: Christoph Hellwig <hch@lst.de>
 
-It is completely generic.  Even new architectures become old over time
-and accumulate cruft.  The idea is that if you configure glibc with
---enable-kernel=VERSION, it assumes that all syscalls from kernel
-VERSION are guaranteed to exist, and drops the fallbacks for those
-syscalls, or uses them in the first place (if no useful fallback
-existed).  From time to time the absolute minimum supported kernel
-version is increased (this happend the last time in 2017, when x86 and
-x86_64 moved the mininum from 2.6.32 to 3.2, after all other
-architectures did that step in 2016), which allows removing the fallback
-code that becomes obsolete.
+Acked-by: Greg Ungerer <gerg@linux-m68k.org>
 
-Andreas.
+Regards
+Greg
 
--- 
-Andreas Schwab, SUSE Labs, schwab@suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
+
+> ---
+>   arch/m68k/include/asm/cacheflush_no.h | 19 ++-----------------
+>   1 file changed, 2 insertions(+), 17 deletions(-)
+> 
+> diff --git a/arch/m68k/include/asm/cacheflush_no.h b/arch/m68k/include/asm/cacheflush_no.h
+> index 11e9a9dcbfb24..2731f07e7be8c 100644
+> --- a/arch/m68k/include/asm/cacheflush_no.h
+> +++ b/arch/m68k/include/asm/cacheflush_no.h
+> @@ -9,25 +9,8 @@
+>   #include <asm/mcfsim.h>
+>   
+>   #define flush_cache_all()			__flush_cache_all()
+> -#define flush_cache_mm(mm)			do { } while (0)
+> -#define flush_cache_dup_mm(mm)			do { } while (0)
+> -#define flush_cache_range(vma, start, end)	do { } while (0)
+> -#define flush_cache_page(vma, vmaddr)		do { } while (0)
+>   #define flush_dcache_range(start, len)		__flush_dcache_all()
+> -#define ARCH_IMPLEMENTS_FLUSH_DCACHE_PAGE 0
+> -#define flush_dcache_page(page)			do { } while (0)
+> -#define flush_dcache_mmap_lock(mapping)		do { } while (0)
+> -#define flush_dcache_mmap_unlock(mapping)	do { } while (0)
+>   #define flush_icache_range(start, len)		__flush_icache_all()
+> -#define flush_icache_page(vma,pg)		do { } while (0)
+> -#define flush_icache_user_range(vma,pg,adr,len)	do { } while (0)
+> -#define flush_cache_vmap(start, end)		do { } while (0)
+> -#define flush_cache_vunmap(start, end)		do { } while (0)
+> -
+> -#define copy_to_user_page(vma, page, vaddr, dst, src, len) \
+> -	memcpy(dst, src, len)
+> -#define copy_from_user_page(vma, page, vaddr, dst, src, len) \
+> -	memcpy(dst, src, len)
+>   
+>   void mcf_cache_push(void);
+>   
+> @@ -98,4 +81,6 @@ static inline void cache_clear(unsigned long paddr, int len)
+>   	__clear_cache_all();
+>   }
+>   
+> +#include <asm-generic/cacheflush.h>
+> +
+>   #endif /* _M68KNOMMU_CACHEFLUSH_H */
+> 
 
