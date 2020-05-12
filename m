@@ -1,91 +1,84 @@
-Return-Path: <SRS0=qmG6=6Z=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=nRJq=62=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.7 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8F6FBC54E4A
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 May 2020 22:02:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6001BC54E8D
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 May 2020 02:12:16 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5BB25206F5
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon, 11 May 2020 22:02:53 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2A4F320722
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 12 May 2020 02:12:16 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="h8DjaM+U";
-	dkim=pass (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="zGg51pqr"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5BB25206F5
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="uoGPFr/A"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2A4F320722
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Mime-Version:Message-ID:To:From:
-	In-Reply-To:Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=QcqAv7P8UvANEMfeZSVs1Z4C8izH07RPJiqXxjw9hi4=; b=h8DjaM+U7fY3Jv
-	MfqvSa2IYeeNN+K//2hBjA7Q2Cq2Njmm0DALWwg5bFt3KzqvMnd1rVN+r15M+CAq0YWTsCxPz3pNc
-	srQEI60YqjX1Atdz3VB2mo+8NwFKLLLQU/jtCgIxAIt6u/nFsxpc+JzdSeYwD0h+TrbmcOZQ+copp
-	FMgkKUDGGq86HbT/LXilBkkBQxq0hvTb9d78itQ9tvGqzC+f+MNRzTQDBy0Mom/b7eHPFnZ/IyV/s
-	7USG0L87wYhIWSzRYpkEpq8joMsByuQaa8yIebn5jdkiJlskMPBPw8kIy9r39jYVY4jmRqdenuqvx
-	ZMWMFctXIT9hKvdaBmmA==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=a6FnCmniEb0SZj05Hm52FA7/odoyQ0dRtkEViBqLyQk=; b=uoGPFr/A2NUoWyvFXXDE2G/Hf
+	dPWkKwgr5XIt9cHIlReen1SpFbkRw69hVIdDPEbXHxJQCLWRDz2o6VsIC+s/m/HoRnCVSPwFSj6XX
+	cHle54qLDHCXik9yGTsGSU0AVGVPZNzFegLMLfxQEuDNbWYtWgZ+2mq/zy65YCyjVve0uuJFpulU2
+	HsEViB5n2YJFFrQ1ZnvCiGnaunA8sq8+0rqWRBBkBEH+z2wSsb3vhB7qoZtSMoQuxnjixIt0MWoSP
+	ZvYN3iE2te9mSCF9ZE77iv7/EWHcbz1UosyU5S0dlxctPBhttndjMrtK9bKf2LddVVs2uUDVW1CGm
+	YQfqYlG/A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jYGVb-0002KZ-HW; Mon, 11 May 2020 22:02:47 +0000
-Received: from mail-pj1-x1042.google.com ([2607:f8b0:4864:20::1042])
+	id 1jYKOx-0007Ip-9h; Tue, 12 May 2020 02:12:11 +0000
+Received: from mail-oi1-f195.google.com ([209.85.167.195])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jYGVY-0002K2-LV
- for linux-riscv@lists.infradead.org; Mon, 11 May 2020 22:02:46 +0000
-Received: by mail-pj1-x1042.google.com with SMTP id t40so8409516pjb.3
- for <linux-riscv@lists.infradead.org>; Mon, 11 May 2020 15:02:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=QcqAv7P8UvANEMfeZSVs1Z4C8izH07RPJiqXxjw9hi4=;
- b=zGg51pqrgFWI4OxU/iBR6WpE4sKCxEHd98DVJAj06WnuF8itLlYSDkEXZHNlI1oJwo
- 0F3EmlaYIOvLA9q4llDdhbRV5qpvz9ykQM9YaWkc3Bem2PK+yFOC0jYYaw07WD6z1KbQ
- N4EMyQ0PnZiTLMG1GrhpN54g+PjvA2JT05NfXNEYMZ7CiI6VFr7vJhkcUfJRagIlnnzt
- kjUIggrjl+kqrhLgJp/VSrWr7UXg/dCDTf+Cvnk557yZTibYwa1j4i6Iold0jx+iN3P5
- zUsqPy8qEFSXISNg/to6m62QxJJT61C2/1vRcfufsllpzjwb9Zu3gF8gtqTIkR4+OqVH
- vLyQ==
+ id 1jYKOu-0007Hr-AS
+ for linux-riscv@lists.infradead.org; Tue, 12 May 2020 02:12:09 +0000
+Received: by mail-oi1-f195.google.com with SMTP id c12so15958403oic.1
+ for <linux-riscv@lists.infradead.org>; Mon, 11 May 2020 19:12:06 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=QcqAv7P8UvANEMfeZSVs1Z4C8izH07RPJiqXxjw9hi4=;
- b=rMYB1o5c29JTupqhYmyRZRCe5+3RwdwQ9jLVjTMIbFpI4XxYDP2NACO6w6uMkwrm/D
- RPnHkpmFk0/MJuIJ9P4QgXiLdk/TGNLyBwWFCgE5Yfq2KzrXeiBp+Q8Ego5gmTOujBGY
- 8G7yxFzXKYfpsBLZ5OAvODksjr0joqR+h6sXB8DpBPf8rfuSi/TN+DieWxmFSiZUgn7G
- e4bwdSx7+dhNMYIBd9dalFEJ6tUgwlXWIYb84XlILkXlEd94Pyu3P6zIqmWjBEe+6ovK
- K/3f2a+hm8Nk0iHcgL6i0wgMkSDFwoJz+fHdG8hIs6ef2O0qX71jUQsxCXNRcdloNhci
- VRsQ==
-X-Gm-Message-State: AGi0PuZBVhbnKe7UbmoNhSd/RVW8PVkiSoYIMVzPCVRGvOZ4GriPFUwp
- uvYuXA629oFJcs5POzukTWBRPTHSnik=
-X-Google-Smtp-Source: APiQypKbWv7BEQtYlKsnaRgx2nOihXjdEb2WmNkWEXAul0dPafNnIP8I4CYyNEVkRCkfmcHQMhn0Gg==
-X-Received: by 2002:a17:902:8697:: with SMTP id
- g23mr16808107plo.306.1589234563112; 
- Mon, 11 May 2020 15:02:43 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id a13sm50193pjm.38.2020.05.11.15.02.42
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=a6FnCmniEb0SZj05Hm52FA7/odoyQ0dRtkEViBqLyQk=;
+ b=PQD0/NLZ50Wr/vkNGNjrCwYmxnCS3wFFPUO5YL0GUnQKXPTGUhmW6hF6h4u9c7inex
+ 8XgChsO3hB9t2IKjdmvmd79InG9/cuJA9wTlFMaM+86e25CVI3LQ5hZV9R5vQOKA3R7q
+ b6kQjd2/iBvsvpzd6+M98fw8l2IOaFVrEU0X6gNl51cLZSSnaRu8mmn0GP20drzzD6JT
+ 27qizczyUmZLEuTLitk0BDj7Gf0TMJUd8vd4+egyoZRWkWEFk8Rsl+eWJsV1lBnHw6Vx
+ FtWedFV3JOtm+/G1vgGZIHY4/t9/hPEbSyklBaqAz1JpHsaEDFqG38Q41vsdHzybZ39g
+ ngdg==
+X-Gm-Message-State: AGi0PuY9qmVPYw8ezmMNcTuojp6BLAGKn1G7GFu+bFEAPLHQurjn57QM
+ 0rQbow3V2quo95TGW96uYXewQdE=
+X-Google-Smtp-Source: APiQypLyUokqa9+HwgdwMV+wpVX5omYrQpTlGxbxo5UJ8ncdqjh4nKtXr+dGUhC/l1K5SQDIn8SHuA==
+X-Received: by 2002:a54:4512:: with SMTP id l18mr21349336oil.81.1589249526246; 
+ Mon, 11 May 2020 19:12:06 -0700 (PDT)
+Received: from rob-hp-laptop (24-155-109-49.dyn.grandenetworks.net.
+ [24.155.109.49])
+ by smtp.gmail.com with ESMTPSA id t6sm3146401otb.27.2020.05.11.19.12.05
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 11 May 2020 15:02:42 -0700 (PDT)
-Date: Mon, 11 May 2020 15:02:42 -0700 (PDT)
-X-Google-Original-Date: Mon, 11 May 2020 15:01:02 PDT (-0700)
-Subject: Re: [GIT PULL] RISC-V Fixes for 5.7-rc5
-In-Reply-To: <CAHk-=wj8Cks7L2H9ToNWEMmqECYEfX0uyCXpW1OsZ+NAooi2Cw@mail.gmail.com>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <mhng-a0b97369-68df-4c33-ab10-28a5d3950b5e@palmerdabbelt-glaptop1>
-Mime-Version: 1.0 (MHng)
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Transfer-Encoding: 8bit
+ Mon, 11 May 2020 19:12:05 -0700 (PDT)
+Received: (nullmailer pid 20842 invoked by uid 1000);
+ Tue, 12 May 2020 02:12:04 -0000
+Date: Mon, 11 May 2020 21:12:04 -0500
+From: Rob Herring <robh@kernel.org>
+To: Sagar Shrikant Kadam <sagar.kadam@sifive.com>
+Subject: Re: [RFC PATCH 4/4] dt-bindings: net: phy: extend dt binding for
+ VSC8541 ethernet-phy
+Message-ID: <20200512021204.GA12999@bogus>
+References: <1588072608-7747-1-git-send-email-sagar.kadam@sifive.com>
+ <1588072608-7747-5-git-send-email-sagar.kadam@sifive.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <1588072608-7747-5-git-send-email-sagar.kadam@sifive.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200511_150244_706780_4AC54A18 
-X-CRM114-Status: GOOD (  19.39  )
+X-CRM114-CacheID: sfid-20200511_191208_359638_5BB4BF81 
+X-CRM114-Status: GOOD (  12.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -97,67 +90,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: schwab@suse.de, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ atish.patra@wdc.com, palmer@dabbelt.com, paul.walmsley@sifive.com,
+ linux-riscv@lists.infradead.org
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 11 May 2020 12:04:09 PDT (-0700), Linus Torvalds wrote:
-> On Mon, May 11, 2020 at 1:13 AM Andreas Schwab <schwab@suse.de> wrote:
->>
->> On Mai 09 2020, Linus Torvalds wrote:
->>
->> > glibc depending on kernel version is WRONG. It's bogus. You can't do
->> > feature detection based on kernel version, it's fundamentally broken.
->> >
->> > So I really would prefer to see glibc fixed not to do that stupid
->> > thing, instead of adding pointless vdso notes to the kernel.
->>
->> I'm not aware of any discussion or bug report on this issue.  Any
->> pointer?
->
-> We've discussed it informally several times, but that really is just
-> "I remember mentioning this before" than anything else.
->
-> Basically, testing kernel versions is pretty much always a bug. You
-> _will_ get it wrong, sometimes spectacularly (we've had programs
-> literally break when the major number changed, because they only
-> checked the minor number).
->
-> Other times you'll get it wrong in subtler ways - testing for features
-> by version number is wrong, if that feature is then disabled by a
-> config option (a lot of new kernel features work that way).
->
-> Or, the already mentioned "distros often port back features to their
-> older kernels". The latest example of that is Wireguard being ported
-> back to Ubuntu 20.04 - using kernel version 5.4, even though WG was
-> actually upstreamed in 5.6.
->
-> So the whole "look at kernel version to determine if it does X" is
-> simply fundamentally wrong.
->
-> Why is glibc doing it in the first place? Is it some historical thing
-> that is simply irrelevant on RISC-V simply because RISC-V doesn't have
-> that kind of history, perhaps?
+On Tue, Apr 28, 2020 at 04:16:48AM -0700, Sagar Shrikant Kadam wrote:
+> Adding a OUI (Organizationally Unique Identifier) for VSC8541-01
+> device to dt node requires a corresponding dt-binding entry as well
+> so that checkpatch doesn't complain with a warning:
+> 
+> DT compatible string "ethernet-phy-id0007.0771" appears un-documented
+> 
+> Here extend the existing dt binding of VSC8531 device to include
+> VSC8541 device example.
 
-I don't know if Andreas had something else in mind, but there's actually a
-RISC-V specific reason we _do_ need this: the 64-bit time_t conversion.
-Essentially what happened is that I screwed up by merging the rv32 Linux port
-before the rv32 glibc port.  As part of the rv32 upstreaming process we
-realized that it would be better in the long term to just drop the 32-bit
-time_t support from the kernel, but at that point we already had the Linux UABI
-defined.
+Checkpatch.pl is just dumb here and can be ignored. We have the regex 
+that documents this compatible. We don't need every VID/PID listed.
 
-We ended up changing the user ABI on 32-bit systems as of d4c08b9776b3 ("riscv:
-Use latest system call ABI").  We didn't have any rv32 userspace at that time
-(and we still don't have glibc or any Linux capable hardware), so we figured it
-would be OK to break the rules and change the ABI.  The obvious result is that
-32-bit userspace won't work with old kernels, so I'd assumed this was being
-used to quickly sanity check the kernel.
-
-Andreas would know better than I do, though, as  I don't really do much glibc
-stuff any more.
-
->
->                  Linus
+> 
+> Signed-off-by: Sagar Shrikant Kadam <sagar.kadam@sifive.com>
+> ---
+>  Documentation/devicetree/bindings/net/mscc-phy-vsc8531.txt | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/net/mscc-phy-vsc8531.txt b/Documentation/devicetree/bindings/net/mscc-phy-vsc8531.txt
+> index 5ff37c6..774448a 100644
+> --- a/Documentation/devicetree/bindings/net/mscc-phy-vsc8531.txt
+> +++ b/Documentation/devicetree/bindings/net/mscc-phy-vsc8531.txt
+> @@ -68,3 +68,6 @@ Example:
+>                  vsc8531,led-0-mode	= <LINK_1000_ACTIVITY>;
+>                  vsc8531,led-1-mode	= <LINK_100_ACTIVITY>;
+>          };
+> +        vsc8541_0: ethernet-phy@0 {
+> +                compatible = "ethernet-phy-id0007.0771";
+> +	};
+> -- 
+> 2.7.4
+> 
 
