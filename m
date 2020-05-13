@@ -2,21 +2,21 @@ Return-Path: <SRS0=NEFo=63=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.2 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-1.2 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D1E06C2D0F8
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 May 2020 05:22:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 286F7C2D0FD
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 May 2020 05:23:43 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AA3C020675
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 May 2020 05:22:01 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id F40CE20675
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 13 May 2020 05:23:42 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Bmgk20YS";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="C67nj68n"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AA3C020675
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="QqbgA5zm";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="NKwZ606u"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F40CE20675
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,46 +25,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
 	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=ZZLcx6sleiwqH5H/FAi8mdD3Ywe4OArzR4fGBaLGrYc=; b=Bmgk20YSB6eUx1oNnbUaW+F7v
-	Nb3vvBeFWSoxsEC7SkGLBQEb6bbNregfCZKD682qS6sNhsvwaI8RNzEc1UHsi5EdcAQetTKT6VOvC
-	ZvvZHOTKfUhYwcsavPz46CBxMQnB/sK1Z9ZDi6lSTAIln1cgpJ2ripHakIgEXI+dPRepPAJMLKwoU
-	isqasyZc1/XUJhMJYMZg2liiDt+EoaiW8nPwXAWcmukKY6USZhB05M61gwr7RoVyZUynCI6+VUXlb
-	ojDB3MOfq9JeS29ZrSxRltYief8xnC24TiN3izUXayYD1siEQUFSNpBMaZ7HroobcKQQUOsn+zdYt
-	UgGjtCaRg==;
+	 bh=hd5UK9tJpTtmUZrhPONmMMoochKvyyAg5ulZUyWSvbM=; b=QqbgA5zmmyMyLztfsj+/yZnbQ
+	MQJ19BNo3cJPqnuPcTWxQFErAEiAWWfwFFrEkMd3NgMGt66l2UDJZ5PDxQi9QUBWmlqvw21aO4Uz2
+	bzwVyjZ7qVJzWJQBkVXvOOswJC+o1P0WqZKB3zri+v6XLCXgI+ODLpqJDcp9fr9Da+x2U1lGtNMdp
+	T8NTUtEifvB7SenbQFh7F2lY/yq5ZyuN+BFLBcUPhotFx+Mdf24xd/DAhVGINkW1aNpZEkWSTUrtc
+	GEN8TEdjJc1LffAaax5nNqnOwHTC2/1RUPwiadiw2a0oCR0TRibDxC9RGGECG81LYmVz+39rtv2zP
+	c38Mq0ZwQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jYjq9-0006sK-Ef; Wed, 13 May 2020 05:21:57 +0000
+	id 1jYjro-00072d-0U; Wed, 13 May 2020 05:23:40 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jYjq6-0006rf-0h; Wed, 13 May 2020 05:21:55 +0000
+ id 1jYjrl-000724-1O; Wed, 13 May 2020 05:23:38 +0000
 Received: from kernel.org (unknown [87.70.20.152])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 06A0920675;
- Wed, 13 May 2020 05:21:37 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id A8105206F5;
+ Wed, 13 May 2020 05:23:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1589347309;
- bh=eXxsFWMRwsjxCxIEwZvSMlzVp4JoExGumCwVZGQ437k=;
+ s=default; t=1589347416;
+ bh=cxEex4OkOul1zYfcItsUOuWynzE/Lgl9iPMNnRJoKtg=;
  h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=C67nj68nb/WBhkQSlanqvNkuKuI8DtxJ9ZixH0J1b2BuEaAk5a5wNzO7jtcEk7q0p
- JlpDcwhtcaCA3Vi5e8fc7aXovPbaDZ6qYnKJdRNeliw/je8Bz0w2ebGvIUy/BChi12
- FHMPcFva8/LxUc1i7w8oclm0hcf1j8ysLYGt5c9s=
-Date: Wed, 13 May 2020 08:21:33 +0300
+ b=NKwZ606uMnq7vGufmQSQi8UghGfD03KoKi3771z9DBsw1+Wo1JjxsFFWhM7dLfYtQ
+ POagNMJcXXS2Tb5YBLano+IOZdgbrMfiYhEi9ZEWLAfmXk4sFuNrYSWiaABLsyC1eI
+ WXhJfNJ0uBeiHMn5Sjkqw15bRWEojOP2A2FeEJvw=
+Date: Wed, 13 May 2020 08:23:20 +0300
 From: Mike Rapoport <rppt@kernel.org>
 To: Matthew Wilcox <willy@infradead.org>
-Subject: Re: [PATCH 03/12] mm: reorder includes after introduction of
- linux/pgtable.h
-Message-ID: <20200513052133.GN14260@kernel.org>
+Subject: Re: [PATCH 08/12] mm: pgtable: add shortcuts for accessing kernel
+ PMD and PTE
+Message-ID: <20200513052320.GO14260@kernel.org>
 References: <20200512184422.12418-1-rppt@kernel.org>
- <20200512184422.12418-4-rppt@kernel.org>
- <20200512192013.GY16070@bombadil.infradead.org>
+ <20200512184422.12418-9-rppt@kernel.org>
+ <20200512192441.GZ16070@bombadil.infradead.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20200512192013.GY16070@bombadil.infradead.org>
+In-Reply-To: <20200512192441.GZ16070@bombadil.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200512_222154_098426_05C336F8 
-X-CRM114-Status: GOOD (  14.02  )
+X-CRM114-CacheID: sfid-20200512_222337_098217_6B2CDA14 
+X-CRM114-Status: GOOD (  10.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -109,30 +109,23 @@ Cc: Rich Felker <dalias@libc.org>, linux-ia64@vger.kernel.org,
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 12, 2020 at 12:20:13PM -0700, Matthew Wilcox wrote:
-> On Tue, May 12, 2020 at 09:44:13PM +0300, Mike Rapoport wrote:
-> > diff --git a/arch/alpha/kernel/proto.h b/arch/alpha/kernel/proto.h
-> > index a093cd45ec79..701a05090141 100644
-> > --- a/arch/alpha/kernel/proto.h
-> > +++ b/arch/alpha/kernel/proto.h
-> > @@ -2,8 +2,6 @@
-> >  #include <linux/interrupt.h>
-> >  #include <linux/io.h>
+On Tue, May 12, 2020 at 12:24:41PM -0700, Matthew Wilcox wrote:
+> On Tue, May 12, 2020 at 09:44:18PM +0300, Mike Rapoport wrote:
+> > +++ b/include/linux/pgtable.h
+> > @@ -28,6 +28,24 @@
+> >  #define USER_PGTABLES_CEILING	0UL
+> >  #endif
 > >  
-> > -#include <linux/pgtable.h>
-> > -
-> >  /* Prototypes of functions used across modules here in this directory.  */
-> >  
-> >  #define vucp	volatile unsigned char  *
+> > +/* FIXME: */
 > 
-> Looks like your script has a bug if linux/pgtable.h is the last include
-> in the file?
+> Fix you what?  Add documentation?
 
-Script indeed cannot handle all the corner case, but this is not one of
-them.
-I've started initially to look into removing asm/pgtable.h if it was not
-needed, but I've run out of patience very soon. This file is what
-sneaked in from that attempt.
+Ouch, indeed :)
+
+> > +static inline pmd_t *pmd_off(struct mm_struct *mm, unsigned long va)
+> > +{
+> > +	return pmd_offset(pud_offset(p4d_offset(pgd_offset(mm, va), va), va), va);
+> > +}
 
 -- 
 Sincerely yours,
