@@ -2,66 +2,119 @@ Return-Path: <SRS0=9B1f=64=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.9 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 89FE0C433E0
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 14 May 2020 11:50:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BFD65C433E1
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 14 May 2020 11:51:36 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 601AD2065D
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 14 May 2020 11:50:34 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 64EB92065D
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 14 May 2020 11:51:36 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="fMC5iIZP"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 601AD2065D
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="NHOkJ8Ql";
+	dkim=pass (1024-bit key) header.d=sifive.com header.i=@sifive.com header.b="Ke2x+OxH"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 64EB92065D
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FXS9xs0vIH8dqObGhXUTKV0lo5ZUjL+Rf5OV6EAvMog=; b=fMC5iIZPOzXEjI
-	qRqdPOSn9/P1xIyeiNXBS2SEl02yztUVoKGfBE+HYlARUpT22YiWZEMECgar1ouu2MgZpiYCy2mS6
-	sqGgoNevDSoBbPsyj1YBA2eOMWO0OFaYwC8PnF49Iz05znqkFK2dDqpsze1h2S6gZQAa3TZYQEM9z
-	AnEfTiEZRWXHXvqJriq5Lzexod65L36PGn5A20QgvSqHidk2kx6SyqvGuYrSwUTgm+5RQ7+8yb36x
-	PrxSbLBBg7sYIqWjzygTKP5LMtbXQKAdoCWGAkMoIHbu1UG4ENowe9ZhivDsXL8F6jVqimy7zs+Hc
-	s6D8EDt4SZQTLp9J9mdA==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Type:Message-Id:Date:Subject:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=ogKgRo1XCrzxS2vzAySQlYxO6v6ZmdLNFqo68ab5OJQ=; b=NHO
+	kJ8QlCd3ttNx2lYWpukLocGQO0buZJZQ2IKr+7TgAdRIOvMl1/Tl+XgaV0EG+83cOuOCUo4DZQqNU
+	8zFEk/p4l2BJDJRIH54Ul5ZJ2FSm7fbWWJzS9SMi26n1OVHpjRcY5GgfIlQ3xplnh7gtgYzkSvJ68
+	THU8AQc5jra4T1J2wfDrSgj5uWURYfmrU++Kam+LFfoT6mD7P69Adk+v1NGHF7hkjw7ItnnZylD4K
+	Pnb9xhZvE1CblD7p1cGWZ2NzW5+aoJYgJ52BBj9AHG+SSce9Nn6uuC/t5lsiUXGBYcnjew9ZExIoN
+	Su6G/jB0ALtFMU+RaI5OijWzRf77Rew==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jZCNl-0005FY-CY; Thu, 14 May 2020 11:50:33 +0000
-Received: from szxga06-in.huawei.com ([45.249.212.32] helo=huawei.com)
+	id 1jZCOi-0005zL-Sg; Thu, 14 May 2020 11:51:32 +0000
+Received: from mail-bn8nam11on2083.outbound.protection.outlook.com
+ ([40.107.236.83] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jZCNi-0005E1-PW
- for linux-riscv@lists.infradead.org; Thu, 14 May 2020 11:50:32 +0000
-Received: from DGGEMS404-HUB.china.huawei.com (unknown [172.30.72.60])
- by Forcepoint Email with ESMTP id 13BD5628B3E816D57F4D;
- Thu, 14 May 2020 19:50:19 +0800 (CST)
-Received: from localhost.localdomain.localdomain (10.175.113.25) by
- DGGEMS404-HUB.china.huawei.com (10.3.19.204) with Microsoft SMTP Server id
- 14.3.487.0; Thu, 14 May 2020 19:50:12 +0800
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v2] riscv: Fix print_vm_layout build error if NOMMU
-Date: Thu, 14 May 2020 19:53:35 +0800
-Message-ID: <20200514115335.110603-1-wangkefeng.wang@huawei.com>
-X-Mailer: git-send-email 2.26.2
-In-Reply-To: <20200511022001.179767-5-wangkefeng.wang@huawei.com>
-References: <20200511022001.179767-5-wangkefeng.wang@huawei.com>
+ id 1jZCOf-0005uH-8h; Thu, 14 May 2020 11:51:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=cwdDURWcfMtJR/S41gP4v/Q4Dti3fTtMXWKSCk9uOoZX9OZoxOr00gFupJV2Ms8X0gs/2PambpppHsK6S9SukpBjrao5+TTeVGuN6HC464gpqvdxu+b0LJwevbv/wwduxGi35HQTJ8ywRe2KhCzd7mFgMAylfjmPXa4/qIlONmlJW0IMUn6T7fxhguGxmCYZoN0rxHA9bAkDZOXwz/z9ZuXICaGZfSwJHUPh47hClqCnV4UBJ2BWpjtCw9dIKHuHfyWe/r7GP7A/D0Q2ZXWolXHCMY1aOUWkA1Co7ht8ZmvL4bZVQo4uNjJG2MwwVrcRqfCI2On9WVWRxY6GPqLolA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ogKgRo1XCrzxS2vzAySQlYxO6v6ZmdLNFqo68ab5OJQ=;
+ b=FAetFtp9mdXeqArmniDfbnyJsirQwC8UWKBXwl2/mN7piNsd4hwSxAp79x0ashQWorE5fsMgas8Nw1arDr/ER38v//YM8V0Tdgb7TvdapyYh/6sThDt/AKEahHM1vvMRdNdDcpQVm31u7BuC6q/wadjZ2zqAhqumKJZTU7DRmFF5TJgdIAHnhyF5L0wzjWjqudVJsGZip7a0/Q2jEaPW9e+IgjPSTK3eYUnmNsUGZSa6hKEbta04V4CPlsTLLIcmThaDeYHr5sYmcMfWYYa5N+uwQKjb0NIrhK6XxaGnl1DxckOhN6J3QMKid0WAzSoZZYJNtZ70zw6pmG0y8l4CkA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=sifive.com; dmarc=pass action=none header.from=sifive.com;
+ dkim=pass header.d=sifive.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ogKgRo1XCrzxS2vzAySQlYxO6v6ZmdLNFqo68ab5OJQ=;
+ b=Ke2x+OxHnYthSk5rGwdkTbsA4QJstj+lkl6CahnYvmalC3FmfQRPEAYl0BQf6F6OxW+NIkQ2YuIe2zRFy359D5RKo9dB+gAKH/H0Ha0hAZmn8ix6CIiM2WDNLbp2JaHpdXtdGu3qNuSbN292HNjv+r/Oqz0N76NoON5abuy4Ol0=
+Authentication-Results: lists.infradead.org; dkim=none (message not signed)
+ header.d=none;lists.infradead.org; dmarc=none action=none
+ header.from=sifive.com;
+Received: from BYAPR13MB2614.namprd13.prod.outlook.com (2603:10b6:a03:b4::12)
+ by BYAPR13MB2469.namprd13.prod.outlook.com (2603:10b6:a02:ca::28)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2958.14; Thu, 14 May
+ 2020 11:51:25 +0000
+Received: from BYAPR13MB2614.namprd13.prod.outlook.com
+ ([fe80::c0fc:30a3:5e5f:c2b6]) by BYAPR13MB2614.namprd13.prod.outlook.com
+ ([fe80::c0fc:30a3:5e5f:c2b6%7]) with mapi id 15.20.3000.013; Thu, 14 May 2020
+ 11:51:24 +0000
+From: Sagar Shrikant Kadam <sagar.kadam@sifive.com>
+To: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mtd@lists.infradead.org, tudor.ambarus@microchip.com,
+ miquel.raynal@bootlin.com, richard@nod.at, vigneshr@ti.com
+Subject: [PATCH v1 0/2] update is25wp256d page write capabilities  
+Date: Thu, 14 May 2020 04:50:49 -0700
+Message-Id: <1589457051-5410-1-git-send-email-sagar.kadam@sifive.com>
+X-Mailer: git-send-email 2.7.4
+Content-Type: text/plain
+X-ClientProxiedBy: BYAPR08CA0053.namprd08.prod.outlook.com
+ (2603:10b6:a03:117::30) To BYAPR13MB2614.namprd13.prod.outlook.com
+ (2603:10b6:a03:b4::12)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.175.113.25]
-X-CFilter-Loop: Reflected
+X-MS-Exchange-MessageSentRepresentingType: 1
+Received: from gamma07.internal.sifive.com (64.62.193.194) by
+ BYAPR08CA0053.namprd08.prod.outlook.com (2603:10b6:a03:117::30) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id 15.20.3000.25 via Frontend
+ Transport; Thu, 14 May 2020 11:51:24 +0000
+X-Mailer: git-send-email 2.7.4
+X-Originating-IP: [64.62.193.194]
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: c0bdc88b-2212-414f-b6fa-08d7f7fd20c1
+X-MS-TrafficTypeDiagnostic: BYAPR13MB2469:
+X-LD-Processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
+X-MS-Exchange-Transport-Forked: True
+X-Microsoft-Antispam-PRVS: <BYAPR13MB246965214D5440AE398507A399BC0@BYAPR13MB2469.namprd13.prod.outlook.com>
+X-MS-Oob-TLC-OOBClassifiers: OLM:7691;
+X-Forefront-PRVS: 040359335D
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 3gaW9zEuA3g246S9Q7WEk1YGGMuFAL3ETeMxfuYLhds9VMjb9K9ztO2S3LNbuN8yoJtFZwm5rSQlk5bPHX0Wkx0vxb9NOgfHHnml6JzlDfMWN3qqlc6fynwGaZbqUl0jAHj7enjpdJtw1tqhNMzb3SVyV+O/kqKn5TZ3GJ71GQQhL1cqrSN+Bv30MSOn1Jvf9Ibr3YR0JDMRz8xjcQNQIi7OjvREXhTyIy2NIF11cRIUDeDSzojDtfMhh6qxQpThmMEHYV2GK4o3+YxNQZMNvEdqZC//s7yy5cXiUvWBKxGDp8lMuFxrYoteoOLsQzeYxMKQBpe1jLQ4djPq82vvwhgnQEl2zS/zK4j7iI2AwOS43eK5jUQvVTd5Al6jo0TLA5pxlUV0OsbmS8zsGLKSZLL5t4MbEWB33lnm40HB9EB/Nc2Uv9pJeHQvjBXEVQhx
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:BYAPR13MB2614.namprd13.prod.outlook.com; PTR:; CAT:NONE;
+ SFTY:;
+ SFS:(366004)(396003)(39850400004)(376002)(346002)(136003)(8936002)(186003)(4326008)(16526019)(4744005)(2906002)(5660300002)(15650500001)(107886003)(26005)(66946007)(8676002)(7416002)(6666004)(478600001)(2616005)(956004)(66476007)(52116002)(7696005)(86362001)(36756003)(66556008)(6486002)(316002);
+ DIR:OUT; SFP:1101; 
+X-MS-Exchange-AntiSpam-MessageData: A5I/wTLpOJSWcoT7l5VSGJ/SKIuAr77R3c7ZAIMRbCkQzd6Ow+2Q5hzOU7nbHhWz1FkAqos/uRpD8I/kAXflApPuQ+vhTEFSuBe1kfqPbDhTODt66LMgr3PpULjoDIVNMEoudHKq02cnhr0ZBfaMbMBY3e+gUY1EBxtRF0DtVtn4ADjm3OkHMOemm1QOBwHjwcVTxSIEcXrneW/YvlQQBzRbtvNcQRkg3vOwkupUkItmRCjMC3tlTI1+4XRExFps0DjuLUVeYRr/7zDFDApZFR/QgexPBZzM+2cCDiJfJM96Y5iGqJJA+8Sq+rdvsHBS/wMHEySSR8qAqRtnfmx6yEYsPOh0EiOLCPl1L3idlPS+8xXA+COGE17j/zyVmIMo1hlWRe5M+RbLOBuZkLlyr3b2lsXVOxdJF0ILAtK3oNBwn3TCxhefAmfJhnyultsf6H/c8XNAiPLfAEyvLlQFy/pBab1PmuNhtKOTmCBwADY=
+X-OriginatorOrg: sifive.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c0bdc88b-2212-414f-b6fa-08d7f7fd20c1
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 May 2020 11:51:24.7535 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: smQeG0auJXxFL5wmZuf7b52Fq+xaa5Ar1tf6UGMykWy8JIHxIbIoSaSwJn1M2n1o4ctTGeDARbe1wQ5l2D3Q0g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR13MB2469
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200514_045030_986559_3054BBC4 
-X-CRM114-Status: UNSURE (   8.18  )
+X-CRM114-CacheID: sfid-20200514_045129_387026_50C87605 
+X-CRM114-Status: UNSURE (   5.66  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -74,43 +127,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Hulk Robot <hulkci@huawei.com>, Kefeng Wang <wangkefeng.wang@huawei.com>,
- alex@ghiti.fr
+Cc: anup.patel@wdc.com, aou@eecs.berkeley.edu, palmer@dabbelt.com,
+ Sagar Shrikant Kadam <sagar.kadam@sifive.com>, paul.walmsley@sifive.com
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-arch/riscv/mm/init.c: In function ‘print_vm_layout’:
-arch/riscv/mm/init.c:68:37: error: ‘FIXADDR_START’ undeclared (first use in this function);
-arch/riscv/mm/init.c:69:20: error: ‘FIXADDR_TOP’ undeclared
-arch/riscv/mm/init.c:70:37: error: ‘PCI_IO_START’ undeclared
-arch/riscv/mm/init.c:71:20: error: ‘PCI_IO_END’ undeclared
-arch/riscv/mm/init.c:72:38: error: ‘VMEMMAP_START’ undeclared
-arch/riscv/mm/init.c:73:20: error: ‘VMEMMAP_END’ undeclared (first use in this function);
+HiFive Unleashed A00 board has is25wp256d snor chip. It is observed
+that it gets configured with Serial Input Page program by the end
+of spi_nor_scan. Using the post bfpt fixup hook we prioritize the
+page program settings to use quad input page program (opcode:0x34)
+over serial input page program (opcode: 0x12).
 
-Reported-by: Hulk Robot <hulkci@huawei.com>
-Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
----
-v2: 
-- Should CONFIG_DEBUG_VM instead of DEBUG_VM
-- Based on riscv fixes branch
+The patchset is tested on Linux 5.7.0-rc5.
 
- arch/riscv/mm/init.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Changelog:
+===============================
+V1:
+-Moved SPI_SIFIVE from defconfig to Kconfig.socs for SOC_SIFIVE.
+ Retained it's configurability using "imply" instead of "select"
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 27a334106708..736de6c8739f 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -47,7 +47,7 @@ static void setup_zero_page(void)
- 	memset((void *)empty_zero_page, 0, PAGE_SIZE);
- }
- 
--#ifdef CONFIG_DEBUG_VM
-+#if defined(CONFIG_MMU) && defined(CONFIG_DEBUG_VM)
- static inline void print_mlk(char *name, unsigned long b, unsigned long t)
- {
- 	pr_notice("%12s : 0x%08lx - 0x%08lx   (%4ld kB)\n", name, b, t,
+V0: Base version patch (Tested on 5.7.0-rc3).
+
+
+
+Sagar Shrikant Kadam (2):
+  riscv: defconfig: enable spi nor on Hifive Unleashed A00 board.
+  spi: nor: update page program settings for is25wp256 using post bfpt
+    fixup
+
+ arch/riscv/Kconfig.socs      |  1 +
+ arch/riscv/configs/defconfig |  3 ++-
+ drivers/mtd/spi-nor/issi.c   | 16 ++++++++++++++++
+ 3 files changed, 19 insertions(+), 1 deletion(-)
+
 -- 
-2.26.2
+2.7.4
 
 
