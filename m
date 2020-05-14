@@ -2,70 +2,67 @@ Return-Path: <SRS0=9B1f=64=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.2 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EB4F1C433DF
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 14 May 2020 11:43:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 89FE0C433E0
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 14 May 2020 11:50:34 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BD977206DA
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 14 May 2020 11:43:12 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 601AD2065D
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 14 May 2020 11:50:34 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ap8wrfqg"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BD977206DA
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="fMC5iIZP"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 601AD2065D
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9CBibW22JKkDJXOWgVaZftgqGi2ljMCVjMmAYhaBRKU=; b=ap8wrfqgXkDckm
-	AnRv5btrt/OfUZVLyIXsHwTfcdG7wBowVYyJDVj2nUM9mcqwc4ylzV4bx9aU8VlS5Q8i/vbuAmNoH
-	o5psX8ouvuZBqeTndi+STGiGrX69dbCVPlthynsg3fZJtyxI8wumtBkZfqRDqW0HlldCyHeYIsHOz
-	xDqBzPpJKlfznAvB6cFGy5Ffc7Q6xMaHDhRXGiTpnjRDol60K1xyjvfFytJ7rXOsHXwUiR9qd0pXT
-	J08+8ZFsqiiT83hHrYrjVLqhsguq5DNWwzbd6BLogds1YfoYhLK8oGL3omHGMKVz8nvAy4vLIjbYV
-	96c+Cdcm9HDrFRck3tRQ==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=FXS9xs0vIH8dqObGhXUTKV0lo5ZUjL+Rf5OV6EAvMog=; b=fMC5iIZPOzXEjI
+	qRqdPOSn9/P1xIyeiNXBS2SEl02yztUVoKGfBE+HYlARUpT22YiWZEMECgar1ouu2MgZpiYCy2mS6
+	sqGgoNevDSoBbPsyj1YBA2eOMWO0OFaYwC8PnF49Iz05znqkFK2dDqpsze1h2S6gZQAa3TZYQEM9z
+	AnEfTiEZRWXHXvqJriq5Lzexod65L36PGn5A20QgvSqHidk2kx6SyqvGuYrSwUTgm+5RQ7+8yb36x
+	PrxSbLBBg7sYIqWjzygTKP5LMtbXQKAdoCWGAkMoIHbu1UG4ENowe9ZhivDsXL8F6jVqimy7zs+Hc
+	s6D8EDt4SZQTLp9J9mdA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jZCGd-0007U7-Hg; Thu, 14 May 2020 11:43:11 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191] helo=huawei.com)
+	id 1jZCNl-0005FY-CY; Thu, 14 May 2020 11:50:33 +0000
+Received: from szxga06-in.huawei.com ([45.249.212.32] helo=huawei.com)
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jZCGa-0007TO-6C
- for linux-riscv@lists.infradead.org; Thu, 14 May 2020 11:43:10 +0000
-Received: from DGGEMS406-HUB.china.huawei.com (unknown [172.30.72.60])
- by Forcepoint Email with ESMTP id 393189755B08008A272F;
- Thu, 14 May 2020 19:42:59 +0800 (CST)
-Received: from [127.0.0.1] (10.166.215.93) by DGGEMS406-HUB.china.huawei.com
- (10.3.19.206) with Microsoft SMTP Server id 14.3.487.0; Thu, 14 May 2020
- 19:42:48 +0800
-Subject: Re: [PATCH 04/10] riscv: Fix print_vm_layout build error if NOMMU
-To: Alex Ghiti <alex@ghiti.fr>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20200511022001.179767-1-wangkefeng.wang@huawei.com>
- <20200511022001.179767-5-wangkefeng.wang@huawei.com>
- <1daca195-f63c-2693-068f-6d624aa1b899@ghiti.fr>
+ id 1jZCNi-0005E1-PW
+ for linux-riscv@lists.infradead.org; Thu, 14 May 2020 11:50:32 +0000
+Received: from DGGEMS404-HUB.china.huawei.com (unknown [172.30.72.60])
+ by Forcepoint Email with ESMTP id 13BD5628B3E816D57F4D;
+ Thu, 14 May 2020 19:50:19 +0800 (CST)
+Received: from localhost.localdomain.localdomain (10.175.113.25) by
+ DGGEMS404-HUB.china.huawei.com (10.3.19.204) with Microsoft SMTP Server id
+ 14.3.487.0; Thu, 14 May 2020 19:50:12 +0800
 From: Kefeng Wang <wangkefeng.wang@huawei.com>
-Message-ID: <669a4a33-42cc-1f5d-a0f5-37ab18a8a371@huawei.com>
-Date: Thu, 14 May 2020 19:42:48 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
- Thunderbird/60.7.0
+To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH v2] riscv: Fix print_vm_layout build error if NOMMU
+Date: Thu, 14 May 2020 19:53:35 +0800
+Message-ID: <20200514115335.110603-1-wangkefeng.wang@huawei.com>
+X-Mailer: git-send-email 2.26.2
+In-Reply-To: <20200511022001.179767-5-wangkefeng.wang@huawei.com>
+References: <20200511022001.179767-5-wangkefeng.wang@huawei.com>
 MIME-Version: 1.0
-In-Reply-To: <1daca195-f63c-2693-068f-6d624aa1b899@ghiti.fr>
-Content-Type: text/plain; charset="utf-8"; format=flowed
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-Content-Language: en-US
-X-Originating-IP: [10.166.215.93]
+X-Originating-IP: [10.175.113.25]
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200514_044308_397798_6E5E50CE 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20200514_045030_986559_3054BBC4 
+X-CRM114-Status: UNSURE (   8.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -77,56 +74,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Hulk Robot <hulkci@huawei.com>
+Cc: Hulk Robot <hulkci@huawei.com>, Kefeng Wang <wangkefeng.wang@huawei.com>,
+ alex@ghiti.fr
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
+arch/riscv/mm/init.c: In function ‘print_vm_layout’:
+arch/riscv/mm/init.c:68:37: error: ‘FIXADDR_START’ undeclared (first use in this function);
+arch/riscv/mm/init.c:69:20: error: ‘FIXADDR_TOP’ undeclared
+arch/riscv/mm/init.c:70:37: error: ‘PCI_IO_START’ undeclared
+arch/riscv/mm/init.c:71:20: error: ‘PCI_IO_END’ undeclared
+arch/riscv/mm/init.c:72:38: error: ‘VMEMMAP_START’ undeclared
+arch/riscv/mm/init.c:73:20: error: ‘VMEMMAP_END’ undeclared (first use in this function);
 
-On 2020/5/14 18:10, Alex Ghiti wrote:
-> Hi,
->
-> On 5/10/20 10:19 PM, Kefeng Wang wrote:
->> arch/riscv/mm/init.c: In function ‘print_vm_layout’:
->> arch/riscv/mm/init.c:68:37: error: ‘FIXADDR_START’ undeclared (first 
->> use in this function);
->> arch/riscv/mm/init.c:69:20: error: ‘FIXADDR_TOP’ undeclared
->> arch/riscv/mm/init.c:70:37: error: ‘PCI_IO_START’ undeclared
->> arch/riscv/mm/init.c:71:20: error: ‘PCI_IO_END’ undeclared
->> arch/riscv/mm/init.c:72:38: error: ‘VMEMMAP_START’ undeclared
->> arch/riscv/mm/init.c:73:20: error: ‘VMEMMAP_END’ undeclared (first 
->> use in this function);
->>
->> Reported-by: Hulk Robot <hulkci@huawei.com>
->> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
->> ---
->>   arch/riscv/mm/init.c | 2 +-
->>   1 file changed, 1 insertion(+), 1 deletion(-)
->>
->> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
->> index dfcaebc3928f..58c39c44b9c9 100644
->> --- a/arch/riscv/mm/init.c
->> +++ b/arch/riscv/mm/init.c
->> @@ -49,7 +49,7 @@ static void setup_zero_page(void)
->>       memset((void *)empty_zero_page, 0, PAGE_SIZE);
->>   }
->>   -#ifdef CONFIG_DEBUG_VM
->> +#if defined(CONFIG_MMU) && defined(DEBUG_VM)
->
->
-> Shouldn't it be CONFIG_DEBUG_VM ?
-oops, should be CONFIG_DEBUG_VM, will send v2, thanks.
->
->
->>   static inline void print_mlk(char *name, unsigned long b, unsigned 
->> long t)
->>   {
->>       pr_notice("%12s : 0x%08lx - 0x%08lx   (%4ld kB)\n", name, b, t,
->
->
-> Alex
->
->
-> .
->
+Reported-by: Hulk Robot <hulkci@huawei.com>
+Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+---
+v2: 
+- Should CONFIG_DEBUG_VM instead of DEBUG_VM
+- Based on riscv fixes branch
+
+ arch/riscv/mm/init.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 27a334106708..736de6c8739f 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -47,7 +47,7 @@ static void setup_zero_page(void)
+ 	memset((void *)empty_zero_page, 0, PAGE_SIZE);
+ }
+ 
+-#ifdef CONFIG_DEBUG_VM
++#if defined(CONFIG_MMU) && defined(CONFIG_DEBUG_VM)
+ static inline void print_mlk(char *name, unsigned long b, unsigned long t)
+ {
+ 	pr_notice("%12s : 0x%08lx - 0x%08lx   (%4ld kB)\n", name, b, t,
+-- 
+2.26.2
 
 
