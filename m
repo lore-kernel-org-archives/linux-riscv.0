@@ -4,19 +4,19 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9DFCEC433DF
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 15 May 2020 14:44:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 899ABC433DF
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 15 May 2020 14:45:21 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3A7A720671
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 15 May 2020 14:44:52 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5AEE02075F
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 15 May 2020 14:45:21 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="GGZoUQnZ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3A7A720671
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="CwdcwfER"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5AEE02075F
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,24 +25,24 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Va/n37rYCuAAoV36whN9eOvE6XYTvehBkXPYj8DvT9g=; b=GGZoUQnZoaAydv
-	bNRo8J+0aaP9Ztlx+cQpazpbK2jS9sPyHFSnZdmMteT7NspGHQ9OQXoRpTd85iYru3ugHLGXh9/3Q
-	9DkKikPrxWsKMMCJQkxB5RMYhiPmnnNb7IkEhavnbgXrOpeVDgt0FQzY3ZgYN220cuId27U1tzNX8
-	qeYqiXC4IBe5SpVjxYsOvWdybdO36ErQoFVESqInVKh1Li2KGGnXx6Lzhct9j0Vv+obie9dVU7FD8
-	78GnCVMkvDv6FSwtIztcFSS5pZ+1qWZFeLtPFYj2r25O5ZJG2ZIDWu2uOGR6OIONUrko93mJk9+f8
-	lZwmC78i3C3HJkSD1OCA==;
+	List-Owner; bh=3bgjHBt5jDLELtVeoaM1eNLq4RdOdC1sIUbPCNr5dBM=; b=CwdcwfERszZg+K
+	vKgO5zBFNVqGdbTdafNm62h0pkorAPX+k7BziD7tM0dFbFoRVFXHpjTH3pwePapNXPghyBhbQSdoH
+	tr3PFuaImXQ2xz+2YO8tL1sPCqzxTPUu2rJgfAIz0KbudEHs+tuzFaW86RMphGnlF1PX3tUWqmlx9
+	zEvgS6oluP0PS6gYe/FQfAP1MpwbzJ0Ie8aopM4bP2gYWx/1lODmaQ5cXWTKHjNrADY+oFJ+PIbC7
+	Si0sAOuEGxTvGjHXdk767ar51vnZDWy//C/usaLOTgKvjwBgKySjmoFza6Glrm/QV1i25dWQ5+cpN
+	hK+WD2NqLdO0ieqzOXGg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jZbZu-000746-90; Fri, 15 May 2020 14:44:46 +0000
+	id 1jZbaR-0001OQ-TS; Fri, 15 May 2020 14:45:19 +0000
 Received: from [2001:4bb8:188:1506:c70:4a89:bc61:2] (helo=localhost)
  by bombadil.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jZbT9-0004uR-Ln; Fri, 15 May 2020 14:37:48 +0000
+ id 1jZbTF-0004yw-4p; Fri, 15 May 2020 14:37:53 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Andrew Morton <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>,
  Roman Zippel <zippel@linux-m68k.org>
-Subject: [PATCH 20/29] asm-generic: add a flush_icache_user_range stub
-Date: Fri, 15 May 2020 16:36:37 +0200
-Message-Id: <20200515143646.3857579-21-hch@lst.de>
+Subject: [PATCH 21/29] sh: implement flush_icache_user_range
+Date: Fri, 15 May 2020 16:36:38 +0200
+Message-Id: <20200515143646.3857579-22-hch@lst.de>
 X-Mailer: git-send-email 2.26.2
 In-Reply-To: <20200515143646.3857579-1-hch@lst.de>
 References: <20200515143646.3857579-1-hch@lst.de>
@@ -72,29 +72,27 @@ Cc: linux-arch@vger.kernel.org, linux-xtensa@linux-xtensa.org,
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Define flush_icache_user_range to flush_icache_range unless the
-architecture provides its own implementation.
+The SuperH implementation of flush_icache_range seems to be able to
+cope with user addresses.  Just define flush_icache_user_range to
+flush_icache_range.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
 ---
- include/asm-generic/cacheflush.h | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/sh/include/asm/cacheflush.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/include/asm-generic/cacheflush.h b/include/asm-generic/cacheflush.h
-index 2c9686fefb715..907fa5d164944 100644
---- a/include/asm-generic/cacheflush.h
-+++ b/include/asm-generic/cacheflush.h
-@@ -66,6 +66,10 @@ static inline void flush_icache_range(unsigned long start, unsigned long end)
- }
- #endif
- 
-+#ifndef flush_icache_user_range
+diff --git a/arch/sh/include/asm/cacheflush.h b/arch/sh/include/asm/cacheflush.h
+index b932e42ef0284..fe7400079b97b 100644
+--- a/arch/sh/include/asm/cacheflush.h
++++ b/arch/sh/include/asm/cacheflush.h
+@@ -46,6 +46,7 @@ extern void flush_cache_range(struct vm_area_struct *vma,
+ #define ARCH_IMPLEMENTS_FLUSH_DCACHE_PAGE 1
+ extern void flush_dcache_page(struct page *page);
+ extern void flush_icache_range(unsigned long start, unsigned long end);
 +#define flush_icache_user_range flush_icache_range
-+#endif
-+
- #ifndef flush_icache_page
- static inline void flush_icache_page(struct vm_area_struct *vma,
- 				     struct page *page)
+ extern void flush_icache_page(struct vm_area_struct *vma,
+ 				 struct page *page);
+ extern void flush_cache_sigtramp(unsigned long address);
 -- 
 2.26.2
 
