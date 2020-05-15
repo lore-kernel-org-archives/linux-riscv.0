@@ -7,16 +7,16 @@ X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CC047C433E0
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 15 May 2020 14:47:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E0C7CC433E2
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 15 May 2020 14:47:06 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8B43720671
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 15 May 2020 14:47:02 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B3EA82075F
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 15 May 2020 14:47:06 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="LmOJqP7z"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8B43720671
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Xaf5gtVG"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B3EA82075F
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,24 +25,24 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9nkBbtmLvQl1eKzV5tIp1XNxgG4m4pb8wLV/D1oxyTY=; b=LmOJqP7zsSXPS8
-	4bxocXcNPUfvPVjVBT9wSwCjALK59C4xFNGvL3JjdKxNQRmNkx3BqWUpf2mRlZ1gzKWpA5Cnw931a
-	jjRA1XS6HvtbBp01b1KFwz9CEehInQtJqJ0cf2svfaU5MnEnKQwf8oVANId1/mi1R3oBvjM3/h7YB
-	z23bCq18R4t/9DzM2IQ6DDl3GFq8vT6GFCl86ekY3NRt20KEqqenXTT/q4/rW5cBUhp++6yUpg5Il
-	j4SxcCIPfsryFwQMnpz1EHbPKVmaSAhu3ucrL6V5S/0MZlagKHvlO/7JmrORy5EZcrG0zex9nCR2l
-	kIJngBUkPMVHjPY1VYfw==;
+	List-Owner; bh=XpvCeNn0rBV1Tz4g/advg3nbVNkYMm0bwJy/BOtFfCE=; b=Xaf5gtVG85aht2
+	jBybxJLzrr4tjGdInb9JMoTnCoE8etPWPvbVfGwn8Z44xZztFIgotctnHVaFROm/Wco11mfQNhL9j
+	oiRLqSdwR9EPnTVb4hBNqlRaopD6nXdKrUEZA5lURuTKvpGpoRcYKtIZ36xC46Nvapp9bpoaWCMQn
+	B5A92ghbZAlDzWiYmCs1Xv71MsiEYRucgQhEcwatPA+hVc6V32uKv+dtCURBmhqHYmKPaJNLWf3SO
+	bLEYqKz7J8saiz+SA1a5SMq0XY4MjqHP8j57cp38CQQZ5FLeFGtcoCtfHCA+b3B86ZQq7gc11rut8
+	0wUJx2slWBRKcoWPZQDQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jZbc1-000367-Qz; Fri, 15 May 2020 14:46:57 +0000
+	id 1jZbc8-0003Bc-G5; Fri, 15 May 2020 14:47:04 +0000
 Received: from [2001:4bb8:188:1506:c70:4a89:bc61:2] (helo=localhost)
  by bombadil.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jZbTT-0005Dh-3V; Fri, 15 May 2020 14:38:07 +0000
+ id 1jZbTN-000582-8B; Fri, 15 May 2020 14:38:01 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Andrew Morton <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>,
  Roman Zippel <zippel@linux-m68k.org>
-Subject: [PATCH 26/29] exec: use flush_icache_user_range in read_code
-Date: Fri, 15 May 2020 16:36:43 +0200
-Message-Id: <20200515143646.3857579-27-hch@lst.de>
+Subject: [PATCH 24/29] m68k: implement flush_icache_user_range
+Date: Fri, 15 May 2020 16:36:41 +0200
+Message-Id: <20200515143646.3857579-25-hch@lst.de>
 X-Mailer: git-send-email 2.26.2
 In-Reply-To: <20200515143646.3857579-1-hch@lst.de>
 References: <20200515143646.3857579-1-hch@lst.de>
@@ -59,39 +59,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-arch@vger.kernel.org, linux-xtensa@linux-xtensa.org,
- Michal Simek <monstr@monstr.eu>, Jessica Yu <jeyu@kernel.org>,
- linux-ia64@vger.kernel.org, linux-c6x-dev@linux-c6x.org,
- linux-sh@vger.kernel.org, linux-hexagon@vger.kernel.org, x86@kernel.org,
- linux-um@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-mm@kvack.org,
+Cc: linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-mm@kvack.org, sparclinux@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
+ linux-c6x-dev@linux-c6x.org, linux-hexagon@vger.kernel.org, x86@kernel.org,
+ Geert Uytterhoeven <geert@linux-m68k.org>, linux-xtensa@linux-xtensa.org,
+ linux-alpha@vger.kernel.org, linux-um@lists.infradead.org,
  linux-m68k@lists.linux-m68k.org, openrisc@lists.librecores.org,
- linux-alpha@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, linux-riscv@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org
+ linux-arm-kernel@lists.infradead.org, Michal Simek <monstr@monstr.eu>,
+ linux-kernel@vger.kernel.org, Jessica Yu <jeyu@kernel.org>,
+ linux-fsdevel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-read_code operates on user addresses.
+Rename the current flush_icache_range to flush_icache_user_range as
+per commit ae92ef8a4424 ("PATCH] flush icache in correct context") there
+seems to be an assumption that it operates on user addresses.  Add a
+flush_icache_range around it that for now is a no-op.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
+Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
 ---
- fs/exec.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/m68k/include/asm/cacheflush_mm.h | 2 ++
+ arch/m68k/mm/cache.c                  | 7 ++++++-
+ 2 files changed, 8 insertions(+), 1 deletion(-)
 
-diff --git a/fs/exec.c b/fs/exec.c
-index a4f766f296f8f..c541867316a63 100644
---- a/fs/exec.c
-+++ b/fs/exec.c
-@@ -1033,7 +1033,7 @@ ssize_t read_code(struct file *file, unsigned long addr, loff_t pos, size_t len)
+diff --git a/arch/m68k/include/asm/cacheflush_mm.h b/arch/m68k/include/asm/cacheflush_mm.h
+index 95376bf84faa5..1ac55e7b47f01 100644
+--- a/arch/m68k/include/asm/cacheflush_mm.h
++++ b/arch/m68k/include/asm/cacheflush_mm.h
+@@ -257,6 +257,8 @@ static inline void __flush_page_to_ram(void *vaddr)
+ extern void flush_icache_user_page(struct vm_area_struct *vma, struct page *page,
+ 				    unsigned long addr, int len);
+ extern void flush_icache_range(unsigned long address, unsigned long endaddr);
++extern void flush_icache_user_range(unsigned long address,
++		unsigned long endaddr);
+ 
+ static inline void copy_to_user_page(struct vm_area_struct *vma,
+ 				     struct page *page, unsigned long vaddr,
+diff --git a/arch/m68k/mm/cache.c b/arch/m68k/mm/cache.c
+index 99057cd5ff7f1..7915be3a09712 100644
+--- a/arch/m68k/mm/cache.c
++++ b/arch/m68k/mm/cache.c
+@@ -73,7 +73,7 @@ static unsigned long virt_to_phys_slow(unsigned long vaddr)
+ 
+ /* Push n pages at kernel virtual address and clear the icache */
+ /* RZ: use cpush %bc instead of cpush %dc, cinv %ic */
+-void flush_icache_range(unsigned long address, unsigned long endaddr)
++void flush_icache_user_range(unsigned long address, unsigned long endaddr)
  {
- 	ssize_t res = vfs_read(file, (void __user *)addr, len, &pos);
- 	if (res > 0)
--		flush_icache_range(addr, addr + len);
-+		flush_icache_user_range(addr, addr + len);
- 	return res;
+ 	if (CPU_IS_COLDFIRE) {
+ 		unsigned long start, end;
+@@ -104,6 +104,11 @@ void flush_icache_range(unsigned long address, unsigned long endaddr)
+ 			      : "di" (FLUSH_I));
+ 	}
  }
- EXPORT_SYMBOL(read_code);
++
++void flush_icache_range(unsigned long address, unsigned long endaddr)
++{
++	flush_icache_user_range(address, endaddr);
++}
+ EXPORT_SYMBOL(flush_icache_range);
+ 
+ void flush_icache_user_page(struct vm_area_struct *vma, struct page *page,
 -- 
 2.26.2
 
