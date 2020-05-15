@@ -7,16 +7,16 @@ X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 31A6EC433E0
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 15 May 2020 14:42:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A3BB1C433E0
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 15 May 2020 14:42:37 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E45662078C
-	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 15 May 2020 14:42:03 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 69392207BB
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri, 15 May 2020 14:42:37 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="EI/n3KId"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E45662078C
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="nHUmDfKB"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 69392207BB
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,24 +25,24 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aVQ1xLZiwZwftiaH3jhCNlEcJ33SLJz0PSYci41Jgd4=; b=EI/n3KIdl4HEZx
-	1qzpsUPKnBpVdkqTWJhuilZcuDIcVD7Zz+xCjye5Mjo1rVZhfJG8ZDaUcmTSzP7GSjpbTSW160cM0
-	OA4XarEsqsobuj2auEWaEWjpqZiLOZUPIqO4Sfe/yNY9ekV0Oz4FbggLtUVVio9FkJ4tHAHwtdZ7N
-	D2mvzXqNgO6MhKVgQARuaJxLQpJvUiu6CP66Bp1I7cvjlRL5yia0vkBucRPZXgEPOokCb9daRgEwP
-	Nnj5zkcAP9s7ERWyc3BUfYqHiYeXwkTX1X/mOfCG+01SXtt0NsgmaF/KgGTn6SMFfzW7mOXAlxbSq
-	E9c7i01nOR341MLgCk8g==;
+	List-Owner; bh=0vCVbab8LqnKZMFTDjGS9z17LyCubzzTTEgfa/2l87E=; b=nHUmDfKBJB1BOu
+	vdnsFw1NI4eIRozIucGWtvGX+jliAq6gobGC9OAYOaKuT7LcXH9vBejiVb29G9HvtBKx5gauT1SXe
+	SbaRuSVoBho8aZdD3RKbBTeSyZ+GTtGiLbZFmfDEose1ZOxOcom43uoPbxm+uqqdtNQJvzbOiObwH
+	abMKzoWRpfwlrABS+rghKgYxizxP3xt0byNlzqLj7f7AGS+V4JwUcH69KFor0fc1Wg0I4J6OP/wsd
+	o4eyoly9o2nJ2f1EItjYt8LOQJw6tqVRBDq67GasFu3oFUF1WqcNSjNfq0MTPik3hTqgeMW7yBNpA
+	BNAIJoh6F3fjFCuW2vtw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jZbXC-0003Vs-BM; Fri, 15 May 2020 14:41:58 +0000
+	id 1jZbXn-0004E0-Hw; Fri, 15 May 2020 14:42:35 +0000
 Received: from [2001:4bb8:188:1506:c70:4a89:bc61:2] (helo=localhost)
  by bombadil.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jZbSh-0004MA-75; Fri, 15 May 2020 14:37:19 +0000
+ id 1jZbSn-0004V0-Qz; Fri, 15 May 2020 14:37:26 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Andrew Morton <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>,
  Roman Zippel <zippel@linux-m68k.org>
-Subject: [PATCH 11/29] hexagon: use asm-generic/cacheflush.h
-Date: Fri, 15 May 2020 16:36:28 +0200
-Message-Id: <20200515143646.3857579-12-hch@lst.de>
+Subject: [PATCH 13/29] microblaze: use asm-generic/cacheflush.h
+Date: Fri, 15 May 2020 16:36:30 +0200
+Message-Id: <20200515143646.3857579-14-hch@lst.de>
 X-Mailer: git-send-email 2.26.2
 In-Reply-To: <20200515143646.3857579-1-hch@lst.de>
 References: <20200515143646.3857579-1-hch@lst.de>
@@ -72,65 +72,71 @@ Cc: linux-arch@vger.kernel.org, linux-xtensa@linux-xtensa.org,
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hexagon needs almost no cache flushing routines of its own.  Rely on
+Microblaze needs almost no cache flushing routines of its own.  Rely on
 asm-generic/cacheflush.h for the defaults.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
 ---
- arch/hexagon/include/asm/cacheflush.h | 19 +++++--------------
- 1 file changed, 5 insertions(+), 14 deletions(-)
+ arch/microblaze/include/asm/cacheflush.h | 29 ++----------------------
+ 1 file changed, 2 insertions(+), 27 deletions(-)
 
-diff --git a/arch/hexagon/include/asm/cacheflush.h b/arch/hexagon/include/asm/cacheflush.h
-index fb447de45d54c..6eff0730e6efd 100644
---- a/arch/hexagon/include/asm/cacheflush.h
-+++ b/arch/hexagon/include/asm/cacheflush.h
-@@ -25,29 +25,17 @@
- #define LINESIZE	32
- #define LINEBITS	5
+diff --git a/arch/microblaze/include/asm/cacheflush.h b/arch/microblaze/include/asm/cacheflush.h
+index 11f56c85056bb..39f8fb6768d8b 100644
+--- a/arch/microblaze/include/asm/cacheflush.h
++++ b/arch/microblaze/include/asm/cacheflush.h
+@@ -57,9 +57,6 @@ void microblaze_cache_init(void);
+ #define invalidate_icache()				mbc->iin();
+ #define invalidate_icache_range(start, end)		mbc->iinr(start, end);
  
--#define flush_cache_all()			do { } while (0)
--#define flush_cache_mm(mm)			do { } while (0)
--#define flush_cache_dup_mm(mm)			do { } while (0)
--#define flush_cache_range(vma, start, end)	do { } while (0)
--#define flush_cache_page(vma, vmaddr, pfn)	do { } while (0)
--#define ARCH_IMPLEMENTS_FLUSH_DCACHE_PAGE 0
--#define flush_dcache_page(page)			do { } while (0)
+-#define flush_icache_user_range(vma, pg, adr, len)	flush_icache();
+-#define flush_icache_page(vma, pg)			do { } while (0)
+-
+ #define enable_dcache()					mbc->de();
+ #define disable_dcache()				mbc->dd();
+ /* FIXME for LL-temac driver */
+@@ -77,27 +74,9 @@ do { \
+ 	flush_dcache_range((unsigned) (addr), (unsigned) (addr) + PAGE_SIZE); \
+ } while (0);
+ 
 -#define flush_dcache_mmap_lock(mapping)		do { } while (0)
 -#define flush_dcache_mmap_unlock(mapping)	do { } while (0)
--#define flush_icache_page(vma, pg)		do { } while (0)
--#define flush_icache_user_range(vma, pg, adr, len)	do { } while (0)
--#define flush_cache_vmap(start, end)		do { } while (0)
--#define flush_cache_vunmap(start, end)		do { } while (0)
 -
- /*
-  * Flush Dcache range through current map.
-  */
- extern void flush_dcache_range(unsigned long start, unsigned long end);
-+#define flush_dcache_range flush_dcache_range
+-#define flush_cache_dup_mm(mm)				do { } while (0)
+-#define flush_cache_vmap(start, end)			do { } while (0)
+-#define flush_cache_vunmap(start, end)			do { } while (0)
+-#define flush_cache_mm(mm)			do { } while (0)
+-
+ #define flush_cache_page(vma, vmaddr, pfn) \
+ 	flush_dcache_range(pfn << PAGE_SHIFT, (pfn << PAGE_SHIFT) + PAGE_SIZE);
  
- /*
-  * Flush Icache range through current map.
-  */
- extern void flush_icache_range(unsigned long start, unsigned long end);
-+#define flush_icache_range flush_icache_range
- 
- /*
-  * Memory-management related flushes are there to ensure in non-physically
-@@ -78,6 +66,7 @@ static inline void update_mmu_cache(struct vm_area_struct *vma,
- 
- void copy_to_user_page(struct vm_area_struct *vma, struct page *page,
- 		       unsigned long vaddr, void *dst, void *src, int len);
+-/* MS: kgdb code use this macro, wrong len with FLASH */
+-#if 0
+-#define flush_cache_range(vma, start, len)	{	\
+-	flush_icache_range((unsigned) (start), (unsigned) (start) + (len)); \
+-	flush_dcache_range((unsigned) (start), (unsigned) (start) + (len)); \
+-}
+-#endif
+-
+-#define flush_cache_range(vma, start, len) do { } while (0)
+-
+ static inline void copy_to_user_page(struct vm_area_struct *vma,
+ 				     struct page *page, unsigned long vaddr,
+ 				     void *dst, void *src, int len)
+@@ -109,12 +88,8 @@ static inline void copy_to_user_page(struct vm_area_struct *vma,
+ 		flush_dcache_range(addr, addr + PAGE_SIZE);
+ 	}
+ }
 +#define copy_to_user_page copy_to_user_page
  
- #define copy_from_user_page(vma, page, vaddr, dst, src, len) \
- 	memcpy(dst, src, len)
-@@ -85,4 +74,6 @@ void copy_to_user_page(struct vm_area_struct *vma, struct page *page,
- extern void hexagon_inv_dcache_range(unsigned long start, unsigned long end);
- extern void hexagon_clean_dcache_range(unsigned long start, unsigned long end);
- 
+-static inline void copy_from_user_page(struct vm_area_struct *vma,
+-				       struct page *page, unsigned long vaddr,
+-				       void *dst, void *src, int len)
+-{
+-	memcpy(dst, src, len);
+-}
 +#include <asm-generic/cacheflush.h>
-+
- #endif
+ 
+ #endif /* _ASM_MICROBLAZE_CACHEFLUSH_H */
 -- 
 2.26.2
 
