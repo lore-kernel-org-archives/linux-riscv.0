@@ -2,88 +2,62 @@ Return-Path: <SRS0=t6IZ=66=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E1A2EC433DF
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 16 May 2020 13:30:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1E02DC433E0
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 16 May 2020 13:33:12 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BADA220756
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 16 May 2020 13:30:52 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E6ACF206D8
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 16 May 2020 13:33:11 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Nzn0Z3+b";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="IZxx/P8M"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BADA220756
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ByhmCesJ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E6ACF206D8
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:
-	References:In-Reply-To:Subject:To:From:Date:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=0V+LdpXeHokRMkuat9RJJqVXLe0Ar2e22G3fkxCyhbU=; b=Nzn0Z3+baFaizyKags+5TiKN7
-	Wn1qwwI731Iyu5rDQZjVSWMajRh44vU2lDRbTnep4g3z/4MatngAJbapAYTGK1Vlzyfc1zaWVQ7wj
-	khotFApdLY9CxM+NFhZuMQv0K2sVO27Gyx/zmXjTB6uHfZPitEUc7YvBSwhHtg2FlUiMO2nmOMlUO
-	hl13CBKXeASjbQmX0Ax5t9Y8nRlvzMHd+YcKTLicBGYgyZwcOknLfWlRZp6fIXEasRJRBZeDB/a6L
-	amQKbYpqjzf/qCgypVJvrdFidPvCQYhR5Y85/PGojlXJzvs+gSzMAQzBQXlra8FD4EHW2pJD9U4qr
-	RXqcb1P7w==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	MIME-Version:Message-ID:In-Reply-To:Date:References:Subject:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=PUVFKIKk362JRcGphtZjBJWzUCMLzsdvCg2Pw5XCTP0=; b=ByhmCesJdXrKMuqu1sFNUga4S
+	p6y7JJtkPWELQJUqCiB0tHTbIr//1/0S+hybgkE5La99N+nxnIYmsuh+qRNsHCeja9b5ona92OO0d
+	Dzo8YZjoU5Av0h0HukgWUeM4sCd+tzJIqx2UIukB1/H6zhCVpOx2uu4BZ5Y5arqIGnTgn47rrcopT
+	cwnZxV7PIoyqV9uvMXxrs2MA3DhVw93v1ex7I1OkjI16Q6GD4goYvAXLUDK781AOtzacfjMe2pPXs
+	Jsoh7FldC5R2ILdE62UHKN2EhTKF59ladimBTmpdOU6y9cMZ1NTuT49bvRxTM4J/u79p55UxEMvtS
+	FvUBlDd7Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jZwtv-00063a-TL; Sat, 16 May 2020 13:30:51 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1jZwwA-0006GR-TV; Sat, 16 May 2020 13:33:10 +0000
+Received: from mx2.suse.de ([195.135.220.15])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jZwts-00063C-A6
- for linux-riscv@lists.infradead.org; Sat, 16 May 2020 13:30:49 +0000
-Received: from disco-boy.misterjones.org (disco-boy.misterjones.org
- [51.254.78.96])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id C306B206D8;
- Sat, 16 May 2020 13:30:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1589635847;
- bh=PwRB1E7WBwQxVNyw66zIhErDW9p/iRr+zpHERrFU4n0=;
- h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
- b=IZxx/P8MIzqxYDJ0ENMGposfK8eIoCqj6tBgpob3pD7lEi+3CRuojeNapWv8UZS7G
- QvVP8oXtodq5Ddhr2LoYkd/spKC4gR9v26GOLjnFUkfYfCOfG9DA8eTGf+PO61RMva
- yt0w+nnBa+pmHnCCMjoN5obmukbJzciExVYQ3xWo=
-Received: from disco-boy.misterjones.org ([51.254.78.96] helo=www.loen.fr)
- by disco-boy.misterjones.org with esmtpsa
- (TLS1.2:ECDHE_RSA_AES_128_GCM_SHA256:128) (Exim 4.92)
- (envelope-from <maz@kernel.org>)
- id 1jZwtq-00CpFj-5o; Sat, 16 May 2020 14:30:46 +0100
+ id 1jZww8-0006Fp-0d
+ for linux-riscv@lists.infradead.org; Sat, 16 May 2020 13:33:09 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.220.254])
+ by mx2.suse.de (Postfix) with ESMTP id 3EBC7B127;
+ Sat, 16 May 2020 13:33:06 +0000 (UTC)
+From: Andreas Schwab <schwab@suse.de>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Subject: Re: Crashes with CONFIG_SLAB_FREELIST_RANDOM
+References: <mhng-42b47524-b185-4972-9889-69f824471fa6@palmerdabbelt-glaptop1>
+X-Yow: I want to TAKE IT HOME and DRESS IT UP in HOT PANTS!!
+Date: Sat, 16 May 2020 15:33:01 +0200
+In-Reply-To: <mhng-42b47524-b185-4972-9889-69f824471fa6@palmerdabbelt-glaptop1>
+ (Palmer Dabbelt's message of "Fri, 15 May 2020 11:57:57 -0700 (PDT)")
+Message-ID: <87wo5ct376.fsf@igel.home>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/27.0.91 (gnu/linux)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-Date: Sat, 16 May 2020 14:30:46 +0100
-From: Marc Zyngier <maz@kernel.org>
-To: Anup Patel <Anup.Patel@wdc.com>
-Subject: Re: [PATCH 1/4] irqchip/sifive-plic: Setup cpuhp once after current
- handler is present
-In-Reply-To: <DM6PR04MB62012DBAF3FAA7A264094C418DBA0@DM6PR04MB6201.namprd04.prod.outlook.com>
-References: <20200516063901.18365-1-anup.patel@wdc.com>
- <20200516063901.18365-2-anup.patel@wdc.com>
- <d4e0dcceecad49e71ffe785f8950981d@kernel.org>
- <DM6PR04MB62012DBAF3FAA7A264094C418DBA0@DM6PR04MB6201.namprd04.prod.outlook.com>
-User-Agent: Roundcube Webmail/1.4.4
-Message-ID: <0be23fcd363998ddd527eceb308f592c@kernel.org>
-X-Sender: maz@kernel.org
-X-SA-Exim-Connect-IP: 51.254.78.96
-X-SA-Exim-Rcpt-To: Anup.Patel@wdc.com, palmer@dabbelt.com,
- paul.walmsley@sifive.com, tglx@linutronix.de, jason@lakedaemon.net,
- Atish.Patra@wdc.com, Alistair.Francis@wdc.com, anup@brainfault.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org);
- SAEximRunCond expanded to false
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200516_063048_392059_644531D6 
-X-CRM114-Status: GOOD (  25.45  )
+X-CRM114-CacheID: sfid-20200516_063308_198949_3E8EE92B 
+X-CRM114-Status: UNSURE (   7.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -95,146 +69,22 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Jason Cooper <jason@lakedaemon.net>, Anup Patel <anup@brainfault.org>,
- linux-kernel@vger.kernel.org, Atish Patra <Atish.Patra@wdc.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- Thomas Gleixner <tglx@linutronix.de>, linux-riscv@lists.infradead.org
+Cc: linux-riscv@lists.infradead.org, david.abdurachmanov@gmail.com
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2020-05-16 13:52, Anup Patel wrote:
->> -----Original Message-----
->> From: Marc Zyngier <maz@kernel.org>
->> Sent: 16 May 2020 17:42
->> To: Anup Patel <Anup.Patel@wdc.com>
->> Cc: Palmer Dabbelt <palmer@dabbelt.com>; Paul Walmsley
->> <paul.walmsley@sifive.com>; Thomas Gleixner <tglx@linutronix.de>; 
->> Jason
->> Cooper <jason@lakedaemon.net>; Atish Patra <Atish.Patra@wdc.com>; 
->> Alistair
->> Francis <Alistair.Francis@wdc.com>; Anup Patel <anup@brainfault.org>; 
->> linux-
->> riscv@lists.infradead.org; linux-kernel@vger.kernel.org
->> Subject: Re: [PATCH 1/4] irqchip/sifive-plic: Setup cpuhp once after 
->> current
->> handler is present
->> 
->> Hi Anup,
->> 
->> On 2020-05-16 07:38, Anup Patel wrote:
->> > For multiple PLIC instances, the plic_init() is called once for each
->> > PLIC instance. Due to this we have two issues:
->> > 1. cpuhp_setup_state() is called multiple times 2. plic_starting_cpu()
->> > can crash for boot CPU if cpuhp_setup_state()
->> >    is called before boot CPU PLIC handler is available.
->> >
->> > This patch fixes both above issues.
->> >
->> > Signed-off-by: Anup Patel <anup.patel@wdc.com>
->> > ---
->> >  drivers/irqchip/irq-sifive-plic.c | 14 ++++++++++++--
->> >  1 file changed, 12 insertions(+), 2 deletions(-)
->> >
->> > diff --git a/drivers/irqchip/irq-sifive-plic.c
->> > b/drivers/irqchip/irq-sifive-plic.c
->> > index 822e074c0600..7dc23edb3267 100644
->> > --- a/drivers/irqchip/irq-sifive-plic.c
->> > +++ b/drivers/irqchip/irq-sifive-plic.c
->> > @@ -76,6 +76,7 @@ struct plic_handler {
->> >  	void __iomem		*enable_base;
->> >  	struct plic_priv	*priv;
->> >  };
->> > +static bool plic_cpuhp_setup_done;
->> >  static DEFINE_PER_CPU(struct plic_handler, plic_handlers);
->> >
->> >  static inline void plic_toggle(struct plic_handler *handler, @@
->> > -282,6 +283,7 @@ static int __init plic_init(struct device_node *node,
->> >  	int error = 0, nr_contexts, nr_handlers = 0, i;
->> >  	u32 nr_irqs;
->> >  	struct plic_priv *priv;
->> > +	struct plic_handler *handler;
->> >
->> >  	priv = kzalloc(sizeof(*priv), GFP_KERNEL);
->> >  	if (!priv)
->> > @@ -310,7 +312,6 @@ static int __init plic_init(struct device_node
->> > *node,
->> >
->> >  	for (i = 0; i < nr_contexts; i++) {
->> >  		struct of_phandle_args parent;
->> > -		struct plic_handler *handler;
->> >  		irq_hw_number_t hwirq;
->> >  		int cpu, hartid;
->> >
->> > @@ -364,9 +365,18 @@ static int __init plic_init(struct device_node
->> > *node,
->> >  		nr_handlers++;
->> >  	}
->> >
->> > -	cpuhp_setup_state(CPUHP_AP_IRQ_SIFIVE_PLIC_STARTING,
->> > +	/*
->> > +	 * We can have multiple PLIC instances so setup cpuhp state only
->> > +	 * when context handler for current/boot CPU is present.
->> > +	 */
->> > +	handler = this_cpu_ptr(&plic_handlers);
->> > +	if (handler->present && !plic_cpuhp_setup_done) {
->> 
->> If there is no context handler for the boot CPU, the system is doomed, 
->> right? It
->> isn't able to get any interrupt, and you don't register the hotplug 
->> notifier that
->> could allow secondary CPUs to boot.
->> 
->> So what is the point? It feels like you should just give up here.
->> 
->> Also, the boot CPU is always CPU 0. So checking that you only register 
->> the
->> hotplug notifier from CPU 0 should be enough.
-> 
-> The boot CPU is not fixed in RISC-V, the logical id of the boot CPU 
-> will always
-> be zero but physical id (or HART id) can be something totally 
-> different.
+On Mai 15 2020, Palmer Dabbelt wrote:
 
-So on riscv, smp_processor_id() can return a non-zero value on the
-the boot CPU? Interesting... :-/
+> Sorry, I was trying to ask for a full config.
 
-> 
-> On RISC-V NUMA system, we will have a separate PLIC in each NUMA node.
-> 
-> Let's say we have a system with 2 NUMA nodes, each NUMA node having
-> 4 CPUs (or 4 HARTs).  In this case, the DTB passed to Linux will have 
-> two PLIC
-> DT nodes where each PLIC device targets only 4 CPUs (or 4 HARTs). The
-> plic_init() functions will setup handlers for only 4 CPUs (or 4 HARTs). 
-> In other
-> words, plic_init() for "PLIC0" will setup handler for HART id 0 to 3 
-> and
-> plic_init() for "PLIC1" will setup handler for HART id 4 to 7. Now, any 
-> CPU
-> can be boot CPU so it is possible that CPU with HART id 4 is boot CPU 
-> and
-> when plic_init() is first called for "PLIC0" the handler for HART id 4 
-> is not
-> setup because it will be setup later when plic_init() is called for 
-> "PLIC1".
-> This cause plic_starting_cpu() to crash when plic_init() is called for 
-> "PLIC0".
-> 
-> I hope above example helps understanding the issue.
+Oops, sorry.  Here's the full config:
 
-It does, thanks. This pseudo NUMA thing really is a terrible hack...
+https://github.com/SUSE/kernel-source/blob/master/config/riscv64/default
 
-> 
-> I encounter this issue randomly when booting Linux on QEMU RISC-V
-> with multiple NUMA nodes.
+Andreas.
 
-Then why don't you defer the probing of the PLIC you can't initialize
-from this CPU? If you're on CPU4-7, only initialize the PLIC that
-matters to you, and not the the others. It would certainly make a lot
-more sense, and be more robust.
-
-         M.
 -- 
-Jazz is not dead. It just smells funny...
+Andreas Schwab, SUSE Labs, schwab@suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
 
