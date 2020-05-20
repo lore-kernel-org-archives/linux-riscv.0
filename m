@@ -2,21 +2,22 @@ Return-Path: <SRS0=TnxY=7C=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-6.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 82390C433DF
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 20 May 2020 22:20:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id ED404C433E0
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 20 May 2020 22:50:07 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 47C5C2072C
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 20 May 2020 22:20:12 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B26A6206F1
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 20 May 2020 22:50:07 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="OG4PQ6k9";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="A2DCqD0h"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 47C5C2072C
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Zzw0LZpk";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="EIBjZ/F9"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B26A6206F1
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,67 +26,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-Type:Mime-Version:Message-ID:To:From:
 	In-Reply-To:Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=ycck34yOE2eI9p8XWX3gxgUmzwvA56jseIW5KzHm0FY=; b=OG4PQ6k9acB6B2
-	KX0uEL7agv/XYYXWhUvB+egcJ5ORlbgTnB/lXwvTwNaXxmVqosFXSLDI5Utfr9SJp8IPFqWNHiFih
-	Tn1YXsvckg/njlwkDmTU2l5cAVTVrfxW3tlFSzVWDtAAMUXDJ5vEr0hCM53ej1aFurm6ArgtcVPEe
-	OdRBo4U0GSdW8T0vaH3Qj6YYraxd98JKgznBzNgnhDRK18kziDtp7ExINFBCQar/msdAv9mIidTkW
-	up2wk5ZfkwEtUovA4jUE9e+GvHFjtJPeZuNkSnWEHKEbv4izvHKIs96Ni9X0ovx8Rp3YxNFlyXnQ9
-	C7rUelgvJgNwY6uN9EuA==;
+	List-Owner; bh=QKwUc2R6uw/eDgmTMc7GXVJUbTy1jO4XiUWek83viy0=; b=Zzw0LZpkTi57uT
+	okf2is4+1BvkTvg3Q2cKXaBwOem8id+QKzpQsSbHvEZ7q+LnAdNsdKoB7zqIodwuYJDJOcVgAjec7
+	6mRWUiHRO2f540bZIp2Ajz24csOdqBCCdpGVKXczLsONT8/eMkxxmyoR1eXs5Kyz85EPCKbq4e5lJ
+	r5Wxom+8+WU87LpQw0fwsOoRCBEQ3nrP5u7XZIr8FTXeSRdp5a+FTD8U4ZEs6pMvJlAm+w8zamrO1
+	cR7zsA3vTIpq7ZQr6eg7DGnZu/lPnTgtApvp01HhLwGxmMna7f3h38FRSCOW73NhEDRntnXjQBK9l
+	b8lKRXordTRP6s8Lh1CQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jbX4I-0004w8-Jk; Wed, 20 May 2020 22:20:06 +0000
-Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
+	id 1jbXXF-00022D-Rg; Wed, 20 May 2020 22:50:01 +0000
+Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jbX4E-0003yt-AJ
- for linux-riscv@lists.infradead.org; Wed, 20 May 2020 22:20:04 +0000
-Received: by mail-pg1-x544.google.com with SMTP id s10so2131394pgm.0
- for <linux-riscv@lists.infradead.org>; Wed, 20 May 2020 15:19:59 -0700 (PDT)
+ id 1jbXXD-00020v-TU
+ for linux-riscv@lists.infradead.org; Wed, 20 May 2020 22:50:01 +0000
+Received: by mail-pf1-x442.google.com with SMTP id 145so2290796pfw.13
+ for <linux-riscv@lists.infradead.org>; Wed, 20 May 2020 15:49:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=ycck34yOE2eI9p8XWX3gxgUmzwvA56jseIW5KzHm0FY=;
- b=A2DCqD0hVrSACeq0opTnEGbqUnFx7U3NbKrctUt8Fdp4HjEK96vLUZVZxbuOjtTdIh
- Pbz3ztBmNqUcs7UitHS3izJWLdMiIMKDqJXpXNRSjufBQx47OoKi653UN/2KthcG2V/X
- Z+DZhrBPirFLJiBzVVneXPrIobV9exvpAXaXk+geGM+UwkNiTYiq2lBellAWSGZN2Mx0
- Y1OEY7xC5wTR0nISpAnvYgG4tb04ZFLjhwfNehfkBo3inxr0c/IMgHFMSFlnIJhcmV/v
- 3n+8ZMYs0p/6tXSSAgHWOVyYgbRCG4CYl/HP0ZkXv9ijLS0R2hZdtA/4u+o2fz2pGP84
- FGuQ==
+ bh=QKwUc2R6uw/eDgmTMc7GXVJUbTy1jO4XiUWek83viy0=;
+ b=EIBjZ/F9r+i1Uxd18RwcwxXQVkYbaLrUocOByK8WgOLNbFAPUA4PhtM3VxYNkiky2k
+ MtKNPT9Z0wI0pYeXs6wByOFK/84soRVDHeVVT8LR3zjhz8I6nHgVtg2Z3FnsthUWh6kw
+ +WRp6S34NU0IqRFAjTikS376odk3+3C7tkXaOLxdbKeBNC7UBMG+itCpT+fMUk4bt663
+ UQQp/CYHbyYYDCre+cnmgwD7jZ+qjjQg50mxchLOh/uHaCrJVffftMhqqCwb5QT8PcDb
+ qwsHRlYMUHyCKHPyJ74Sid+Jcjtv3LXljsr8WlvCb/HWkIflaMCub9W3S6OEPTX1PRtS
+ 3mYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=ycck34yOE2eI9p8XWX3gxgUmzwvA56jseIW5KzHm0FY=;
- b=N4NuH0GrB/RwCtNXxWpe7ikz3TZYUZOYP4CCN+W72RqWvGyCkgwG80mzr8KNkFW07l
- lIY5a/ISzChKSE+YDEoaRoHKl4cWaCFzGV4+rLVj+90yZkUClqm1iohoO08UYVYBUlx7
- 4rL6ip6fD+YfwWYIJvTNIh41iyoY5JGMvgkOQuuqy2fM28sJ/BakBgwVI9Hnt4ASQdFQ
- gIOeSvrhl0IGOSM8WHJx26QTajf5NmZEGSS0W5L9N0h/8JPETuSCmng268/Bvdy1YLR7
- vbSHvmZro2lzU30s/EdpLzh3Hr8Arp3uUOPhXqtkbDtw7mJrBKkYkb9FQsvpaYIvNacT
- odgQ==
-X-Gm-Message-State: AOAM530h+1QIOMDOuOGvwBakKUbJhf1mvYfr4uOgB1mbDPUAg7FcjQQS
- C9SspntJrnTntx64DEEhN4A38w==
-X-Google-Smtp-Source: ABdhPJzBffw38fH6z7ClizvGlzg2njXTkTLF5T+vdnNSXUq5Ja4qQVrUaZwoxh29v5k8bvkf9BzFUg==
-X-Received: by 2002:a62:4e83:: with SMTP id c125mr2021866pfb.165.1590013198938; 
- Wed, 20 May 2020 15:19:58 -0700 (PDT)
+ bh=QKwUc2R6uw/eDgmTMc7GXVJUbTy1jO4XiUWek83viy0=;
+ b=taig9kMgdfdyF22oY2C/1iAU5QXk5y7I30y+aiCq1M5c63M1sVfYgHUypli0NsQIjS
+ jL5sEm/MhhEJLR9C3DzLT5dvhYwuf7SjxyzpGtndZCepTmdspqRVSNxKFLd0gUGvHQI9
+ kqYIOmnPOxZlW9OAZKI01zoL4A8cPeHGyRQg+dhf4e6gdYcc/34t8I3nUZ/K3oiZcF26
+ XoZ6heo5lN2UUBZVn4UoQl1U00u8ubOGcxoDtHCTfMUIRfualY/AfEkDHqWZYVQw0I7E
+ HqeSj6k3Jf2bAZ0lRtUdieEhKKk5+8G3BP6YbxvtipOra1Kt4yZ3vvEw4Qux629my75f
+ ujkw==
+X-Gm-Message-State: AOAM532QGKIIPsUhAzaA/6Rd3tRH0v1qWzqBA8R0HeTxxFId+OW9nomm
+ cm3Gd81Jz1aLd0wVl1ADTtqLcA==
+X-Google-Smtp-Source: ABdhPJyHDWPJOXCR6ItvC+aD357uYMEJiQMYkP/S6dIex9nbbID5CupKL+DroIq9cN3c4VmBEIaiCw==
+X-Received: by 2002:aa7:80cf:: with SMTP id a15mr6904139pfn.124.1590014997875; 
+ Wed, 20 May 2020 15:49:57 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id y4sm2966513pfq.10.2020.05.20.15.19.57
+ by smtp.gmail.com with ESMTPSA id d35sm2553068pgd.29.2020.05.20.15.49.57
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 20 May 2020 15:19:58 -0700 (PDT)
-Date: Wed, 20 May 2020 15:19:58 -0700 (PDT)
-X-Google-Original-Date: Wed, 20 May 2020 15:12:25 PDT (-0700)
-Subject: Re: [PATCH v5 0/2] cacheinfo support to read no. of L2 cache ways
- enabled
-In-Reply-To: <1582175719-7401-1-git-send-email-yash.shah@sifive.com>
+ Wed, 20 May 2020 15:49:57 -0700 (PDT)
+Date: Wed, 20 May 2020 15:49:57 -0700 (PDT)
+X-Google-Original-Date: Wed, 20 May 2020 15:46:51 PDT (-0700)
+Subject: Re: [PATCH v2] riscv: Fix print_vm_layout build error if NOMMU
+In-Reply-To: <20200514115335.110603-1-wangkefeng.wang@huawei.com>
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: david.abdurachmanov@gmail.com, yash.shah@sifive.com
-Message-ID: <mhng-2f2a1b1f-278b-4062-82cd-750b4e9f3d55@palmerdabbelt-glaptop1>
+To: wangkefeng.wang@huawei.com
+Message-ID: <mhng-533eaf79-af8c-4bf7-9a18-0990f22a2efd@palmerdabbelt-glaptop1>
 Mime-Version: 1.0 (MHng)
 Content-Type: text/plain; charset=utf-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200520_152002_470356_0FE9DBA7 
-X-CRM114-Status: GOOD (  17.78  )
+X-CRM114-CacheID: sfid-20200520_154959_955301_456367C4 
+X-CRM114-Status: GOOD (  14.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -97,58 +97,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, sachin.ghadi@sifive.com, anup@brainfault.org,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org,
- alexios.zavras@intel.com, yash.shah@sifive.com,
- Greg KH <gregkh@linuxfoundation.org>, tglx@linutronix.de, bp@suse.de,
- linux-riscv@lists.infradead.org
+Cc: wangkefeng.wang@huawei.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ linux-kernel@vger.kernel.org, hulkci@huawei.com,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 19 Feb 2020 21:15:17 PST (-0800), yash.shah@sifive.com wrote:
-> The patchset includes 2 patches. Patch 1 implements cache_get_priv_group
-> which make use of a generic ops structure to return a private attribute
-> group for custom cacheinfo. Patch 2 implements a private attribute named
-> "number_of_ways_enabled" in the cacheinfo framework. Reading this
-> attribute returns the number of L2 cache ways enabled at runtime,
+On Thu, 14 May 2020 04:53:35 PDT (-0700), wangkefeng.wang@huawei.com wrote:
+> arch/riscv/mm/init.c: In function ‘print_vm_layout’:
+> arch/riscv/mm/init.c:68:37: error: ‘FIXADDR_START’ undeclared (first use in this function);
+> arch/riscv/mm/init.c:69:20: error: ‘FIXADDR_TOP’ undeclared
+> arch/riscv/mm/init.c:70:37: error: ‘PCI_IO_START’ undeclared
+> arch/riscv/mm/init.c:71:20: error: ‘PCI_IO_END’ undeclared
+> arch/riscv/mm/init.c:72:38: error: ‘VMEMMAP_START’ undeclared
+> arch/riscv/mm/init.c:73:20: error: ‘VMEMMAP_END’ undeclared (first use in this function);
 >
-> This patchset is based on Linux v5.6-rc2 and tested on HiFive Unleashed
-> board.
+> Reported-by: Hulk Robot <hulkci@huawei.com>
+> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+> ---
+> v2:
+> - Should CONFIG_DEBUG_VM instead of DEBUG_VM
+> - Based on riscv fixes branch
 >
-> v5:
-> - Since WayEnable is 8bits, mask out and return only the last 8 bit in
->   l2_largest_wayenabled()
-> - Rebased on Linux v5.6-rc2
+>  arch/riscv/mm/init.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> v4:
-> - Rename "sifive_l2_largest_wayenabled" to "l2_largest_wayenabled" and
->   make it a static function
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index 27a334106708..736de6c8739f 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -47,7 +47,7 @@ static void setup_zero_page(void)
+>  	memset((void *)empty_zero_page, 0, PAGE_SIZE);
+>  }
 >
-> v3:
-> - As per Anup Patel's suggestion[0], implement a new approach which uses
->   generic ops structure. Hence addition of patch 1 to this series and
->   corresponding changes to patch 2.
-> - Dropped "riscv: dts: Add DT support for SiFive L2 cache controller"
->   patch since it is already merged
-> - Rebased on Linux v5.5-rc6
->
-> Changes in v2:
-> - Rebase the series on v5.5-rc3
-> - Remove the reserved-memory node from DT
->
-> [0]: https://lore.kernel.org/linux-riscv/CAAhSdy0CXde5s_ya=4YvmA4UQ5f5gLU-Z_FaOr8LPni+s_615Q@mail.gmail.com/
->
-> Yash Shah (2):
->   riscv: cacheinfo: Implement cache_get_priv_group with a generic ops
->     structure
->   riscv: Add support to determine no. of L2 cache way enabled
->
->  arch/riscv/include/asm/cacheinfo.h   | 15 ++++++++++++++
->  arch/riscv/kernel/cacheinfo.c        | 17 ++++++++++++++++
->  drivers/soc/sifive/sifive_l2_cache.c | 38 ++++++++++++++++++++++++++++++++++++
->  3 files changed, 70 insertions(+)
->  create mode 100644 arch/riscv/include/asm/cacheinfo.h
+> -#ifdef CONFIG_DEBUG_VM
+> +#if defined(CONFIG_MMU) && defined(CONFIG_DEBUG_VM)
+>  static inline void print_mlk(char *name, unsigned long b, unsigned long t)
+>  {
+>  	pr_notice("%12s : 0x%08lx - 0x%08lx   (%4ld kB)\n", name, b, t,
 
-I must have lost track of this one, it's on for-next now.  Thanks to David for
-reminding me.
+Thanks, this is on fixes.
 
