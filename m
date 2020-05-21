@@ -2,22 +2,22 @@ Return-Path: <SRS0=zhGB=7D=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
+X-Spam-Status: No, score=-5.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0D689C433DF
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 21 May 2020 22:06:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 87F26C433E2
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 21 May 2020 22:06:31 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D2B61206F6
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 21 May 2020 22:06:27 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5B2EB206F6
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 21 May 2020 22:06:31 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="YAoQRBs0";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="x7AysmNp"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D2B61206F6
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="NKM1eikD";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="tFCc/C8H"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5B2EB206F6
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,67 +26,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-Type:Mime-Version:Message-ID:To:From:
 	In-Reply-To:Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=z4qjWDJS+dDEG6zsJVodzvcv2AJMK5S0YVhak8+CMXA=; b=YAoQRBs06Ou3AE
-	hi9T/PX0xH7jP9hvFKGJBXNSEKyq71dDBx3joWx3H+kwousKSPm3v3w3w/PK+wkzPnItO7xFAiDY2
-	4SJmZdIUjBAxwvJs6lWz2v6ZZW/nMpnajqmmjpQWlanQC5YAh35AG/+DunVQ/+Q9B2hyphmmDKRR7
-	0HPMfB+mqkyupSC1w+U7ZFoeaRLfZFE38Kq3ddiV9zYstlKj+1Fx4XbhQem4Nb3fhCQsAwOSNx4lp
-	bp2vstCfx6+IKv98ipLRlbEvzLeiDgqNrZqsYBLJQZotwY3pa6VuT0OhV1+MySlVooF2BDFOVDHsO
-	EXKtaikBgOk40MRKSUnQ==;
+	List-Owner; bh=0cVGbHslsk+cbZypfcJMBHiLvJoLsHioFzaKTSs+n+o=; b=NKM1eikDRCespY
+	VuAcQisWVBeyUZU/MAom/hbC/9SwpJI2Uck+6XRJg8Ng78C7Q8KebfMGVX8hWr0EojYF3uQvjlx4T
+	9PqYAiXg4qb6qMwd95pISXHo+dwLNwjYbXNRrrsTrI7NKTJAOeR3K07DQ+mUtkNer/Uut+QGqfDJ5
+	eblAHV9CJdFCm9T3ym5fzlZ8GeJv7B5wxFXrNbb0n4UkcYd0kCQIZOFOhps0UqDRQJQMSVa7XMGxr
+	EV9PFKxrkrhB/4Arx+YzuDK8tld9yJJelNJrbRk6DY/Q8GQ3vgjeCUaQD+K9mFXezcpT1enCxe8Wx
+	TBMOnM3JJloAA5aZqHZA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jbtKZ-0007QG-E3; Thu, 21 May 2020 22:06:23 +0000
-Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
+	id 1jbtKd-0007Vp-Gj; Thu, 21 May 2020 22:06:27 +0000
+Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jbtKU-0007Mm-IC
- for linux-riscv@lists.infradead.org; Thu, 21 May 2020 22:06:22 +0000
-Received: by mail-pg1-x544.google.com with SMTP id f21so957546pgg.12
- for <linux-riscv@lists.infradead.org>; Thu, 21 May 2020 15:06:18 -0700 (PDT)
+ id 1jbtKZ-0007Q5-Fv
+ for linux-riscv@lists.infradead.org; Thu, 21 May 2020 22:06:25 +0000
+Received: by mail-pf1-x442.google.com with SMTP id e11so3185671pfn.3
+ for <linux-riscv@lists.infradead.org>; Thu, 21 May 2020 15:06:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=z4qjWDJS+dDEG6zsJVodzvcv2AJMK5S0YVhak8+CMXA=;
- b=x7AysmNp0uZndl6qCVfHpRaL6qwKwUKih6h6F4bYJ5i+no/SnDwO35gG5Eo7C+oaOm
- MpxI+tMIP+WzltyQEgPNkG4DBL9GqCf2buVXoU52+/n6bdMlcqcRv/fF6yC22dQsOLWI
- noZAmJZVDt3ryDt9cyeG5ibC6Lb59+K63CG/9HNRRRVEQYuydaiZdkiVUxoHN14A3/WK
- 9h7rpwKhDRYjxQfg1kvKiLx/+OIF0y8/HnFr+pziSjuL3HV21wLfoE2PCtUuYzC20XYn
- Zie6+tByf13dxvZD5BQaBzKuYgmptdAZIrdjAayFYNJdPej5FLb8RuBsZsdzrX6DWxYF
- 0kCA==
+ bh=0cVGbHslsk+cbZypfcJMBHiLvJoLsHioFzaKTSs+n+o=;
+ b=tFCc/C8HJj4LpJX0P2usSwLyQNiX7DxHVcYzHTYDYaHTMaraLT4kkBngKG8FhueNc5
+ d5ePFyP3TLxjNPRnxc5UtTRC7HJNUa+E76KxJEHtwKvmmvQMLjiZdXWSVtor8Ip4v24k
+ hOKoKObMITbh5hdxZKVY8waTspi0Z/D+1Zsr1GFBFvPvAlbpYALUyf7b9kp/mhn6pioJ
+ SHMavJbQGI6Yv0lQENuxdhbfdf3QqpNruy95w1Zf1tj/jKk1oDNldY719Vnq19P7p3st
+ bs2aE0AeCy/sOcgifPOR0ulmqEKoWYboeiMUJTP2WRsWkztcMg0rJhj3QAHKyk5CJYE6
+ FSSw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=z4qjWDJS+dDEG6zsJVodzvcv2AJMK5S0YVhak8+CMXA=;
- b=igrdCvNxI63msnPrjpyFGOAjB6AVjDbZiHAjOfFdzU0DJmWzoWZm8+EoKqvoVMJEb+
- RitkvdT2dywLVul0WpYikxE+596gNkXq52WnBPQQIi2Gad0m3NJR7m+6vtMBTUuGusgY
- QNSGBdSIpIbE1vDAbC2fowXTeClQBcJcf3jqUPo+wKnf5rDWzVrNZuawpyxuJxoZQXdl
- i3nwDkyV+wJ/8d55XO9sRBFwZZs8Er1SRUZLnp1uIx8AiJcu9Xup10ZbsytMk3RU9E/m
- 6clOUJqA0BlhXv21N37QnoDDRGugIaxk1REz+5hMrULNQPAtmnripXSVwN/yOnDTavkr
- XYnA==
-X-Gm-Message-State: AOAM532tym46runonRyCJOkONSE17bxUdZH+pzkt1tTHiuI4Al+6i1Ku
- l6t4p9y+sNr0+lhj9egMx0k+rg==
-X-Google-Smtp-Source: ABdhPJzX1rMTBYpTHR0AQoHMU8WuWYu6PtLRSmk111NXu1EZlrTns2JDN2mP6/jPDZFUnz++IQpRjw==
-X-Received: by 2002:a62:fc4c:: with SMTP id e73mr755715pfh.305.1590098777630; 
- Thu, 21 May 2020 15:06:17 -0700 (PDT)
+ bh=0cVGbHslsk+cbZypfcJMBHiLvJoLsHioFzaKTSs+n+o=;
+ b=qen3L3ZrrYWHdVlgppekHRkOQriIbdanoVBCRs8nqgPZYHEF9auqOPFzhkR9mT46qU
+ KVRseKohESQCwEdx66+/hrmK4toBbq4/qnT19p325IpTgI1LYgMtsDJOeuqEw1CEJEBI
+ phl2lmv+fg11LR4+1WT+9ot7k+hKtPxO/r1uP+bBGkQot8WEWwNzxYy3llRjB1XLfz7p
+ /ScGrNFmtzKznR/9ufpM94oXigMmQouVANfOFHgY59k3VMhXdDYiEj7yo20Eh5tJk+1+
+ eGNnUuSshlfNdL9CgfzkhqOKIHGMqwBG21WnurCtrJNlCdLG8UZE9Tnz4Q+f7oRf1KGq
+ IzjA==
+X-Gm-Message-State: AOAM5331MyORcmClkfjZ66lHbrav16bAHzdqzhHwh3sLOpwLZteOEOel
+ Mq1SqXcocPl+43M9b5zk/nM65uQwxrReFQ==
+X-Google-Smtp-Source: ABdhPJxvNiAP71og79LqCA+AUMUDFGKq0Neyp8AahXQM9Diqmra4GU8++wzYfqWAuuFkyfp8UIeyjw==
+X-Received: by 2002:a63:6345:: with SMTP id x66mr10607701pgb.156.1590098782531; 
+ Thu, 21 May 2020 15:06:22 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id u17sm4961524pgo.90.2020.05.21.15.06.16
+ by smtp.gmail.com with ESMTPSA id t20sm5140916pjo.13.2020.05.21.15.06.21
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 21 May 2020 15:06:16 -0700 (PDT)
-Date: Thu, 21 May 2020 15:06:16 -0700 (PDT)
-X-Google-Original-Date: Thu, 21 May 2020 14:58:47 PDT (-0700)
-Subject: Re: [PATCH v2 2/3] irqchip/sifive-plic: Setup cpuhp once after boot
- CPU handler is present
-In-Reply-To: <20200518091441.94843-3-anup.patel@wdc.com>
+ Thu, 21 May 2020 15:06:21 -0700 (PDT)
+Date: Thu, 21 May 2020 15:06:21 -0700 (PDT)
+X-Google-Original-Date: Thu, 21 May 2020 15:04:03 PDT (-0700)
+Subject: Re: [PATCH v2 0/3] More improvements for multiple PLICs
+In-Reply-To: <20200518091441.94843-1-anup.patel@wdc.com>
 From: Palmer Dabbelt <palmer@dabbelt.com>
 To: Anup Patel <Anup.Patel@wdc.com>
-Message-ID: <mhng-06a48d36-b37c-481f-97aa-8fc0b1f9795e@palmerdabbelt-glaptop1>
+Message-ID: <mhng-a2588163-0a87-494f-af68-59f0ca15965c@palmerdabbelt-glaptop1>
 Mime-Version: 1.0 (MHng)
 Content-Type: text/plain; charset=utf-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200521_150618_597531_6F1131F7 
-X-CRM114-Status: GOOD (  18.62  )
+X-CRM114-CacheID: sfid-20200521_150623_542815_AE219D64 
+X-CRM114-Status: GOOD (  12.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -100,82 +99,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: jason@lakedaemon.net, Marc Zyngier <maz@kernel.org>, anup@brainfault.org,
  Anup Patel <Anup.Patel@wdc.com>, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org, Atish Patra <Atish.Patra@wdc.com>,
- Alistair Francis <Alistair.Francis@wdc.com>,
+ Atish Patra <Atish.Patra@wdc.com>, Alistair Francis <Alistair.Francis@wdc.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, tglx@linutronix.de,
  linux-riscv@lists.infradead.org
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 18 May 2020 02:14:40 PDT (-0700), Anup Patel wrote:
-> For multiple PLIC instances, the plic_init() is called once for each
-> PLIC instance. Due to this we have two issues:
-> 1. cpuhp_setup_state() is called multiple times
-> 2. plic_starting_cpu() can crash for boot CPU if cpuhp_setup_state()
->    is called before boot CPU PLIC handler is available.
+On Mon, 18 May 2020 02:14:38 PDT (-0700), Anup Patel wrote:
+> This series does more improvements for supporting multiple PLIC
+> instances.
 >
-> This patch fixes both above issues.
+> PATCH1 and PATCH2 are fixes whereas PATCH3 helps users distinguish
+> multiple PLIC instances in boot prints.
 >
-> Fixes: f1ad1133b18f ("irqchip/sifive-plic: Add support for multiple PLICs")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Anup Patel <anup.patel@wdc.com>
-> ---
->  drivers/irqchip/irq-sifive-plic.c | 14 ++++++++++++--
->  1 file changed, 12 insertions(+), 2 deletions(-)
+> These patches are based up Linux-5.7-rc5 and can be found at
+> plic_imp_v2 branch at: https://github.com/avpatel/linux.git
 >
-> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-> index 9f7f8ce88c00..6c54abf5cc5e 100644
-> --- a/drivers/irqchip/irq-sifive-plic.c
-> +++ b/drivers/irqchip/irq-sifive-plic.c
-> @@ -76,6 +76,7 @@ struct plic_handler {
->  	void __iomem		*enable_base;
->  	struct plic_priv	*priv;
->  };
-> +static bool plic_cpuhp_setup_done;
->  static DEFINE_PER_CPU(struct plic_handler, plic_handlers);
+> To try this patches, we will need:
+> 1. OpenSBI multi-PLIC and multi-CLINT support which can be found in
+>    multi_plic_clint_v1 branch at:
+>    https://github.com/avpatel/opensbi.git
+> 2. QEMU RISC-V multi-socket support which can be found in
+>    riscv_multi_socket_v1 branch at:
+>    https://github.com/avpatel/qemu.git
 >
->  static inline void plic_toggle(struct plic_handler *handler,
-> @@ -285,6 +286,7 @@ static int __init plic_init(struct device_node *node,
->  	int error = 0, nr_contexts, nr_handlers = 0, i;
->  	u32 nr_irqs;
->  	struct plic_priv *priv;
-> +	struct plic_handler *handler;
+> Changes since v1:
+>  - Re-arranged PATCHs to have fixes first
+>  - Added Fixes tag to PATCH1 and PATCH2
+>  - Use %pOFP in boot print to distinguish PLIC instance
 >
->  	priv = kzalloc(sizeof(*priv), GFP_KERNEL);
->  	if (!priv)
-> @@ -313,7 +315,6 @@ static int __init plic_init(struct device_node *node,
+> Anup Patel (3):
+>   irqchip/sifive-plic: Set default irq affinity in plic_irqdomain_map()
+>   irqchip/sifive-plic: Setup cpuhp once after boot CPU handler is
+>     present
+>   irqchip/sifive-plic: Improve boot prints for multiple PLIC instances
 >
->  	for (i = 0; i < nr_contexts; i++) {
->  		struct of_phandle_args parent;
-> -		struct plic_handler *handler;
->  		irq_hw_number_t hwirq;
->  		int cpu, hartid;
->
-> @@ -367,9 +368,18 @@ static int __init plic_init(struct device_node *node,
->  		nr_handlers++;
->  	}
->
-> -	cpuhp_setup_state(CPUHP_AP_IRQ_SIFIVE_PLIC_STARTING,
-> +	/*
-> +	 * We can have multiple PLIC instances so setup cpuhp state only
-> +	 * when context handler for current/boot CPU is present.
-> +	 */
-> +	handler = this_cpu_ptr(&plic_handlers);
-> +	if (handler->present && !plic_cpuhp_setup_done) {
-> +		cpuhp_setup_state(CPUHP_AP_IRQ_SIFIVE_PLIC_STARTING,
->  				  "irqchip/sifive/plic:starting",
->  				  plic_starting_cpu, plic_dying_cpu);
-> +		plic_cpuhp_setup_done = true;
+>  drivers/irqchip/irq-sifive-plic.c | 21 +++++++++++++++++----
+>  1 file changed, 17 insertions(+), 4 deletions(-)
 
-So presumably something else is preventing multiple plic_init() calls from
-executing at the same time?  Assuming that's the case
-
-Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
-Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
-
-> +	}
-> +
->  	pr_info("mapped %d interrupts with %d handlers for %d contexts.\n",
->  		nr_irqs, nr_handlers, nr_contexts);
->  	set_handle_irq(plic_handle_irq);
+Thanks!  Aside from that parallelism question this LGTM.  IIRC Marc picked up
+the last round, so I'm assuming this would go in through his tree as well.
 
