@@ -2,63 +2,90 @@ Return-Path: <SRS0=EgcX=7I=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=unavailable
+X-Spam-Status: No, score=-6.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,UPPERCASE_50_75 autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D2D8DC433E0
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 26 May 2020 17:15:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B627AC433E0
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 26 May 2020 19:31:52 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A975A2073B
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 26 May 2020 17:15:33 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 7D2FB20776
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 26 May 2020 19:31:52 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="m6UV6EmN"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A975A2073B
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="b6psHwN8";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="vS7fMYrr"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7D2FB20776
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=wLG5fodcloQAmMjzbVZ18b57bWTTtEnfpzMy1bm3kEI=; b=m6UV6EmND7wo6cCZ2UlLZhot5
-	Uj+L0HUtR/42ATEetPiO9QRZwJUuWJFjXF3SxYKQTbDT2YZ3UL2km0W+9YejXuR3DR8SLeibJvjXC
-	ABpUwCZqgkfCkg0IYwc2EtMiXpM2McnxEOc1DxBRFEVIuI0HtCpjKq30R2Z+0e3DbHSEV6PZWc6JY
-	NabdSb/o9S5Kl+/2Uq0Xycg4jQMmtyKb1fmzdNMJ8Jc/q384SyLDwGHT32ga8QYjDkaESnQjuKiqA
-	PhIMcn3dMNwTfQooG19o/cBOwiddxoRGsU2E6ZoFn+DQl/ksdm9wJ/mJhy8Bu+wuWjVB+2uZhI3xn
-	mCvfDQiEw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Mime-Version:Message-ID:To:From:
+	In-Reply-To:Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=YFRI8Pzmi8Hkgh9xlFXYHyu3aYx5I7yE+6THkxrPB8I=; b=b6psHwN8kfAQWk
+	pUInDoMt41eDvgfBGGI30qAxMWxYF29NOi78irVl7l8b7VZLSh7HoMtexBsvlTqdfoe6k+U9qTNqQ
+	kl320VeqbOrje4MOpQfR+C3e5tQmzpTo5Q0pLOUSjgXnhByQIQA7mKsY0lBxS2RXKgF5+87KJCYis
+	NpDbRBYoB4OjFpxgXGyA5MrGpDEGgoC+gZBSpk8uEKrbbrZbNlEGbdzDFAPcAY8QzqiM7iF1JaTxN
+	JSs0Wu8LWNl+qDIRF7Wk3PshRel2cahULqXVBU7fpxCsHYKxgaErBrp/NCHFSqEt4MmuetTqABM3v
+	7CpRKanW9hWtfbGm/9Qg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jddAp-0004FT-35; Tue, 26 May 2020 17:15:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
- by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jddAl-0004Ee-Qu; Tue, 26 May 2020 17:15:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 72B96101E;
- Tue, 26 May 2020 10:15:27 -0700 (PDT)
-Received: from gaia (unknown [172.31.20.19])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EE9B33F52E;
- Tue, 26 May 2020 10:15:19 -0700 (PDT)
-Date: Tue, 26 May 2020 18:15:17 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Mike Rapoport <rppt@kernel.org>
-Subject: Re: [PATCH v2 08/20] arm64: simplify detection of memory zone
- boundaries for UMA configs
-Message-ID: <20200526171516.GL17051@gaia>
-References: <20200429121126.17989-1-rppt@kernel.org>
- <20200429121126.17989-9-rppt@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20200429121126.17989-9-rppt@kernel.org>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+	id 1jdfIj-0000Lu-GV; Tue, 26 May 2020 19:31:49 +0000
+Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
+ by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1jdfIg-0000Kl-3E
+ for linux-riscv@lists.infradead.org; Tue, 26 May 2020 19:31:48 +0000
+Received: by mail-pg1-x541.google.com with SMTP id r10so10522900pgv.8
+ for <linux-riscv@lists.infradead.org>; Tue, 26 May 2020 12:31:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=YFRI8Pzmi8Hkgh9xlFXYHyu3aYx5I7yE+6THkxrPB8I=;
+ b=vS7fMYrrAgg3oUBGa3cYcSiEpyRDaWgj11jtVR7CjRp4pnKrHNU7NTOnemnYkB25eH
+ 2vlyjn5eK/YrvhhtNTGrdGOtMzQtXOFGCeDNsTVjIdts8nhNoF//GK8Uk4zkQJZ3l/FE
+ jwjFlTFdVaxtBWbXt1VQcFnYhGZYrxybxa3sysnJVEs1ztOhd8JnIvTA25P7TbsI2Urk
+ Vst1Z2KUJ2TwNHGQlj2QR6AioGdlYUileOiWYqvlKJrm5FllyzZseAWzHHGcTlC8jMjt
+ oASNMVbCiQkQ5RvIvbvkOBTKbyGva0jrx6L7Rs0VKJ2ljfP7VVb67hqEaZdQKNSYIwRi
+ 6rlQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=YFRI8Pzmi8Hkgh9xlFXYHyu3aYx5I7yE+6THkxrPB8I=;
+ b=L3i++BYp4jCKHAOCY+cwXhX6yR/G0LmSqU0BIMaCZMkANG6ksqV/lfYyqeNnMj6UGg
+ APu4mL5GoL4KNpOkK+obc03dNFhAZ9j2QyYvNS+xqB4kC5kPEUjLoWSfhx1p9ttRJqgH
+ yN9XMQOmecD3/av0JAWyICiVdR1OStKh6xQOaJunDUboDZGROcec6T1c6BhEmSsWabJ2
+ 6hARbBEVkwD+l3cjo9USl0xoca2Lm7BRyXE8rU+fiRgBra8TmdkjyA0FKMXvLNs5W9WC
+ YMbRynw0c64W0ngAplM5jJa7pQNhRXg9JVhMtVBH2noyvo6irJtJq6G6eGuo8lDyicRW
+ 4gWg==
+X-Gm-Message-State: AOAM531FSIHSaDpe/m48ur5WZv6vEKPRK8laGb9CG56mXC9MA+6XkrKu
+ XtE1v+RLXMRs9snj2MdVkkDhhw==
+X-Google-Smtp-Source: ABdhPJx7PaDMUCSP3dWG8db1wbzMCLv5XsRADqttAo+C1oTetQidFR58rZotM4lHGR9W7RN7Be9DSA==
+X-Received: by 2002:a63:de06:: with SMTP id f6mr475817pgg.238.1590521504497;
+ Tue, 26 May 2020 12:31:44 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id d18sm238566pjv.34.2020.05.26.12.31.43
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 26 May 2020 12:31:43 -0700 (PDT)
+Date: Tue, 26 May 2020 12:31:43 -0700 (PDT)
+X-Google-Original-Date: Tue, 26 May 2020 12:31:41 PDT (-0700)
+Subject: Re: [PATCH 1/1] riscv: sort select statements alphanumerically
+In-Reply-To: <0609f8f0c0c7182fda08fc395161ec11309c63fb.1589859647.git.zong.li@sifive.com>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: zong.li@sifive.com
+Message-ID: <mhng-7c33e65d-d59d-400e-a056-cd44958c9222@palmerdabbelt-glaptop1>
+Mime-Version: 1.0 (MHng)
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200526_101527_913174_4992E684 
-X-CRM114-Status: GOOD (  11.49  )
+X-CRM114-CacheID: sfid-20200526_123146_164039_9AAFF908 
+X-CRM114-Status: GOOD (  17.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -70,58 +97,148 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rich Felker <dalias@libc.org>, linux-ia64@vger.kernel.org,
- linux-doc@vger.kernel.org, Heiko Carstens <heiko.carstens@de.ibm.com>,
- Michal Hocko <mhocko@kernel.org>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Max Filippov <jcmvbkbc@gmail.com>, Guo Ren <guoren@kernel.org>,
- linux-csky@vger.kernel.org, linux-parisc@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-hexagon@vger.kernel.org,
- linux-riscv@lists.infradead.org, Mike Rapoport <rppt@linux.ibm.com>,
- Greg Ungerer <gerg@linux-m68k.org>, linux-arch@vger.kernel.org,
- linux-s390@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-c6x-dev@linux-c6x.org, Baoquan He <bhe@redhat.com>,
- Jonathan Corbet <corbet@lwn.net>, linux-sh@vger.kernel.org,
- Michael Ellerman <mpe@ellerman.id.au>, Helge Deller <deller@gmx.de>,
- x86@kernel.org, Russell King <linux@armlinux.org.uk>,
- Ley Foon Tan <ley.foon.tan@intel.com>,
- Yoshinori Sato <ysato@users.sourceforge.jp>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- linux-arm-kernel@lists.infradead.org, Mark Salter <msalter@redhat.com>,
- Matt Turner <mattst88@gmail.com>, linux-mips@vger.kernel.org,
- uclinux-h8-devel@lists.sourceforge.jp, linux-xtensa@linux-xtensa.org,
- linux-alpha@vger.kernel.org, linux-um@lists.infradead.org,
- linux-m68k@lists.linux-m68k.org, Tony Luck <tony.luck@intel.com>,
- Qian Cai <cai@lca.pw>, Greentime Hu <green.hu@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Stafford Horne <shorne@gmail.com>,
- Guan Xuetao <gxt@pku.edu.cn>, Hoan Tran <Hoan@os.amperecomputing.com>,
- Michal Simek <monstr@monstr.eu>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Brian Cain <bcain@codeaurora.org>, Nick Hu <nickhu@andestech.com>,
- linux-mm@kvack.org, Vineet Gupta <vgupta@synopsys.com>,
- linux-kernel@vger.kernel.org, openrisc@lists.librecores.org,
- Richard Weinberger <richard@nod.at>, Andrew Morton <akpm@linux-foundation.org>,
- linuxppc-dev@lists.ozlabs.org, "David S. Miller" <davem@davemloft.net>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ zong.li@sifive.com, Paul Walmsley <paul.walmsley@sifive.com>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 29, 2020 at 03:11:14PM +0300, Mike Rapoport wrote:
-> From: Mike Rapoport <rppt@linux.ibm.com>
-> 
-> The free_area_init() function only requires the definition of maximal PFN
-> for each of the supported zone rater than calculation of actual zone sizes
-> and the sizes of the holes between the zones.
-> 
-> After removal of CONFIG_HAVE_MEMBLOCK_NODE_MAP the free_area_init() is
-> available to all architectures.
-> 
-> Using this function instead of free_area_init_node() simplifies the zone
-> detection.
-> 
-> Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+On Mon, 18 May 2020 20:42:04 PDT (-0700), zong.li@sifive.com wrote:
+> Like patch b1b3f49 ("ARM: config: sort select statements alphanumerically")
+> , we sort all our select statements alphanumerically by using the perl
+> script in patch b1b3f49 as above.
+>
+> As suggested by Andrew Morton:
+>
+>   This is a pet peeve of mine.  Any time there's a long list of items
+>   (header file inclusions, kconfig entries, array initalisers, etc) and
+>   someone wants to add a new item, they *always* go and stick it at the
+>   end of the list.
+>
+>   Guys, don't do this.  Either put the new item into a randomly-chosen
+>   position or, probably better, alphanumerically sort the list.
+>
+> Signed-off-by: Zong Li <zong.li@sifive.com>
+> ---
+>  arch/riscv/Kconfig | 70 +++++++++++++++++++++++-----------------------
+>  1 file changed, 35 insertions(+), 35 deletions(-)
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 74ce5c5249e9..8244b8f7e7c3 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -12,64 +12,64 @@ config 32BIT
+>
+>  config RISCV
+>  	def_bool y
+> -	select OF
+> -	select OF_EARLY_FLATTREE
+> -	select OF_IRQ
+>  	select ARCH_HAS_BINFMT_FLAT
+> +	select ARCH_HAS_DEBUG_VIRTUAL if MMU
+> +	select ARCH_HAS_DEBUG_WX
+> +	select ARCH_HAS_GCOV_PROFILE_ALL
+> +	select ARCH_HAS_GIGANTIC_PAGE
+> +	select ARCH_HAS_MMIOWB
+> +	select ARCH_HAS_PTE_SPECIAL
+> +	select ARCH_HAS_SET_DIRECT_MAP
+> +	select ARCH_HAS_SET_MEMORY
+> +	select ARCH_HAS_STRICT_KERNEL_RWX if MMU
+> +	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
+>  	select ARCH_WANT_FRAME_POINTERS
+> +	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
+>  	select CLONE_BACKWARDS
+>  	select COMMON_CLK
+> +	select EDAC_SUPPORT
+> +	select GENERIC_ARCH_TOPOLOGY if SMP
+> +	select GENERIC_ATOMIC64 if !64BIT
+>  	select GENERIC_CLOCKEVENTS
+> +	select GENERIC_IOREMAP
+> +	select GENERIC_IRQ_MULTI_HANDLER
+>  	select GENERIC_IRQ_SHOW
+>  	select GENERIC_PCI_IOMAP
+> +	select GENERIC_PTDUMP if MMU
+>  	select GENERIC_SCHED_CLOCK
+> +	select GENERIC_SMP_IDLE_THREAD
+>  	select GENERIC_STRNCPY_FROM_USER if MMU
+>  	select GENERIC_STRNLEN_USER if MMU
+> -	select GENERIC_SMP_IDLE_THREAD
+> -	select GENERIC_ATOMIC64 if !64BIT
+> -	select GENERIC_IOREMAP
+> -	select GENERIC_PTDUMP if MMU
+>  	select HAVE_ARCH_AUDITSYSCALL
+> +	select HAVE_ARCH_KASAN if MMU && 64BIT
+> +	select HAVE_ARCH_KGDB
+> +	select HAVE_ARCH_KGDB_QXFER_PKT
+> +	select HAVE_ARCH_MMAP_RND_BITS if MMU
+>  	select HAVE_ARCH_SECCOMP_FILTER
+> +	select HAVE_ARCH_TRACEHOOK
+>  	select HAVE_ASM_MODVERSIONS
+> +	select HAVE_COPY_THREAD_TLS
+>  	select HAVE_DMA_CONTIGUOUS if MMU
+> +	select HAVE_EBPF_JIT if MMU
+>  	select HAVE_FUTEX_CMPXCHG if FUTEX
+> +	select HAVE_PCI
+>  	select HAVE_PERF_EVENTS
+>  	select HAVE_PERF_REGS
+>  	select HAVE_PERF_USER_STACK_DUMP
+>  	select HAVE_SYSCALL_TRACEPOINTS
+>  	select IRQ_DOMAIN
+> -	select SPARSE_IRQ
+> -	select SYSCTL_EXCEPTION_TRACE
+> -	select HAVE_ARCH_TRACEHOOK
+> -	select HAVE_PCI
+>  	select MODULES_USE_ELF_RELA if MODULES
+>  	select MODULE_SECTIONS if MODULES
+> -	select THREAD_INFO_IN_TASK
+> +	select OF
+> +	select OF_EARLY_FLATTREE
+> +	select OF_IRQ
+>  	select PCI_DOMAINS_GENERIC if PCI
+>  	select PCI_MSI if PCI
+>  	select RISCV_TIMER
+> -	select GENERIC_IRQ_MULTI_HANDLER
+> -	select GENERIC_ARCH_TOPOLOGY if SMP
+> -	select ARCH_HAS_PTE_SPECIAL
+> -	select ARCH_HAS_MMIOWB
+> -	select ARCH_HAS_DEBUG_VIRTUAL if MMU
+> -	select HAVE_EBPF_JIT if MMU
+> -	select EDAC_SUPPORT
+> -	select ARCH_HAS_GIGANTIC_PAGE
+> -	select ARCH_HAS_SET_DIRECT_MAP
+> -	select ARCH_HAS_SET_MEMORY
+> -	select ARCH_HAS_STRICT_KERNEL_RWX if MMU
+> -	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
+>  	select SPARSEMEM_STATIC if 32BIT
+> -	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
+> -	select HAVE_ARCH_MMAP_RND_BITS if MMU
+> -	select ARCH_HAS_GCOV_PROFILE_ALL
+> -	select HAVE_COPY_THREAD_TLS
+> -	select HAVE_ARCH_KASAN if MMU && 64BIT
+> -	select HAVE_ARCH_KGDB
+> -	select HAVE_ARCH_KGDB_QXFER_PKT
+> -	select ARCH_HAS_DEBUG_WX
+> +	select SPARSE_IRQ
+> +	select SYSCTL_EXCEPTION_TRACE
+> +	select THREAD_INFO_IN_TASK
+>
+>  config ARCH_MMAP_RND_BITS_MIN
+>  	default 18 if 64BIT
+> @@ -196,11 +196,11 @@ config ARCH_RV64I
+>  	bool "RV64I"
+>  	select 64BIT
+>  	select ARCH_SUPPORTS_INT128 if CC_HAS_INT128 && GCC_VERSION >= 50000
+> -	select HAVE_FUNCTION_TRACER
+> -	select HAVE_FUNCTION_GRAPH_TRACER
+> -	select HAVE_FTRACE_MCOUNT_RECORD
+>  	select HAVE_DYNAMIC_FTRACE if MMU
+>  	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
+> +	select HAVE_FTRACE_MCOUNT_RECORD
+> +	select HAVE_FUNCTION_GRAPH_TRACER
+> +	select HAVE_FUNCTION_TRACER
+>  	select SWIOTLB if MMU
+>
+>  endchoice
 
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
-
-(BTW, none of my acks so far made it to the linux-arm-kernel list
-because of the large number of people on cc)
+Thanks.  This is on for-next, except I re-ran the script as there have been
+some changes.
 
