@@ -2,94 +2,84 @@ Return-Path: <SRS0=EgcX=7I=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.1 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
-	UNWANTED_LANGUAGE_BODY,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+X-Spam-Status: No, score=-6.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CACD3C433E0
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 26 May 2020 07:03:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D285DC433E0
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 26 May 2020 09:05:26 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 996A120899
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 26 May 2020 07:03:45 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8F7E72073B
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 26 May 2020 09:05:26 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pJoKEda8";
-	dkim=pass (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="cdAKnMqG"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 996A120899
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="b5NqMXj+";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="VB0IJCKf"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8F7E72073B
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CZAQ2yIHOpDAH2UTCLB6O9HhqoA1ZFeT/EUsKmrzS4k=; b=pJoKEda88IBIQWz8pDLNycG2tS
-	BwMzypyfwWqqWmlPK1OruYAN1BemTJVApUcN44ii9+lVqPnmT9Wa5BwEKmWiho5zuElAPbDCs10oj
-	JlmTE4NmgTxRCAUMu3j8KyRZANXOq+/S3wWbxI8ZKOzWhQj4SeWfgcbnJi7uNGu5tcRnonSpJMN9Z
-	VVMth621QAw8oYjhmtUA5IhC7KsQbAZrXIjof5a7vvS/asKUuan08VfFWn+qAKkD7ynCUEtqhdFfg
-	C5uS3mTHRZmcUJGeAZs5sx3HybumRnP1+IPqTbYtWAfs26k88kbSV8juIbQfRRvjG9IBx4RdrmoJI
-	94iOj12A==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:
+	Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=/3w8cfGBsTlHvqLR3U+lzLxG0Ht4yzZveld1byYqfS4=; b=b5NqMXj+DnDxIVvE7c3YeDBMU
+	vZ0EkCtNBVRQQ8hSrIu26JburPiJWC+2Y3SFcl0/B4Lbo5HZOoDeaU2mx2hnfXpS57y5dPLhoDwqT
+	Lt9Atnz4076pHj9AXJkt0fPkuPysnGi+nQwB1LmDgNO7IXvKDpewFxPvmyof/yzdKv9VDGp9VUSvL
+	oQ2bNHODTsiE3lY8RLSYQvLpO1jK9ehDj0fxP0RDLktaDradqo/31cGCfyXKRT/lAbrQTM1NpnSuS
+	YLUOPfZCVzwq8y19hkEL90wRpKYNsn0um/MRnE8nrZK6DTaJKSydy399qaYqgg3Ca9wYUrT+ySHkL
+	1DpiWsxrQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jdTcl-0008GU-SS; Tue, 26 May 2020 07:03:43 +0000
-Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
+	id 1jdVWX-00076E-BR; Tue, 26 May 2020 09:05:25 +0000
+Received: from mail-ot1-x344.google.com ([2607:f8b0:4864:20::344])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jdTcI-0007fh-FS
- for linux-riscv@lists.infradead.org; Tue, 26 May 2020 07:03:21 +0000
-Received: by mail-pg1-x542.google.com with SMTP id w20so4541420pga.6
- for <linux-riscv@lists.infradead.org>; Tue, 26 May 2020 00:03:13 -0700 (PDT)
+ id 1jdVWT-0005lK-RN
+ for linux-riscv@lists.infradead.org; Tue, 26 May 2020 09:05:24 +0000
+Received: by mail-ot1-x344.google.com with SMTP id v17so15743563ote.0
+ for <linux-riscv@lists.infradead.org>; Tue, 26 May 2020 02:05:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:subject:date:message-id:in-reply-to:references:mime-version
- :content-transfer-encoding;
- bh=CZAQ2yIHOpDAH2UTCLB6O9HhqoA1ZFeT/EUsKmrzS4k=;
- b=cdAKnMqGMm8Jo5vs8lhRe/r8T+Rn2BeLMPucXDYIRP/pNjWfnvz6A/rBSBHrJi/ld+
- oUsO+7h8ExlR0LVyyTMQpjPvdV0wIFwg5oKuTLLcjZVk81WTjbLbBYSgGIV22QfDG3cy
- c8FIsiOpS6ov2hSg/QUdvwFOvcaraqJuLjCkYvq7SEHxY8sA9rWGHic8tMXOXilgRONs
- 0TE+zaC+JOutgHrBJacctMHpEZEA7+MhWXfsp9dq1+mwTrq8iPgoeZsy6atIKS3hPSld
- zvjNwI89V6fz6f/FCJzCAFW1qArzOQ/yPv2LyTJPCYaCBIZMhJkfE9pZZ+SZFqcqvRTl
- uCXg==
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=/3w8cfGBsTlHvqLR3U+lzLxG0Ht4yzZveld1byYqfS4=;
+ b=VB0IJCKfeceglSmWrYCMOzzK7GXWJ4hwtocL1HEGjNNW4U4b6QJ5BK1aVDkqpR/U18
+ npyMwOTswqlSNzj2MRqEtRkWkDa/QOxxOuYBWxTglilYJPp6heENCk8zPzN9yh+h6MGI
+ W6bNICgB/Pe0AfkVS/WOOmlnpWJ16If/M8UmfUYHozbVT8PbYCt7IbXqdCXamvMQ97pU
+ yzquI4R+cfbupQIRYq2xYetPGO135C/Dr/YAT0qekQkrCR7BreHsQJjJIU/VX08yqU7P
+ p3GIh9+XAlAbL75y+buQOSPqSLG7Y502TJOQ8fiW0Tuwle7Vmg7xu4715ncyO9khMqEp
+ +/+w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=CZAQ2yIHOpDAH2UTCLB6O9HhqoA1ZFeT/EUsKmrzS4k=;
- b=m4X/UU8+49TXaeZomG0wS6qj6OZoEooN4qGxsEwftn9dgZnr8ZcHbgrBVkkqNBN2Zl
- E3ucM1/dQim74DVeRrVJGsULXhH6ZV/X9nGqqI85rvyFZNsj45FzybI6EhSgjSfWCGvW
- FuPuaM1tltA/JZLqvVE7WDYPX5MrIinlArO4veHV3kZ1kiJEPB1crMDapIWyh6KSFHJw
- 2HUMQrPTv9Qk77ITUROZ1YJhWCaNbvvS99C67ySvfN3hY2HfinMb6RgyDHvl9euiolbc
- 0czh/jFQMm2gVllsAeJLYnAaqLk591PQuqP2b2rjQJMxhutyJxqT2PjWPGLGQBZDb9Ot
- ZIPw==
-X-Gm-Message-State: AOAM533ifqXQUZ710mVMGWi63fLJfnYhRO64olJi4dHl6tbmQ1dvoTVE
- TMlVhOwRHfRtUBztwSHENP+dCQ==
-X-Google-Smtp-Source: ABdhPJx1Eg2xcBobFSmRgpac9WACoP9MHbEciD0ZLQh/NGHwWjM9cibWyk7+SlliWZnX4m86NCr10A==
-X-Received: by 2002:a62:cfc5:: with SMTP id
- b188mr19952093pfg.251.1590476592719; 
- Tue, 26 May 2020 00:03:12 -0700 (PDT)
-Received: from hsinchu02.internal.sifive.com
- (114-34-229-221.HINET-IP.hinet.net. [114.34.229.221])
- by smtp.gmail.com with ESMTPSA id q34sm15167431pja.22.2020.05.26.00.03.10
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 26 May 2020 00:03:12 -0700 (PDT)
-From: Greentime Hu <greentime.hu@sifive.com>
-To: greentime.hu@sifive.com, guoren@linux.alibaba.com, vincent.chen@sifive.com,
- paul.walmsley@sifive.com, palmerdabbelt@google.com,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- oleg@redhat.com
-Subject: [RFC PATCH v4 11/13] riscv: Add ptrace vector support
-Date: Tue, 26 May 2020 15:02:40 +0800
-Message-Id: <fa27814191feb2498b396758447ac2b745fd1121.1590474856.git.greentime.hu@sifive.com>
-X-Mailer: git-send-email 2.26.2
-In-Reply-To: <cover.1590474856.git.greentime.hu@sifive.com>
-References: <cover.1590474856.git.greentime.hu@sifive.com>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=/3w8cfGBsTlHvqLR3U+lzLxG0Ht4yzZveld1byYqfS4=;
+ b=cRUni+1MXpgZO/HrZDVpScNfsBu5LJ/ol43ycN1c+cstaG+R0kCtbrWwDeP790bf33
+ veFzM4Wd3FqA++x1l/1Zivz1AMvK+MoWt7EEQobDSXHoTPqivQu1iOWHq1jdHh6+99FE
+ 6E5i9BEPAdDddstOTA4L3gk3KD5iSNcpUsNvzSG5FAnFWC/M9pfo4ICxTpdWShuydxyq
+ 1dvZnI/GB/e1h7wyXGiANBRQ/AWY5myQLzg8YqAZ3Aa6A3nvCral+8xALuv4KRgdL05U
+ 3yk/bXLmytbYyg1hwwSayqJ7wwJzbeoYs4AJRz3bLQgzeKxBUXXXkt+M2ZxEY+Ofq6n4
+ dheA==
+X-Gm-Message-State: AOAM532+fed23zp11B3lm2LfhQypUBK12OyFIqy4TxXc1TVHrrml8HTl
+ Gcgjh7P6YtWiJXL7zeZBo8BcojnPZ5Hw4EACJEsauQ==
+X-Google-Smtp-Source: ABdhPJyuhLPAc5N/uuqD7ThQ4bQVyc10oQff+CZam5oOrMDE1Nv7VD9kSzLXi5Z8w+uRHIMCDst3FTS9U8B07jRKupA=
+X-Received: by 2002:a05:6830:1d69:: with SMTP id
+ l9mr144061oti.127.1590483919866; 
+ Tue, 26 May 2020 02:05:19 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20200524085259.24784-1-alex@ghiti.fr>
+ <20200524085259.24784-3-alex@ghiti.fr>
+In-Reply-To: <20200524085259.24784-3-alex@ghiti.fr>
+From: Zong Li <zong.li@sifive.com>
+Date: Tue, 26 May 2020 17:05:08 +0800
+Message-ID: <CANXhq0pSutF8x6YfZS_d52sASnDpPVvH72Omq5LP-dcPmqD3Gw@mail.gmail.com>
+Subject: Re: [PATCH v3 2/3] riscv: Introduce CONFIG_RELOCATABLE
+To: Alexandre Ghiti <alex@ghiti.fr>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200526_000314_587342_25828922 
-X-CRM114-Status: GOOD (  15.88  )
+X-CRM114-CacheID: sfid-20200526_020522_176245_CFF205BD 
+X-CRM114-Status: GOOD (  26.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -101,199 +91,201 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Albert Ou <aou@eecs.berkeley.edu>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <Anup.Patel@wdc.com>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Atish Patra <Atish.Patra@wdc.com>, Paul Mackerras <paulus@samba.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>, linuxppc-dev@lists.ozlabs.org
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
+On Sun, May 24, 2020 at 4:55 PM Alexandre Ghiti <alex@ghiti.fr> wrote:
+>
+> This config allows to compile the kernel as PIE and to relocate it at
+> any virtual address at runtime: this paves the way to KASLR and to 4-level
+> page table folding at runtime. Runtime relocation is possible since
+> relocation metadata are embedded into the kernel.
+>
+> Note that relocating at runtime introduces an overhead even if the
+> kernel is loaded at the same address it was linked at and that the compiler
+> options are those used in arm64 which uses the same RELA relocation
+> format.
+>
+> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
+> ---
+>  arch/riscv/Kconfig              | 12 +++++++
+>  arch/riscv/Makefile             |  5 ++-
+>  arch/riscv/kernel/vmlinux.lds.S |  6 ++--
+>  arch/riscv/mm/Makefile          |  4 +++
+>  arch/riscv/mm/init.c            | 63 +++++++++++++++++++++++++++++++++
+>  5 files changed, 87 insertions(+), 3 deletions(-)
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index a31e1a41913a..93127d5913fe 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -170,6 +170,18 @@ config PGTABLE_LEVELS
+>         default 3 if 64BIT
+>         default 2
+>
+> +config RELOCATABLE
+> +       bool
+> +       depends on MMU
+> +       help
+> +          This builds a kernel as a Position Independent Executable (PIE),
+> +          which retains all relocation metadata required to relocate the
+> +          kernel binary at runtime to a different virtual address than the
+> +          address it was linked at.
+> +          Since RISCV uses the RELA relocation format, this requires a
+> +          relocation pass at runtime even if the kernel is loaded at the
+> +          same address it was linked at.
+> +
+>  source "arch/riscv/Kconfig.socs"
+>
+>  menu "Platform type"
+> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+> index fb6e37db836d..1406416ea743 100644
+> --- a/arch/riscv/Makefile
+> +++ b/arch/riscv/Makefile
+> @@ -9,7 +9,10 @@
+>  #
+>
+>  OBJCOPYFLAGS    := -O binary
+> -LDFLAGS_vmlinux :=
+> +ifeq ($(CONFIG_RELOCATABLE),y)
+> +LDFLAGS_vmlinux := -shared -Bsymbolic -z notext -z norelro
+> +KBUILD_CFLAGS += -fPIE
+> +endif
+>  ifeq ($(CONFIG_DYNAMIC_FTRACE),y)
+>         LDFLAGS_vmlinux := --no-relax
+>  endif
+> diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
+> index a9abde62909f..e8ffba8c2044 100644
+> --- a/arch/riscv/kernel/vmlinux.lds.S
+> +++ b/arch/riscv/kernel/vmlinux.lds.S
+> @@ -85,8 +85,10 @@ SECTIONS
+>
+>         BSS_SECTION(PAGE_SIZE, PAGE_SIZE, 0)
+>
+> -       .rel.dyn : {
+> -               *(.rel.dyn*)
+> +       .rela.dyn : ALIGN(8) {
+> +               __rela_dyn_start = .;
+> +               *(.rela .rela*)
+> +               __rela_dyn_end = .;
+>         }
+>
+>         _end = .;
+> diff --git a/arch/riscv/mm/Makefile b/arch/riscv/mm/Makefile
+> index 363ef01c30b1..dc5cdaa80bc1 100644
+> --- a/arch/riscv/mm/Makefile
+> +++ b/arch/riscv/mm/Makefile
+> @@ -1,6 +1,10 @@
+>  # SPDX-License-Identifier: GPL-2.0-only
+>
+>  CFLAGS_init.o := -mcmodel=medany
+> +ifdef CONFIG_RELOCATABLE
+> +CFLAGS_init.o += -fno-pie
+> +endif
+> +
+>  ifdef CONFIG_FTRACE
+>  CFLAGS_REMOVE_init.o = -pg
+>  endif
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index 17f108baec4f..7074522d40c6 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -13,6 +13,9 @@
+>  #include <linux/of_fdt.h>
+>  #include <linux/libfdt.h>
+>  #include <linux/set_memory.h>
+> +#ifdef CONFIG_RELOCATABLE
+> +#include <linux/elf.h>
+> +#endif
+>
+>  #include <asm/fixmap.h>
+>  #include <asm/tlbflush.h>
+> @@ -379,6 +382,53 @@ static uintptr_t __init best_map_size(phys_addr_t base, phys_addr_t size)
+>  #error "setup_vm() is called from head.S before relocate so it should not use absolute addressing."
+>  #endif
+>
+> +#ifdef CONFIG_RELOCATABLE
+> +extern unsigned long __rela_dyn_start, __rela_dyn_end;
+> +
+> +#ifdef CONFIG_64BIT
+> +#define Elf_Rela Elf64_Rela
+> +#define Elf_Addr Elf64_Addr
+> +#else
+> +#define Elf_Rela Elf32_Rela
+> +#define Elf_Addr Elf32_Addr
+> +#endif
+> +
+> +void __init relocate_kernel(uintptr_t load_pa)
+> +{
+> +       Elf_Rela *rela = (Elf_Rela *)&__rela_dyn_start;
+> +       /*
+> +        * This holds the offset between the linked virtual address and the
+> +        * relocated virtual address.
+> +        */
+> +       uintptr_t reloc_offset = kernel_virt_addr - KERNEL_LINK_ADDR;
+> +       /*
+> +        * This holds the offset between kernel linked virtual address and
+> +        * physical address.
+> +        */
+> +       uintptr_t va_kernel_link_pa_offset = KERNEL_LINK_ADDR - load_pa;
+> +
+> +       for ( ; rela < (Elf_Rela *)&__rela_dyn_end; rela++) {
+> +               Elf_Addr addr = (rela->r_offset - va_kernel_link_pa_offset);
+> +               Elf_Addr relocated_addr = rela->r_addend;
+> +
+> +               if (rela->r_info != R_RISCV_RELATIVE)
+> +                       continue;
+> +
+> +               /*
+> +                * Make sure to not relocate vdso symbols like rt_sigreturn
+> +                * which are linked from the address 0 in vmlinux since
+> +                * vdso symbol addresses are actually used as an offset from
+> +                * mm->context.vdso in VDSO_OFFSET macro.
+> +                */
+> +               if (relocated_addr >= KERNEL_LINK_ADDR)
+> +                       relocated_addr += reloc_offset;
+> +
+> +               *(Elf_Addr *)addr = relocated_addr;
+> +       }
+> +}
+> +
+> +#endif
+> +
+>  static uintptr_t load_pa, load_sz;
+>
+>  void create_kernel_page_table(pgd_t *pgdir, uintptr_t map_size)
+> @@ -405,6 +455,19 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+>
+>         pfn_base = PFN_DOWN(load_pa);
+>
+> +#ifdef CONFIG_RELOCATABLE
+> +#ifdef CONFIG_64BIT
+> +       /*
+> +        * Early page table uses only one PGDIR, which makes it possible
+> +        * to map PGDIR_SIZE aligned on PGDIR_SIZE: if the relocation offset
+> +        * makes the kernel cross over a PGDIR_SIZE boundary, raise a bug
+> +        * since a part of the kernel would not get mapped.
+> +        * This cannot happen on rv32 as we use the entire page directory level.
+> +        */
+> +       BUG_ON(PGDIR_SIZE - (kernel_virt_addr & (PGDIR_SIZE - 1)) < load_sz);
+> +#endif
+> +       relocate_kernel(load_pa);
+> +#endif
+>         /*
+>          * Enforce boot alignment requirements of RV32 and
+>          * RV64 by only allowing PMD or PGD mappings.
+> --
+> 2.20.1
+>
 
-This patch adds ptrace support for riscv vector. The vector registers will
-be saved in datap pointer of __riscv_v_state. This pointer will be set
-right after the __riscv_v_state data structure then it will be put in ubuf
-for ptrace system call to get or set. It will check if the datap got from
-ubuf is set to the correct address or not when the ptrace system call is
-trying to set the vector registers.
+Looks good to me.
 
-[greentime.hu@sifive.com: add support for dynamic vlen, fix vtype not
-saved bug]
-Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
----
- arch/riscv/include/uapi/asm/elf.h |   1 +
- arch/riscv/kernel/ptrace.c        | 114 ++++++++++++++++++++++++++++++
- include/uapi/linux/elf.h          |   1 +
- 3 files changed, 116 insertions(+)
-
-diff --git a/arch/riscv/include/uapi/asm/elf.h b/arch/riscv/include/uapi/asm/elf.h
-index d696d6610231..099434d075a7 100644
---- a/arch/riscv/include/uapi/asm/elf.h
-+++ b/arch/riscv/include/uapi/asm/elf.h
-@@ -23,6 +23,7 @@ typedef struct user_regs_struct elf_gregset_t;
- typedef __u64 elf_fpreg_t;
- typedef union __riscv_fp_state elf_fpregset_t;
- #define ELF_NFPREG (sizeof(struct __riscv_d_ext_state) / sizeof(elf_fpreg_t))
-+#define ELF_NVREG  (sizeof(struct __riscv_v_state) / sizeof(elf_greg_t))
- 
- #if __riscv_xlen == 64
- #define ELF_RISCV_R_SYM(r_info)		ELF64_R_SYM(r_info)
-diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
-index 444dc7b0fd78..9b9bd1c02362 100644
---- a/arch/riscv/kernel/ptrace.c
-+++ b/arch/riscv/kernel/ptrace.c
-@@ -10,6 +10,7 @@
- #include <asm/ptrace.h>
- #include <asm/syscall.h>
- #include <asm/thread_info.h>
-+#include <asm/switch_to.h>
- #include <linux/audit.h>
- #include <linux/ptrace.h>
- #include <linux/elf.h>
-@@ -26,6 +27,9 @@ enum riscv_regset {
- #ifdef CONFIG_FPU
- 	REGSET_F,
- #endif
-+#ifdef CONFIG_VECTOR
-+	REGSET_V,
-+#endif
- };
- 
- static int riscv_gpr_get(struct task_struct *target,
-@@ -92,6 +96,107 @@ static int riscv_fpr_set(struct task_struct *target,
- }
- #endif
- 
-+#ifdef CONFIG_VECTOR
-+static int riscv_vr_get(struct task_struct *target,
-+			 const struct user_regset *regset,
-+			 unsigned int pos, unsigned int count,
-+			 void *kbuf, void __user *ubuf)
-+{
-+	int ret, size;
-+	struct __riscv_v_state *vstate = &target->thread.vstate;
-+	/* Set the datap right after the address of vstate. */
-+	void *datap = ubuf + sizeof(struct __riscv_v_state);
-+	u32 magic = RVV_MAGIC;
-+
-+	/* Copy the magic number. */
-+	ret = user_regset_copyout(&pos, &count, &kbuf, &ubuf, &magic, 0,
-+				  sizeof(u32));
-+	if (unlikely(ret))
-+		return ret;
-+
-+	/* Copy rest of vstate except datap. */
-+	ret = user_regset_copyout(&pos, &count, &kbuf, &ubuf, vstate, 0,
-+				  RISCV_V_STATE_DATAP);
-+	if (unlikely(ret))
-+		return ret;
-+
-+	/* Copy the pointer datap itself. */
-+	pos = 0;
-+	ret = user_regset_copyout(&pos, &count, &kbuf, &ubuf, &datap, 0,
-+				  sizeof(vstate->datap));
-+	if (unlikely(ret))
-+		return ret;
-+
-+#if __riscv_xlen == 32
-+	/* Skip copy _padding. */
-+	size = sizeof(vstate->__padding);
-+	count -= size;
-+	ubuf += size;
-+#endif
-+
-+	/* Copy all the vector registers. */
-+	pos = 0;
-+	ret = user_regset_copyout(&pos, &count, &kbuf, &ubuf,
-+				  vstate->datap, 0, vstate->size);
-+	return ret;
-+}
-+
-+static int riscv_vr_set(struct task_struct *target,
-+			 const struct user_regset *regset,
-+			 unsigned int pos, unsigned int count,
-+			 const void *kbuf, const void __user *ubuf)
-+{
-+	int ret, size;
-+	struct __riscv_v_state *vstate = &target->thread.vstate;
-+	const void *datap = ubuf + sizeof(struct __riscv_v_state);
-+	const void *datap_addr = ubuf + RISCV_V_STATE_DATAP;
-+	long val_datap;
-+
-+	/* Skip copy magic because kernel doesn't need to use it. */
-+	size = sizeof(vstate->magic);
-+	pos += size;
-+	count -= size;
-+	ubuf += size;
-+
-+	/* Copy rest of the vstate except datap and __padding. */
-+	ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, vstate, 0,
-+				 RISCV_V_STATE_DATAP);
-+	if (unlikely(ret))
-+		return ret;
-+
-+	/* Check if the datap is correct address of ubuf. */
-+	__get_user(val_datap, (long *)datap_addr);
-+	if (val_datap != (long)datap)
-+		return -EFAULT;
-+
-+	/* Skip copy datap. */
-+	size = sizeof(vstate->datap);
-+	count -= size;
-+	ubuf += size;
-+
-+#if __riscv_xlen == 32
-+	/* Skip copy _padding. */
-+	size = sizeof(vstate->__padding);
-+	count -= size;
-+	ubuf += size;
-+#endif
-+
-+	/* Copy all the vector registers. */
-+	pos = 0;
-+	ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, vstate->datap,
-+				 0, vstate->size);
-+	return ret;
-+}
-+static unsigned int riscv_vr_get_size(struct task_struct *target,
-+				      const struct user_regset *regset)
-+{
-+	if (!has_vector)
-+		return 0;
-+
-+	return sizeof(struct __riscv_v_state) + riscv_vsize;
-+}
-+#endif
-+
- static const struct user_regset riscv_user_regset[] = {
- 	[REGSET_X] = {
- 		.core_note_type = NT_PRSTATUS,
-@@ -111,6 +216,15 @@ static const struct user_regset riscv_user_regset[] = {
- 		.set = &riscv_fpr_set,
- 	},
- #endif
-+#ifdef CONFIG_VECTOR
-+	[REGSET_V] = {
-+		.core_note_type = NT_RISCV_VECTOR,
-+		.align = 16,
-+		.get = riscv_vr_get,
-+		.set = riscv_vr_set,
-+		.get_size = riscv_vr_get_size,
-+	},
-+#endif
- };
- 
- static const struct user_regset_view riscv_user_native_view = {
-diff --git a/include/uapi/linux/elf.h b/include/uapi/linux/elf.h
-index 34c02e4290fe..e428f9e8710a 100644
---- a/include/uapi/linux/elf.h
-+++ b/include/uapi/linux/elf.h
-@@ -428,6 +428,7 @@ typedef struct elf64_shdr {
- #define NT_MIPS_DSP	0x800		/* MIPS DSP ASE registers */
- #define NT_MIPS_FP_MODE	0x801		/* MIPS floating-point mode */
- #define NT_MIPS_MSA	0x802		/* MIPS SIMD registers */
-+#define NT_RISCV_VECTOR	0x900		/* RISC-V vector registers */
- 
- /* Note header in a PT_NOTE section */
- typedef struct elf32_note {
--- 
-2.26.2
-
+Reviewed-by: Zong Li <zong.li@sifive.com>
 
