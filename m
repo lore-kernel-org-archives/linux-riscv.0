@@ -7,89 +7,88 @@ X-Spam-Status: No, score=-9.9 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6226EC433E0
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 26 May 2020 07:03:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 11614C433E1
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 26 May 2020 07:03:10 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 31888208A7
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 26 May 2020 07:03:04 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 7CB77208A7
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 26 May 2020 07:03:09 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="iwc47VXx";
-	dkim=pass (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="Vv8F37mw"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 31888208A7
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Ohz/qGEi";
+	dkim=pass (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="Wk2qKfa3"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7CB77208A7
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z0xKW5jGYiiw/3GeT46+0muUjmlt6YQxeB0UtKHbHyM=; b=iwc47VXxiWlbvYgAh+Iz33umr6
-	8WgHd3nexNzZ16yu/zmMqMMmaOL/OTXxXvWVNku4QDiH0M9LbF16KguNekqV4lJQri9sEnUCjk8g5
-	K7M48KPEgJhi26LzwUnAd5COBWPURwIyC6qnCInSIcLajGOXYwxy5KmqKHRpiQSvX5uNZiP0XayYF
-	boArqamHnuVO7KjKP2NbeRFmy5U6bzXJ+i5D6cYp/rECjkOdcZtC+NcOS82pflQoiKHqzPxUf6B7x
-	pAwBjzRC7Wq0zu+WKLvMjoeXYf7Zx/kDu0ps3+DGL+G3g7yFH/dTOluHbM23gYTTIqzL++w0XLdE7
-	bU9dFhrg==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
+	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=gvp2INvx+B9ss8TpUTp5IqU5aDse0eaPMYxEsTSV+gk=; b=Ohz/qGEizt1dgG
+	99bldLgvcxQa5pi1/7X0Li4VqDZOh0lBPKqB6a0I3/gL2KMfRYFpdvkfLICCibrZDHHtkn0onnExA
+	880YFvcFqwEJ9S452M/guPID0ekGJlDS6Zhrv5F4QWk9pezZ4/BUgUhBKIrVEOlscCgPGlB2Lr/Ol
+	wlBDNKcMO52wHn8d+1ceCqQyLnOnK99GR4Zi/KeUyUIJqxENuoUJPt7bre6oaEc8MZCx5jvKpA4bQ
+	BV7g4NwB3+eR3O1ya8qvraT9dL75OYxpf1N/ErbUizrmGUIbZBRYvhS7YeAh76zWw7jVnWCY7MCye
+	lD3x4grqBGSPtb/fqtyg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jdTc6-0007Qg-9L; Tue, 26 May 2020 07:03:02 +0000
-Received: from mail-pj1-x1043.google.com ([2607:f8b0:4864:20::1043])
+	id 1jdTc8-0007Ue-Sh; Tue, 26 May 2020 07:03:04 +0000
+Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jdTbw-0007Hy-Lj
- for linux-riscv@lists.infradead.org; Tue, 26 May 2020 07:02:58 +0000
-Received: by mail-pj1-x1043.google.com with SMTP id 5so827774pjd.0
- for <linux-riscv@lists.infradead.org>; Tue, 26 May 2020 00:02:52 -0700 (PDT)
+ id 1jdTc3-0007LB-27
+ for linux-riscv@lists.infradead.org; Tue, 26 May 2020 07:03:00 +0000
+Received: by mail-pg1-x541.google.com with SMTP id m1so3320205pgk.1
+ for <linux-riscv@lists.infradead.org>; Tue, 26 May 2020 00:02:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:subject:date:message-id:in-reply-to:references:mime-version
- :content-transfer-encoding;
- bh=Z0xKW5jGYiiw/3GeT46+0muUjmlt6YQxeB0UtKHbHyM=;
- b=Vv8F37mwKuXZ6y6Td16tf0OUUP4hiVqV1UO/3rkj623bgN1I9ccIiuIUReqYK0kEOl
- z95nqbfEpLcPYdvjItQhC9tHwQqtcoSb0qxCxd9zRpA16kGUzdsHLtI5EvyOCE0M7dQP
- Cp9EaLylJDiyIKi3uDP7V28Cn73JrLniaq0PcZ6uv29k8P0nNIf1KFCAgTo1UHZ7Lut7
- okCsi4st/LIAYpRmvAbbY2KSqfAa+zk28yH4vHKRdV05tcGY1okQvUqE35PdGGN0dhvU
- NpgvU9/QCVU9TNrdrbj2Hb0MXA5ZVakywr/sexsFoyef0xUozbuJwgD2ex+/kTxifgL/
- sgfA==
+ h=from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=gvp2INvx+B9ss8TpUTp5IqU5aDse0eaPMYxEsTSV+gk=;
+ b=Wk2qKfa30EWw+z9TkYF6hLLr/si2a5wR2YMqoap59kX9XvLPewWzOjzI5wn4Bi/Nnv
+ fk3LGDOEzmXPFk4nQsjIkhYjzJ2Q5Oe/lXELWSYEIPhtVhjaJTLjOVqSgtP+qtdBAyBQ
+ Q5BAGzV8Mtx/Qd5rc6oa2i7xd4biugKXhVN2wpOUVInELgw8WdQyoxcy9LO8NJoN+szY
+ nlo90zNTthvChmUfjK8HZX4LpN7nRYRDr8IiVwWGHU+ljZMPWabfKbhrJSXSIfni+zS3
+ dhEM5dympOAcs6lVpQoTvGjwfrkBkp+EWVdKbPM0kg4T3Mqcq3fht+jD7T824iDW4gPU
+ 2eYg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=Z0xKW5jGYiiw/3GeT46+0muUjmlt6YQxeB0UtKHbHyM=;
- b=tw/Aq1sKWAK1dH5FXCDepx0sxS+dnaD1yuCwYF6PlZqLrAieFc6AnasnkZJHkRFc/E
- UGk8iEtzpW5TrXwcAkuSWkghc700XyWR0IefXm2tTLRPphgYUZvskV5zS8y99TNYi7eA
- 552hm7rfIisIB2rxylbsG4Qc2J6Lug6Zy7Iy2oE2vSthiD4YcyPdg3ErQDLhZCcs02D/
- /Zto40j1h3eWU+8BJgR7/3I18qaOzTa/ooR3nw25hwhWAn5wxgPbxRwzDx3wPM8Z35ux
- SHXTw0NTF/6CA9vPCze4G63fkWC8YLbWR0UWvEZ3uhpay/MhflGsOu58WvBUTsD5ogPj
- ilHQ==
-X-Gm-Message-State: AOAM533iDPn7NUubU6juEiFjrAlMN/iO8VBNlw89erfkXR9k/Qoyu4bx
- ddWEKRDFfAn3zCMoetwb1RloBjC0EZwc5w==
-X-Google-Smtp-Source: ABdhPJxeYDGp3LFQVg6j6dk5cVoVcGPzcAKqKwzg4Z7E15ygv7v81Xe5OwKMQK1KH/AW0urpZT5vCQ==
-X-Received: by 2002:a17:90a:aa8d:: with SMTP id
- l13mr25740072pjq.92.1590476571974; 
- Tue, 26 May 2020 00:02:51 -0700 (PDT)
+ bh=gvp2INvx+B9ss8TpUTp5IqU5aDse0eaPMYxEsTSV+gk=;
+ b=RCBCmxZ2FRhBT4DvEgLQZV4VQjkOfRdBLAR65VP9nWN8VipbyOSKWZ0BJ+gQw4uY+d
+ ONieQNRUpYCZz7/jx+sk484gSme5CpP7pQjVM28oTtzo2ARxItUeO9WQfwoNOCOGgo6/
+ R5f8G17dc0uLQq4iMNJ3hIjmvsEv1SHDS+CCtbI8Lwc7yeZZ+zoVW6/zPKIYHEGty7Fk
+ uLPjvafexs9rjQO3S9/2yf336T6qGx+dWHoTSp9T48w0Wvhcg4lQXZlF0Ol+50gmdMrN
+ NYBlb2ftkTFpviUXbCCJidU44IoeY8b3FJzbaM2NpF76uNAypBmfmbFnOyNdzm4WsPdc
+ YUUA==
+X-Gm-Message-State: AOAM533Cbt2yj3uxKzw5sQhXEcrOsNIcLH25bDPFnvpeettiTdcicBb1
+ 39ibmgStxNp68+kIRVDkA8bF2g==
+X-Google-Smtp-Source: ABdhPJxsFmvhNXhCO0KIlX/3Vpid91Ou7337I9p9atlNuHf+zW0JTlqnmoPDaxPAabSqMdGx/dh6KA==
+X-Received: by 2002:a63:1a42:: with SMTP id a2mr925889pgm.269.1590476578281;
+ Tue, 26 May 2020 00:02:58 -0700 (PDT)
 Received: from hsinchu02.internal.sifive.com
  (114-34-229-221.HINET-IP.hinet.net. [114.34.229.221])
- by smtp.gmail.com with ESMTPSA id q34sm15167431pja.22.2020.05.26.00.02.50
+ by smtp.gmail.com with ESMTPSA id q34sm15167431pja.22.2020.05.26.00.02.56
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 26 May 2020 00:02:51 -0700 (PDT)
+ Tue, 26 May 2020 00:02:57 -0700 (PDT)
 From: Greentime Hu <greentime.hu@sifive.com>
 To: greentime.hu@sifive.com, guoren@linux.alibaba.com, vincent.chen@sifive.com,
  paul.walmsley@sifive.com, palmerdabbelt@google.com,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  oleg@redhat.com
-Subject: [RFC PATCH v4 01/13] ptrace: Use regset_size() for dynamic regset
- size.
-Date: Tue, 26 May 2020 15:02:30 +0800
-Message-Id: <3700190a602a6d30fcbf76e1eea667e29a65c4c9.1590474856.git.greentime.hu@sifive.com>
+Subject: [RFC PATCH v4 04/13] riscv: Extending cpufeature.c to detect
+ V-extension
+Date: Tue, 26 May 2020 15:02:33 +0800
+Message-Id: <eff3bcd51d9125f1d01150e9ea634668695f1b76.1590474856.git.greentime.hu@sifive.com>
 X-Mailer: git-send-email 2.26.2
 In-Reply-To: <cover.1590474856.git.greentime.hu@sifive.com>
 References: <cover.1590474856.git.greentime.hu@sifive.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200526_000252_709552_AB3A8261 
-X-CRM114-Status: UNSURE (   8.81  )
+X-CRM114-CacheID: sfid-20200526_000259_097654_D7F1C551 
+X-CRM114-Status: UNSURE (   9.44  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -102,44 +101,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Anup Patel <anup@brainfault.org>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-It uses regset_size() instead of using regset->n and regset->size directly.
-In this case, it will call the get_size() ported by arch dynamically to
-support dynamic regset size case.
+From: Guo Ren <guoren@linux.alibaba.com>
 
-Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+From: Guo Ren <ren_guo@c-sky.com>
+
+Current cpufeature.c doesn't support detecting V-extension, because
+"rv64" also contain a 'v' letter and we need to skip it.
+
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Reviewed-by: Anup Patel <anup@brainfault.org>
 ---
- kernel/ptrace.c | 11 ++++++++---
- 1 file changed, 8 insertions(+), 3 deletions(-)
+ arch/riscv/include/uapi/asm/hwcap.h | 1 +
+ arch/riscv/kernel/cpufeature.c      | 4 +++-
+ 2 files changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/kernel/ptrace.c b/kernel/ptrace.c
-index 43d6179508d6..6877105e1b1e 100644
---- a/kernel/ptrace.c
-+++ b/kernel/ptrace.c
-@@ -882,13 +882,18 @@ static int ptrace_regset(struct task_struct *task, int req, unsigned int type,
- 	const struct user_regset_view *view = task_user_regset_view(task);
- 	const struct user_regset *regset = find_regset(view, type);
- 	int regset_no;
-+	unsigned int size;
+diff --git a/arch/riscv/include/uapi/asm/hwcap.h b/arch/riscv/include/uapi/asm/hwcap.h
+index dee98ee28318..a913e9a38819 100644
+--- a/arch/riscv/include/uapi/asm/hwcap.h
++++ b/arch/riscv/include/uapi/asm/hwcap.h
+@@ -21,5 +21,6 @@
+ #define COMPAT_HWCAP_ISA_F	(1 << ('F' - 'A'))
+ #define COMPAT_HWCAP_ISA_D	(1 << ('D' - 'A'))
+ #define COMPAT_HWCAP_ISA_C	(1 << ('C' - 'A'))
++#define COMPAT_HWCAP_ISA_V	(1 << ('V' - 'A'))
  
--	if (!regset || (kiov->iov_len % regset->size) != 0)
-+	if (!regset)
- 		return -EINVAL;
+ #endif /* _UAPI_ASM_RISCV_HWCAP_H */
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index a5ad00043104..c8527d770c98 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -30,6 +30,7 @@ void riscv_fill_hwcap(void)
+ 	isa2hwcap['f'] = isa2hwcap['F'] = COMPAT_HWCAP_ISA_F;
+ 	isa2hwcap['d'] = isa2hwcap['D'] = COMPAT_HWCAP_ISA_D;
+ 	isa2hwcap['c'] = isa2hwcap['C'] = COMPAT_HWCAP_ISA_C;
++	isa2hwcap['v'] = isa2hwcap['V'] = COMPAT_HWCAP_ISA_V;
  
- 	regset_no = regset - view->regsets;
--	kiov->iov_len = min(kiov->iov_len,
--			    (__kernel_size_t) (regset->n * regset->size));
-+	size = regset_size(task, regset);
-+
-+	if ((kiov->iov_len % size) != 0)
-+		return -EINVAL;
-+
-+	kiov->iov_len = min(kiov->iov_len, (__kernel_size_t) size);
+ 	elf_hwcap = 0;
  
- 	if (req == PTRACE_GETREGSET)
- 		return copy_regset_to_user(task, view, regset_no, 0,
+@@ -44,7 +45,8 @@ void riscv_fill_hwcap(void)
+ 			continue;
+ 		}
+ 
+-		for (i = 0; i < strlen(isa); ++i)
++		/* Skip rv64/rv32 to support v/V:vector */
++		for (i = 4; i < strlen(isa); ++i)
+ 			this_hwcap |= isa2hwcap[(unsigned char)(isa[i])];
+ 
+ 		/*
 -- 
 2.26.2
 
