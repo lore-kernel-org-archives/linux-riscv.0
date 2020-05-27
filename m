@@ -2,90 +2,89 @@ Return-Path: <SRS0=lQQc=7J=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.5 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0E875C433DF
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 27 May 2020 00:32:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4019EC433E0
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 27 May 2020 04:37:18 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CA54E207CB
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 27 May 2020 00:32:42 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 0B42B20776
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 27 May 2020 04:37:17 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="MML9/d1s";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="sIAKCvc0"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CA54E207CB
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="a9uprZkD";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="RhgQiHKj"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0B42B20776
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Mime-Version:Message-ID:To:From:
-	In-Reply-To:Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=b3E7kBOAM2ew0xZ38kPv10y9VtHtStBNAPoFOCwdwzA=; b=MML9/d1sPzwimE
-	pdDA9DGZmO1mz5xqtKodMlKlG1bYAx4qqodUN++AY4y+bJZWXp4BscnNQlI4+JheuEI0hfUsQrFLf
-	7ES4kZ5XeWxgpfRjUlwqjgQqTPAN2iywNz+cv3SOshTelnogLnIFiRr1VBZGrJ+P49SsVr04d9OUT
-	GGpTJcvStun0lkrEyiM8j3FqceYzGo4p6WG5No/SzlZ8KVkQqoFwpX95+HMlqGSM2ae5FUYoItaIx
-	6aIpny2yRpHSWUYgcix/sRufiKPTwmFiA4O/nQMAB6uTQMgbVjjP026Y6rsjlOu6HN1SjZUSQ8RAn
-	fb997p6pDr+ni09ffDkQ==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
+	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=lOpmpojWwwDKmdgvBgyDR/91akL7lsEVaaRXHGRRif0=; b=a9uprZkDdNyxB2
+	kbzRLoCXakCA2IFt/Y9r9qq20ugQehHVF/xhBvW4wWUbvjjmcZG4E4QvIYzCX47i+QNiU+m178e26
+	nIuVokK3XgjxlG30viGiC8w0e0RO5oJ+9Uame/5AmRtAAvcDw/uj3QoZSWcbQ+dRIzkTXaOxjBLif
+	l7yJq9TbcEopDkULEmdKxj8xTB3nwB8yRiuiqQcHW7lI6NrogOUs40cv4zPt74ljOiP8p96BUx8q0
+	8pnl3YQLSJ3tIN02AB6I+a05BLu2kiKFMzmkn0jpy/A7/EOahhAgNqiuYeAfg7nzrDFnbg2v+xBEj
+	zQqlAW9KmqstcI1y9NTQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jdjzn-0000ZU-He; Wed, 27 May 2020 00:32:35 +0000
-Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
+	id 1jdnoQ-0007af-Jw; Wed, 27 May 2020 04:37:06 +0000
+Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jdjzk-0000ZA-Cf
- for linux-riscv@lists.infradead.org; Wed, 27 May 2020 00:32:34 +0000
-Received: by mail-pg1-x542.google.com with SMTP id w20so5863404pga.6
- for <linux-riscv@lists.infradead.org>; Tue, 26 May 2020 17:32:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=b3E7kBOAM2ew0xZ38kPv10y9VtHtStBNAPoFOCwdwzA=;
- b=sIAKCvc0u5PTCAIepNUBqhcRsAcLBfmDxstjdS7VwkNKBZmUZ/E/X+L4tZTb4qX4xm
- 3Z5lRnZk7EVb9clRn8reNvvO0h1/HVu3xYL7LIMe37sTYQcVm3s0oCcOz2Q79T3f6iQ7
- bA/CUUmuwqKc58s6BnXfGlwXQu4ABI6KYefld9YLsaL+xj0KvVHAX58vlT0XSV3t1FoB
- mrNOy3QSZjkJP7SoFA5FToBJPK8dsa/xNpI/BCcGlfaQcs2yUt6PQ/oLDCSOI6KOnoT8
- n8SQ16PWLOqtOTGi/h4fT1zexP+hvWlItmdC31or1jVbQhS8EJaVW5Ez4NYm/G8eGPxU
- Fs1g==
+ id 1jdnoG-0007Sa-6C; Wed, 27 May 2020 04:36:57 +0000
+Received: by mail-pf1-x443.google.com with SMTP id z64so6768526pfb.1;
+ Tue, 26 May 2020 21:36:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=lOpmpojWwwDKmdgvBgyDR/91akL7lsEVaaRXHGRRif0=;
+ b=RhgQiHKjSFxt0e4hdk9XFdFmwXlaqqy/oTAekflZtHFdhEKO64qFc1mpKDXZr69CPy
+ jdKKGgMYF3/PwLMQqZRA0p7MJV/Go6tkta/h4swizRoRpVhai4LlQKtDfpzOQXol3xcY
+ 3TW/CBGWUO1G35QH1UIuJXs9WTI3G+E29PktRQFzMSdgmMsbx+ViIkPx4XIoQKnwHjtI
+ iuFirKyvXOkp6bKvGs8xYK3w/Dn4sctZ1lOJtxsH8Aa2nP03Bsx7PgwJODEguoGDFtQe
+ EV7yB1UHGazYqjCw0y7SPUOzeb1Rx+s20xn4YP/gkyyGkm4H/LKnhLTIPlstwN50FD9J
+ kU0w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=b3E7kBOAM2ew0xZ38kPv10y9VtHtStBNAPoFOCwdwzA=;
- b=UUU/tkqjHEzrWiOtWiwP+urETc70xmMX9PEEqnydfzQzaapdsqF+OYeDovpksvqEQC
- yzOgHTXjGjaP76A8GEJzN/qxdMTJYN7OG4sXDRyDVcawKvtGPL55T9O2Re0XINvQp4o/
- uhvLMEKiKZ1WxZwX5Xpy2F7jU4mE7Rhkt6faiw31Uk7NUu88YI/CGcO7oAEJE4OXt8wC
- MfCEjK38G0/R+Wi5feRqtuQjkR+iD27Xwf7IkXY2Ip3LxBe54HxE1q3q/UlTsNhrBJEb
- iDAHGUfPWurIG9LI1Mvs+QDXSSgb6oy5KmjG3eEPYHpLKNA5asqA+BmbEP8hmiUA/KXI
- u7vg==
-X-Gm-Message-State: AOAM532LVLi1HfayS9yeDLDJBPhdUQKQvNJ4zXJ/stZYJ3Uh1tY32wEa
- StwaM6I62uYHmApCRVYoc4wnVA==
-X-Google-Smtp-Source: ABdhPJyLyZQqJTK/aWjlOUiPRd4F92ADMhZZVfoxKIVjzzI0ER808j2pZAQdP72+g4iGhVujHr1P9g==
-X-Received: by 2002:a63:5763:: with SMTP id h35mr1353749pgm.98.1590539551005; 
- Tue, 26 May 2020 17:32:31 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id b23sm616219pgs.33.2020.05.26.17.32.29
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=lOpmpojWwwDKmdgvBgyDR/91akL7lsEVaaRXHGRRif0=;
+ b=n71EqAdjq9VQJ05fHGaufZHhewz8nQLW0OTl2C0ST83uTOXQIiYeDpL5yF1dKjmcga
+ GUZRuDf5ygdgHNvZCPJTuLWLsw58noXdi/11VzqVb/448vimSAFWb8ikpZQJAF0Xvmvw
+ PzQ1Oqn45Si2Oxu2y5omNhFaHKLVo/2TVW0A+eyy1snnu8vFqJbM+BojYqsW1nRioxn6
+ k0d7NFqVTvTKc2us2X+8m59O/FjzicmPLujzT8yUKR0NKMbsSXbon/ZP2XneWL1LuCla
+ jpPo/ggJgS91dHieCe9nQSdPwvZ7vQ9LTtoNplDJ+3cFeFvLLvyLz/Qv7wDOyIS6P+rM
+ 0JLg==
+X-Gm-Message-State: AOAM531POt/aHceGTXdiL55HtRXeJj/J4QpxSvDdSy/R0bXRZYnN659E
+ j1xsV17qHdwM6M3HYiGAGIM=
+X-Google-Smtp-Source: ABdhPJxaG/pR1wu1n7WufrFJ+x4wcg8X7uq9rcDJKu3YRWfpwt3nhECM4aeG8mrZfzsEkO9ezvPt1w==
+X-Received: by 2002:aa7:9302:: with SMTP id 2mr2035203pfj.164.1590554214171;
+ Tue, 26 May 2020 21:36:54 -0700 (PDT)
+Received: from localhost.localdomain ([2604:1380:4111:8b00::1])
+ by smtp.gmail.com with ESMTPSA id e13sm893604pfm.103.2020.05.26.21.36.52
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 26 May 2020 17:32:30 -0700 (PDT)
-Date: Tue, 26 May 2020 17:32:30 -0700 (PDT)
-X-Google-Original-Date: Tue, 26 May 2020 17:32:27 PDT (-0700)
-Subject: Re: [PATCH 5/5] dt-bindings: timer: Add CLINT bindings
-In-Reply-To: <c0e9e625-daf8-b72f-2237-06018ff5d8a0@gmail.com>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: seanga2@gmail.com
-Message-ID: <mhng-0995a264-b39c-4790-9aa5-b8c598b43ffd@palmerdabbelt-glaptop1>
-Mime-Version: 1.0 (MHng)
-Content-Type: text/plain; charset=utf-8; format=flowed
+ Tue, 26 May 2020 21:36:53 -0700 (PDT)
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: hch@lst.de
+Subject: [PATCH] media: omap3isp: Shuffle cacheflush.h and include mm.h
+Date: Tue, 26 May 2020 21:34:27 -0700
+Message-Id: <20200527043426.3242439-1-natechancellor@gmail.com>
+X-Mailer: git-send-email 2.27.0.rc0
+In-Reply-To: <20200515143646.3857579-7-hch@lst.de>
+References: <20200515143646.3857579-7-hch@lst.de>
+MIME-Version: 1.0
+X-Patchwork-Bot: notify
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200526_173232_479067_05DB2975 
-X-CRM114-Status: GOOD (  15.00  )
+X-CRM114-CacheID: sfid-20200526_213656_233966_F465E36A 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -97,69 +96,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Damien Le Moal <Damien.LeMoal@wdc.com>,
- Anup Patel <Anup.Patel@wdc.com>, anup@brainfault.org,
- daniel.lezcano@linaro.org, linux-kernel@vger.kernel.org,
- Atish Patra <Atish.Patra@wdc.com>, robh+dt@kernel.org,
- Alistair Francis <Alistair.Francis@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, tglx@linutronix.de,
- linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu
+Cc: linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org, zippel@linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-mm@kvack.org, sparclinux@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
+ linux-c6x-dev@linux-c6x.org, linux-hexagon@vger.kernel.org, x86@kernel.org,
+ linux-xtensa@linux-xtensa.org, arnd@arndb.de, linux-alpha@vger.kernel.org,
+ linux-um@lists.infradead.org, linux-m68k@lists.linux-m68k.org,
+ openrisc@lists.librecores.org, Nathan Chancellor <natechancellor@gmail.com>,
+ linux-arm-kernel@lists.infradead.org, monstr@monstr.eu,
+ linux-kernel@vger.kernel.org, jeyu@kernel.org, linux-fsdevel@vger.kernel.org,
+ akpm@linux-foundation.org, linuxppc-dev@lists.ozlabs.org
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 21 May 2020 23:29:36 PDT (-0700), seanga2@gmail.com wrote:
-> On 5/22/20 1:54 AM, Anup Patel wrote:
->> On Fri, May 22, 2020 at 1:35 AM Sean Anderson <seanga2@gmail.com> wrote:
->>>
->>> On 5/21/20 9:45 AM, Anup Patel wrote:
->>>> +Required properties:
->>>> +- compatible : "sifive,clint-1.0.0" and a string identifying the actual
->>>> +  detailed implementation in case that specific bugs need to be worked around.
->>>
->>> Should the "riscv,clint0" compatible string be documented here? This
->> 
->> Yes, I forgot to add this compatible string. I will add in v2.
->> 
->>> peripheral is not really specific to sifive, as it is present in most
->>> rocket-chip cores.
->> 
->> I agree that CLINT is present in a lot of non-SiFive RISC-V SOCs and
->> FPGAs but this IP is only documented as part of SiFive FU540 SOC.
->> (Refer, https://static.dev.sifive.com/FU540-C000-v1.0.pdf)
->> 
->> The RISC-V foundation should host the CLINT spec independently
->> under https://github.com/riscv and make CLINT spec totally open.
->> 
->> For now, I have documented it just like PLIC DT bindings found at:
->> Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.txt
->
-> The PLIC seems to have its own RISC-V-sponsored documentation [1] which
-> was split off from the older privileged specs. By your logic above,
-> should it be renamed to riscv,plic0.txt (with a corresponding change in
-> the documented compatible strings)?
->
-> [1] https://github.com/riscv/riscv-plic-spec
+After mm.h was removed from the asm-generic version of cacheflush.h,
+s390 allyesconfig shows several warnings of the following nature:
 
-Let's propose tagging that PLIC spec as v1.0.0 in the platform spec group, but
-I don't see a reason why that wouldn't be viable.  Assuming that's all OK, we
-can start calling this a RISC-V PLIC (in addition to a SiFive PLIC, as they'll
-be compatible).
+In file included from ./arch/s390/include/generated/asm/cacheflush.h:1,
+                 from drivers/media/platform/omap3isp/isp.c:42:
+./include/asm-generic/cacheflush.h:16:42: warning: 'struct mm_struct'
+declared inside parameter list will not be visible outside of this
+definition or declaration
 
->> 
->> If RISC-V maintainers agree then I will document it as "RISC-V CLINT".
->> 
->> @Palmer ?? @Paul ??
+cacheflush.h does not include mm.h nor does it include any forward
+declaration of these structures hence the warning. To avoid this,
+include mm.h explicitly in this file and shuffle cacheflush.h below it.
 
-The CLINT is a SiFive spec.  It has open source RTL so it's been implemented in
-other designs, but it's not a RISC-V spec.  The CLIC, which is a superset of
-the CLINT, is a RISC-V spec.  IIRC it's not finished yet (it's the fast
-interrupts task group), but presumably we should have a "riscv,clic-2.0.0" (or
-whatever it ends up being called) compat string to go along with the
-specification.
+Fixes: 19c0054597a0 ("asm-generic: don't include <linux/mm.h> in cacheflush.h")
+Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+---
 
->> Regards,
->> Anup
->> 
->
-> --Sean
+I am aware the fixes tag is kind of irrelevant because that SHA will
+change in the next linux-next revision and this will probably get folded
+into the original patch anyways but still.
+
+The other solution would be to add forward declarations of these structs
+to the top of cacheflush.h, I just chose to do what Christoph did in the
+original patch. I am happy to do that instead if you all feel that is
+better.
+
+ drivers/media/platform/omap3isp/isp.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/media/platform/omap3isp/isp.c b/drivers/media/platform/omap3isp/isp.c
+index a4ee6b86663e..54106a768e54 100644
+--- a/drivers/media/platform/omap3isp/isp.c
++++ b/drivers/media/platform/omap3isp/isp.c
+@@ -39,8 +39,6 @@
+  *	Troy Laramy <t-laramy@ti.com>
+  */
+ 
+-#include <asm/cacheflush.h>
+-
+ #include <linux/clk.h>
+ #include <linux/clkdev.h>
+ #include <linux/delay.h>
+@@ -49,6 +47,7 @@
+ #include <linux/i2c.h>
+ #include <linux/interrupt.h>
+ #include <linux/mfd/syscon.h>
++#include <linux/mm.h>
+ #include <linux/module.h>
+ #include <linux/omap-iommu.h>
+ #include <linux/platform_device.h>
+@@ -58,6 +57,8 @@
+ #include <linux/sched.h>
+ #include <linux/vmalloc.h>
+ 
++#include <asm/cacheflush.h>
++
+ #ifdef CONFIG_ARM_DMA_USE_IOMMU
+ #include <asm/dma-iommu.h>
+ #endif
+-- 
+2.27.0.rc0
+
 
