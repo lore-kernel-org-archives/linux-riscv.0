@@ -1,92 +1,95 @@
-Return-Path: <SRS0=lQQc=7J=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=/uwW=7K=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 502FAC433E0
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 27 May 2020 18:47:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 24F2CC433E2
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 28 May 2020 06:41:16 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2FE6E207E8
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed, 27 May 2020 18:47:19 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id DEA15208E4
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 28 May 2020 06:41:15 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sB9g3iuh";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="BD08Vr27"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2FE6E207E8
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="RJyQgJSB";
+	dkim=pass (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="nSGbYcCu"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DEA15208E4
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Mime-Version:Message-ID:To:From:
-	In-Reply-To:Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=xlHCAxvXvnuDbx0LkafhQpSZagEzXc+hc5LOPcq5Huw=; b=sB9g3iuhJwOpVF
-	NMl7qJbAQt4tVbeF0fDkkQC0oJND5mJxSOssQ2b4+mx9B2f9LvpSYPFUW9C1RNXhK/FJkE3i7eoAV
-	blyJ8qduZGgWVtkQQ1UitkXJwWMTINfbSzhSaal5oHE06RYFs5myFr3ZSMAa8Sx2+9WTN5bkOL4Sq
-	4bpItsGZy9ZAfOxY0/OI+AmWa2L9CzdbTm1F49iX65w4p4SM23J3VL2Do0SkqIL3UuHPjoHBYU3DA
-	zIljD/jrIVa6DhOlfTxIF7+LjWQez4OtHb0+I0AjP2vNUwpLUUpEBuCq55sabVF7vlwpI0AaU3udX
-	etGeSVpjBH8mCPV3ayZg==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JyymQUzxXUDUGDiP40j+IBmm1X5EOZ7V5M3pcfRs+Ww=; b=RJyQgJSBl5K6O+xas0bf+8TOrJ
+	p5oP6LM+WQcDPQ3skzP2K9H5GIwy1FchJyooSCQ0i4FPk6vcR8sPes8botHftBzKp4BKLanwIxukq
+	2Z9Bwg1fC5UWcjiaEAgQ9pTm/i8VHX5L6/15vZeje20AcWDOmiCPmq6Ph8Z4A5ZH634AEaVOP6KmM
+	kaiHpExAVebyh99+ll9aG6itIxzAa7+5WDXyd2RDebT5VXDuighj5p5/FhdnwQOKI1D8KrSKxjYMt
+	EiDQJMW3dQEFAMF689eBk8o4Q1umHng/0NQlynLvh1Xwtr0TlKK3aR5TIr23lex+96e/U0obmjMXO
+	E3ejVkXA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1je159-0000qn-3v; Wed, 27 May 2020 18:47:15 +0000
-Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
+	id 1jeCE4-0002tp-4e; Thu, 28 May 2020 06:41:12 +0000
+Received: from mail-pj1-x1043.google.com ([2607:f8b0:4864:20::1043])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1je155-0000q0-E0
- for linux-riscv@lists.infradead.org; Wed, 27 May 2020 18:47:13 +0000
-Received: by mail-pg1-x541.google.com with SMTP id j21so12230335pgb.7
- for <linux-riscv@lists.infradead.org>; Wed, 27 May 2020 11:47:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ id 1jeCE1-0002sJ-Ms
+ for linux-riscv@lists.infradead.org; Thu, 28 May 2020 06:41:10 +0000
+Received: by mail-pj1-x1043.google.com with SMTP id fs4so2621181pjb.5
+ for <linux-riscv@lists.infradead.org>; Wed, 27 May 2020 23:41:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=from:to:subject:date:message-id:in-reply-to:references:mime-version
  :content-transfer-encoding;
- bh=xlHCAxvXvnuDbx0LkafhQpSZagEzXc+hc5LOPcq5Huw=;
- b=BD08Vr27SDUI759X2/UqI1hW2/32hH0/i8frIg+EhBZ/AevuWNbGas3DT56FFR6Flz
- 2W0hGsXHAq7NDZWE9C5YDABXpA2HBtcO7W+BEB3fV51ryWTU4J976+wC4/A0iXB6HPo6
- CKbDaFDF4Nkzc6j1uGIfnj8HNKXwjkl9eBdWnwY87w9w+HKjbu5JiQPEcVIea9xqc2B7
- as3YqS/wuTL+IiCnoYcoimaAhuckWqh9eOJAHsAZN5c6OeePPU8qvt+wSN8o65JsRada
- BqeRDUYhOuoODA+IdrzkmfSz3wgzh+vK51WHKs8F8gLWvuNThFdJexkr+mWABOJjhqdI
- G3jg==
+ bh=JyymQUzxXUDUGDiP40j+IBmm1X5EOZ7V5M3pcfRs+Ww=;
+ b=nSGbYcCuCPGVWjqWOVHQqHC7PCTc5ij0fPoq6BySG33lzDVIrRf1JPtcQIa/ivVNc9
+ LNp4JStadItLWo3DkG7jtSC8S4UfDUs7Z3/FcsGVWV6j8G1HzAqO/e8E3luqMzTTBlqF
+ xBwpRvvb+ZhCShoKJSNdQ06b+DZ2dTa2xGwpsrE9qGZkW1Dpa3XXHGFKnlocpHRhQB3d
+ H+7baFMj3qh3tysiWMmi0SEYWLjDjy0C2hNDiC5EEwJ1DZrdS0o+0FU2eb3nVTsbjD88
+ j3KIPwQtNZWYO2prsVyg73MITSout1wEnd2r6jdyIOMS6FL1QEdKlp3LmdPegSnl2tNg
+ /fuA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=xlHCAxvXvnuDbx0LkafhQpSZagEzXc+hc5LOPcq5Huw=;
- b=iGSilaHny2mcUfC/VWssDH9NonZNql38q34bnLp887rB3O6iJk/XcdlMAbCb7xWy+s
- AR/l1+nK2Eam+hvoyY/SgxCOZyo7XHgR3YcaQXODG0zTNBUGRY2PnX/zM/BznJ/YYcO4
- sod5YVjFhhFF1ojB4hkcddIF+OGM92vu2QlX2yRAQqAKPQQggRVKyMcRp2yqRNGYmfPV
- 1oJAMT0CxtBqEK3nqnkvGP9nwyovTv0U72IjA6A/sSpcldVOAZOgD4CSPR0HEe1jOS3E
- jOTE0BfZVaI/utYy7YlkKcmSjAe6AMDB0UPFoGx6u2NZ1tyzWxwhpyFFPWrU3rireZ6X
- kPNQ==
-X-Gm-Message-State: AOAM533yekELvPYOmNrMs6R3dHLFhuz3MvlPBD5DlvY/ML2EkataOM6Y
- MVy7zlJC6BYEPFisdr5TWE7KZg==
-X-Google-Smtp-Source: ABdhPJzj7M85gwVANBohrhiJQMHP/qpccC0sSzvYrm6/sSpUBXen3o0geu4j+W4sR1NwhKqWavykzA==
-X-Received: by 2002:a05:6a00:a:: with SMTP id
- h10mr5467299pfk.310.1590605229930; 
- Wed, 27 May 2020 11:47:09 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id i8sm2578841pgr.82.2020.05.27.11.47.08
+ h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=JyymQUzxXUDUGDiP40j+IBmm1X5EOZ7V5M3pcfRs+Ww=;
+ b=eWmqGgybt9W+6SiAtiYMaBIhrvw8jOnpq6jESuQvmC1lmLKxauto1cVIrR88S5o2b4
+ /loWE2KLpw4rDDqheK4hLAHEwmEiImlGKDk3p1SfbiHeSpaOVNkWv4YWnrjrR/ArC6py
+ nZkaxS+29giblkJ45/DrOH8TJcKcjcO1LET/B4YL+NCajIL6XwsC97AdnkuonLwaE0Kc
+ muBEqrXqRX1ITdFzeqjD+BKVeGaXrdhRtMaj9OEREQuacgs3EzCAZRs1mm3VpEp9OmAE
+ atN46p6nHBgm0fE4EotxFn7QM5i+rjGmnoGReMI9/w17wWnby1zM7bZRkHfcar661G3G
+ 7Rhg==
+X-Gm-Message-State: AOAM530EAXtW63vHXcOgqM/09ARyl54JkBOvmHx+bpbNJmvnup3qxKI6
+ idZwMxROhKAuTOrql+t93ybieg==
+X-Google-Smtp-Source: ABdhPJyEpNcQ/jhi+ZpBBDbNNGSgjR2nPmE8d9un/VQNilVdrTBX0PbZyELaHSNRxRHNtd7DAiBUrA==
+X-Received: by 2002:a17:90a:ac0a:: with SMTP id
+ o10mr2080869pjq.79.1590648068965; 
+ Wed, 27 May 2020 23:41:08 -0700 (PDT)
+Received: from hsinchu02.internal.sifive.com
+ (114-34-229-221.HINET-IP.hinet.net. [114.34.229.221])
+ by smtp.gmail.com with ESMTPSA id q29sm3773366pfg.79.2020.05.27.23.41.07
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 27 May 2020 11:47:08 -0700 (PDT)
-Date: Wed, 27 May 2020 11:47:08 -0700 (PDT)
-X-Google-Original-Date: Wed, 27 May 2020 11:47:01 PDT (-0700)
-Subject: Re: [PATCH v5 0/6] New RISC-V Local Interrupt Controller Driver
-In-Reply-To: <20200521133301.816665-1-anup.patel@wdc.com>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Anup Patel <Anup.Patel@wdc.com>, Marc Zyngier <maz@kernel.org>
-Message-ID: <mhng-72b70f0c-28d7-425b-b45a-a132cf27e894@palmerdabbelt-glaptop1>
-Mime-Version: 1.0 (MHng)
-Content-Type: text/plain; charset=utf-8; format=flowed
+ Wed, 27 May 2020 23:41:08 -0700 (PDT)
+From: Greentime Hu <greentime.hu@sifive.com>
+To: greentime.hu@sifive.com, guoren@linux.alibaba.com, vincent.chen@sifive.com,
+ paul.walmsley@sifive.com, palmerdabbelt@google.com,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ oleg@redhat.com
+Subject: [RFC PATCH v5 01/13] ptrace: Use regset_size() for dynamic regset
+Date: Thu, 28 May 2020 14:40:49 +0800
+Message-Id: <e490cf0a1b57b7cb34a5ea1252e7a71109d6ffee.1590646208.git.greentime.hu@sifive.com>
+X-Mailer: git-send-email 2.26.2
+In-Reply-To: <cover.1590646208.git.greentime.hu@sifive.com>
+References: <cover.1590646208.git.greentime.hu@sifive.com>
+MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200527_114711_513307_7CF15599 
-X-CRM114-Status: GOOD (  23.93  )
+X-CRM114-CacheID: sfid-20200527_234109_749712_6E1D80A4 
+X-CRM114-Status: UNSURE (   9.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -98,118 +101,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, jason@lakedaemon.net, anup@brainfault.org,
- daniel.lezcano@linaro.org, linux-kernel@vger.kernel.org,
- Atish Patra <Atish.Patra@wdc.com>, Anup Patel <Anup.Patel@wdc.com>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, tglx@linutronix.de,
- linux-riscv@lists.infradead.org
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 21 May 2020 06:32:55 PDT (-0700), Anup Patel wrote:
-> This patchset provides a new RISC-V Local Interrupt Controller Driver
-> for managing per-CPU local interrupts. The overall approach is inspired
-> from the way per-CPU local interrupts are handled by Linux ARM64 and
-> ARM GICv3 driver.
->
-> Few advantages of this new driver over previous one are:
-> 1. All local interrupts are registered as per-CPU interrupts
-> 2. The RISC-V timer driver can register timer interrupt handler
->    using kernel irq subsystem without relying on arch/riscv to
->    explicitly call it's interrupt handler
-> 3. The KVM RISC-V can use this driver to implement interrupt
->    handler for per-HART guest external interrupt defined by
->    the RISC-V H-Extension
-> 4. In future, we can develop drivers for devices with per-HART
->    interrupts without changing arch code or this driver (example,
->    CLINT timer driver for RISC-V M-mode kernel)
->
-> With this patchset, output of "cat /proc/interrupts" looks as follows:
->            CPU0       CPU1       CPU2       CPU3
->   2:        379          0          0          0  SiFive PLIC  10  ttyS0
->   3:        591          0          0          0  SiFive PLIC   8  virtio0
->   5:       5079      10821       8435      12984  RISC-V INTC   5  riscv-timer
-> IPI0:      2045       2537        891        870  Rescheduling interrupts
-> IPI1:         9        269         91        168  Function call interrupts
-> IPI2:         0          0          0          0  CPU stop interrupts
->
-> The patchset is based up Linux-5.7-rc6 and can be found at riscv_intc_v5
-> branch of: https://github.com/avpatel/linux.git
->
-> This series is tested on:
->  1. QEMU RV64 virt machine using Linux RISC-V S-mode
->  2. QEMU RV32 virt machine using Linux RISC-V S-mode
->  3. QEMU RV64 virt machine using Linux RISC-V M-mode (i.e. NoMMU)
->
-> Changes since v4:
->  - Rebased to Linux-5.7-rc6 and multi-PLIC improvement patches
->  - Added separate patch to force select RISCV_INTC for CONFIG_RISCV
->  - Fixed the driver for Linux RISC-V NoMMU
->
-> Changes since v3:
->  - Rebased to Linux-5.6-rc5 and Atish's PLIC patches
->  - Added separate patch to rename and move plic_find_hart_id()
->    to arch directory
->  - Use riscv_of_parent_hartid() in riscv_intc_init() instead of
->    atomic counter
->
-> Changes since v2:
->  - Dropped PATCH2 since it was merged long-time back
->  - Rebased series from Linux-4.19-rc2 to Linux-5.6-rc2
->
-> Changes since v1:
->  - Removed changes related to puggable IPI triggering
->  - Separate patch for self-contained IPI handling routine
->  - Removed patch for GENERIC_IRQ kconfig options
->  - Added patch to remove do_IRQ() function
->  - Rebased upon Atish's SMP patches
->
-> Anup Patel (6):
->   RISC-V: self-contained IPI handling routine
->   RISC-V: Rename and move plic_find_hart_id() to arch directory
->   irqchip: RISC-V per-HART local interrupt controller driver
->   clocksource/drivers/timer-riscv: Use per-CPU timer interrupt
->   RISC-V: Remove do_IRQ() function
->   RISC-V: Force select RISCV_INTC for CONFIG_RISCV
->
->  arch/riscv/Kconfig                     |   2 +
->  arch/riscv/include/asm/irq.h           |   5 -
->  arch/riscv/include/asm/processor.h     |   1 +
->  arch/riscv/include/asm/smp.h           |   3 +
->  arch/riscv/kernel/cpu.c                |  16 +++
->  arch/riscv/kernel/entry.S              |   4 +-
->  arch/riscv/kernel/irq.c                |  33 +-----
->  arch/riscv/kernel/smp.c                |  11 +-
->  arch/riscv/kernel/traps.c              |   2 -
->  drivers/clocksource/timer-riscv.c      |  30 ++++-
->  drivers/irqchip/Kconfig                |  13 +++
->  drivers/irqchip/Makefile               |   1 +
->  drivers/irqchip/irq-riscv-intc.c       | 150 +++++++++++++++++++++++++
->  drivers/irqchip/irq-sifive-plic.c      |  52 +++++----
->  include/linux/cpuhotplug.h             |   1 +
->  include/linux/irqchip/irq-riscv-intc.h |  20 ++++
->  16 files changed, 280 insertions(+), 64 deletions(-)
->  create mode 100644 drivers/irqchip/irq-riscv-intc.c
->  create mode 100644 include/linux/irqchip/irq-riscv-intc.h
+This patch uses regset_size() instead of using regset->n and regset->size
+directly. In this case, it will call the get_size() ported by arch
+dynamically to support dynamic regset size case.
 
-So I read through this a bit, and while I haven't gone through every line of
-code I'm somewhat inclined toward taking it.
+Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+---
+ kernel/ptrace.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-During the original RISC-V port submission we went back and forth between
-having this first-level interrupt controller in arch/riscv/ vs
-drivers/irqchip/.  The original deciding factor was that the ISA mandated the
-interrupt controller, but as that's proving to be less and less the case every
-day (with the CLIC and M-mode Linux) it certainly seem sane to move all our
-interrupt controller drivers out of arch/riscv/.
+diff --git a/kernel/ptrace.c b/kernel/ptrace.c
+index 43d6179508d6..946b2c4ec4fa 100644
+--- a/kernel/ptrace.c
++++ b/kernel/ptrace.c
+@@ -888,7 +888,7 @@ static int ptrace_regset(struct task_struct *task, int req, unsigned int type,
+ 
+ 	regset_no = regset - view->regsets;
+ 	kiov->iov_len = min(kiov->iov_len,
+-			    (__kernel_size_t) (regset->n * regset->size));
++			    (__kernel_size_t) regset_size(task, regset));
+ 
+ 	if (req == PTRACE_GETREGSET)
+ 		return copy_regset_to_user(task, view, regset_no, 0,
+-- 
+2.26.2
 
-This is certainly a step in the right direction, and it handles some of the
-more glaring issues (iscv_timer_interrupt and lacking IRQs for the CLINT).  I
-think we should just go ahead and merge it, even though there might be some
-more refactoring to do when we eventually end up with another interrupt
-controller.
-
-I think it's best if this all goes in through a single tree, as it seems more
-work than it's worth to split it up.  I'm happy to take it through my tree if
-that's OK with the irqchip folks?
 
