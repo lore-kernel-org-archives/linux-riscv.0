@@ -2,88 +2,81 @@ Return-Path: <SRS0=/uwW=7K=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-6.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EAF80C433DF
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 28 May 2020 22:44:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E2C8DC433E0
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 28 May 2020 23:08:51 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BD9A620721
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 28 May 2020 22:44:14 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B3B1C207BC
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 28 May 2020 23:08:51 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="MmFw3MZQ";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="gzq7o17B"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BD9A620721
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="nDq25r6p";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="eKBdtoMU"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B3B1C207BC
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:To:From:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Reply-To:
-	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=l45d2ebIgVTYBdcwadzZn1AiPQm55aaNY7J4mpFY86s=; b=MmFw3MZQUN/DJh
-	KvPgFvcHnb70iH7SCIrEc/8Lfzsx8IU2eFzngdLjon2pZEiuh56XHQAjNYU0b7yPQOV4NPGFcHhdS
-	9xGXgGZPhnVcmfP3uJV1Pi6A65Ovi4iMEYnPMRwstNrdsRa2HlNnZwTl7NzuSG+H60hTQzMx3q21+
-	VVsQSP3ACWM/I4vRZTmpMqiutAU35ZuRQ/unZdcj0PuGyPR+A/77XyZE58docOMXJEfbqYR3YNbMJ
-	qvyFnQaovLLfw3+DjBgF0bIXrcv4SXBkn0Dcbail4qr7+3uqTAUf87hSnmosNydP4g29Gnu/cUC7T
-	jL23aoWy3hteXM1cF8QQ==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:
+	Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=nwgj6E9D3HYNDLpG/tXHp4hKNZ51Ebu1gu1zyX/LBmg=; b=nDq25r6pp36fjtuMghMyFKKLr
+	W1xCGOWUww6K7mofNZ6Whc9xsZnjWsmYP5dYe5AVsRkCjjCJfz0hqu9BwNukUNWhBmQFXKZ5dqTKk
+	hZB0Vpch9hF53LZpWgOsPBqTdxSVOg06j/VfyZ68we2RqnXxl98qIGiMW+ubPT4wLc1UG4bXdglJg
+	1g2jMTYQm6Zvk6+kY2CcNA32dln5BnwO/dtxtrfTgMpe3lsZsq7Qz9xehAuqsqjEC1J6Hj9WccJx6
+	EN0DArRl2I1UVyxUpR7fDC0uDZoghl9X1p2CRvxk2yFpJCEPXX7SCzdAY40ORmsxL8zf5PZvqscNS
+	VToRC4HZw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jeRFy-0001Rm-6X; Thu, 28 May 2020 22:44:10 +0000
-Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
+	id 1jeRdo-0000BW-0M; Thu, 28 May 2020 23:08:48 +0000
+Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jeRFv-0001Qo-5J
- for linux-riscv@lists.infradead.org; Thu, 28 May 2020 22:44:09 +0000
-Received: by mail-pg1-x544.google.com with SMTP id u5so310614pgn.5
- for <linux-riscv@lists.infradead.org>; Thu, 28 May 2020 15:44:05 -0700 (PDT)
+ id 1jeRdl-0000B9-Kp
+ for linux-riscv@lists.infradead.org; Thu, 28 May 2020 23:08:47 +0000
+Received: by mail-wm1-x343.google.com with SMTP id r15so975145wmh.5
+ for <linux-riscv@lists.infradead.org>; Thu, 28 May 2020 16:08:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=subject:date:message-id:mime-version:content-transfer-encoding:cc
- :from:to; bh=l45d2ebIgVTYBdcwadzZn1AiPQm55aaNY7J4mpFY86s=;
- b=gzq7o17BUls8m2QY2K9AJK73zJe60aWiWfGiLBL/NiD7RUd+s6lCnOfHl7LoNFT1j8
- qUfkNJRnB4CVStoGo7C3cdIym/GnWivmbC9QxLGwQnffvtyrbxvnJGPRw7RWIsuC7vUG
- FLFzERKd/C0fKkrxYUq6SV8Tg4nf6ol0XslnBxchnkDaurX2rs9c3LDvq8sgF0RgXViB
- ehS3OoqYMb91sZHeE2cWUKybggSjQDPEf7unUbr4TKmzePcNEut6vMJ2/xpXZPXea2ww
- gqQixF/rQUwmBXjbvbOCl6doypj/KE5VWH0xcSnS+tnL/w2h0J6I5ff1MQ5MQlVEus29
- xaDA==
+ d=atishpatra.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=nwgj6E9D3HYNDLpG/tXHp4hKNZ51Ebu1gu1zyX/LBmg=;
+ b=eKBdtoMU2S5v42sEqcXy8Bcn6D3jlj+Zmc2RkpBWpuwt9pe6UCkgyQ9dviQ9CUBJ6U
+ +j/FJ4/r0vEAA4ZuzSNHPOJrIeaIHWdyFazU5DVidj45KyO5GpIF2TdISzTu4QtGZWa/
+ Yi8IPT0D68amZf9yrvlzQjdo2mTuu5mU/ToOU=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:date:message-id:mime-version
- :content-transfer-encoding:cc:from:to;
- bh=l45d2ebIgVTYBdcwadzZn1AiPQm55aaNY7J4mpFY86s=;
- b=sOfzGBLdVL7EN5M3cac+z/kmkybOJj9pAu8FKq/hFBfoGX0fZTrLftAhCc1v3zFMZK
- E57MSJnnCdRSfYCIGgqFP19vvgu4hWei4NP49jOd3rGJA/FwL4CaDLCj3laM6w4q+CKI
- EkH2dalucrt8xjCZ5TFGZ2m/zNJXIyV//VbmR61ggOcGQK8yQ7jHcfoT9tGsAvb0FBVk
- 6Nhj+3huNHt23whDxwLuzDlQTbhKNoWcqP+MtIXdRvqqhVdkS17NUkBXLI+yu3VhHdll
- 73gvfK776pF5WK8zzNotGiIwwxMi7vz/hLlEapkH5ds9DnKS66rYXvj4PV/Ok1/kmVxT
- gpCw==
-X-Gm-Message-State: AOAM5319f0ddYB9vDJ6hDb2GY2nNPIzip73exrZOGR5fsXIlG3tlQzAN
- nM+rTQjf+pGS/s9t/Qf4TMRSAw==
-X-Google-Smtp-Source: ABdhPJwq9RAGTsT72bc6ZS4m4DqTZ9XT3ecH6wm1LPKrA30nov53xcwsWLSkrP5e8rF1Klixj+jFzQ==
-X-Received: by 2002:aa7:9e52:: with SMTP id z18mr5446497pfq.57.1590705844915; 
- Thu, 28 May 2020 15:44:04 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id e19sm5488131pfn.17.2020.05.28.15.44.04
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 28 May 2020 15:44:04 -0700 (PDT)
-Subject: [PATCH 1/2] soc: sifive: l2 cache: Eliminate an unsigned zero compare
- warning
-Date: Thu, 28 May 2020 15:43:52 -0700
-Message-Id: <20200528224353.32559-1-palmer@dabbelt.com>
-X-Mailer: git-send-email 2.27.0.rc0.183.gde8f92d652-goog
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=nwgj6E9D3HYNDLpG/tXHp4hKNZ51Ebu1gu1zyX/LBmg=;
+ b=WJdpQxEQrXhWqHvJsNC1Dmh0pOUSY8HSoKITRPg9GNMpixn1oe3/t9rj+tZ57xexL3
+ FCynRKlbqwm1N34FHGbClioQEzPb5OKFOplidADDxfds9VEa9e+CXuzap2WLpKqMpJ8/
+ fsts9u5k3LEubVPWTHANyS1E8+DXb6RfCn0jyLrnAKoEewMOWfLSlt5DL8XQ5H5LYcpS
+ dH5J9JaXymSak0ep0cn3JcPofVRQOYf8SI5uPZxU7ZCQJmXcXDFAh7bJCXAmrjngCPUV
+ rmAqRfRuElLy9wyFcd4egpGcSa1JsP25j9ZYOHy7fisMcwkAPywz5v9n7vmTRKGoC9it
+ DJ0g==
+X-Gm-Message-State: AOAM533vNKhoBSGljNt+1lhcnMbbZ4nR1m0++8EyT1MlidN6GazIlwri
+ rWCbeZZuyWTv3HV0FdjTOwOfgP3yXytBVxFkozew
+X-Google-Smtp-Source: ABdhPJw4kaEVV34t2cEZXq+mqdaNLLx7uzsUiCPUzRX2Ss5tayR3bmdPfnfs7awSp3in1+7tmPyjkiSOscIiMuSZfgo=
+X-Received: by 2002:a7b:c622:: with SMTP id p2mr5546999wmk.55.1590707322980;
+ Thu, 28 May 2020 16:08:42 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: linux-riscv@lists.infradead.org
+References: <20200521133301.816665-1-anup.patel@wdc.com>
+ <20200521133301.816665-2-anup.patel@wdc.com>
+In-Reply-To: <20200521133301.816665-2-anup.patel@wdc.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Thu, 28 May 2020 16:08:31 -0700
+Message-ID: <CAOnJCULxy6N_FwhxTFH8ym7Xnpf1sOkyLEk7-Uap-xiUwZkywQ@mail.gmail.com>
+Subject: Re: [PATCH v5 1/6] RISC-V: self-contained IPI handling routine
+To: Anup Patel <anup.patel@wdc.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200528_154407_268624_52D06447 
-X-CRM114-Status: GOOD (  10.57  )
+X-CRM114-CacheID: sfid-20200528_160845_707639_E160ACCC 
+X-CRM114-Status: GOOD (  19.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -95,36 +88,162 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: anup@brainfault.org, Palmer Dabbelt <palmerdabbelt@google.com>,
- linux-kernel@vger.kernel.org, yash.shah@sifive.com,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv@lists.infradead.org, bp@suse.de, kernel-team@android.com
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Jason Cooper <jason@lakedaemon.net>,
+ Marc Zyngier <maz@kernel.org>, Anup Patel <anup@brainfault.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Atish Patra <atish.patra@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ linux-riscv <linux-riscv@lists.infradead.org>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Palmer Dabbelt <palmerdabbelt@google.com>
+On Thu, May 21, 2020 at 6:34 AM Anup Patel <anup.patel@wdc.com> wrote:
+>
+> Currently, the IPI handling routine riscv_software_interrupt() does
+> not take any argument and also does not perform irq_enter()/irq_exit().
+>
+> This patch makes IPI handling routine more self-contained by:
+> 1. Passing "pt_regs *" argument
+> 2. Explicitly doing irq_enter()/irq_exit()
+> 3. Explicitly save/restore "pt_regs *" using set_irq_regs()
+>
+> With above changes, IPI handling routine does not depend on caller
+> function to perform irq_enter()/irq_exit() and save/restore of
+> "pt_regs *" hence its more self-contained. This also enables us
+> to call IPI handling routine from IRQCHIP drivers.
+>
+> Signed-off-by: Anup Patel <anup.patel@wdc.com>
+> ---
+>  arch/riscv/include/asm/irq.h |  1 -
+>  arch/riscv/include/asm/smp.h |  3 +++
+>  arch/riscv/kernel/irq.c      | 16 ++++++++++------
+>  arch/riscv/kernel/smp.c      | 11 +++++++++--
+>  4 files changed, 22 insertions(+), 9 deletions(-)
+>
+> diff --git a/arch/riscv/include/asm/irq.h b/arch/riscv/include/asm/irq.h
+> index 6e1b0e0325eb..0183e15ace66 100644
+> --- a/arch/riscv/include/asm/irq.h
+> +++ b/arch/riscv/include/asm/irq.h
+> @@ -13,7 +13,6 @@
+>  #define NR_IRQS         0
+>
+>  void riscv_timer_interrupt(void);
+> -void riscv_software_interrupt(void);
+>
+>  #include <asm-generic/irq.h>
+>
+> diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
+> index f4c7cfda6b7f..40bb1c15a731 100644
+> --- a/arch/riscv/include/asm/smp.h
+> +++ b/arch/riscv/include/asm/smp.h
+> @@ -28,6 +28,9 @@ void show_ipi_stats(struct seq_file *p, int prec);
+>  /* SMP initialization hook for setup_arch */
+>  void __init setup_smp(void);
+>
+> +/* Called from C code, this handles an IPI. */
+> +void handle_IPI(struct pt_regs *regs);
+> +
+>  /* Hook for the generic smp_call_function_many() routine. */
+>  void arch_send_call_function_ipi_mask(struct cpumask *mask);
+>
+> diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
+> index 345c4f2eba13..bb0bfcd537e7 100644
+> --- a/arch/riscv/kernel/irq.c
+> +++ b/arch/riscv/kernel/irq.c
+> @@ -19,12 +19,15 @@ int arch_show_interrupts(struct seq_file *p, int prec)
+>
+>  asmlinkage __visible void __irq_entry do_IRQ(struct pt_regs *regs)
+>  {
+> -       struct pt_regs *old_regs = set_irq_regs(regs);
+> +       struct pt_regs *old_regs;
+>
+> -       irq_enter();
+>         switch (regs->cause & ~CAUSE_IRQ_FLAG) {
+>         case RV_IRQ_TIMER:
+> +               old_regs = set_irq_regs(regs);
+> +               irq_enter();
+>                 riscv_timer_interrupt();
+> +               irq_exit();
+> +               set_irq_regs(old_regs);
+>                 break;
+>  #ifdef CONFIG_SMP
+>         case RV_IRQ_SOFT:
+> @@ -32,19 +35,20 @@ asmlinkage __visible void __irq_entry do_IRQ(struct pt_regs *regs)
+>                  * We only use software interrupts to pass IPIs, so if a non-SMP
+>                  * system gets one, then we don't know what to do.
+>                  */
+> -               riscv_software_interrupt();
+> +               handle_IPI(regs);
+>                 break;
+>  #endif
+>         case RV_IRQ_EXT:
+> +               old_regs = set_irq_regs(regs);
+> +               irq_enter();
+>                 handle_arch_irq(regs);
+> +               irq_exit();
+> +               set_irq_regs(old_regs);
+>                 break;
+>         default:
+>                 pr_alert("unexpected interrupt cause 0x%lx", regs->cause);
+>                 BUG();
+>         }
+> -       irq_exit();
+> -
+> -       set_irq_regs(old_regs);
+>  }
+>
+>  void __init init_IRQ(void)
+> diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+> index a65a8fa0c22d..b1d4f452f843 100644
+> --- a/arch/riscv/kernel/smp.c
+> +++ b/arch/riscv/kernel/smp.c
+> @@ -123,11 +123,14 @@ static inline void clear_ipi(void)
+>                 clint_clear_ipi(cpuid_to_hartid_map(smp_processor_id()));
+>  }
+>
+> -void riscv_software_interrupt(void)
+> +void handle_IPI(struct pt_regs *regs)
+>  {
+> +       struct pt_regs *old_regs = set_irq_regs(regs);
+>         unsigned long *pending_ipis = &ipi_data[smp_processor_id()].bits;
+>         unsigned long *stats = ipi_data[smp_processor_id()].stats;
+>
+> +       irq_enter();
+> +
+>         clear_ipi();
+>
+>         while (true) {
+> @@ -138,7 +141,7 @@ void riscv_software_interrupt(void)
+>
+>                 ops = xchg(pending_ipis, 0);
+>                 if (ops == 0)
+> -                       return;
+> +                       goto done;
+>
+>                 if (ops & (1 << IPI_RESCHEDULE)) {
+>                         stats[IPI_RESCHEDULE]++;
+> @@ -160,6 +163,10 @@ void riscv_software_interrupt(void)
+>                 /* Order data access and bit testing. */
+>                 mb();
+>         }
+> +
+> +done:
+> +       irq_exit();
+> +       set_irq_regs(old_regs);
+>  }
+>
+>  static const char * const ipi_names[] = {
+> --
+> 2.25.1
+>
+>
 
-GCC warns about this comparison, which is unnecessary.
+Reviewed-by: Atish Patra <atish.patra@wdc.com>
 
-Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
----
- drivers/soc/sifive/sifive_l2_cache.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/soc/sifive/sifive_l2_cache.c b/drivers/soc/sifive/sifive_l2_cache.c
-index d5f266551880..51e198880a8d 100644
---- a/drivers/soc/sifive/sifive_l2_cache.c
-+++ b/drivers/soc/sifive/sifive_l2_cache.c
-@@ -51,7 +51,7 @@ static ssize_t l2_write(struct file *file, const char __user *data,
- 
- 	if (kstrtouint_from_user(data, count, 0, &val))
- 		return -EINVAL;
--	if ((val >= 0 && val < 0xFF) || (val >= 0x10000 && val < 0x100FF))
-+	if ((val < 0xFF) || (val >= 0x10000 && val < 0x100FF))
- 		writel(val, l2_base + SIFIVE_L2_ECCINJECTERR);
- 	else
- 		return -EINVAL;
 -- 
-2.27.0.rc0.183.gde8f92d652-goog
-
+Regards,
+Atish
 
