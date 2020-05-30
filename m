@@ -5,20 +5,20 @@ X-Spam-Level:
 X-Spam-Status: No, score=-9.7 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
 	MSGID_FROM_MTA_HEADER,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4859AC433DF
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 30 May 2020 10:08:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 27FE6C433E0
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 30 May 2020 10:08:35 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 088BB208FE
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 30 May 2020 10:08:32 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id ECD4220776
+	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 30 May 2020 10:08:34 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="BmLYumux";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="c0NdTGDO";
-	dkim=pass (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="hQv9bLp8"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 088BB208FE
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="M83Zqwcd";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="AKr1FgxM";
+	dkim=pass (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="D41oLxUR"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ECD4220776
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -27,66 +27,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=nA5tYfhSbPBVGtiPY+QOhMkAN0w2Rz//SnplTpbzNy8=; b=BmLYumuxwzPZesOISzmzr3c7y
-	UAJcTDJvWUfFo+QS+GRf+3aeAYtMLgnkLgZ4zPsRlf7Acr+e1Yo3JrsXDHQTVXVrp8wBxjG0Xpiql
-	wxw3WPZPxQmSeG5MDJY4r9Z2jnsPwT3fwSnGf7Av4s3BUP5rpmalpiBkrLZwCTO+uLazYBUVWubWn
-	6B+lBi2eVTNcNGAzV1qJse230Dc/Pru8EfQqsmD+nXv4p9oBMcj/bkIF6ZUdtYg/Ipv8t3TV0fKwl
-	+ZHyzE1hQG3ndDsguLNSZH9PbG3B8+sBlpkG2ulpDwePjDV3ttkhCRzaJltEG70XT/7ykbbhPK+pp
-	DTeMhw9FQ==;
+	 bh=nC35t79tsLxGd9uRH3iT6OLCE7+HcSkgurQGwuNUT/4=; b=M83ZqwcdG6uYzRuu8+fFab4HZ
+	ZfKcXxWxMCJdIf6K27zJrK3aPdOKpIFy3YjsmNxLTcAJQasPFtgEzKXmXRwx+MZqnXe3gUUMwYvGC
+	iJ46JBlrjLiSwN445FJsWkp3JmGTRE3o0d3troP8f6ZfBPKTxm3QY5xx0woDV/qk1MTRwjP0GDK6g
+	1CbjrWMmz5Jo8yQd5wasEz/AdqKSbz6QHSOff2wRZSNXf2jdhycgUFjlJR146fXSNiyNfPEQlA9t0
+	OX34OfFsG3O18ZCjWkGWdhFi4IJSVVy6VtXuWysabnISXgGNPulM9ENhldPTq10YvRugNX1621ccJ
+	N0YbIXOxw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jeyPi-0001iY-DT; Sat, 30 May 2020 10:08:26 +0000
+	id 1jeyPp-0001oI-EE; Sat, 30 May 2020 10:08:33 +0000
 Received: from esa4.hgst.iphmx.com ([216.71.154.42])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jeyPf-0001hT-V1
- for linux-riscv@lists.infradead.org; Sat, 30 May 2020 10:08:25 +0000
+ id 1jeyPh-0001hT-IQ
+ for linux-riscv@lists.infradead.org; Sat, 30 May 2020 10:08:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1590833303; x=1622369303;
+ t=1590833305; x=1622369305;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:content-transfer-encoding:mime-version;
- bh=SuGZr4GxtABjysO9g3tQV3Q6+ZZhHD1SDX0BveqqkFY=;
- b=c0NdTGDOuw/V+l2kXe9nNBNYt9P/i7Y+kGvzzqk2ZhIWVquiOQY+JIWF
- h2VWlIB6wiA90ObE8KWp0bjRyM4ir+ftCh98O3suXMVxzLp+SXf7JSl5e
- UbgQBADsflqPIDQy2wy5rL9c8hecIkZDE+sAnxWRk67Lcj4oNuHFW6MRe
- apZLxnoht9EVsxfFmlW5jTSR6wv++QJUVSnpfJSFLnANmE/XAM/25cg6q
- h3YVJBtT0wMFmh53eyC8Vo70XhmDpE1x3MIv/rPf15H9oc26Gb+MJ1aJ7
- GNpg+oQTM73/RpjjM4BdlA//Dy5LgMkNxVjtDtT7Qr2qPP7eTwNHW3H2R A==;
-IronPort-SDR: MUTM3hjMH2dcCmEXGePSgWsrt3HK4HblpSH7y/VT8vmJ5ZqyWLm1OwqniCTvEuvrxt3LGsYa3m
- Up21mhWFzy0CNMP42E/vRCwk05F3ehjVrWDWq4gnL1nJgxRhr6PkLkRgPhLXYbwBHz0pN6TJIb
- SnVj+cP3nk1WUKBAPFpbT9ectMJuqxNowh2oI3rHqvUe7HRC6yPBeUWbyZX6UqCFXpEdsmJ1S7
- osRBApsiXQ3XZGjac9LVt4GnAru0jiTmN9TCB7xm6VYFuyipzu8iooOVnauKkqXjk7Zyo4sLXu
- 1VI=
-X-IronPort-AV: E=Sophos;i="5.73,451,1583164800"; d="scan'208";a="138846365"
-Received: from mail-bn7nam10lp2104.outbound.protection.outlook.com (HELO
- NAM10-BN7-obe.outbound.protection.outlook.com) ([104.47.70.104])
- by ob1.hgst.iphmx.com with ESMTP; 30 May 2020 18:08:02 +0800
+ bh=InDoWY8f2xO/RElNkzxlDBeH+8ys34GZlwup/58O3Jg=;
+ b=AKr1FgxMzXLX0itWxkwV9u2NgthDAodTCkrFP6RNa8PPr2TYk8GRK77Y
+ 2O4VQ4zN0ReqtXt/uhZ9q+1i5mL2B1N6W34zlSQx9Ikjg5Eme2WpeWS6i
+ 0w2wgBDUnx/d5zhdCZ8ETpz6A2AUCbKz/kOPp3NB0sUZElTGYt4PGad8c
+ bkNqvzcjkzqQX1neHxKzyyqXC2k3Eyv+BecYd/FoofEvkRZLHQRkyfcan
+ 54NjdqmcAWfPiu6+pD1uLhDjV3Wf78k+eom643s/LZdePLkMiy8BlI4p6
+ 9/UszPGxJ0ZV5UDgrifxNGWl8go7h+4auQtJMLO5/hJkgWWoRKu4/huhz Q==;
+IronPort-SDR: vT6yfxCq/Kd0vVpeSMsUL4MISgShSsbixfmBLDrkgRV914teBO4n0fOEK4qWmwC/3zum9eYMY0
+ UT4kZO4MMwgzgi7hp4Q0PfMwzRsNHNeAL4y4h1BeyT28bFWV/Pn46jZ3Hik6gUgZVok9c+sR/y
+ wCRMMeXzz7jcI66eUDItSag8DpJxY5N75Z6yvXt5NIzVMWyU+ltOgWG3t5iOBwKl5rEQ3k2DOm
+ sQ3NB6/qXPb/OwLWHCVM8RzVWGM77OqxiRWUVezDgoTR/Cs499ZPCZu/NUNhshKC6aBmB0lo7a
+ TmU=
+X-IronPort-AV: E=Sophos;i="5.73,451,1583164800"; d="scan'208";a="138846371"
+Received: from mail-bn7nam10lp2107.outbound.protection.outlook.com (HELO
+ NAM10-BN7-obe.outbound.protection.outlook.com) ([104.47.70.107])
+ by ob1.hgst.iphmx.com with ESMTP; 30 May 2020 18:08:11 +0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=lRAkrAZGPoW1WG9V7at1ZYNlonKikR9lWtcH63KPzbJojnsYmVOBVXAcnHYWF5oWVyh+IVTLSvURvmiV3u73r1IrjmUpfhrRPElYgj/Y34+RGyBEMmMiFC5HX66+R9Cdzmo66JgyxZe+S+fK0YOLFkxbC8rnlu3/twWImU5EKOUpuGfkDt2Z8eG0oEZ0tZO55/iV+mu9VJ6oqn1iumB0hgLCR6R6qtRUrj3E7qz5GZnBtisOFCZLup9BI2NxZmjjU5DeO0msZV0+NaJjhfgPWPX+1P2HHEhy01Q6/KhGagCn1cpJsu/r6MPK3VJ4rvNJ/p+ZkPq+w2oibZzhDiAnyA==
+ b=eI3PpIiuOeDrtyv8cYu9FLbU/iXdMrfWCeAOknSGYtMd0cggk+cz8O5ZKQBZgIJbIlJvPvwVIXOmTJ4PyTs8mgwqofdUvyVfnhaIQpG4kkUXC+GoHZL8L6gVSfdd9H0ySpHzAWLRyHCXuFnARH0YePyoVN+sax9s1UQ43rl8iNkBs6XzCCkdh79aZ6UKqSMwpZ78oThIP6qwmrdcbsRnaUaxvxjfx9LS7icppDmBvg/MYNA4XL9Tu1ZWy3EKMajA+YhdsOa6Uy8jyVgGRbBfUq6P58GEywhKB/va0zy6j4QzdvZBeIUqknUB0q68OP4tHcJ5aXtVe/8wJXJGHtZang==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nA5tYfhSbPBVGtiPY+QOhMkAN0w2Rz//SnplTpbzNy8=;
- b=OYg/pv5Fz6k6GRxvUjLNBlyWNtbCVkpEw3kC9JlFO5acx/bq0V2Xxi0CJ/t0JaUVXcBazWHRt0YSTDTNoZJEJg2UNwqn5IHAadNTYXABh7zPloXGe3vGdur/1s1eflHb2LS6WD7UNbGRjMIk55lkpsRWnX1WEUaf5s30e892HlMV6WMjfAnIzyCsCZcJrrcucjUmUwYh+EB2KDm4mvOYAWPNTATrgRHlJdCCxA/VNulto+JJDwV/q309upf6ZA47R/d2F7F5C5T3DS+BMuE1KWmI6APp3YB/xz48Ccbrqs3IF4Md+/JIbfGHN3sY6gfrNTkN6Uo6pu0Q2us0iRUzyA==
+ bh=nC35t79tsLxGd9uRH3iT6OLCE7+HcSkgurQGwuNUT/4=;
+ b=KBCDqwcoOVe90tH3HlpkA6wq5Wt88MlbiYMF/jOjLfi4Vx+fAPdG4Hhx26wQdtCJS4v7Z6XvGmaj9M5DwwaBqGX8PzFXKjI9mnsn/PIK5hntlKtziadbgpWbteQMNt2S66B3WYC4e4StacwNwhSiO7fUzeYMgdG5s2HB1QKQHrMttGVZ0AZPtDBQortF4t3Y0B+n9hT443RgUBbX/f+m6M00kL4GIiClMEKKIgddoo41SfadIBDytRw3GKxkqOIngvxYXGx/RD82vUfJv02uYp1+EjQSTGhL2/M6Gt9dNmK+ft7PCRGdXeWXGQWkwOUfro2E7c8PWIYgOaU/b56HyA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
  header.d=wdc.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nA5tYfhSbPBVGtiPY+QOhMkAN0w2Rz//SnplTpbzNy8=;
- b=hQv9bLp8X3VDvZ908e8cepEHy7uxBdHTayH7whFuo+TY4EYuPey7m44qBFz2ZgrOr1DNdeSYgc2ku1sxN7ubXUWJlaRkYyOaMuYXkd67loksGLFs8bBt5T4DEUpEpgUaFMce1x7zJogvHrCy2VXVnOBzOYE6KFcRmMyGHi8M3ac=
+ bh=nC35t79tsLxGd9uRH3iT6OLCE7+HcSkgurQGwuNUT/4=;
+ b=D41oLxURDlH8LAAPht5lVumOxwY3Qy/DN/qnA/PXa0aRrOhyZQU19N5VBW8ipS835veLjPB8UmzQbuYtXGyfz2tr971cvT4I8dVCsKHatluofLbUqqPaBRyvLEvnKfjxjGIoUf/VY8vEMaQt7KUur/yyaaCiHMpm1yKxsYMU5+c=
 Authentication-Results: dabbelt.com; dkim=none (message not signed)
  header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
 Received: from DM6PR04MB6201.namprd04.prod.outlook.com (2603:10b6:5:127::32)
  by DM6PR04MB4314.namprd04.prod.outlook.com (2603:10b6:5:98::14) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3045.17; Sat, 30 May
- 2020 10:08:01 +0000
+ 2020 10:08:10 +0000
 Received: from DM6PR04MB6201.namprd04.prod.outlook.com
  ([fe80::f8b3:c124:482b:52e0]) by DM6PR04MB6201.namprd04.prod.outlook.com
  ([fe80::f8b3:c124:482b:52e0%5]) with mapi id 15.20.3045.022; Sat, 30 May 2020
- 10:08:01 +0000
+ 10:08:10 +0000
 From: Anup Patel <anup.patel@wdc.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>,
@@ -94,10 +94,10 @@ To: Palmer Dabbelt <palmer@dabbelt.com>,
  Daniel Lezcano <daniel.lezcano@linaro.org>,
  Thomas Gleixner <tglx@linutronix.de>, Jason Cooper <jason@lakedaemon.net>,
  Marc Zyngier <maz@kernel.org>
-Subject: [PATCH v6 2/6] RISC-V: Rename and move plic_find_hart_id() to arch
- directory
-Date: Sat, 30 May 2020 15:37:21 +0530
-Message-Id: <20200530100725.265481-3-anup.patel@wdc.com>
+Subject: [PATCH v6 4/6] clocksource/drivers/timer-riscv: Use per-CPU timer
+ interrupt
+Date: Sat, 30 May 2020 15:37:23 +0530
+Message-Id: <20200530100725.265481-5-anup.patel@wdc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20200530100725.265481-1-anup.patel@wdc.com>
 References: <20200530100725.265481-1-anup.patel@wdc.com>
@@ -112,38 +112,38 @@ Received: from wdc.com (49.207.61.131) by
  MAXPR0101CA0037.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:d::23) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3045.21 via Frontend
- Transport; Sat, 30 May 2020 10:07:57 +0000
+ Transport; Sat, 30 May 2020 10:08:06 +0000
 X-Mailer: git-send-email 2.25.1
 X-Originating-IP: [49.207.61.131]
 X-MS-PublicTrafficType: Email
 X-MS-Office365-Filtering-HT: Tenant
-X-MS-Office365-Filtering-Correlation-Id: 129c80e4-1a17-4ad3-3fcc-08d8048155c3
+X-MS-Office365-Filtering-Correlation-Id: c6ca9c63-3fe9-4931-915d-08d804815b3b
 X-MS-TrafficTypeDiagnostic: DM6PR04MB4314:
 X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <DM6PR04MB4314F51B6E03351E2EBEB6558D8C0@DM6PR04MB4314.namprd04.prod.outlook.com>
+X-Microsoft-Antispam-PRVS: <DM6PR04MB4314B177733704115B3CC52F8D8C0@DM6PR04MB4314.namprd04.prod.outlook.com>
 WDCIPOUTBOUND: EOP-TRUE
-X-MS-Oob-TLC-OOBClassifiers: OLM:7691;
+X-MS-Oob-TLC-OOBClassifiers: OLM:2887;
 X-Forefront-PRVS: 041963B986
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: OVHdMmV083ylnRB0NQG9rGPKVdIgJG0NFyR34Hv48o6C7VZBqqSzNk6ARW5QrUsYaIZK3YbCCCAIKYCUqTWsWtvc1S40+YTJBJpTWpjmt1v5k9B3bvtRqa5499jhMt+tIPl32DX5WCZ4AmOyOd/VFsMbezwkKaXHVHVY/Sa8TMODoBzqGSNWRRIYKwPYUoZOYoAiBMlw++eCwA2o96UcSwOK8xvVQD8RBErqWOy7XLD973enDP+XXNPEkIV8zx5SZvqr4kP/mlKB0Z6gV6iAuB6ztJk86xms4MRboCBsYBzNCVP1SDSP1h9E99Yru+jz
+X-Microsoft-Antispam-Message-Info: ztAWxmoZRapjFiY38MSYA868uGVOt/eSKWO0puZ2xOXi2lOSaLn44ZiKrsS1ouZYtuFI27bfjFfXINqIPxDnUwReAsUshrcn5h3nqnA6U2FixWevka6FcJsFR7LRVLgy/L+0gpvhLtI61rDzR2yY/8J6TgoFjohKDMaYYfQRllYuA1cJLJsgAfictWxHu/mYc4lpS+8JCw67/DAthRohaQMnqzSqwW7kFRCZWhwu0Y6L1MMXZOYEe1poABf2FlrFdvxJ2U2zDWD2IiQU0j2KnuuVwvJd3rYSURqR8AhFqmSbFQ5JS9sI7Ns9gwRVzJ+5BnEaoYpZKMTnpkRIHGt/Nw==
 X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
  IPV:NLI; SFV:NSPM; H:DM6PR04MB6201.namprd04.prod.outlook.com; PTR:; CAT:NONE;
  SFTY:;
  SFS:(4636009)(396003)(366004)(346002)(136003)(376002)(39860400002)(26005)(1006002)(186003)(1076003)(6666004)(55236004)(4326008)(956004)(8886007)(16526019)(5660300002)(2616005)(8676002)(8936002)(478600001)(36756003)(44832011)(2906002)(55016002)(7696005)(52116002)(7416002)(54906003)(110136005)(66476007)(66556008)(66946007)(86362001)(316002)(83380400001);
  DIR:OUT; SFP:1102; 
-X-MS-Exchange-AntiSpam-MessageData: 2tVAvkMFr1XLvTJYNqVAsLLJPBqhsqTLq4NieKLgI4MkC3EMkFlxzoNnZr4OdBYEYqqV7YjGmHDSg95Hpyb5JmbKqOj9ht6Pw3haqEBFSLURVSy0W123piOsUxgVHiNr8Pxj756YH8dZdLdAIbEvNvXqPZNDIkNbWNlbtYYFuPAX5ywd2ZH8VzmdkVD/4C6kutSsjpWZxBalvJfUJXTKJcRfvokv9ovoYQl3XROueOK/SyaaRZXiztkxPJGbQXzdLkPtr5Oh2irLvPeGyEr+vQ/jPmjWOKdBlX0grc7Mu1PVkpGFMLz0muRjewWOZUPXS3DJ35ZPJ/tAZsDFrJFEBnETfKndDfH8tRwIGqH69+LJ6mUqiytv1Qo5S48seewd+YS2XHgGOK3Xq9tZzZDWisOuecNPolfYYGugFm/Dgm0WNMPre/zaZUTDm3KxGNxV5pwirgo3237K7bxtPDASI+nxh9JLmp6Ruo/aM3ubBGcRTFvENVY+tlOQOmeUa7yi
+X-MS-Exchange-AntiSpam-MessageData: BTREUMgKajCqovQJqKrQgabNIEAzMxbgKfMV6MjqTjkD8Nco4aQuOBcyhkDEwVyjaMFd/7VH/kRW0zXBCT/GEzKZMb04+1QZqAqPgfedr7EpGQ6O1K5B3tZOtwAbpcPNmV5JNrB6/EBCJQfjX5LWSo+jxyFvN5MHNa+nLfJkSfviWQBV57y2leEZGwLGZAoD8BIdwpry9IWJVyHVyageeU177i/1U9Dy0osDY/xEEm4rPxA4s+JH5VCVcW06ArLP82HyeF5P8/g0JIO8VxrynVVHX1vWJBcChAAYSCMG4Qpyi8V3ad9Ls048Of04NYDhmyxdZ2PxsYSHbQxkbjdDnRFJktsD8Au5zQntXL/Jgli4XMXeWIBIFVvWdOKqQ3mLbycd+BF/b9yF0RXoLlsO8ve27qY8wnl9muigVghOv+Dp24gVNG+HnpDTo0IIxndHIxM0/aLZHcObcoeoXTWDjuqfRFRRnboNWKhIx7SedMQ=
 X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 129c80e4-1a17-4ad3-3fcc-08d8048155c3
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 May 2020 10:08:01.0955 (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c6ca9c63-3fe9-4931-915d-08d804815b3b
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 May 2020 10:08:10.2946 (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: adwlD5Uym8X3mRjOErIA9/xYJkrgQV0EqDhCbkIrpWZ6ds5ycra/MCzLLLfC93qW4BdqTxlJ6AgncpAUEozg1g==
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZzRUtJMhB4Hh3IcsyP45Rtw8ioQUz1F8RLTqoQk3Q04T6EuK0gBlfTiFtf3Eu1w21ZFsc1UB254wVatqPT7qmw==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR04MB4314
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200530_030824_068455_56DE8F15 
-X-CRM114-Status: GOOD (  15.17  )
+X-CRM114-CacheID: sfid-20200530_030825_678921_84A24AF0 
+X-CRM114-Status: GOOD (  15.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -155,101 +155,166 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Palmer Dabbelt <palmerdabbelt@google.com>, Anup Patel <anup@brainfault.org>,
- Anup Patel <anup.patel@wdc.com>, linux-kernel@vger.kernel.org,
- Atish Patra <atish.patra@wdc.com>, Alistair Francis <Alistair.Francis@wdc.com>,
- linux-riscv@lists.infradead.org
+Cc: Anup Patel <anup@brainfault.org>, Anup Patel <anup.patel@wdc.com>,
+ linux-kernel@vger.kernel.org, Atish Patra <atish.patra@wdc.com>,
+ Alistair Francis <Alistair.Francis@wdc.com>, linux-riscv@lists.infradead.org
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The plic_find_hart_id() can be useful to other interrupt controller
-drivers (such as RISC-V local interrupt driver) so we rename this
-function to riscv_of_parent_hartid() and place it in arch directory
-along with riscv_of_processor_hartid().
+Instead of directly calling RISC-V timer interrupt handler from
+RISC-V local interrupt conntroller driver, this patch implements
+RISC-V timer interrupt as a per-CPU interrupt using per-CPU APIs
+of Linux IRQ subsystem.
 
 Signed-off-by: Anup Patel <anup.patel@wdc.com>
 Reviewed-by: Atish Patra <atish.patra@wdc.com>
-Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
-Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
 ---
- arch/riscv/include/asm/processor.h |  1 +
- arch/riscv/kernel/cpu.c            | 16 ++++++++++++++++
- drivers/irqchip/irq-sifive-plic.c  | 16 +---------------
- 3 files changed, 18 insertions(+), 15 deletions(-)
+ arch/riscv/include/asm/irq.h      |  2 --
+ drivers/clocksource/timer-riscv.c | 41 ++++++++++++++++++++++++++++---
+ drivers/irqchip/irq-riscv-intc.c  |  8 ------
+ 3 files changed, 38 insertions(+), 13 deletions(-)
 
-diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index 3ddb798264f1..b1efd840003c 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -75,6 +75,7 @@ static inline void wait_for_interrupt(void)
+diff --git a/arch/riscv/include/asm/irq.h b/arch/riscv/include/asm/irq.h
+index a9e5f07a7e9c..9807ad164015 100644
+--- a/arch/riscv/include/asm/irq.h
++++ b/arch/riscv/include/asm/irq.h
+@@ -10,8 +10,6 @@
+ #include <linux/interrupt.h>
+ #include <linux/linkage.h>
  
- struct device_node;
- int riscv_of_processor_hartid(struct device_node *node);
-+int riscv_of_parent_hartid(struct device_node *node);
+-void riscv_timer_interrupt(void);
+-
+ #include <asm-generic/irq.h>
  
- extern void riscv_fill_hwcap(void);
+ #endif /* _ASM_RISCV_IRQ_H */
+diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
+index c4f15c4068c0..1fe847983f50 100644
+--- a/drivers/clocksource/timer-riscv.c
++++ b/drivers/clocksource/timer-riscv.c
+@@ -12,8 +12,11 @@
+ #include <linux/cpu.h>
+ #include <linux/delay.h>
+ #include <linux/irq.h>
++#include <linux/irqdomain.h>
+ #include <linux/sched_clock.h>
+ #include <linux/io-64-nonatomic-lo-hi.h>
++#include <linux/interrupt.h>
++#include <linux/of_irq.h>
+ #include <asm/smp.h>
+ #include <asm/sbi.h>
  
-diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index 40a3c442ac5f..6d59e6906fdd 100644
---- a/arch/riscv/kernel/cpu.c
-+++ b/arch/riscv/kernel/cpu.c
-@@ -44,6 +44,22 @@ int riscv_of_processor_hartid(struct device_node *node)
- 	return hart;
+@@ -39,6 +42,7 @@ static int riscv_clock_next_event(unsigned long delta,
+ 	return 0;
  }
  
-+/*
-+ * Find hart ID of the CPU DT node under which given DT node falls.
-+ *
-+ * To achieve this, we walk up the DT tree until we find an active
-+ * RISC-V core (HART) node and extract the cpuid from it.
-+ */
-+int riscv_of_parent_hartid(struct device_node *node)
-+{
-+	for (; node; node = node->parent) {
-+		if (of_device_is_compatible(node, "riscv"))
-+			return riscv_of_processor_hartid(node);
++static unsigned int riscv_clock_event_irq;
+ static DEFINE_PER_CPU(struct clock_event_device, riscv_clock_event) = {
+ 	.name			= "riscv_timer_clockevent",
+ 	.features		= CLOCK_EVT_FEAT_ONESHOT,
+@@ -74,30 +78,36 @@ static int riscv_timer_starting_cpu(unsigned int cpu)
+ 	struct clock_event_device *ce = per_cpu_ptr(&riscv_clock_event, cpu);
+ 
+ 	ce->cpumask = cpumask_of(cpu);
++	ce->irq = riscv_clock_event_irq;
+ 	clockevents_config_and_register(ce, riscv_timebase, 100, 0x7fffffff);
+ 
+-	csr_set(CSR_IE, IE_TIE);
++	enable_percpu_irq(riscv_clock_event_irq,
++			  irq_get_trigger_type(riscv_clock_event_irq));
+ 	return 0;
+ }
+ 
+ static int riscv_timer_dying_cpu(unsigned int cpu)
+ {
+-	csr_clear(CSR_IE, IE_TIE);
++	disable_percpu_irq(riscv_clock_event_irq);
+ 	return 0;
+ }
+ 
+ /* called directly from the low-level interrupt handler */
+-void riscv_timer_interrupt(void)
++static irqreturn_t riscv_timer_interrupt(int irq, void *dev_id)
+ {
+ 	struct clock_event_device *evdev = this_cpu_ptr(&riscv_clock_event);
+ 
+ 	csr_clear(CSR_IE, IE_TIE);
+ 	evdev->event_handler(evdev);
++
++	return IRQ_HANDLED;
+ }
+ 
+ static int __init riscv_timer_init_dt(struct device_node *n)
+ {
+ 	int cpuid, hartid, error;
++	struct device_node *child;
++	struct irq_domain *domain;
+ 
+ 	hartid = riscv_of_processor_hartid(n);
+ 	if (hartid < 0) {
+@@ -115,6 +125,23 @@ static int __init riscv_timer_init_dt(struct device_node *n)
+ 	if (cpuid != smp_processor_id())
+ 		return 0;
+ 
++	domain = NULL;
++	for_each_child_of_node(n, child) {
++		domain = irq_find_host(child);
++		if (domain)
++			break;
++	}
++	if (!domain) {
++		pr_err("Failed to find interrupt domain for node [%pOF]\n", n);
++		return -ENODEV;
 +	}
 +
-+	return -1;
-+}
++	riscv_clock_event_irq = irq_create_mapping(domain, RV_IRQ_TIMER);
++	if (!riscv_clock_event_irq) {
++		pr_err("Failed to map timer interrupt for node [%pOF]\n", n);
++		return -ENODEV;
++	}
 +
- #ifdef CONFIG_PROC_FS
+ 	pr_info("%s: Registering clocksource cpuid [%d] hartid [%d]\n",
+ 	       __func__, cpuid, hartid);
+ 	error = clocksource_register_hz(&riscv_clocksource, riscv_timebase);
+@@ -126,6 +153,14 @@ static int __init riscv_timer_init_dt(struct device_node *n)
  
- static void print_isa(struct seq_file *f, const char *isa)
-diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index d9c53f85a68e..16d31d114c30 100644
---- a/drivers/irqchip/irq-sifive-plic.c
-+++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -240,20 +240,6 @@ static void plic_handle_irq(struct pt_regs *regs)
- 	csr_set(CSR_IE, IE_EIE);
- }
+ 	sched_clock_register(riscv_sched_clock, 64, riscv_timebase);
  
--/*
-- * Walk up the DT tree until we find an active RISC-V core (HART) node and
-- * extract the cpuid from it.
-- */
--static int plic_find_hart_id(struct device_node *node)
--{
--	for (; node; node = node->parent) {
--		if (of_device_is_compatible(node, "riscv"))
--			return riscv_of_processor_hartid(node);
--	}
--
--	return -1;
--}
--
- static void plic_set_threshold(struct plic_handler *handler, u32 threshold)
++	error = request_percpu_irq(riscv_clock_event_irq,
++				    riscv_timer_interrupt,
++				    "riscv-timer", &riscv_clock_event);
++	if (error) {
++		pr_err("registering percpu irq failed [%d]\n", error);
++		return error;
++	}
++
+ 	error = cpuhp_setup_state(CPUHP_AP_RISCV_TIMER_STARTING,
+ 			 "clockevents/riscv/timer:starting",
+ 			 riscv_timer_starting_cpu, riscv_timer_dying_cpu);
+diff --git a/drivers/irqchip/irq-riscv-intc.c b/drivers/irqchip/irq-riscv-intc.c
+index 84e7bda3a090..e6c07d8f3893 100644
+--- a/drivers/irqchip/irq-riscv-intc.c
++++ b/drivers/irqchip/irq-riscv-intc.c
+@@ -21,20 +21,12 @@ static struct irq_domain *intc_domain;
+ 
+ static asmlinkage void riscv_intc_irq(struct pt_regs *regs)
  {
- 	/* priority must be > threshold to trigger an interrupt */
-@@ -330,7 +316,7 @@ static int __init plic_init(struct device_node *node,
- 		if (parent.args[0] != RV_IRQ_EXT)
- 			continue;
+-	struct pt_regs *old_regs;
+ 	unsigned long cause = regs->cause & ~CAUSE_IRQ_FLAG;
  
--		hartid = plic_find_hart_id(parent.np);
-+		hartid = riscv_of_parent_hartid(parent.np);
- 		if (hartid < 0) {
- 			pr_warn("failed to parse hart ID for context %d.\n", i);
- 			continue;
+ 	if (unlikely(cause >= BITS_PER_LONG))
+ 		panic("unexpected interrupt cause");
+ 
+ 	switch (cause) {
+-	case RV_IRQ_TIMER:
+-		old_regs = set_irq_regs(regs);
+-		irq_enter();
+-		riscv_timer_interrupt();
+-		irq_exit();
+-		set_irq_regs(old_regs);
+-		break;
+ #ifdef CONFIG_SMP
+ 	case RV_IRQ_SOFT:
+ 		/*
 -- 
 2.25.1
 
