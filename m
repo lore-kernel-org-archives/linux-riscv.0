@@ -2,65 +2,61 @@ Return-Path: <SRS0=DbTu=7Q=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 23B58C433DF
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Jun 2020 08:19:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DA404C433DF
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Jun 2020 15:36:23 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EE8022077D
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Jun 2020 08:19:35 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B28A320679
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Jun 2020 15:36:23 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WCj4QRfz"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EE8022077D
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pbmKvBin"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B28A320679
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7NbDsnQU7reD7HeNMoq3jU70lsGaZZjekHUGZIzIMRk=; b=WCj4QRfz5zMg53
-	wd0Ldd2WeYEYbicDZm+yTASrb0/Qs8/eU+OSI8NJ8wxu/UCftLPcBn8/CONR5BZ8zaCeGUEDEZxX/
-	oQ8SYSgMy54x+AFVSY+bszIEyd+qPg1NNuJ/6ruZSXu8FL6sogTwV9d5XsmbVZn38fZMxn40yDrJm
-	oJANfOkKnFRGB9G+hMpI/E7p2JC0U4ZR3U1zfNuCRzDevSSI/tilC8iYiE3o1XQzFASx0y5Z35Kxs
-	kT69uTFUTj02s2+4iFCoCdXBRcs0JbaysvhDSzSlT1XN7rOaPZlvEYXel/ZFdBF6tFGYufDe91nae
-	TzqhqA8/o3t7NdxcRaPg==;
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=PkxkQAgWYCT7856H+1yGm/0POeuSOxtWg8tx411FaGk=; b=pbmKvBinr0/l6S
+	5PME8LKgIEZH883KwzrFt8Oopl7Uh3fxzqQFxJv1wQBL+EKMTyEyQWk+Up5sc4cLFGDX77+0unqnu
+	fkUopIAKuhf9MqCEdhT34cEOREFHe4DbD7fbGikYO2mGq0UsIUsVF1aqK4Bg8DOAnWxMu+/tdvVrh
+	6HaQUyVrBft7kgLNopbLjsbm/+CWGY9BP+zQn2Qc51RiyNfw6Pt4XOZxqtwIE0RQwlWYWlTQEFbI5
+	7DSbNX/PU2Qz1qmrHVJPdHDthv8yBlU47F/L0lxq9dm7QHtL+PACw/HlP3fOyM05AdQ/7dftVrPAf
+	V94BqI0uTh6PRKtYmQRQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jgOcX-0001q2-QP; Wed, 03 Jun 2020 08:19:33 +0000
-Received: from relay7-d.mail.gandi.net ([217.70.183.200])
+	id 1jgVRF-0002Da-1E; Wed, 03 Jun 2020 15:36:21 +0000
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jgOcU-0001pl-Mi
- for linux-riscv@lists.infradead.org; Wed, 03 Jun 2020 08:19:32 +0000
+ id 1jgVRC-0002DA-8i
+ for linux-riscv@lists.infradead.org; Wed, 03 Jun 2020 15:36:19 +0000
 X-Originating-IP: 90.112.45.105
 Received: from debian.home (lfbn-gre-1-325-105.w90-112.abo.wanadoo.fr
  [90.112.45.105]) (Authenticated sender: alex@ghiti.fr)
- by relay7-d.mail.gandi.net (Postfix) with ESMTPSA id 1680D2000D;
- Wed,  3 Jun 2020 08:19:26 +0000 (UTC)
+ by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id CE2A5FF811;
+ Wed,  3 Jun 2020 15:36:14 +0000 (UTC)
 From: Alexandre Ghiti <alex@ghiti.fr>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Zong Li <zong.li@sifive.com>,
- Anup Patel <anup@brainfault.org>, Christoph Hellwig <hch@lst.de>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH v2 8/8] riscv: Explicit comment about user virtual address
- space size
-Date: Wed,  3 Jun 2020 04:11:04 -0400
-Message-Id: <20200603081104.14004-9-alex@ghiti.fr>
+ Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>,
+ Atish Patra <Atish.Patra@wdc.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: [PATCH 0/2] PUD/PGDIR entries for linear mapping 
+Date: Wed,  3 Jun 2020 11:36:06 -0400
+Message-Id: <20200603153608.30056-1-alex@ghiti.fr>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20200603081104.14004-1-alex@ghiti.fr>
-References: <20200603081104.14004-1-alex@ghiti.fr>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200603_011930_874734_A25173E0 
-X-CRM114-Status: UNSURE (   8.75  )
+X-CRM114-CacheID: sfid-20200603_083618_440704_B8570507 
+X-CRM114-Status: UNSURE (   9.33  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -73,43 +69,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Palmer Dabbelt <palmerdabbelt@google.com>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: Alexandre Ghiti <alex@ghiti.fr>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Define precisely the size of the user accessible virtual space size
-for sv32/39/48 mmu types and explain why the whole virtual address
-space is split into 2 equal chunks between kernel and user space.
+This small patchset intends to use PUD/PGDIR entries for linear mapping
+in order to better utilize TLB.
 
-Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
-Reviewed-by: Anup Patel <anup@brainfault.org>
-Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
----
- arch/riscv/include/asm/pgtable.h | 11 +++++++++--
- 1 file changed, 9 insertions(+), 2 deletions(-)
+At the moment, only PMD entries can be used since on common platforms
+(qemu/unleashed), the kernel is loaded at DRAM + 2MB which dealigns virtual
+and physical addresses and then prevents the use of PUD/PGDIR entries.
+So the kernel must be able to get those 2MB for PAGE_OFFSET to map the
+beginning of the DRAM: this is achieved in patch 1.
 
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index cb8c6863266b..86bbc2ed1cdd 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -480,8 +480,15 @@ static inline int ptep_clear_flush_young(struct vm_area_struct *vma,
- #endif
- 
- /*
-- * Task size is 0x4000000000 for RV64 or 0x9fc00000 for RV32.
-- * Note that PGDIR_SIZE must evenly divide TASK_SIZE.
-+ * Task size is:
-+ * -     0x9fc00000 (~2.5GB) for RV32.
-+ * -   0x4000000000 ( 256GB) for RV64 using SV39 mmu
-+ * - 0x800000000000 ( 128TB) for RV64 using SV48 mmu
-+ *
-+ * Note that PGDIR_SIZE must evenly divide TASK_SIZE since "RISC-V
-+ * Instruction Set Manual Volume II: Privileged Architecture" states that
-+ * "load and store effective addresses, which are 64bits, must have bits
-+ * 63–48 all equal to bit 47, or else a page-fault exception will occur."
-  */
- #ifdef CONFIG_64BIT
- #define TASK_SIZE (PGDIR_SIZE * PTRS_PER_PGD / 2)
+But furthermore, at the moment, the firmware (opensbi) explicitly asks the
+kernel not to map the region it occupies, which is on those common
+platforms at the very beginning of the DRAM and then it also dealigns
+virtual and physical addresses. I proposed a patch here:
+
+https://github.com/riscv/opensbi/pull/167
+
+that removes this 'constraint' but *not* all the time as it offers some
+kind of protection in case PMP is not available. So sometimes, we may
+have a part of the memory below the kernel that is removed creating a
+misalignment between virtual and physical addresses. So for performance
+reasons, we must at least make sure that PMD entries can be used: that
+is guaranteed by patch 1 too.
+
+Finally the second patch simply improves best_map_size so that whenever
+possible, PUD/PGDIR entries are used. 
+
+Below is the kernel page table without this patch on a 6G platform:
+
+---[ Linear mapping ]---
+0xffffc00000000000-0xffffc00176e00000    0x0000000080200000 5998M PMD     D A . . . W R V 
+
+And with this patchset + opensbi patch:
+
+---[ Linear mapping ]---
+0xffffc00000000000-0xffffc00140000000 0x0000000080000000         5G PUD     D A . . . W R V
+0xffffc00140000000-0xffffc00177000000    0x00000001c0000000 880M PMD     D A . . . W R V
+
+Alexandre Ghiti (2):
+  riscv: Get memory below load_pa while ensuring linear mapping is PMD
+    aligned
+  riscv: Use PUD/PGDIR entries for linear mapping when possible
+
+ arch/riscv/include/asm/page.h |  8 ++++
+ arch/riscv/mm/init.c          | 69 +++++++++++++++++++++++++++++------
+ 2 files changed, 65 insertions(+), 12 deletions(-)
+
 -- 
 2.20.1
 
