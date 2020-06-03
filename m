@@ -5,18 +5,18 @@ X-Spam-Level:
 X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D6EA7C433E0
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Jun 2020 08:17:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DA1E3C433DF
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Jun 2020 08:18:35 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AF2EA2074B
-	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Jun 2020 08:17:30 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id AEBAA2074B
+	for <infradead-linux-riscv@archiver.kernel.org>; Wed,  3 Jun 2020 08:18:35 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="iOaDUoGJ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AF2EA2074B
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="QC4hZers"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AEBAA2074B
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,40 +25,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=awziwPTvIk8pQUKVX85WToAgKAMAP5kvbQWePrvjj/w=; b=iOaDUoGJ/iOhBL
-	ViazdYzdMnrj6h9mL9Hs7rGJdnIrbfh/c/4uyJht3ZFJ1PUn2jJD2ggcTQFSbixzajFWsfDfjGhcy
-	dJj+KC4X7CaMjIp+hmDFLmrDxwgbEeP6kHJCVg76qygCTvg2a3oVNHEVGbDIi6W9nJlHHf3m+OubY
-	gPQ6vXZF0Ekb10sE0s+OsZd9j4SiUYSWhsiYJf6yy2hnTQo7RnXdP+Tr0csUy+ZKZoRFSdpNGDOnd
-	JUANpOtwhRgtIt0sWhaHNmz1pqlppdI2nkn2yysldqwG71VzlqgS3Yofpq/xoVzBylkuhDqWok4K2
-	Q7QN1YU+Xqttf+1uBUDA==;
+	List-Owner; bh=RDf40XEhncdas4l7T+aTtnhyN5xDSbYeO07ZjuqIneU=; b=QC4hZerspeCBXx
+	B4JtxNCDKVlzLaOU3JJJ3XsOhCejAnPSa6hqyxlu3BKxo0r/VsWAIg80Nm10nmC5DPp/G3tHmCx+7
+	SbhNjWgNRRw9chEmnLc09MnjmLJsrVVDjqgMhwYnNLNmq+8J68uyPdt92vG+l7kjulmtAehfnJYW5
+	8W71EBygCpeTeDL6Wo2EQUG1tS1oT1DHF0bNQzMtHgvv7nfrX2OtXS/E8ggJxfMRvOGt8npngRmmD
+	aK96i5tZP/WJ2o9GONpxJ47eVTxYMRMBRCplZOW2HKRNHHRxAWz8UkikRVkd+FPtLbBM/ql1ODhqH
+	tHn43EynFwgRGjDiQhhw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jgOaW-0001aw-8s; Wed, 03 Jun 2020 08:17:28 +0000
-Received: from relay12.mail.gandi.net ([217.70.178.232])
+	id 1jgObZ-0001iZ-Ap; Wed, 03 Jun 2020 08:18:33 +0000
+Received: from relay7-d.mail.gandi.net ([217.70.183.200])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jgOaT-0001aN-PJ
- for linux-riscv@lists.infradead.org; Wed, 03 Jun 2020 08:17:27 +0000
+ id 1jgObX-0001iC-3u
+ for linux-riscv@lists.infradead.org; Wed, 03 Jun 2020 08:18:32 +0000
+X-Originating-IP: 90.112.45.105
 Received: from debian.home (lfbn-gre-1-325-105.w90-112.abo.wanadoo.fr
  [90.112.45.105]) (Authenticated sender: alex@ghiti.fr)
- by relay12.mail.gandi.net (Postfix) with ESMTPSA id 352FF200004;
- Wed,  3 Jun 2020 08:17:21 +0000 (UTC)
+ by relay7-d.mail.gandi.net (Postfix) with ESMTPSA id 8235120006;
+ Wed,  3 Jun 2020 08:18:24 +0000 (UTC)
 From: Alexandre Ghiti <alex@ghiti.fr>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Zong Li <zong.li@sifive.com>,
  Anup Patel <anup@brainfault.org>, Christoph Hellwig <hch@lst.de>,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH v2 6/8] riscv: Allow user to downgrade to sv39 when hw
- supports sv48
-Date: Wed,  3 Jun 2020 04:11:02 -0400
-Message-Id: <20200603081104.14004-7-alex@ghiti.fr>
+Subject: [PATCH v2 7/8] riscv: Use pgtable_l4_enabled to output mmu type in
+ cpuinfo
+Date: Wed,  3 Jun 2020 04:11:03 -0400
+Message-Id: <20200603081104.14004-8-alex@ghiti.fr>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200603081104.14004-1-alex@ghiti.fr>
 References: <20200603081104.14004-1-alex@ghiti.fr>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200603_011725_958863_258A0ADD 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20200603_011831_291509_90B91DF6 
+X-CRM114-Status: GOOD (  11.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -70,71 +71,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Ghiti <alex@ghiti.fr>
+Cc: Palmer Dabbelt <palmerdabbelt@google.com>, Alexandre Ghiti <alex@ghiti.fr>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is made possible by using the mmu-type property of the cpu node of
-the device tree.
-
-By default, the kernel will boot with 4-level page table if the hw supports
-it but it can be interesting for the user to select 3-level page table as
-it is less memory consuming and faster since it requires less memory
-accesses in case of a TLB miss.
+Now that the mmu type is determined at runtime using SATP
+characteristic, use the global variable pgtable_l4_enabled to output
+mmu type of the processor through /proc/cpuinfo instead of relying on
+device tree infos.
 
 Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
 Reviewed-by: Anup Patel <anup@brainfault.org>
+Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
 ---
- arch/riscv/mm/init.c | 26 ++++++++++++++++++++++++--
- 1 file changed, 24 insertions(+), 2 deletions(-)
+ arch/riscv/include/asm/pgtable.h |  1 +
+ arch/riscv/kernel/cpu.c          | 23 ++++++++++++-----------
+ 2 files changed, 13 insertions(+), 11 deletions(-)
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index a937173af13d..4064639b24e4 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -509,10 +509,32 @@ void disable_pgtable_l4(void)
-  * then read SATP to see if the configuration was taken into account
-  * meaning sv48 is supported.
-  */
--asmlinkage __init void set_satp_mode(uintptr_t load_pa)
-+asmlinkage __init void set_satp_mode(uintptr_t load_pa, uintptr_t dtb_pa)
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index b4b532525fee..cb8c6863266b 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -507,6 +507,7 @@ static inline void __kernel_map_pages(struct page *page, int numpages, int enabl
+ extern char _start[];
+ extern void *dtb_early_va;
+ extern u64 satp_mode;
++extern bool pgtable_l4_enabled;
+ void setup_bootmem(void);
+ void paging_init(void);
+ 
+diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+index 40a3c442ac5f..4661b6669edb 100644
+--- a/arch/riscv/kernel/cpu.c
++++ b/arch/riscv/kernel/cpu.c
+@@ -7,6 +7,7 @@
+ #include <linux/seq_file.h>
+ #include <linux/of.h>
+ #include <asm/smp.h>
++#include <asm/pgtable.h>
+ 
+ /*
+  * Returns the hart ID of the given device tree node, or -ENODEV if the node
+@@ -54,18 +55,19 @@ static void print_isa(struct seq_file *f, const char *isa)
+ 	seq_puts(f, "\n");
+ }
+ 
+-static void print_mmu(struct seq_file *f, const char *mmu_type)
++static void print_mmu(struct seq_file *f)
  {
- 	u64 identity_satp, hw_satp;
-+	int cpus_node;
- 
-+	/* 1/ Check if the user asked for sv39 explicitly in the device tree */
-+	cpus_node = fdt_path_offset((void *)dtb_pa, "/cpus");
-+	if (cpus_node >= 0) {
-+		int node;
++	char sv_type[16];
 +
-+		fdt_for_each_subnode(node, (void *)dtb_pa, cpus_node) {
-+			const char *mmu_type = fdt_getprop((void *)dtb_pa, node,
-+							"mmu-type", NULL);
-+			if (!mmu_type)
-+				continue;
-+
-+			if (!strcmp(mmu_type, "riscv,sv39")) {
-+				disable_pgtable_l4();
-+				return;
-+			}
-+
-+			break;
-+		}
-+	}
-+
-+	/* 2/ Determine if the HW supports sv48: if not, fallback to sv39 */
- 	create_pgd_mapping(early_pg_dir, load_pa, (uintptr_t)early_pud,
- 			   PGDIR_SIZE, PAGE_TABLE);
- 	create_pud_mapping(early_pud, load_pa, (uintptr_t)early_pmd,
-@@ -560,7 +582,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
- 	load_sz = (uintptr_t)(&_end) - load_pa;
- 
- #if defined(CONFIG_64BIT) && !defined(CONFIG_MAXPHYSMEM_2GB)
--	set_satp_mode(load_pa);
-+	set_satp_mode(load_pa, dtb_pa);
+ #if defined(CONFIG_32BIT)
+-	if (strcmp(mmu_type, "riscv,sv32") != 0)
+-		return;
++	strncpy(sv_type, "sv32", 5);
+ #elif defined(CONFIG_64BIT)
+-	if (strcmp(mmu_type, "riscv,sv39") != 0 &&
+-	    strcmp(mmu_type, "riscv,sv48") != 0)
+-		return;
++	if (pgtable_l4_enabled)
++		strncpy(sv_type, "sv48", 5);
++	else
++		strncpy(sv_type, "sv39", 5);
  #endif
+-
+-	seq_printf(f, "mmu\t\t: %s\n", mmu_type+6);
++	seq_printf(f, "mmu\t\t: %s\n", sv_type);
+ }
  
- 	kernel_virt_addr = KERNEL_VIRT_ADDR;
+ static void *c_start(struct seq_file *m, loff_t *pos)
+@@ -90,14 +92,13 @@ static int c_show(struct seq_file *m, void *v)
+ {
+ 	unsigned long cpu_id = (unsigned long)v - 1;
+ 	struct device_node *node = of_get_cpu_node(cpu_id, NULL);
+-	const char *compat, *isa, *mmu;
++	const char *compat, *isa;
+ 
+ 	seq_printf(m, "processor\t: %lu\n", cpu_id);
+ 	seq_printf(m, "hart\t\t: %lu\n", cpuid_to_hartid_map(cpu_id));
+ 	if (!of_property_read_string(node, "riscv,isa", &isa))
+ 		print_isa(m, isa);
+-	if (!of_property_read_string(node, "mmu-type", &mmu))
+-		print_mmu(m, mmu);
++	print_mmu(m);
+ 	if (!of_property_read_string(node, "compatible", &compat)
+ 	    && strcmp(compat, "riscv"))
+ 		seq_printf(m, "uarch\t\t: %s\n", compat);
 -- 
 2.20.1
 
