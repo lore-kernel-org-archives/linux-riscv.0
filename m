@@ -1,89 +1,91 @@
-Return-Path: <SRS0=0x0g=7R=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=8iYN=7S=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-16.6 required=3.0 tests=DKIMWL_WL_HIGH,DKIMWL_WL_MED,
-	DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
-	UPPERCASE_50_75,USER_AGENT_GIT,USER_IN_DEF_DKIM_WL autolearn=ham
+X-Spam-Status: No, score=-6.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 88505C433E0
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  4 Jun 2020 21:01:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 33361C433E1
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  5 Jun 2020 00:01:51 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5A947206C3
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu,  4 Jun 2020 21:01:23 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 0610A206FA
+	for <infradead-linux-riscv@archiver.kernel.org>; Fri,  5 Jun 2020 00:01:51 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WodKGxKZ";
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.b="ZRKasw3u"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5A947206C3
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="bdqNKhST";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="juQe+upO"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0610A206FA
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:To:From:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Reply-To:
-	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=l9WNpzAk6GR0oZM1MZXq4tkoPwG5z3FJyTDP4kfhabM=; b=WodKGxKZbMdBiv
-	m8V5onZ7Dlk9qHCQO18c/d3agCw5Pe9VkpKqCiK797YratY/LJA7QOM34ZHn5EUmlaZP+Zu0qiPAW
-	sUfmqis34iufIjMv2p6eRbkiIlrUl4nXEmxvKVbkqHZbV6gmFDfGq4KaCC4vEG1uhRFBNWj+PNV2e
-	sFkC8vK7j1QmHqt7lmOkX67bcVO+RJJcY8rR3wyc2MhH0r3JYsr1F89GLbPtrTtog6U20ncFfI41r
-	KHumZ5mTKJR2DwQuo4EPiqNpdhQfs+eFtReZ1wxn3diekerdED/FGzKxdNZSss8evhXH1S0xBUyei
-	WQpYsWZVyi2gBdF42efg==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Mime-Version:Message-ID:To:From:
+	In-Reply-To:Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=MrpdpocEURe/t3y3gZl3X5wMKrRSnAGOPmZQ5g0avbc=; b=bdqNKhSTQdqbFu
+	HQpZR/YytGlZRHe6pGgZfzUtyFqMtwxYUM+/GVWXpGp5bkzM71e5wvxM7CWOFcg2Er9SBUvizY3kL
+	3Amci5VWBxMY4BC8qh8TgjWc8Rbjkb2v1fX8iPRRVDQWyuCBFGygcl6DpckZlQMRwvaEDh2+V5CSA
+	FptZy7BcsUPAAnqNHgH/VbAq4B6xlgGJfWK7kLPFOeFh1oDF+7SR76lK7GCCYn4Nhz/s+zRuNTHYo
+	WFuOEb/wLdibB3NuvL3kKHJEdp7GKunPQbqAWeimrBxTjUdCh9wdNde0NdXBQ4fS7A5PU5K56gblZ
+	YDX9w98mi5VTRs8B5u/A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jgwzG-0001Sj-Kl; Thu, 04 Jun 2020 21:01:18 +0000
-Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
+	id 1jgznv-0006h6-69; Fri, 05 Jun 2020 00:01:47 +0000
+Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jgwzD-0001Rr-Sg
- for linux-riscv@lists.infradead.org; Thu, 04 Jun 2020 21:01:17 +0000
-Received: by mail-pg1-x542.google.com with SMTP id 185so4041717pgb.10
- for <linux-riscv@lists.infradead.org>; Thu, 04 Jun 2020 14:01:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
- h=subject:date:message-id:mime-version:content-transfer-encoding:cc
- :from:to; bh=l9WNpzAk6GR0oZM1MZXq4tkoPwG5z3FJyTDP4kfhabM=;
- b=ZRKasw3uiJWcW5F3OFNkQUXYk/FvHHktAsBmkcapQFckPyCaYH3WcT/5kd9KGMktF+
- /CHjqZ6qm4BHoXWxEApcpbf0vZ4dl6BCHhcGL8M5XuO0lXigscod/IzHL/9p7K1japQ/
- BgFUkFgWn/jIzlmfgu+wU391E9RS/3lNg8YPTBCWhkPjf+qhX/fNK+cb3Lhr/d6S9xyw
- 1VzNwLae2lRsYNpU918tRacM04YKLj5dQLCkGUTepPm45s+5gmG9mLOnOk7LdOd0SNDx
- dAQM7Vi7XT5ravtB+537SZujQg6nZ5ylIKNCgghN0dFGLifsWwhaqb+K2bsv3adp0I17
- k1pQ==
+ id 1jgznr-0006ft-Ii
+ for linux-riscv@lists.infradead.org; Fri, 05 Jun 2020 00:01:44 +0000
+Received: by mail-pg1-x541.google.com with SMTP id e9so4234435pgo.9
+ for <linux-riscv@lists.infradead.org>; Thu, 04 Jun 2020 17:01:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=MrpdpocEURe/t3y3gZl3X5wMKrRSnAGOPmZQ5g0avbc=;
+ b=juQe+upOZBcu5uYuurfczE1LF3Zyt3bYitv3q9E6S0ccXNZFkB3wZ53YoGbnveWA2Q
+ ZwafILlf1ALSg5fDfckDiyifJigjOBUeywvfrSpgvGROo1jnfQvF/sN4untmlIHaVEp5
+ XTuq7L2sXQFa3XQtUrTuaWCM+MC6mVfGac0aozm835quSPepv60kDarekyfGHTBg8GCq
+ QDCre/K65kmMao7IFxaoqSKXUJsT4ddDi32PH7B1q/sn1UmJll+/5QKv3cycvpQJ7pGM
+ yb2KGogoy+eoEfskAlTPlRqoHpgEAPIlADsGFLudYN0sEC+Sl9KjMScpgxvGsF848uix
+ qdKg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:date:message-id:mime-version
- :content-transfer-encoding:cc:from:to;
- bh=l9WNpzAk6GR0oZM1MZXq4tkoPwG5z3FJyTDP4kfhabM=;
- b=CrBaj+gYGIlGtnc0/ipRIjROROSki0978xlWP4MJoe9PgPBFzHUmeh6NvbGJFUBWpa
- 8RPF2pUQ6+0928BQU9TwgZAR74xCzvSngWkdF0ATLKdOn9LaMLpLgF2UgG7dn1afD2o4
- 00gTN2Yq0oQphZzQuX/thyVbeD8GIOpW/qWMGNFI8PJNTF+T001ZxMqm5L4DY5Gceq8O
- ye949zYhWIlhuMberc2ZgN0AvfAYSS/dup6JosKKvXDOJ4go4nelR02CheA/BBYYYJiQ
- JHH+u1r196JCqCqY5/NvAVsv+/O11K6qzuR3Utg22nXvP6gnxOOLfT9p88JrSSpOTEKu
- lz4g==
-X-Gm-Message-State: AOAM5315zfUvvwB5x2DzAwgqyozzuvqu3i5vrz2eCtEXyD1pcpVuyLXz
- Yts1kE/RTErb+5ro/4XHuhUU/w==
-X-Google-Smtp-Source: ABdhPJzsAeP68mNdJIneUKPsl9YIY7b3ptemV4ja0CAtW/T8+5kxv0yK5sG/GODQZXenDUR2gRFdzg==
-X-Received: by 2002:a63:d412:: with SMTP id a18mr6212761pgh.154.1591304472412; 
- Thu, 04 Jun 2020 14:01:12 -0700 (PDT)
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=MrpdpocEURe/t3y3gZl3X5wMKrRSnAGOPmZQ5g0avbc=;
+ b=KzccLkpBa2OpFC9AG2NQ6hF/aTL2y/BIHWaNA7IQzn/YjWSt2NDmUoBNxZjUwnMjR0
+ maYv0PB6WZ4v7yCG+siUsYtyUHwAGuoc9jzNx2BpoF6KVCgjxu86iUc3Ad2jcXzLILba
+ REggC2f5K1hUhBIO0I3kj9QY8QWKmGB2LtSAGTLvo+fGHuXU/dYvQnuu+jXsB4H0NHTj
+ nZVxv88A6RG0yZoWoAWCE18FCnnSfHZa+fSrnyStUURTz1mzSfSxugkAr2YSdubV6Mue
+ 5bhdv1lnoag75KXxBW2RxRz6h1yNTRIZA+7idKVcizKo02PJ75leD+93I5+TamJdRj07
+ oyfg==
+X-Gm-Message-State: AOAM530XXbl7NRoXCpU7benLj2SjtkVj0gnfWMbX7f7knMv3eXQ1AD+K
+ +quyJISrj/vatrbuMYS9YgyXB98iVG9neA==
+X-Google-Smtp-Source: ABdhPJy4hOSc4BH6wa0zaDSNuSgjQdv97BrlAnQP9eXDo87HxRJw5B1jx9UEYZzVsfw42ghgXTuz/Q==
+X-Received: by 2002:a62:84d0:: with SMTP id k199mr7145258pfd.156.1591315302557; 
+ Thu, 04 Jun 2020 17:01:42 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id e124sm5347082pfh.140.2020.06.04.14.01.11
+ by smtp.gmail.com with ESMTPSA id y10sm5000928pgi.54.2020.06.04.17.01.41
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 04 Jun 2020 14:01:11 -0700 (PDT)
-Subject: [PATCH] RISC-V: Sort select statements alphanumerically
-Date: Thu,  4 Jun 2020 14:00:07 -0700
-Message-Id: <20200604210007.108432-1-palmerdabbelt@google.com>
-X-Mailer: git-send-email 2.27.0.278.ge193c7cf3a9-goog
-MIME-Version: 1.0
+ Thu, 04 Jun 2020 17:01:41 -0700 (PDT)
+Date: Thu, 04 Jun 2020 17:01:41 -0700 (PDT)
+X-Google-Original-Date: Thu, 04 Jun 2020 15:26:59 PDT (-0700)
+Subject: Re: [PATCH] riscv: fix build warning of missing prototypes
+In-Reply-To: <7acb6dcf9975bbf3aff4be3b01320fd1b5ba30c1.1590983619.git.zong.li@sifive.com>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: zong.li@sifive.com
+Message-ID: <mhng-44445efa-712b-441e-a8f2-9821f4e89b3b@palmerdabbelt-glaptop1>
+Mime-Version: 1.0 (MHng)
+Content-Type: text/plain; charset=utf-8; format=flowed
 Content-Transfer-Encoding: 8bit
-From: Palmer Dabbelt <palmerdabbelt@google.com>
-To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200604_140115_945367_853B2B13 
-X-CRM114-Status: UNSURE (   9.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200604_170143_681681_2DD82747 
+X-CRM114-Status: GOOD (  15.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -95,147 +97,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Palmer Dabbelt <palmerdabbelt@google.com>, Zong Li <zong.li@sifive.com>
+Cc: lkp@intel.com, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, zong.li@sifive.com,
+ Paul Walmsley <paul.walmsley@sifive.com>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Like patch b1b3f49 ("ARM: config: sort select statements alphanumerically")
-, we sort all our select statements alphanumerically by using the perl
-script in patch b1b3f49 as above.
+On Sun, 31 May 2020 20:55:32 PDT (-0700), zong.li@sifive.com wrote:
+> Add the missing header in file, it was losed in original implementation.
+>
+> The warning message as follows:
+>  - no previous prototype for 'patch_text_nosync' [-Wmissing-prototypes]
+>  - no previous prototype for 'patch_text' [-Wmissing-prototypes]
+>
+> Signed-off-by: Zong Li <zong.li@sifive.com>
+> Reported-by: kbuild test robot <lkp@intel.com>
+> ---
+>  arch/riscv/kernel/patch.c | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
+> index 5805791cd5b5..d4a64dfed342 100644
+> --- a/arch/riscv/kernel/patch.c
+> +++ b/arch/riscv/kernel/patch.c
+> @@ -11,6 +11,7 @@
+>  #include <asm/kprobes.h>
+>  #include <asm/cacheflush.h>
+>  #include <asm/fixmap.h>
+> +#include <asm/patch.h>
+>
+>  struct patch_insn {
+>  	void *addr;
 
-As suggested by Andrew Morton:
-
-  This is a pet peeve of mine.  Any time there's a long list of items
-  (header file inclusions, kconfig entries, array initalisers, etc) and
-  someone wants to add a new item, they *always* go and stick it at the
-  end of the list.
-
-  Guys, don't do this.  Either put the new item into a randomly-chosen
-  position or, probably better, alphanumerically sort the list.
-
-Suggested-by: Zong Li <zong.li@sifive.com>
-[Palmer: Re-ran the script, as there were predictably a bunch of conflicts]
-Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
----
- arch/riscv/Kconfig | 68 +++++++++++++++++++++++-----------------------
- 1 file changed, 34 insertions(+), 34 deletions(-)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index c733007b90ab..8244b8f7e7c3 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -12,64 +12,64 @@ config 32BIT
- 
- config RISCV
- 	def_bool y
--	select OF
--	select OF_EARLY_FLATTREE
--	select OF_IRQ
- 	select ARCH_HAS_BINFMT_FLAT
-+	select ARCH_HAS_DEBUG_VIRTUAL if MMU
- 	select ARCH_HAS_DEBUG_WX
-+	select ARCH_HAS_GCOV_PROFILE_ALL
-+	select ARCH_HAS_GIGANTIC_PAGE
-+	select ARCH_HAS_MMIOWB
-+	select ARCH_HAS_PTE_SPECIAL
-+	select ARCH_HAS_SET_DIRECT_MAP
-+	select ARCH_HAS_SET_MEMORY
-+	select ARCH_HAS_STRICT_KERNEL_RWX if MMU
-+	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
- 	select ARCH_WANT_FRAME_POINTERS
-+	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
- 	select CLONE_BACKWARDS
- 	select COMMON_CLK
-+	select EDAC_SUPPORT
-+	select GENERIC_ARCH_TOPOLOGY if SMP
-+	select GENERIC_ATOMIC64 if !64BIT
- 	select GENERIC_CLOCKEVENTS
-+	select GENERIC_IOREMAP
-+	select GENERIC_IRQ_MULTI_HANDLER
- 	select GENERIC_IRQ_SHOW
- 	select GENERIC_PCI_IOMAP
-+	select GENERIC_PTDUMP if MMU
- 	select GENERIC_SCHED_CLOCK
-+	select GENERIC_SMP_IDLE_THREAD
- 	select GENERIC_STRNCPY_FROM_USER if MMU
- 	select GENERIC_STRNLEN_USER if MMU
--	select GENERIC_SMP_IDLE_THREAD
--	select GENERIC_ATOMIC64 if !64BIT
--	select GENERIC_IOREMAP
--	select GENERIC_PTDUMP if MMU
- 	select HAVE_ARCH_AUDITSYSCALL
-+	select HAVE_ARCH_KASAN if MMU && 64BIT
-+	select HAVE_ARCH_KGDB
-+	select HAVE_ARCH_KGDB_QXFER_PKT
-+	select HAVE_ARCH_MMAP_RND_BITS if MMU
- 	select HAVE_ARCH_SECCOMP_FILTER
-+	select HAVE_ARCH_TRACEHOOK
- 	select HAVE_ASM_MODVERSIONS
-+	select HAVE_COPY_THREAD_TLS
- 	select HAVE_DMA_CONTIGUOUS if MMU
-+	select HAVE_EBPF_JIT if MMU
- 	select HAVE_FUTEX_CMPXCHG if FUTEX
-+	select HAVE_PCI
- 	select HAVE_PERF_EVENTS
- 	select HAVE_PERF_REGS
- 	select HAVE_PERF_USER_STACK_DUMP
- 	select HAVE_SYSCALL_TRACEPOINTS
- 	select IRQ_DOMAIN
--	select SPARSE_IRQ
--	select SYSCTL_EXCEPTION_TRACE
--	select HAVE_ARCH_TRACEHOOK
--	select HAVE_PCI
- 	select MODULES_USE_ELF_RELA if MODULES
- 	select MODULE_SECTIONS if MODULES
--	select THREAD_INFO_IN_TASK
-+	select OF
-+	select OF_EARLY_FLATTREE
-+	select OF_IRQ
- 	select PCI_DOMAINS_GENERIC if PCI
- 	select PCI_MSI if PCI
- 	select RISCV_TIMER
--	select GENERIC_IRQ_MULTI_HANDLER
--	select GENERIC_ARCH_TOPOLOGY if SMP
--	select ARCH_HAS_PTE_SPECIAL
--	select ARCH_HAS_MMIOWB
--	select ARCH_HAS_DEBUG_VIRTUAL if MMU
--	select HAVE_EBPF_JIT if MMU
--	select EDAC_SUPPORT
--	select ARCH_HAS_GIGANTIC_PAGE
--	select ARCH_HAS_SET_DIRECT_MAP
--	select ARCH_HAS_SET_MEMORY
--	select ARCH_HAS_STRICT_KERNEL_RWX if MMU
--	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
- 	select SPARSEMEM_STATIC if 32BIT
--	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
--	select HAVE_ARCH_MMAP_RND_BITS if MMU
--	select ARCH_HAS_GCOV_PROFILE_ALL
--	select HAVE_COPY_THREAD_TLS
--	select HAVE_ARCH_KASAN if MMU && 64BIT
--	select HAVE_ARCH_KGDB
--	select HAVE_ARCH_KGDB_QXFER_PKT
-+	select SPARSE_IRQ
-+	select SYSCTL_EXCEPTION_TRACE
-+	select THREAD_INFO_IN_TASK
- 
- config ARCH_MMAP_RND_BITS_MIN
- 	default 18 if 64BIT
-@@ -196,11 +196,11 @@ config ARCH_RV64I
- 	bool "RV64I"
- 	select 64BIT
- 	select ARCH_SUPPORTS_INT128 if CC_HAS_INT128 && GCC_VERSION >= 50000
--	select HAVE_FUNCTION_TRACER
--	select HAVE_FUNCTION_GRAPH_TRACER
--	select HAVE_FTRACE_MCOUNT_RECORD
- 	select HAVE_DYNAMIC_FTRACE if MMU
- 	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
-+	select HAVE_FTRACE_MCOUNT_RECORD
-+	select HAVE_FUNCTION_GRAPH_TRACER
-+	select HAVE_FUNCTION_TRACER
- 	select SWIOTLB if MMU
- 
- endchoice
--- 
-2.27.0.278.ge193c7cf3a9-goog
-
+Thanks, this one is queued up -- for-next is in flux right now, but with any
+luck it'll get sorted out soon.
 
