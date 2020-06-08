@@ -4,20 +4,20 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-10.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=3.4.0
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2A1D3C433E1
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  8 Jun 2020 23:26:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E8D90C433E0
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  8 Jun 2020 23:30:26 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E38122076C
-	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  8 Jun 2020 23:26:12 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8CA8620775
+	for <infradead-linux-riscv@archiver.kernel.org>; Mon,  8 Jun 2020 23:30:26 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="BO2UniHW";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="VV3Qyerf"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E38122076C
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="iVnG4miI";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="CDJ0ANxC"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8CA8620775
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,39 +26,39 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U3/SO78/9ljeE9rKrAiQF1jMLjUdG3jBUVzhbec9gyw=; b=BO2UniHWjYHmY4
-	QDvqtY4o9UDcAGziXEOBrVa8+IJsgJiJ/s3EZjN4sgO8g3wLmA0aQT4uEzZHRDYNR1phmyy/UQtjy
-	UQXvgk84ot2WC3p42iOhTIidQXQ3UfeQY8+O0JG5f1oMTEdZULKIY/rmv3FFM+9X3YhCgzS5tSp6C
-	8I5qPzNcsGEeVpzLqvo/Btb2EapAX3zQUSbT76SPzhXFkqeMDAoA4P9ocNgZB7p6+r/8cE7vYATRF
-	ruU3guFZzTf352mPzmFsOSx9A/7DinDaLAqRwdkPkCD2eLO37scj911s13XuH97rMDQIM9gZpSE3Z
-	RmPI3lGTlRIDqXHr0Fqw==;
+	List-Owner; bh=1DUz7SV1euiAHI2QAlQHLiH3F80TDiT/OWFpKTsIwtc=; b=iVnG4miIKE63WY
+	DGUwwBUi/4SxhSPCeH8dNbtBq+9+Xi2gMvnpj3hyXquOnQ9qv1nn7o7alcV0Zm6Sv+UK/nolTfyE3
+	sPlN7SEX4WdEUqvGuZo6nEs5sQfOkfp2ZX31T33piP0gBaZ6YI8FPIZuQlu/ZRUdtqB3Xrs21m2vD
+	oYXOkfDooExkSJ8H0VhK9zcM/0PCOUGhVSBGk7SJ1Am/fQ4sUvICjETrWhd2v1J1JNcRBPBGLB0r0
+	WL5O/RRa8bKgnPmxFr7xBllbfaZVLgquMHqFUPUbTK3MOmLoWmLhquO5A+PZlLRhaMJuq8O5Mhfrw
+	HY8eLDTrvgtMRYFNyQbg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jiR9c-0007Ct-GY; Mon, 08 Jun 2020 23:26:08 +0000
+	id 1jiRDi-0004g3-HK; Mon, 08 Jun 2020 23:30:22 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jiQxY-0006wT-NB
- for linux-riscv@lists.infradead.org; Mon, 08 Jun 2020 23:13:50 +0000
+ id 1jiQzd-0002m7-BB
+ for linux-riscv@lists.infradead.org; Mon, 08 Jun 2020 23:15:50 +0000
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net
  [73.47.72.35])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 4116B212CC;
- Mon,  8 Jun 2020 23:13:39 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id D55612068D;
+ Mon,  8 Jun 2020 23:15:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1591658019;
- bh=PAF7TTob2i+fDQUy2vnO8iUW+qZWiXx2tOJs+soBO68=;
+ s=default; t=1591658148;
+ bh=UC/hJa4X7QpfVijofanUa1kALbeXhRnw1dF4T3sBwyc=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=VV3Qyerf7dWJEdNT3HShUwCKFvIbcbP5CiszGVj80m7eXz3NJpsbCfpBgBLqLbPIA
- 5bjEYJhypEOGp+OVE7efveAjbPzw++qmhYWg7cGuZw7GtyLnlvRmJ1Y4gNPNrVZGJW
- /VPXtpYqSy/MtUBcyLJhykXRTsepjCUIMKeaCmVY=
+ b=CDJ0ANxCBfx9sk1d3mSPj/eAFgpg/jj7QF+h0IaeL2aK3t3DYF9JTEy15q5w9tLks
+ RPfVebBfMXwPzWCGH8O1zvbc3yfM0IXwEEIcenzGs2Ka9slI+xHBatVvg6Q1bH9l3m
+ OQhAtwEvj4dQxZLsVYPL7zYh4xhV0QqG9sgXV7xc=
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Subject: [PATCH AUTOSEL 5.6 073/606] riscv: perf: RISCV_BASE_PMU should be
- independent
-Date: Mon,  8 Jun 2020 19:03:18 -0400
-Message-Id: <20200608231211.3363633-73-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.6 181/606] tty: serial: add missing spin_lock_init
+ for SiFive serial console
+Date: Mon,  8 Jun 2020 19:05:06 -0400
+Message-Id: <20200608231211.3363633-181-sashal@kernel.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20200608231211.3363633-1-sashal@kernel.org>
 References: <20200608231211.3363633-1-sashal@kernel.org>
@@ -67,8 +67,8 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200608_161340_821446_25045A90 
-X-CRM114-Status: UNSURE (   9.58  )
+X-CRM114-CacheID: sfid-20200608_161549_453600_E3D6E617 
+X-CRM114-Status: UNSURE (   9.97  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -82,74 +82,49 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Kefeng Wang <wangkefeng.wang@huawei.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>, linux-riscv@lists.infradead.org
+ Palmer Dabbelt <palmerdabbelt@google.com>, Atish Patra <Atish.Patra@wdc.com>,
+ Sagar Shrikant Kadam <sagar.kadam@sifive.com>, linux-serial@vger.kernel.org,
+ linux-riscv@lists.infradead.org
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
+From: Sagar Shrikant Kadam <sagar.kadam@sifive.com>
 
-commit 48084c3595cb7429f6ba734cfea1313573b9a7fa upstream.
+commit 17b4efdf4e4867079012a48ca10d965fe9d68822 upstream.
 
-Selecting PERF_EVENTS without selecting RISCV_BASE_PMU results in a build
-error.
+An uninitialised spin lock for sifive serial console raises a bad
+magic spin_lock error as reported and discussed here [1].
+Initialising the spin lock resolves the issue.
 
-Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
-[Palmer: commit text]
-Fixes: 178e9fc47aae("perf: riscv: preliminary RISC-V support")
-Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
+The fix is tested on HiFive Unleashed A00 board with Linux 5.7-rc4
+and OpenSBI v0.7
+
+[1] https://lore.kernel.org/linux-riscv/b9fe49483a903f404e7acc15a6efbef756db28ae.camel@wdc.com
+
+Fixes: 45c054d0815b ("tty: serial: add driver for the SiFive UART")
+Reported-by: Atish Patra <Atish.Patra@wdc.com>
+Signed-off-by: Sagar Shrikant Kadam <sagar.kadam@sifive.com>
+Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
+Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
+Cc: stable <stable@vger.kernel.org>
+Link: https://lore.kernel.org/r/1589019852-21505-2-git-send-email-sagar.kadam@sifive.com
 Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 ---
- arch/riscv/include/asm/perf_event.h | 8 ++------
- arch/riscv/kernel/Makefile          | 2 +-
- 2 files changed, 3 insertions(+), 7 deletions(-)
+ drivers/tty/serial/sifive.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/include/asm/perf_event.h b/arch/riscv/include/asm/perf_event.h
-index 0234048b12bc..062efd3a1d5d 100644
---- a/arch/riscv/include/asm/perf_event.h
-+++ b/arch/riscv/include/asm/perf_event.h
-@@ -12,19 +12,14 @@
- #include <linux/ptrace.h>
- #include <linux/interrupt.h>
+diff --git a/drivers/tty/serial/sifive.c b/drivers/tty/serial/sifive.c
+index d5f81b98e4d7..38133eba83a8 100644
+--- a/drivers/tty/serial/sifive.c
++++ b/drivers/tty/serial/sifive.c
+@@ -840,6 +840,7 @@ console_initcall(sifive_console_init);
  
-+#ifdef CONFIG_RISCV_BASE_PMU
- #define RISCV_BASE_COUNTERS	2
+ static void __ssp_add_console_port(struct sifive_serial_port *ssp)
+ {
++	spin_lock_init(&ssp->port.lock);
+ 	sifive_serial_console_ports[ssp->port.line] = ssp;
+ }
  
- /*
-  * The RISCV_MAX_COUNTERS parameter should be specified.
-  */
- 
--#ifdef CONFIG_RISCV_BASE_PMU
- #define RISCV_MAX_COUNTERS	2
--#endif
--
--#ifndef RISCV_MAX_COUNTERS
--#error "Please provide a valid RISCV_MAX_COUNTERS for the PMU."
--#endif
- 
- /*
-  * These are the indexes of bits in counteren register *minus* 1,
-@@ -82,6 +77,7 @@ struct riscv_pmu {
- 	int		irq;
- };
- 
-+#endif
- #ifdef CONFIG_PERF_EVENTS
- #define perf_arch_bpf_user_pt_regs(regs) (struct user_regs_struct *)regs
- #endif
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index f40205cb9a22..1dcc095dc23c 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -38,7 +38,7 @@ obj-$(CONFIG_MODULE_SECTIONS)	+= module-sections.o
- obj-$(CONFIG_FUNCTION_TRACER)	+= mcount.o ftrace.o
- obj-$(CONFIG_DYNAMIC_FTRACE)	+= mcount-dyn.o
- 
--obj-$(CONFIG_PERF_EVENTS)	+= perf_event.o
-+obj-$(CONFIG_RISCV_BASE_PMU)	+= perf_event.o
- obj-$(CONFIG_PERF_EVENTS)	+= perf_callchain.o
- obj-$(CONFIG_HAVE_PERF_REGS)	+= perf_regs.o
- obj-$(CONFIG_RISCV_SBI)		+= sbi.o
 -- 
 2.25.1
 
