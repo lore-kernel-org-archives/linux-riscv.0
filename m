@@ -2,84 +2,84 @@ Return-Path: <SRS0=r3k3=7Y=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.8 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PULL_REQUEST,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7B79CC433E0
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 11 Jun 2020 17:29:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 23E6EC433E0
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 11 Jun 2020 17:54:11 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4A82820792
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 11 Jun 2020 17:29:32 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id ED16F20792
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 11 Jun 2020 17:54:10 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="RhwAe0nd";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="BOrhAO2v"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4A82820792
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="mQTEPN/R";
+	dkim=pass (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="OP8u+zwh"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ED16F20792
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Gv2kS6G3o83f2mBPnYmMpo8TuJCcISodnEkPwPcYQnE=; b=RhwAe0nd/GwSUQ
-	rpYwqwfLvopOYId1+37/G3Yv0GUCTrFvCHq9Qy8a9PyXCreTBGPtIVRxPGGssPlaGvP4CgPmCXDK9
-	l9ZTs8D5CCwJbwnFI1YXJ3kp3D7tG4ughOGfjIomNEHTPghGJchWKOEuFQ4emPTUnjAastQnnL7cC
-	hhRSxtGv8KZ9WaNhNLLawr5t7QUnh82SSbfkV60pT6XpW64JuhC7t7RBID9azha8NvuCjzojPEd/0
-	6i2om3c71atA1LLF1lQcnZE5/nszIBCNZNe2fcU6rQtSxn8fwKuggDe0OsEXemuBxwUvV7Dx7poPc
-	WPRGUj5NDlRGH5TxYtEg==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:
+	Subject:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=osYKD6rW/9QKGBBLAoQd2ZrBPFatLhRpJY9OJfIaprQ=; b=mQTEPN/RmYGAZzgToA57sY23e8
+	QSogiCxmwwndFbbAnF2OVrbp8z46+cbo5LYfcv2AwCF3zj1X7bMWGdJ5v/r/6gMbc2tYOWbwspAX5
+	mgtR+aJ8iwMEIaVMT1vYc/wD2gSOtcNgL06c4+9skA11sDvtpGc0r+AtW+erYv8FsJtymsbEty1xU
+	+7cQTX2GSZfoYf7ac1aLIhwdfttxRGW7clrUZrcKHwkFvPpBe1asj4IhAfiMb/TTCZp+90kDe3Kgc
+	I3pxgeANOMhnKd26alhJGfe0xw7zHb43kb7jSIKvHgQm8tBpEiH+qrmjRB0DwVdTViEKpCKFpI3Dl
+	QXYc57CQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jjR17-00025l-C6; Thu, 11 Jun 2020 17:29:29 +0000
-Received: from mail-wr1-x441.google.com ([2a00:1450:4864:20::441])
+	id 1jjROw-0007GX-65; Thu, 11 Jun 2020 17:54:06 +0000
+Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jjR14-00025N-Gr
- for linux-riscv@lists.infradead.org; Thu, 11 Jun 2020 17:29:28 +0000
-Received: by mail-wr1-x441.google.com with SMTP id x14so7024672wrp.2
- for <linux-riscv@lists.infradead.org>; Thu, 11 Jun 2020 10:29:24 -0700 (PDT)
+ id 1jjROs-0007Em-7D
+ for linux-riscv@lists.infradead.org; Thu, 11 Jun 2020 17:54:04 +0000
+Received: by mail-pg1-x541.google.com with SMTP id e18so2838167pgn.7
+ for <linux-riscv@lists.infradead.org>; Thu, 11 Jun 2020 10:54:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=Gv2kS6G3o83f2mBPnYmMpo8TuJCcISodnEkPwPcYQnE=;
- b=BOrhAO2vWpMDso2mx5GwRjXpyvGIn++k+1R00OaP5mChKpAlscrEZsqwuF1TYhbAV4
- OoIqjEtayPMVIGwtgDZHlAL8y/gc6CxGKQ2kGcL89SMHnAN4XqG8pAJsoYHrARWHFs76
- Y0j6HMJIuKh8GQpVOZQagPjv2rsu1J4B6uD6U=
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:cc:from:to:message-id;
+ bh=osYKD6rW/9QKGBBLAoQd2ZrBPFatLhRpJY9OJfIaprQ=;
+ b=OP8u+zwhsykLsjNQysre6l5FfAwk7hmhl+MVEqIKbSrpDPU5PmTQ9NGYQVWxNPsRf9
+ Ej5uITJXSBBQJE6MfSsWSFEEgeUMVlTBl1Bfs2vtxqGjvcDE0Mesopt03pxwooGUk90f
+ R+8jilSFPe4o0m09FbfTF/zXEqD/Ah06AiRkaGCVCwpA+fecP2GAIxsDDoNhfkDMPjWM
+ s5S+qALttn4NlQkKZjO4hN4WE1o1XEmE6VIkM56g5qKTHjkOXUZxITS/nFEmXAwYTh7q
+ 76VTIqMO23wzZrmikkMYwwtjyDg3wuR9AHEjxYXqPt65ayTg21NsqvPSfbbSGUDY+Q1n
+ NMyA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=Gv2kS6G3o83f2mBPnYmMpo8TuJCcISodnEkPwPcYQnE=;
- b=UrgHeObCz7gLPKiKDEtSVwjvQeJeK7ccAO5WFwijQq1dnp1it3lBMA2DEpQerMrsMl
- +Iho6SEvVeRCqADixDVFjks+wuic2l1tcSFKfUmqjMwW499KKByCQCLvU0AanWkiRYwS
- 6hNUVXWKI3hahuVPipq+IXqHQ3DrFqXlArx+dPyStk+dVm3IDwgnrJuJy+F0nfWd7YTK
- EujtcR1R2wgXhwGycTR8ZHnSYsnw9gbIeeVrPr2kYSndqtYyjlPXT1mQhg+bWj22iMTZ
- KSqPuMM06tOhM7l4mhF5/mP6ifpAdz/R/n2nxc6Oys75O8vcRO0svBeaAQGl1T1dliKo
- ucNQ==
-X-Gm-Message-State: AOAM533gCezglysxepMlaNV6s2Wd9uF1lBWOf/LHrF6PN0IxokXT1nVw
- yruQXfmYUYh3xyVztfXvpFo+gEUqxLVFNh39N6sI+Dc=
-X-Google-Smtp-Source: ABdhPJyWWL+hUtM4a2VwYzffSh78HZlncIF/3sL9ZnNp2EfXeeeH93J0EfETtmyORukse0dSa18u+e3xo+ODmWtN0MI=
-X-Received: by 2002:adf:edc8:: with SMTP id v8mr10227082wro.176.1591896563205; 
- Thu, 11 Jun 2020 10:29:23 -0700 (PDT)
-MIME-Version: 1.0
-References: <20200603153608.30056-1-alex@ghiti.fr>
- <CAOnJCUJSKvLDsXC8+wyO1xsZDzLJmjY2kwMKhjz0t+uS8h0pDw@mail.gmail.com>
- <7ad7057e-fdab-14ef-9bdb-c77ccefd208a@ghiti.fr>
-In-Reply-To: <7ad7057e-fdab-14ef-9bdb-c77ccefd208a@ghiti.fr>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Thu, 11 Jun 2020 10:29:12 -0700
-Message-ID: <CAOnJCUKcMmchxgeHNx997EH5JM_OAJFUDCNT6Ca2B-xHE4YT5A@mail.gmail.com>
-Subject: Re: [PATCH 0/2] PUD/PGDIR entries for linear mapping
-To: Alex Ghiti <alex@ghiti.fr>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+ h=x-gm-message-state:date:subject:cc:from:to:message-id;
+ bh=osYKD6rW/9QKGBBLAoQd2ZrBPFatLhRpJY9OJfIaprQ=;
+ b=pal0AKFuCRTsRunXy4tJ7qg8cpi6kLz4XpbdoGpke1YX545dGuSBs5f4YHUNaELIBE
+ JOQWcR/fOUoK2FSWSzJCN0A6u7QmPcsR8HVr65pUHRdu+9f5SpZlYY6bg0k2poxL0uW9
+ 9dJ2Pb1o9za5xcByYXgKYB3dODpf/y8uY4kwaQfexNIWTtnm70J9GYsKFzMLKYJC3Frq
+ /8uXB585JbvaiuGeBmstgKzF26Nvc+hZ0d0WeSbgX9y4X8Cy9P0V0Lyht+c4knk+Szs0
+ InssVWRy4XHni354ISDkB0PPQaShQFr1MWp/pnGth22Mrx6sC+5te4sr2tPd2+9tNA07
+ 2HSA==
+X-Gm-Message-State: AOAM533/53eqoLS6H/CwX5T5C2s3urv6YrYrAOTSXVWcO8g0YD8Gr9f+
+ V1O38e9U0eWRnvIk5gbZxuObawUyXkYSZQ==
+X-Google-Smtp-Source: ABdhPJxNIcqcpFRkQgZ2/kYwDJZft6hRYsp7u8NpEkM6Nb/BQW8hIHuFSxJQ9NilVVQTVwU/IXQI8g==
+X-Received: by 2002:a63:f642:: with SMTP id u2mr7511591pgj.151.1591898040274; 
+ Thu, 11 Jun 2020 10:54:00 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id i34sm3396611pje.10.2020.06.11.10.53.59
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 11 Jun 2020 10:53:59 -0700 (PDT)
+Date: Thu, 11 Jun 2020 10:53:59 -0700 (PDT)
+X-Google-Original-Date: Thu, 11 Jun 2020 10:49:16 PDT (-0700)
+Subject: [GIT PULL] RISC-V Patches for the 5.8 Merge Window, Part 2
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-70ded5ff-c09c-4703-837e-7ab2d9eea85c@palmerdabbelt-glaptop1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200611_102926_622186_A8DBC4E3 
-X-CRM114-Status: GOOD (  25.24  )
+X-CRM114-CacheID: sfid-20200611_105402_313439_EED58582 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -91,124 +91,90 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <anup@brainfault.org>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Atish Patra <Atish.Patra@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 10, 2020 at 11:51 PM Alex Ghiti <alex@ghiti.fr> wrote:
->
-> Hi Atish,
->
-> Le 6/10/20 =C3=A0 2:32 PM, Atish Patra a =C3=A9crit :
-> > On Wed, Jun 3, 2020 at 8:36 AM Alexandre Ghiti <alex@ghiti.fr> wrote:
-> >> This small patchset intends to use PUD/PGDIR entries for linear mappin=
-g
-> >> in order to better utilize TLB.
-> >>
-> >> At the moment, only PMD entries can be used since on common platforms
-> >> (qemu/unleashed), the kernel is loaded at DRAM + 2MB which dealigns vi=
-rtual
-> >> and physical addresses and then prevents the use of PUD/PGDIR entries.
-> >> So the kernel must be able to get those 2MB for PAGE_OFFSET to map the
-> >> beginning of the DRAM: this is achieved in patch 1.
-> >>
-> > I don't have in depth knowledge of how mm code works so this question
-> > may be a completely
-> > stupid one :). Just for my understanding,
-> > As per my understanding, kernel will map those 2MB of memory but never =
-use it.
-> > How does the kernel ensure that it doesn't allocate any memory from tho=
-se 2MB
-> > memory if it is not marked as reserved?
->
-> Yes, a 1GB hugepage will cover those 2MB: I rely on the previous boot
-> stage to mark this region
-> as reserved if there is something there (like opensbi). Otherwise, the
-> kernel will indeed try to
-> allocate memory from there :)
->
-In that case, this patch mandates that the firmware region has to be
-mark "reserved"
-the device tree so that the Linux kernel doesn't try to allocate
-memory from there.
-OpenSBI is already doing it from v0.7. Thus, any user using latest
-OpenSBI can leverage
-this patch for a better TLB utilization.
-However, legacy previous boot stages(BBL) do not reserve this area via
-DT which may
-result in an unexpected crash. I am not sure how many developers still
-use BBL though.
+The following changes since commit 084623e468d535d98f883cc2ccf2c4fdf2108556:
 
-Few general suggestions to tackle this problem:
-1. This mandatory requirement should be added to the booting document
-so that any other
-SBI implementation is also aware of it.
-2. You may have to move the patch1 to a separate config so that any
-users of legacy boot stages
-can disable this feature.
+  Merge tag 'modules-for-v5.8' of git://git.kernel.org/pub/scm/linux/kernel/git/jeyu/linux (2020-06-05 12:31:16 -0700)
 
-> Alex
->
->
-> >> But furthermore, at the moment, the firmware (opensbi) explicitly asks=
- the
-> >> kernel not to map the region it occupies, which is on those common
-> >> platforms at the very beginning of the DRAM and then it also dealigns
-> >> virtual and physical addresses. I proposed a patch here:
-> >>
-> >> https://github.com/riscv/opensbi/pull/167
-> >>
-> >> that removes this 'constraint' but *not* all the time as it offers som=
-e
-> >> kind of protection in case PMP is not available. So sometimes, we may
-> >> have a part of the memory below the kernel that is removed creating a
-> >> misalignment between virtual and physical addresses. So for performanc=
-e
-> >> reasons, we must at least make sure that PMD entries can be used: that
-> >> is guaranteed by patch 1 too.
-> >>
-> >> Finally the second patch simply improves best_map_size so that wheneve=
-r
-> >> possible, PUD/PGDIR entries are used.
-> >>
-> >> Below is the kernel page table without this patch on a 6G platform:
-> >>
-> >> ---[ Linear mapping ]---
-> >> 0xffffc00000000000-0xffffc00176e00000    0x0000000080200000 5998M PMD =
-    D A . . . W R V
-> >>
-> >> And with this patchset + opensbi patch:
-> >>
-> >> ---[ Linear mapping ]---
-> >> 0xffffc00000000000-0xffffc00140000000 0x0000000080000000         5G PU=
-D     D A . . . W R V
-> >> 0xffffc00140000000-0xffffc00177000000    0x00000001c0000000 880M PMD  =
-   D A . . . W R V
-> >>
-> >> Alexandre Ghiti (2):
-> >>    riscv: Get memory below load_pa while ensuring linear mapping is PM=
-D
-> >>      aligned
-> >>    riscv: Use PUD/PGDIR entries for linear mapping when possible
-> >>
-> >>   arch/riscv/include/asm/page.h |  8 ++++
-> >>   arch/riscv/mm/init.c          | 69 +++++++++++++++++++++++++++++----=
---
-> >>   2 files changed, 65 insertions(+), 12 deletions(-)
-> >>
-> >> --
-> >> 2.20.1
-> >>
-> >>
-> >
+are available in the Git repository at:
 
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.8-mw1
 
+for you to fetch changes up to 01f76386b0ac0b1c1094456c8f43ea6085fc49d2:
 
---=20
-Regards,
-Atish
+  riscv: set the permission of vdso_data to read-only (2020-06-10 19:47:35 -0700)
+
+----------------------------------------------------------------
+RISC-V Patches for the 5.8 Merge Window, Part 2
+
+* Select statements are now sorted alphanumerically.
+* Our first-level interrupts are now handled via a full irqchip driver.
+* CPU hotplug is fixed.
+* Our vDSO calls now use the common vDSO infrastructure.
+
+----------------------------------------------------------------
+Anup Patel (7):
+      RISC-V: self-contained IPI handling routine
+      RISC-V: Rename and move plic_find_hart_id() to arch directory
+      irqchip: RISC-V per-HART local interrupt controller driver
+      clocksource/drivers/timer-riscv: Use per-CPU timer interrupt
+      RISC-V: Remove do_IRQ() function
+      RISC-V: Force select RISCV_INTC for CONFIG_RISCV
+      RISC-V: Don't mark init section as non-executable
+
+Palmer Dabbelt (1):
+      RISC-V: Sort select statements alphanumerically
+
+Vincent Chen (2):
+      riscv: use vDSO common flow to reduce the latency of the time-related functions
+      riscv: set the permission of vdso_data to read-only
+
+Zong Li (1):
+      riscv: fix build warning of missing prototypes
+
+ arch/riscv/Kconfig                         |  74 +++++++++-------
+ arch/riscv/include/asm/clocksource.h       |   7 ++
+ arch/riscv/include/asm/irq.h               |   5 --
+ arch/riscv/include/asm/processor.h         |  13 +--
+ arch/riscv/include/asm/smp.h               |   3 +
+ arch/riscv/include/asm/vdso.h              |   2 +
+ arch/riscv/include/asm/vdso/clocksource.h  |   8 ++
+ arch/riscv/include/asm/vdso/gettimeofday.h |  79 +++++++++++++++++
+ arch/riscv/include/asm/vdso/processor.h    |  19 ++++
+ arch/riscv/include/asm/vdso/vsyscall.h     |  27 ++++++
+ arch/riscv/kernel/cpu.c                    |  16 ++++
+ arch/riscv/kernel/entry.S                  |   4 +-
+ arch/riscv/kernel/irq.c                    |  33 +------
+ arch/riscv/kernel/patch.c                  |   1 +
+ arch/riscv/kernel/smp.c                    |  11 ++-
+ arch/riscv/kernel/time.c                   |   9 ++
+ arch/riscv/kernel/traps.c                  |   2 -
+ arch/riscv/kernel/vdso.c                   |  24 ++++-
+ arch/riscv/kernel/vdso/Makefile            |  12 ++-
+ arch/riscv/kernel/vdso/clock_getres.S      |  18 ----
+ arch/riscv/kernel/vdso/clock_gettime.S     |  18 ----
+ arch/riscv/kernel/vdso/gettimeofday.S      |  18 ----
+ arch/riscv/kernel/vdso/vdso.lds.S          |   2 +
+ arch/riscv/kernel/vdso/vgettimeofday.c     |  25 ++++++
+ arch/riscv/mm/init.c                       |  11 ---
+ drivers/clocksource/timer-riscv.c          |  43 ++++++++-
+ drivers/irqchip/Kconfig                    |  13 +++
+ drivers/irqchip/Makefile                   |   1 +
+ drivers/irqchip/irq-riscv-intc.c           | 138 +++++++++++++++++++++++++++++
+ drivers/irqchip/irq-sifive-plic.c          |  46 +++++-----
+ include/linux/cpuhotplug.h                 |   1 +
+ 31 files changed, 500 insertions(+), 183 deletions(-)
+ create mode 100644 arch/riscv/include/asm/clocksource.h
+ create mode 100644 arch/riscv/include/asm/vdso/clocksource.h
+ create mode 100644 arch/riscv/include/asm/vdso/gettimeofday.h
+ create mode 100644 arch/riscv/include/asm/vdso/processor.h
+ create mode 100644 arch/riscv/include/asm/vdso/vsyscall.h
+ delete mode 100644 arch/riscv/kernel/vdso/clock_getres.S
+ delete mode 100644 arch/riscv/kernel/vdso/clock_gettime.S
+ delete mode 100644 arch/riscv/kernel/vdso/gettimeofday.S
+ create mode 100644 arch/riscv/kernel/vdso/vgettimeofday.c
+ create mode 100644 drivers/irqchip/irq-riscv-intc.c
 
