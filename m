@@ -2,88 +2,82 @@ Return-Path: <SRS0=r3k3=7Y=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+X-Spam-Status: No, score=-14.7 required=3.0 tests=DKIMWL_WL_HIGH,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1E24CC433E2
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 11 Jun 2020 17:54:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B54BCC433DF
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 11 Jun 2020 18:34:36 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EBA6620792
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 11 Jun 2020 17:54:11 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8E82320829
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 11 Jun 2020 18:34:36 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="q4D5zjDg";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="gz1R9td3"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EBA6620792
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="RfA+NNex";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.b="o9hdq+lD"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8E82320829
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:To:From:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Reply-To:
-	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=fp+zT9km85FGnqPFWjENTTSWII2vpTFTYsBocgH2XVU=; b=q4D5zjDg2PPt0n
-	ElJh6Psrcw8a2PS+eLVfD3mi9tsOOyBkXxBHj0uaOisWW9YyTKpVsFMOPT4uZkQbksoCYoAbK5Uak
-	mOyEoUpEQ2nmfLOqC9fj+mJFPaEC4LC9aT6BlNTVFwLIlpJpOWzv6G5pV6NvOIcT5lPIBEZ0XJyzr
-	SyihA6hc+WcVL1AIvfEZKGkoumRkK3nK7qoN5D99UZwfpYV7PeFJsu2WW80aDs3SO07d1CJo+UGoZ
-	l8UtmQAeRfgzOVCe7wPtPv72FwvfVnK6VwRFq3GRt6Bd2q+13HCNmw2kwbMHC0Yem1FoFZjve1Z7o
-	dm8igKBkvU+1QqCFdHzw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:
+	From:Subject:Mime-Version:Message-Id:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=COXpdfYzdd6T2PLhteaDM1tUQElcqbQJ6tIcGD3EDRg=; b=RfA+NNexIEZiWB6IC5127XBBtD
+	ESetbe1GwOZ8Nset8zOxihTtXm8k9487w+1vejqRsz3rbezEm/eT1THp/aHil0/u2INVsBqPiIeni
+	JZ4imClN/zp1RuDlP+T2L/gjqDJmn/3ZxpP+JcDnSTkYfL5UJBcu10CYfW8bbWqs9Hg7/rxc8Y+HP
+	2CpyRS1wtJVWrMYQK/lrVNspH6uyt9sbFjj6U0iNj5BgUx61VxqDbxZ13Vj+FjBmRGsgoL6kcjzdu
+	Ga78hyoFf7+5EV7oow30U9Fd+EbUsdXUll3fzEH7YECTNyGa2eG4oME3oATbf9Hs9fJqX9BeMBHhn
+	oSc+8Kyg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jjROy-0007Ik-5Q; Thu, 11 Jun 2020 17:54:08 +0000
-Received: from mail-pl1-x642.google.com ([2607:f8b0:4864:20::642])
+	id 1jjS25-0005Oo-3m; Thu, 11 Jun 2020 18:34:33 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jjROu-0007Fn-EK
- for linux-riscv@lists.infradead.org; Thu, 11 Jun 2020 17:54:05 +0000
-Received: by mail-pl1-x642.google.com with SMTP id k1so2497656pls.2
- for <linux-riscv@lists.infradead.org>; Thu, 11 Jun 2020 10:54:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=subject:date:message-id:mime-version:content-transfer-encoding:cc
- :from:to; bh=fp+zT9km85FGnqPFWjENTTSWII2vpTFTYsBocgH2XVU=;
- b=gz1R9td3whTeOsnqSemH0JyPz0DUhMYRZ/g6Y+uKLaSh8mDVJYFxq2wrTuBuifrbVM
- ataNaaREFegmXoYMPMCfluJbCgkYlEHrc6eYq8uyVrmRV6bq2HB9RlYfs1HUhs6KxjI5
- qQWCthLhkECbEA5aFgpw7tev4PV2Ryt66M212/OfKbWBCbC5HPaW5kebFyhxMwztSQoN
- hP47iH0khzkwDpwiuu5Vd+9K4dscf3oo88mR/efR/N6i5UoDginbNAkp864ZlXlUS1v1
- i00Chv3iI6i33RFDfYWM/ZRgkKARPnDAiQ6V3mI382DOeQuIbvEAYEXcn08/GFJwk4q/
- HdGw==
+ id 1jjS23-0005OO-AO
+ for linux-riscv@lists.infradead.org; Thu, 11 Jun 2020 18:34:32 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id k186so7458675ybc.19
+ for <linux-riscv@lists.infradead.org>; Thu, 11 Jun 2020 11:34:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+ h=date:message-id:mime-version:subject:from:to:cc;
+ bh=COXpdfYzdd6T2PLhteaDM1tUQElcqbQJ6tIcGD3EDRg=;
+ b=o9hdq+lDTGdQ7pL6eS2ne+STn2zEfYAr6Sd9feD0gHCYpOzUsbmVOKpoiBtQP4hRhP
+ 0vd+WlglqyfcLJ9dwxfzJSViO0X4kGcUGdetOJVW7F8FeiZ3juWzPuV4sYw8rkN4ZUFy
+ ylPg5u3vQGVe4MIfSCCWw6tJHtuBZQwPWcIIZrmAC2kmzRmTpimzaiVMSBkDHqWhdaOb
+ ltCNz/98+IdgtXrP5J6B/vhq33ooa+nN/IByEuPkV65mBCzcpLEHo9u945AUVWVPhjSJ
+ vXHubQ1UlbdcVVpDy6aFT+gAJEiM3RnQ/3xkqa7FelQYD7aZpbTIWafK9jGSDpUUzR1q
+ HAHQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:date:message-id:mime-version
- :content-transfer-encoding:cc:from:to;
- bh=fp+zT9km85FGnqPFWjENTTSWII2vpTFTYsBocgH2XVU=;
- b=Pk52Rkq8NQVSs9nClgZLvAymim8lmIhXvH1AC2d7TVlMvVcxnau5GEbIrQwIjsf8Ut
- NPr6cPbXu3y0utCodF5PkvLsWF7GI3U5ZjtDHHpfKWbqkiN96DHyeE3CIGvR9xFCj7I7
- nZLxa6mmtAGjeR0ygcqwy7AbE7nF2v8GfDeCwMH15qjqLF+y0oMCGylSbzWVuGWVJUvG
- MT/0OcjbXX/qgGuGYc3m85pyJUmw6OVMoGAW+eKXNLD8blPH8cceKJuKtkoIDTwQIvqn
- CpZCidy9i4pf+bg7RuRaKbiHtyF2gwaNBnlU4q4/kV4FoZTIIGFqx4K9kH1haeFJTWTq
- Invw==
-X-Gm-Message-State: AOAM5314LlBiyjXzmnHhj/AVAWk4JcVOfPS78X1MFlKQLO3jZKOcavDH
- lsVAJxAfeix3OHQAf5F5A8tb/w==
-X-Google-Smtp-Source: ABdhPJx0LZGJuQSD2va3G0YwfetWlhas45vjWWqt1GSueHT4DcNiF6Lm9+8FFZQkMBwcuGYjsy0m9g==
-X-Received: by 2002:a17:90b:46cf:: with SMTP id
- jx15mr9184990pjb.121.1591898043186; 
- Thu, 11 Jun 2020 10:54:03 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id x18sm3726356pfr.106.2020.06.11.10.54.02
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 11 Jun 2020 10:54:02 -0700 (PDT)
-Subject: [PATCH] irqchip: riscv-intc: Fix a typo in a pr_warn()
-Date: Thu, 11 Jun 2020 10:53:02 -0700
-Message-Id: <20200611175302.253540-1-palmer@dabbelt.com>
-X-Mailer: git-send-email 2.27.0.290.gba653c62da-goog
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Anup Patel <Anup.Patel@wdc.com>
+ h=x-gm-message-state:date:message-id:mime-version:subject:from:to:cc;
+ bh=COXpdfYzdd6T2PLhteaDM1tUQElcqbQJ6tIcGD3EDRg=;
+ b=aYKixxIZUEnkvjZYTZVytZvrS9VgUuNe/FYI9xO30ZV1ubIWL7qXavKOxKt0QB3n63
+ iI7oYVl2X0lH450I4cpk61tIYq3/mKYsHUcjD3m+qORo+/0bP56C4/SXQrwiyj8H/UXG
+ UX+L7/q5vIwg0wFOF3CvwJctv2qS4Y/YPUjDQgD7mZECTBSLwjhcvMu1msL8DbSZKvG+
+ nZ2Otv4Dd1PbBgHcCvBeTx9w9QEFrvdTOykpVOEDBjmGW1gqiZCHwZ3BjY+LADc0MuYV
+ H23NzrFji+p0moqDN53Exye+MgLvXGYpnDSZccwEwEeQNeA/mh8NtBGBLeV9u9Twjrq8
+ S59w==
+X-Gm-Message-State: AOAM531l7TGWUgtm/qaMD4ZDmJPE8LBKuuDs0cb+46eVCXBhU2pku59O
+ kNqn9qu/S2qh4fgrxvt6uBU1zU4VPg==
+X-Google-Smtp-Source: ABdhPJycnzJzYBE1uCXDWobHSfMgy7yeM2Oc8KQ/6LbE+KEXMBUsHdFKo8h/UNp7B8daeNUFZH40Nkv7kQ==
+X-Received: by 2002:a25:3103:: with SMTP id x3mr17950241ybx.36.1591900468187; 
+ Thu, 11 Jun 2020 11:34:28 -0700 (PDT)
+Date: Thu, 11 Jun 2020 18:32:35 +0000
+Message-Id: <20200611183235.37508-1-nhuck@google.com>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.27.0.278.ge193c7cf3a9-goog
+Subject: [PATCH] riscv/atomic: Fix sign extension for RV64I
+From: Nathan Huckleberry <nhuck@google.com>
+To: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200611_105404_478417_22EE8959 
-X-CRM114-Status: GOOD (  12.39  )
+X-CRM114-CacheID: sfid-20200611_113431_375734_E54BF703 
+X-CRM114-Status: UNSURE (   7.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -95,37 +89,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, jason@lakedaemon.net, Marc Zyngier <maz@kernel.org>,
- Palmer Dabbelt <palmerdabbelt@google.com>, linux-kernel@vger.kernel.org,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- tglx@linutronix.de, kernel-team@android.com, linux-riscv@lists.infradead.org
+Cc: clang-built-linux@googlegroups.com, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Nathan Huckleberry <nhuck@google.com>
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Palmer Dabbelt <palmerdabbelt@google.com>
+The argument passed to cmpxchg is not guaranteed to be sign
+extended, but lr.w sign extends on RV64I. This makes cmpxchg
+fail on clang built kernels when __old is negative.
 
-Anup originally re-spun his patch set to include this fix, but it was a bit too
-late for my PR so I've split it out.
+To fix this, we just cast __old to long which sign extends on
+RV64I. With this fix, clang built RISC-V kernels now boot.
 
-Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
+Link: https://github.com/ClangBuiltLinux/linux/issues/867
+Cc: clang-built-linux@googlegroups.com
+Signed-off-by: Nathan Huckleberry <nhuck@google.com>
 ---
- drivers/irqchip/irq-riscv-intc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/riscv/include/asm/cmpxchg.h | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/irqchip/irq-riscv-intc.c b/drivers/irqchip/irq-riscv-intc.c
-index a6f97fa6ff69..8017f6d32d52 100644
---- a/drivers/irqchip/irq-riscv-intc.c
-+++ b/drivers/irqchip/irq-riscv-intc.c
-@@ -99,7 +99,7 @@ static int __init riscv_intc_init(struct device_node *node,
- 
- 	hartid = riscv_of_parent_hartid(node);
- 	if (hartid < 0) {
--		pr_warn("unable to fine hart id for %pOF\n", node);
-+		pr_warn("unable to find hart id for %pOF\n", node);
- 		return 0;
- 	}
- 
+diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
+index d969bab4a26b..262e5bbb2776 100644
+--- a/arch/riscv/include/asm/cmpxchg.h
++++ b/arch/riscv/include/asm/cmpxchg.h
+@@ -179,7 +179,7 @@
+ 			"	bnez %1, 0b\n"				\
+ 			"1:\n"						\
+ 			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
+-			: "rJ" (__old), "rJ" (__new)			\
++			: "rJ" ((long)__old), "rJ" (__new)		\
+ 			: "memory");					\
+ 		break;							\
+ 	case 8:								\
+@@ -224,7 +224,7 @@
+ 			RISCV_ACQUIRE_BARRIER				\
+ 			"1:\n"						\
+ 			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
+-			: "rJ" (__old), "rJ" (__new)			\
++			: "rJ" ((long)__old), "rJ" (__new)		\
+ 			: "memory");					\
+ 		break;							\
+ 	case 8:								\
+@@ -270,7 +270,7 @@
+ 			"	bnez %1, 0b\n"				\
+ 			"1:\n"						\
+ 			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
+-			: "rJ" (__old), "rJ" (__new)			\
++			: "rJ" ((long)__old), "rJ" (__new)		\
+ 			: "memory");					\
+ 		break;							\
+ 	case 8:								\
+@@ -316,7 +316,7 @@
+ 			"	fence rw, rw\n"				\
+ 			"1:\n"						\
+ 			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
+-			: "rJ" (__old), "rJ" (__new)			\
++			: "rJ" ((long)__old), "rJ" (__new)		\
+ 			: "memory");					\
+ 		break;							\
+ 	case 8:								\
 -- 
-2.27.0.290.gba653c62da-goog
+2.27.0.278.ge193c7cf3a9-goog
 
 
