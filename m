@@ -2,89 +2,146 @@ Return-Path: <SRS0=r3k3=7Y=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.7 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	MSGID_FROM_MTA_HEADER,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C813CC433DF
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 11 Jun 2020 02:50:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3D75EC433E1
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 11 Jun 2020 06:14:37 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 95EB6206A4
-	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 11 Jun 2020 02:50:22 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 0B30420812
+	for <infradead-linux-riscv@archiver.kernel.org>; Thu, 11 Jun 2020 06:14:37 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="rEVFubjy";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="Vyokqfpb"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 95EB6206A4
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="NAlFp389";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="YlaVkSVp";
+	dkim=pass (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="yfhtwwBS"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0B30420812
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Mime-Version:Message-ID:To:From:
-	In-Reply-To:Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=jpm044JpBHIVrYGPHlmEFciQsFPwiMlmj0xEplKLAzo=; b=rEVFubjywnlyNc
-	XkMqQv4pLIdgXzF/m5N5bYJA0Recluc1wDYC0xkP4byglQch42oOasaAtjnCUPZvKTuDXG5K23JMk
-	QyCcrl/nuenddouutjHVjiuv48a6IsJ37cCJTSClw4iyLG2RsKYA+Z94l91RmKLOMfvJm/cl5oFsQ
-	jIjSi7A93zU3I6YxP9eYYJa485iwkLfHLH/STB2wKxvgsAvK/Y7fwkXIeolHPpjKKiMimx3TnDduw
-	MA+dHteVcK31ASncaHskUNGGc984xQSb1dHYaAVbnGaJXH3nr7xN3QYPa54/X2HxEzHy0LMOUhWH1
-	F6fRcTTYescRj5tNV8OQ==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date
+	:Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=F3+d5bWmeqvTvhrryR30c9HWFWaDlvIbgYTQqFLfo8Q=; b=NAlFp389PWVA0ZkEiQ9fFBwba
+	ZexSbwppprNASCU9vJUhVy3rhQJ/5jv+8qjY83YdPIq93pUSVa5FbbMdrHu/1dGonjPfVZncJpiJg
+	pNCXLYkJFEs1tD1rntv2O8dT+zbpoLhqAe9XqhzEmIAIvp7yb0NJ7IurMeYlaIejysi7pX2XkWpWw
+	CP28DXeTsmmC7PUPG1ikow+29u2LGKaTohJ1ltW85thCUgie4do2lHK+ubNkuSXSVlgnTIVCJbhHO
+	8yPJykLCC+bRZTsMdKWpyEsdqUWleHG0brmoP0WhIzd0MKjfVJGlfhfepbTBklig13jlMNCSZ+86S
+	vaNTlEBAA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jjDIJ-0000l3-CR; Thu, 11 Jun 2020 02:50:19 +0000
-Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
+	id 1jjGTx-0003TV-Vs; Thu, 11 Jun 2020 06:14:33 +0000
+Received: from esa6.hgst.iphmx.com ([216.71.154.45])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jjDIF-0000gG-Bn
- for linux-riscv@lists.infradead.org; Thu, 11 Jun 2020 02:50:17 +0000
-Received: by mail-pf1-x444.google.com with SMTP id s23so2012984pfh.7
- for <linux-riscv@lists.infradead.org>; Wed, 10 Jun 2020 19:50:12 -0700 (PDT)
+ id 1jjGTu-0003SC-SL
+ for linux-riscv@lists.infradead.org; Thu, 11 Jun 2020 06:14:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1591856071; x=1623392071;
+ h=from:to:cc:subject:date:message-id:in-reply-to:
+ references:content-transfer-encoding:mime-version;
+ bh=oXBz3QIOjsPX0jC03lUnIYjb1i91Mp9oQG+63oZwEUA=;
+ b=YlaVkSVpzq0/jOJm39XxsjTKlcXAawF2Px5FDTXU+aNZx8VohykGbp6r
+ YikYjQHLiQiJ1akYhnLMjJ9F3jEGDmrqiO/4iO5xgbsU5V907jMYFOvtb
+ Ebijl2A/+cyqWit/IndsEt2Xan7ZSCV6kxMPF3FYDWcjPzfeiQ45KFnOy
+ 9zJWAhMhobq8/uw7R0gSi5/CDOMBqWfW0wDXKQznzLg0PoGQS/rIZW27L
+ FQT3ntsMPlBwel8tD6nuqZTEaA82Ofj9NisrvKxqVIXBDB0K3knkEkVz7
+ ia3R2Eeaou/eVx6sNYgy3rQKJ8zAAghR9xLRAlZZ8yPCFcD0Onm2/80uk A==;
+IronPort-SDR: QS7hgjxF6+orURD0S3gQFUSNNI5yFbdpSlObFVAPDBegnxRbVSsekPv1ug8ByP7KzckmodbxP6
+ odxsmsKBG+wHtzTkHKwaKXaf45gK4iZc7OJL+YW2Xgw8LkPcnjpvtKWAae2FJ4QDX3l9Z6L7Z9
+ mJ12dr8EmGTKYsX9Fy8iqUpxvqbQ/tCWUXkJNH5AyV24tIKgUQCmFd3SDLO6lwQtRtUNVyb++m
+ sko2RaGm0hEYGXiRLFUA6o6/In0oMT5g5/aE6E1C3wdc9aB/qR0S087DXftywV1hLUdJ5irKZv
+ 3OA=
+X-IronPort-AV: E=Sophos;i="5.73,498,1583164800"; d="scan'208";a="141117306"
+Received: from mail-mw2nam10lp2103.outbound.protection.outlook.com (HELO
+ NAM10-MW2-obe.outbound.protection.outlook.com) ([104.47.55.103])
+ by ob1.hgst.iphmx.com with ESMTP; 11 Jun 2020 14:14:29 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Zl5oHoUZgyi02cjMmhwlPIJXzChXR/Az6UUlum/Xg/PBXq82cMMJoA+SEBK4rFBCinWHFkR/gX7jE+jcCeFpVRr8qSS12e872NFhhnIqZmslbHlGJ//f10V3Na0op5pSlIswiriGVPQe46HouTUAxRotKrI0j68Tqd1eMORVHz1o+JMpGBStXQYzOKZVw6v3e9c1LN+7dxeaABv2i/+10UbhSfdMMdgEtoyXlmOqhmbVgVr5SDUL3HLyMOsgb2DukxZbKdEEXJtegdExi1y3+nO09U2kLWHrnrT48jNEqJho37+WfO/caJSfGN7zjvBe98XsQcAlZeIYvGNSE2N4Tg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=F3+d5bWmeqvTvhrryR30c9HWFWaDlvIbgYTQqFLfo8Q=;
+ b=AewErGXdAt8AJcFY2NurW4oLG6Y+pj5xwnNMtHA8gEI99kpfhBd6c8aZPb1MBufgQTRDoby1Xkb8KslL9l0LJvAm6gplJa3WGswlU7wAx1B4QjjcNXtsNcPrjgBmFXnc/BvlPy2wvZ2YFB+fRbaLcI9hWghYNQwbbVw8mp7krtyZXWVEpV9PpWzQkaLfNDxvmhFBnO+vbwe9Ccp7GmAcpYX7f9FNsg033jpLLER7WSRDMx/RtdguNhZMdopb4QjQq8SGnsX+l+KAbEIiOZQ7CMijj4AEY8N3h6wKkvoKpz8O3aKrCW+YTfde98ubqv9VX5lRRSS5R3xJpGrGDLH1nQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
+ header.d=wdc.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=jpm044JpBHIVrYGPHlmEFciQsFPwiMlmj0xEplKLAzo=;
- b=Vyokqfpbyj1aP1vXDGLBtllvB1JqGHqAok3iIGma42z9fpD6MksrQyukFo9CXxoSt3
- cjMRv8hGJl85jH1miHtYe3KEd+v+z6zLAkFNJGmhoEmkiK7Wg1ScFia/38/bH0lBjJKQ
- 99oSqHmYkOElFE2OeNOXIkr1jkpgva0AfeRDq2rWG8QW9ODl3saIF0RY1ZUVU8T1AXBn
- Eq21QL54bcZuC/NI16HOorhYzmI5u+cGDXFuqAa/BHt2WhvL6Ir1MazM5FNRY9Xc6piP
- 0rfJ5Hm5GLQAEVQAU45tT9c8KI4wXgGOldd4G0aPAlrQwOcz+Zu/fe+dqH2BHKd6KHnh
- PnlA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=jpm044JpBHIVrYGPHlmEFciQsFPwiMlmj0xEplKLAzo=;
- b=Izr2sswfwQicSpLhjB9KpVX8dPxcB5atyraEb8j+UI8S+bvFdu3cq3b8tcZapQWEku
- E7tEfTQUv0VU7r75/Tf7scGmzFwVahuFcmE3HG/Y9VIwXO1fn5M2uUsGwsZNPIX99YOa
- PiRLShx1L8HFIc8lqwEQKeWbV0P6R10dIH2NCpUu17G4jKOs4fuM6YXPyCghRMHTMe98
- JS/7U00Lf1xI79XDoV4U5jY2Yn6pln4BEpslgcwYT5nvu72qo2v3swPVX++Qf756TIw6
- LOnBwBj857JJt0NhLbLlICiZQxe6yE9O7GmOG/Yuc1ehqmiZx3g8LcWswwtWqu3IHYLu
- fEDA==
-X-Gm-Message-State: AOAM531DueL16kjjt+wHlOEr5eUiYnZT5NEyrGsAmvaGdSY4xS2CUpuf
- EBnumnYCF139BP7kSMghcqLcBg==
-X-Google-Smtp-Source: ABdhPJxaFfA0GG4uPCtGt1Jlcj5TPmbm0GsJ1BSy9quLLZPADUkRBivP4hihA2/cAvX0nM2TCjH3WA==
-X-Received: by 2002:a63:e34a:: with SMTP id o10mr4998429pgj.258.1591843812168; 
- Wed, 10 Jun 2020 19:50:12 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id w186sm1284437pff.83.2020.06.10.19.50.11
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 10 Jun 2020 19:50:11 -0700 (PDT)
-Date: Wed, 10 Jun 2020 19:50:11 -0700 (PDT)
-X-Google-Original-Date: Wed, 10 Jun 2020 19:50:00 PDT (-0700)
-Subject: Re: [PATCH v4 0/2] riscv: introduce vDSO common flow
-In-Reply-To: <1591712089-12904-1-git-send-email-vincent.chen@sifive.com>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: vincent.chen@sifive.com
-Message-ID: <mhng-e30f353d-a8ba-4517-8f8d-5ad333bb2dde@palmerdabbelt-glaptop1>
-Mime-Version: 1.0 (MHng)
-Content-Type: text/plain; charset=utf-8; format=flowed
+ d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=F3+d5bWmeqvTvhrryR30c9HWFWaDlvIbgYTQqFLfo8Q=;
+ b=yfhtwwBSBoKzplV6zBs/7KRPRxHtdFY4emJgaBQmRQbb50SBX1zCbIHsHCt9+YnSQlt+YU//f56PaY8SlK6TdI3hOj8ey1pqyrfKRRusnZCfxewDqi+7GLJoqTK/potzASDgNaPDckmXsLOA02Zr7xwBfTLkEevbWpKxJ8je23g=
+Authentication-Results: dabbelt.com; dkim=none (message not signed)
+ header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
+Received: from DM6PR04MB6201.namprd04.prod.outlook.com (2603:10b6:5:127::32)
+ by DM6PR04MB6332.namprd04.prod.outlook.com (2603:10b6:5:1e7::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3066.19; Thu, 11 Jun
+ 2020 06:14:28 +0000
+Received: from DM6PR04MB6201.namprd04.prod.outlook.com
+ ([fe80::f8b3:c124:482b:52e0]) by DM6PR04MB6201.namprd04.prod.outlook.com
+ ([fe80::f8b3:c124:482b:52e0%5]) with mapi id 15.20.3066.023; Thu, 11 Jun 2020
+ 06:14:28 +0000
+From: Anup Patel <anup.patel@wdc.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Albert Ou <aou@eecs.berkeley.edu>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Jason Cooper <jason@lakedaemon.net>,
+ Marc Zyngier <maz@kernel.org>
+Subject: [PATCH v8 1/6] RISC-V: self-contained IPI handling routine
+Date: Thu, 11 Jun 2020 11:43:45 +0530
+Message-Id: <20200611061350.434293-2-anup.patel@wdc.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20200611061350.434293-1-anup.patel@wdc.com>
+References: <20200611061350.434293-1-anup.patel@wdc.com>
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MA1PR01CA0077.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00::17)
+ To DM6PR04MB6201.namprd04.prod.outlook.com
+ (2603:10b6:5:127::32)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+Received: from wdc.com (122.182.246.89) by
+ MA1PR01CA0077.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00::17) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.3088.18 via Frontend Transport; Thu, 11 Jun 2020 06:14:23 +0000
+X-Mailer: git-send-email 2.25.1
+X-Originating-IP: [122.182.246.89]
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-HT: Tenant
+X-MS-Office365-Filtering-Correlation-Id: 702b8489-7a2b-4756-bcbb-08d80dceb25a
+X-MS-TrafficTypeDiagnostic: DM6PR04MB6332:
+X-MS-Exchange-Transport-Forked: True
+X-Microsoft-Antispam-PRVS: <DM6PR04MB633216A1188027305ED45F5F8D800@DM6PR04MB6332.namprd04.prod.outlook.com>
+WDCIPOUTBOUND: EOP-TRUE
+X-MS-Oob-TLC-OOBClassifiers: OLM:6790;
+X-Forefront-PRVS: 0431F981D8
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: uPDa0coE1KPb4Akd6pTeOP0Z7USseXAa0oigQM22opUFev1MqvzB2rkoXBL6DjqDdoabYFLecveHYL351ZtK9Uz1j56NvfNsx7+jCwrGWE2zcDCkHjA1o/uhZmqQ65oaoOSDGsfxjymbuFuFCPOlBgWu043P5qqfaHxS5iAofBw2TUa1XJpBAtXGA1cYfu9jZjUAHXxsxyKAMS9GWefIXuxXhJYfsJvV0bCl1sOz37iwbr7Zvg/5iZfXiKoMUURtBIfz96vbchcPm+n2u2yct6xTJL9xxckhcd13YmZSlPftJQxSbe11CEykzNbKLtuAPp5x5VrhwE1IFm3oHHe76w==
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:DM6PR04MB6201.namprd04.prod.outlook.com; PTR:; CAT:NONE;
+ SFTY:;
+ SFS:(4636009)(136003)(39860400002)(376002)(366004)(346002)(396003)(36756003)(16526019)(4326008)(186003)(44832011)(2616005)(55016002)(8936002)(1076003)(5660300002)(956004)(7696005)(110136005)(7416002)(83380400001)(478600001)(52116002)(8886007)(86362001)(316002)(6666004)(54906003)(66556008)(2906002)(8676002)(26005)(66476007)(66946007);
+ DIR:OUT; SFP:1102; 
+X-MS-Exchange-AntiSpam-MessageData: DaMbqh7/GVCAN2rCxkt6KjNKuSiNslh5dZWAJEkN9d55J2/s/YrH9lBOAcmxUcJ5T6sAFaklYMHU1dgbBVTp3/WdZEV7uU9MJC4G9cbVOhqrWuMxPS/OoKY83N5mC2CJbNZs+5du3r58ZyjW/WKdnb3WH6+xfHlVBTnYWalXxtGbivCDVZX3yExXxAtIaULAIzS9kwRGOmiCb4BuTpB7O07AfTqTV3eUkIxUWKfzrKhqDEumk01vUOkZUAz4neHaX5kOeHgBgg1g9D6J9h9jT3gUjkAv2hzfur0dVi9Q3qzuS/nL0teXByInuyfEs+e63WY9qWst0OhPpXU4RMKEK7L0jfgFc9yNbbgWBJgqat+8HL9vt2zUOwTQFknv5h7BSHEG1ZFvvyfbu+DYdXIhXp3SpWN/NXAt8c0fhBNs6HgBZxtsgRBinxD1xWos0RNSI6f8zVbqcAdjeySt6zUGor7u4StNe2PMnTEMZhRklnY0Y3iBUA/pO3COCJ/4wM6a
+X-OriginatorOrg: wdc.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 702b8489-7a2b-4756-bcbb-08d80dceb25a
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jun 2020 06:14:28.4717 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: dVemtEt9cOFrNMQW3+CWKa9E9Jdp4kByXCrdENbJknjwAc6zwtCja5jT6f3QbvLL73tneoc2lalV9bVv6KAK+w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR04MB6332
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200610_195015_479693_829B5F1E 
-X-CRM114-Status: GOOD (  16.38  )
+X-CRM114-CacheID: sfid-20200610_231430_985464_F54FA372 
+X-CRM114-Status: GOOD (  15.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -96,65 +153,151 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: vincent.chen@sifive.com, linux-riscv@lists.infradead.org,
- Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmerdabbelt@google.com>, Anup Patel <anup@brainfault.org>,
+ Anup Patel <anup.patel@wdc.com>, linux-kernel@vger.kernel.org,
+ Atish Patra <atish.patra@wdc.com>, Alistair Francis <Alistair.Francis@wdc.com>,
+ linux-riscv@lists.infradead.org
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 09 Jun 2020 07:14:47 PDT (-0700), vincent.chen@sifive.com wrote:
-> Even if RISC-V has supported the vDSO feature, the latency of the functions
-> for obtaining the system time is still expensive. It is because these
-> functions still trigger a corresponding system call in the process, which
-> slows down the response time. If we want to remove the system call to
-> reduce the latency, the kernel should have the ability to output the system
-> clock information to userspace. This patch introduces the vDSO common flow
-> to enable the kernel to achieve the above feature and uses "rdtime"
-> instruction to obtain the current time in the user space. Under this
-> condition, the latency cost by the ecall from U-mode to S-mode can be
-> eliminated. After applying this patch, the latency of gettimeofday()
-> measured on the HiFive unleashed board can be reduced by %61.
->
->
-> change since v3:
-> 1. Fix build warnings reported by kbuild system
->
-> change since v2:
-> 1. Fix build errors that occurred in the case of rv32 and nommu.
->
-> change since v1:
-> 1. Modify the permission of vdso_data to read-only
->
-> Vincent Chen (2):
->   riscv: use vDSO common flow to reduce the latency of the time-related
->     functions
->   riscv: set the permission of vdso_data to read-only
->
->  arch/riscv/Kconfig                         |  4 ++
->  arch/riscv/include/asm/clocksource.h       |  7 +++
->  arch/riscv/include/asm/processor.h         | 12 +----
->  arch/riscv/include/asm/vdso.h              |  2 +
->  arch/riscv/include/asm/vdso/clocksource.h  |  8 +++
->  arch/riscv/include/asm/vdso/gettimeofday.h | 79 ++++++++++++++++++++++++++++++
->  arch/riscv/include/asm/vdso/processor.h    | 19 +++++++
->  arch/riscv/include/asm/vdso/vsyscall.h     | 27 ++++++++++
->  arch/riscv/kernel/time.c                   |  9 ++++
->  arch/riscv/kernel/vdso.c                   | 24 +++++++--
->  arch/riscv/kernel/vdso/Makefile            | 12 +++--
->  arch/riscv/kernel/vdso/clock_getres.S      | 18 -------
->  arch/riscv/kernel/vdso/clock_gettime.S     | 18 -------
->  arch/riscv/kernel/vdso/gettimeofday.S      | 18 -------
->  arch/riscv/kernel/vdso/vdso.lds.S          |  2 +
->  arch/riscv/kernel/vdso/vgettimeofday.c     | 25 ++++++++++
->  16 files changed, 213 insertions(+), 71 deletions(-)
->  create mode 100644 arch/riscv/include/asm/clocksource.h
->  create mode 100644 arch/riscv/include/asm/vdso/clocksource.h
->  create mode 100644 arch/riscv/include/asm/vdso/gettimeofday.h
->  create mode 100644 arch/riscv/include/asm/vdso/processor.h
->  create mode 100644 arch/riscv/include/asm/vdso/vsyscall.h
->  delete mode 100644 arch/riscv/kernel/vdso/clock_getres.S
->  delete mode 100644 arch/riscv/kernel/vdso/clock_gettime.S
->  delete mode 100644 arch/riscv/kernel/vdso/gettimeofday.S
->  create mode 100644 arch/riscv/kernel/vdso/vgettimeofday.c
+Currently, the IPI handling routine riscv_software_interrupt() does
+not take any argument and also does not perform irq_enter()/irq_exit().
 
-Thanks, these are on for-next.
+This patch makes IPI handling routine more self-contained by:
+1. Passing "pt_regs *" argument
+2. Explicitly doing irq_enter()/irq_exit()
+3. Explicitly save/restore "pt_regs *" using set_irq_regs()
+
+With above changes, IPI handling routine does not depend on caller
+function to perform irq_enter()/irq_exit() and save/restore of
+"pt_regs *" hence its more self-contained. This also enables us
+to call IPI handling routine from IRQCHIP drivers.
+
+Signed-off-by: Anup Patel <anup.patel@wdc.com>
+Reviewed-by: Atish Patra <atish.patra@wdc.com>
+Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
+Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
+---
+ arch/riscv/include/asm/irq.h |  1 -
+ arch/riscv/include/asm/smp.h |  3 +++
+ arch/riscv/kernel/irq.c      | 16 ++++++++++------
+ arch/riscv/kernel/smp.c      | 11 +++++++++--
+ 4 files changed, 22 insertions(+), 9 deletions(-)
+
+diff --git a/arch/riscv/include/asm/irq.h b/arch/riscv/include/asm/irq.h
+index 6e1b0e0325eb..0183e15ace66 100644
+--- a/arch/riscv/include/asm/irq.h
++++ b/arch/riscv/include/asm/irq.h
+@@ -13,7 +13,6 @@
+ #define NR_IRQS         0
+ 
+ void riscv_timer_interrupt(void);
+-void riscv_software_interrupt(void);
+ 
+ #include <asm-generic/irq.h>
+ 
+diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
+index f4c7cfda6b7f..40bb1c15a731 100644
+--- a/arch/riscv/include/asm/smp.h
++++ b/arch/riscv/include/asm/smp.h
+@@ -28,6 +28,9 @@ void show_ipi_stats(struct seq_file *p, int prec);
+ /* SMP initialization hook for setup_arch */
+ void __init setup_smp(void);
+ 
++/* Called from C code, this handles an IPI. */
++void handle_IPI(struct pt_regs *regs);
++
+ /* Hook for the generic smp_call_function_many() routine. */
+ void arch_send_call_function_ipi_mask(struct cpumask *mask);
+ 
+diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
+index 345c4f2eba13..bb0bfcd537e7 100644
+--- a/arch/riscv/kernel/irq.c
++++ b/arch/riscv/kernel/irq.c
+@@ -19,12 +19,15 @@ int arch_show_interrupts(struct seq_file *p, int prec)
+ 
+ asmlinkage __visible void __irq_entry do_IRQ(struct pt_regs *regs)
+ {
+-	struct pt_regs *old_regs = set_irq_regs(regs);
++	struct pt_regs *old_regs;
+ 
+-	irq_enter();
+ 	switch (regs->cause & ~CAUSE_IRQ_FLAG) {
+ 	case RV_IRQ_TIMER:
++		old_regs = set_irq_regs(regs);
++		irq_enter();
+ 		riscv_timer_interrupt();
++		irq_exit();
++		set_irq_regs(old_regs);
+ 		break;
+ #ifdef CONFIG_SMP
+ 	case RV_IRQ_SOFT:
+@@ -32,19 +35,20 @@ asmlinkage __visible void __irq_entry do_IRQ(struct pt_regs *regs)
+ 		 * We only use software interrupts to pass IPIs, so if a non-SMP
+ 		 * system gets one, then we don't know what to do.
+ 		 */
+-		riscv_software_interrupt();
++		handle_IPI(regs);
+ 		break;
+ #endif
+ 	case RV_IRQ_EXT:
++		old_regs = set_irq_regs(regs);
++		irq_enter();
+ 		handle_arch_irq(regs);
++		irq_exit();
++		set_irq_regs(old_regs);
+ 		break;
+ 	default:
+ 		pr_alert("unexpected interrupt cause 0x%lx", regs->cause);
+ 		BUG();
+ 	}
+-	irq_exit();
+-
+-	set_irq_regs(old_regs);
+ }
+ 
+ void __init init_IRQ(void)
+diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+index a65a8fa0c22d..b1d4f452f843 100644
+--- a/arch/riscv/kernel/smp.c
++++ b/arch/riscv/kernel/smp.c
+@@ -123,11 +123,14 @@ static inline void clear_ipi(void)
+ 		clint_clear_ipi(cpuid_to_hartid_map(smp_processor_id()));
+ }
+ 
+-void riscv_software_interrupt(void)
++void handle_IPI(struct pt_regs *regs)
+ {
++	struct pt_regs *old_regs = set_irq_regs(regs);
+ 	unsigned long *pending_ipis = &ipi_data[smp_processor_id()].bits;
+ 	unsigned long *stats = ipi_data[smp_processor_id()].stats;
+ 
++	irq_enter();
++
+ 	clear_ipi();
+ 
+ 	while (true) {
+@@ -138,7 +141,7 @@ void riscv_software_interrupt(void)
+ 
+ 		ops = xchg(pending_ipis, 0);
+ 		if (ops == 0)
+-			return;
++			goto done;
+ 
+ 		if (ops & (1 << IPI_RESCHEDULE)) {
+ 			stats[IPI_RESCHEDULE]++;
+@@ -160,6 +163,10 @@ void riscv_software_interrupt(void)
+ 		/* Order data access and bit testing. */
+ 		mb();
+ 	}
++
++done:
++	irq_exit();
++	set_irq_regs(old_regs);
+ }
+ 
+ static const char * const ipi_names[] = {
+-- 
+2.25.1
+
 
