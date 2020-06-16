@@ -2,92 +2,72 @@ Return-Path: <SRS0=ePsx=75=lists.infradead.org=linux-riscv-bounces+infradead-lin
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.9 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,DKIM_VALID_AU,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6872FC433E0
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Jun 2020 07:46:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 59007C433DF
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Jun 2020 07:55:36 +0000 (UTC)
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 33133206F1
-	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Jun 2020 07:46:00 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2AD1D206D7
+	for <infradead-linux-riscv@archiver.kernel.org>; Tue, 16 Jun 2020 07:55:36 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="TbjkGIkj";
-	dkim=pass (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="VJHC11Uq"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 33133206F1
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Vmvqn83O"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2AD1D206D7
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vV7PDthSiPR3LChm1dR2y1ass0+TcfMiVV19frp0t7U=; b=TbjkGIkj6gO+7d
-	aWCiOklYRFuYXCNsqYjWbab41ko22G4XhmoFsN2Y+o/0ri9TnsCKIKZs//ysbDLKjlXqSbS8D/so8
-	VkTEDa37G8lNTkHKH8BM0bpgT61Jg/juGLmbrKTHrXTe9yilfoWlioe4/0+KAYLQ7YLmRd5YGYTg5
-	YeMYtWP7NHN/tqAQVqICzFTR/6D2jwBYnfGyPRq3zJTWC8o6l44R7EMXQlLHaRqlGPbijgmnox/5X
-	3jopkUOVsAmh03eQr00ronDqUuAgZpTHqbYRsuXUW/DSosyx/LfmMSxEeU5M3mzSiE0w9lOeFCgfk
-	DGQWVLr6zR8bcqpon6Aw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:
+	Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=x0UZS1344FZMJ9sVFAfBG3IhgSf2KKzqEk05E3yUoqE=; b=Vmvqn83OOz7tItN4sHST+4MVe
+	6W6fDJrbRs5LF2F7V+8L79Q6MWzqCigZgBPw+AyX85M35CYwgDGo7YgBAwesa7Va9fI3OUFYjhIFu
+	QX0myeXAf4+4PvU/DglZU47y+tapw8OaVeVMJWLyuuvjj4Y/cA5eXCSD8tDdy1QPK3ueVbKc8delh
+	KbWE9m4/mjMNGRD/MXUlMTrnim17+fiz8avcjGNtY8AnPWr/MnLDqDzzWBOYF+ilo4iLmpqZLqpom
+	cluIwuF61uU18cuyTqnk7uja1ty9N3Qzsaibahr5hajXE6gItUO6IGPELcX5/zNK4XEFc5vJolymR
+	/M/JRw1tg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jl6IA-0002Zq-UJ; Tue, 16 Jun 2020 07:45:58 +0000
-Received: from mail-pj1-x1044.google.com ([2607:f8b0:4864:20::1044])
+	id 1jl6RT-0008Po-BB; Tue, 16 Jun 2020 07:55:35 +0000
+Received: from mail-oi1-f194.google.com ([209.85.167.194])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jl6I7-0002Vn-Ui
- for linux-riscv@lists.infradead.org; Tue, 16 Jun 2020 07:45:57 +0000
-Received: by mail-pj1-x1044.google.com with SMTP id h22so1162199pjf.1
- for <linux-riscv@lists.infradead.org>; Tue, 16 Jun 2020 00:45:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=vV7PDthSiPR3LChm1dR2y1ass0+TcfMiVV19frp0t7U=;
- b=VJHC11UqQBI1FGJ+MeKOiWKzMZGBTEHwNKV3OXnRsqMaz6M/rTt7pvyn+uVO+MYabl
- iaSOBJwnznJ+7y6uHyDg4fqR8po25vKF0mvJjZDEgyajtVYm1mLTp4Vl8hwuRcNA3r1M
- SiolWjgx/7vQjDLvauayB86aTzSmQoPqZdAQCLjaM0Zplg64t7mLe0iDxiP9Un6Y1QIY
- vB2XGsQm/zuZPXi3yIGPUaPKviKVm0IBx/uEKmBbmcwwSxp7La/sKBU3bXoXIXLNIWIv
- jEnxWscZ62T1Ym1ZosQcPG6lVZcy/+sW611lSpjlRhFs19m0bxs/Yh+Iun86+OOP3p50
- iuGA==
+ id 1jl6RQ-0008P8-8b
+ for linux-riscv@lists.infradead.org; Tue, 16 Jun 2020 07:55:34 +0000
+Received: by mail-oi1-f194.google.com with SMTP id i74so18491251oib.0
+ for <linux-riscv@lists.infradead.org>; Tue, 16 Jun 2020 00:55:31 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=vV7PDthSiPR3LChm1dR2y1ass0+TcfMiVV19frp0t7U=;
- b=Aa1uk5+ADuqx3T8ib18g3ZII3iwmp6PWc7SbPvwndaqCU06DUScOuj2L3V9lbJQK0N
- UyxnXxqvl0vPhZMR9g3hblr3myA7i3Tb0NSqNBQ01tjSAlPcFLT8ZAZbi3OftIcPe+wG
- ZOAfrOQ5Uvmpt0b8UXY8QY3UnBPDCAOZmKKSersVqEU/zR47Q8IzqMDfwcH/5GgP0vih
- Eh+BAhFRd3C/fTwuCk8r4Ju+ICHY6Vm+cEYUaxFdWOgJ8lftoB+Ox8AzG+0PTUsUdrXK
- puPHadu+1GH9YGqxpHCku2I3ZjTSXbKqX6IkTjzo7ScHSLUTM6TrPZuPLWSozIhn2cAR
- 9ZvQ==
-X-Gm-Message-State: AOAM532Nm/NriHw7SxXu0DkwHr33wcaQLMrNFDplk21iVTaVPDqU5XTZ
- USZrJO+ofb5dwD22jfEYNZL+dg==
-X-Google-Smtp-Source: ABdhPJxOR/0ji5UrB9CnB39EGe+8bQm9woYF0QdIZpmAvJ+qYh4U0dcwFYR+oXEWTXHvrW/1WVVvGw==
-X-Received: by 2002:a17:90a:9f81:: with SMTP id
- o1mr1578412pjp.139.1592293555400; 
- Tue, 16 Jun 2020 00:45:55 -0700 (PDT)
-Received: from hsinchu02.internal.sifive.com
- (114-34-229-221.HINET-IP.hinet.net. [114.34.229.221])
- by smtp.gmail.com with ESMTPSA id i22sm15948250pfo.92.2020.06.16.00.45.54
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 16 Jun 2020 00:45:55 -0700 (PDT)
-From: Zong Li <zong.li@sifive.com>
-To: paul.walmsley@sifive.com, palmer@dabbelt.com,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] riscv: Support CONFIG_STRICT_DEVMEM
-Date: Tue, 16 Jun 2020 15:45:47 +0800
-Message-Id: <7faa60aa4a606b5c5c1ae374d82a7eee6c764b38.1592292685.git.zong.li@sifive.com>
-X-Mailer: git-send-email 2.27.0
-In-Reply-To: <cover.1592292685.git.zong.li@sifive.com>
-References: <cover.1592292685.git.zong.li@sifive.com>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=x0UZS1344FZMJ9sVFAfBG3IhgSf2KKzqEk05E3yUoqE=;
+ b=tQIQkCn+4lO8mk8rQcpWT33DbILV+miKR3m5/Hu5kN3s5vHuLWgs9bmAFPFKGeeAgp
+ Br4IWHR1kj7cN4gF77y2/GI9b/vb2e3NLVSXy/oRcBarxePNa1JCW9Fdgs99aj0p9E9u
+ VqtDg4u2Lz42rz6wl4BGU39D4grtV+R30kugGcLr5/i5x+pWvz3onEZW5EKQwOHTmjdZ
+ A9bgQfrwK06EDYYkxQF1o0+U3P097/+tiC/rQszXrTEjjv0ZF5dJPuAZzvKNwTs5jWG1
+ 6vXbEWWP7EwCXitv11qB6+wR0fpxzj9rOonzEPGR5Yf6VxUHpouVCInsRVakvft4RUZv
+ PSRQ==
+X-Gm-Message-State: AOAM533KwhHrtFmG4wWpxLN7sWbgc01tET9y8sq7Mbs9DWc3bHJHL+LL
+ rtVNsZPLjgwVdZG1xBcZ5eVbhyA7qsnwnc3cUW0=
+X-Google-Smtp-Source: ABdhPJwMnh9vOBm1ivYzGguW+ODZxfzPd6QA/5LfGE9ipyABVaPN48l1YV96vpeXAN8+8zfTbP7W4KvdyyhcLDM4QBY=
+X-Received: by 2002:aca:849:: with SMTP id 70mr2295786oii.153.1592294130938;
+ Tue, 16 Jun 2020 00:55:30 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20200422172414.6662-1-ardb@kernel.org>
+ <20200422172414.6662-3-ardb@kernel.org>
+In-Reply-To: <20200422172414.6662-3-ardb@kernel.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 16 Jun 2020 09:55:19 +0200
+Message-ID: <CAMuHMdXZM7XYBt=2dJFJi+xxe2HOh43KzSkxGoMqaaC_kc_P-g@mail.gmail.com>
+Subject: Re: [PATCH v5 2/7] efi/libstub: Make initrd file loader configurable
+To: Ard Biesheuvel <ardb@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200616_004555_987029_F317836E 
-X-CRM114-Status: UNSURE (   9.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200616_005532_302645_00C8FC32 
+X-CRM114-Status: GOOD (  14.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -99,92 +79,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Zong Li <zong.li@sifive.com>
+Cc: linux-efi <linux-efi@vger.kernel.org>, Atish Patra <atish.patra@wdc.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Implement the 'devmem_is_allowed()' interface for RISC-V, like some of
-other architectures have done. It will be called from range_is_allowed()
-when userpsace attempts to access /dev/mem.
+Hi Ard,
 
-Access to exclusive IOMEM and kernel RAM is denied unless
-CONFIG_STRICT_DEVMEM is set to 'n'.
+On Wed, Apr 22, 2020 at 7:24 PM Ard Biesheuvel <ardb@kernel.org> wrote:
+> Loading an initrd passed via the kernel command line is deprecated: it
+> is limited to files that reside in the same volume as the one the kernel
+> itself was loaded from, and we have more flexible ways to achieve the
+> same. So make it configurable so new architectures can decide not to
+> enable it.
+>
+> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 
-Test it by devmem, the result as follows:
+Thanks for your patch, which is now commit cf6b83664895a5c7
+("efi/libstub: Make initrd file loader configurable")!
 
- - CONFIG_STRICT_DEVMEM=y
-	$ devmem 0x10010000
-	0x00000000
-	$ devmem 0x80200000
-	0x0000106F
+> --- a/drivers/firmware/efi/Kconfig
+> +++ b/drivers/firmware/efi/Kconfig
+> @@ -124,6 +124,17 @@ config EFI_ARMSTUB_DTB_LOADER
+>           functionality for bootloaders that do not have such support
+>           this option is necessary.
+>
+> +config EFI_GENERIC_STUB_INITRD_CMDLINE_LOADER
+> +       bool "Enable the command line initrd loader"
+> +       depends on EFI_GENERIC_STUB
+> +       default y
+> +       help
+> +         Select this config option to add support for the initrd= command
+> +         line parameter, allowing an initrd that resides on the same volume
+> +         as the kernel image to be loaded into memory.
+> +
+> +         This method is deprecated.
 
- - CONFIG_STRICT_DEVMEM is not set
-	$ devmem 0x10010000
-	devmem: mmap: Operation not permitted
-	$ devmem 0x80200000
-	devmem: mmap: Operation not permitted
+So why the default y?
 
-Signed-off-by: Zong Li <zong.li@sifive.com>
----
- arch/riscv/Kconfig          |  1 +
- arch/riscv/include/asm/io.h |  2 ++
- arch/riscv/mm/init.c        | 19 +++++++++++++++++++
- 3 files changed, 22 insertions(+)
+Gr{oetje,eeting}s,
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 128192e14ff2..ffd7841ede4c 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -16,6 +16,7 @@ config RISCV
- 	select ARCH_HAS_BINFMT_FLAT
- 	select ARCH_HAS_DEBUG_VIRTUAL if MMU
- 	select ARCH_HAS_DEBUG_WX
-+	select ARCH_HAS_DEVMEM_IS_ALLOWED
- 	select ARCH_HAS_GCOV_PROFILE_ALL
- 	select ARCH_HAS_GIGANTIC_PAGE
- 	select ARCH_HAS_MMIOWB
-diff --git a/arch/riscv/include/asm/io.h b/arch/riscv/include/asm/io.h
-index 3835c3295dc5..04ac65ab93ce 100644
---- a/arch/riscv/include/asm/io.h
-+++ b/arch/riscv/include/asm/io.h
-@@ -147,4 +147,6 @@ __io_writes_outs(outs, u64, q, __io_pbr(), __io_paw())
- 
- #include <asm-generic/io.h>
- 
-+extern int devmem_is_allowed(unsigned long pfn);
-+
- #endif /* _ASM_RISCV_IO_H */
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index bbe816e03b2f..5e7e61519acc 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -517,6 +517,25 @@ void mark_rodata_ro(void)
- }
- #endif
- 
-+#ifdef CONFIG_STRICT_DEVMEM
-+#include <linux/ioport.h>
-+/*
-+ * devmem_is_allowed() checks to see if /dev/mem access to a certain address
-+ * is valid. The argument is a physical page number.
-+ *
-+ * Disallow access to system RAM as well as device-exclusive MMIO regions.
-+ * This effectively disable read()/write() on /dev/mem.
-+ */
-+int devmem_is_allowed(unsigned long pfn)
-+{
-+	if (iomem_is_exclusive(pfn << PAGE_SHIFT))
-+		return 0;
-+	if (!page_is_ram(pfn))
-+		return 1;
-+	return 0;
-+}
-+#endif
-+
- void __init resource_init(void)
- {
- 	struct memblock_region *region;
+                        Geert
+
 -- 
-2.27.0
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
