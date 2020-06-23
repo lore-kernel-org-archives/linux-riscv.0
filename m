@@ -1,69 +1,77 @@
-Return-Path: <SRS0=GQGn=AB=lists.infradead.org=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=OENr=AE=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 94191C433E1
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 20 Jun 2020 19:55:29 +0000 (UTC)
-Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DA6F2C433E1
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jun 2020 15:06:15 +0000 (UTC)
+Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6984F207DD
-	for <infradead-linux-riscv@archiver.kernel.org>; Sat, 20 Jun 2020 19:55:29 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8E91020774
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Jun 2020 15:06:15 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="m3YVKWBo";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="m6rbiu3I"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6984F207DD
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
-Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="H/uqV19d"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8E91020774
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ics.forth.gr
+Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=M/iMIb8fZqEBIOWeMcSS+BKxnDKWo5dKysnvtn/IYr8=; b=m3YVKWBoX9Gk3xEhngDvQ8HMc
-	d6CH+B1v6nusPSgwPUbvDEt5X+ee35fIlzJa6jSxxGuOrot8Y7GxoKamB3gXL62NzP6D8HtrYorqx
-	CRfLLdnB3WMEMdpkinv/iRFwnUMjOR88aMCgyJ9XhDE3yYMC+ku89gHpRvfeil7lVZzhAGtfKWGn+
-	t+fwD2Yx9K1A3rQZ7qC/gxryV78uP2hLzufo0CRklDiBLXJe410U4VrLnGOo6IZxv+NjkknBqE05B
-	3OFyXvqP+Mvvoh1uC8dMYDNxtvc0hUpCmTwy8+5M60jDjONMfp46AIy5qcx2GqVXsfBM/0zbRhCqV
-	NK/nXvFeg==;
-Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
-	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jmjaK-00020E-6G; Sat, 20 Jun 2020 19:55:28 +0000
-Received: from mail.kernel.org ([198.145.29.99])
- by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jmjaH-0001zs-Je
- for linux-riscv@lists.infradead.org; Sat, 20 Jun 2020 19:55:27 +0000
-Subject: Re: [GIT PULL] RISC-V Fixes for 5.8-rc2
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1592682924;
- bh=YOhXoTb1o5C1Jl/TLWwhF9JZzy9ZzY00Jlr6C3UMC2c=;
- h=From:In-Reply-To:References:Date:To:Cc:From;
- b=m6rbiu3I9do1tLyhAU9d/FO1rwxxO3a++llJhkKpGOFC5G/G4vYgEm56Y6SE6m5vX
- B9bLvVJcGEx+f2/z6ioEWkBWUvt4PGwv5wFeTmtC4znX4ryv917ZTBX95/OsUjiH+c
- oSb/dPuiy72Y/m63oZhzPny0+2I7WuZx+aX8OIso=
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <mhng-ff59c9fd-a367-4804-bc35-73c8a572b016@palmerdabbelt-glaptop1>
-References: <mhng-ff59c9fd-a367-4804-bc35-73c8a572b016@palmerdabbelt-glaptop1>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <mhng-ff59c9fd-a367-4804-bc35-73c8a572b016@palmerdabbelt-glaptop1>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
- tags/riscv-for-linus-5.8-rc2
-X-PR-Tracked-Commit-Id: 0e2c09011d4de4161f615ff860a605a9186cf62a
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 7fdfbe08a2b3e2bf776e2f2b341768ba93c2e158
-Message-Id: <159268292459.15446.1815019867968444758.pr-tracker-bot@kernel.org>
-Date: Sat, 20 Jun 2020 19:55:24 +0000
-To: Palmer Dabbelt <palmer@dabbelt.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200620_125525_666244_28486530 
-X-CRM114-Status: UNSURE (   0.60  )
-X-CRM114-Notice: Please train this message.
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nQ80v6GMPdJPjVR2jIxBM9JFBK9T9xqZcWZmJI7UyLo=; b=H/uqV19dNjKTqFMpOWjmnTCf3/
+	ISpsxFkNefS/w8vG+LWeWx5QHjNIgDpXrCfsSiaXSOGfJy3NveFQZCsuaD3rqLDph2BNsAFSf4P1c
+	sb51iqtxf9GFJquPVa1DJv1VqLcCCbffydwz5Yq7jLDBTBnyxtEDeGdKbQHmW+rJwoYm5RPtz3PdI
+	FA7uyCmuV4F+wJsLEmJpSRlMuxuEnJZNUKGorGr4f9wEXzoKU52Ha4C6dEGFR9wuLuiA6zJnRUSkd
+	XMm9ljoK34bJ3dzQrpLe23S6dvcdfhTM+un01+LQk/Wlcm8nKTIIpxpCoKakEncHQn5lWlCip+FTh
+	2PD4MPMg==;
+Received: from localhost ([::1] helo=merlin.infradead.org)
+	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
+	id 1jnkV1-0006tv-Vb; Tue, 23 Jun 2020 15:06:12 +0000
+Received: from mailgate-2.ics.forth.gr ([139.91.1.5])
+ by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1jnkUv-0006oK-TD
+ for linux-riscv@lists.infradead.org; Tue, 23 Jun 2020 15:06:08 +0000
+Received: from av3.ics.forth.gr (av3in [139.91.1.77])
+ by mailgate-2.ics.forth.gr (8.14.4/ICS-FORTH/V10-1.8-GATE) with ESMTP id
+ 05NF5PbV016105; Tue, 23 Jun 2020 15:05:27 GMT
+X-AuditID: 8b5b014d-257ff700000045c5-ad-5ef21a348931
+Received: from enigma.ics.forth.gr (webmail.ics.forth.gr [139.91.151.35])
+ by av3.ics.forth.gr (Symantec Messaging Gateway) with SMTP id
+ 29.B1.17861.43A12FE5; Tue, 23 Jun 2020 18:05:25 +0300 (EEST)
+X-ICS-AUTH-INFO: Authenticated user: mick@ics.forth.gr at ics.forth.gr
+From: Nick Kossifidis <mick@ics.forth.gr>
+To: linux-riscv@lists.infradead.org, palmer@dabbelt.com
+Subject: =?UTF-8?q?=5BPATCH=20v2=200/3=5D=20RISC-V=3A=20Add=20kexec/kdump=20support=E2=80=8B?=
+Date: Tue, 23 Jun 2020 18:05:09 +0300
+Message-Id: <20200623150512.896499-1-mick@ics.forth.gr>
+X-Mailer: git-send-email 2.26.2
+MIME-Version: 1.0
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrMLMWRmVeSWpSXmKPExsXSHT1dWddU6lOcwaynjBYtH96xWixa8Z3F
+ YsvhR8wW2z63sFk0vzvHbvHycg+zRdssfoumF9eZLT7cnc3mwOkx9fcZFo+uHzNYPd68fMni
+ 8XDTJSaPzUvqPS41X2f3aD/QzRTAHsVlk5Kak1mWWqRvl8CVcbD/HlvBeZ6Kc69/MDcwNnB1
+ MXJySAiYSBx+dJu1i5GLQ0jgGKPEvUf72CASbhK37+9kBbHZBDQl5l86yAJiiwiYSzTPfM0I
+ YjODNCxeVtHFyMEhLBAn8bFdFsRkEVCVmPAyDMTkBap+uc0FYqC8RPvy7WDDeQUEJU7OfMIC
+ UsIsoC6xfp4QxDx5ieats5knMPLOQlI1C6FqFpKqBYzMqxgFEsuM9TKTi/XS8otKMvTSizYx
+ gsOV0XcH4+3Nb/UOMTJxMB5ilOBgVhLhfR3wLk6INyWxsiq1KD++qDQntfgQozQHi5I4bx73
+ 8lghgfTEktTs1NSC1CKYLBMHp1QD0ySB1/u5BHZZmp/Ojy7f5cs6f5LMkt7dAn1Cv5c4fPr6
+ U4xD/rRs8By9KnMGszk9/zd56Odb/Zg1/c4hUT/hK52NYb4feVUtMz2Tssq023iqFh5PyVhk
+ WnOtRDr1tknN7gVlb6W/thodMs+OWuZy4MXNs4djVRUvlf5+dnzLW9cpt36sTI7rS0w+9uOO
+ 0DutTA8/l6pD9nNaG92N3dv1nnmI2fr/DNh6V/tp59U7GsWfPWa1hzoU56b9tn+hrKshsiTg
+ T3VIgFyt3oIfPrcbClL5hHmKLkfO4tMPkvfcp511/EPaieJVvb+jSp4uadWW5o+o5Tz6Z2PC
+ fC7jAGv+M6wKbWsffNyeaHz4da0SS3FGoqEWc1FxIgCd1Y3txgIAAA==
+X-Greylist: inspected by milter-greylist-4.6.2 (mailgate-2.ics.forth.gr
+ [139.91.1.5]);
+ Tue, 23 Jun 2020 15:05:27 +0000 (GMT) for IP:'139.91.1.77' DOMAIN:'av3in'
+ HELO:'av3.ics.forth.gr' FROM:'mick@ics.forth.gr' RCPT:''
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.6.2
+ (mailgate-2.ics.forth.gr [139.91.1.5]); Tue, 23 Jun 2020 15:05:27 +0000 (GMT)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -75,21 +83,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org,
- Linus Torvalds <torvalds@linux-foundation.org>, linux-kernel@vger.kernel.org
+Cc: david.abdurachmanov@sifive.com, anup@brainfault.org, atish.patra@wdc.com,
+ yibin_liu@c-sky.com, zong.li@sifive.com, paul.walmsley@sifive.com,
+ Nick Kossifidis <mick@ics.forth.gr>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-Errors-To: linux-riscv-bounces+infradead-linux-riscv=archiver.kernel.org@lists.infradead.org
+Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Fri, 19 Jun 2020 16:24:29 -0700 (PDT):
+This patch series adds kexec/kdump and crash kernel
+support on RISC-V. For testing the patches a patched
+version of kexec-tools is needed. The patch is still
+a work in progress but a draft version can be found at:
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.8-rc2
+http://riscv.ics.forth.gr/kexec-tools.patch
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/7fdfbe08a2b3e2bf776e2f2b341768ba93c2e158
+v2:
+ * Re-base on newer kernel tree and minor cleanups
+ * Properly populate the ioresources tree, so that it can be
+   used later on for implementing strict /dev/mem.
+ * Use linux,usable-memory on /memory instead of a new binding
+ * Use a reserved-memory node for ELF core header
 
-Thank you!
+Nick Kossifidis (3):
+  RISC-V: Add kexec support
+  RISC-V: Add kdump support
+  RISC-V: Add crash kernel support
+
+ arch/riscv/Kconfig                  |  24 +++
+ arch/riscv/include/asm/kexec.h      |  54 +++++++
+ arch/riscv/include/uapi/asm/elf.h   |   6 +
+ arch/riscv/kernel/Makefile          |   2 +
+ arch/riscv/kernel/crash_dump.c      |  46 ++++++
+ arch/riscv/kernel/crash_save_regs.S |  56 +++++++
+ arch/riscv/kernel/kexec_relocate.S  | 217 ++++++++++++++++++++++++++++
+ arch/riscv/kernel/machine_kexec.c   | 193 +++++++++++++++++++++++++
+ arch/riscv/kernel/setup.c           | 209 +++++++++++++++++++++++++++
+ arch/riscv/mm/init.c                | 110 ++++++++++++++
+ include/uapi/linux/kexec.h          |   1 +
+ 11 files changed, 918 insertions(+)
+ create mode 100644 arch/riscv/include/asm/kexec.h
+ create mode 100644 arch/riscv/kernel/crash_dump.c
+ create mode 100644 arch/riscv/kernel/crash_save_regs.S
+ create mode 100644 arch/riscv/kernel/kexec_relocate.S
+ create mode 100644 arch/riscv/kernel/machine_kexec.c
 
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.wiki.kernel.org/userdoc/prtracker
+2.26.2
 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
