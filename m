@@ -2,52 +2,86 @@ Return-Path: <SRS0=bAcz=AH=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.2 required=3.0 tests=DATE_IN_PAST_12_24,
+X-Spam-Status: No, score=-6.2 required=3.0 tests=DATE_IN_PAST_12_24,
 	DKIMWL_WL_HIGH,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EB7E5C433DF
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2020 11:08:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 194B2C433E1
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2020 11:12:39 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 76C042053B
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2020 11:08:28 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id DD1AD20724
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2020 11:12:38 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="lziGxqgn"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 76C042053B
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=distanz.ch
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="PTsmS7Sc";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="e5gRGjrM"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DD1AD20724
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GwjeIgTJBilWnuSuSyFoUZgLGUyNjvbnmZhSjPQNKRE=; b=lziGxqgnP0eQZpLeX7rrJmVqEU
-	00i1CGQeK6/qHAMhPl0o0L0oKla0qAkx7MkFusFTDBHy0j+fRAfRwUzVNi2cFBnXTnureE3QaATg0
-	U6bpgo5UaRbrVG9ib/lZ/FKyjgMdHf+guKeDUOUjXxSHL0GpLIVPllXRNCoSgvO51LYy8vBoPllTk
-	M25kRR9WiqNB+x+gUrusj1DWFm4Y9caEYnc+Eera4a4hdlsRoKbdhj7QRBU0nbTBdAwniiba264LL
-	0Tp8vNF+tPu0zr/p5bjGY5QFrGlq4BDPN5RvhAYEID8+kq4qia8fejDI/lSicAwlAaHQUkO6KA15Y
-	Tp2S/yWg==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=jg5p0ENdQNkw1eylAloi8UwNk5Wj+MRdIVrcn1B7DTA=; b=PTsmS7Sci79fidimMamIdGyk9
+	i38K/jZeYJ16wWTeb3JpGyod5xlqBcY2DRAsJZvwFwJVVb6K8mPg/JZtZ9XbXy1hwFJTPZbFFUnT/
+	pSUEhhK8bqwmpYEqwaJUKNYi6qRvyecKCLP0bV74xBG3vNLw36xhTGs3WACaXP99hObBe1Jvp8zhd
+	af5knWra3TQiEiUR5ALnwTq9kaXAxTTYrjayKvMQwp/M2bUvHlDffYXo68ymj5S+1Sgfv0xM6XjaS
+	eSVKHEe+OUm5WUfYkYNRQxWdccaVX4SYsFF8lePnWqo6BosyUR1YIjv4AnUgomTQK6gEF7q59wIk4
+	qtaN364iA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jomDX-0003W0-Mc; Fri, 26 Jun 2020 11:08:23 +0000
-Received: from sym2.noone.org ([178.63.92.236])
+	id 1jomHa-0005QP-WC; Fri, 26 Jun 2020 11:12:35 +0000
+Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jol58-0005Ek-S6
- for linux-riscv@lists.infradead.org; Fri, 26 Jun 2020 09:55:52 +0000
-Received: by sym2.noone.org (Postfix, from userid 1002)
- id 49t82602ZQzvjc1; Thu, 25 Jun 2020 20:39:41 +0200 (CEST)
-From: Tobias Klauser <tklauser@distanz.ch>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Subject: [PATCH] riscv: enable kcov
-Date: Thu, 25 Jun 2020 20:39:41 +0200
-Message-Id: <20200625183941.23093-1-tklauser@distanz.ch>
-X-Mailer: git-send-email 2.11.0
-MIME-Version: 1.0
+ id 1jomFo-0004ZA-Pw
+ for linux-riscv@lists.infradead.org; Fri, 26 Jun 2020 11:10:55 +0000
+Received: by mail-pf1-x444.google.com with SMTP id u5so4510488pfn.7
+ for <linux-riscv@lists.infradead.org>; Fri, 26 Jun 2020 04:10:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=VHp8B+oVk2RFnlPcsRAqRzTnzd2Xx4e1K0uOmjkl3Ng=;
+ b=e5gRGjrMxIvK+o9bipqjruuo0/zY3i7bPOHDmk5AwP0O3hOTESLbKBCPJEmbT5JEtK
+ pp9ucuVuSXOQ+buOhyvqZ8hO4ThzSmhzJYRghKb01zgqrokXHwjW4J//zMvXZpUqugit
+ v+r5Yp+JrktRlNq1SslO34NaJhNtxf7M/nC4a3FWQoJbEpWt761iOgw1gAhgiRyUkDQk
+ 6z98FpYGyjvGmy3gfxmQt7Nfjf04puonQ3tvbnevYKZ9rse88JkrUIrzgeJxsTgs2rgO
+ zX76G+ZwTFTkaSbL90jnBMznNqWzlZiYZ8A1Rfgwkfah/d5Pc05Ag1zhevZtaeMulGty
+ EQkg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=VHp8B+oVk2RFnlPcsRAqRzTnzd2Xx4e1K0uOmjkl3Ng=;
+ b=XR4Xuy+9BzgcSQofr8TtGzJzKARPdiHBFJtlAZr/1zlV1JPWEuIFo0AoOvlrQ6SA1A
+ tlefqkHzF8Pr5dWPvScI1DIbbTAAne0lHg2iaDANoXaSnw79SwSkAHL8O6aLme/r6TW0
+ SawJXmyqWdkdIgcpT5o4C7M6Nti8fm5NmUfbJ1TfGiiNTqIF2IOxnZB9fbts61Vjpavw
+ rFgNOvIB2g0eKom/8xq4prR1/XN3ltqLIaZVBWUxZ8xsimKgN9twQWBEKuF2rYGKznFX
+ u5RVqQHWg3Pgp+3GSGpu7+F/QBVGMh5tGr3cIQvbsDcnuZM9v71m88l5BVulJAchBQus
+ VyyQ==
+X-Gm-Message-State: AOAM533iNTRWLQV+0ret3kxPdrqD+QGYV18iCJXaIYqvybbI05Kfex2b
+ 2mvGk5Brvz60wP5D/DcDRNAWgUqhAO3ywg==
+X-Google-Smtp-Source: ABdhPJzbDoxoj5gWSZXv+ZmsMv+0hdalC96F9foR07lPSO2Hc+guCA+WHZ77O8w0UrxCsLIVQ3M6/Q==
+X-Received: by 2002:a17:902:db83:: with SMTP id
+ m3mr10617545pld.176.1593122535216; 
+ Thu, 25 Jun 2020 15:02:15 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id y136sm24206509pfg.55.2020.06.25.15.02.11
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 25 Jun 2020 15:02:12 -0700 (PDT)
+Date: Thu, 25 Jun 2020 15:02:12 -0700 (PDT)
+X-Google-Original-Date: Thu, 25 Jun 2020 15:02:09 PDT (-0700)
+Subject: Re: [PATCH] riscv: Add -fPIC option to CFLAGS_vgettimeofday.o
+In-Reply-To: <1592874802-4242-1-git-send-email-vincent.chen@sifive.com>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: vincent.chen@sifive.com
+Message-ID: <mhng-7109baa6-a108-4914-a866-f4071df6a886@palmerdabbelt-glaptop1>
+Mime-Version: 1.0 (MHng)
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -59,37 +93,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn.topel@gmail.com>,
- linux-riscv@lists.infradead.org, Dmitry Vyukov <dvyukov@google.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: vincent.chen@sifive.com, linux-riscv@lists.infradead.org,
+ Paul Walmsley <paul.walmsley@sifive.com>
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QWRkIEFSQ0hfSEFTX0tDT1YgYW5kIEhBVkVfR0NDX1BMVUdJTlMgdG8gdGhlIHJpc2N2IEtjb25m
-aWcuCkFsc28gZGlzYWJsZSBpbnN0cnVtZW50YXRpb24gb2YgdmRzby4KCkNjOiBCasO2cm4gVMO2
-cGVsIDxiam9ybi50b3BlbEBnbWFpbC5jb20+CkNjOiBEbWl0cnkgVnl1a292IDxkdnl1a292QGdv
-b2dsZS5jb20+ClNpZ25lZC1vZmYtYnk6IFRvYmlhcyBLbGF1c2VyIDx0a2xhdXNlckBkaXN0YW56
-LmNoPgotLS0KIGFyY2gvcmlzY3YvS2NvbmZpZyAgICAgICAgICAgICAgfCAyICsrCiBhcmNoL3Jp
-c2N2L2tlcm5lbC92ZHNvL01ha2VmaWxlIHwgMSArCiAyIGZpbGVzIGNoYW5nZWQsIDMgaW5zZXJ0
-aW9ucygrKQoKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvS2NvbmZpZyBiL2FyY2gvcmlzY3YvS2Nv
-bmZpZwppbmRleCAwODkyOTNlNGFkNDYuLmE3ZDdmODE4NGYxNSAxMDA2NDQKLS0tIGEvYXJjaC9y
-aXNjdi9LY29uZmlnCisrKyBiL2FyY2gvcmlzY3YvS2NvbmZpZwpAQCAtMTksNiArMTksNyBAQCBj
-b25maWcgUklTQ1YKIAlzZWxlY3QgQVJDSF9IQVNfREVCVUdfV1gKIAlzZWxlY3QgQVJDSF9IQVNf
-R0NPVl9QUk9GSUxFX0FMTAogCXNlbGVjdCBBUkNIX0hBU19HSUdBTlRJQ19QQUdFCisJc2VsZWN0
-IEFSQ0hfSEFTX0tDT1YKIAlzZWxlY3QgQVJDSF9IQVNfTU1JT1dCCiAJc2VsZWN0IEFSQ0hfSEFT
-X1BURV9TUEVDSUFMCiAJc2VsZWN0IEFSQ0hfSEFTX1NFVF9ESVJFQ1RfTUFQCkBAIC01Nyw2ICs1
-OCw3IEBAIGNvbmZpZyBSSVNDVgogCXNlbGVjdCBIQVZFX0RNQV9DT05USUdVT1VTIGlmIE1NVQog
-CXNlbGVjdCBIQVZFX0VCUEZfSklUIGlmIE1NVQogCXNlbGVjdCBIQVZFX0ZVVEVYX0NNUFhDSEcg
-aWYgRlVURVgKKwlzZWxlY3QgSEFWRV9HQ0NfUExVR0lOUwogCXNlbGVjdCBIQVZFX0dFTkVSSUNf
-VkRTTyBpZiBNTVUgJiYgNjRCSVQKIAlzZWxlY3QgSEFWRV9QQ0kKIAlzZWxlY3QgSEFWRV9QRVJG
-X0VWRU5UUwpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvdmRzby9NYWtlZmlsZSBiL2Fy
-Y2gvcmlzY3Yva2VybmVsL3Zkc28vTWFrZWZpbGUKaW5kZXggMzhiYTU1YjBlYjlkLi45ZGViYmFh
-YjM5M2QgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL3Zkc28vTWFrZWZpbGUKKysrIGIv
-YXJjaC9yaXNjdi9rZXJuZWwvdmRzby9NYWtlZmlsZQpAQCAtMjksNiArMjksNyBAQCBDUFBGTEFH
-U192ZHNvLmxkcyArPSAtUCAtQyAtVSQoQVJDSCkKIAogIyBEaXNhYmxlIGdjb3YgcHJvZmlsaW5n
-IGZvciBWRFNPIGNvZGUKIEdDT1ZfUFJPRklMRSA6PSBuCitLQ09WX0lOU1RSVU1FTlQgOj0gbgog
-CiAjIEZvcmNlIGRlcGVuZGVuY3kKICQob2JqKS92ZHNvLm86ICQob2JqKS92ZHNvLnNvCi0tIAoy
-LjI3LjAKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
-aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
-dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Mon, 22 Jun 2020 18:13:22 PDT (-0700), vincent.chen@sifive.com wrote:
+> The time related vDSO functions use a variable, vdso_data, to access the
+> vDSO data page to get the system time information. Because the vdso_data
+> for CFLAGS_vgettimeofday.o is an external variable defined in vdso.o,
+> the CFLAGS_vgettimeofday.o should be compiled with -fPIC to ensure
+> that vdso_data is addressable.
+>
+> Reported-by: kernel test robot <lkp@intel.com>
+> Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+> ---
+>  arch/riscv/kernel/vdso/Makefile | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+> index 38ba55b0eb9d..29cf052f6541 100644
+> --- a/arch/riscv/kernel/vdso/Makefile
+> +++ b/arch/riscv/kernel/vdso/Makefile
+> @@ -17,7 +17,7 @@ vdso-syms += flush_icache
+>  obj-vdso = $(patsubst %, %.o, $(vdso-syms)) note.o
+>
+>  ifneq ($(c-gettimeofday-y),)
+> -  CFLAGS_vgettimeofday.o += -include $(c-gettimeofday-y)
+> +  CFLAGS_vgettimeofday.o += -fPIC -include $(c-gettimeofday-y)
+>  endif
+>
+>  # Build rules
+
+Presumably this should apply to all the C files compiled into the VDSO, but as
+that's the only one this is fine for now.  I don't know enough build system
+wizardry to make that happen, so I guess we'll have to wait until we get a
+second C file :)
+
+This is on fixes.
+
+Thanks!
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
