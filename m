@@ -5,19 +5,19 @@ X-Spam-Level:
 X-Spam-Status: No, score=-10.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 24541C433E0
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2020 10:52:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9139BC433E0
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2020 10:52:43 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D9258206DD
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2020 10:52:33 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 4FC1B206DD
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2020 10:52:43 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="bXkp8G1N";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="XEJ8NRWh"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D9258206DD
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="mR08c3Uz";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="aYrU/9rV"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4FC1B206DD
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,54 +26,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Dilmiv8up8qoiXUxiZHXB7KghIE9iajdjzimzl6u4+s=; b=bXkp8G1NuJMyr+8AIbBeISlBQ
-	JlsPikKDLNZQPHvZIJLAhIj1+s2Rh3tr1vplp9JSU8o4Wy1d1LDXCda7v9+4FzAjnLc3biYib0Prz
-	3t59TeEuC4WxCV7WRdpHuS8rTzA0mDLZe/fQ4UODsZOpi5vfkaS4IJPAuwP9fW/PmmOtuJHoMMt1i
-	dKj/JG2ZMvISU+vq8vHaLLTCynnTr144UhV+64HIfY0vwlA/AUgFqQ9FcYq0RrTUc6hqiPRSS/jjK
-	O7IeFSnFIfpjaD6aCRYcg6OR40/7KSp5I7HB3uQ/KEVb2yDa9eccC69c3KGDejbcfnetUkfdWkmL6
-	xRhtKrbLQ==;
+	 bh=sjyo4WrFZPDjSJp844uYZWw5N+yzalH6f06rX4OB8yY=; b=mR08c3UzTsE2q4OhrmZE1ZiRM
+	rBkbasl6GjBXyuIf7rpbIu/WHUjquvwj1BeWE21LtSo9NnfHHWXiXHywYE2OH6S5HRFk/m4ak8QeT
+	gKBntUDiCLi6tBXregPk4COsxTNO4yTd448ooCBW46HF4jgnI9wdCVUDW/m0vfBMeoti/LBvl9KZ0
+	wFAgCRLDZ3Y88oTL8n2HiFB1aMhktukze7+QaAeGzsXCZCfFXwN0Hr7gICpGez0LrgE41gZrwFWSz
+	/03JI5xmoDQ8N7vZ3z/jmu2MEWjtGuB7fk63myXtSS7l5yiBXY/2cKfwLPogsq0ndERKR6GtbM4CB
+	tXEmUpGDA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1joly8-0006Rt-Hq; Fri, 26 Jun 2020 10:52:28 +0000
+	id 1jolyG-0006Vq-T3; Fri, 26 Jun 2020 10:52:36 +0000
 Received: from esa2.hgst.iphmx.com ([68.232.143.124])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jojm4-0002Se-Tx; Fri, 26 Jun 2020 08:32:17 +0000
+ id 1jojmT-0002Se-Ct; Fri, 26 Jun 2020 08:32:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1593160352; x=1624696352;
+ t=1593160339; x=1624696339;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=nglTD4UGuoe/uqWlZLpzP4BN9AAnND7WFwPf/vb2+9A=;
- b=XEJ8NRWhybQF1uWAaiLr+7vQ8qpgAZce7UVQ97TnCkJ7oQNpZ6aj7La7
- E4otXJvNvQ2/aLFtgIHkOhcTCl5e++VwnO5Q0+OD74G04zsDo8r/X2huw
- oxVBr3YlMAgQwf2YZD3hCVn7UKkCk9eJz12M2ptspifT8HyQ5KArS03Ze
- rAt8vj7WUDC7tvXEIdo2YcIxIO2cfEGKnOrYVYFnI2wFSZr+KEWCC4Do/
- DDE0KKz3D/eraQAMVmGCrtgU7ZlFoLjuGX1LygUrWTR4PyNoEvylQeBXu
- fr43pDQO01MJo73aECHc/ZMCpkrGpLgNl3zY2NSx5gqoul3JRrhH22Mkh g==;
-IronPort-SDR: bRSH5n2CJGHaNn/AHrJqp4g4xC0v3giBHUynPe4I9gZfHrNKfNVHUW4/8rZUGizL5gi1+OTtd5
- dYPuLvBbpJUmgxZcALBFYtye1BKAxB0l3KgF8blihWk655O45y8mQpn+m1b17F1LNDmE0tIPm1
- 0OxM7w+OJUbMFTCZTFG+X/nSRALLfXghdU3q3ZAcmrm9X6W+RfWUBGx4Ux/Q+mpNdMWS9s9/hF
- ymCAtOUxUEy05mqy5DycFdLCRgOlhk23UksdjWRMSHS1gxT6HmcOIrehjoBx29wmBAKQUaRpw1
- ic8=
-X-IronPort-AV: E=Sophos;i="5.75,280,1589212800"; d="scan'208";a="243966115"
+ bh=e1f5tFToh6jF2Fr3c6Bri7MNiVrYpT85jVmyBw2a1o8=;
+ b=aYrU/9rVZ0hMu3SpQhDlPaMyd0HDaP21YSDlQnEwjzR+Yt13uj074FEj
+ KPy2tX8bO91EX5nu18k9vDULWZLEbA+TFoa2roe1R/OEFydNWnxIYcl6r
+ XYlHIrC/AMuJ+S5uXmSxq773XYjigZrdcNRKjmikSHwQKsbCczQ6eg5+/
+ Mz+6QDrxHqj5LuZh6xC2pWIlNHU5VVba/KB5JNQYv2Wn7Bnew+KMum1Nu
+ 3rPzTRR1DE8WLMhnAeDqP2vRQLb4wKOmiYTSs79pkpRN/UU2EqpdCpIqn
+ Q1o9E5s/DglC2GlBdTwSdWwSbqDqY5X4zBJeEx3BQAEKl8LWbhq9KgO/A Q==;
+IronPort-SDR: 3C45ie6KGoNNXNnAoh5a7V/Qm+JMg4g+69iGD36qD9Hj50c4lV7LAJURzN+btR3YgZCwulh0bm
+ H8LspNpCeNla9qLonXtAGI0O3UJ89+tiNcWjtOK8Fvp8/A3P4wMHTRuFAFDPbL4wYDkNhhU1Jk
+ 7wBUgxAs+Czlzke7O7YCRwCA0DPdVBLRs7RxOJtNMrt9uDlGPT4LlDj83g/XdtsOK+3XpQGF4l
+ 6DL2+oycGkPKBrHOsxEBRikzkx2MM51FiKnhsduzeQ+jystN29rS+SGrHWZOO4ezmw34gZpIl6
+ RzY=
+X-IronPort-AV: E=Sophos;i="5.75,280,1589212800"; d="scan'208";a="243966117"
 Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 26 Jun 2020 07:45:57 +0800
-IronPort-SDR: sijrQrMpmhVeYSVK+ncSroltLT41K2RB5GRqVNmkLPeolXqXJHcQw01DvDOM8noJS9dClWsIWs
- XetLOeeoW+DO/hHT97Uzsam1y56jVqfbo=
+ by ob1.hgst.iphmx.com with ESMTP; 26 Jun 2020 07:45:58 +0800
+IronPort-SDR: 1+rJeBaCAD2XncIQUuMdrCpHQ4Emw1o87TeREXaFO7oEOMvzaFGmTdyKiWsm7QT2aNUfFgoiIJ
+ fhqzuCTAo6pJstegHJWT3Koz43/tr4LC4=
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 25 Jun 2020 16:34:25 -0700
-IronPort-SDR: fe/XELAziUbreMEong29tU4drIjZjt+qnFt/cibHloZAYNzkYSaKE5LEzK2JOYFkM7sdc0IS17
- 0AQiofyTXRmQ==
+ 25 Jun 2020 16:34:26 -0700
+IronPort-SDR: x27YsbO1KVXuwcO1coWKuCCOUz0CEkeOSTXMxHLCyjOMlyEdoh9s5hWmoxbaG9WTGee2GcC+DR
+ DbQR7vLieVwg==
 WDCIronportException: Internal
 Received: from 2349pbt5e4f.ad.shared (HELO jedi-01.hgst.com) ([10.86.58.78])
- by uls-op-cesaip01.wdc.com with ESMTP; 25 Jun 2020 16:45:25 -0700
+ by uls-op-cesaip01.wdc.com with ESMTP; 25 Jun 2020 16:45:26 -0700
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [RFC PATCH 04/11] RISC-V: Add early ioremap support
-Date: Thu, 25 Jun 2020 16:45:09 -0700
-Message-Id: <20200625234516.31406-5-atish.patra@wdc.com>
+Subject: [RFC PATCH 05/11] RISC-V: Set maximum number of mapped pages correctly
+Date: Thu, 25 Jun 2020 16:45:10 -0700
+Message-Id: <20200625234516.31406-6-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.24.0
 In-Reply-To: <20200625234516.31406-1-atish.patra@wdc.com>
 References: <20200625234516.31406-1-atish.patra@wdc.com>
@@ -98,141 +98,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-UEFI uses early IO or memory mappings for runtime services before
-normal ioremap() is usable. Add the necessary fixmap bindings and
-pmd mappings for generic ioremap support to work.
+Currently, maximum number of mapper pages are set to the pfn calculated
+from the memblock size of the memblock containing kernel. This will work
+until that memblock spans the entire memory. However, it will be set to
+a wrong value if there are multiple memblocks defined in kernel
+(e.g. with efi runtime services).
+
+Set the the maximum value to the pfn calculated from dram size.
 
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
 ---
- arch/riscv/Kconfig              |  1 +
- arch/riscv/include/asm/Kbuild   |  1 +
- arch/riscv/include/asm/fixmap.h | 13 +++++++++++++
- arch/riscv/include/asm/io.h     |  1 +
- arch/riscv/kernel/setup.c       |  1 +
- arch/riscv/mm/init.c            | 33 +++++++++++++++++++++++++++++++++
- 6 files changed, 50 insertions(+)
+ arch/riscv/mm/init.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 128192e14ff2..fda90093e588 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -32,6 +32,7 @@ config RISCV
- 	select GENERIC_ARCH_TOPOLOGY if SMP
- 	select GENERIC_ATOMIC64 if !64BIT
- 	select GENERIC_CLOCKEVENTS
-+	select GENERIC_EARLY_IOREMAP
- 	select GENERIC_GETTIMEOFDAY if HAVE_GENERIC_VDSO
- 	select GENERIC_IOREMAP
- 	select GENERIC_IRQ_MULTI_HANDLER
-diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
-index 3d9410bb4de0..59dd7be55005 100644
---- a/arch/riscv/include/asm/Kbuild
-+++ b/arch/riscv/include/asm/Kbuild
-@@ -1,4 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0
-+generic-y += early_ioremap.h
- generic-y += extable.h
- generic-y += flat.h
- generic-y += kvm_para.h
-diff --git a/arch/riscv/include/asm/fixmap.h b/arch/riscv/include/asm/fixmap.h
-index 11613f38228a..54cbf07fb4e9 100644
---- a/arch/riscv/include/asm/fixmap.h
-+++ b/arch/riscv/include/asm/fixmap.h
-@@ -27,6 +27,19 @@ enum fixed_addresses {
- 	FIX_TEXT_POKE1,
- 	FIX_TEXT_POKE0,
- 	FIX_EARLYCON_MEM_BASE,
-+
-+	__end_of_permanent_fixed_addresses,
-+	/*
-+	 * Temporary boot-time mappings, used by early_ioremap(),
-+	 * before ioremap() is functional.
-+	 */
-+#define NR_FIX_BTMAPS		(SZ_256K / PAGE_SIZE)
-+#define FIX_BTMAPS_SLOTS	7
-+#define TOTAL_FIX_BTMAPS	(NR_FIX_BTMAPS * FIX_BTMAPS_SLOTS)
-+
-+	FIX_BTMAP_END = __end_of_permanent_fixed_addresses,
-+	FIX_BTMAP_BEGIN = FIX_BTMAP_END + TOTAL_FIX_BTMAPS - 1,
-+
- 	__end_of_fixed_addresses
- };
- 
-diff --git a/arch/riscv/include/asm/io.h b/arch/riscv/include/asm/io.h
-index 3835c3295dc5..c025a746a148 100644
---- a/arch/riscv/include/asm/io.h
-+++ b/arch/riscv/include/asm/io.h
-@@ -14,6 +14,7 @@
- #include <linux/types.h>
- #include <linux/pgtable.h>
- #include <asm/mmiowb.h>
-+#include <asm/early_ioremap.h>
- 
- /*
-  * MMIO access functions are separated out to break dependency cycles
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index 8519a6d29857..1244b433fe7c 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -72,6 +72,7 @@ void __init setup_arch(char **cmdline_p)
- 
- 	*cmdline_p = boot_command_line;
- 
-+	early_ioremap_setup();
- 	parse_early_param();
- 
- 	setup_bootmem();
 diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index c18c94ab3b23..bad60686d080 100644
+index bad60686d080..4021706aef81 100644
 --- a/arch/riscv/mm/init.c
 +++ b/arch/riscv/mm/init.c
-@@ -377,6 +377,9 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
- 	uintptr_t load_pa = (uintptr_t)(&_start);
- 	uintptr_t load_sz = (uintptr_t)(&_end) - load_pa;
- 	uintptr_t map_size = best_map_size(load_pa, MAX_EARLY_MAPPING_SIZE);
-+#ifndef __PAGETABLE_PMD_FOLDED
-+	pmd_t fix_bmap_spmd, fix_bmap_epmd;
-+#endif
+@@ -147,9 +147,9 @@ void __init setup_bootmem(void)
+ 	/* Reserve from the start of the kernel to the end of the kernel */
+ 	memblock_reserve(vmlinux_start, vmlinux_end - vmlinux_start);
  
- 	va_pa_offset = PAGE_OFFSET - load_pa;
- 	pfn_base = PFN_DOWN(load_pa);
-@@ -427,6 +430,36 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
- 	dtb_size = fdt_totalsize((void *)dtb_pa);
- 	dtb_size = (dtb_size > DTB_EARLY_SIZE) ? DTB_EARLY_SIZE : dtb_size;
- 	memcpy((void *)pa, (void *)dtb_pa, dtb_size);
-+
-+	/*
-+	 * Bootime fixmap only can handle PMD_SIZE mapping. Thus, boot-ioremap
-+	 * range can not span multiple pmds.
-+	 */
-+	BUILD_BUG_ON((__fix_to_virt(FIX_BTMAP_BEGIN) >> PMD_SHIFT)
-+		     != (__fix_to_virt(FIX_BTMAP_END) >> PMD_SHIFT));
-+
-+#ifndef __PAGETABLE_PMD_FOLDED
-+	/*
-+	 * Early ioremap fixmap is already created as it lies within first 2MB
-+	 * of fixmap region. We always map PMD_SIZE. Thus, both FIX_BTMAP_END
-+	 * FIX_BTMAP_BEGIN should lie in the same pmd. Verify that and warn
-+	 * the user if not.
-+	 */
-+	fix_bmap_spmd = fixmap_pmd[pmd_index(__fix_to_virt(FIX_BTMAP_BEGIN))];
-+	fix_bmap_epmd = fixmap_pmd[pmd_index(__fix_to_virt(FIX_BTMAP_END))];
-+	if (pmd_val(fix_bmap_spmd) != pmd_val(fix_bmap_epmd)) {
-+		WARN_ON(1);
-+		pr_warn("fixmap btmap start [%08lx] != end [%08lx]\n",
-+			pmd_val(fix_bmap_spmd), pmd_val(fix_bmap_epmd));
-+		pr_warn("fix_to_virt(FIX_BTMAP_BEGIN): %08lx\n",
-+			fix_to_virt(FIX_BTMAP_BEGIN));
-+		pr_warn("fix_to_virt(FIX_BTMAP_END):   %08lx\n",
-+			fix_to_virt(FIX_BTMAP_END));
-+
-+		pr_warn("FIX_BTMAP_END:       %d\n", FIX_BTMAP_END);
-+		pr_warn("FIX_BTMAP_BEGIN:     %d\n", FIX_BTMAP_BEGIN);
-+	}
-+#endif
- }
+-	set_max_mapnr(PFN_DOWN(mem_size));
+ 	max_pfn = PFN_DOWN(memblock_end_of_DRAM());
+ 	max_low_pfn = max_pfn;
++	set_max_mapnr(max_low_pfn);
  
- static void __init setup_vm_final(void)
+ #ifdef CONFIG_BLK_DEV_INITRD
+ 	setup_initrd();
 -- 
 2.24.0
 
