@@ -4,20 +4,20 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-10.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D6E04C433E0
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2020 09:49:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 464C8C433E0
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2020 09:50:40 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A31A721556
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2020 09:49:04 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 10C4C20836
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2020 09:50:40 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="h7Kmryzn";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="fdQB6Oh0"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A31A721556
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="o2h8qkHM";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="GLm930Ii"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 10C4C20836
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,54 +26,55 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=PJL95+cl+gbQ+4F0udXjihgW5rAISNR6V1z/0U9vgkQ=; b=h7KmryzneMv8EzPJ+kUBw4vtk
-	FvUlL8ySRmDg6tYAIS3zeLSKFB2JMKFbMLQmL4mDLTmUGWwL+lmt/4xXefKcSBIiH9EExGOwKmDa3
-	YIiu+Ufbj7EMpizr42BRtGSstG/A0upMBsQrbdP1FyTHZ2le9oAa5Aq1QTN2xgrlaQx4CtVcLdOoI
-	SRTHuUdiwbGFMJVYTq567fi2IxhesS6cMnBdG1e53Ynqo9ScMNTYJCvcKIBYsqe+de/Y4IE3gpNKb
-	dydGvfsGhj/IEJN1sfAQCq89NUAsqP5WRyx+nhHzlZ3jezdTYv8ezmSv1YVafRcCXHFaRJtC8IMh2
-	qqMIVJJ9g==;
+	 bh=ijcEaKum8QWSScWucOnkc3EOVhyAG6GTBgw6FLdFFDs=; b=o2h8qkHMLj9FpNP+RLfEdTjpC
+	YjdBMllvpzbnJfxRsa0HL/PUUoDBUHtPocECoYdG4yN+7x4PPv5Fg4J9joD/RtJy3pFVdm0dQIYKi
+	jJqqsCr2GIWXyXvwHT0hft47c03zxYg3vPk+as5hwtPr1EXZjk1i3ismK/AH4OHQAJAwncaJXl/fS
+	WDeVFYpTRui/DuLMsmpPsB0/bpYlZrhGRL1EbtERrl+PzcKImNpKyg7EL7qoMhPRXynbaGBSiepjQ
+	/9uZN2Nd/6/VkNnsu9c4wn1q+VUobsDdDT5ooVDgfqdJ5AGlDk/ty1BGyog9c3jGICxUeqvXXVEwY
+	BQN4dPJ3g==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jokyh-0002GT-Lg; Fri, 26 Jun 2020 09:48:59 +0000
+	id 1jol0E-0002k8-NJ; Fri, 26 Jun 2020 09:50:34 +0000
 Received: from esa2.hgst.iphmx.com ([68.232.143.124])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jojlM-0002Se-GY; Fri, 26 Jun 2020 08:31:30 +0000
+ id 1jojmo-0002Se-DN; Fri, 26 Jun 2020 08:33:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1593160284; x=1624696284;
+ t=1593160359; x=1624696359;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=ihAfLD97lU7TjJORSki+rGBXYnAkG5Afd7XbqxsjX2E=;
- b=fdQB6Oh0TQJ8WUq94NdKjUhVq1ZPduHpTKrgJmr1hSMvKOiyUukd3P9d
- ve494ZkjNp/xVQPanxi1DfXXhOgo/qrmXu9IxZoSzryxs2vKa9wee9q8D
- w8+feYjl4jDcXMkbwZPK1YRzxRwBv+L56a+eNrnOMJfzz19krkxJm1CMW
- rN6C1QqQtfzSQTqk0g2xWbJIUp2lLEkguxBTSqw7J4pqtHY2tpNxFBGhL
- y8UeTTiLRaROnSawP2BoydLXqWKbgfQKWxf54oqR/XaPE4jI2D0FvwyhG
- 1B3TcCmiIi/6ukf3Xcd+Wey8kYVfALmjwc342fj1Day8+Fpfj7Y89gzG9 A==;
-IronPort-SDR: rfSSMgvfyTgMm6OZn6ofJXz/1aPxbA3YdhD8fTNYLMDbn1CEkjhalXUzTIM+OA2tK6MywRGP0/
- gg7JR1/fjhFtA4MQgULde3tLqOOOaVcwIaJNsh/bszHLo47QHrbgw2dmreucYjSkmTz+Zc1P8R
- GeAdrIwEHTPCKuXLVrHw4+pAoxOB4dz0NgVH3YWYaNPZ/WPaH0SIUOy7ikES3LCH6uctYXpGqx
- ucBjQD81/AhBjdHxXUhlx4oYdKqiqiog0eKjx/IkTVcrP+QR3QRgHPKhBdmDsq0+nup3gfMqVH
- MYs=
-X-IronPort-AV: E=Sophos;i="5.75,280,1589212800"; d="scan'208";a="243966113"
+ bh=YBy5J4GUHkZ0slWQ+5rpmDzLOi4g2OFkey3S0ni3vEo=;
+ b=GLm930IispZf8DTddvvOK0t8b5Rzu/B1JSH83PAFRDZK5krfwyTwA5ca
+ ZKzsqzZdqHG0oZeNrBv8SFsP1zLjjew8y1eVLTN4nGYZn5mal9EdgXbOq
+ ODb4tXrreDdRwsNVMkkv6UrIjyINqbmUMAu84dttYMULoygwqQ5eCGlo6
+ ODFlg3delzY9Fjv0xcq7fXHRckzSF+uCSoeXmhaVkl4z0WKC2RBcYJ9ck
+ Jh3iUfPUDFkRBQRXJHHFhugxAsjj7KIyb6c6Bt51UdNjIVnOZncpDZ2TH
+ In07MhHu3mN+96kZL1U0laM7FlRMToZqHg2C7nPZJo1stacjs/JVspY5+ A==;
+IronPort-SDR: LYfo/DshYhqLiVQGwRYSFcpo1g9GGPbuQ9e18TDiqGC0zb0pewNXQ2eLYr+Mw51wK3LRhc49Tc
+ 0tjkry9IFnuoG067LLBNkVi3q8UXqtMTEpBLFO7p/jfVpbOvN89Fjah6X4T2rC/BchcwvmmQDZ
+ 8csYy9ptI5web3BwsGPmv+jjbOHNWdSodS7CREtnAU8w0rukEKhHtA2LEwLucEjAxJkwjgSUgm
+ mdaYZy0itgoXZgLdPCB2h1Ce81T6LzVfNUKGxbj3Emp2MUbj3RIuakgGsLRQXr5UZxHWQZCCP2
+ Kro=
+X-IronPort-AV: E=Sophos;i="5.75,280,1589212800"; d="scan'208";a="243966119"
 Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 26 Jun 2020 07:45:55 +0800
-IronPort-SDR: gEmk8htIxyhlKONKrfB31qul37ANT0KOMlY4FcmQI5gu8h4FPzWiranh0AIUEMSjSpTS/jLUYt
- tIHgVxbhSU0WzkZAHZeCbzK0pUi0sQ+58=
+ by ob1.hgst.iphmx.com with ESMTP; 26 Jun 2020 07:45:58 +0800
+IronPort-SDR: FtRgoU1Ru7pv0RDCl3f6N1yhy2kUdDASxkpo7Q2mD3uUZfkIQFdzRg5k/qW7alTHx9aWSMw9in
+ x/JYqDVcdBb88bLIM+J/HUAzBUuIvWWoU=
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 25 Jun 2020 16:34:24 -0700
-IronPort-SDR: XdKBNVU/O42ety0Whagt21NSpSDmF4gQyI7GoUuTMQqteQT1/4HNm3PvjdfucV4L3ZKPI2hZ1I
- N+hsiIBqSVNg==
+ 25 Jun 2020 16:34:26 -0700
+IronPort-SDR: omPnXbB+TYLoTkN1Npd9t1nvmQHGX5tG5Znu8goYNz213K5CBAQXt/9Te3XTTQppRyp0s8My2s
+ L3qp9Y90whDQ==
 WDCIronportException: Internal
 Received: from 2349pbt5e4f.ad.shared (HELO jedi-01.hgst.com) ([10.86.58.78])
- by uls-op-cesaip01.wdc.com with ESMTP; 25 Jun 2020 16:45:24 -0700
+ by uls-op-cesaip01.wdc.com with ESMTP; 25 Jun 2020 16:45:26 -0700
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [RFC PATCH 02/11] RISC-V: Move DT mapping outof fixmap
-Date: Thu, 25 Jun 2020 16:45:07 -0700
-Message-Id: <20200625234516.31406-3-atish.patra@wdc.com>
+Subject: [RFC PATCH 06/11] riscv: Parse all memory blocks to remove unusable
+ memory
+Date: Thu, 25 Jun 2020 16:45:11 -0700
+Message-Id: <20200625234516.31406-7-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.24.0
 In-Reply-To: <20200625234516.31406-1-atish.patra@wdc.com>
 References: <20200625234516.31406-1-atish.patra@wdc.com>
@@ -90,201 +91,75 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: linux-efi@vger.kernel.org, Heinrich Schuchardt <xypron.glpk@gmx.de>,
- Masahiro Yamada <masahiroy@kernel.org>, Anup Patel <anup.patel@wdc.com>,
- Atish Patra <atish.patra@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv@lists.infradead.org, Ard Biesheuvel <ardb@kernel.org>,
- linux-arm-kernel@lists.infradead.org
+ Masahiro Yamada <masahiroy@kernel.org>, Atish Patra <atish.patra@wdc.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
+ Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Anup Patel <anup.patel@wdc.com>
+Currently, maximum physical memory allowed is equal to -PAGE_OFFSET.
+That's why we remove any memory blocks spanning beyond that size. However,
+it is done only for memblock containing linux kernel which will not work
+if there are multiple memblocks.
 
-Currently, RISC-V reserves 1MB of fixmap memory for device tree. However,
-it maps only single PMD (2MB) space for fixmap which leaves only < 1MB space
-left for other kernel features such as early ioremap which requires fixmap
-as well. The fixmap size can be increased by another 2MB but it brings
-additional complexity and changes the virtual memory layout as well.
-If we require some additional feature requiring fixmap again, it has to be
-moved again.
+Process all memory blocks to figure out how much memory needs to be removed
+and remove at the end instead of updating the memblock list in place.
 
-Technically, DT doesn't need a fixmap as the memory occupied by the DT is
-only used during boot. Thus, init memory section can be used for the same
-purpose as well. This simplifies fixmap implementation.
-
-Signed-off-by: Anup Patel <anup.patel@wdc.com>
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
 ---
- arch/riscv/include/asm/fixmap.h |  3 ---
- arch/riscv/kernel/head.S        |  1 -
- arch/riscv/kernel/head.h        |  2 --
- arch/riscv/kernel/setup.c       |  8 +++-----
- arch/riscv/mm/init.c            | 36 ++++++++++++++-------------------
- 5 files changed, 18 insertions(+), 32 deletions(-)
+ arch/riscv/mm/init.c | 31 +++++++++++++++++--------------
+ 1 file changed, 17 insertions(+), 14 deletions(-)
 
-diff --git a/arch/riscv/include/asm/fixmap.h b/arch/riscv/include/asm/fixmap.h
-index 1ff075a8dfc7..11613f38228a 100644
---- a/arch/riscv/include/asm/fixmap.h
-+++ b/arch/riscv/include/asm/fixmap.h
-@@ -22,9 +22,6 @@
-  */
- enum fixed_addresses {
- 	FIX_HOLE,
--#define FIX_FDT_SIZE	SZ_1M
--	FIX_FDT_END,
--	FIX_FDT = FIX_FDT_END + FIX_FDT_SIZE / PAGE_SIZE - 1,
- 	FIX_PTE,
- 	FIX_PMD,
- 	FIX_TEXT_POKE1,
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index 7ed1b22950fd..c5b529234ad8 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -244,7 +244,6 @@ clear_bss_done:
- #endif
- 	/* Start the kernel */
- 	call soc_early_init
--	call parse_dtb
- 	tail start_kernel
- 
- .Lsecondary_start:
-diff --git a/arch/riscv/kernel/head.h b/arch/riscv/kernel/head.h
-index 105fb0496b24..b48dda3d04f6 100644
---- a/arch/riscv/kernel/head.h
-+++ b/arch/riscv/kernel/head.h
-@@ -16,6 +16,4 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa);
- extern void *__cpu_up_stack_pointer[];
- extern void *__cpu_up_task_pointer[];
- 
--void __init parse_dtb(void);
--
- #endif /* __ASM_HEAD_H */
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index f04373be54a6..8519a6d29857 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -49,8 +49,9 @@ atomic_t hart_lottery __section(.sdata);
- unsigned long boot_cpu_hartid;
- static DEFINE_PER_CPU(struct cpu, cpu_devices);
- 
--void __init parse_dtb(void)
-+static void __init parse_dtb(void)
- {
-+	/* Early scan of device tree from init memory */
- 	if (early_init_dt_scan(dtb_early_va))
- 		return;
- 
-@@ -63,6 +64,7 @@ void __init parse_dtb(void)
- 
- void __init setup_arch(char **cmdline_p)
- {
-+	parse_dtb();
- 	init_mm.start_code = (unsigned long) _stext;
- 	init_mm.end_code   = (unsigned long) _etext;
- 	init_mm.end_data   = (unsigned long) _edata;
-@@ -74,11 +76,7 @@ void __init setup_arch(char **cmdline_p)
- 
- 	setup_bootmem();
- 	paging_init();
--#if IS_ENABLED(CONFIG_BUILTIN_DTB)
- 	unflatten_and_copy_device_tree();
--#else
--	unflatten_device_tree();
--#endif
- 	clint_init_boot_cpu();
- 
- #ifdef CONFIG_SWIOTLB
 diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index f4adb3684f3d..c18c94ab3b23 100644
+index 4021706aef81..c5268fe6e6de 100644
 --- a/arch/riscv/mm/init.c
 +++ b/arch/riscv/mm/init.c
-@@ -28,7 +28,6 @@ unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)]
- EXPORT_SYMBOL(empty_zero_page);
- 
- extern char _start[];
--void *dtb_early_va;
- 
- static void __init zone_sizes_init(void)
- {
-@@ -120,8 +119,6 @@ static void __init setup_initrd(void)
- }
- #endif /* CONFIG_BLK_DEV_INITRD */
- 
--static phys_addr_t dtb_early_pa __initdata;
--
- void __init setup_bootmem(void)
+@@ -123,26 +123,29 @@ void __init setup_bootmem(void)
  {
  	struct memblock_region *reg;
-@@ -158,13 +155,9 @@ void __init setup_bootmem(void)
- 	setup_initrd();
- #endif /* CONFIG_BLK_DEV_INITRD */
+ 	phys_addr_t mem_size = 0;
++	phys_addr_t total_mem = 0;
++	phys_addr_t mem_start, end = 0;
+ 	phys_addr_t vmlinux_end = __pa_symbol(&_end);
+ 	phys_addr_t vmlinux_start = __pa_symbol(&_start);
  
--	/*
--	 * Avoid using early_init_fdt_reserve_self() since __pa() does
--	 * not work for DTB pointers that are fixmap addresses
--	 */
--	memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
+ 	/* Find the memory region containing the kernel */
+ 	for_each_memblock(memory, reg) {
+-		phys_addr_t end = reg->base + reg->size;
 -
-+	early_init_fdt_reserve_self();
- 	early_init_fdt_scan_reserved_mem();
-+
- 	memblock_allow_resize();
- 	memblock_dump_all();
- 
-@@ -184,6 +177,10 @@ EXPORT_SYMBOL(va_pa_offset);
- unsigned long pfn_base;
- EXPORT_SYMBOL(pfn_base);
- 
-+#define DTB_EARLY_SIZE		SZ_1M
-+static char early_dtb[DTB_EARLY_SIZE] __initdata;
-+void *dtb_early_va __initdata = early_dtb;
-+
- pgd_t swapper_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
- pgd_t trampoline_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
- pte_t fixmap_pte[PTRS_PER_PTE] __page_aligned_bss;
-@@ -375,7 +372,8 @@ static uintptr_t __init best_map_size(phys_addr_t base, phys_addr_t size)
- 
- asmlinkage void __init setup_vm(uintptr_t dtb_pa)
- {
--	uintptr_t va, end_va;
-+	int dtb_size;
-+	uintptr_t va, pa, end_va;
- 	uintptr_t load_pa = (uintptr_t)(&_start);
- 	uintptr_t load_sz = (uintptr_t)(&_end) - load_pa;
- 	uintptr_t map_size = best_map_size(load_pa, MAX_EARLY_MAPPING_SIZE);
-@@ -424,17 +422,11 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
- 				   load_pa + (va - PAGE_OFFSET),
- 				   map_size, PAGE_KERNEL_EXEC);
- 
--	/* Create fixed mapping for early FDT parsing */
--	end_va = __fix_to_virt(FIX_FDT) + FIX_FDT_SIZE;
--	for (va = __fix_to_virt(FIX_FDT); va < end_va; va += PAGE_SIZE)
--		create_pte_mapping(fixmap_pte, va,
--				   dtb_pa + (va - __fix_to_virt(FIX_FDT)),
--				   PAGE_SIZE, PAGE_KERNEL);
+-		if (reg->base <= vmlinux_start && vmlinux_end <= end) {
+-			mem_size = min(reg->size, (phys_addr_t)-PAGE_OFFSET);
 -
--	/* Save pointer to DTB for early FDT parsing */
--	dtb_early_va = (void *)fix_to_virt(FIX_FDT) + (dtb_pa & ~PAGE_MASK);
--	/* Save physical address for memblock reservation */
--	dtb_early_pa = dtb_pa;
-+	/* Copy FDT to init memory for early scan */
-+	pa = load_pa + ((unsigned long)dtb_early_va - PAGE_OFFSET);
-+	dtb_size = fdt_totalsize((void *)dtb_pa);
-+	dtb_size = (dtb_size > DTB_EARLY_SIZE) ? DTB_EARLY_SIZE : dtb_size;
-+	memcpy((void *)pa, (void *)dtb_pa, dtb_size);
- }
- 
- static void __init setup_vm_final(void)
-@@ -481,6 +473,8 @@ static void __init setup_vm_final(void)
- 	local_flush_tlb_all();
- }
- #else
-+void *dtb_early_va __initdata;
+-			/*
+-			 * Remove memblock from the end of usable area to the
+-			 * end of region
+-			 */
+-			if (reg->base + mem_size < end)
+-				memblock_remove(reg->base + mem_size,
+-						end - reg->base - mem_size);
+-		}
++		end = reg->base + reg->size;
++		if (!total_mem)
++			mem_start = reg->base;
++		if (reg->base <= vmlinux_start && vmlinux_end <= end)
++			BUG_ON(reg->size == 0);
++		total_mem = total_mem + reg->size;
+ 	}
+-	BUG_ON(mem_size == 0);
 +
- asmlinkage void __init setup_vm(uintptr_t dtb_pa)
- {
- #ifdef CONFIG_BUILTIN_DTB
++	/*
++	 * Remove memblock from the end of usable area to the
++	 * end of region
++	 */
++	mem_size = min(total_mem, (phys_addr_t)-PAGE_OFFSET);
++	if (mem_start + mem_size < end)
++		memblock_remove(mem_start + mem_size,
++				end - mem_start - mem_size);
+ 
+ 	/* Reserve from the start of the kernel to the end of the kernel */
+ 	memblock_reserve(vmlinux_start, vmlinux_end - vmlinux_start);
 -- 
 2.24.0
 
