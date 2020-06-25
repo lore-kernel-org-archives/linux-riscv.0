@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-10.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 82FE1C433DF
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2020 10:52:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 24541C433E0
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2020 10:52:34 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4B4FF206DD
+	by mail.kernel.org (Postfix) with ESMTPS id D9258206DD
 	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2020 10:52:33 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="qmKfgiCg";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="WwEZpo6I"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4B4FF206DD
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="bXkp8G1N";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="XEJ8NRWh"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D9258206DD
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,54 +26,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=wplUJRk8K/QnZH1aCLQf3GKU01MkUQm83Z9BfZFN7DA=; b=qmKfgiCgGvzlRFM6UtlSwrwJZ
-	MxHT8R1relDB3Xaj2FhMDKka/iwDBJ/JB1NX51WAuMOu7p20JBowIHzO1/wXJa3FhH5iR+T/co0tB
-	5hQJb3kIaa80V6YzzPFUj+PX0/7d8FTxjHcRqMJAu8cyxlIbvYykFdcjp+ESLLOBxPmWndlW1gOlf
-	pzXhWtdwaFrOAydIUwEmpXaeDXY7UuC/2wJ1a08sgwMELcIh/caMa+Tmx2C14BUBlu8BIbeAnYtqj
-	5ECSmduUp2ThHhQcazNwDYQyibvrfb/JBMNGWRyYSMwhv+nj29FH2XEEia4jtT6ufiPTkxWvbwP2Y
-	JPb0GK8uQ==;
+	 bh=Dilmiv8up8qoiXUxiZHXB7KghIE9iajdjzimzl6u4+s=; b=bXkp8G1NuJMyr+8AIbBeISlBQ
+	JlsPikKDLNZQPHvZIJLAhIj1+s2Rh3tr1vplp9JSU8o4Wy1d1LDXCda7v9+4FzAjnLc3biYib0Prz
+	3t59TeEuC4WxCV7WRdpHuS8rTzA0mDLZe/fQ4UODsZOpi5vfkaS4IJPAuwP9fW/PmmOtuJHoMMt1i
+	dKj/JG2ZMvISU+vq8vHaLLTCynnTr144UhV+64HIfY0vwlA/AUgFqQ9FcYq0RrTUc6hqiPRSS/jjK
+	O7IeFSnFIfpjaD6aCRYcg6OR40/7KSp5I7HB3uQ/KEVb2yDa9eccC69c3KGDejbcfnetUkfdWkmL6
+	xRhtKrbLQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1joly7-0006R6-6A; Fri, 26 Jun 2020 10:52:27 +0000
+	id 1joly8-0006Rt-Hq; Fri, 26 Jun 2020 10:52:28 +0000
 Received: from esa2.hgst.iphmx.com ([68.232.143.124])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jojlj-0002Se-4o; Fri, 26 Jun 2020 08:31:52 +0000
+ id 1jojm4-0002Se-Tx; Fri, 26 Jun 2020 08:32:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1593160319; x=1624696319;
+ t=1593160352; x=1624696352;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=M20HiMQD9oL/II9j9nUHwk6euEXhFNaJrLjuGryzaCg=;
- b=WwEZpo6IDDbEK0ba9AnBys9H2hWvlDjiRbarTG56Ypcc12dEUtQKc7At
- St5KBsuVnTueyYZL4D2fLddG+Jf3OHyHHiaj5/Y01TYG/nucc6cDNJP6D
- d21syZGOzvbyDmdf3OnC5z5slHqR4TuskVsA3rSdsnQhqknVTsqDUMh6E
- l4sty+VF8PQ7cp1mb4tD7N8SuI/SA8wX5oNcAKKsmChUR2mfTNAYDjN4O
- gJT1Sqx3AJRnVagOygZSO8R4pSgGZiZ87Y7b0WTUyag0YADjo9DpN/zc9
- HfXBVwONfeRqxZLKm0HYowuTaH5iUFBfjhNUOrnTwaVC6MP+fB/dqtmQL g==;
-IronPort-SDR: ldnnOUVhv5g0HxhnaG3UIc7mrEfL4fKoiIPj0ggyownvXEQ8wIyEyJJDU3fxMSKfc1DCs/+pH6
- LbTS1kuqXt9UVxuCJN76s+7nmL/fKl6XBR4vEMJGO5IwZls8gU76+0NpvLhuybykOH6wtgcNP7
- IbnmOEPBDwtIS8eOiC+e57V6wEtaul807spELn/H5LydTcLKDA17xP/076pT6YywD+m3/BU/5Q
- pykpeF5tYMYkHTjsDFK0iOHO1qPM3XP90PzCw7BB7di1CPWFDny6pNzm+4lALK34eHXGU1m9Op
- rfs=
-X-IronPort-AV: E=Sophos;i="5.75,280,1589212800"; d="scan'208";a="243966114"
+ bh=nglTD4UGuoe/uqWlZLpzP4BN9AAnND7WFwPf/vb2+9A=;
+ b=XEJ8NRWhybQF1uWAaiLr+7vQ8qpgAZce7UVQ97TnCkJ7oQNpZ6aj7La7
+ E4otXJvNvQ2/aLFtgIHkOhcTCl5e++VwnO5Q0+OD74G04zsDo8r/X2huw
+ oxVBr3YlMAgQwf2YZD3hCVn7UKkCk9eJz12M2ptspifT8HyQ5KArS03Ze
+ rAt8vj7WUDC7tvXEIdo2YcIxIO2cfEGKnOrYVYFnI2wFSZr+KEWCC4Do/
+ DDE0KKz3D/eraQAMVmGCrtgU7ZlFoLjuGX1LygUrWTR4PyNoEvylQeBXu
+ fr43pDQO01MJo73aECHc/ZMCpkrGpLgNl3zY2NSx5gqoul3JRrhH22Mkh g==;
+IronPort-SDR: bRSH5n2CJGHaNn/AHrJqp4g4xC0v3giBHUynPe4I9gZfHrNKfNVHUW4/8rZUGizL5gi1+OTtd5
+ dYPuLvBbpJUmgxZcALBFYtye1BKAxB0l3KgF8blihWk655O45y8mQpn+m1b17F1LNDmE0tIPm1
+ 0OxM7w+OJUbMFTCZTFG+X/nSRALLfXghdU3q3ZAcmrm9X6W+RfWUBGx4Ux/Q+mpNdMWS9s9/hF
+ ymCAtOUxUEy05mqy5DycFdLCRgOlhk23UksdjWRMSHS1gxT6HmcOIrehjoBx29wmBAKQUaRpw1
+ ic8=
+X-IronPort-AV: E=Sophos;i="5.75,280,1589212800"; d="scan'208";a="243966115"
 Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 26 Jun 2020 07:45:56 +0800
-IronPort-SDR: 4ASP1j9ICIDbfEG7WxflWKzcygyCIyqSDviyPXzpY2q45ge6Xk+JRohiOT7swSI5drGc6tl7yR
- CNfYYGB7Sdh8kELlzZWvTy6id+9hCbHBE=
+ by ob1.hgst.iphmx.com with ESMTP; 26 Jun 2020 07:45:57 +0800
+IronPort-SDR: sijrQrMpmhVeYSVK+ncSroltLT41K2RB5GRqVNmkLPeolXqXJHcQw01DvDOM8noJS9dClWsIWs
+ XetLOeeoW+DO/hHT97Uzsam1y56jVqfbo=
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
  25 Jun 2020 16:34:25 -0700
-IronPort-SDR: khYCqebgabkJ7OmHX9caktKOD4V4TcpsYIxqNzM9dj5nEB94M2b+iarGnwOnVnuCSjRcLYVinX
- PHvoAzKFAmkw==
+IronPort-SDR: fe/XELAziUbreMEong29tU4drIjZjt+qnFt/cibHloZAYNzkYSaKE5LEzK2JOYFkM7sdc0IS17
+ 0AQiofyTXRmQ==
 WDCIronportException: Internal
 Received: from 2349pbt5e4f.ad.shared (HELO jedi-01.hgst.com) ([10.86.58.78])
- by uls-op-cesaip01.wdc.com with ESMTP; 25 Jun 2020 16:45:24 -0700
+ by uls-op-cesaip01.wdc.com with ESMTP; 25 Jun 2020 16:45:25 -0700
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [RFC PATCH 03/11] RISC-V: Setup exception vector early
-Date: Thu, 25 Jun 2020 16:45:08 -0700
-Message-Id: <20200625234516.31406-4-atish.patra@wdc.com>
+Subject: [RFC PATCH 04/11] RISC-V: Add early ioremap support
+Date: Thu, 25 Jun 2020 16:45:09 -0700
+Message-Id: <20200625234516.31406-5-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.24.0
 In-Reply-To: <20200625234516.31406-1-atish.patra@wdc.com>
 References: <20200625234516.31406-1-atish.patra@wdc.com>
@@ -98,73 +98,141 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The trap vector is set only in trap_init which may be too late in some
-cases. Early ioremap/efi spits many warning messages which may be useful.
-
-Setup the trap vector early so that any warning/bug can be handled before
-generic code invokes trap_init.
+UEFI uses early IO or memory mappings for runtime services before
+normal ioremap() is usable. Add the necessary fixmap bindings and
+pmd mappings for generic ioremap support to work.
 
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
 ---
- arch/riscv/kernel/head.S    | 10 ++++++++--
- arch/riscv/kernel/smpboot.c |  1 -
- arch/riscv/kernel/traps.c   |  8 +-------
- 3 files changed, 9 insertions(+), 10 deletions(-)
+ arch/riscv/Kconfig              |  1 +
+ arch/riscv/include/asm/Kbuild   |  1 +
+ arch/riscv/include/asm/fixmap.h | 13 +++++++++++++
+ arch/riscv/include/asm/io.h     |  1 +
+ arch/riscv/kernel/setup.c       |  1 +
+ arch/riscv/mm/init.c            | 33 +++++++++++++++++++++++++++++++++
+ 6 files changed, 50 insertions(+)
 
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index c5b529234ad8..eb123eda3663 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -77,10 +77,16 @@ relocate:
- 	csrw CSR_SATP, a0
- .align 2
- 1:
--	/* Set trap vector to spin forever to help debug */
--	la a0, .Lsecondary_park
-+	/* Set trap vector to exception handler */
-+	la a0, handle_exception
- 	csrw CSR_TVEC, a0
- 
-+	/*
-+	 * Set sup0 scratch register to 0, indicating to exception vector that
-+	 * we are presently executing in kernel.
-+	 */
-+	csrw CSR_SCRATCH, zero
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 128192e14ff2..fda90093e588 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -32,6 +32,7 @@ config RISCV
+ 	select GENERIC_ARCH_TOPOLOGY if SMP
+ 	select GENERIC_ATOMIC64 if !64BIT
+ 	select GENERIC_CLOCKEVENTS
++	select GENERIC_EARLY_IOREMAP
+ 	select GENERIC_GETTIMEOFDAY if HAVE_GENERIC_VDSO
+ 	select GENERIC_IOREMAP
+ 	select GENERIC_IRQ_MULTI_HANDLER
+diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
+index 3d9410bb4de0..59dd7be55005 100644
+--- a/arch/riscv/include/asm/Kbuild
++++ b/arch/riscv/include/asm/Kbuild
+@@ -1,4 +1,5 @@
+ # SPDX-License-Identifier: GPL-2.0
++generic-y += early_ioremap.h
+ generic-y += extable.h
+ generic-y += flat.h
+ generic-y += kvm_para.h
+diff --git a/arch/riscv/include/asm/fixmap.h b/arch/riscv/include/asm/fixmap.h
+index 11613f38228a..54cbf07fb4e9 100644
+--- a/arch/riscv/include/asm/fixmap.h
++++ b/arch/riscv/include/asm/fixmap.h
+@@ -27,6 +27,19 @@ enum fixed_addresses {
+ 	FIX_TEXT_POKE1,
+ 	FIX_TEXT_POKE0,
+ 	FIX_EARLYCON_MEM_BASE,
 +
- 	/* Reload the global pointer */
- .option push
- .option norelax
-diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index 4e9922790f6e..5a9c127a380e 100644
---- a/arch/riscv/kernel/smpboot.c
-+++ b/arch/riscv/kernel/smpboot.c
-@@ -154,7 +154,6 @@ asmlinkage __visible void smp_callin(void)
- 	mmgrab(mm);
- 	current->active_mm = mm;
++	__end_of_permanent_fixed_addresses,
++	/*
++	 * Temporary boot-time mappings, used by early_ioremap(),
++	 * before ioremap() is functional.
++	 */
++#define NR_FIX_BTMAPS		(SZ_256K / PAGE_SIZE)
++#define FIX_BTMAPS_SLOTS	7
++#define TOTAL_FIX_BTMAPS	(NR_FIX_BTMAPS * FIX_BTMAPS_SLOTS)
++
++	FIX_BTMAP_END = __end_of_permanent_fixed_addresses,
++	FIX_BTMAP_BEGIN = FIX_BTMAP_END + TOTAL_FIX_BTMAPS - 1,
++
+ 	__end_of_fixed_addresses
+ };
  
--	trap_init();
- 	notify_cpu_starting(smp_processor_id());
- 	update_siblings_masks(smp_processor_id());
- 	set_cpu_online(smp_processor_id(), 1);
-diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-index ecec1778e3a4..fbedf6c018a3 100644
---- a/arch/riscv/kernel/traps.c
-+++ b/arch/riscv/kernel/traps.c
-@@ -174,13 +174,7 @@ int is_valid_bugaddr(unsigned long pc)
- }
- #endif /* CONFIG_GENERIC_BUG */
+diff --git a/arch/riscv/include/asm/io.h b/arch/riscv/include/asm/io.h
+index 3835c3295dc5..c025a746a148 100644
+--- a/arch/riscv/include/asm/io.h
++++ b/arch/riscv/include/asm/io.h
+@@ -14,6 +14,7 @@
+ #include <linux/types.h>
+ #include <linux/pgtable.h>
+ #include <asm/mmiowb.h>
++#include <asm/early_ioremap.h>
  
-+/* stvec & scratch is already set from head.S */
- void trap_init(void)
- {
--	/*
--	 * Set sup0 scratch register to 0, indicating to exception vector
--	 * that we are presently executing in the kernel
--	 */
--	csr_write(CSR_SCRATCH, 0);
--	/* Set the exception vector address */
--	csr_write(CSR_TVEC, &handle_exception);
+ /*
+  * MMIO access functions are separated out to break dependency cycles
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index 8519a6d29857..1244b433fe7c 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -72,6 +72,7 @@ void __init setup_arch(char **cmdline_p)
+ 
+ 	*cmdline_p = boot_command_line;
+ 
++	early_ioremap_setup();
+ 	parse_early_param();
+ 
+ 	setup_bootmem();
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index c18c94ab3b23..bad60686d080 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -377,6 +377,9 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ 	uintptr_t load_pa = (uintptr_t)(&_start);
+ 	uintptr_t load_sz = (uintptr_t)(&_end) - load_pa;
+ 	uintptr_t map_size = best_map_size(load_pa, MAX_EARLY_MAPPING_SIZE);
++#ifndef __PAGETABLE_PMD_FOLDED
++	pmd_t fix_bmap_spmd, fix_bmap_epmd;
++#endif
+ 
+ 	va_pa_offset = PAGE_OFFSET - load_pa;
+ 	pfn_base = PFN_DOWN(load_pa);
+@@ -427,6 +430,36 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ 	dtb_size = fdt_totalsize((void *)dtb_pa);
+ 	dtb_size = (dtb_size > DTB_EARLY_SIZE) ? DTB_EARLY_SIZE : dtb_size;
+ 	memcpy((void *)pa, (void *)dtb_pa, dtb_size);
++
++	/*
++	 * Bootime fixmap only can handle PMD_SIZE mapping. Thus, boot-ioremap
++	 * range can not span multiple pmds.
++	 */
++	BUILD_BUG_ON((__fix_to_virt(FIX_BTMAP_BEGIN) >> PMD_SHIFT)
++		     != (__fix_to_virt(FIX_BTMAP_END) >> PMD_SHIFT));
++
++#ifndef __PAGETABLE_PMD_FOLDED
++	/*
++	 * Early ioremap fixmap is already created as it lies within first 2MB
++	 * of fixmap region. We always map PMD_SIZE. Thus, both FIX_BTMAP_END
++	 * FIX_BTMAP_BEGIN should lie in the same pmd. Verify that and warn
++	 * the user if not.
++	 */
++	fix_bmap_spmd = fixmap_pmd[pmd_index(__fix_to_virt(FIX_BTMAP_BEGIN))];
++	fix_bmap_epmd = fixmap_pmd[pmd_index(__fix_to_virt(FIX_BTMAP_END))];
++	if (pmd_val(fix_bmap_spmd) != pmd_val(fix_bmap_epmd)) {
++		WARN_ON(1);
++		pr_warn("fixmap btmap start [%08lx] != end [%08lx]\n",
++			pmd_val(fix_bmap_spmd), pmd_val(fix_bmap_epmd));
++		pr_warn("fix_to_virt(FIX_BTMAP_BEGIN): %08lx\n",
++			fix_to_virt(FIX_BTMAP_BEGIN));
++		pr_warn("fix_to_virt(FIX_BTMAP_END):   %08lx\n",
++			fix_to_virt(FIX_BTMAP_END));
++
++		pr_warn("FIX_BTMAP_END:       %d\n", FIX_BTMAP_END);
++		pr_warn("FIX_BTMAP_BEGIN:     %d\n", FIX_BTMAP_BEGIN);
++	}
++#endif
  }
+ 
+ static void __init setup_vm_final(void)
 -- 
 2.24.0
 
