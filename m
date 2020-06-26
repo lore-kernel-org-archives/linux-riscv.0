@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CC4AAC433DF
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2020 21:56:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A840EC433DF
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2020 21:57:54 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 997AE2089D
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2020 21:56:32 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 75CBD2089D
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2020 21:57:54 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="bcCy17jC";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="g+CAS8Ul"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 997AE2089D
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="0hNyLm88";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="qL1iJ7bZ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 75CBD2089D
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,54 +26,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Y1rN4V1I1SuLVdR9wcV9GEwSfLJAlyLxbnYi3jtIzOU=; b=bcCy17jCWS6TuUNmxpZivEqMh
-	Y5AvysaWUkM6Glmu1CZZULrKz9iSnSpPEK9iqqQmgE/pT1wZap8VtoT0Z3wEYKgo9IPF+mUwHHCSG
-	h/KpwEgmC9XAZ4yfSdddZghebWeQJBgvka/guBsle6AGfxSLWRCX5NLPjHA4TP7PGqROxhCqjeEot
-	QO7uock8B5iCwMcrvzGaA6jNp7P7zx8u+2vrgt/BMcGWJ2J6QZJeCMGkSW5Tx0l408gzA6kOGZ+Wt
-	rpq3XlICwWC+COdieM5dDEXYHhBEJsfU0OArzVGHuUpvGRGwn22Fi9uccswudaWHMjNvACAvD2yOf
-	MLHSVKhGw==;
+	 bh=M0wUsHY04m0QDag/mcC+WdqIzQPSID1C/xcDwaUo5CE=; b=0hNyLm88Hu9PaaBx5gXbUE6Ju
+	D3wXbNDJkCqQ3w+fk1jsPo5nErlI+agbFNAjytu8zRjh7jTv7JO8g7hwCEjQ+uxMjt/16dHKpPbNt
+	fXIHVWDGuwLBfNz80Vpui79L3MujyXGU6YKGhO9Sr/wi+J1V2tY5FEIjiKQeE3PZgq4AKBUpnFvI/
+	wD/HHYE82/ef8h0CigGBC+WNnPf8+VywVtsBn3032+b72HTgWjlekkLAX2Gklef48++RnVDE3dehf
+	qQsQ/zVjZEVIKiwiAXFhgT4DM2BGUmTcHmXZ2Jrkv0R1+cxCZh3JOUXzRXBRVge3zURdFjqnYnZ//
+	7Tq7Yyurg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jowKg-0007Sc-F1; Fri, 26 Jun 2020 21:56:26 +0000
-Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
+	id 1jowM1-0007pF-9u; Fri, 26 Jun 2020 21:57:49 +0000
+Received: from mail-wr1-x441.google.com ([2a00:1450:4864:20::441])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jowKe-0007Ry-2w
- for linux-riscv@lists.infradead.org; Fri, 26 Jun 2020 21:56:25 +0000
-Received: by mail-wm1-x343.google.com with SMTP id f139so10686955wmf.5
- for <linux-riscv@lists.infradead.org>; Fri, 26 Jun 2020 14:56:23 -0700 (PDT)
+ id 1jowLx-0007o5-HG
+ for linux-riscv@lists.infradead.org; Fri, 26 Jun 2020 21:57:46 +0000
+Received: by mail-wr1-x441.google.com with SMTP id f7so7846228wrw.1
+ for <linux-riscv@lists.infradead.org>; Fri, 26 Jun 2020 14:57:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=atishpatra.org; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=s24mstSCNQlTFolgjec0iiKMpvfLNvCEazKvZzeEqpA=;
- b=g+CAS8UlAQOOsv4s7ohlbFkbJmOpPZq5OC7QRzoSqEzhhgE34Acd5sfrAMN8Uu9C3O
- WjP+DC/W4+0jp5qX9LvxioOw4eodRT/6RRpQpqrwVQ3/k7qf0G9GOfAGstoLym1Coe0G
- Xph832bBIMuzUv0udF9hevqW5Jxiwdj/IOadY=
+ :cc; bh=GaefEko3kEAOd19TubqWqNAf+AVqFUJ4Wq5QM8k6oA0=;
+ b=qL1iJ7bZpKKnvVKjD187zlZlhBdctCIOERlzFxD2/eUC+EigcNn9fFXpSLUQiHsyPM
+ J2GyHAN1uXx0fDpU6ax3Q+zfqDjOXSEV4Imh/Rr/W9vmTL3sHKRmaPqoKv/uCzOoM5xe
+ jnSN/Kniwd9tOv+pNM5FyqOtdLSjaqdhl1eCw=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=s24mstSCNQlTFolgjec0iiKMpvfLNvCEazKvZzeEqpA=;
- b=sheDJwTvD8oEEqkMrOMzBqUxAg8cJF18QuRg5IWdZI53AjpfTuB/ksGQlARPP4gxlh
- XupAF/QKOBXBz0fuGAFb/MhtePVUgsBxs2oKLZKPoqxR3AAz3s5JElagAbbW+gah++nO
- srdwJyQ5iYn6gX7r25flRG3VWBAAb7sxKd7UuNLRw8TtaMxw76wrQemjnHXMInN1HLLh
- HMVQlHZKkFJBKwbRg2lBF/oanL4V4rz4Xv87uD7I1ueQVbuo8RV3IAZdmx2x97vUFbvL
- lyriXHQoNag/2juQ81FPUv7/zE6cXkFkMPfiAXfgKIUg3RWyi4dIcogROFEG4a2RjRU+
- 0Org==
-X-Gm-Message-State: AOAM533Q85dZMqrcisZTnSnzKbBlRiMPpNGntOSt7/Kbu8FXgi4wOm2o
- cNt4WuGtYPIKF/kcaeCwcUOa5WFMmP/Jom65RWvM
-X-Google-Smtp-Source: ABdhPJxvUiPRna7ukmDfkDR7tOrY35okfuOqyyzB1yZ0cFFCHPw0NEqSkR/UuIDigPHl1bx2wJyIWsX7BstpN+VvZ3U=
-X-Received: by 2002:a1c:9d09:: with SMTP id g9mr5333593wme.31.1593208583105;
- Fri, 26 Jun 2020 14:56:23 -0700 (PDT)
+ bh=GaefEko3kEAOd19TubqWqNAf+AVqFUJ4Wq5QM8k6oA0=;
+ b=HFKqQVYUdDaN+V/uLTSOI0hR74iHJfw93ZvXpgRCTL2P1TVEU4BkoctLpH4ILqjRH4
+ o7GBmCfDu5YzdwJlUSpoQzQ5Hs+/GQCKhsWwiForpd33tIQ0wGRDFqhw3oP+XbESvs4w
+ B8iNECHNZU3BjuTImT/ihkYhXdnIKY4gkSAnswpu6SXZ8dyU79gWV188wVe5lhVrLL4u
+ kpeu9s+3E4S2yMqSiB+jOeIfKut7teT6qmqM4h2LSpF28CpYPhpUUytVg9bktSv5mmT6
+ jKOVXsDLZx8sVbbFeaui4sf+/hI4ECN7hLcYYQ0U8C/GPfMcZT6unquM4yeRhz4RB66e
+ b81A==
+X-Gm-Message-State: AOAM5303qloTjV7kPp8RpxehCwFaxeIoXtiSi1MA+4rT2xpZmKw7rw3w
+ 2I/SkZ3yUW9XcCtplHUKik7P3Ftm/L1bym+KMOpl
+X-Google-Smtp-Source: ABdhPJyOcljMPyApSrrEvUL7seEvgR6bpWPbI+cLBCYQT1ljE7hdK0sJpijoILYe0Ntw+U/b51zVLnq6pnDNP2TU1tE=
+X-Received: by 2002:a5d:62d1:: with SMTP id o17mr5616423wrv.162.1593208664289; 
+ Fri, 26 Jun 2020 14:57:44 -0700 (PDT)
 MIME-Version: 1.0
 References: <20200625234516.31406-1-atish.patra@wdc.com>
- <20200625234516.31406-2-atish.patra@wdc.com>
- <5e2ce2ae-5458-8579-576a-76721f7d3b08@gmx.de>
-In-Reply-To: <5e2ce2ae-5458-8579-576a-76721f7d3b08@gmx.de>
+ <20200625234516.31406-11-atish.patra@wdc.com>
+ <8b71b663-8a68-26f3-c806-a2873a6d8923@gmx.de>
+In-Reply-To: <8b71b663-8a68-26f3-c806-a2873a6d8923@gmx.de>
 From: Atish Patra <atishp@atishpatra.org>
-Date: Fri, 26 Jun 2020 14:56:11 -0700
-Message-ID: <CAOnJCUKnB7kLdTh1-NaFNw4p6EammETzhUa-Uniq2rrC-7AaQg@mail.gmail.com>
-Subject: Re: [RFC PATCH 01/11] efi: Fix gcc error around __umoddi3 for 32 bit
- builds
+Date: Fri, 26 Jun 2020 14:57:33 -0700
+Message-ID: <CAOnJCU+=0Ozz=qfMULsN4-4rq_q4UFYsnkH50Bo5PfzUU45e6g@mail.gmail.com>
+Subject: Re: [RFC PATCH 10/11] efi: Rename arm-init to efi-init common for all
+ arch
 To: Heinrich Schuchardt <xypron.glpk@gmx.de>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -98,48 +98,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 25, 2020 at 7:43 PM Heinrich Schuchardt <xypron.glpk@gmx.de> wrote:
+On Thu, Jun 25, 2020 at 8:00 PM Heinrich Schuchardt <xypron.glpk@gmx.de> wrote:
 >
 > On 6/26/20 1:45 AM, Atish Patra wrote:
-> > 32bit gcc doesn't support modulo operation on 64 bit data. It results in
-> > a __umoddi3 error while building EFI for 32 bit.
+> > arm-init is responsible for setting up efi runtime and doesn't actually
+> > do any ARM specific stuff. RISC-V can use the same source code as it is.
 > >
-> > Use bitwise operations instead of modulo operations to fix the issue.
+> > Rename it to efi-init so that RISC-V can use it.
 > >
 > > Signed-off-by: Atish Patra <atish.patra@wdc.com>
 > > ---
-> >  drivers/firmware/efi/libstub/alignedmem.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >  drivers/firmware/efi/{arm-init.c => efi-init.c} | 0
+> >  1 file changed, 0 insertions(+), 0 deletions(-)
+> >  rename drivers/firmware/efi/{arm-init.c => efi-init.c} (100%)
 > >
-> > diff --git a/drivers/firmware/efi/libstub/alignedmem.c b/drivers/firmware/efi/libstub/alignedmem.c
-> > index cc89c4d6196f..1de9878ddd3a 100644
-> > --- a/drivers/firmware/efi/libstub/alignedmem.c
-> > +++ b/drivers/firmware/efi/libstub/alignedmem.c
-> > @@ -44,7 +44,7 @@ efi_status_t efi_allocate_pages_aligned(unsigned long size, unsigned long *addr,
-> >       *addr = ALIGN((unsigned long)alloc_addr, align);
+> > diff --git a/drivers/firmware/efi/arm-init.c b/drivers/firmware/efi/efi-init.c
+> > similarity index 100%
+> > rename from drivers/firmware/efi/arm-init.c
+> > rename to drivers/firmware/efi/efi-init.c
 > >
-> >       if (slack > 0) {
-> > -             int l = (alloc_addr % align) / EFI_PAGE_SIZE;
-> > +             int l = (alloc_addr & (align - 1)) / EFI_PAGE_SIZE;
 >
-> Here you rely on the compiler to silently convert the division by
-> EFI_PAGE_SIZE into a right shift. Wouldn't it be cleaner to use
-> EFI_PAGE_SHIFT to explicitly avoid a dependency on __udivdi3()?
+> After each patch we should have code that builds. This helps when
+
+Absolutely.
+
+> bisecting. Therefore I would have expected an adjustment of
+> drivers/firmware/efi/Makefile in this patch and not in patch 11/11:
 >
-> slack = (align >> EFI_PAGE_SHIFT) - 1;
-> ...
-> int l = (alloc_addr & (align - 1)) >> EFI_PAGE_SHIFT;
+> -arm-obj-$(CONFIG_EFI)                  := arm-init.o arm-runtime.o
+> +arm-obj-$(CONFIG_EFI)                  := efi-init.o arm-runtime.o
 >
 
-Sure. I will update it in the next version. Thanks for the suggestion.
+I think I messed it up while rebasing. My bad. I will fix it in the
+next version.
+
 > Best regards
 >
 > Heinrich
->
-> >
-> >               if (l) {
-> >                       efi_bs_call(free_pages, alloc_addr, slack - l + 1);
-> >
 >
 
 
