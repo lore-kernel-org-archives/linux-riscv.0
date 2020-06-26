@@ -2,74 +2,97 @@ Return-Path: <SRS0=bAcz=AH=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0096EC433DF
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2020 22:04:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 195A9C433E1
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2020 22:36:42 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C60B420B80
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2020 22:04:07 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D9ADF20FC3
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2020 22:36:41 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="jB0B1LIz";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="FJoUvBwf"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C60B420B80
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="fHc05dDH";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=redhat.com header.i=@redhat.com header.b="dXLfhMko"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D9ADF20FC3
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=7SLcWm735ObgD3D60G12a2bRtXIul16RyB1fwV2B8tA=; b=jB0B1LIzb+8Pvog/WwTVrQqwl
-	7eRdfws4NZdHhl+cygogBmsAImhhrw9JMzj/W1YRhMAmCFGmZk7LCINcYRAS88BYEImCvWxVEK+8B
-	emm/4tYdHNj/vm9VbJ2kcFRanDzfxTlZeEcpyBhQh77LOHsFtm6re/WV3NMyeurI0mWmM/wroLkDH
-	D7lCR1BTp52uR63H95scg0moG38cZ9U5hPt+qejbcNv2UJBhNenp6x0iHM/V+FR9S4yAhzSNOxJxJ
-	SaEtvuJBpBnxzalVvPezww3PybcuCIjcCH2CpX9ppyhpIucWJbATlCjWKpyEsQn7N3neuXmEWf3P5
-	iCUBKphwA==;
+	 bh=sODv5Rm8PQLZjHJZaZwxKDlFP12Yd+I+gTYEQnY2iZc=; b=fHc05dDHFoZ9Ns6G2jqgGom9Q
+	s49Tl2uQheb23J65MJ7A3w3+nzKy+xl+reYb4bTHERj5LYYKGDgTEC6UtyQjhm8gxZm+B/TLHUABQ
+	k/f2OFuc/IeIVy9hUwP+My/6tAr/cBp/YJw9faL/y18q+UEooYe2EGop7sYmZMjyjqJF5nGvjNB3H
+	AvL/rqTjSTjSZHMXA2KapmHNu+Bv6NiL2TTWbhT4c7MQUdFGFGcRVJlipqaCHqLv4abF537Wb3Bsc
+	+ffUM0lL+ecx4LsJJCileBXRCsMro6y9qwfQ0Sk/ZQOHX+Lns53y1nqpFuewaTtLf9CygNPLZPSUx
+	GhWyt+QJA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jowS3-0000aN-LY; Fri, 26 Jun 2020 22:04:03 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1jowxW-0002hC-Mo; Fri, 26 Jun 2020 22:36:34 +0000
+Received: from us-smtp-delivery-1.mimecast.com ([207.211.31.120]
+ helo=us-smtp-1.mimecast.com)
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jowRz-0000Zl-9d; Fri, 26 Jun 2020 22:04:00 +0000
-Received: from mail-oi1-f171.google.com (mail-oi1-f171.google.com
- [209.85.167.171])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 63F9C20B1F;
- Fri, 26 Jun 2020 22:03:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1593209038;
- bh=WOQTvXobQ4W5JjaUMq7kWZE0jMQeOGk5MGW4rZFNYmQ=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=FJoUvBwf+2SSHz2fr5vxPYd6aoefwHL0tlm86G/9+r8GmMcp2ZfwG8v/QP7defuDT
- D6lsId8SoNK8CT/QFVljdlp7a2LKRNtj3CK7eEWI766szCKWXBke3IKnvh4VpFJvxX
- DKoi6BJrlVFKVMovm4nd8G3e0rQBjBfAenxKjkPE=
-Received: by mail-oi1-f171.google.com with SMTP id r8so9324589oij.5;
- Fri, 26 Jun 2020 15:03:58 -0700 (PDT)
-X-Gm-Message-State: AOAM5335Q7S88WVooI3e48VrXmy8F/zNmjnWeGiDeGIubegldz7ov2sH
- XevAx0n+ce/iRr3nWIF5Rd5OhbYDiqJ5Muk64PE=
-X-Google-Smtp-Source: ABdhPJyA7RXVNdsucLUlBYRk00ByTmKYmzuM59N4650Dy8dEYBHPZ8+pPQ4fBTN9TdwDgfB6PHfzTHaYzf0UmhXyeYs=
-X-Received: by 2002:aca:ba03:: with SMTP id k3mr4145023oif.33.1593209037748;
- Fri, 26 Jun 2020 15:03:57 -0700 (PDT)
+ id 1jowxU-0002gi-63
+ for linux-riscv@lists.infradead.org; Fri, 26 Jun 2020 22:36:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1593210991;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=8WnWhn2O9ddpmgT5q7yGLFrwE17K5+WMrtUB+3cLWEw=;
+ b=dXLfhMko9PUPmo7MCmiBF3BTlDG+XWj9b57+rB3OMlVdDBzlQBWBXi88enve+NYjl26/iI
+ JOKQSlNGNFi5vQLAML5fjOlZW7FJ6NjUw3c5zhnnXL9ZONDwcG21qP5HWEG/qSDBKyN9aV
+ NoL8AwiRovHFFRJNxoHeXaVPfPlQCLA=
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com
+ [209.85.222.199]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-419-md4SOIQJMtSIR4ifQKOr7w-1; Fri, 26 Jun 2020 18:36:28 -0400
+X-MC-Unique: md4SOIQJMtSIR4ifQKOr7w-1
+Received: by mail-qk1-f199.google.com with SMTP id i62so7657308qkd.18
+ for <linux-riscv@lists.infradead.org>; Fri, 26 Jun 2020 15:36:28 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=8WnWhn2O9ddpmgT5q7yGLFrwE17K5+WMrtUB+3cLWEw=;
+ b=Ku8/wfuNVwMOlPjRbjsbKX7WjA+wJYZtffjJjOrRmzevZbbadXnyKAnJiUMFcsD3xQ
+ kUbaoo25MbRYSgNbdUgXj+1VjTw0xIQbrmTMww0hw+kUb8dNG7oHkzh+lT59e1mW2xfP
+ T50FwTMMvi+vWHjxJVHb/bOEENPeM10zQ8s9j+pCcjO6k8UcAISL9AGr/85B/IKbIuyd
+ bqPIn2XfwlZkMuHvFqR3niGYxFb9+7QzMP9/skx1fe/byQ+Vg2Xv8p5bRrbs/WuHfwcF
+ gO9SviF0liP99puu6AP7Q028UMr1exQMmbE8P2ebW5zRAY0vI/Pkbu/qfPGBRJGfGTqM
+ 2vJg==
+X-Gm-Message-State: AOAM531gDpMVc12ZnODYzbnmTn8vrLZ3f8P6cNhCDDP4DiqbKLQHcEPu
+ w7P+/NWY9/dsLmUbajppNkvyY1Nvm1WPIrkyS4fA8CGkPqH8mnobZOUnyxXuzZataGwGOCltawt
+ JUQIMttcBIswHv136OnCWJctSyWj4
+X-Received: by 2002:a05:620a:994:: with SMTP id
+ x20mr2758437qkx.367.1593210987668; 
+ Fri, 26 Jun 2020 15:36:27 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJyF7mXzjX2GYCldg8rpVKH+R/6CyjRUZNLT2pL9QW2hEVm9X8g93t+Jx2O/OTIhETTp/0bRvw==
+X-Received: by 2002:a05:620a:994:: with SMTP id
+ x20mr2758423qkx.367.1593210987471; 
+ Fri, 26 Jun 2020 15:36:27 -0700 (PDT)
+Received: from xz-x1.redhat.com ([2607:9880:19c0:32::2])
+ by smtp.gmail.com with ESMTPSA id t9sm9463853qke.68.2020.06.26.15.36.26
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 26 Jun 2020 15:36:26 -0700 (PDT)
+From: Peter Xu <peterx@redhat.com>
+To: linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 17/26] mm/riscv: Use general page fault accounting
+Date: Fri, 26 Jun 2020 18:36:25 -0400
+Message-Id: <20200626223625.199813-1-peterx@redhat.com>
+X-Mailer: git-send-email 2.26.2
+In-Reply-To: <20200626223130.199227-1-peterx@redhat.com>
+References: <20200626223130.199227-1-peterx@redhat.com>
 MIME-Version: 1.0
-References: <20200625234516.31406-1-atish.patra@wdc.com>
- <20200625234516.31406-2-atish.patra@wdc.com>
- <5e2ce2ae-5458-8579-576a-76721f7d3b08@gmx.de>
- <CAOnJCUKnB7kLdTh1-NaFNw4p6EammETzhUa-Uniq2rrC-7AaQg@mail.gmail.com>
-In-Reply-To: <CAOnJCUKnB7kLdTh1-NaFNw4p6EammETzhUa-Uniq2rrC-7AaQg@mail.gmail.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Sat, 27 Jun 2020 00:03:46 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXFyQiYPYB-81POq7agRW1ROt=2j3nN9wcpHGmr4YjmFCQ@mail.gmail.com>
-Message-ID: <CAMj1kXFyQiYPYB-81POq7agRW1ROt=2j3nN9wcpHGmr4YjmFCQ@mail.gmail.com>
-Subject: Re: [RFC PATCH 01/11] efi: Fix gcc error around __umoddi3 for 32 bit
- builds
-To: Atish Patra <atishp@atishpatra.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -81,56 +104,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-efi <linux-efi@vger.kernel.org>,
- Heinrich Schuchardt <xypron.glpk@gmx.de>,
- Masahiro Yamada <masahiroy@kernel.org>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Atish Patra <atish.patra@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Cc: Andrea Arcangeli <aarcange@redhat.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Peter Xu <peterx@redhat.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Michael Ellerman <mpe@ellerman.id.au>,
+ Andrew Morton <akpm@linux-foundation.org>, Will Deacon <will@kernel.org>,
+ linux-riscv@lists.infradead.org, Gerald Schaefer <gerald.schaefer@de.ibm.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 26 Jun 2020 at 23:56, Atish Patra <atishp@atishpatra.org> wrote:
->
-> On Thu, Jun 25, 2020 at 7:43 PM Heinrich Schuchardt <xypron.glpk@gmx.de> wrote:
-> >
-> > On 6/26/20 1:45 AM, Atish Patra wrote:
-> > > 32bit gcc doesn't support modulo operation on 64 bit data. It results in
-> > > a __umoddi3 error while building EFI for 32 bit.
-> > >
-> > > Use bitwise operations instead of modulo operations to fix the issue.
-> > >
-> > > Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> > > ---
-> > >  drivers/firmware/efi/libstub/alignedmem.c | 2 +-
-> > >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > >
-> > > diff --git a/drivers/firmware/efi/libstub/alignedmem.c b/drivers/firmware/efi/libstub/alignedmem.c
-> > > index cc89c4d6196f..1de9878ddd3a 100644
-> > > --- a/drivers/firmware/efi/libstub/alignedmem.c
-> > > +++ b/drivers/firmware/efi/libstub/alignedmem.c
-> > > @@ -44,7 +44,7 @@ efi_status_t efi_allocate_pages_aligned(unsigned long size, unsigned long *addr,
-> > >       *addr = ALIGN((unsigned long)alloc_addr, align);
-> > >
-> > >       if (slack > 0) {
-> > > -             int l = (alloc_addr % align) / EFI_PAGE_SIZE;
-> > > +             int l = (alloc_addr & (align - 1)) / EFI_PAGE_SIZE;
-> >
-> > Here you rely on the compiler to silently convert the division by
-> > EFI_PAGE_SIZE into a right shift. Wouldn't it be cleaner to use
-> > EFI_PAGE_SHIFT to explicitly avoid a dependency on __udivdi3()?
-> >
-> > slack = (align >> EFI_PAGE_SHIFT) - 1;
-> > ...
-> > int l = (alloc_addr & (align - 1)) >> EFI_PAGE_SHIFT;
-> >
->
-> Sure. I will update it in the next version. Thanks for the suggestion.
+Use the general page fault accounting by passing regs into handle_mm_fault().
+It naturally solve the issue of multiple page fault accounting when page fault
+retry happened.
 
-Please don't. Dividing by EFI_PAGE_SIZE is perfectly fine, and is more readable.
+CC: Paul Walmsley <paul.walmsley@sifive.com>
+CC: Palmer Dabbelt <palmer@dabbelt.com>
+CC: Albert Ou <aou@eecs.berkeley.edu>
+CC: linux-riscv@lists.infradead.org
+Signed-off-by: Peter Xu <peterx@redhat.com>
+---
+ arch/riscv/mm/fault.c | 16 +---------------
+ 1 file changed, 1 insertion(+), 15 deletions(-)
+
+diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
+index 677ee1bb11ac..e796ba02b572 100644
+--- a/arch/riscv/mm/fault.c
++++ b/arch/riscv/mm/fault.c
+@@ -110,7 +110,7 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
+ 	 * make sure we exit gracefully rather than endlessly redo
+ 	 * the fault.
+ 	 */
+-	fault = handle_mm_fault(vma, addr, flags, NULL);
++	fault = handle_mm_fault(vma, addr, flags, regs);
+ 
+ 	/*
+ 	 * If we need to retry but a fatal signal is pending, handle the
+@@ -128,21 +128,7 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
+ 		BUG();
+ 	}
+ 
+-	/*
+-	 * Major/minor page fault accounting is only done on the
+-	 * initial attempt. If we go through a retry, it is extremely
+-	 * likely that the page will be found in page cache at that point.
+-	 */
+ 	if (flags & FAULT_FLAG_ALLOW_RETRY) {
+-		if (fault & VM_FAULT_MAJOR) {
+-			tsk->maj_flt++;
+-			perf_sw_event(PERF_COUNT_SW_PAGE_FAULTS_MAJ,
+-				      1, regs, addr);
+-		} else {
+-			tsk->min_flt++;
+-			perf_sw_event(PERF_COUNT_SW_PAGE_FAULTS_MIN,
+-				      1, regs, addr);
+-		}
+ 		if (fault & VM_FAULT_RETRY) {
+ 			flags |= FAULT_FLAG_TRIED;
+ 
+-- 
+2.26.2
+
 
 _______________________________________________
 linux-riscv mailing list
