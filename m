@@ -2,62 +2,65 @@ Return-Path: <SRS0=1V8E=AI=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8A3AFC433DF
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jun 2020 13:58:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 33AF0C433E0
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jun 2020 13:58:30 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4CA9021841
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jun 2020 13:58:28 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E537F2184D
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jun 2020 13:58:29 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="riHH3G3W";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="yAESvf8G"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4CA9021841
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sn8/G8ZY";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="lm8M5nIo"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E537F2184D
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8EaaRMpMPN1dJo3oA/y0LhKiwTIpPZQDavKs2vk1DxI=; b=riHH3G3WVt+jaMzpRkgCAgKRpt
-	tB8HbbMCAjnxIqKlcvNk1kse8gz0C3wxcekroexv96XKaA63J0Ov4CaBtD8coQdwVh7Wlu46oOqjv
-	KFHa7YEEB0SCyiyA1fHnSPA1PEg0aCSFI6fztTscvoBB4BGedwDJzlBqe2o7NbtcqAt1YQWlSwXYJ
-	rNBeNpeoiYBDnZbNXFicBRrdJurq4AX/fXXo2sV4m6Ahtr+o0OluJG2pcHQfxOE9lyu8kInoFjFq/
-	IxEkw5J86qybUDjl9IrAxLgp5+beIA+JQMUszp96t89YWwWcS/2/BfsNrHOZa5cv+LzL1J3exQ9Se
-	W1GQk4Jw==;
+	List-Unsubscribe:List-Id:References:In-Reply-To:Message-Id:Date:Subject:To:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w5hTuGDg9s773s/xdvMBnlLuVZ2GnhdTNmCQ/HCvYXk=; b=sn8/G8ZYHhddAKLdEim8TWmRAH
+	fhOl2YK+6KbRT4UK1X6XFomQyTMVVNWX3PZngRt1jiTVQTtmIeSj+YSfBY1zm1sXNxkevn41MiLTN
+	AGJ3TMnmuai5L4iqQJ4MBJXMsNY0i5QOzPg9dvbu/VEOTx4BF4jwpIySLLfNblOmbQ4hAz2YIs9k9
+	fZB5rttLqtsCsjhYgWlzhlaS58dXdoz3C/n7cHC2JNeblAJopS7Rps2Sm1pi0WHOwnRYqHNeVBKVg
+	G7M5lZTZr3tq9pp2ubCt9ondaeT+r9nvjTQQuhZcTfNg2zLPLiPmVUqKX6WeDpgLRPJSV8MCEeMgP
+	hKLkGXMw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jpBLW-0002MT-Di; Sat, 27 Jun 2020 13:58:18 +0000
+	id 1jpBLa-0002Mw-En; Sat, 27 Jun 2020 13:58:22 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jpBLU-0002MI-VX
- for linux-riscv@lists.infradead.org; Sat, 27 Jun 2020 13:58:17 +0000
+ id 1jpBLW-0002MY-UP
+ for linux-riscv@lists.infradead.org; Sat, 27 Jun 2020 13:58:19 +0000
 Received: from localhost.localdomain (unknown [89.208.247.74])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id A6A9D2158C;
- Sat, 27 Jun 2020 13:58:12 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id E0E6F2168B;
+ Sat, 27 Jun 2020 13:58:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1593266295;
- bh=zFFmAxQIJ282vX1U5MTEGpJFoSCC8e6dQDRcPHERdds=;
- h=From:To:Cc:Subject:Date:From;
- b=yAESvf8Gfcairgg2gf6m4SeyFniwS9u435AovnO6RhjbHX242Bg6ekMEv02L/JvTq
- 92lemG1EhMpXQZFM6LRiRg4tk+BihGTb+JVWiAHrLwNY0xdjo3MHF7bE4Oszig/ANe
- +dIZzzaGJbpCu2PBeWX7wUqKuYMbfdSTJFeYjGfs=
+ s=default; t=1593266298;
+ bh=oewV1O6rTie7xVw3ZbfoIwUSB6OBIDTPoEv9gkp7Umk=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=lm8M5nIoA+Om5IGeuhZgFH1YBi9xT8SLoDQSKMHbECN1QHQpiWs8i4DvbAb2wTdPz
+ mMzKzb+6l/96eWtrIj9e7E4PWPO1rQdLOfhflVc/vdaf8c3urHzTCrE/Or95/eDUm7
+ ZObVHpHT7PaqV6gcjGkl7rMH5ax+1a3riNaZrzeU=
 From: guoren@kernel.org
 To: palmerdabbelt@google.com, paul.walmsley@sifive.com, anup@brainfault.org,
  greentime.hu@sifive.com, zong.li@sifive.com, aou@eecs.berkeley.edu,
  tglx@linutronix.de, tycho@tycho.ws, nickhu@andestech.com
-Subject: [PATCH V2 0/3] riscv: Enable LOCKDEP
-Date: Sat, 27 Jun 2020 13:57:05 +0000
-Message-Id: <1593266228-61125-1-git-send-email-guoren@kernel.org>
+Subject: [PATCH V2 1/3] riscv: Fixup static_obj() fail
+Date: Sat, 27 Jun 2020 13:57:06 +0000
+Message-Id: <1593266228-61125-2-git-send-email-guoren@kernel.org>
 X-Mailer: git-send-email 2.7.4
+In-Reply-To: <1593266228-61125-1-git-send-email-guoren@kernel.org>
+References: <1593266228-61125-1-git-send-email-guoren@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -79,34 +82,71 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-Lockdep is needed by proving the spinlocks and rwlocks. To support it,
-we need to add TRACE_IRQFLAGS codes in kernel/entry.S. These patches
-follow Documentation/irqflags-tracing.txt.
+When enable LOCKDEP, static_obj() will cause error. Because some
+__initdata static variables is before _stext:
 
-Fixup 2 bugs that block the lockdep implementation.
+static int static_obj(const void *obj)
+{
+        unsigned long start = (unsigned long) &_stext,
+                      end   = (unsigned long) &_end,
+                      addr  = (unsigned long) obj;
 
+        /*
+         * static variable?
+         */
+        if ((addr >= start) && (addr < end))
+                return 1;
+
+[    0.067192] INFO: trying to register non-static key.
+[    0.067325] the code is fine but needs lockdep annotation.
+[    0.067449] turning off the locking correctness validator.
+[    0.067718] CPU: 0 PID: 0 Comm: swapper/0 Not tainted 5.7.0-rc7-dirty #44
+[    0.067945] Call Trace:
+[    0.068369] [<ffffffe00020323c>] walk_stackframe+0x0/0xa4
+[    0.068506] [<ffffffe000203422>] show_stack+0x2a/0x34
+[    0.068631] [<ffffffe000521e4e>] dump_stack+0x94/0xca
+[    0.068757] [<ffffffe000255a4e>] register_lock_class+0x5b8/0x5bc
+[    0.068969] [<ffffffe000255abe>] __lock_acquire+0x6c/0x1d5c
+[    0.069101] [<ffffffe0002550fe>] lock_acquire+0xae/0x312
+[    0.069228] [<ffffffe000989a8e>] _raw_spin_lock_irqsave+0x40/0x5a
+[    0.069357] [<ffffffe000247c64>] complete+0x1e/0x50
+[    0.069479] [<ffffffe000984c38>] rest_init+0x1b0/0x28a
+[    0.069660] [<ffffffe0000016a2>] 0xffffffe0000016a2
+[    0.069779] [<ffffffe000001b84>] 0xffffffe000001b84
+[    0.069953] [<ffffffe000001092>] 0xffffffe000001092
+
+static __initdata DECLARE_COMPLETION(kthreadd_done);
+
+noinline void __ref rest_init(void)
+{
+	...
+	complete(&kthreadd_done);
+
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 ---
-Changes in v2
- - Remove sX regs recovery codes which are unnecessary, because
-   callee will handle them. Thx Greentime :)
+ arch/riscv/kernel/vmlinux.lds.S | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
- - Move "restore a0 - a7" to handle_syscall, but if _TIF_SYSCALL_WORK
-   is set, "restore a1 - a7" is still duplicated. I prefer a C wrapper
-   for syscall.
-
-Guo Ren (2):
-  riscv: Fixup static_obj() fail
-  riscv: Enable LOCKDEP_SUPPORT & fixup TRACE_IRQFLAGS_SUPPORT
-
-Zong Li (1):
-  riscv: Fixup lockdep_assert_held with wrong param cpu_running
-
- arch/riscv/Kconfig              |  3 +++
- arch/riscv/kernel/entry.S       | 33 ++++++++++++++++++++++++++++++++-
- arch/riscv/kernel/smpboot.c     |  1 -
- arch/riscv/kernel/vmlinux.lds.S |  2 +-
- 4 files changed, 36 insertions(+), 3 deletions(-)
-
+diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
+index e6f8016..f3586e3 100644
+--- a/arch/riscv/kernel/vmlinux.lds.S
++++ b/arch/riscv/kernel/vmlinux.lds.S
+@@ -22,6 +22,7 @@ SECTIONS
+ 	/* Beginning of code and text segment */
+ 	. = LOAD_OFFSET;
+ 	_start = .;
++	_stext = .;
+ 	HEAD_TEXT_SECTION
+ 	. = ALIGN(PAGE_SIZE);
+ 
+@@ -54,7 +55,6 @@ SECTIONS
+ 	. = ALIGN(SECTION_ALIGN);
+ 	.text : {
+ 		_text = .;
+-		_stext = .;
+ 		TEXT_TEXT
+ 		SCHED_TEXT
+ 		CPUIDLE_TEXT
 -- 
 2.7.4
 
