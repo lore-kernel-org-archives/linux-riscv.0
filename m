@@ -2,59 +2,60 @@ Return-Path: <SRS0=1V8E=AI=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4050BC433E0
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jun 2020 14:26:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 909B9C433DF
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jun 2020 14:35:16 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D6E762089D
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jun 2020 14:26:51 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5498C20679
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jun 2020 14:35:16 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="BJDuz+Za"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D6E762089D
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="rQTfeahx";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="FBB5WzdH"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5498C20679
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=KJnBGY+lMJq6AQvzkd1WQvGN/95QsoDOSLLfX5u+fXY=; b=BJDuz+ZaWZnqpsrhya0HfIvSM
-	NCbW+QekhUyus+Ye+gqyXshFj52cogwV4pnl8TyzkSv0PaxtHUQQIV78UZss8J8laEJurGS6tAfri
-	JCUNvUnzVbLYizQ4HzW25XuAqAxL8BSPhdy1UIbNo7mc4aQflyb9snY3dWbDIpz++bXm0l/Q7B0b9
-	zzojg72kgb/uRghSD2irhJq4QowqXAMLxbP3w4Nbcg4xUP7tdJMVG54u6Ds+G/AFDKeohjpSMfqF9
-	yMpJqI7FXVyy46WL2vjEoPfASUpe321FBhsGIDzkDoaFqcWIK5QIRHk6UII+nqX/YFdXrpB8Ytc0L
-	bHQCg968A==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DrUpXAH6nwhznf/E2JiG0UQTZMiW1F2QMYq3Bgb8X2M=; b=rQTfeahxrd2sWN9R9ebSlkO1yH
+	P57RbG4OsHhmWs6tyLESAt0aMroHq0nNnVuT8lf6urs3E06k06W4rDA9CIYaMbpCTeN9KAzA85C8t
+	klsk2W0k1odSCN6N/YPDCsm9rzqcwFpuPNW+L+kyAOAJPeAUK9THW6Pd9Cd8dS79xSpmgZsE7fC5K
+	s6gMGzSneWkNsVQvRe+3kSHJnQh1nfdC2MyzynS0RcndSfjEWvbSGYQEadlPd/20YAUZvu25/3Ib5
+	OSeW4TmEtoHZV7AQKDDRmnaPPGyn8DczJNv0kzRaedzpbYp2yNC6sQbRJawZY0Xbl/znC63GYhb8U
+	A94mQKgg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jpBn3-0004Qj-Ks; Sat, 27 Jun 2020 14:26:45 +0000
-Received: from relay12.mail.gandi.net ([217.70.178.232])
+	id 1jpBvD-0004ly-Ld; Sat, 27 Jun 2020 14:35:11 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jpBn0-0004QD-Qa
- for linux-riscv@lists.infradead.org; Sat, 27 Jun 2020 14:26:44 +0000
-Received: from [192.168.43.237] (245.161.185.81.rev.sfr.net [81.185.161.245])
- (Authenticated sender: alex@ghiti.fr)
- by relay12.mail.gandi.net (Postfix) with ESMTPSA id DB40A200003;
- Sat, 27 Jun 2020 14:26:33 +0000 (UTC)
-Subject: Re: [PATCH v2 5/8] riscv: Implement sv48 support
-To: Nick Kossifidis <mick@ics.forth.gr>
-References: <20200603081104.14004-1-alex@ghiti.fr>
- <20200603081104.14004-6-alex@ghiti.fr>
- <74a770fcf00980281b60bb3f6274419d@mailhost.ics.forth.gr>
-From: Alex Ghiti <alex@ghiti.fr>
-Message-ID: <0fb8931a-67f6-f28a-a17b-a991b9eb8478@ghiti.fr>
-Date: Sat, 27 Jun 2020 10:26:32 -0400
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.9.0
+ id 1jpBv8-0004l6-Ji; Sat, 27 Jun 2020 14:35:08 +0000
+Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 341C22089D;
+ Sat, 27 Jun 2020 14:34:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1593268505;
+ bh=qu2PC/KfnpK0kWKvuL7CXpDG7X/LanYdYjS7VhuA2tc=;
+ h=From:To:Cc:Subject:Date:From;
+ b=FBB5WzdHZCyO5w4PctPzcY7Z3LAstOygEoRUhk/Ng1G+Z4/lWOJE048kW7zjqiOhR
+ IdlIfwSDXvF8p9LDdqBSj5MmgeYKrg3f6jEZKT4anjo+p6hHbu6Ts9fIOvn7KQVkjy
+ XGJTIYBUuYdW9Ish6HFB+sclhFQo+pGzuMIA9dOg=
+From: Mike Rapoport <rppt@kernel.org>
+To: linux-kernel@vger.kernel.org
+Subject: [PATCH 0/8] mm: cleanup usage of <asm/pgalloc.h>
+Date: Sat, 27 Jun 2020 17:34:45 +0300
+Message-Id: <20200627143453.31835-1-rppt@kernel.org>
+X-Mailer: git-send-email 2.26.2
 MIME-Version: 1.0
-In-Reply-To: <74a770fcf00980281b60bb3f6274419d@mailhost.ics.forth.gr>
-Content-Language: fr
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -66,218 +67,221 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org,
- Palmer Dabbelt <palmer@dabbelt.com>, Zong Li <zong.li@sifive.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
- Christoph Hellwig <hch@lst.de>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Cc: linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
+ Peter Zijlstra <peterz@infradead.org>, Max Filippov <jcmvbkbc@gmail.com>,
+ Satheesh Rajendran <sathnaga@linux.vnet.ibm.com>, linux-csky@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-arch@vger.kernel.org, Stephen Rothwell <sfr@canb.auug.org.au>,
+ linux-hexagon@vger.kernel.org, Joerg Roedel <joro@8bytes.org>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Mike Rapoport <rppt@linux.ibm.com>, Abdul Haleem <abdhalee@linux.vnet.ibm.com>,
+ linux-snps-arc@lists.infradead.org, linux-xtensa@linux-xtensa.org,
+ Arnd Bergmann <arnd@arndb.de>, linux-s390@vger.kernel.org,
+ linux-um@lists.infradead.org, Steven Rostedt <rostedt@goodmis.org>,
+ linux-m68k@lists.linux-m68k.org, openrisc@lists.librecores.org,
+ Andy Lutomirski <luto@kernel.org>, Stafford Horne <shorne@gmail.com>,
+ linux-arm-kernel@lists.infradead.org, linux-parisc@vger.kernel.org,
+ linux-mm@kvack.org, linux-mips@vger.kernel.org, linux-alpha@vger.kernel.org,
+ Andrew Morton <akpm@linux-foundation.org>, linuxppc-dev@lists.ozlabs.org,
+ Mike Rapoport <rppt@kernel.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgTmljaywKCkxlIDYvMjcvMjAgw6AgODozMCBBTSwgTmljayBLb3NzaWZpZGlzIGEgw6ljcml0
-wqA6Cj4gzqPPhM65z4IgMjAyMC0wNi0wMyAxMToxMSwgQWxleGFuZHJlIEdoaXRpIM6tzrPPgc6x
-z4jOtToKPj4gQnkgYWRkaW5nIGEgbmV3IDR0aCBsZXZlbCBvZiBwYWdlIHRhYmxlLCBnaXZlIHRo
-ZSBwb3NzaWJpbGl0eSB0byA2NGJpdAo+PiBrZXJuZWwgdG8gYWRkcmVzcyAyXjQ4IGJ5dGVzIG9m
-IHZpcnR1YWwgYWRkcmVzczogaW4gcHJhY3RpY2UsIHRoYXQgCj4+IHJvdWdobHkKPj4gb2ZmZXJz
-IH4xNjBUQiBvZiB2aXJ0dWFsIGFkZHJlc3Mgc3BhY2UgdG8gdXNlcnNwYWNlIGFuZCBhbGxvd3Mg
-dXAgdG8gNjRUQgo+PiBvZiBwaHlzaWNhbCBtZW1vcnkuCj4+Cj4+IElmIHRoZSB1bmRlcmx5aW5n
-IGhhcmR3YXJlIGRvZXMgbm90IHN1cHBvcnQgc3Y0OCwgd2Ugd2lsbCBhdXRvbWF0aWNhbGx5Cj4+
-IGZhbGxiYWNrIHRvIGEgc3RhbmRhcmQgMy1sZXZlbCBwYWdlIHRhYmxlIGJ5IGZvbGRpbmcgdGhl
-IG5ldyBQVUQgbGV2ZWwgCj4+IGludG8KPj4gUEdESVIgbGV2ZWwuIEluIG9yZGVyIHRvIGRldGVj
-dCBIVyBjYXBhYmlsaXRpZXMgYXQgcnVudGltZSwgd2UKPj4gdXNlIFNBVFAgZmVhdHVyZSB0aGF0
-IGlnbm9yZXMgd3JpdGVzIHdpdGggYW4gdW5zdXBwb3J0ZWQgbW9kZS4KPj4KPj4gU2lnbmVkLW9m
-Zi1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4QGdoaXRpLmZyPgo+PiBSZXZpZXdlZC1ieTogQW51
-cCBQYXRlbCA8YW51cEBicmFpbmZhdWx0Lm9yZz4KPj4gLS0tCj4+IMKgYXJjaC9yaXNjdi9LY29u
-ZmlnwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqDCoCA2ICstCj4+IMKgYXJj
-aC9yaXNjdi9pbmNsdWRlL2FzbS9jc3IuaMKgwqDCoMKgwqDCoMKgIHzCoMKgIDMgKy0KPj4gwqBh
-cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2ZpeG1hcC5owqDCoMKgwqAgfMKgwqAgMSArCj4+IMKgYXJj
-aC9yaXNjdi9pbmNsdWRlL2FzbS9wYWdlLmjCoMKgwqDCoMKgwqAgfMKgIDE1ICsrKwo+PiDCoGFy
-Y2gvcmlzY3YvaW5jbHVkZS9hc20vcGdhbGxvYy5owqDCoMKgIHzCoCAzNiArKysrKysrCj4+IMKg
-YXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLTY0LmggfMKgIDk3ICsrKysrKysrKysrKysr
-KystCj4+IMKgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLmjCoMKgwqAgfMKgIDEwICst
-Cj4+IMKgYXJjaC9yaXNjdi9rZXJuZWwvaGVhZC5TwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqDC
-oCAzICstCj4+IMKgYXJjaC9yaXNjdi9tbS9jb250ZXh0LmPCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqAgfMKgwqAgMiArLQo+PiDCoGFyY2gvcmlzY3YvbW0vaW5pdC5jwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgIHwgMTU4ICsrKysrKysrKysrKysrKysrKysrKysrKystLS0KPj4gwqAxMCBm
-aWxlcyBjaGFuZ2VkLCAzMDcgaW5zZXJ0aW9ucygrKSwgMjQgZGVsZXRpb25zKC0pCj4+Cj4+IGRp
-ZmYgLS1naXQgYS9hcmNoL3Jpc2N2L0tjb25maWcgYi9hcmNoL3Jpc2N2L0tjb25maWcKPj4gaW5k
-ZXggZTE2N2YxNjEzMWY0Li4zZjczZjYwZTk3MzIgMTAwNjQ0Cj4+IC0tLSBhL2FyY2gvcmlzY3Yv
-S2NvbmZpZwo+PiArKysgYi9hcmNoL3Jpc2N2L0tjb25maWcKPj4gQEAgLTY4LDYgKzY4LDcgQEAg
-Y29uZmlnIFJJU0NWCj4+IMKgwqDCoMKgIHNlbGVjdCBBUkNIX0hBU19HQ09WX1BST0ZJTEVfQUxM
-Cj4+IMKgwqDCoMKgIHNlbGVjdCBIQVZFX0NPUFlfVEhSRUFEX1RMUwo+PiDCoMKgwqDCoCBzZWxl
-Y3QgSEFWRV9BUkNIX0tBU0FOIGlmIE1NVSAmJiA2NEJJVAo+PiArwqDCoMKgIHNlbGVjdCBSRUxP
-Q0FUQUJMRSBpZiA2NEJJVAo+Pgo+PiDCoGNvbmZpZyBBUkNIX01NQVBfUk5EX0JJVFNfTUlOCj4+
-IMKgwqDCoMKgIGRlZmF1bHQgMTggaWYgNjRCSVQKPj4gQEAgLTEwNiw3ICsxMDcsNyBAQCBjb25m
-aWcgUEFHRV9PRkZTRVQKPj4gwqDCoMKgwqAgZGVmYXVsdCAweEMwMDAwMDAwIGlmIDMyQklUICYm
-IE1BWFBIWVNNRU1fMkdCCj4+IMKgwqDCoMKgIGRlZmF1bHQgMHg4MDAwMDAwMCBpZiA2NEJJVCAm
-JiAhTU1VCj4+IMKgwqDCoMKgIGRlZmF1bHQgMHhmZmZmZmZmZjgwMDAwMDAwIGlmIDY0QklUICYm
-IE1BWFBIWVNNRU1fMkdCCj4+IC3CoMKgwqAgZGVmYXVsdCAweGZmZmZmZmUwMDAwMDAwMDAgaWYg
-NjRCSVQgJiYgIU1BWFBIWVNNRU1fMkdCCj4+ICvCoMKgwqAgZGVmYXVsdCAweGZmZmZjMDAwMDAw
-MDAwMDAgaWYgNjRCSVQgJiYgIU1BWFBIWVNNRU1fMkdCCj4+Cj4+IMKgY29uZmlnIEFSQ0hfRkxB
-VE1FTV9FTkFCTEUKPj4gwqDCoMKgwqAgZGVmX2Jvb2wgeQo+PiBAQCAtMTU1LDggKzE1NiwxMSBA
-QCBjb25maWcgR0VORVJJQ19IV0VJR0hUCj4+IMKgY29uZmlnIEZJWF9FQVJMWUNPTl9NRU0KPj4g
-wqDCoMKgwqAgZGVmX2Jvb2wgTU1VCj4+Cj4+ICsjIE9uIGEgNjRCSVQgcmVsb2NhdGFibGUga2Vy
-bmVsLCB0aGUgNC1sZXZlbCBwYWdlIHRhYmxlIGlzIGF0IHJ1bnRpbWUgCj4+IGZvbGRlZAo+PiAr
-IyBvbiBhIDMtbGV2ZWwgcGFnZSB0YWJsZSB3aGVuIHN2NDggaXMgbm90IHN1cHBvcnRlZC4KPj4g
-wqBjb25maWcgUEdUQUJMRV9MRVZFTFMKPj4gwqDCoMKgwqAgaW50Cj4+ICvCoMKgwqAgZGVmYXVs
-dCA0IGlmIDY0QklUICYmIFJFTE9DQVRBQkxFCj4+IMKgwqDCoMKgIGRlZmF1bHQgMyBpZiA2NEJJ
-VAo+PiDCoMKgwqDCoCBkZWZhdWx0IDIKPj4KPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5j
-bHVkZS9hc20vY3NyLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Nzci5oCj4+IGluZGV4IGNl
-YzQ2MmUxOThjZS4uZDQxNTM2YzNmOGQ0IDEwMDY0NAo+PiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1
-ZGUvYXNtL2Nzci5oCj4+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vY3NyLmgKPj4gQEAg
-LTQwLDExICs0MCwxMCBAQAo+PiDCoCNpZm5kZWYgQ09ORklHXzY0QklUCj4+IMKgI2RlZmluZSBT
-QVRQX1BQTsKgwqDCoCBfQUMoMHgwMDNGRkZGRiwgVUwpCj4+IMKgI2RlZmluZSBTQVRQX01PREVf
-MzLCoMKgwqAgX0FDKDB4ODAwMDAwMDAsIFVMKQo+PiAtI2RlZmluZSBTQVRQX01PREXCoMKgwqAg
-U0FUUF9NT0RFXzMyCj4+IMKgI2Vsc2UKPj4gwqAjZGVmaW5lIFNBVFBfUFBOwqDCoMKgIF9BQygw
-eDAwMDAwRkZGRkZGRkZGRkYsIFVMKQo+PiDCoCNkZWZpbmUgU0FUUF9NT0RFXzM5wqDCoMKgIF9B
-QygweDgwMDAwMDAwMDAwMDAwMDAsIFVMKQo+PiAtI2RlZmluZSBTQVRQX01PREXCoMKgwqAgU0FU
-UF9NT0RFXzM5Cj4+ICsjZGVmaW5lIFNBVFBfTU9ERV80OMKgwqDCoCBfQUMoMHg5MDAwMDAwMDAw
-MDAwMDAwLCBVTCkKPj4gwqAjZW5kaWYKPj4KPj4gwqAvKiBFeGNlcHRpb24gY2F1c2UgaGlnaCBi
-aXQgLSBpcyBhbiBpbnRlcnJ1cHQgaWYgc2V0ICovCj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2
-L2luY2x1ZGUvYXNtL2ZpeG1hcC5oIAo+PiBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vZml4bWFw
-LmgKPj4gaW5kZXggMjM2OGQ0OWViNGVmLi5kODkxY2Y5YzczYzUgMTAwNjQ0Cj4+IC0tLSBhL2Fy
-Y2gvcmlzY3YvaW5jbHVkZS9hc20vZml4bWFwLmgKPj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRl
-L2FzbS9maXhtYXAuaAo+PiBAQCAtMjcsNiArMjcsNyBAQCBlbnVtIGZpeGVkX2FkZHJlc3NlcyB7
-Cj4+IMKgwqDCoMKgIEZJWF9GRFQgPSBGSVhfRkRUX0VORCArIEZJWF9GRFRfU0laRSAvIFBBR0Vf
-U0laRSAtIDEsCj4+IMKgwqDCoMKgIEZJWF9QVEUsCj4+IMKgwqDCoMKgIEZJWF9QTUQsCj4+ICvC
-oMKgwqAgRklYX1BVRCwKPj4gwqDCoMKgwqAgRklYX1RFWFRfUE9LRTEsCj4+IMKgwqDCoMKgIEZJ
-WF9URVhUX1BPS0UwLAo+PiDCoMKgwqDCoCBGSVhfRUFSTFlDT05fTUVNX0JBU0UsCj4+IGRpZmYg
-LS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BhZ2UuaCAKPj4gYi9hcmNoL3Jpc2N2L2lu
-Y2x1ZGUvYXNtL3BhZ2UuaAo+PiBpbmRleCA0OGJiMDliNmE5YjcuLjVlNzdmZTdmMGQ2ZCAxMDA2
-NDQKPj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wYWdlLmgKPj4gKysrIGIvYXJjaC9y
-aXNjdi9pbmNsdWRlL2FzbS9wYWdlLmgKPj4gQEAgLTMxLDcgKzMxLDE5IEBACj4+IMKgICogV2hl
-biBub3QgdXNpbmcgTU1VIHRoaXMgY29ycmVzcG9uZHMgdG8gdGhlIGZpcnN0IGZyZWUgcGFnZSBp
-bgo+PiDCoCAqIHBoeXNpY2FsIG1lbW9yeSAoYWxpZ25lZCBvbiBhIHBhZ2UgYm91bmRhcnkpLgo+
-PiDCoCAqLwo+PiArI2lmZGVmIENPTkZJR19SRUxPQ0FUQUJMRQo+PiArI2RlZmluZSBQQUdFX09G
-RlNFVMKgwqDCoMKgwqDCoMKgIF9fcGFnZV9vZmZzZXQKPj4gKwo+PiArI2lmZGVmIENPTkZJR182
-NEJJVAo+PiArLyoKPj4gKyAqIEJ5IGRlZmF1bHQsIENPTkZJR19QQUdFX09GRlNFVCB2YWx1ZSBj
-b3JyZXNwb25kcyB0byBTVjQ4IGFkZHJlc3MgCj4+IHNwYWNlIHNvCj4+ICsgKiBkZWZpbmUgdGhl
-IFBBR0VfT0ZGU0VUIHZhbHVlIGZvciBTVjM5Lgo+PiArICovCj4+ICsjZGVmaW5lIFBBR0VfT0ZG
-U0VUX0wzwqDCoMKgwqDCoMKgwqAgMHhmZmZmZmZlMDAwMDAwMDAwCj4+ICsjZW5kaWYgLyogQ09O
-RklHXzY0QklUICovCj4+ICsjZWxzZQo+PiDCoCNkZWZpbmUgUEFHRV9PRkZTRVTCoMKgwqDCoMKg
-wqDCoCBfQUMoQ09ORklHX1BBR0VfT0ZGU0VULCBVTCkKPj4gKyNlbmRpZiAvKiBDT05GSUdfUkVM
-T0NBVEFCTEUgKi8KPj4KPj4gwqAjZGVmaW5lIEtFUk5fVklSVF9TSVpFICgtUEFHRV9PRkZTRVQp
-Cj4+Cj4+IEBAIC0xMDIsNiArMTE0LDkgQEAgZXh0ZXJuIHVuc2lnbmVkIGxvbmcgcGZuX2Jhc2U7
-Cj4+IMKgZXh0ZXJuIHVuc2lnbmVkIGxvbmcgbWF4X2xvd19wZm47Cj4+IMKgZXh0ZXJuIHVuc2ln
-bmVkIGxvbmcgbWluX2xvd19wZm47Cj4+IMKgZXh0ZXJuIHVuc2lnbmVkIGxvbmcga2VybmVsX3Zp
-cnRfYWRkcjsKPj4gKyNpZmRlZiBDT05GSUdfUkVMT0NBVEFCTEUKPj4gK2V4dGVybiB1bnNpZ25l
-ZCBsb25nIF9fcGFnZV9vZmZzZXQ7Cj4+ICsjZW5kaWYKPj4KPj4gwqAjZGVmaW5lIF9fcGFfdG9f
-dmFfbm9kZWJ1Zyh4KcKgwqDCoCAoKHZvaWQgKikoKHVuc2lnbmVkIGxvbmcpICh4KSArIAo+PiB2
-YV9wYV9vZmZzZXQpKQo+PiDCoCNkZWZpbmUgbGluZWFyX21hcHBpbmdfdmFfdG9fcGEoeCnCoMKg
-wqAgKCh1bnNpZ25lZCBsb25nKSh4KSAtIAo+PiB2YV9wYV9vZmZzZXQpCj4+IGRpZmYgLS1naXQg
-YS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BnYWxsb2MuaCAKPj4gYi9hcmNoL3Jpc2N2L2luY2x1
-ZGUvYXNtL3BnYWxsb2MuaAo+PiBpbmRleCAzZjYwMWVlODIzM2YuLjU0MGVhYTVhODY1OCAxMDA2
-NDQKPj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ2FsbG9jLmgKPj4gKysrIGIvYXJj
-aC9yaXNjdi9pbmNsdWRlL2FzbS9wZ2FsbG9jLmgKPj4gQEAgLTM2LDYgKzM2LDQyIEBAIHN0YXRp
-YyBpbmxpbmUgdm9pZCBwdWRfcG9wdWxhdGUoc3RydWN0IG1tX3N0cnVjdAo+PiAqbW0sIHB1ZF90
-ICpwdWQsIHBtZF90ICpwbWQpCj4+Cj4+IMKgwqDCoMKgIHNldF9wdWQocHVkLCBfX3B1ZCgocGZu
-IDw8IF9QQUdFX1BGTl9TSElGVCkgfCBfUEFHRV9UQUJMRSkpOwo+PiDCoH0KPj4gKwo+PiArc3Rh
-dGljIGlubGluZSB2b2lkIHA0ZF9wb3B1bGF0ZShzdHJ1Y3QgbW1fc3RydWN0ICptbSwgcDRkX3Qg
-KnA0ZCwgCj4+IHB1ZF90ICpwdWQpCj4+ICt7Cj4+ICvCoMKgwqAgaWYgKHBndGFibGVfbDRfZW5h
-YmxlZCkgewo+PiArwqDCoMKgwqDCoMKgwqAgdW5zaWduZWQgbG9uZyBwZm4gPSB2aXJ0X3RvX3Bm
-bihwdWQpOwo+PiArCj4+ICvCoMKgwqDCoMKgwqDCoCBzZXRfcDRkKHA0ZCwgX19wNGQoKHBmbiA8
-PCBfUEFHRV9QRk5fU0hJRlQpIHwgX1BBR0VfVEFCTEUpKTsKPj4gK8KgwqDCoCB9Cj4+ICt9Cj4+
-ICsKPj4gK3N0YXRpYyBpbmxpbmUgdm9pZCBwNGRfcG9wdWxhdGVfc2FmZShzdHJ1Y3QgbW1fc3Ry
-dWN0ICptbSwgcDRkX3QgKnA0ZCwKPj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqAgcHVkX3QgKnB1ZCkKPj4gK3sKPj4gK8KgwqDCoCBpZiAocGd0YWJsZV9sNF9lbmFi
-bGVkKSB7Cj4+ICvCoMKgwqDCoMKgwqDCoCB1bnNpZ25lZCBsb25nIHBmbiA9IHZpcnRfdG9fcGZu
-KHB1ZCk7Cj4+ICsKPj4gK8KgwqDCoMKgwqDCoMKgIHNldF9wNGRfc2FmZShwNGQsCj4+ICvCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBfX3A0ZCgocGZuIDw8IF9QQUdFX1BGTl9TSElG
-VCkgfCBfUEFHRV9UQUJMRSkpOwo+PiArwqDCoMKgIH0KPj4gK30KPj4gKwo+PiArc3RhdGljIGlu
-bGluZSBwdWRfdCAqcHVkX2FsbG9jX29uZShzdHJ1Y3QgbW1fc3RydWN0ICptbSwgdW5zaWduZWQg
-Cj4+IGxvbmcgYWRkcikKPj4gK3sKPj4gK8KgwqDCoCBpZiAocGd0YWJsZV9sNF9lbmFibGVkKQo+
-PiArwqDCoMKgwqDCoMKgwqAgcmV0dXJuIChwdWRfdCAqKV9fZ2V0X2ZyZWVfcGFnZSgKPj4gK8Kg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBHRlBfS0VSTkVMIHwgX19HRlBfUkVUUllfTUFZ
-RkFJTCB8IF9fR0ZQX1pFUk8pOwo+PiArwqDCoMKgIHJldHVybiBOVUxMOwo+PiArfQo+PiArCj4+
-ICtzdGF0aWMgaW5saW5lIHZvaWQgcHVkX2ZyZWUoc3RydWN0IG1tX3N0cnVjdCAqbW0sIHB1ZF90
-ICpwdWQpCj4+ICt7Cj4+ICvCoMKgwqAgaWYgKHBndGFibGVfbDRfZW5hYmxlZCkKPj4gK8KgwqDC
-oMKgwqDCoMKgIGZyZWVfcGFnZSgodW5zaWduZWQgbG9uZylwdWQpOwo+PiArfQo+PiArCj4+ICsj
-ZGVmaW5lIF9fcHVkX2ZyZWVfdGxiKHRsYiwgcHVkLCBhZGRyKcKgIHB1ZF9mcmVlKCh0bGIpLT5t
-bSwgcHVkKQo+PiDCoCNlbmRpZiAvKiBfX1BBR0VUQUJMRV9QTURfRk9MREVEICovCj4+Cj4+IMKg
-I2RlZmluZSBwbWRfcGd0YWJsZShwbWQpwqDCoMKgIHBtZF9wYWdlKHBtZCkKPj4gZGlmZiAtLWdp
-dCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGd0YWJsZS02NC5oCj4+IGIvYXJjaC9yaXNjdi9p
-bmNsdWRlL2FzbS9wZ3RhYmxlLTY0LmgKPj4gaW5kZXggYjE1ZjcwYTFmZGZhLi5jODRjMzFmYmY4
-ZGEgMTAwNjQ0Cj4+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGd0YWJsZS02NC5oCj4+
-ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGd0YWJsZS02NC5oCj4+IEBAIC04LDE2ICs4
-LDMyIEBACj4+Cj4+IMKgI2luY2x1ZGUgPGxpbnV4L2NvbnN0Lmg+Cj4+Cj4+IC0jZGVmaW5lIFBH
-RElSX1NISUZUwqDCoMKgwqAgMzAKPj4gK2V4dGVybiBib29sIHBndGFibGVfbDRfZW5hYmxlZDsK
-Pj4gKwo+PiArI2RlZmluZSBQR0RJUl9TSElGVMKgwqDCoMKgIChwZ3RhYmxlX2w0X2VuYWJsZWQg
-PyAzOSA6IDMwKQo+PiDCoC8qIFNpemUgb2YgcmVnaW9uIG1hcHBlZCBieSBhIHBhZ2UgZ2xvYmFs
-IGRpcmVjdG9yeSAqLwo+PiDCoCNkZWZpbmUgUEdESVJfU0laRcKgwqDCoMKgwqAgKF9BQygxLCBV
-TCkgPDwgUEdESVJfU0hJRlQpCj4+IMKgI2RlZmluZSBQR0RJUl9NQVNLwqDCoMKgwqDCoCAofihQ
-R0RJUl9TSVpFIC0gMSkpCj4+Cj4+ICsvKiBwdWQgaXMgZm9sZGVkIGludG8gcGdkIGluIGNhc2Ug
-b2YgMy1sZXZlbCBwYWdlIHRhYmxlICovCj4+ICsjZGVmaW5lIFBVRF9TSElGVMKgwqDCoCAzMAo+
-PiArI2RlZmluZSBQVURfU0laRcKgwqDCoCAoX0FDKDEsIFVMKSA8PCBQVURfU0hJRlQpCj4+ICsj
-ZGVmaW5lIFBVRF9NQVNLwqDCoMKgICh+KFBVRF9TSVpFIC0gMSkpCj4+ICsKPj4gwqAjZGVmaW5l
-IFBNRF9TSElGVMKgwqDCoMKgwqDCoCAyMQo+PiDCoC8qIFNpemUgb2YgcmVnaW9uIG1hcHBlZCBi
-eSBhIHBhZ2UgbWlkZGxlIGRpcmVjdG9yeSAqLwo+PiDCoCNkZWZpbmUgUE1EX1NJWkXCoMKgwqDC
-oMKgwqDCoCAoX0FDKDEsIFVMKSA8PCBQTURfU0hJRlQpCj4+IMKgI2RlZmluZSBQTURfTUFTS8Kg
-wqDCoMKgwqDCoMKgICh+KFBNRF9TSVpFIC0gMSkpCj4+Cj4+ICsvKiBQYWdlIFVwcGVyIERpcmVj
-dG9yeSBlbnRyeSAqLwo+PiArdHlwZWRlZiBzdHJ1Y3Qgewo+PiArwqDCoMKgIHVuc2lnbmVkIGxv
-bmcgcHVkOwo+PiArfSBwdWRfdDsKPj4gKwo+PiArI2RlZmluZSBwdWRfdmFsKHgpwqDCoMKgwqDC
-oCAoKHgpLnB1ZCkKPj4gKyNkZWZpbmUgX19wdWQoeCnCoMKgwqDCoMKgwqDCoCAoKHB1ZF90KSB7
-ICh4KSB9KQo+PiArI2RlZmluZSBQVFJTX1BFUl9QVUTCoMKgwqAgKFBBR0VfU0laRSAvIHNpemVv
-ZihwdWRfdCkpCj4+ICsKPj4gwqAvKiBQYWdlIE1pZGRsZSBEaXJlY3RvcnkgZW50cnkgKi8KPj4g
-wqB0eXBlZGVmIHN0cnVjdCB7Cj4+IMKgwqDCoMKgIHVuc2lnbmVkIGxvbmcgcG1kOwo+PiBAQCAt
-NjAsNiArNzYsMTYgQEAgc3RhdGljIGlubGluZSB2b2lkIHB1ZF9jbGVhcihwdWRfdCAqcHVkcCkK
-Pj4gwqDCoMKgwqAgc2V0X3B1ZChwdWRwLCBfX3B1ZCgwKSk7Cj4+IMKgfQo+Pgo+PiArc3RhdGlj
-IGlubGluZSBwdWRfdCBwZm5fcHVkKHVuc2lnbmVkIGxvbmcgcGZuLCBwZ3Byb3RfdCBwcm90KQo+
-PiArewo+PiArwqDCoMKgIHJldHVybiBfX3B1ZCgocGZuIDw8IF9QQUdFX1BGTl9TSElGVCkgfCBw
-Z3Byb3RfdmFsKHByb3QpKTsKPj4gK30KPj4gKwo+PiArc3RhdGljIGlubGluZSB1bnNpZ25lZCBs
-b25nIF9wdWRfcGZuKHB1ZF90IHB1ZCkKPj4gK3sKPj4gK8KgwqDCoCByZXR1cm4gcHVkX3ZhbChw
-dWQpID4+IF9QQUdFX1BGTl9TSElGVDsKPj4gK30KPj4gKwo+PiDCoHN0YXRpYyBpbmxpbmUgdW5z
-aWduZWQgbG9uZyBwdWRfcGFnZV92YWRkcihwdWRfdCBwdWQpCj4+IMKgewo+PiDCoMKgwqDCoCBy
-ZXR1cm4gKHVuc2lnbmVkIGxvbmcpcGZuX3RvX3ZpcnQocHVkX3ZhbChwdWQpID4+IF9QQUdFX1BG
-Tl9TSElGVCk7Cj4+IEBAIC03MCw2ICs5NiwxNSBAQCBzdGF0aWMgaW5saW5lIHN0cnVjdCBwYWdl
-ICpwdWRfcGFnZShwdWRfdCBwdWQpCj4+IMKgwqDCoMKgIHJldHVybiBwZm5fdG9fcGFnZShwdWRf
-dmFsKHB1ZCkgPj4gX1BBR0VfUEZOX1NISUZUKTsKPj4gwqB9Cj4+Cj4+ICsjZGVmaW5lIG1tX3B1
-ZF9mb2xkZWTCoMKgwqAgbW1fcHVkX2ZvbGRlZAo+PiArc3RhdGljIGlubGluZSBib29sIG1tX3B1
-ZF9mb2xkZWQoc3RydWN0IG1tX3N0cnVjdCAqbW0pCj4+ICt7Cj4+ICvCoMKgwqAgaWYgKHBndGFi
-bGVfbDRfZW5hYmxlZCkKPj4gK8KgwqDCoMKgwqDCoMKgIHJldHVybiBmYWxzZTsKPj4gKwo+PiAr
-wqDCoMKgIHJldHVybiB0cnVlOwo+PiArfQo+PiArCj4+IMKgI2RlZmluZSBwbWRfaW5kZXgoYWRk
-cikgKCgoYWRkcikgPj4gUE1EX1NISUZUKSAmIChQVFJTX1BFUl9QTUQgLSAxKSkKPj4KPj4gwqBz
-dGF0aWMgaW5saW5lIHBtZF90ICpwbWRfb2Zmc2V0KHB1ZF90ICpwdWQsIHVuc2lnbmVkIGxvbmcg
-YWRkcikKPj4gQEAgLTkwLDQgKzEyNSw2NCBAQCBzdGF0aWMgaW5saW5lIHVuc2lnbmVkIGxvbmcg
-X3BtZF9wZm4ocG1kX3QgcG1kKQo+PiDCoCNkZWZpbmUgcG1kX0VSUk9SKGUpIFwKPj4gwqDCoMKg
-wqAgcHJfZXJyKCIlczolZDogYmFkIHBtZCAlMDE2bHguXG4iLCBfX0ZJTEVfXywgX19MSU5FX18s
-IHBtZF92YWwoZSkpCj4+Cj4+ICsjZGVmaW5lIHB1ZF9FUlJPUihlKcKgwqDCoCBcCj4+ICvCoMKg
-wqAgcHJfZXJyKCIlczolZDogYmFkIHB1ZCAlMDE2bHguXG4iLCBfX0ZJTEVfXywgX19MSU5FX18s
-IHB1ZF92YWwoZSkpCj4+ICsKPj4gK3N0YXRpYyBpbmxpbmUgdm9pZCBzZXRfcDRkKHA0ZF90ICpw
-NGRwLCBwNGRfdCBwNGQpCj4+ICt7Cj4+ICvCoMKgwqAgaWYgKHBndGFibGVfbDRfZW5hYmxlZCkK
-Pj4gK8KgwqDCoMKgwqDCoMKgICpwNGRwID0gcDRkOwo+PiArwqDCoMKgIGVsc2UKPj4gK8KgwqDC
-oMKgwqDCoMKgIHNldF9wdWQoKHB1ZF90ICopcDRkcCwgKHB1ZF90KXsgcDRkX3ZhbChwNGQpIH0p
-Owo+PiArfQo+PiArCj4+ICtzdGF0aWMgaW5saW5lIGludCBwNGRfbm9uZShwNGRfdCBwNGQpCj4+
-ICt7Cj4+ICvCoMKgwqAgaWYgKHBndGFibGVfbDRfZW5hYmxlZCkKPj4gK8KgwqDCoMKgwqDCoMKg
-IHJldHVybiAocDRkX3ZhbChwNGQpID09IDApOwo+PiArCj4+ICvCoMKgwqAgcmV0dXJuIDA7Cj4+
-ICt9Cj4+ICsKPj4gK3N0YXRpYyBpbmxpbmUgaW50IHA0ZF9wcmVzZW50KHA0ZF90IHA0ZCkKPj4g
-K3sKPj4gK8KgwqDCoCBpZiAocGd0YWJsZV9sNF9lbmFibGVkKQo+PiArwqDCoMKgwqDCoMKgwqAg
-cmV0dXJuIChwNGRfdmFsKHA0ZCkgJiBfUEFHRV9QUkVTRU5UKTsKPj4gKwo+PiArwqDCoMKgIHJl
-dHVybiAxOwo+PiArfQo+PiArCj4+ICtzdGF0aWMgaW5saW5lIGludCBwNGRfYmFkKHA0ZF90IHA0
-ZCkKPj4gK3sKPj4gK8KgwqDCoCBpZiAocGd0YWJsZV9sNF9lbmFibGVkKQo+PiArwqDCoMKgwqDC
-oMKgwqAgcmV0dXJuICFwNGRfcHJlc2VudChwNGQpOwo+PiArCj4+ICvCoMKgwqAgcmV0dXJuIDA7
-Cj4+ICt9Cj4+ICsKPj4gK3N0YXRpYyBpbmxpbmUgdm9pZCBwNGRfY2xlYXIocDRkX3QgKnA0ZCkK
-Pj4gK3sKPj4gK8KgwqDCoCBpZiAocGd0YWJsZV9sNF9lbmFibGVkKQo+PiArwqDCoMKgwqDCoMKg
-wqAgc2V0X3A0ZChwNGQsIF9fcDRkKDApKTsKPj4gK30KPj4gKwo+PiArc3RhdGljIGlubGluZSB1
-bnNpZ25lZCBsb25nIHA0ZF9wYWdlX3ZhZGRyKHA0ZF90IHA0ZCkKPj4gK3sKPj4gK8KgwqDCoCBp
-ZiAocGd0YWJsZV9sNF9lbmFibGVkKQo+PiArwqDCoMKgwqDCoMKgwqAgcmV0dXJuICh1bnNpZ25l
-ZCBsb25nKXBmbl90b192aXJ0KAo+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHA0
-ZF92YWwocDRkKSA+PiBfUEFHRV9QRk5fU0hJRlQpOwo+PiArCj4+ICvCoMKgwqAgcmV0dXJuIHB1
-ZF9wYWdlX3ZhZGRyKChwdWRfdCkgeyBwNGRfdmFsKHA0ZCkgfSk7Cj4+ICt9Cj4+ICsKPj4gKyNk
-ZWZpbmUgcHVkX2luZGV4KGFkZHIpICgoKGFkZHIpID4+IFBVRF9TSElGVCkgJiAoUFRSU19QRVJf
-UFVEIC0gMSkpCj4+ICsKPj4gK3N0YXRpYyBpbmxpbmUgcHVkX3QgKnB1ZF9vZmZzZXQocDRkX3Qg
-KnA0ZCwgdW5zaWduZWQgbG9uZyBhZGRyZXNzKQo+PiArewo+PiArwqDCoMKgIGlmIChwZ3RhYmxl
-X2w0X2VuYWJsZWQpCj4+ICvCoMKgwqDCoMKgwqDCoCByZXR1cm4gKHB1ZF90ICopcDRkX3BhZ2Vf
-dmFkZHIoKnA0ZCkgKyBwdWRfaW5kZXgoYWRkcmVzcyk7Cj4+ICsKPj4gK8KgwqDCoCByZXR1cm4g
-KHB1ZF90ICopcDRkOwo+PiArfQo+PiArCj4gCj4gSW4gbXkgdGVzdCBJIGhhZCB0byBwdXQKPiAj
-ZGVmaW5lIHB1ZF9vZmZzZXQgcHVkX29mZnNldAo+IGhlcmUgb3IgZWxzZSBJIGdvdCBhIGNvbXBp
-bGF0aW9uIGVycm9yIGR1ZSB0byBwdWRfb2Zmc2V0IGJlaW5nIHJlZGVmaW5lZCAKPiBvbiBpbmNs
-dWRlL2xpbnV4L3BndGFibGUuaDoKPiAKPiAjaWZuZGVmIHB1ZF9vZmZzZXQKPiBzdGF0aWMgaW5s
-aW5lIHB1ZF90ICpwdWRfb2Zmc2V0KHA0ZF90ICpwNGQsIHVuc2lnbmVkIGxvbmcgYWRkcmVzcykK
-PiB7Cj4gIMKgwqDCoMKgwqDCoMKgIHJldHVybiAocHVkX3QgKilwNGRfcGFnZV92YWRkcigqcDRk
-KSArIHB1ZF9pbmRleChhZGRyZXNzKTsKPiB9Cj4gI2RlZmluZSBwdWRfb2Zmc2V0IHB1ZF9vZmZz
-ZXQKPiAjZW5kaWYKClllcywgdGhlIHJlYmFzZSBvbiA1LjgtcmMyIHJlcXVpcmVzIHRoYXQgYW5k
-IHJlbW92aW5nIHBtZF9vZmZzZXQgZGVmaW5pdGlvbi4KCkFsZXgKCl9fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
-aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
-L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+From: Mike Rapoport <rppt@linux.ibm.com>
+
+Hi,
+
+Most architectures have very similar versions of pXd_alloc_one() and
+pXd_free_one() for intermediate levels of page table. 
+These patches add generic versions of these functions in
+<asm-generic/pgalloc.h> and enable use of the generic functions where
+appropriate.
+
+In addition, functions declared and defined in <asm/pgalloc.h> headers
+are used mostly by core mm and early mm initialization in arch and there is
+no actual reason to have the <asm/pgalloc.h> included all over the place.
+The first patch in this series removes unneeded includes of <asm/pgalloc.h>
+
+In the end it didn't work out as neatly as I hoped and moving
+pXd_alloc_track() definitions to <asm-generic/pgalloc.h> would require
+unnecessary changes to arches that have custom page table allocations, so
+I've decided to move lib/ioremap.c to mm/ and make pgalloc-track.h local to
+mm/.
+
+Joerg Roedel (1):
+  mm: move p?d_alloc_track to separate header file
+
+Mike Rapoport (7):
+  mm: remove unneeded includes of <asm/pgalloc.h>
+  opeinrisc: switch to generic version of pte allocation
+  xtensa: switch to generic version of pte allocation
+  asm-generic: pgalloc: provide generic pmd_alloc_one() and pmd_free_one()
+  asm-generic: pgalloc: provide generic pud_alloc_one() and pud_free_one()
+  asm-generic: pgalloc: provide generic pgd_free()
+  mm: move lib/ioremap.c to mm/
+
+ arch/alpha/include/asm/pgalloc.h             | 21 +----
+ arch/alpha/include/asm/tlbflush.h            |  1 -
+ arch/alpha/kernel/core_irongate.c            |  1 -
+ arch/alpha/kernel/core_marvel.c              |  1 -
+ arch/alpha/kernel/core_titan.c               |  1 -
+ arch/alpha/kernel/machvec_impl.h             |  2 -
+ arch/alpha/kernel/smp.c                      |  1 -
+ arch/alpha/mm/numa.c                         |  1 -
+ arch/arc/mm/fault.c                          |  1 -
+ arch/arc/mm/init.c                           |  1 -
+ arch/arm/include/asm/pgalloc.h               | 12 +--
+ arch/arm/include/asm/tlb.h                   |  1 -
+ arch/arm/kernel/machine_kexec.c              |  1 -
+ arch/arm/kernel/smp.c                        |  1 -
+ arch/arm/kernel/suspend.c                    |  1 -
+ arch/arm/mach-omap2/omap-mpuss-lowpower.c    |  1 -
+ arch/arm/mm/hugetlbpage.c                    |  1 -
+ arch/arm/mm/mmu.c                            |  1 +
+ arch/arm64/include/asm/pgalloc.h             | 39 +---------
+ arch/arm64/kernel/smp.c                      |  1 -
+ arch/arm64/mm/hugetlbpage.c                  |  1 -
+ arch/arm64/mm/ioremap.c                      |  1 -
+ arch/arm64/mm/mmu.c                          |  1 +
+ arch/csky/include/asm/pgalloc.h              |  7 +-
+ arch/csky/kernel/smp.c                       |  1 -
+ arch/hexagon/include/asm/pgalloc.h           |  7 +-
+ arch/ia64/include/asm/pgalloc.h              | 24 ------
+ arch/ia64/include/asm/tlb.h                  |  1 -
+ arch/ia64/kernel/process.c                   |  1 -
+ arch/ia64/kernel/smp.c                       |  1 -
+ arch/ia64/kernel/smpboot.c                   |  1 -
+ arch/ia64/mm/contig.c                        |  1 -
+ arch/ia64/mm/discontig.c                     |  1 -
+ arch/ia64/mm/hugetlbpage.c                   |  1 -
+ arch/ia64/mm/tlb.c                           |  1 -
+ arch/m68k/include/asm/mmu_context.h          |  2 +-
+ arch/m68k/include/asm/sun3_pgalloc.h         |  7 +-
+ arch/m68k/kernel/dma.c                       |  2 +-
+ arch/m68k/kernel/traps.c                     |  3 +-
+ arch/m68k/mm/cache.c                         |  2 +-
+ arch/m68k/mm/fault.c                         |  1 -
+ arch/m68k/mm/kmap.c                          |  2 +-
+ arch/m68k/mm/mcfmmu.c                        |  1 +
+ arch/m68k/mm/memory.c                        |  1 -
+ arch/m68k/sun3x/dvma.c                       |  2 +-
+ arch/microblaze/include/asm/pgalloc.h        |  6 --
+ arch/microblaze/include/asm/tlbflush.h       |  1 -
+ arch/microblaze/kernel/process.c             |  1 -
+ arch/microblaze/kernel/signal.c              |  1 -
+ arch/mips/include/asm/pgalloc.h              | 19 +----
+ arch/mips/sgi-ip32/ip32-memory.c             |  1 -
+ arch/nds32/mm/mm-nds32.c                     |  2 +
+ arch/nios2/include/asm/pgalloc.h             |  7 +-
+ arch/openrisc/include/asm/pgalloc.h          | 33 +-------
+ arch/openrisc/include/asm/tlbflush.h         |  1 -
+ arch/openrisc/kernel/or32_ksyms.c            |  1 -
+ arch/parisc/include/asm/mmu_context.h        |  1 -
+ arch/parisc/include/asm/pgalloc.h            | 12 +--
+ arch/parisc/kernel/cache.c                   |  1 -
+ arch/parisc/kernel/pci-dma.c                 |  1 -
+ arch/parisc/kernel/process.c                 |  1 -
+ arch/parisc/kernel/signal.c                  |  1 -
+ arch/parisc/kernel/smp.c                     |  1 -
+ arch/parisc/mm/hugetlbpage.c                 |  1 -
+ arch/parisc/mm/ioremap.c                     |  2 +-
+ arch/powerpc/include/asm/tlb.h               |  1 -
+ arch/powerpc/mm/book3s64/hash_hugetlbpage.c  |  1 -
+ arch/powerpc/mm/book3s64/hash_pgtable.c      |  1 -
+ arch/powerpc/mm/book3s64/hash_tlb.c          |  1 -
+ arch/powerpc/mm/book3s64/radix_hugetlbpage.c |  1 -
+ arch/powerpc/mm/init_32.c                    |  1 -
+ arch/powerpc/mm/kasan/8xx.c                  |  1 -
+ arch/powerpc/mm/kasan/book3s_32.c            |  1 -
+ arch/powerpc/mm/mem.c                        |  1 -
+ arch/powerpc/mm/nohash/40x.c                 |  1 -
+ arch/powerpc/mm/nohash/8xx.c                 |  1 -
+ arch/powerpc/mm/nohash/fsl_booke.c           |  1 -
+ arch/powerpc/mm/nohash/kaslr_booke.c         |  1 -
+ arch/powerpc/mm/pgtable.c                    |  1 -
+ arch/powerpc/mm/pgtable_64.c                 |  1 -
+ arch/powerpc/mm/ptdump/hashpagetable.c       |  2 +-
+ arch/powerpc/mm/ptdump/ptdump.c              |  1 -
+ arch/powerpc/platforms/pseries/cmm.c         |  1 -
+ arch/riscv/include/asm/pgalloc.h             | 18 +----
+ arch/riscv/mm/fault.c                        |  1 -
+ arch/s390/include/asm/tlb.h                  |  1 -
+ arch/s390/include/asm/tlbflush.h             |  1 -
+ arch/s390/kernel/machine_kexec.c             |  1 -
+ arch/s390/kernel/ptrace.c                    |  1 -
+ arch/s390/kvm/diag.c                         |  1 -
+ arch/s390/kvm/priv.c                         |  1 -
+ arch/s390/kvm/pv.c                           |  1 -
+ arch/s390/mm/cmm.c                           |  1 -
+ arch/s390/mm/mmap.c                          |  1 -
+ arch/s390/mm/pgtable.c                       |  1 -
+ arch/sh/include/asm/pgalloc.h                |  4 +
+ arch/sh/kernel/idle.c                        |  1 -
+ arch/sh/kernel/machine_kexec.c               |  1 -
+ arch/sh/mm/cache-sh3.c                       |  1 -
+ arch/sh/mm/cache-sh7705.c                    |  1 -
+ arch/sh/mm/hugetlbpage.c                     |  1 -
+ arch/sh/mm/init.c                            |  1 +
+ arch/sh/mm/ioremap_fixed.c                   |  1 -
+ arch/sh/mm/tlb-sh3.c                         |  1 -
+ arch/sparc/include/asm/ide.h                 |  1 -
+ arch/sparc/include/asm/tlb_64.h              |  1 -
+ arch/sparc/kernel/leon_smp.c                 |  1 -
+ arch/sparc/kernel/process_32.c               |  1 -
+ arch/sparc/kernel/signal_32.c                |  1 -
+ arch/sparc/kernel/smp_32.c                   |  1 -
+ arch/sparc/kernel/smp_64.c                   |  1 +
+ arch/sparc/kernel/sun4m_irq.c                |  1 -
+ arch/sparc/mm/highmem.c                      |  1 -
+ arch/sparc/mm/io-unit.c                      |  1 -
+ arch/sparc/mm/iommu.c                        |  1 -
+ arch/sparc/mm/tlb.c                          |  1 -
+ arch/um/include/asm/pgalloc.h                |  9 +--
+ arch/um/include/asm/pgtable-3level.h         |  3 -
+ arch/um/kernel/mem.c                         | 17 -----
+ arch/x86/ia32/ia32_aout.c                    |  1 -
+ arch/x86/include/asm/mmu_context.h           |  1 -
+ arch/x86/include/asm/pgalloc.h               | 42 +---------
+ arch/x86/kernel/alternative.c                |  1 +
+ arch/x86/kernel/apic/apic.c                  |  1 -
+ arch/x86/kernel/mpparse.c                    |  1 -
+ arch/x86/kernel/traps.c                      |  1 -
+ arch/x86/mm/fault.c                          |  1 -
+ arch/x86/mm/hugetlbpage.c                    |  1 -
+ arch/x86/mm/kaslr.c                          |  1 -
+ arch/x86/mm/pgtable_32.c                     |  1 -
+ arch/x86/mm/pti.c                            |  1 -
+ arch/x86/platform/uv/bios_uv.c               |  1 +
+ arch/xtensa/include/asm/pgalloc.h            | 40 ++++------
+ arch/xtensa/kernel/xtensa_ksyms.c            |  1 -
+ arch/xtensa/mm/cache.c                       |  1 -
+ arch/xtensa/mm/fault.c                       |  1 -
+ drivers/block/xen-blkback/common.h           |  1 -
+ drivers/iommu/ipmmu-vmsa.c                   |  1 -
+ drivers/xen/balloon.c                        |  1 -
+ drivers/xen/privcmd.c                        |  1 -
+ fs/binfmt_elf_fdpic.c                        |  1 -
+ include/asm-generic/pgalloc.h                | 80 ++++++++++++++++++++
+ include/asm-generic/tlb.h                    |  1 -
+ include/linux/mm.h                           | 45 -----------
+ lib/Makefile                                 |  1 -
+ mm/Makefile                                  |  2 +-
+ mm/hugetlb.c                                 |  1 +
+ {lib => mm}/ioremap.c                        |  2 +
+ mm/pgalloc-track.h                           | 51 +++++++++++++
+ mm/sparse.c                                  |  1 -
+ mm/vmalloc.c                                 |  1 +
+ 151 files changed, 194 insertions(+), 451 deletions(-)
+ rename {lib => mm}/ioremap.c (99%)
+ create mode 100644 mm/pgalloc-track.h
+
+-- 
+2.26.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
