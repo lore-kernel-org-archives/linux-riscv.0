@@ -2,59 +2,61 @@ Return-Path: <SRS0=1V8E=AI=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 909B9C433DF
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jun 2020 14:35:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7AE9BC433DF
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jun 2020 14:35:37 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5498C20679
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jun 2020 14:35:16 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 43B9120FC3
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jun 2020 14:35:37 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="rQTfeahx";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="FBB5WzdH"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5498C20679
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="kA53Txxj";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="Ek8QEdXM"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 43B9120FC3
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DrUpXAH6nwhznf/E2JiG0UQTZMiW1F2QMYq3Bgb8X2M=; b=rQTfeahxrd2sWN9R9ebSlkO1yH
-	P57RbG4OsHhmWs6tyLESAt0aMroHq0nNnVuT8lf6urs3E06k06W4rDA9CIYaMbpCTeN9KAzA85C8t
-	klsk2W0k1odSCN6N/YPDCsm9rzqcwFpuPNW+L+kyAOAJPeAUK9THW6Pd9Cd8dS79xSpmgZsE7fC5K
-	s6gMGzSneWkNsVQvRe+3kSHJnQh1nfdC2MyzynS0RcndSfjEWvbSGYQEadlPd/20YAUZvu25/3Ib5
-	OSeW4TmEtoHZV7AQKDDRmnaPPGyn8DczJNv0kzRaedzpbYp2yNC6sQbRJawZY0Xbl/znC63GYhb8U
-	A94mQKgg==;
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=5T03DmIE4EcnLUbPkguf/VkdSaC2aR8xZGcr4NB8TdM=; b=kA53Txxj6of1FiaY/CUsIwZ61
+	1WhMCzevqCijgmrgDiBIcDQQYcyoZL9v8/S4hxA1TSH0DdhmFryebZQuhX9aBz2nJTxc5DdXMD86m
+	t/rj1YZLzr1LS740mmRTe9xSs/FbS17S+oa96xWgoPojW2+boXfqllSl+sUXkB6cOlqIDH9R/C5zf
+	JbJoe0ThmdE7ZmMScwW8MdHVJvQBRspXx90AUksVmJEjUa1iwxmlU+I4YvaAMFLPkKYPVmT8EkzMZ
+	Lr7gbeepLJoJk5kzh1habqVBigABCnbBDCWzG4vHY6uhkzKV4j160bN/Tfi04omv9dIK70qHvq7bs
+	PSCO2fiZQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jpBvD-0004ly-Ld; Sat, 27 Jun 2020 14:35:11 +0000
+	id 1jpBvX-0004sG-T0; Sat, 27 Jun 2020 14:35:31 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jpBv8-0004l6-Ji; Sat, 27 Jun 2020 14:35:08 +0000
+ id 1jpBvP-0004p1-F8; Sat, 27 Jun 2020 14:35:26 +0000
 Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 341C22089D;
- Sat, 27 Jun 2020 14:34:56 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id D79F6218AC;
+ Sat, 27 Jun 2020 14:35:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1593268505;
- bh=qu2PC/KfnpK0kWKvuL7CXpDG7X/LanYdYjS7VhuA2tc=;
- h=From:To:Cc:Subject:Date:From;
- b=FBB5WzdHZCyO5w4PctPzcY7Z3LAstOygEoRUhk/Ng1G+Z4/lWOJE048kW7zjqiOhR
- IdlIfwSDXvF8p9LDdqBSj5MmgeYKrg3f6jEZKT4anjo+p6hHbu6Ts9fIOvn7KQVkjy
- XGJTIYBUuYdW9Ish6HFB+sclhFQo+pGzuMIA9dOg=
+ s=default; t=1593268522;
+ bh=j94cy4Zc9VoAiVFldgIblMVG+C+RlEUAxelXYBM5V1E=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=Ek8QEdXMUbv9KKSK2LO459tQ221aD0KjlKMk1ToADOdG/uJKMVv/jtHxcWdJhNcN8
+ o2tkvKqcdxmxF97yGBYIjMzGcuUvsJiSUsavJlTRHEP3WjzNvHM9r2ZzK7wYmT6lf3
+ hkjM8fAe/c2W6Sj9fa9FBRdCl4fvh7sbcdd3EiIg=
 From: Mike Rapoport <rppt@kernel.org>
 To: linux-kernel@vger.kernel.org
-Subject: [PATCH 0/8] mm: cleanup usage of <asm/pgalloc.h>
-Date: Sat, 27 Jun 2020 17:34:45 +0300
-Message-Id: <20200627143453.31835-1-rppt@kernel.org>
+Subject: [PATCH 2/8] opeinrisc: switch to generic version of pte allocation
+Date: Sat, 27 Jun 2020 17:34:47 +0300
+Message-Id: <20200627143453.31835-3-rppt@kernel.org>
 X-Mailer: git-send-email 2.26.2
+In-Reply-To: <20200627143453.31835-1-rppt@kernel.org>
+References: <20200627143453.31835-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -91,192 +93,71 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Mike Rapoport <rppt@linux.ibm.com>
 
-Hi,
+Replace pte_alloc_one(), pte_free() and pte_free_kernel() with the generic
+implementation. The only actual functional change is the addition of
+__GFP_ACCOUT for the allocation of the user page tables.
 
-Most architectures have very similar versions of pXd_alloc_one() and
-pXd_free_one() for intermediate levels of page table. 
-These patches add generic versions of these functions in
-<asm-generic/pgalloc.h> and enable use of the generic functions where
-appropriate.
+The pte_alloc_one_kernel() is kept back because its implementation on
+openrisc is different than the generic one.
 
-In addition, functions declared and defined in <asm/pgalloc.h> headers
-are used mostly by core mm and early mm initialization in arch and there is
-no actual reason to have the <asm/pgalloc.h> included all over the place.
-The first patch in this series removes unneeded includes of <asm/pgalloc.h>
+Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+---
+ arch/openrisc/include/asm/pgalloc.h | 33 +++--------------------------
+ 1 file changed, 3 insertions(+), 30 deletions(-)
 
-In the end it didn't work out as neatly as I hoped and moving
-pXd_alloc_track() definitions to <asm-generic/pgalloc.h> would require
-unnecessary changes to arches that have custom page table allocations, so
-I've decided to move lib/ioremap.c to mm/ and make pgalloc-track.h local to
-mm/.
-
-Joerg Roedel (1):
-  mm: move p?d_alloc_track to separate header file
-
-Mike Rapoport (7):
-  mm: remove unneeded includes of <asm/pgalloc.h>
-  opeinrisc: switch to generic version of pte allocation
-  xtensa: switch to generic version of pte allocation
-  asm-generic: pgalloc: provide generic pmd_alloc_one() and pmd_free_one()
-  asm-generic: pgalloc: provide generic pud_alloc_one() and pud_free_one()
-  asm-generic: pgalloc: provide generic pgd_free()
-  mm: move lib/ioremap.c to mm/
-
- arch/alpha/include/asm/pgalloc.h             | 21 +----
- arch/alpha/include/asm/tlbflush.h            |  1 -
- arch/alpha/kernel/core_irongate.c            |  1 -
- arch/alpha/kernel/core_marvel.c              |  1 -
- arch/alpha/kernel/core_titan.c               |  1 -
- arch/alpha/kernel/machvec_impl.h             |  2 -
- arch/alpha/kernel/smp.c                      |  1 -
- arch/alpha/mm/numa.c                         |  1 -
- arch/arc/mm/fault.c                          |  1 -
- arch/arc/mm/init.c                           |  1 -
- arch/arm/include/asm/pgalloc.h               | 12 +--
- arch/arm/include/asm/tlb.h                   |  1 -
- arch/arm/kernel/machine_kexec.c              |  1 -
- arch/arm/kernel/smp.c                        |  1 -
- arch/arm/kernel/suspend.c                    |  1 -
- arch/arm/mach-omap2/omap-mpuss-lowpower.c    |  1 -
- arch/arm/mm/hugetlbpage.c                    |  1 -
- arch/arm/mm/mmu.c                            |  1 +
- arch/arm64/include/asm/pgalloc.h             | 39 +---------
- arch/arm64/kernel/smp.c                      |  1 -
- arch/arm64/mm/hugetlbpage.c                  |  1 -
- arch/arm64/mm/ioremap.c                      |  1 -
- arch/arm64/mm/mmu.c                          |  1 +
- arch/csky/include/asm/pgalloc.h              |  7 +-
- arch/csky/kernel/smp.c                       |  1 -
- arch/hexagon/include/asm/pgalloc.h           |  7 +-
- arch/ia64/include/asm/pgalloc.h              | 24 ------
- arch/ia64/include/asm/tlb.h                  |  1 -
- arch/ia64/kernel/process.c                   |  1 -
- arch/ia64/kernel/smp.c                       |  1 -
- arch/ia64/kernel/smpboot.c                   |  1 -
- arch/ia64/mm/contig.c                        |  1 -
- arch/ia64/mm/discontig.c                     |  1 -
- arch/ia64/mm/hugetlbpage.c                   |  1 -
- arch/ia64/mm/tlb.c                           |  1 -
- arch/m68k/include/asm/mmu_context.h          |  2 +-
- arch/m68k/include/asm/sun3_pgalloc.h         |  7 +-
- arch/m68k/kernel/dma.c                       |  2 +-
- arch/m68k/kernel/traps.c                     |  3 +-
- arch/m68k/mm/cache.c                         |  2 +-
- arch/m68k/mm/fault.c                         |  1 -
- arch/m68k/mm/kmap.c                          |  2 +-
- arch/m68k/mm/mcfmmu.c                        |  1 +
- arch/m68k/mm/memory.c                        |  1 -
- arch/m68k/sun3x/dvma.c                       |  2 +-
- arch/microblaze/include/asm/pgalloc.h        |  6 --
- arch/microblaze/include/asm/tlbflush.h       |  1 -
- arch/microblaze/kernel/process.c             |  1 -
- arch/microblaze/kernel/signal.c              |  1 -
- arch/mips/include/asm/pgalloc.h              | 19 +----
- arch/mips/sgi-ip32/ip32-memory.c             |  1 -
- arch/nds32/mm/mm-nds32.c                     |  2 +
- arch/nios2/include/asm/pgalloc.h             |  7 +-
- arch/openrisc/include/asm/pgalloc.h          | 33 +-------
- arch/openrisc/include/asm/tlbflush.h         |  1 -
- arch/openrisc/kernel/or32_ksyms.c            |  1 -
- arch/parisc/include/asm/mmu_context.h        |  1 -
- arch/parisc/include/asm/pgalloc.h            | 12 +--
- arch/parisc/kernel/cache.c                   |  1 -
- arch/parisc/kernel/pci-dma.c                 |  1 -
- arch/parisc/kernel/process.c                 |  1 -
- arch/parisc/kernel/signal.c                  |  1 -
- arch/parisc/kernel/smp.c                     |  1 -
- arch/parisc/mm/hugetlbpage.c                 |  1 -
- arch/parisc/mm/ioremap.c                     |  2 +-
- arch/powerpc/include/asm/tlb.h               |  1 -
- arch/powerpc/mm/book3s64/hash_hugetlbpage.c  |  1 -
- arch/powerpc/mm/book3s64/hash_pgtable.c      |  1 -
- arch/powerpc/mm/book3s64/hash_tlb.c          |  1 -
- arch/powerpc/mm/book3s64/radix_hugetlbpage.c |  1 -
- arch/powerpc/mm/init_32.c                    |  1 -
- arch/powerpc/mm/kasan/8xx.c                  |  1 -
- arch/powerpc/mm/kasan/book3s_32.c            |  1 -
- arch/powerpc/mm/mem.c                        |  1 -
- arch/powerpc/mm/nohash/40x.c                 |  1 -
- arch/powerpc/mm/nohash/8xx.c                 |  1 -
- arch/powerpc/mm/nohash/fsl_booke.c           |  1 -
- arch/powerpc/mm/nohash/kaslr_booke.c         |  1 -
- arch/powerpc/mm/pgtable.c                    |  1 -
- arch/powerpc/mm/pgtable_64.c                 |  1 -
- arch/powerpc/mm/ptdump/hashpagetable.c       |  2 +-
- arch/powerpc/mm/ptdump/ptdump.c              |  1 -
- arch/powerpc/platforms/pseries/cmm.c         |  1 -
- arch/riscv/include/asm/pgalloc.h             | 18 +----
- arch/riscv/mm/fault.c                        |  1 -
- arch/s390/include/asm/tlb.h                  |  1 -
- arch/s390/include/asm/tlbflush.h             |  1 -
- arch/s390/kernel/machine_kexec.c             |  1 -
- arch/s390/kernel/ptrace.c                    |  1 -
- arch/s390/kvm/diag.c                         |  1 -
- arch/s390/kvm/priv.c                         |  1 -
- arch/s390/kvm/pv.c                           |  1 -
- arch/s390/mm/cmm.c                           |  1 -
- arch/s390/mm/mmap.c                          |  1 -
- arch/s390/mm/pgtable.c                       |  1 -
- arch/sh/include/asm/pgalloc.h                |  4 +
- arch/sh/kernel/idle.c                        |  1 -
- arch/sh/kernel/machine_kexec.c               |  1 -
- arch/sh/mm/cache-sh3.c                       |  1 -
- arch/sh/mm/cache-sh7705.c                    |  1 -
- arch/sh/mm/hugetlbpage.c                     |  1 -
- arch/sh/mm/init.c                            |  1 +
- arch/sh/mm/ioremap_fixed.c                   |  1 -
- arch/sh/mm/tlb-sh3.c                         |  1 -
- arch/sparc/include/asm/ide.h                 |  1 -
- arch/sparc/include/asm/tlb_64.h              |  1 -
- arch/sparc/kernel/leon_smp.c                 |  1 -
- arch/sparc/kernel/process_32.c               |  1 -
- arch/sparc/kernel/signal_32.c                |  1 -
- arch/sparc/kernel/smp_32.c                   |  1 -
- arch/sparc/kernel/smp_64.c                   |  1 +
- arch/sparc/kernel/sun4m_irq.c                |  1 -
- arch/sparc/mm/highmem.c                      |  1 -
- arch/sparc/mm/io-unit.c                      |  1 -
- arch/sparc/mm/iommu.c                        |  1 -
- arch/sparc/mm/tlb.c                          |  1 -
- arch/um/include/asm/pgalloc.h                |  9 +--
- arch/um/include/asm/pgtable-3level.h         |  3 -
- arch/um/kernel/mem.c                         | 17 -----
- arch/x86/ia32/ia32_aout.c                    |  1 -
- arch/x86/include/asm/mmu_context.h           |  1 -
- arch/x86/include/asm/pgalloc.h               | 42 +---------
- arch/x86/kernel/alternative.c                |  1 +
- arch/x86/kernel/apic/apic.c                  |  1 -
- arch/x86/kernel/mpparse.c                    |  1 -
- arch/x86/kernel/traps.c                      |  1 -
- arch/x86/mm/fault.c                          |  1 -
- arch/x86/mm/hugetlbpage.c                    |  1 -
- arch/x86/mm/kaslr.c                          |  1 -
- arch/x86/mm/pgtable_32.c                     |  1 -
- arch/x86/mm/pti.c                            |  1 -
- arch/x86/platform/uv/bios_uv.c               |  1 +
- arch/xtensa/include/asm/pgalloc.h            | 40 ++++------
- arch/xtensa/kernel/xtensa_ksyms.c            |  1 -
- arch/xtensa/mm/cache.c                       |  1 -
- arch/xtensa/mm/fault.c                       |  1 -
- drivers/block/xen-blkback/common.h           |  1 -
- drivers/iommu/ipmmu-vmsa.c                   |  1 -
- drivers/xen/balloon.c                        |  1 -
- drivers/xen/privcmd.c                        |  1 -
- fs/binfmt_elf_fdpic.c                        |  1 -
- include/asm-generic/pgalloc.h                | 80 ++++++++++++++++++++
- include/asm-generic/tlb.h                    |  1 -
- include/linux/mm.h                           | 45 -----------
- lib/Makefile                                 |  1 -
- mm/Makefile                                  |  2 +-
- mm/hugetlb.c                                 |  1 +
- {lib => mm}/ioremap.c                        |  2 +
- mm/pgalloc-track.h                           | 51 +++++++++++++
- mm/sparse.c                                  |  1 -
- mm/vmalloc.c                                 |  1 +
- 151 files changed, 194 insertions(+), 451 deletions(-)
- rename {lib => mm}/ioremap.c (99%)
- create mode 100644 mm/pgalloc-track.h
-
+diff --git a/arch/openrisc/include/asm/pgalloc.h b/arch/openrisc/include/asm/pgalloc.h
+index da12a4c38c4b..88820299ecc4 100644
+--- a/arch/openrisc/include/asm/pgalloc.h
++++ b/arch/openrisc/include/asm/pgalloc.h
+@@ -20,6 +20,9 @@
+ #include <linux/mm.h>
+ #include <linux/memblock.h>
+ 
++#define __HAVE_ARCH_PTE_ALLOC_ONE_KERNEL
++#include <asm-generic/pgalloc.h>
++
+ extern int mem_init_done;
+ 
+ #define pmd_populate_kernel(mm, pmd, pte) \
+@@ -61,38 +64,8 @@ extern inline pgd_t *pgd_alloc(struct mm_struct *mm)
+ }
+ #endif
+ 
+-static inline void pgd_free(struct mm_struct *mm, pgd_t *pgd)
+-{
+-	free_page((unsigned long)pgd);
+-}
+-
+ extern pte_t *pte_alloc_one_kernel(struct mm_struct *mm);
+ 
+-static inline struct page *pte_alloc_one(struct mm_struct *mm)
+-{
+-	struct page *pte;
+-	pte = alloc_pages(GFP_KERNEL, 0);
+-	if (!pte)
+-		return NULL;
+-	clear_page(page_address(pte));
+-	if (!pgtable_pte_page_ctor(pte)) {
+-		__free_page(pte);
+-		return NULL;
+-	}
+-	return pte;
+-}
+-
+-static inline void pte_free_kernel(struct mm_struct *mm, pte_t *pte)
+-{
+-	free_page((unsigned long)pte);
+-}
+-
+-static inline void pte_free(struct mm_struct *mm, struct page *pte)
+-{
+-	pgtable_pte_page_dtor(pte);
+-	__free_page(pte);
+-}
+-
+ #define __pte_free_tlb(tlb, pte, addr)	\
+ do {					\
+ 	pgtable_pte_page_dtor(pte);	\
 -- 
 2.26.2
 
