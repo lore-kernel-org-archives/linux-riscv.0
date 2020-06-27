@@ -1,98 +1,81 @@
-Return-Path: <SRS0=bAcz=AH=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=1V8E=AI=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 195A9C433E1
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2020 22:36:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D85C4C433DF
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jun 2020 03:07:01 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D9ADF20FC3
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Jun 2020 22:36:41 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A4B7C20773
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jun 2020 03:07:01 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="fHc05dDH";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=redhat.com header.i=@redhat.com header.b="dXLfhMko"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D9ADF20FC3
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="EBmf5wbJ";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="gGSSgpkE"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A4B7C20773
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=sODv5Rm8PQLZjHJZaZwxKDlFP12Yd+I+gTYEQnY2iZc=; b=fHc05dDHFoZ9Ns6G2jqgGom9Q
-	s49Tl2uQheb23J65MJ7A3w3+nzKy+xl+reYb4bTHERj5LYYKGDgTEC6UtyQjhm8gxZm+B/TLHUABQ
-	k/f2OFuc/IeIVy9hUwP+My/6tAr/cBp/YJw9faL/y18q+UEooYe2EGop7sYmZMjyjqJF5nGvjNB3H
-	AvL/rqTjSTjSZHMXA2KapmHNu+Bv6NiL2TTWbhT4c7MQUdFGFGcRVJlipqaCHqLv4abF537Wb3Bsc
-	+ffUM0lL+ecx4LsJJCileBXRCsMro6y9qwfQ0Sk/ZQOHX+Lns53y1nqpFuewaTtLf9CygNPLZPSUx
-	GhWyt+QJA==;
+	 bh=FXhvX7JXx/bLBXADzku40as2Ij64VmFBKhMjcPhP1oQ=; b=EBmf5wbJK/E0fFj5iBNTWxhLn
+	Iv6pya7K78k4JATpw6D4OgE2iudSljgumbx1OXc2Shkhft4gqXvxkqIFMTfhEI6Evq+CNl8caJ8ni
+	bPEqiBve5kHElm/p09Qmpq5HRphNyw3stryK+jvcrdcgGgS/p++99DNc3AmZKlMwgOhjWBxqe0ivs
+	CPf667xQo+9FRiSfp03mc2Ll/oFrsSsy9r5AyFTJlqJyrhNzhn79PTVkHV5ZFI7VlaTrx0VVSmtau
+	nya79Hz4jTpiLUp0/UrJtHJIKY1pFRZafpR82t96gfsl4XD47klnq5TnWuOA+kxkxvQuDXOF5zOIO
+	Po+XayAQA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jowxW-0002hC-Mo; Fri, 26 Jun 2020 22:36:34 +0000
-Received: from us-smtp-delivery-1.mimecast.com ([207.211.31.120]
- helo=us-smtp-1.mimecast.com)
+	id 1jp1B8-0002dL-V4; Sat, 27 Jun 2020 03:06:55 +0000
+Received: from mail-qv1-xf41.google.com ([2607:f8b0:4864:20::f41])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jowxU-0002gi-63
- for linux-riscv@lists.infradead.org; Fri, 26 Jun 2020 22:36:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1593210991;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=8WnWhn2O9ddpmgT5q7yGLFrwE17K5+WMrtUB+3cLWEw=;
- b=dXLfhMko9PUPmo7MCmiBF3BTlDG+XWj9b57+rB3OMlVdDBzlQBWBXi88enve+NYjl26/iI
- JOKQSlNGNFi5vQLAML5fjOlZW7FJ6NjUw3c5zhnnXL9ZONDwcG21qP5HWEG/qSDBKyN9aV
- NoL8AwiRovHFFRJNxoHeXaVPfPlQCLA=
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com
- [209.85.222.199]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-419-md4SOIQJMtSIR4ifQKOr7w-1; Fri, 26 Jun 2020 18:36:28 -0400
-X-MC-Unique: md4SOIQJMtSIR4ifQKOr7w-1
-Received: by mail-qk1-f199.google.com with SMTP id i62so7657308qkd.18
- for <linux-riscv@lists.infradead.org>; Fri, 26 Jun 2020 15:36:28 -0700 (PDT)
+ id 1jp1B5-0002ch-Vg; Sat, 27 Jun 2020 03:06:52 +0000
+Received: by mail-qv1-xf41.google.com with SMTP id t7so5388112qvl.8;
+ Fri, 26 Jun 2020 20:06:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=+vuS6c1B6RhJf/Wc0BlkKUed8Ad7RKtG6ySIxBvmEW4=;
+ b=gGSSgpkEGydgQhXoMv3qlsLt5mrlAk1v4a9rb3qIZhmM949nYvicKoTtRuPavC2CPS
+ 4gqA1cK6C7En4OrR24pSzu/xs4Q8Gi1+rCDB936ZFtDq7qeIhGdqLhX3QVnpV1gh8i9r
+ Yr+oBV7orOZer/ucN8JKx+INZnGVhvWI3lJGYoToY83TNPCD/UDAOaXkBbXLVet7FzJU
+ YdFda7nN//WQKfslSPDlW95hAsPb2mC0SvZh10iM7adIharPZOJYAapANRg5t3Qkk2Sr
+ ISnw9Cflf3OgJKj3vsBG2CTZKXRPGRjLof1FkbQqiDaWgHWLcla93tfKhCRAOkB8QJ9C
+ IkQQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=8WnWhn2O9ddpmgT5q7yGLFrwE17K5+WMrtUB+3cLWEw=;
- b=Ku8/wfuNVwMOlPjRbjsbKX7WjA+wJYZtffjJjOrRmzevZbbadXnyKAnJiUMFcsD3xQ
- kUbaoo25MbRYSgNbdUgXj+1VjTw0xIQbrmTMww0hw+kUb8dNG7oHkzh+lT59e1mW2xfP
- T50FwTMMvi+vWHjxJVHb/bOEENPeM10zQ8s9j+pCcjO6k8UcAISL9AGr/85B/IKbIuyd
- bqPIn2XfwlZkMuHvFqR3niGYxFb9+7QzMP9/skx1fe/byQ+Vg2Xv8p5bRrbs/WuHfwcF
- gO9SviF0liP99puu6AP7Q028UMr1exQMmbE8P2ebW5zRAY0vI/Pkbu/qfPGBRJGfGTqM
- 2vJg==
-X-Gm-Message-State: AOAM531gDpMVc12ZnODYzbnmTn8vrLZ3f8P6cNhCDDP4DiqbKLQHcEPu
- w7P+/NWY9/dsLmUbajppNkvyY1Nvm1WPIrkyS4fA8CGkPqH8mnobZOUnyxXuzZataGwGOCltawt
- JUQIMttcBIswHv136OnCWJctSyWj4
-X-Received: by 2002:a05:620a:994:: with SMTP id
- x20mr2758437qkx.367.1593210987668; 
- Fri, 26 Jun 2020 15:36:27 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJyF7mXzjX2GYCldg8rpVKH+R/6CyjRUZNLT2pL9QW2hEVm9X8g93t+Jx2O/OTIhETTp/0bRvw==
-X-Received: by 2002:a05:620a:994:: with SMTP id
- x20mr2758423qkx.367.1593210987471; 
- Fri, 26 Jun 2020 15:36:27 -0700 (PDT)
-Received: from xz-x1.redhat.com ([2607:9880:19c0:32::2])
- by smtp.gmail.com with ESMTPSA id t9sm9463853qke.68.2020.06.26.15.36.26
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 26 Jun 2020 15:36:26 -0700 (PDT)
-From: Peter Xu <peterx@redhat.com>
-To: linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 17/26] mm/riscv: Use general page fault accounting
-Date: Fri, 26 Jun 2020 18:36:25 -0400
-Message-Id: <20200626223625.199813-1-peterx@redhat.com>
-X-Mailer: git-send-email 2.26.2
-In-Reply-To: <20200626223130.199227-1-peterx@redhat.com>
-References: <20200626223130.199227-1-peterx@redhat.com>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=+vuS6c1B6RhJf/Wc0BlkKUed8Ad7RKtG6ySIxBvmEW4=;
+ b=OQyqvyRckIb6YHEi64zcdFxOQpRE+W6goEbyW1JOw3BdUWQqOgwDGS4dMxJZMR7EJS
+ /NM0hqDjqREV9jlyj3TiOJHaCQ20grn3WRa+oFSUIbjTYFZfCc1sJ8wO/hPimHlKfSAz
+ 9J1baD/PCnPfdOyeQ19JmuxTERecKj4a4ytPlBAWuB0NqVmWW4sHUGcNeVXj6bND15nf
+ DDvYPb1RIFXWm3nvnspEIIuqUmo47WEgo1WkbgghF3jnDLGqCeTZp8+vLDMgdLJXlowU
+ FVXagill+ptd5jJ4txAUQlarlWp5DjSTW3u/KJupIsihYT33B9G7axfXI2KymnVB6tdA
+ IlZA==
+X-Gm-Message-State: AOAM530xA6dZDUsw5SzN1DjikUVYImjcc3MTX4EEmVjMNmSk1nHh2dRe
+ d7pVZm0YGordIXn5eSmPRzHKsGmfxnc6phTH7+E=
+X-Google-Smtp-Source: ABdhPJxYyEJ7kBLOC8G+2pCCNUUQ5BD2x0Y5L6IFg/2fsP6u4dRXqSou/wb4e51wB+OOq8JrNYw66PMvbKNI3NbZUFA=
+X-Received: by 2002:a0c:fe01:: with SMTP id x1mr5934189qvr.246.1593227207936; 
+ Fri, 26 Jun 2020 20:06:47 -0700 (PDT)
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
+References: <20200622234326.906346-1-christian.brauner@ubuntu.com>
+ <20200622234326.906346-17-christian.brauner@ubuntu.com>
+In-Reply-To: <20200622234326.906346-17-christian.brauner@ubuntu.com>
+From: Greentime Hu <green.hu@gmail.com>
+Date: Sat, 27 Jun 2020 11:06:08 +0800
+Message-ID: <CAEbi=3f3o5jS7zZDo50Vq857mS9n9kDsxkseGKrWshmmp3q5wA@mail.gmail.com>
+Subject: Re: [PATCH 16/17] arch: remove HAVE_COPY_THREAD_TLS
+To: Christian Brauner <christian.brauner@ubuntu.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -104,70 +87,119 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Andrea Arcangeli <aarcange@redhat.com>, Albert Ou <aou@eecs.berkeley.edu>,
+Cc: Rich Felker <dalias@libc.org>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>, linux-sh@vger.kernel.org,
+ Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Heiko Carstens <heiko.carstens@de.ibm.com>, linux-mips@vger.kernel.org,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Guo Ren <guoren@kernel.org>, linux-csky@vger.kernel.org,
+ sparclinux <sparclinux@vger.kernel.org>, linux-hexagon@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Vincent Chen <deanbo422@gmail.com>,
+ Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+ Jonas Bonn <jonas@southpole.se>, linux-s390 <linux-s390@vger.kernel.org>,
+ linux-ia64@vger.kernel.org, linux-c6x-dev@linux-c6x.org,
+ Brian Cain <bcain@codeaurora.org>, linux-xtensa@linux-xtensa.org,
+ Michael Ellerman <mpe@ellerman.id.au>, Helge Deller <deller@gmx.de>,
+ x86@kernel.org, Russell King <linux@armlinux.org.uk>,
+ Ley Foon Tan <ley.foon.tan@intel.com>, Mike Rapoport <rppt@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@de.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, linux-parisc@vger.kernel.org,
+ Mark Salter <msalter@redhat.com>, Matt Turner <mattst88@gmail.com>,
+ linux-snps-arc@lists.infradead.org, uclinux-h8-devel@lists.sourceforge.jp,
+ Fenghua Yu <fenghua.yu@intel.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Kees Cook <keescook@chromium.org>, Vasily Gorbik <gor@linux.ibm.com>,
+ Jeff Dike <jdike@addtoit.com>, linux-alpha@vger.kernel.org,
+ linux-um@lists.infradead.org, linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
+ Aurelien Jacquiot <jacquiot.aurelien@gmail.com>,
+ linux-m68k@lists.linux-m68k.org,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Ivan Kokshaysky <ink@jurassic.park.msu.ru>, Al Viro <viro@zeniv.linux.org.uk>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Stafford Horne <shorne@gmail.com>,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Guan Xuetao <gxt@pku.edu.cn>, linux-arm-kernel@lists.infradead.org,
+ Richard Henderson <rth@twiddle.net>, Michal Simek <monstr@monstr.eu>,
+ Tony Luck <tony.luck@intel.com>, Yoshinori Sato <ysato@users.sourceforge.jp>,
+ Nick Hu <nickhu@andestech.com>, Vineet Gupta <vgupta@synopsys.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ openrisc@lists.librecores.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ Richard Weinberger <richard@nod.at>, Paul Mackerras <paulus@samba.org>,
  Linus Torvalds <torvalds@linux-foundation.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Peter Xu <peterx@redhat.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Michael Ellerman <mpe@ellerman.id.au>,
- Andrew Morton <akpm@linux-foundation.org>, Will Deacon <will@kernel.org>,
- linux-riscv@lists.infradead.org, Gerald Schaefer <gerald.schaefer@de.ibm.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+ "David S. Miller" <davem@davemloft.net>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use the general page fault accounting by passing regs into handle_mm_fault().
-It naturally solve the issue of multiple page fault accounting when page fault
-retry happened.
-
-CC: Paul Walmsley <paul.walmsley@sifive.com>
-CC: Palmer Dabbelt <palmer@dabbelt.com>
-CC: Albert Ou <aou@eecs.berkeley.edu>
-CC: linux-riscv@lists.infradead.org
-Signed-off-by: Peter Xu <peterx@redhat.com>
----
- arch/riscv/mm/fault.c | 16 +---------------
- 1 file changed, 1 insertion(+), 15 deletions(-)
-
-diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
-index 677ee1bb11ac..e796ba02b572 100644
---- a/arch/riscv/mm/fault.c
-+++ b/arch/riscv/mm/fault.c
-@@ -110,7 +110,7 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
- 	 * make sure we exit gracefully rather than endlessly redo
- 	 * the fault.
- 	 */
--	fault = handle_mm_fault(vma, addr, flags, NULL);
-+	fault = handle_mm_fault(vma, addr, flags, regs);
- 
- 	/*
- 	 * If we need to retry but a fatal signal is pending, handle the
-@@ -128,21 +128,7 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
- 		BUG();
- 	}
- 
--	/*
--	 * Major/minor page fault accounting is only done on the
--	 * initial attempt. If we go through a retry, it is extremely
--	 * likely that the page will be found in page cache at that point.
--	 */
- 	if (flags & FAULT_FLAG_ALLOW_RETRY) {
--		if (fault & VM_FAULT_MAJOR) {
--			tsk->maj_flt++;
--			perf_sw_event(PERF_COUNT_SW_PAGE_FAULTS_MAJ,
--				      1, regs, addr);
--		} else {
--			tsk->min_flt++;
--			perf_sw_event(PERF_COUNT_SW_PAGE_FAULTS_MIN,
--				      1, regs, addr);
--		}
- 		if (fault & VM_FAULT_RETRY) {
- 			flags |= FAULT_FLAG_TRIED;
- 
--- 
-2.26.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Q2hyaXN0aWFuIEJyYXVuZXIgPGNocmlzdGlhbi5icmF1bmVyQHVidW50dS5jb20+IOaWvCAyMDIw
+5bm0NuaciDIz5pelIOmAseS6jCDkuIrljYg3OjQ25a+r6YGT77yaCj4KPiBBbGwgYXJjaGl0ZWN0
+dXJlcyBzdXBwb3J0IGNvcHlfdGhyZWFkX3RscygpIG5vdywgc28gcmVtb3ZlIHRoZSBsZWdhY3kK
+PiBjb3B5X3RocmVhZCgpIGZ1bmN0aW9uIGFuZCB0aGUgSEFWRV9DT1BZX1RIUkVBRF9UTFMgY29u
+ZmlnIG9wdGlvbi4gRXZlcnlvbmUKPiB1c2VzIHRoZSBzYW1lIHByb2Nlc3MgY3JlYXRpb24gY2Fs
+bGluZyBjb252ZW50aW9uIGJhc2VkIG9uCj4gY29weV90aHJlYWRfdGxzKCkgYW5kIHN0cnVjdCBr
+ZXJuZWxfY2xvbmVfYXJncy4gVGhpcyB3aWxsIG1ha2UgaXQgZWFzaWVyIHRvCj4gbWFpbnRhaW4g
+dGhlIGNvcmUgcHJvY2VzcyBjcmVhdGlvbiBjb2RlIHVuZGVyIGtlcm5lbC8sIHNpbXBsaWZpZXMg
+dGhlCj4gY2FsbHBhdGhzIGFuZCBtYWtlcyB0aGUgaWRlbnRpY2FsIGZvciBhbGwgYXJjaGl0ZWN0
+dXJlcy4KPgo+IENjOiBSaWNoYXJkIEhlbmRlcnNvbiA8cnRoQHR3aWRkbGUubmV0Pgo+IENjOiBJ
+dmFuIEtva3NoYXlza3kgPGlua0BqdXJhc3NpYy5wYXJrLm1zdS5ydT4KPiBDYzogTWF0dCBUdXJu
+ZXIgPG1hdHRzdDg4QGdtYWlsLmNvbT4KPiBDYzogVmluZWV0IEd1cHRhIDx2Z3VwdGFAc3lub3Bz
+eXMuY29tPgo+IENjOiBSdXNzZWxsIEtpbmcgPGxpbnV4QGFybWxpbnV4Lm9yZy51az4KPiBDYzog
+Q2F0YWxpbiBNYXJpbmFzIDxjYXRhbGluLm1hcmluYXNAYXJtLmNvbT4KPiBDYzogV2lsbCBEZWFj
+b24gPHdpbGxAa2VybmVsLm9yZz4KPiBDYzogTWFyayBTYWx0ZXIgPG1zYWx0ZXJAcmVkaGF0LmNv
+bT4KPiBDYzogQXVyZWxpZW4gSmFjcXVpb3QgPGphY3F1aW90LmF1cmVsaWVuQGdtYWlsLmNvbT4K
+PiBDYzogR3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+Cj4gQ2M6IFlvc2hpbm9yaSBTYXRvIDx5
+c2F0b0B1c2Vycy5zb3VyY2Vmb3JnZS5qcD4KPiBDYzogQnJpYW4gQ2FpbiA8YmNhaW5AY29kZWF1
+cm9yYS5vcmc+Cj4gQ2M6IFRvbnkgTHVjayA8dG9ueS5sdWNrQGludGVsLmNvbT4KPiBDYzogRmVu
+Z2h1YSBZdSA8ZmVuZ2h1YS55dUBpbnRlbC5jb20+Cj4gQ2M6IEdlZXJ0IFV5dHRlcmhvZXZlbiA8
+Z2VlcnRAbGludXgtbTY4ay5vcmc+Cj4gQ2M6IE1pY2hhbCBTaW1layA8bW9uc3RyQG1vbnN0ci5l
+dT4KPiBDYzogVGhvbWFzIEJvZ2VuZG9lcmZlciA8dHNib2dlbmRAYWxwaGEuZnJhbmtlbi5kZT4K
+PiBDYzogTmljayBIdSA8bmlja2h1QGFuZGVzdGVjaC5jb20+Cj4gQ2M6IEdyZWVudGltZSBIdSA8
+Z3JlZW4uaHVAZ21haWwuY29tPgo+IENjOiBWaW5jZW50IENoZW4gPGRlYW5ibzQyMkBnbWFpbC5j
+b20+Cj4gQ2M6IExleSBGb29uIFRhbiA8bGV5LmZvb24udGFuQGludGVsLmNvbT4KPiBDYzogSm9u
+YXMgQm9ubiA8am9uYXNAc291dGhwb2xlLnNlPgo+IENjOiBTdGVmYW4gS3Jpc3RpYW5zc29uIDxz
+dGVmYW4ua3Jpc3RpYW5zc29uQHNhdW5hbGFodGkuZmk+Cj4gQ2M6IFN0YWZmb3JkIEhvcm5lIDxz
+aG9ybmVAZ21haWwuY29tPgo+IENjOiAiSmFtZXMgRS5KLiBCb3R0b21sZXkiIDxKYW1lcy5Cb3R0
+b21sZXlASGFuc2VuUGFydG5lcnNoaXAuY29tPgo+IENjOiBIZWxnZSBEZWxsZXIgPGRlbGxlckBn
+bXguZGU+Cj4gQ2M6IE1pY2hhZWwgRWxsZXJtYW4gPG1wZUBlbGxlcm1hbi5pZC5hdT4KPiBDYzog
+QmVuamFtaW4gSGVycmVuc2NobWlkdCA8YmVuaEBrZXJuZWwuY3Jhc2hpbmcub3JnPgo+IENjOiBQ
+YXVsIE1hY2tlcnJhcyA8cGF1bHVzQHNhbWJhLm9yZz4KPiBDYzogUGF1bCBXYWxtc2xleSA8cGF1
+bC53YWxtc2xleUBzaWZpdmUuY29tPgo+IENjOiBQYWxtZXIgRGFiYmVsdCA8cGFsbWVyQGRhYmJl
+bHQuY29tPgo+IENjOiBBbGJlcnQgT3UgPGFvdUBlZWNzLmJlcmtlbGV5LmVkdT4KPiBDYzogSGVp
+a28gQ2Fyc3RlbnMgPGhlaWtvLmNhcnN0ZW5zQGRlLmlibS5jb20+Cj4gQ2M6IFZhc2lseSBHb3Ji
+aWsgPGdvckBsaW51eC5pYm0uY29tPgo+IENjOiBDaHJpc3RpYW4gQm9ybnRyYWVnZXIgPGJvcm50
+cmFlZ2VyQGRlLmlibS5jb20+Cj4gQ2M6IFJpY2ggRmVsa2VyIDxkYWxpYXNAbGliYy5vcmc+Cj4g
+Q2M6ICJEYXZpZCBTLiBNaWxsZXIiIDxkYXZlbUBkYXZlbWxvZnQubmV0Pgo+IENjOiBKZWZmIERp
+a2UgPGpkaWtlQGFkZHRvaXQuY29tPgo+IENjOiBSaWNoYXJkIFdlaW5iZXJnZXIgPHJpY2hhcmRA
+bm9kLmF0Pgo+IENjOiBBbnRvbiBJdmFub3YgPGFudG9uLml2YW5vdkBjYW1icmlkZ2VncmV5cy5j
+b20+Cj4gQ2M6IEd1YW4gWHVldGFvIDxneHRAcGt1LmVkdS5jbj4KPiBDYzogVGhvbWFzIEdsZWl4
+bmVyIDx0Z2x4QGxpbnV0cm9uaXguZGU+Cj4gQ2M6IEluZ28gTW9sbmFyIDxtaW5nb0ByZWRoYXQu
+Y29tPgo+IENjOiB4ODZAa2VybmVsLm9yZwo+IENjOiBQZXRlciBaaWpsc3RyYSA8cGV0ZXJ6QGlu
+ZnJhZGVhZC5vcmc+Cj4gQ2M6IEtlZXMgQ29vayA8a2Vlc2Nvb2tAY2hyb21pdW0ub3JnPgo+IENj
+OiBNaWtlIFJhcG9wb3J0IDxycHB0QGxpbnV4LmlibS5jb20+Cj4gQ2M6ICJNYXR0aGV3IFdpbGNv
+eAo+IENjOiBBbCBWaXJvIDx2aXJvQHplbml2LmxpbnV4Lm9yZy51az4KPiBDYzogbGludXgta2Vy
+bmVsQHZnZXIua2VybmVsLm9yZwo+IENjOiBsaW51eC1hbHBoYUB2Z2VyLmtlcm5lbC5vcmcKPiBD
+YzogbGludXgtc25wcy1hcmNAbGlzdHMuaW5mcmFkZWFkLm9yZwo+IENjOiBsaW51eC1hcm0ta2Vy
+bmVsQGxpc3RzLmluZnJhZGVhZC5vcmcKPiBDYzogbGludXgtYzZ4LWRldkBsaW51eC1jNngub3Jn
+Cj4gQ2M6IGxpbnV4LWNza3lAdmdlci5rZXJuZWwub3JnCj4gQ2M6IHVjbGludXgtaDgtZGV2ZWxA
+bGlzdHMuc291cmNlZm9yZ2UuanAKPiBDYzogbGludXgtaGV4YWdvbkB2Z2VyLmtlcm5lbC5vcmcK
+PiBDYzogbGludXgtaWE2NEB2Z2VyLmtlcm5lbC5vcmcKPiBDYzogbGludXgtbTY4a0BsaXN0cy5s
+aW51eC1tNjhrLm9yZwo+IENjOiBsaW51eC1taXBzQHZnZXIua2VybmVsLm9yZwo+IENjOiBvcGVu
+cmlzY0BsaXN0cy5saWJyZWNvcmVzLm9yZwo+IENjOiBsaW51eC1wYXJpc2NAdmdlci5rZXJuZWwu
+b3JnCj4gQ2M6IGxpbnV4cHBjLWRldkBsaXN0cy5vemxhYnMub3JnCj4gQ2M6IGxpbnV4LXJpc2N2
+QGxpc3RzLmluZnJhZGVhZC5vcmcKPiBDYzogbGludXgtczM5MEB2Z2VyLmtlcm5lbC5vcmcKPiBD
+YzogbGludXgtc2hAdmdlci5rZXJuZWwub3JnCj4gQ2M6IHNwYXJjbGludXhAdmdlci5rZXJuZWwu
+b3JnCj4gQ2M6IGxpbnV4LXVtQGxpc3RzLmluZnJhZGVhZC5vcmcKPiBDYzogbGludXgteHRlbnNh
+QGxpbnV4LXh0ZW5zYS5vcmcKPiBTaWduZWQtb2ZmLWJ5OiBDaHJpc3RpYW4gQnJhdW5lciA8Y2hy
+aXN0aWFuLmJyYXVuZXJAdWJ1bnR1LmNvbT4KPiBbLi4uXQo+IGRpZmYgLS1naXQgYS9hcmNoL25k
+czMyL0tjb25maWcgYi9hcmNoL25kczMyL0tjb25maWcKPiBpbmRleCA3YjZlYWNhODFjY2UuLmUz
+MDI5OGU5OWUxYiAxMDA2NDQKPiAtLS0gYS9hcmNoL25kczMyL0tjb25maWcKPiArKysgYi9hcmNo
+L25kczMyL0tjb25maWcKPiBAQCAtNDgsNyArNDgsNiBAQCBjb25maWcgTkRTMzIKPiAgICAgICAg
+IHNlbGVjdCBIQVZFX0ZVTkNUSU9OX0dSQVBIX1RSQUNFUgo+ICAgICAgICAgc2VsZWN0IEhBVkVf
+RlRSQUNFX01DT1VOVF9SRUNPUkQKPiAgICAgICAgIHNlbGVjdCBIQVZFX0RZTkFNSUNfRlRSQUNF
+Cj4gLSAgICAgICBzZWxlY3QgSEFWRV9DT1BZX1RIUkVBRF9UTFMKPiAgICAgICAgIGhlbHAKPiAg
+ICAgICAgICAgQW5kZXMobmRzMzIpIExpbnV4IHN1cHBvcnQuCgpIaSBDaHJpc3RpYW4sIFRoYW5r
+IHlvdS4KQWNrZWQtYnk6IEdyZWVudGltZSBIdSA8Z3JlZW4uaHVAZ21haWwuY29tPgoKX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
+bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
+ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
