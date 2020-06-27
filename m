@@ -2,64 +2,142 @@ Return-Path: <SRS0=1V8E=AI=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D1EF9C433E0
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jun 2020 16:00:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F2EF4C433E1
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jun 2020 16:20:52 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A3B3C20707
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jun 2020 16:00:24 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C4F1B20724
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Jun 2020 16:20:52 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="lHSx4fOS";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="eGbMP8fD"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A3B3C20707
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="rR3XAskC";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="GXvjvMWS";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="cOK1V+Rq"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C4F1B20724
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Date:Message-Id:References:In-Reply-To:From:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gg1rY9xyg9zuNnZn+jqEZ6+//5tvBOZ3cKQCDMmqhq0=; b=lHSx4fOSJvxnaZDiyv3gMlrKA7
-	YCsoF0MLh3mEo1gKXMCI4MnhAYzBSvKXNKjAVxQNwIsg1HEOLTE0avmNSVs6Dk9N5E50kexNgAwhU
-	Ims0HxHoJPdnSMI5x4hgg0GfTCZlRIcq/Wig5VmhK7jZOwmuOf3qDpdDnU4qPoLdVDKzEo4n0wXxi
-	q4Ke6yDo1WE5KhWRdlc2xCaciBr2+uhk4fVAhpxmM5O8AVHhNDAoyVEqtWrxB+jDyX8XZGQ9fJzBY
-	wlm79UW89n1dOLbBTbUvIxS4RqrgvgUdJU/q0Usry/kYoc19ngNs+7FbSzrabC0Nr+jmIb9UH+N1D
-	/Mqy0uWA==;
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dlwDtY4yNDxH6K5nHbLfxyceB2kAnFjX6pdlas0CZ7k=; b=rR3XAskC8aJhQny4C7Zi63oVwQ
+	BLn1khsHWz2CugOf/hpuxqdi7yq0yhzrOnbRS6TI0e4enruVrAk0r+ilYtCJjahkT/VQPQ0bc6SW8
+	UM5vDSJe7rouS/+dYEHeWmm/7yxBf9CJvublPsNNn4sy/Dj/anliY4yVhiPCqoqVIa6rmoEBND5gR
+	3DAsia7+ghyoXfuX5uFn1OankUZWu/CHCgMWHpG64OjXaGcN9sGGe7NAwCYHgBwdvwskh0QPd9u3E
+	TFOfwoILrIb0S9ITW/oyLu9vwmNhSjs0MhESNYBcx3CuDLhli+xyss9ixM6+DgfeEXnFCa97CKbsi
+	SFXOl2Bw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jpDFa-0004aE-8N; Sat, 27 Jun 2020 16:00:18 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1jpDZN-0005oI-JM; Sat, 27 Jun 2020 16:20:45 +0000
+Received: from esa3.hgst.iphmx.com ([216.71.153.141])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jpDFW-0004ZG-Dc
- for linux-riscv@lists.infradead.org; Sat, 27 Jun 2020 16:00:15 +0000
-Subject: Re: [GIT PULL] RISC-V Fixes for 5.8-rc3
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1593273613;
- bh=yeaCwpqSECTCFxMaYCulEAIX38enPKz/1j2BOtgNk0s=;
- h=From:In-Reply-To:References:Date:To:Cc:From;
- b=eGbMP8fD/bOGh1n1UCVeFcMF1izSBdul1WEncVgCNAsAvgdPfIj9HUl+waYP5iTk2
- rF8TSfzXFImlRpkHNIMYGufY8xdAHVZYKVdQyoLY2Jatx/I/G0FFwm9Yp3Gv5UDphj
- qt5lpjPElVMkLmQDHxr6dXtZLuEr40MFtgVu0XrE=
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <mhng-f93a0d3b-0f13-4426-8f7a-77c153f1098b@palmerdabbelt-glaptop1>
-References: <mhng-f93a0d3b-0f13-4426-8f7a-77c153f1098b@palmerdabbelt-glaptop1>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <mhng-f93a0d3b-0f13-4426-8f7a-77c153f1098b@palmerdabbelt-glaptop1>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
- tags/riscv-for-linus-5.8-rc3
-X-PR-Tracked-Commit-Id: e05d57dcb8c71492268ff46ba9bfe9a9cfb1f95d
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 3b6ab1012cbcabf31db9c3a0c329d07dbcff4fd7
-Message-Id: <159327361326.7015.2026111277110574291.pr-tracker-bot@kernel.org>
-Date: Sat, 27 Jun 2020 16:00:13 +0000
-To: Palmer Dabbelt <palmer@dabbelt.com>
+ id 1jpDZL-0005nw-19
+ for linux-riscv@lists.infradead.org; Sat, 27 Jun 2020 16:20:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1593274843; x=1624810843;
+ h=from:to:cc:subject:date:message-id:
+ content-transfer-encoding:mime-version;
+ bh=wP+xewqF2pqebseltpxeQ0/Jbctigpb9at/dgV5Fbow=;
+ b=GXvjvMWSKwTm7cTdYRPTHiYB3d40YfK8LWe6wVvk7Y1oJI9UDcuLZI0s
+ QCkdqRXwTtck+A9Y3MNBWx/IwmBZ6agMbj+W6ERHrZVsKZNG0jFOtumOD
+ c1mLnHiQhvfKFtbbqjP5YNWdaHXF2+h5tX8aQ5JteZhMhCIJwDFMeAjpZ
+ YNhddzKsyaaKxbVMx1hLKwUVsYgnI72kWsbTyCm78WH/u4AzZF3ipAz0Z
+ cBR/n4b00Ls9AE75qYXeiec1Qy0GDwNjqP19/UV5Lo4Pyk15jvGDiPM3u
+ s1Z0nLfhGOSCcFg533uHGkJluwyLRuYHlc3ijO8EdP6MAh/WNzvuhIzqT Q==;
+IronPort-SDR: +5cU2eNsXN/jWquJKEoOgDIC8FQB6k52GHqIPq3F3wy+RARnEi+/NJQrjtJVY1pKxp+jxRBxwG
+ 50wRTs1pZU5M8O3wxCxR0saLRQvRBIlZ7bjJd+hit0hfPb/b+obfsJ2RkN9ZtasnbduWEZLpru
+ yxwrNA16bMt8tnDa8lXmlDF8CdHOCWo5epk3c6LX3htacJxhkK1VnwubaLdRQ1p+dPo06AAXqQ
+ iZvmsYQGZg2SiciBoAK6wcjyFJMmbAaaeTWC9qMpRH3ziVbHR7E/P93OZTbQXAaNeq9jfkCYhH
+ fio=
+X-IronPort-AV: E=Sophos;i="5.75,287,1589212800"; d="scan'208";a="145398669"
+Received: from mail-dm6nam10lp2102.outbound.protection.outlook.com (HELO
+ NAM10-DM6-obe.outbound.protection.outlook.com) ([104.47.58.102])
+ by ob1.hgst.iphmx.com with ESMTP; 28 Jun 2020 00:20:39 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=PpZBASZnao2R5wEoqipEGqQsWOk2ysL/Y4BlRAzbXynzeVb5PY+6SYwVxi++Zj/hLqZs6LDakn1VronyjITdFBXMvMWMnY16ICWI2CExCscW6LeK8P66vKy8N3ythlhMzFtC6L0MXP+8YlyMduhgZ0a4kUmfFUjH/VyT1TZBJhrtrfZiJ3lhQoS1c7LFFpbzwxj2Z03HeIxRGPDKtHg00zaVEjl2OJX3z/0Mdl+5rfromrvfjlEOoCUU28LgL94IilRWlKnUgDLzbxDgwMrf/MxHtMQvNqjapMRTehp0hiqLIvIj2J5JeujC4Q6bfqg4aCP4UJobNAXFc8RTgUiMLA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aZJ7PYrAFgpMng2KWEvnBx3HBIApOFm8ARyF6GuFQJw=;
+ b=lnllqRCIwUy1XYuMX8t6aVzJULYe5G84K/k3suQzWi94LeeOZGaRE2PiU9yhHxj23xstsYH3ntAt0ZGERRGwzcRPi3Js5iXep7HlfsRjqdVYX+OZvONH7sHJLqxMWDMLZZFbtRdHZjis66Eo15BHzTOdQmoeB0q498QlYnaXgkrYUFmyVJZrm+BneokKSJTQi06WhK8dJ42CYd4kHnvQwZrbSxwiLw7rnirc4swoshx0U+qj+hnzamzOvVDQc+Q/7TUshKUBwpxjbMvqmMeDrTysM4lv2gpW1lZ1WcUdabfZ5im1Gb5NgsiJvupWx9zuZjSU1+6Ovtss1DbCC6eMng==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
+ header.d=wdc.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aZJ7PYrAFgpMng2KWEvnBx3HBIApOFm8ARyF6GuFQJw=;
+ b=cOK1V+RqE2etXBcOq5mi0XbBYBmGlEOzj+H7U2pWHspd1y3JspK56rppPwK0xAyys2LFu8P+orXbQUtPIBJdVj5l7+oZTPRmKpeHbgjH69ayQZX8FoX4mX6gf92M3uedw3k51TodZeezrXMjpGB1KV/YXUBRdGRlN4ahYXyw0NY=
+Authentication-Results: dabbelt.com; dkim=none (message not signed)
+ header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
+Received: from MN2PR04MB6207.namprd04.prod.outlook.com (2603:10b6:208:de::32)
+ by MN2PR04MB5599.namprd04.prod.outlook.com (2603:10b6:208:fe::26)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3131.21; Sat, 27 Jun
+ 2020 16:20:38 +0000
+Received: from MN2PR04MB6207.namprd04.prod.outlook.com
+ ([fe80::e0ef:7fce:ff0d:f580]) by MN2PR04MB6207.namprd04.prod.outlook.com
+ ([fe80::e0ef:7fce:ff0d:f580%7]) with mapi id 15.20.3131.026; Sat, 27 Jun 2020
+ 16:20:38 +0000
+From: Anup Patel <anup.patel@wdc.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh+dt@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>
+Subject: [PATCH v2 0/5] Dedicated CLINT timer driver
+Date: Sat, 27 Jun 2020 21:49:52 +0530
+Message-Id: <20200627161957.134376-1-anup.patel@wdc.com>
+X-Mailer: git-send-email 2.25.1
+X-ClientProxiedBy: MAXPR0101CA0029.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a00:d::15) To MN2PR04MB6207.namprd04.prod.outlook.com
+ (2603:10b6:208:de::32)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+Received: from wdc.com (42.109.128.251) by
+ MAXPR0101CA0029.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:d::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3131.21 via Frontend
+ Transport; Sat, 27 Jun 2020 16:20:28 +0000
+X-Mailer: git-send-email 2.25.1
+X-Originating-IP: [42.109.128.251]
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-HT: Tenant
+X-MS-Office365-Filtering-Correlation-Id: 1fa3b50b-a110-4601-2d76-08d81ab606b8
+X-MS-TrafficTypeDiagnostic: MN2PR04MB5599:
+X-MS-Exchange-Transport-Forked: True
+X-Microsoft-Antispam-PRVS: <MN2PR04MB55997A5A19F66976C4292EB58D900@MN2PR04MB5599.namprd04.prod.outlook.com>
+WDCIPOUTBOUND: EOP-TRUE
+X-MS-Oob-TLC-OOBClassifiers: OLM:8882;
+X-Forefront-PRVS: 0447DB1C71
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 8Rumslxucs3jO3Ioy34lNtsG2JVTASuY+iM0Lj38WgIPPBk7wnKc2OotNRsA5VygqGiWZ93vQ2iJ8YmXTbvUL+BH0Y/4BRolyLgWyeb8Ghbe/xoZ2om6HMlG/IXk6fz7IVr2ni02m5L5yxCkXA821EySRDyrKrPL6RjYLAdm4VYRc6lVg4hee5xbCSHzJxgf+fEYw2lQRS6D/ADQBZwrK0s0/Hv+o2z15YLACY9D/gM/QwVJDmlVaU490231fwlcMA7dhindFcSGe/wEecupqVJ8ho+y3MXkFJ0zQmsVx4yHs53MaAk2pyQfWzv1i1mz+keet8rUQHa4REGy+IdhV2TgdnvwamOt3DWS9mbQ9GEId4qwtM7IkBzDYNjQ+sZadyisLmjZmo+XfXuCoCJI3A==
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:MN2PR04MB6207.namprd04.prod.outlook.com; PTR:; CAT:NONE;
+ SFTY:;
+ SFS:(4636009)(39860400002)(376002)(366004)(346002)(396003)(136003)(5660300002)(8936002)(86362001)(186003)(16526019)(7416002)(1076003)(8676002)(956004)(2616005)(8886007)(110136005)(36756003)(54906003)(83380400001)(26005)(55016002)(316002)(44832011)(66946007)(52116002)(1006002)(478600001)(2906002)(7696005)(66556008)(6666004)(66476007)(966005)(4326008);
+ DIR:OUT; SFP:1102; 
+X-MS-Exchange-AntiSpam-MessageData: 944vChs3SsWKH1nhtN1yviC5aIHdgfeKVciIa+yJrNKgR8hcZr0CD35uLpMsmPBYpQXbv40MyhirapSnzoOsArhKNJSkgKIkUj0evpCK+GgukdNpXh9cbYv130kw+hEz+tP3R3We+hdAzhPB0E3b8frbHr8WS8N891iB7RerYGb7TwK1MisWOqwS9oo9/H87DaYV4tT2otuTyQzFAWhdOoXq3nITcXzfVYwlyR6MTNPN1U0brjEmOpIj0jiXzOhGV7k2re8DdCgAJG6Fmo9w7Sae6mM7gRcfoFLWEb7BZV4FTD2sQhyeEa0NP1htHWGFSyGjiYQt/yQDk8yHQ5BbsGGBvXnyUuX2j5ZpUvVtjWYLv/caAjs13tTj5Mu8t3PVzPLciNXSdZHKMP9JRbc0w7idGviZqkMNw8CxAcOph29it4A28HBwuqLsoaEADaM3FSgVFt9mxosIAEtid1B1fMzSXfuCTb7Ov9CSqZot0gEIdA4VxRhoB/wTOchc3JqB
+X-OriginatorOrg: wdc.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1fa3b50b-a110-4601-2d76-08d81ab606b8
+X-MS-Exchange-CrossTenant-AuthSource: MN2PR04MB6207.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jun 2020 16:20:37.8055 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: qKr5/RfX2zKBv1UIr7x2UcmjgLoTht/20X8NE4ISQw6Kq49UZNbUJcBEJahxZDjubwGcFvOjiTowNf7+cAoCzA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR04MB5599
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -71,26 +149,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org,
- Linus Torvalds <torvalds@linux-foundation.org>, linux-kernel@vger.kernel.org
-MIME-Version: 1.0
+Cc: devicetree@vger.kernel.org, Damien Le Moal <damien.lemoal@wdc.com>,
+ Anup Patel <anup@brainfault.org>, Anup Patel <anup.patel@wdc.com>,
+ linux-kernel@vger.kernel.org, Atish Patra <atish.patra@wdc.com>,
+ Alistair Francis <Alistair.Francis@wdc.com>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Fri, 26 Jun 2020 10:40:28 -0700 (PDT):
+The current RISC-V timer driver is convoluted and implements two
+distinct timers:
+ 1. S-mode timer: This is for Linux RISC-V S-mode with MMU. The
+    clocksource is implemented using TIME CSR and clockevent device
+    is implemented using SBI Timer calls.
+ 2. M-mode timer: This is for Linux RISC-V M-mode without MMU. The
+    clocksource is implemented using CLINT MMIO time register and
+    clockevent device is implemented using CLINT MMIO timecmp registers.
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.8-rc3
+This patchset removes clint related code from RISC-V timer driver and
+arch/riscv directory. Instead, the series adds a dedicated MMIO based
+CLINT driver under drivers/clocksource directory which can be used by
+Linux RISC-V M-mode (i.e NoMMU Linux RISC-V).
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/3b6ab1012cbcabf31db9c3a0c329d07dbcff4fd7
+The patchset is based up Linux-5.8-rc2 and can be found at riscv_clint_v2
+branch of: https://github.com/avpatel/linux.git
 
-Thank you!
+This series is tested on:
+ 1. QEMU RV64 virt machine using Linux RISC-V S-mode
+ 2. QEMU RV32 virt machine using Linux RISC-V S-mode
+ 3. QEMU RV64 virt machine using Linux RISC-V M-mode (i.e. NoMMU)
+
+Changes since v1:
+ - Rebased series on Linux-5.8-rc2
+ - Added pr_warn() for case where ipi_ops not available in PATCH1
+ - Updated ipi_inject() prototype to use "struct cpumask *" in PATCH1
+ - Updated CLINT_TIMER kconfig option to depend on RISCV_M_MODE in PATCH4
+ - Added riscv,clint0 compatible string in DT bindings document
+
+Anup Patel (5):
+  RISC-V: Add mechanism to provide custom IPI operations
+  RISC-V: Remove CLINT related code
+  clocksource/drivers/timer-riscv: Remove MMIO related stuff
+  clocksource/drivers: Add CLINT timer driver
+  dt-bindings: timer: Add CLINT bindings
+
+ .../bindings/timer/sifive,clint.txt           |  34 +++
+ arch/riscv/Kconfig                            |   2 +-
+ arch/riscv/include/asm/clint.h                |  39 ---
+ arch/riscv/include/asm/smp.h                  |  11 +
+ arch/riscv/include/asm/timex.h                |  28 +--
+ arch/riscv/kernel/Makefile                    |   2 +-
+ arch/riscv/kernel/clint.c                     |  44 ----
+ arch/riscv/kernel/sbi.c                       |  14 ++
+ arch/riscv/kernel/setup.c                     |   2 -
+ arch/riscv/kernel/smp.c                       |  44 ++--
+ arch/riscv/kernel/smpboot.c                   |   4 +-
+ drivers/clocksource/Kconfig                   |  12 +-
+ drivers/clocksource/Makefile                  |   1 +
+ drivers/clocksource/timer-clint.c             | 229 ++++++++++++++++++
+ drivers/clocksource/timer-riscv.c             |  17 +-
+ include/linux/cpuhotplug.h                    |   1 +
+ 16 files changed, 337 insertions(+), 147 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/timer/sifive,clint.txt
+ delete mode 100644 arch/riscv/include/asm/clint.h
+ delete mode 100644 arch/riscv/kernel/clint.c
+ create mode 100644 drivers/clocksource/timer-clint.c
 
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.wiki.kernel.org/userdoc/prtracker
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
