@@ -2,63 +2,117 @@ Return-Path: <SRS0=ohv9=AJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BF434C433E0
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Jun 2020 16:25:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 456C6C433DF
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Jun 2020 19:56:24 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8E72920773
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Jun 2020 16:25:38 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 110A92053B
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Jun 2020 19:56:24 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZBsPDlt4";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="Y3OerUbS"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8E72920773
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="26LBgPXr";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="dVh4v78r"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 110A92053B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:Message-Id:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=yqx+qEiz8wS4SAor1+YUHQUrxmDtm5FNPsZVZP1SC5c=; b=ZBsPDlt4N0a9zX/K0Saaw3/EV
-	rjE51t4AQ/1+mcPGYZG5NXjyN4MP8PoLfn6ov3ykCvaGKNS0hxTi8V3SVdAfdnlbQM4PMl985CSZ+
-	d4GpTCgUF0fvnWgOSRJCdA6GJp50hwlTrchHtrUJqEda1W9sD7BTk0/EO3IVvxhK6vvckBcQ9TsfY
-	7Oc9TM3OArcJVUzO9mUiFX4CTsWijTwF5zHFwxiNtBoyBbNE6Voobnkci1nsQlOwQWH0jRC0q2Tyb
-	lNtKaw5ZBb9lqnJWnF3uGhh5AEycfix8qmehvpL0NiumnHnkVJhfb2bZtH08JRGdGtfW67VWq52ox
-	7DKE0gijg==;
+	Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe
+	:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:Subject:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XlJP/UK0ttz5qkpJJUsveuNbwZkuVKVQDa5Om/m41zk=; b=26LBgPXrkCiVQ08PM8M9mJ52YA
+	PWla8zoyb3TbwPWDgFaapcH13+gExuVGrToJx9W/TIsTaH9M7Nu+ouihyO1zMAPMMwe0g+Q3/toOS
+	OFJiPT5j8pAbACmXAWeCereV0FZFkMCq6TOm5n096iPIzxPCTNNsoADtNROpeRHdtqw7JEBgi/EEB
+	OPQsE6tS8WkEqAaZD0koxkWgAYgQqs8NOV+rhZA9PGei7NVlOSNoIAjvIYbhgN70ONLRqXzOxPv1R
+	OPsNjDJ/biq4R1mvsogU5xfAcXp0tf/PeqhmgMyL10irqps7v/UNowhLGlNSPy3UXE/3YLDoynk4N
+	cKhiv7Mg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jpa7Y-0000ZT-AQ; Sun, 28 Jun 2020 16:25:32 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1jpdPW-0004No-58; Sun, 28 Jun 2020 19:56:18 +0000
+Received: from mail-qt1-x844.google.com ([2607:f8b0:4864:20::844])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jpa7W-0000ZE-Og
- for linux-riscv@lists.infradead.org; Sun, 28 Jun 2020 16:25:31 +0000
-Received: from devnote2 (NE2965lan1.rev.em-net.ne.jp [210.141.244.193])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id BA64420771;
- Sun, 28 Jun 2020 16:25:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1593361529;
- bh=4MsHQYCfwDNcgoFMDxuBklP42iO6H/Lxo4tZHOVpT+g=;
- h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
- b=Y3OerUbSLeNsgby2H3gQ4ClZuu9Zc3iA1DveyUjBNkbUmzJjyjMVL6Vb326AxTmc+
- d1F44707pI8ZM34pAusrVj+gcJP9Yco0Ubr0359g2vTm8O/xdQkr6AzJo1+9hh6/GA
- b87a/tUXaPeXFae/mUxAQbck2dPswuPgYMtjP/74=
-Date: Mon, 29 Jun 2020 01:25:24 +0900
-From: Masami Hiramatsu <mhiramat@kernel.org>
-To: guoren@kernel.org
-Subject: Re: [PATCH V2] riscv: Fixup compile error BUILD_BUG_ON failed
-Message-Id: <20200629012524.c941a5f18aa7f312d325f714@kernel.org>
-In-Reply-To: <1593360457-23827-1-git-send-email-guoren@kernel.org>
-References: <1593360457-23827-1-git-send-email-guoren@kernel.org>
-X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+ id 1jpdPU-0004NY-Hl
+ for linux-riscv@lists.infradead.org; Sun, 28 Jun 2020 19:56:17 +0000
+Received: by mail-qt1-x844.google.com with SMTP id e12so11361492qtr.9
+ for <linux-riscv@lists.infradead.org>; Sun, 28 Jun 2020 12:56:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=subject:to:references:from:autocrypt:message-id:date:user-agent
+ :mime-version:in-reply-to:content-language:content-transfer-encoding;
+ bh=MKmINPh1FRPrjfrGQ5s9Iv1ni2wlT0v48XVHAcMsEa8=;
+ b=dVh4v78rLubVgVI7gMbglkN2N/NxpUCRK1ys8ZdyRbhXSurR8c7JiWz7zjniGKGsCM
+ vKNU3bJa9YGXW6cIF/AXfNNjaf1J2qXTQIJbNsCCcwGvL5WfFEshdVMCaw5j6Xf9Jnk7
+ baztjNBTlWKJ/mN73FnOciTiTt6NMLyNNB5CN748KK/NTIgM4TOrKqMNkOv7UxMPF9qG
+ dqImm2pQ32Hub7rbKUbtZxD6uRjEd9Oy3Bka0vICj3YcRqOC2+qCKdsjn1wAmu3jlZ3S
+ oO80imc59/mtiF9W8+C1Ne9vdKHQqKDwmtVGpni9KUzW9VIZqjfPxezyyG/iKH8FDJvr
+ UbeA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:subject:to:references:from:autocrypt:message-id
+ :date:user-agent:mime-version:in-reply-to:content-language
+ :content-transfer-encoding;
+ bh=MKmINPh1FRPrjfrGQ5s9Iv1ni2wlT0v48XVHAcMsEa8=;
+ b=ckkV4M9MYGWuimanI//AzOjPqpwKmp7noHu65R0e/W1OAB9z3quPuV0rJqnZ1xG/d5
+ rHZJNkHMSYcOZUqMCGG7ECygLA/ZA4i74MKNRqabDRR7iAhbvi1J4XGZx3Rr56PDikKw
+ vMx6AlOa8IKbQM6negMldAlxMBkMdVMfp2OI6LduC9Kb+OMeG7Ee+cjnEFGcbLR3V6Vh
+ 9ENMUjOzauwkgrwSoszngwEy+f8eZtOzPfPsbKOmZ/TKskI5xvl3JT+wglPmqHFumRfU
+ +bYHGLX2PovfeXF979Dcnclla0BKdZhiy01fR5RtENZvrI9NQc4MoUhpENw4gXdiXUan
+ 7scQ==
+X-Gm-Message-State: AOAM530UHKTrdh+w5kubTXRQEMlj+7r3Tq8QWri7+2LL3Hr4hs9GBq/5
+ 7vbeIs8Nn4y/C/1sSlbVWN4=
+X-Google-Smtp-Source: ABdhPJwjCStMKzmw+qb3Z5ldiFv9ycqvOYxrLxa+Kq1VazcDQVkvAYlRo7cVJdPzBSO1jHzmUMmKPg==
+X-Received: by 2002:ac8:110a:: with SMTP id c10mr13018111qtj.163.1593374174048; 
+ Sun, 28 Jun 2020 12:56:14 -0700 (PDT)
+Received: from [192.168.1.209] (pool-108-51-35-162.washdc.fios.verizon.net.
+ [108.51.35.162]) by smtp.googlemail.com with ESMTPSA id
+ w185sm11197127qkb.112.2020.06.28.12.56.13
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Sun, 28 Jun 2020 12:56:13 -0700 (PDT)
+Subject: Re: Kendryte K210: state of MMU support?
+To: Drew Fustini <pdp7pdp7@gmail.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ Atish Patra <atish.patra@wdc.com>, Anup Patel <anup.patel@wdc.com>,
+ Damien Le Moal <Damien.LeMoal@wdc.com>,
+ Carlos Eduardo de Paula <me@carlosedp.com>
+References: <CAEf4M_BK29oDh94-j3+nixqfPi_r=13Svs4xOUCh_oYjPUg+pg@mail.gmail.com>
+From: Sean Anderson <seanga2@gmail.com>
+Autocrypt: addr=seanga2@gmail.com; prefer-encrypt=mutual; keydata=
+ mQENBFe74PkBCACoLC5Zq2gwrDcCkr+EPGsT14bsxrW07GiYzQhLCgwnPdEpgU95pXltbFhw
+ 46GfyffABWxHKO2x+3L1S6ZxC5AiKbYXo7lpnTBYjamPWYouz+VJEVjUx9aaSEByBah5kX6a
+ lKFZWNbXLAJh+dE1HFaMi3TQXXaInaREc+aO1F7fCa2zNE75ja+6ah8L4TPRFZ2HKQzve0/Y
+ GXtoRw97qmnm3U36vKWT/m2AiLF619F4T1mHvlfjyd9hrVwjH5h/2rFyroXVXBZHGA9Aj8eN
+ F2si35dWSZlIwXkNu9bXp0/pIu6FD0bI+BEkD5S7aH1G1iAcMFi5Qq2RNa041DfQSDDHABEB
+ AAG0K1NlYW4gR2FsbGFnaGVyIEFuZGVyc29uIDxzZWFuZ2EyQGdtYWlsLmNvbT6JAVcEEwEK
+ AEECGwMFCwkIBwIGFQgJCgsCBBYCAwECHgECF4ACGQEWIQSQYR1bzo1I0gPoYCg+6I/stKEQ
+ bgUCXT+S2AUJB2TlXwAKCRA+6I/stKEQbhNOB/9ooea0hU9Sgh7PBloU6CgaC5mlqPLB7NTp
+ +JkB+nh3Fqhk+qLZwzEynnuDLl6ESpVHIc0Ym1lyF4gT3DsrlGT1h0Gzw7vUwd1+ZfN0CuIx
+ Rn861U/dAUjvbtN5kMBqOI4/5ea+0r7MACcIVnKF/wMXBD8eypHsorT2sJTzwZ6DRCNP70C5
+ N1ahpqqNmXe0uLdP0pu55JCqhrGw2SinkRMdWyhSxT56uNwIVHGhLTqH7Q4t1N6G1EH626qa
+ SvIJsWlNpll6Y3AYLDw2/Spw/hqieS2PQ/Ky3rPZnvJt7/aSNYsKoFGX0yjkH67Uq8Lx0k1L
+ w8jpXnbEPQN3A2ZJCbeMuQENBF0/k2UBCADhvSlHblNc/aRAWtCFDblCJJMN/8Sd7S9u4ZRS
+ w1wIB4tTF7caxc8yfCHa+FjMFeVu34QPtMOvd/gfHz0mr+t0PiTAdDSbd6o7tj+g5ylm+FhT
+ OTUtJQ6mx6L9GzMmIDEbLxJMB9RfJaL2mT5JkujKxEst6nlHGV/lEQ54xBl5ImrPvuR5Dbnr
+ zWQYlafb1IC5ZFwSMpBeSfhS7/kGPtFY3NkpLrii/CF+ME0DYYWxlkDIycqF3fsUGGfb3HIq
+ z2l95OB45+mCs9DrIDZXRT6mFjLcl35UzuEErNIskCl9NKlbvAMAl+gbDH275SnE44ocC4qu
+ 0tMe7Z5jpOy6J8nNABEBAAGJATwEGAEKACYWIQSQYR1bzo1I0gPoYCg+6I/stKEQbgUCXT+T
+ ZQIbDAUJAeEzgAAKCRA+6I/stKEQbjAGB/4mYRqZTTEFmcS+f+8zsmjt2CfWvm38kR+sJFWB
+ vz82pFiUWbUM5xvcuOQhz698WQnIazbDGSYaOipyVNS52YiuYJDqMszzgw++DrcSuu0oRYWN
+ EWCkJjxMqjGg8uY0OZ6FJG+gYRN5wMFErGfV1OqQ7l00FYA9OzpOEuW9PzPZEutFnAbbh77i
+ zvxbQtT7IJCL24A4KutNYKmWg98im4mCzQcJCxE86Bv69ErLVPUyYbp4doLadScilXlvkkjL
+ iq1wOt3rRzOuw+qnWVgWGBPxdDftz0Wck941tYF9XE0aMgkf4o1sGoDZFUFPCQdfEYPzzV7O
+ S5hN3/mP5UeooFHb
+Message-ID: <25d7abde-b3a5-4488-ea93-e0aca9e0693f@gmail.com>
+Date: Sun, 28 Jun 2020 15:56:12 -0400
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.7.0
+MIME-Version: 1.0
+In-Reply-To: <CAEf4M_BK29oDh94-j3+nixqfPi_r=13Svs4xOUCh_oYjPUg+pg@mail.gmail.com>
+Content-Language: en-US
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -70,75 +124,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Guo Ren <guoren@linux.alibaba.com>, anup@brainfault.org,
- palmerdabbelt@google.com, linux-kernel@vger.kernel.org,
- linux-csky@vger.kernel.org, zong.li@sifive.com, paul.walmsley@sifive.com,
- greentime.hu@sifive.com, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU3VuLCAyOCBKdW4gMjAyMCAxNjowNzozNyArMDAwMApndW9yZW5Aa2VybmVsLm9yZyB3cm90
-ZToKCj4gRnJvbTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgo+IAo+IFVuZm9y
-dHVuYXRlbHksIHRoZSBjdXJyZW50IGNvZGUgY291bGRuJ3QgYmUgY29tcGlsZWQ6Cj4gCj4gICBD
-QyAgICAgIGFyY2gvcmlzY3Yva2VybmVsL3BhdGNoLm8KPiBJbiBmaWxlIGluY2x1ZGVkIGZyb20g
-Li9pbmNsdWRlL2xpbnV4L2tlcm5lbC5oOjExLAo+ICAgICAgICAgICAgICAgICAgZnJvbSAuL2lu
-Y2x1ZGUvbGludXgvbGlzdC5oOjksCj4gICAgICAgICAgICAgICAgICBmcm9tIC4vaW5jbHVkZS9s
-aW51eC9wcmVlbXB0Lmg6MTEsCj4gICAgICAgICAgICAgICAgICBmcm9tIC4vaW5jbHVkZS9saW51
-eC9zcGlubG9jay5oOjUxLAo+ICAgICAgICAgICAgICAgICAgZnJvbSBhcmNoL3Jpc2N2L2tlcm5l
-bC9wYXRjaC5jOjY6Cj4gSW4gZnVuY3Rpb24g4oCYZml4X3RvX3ZpcnTigJksCj4gICAgIGlubGlu
-ZWQgZnJvbSDigJhwYXRjaF9tYXDigJkgYXQgYXJjaC9yaXNjdi9rZXJuZWwvcGF0Y2guYzozNzox
-NzoKPiAuL2luY2x1ZGUvbGludXgvY29tcGlsZXIuaDozOTI6Mzg6IGVycm9yOiBjYWxsIHRvIOKA
-mF9fY29tcGlsZXRpbWVfYXNzZXJ0XzIwNeKAmSBkZWNsYXJlZCB3aXRoIGF0dHJpYnV0ZSBlcnJv
-cjogQlVJTERfQlVHX09OIGZhaWxlZDogaWR4ID49IF9fZW5kX29mX2ZpeGVkX2FkZHJlc3Nlcwo+
-ICAgX2NvbXBpbGV0aW1lX2Fzc2VydChjb25kaXRpb24sIG1zZywgX19jb21waWxldGltZV9hc3Nl
-cnRfLCBfX0NPVU5URVJfXykKPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-IF4KPiAuL2luY2x1ZGUvbGludXgvY29tcGlsZXIuaDozNzM6NDogbm90ZTogaW4gZGVmaW5pdGlv
-biBvZiBtYWNybyDigJhfX2NvbXBpbGV0aW1lX2Fzc2VydOKAmQo+ICAgICBwcmVmaXggIyMgc3Vm
-Zml4KCk7ICAgIFwKPiAgICAgXn5+fn5+Cj4gLi9pbmNsdWRlL2xpbnV4L2NvbXBpbGVyLmg6Mzky
-OjI6IG5vdGU6IGluIGV4cGFuc2lvbiBvZiBtYWNybyDigJhfY29tcGlsZXRpbWVfYXNzZXJ04oCZ
-Cj4gICBfY29tcGlsZXRpbWVfYXNzZXJ0KGNvbmRpdGlvbiwgbXNnLCBfX2NvbXBpbGV0aW1lX2Fz
-c2VydF8sIF9fQ09VTlRFUl9fKQo+ICAgXn5+fn5+fn5+fn5+fn5+fn5+fgo+IC4vaW5jbHVkZS9s
-aW51eC9idWlsZF9idWcuaDozOTozNzogbm90ZTogaW4gZXhwYW5zaW9uIG9mIG1hY3JvIOKAmGNv
-bXBpbGV0aW1lX2Fzc2VydOKAmQo+ICAjZGVmaW5lIEJVSUxEX0JVR19PTl9NU0coY29uZCwgbXNn
-KSBjb21waWxldGltZV9hc3NlcnQoIShjb25kKSwgbXNnKQo+ICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICBefn5+fn5+fn5+fn5+fn5+fn4KPiAuL2luY2x1ZGUvbGludXgvYnVp
-bGRfYnVnLmg6NTA6Mjogbm90ZTogaW4gZXhwYW5zaW9uIG9mIG1hY3JvIOKAmEJVSUxEX0JVR19P
-Tl9NU0figJkKPiAgIEJVSUxEX0JVR19PTl9NU0coY29uZGl0aW9uLCAiQlVJTERfQlVHX09OIGZh
-aWxlZDogIiAjY29uZGl0aW9uKQo+ICAgXn5+fn5+fn5+fn5+fn5+fgo+IC4vaW5jbHVkZS9hc20t
-Z2VuZXJpYy9maXhtYXAuaDozMjoyOiBub3RlOiBpbiBleHBhbnNpb24gb2YgbWFjcm8g4oCYQlVJ
-TERfQlVHX09O4oCZCj4gICBCVUlMRF9CVUdfT04oaWR4ID49IF9fZW5kX29mX2ZpeGVkX2FkZHJl
-c3Nlcyk7Cj4gICBefn5+fn5+fn5+fn4KPiAKPiBCZWNhdXNlIGZpeF90b192aXJ0KCwgaWR4KSBu
-ZWVkcyBhIGNvbnN0IHZhbHVlLCBub3QgYSBkeW5hbWljIHZhcmlhYmxlIG9mCj4gcmVnLWEwIG9y
-IEJVSUxEX0JVR19PTiBmYWlsZWQgd2l0aCAiaWR4ID49IF9fZW5kX29mX2ZpeGVkX2FkZHJlc3Nl
-cyIuCgpMb29rcyBnb29kIHRvIG1lIDopCgpSZXZpZXdlZC1ieTogTWFzYW1pIEhpcmFtYXRzdSA8
-bWhpcmFtYXRAa2VybmVsLm9yZz4KClRoYW5rcyEKCj4gCj4gU2lnbmVkLW9mZi1ieTogR3VvIFJl
-biA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgo+IENjOiBNYXNhbWkgSGlyYW1hdHN1IDxtaGly
-YW1hdEBrZXJuZWwub3JnPgo+IENjOiBab25nIExpIDx6b25nLmxpQHNpZml2ZS5jb20+Cj4gLS0t
-Cj4gQ2hhbmdlbG9nIFYyOgo+ICAtIFVzZSBfX2Fsd2F5c19pbmxpbmUgYXMgc2FtZSBhcyBmaXhf
-dG9fdmlydAo+ICAtIFVzZSBjb25zdCAiY29uc3QgdW5zaWduZWQgaW50IiBmb3IgMnRoIHBhcmFt
-Cj4gCj4gU2lnbmVkLW9mZi1ieTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgo+
-IC0tLQo+ICBhcmNoL3Jpc2N2L2tlcm5lbC9wYXRjaC5jIHwgOCArKysrKystLQo+ICAxIGZpbGUg
-Y2hhbmdlZCwgNiBpbnNlcnRpb25zKCspLCAyIGRlbGV0aW9ucygtKQo+IAo+IGRpZmYgLS1naXQg
-YS9hcmNoL3Jpc2N2L2tlcm5lbC9wYXRjaC5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvcGF0Y2guYwo+
-IGluZGV4IGQ0YTY0ZGYuLjMxNzlhNGUgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwv
-cGF0Y2guYwo+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3BhdGNoLmMKPiBAQCAtMjAsNyArMjAs
-MTIgQEAgc3RydWN0IHBhdGNoX2luc24gewo+ICB9Owo+ICAKPiAgI2lmZGVmIENPTkZJR19NTVUK
-PiAtc3RhdGljIHZvaWQgKnBhdGNoX21hcCh2b2lkICphZGRyLCBpbnQgZml4bWFwKQo+ICsvKgo+
-ICsgKiBUaGUgZml4X3RvX3ZpcnQoLCBpZHgpIG5lZWRzIGEgY29uc3QgdmFsdWUgKG5vdCBhIGR5
-bmFtaWMgdmFyaWFibGUgb2YKPiArICogcmVnLWEwKSBvciBCVUlMRF9CVUdfT04gZmFpbGVkIHdp
-dGggImlkeCA+PSBfX2VuZF9vZl9maXhlZF9hZGRyZXNzZXMiLgo+ICsgKiBTbyB1c2UgJ19fYWx3
-YXlzX2lubGluZScgYW5kICdjb25zdCB1bnNpZ25lZCBpbnQgZml4bWFwJyBoZXJlLgo+ICsgKi8K
-PiArc3RhdGljIF9fYWx3YXlzX2lubGluZSB2b2lkICpwYXRjaF9tYXAodm9pZCAqYWRkciwgY29u
-c3QgdW5zaWduZWQgaW50IGZpeG1hcCkKPiAgewo+ICAJdWludHB0cl90IHVpbnRhZGRyID0gKHVp
-bnRwdHJfdCkgYWRkcjsKPiAgCXN0cnVjdCBwYWdlICpwYWdlOwo+IEBAIC0zNyw3ICs0Miw2IEBA
-IHN0YXRpYyB2b2lkICpwYXRjaF9tYXAodm9pZCAqYWRkciwgaW50IGZpeG1hcCkKPiAgCXJldHVy
-biAodm9pZCAqKXNldF9maXhtYXBfb2Zmc2V0KGZpeG1hcCwgcGFnZV90b19waHlzKHBhZ2UpICsK
-PiAgCQkJCQkgKHVpbnRhZGRyICYgflBBR0VfTUFTSykpOwo+ICB9Cj4gLU5PS1BST0JFX1NZTUJP
-TChwYXRjaF9tYXApOwo+ICAKPiAgc3RhdGljIHZvaWQgcGF0Y2hfdW5tYXAoaW50IGZpeG1hcCkK
-PiAgewo+IC0tIAo+IDIuNy40Cj4gCgoKLS0gCk1hc2FtaSBIaXJhbWF0c3UgPG1oaXJhbWF0QGtl
-cm5lbC5vcmc+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
-ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
-Cg==
+On 6/28/20 11:54 AM, Drew Fustini wrote:
+> Hello - as far as I know, the MMU in the K210 is still not supported by Linux.
+> 
+> Anyone know of progress that has been made?
+> 
+> Thanks,
+> Drew
+> 
+
+AFAIK support for the MMU is not planned, since it follows an older
+version of the privilege-mode specs. For discussion, see [1], [2].
+
+The CSRs to configure the MMU on the K210 can only be accessed via
+M-mode, so the existing boot-chain with OpenSBI before Linux would not
+work. In addition, as discussed in [1], there are some ties between
+M-mode Linux and NOMMU on riscv. Aside from that, the only other major
+differences are in the layout of some CSRs.
+
+--Sean
+
+[1] https://lore.kernel.org/linux-riscv/mhng-a9c74759-ab94-4270-a993-9df380811220@palmerdabbelt-glaptop1/T/#m56d9c49c53b104e282106005bf6d289cad4970a3
+[2] https://lore.kernel.org/linux-riscv/20200312051107.1454880-1-damien.lemoal@wdc.com/T/#m137c2c073481f21207c92633550e6465ffc1c550
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
