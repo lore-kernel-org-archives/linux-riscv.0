@@ -4,20 +4,20 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
 	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9FC28C433DF
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Jun 2020 15:42:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4635FC433DF
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Jun 2020 15:54:33 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6CE1D20720
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Jun 2020 15:42:47 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 1737C20708
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Jun 2020 15:54:33 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="H5iF65Nc";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="FAMt9EQi"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6CE1D20720
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="GG+55Q01";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="DiC2ieSA"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1737C20708
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,55 +26,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:List-Id:To:Subject:Message-ID:Date:From:MIME-Version:Reply-To:Cc:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=S/6z/SBjk+uQYqyMeRzn26htUpLDb4JRoswFKuHkpB4=; b=H5iF65NcoMk5QBk40h3g78jgBe
-	S2TyjTO+NeBFIwuZDMRoANO4omxN6sbDiV3GaW2RejVf1uHih3rkvzYF4Gked8Sa1XaRvAXKsuXeC
-	95qlL7sYCr1LYi+QbWXj/iGUREJpr/zCes7B9fmpVvWOk1WKP7p292295+Ovh+P70h1Qg/01xDuCH
-	PwuntqN1pa2hm+EyeVV9gqMa4Jqzn5ToaNVY0wcyIhEmphIn1f3tFgz3GphonNfDjAIz8saalvvBt
-	toOQtj9UlJZvCMANwM7lTUITMZJKxHZPTRiPT6SJNkKqqVVoBy0OLMas0k6tcpa5SVDiAsWuLDbf4
-	HAiVeqyQ==;
+	bh=UFa/1RKRYsr0I0S7y3amZZ0bXEZRnccIp8CARW/CAFo=; b=GG+55Q01gSt086Xcz+IeMZNEX1
+	hBEqzjhdN8ZiKm2743XjT32bbEGb1P+2B2DHB2hef+9MBN+PJmsfrCmmDpfeAypp9tFlykIAWYRDm
+	GguIMwp2Gbc15Zw4+dvA8SRKvPNYobcLNaG/+ndkiuYvq3MQ8Kh3Ci4bAn3jyGW/X0ZUegyzLetkC
+	8E6QqJXXFE3FBHtFDJN1kDIWgXB38I2EfckSGQOPjxlYjxHd10AJgYfJBw8gATxcZ8OMBNqgJYUdw
+	8a6JmlS1SlSC95NwPeFdhngG+01CGEgLzTdHfxg6SdSlzMTB7U+iXKaOMttAnBpixgOePv+bUR6mE
+	4A/RvBLA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jpZRz-0004vT-6O; Sun, 28 Jun 2020 15:42:35 +0000
-Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
+	id 1jpZdS-0006iv-Nz; Sun, 28 Jun 2020 15:54:26 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jpZRw-0004vG-An
- for linux-riscv@lists.infradead.org; Sun, 28 Jun 2020 15:42:33 +0000
-Received: by mail-lj1-x22b.google.com with SMTP id s1so15415688ljo.0
- for <linux-riscv@lists.infradead.org>; Sun, 28 Jun 2020 08:42:30 -0700 (PDT)
+ id 1jpZdQ-0006iN-OU
+ for linux-riscv@lists.infradead.org; Sun, 28 Jun 2020 15:54:25 +0000
+Received: by mail-lf1-x135.google.com with SMTP id c11so7744636lfh.8
+ for <linux-riscv@lists.infradead.org>; Sun, 28 Jun 2020 08:54:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=mime-version:from:date:message-id:subject:to;
- bh=xLcB0ZPxLFOFFjSgzBXE6dyI6OPPKbauRHRST895pYI=;
- b=FAMt9EQiUHVVD6s0MJWsPz5NiZj/pUHN6AMst1HHNFGqzqZRkJT5J/vOec3To89azv
- blBCaWXEW2OOgMFdNUzlOCIXDzigK4/TMDaGNMIKMXFth6nnyE2mhkERQnmoTl/+0ZHp
- 7SwdoeseEEY/9eLEp9KaDUT+tcvJaWs40/LMXKg8gOihinJlWXLMD+0cqHECOsRcvolj
- KucltpdJbIJURRDiw8kxfDo23wk0vwNn9dGdQw1DOP/9vTMg5atJyQuNJxSxjMhq/3zh
- DfycjxwMDDg+JiKMxVboAvC7kbj2JRlv7YqTMyqbq6BvgRED/pS4GCJ4IMVYDQn3SsDJ
- 0sBA==
+ bh=VTpDcQBjCwiJ8l8+3Ch4PUjrLLpdEL+TIpPR5IHOI5s=;
+ b=DiC2ieSA9PnX2540+pbN2TIMeTGgetesvn2H9cg4RZuo8IRjObHeSeg4hl2BrHAhJl
+ jxJdsHao0LriRtuIdEmjbaSnQTmXg2YlfV3YpNPXUE+v4KQncaUuvmppf8lLefxNZy/X
+ H19mwyRwerUDrIYn7/wAEwBQ2raQvFCigC4/K7Dz6e2rZvTfcNByI4dkXWdTmsVTA1ni
+ MCQAhQDsi6tvNrgUC8ZcUHxVjMr8RFvMYvYkqlDNbjgLyNIR2mUyKD5VzPpNA9kQvWst
+ aC8UjdZaPKyjFPko4Fp+S/mJZvVyvyWHj0aFStcZuBFr4wt05Dc7gBhVib09iY6uBpBT
+ xUlA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
- bh=xLcB0ZPxLFOFFjSgzBXE6dyI6OPPKbauRHRST895pYI=;
- b=NIPR87bY8RN63uZPtZigmEhcrPXaQNYlnWRA/NQil6Pk+8EoiRZZWCPyin4+JpuyhP
- WCiIeAJ9K7cdMjGjJzyvTYdYs+fkBMKMb6PzumuA/eYhOGlxF/9tTA+PJ/FUVncnrbe9
- KZRAT/AJMTFlgEo8orfEDnk7K/L5H3le82wVwzoNxz/Tye1ATJhAbEakxBVOumg2X+Ex
- dV8D97L/eS6faoC+NM91htl0rPq8if6W+Tzmxa4bejlhcNs/GIXCeWDKq+zrtqnQHOX1
- 8/TSqL1WFN0mR0Sti5dFuz73PVLU9xi7/yHOydFmG38vdyNNCHmyfn/I6xi64SpAfLvc
- IONA==
-X-Gm-Message-State: AOAM531UFlfnzPWoymCjWjQ45Q9G+U9aKI6LZfPVk++dEXtdK/6bwYTu
- vQLOhrV6sXFbqEBN1odmXPi8zApU3xoe6rp0SRDO7IqUqDjByA==
-X-Google-Smtp-Source: ABdhPJwVPJCEPM9vadTYnEwytRPrGc2TNSeoRfJKom/k5mhc7TYmUNCH64XAZW5zM9Tva3eUNWkdp4kFTppM0npkzVU=
-X-Received: by 2002:a2e:b889:: with SMTP id r9mr6187611ljp.92.1593358948854;
- Sun, 28 Jun 2020 08:42:28 -0700 (PDT)
+ bh=VTpDcQBjCwiJ8l8+3Ch4PUjrLLpdEL+TIpPR5IHOI5s=;
+ b=oA45EonZPVAIQEBBlz6kxtbzQYxke4ouMMzv34F5rEk+zNN5cF8St+5FIllLAq9zP4
+ 5ZW/9RptPPcz4xcKPmh9OBBZyXDMvMWxwlxvjntGg3tAA73UKyw0mDWjVNx+JyiNErmq
+ fcocMkQ4OxFAltk1ue3KL7yt58JHDtSvUVo3C68PL9Q/FoqVildYHLrYyLejWKum3GD8
+ JQzkH9I0ErmPaCtpDWZ7SI9PhJVKPIpCsb9xWNW9nh16j9t2DSJEpmkz/aiOyUp0NhYx
+ FgDkt1xrGhsIccw1Znx8GClvnRz/CK2qHyteeTD+BN+amfyjNOA6CZUM2zGtHyMLlWoD
+ 9OcA==
+X-Gm-Message-State: AOAM533FVCnG13ui9GwjxJdtmFICEp8+zF4l3+Q3XrdHZ/mxrP9RbvPl
+ E83SpSlYRF9FJtMP87a9LBHA2AUdtteQAtZNPNSf23Cjr30=
+X-Google-Smtp-Source: ABdhPJyXPzIJN9xNW/A9y9nYeT0HJSk2d0AujT0d+utWwdDuq7H0qOMhwX1OwQviQVP33pNxvI/yWcllatBxitDXnjk=
+X-Received: by 2002:ac2:5090:: with SMTP id f16mr7291319lfm.86.1593359662796; 
+ Sun, 28 Jun 2020 08:54:22 -0700 (PDT)
 MIME-Version: 1.0
 From: Drew Fustini <pdp7pdp7@gmail.com>
-Date: Sun, 28 Jun 2020 17:42:17 +0200
-Message-ID: <CAEf4M_DSU3wfLcBiMSt645fOmwuBtdNzhNhJgcob9f8xVjzb2Q@mail.gmail.com>
-Subject: K210 and FDPIC support?
+Date: Sun, 28 Jun 2020 17:54:10 +0200
+Message-ID: <CAEf4M_BK29oDh94-j3+nixqfPi_r=13Svs4xOUCh_oYjPUg+pg@mail.gmail.com>
+Subject: Kendryte K210: state of MMU support?
 To: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "Maciej W. Rozycki" <macro@wdc.com>, 
- Atish Patra <atish.patra@wdc.com>, Anup Patel <anup.patel@wdc.com>, 
- Damien Le Moal <Damien.LeMoal@wdc.com>, Sean Anderson <seanga2@gmail.com>, 
- Carlos Eduardo de Paula <me@carlosedp.com>
+ Atish Patra <atish.patra@wdc.com>, 
+ Anup Patel <anup.patel@wdc.com>, Damien Le Moal <Damien.LeMoal@wdc.com>, 
+ Sean Anderson <seanga2@gmail.com>, Carlos Eduardo de Paula <me@carlosedp.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -91,19 +90,12 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello, I'm trying determine the current status so I can mention it
-when talking about Linux on RISC-V during the Embedded Linux
-Conference tomorrow. [0]
+Hello - as far as I know, the MMU in the K210 is still not supported by Linux.
 
-Is there any progress towards FDPIC support?
-
-My understanding this is needed for any practical usage of Linux
-userspace on the limited SRAM in the Kendryte K210.
+Anyone know of progress that has been made?
 
 Thanks,
 Drew
-
-[0] https://ossna2020.sched.com/event/c3Yq
 
 _______________________________________________
 linux-riscv mailing list
