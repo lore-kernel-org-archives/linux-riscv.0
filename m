@@ -2,78 +2,74 @@ Return-Path: <SRS0=ohv9=AJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4635FC433DF
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Jun 2020 15:54:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2A566C433E0
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Jun 2020 15:58:27 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1737C20708
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Jun 2020 15:54:33 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id EA1A420773
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Jun 2020 15:58:26 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="GG+55Q01";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="DiC2ieSA"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1737C20708
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Zd7vJYrj";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="m/G/JA6T"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EA1A420773
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe
-	:List-Id:To:Subject:Message-ID:Date:From:MIME-Version:Reply-To:Cc:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UFa/1RKRYsr0I0S7y3amZZ0bXEZRnccIp8CARW/CAFo=; b=GG+55Q01gSt086Xcz+IeMZNEX1
-	hBEqzjhdN8ZiKm2743XjT32bbEGb1P+2B2DHB2hef+9MBN+PJmsfrCmmDpfeAypp9tFlykIAWYRDm
-	GguIMwp2Gbc15Zw4+dvA8SRKvPNYobcLNaG/+ndkiuYvq3MQ8Kh3Ci4bAn3jyGW/X0ZUegyzLetkC
-	8E6QqJXXFE3FBHtFDJN1kDIWgXB38I2EfckSGQOPjxlYjxHd10AJgYfJBw8gATxcZ8OMBNqgJYUdw
-	8a6JmlS1SlSC95NwPeFdhngG+01CGEgLzTdHfxg6SdSlzMTB7U+iXKaOMttAnBpixgOePv+bUR6mE
-	4A/RvBLA==;
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=MrYixByCiQImrRCCgDKHjrNdBOwg21TuJxAoPubyo/o=; b=Zd7vJYrjIBMPeuFaSdx0JTPfj
+	LFDirkK1dFhuJmJs1C9jYTBPbDdA0EJn7wEfYI4UVBMjiQW2JfaBLFOr+2Cgg8vyIPYq7DUj7Gp2r
+	2uNa6eWDkdOOWRH0csVk/xeTOj/qnpTZIOKpcCUs7xuluAImTOTPMsgFUBmKnIWTz9blHS5RBpcAJ
+	eWVOEhb7BpDa0WvHBlZI5TJyADStOiYhmH9cZ9xhg2TecU6fEMHpxf7bC2NTVt4LQAxCjyi0+AeMd
+	N6tdFWpqz36pyB3WhpSrq/4HPtBFRd52oe7Sr9N90cCR3oQNV+Z1kpJOD5TCf25YZzequVd7qKmuU
+	F1fOll9vQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jpZdS-0006iv-Nz; Sun, 28 Jun 2020 15:54:26 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1jpZhG-0007QF-Aq; Sun, 28 Jun 2020 15:58:22 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jpZdQ-0006iN-OU
- for linux-riscv@lists.infradead.org; Sun, 28 Jun 2020 15:54:25 +0000
-Received: by mail-lf1-x135.google.com with SMTP id c11so7744636lfh.8
- for <linux-riscv@lists.infradead.org>; Sun, 28 Jun 2020 08:54:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:from:date:message-id:subject:to;
- bh=VTpDcQBjCwiJ8l8+3Ch4PUjrLLpdEL+TIpPR5IHOI5s=;
- b=DiC2ieSA9PnX2540+pbN2TIMeTGgetesvn2H9cg4RZuo8IRjObHeSeg4hl2BrHAhJl
- jxJdsHao0LriRtuIdEmjbaSnQTmXg2YlfV3YpNPXUE+v4KQncaUuvmppf8lLefxNZy/X
- H19mwyRwerUDrIYn7/wAEwBQ2raQvFCigC4/K7Dz6e2rZvTfcNByI4dkXWdTmsVTA1ni
- MCQAhQDsi6tvNrgUC8ZcUHxVjMr8RFvMYvYkqlDNbjgLyNIR2mUyKD5VzPpNA9kQvWst
- aC8UjdZaPKyjFPko4Fp+S/mJZvVyvyWHj0aFStcZuBFr4wt05Dc7gBhVib09iY6uBpBT
- xUlA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
- bh=VTpDcQBjCwiJ8l8+3Ch4PUjrLLpdEL+TIpPR5IHOI5s=;
- b=oA45EonZPVAIQEBBlz6kxtbzQYxke4ouMMzv34F5rEk+zNN5cF8St+5FIllLAq9zP4
- 5ZW/9RptPPcz4xcKPmh9OBBZyXDMvMWxwlxvjntGg3tAA73UKyw0mDWjVNx+JyiNErmq
- fcocMkQ4OxFAltk1ue3KL7yt58JHDtSvUVo3C68PL9Q/FoqVildYHLrYyLejWKum3GD8
- JQzkH9I0ErmPaCtpDWZ7SI9PhJVKPIpCsb9xWNW9nh16j9t2DSJEpmkz/aiOyUp0NhYx
- FgDkt1xrGhsIccw1Znx8GClvnRz/CK2qHyteeTD+BN+amfyjNOA6CZUM2zGtHyMLlWoD
- 9OcA==
-X-Gm-Message-State: AOAM533FVCnG13ui9GwjxJdtmFICEp8+zF4l3+Q3XrdHZ/mxrP9RbvPl
- E83SpSlYRF9FJtMP87a9LBHA2AUdtteQAtZNPNSf23Cjr30=
-X-Google-Smtp-Source: ABdhPJyXPzIJN9xNW/A9y9nYeT0HJSk2d0AujT0d+utWwdDuq7H0qOMhwX1OwQviQVP33pNxvI/yWcllatBxitDXnjk=
-X-Received: by 2002:ac2:5090:: with SMTP id f16mr7291319lfm.86.1593359662796; 
- Sun, 28 Jun 2020 08:54:22 -0700 (PDT)
+ id 1jpZhD-0007Q0-Uf
+ for linux-riscv@lists.infradead.org; Sun, 28 Jun 2020 15:58:20 +0000
+Received: from mail-lj1-f177.google.com (mail-lj1-f177.google.com
+ [209.85.208.177])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 0795D20885
+ for <linux-riscv@lists.infradead.org>; Sun, 28 Jun 2020 15:58:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1593359898;
+ bh=DtSgSNZ/Y8U3u/G8yXdkRl6jp5GXV8zZCwtET5iW7YQ=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=m/G/JA6T3ERyNd0FPHSgEKS8tTNRsohOE46yfF7HKb6YY6w4ZT0/9dyr+ZQBO+Rcy
+ 5gBbOPMK/QF2j8Z2LUej1qJzRF3Ws9kW8GHyJAbvbC8yAx30F/Z/9mt3tFw8OYtyL6
+ CIpjJ3lKhW8+7iD4QmR0L7FWf66sYiVyjIhVoFYc=
+Received: by mail-lj1-f177.google.com with SMTP id e4so15433292ljn.4
+ for <linux-riscv@lists.infradead.org>; Sun, 28 Jun 2020 08:58:17 -0700 (PDT)
+X-Gm-Message-State: AOAM530lOG9eZ0YkEKBirGoMfLZLGrNjCxSoOsJ6/5bfy9y0hSOmJVEP
+ 4cbCb6kFFHHqtTC57myxnU8JgSgAOutH1zF8Sxo=
+X-Google-Smtp-Source: ABdhPJw4kdL62d9Qc3oTqep1ffBfGno76ikBsgH8wOkGMZ5nl95LHD/hd+wQ0lUVl4czTIHBb//DO1un06L12zHH2/s=
+X-Received: by 2002:a2e:a0cc:: with SMTP id f12mr5820411ljm.250.1593359896350; 
+ Sun, 28 Jun 2020 08:58:16 -0700 (PDT)
 MIME-Version: 1.0
-From: Drew Fustini <pdp7pdp7@gmail.com>
-Date: Sun, 28 Jun 2020 17:54:10 +0200
-Message-ID: <CAEf4M_BK29oDh94-j3+nixqfPi_r=13Svs4xOUCh_oYjPUg+pg@mail.gmail.com>
-Subject: Kendryte K210: state of MMU support?
-To: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- Atish Patra <atish.patra@wdc.com>, 
- Anup Patel <anup.patel@wdc.com>, Damien Le Moal <Damien.LeMoal@wdc.com>, 
- Sean Anderson <seanga2@gmail.com>, Carlos Eduardo de Paula <me@carlosedp.com>
+References: <1593274802-46332-1-git-send-email-guoren@kernel.org>
+ <20200628115945.335b92c517cb8a8fa87be759@kernel.org>
+ <CAJF2gTTCHMHp-+RoG8DoDhbJStzmOf5AK=Z3K26FUmd_hbgR=g@mail.gmail.com>
+ <20200628235226.dbbe2256ea6e846abfb63feb@kernel.org>
+In-Reply-To: <20200628235226.dbbe2256ea6e846abfb63feb@kernel.org>
+From: Guo Ren <guoren@kernel.org>
+Date: Sun, 28 Jun 2020 23:58:04 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTTaG6U-A9kwJotbgjYSkMUNsV=Wc-u4GM0i4zr2YCEX_A@mail.gmail.com>
+Message-ID: <CAJF2gTTaG6U-A9kwJotbgjYSkMUNsV=Wc-u4GM0i4zr2YCEX_A@mail.gmail.com>
+Subject: Re: [PATCH] riscv: Fixup compile error BUILD_BUG_ON failed
+To: Masami Hiramatsu <mhiramat@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -85,19 +81,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Guo Ren <guoren@linux.alibaba.com>, Anup Patel <anup@brainfault.org>,
+ Palmer Dabbelt <palmerdabbelt@google.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-csky@vger.kernel.org, Zong Li <zong.li@sifive.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Greentime Hu <greentime.hu@sifive.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello - as far as I know, the MMU in the K210 is still not supported by Linux.
-
-Anyone know of progress that has been made?
-
-Thanks,
-Drew
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU3VuLCBKdW4gMjgsIDIwMjAgYXQgMTA6NTIgUE0gTWFzYW1pIEhpcmFtYXRzdSA8bWhpcmFt
+YXRAa2VybmVsLm9yZz4gd3JvdGU6Cj4KPiBPbiBTdW4sIDI4IEp1biAyMDIwIDE0OjEyOjA3ICsw
+ODAwCj4gR3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+IHdyb3RlOgo+Cj4gPiBPbiBTdW4sIEp1
+biAyOCwgMjAyMCBhdCAxMDo1OSBBTSBNYXNhbWkgSGlyYW1hdHN1IDxtaGlyYW1hdEBrZXJuZWwu
+b3JnPiB3cm90ZToKPiA+ID4KPiA+ID4gT24gU2F0LCAyNyBKdW4gMjAyMCAxNjoyMDowMiArMDAw
+MAo+ID4gPiBndW9yZW5Aa2VybmVsLm9yZyB3cm90ZToKPiA+ID4KPiA+ID4gPiBGcm9tOiBHdW8g
+UmVuIDxndW9yZW5AbGludXguYWxpYmFiYS5jb20+Cj4gPiA+ID4KPiA+ID4gPiBVbmZvcnR1bmF0
+ZWx5LCB0aGUgY3VycmVudCBjb2RlIGNvdWxkbid0IGJlIGNvbXBpbGVkLCBiZWNhdXNlCj4gPiA+
+ID4gQlVJTERfQlVHX09OIG5lZWRzIGEgc3RhdGljIGRlZmluZWQgdmFsdWUsIG5vdCBhIGR5bmFt
+aWMKPiA+ID4gPiB2YXJpYWJsZSB3aXRoIGEwIHJlZ3MuIEp1c3QgdXNlIGl0IGlubGluZSBhcyBh
+IHNvbHV0aW9uLgo+ID4gPiA+Cj4gPiA+ID4gICBDQyAgICAgIGFyY2gvcmlzY3Yva2VybmVsL3Bh
+dGNoLm8KPiA+ID4gPiBJbiBmaWxlIGluY2x1ZGVkIGZyb20gLi9pbmNsdWRlL2xpbnV4L2tlcm5l
+bC5oOjExLAo+ID4gPiA+ICAgICAgICAgICAgICAgICAgZnJvbSAuL2luY2x1ZGUvbGludXgvbGlz
+dC5oOjksCj4gPiA+ID4gICAgICAgICAgICAgICAgICBmcm9tIC4vaW5jbHVkZS9saW51eC9wcmVl
+bXB0Lmg6MTEsCj4gPiA+ID4gICAgICAgICAgICAgICAgICBmcm9tIC4vaW5jbHVkZS9saW51eC9z
+cGlubG9jay5oOjUxLAo+ID4gPiA+ICAgICAgICAgICAgICAgICAgZnJvbSBhcmNoL3Jpc2N2L2tl
+cm5lbC9wYXRjaC5jOjY6Cj4gPiA+ID4gSW4gZnVuY3Rpb24g4oCYZml4X3RvX3ZpcnTigJksCj4g
+PiA+ID4gICAgIGlubGluZWQgZnJvbSDigJhwYXRjaF9tYXDigJkgYXQgYXJjaC9yaXNjdi9rZXJu
+ZWwvcGF0Y2guYzozNzoxNzoKPiA+ID4gPiAuL2luY2x1ZGUvbGludXgvY29tcGlsZXIuaDozOTI6
+Mzg6IGVycm9yOiBjYWxsIHRvIOKAmF9fY29tcGlsZXRpbWVfYXNzZXJ0XzIwNeKAmSBkZWNsYXJl
+ZCB3aXRoIGF0dHJpYnV0ZSBlcnJvcjogQlVJTERfQlVHX09OIGZhaWxlZDogaWR4ID49IF9fZW5k
+X29mX2ZpeGVkX2FkZHJlc3Nlcwo+ID4gPiA+ICAgX2NvbXBpbGV0aW1lX2Fzc2VydChjb25kaXRp
+b24sIG1zZywgX19jb21waWxldGltZV9hc3NlcnRfLCBfX0NPVU5URVJfXykKPiA+ID4gPiAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF4KPiA+ID4gPiAuL2luY2x1ZGUvbGlu
+dXgvY29tcGlsZXIuaDozNzM6NDogbm90ZTogaW4gZGVmaW5pdGlvbiBvZiBtYWNybyDigJhfX2Nv
+bXBpbGV0aW1lX2Fzc2VydOKAmQo+ID4gPiA+ICAgICBwcmVmaXggIyMgc3VmZml4KCk7ICAgIFwK
+PiA+ID4gPiAgICAgXn5+fn5+Cj4gPiA+ID4gLi9pbmNsdWRlL2xpbnV4L2NvbXBpbGVyLmg6Mzky
+OjI6IG5vdGU6IGluIGV4cGFuc2lvbiBvZiBtYWNybyDigJhfY29tcGlsZXRpbWVfYXNzZXJ04oCZ
+Cj4gPiA+ID4gICBfY29tcGlsZXRpbWVfYXNzZXJ0KGNvbmRpdGlvbiwgbXNnLCBfX2NvbXBpbGV0
+aW1lX2Fzc2VydF8sIF9fQ09VTlRFUl9fKQo+ID4gPiA+ICAgXn5+fn5+fn5+fn5+fn5+fn5+fgo+
+ID4gPiA+IC4vaW5jbHVkZS9saW51eC9idWlsZF9idWcuaDozOTozNzogbm90ZTogaW4gZXhwYW5z
+aW9uIG9mIG1hY3JvIOKAmGNvbXBpbGV0aW1lX2Fzc2VydOKAmQo+ID4gPiA+ICAjZGVmaW5lIEJV
+SUxEX0JVR19PTl9NU0coY29uZCwgbXNnKSBjb21waWxldGltZV9hc3NlcnQoIShjb25kKSwgbXNn
+KQo+ID4gPiA+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBefn5+fn5+fn5+
+fn5+fn5+fn4KPiA+ID4gPiAuL2luY2x1ZGUvbGludXgvYnVpbGRfYnVnLmg6NTA6Mjogbm90ZTog
+aW4gZXhwYW5zaW9uIG9mIG1hY3JvIOKAmEJVSUxEX0JVR19PTl9NU0figJkKPiA+ID4gPiAgIEJV
+SUxEX0JVR19PTl9NU0coY29uZGl0aW9uLCAiQlVJTERfQlVHX09OIGZhaWxlZDogIiAjY29uZGl0
+aW9uKQo+ID4gPiA+ICAgXn5+fn5+fn5+fn5+fn5+fgo+ID4gPiA+IC4vaW5jbHVkZS9hc20tZ2Vu
+ZXJpYy9maXhtYXAuaDozMjoyOiBub3RlOiBpbiBleHBhbnNpb24gb2YgbWFjcm8g4oCYQlVJTERf
+QlVHX09O4oCZCj4gPiA+ID4gICBCVUlMRF9CVUdfT04oaWR4ID49IF9fZW5kX29mX2ZpeGVkX2Fk
+ZHJlc3Nlcyk7Cj4gPiA+ID4gICBefn5+fn5+fn5+fn4KPiA+ID4gPgo+ID4gPiA+IFNpZ25lZC1v
+ZmYtYnk6IEd1byBSZW4gPGd1b3JlbkBsaW51eC5hbGliYWJhLmNvbT4KPiA+ID4gPiBDYzogTWFz
+YW1pIEhpcmFtYXRzdSA8bWhpcmFtYXRAa2VybmVsLm9yZz4KPiA+ID4gPiBDYzogWm9uZyBMaSA8
+em9uZy5saUBzaWZpdmUuY29tPgo+ID4gPiA+IC0tLQo+ID4gPiA+ICBhcmNoL3Jpc2N2L2tlcm5l
+bC9wYXRjaC5jIHwgMyArLS0KPiA+ID4gPiAgMSBmaWxlIGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCsp
+LCAyIGRlbGV0aW9ucygtKQo+ID4gPiA+Cj4gPiA+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yv
+a2VybmVsL3BhdGNoLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9wYXRjaC5jCj4gPiA+ID4gaW5kZXgg
+ZDRhNjRkZi4uZjhlODRmMiAxMDA2NDQKPiA+ID4gPiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9w
+YXRjaC5jCj4gPiA+ID4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvcGF0Y2guYwo+ID4gPiA+IEBA
+IC0yMCw3ICsyMCw3IEBAIHN0cnVjdCBwYXRjaF9pbnNuIHsKPiA+ID4gPiAgfTsKPiA+ID4gPgo+
+ID4gPiA+ICAjaWZkZWYgQ09ORklHX01NVQo+ID4gPiA+IC1zdGF0aWMgdm9pZCAqcGF0Y2hfbWFw
+KHZvaWQgKmFkZHIsIGludCBmaXhtYXApCj4gPiA+ID4gK3N0YXRpYyBpbmxpbmUgdm9pZCAqcGF0
+Y2hfbWFwKHZvaWQgKmFkZHIsIGludCBmaXhtYXApCj4gPiA+Cj4gPiA+IFdvdWxkIHdlIGJlIGJl
+dHRlciB0byB1c2UgIl9fYWx3YXlzX2lubGluZSIgYXMgc2FtZSBhcyBmaXhfdG9fdmlydD8KPiA+
+IE9rCj4gPgo+ID4gPiBBbmQgYWxzbywgY291bGQgeW91IGFkZCBhIGNvbW1lbnQgd2h5IHdlIG5l
+ZWQgdG8gbWFrZSBpdCBpbmxpbmU/Cj4gPiBJJ3ZlIG1lbnRpb25lZCBpbiBjb21tZW50Ogo+ID4g
+PiA+IEJVSUxEX0JVR19PTiBuZWVkcyBhIHN0YXRpYyBkZWZpbmVkIHZhbHVlLCBub3QgYSBkeW5h
+bWljCj4gPiA+ID4gdmFyaWFibGUgd2l0aCBhMCByZWdzLgo+ID4KPiA+IGlkeCBtdXN0IGJlIGEg
+Y29uc3QgdW5zaWduZWQgaW50IG9yIGl0IHdpbGwgY2F1c2UgY29tcGlsZSBlcnJvciB3aXRoCj4g
+PiBCVUlMRF9CVUdfT04uCj4KPiBBaCwgc29ycnkgZm9yIHRoZSBjb25mdXNpb24uIEkgbWVhbnQg
+dGhlIGNvbW1lbnQgbGluZSBpbiB0aGUgY29kZS4KT2suCgo+IEJUVywgY2FuIHdlIGFsc28gdXNl
+ICJjb25zdCB1bnNpZ25lZCBpbnQiIGZvciB0aGUgZml4bWFwIGluZGV4IHNvIHRoYXQKPiBubyBv
+bmUgbWlzcyBpdCBhbnltb3JlPwpTdXJlLCBhY3R1YWxseSBJJ3ZlIGRvbmUgaXQgaW4gbXkgcGF0
+Y2ggVjIuIFRoeCBmb3IgbWVudGlvbi4KCi0tIApCZXN0IFJlZ2FyZHMKIEd1byBSZW4KCk1MOiBo
+dHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1jc2t5LwoKX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
+LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
+bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
