@@ -2,21 +2,21 @@ Return-Path: <SRS0=ohv9=AJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
-	SPF_PASS autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D886DC433DF
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Jun 2020 07:00:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 76591C433E0
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Jun 2020 07:11:05 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A927F212CC
-	for <linux-riscv@archiver.kernel.org>; Sun, 28 Jun 2020 07:00:15 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 46FB6207E8
+	for <linux-riscv@archiver.kernel.org>; Sun, 28 Jun 2020 07:11:05 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="prwTELuX";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="Qm3qqF3d"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A927F212CC
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="BaBG/LyA";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="UyijhxBt"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 46FB6207E8
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,40 +25,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=IB7TqhBia611s4nIwJ/04gMB5LmUuNEUJ4obaAhYfIU=; b=prwTELuXCzqTbF/oH/iByduNM
-	A2IdxIHbtuoWs96Rd94oUpf0oZgx4fWMemGWwMkEKtQZm11dFlSe6NXoo/iRa4bSXySNMop00XSXv
-	byBvSRnYQJAiQZiebbt8/BHrTXQo5H+O3tTCOw/SeKYl2bjibnu8mTfvDSzVK5TL4VALl9q3cOVSJ
-	aNiRzVFUXmaon5iJVOYdgNZTOf/lE5aIb2OTLs31rjwWVIwNNHahsbfMohqEzl0iZveQ5cSsVvALA
-	HQ9N7O1H9KWgKH74Weohmm+Zo024buCBzr5wcwqPfAB1dInTu2jiHU/yeGpwfOWqFYCETWFyWUBut
-	mE2y5cMEw==;
+	 bh=61p4EbWTd7yeOV4GhW1AQYXv0HVFCgMSmZyZDaVF28k=; b=BaBG/LyAli0jCMetJhOw8eXWL
+	uoOEvY2+NVaW1F17vcrNNWapCD4vqypmbG+XDMMURJ5IbRWBOsExqCGsvAKN6BYjdE84sKrTMYbnk
+	RoSl7lQf1oIoAC1UxTjrKeYuSwcTUy41xoh9P/yFtiyyIUkNVpapX7btg/+QY1PIFxaM7pPTzzfSi
+	pvyiO4cXIPmAQd3yfoRmPAd7M6EUz5VBygvkgpn0DMCthfF/PqMcDIZy8X9/h5Dr01XQec/FVl9Tf
+	CCzzq0cv0oCfShO3+gtRRdNQnCPHLVCXe/pebZgmBLO/taRIxeLZ0hQzr1V9AIKyL2DvKMnGUFwv3
+	D581o6N1w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jpRIQ-0000kG-6W; Sun, 28 Jun 2020 07:00:10 +0000
+	id 1jpRSu-0001uN-80; Sun, 28 Jun 2020 07:11:00 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jpRIM-0000jV-5l; Sun, 28 Jun 2020 07:00:06 +0000
+ id 1jpRSq-0001tg-D7; Sun, 28 Jun 2020 07:10:57 +0000
 Received: from kernel.org (unknown [87.71.40.38])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id D042720702;
- Sun, 28 Jun 2020 06:59:55 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 3D65920775;
+ Sun, 28 Jun 2020 07:10:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1593327604;
- bh=hu/tW2f/lIs0zzXJSvCrgwdLd0PRG2JIRHvUCcaAjqM=;
+ s=default; t=1593328255;
+ bh=yK/mmEcayAp4K1SoJVYgv0KctiM5CGqsdRXbo6D8DTo=;
  h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=Qm3qqF3d78J/gFOwv6YVJb71itb3mymeRhGcaLrkXQY5dETAmGwNnfv+uXEMscIi2
- mPZsATFBdJNygr2fnTWo/ejLleXfIjFaiD5KXp/1ygh8w33HlLwG0oN/C/qRCb8sbq
- bU6JOX1KtJfeNxxfnsJIYZnBX1A1gh84k+HeVxCY=
-Date: Sun, 28 Jun 2020 09:59:51 +0300
+ b=UyijhxBtiPImkMHKkSGIyXWOBHqIqoPqHi03HWzaGBbmBhYKOSRUunGTmaRWc4Gjn
+ 2TMA+ldpEEnMFu0kFYBgT1B2G/Iqyrdp18UacvMYdOXnb2Y4yh/FSazt4w3nUe/3UB
+ VKf4vf+8Dah0/sxlNf+Z75XPskzsJ/8NsyHkTS2A=
+Date: Sun, 28 Jun 2020 10:10:44 +0300
 From: Mike Rapoport <rppt@kernel.org>
 To: Matthew Wilcox <willy@infradead.org>
-Subject: Re: [PATCH 9/8] mm: Account PMD tables like PTE tables
-Message-ID: <20200628065951.GB576120@kernel.org>
+Subject: Re: [PATCH 4/8] asm-generic: pgalloc: provide generic
+ pmd_alloc_one() and pmd_free_one()
+Message-ID: <20200628071044.GC576120@kernel.org>
 References: <20200627143453.31835-1-rppt@kernel.org>
- <20200627184642.GF25039@casper.infradead.org>
+ <20200627143453.31835-5-rppt@kernel.org>
+ <20200627190304.GG25039@casper.infradead.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20200627184642.GF25039@casper.infradead.org>
+In-Reply-To: <20200627190304.GG25039@casper.infradead.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -92,80 +94,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jun 27, 2020 at 07:46:42PM +0100, Matthew Wilcox wrote:
-> We account the PTE level of the page tables to the process in order to
-> make smarter OOM decisions and help diagnose why memory is fragmented.
-> For these same reasons, we should account pages allocated for PMDs.
-> With larger process address spaces and ASLR, the number of PMDs in use
-> is higher than it used to be so the inaccuracy is starting to matter.
+On Sat, Jun 27, 2020 at 08:03:04PM +0100, Matthew Wilcox wrote:
+> On Sat, Jun 27, 2020 at 05:34:49PM +0300, Mike Rapoport wrote:
+> > More elaborate versions on arm64 and x86 account memory for the user page
+> > tables and call to pgtable_pmd_page_ctor() as the part of PMD page
+> > initialization.
+> > 
+> > Move the arm64 version to include/asm-generic/pgalloc.h and use the generic
+> > version on several architectures.
+> > 
+> > The pgtable_pmd_page_ctor() is a NOP when ARCH_ENABLE_SPLIT_PMD_PTLOCK is
+> > not enabled, so there is no functional change for most architectures except
+> > of the addition of __GFP_ACCOUNT for allocation of user page tables.
 > 
-> Signed-off-by: Matthew Wilcox (Oracle) <willy@infradead.org>
+> Thanks for including this line; it reminded me that we're not setting
+> the PageTable flag on the page, nor accounting it to the zone page stats.
+> Hope you don't mind me tagging a patch to do that on as 9/8.
+> 
+> We could also do with a pud_page_[cd]tor and maybe even p4d/pgd versions.
+> But that brings me to the next question -- could/should some of this
+> be moved over to asm-generic/pgalloc.h?  The ctor/dtor aren't called
+> from anywhere else, and there's value to reducing the total amount of
+> code in mm.h, but then there's also value to keeping all the ifdef
+> ARCH_ENABLE_SPLIT_PMD_PTLOCK code together too.  So I'm a bit torn.
+> What do you think?
 
-Reviewed-by: Mike Rapoport <rppt@linux.ibm.com>
+There are arhcitectures that don't use asm-generic/pgalloc.h but rather
+have their own, sometimes completely different, versoins of these
+funcitons.
 
-> ---
->  include/linux/mm.h | 24 ++++++++++++++++++++----
->  1 file changed, 20 insertions(+), 4 deletions(-)
-> 
-> diff --git a/include/linux/mm.h b/include/linux/mm.h
-> index dc7b87310c10..b283e25fcffa 100644
-> --- a/include/linux/mm.h
-> +++ b/include/linux/mm.h
-> @@ -2271,7 +2271,7 @@ static inline spinlock_t *pmd_lockptr(struct mm_struct *mm, pmd_t *pmd)
->  	return ptlock_ptr(pmd_to_page(pmd));
->  }
->  
-> -static inline bool pgtable_pmd_page_ctor(struct page *page)
-> +static inline bool pmd_ptlock_init(struct page *page)
->  {
->  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
->  	page->pmd_huge_pte = NULL;
-> @@ -2279,7 +2279,7 @@ static inline bool pgtable_pmd_page_ctor(struct page *page)
->  	return ptlock_init(page);
->  }
->  
-> -static inline void pgtable_pmd_page_dtor(struct page *page)
-> +static inline void pmd_ptlock_free(struct page *page)
->  {
->  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
->  	VM_BUG_ON_PAGE(page->pmd_huge_pte, page);
-> @@ -2296,8 +2296,8 @@ static inline spinlock_t *pmd_lockptr(struct mm_struct *mm, pmd_t *pmd)
->  	return &mm->page_table_lock;
->  }
->  
-> -static inline bool pgtable_pmd_page_ctor(struct page *page) { return true; }
-> -static inline void pgtable_pmd_page_dtor(struct page *page) {}
-> +static inline bool pmd_ptlock_init(struct page *page) { return true; }
-> +static inline void pmd_ptlock_free(struct page *page) {}
->  
->  #define pmd_huge_pte(mm, pmd) ((mm)->pmd_huge_pte)
->  
-> @@ -2310,6 +2310,22 @@ static inline spinlock_t *pmd_lock(struct mm_struct *mm, pmd_t *pmd)
->  	return ptl;
->  }
->  
-> +static inline bool pgtable_pmd_page_ctor(struct page *page)
-> +{
-> +	if (!pmd_ptlock_init(page))
-> +		return false;
-> +	__SetPageTable(page);
-> +	inc_zone_page_state(page, NR_PAGETABLE);
-> +	return true;
-> +}
-> +
-> +static inline void pgtable_pmd_page_dtor(struct page *page)
-> +{
-> +	pmd_ptlock_free(page);
-> +	__ClearPageTable(page);
-> +	dec_zone_page_state(page, NR_PAGETABLE);
-> +}
-> +
->  /*
->   * No scalability reason to split PUD locks yet, but follow the same pattern
->   * as the PMD locks to make it easier if we decide to.  The VM should not be
-> -- 
-> 2.27.0
-> 
+I've tried adding linux/pgalloc.h, but I've ended up with contradicting
+need to include asm/pgalloc.h before the generic code for some
+architecures or after the generic code for others :)
+
+I think let's leave it in mm.h for now, maybe after several more cleaups
+we could do better.
 
 -- 
 Sincerely yours,
