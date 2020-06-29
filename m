@@ -7,16 +7,16 @@ X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 400EDC433E0
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2020 15:42:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 24AAFC433E0
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2020 15:42:54 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1294B253E9
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2020 15:42:16 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E690325424
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2020 15:42:53 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="flIwyaxZ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1294B253E9
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Ue9APxPc"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E690325424
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,45 +25,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=9DZWGgemx/xxgegeqiAD3u8hL1BKCPtycF9rfl/CnoM=; b=flIwyaxZAmGKhPDm9TNfiUBGh
-	cVq71zrIYBRbhtWv3XPHFJKIBONximgacmaPmOnT2bd1BlDHHTiEafkPYtHt+ORCDng/lbXit2pBm
-	I0+ZGQsCQk/YpKz4UPj1h59QdGr3cx1RjtYdSi6F4BIrTpb9ip8W3UQ8VK0NziFNUnhPZix43l+5R
-	SWdcKPrh0cXMoHPu0GBAbw1m6aLKNTPoMAqp2KCKI40YTncL8nvpfoy+1k6f0xC5a3POclAPJNqlZ
-	fXuYQcrIuvmi4lsxIi260aDQoIY5kYT5eZx+egfoWSorY4jBSgUe65vm1liDpBUsj1KfQYZFgAuN/
-	GKI1CT5xw==;
+	 bh=VNvTxx57SF3LiRdtdXoX/CyRa5X6KtGH+W1f+nFFRLg=; b=Ue9APxPc1zGVgzPHJTIePH872
+	Rjrr2l5UPNNhxVpD4EVH8ZATO0LyJaWz3FDyYN3ZZNU/9uANBl9VYpRca4ZmeWU1K7/rBEGr2rtMG
+	eA5UAZKye6ootuoNoqbs+Qxx0Wl+5X4KnjqqqGzadtHNAsBThi6N6Gd+HCpB9x7NjecxiYEOHHE9X
+	rMLV2ARg8K72X8oJjw6sw+kXk6fC/DGk1HMQgLtzmv8eJ0tZ+N03N6S+MR1+iOhZBPXpOmCaJaXhp
+	sd/i1GE3r542o0aV7q9Arr0IxczeADBsMqPPXoTH0im3CYkI6FfNU7X0oZxw4oPwWNH1g4/e5Z2Ni
+	NZDRydt3w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jpvv8-0000tL-2O; Mon, 29 Jun 2020 15:42:10 +0000
-Received: from mail-ot1-f66.google.com ([209.85.210.66])
+	id 1jpvvk-00018T-OL; Mon, 29 Jun 2020 15:42:48 +0000
+Received: from mail-ot1-f68.google.com ([209.85.210.68])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jpvuv-0000of-E4; Mon, 29 Jun 2020 15:41:59 +0000
-Received: by mail-ot1-f66.google.com with SMTP id k15so15893628otp.8;
- Mon, 29 Jun 2020 08:41:55 -0700 (PDT)
+ id 1jpvvc-00014o-33; Mon, 29 Jun 2020 15:42:41 +0000
+Received: by mail-ot1-f68.google.com with SMTP id 95so5278428otw.10;
+ Mon, 29 Jun 2020 08:42:39 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=18DuSBZeLijFT5byeb07kqFnxpD8Og5k3o71uVKMsdg=;
- b=eIyMLpLI2oJIz4mk39KglnldskW3kX1msGSBZvDEuyG5Cf3BrLtcVOUxvzdvzxkWJ4
- IoSznHzkvrAs0G2QLZDPC925iJUcx1cBforU9tr6XOtDoNshYA8QA8Z809qpFr7wHKSS
- la33vFXoTdqXVHfWJOFnA1zD1J8pJp/XuCP8JopKSi+Aomznr5jnXZbn4Pnq6C15VdD3
- 5m3BHCK02xC/pU790ImM35vk+hoH9UnkJh+irg2jypzs9E2JK6PcHqkNMXV3fO3nEbtj
- 20UJzcdH2u9Mo/Y5w74pDPtMLNA+GFkB/eOwDtYeJSIZRRThPXmpWfhkMU7qbgIrx1ev
- 7s8g==
-X-Gm-Message-State: AOAM530+S6wZaj/mrJQo3MMHgd7srVIIuUHsES3Cu9QrDkWeQw1IrXq2
- f+VRVucqzsNcZIjEbwG3kXwZLcmftubHbH1H1HZMnQ==
-X-Google-Smtp-Source: ABdhPJyfGDnofAtWY6Vq9zQSiEjHHywgsNVHJzUbnOYeAK8rSOSVeLQNZQAOcMed2+/KO3c+bzP8Q5CiqDzs7aUNX9g=
+ bh=ByBiz3Yf8Ie7OVrqv/Mz9cEMnJyRfxViWcmC4BsTpCo=;
+ b=ZhHI2vYOSrnNGhSx8PtwglLILpsDvgnOMaQPgZofCPLip80giUBsBpjs6UGAsmWSWU
+ qhAhiEdNIS7Ns6/NeenftS4cg+YdPBAjUT4501jGUmvkw8qfswKvyQQF3hDWg2vHLyzY
+ HcL2Xh4iaqRizUbrPVBkGmoHXE0S6hxL8i6zDkkzs/4s9izsr4H2uaug9SBo35QMDrsX
+ fp/SQqNdBg+Dhj7swP+W9YmVLi8Jch9dB1rChLDV1rWL9ELEt8nCUZM7HAU4ZRB35tXN
+ Sydn2KYCrDAi12tz/4kgHZbJ4hrhQsBsTWAuAX3HPkg0Oz4UO31w5sFHGBPsqz8FCvpV
+ Pblg==
+X-Gm-Message-State: AOAM530d1kNGPdNuXYR498fO+I//DB0iJReHxLEjwiD9U2Sf7dCWGxBx
+ orLtVnPIuNdLHzMFfU4Y9kSHJ670rA5iuB/eb5A=
+X-Google-Smtp-Source: ABdhPJzZv9yrcqjQPIqNSuZYxDZ0MHssHdmPppPpB4X3a0jGl41oFltbqUVWyGPYv/nioiv+o7pFkroyCV6uhkj/ZSQ=
 X-Received: by 2002:a05:6830:1451:: with SMTP id
- w17mr1238896otp.250.1593445314725; 
- Mon, 29 Jun 2020 08:41:54 -0700 (PDT)
+ w17mr1241594otp.250.1593445359003; 
+ Mon, 29 Jun 2020 08:42:39 -0700 (PDT)
 MIME-Version: 1.0
 References: <20200627143453.31835-1-rppt@kernel.org>
- <20200627143453.31835-2-rppt@kernel.org>
-In-Reply-To: <20200627143453.31835-2-rppt@kernel.org>
+ <20200627143453.31835-7-rppt@kernel.org>
+In-Reply-To: <20200627143453.31835-7-rppt@kernel.org>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 29 Jun 2020 17:41:43 +0200
-Message-ID: <CAMuHMdUOrrrtKuhtWJvzKNNLXY1fx+Ym1oXGN2J_CZ7RqByGHQ@mail.gmail.com>
-Subject: Re: [PATCH 1/8] mm: remove unneeded includes of <asm/pgalloc.h>
+Date: Mon, 29 Jun 2020 17:42:28 +0200
+Message-ID: <CAMuHMdWP07XqvgrXjCG+n5FssH3BwdDEWA4fD9TQgvVy93uMhQ@mail.gmail.com>
+Subject: Re: [PATCH 6/8] asm-generic: pgalloc: provide generic pgd_free()
 To: Mike Rapoport <rppt@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -106,25 +106,13 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jun 27, 2020 at 4:35 PM Mike Rapoport <rppt@kernel.org> wrote:
+On Sat, Jun 27, 2020 at 4:36 PM Mike Rapoport <rppt@kernel.org> wrote:
 > From: Mike Rapoport <rppt@linux.ibm.com>
 >
-> In the most cases <asm/pgalloc.h> header is required only for allocations
-> of page table memory. Most of the .c files that include that header do not
-> use symbols declared in <asm/pgalloc.h> and do not require that header.
+> Most architectures define pgd_free() as a wrapper for free_page().
 >
-> As for the other header files that used to include <asm/pgalloc.h>, it is
-> possible to move that include into the .c file that actually uses symbols
-> from <asm/pgalloc.h> and drop the include from the header file.
->
-> The process was somewhat automated using
->
->         sed -i -E '/[<"]asm\/pgalloc\.h/d' \
->                 $(grep -L -w -f /tmp/xx \
->                         $(git grep -E -l '[<"]asm/pgalloc\.h'))
->
-> where /tmp/xx contains all the symbols defined in
-> arch/*/include/asm/pgalloc.h.
+> Provide a generic version in asm-generic/pgalloc.h and enable its use for
+> most architectures.
 >
 > Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
 
