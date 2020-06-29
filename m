@@ -2,83 +2,86 @@ Return-Path: <SRS0=q2sy=AK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_GIT autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6880EC433E3
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2020 03:19:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1E777C433E6
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2020 03:19:34 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3B6C820702
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2020 03:19:32 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E111820702
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Jun 2020 03:19:33 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="z7Xn2F1B";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="DjjLcbwY"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3B6C820702
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="MdILcyH0";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="SI3ZxUA9"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E111820702
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xPeeH8a0BbaQLCpASS+a8BtBhgHL72/Ov89JLR+poo4=; b=z7Xn2F1BfBnASc1Huw2T/O+uQl
-	ll+eOZEe2eLnex2kTpinGSKgdznpUYgtwB8g+Ad9mOxFv3kRqAyE8rZ/p8sVz/Bb+8rxoJIdgVmCs
-	5KxADrRV42GWyVuMcWosSYqLQj3eWr5jkErLKh/VcQjP6OwlsMbDdjPfhERYjWtmscAgKCR0+V66K
-	OO3eYVwYH1p2KLNXjFjRyl0fYHT3pkKZ6X8yfs5x3tWD7UK3dDlIr3PaHu/buPHyZAnZIs5Bdk6in
-	07Sl8H32+teZVJyemej3NLgh3+5JUXZFN+86vcR2Brk00HvGZ9IMyOr62bwQnNAVA5K5IXIm2mD/U
-	JQLRaSrg==;
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=yyGoZvCPRB13Kw4D0fAy0D4YpVVwmHYgo/iRo+/0Cnw=; b=MdILcyH0eS+cspFCu5B/qtDEz
+	3QPO5fyt8kQ0uTsJpBkCHgqnQ9WcQKVti16B86DnT5ovSJnmIL7D4ACpE0NWzijvFi8wjaOblTBUx
+	qeyJJCEstXto/uVHe51eX15DR3WTRGULsJuKPlFROM+6IvqOeqt/NldI1bgaq6iayd9UNN4tAHA7l
+	oUQ47/kagentHQw0bUR3/eZcrT/BOYr2FxSjEu2qmmyWgdf+jKZOzPfyqKyIpTrRMwvfgf+bW8M5w
+	/b4gHvtS+Ast8yvMH79Sc+8UljPX148i9m3BUDMDceNHo/is/fQJsmCoVl+pYZQ4Tz+CGkBVfvmgn
+	YDPvs5p8w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jpkKN-00011V-AE; Mon, 29 Jun 2020 03:19:27 +0000
-Received: from mail-pj1-x1044.google.com ([2607:f8b0:4864:20::1044])
+	id 1jpkKP-00012L-PX; Mon, 29 Jun 2020 03:19:29 +0000
+Received: from mail-pl1-x642.google.com ([2607:f8b0:4864:20::642])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jpkKJ-000116-VG
- for linux-riscv@lists.infradead.org; Mon, 29 Jun 2020 03:19:25 +0000
-Received: by mail-pj1-x1044.google.com with SMTP id l6so4352452pjq.1
- for <linux-riscv@lists.infradead.org>; Sun, 28 Jun 2020 20:19:22 -0700 (PDT)
+ id 1jpkKN-00011M-8Q
+ for linux-riscv@lists.infradead.org; Mon, 29 Jun 2020 03:19:28 +0000
+Received: by mail-pl1-x642.google.com with SMTP id f2so6531469plr.8
+ for <linux-riscv@lists.infradead.org>; Sun, 28 Jun 2020 20:19:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=MX1npRs6E1BJMvrT9omJsOQIQGUgSUPJQrW7wHX73nA=;
- b=DjjLcbwY5BLsHDucAiJGHAt3gNsHaOg6PiLoaWZxOGruFvSbZQF4RW1hATXG1HnaWO
- pcZRJWshtmAxSLaRi/JtjxHj7PxLej/B40u2BarfoutSjccAyDxw2hcUwpex99gqqQb2
- 9O3yqMDejj0DMYOFaiMYErhmu/2Fez6uwhyw8wgwxXrcc1yRNEkmuc8yM1x5s63g+AiZ
- enfWSmp4cHLHLk6qJkgylXKWsIYPPMmEsWXpb0kiUrlFJ7M5Cf/meUzPO5Kim1q1/NrW
- AQSaf1wD/krSAdzXwK7sbRUfAlua4GNPn5T1oGK4hVGstQcy3UrdJk7pyl0BaJ07C+f1
- ss4A==
+ h=from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=PSUA2EwIKXLOLtNV96SGUJsM2m2OTdn3sR6o2KuM1UA=;
+ b=SI3ZxUA9MsGFyjEOEhJDbIUFM4vZxkLrpUos41w1aNc7MaAAu/mg9tswobj1hVq6nO
+ n5w/oWiSuHVskaRjPfz/DYSSKAo69a0PrXMKnQAjrWOEY0wDBSoXmkm4k7Jm9VsnqAoQ
+ PZE6TLXel62BJhqpSuxlJeZuqxWsCiMOrvvFWxyT6dp5ARd5dbNIyEBrjvlt0J4zw4Ow
+ 7zOY1EJaov0Yqz+aFPfRjvelwlPxwgiKW2hOYARD9IM/vUoLjsy0xhp/42IDAt9ohhEK
+ rp+We8aLf/9bHHgZsV59QFqMJLwL4Ia/rscQp0gz/62hnc8KHQnliaYb0FuSSnztGcWI
+ sRxA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=MX1npRs6E1BJMvrT9omJsOQIQGUgSUPJQrW7wHX73nA=;
- b=daoAcCoj8oyAxUbBi/O3rmOJlIrvq5gZkGswjZRdOJex3NME7BFBa/2YLCihmU3BEb
- YGGQXGEXXhwGfubdndttE9urg6nyunAqAq+OIEnjAkaD3o27Bm659WwYOuyFOxJq78Rl
- 6LTcX5LVRGQZfcVrT9tfsu5GrrntbJ+wYXWvO6raUSAKaNvUvMaspEvyo8St89oxoOYp
- qpap/H1IxVfO8KNu70YCzTE3XlyCivz5vcJ1Q23nCU3ks07lzwk566mLrB/dAcTfPgYG
- EVEXogVC7RwFDLXm9rHM4vkaeNMSvngMoOETQe/oM6G8GQJZDh91rg+9Vkui+Eusjobd
- pwCA==
-X-Gm-Message-State: AOAM531j3evYnlq8PzMz05WqTqNES0zlmWptYoIp9bls9pH/9NLWp42o
- qKCaDhlaKNvauuXpoeLSmy/s2OiHftnwuA==
-X-Google-Smtp-Source: ABdhPJwMpumCfd5Jtkmq2Tt8wb0YP3wqWSpHA4kY8SYSv0AOtdrJJ+gRAkE7qay+ZlKDrO56B2TLPA==
-X-Received: by 2002:a17:90a:20ad:: with SMTP id
- f42mr5130595pjg.96.1593400760594; 
- Sun, 28 Jun 2020 20:19:20 -0700 (PDT)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=PSUA2EwIKXLOLtNV96SGUJsM2m2OTdn3sR6o2KuM1UA=;
+ b=jhI95yTTguxj4V5ZG/VNdTUkkI+E+/M7yalKucuGF0sQPf9LfMr5FrqytkR++I2DXD
+ gwGYUycOvhU3bc1j8BoDvXsFwxX0molecjlSmEwfqwh/GHecdEqpAWnwbOpecb8+pMQl
+ MMbntw2ZcnXXbXzJerfG4+7dKTuycoC7G0UZ4nkH/M+eXk/7M/xQQxrUkjR2bwJCZRdp
+ QxW0WT5QhKvZR9Zmt9sKOCynpo3UlcBdw2u1xEd0shh0oUukQicwvMfyA4YnSdepmnYS
+ 6ty3+lpaG21BSiIFYzTI3pDOy48tEeXrLWhI5G+LKeNQOev4sjjp0Fby4lbod++nk9vu
+ Q6Hg==
+X-Gm-Message-State: AOAM5336Wu43XFaXJ6yuCr3/WjEXmL1S0+eee5ip8u3DvIEE8EJC0gq3
+ 7XTXf1HDAMfiLLSBFENPaWMaOA==
+X-Google-Smtp-Source: ABdhPJxbFHWw7jbZvnoyS2mNUkXDUMitESxb7srIaoRp/tgjSbxzNGBXmxyMtnMqIcEnC21YLuFAgQ==
+X-Received: by 2002:a17:902:9047:: with SMTP id
+ w7mr11534050plz.95.1593400765176; 
+ Sun, 28 Jun 2020 20:19:25 -0700 (PDT)
 Received: from hsinchu02.internal.sifive.com
  (114-34-229-221.HINET-IP.hinet.net. [114.34.229.221])
- by smtp.gmail.com with ESMTPSA id j70sm12876254pfd.208.2020.06.28.20.19.18
+ by smtp.gmail.com with ESMTPSA id j70sm12876254pfd.208.2020.06.28.20.19.23
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sun, 28 Jun 2020 20:19:20 -0700 (PDT)
+ Sun, 28 Jun 2020 20:19:24 -0700 (PDT)
 From: Zong Li <zong.li@sifive.com>
 To: palmer@dabbelt.com, paul.walmsley@sifive.com,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [RFC PATCH 0/6] Support raw event and DT for perf on RISC-V
-Date: Mon, 29 Jun 2020 11:19:09 +0800
-Message-Id: <cover.1593397455.git.zong.li@sifive.com>
+Subject: [RFC PATCH 3/6] riscv: add definition of hpmcounter CSRs
+Date: Mon, 29 Jun 2020 11:19:12 +0800
+Message-Id: <7301edd00542bf480539f2f00011be8d9cc76d3e.1593397455.git.zong.li@sifive.com>
 X-Mailer: git-send-email 2.27.0
+In-Reply-To: <cover.1593397455.git.zong.li@sifive.com>
+References: <cover.1593397455.git.zong.li@sifive.com>
 MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -97,45 +100,86 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch set adds raw event support on RISC-V. In addition, we
-introduce the DT mechanism to make our perf more generic and common.
+The hpmcounter CSRs are used for perf to read the value of monitoring
+hardware events.
 
-Currently, we set the hardware events by writing the mhpmeventN CSRs, it
-would raise an illegal instruction exception and trap into m-mode to
-emulate event selector CSRs access. It doesn't make sense because we
-shouldn't write the m-mode CSRs in s-mode. Ideally, we should set event
-selector through standard SBI call or the shadow CSRs of s-mode. We have
-prepared a proposal of a new SBI extension, called "PMU SBI extension",
-but we also discussing the feasibility of accessing these PMU CSRs on
-s-mode at the same time, such as delegation mechanism, so I was
-wondering if we could use SBI calls first and make the PMU SBI extension
-as legacy when s-mode access mechanism is accepted by Foundation? or
-keep the current situation to see what would happen in the future.
+Signed-off-by: Zong Li <zong.li@sifive.com>
+---
+ arch/riscv/include/asm/csr.h | 58 ++++++++++++++++++++++++++++++++++++
+ 1 file changed, 58 insertions(+)
 
-This patch set also introduces the DT mechanism, we don't want to add too
-much platform-dependency code in perf like other architectures, so we
-put the mapping of generic hardware events to DT, then we can easy to
-transfer generic hardware events to vendor's own hardware events without
-any platfrom-dependency stuff in our perf.
-
-Zong Li (6):
-  dt-bindings: riscv: Add YAML documentation for PMU
-  riscv: dts: sifive: Add DT support for PMU
-  riscv: add definition of hpmcounter CSRs
-  riscv: perf: Add raw event support
-  riscv: perf: introduce DT mechanism
-  riscv: remove PMU menu of Kconfig
-
- .../devicetree/bindings/riscv/pmu.yaml        |  59 +++
- arch/riscv/Kconfig                            |  13 -
- arch/riscv/boot/dts/sifive/fu540-c000.dtsi    |  13 +
- arch/riscv/include/asm/csr.h                  |  58 +++
- arch/riscv/include/asm/perf_event.h           | 100 ++--
- arch/riscv/kernel/Makefile                    |   2 +-
- arch/riscv/kernel/perf_event.c                | 471 +++++++++++-------
- 7 files changed, 471 insertions(+), 245 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/riscv/pmu.yaml
-
+diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+index cec462e198ce..3a18a0bbdc6d 100644
+--- a/arch/riscv/include/asm/csr.h
++++ b/arch/riscv/include/asm/csr.h
+@@ -83,9 +83,67 @@
+ #define CSR_CYCLE		0xc00
+ #define CSR_TIME		0xc01
+ #define CSR_INSTRET		0xc02
++#define CSR_HPMCOUNTER3		0xc03
++#define CSR_HPMCOUNTER4		0xc04
++#define CSR_HPMCOUNTER5		0xc05
++#define CSR_HPMCOUNTER6		0xc06
++#define CSR_HPMCOUNTER7		0xc07
++#define CSR_HPMCOUNTER8		0xc08
++#define CSR_HPMCOUNTER9		0xc09
++#define CSR_HPMCOUNTER10	0xc0a
++#define CSR_HPMCOUNTER11	0xc0b
++#define CSR_HPMCOUNTER12	0xc0c
++#define CSR_HPMCOUNTER13	0xc0d
++#define CSR_HPMCOUNTER14	0xc0e
++#define CSR_HPMCOUNTER15	0xc0f
++#define CSR_HPMCOUNTER16	0xc10
++#define CSR_HPMCOUNTER17	0xc11
++#define CSR_HPMCOUNTER18	0xc12
++#define CSR_HPMCOUNTER19	0xc13
++#define CSR_HPMCOUNTER20	0xc14
++#define CSR_HPMCOUNTER21	0xc15
++#define CSR_HPMCOUNTER22	0xc16
++#define CSR_HPMCOUNTER23	0xc17
++#define CSR_HPMCOUNTER24	0xc18
++#define CSR_HPMCOUNTER25	0xc19
++#define CSR_HPMCOUNTER26	0xc1a
++#define CSR_HPMCOUNTER27	0xc1b
++#define CSR_HPMCOUNTER28	0xc1c
++#define CSR_HPMCOUNTER29	0xc1d
++#define CSR_HPMCOUNTER30	0xc1e
++#define CSR_HPMCOUNTER31	0xc1f
+ #define CSR_CYCLEH		0xc80
+ #define CSR_TIMEH		0xc81
+ #define CSR_INSTRETH		0xc82
++#define CSR_HPMCOUNTER3H	0xc83
++#define CSR_HPMCOUNTER4H	0xc84
++#define CSR_HPMCOUNTER5H	0xc85
++#define CSR_HPMCOUNTER6H	0xc86
++#define CSR_HPMCOUNTER7H	0xc87
++#define CSR_HPMCOUNTER8H	0xc88
++#define CSR_HPMCOUNTER9H	0xc89
++#define CSR_HPMCOUNTER10H	0xc8a
++#define CSR_HPMCOUNTER11H	0xc8b
++#define CSR_HPMCOUNTER12H	0xc8c
++#define CSR_HPMCOUNTER13H	0xc8d
++#define CSR_HPMCOUNTER14H	0xc8e
++#define CSR_HPMCOUNTER15H	0xc8f
++#define CSR_HPMCOUNTER16H	0xc90
++#define CSR_HPMCOUNTER17H	0xc91
++#define CSR_HPMCOUNTER18H	0xc92
++#define CSR_HPMCOUNTER19H	0xc93
++#define CSR_HPMCOUNTER20H	0xc94
++#define CSR_HPMCOUNTER21H	0xc95
++#define CSR_HPMCOUNTER22H	0xc96
++#define CSR_HPMCOUNTER23H	0xc97
++#define CSR_HPMCOUNTER24H	0xc98
++#define CSR_HPMCOUNTER25H	0xc99
++#define CSR_HPMCOUNTER26H	0xc9a
++#define CSR_HPMCOUNTER27H	0xc9b
++#define CSR_HPMCOUNTER28H	0xc9c
++#define CSR_HPMCOUNTER29H	0xc9d
++#define CSR_HPMCOUNTER30H	0xc9e
++#define CSR_HPMCOUNTER31H	0xc9f
+ 
+ #define CSR_SSTATUS		0x100
+ #define CSR_SIE			0x104
 -- 
 2.27.0
 
