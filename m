@@ -2,59 +2,83 @@ Return-Path: <SRS0=QRI7=AL=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-10.0 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 89303C433E0
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2020 03:54:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C7B99C433E1
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2020 06:28:58 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 57D70206B6
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2020 03:54:12 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 9645920775
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2020 06:28:58 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="AIISx64Y"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 57D70206B6
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="FutI6WCI";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="DuO340PL"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9645920775
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=SzPuwfkqpkR9+VUBrAf8D2eUyErswgFglz6A6gkVOoU=; b=AIISx64YWOgCEMia9mg/bJ39V
-	6GhkhDjiLh41BTn+yezb/XuEJg8IUvocDac/eECl4Xnb2tmibPLrBM5SL8PcLxIk6yCHNT0OsxJrf
-	oTeHuv1NCRg+BCMOdSSmenJdMUMxxtOJoQgCHFbIW4BJRZTBthsGoUX2Bi1bMqyE2y/HpXGedJHtb
-	mtsD2lK/UPtGF0jm+xONg5ewmEUnNhUWOd2mMpoYrT+LRjq6FG9tqhiFlzNLlhEqOZJgVBD+rk2LF
-	XgoWlp8ED2oZXNtbfEJmbltoxGXpggMbfRzS1kNzk1PNEpMMfiFW00Z+R1RKr6ngTCASuYLCl4U48
-	Rq2JbzdLg==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Qo9bcpr0O/wV9oalQdLnp308KwGkyj1q3uWAJ31+MnY=; b=FutI6WCIlH0FKT4haRNP26THgE
+	t6n+nNVnlqgk+VxltpkkW4076Mqjql5DDuEjUdlc06f57Zh4VFnXyY/VUH/AbBYb0XCC6hLH71+W1
+	ERlJH1JYkhrE2r8pquz8GOTqp1KIICrVJvt8bVGnvOHo7ERmM9Tkwv+zYiy1e3ltfpAwwRQU6axfk
+	444Wol7jOWp/p+9lk8+QY6RcAZrQ9OeqFdNBKYer3fx8YNrxdR+mQzVdIQzv9BLz0rkLVAfttC9Ic
+	DLavAmpJsGjs7Li9EYf/9o3o8H1tkIytchILyWtYoTPcPIcNj3ucu+gy8Th9m0lIo5+CQ2Oo5dscs
+	dO1WZJ/w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jq7LT-0008Gt-Fu; Tue, 30 Jun 2020 03:54:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
- by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jq7LL-0008Fc-K5; Tue, 30 Jun 2020 03:54:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2739030E;
- Mon, 29 Jun 2020 20:53:58 -0700 (PDT)
-Received: from [10.163.84.101] (unknown [10.163.84.101])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5EE3D3F73C;
- Mon, 29 Jun 2020 20:53:47 -0700 (PDT)
-Subject: Re: [PATCH V3 0/4] mm/debug_vm_pgtable: Add some more tests
-To: linux-mm@kvack.org
-References: <1592192277-8421-1-git-send-email-anshuman.khandual@arm.com>
- <70ddc7dd-b688-b73e-642a-6363178c8cdd@arm.com>
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-Message-ID: <1ed72a76-9f20-0169-4c16-c1d8808690eb@arm.com>
-Date: Tue, 30 Jun 2020 09:23:35 +0530
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
- Thunderbird/52.9.1
+	id 1jq9lD-0006t7-Bn; Tue, 30 Jun 2020 06:28:51 +0000
+Received: from mail-lj1-x242.google.com ([2a00:1450:4864:20::242])
+ by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1jq9lB-0006sc-41
+ for linux-riscv@lists.infradead.org; Tue, 30 Jun 2020 06:28:49 +0000
+Received: by mail-lj1-x242.google.com with SMTP id q7so7841835ljm.1
+ for <linux-riscv@lists.infradead.org>; Mon, 29 Jun 2020 23:28:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=Zh/hWc4r7cZ7FP05AK2iPcOP4j6SOsMCoNiN5zEG3u4=;
+ b=DuO340PLKDhAWxll2RkuZvjQacukqtXNx9jKKjNiXLXIicLaW+UW/axNZmNMGJzITr
+ +6y4yereXqs2h0YOxQ0GZNHs68e707FGc27XFkcPT/pGy8vUeYjtzXXxHznjn8Z1cuYq
+ FXLgvgZUG11O+0VEPF8upvoAmw8bv1ZX0XxIx+cubDiTfiemr8Qmb9Dy258E5DgI4wHk
+ ByLQ6B2HZLmbcxJepww0vUQaVFFdi7viMZw50IGCrJaCEN7j+OI9JE8mVXyrNPzFOcOz
+ nMFuOvNj5Yd6DBZr3e3WMIcpIGQvpf1UTbut+IMI2q5D19Ee9m2jt3bh0seNO5lrSkKY
+ KGPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=Zh/hWc4r7cZ7FP05AK2iPcOP4j6SOsMCoNiN5zEG3u4=;
+ b=b0uADQzFbQXMpZcZTnPjM/PXWDhmmq0KV+Z8YCfo63STOUnpI3f4Y5igSgxyCKRhm0
+ SMVk661P4A8+0f24jfAjWMEBgVT07WarWdKwumkjfJssNEoXO/ChtqlOcGF5BRp7LQoq
+ /ryVRZEYvHuc6e4o9d2TG+wyoNgG/aEKdQS160nUPWA+bcdION47JzMkc1kEQWuCD3MY
+ ZViQeYemVDgBkrl8OAUBq4vqnW9Sud40GKQtO9uyGpZFKxdWbFg3fZGaAuzW/5b/BOSr
+ shpdBONd4OVN5g6SyPQWUrDREVsns3mvg3YZbBvv/D+B5bR+YOOL7QljMqlP5N7pG0z0
+ 31pg==
+X-Gm-Message-State: AOAM5308E283X2DgjGqiuWueQch2zFKpjhWVq/1hf8jx0iCtTMHfr88n
+ UKW2UpOgPqMduFurv2AlaBQlu9Lfeok=
+X-Google-Smtp-Source: ABdhPJznit1Qej/9E1/qA9oplqfDuDB6/i0ztAOJRCvIqjdZc+3QHNN1XF03oV244gukQWGaasxOag==
+X-Received: by 2002:a2e:9d1:: with SMTP id 200mr9142803ljj.392.1593498524781; 
+ Mon, 29 Jun 2020 23:28:44 -0700 (PDT)
+Received: from localhost.localdomain ([2001:999:83:73bf:51e9:ed07:efac:8bd])
+ by smtp.gmail.com with ESMTPSA id l5sm537571lfp.9.2020.06.29.23.28.42
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 29 Jun 2020 23:28:44 -0700 (PDT)
+From: Pekka Enberg <penberg@gmail.com>
+To: linux-riscv@lists.infradead.org
+Subject: [RESEND PATCH] riscv: Move nommu pgprot_* macros to pgtable.h
+Date: Tue, 30 Jun 2020 09:28:28 +0300
+Message-Id: <20200630062827.16589-1-penberg@gmail.com>
+X-Mailer: git-send-email 2.25.0
 MIME-Version: 1.0
-In-Reply-To: <70ddc7dd-b688-b73e-642a-6363178c8cdd@arm.com>
-Content-Language: en-US
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -66,81 +90,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-doc@vger.kernel.org,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Heiko Carstens <heiko.carstens@de.ibm.com>, Paul Mackerras <paulus@samba.org>,
- "H. Peter Anvin" <hpa@zytor.com>, linux-riscv@lists.infradead.org,
- Will Deacon <will@kernel.org>, linux-arch@vger.kernel.org,
- linux-s390@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>,
- Michael Ellerman <mpe@ellerman.id.au>, x86@kernel.org,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Mike Rapoport <rppt@linux.ibm.com>,
- Christian Borntraeger <borntraeger@de.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- linux-arm-kernel@lists.infradead.org, ziy@nvidia.com,
- Catalin Marinas <catalin.marinas@arm.com>, linux-snps-arc@lists.infradead.org,
- Vasily Gorbik <gor@linux.ibm.com>, Vineet Gupta <Vineet.Gupta1@synopsys.com>,
- Borislav Petkov <bp@alien8.de>, Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A . Shutemov" <kirill@shutemov.name>,
- Thomas Gleixner <tglx@linutronix.de>, gerald.schaefer@de.ibm.com,
- christophe.leroy@c-s.fr, Vineet Gupta <vgupta@synopsys.com>,
- linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
- Qian Cai <cai@lca.pw>, Andrew Morton <akpm@linux-foundation.org>,
- linuxppc-dev@lists.ozlabs.org
+Cc: Pekka Enberg <penberg@kernel.org>, Kefeng Wang <wangkefeng.wang@huawei.com>,
+ aou@eecs.berkeley.edu, palmer@dabbelt.com, paul.walmsley@sifive.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Pekka Enberg <penberg@kernel.org>
 
+The mmio.h header file defines some pgprot macros for !CONFIG_MMU, but
+pgtable.h seems like a better place for them.
 
-On 06/24/2020 08:43 AM, Anshuman Khandual wrote:
-> 
-> 
-> On 06/15/2020 09:07 AM, Anshuman Khandual wrote:
->> This series adds some more arch page table helper validation tests which
->> are related to core and advanced memory functions. This also creates a
->> documentation, enlisting expected semantics for all page table helpers as
->> suggested by Mike Rapoport previously (https://lkml.org/lkml/2020/1/30/40).
->>
->> There are many TRANSPARENT_HUGEPAGE and ARCH_HAS_TRANSPARENT_HUGEPAGE_PUD
->> ifdefs scattered across the test. But consolidating all the fallback stubs
->> is not very straight forward because ARCH_HAS_TRANSPARENT_HUGEPAGE_PUD is
->> not explicitly dependent on ARCH_HAS_TRANSPARENT_HUGEPAGE.
->>
->> Tested on arm64, x86 platforms but only build tested on all other enabled
->> platforms through ARCH_HAS_DEBUG_VM_PGTABLE i.e powerpc, arc, s390. The
->> following failure on arm64 still exists which was mentioned previously. It
->> will be fixed with the upcoming THP migration on arm64 enablement series.
->>
->> WARNING .... mm/debug_vm_pgtable.c:860 debug_vm_pgtable+0x940/0xa54
->> WARN_ON(!pmd_present(pmd_mkinvalid(pmd_mkhuge(pmd))))
->>
->> This series is based on v5.8-rc1.
->>
->> Changes in V3:
->>
->> - Replaced HAVE_ARCH_SOFT_DIRTY with MEM_SOFT_DIRTY
->> - Added HAVE_ARCH_HUGE_VMAP checks in pxx_huge_tests() per Gerald
->> - Updated documentation for pmd_thp_tests() per Zi Yan
->> - Replaced READ_ONCE() with huge_ptep_get() per Gerald
->> - Added pte_mkhuge() and masking with PMD_MASK per Gerald
->> - Replaced pte_same() with holding pfn check in pxx_swap_tests()
->> - Added documentation for all (#ifdef #else #endif) per Gerald
->> - Updated pmd_protnone_tests() per Gerald
->> - Updated HugeTLB PTE creation in hugetlb_advanced_tests() per Gerald
->> - Replaced [pmd|pud]_mknotpresent() with [pmd|pud]_mkinvalid()
->> - Added has_transparent_hugepage() check for PMD and PUD tests
->> - Added a patch which debug prints all individual tests being executed
->> - Updated documentation for renamed [pmd|pud]_mkinvalid() helpers
-> 
-> Hello Gerald/Christophe/Vineet,
-> 
-> It would be really great if you could give this series a quick test
-> on s390/ppc/arc platforms respectively. Thank you.
+Compile tested with defconfig + !CONFIG_MMU.
 
-Thanks Alexander, Gerald and Christophe for testing this out on s390
-and ppc32 platforms. Probably Vineet and Qian (any other volunteers)
-could help us with arc and ppc64 platforms, which I would appreciate.
+Cc: Kefeng Wang <wangkefeng.wang@huawei.com>
+Signed-off-by: Pekka Enberg <penberg@kernel.org>
+---
+Although the patche appeard on the mailing list, they never made it to
+the inbox of some important folks such as maintainers... I assume the
+reason is that "git-send-email" used "penberg@kernel.org" in the email
+headers when it really was sent from "penberg@gmail.com".
+
+ arch/riscv/include/asm/mmio.h    | 6 ------
+ arch/riscv/include/asm/pgtable.h | 4 ++++
+ 2 files changed, 4 insertions(+), 6 deletions(-)
+
+diff --git a/arch/riscv/include/asm/mmio.h b/arch/riscv/include/asm/mmio.h
+index 56053c9838b2..aff6c33ab0c0 100644
+--- a/arch/riscv/include/asm/mmio.h
++++ b/arch/riscv/include/asm/mmio.h
+@@ -14,12 +14,6 @@
+ #include <linux/types.h>
+ #include <asm/mmiowb.h>
+ 
+-#ifndef CONFIG_MMU
+-#define pgprot_noncached(x)	(x)
+-#define pgprot_writecombine(x)	(x)
+-#define pgprot_device(x)	(x)
+-#endif /* CONFIG_MMU */
+-
+ /* Generic IO read/write.  These perform native-endian accesses. */
+ #define __raw_writeb __raw_writeb
+ static inline void __raw_writeb(u8 val, volatile void __iomem *addr)
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index eaea1f717010..e82a32112b7e 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -459,6 +459,10 @@ static inline int ptep_clear_flush_young(struct vm_area_struct *vma,
+ 
+ static inline void __kernel_map_pages(struct page *page, int numpages, int enable) {}
+ 
++#define pgprot_noncached(x)	(x)
++#define pgprot_writecombine(x)	(x)
++#define pgprot_device(x)	(x)
++
+ #endif /* !CONFIG_MMU */
+ 
+ #define kern_addr_valid(addr)   (1) /* FIXME */
+-- 
+2.25.0
+
 
 _______________________________________________
 linux-riscv mailing list
