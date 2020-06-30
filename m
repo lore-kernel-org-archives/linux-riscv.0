@@ -2,88 +2,78 @@ Return-Path: <SRS0=QRI7=AL=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-6.0 required=3.0 tests=DKIMWL_WL_HIGH,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 995BAC433E0
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2020 11:38:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3ACC6C433DF
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2020 12:48:57 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5A57720760
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2020 11:38:38 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 046322082F
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2020 12:48:57 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="gi0VFWo0";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="eDXDcNnk"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5A57720760
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Tz+sOoQV";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.b="L7LsXFHj"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 046322082F
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=gyWs3Xo4sCcY+qk7Q5E9QGrVFookvXTpQf2GBxZZM5M=; b=gi0VFWo0SCeSAKufgb6DUbueu
-	f2n+Z1USOO+LFawlm3q6Lsn0wr/w/tr5YlmQlOz2XGd3XZRQP7UAGnliQg67xY610uzVeMrO9tlda
-	hOxtXVFBnmTZ6igZRGUbLkMd/SLuUAp0P92LJlxiX+1XGB6QyWbduDwqRdEgIBBySILndvWwt4wZE
-	dwdCMot5FSjaHDLQy7ZV8blrcnm26bVHyCExS1MQzHN/Owb02zHe33a7bRsNkzrPl1jVk4sg/6Ybt
-	NRY88kFGR2TSmLuDbAioP4ic8D0KRyOESek17/a+nxtpUhntPwXtb7QUaDuE2+1TnudNvO8l/t5bI
-	B2quhRNDw==;
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:MIME-Version:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PjW1yd6EAIalAQjcjxnwnaXfpNl1E/5EiSevGgwxRSU=; b=Tz+sOoQV4uwoeAXlksoTvVSJ3B
+	RzrMkqIKXtLeGBzETgKCdnqK2yR86J9SLSKuL1MS+9tFPYTplrpvvqzlJFWxmYxJ9R4E/YFNDDLFN
+	lz7ruypwvt5GkHWCU2WXCynHDq4yPzeASI/BrOR9YTAQk+rNBSYNqlcFDSPdpFIY254bkleLen4vM
+	L3E7UtCSJy7C+Z2SLeuvk87ZIFrRgOGtRQ6w2rcqFla1bjGgRwiJY7l538ljzl/x/pRo4ORqZPCzC
+	niaJbimPj4mXWA9iABgacTPfsWruKQQ28FTOYxenGRgx8U7w+mfN1Hcqui4acD4nDFSFZqgpApF5X
+	QkszPsBA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jqEat-0006nO-Bj; Tue, 30 Jun 2020 11:38:31 +0000
-Received: from mail-wr1-x441.google.com ([2a00:1450:4864:20::441])
+	id 1jqFgw-0007hq-4a; Tue, 30 Jun 2020 12:48:50 +0000
+Received: from mail-qt1-x843.google.com ([2607:f8b0:4864:20::843])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jqEar-0006n8-7j
- for linux-riscv@lists.infradead.org; Tue, 30 Jun 2020 11:38:30 +0000
-Received: by mail-wr1-x441.google.com with SMTP id o11so19775060wrv.9
- for <linux-riscv@lists.infradead.org>; Tue, 30 Jun 2020 04:38:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=uennJO9r8SGt93vNZcnJ7OrevSpbGpXQey7pTk+jMck=;
- b=eDXDcNnkegbwrcf4LggS4hUvc25vGkGoyyc4e0YuoMZo/OlDDhvyvT29I4BxhVZJ9j
- wT+7DOxzVE7Z0HRf/9IiLij4/f6FlbGoj55yJsiD4F3hINucsJyWoHOq9ueJSK9OZGAr
- UiSfUTfxi3gsB3XpHQzF1EHA9d+w+8BAHsScaDOdTX5FSo8hqu3o0cm4fDr85qMbFd/0
- JP+fU8ayiw24Co9SP8eGbi+7YRxFMGX6b61wikGrrSymFvtl9nYJN91Poh2aNTFMWwcb
- ABf/brBV1Ts59HHk0Z6XnG4UHwOS6gJ4KbOXQ9NEakZxJWtF1ujdcjneWiMMPovgHMnK
- vxlg==
+ id 1jqFgt-0007he-A1
+ for linux-riscv@lists.infradead.org; Tue, 30 Jun 2020 12:48:48 +0000
+Received: by mail-qt1-x843.google.com with SMTP id z2so15420420qts.5
+ for <linux-riscv@lists.infradead.org>; Tue, 30 Jun 2020 05:48:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+ h=mime-version:from:date:message-id:subject:to:cc;
+ bh=CVRHLRbIFsGXExHi1n4/B5v1cNDReShuKCh1k8ZgztM=;
+ b=L7LsXFHj3P6l8k/gZtzgdHwMrXYYXnyJ5gZFGbc1rz0bxKzdg9cmIPCSc3Ml9dilSN
+ SxikM9/IeZUEsb9i4j/FugVEQiycjcZLtr6v5bJjF3SrIX4jQ5dA1ygyQb7g//qRKtaz
+ 0LPELfFBcMnn5gs4x6h0uHKMYGfqYkhLmqqn/p1h4enzVUP2IFNviH4PQzzk4OwhvtFn
+ njtYQT4JTYfcaiRFE22zYMPmd0urVAPP/SkDdpqS4WHfUFbAwB8e6GOwjXoi/WlbTjWj
+ 1ZQM744KYXgjqbjl6veBh2B9PZOGl6kPcUXfZHCyFOu7GWEe+zxOa8lESrKIGC/xavq1
+ y9Tw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=uennJO9r8SGt93vNZcnJ7OrevSpbGpXQey7pTk+jMck=;
- b=eSX8+//0i8PQlknbLNdVTkl2Mcbvgde4Bxh7UBFPL/YEvaHcX2RqtkwcAASSb9u0hr
- qUTW4ZVyoHILNEWWZxZvjNuLlyBI56RHhO6xGrzwFMlzms3PF6ftwNBiXAtibIiY4Et/
- 6xP4XfURMIacr3Ch9jU86XtA3ugeajWOLflFvelq5cCBedilgfrYNxFYEol3PSnwV7Vj
- 0sXxX1SVBCUiedPspXHUoJvDIueT6d9Izl6glnqNxgaDcbc9kab5z7BYKwsszPHQRbeG
- GgRED6ckk5nk1+rCBs+FUZKxTCqGinCXCORkjKs/6BBSjTJJABXi9/1zbhINkkrvh8Rq
- fnXw==
-X-Gm-Message-State: AOAM532tfss826cqLJQAQaNBR2N7iWlsD2fp2TbPLlt+RiM6xh8xm1mg
- rWClFkUGIK06MYSktL9lP/cDrtL+/AUwQuiOxjag7Q==
-X-Google-Smtp-Source: ABdhPJzhe1HdXYsI1cwTuwg3Hy/kWnfopJ+EB/g5xkMJJCLGM330nfFhgoGoKUZpOe80DDFfuu/QTCiMxby+mqKBhhI=
-X-Received: by 2002:adf:de12:: with SMTP id b18mr23069098wrm.390.1593517107174; 
- Tue, 30 Jun 2020 04:38:27 -0700 (PDT)
+ h=x-gm-message-state:mime-version:from:date:message-id:subject:to:cc;
+ bh=CVRHLRbIFsGXExHi1n4/B5v1cNDReShuKCh1k8ZgztM=;
+ b=dxgD1apAZu8FibPze5DGYeSqZiSU3J2pbbYyc8cF8nvL0Kq6W+xKuS54xELmy3fpD/
+ k1uLOf9c9WgPw5asuSDiAqKvxqiAG6Bk7j2B0YE/TZOTAbpwame+Oa/iMXmDtWWxkHRw
+ ofa1KkfEEssVgXStfdV/RvSmdrv3qI9ptE+pap0pKGQiQp5Fo9EaQLxyypEjuv1Zp8aI
+ Qz96K3Cd7+8aHsSYQTujGp6cUgcUGRORod9pSMhbActCqS6OIsKCknBMWtRPyckCVPN0
+ bdLscfsLddB6pV0IYBU1ohaPMcSQwtYbSvvzvPlATa4uigZoknDPXxjITmn9iYC0f+Ro
+ tiYQ==
+X-Gm-Message-State: AOAM531aNm6VcvzfopWpMtTBVzwLTGAkMynhFsNBSsR7TOYXisjH8krl
+ TJjg5XyThEkCsfTPCEBSTp+BwEMbUdox3ocXTJMFeA==
+X-Google-Smtp-Source: ABdhPJyZNrWMJWCst2vNmIshx9hInAVog+Bc+Ufh2sdMQAE8JrzEa8RRNQ8Q3dbNvyP9W9AVaok0yxJsFjavgMqEcIE=
+X-Received: by 2002:ac8:260b:: with SMTP id u11mr20854969qtu.380.1593521323330; 
+ Tue, 30 Jun 2020 05:48:43 -0700 (PDT)
 MIME-Version: 1.0
-References: <cover.1593397455.git.zong.li@sifive.com>
- <CAAhSdy1uFt3rqf8cSHqS=W90AoeQjo10R_Ak4Cknb_QUvH1SPQ@mail.gmail.com>
- <CANXhq0p_HoD6npHmoxxYHohBsgihfe5S-0DG04xLpQ3VO1w7oQ@mail.gmail.com>
- <CAAhSdy0Ed8zQ5LVZva6p2TWqTOzrDRtL0JJkAdmpzWFhzJLUfg@mail.gmail.com>
- <CANXhq0o9BMe6G6kv-zO7OvLTfKsz-4XKsoZJe3nxvX9_6uunvw@mail.gmail.com>
- <CAAhSdy1fEge0AbKH6B72SwVHM-heN0QJPO0rQuCK5QhXq3uA0g@mail.gmail.com>
- <CANXhq0ojMx2c+OJ56YWiQG-6iHa0XvU=4qzdOvKL2_iUzwF20A@mail.gmail.com>
- <CAAhSdy1jC-hfWdSxVsaZ0Ri5AjgEQAV3YHMixqH9GW_a+VAg5w@mail.gmail.com>
- <CANXhq0rfQs_Q0q4sza0HaQOzrQoQosW4B0OduJ6T9ttMTWGZNA@mail.gmail.com>
- <CAAhSdy2D+r1oKegYJrH43akVAPJL8pvYymdSP+0x_Hk-XbtNHw@mail.gmail.com>
-In-Reply-To: <CAAhSdy2D+r1oKegYJrH43akVAPJL8pvYymdSP+0x_Hk-XbtNHw@mail.gmail.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Tue, 30 Jun 2020 17:08:15 +0530
-Message-ID: <CAAhSdy02TpyfzTGWzdqFiyeQNTj-RLk61VJNy5pYVYukqvfvrg@mail.gmail.com>
-Subject: Re: [RFC PATCH 0/6] Support raw event and DT for perf on RISC-V
-To: Zong Li <zong.li@sifive.com>
+From: Dmitry Vyukov <dvyukov@google.com>
+Date: Tue, 30 Jun 2020 14:48:31 +0200
+Message-ID: <CACT4Y+a3A6DEvUjCsk_jKz9nZ=5iAzXTyG4WDPkug6u7BVrceQ@mail.gmail.com>
+Subject: syzkaller on risc-v
+To: Tobias Klauser <tklauser@distanz.ch>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -95,262 +85,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Alan Kao <alankao@andestech.com>, Paul Walmsley <paul.walmsley@sifive.com>
+Cc: linux-riscv@lists.infradead.org, syzkaller <syzkaller@googlegroups.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 30, 2020 at 3:48 PM Anup Patel <anup@brainfault.org> wrote:
->
-> On Tue, Jun 30, 2020 at 1:34 PM Zong Li <zong.li@sifive.com> wrote:
-> >
-> > On Tue, Jun 30, 2020 at 3:40 PM Anup Patel <anup@brainfault.org> wrote:
-> > >
-> > > On Tue, Jun 30, 2020 at 12:07 PM Zong Li <zong.li@sifive.com> wrote:
-> > > >
-> > > > On Mon, Jun 29, 2020 at 9:23 PM Anup Patel <anup@brainfault.org> wrote:
-> > > > >
-> > > > > On Mon, Jun 29, 2020 at 6:23 PM Zong Li <zong.li@sifive.com> wrote:
-> > > > > >
-> > > > > > On Mon, Jun 29, 2020 at 4:28 PM Anup Patel <anup@brainfault.org> wrote:
-> > > > > > >
-> > > > > > > On Mon, Jun 29, 2020 at 11:22 AM Zong Li <zong.li@sifive.com> wrote:
-> > > > > > > >
-> > > > > > > > On Mon, Jun 29, 2020 at 12:53 PM Anup Patel <anup@brainfault.org> wrote:
-> > > > > > > > >
-> > > > > > > > > On Mon, Jun 29, 2020 at 8:49 AM Zong Li <zong.li@sifive.com> wrote:
-> > > > > > > > > >
-> > > > > > > > > > This patch set adds raw event support on RISC-V. In addition, we
-> > > > > > > > > > introduce the DT mechanism to make our perf more generic and common.
-> > > > > > > > > >
-> > > > > > > > > > Currently, we set the hardware events by writing the mhpmeventN CSRs, it
-> > > > > > > > > > would raise an illegal instruction exception and trap into m-mode to
-> > > > > > > > > > emulate event selector CSRs access. It doesn't make sense because we
-> > > > > > > > > > shouldn't write the m-mode CSRs in s-mode. Ideally, we should set event
-> > > > > > > > > > selector through standard SBI call or the shadow CSRs of s-mode. We have
-> > > > > > > > > > prepared a proposal of a new SBI extension, called "PMU SBI extension",
-> > > > > > > > > > but we also discussing the feasibility of accessing these PMU CSRs on
-> > > > > > > > > > s-mode at the same time, such as delegation mechanism, so I was
-> > > > > > > > > > wondering if we could use SBI calls first and make the PMU SBI extension
-> > > > > > > > > > as legacy when s-mode access mechanism is accepted by Foundation? or
-> > > > > > > > > > keep the current situation to see what would happen in the future.
-> > > > > > > > > >
-> > > > > > > > > > This patch set also introduces the DT mechanism, we don't want to add too
-> > > > > > > > > > much platform-dependency code in perf like other architectures, so we
-> > > > > > > > > > put the mapping of generic hardware events to DT, then we can easy to
-> > > > > > > > > > transfer generic hardware events to vendor's own hardware events without
-> > > > > > > > > > any platfrom-dependency stuff in our perf.
-> > > > > > > > >
-> > > > > > > > > Please re-write this series to have RISC-V PMU driver as a regular
-> > > > > > > > > platform driver as drivers/perf/riscv_pmu.c.
-> > > > > > > > >
-> > > > > > > > > The PMU related sources will have to be removed from arch/riscv.
-> > > > > > > > >
-> > > > > > > > > Based on implementation of final drivers/perf/riscv_pmu.c we will
-> > > > > > > > > come-up with drivers/perf/riscv_sbi_pmu.c driver for SBI perf counters.
-> > > > > > > > >
-> > > > > > > >
-> > > > > > > > There are some different ways to implement perf, and current
-> > > > > > > > implementation seems to be consensus when perf was introduced at the
-> > > > > > > > beginning [0][1]. I don't persist to which one, I could change the
-> > > > > > > > implementation as you mentioned if it is a new consensus one.
-> > > > > > > >
-> > > > > > > > [0] https://github.com/riscv/riscv-linux/pull/124#issuecomment-367563910
-> > > > > > >
-> > > > > > > I would not recommend taking the original RISC-V linux fork as reference.
-> > > > > > >
-> > > > > > > Rather we should study how things are done on other architectures.
-> > > > > > >
-> > > > > > > I really appreciate the attempt to make RISC-V PMU driver depend on DT
-> > > > > > > but if we are going this route then we should maximize the use of Linux
-> > > > > > > platform driver framework. In fact, whenever possible we should integrate
-> > > > > > > RISC-V features as platform drivers under the drivers/ directory.
-> > > > > > >
-> > > > > >
-> > > > > > OK, I would change the implementation to platform driver if there is no
-> > > > > > other voice.
-> > > > > >
-> > > > > > > I thought about SBI PMU counters as well. In future, we can easily
-> > > > > > > expose SBI PMU counters as RAW events in the same RISC-V PMU
-> > > > > > > driver. The sbi_probe_extension() can be used in RISC-V PMU driver
-> > > > > > > to check for SBI PMU counters so no special provisions needed in DT
-> > > > > > > for SBI PMU counters.
-> > > > > > >
-> > > > > >
-> > > > > > I thought about probing raw events by SBI extension too, I'm interested if you
-> > > > > > have more detail about this.
-> > > > > >
-> > > > > > It seems to me that it is a little bit hard to return all events
-> > > > > > through one SBI call,
-> > > > > > so I thought we could map the generic hardware events and maintain their own
-> > > > > > raw events by each platform in OpenSBI. But eventually, I thought the
-> > > > > > DT mechanism
-> > > > > > is more clear and easy than that. Let me know if you have any ideas about
-> > > > > > probe function. Thanks.
-> > > > >
-> > > > > We can design SBI calls such that no SBI call is required to read
-> > > > > the perf counter.
-> > > > >
-> > > > > The sbi_probe_extension() will only be used to check whether
-> > > > > underlying SBI implementation supports SBI PMU extension.
-> > > > >
-> > > > > As-per my initial thoughts, we can potentially have the following SBI calls:
-> > > > >
-> > > > > 1. SBI_PMU_NUM_COUNTERS
-> > > > >     This call will return the number of SBI PMU counters
-> > > > > 2. SBI_PMU_COUNTER_DESCRIBE
-> > > > >    This call takes two parameters: 1) physical address 2) counter index
-> > > > >     It will write the description of SBI PMU counter at specified
-> > > > > physical address.
-> > > > >     The details of the SBI PMU counter will include name, type, etc
-> > > >
-> > > > The main things are that we need to pass the information of raw events
-> > > > and the information of mapping of generic hardware events. Maybe
-> > > > this information could be passed by this SBI call.
-> > > >
-> > > > > 3. SBI_PMU_COUNTER_START
-> > > > >     This call takes two parameters: 1) physical address 2) counter index
-> > > > >     It will inform SBI implementation to start counting specified counter on the
-> > > > >     calling HART. The counter value will be written to the specified physical
-> > > > >     address whenever it changes.
-> > > >
-> > > > I would prefer to read the counter directly on s-mode. Spec already defines the
-> > > > mechanism to allow that. But this way would still work if we couldn't
-> > > > read counters
-> > > > on s-mode.
-> > >
-> > > The SBI PMU counters have nothing to do with RISC-V PMU counters because
-> > > these are counters provided by SBI implementation.
-> > >
-> > > All-in-all, we have three types of counters:
-> > > 1. PMU counters defined by RISC-V privilege spec. These are TIME,
-> > > INSRET, and CYCLE CSRs.
-> > > 2. Implementation specific counters accessed via HPMCOUNTER CSRs.
-> > > 3. SBI PMU counters for traps taken and processed by M-mode runtime
-> > > firmware. Examples: number of misaligned load/store, number of illegal
-> > > instructions, number of SBI RFENCE calls, number of SBI IPI calls, etc.
-> > >
-> > > The DT based RISC-V PMU platform driver being discussed in this email
-> > > thread only addresses points 1) and 2) above.
-> > >
-> >
-> > OK, sounds good, I misunderstood your ideas, I mixed the 2) and 3)
-> > and see them as the same thing. Many thanks for the clear explanation.
->
-> Cool, we are on the same page till here.
->
-> >
-> > > For point 3) above, we need to first define SBI PMU extension. Once SBI
-> > > PMU extension is defined, we can have separate SBI PMU driver in Linux
-> > > or extend RISC-V PMU driver to register additonal counters based on
-> > > SBI PMU extension.
-> > >
-> > > I never suggested  to access RISC-V HPMCOUNTER CSRs via SBI calls
-> > > so DT based RISC-V PMU platform driver (for 1) and 2) above) is good
-> > > to have. The SBI PMU extension is a separate topic.
-> > >
-> > > >
-> > > > > 4. SBI_PMU_COUNTER_STOP
-> > > > >     This call takes one parameter: 1) counter index
-> > > > >     It will inform SBI implementation to stop counting specified counters on
-> > > > >     the calling HART.
-> > > > >
-> > > > > The above calls are generic enough to support any number of counters
-> > > > > and we don't need any SBI call to read the counter. We can also assume
-> > > > > all counters to be of fixed 64bit width. In fact, even Hypervisors can support
-> > > > > it's own SBI PMU counters with SBI PMU extension.
-> > > > >
-> > > > > We still need to think more about the above calls because above SBI
-> > > > > calls are just initial ideas.
-> > > > >
-> > > >
-> > > > We also need a SBI call to set the event selector to specify which event
-> > > > is monitored.
-> > >
-> > > SBI_PMU_COUNTER_START will do that.
-> >
-> > I'm not sure whether this SBI call is only for SBI PMU counter and
-> > it's own events.
-> > For 2), it needs one SBI call to set the events, we just set the event selector
-> > by writing m-mode CSRs on s-mode now. If this SBI call could serve 2)
-> > and 3) both,
-> > we don't need another SBI call.
->
-> Can you elaborate more ??
->
-> Is the SBI call for 2) needed to enable/disable counters in MCOUNTEREN CSR ?
->
-> Currently, OpenSBI enables all counters by default but I see the need
-> to enable/disable HPMCOUNTER on-demand from perf event start/stop.
->
-> I hope we don't need any other implementation specific CSR to be programmed
-> for enabling/disabling counters on SiFive Unleashed ??
->
+Hello risc-v maintainers,
 
-Here's the next version of SBI PMU extension, which tries to address both
-2) and 3). In other words, it covers all HPMCOUNTER CSRs and software
-counters of SBI implementation.
+Few days ago Tobias ported syzkaller (kernel fuzzer) to risc-v arch:
+https://github.com/google/syzkaller/pull/1867
+Tobias also provided nice instructions on how to run it using qemu+buildroot:
+https://github.com/google/syzkaller/blob/master/docs/linux/setup_linux-host_qemu-vm_riscv64-kernel.md
+I tried to run it and it works. I wanted to write down some findings
+in a public place. Some may be known, some not, some may be easier to
+address, some maybe harder. For now my goal is just to document this.
 
-To define SBI PMU extension, we first define counter_idx which is a unique
-number assigned to a counter:
-1. counter_idx = 0 to 2 are for CYCLE, TIME, and INSTRET
-2. counter_idx = 3 to 31 are for HPMCOUNTER CSRs
-3. counter_idx = 32 or higher are for software counters provided by
-SBI implementation
+1. KASAN does not seem to work.
+I've tried both v5.8-rc2 and 1590a2e1c681b0991bd42c992cabfd380e0338f2
+with/without KASAN and KCOV, both inline and outline and all
+experiments point to broken KASAN. Boot gets to "INSTRUCTION SETS WANT
+TO BE FREE" banner and then it hangs dead in secondary_start_common,
+you may see some details here:
+https://github.com/google/syzkaller/pull/1875#issuecomment-650545255
+KASAN would be a prerequisite for testing risc-v on syzbot.
+The recent KCOV patch works well, though.
 
-The counter_idx == 1 (i.e. TIME CSR) is always enabled when underlying
-HW implements it. Otherwise it is always disabled.
+2. I've also tried to convert our beefy syzbot config for x86_64, it
+includes both lots of debug configs and subsystem configs:
+https://github.com/google/syzkaller/blob/master/dashboard/config/upstream-kasan.config
+I've passed it via olddefconfig for risc-v, disabled KASAN and tried
+to boot and got a similar boot hang. I did not try to bisect the
+config further.
 
-Based on above definition of counter_idx definition, we can potentially have
-the following SBI calls:
+3. Running with a small config (defconfig+KCOV) initially I got stack
+overflows all over the place. Here are some samples:
+https://gist.githubusercontent.com/dvyukov/0b6c7d93e2059f91241677a115c8e1ef/raw/947b7626f724262ba6fa3eb67b81f1a3f65cb419/gistfile1.txt
+I ended up doing:
 
-1. SBI_PMU_NUM_HPMCOUNTER
-    This call will return the number of HPMCOUNTER CSRs
-2. SBI_PMU_NUM_SOFTWARE
-    This call will return the number of software counters provided by
-    SBI implementation
-3. SBI_PMU_COUNTER_DESCRIBE
-    This call takes two parameters: 1) counter_idx 2) physical address
-    It will write the description of SBI PMU counter at specified
-physical address.
-    The details of the SBI PMU counter will include name, type, width,
-events etc
-4. SBI_PMU_COUNTER_SET_PHYS_ADDR
-    This call takes two parameters: 1) counter_idx 2) physical address
-    It will set the physical address where SBI implementation will write
-    the software counter. This SBI call is only for software counters (i.e.
-    counter_idx >= 32) so it will fail for other counters.
-5. SBI_PMU_COUNTER_SELECT_EVENT
-    This call takes two parameters: 1) counter_idx 2) event number
-    It will select a particular HW event to monitor in a HPMCOUNTER CSR.
-    This SBI call is only for HPMCOUNTER CSRs (i.e 3 <= counter_idx <= 31)
-6. SBI_PMU_COUNTER_START
-   This call takes one parameter: 1) counter_idx
-   It will inform SBI implementation to start/enable specified counter on the
-   calling HART. This SBI call will fail for counter_idx == 1 and counters
-   which are not present.
-7. SBI_PMU_COUNTER_STOP
-    This call takes one parameter: 1) counter_idx
-    It will inform SBI implementation to stop/disable specified counters on
-    the calling HART. This SBI call will fail for counter_idx == 1 and counters
-    which are not present.
+--- a/arch/riscv/include/asm/thread_info.h
++++ b/arch/riscv/include/asm/thread_info.h
+-#define THREAD_SIZE_ORDER      (1)
++#define THREAD_SIZE_ORDER      (2)
 
-The above described SBI calls can be conveniently implemented in
-M-mode runtime firmware (OpenSBI) and various hypervisors (Xvisor, KVM, etc).
+This eliminated stack overflows.
+KCOV may increase stack usage a bit, but not radically like KASAN. So
+I would assume some stack overflows can happen without KCOV as well.
+So either we need this, or at least bump stack size under KCOV.
 
-We can have a single RISC-V PMU driver using above SBI calls which
-can be used natively in HS-mode and Guest/VM in VS-mode. Of course,
-we won't need any information to be passed in DT/ACPI for this driver
-and it can be under arch/riscv/kernel because without DT/ACPI it can't
-be a platform driver. The availability of SBI PMU extension can be checked
-using sbi_probe_extension() SBI call.
+4. In lots of cases I did not get meaningful stack traces.
+E.g. WARNINGs don't unwind past the exception, which makes the stack useless:
+https://gist.githubusercontent.com/dvyukov/717c748dd5cc20f2214026331467cd9f/raw/dd5da078a0bc0210ecf00bdee1112d610305189c/gistfile1.txt
+This also happened a dozen of times for stack overflows:
+https://gist.githubusercontent.com/dvyukov/6f58a866c8ba53343fd2142b1dfcfffa/raw/1ac463c5924fa53fbe99fd8a4e093af3e3429c0f/gistfile1.txt
+also rcu stalls did not get stacks past the timer interrupt:
+https://gist.githubusercontent.com/dvyukov/bbad28c67d55fb4e12936da13c533cf5/raw/fb41b4805238fed753b39641d6c7e496519f7f56/gistfile1.txt
+and various kinds of exceptions did not get any meaningful stack traces:
+https://gist.githubusercontent.com/dvyukov/59fa9ef0f8e1f780c75a2f561b1efd24/raw/91e1f60c23992e6985fc155c2cfb081a30da7662/gistfile1.txt
+This makes it hard to debug, but stack traces are also required by
+proper bug bucketing by syzkaller.
 
-Regards,
-Anup
+5. Once we have proper stack traces, we will need to extend syzkaller
+test case base to include samples of risc-v crashes:
+https://github.com/google/syzkaller/tree/master/pkg/report/testdata/linux/report
+and crash parsing code to properly understand and bucket these crashes:
+https://github.com/google/syzkaller/blob/master/pkg/report/linux.go#L914-L1685
+
+6. I observed lots of what looks like user-space process memory
+corruptions. There included thousands of panics in our Go programs
+with things that I would consider "impossible", at least they did not
+come up before in our syzbot fuzzing. Also some Go runtime
+"impossible" crashes, e.g.:
+https://gist.githubusercontent.com/dvyukov/fb489ed93f7180621c71714ee07e53dc/raw/a7d2e98a56da17af2aec79c164cd3a8e154ecf5c/gistfile1.txt
+Maybe it's a known issue? Should we use tip instead of 1.14? Is it more stable?
+Though it's not necessary Go b/c kernel contains hundreds of memory
+corruptions and we observed kernel corrupting user-space processes
+routinely. This is especially true without KASAN because kernel
+corruptions are not caught early. However, the ratio and nature of
+crashes makes me suspect some issue in Go risc-v runtime.
+
+Thanks
 
 _______________________________________________
 linux-riscv mailing list
