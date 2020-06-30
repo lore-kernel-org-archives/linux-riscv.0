@@ -2,72 +2,59 @@ Return-Path: <SRS0=QRI7=AL=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2B937C433DF
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2020 00:13:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 89303C433E0
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2020 03:54:12 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E52A120780
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2020 00:13:05 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 57D70206B6
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Jun 2020 03:54:12 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="TKdjrmpG";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="Py1tgRPv"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E52A120780
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="AIISx64Y"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 57D70206B6
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=+lpyM1hX1ptpEvdbk/tQP/g4qoXmjkbRF+L6u4B4zu4=; b=TKdjrmpGfHbReUb202+TFWZ7+
-	7asdSvAnTsJplAP43ahUQyVmXpULS2MyMVR8tlNBUbVVP0NYn2/wt4JakgiP8QKRWcBRJtKoEH3F+
-	k7p75JpBhhjlE6ov+2VQHV6VCGL15PW/ZxebsiY2yOIzUkLXy4Dj2dB0ADEGigLHfCqejRXq+c1hS
-	5Lz8ux+bYH5fKf49a7LUH8Hy8gjYeet9qa+ooBD7lsIuhtb0CEZcn1keIfNXiPmUx0BQxa/12UO+I
-	t/W3PvFv51wjcJxPj6RwUqsIdJh9fofWeEtc/srN/+ciOBzVNb7VWtTnjqpI6uASFgQg4wOJ2ts+D
-	KFBFSt4UA==;
+	 bh=SzPuwfkqpkR9+VUBrAf8D2eUyErswgFglz6A6gkVOoU=; b=AIISx64YWOgCEMia9mg/bJ39V
+	6GhkhDjiLh41BTn+yezb/XuEJg8IUvocDac/eECl4Xnb2tmibPLrBM5SL8PcLxIk6yCHNT0OsxJrf
+	oTeHuv1NCRg+BCMOdSSmenJdMUMxxtOJoQgCHFbIW4BJRZTBthsGoUX2Bi1bMqyE2y/HpXGedJHtb
+	mtsD2lK/UPtGF0jm+xONg5ewmEUnNhUWOd2mMpoYrT+LRjq6FG9tqhiFlzNLlhEqOZJgVBD+rk2LF
+	XgoWlp8ED2oZXNtbfEJmbltoxGXpggMbfRzS1kNzk1PNEpMMfiFW00Z+R1RKr6ngTCASuYLCl4U48
+	Rq2JbzdLg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jq3tU-0003wx-88; Tue, 30 Jun 2020 00:13:00 +0000
-Received: from mail.kernel.org ([198.145.29.99])
- by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jq3tR-0003vE-6A
- for linux-riscv@lists.infradead.org; Tue, 30 Jun 2020 00:12:58 +0000
-Received: from mail-lj1-f179.google.com (mail-lj1-f179.google.com
- [209.85.208.179])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 549F320781
- for <linux-riscv@lists.infradead.org>; Tue, 30 Jun 2020 00:12:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1593475975;
- bh=Eun4NbTfii0sW6QvTru7wRSuIGDGkkNEhp0AOlaNHNE=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=Py1tgRPvgo9LIcjYU1cqG1eObUlUJhT6HW0GA2FfobvWok6kLb/+5KWVyDjsHyTSt
- zB7pyxrK37gPMIyrmt9QFrggg0sy2lBX5vDCK9CZzaaF6JQGmWiP+QIrjJ3p4GkYCl
- eJ/RDztRABDZpB1hepOGzJ/XSimfXWB8LI/pko/o=
-Received: by mail-lj1-f179.google.com with SMTP id q7so7158075ljm.1
- for <linux-riscv@lists.infradead.org>; Mon, 29 Jun 2020 17:12:55 -0700 (PDT)
-X-Gm-Message-State: AOAM533H91fo9ssXitlwaZYYGUPJv9nHMgbtCpCOwbfEgMp6Ud0+jS+h
- XZOrDfCqyYNEtu8UZVdi8bF7i1fZnnCRZYFv/B0=
-X-Google-Smtp-Source: ABdhPJxjszLCB+6P/QOKJOqow+AAN21SNdoVF1M0w8qzY2jVobe7wqsxOnzyz9cWZ7vJYU0iobiOGI8eZIH6eqcyzyI=
-X-Received: by 2002:a2e:5344:: with SMTP id t4mr7382221ljd.79.1593475973227;
- Mon, 29 Jun 2020 17:12:53 -0700 (PDT)
+	id 1jq7LT-0008Gt-Fu; Tue, 30 Jun 2020 03:54:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+ by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1jq7LL-0008Fc-K5; Tue, 30 Jun 2020 03:54:02 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2739030E;
+ Mon, 29 Jun 2020 20:53:58 -0700 (PDT)
+Received: from [10.163.84.101] (unknown [10.163.84.101])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5EE3D3F73C;
+ Mon, 29 Jun 2020 20:53:47 -0700 (PDT)
+Subject: Re: [PATCH V3 0/4] mm/debug_vm_pgtable: Add some more tests
+To: linux-mm@kvack.org
+References: <1592192277-8421-1-git-send-email-anshuman.khandual@arm.com>
+ <70ddc7dd-b688-b73e-642a-6363178c8cdd@arm.com>
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+Message-ID: <1ed72a76-9f20-0169-4c16-c1d8808690eb@arm.com>
+Date: Tue, 30 Jun 2020 09:23:35 +0530
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
+ Thunderbird/52.9.1
 MIME-Version: 1.0
-References: <20200629012524.c941a5f18aa7f312d325f714@kernel.org>
- <mhng-37e70bbc-2616-41e6-bc8a-f144ca647c97@palmerdabbelt-glaptop1>
-In-Reply-To: <mhng-37e70bbc-2616-41e6-bc8a-f144ca647c97@palmerdabbelt-glaptop1>
-From: Guo Ren <guoren@kernel.org>
-Date: Tue, 30 Jun 2020 08:12:41 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQ-LcZ_fxTCkHNBYqZn-C-QVeLp12FysaTjPe6PuTQYxg@mail.gmail.com>
-Message-ID: <CAJF2gTQ-LcZ_fxTCkHNBYqZn-C-QVeLp12FysaTjPe6PuTQYxg@mail.gmail.com>
-Subject: Re: [PATCH V2] riscv: Fixup compile error BUILD_BUG_ON failed
-To: Palmer Dabbelt <palmerdabbelt@google.com>
+In-Reply-To: <70ddc7dd-b688-b73e-642a-6363178c8cdd@arm.com>
+Content-Language: en-US
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -79,61 +66,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Guo Ren <guoren@linux.alibaba.com>, Anup Patel <anup@brainfault.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-csky@vger.kernel.org, Masami Hiramatsu <mhiramat@kernel.org>,
- Zong Li <zong.li@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Greentime Hu <greentime.hu@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: linux-doc@vger.kernel.org,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Heiko Carstens <heiko.carstens@de.ibm.com>, Paul Mackerras <paulus@samba.org>,
+ "H. Peter Anvin" <hpa@zytor.com>, linux-riscv@lists.infradead.org,
+ Will Deacon <will@kernel.org>, linux-arch@vger.kernel.org,
+ linux-s390@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>,
+ Michael Ellerman <mpe@ellerman.id.au>, x86@kernel.org,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Mike Rapoport <rppt@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@de.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+ linux-arm-kernel@lists.infradead.org, ziy@nvidia.com,
+ Catalin Marinas <catalin.marinas@arm.com>, linux-snps-arc@lists.infradead.org,
+ Vasily Gorbik <gor@linux.ibm.com>, Vineet Gupta <Vineet.Gupta1@synopsys.com>,
+ Borislav Petkov <bp@alien8.de>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A . Shutemov" <kirill@shutemov.name>,
+ Thomas Gleixner <tglx@linutronix.de>, gerald.schaefer@de.ibm.com,
+ christophe.leroy@c-s.fr, Vineet Gupta <vgupta@synopsys.com>,
+ linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ Qian Cai <cai@lca.pw>, Andrew Morton <akpm@linux-foundation.org>,
+ linuxppc-dev@lists.ozlabs.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgUGFsbWVyLAoKT24gVHVlLCBKdW4gMzAsIDIwMjAgYXQgNzoyMiBBTSBQYWxtZXIgRGFiYmVs
-dCA8cGFsbWVyZGFiYmVsdEBnb29nbGUuY29tPiB3cm90ZToKPgo+IE9uIFN1biwgMjggSnVuIDIw
-MjAgMDk6MjU6MjQgUERUICgtMDcwMCksIG1oaXJhbWF0QGtlcm5lbC5vcmcgd3JvdGU6Cj4gPiBP
-biBTdW4sIDI4IEp1biAyMDIwIDE2OjA3OjM3ICswMDAwCj4gPiBndW9yZW5Aa2VybmVsLm9yZyB3
-cm90ZToKPiA+Cj4gPj4gRnJvbTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgo+
-ID4+Cj4gPj4gVW5mb3J0dW5hdGVseSwgdGhlIGN1cnJlbnQgY29kZSBjb3VsZG4ndCBiZSBjb21w
-aWxlZDoKPiA+Pgo+ID4+ICAgQ0MgICAgICBhcmNoL3Jpc2N2L2tlcm5lbC9wYXRjaC5vCj4gPj4g
-SW4gZmlsZSBpbmNsdWRlZCBmcm9tIC4vaW5jbHVkZS9saW51eC9rZXJuZWwuaDoxMSwKPiA+PiAg
-ICAgICAgICAgICAgICAgIGZyb20gLi9pbmNsdWRlL2xpbnV4L2xpc3QuaDo5LAo+ID4+ICAgICAg
-ICAgICAgICAgICAgZnJvbSAuL2luY2x1ZGUvbGludXgvcHJlZW1wdC5oOjExLAo+ID4+ICAgICAg
-ICAgICAgICAgICAgZnJvbSAuL2luY2x1ZGUvbGludXgvc3BpbmxvY2suaDo1MSwKPiA+PiAgICAg
-ICAgICAgICAgICAgIGZyb20gYXJjaC9yaXNjdi9rZXJuZWwvcGF0Y2guYzo2Ogo+ID4+IEluIGZ1
-bmN0aW9uIOKAmGZpeF90b192aXJ04oCZLAo+ID4+ICAgICBpbmxpbmVkIGZyb20g4oCYcGF0Y2hf
-bWFw4oCZIGF0IGFyY2gvcmlzY3Yva2VybmVsL3BhdGNoLmM6Mzc6MTc6Cj4gPj4gLi9pbmNsdWRl
-L2xpbnV4L2NvbXBpbGVyLmg6MzkyOjM4OiBlcnJvcjogY2FsbCB0byDigJhfX2NvbXBpbGV0aW1l
-X2Fzc2VydF8yMDXigJkgZGVjbGFyZWQgd2l0aCBhdHRyaWJ1dGUgZXJyb3I6IEJVSUxEX0JVR19P
-TiBmYWlsZWQ6IGlkeCA+PSBfX2VuZF9vZl9maXhlZF9hZGRyZXNzZXMKPiA+PiAgIF9jb21waWxl
-dGltZV9hc3NlcnQoY29uZGl0aW9uLCBtc2csIF9fY29tcGlsZXRpbWVfYXNzZXJ0XywgX19DT1VO
-VEVSX18pCj4gPj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBeCj4gPj4g
-Li9pbmNsdWRlL2xpbnV4L2NvbXBpbGVyLmg6MzczOjQ6IG5vdGU6IGluIGRlZmluaXRpb24gb2Yg
-bWFjcm8g4oCYX19jb21waWxldGltZV9hc3NlcnTigJkKPiA+PiAgICAgcHJlZml4ICMjIHN1ZmZp
-eCgpOyAgICBcCj4gPj4gICAgIF5+fn5+fgo+ID4+IC4vaW5jbHVkZS9saW51eC9jb21waWxlci5o
-OjM5MjoyOiBub3RlOiBpbiBleHBhbnNpb24gb2YgbWFjcm8g4oCYX2NvbXBpbGV0aW1lX2Fzc2Vy
-dOKAmQo+ID4+ICAgX2NvbXBpbGV0aW1lX2Fzc2VydChjb25kaXRpb24sIG1zZywgX19jb21waWxl
-dGltZV9hc3NlcnRfLCBfX0NPVU5URVJfXykKPiA+PiAgIF5+fn5+fn5+fn5+fn5+fn5+fn4KPiA+
-PiAuL2luY2x1ZGUvbGludXgvYnVpbGRfYnVnLmg6Mzk6Mzc6IG5vdGU6IGluIGV4cGFuc2lvbiBv
-ZiBtYWNybyDigJhjb21waWxldGltZV9hc3NlcnTigJkKPiA+PiAgI2RlZmluZSBCVUlMRF9CVUdf
-T05fTVNHKGNvbmQsIG1zZykgY29tcGlsZXRpbWVfYXNzZXJ0KCEoY29uZCksIG1zZykKPiA+PiAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXn5+fn5+fn5+fn5+fn5+fn5+Cj4g
-Pj4gLi9pbmNsdWRlL2xpbnV4L2J1aWxkX2J1Zy5oOjUwOjI6IG5vdGU6IGluIGV4cGFuc2lvbiBv
-ZiBtYWNybyDigJhCVUlMRF9CVUdfT05fTVNH4oCZCj4gPj4gICBCVUlMRF9CVUdfT05fTVNHKGNv
-bmRpdGlvbiwgIkJVSUxEX0JVR19PTiBmYWlsZWQ6ICIgI2NvbmRpdGlvbikKPiA+PiAgIF5+fn5+
-fn5+fn5+fn5+fn4KPiA+PiAuL2luY2x1ZGUvYXNtLWdlbmVyaWMvZml4bWFwLmg6MzI6Mjogbm90
-ZTogaW4gZXhwYW5zaW9uIG9mIG1hY3JvIOKAmEJVSUxEX0JVR19PTuKAmQo+ID4+ICAgQlVJTERf
-QlVHX09OKGlkeCA+PSBfX2VuZF9vZl9maXhlZF9hZGRyZXNzZXMpOwo+ID4+ICAgXn5+fn5+fn5+
-fn5+Cj4gPj4KPiA+PiBCZWNhdXNlIGZpeF90b192aXJ0KCwgaWR4KSBuZWVkcyBhIGNvbnN0IHZh
-bHVlLCBub3QgYSBkeW5hbWljIHZhcmlhYmxlIG9mCj4gPj4gcmVnLWEwIG9yIEJVSUxEX0JVR19P
-TiBmYWlsZWQgd2l0aCAiaWR4ID49IF9fZW5kX29mX2ZpeGVkX2FkZHJlc3NlcyIuCj4gPgo+ID4g
-TG9va3MgZ29vZCB0byBtZSA6KQo+ID4KPiA+IFJldmlld2VkLWJ5OiBNYXNhbWkgSGlyYW1hdHN1
-IDxtaGlyYW1hdEBrZXJuZWwub3JnPgo+Cj4gSXMgdGhlcmUgYSBjb25maWd1cmF0aW9uIHRoYXQg
-cnVucyBpbnRvIHRoaXMgYnVnPyAgSXQncyBub3Qgc2hvd2luZyB1cCBmb3IgbWUsCj4gYW5kIEkg
-Z2VuZXJhbGx5IHRyeSB0byBhZGQgcmVncmVzc2lvbnMgdG8gbXkgdGVzdCBzdWl0ZS4KPgo+ID4g
-VGhhbmtzIQoKS1BST0JFLCBJJ2xsIHNlbmQgdGhlIHBhdGNoIHNvb24uCgotLSAKQmVzdCBSZWdh
-cmRzCiBHdW8gUmVuCgpNTDogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtY3NreS8KCl9f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
-IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
-cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+
+On 06/24/2020 08:43 AM, Anshuman Khandual wrote:
+> 
+> 
+> On 06/15/2020 09:07 AM, Anshuman Khandual wrote:
+>> This series adds some more arch page table helper validation tests which
+>> are related to core and advanced memory functions. This also creates a
+>> documentation, enlisting expected semantics for all page table helpers as
+>> suggested by Mike Rapoport previously (https://lkml.org/lkml/2020/1/30/40).
+>>
+>> There are many TRANSPARENT_HUGEPAGE and ARCH_HAS_TRANSPARENT_HUGEPAGE_PUD
+>> ifdefs scattered across the test. But consolidating all the fallback stubs
+>> is not very straight forward because ARCH_HAS_TRANSPARENT_HUGEPAGE_PUD is
+>> not explicitly dependent on ARCH_HAS_TRANSPARENT_HUGEPAGE.
+>>
+>> Tested on arm64, x86 platforms but only build tested on all other enabled
+>> platforms through ARCH_HAS_DEBUG_VM_PGTABLE i.e powerpc, arc, s390. The
+>> following failure on arm64 still exists which was mentioned previously. It
+>> will be fixed with the upcoming THP migration on arm64 enablement series.
+>>
+>> WARNING .... mm/debug_vm_pgtable.c:860 debug_vm_pgtable+0x940/0xa54
+>> WARN_ON(!pmd_present(pmd_mkinvalid(pmd_mkhuge(pmd))))
+>>
+>> This series is based on v5.8-rc1.
+>>
+>> Changes in V3:
+>>
+>> - Replaced HAVE_ARCH_SOFT_DIRTY with MEM_SOFT_DIRTY
+>> - Added HAVE_ARCH_HUGE_VMAP checks in pxx_huge_tests() per Gerald
+>> - Updated documentation for pmd_thp_tests() per Zi Yan
+>> - Replaced READ_ONCE() with huge_ptep_get() per Gerald
+>> - Added pte_mkhuge() and masking with PMD_MASK per Gerald
+>> - Replaced pte_same() with holding pfn check in pxx_swap_tests()
+>> - Added documentation for all (#ifdef #else #endif) per Gerald
+>> - Updated pmd_protnone_tests() per Gerald
+>> - Updated HugeTLB PTE creation in hugetlb_advanced_tests() per Gerald
+>> - Replaced [pmd|pud]_mknotpresent() with [pmd|pud]_mkinvalid()
+>> - Added has_transparent_hugepage() check for PMD and PUD tests
+>> - Added a patch which debug prints all individual tests being executed
+>> - Updated documentation for renamed [pmd|pud]_mkinvalid() helpers
+> 
+> Hello Gerald/Christophe/Vineet,
+> 
+> It would be really great if you could give this series a quick test
+> on s390/ppc/arc platforms respectively. Thank you.
+
+Thanks Alexander, Gerald and Christophe for testing this out on s390
+and ppc32 platforms. Probably Vineet and Qian (any other volunteers)
+could help us with arc and ppc64 platforms, which I would appreciate.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
