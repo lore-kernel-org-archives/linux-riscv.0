@@ -2,22 +2,22 @@ Return-Path: <SRS0=OTun=AM=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B382BC433DF
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2020 03:15:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 12151C433E0
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2020 03:22:58 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7F47320724
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2020 03:15:54 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D1875206EB
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2020 03:22:57 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="dm9u3xbX";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="esVvOIdf"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7F47320724
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="2NLZEHfk";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="RvCFU860"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D1875206EB
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,58 +26,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=+4cs/KnggfbNC8YAjOTopsuxfejgVXOD4RsM7I/NJxQ=; b=dm9u3xbXHb0ZlPGUicU0ok3rX
-	sRWrXruRSrcEucFk0Qutm0a218uLzMiZUqyYRaQDn5KyL22KIrWe/ks9pgp6q49M2ftm3PLUkxidj
-	hWe7Ga0HsrzlscjeItHrnuWSeJv7uDEzQ86zU6JKS2X6j4dgJyucLubGGuaBUmzVPu9dtRCHLy9gY
-	7MjZIvk9ru7LKLbMteFxZxgKPfYOakrXjFifk5WgL5ITr4jwqdM+rcIvnRWdVMNG/LrEeptp309Ix
-	uJHc1YcNPZRwBor+8WC6NsYd0yf4zDpl0tCG3YchxIE+mQ96NjTq/qGKsDpmRBMlYKeysG7UZRTNC
-	Z97tF/beA==;
+	 bh=LXKJqrBIrc9ipLMTH7MxKBZA7rW8D0EmJs2ARmBJ1MI=; b=2NLZEHfkFmle+LZCamJdITVA5
+	v8xBisFJX0NGRnoDlYvFNgfeUEvSxBn9iGmxMkXOkXbOISc/xaCk3vLEmzigVvCkCcAcQVe2XIhiN
+	8+EShF2tn5sFu1VTDLBexZdJIt+xTM/w+tz2XoC5VeWgUgVFrxn/irSFJdcK53Xds0pyUDVZnEH9p
+	F73loYVzk4NapLEW2lMunj9BCMhE6Kv8m/oS7rVISVPxU27AxFr4sraY/sv0U1wrmcpUTnV1kDN2+
+	7t+NbcJKuiw+0Ki4Lmn9JWDMfpiEnibUtLN9Eeo9XnmskLnD8O+ICpLNLUi9H9yYKPklqVS7LaGIU
+	FIhUPuwLg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jqTDu-0005P8-3A; Wed, 01 Jul 2020 03:15:46 +0000
-Received: from mail-oo1-xc43.google.com ([2607:f8b0:4864:20::c43])
+	id 1jqTKm-0005nZ-U5; Wed, 01 Jul 2020 03:22:52 +0000
+Received: from mail-ot1-x342.google.com ([2607:f8b0:4864:20::342])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jqTDq-0005OO-Li
- for linux-riscv@lists.infradead.org; Wed, 01 Jul 2020 03:15:44 +0000
-Received: by mail-oo1-xc43.google.com with SMTP id q10so1034077ooo.11
- for <linux-riscv@lists.infradead.org>; Tue, 30 Jun 2020 20:15:41 -0700 (PDT)
+ id 1jqTKk-0005n0-Ij
+ for linux-riscv@lists.infradead.org; Wed, 01 Jul 2020 03:22:51 +0000
+Received: by mail-ot1-x342.google.com with SMTP id k15so20296849otp.8
+ for <linux-riscv@lists.infradead.org>; Tue, 30 Jun 2020 20:22:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=hhIONqvZCTF3iyPrr2drjV1A2XHVI9zDCmmbHDm6tcY=;
- b=esVvOIdf08p+EN2H0zy9FxKEg12r9ylYGuJpvPG6L+w2A5Ew2ZcvXa1/qkDU80ivJ1
- PuFcRRswiR3EGrZIMPBowaUCHJuGR7U2jZDEIytObShnwAMivPI/68sQsU9BtB/6XhLe
- 6Cg+jtUxIii/YeSb1jAzctbmamNsAefGWjqaa6mPdB8gimz3lD5iNP61338s/swuVUjz
- Sw3ern5amffQyFFj8e7huvzCGoi31CZnCJezS5RpPm04E7pTAs5ZZPHIisX3Y+bCsCiT
- X1q6WE40hbXuAD3QaRCV0KrqAMCsCDLxbdB6IdIX13bOGxdb+kKkqUl1uZTiyzJuofKY
- 3oNg==
+ :cc; bh=j6Wcbur2BcxA/2SwdlYsRcboQiRRQa/uiPODuO/VSLs=;
+ b=RvCFU8605SjLYaG70zLK+0uxlwZUBkkmmgtY7dm3OkUTtJEowyKrLxgWa9uI8uHYgo
+ NCQIY3xbQ6OOVxHAAyFAtD65pQC5VJA3MjkzNSma4jPJM/Pt/thqrtlFaBqDc2ZGIzua
+ aLJPrHDKZY9Dl2ZmoB5ZN33Sq6CvkWYPVuPOGDXWnKmA8Iqrsx32nQP19R6NTb3GtvvC
+ +QUueFod7xsOskHR6Pv9wfqdRbmBY4SYTjC4AjJ8L6Satxjm7ca0ijJCaCgt8ylBvLJs
+ 8X0fEXtMILLGYyIyJpzHw8mAJKdFZkAcsbs9SpjGB5MM7zFXah/seTbhuTeLSFzIMzCR
+ 3TUA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=hhIONqvZCTF3iyPrr2drjV1A2XHVI9zDCmmbHDm6tcY=;
- b=RWKh8/8MNlfQqKJPJ4hP8AGJo8lOIMr17AULIJmxXoPZxfSoNRWgr7Ztd/C52CGFv3
- avljubnQnB2AzXvc8H9ZVYEpTUGGwTHwaZR4eudYJYSzz/F+3T/v6RadY0y16t2gd14+
- OG5M52lPkd/2whW9pW6HkOwtHGHb74IheK5MIX/qoFYMOrgNkrEnew086qJ8Ta9z7xLV
- 0FD/jSC7leyGPVspDF7k+VAgTPIvqZGvMaveU8dqU9haMP5qJEQEX7smD9H1hcEEn6IC
- t+4DstktGKwxukNCfBxGFCz7xuzcwrG40vBPAkmXP8BX3zpQDOXcSI5QbKoc40goj+a/
- u5RA==
-X-Gm-Message-State: AOAM532+6Svl8faMoSHSoKG81RPvQHlpMdzCJ6CeeF9W1C8gcf+gmc3E
- h2LoApoLeevkb0yO7Qxirw4PlcniNwYmC6HIbgNnvg==
-X-Google-Smtp-Source: ABdhPJwYH5gn15uoFzBDY6UOJB4PZNlWFht6ukKixCgnytsroeKsY1oQEEh/DugTEc3N37q7CcQzATdA2SDPNXzTq4g=
-X-Received: by 2002:a4a:d64f:: with SMTP id y15mr21104375oos.68.1593573339463; 
- Tue, 30 Jun 2020 20:15:39 -0700 (PDT)
+ bh=j6Wcbur2BcxA/2SwdlYsRcboQiRRQa/uiPODuO/VSLs=;
+ b=YBUPVC5m8gA8/5sRHGU8Sw3erC5VR4bQ88yX/6U9xjRlKER6I5SwEHHPMxdfQT39X6
+ ++6+2rao81l1n51Xt0A0ih2lXmFgRt5lgdN7jRekq63VFev/dysuvzGkv/jsuwhM1n4i
+ 9I2vhfDSlgbOxwa/uVQobmDxwVuaL7hpLpvUSj+exLzbcFVaGwvRlrfsJe1+O+ZiB9IH
+ VQMveESRb7C6345gbqdaCCDgq2FrRaPBDe5Uj4/bQa7wR+ye1gW12CVuDiH3/u6UP/Vq
+ 5e1wwDTZBavA3uTAP+9pkPSyTtcDMxewG3u/QTS6YhLx8DZ5f0niDHIE2pHJza11+Izm
+ B89w==
+X-Gm-Message-State: AOAM530g3UgYsJW6JGN3TAW38bxBSesaTZQrvkWKldnekD8IK0hH06CA
+ fjXfGJZHIlK48TV0x6wattmiPE+pnqi38THUnx67cA==
+X-Google-Smtp-Source: ABdhPJwQ8eI9QVyXoY0iY48/NkTpBY2b114TMeosKBxvdz0skb3SSIDgp6VBMvnsq6whxCEGjBTpV271g6emaWULuZ8=
+X-Received: by 2002:a9d:3a36:: with SMTP id j51mr21343282otc.129.1593573768420; 
+ Tue, 30 Jun 2020 20:22:48 -0700 (PDT)
 MIME-Version: 1.0
 References: <cover.1593397455.git.zong.li@sifive.com>
- <20200701005129.GA27962@andestech.com>
-In-Reply-To: <20200701005129.GA27962@andestech.com>
+ <3de3a480517d167a3faae086aa8ab0c0c7141d99.1593397455.git.zong.li@sifive.com>
+ <CAAhSdy3VBUTMg_b2tO12cTYuvHYtH=4dj9-qT-at35Whf3w_7w@mail.gmail.com>
+ <CANXhq0pV87oSzyAt80ySoXGRXp26bCnahPW0r27J+wjj5yc=nw@mail.gmail.com>
+ <CAAhSdy3BUfPCS+LUWp9GKdnf960N-UkxtUtRArgkVd-1cGZxhQ@mail.gmail.com>
+ <CANXhq0rvjJ6yAcOq=bc7O_rYGDcbRfp7DJhcM0RBQ8q2x7xH0A@mail.gmail.com>
+ <CAAhSdy1NE2yd1gGZBjEdUSt0cZy6b+pLH5sqLBmUafzryqd4iA@mail.gmail.com>
+In-Reply-To: <CAAhSdy1NE2yd1gGZBjEdUSt0cZy6b+pLH5sqLBmUafzryqd4iA@mail.gmail.com>
 From: Zong Li <zong.li@sifive.com>
-Date: Wed, 1 Jul 2020 11:15:27 +0800
-Message-ID: <CANXhq0o322Pa1kUXjBb4b21Zxrz+zXB5D7Ljyj18j_=TMKfeVg@mail.gmail.com>
-Subject: Re: [RFC PATCH 0/6] Support raw event and DT for perf on RISC-V
-To: Alan Kao <alankao@andestech.com>
+Date: Wed, 1 Jul 2020 11:22:36 +0800
+Message-ID: <CANXhq0pQRTTDhS561t-5XaW0rgdLAQ+JpZBXZT+-0+G_xWiN6g@mail.gmail.com>
+Subject: Re: [RFC PATCH 1/6] dt-bindings: riscv: Add YAML documentation for PMU
+To: Anup Patel <anup@brainfault.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200630_231543_090489_8B4E0826 
-X-CRM114-Status: GOOD (  27.31  )
+X-CRM114-CacheID: sfid-20200630_232250_749390_287DB142 
+X-CRM114-Status: GOOD (  26.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -98,94 +103,147 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 1, 2020 at 8:52 AM Alan Kao <alankao@andestech.com> wrote:
+On Mon, Jun 29, 2020 at 4:31 PM Anup Patel <anup@brainfault.org> wrote:
 >
-> On Mon, Jun 29, 2020 at 11:19:09AM +0800, Zong Li wrote:
-> > This patch set adds raw event support on RISC-V. In addition, we
-> > introduce the DT mechanism to make our perf more generic and common.
+> On Mon, Jun 29, 2020 at 12:06 PM Zong Li <zong.li@sifive.com> wrote:
 > >
-> > Currently, we set the hardware events by writing the mhpmeventN CSRs, it
-> > would raise an illegal instruction exception and trap into m-mode to
-> > emulate event selector CSRs access. It doesn't make sense because we
-> > shouldn't write the m-mode CSRs in s-mode. Ideally, we should set event
-> > selector through standard SBI call or the shadow CSRs of s-mode. We have
-> > prepared a proposal of a new SBI extension, called "PMU SBI extension",
-> > but we also discussing the feasibility of accessing these PMU CSRs on
-> > s-mode at the same time, such as delegation mechanism, so I was
-> > wondering if we could use SBI calls first and make the PMU SBI extension
-> > as legacy when s-mode access mechanism is accepted by Foundation? or
-> > keep the current situation to see what would happen in the future.
+> > On Mon, Jun 29, 2020 at 12:38 PM Anup Patel <anup@brainfault.org> wrote:
+> > >
+> > > On Mon, Jun 29, 2020 at 9:58 AM Zong Li <zong.li@sifive.com> wrote:
+> > > >
+> > > > On Mon, Jun 29, 2020 at 12:09 PM Anup Patel <anup@brainfault.org> wrote:
+> > > > >
+> > > > > On Mon, Jun 29, 2020 at 8:49 AM Zong Li <zong.li@sifive.com> wrote:
+> > > > > >
+> > > > > > Add device tree bindings for performance monitor unit. And it passes the
+> > > > > > dt_binding_check verification.
+> > > > > >
+> > > > > > Signed-off-by: Zong Li <zong.li@sifive.com>
+> > > > > > ---
+> > > > > >  .../devicetree/bindings/riscv/pmu.yaml        | 59 +++++++++++++++++++
+> > > > > >  1 file changed, 59 insertions(+)
+> > > > > >  create mode 100644 Documentation/devicetree/bindings/riscv/pmu.yaml
+> > > > > >
+> > > > > > diff --git a/Documentation/devicetree/bindings/riscv/pmu.yaml b/Documentation/devicetree/bindings/riscv/pmu.yaml
+> > > > > > new file mode 100644
+> > > > > > index 000000000000..f55ccbc6c685
+> > > > > > --- /dev/null
+> > > > > > +++ b/Documentation/devicetree/bindings/riscv/pmu.yaml
+> > > > > > @@ -0,0 +1,59 @@
+> > > > > > +# SPDX-License-Identifier: GPL-2.0
+> > > > > > +%YAML 1.2
+> > > > > > +---
+> > > > > > +$id: http://devicetree.org/schemas/riscv/pmu.yaml#
+> > > > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > > > > +
+> > > > > > +title: RISC-V Performance Monitor Units
+> > > > > > +
+> > > > > > +maintainers:
+> > > > > > +  - Zong Li <zong.li@sifive.com>
+> > > > > > +  - Paul Walmsley <paul.walmsley@sifive.com>
+> > > > > > +  - Palmer Dabbelt <palmer@dabbelt.com>
+> > > > > > +
+> > > > > > +properties:
+> > > > > > +  compatible:
+> > > > > > +    items:
+> > > > > > +      - const: riscv,pmu
+> > > > > > +
+> > > > > > +  riscv,width-base-cntr:
+> > > > > > +    description: The width of cycle and instret CSRs.
+> > > > > > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > > > > > +
+> > > > > > +  riscv,width-event-cntr:
+> > > > > > +    description: The width of hpmcounter CSRs.
+> > > > > > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > > > >
+> > > > > The terms "base" and "event" is confusing because
+> > > > > we only have counters with no interrupt associated with it.
+> > > > >
+> > > > > The RISC-V spec defines 3 counters and rest are all
+> > > > > implementation specific counters.
+> > > >
+> > > > As I know, there are 2 counters of spec definition: cycle and instret.
+> > > > What is the 3rd counter you mentioned?
+> > >
+> > > TIME is a counter CSR.
+> > >
+> > > >
+> > > > >
+> > > > > I suggest using the terms "spec counters" and "impl counters"
+> > > > > instead of "base counters" and "event counters".
+> > > >
+> > > > OK, they are good to me. Let me change it.
+> > > >
+> > > >
+> > > > >
+> > > > > Further, "riscv,width" properties are redundant because
+> > > > > RISC-V spec clearly tells that counters are 64bit for both
+> > > > > RV32 and RV64.
+> > > > >
 > >
-> > This patch set also introduces the DT mechanism, we don't want to add too
-> > much platform-dependency code in perf like other architectures, so we
-> > put the mapping of generic hardware events to DT, then we can easy to
-> > transfer generic hardware events to vendor's own hardware events without
-> > any platfrom-dependency stuff in our perf.
-> >
-> > Zong Li (6):
-> >   dt-bindings: riscv: Add YAML documentation for PMU
-> >   riscv: dts: sifive: Add DT support for PMU
-> >   riscv: add definition of hpmcounter CSRs
-> >   riscv: perf: Add raw event support
-> >   riscv: perf: introduce DT mechanism
-> >   riscv: remove PMU menu of Kconfig
-> >
+> > Sorry for the lost replying. The maximum length of counters is 64, but
+> > it doesn't require to implement all bits. A real case is that
+> > unleashed board only implements 40 bit for mhpmcounters.
 >
-> DT-based PMU registration looks good to me. Together with Anup's feedback,
-> we can anticipate that the following items will be:
->
-> - rewrite RISC-V PMU to a platform driver
-> - propose SBI PMU extention
-> - fixes: RV32 counter access, namings, etc.
->
-> Yes, all are good directions towards better counting (`perf stat`) function.
-> But as the original author of RISC-V perf port, please allow me to address
-> the fundamental problems of RISC-V perf, again [0][1][2][3], that the sampling
-> (`perf record`) function never earned enough respect.  Counting gives you a
-> shallow view regarding an application, while sampling demystifies one for you.
->
-> The problems are three-fold
-> (1) Interrupt
-> Sampling in perf requires that a HPM raises an interrupt when it overflows.
-> Making RISC-V perf platform driver or not has nothing to do with this.  This
-> requires more discussions in TGs.
-> (2) S-mode access to PMU CSRs
-> This is also addressed in this patch set but to me, it is kind of like a
-> SBI-solves-them-all mindset to me.  Perf event is for performance monitoring
-> thus we should eliminate any possible overhead if we can.  Setting event masks
-> through SBI calls for counting maybe OK, but if we really take sampling and
-> interrupt handling into consideration, it is questionable if it is still a
-> viable way.
-> (3) Registers, registers, registers
-> There is just no enough CSR/function for perf sampling. The previous proposal
-> explains why [2].
->
-> Perf sampling is off-topic but somehow related, so I bring it up here just
-> for your information.
+> The "3.1.11 Hardware Performance Monitor" clearly states that
+> all counters are 64bit
 >
 
-Agree, sampling is an important measurement for perf, we should integrate it
-to perf as soon as possible after overflow interrupt mechanism is standardized.
+In the privileged spec, 3.1.11 section said, "The mhpmcounters are
+WARL registers that support up to 64 bits of precision on RV32 and
+RV64".
 
-> As this patch set goes v2, the PMU porting guide in [0] should be removed since
-> it contains no useful information anymore.
+It seems to me that WARL implies the size of registers could be
+variable, and support up to 64 bits as maximum size.
+
+> To take care of the unleashed board, the "riscv,width-xyz" DT properties
+> should be optional. Whenever these properties are not present, we
+> should assume 64bit counter width.
 >
-
-It seems that the document mentioned some hook functions, it is good for me to
-reserve this document, maybe we could try to give some modification. I
-would check that. Thanks
-
-> [0] Documentation/riscv/pmu.rst
-> [1] https://www.youtube.com/watch?v=Onvlcl4e2IU
-> [2] https://github.com/riscv/riscv-isa-manual/issues/402
->     This proposal has been posted in Privileged Spec Task Group, in
-> https://lists.riscv.org/g/tech-privileged-archive/message/488?p=,,,20,0,0,0::Created,,Proposal,20,2,40,32306071
-> but never receive any feedback.
-> [3] https://lists.riscv.org/g/tech-unixplatformspec/message/84
->     I intended to discuss [2] in the Unixplatform Spec Task Group at the
-> online meeting, but obviously people were too busy knowing who the new
-> RISC-V CTO is and what he has done to even follow the agenda.
+> >
+> > > > > > +
+> > > > > > +  riscv,n-event-cntr:
+> > > > > > +    description: The number of hpmcounter CSRs.
+> > > > > > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > > > > > +
+> > > > > > +  riscv,hw-event-map:
+> > > > > > +    description: The mapping of generic hardware events. Default is no mapping.
+> > > > > > +    $ref: /schemas/types.yaml#/definitions/uint32-array
+> > > > > > +
+> > > > > > +  riscv,hw-cache-event-map:
+> > > > > > +    description: The mapping of generic hardware cache events.
+> > > > > > +      Default is no mapping.
+> > > > > > +    $ref: /schemas/types.yaml#/definitions/uint32-array
+> > > > > > +
+> > > > > > +required:
+> > > > > > +  - compatible
+> > > > > > +  - riscv,width-base-cntr
+> > > > > > +  - riscv,width-event-cntr
+> > > > > > +  - riscv,n-event-cntr
+> > > > > > +
+> > > > > > +additionalProperties: false
+> > > > > > +
+> > > > > > +examples:
+> > > > > > +  - |
+> > > > > > +    pmu {
+> > > > > > +      compatible = "riscv,pmu";
+> > > > > > +      riscv,width-base-cntr = <64>;
+> > > > > > +      riscv,width-event-cntr = <40>;
+> > > > > > +      riscv,n-event-cntr = <2>;
+> > > > > > +      riscv,hw-event-map = <0x0 0x0 0x1 0x1 0x3 0x0202 0x4 0x4000>;
+> > > > > > +      riscv,hw-cache-event-map = <0x010201 0x0102 0x010204 0x0802>;
+> > > > > > +    };
+> > > > > > +
+> > > > > > +...
+> > > > > > --
+> > > > > > 2.27.0
+> > > > > >
+> > > > >
+> > > > > Regards,
+> > > > > Anup
 >
+> Regards,
+> Anup
 
 _______________________________________________
 linux-riscv mailing list
