@@ -2,140 +2,83 @@ Return-Path: <SRS0=OTun=AM=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.5 required=3.0 tests=DKIM_SIGNED,DKIM_VALID,
-	FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=no
+X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 72B9CC433E0
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2020 09:35:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AD7A7C433E0
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2020 10:04:06 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3E91D206C3
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2020 09:35:25 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6CB9920747
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2020 10:04:06 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZNPG+NYc";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=web.de header.i=@web.de header.b="HF9EL6w2"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3E91D206C3
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=web.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="A9JUWZhK";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.b="TNR52TFV"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6CB9920747
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=C1wWDHRteEJEyHegMdYEvZ4RQXEgqRH+A4m5uY6rjYw=; b=ZNPG+NYcLKNr/1IrtAbbcFpi0
-	7CqVERqY4dJ7PtUYJAhX5y1pQbLs197JT/gUuXkp3zj4EAL1sS2eMO9vs47kqw/mGE8SI4olDLCkQ
-	kZVJPV9PWAiYlDJPR40ST7NTPzuHiwl48XHPZli3iGAfYV9s4XV0MI1Pw6C4tJBudMK/deCe/Vltr
-	73KGWgOUbb0T0aVsHE9ReKkuL41qhTSnbW54oM9K6jjYNUGzlX1bIFtw76cjMpJg8WrcBV99Cvjbf
-	CTv0x+L5tmRkqjVczmkXiXp+DhgwxhVPQhCASa0WBniM8fvx/V0QH8Y/AaZmySljd7FqP+g/R46X7
-	WA3uS1n2g==;
+	 bh=s5XkzbM38IHt/xTaMXwxkqRbN1dP1XGXDgIZcJrh4DY=; b=A9JUWZhKcU1kD5lpyPu6psIul
+	NFPY686TZZu+qX7cOiULQT4Ir23BjEQN4DFZNe3J5JY02ZUm6QqSxKUJNqiHhIoeYue8bivGfIhI8
+	p1gLYpYMmSSPUgQu3wj2JD6MENwqbFNCqwMtU228BYtlYiWh/0sL5wZl4xKp8iWZHb45Ww9i1x5rR
+	UQdyBW3MJIKAGJjMifcoZJavaFj60sAgOr1qRpHxkvvN0QTpAG0SzyZxiL9lxOq95jxSxxIwASVeX
+	uwKfpLHY5dC4bNdwt7J88AxiMK/iUhwdWh26kya5X7OP16YwCqgNBs9BksxVpXGnGle8fqTnnK04C
+	XtXckpYdQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jqZ9A-0000UA-Km; Wed, 01 Jul 2020 09:35:16 +0000
-Received: from mout.web.de ([217.72.192.78])
+	id 1jqZb0-0006C6-HI; Wed, 01 Jul 2020 10:04:02 +0000
+Received: from mail-qk1-x744.google.com ([2607:f8b0:4864:20::744])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jqZ5B-0006ad-M5
- for linux-riscv@lists.infradead.org; Wed, 01 Jul 2020 09:31:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=web.de;
- s=dbaedf251592; t=1593595853;
- bh=/Sbx8ISVZWjBltKr2UyT7tGTulPMsGRe9R4QnT3f9pw=;
- h=X-UI-Sender-Class:Subject:To:Cc:References:From:Date:In-Reply-To;
- b=HF9EL6w2M1LZ8VwoGJe3D9KL63wPcTSomyFrpvkYrbcvcmxXYg7Yt2waTVCrOxE/A
- gC7nYaC29kuJZIoAB8Wh4Dh6dk/KTgqoCn58lpWvGPFbi46B/a6EwKraRKem/WDZHl
- VSBK7J0Waa1tYaLZicp+TAZEHjCCyKZR8li1Lqrs=
-X-UI-Sender-Class: c548c8c5-30a9-4db5-a2e7-cb6cb037b8f9
-Received: from [192.168.1.2] ([78.49.41.17]) by smtp.web.de (mrweb102
- [213.165.67.124]) with ESMTPSA (Nemesis) id 0MLPNm-1jr72l1Lyk-000aEP; Wed, 01
- Jul 2020 11:30:53 +0200
-Subject: Re: [PATCH v4 12/14] irqchip/riscv-intc: Fix potential resource leak
-To: Tiezhu Yang <yangtiezhu@loongson.cn>, Thomas Gleixner
- <tglx@linutronix.de>, Jason Cooper <jason@lakedaemon.net>,
- Marc Zyngier <maz@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
-References: <1593569786-11500-1-git-send-email-yangtiezhu@loongson.cn>
- <1593569786-11500-13-git-send-email-yangtiezhu@loongson.cn>
-From: Markus Elfring <Markus.Elfring@web.de>
-Autocrypt: addr=Markus.Elfring@web.de; prefer-encrypt=mutual; keydata=
- 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 FEE=
-Message-ID: <78ab5f7d-3c64-6125-cf8e-822e7b0106ef@web.de>
-Date: Wed, 1 Jul 2020 11:30:49 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.9.0
+ id 1jqZax-0006BV-7z
+ for linux-riscv@lists.infradead.org; Wed, 01 Jul 2020 10:04:00 +0000
+Received: by mail-qk1-x744.google.com with SMTP id 145so19094324qke.9
+ for <linux-riscv@lists.infradead.org>; Wed, 01 Jul 2020 03:03:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=jsCgCe7f0mKTn8ZvHPz1V5zs1G12TKsC5oK/t91ZShk=;
+ b=TNR52TFVDaLyaZheg/MK5heU5e/ifLfHxlF9In9y6BbH8kxt4KtugtssreZGqECG5i
+ w1Etj8GfSq+jtccbRyH9IetO09yuRSkPix0reNq98MB7ImB8p9S9qKree1CoA4Q9+7JR
+ ZnnaynWJA93fnFCEwAk+ZjOK+bNHmY9bygG5aGdBMs/QlOFn5ihbwHbF0JIr8P4r8WVM
+ KRtxvBdiqU1z1RrHoAVHJ8iM0RwnPWZJXmkPRRR9MvqL6gY/VnZ7I/E3MSaVDmMSj3ld
+ YcQQbE+D17KZ7aTxowAPRiH70NK0xfoM0I26AID21lgnEORdMyGvpukRCTetPWWrd2iI
+ MYUg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=jsCgCe7f0mKTn8ZvHPz1V5zs1G12TKsC5oK/t91ZShk=;
+ b=h0br9i9xnvLRNajUL3EAWcYkqZYoCaxAab18VqpSENNbIUqjUpGWtomqBokCqsodtS
+ FKICRZ7EMw15oUpM63v5roluMvJurx6bOv7hpPUgGaoUyaIqRhtg1dNBC7FzU6VpWs6z
+ B1gji5Nnf2ihAkFsACj8DsYXzgadiVlGxTfghAZgZ1grydrtBZInk1gMCFgP4Ekx8D/3
+ ThbIO/ioQL48NAg66QZvfO2aU/p8w2uqfnkxOYig/reWOgtdAXTFbJJUCgz2NYXQDH9T
+ f/OxGM1AztTHT4J2guDhvzaFcy/wlNjz7WMWOmF4j5dwe8oqDZrQ+DobQ4w1gbbp/vIr
+ jZfg==
+X-Gm-Message-State: AOAM531NU6liCfge26H+CfVif0QRU1tbp6ooE1c+Ve8fkgcLSKTycrBd
+ L1D7NNpmHn+1L+p6vrYXhIDpOAMBSgf5KCF7QNpwig==
+X-Google-Smtp-Source: ABdhPJzVnDQ32OCokHm+eNYqcfLlYrNHC6bIFMSt7fn9RyKcMgOwyioDj5Ie826u4UGpukS3BtN6HC1qkjNXpuibvjM=
+X-Received: by 2002:a05:620a:4ca:: with SMTP id
+ 10mr24896404qks.250.1593597836645; 
+ Wed, 01 Jul 2020 03:03:56 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <1593569786-11500-13-git-send-email-yangtiezhu@loongson.cn>
-Content-Language: en-GB
-X-Provags-ID: V03:K1:kkgUR0O355Y2iZQxsx2fpPWf2QbBDh1L+zfhAJL+auvsc2N6HSj
- 9iUn2gQ/BdpMMWITyWP5mJkuo7AJagLhyl9/eyHRHveH5Vv6y+gmGamLNF9+UbSL0eFCXEM
- TFpX7ADI5P0cmiXO1vsshEFOeuM21skP7rsnoKI0wnJU5ooQWB069aVt3k+XNui2YkTRWZr
- 3GcGhvFCNrc7a1l99plpw==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:KKcKCQalvOA=:z09fncitljUOzJMAqvp1Pg
- LXq8ePVKQl1J1794WJ8J+Vp3IFBrkYRod8kRJJALJ7yKDWDl1Z8fET4cvajB0wtLrCGsgTXLm
- +n0veMb2yrNn8RtzmyeohMkXKP2j1Pb9g4QDu0zbqlfRLGVwt/MXAbcKx8QyX/WmRSLCts3EW
- wPF9JuDaE7Ms/K/n2Fpq2rFaUzb4jIjJUFPrHGeHeQDvoxay4DPWO5dQy/8epcuIM2N7smloc
- mcNg3dBjQv7Y8L/38mrn8bUxC0IdcisY8xKgNlmEiWWvsxMj1ggEAkYpfP3cvoir9ZcL1q/WC
- 878WbNZeBG29jrpB5977XWQQuZslaB1BH1mK7rcIhZVS6nGQxsf3lY97GJQMYwTf2/bSuLHMX
- VEBtrndwr7cWM0eidQ10hiPmBAw5UKh0K/5ZJBoJQdLSY13sQNtip8uz3dRaPOqH79nPWBERI
- sp9DmJrlRuEnroLsRlyApwBx0oh+TftNjsOQ3wAjNkmlDgOGZRvbMkEoGnAPdhQuXH0nEEIq0
- MmNPW1jmxCnpHelgApbJeL8V+vMBBMIGd7nzFzBril8BFJaal5awbQi2JJcFjTQtA3JUcOeCP
- 4TxtdbqQzJXiLTBPZiSX74xwlK5m/0sJXkvp3r3XA+Pmmu0mt8iq98M8uwZCcwoG/nvI+oaMb
- gQyz5i/RSg3cCiwjWFl8S2n3wMn/kuFULRlKMLiyOTadG5UiSk5UacPA8HtLdZHqkHAffVkTU
- 5qycOu6remdec4hy6VvQL76DgQUuDaTZkz367rE2CHzkYKDBUHIG9C76AKre6OtCWEJan8mmm
- NjhYO3lnnnR/tf1MQ5smSArA718sCQFv6efsHhcsyYzH+SiS1mJGRsQsB33SwBaMKrlrxf1bP
- Gu5DSyolLxL8ZurGm4d2ozOoyLCdL03jOFW81ky2lsD57HZ2VX9hC/QmoIYgED5x3e2U2qDXD
- kDVLpJaV/XP6L2Cf+4IZYgS8sKsspMEyLEPdbxU7wNLMnmLrXHsOyHNx/yo5NxtZ3JWs6+bo4
- ofF1LKE/S8QBFgazca2lvMU/chJ3nU7Su+4TF0faBfkf50Y4/OJIJTTRWHGs1fYh3q+/YH6FP
- G2Au8qjPYhfzXY0IoUB5Y222MFZbXzVsL5zOvHFiuR/VOXWrYFH7JbvnaR6lVSoFPq2Bj9isz
- GyW1YjoIZkB/1qt/6/qylQp4VaL/HLktvP3V99xzZ2efnTewMKG93RMZ4EcmJHTykwPaa7fDu
- d77q+QSNUkXKYiKSZ
+References: <CACT4Y+a3A6DEvUjCsk_jKz9nZ=5iAzXTyG4WDPkug6u7BVrceQ@mail.gmail.com>
+ <20200630151044.ds5junfupcokcei6@distanz.ch>
+In-Reply-To: <20200630151044.ds5junfupcokcei6@distanz.ch>
+From: Dmitry Vyukov <dvyukov@google.com>
+Date: Wed, 1 Jul 2020 12:03:44 +0200
+Message-ID: <CACT4Y+Yt+f4ryT4YXr_y+-kt=k55Eu=42YNx=Z88dcFZfmYCww@mail.gmail.com>
+Subject: Re: syzkaller on risc-v
+To: Tobias Klauser <tklauser@distanz.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200701_053110_131984_880614A1 
-X-CRM114-Status: UNSURE (   7.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200701_060359_398026_89A54A7F 
+X-CRM114-Status: GOOD (  16.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -147,17 +90,154 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Albert Ou <aou@eecs.berkeley.edu>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>,
+ syzkaller <syzkaller@googlegroups.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-PiBJbiB0aGUgZnVuY3Rpb24gcmlzY3ZfaW50Y19pbml0KCksIHN5c3RlbSByZXNvdXJjZSAiaW50
-Y19kb21haW4iCj4gd2FzIG5vdCByZWxlYXNlZCBpbiB0aGUgZXJyb3IgY2FzZSwgZml4IGl0LgoK
-QW5vdGhlciBzbWFsbCB3b3JkaW5nIGFkanVzdG1lbnQ6CiAg4oCmIGluIGFuIGVycm9yIGNhc2Uu
-IFRodXMgYWRkIGEgY2FsbCBvZiB0aGUgZnVuY3Rpb24g4oCcaXJxX2RvbWFpbl9yZW1vdmXigJ0K
-ICBpbiB0aGUgaWYgYnJhbmNoLgoKUmVnYXJkcywKTWFya3VzCgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Tue, Jun 30, 2020 at 5:10 PM Tobias Klauser <tklauser@distanz.ch> wrote:
+>
+> On 2020-06-30 at 14:48:31 +0200, Dmitry Vyukov <dvyukov@google.com> wrote:
+> [...]
+> > 6. I observed lots of what looks like user-space process memory
+> > corruptions. There included thousands of panics in our Go programs
+> > with things that I would consider "impossible", at least they did not
+> > come up before in our syzbot fuzzing. Also some Go runtime
+> > "impossible" crashes, e.g.:
+> > https://gist.githubusercontent.com/dvyukov/fb489ed93f7180621c71714ee07e53dc/raw/a7d2e98a56da17af2aec79c164cd3a8e154ecf5c/gistfile1.txt
+> > Maybe it's a known issue? Should we use tip instead of 1.14? Is it more stable?
+> > Though it's not necessary Go b/c kernel contains hundreds of memory
+> > corruptions and we observed kernel corrupting user-space processes
+> > routinely. This is especially true without KASAN because kernel
+> > corruptions are not caught early. However, the ratio and nature of
+> > crashes makes me suspect some issue in Go risc-v runtime.
+>
+> I haven't seen any of these crashes myself when testing the syzkaller
+> port, but then again I only ran it for rather brief amounts of time
+> (~1h) on my laptop using the riscv defconfig and a few additional
+> configs enabled.
+>
+> AFAIK Go tip has seen quite some improvments to its RISC-V port, so it
+> might be worth giving it (or Go 1.14beta1) a try.
+
+
+No luck. I tried:
+go version devel +4b28f5ded3 Tue Jun 30 13:18:16 2020 +0000 linux/amd64
+and the log is still full of these crashes we don't see on any other instances:
+
+2020/07/01 11:48:09 vm-2: crash: panic: invalid argument to Intn
+2020/07/01 11:48:09 vm-28: crash: panic: invalid argument to Intn
+2020/07/01 11:48:10 vm-25: crash: panic: invalid argument to Intn
+2020/07/01 11:48:11 vm-35: crash: panic: invalid argument to Intn
+2020/07/01 11:48:15 VMs 13, executed 153462, corpus cover 79651,
+corpus signal 174611, max signal 185505, crashes 391, repro 0
+2020/07/01 11:48:16 vm-16: crash: panic: invalid argument to Intn
+2020/07/01 11:48:25 vm-6: crash: panic: invalid argument to Intn
+2020/07/01 11:48:25 VMs 11, executed 153462, corpus cover 79651,
+corpus signal 174611, max signal 185505, crashes 393, repro 0
+2020/07/01 11:48:29 vm-0: crash: panic: invalid argument to Intn
+2020/07/01 11:48:35 VMs 14, executed 153462, corpus cover 79651,
+corpus signal 174611, max signal 185505, crashes 394, repro 0
+2020/07/01 11:48:45 VMs 17, executed 153462, corpus cover 79651,
+corpus signal 174611, max signal 185505, crashes 394, repro 0
+2020/07/01 11:48:55 VMs 19, executed 153462, corpus cover 79651,
+corpus signal 174611, max signal 185505, crashes 394, repro 0
+2020/07/01 11:49:05 VMs 22, executed 153462, corpus cover 79651,
+corpus signal 174611, max signal 185505, crashes 394, repro 0
+2020/07/01 11:49:15 VMs 32, executed 153462, corpus cover 79651,
+corpus signal 174611, max signal 185505, crashes 394, repro 0
+2020/07/01 11:49:25 VMs 33, executed 153462, corpus cover 79651,
+corpus signal 174611, max signal 185505, crashes 394, repro 0
+2020/07/01 11:49:35 VMs 33, executed 153462, corpus cover 79651,
+corpus signal 174611, max signal 185505, crashes 394, repro 0
+2020/07/01 11:49:44 vm-12: crash: panic: invalid argument to Intn
+2020/07/01 11:49:45 VMs 35, executed 153462, corpus cover 79651,
+corpus signal 174611, max signal 185505, crashes 395, repro 0
+2020/07/01 11:49:49 vm-32: crash: panic: invalid argument to Intn
+2020/07/01 11:49:51 vm-5: crash: panic: invalid argument to Intn
+2020/07/01 11:49:52 vm-34: crash: panic: invalid argument to Intn
+2020/07/01 11:49:52 vm-9: crash: panic: invalid argument to Intn
+2020/07/01 11:49:54 vm-17: crash: panic: invalid argument to Intn
+2020/07/01 11:49:55 VMs 32, executed 153462, corpus cover 79651,
+corpus signal 174611, max signal 185505, crashes 400, repro 0
+2020/07/01 11:49:59 vm-22: crash: panic: invalid argument to Intn
+2020/07/01 11:50:05 VMs 33, executed 153462, corpus cover 79651,
+corpus signal 174611, max signal 185505, crashes 401, repro 0
+2020/07/01 11:50:15 VMs 33, executed 153462, corpus cover 79651,
+corpus signal 174611, max signal 185505, crashes 401, repro 0
+2020/07/01 11:50:25 VMs 33, executed 153462, corpus cover 79651,
+corpus signal 174611, max signal 185505, crashes 401, repro 0
+2020/07/01 11:50:30 vm-10: crash: panic: invalid argument to Intn
+2020/07/01 11:50:35 VMs 32, executed 153462, corpus cover 79651,
+corpus signal 174611, max signal 185505, crashes 402, repro 0
+2020/07/01 11:50:45 VMs 33, executed 153462, corpus cover 79651,
+corpus signal 174611, max signal 185505, crashes 402, repro 0
+2020/07/01 11:50:50 vm-8: crash: panic: invalid argument to Intn
+2020/07/01 11:50:54 vm-13: crash: panic: invalid argument to Intn
+2020/07/01 11:50:54 vm-37: crash: panic: invalid argument to Intn
+2020/07/01 11:50:55 VMs 30, executed 153462, corpus cover 79651,
+corpus signal 174611, max signal 185505, crashes 405, repro 0
+2020/07/01 11:51:05 VMs 30, executed 153462, corpus cover 79651,
+corpus signal 174611, max signal 185505, crashes 405, repro 0
+2020/07/01 11:51:15 VMs 30, executed 153462, corpus cover 79651,
+corpus signal 174611, max signal 185505, crashes 405, repro 0
+2020/07/01 11:51:25 VMs 35, executed 153462, corpus cover 79651,
+corpus signal 174611, max signal 185505, crashes 405, repro 0
+2020/07/01 11:51:26 vm-27: crash: panic: invalid argument to Intn
+2020/07/01 11:51:29 vm-31: crash: panic: invalid argument to Intn
+2020/07/01 11:51:35 VMs 34, executed 153462, corpus cover 79651,
+corpus signal 174611, max signal 185505, crashes 407, repro 0
+2020/07/01 11:51:36 vm-15: crash: panic: invalid argument to Intn
+2020/07/01 11:51:36 vm-23: crash: panic: invalid argument to Intn
+2020/07/01 11:51:40 vm-39: crash: panic: invalid argument to Intn
+2020/07/01 11:51:42 vm-7: crash: panic: invalid argument to Intn
+2020/07/01 11:51:45 vm-4: crash: panic: invalid argument to Intn
+2020/07/01 11:51:45 VMs 29, executed 153462, corpus cover 79651,
+corpus signal 174611, max signal 185505, crashes 412, repro 0
+2020/07/01 11:51:52 vm-19: crash: panic: invalid argument to Intn
+2020/07/01 11:51:54 vm-26: crash: panic: invalid argument to Intn
+2020/07/01 11:51:55 VMs 27, executed 153462, corpus cover 79651,
+corpus signal 174611, max signal 185505, crashes 414, repro 0
+2020/07/01 11:52:03 vm-38: crash: panic: invalid argument to Intn
+2020/07/01 11:52:03 vm-36: crash: panic: invalid argument to Intn
+2020/07/01 11:52:05 VMs 26, executed 153462, corpus cover 79651,
+corpus signal 174611, max signal 185505, crashes 416, repro 0
+2020/07/01 11:52:07 vm-11: crash: panic: invalid argument to Intn
+2020/07/01 11:52:12 vm-33: crash: panic: invalid argument to Intn
+2020/07/01 11:52:13 vm-29: crash: panic: invalid argument to Intn
+2020/07/01 11:52:15 vm-20: crash: panic: invalid argument to Intn
+2020/07/01 11:52:15 VMs 22, executed 153462, corpus cover 79651,
+corpus signal 174611, max signal 185505, crashes 420, repro 0
+2020/07/01 11:52:16 vm-24: crash: panic: invalid argument to Intn
+2020/07/01 11:52:17 vm-3: crash: panic: invalid argument to Intn
+2020/07/01 11:52:17 vm-30: crash: panic: invalid argument to Intn
+2020/07/01 11:52:18 vm-14: crash: panic: invalid argument to Intn
+2020/07/01 11:52:20 vm-21: crash: panic: invalid argument to Intn
+2020/07/01 11:52:20 vm-18: crash: panic: invalid argument to Intn
+2020/07/01 11:52:22 vm-1: crash: panic: invalid argument to Intn
+2020/07/01 11:52:25 VMs 18, executed 153462, corpus cover 79651,
+corpus signal 174611, max signal 185505, crashes 427, repro 0
+2020/07/01 11:52:35 VMs 18, executed 153462, corpus cover 79651,
+corpus signal 174611, max signal 185505, crashes 427, repro 0
+2020/07/01 11:52:43 vm-2: crash: panic: invalid argument to Intn
+2020/07/01 11:52:44 vm-25: crash: panic: invalid argument to Intn
+2020/07/01 11:52:44 vm-35: crash: panic: invalid argument to Intn
+2020/07/01 11:52:45 VMs 15, executed 153462, corpus cover 79651,
+corpus signal 174611, max signal 185505, crashes 430, repro 0
+2020/07/01 11:52:46 vm-16: crash: panic: invalid argument to Intn
+2020/07/01 11:52:47 vm-28: crash: panic: invalid argument to Intn
+2020/07/01 11:52:51 vm-9: crash: panic: invalid argument to Intn
+2020/07/01 11:52:54 vm-6: crash: panic: invalid argument to Intn
+2020/07/01 11:52:55 VMs 12, executed 153462, corpus cover 79651,
+corpus signal 174611, max signal 185505, crashes 434, repro 0
+2020/07/01 11:53:00 vm-0: crash: panic: invalid argument to Intn
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
