@@ -2,59 +2,85 @@ Return-Path: <SRS0=OTun=AM=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BA0F1C433E0
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2020 10:41:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 435DCC433E0
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2020 10:42:33 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8804220722
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2020 10:41:08 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 0FB1020722
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jul 2020 10:42:33 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sWN6pwAr"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8804220722
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Hj81zRIj";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="n1PhMJHd"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0FB1020722
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:Date:References:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=/f8SY9FngIHRpbWPGl8D/ELl945rfCG00j9nRt9JdQY=; b=sWN6pwArPXKgfhDj8JI3x8Tj7
-	89Ls8etAwppl84yRC7mrcEuKG+hkmR5PXu7d2bKqQ3kBBxVry5ujT0Gcopgxp8f935+kVL0UGzBq8
-	ssjL1i9I6RAFb98NHQepN5ZX4j5gXz2TskjupWuO1XF2tNXL5zRqTkJGaW2bJo9tdijvm5pfvSKkY
-	AUw6bhFxEh0Lie8Cj0bejBt64R8XHWOzFezBDeWWOP7Vf6M5L5WiT+ao6bVm4lSO5kADSP9Ney/3T
-	9Mlz/WdosWHfgrPOhhuw7aqX9tZcqbNQzt0UyyJtqUjx6RNQhD9GIc/nFhse8J6xGWeLNp4Gg2W/9
-	EBCLFmNOQ==;
+	 bh=tPhVZ2mIFhcYl8FfrGkTTw/CJg3WDWSuxHtBKGDyjXI=; b=Hj81zRIjkHwcUZm/yA931pmjP
+	gHqXtSQ/bMvKKnGjrv2TUQeHledHoHsdpJq6Om1hwjhESVkhF0Oq/rOEx8P/r2OZaq2lBx9J6Y9pz
+	6FuWkR6zx1LNh1uuWzKsX5TbWBPIwzwnsVLkRL2UbMFsaDFErvyvsXyZeW+jtkQSF2Ez08/8CHmTB
+	wfbfdz0xvia9w0vlJRNgxC+/aL6fbL96JkKX4yAktl2lcO4BNIruqKZ4GgAbmP0QrPk5zLbtbvy5a
+	AIoRNm+9Npvpv91bs3EtxoEFsZn3nHOH4VxUKfrQfBa/dm62h/qAhQWTM8sNH0nSfjFJ1ZdiOueCd
+	5Lk5Q1wRw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jqaAp-0007Cd-Mz; Wed, 01 Jul 2020 10:41:03 +0000
-Received: from mx2.suse.de ([195.135.220.15])
+	id 1jqaCC-0007L0-Dn; Wed, 01 Jul 2020 10:42:28 +0000
+Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jqaAm-0007Bw-UE
- for linux-riscv@lists.infradead.org; Wed, 01 Jul 2020 10:41:02 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.221.27])
- by mx2.suse.de (Postfix) with ESMTP id 4AD9EAD04;
- Wed,  1 Jul 2020 10:40:59 +0000 (UTC)
-From: Andreas Schwab <schwab@suse.de>
-To: Yash Shah <yash.shah@sifive.com>
-Subject: Re: [PATCH 0/3] Dynamic CPU frequency switching for the HiFive
-References: <1592308864-30205-1-git-send-email-yash.shah@sifive.com>
-X-Yow: ..  over in west Philadelphia a puppy is vomiting..
-Date: Wed, 01 Jul 2020 12:40:58 +0200
-In-Reply-To: <1592308864-30205-1-git-send-email-yash.shah@sifive.com> (Yash
- Shah's message of "Tue, 16 Jun 2020 17:31:01 +0530")
-Message-ID: <mvmftabiklh.fsf@suse.de>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/27.0.91 (gnu/linux)
+ id 1jqaCA-0007KZ-4U
+ for linux-riscv@lists.infradead.org; Wed, 01 Jul 2020 10:42:26 +0000
+Received: by mail-wm1-x342.google.com with SMTP id l17so21880852wmj.0
+ for <linux-riscv@lists.infradead.org>; Wed, 01 Jul 2020 03:42:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=iAWo4dxgN7pY4QHXCCZ7PZUH5Z7OXwv+NKwzVc3uYTY=;
+ b=n1PhMJHd7gg872QGiVREtj7Wpce4shBwBL4if9UtRXsn49Gu9Sho/dQlyLF0HtHXPJ
+ gjp+2Q9Gf/5z8+qlxOWim4Fwo/2IUgOoIKMWcqTL+aqCKz/szbPB/F2lSQdV3su9cGJC
+ NWu0qtRgmyWwFEJFLCxseTdim5r2HpCp/yap3Qz40ZyR+/2hWd83YTAS0fjd2//xjjrF
+ 4ehyPVlb5qZVKXYHEo1dM5KKuYB2iirdkoQA73u3Xf297MbRUKrbwQ7fCD1jAm7WpTuf
+ b9dFaECLZxQrfFN0F4eEZLDvlQsyNFjqXGgpl0fnCV6IpYcVKmQJsGwiM8v3XelGZwV3
+ VA9Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=iAWo4dxgN7pY4QHXCCZ7PZUH5Z7OXwv+NKwzVc3uYTY=;
+ b=UZBI2V7VSakprsrCHYmUA4OjBT66fACITqjZgXi0VUkjfQC6VnibU/c4BhoZQrZT2T
+ IG1SH+JMKEzPNLLO7TdylP5Bl1yshgS4ibpMVqCmvH7zx6tpBNHkH5rd6O2RgoInCu20
+ ciKLID6Pfm+KxwAQzFQD86g6GOPKkkd3pkrYdF+BMLG84ORNbRHcLS7D08LiUlMWZH+W
+ rkkAwnDlAxpYEfFka1nu38nissSwuEsJUh40yArinjOKVpMsF+AWYJAXhS4nxXfuR4kl
+ bHag1BghCM+5h4NcXhORm/eNp8DqEcUWRiAvDB43qsbH4ZN5FZFqXQefCsEk6J13w+oy
+ E6xQ==
+X-Gm-Message-State: AOAM533fwWmMwG0FODmNtadv1iPcZ1dvH09zNnte94rIJzh3idB9gPbA
+ Ot4MP8+tKtYIXG6N29E+SEwcO8QLl2b5oM51R0Y=
+X-Google-Smtp-Source: ABdhPJxHb7Cqzl/XVcc9ZPR15RgMheaPu5NUE6rCyrAazRA8GkjJs0pAamtIZo3ycbi2mTxyxTTGv7RWsK3S3tUephc=
+X-Received: by 2002:a1c:3c82:: with SMTP id
+ j124mr27833080wma.155.1593600143683; 
+ Wed, 01 Jul 2020 03:42:23 -0700 (PDT)
 MIME-Version: 1.0
+References: <CACT4Y+a3A6DEvUjCsk_jKz9nZ=5iAzXTyG4WDPkug6u7BVrceQ@mail.gmail.com>
+ <mvmtuysn227.fsf@suse.de>
+ <CACT4Y+Y8=0m+Xku_+kQYuiiABgFUDzHBEqUK_FNGs8=f9NGZng@mail.gmail.com>
+In-Reply-To: <CACT4Y+Y8=0m+Xku_+kQYuiiABgFUDzHBEqUK_FNGs8=f9NGZng@mail.gmail.com>
+From: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>
+Date: Wed, 1 Jul 2020 12:42:12 +0200
+Message-ID: <CAJ+HfNgzyOfr7gXeg+weLf64HHOWmm2Wug5Oc1OrOJN9ZcR5bQ@mail.gmail.com>
+Subject: Re: syzkaller on risc-v
+To: Dmitry Vyukov <dvyukov@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200701_064101_230574_21E428F4 
-X-CRM114-Status: GOOD (  11.96  )
+X-CRM114-CacheID: sfid-20200701_064226_192339_08D6D120 
+X-CRM114-Status: GOOD (  14.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -66,76 +92,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, aou@eecs.berkeley.edu, atish.patra@wdc.com,
- anup@brainfault.org, lollivier@baylibre.com, linux-kernel@vger.kernel.org,
- green.wan@sifive.com, sachin.ghadi@sifive.com, robh+dt@kernel.org,
- palmer@dabbelt.com, deepa.kernel@gmail.com, paul.walmsley@sifive.com,
- alistair.francis@wdc.com, linux-riscv@lists.infradead.org, bmeng.cn@gmail.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Andreas Schwab <schwab@suse.de>,
+ Atish Patra <atish.patra@wdc.com>, syzkaller <syzkaller@googlegroups.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Tobias Klauser <tklauser@distanz.ch>,
+ linux-riscv <linux-riscv@lists.infradead.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Jun 16 2020, Yash Shah wrote:
-
-> The patch series adds the support for dynamic CPU frequency switching
-> for FU540-C000 SoC on the HiFive Unleashed board. All the patches are
-> based on Paul Walmsley's work.
->
-> This series is based on Linux v5.7 and tested on HiFive unleashed board.
-
-I'm using that patch with 5.7.5.
-
-It appears to interfer with serial output when using the ondemand
-governor.
-
-I also see soft lockups when using the performance governor:
-
-[  101.587527] rcu: INFO: rcu_sched self-detected stall on CPU
-[  101.592322] rcu:     0-...!: (932 ticks this GP) idle=11a/1/0x4000000000000004 softirq=4301/4301 fqs=4
-[  101.601432]  (t=6001 jiffies g=4017 q=859)
-[  101.605514] rcu: rcu_sched kthread starved for 5984 jiffies! g4017 f0x0 RCU_GP_WAIT_FQS(5) ->state=0x0 ->cpu=2
-[  101.615494] rcu: RCU grace-period kthread stack dump:
-[  101.620530] rcu_sched       R  running task        0    10      2 0x00000000
-[  101.627560] Call Trace:
-[  101.630004] [<ffffffe00085a7e2>] __schedule+0x25c/0x616
-[  101.635205] [<ffffffe00085abde>] schedule+0x42/0xb2
-[  101.640070] [<ffffffe00085d0ba>] schedule_timeout+0x56/0xb8
-[  101.645626] [<ffffffe000263c34>] rcu_gp_fqs_loop+0x208/0x248
-[  101.651266] [<ffffffe0002666de>] rcu_gp_kthread+0xc2/0xcc
-[  101.656651] [<ffffffe00022654e>] kthread+0xda/0xec
-[  101.661426] [<ffffffe00020140a>] ret_from_exception+0x0/0xc
-[  101.666977] Task dump for CPU 0:
-[  101.670187] loop0           R  running task        0   655      2 0x00000008
-[  101.677218] Call Trace:
-[  101.679657] [<ffffffe0002028ae>] walk_stackframe+0x0/0xaa
-[  101.685036] [<ffffffe000202b76>] show_stack+0x2a/0x34
-[  101.690074] [<ffffffe0002319b0>] sched_show_task.part.0+0xc2/0xd2
-[  101.696154] [<ffffffe00022bb9c>] sched_show_task+0x64/0x66
-[  101.701618] [<ffffffe000231afe>] dump_cpu_task+0x3e/0x48
-[  101.706916] [<ffffffe000267762>] rcu_dump_cpu_stacks+0x94/0xce
-[  101.712731] [<ffffffe0002631f6>] print_cpu_stall+0x116/0x18a
-[  101.718375] [<ffffffe000264a46>] check_cpu_stall+0xcc/0x1a2
-[  101.723929] [<ffffffe000264b52>] rcu_pending.constprop.0+0x36/0xaa
-[  101.730094] [<ffffffe000266ab2>] rcu_sched_clock_irq+0xa6/0xea
-[  101.735913] [<ffffffe00026d1be>] update_process_times+0x1e/0x42
-[  101.741821] [<ffffffe0002793bc>] tick_sched_handle+0x26/0x52
-[  101.747456] [<ffffffe0002798fe>] tick_sched_timer+0x6a/0xd0
-[  101.753015] [<ffffffe00026d9be>] __run_hrtimer.constprop.0+0x50/0xe8
-[  101.759353] [<ffffffe00026da9e>] __hrtimer_run_queues+0x48/0x6c
-[  101.765254] [<ffffffe00026e410>] hrtimer_interrupt+0xca/0x1d4
-[  101.770985] [<ffffffe0006ceef8>] riscv_timer_interrupt+0x32/0x3a
-[  101.776976] [<ffffffe00085e17c>] do_IRQ+0xa4/0xb8
-[  101.781663] [<ffffffe00020140a>] ret_from_exception+0x0/0xc
-
-Andreas.
-
--- 
-Andreas Schwab, SUSE Labs, schwab@suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCAzMCBKdW4gMjAyMCBhdCAxNToyNywgRG1pdHJ5IFZ5dWtvdiA8ZHZ5dWtvdkBnb29n
+bGUuY29tPiB3cm90ZToKPgo+IE9uIFR1ZSwgSnVuIDMwLCAyMDIwIGF0IDM6MTQgUE0gQW5kcmVh
+cyBTY2h3YWIgPHNjaHdhYkBzdXNlLmRlPiB3cm90ZToKPiA+Cj4gPiBPbiBKdW4gMzAgMjAyMCwg
+RG1pdHJ5IFZ5dWtvdiB3cm90ZToKPiA+Cj4gPiA+IEtBU0FOIHdvdWxkIGJlIGEgcHJlcmVxdWlz
+aXRlIGZvciB0ZXN0aW5nIHJpc2MtdiBvbiBzeXpib3QuCj4gPgo+ID4gWW91IG5lZWQgdG8gaW1w
+bGVtZW50IHRoZSBHQ0Mgc3VwcG9ydCBmaXJzdC4KPgo+IEludGVyZXN0aW5nLiBCasO2cm4gY2xh
+aW1lZCBLQVNBTiB3b3JrcyBhbHJlYWR5LiAgQW5kIHRoZXJlIGlzOgo+Cj4gY29tbWl0IDhhZDhi
+NzI3MjFkMGYwN2ZhMDJkYmU3MWY5MDE3NDNmOWM3MWM4ZTYKPiBBdXRob3I6IE5pY2sgSHUKPiBE
+YXRlOiAgIE1vbiBKYW4gNiAxMDozODozMiAyMDIwIC0wODAwCj4gICAgIHJpc2N2OiBBZGQgS0FT
+QU4gc3VwcG9ydAo+Cj4gSXMgdGhlcmUgYW55IGtub3duIGlzc3VlIHdpdGggZ2NjPwo+IERpZCBh
+bnlvbmUgdHJ5IGNsYW5nPyBBZGRyZXNzU2FuaXRpemVyIHBhc3MgaW4gY2xhbmcgaXMKPiBhcmNo
+LWluZGVwZW5kZW50LiBOb3Qgc3VyZSBhYm91dCBnY2MuLi4gaXQgbG9va2VkIG1vc3RseQo+IGFy
+Y2gtaW5kZXBlbmRlbnQuCgpXZWlyZC4gRGlkIGEgcXVpY2sgYmlzZWN0IChqdXN0ICJkb2VzIGl0
+IGJvb3Qgd2l0aCBLQVNBTiBvciBub3QiCnRlc3QpLCBhbmQgdGhpcyBmZWxsIG91dDoKCi0tCmVm
+Y2ExMzk4OTI1MGMzZWRlYmFmOGZjYWE4Y2E3Yzk2NjczOWM2NWEgaXMgdGhlIGZpcnN0IGJhZCBj
+b21taXQKY29tbWl0IGVmY2ExMzk4OTI1MGMzZWRlYmFmOGZjYWE4Y2E3Yzk2NjczOWM2NWEKQXV0
+aG9yOiBBdGlzaCBQYXRyYSA8YXRpc2gucGF0cmFAd2RjLmNvbT4KRGF0ZTogICBUdWUgTWFyIDE3
+IDE4OjExOjM3IDIwMjAgLTA3MDAKCiAgICBSSVNDLVY6IEludHJvZHVjZSBhIG5ldyBjb25maWcg
+Zm9yIFNCSSB2MC4xCgogICAgV2Ugbm93IGhhdmUgU0JJIHYwLjIgd2hpY2ggaXMgbW9yZSBzY2Fs
+YWJsZSBhbmQgZXh0ZW5kYWJsZSB0byBoYW5kbGUKICAgIGZ1dHVyZSBuZWVkcyBmb3IgUklTQy1W
+IHN1cGVydmlzb3IgaW50ZXJmYWNlcy4KCiAgICBJbnRyb2R1Y2UgYSBuZXcgY29uZmlnIGFuZCBt
+b3ZlIGFsbCBTQkkgdjAuMSBjb2RlIHVuZGVyIHRoYXQgY29uZmlnLgogICAgVGhpcyBhbGxvd3Mg
+dG8gaW1wbGVtZW50IHRoZSBuZXcgcmVwbGFjZW1lbnQgU0JJIGV4dGVuc2lvbnMgY2xlYW5seQog
+ICAgYW5kIHJlbW92ZSB2MC4xIGV4dGVuc2lvbnMgZWFzaWx5IGluIGZ1dHVyZS4gQ3VycmVudGx5
+LCB0aGUgY29uZmlnCiAgICBpcyBlbmFibGVkIGJ5IGRlZmF1bHQuIE9uY2UgYWxsIE0tbW9kZSBz
+b2Z0d2FyZSwgd2l0aCB2MC4xLCBpcyBubwogICAgbG9uZ2VyIGluIHVzZSwgdGhpcyBjb25maWcg
+b3B0aW9uIGFuZCBhbGwgcmVsZXZhbnQgY29kZSBjYW4gYmUgZWFzaWx5CiAgICByZW1vdmVkLgoK
+ICAgIFNpZ25lZC1vZmYtYnk6IEF0aXNoIFBhdHJhIDxhdGlzaC5wYXRyYUB3ZGMuY29tPgogICAg
+UmV2aWV3ZWQtYnk6IEFudXAgUGF0ZWwgPGFudXBAYnJhaW5mYXVsdC5vcmc+CiAgICBTaWduZWQt
+b2ZmLWJ5OiBQYWxtZXIgRGFiYmVsdCA8cGFsbWVyZGFiYmVsdEBnb29nbGUuY29tPgoKIGFyY2gv
+cmlzY3YvS2NvbmZpZyAgICAgICAgICAgfCAgIDcgKysrCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNt
+L3NiaS5oIHwgICAyICsKIGFyY2gvcmlzY3Yva2VybmVsL3NiaS5jICAgICAgfCAxMzIgKysrKysr
+KysrKysrKysrKysrKysrKysrKysrKysrKysrKystLS0tLS0tLQogMyBmaWxlcyBjaGFuZ2VkLCAx
+MTggaW5zZXJ0aW9ucygrKSwgMjMgZGVsZXRpb25zKC0pCi0tCgpJJ2xsIGRpZyBhIGJpdCBtb3Jl
+LgoKCkJqw7ZybgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
+cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
+dgo=
