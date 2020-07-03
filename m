@@ -2,89 +2,90 @@ Return-Path: <SRS0=aIEb=AO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-10.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 50B6AC433E2
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5F32FC433DF
 	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jul 2020 08:58:16 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1F59D20826
+	by mail.kernel.org (Postfix) with ESMTPS id 3068B20885
 	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jul 2020 08:58:16 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pD3v1uBg";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="UYyFvt0y"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1F59D20826
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="3UH2o0Dg";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="gno6XA1R"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3068B20885
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VV2dtGRrrAAIwyh56+Hhcg3d3UiQBkk4EJJYcuZnXwI=; b=pD3v1uBgIUPB0S6EygFaZuy9J0
-	HqHIjW70YVEscydxosevpgO9kbnQX3T2iC4D8X/7RIzB0k1j8DZ2rE3k0gIgDCUxjP13VxRbxXuUz
-	Xnq/+OHTpjf5GBFfiRKiREYRXHaY96HGSYyGel18x+U7/rthMWjScBEYR19VCOSyi2hn7q/zCEyil
-	VkrFduYyyanRRdEibClDuD6tQ8cOWjlyfxa+DhTQRSbYFLzcpuXeZn+Xs96bDn+OwyvXgncSaql/A
-	COaqihx9s1COYbfgRJ25Wm97tpvkwXNyzwR4+mqRO5oyDjIou17v9X6G9q585ra+EM17xE0qMgqq5
-	ye6w2ooA==;
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=1QsYiphvOo/T7c7GkrVsdRGoa8XHX7+dO7XkHnpu0qg=; b=3UH2o0DgswYuTjaCqdcewb/CD
+	s8SwKIJMHbeiJP2G594eetOk3c3VWPtY1N6mTnoihkxuraiUCX8eF5iFsVy9sMQMXFdl+6tCodaQ9
+	44jWy1QEwVRrYvFkiTGh1/Muqle5ie/S+L1H22zLftAMpeZ4PAVSxtSadg6c2C22g2VeY9Y2Ry5OY
+	kwbqMOS9Qf10gOLUbFSZbn7XpjnboYasffIkANsxhA/v0Vpg2BRZNk4atjuV2/+x5WbET18xzWRPL
+	nDxCzPVthbnUUWgDzs8eDMxwTTBlM2IJ+hLCCxEYtgH3lRPLU5puwtyv+K/35IsFbWeuQ3EsUgMAt
+	Ig5UYVgNg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jrHWJ-00035f-7Q; Fri, 03 Jul 2020 08:58:07 +0000
-Received: from mail-pl1-x642.google.com ([2607:f8b0:4864:20::642])
+	id 1jrHWK-00036D-7p; Fri, 03 Jul 2020 08:58:08 +0000
+Received: from mail-pj1-x1041.google.com ([2607:f8b0:4864:20::1041])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jrHWF-00033A-7s
- for linux-riscv@lists.infradead.org; Fri, 03 Jul 2020 08:58:04 +0000
-Received: by mail-pl1-x642.google.com with SMTP id o1so5844700plk.1
- for <linux-riscv@lists.infradead.org>; Fri, 03 Jul 2020 01:58:01 -0700 (PDT)
+ id 1jrHWG-00033t-IL
+ for linux-riscv@lists.infradead.org; Fri, 03 Jul 2020 08:58:05 +0000
+Received: by mail-pj1-x1041.google.com with SMTP id k71so10128960pje.0
+ for <linux-riscv@lists.infradead.org>; Fri, 03 Jul 2020 01:58:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=l5krbZyzVlqtJlOtCzvF9lWot4EaX2wFJODMLjpfT4I=;
- b=UYyFvt0yHy8s+GaHXFDWNpCmUSIIUi1ARn1Nol8baUVBhpIIPAvw//y55ov/JDYZ9E
- DcIzzfh7GLHhx7zBBS2T/noiqaLvQdRYIVsvbapYFWozPXkRSqMdDYptpp/J68qPJbVs
- PuZlS69ZvO2fuKtpWKI9YGWVG293nIWvJGUQ8M0yySw1WJhkPDKsxKY3cSrbVK7RX6Wx
- 40MeCtPwwA25KJ4/SF9fp8Xa2f7vZr46RMz9dzrcvdRpNkfsz0CXSBgTAJ/G2zyJYBhY
- dl/8a9rInKt8BA9505EvF6SVg9U9MgQLAMJbQVeGdEsxJH+PsbIzskM1fdx+ctoHn8hs
- wPSg==
+ h=from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=2BGY31r3gXsVvMQOHoM8a6MHD33MAStOOtvTSyarMfM=;
+ b=gno6XA1RsGOX7Anfh8skZ16jnJ2eYyVSDqsmWAMcOR3jmCUaEM/znLHHGUE/j/y37e
+ QY2nm6fQisDvNQPsOKd0SDhrWXRNvMvbW39HIq2GP2d7NzRij8XZJvxafI2rihmF97YU
+ aMeHttXeBsNVEQ2P1GcXzTN4vrfHr8+If4xYUwSDsMZI/ZyxdBe0/0sRTrvVosGZw22m
+ UNIGY7Mdq/GW5yNrBZV5wMVQYClpfnTPRilt9Cv52+eJTMBEGO9F1EfZiY+ULmp44Skg
+ MHWkcT8LL4G2OfZzAjcLUeRvqWE2g4+spkulMnBEljaArz1Z+FkP1FRUNLQmLpzWhgdX
+ affg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=l5krbZyzVlqtJlOtCzvF9lWot4EaX2wFJODMLjpfT4I=;
- b=FnzPu4CUiMy0BUbEvgLBXqigCGVjiqLXvGKzC/uYnCWG2dsqNAF72jmgivnOTAItjz
- qh1cdylp+wUDpG7rpIOgxmLaxuRwNjPMrTDh8zkSY1NikHYL4189U4/d8DzGB+Kkn+gg
- W7uZu/cEa5zzUvkhbLrV/PUEEVqlZoQ0CW8Mz0+4IL2fxz9Mo+/TeD/76MhbTOCmqLJW
- tz6zDP9iixNi+pYd61BwphyfKFxLCBFvZ+IXhWOV/vpNHm/cEQ8jjNuXW5ONmZEOsEF8
- P3lGBQjxvWFUMzLYe1gkEzqwMIj2KIbfBBO3KW76UxPrXOWcVxvueIy2OAfPSe4tfF7T
- CdwQ==
-X-Gm-Message-State: AOAM531CwNp4gdHqGb8La7DAxlph40LtJ5CGL7zSp9jdKVbzHj6dbANF
- 4WCTvHNBOM9OOK04fuUW5YaFbg==
-X-Google-Smtp-Source: ABdhPJziBzbhbh7LkHtY3EnPldKzpWtTLtYu7SsscIuCrPkd9X2YdWZoAir/RegXx6s4AkyF+pNL6Q==
-X-Received: by 2002:a17:90b:1386:: with SMTP id
- hr6mr35394676pjb.93.1593766679662; 
- Fri, 03 Jul 2020 01:57:59 -0700 (PDT)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=2BGY31r3gXsVvMQOHoM8a6MHD33MAStOOtvTSyarMfM=;
+ b=EsDk161FPVi/kL77TE+EaiWkkNil/vflBRPGiyBAffvamWqT4BjY8jZ466ZAbcz83S
+ Qfg9Nmc0NCZahE/6XBSZ9ycATxfodR06dD32Z5sB4zqQ4C2BVbAMFYwKIw2ieyYb2OxC
+ C+n6lb6SFD/62BC3HwM0zt3ykSW4boOtUvegR5IUEiGplp+eFyEr8tk7loaJU3eqYyox
+ KYSE6dMtg4gWQf4wUv/nhEDCqXhgEjxHfMTyyIcuFNYzljtjz5zvl2ASX/iWLqz3TczT
+ 5KloOCqZ993N1ncrfCaFBOGJQtXPrWSQDudM00ubqf1UPvWt+8thBZDZItopC0ZpEk6e
+ t3GA==
+X-Gm-Message-State: AOAM531T85+yk3pbl7XTO+k3ch/TEzztvTIYKfodY8zF125fS7aXAkJx
+ zzV6jZI1aGfLY4GEeggbIGck5Q==
+X-Google-Smtp-Source: ABdhPJynSZW9qH2tq+gpwdtLXh45KB+tBR8yBMrcqSwKxOpT+68saLPhHGU1Sla5UeGcRJbdhsGE5g==
+X-Received: by 2002:a17:90a:de94:: with SMTP id
+ n20mr27314929pjv.125.1593766681242; 
+ Fri, 03 Jul 2020 01:58:01 -0700 (PDT)
 Received: from hsinchu02.internal.sifive.com
  (114-34-229-221.HINET-IP.hinet.net. [114.34.229.221])
- by smtp.gmail.com with ESMTPSA id l23sm2126287pjy.45.2020.07.03.01.57.58
+ by smtp.gmail.com with ESMTPSA id l23sm2126287pjy.45.2020.07.03.01.57.59
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 03 Jul 2020 01:57:59 -0700 (PDT)
+ Fri, 03 Jul 2020 01:58:00 -0700 (PDT)
 From: Zong Li <zong.li@sifive.com>
 To: palmer@dabbelt.com, paul.walmsley@sifive.com,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH 0/3] Get cache information from userland
-Date: Fri,  3 Jul 2020 16:57:52 +0800
-Message-Id: <cover.1593766028.git.zong.li@sifive.com>
+Subject: [PATCH 1/3] riscv: Set more data to cacheinfo
+Date: Fri,  3 Jul 2020 16:57:53 +0800
+Message-Id: <3ca47cfde607516e51f78f1645357ca739e775d0.1593766028.git.zong.li@sifive.com>
 X-Mailer: git-send-email 2.27.0
+In-Reply-To: <cover.1593766028.git.zong.li@sifive.com>
+References: <cover.1593766028.git.zong.li@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200703_045803_607678_3A2E7E87 
-X-CRM114-Status: UNSURE (   7.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200703_045804_646482_B0BD7C7E 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -102,40 +103,105 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There are no standard CSR registers to provide cache information, the
-way for RISC-V is to get this information from DT. Currently, AT_L1I_X,
-AT_L1D_X and AT_L2_X are present in glibc header, and sysconf syscall
-could use them to get information of cache through AUX vector. We
-exploit 'struct cacheinfo' to obtain the information of cache, then we
-don't need additional variable or data structure to record it.
+Set cacheinfo.{size,sets,line_size} for each cache node, then we can
+get these information from userland through auxiliary vector.
 
-We also need some works in glibc, but we have to support the function in
-kernel first by rule of glibc, then post the patch to glibc site.
+Signed-off-by: Zong Li <zong.li@sifive.com>
+---
+ arch/riscv/kernel/cacheinfo.c | 59 ++++++++++++++++++++++++++---------
+ 1 file changed, 44 insertions(+), 15 deletions(-)
 
-The result of 'getconf -a' as follows:
-
-LEVEL1_ICACHE_SIZE                 32768
-LEVEL1_ICACHE_ASSOC                8
-LEVEL1_ICACHE_LINESIZE             64
-LEVEL1_DCACHE_SIZE                 32768
-LEVEL1_DCACHE_ASSOC                8
-LEVEL1_DCACHE_LINESIZE             64
-LEVEL2_CACHE_SIZE                  2097152
-LEVEL2_CACHE_ASSOC                 32
-LEVEL2_CACHE_LINESIZE              64
-
-Zong Li (3):
-  riscv: Set more data to cacheinfo
-  riscv: Define AT_VECTOR_SIZE_ARCH for ARCH_DLINFO
-  riscv: Add cache information in AUX vector
-
- arch/riscv/include/asm/cacheinfo.h   | 14 +++++
- arch/riscv/include/asm/elf.h         | 13 ++++
- arch/riscv/include/uapi/asm/auxvec.h | 24 ++++++++
- arch/riscv/kernel/cacheinfo.c        | 92 +++++++++++++++++++++++-----
- 4 files changed, 127 insertions(+), 16 deletions(-)
- create mode 100644 arch/riscv/include/asm/cacheinfo.h
-
+diff --git a/arch/riscv/kernel/cacheinfo.c b/arch/riscv/kernel/cacheinfo.c
+index 4c90c07d8c39..cdd35e53fd98 100644
+--- a/arch/riscv/kernel/cacheinfo.c
++++ b/arch/riscv/kernel/cacheinfo.c
+@@ -8,12 +8,46 @@
+ #include <linux/of.h>
+ #include <linux/of_device.h>
+ 
+-static void ci_leaf_init(struct cacheinfo *this_leaf,
+-			 struct device_node *node,
+-			 enum cache_type type, unsigned int level)
++static void ci_leaf_init(struct cacheinfo *this_leaf, enum cache_type type,
++			 unsigned int level, unsigned int size,
++			 unsigned int sets, unsigned int line_size)
+ {
+ 	this_leaf->level = level;
+ 	this_leaf->type = type;
++	this_leaf->size = size;
++	this_leaf->number_of_sets = sets;
++	this_leaf->coherency_line_size = line_size;
++
++	/*
++	 * If the cache is fully associative, there is no need to
++	 * check the other properties.
++	 */
++	if (!(sets == 1) && (sets > 0 && size > 0 && line_size > 0))
++		this_leaf->ways_of_associativity = (size / sets) / line_size;
++}
++
++static void fill_cacheinfo(struct cacheinfo **this_leaf,
++			   struct device_node *node, unsigned int level)
++{
++	unsigned int size, sets, line_size;
++
++	if (!of_property_read_u32(node, "cache-size", &size)) {
++		of_property_read_u32(node, "cache-block-size", &line_size);
++		of_property_read_u32(node, "cache-sets", &sets);
++		ci_leaf_init((*this_leaf)++, CACHE_TYPE_UNIFIED, level, size, sets, line_size);
++	}
++
++	if (!of_property_read_u32(node, "i-cache-size", &size)) {
++		of_property_read_u32(node, "i-cache-sets", &sets);
++		of_property_read_u32(node, "i-cache-block-size", &line_size);
++		ci_leaf_init((*this_leaf)++, CACHE_TYPE_INST, level, size, sets, line_size);
++	}
++
++	if (!of_property_read_u32(node, "d-cache-size", &size)) {
++		of_property_read_u32(node, "d-cache-sets", &sets);
++		of_property_read_u32(node, "d-cache-block-size", &line_size);
++		ci_leaf_init((*this_leaf)++, CACHE_TYPE_DATA, level, size, sets, line_size);
++	}
+ }
+ 
+ static int __init_cache_level(unsigned int cpu)
+@@ -66,29 +100,24 @@ static int __populate_cache_leaves(unsigned int cpu)
+ 	struct device_node *prev = NULL;
+ 	int levels = 1, level = 1;
+ 
+-	if (of_property_read_bool(np, "cache-size"))
+-		ci_leaf_init(this_leaf++, np, CACHE_TYPE_UNIFIED, level);
+-	if (of_property_read_bool(np, "i-cache-size"))
+-		ci_leaf_init(this_leaf++, np, CACHE_TYPE_INST, level);
+-	if (of_property_read_bool(np, "d-cache-size"))
+-		ci_leaf_init(this_leaf++, np, CACHE_TYPE_DATA, level);
++	/* Level 1 caches in cpu node */
++	fill_cacheinfo(&this_leaf, np, level);
+ 
++	/* Next level caches in cache nodes */
+ 	prev = np;
+ 	while ((np = of_find_next_cache_node(np))) {
+ 		of_node_put(prev);
+ 		prev = np;
++
+ 		if (!of_device_is_compatible(np, "cache"))
+ 			break;
+ 		if (of_property_read_u32(np, "cache-level", &level))
+ 			break;
+ 		if (level <= levels)
+ 			break;
+-		if (of_property_read_bool(np, "cache-size"))
+-			ci_leaf_init(this_leaf++, np, CACHE_TYPE_UNIFIED, level);
+-		if (of_property_read_bool(np, "i-cache-size"))
+-			ci_leaf_init(this_leaf++, np, CACHE_TYPE_INST, level);
+-		if (of_property_read_bool(np, "d-cache-size"))
+-			ci_leaf_init(this_leaf++, np, CACHE_TYPE_DATA, level);
++
++		fill_cacheinfo(&this_leaf, np, level);
++
+ 		levels = level;
+ 	}
+ 	of_node_put(np);
 -- 
 2.27.0
 
