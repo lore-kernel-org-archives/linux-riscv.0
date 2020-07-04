@@ -1,72 +1,69 @@
-Return-Path: <SRS0=aIEb=AO=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=1yfy=AP=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3713FC433DF
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jul 2020 15:45:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E73B6C433DF
+	for <linux-riscv@archiver.kernel.org>; Sat,  4 Jul 2020 03:34:48 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DC7B221927
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jul 2020 15:45:05 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 9D0CB208D5
+	for <linux-riscv@archiver.kernel.org>; Sat,  4 Jul 2020 03:34:48 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="haypumKs"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DC7B221927
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="xvKCOcT3";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="Mip3htu2"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9D0CB208D5
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=cdjGA5cfsIffr5r9ujVXzJFJpRVgdg4yq/HdZt4Bpek=; b=haypumKso+esWECgCLTBKqQ83
-	9m6FhAIbgaFg9hj+4tp1N6cj3WKg88PtGXbC7F31G6xk2PrdOlxb4lEsP5eyLVcrqkK9WWpHA1xat
-	4rp7zucdIZo0/rDiTNlD2lXWjJdley3kttl7cU1fjVn+FPz2esLEyOlAP4aYyhDDIoNMwmNkQtQqf
-	MkWqD8pRdGO6eM07lyA8FYsICCL5gTWGTMCPCXGPA6u+qG4prCzIRt9Xt2V2ObbhWO/gGdT5E7Hjl
-	rOgEM5SM8NeFgGVtsupJJ8h8aJFAP/vahOGo9Ws+kCdE4LpzI6nMASL9+cT+kwjXLgYjDQz8PdZ+C
-	lOc/Kq53A==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mllmTegI1/bYptojxpAeVLgmQz1UyQSe8Aef/iDSMfw=; b=xvKCOcT3ZlBdKx9njX2M36u+MJ
+	mogy6q04B05KL5htGR3VtCVtQi5LRlEkl9ctR5BCGdVzbgv8CXpe+oVqLUf42xgtZZTNtPp4BH3YQ
+	Nqqc+deYe3ZKWP8rqUv82/SlWzZx38t42pkA2pqtSyeZtVlS59A707aOQE/piXCCCRLCILoTiYczp
+	A+IROeDaqyk56STOdInUdOv3jKy5T3jtKVllW3zSlFe7fGaGRRRmrydmIhqoSMzm0rsG0OzxaLdp6
+	l4oKuFpSltCu+mxS7FAj2hCEH2DoEyUbf2geLOcok36HfXYy1mlWadsYmfODWZ109ZkU5uOCFMbWb
+	ZBfknK1A==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jrNs2-0000Lz-UQ; Fri, 03 Jul 2020 15:44:58 +0000
-Received: from mail-yb1-f196.google.com ([209.85.219.196])
+	id 1jrYwl-0007nX-No; Sat, 04 Jul 2020 03:34:35 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jrNpa-0004Mb-BG
- for linux-riscv@lists.infradead.org; Fri, 03 Jul 2020 15:42:30 +0000
-Received: by mail-yb1-f196.google.com with SMTP id x8so9652989ybl.9
- for <linux-riscv@lists.infradead.org>; Fri, 03 Jul 2020 08:42:25 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=5LAxL4uO4XDxvHwlEd3JCGXmc8R4W7Gi9pL7QLuMUms=;
- b=c4y5XRAcwNs8k7HJ4m8vgLSKjREmUlr+czMCdCl2Xtd5DY8KrSy+j+SPgTB3T08kx3
- W55De3fmoqwJ3fjoyhK9mU0rHD05YmyVf3IPnBXgyg19bxuyGa+bTvh2NoTC8KJXq9Pg
- LE2IVPGr3D67EahJeEhj2oXwS+MHYALgPptgTIaldd5/aqGZNhpms7LfECzWkvtq95zu
- gQScTCQD5jeRpnXHjf/IKTfwAbG2gPALTAFOLfdFuKOAaM/6VsfKqgi47Mwmro93hSDX
- DUFmAR+H9JSemhuH7ji6tqFV1sB3KZShLerwI1fVdkGJKiiDBy7GtbbsAXBiR5CEj4+v
- ET5A==
-X-Gm-Message-State: AOAM530Y2WVee1SqGReFvT5lINMtPnI/+/T/4HF7RQbq4wHz1ZPlbkd/
- jLbNSU3mgWbL56TAivU9g/mR+y/eHUkqILO/KUt870CxT0s=
-X-Google-Smtp-Source: ABdhPJz3eRrHM9x9gIfw/Glqeq+NEh5F1xaujAQfLFry+atk8BYYXobTkwBUlCKsa4FEDCFmuoN1nWpj5htVu/Awr4Y=
-X-Received: by 2002:a25:4603:: with SMTP id t3mr48052500yba.471.1593790944839; 
- Fri, 03 Jul 2020 08:42:24 -0700 (PDT)
+ id 1jrYwh-0007n9-Uc
+ for linux-riscv@lists.infradead.org; Sat, 04 Jul 2020 03:34:32 +0000
+Received: from localhost.localdomain (89.208.247.74.16clouds.com
+ [89.208.247.74])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 9E73B20899;
+ Sat,  4 Jul 2020 03:34:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1593833670;
+ bh=eTy2eFqdtYkG5FT9y7JyU5E4q34c6fUXRLFGwI6SVv0=;
+ h=From:To:Cc:Subject:Date:From;
+ b=Mip3htu2BiZjSdSMqYC7r5gtY2NOS7SFQXicW+fYddcldPhpvpkhMnVfYk4CTMtZW
+ c21VJrSu4B4Gba8KFXGPr3bXEO7K21LYFcGlFORoj0pmEO2oEnVJMAkLnN8FG0AK/u
+ oHlNwdAlCXEzWmYSgHlnC9f0NvEufYf+6F9b7fMA=
+From: guoren@kernel.org
+To: palmerdabbelt@google.com, paul.walmsley@sifive.com, anup@brainfault.org,
+ greentime.hu@sifive.com, zong.li@sifive.com, me@packi.ch,
+ bjorn.topel@gmail.com, atish.patra@wdc.com
+Subject: [PATCH V1 0/5] riscv: Add k/uprobe supported
+Date: Sat,  4 Jul 2020 03:34:14 +0000
+Message-Id: <1593833659-26224-1-git-send-email-guoren@kernel.org>
+X-Mailer: git-send-email 2.7.4
 MIME-Version: 1.0
-References: <20200702200727.239348-1-kernel@esmil.dk>
-In-Reply-To: <20200702200727.239348-1-kernel@esmil.dk>
-From: Emil Renner Berthing <kernel@esmil.dk>
-Date: Fri, 3 Jul 2020 17:42:13 +0200
-Message-ID: <CANBLGczQ51LQCiubvu2HTYrdnW2q_6GY_dfVNrV6M+dnRh1KQw@mail.gmail.com>
-Subject: Re: [RFC] riscv: Add jump-label implementation
-To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200703_114228_553218_03EF0CFA 
-X-CRM114-Status: GOOD (  24.49  )
+X-CRM114-CacheID: sfid-20200703_233432_237640_FA92F982 
+X-CRM114-Status: UNSURE (   9.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -78,207 +75,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Atish Patra <atish.patra@wdc.com>, Anup Patel <anup.patel@wdc.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>,
+ guoren@kernel.org, linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2 Jul 2020 at 22:07, Emil Renner Berthing <kernel@esmil.dk> wrote:
->
-> Add basic jump-label implementation heavily based
-> on the ARM64 version.
->
-> Tested on the HiFive Unleashed.
->
-> Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
-> ---
->
-> This seems to work on my HiFive Unleashed. At least boots, runs fine
-> and the static key self-tests doesn't complain, but I'm sure I've missed
-> something, so I'm sending this as an RFC.
->
-> /Emil
->
->  .../core/jump-labels/arch-support.txt         |  2 +-
->  arch/riscv/Kconfig                            |  2 +
->  arch/riscv/include/asm/jump_label.h           | 59 +++++++++++++++++++
->  arch/riscv/kernel/Makefile                    |  2 +
->  arch/riscv/kernel/jump_label.c                | 44 ++++++++++++++
->  5 files changed, 108 insertions(+), 1 deletion(-)
->  create mode 100644 arch/riscv/include/asm/jump_label.h
->  create mode 100644 arch/riscv/kernel/jump_label.c
->
-> diff --git a/Documentation/features/core/jump-labels/arch-support.txt b/Documentation/features/core/jump-labels/arch-support.txt
-> index 632a1c7aefa2..760243d18ed7 100644
-> --- a/Documentation/features/core/jump-labels/arch-support.txt
-> +++ b/Documentation/features/core/jump-labels/arch-support.txt
-> @@ -23,7 +23,7 @@
->      |    openrisc: | TODO |
->      |      parisc: |  ok  |
->      |     powerpc: |  ok  |
-> -    |       riscv: | TODO |
-> +    |       riscv: |  ok  |
->      |        s390: |  ok  |
->      |          sh: | TODO |
->      |       sparc: |  ok  |
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index fd639937e251..d2f5c53fdc19 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -46,6 +46,8 @@ config RISCV
->         select GENERIC_TIME_VSYSCALL if MMU && 64BIT
->         select HANDLE_DOMAIN_IRQ
->         select HAVE_ARCH_AUDITSYSCALL
-> +       select HAVE_ARCH_JUMP_LABEL
-> +       select HAVE_ARCH_JUMP_LABEL_RELATIVE
->         select HAVE_ARCH_KASAN if MMU && 64BIT
->         select HAVE_ARCH_KGDB
->         select HAVE_ARCH_KGDB_QXFER_PKT
-> diff --git a/arch/riscv/include/asm/jump_label.h b/arch/riscv/include/asm/jump_label.h
-> new file mode 100644
-> index 000000000000..29be6d351866
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/jump_label.h
-> @@ -0,0 +1,59 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (C) 2020 Emil Renner Berthing
-> + *
-> + * Based on arch/arm64/include/asm/jump_label.h
-> + */
-> +#ifndef __ASM_JUMP_LABEL_H
-> +#define __ASM_JUMP_LABEL_H
-> +
-> +#ifndef __ASSEMBLY__
-> +
-> +#include <linux/types.h>
-> +
-> +#define JUMP_LABEL_NOP_SIZE 4
-> +
-> +static __always_inline bool arch_static_branch(struct static_key *key,
-> +                                              bool branch)
-> +{
-> +       asm_volatile_goto(
-> +               "       .option push                            \n\n"
-> +               "       .option norelax                         \n\n"
-> +               "       .option norvc                           \n\n"
-> +               "1:     nop                                     \n\t"
-> +               "       .option pop                             \n\n"
-> +               "       .pushsection    __jump_table, \"aw\"    \n\t"
-> +               "       .align          3                       \n\t"
-> +               "       .long           1b - ., %l[l_yes] - .   \n\t"
-> +               "       .quad           %0 - .                  \n\t"
-
-With HAVE_ARCH_JUMP_LABEL_RELATIVE we get
-struct jump_entry {
-  s32 code;
-  s32 target;
-  long key;
-}
-..so this .quad and the one below should be replaced by the RISCV_PTR
-macro to match the struct in 32bit kernels.
-
-> +               "       .popsection                             \n\t"
-> +               :  :  "i"(&((char *)key)[branch ? 1 : 0]) :  : l_yes);
-> +
-> +       return false;
-> +l_yes:
-> +       return true;
-> +}
-> +
-> +static __always_inline bool arch_static_branch_jump(struct static_key *key,
-> +                                                   bool branch)
-> +{
-> +       asm_volatile_goto(
-> +               "       .option push                            \n\n"
-> +               "       .option norelax                         \n\n"
-> +               "       .option norvc                           \n\n"
-> +               "1:     jal             zero, %l[l_yes]         \n\t"
-> +               "       .option pop                             \n\n"
-> +               "       .pushsection    __jump_table, \"aw\"    \n\t"
-> +               "       .align          3                       \n\t"
-> +               "       .long           1b - ., %l[l_yes] - .   \n\t"
-> +               "       .quad           %0 - .                  \n\t"
-> +               "       .popsection                             \n\t"
-> +               :  :  "i"(&((char *)key)[branch ? 1 : 0]) :  : l_yes);
-> +
-> +       return false;
-> +l_yes:
-> +       return true;
-> +}
-> +
-> +#endif  /* __ASSEMBLY__ */
-> +#endif /* __ASM_JUMP_LABEL_H */
-> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-> index b355cf485671..a5287ab9f7f2 100644
-> --- a/arch/riscv/kernel/Makefile
-> +++ b/arch/riscv/kernel/Makefile
-> @@ -53,4 +53,6 @@ endif
->  obj-$(CONFIG_HOTPLUG_CPU)      += cpu-hotplug.o
->  obj-$(CONFIG_KGDB)             += kgdb.o
->
-> +obj-$(CONFIG_JUMP_LABEL)       += jump_label.o
-> +
->  clean:
-> diff --git a/arch/riscv/kernel/jump_label.c b/arch/riscv/kernel/jump_label.c
-> new file mode 100644
-> index 000000000000..55b2d742efe1
-> --- /dev/null
-> +++ b/arch/riscv/kernel/jump_label.c
-> @@ -0,0 +1,44 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2020 Emil Renner Berthing
-> + *
-> + * Based on arch/arm64/kernel/jump_label.c
-> + */
-> +#include <linux/kernel.h>
-> +#include <linux/jump_label.h>
-> +#include <asm/patch.h>
-> +
-> +#define RISCV_INSN_NOP 0x00000013
-> +#define RISCV_INSN_JAL 0x0000006f
-> +
-> +void arch_jump_label_transform(struct jump_entry *entry,
-> +                              enum jump_label_type type)
-> +{
-> +       void *addr = (void *)jump_entry_code(entry);
-> +       u32 insn;
-> +
-> +       if (type == JUMP_LABEL_JMP) {
-> +               u32 offset = jump_entry_target(entry) - jump_entry_code(entry);
-> +
-> +               insn = RISCV_INSN_JAL |
-> +                       ((offset & GENMASK(19, 12)) << (12 - 12)) |
-> +                       ((offset & GENMASK(11, 11)) << (20 - 11)) |
-> +                       ((offset & GENMASK(10,  1)) << (21 -  1)) |
-> +                       ((offset & GENMASK(20, 20)) << (31 - 20));
-> +       } else
-> +               insn = RISCV_INSN_NOP;
-> +
-> +       patch_text_nosync(addr, &insn, sizeof(insn));
-> +}
-> +
-> +void arch_jump_label_transform_static(struct jump_entry *entry,
-> +                                     enum jump_label_type type)
-> +{
-> +       /*
-> +        * We use the same instructions in the arch_static_branch and
-> +        * arch_static_branch_jump inline functions, so there's no
-> +        * need to patch them up here.
-> +        * The core will call arch_jump_label_transform  when those
-> +        * instructions need to be replaced.
-> +        */
-> +}
-> --
-> 2.27.0
->
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgoKVGhlIHBhdGNoc2V0IGlu
+Y2x1ZGVzIGtwcm9iZS91cHJvYmUgc3VwcG9ydCBhbmQgc29tZSByZWxhdGVkIGZpeHVwcy4KUGF0
+cmljayBwcm92aWRlcyBIQVZFX1JFR1NfQU5EX1NUQUNLX0FDQ0VTU19BUEkgc3VwcG9ydCBhbmQg
+c29tZQprcHJvYmUncyBjb2RlLiBUaGUgZnJhbWV3b3JrIG9mIGsvdXByb2JlIGlzIGZyb20gY3Nr
+eSBidXQgYWxzbyByZWZlcnMKdG8gb3RoZXIgYXJjaGVzJy4KClRoZXJlIGlzIG5vIHNpbmdsZSBz
+dGVwIGV4Y2VwdGlvbiBpbiByaXNjdiBJU0EsIHNvIHV0aWxpemUgZWJyZWFrIHRvCnNpbXVsYXRl
+LiBTb21lIHBjIHJlbGF0ZWQgaW5zdHJ1Y3Rpb25zIGNvdWxkbid0IGJlIGV4ZWN1dGVkIG91dCBv
+ZiBsaW5lCmFuZCBzb21lIHN5c3RlbS9mZW5jZSBpbnN0cnVjdGlvbnMgY291bGRuJ3QgYmUgYSB0
+cmFjZSBzaXRlIGF0IGFsbC4KU28gd2UgZ2l2ZSBvdXQgYSByZWplY3QgbGlzdCBhbmQgc2ltdWxh
+dGUgbGlzdCBpbiBkZWNvZGUtaW5zbi5jLgoKWW91IGNvdWxkIHVzZSB1cHJvYmUgdG8gdGVzdCBz
+aW11bGF0ZSBjb2RlIGxpa2UgdGhpczoKCiBlY2hvICdwOmVudGVyX2N1cnJlbnRfc3RhdGVfb25l
+IC9oZWxsbzoweDZlNCBhMD0lYTAgYTE9JWExJyA+PiAvc3lzL2tlcm5lbC9kZWJ1Zy90cmFjaW5n
+L3Vwcm9iZV9ldmVudHMKIGVjaG8gMSA+IC9zeXMva2VybmVsL2RlYnVnL3RyYWNpbmcvZXZlbnRz
+L3Vwcm9iZXMvZW5hYmxlCiAvaGVsbG8KIF5DCiBjYXQgL3N5cy9rZXJuZWwvZGVidWcvdHJhY2lu
+Zy90cmFjZQogdHJhY2VyOiBub3AKCiBlbnRyaWVzLWluLWJ1ZmZlci9lbnRyaWVzLXdyaXR0ZW46
+IDEvMSAgICNQOjEKCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF8tLS0tLT0+IGlycXMt
+b2ZmCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLyBfLS0tLT0+IG5lZWQtcmVzY2hlZAog
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAvIF8tLS09PiBoYXJkaXJxL3NvZnRpcnEKICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIHx8IC8gXy0tPT4gcHJlZW1wdC1kZXB0aAogICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgfHx8IC8gICAgIGRlbGF5CiAgICAgICAgICAgVEFTSy1QSUQg
+ICBDUFUjICB8fHx8ICAgIFRJTUVTVEFNUCAgRlVOQ1RJT04KICAgICAgICAgICAgICB8IHwgICAg
+ICAgfCAgIHx8fHwgICAgICAgfCAgICAgICAgIHwKICAgICAgICAgIGhlbGxvLTk0ICAgIFswMDBd
+IGQuLi4gICAgNTUuNDA0MjQyOiBlbnRlcl9jdXJyZW50X3N0YXRlX29uZTogKDB4MTA2ZTQpIGEw
+PTB4MSBhMT0weDNmZmZhOGFkYTgKCkJlIGNhcmUgL2hlbGxvOjB4NmU0IGlzIHRoZSBmaWxlIG9m
+ZnNldCBpbiBlbGYgYW5kIGl0IHJlbGF0ZSB0byAweDEwNmU0CmluIG1lbW9yeSBhbmQgaGVsbG8g
+aXMgeW91ciB0YXJnZXQgZWxmIHByb2dyYW0uCgpUcnkga3Byb2JlIGxpa2UgdGhpczoKCiBlY2hv
+ICdwOm15cHJvYmUgX2RvX2ZvcmsgZGZkPSVhMCBmaWxlbmFtZT0lYTEgZmxhZ3M9JWEyIG1vZGU9
+KzQoJHN0YWNrKScgPiAvc3lzL2tlcm5lbC9kZWJ1Zy90cmFjaW5nL2twcm9iZV9ldmVudHMKIGVj
+aG8gJ3I6bXlyZXRwcm9iZSBfZG9fZm9yayAkcmV0dmFsJyA+PiAvc3lzL2tlcm5lbC9kZWJ1Zy90
+cmFjaW5nL2twcm9iZV9ldmVudAoKIGVjaG8gMSA+L3N5cy9rZXJuZWwvZGVidWcvdHJhY2luZy9l
+dmVudHMva3Byb2Jlcy9lbmFibGUKIGNhdCAvc3lzL2tlcm5lbC9kZWJ1Zy90cmFjaW5nL3RyYWNl
+CiB0cmFjZXI6IG5vcAoKIGVudHJpZXMtaW4tYnVmZmVyL2VudHJpZXMtd3JpdHRlbjogMi8yICAg
+I1A6MQoKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXy0tLS0tPT4gaXJxcy1vZmYKICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAvIF8tLS0tPT4gbmVlZC1yZXNjaGVkCiAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICB8IC8gXy0tLT0+IGhhcmRpcnEvc29mdGlycQogICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgfHwgLyBfLS09PiBwcmVlbXB0LWRlcHRoCiAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICB8fHwgLyAgICAgZGVsYXkKICAgICAgICAgICBUQVNLLVBJRCAgIENQVSMg
+IHx8fHwgICAgVElNRVNUQU1QICBGVU5DVElPTgogICAgICAgICAgICAgIHwgfCAgICAgICB8ICAg
+fHx8fCAgICAgICB8ICAgICAgICAgfAogICAgICAgICAgICAgc2gtOTIgICAgWzAwMF0gLm4uLiAg
+IDEzMS44MDQyMzA6IG15cHJvYmU6IChfZG9fZm9yaysweDAvMHgyZTYpIGRmZD0weGZmZmZmZmUw
+MzkyOWZkZjggZmlsZW5hbWU9MHgwIGZsYWdzPTB4MTAxMDAwIG1vZGU9MHgxMjAwMDAwZmZmZmZm
+ZTAKICAgICAgICAgICAgIHNoLTkyICAgIFswMDBdIGQuLi4gICAxMzEuODA2NjA3OiBteXJldHBy
+b2JlOiAoX19kb19zeXNfY2xvbmUrMHg3MC8weDgyIDwtIF9kb19mb3JrKSBhcmcxPTB4NWYKIGNh
+dCAvc3lzL2tlcm5lbC9kZWJ1Zy90cmFjaW5nL3RyYWNlCgpHdW8gUmVuICg0KToKICByaXNjdjog
+Rml4dXAgX192ZHNvX2dldHRpbWVvZmRheSBicm9rZSBkeW5hbWljIGZ0cmFjZQogIHJpc2N2OiBG
+aXh1cCBjb21waWxlIGVycm9yIEJVSUxEX0JVR19PTiBmYWlsZWQKICByaXNjdjogQWRkIGtwcm9i
+ZXMgc3VwcG9ydGVkCiAgcmlzY3Y6IEFkZCB1cHJvYmVzIHN1cHBvcnRlZAoKUGF0cmljayBTdMOk
+aGxpbiAoMSk6CiAgUklTQy1WOiBJbXBsZW1lbnQgcHRyYWNlIHJlZ3MgYW5kIHN0YWNrIEFQSQoK
+IGFyY2gvcmlzY3YvS2NvbmZpZyAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgNiArCiBh
+cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2twcm9iZXMuaCAgICAgICAgICAgICAgfCAgNDAgKysrCiBh
+cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Byb2Jlcy5oICAgICAgICAgICAgICAgfCAgMjQgKysKIGFy
+Y2gvcmlzY3YvaW5jbHVkZS9hc20vcHJvY2Vzc29yLmggICAgICAgICAgICB8ICAgMSArCiBhcmNo
+L3Jpc2N2L2luY2x1ZGUvYXNtL3B0cmFjZS5oICAgICAgICAgICAgICAgfCAgMjkgKysKIGFyY2gv
+cmlzY3YvaW5jbHVkZS9hc20vdGhyZWFkX2luZm8uaCAgICAgICAgICB8ICAgNCArLQogYXJjaC9y
+aXNjdi9pbmNsdWRlL2FzbS91cHJvYmVzLmggICAgICAgICAgICAgIHwgIDQwICsrKwogYXJjaC9y
+aXNjdi9rZXJuZWwvTWFrZWZpbGUgICAgICAgICAgICAgICAgICAgIHwgICAxICsKIGFyY2gvcmlz
+Y3Yva2VybmVsL3BhdGNoLmMgICAgICAgICAgICAgICAgICAgICB8ICAgOCArLQogYXJjaC9yaXNj
+di9rZXJuZWwvcHJvYmVzL01ha2VmaWxlICAgICAgICAgICAgIHwgICA1ICsKIGFyY2gvcmlzY3Yv
+a2VybmVsL3Byb2Jlcy9kZWNvZGUtaW5zbi5jICAgICAgICB8ICA0OCArKysKIGFyY2gvcmlzY3Yv
+a2VybmVsL3Byb2Jlcy9kZWNvZGUtaW5zbi5oICAgICAgICB8ICAxOCArCiBhcmNoL3Jpc2N2L2tl
+cm5lbC9wcm9iZXMva3Byb2Jlcy5jICAgICAgICAgICAgfCA0NzEgKysrKysrKysrKysrKysrKysr
+KysrKysrKysKIGFyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9rcHJvYmVzX3RyYW1wb2xpbmUuUyB8
+ICA5MyArKysrKwogYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL3NpbXVsYXRlLWluc24uYyAgICAg
+IHwgIDg1ICsrKysrCiBhcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMvc2ltdWxhdGUtaW5zbi5oICAg
+ICAgfCAgNDcgKysrCiBhcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMvdXByb2Jlcy5jICAgICAgICAg
+ICAgfCAxODYgKysrKysrKysrKwogYXJjaC9yaXNjdi9rZXJuZWwvcHRyYWNlLmMgICAgICAgICAg
+ICAgICAgICAgIHwgIDk5ICsrKysrKwogYXJjaC9yaXNjdi9rZXJuZWwvc2lnbmFsLmMgICAgICAg
+ICAgICAgICAgICAgIHwgICAzICsKIGFyY2gvcmlzY3Yva2VybmVsL3RyYXBzLmMgICAgICAgICAg
+ICAgICAgICAgICB8ICAxOSArKwogYXJjaC9yaXNjdi9rZXJuZWwvdmRzby9NYWtlZmlsZSAgICAg
+ICAgICAgICAgIHwgICAzICsKIGFyY2gvcmlzY3YvbW0vZmF1bHQuYyAgICAgICAgICAgICAgICAg
+ICAgICAgICB8ICAxMSArCiAyMiBmaWxlcyBjaGFuZ2VkLCAxMjM4IGluc2VydGlvbnMoKyksIDMg
+ZGVsZXRpb25zKC0pCiBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9w
+cm9iZXMuaAogY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vdXByb2Jl
+cy5oCiBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL01ha2VmaWxl
+CiBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL2RlY29kZS1pbnNu
+LmMKIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMvZGVjb2RlLWlu
+c24uaAogY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9rcHJvYmVz
+LmMKIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMva3Byb2Jlc190
+cmFtcG9saW5lLlMKIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMv
+c2ltdWxhdGUtaW5zbi5jCiBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9rZXJuZWwvcHJv
+YmVzL3NpbXVsYXRlLWluc24uaAogY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3Yva2VybmVs
+L3Byb2Jlcy91cHJvYmVzLmMKCi0tIAoyLjcuNAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
+dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
+bGlzdGluZm8vbGludXgtcmlzY3YK
