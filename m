@@ -2,68 +2,68 @@ Return-Path: <SRS0=1yfy=AP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
+	SPF_PASS,USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E73B6C433DF
-	for <linux-riscv@archiver.kernel.org>; Sat,  4 Jul 2020 03:34:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6BE3EC433DF
+	for <linux-riscv@archiver.kernel.org>; Sat,  4 Jul 2020 03:34:54 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9D0CB208D5
-	for <linux-riscv@archiver.kernel.org>; Sat,  4 Jul 2020 03:34:48 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 3D0FD208C7
+	for <linux-riscv@archiver.kernel.org>; Sat,  4 Jul 2020 03:34:54 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="xvKCOcT3";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="Mip3htu2"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9D0CB208D5
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="acqQ5/Y5";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="eEfMqxnj"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3D0FD208C7
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mllmTegI1/bYptojxpAeVLgmQz1UyQSe8Aef/iDSMfw=; b=xvKCOcT3ZlBdKx9njX2M36u+MJ
-	mogy6q04B05KL5htGR3VtCVtQi5LRlEkl9ctR5BCGdVzbgv8CXpe+oVqLUf42xgtZZTNtPp4BH3YQ
-	Nqqc+deYe3ZKWP8rqUv82/SlWzZx38t42pkA2pqtSyeZtVlS59A707aOQE/piXCCCRLCILoTiYczp
-	A+IROeDaqyk56STOdInUdOv3jKy5T3jtKVllW3zSlFe7fGaGRRRmrydmIhqoSMzm0rsG0OzxaLdp6
-	l4oKuFpSltCu+mxS7FAj2hCEH2DoEyUbf2geLOcok36HfXYy1mlWadsYmfODWZ109ZkU5uOCFMbWb
-	ZBfknK1A==;
+	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:References:In-Reply-To:Message-Id:Date:Subject:To:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YaB0i3Y5SF4S9bgYnFR+swAqW8P5l0x4L8vizcgBh5E=; b=acqQ5/Y5POC03CjSIIyvRvaoXv
+	aDmklMfjq68kdBzgQb/3gU6wQO8f3jDw6J/K4KMQK2l+1ZzA3z44vCDA4+zYFJZfuqp3kSU8GmquJ
+	tRWgSuutbU+6BJJQ7UWV6FC2iFl8VYxwjr1RzLt6zZB2ZeuLTSS/18eup37wuukIWcAXIWPMNWIHa
+	+59jCwH3DzX4X0a1C6SdnO9LX2Kf2nOP1qXZaExzdGdkj5atFI6+VdXNtW6SNol1qkiFMcc6R7nvt
+	MnKQDLUl729RzOYx2zbytlWK9v0UHloVOuNzP+pNTVaGnSUUhpCc86Ng3HhKyyB1QuBmYvWeQW7YJ
+	TKv6qTvQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jrYwl-0007nX-No; Sat, 04 Jul 2020 03:34:35 +0000
+	id 1jrYww-0007oe-6i; Sat, 04 Jul 2020 03:34:46 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jrYwh-0007n9-Uc
- for linux-riscv@lists.infradead.org; Sat, 04 Jul 2020 03:34:32 +0000
+ id 1jrYwu-0007oE-5Q
+ for linux-riscv@lists.infradead.org; Sat, 04 Jul 2020 03:34:45 +0000
 Received: from localhost.localdomain (89.208.247.74.16clouds.com
  [89.208.247.74])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 9E73B20899;
- Sat,  4 Jul 2020 03:34:27 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 8795C20899;
+ Sat,  4 Jul 2020 03:34:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1593833670;
- bh=eTy2eFqdtYkG5FT9y7JyU5E4q34c6fUXRLFGwI6SVv0=;
- h=From:To:Cc:Subject:Date:From;
- b=Mip3htu2BiZjSdSMqYC7r5gtY2NOS7SFQXicW+fYddcldPhpvpkhMnVfYk4CTMtZW
- c21VJrSu4B4Gba8KFXGPr3bXEO7K21LYFcGlFORoj0pmEO2oEnVJMAkLnN8FG0AK/u
- oHlNwdAlCXEzWmYSgHlnC9f0NvEufYf+6F9b7fMA=
+ s=default; t=1593833683;
+ bh=hLBY3T7nrxUU7besxQDrdAZvKz6an4ijUXrWT9hqieo=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=eEfMqxnjUIokF+QJ5VMcpeJ3DKAzmVFbopqqmT2FKiEffhKh5yYgZnj+EMCNlmw3O
+ f+7qWNoQq24TPalQFSvK4Wi14v72z+BuFW8dgWITeJWzaF407/hQ3vsGZWp/WhG3YJ
+ WF92Gn64JUXEgPLZ1V5iXlL2m0nXNHuir9LSih8Y=
 From: guoren@kernel.org
 To: palmerdabbelt@google.com, paul.walmsley@sifive.com, anup@brainfault.org,
  greentime.hu@sifive.com, zong.li@sifive.com, me@packi.ch,
  bjorn.topel@gmail.com, atish.patra@wdc.com
-Subject: [PATCH V1 0/5] riscv: Add k/uprobe supported
-Date: Sat,  4 Jul 2020 03:34:14 +0000
-Message-Id: <1593833659-26224-1-git-send-email-guoren@kernel.org>
+Subject: [PATCH V1 1/5] riscv: Fixup __vdso_gettimeofday broke dynamic ftrace
+Date: Sat,  4 Jul 2020 03:34:15 +0000
+Message-Id: <1593833659-26224-2-git-send-email-guoren@kernel.org>
 X-Mailer: git-send-email 2.7.4
-MIME-Version: 1.0
+In-Reply-To: <1593833659-26224-1-git-send-email-guoren@kernel.org>
+References: <1593833659-26224-1-git-send-email-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200703_233432_237640_FA92F982 
-X-CRM114-Status: UNSURE (   9.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200703_233444_382241_C1938D8F 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -75,95 +75,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>,
- guoren@kernel.org, linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Guo Ren <guoren@linux.alibaba.com>, Alan Kao <alankao@andestech.com>,
+ linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
+ Vincent Chen <vincent.chen@sifive.com>, guoren@kernel.org,
+ Greentime Hu <green.hu@gmail.com>, linux-riscv@lists.infradead.org
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgoKVGhlIHBhdGNoc2V0IGlu
-Y2x1ZGVzIGtwcm9iZS91cHJvYmUgc3VwcG9ydCBhbmQgc29tZSByZWxhdGVkIGZpeHVwcy4KUGF0
-cmljayBwcm92aWRlcyBIQVZFX1JFR1NfQU5EX1NUQUNLX0FDQ0VTU19BUEkgc3VwcG9ydCBhbmQg
-c29tZQprcHJvYmUncyBjb2RlLiBUaGUgZnJhbWV3b3JrIG9mIGsvdXByb2JlIGlzIGZyb20gY3Nr
-eSBidXQgYWxzbyByZWZlcnMKdG8gb3RoZXIgYXJjaGVzJy4KClRoZXJlIGlzIG5vIHNpbmdsZSBz
-dGVwIGV4Y2VwdGlvbiBpbiByaXNjdiBJU0EsIHNvIHV0aWxpemUgZWJyZWFrIHRvCnNpbXVsYXRl
-LiBTb21lIHBjIHJlbGF0ZWQgaW5zdHJ1Y3Rpb25zIGNvdWxkbid0IGJlIGV4ZWN1dGVkIG91dCBv
-ZiBsaW5lCmFuZCBzb21lIHN5c3RlbS9mZW5jZSBpbnN0cnVjdGlvbnMgY291bGRuJ3QgYmUgYSB0
-cmFjZSBzaXRlIGF0IGFsbC4KU28gd2UgZ2l2ZSBvdXQgYSByZWplY3QgbGlzdCBhbmQgc2ltdWxh
-dGUgbGlzdCBpbiBkZWNvZGUtaW5zbi5jLgoKWW91IGNvdWxkIHVzZSB1cHJvYmUgdG8gdGVzdCBz
-aW11bGF0ZSBjb2RlIGxpa2UgdGhpczoKCiBlY2hvICdwOmVudGVyX2N1cnJlbnRfc3RhdGVfb25l
-IC9oZWxsbzoweDZlNCBhMD0lYTAgYTE9JWExJyA+PiAvc3lzL2tlcm5lbC9kZWJ1Zy90cmFjaW5n
-L3Vwcm9iZV9ldmVudHMKIGVjaG8gMSA+IC9zeXMva2VybmVsL2RlYnVnL3RyYWNpbmcvZXZlbnRz
-L3Vwcm9iZXMvZW5hYmxlCiAvaGVsbG8KIF5DCiBjYXQgL3N5cy9rZXJuZWwvZGVidWcvdHJhY2lu
-Zy90cmFjZQogdHJhY2VyOiBub3AKCiBlbnRyaWVzLWluLWJ1ZmZlci9lbnRyaWVzLXdyaXR0ZW46
-IDEvMSAgICNQOjEKCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF8tLS0tLT0+IGlycXMt
-b2ZmCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLyBfLS0tLT0+IG5lZWQtcmVzY2hlZAog
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAvIF8tLS09PiBoYXJkaXJxL3NvZnRpcnEKICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgIHx8IC8gXy0tPT4gcHJlZW1wdC1kZXB0aAogICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgfHx8IC8gICAgIGRlbGF5CiAgICAgICAgICAgVEFTSy1QSUQg
-ICBDUFUjICB8fHx8ICAgIFRJTUVTVEFNUCAgRlVOQ1RJT04KICAgICAgICAgICAgICB8IHwgICAg
-ICAgfCAgIHx8fHwgICAgICAgfCAgICAgICAgIHwKICAgICAgICAgIGhlbGxvLTk0ICAgIFswMDBd
-IGQuLi4gICAgNTUuNDA0MjQyOiBlbnRlcl9jdXJyZW50X3N0YXRlX29uZTogKDB4MTA2ZTQpIGEw
-PTB4MSBhMT0weDNmZmZhOGFkYTgKCkJlIGNhcmUgL2hlbGxvOjB4NmU0IGlzIHRoZSBmaWxlIG9m
-ZnNldCBpbiBlbGYgYW5kIGl0IHJlbGF0ZSB0byAweDEwNmU0CmluIG1lbW9yeSBhbmQgaGVsbG8g
-aXMgeW91ciB0YXJnZXQgZWxmIHByb2dyYW0uCgpUcnkga3Byb2JlIGxpa2UgdGhpczoKCiBlY2hv
-ICdwOm15cHJvYmUgX2RvX2ZvcmsgZGZkPSVhMCBmaWxlbmFtZT0lYTEgZmxhZ3M9JWEyIG1vZGU9
-KzQoJHN0YWNrKScgPiAvc3lzL2tlcm5lbC9kZWJ1Zy90cmFjaW5nL2twcm9iZV9ldmVudHMKIGVj
-aG8gJ3I6bXlyZXRwcm9iZSBfZG9fZm9yayAkcmV0dmFsJyA+PiAvc3lzL2tlcm5lbC9kZWJ1Zy90
-cmFjaW5nL2twcm9iZV9ldmVudAoKIGVjaG8gMSA+L3N5cy9rZXJuZWwvZGVidWcvdHJhY2luZy9l
-dmVudHMva3Byb2Jlcy9lbmFibGUKIGNhdCAvc3lzL2tlcm5lbC9kZWJ1Zy90cmFjaW5nL3RyYWNl
-CiB0cmFjZXI6IG5vcAoKIGVudHJpZXMtaW4tYnVmZmVyL2VudHJpZXMtd3JpdHRlbjogMi8yICAg
-I1A6MQoKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXy0tLS0tPT4gaXJxcy1vZmYKICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAvIF8tLS0tPT4gbmVlZC1yZXNjaGVkCiAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICB8IC8gXy0tLT0+IGhhcmRpcnEvc29mdGlycQogICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgfHwgLyBfLS09PiBwcmVlbXB0LWRlcHRoCiAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICB8fHwgLyAgICAgZGVsYXkKICAgICAgICAgICBUQVNLLVBJRCAgIENQVSMg
-IHx8fHwgICAgVElNRVNUQU1QICBGVU5DVElPTgogICAgICAgICAgICAgIHwgfCAgICAgICB8ICAg
-fHx8fCAgICAgICB8ICAgICAgICAgfAogICAgICAgICAgICAgc2gtOTIgICAgWzAwMF0gLm4uLiAg
-IDEzMS44MDQyMzA6IG15cHJvYmU6IChfZG9fZm9yaysweDAvMHgyZTYpIGRmZD0weGZmZmZmZmUw
-MzkyOWZkZjggZmlsZW5hbWU9MHgwIGZsYWdzPTB4MTAxMDAwIG1vZGU9MHgxMjAwMDAwZmZmZmZm
-ZTAKICAgICAgICAgICAgIHNoLTkyICAgIFswMDBdIGQuLi4gICAxMzEuODA2NjA3OiBteXJldHBy
-b2JlOiAoX19kb19zeXNfY2xvbmUrMHg3MC8weDgyIDwtIF9kb19mb3JrKSBhcmcxPTB4NWYKIGNh
-dCAvc3lzL2tlcm5lbC9kZWJ1Zy90cmFjaW5nL3RyYWNlCgpHdW8gUmVuICg0KToKICByaXNjdjog
-Rml4dXAgX192ZHNvX2dldHRpbWVvZmRheSBicm9rZSBkeW5hbWljIGZ0cmFjZQogIHJpc2N2OiBG
-aXh1cCBjb21waWxlIGVycm9yIEJVSUxEX0JVR19PTiBmYWlsZWQKICByaXNjdjogQWRkIGtwcm9i
-ZXMgc3VwcG9ydGVkCiAgcmlzY3Y6IEFkZCB1cHJvYmVzIHN1cHBvcnRlZAoKUGF0cmljayBTdMOk
-aGxpbiAoMSk6CiAgUklTQy1WOiBJbXBsZW1lbnQgcHRyYWNlIHJlZ3MgYW5kIHN0YWNrIEFQSQoK
-IGFyY2gvcmlzY3YvS2NvbmZpZyAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgNiArCiBh
-cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2twcm9iZXMuaCAgICAgICAgICAgICAgfCAgNDAgKysrCiBh
-cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Byb2Jlcy5oICAgICAgICAgICAgICAgfCAgMjQgKysKIGFy
-Y2gvcmlzY3YvaW5jbHVkZS9hc20vcHJvY2Vzc29yLmggICAgICAgICAgICB8ICAgMSArCiBhcmNo
-L3Jpc2N2L2luY2x1ZGUvYXNtL3B0cmFjZS5oICAgICAgICAgICAgICAgfCAgMjkgKysKIGFyY2gv
-cmlzY3YvaW5jbHVkZS9hc20vdGhyZWFkX2luZm8uaCAgICAgICAgICB8ICAgNCArLQogYXJjaC9y
-aXNjdi9pbmNsdWRlL2FzbS91cHJvYmVzLmggICAgICAgICAgICAgIHwgIDQwICsrKwogYXJjaC9y
-aXNjdi9rZXJuZWwvTWFrZWZpbGUgICAgICAgICAgICAgICAgICAgIHwgICAxICsKIGFyY2gvcmlz
-Y3Yva2VybmVsL3BhdGNoLmMgICAgICAgICAgICAgICAgICAgICB8ICAgOCArLQogYXJjaC9yaXNj
-di9rZXJuZWwvcHJvYmVzL01ha2VmaWxlICAgICAgICAgICAgIHwgICA1ICsKIGFyY2gvcmlzY3Yv
-a2VybmVsL3Byb2Jlcy9kZWNvZGUtaW5zbi5jICAgICAgICB8ICA0OCArKysKIGFyY2gvcmlzY3Yv
-a2VybmVsL3Byb2Jlcy9kZWNvZGUtaW5zbi5oICAgICAgICB8ICAxOCArCiBhcmNoL3Jpc2N2L2tl
-cm5lbC9wcm9iZXMva3Byb2Jlcy5jICAgICAgICAgICAgfCA0NzEgKysrKysrKysrKysrKysrKysr
-KysrKysrKysKIGFyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9rcHJvYmVzX3RyYW1wb2xpbmUuUyB8
-ICA5MyArKysrKwogYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL3NpbXVsYXRlLWluc24uYyAgICAg
-IHwgIDg1ICsrKysrCiBhcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMvc2ltdWxhdGUtaW5zbi5oICAg
-ICAgfCAgNDcgKysrCiBhcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMvdXByb2Jlcy5jICAgICAgICAg
-ICAgfCAxODYgKysrKysrKysrKwogYXJjaC9yaXNjdi9rZXJuZWwvcHRyYWNlLmMgICAgICAgICAg
-ICAgICAgICAgIHwgIDk5ICsrKysrKwogYXJjaC9yaXNjdi9rZXJuZWwvc2lnbmFsLmMgICAgICAg
-ICAgICAgICAgICAgIHwgICAzICsKIGFyY2gvcmlzY3Yva2VybmVsL3RyYXBzLmMgICAgICAgICAg
-ICAgICAgICAgICB8ICAxOSArKwogYXJjaC9yaXNjdi9rZXJuZWwvdmRzby9NYWtlZmlsZSAgICAg
-ICAgICAgICAgIHwgICAzICsKIGFyY2gvcmlzY3YvbW0vZmF1bHQuYyAgICAgICAgICAgICAgICAg
-ICAgICAgICB8ICAxMSArCiAyMiBmaWxlcyBjaGFuZ2VkLCAxMjM4IGluc2VydGlvbnMoKyksIDMg
-ZGVsZXRpb25zKC0pCiBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9w
-cm9iZXMuaAogY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vdXByb2Jl
-cy5oCiBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL01ha2VmaWxl
-CiBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL2RlY29kZS1pbnNu
-LmMKIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMvZGVjb2RlLWlu
-c24uaAogY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9rcHJvYmVz
-LmMKIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMva3Byb2Jlc190
-cmFtcG9saW5lLlMKIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMv
-c2ltdWxhdGUtaW5zbi5jCiBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9rZXJuZWwvcHJv
-YmVzL3NpbXVsYXRlLWluc24uaAogY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3Yva2VybmVs
-L3Byb2Jlcy91cHJvYmVzLmMKCi0tIAoyLjcuNAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
-dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
-bGlzdGluZm8vbGludXgtcmlzY3YK
+From: Guo Ren <guoren@linux.alibaba.com>
+
+For linux-5.8-rc1, enable ftrace of riscv will cause boot panic:
+
+[    2.388980] Run /sbin/init as init process
+[    2.529938] init[39]: unhandled signal 4 code 0x1 at 0x0000003ff449e000
+[    2.531078] CPU: 0 PID: 39 Comm: init Not tainted 5.8.0-rc1-dirty #13
+[    2.532719] epc: 0000003ff449e000 ra : 0000003ff449e954 sp : 0000003fffedb900
+[    2.534005]  gp : 00000000000e8528 tp : 0000003ff449d800 t0 : 000000000000001e
+[    2.534965]  t1 : 000000000000000a t2 : 0000003fffedb89e s0 : 0000003fffedb920
+[    2.536279]  s1 : 0000003fffedb940 a0 : 0000003ff43d4b2c a1 : 0000000000000000
+[    2.537334]  a2 : 0000000000000001 a3 : 0000000000000000 a4 : fffffffffbad8000
+[    2.538466]  a5 : 0000003ff449e93a a6 : 0000000000000000 a7 : 0000000000000000
+[    2.539511]  s2 : 0000000000000000 s3 : 0000003ff448412c s4 : 0000000000000010
+[    2.541260]  s5 : 0000000000000016 s6 : 00000000000d0a30 s7 : 0000003fffedba70
+[    2.542152]  s8 : 0000000000000000 s9 : 0000000000000000 s10: 0000003fffedb960
+[    2.543335]  s11: 0000000000000000 t3 : 0000000000000000 t4 : 0000003fffedb8a0
+[    2.544471]  t5 : 0000000000000000 t6 : 0000000000000000
+[    2.545730] status: 0000000000004020 badaddr: 00000000464c457f cause: 0000000000000002
+[    2.549867] Kernel panic - not syncing: Attempted to kill init! exitcode=0x00000004
+[    2.551267] CPU: 0 PID: 1 Comm: init Not tainted 5.8.0-rc1-dirty #13
+[    2.552061] Call Trace:
+[    2.552626] [<ffffffe00020374a>] walk_stackframe+0x0/0xc4
+[    2.553486] [<ffffffe0002039f4>] show_stack+0x40/0x4c
+[    2.553995] [<ffffffe00054a6ae>] dump_stack+0x7a/0x98
+[    2.554615] [<ffffffe00020b9b8>] panic+0x114/0x2f4
+[    2.555395] [<ffffffe00020ebd6>] do_exit+0x89c/0x8c2
+[    2.555949] [<ffffffe00020f930>] do_group_exit+0x3a/0x90
+[    2.556715] [<ffffffe000219e08>] get_signal+0xe2/0x6e6
+[    2.557388] [<ffffffe000202d72>] do_notify_resume+0x6a/0x37a
+[    2.558089] [<ffffffe000201c16>] ret_from_exception+0x0/0xc
+
+"ra:0x3ff449e954" is the return address of "call _mcount" in the
+prologue of __vdso_gettimeofday(). Without proper relocate, pc jmp
+to 0x0000003ff449e000 (vdso map base) with a illegal instruction
+trap.
+
+The solution comes from arch/arm64/kernel/vdso/Makefile:
+
+CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_FTRACE) -Os $(CC_FLAGS_SCS)
+
+ - CC_FLAGS_SCS is ShadowCallStack feature in Clang and only
+   implemented for arm64, no use for riscv.
+
+The bug comes from the following commit:
+
+ad5d1122b82f ("riscv: use vDSO common flow to reduce the latency of the time-related functions")
+
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Cc: Vincent Chen <vincent.chen@sifive.com>
+Cc: Atish Patra <atish.patra@wdc.com>
+Cc: Palmer Dabbelt <palmerdabbelt@google.com>
+Cc: Alan Kao <alankao@andestech.com>
+Cc: Greentime Hu <green.hu@gmail.com>
+---
+ arch/riscv/kernel/vdso/Makefile | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+index 38ba55b..3079935 100644
+--- a/arch/riscv/kernel/vdso/Makefile
++++ b/arch/riscv/kernel/vdso/Makefile
+@@ -27,6 +27,9 @@ obj-vdso := $(addprefix $(obj)/, $(obj-vdso))
+ obj-y += vdso.o vdso-syms.o
+ CPPFLAGS_vdso.lds += -P -C -U$(ARCH)
+ 
++# Disable -pg to prevent insert call site
++CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_FTRACE) -Os
++
+ # Disable gcov profiling for VDSO code
+ GCOV_PROFILE := n
+ 
+-- 
+2.7.4
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
