@@ -2,74 +2,85 @@ Return-Path: <SRS0=/pGw=AQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 23030C433E0
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 Jul 2020 17:09:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 23C7BC433DF
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 Jul 2020 20:32:08 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CB5C3206DF
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 Jul 2020 17:09:51 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 044882073E
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 Jul 2020 20:32:06 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZbDBQ+lF"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CB5C3206DF
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="1lTtyaZi";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=chromium.org header.i=@chromium.org header.b="JDpzbBFH"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 044882073E
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=chromium.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=pq6NjzYQR2BjA/GtwyfKSwuXVOGo7XOMQ8PjgXcRzTI=; b=ZbDBQ+lF7nfAVM4Qxrc7fenj6
-	/EFm1hGDoXn0wblPz+Q3NjkdMsKRMOLOIkI8XvmkkPv9382amqRd/aja0gSGNwX61o+OkQcVwW+J5
-	WMunfBcAnUlDvDjmN7DE3j/2MWBYZGEJdc96BkUV+jskv55/twI1r0LpgieBPgToGeKo51Xy9OKpe
-	okTTcIvHSTXMpIwQi7XAJHjWqZPGL/xNcigxmixTYtu7y/aBmD8oT76iuF38OgimAjNCMVfzD3m+6
-	ydMCvx23qacamT3X1uM1OZ5IK1wQHUZPyuOuxe7lfDWfzJ15wBxJSY6wNeOAZB4/63yi47I/h82Y8
-	voePqd51A==;
+	 bh=Uc488PZIXv7IwPd2fHVmKYmmYVCPXRx4+SUxUqScSbo=; b=1lTtyaZi2HIljsr4TlfaVsGj1
+	tQQGYsN+LkU2cz/ZeWZgs84lUHT9iW2qhYXhoBKgNzVE/gObFwkeH6fXsABChsezkrj6wZTUbLzAb
+	lFfcrXHNDwXTkUsH63CnRCuVZjxko8GlmGhwy+aN356K03OL/K9AJZvOWUEZrwSeTMgTSU8AtMNwL
+	55Pas14pUQO2sB1j5pscOAVZF861/BE+Nb7luPsnfsZxOqvxD+BpeKbnJ2bgsp+cWLmrRl6EqslPf
+	Mm7u8mNmrUXEPxe3hCdVjClT/0EIG2Witjzq/leGlgLpmqIJ3aREB8AJdrbf1WTfoBnaC0/+Ep3FK
+	LQz/Ft9Qg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1js89B-0007Eo-0u; Sun, 05 Jul 2020 17:09:45 +0000
-Received: from mail-yb1-f196.google.com ([209.85.219.196])
+	id 1jsBIs-0001Rr-Ke; Sun, 05 Jul 2020 20:31:58 +0000
+Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1js898-0007EG-8r
- for linux-riscv@lists.infradead.org; Sun, 05 Jul 2020 17:09:43 +0000
-Received: by mail-yb1-f196.google.com with SMTP id j202so17895289ybg.6
- for <linux-riscv@lists.infradead.org>; Sun, 05 Jul 2020 10:09:41 -0700 (PDT)
+ id 1jsBIq-0001RL-Sv
+ for linux-riscv@lists.infradead.org; Sun, 05 Jul 2020 20:31:57 +0000
+Received: by mail-pg1-x544.google.com with SMTP id w2so16630368pgg.10
+ for <linux-riscv@lists.infradead.org>; Sun, 05 Jul 2020 13:31:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=ur7mB1HQd3aacYwlGEFeNIXsEbUuMF415cElS3tVlkQ=;
+ b=JDpzbBFHelJ+U3gs0XnqMdc/wE1/wEy2lbGSnkGrl84Cxopx0PV7YffkPDncy+PyuR
+ XCG9Sqzhws6JDKzAfs4dnTSCmZ4jbLklFaKH1xvR6cHeQb7xmHJSxB1QSff5g07yw91J
+ GmVq69VJBztKqy+z680mZmPxPEkKYR2EhdVyI=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=wqrIsD/+DhZxsJ0s7XS6GJj8C2xkbTBOo6Vkkw2WKr0=;
- b=gCU97qO7A7V3l5Mrot/3FfrssVe43cepz0u4VuMTVYMCIIEQGeCycsiQkJSXwDHmnK
- iLo1pE6rSpWWrVqe1HVZYdifbQQEBCRNzQJronLRENn9KX0UCPNTX7q4X1iqu7DAxhV8
- aSnGN468+slQPNyk+SBtTw9msVyi+iPW3z+G8pU1CKPVme9w7UYq4VSGb9TUm3stPK3b
- jaPnDOMZJITyXGe6SmsAiSc8u9DLuf9/6jmufuNYo+Ka79k1U6/tPIgo7SsTfKHd9w46
- 5H/7rCfq/stQ5qnNQk7BuTy5wMcghacSq1RMYA3vcLCr/7CcFidcOzi5wlKPjH11xdi6
- 3poA==
-X-Gm-Message-State: AOAM531E8v72sj+CtXAj5aaJLLt7sYm8iOAY++k4//QLhU8MVx/veRy6
- nauBNtjpD2NDoI6S75bxZSNZklBfte3NAMMRCJA=
-X-Google-Smtp-Source: ABdhPJyq+nMOp4OUHhSksYCJGlxvd/VEBmjAI1VW9Iqf9OvhlJdY/6c9ngqsEv8hfI5J41Jt4b3XQ7kL2mHyIoI7tEE=
-X-Received: by 2002:a25:4603:: with SMTP id t3mr63127632yba.471.1593968981078; 
- Sun, 05 Jul 2020 10:09:41 -0700 (PDT)
-MIME-Version: 1.0
-References: <20200705142640.279439-1-kernel@esmil.dk>
- <CAJF2gTSi+2qxfzWxa5xvZnyJBFi5WcdSc-LDrqavB-hZ9-e9-Q@mail.gmail.com>
- <CANBLGcxWuO=xGfwwKPp7Faw1ZU=Z3p37KbopgQnB5HLg=CXTdg@mail.gmail.com>
- <CAJF2gTQhax2ZR8fvfm-HwK2wZinXoVRS8Var5y1AkrinDFHzUQ@mail.gmail.com>
-In-Reply-To: <CAJF2gTQhax2ZR8fvfm-HwK2wZinXoVRS8Var5y1AkrinDFHzUQ@mail.gmail.com>
-From: Emil Renner Berthing <kernel@esmil.dk>
-Date: Sun, 5 Jul 2020 19:09:29 +0200
-Message-ID: <CANBLGcx1BeMTMBTS4YQUN=qrQqg9g3A_tw_F7xRngY0Lh9VGrQ@mail.gmail.com>
-Subject: Re: [PATCH] asm-generic/mmiowb: Get cpu in mmiowb_set_pending
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=ur7mB1HQd3aacYwlGEFeNIXsEbUuMF415cElS3tVlkQ=;
+ b=XO81OiM8EVkLoIaxh9i7AktsncaULtV6qpamVnV853nW4qv1vxSauNzl6d89EODFob
+ 5dab2swNgeLP9A3lsHvjkhRCpn9r6ovjBFqRwU8YUFFeda+h9FYW8rBXL0bkutsMhco+
+ OOi9b08x4atbrasPKDDNXkuCvc5KBBAlBylZ3ioIZYu6+MCH6W0bjkz4CVqnPTGUTaOT
+ nmscO9+6CONn8tWgnLUEda1G4SH2UPYaxDy0X+Nmel84NQB7nIU54ev2YT7jQCoHYJuC
+ N2LIQEJAkDaH/2VMjqFmzl918eIOXp1EcNpKBrhIzv1Nti/rIEh6bhOt/miIuBwiPOmy
+ Wjxw==
+X-Gm-Message-State: AOAM533cm+eBc6U2XM67TvmJhheYiTE4Ac0SkiFKKjUd1J6DM/dPsA4W
+ ncYObbkzjZVP+GCTcjBp9GfkOQ==
+X-Google-Smtp-Source: ABdhPJxGflcwOaYyfs2gLTjaHiikusvtN11502CcX43vmcvaWqy2v3cL096nKsEZPkw+SWGXAu7ksA==
+X-Received: by 2002:a62:164a:: with SMTP id 71mr43090161pfw.266.1593981113896; 
+ Sun, 05 Jul 2020 13:31:53 -0700 (PDT)
+Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
+ by smtp.gmail.com with ESMTPSA id m9sm1342538pjs.18.2020.07.05.13.31.52
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sun, 05 Jul 2020 13:31:53 -0700 (PDT)
+Date: Sun, 5 Jul 2020 13:31:52 -0700
+From: Kees Cook <keescook@chromium.org>
 To: Guo Ren <guoren@kernel.org>
+Subject: Re: [PATCH] riscv: Add STACKPROTECTOR supported
+Message-ID: <202007051328.FE9EF99@keescook>
+References: <1593930255-12378-1-git-send-email-guoren@kernel.org>
+ <202007042350.4C153C4F8@keescook>
+ <CAJF2gTQFqH7GMvRgmtb=hBwvUy6NZyM8xLqOsUTvnYhO48tQbg@mail.gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAJF2gTQFqH7GMvRgmtb=hBwvUy6NZyM8xLqOsUTvnYhO48tQbg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200705_130942_344643_55653D81 
-X-CRM114-Status: GOOD (  28.94  )
+X-CRM114-CacheID: sfid-20200705_163156_952479_BCCC7D3F 
+X-CRM114-Status: GOOD (  17.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -81,153 +92,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-arch <linux-arch@vger.kernel.org>,
+Cc: Guo Ren <guoren@linux.alibaba.com>, Anup Patel <anup@brainfault.org>,
+ Palmer Dabbelt <palmerdabbelt@google.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-csky@vger.kernel.org, Atish Patra <atish.patra@wdc.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Masami Hiramatsu <mhiramat@kernel.org>,
+ Zong Li <zong.li@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Greentime Hu <greentime.hu@sifive.com>,
  linux-riscv <linux-riscv@lists.infradead.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Arnd Bergmann <arnd@arndb.de>,
- Paul Walmsley <paul.walmsley@sifive.com>
+ Greentime Hu <green.hu@gmail.com>,
+ =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn.topel@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 5 Jul 2020 at 17:52, Guo Ren <guoren@kernel.org> wrote:
-> On Sun, Jul 5, 2020 at 11:03 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
-> > On Sun, 5 Jul 2020 at 16:44, Guo Ren <guoren@kernel.org> wrote:
-> > >
-> > > Hi Emil,
-> > >
-> > > On Sun, Jul 5, 2020 at 10:27 PM Emil Renner Berthing <kernel@esmil.dk> wrote:
-> > > >
-> > > > Without this enabling CONFIG_PREEMPT and CONFIG_DEBUG_PREEMPT
-> > > > results in many errors like this on the HiFive Unleashed
-> > > > RISC-V board:
-> > > >
-> > > > BUG: using smp_processor_id() in preemptible [00000000] code: swapper/0/1
-> > > > caller is regmap_mmio_write32le+0x1c/0x46
-> > > > CPU: 3 PID: 1 Comm: swapper/0 Not tainted 5.8.0-rc3-hfu+ #1
-> > > > Call Trace:
-> > > > [<ffffffe000201f6e>] walk_stackframe+0x0/0x7a
-> > > > [<ffffffe0005b290e>] dump_stack+0x6e/0x88
-> > > > [<ffffffe00047365e>] regmap_mmio_write32le+0x18/0x46
-> > > > [<ffffffe0005c4c26>] check_preemption_disabled+0xa4/0xaa
-> > > > [<ffffffe00047365e>] regmap_mmio_write32le+0x18/0x46
-> > > > [<ffffffe0004737c8>] regmap_mmio_write+0x26/0x44
-> > > > [<ffffffe0004715c4>] regmap_write+0x28/0x48
-> > > > [<ffffffe00043dccc>] sifive_gpio_probe+0xc0/0x1da
-> > > > [<ffffffe00000113e>] rdinit_setup+0x22/0x26
-> > > > [<ffffffe000469054>] platform_drv_probe+0x24/0x52
-> > > > [<ffffffe000467e16>] really_probe+0x92/0x21a
-> > > > [<ffffffe0004683a8>] device_driver_attach+0x42/0x4a
-> > > > [<ffffffe0004683ac>] device_driver_attach+0x46/0x4a
-> > > > [<ffffffe0004683f0>] __driver_attach+0x40/0xac
-> > > > [<ffffffe0004683ac>] device_driver_attach+0x46/0x4a
-> > > > [<ffffffe000466a3e>] bus_for_each_dev+0x3c/0x64
-> > > > [<ffffffe000467118>] bus_add_driver+0x11e/0x184
-> > > > [<ffffffe00046889a>] driver_register+0x32/0xc6
-> > > > [<ffffffe00000e5ac>] gpiolib_sysfs_init+0xaa/0xae
-> > > > [<ffffffe0000019ec>] do_one_initcall+0x50/0xfc
-> > > > [<ffffffe00000113e>] rdinit_setup+0x22/0x26
-> > > > [<ffffffe000001bea>] kernel_init_freeable+0x152/0x1da
-> > > > [<ffffffe0005c4d28>] rest_init+0xde/0xe2
-> > > > [<ffffffe0005c4d36>] kernel_init+0xa/0x11a
-> > > > [<ffffffe0005c4d28>] rest_init+0xde/0xe2
-> > > > [<ffffffe000200ff6>] ret_from_syscall_rejected+0x8/0xc
-> > > >
-> > > > Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
-> > > > ---
-> > > > This patch fixes it, but my guess is that it's not the right
-> > > > fix. Do anyone have a better idea?
-> > > >
-> > > >  include/asm-generic/mmiowb.h | 6 +++++-
-> > > >  1 file changed, 5 insertions(+), 1 deletion(-)
-> > > >
-> > > > diff --git a/include/asm-generic/mmiowb.h b/include/asm-generic/mmiowb.h
-> > > > index 9439ff037b2d..31a21cdfbbcf 100644
-> > > > --- a/include/asm-generic/mmiowb.h
-> > > > +++ b/include/asm-generic/mmiowb.h
-> > > > @@ -34,8 +34,12 @@ DECLARE_PER_CPU(struct mmiowb_state, __mmiowb_state);
-> > > >
-> > > >  static inline void mmiowb_set_pending(void)
-> > > >  {
-> > > > -       struct mmiowb_state *ms = __mmiowb_state();
-> > > > +       struct mmiowb_state *ms;
-> > > > +
-> > > > +       get_cpu();
-> > > > +       ms = __mmiowb_state();
-> > > >         ms->mmiowb_pending = ms->nesting_count;
-> > > > +       put_cpu();
-> > > >  }
-> > >
-> > > #define __mmiowb_state()        this_cpu_ptr(&__mmiowb_state)
-> > >
-> > > The ptr is a fixed address, so don't worry about the change, and just
-> > > use an atomic_read is enough.
-> > > static inline void mmiowb_set_pending(void)
-> > > {
-> > >         struct mmiowb_state *ms = __mmiowb_state();
-> > > -       ms->mmiowb_pending = ms->nesting_count;
-> > > +      ms->mmiowb_pending = atomic_read(ms->nesting_count);
-> > > }
+On Sun, Jul 05, 2020 at 10:16:14PM +0800, Guo Ren wrote:
+> On Sun, Jul 5, 2020 at 2:53 PM Kees Cook <keescook@chromium.org> wrote:
+> > On Sun, Jul 05, 2020 at 06:24:15AM +0000, guoren@kernel.org wrote:
+> > > +static __always_inline void boot_init_stack_canary(void)
+> > > +{
+> > > +     unsigned long canary;
+> > > +
+> > > +     /* Try to get a semi random initial value. */
+> > > +     get_random_bytes(&canary, sizeof(canary));
+> > > +     canary ^= LINUX_VERSION_CODE;
+> > > +     canary &= CANARY_MASK;
 > >
-> > You may be right, but it doesn't fix the BUG. As far as I can tell it
-> > happens in __mmiowb_state() which expands through this_cpu_ptr and
-> > arch_raw_cpu_ptr to SHIFT_PERCPU_PTR(ptr, __my_cpu_offset), where
-> > __my_cpu_offset is per_cpu_offset(smp_processor_id()) and with
-> > CONFIG_DEBUG_PREEMPT smp_processor_id is actually
-> > debug_smp_processor_id, which eventually checks that preemption is
-> > disabled in check_preemption_disabled.
-> Thx for explaining.
->
-> Seems we need to find who disable preemption during:
-> > > > [<ffffffe000201f6e>] walk_stackframe+0x0/0x7a
-> > > > [<ffffffe0005b290e>] dump_stack+0x6e/0x88
-> > > > [<ffffffe00047365e>] regmap_mmio_write32le+0x18/0x46
-> > > > [<ffffffe0005c4c26>] check_preemption_disabled+0xa4/0xaa
-> > > > [<ffffffe00047365e>] regmap_mmio_write32le+0x18/0x46
-> > > > [<ffffffe0004737c8>] regmap_mmio_write+0x26/0x44
-> > > > [<ffffffe0004715c4>] regmap_write+0x28/0x48
-> > > > [<ffffffe00043dccc>] sifive_gpio_probe+0xc0/0x1da
-> > > > [<ffffffe00000113e>] rdinit_setup+0x22/0x26
-> > > > [<ffffffe000469054>] platform_drv_probe+0x24/0x52
-> > > > [<ffffffe000467e16>] really_probe+0x92/0x21a
-> > > > [<ffffffe0004683a8>] device_driver_attach+0x42/0x4a
-> > > > [<ffffffe0004683ac>] device_driver_attach+0x46/0x4a
-> > > > [<ffffffe0004683f0>] __driver_attach+0x40/0xac
-> > > > [<ffffffe0004683ac>] device_driver_attach+0x46/0x4a
-> > > > [<ffffffe000466a3e>] bus_for_each_dev+0x3c/0x64
-> > > > [<ffffffe000467118>] bus_add_driver+0x11e/0x184
-> > > > [<ffffffe00046889a>] driver_register+0x32/0xc6
-> > > > [<ffffffe00000e5ac>] gpiolib_sysfs_init+0xaa/0xae
-> > > > [<ffffffe0000019ec>] do_one_initcall+0x50/0xfc
+> > Does riscv have any kind of instruction counters or other trivial timers
+> > that could be mixed in here? (e.g. x86's TSC)
+> Do you mean:
+>   get_random_bytes(&canary, sizeof(canary));
+> + canary += get_cycles64() + (get_cycles64() << 32UL);
+>   canary ^= LINUX_VERSION_CODE;
+>   canary &= CANARY_MASK;
+> 
+> Ok ?
 
-Hmm.. the problem is that preemption is *not* disabled when
-smp_processor_id is called, right?
+Sure -- I assume get_cycles64() is architecturally "simple"? (i.e. it
+doesn't require that the entire time-keeping subsystem has started?)
 
-> do_one_initcall's preempt_count = 0
-> (gdb) bt
-> #0  do_one_initcall (fn=0xffffffe000003b0e
-> <trace_init_flags_sys_exit>) at init/main.c:1190
-> #1  0xffffffe000001f20 in do_pre_smp_initcalls () at ./include/linux/init.h:131
->
-> #2  kernel_init_freeable () at init/main.c:1494
-> #3  0xffffffe0009d6ea6 in kernel_init (unused=<optimized out>) a
->    t init/main.c:1399
-> #4  0xffffffe000201c2a in handle_exception () at arch/riscv/kernel/entry.S:188
-> Backtrace stopped: frame did not save the PC
-> (gdb) p *(struct task_struct*)$tp
-> $2 = {thread_info = {flags = 0, preempt_count = 0,
->
-> Can you debug like this ? to see which function's preempt_count = 0 in
-> your backtrace.
+> >
+> > > +
+> > > +     current->stack_canary = canary;
+> > > +     __stack_chk_guard = current->stack_canary;
+> >
+> > What's needed for riscv to support a per-task canary? (e.g. x86's TLS or
+> > arm64's register-specific methods)
+> Some archs change __stack_chk_guard in _switch_to of entry.S, but it
+> depends on !CONFIG_SMP.
 
-I'm sorry, I'm not exactly sure what you mean by this, but it seems to
-happen multiple places in writel-like functions. Both at probe time in
-sifive_gpio_probe and sifive_spi_probe and when the spi driver is
-running. Here is the full log:
+Oh, funny. I hadn't actually noticed that logic for the !CONFIG_SMP
+cases. I see to problem with that, but the more important case, I think
+is the per-task canaries.
 
-http://sprunge.us/rgfC3r
+> #if defined(CONFIG_STACKPROTECTOR) && !defined(CONFIG_SMP)
+>         get  value  from next_task->stack_canary
+>         store  value to __stack_chk_guard
+> #endif
+> 
+> It's a so limitation solution for per-task canary, so I didn't copy it
+> into riscv?
 
-/Emil
+Right -- it's a limited solution. On the other had, is !CONFIG_SMP
+expected to be a common config for riscv? If so, it's worth adding. If
+not, I'd say skip it. (Though it looks very simple to do...)
+
+-- 
+Kees Cook
 
 _______________________________________________
 linux-riscv mailing list
