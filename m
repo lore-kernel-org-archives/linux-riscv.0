@@ -2,101 +2,58 @@ Return-Path: <SRS0=gb7b=AR=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-6.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4E99BC433E0
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2020 12:07:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5805DC433DF
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2020 12:32:37 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1FECA206E9
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2020 12:07:36 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 26B5A206E6
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2020 12:32:37 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="zgAbu0GE"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1FECA206E9
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="0eysXtY+"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 26B5A206E6
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Lc0Fn432cmwYG7eei4IhrwaQd9E7DftzqfNIMg6eNzk=; b=zgAbu0GEqOk4uRzxQAUWg6Hwi
-	iZV9eVThhgLSoF2tiTDxUhKm/d0s/9wE1eNsyFbHJlrLTD8RJw1nXyiYfJcegWdF7i5MFjP5LRjPj
-	v0pnE+BnApbMOaEOn4kJiDULxWkR0qVilRqvxGJ8GZKk4kMmzCUvFcxZwSiPeMYhl0Q43+wA2n3gM
-	MN9O9hPxcrQZyoQnjvEQPE3nqk4gELwlH7sdqFyekeI7fa7ERzhAbMR0twiOiP5+nV8VTuoSmuQ1N
-	0TzhKZ2LNuXg6ll3j07OBTjpVb7FXg1mQmWmyYBfzlWZMlVJvlboIzEIsU5vxSx0Wggmg2Ag6ZGU7
-	E8hwPILuA==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IniuSU30WTx5BR58jglWGfXy/6gL3pYPAe9n9V17Vz4=; b=0eysXtY+mFH52U/kKUeBynl5tR
+	FcZKKrCDM3Oz5ngvVjocw9eyhzbIgMYZ31WbS+6vCJ/ch4tyC62zka+Ey+HD+Rcd2Nu6dVN1V3FsS
+	73fiHdvN18x2e89/+x3AhcjB44Ougio0SG5bhLyeK6ibmn4ZQkvShkHdDEyzM2sncYn6pq4BVuctq
+	n7mEZ3LDjZKM7BQJwyGP+3R4PHD42cvWtY+Q40Sz88D7vLMF/+Jo0atRd88J9kJfCCnawZmOI0EqT
+	NND/ZPf1zANsDcdPxRAsZMUPooSGQdlUQs5lqvp11A4vJl6jve+c4Rxfd+NnDovkbOVzTRFkGePZZ
+	mVJdh1FQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jsPuE-0004zZ-JX; Mon, 06 Jul 2020 12:07:30 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1jsQIS-0000Ll-3r; Mon, 06 Jul 2020 12:32:32 +0000
+Received: from mx2.suse.de ([195.135.220.15])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jsPu9-0004yJ-Uc; Mon, 06 Jul 2020 12:07:26 +0000
-Received: from pps.filterd (m0098410.ppops.net [127.0.0.1])
- by mx0a-001b2d01.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id
- 066C1pg7073550; Mon, 6 Jul 2020 08:06:44 -0400
-Received: from pps.reinject (localhost [127.0.0.1])
- by mx0a-001b2d01.pphosted.com with ESMTP id 322pam0w1k-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Mon, 06 Jul 2020 08:06:44 -0400
-Received: from m0098410.ppops.net (m0098410.ppops.net [127.0.0.1])
- by pps.reinject (8.16.0.36/8.16.0.36) with SMTP id 066C2E8T075760;
- Mon, 6 Jul 2020 08:06:44 -0400
-Received: from ppma03ams.nl.ibm.com (62.31.33a9.ip4.static.sl-reverse.com
- [169.51.49.98])
- by mx0a-001b2d01.pphosted.com with ESMTP id 322pam0vyt-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Mon, 06 Jul 2020 08:06:43 -0400
-Received: from pps.filterd (ppma03ams.nl.ibm.com [127.0.0.1])
- by ppma03ams.nl.ibm.com (8.16.0.42/8.16.0.42) with SMTP id 066C5hZZ016297;
- Mon, 6 Jul 2020 12:06:41 GMT
-Received: from b06cxnps4074.portsmouth.uk.ibm.com
- (d06relay11.portsmouth.uk.ibm.com [9.149.109.196])
- by ppma03ams.nl.ibm.com with ESMTP id 322hd7t93r-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Mon, 06 Jul 2020 12:06:40 +0000
-Received: from d06av22.portsmouth.uk.ibm.com (d06av22.portsmouth.uk.ibm.com
- [9.149.105.58])
- by b06cxnps4074.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
- 066C6cD056754260
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Mon, 6 Jul 2020 12:06:38 GMT
-Received: from d06av22.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 07A6E4C044;
- Mon,  6 Jul 2020 12:06:38 +0000 (GMT)
-Received: from d06av22.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 0AEA84C040;
- Mon,  6 Jul 2020 12:06:36 +0000 (GMT)
-Received: from oc3871087118.ibm.com (unknown [9.145.151.4])
- by d06av22.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
- Mon,  6 Jul 2020 12:06:35 +0000 (GMT)
-Date: Mon, 6 Jul 2020 14:06:34 +0200
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Subject: Re: [PATCH V4 0/4] mm/debug_vm_pgtable: Add some more tests
-Message-ID: <20200706120633.GA32473@oc3871087118.ibm.com>
-References: <1593996516-7186-1-git-send-email-anshuman.khandual@arm.com>
+ id 1jsQIP-0000Ks-03
+ for linux-riscv@lists.infradead.org; Mon, 06 Jul 2020 12:32:30 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.221.27])
+ by mx2.suse.de (Postfix) with ESMTP id 1C59DAC46;
+ Mon,  6 Jul 2020 12:32:27 +0000 (UTC)
+From: Andreas Schwab <schwab@suse.de>
+To: linux-riscv@lists.infradead.org
+Subject: [PATCH] riscv: use 16KB kernel stack on 64-bit
+X-Yow: There's a lot of BIG MONEY in MISERY if you have an AGENT!!
+Date: Mon, 06 Jul 2020 14:32:26 +0200
+Message-ID: <mvmeepoddt1.fsf@suse.de>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/27.0.91 (gnu/linux)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <1593996516-7186-1-git-send-email-anshuman.khandual@arm.com>
-User-Agent: Mutt/1.5.21 (2010-09-15)
-X-TM-AS-GCONF: 00
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.235, 18.0.687
- definitions=2020-07-06_09:2020-07-06,
- 2020-07-06 signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 impostorscore=0
- cotscore=-2147483648 lowpriorityscore=0 phishscore=0 priorityscore=1501
- suspectscore=0 mlxlogscore=929 adultscore=0 clxscore=1015 malwarescore=0
- mlxscore=0 spamscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2004280000 definitions=main-2007060090
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200706_080726_166433_B92FFA26 
-X-CRM114-Status: GOOD (  14.13  )
+X-CRM114-CacheID: sfid-20200706_083229_329650_BC40F608 
+X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -108,39 +65,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-doc@vger.kernel.org,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Heiko Carstens <heiko.carstens@de.ibm.com>, linux-mm@kvack.org,
- Paul Mackerras <paulus@samba.org>, "H. Peter Anvin" <hpa@zytor.com>,
- linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>,
- linux-arch@vger.kernel.org, linux-s390@vger.kernel.org,
- Jonathan Corbet <corbet@lwn.net>, Michael Ellerman <mpe@ellerman.id.au>,
- x86@kernel.org, Mike Rapoport <rppt@linux.ibm.com>,
- Christian Borntraeger <borntraeger@de.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- Catalin Marinas <catalin.marinas@arm.com>, linux-snps-arc@lists.infradead.org,
- Vasily Gorbik <gor@linux.ibm.com>, Borislav Petkov <bp@alien8.de>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A . Shutemov" <kirill@shutemov.name>,
- Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org,
- Vineet Gupta <vgupta@synopsys.com>, linux-kernel@vger.kernel.org,
- Palmer Dabbelt <palmer@dabbelt.com>, Andrew Morton <akpm@linux-foundation.org>,
- linuxppc-dev@lists.ozlabs.org
+Cc: linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2020 at 06:18:32AM +0530, Anshuman Khandual wrote:
+With the current 8KB stack size there are frequent overflows in a 64-bit
+configuration.
 
-[...]
+Signed-off-by: Andreas Schwab <schwab@suse.de>
+---
+ arch/riscv/include/asm/thread_info.h | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-> Tested on arm64, x86 platforms but only build tested on all other enabled
-> platforms through ARCH_HAS_DEBUG_VM_PGTABLE i.e powerpc, arc, s390. The
+diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
+index 1dd12a0cbb2b..464a2bbc97ea 100644
+--- a/arch/riscv/include/asm/thread_info.h
++++ b/arch/riscv/include/asm/thread_info.h
+@@ -12,7 +12,11 @@
+ #include <linux/const.h>
+ 
+ /* thread information allocation */
++#ifdef CONFIG_64BIT
++#define THREAD_SIZE_ORDER	(2)
++#else
+ #define THREAD_SIZE_ORDER	(1)
++#endif
+ #define THREAD_SIZE		(PAGE_SIZE << THREAD_SIZE_ORDER)
+ 
+ #ifndef __ASSEMBLY__
+-- 
+2.26.2
 
-Sorry for missing to test earlier. Works for me on s390. Also, tried with
-few relevant config options to set/unset.
 
-Thanks!
+-- 
+Andreas Schwab, SUSE Labs, schwab@suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
