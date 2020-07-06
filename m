@@ -2,60 +2,89 @@ Return-Path: <SRS0=gb7b=AR=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no version=3.4.0
+	SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C1A94C433DF
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2020 01:12:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1A43EC433E0
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2020 01:20:09 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8CCE420715
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2020 01:12:55 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E169620715
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2020 01:20:08 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="wsFPuMPe"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8CCE420715
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Bgl2C2/x";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=chromium.org header.i=@chromium.org header.b="G6q7Jud7"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E169620715
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=chromium.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=ur17FBZrX0xFLJBeZ0CkfRlEqAU0MtUHYFq6qe6omUg=; b=wsFPuMPesrNyDRPIay4O0swav
-	bsvw+/kHUQ24v7YKVPiSgny5t+EeVBrIvZvX2DmqvLklfBZPImBzDuPlIJyFKIX4llRVp94ZKWk4S
-	a6TDEcdwPjiDBErPAuuC0A6t84FlelBnIL2VuEQWYwxHmPdJnV10r/akSkHETdIiLJKKpbMnmB6KO
-	u28u90RvD6E65uCtgl/QZVZRQYVYcyUmW7PQU/nu7B8dEy9kmhI9LLIpOBVrYc3aCoQvuxZbsl708
-	rgxvcBeq0PrZ6FSvx7XdT4ye+0MNGwaidcG+1nx/jJVBVWSMZMjSZUlo4EXBLSB8pHhGmpXS7CzEG
-	PJs9oyLPw==;
+	 bh=nBRD8VbVbJg48KY/42pApu2SoPDgtAh8upGuFj/xAIo=; b=Bgl2C2/xB79c3tafbhiDhhPgd
+	au3+Vq/k3oMmHYrxZ/xpZq8ODqKIOIALx5fpJkHqXuk/0EYo3CcBWp5Vl4m3klkHOjA/kRhqDdUA9
+	VB8Tj91aQ2NVLUkoDivmM02GegeShO2JP9hbggBQ0kwV0VaJ0Z2z+zbRdlZpVCWbXQRbLoMHvD/Xw
+	v7HG4wK236cT+PyYClZtYjnmqHr+65nOPRU3uoJaBonBYcO9ZspIwUZdp9uwNiAMmom2glSrezqpW
+	RqLKwuwenIrnuYFXQqhpJvZuF1OWgMLcDWhbB3cLdKeYHr+1/1TZKz+a3Kx7A47eEeLmrvLQbbRvC
+	5pWSoxHXQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jsFgh-0000vi-D3; Mon, 06 Jul 2020 01:12:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
- by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jsFgd-0000tz-8o; Mon, 06 Jul 2020 01:12:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C883030E;
- Sun,  5 Jul 2020 18:12:45 -0700 (PDT)
-Received: from [10.163.84.195] (unknown [10.163.84.195])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F364F3F718;
- Sun,  5 Jul 2020 18:12:33 -0700 (PDT)
-Subject: Re: [PATCH V4 0/4] mm/debug_vm_pgtable: Add some more tests
-To: linux-mm@kvack.org
-References: <1593996516-7186-1-git-send-email-anshuman.khandual@arm.com>
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-Message-ID: <3e03e6da-139f-94df-73aa-4aaf174f71f5@arm.com>
-Date: Mon, 6 Jul 2020 06:41:42 +0530
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
- Thunderbird/52.9.1
+	id 1jsFng-0001Ty-O9; Mon, 06 Jul 2020 01:20:04 +0000
+Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
+ by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1jsFnd-0001TB-RN
+ for linux-riscv@lists.infradead.org; Mon, 06 Jul 2020 01:20:02 +0000
+Received: by mail-pl1-x643.google.com with SMTP id x9so1024184plr.2
+ for <linux-riscv@lists.infradead.org>; Sun, 05 Jul 2020 18:19:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=hsValw4wLMzxskO9JAsxS8IlkvauPBZYj9ebYBYapKQ=;
+ b=G6q7Jud7BYrDbF5YMMzI6atIeRmAy2r3a0Dk7TutymmDTzE5dI+ipZeZ+nNejcqFhr
+ Gu0K42r8orIAVelK0CNQZTVlYc52Ivv0Rh3txYaPkTxO238GeJGlQLQjw65xP3zPLCnd
+ d1u99CnvcHMKV/razA5QrnIucnkvaXQKMLB/w=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=hsValw4wLMzxskO9JAsxS8IlkvauPBZYj9ebYBYapKQ=;
+ b=DbP9ghngV2K9oNsHHNQb0CwomNRyDWgUY9odbpJVPGLd5xuojAY6TyF7sqhnu1wySC
+ lwxE3dvi5pUCpdcYxHpuLEtmHdso1SHD4H6JLjAq1Twmc3OnaX1I9AegOT1Ol6NqN+EC
+ Qj6mfdXtNOg7TpezOF8NfnajFdX7GpHpOWiPFEAER4Ja4iGKWVWv2PPxss/0GjFUywyh
+ cWhxIo91Udzq5SkpajiOgPu/Xe1yem0QJubanKI8He4D7SxN2CCWH7kisrUKxWWyBRN6
+ sTm7Btsbu5mzQYaBEjAfFB52n2MtFkP8Cusdm5IXcgMYSpcThwDEdhmH9ym9OvxGYGtN
+ pgig==
+X-Gm-Message-State: AOAM531pLQeoWITmC6a/yIjqTelsGM497pJR97qq4WYZpW/YclNGYiHE
+ hI5rdWALygzahS5mJtuK6qOlsg==
+X-Google-Smtp-Source: ABdhPJyRQMl8X2jOh3kV2RfeE5+zaKw6r/y3dmR0L3SXZayvtA4SqleWN0dDJU/g4lAJNhGdolwYwQ==
+X-Received: by 2002:a17:902:9346:: with SMTP id
+ g6mr35985832plp.77.1593998397876; 
+ Sun, 05 Jul 2020 18:19:57 -0700 (PDT)
+Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
+ by smtp.gmail.com with ESMTPSA id t137sm17967077pgc.32.2020.07.05.18.19.56
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sun, 05 Jul 2020 18:19:57 -0700 (PDT)
+Date: Sun, 5 Jul 2020 18:19:56 -0700
+From: Kees Cook <keescook@chromium.org>
+To: Guo Ren <guoren@kernel.org>
+Subject: Re: [PATCH] riscv: Add STACKPROTECTOR supported
+Message-ID: <202007051819.0ECAD4E6@keescook>
+References: <1593930255-12378-1-git-send-email-guoren@kernel.org>
+ <202007042350.4C153C4F8@keescook>
+ <CAJF2gTQFqH7GMvRgmtb=hBwvUy6NZyM8xLqOsUTvnYhO48tQbg@mail.gmail.com>
+ <202007051328.FE9EF99@keescook>
+ <CAJF2gTTCEEoP3a9i_REXPwkJZ4Si_hYfjk_hwqHxkyfgw_xBLw@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <1593996516-7186-1-git-send-email-anshuman.khandual@arm.com>
-Content-Language: en-US
+Content-Disposition: inline
+In-Reply-To: <CAJF2gTTCEEoP3a9i_REXPwkJZ4Si_hYfjk_hwqHxkyfgw_xBLw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200705_211247_384107_72126D30 
-X-CRM114-Status: GOOD (  18.43  )
+X-CRM114-CacheID: sfid-20200705_212001_927693_231C0582 
+X-CRM114-Status: UNSURE (   8.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -67,63 +96,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-doc@vger.kernel.org,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Heiko Carstens <heiko.carstens@de.ibm.com>, Paul Mackerras <paulus@samba.org>,
- "H. Peter Anvin" <hpa@zytor.com>, linux-riscv@lists.infradead.org,
- Will Deacon <will@kernel.org>, linux-arch@vger.kernel.org,
- linux-s390@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>,
- Michael Ellerman <mpe@ellerman.id.au>, x86@kernel.org,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Mike Rapoport <rppt@linux.ibm.com>,
- Christian Borntraeger <borntraeger@de.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- Gerald Schaefer <gerald.schaefer@de.ibm.com>, Zi Yan <ziy@nvidia.com>,
- Catalin Marinas <catalin.marinas@arm.com>, linux-snps-arc@lists.infradead.org,
- Vasily Gorbik <gor@linux.ibm.com>, Borislav Petkov <bp@alien8.de>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A . Shutemov" <kirill@shutemov.name>,
- Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org,
- Christophe Leroy <christophe.leroy@c-s.fr>, Vineet Gupta <vgupta@synopsys.com>,
- linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
- Andrew Morton <akpm@linux-foundation.org>, linuxppc-dev@lists.ozlabs.org
+Cc: Guo Ren <guoren@linux.alibaba.com>, Anup Patel <anup@brainfault.org>,
+ Palmer Dabbelt <palmerdabbelt@google.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-csky@vger.kernel.org, Atish Patra <atish.patra@wdc.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Masami Hiramatsu <mhiramat@kernel.org>,
+ Zong Li <zong.li@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Greentime Hu <greentime.hu@sifive.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Greentime Hu <green.hu@gmail.com>,
+ =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn.topel@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jul 06, 2020 at 08:55:35AM +0800, Guo Ren wrote:
+> On Mon, Jul 6, 2020 at 4:31 AM Kees Cook <keescook@chromium.org> wrote:
+> > Sure -- I assume get_cycles64() is architecturally "simple"? (i.e. it
+> > doesn't require that the entire time-keeping subsystem has started?)
+> Yes, it's just a csr read. But it's necessary? get_random_bytes should enough.
 
-On 07/06/2020 06:18 AM, Anshuman Khandual wrote:
-> This series adds some more arch page table helper validation tests which
-> are related to core and advanced memory functions. This also creates a
-> documentation, enlisting expected semantics for all page table helpers as
-> suggested by Mike Rapoport previously (https://lkml.org/lkml/2020/1/30/40).
-> 
-> There are many TRANSPARENT_HUGEPAGE and ARCH_HAS_TRANSPARENT_HUGEPAGE_PUD
-> ifdefs scattered across the test. But consolidating all the fallback stubs
-> is not very straight forward because ARCH_HAS_TRANSPARENT_HUGEPAGE_PUD is
-> not explicitly dependent on ARCH_HAS_TRANSPARENT_HUGEPAGE.
-> 
-> Tested on arm64, x86 platforms but only build tested on all other enabled
-> platforms through ARCH_HAS_DEBUG_VM_PGTABLE i.e powerpc, arc, s390. The
-> following failure on arm64 still exists which was mentioned previously. It
-> will be fixed with the upcoming THP migration on arm64 enablement series.
-> 
-> WARNING .... mm/debug_vm_pgtable.c:860 debug_vm_pgtable+0x940/0xa54
-> WARN_ON(!pmd_present(pmd_mkinvalid(pmd_mkhuge(pmd))))
-> 
-> This series is based on v5.8-rc4.
-> 
-> Changes in V4:
-> 
-> - Replaced READ_ONCE() with ptep_get() while accessing PTE pointers per Christophe
-> - Fixed function argument alignments per Christophe
+Well, that depends on how early _all_ riscv platforms are able to
+initialize their random pool correctly. I'd include a csr mix.
 
-+Cc - Zi Yan, Gerald Schaefer, Christophe Leroy
-
-The Cc list was not complete. Please do let me know if you could
-not retrieve all the four patches of the series from the list.
-
-- Anshuman
+-- 
+Kees Cook
 
 _______________________________________________
 linux-riscv mailing list
