@@ -4,19 +4,19 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=3.4.0
+	SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1A43EC433E0
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2020 01:20:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 65D7FC433DF
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2020 01:21:51 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E169620715
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2020 01:20:08 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 353102070C
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2020 01:21:51 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Bgl2C2/x";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=chromium.org header.i=@chromium.org header.b="G6q7Jud7"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E169620715
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="1Fb00KjX";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=chromium.org header.i=@chromium.org header.b="F4CXDtLy"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 353102070C
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=chromium.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,65 +25,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=nBRD8VbVbJg48KY/42pApu2SoPDgtAh8upGuFj/xAIo=; b=Bgl2C2/xB79c3tafbhiDhhPgd
-	au3+Vq/k3oMmHYrxZ/xpZq8ODqKIOIALx5fpJkHqXuk/0EYo3CcBWp5Vl4m3klkHOjA/kRhqDdUA9
-	VB8Tj91aQ2NVLUkoDivmM02GegeShO2JP9hbggBQ0kwV0VaJ0Z2z+zbRdlZpVCWbXQRbLoMHvD/Xw
-	v7HG4wK236cT+PyYClZtYjnmqHr+65nOPRU3uoJaBonBYcO9ZspIwUZdp9uwNiAMmom2glSrezqpW
-	RqLKwuwenIrnuYFXQqhpJvZuF1OWgMLcDWhbB3cLdKeYHr+1/1TZKz+a3Kx7A47eEeLmrvLQbbRvC
-	5pWSoxHXQ==;
+	 bh=17t6+VsZLjanfDDZKufGZiOza2M0o1kkVXgCVjnRSAg=; b=1Fb00KjXhp4iA3bth3m/czytd
+	z2kXWgYPbWcQMd8QWMH/Z86uasTVqCwPmkj7lOeTHNIZY9byYBAZqnnnOuJG98Oo3wuTyfVXQX3uX
+	2yoxfMFkMmVQrtTEzMJ7ocsrrZE0apOLvuJWzl0e8ER3SvlwaiKj/Fa5cn7hy4nxuY79a8tDq3x99
+	qbyCwxr3d85SkRxW2pSV+Jd3kIEu0teqAGrdqstM1ciQGSR2SvQ4AbDt9rZa6EHlCKWzdtLBt1V7k
+	wzRZbRIYJUHpt7/tq230tZuUWgXy5nQXr/VWi/yu1nl6haOo8ax2icN9wBfP5LPZitFwhmgt5Oz8D
+	Dm1UB4x8w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jsFng-0001Ty-O9; Mon, 06 Jul 2020 01:20:04 +0000
-Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
+	id 1jsFpK-0001xn-12; Mon, 06 Jul 2020 01:21:46 +0000
+Received: from mail-pg1-x543.google.com ([2607:f8b0:4864:20::543])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jsFnd-0001TB-RN
- for linux-riscv@lists.infradead.org; Mon, 06 Jul 2020 01:20:02 +0000
-Received: by mail-pl1-x643.google.com with SMTP id x9so1024184plr.2
- for <linux-riscv@lists.infradead.org>; Sun, 05 Jul 2020 18:19:59 -0700 (PDT)
+ id 1jsFpI-0001wf-1A
+ for linux-riscv@lists.infradead.org; Mon, 06 Jul 2020 01:21:44 +0000
+Received: by mail-pg1-x543.google.com with SMTP id l63so17612583pge.12
+ for <linux-riscv@lists.infradead.org>; Sun, 05 Jul 2020 18:21:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
  h=date:from:to:cc:subject:message-id:references:mime-version
  :content-disposition:in-reply-to;
- bh=hsValw4wLMzxskO9JAsxS8IlkvauPBZYj9ebYBYapKQ=;
- b=G6q7Jud7BYrDbF5YMMzI6atIeRmAy2r3a0Dk7TutymmDTzE5dI+ipZeZ+nNejcqFhr
- Gu0K42r8orIAVelK0CNQZTVlYc52Ivv0Rh3txYaPkTxO238GeJGlQLQjw65xP3zPLCnd
- d1u99CnvcHMKV/razA5QrnIucnkvaXQKMLB/w=
+ bh=8yvQ48jePvSkpNEOiKywOlcwgJYBDKGMGlLh7bQcbxY=;
+ b=F4CXDtLy5SDTAqh+FkUui2v2kyxo6W8b0CK2JM9q/ZhluIHz4NdY3uuU/a39UbCpq9
+ +mGWMUF4RxHkOMVo59KHhJI0O1d3+/IulpLFBNzxLysv74yl/AACzAi7ptOpuBxrIUBS
+ yPa303MHMZuFP0EpmuF1Db9zI3LVAp0BCyIL4=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to;
- bh=hsValw4wLMzxskO9JAsxS8IlkvauPBZYj9ebYBYapKQ=;
- b=DbP9ghngV2K9oNsHHNQb0CwomNRyDWgUY9odbpJVPGLd5xuojAY6TyF7sqhnu1wySC
- lwxE3dvi5pUCpdcYxHpuLEtmHdso1SHD4H6JLjAq1Twmc3OnaX1I9AegOT1Ol6NqN+EC
- Qj6mfdXtNOg7TpezOF8NfnajFdX7GpHpOWiPFEAER4Ja4iGKWVWv2PPxss/0GjFUywyh
- cWhxIo91Udzq5SkpajiOgPu/Xe1yem0QJubanKI8He4D7SxN2CCWH7kisrUKxWWyBRN6
- sTm7Btsbu5mzQYaBEjAfFB52n2MtFkP8Cusdm5IXcgMYSpcThwDEdhmH9ym9OvxGYGtN
- pgig==
-X-Gm-Message-State: AOAM531pLQeoWITmC6a/yIjqTelsGM497pJR97qq4WYZpW/YclNGYiHE
- hI5rdWALygzahS5mJtuK6qOlsg==
-X-Google-Smtp-Source: ABdhPJyRQMl8X2jOh3kV2RfeE5+zaKw6r/y3dmR0L3SXZayvtA4SqleWN0dDJU/g4lAJNhGdolwYwQ==
-X-Received: by 2002:a17:902:9346:: with SMTP id
- g6mr35985832plp.77.1593998397876; 
- Sun, 05 Jul 2020 18:19:57 -0700 (PDT)
+ bh=8yvQ48jePvSkpNEOiKywOlcwgJYBDKGMGlLh7bQcbxY=;
+ b=kdfq/oKF9iMDBFQE2hSAY5MP8gZUbCCTzTpHIhb1+lIgHtfLIPQgPmVHfINpjeXF0u
+ gfxhHDYcvmZ/7ssEWwP+mlvHKpcpKsSV/3iGTfLFVlwqNDSPsMneatDs/z4AUNwe2cEn
+ vde/xuTJw9i4Nq1m0PqW5oujlJhKGrjep2NVVfipMkhLFYzttCJYNuOOTamM9ale15im
+ ngNI4ci9uNthCmUKQVWQcIxxvx8UUiDASBOhYNUrrpUFSTRou00l2lAvSMSuXkCRscXm
+ fsR0n1+WiyePXNcC047mBw0cmvBXcp4s7pFKD6f6JMHiHWF3h2JzEAlk/hwCXvAeinnE
+ JxKA==
+X-Gm-Message-State: AOAM532CgQzS+jyWyWGWE09YUW2veY+b9tJ/b8zfYYIVPI8vdrG/sZm5
+ CIcMIW3oS2nxYaOvpDNYWwZ/HA==
+X-Google-Smtp-Source: ABdhPJw2aS5EG4tZqSfuBN9OitoGgrKm2rWv1SK6aPwvfZgPjFkoOEENMcwFcvlj4KcxXQ5msr5oNg==
+X-Received: by 2002:a62:7f55:: with SMTP id a82mr33627421pfd.61.1593998501873; 
+ Sun, 05 Jul 2020 18:21:41 -0700 (PDT)
 Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
- by smtp.gmail.com with ESMTPSA id t137sm17967077pgc.32.2020.07.05.18.19.56
+ by smtp.gmail.com with ESMTPSA id c15sm17344475pgb.4.2020.07.05.18.21.40
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sun, 05 Jul 2020 18:19:57 -0700 (PDT)
-Date: Sun, 5 Jul 2020 18:19:56 -0700
+ Sun, 05 Jul 2020 18:21:41 -0700 (PDT)
+Date: Sun, 5 Jul 2020 18:21:40 -0700
 From: Kees Cook <keescook@chromium.org>
 To: Guo Ren <guoren@kernel.org>
-Subject: Re: [PATCH] riscv: Add STACKPROTECTOR supported
-Message-ID: <202007051819.0ECAD4E6@keescook>
-References: <1593930255-12378-1-git-send-email-guoren@kernel.org>
- <202007042350.4C153C4F8@keescook>
- <CAJF2gTQFqH7GMvRgmtb=hBwvUy6NZyM8xLqOsUTvnYhO48tQbg@mail.gmail.com>
- <202007051328.FE9EF99@keescook>
- <CAJF2gTTCEEoP3a9i_REXPwkJZ4Si_hYfjk_hwqHxkyfgw_xBLw@mail.gmail.com>
+Subject: Re: [RFC PATCH] riscv: enable per-task stack canaries
+Message-ID: <202007051820.DABE7F87D7@keescook>
+References: <1593958397-62466-1-git-send-email-guoren@kernel.org>
+ <202007051336.C9EA0ECF65@keescook>
+ <CAJF2gTR5Fc1wpjr1ZYZikS=hCP9rbjJVsH9b-z2nBxbBcfBoCA@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAJF2gTTCEEoP3a9i_REXPwkJZ4Si_hYfjk_hwqHxkyfgw_xBLw@mail.gmail.com>
+In-Reply-To: <CAJF2gTR5Fc1wpjr1ZYZikS=hCP9rbjJVsH9b-z2nBxbBcfBoCA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200705_212001_927693_231C0582 
-X-CRM114-Status: UNSURE (   8.65  )
+X-CRM114-CacheID: sfid-20200705_212144_095871_60ED39DE 
+X-CRM114-Status: UNSURE (   7.67  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -96,29 +93,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Guo Ren <guoren@linux.alibaba.com>, Anup Patel <anup@brainfault.org>,
- Palmer Dabbelt <palmerdabbelt@google.com>,
+Cc: linux-riscv <linux-riscv@lists.infradead.org>,
+ Guo Ren <guoren@linux.alibaba.com>,
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-csky@vger.kernel.org, Atish Patra <atish.patra@wdc.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Masami Hiramatsu <mhiramat@kernel.org>,
- Zong Li <zong.li@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Greentime Hu <greentime.hu@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Greentime Hu <green.hu@gmail.com>,
- =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn.topel@gmail.com>
+ linux-csky@vger.kernel.org,
+ Ramana Radhakrishnan <ramana.radhakrishnan@arm.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2020 at 08:55:35AM +0800, Guo Ren wrote:
-> On Mon, Jul 6, 2020 at 4:31 AM Kees Cook <keescook@chromium.org> wrote:
-> > Sure -- I assume get_cycles64() is architecturally "simple"? (i.e. it
-> > doesn't require that the entire time-keeping subsystem has started?)
-> Yes, it's just a csr read. But it's necessary? get_random_bytes should enough.
+On Mon, Jul 06, 2020 at 09:01:51AM +0800, Guo Ren wrote:
+> Yeah! :) I just want to show you, how about the format: use tp in gpr
+> to do that. The format is similar to arm64.
+> 
+> tp is the task_struct point in riscv.
 
-Well, that depends on how early _all_ riscv platforms are able to
-initialize their random pool correctly. I'd include a csr mix.
+Sounds good to me, yes. Thanks! Is there anyone looking at the GCC and
+Clang sides of this?
 
 -- 
 Kees Cook
