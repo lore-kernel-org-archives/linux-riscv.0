@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4EBAEC433E2
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2020 17:26:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A047EC433E0
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2020 17:26:51 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1F50620724
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2020 17:26:50 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 0F2DF2070C
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jul 2020 17:26:51 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="2ayvq760";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="FU84EyBH"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1F50620724
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="miZ4Kb7v";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="Bny9zO8g"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0F2DF2070C
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,63 +26,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=sjyo4WrFZPDjSJp844uYZWw5N+yzalH6f06rX4OB8yY=; b=2ayvq760MbFESPWt7JsP/Su/p
-	JupDaVTxcfhIO4uiDiSHeAm/cwRnnA2KVvrcaHX0ZZjPhoysRWOMOpN95E6uY5C4FVyKQTXgDbOnd
-	VFcBBMQ/AhcYQkpYu67eH734ACGRAvCRj0rflm9rQQwsxe3RKuPGI7KR8j5hvpj9viwcUtcOQMR03
-	2TEHwfMnoqpKD30j47Nf+tI8r1+qqpN5d9WjYlLiOMEfFXVAWYR5VtwzOLgKJVFSWKPfYfo/+eh34
-	wg0K88CqhmSW6FevLQyRFE6KODPZSuIbvuo+EENI20f5NIV9bo4vtt17SGjJ5hVhFplB7g+ikO6Ee
-	l+a+V2Ksg==;
+	 bh=ijcEaKum8QWSScWucOnkc3EOVhyAG6GTBgw6FLdFFDs=; b=miZ4Kb7v4CI4hGfIvhNqQT1TF
+	npXVpzhRLbb7/gVnA7GGzAMu/Uo9ymhDzenx6YT6GPSYmrNPhdUNvvraW4R7v+F/90Zplqr2gWqkN
+	4kY5VDMt5NDO89KSikgLNnMt6N8GY3rwTmC/fg3lv6OckgCv5/3KlkEFW8I8LI3qUFJO+FInJ14b+
+	Mdeyb4d/3M6b5k/RswLSTYxTetZYqTPVmpZ35BEavgq1C7xErI/Wyf/PovPeWlcU+j3rUWpUVHylb
+	ea52sWgx2MP5qFRZ1EqnA23OlJoQe51DH13v71C+4lCv9xyvsy9iLaL5uSGbly2cMsktwFStCE2on
+	hEbImtRQA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jsUtA-0002iU-U6; Mon, 06 Jul 2020 17:26:45 +0000
+	id 1jsUtC-0002jc-Mx; Mon, 06 Jul 2020 17:26:46 +0000
 Received: from esa5.hgst.iphmx.com ([216.71.153.144])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jsUt2-0002aE-1u
- for linux-riscv@lists.infradead.org; Mon, 06 Jul 2020 17:26:37 +0000
+ id 1jsUt2-0002Zt-Dg
+ for linux-riscv@lists.infradead.org; Mon, 06 Jul 2020 17:26:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
  t=1594056397; x=1625592397;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=e1f5tFToh6jF2Fr3c6Bri7MNiVrYpT85jVmyBw2a1o8=;
- b=FU84EyBHtVo2J9NtLuzr+5HBu9uiJKd9nS0kTolagEDxzIUmWOr/GMQ4
- EJe03uc1bfJC5vjFhUMlLTtx/bFyZlXajPAFvuL0OgCsJ+xwDq22O6UFf
- PMy+eOztS+ClVPlVErKyUtZBHvc7EJSIoIfLWX4oRKPUijXA0mCl4egKc
- cbVwvg6JrFJxOu/QdNE1/vAzyibTcSymD3EdeQkm6zpqYaV4lpANohO21
- wdPBF7ayDl+FvLRWYnD2Da5IQG5eh4nVJaaLSwen4T630PFqYq32g2n9u
- bNNCeJwU/1Pg76tlnLkE6DA+GsH7fg3H7qtg2t8hE1bkv/QP8LMqXrSje g==;
-IronPort-SDR: 9uJ1vP5GG/vOHOvmzeJGAAVX7k1NTfsgkO9ePtRkLWYUpyRukO+sAgN59aYqww/fnOuj5Z8BiM
- J06H4lRSBbVjY3CBXQ6tFyq6MusQNxZZ2x8RShu4MTgnii4/40rouH5VkZAlUhIuVDbw6lnTND
- NNZZPsDLzIxacLIaMaUn/GrypLZ9mhIJQJvrQgDG090CQpNtO0Cfyd/hAG6KXnUsrf+uPakXwW
- 07Ipe87xOcC5GfyrgZJTOOSoZUQxwuQV4QB93VtjUuuykExC0B+FlItdOd5itHBcaf0yerD3ly
- ZP0=
-X-IronPort-AV: E=Sophos;i="5.75,320,1589212800"; d="scan'208";a="141930683"
+ bh=YBy5J4GUHkZ0slWQ+5rpmDzLOi4g2OFkey3S0ni3vEo=;
+ b=Bny9zO8gDjvYj5aA/vs1IzKdnR0j2G2qRv9i6zbu+jHBbMsJ6HJ37Ivz
+ cXZU+lFU8OyGMdCvKSF2ezyMnmGEPCiAxaKTu6ieb2MlYCj8M0SVwIEmV
+ ZL5NgbDh+1xd2Kg7yT4wa+qiFE+DyYXBwqYbDUYWb3dGB4R4QupSqu9ZG
+ Ib+M20V0h4hM8RSPVPXXWPXgD1lF7QV9zjR7VwQoWF6bdvyfXV+M85Ccz
+ BjccuHlG5DpJOGyXphee4wFeryR3r74odmcj69mW7mW7ODe5XYjbnOgHc
+ l+oQaERNRsTaywNb5luDKFVezkshEFyPQYfwct/iF6J75lSJ4atowxoWU Q==;
+IronPort-SDR: ZUtXqegXqtFWYENK+hfzoO3rCoRg3BdPKZ66JHfIHr/1IlsBLxZ/vExBGvktnoxjPSEd+4ZD+9
+ 8PFbnqpDBT67Evka8mkd6VazpY5y2zBU7Dv3sRcZjNdw42hBrXCaLvBfKt50bxa2j3wcOGYCVy
+ hCWoUuhNrtgMiP+8W6+zKl0BQHxC51FWbrJTorE7SLEAxdQG0uip5bfq4e714/0n5LjmLpxY3j
+ YSG9PbxzV13UHcKTWk4/Nx2apEKSiqsQfAHAlhdx086ESWXP46iCQRzEC18rMy+xtL29DWC+wg
+ V5I=
+X-IronPort-AV: E=Sophos;i="5.75,320,1589212800"; d="scan'208";a="141930684"
 Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 07 Jul 2020 01:26:32 +0800
-IronPort-SDR: qeyZ7GgWYT5sSkxMMDptqqEMFHs8Z7k7tizgCXcAUzKt0g4Z0xjfUlZb2mhtrJ7Lab359nnoKS
- 1ZenW66CZoGFTmkqJMt3Ay9EupzMdfSpM=
+ by ob1.hgst.iphmx.com with ESMTP; 07 Jul 2020 01:26:33 +0800
+IronPort-SDR: q59hrGbCpHP5U8H8BtAak7R8DxkIYXMvKQ/BYEYk4TrrrUF+BKPSGJ5lnakUJY62TFLi6EKdQX
+ 1GswKygZX9VYXFXqlLWFIRtvQh5JZs7E4=
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 06 Jul 2020 10:15:12 -0700
-IronPort-SDR: CHjz5i2GjUVTmaMZrAcRniyPnGuPcM9Gy5cG1qRK1yg2uNoB0XlDvdxeo/vNoIt0F32gPm//zW
- EI3N8t8F03OQ==
+ 06 Jul 2020 10:15:13 -0700
+IronPort-SDR: VTlm1Z5/SAZEFPfrVJo8CE7qDDYpBSCOWNrJGIMyzYAvnvv9cofETJc83FHruK4hWLEkD67X8x
+ qpNsYOLyOR6A==
 WDCIronportException: Internal
 Received: from 6hj08h2.ad.shared (HELO jedi-01.hgst.com) ([10.86.57.161])
  by uls-op-cesaip01.wdc.com with ESMTP; 06 Jul 2020 10:26:31 -0700
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [RFC PATCH v2 05/11] RISC-V: Set maximum number of mapped pages
- correctly
-Date: Mon,  6 Jul 2020 10:26:03 -0700
-Message-Id: <20200706172609.25965-6-atish.patra@wdc.com>
+Subject: [RFC PATCH v2 06/11] riscv: Parse all memory blocks to remove
+ unusable memory
+Date: Mon,  6 Jul 2020 10:26:04 -0700
+Message-Id: <20200706172609.25965-7-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.24.0
 In-Reply-To: <20200706172609.25965-1-atish.patra@wdc.com>
 References: <20200706172609.25965-1-atish.patra@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200706_132636_303433_5FF2D669 
-X-CRM114-Status: GOOD (  12.75  )
+X-CRM114-CacheID: sfid-20200706_132636_707644_53792EBF 
+X-CRM114-Status: GOOD (  13.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -103,34 +103,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, maximum number of mapper pages are set to the pfn calculated
-from the memblock size of the memblock containing kernel. This will work
-until that memblock spans the entire memory. However, it will be set to
-a wrong value if there are multiple memblocks defined in kernel
-(e.g. with efi runtime services).
+Currently, maximum physical memory allowed is equal to -PAGE_OFFSET.
+That's why we remove any memory blocks spanning beyond that size. However,
+it is done only for memblock containing linux kernel which will not work
+if there are multiple memblocks.
 
-Set the the maximum value to the pfn calculated from dram size.
+Process all memory blocks to figure out how much memory needs to be removed
+and remove at the end instead of updating the memblock list in place.
 
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
 ---
- arch/riscv/mm/init.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/riscv/mm/init.c | 31 +++++++++++++++++--------------
+ 1 file changed, 17 insertions(+), 14 deletions(-)
 
 diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index bad60686d080..4021706aef81 100644
+index 4021706aef81..c5268fe6e6de 100644
 --- a/arch/riscv/mm/init.c
 +++ b/arch/riscv/mm/init.c
-@@ -147,9 +147,9 @@ void __init setup_bootmem(void)
+@@ -123,26 +123,29 @@ void __init setup_bootmem(void)
+ {
+ 	struct memblock_region *reg;
+ 	phys_addr_t mem_size = 0;
++	phys_addr_t total_mem = 0;
++	phys_addr_t mem_start, end = 0;
+ 	phys_addr_t vmlinux_end = __pa_symbol(&_end);
+ 	phys_addr_t vmlinux_start = __pa_symbol(&_start);
+ 
+ 	/* Find the memory region containing the kernel */
+ 	for_each_memblock(memory, reg) {
+-		phys_addr_t end = reg->base + reg->size;
+-
+-		if (reg->base <= vmlinux_start && vmlinux_end <= end) {
+-			mem_size = min(reg->size, (phys_addr_t)-PAGE_OFFSET);
+-
+-			/*
+-			 * Remove memblock from the end of usable area to the
+-			 * end of region
+-			 */
+-			if (reg->base + mem_size < end)
+-				memblock_remove(reg->base + mem_size,
+-						end - reg->base - mem_size);
+-		}
++		end = reg->base + reg->size;
++		if (!total_mem)
++			mem_start = reg->base;
++		if (reg->base <= vmlinux_start && vmlinux_end <= end)
++			BUG_ON(reg->size == 0);
++		total_mem = total_mem + reg->size;
+ 	}
+-	BUG_ON(mem_size == 0);
++
++	/*
++	 * Remove memblock from the end of usable area to the
++	 * end of region
++	 */
++	mem_size = min(total_mem, (phys_addr_t)-PAGE_OFFSET);
++	if (mem_start + mem_size < end)
++		memblock_remove(mem_start + mem_size,
++				end - mem_start - mem_size);
+ 
  	/* Reserve from the start of the kernel to the end of the kernel */
  	memblock_reserve(vmlinux_start, vmlinux_end - vmlinux_start);
- 
--	set_max_mapnr(PFN_DOWN(mem_size));
- 	max_pfn = PFN_DOWN(memblock_end_of_DRAM());
- 	max_low_pfn = max_pfn;
-+	set_max_mapnr(max_low_pfn);
- 
- #ifdef CONFIG_BLK_DEV_INITRD
- 	setup_initrd();
 -- 
 2.24.0
 
