@@ -2,80 +2,76 @@ Return-Path: <SRS0=Os/g=AS=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.2 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 937F7C433E0
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2020 07:49:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DCB1BC433E0
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2020 08:16:27 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 538FB20702
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2020 07:49:39 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6D2E9206C3
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2020 08:16:27 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="iLQpr3Of";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="V3vv2b8D"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 538FB20702
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="uVypEibv";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=aurel32.net header.i=@aurel32.net header.b="NY41Kgrk"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6D2E9206C3
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=aurel32.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=gzmzW6Zw9oHLBkgWE1ufMyrPzFO4a+3B46UkdY0MrGo=; b=iLQpr3OfRf7P3sMOG4js99KUX
-	pahm3IxHh1N3tHfrQRMEbRVl5tVxB0FtqHkW/fmZhGAnr6QlMExRS8wVIWjbf5UXiR1h7aYYZ6hw/
-	wwKa4lo9GaEMAoN1HTFgO8D2zntKapYHq6JQ1PFh+8ieh/ew1sEhGdyUFtV96dBwan55hir08cuLD
-	B/iWaYF4cQJm0Sk//0RGzc6VJGoDSPpPxftWqh9dqYoWYvnVFH7M1WK9sR07ZZUfieASoldArI1cZ
-	Sj+lMgx6hMHra8do/e7rWZDCUJYKAuhuaDAFgudYQcnzNeq8/WasN6aOPwluu0nr7JZbgsPnL97oC
-	PpEmENabA==;
+	 bh=hIOEyFFtK7YK0E2jqaMAzt3PO8LhHoJoKBbThc0f/zw=; b=uVypEibvWGK9WTP5pQrcRmKvn
+	KK7RXv8ryiFINUxy3c+dMZF7pSrFuO5BgW+rzzkKkNURvaPjy3QY2CRFz4nWxspbu5mithVYNPLHw
+	qlnA45tU9hT2U4fygiuyEU0GLpaE7cbTLu83Lz66OhZ6n5/FM9BgsglAb0EoOE6EWl4KLpJEVB2Fs
+	588FiMCiXss6tbh9jYuhP6hn2G8CZIMPaYnFzMWq2D7Y9YDstK+t90NU+egTJPOpuBk8cFrMc58tp
+	XNtqCCBHijHvUssc68gh64J16WEEDIgz8XNF6ugAJ1NsrErWzCxkLWYv2/gqCA1tLtc4wqa0zVbs1
+	olatx6lzQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jsiM9-0005hO-Va; Tue, 07 Jul 2020 07:49:34 +0000
-Received: from mail-wr1-x444.google.com ([2a00:1450:4864:20::444])
+	id 1jsim5-0000i5-Df; Tue, 07 Jul 2020 08:16:21 +0000
+Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jsiM5-0005fT-34
- for linux-riscv@lists.infradead.org; Tue, 07 Jul 2020 07:49:30 +0000
-Received: by mail-wr1-x444.google.com with SMTP id z2so21813191wrp.2
- for <linux-riscv@lists.infradead.org>; Tue, 07 Jul 2020 00:49:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=x2pxDDruVdpBNY9voLxLtSz3gp0J3oInIn5OFSK9v7g=;
- b=V3vv2b8DJqkujHE5W2g3BcOMuRt5leIZZWQUW3BHOHP1VckBulL2Fm1CwWk4h41NHl
- egiQb2Ue5kiZbmrUvSGb4Bsp8Ek2B4waU04kdX2/WD3lkRw+vDHRrYyCwtXPtMTQ6ao0
- PuoL6aqk2JIGEauVZ4sKcrjoKN+ts+OrlOZKg=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=x2pxDDruVdpBNY9voLxLtSz3gp0J3oInIn5OFSK9v7g=;
- b=rsOUS/Ua730w2aNjh1y5FuknOK+yNJXDXSiSJMK8K0IWDcRcPofCN92yq2uzP14w5o
- 5uQzeyWt8qaN5VWHFHgPJSz7Kp94p/bMrgHZbn6XE1nZcIWisGqH+Lj+M9TA17TN8tgR
- Fgv3c4AXdqDXXdz5aoEnqf1vMg4a7o1Xu5c9/mn5e0lG93cn6u4Cu4KZTSEZapEa7Mki
- jbIUu8xI8cGgoAZUCtX9gwmgNBRNDWYeJlJ7TGFSLeRSOpD9crzdf10f0as2agZUwViT
- SeWT4+7O2FRK7IuzCMPlKZmajXX9VQGZSOV+EGTqE4XYbAuPw2Ln09x1vP5GyhDuP3Oi
- RE6w==
-X-Gm-Message-State: AOAM530qLLvNn8+o0UPZUObHCO5obtR6fSgo8vRBEG2sHtJr+8DpW/K+
- UJ5d2uVfO80rVFlHTMbyZHiCYx7m4wVsY5x6go7F75Q87rth
-X-Google-Smtp-Source: ABdhPJwUXpEEyZQIUtPjkA0NYrN6lp6EdSH5wb8/o1vki+kpP1ntbxG1+7hdZ7llctZAshRg7/imXdwmlN3KVsN6CCI=
-X-Received: by 2002:a5d:62d1:: with SMTP id o17mr51080157wrv.162.1594108165570; 
- Tue, 07 Jul 2020 00:49:25 -0700 (PDT)
+ id 1jsim2-0000gj-E0
+ for linux-riscv@lists.infradead.org; Tue, 07 Jul 2020 08:16:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
+ ; s=202004.hall;
+ h=In-Reply-To:Content-Type:MIME-Version:References:
+ Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
+ Subject:Content-ID:Content-Description:X-Debbugs-Cc;
+ bh=EA/3cNstrWMDO33kM+6w6yj9HV+JpNqfCcL3vex3MqA=; b=NY41KgrkrgsH2VNw4Wic5NBxK9
+ c433IFDrijCmG1B8UIlMAmnn6z5XT/rSqRN/mWZetxCKQPZpPI+GQPmNaRVCa+aRIIJHMa+jiETQX
+ mr1BcuChG5I87In8K454cVqCgL5qxPMDnrBZ3c39F9zoBAVEPLXk+MNzFS94+07pP8anA941E6ou0
+ QN7Hp8M0IFTRmOegfKWxLNg4oipRcjKN4iNMfw1OWj7lM8sH5Yzi5BQGJDef+4CF95vsX3PM+u0D1
+ PJ+d1A8Famx0l00G7jd+937pJ+Yvnn7SUhs86TVTWNrpJAl8WlLkxV+ix9QdoGFrWcIvwcqHpm0VX
+ 0AbvaWrA==;
+Received: from [2a01:e35:2fdd:a4e1:fe91:fc89:bc43:b814] (helo=ohm.rr44.fr)
+ by hall.aurel32.net with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.92) (envelope-from <aurelien@aurel32.net>)
+ id 1jsilv-00036X-9u; Tue, 07 Jul 2020 10:16:11 +0200
+Received: from aurel32 by ohm.rr44.fr with local (Exim 4.94)
+ (envelope-from <aurelien@aurel32.net>)
+ id 1jsils-007vhX-RV; Tue, 07 Jul 2020 10:16:08 +0200
+Date: Tue, 7 Jul 2020 10:16:08 +0200
+From: Aurelien Jarno <aurelien@aurel32.net>
+To: Andreas Schwab <schwab@suse.de>
+Subject: Re: [PATCH] riscv: use 16KB kernel stack on 64-bit
+Message-ID: <20200707081608.GA1889963@aurel32.net>
+Mail-Followup-To: Andreas Schwab <schwab@suse.de>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <mvmeepoddt1.fsf@suse.de>
 MIME-Version: 1.0
-References: <20200706172609.25965-1-atish.patra@wdc.com>
- <CAMj1kXG5OxRod_-Z5K55XLXDda2ahfezm0yaRbv=82JmrFRZxw@mail.gmail.com>
-In-Reply-To: <CAMj1kXG5OxRod_-Z5K55XLXDda2ahfezm0yaRbv=82JmrFRZxw@mail.gmail.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Tue, 7 Jul 2020 00:49:14 -0700
-Message-ID: <CAOnJCU+PzfTGiJc5hegU72+z_RJErO=avYV9dz1zB3zH8_Yzow@mail.gmail.com>
-Subject: Re: [RFC PATCH v2 00/11] Add UEFI support for RISC-V
-To: Ard Biesheuvel <ardb@kernel.org>
+Content-Disposition: inline
+In-Reply-To: <mvmeepoddt1.fsf@suse.de>
+User-Agent: Mutt/1.14.0 (2020-05-02)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200707_034929_156173_DA91185D 
-X-CRM114-Status: GOOD (  29.64  )
+X-CRM114-CacheID: sfid-20200707_041618_745156_DA289E7F 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -87,342 +83,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-efi <linux-efi@vger.kernel.org>,
- Heinrich Schuchardt <xypron.glpk@gmx.de>,
- Masahiro Yamada <masahiroy@kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Atish Patra <atish.patra@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 6, 2020 at 11:41 PM Ard Biesheuvel <ardb@kernel.org> wrote:
->
-> On Mon, 6 Jul 2020 at 20:26, Atish Patra <atish.patra@wdc.com> wrote:
-> >
-> > This series adds UEFI support for RISC-V.
-> >
-> > Linux kernel: 5.8-rc4
-> > U-Boot: master
-> > OpenSBI: master
-> >
-> > Patch 1-6 are preparatory patches that fixes some of the geric efi and riscv issues.
-> >
-> > Patch 7-9 adds the efi stub support for RISC-V which was reviewed few months back.
-> > https://www.spinics.net/lists/linux-efi/msg19144.html
-> >
-> > Patch 10 just renames arm-init code so that it can be used across different
-> > architectures. Patch 11 adds the runtime services for RISC-V.
-> >
-> > The patches can also be found in following git repo.
-> > https://github.com/atishp04/linux/tree/uefi_riscv_5.9_v2
-> >
-> > The patches have been verified on Qemu using bootefi command in U-Boot for both
-> > RV32 and RV64.
-> >
-> > For RV32, maximum allocated memory should be 1G as RISC-V kernel can not map
-> > beyond 1G of physical memory for RV32.
-> >
-> > EDK2 can boot quite far into Linux with current series. Currently, we are seeing
-> > some traps from drivers (spi/network). At first glance, they don't seem to be
-> > caused by efi. I thought it is better to get some early feedback on the series
-> > while EDK2 issue is being debugged.
-> >
-> > That's why uefi runtime services are not actually well tested in RISC-V.
-> > Any suggestions to test the efi run time services are appreciated.
-> >
-> > Changes from v1->v2:
-> > 1. Removed patch 1 as it is already taken into efi-tree.
-> > 2. Fixed compilation issues with patch 9.
-> > 3. Moved few function prototype declaration to header file to keep kbuild happy.
-> >
-> > Changes from previous version:
-> > 1. Added full ioremap support.
-> > 2. Added efi runtime services support.
-> > 3. Fixes mm issues
-> >
->
-> Hi Atish,
->
-> This all looks reasonable to me, so I think we can merge this once you
-> can confirm that the runtime services actually work.
->
-
-Blibbet pointed me towards the Firmware Test Suite (FWTS). I will try
-to use that to verify basic runtime services
-in addition to EDK2 testing (Abner is debugging that).
-
-> Could you explain how you are dealing with the memory map? Are memory
-> nodes in DT ignored entirely as they should be?
-
-Yes. That is handled by the generic code (patch 10 renames arm-init to
-efi-init) in the following path.
-setup_arch->efi_init->reserve_regions()
-
-What about memory
-> reservations?
->
-
-I added patches in U-Boot that parses the /reserved-memory nodes from
-DT and add it to the efi reserved mappings.
-As a result, Linux kernel takes care of memory reservations as per the
-reserved memory regions present in efi memory map.
-I am expecting EDK2 already does that as well.
-
-Here is the relevant boot log:
-----------------------------------------------------------------------------------------------------------------------
-[    0.000000] OF: fdt: Ignoring memory range 0x80000000 - 0x80200000
-
-[    0.000000] earlycon: sbi0 at I/O port 0x0 (options '')
-
-[    0.000000] printk: bootconsole [sbi0] enabled
-
-[    0.000000] efi: Getting UEFI parameters from /chosen in DT:
-
-[    0.000000] efi:   System Table         : 0x00000000bff61528
-
-[    0.000000] efi:   MemMap Address       : 0x00000000bd46e020
-
-[    0.000000] efi:   MemMap Size          : 0x00000000000002d0
-
-[    0.000000] efi:   MemMap Desc. Size    : 0x0000000000000028
-
-[    0.000000] efi:   MemMap Desc. Version : 0x0000000000000001
-
-[    0.000000] efi: EFI v2.80 by Das U-Boot
-
-[    0.000000] efi: RTPROP=0xbe73c020 SMBIOS=0xbe736000 MEMRESERVE=0xbd671020
-
-[    0.000000] memblock_reserve:
-[0x00000000bd671020-0x00000000bd67102f]
-efi_config_parse_tables+0x192/0x1e6
-
-[    0.000000] efi: Processing EFI memory map:
-
-[    0.000000] MEMBLOCK configuration:
-
-[    0.000000]  memory size = 0x000000003fe00000 reserved size =
-0x0000000000000010
-
-[    0.000000]  memory.cnt  = 0x1
-
-[    0.000000]  memory[0x0] [0x0000000080200000-0x00000000bfffffff],
-0x000000003fe00000 bytes flags: 0x0
-
-[    0.000000]  reserved.cnt  = 0x1
-
-[    0.000000]  reserved[0x0] [0x00000000bd671020-0x00000000bd67102f],
-0x0000000000000010 bytes flags: 0x0
-
-[    0.000000] memblock_remove:
-[0x0000000000000000-0xfffffffffffffffe] reserve_regions+0x56/0x134
-
-[    0.000000] efi:   0x000080000000-0x00008003ffff [Reserved
- |   |  |  |  |  |  |  |  |   |WB|  |  |  ]
-
-[    0.000000] OF: fdt: Ignoring memory block 0x80000000 - 0x80040000
-
-[    0.000000] efi:   0x000080040000-0x0000801fffff [Conventional
-Memory|   |  |  |  |  |  |  |  |   |WB|  |  |  ]
-
-[    0.000000] OF: fdt: Ignoring memory range 0x80040000 - 0x80200000
-
-[    0.000000] memblock_add: [0x0000000080200000-0x00000000801fffff]
-early_init_dt_add_memory_arch+0xac/0xbc
-
-[    0.000000] efi:   0x000080200000-0x0000812befff [Loader Data
- |   |  |  |  |  |  |  |  |   |WB|  |  |  ]
-
-[    0.000000] memblock_add: [0x0000000080200000-0x00000000812befff]
-early_init_dt_add_memory_arch+0xac/0xbc
-
-[    0.000000] efi:   0x0000812bf000-0x000087efffff [Conventional
-Memory|   |  |  |  |  |  |  |  |   |WB|  |  |  ]
-
-[    0.000000] memblock_add: [0x00000000812bf000-0x0000000087efffff]
-early_init_dt_add_memory_arch+0xac/0xbc
-
-[    0.000000] efi:   0x000087f00000-0x000087f04fff [ACPI Reclaim
-Memory|   |  |  |  |  |  |  |  |   |WB|  |  |  ]
-
-[    0.000000] memblock_add: [0x0000000087f00000-0x0000000087f04fff]
-early_init_dt_add_memory_arch+0xac/0xbc
-
-[    0.000000] memblock_reserve:
-[0x0000000087f00000-0x0000000087f04fff] reserve_regions+0x110/0x134
-
-[    0.000000] efi:   0x000087f05000-0x0000bd46dfff [Conventional
-Memory|   |  |  |  |  |  |  |  |   |WB|  |  |  ]
-
-[    0.000000] memblock_add: [0x0000000087f05000-0x00000000bd46dfff]
-early_init_dt_add_memory_arch+0xac/0xbc
-
-[    0.000000] efi:   0x0000bd46e000-0x0000bd672fff [Loader Data
- |   |  |  |  |  |  |  |  |   |WB|  |  |  ]
-
-[    0.000000] memblock_add: [0x00000000bd46e000-0x00000000bd672fff]
-early_init_dt_add_memory_arch+0xac/0xbc
-
-[    0.000000] efi:   0x0000bd673000-0x0000be731fff [Loader Code
- |   |  |  |  |  |  |  |  |   |WB|  |  |  ]
-
-[    0.000000] memblock_add: [0x00000000bd673000-0x00000000be731fff]
-early_init_dt_add_memory_arch+0xac/0xbc
-
-[    0.000000] efi:   0x0000be732000-0x0000be734fff [Reserved
- |   |  |  |  |  |  |  |  |   |WB|  |  |  ]
-
-[    0.000000] memblock_add: [0x00000000be732000-0x00000000be734fff]
-early_init_dt_add_memory_arch+0xac/0xbc
-
-[    0.000000] efi:   0x0000be735000-0x0000be735fff [Boot Data
- |   |  |  |  |  |  |  |  |   |WB|  |  |  ]
-
-[    0.000000] memblock_add: [0x00000000be735000-0x00000000be735fff]
-early_init_dt_add_memory_arch+0xac/0xbc
-
-[    0.000000] efi:   0x0000be736000-0x0000be736fff [Runtime Data
- |RUN|  |  |  |  |  |  |  |   |WB|  |  |  ]
-
-[    0.000000] memblock_add: [0x00000000be736000-0x00000000be736fff]
-early_init_dt_add_memory_arch+0xac/0xbc
-
-[    0.000000] efi:   0x0000be737000-0x0000be738fff [Boot Data
- |   |  |  |  |  |  |  |  |   |WB|  |  |  ]
-
-[    0.000000] memblock_add: [0x00000000be737000-0x00000000be738fff]
-early_init_dt_add_memory_arch+0xac/0xbc
-
-[    0.000000] efi:   0x0000be739000-0x0000be739fff [Reserved
- |   |  |  |  |  |  |  |  |   |WB|  |  |  ]
-
-[    0.000000] memblock_add: [0x00000000be739000-0x00000000be739fff]
-early_init_dt_add_memory_arch+0xac/0xbc
-
-[    0.000000] efi:   0x0000be73a000-0x0000be73bfff [Boot Data
- |   |  |  |  |  |  |  |  |   |WB|  |  |  ]
-
-[    0.000000] memblock_add: [0x00000000be73a000-0x00000000be73bfff]
-early_init_dt_add_memory_arch+0xac/0xbc
-
-[    0.000000] efi:   0x0000be73c000-0x0000be73dfff [Runtime Data
- |RUN|  |  |  |  |  |  |  |   |WB|  |  |  ]
-
-[    0.000000] memblock_add: [0x00000000be73c000-0x00000000be73dfff]
-early_init_dt_add_memory_arch+0xac/0xbc
-
-[    0.000000] efi:   0x0000be73e000-0x0000bff60fff [Loader Data
- |   |  |  |  |  |  |  |  |   |WB|  |  |  ]
-
-[    0.000000] memblock_add: [0x00000000be73e000-0x00000000bff60fff]
-early_init_dt_add_memory_arch+0xac/0xbc
-
-[    0.000000] efi:   0x0000bff61000-0x0000bff61fff [Runtime Code
- |RUN|  |  |  |  |  |  |  |   |WB|  |  |  ]
-
-[    0.000000] memblock_add: [0x00000000bff61000-0x00000000bff61fff]
-early_init_dt_add_memory_arch+0xac/0xbc
-
-[    0.000000] efi:   0x0000bff62000-0x0000bfffffff [Loader Data
- |   |  |  |  |  |  |  |  |   |WB|  |  |  ]
-
-[    0.000000] memblock_add: [0x00000000bff62000-0x00000000bfffffff]
-early_init_dt_add_memory_arch+0xac/0xbc
-
-[    0.000000] memblock_reserve:
-[0x00000000bd46e000-0x00000000bd46efff] efi_init+0x132/0x1e6
-
-[    0.000000] memblock_reserve:
-[0x0000000080200000-0x00000000812befff] setup_bootmem+0x98/0x1d0
-
-[    0.000000] initrd not found or empty - disabling initrd
-
-[    0.000000] memblock_reserve:
-[0x0000000080233000-0x00000000802348f7]
-early_init_dt_reserve_memory_arch+0x14/0x1c
-
-[    0.000000] memblock_reserve:
-[0x0000000080000000-0x000000008003ffff]
-early_init_dt_reserve_memory_arch+0x14/0x1c
-
-[    0.000000] MEMBLOCK configuration:
-
-[    0.000000]  memory size = 0x000000003fe00000 reserved size =
-0x0000000001105010
-
-[    0.000000]  memory.cnt  = 0xb
-
-[    0.000000]  memory[0x0] [0x0000000080200000-0x00000000be731fff],
-0x000000003e532000 bytes flags: 0x0
-
-[    0.000000]  memory[0x1] [0x00000000be732000-0x00000000be734fff],
-0x0000000000003000 bytes flags: 0x4
-
-[    0.000000]  memory[0x2] [0x00000000be735000-0x00000000be735fff],
-0x0000000000001000 bytes flags: 0x0
-
-[    0.000000]  memory[0x3] [0x00000000be736000-0x00000000be736fff],
-0x0000000000001000 bytes flags: 0x4
-
-[    0.000000]  memory[0x4] [0x00000000be737000-0x00000000be738fff],
-0x0000000000002000 bytes flags: 0x0
-
-[    0.000000]  memory[0x5] [0x00000000be739000-0x00000000be739fff],
-0x0000000000001000 bytes flags: 0x4
-
-[    0.000000]  memory[0x6] [0x00000000be73a000-0x00000000be73bfff],
-0x0000000000002000 bytes flags: 0x0
-
-[    0.000000]  memory[0x7] [0x00000000be73c000-0x00000000be73dfff],
-0x0000000000002000 bytes flags: 0x4
-
-[    0.000000]  memory[0x8] [0x00000000be73e000-0x00000000bff60fff],
-0x0000000001823000 bytes flags: 0x0
-
-[    0.000000]  memory[0x9] [0x00000000bff61000-0x00000000bff61fff],
-0x0000000000001000 bytes flags: 0x4
-
-[    0.000000]  memory[0xa] [0x00000000bff62000-0x00000000bfffffff],
-0x000000000009e000 bytes flags: 0x0
-
-[    0.000000]  reserved.cnt  = 0x5
-
-[    0.000000]  reserved[0x0] [0x0000000080000000-0x000000008003ffff],
-0x0000000000040000 bytes flags: 0x0
-
-[    0.000000]  reserved[0x1] [0x0000000080200000-0x00000000812befff],
-0x00000000010bf000 bytes flags: 0x0
-
-[    0.000000]  reserved[0x2] [0x0000000087f00000-0x0000000087f04fff],
-0x0000000000005000 bytes flags: 0x0
-
-[    0.000000]  reserved[0x3] [0x00000000bd46e000-0x00000000bd46efff],
-0x0000000000001000 bytes flags: 0x0
-
-[    0.000000]  reserved[0x4] [0x00000000bd671020-0x00000000bd67102f],
-0x0000000000000010 bytes flags: 0x0
-
-----------------------------------------------------------------------------------------------------------------------
-
-Here is the detailed boot log.
-
-https://pastebin.com/4LE2SY4c
-
-> In any case, I will take the first patch as a fix, so it should turn
-> up in mainline in 1~2 weeks.
->
-Thanks.
-
-> Thanks,
-> Ard.
-
-
+On 2020-07-06 14:32, Andreas Schwab wrote:
+> With the current 8KB stack size there are frequent overflows in a 64-bit
+> configuration.
+> 
+> Signed-off-by: Andreas Schwab <schwab@suse.de>
+> ---
+>  arch/riscv/include/asm/thread_info.h | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
+> index 1dd12a0cbb2b..464a2bbc97ea 100644
+> --- a/arch/riscv/include/asm/thread_info.h
+> +++ b/arch/riscv/include/asm/thread_info.h
+> @@ -12,7 +12,11 @@
+>  #include <linux/const.h>
+>  
+>  /* thread information allocation */
+> +#ifdef CONFIG_64BIT
+> +#define THREAD_SIZE_ORDER	(2)
+> +#else
+>  #define THREAD_SIZE_ORDER	(1)
+> +#endif
+>  #define THREAD_SIZE		(PAGE_SIZE << THREAD_SIZE_ORDER)
+>  
+>  #ifndef __ASSEMBLY__
+> -- 
+> 2.26.2
+
+
+Following the discussion on the mailing list, I have been trying this
+patch on my system for a few days, and it indeed seems more stable. I
+just wonder if you should Cc stable@ so that it is backported in older
+kernel versions.
 
 -- 
-Regards,
-Atish
+Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+aurelien@aurel32.net                 http://www.aurel32.net
 
 _______________________________________________
 linux-riscv mailing list
