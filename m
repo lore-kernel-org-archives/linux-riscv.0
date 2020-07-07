@@ -2,74 +2,130 @@ Return-Path: <SRS0=Os/g=AS=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-2.2 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8D120C433E0
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2020 06:41:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 43D9CC433DF
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2020 07:27:11 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5BBBC20578
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2020 06:41:48 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 1714C2073E
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jul 2020 07:27:11 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="fm7COgYv";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="tONDhxf0"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5BBBC20578
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="GdpBF+qi";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=redhat.com header.i=@redhat.com header.b="KFUR54ro"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1714C2073E
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=vvR+P/D1XkxndDxo5vhrIqgKpNrgXzr40hzXgs9CK2Y=; b=fm7COgYv/8srylSGWzz2d6LLM
-	FVK3USSzdV9SQrENbiPoinYHT/mbgJiRME6Qr33/jJJphMVfQLETx5yIuvC9aWoQKLQksQrl7wJ5S
-	6XTrMBgFv43us0OOJS6Gh8tXGs79NhE0MOuTjafeoPTwBb/Ii9k8f7wyAJXUDEy/OexWe8HoQlCRc
-	unJAyLcBareRZBLlQ2uatTEYRH7/2n2pHNyFreNENhEbc3ZDtPzqPXpLQKBCV1/3CzMdiQwsOst5b
-	ssYRGattVnlN7wor2X5okhbgpmPCISrRMQunNbeWj/j2wxPTl8eQr9SIvN2STc7f2sOeOVwaP0unf
-	3JcxIF15A==;
+	 bh=1qjj5JHpbSj8m5W8+lhGsgM/N+rpvp1lzWxn8jCQJIY=; b=GdpBF+qiHpPdL9bxr7Yj68wLt
+	mAhKWV2+i8kkqUbRGX4PsYnJnpxSsLb+0OQqsi27K5w+uyvUDncPpbtP3rKUaArBBXcGFf29YPLb3
+	U6u9P2Jd8/lOhWgP9pISY266iw2J/jfHYWo7bFPfLP1hd9DFLyRxGKJJgVhXirHhL4tQKWfW4js6C
+	CbwuClCHKxx9Aeyk4iXKKZPieG6Q8FNAIrg6NoX23UKdpZ0JLVP10CEFgCORzOM7OGmGuygaVPPEl
+	FKzzMrwrsQ/Ar5D43zuixk5ArgSP6vSSoKQi7r00lWx/AIdhx/IhL/PM9wgUxgp4HDoKM166RCdOF
+	9MZgL4yBQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jshIV-0005tU-18; Tue, 07 Jul 2020 06:41:43 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1jsi0P-0003KM-4S; Tue, 07 Jul 2020 07:27:05 +0000
+Received: from us-smtp-1.mimecast.com ([207.211.31.81]
+ helo=us-smtp-delivery-1.mimecast.com)
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jshIS-0005sL-4z
- for linux-riscv@lists.infradead.org; Tue, 07 Jul 2020 06:41:41 +0000
-Received: from mail-ot1-f54.google.com (mail-ot1-f54.google.com
- [209.85.210.54])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ id 1jsi0H-0003HC-LR
+ for linux-riscv@lists.infradead.org; Tue, 07 Jul 2020 07:26:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1594106817;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+ bh=M2Rz97wyO+ky71IfT1G6TBzJYjB6lmSBqD9dycRdoyw=;
+ b=KFUR54roh9x5MbZjMgTi4N1/bj7ARdeOlx+RFa/WQP3ykJbrjRXfBfqjQXnY7KL6BzShOf
+ i9vdSl9oIdrC4/6w9QjWIGj7OGWAmBQKAQeY5LUIYndW1V/qc0dD8eBLuG0VDBwJF+I6DZ
+ +qXGb+Hc/yLiTDmUFuM/fbLTrT3tACs=
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-503-3nPIfQkFNW2pNQBoIFfW5A-1; Tue, 07 Jul 2020 03:26:53 -0400
+X-MC-Unique: 3nPIfQkFNW2pNQBoIFfW5A-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com
+ [10.5.11.22])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 65A2520578
- for <linux-riscv@lists.infradead.org>; Tue,  7 Jul 2020 06:41:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1594104099;
- bh=RJd5gU31yiOjajLt/tJJ7V/CSWnm1xiLjteER4WNP0A=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=tONDhxf0QBJIM3f4VpihR47KunOjYPZ2jhFLTiV/wO/aflKiNmzVw6hAhqO8R/uIz
- Xlm1CiyD2g7ETZ5vfugzQD0D7Oy2DpcUXhX7bI7e6GzcAmTReWVA6Yr/NMj2N3HKdr
- VlWXtkBAG8D1E2VzGhNobzBmSCqlD2Qa9oJHvwB8=
-Received: by mail-ot1-f54.google.com with SMTP id t18so20729865otq.5
- for <linux-riscv@lists.infradead.org>; Mon, 06 Jul 2020 23:41:39 -0700 (PDT)
-X-Gm-Message-State: AOAM532AAY+wOsdrrC+Z3OH1CXuhfsLr4hc0u87Oy8UBB800LXKm5C6a
- Xbgwd5JcDBDC5O/Os4i39Iuv0jNBuibwnBhbnBM=
-X-Google-Smtp-Source: ABdhPJwhDbsC77VdApD0Yu5jlF0o1Fbg6FB0JcBCaZr0l4MwXzKW782eArC4YsN/3RFShEqWA4n7wSNLntLdwVfHkGM=
-X-Received: by 2002:a9d:4a8f:: with SMTP id i15mr47348216otf.77.1594104098794; 
- Mon, 06 Jul 2020 23:41:38 -0700 (PDT)
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id CEA9818FE864;
+ Tue,  7 Jul 2020 07:26:49 +0000 (UTC)
+Received: from [10.36.114.87] (ovpn-114-87.ams2.redhat.com [10.36.114.87])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id 81C6E10013C2;
+ Tue,  7 Jul 2020 07:26:44 +0000 (UTC)
+Subject: Re: [PATCH V4 1/3] mm/sparsemem: Enable vmem_altmap support in
+ vmemmap_populate_basepages()
+To: Anshuman Khandual <anshuman.khandual@arm.com>, linux-mm@kvack.org
+References: <1594004178-8861-1-git-send-email-anshuman.khandual@arm.com>
+ <1594004178-8861-2-git-send-email-anshuman.khandual@arm.com>
+ <eeeb44f9-bc0a-2c3d-8e8f-7e3d9e066c7e@redhat.com>
+ <7ac5ff78-378c-37e2-444f-9f72844b8697@arm.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; prefer-encrypt=mutual; keydata=
+ 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
+Organization: Red Hat GmbH
+Message-ID: <d9801165-025f-f226-9f9b-623a2bab58ff@redhat.com>
+Date: Tue, 7 Jul 2020 09:26:43 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.9.0
 MIME-Version: 1.0
-References: <20200706172609.25965-1-atish.patra@wdc.com>
-In-Reply-To: <20200706172609.25965-1-atish.patra@wdc.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Tue, 7 Jul 2020 09:41:27 +0300
-X-Gmail-Original-Message-ID: <CAMj1kXG5OxRod_-Z5K55XLXDda2ahfezm0yaRbv=82JmrFRZxw@mail.gmail.com>
-Message-ID: <CAMj1kXG5OxRod_-Z5K55XLXDda2ahfezm0yaRbv=82JmrFRZxw@mail.gmail.com>
-Subject: Re: [RFC PATCH v2 00/11] Add UEFI support for RISC-V
-To: Atish Patra <atish.patra@wdc.com>
+In-Reply-To: <7ac5ff78-378c-37e2-444f-9f72844b8697@arm.com>
+Content-Language: en-US
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200707_024140_418910_017AB5F7 
-X-CRM114-Status: GOOD (  22.39  )
+X-CRM114-CacheID: sfid-20200707_032658_032029_0D6973B8 
+X-CRM114-Status: GOOD (  18.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -81,75 +137,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-efi <linux-efi@vger.kernel.org>,
- Heinrich Schuchardt <xypron.glpk@gmx.de>,
- Masahiro Yamada <masahiroy@kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, Michal Hocko <mhocko@suse.com>,
+ linux-ia64@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>,
+ catalin.marinas@arm.com, Dave Hansen <dave.hansen@linux.intel.com>,
+ linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>, justin.he@arm.com, x86@kernel.org,
+ "Matthew Wilcox \(Oracle\)" <willy@infradead.org>,
+ Mike Rapoport <rppt@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+ Fenghua Yu <fenghua.yu@intel.com>, Pavel Tatashin <pasha.tatashin@soleen.com>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ Tony Luck <tony.luck@intel.com>, linux-kernel@vger.kernel.org,
+ Palmer Dabbelt <palmer@dabbelt.com>, akpm@linux-foundation.org,
+ "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 6 Jul 2020 at 20:26, Atish Patra <atish.patra@wdc.com> wrote:
->
-> This series adds UEFI support for RISC-V.
->
-> Linux kernel: 5.8-rc4
-> U-Boot: master
-> OpenSBI: master
->
-> Patch 1-6 are preparatory patches that fixes some of the geric efi and riscv issues.
->
-> Patch 7-9 adds the efi stub support for RISC-V which was reviewed few months back.
-> https://www.spinics.net/lists/linux-efi/msg19144.html
->
-> Patch 10 just renames arm-init code so that it can be used across different
-> architectures. Patch 11 adds the runtime services for RISC-V.
->
-> The patches can also be found in following git repo.
-> https://github.com/atishp04/linux/tree/uefi_riscv_5.9_v2
->
-> The patches have been verified on Qemu using bootefi command in U-Boot for both
-> RV32 and RV64.
->
-> For RV32, maximum allocated memory should be 1G as RISC-V kernel can not map
-> beyond 1G of physical memory for RV32.
->
-> EDK2 can boot quite far into Linux with current series. Currently, we are seeing
-> some traps from drivers (spi/network). At first glance, they don't seem to be
-> caused by efi. I thought it is better to get some early feedback on the series
-> while EDK2 issue is being debugged.
->
-> That's why uefi runtime services are not actually well tested in RISC-V.
-> Any suggestions to test the efi run time services are appreciated.
->
-> Changes from v1->v2:
-> 1. Removed patch 1 as it is already taken into efi-tree.
-> 2. Fixed compilation issues with patch 9.
-> 3. Moved few function prototype declaration to header file to keep kbuild happy.
->
-> Changes from previous version:
-> 1. Added full ioremap support.
-> 2. Added efi runtime services support.
-> 3. Fixes mm issues
->
+> Hmm, I assume these are some decisions that x86 platform will have to
+> make going forward in a subsequent patch as the third patch does for
+> the arm64 platform. But it is clearly beyond the scope of this patch
+> which never intended to change existing behavior on a given platform.
+> 
 
-Hi Atish,
+Yeah, I would be curious if my assumption is correct.
 
-This all looks reasonable to me, so I think we can merge this once you
-can confirm that the runtime services actually work.
+>>
+>> [...]
+>>
+>>>  
+>>> -pte_t * __meminit vmemmap_pte_populate(pmd_t *pmd, unsigned long addr, int node)
+>>> +pte_t * __meminit vmemmap_pte_populate(pmd_t *pmd, unsigned long addr, int node,
+>>> +				       struct vmem_altmap *altmap)
+>>>  {
+>>>  	pte_t *pte = pte_offset_kernel(pmd, addr);
+>>>  	if (pte_none(*pte)) {
+>>>  		pte_t entry;
+>>> -		void *p = vmemmap_alloc_block_buf(PAGE_SIZE, node);
+>>> +		void *p;
+>>> +
+>>> +		if (altmap)
+>>> +			p = altmap_alloc_block_buf(PAGE_SIZE, altmap);
+>>> +		else
+>>> +			p = vmemmap_alloc_block_buf(PAGE_SIZE, node);
+>>>  		if (!p)
+>>>  			return NULL;
+>>
+>> I was wondering if
+>>
+>> if (altmap)
+>> 	p = altmap_alloc_block_buf(PAGE_SIZE, altmap);
+>> if (!p)
+>> 	p = vmemmap_alloc_block_buf(PAGE_SIZE, node);
+>> if (!p)
+>> 	return NULL
+>>
+>> Would make sense. But I guess this isn't really relevant in practice,
+>> because the altmap is usually sized properly.
+>>
+>> In general, LGTM.
+> 
+> Okay, I assume that no further changes are required here.
+> 
 
-Could you explain how you are dealing with the memory map? Are memory
-nodes in DT ignored entirely as they should be? What about memory
-reservations?
+Jep,
 
-In any case, I will take the first patch as a fix, so it should turn
-up in mainline in 1~2 weeks.
+Reviewed-by: David Hildenbrand <david@redhat.com>
 
+-- 
 Thanks,
-Ard.
+
+David / dhildenb
+
 
 _______________________________________________
 linux-riscv mailing list
