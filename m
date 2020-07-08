@@ -6,110 +6,61 @@ X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
 	SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 640B0C433E0
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2020 12:07:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 06997C433DF
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2020 14:57:05 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3013D206C3
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2020 12:07:14 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C1EA72078D
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2020 14:57:04 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="H3ZwkI+7";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sifive.com header.i=@sifive.com header.b="rCQ92fw8"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3013D206C3
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="IQR3Li6e";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="siEl9fgU"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C1EA72078D
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:Message-ID:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=We+3FVZO/7oYrSZJysFX5xUoWgvlew5DM4sRgqmckK4=; b=H3ZwkI+7856hNw/no5MgOPIMB
-	j+2cG/c//qneSpjb5p5FBvt2QMPoEhSWDrQKGYT670P7vSzPbzxDrheA7AFn9+onXKjtWaE0G/Mvn
-	NHDvZodcFdzjcMslB/ryz8O+tUtEy1QGSORMmjuIwsPeLD5avH4krMMF7MGVctYjkW/hKAFuYyaVN
-	i2jMfpVIIrlnsBN2qtEFave+LvVS4FpPlU3WnS5St/7qx7DtnuqY0bh89HUv4skMe8/MIMYyMbNCI
-	jH3Yciv+lH8TuTMLZ98pbMfMTlVicMdaHm7GL+hWXG6kRXIcpoV3rtTwmsf26OURmGx1d5aMibhXR
-	qWAGPnnOQ==;
+	 bh=1Q7KEFV+tMU8soFoXFTMS5SknPyjroTBQwVWZNgGLJY=; b=IQR3Li6eVgx4cWa9mDvavfJC9
+	TXcCcdVnvi6jcDaN7aKXoyuR1tgoa3wstqw+yC9hvvYgl6/vmS3DgidRhf7mGqNbV0k0BlI6QVNLG
+	J4I3m8xE0ERN6R2aRYCyF4OYOa2ESBoiCHtWY4OSV5r+SdD74iBvJU5EpE4IvZe+AoMMF5/2D2g2V
+	dJLvkOAASlE2cfCs1UuYrFHl2Z3RjX6KjfGUlHhmzcb8aSYAjkQM+Dte2ZK6JinOJ/PV7hi8AQSlV
+	73RMlxO91ZVnU9H7yq+09qGyRlm50171ET08cqv7m8qfuSt44T0m3JRO3UuZ9JK4eKDZx4iQoelZy
+	5byBZ1Tfg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jt8qx-0004MA-Bc; Wed, 08 Jul 2020 12:07:07 +0000
-Received: from mail-bn8nam12on2068.outbound.protection.outlook.com
- ([40.107.237.68] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1jtBV3-0001wa-QC; Wed, 08 Jul 2020 14:56:41 +0000
+Received: from casper.infradead.org ([90.155.50.34])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jt8qu-0004LB-8t
- for linux-riscv@lists.infradead.org; Wed, 08 Jul 2020 12:07:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=ij1l3p7PQ7Kywlw1FEzYODU2PoltOkyxpOX50ueonjQKKcmuUOlNbE+Dtm+VBe5apq3pB+ZZs4heM/Guq2lBrx/m+0EZZfxYPt0JThecnQr5zovJgNJXrAllv+nvW1iFCa2gVTWWKLVK7aEnlEy2zmZIYtYfz0TpQcYqXTvpQvxZ6goaurlPIth8nOQSW2TAfvbPISpGkmhqUp8AoEyHwx0pMc29HQinRdUqdYx6ewOuO03zH4Yr25qO1TvqHzKaXfG7NpQ04h+5b4iqZ01hsfd6djWeA+sfNhIwsW3FBOWJ8QItkmRe9q7eP7JUcah7qtxTowbH6vjpabQwIu86oA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BWa6RDOmR4LgvQbN3jwSaEV6lOt/aWWwgtfPsDZjZDM=;
- b=WYOM3qqUK62qb1Rd8pjQkBs9OgwYl72h+8mH6Ldu148bMhsc782SLJIoB2Br2+BErnjx80Rjk+lqNzjQqBznD7NUmc605HHbOjq1Uc1aYAUAbd/aZwdqWoqWXRnFh8m+3E05yGv2q3qYZ4hW7RSfS67bR1oIv6iYpO5ikIAGJDkk+CYeAAoRSZ9Tb1m3lRPrNIkAeGNOtELkye8yHnUmN1Nn3Zi8QdwTJ/0PeYRiEUPoht9LMaLw2jlOhGDdMbtLMUHAIJJWAneSVpfSl/3077M2xKNhGTaFKoj/CMgzwa/Ni7iNSc052C+zAtvyRHjhfwoWGcCtYBBvUIRp9xHPYA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=sifive.com; dmarc=pass action=none header.from=sifive.com;
- dkim=pass header.d=sifive.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BWa6RDOmR4LgvQbN3jwSaEV6lOt/aWWwgtfPsDZjZDM=;
- b=rCQ92fw8YG7m6Y/CbZawsl1Rn8VJI6r4RMWwn8wvp+D4vivTaHWFQBMRYF6lcugxU9K3SoIV6LD2uyMY4xuDkIMDOhNZmqa+pI1zC64+ZVzUMzM5tE+6sZ+7J6bpUmmwrT+NRPIIUD368WRIqWSPUjM5K9EXeXnEVKyKwEeFAUw=
-Received: from BN6PR1301MB2020.namprd13.prod.outlook.com
- (2603:10b6:405:34::34) by BN6PR13MB1108.namprd13.prod.outlook.com
- (2603:10b6:404:69::14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3174.18; Wed, 8 Jul
- 2020 12:06:57 +0000
-Received: from BN6PR1301MB2020.namprd13.prod.outlook.com
- ([fe80::481f:d0dc:9069:2c42]) by BN6PR1301MB2020.namprd13.prod.outlook.com
- ([fe80::481f:d0dc:9069:2c42%3]) with mapi id 15.20.3174.021; Wed, 8 Jul 2020
- 12:06:57 +0000
-From: Yash Shah <yash.shah@sifive.com>
+ id 1jtBV1-0001wP-Cf
+ for linux-riscv@merlin.infradead.org; Wed, 08 Jul 2020 14:56:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+ References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description;
+ bh=Eu/kYmb813u1ZgBXd0rdHnEokAFSGGHrxUlCHt8bJuY=; b=siEl9fgU4Uy0PenzYaRquRLGvb
+ b1ZJK0+WjPwBiQRFzcuY61wsylkiuNmCkSoJAjH1N8epNxmvTh0l0+iQohckauW6bZEIAvjJqv0WT
+ iTE7ljss9oefyA9LMa9JGNWjxdhPxQNXa+ka2XO+tKj2eFGPg5FkxGyoREbfxjxU3LtktWwmu7aw+
+ j3c+NvZBzG4JYMbWqfzWZREYYvWMf5SZmNbdwIil3mv1t2W0XLhBjQkQ74r8PnF+8Sr371ZYwBnBh
+ Rf4+KH+jLtzVmksfFrpBcni1mr2IN6rAjYC/+ggiRIkGPmDbXUrqwiVUMdXOBWZDNAchr7vxX5z+B
+ SB6sIlUg==;
+Received: from hch by casper.infradead.org with local (Exim 4.92.3 #3 (Red Hat
+ Linux)) id 1jtBUn-0000ln-DI; Wed, 08 Jul 2020 14:56:26 +0000
+Date: Wed, 8 Jul 2020 15:56:25 +0100
+From: Christoph Hellwig <hch@infradead.org>
 To: Andreas Schwab <schwab@suse.de>
-Subject: RE: [PATCH 0/3] Dynamic CPU frequency switching for the HiFive
-Thread-Topic: [PATCH 0/3] Dynamic CPU frequency switching for the HiFive
-Thread-Index: AQHWQ9XZeaoAcUonuUqzTiy5jwwbX6jyoJC5gAsX94A=
-Date: Wed, 8 Jul 2020 12:06:56 +0000
-Message-ID: <BN6PR1301MB202019EBD2D08271F877180D8C670@BN6PR1301MB2020.namprd13.prod.outlook.com>
-References: <1592308864-30205-1-git-send-email-yash.shah@sifive.com>
- <mvmftabiklh.fsf@suse.de>
-In-Reply-To: <mvmftabiklh.fsf@suse.de>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: suse.de; dkim=none (message not signed)
- header.d=none;suse.de; dmarc=none action=none header.from=sifive.com;
-x-originating-ip: [110.5.74.232]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 6a52e268-1343-4efa-a8dc-08d823376968
-x-ms-traffictypediagnostic: BN6PR13MB1108:
-x-ld-processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
-x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <BN6PR13MB1108E20FB5657613A2804E1F8C670@BN6PR13MB1108.namprd13.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:9508;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: JwhF9epcsRZJTxVVpH5Fe2P4WP81ZwOAP/QGJ53YRsi33QIA4e3FwZNro7joWIAZ38B7MTnjibLUssV9TipDubz+bIXJA14sv8GKv8O2y1CCLpCtlUaqyK7c1vV9loB0MF2UbY1qqJhYSzaqf3TOAtYEQHB2P+hRG/eMRne+8rPXCtJHr20wRAaROGgMEEDBmOS5leQRU1BMhUhVCUK0gFeWVY9bVAkbCNaAdEp7F4u+t07yzySw/PbSPitq5yKo72eUaYJlGzsiuy6Y75vlcJTy38AxWblq8tPInMWzjaxW9SWs3+YcBSdiQR30IYZbcswrQRTU6zx/26sSAFQZyQ==
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:BN6PR1301MB2020.namprd13.prod.outlook.com; PTR:; CAT:NONE;
- SFTY:;
- SFS:(6029001)(346002)(376002)(396003)(39850400004)(136003)(366004)(8936002)(71200400001)(76116006)(8676002)(66476007)(66946007)(44832011)(33656002)(66556008)(64756008)(66446008)(2906002)(316002)(5660300002)(7696005)(55016002)(478600001)(4326008)(26005)(54906003)(186003)(52536014)(6916009)(83380400001)(7416002)(86362001)(53546011)(6506007)(9686003);
- DIR:OUT; SFP:1101; 
-x-ms-exchange-antispam-messagedata: 3XAjUiBvviMHn9nMcrS/owzjThhZiRv7Wcc6t+66rjxhnsBU0x7y4Oy2vSAaTgJzTfM4zTzf3Kbe/u+vPbgpr0bfG77W+7/AMdKf0X3CByd++CEI/Vq79s35qIQb0Pi/WVQMqrO5awjRFNGST0OnUc2SdMueosDtB2CK9kTe2BQUrjfeO73Y8a4Q3JtffunojfhGxfM3rLMREnCJWuEtA/qT2U34i8bO4dEMQ896AvIfa35BUwmDgfTnrgKzFN3p6VjQ5G6Gn2+jAuyESt7kRJPW+9mRCF9o3By9waYRdn1znRlxBs8oLt7dli8e6GeVKJ8/lv3m0uWfBjo8VhKJ4EwPcGbgOYcatmuR2ZZxWcT9bn8Z5ZUlMHEiRiGnI81pc+AbLdWTeQ2cKzcTgIM9pZwHa49mHI+mvz2Y/9E4kkA0uHk8QZ1ORJ2VJUVIuJ3nqwy62xa1e5bZ+CTshHIKx53VWd1/iXKZvOw8Q3MnVCY=
+Subject: Re: [PATCH] riscv: use 16KB kernel stack on 64-bit
+Message-ID: <20200708145625.GA438@infradead.org>
+References: <mvmeepoddt1.fsf@suse.de>
 MIME-Version: 1.0
-X-OriginatorOrg: sifive.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BN6PR1301MB2020.namprd13.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6a52e268-1343-4efa-a8dc-08d823376968
-X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Jul 2020 12:06:56.9946 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: +VF7jIYSVa4ShIcJh5C3wPbSD31f5WOpflZG0VcNm6xWCYhM5cNd7UC6izA6H1oO4V1KutbioBiJCTYqJGz/8g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN6PR13MB1108
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200708_080704_356576_13ABED55 
-X-CRM114-Status: GOOD (  14.19  )
+Content-Disposition: inline
+In-Reply-To: <mvmeepoddt1.fsf@suse.de>
+X-SRS-Rewrite: SMTP reverse-path rewritten from <hch@infradead.org> by
+ casper.infradead.org. See http://www.infradead.org/rpr.html
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -121,106 +72,17 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
- "atish.patra@wdc.com" <atish.patra@wdc.com>,
- "anup@brainfault.org" <anup@brainfault.org>,
- "lollivier@baylibre.com" <lollivier@baylibre.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Green Wan <green.wan@sifive.com>, Sachin Ghadi <sachin.ghadi@sifive.com>,
- "robh+dt@kernel.org" <robh+dt@kernel.org>,
- "palmer@dabbelt.com" <palmer@dabbelt.com>,
- "deepa.kernel@gmail.com" <deepa.kernel@gmail.com>,
- "Paul Walmsley \( Sifive\)" <paul.walmsley@sifive.com>,
- "alistair.francis@wdc.com" <alistair.francis@wdc.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "bmeng.cn@gmail.com" <bmeng.cn@gmail.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Andreas,
+On Mon, Jul 06, 2020 at 02:32:26PM +0200, Andreas Schwab wrote:
+> With the current 8KB stack size there are frequent overflows in a 64-bit
+> configuration.
 
-> -----Original Message-----
-> From: Andreas Schwab <schwab@suse.de>
-> Sent: 01 July 2020 16:11
-> To: Yash Shah <yash.shah@sifive.com>
-> Cc: Paul Walmsley ( Sifive) <paul.walmsley@sifive.com>;
-> palmer@dabbelt.com; robh+dt@kernel.org; linux-riscv@lists.infradead.org;
-> linux-kernel@vger.kernel.org; devicetree@vger.kernel.org; Sachin Ghadi
-> <sachin.ghadi@sifive.com>; aou@eecs.berkeley.edu; anup@brainfault.org;
-> lollivier@baylibre.com; Green Wan <green.wan@sifive.com>;
-> atish.patra@wdc.com; alistair.francis@wdc.com; deepa.kernel@gmail.com;
-> bmeng.cn@gmail.com
-> Subject: Re: [PATCH 0/3] Dynamic CPU frequency switching for the HiFive
-> 
-> [External Email] Do not click links or attachments unless you recognize the
-> sender and know the content is safe
-> 
-> On Jun 16 2020, Yash Shah wrote:
-> 
-> > The patch series adds the support for dynamic CPU frequency switching
-> > for FU540-C000 SoC on the HiFive Unleashed board. All the patches are
-> > based on Paul Walmsley's work.
-> >
-> > This series is based on Linux v5.7 and tested on HiFive unleashed board.
-> 
-> I'm using that patch with 5.7.5.
-> 
-> It appears to interfer with serial output when using the ondemand governor.
-> 
-> I also see soft lockups when using the performance governor:
-> 
-> [  101.587527] rcu: INFO: rcu_sched self-detected stall on CPU
-> [  101.592322] rcu:     0-...!: (932 ticks this GP)
-> idle=11a/1/0x4000000000000004 softirq=4301/4301 fqs=4
-> [  101.601432]  (t=6001 jiffies g=4017 q=859) [  101.605514] rcu: rcu_sched
-> kthread starved for 5984 jiffies! g4017 f0x0 RCU_GP_WAIT_FQS(5) -
-> >state=0x0 ->cpu=2 [  101.615494] rcu: RCU grace-period kthread stack
-> dump:
-> [  101.620530] rcu_sched       R  running task        0    10      2 0x00000000
-> [  101.627560] Call Trace:
-> [  101.630004] [<ffffffe00085a7e2>] __schedule+0x25c/0x616 [  101.635205]
-> [<ffffffe00085abde>] schedule+0x42/0xb2 [  101.640070]
-> [<ffffffe00085d0ba>] schedule_timeout+0x56/0xb8 [  101.645626]
-> [<ffffffe000263c34>] rcu_gp_fqs_loop+0x208/0x248 [  101.651266]
-> [<ffffffe0002666de>] rcu_gp_kthread+0xc2/0xcc [  101.656651]
-> [<ffffffe00022654e>] kthread+0xda/0xec [  101.661426] [<ffffffe00020140a>]
-> ret_from_exception+0x0/0xc [  101.666977] Task dump for CPU 0:
-> [  101.670187] loop0           R  running task        0   655      2 0x00000008
-> [  101.677218] Call Trace:
-> [  101.679657] [<ffffffe0002028ae>] walk_stackframe+0x0/0xaa [
-> 101.685036] [<ffffffe000202b76>] show_stack+0x2a/0x34 [  101.690074]
-> [<ffffffe0002319b0>] sched_show_task.part.0+0xc2/0xd2 [  101.696154]
-> [<ffffffe00022bb9c>] sched_show_task+0x64/0x66 [  101.701618]
-> [<ffffffe000231afe>] dump_cpu_task+0x3e/0x48 [  101.706916]
-> [<ffffffe000267762>] rcu_dump_cpu_stacks+0x94/0xce [  101.712731]
-> [<ffffffe0002631f6>] print_cpu_stall+0x116/0x18a [  101.718375]
-> [<ffffffe000264a46>] check_cpu_stall+0xcc/0x1a2 [  101.723929]
-> [<ffffffe000264b52>] rcu_pending.constprop.0+0x36/0xaa [  101.730094]
-> [<ffffffe000266ab2>] rcu_sched_clock_irq+0xa6/0xea [  101.735913]
-> [<ffffffe00026d1be>] update_process_times+0x1e/0x42 [  101.741821]
-> [<ffffffe0002793bc>] tick_sched_handle+0x26/0x52 [  101.747456]
-> [<ffffffe0002798fe>] tick_sched_timer+0x6a/0xd0 [  101.753015]
-> [<ffffffe00026d9be>] __run_hrtimer.constprop.0+0x50/0xe8
-> [  101.759353] [<ffffffe00026da9e>] __hrtimer_run_queues+0x48/0x6c [
-> 101.765254] [<ffffffe00026e410>] hrtimer_interrupt+0xca/0x1d4 [
-> 101.770985] [<ffffffe0006ceef8>] riscv_timer_interrupt+0x32/0x3a [
-> 101.776976] [<ffffffe00085e17c>] do_IRQ+0xa4/0xb8 [  101.781663]
-> [<ffffffe00020140a>] ret_from_exception+0x0/0xc
-> 
-> Andreas.
-> 
-> --
-> Andreas Schwab, SUSE Labs, schwab@suse.de GPG Key fingerprint = 0196
-> BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7 "And now for something
-> completely different."
-
-I am looking into the issues you reported. I will update soon.
-Thanks for testing.
-
-- Yash
+Adding irqstack support would be the better fix..
 
 _______________________________________________
 linux-riscv mailing list
