@@ -2,71 +2,85 @@ Return-Path: <SRS0=nZh1=AT=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-2.3 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,USER_AGENT_SANE_1 autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C6551C433DF
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2020 20:29:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9B03FC433DF
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2020 21:10:29 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 52F9A20720
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2020 20:29:15 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2970F20658
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jul 2020 21:10:29 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="DfVdH8+h";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=aurel32.net header.i=@aurel32.net header.b="q1PXl1al"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 52F9A20720
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=aurel32.net
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="3EkVpGsw";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="JYy025NM"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2970F20658
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:To:From:Date:
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gj2fFeD5oT3MIGnmdHRJf1OFt+ruhFQ6KmPBut/xjJw=; b=DfVdH8+hxXFnjdmDh432+y+vOd
-	vFOeI9fl95ipSIqxzfT9FZ3PO8bsTLAsVeJq/PHwADQpLvxLGQ64anEA5KFEjofzq7NaWMM4m6OsK
-	XOF4bN96+LgnVscOskKdZkD+UlESonm5krigvovy+C3hzX/kuhjForcZRAyZghcNMsuhODoMbpNUQ
-	AJDYbM0wJXkSkPid1Y4onhyHoXuI2LieAhd2JJ2LvkHXBb5g9DLm4EszlOi5ifyDQeEXjRhnXunif
-	9gZZ7rRvhQpJJb+cdwJ94e1g0HOI9gHGIym1sN2+Yw0JECce16j4JfgXwKoALyFBvyiZaQOtNCgvT
-	0rrtVw2w==;
+	bh=MGdquLoRU2hnbyyCyIEq14Rj00xggAyvcBcnjoUDBuQ=; b=3EkVpGswRTbGUiFZjVoDkx9ADY
+	gqAfk+d+9W2FWooxHOcONpAUIuadEuKW0eTNujo4D3K+e7vd/UvuTRP2WdaSb4rYD2h0Gv+qkEG9q
+	lMNHy09HjNjS0l9qTs1iicgPhbTrQPeyC1K4f5Jfmyudl87Th9JoGL5QSQEvDVc9lthnrrC0w7LA1
+	zpomWXfc5HToEQE8JM+NlfhBn8SNRI+1yLVkku4hoHuNyxC0SRbFVtaPUoHrXTO8aYdEFN9jQjf/d
+	1HKo2wQBtx2vYdCtY5ribnB/hNPFWbJxR3n3uHuoRvLzJHF8k5kUah3aScEi6X6yKQxGCmwbnjuq0
+	xQ/pxQWg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jtGge-0007h4-L3; Wed, 08 Jul 2020 20:29:00 +0000
-Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
+	id 1jtHKc-0003Ps-Nb; Wed, 08 Jul 2020 21:10:18 +0000
+Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jtGgb-0007es-4F
- for linux-riscv@lists.infradead.org; Wed, 08 Jul 2020 20:28:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
- ; s=202004.hall;
- h=Content-Transfer-Encoding:Content-Type:MIME-Version:
- Message-ID:Subject:Cc:To:From:Date:From:Reply-To:Subject:Content-ID:
- Content-Description:In-Reply-To:References:X-Debbugs-Cc;
- bh=CHqDAkezNB3SXgVuRagOunuxvNQetFpMYpASSesB8wk=; b=q1PXl1al1E9NbhzcHCzwY3t3vS
- sWeg7XLpTOa1a7cjKDGgK6pLPpu8ePPgH29SBBx/WvAy/+A06P359/qaOYC5adbpfJwHh1A3koM4Y
- C1ORJjmr0XvaCUR+y/8zsp65fUJHJY0iJqHKaMHBMBJilUC89HISXZUXmyJW3MMK9fewsORTY1GKP
- nGQ9fUAwyEeCoV1l270AnBikpa35tjhju5a+YAdgOEvWaiOFTpvfod3/Uu9KXiCL/21HKOoEbHxg3
- ZfjASHU1n8fTwk0qrDda3H59AW+471tjzi2qNaK1VHDiSnhlhPEKtHsG16m3+nhpMB2DcgK31rZIW
- V0wrZBUw==;
-Received: from [2a01:e35:2fdd:a4e1:fe91:fc89:bc43:b814] (helo=ohm.rr44.fr)
- by hall.aurel32.net with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
- (Exim 4.92) (envelope-from <aurelien@aurel32.net>)
- id 1jtGgR-0004qk-3M; Wed, 08 Jul 2020 22:28:47 +0200
-Received: from aurel32 by ohm.rr44.fr with local (Exim 4.94)
- (envelope-from <aurelien@aurel32.net>)
- id 1jtGgP-008iGT-0G; Wed, 08 Jul 2020 22:28:45 +0200
-Date: Wed, 8 Jul 2020 22:28:44 +0200
-From: Aurelien Jarno <aurelien@aurel32.net>
+ id 1jtHKZ-0003Oq-AR
+ for linux-riscv@lists.infradead.org; Wed, 08 Jul 2020 21:10:17 +0000
+Received: by mail-wm1-x342.google.com with SMTP id w3so4593133wmi.4
+ for <linux-riscv@lists.infradead.org>; Wed, 08 Jul 2020 14:10:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=sender:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=b784eys00Qgsi/BMM5jGhHc/bDGWKgJTJjPySpMRijA=;
+ b=JYy025NMzEmNSpPgiMeWuuPkd5cl0MfwTVBJJZqahDI5dLyrIPOOC9114DaSoraiwb
+ I5njcBEugFseAfRHPIpZMJZLYxQ8FWV9kfzv2edy60DBDq36VPQ136CfAbBAZogz4JVw
+ inmYt3WV12JZyu6v5eASjLEmtXbbnODgPc8EvSD/lYXrkCW0PvujjLUdNg/PRRoJbz4X
+ 7NKNti9UxIlRh7PNJ02hb++EtUCk//KujORIriqXgzcp80FHa/qrMndtm82L9mBG7eM+
+ z1W6Kg0QrR013Qsj9VYvBtwB5sEXwd3nLySjz5l5FO58XETC1M/fBriY8V7MPVcwLUtS
+ tCLA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:sender:from:to:cc:subject:date:message-id
+ :mime-version:content-transfer-encoding;
+ bh=b784eys00Qgsi/BMM5jGhHc/bDGWKgJTJjPySpMRijA=;
+ b=B9wJ24q2Qt15FZ8aVGpaFqyZ599soHwa1epurD/zkypVDehhhVE1yuFL5Pb1we7O0L
+ fCClp5w8vBX8V9jAxea77Vd3J8LonzAuANqKt3enYMc3aAV8d2Y+Mpny+qHpkaBwYrI6
+ QhAiAA7tmqITWUZSVST5DMnSoMAuiNvgjKXHZlnutTkfVTW/+/RToaYM946joedKANWK
+ wEub3qd5KTw550atCEBBZCAVtQw+sqk9SAzR9v4KuZdMpCPyvDSZMDBEwV/BZcCMOkTh
+ nSO3MWeF5uhJ0tQN13kByjJiq6tVEpXtOF76PdOO3fMTbzlV8aa85//evctYk/1gRsE/
+ iK6w==
+X-Gm-Message-State: AOAM532NrsS9aVTnQWVqKoe11iP0rtmDhFFD9f0BoYWvX4uEZo2cdVpc
+ UT09ZFuCkkTASJAjJDeqfVr2H9YFLCED2w==
+X-Google-Smtp-Source: ABdhPJymThfiher349tz4isk6gnnzkFVjonVUIrh96INg58P1oUW7qC2OG6tPlKOQAvlGqoyc84r2g==
+X-Received: by 2002:a7b:cf10:: with SMTP id l16mr11193177wmg.93.1594242612326; 
+ Wed, 08 Jul 2020 14:10:12 -0700 (PDT)
+Received: from localhost.localdomain ([80.71.140.73])
+ by smtp.gmail.com with ESMTPSA id u23sm1971515wru.94.2020.07.08.14.10.11
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 08 Jul 2020 14:10:11 -0700 (PDT)
+From: Emil Renner Berthing <kernel@esmil.dk>
 To: linux-riscv@lists.infradead.org
-Subject: Random, rare, but reproducible segmentation faults
-Message-ID: <20200708202844.GA2075303@aurel32.net>
+Subject: [PATCH v2 1/2] riscv: Support R_RISCV_ADD64 and R_RISCV_SUB64 relocs
+Date: Wed,  8 Jul 2020 23:09:47 +0200
+Message-Id: <20200708210948.34197-1-kernel@esmil.dk>
+X-Mailer: git-send-email 2.27.0
 MIME-Version: 1.0
-Content-Disposition: inline
-User-Agent: Mutt/1.14.0 (2020-05-02)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200708_162857_462748_A4B242EA 
-X-CRM114-Status: GOOD (  14.81  )
+X-CRM114-CacheID: sfid-20200708_171015_409853_CC3ADCFE 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -78,148 +92,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Ghiti <alex@ghiti.fr>
-Content-Type: text/plain; charset="iso-8859-15"
-Content-Transfer-Encoding: quoted-printable
+Cc: Emil Renner Berthing <kernel@esmil.dk>, Jonathan Corbet <corbet@lwn.net>,
+ =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn.topel@gmail.com>,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi all,
-
-For some time I have seen random but relatively rare segmentation faults
-when building Debian packages, either in a QEMU virtual machine or an
-Hifive Unleashed board. I have recently been able to reproduce the issue
-by building Qt [1]. It usually fails after roughly one hour of build,
-not always on the same C++ file, but always on the same set of files.
-Trying to run make again the build is usually successful. When it
-happens one get the following error from GCC:
-
-| g++: internal compiler error: Segmentation fault signal terminated progra=
-m cc1plus
-| Please submit a full bug report,
-| with preprocessed source if appropriate.
-
-And the following kernel error:
-
-| [267054.967857] cc1plus[1171618]: unhandled signal 11 code 0x1 at 0x00000=
-0156888a430 in cc1plus[10000+e0e000]
-| [267054.976759] CPU: 3 PID: 1171618 Comm: cc1plus Not tainted 5.7.7+ #1
-| [267054.983101] epc: 0000000000a70e3e ra : 0000000000a71dbe sp : 0000003f=
-fff3c870
-| [267054.990293]  gp : 0000000000e33158 tp : 000000156a0f0720 t0 : 0000001=
-569feb0d0
-| [267054.997593]  t1 : 0000000000182a2c t2 : 0000000000e30620 s0 : 0000000=
-00003b7c0
-| [267055.004880]  s1 : 000000000003b7c0 a0 : 000000156888a420 a1 : 0000000=
-00003b7c0
-| [267055.012176]  a2 : 0000000000000002 a3 : 000000000003b7c0 a4 : 0000000=
-00003b7c0
-| [267055.019473]  a5 : 0000000000000001 a6 : 61746e656d676553 a7 : 7373735=
-0581f0402
-| [267055.026763]  s2 : 0000003ffff3c8c8 s3 : 000000156888a420 s4 : 0000000=
-07fffffff
-| [267055.034052]  s5 : 0000000070000000 s6 : 0000000000000000 s7 : 0000003=
-ffff3d638
-| [267055.041345]  s8 : 0000000000e9ab18 s9 : 0000000000000000 s10: 0000000=
-000e9a9d0
-| [267055.048636]  s11: 0000000000000000 t3 : 000000156888a420 t4 : 0000000=
-000000001
-| [267055.055930]  t5 : 0000000000000001 t6 : 0000000000000000
-| [267055.061311] status: 8000000200006020 badaddr: 000000156888a430 cause:=
- 000000000000000d
-
-I have been able to bisect the issue and found it has been introduced by
-this commit:
-
-|=A0commit 54c95a11cc1b5e1d578209e027adf5775395dafd
-| Author: Alexandre Ghiti <alex@ghiti.fr>
-| Date:   Mon Sep 23 15:39:21 2019 -0700
-|
-|     riscv: make mmap allocation top-down by default
-|
-|     In order to avoid wasting user address space by using bottom-up mmap
-|     allocation scheme, prefer top-down scheme when possible.
-
-Reverting this commit, even on 5.7.7, fixes the issue. I debugged things
-a bit more, and found that the problem doesn't come from the top-down
-allocation (i.e. setting vm.legacy_va_layout to 1 doesn't change
-anything). However I have found it comes from the randomization, I mean
-that the following patch is enough to fix (or workaround?) the issue:
-
-| --- a/mm/util.c
-| +++ b/mm/util.c
-| @@ -397,8 +397,8 @@ void arch_pick_mmap_layout(struct mm_struct *mm, stru=
-ct rlimit *rlim_stack)
-|  {
-|         unsigned long random_factor =3D 0UL;
-|  =
-
-| -       if (current->flags & PF_RANDOMIZE)
-| -               random_factor =3D arch_mmap_rnd();
-| +/*     if (current->flags & PF_RANDOMIZE)
-| +               random_factor =3D arch_mmap_rnd();*/
-|  =
-
-|         if (mmap_is_legacy(rlim_stack)) {
-|                 mm->mmap_base =3D TASK_UNMAPPED_BASE + random_factor;
-
-I have also tried to play with vm.mmap_rnd_bits, but it seems that it
-doesn't have any real effect. I however noticed that setting this value
-to 24 (the maximum) might move the heap next to the stack in some cases,
-although it seems unrelated to the original issue:
-
-| $ cat /proc/self/maps
-| 340fde4000-340fe06000 rw-p 00000000 00:00 0 =
-
-| 340fe06000-340ff08000 r-xp 00000000 fe:01 1835219                        =
-/lib/riscv64-linux-gnu/libc-2.30.so
-| 340ff08000-340ff09000 ---p 00102000 fe:01 1835219                        =
-/lib/riscv64-linux-gnu/libc-2.30.so
-| 340ff09000-340ff0c000 r--p 00102000 fe:01 1835219                        =
-/lib/riscv64-linux-gnu/libc-2.30.so
-| 340ff0c000-340ff0f000 rw-p 00105000 fe:01 1835219                        =
-/lib/riscv64-linux-gnu/libc-2.30.so
-| 340ff0f000-340ff14000 rw-p 00000000 00:00 0 =
-
-| 340ff1d000-340ff1f000 r-xp 00000000 00:00 0                              =
-[vdso]
-| 340ff1f000-340ff36000 r-xp 00000000 fe:01 1835039                        =
-/lib/riscv64-linux-gnu/ld-2.30.so
-| 340ff36000-340ff37000 r--p 00016000 fe:01 1835039                        =
-/lib/riscv64-linux-gnu/ld-2.30.so
-| 340ff37000-340ff38000 rw-p 00017000 fe:01 1835039                        =
-/lib/riscv64-linux-gnu/ld-2.30.so
-| 340ff38000-340ff39000 rw-p 00000000 00:00 0 =
-
-| 3924505000-392450b000 r-xp 00000000 fe:01 1048640                        =
-/bin/cat
-| 392450b000-392450c000 r--p 00005000 fe:01 1048640                        =
-/bin/cat
-| 392450c000-392450d000 rw-p 00006000 fe:01 1048640                        =
-/bin/cat
-| 3955e23000-3955e44000 rw-p 00000000 00:00 0                              =
-[heap]
-| 3fffa2b000-3fffa4c000 rw-p 00000000 00:00 0                              =
-[stack]
-
-To come back to the original issue, I don't know how to debug it
-further. I have already tried to get a core dump and analyze it with
-GDB, but the code triggering the failure is not part of the binary. Any
-hint or help would be welcomed.
-
-Thanks,
-Aurelien
-
-
-[1] Technically the qtbase-opensource-src Debian package:
-    https://packages.debian.org/source/sid/qtbase-opensource-src
-
--- =
-
-Aurelien Jarno                          GPG: 4096R/1DDD8C9B
-aurelien@aurel32.net                 http://www.aurel32.net
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VGhlc2UgYXJlIG5lZWRlZCBmb3IgdGhlIF9fanVtcF90YWJsZSBpbiBtb2R1bGVzIHVzaW5nCnN0
+YXRpYyBrZXlzL2p1bXAtbGFiZWxzIHdpdGggdGhlIGxheW91dCBmcm9tCkhBVkVfQVJDSF9KVU1Q
+X0xBQkVMX1JFTEFUSVZFIG9uIDY0Yml0IGtlcm5lbHMuCgpTaWduZWQtb2ZmLWJ5OiBFbWlsIFJl
+bm5lciBCZXJ0aGluZyA8a2VybmVsQGVzbWlsLmRrPgotLS0KClRlc3RlZCBvbiB0aGUgSGlGaXZl
+IFVubGVhc2hlZCBib2FyZC4KClRoaXMgcGF0Y2ggaXMgbmV3IGluIHYyLiBJdCBmaXhlcyBhbiBl
+cnJvciBsb2FkaW5nIG1vZHVsZXMKY29udGFpbmluZyBzdGF0aWMga2V5cyBmb3VuZCBieSBCasO2
+cm4gVMO2cGVsLgoKIGFyY2gvcmlzY3Yva2VybmVsL21vZHVsZS5jIHwgMTYgKysrKysrKysrKysr
+KysrKwogMSBmaWxlIGNoYW5nZWQsIDE2IGluc2VydGlvbnMoKykKCmRpZmYgLS1naXQgYS9hcmNo
+L3Jpc2N2L2tlcm5lbC9tb2R1bGUuYyBiL2FyY2gvcmlzY3Yva2VybmVsL21vZHVsZS5jCmluZGV4
+IDcxOTEzNDJjNTRkYS4uMTA0ZmJhODg5Y2Y3IDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L2tlcm5l
+bC9tb2R1bGUuYworKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9tb2R1bGUuYwpAQCAtMjYzLDYgKzI2
+MywxMyBAQCBzdGF0aWMgaW50IGFwcGx5X3JfcmlzY3ZfYWRkMzJfcmVsYShzdHJ1Y3QgbW9kdWxl
+ICptZSwgdTMyICpsb2NhdGlvbiwKIAlyZXR1cm4gMDsKIH0KIAorc3RhdGljIGludCBhcHBseV9y
+X3Jpc2N2X2FkZDY0X3JlbGEoc3RydWN0IG1vZHVsZSAqbWUsIHUzMiAqbG9jYXRpb24sCisJCQkJ
+ICAgIEVsZl9BZGRyIHYpCit7CisJKih1NjQgKilsb2NhdGlvbiArPSAodTY0KXY7CisJcmV0dXJu
+IDA7Cit9CisKIHN0YXRpYyBpbnQgYXBwbHlfcl9yaXNjdl9zdWIzMl9yZWxhKHN0cnVjdCBtb2R1
+bGUgKm1lLCB1MzIgKmxvY2F0aW9uLAogCQkJCSAgICBFbGZfQWRkciB2KQogewpAQCAtMjcwLDYg
+KzI3NywxMyBAQCBzdGF0aWMgaW50IGFwcGx5X3JfcmlzY3Zfc3ViMzJfcmVsYShzdHJ1Y3QgbW9k
+dWxlICptZSwgdTMyICpsb2NhdGlvbiwKIAlyZXR1cm4gMDsKIH0KIAorc3RhdGljIGludCBhcHBs
+eV9yX3Jpc2N2X3N1YjY0X3JlbGEoc3RydWN0IG1vZHVsZSAqbWUsIHUzMiAqbG9jYXRpb24sCisJ
+CQkJICAgIEVsZl9BZGRyIHYpCit7CisJKih1NjQgKilsb2NhdGlvbiAtPSAodTY0KXY7CisJcmV0
+dXJuIDA7Cit9CisKIHN0YXRpYyBpbnQgKCpyZWxvY19oYW5kbGVyc19yZWxhW10pIChzdHJ1Y3Qg
+bW9kdWxlICptZSwgdTMyICpsb2NhdGlvbiwKIAkJCQlFbGZfQWRkciB2KSA9IHsKIAlbUl9SSVND
+Vl8zMl0JCQk9IGFwcGx5X3JfcmlzY3ZfMzJfcmVsYSwKQEAgLTI5MCw3ICszMDQsOSBAQCBzdGF0
+aWMgaW50ICgqcmVsb2NfaGFuZGxlcnNfcmVsYVtdKSAoc3RydWN0IG1vZHVsZSAqbWUsIHUzMiAq
+bG9jYXRpb24sCiAJW1JfUklTQ1ZfUkVMQVhdCQkJPSBhcHBseV9yX3Jpc2N2X3JlbGF4X3JlbGEs
+CiAJW1JfUklTQ1ZfQUxJR05dCQkJPSBhcHBseV9yX3Jpc2N2X2FsaWduX3JlbGEsCiAJW1JfUklT
+Q1ZfQUREMzJdCQkJPSBhcHBseV9yX3Jpc2N2X2FkZDMyX3JlbGEsCisJW1JfUklTQ1ZfQURENjRd
+CQkJPSBhcHBseV9yX3Jpc2N2X2FkZDY0X3JlbGEsCiAJW1JfUklTQ1ZfU1VCMzJdCQkJPSBhcHBs
+eV9yX3Jpc2N2X3N1YjMyX3JlbGEsCisJW1JfUklTQ1ZfU1VCNjRdCQkJPSBhcHBseV9yX3Jpc2N2
+X3N1YjY0X3JlbGEsCiB9OwogCiBpbnQgYXBwbHlfcmVsb2NhdGVfYWRkKEVsZl9TaGRyICpzZWNo
+ZHJzLCBjb25zdCBjaGFyICpzdHJ0YWIsCi0tIAoyLjI3LjAKCgpfX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
+dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
+YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
