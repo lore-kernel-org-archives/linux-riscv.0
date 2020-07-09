@@ -5,19 +5,19 @@ X-Spam-Level:
 X-Spam-Status: No, score=-9.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E394EC433E0
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2020 21:20:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 092AEC433E1
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2020 21:20:44 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B08EB20674
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2020 21:20:40 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C56A520775
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2020 21:20:43 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="e7r4zIZ3";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="Ti4pfq5h"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B08EB20674
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="qFkz7gsw";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="gHoLY2mt"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C56A520775
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,56 +26,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:From:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=aJgLkMTkLQoLPNjWj8sj1fklUXvq6W+VirMPvS1+POI=; b=e7r4zIZ3rtzO9ms7A9TK1I1qI
-	4Wz33tTV6taw3zXCzb62XQBWxyVdFixWtoEeCIJX899aVd4NlCIosFbKgf6i0f7VrvznZRCaLjl4p
-	BHFtAhNVzY0vqrt2m7JGXRODLwx3a3Dz2XvrRwvX80+adTZZIHBaNMnwx9L3I/V5ZHH3lvbqyjY8y
-	L0jeBTnClZmLK087ycCBv2TxNFQe1nsAZUj2kStouJpnnLNCl/ifxqg3WnD3DG3SRcQN7jD6Mm33k
-	Kb485bHtAswZpsIOjYyy+tZ2SxYOELwHoIxvapn5CVKNeAd0113b4nAszGO55qQATFLyp0St/fs5f
-	7KXrt/0gg==;
+	 bh=WSNbUAA0nj+47Tzo2a5/yVBUmqPqtP/0Cegh1N/aQdU=; b=qFkz7gswKqkrRlF9vkXHDlCg1
+	h4dy2TWiul3qhOvve7EYjAfzjSX9dyOtm7FnPZSOz18XbLzLeoaSqoFqyXYKm7fukjrvuGeIQKXj7
+	hbN1YCxQDDYiLo1xEOjj6abWxsOiOo165QfTMT4fEAKZ2j1S2T3+KvSz7kDnWaO1Fh2aT+q26Emd1
+	tYyLRVatzB8E/UjQdu8CYgG5cM9LomKvzEdZ84drm4W85h1L0vx1CQ5kGTCdwzUtoc2VsLtOQ6HyS
+	o5EEeekGmlzP1Xwl1zgs/OlaarWefz/3tg3yJP03kUqvEt6w7mGYVPyY2PC+kSPa2z1W5XOQHR07W
+	50/9jPuJA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jtdy3-00033T-NK; Thu, 09 Jul 2020 21:20:31 +0000
-Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
+	id 1jtdyA-000397-UV; Thu, 09 Jul 2020 21:20:38 +0000
+Received: from mail-pg1-x543.google.com ([2607:f8b0:4864:20::543])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jtdxz-0002zk-30
- for linux-riscv@lists.infradead.org; Thu, 09 Jul 2020 21:20:28 +0000
-Received: by mail-pg1-x544.google.com with SMTP id g67so1515517pgc.8
- for <linux-riscv@lists.infradead.org>; Thu, 09 Jul 2020 14:20:26 -0700 (PDT)
+ id 1jtdy4-00033e-LZ
+ for linux-riscv@lists.infradead.org; Thu, 09 Jul 2020 21:20:34 +0000
+Received: by mail-pg1-x543.google.com with SMTP id d4so1526864pgk.4
+ for <linux-riscv@lists.infradead.org>; Thu, 09 Jul 2020 14:20:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=subject:date:message-id:in-reply-to:references:mime-version
  :content-transfer-encoding:cc:from:to;
- bh=n3uMLnloJ4eoHyrHmlqZET1T4BdruPnLDoTh0ErPA48=;
- b=Ti4pfq5hVT7B54E4TaVMVrAeYHki2ArpgjGeSYrfCb/iDXle+vyTyvA31jiZOyXBgH
- lmiJDL4QhUKORseAo9uCFC/RcRTq82RhEBkOgw9HsNYg/iY5PfxwXLnbbitN9Lo5KUsv
- jQ9IwmWEyi7fpghdnLVek5+NXVFPmumgd0ODHdxhTr01UfTuHtHNvwO+dc9ZgNDonQl0
- HnnjedGHGBDZOylRUIXE7Mz0VZ8i/azvN0xXdnAQ/oNHMowrSHWERiG/zIRTcVCRijMZ
- y6PonQUen8yRH6LrlgjRpn7SMjeQxjsFeCDvNqHhm9pnLKmGNeT/EEdGPxO5tev+ny6W
- gdVw==
+ bh=R0X1WZiPa2fv/zPPPrCWvHiss6LlgCawfrwgKo9wAMU=;
+ b=gHoLY2mtRy2ScjxyuU7UsDUQjCloeYrxHdCuOW63TOSDuG02GQ35kF/ylikEl8Ya8V
+ jbx3MsCzDDDcPG9nbR+Ddp8VGV5f+jDaUCgwrX/EDB9h4i2spUvJqaJDrO8f/G5mvWJE
+ i/7qKFp3mlbDr7KLFASIIxN6vAzUqO7BlOBUMRzsCm9dCWViZWxg0yswjNw3vSlBTGWO
+ G7bZj3dRDvqd1w+MrGemymGoAPVPlAFirxj3wssQCJvpPgcPzQ4YNOIDJKxJSrkgQXwf
+ jp1ijvO5miBXTJ3Ri+lin++jIIdopk1Yq5ynG3ainRkBaa1s9vUBXdU8Di+fxe09sC+Z
+ yfIg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding:cc:from:to;
- bh=n3uMLnloJ4eoHyrHmlqZET1T4BdruPnLDoTh0ErPA48=;
- b=VCklw0odURcFPlD+wBEL5dR5/y2EiODD0JFMP++K4I6Zszk4dtzY10VWFUzThXzMq9
- uPNtBaE5I+FSKazfwJ2Ev7MQOyOhBxHQ3nzAWAABD8chDaDf9GsxrC8y+MjAI85Nf3MA
- r5THCgq1NJcSbHyHLqGjKQU3FS/3kh5aehhEtYrQefezUt6vvLHiLDO5MbdDD2JqejKk
- px4VvNH79jm97QHa1qNAcm8c/52ABx9dtqoYA/+0zN+HIe7uJYz59vTLA0drsrr5xpQH
- J7UPNbbYKlAdjIOb4RBckWpnkVG2ifLKWoepMmz2Wrs3z0lmj1K8vccss2TuKvErkRGR
- QrKA==
-X-Gm-Message-State: AOAM530AL3D0SlP6YrnymuqrXzypaQES5o3Lsd2B6P6tXkoab9dEK9ds
- ynpx+HswJ536kcH0qBKZH+taxA==
-X-Google-Smtp-Source: ABdhPJwAFW4C6tY74gfZvPffqn4h7O2BREWMy0oRJqf5W76z8L2GT69ClyF9O+6eRuT8V2YNIFJhZw==
-X-Received: by 2002:a62:7505:: with SMTP id q5mr56034672pfc.262.1594329625096; 
- Thu, 09 Jul 2020 14:20:25 -0700 (PDT)
+ bh=R0X1WZiPa2fv/zPPPrCWvHiss6LlgCawfrwgKo9wAMU=;
+ b=KitetxBejlA//3ZWJPsZLOlrnSgXF/3y+z4fqRexoou6de4AoNpDL/ojb3Vrkcoiat
+ 8AhaFiIB1RI+h22XiXK3As7KqywYEFu2ea2Z1qaWi8lY+t2FeVL7ZkDAG6qMJldd8Aqt
+ CDx0AudDggpWu8tBrbNMBiLqrCPN3FqhLuig6h6GpWmgKpOTEpBnRUZ0Z+SxJ7o0bNG0
+ Eha7iyhgUGhksVvpmamh889ixMglUQNkBH3O9QX5CoRQYbcdWamsZq1Ul45QPUuptDop
+ /FXoBW4W6fab9AbtYOMLVBUvWAteYgj0rivsi4dUPndpJUqKmEsHBsYeU1lZhLJN3dTa
+ zf0Q==
+X-Gm-Message-State: AOAM531mVShEYnrFbXiXH+mkU4M2GKjQZuaC7JqSepT/OwqBYBFBHy3V
+ 3oa862OqTMyqnh652Xogc2RByQ==
+X-Google-Smtp-Source: ABdhPJyOOQ3prvzFKDsLYd+p2HeWmGcehQ0vzPmqHYcXilIeLzPEBpHNjdro1JFnj0KAUzSGeeCVJw==
+X-Received: by 2002:a62:a217:: with SMTP id m23mr28290249pff.291.1594329630762; 
+ Thu, 09 Jul 2020 14:20:30 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id d65sm3660443pfc.97.2020.07.09.14.20.22
+ by smtp.gmail.com with ESMTPSA id y19sm3926535pfc.135.2020.07.09.14.20.28
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 09 Jul 2020 14:20:24 -0700 (PDT)
-Subject: [PATCH v2 2/5] RISC-V: Use the new generic devmem_is_allowed()
-Date: Thu,  9 Jul 2020 14:19:22 -0700
-Message-Id: <20200709211925.1926557-3-palmer@dabbelt.com>
+ Thu, 09 Jul 2020 14:20:28 -0700 (PDT)
+Subject: [PATCH v2 4/5] arm64: Use the generic devmem_is_allowed()
+Date: Thu,  9 Jul 2020 14:19:24 -0700
+Message-Id: <20200709211925.1926557-5-palmer@dabbelt.com>
 X-Mailer: git-send-email 2.27.0.383.g050319c2ae-goog
 In-Reply-To: <20200709211925.1926557-1-palmer@dabbelt.com>
 References: <20200709211925.1926557-1-palmer@dabbelt.com>
@@ -83,8 +83,8 @@ MIME-Version: 1.0
 From: Palmer Dabbelt <palmer@dabbelt.com>
 To: zong.li@sifive.com, linux-riscv@lists.infradead.org, rppt@linux.ibm.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200709_172027_203781_C15850BD 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20200709_172032_793629_2E3C4BDB 
+X-CRM114-Status: GOOD (  14.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -122,25 +122,79 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Palmer Dabbelt <palmerdabbelt@google.com>
 
-This allows us to enable STRICT_DEVMEM.
+I recently copied this into lib/ for use by the RISC-V port.
+
+[I haven't even build tested this.  The lib/ patch is on riscv/for-next,
+which I'm targeting for 5.9, so this won't work alone.  See the cover
+letter for more details.]
 
 Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
 ---
- arch/riscv/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/Kconfig          |  2 +-
+ arch/arm64/include/asm/io.h |  2 --
+ arch/arm64/mm/mmap.c        | 21 ---------------------
+ 3 files changed, 1 insertion(+), 24 deletions(-)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 089293e4ad46..8ff368a65a07 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -37,6 +37,7 @@ config RISCV
- 	select GENERIC_IOREMAP
- 	select GENERIC_IRQ_MULTI_HANDLER
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 66dc41fd49f2..0682672cb244 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -13,7 +13,6 @@ config ARM64
+ 	select ARCH_BINFMT_ELF_STATE
+ 	select ARCH_HAS_DEBUG_VIRTUAL
+ 	select ARCH_HAS_DEBUG_VM_PGTABLE
+-	select ARCH_HAS_DEVMEM_IS_ALLOWED
+ 	select ARCH_HAS_DMA_PREP_COHERENT
+ 	select ARCH_HAS_ACPI_TABLE_UPGRADE if ACPI
+ 	select ARCH_HAS_FAST_MULTIPLIER
+@@ -110,6 +109,7 @@ config ARM64
+ 	select GENERIC_IRQ_PROBE
  	select GENERIC_IRQ_SHOW
+ 	select GENERIC_IRQ_SHOW_LEVEL
 +	select GENERIC_LIB_DEVMEM_IS_ALLOWED
  	select GENERIC_PCI_IOMAP
- 	select GENERIC_PTDUMP if MMU
+ 	select GENERIC_PTDUMP
  	select GENERIC_SCHED_CLOCK
+diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
+index ff50dd731852..c53eba1a7fd2 100644
+--- a/arch/arm64/include/asm/io.h
++++ b/arch/arm64/include/asm/io.h
+@@ -200,6 +200,4 @@ extern void __iomem *ioremap_cache(phys_addr_t phys_addr, size_t size);
+ extern int valid_phys_addr_range(phys_addr_t addr, size_t size);
+ extern int valid_mmap_phys_addr_range(unsigned long pfn, size_t size);
+ 
+-extern int devmem_is_allowed(unsigned long pfn);
+-
+ #endif	/* __ASM_IO_H */
+diff --git a/arch/arm64/mm/mmap.c b/arch/arm64/mm/mmap.c
+index 3028bacbc4e9..07937b49cb88 100644
+--- a/arch/arm64/mm/mmap.c
++++ b/arch/arm64/mm/mmap.c
+@@ -47,24 +47,3 @@ int valid_mmap_phys_addr_range(unsigned long pfn, size_t size)
+ {
+ 	return !(((pfn << PAGE_SHIFT) + size) & ~PHYS_MASK);
+ }
+-
+-#ifdef CONFIG_STRICT_DEVMEM
+-
+-#include <linux/ioport.h>
+-
+-/*
+- * devmem_is_allowed() checks to see if /dev/mem access to a certain address
+- * is valid. The argument is a physical page number.  We mimic x86 here by
+- * disallowing access to system RAM as well as device-exclusive MMIO regions.
+- * This effectively disable read()/write() on /dev/mem.
+- */
+-int devmem_is_allowed(unsigned long pfn)
+-{
+-	if (iomem_is_exclusive(pfn << PAGE_SHIFT))
+-		return 0;
+-	if (!page_is_ram(pfn))
+-		return 1;
+-	return 0;
+-}
+-
+-#endif
 -- 
 2.27.0.383.g050319c2ae-goog
 
