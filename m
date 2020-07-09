@@ -2,70 +2,61 @@ Return-Path: <SRS0=n+Lk=AU=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no
+X-Spam-Status: No, score=-2.2 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8B57DC433E0
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2020 02:22:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1709DC433DF
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2020 03:31:16 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 59111206F6
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2020 02:22:47 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D08A0206F6
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2020 03:31:15 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="zVvJRJlr";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="uXWqGr4E"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 59111206F6
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="s+p36NBG"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D08A0206F6
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=G+ibAdE/AAs+0GARnvspNF52YFquiBheebUcfvXNCUA=; b=zVvJRJlrbz4W16cvTYLv3SOsM
-	2jVxPN3zRChFWwtZAoFsUyOdE2sRW0UmzahRnJRD0o9xQ76Pv8gb1yHPf8levCmW0/gBbzIV1ekD2
-	clSQ7bU/nmHhzbW9HxNA5yfuOzMyjvGkF3G25dUWYDyKOFCPnDw84pykq+iZcS17ZlDQYUHbCWxWF
-	QWPIS1e8BU5ttgssYOOuHrJl0a03qy1x0JReqMKCnpiZeBdn1FsHPol1J4bWA9pjHJXsZmC0M55KI
-	PyltgSJhGI0AGBb7ReQ9GIo9ZJRzatt7d+TR81s2tF2XAUoop/YQAaRsSl5uNjQXuu+FNpjtLIWIQ
-	ZGKyTGL8A==;
+	 bh=g2Jv5Ideszrhx6mITYzfespWKvkBOSeiYtAyQUeAEJY=; b=s+p36NBG67u9yvfNj2Roxi0Nx
+	8uo8Ta9YX9BpgL+evboNAycTtaaTemIPow+iN0sQPc3w/DtsJoo+SMljcDLh3C27s3kl3cGTc3TRX
+	MIeMqg38BgwSIq6IgREaSVQXOaAHuqTDUP3Fw//VQF+kCF65m+RmpdVtzqSAdrP8GQ6iu9FMXX7Pe
+	ytLTackz1qcGH/Xo2Z0uyYg4KxuyFmmY6IqNkDJbJfVwbBwBeG8ndj11/hkq7jbaNKE8ra/i9bs62
+	lbz7zPFBifJnq/HaBr0hSeIT3CtiCCO/zXAigJ2IizAuyG6+Up7LbMQbjcds2MywPx1ILhXP8rSBk
+	Xl9mhl6gg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jtMCs-0000Ch-Df; Thu, 09 Jul 2020 02:22:38 +0000
-Received: from mail.kernel.org ([198.145.29.99])
- by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jtMCp-0000Bd-Nu
- for linux-riscv@lists.infradead.org; Thu, 09 Jul 2020 02:22:36 +0000
-Received: from localhost.localdomain (unknown [42.120.72.66])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 8AB8320774;
- Thu,  9 Jul 2020 02:22:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1594261355;
- bh=RJdV2DIzToOcfncq3WiDl+ziCtwNxeU7mYZYni3MdsQ=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=uXWqGr4ELi5OlcGU6yZzPiZKzHRftBItJhapNhl2oeL4aY3XK+iAwrt2VakejFnYU
- 8L7r54NxTPIzrbK379A7MiUcGh5cdoQ2Qli5yrODEf4mvFykL2+AELoM4aSbcapVdQ
- TbyQZLQz9Sb2PMpwCb22XrtBVBkEFDd9WiDNPKvE=
-From: guoren@kernel.org
-To: palmerdabbelt@google.com, paul.walmsley@sifive.com, anup@brainfault.org,
- greentime.hu@sifive.com, zong.li@sifive.com, me@packi.ch,
- bjorn.topel@gmail.com, atish.patra@wdc.com, penberg@kernel.org,
- mhiramat@kernel.org
-Subject: [PATCH v2 6/6] riscv: Add KPROBES_ON_FTRACE supported
-Date: Thu,  9 Jul 2020 02:19:14 +0000
-Message-Id: <1594261154-69745-7-git-send-email-guoren@kernel.org>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1594261154-69745-1-git-send-email-guoren@kernel.org>
-References: <1594261154-69745-1-git-send-email-guoren@kernel.org>
+	id 1jtNH9-0002xx-1O; Thu, 09 Jul 2020 03:31:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+ by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1jtNH5-0002x5-Ni; Thu, 09 Jul 2020 03:31:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0042E31B;
+ Wed,  8 Jul 2020 20:30:56 -0700 (PDT)
+Received: from [192.168.0.129] (unknown [172.31.20.19])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0BF133F887;
+ Wed,  8 Jul 2020 20:30:46 -0700 (PDT)
+Subject: Re: [PATCH V4 0/3] arm64: Enable vmemmap mapping from device memory
+To: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>
+References: <1594004178-8861-1-git-send-email-anshuman.khandual@arm.com>
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+Message-ID: <a9157943-d033-f9a8-87fc-dce78540df78@arm.com>
+Date: Thu, 9 Jul 2020 09:00:17 +0530
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
+ Thunderbird/52.9.1
 MIME-Version: 1.0
+In-Reply-To: <1594004178-8861-1-git-send-email-anshuman.khandual@arm.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200708_222235_976304_1072073F 
-X-CRM114-Status: GOOD (  16.86  )
+X-CRM114-CacheID: sfid-20200708_233103_817334_152917F7 
+X-CRM114-Status: GOOD (  15.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -77,103 +68,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>,
- guoren@kernel.org, linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Mark Rutland <mark.rutland@arm.com>, Michal Hocko <mhocko@suse.com>,
+ linux-ia64@vger.kernel.org, David Hildenbrand <david@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>, catalin.marinas@arm.com,
+ Dave Hansen <dave.hansen@linux.intel.com>, Paul Mackerras <paulus@samba.org>,
+ linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>, justin.he@arm.com,
+ Michael Ellerman <mpe@ellerman.id.au>, x86@kernel.org,
+ "Matthew Wilcox \(Oracle\)" <willy@infradead.org>,
+ Mike Rapoport <rppt@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Fenghua Yu <fenghua.yu@intel.com>, Pavel Tatashin <pasha.tatashin@soleen.com>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ Tony Luck <tony.luck@intel.com>, linux-kernel@vger.kernel.org,
+ Palmer Dabbelt <palmer@dabbelt.com>, akpm@linux-foundation.org,
+ linuxppc-dev@lists.ozlabs.org,
+ "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgoKVGhpcyBwYXRjaCBhZGRz
-IHN1cHBvcnQgZm9yIGtwcm9iZXMgb24gZnRyYWNlIGNhbGwgc2l0ZXMgdG8gYXZvaWRzCm11Y2gg
-b2YgdGhlIG92ZXJoZWFkIHdpdGggcmVndWxhciBrcHJvYmVzLiBUcnkgaXQgd2l0aCBzaW1wbGUK
-c3RlcHM6CgoxLiBHZXQgX2RvX2ZvcmsgZnRyYWNlIGNhbGwgc2l0ZS4KRHVtcCBvZiBhc3NlbWJs
-ZXIgY29kZSBmb3IgZnVuY3Rpb24gX2RvX2Zvcms6CiAgIDB4ZmZmZmZmZTAwMDIwYWY2NCA8KzA+
-OiAgICAgYWRkaSAgICBzcCxzcCwtMTI4CiAgIDB4ZmZmZmZmZTAwMDIwYWY2NiA8KzI+OiAgICAg
-c2QgICAgICBzMCwxMTIoc3ApCiAgIDB4ZmZmZmZmZTAwMDIwYWY2OCA8KzQ+OiAgICAgc2QgICAg
-ICByYSwxMjAoc3ApCiAgIDB4ZmZmZmZmZTAwMDIwYWY2YSA8KzY+OiAgICAgYWRkaSAgICBzMCxz
-cCwxMjgKICAgMHhmZmZmZmZlMDAwMjBhZjZjIDwrOD46ICAgICBzZCAgICAgIHMxLDEwNChzcCkK
-ICAgMHhmZmZmZmZlMDAwMjBhZjZlIDwrMTA+OiAgICBzZCAgICAgIHMyLDk2KHNwKQogICAweGZm
-ZmZmZmUwMDAyMGFmNzAgPCsxMj46ICAgIHNkICAgICAgczMsODgoc3ApCiAgIDB4ZmZmZmZmZTAw
-MDIwYWY3MiA8KzE0PjogICAgc2QgICAgICBzNCw4MChzcCkKICAgMHhmZmZmZmZlMDAwMjBhZjc0
-IDwrMTY+OiAgICBzZCAgICAgIHM1LDcyKHNwKQogICAweGZmZmZmZmUwMDAyMGFmNzYgPCsxOD46
-ICAgIHNkICAgICAgczYsNjQoc3ApCiAgIDB4ZmZmZmZmZTAwMDIwYWY3OCA8KzIwPjogICAgc2Qg
-ICAgICBzNyw1NihzcCkKICAgMHhmZmZmZmZlMDAwMjBhZjdhIDwrMjI+OiAgICBtdiAgICAgIHM0
-LGEwCiAgIDB4ZmZmZmZmZTAwMDIwYWY3YyA8KzI0PjogICAgbXYgICAgICBhMCxyYQogICAweGZm
-ZmZmZmUwMDAyMGFmN2UgPCsyNj46ICAgIG5vcAk8PDw8PDw8PCBoZXJlIQogICAweGZmZmZmZmUw
-MDAyMGFmODIgPCszMD46ICAgIG5vcAogICAweGZmZmZmZmUwMDAyMGFmODYgPCszND46ICAgIGxk
-ICAgICAgczMsMChzNCkKCjIuIFNldCBfZG9fZm9yaysyNiBhcyB0aGUga3Byb2JlLgogIGVjaG8g
-J3A6bXlwcm9iZSBfZG9fZm9yaysyNiBkZmQ9JWEwIGZpbGVuYW1lPSVhMSBmbGFncz0lYTIgbW9k
-ZT0rNCgkc3RhY2spJyA+IC9zeXMva2VybmVsL2RlYnVnL3RyYWNpbmcva3Byb2JlX2V2ZW50cwog
-IGVjaG8gMSA+IC9zeXMva2VybmVsL2RlYnVnL3RyYWNpbmcvZXZlbnRzL2twcm9iZXMvZW5hYmxl
-CiAgY2F0IC9zeXMva2VybmVsL2RlYnVnL3RyYWNpbmcvdHJhY2UKICB0cmFjZXI6IG5vcAoKICBl
-bnRyaWVzLWluLWJ1ZmZlci9lbnRyaWVzLXdyaXR0ZW46IDMvMyAgICNQOjEKCiAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICBfLS0tLS09PiBpcnFzLW9mZgogICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAvIF8tLS0tPT4gbmVlZC1yZXNjaGVkCiAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgfCAvIF8tLS09PiBoYXJkaXJxL3NvZnRpcnEKICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICB8fCAvIF8tLT0+IHByZWVtcHQtZGVwdGgKICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICB8fHwgLyAgICAgZGVsYXkKICAgICAgICAgICAgVEFTSy1QSUQgICBDUFUjICB8fHx8ICAgIFRJ
-TUVTVEFNUCAgRlVOQ1RJT04KICAgICAgICAgICAgICAgfCB8ICAgICAgIHwgICB8fHx8ICAgICAg
-IHwgICAgICAgICB8CiAgICAgICAgICAgICAgc2gtODcgICAgWzAwMF0gLi4uLiAgIDU1MS41NTcw
-MzE6IG15cHJvYmU6IChfZG9fZm9yaysweDFhLzB4MmU2KSBkZmQ9MHhmZmZmZmZlMDAwMjBhZjdl
-IGZpbGVuYW1lPTB4ZmZmZmZmZTAwMDIwYjM0ZSBmbGFncz0weGZmZmZmZmUwMDEwMWU3YzAgbW9k
-ZT0weDIwYWY4NmZmZmZmZmUwCgogIGNhdCAvc3lzL2tlcm5lbC9kZWJ1Zy9rcHJvYmVzL2xpc3QK
-ZmZmZmZmZTAwMDIwYWY3ZSAgayAgX2RvX2ZvcmsrMHgxYSAgICBbRlRSQUNFXQogICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICBeXl5eXl4KClNpZ25lZC1vZmYtYnk6IEd1byBS
-ZW4gPGd1b3JlbkBsaW51eC5hbGliYWJhLmNvbT4KQ2M6IE1hc2FtaSBIaXJhbWF0c3UgPG1oaXJh
-bWF0QGtlcm5lbC5vcmc+CkNjOiBQYWxtZXIgRGFiYmVsdCA8cGFsbWVyZGFiYmVsdEBnb29nbGUu
-Y29tPgpDYzogUGF1bCBXYWxtc2xleSA8cGF1bC53YWxtc2xleUBzaWZpdmUuY29tPgpDYzogQmrD
-tnJuIFTDtnBlbCA8Ympvcm4udG9wZWxAZ21haWwuY29tPgpDYzogWm9uZyBMaSA8em9uZy5saUBz
-aWZpdmUuY29tPgpDYzogUGVra2EgRW5iZXJnIDxwZW5iZXJnQGtlcm5lbC5vcmc+Ci0tLQogYXJj
-aC9yaXNjdi9LY29uZmlnICAgICAgICAgICAgICAgIHwgIDEgKwogYXJjaC9yaXNjdi9rZXJuZWwv
-cHJvYmVzL01ha2VmaWxlIHwgIDEgKwogYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL2Z0cmFjZS5j
-IHwgNTMgKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrCiAzIGZpbGVzIGNo
-YW5nZWQsIDU1IGluc2VydGlvbnMoKykKIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2tl
-cm5lbC9wcm9iZXMvZnRyYWNlLmMKCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L0tjb25maWcgYi9h
-cmNoL3Jpc2N2L0tjb25maWcKaW5kZXggZjkyN2E5MS4uOTFiZmM2YyAxMDA2NDQKLS0tIGEvYXJj
-aC9yaXNjdi9LY29uZmlnCisrKyBiL2FyY2gvcmlzY3YvS2NvbmZpZwpAQCAtNTgsNiArNTgsNyBA
-QCBjb25maWcgUklTQ1YKIAlzZWxlY3QgSEFWRV9GVVRFWF9DTVBYQ0hHIGlmIEZVVEVYCiAJc2Vs
-ZWN0IEhBVkVfR0VORVJJQ19WRFNPIGlmIE1NVSAmJiA2NEJJVAogCXNlbGVjdCBIQVZFX0tQUk9C
-RVMKKwlzZWxlY3QgSEFWRV9LUFJPQkVTX09OX0ZUUkFDRQogCXNlbGVjdCBIQVZFX0tSRVRQUk9C
-RVMKIAlzZWxlY3QgSEFWRV9QQ0kKIAlzZWxlY3QgSEFWRV9QRVJGX0VWRU5UUwpkaWZmIC0tZ2l0
-IGEvYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL01ha2VmaWxlIGIvYXJjaC9yaXNjdi9rZXJuZWwv
-cHJvYmVzL01ha2VmaWxlCmluZGV4IGNiNjI5OTEuLjdmMDg0MGQgMTAwNjQ0Ci0tLSBhL2FyY2gv
-cmlzY3Yva2VybmVsL3Byb2Jlcy9NYWtlZmlsZQorKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9i
-ZXMvTWFrZWZpbGUKQEAgLTEsNSArMSw2IEBACiAjIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBH
-UEwtMi4wCiBvYmotJChDT05GSUdfS1BST0JFUykJCSs9IGtwcm9iZXMubyBkZWNvZGUtaW5zbi5v
-IHNpbXVsYXRlLWluc24ubwogb2JqLSQoQ09ORklHX0tQUk9CRVMpCQkrPSBrcHJvYmVzX3RyYW1w
-b2xpbmUubworb2JqLSQoQ09ORklHX0tQUk9CRVNfT05fRlRSQUNFKQkrPSBmdHJhY2Uubwogb2Jq
-LSQoQ09ORklHX1VQUk9CRVMpCQkrPSB1cHJvYmVzLm8gZGVjb2RlLWluc24ubyBzaW11bGF0ZS1p
-bnNuLm8KIENGTEFHU19SRU1PVkVfc2ltdWxhdGUtaW5zbi5vID0gJChDQ19GTEFHU19GVFJBQ0Up
-CmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMvZnRyYWNlLmMgYi9hcmNoL3Jp
-c2N2L2tlcm5lbC9wcm9iZXMvZnRyYWNlLmMKbmV3IGZpbGUgbW9kZSAxMDA2NDQKaW5kZXggMDAw
-MDAwMDAuLjA4ZmMxY2MKLS0tIC9kZXYvbnVsbAorKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9i
-ZXMvZnRyYWNlLmMKQEAgLTAsMCArMSw1MyBAQAorLy8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6
-IEdQTC0yLjAKKworI2luY2x1ZGUgPGxpbnV4L2twcm9iZXMuaD4KKworLyogRnRyYWNlIGNhbGxi
-YWNrIGhhbmRsZXIgZm9yIGtwcm9iZXMgLS0gY2FsbGVkIHVuZGVyIHByZWVwbXQgZGlzYWJlZCAq
-Lwordm9pZCBrcHJvYmVfZnRyYWNlX2hhbmRsZXIodW5zaWduZWQgbG9uZyBpcCwgdW5zaWduZWQg
-bG9uZyBwYXJlbnRfaXAsCisJCQkgICBzdHJ1Y3QgZnRyYWNlX29wcyAqb3BzLCBzdHJ1Y3QgcHRf
-cmVncyAqcmVncykKK3sKKwlzdHJ1Y3Qga3Byb2JlICpwOworCXN0cnVjdCBrcHJvYmVfY3RsYmxr
-ICprY2I7CisKKwlwID0gZ2V0X2twcm9iZSgoa3Byb2JlX29wY29kZV90ICopaXApOworCWlmICh1
-bmxpa2VseSghcCkgfHwga3Byb2JlX2Rpc2FibGVkKHApKQorCQlyZXR1cm47CisKKwlrY2IgPSBn
-ZXRfa3Byb2JlX2N0bGJsaygpOworCWlmIChrcHJvYmVfcnVubmluZygpKSB7CisJCWtwcm9iZXNf
-aW5jX25taXNzZWRfY291bnQocCk7CisJfSBlbHNlIHsKKwkJLyoKKwkJICogVGhlIHJlZ3MtPmVw
-YyBoYXNuJ3QgYmVlbiBzYXZlZCBieSBTQVZFX0FMTCBpbiBtY291bnQtZHluLlMKKwkJICogU28g
-bm8gbmVlZCB0byByZXN1bWUgaXQsIGp1c3QgZm9yIGtwcm9iZSBoYW5kbGVyLgorCQkgKi8KKwkJ
-aW5zdHJ1Y3Rpb25fcG9pbnRlcl9zZXQocmVncywgaXApOworCQlfX3RoaXNfY3B1X3dyaXRlKGN1
-cnJlbnRfa3Byb2JlLCBwKTsKKwkJa2NiLT5rcHJvYmVfc3RhdHVzID0gS1BST0JFX0hJVF9BQ1RJ
-VkU7CisJCWlmICghcC0+cHJlX2hhbmRsZXIgfHwgIXAtPnByZV9oYW5kbGVyKHAsIHJlZ3MpKSB7
-CisJCQkvKgorCQkJICogRW11bGF0ZSBzaW5nbGVzdGVwIChhbmQgYWxzbyByZWNvdmVyIHJlZ3Mt
-PnBjKQorCQkJICogYXMgaWYgdGhlcmUgaXMgYSBub3AKKwkJCSAqLworCQkJaW5zdHJ1Y3Rpb25f
-cG9pbnRlcl9zZXQocmVncywKKwkJCQkodW5zaWduZWQgbG9uZylwLT5hZGRyICsgTUNPVU5UX0lO
-U05fU0laRSk7CisJCQlpZiAodW5saWtlbHkocC0+cG9zdF9oYW5kbGVyKSkgeworCQkJCWtjYi0+
-a3Byb2JlX3N0YXR1cyA9IEtQUk9CRV9ISVRfU1NET05FOworCQkJCXAtPnBvc3RfaGFuZGxlcihw
-LCByZWdzLCAwKTsKKwkJCX0KKwkJfQorCisJCS8qCisJCSAqIElmIHByZV9oYW5kbGVyIHJldHVy
-bnMgITAsIGl0IGNoYW5nZXMgcmVncy0+cGMuIFdlIGhhdmUgdG8KKwkJICogc2tpcCBlbXVsYXRp
-bmcgcG9zdF9oYW5kbGVyLgorCQkgKi8KKwkJX190aGlzX2NwdV93cml0ZShjdXJyZW50X2twcm9i
-ZSwgTlVMTCk7CisJfQorfQorTk9LUFJPQkVfU1lNQk9MKGtwcm9iZV9mdHJhY2VfaGFuZGxlcik7
-CisKK2ludCBhcmNoX3ByZXBhcmVfa3Byb2JlX2Z0cmFjZShzdHJ1Y3Qga3Byb2JlICpwKQorewor
-CXAtPmFpbnNuLmFwaS5pbnNuID0gTlVMTDsKKwlyZXR1cm4gMDsKK30KLS0gCjIuNy40CgoKX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3Yg
-bWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3Rz
-LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+
+On 07/06/2020 08:26 AM, Anshuman Khandual wrote:
+> This series enables vmemmap backing memory allocation from device memory
+> ranges on arm64. But before that, it enables vmemmap_populate_basepages()
+> and vmemmap_alloc_block_buf() to accommodate struct vmem_altmap based
+> alocation requests.
+> 
+> This series applies on 5.8-rc4.
+> 
+> Changes in V4:
+> 
+> - Dropped 'fallback' from vmemmap_alloc_block_buf() per Catalin
+
+Hello Andrew,
+
+This series has been a long running one :) Now that all the three patches
+here have been reviewed, could you please consider this series for merging
+towards 5.9-rc1. Catalin had suggested earlier [1] that it should go via
+the MM tree instead, as it touches multiple architecture. Thank you.
+
+[1] https://patchwork.kernel.org/patch/11611103/
+
+- Anshuman
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
