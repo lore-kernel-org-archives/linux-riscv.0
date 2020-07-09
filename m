@@ -2,63 +2,84 @@ Return-Path: <SRS0=n+Lk=AU=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.2 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
-	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-6.7 required=3.0 tests=DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5A596C433DF
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2020 05:32:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 983EEC433E0
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2020 06:22:24 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 29E3C206A1
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2020 05:32:32 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6434A20663
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jul 2020 06:22:24 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZqhxzyBY"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 29E3C206A1
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="USZDHjso";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="EFYPCKMh"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6434A20663
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=PpckHaEClNuaE83i4mo5a3tixLYflI07SaL6c/owwz0=; b=ZqhxzyBY9otWen/+BHnKbyiPt
-	MdX13QXupsG/2XApMMBEAviW4CpRl/VfAWlevo9dV0kmjuXpEuXk0/8ZCoSl31Ix/jP/PLF+0iKvI
-	6LBHhOfePxmKHpWNoZJVM2a3VVessxHZior5ImQQ/ku35NLi7ToXvMpeL2kGEZW8Ptvc9LUyNv5dc
-	Fn6LVyabQaq1L8Jn7ZYk7u9vEzyLa0k6Yrd4y+Ljb8QtZW7ih8OGPo/ZPLQuQD2WPmmc3MHSgXVXl
-	8Sp47RnkrBbIOqmrElDzNt0wcZ38aJhbbKchGajbkXVOPvqPivt6dV3uh+2URw3go3Q2G1ZJCrlCz
-	8l/Xbnuyw==;
+	 bh=oaT56010m/WVF1a/8eE6C6UDAWZgyfGo0lv1RdQBhFs=; b=USZDHjsoM5pL7AJ1H06mEX5mL
+	MQh6yJ2CVmqtGKmNHIJfz5lWEvCLZWJB5JU7d2ZR4gefkhjxHmbUAWroVloBr3JmVl4TD4ZWjBQJb
+	UFwZ52eEz443yeNOyiFZrspwGCy1QTLP3mY33MDpzwLbrcDH+1Lm20l6mdn/7eOvK5XS+GdSrbxNu
+	6TyVz5CCdk+cDLBzF9PhwKoHVjALDhf6fQsq4eMN5NGhYkz385Y8pZ+gggwD9j0exi+yutmCJvqGg
+	zmmFT4XJtkJcEBHWTdqA++0mpl66WNy9m+eJgbybfDMp4Mt4IOuKahAw56oJOl6ZSCv3E769OGmO4
+	POxyf7M9g==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jtPAU-0002F5-Br; Thu, 09 Jul 2020 05:32:22 +0000
-Received: from relay2-d.mail.gandi.net ([217.70.183.194])
+	id 1jtPwo-0005FM-2Y; Thu, 09 Jul 2020 06:22:18 +0000
+Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jtPAS-0002EV-7p
- for linux-riscv@lists.infradead.org; Thu, 09 Jul 2020 05:32:21 +0000
-X-Originating-IP: 90.112.45.105
-Received: from [192.168.1.11] (lfbn-gre-1-325-105.w90-112.abo.wanadoo.fr
- [90.112.45.105]) (Authenticated sender: alex@ghiti.fr)
- by relay2-d.mail.gandi.net (Postfix) with ESMTPSA id 6345740007;
- Thu,  9 Jul 2020 05:32:06 +0000 (UTC)
-Subject: Re: [PATCH] riscv: Enable ELF-ASLR for riscv
-To: guoren@kernel.org, palmerdabbelt@google.com, paul.walmsley@sifive.com,
- anup@brainfault.org, greentime.hu@sifive.com, zong.li@sifive.com,
- me@packi.ch, bjorn.topel@gmail.com, atish.patra@wdc.com
-References: <1594269511-13340-1-git-send-email-guoren@kernel.org>
-From: Alex Ghiti <alex@ghiti.fr>
-Message-ID: <5c7e9eb0-d811-2e08-87c4-12de9b869b79@ghiti.fr>
-Date: Thu, 9 Jul 2020 01:32:06 -0400
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.10.0
+ id 1jtPwm-0005Ex-0Y
+ for linux-riscv@lists.infradead.org; Thu, 09 Jul 2020 06:22:16 +0000
+Received: by mail-wm1-x343.google.com with SMTP id g75so598396wme.5
+ for <linux-riscv@lists.infradead.org>; Wed, 08 Jul 2020 23:22:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=gFF6cRXPZWxd7Qpi0omO8g63vjK0Tifq+qnvPaoGQN4=;
+ b=EFYPCKMh/gdOpn8FHMjdfuEIXN6C/VRooCUlnoWy59ORywMooLDtxp+BS7BoIgt0G1
+ jmrm8e7JcbBuj9cZR3MvdgZ/nonjZvh7ddEjA+S3wAUi26hnRbCuN/ez9fiSlVKAUem7
+ Zj9KcE3DNCGeJImAGqdqCrHddS3WRSYPSauF1ZZKRzkXUJcJb9PqZEVdSCu8GamZHjB9
+ GRjHrTD5x1gTsftRjSH6nFTSc9cG3ue/tbdj4cd6RH6yMlWiZ18gsHMbqf2/EWid4yXC
+ 2JJS6ueLMq/w2U/VS0fjhIB22AHdpqALU1/hRFInm7PLwzxS5UczZg+/OyavlaGG9DnR
+ Op8g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=gFF6cRXPZWxd7Qpi0omO8g63vjK0Tifq+qnvPaoGQN4=;
+ b=Yl28bSR/mzCpwT6I5N/lQcNPRfEjA/GNsiqcCFiZh0pxPXTDuONzFn9E2R2WmRZGj7
+ xyj/CCN73X84r/5KoJGou6G7kOz8kV63rkvDTTT3i1D1t4t2sn8HBx6c3aV6iPvcv98p
+ TOTMmw7X2mMin/SbpwdPSujAzvZBAjysoUf3luh5HE/Ng0OeQGsfc0W+5ktN+W1tEimB
+ BEPWN/YZ0H357QACl/wJ1qEXHdKLwgE/zeX0X0PuJiMvqd8sUqSFW5gBH+GB324+naxh
+ qzdcxe1dauAzg2WGpJFyY97vB5DRPqzmrfEvUOs4tXRk54sHVk0/rtG1ASzUtjJKzdnK
+ PAuQ==
+X-Gm-Message-State: AOAM53272H74CyXdieO4oKdurvo2mxXBqCHq/3UsVctm6hcWeXrvJy6E
+ zMA35g3MhyIKs2nIdAjlHPXuqoMxT9JcoAlaoqaZCwM0uOQ=
+X-Google-Smtp-Source: ABdhPJw/PQAQz5vRvxXyLsZvKJpX4qH/jBi9iuTgfDOZNLsLiG9CWKsZ0zqUihapgZiMYjxfURhGOGLuZm/C0OD0nwQ=
+X-Received: by 2002:a1c:cc12:: with SMTP id h18mr13313090wmb.56.1594275734854; 
+ Wed, 08 Jul 2020 23:22:14 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <1594269511-13340-1-git-send-email-guoren@kernel.org>
-Content-Language: fr
+References: <20200708210948.34197-1-kernel@esmil.dk>
+In-Reply-To: <20200708210948.34197-1-kernel@esmil.dk>
+From: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>
+Date: Thu, 9 Jul 2020 08:22:03 +0200
+Message-ID: <CAJ+HfNj+dFE70O49-wZC1ckGSVo8Fb4_UcaeZocQABfKkyHmSg@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] riscv: Support R_RISCV_ADD64 and R_RISCV_SUB64
+ relocs
+To: Emil Renner Berthing <kernel@esmil.dk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200709_013220_385695_4B0D5B0B 
-X-CRM114-Status: GOOD (  12.55  )
+X-CRM114-CacheID: sfid-20200709_022216_107454_E33239F6 
+X-CRM114-Status: GOOD (  16.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -70,62 +91,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>,
- linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
- Greentime Hu <green.hu@gmail.com>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="windows-1252"; Format="flowed"
+Cc: Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org,
+ LKML <linux-kernel@vger.kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Guo,
-
-Le 7/9/20 =E0 12:38 AM, guoren@kernel.org a =E9crit=A0:
-> From: Guo Ren <guoren@linux.alibaba.com>
-> =
-
-> Let riscv enable randomizes the stack, heap and binary images of
-> ELF binaries. Seems it's ok at all after qemu & chip test and
-> there is no founded side effect.
-> =
-
-> So just simply select ARCH_HAS_ELF_RANDOMIZE :)
-> =
-
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Cc: Palmer Dabbelt <palmerdabbelt@google.com>
-> Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> Cc: Zong Li <zong.li@sifive.com>
-> Cc: Greentime Hu <green.hu@gmail.com>
-> ---
->   arch/riscv/Kconfig | 1 +
->   1 file changed, 1 insertion(+)
-> =
-
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 91bfc6c..eed6647 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -20,6 +20,7 @@ config RISCV
->   	select ARCH_HAS_GIGANTIC_PAGE
->   	select ARCH_HAS_MMIOWB
->   	select ARCH_HAS_PTE_SPECIAL
-> +	select ARCH_HAS_ELF_RANDOMIZE
->   	select ARCH_HAS_SET_DIRECT_MAP
->   	select ARCH_HAS_SET_MEMORY
->   	select ARCH_HAS_STRICT_KERNEL_RWX if MMU
-> =
-
-
-Actually it is already the case: ARCH_HAS_ELF_RANDOMIZE is already =
-
-selected by ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT.
-
-Thanks,
-
-Alex
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCA4IEp1bCAyMDIwIGF0IDIzOjEwLCBFbWlsIFJlbm5lciBCZXJ0aGluZyA8a2VybmVs
+QGVzbWlsLmRrPiB3cm90ZToKPgo+IFRoZXNlIGFyZSBuZWVkZWQgZm9yIHRoZSBfX2p1bXBfdGFi
+bGUgaW4gbW9kdWxlcyB1c2luZwo+IHN0YXRpYyBrZXlzL2p1bXAtbGFiZWxzIHdpdGggdGhlIGxh
+eW91dCBmcm9tCj4gSEFWRV9BUkNIX0pVTVBfTEFCRUxfUkVMQVRJVkUgb24gNjRiaXQga2VybmVs
+cy4KPgo+IFNpZ25lZC1vZmYtYnk6IEVtaWwgUmVubmVyIEJlcnRoaW5nIDxrZXJuZWxAZXNtaWwu
+ZGs+CgpSZXZpZXdlZC1ieTogQmrDtnJuIFTDtnBlbCA8Ympvcm4udG9wZWxAZ21haWwuY29tPgpU
+ZXN0ZWQtYnk6IEJqw7ZybiBUw7ZwZWwgPGJqb3JuLnRvcGVsQGdtYWlsLmNvbT4KCj4gLS0tCj4K
+PiBUZXN0ZWQgb24gdGhlIEhpRml2ZSBVbmxlYXNoZWQgYm9hcmQuCj4KPiBUaGlzIHBhdGNoIGlz
+IG5ldyBpbiB2Mi4gSXQgZml4ZXMgYW4gZXJyb3IgbG9hZGluZyBtb2R1bGVzCj4gY29udGFpbmlu
+ZyBzdGF0aWMga2V5cyBmb3VuZCBieSBCasO2cm4gVMO2cGVsLgo+Cj4gIGFyY2gvcmlzY3Yva2Vy
+bmVsL21vZHVsZS5jIHwgMTYgKysrKysrKysrKysrKysrKwo+ICAxIGZpbGUgY2hhbmdlZCwgMTYg
+aW5zZXJ0aW9ucygrKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL21vZHVsZS5j
+IGIvYXJjaC9yaXNjdi9rZXJuZWwvbW9kdWxlLmMKPiBpbmRleCA3MTkxMzQyYzU0ZGEuLjEwNGZi
+YTg4OWNmNyAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9tb2R1bGUuYwo+ICsrKyBi
+L2FyY2gvcmlzY3Yva2VybmVsL21vZHVsZS5jCj4gQEAgLTI2Myw2ICsyNjMsMTMgQEAgc3RhdGlj
+IGludCBhcHBseV9yX3Jpc2N2X2FkZDMyX3JlbGEoc3RydWN0IG1vZHVsZSAqbWUsIHUzMiAqbG9j
+YXRpb24sCj4gICAgICAgICByZXR1cm4gMDsKPiAgfQo+Cj4gK3N0YXRpYyBpbnQgYXBwbHlfcl9y
+aXNjdl9hZGQ2NF9yZWxhKHN0cnVjdCBtb2R1bGUgKm1lLCB1MzIgKmxvY2F0aW9uLAo+ICsgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEVsZl9BZGRyIHYpCj4gK3sKPiArICAgICAg
+ICoodTY0ICopbG9jYXRpb24gKz0gKHU2NCl2Owo+ICsgICAgICAgcmV0dXJuIDA7Cj4gK30KPiAr
+Cj4gIHN0YXRpYyBpbnQgYXBwbHlfcl9yaXNjdl9zdWIzMl9yZWxhKHN0cnVjdCBtb2R1bGUgKm1l
+LCB1MzIgKmxvY2F0aW9uLAo+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEVs
+Zl9BZGRyIHYpCj4gIHsKPiBAQCAtMjcwLDYgKzI3NywxMyBAQCBzdGF0aWMgaW50IGFwcGx5X3Jf
+cmlzY3Zfc3ViMzJfcmVsYShzdHJ1Y3QgbW9kdWxlICptZSwgdTMyICpsb2NhdGlvbiwKPiAgICAg
+ICAgIHJldHVybiAwOwo+ICB9Cj4KPiArc3RhdGljIGludCBhcHBseV9yX3Jpc2N2X3N1YjY0X3Jl
+bGEoc3RydWN0IG1vZHVsZSAqbWUsIHUzMiAqbG9jYXRpb24sCj4gKyAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgRWxmX0FkZHIgdikKPiArewo+ICsgICAgICAgKih1NjQgKilsb2Nh
+dGlvbiAtPSAodTY0KXY7Cj4gKyAgICAgICByZXR1cm4gMDsKPiArfQo+ICsKPiAgc3RhdGljIGlu
+dCAoKnJlbG9jX2hhbmRsZXJzX3JlbGFbXSkgKHN0cnVjdCBtb2R1bGUgKm1lLCB1MzIgKmxvY2F0
+aW9uLAo+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgRWxmX0FkZHIgdikgPSB7Cj4g
+ICAgICAgICBbUl9SSVNDVl8zMl0gICAgICAgICAgICAgICAgICAgID0gYXBwbHlfcl9yaXNjdl8z
+Ml9yZWxhLAo+IEBAIC0yOTAsNyArMzA0LDkgQEAgc3RhdGljIGludCAoKnJlbG9jX2hhbmRsZXJz
+X3JlbGFbXSkgKHN0cnVjdCBtb2R1bGUgKm1lLCB1MzIgKmxvY2F0aW9uLAo+ICAgICAgICAgW1Jf
+UklTQ1ZfUkVMQVhdICAgICAgICAgICAgICAgICA9IGFwcGx5X3JfcmlzY3ZfcmVsYXhfcmVsYSwK
+PiAgICAgICAgIFtSX1JJU0NWX0FMSUdOXSAgICAgICAgICAgICAgICAgPSBhcHBseV9yX3Jpc2N2
+X2FsaWduX3JlbGEsCj4gICAgICAgICBbUl9SSVNDVl9BREQzMl0gICAgICAgICAgICAgICAgID0g
+YXBwbHlfcl9yaXNjdl9hZGQzMl9yZWxhLAo+ICsgICAgICAgW1JfUklTQ1ZfQURENjRdICAgICAg
+ICAgICAgICAgICA9IGFwcGx5X3JfcmlzY3ZfYWRkNjRfcmVsYSwKPiAgICAgICAgIFtSX1JJU0NW
+X1NVQjMyXSAgICAgICAgICAgICAgICAgPSBhcHBseV9yX3Jpc2N2X3N1YjMyX3JlbGEsCj4gKyAg
+ICAgICBbUl9SSVNDVl9TVUI2NF0gICAgICAgICAgICAgICAgID0gYXBwbHlfcl9yaXNjdl9zdWI2
+NF9yZWxhLAo+ICB9Owo+Cj4gIGludCBhcHBseV9yZWxvY2F0ZV9hZGQoRWxmX1NoZHIgKnNlY2hk
+cnMsIGNvbnN0IGNoYXIgKnN0cnRhYiwKPiAtLQo+IDIuMjcuMAo+CgpfX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
+bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
+Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
