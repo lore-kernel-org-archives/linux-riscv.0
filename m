@@ -2,90 +2,62 @@ Return-Path: <SRS0=zqna=AV=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-0.8 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
+X-Spam-Status: No, score=-2.2 required=3.0 tests=DKIMWL_WL_HIGH,DKIM_SIGNED,
 	DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 29C78C433E0
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jul 2020 05:56:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 02E40C433DF
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jul 2020 06:48:02 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CBB722076A
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jul 2020 05:56:35 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id BD8C52076A
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jul 2020 06:48:01 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="BG9fj++4"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CBB722076A
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ics.forth.gr
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Bu6V5Upz"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BD8C52076A
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Message-ID:References:In-Reply-To:Subject:To:From:
-	Date:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=sk9QHNS9PXExPag3WFJSV5zhJrvikHnZi3gAMVHpSeQ=; b=BG9fj++4c2kspgBXMMjs3t9ZI
-	2F7JSs+Oa4Vk3cO6dZ2QKhJM5s0NoNW5lvmUmmy5uGzL5ppyLvLXZKbcNtxDXutPmIKF6sx09krao
-	b31L9FnHD09J1nbevg8rSlK+xXLibM0hs+AvYGDEsNGFOkAbmf238zzIJ4SjjuSAt1h6mlW7oM+fs
-	TeZQpJkCB9l3CIiJfrJes181zgzdpOG+0P2y5RItV4hI803a03o9TOYpMVUT2SQlSt2xjtqJJpE75
-	O40/leacCjzu26s285JIoHLyea1C/0kxsE565a5/ZC71WuUGmKlG60PbVDoJ1E8bYbeMfFzU/dIKV
-	SughcNCvw==;
+	 bh=tZUknkM0IzhhVtqzG9W/Kue8vObdLJ8LKodthveceA8=; b=Bu6V5UpzFDupbiJ9qy9KTMoLF
+	DGDjEAPulEXPm2Ej37FTN11I3Fsp3xMY99kxrFOHD7Y1/jVCNTvOUE3PM4mK984WeQD6GnZZJXBHG
+	UIuXP8Jgy22b097JcHEL49A6OrxGCD+c8DOp2ujYVeXTTHMBrdtqEaoTwArMi9iJTDchJiD5nMjsU
+	MQrAYeClOo3992mSRc4/3Fg7xDh4fUSgwLlbscaikiZ+PQsC6tiWkQs39xiXVXIY150KR+faOk5sz
+	3O5DUBeMJckhUEWLuQnCshx6PSUg8Dioq7Ufcf1K3QIAVmRBpL7+K6sw7RaNvLNyZqRV7eTn6sqBP
+	SAszmXTHg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jtm1O-0001uS-Fv; Fri, 10 Jul 2020 05:56:30 +0000
-Received: from mailgate-2.ics.forth.gr ([139.91.1.5])
- by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jtm1L-0001u3-Ta; Fri, 10 Jul 2020 05:56:29 +0000
-Received: from av3.ics.forth.gr (av3in [139.91.1.77])
- by mailgate-2.ics.forth.gr (8.14.4/ICS-FORTH/V10-1.8-GATE) with ESMTP id
- 06A5mKfN028585; Fri, 10 Jul 2020 05:48:22 GMT
-X-AuditID: 8b5b014d-257ff700000045c5-ee-5f080124e40e
-Received: from enigma.ics.forth.gr (enigma.ics.forth.gr [139.91.151.35])
- by av3.ics.forth.gr (Symantec Messaging Gateway) with SMTP id
- 67.B4.17861.421080F5; Fri, 10 Jul 2020 08:48:20 +0300 (EEST)
-X-ICS-AUTH-INFO: Authenticated user:  at ics.forth.gr
+	id 1jtmp8-0005pZ-7k; Fri, 10 Jul 2020 06:47:54 +0000
+Received: from foss.arm.com ([217.140.110.172])
+ by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1jtmp2-0005nz-S6; Fri, 10 Jul 2020 06:47:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DC759C0A;
+ Thu,  9 Jul 2020 23:47:47 -0700 (PDT)
+Received: from [10.163.87.77] (unknown [10.163.87.77])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 878B63F887;
+ Thu,  9 Jul 2020 23:47:38 -0700 (PDT)
+Subject: Re: [mm/debug_vm_pgtable] a97a171093:
+ BUG:unable_to_handle_page_fault_for_address
+To: kernel test robot <lkp@intel.com>
+References: <20200709061122.GN3874@shao2-debian>
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+Message-ID: <686d83dc-d49f-77f2-1581-8f2be1a5fc60@arm.com>
+Date: Fri, 10 Jul 2020 12:17:14 +0530
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
+ Thunderbird/52.9.1
 MIME-Version: 1.0
-Date: Fri, 10 Jul 2020 08:48:17 +0300
-From: Nick Kossifidis <mick@ics.forth.gr>
-To: Christoph Hellwig <hch@infradead.org>
-Subject: Re: [PATCH 1/5] lib: Add a generic version of devmem_is_allowed()
-Organization: FORTH
-In-Reply-To: <20200710053850.GA27019@infradead.org>
-References: <20200709200552.1910298-1-palmer@dabbelt.com>
- <20200709200552.1910298-2-palmer@dabbelt.com>
- <20200709204921.GJ781326@linux.ibm.com>
- <20200710053850.GA27019@infradead.org>
-Message-ID: <a037dac961c989d027eab293a0280643@mailhost.ics.forth.gr>
-X-Sender: mick@mailhost.ics.forth.gr
-User-Agent: Roundcube Webmail/1.3.9
-X-Brightmail-Tracker: H4sIAAAAAAAAA02SfVDTdRzH+/4eN2Tx46Hzd5hUA1MoniSuz5Vnnan3y+Lyrv5AUdaSCRxP
- 3ngo+cOWTYWB11qMxRhBDENsZzw4QIJJcCAkhROOh8kShRhIazxNRdwRg+uO/173/rzv3q8/
- Pjzc5wHpz0tOz5JI08WpQsqDKIjTBIYGIZ4o4vrNXaD7xUDB1ZsKHKbGnCRcPKvBwLiipWF5
- yYHApeqmYansdwLU9ycpcPxUiECjvo1A1y8noKeuloDzfU0kXJhvw6FYU0uCq62OglvKSgzu
- maox6CtIg+YmP+jvr6Wh6NlaktfiJKB+YoiEgRYdBY2Lcgo61G0ILg2bMbg/PkJC06MHFIwo
- /0bgWMjHQF/9KswpVzGYGSjEwVh3FcF5rRcsVD0iYHViTdo+piHAlDeOwUiRjALLbBUJz24s
- E9BQr8ZheMGCgXwsGlaerO11zy8jmLOWUu9GcY2/NpKc4QcD4gaGzDi38lSFOMfIOZorlZkJ
- 7p+ZGYK7VjOKcZ15SzS30jVBc3/1FJPcda2V5uQmC81V1GdzDZdDOH3rDHY44KjHngRJanKO
- RBq+91OPJK1OhZ066/lFfvtDUoasfAXi8VjmDfZhe7ICefB8mC7EuvpkhALx1/JotrQtH7lZ
- wHizvSWT6znOAKsevIE2+CX2a2Mp7maC2cFePte2zhQTzJbf+W2977fGluoLuHsAZ2q2sE9V
- jZR72Jc5xN7RvuXueDG+7ILVTLqZz0SxjtlOtCHUitiBb5XUhsR+1jrRQ23IBbFzK+O0m19g
- AtnRThutRN7aTa7aTa7aTa4VCL+CGHFOVFjyicywkxnSrKSwRGk9Wn9DFNOM7jbYwzoQxkMd
- iOXhQj9BxCukyEeQID6dK5FmiKTZqZLMDrSNRwi3CtK3VB/3YRLFWZIUieSURPr/FePx/WVY
- 91BgdsmHdfGf6+wZZfbKYweNO8v0uz9SnIjrmi6Iiz9yTz75r2vAUxfcNWreevRl0ZXykymt
- /E9e+y7hywDnOwF5B5Q1kalTUp8A+kf9N0FfxVfkTOOhIkNsVMgljQTZDtpakhr09W++aAg6
- /jil8ICrTt18pt1mv0gq/GPpw0VOIbWr+rPi7cvhuXu83369d29a9HZVVbmvEzNNGGJyuwe1
- iXnBh8bTFlOeWGwxlY7vs8WrRrmj+blyS+Z7XvFnGiYFtd5E6GB+5OkP9n+87c9S6WzMvKcp
- 8vmf/yghI5Z79/Fv37o71buzS/U4XzatWzwSe2zfjmGBa/c1mc0U3vl+jJDITBJHhuDSTPF/
- Gk8Jw/UDAAA=
-X-Greylist: inspected by milter-greylist-4.6.2 (mailgate-2.ics.forth.gr
- [139.91.1.5]);
- Fri, 10 Jul 2020 05:48:22 +0000 (GMT) for IP:'139.91.1.77' DOMAIN:'av3in'
- HELO:'av3.ics.forth.gr' FROM:'mick@ics.forth.gr' RCPT:''
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.6.2
- (mailgate-2.ics.forth.gr [139.91.1.5]); Fri, 10 Jul 2020 05:48:22 +0000 (GMT)
+In-Reply-To: <20200709061122.GN3874@shao2-debian>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200710_015628_436053_DB31E561 
-X-CRM114-Status: GOOD (  15.60  )
+X-CRM114-CacheID: sfid-20200710_024749_048726_EC786DD5 
+X-CRM114-Status: GOOD (  15.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -97,57 +69,102 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, steve@sk2.org, davidgow@google.com,
- catalin.marinas@arm.com, linus.walleij@linaro.org,
- Palmer Dabbelt <palmerdabbelt@google.com>, elver@google.com, glider@google.com,
- willy@infradead.org, zong.li@sifive.com, mchehab+samsung@kernel.org,
- linux-riscv@lists.infradead.org, alex.shi@linux.alibaba.com, will@kernel.org,
- ardb@kernel.org, linux-arch@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
- alex@ghiti.fr, takahiro.akashi@linaro.org, masahiroy@kernel.org,
- linux@armlinux.org.uk, krzk@kernel.org, Mike Rapoport <rppt@linux.ibm.com>,
- bgolaszewski@baylibre.com, Palmer Dabbelt <palmer@dabbelt.com>,
- kernel-team@android.com, pmladek@suse.com, zaslonko@linux.ibm.com,
- aou@eecs.berkeley.edu, keescook@chromium.org, paulmck@kernel.org,
- rostedt@goodmis.org, uwe@kleine-koenig.org, broonie@kernel.org,
- matti.vaittinen@fi.rohmeurope.com, gregory.0xf0@gmail.com,
- Paul Walmsley <paul.walmsley@sifive.com>, dan.j.williams@intel.com,
- andriy.shevchenko@linux.intel.com, gxt@pku.edu.cn,
- linux-arm-kernel@lists.infradead.org, tglx@linutronix.de,
- rdunlap@infradead.org, Nick Desaulniers <ndesaulniers@google.com>,
- linux-kernel@vger.kernel.org, mcgrof@kernel.org, james.morse@arm.com,
- mhiramat@kernel.org, akpm@linux-foundation.org, davem@davemloft.net
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Heiko Carstens <heiko.carstens@de.ibm.com>, linux-mm@kvack.org,
+ Paul Mackerras <paulus@samba.org>, "H. Peter Anvin" <hpa@zytor.com>,
+ linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>,
+ linux-arch@vger.kernel.org, linux-s390@vger.kernel.org,
+ Michael Ellerman <mpe@ellerman.id.au>, x86@kernel.org,
+ Mike Rapoport <rppt@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@de.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, linux-snps-arc@lists.infradead.org,
+ Vasily Gorbik <gor@linux.ibm.com>, lkp@lists.01.org,
+ Borislav Petkov <bp@alien8.de>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A . Shutemov" <kirill@shutemov.name>,
+ Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org,
+ Vineet Gupta <vgupta@synopsys.com>, linux-kernel@vger.kernel.org,
+ Palmer Dabbelt <palmer@dabbelt.com>, Andrew Morton <akpm@linux-foundation.org>,
+ linuxppc-dev@lists.ozlabs.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-zqPPhM65z4IgMjAyMC0wNy0xMCAwODozOCwgQ2hyaXN0b3BoIEhlbGx3aWcgzq3Os8+BzrHPiM61
-Ogo+IE9uIFRodSwgSnVsIDA5LCAyMDIwIGF0IDExOjQ5OjIxUE0gKzAzMDAsIE1pa2UgUmFwb3Bv
-cnQgd3JvdGU6Cj4+ID4gKyNpZm5kZWYgQ09ORklHX0dFTkVSSUNfREVWTUVNX0lTX0FMTE9XRUQK
-Pj4gPiArZXh0ZXJuIGludCBkZXZtZW1faXNfYWxsb3dlZCh1bnNpZ25lZCBsb25nIHBmbik7Cj4+
-ID4gKyNlbmRpZgo+IAo+IE5pdDogbm8gbmVlZCBmb3IgdGhlIGV4dGVybiBoZXJlLgo+IAo+PiA+
-ICtjb25maWcgR0VORVJJQ19MSUJfREVWTUVNX0lTX0FMTE9XRUQKPj4gPiArCWJvb2wKPj4gPiAr
-CXNlbGVjdCBBUkNIX0hBU19ERVZNRU1fSVNfQUxMT1dFRAo+PiAKPj4gVGhpcyBzZWVtcyB0byB3
-b3JrIHRoZSBvdGhlciB3YXkgYXJvdW5kIGZyb20gdGhlIHVzdWFsIEtjb25maWcgY2hhaW5zLgo+
-PiBJbiB0aGUgbW9zdCBjYXNlcyBBUkNIX0hBU19TT01FVEhJTkcgc2VsZWN0cyBHRU5FUklDX1NP
-TUVUSElORy4KPj4gCj4+IEkgYmVsaWV2ZSBuaWNlciB3YXkgd291bGQgYmUgdG8gbWFrZQo+PiAK
-Pj4gY29uZmlnIFNUUklDVF9ERVZNRU0KPj4gCWJvb2wgIkZpbHRlciBhY2Nlc3MgdG8gL2Rldi9t
-ZW0iCj4+IAlkZXBlbmRzIG9uIE1NVSAmJiBERVZNRU0KPj4gCWRlcGVuZHMgb24gQVJDSF9IQVNf
-REVWTUVNX0lTX0FMTE9XRUQgfHwgCj4+IEdFTkVSSUNfTElCX0RFVk1FTV9JU19BTExPV0VECj4+
-IAo+PiBjb25maWcgR0VORVJJQ19MSUJfREVWTUVNX0lTX0FMTE9XRUQKPj4gCWJvb2wKPj4gCj4+
-IGFuZCB0aGVuIHMvc2VsZWN0IEFSQ0hfSEFTX0RFVk1FTV9JU19BTExPV0VEL3NlbGVjdCAKPj4g
-R0VORVJJQ19MSUJfREVWTUVNX0lTX0FMTE9XRUQvCj4+IGluIHRoZSBhcmNoIEtjb25maWdzIGFu
-ZCBkcm9wIEFSQ0hfSEFTX0RFVk1FTV9JU19BTExPV0VEIGluIHRoZSBlbmQuCj4gCj4gVG8gdGFr
-ZSBhIHN0ZXAgYmFjazogIElzIHRoZXJlIGFueSByZWFzb24gdG8gbm90IGp1c3QgYWx3YXlzCj4g
-U1RSSUNUX0RFVk1FTT8gTWF5YmUgZm9yIGEgZmV3IGFyY2hpdGVjdHVyZXMgdGhhdCBkb24ndCBj
-dXJyZW50bHkKPiBzdXBwb3J0IGEgc3RyaWN0IC9kZXYvbWVtIHRoZSBnZW5lcmljIHZlcnNpb24g
-aXNuJ3QgcXVpdGUgY29ycmVjdCwgYnV0Cj4gc29tZW9uZSBzZWxlY3RpbmcgdGhlIG9wdGlvbiBh
-bmQgZmluZGluZyB0aGUgaXNzdWUgaXMgdGhlIGJlc3Qgd2F5IHRvCj4gZmlndXJlIHRoYXQgb3V0
-Li4KPiAKCkR1cmluZyBwcm90b3R5cGluZyAvIHRlc3RpbmcgaGF2aW5nIGZ1bGwgYWNjZXNzIHRv
-IGFsbCBwaHlzaWNhbCBtZW1vcnkgCnRocm91Z2ggL2Rldi9tZW0gaXMgdmVyeSB1c2VmdWwuIFdl
-IHNob3VsZCBoYXZlIGl0IGVuYWJsZWQgYnkgZGVmYXVsdCAKYnV0IGxlYXZlIHRoZSBjb25maWcg
-b3B0aW9uIHRoZXJlIHNvIHRoYXQgdXNlcnMgLyBkZXZlbG9wZXJzIGNhbiBkaXNhYmxlIAppdCBp
-ZiBuZWVkZWQgSU1ITy4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
-YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
-cmlzY3YK
+
+
+On 07/09/2020 11:41 AM, kernel test robot wrote:
+> [   94.349598] BUG: unable to handle page fault for address: ffffed10a7ffddff
+> [   94.351039] #PF: supervisor read access in kernel mode
+> [   94.352172] #PF: error_code(0x0000) - not-present page
+> [   94.353256] PGD 43ffed067 P4D 43ffed067 PUD 43fdee067 PMD 0 
+> [   94.354484] Oops: 0000 [#1] SMP KASAN
+> [   94.355238] CPU: 1 PID: 1 Comm: swapper/0 Not tainted 5.8.0-rc4-00002-ga97a17109332c #1
+> [   94.360456] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.12.0-1 04/01/2014
+> [   94.361950] RIP: 0010:hugetlb_advanced_tests+0x137/0x699
+> [   94.363026] Code: 8b 13 4d 85 f6 75 0b 48 ff 05 2c e4 6a 01 31 ed eb 41 bf f8 ff ff ff ba ff ff 37 00 4c 01 f7 48 c1 e2 2a 48 89 f9 48 c1 e9 03 <80> 3c 11 00 74 05 e8 cd c0 67 fa ba f8 ff ff ff 49 8b 2c 16 48 85
+> [   94.366592] RSP: 0000:ffffc90000047d30 EFLAGS: 00010a06
+> [   94.367693] RAX: 1ffffffff1049b80 RBX: ffff888380525308 RCX: 1ffff110a7ffddff
+> [   94.369215] RDX: dffffc0000000000 RSI: 1ffff11087ffdc00 RDI: ffff88853ffeeff8
+> [   94.370693] RBP: 000000000018e510 R08: 0000000000000025 R09: 0000000000000001
+> [   94.372165] R10: ffff888380523c07 R11: ffffed10700a4780 R12: ffff88843208e510
+> [   94.373674] R13: 0000000000000025 R14: ffff88843ffef000 R15: 000031e01ae61000
+> [   94.375147] FS:  0000000000000000(0000) GS:ffff8883a3800000(0000) knlGS:0000000000000000
+> [   94.376883] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+> [   94.378051] CR2: ffffed10a7ffddff CR3: 0000000004e15000 CR4: 00000000000406a0
+> [   94.379522] Call Trace:
+> [   94.380073]  debug_vm_pgtable+0xd81/0x2029
+> [   94.380871]  ? pmd_advanced_tests+0x621/0x621
+> [   94.381819]  do_one_initcall+0x1eb/0xbd0
+> [   94.382551]  ? trace_event_raw_event_initcall_finish+0x240/0x240
+> [   94.383634]  ? rcu_read_lock_sched_held+0xb9/0x110
+> [   94.388727]  ? rcu_read_lock_held+0xd0/0xd0
+> [   94.389604]  ? __kasan_check_read+0x1d/0x30
+> [   94.390485]  kernel_init_freeable+0x430/0x4f8
+> [   94.391416]  ? rest_init+0x3f8/0x3f8
+> [   94.392185]  kernel_init+0x14/0x1e8
+> [   94.392918]  ret_from_fork+0x22/0x30
+> [   94.393662] Modules linked in:
+> [   94.394289] CR2: ffffed10a7ffddff
+> [   94.395000] ---[ end trace 8ca5a1655dfb8c39 ]---
+
+This bug is caused from here.
+
+static inline struct mem_section *__nr_to_section(unsigned long nr)
+{
+#ifdef CONFIG_SPARSEMEM_EXTREME
+        if (!mem_section)
+                return NULL;
+#endif
+        if (!mem_section[SECTION_NR_TO_ROOT(nr)]) <-------- BUG
+                return NULL;
+        return &mem_section[SECTION_NR_TO_ROOT(nr)][nr & SECTION_ROOT_MASK];
+}
+
+static inline struct mem_section *__pfn_to_section(unsigned long pfn)
+{
+        return __nr_to_section(pfn_to_section_nr(pfn));
+}
+
+#define __pfn_to_page(pfn)                              \
+({      unsigned long __pfn = (pfn);                    \
+        struct mem_section *__sec = __pfn_to_section(__pfn);    \
+        __section_mem_map_addr(__sec) + __pfn;          \
+})
+
+which is called via hugetlb_advanced_tests().
+
+paddr = (__pfn_to_phys(pfn) | RANDOM_ORVALUE) & PMD_MASK;
+pte = pte_mkhuge(mk_pte(pfn_to_page(PHYS_PFN(paddr)), prot));
+
+Primary reason being RANDOM_ORVALUE, which is added to the paddr before
+being masked with PMD_MASK. This clobbers up the pfn value which cannot
+be searched in relevant memory sections. This problem stays hidden on
+other configs where pfn_to_page() does not go via memory section search.
+Dropping off RANDOM_ORVALUE solves the problem. Probably, just wanted to
+drop that off during V2 series (https://lkml.org/lkml/2020/4/8/997) but
+dont remember why ended up keeping it again.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
