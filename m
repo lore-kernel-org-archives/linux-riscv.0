@@ -4,20 +4,20 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 78541C433E2
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jul 2020 13:57:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A86D0C433EB
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jul 2020 13:57:26 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 49E82207BB
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jul 2020 13:57:20 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 75283207BB
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jul 2020 13:57:26 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="zmjdNLHq";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="FwiKwS4K"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 49E82207BB
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="f5CVQTQT";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="J8rLfCX1"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 75283207BB
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,32 +26,32 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=JpuKHmuGLUder3+VdKvppN3DL3rDZmfb54ttpM1myE0=; b=zmjdNLHqYqTY84yBRxslfg37R
-	2AqvBl/FU8Wc+WIRDefmyAWBrygkyMSVGPEhUrV0QHImNVFmDx7EwDJZdehFQyae1tRDGQM+CJQ9E
-	pFd7zf16LXIaaHO+iI5oVW+lRTqDGmuFlHY73juhfc+v8sv5AfN+moLX0reZarEFcUYO8t6B/kDCi
-	nQDuJ3Bgj98TcgDiziXc6Pc5+HgLs1jsKU3Lqoy5lO/0zPiBdZZjBQmhbTPLFZnKz4/XdV6CF+3hQ
-	WDuP+NHxZSegvWH+NPDr/VHQu4CTVNX0Fl0DRqbYAsawyZ5LVT95w75fj7fuHAQlULXTR1n+CuTEM
-	PtOe+uu2Q==;
+	 bh=8hSnghA2kJ/4Opg4GlfnZ2jbKvl4O5koXCA42H7IOQU=; b=f5CVQTQTRVYlXDBLbPMTpaTdh
+	NMG/98oVtXYQL1uuP4puU/C1zIV1dSqPkaTsc8F3vV25jFc1EXeodkZNiUWEXyFBsStwfO5BWzVcr
+	vTViPu15icPLMTSe1D8aheDOT0+ekgIEQmwcR7bEzEZnLbV1qOfGoBzCHqij9Dj1uX40EanLaUuo5
+	23ZTgb9z3VO3hhO0wlKSgxu0lkO6nilD3f1FUCCD/U7F/+mF6SWCbdZqWZnayR/QpbAP/SkO2NFR/
+	I1HBGYrLveZfLOWt4gbCBCCbUDkSJVEKjcLreenyBKirOWINQL1CC0nG3i3vGCqus/qBefKEcZnp0
+	pi1VJ02zg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jttWa-00040j-75; Fri, 10 Jul 2020 13:57:12 +0000
+	id 1jttWg-00043r-KH; Fri, 10 Jul 2020 13:57:18 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jttWY-00040B-UI
- for linux-riscv@merlin.infradead.org; Fri, 10 Jul 2020 13:57:11 +0000
+ id 1jttWe-00042a-I7
+ for linux-riscv@merlin.infradead.org; Fri, 10 Jul 2020 13:57:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
  References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
  Content-Type:Content-ID:Content-Description;
- bh=wVXOB0bwTse/Sz4zv+YiEUb+RJzy2LQixEil7fBzx3k=; b=FwiKwS4KtMrB3DtxFidvXGvg0I
- r21BX3mpVgWXJKfxFomXL6ipq2kN7zleUIZLHIAbMnMpLdQtb/DSzVlrlmPGjkDSwQYb/Ilbvhs/2
- WziOZM487LBn6WlXuxadZhfCkIqsQNlqGNj7vbNwzJUph3scHCDLYUbjGg4Uv08dLpkQWrzop/Pwk
- wbZahGTPC78QyBsCk0xmnF74kxhkVEMKVN6MX34XcylMWuz0HlrCWPJjzzX12YFH9pgOnzty9K42A
- 1yG3wZji4FLx4YXEHKmUfdEJY5VvA6Lvoyj5W+B3LlgBQiop3s3LgBEMAibpXcCDxk66G2yZLOfm5
- /DeL8dzQ==;
+ bh=aA679qIodiBpC5vbULiwbVKx3fOumlOYyYuEKhecoTI=; b=J8rLfCX1rWf4qIqs7Fehj0+jKo
+ yFGyNk3e2uoFfcZNf1M3QeOGq9VbqUAG1y/PYra5V0SIxrUWAwCu3uW+BJaS/Pwv3/8olCOUwaISR
+ IzGHg2ZiC44cAjsnSoeRLVXSMLQl5JmaLOP3499goZFgz41YKHPUQeT39S+sSuaRHO3bsRu1NLGXG
+ uSojzqVKeQZM3R7LwQUsgnW8GLAnNu7ji/KAnFGWmGbnav9Xt6xkmih3kL2vhPbPf2/nPbbdeIrJF
+ K+1WaWDgCw8lmWG0M+4MbXaq2f53/gz7dYZ+z068PuxxTULd6ySpB8UbVjA8oK+jDsYm3hDSvxzZz
+ IcdeQBCQ==;
 Received: from [2001:4bb8:188:5f50:c70:4a89:bc61:2] (helo=localhost)
  by casper.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jttWX-0004gf-LT; Fri, 10 Jul 2020 13:57:10 +0000
+ id 1jttWd-0004hr-1S; Fri, 10 Jul 2020 13:57:15 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>,
  Vincent Chen <deanbo422@gmail.com>,
@@ -59,9 +59,9 @@ To: Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>,
  Palmer Dabbelt <palmer@dabbelt.com>,
  Andrew Morton <akpm@linux-foundation.org>,
  Linus Torvalds <torvalds@linux-foundation.org>
-Subject: [PATCH 2/6] nds32: use uaccess_kernel in show_regs
-Date: Fri, 10 Jul 2020 15:57:02 +0200
-Message-Id: <20200710135706.537715-3-hch@lst.de>
+Subject: [PATCH 6/6] exec: use force_uaccess_begin during exec and exit
+Date: Fri, 10 Jul 2020 15:57:06 +0200
+Message-Id: <20200710135706.537715-7-hch@lst.de>
 X-Mailer: git-send-email 2.26.2
 In-Reply-To: <20200710135706.537715-1-hch@lst.de>
 References: <20200710135706.537715-1-hch@lst.de>
@@ -86,26 +86,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use the uaccess_kernel helper instead of duplicating it.
+Both exec and exit want to ensure that the uaccess routines actually do
+access user pointers.  Use the newly added force_uaccess_begin helper
+instead of an open coded set_fs for that to prepare for kernel builds
+where set_fs() does not exist.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
 ---
- arch/nds32/kernel/process.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ fs/exec.c     | 7 ++++++-
+ kernel/exit.c | 2 +-
+ 2 files changed, 7 insertions(+), 2 deletions(-)
 
-diff --git a/arch/nds32/kernel/process.c b/arch/nds32/kernel/process.c
-index 9712fd474f2ca3..f06265949ec28b 100644
---- a/arch/nds32/kernel/process.c
-+++ b/arch/nds32/kernel/process.c
-@@ -121,7 +121,7 @@ void show_regs(struct pt_regs *regs)
- 		regs->uregs[3], regs->uregs[2], regs->uregs[1], regs->uregs[0]);
- 	pr_info("  IRQs o%s  Segment %s\n",
- 		interrupts_enabled(regs) ? "n" : "ff",
--		segment_eq(get_fs(), KERNEL_DS)? "kernel" : "user");
-+		uaccess_kernel() ? "kernel" : "user");
- }
+diff --git a/fs/exec.c b/fs/exec.c
+index e6e8a9a7032784..769af470b69124 100644
+--- a/fs/exec.c
++++ b/fs/exec.c
+@@ -1380,7 +1380,12 @@ int begin_new_exec(struct linux_binprm * bprm)
+ 	if (retval)
+ 		goto out_unlock;
  
- EXPORT_SYMBOL(show_regs);
+-	set_fs(USER_DS);
++	/*
++	 * Ensure that the uaccess routines can actually operate on userspace
++	 * pointers:
++	 */
++	force_uaccess_begin();
++
+ 	me->flags &= ~(PF_RANDOMIZE | PF_FORKNOEXEC | PF_KTHREAD |
+ 					PF_NOFREEZE | PF_NO_SETAFFINITY);
+ 	flush_thread();
+diff --git a/kernel/exit.c b/kernel/exit.c
+index 727150f2810338..17d486a20f0dc6 100644
+--- a/kernel/exit.c
++++ b/kernel/exit.c
+@@ -731,7 +731,7 @@ void __noreturn do_exit(long code)
+ 	 * mm_release()->clear_child_tid() from writing to a user-controlled
+ 	 * kernel address.
+ 	 */
+-	set_fs(USER_DS);
++	force_uaccess_begin();
+ 
+ 	if (unlikely(in_atomic())) {
+ 		pr_info("note: %s[%d] exited with preempt_count %d\n",
 -- 
 2.26.2
 
