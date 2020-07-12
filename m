@@ -2,64 +2,67 @@ Return-Path: <SRS0=qDH1=AX=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
+	SPF_PASS autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 826BCC433DF
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Jul 2020 13:42:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 94DDDC433E0
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Jul 2020 17:40:18 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4FBF920702
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Jul 2020 13:42:53 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 652092063A
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Jul 2020 17:40:18 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="XPFsnqTT";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="kPA3mDcv"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4FBF920702
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="g5Kc6NZp";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="j4mgjY7A"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 652092063A
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=V0DpA+JngRdZFF1udNs4s1KJGITzt0b28/3/z9oVBsM=; b=XPFsnqTT6pNew0NUWNIPPd7p8Y
-	YSMh60bKM86WPdHnRFCAJPih0tDm4XJ3YQjACH+WEkI2d2nPMDRhQUeCSy9y9YlcboxPt6IPZKRE7
-	So9wHnaFUtpyQ97ceOAHZaA1pK7jJk6dDNgel9ObCtqK8lzb0Tev/0YWwiDAznz0nW/SSK/sWkclN
-	OWmoGeWxlCAJEVcFpZESJ5zw0AzKAJlOUHbl9DchGV1YtD4nIIMhoi8fHe3H/RquqJufkJ54kR3LB
-	55TqHNPXHZmrAGueQtFUBvH4BZFKmYGYyg46KI5j32HGSVuWTrkQFpCJSovAngPxLjr3E2UVsWwM9
-	JiIlEu3w==;
+	List-Unsubscribe:List-Id:To:Date:Message-Id:References:In-Reply-To:From:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wC66c/loXA6/ihSKZcxhnd/Zw6IS/kJxdCvgiP6GKHQ=; b=g5Kc6NZpK6N4jXQen2Cz9KacKN
+	JvDIuU5IddWNUX4s7EgBNwDPYcgmmtip2cOJKsXe0Ed31AW9GM+Q7DEvATH9QdQ6R4/W6mxP8QWeY
+	tHAqar4VPql7Ka6qzY5DTY2Is3Idz4z45ZEvfKm7voPE3ugo/ubGD5iSbxKtq0/y5U4ui8ETUZjj+
+	hU15pAXCpqOEdO0c8Y4d12lwWLDdl+8NADAUV3wLWEpZD3IiWovus2NT7pRBKhQRc9C+j98+5Ce1N
+	GiBpI+gwEJR7aac8IFCPrGxSN2HNC5FUd0pfJWYsC6yKqo8ncrvmeApc9qBPcvOPxqUb+opiKRCQn
+	ioQ1FU0g==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jucFi-00040M-HS; Sun, 12 Jul 2020 13:42:46 +0000
+	id 1jufxO-0001HE-W4; Sun, 12 Jul 2020 17:40:07 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jucFf-0003zx-RN
- for linux-riscv@lists.infradead.org; Sun, 12 Jul 2020 13:42:44 +0000
-Received: from localhost.localdomain (unknown [89.208.247.74])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 19863206D9;
- Sun, 12 Jul 2020 13:42:40 +0000 (UTC)
+ id 1jufxM-0001Gj-VA
+ for linux-riscv@lists.infradead.org; Sun, 12 Jul 2020 17:40:05 +0000
+Subject: Re: [GIT PULL] RISC-V Fixes for 5.8-rc5 (ideally)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1594561362;
- bh=YyUE0OgeiZ7J5J4saaGtSuMP8qRods8NoQGoTEHtQLE=;
- h=From:To:Cc:Subject:Date:From;
- b=kPA3mDcvzWK5v+v/ghGmHhI0L8gAaoajPv/wGe+BISoCIra9xIyqHZkekkL+Ty2Zm
- 1uzimxMYhsh0PrcIrJ2opbeNejrlKmQGLlzijCvelQ/2+2dd94EBUTAbRtXS00qxXp
- w8rX7wg1t7DHp43uicS+xMBAGvAnYcWADHQsMsb8=
-From: guoren@kernel.org
-To: palmerdabbelt@google.com
-Subject: [PATCH] riscv: Cleanup unnecessary define in asm-offset.c
-Date: Sun, 12 Jul 2020 13:41:49 +0000
-Message-Id: <1594561309-65026-1-git-send-email-guoren@kernel.org>
-X-Mailer: git-send-email 2.7.4
+ s=default; t=1594575603;
+ bh=AtfBEdHa/4GZH8vVuyr0o+4ubDXXRcvdrZUNYTTNC70=;
+ h=From:In-Reply-To:References:Date:To:Cc:From;
+ b=j4mgjY7Awa2G9onNZVMzHyVoLYQUgQVjBj8cX//OOTyUqUSRCatMTcLSOYOx+mJ1n
+ 6xK0H0pjLxOehSRwGoZsJ4W+NB+/qNlMfG6cW5QL0yJEcVCDD7poY6O98F3+nK3aSA
+ b/RvblXl1+9OCME6bjvr8GQuvs4pJ5KKUfEdkQnU=
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <mhng-f8b65a3e-17ea-448d-be82-0d1c42c0bf37@palmerdabbelt-glaptop1>
+References: <mhng-f8b65a3e-17ea-448d-be82-0d1c42c0bf37@palmerdabbelt-glaptop1>
+X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <mhng-f8b65a3e-17ea-448d-be82-0d1c42c0bf37@palmerdabbelt-glaptop1>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
+ tags/riscv-for-linus-5.8-rc5
+X-PR-Tracked-Commit-Id: 70ee5731a40b1f07f151e52c3c4ed27d70d4f9fe
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 9901a6bd157719f9f93186868c527c5ba5edf8e5
+Message-Id: <159457560337.22698.5375202992687678340.pr-tracker-bot@kernel.org>
+Date: Sun, 12 Jul 2020 17:40:03 +0000
+To: Palmer Dabbelt <palmer@dabbelt.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200712_094243_961336_5B018239 
-X-CRM114-Status: UNSURE (   7.37  )
+X-CRM114-CacheID: sfid-20200712_134005_157294_54A4B031 
+X-CRM114-Status: UNSURE (   1.75  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -72,68 +75,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>,
- guoren@kernel.org, linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org,
+ Linus Torvalds <torvalds@linux-foundation.org>, linux-kernel@vger.kernel.org
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
+The pull request you sent on Sat, 11 Jul 2020 13:24:01 -0700 (PDT):
 
- - TASK_THREAD_SP is duplicated define
- - TASK_STACK is no use at all
- - Don't worry about thread_info's offset in task_struct, have
-   a look on comment in include/linux/sched.h:
+> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.8-rc5
 
-struct task_struct {
-	/*
-	 * For reasons of header soup (see current_thread_info()), this
-	 * must be the first element of task_struct.
-	 */
-	struct thread_info		thread_info;
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/9901a6bd157719f9f93186868c527c5ba5edf8e5
 
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
----
- arch/riscv/kernel/asm-offsets.c | 3 ---
- arch/riscv/kernel/entry.S       | 5 -----
- 2 files changed, 8 deletions(-)
+Thank you!
 
-diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
-index 07cb9c1..db20344 100644
---- a/arch/riscv/kernel/asm-offsets.c
-+++ b/arch/riscv/kernel/asm-offsets.c
-@@ -27,9 +27,6 @@ void asm_offsets(void)
- 	OFFSET(TASK_THREAD_S9, task_struct, thread.s[9]);
- 	OFFSET(TASK_THREAD_S10, task_struct, thread.s[10]);
- 	OFFSET(TASK_THREAD_S11, task_struct, thread.s[11]);
--	OFFSET(TASK_THREAD_SP, task_struct, thread.sp);
--	OFFSET(TASK_STACK, task_struct, stack);
--	OFFSET(TASK_TI, task_struct, thread_info);
- 	OFFSET(TASK_TI_FLAGS, task_struct, thread_info.flags);
- 	OFFSET(TASK_TI_PREEMPT_COUNT, task_struct, thread_info.preempt_count);
- 	OFFSET(TASK_TI_KERNEL_SP, task_struct, thread_info.kernel_sp);
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index cae7e6d..3e8707e 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -389,12 +389,7 @@ ENTRY(__switch_to)
- 	lw a4, TASK_TI_CPU(a1)
- 	sw a3, TASK_TI_CPU(a1)
- 	sw a4, TASK_TI_CPU(a0)
--#if TASK_TI != 0
--#error "TASK_TI != 0: tp will contain a 'struct thread_info', not a 'struct task_struct' so get_current() won't work."
--	addi tp, a1, TASK_TI
--#else
- 	move tp, a1
--#endif
- 	ret
- ENDPROC(__switch_to)
- 
 -- 
-2.7.4
-
+Deet-doot-dot, I am a bot.
+https://korg.wiki.kernel.org/userdoc/prtracker
 
 _______________________________________________
 linux-riscv mailing list
