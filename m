@@ -7,16 +7,16 @@ X-Spam-Status: No, score=-7.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6C765C433E1
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2020 09:13:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CD501C433E0
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2020 09:16:48 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1A1D52067D
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2020 09:13:25 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 980522067D
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2020 09:16:48 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="hZf0Fgiw"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1A1D52067D
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="wiu6gK/b"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 980522067D
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,50 +25,50 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=3pb2ERJY92SxNqS4j3FFCgGqKsCPPstVBlxy+y8t0qo=; b=hZf0FgiwKCgRRgkrLd0LSNbGz
-	r0HXdSaS/ojhw3bPvH//hvVXLSOdH8NUxxHNNKqJSwThcnnhjehSEkFXi8w/cgPioVHY98v+J84fC
-	Ht64/+ac//oPG08xUH50LI8s0I4SpSY9jhY2Yaoji4Gw52zfjPkU72uCjmaaepW+hAmcOvNldk6Qo
-	mjqkN4pWHrniGr53ZEAL/ChrUW2skQxHaAeYZxORh92bqK58oKCkce6kaBSNoRMi1SDTU0v4H/7j0
-	FX3pzdhuEU5rNTZvFxJwTdlCCuyGA+hrCLVQTjqKsRLoCjf39McKIbpINb4LWO0SyhkDcygU9faxg
-	ls5KPNZHg==;
+	 bh=Wumf/Jm8O9sAzCjXl2X8QXkRAju3DW1zVELl0kijX8g=; b=wiu6gK/bdKJi+3qEBTduFj/U8
+	wLd2vHzWkcfQfO3n5w9rMmk9i92gKZUTvqOStTYXL5Kn3v0lE7BP70raP0CXzmIVs4vlz+ym3TF3o
+	wFT8+TXoaWDiPvjt64aXHP7vrZrvjm1gMYVK5UpoxrPCmsOGRUL2SLBc5efiIEnCZ1/DY8bKnw8mV
+	V7xlJTrrarNCKTz9YfBuDRzEGIwd12Z+N45DfVivR8WHf9D9B502XNInImsFZwCdlqJTSxEeTGl3A
+	Zif3w4CxReBqpV75+8uLZCac/6PVsxePMJwjuSbEyQH1gAgL2+qSOZ78d05AsCT/5Pn/tIY0KxB0L
+	b150DaglQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1juuWP-00061t-8r; Mon, 13 Jul 2020 09:13:13 +0000
-Received: from mail-ot1-f65.google.com ([209.85.210.65])
+	id 1juuZi-0006YV-8e; Mon, 13 Jul 2020 09:16:38 +0000
+Received: from mail-oi1-f193.google.com ([209.85.167.193])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1juuWM-00060C-L2
- for linux-riscv@lists.infradead.org; Mon, 13 Jul 2020 09:13:11 +0000
-Received: by mail-ot1-f65.google.com with SMTP id 72so8999731otc.3
- for <linux-riscv@lists.infradead.org>; Mon, 13 Jul 2020 02:13:08 -0700 (PDT)
+ id 1juuZg-0006Y2-Pz
+ for linux-riscv@lists.infradead.org; Mon, 13 Jul 2020 09:16:37 +0000
+Received: by mail-oi1-f193.google.com with SMTP id t4so10397259oij.9
+ for <linux-riscv@lists.infradead.org>; Mon, 13 Jul 2020 02:16:35 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=8Kvnn1U97jZEFNfOWUSAsH/gkQzeVqu192LUXU0iCy4=;
- b=kTDxsY/V8mNm1xCxxemB3OYLrdDIlvUlnz3xrGL4t/U+ZI/fHX2lKNKkI2vS5HsF04
- cW+BgpyxlCgMYRZhB83m1xe5r3H+Jf3Ruwk4FgekkLhLRN1MXD+iRYPwBFG6CbB1Yy9V
- hrrvObJpDipG5lOA4vbuI1bNkNdPZnq3Qq2zHABKyN0u3Myg5EIEn0vG5Z3QXb4YwcnS
- DmxuLRgVxDHTgduhQtCUVFAkz9rickCCMW3d5Z2/UAVAAVaD1IFWmp0CIJKimZDJn+Rw
- +WGbWB4s2uEsqMR1A8Vb8LBnZiy6aZ81XaOaBcheglCT8BV4SHAWVDzx0YY3CkVJZd8w
- RbyQ==
-X-Gm-Message-State: AOAM530n1kZiHACmK2Im6yoO+SnT8/kSrU+TxUKHZERne3Ppd2wlZaV7
- FTiRE0DqPWdFKSCpbLruuNspxR6rkbTC6HbbGVk=
-X-Google-Smtp-Source: ABdhPJzCNB4z3cnwFxg40yF0vD7KxhFEnVze7JJzdymORNXy473eBLB/B4cnQoGYWPXmt7S7GLNnpSjsEbLKguPGOEk=
-X-Received: by 2002:a05:6830:1451:: with SMTP id
- w17mr56644751otp.250.1594631587724; 
- Mon, 13 Jul 2020 02:13:07 -0700 (PDT)
+ bh=9nv2vtxhSh+ZKUdTydfbNIbF9mND4vrqOIiE1Ajf6/Y=;
+ b=NZ6cDDzw292ys2ub1tnkOMWeEITOxzgcdInKxrJxAwi3kE2pzQY+yiAmL9kZ2Vltim
+ R9nF0iH8TPNdpZL97U/FFaWtrzBeKWo2N7OgR2nFpHqbFvIr1qw/VNs3pmqzrgUbS7NN
+ kCzM/2kCeTGVgNqpa972iPphMlO4fc7von7AKEjskvWC659psqmoNtipiXIevijxQvlw
+ 9232rtfJvMyBbDCi/jgenrL434hRCaBf1PTM2EdIxXjRvWSFhyTfCEGHQXQT9vt+ALS8
+ qY8yowePKvlOTYEAuMtZKnEE4ZO0/2poTh7ToJeky83/GnUJ0J9DV741wAWxHhgipQP2
+ Fdmw==
+X-Gm-Message-State: AOAM5318xOXQ5A0kl1ti3iyVyswLc6JnAydmMWFQlnfLyoSUlCa4dvsL
+ bgrr4ZqHmNmPzmmcHTJwr6pEBtRbyfykps6tTkw=
+X-Google-Smtp-Source: ABdhPJyOy0X7AvLPgPT1hOSMERCtAXtP3F/7/Ig/A0LXkb1aAY4y0Dm1uV0JHAeN/dwmm0qFtnvwrS/KuGqrdgun+cU=
+X-Received: by 2002:a05:6808:64a:: with SMTP id
+ z10mr13204412oih.54.1594631795385; 
+ Mon, 13 Jul 2020 02:16:35 -0700 (PDT)
 MIME-Version: 1.0
 References: <20200710135706.537715-1-hch@lst.de>
- <20200710135706.537715-6-hch@lst.de>
-In-Reply-To: <20200710135706.537715-6-hch@lst.de>
+ <20200710135706.537715-5-hch@lst.de>
+In-Reply-To: <20200710135706.537715-5-hch@lst.de>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 13 Jul 2020 11:12:56 +0200
-Message-ID: <CAMuHMdVyy+cj+mpRJAW=1=3aOJWvUrLhXjJxKvVFdFcGr_RJRA@mail.gmail.com>
-Subject: Re: [PATCH 5/6] uaccess: add force_uaccess_{begin,end} helpers
+Date: Mon, 13 Jul 2020 11:16:24 +0200
+Message-ID: <CAMuHMdXQGj=ic_8U4GRmpPtECsC=2pVi-Mjrek9RoC-126yDRg@mail.gmail.com>
+Subject: Re: [PATCH 4/6] uaccess: remove segment_eq
 To: Christoph Hellwig <hch@lst.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200713_051310_749953_F6862E7E 
-X-CRM114-Status: GOOD (  10.95  )
+X-CRM114-CacheID: sfid-20200713_051636_872795_B911A1A8 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -92,19 +92,14 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 10, 2020 at 3:57 PM Christoph Hellwig <hch@lst.de> wrote:
-> Add helpers to wraper the get_fs/set_fs magic for undoing any damage
-
-to wrap
-
-> done by set_fs(KERNEL_DS).  There is no real functional benefit, but this
-> documents the intent of these calls better, and will allow stubbing the
-> functions out easily for kernels builds that do not allow address space
-> overrides in the future.
+On Fri, Jul 10, 2020 at 3:58 PM Christoph Hellwig <hch@lst.de> wrote:
+> segment_eq is only used to implement uaccess_kernel.  Just open code
+> uaccess_kernel in the arch uaccess headers and remove one layer of
+> indirection.
 >
 > Signed-off-by: Christoph Hellwig <hch@lst.de>
 
->  arch/m68k/include/asm/tlbflush.h | 12 ++++++------
+>  arch/m68k/include/asm/segment.h       | 2 +-
 
 Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
 
