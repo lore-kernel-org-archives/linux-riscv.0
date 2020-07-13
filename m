@@ -2,87 +2,89 @@ Return-Path: <SRS0=aCEi=AY=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=no
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7ECBEC433F2
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2020 18:37:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 53841C433ED
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2020 18:37:48 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4DF9A207BC
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2020 18:37:49 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 1BB2A206F0
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2020 18:37:48 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="1/0jz5tj";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=cs.washington.edu header.i=@cs.washington.edu header.b="eIJXO0/I"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4DF9A207BC
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="i5NtUuN0";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=cs.washington.edu header.i=@cs.washington.edu header.b="ktxCbVq7"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1BB2A206F0
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=cs.washington.edu
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=d7BZUPdupNrmguk/MXhyE7zdJ32CIpMBmUnLPioJkow=; b=1/0jz5tjlnzfiPK9Tef5Dnj8MB
-	6+2vCqFOTF7XzgHCojO96Zs+66/NMrepMJjBfp4gRlNfKojQSJoLIRPIZ2OmM9n/+t49tsAi9Asx6
-	wRPFVdNRk9VpilpivUkBSU/37I3uYDqs7B9IsXqMjnqybOX5iyhOgTxp2GHHQuKUrSHWbrG1ETinH
-	tiJCAPc8JhtBgrUMn9qJLXW8CMZLG1qAquruhUO8LZkahK/c++YE0L1Wk36BZT62ieepQOBz67N9K
-	qK3OyLOIBZ55GgK+yjuAqOQzDvLQIyLThMKHXWWKbXrfuXwrFAEynwr0PKF4pATdrnDuF7vP55qsp
-	VQq37wKw==;
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=L15Ky4zbUGFp2BTaRrbEwu6rvmWHE6O24+MLsv2kSYc=; b=i5NtUuN0EyoOCNqHuwXrQ+vCq
+	Ppg23YPeJz7XmvKNx52LF3UMzx2emwC9FJtFen/tOmpKuIzsny6Imq4bsSweg49O+XNC75u3tpDAK
+	emILvQba4C3YFlyCVsO0G10z/Uw+U34fvL5ILkPsx824nIUPuvYxfAE93OEy+sH9KoGOW5+IAgRxc
+	Xvv0IfwRyfZRtwnus4AiFox+c8SqaeDSVGzfMPAZQxsbBdmYE9+gnB/Rg/nclY0KpxHr8Hp3dA3Wt
+	stfVwWncqo7bd+JxbgsHYsfaFNpgjiZyYpLLCrTx+4x8145G6SkVGUSpJlie635LMCWdFj36pNtZ4
+	jNlzw2uqA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jv3Kb-0007Kx-UI; Mon, 13 Jul 2020 18:37:37 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1jv3Ke-0007Ls-Bo; Mon, 13 Jul 2020 18:37:40 +0000
+Received: from mail-pl1-x642.google.com ([2607:f8b0:4864:20::642])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jv3KW-0007Gi-Rz
+ id 1jv3KW-0007HA-Qk
  for linux-riscv@lists.infradead.org; Mon, 13 Jul 2020 18:37:35 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id gc9so289398pjb.2
- for <linux-riscv@lists.infradead.org>; Mon, 13 Jul 2020 11:37:26 -0700 (PDT)
+Received: by mail-pl1-x642.google.com with SMTP id x9so5890874plr.2
+ for <linux-riscv@lists.infradead.org>; Mon, 13 Jul 2020 11:37:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=cs.washington.edu; s=goo201206;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=Ex9NjyWc3V6Bi5bAxe687NL7Tzc9ig6eAA5UMdHYprI=;
- b=eIJXO0/If0B5aBd44ahb08ihRI2GtsNKFQ7pTlz/wT6/TJjKzO502T7CJcvZe9WdR5
- u/qrS/5vxINqmyOT/yLBZZgVNkONvdkC5egbLzM2YycQsLldSIUq0FWKy51uV6YC91Lm
- 9apZeRbnW6mztFt+DWU+E4jyvTyoU0WgWdnQ8=
+ h=from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=Of6XYrb8YfAT1EAaZlbZgE3HUj6lfeO1u7FMIJtnMiU=;
+ b=ktxCbVq7G9edQWu/AHzjiGiplp9JA7N1lAtnLhCNv4TIo/K136HYs6V1RvboESnB1Y
+ 2YUHdTpRfs3D6rJgsBk7KlmtfUjdMosd/BWzLDtzhsn+0KhjBKNhVrMr1adJgD4Wv/DP
+ klX5g1N0+uJLwPLbiBTKS0LgQdrm9i4FUhOho=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=Ex9NjyWc3V6Bi5bAxe687NL7Tzc9ig6eAA5UMdHYprI=;
- b=JKLjxdNF/eYNCYCZ0xJRPe17iKjy4EuKsg/ppwr5tt9UzA8KbzEzcyeJdpDrFULhjK
- iRxuvTutGe0dmxyay3C9PaTk6T8t3n0qPLmtbbnfPHTsUCP3uTLO2aMIoO/1usauVc10
- 0bwkM8jtqOm8pfa7AlpsCn+viKCmQPdFWlXZ4QGk33P0woqItXAIms/Nli0sJ3bOrlGQ
- 9+DDaX0BMcvDWoG+FpZsMN7i/MWUjJAfaSVXfBlnEZJMjkp/tmnDbJ99QTYC15aHO9H1
- 4ROwUHmbBy810rOM9p8nNJf6zTCXXAnnJsevP/mdluRH7j0JRNTe5vAiUMtFRFFakuQ1
- 1IjA==
-X-Gm-Message-State: AOAM530+uSEJ2bGe0XbW/XImt2JJrqXe7bnfrhd5sbP9ErND4cfdkwCF
- xdU3g8+yI0viOBpzimOtgM9nPg==
-X-Google-Smtp-Source: ABdhPJwJZ4LXHG3AEpB4QbfoNcdQpuRpmEWG4B06RaqAn3egDPdZSGr1tTw7ZyXyNVuR3iTm+ixTgg==
-X-Received: by 2002:a17:90a:1b4a:: with SMTP id q68mr717791pjq.1.1594665444865; 
- Mon, 13 Jul 2020 11:37:24 -0700 (PDT)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=Of6XYrb8YfAT1EAaZlbZgE3HUj6lfeO1u7FMIJtnMiU=;
+ b=ZQWAvVvTs4P4FmQ7egoLL65yfJg+rNjVQ5XR3BJNsNMJ651WH3JKx2zGg6UZjwbEUs
+ f3NGfWh6N10RF0xEVVHHOyHbdIKpCLQXg47cu3aIeuTrFPs3i46Cv4PMOI6xEyTAKQB9
+ JLtNHOmo477GoxX2zNQXgByhRf64OdDaU0dSE4wylVjJGzQA74OWhJ9tQHZOsMT8Lv0R
+ nK6mKD+BCz+O1l/1WLyjQU1lK4yK/i4fiWEE1uXtXLBA1KrNlyIy5WaNfloX1x6DgBBE
+ DcIzKKU1+ax7C5bW91IT6exz6D9wQ91neYLHf696VU1rC+nSK1ZKnekNq3aM6K1IAJpW
+ iCMw==
+X-Gm-Message-State: AOAM531gAXQ+GxyDjI5nYDo3ctxosy2Wvaj+eh1l/G34wOZDrvMSHtUn
+ 2hn2mJkZv6CBYdFKCcJnRG9hKQ==
+X-Google-Smtp-Source: ABdhPJw02MefwFzQTFIE1dbm832lcNJXdoH8PZKaFwN/CI9OwUamO+06lU++Dt7tG27c4WPFlRDOzw==
+X-Received: by 2002:a17:90a:d181:: with SMTP id
+ fu1mr730014pjb.60.1594665446292; 
+ Mon, 13 Jul 2020 11:37:26 -0700 (PDT)
 Received: from localhost.localdomain (c-73-53-94-119.hsd1.wa.comcast.net.
  [73.53.94.119])
- by smtp.gmail.com with ESMTPSA id ia13sm264985pjb.42.2020.07.13.11.37.23
+ by smtp.gmail.com with ESMTPSA id ia13sm264985pjb.42.2020.07.13.11.37.25
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 13 Jul 2020 11:37:24 -0700 (PDT)
+ Mon, 13 Jul 2020 11:37:25 -0700 (PDT)
 From: Luke Nelson <lukenels@cs.washington.edu>
 X-Google-Original-From: Luke Nelson <luke.r.nels@gmail.com>
 To: bpf@vger.kernel.org
-Subject: [RFC PATCH bpf-next 0/3] bpf,
- riscv: Add compressed instructions to rv64 JIT
-Date: Mon, 13 Jul 2020 11:37:08 -0700
-Message-Id: <20200713183711.762244-1-luke.r.nels@gmail.com>
+Subject: [RFC PATCH bpf-next 1/3] bpf,
+ riscv: Modify JIT ctx to support compressed instructions
+Date: Mon, 13 Jul 2020 11:37:09 -0700
+Message-Id: <20200713183711.762244-2-luke.r.nels@gmail.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20200713183711.762244-1-luke.r.nels@gmail.com>
+References: <20200713183711.762244-1-luke.r.nels@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200713_143733_019947_9E2ED637 
-X-CRM114-Status: UNSURE (   7.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200713_143732_930871_52A51832 
+X-CRM114-Status: GOOD (  17.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -108,132 +110,247 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch series enables using compressed riscv (RVC) instructions
-in the rv64 BPF JIT.
+This patch makes the necessary changes to struct rv_jit_context and to
+bpf_int_jit_compile to support compressed riscv (RVC) instructions in
+the BPF JIT.
 
-RVC is a standard riscv extension that adds a set of compressed,
-2-byte instructions that can replace some regular 4-byte instructions
-for improved code density.
+It changes the JIT image to be u16 instead of u32, since RVC instructions
+are 2 bytes as opposed to 4.
 
-This series first modifies the JIT to support using 2-byte instructions
-(e.g., in jump offset computations), then adds RVC encoding and
-helper functions, and finally uses the helper functions to optimize
-the rv64 JIT.
+It also changes ctx->offset and ctx->ninsns to refer to 2-byte
+instructions rather than 4-byte ones. The riscv PC is always 16-bit
+aligned, so this is sufficient to refer to any valid riscv offset.
 
-I used our formal verification framework, Serval, to verify the
-correctness of the RVC encodings and their uses in the rv64 JIT.
+The code for computing jump offsets in bytes is updated accordingly,
+and factored in to the RVOFF macro to simplify the code.
 
-The JIT continues to pass all tests in lib/test_bpf.c, and introduces
-no new failures to test_verifier; both with and without RVC being enabled.
+Signed-off-by: Luke Nelson <luke.r.nels@gmail.com>
+---
+ arch/riscv/net/bpf_jit.h        | 23 ++++++++++++++++++++---
+ arch/riscv/net/bpf_jit_comp32.c | 14 +++++++-------
+ arch/riscv/net/bpf_jit_comp64.c | 12 ++++++------
+ arch/riscv/net/bpf_jit_core.c   |  6 +++---
+ 4 files changed, 36 insertions(+), 19 deletions(-)
 
-The following are examples of the JITed code for the verifier selftest
-"direct packet read test#3 for CGROUP_SKB OK", without and with RVC
-enabled, respectively. The former uses 178 bytes, and the latter uses 112,
-for a ~37% reduction in code size for this example.
-
-Without RVC:
-
-   0: 02000813    addi  a6,zero,32
-   4: fd010113    addi  sp,sp,-48
-   8: 02813423    sd    s0,40(sp)
-   c: 02913023    sd    s1,32(sp)
-  10: 01213c23    sd    s2,24(sp)
-  14: 01313823    sd    s3,16(sp)
-  18: 01413423    sd    s4,8(sp)
-  1c: 03010413    addi  s0,sp,48
-  20: 03056683    lwu   a3,48(a0)
-  24: 02069693    slli  a3,a3,0x20
-  28: 0206d693    srli  a3,a3,0x20
-  2c: 03456703    lwu   a4,52(a0)
-  30: 02071713    slli  a4,a4,0x20
-  34: 02075713    srli  a4,a4,0x20
-  38: 03856483    lwu   s1,56(a0)
-  3c: 02049493    slli  s1,s1,0x20
-  40: 0204d493    srli  s1,s1,0x20
-  44: 03c56903    lwu   s2,60(a0)
-  48: 02091913    slli  s2,s2,0x20
-  4c: 02095913    srli  s2,s2,0x20
-  50: 04056983    lwu   s3,64(a0)
-  54: 02099993    slli  s3,s3,0x20
-  58: 0209d993    srli  s3,s3,0x20
-  5c: 09056a03    lwu   s4,144(a0)
-  60: 020a1a13    slli  s4,s4,0x20
-  64: 020a5a13    srli  s4,s4,0x20
-  68: 00900313    addi  t1,zero,9
-  6c: 006a7463    bgeu  s4,t1,0x74
-  70: 00000a13    addi  s4,zero,0
-  74: 02d52823    sw    a3,48(a0)
-  78: 02e52a23    sw    a4,52(a0)
-  7c: 02952c23    sw    s1,56(a0)
-  80: 03252e23    sw    s2,60(a0)
-  84: 05352023    sw    s3,64(a0)
-  88: 00000793    addi  a5,zero,0
-  8c: 02813403    ld    s0,40(sp)
-  90: 02013483    ld    s1,32(sp)
-  94: 01813903    ld    s2,24(sp)
-  98: 01013983    ld    s3,16(sp)
-  9c: 00813a03    ld    s4,8(sp)
-  a0: 03010113    addi  sp,sp,48
-  a4: 00078513    addi  a0,a5,0
-  a8: 00008067    jalr  zero,0(ra)
-
-With RVC:
-
-   0:   02000813    addi    a6,zero,32
-   4:   7179        c.addi16sp  sp,-48
-   6:   f422        c.sdsp  s0,40(sp)
-   8:   f026        c.sdsp  s1,32(sp)
-   a:   ec4a        c.sdsp  s2,24(sp)
-   c:   e84e        c.sdsp  s3,16(sp)
-   e:   e452        c.sdsp  s4,8(sp)
-  10:   1800        c.addi4spn  s0,sp,48
-  12:   03056683    lwu     a3,48(a0)
-  16:   1682        c.slli  a3,0x20
-  18:   9281        c.srli  a3,0x20
-  1a:   03456703    lwu     a4,52(a0)
-  1e:   1702        c.slli  a4,0x20
-  20:   9301        c.srli  a4,0x20
-  22:   03856483    lwu     s1,56(a0)
-  26:   1482        c.slli  s1,0x20
-  28:   9081        c.srli  s1,0x20
-  2a:   03c56903    lwu     s2,60(a0)
-  2e:   1902        c.slli  s2,0x20
-  30:   02095913    srli    s2,s2,0x20
-  34:   04056983    lwu     s3,64(a0)
-  38:   1982        c.slli  s3,0x20
-  3a:   0209d993    srli    s3,s3,0x20
-  3e:   09056a03    lwu     s4,144(a0)
-  42:   1a02        c.slli  s4,0x20
-  44:   020a5a13    srli    s4,s4,0x20
-  48:   4325        c.li    t1,9
-  4a:   006a7363    bgeu    s4,t1,0x50
-  4e:   4a01        c.li    s4,0
-  50:   d914        c.sw    a3,48(a0)
-  52:   d958        c.sw    a4,52(a0)
-  54:   dd04        c.sw    s1,56(a0)
-  56:   03252e23    sw      s2,60(a0)
-  5a:   05352023    sw      s3,64(a0)
-  5e:   4781        c.li    a5,0
-  60:   7422        c.ldsp  s0,40(sp)
-  62:   7482        c.ldsp  s1,32(sp)
-  64:   6962        c.ldsp  s2,24(sp)
-  66:   69c2        c.ldsp  s3,16(sp)
-  68:   6a22        c.ldsp  s4,8(sp)
-  6a:   6145        c.addi16sp  sp,48
-  6c:   853e        c.mv    a0,a5
-  6e:   8082        c.jr    ra
-
-Luke Nelson (3):
-  bpf, riscv: Modify JIT ctx to support compressed instructions
-  bpf, riscv: Add encodings for compressed instructions
-  bpf, riscv: Use compressed instructions in the rv64 JIT
-
- arch/riscv/net/bpf_jit.h        | 495 +++++++++++++++++++++++++++++++-
- arch/riscv/net/bpf_jit_comp32.c |  14 +-
- arch/riscv/net/bpf_jit_comp64.c | 287 +++++++++---------
- arch/riscv/net/bpf_jit_core.c   |   6 +-
- 4 files changed, 650 insertions(+), 152 deletions(-)
-
+diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
+index 20e235d06f66..5c89ea904c1a 100644
+--- a/arch/riscv/net/bpf_jit.h
++++ b/arch/riscv/net/bpf_jit.h
+@@ -50,7 +50,7 @@ enum {
+ 
+ struct rv_jit_context {
+ 	struct bpf_prog *prog;
+-	u32 *insns;		/* RV insns */
++	u16 *insns;		/* RV insns */
+ 	int ninsns;
+ 	int epilogue_offset;
+ 	int *offset;		/* BPF to RV */
+@@ -58,6 +58,9 @@ struct rv_jit_context {
+ 	int stack_size;
+ };
+ 
++/* Convert from ninsns to bytes. */
++#define RVOFF(ninsns)	((ninsns) << 1)
++
+ struct rv_jit_data {
+ 	struct bpf_binary_header *header;
+ 	u8 *image;
+@@ -74,8 +77,22 @@ static inline void bpf_flush_icache(void *start, void *end)
+ 	flush_icache_range((unsigned long)start, (unsigned long)end);
+ }
+ 
++/* Emit a 4-byte riscv instruction. */
+ static inline void emit(const u32 insn, struct rv_jit_context *ctx)
+ {
++	if (ctx->insns) {
++		ctx->insns[ctx->ninsns] = insn;
++		ctx->insns[ctx->ninsns + 1] = (insn >> 16);
++	}
++
++	ctx->ninsns += 2;
++}
++
++/* Emit a 2-byte riscv compressed instruction. */
++static inline void emitc(const u16 insn, struct rv_jit_context *ctx)
++{
++	BUILD_BUG_ON(!rvc_enabled());
++
+ 	if (ctx->insns)
+ 		ctx->insns[ctx->ninsns] = insn;
+ 
+@@ -86,7 +103,7 @@ static inline int epilogue_offset(struct rv_jit_context *ctx)
+ {
+ 	int to = ctx->epilogue_offset, from = ctx->ninsns;
+ 
+-	return (to - from) << 2;
++	return RVOFF(to - from);
+ }
+ 
+ /* Return -1 or inverted cond. */
+@@ -149,7 +166,7 @@ static inline int rv_offset(int insn, int off, struct rv_jit_context *ctx)
+ 	off++; /* BPF branch is from PC+1, RV is from PC */
+ 	from = (insn > 0) ? ctx->offset[insn - 1] : 0;
+ 	to = (insn + off > 0) ? ctx->offset[insn + off - 1] : 0;
+-	return (to - from) << 2;
++	return RVOFF(to - from);
+ }
+ 
+ /* Instruction formats. */
+diff --git a/arch/riscv/net/bpf_jit_comp32.c b/arch/riscv/net/bpf_jit_comp32.c
+index b198eaa74456..d22001aa0057 100644
+--- a/arch/riscv/net/bpf_jit_comp32.c
++++ b/arch/riscv/net/bpf_jit_comp32.c
+@@ -644,7 +644,7 @@ static int emit_branch_r64(const s8 *src1, const s8 *src2, s32 rvoff,
+ 
+ 	e = ctx->ninsns;
+ 	/* Adjust for extra insns. */
+-	rvoff -= (e - s) << 2;
++	rvoff -= RVOFF(e - s);
+ 	emit_jump_and_link(RV_REG_ZERO, rvoff, true, ctx);
+ 	return 0;
+ }
+@@ -713,7 +713,7 @@ static int emit_bcc(u8 op, u8 rd, u8 rs, int rvoff, struct rv_jit_context *ctx)
+ 	if (far) {
+ 		e = ctx->ninsns;
+ 		/* Adjust for extra insns. */
+-		rvoff -= (e - s) << 2;
++		rvoff -= RVOFF(e - s);
+ 		emit_jump_and_link(RV_REG_ZERO, rvoff, true, ctx);
+ 	}
+ 	return 0;
+@@ -731,7 +731,7 @@ static int emit_branch_r32(const s8 *src1, const s8 *src2, s32 rvoff,
+ 
+ 	e = ctx->ninsns;
+ 	/* Adjust for extra insns. */
+-	rvoff -= (e - s) << 2;
++	rvoff -= RVOFF(e - s);
+ 
+ 	if (emit_bcc(op, lo(rs1), lo(rs2), rvoff, ctx))
+ 		return -1;
+@@ -795,7 +795,7 @@ static int emit_bpf_tail_call(int insn, struct rv_jit_context *ctx)
+ 	 * if (index >= max_entries)
+ 	 *   goto out;
+ 	 */
+-	off = (tc_ninsn - (ctx->ninsns - start_insn)) << 2;
++	off = RVOFF(tc_ninsn - (ctx->ninsns - start_insn));
+ 	emit_bcc(BPF_JGE, lo(idx_reg), RV_REG_T1, off, ctx);
+ 
+ 	/*
+@@ -804,7 +804,7 @@ static int emit_bpf_tail_call(int insn, struct rv_jit_context *ctx)
+ 	 *   goto out;
+ 	 */
+ 	emit(rv_addi(RV_REG_T1, RV_REG_TCC, -1), ctx);
+-	off = (tc_ninsn - (ctx->ninsns - start_insn)) << 2;
++	off = RVOFF(tc_ninsn - (ctx->ninsns - start_insn));
+ 	emit_bcc(BPF_JSLT, RV_REG_TCC, RV_REG_ZERO, off, ctx);
+ 
+ 	/*
+@@ -818,7 +818,7 @@ static int emit_bpf_tail_call(int insn, struct rv_jit_context *ctx)
+ 	if (is_12b_check(off, insn))
+ 		return -1;
+ 	emit(rv_lw(RV_REG_T0, off, RV_REG_T0), ctx);
+-	off = (tc_ninsn - (ctx->ninsns - start_insn)) << 2;
++	off = RVOFF(tc_ninsn - (ctx->ninsns - start_insn));
+ 	emit_bcc(BPF_JEQ, RV_REG_T0, RV_REG_ZERO, off, ctx);
+ 
+ 	/*
+@@ -1214,7 +1214,7 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+ 			emit_imm32(tmp2, imm, ctx);
+ 			src = tmp2;
+ 			e = ctx->ninsns;
+-			rvoff -= (e - s) << 2;
++			rvoff -= RVOFF(e - s);
+ 		}
+ 
+ 		if (is64)
+diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
+index 6cfd164cbe88..26feed92f1bc 100644
+--- a/arch/riscv/net/bpf_jit_comp64.c
++++ b/arch/riscv/net/bpf_jit_comp64.c
+@@ -304,14 +304,14 @@ static int emit_bpf_tail_call(int insn, struct rv_jit_context *ctx)
+ 	if (is_12b_check(off, insn))
+ 		return -1;
+ 	emit(rv_lwu(RV_REG_T1, off, RV_REG_A1), ctx);
+-	off = (tc_ninsn - (ctx->ninsns - start_insn)) << 2;
++	off = RVOFF(tc_ninsn - (ctx->ninsns - start_insn));
+ 	emit_branch(BPF_JGE, RV_REG_A2, RV_REG_T1, off, ctx);
+ 
+ 	/* if (TCC-- < 0)
+ 	 *     goto out;
+ 	 */
+ 	emit(rv_addi(RV_REG_T1, tcc, -1), ctx);
+-	off = (tc_ninsn - (ctx->ninsns - start_insn)) << 2;
++	off = RVOFF(tc_ninsn - (ctx->ninsns - start_insn));
+ 	emit_branch(BPF_JSLT, tcc, RV_REG_ZERO, off, ctx);
+ 
+ 	/* prog = array->ptrs[index];
+@@ -324,7 +324,7 @@ static int emit_bpf_tail_call(int insn, struct rv_jit_context *ctx)
+ 	if (is_12b_check(off, insn))
+ 		return -1;
+ 	emit(rv_ld(RV_REG_T2, off, RV_REG_T2), ctx);
+-	off = (tc_ninsn - (ctx->ninsns - start_insn)) << 2;
++	off = RVOFF(tc_ninsn - (ctx->ninsns - start_insn));
+ 	emit_branch(BPF_JEQ, RV_REG_T2, RV_REG_ZERO, off, ctx);
+ 
+ 	/* goto *(prog->bpf_func + 4); */
+@@ -757,7 +757,7 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+ 			e = ctx->ninsns;
+ 
+ 			/* Adjust for extra insns */
+-			rvoff -= (e - s) << 2;
++			rvoff -= RVOFF(e - s);
+ 		}
+ 
+ 		if (BPF_OP(code) == BPF_JSET) {
+@@ -810,7 +810,7 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+ 		e = ctx->ninsns;
+ 
+ 		/* Adjust for extra insns */
+-		rvoff -= (e - s) << 2;
++		rvoff -= RVOFF(e - s);
+ 		emit_branch(BPF_OP(code), rd, rs, rvoff, ctx);
+ 		break;
+ 
+@@ -831,7 +831,7 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+ 		if (!is64 && imm < 0)
+ 			emit(rv_addiw(RV_REG_T1, RV_REG_T1, 0), ctx);
+ 		e = ctx->ninsns;
+-		rvoff -= (e - s) << 2;
++		rvoff -= RVOFF(e - s);
+ 		emit_branch(BPF_JNE, RV_REG_T1, RV_REG_ZERO, rvoff, ctx);
+ 		break;
+ 
+diff --git a/arch/riscv/net/bpf_jit_core.c b/arch/riscv/net/bpf_jit_core.c
+index 709b94ece3ed..cd156efe4944 100644
+--- a/arch/riscv/net/bpf_jit_core.c
++++ b/arch/riscv/net/bpf_jit_core.c
+@@ -73,7 +73,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
+ 
+ 	if (ctx->offset) {
+ 		extra_pass = true;
+-		image_size = sizeof(u32) * ctx->ninsns;
++		image_size = sizeof(u16) * ctx->ninsns;
+ 		goto skip_init_ctx;
+ 	}
+ 
+@@ -103,7 +103,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
+ 			if (jit_data->header)
+ 				break;
+ 
+-			image_size = sizeof(u32) * ctx->ninsns;
++			image_size = sizeof(u16) * ctx->ninsns;
+ 			jit_data->header =
+ 				bpf_jit_binary_alloc(image_size,
+ 						     &jit_data->image,
+@@ -114,7 +114,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
+ 				goto out_offset;
+ 			}
+ 
+-			ctx->insns = (u32 *)jit_data->image;
++			ctx->insns = (u16 *)jit_data->image;
+ 			/*
+ 			 * Now, when the image is allocated, the image can
+ 			 * potentially shrink more (auipc/jalr -> jal).
 -- 
 2.25.1
 
