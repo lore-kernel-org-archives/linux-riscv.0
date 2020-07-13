@@ -2,71 +2,75 @@ Return-Path: <SRS0=KFrn=C2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 66034C433E2
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 15:23:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 71532C2BBD1
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 15:23:33 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 97C2A2075B
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 15:23:30 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B537F20708
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 15:23:32 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="PjQXe1KB"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 97C2A2075B
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=csgroup.eu
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Zj13fqIk";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="cGrARoZf"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B537F20708
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:Subject:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=fgyofL05yAc8WjZXiI0kpfwMZtBv7+m1hT2YRkMe+1I=; b=PjQXe1KBl1mA5gdrzCrNTAatX
-	U4ME+s2r5fK44kDBoUNugcUB2fX4w90rKPUIUqRxsdBwoda7Cqzl7SPaKhw9uPEj8GTQrsFyDsBkf
-	15VHQTRmtidoFRyxDV7/yvsTjkhmCGp1TnsbpItLCkF5Wl2J3dpLCznbFNCG/ydf1wRj0i/NY+vRH
-	Gs3WLPAuTZlFUSIireadTAo2AdhrHPkOU+uCgg9183qSs5M1VHxqwvugUBGc/PN+LfydqFgj4OkGJ
-	RO3X9c/95kDgDDkFbB80D3RD4s7u23du8rJB65DYEkWc6CxEBFuCQS+OvUlEjaJDWBTIHO9V0ySgk
-	2fxsJoHhg==;
+	 bh=+8xW/8ZirSVDGY5EiZJANjjNyXzquIFCHWE1tFxAYVI=; b=Zj13fqIkAqoLqTeVRUNmka0Gq
+	1V6K+2A7zo3JbIdEUDElAH2deNhLNmTJkLtRpGuu4cbMkXTEIyWzUpUR+5whlviW8bdqmnbLyBpql
+	dLulYAJsf+wusTu5dMOAM5WlnJdf1SAf4r6F1UBQj7N0DPePnnvDsRUDSP2vQL59EeZ5mTqJN5McH
+	Oi7oPe9ZR+PuzwYH1cDGtcOaDIGZOR8o6WGlTD/F3yLxCAlqYBmwlxEALpATSPZVbfeU+tzPWM3kM
+	wQ2CytU+M22I8vNkYfb12EE38CamcI0C54N+17g/CfLutP8L7iFiUNGrpOj39YlzQXEyuMXJS/vZp
+	Hx59F5JTg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kIvke-00045e-SS; Thu, 17 Sep 2020 15:23:12 +0000
-Received: from pegase1.c-s.fr ([93.17.236.30])
+	id 1kIvke-00045S-CJ; Thu, 17 Sep 2020 15:23:12 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jw73H-000323-G8; Thu, 16 Jul 2020 16:48:10 +0000
-Received: from localhost (mailhub1-int [192.168.12.234])
- by localhost (Postfix) with ESMTP id 4B70YT2Bhkz9txr1;
- Thu, 16 Jul 2020 18:47:57 +0200 (CEST)
-X-Virus-Scanned: Debian amavisd-new at c-s.fr
-Received: from pegase1.c-s.fr ([192.168.12.234])
- by localhost (pegase1.c-s.fr [192.168.12.234]) (amavisd-new, port 10024)
- with ESMTP id ypd4tdSEC0X9; Thu, 16 Jul 2020 18:47:57 +0200 (CEST)
-Received: from vm-hermes.si.c-s.fr (vm-hermes.si.c-s.fr [192.168.25.253])
- by pegase1.c-s.fr (Postfix) with ESMTP id 4B70YT0hs9z9txqy;
- Thu, 16 Jul 2020 18:47:57 +0200 (CEST)
-Received: by vm-hermes.si.c-s.fr (Postfix, from userid 33)
- id E60C2905; Thu, 16 Jul 2020 18:49:09 +0200 (CEST)
-Received: from 37-165-58-223.coucou-networks.fr
- (37-165-58-223.coucou-networks.fr [37.165.58.223]) by messagerie.si.c-s.fr
- (Horde Framework) with HTTP; Thu, 16 Jul 2020 18:49:09 +0200
-Date: Thu, 16 Jul 2020 18:49:09 +0200
-Message-ID: <20200716184909.Horde.JVRLLcKix_jhrJfiQYRbbQ1@messagerie.si.c-s.fr>
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-To: Jarkko Sakkinen <jarkko.sakkinen@linux.intel.com>
-Subject: Re: [PATCH v2 1/3] module: Rename module_alloc() to text_alloc()
- and move to kernel proper
-References: <20200714094625.1443261-1-jarkko.sakkinen@linux.intel.com>
- <20200714094625.1443261-2-jarkko.sakkinen@linux.intel.com>
-In-Reply-To: <20200714094625.1443261-2-jarkko.sakkinen@linux.intel.com>
-User-Agent: Internet Messaging Program (IMP) H5 (6.2.3)
+ id 1jv4Sj-0007lF-Kq; Mon, 13 Jul 2020 19:50:09 +0000
+Received: from mail-yb1-f177.google.com (mail-yb1-f177.google.com
+ [209.85.219.177])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id DEEF320758;
+ Mon, 13 Jul 2020 19:50:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1594669805;
+ bh=FHuzCHWpCtTJY1qjGejXJKWQGFGmWC2El4l0hjtN8S0=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=cGrARoZfF54G7x6wGtUIguPyNu/jrG33O6zMmn/V8HqhLGsNTZ0lc1lMSlbobNbbO
+ VhJZ0bcLD+tyTTjuxvb3YqB2iXwydQrUd24KIuEw/08QA0+AggMbKZ2Rrumuh4719U
+ EIc/pWldM+atc4660twgdypC5JdCApnmgggB/Yig=
+Received: by mail-yb1-f177.google.com with SMTP id l19so7025384ybl.1;
+ Mon, 13 Jul 2020 12:50:04 -0700 (PDT)
+X-Gm-Message-State: AOAM530qQnDA9n47+vEDHU52g8M8gQqcT094dRXfdo5fc8mEjgglfmZQ
+ 9uoZhLoU+UxS5u/yIV3enQsN1UDhDX2KqzfrO7g=
+X-Google-Smtp-Source: ABdhPJyOxOKkM6OTWIMjZEQBmTJoj8038yrxA97pi41xlexkgRwsM1qz062I5AEtOgWr2eu7u1zqTXQvjbgC3KfcHZA=
+X-Received: by 2002:a9d:7553:: with SMTP id b19mr1159952otl.77.1594669801119; 
+ Mon, 13 Jul 2020 12:50:01 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
+References: <20200713182030.1418041-1-jarkko.sakkinen@linux.intel.com>
+In-Reply-To: <20200713182030.1418041-1-jarkko.sakkinen@linux.intel.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Mon, 13 Jul 2020 22:49:48 +0300
+X-Gmail-Original-Message-ID: <CAMj1kXGhZYxjZTP+_PGdBy4hZgdeeTNUkuaE_eQKwB4pPAYNXA@mail.gmail.com>
+Message-ID: <CAMj1kXGhZYxjZTP+_PGdBy4hZgdeeTNUkuaE_eQKwB4pPAYNXA@mail.gmail.com>
+Subject: Re: [PATCH 1/3] module: Rename module_alloc() to text_alloc() and
+ move to kernel proper
+To: Jarkko Sakkinen <jarkko.sakkinen@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200716_124807_855686_C9AFD9F6 
-X-CRM114-Status: GOOD (  26.25  )
+X-CRM114-CacheID: sfid-20200713_155005_910250_5D338AA9 
+X-CRM114-Status: GOOD (  39.23  )
 X-Mailman-Approved-At: Thu, 17 Sep 2020 11:23:10 -0400
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -82,817 +86,1392 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Cc: Catalin Marinas <catalin.marinas@arm.com>,
  Kefeng Wang <wangkefeng.wang@huawei.com>, Paul Mackerras <paulus@samba.org>,
  Zong Li <zong.li@sifive.com>, Andi Kleen <ak@linux.intel.com>,
- Paul Burton <paulburton@kernel.org>,
+ Paul Burton <paulburton@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
  Vincent Whitchurch <vincent.whitchurch@axis.com>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
  Petr Mladek <pmladek@suse.com>, Brian Gerst <brgerst@gmail.com>,
- Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Jiri Kosina <jkosina@suse.cz>, Anup Patel <anup.patel@wdc.com>,
- linux-kernel@vger.kernel.org, Philipp Rudo <prudo@linux.ibm.com>,
- Torsten Duwe <duwe@lst.de>, Masami Hiramatsu <mhiramat@kernel.org>,
+ Andy Lutomirski <luto@kernel.org>, Yonghong Song <yhs@fb.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Jiri Kosina <jkosina@suse.cz>,
+ Anup Patel <anup.patel@wdc.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Philipp Rudo <prudo@linux.ibm.com>, Torsten Duwe <duwe@lst.de>,
+ Masami Hiramatsu <mhiramat@kernel.org>,
  Andrew Morton <akpm@linux-foundation.org>, Mark Rutland <mark.rutland@arm.com>,
  "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Vincent Chen <deanbo422@gmail.com>, Omar Sandoval <osandov@fb.com>,
+ Vincent Chen <deanbo422@gmail.com>,
  "open list:S390" <linux-s390@vger.kernel.org>,
  Joe Lawrence <joe.lawrence@redhat.com>, Helge Deller <deller@gmx.de>,
  John Fastabend <john.fastabend@gmail.com>,
  Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
- Yonghong Song <yhs@fb.com>, Iurii Zaikin <yzaikin@google.com>,
- Andrii Nakryiko <andriin@fb.com>, Thomas Huth <thuth@redhat.com>,
- Vasily Gorbik <gor@linux.ibm.com>, "moderated list:ARM
- PORT" <linux-arm-kernel@lists.infradead.org>, Daniel Axtens <dja@axtens.net>,
- Damien Le Moal <damien.lemoal@wdc.com>, Martin KaFai Lau <kafai@fb.com>,
- Song Liu <songliubraving@fb.com>, Josh Poimboeuf <jpoimboe@redhat.com>,
+ Andrey Ryabinin <aryabinin@virtuozzo.com>, Iurii Zaikin <yzaikin@google.com>,
+ Andrii Nakryiko <andriin@fb.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ "moderated list:ARM PORT" <linux-arm-kernel@lists.infradead.org>,
+ Daniel Axtens <dja@axtens.net>, Damien Le Moal <damien.lemoal@wdc.com>,
+ Peter Oberparleiter <oberpar@linux.ibm.com>,
+ Sean Christopherson <sean.j.christopherson@intel.com>,
+ Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
  Heiko Carstens <heiko.carstens@de.ibm.com>,
  Alexei Starovoitov <ast@kernel.org>, Atish Patra <atish.patra@wdc.com>,
  Will Deacon <will@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
  Masahiro Yamada <masahiroy@kernel.org>, Nayna Jain <nayna@linux.ibm.com>,
  Ley Foon Tan <ley.foon.tan@intel.com>,
  Christian Borntraeger <borntraeger@de.ibm.com>,
- Sami Tolvanen <samitolvanen@google.com>,
+ Dmitry Vyukov <dvyukov@google.com>, Sami Tolvanen <samitolvanen@google.com>,
  "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>, Mao Han <han_mao@c-sky.com>,
  Marco Elver <elver@google.com>, Steven Rostedt <rostedt@goodmis.org>,
  Babu Moger <Babu.Moger@amd.com>, Borislav Petkov <bp@alien8.de>,
  Greentime Hu <green.hu@gmail.com>, Ben Dooks <ben-linux@fluff.org>,
  Guan Xuetao <gxt@pku.edu.cn>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
  "open list:PARISC ARCHITECTURE" <linux-parisc@vger.kernel.org>,
- Jessica Yu <jeyu@kernel.org>, "open
- list:BPF JIT for MIPS 32-BIT AND 64-BIT" <bpf@vger.kernel.org>,
+ Jessica Yu <jeyu@kernel.org>,
+ "open list:BPF JIT for MIPS \(32-BIT AND 64-BIT\)" <bpf@vger.kernel.org>,
  "David S. Miller" <davem@davemloft.net>,
  Thiago Jung Bauermann <bauerman@linux.ibm.com>,
- Peter Zijlstra <peterz@infradead.org>, David Howells <dhowells@redhat.com>,
- Amit Daniel Kachhap <amit.kachhap@arm.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ "open list:SPARC + UltraSPARC \(sparc/sparc64\)" <sparclinux@vger.kernel.org>,
  Sandipan Das <sandipan@linux.ibm.com>, "H. Peter Anvin" <hpa@zytor.com>,
- "open list:SPARC + UltraSPARC sparc/sparc64" <sparclinux@vger.kernel.org>,
+ Amit Daniel Kachhap <amit.kachhap@arm.com>,
  Tiezhu Yang <yangtiezhu@loongson.cn>, Miroslav Benes <mbenes@suse.cz>,
- Sven Schnelle <svens@stackframe.org>, Ard Biesheuvel <ardb@kernel.org>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Anders Roxell <anders.roxell@linaro.org>, Jiri Olsa <jolsa@redhat.com>,
- "maintainer:X86 ARCHITECTURE 32-BIT AND 64-BIT" <x86@kernel.org>,
- Russell King <linux@armlinux.org.uk>,
+ Jiri Olsa <jolsa@redhat.com>,
  "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
- Mike Rapoport <rppt@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- Albert Ou <aou@eecs.berkeley.edu>, "Paul E. McKenney" <paulmck@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, KP Singh <kpsingh@chromium.org>,
- Dmitry Vyukov <dvyukov@google.com>, Nick Hu <nickhu@andestech.com>,
- "open list:BPF JIT for MIPS 32-BIT
- AND 64-BIT" <netdev@vger.kernel.org>, "open
- list:MIPS" <linux-mips@vger.kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- "open list:LINUX FOR POWERPC 32-BIT AND 64-BIT"
+ Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Anders Roxell <anders.roxell@linaro.org>, Sven Schnelle <svens@stackframe.org>,
+ "maintainer:X86 ARCHITECTURE \(32-BIT AND 64-BIT\)" <x86@kernel.org>,
+ Russell King <linux@armlinux.org.uk>, Mike Rapoport <rppt@linux.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ "Paul E. McKenney" <paulmck@kernel.org>, Josh Poimboeuf <jpoimboe@redhat.com>,
+ KP Singh <kpsingh@chromium.org>, Gerald Schaefer <gerald.schaefer@de.ibm.com>,
+ Nick Hu <nickhu@andestech.com>,
+ "open list:BPF JIT for MIPS \(32-BIT AND 64-BIT\)" <netdev@vger.kernel.org>,
+ "open list:MIPS" <linux-mips@vger.kernel.org>,
+ Sergey Senozhatsky <sergey.senozhatsky@gmail.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ "open list:LINUX FOR POWERPC \(32-BIT AND 64-BIT\)"
  <linuxppc-dev@lists.ozlabs.org>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"; DelSp="Yes"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SmFya2tvIFNha2tpbmVuIDxqYXJra28uc2Fra2luZW5AbGludXguaW50ZWwuY29tPiBhIMOpY3Jp
-dMKgOgoKPiBSZW5hbWUgbW9kdWxlX2FsbG9jKCkgdG8gdGV4dF9hbGxvYygpIGFuZCBtb2R1bGVf
-bWVtZnJlZSgpIHRvCj4gdGV4dF9tZW1mcmVlKCksIGFuZCBtb3ZlIHRoZW0gdG8ga2VybmVsL3Rl
-eHQuYywgd2hpY2ggaXMgdW5jb25kaXRpb25hbGx5Cj4gY29tcGlsZWQgdG8gdGhlIGtlcm5lbCBw
-cm9wZXIuIFRoaXMgYWxsb3dzIGtwcm9iZXMsIGZ0cmFjZSBhbmQgYnBmIHRvCj4gYWxsb2NhdGUg
-c3BhY2UgZm9yIGV4ZWN1dGFibGUgY29kZSB3aXRob3V0IHJlcXVpcmluZyB0byBjb21waWxlIHRo
-ZSBtb2R1bGVzCj4gc3VwcG9ydCAoQ09ORklHX01PRFVMRVM9eSkgaW4uCgpZb3UgYXJlIG5vdCBj
-aGFuZ2luZyBlbm91Z2ggaW4gcG93ZXJwYyB0byBoYXZlIHRoaXMgd29yay4KT24gcG93ZXJwYyAz
-MiBiaXRzICg2eHgpLCB3aGVuIFNUUklDVF9LRVJORUxfUldYIGlzIHNlbGVjdGVkLCB0aGUgIAp2
-bWFsbG9jIHNwYWNlIGlzIHNldCB0byBOWCAobm8gZXhlYykgYXQgc2VnbWVudCBsZXZlbCAoaWUg
-YnkgMjU2TWJ5dGVzICAKem9uZSkgdW5sZXNzIENPTkZJR19NT0RVTEVTIGlzIHNlbGVjdGVkLgoK
-Q2hyaXN0b3BoZQoKCj4KPiBDYzogQW5kaSBLbGVlbiA8YWtAbGludXguaW50ZWwuY29tPgo+IFN1
-Z2dlc3RlZC1ieTogUGV0ZXIgWmlqbHN0cmEgPHBldGVyekBpbmZyYWRlYWQub3JnPgo+IFNpZ25l
-ZC1vZmYtYnk6IEphcmtrbyBTYWtraW5lbiA8amFya2tvLnNha2tpbmVuQGxpbnV4LmludGVsLmNv
-bT4KPiAtLS0KPiAgYXJjaC9hcm0va2VybmVsL01ha2VmaWxlICAgICAgICAgfCAgMyArLQo+ICBh
-cmNoL2FybS9rZXJuZWwvbW9kdWxlLmMgICAgICAgICB8IDIxIC0tLS0tLS0tLS0tCj4gIGFyY2gv
-YXJtL2tlcm5lbC90ZXh0LmMgICAgICAgICAgIHwgMzMgKysrKysrKysrKysrKysrKysrCj4gIGFy
-Y2gvYXJtNjQva2VybmVsL01ha2VmaWxlICAgICAgIHwgIDIgKy0KPiAgYXJjaC9hcm02NC9rZXJu
-ZWwvbW9kdWxlLmMgICAgICAgfCA0MiAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tCj4gIGFyY2gvYXJt
-NjQva2VybmVsL3RleHQuYyAgICAgICAgIHwgNTQgKysrKysrKysrKysrKysrKysrKysrKysrKysr
-Kwo+ICBhcmNoL21pcHMva2VybmVsL01ha2VmaWxlICAgICAgICB8ICAyICstCj4gIGFyY2gvbWlw
-cy9rZXJuZWwvbW9kdWxlLmMgICAgICAgIHwgIDkgLS0tLS0KPiAgYXJjaC9taXBzL2tlcm5lbC90
-ZXh0LmMgICAgICAgICAgfCAxOSArKysrKysrKysrCj4gIGFyY2gvbWlwcy9uZXQvYnBmX2ppdC5j
-ICAgICAgICAgIHwgIDQgKy0tCj4gIGFyY2gvbmRzMzIva2VybmVsL01ha2VmaWxlICAgICAgIHwg
-IDIgKy0KPiAgYXJjaC9uZHMzMi9rZXJuZWwvbW9kdWxlLmMgICAgICAgfCAgNyAtLS0tCj4gIGFy
-Y2gvbmRzMzIva2VybmVsL3RleHQuYyAgICAgICAgIHwgMTIgKysrKysrKwo+ICBhcmNoL25pb3My
-L2tlcm5lbC9NYWtlZmlsZSAgICAgICB8ICAxICsKPiAgYXJjaC9uaW9zMi9rZXJuZWwvbW9kdWxl
-LmMgICAgICAgfCAxOSAtLS0tLS0tLS0tCj4gIGFyY2gvbmlvczIva2VybmVsL3RleHQuYyAgICAg
-ICAgIHwgMzQgKysrKysrKysrKysrKysrKysrCj4gIGFyY2gvcGFyaXNjL2tlcm5lbC9NYWtlZmls
-ZSAgICAgIHwgIDIgKy0KPiAgYXJjaC9wYXJpc2Mva2VybmVsL21vZHVsZS5jICAgICAgfCAxMSAt
-LS0tLS0KPiAgYXJjaC9wYXJpc2Mva2VybmVsL3RleHQuYyAgICAgICAgfCAyMiArKysrKysrKysr
-KysKPiAgYXJjaC9wb3dlcnBjL25ldC9icGZfaml0X2NvbXAuYyAgfCAgNCArLS0KPiAgYXJjaC9y
-aXNjdi9rZXJuZWwvTWFrZWZpbGUgICAgICAgfCAgMSArCj4gIGFyY2gvcmlzY3Yva2VybmVsL21v
-ZHVsZS5jICAgICAgIHwgMTIgLS0tLS0tLQo+ICBhcmNoL3Jpc2N2L2tlcm5lbC90ZXh0LmMgICAg
-ICAgICB8IDIwICsrKysrKysrKysrCj4gIGFyY2gvczM5MC9rZXJuZWwvTWFrZWZpbGUgICAgICAg
-IHwgIDIgKy0KPiAgYXJjaC9zMzkwL2tlcm5lbC9mdHJhY2UuYyAgICAgICAgfCAgMiArLQo+ICBh
-cmNoL3MzOTAva2VybmVsL21vZHVsZS5jICAgICAgICB8IDE2IC0tLS0tLS0tLQo+ICBhcmNoL3Mz
-OTAva2VybmVsL3RleHQuYyAgICAgICAgICB8IDIzICsrKysrKysrKysrKwo+ICBhcmNoL3NwYXJj
-L2tlcm5lbC9NYWtlZmlsZSAgICAgICB8ICAxICsKPiAgYXJjaC9zcGFyYy9rZXJuZWwvbW9kdWxl
-LmMgICAgICAgfCAzMCAtLS0tLS0tLS0tLS0tLS0tCj4gIGFyY2gvc3BhcmMva2VybmVsL3RleHQu
-YyAgICAgICAgIHwgMzkgKysrKysrKysrKysrKysrKysrKysrCj4gIGFyY2gvc3BhcmMvbmV0L2Jw
-Zl9qaXRfY29tcF8zMi5jIHwgIDYgKystLQo+ICBhcmNoL3VuaWNvcmUzMi9rZXJuZWwvTWFrZWZp
-bGUgICB8ICAxICsKPiAgYXJjaC91bmljb3JlMzIva2VybmVsL21vZHVsZS5jICAgfCAgNyAtLS0t
-Cj4gIGFyY2gvdW5pY29yZTMyL2tlcm5lbC90ZXh0LmMgICAgIHwgMTggKysrKysrKysrKwo+ICBh
-cmNoL3g4Ni9rZXJuZWwvTWFrZWZpbGUgICAgICAgICB8ICAxICsKPiAgYXJjaC94ODYva2VybmVs
-L2Z0cmFjZS5jICAgICAgICAgfCAgNCArLS0KPiAgYXJjaC94ODYva2VybmVsL2twcm9iZXMvY29y
-ZS5jICAgfCAgNCArLS0KPiAgYXJjaC94ODYva2VybmVsL21vZHVsZS5jICAgICAgICAgfCA0OSAt
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQo+ICBhcmNoL3g4Ni9rZXJuZWwvdGV4dC5jICAgICAg
-ICAgICB8IDYwICsrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrCj4gIGluY2x1ZGUvbGlu
-dXgvbW9kdWxlbG9hZGVyLmggICAgIHwgIDQgKy0tCj4gIGtlcm5lbC9NYWtlZmlsZSAgICAgICAg
-ICAgICAgICAgIHwgIDIgKy0KPiAga2VybmVsL2JwZi9jb3JlLmMgICAgICAgICAgICAgICAgfCAg
-NCArLS0KPiAga2VybmVsL2twcm9iZXMuYyAgICAgICAgICAgICAgICAgfCAgNCArLS0KPiAga2Vy
-bmVsL21vZHVsZS5jICAgICAgICAgICAgICAgICAgfCAzNyArKysrKystLS0tLS0tLS0tLS0tLQo+
-ICBrZXJuZWwvdGV4dC5jICAgICAgICAgICAgICAgICAgICB8IDI1ICsrKysrKysrKysrKysKPiAg
-NDUgZmlsZXMgY2hhbmdlZCwgNDAwIGluc2VydGlvbnMoKyksIDI3NSBkZWxldGlvbnMoLSkKPiAg
-Y3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvYXJtL2tlcm5lbC90ZXh0LmMKPiAgY3JlYXRlIG1vZGUg
-MTAwNjQ0IGFyY2gvYXJtNjQva2VybmVsL3RleHQuYwo+ICBjcmVhdGUgbW9kZSAxMDA2NDQgYXJj
-aC9taXBzL2tlcm5lbC90ZXh0LmMKPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvbmRzMzIva2Vy
-bmVsL3RleHQuYwo+ICBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9uaW9zMi9rZXJuZWwvdGV4dC5j
-Cj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3BhcmlzYy9rZXJuZWwvdGV4dC5jCj4gIGNyZWF0
-ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2tlcm5lbC90ZXh0LmMKPiAgY3JlYXRlIG1vZGUgMTAw
-NjQ0IGFyY2gvczM5MC9rZXJuZWwvdGV4dC5jCj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Nw
-YXJjL2tlcm5lbC90ZXh0LmMKPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvdW5pY29yZTMyL2tl
-cm5lbC90ZXh0LmMKPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gveDg2L2tlcm5lbC90ZXh0LmMK
-PiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGtlcm5lbC90ZXh0LmMKPgo+IGRpZmYgLS1naXQgYS9hcmNo
-L2FybS9rZXJuZWwvTWFrZWZpbGUgYi9hcmNoL2FybS9rZXJuZWwvTWFrZWZpbGUKPiBpbmRleCA4
-OWU1ZDg2NGU5MjMuLjY5YmZhY2ZkNjBlZiAxMDA2NDQKPiAtLS0gYS9hcmNoL2FybS9rZXJuZWwv
-TWFrZWZpbGUKPiArKysgYi9hcmNoL2FybS9rZXJuZWwvTWFrZWZpbGUKPiBAQCAtMTksNyArMTks
-OCBAQCBDRkxBR1NfUkVNT1ZFX3JldHVybl9hZGRyZXNzLm8gPSAtcGcKPiAgb2JqLXkJCTo9IGVs
-Zi5vIGVudHJ5LWNvbW1vbi5vIGlycS5vIG9wY29kZXMubyBcCj4gIAkJICAgcHJvY2Vzcy5vIHB0
-cmFjZS5vIHJlYm9vdC5vIFwKPiAgCQkgICBzZXR1cC5vIHNpZ25hbC5vIHNpZ3JldHVybl9jb2Rl
-cy5vIFwKPiAtCQkgICBzdGFja3RyYWNlLm8gc3lzX2FybS5vIHRpbWUubyB0cmFwcy5vCj4gKwkJ
-ICAgc3RhY2t0cmFjZS5vIHN5c19hcm0ubyB0aW1lLm8gdHJhcHMubyBcCj4gKwkJICAgdGV4dC5v
-Cj4KPiAgaWZuZXEgKCQoQ09ORklHX0FSTV9VTldJTkQpLHkpCj4gIG9iai0kKENPTkZJR19GUkFN
-RV9QT0lOVEVSKQkrPSByZXR1cm5fYWRkcmVzcy5vCj4gZGlmZiAtLWdpdCBhL2FyY2gvYXJtL2tl
-cm5lbC9tb2R1bGUuYyBiL2FyY2gvYXJtL2tlcm5lbC9tb2R1bGUuYwo+IGluZGV4IGUxNTQ0NGIy
-NWNhMC4uMTNlMzQ0MmE2YjlmIDEwMDY0NAo+IC0tLSBhL2FyY2gvYXJtL2tlcm5lbC9tb2R1bGUu
-Ywo+ICsrKyBiL2FyY2gvYXJtL2tlcm5lbC9tb2R1bGUuYwo+IEBAIC0zMywyNyArMzMsNiBAQAo+
-ICAjZGVmaW5lIE1PRFVMRVNfVkFERFIJKCgodW5zaWduZWQgbG9uZylfZXhpcHJvbSArIH5QTURf
-TUFTSykgJiBQTURfTUFTSykKPiAgI2VuZGlmCj4KPiAtI2lmZGVmIENPTkZJR19NTVUKPiAtdm9p
-ZCAqbW9kdWxlX2FsbG9jKHVuc2lnbmVkIGxvbmcgc2l6ZSkKPiAtewo+IC0JZ2ZwX3QgZ2ZwX21h
-c2sgPSBHRlBfS0VSTkVMOwo+IC0Jdm9pZCAqcDsKPiAtCj4gLQkvKiBTaWxlbmNlIHRoZSBpbml0
-aWFsIGFsbG9jYXRpb24gKi8KPiAtCWlmIChJU19FTkFCTEVEKENPTkZJR19BUk1fTU9EVUxFX1BM
-VFMpKQo+IC0JCWdmcF9tYXNrIHw9IF9fR0ZQX05PV0FSTjsKPiAtCj4gLQlwID0gX192bWFsbG9j
-X25vZGVfcmFuZ2Uoc2l6ZSwgMSwgTU9EVUxFU19WQUREUiwgTU9EVUxFU19FTkQsCj4gLQkJCQln
-ZnBfbWFzaywgUEFHRV9LRVJORUxfRVhFQywgMCwgTlVNQV9OT19OT0RFLAo+IC0JCQkJX19idWls
-dGluX3JldHVybl9hZGRyZXNzKDApKTsKPiAtCWlmICghSVNfRU5BQkxFRChDT05GSUdfQVJNX01P
-RFVMRV9QTFRTKSB8fCBwKQo+IC0JCXJldHVybiBwOwo+IC0JcmV0dXJuIF9fdm1hbGxvY19ub2Rl
-X3JhbmdlKHNpemUsIDEsICBWTUFMTE9DX1NUQVJULCBWTUFMTE9DX0VORCwKPiAtCQkJCUdGUF9L
-RVJORUwsIFBBR0VfS0VSTkVMX0VYRUMsIDAsIE5VTUFfTk9fTk9ERSwKPiAtCQkJCV9fYnVpbHRp
-bl9yZXR1cm5fYWRkcmVzcygwKSk7Cj4gLX0KPiAtI2VuZGlmCj4gLQo+ICBib29sIG1vZHVsZV9p
-bml0X3NlY3Rpb24oY29uc3QgY2hhciAqbmFtZSkKPiAgewo+ICAJcmV0dXJuIHN0cnN0YXJ0cyhu
-YW1lLCAiLmluaXQiKSB8fAo+IGRpZmYgLS1naXQgYS9hcmNoL2FybS9rZXJuZWwvdGV4dC5jIGIv
-YXJjaC9hcm0va2VybmVsL3RleHQuYwo+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4gaW5kZXggMDAw
-MDAwMDAwMDAwLi42MDAxNDNmYjkwOWQKPiAtLS0gL2Rldi9udWxsCj4gKysrIGIvYXJjaC9hcm0v
-a2VybmVsL3RleHQuYwo+IEBAIC0wLDAgKzEsMzMgQEAKPiArLy8gU1BEWC1MaWNlbnNlLUlkZW50
-aWZpZXI6IEdQTC0yLjAtb25seQo+ICsvKgo+ICsgKiAgbGludXgvYXJjaC9hcm0va2VybmVsL21v
-ZHVsZS5jCj4gKyAqCj4gKyAqICBDb3B5cmlnaHQgKEMpIDIwMDIgUnVzc2VsbCBLaW5nLgo+ICsg
-KiAgTW9kaWZpZWQgZm9yIG5vbW11IGJ5IEh5b2sgUy4gQ2hvaQo+ICsgKgo+ICsgKiBNb2R1bGUg
-YWxsb2NhdGlvbiBtZXRob2Qgc3VnZ2VzdGVkIGJ5IEFuZGkgS2xlZW4uCj4gKyAqLwo+ICsjaW5j
-bHVkZSA8bGludXgvbW0uaD4KPiArI2luY2x1ZGUgPGxpbnV4L21vZHVsZWxvYWRlci5oPgo+ICsj
-aW5jbHVkZSA8bGludXgvdm1hbGxvYy5oPgo+ICsKPiArI2lmZGVmIENPTkZJR19NTVUKPiArdm9p
-ZCAqdGV4dF9hbGxvYyh1bnNpZ25lZCBsb25nIHNpemUpCj4gK3sKPiArCWdmcF90IGdmcF9tYXNr
-ID0gR0ZQX0tFUk5FTDsKPiArCXZvaWQgKnA7Cj4gKwo+ICsJLyogU2lsZW5jZSB0aGUgaW5pdGlh
-bCBhbGxvY2F0aW9uICovCj4gKwlpZiAoSVNfRU5BQkxFRChDT05GSUdfQVJNX01PRFVMRV9QTFRT
-KSkKPiArCQlnZnBfbWFzayB8PSBfX0dGUF9OT1dBUk47Cj4gKwo+ICsJcCA9IF9fdm1hbGxvY19u
-b2RlX3JhbmdlKHNpemUsIDEsIE1PRFVMRVNfVkFERFIsIE1PRFVMRVNfRU5ELAo+ICsJCQkJZ2Zw
-X21hc2ssIFBBR0VfS0VSTkVMX0VYRUMsIDAsIE5VTUFfTk9fTk9ERSwKPiArCQkJCV9fYnVpbHRp
-bl9yZXR1cm5fYWRkcmVzcygwKSk7Cj4gKwlpZiAoIUlTX0VOQUJMRUQoQ09ORklHX0FSTV9NT0RV
-TEVfUExUUykgfHwgcCkKPiArCQlyZXR1cm4gcDsKPiArCXJldHVybiBfX3ZtYWxsb2Nfbm9kZV9y
-YW5nZShzaXplLCAxLCAgVk1BTExPQ19TVEFSVCwgVk1BTExPQ19FTkQsCj4gKwkJCQlHRlBfS0VS
-TkVMLCBQQUdFX0tFUk5FTF9FWEVDLCAwLCBOVU1BX05PX05PREUsCj4gKwkJCQlfX2J1aWx0aW5f
-cmV0dXJuX2FkZHJlc3MoMCkpOwo+ICt9Cj4gKyNlbmRpZgo+IGRpZmYgLS1naXQgYS9hcmNoL2Fy
-bTY0L2tlcm5lbC9NYWtlZmlsZSBiL2FyY2gvYXJtNjQva2VybmVsL01ha2VmaWxlCj4gaW5kZXgg
-YTU2MWNiYjkxZDRkLi43NzY1YTQ1ZDcxYjUgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9hcm02NC9rZXJu
-ZWwvTWFrZWZpbGUKPiArKysgYi9hcmNoL2FybTY0L2tlcm5lbC9NYWtlZmlsZQo+IEBAIC0xOSw3
-ICsxOSw3IEBAIG9iai15CQkJOj0gZGVidWctbW9uaXRvcnMubyBlbnRyeS5vIGlycS5vIGZwc2lt
-ZC5vCQlcCj4gIAkJCSAgIHJldHVybl9hZGRyZXNzLm8gY3B1aW5mby5vIGNwdV9lcnJhdGEubwkJ
-XAo+ICAJCQkgICBjcHVmZWF0dXJlLm8gYWx0ZXJuYXRpdmUubyBjYWNoZWluZm8ubwkJXAo+ICAJ
-CQkgICBzbXAubyBzbXBfc3Bpbl90YWJsZS5vIHRvcG9sb2d5Lm8gc21jY2MtY2FsbC5vCVwKPiAt
-CQkJICAgc3lzY2FsbC5vCj4gKwkJCSAgIHN5c2NhbGwubyB0ZXh0Lm8KPgo+ICB0YXJnZXRzCQkJ
-Kz0gZWZpLWVudHJ5Lm8KPgo+IGRpZmYgLS1naXQgYS9hcmNoL2FybTY0L2tlcm5lbC9tb2R1bGUu
-YyBiL2FyY2gvYXJtNjQva2VybmVsL21vZHVsZS5jCj4gaW5kZXggMWNkMWE0ZDBlZDMwLi5hZGRl
-MDIyZjcwM2MgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9hcm02NC9rZXJuZWwvbW9kdWxlLmMKPiArKysg
-Yi9hcmNoL2FybTY0L2tlcm5lbC9tb2R1bGUuYwo+IEBAIC0yMCw0OCArMjAsNiBAQAo+ICAjaW5j
-bHVkZSA8YXNtL2luc24uaD4KPiAgI2luY2x1ZGUgPGFzbS9zZWN0aW9ucy5oPgo+Cj4gLXZvaWQg
-Km1vZHVsZV9hbGxvYyh1bnNpZ25lZCBsb25nIHNpemUpCj4gLXsKPiAtCXU2NCBtb2R1bGVfYWxs
-b2NfZW5kID0gbW9kdWxlX2FsbG9jX2Jhc2UgKyBNT0RVTEVTX1ZTSVpFOwo+IC0JZ2ZwX3QgZ2Zw
-X21hc2sgPSBHRlBfS0VSTkVMOwo+IC0Jdm9pZCAqcDsKPiAtCj4gLQkvKiBTaWxlbmNlIHRoZSBp
-bml0aWFsIGFsbG9jYXRpb24gKi8KPiAtCWlmIChJU19FTkFCTEVEKENPTkZJR19BUk02NF9NT0RV
-TEVfUExUUykpCj4gLQkJZ2ZwX21hc2sgfD0gX19HRlBfTk9XQVJOOwo+IC0KPiAtCWlmIChJU19F
-TkFCTEVEKENPTkZJR19LQVNBTikpCj4gLQkJLyogZG9uJ3QgZXhjZWVkIHRoZSBzdGF0aWMgbW9k
-dWxlIHJlZ2lvbiAtIHNlZSBiZWxvdyAqLwo+IC0JCW1vZHVsZV9hbGxvY19lbmQgPSBNT0RVTEVT
-X0VORDsKPiAtCj4gLQlwID0gX192bWFsbG9jX25vZGVfcmFuZ2Uoc2l6ZSwgTU9EVUxFX0FMSUdO
-LCBtb2R1bGVfYWxsb2NfYmFzZSwKPiAtCQkJCW1vZHVsZV9hbGxvY19lbmQsIGdmcF9tYXNrLCBQ
-QUdFX0tFUk5FTCwgMCwKPiAtCQkJCU5VTUFfTk9fTk9ERSwgX19idWlsdGluX3JldHVybl9hZGRy
-ZXNzKDApKTsKPiAtCj4gLQlpZiAoIXAgJiYgSVNfRU5BQkxFRChDT05GSUdfQVJNNjRfTU9EVUxF
-X1BMVFMpICYmCj4gLQkgICAgIUlTX0VOQUJMRUQoQ09ORklHX0tBU0FOKSkKPiAtCQkvKgo+IC0J
-CSAqIEtBU0FOIGNhbiBvbmx5IGRlYWwgd2l0aCBtb2R1bGUgYWxsb2NhdGlvbnMgYmVpbmcgc2Vy
-dmVkCj4gLQkJICogZnJvbSB0aGUgcmVzZXJ2ZWQgbW9kdWxlIHJlZ2lvbiwgc2luY2UgdGhlIHJl
-bWFpbmRlciBvZgo+IC0JCSAqIHRoZSB2bWFsbG9jIHJlZ2lvbiBpcyBhbHJlYWR5IGJhY2tlZCBi
-eSB6ZXJvIHNoYWRvdyBwYWdlcywKPiAtCQkgKiBhbmQgcHVuY2hpbmcgaG9sZXMgaW50byBpdCBp
-cyBub24tdHJpdmlhbC4gU2luY2UgdGhlIG1vZHVsZQo+IC0JCSAqIHJlZ2lvbiBpcyBub3QgcmFu
-ZG9taXplZCB3aGVuIEtBU0FOIGlzIGVuYWJsZWQsIGl0IGlzIGV2ZW4KPiAtCQkgKiBsZXNzIGxp
-a2VseSB0aGF0IHRoZSBtb2R1bGUgcmVnaW9uIGdldHMgZXhoYXVzdGVkLCBzbyB3ZQo+IC0JCSAq
-IGNhbiBzaW1wbHkgb21pdCB0aGlzIGZhbGxiYWNrIGluIHRoYXQgY2FzZS4KPiAtCQkgKi8KPiAt
-CQlwID0gX192bWFsbG9jX25vZGVfcmFuZ2Uoc2l6ZSwgTU9EVUxFX0FMSUdOLCBtb2R1bGVfYWxs
-b2NfYmFzZSwKPiAtCQkJCW1vZHVsZV9hbGxvY19iYXNlICsgU1pfMkcsIEdGUF9LRVJORUwsCj4g
-LQkJCQlQQUdFX0tFUk5FTCwgMCwgTlVNQV9OT19OT0RFLAo+IC0JCQkJX19idWlsdGluX3JldHVy
-bl9hZGRyZXNzKDApKTsKPiAtCj4gLQlpZiAocCAmJiAoa2FzYW5fbW9kdWxlX2FsbG9jKHAsIHNp
-emUpIDwgMCkpIHsKPiAtCQl2ZnJlZShwKTsKPiAtCQlyZXR1cm4gTlVMTDsKPiAtCX0KPiAtCj4g
-LQlyZXR1cm4gcDsKPiAtfQo+IC0KPiAgZW51bSBhYXJjaDY0X3JlbG9jX29wIHsKPiAgCVJFTE9D
-X09QX05PTkUsCj4gIAlSRUxPQ19PUF9BQlMsCj4gZGlmZiAtLWdpdCBhL2FyY2gvYXJtNjQva2Vy
-bmVsL3RleHQuYyBiL2FyY2gvYXJtNjQva2VybmVsL3RleHQuYwo+IG5ldyBmaWxlIG1vZGUgMTAw
-NjQ0Cj4gaW5kZXggMDAwMDAwMDAwMDAwLi42NGZjN2UyZDg1ZGYKPiAtLS0gL2Rldi9udWxsCj4g
-KysrIGIvYXJjaC9hcm02NC9rZXJuZWwvdGV4dC5jCj4gQEAgLTAsMCArMSw1NCBAQAo+ICsvLyBT
-UERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMC1vbmx5Cj4gKy8qCj4gKyAqIEFBcmNoNjQg
-bG9hZGFibGUgbW9kdWxlIHN1cHBvcnQuCj4gKyAqCj4gKyAqIENvcHlyaWdodCAoQykgMjAxMiBB
-Uk0gTGltaXRlZAo+ICsgKgo+ICsgKiBBdXRob3I6IFdpbGwgRGVhY29uIDx3aWxsLmRlYWNvbkBh
-cm0uY29tPgo+ICsgKi8KPiArI2luY2x1ZGUgPGxpbnV4L2thc2FuLmg+Cj4gKyNpbmNsdWRlIDxs
-aW51eC9tbS5oPgo+ICsjaW5jbHVkZSA8bGludXgvbW9kdWxlbG9hZGVyLmg+Cj4gKyNpbmNsdWRl
-IDxsaW51eC92bWFsbG9jLmg+Cj4gKwo+ICt2b2lkICp0ZXh0X2FsbG9jKHVuc2lnbmVkIGxvbmcg
-c2l6ZSkKPiArewo+ICsJdTY0IG1vZHVsZV9hbGxvY19lbmQgPSBtb2R1bGVfYWxsb2NfYmFzZSAr
-IE1PRFVMRVNfVlNJWkU7Cj4gKwlnZnBfdCBnZnBfbWFzayA9IEdGUF9LRVJORUw7Cj4gKwl2b2lk
-ICpwOwo+ICsKPiArCS8qIFNpbGVuY2UgdGhlIGluaXRpYWwgYWxsb2NhdGlvbiAqLwo+ICsJaWYg
-KElTX0VOQUJMRUQoQ09ORklHX0FSTTY0X01PRFVMRV9QTFRTKSkKPiArCQlnZnBfbWFzayB8PSBf
-X0dGUF9OT1dBUk47Cj4gKwo+ICsJaWYgKElTX0VOQUJMRUQoQ09ORklHX0tBU0FOKSkKPiArCQkv
-KiBkb24ndCBleGNlZWQgdGhlIHN0YXRpYyBtb2R1bGUgcmVnaW9uIC0gc2VlIGJlbG93ICovCj4g
-KwkJbW9kdWxlX2FsbG9jX2VuZCA9IE1PRFVMRVNfRU5EOwo+ICsKPiArCXAgPSBfX3ZtYWxsb2Nf
-bm9kZV9yYW5nZShzaXplLCBNT0RVTEVfQUxJR04sIG1vZHVsZV9hbGxvY19iYXNlLAo+ICsJCQkJ
-bW9kdWxlX2FsbG9jX2VuZCwgZ2ZwX21hc2ssIFBBR0VfS0VSTkVMLCAwLAo+ICsJCQkJTlVNQV9O
-T19OT0RFLCBfX2J1aWx0aW5fcmV0dXJuX2FkZHJlc3MoMCkpOwo+ICsKPiArCWlmICghcCAmJiBJ
-U19FTkFCTEVEKENPTkZJR19BUk02NF9NT0RVTEVfUExUUykgJiYKPiArCSAgICAhSVNfRU5BQkxF
-RChDT05GSUdfS0FTQU4pKQo+ICsJCS8qCj4gKwkJICogS0FTQU4gY2FuIG9ubHkgZGVhbCB3aXRo
-IG1vZHVsZSBhbGxvY2F0aW9ucyBiZWluZyBzZXJ2ZWQKPiArCQkgKiBmcm9tIHRoZSByZXNlcnZl
-ZCBtb2R1bGUgcmVnaW9uLCBzaW5jZSB0aGUgcmVtYWluZGVyIG9mCj4gKwkJICogdGhlIHZtYWxs
-b2MgcmVnaW9uIGlzIGFscmVhZHkgYmFja2VkIGJ5IHplcm8gc2hhZG93IHBhZ2VzLAo+ICsJCSAq
-IGFuZCBwdW5jaGluZyBob2xlcyBpbnRvIGl0IGlzIG5vbi10cml2aWFsLiBTaW5jZSB0aGUgbW9k
-dWxlCj4gKwkJICogcmVnaW9uIGlzIG5vdCByYW5kb21pemVkIHdoZW4gS0FTQU4gaXMgZW5hYmxl
-ZCwgaXQgaXMgZXZlbgo+ICsJCSAqIGxlc3MgbGlrZWx5IHRoYXQgdGhlIG1vZHVsZSByZWdpb24g
-Z2V0cyBleGhhdXN0ZWQsIHNvIHdlCj4gKwkJICogY2FuIHNpbXBseSBvbWl0IHRoaXMgZmFsbGJh
-Y2sgaW4gdGhhdCBjYXNlLgo+ICsJCSAqLwo+ICsJCXAgPSBfX3ZtYWxsb2Nfbm9kZV9yYW5nZShz
-aXplLCBNT0RVTEVfQUxJR04sIG1vZHVsZV9hbGxvY19iYXNlLAo+ICsJCQkJbW9kdWxlX2FsbG9j
-X2Jhc2UgKyBTWl8yRywgR0ZQX0tFUk5FTCwKPiArCQkJCVBBR0VfS0VSTkVMLCAwLCBOVU1BX05P
-X05PREUsCj4gKwkJCQlfX2J1aWx0aW5fcmV0dXJuX2FkZHJlc3MoMCkpOwo+ICsKPiArCWlmIChw
-ICYmIChrYXNhbl9tb2R1bGVfYWxsb2MocCwgc2l6ZSkgPCAwKSkgewo+ICsJCXZmcmVlKHApOwo+
-ICsJCXJldHVybiBOVUxMOwo+ICsJfQo+ICsKPiArCXJldHVybiBwOwo+ICt9Cj4gZGlmZiAtLWdp
-dCBhL2FyY2gvbWlwcy9rZXJuZWwvTWFrZWZpbGUgYi9hcmNoL21pcHMva2VybmVsL01ha2VmaWxl
-Cj4gaW5kZXggOGM3YTA0MzI5NWVkLi4zN2ViZjlhN2YyNTkgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9t
-aXBzL2tlcm5lbC9NYWtlZmlsZQo+ICsrKyBiL2FyY2gvbWlwcy9rZXJuZWwvTWFrZWZpbGUKPiBA
-QCAtOCw3ICs4LDcgQEAgZXh0cmEteQkJOj0gaGVhZC5vIHZtbGludXgubGRzCj4gIG9iai15CQkr
-PSBjbXB4Y2hnLm8gY3B1LXByb2JlLm8gYnJhbmNoLm8gZWxmLm8gZW50cnkubyBnZW5leC5vICAK
-PiBpZGxlLm8gaXJxLm8gXAo+ICAJCSAgIHByb2Nlc3MubyBwcm9tLm8gcHRyYWNlLm8gcmVzZXQu
-byBzZXR1cC5vIHNpZ25hbC5vIFwKPiAgCQkgICBzeXNjYWxsLm8gdGltZS5vIHRvcG9sb2d5Lm8g
-dHJhcHMubyB1bmFsaWduZWQubyB3YXRjaC5vIFwKPiAtCQkgICB2ZHNvLm8gY2FjaGVpbmZvLm8K
-PiArCQkgICB2ZHNvLm8gY2FjaGVpbmZvLm8gdGV4dC5vCj4KPiAgaWZkZWYgQ09ORklHX0ZVTkNU
-SU9OX1RSQUNFUgo+ICBDRkxBR1NfUkVNT1ZFX2Z0cmFjZS5vID0gLXBnCj4gZGlmZiAtLWdpdCBh
-L2FyY2gvbWlwcy9rZXJuZWwvbW9kdWxlLmMgYi9hcmNoL21pcHMva2VybmVsL21vZHVsZS5jCj4g
-aW5kZXggM2MwYzNkMTI2MGMxLi5mNWFjNGViYzRiYWQgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9taXBz
-L2tlcm5lbC9tb2R1bGUuYwo+ICsrKyBiL2FyY2gvbWlwcy9rZXJuZWwvbW9kdWxlLmMKPiBAQCAt
-MzEsMTUgKzMxLDYgQEAgc3RydWN0IG1pcHNfaGkxNiB7Cj4gIHN0YXRpYyBMSVNUX0hFQUQoZGJl
-X2xpc3QpOwo+ICBzdGF0aWMgREVGSU5FX1NQSU5MT0NLKGRiZV9sb2NrKTsKPgo+IC0jaWZkZWYg
-TU9EVUxFX1NUQVJUCj4gLXZvaWQgKm1vZHVsZV9hbGxvYyh1bnNpZ25lZCBsb25nIHNpemUpCj4g
-LXsKPiAtCXJldHVybiBfX3ZtYWxsb2Nfbm9kZV9yYW5nZShzaXplLCAxLCBNT0RVTEVfU1RBUlQs
-IE1PRFVMRV9FTkQsCj4gLQkJCQlHRlBfS0VSTkVMLCBQQUdFX0tFUk5FTCwgMCwgTlVNQV9OT19O
-T0RFLAo+IC0JCQkJX19idWlsdGluX3JldHVybl9hZGRyZXNzKDApKTsKPiAtfQo+IC0jZW5kaWYK
-PiAtCj4gIHN0YXRpYyBpbnQgYXBwbHlfcl9taXBzX25vbmUoc3RydWN0IG1vZHVsZSAqbWUsIHUz
-MiAqbG9jYXRpb24sCj4gIAkJCSAgICAgdTMyIGJhc2UsIEVsZl9BZGRyIHYsIGJvb2wgcmVsYSkK
-PiAgewo+IGRpZmYgLS1naXQgYS9hcmNoL21pcHMva2VybmVsL3RleHQuYyBiL2FyY2gvbWlwcy9r
-ZXJuZWwvdGV4dC5jCj4gbmV3IGZpbGUgbW9kZSAxMDA2NDQKPiBpbmRleCAwMDAwMDAwMDAwMDAu
-LjU1Y2E4N2E0MjFjMwo+IC0tLSAvZGV2L251bGwKPiArKysgYi9hcmNoL21pcHMva2VybmVsL3Rl
-eHQuYwo+IEBAIC0wLDAgKzEsMTkgQEAKPiArLy8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQ
-TC0yLjAtb3ItbGF0ZXIKPiArLyoKPiArICoKPiArICogIENvcHlyaWdodCAoQykgMjAwMSBSdXN0
-eSBSdXNzZWxsLgo+ICsgKiAgQ29weXJpZ2h0IChDKSAyMDAzLCAyMDA0IFJhbGYgQmFlY2hsZSAo
-cmFsZkBsaW51eC1taXBzLm9yZykKPiArICogIENvcHlyaWdodCAoQykgMjAwNSBUaGllbW8gU2V1
-ZmVyCj4gKyAqLwo+ICsjaW5jbHVkZSA8bGludXgvbW0uaD4KPiArI2luY2x1ZGUgPGxpbnV4L21v
-ZHVsZWxvYWRlci5oPgo+ICsjaW5jbHVkZSA8bGludXgvdm1hbGxvYy5oPgo+ICsKPiArI2lmZGVm
-IE1PRFVMRV9TVEFSVAo+ICt2b2lkICp0ZXh0X2FsbG9jKHVuc2lnbmVkIGxvbmcgc2l6ZSkKPiAr
-ewo+ICsJcmV0dXJuIF9fdm1hbGxvY19ub2RlX3JhbmdlKHNpemUsIDEsIE1PRFVMRV9TVEFSVCwg
-TU9EVUxFX0VORCwKPiArCQkJCUdGUF9LRVJORUwsIFBBR0VfS0VSTkVMLCAwLCBOVU1BX05PX05P
-REUsCj4gKwkJCQlfX2J1aWx0aW5fcmV0dXJuX2FkZHJlc3MoMCkpOwo+ICt9Cj4gKyNlbmRpZgo+
-IGRpZmYgLS1naXQgYS9hcmNoL21pcHMvbmV0L2JwZl9qaXQuYyBiL2FyY2gvbWlwcy9uZXQvYnBm
-X2ppdC5jCj4gaW5kZXggMGFmODg2MjJjNjE5Li4yYjAzZjcxMjg4MDkgMTAwNjQ0Cj4gLS0tIGEv
-YXJjaC9taXBzL25ldC9icGZfaml0LmMKPiArKysgYi9hcmNoL21pcHMvbmV0L2JwZl9qaXQuYwo+
-IEBAIC0xMjMzLDcgKzEyMzMsNyBAQCB2b2lkIGJwZl9qaXRfY29tcGlsZShzdHJ1Y3QgYnBmX3By
-b2cgKmZwKQo+ICAJYnVpbGRfZXBpbG9ndWUoJmN0eCk7Cj4KPiAgCWFsbG9jX3NpemUgPSA0ICog
-Y3R4LmlkeDsKPiAtCWN0eC50YXJnZXQgPSBtb2R1bGVfYWxsb2MoYWxsb2Nfc2l6ZSk7Cj4gKwlj
-dHgudGFyZ2V0ID0gdGV4dF9hbGxvYyhhbGxvY19zaXplKTsKPiAgCWlmIChjdHgudGFyZ2V0ID09
-IE5VTEwpCj4gIAkJZ290byBvdXQ7Cj4KPiBAQCAtMTI2NCw3ICsxMjY0LDcgQEAgdm9pZCBicGZf
-aml0X2NvbXBpbGUoc3RydWN0IGJwZl9wcm9nICpmcCkKPiAgdm9pZCBicGZfaml0X2ZyZWUoc3Ry
-dWN0IGJwZl9wcm9nICpmcCkKPiAgewo+ICAJaWYgKGZwLT5qaXRlZCkKPiAtCQltb2R1bGVfbWVt
-ZnJlZShmcC0+YnBmX2Z1bmMpOwo+ICsJCXRleHRfbWVtZnJlZShmcC0+YnBmX2Z1bmMpOwo+Cj4g
-IAlicGZfcHJvZ191bmxvY2tfZnJlZShmcCk7Cj4gIH0KPiBkaWZmIC0tZ2l0IGEvYXJjaC9uZHMz
-Mi9rZXJuZWwvTWFrZWZpbGUgYi9hcmNoL25kczMyL2tlcm5lbC9NYWtlZmlsZQo+IGluZGV4IDM5
-NGRmM2Y2NDQyYy4uZmMxNTc3OGM1OWQxIDEwMDY0NAo+IC0tLSBhL2FyY2gvbmRzMzIva2VybmVs
-L01ha2VmaWxlCj4gKysrIGIvYXJjaC9uZHMzMi9rZXJuZWwvTWFrZWZpbGUKPiBAQCAtMTAsNyAr
-MTAsNyBAQCBBRkxBR1NfaGVhZC5vCQk6PSAtRFRFWFRBRERSPSQoVEVYVEFERFIpCj4gIG9iai15
-CQkJOj0gZXgtZW50cnkubyBleC1leGl0Lm8gZXgtc2NhbGwubyBpcnEubyBcCj4gIAkJCXByb2Nl
-c3MubyBwdHJhY2UubyBzZXR1cC5vIHNpZ25hbC5vIFwKPiAgCQkJc3lzX25kczMyLm8gdGltZS5v
-IHRyYXBzLm8gY2FjaGVpbmZvLm8gXAo+IC0JCQlkbWEubyBzeXNjYWxsX3RhYmxlLm8gdmRzby5v
-Cj4gKwkJCWRtYS5vIHN5c2NhbGxfdGFibGUubyB2ZHNvLm8gdGV4dC5vCj4KPiAgb2JqLSQoQ09O
-RklHX01PRFVMRVMpCQkrPSBuZHMzMl9rc3ltcy5vIG1vZHVsZS5vCj4gIG9iai0kKENPTkZJR19T
-VEFDS1RSQUNFKQkrPSBzdGFja3RyYWNlLm8KPiBkaWZmIC0tZ2l0IGEvYXJjaC9uZHMzMi9rZXJu
-ZWwvbW9kdWxlLmMgYi9hcmNoL25kczMyL2tlcm5lbC9tb2R1bGUuYwo+IGluZGV4IDM4OTdmZDE0
-YTIxZC4uM2QyM2ExMmVkNTM1IDEwMDY0NAo+IC0tLSBhL2FyY2gvbmRzMzIva2VybmVsL21vZHVs
-ZS5jCj4gKysrIGIvYXJjaC9uZHMzMi9rZXJuZWwvbW9kdWxlLmMKPiBAQCAtNywxMyArNyw2IEBA
-Cj4gICNpbmNsdWRlIDxsaW51eC9tb2R1bGVsb2FkZXIuaD4KPiAgI2luY2x1ZGUgPGxpbnV4L3Bn
-dGFibGUuaD4KPgo+IC12b2lkICptb2R1bGVfYWxsb2ModW5zaWduZWQgbG9uZyBzaXplKQo+IC17
-Cj4gLQlyZXR1cm4gX192bWFsbG9jX25vZGVfcmFuZ2Uoc2l6ZSwgMSwgTU9EVUxFU19WQUREUiwg
-TU9EVUxFU19FTkQsCj4gLQkJCQkgICAgR0ZQX0tFUk5FTCwgUEFHRV9LRVJORUwsIDAsIE5VTUFf
-Tk9fTk9ERSwKPiAtCQkJCSAgICBfX2J1aWx0aW5fcmV0dXJuX2FkZHJlc3MoMCkpOwo+IC19Cj4g
-LQo+ICB2b2lkIG1vZHVsZV9mcmVlKHN0cnVjdCBtb2R1bGUgKm1vZHVsZSwgdm9pZCAqcmVnaW9u
-KQo+ICB7Cj4gIAl2ZnJlZShyZWdpb24pOwo+IGRpZmYgLS1naXQgYS9hcmNoL25kczMyL2tlcm5l
-bC90ZXh0LmMgYi9hcmNoL25kczMyL2tlcm5lbC90ZXh0LmMKPiBuZXcgZmlsZSBtb2RlIDEwMDY0
-NAo+IGluZGV4IDAwMDAwMDAwMDAwMC4uNmU4NmVmZjlhYWYwCj4gLS0tIC9kZXYvbnVsbAo+ICsr
-KyBiL2FyY2gvbmRzMzIva2VybmVsL3RleHQuYwo+IEBAIC0wLDAgKzEsMTIgQEAKPiArLy8gU1BE
-WC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAKPiArLy8gQ29weXJpZ2h0IChDKSAyMDA1LTIw
-MTcgQW5kZXMgVGVjaG5vbG9neSBDb3Jwb3JhdGlvbgo+ICsjaW5jbHVkZSA8bGludXgvbW0uaD4K
-PiArI2luY2x1ZGUgPGxpbnV4L21vZHVsZWxvYWRlci5oPgo+ICsjaW5jbHVkZSA8bGludXgvdm1h
-bGxvYy5oPgo+ICsKPiArdm9pZCAqdGV4dF9hbGxvYyh1bnNpZ25lZCBsb25nIHNpemUpCj4gK3sK
-PiArCXJldHVybiBfX3ZtYWxsb2Nfbm9kZV9yYW5nZShzaXplLCAxLCBNT0RVTEVTX1ZBRERSLCBN
-T0RVTEVTX0VORCwKPiArCQkJCSAgICBHRlBfS0VSTkVMLCBQQUdFX0tFUk5FTCwgMCwgTlVNQV9O
-T19OT0RFLAo+ICsJCQkJICAgIF9fYnVpbHRpbl9yZXR1cm5fYWRkcmVzcygwKSk7Cj4gK30KPiBk
-aWZmIC0tZ2l0IGEvYXJjaC9uaW9zMi9rZXJuZWwvTWFrZWZpbGUgYi9hcmNoL25pb3MyL2tlcm5l
-bC9NYWtlZmlsZQo+IGluZGV4IDBiNjQ1ZTFlMzE1OC4uNTQ3NmZjNzQ5ZjM3IDEwMDY0NAo+IC0t
-LSBhL2FyY2gvbmlvczIva2VybmVsL01ha2VmaWxlCj4gKysrIGIvYXJjaC9uaW9zMi9rZXJuZWwv
-TWFrZWZpbGUKPiBAQCAtMTgsNiArMTgsNyBAQCBvYmoteQkrPSBzZXR1cC5vCj4gIG9iai15CSs9
-IHNpZ25hbC5vCj4gIG9iai15CSs9IHN5c19uaW9zMi5vCj4gIG9iai15CSs9IHN5c2NhbGxfdGFi
-bGUubwo+ICtvYmoteQkrPSB0ZXh0Lm8KPiAgb2JqLXkJKz0gdGltZS5vCj4gIG9iai15CSs9IHRy
-YXBzLm8KPgo+IGRpZmYgLS1naXQgYS9hcmNoL25pb3MyL2tlcm5lbC9tb2R1bGUuYyBiL2FyY2gv
-bmlvczIva2VybmVsL21vZHVsZS5jCj4gaW5kZXggNzZlMGE0MmQ2ZTM2Li4yMGEwZmFmNjRlMzgg
-MTAwNjQ0Cj4gLS0tIGEvYXJjaC9uaW9zMi9rZXJuZWwvbW9kdWxlLmMKPiArKysgYi9hcmNoL25p
-b3MyL2tlcm5lbC9tb2R1bGUuYwo+IEBAIC0yMSwyNSArMjEsNiBAQAo+Cj4gICNpbmNsdWRlIDxh
-c20vY2FjaGVmbHVzaC5oPgo+Cj4gLS8qCj4gLSAqIE1vZHVsZXMgc2hvdWxkIE5PVCBiZSBhbGxv
-Y2F0ZWQgd2l0aCBrbWFsbG9jIGZvciAob2J2aW91cykgcmVhc29ucy4KPiAtICogQnV0IHdlIGRv
-IGl0IGZvciBub3cgdG8gYXZvaWQgcmVsb2NhdGlvbiBpc3N1ZXMuIENBTEwyNi9QQ1JFTDI2ICAK
-PiBjYW5ub3QgcmVhY2gKPiAtICogZnJvbSAweDgwMDAwMDAwICh2bWFsbG9jIGFyZWEpIHRvIDB4
-YzAwMDAwMDAwIChrZXJuZWwpIChrbWFsbG9jIHJldHVybnMKPiAtICogYWRkcmVzc2VzIGluIDB4
-YzAwMDAwMDApCj4gLSAqLwo+IC12b2lkICptb2R1bGVfYWxsb2ModW5zaWduZWQgbG9uZyBzaXpl
-KQo+IC17Cj4gLQlpZiAoc2l6ZSA9PSAwKQo+IC0JCXJldHVybiBOVUxMOwo+IC0JcmV0dXJuIGtt
-YWxsb2Moc2l6ZSwgR0ZQX0tFUk5FTCk7Cj4gLX0KPiAtCj4gLS8qIEZyZWUgbWVtb3J5IHJldHVy
-bmVkIGZyb20gbW9kdWxlX2FsbG9jICovCj4gLXZvaWQgbW9kdWxlX21lbWZyZWUodm9pZCAqbW9k
-dWxlX3JlZ2lvbikKPiAtewo+IC0Ja2ZyZWUobW9kdWxlX3JlZ2lvbik7Cj4gLX0KPiAtCj4gIGlu
-dCBhcHBseV9yZWxvY2F0ZV9hZGQoRWxmMzJfU2hkciAqc2VjaGRycywgY29uc3QgY2hhciAqc3Ry
-dGFiLAo+ICAJCQl1bnNpZ25lZCBpbnQgc3ltaW5kZXgsIHVuc2lnbmVkIGludCByZWxzZWMsCj4g
-IAkJCXN0cnVjdCBtb2R1bGUgKm1vZCkKPiBkaWZmIC0tZ2l0IGEvYXJjaC9uaW9zMi9rZXJuZWwv
-dGV4dC5jIGIvYXJjaC9uaW9zMi9rZXJuZWwvdGV4dC5jCj4gbmV3IGZpbGUgbW9kZSAxMDA2NDQK
-PiBpbmRleCAwMDAwMDAwMDAwMDAuLmFmNDI0MTc0NDQyZgo+IC0tLSAvZGV2L251bGwKPiArKysg
-Yi9hcmNoL25pb3MyL2tlcm5lbC90ZXh0LmMKPiBAQCAtMCwwICsxLDM0IEBACj4gKy8vIFNQRFgt
-TGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wLW9yLWxhdGVyCj4gKy8qCj4gKyAqIEtlcm5lbCBt
-b2R1bGUgc3VwcG9ydCBmb3IgTmlvcyBJSS4KPiArICoKPiArICogQ29weXJpZ2h0IChDKSAyMDA0
-IE1pY3JvdHJvbml4IERhdGFjb20gTHRkLgo+ICsgKiAgIFdyaXR0ZW4gYnkgV2VudGFvIFh1IDx4
-dXdlbnRhb0BtaWNyb3Ryb25peC5jb20+Cj4gKyAqIENvcHlyaWdodCAoQykgMjAwMSwgMjAwMyBS
-dXN0eSBSdXNzZWxsCj4gKyAqCj4gKyAqIFRoaXMgZmlsZSBpcyBzdWJqZWN0IHRvIHRoZSB0ZXJt
-cyBhbmQgY29uZGl0aW9ucyBvZiB0aGUgR05VIEdlbmVyYWwKPiArICogUHVibGljIExpY2Vuc2Uu
-ICBTZWUgdGhlIGZpbGUgQ09QWUlORyBpbiB0aGUgbWFpbiBkaXJlY3Rvcnkgb2YgdGhpcwo+ICsg
-KiBhcmNoaXZlIGZvciBtb3JlIGRldGFpbHMuCj4gKyAqLwo+ICsjaW5jbHVkZSA8bGludXgvbW0u
-aD4KPiArI2luY2x1ZGUgPGxpbnV4L21vZHVsZWxvYWRlci5oPgo+ICsjaW5jbHVkZSA8bGludXgv
-dm1hbGxvYy5oPgo+ICsKPiArLyoKPiArICogTW9kdWxlcyBzaG91bGQgTk9UIGJlIGFsbG9jYXRl
-ZCB3aXRoIGttYWxsb2MgZm9yIChvYnZpb3VzKSByZWFzb25zLgo+ICsgKiBCdXQgd2UgZG8gaXQg
-Zm9yIG5vdyB0byBhdm9pZCByZWxvY2F0aW9uIGlzc3Vlcy4gQ0FMTDI2L1BDUkVMMjYgIAo+IGNh
-bm5vdCByZWFjaAo+ICsgKiBmcm9tIDB4ODAwMDAwMDAgKHZtYWxsb2MgYXJlYSkgdG8gMHhjMDAw
-MDAwMDAgKGtlcm5lbCkgKGttYWxsb2MgcmV0dXJucwo+ICsgKiBhZGRyZXNzZXMgaW4gMHhjMDAw
-MDAwMCkKPiArICovCj4gK3ZvaWQgKnRleHRfYWxsb2ModW5zaWduZWQgbG9uZyBzaXplKQo+ICt7
-Cj4gKwlpZiAoc2l6ZSA9PSAwKQo+ICsJCXJldHVybiBOVUxMOwo+ICsJcmV0dXJuIGttYWxsb2Mo
-c2l6ZSwgR0ZQX0tFUk5FTCk7Cj4gK30KPiArCj4gKy8qIEZyZWUgbWVtb3J5IHJldHVybmVkIGZy
-b20gbW9kdWxlX2FsbG9jICovCj4gK3ZvaWQgdGV4dF9tZW1mcmVlKHZvaWQgKm1vZHVsZV9yZWdp
-b24pCj4gK3sKPiArCWtmcmVlKG1vZHVsZV9yZWdpb24pOwo+ICt9Cj4gZGlmZiAtLWdpdCBhL2Fy
-Y2gvcGFyaXNjL2tlcm5lbC9NYWtlZmlsZSBiL2FyY2gvcGFyaXNjL2tlcm5lbC9NYWtlZmlsZQo+
-IGluZGV4IDA2OGQ5MDk1MGQ5My4uZjcxZjdmZmRhZTJlIDEwMDY0NAo+IC0tLSBhL2FyY2gvcGFy
-aXNjL2tlcm5lbC9NYWtlZmlsZQo+ICsrKyBiL2FyY2gvcGFyaXNjL2tlcm5lbC9NYWtlZmlsZQo+
-IEBAIC0xMCw3ICsxMCw3IEBAIG9iai15CSAgICAgCTo9IGNhY2hlLm8gcGFjYWNoZS5vIHNldHVw
-Lm8gcGR0Lm8gIAo+IHRyYXBzLm8gdGltZS5vIGlycS5vIFwKPiAgCQkgICBwdHJhY2UubyBoYXJk
-d2FyZS5vIGludmVudG9yeS5vIGRyaXZlcnMubyBhbHRlcm5hdGl2ZS5vIFwKPiAgCQkgICBzaWdu
-YWwubyBocG1jLm8gcmVhbDIubyBwYXJpc2Nfa3N5bXMubyB1bmFsaWduZWQubyBcCj4gIAkJICAg
-cHJvY2Vzcy5vIHByb2Nlc3Nvci5vIHBkY19jb25zLm8gcGRjX2NoYXNzaXMubyB1bndpbmQubyBc
-Cj4gLQkJICAgcGF0Y2gubwo+ICsJCSAgIHBhdGNoLm8gdGV4dC5vCj4KPiAgaWZkZWYgQ09ORklH
-X0ZVTkNUSU9OX1RSQUNFUgo+ICAjIERvIG5vdCBwcm9maWxlIGRlYnVnIGFuZCBsb3dsZXZlbCB1
-dGlsaXRpZXMKPiBkaWZmIC0tZ2l0IGEvYXJjaC9wYXJpc2Mva2VybmVsL21vZHVsZS5jIGIvYXJj
-aC9wYXJpc2Mva2VybmVsL21vZHVsZS5jCj4gaW5kZXggN2RmMTQwNTQ1YjIyLi5jODFlNjNlMjU0
-OWIgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9wYXJpc2Mva2VybmVsL21vZHVsZS5jCj4gKysrIGIvYXJj
-aC9wYXJpc2Mva2VybmVsL21vZHVsZS5jCj4gQEAgLTE5MiwxNyArMTkyLDYgQEAgc3RhdGljIGlu
-bGluZSBpbnQgcmVhc3NlbWJsZV8yMihpbnQgYXMyMikKPiAgCQkoKGFzMjIgJiAweDAwMDNmZikg
-PDwgMykpOwo+ICB9Cj4KPiAtdm9pZCAqbW9kdWxlX2FsbG9jKHVuc2lnbmVkIGxvbmcgc2l6ZSkK
-PiAtewo+IC0JLyogdXNpbmcgUldYIG1lYW5zIGxlc3MgcHJvdGVjdGlvbiBmb3IgbW9kdWxlcywg
-YnV0IGl0J3MKPiAtCSAqIGVhc2llciB0aGFuIHRyeWluZyB0byBtYXAgdGhlIHRleHQsIGRhdGEs
-IGluaXRfdGV4dCBhbmQKPiAtCSAqIGluaXRfZGF0YSBjb3JyZWN0bHkgKi8KPiAtCXJldHVybiBf
-X3ZtYWxsb2Nfbm9kZV9yYW5nZShzaXplLCAxLCBWTUFMTE9DX1NUQVJULCBWTUFMTE9DX0VORCwK
-PiAtCQkJCSAgICBHRlBfS0VSTkVMLAo+IC0JCQkJICAgIFBBR0VfS0VSTkVMX1JXWCwgMCwgTlVN
-QV9OT19OT0RFLAo+IC0JCQkJICAgIF9fYnVpbHRpbl9yZXR1cm5fYWRkcmVzcygwKSk7Cj4gLX0K
-PiAtCj4gICNpZm5kZWYgQ09ORklHXzY0QklUCj4gIHN0YXRpYyBpbmxpbmUgdW5zaWduZWQgbG9u
-ZyBjb3VudF9nb3RzKGNvbnN0IEVsZl9SZWxhICpyZWxhLCAgCj4gdW5zaWduZWQgbG9uZyBuKQo+
-ICB7Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcGFyaXNjL2tlcm5lbC90ZXh0LmMgYi9hcmNoL3Bhcmlz
-Yy9rZXJuZWwvdGV4dC5jCj4gbmV3IGZpbGUgbW9kZSAxMDA2NDQKPiBpbmRleCAwMDAwMDAwMDAw
-MDAuLjlmZjUwMzA4NDE5MQo+IC0tLSAvZGV2L251bGwKPiArKysgYi9hcmNoL3BhcmlzYy9rZXJu
-ZWwvdGV4dC5jCj4gQEAgLTAsMCArMSwyMiBAQAo+ICsvLyBTUERYLUxpY2Vuc2UtSWRlbnRpZmll
-cjogR1BMLTIuMC1vci1sYXRlcgo+ICsvKgo+ICsgKiAgICBMaW51eC9QQS1SSVNDIFByb2plY3QK
-PiArICogICAgQ29weXJpZ2h0IChDKSAyMDAzIFJhbmRvbHBoIENodW5nIDx0YXVzcSBhdCBkZWJp
-YW4gLiBvcmc+Cj4gKyAqICAgIENvcHlyaWdodCAoQykgMjAwOCBIZWxnZSBEZWxsZXIgPGRlbGxl
-ckBnbXguZGU+Cj4gKyAqLwo+ICsjaW5jbHVkZSA8bGludXgvbW0uaD4KPiArI2luY2x1ZGUgPGxp
-bnV4L21vZHVsZWxvYWRlci5oPgo+ICsjaW5jbHVkZSA8bGludXgvdm1hbGxvYy5oPgo+ICsKPiAr
-dm9pZCAqdGV4dF9hbGxvYyh1bnNpZ25lZCBsb25nIHNpemUpCj4gK3sKPiArCS8qCj4gKwkgKiBV
-c2luZyBSV1ggbWVhbnMgbGVzcyBwcm90ZWN0aW9uIGZvciBtb2R1bGVzLCBidXQgaXQncwo+ICsJ
-ICogZWFzaWVyIHRoYW4gdHJ5aW5nIHRvIG1hcCB0aGUgdGV4dCwgZGF0YSwgaW5pdF90ZXh0IGFu
-ZAo+ICsJICogaW5pdF9kYXRhIGNvcnJlY3RseS4KPiArCSAqLwo+ICsJcmV0dXJuIF9fdm1hbGxv
-Y19ub2RlX3JhbmdlKHNpemUsIDEsIFZNQUxMT0NfU1RBUlQsIFZNQUxMT0NfRU5ELAo+ICsJCQkJ
-ICAgIEdGUF9LRVJORUwsCj4gKwkJCQkgICAgUEFHRV9LRVJORUxfUldYLCAwLCBOVU1BX05PX05P
-REUsCj4gKwkJCQkgICAgX19idWlsdGluX3JldHVybl9hZGRyZXNzKDApKTsKPiArfQo+IGRpZmYg
-LS1naXQgYS9hcmNoL3Bvd2VycGMvbmV0L2JwZl9qaXRfY29tcC5jICAKPiBiL2FyY2gvcG93ZXJw
-Yy9uZXQvYnBmX2ppdF9jb21wLmMKPiBpbmRleCAwYWNjOWQ1ZmIxOWUuLmJhMWNlZjdhODEyZCAx
-MDA2NDQKPiAtLS0gYS9hcmNoL3Bvd2VycGMvbmV0L2JwZl9qaXRfY29tcC5jCj4gKysrIGIvYXJj
-aC9wb3dlcnBjL25ldC9icGZfaml0X2NvbXAuYwo+IEBAIC02MzQsNyArNjM0LDcgQEAgdm9pZCBi
-cGZfaml0X2NvbXBpbGUoc3RydWN0IGJwZl9wcm9nICpmcCkKPgo+ICAJcHJvZ2xlbiA9IGNnY3R4
-LmlkeCAqIDQ7Cj4gIAlhbGxvY2xlbiA9IHByb2dsZW4gKyBGVU5DVElPTl9ERVNDUl9TSVpFOwo+
-IC0JaW1hZ2UgPSBtb2R1bGVfYWxsb2MoYWxsb2NsZW4pOwo+ICsJaW1hZ2UgPSB0ZXh0X2FsbG9j
-KGFsbG9jbGVuKTsKPiAgCWlmICghaW1hZ2UpCj4gIAkJZ290byBvdXQ7Cj4KPiBAQCAtNjc4LDcg
-KzY3OCw3IEBAIHZvaWQgYnBmX2ppdF9jb21waWxlKHN0cnVjdCBicGZfcHJvZyAqZnApCj4gIHZv
-aWQgYnBmX2ppdF9mcmVlKHN0cnVjdCBicGZfcHJvZyAqZnApCj4gIHsKPiAgCWlmIChmcC0+aml0
-ZWQpCj4gLQkJbW9kdWxlX21lbWZyZWUoZnAtPmJwZl9mdW5jKTsKPiArCQl0ZXh0X21lbWZyZWUo
-ZnAtPmJwZl9mdW5jKTsKPgo+ICAJYnBmX3Byb2dfdW5sb2NrX2ZyZWUoZnApOwo+ICB9Cj4gZGlm
-ZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL01ha2VmaWxlIGIvYXJjaC9yaXNjdi9rZXJuZWwv
-TWFrZWZpbGUKPiBpbmRleCBiMzU1Y2Y0ODU2NzEuLmQwYjMwZjI4NmNlNiAxMDA2NDQKPiAtLS0g
-YS9hcmNoL3Jpc2N2L2tlcm5lbC9NYWtlZmlsZQo+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL01h
-a2VmaWxlCj4gQEAgLTI5LDYgKzI5LDcgQEAgb2JqLXkJKz0gcmlzY3Zfa3N5bXMubwo+ICBvYmot
-eQkrPSBzdGFja3RyYWNlLm8KPiAgb2JqLXkJKz0gY2FjaGVpbmZvLm8KPiAgb2JqLXkJKz0gcGF0
-Y2gubwo+ICtvYmoteQkrPSB0ZXh0Lm8KPiAgb2JqLSQoQ09ORklHX01NVSkgKz0gdmRzby5vIHZk
-c28vCj4KPiAgb2JqLSQoQ09ORklHX1JJU0NWX01fTU9ERSkJKz0gY2xpbnQubyB0cmFwc19taXNh
-bGlnbmVkLm8KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvbW9kdWxlLmMgYi9hcmNo
-L3Jpc2N2L2tlcm5lbC9tb2R1bGUuYwo+IGluZGV4IDcxOTEzNDJjNTRkYS4uZjZhYTY2NDMxYzll
-IDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL21vZHVsZS5jCj4gKysrIGIvYXJjaC9y
-aXNjdi9rZXJuZWwvbW9kdWxlLmMKPiBAQCAtMzkwLDE1ICszOTAsMyBAQCBpbnQgYXBwbHlfcmVs
-b2NhdGVfYWRkKEVsZl9TaGRyICpzZWNoZHJzLCBjb25zdCAgCj4gY2hhciAqc3RydGFiLAo+Cj4g
-IAlyZXR1cm4gMDsKPiAgfQo+IC0KPiAtI2lmIGRlZmluZWQoQ09ORklHX01NVSkgJiYgZGVmaW5l
-ZChDT05GSUdfNjRCSVQpCj4gLSNkZWZpbmUgVk1BTExPQ19NT0RVTEVfU1RBUlQgXAo+IC0JIG1h
-eChQRk5fQUxJR04oKHVuc2lnbmVkIGxvbmcpJl9lbmQgLSBTWl8yRyksIFZNQUxMT0NfU1RBUlQp
-Cj4gLXZvaWQgKm1vZHVsZV9hbGxvYyh1bnNpZ25lZCBsb25nIHNpemUpCj4gLXsKPiAtCXJldHVy
-biBfX3ZtYWxsb2Nfbm9kZV9yYW5nZShzaXplLCAxLCBWTUFMTE9DX01PRFVMRV9TVEFSVCwKPiAt
-CQkJCSAgICBWTUFMTE9DX0VORCwgR0ZQX0tFUk5FTCwKPiAtCQkJCSAgICBQQUdFX0tFUk5FTF9F
-WEVDLCAwLCBOVU1BX05PX05PREUsCj4gLQkJCQkgICAgX19idWlsdGluX3JldHVybl9hZGRyZXNz
-KDApKTsKPiAtfQo+IC0jZW5kaWYKPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvdGV4
-dC5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvdGV4dC5jCj4gbmV3IGZpbGUgbW9kZSAxMDA2NDQKPiBp
-bmRleCAwMDAwMDAwMDAwMDAuLjIwMTYwOGEyNTY0MQo+IC0tLSAvZGV2L251bGwKPiArKysgYi9h
-cmNoL3Jpc2N2L2tlcm5lbC90ZXh0LmMKPiBAQCAtMCwwICsxLDIwIEBACj4gKy8vIFNQRFgtTGlj
-ZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wLW9yLWxhdGVyCj4gKy8qCj4gKyAqCj4gKyAqICBDb3B5
-cmlnaHQgKEMpIDIwMTcgWmloYW8gWXUKPiArICovCj4gKyNpbmNsdWRlIDxsaW51eC9tbS5oPgo+
-ICsjaW5jbHVkZSA8bGludXgvbW9kdWxlbG9hZGVyLmg+Cj4gKyNpbmNsdWRlIDxsaW51eC92bWFs
-bG9jLmg+Cj4gKwo+ICsjaWYgZGVmaW5lZChDT05GSUdfTU1VKSAmJiBkZWZpbmVkKENPTkZJR182
-NEJJVCkKPiArI2RlZmluZSBWTUFMTE9DX01PRFVMRV9TVEFSVCBcCj4gKwkgbWF4KFBGTl9BTElH
-TigodW5zaWduZWQgbG9uZykmX2VuZCAtIFNaXzJHKSwgVk1BTExPQ19TVEFSVCkKPiArdm9pZCAq
-dGV4dF9hbGxvYyh1bnNpZ25lZCBsb25nIHNpemUpCj4gK3sKPiArCXJldHVybiBfX3ZtYWxsb2Nf
-bm9kZV9yYW5nZShzaXplLCAxLCBWTUFMTE9DX01PRFVMRV9TVEFSVCwKPiArCQkJCSAgICBWTUFM
-TE9DX0VORCwgR0ZQX0tFUk5FTCwKPiArCQkJCSAgICBQQUdFX0tFUk5FTF9FWEVDLCAwLCBOVU1B
-X05PX05PREUsCj4gKwkJCQkgICAgX19idWlsdGluX3JldHVybl9hZGRyZXNzKDApKTsKPiArfQo+
-ICsjZW5kaWYKPiBkaWZmIC0tZ2l0IGEvYXJjaC9zMzkwL2tlcm5lbC9NYWtlZmlsZSBiL2FyY2gv
-czM5MC9rZXJuZWwvTWFrZWZpbGUKPiBpbmRleCBhOGYxMzY5NDNkZWIuLjlmMDBjMzIwYjkzOCAx
-MDA2NDQKPiAtLS0gYS9hcmNoL3MzOTAva2VybmVsL01ha2VmaWxlCj4gKysrIGIvYXJjaC9zMzkw
-L2tlcm5lbC9NYWtlZmlsZQo+IEBAIC00MCw3ICs0MCw3IEBAIG9iai15CSs9IHN5c2luZm8ubyBs
-Z3IubyBvc19pbmZvLm8gbWFjaGluZV9rZXhlYy5vICAKPiBwZ21fY2hlY2subwo+ICBvYmoteQkr
-PSBydW50aW1lX2luc3RyLm8gY2FjaGUubyBmcHUubyBkdW1wc3RhY2subyBndWFyZGVkX3N0b3Jh
-Z2UubyBzdGh5aS5vCj4gIG9iai15CSs9IGVudHJ5Lm8gcmVpcGwubyByZWxvY2F0ZV9rZXJuZWwu
-byBrZGVidWdmcy5vIGFsdGVybmF0aXZlLm8KPiAgb2JqLXkJKz0gbm9zcGVjLWJyYW5jaC5vIGlw
-bF92bXBhcm0ubyBtYWNoaW5lX2tleGVjX3JlbG9jLm8gdW53aW5kX2JjLm8KPiAtb2JqLXkJKz0g
-c21wLm8KPiArb2JqLXkJKz0gc21wLm8gdGV4dC5vCj4KPiAgZXh0cmEteQkJCQkrPSBoZWFkNjQu
-byB2bWxpbnV4Lmxkcwo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvczM5MC9rZXJuZWwvZnRyYWNlLmMg
-Yi9hcmNoL3MzOTAva2VybmVsL2Z0cmFjZS5jCj4gaW5kZXggYjM4OGU4N2EwOGJmLi5hNzUyYjE0
-NDI4NDYgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9zMzkwL2tlcm5lbC9mdHJhY2UuYwo+ICsrKyBiL2Fy
-Y2gvczM5MC9rZXJuZWwvZnRyYWNlLmMKPiBAQCAtMTM0LDcgKzEzNCw3IEBAIHN0YXRpYyBpbnQg
-X19pbml0IGZ0cmFjZV9wbHRfaW5pdCh2b2lkKQo+ICB7Cj4gIAl1bnNpZ25lZCBpbnQgKmlwOwo+
-Cj4gLQlmdHJhY2VfcGx0ID0gKHVuc2lnbmVkIGxvbmcpIG1vZHVsZV9hbGxvYyhQQUdFX1NJWkUp
-Owo+ICsJZnRyYWNlX3BsdCA9ICh1bnNpZ25lZCBsb25nKSB0ZXh0X2FsbG9jKFBBR0VfU0laRSk7
-Cj4gIAlpZiAoIWZ0cmFjZV9wbHQpCj4gIAkJcGFuaWMoImNhbm5vdCBhbGxvY2F0ZSBmdHJhY2Ug
-cGx0XG4iKTsKPiAgCWlwID0gKHVuc2lnbmVkIGludCAqKSBmdHJhY2VfcGx0Owo+IGRpZmYgLS1n
-aXQgYS9hcmNoL3MzOTAva2VybmVsL21vZHVsZS5jIGIvYXJjaC9zMzkwL2tlcm5lbC9tb2R1bGUu
-Ywo+IGluZGV4IDQwNTVmMWM0OTgxNC4uMDg3Y2I1OTUxZGU2IDEwMDY0NAo+IC0tLSBhL2FyY2gv
-czM5MC9rZXJuZWwvbW9kdWxlLmMKPiArKysgYi9hcmNoL3MzOTAva2VybmVsL21vZHVsZS5jCj4g
-QEAgLTMyLDIyICszMiw2IEBACj4KPiAgI2RlZmluZSBQTFRfRU5UUllfU0laRSAyMAo+Cj4gLXZv
-aWQgKm1vZHVsZV9hbGxvYyh1bnNpZ25lZCBsb25nIHNpemUpCj4gLXsKPiAtCXZvaWQgKnA7Cj4g
-LQo+IC0JaWYgKFBBR0VfQUxJR04oc2l6ZSkgPiBNT0RVTEVTX0xFTikKPiAtCQlyZXR1cm4gTlVM
-TDsKPiAtCXAgPSBfX3ZtYWxsb2Nfbm9kZV9yYW5nZShzaXplLCBNT0RVTEVfQUxJR04sIE1PRFVM
-RVNfVkFERFIsIE1PRFVMRVNfRU5ELAo+IC0JCQkJIEdGUF9LRVJORUwsIFBBR0VfS0VSTkVMX0VY
-RUMsIDAsIE5VTUFfTk9fTk9ERSwKPiAtCQkJCSBfX2J1aWx0aW5fcmV0dXJuX2FkZHJlc3MoMCkp
-Owo+IC0JaWYgKHAgJiYgKGthc2FuX21vZHVsZV9hbGxvYyhwLCBzaXplKSA8IDApKSB7Cj4gLQkJ
-dmZyZWUocCk7Cj4gLQkJcmV0dXJuIE5VTEw7Cj4gLQl9Cj4gLQlyZXR1cm4gcDsKPiAtfQo+IC0K
-PiAgdm9pZCBtb2R1bGVfYXJjaF9mcmVlaW5nX2luaXQoc3RydWN0IG1vZHVsZSAqbW9kKQo+ICB7
-Cj4gIAlpZiAoaXNfbGl2ZXBhdGNoX21vZHVsZShtb2QpICYmCj4gZGlmZiAtLWdpdCBhL2FyY2gv
-czM5MC9rZXJuZWwvdGV4dC5jIGIvYXJjaC9zMzkwL2tlcm5lbC90ZXh0LmMKPiBuZXcgZmlsZSBt
-b2RlIDEwMDY0NAo+IGluZGV4IDAwMDAwMDAwMDAwMC4uNjNhYWExYWI3MjdiCj4gLS0tIC9kZXYv
-bnVsbAo+ICsrKyBiL2FyY2gvczM5MC9rZXJuZWwvdGV4dC5jCj4gQEAgLTAsMCArMSwyMyBAQAo+
-ICsvLyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMCsKPiArLyoKPiArICogIEtlcm5l
-bCBtb2R1bGUgaGVscCBmb3IgczM5MC4KPiArICovCj4gKyNpbmNsdWRlIDxsaW51eC9tbS5oPgo+
-ICsjaW5jbHVkZSA8bGludXgvbW9kdWxlbG9hZGVyLmg+Cj4gKyNpbmNsdWRlIDxsaW51eC92bWFs
-bG9jLmg+Cj4gKwo+ICt2b2lkICp0ZXh0X2FsbG9jKHVuc2lnbmVkIGxvbmcgc2l6ZSkKPiArewo+
-ICsJdm9pZCAqcDsKPiArCj4gKwlpZiAoUEFHRV9BTElHTihzaXplKSA+IE1PRFVMRVNfTEVOKQo+
-ICsJCXJldHVybiBOVUxMOwo+ICsJcCA9IF9fdm1hbGxvY19ub2RlX3JhbmdlKHNpemUsIE1PRFVM
-RV9BTElHTiwgTU9EVUxFU19WQUREUiwgTU9EVUxFU19FTkQsCj4gKwkJCQkgR0ZQX0tFUk5FTCwg
-UEFHRV9LRVJORUxfRVhFQywgMCwgTlVNQV9OT19OT0RFLAo+ICsJCQkJIF9fYnVpbHRpbl9yZXR1
-cm5fYWRkcmVzcygwKSk7Cj4gKwlpZiAocCAmJiAoa2FzYW5fbW9kdWxlX2FsbG9jKHAsIHNpemUp
-IDwgMCkpIHsKPiArCQl2ZnJlZShwKTsKPiArCQlyZXR1cm4gTlVMTDsKPiArCX0KPiArCXJldHVy
-biBwOwo+ICt9Cj4gZGlmZiAtLWdpdCBhL2FyY2gvc3BhcmMva2VybmVsL01ha2VmaWxlIGIvYXJj
-aC9zcGFyYy9rZXJuZWwvTWFrZWZpbGUKPiBpbmRleCA5N2MwZTE5MjYzZDEuLmUwMjVmOWUxZGI0
-YSAxMDA2NDQKPiAtLS0gYS9hcmNoL3NwYXJjL2tlcm5lbC9NYWtlZmlsZQo+ICsrKyBiL2FyY2gv
-c3BhcmMva2VybmVsL01ha2VmaWxlCj4gQEAgLTUyLDYgKzUyLDcgQEAgb2JqLXkgICAgICAgICAg
-ICAgICAgICAgKz0gcHJvbV9jb21tb24ubwo+ICBvYmoteSAgICAgICAgICAgICAgICAgICArPSBw
-cm9tXyQoQklUUykubwo+ICBvYmoteSAgICAgICAgICAgICAgICAgICArPSBvZl9kZXZpY2VfY29t
-bW9uLm8KPiAgb2JqLXkgICAgICAgICAgICAgICAgICAgKz0gb2ZfZGV2aWNlXyQoQklUUykubwo+
-ICtvYmoteQkJCSs9IHRleHQubwo+ICBvYmotJChDT05GSUdfU1BBUkM2NCkgICArPSBwcm9tX2ly
-cXRyYW5zLm8KPgo+ICBvYmotJChDT05GSUdfU1BBUkMzMikgICArPSBsZW9uX2tlcm5lbC5vCj4g
-ZGlmZiAtLWdpdCBhL2FyY2gvc3BhcmMva2VybmVsL21vZHVsZS5jIGIvYXJjaC9zcGFyYy9rZXJu
-ZWwvbW9kdWxlLmMKPiBpbmRleCBkZjM5NTgwZjM5OGQuLmYyYmFiYzY5ZjE4OSAxMDA2NDQKPiAt
-LS0gYS9hcmNoL3NwYXJjL2tlcm5lbC9tb2R1bGUuYwo+ICsrKyBiL2FyY2gvc3BhcmMva2VybmVs
-L21vZHVsZS5jCj4gQEAgLTIxLDM2ICsyMSw2IEBACj4KPiAgI2luY2x1ZGUgImVudHJ5LmgiCj4K
-PiAtI2lmZGVmIENPTkZJR19TUEFSQzY0Cj4gLQo+IC0jaW5jbHVkZSA8bGludXgvanVtcF9sYWJl
-bC5oPgo+IC0KPiAtc3RhdGljIHZvaWQgKm1vZHVsZV9tYXAodW5zaWduZWQgbG9uZyBzaXplKQo+
-IC17Cj4gLQlpZiAoUEFHRV9BTElHTihzaXplKSA+IE1PRFVMRVNfTEVOKQo+IC0JCXJldHVybiBO
-VUxMOwo+IC0JcmV0dXJuIF9fdm1hbGxvY19ub2RlX3JhbmdlKHNpemUsIDEsIE1PRFVMRVNfVkFE
-RFIsIE1PRFVMRVNfRU5ELAo+IC0JCQkJR0ZQX0tFUk5FTCwgUEFHRV9LRVJORUwsIDAsIE5VTUFf
-Tk9fTk9ERSwKPiAtCQkJCV9fYnVpbHRpbl9yZXR1cm5fYWRkcmVzcygwKSk7Cj4gLX0KPiAtI2Vs
-c2UKPiAtc3RhdGljIHZvaWQgKm1vZHVsZV9tYXAodW5zaWduZWQgbG9uZyBzaXplKQo+IC17Cj4g
-LQlyZXR1cm4gdm1hbGxvYyhzaXplKTsKPiAtfQo+IC0jZW5kaWYgLyogQ09ORklHX1NQQVJDNjQg
-Ki8KPiAtCj4gLXZvaWQgKm1vZHVsZV9hbGxvYyh1bnNpZ25lZCBsb25nIHNpemUpCj4gLXsKPiAt
-CXZvaWQgKnJldDsKPiAtCj4gLQlyZXQgPSBtb2R1bGVfbWFwKHNpemUpOwo+IC0JaWYgKHJldCkK
-PiAtCQltZW1zZXQocmV0LCAwLCBzaXplKTsKPiAtCj4gLQlyZXR1cm4gcmV0Owo+IC19Cj4gLQo+
-ICAvKiBNYWtlIGdlbmVyaWMgY29kZSBpZ25vcmUgU1RUX1JFR0lTVEVSIGR1bW15IHVuZGVmaW5l
-ZCBzeW1ib2xzLiAgKi8KPiAgaW50IG1vZHVsZV9mcm9iX2FyY2hfc2VjdGlvbnMoRWxmX0VoZHIg
-KmhkciwKPiAgCQkJICAgICAgRWxmX1NoZHIgKnNlY2hkcnMsCj4gZGlmZiAtLWdpdCBhL2FyY2gv
-c3BhcmMva2VybmVsL3RleHQuYyBiL2FyY2gvc3BhcmMva2VybmVsL3RleHQuYwo+IG5ldyBmaWxl
-IG1vZGUgMTAwNjQ0Cj4gaW5kZXggMDAwMDAwMDAwMDAwLi5kMTY2NjNmMmM2YmEKPiAtLS0gL2Rl
-di9udWxsCj4gKysrIGIvYXJjaC9zcGFyYy9rZXJuZWwvdGV4dC5jCj4gQEAgLTAsMCArMSwzOSBA
-QAo+ICsvLyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMAo+ICsvKiBLZXJuZWwgbW9k
-dWxlIGhlbHAgZm9yIHNwYXJjNjQuCj4gKyAqCj4gKyAqIENvcHlyaWdodCAoQykgMjAwMSBSdXN0
-eSBSdXNzZWxsLgo+ICsgKiBDb3B5cmlnaHQgKEMpIDIwMDIgRGF2aWQgUy4gTWlsbGVyLgo+ICsg
-Ki8KPiArI2luY2x1ZGUgPGxpbnV4L21tLmg+Cj4gKyNpbmNsdWRlIDxsaW51eC9tb2R1bGVsb2Fk
-ZXIuaD4KPiArI2luY2x1ZGUgPGxpbnV4L3ZtYWxsb2MuaD4KPiArCj4gKyNpZmRlZiBDT05GSUdf
-U1BBUkM2NAo+ICsKPiArI2luY2x1ZGUgPGxpbnV4L2p1bXBfbGFiZWwuaD4KPiArCj4gK3N0YXRp
-YyB2b2lkICptb2R1bGVfbWFwKHVuc2lnbmVkIGxvbmcgc2l6ZSkKPiArewo+ICsJaWYgKFBBR0Vf
-QUxJR04oc2l6ZSkgPiBNT0RVTEVTX0xFTikKPiArCQlyZXR1cm4gTlVMTDsKPiArCXJldHVybiBf
-X3ZtYWxsb2Nfbm9kZV9yYW5nZShzaXplLCAxLCBNT0RVTEVTX1ZBRERSLCBNT0RVTEVTX0VORCwK
-PiArCQkJCUdGUF9LRVJORUwsIFBBR0VfS0VSTkVMLCAwLCBOVU1BX05PX05PREUsCj4gKwkJCQlf
-X2J1aWx0aW5fcmV0dXJuX2FkZHJlc3MoMCkpOwo+ICt9Cj4gKyNlbHNlCj4gK3N0YXRpYyB2b2lk
-ICptb2R1bGVfbWFwKHVuc2lnbmVkIGxvbmcgc2l6ZSkKPiArewo+ICsJcmV0dXJuIHZtYWxsb2Mo
-c2l6ZSk7Cj4gK30KPiArI2VuZGlmIC8qIENPTkZJR19TUEFSQzY0ICovCj4gKwo+ICt2b2lkICp0
-ZXh0X2FsbG9jKHVuc2lnbmVkIGxvbmcgc2l6ZSkKPiArewo+ICsJdm9pZCAqcmV0Owo+ICsKPiAr
-CXJldCA9IG1vZHVsZV9tYXAoc2l6ZSk7Cj4gKwlpZiAocmV0KQo+ICsJCW1lbXNldChyZXQsIDAs
-IHNpemUpOwo+ICsKPiArCXJldHVybiByZXQ7Cj4gK30KPiBkaWZmIC0tZ2l0IGEvYXJjaC9zcGFy
-Yy9uZXQvYnBmX2ppdF9jb21wXzMyLmMgIAo+IGIvYXJjaC9zcGFyYy9uZXQvYnBmX2ppdF9jb21w
-XzMyLmMKPiBpbmRleCBjOGVhYmI5NzNiODYuLmQ5ZGQ1MTNiMjdiMiAxMDA2NDQKPiAtLS0gYS9h
-cmNoL3NwYXJjL25ldC9icGZfaml0X2NvbXBfMzIuYwo+ICsrKyBiL2FyY2gvc3BhcmMvbmV0L2Jw
-Zl9qaXRfY29tcF8zMi5jCj4gQEAgLTcxMyw3ICs3MTMsNyBAQCBjb25kX2JyYW5jaDoJCQlmX29m
-ZnNldCA9IGFkZHJzW2kgKyBmaWx0ZXJbaV0uamZdOwo+ICAJCQkJaWYgKHVubGlrZWx5KHByb2ds
-ZW4gKyBpbGVuID4gb2xkcHJvZ2xlbikpIHsKPiAgCQkJCQlwcl9lcnIoImJwYl9qaXRfY29tcGls
-ZSBmYXRhbCBlcnJvclxuIik7Cj4gIAkJCQkJa2ZyZWUoYWRkcnMpOwo+IC0JCQkJCW1vZHVsZV9t
-ZW1mcmVlKGltYWdlKTsKPiArCQkJCQl0ZXh0X21lbWZyZWUoaW1hZ2UpOwo+ICAJCQkJCXJldHVy
-bjsKPiAgCQkJCX0KPiAgCQkJCW1lbWNweShpbWFnZSArIHByb2dsZW4sIHRlbXAsIGlsZW4pOwo+
-IEBAIC03MzYsNyArNzM2LDcgQEAgY29uZF9icmFuY2g6CQkJZl9vZmZzZXQgPSBhZGRyc1tpICsg
-ZmlsdGVyW2ldLmpmXTsKPiAgCQkJYnJlYWs7Cj4gIAkJfQo+ICAJCWlmIChwcm9nbGVuID09IG9s
-ZHByb2dsZW4pIHsKPiAtCQkJaW1hZ2UgPSBtb2R1bGVfYWxsb2MocHJvZ2xlbik7Cj4gKwkJCWlt
-YWdlID0gdGV4dF9hbGxvYyhwcm9nbGVuKTsKPiAgCQkJaWYgKCFpbWFnZSkKPiAgCQkJCWdvdG8g
-b3V0Owo+ICAJCX0KPiBAQCAtNzU4LDcgKzc1OCw3IEBAIGNvbmRfYnJhbmNoOgkJCWZfb2Zmc2V0
-ID0gYWRkcnNbaSArIGZpbHRlcltpXS5qZl07Cj4gIHZvaWQgYnBmX2ppdF9mcmVlKHN0cnVjdCBi
-cGZfcHJvZyAqZnApCj4gIHsKPiAgCWlmIChmcC0+aml0ZWQpCj4gLQkJbW9kdWxlX21lbWZyZWUo
-ZnAtPmJwZl9mdW5jKTsKPiArCQl0ZXh0X21lbWZyZWUoZnAtPmJwZl9mdW5jKTsKPgo+ICAJYnBm
-X3Byb2dfdW5sb2NrX2ZyZWUoZnApOwo+ICB9Cj4gZGlmZiAtLWdpdCBhL2FyY2gvdW5pY29yZTMy
-L2tlcm5lbC9NYWtlZmlsZSBiL2FyY2gvdW5pY29yZTMyL2tlcm5lbC9NYWtlZmlsZQo+IGluZGV4
-IDJmNzlhYTU2NzM1Yi4uOTZlYjhjZmM4YjFlIDEwMDY0NAo+IC0tLSBhL2FyY2gvdW5pY29yZTMy
-L2tlcm5lbC9NYWtlZmlsZQo+ICsrKyBiL2FyY2gvdW5pY29yZTMyL2tlcm5lbC9NYWtlZmlsZQo+
-IEBAIC02LDYgKzYsNyBAQAo+ICAjIE9iamVjdCBmaWxlIGxpc3RzLgo+ICBvYmoteQkJCQk6PSBk
-bWEubyBlbGYubyBlbnRyeS5vIHByb2Nlc3MubyBwdHJhY2Uubwo+ICBvYmoteQkJCQkrPSBzZXR1
-cC5vIHNpZ25hbC5vIHN5cy5vIHN0YWNrdHJhY2UubyB0cmFwcy5vCj4gK29iai15CQkJCSs9IHRl
-eHQubwo+Cj4gIG9iai0kKENPTkZJR19NT0RVTEVTKQkJKz0ga3N5bXMubyBtb2R1bGUubwo+ICBv
-YmotJChDT05GSUdfRUFSTFlfUFJJTlRLKQkrPSBlYXJseV9wcmludGsubwo+IGRpZmYgLS1naXQg
-YS9hcmNoL3VuaWNvcmUzMi9rZXJuZWwvbW9kdWxlLmMgYi9hcmNoL3VuaWNvcmUzMi9rZXJuZWwv
-bW9kdWxlLmMKPiBpbmRleCA2N2M4OWVmMmQ2ZWUuLmUxZTcwM2MwMjM3OSAxMDA2NDQKPiAtLS0g
-YS9hcmNoL3VuaWNvcmUzMi9rZXJuZWwvbW9kdWxlLmMKPiArKysgYi9hcmNoL3VuaWNvcmUzMi9r
-ZXJuZWwvbW9kdWxlLmMKPiBAQCAtMTgsMTMgKzE4LDYgQEAKPgo+ICAjaW5jbHVkZSA8YXNtL3Nl
-Y3Rpb25zLmg+Cj4KPiAtdm9pZCAqbW9kdWxlX2FsbG9jKHVuc2lnbmVkIGxvbmcgc2l6ZSkKPiAt
-ewo+IC0JcmV0dXJuIF9fdm1hbGxvY19ub2RlX3JhbmdlKHNpemUsIDEsIE1PRFVMRVNfVkFERFIs
-IE1PRFVMRVNfRU5ELAo+IC0JCQkJR0ZQX0tFUk5FTCwgUEFHRV9LRVJORUxfRVhFQywgMCwgTlVN
-QV9OT19OT0RFLAo+IC0JCQkJX19idWlsdGluX3JldHVybl9hZGRyZXNzKDApKTsKPiAtfQo+IC0K
-PiAgaW50Cj4gIGFwcGx5X3JlbG9jYXRlKEVsZjMyX1NoZHIgKnNlY2hkcnMsIGNvbnN0IGNoYXIg
-KnN0cnRhYiwgdW5zaWduZWQgIAo+IGludCBzeW1pbmRleCwKPiAgCSAgICAgICB1bnNpZ25lZCBp
-bnQgcmVsaW5kZXgsIHN0cnVjdCBtb2R1bGUgKm1vZHVsZSkKPiBkaWZmIC0tZ2l0IGEvYXJjaC91
-bmljb3JlMzIva2VybmVsL3RleHQuYyBiL2FyY2gvdW5pY29yZTMyL2tlcm5lbC90ZXh0LmMKPiBu
-ZXcgZmlsZSBtb2RlIDEwMDY0NAo+IGluZGV4IDAwMDAwMDAwMDAwMC4uYjk0YWFjODI0YmI4Cj4g
-LS0tIC9kZXYvbnVsbAo+ICsrKyBiL2FyY2gvdW5pY29yZTMyL2tlcm5lbC90ZXh0LmMKPiBAQCAt
-MCwwICsxLDE4IEBACj4gKy8vIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wLW9ubHkK
-PiArLyoKPiArICogbGludXgvYXJjaC91bmljb3JlMzIva2VybmVsL21vZHVsZS5jCj4gKyAqCj4g
-KyAqIENvZGUgc3BlY2lmaWMgdG8gUEtVbml0eSBTb0MgYW5kIFVuaUNvcmUgSVNBCj4gKyAqCj4g
-KyAqIENvcHlyaWdodCAoQykgMjAwMS0yMDEwIEdVQU4gWHVlLXRhbwo+ICsgKi8KPiArI2luY2x1
-ZGUgPGxpbnV4L21tLmg+Cj4gKyNpbmNsdWRlIDxsaW51eC9tb2R1bGVsb2FkZXIuaD4KPiArI2lu
-Y2x1ZGUgPGxpbnV4L3ZtYWxsb2MuaD4KPiArCj4gK3ZvaWQgKnRleHRfYWxsb2ModW5zaWduZWQg
-bG9uZyBzaXplKQo+ICt7Cj4gKwlyZXR1cm4gX192bWFsbG9jX25vZGVfcmFuZ2Uoc2l6ZSwgMSwg
-TU9EVUxFU19WQUREUiwgTU9EVUxFU19FTkQsCj4gKwkJCQlHRlBfS0VSTkVMLCBQQUdFX0tFUk5F
-TF9FWEVDLCAwLCBOVU1BX05PX05PREUsCj4gKwkJCQlfX2J1aWx0aW5fcmV0dXJuX2FkZHJlc3Mo
-MCkpOwo+ICt9Cj4gZGlmZiAtLWdpdCBhL2FyY2gveDg2L2tlcm5lbC9NYWtlZmlsZSBiL2FyY2gv
-eDg2L2tlcm5lbC9NYWtlZmlsZQo+IGluZGV4IGU3NzI2MWRiMjM5MS4uMjg3OGU0Yjc1M2EwIDEw
-MDY0NAo+IC0tLSBhL2FyY2gveDg2L2tlcm5lbC9NYWtlZmlsZQo+ICsrKyBiL2FyY2gveDg2L2tl
-cm5lbC9NYWtlZmlsZQo+IEBAIC02OCw2ICs2OCw3IEBAIG9iai15CQkJKz0gdHNjLm8gdHNjX21z
-ci5vIGlvX2RlbGF5Lm8gcnRjLm8KPiAgb2JqLXkJCQkrPSBwY2ktaW9tbXVfdGFibGUubwo+ICBv
-YmoteQkJCSs9IHJlc291cmNlLm8KPiAgb2JqLXkJCQkrPSBpcnFmbGFncy5vCj4gK29iai15CQkJ
-Kz0gdGV4dC5vCj4KPiAgb2JqLXkJCQkJKz0gcHJvY2Vzcy5vCj4gIG9iai15CQkJCSs9IGZwdS8K
-PiBkaWZmIC0tZ2l0IGEvYXJjaC94ODYva2VybmVsL2Z0cmFjZS5jIGIvYXJjaC94ODYva2VybmVs
-L2Z0cmFjZS5jCj4gaW5kZXggNTE1MDQ1NjZiM2E2Li5mNzY3MDNlZTk2ZjIgMTAwNjQ0Cj4gLS0t
-IGEvYXJjaC94ODYva2VybmVsL2Z0cmFjZS5jCj4gKysrIGIvYXJjaC94ODYva2VybmVsL2Z0cmFj
-ZS5jCj4gQEAgLTI2NSwxMSArMjY1LDExIEBAIGludCBfX2luaXQgZnRyYWNlX2R5bl9hcmNoX2lu
-aXQodm9pZCkKPiAgLyogTW9kdWxlIGFsbG9jYXRpb24gc2ltcGxpZmllcyBhbGxvY2F0aW5nIG1l
-bW9yeSBmb3IgY29kZSAqLwo+ICBzdGF0aWMgaW5saW5lIHZvaWQgKmFsbG9jX3RyYW1wKHVuc2ln
-bmVkIGxvbmcgc2l6ZSkKPiAgewo+IC0JcmV0dXJuIG1vZHVsZV9hbGxvYyhzaXplKTsKPiArCXJl
-dHVybiB0ZXh0X2FsbG9jKHNpemUpOwo+ICB9Cj4gIHN0YXRpYyBpbmxpbmUgdm9pZCB0cmFtcF9m
-cmVlKHZvaWQgKnRyYW1wKQo+ICB7Cj4gLQltb2R1bGVfbWVtZnJlZSh0cmFtcCk7Cj4gKwl0ZXh0
-X21lbWZyZWUodHJhbXApOwo+ICB9Cj4gICNlbHNlCj4gIC8qIFRyYW1wb2xpbmVzIGNhbiBvbmx5
-IGJlIGNyZWF0ZWQgaWYgbW9kdWxlcyBhcmUgc3VwcG9ydGVkICovCj4gZGlmZiAtLWdpdCBhL2Fy
-Y2gveDg2L2tlcm5lbC9rcHJvYmVzL2NvcmUuYyBiL2FyY2gveDg2L2tlcm5lbC9rcHJvYmVzL2Nv
-cmUuYwo+IGluZGV4IGFkYTM5ZGRiYzkyMi4uZTlhYzdkM2M2NThlIDEwMDY0NAo+IC0tLSBhL2Fy
-Y2gveDg2L2tlcm5lbC9rcHJvYmVzL2NvcmUuYwo+ICsrKyBiL2FyY2gveDg2L2tlcm5lbC9rcHJv
-YmVzL2NvcmUuYwo+IEBAIC00MjMsNyArNDIzLDcgQEAgdm9pZCAqYWxsb2NfaW5zbl9wYWdlKHZv
-aWQpCj4gIHsKPiAgCXZvaWQgKnBhZ2U7Cj4KPiAtCXBhZ2UgPSBtb2R1bGVfYWxsb2MoUEFHRV9T
-SVpFKTsKPiArCXBhZ2UgPSB0ZXh0X2FsbG9jKFBBR0VfU0laRSk7Cj4gIAlpZiAoIXBhZ2UpCj4g
-IAkJcmV0dXJuIE5VTEw7Cj4KPiBAQCAtNDQ2LDcgKzQ0Niw3IEBAIHZvaWQgKmFsbG9jX2luc25f
-cGFnZSh2b2lkKQo+ICAvKiBSZWNvdmVyIHBhZ2UgdG8gUlcgbW9kZSBiZWZvcmUgcmVsZWFzaW5n
-IGl0ICovCj4gIHZvaWQgZnJlZV9pbnNuX3BhZ2Uodm9pZCAqcGFnZSkKPiAgewo+IC0JbW9kdWxl
-X21lbWZyZWUocGFnZSk7Cj4gKwl0ZXh0X21lbWZyZWUocGFnZSk7Cj4gIH0KPgo+ICBzdGF0aWMg
-aW50IGFyY2hfY29weV9rcHJvYmUoc3RydWN0IGtwcm9iZSAqcCkKPiBkaWZmIC0tZ2l0IGEvYXJj
-aC94ODYva2VybmVsL21vZHVsZS5jIGIvYXJjaC94ODYva2VybmVsL21vZHVsZS5jCj4gaW5kZXgg
-MzRiMTUzY2JkNGFjLi4yNjFkZjA3OGYxMjcgMTAwNjQ0Cj4gLS0tIGEvYXJjaC94ODYva2VybmVs
-L21vZHVsZS5jCj4gKysrIGIvYXJjaC94ODYva2VybmVsL21vZHVsZS5jCj4gQEAgLTM2LDU1ICsz
-Niw2IEBAIGRvIHsJCQkJCQkJXAo+ICB9IHdoaWxlICgwKQo+ICAjZW5kaWYKPgo+IC0jaWZkZWYg
-Q09ORklHX1JBTkRPTUlaRV9CQVNFCj4gLXN0YXRpYyB1bnNpZ25lZCBsb25nIG1vZHVsZV9sb2Fk
-X29mZnNldDsKPiAtCj4gLS8qIE11dGV4IHByb3RlY3RzIHRoZSBtb2R1bGVfbG9hZF9vZmZzZXQu
-ICovCj4gLXN0YXRpYyBERUZJTkVfTVVURVgobW9kdWxlX2thc2xyX211dGV4KTsKPiAtCj4gLXN0
-YXRpYyB1bnNpZ25lZCBsb25nIGludCBnZXRfbW9kdWxlX2xvYWRfb2Zmc2V0KHZvaWQpCj4gLXsK
-PiAtCWlmIChrYXNscl9lbmFibGVkKCkpIHsKPiAtCQltdXRleF9sb2NrKCZtb2R1bGVfa2FzbHJf
-bXV0ZXgpOwo+IC0JCS8qCj4gLQkJICogQ2FsY3VsYXRlIHRoZSBtb2R1bGVfbG9hZF9vZmZzZXQg
-dGhlIGZpcnN0IHRpbWUgdGhpcwo+IC0JCSAqIGNvZGUgaXMgY2FsbGVkLiBPbmNlIGNhbGN1bGF0
-ZWQgaXQgc3RheXMgdGhlIHNhbWUgdW50aWwKPiAtCQkgKiByZWJvb3QuCj4gLQkJICovCj4gLQkJ
-aWYgKG1vZHVsZV9sb2FkX29mZnNldCA9PSAwKQo+IC0JCQltb2R1bGVfbG9hZF9vZmZzZXQgPQo+
-IC0JCQkJKGdldF9yYW5kb21faW50KCkgJSAxMDI0ICsgMSkgKiBQQUdFX1NJWkU7Cj4gLQkJbXV0
-ZXhfdW5sb2NrKCZtb2R1bGVfa2FzbHJfbXV0ZXgpOwo+IC0JfQo+IC0JcmV0dXJuIG1vZHVsZV9s
-b2FkX29mZnNldDsKPiAtfQo+IC0jZWxzZQo+IC1zdGF0aWMgdW5zaWduZWQgbG9uZyBpbnQgZ2V0
-X21vZHVsZV9sb2FkX29mZnNldCh2b2lkKQo+IC17Cj4gLQlyZXR1cm4gMDsKPiAtfQo+IC0jZW5k
-aWYKPiAtCj4gLXZvaWQgKm1vZHVsZV9hbGxvYyh1bnNpZ25lZCBsb25nIHNpemUpCj4gLXsKPiAt
-CXZvaWQgKnA7Cj4gLQo+IC0JaWYgKFBBR0VfQUxJR04oc2l6ZSkgPiBNT0RVTEVTX0xFTikKPiAt
-CQlyZXR1cm4gTlVMTDsKPiAtCj4gLQlwID0gX192bWFsbG9jX25vZGVfcmFuZ2Uoc2l6ZSwgTU9E
-VUxFX0FMSUdOLAo+IC0JCQkJICAgIE1PRFVMRVNfVkFERFIgKyBnZXRfbW9kdWxlX2xvYWRfb2Zm
-c2V0KCksCj4gLQkJCQkgICAgTU9EVUxFU19FTkQsIEdGUF9LRVJORUwsCj4gLQkJCQkgICAgUEFH
-RV9LRVJORUwsIDAsIE5VTUFfTk9fTk9ERSwKPiAtCQkJCSAgICBfX2J1aWx0aW5fcmV0dXJuX2Fk
-ZHJlc3MoMCkpOwo+IC0JaWYgKHAgJiYgKGthc2FuX21vZHVsZV9hbGxvYyhwLCBzaXplKSA8IDAp
-KSB7Cj4gLQkJdmZyZWUocCk7Cj4gLQkJcmV0dXJuIE5VTEw7Cj4gLQl9Cj4gLQo+IC0JcmV0dXJu
-IHA7Cj4gLX0KPiAtCj4gICNpZmRlZiBDT05GSUdfWDg2XzMyCj4gIGludCBhcHBseV9yZWxvY2F0
-ZShFbGYzMl9TaGRyICpzZWNoZHJzLAo+ICAJCSAgIGNvbnN0IGNoYXIgKnN0cnRhYiwKPiBkaWZm
-IC0tZ2l0IGEvYXJjaC94ODYva2VybmVsL3RleHQuYyBiL2FyY2gveDg2L2tlcm5lbC90ZXh0LmMK
-PiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+IGluZGV4IDAwMDAwMDAwMDAwMC4uNzI0YWIyZDkzYWM1
-Cj4gLS0tIC9kZXYvbnVsbAo+ICsrKyBiL2FyY2gveDg2L2tlcm5lbC90ZXh0LmMKPiBAQCAtMCww
-ICsxLDYwIEBACj4gKy8vIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wLW9yLWxhdGVy
-Cj4gKy8qCj4gKyAqICBLZXJuZWwgbW9kdWxlIGhlbHAgZm9yIHg4Ni4KPiArICogIENvcHlyaWdo
-dCAoQykgMjAwMSBSdXN0eSBSdXNzZWxsLgo+ICsgKi8KPiArI2luY2x1ZGUgPGxpbnV4L2thc2Fu
-Lmg+Cj4gKyNpbmNsdWRlIDxsaW51eC9tbS5oPgo+ICsjaW5jbHVkZSA8bGludXgvbW9kdWxlbG9h
-ZGVyLmg+Cj4gKyNpbmNsdWRlIDxsaW51eC9yYW5kb20uaD4KPiArI2luY2x1ZGUgPGxpbnV4L3Zt
-YWxsb2MuaD4KPiArI2luY2x1ZGUgPGFzbS9zZXR1cC5oPgo+ICsKPiArI2lmZGVmIENPTkZJR19S
-QU5ET01JWkVfQkFTRQo+ICtzdGF0aWMgdW5zaWduZWQgbG9uZyBtb2R1bGVfbG9hZF9vZmZzZXQ7
-Cj4gKwo+ICsvKiBNdXRleCBwcm90ZWN0cyB0aGUgbW9kdWxlX2xvYWRfb2Zmc2V0LiAqLwo+ICtz
-dGF0aWMgREVGSU5FX01VVEVYKG1vZHVsZV9rYXNscl9tdXRleCk7Cj4gKwo+ICtzdGF0aWMgdW5z
-aWduZWQgbG9uZyBnZXRfbW9kdWxlX2xvYWRfb2Zmc2V0KHZvaWQpCj4gK3sKPiArCWlmIChrYXNs
-cl9lbmFibGVkKCkpIHsKPiArCQltdXRleF9sb2NrKCZtb2R1bGVfa2FzbHJfbXV0ZXgpOwo+ICsJ
-CS8qCj4gKwkJICogQ2FsY3VsYXRlIHRoZSBtb2R1bGVfbG9hZF9vZmZzZXQgdGhlIGZpcnN0IHRp
-bWUgdGhpcwo+ICsJCSAqIGNvZGUgaXMgY2FsbGVkLiBPbmNlIGNhbGN1bGF0ZWQgaXQgc3RheXMg
-dGhlIHNhbWUgdW50aWwKPiArCQkgKiByZWJvb3QuCj4gKwkJICovCj4gKwkJaWYgKG1vZHVsZV9s
-b2FkX29mZnNldCA9PSAwKQo+ICsJCQltb2R1bGVfbG9hZF9vZmZzZXQgPQo+ICsJCQkJKGdldF9y
-YW5kb21faW50KCkgJSAxMDI0ICsgMSkgKiBQQUdFX1NJWkU7Cj4gKwkJbXV0ZXhfdW5sb2NrKCZt
-b2R1bGVfa2FzbHJfbXV0ZXgpOwo+ICsJfQo+ICsJcmV0dXJuIG1vZHVsZV9sb2FkX29mZnNldDsK
-PiArfQo+ICsjZWxzZQo+ICtzdGF0aWMgdW5zaWduZWQgbG9uZyBnZXRfbW9kdWxlX2xvYWRfb2Zm
-c2V0KHZvaWQpCj4gK3sKPiArCXJldHVybiAwOwo+ICt9Cj4gKyNlbmRpZgo+ICsKPiArdm9pZCAq
-dGV4dF9hbGxvYyh1bnNpZ25lZCBsb25nIHNpemUpCj4gK3sKPiArCXZvaWQgKnA7Cj4gKwo+ICsJ
-aWYgKFBBR0VfQUxJR04oc2l6ZSkgPiBNT0RVTEVTX0xFTikKPiArCQlyZXR1cm4gTlVMTDsKPiAr
-Cj4gKwlwID0gX192bWFsbG9jX25vZGVfcmFuZ2Uoc2l6ZSwgTU9EVUxFX0FMSUdOLAo+ICsJCQkJ
-ICAgIE1PRFVMRVNfVkFERFIgKyBnZXRfbW9kdWxlX2xvYWRfb2Zmc2V0KCksCj4gKwkJCQkgICAg
-TU9EVUxFU19FTkQsIEdGUF9LRVJORUwsCj4gKwkJCQkgICAgUEFHRV9LRVJORUwsIDAsIE5VTUFf
-Tk9fTk9ERSwKPiArCQkJCSAgICBfX2J1aWx0aW5fcmV0dXJuX2FkZHJlc3MoMCkpOwo+ICsJaWYg
-KHAgJiYgKGthc2FuX21vZHVsZV9hbGxvYyhwLCBzaXplKSA8IDApKSB7Cj4gKwkJdmZyZWUocCk7
-Cj4gKwkJcmV0dXJuIE5VTEw7Cj4gKwl9Cj4gKwo+ICsJcmV0dXJuIHA7Cj4gK30KPiBkaWZmIC0t
-Z2l0IGEvaW5jbHVkZS9saW51eC9tb2R1bGVsb2FkZXIuaCBiL2luY2x1ZGUvbGludXgvbW9kdWxl
-bG9hZGVyLmgKPiBpbmRleCA0ZmE2N2E4YjIyNjUuLjRlOGI5YmE0MzFlZSAxMDA2NDQKPiAtLS0g
-YS9pbmNsdWRlL2xpbnV4L21vZHVsZWxvYWRlci5oCj4gKysrIGIvaW5jbHVkZS9saW51eC9tb2R1
-bGVsb2FkZXIuaAo+IEBAIC0yNCwxMCArMjQsMTAgQEAgdW5zaWduZWQgaW50IGFyY2hfbW9kX3Nl
-Y3Rpb25fcHJlcGVuZChzdHJ1Y3QgIAo+IG1vZHVsZSAqbW9kLCB1bnNpZ25lZCBpbnQgc2VjdGlv
-bik7Cj4KPiAgLyogQWxsb2NhdG9yIHVzZWQgZm9yIGFsbG9jYXRpbmcgc3RydWN0IG1vZHVsZSwg
-Y29yZSBzZWN0aW9ucyBhbmQgaW5pdAo+ICAgICBzZWN0aW9ucy4gIFJldHVybnMgTlVMTCBvbiBm
-YWlsdXJlLiAqLwo+IC12b2lkICptb2R1bGVfYWxsb2ModW5zaWduZWQgbG9uZyBzaXplKTsKPiAr
-dm9pZCAqdGV4dF9hbGxvYyh1bnNpZ25lZCBsb25nIHNpemUpOwo+Cj4gIC8qIEZyZWUgbWVtb3J5
-IHJldHVybmVkIGZyb20gbW9kdWxlX2FsbG9jLiAqLwo+IC12b2lkIG1vZHVsZV9tZW1mcmVlKHZv
-aWQgKm1vZHVsZV9yZWdpb24pOwo+ICt2b2lkIHRleHRfbWVtZnJlZSh2b2lkICptb2R1bGVfcmVn
-aW9uKTsKPgo+ICAvKiBEZXRlcm1pbmVzIGlmIHRoZSBzZWN0aW9uIG5hbWUgaXMgYW4gaW5pdCBz
-ZWN0aW9uICh0aGF0IGlzIG9ubHkgIAo+IHVzZWQgZHVyaW5nCj4gICAqIG1vZHVsZSBsb2FkaW5n
-KS4KPiBkaWZmIC0tZ2l0IGEva2VybmVsL01ha2VmaWxlIGIva2VybmVsL01ha2VmaWxlCj4gaW5k
-ZXggZjMyMThiYzVlYzY5Li45ZTg4ZTgxZjY4ZWYgMTAwNjQ0Cj4gLS0tIGEva2VybmVsL01ha2Vm
-aWxlCj4gKysrIGIva2VybmVsL01ha2VmaWxlCj4gQEAgLTEwLDcgKzEwLDcgQEAgb2JqLXkgICAg
-ID0gZm9yay5vIGV4ZWNfZG9tYWluLm8gcGFuaWMubyBcCj4gIAkgICAgZXh0YWJsZS5vIHBhcmFt
-cy5vIFwKPiAgCSAgICBrdGhyZWFkLm8gc3lzX25pLm8gbnNwcm94eS5vIFwKPiAgCSAgICBub3Rp
-Zmllci5vIGtzeXNmcy5vIGNyZWQubyByZWJvb3QubyBcCj4gLQkgICAgYXN5bmMubyByYW5nZS5v
-IHNtcGJvb3QubyB1Y291bnQubwo+ICsJICAgIGFzeW5jLm8gcmFuZ2UubyBzbXBib290Lm8gdWNv
-dW50Lm8gdGV4dC5vCj4KPiAgb2JqLSQoQ09ORklHX01PRFVMRVMpICs9IGttb2Qubwo+ICBvYmot
-JChDT05GSUdfTVVMVElVU0VSKSArPSBncm91cHMubwo+IGRpZmYgLS1naXQgYS9rZXJuZWwvYnBm
-L2NvcmUuYyBiL2tlcm5lbC9icGYvY29yZS5jCj4gaW5kZXggOWRmNGNjOWEyOTA3Li5mZWJkNTUw
-MTlhOGEgMTAwNjQ0Cj4gLS0tIGEva2VybmVsL2JwZi9jb3JlLmMKPiArKysgYi9rZXJuZWwvYnBm
-L2NvcmUuYwo+IEBAIC04NDAsMTIgKzg0MCwxMiBAQCBzdGF0aWMgdm9pZCBicGZfaml0X3VuY2hh
-cmdlX21vZG1lbSh1MzIgcGFnZXMpCj4KPiAgdm9pZCAqX193ZWFrIGJwZl9qaXRfYWxsb2NfZXhl
-Yyh1bnNpZ25lZCBsb25nIHNpemUpCj4gIHsKPiAtCXJldHVybiBtb2R1bGVfYWxsb2Moc2l6ZSk7
-Cj4gKwlyZXR1cm4gdGV4dF9hbGxvYyhzaXplKTsKPiAgfQo+Cj4gIHZvaWQgX193ZWFrIGJwZl9q
-aXRfZnJlZV9leGVjKHZvaWQgKmFkZHIpCj4gIHsKPiAtCW1vZHVsZV9tZW1mcmVlKGFkZHIpOwo+
-ICsJdGV4dF9tZW1mcmVlKGFkZHIpOwo+ICB9Cj4KPiAgc3RydWN0IGJwZl9iaW5hcnlfaGVhZGVy
-ICoKPiBkaWZmIC0tZ2l0IGEva2VybmVsL2twcm9iZXMuYyBiL2tlcm5lbC9rcHJvYmVzLmMKPiBp
-bmRleCA0YTkwNGNjNTZkNjguLmQxYzM1NGVjODlkZSAxMDA2NDQKPiAtLS0gYS9rZXJuZWwva3By
-b2Jlcy5jCj4gKysrIGIva2VybmVsL2twcm9iZXMuYwo+IEBAIC0xMTEsMTIgKzExMSwxMiBAQCBl
-bnVtIGtwcm9iZV9zbG90X3N0YXRlIHsKPgo+ICB2b2lkIF9fd2VhayAqYWxsb2NfaW5zbl9wYWdl
-KHZvaWQpCj4gIHsKPiAtCXJldHVybiBtb2R1bGVfYWxsb2MoUEFHRV9TSVpFKTsKPiArCXJldHVy
-biB0ZXh0X2FsbG9jKFBBR0VfU0laRSk7Cj4gIH0KPgo+ICB2b2lkIF9fd2VhayBmcmVlX2luc25f
-cGFnZSh2b2lkICpwYWdlKQo+ICB7Cj4gLQltb2R1bGVfbWVtZnJlZShwYWdlKTsKPiArCXRleHRf
-bWVtZnJlZShwYWdlKTsKPiAgfQo+Cj4gIHN0cnVjdCBrcHJvYmVfaW5zbl9jYWNoZSBrcHJvYmVf
-aW5zbl9zbG90cyA9IHsKPiBkaWZmIC0tZ2l0IGEva2VybmVsL21vZHVsZS5jIGIva2VybmVsL21v
-ZHVsZS5jCj4gaW5kZXggYmVlMWMyNWNhNWM1Li5iZGIzNzczZjM2NjggMTAwNjQ0Cj4gLS0tIGEv
-a2VybmVsL21vZHVsZS5jCj4gKysrIGIva2VybmVsL21vZHVsZS5jCj4gQEAgLTIxNDEsMTYgKzIx
-NDEsNiBAQCBzdGF0aWMgdm9pZCBmcmVlX21vZHVsZV9lbGYoc3RydWN0IG1vZHVsZSAqbW9kKQo+
-ICB9Cj4gICNlbmRpZiAvKiBDT05GSUdfTElWRVBBVENIICovCj4KPiAtdm9pZCBfX3dlYWsgbW9k
-dWxlX21lbWZyZWUodm9pZCAqbW9kdWxlX3JlZ2lvbikKPiAtewo+IC0JLyoKPiAtCSAqIFRoaXMg
-bWVtb3J5IG1heSBiZSBSTywgYW5kIGZyZWVpbmcgUk8gbWVtb3J5IGluIGFuIGludGVycnVwdCBp
-cyBub3QKPiAtCSAqIHN1cHBvcnRlZCBieSB2bWFsbG9jLgo+IC0JICovCj4gLQlXQVJOX09OKGlu
-X2ludGVycnVwdCgpKTsKPiAtCXZmcmVlKG1vZHVsZV9yZWdpb24pOwo+IC19Cj4gLQo+ICB2b2lk
-IF9fd2VhayBtb2R1bGVfYXJjaF9jbGVhbnVwKHN0cnVjdCBtb2R1bGUgKm1vZCkKPiAgewo+ICB9
-Cj4gQEAgLTIyMDAsNyArMjE5MCw3IEBAIHN0YXRpYyB2b2lkIGZyZWVfbW9kdWxlKHN0cnVjdCBt
-b2R1bGUgKm1vZCkKPgo+ICAJLyogVGhpcyBtYXkgYmUgZW1wdHksIGJ1dCB0aGF0J3MgT0sgKi8K
-PiAgCW1vZHVsZV9hcmNoX2ZyZWVpbmdfaW5pdChtb2QpOwo+IC0JbW9kdWxlX21lbWZyZWUobW9k
-LT5pbml0X2xheW91dC5iYXNlKTsKPiArCXRleHRfbWVtZnJlZShtb2QtPmluaXRfbGF5b3V0LmJh
-c2UpOwo+ICAJa2ZyZWUobW9kLT5hcmdzKTsKPiAgCXBlcmNwdV9tb2RmcmVlKG1vZCk7Cj4KPiBA
-QCAtMjIwOCw3ICsyMTk4LDcgQEAgc3RhdGljIHZvaWQgZnJlZV9tb2R1bGUoc3RydWN0IG1vZHVs
-ZSAqbW9kKQo+ICAJbG9ja2RlcF9mcmVlX2tleV9yYW5nZShtb2QtPmNvcmVfbGF5b3V0LmJhc2Us
-IG1vZC0+Y29yZV9sYXlvdXQuc2l6ZSk7Cj4KPiAgCS8qIEZpbmFsbHksIGZyZWUgdGhlIGNvcmUg
-KGNvbnRhaW5pbmcgdGhlIG1vZHVsZSBzdHJ1Y3R1cmUpICovCj4gLQltb2R1bGVfbWVtZnJlZSht
-b2QtPmNvcmVfbGF5b3V0LmJhc2UpOwo+ICsJdGV4dF9tZW1mcmVlKG1vZC0+Y29yZV9sYXlvdXQu
-YmFzZSk7Cj4gIH0KPgo+ICB2b2lkICpfX3N5bWJvbF9nZXQoY29uc3QgY2hhciAqc3ltYm9sKQo+
-IEBAIC0yNzgxLDEzICsyNzcxLDYgQEAgc3RhdGljIHZvaWQgZHluYW1pY19kZWJ1Z19yZW1vdmUo
-c3RydWN0ICAKPiBtb2R1bGUgKm1vZCwgc3RydWN0IF9kZGVidWcgKmRlYnVnKQo+ICAJCWRkZWJ1
-Z19yZW1vdmVfbW9kdWxlKG1vZC0+bmFtZSk7Cj4gIH0KPgo+IC12b2lkICogX193ZWFrIG1vZHVs
-ZV9hbGxvYyh1bnNpZ25lZCBsb25nIHNpemUpCj4gLXsKPiAtCXJldHVybiBfX3ZtYWxsb2Nfbm9k
-ZV9yYW5nZShzaXplLCAxLCBWTUFMTE9DX1NUQVJULCBWTUFMTE9DX0VORCwKPiAtCQkJR0ZQX0tF
-Uk5FTCwgUEFHRV9LRVJORUxfRVhFQywgVk1fRkxVU0hfUkVTRVRfUEVSTVMsCj4gLQkJCU5VTUFf
-Tk9fTk9ERSwgX19idWlsdGluX3JldHVybl9hZGRyZXNzKDApKTsKPiAtfQo+IC0KPiAgYm9vbCBf
-X3dlYWsgbW9kdWxlX2luaXRfc2VjdGlvbihjb25zdCBjaGFyICpuYW1lKQo+ICB7Cj4gIAlyZXR1
-cm4gc3Ryc3RhcnRzKG5hbWUsICIuaW5pdCIpOwo+IEBAIC0zMjQ2LDcgKzMyMjksNyBAQCBzdGF0
-aWMgaW50IG1vdmVfbW9kdWxlKHN0cnVjdCBtb2R1bGUgKm1vZCwgIAo+IHN0cnVjdCBsb2FkX2lu
-Zm8gKmluZm8pCj4gIAl2b2lkICpwdHI7Cj4KPiAgCS8qIERvIHRoZSBhbGxvY3MuICovCj4gLQlw
-dHIgPSBtb2R1bGVfYWxsb2MobW9kLT5jb3JlX2xheW91dC5zaXplKTsKPiArCXB0ciA9IHRleHRf
-YWxsb2MobW9kLT5jb3JlX2xheW91dC5zaXplKTsKPiAgCS8qCj4gIAkgKiBUaGUgcG9pbnRlciB0
-byB0aGlzIGJsb2NrIGlzIHN0b3JlZCBpbiB0aGUgbW9kdWxlIHN0cnVjdHVyZQo+ICAJICogd2hp
-Y2ggaXMgaW5zaWRlIHRoZSBibG9jay4gSnVzdCBtYXJrIGl0IGFzIG5vdCBiZWluZyBhCj4gQEAg
-LTMyNjAsNyArMzI0Myw3IEBAIHN0YXRpYyBpbnQgbW92ZV9tb2R1bGUoc3RydWN0IG1vZHVsZSAq
-bW9kLCAgCj4gc3RydWN0IGxvYWRfaW5mbyAqaW5mbykKPiAgCW1vZC0+Y29yZV9sYXlvdXQuYmFz
-ZSA9IHB0cjsKPgo+ICAJaWYgKG1vZC0+aW5pdF9sYXlvdXQuc2l6ZSkgewo+IC0JCXB0ciA9IG1v
-ZHVsZV9hbGxvYyhtb2QtPmluaXRfbGF5b3V0LnNpemUpOwo+ICsJCXB0ciA9IHRleHRfYWxsb2Mo
-bW9kLT5pbml0X2xheW91dC5zaXplKTsKPiAgCQkvKgo+ICAJCSAqIFRoZSBwb2ludGVyIHRvIHRo
-aXMgYmxvY2sgaXMgc3RvcmVkIGluIHRoZSBtb2R1bGUgc3RydWN0dXJlCj4gIAkJICogd2hpY2gg
-aXMgaW5zaWRlIHRoZSBibG9jay4gVGhpcyBibG9jayBkb2Vzbid0IG5lZWQgdG8gYmUKPiBAQCAt
-MzI2OSw3ICszMjUyLDcgQEAgc3RhdGljIGludCBtb3ZlX21vZHVsZShzdHJ1Y3QgbW9kdWxlICpt
-b2QsICAKPiBzdHJ1Y3QgbG9hZF9pbmZvICppbmZvKQo+ICAJCSAqLwo+ICAJCWttZW1sZWFrX2ln
-bm9yZShwdHIpOwo+ICAJCWlmICghcHRyKSB7Cj4gLQkJCW1vZHVsZV9tZW1mcmVlKG1vZC0+Y29y
-ZV9sYXlvdXQuYmFzZSk7Cj4gKwkJCXRleHRfbWVtZnJlZShtb2QtPmNvcmVfbGF5b3V0LmJhc2Up
-Owo+ICAJCQlyZXR1cm4gLUVOT01FTTsKPiAgCQl9Cj4gIAkJbWVtc2V0KHB0ciwgMCwgbW9kLT5p
-bml0X2xheW91dC5zaXplKTsKPiBAQCAtMzQ1Miw4ICszNDM1LDggQEAgc3RhdGljIHZvaWQgbW9k
-dWxlX2RlYWxsb2NhdGUoc3RydWN0IG1vZHVsZSAgCj4gKm1vZCwgc3RydWN0IGxvYWRfaW5mbyAq
-aW5mbykKPiAgewo+ICAJcGVyY3B1X21vZGZyZWUobW9kKTsKPiAgCW1vZHVsZV9hcmNoX2ZyZWVp
-bmdfaW5pdChtb2QpOwo+IC0JbW9kdWxlX21lbWZyZWUobW9kLT5pbml0X2xheW91dC5iYXNlKTsK
-PiAtCW1vZHVsZV9tZW1mcmVlKG1vZC0+Y29yZV9sYXlvdXQuYmFzZSk7Cj4gKwl0ZXh0X21lbWZy
-ZWUobW9kLT5pbml0X2xheW91dC5iYXNlKTsKPiArCXRleHRfbWVtZnJlZShtb2QtPmNvcmVfbGF5
-b3V0LmJhc2UpOwo+ICB9Cj4KPiAgaW50IF9fd2VhayBtb2R1bGVfZmluYWxpemUoY29uc3QgRWxm
-X0VoZHIgKmhkciwKPiBAQCAtMzUyNyw3ICszNTEwLDcgQEAgc3RhdGljIHZvaWQgZG9fZnJlZV9p
-bml0KHN0cnVjdCB3b3JrX3N0cnVjdCAqdykKPgo+ICAJbGxpc3RfZm9yX2VhY2hfc2FmZShwb3Ms
-IG4sIGxpc3QpIHsKPiAgCQlpbml0ZnJlZSA9IGNvbnRhaW5lcl9vZihwb3MsIHN0cnVjdCBtb2Rf
-aW5pdGZyZWUsIG5vZGUpOwo+IC0JCW1vZHVsZV9tZW1mcmVlKGluaXRmcmVlLT5tb2R1bGVfaW5p
-dCk7Cj4gKwkJdGV4dF9tZW1mcmVlKGluaXRmcmVlLT5tb2R1bGVfaW5pdCk7Cj4gIAkJa2ZyZWUo
-aW5pdGZyZWUpOwo+ICAJfQo+ICB9Cj4gQEAgLTM2MjYsMTAgKzM2MDksMTAgQEAgc3RhdGljIG5v
-aW5saW5lIGludCBkb19pbml0X21vZHVsZShzdHJ1Y3QgIAo+IG1vZHVsZSAqbW9kKQo+ICAJICog
-V2Ugd2FudCB0byBmcmVlIG1vZHVsZV9pbml0LCBidXQgYmUgYXdhcmUgdGhhdCBrYWxsc3ltcyBt
-YXkgYmUKPiAgCSAqIHdhbGtpbmcgdGhpcyB3aXRoIHByZWVtcHQgZGlzYWJsZWQuICBJbiBhbGwg
-dGhlIGZhaWx1cmUgcGF0aHMsIHdlCj4gIAkgKiBjYWxsIHN5bmNocm9uaXplX3JjdSgpLCBidXQg
-d2UgZG9uJ3Qgd2FudCB0byBzbG93IGRvd24gdGhlIHN1Y2Nlc3MKPiAtCSAqIHBhdGguIG1vZHVs
-ZV9tZW1mcmVlKCkgY2Fubm90IGJlIGNhbGxlZCBpbiBhbiBpbnRlcnJ1cHQsIHNvIGRvIHRoZQo+
-ICsJICogcGF0aC4gdGV4dF9tZW1mcmVlKCkgY2Fubm90IGJlIGNhbGxlZCBpbiBhbiBpbnRlcnJ1
-cHQsIHNvIGRvIHRoZQo+ICAJICogd29yayBhbmQgY2FsbCBzeW5jaHJvbml6ZV9yY3UoKSBpbiBh
-IHdvcmsgcXVldWUuCj4gIAkgKgo+IC0JICogTm90ZSB0aGF0IG1vZHVsZV9hbGxvYygpIG9uIG1v
-c3QgYXJjaGl0ZWN0dXJlcyBjcmVhdGVzIFcrWCBwYWdlCj4gKwkgKiBOb3RlIHRoYXQgdGV4dF9h
-bGxvYygpIG9uIG1vc3QgYXJjaGl0ZWN0dXJlcyBjcmVhdGVzIFcrWCBwYWdlCj4gIAkgKiBtYXBw
-aW5ncyB3aGljaCB3b24ndCBiZSBjbGVhbmVkIHVwIHVudGlsIGRvX2ZyZWVfaW5pdCgpIHJ1bnMu
-ICBBbnkKPiAgCSAqIGNvZGUgc3VjaCBhcyBtYXJrX3JvZGF0YV9ybygpIHdoaWNoIGRlcGVuZHMg
-b24gdGhvc2UgbWFwcGluZ3MgdG8KPiAgCSAqIGJlIGNsZWFuZWQgdXAgbmVlZHMgdG8gc3luYyB3
-aXRoIHRoZSBxdWV1ZWQgd29yayAtIGllCj4gZGlmZiAtLWdpdCBhL2tlcm5lbC90ZXh0LmMgYi9r
-ZXJuZWwvdGV4dC5jCj4gbmV3IGZpbGUgbW9kZSAxMDA2NDQKPiBpbmRleCAwMDAwMDAwMDAwMDAu
-LjlhMTJjNTA4ZGVkNQo+IC0tLSAvZGV2L251bGwKPiArKysgYi9rZXJuZWwvdGV4dC5jCj4gQEAg
-LTAsMCArMSwyNSBAQAo+ICsvLyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMC1vci1s
-YXRlcgo+ICsvKgo+ICsgKiAgQ29weXJpZ2h0IChDKSAyMDAyIFJpY2hhcmQgSGVuZGVyc29uCj4g
-KyAqICBDb3B5cmlnaHQgKEMpIDIwMDEgUnVzdHkgUnVzc2VsbCwgMjAwMiwgMjAxMCBSdXN0eSBS
-dXNzZWxsIElCTS4KPiArICovCj4gKyNpbmNsdWRlIDxsaW51eC9tbS5oPgo+ICsjaW5jbHVkZSA8
-bGludXgvbW9kdWxlbG9hZGVyLmg+Cj4gKyNpbmNsdWRlIDxsaW51eC92bWFsbG9jLmg+Cj4gKwo+
-ICt2b2lkIF9fd2VhayB0ZXh0X21lbWZyZWUodm9pZCAqbW9kdWxlX3JlZ2lvbikKPiArewo+ICsJ
-LyoKPiArCSAqIFRoaXMgbWVtb3J5IG1heSBiZSBSTywgYW5kIGZyZWVpbmcgUk8gbWVtb3J5IGlu
-IGFuIGludGVycnVwdCBpcyBub3QKPiArCSAqIHN1cHBvcnRlZCBieSB2bWFsbG9jLgo+ICsJICov
-Cj4gKwlXQVJOX09OKGluX2ludGVycnVwdCgpKTsKPiArCXZmcmVlKG1vZHVsZV9yZWdpb24pOwo+
-ICt9Cj4gKwo+ICt2b2lkICogX193ZWFrIHRleHRfYWxsb2ModW5zaWduZWQgbG9uZyBzaXplKQo+
-ICt7Cj4gKwlyZXR1cm4gX192bWFsbG9jX25vZGVfcmFuZ2Uoc2l6ZSwgMSwgVk1BTExPQ19TVEFS
-VCwgVk1BTExPQ19FTkQsCj4gKwkJCUdGUF9LRVJORUwsIFBBR0VfS0VSTkVMX0VYRUMsIFZNX0ZM
-VVNIX1JFU0VUX1BFUk1TLAo+ICsJCQlOVU1BX05PX05PREUsIF9fYnVpbHRpbl9yZXR1cm5fYWRk
-cmVzcygwKSk7Cj4gK30KPiAtLQo+IDIuMjUuMQoKCgoKX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
-c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
-bi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Mon, 13 Jul 2020 at 21:21, Jarkko Sakkinen
+<jarkko.sakkinen@linux.intel.com> wrote:
+>
+> Rename module_alloc() to text_alloc() and module_memfree() to
+> text_memfree(), and move them to kernel/text.c, which is unconditionally
+> compiled to the kernel proper. This allows kprobes, ftrace and bpf to
+> allocate space for executable code without requiring to compile the modules
+> support (CONFIG_MODULES=y) in.
+>
+
+On arm64, we no longer use module_alloc for bpf or kprobes, to avoid
+wasting va space on code that does not need to be loaded close to the
+kernel. Also, module_alloc() allocates kasan shadow, which is
+unnecessary for kprobes or bpf programs, which don't have kasan
+instrumentation.
+
+This patch suggests that there are other reasons why conflating
+allocation of module space and allocating  text pages for other uses
+is a bad idea, but switching all users to text_alloc() is a step in
+the wrong direction. It would be better to stop using module_alloc()
+in core code except in the module loader, and have a generic
+text_alloc() that can be overridden by the arch if necessary. Note
+that x86  and s390 are the only architectures that use module_alloc()
+in ftrace code.
+
+Please have a look at alloc_insn_page() or bpf_jit_alloc_exec() in the
+arm64 tree to see what I mean.
+
+
+
+> Cc: Andi Kleen <ak@linux.intel.com>
+> Suggested-by: Peter Zijlstra <peterz@infradead.org>
+> Signed-off-by: Jarkko Sakkinen <jarkko.sakkinen@linux.intel.com>
+> ---
+>  arch/arm/kernel/Makefile         |  3 +-
+>  arch/arm/kernel/module.c         | 21 -----------
+>  arch/arm/kernel/text.c           | 33 ++++++++++++++++++
+>  arch/arm64/kernel/Makefile       |  2 +-
+>  arch/arm64/kernel/module.c       | 42 ----------------------
+>  arch/arm64/kernel/text.c         | 54 ++++++++++++++++++++++++++++
+>  arch/mips/kernel/Makefile        |  2 +-
+>  arch/mips/kernel/module.c        |  9 -----
+>  arch/mips/kernel/text.c          | 19 ++++++++++
+>  arch/mips/net/bpf_jit.c          |  4 +--
+>  arch/nds32/kernel/Makefile       |  2 +-
+>  arch/nds32/kernel/module.c       |  7 ----
+>  arch/nds32/kernel/text.c         | 12 +++++++
+>  arch/nios2/kernel/Makefile       |  1 +
+>  arch/nios2/kernel/module.c       | 19 ----------
+>  arch/nios2/kernel/text.c         | 34 ++++++++++++++++++
+>  arch/parisc/kernel/Makefile      |  2 +-
+>  arch/parisc/kernel/module.c      | 11 ------
+>  arch/parisc/kernel/text.c        | 22 ++++++++++++
+>  arch/powerpc/net/bpf_jit_comp.c  |  4 +--
+>  arch/riscv/kernel/Makefile       |  1 +
+>  arch/riscv/kernel/module.c       | 12 -------
+>  arch/riscv/kernel/text.c         | 20 +++++++++++
+>  arch/s390/kernel/Makefile        |  2 +-
+>  arch/s390/kernel/ftrace.c        |  2 +-
+>  arch/s390/kernel/module.c        | 16 ---------
+>  arch/s390/kernel/text.c          | 23 ++++++++++++
+>  arch/sparc/kernel/Makefile       |  1 +
+>  arch/sparc/kernel/module.c       | 30 ----------------
+>  arch/sparc/kernel/text.c         | 39 +++++++++++++++++++++
+>  arch/sparc/net/bpf_jit_comp_32.c |  6 ++--
+>  arch/unicore32/kernel/Makefile   |  1 +
+>  arch/unicore32/kernel/module.c   |  7 ----
+>  arch/unicore32/kernel/text.c     | 18 ++++++++++
+>  arch/x86/kernel/Makefile         |  1 +
+>  arch/x86/kernel/ftrace.c         |  4 +--
+>  arch/x86/kernel/kprobes/core.c   |  4 +--
+>  arch/x86/kernel/module.c         | 49 --------------------------
+>  arch/x86/kernel/text.c           | 60 ++++++++++++++++++++++++++++++++
+>  include/linux/moduleloader.h     |  4 +--
+>  kernel/Makefile                  |  2 +-
+>  kernel/bpf/core.c                |  4 +--
+>  kernel/kprobes.c                 |  4 +--
+>  kernel/module.c                  | 37 ++++++--------------
+>  kernel/text.c                    | 25 +++++++++++++
+>  45 files changed, 400 insertions(+), 275 deletions(-)
+>  create mode 100644 arch/arm/kernel/text.c
+>  create mode 100644 arch/arm64/kernel/text.c
+>  create mode 100644 arch/mips/kernel/text.c
+>  create mode 100644 arch/nds32/kernel/text.c
+>  create mode 100644 arch/nios2/kernel/text.c
+>  create mode 100644 arch/parisc/kernel/text.c
+>  create mode 100644 arch/riscv/kernel/text.c
+>  create mode 100644 arch/s390/kernel/text.c
+>  create mode 100644 arch/sparc/kernel/text.c
+>  create mode 100644 arch/unicore32/kernel/text.c
+>  create mode 100644 arch/x86/kernel/text.c
+>  create mode 100644 kernel/text.c
+>
+> diff --git a/arch/arm/kernel/Makefile b/arch/arm/kernel/Makefile
+> index 89e5d864e923..69bfacfd60ef 100644
+> --- a/arch/arm/kernel/Makefile
+> +++ b/arch/arm/kernel/Makefile
+> @@ -19,7 +19,8 @@ CFLAGS_REMOVE_return_address.o = -pg
+>  obj-y          := elf.o entry-common.o irq.o opcodes.o \
+>                    process.o ptrace.o reboot.o \
+>                    setup.o signal.o sigreturn_codes.o \
+> -                  stacktrace.o sys_arm.o time.o traps.o
+> +                  stacktrace.o sys_arm.o time.o traps.o \
+> +                  text.o
+>
+>  ifneq ($(CONFIG_ARM_UNWIND),y)
+>  obj-$(CONFIG_FRAME_POINTER)    += return_address.o
+> diff --git a/arch/arm/kernel/module.c b/arch/arm/kernel/module.c
+> index e15444b25ca0..13e3442a6b9f 100644
+> --- a/arch/arm/kernel/module.c
+> +++ b/arch/arm/kernel/module.c
+> @@ -33,27 +33,6 @@
+>  #define MODULES_VADDR  (((unsigned long)_exiprom + ~PMD_MASK) & PMD_MASK)
+>  #endif
+>
+> -#ifdef CONFIG_MMU
+> -void *module_alloc(unsigned long size)
+> -{
+> -       gfp_t gfp_mask = GFP_KERNEL;
+> -       void *p;
+> -
+> -       /* Silence the initial allocation */
+> -       if (IS_ENABLED(CONFIG_ARM_MODULE_PLTS))
+> -               gfp_mask |= __GFP_NOWARN;
+> -
+> -       p = __vmalloc_node_range(size, 1, MODULES_VADDR, MODULES_END,
+> -                               gfp_mask, PAGE_KERNEL_EXEC, 0, NUMA_NO_NODE,
+> -                               __builtin_return_address(0));
+> -       if (!IS_ENABLED(CONFIG_ARM_MODULE_PLTS) || p)
+> -               return p;
+> -       return __vmalloc_node_range(size, 1,  VMALLOC_START, VMALLOC_END,
+> -                               GFP_KERNEL, PAGE_KERNEL_EXEC, 0, NUMA_NO_NODE,
+> -                               __builtin_return_address(0));
+> -}
+> -#endif
+> -
+>  bool module_init_section(const char *name)
+>  {
+>         return strstarts(name, ".init") ||
+> diff --git a/arch/arm/kernel/text.c b/arch/arm/kernel/text.c
+> new file mode 100644
+> index 000000000000..600143fb909d
+> --- /dev/null
+> +++ b/arch/arm/kernel/text.c
+> @@ -0,0 +1,33 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + *  linux/arch/arm/kernel/module.c
+> + *
+> + *  Copyright (C) 2002 Russell King.
+> + *  Modified for nommu by Hyok S. Choi
+> + *
+> + * Module allocation method suggested by Andi Kleen.
+> + */
+> +#include <linux/mm.h>
+> +#include <linux/moduleloader.h>
+> +#include <linux/vmalloc.h>
+> +
+> +#ifdef CONFIG_MMU
+> +void *text_alloc(unsigned long size)
+> +{
+> +       gfp_t gfp_mask = GFP_KERNEL;
+> +       void *p;
+> +
+> +       /* Silence the initial allocation */
+> +       if (IS_ENABLED(CONFIG_ARM_MODULE_PLTS))
+> +               gfp_mask |= __GFP_NOWARN;
+> +
+> +       p = __vmalloc_node_range(size, 1, MODULES_VADDR, MODULES_END,
+> +                               gfp_mask, PAGE_KERNEL_EXEC, 0, NUMA_NO_NODE,
+> +                               __builtin_return_address(0));
+> +       if (!IS_ENABLED(CONFIG_ARM_MODULE_PLTS) || p)
+> +               return p;
+> +       return __vmalloc_node_range(size, 1,  VMALLOC_START, VMALLOC_END,
+> +                               GFP_KERNEL, PAGE_KERNEL_EXEC, 0, NUMA_NO_NODE,
+> +                               __builtin_return_address(0));
+> +}
+> +#endif
+> diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
+> index a561cbb91d4d..7765a45d71b5 100644
+> --- a/arch/arm64/kernel/Makefile
+> +++ b/arch/arm64/kernel/Makefile
+> @@ -19,7 +19,7 @@ obj-y                 := debug-monitors.o entry.o irq.o fpsimd.o              \
+>                            return_address.o cpuinfo.o cpu_errata.o              \
+>                            cpufeature.o alternative.o cacheinfo.o               \
+>                            smp.o smp_spin_table.o topology.o smccc-call.o       \
+> -                          syscall.o
+> +                          syscall.o text.o
+>
+>  targets                        += efi-entry.o
+>
+> diff --git a/arch/arm64/kernel/module.c b/arch/arm64/kernel/module.c
+> index 1cd1a4d0ed30..adde022f703c 100644
+> --- a/arch/arm64/kernel/module.c
+> +++ b/arch/arm64/kernel/module.c
+> @@ -20,48 +20,6 @@
+>  #include <asm/insn.h>
+>  #include <asm/sections.h>
+>
+> -void *module_alloc(unsigned long size)
+> -{
+> -       u64 module_alloc_end = module_alloc_base + MODULES_VSIZE;
+> -       gfp_t gfp_mask = GFP_KERNEL;
+> -       void *p;
+> -
+> -       /* Silence the initial allocation */
+> -       if (IS_ENABLED(CONFIG_ARM64_MODULE_PLTS))
+> -               gfp_mask |= __GFP_NOWARN;
+> -
+> -       if (IS_ENABLED(CONFIG_KASAN))
+> -               /* don't exceed the static module region - see below */
+> -               module_alloc_end = MODULES_END;
+> -
+> -       p = __vmalloc_node_range(size, MODULE_ALIGN, module_alloc_base,
+> -                               module_alloc_end, gfp_mask, PAGE_KERNEL, 0,
+> -                               NUMA_NO_NODE, __builtin_return_address(0));
+> -
+> -       if (!p && IS_ENABLED(CONFIG_ARM64_MODULE_PLTS) &&
+> -           !IS_ENABLED(CONFIG_KASAN))
+> -               /*
+> -                * KASAN can only deal with module allocations being served
+> -                * from the reserved module region, since the remainder of
+> -                * the vmalloc region is already backed by zero shadow pages,
+> -                * and punching holes into it is non-trivial. Since the module
+> -                * region is not randomized when KASAN is enabled, it is even
+> -                * less likely that the module region gets exhausted, so we
+> -                * can simply omit this fallback in that case.
+> -                */
+> -               p = __vmalloc_node_range(size, MODULE_ALIGN, module_alloc_base,
+> -                               module_alloc_base + SZ_2G, GFP_KERNEL,
+> -                               PAGE_KERNEL, 0, NUMA_NO_NODE,
+> -                               __builtin_return_address(0));
+> -
+> -       if (p && (kasan_module_alloc(p, size) < 0)) {
+> -               vfree(p);
+> -               return NULL;
+> -       }
+> -
+> -       return p;
+> -}
+> -
+>  enum aarch64_reloc_op {
+>         RELOC_OP_NONE,
+>         RELOC_OP_ABS,
+> diff --git a/arch/arm64/kernel/text.c b/arch/arm64/kernel/text.c
+> new file mode 100644
+> index 000000000000..64fc7e2d85df
+> --- /dev/null
+> +++ b/arch/arm64/kernel/text.c
+> @@ -0,0 +1,54 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * AArch64 loadable module support.
+> + *
+> + * Copyright (C) 2012 ARM Limited
+> + *
+> + * Author: Will Deacon <will.deacon@arm.com>
+> + */
+> +#include <linux/kasan.h>
+> +#include <linux/mm.h>
+> +#include <linux/moduleloader.h>
+> +#include <linux/vmalloc.h>
+> +
+> +void *text_alloc(unsigned long size)
+> +{
+> +       u64 module_alloc_end = module_alloc_base + MODULES_VSIZE;
+> +       gfp_t gfp_mask = GFP_KERNEL;
+> +       void *p;
+> +
+> +       /* Silence the initial allocation */
+> +       if (IS_ENABLED(CONFIG_ARM64_MODULE_PLTS))
+> +               gfp_mask |= __GFP_NOWARN;
+> +
+> +       if (IS_ENABLED(CONFIG_KASAN))
+> +               /* don't exceed the static module region - see below */
+> +               module_alloc_end = MODULES_END;
+> +
+> +       p = __vmalloc_node_range(size, MODULE_ALIGN, module_alloc_base,
+> +                               module_alloc_end, gfp_mask, PAGE_KERNEL, 0,
+> +                               NUMA_NO_NODE, __builtin_return_address(0));
+> +
+> +       if (!p && IS_ENABLED(CONFIG_ARM64_MODULE_PLTS) &&
+> +           !IS_ENABLED(CONFIG_KASAN))
+> +               /*
+> +                * KASAN can only deal with module allocations being served
+> +                * from the reserved module region, since the remainder of
+> +                * the vmalloc region is already backed by zero shadow pages,
+> +                * and punching holes into it is non-trivial. Since the module
+> +                * region is not randomized when KASAN is enabled, it is even
+> +                * less likely that the module region gets exhausted, so we
+> +                * can simply omit this fallback in that case.
+> +                */
+> +               p = __vmalloc_node_range(size, MODULE_ALIGN, module_alloc_base,
+> +                               module_alloc_base + SZ_2G, GFP_KERNEL,
+> +                               PAGE_KERNEL, 0, NUMA_NO_NODE,
+> +                               __builtin_return_address(0));
+> +
+> +       if (p && (kasan_module_alloc(p, size) < 0)) {
+> +               vfree(p);
+> +               return NULL;
+> +       }
+> +
+> +       return p;
+> +}
+> diff --git a/arch/mips/kernel/Makefile b/arch/mips/kernel/Makefile
+> index 8c7a043295ed..37ebf9a7f259 100644
+> --- a/arch/mips/kernel/Makefile
+> +++ b/arch/mips/kernel/Makefile
+> @@ -8,7 +8,7 @@ extra-y         := head.o vmlinux.lds
+>  obj-y          += cmpxchg.o cpu-probe.o branch.o elf.o entry.o genex.o idle.o irq.o \
+>                    process.o prom.o ptrace.o reset.o setup.o signal.o \
+>                    syscall.o time.o topology.o traps.o unaligned.o watch.o \
+> -                  vdso.o cacheinfo.o
+> +                  vdso.o cacheinfo.o text.o
+>
+>  ifdef CONFIG_FUNCTION_TRACER
+>  CFLAGS_REMOVE_ftrace.o = -pg
+> diff --git a/arch/mips/kernel/module.c b/arch/mips/kernel/module.c
+> index 3c0c3d1260c1..f5ac4ebc4bad 100644
+> --- a/arch/mips/kernel/module.c
+> +++ b/arch/mips/kernel/module.c
+> @@ -31,15 +31,6 @@ struct mips_hi16 {
+>  static LIST_HEAD(dbe_list);
+>  static DEFINE_SPINLOCK(dbe_lock);
+>
+> -#ifdef MODULE_START
+> -void *module_alloc(unsigned long size)
+> -{
+> -       return __vmalloc_node_range(size, 1, MODULE_START, MODULE_END,
+> -                               GFP_KERNEL, PAGE_KERNEL, 0, NUMA_NO_NODE,
+> -                               __builtin_return_address(0));
+> -}
+> -#endif
+> -
+>  static int apply_r_mips_none(struct module *me, u32 *location,
+>                              u32 base, Elf_Addr v, bool rela)
+>  {
+> diff --git a/arch/mips/kernel/text.c b/arch/mips/kernel/text.c
+> new file mode 100644
+> index 000000000000..55ca87a421c3
+> --- /dev/null
+> +++ b/arch/mips/kernel/text.c
+> @@ -0,0 +1,19 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + *
+> + *  Copyright (C) 2001 Rusty Russell.
+> + *  Copyright (C) 2003, 2004 Ralf Baechle (ralf@linux-mips.org)
+> + *  Copyright (C) 2005 Thiemo Seufer
+> + */
+> +#include <linux/mm.h>
+> +#include <linux/moduleloader.h>
+> +#include <linux/vmalloc.h>
+> +
+> +#ifdef MODULE_START
+> +void *text_alloc(unsigned long size)
+> +{
+> +       return __vmalloc_node_range(size, 1, MODULE_START, MODULE_END,
+> +                               GFP_KERNEL, PAGE_KERNEL, 0, NUMA_NO_NODE,
+> +                               __builtin_return_address(0));
+> +}
+> +#endif
+> diff --git a/arch/mips/net/bpf_jit.c b/arch/mips/net/bpf_jit.c
+> index 0af88622c619..2b03f7128809 100644
+> --- a/arch/mips/net/bpf_jit.c
+> +++ b/arch/mips/net/bpf_jit.c
+> @@ -1233,7 +1233,7 @@ void bpf_jit_compile(struct bpf_prog *fp)
+>         build_epilogue(&ctx);
+>
+>         alloc_size = 4 * ctx.idx;
+> -       ctx.target = module_alloc(alloc_size);
+> +       ctx.target = text_alloc(alloc_size);
+>         if (ctx.target == NULL)
+>                 goto out;
+>
+> @@ -1264,7 +1264,7 @@ void bpf_jit_compile(struct bpf_prog *fp)
+>  void bpf_jit_free(struct bpf_prog *fp)
+>  {
+>         if (fp->jited)
+> -               module_memfree(fp->bpf_func);
+> +               text_memfree(fp->bpf_func);
+>
+>         bpf_prog_unlock_free(fp);
+>  }
+> diff --git a/arch/nds32/kernel/Makefile b/arch/nds32/kernel/Makefile
+> index 394df3f6442c..fc15778c59d1 100644
+> --- a/arch/nds32/kernel/Makefile
+> +++ b/arch/nds32/kernel/Makefile
+> @@ -10,7 +10,7 @@ AFLAGS_head.o         := -DTEXTADDR=$(TEXTADDR)
+>  obj-y                  := ex-entry.o ex-exit.o ex-scall.o irq.o \
+>                         process.o ptrace.o setup.o signal.o \
+>                         sys_nds32.o time.o traps.o cacheinfo.o \
+> -                       dma.o syscall_table.o vdso.o
+> +                       dma.o syscall_table.o vdso.o text.o
+>
+>  obj-$(CONFIG_MODULES)          += nds32_ksyms.o module.o
+>  obj-$(CONFIG_STACKTRACE)       += stacktrace.o
+> diff --git a/arch/nds32/kernel/module.c b/arch/nds32/kernel/module.c
+> index 3897fd14a21d..3d23a12ed535 100644
+> --- a/arch/nds32/kernel/module.c
+> +++ b/arch/nds32/kernel/module.c
+> @@ -7,13 +7,6 @@
+>  #include <linux/moduleloader.h>
+>  #include <linux/pgtable.h>
+>
+> -void *module_alloc(unsigned long size)
+> -{
+> -       return __vmalloc_node_range(size, 1, MODULES_VADDR, MODULES_END,
+> -                                   GFP_KERNEL, PAGE_KERNEL, 0, NUMA_NO_NODE,
+> -                                   __builtin_return_address(0));
+> -}
+> -
+>  void module_free(struct module *module, void *region)
+>  {
+>         vfree(region);
+> diff --git a/arch/nds32/kernel/text.c b/arch/nds32/kernel/text.c
+> new file mode 100644
+> index 000000000000..6e86eff9aaf0
+> --- /dev/null
+> +++ b/arch/nds32/kernel/text.c
+> @@ -0,0 +1,12 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +// Copyright (C) 2005-2017 Andes Technology Corporation
+> +#include <linux/mm.h>
+> +#include <linux/moduleloader.h>
+> +#include <linux/vmalloc.h>
+> +
+> +void *text_alloc(unsigned long size)
+> +{
+> +       return __vmalloc_node_range(size, 1, MODULES_VADDR, MODULES_END,
+> +                                   GFP_KERNEL, PAGE_KERNEL, 0, NUMA_NO_NODE,
+> +                                   __builtin_return_address(0));
+> +}
+> diff --git a/arch/nios2/kernel/Makefile b/arch/nios2/kernel/Makefile
+> index 0b645e1e3158..5476fc749f37 100644
+> --- a/arch/nios2/kernel/Makefile
+> +++ b/arch/nios2/kernel/Makefile
+> @@ -18,6 +18,7 @@ obj-y += setup.o
+>  obj-y  += signal.o
+>  obj-y  += sys_nios2.o
+>  obj-y  += syscall_table.o
+> +obj-y  += text.o
+>  obj-y  += time.o
+>  obj-y  += traps.o
+>
+> diff --git a/arch/nios2/kernel/module.c b/arch/nios2/kernel/module.c
+> index 76e0a42d6e36..20a0faf64e38 100644
+> --- a/arch/nios2/kernel/module.c
+> +++ b/arch/nios2/kernel/module.c
+> @@ -21,25 +21,6 @@
+>
+>  #include <asm/cacheflush.h>
+>
+> -/*
+> - * Modules should NOT be allocated with kmalloc for (obvious) reasons.
+> - * But we do it for now to avoid relocation issues. CALL26/PCREL26 cannot reach
+> - * from 0x80000000 (vmalloc area) to 0xc00000000 (kernel) (kmalloc returns
+> - * addresses in 0xc0000000)
+> - */
+> -void *module_alloc(unsigned long size)
+> -{
+> -       if (size == 0)
+> -               return NULL;
+> -       return kmalloc(size, GFP_KERNEL);
+> -}
+> -
+> -/* Free memory returned from module_alloc */
+> -void module_memfree(void *module_region)
+> -{
+> -       kfree(module_region);
+> -}
+> -
+>  int apply_relocate_add(Elf32_Shdr *sechdrs, const char *strtab,
+>                         unsigned int symindex, unsigned int relsec,
+>                         struct module *mod)
+> diff --git a/arch/nios2/kernel/text.c b/arch/nios2/kernel/text.c
+> new file mode 100644
+> index 000000000000..af424174442f
+> --- /dev/null
+> +++ b/arch/nios2/kernel/text.c
+> @@ -0,0 +1,34 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + * Kernel module support for Nios II.
+> + *
+> + * Copyright (C) 2004 Microtronix Datacom Ltd.
+> + *   Written by Wentao Xu <xuwentao@microtronix.com>
+> + * Copyright (C) 2001, 2003 Rusty Russell
+> + *
+> + * This file is subject to the terms and conditions of the GNU General
+> + * Public License.  See the file COPYING in the main directory of this
+> + * archive for more details.
+> + */
+> +#include <linux/mm.h>
+> +#include <linux/moduleloader.h>
+> +#include <linux/vmalloc.h>
+> +
+> +/*
+> + * Modules should NOT be allocated with kmalloc for (obvious) reasons.
+> + * But we do it for now to avoid relocation issues. CALL26/PCREL26 cannot reach
+> + * from 0x80000000 (vmalloc area) to 0xc00000000 (kernel) (kmalloc returns
+> + * addresses in 0xc0000000)
+> + */
+> +void *text_alloc(unsigned long size)
+> +{
+> +       if (size == 0)
+> +               return NULL;
+> +       return kmalloc(size, GFP_KERNEL);
+> +}
+> +
+> +/* Free memory returned from module_alloc */
+> +void text_memfree(void *module_region)
+> +{
+> +       kfree(module_region);
+> +}
+> diff --git a/arch/parisc/kernel/Makefile b/arch/parisc/kernel/Makefile
+> index 068d90950d93..f71f7ffdae2e 100644
+> --- a/arch/parisc/kernel/Makefile
+> +++ b/arch/parisc/kernel/Makefile
+> @@ -10,7 +10,7 @@ obj-y         := cache.o pacache.o setup.o pdt.o traps.o time.o irq.o \
+>                    ptrace.o hardware.o inventory.o drivers.o alternative.o \
+>                    signal.o hpmc.o real2.o parisc_ksyms.o unaligned.o \
+>                    process.o processor.o pdc_cons.o pdc_chassis.o unwind.o \
+> -                  patch.o
+> +                  patch.o text.o
+>
+>  ifdef CONFIG_FUNCTION_TRACER
+>  # Do not profile debug and lowlevel utilities
+> diff --git a/arch/parisc/kernel/module.c b/arch/parisc/kernel/module.c
+> index 7df140545b22..c81e63e2549b 100644
+> --- a/arch/parisc/kernel/module.c
+> +++ b/arch/parisc/kernel/module.c
+> @@ -192,17 +192,6 @@ static inline int reassemble_22(int as22)
+>                 ((as22 & 0x0003ff) << 3));
+>  }
+>
+> -void *module_alloc(unsigned long size)
+> -{
+> -       /* using RWX means less protection for modules, but it's
+> -        * easier than trying to map the text, data, init_text and
+> -        * init_data correctly */
+> -       return __vmalloc_node_range(size, 1, VMALLOC_START, VMALLOC_END,
+> -                                   GFP_KERNEL,
+> -                                   PAGE_KERNEL_RWX, 0, NUMA_NO_NODE,
+> -                                   __builtin_return_address(0));
+> -}
+> -
+>  #ifndef CONFIG_64BIT
+>  static inline unsigned long count_gots(const Elf_Rela *rela, unsigned long n)
+>  {
+> diff --git a/arch/parisc/kernel/text.c b/arch/parisc/kernel/text.c
+> new file mode 100644
+> index 000000000000..9ff503084191
+> --- /dev/null
+> +++ b/arch/parisc/kernel/text.c
+> @@ -0,0 +1,22 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + *    Linux/PA-RISC Project
+> + *    Copyright (C) 2003 Randolph Chung <tausq at debian . org>
+> + *    Copyright (C) 2008 Helge Deller <deller@gmx.de>
+> + */
+> +#include <linux/mm.h>
+> +#include <linux/moduleloader.h>
+> +#include <linux/vmalloc.h>
+> +
+> +void *text_alloc(unsigned long size)
+> +{
+> +       /*
+> +        * Using RWX means less protection for modules, but it's
+> +        * easier than trying to map the text, data, init_text and
+> +        * init_data correctly.
+> +        */
+> +       return __vmalloc_node_range(size, 1, VMALLOC_START, VMALLOC_END,
+> +                                   GFP_KERNEL,
+> +                                   PAGE_KERNEL_RWX, 0, NUMA_NO_NODE,
+> +                                   __builtin_return_address(0));
+> +}
+> diff --git a/arch/powerpc/net/bpf_jit_comp.c b/arch/powerpc/net/bpf_jit_comp.c
+> index 0acc9d5fb19e..ba1cef7a812d 100644
+> --- a/arch/powerpc/net/bpf_jit_comp.c
+> +++ b/arch/powerpc/net/bpf_jit_comp.c
+> @@ -634,7 +634,7 @@ void bpf_jit_compile(struct bpf_prog *fp)
+>
+>         proglen = cgctx.idx * 4;
+>         alloclen = proglen + FUNCTION_DESCR_SIZE;
+> -       image = module_alloc(alloclen);
+> +       image = text_alloc(alloclen);
+>         if (!image)
+>                 goto out;
+>
+> @@ -678,7 +678,7 @@ void bpf_jit_compile(struct bpf_prog *fp)
+>  void bpf_jit_free(struct bpf_prog *fp)
+>  {
+>         if (fp->jited)
+> -               module_memfree(fp->bpf_func);
+> +               text_memfree(fp->bpf_func);
+>
+>         bpf_prog_unlock_free(fp);
+>  }
+> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+> index b355cf485671..d0b30f286ce6 100644
+> --- a/arch/riscv/kernel/Makefile
+> +++ b/arch/riscv/kernel/Makefile
+> @@ -29,6 +29,7 @@ obj-y += riscv_ksyms.o
+>  obj-y  += stacktrace.o
+>  obj-y  += cacheinfo.o
+>  obj-y  += patch.o
+> +obj-y  += text.o
+>  obj-$(CONFIG_MMU) += vdso.o vdso/
+>
+>  obj-$(CONFIG_RISCV_M_MODE)     += clint.o traps_misaligned.o
+> diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+> index 7191342c54da..f6aa66431c9e 100644
+> --- a/arch/riscv/kernel/module.c
+> +++ b/arch/riscv/kernel/module.c
+> @@ -390,15 +390,3 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
+>
+>         return 0;
+>  }
+> -
+> -#if defined(CONFIG_MMU) && defined(CONFIG_64BIT)
+> -#define VMALLOC_MODULE_START \
+> -        max(PFN_ALIGN((unsigned long)&_end - SZ_2G), VMALLOC_START)
+> -void *module_alloc(unsigned long size)
+> -{
+> -       return __vmalloc_node_range(size, 1, VMALLOC_MODULE_START,
+> -                                   VMALLOC_END, GFP_KERNEL,
+> -                                   PAGE_KERNEL_EXEC, 0, NUMA_NO_NODE,
+> -                                   __builtin_return_address(0));
+> -}
+> -#endif
+> diff --git a/arch/riscv/kernel/text.c b/arch/riscv/kernel/text.c
+> new file mode 100644
+> index 000000000000..201608a25641
+> --- /dev/null
+> +++ b/arch/riscv/kernel/text.c
+> @@ -0,0 +1,20 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + *
+> + *  Copyright (C) 2017 Zihao Yu
+> + */
+> +#include <linux/mm.h>
+> +#include <linux/moduleloader.h>
+> +#include <linux/vmalloc.h>
+> +
+> +#if defined(CONFIG_MMU) && defined(CONFIG_64BIT)
+> +#define VMALLOC_MODULE_START \
+> +        max(PFN_ALIGN((unsigned long)&_end - SZ_2G), VMALLOC_START)
+> +void *text_alloc(unsigned long size)
+> +{
+> +       return __vmalloc_node_range(size, 1, VMALLOC_MODULE_START,
+> +                                   VMALLOC_END, GFP_KERNEL,
+> +                                   PAGE_KERNEL_EXEC, 0, NUMA_NO_NODE,
+> +                                   __builtin_return_address(0));
+> +}
+> +#endif
+> diff --git a/arch/s390/kernel/Makefile b/arch/s390/kernel/Makefile
+> index a8f136943deb..9f00c320b938 100644
+> --- a/arch/s390/kernel/Makefile
+> +++ b/arch/s390/kernel/Makefile
+> @@ -40,7 +40,7 @@ obj-y += sysinfo.o lgr.o os_info.o machine_kexec.o pgm_check.o
+>  obj-y  += runtime_instr.o cache.o fpu.o dumpstack.o guarded_storage.o sthyi.o
+>  obj-y  += entry.o reipl.o relocate_kernel.o kdebugfs.o alternative.o
+>  obj-y  += nospec-branch.o ipl_vmparm.o machine_kexec_reloc.o unwind_bc.o
+> -obj-y  += smp.o
+> +obj-y  += smp.o text.o
+>
+>  extra-y                                += head64.o vmlinux.lds
+>
+> diff --git a/arch/s390/kernel/ftrace.c b/arch/s390/kernel/ftrace.c
+> index b388e87a08bf..a752b1442846 100644
+> --- a/arch/s390/kernel/ftrace.c
+> +++ b/arch/s390/kernel/ftrace.c
+> @@ -134,7 +134,7 @@ static int __init ftrace_plt_init(void)
+>  {
+>         unsigned int *ip;
+>
+> -       ftrace_plt = (unsigned long) module_alloc(PAGE_SIZE);
+> +       ftrace_plt = (unsigned long) text_alloc(PAGE_SIZE);
+>         if (!ftrace_plt)
+>                 panic("cannot allocate ftrace plt\n");
+>         ip = (unsigned int *) ftrace_plt;
+> diff --git a/arch/s390/kernel/module.c b/arch/s390/kernel/module.c
+> index 4055f1c49814..087cb5951de6 100644
+> --- a/arch/s390/kernel/module.c
+> +++ b/arch/s390/kernel/module.c
+> @@ -32,22 +32,6 @@
+>
+>  #define PLT_ENTRY_SIZE 20
+>
+> -void *module_alloc(unsigned long size)
+> -{
+> -       void *p;
+> -
+> -       if (PAGE_ALIGN(size) > MODULES_LEN)
+> -               return NULL;
+> -       p = __vmalloc_node_range(size, MODULE_ALIGN, MODULES_VADDR, MODULES_END,
+> -                                GFP_KERNEL, PAGE_KERNEL_EXEC, 0, NUMA_NO_NODE,
+> -                                __builtin_return_address(0));
+> -       if (p && (kasan_module_alloc(p, size) < 0)) {
+> -               vfree(p);
+> -               return NULL;
+> -       }
+> -       return p;
+> -}
+> -
+>  void module_arch_freeing_init(struct module *mod)
+>  {
+>         if (is_livepatch_module(mod) &&
+> diff --git a/arch/s390/kernel/text.c b/arch/s390/kernel/text.c
+> new file mode 100644
+> index 000000000000..63aaa1ab727b
+> --- /dev/null
+> +++ b/arch/s390/kernel/text.c
+> @@ -0,0 +1,23 @@
+> +// SPDX-License-Identifier: GPL-2.0+
+> +/*
+> + *  Kernel module help for s390.
+> + */
+> +#include <linux/mm.h>
+> +#include <linux/moduleloader.h>
+> +#include <linux/vmalloc.h>
+> +
+> +void *text_alloc(unsigned long size)
+> +{
+> +       void *p;
+> +
+> +       if (PAGE_ALIGN(size) > MODULES_LEN)
+> +               return NULL;
+> +       p = __vmalloc_node_range(size, MODULE_ALIGN, MODULES_VADDR, MODULES_END,
+> +                                GFP_KERNEL, PAGE_KERNEL_EXEC, 0, NUMA_NO_NODE,
+> +                                __builtin_return_address(0));
+> +       if (p && (kasan_module_alloc(p, size) < 0)) {
+> +               vfree(p);
+> +               return NULL;
+> +       }
+> +       return p;
+> +}
+> diff --git a/arch/sparc/kernel/Makefile b/arch/sparc/kernel/Makefile
+> index 97c0e19263d1..e025f9e1db4a 100644
+> --- a/arch/sparc/kernel/Makefile
+> +++ b/arch/sparc/kernel/Makefile
+> @@ -52,6 +52,7 @@ obj-y                   += prom_common.o
+>  obj-y                   += prom_$(BITS).o
+>  obj-y                   += of_device_common.o
+>  obj-y                   += of_device_$(BITS).o
+> +obj-y                  += text.o
+>  obj-$(CONFIG_SPARC64)   += prom_irqtrans.o
+>
+>  obj-$(CONFIG_SPARC32)   += leon_kernel.o
+> diff --git a/arch/sparc/kernel/module.c b/arch/sparc/kernel/module.c
+> index df39580f398d..f2babc69f189 100644
+> --- a/arch/sparc/kernel/module.c
+> +++ b/arch/sparc/kernel/module.c
+> @@ -21,36 +21,6 @@
+>
+>  #include "entry.h"
+>
+> -#ifdef CONFIG_SPARC64
+> -
+> -#include <linux/jump_label.h>
+> -
+> -static void *module_map(unsigned long size)
+> -{
+> -       if (PAGE_ALIGN(size) > MODULES_LEN)
+> -               return NULL;
+> -       return __vmalloc_node_range(size, 1, MODULES_VADDR, MODULES_END,
+> -                               GFP_KERNEL, PAGE_KERNEL, 0, NUMA_NO_NODE,
+> -                               __builtin_return_address(0));
+> -}
+> -#else
+> -static void *module_map(unsigned long size)
+> -{
+> -       return vmalloc(size);
+> -}
+> -#endif /* CONFIG_SPARC64 */
+> -
+> -void *module_alloc(unsigned long size)
+> -{
+> -       void *ret;
+> -
+> -       ret = module_map(size);
+> -       if (ret)
+> -               memset(ret, 0, size);
+> -
+> -       return ret;
+> -}
+> -
+>  /* Make generic code ignore STT_REGISTER dummy undefined symbols.  */
+>  int module_frob_arch_sections(Elf_Ehdr *hdr,
+>                               Elf_Shdr *sechdrs,
+> diff --git a/arch/sparc/kernel/text.c b/arch/sparc/kernel/text.c
+> new file mode 100644
+> index 000000000000..d16663f2c6ba
+> --- /dev/null
+> +++ b/arch/sparc/kernel/text.c
+> @@ -0,0 +1,39 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/* Kernel module help for sparc64.
+> + *
+> + * Copyright (C) 2001 Rusty Russell.
+> + * Copyright (C) 2002 David S. Miller.
+> + */
+> +#include <linux/mm.h>
+> +#include <linux/moduleloader.h>
+> +#include <linux/vmalloc.h>
+> +
+> +#ifdef CONFIG_SPARC64
+> +
+> +#include <linux/jump_label.h>
+> +
+> +static void *module_map(unsigned long size)
+> +{
+> +       if (PAGE_ALIGN(size) > MODULES_LEN)
+> +               return NULL;
+> +       return __vmalloc_node_range(size, 1, MODULES_VADDR, MODULES_END,
+> +                               GFP_KERNEL, PAGE_KERNEL, 0, NUMA_NO_NODE,
+> +                               __builtin_return_address(0));
+> +}
+> +#else
+> +static void *module_map(unsigned long size)
+> +{
+> +       return vmalloc(size);
+> +}
+> +#endif /* CONFIG_SPARC64 */
+> +
+> +void *text_alloc(unsigned long size)
+> +{
+> +       void *ret;
+> +
+> +       ret = module_map(size);
+> +       if (ret)
+> +               memset(ret, 0, size);
+> +
+> +       return ret;
+> +}
+> diff --git a/arch/sparc/net/bpf_jit_comp_32.c b/arch/sparc/net/bpf_jit_comp_32.c
+> index c8eabb973b86..d9dd513b27b2 100644
+> --- a/arch/sparc/net/bpf_jit_comp_32.c
+> +++ b/arch/sparc/net/bpf_jit_comp_32.c
+> @@ -713,7 +713,7 @@ cond_branch:                        f_offset = addrs[i + filter[i].jf];
+>                                 if (unlikely(proglen + ilen > oldproglen)) {
+>                                         pr_err("bpb_jit_compile fatal error\n");
+>                                         kfree(addrs);
+> -                                       module_memfree(image);
+> +                                       text_memfree(image);
+>                                         return;
+>                                 }
+>                                 memcpy(image + proglen, temp, ilen);
+> @@ -736,7 +736,7 @@ cond_branch:                        f_offset = addrs[i + filter[i].jf];
+>                         break;
+>                 }
+>                 if (proglen == oldproglen) {
+> -                       image = module_alloc(proglen);
+> +                       image = text_alloc(proglen);
+>                         if (!image)
+>                                 goto out;
+>                 }
+> @@ -758,7 +758,7 @@ cond_branch:                        f_offset = addrs[i + filter[i].jf];
+>  void bpf_jit_free(struct bpf_prog *fp)
+>  {
+>         if (fp->jited)
+> -               module_memfree(fp->bpf_func);
+> +               text_memfree(fp->bpf_func);
+>
+>         bpf_prog_unlock_free(fp);
+>  }
+> diff --git a/arch/unicore32/kernel/Makefile b/arch/unicore32/kernel/Makefile
+> index 2f79aa56735b..96eb8cfc8b1e 100644
+> --- a/arch/unicore32/kernel/Makefile
+> +++ b/arch/unicore32/kernel/Makefile
+> @@ -6,6 +6,7 @@
+>  # Object file lists.
+>  obj-y                          := dma.o elf.o entry.o process.o ptrace.o
+>  obj-y                          += setup.o signal.o sys.o stacktrace.o traps.o
+> +obj-y                          += text.o
+>
+>  obj-$(CONFIG_MODULES)          += ksyms.o module.o
+>  obj-$(CONFIG_EARLY_PRINTK)     += early_printk.o
+> diff --git a/arch/unicore32/kernel/module.c b/arch/unicore32/kernel/module.c
+> index 67c89ef2d6ee..e1e703c02379 100644
+> --- a/arch/unicore32/kernel/module.c
+> +++ b/arch/unicore32/kernel/module.c
+> @@ -18,13 +18,6 @@
+>
+>  #include <asm/sections.h>
+>
+> -void *module_alloc(unsigned long size)
+> -{
+> -       return __vmalloc_node_range(size, 1, MODULES_VADDR, MODULES_END,
+> -                               GFP_KERNEL, PAGE_KERNEL_EXEC, 0, NUMA_NO_NODE,
+> -                               __builtin_return_address(0));
+> -}
+> -
+>  int
+>  apply_relocate(Elf32_Shdr *sechdrs, const char *strtab, unsigned int symindex,
+>                unsigned int relindex, struct module *module)
+> diff --git a/arch/unicore32/kernel/text.c b/arch/unicore32/kernel/text.c
+> new file mode 100644
+> index 000000000000..b94aac824bb8
+> --- /dev/null
+> +++ b/arch/unicore32/kernel/text.c
+> @@ -0,0 +1,18 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * linux/arch/unicore32/kernel/module.c
+> + *
+> + * Code specific to PKUnity SoC and UniCore ISA
+> + *
+> + * Copyright (C) 2001-2010 GUAN Xue-tao
+> + */
+> +#include <linux/mm.h>
+> +#include <linux/moduleloader.h>
+> +#include <linux/vmalloc.h>
+> +
+> +void *text_alloc(unsigned long size)
+> +{
+> +       return __vmalloc_node_range(size, 1, MODULES_VADDR, MODULES_END,
+> +                               GFP_KERNEL, PAGE_KERNEL_EXEC, 0, NUMA_NO_NODE,
+> +                               __builtin_return_address(0));
+> +}
+> diff --git a/arch/x86/kernel/Makefile b/arch/x86/kernel/Makefile
+> index e77261db2391..2878e4b753a0 100644
+> --- a/arch/x86/kernel/Makefile
+> +++ b/arch/x86/kernel/Makefile
+> @@ -68,6 +68,7 @@ obj-y                 += tsc.o tsc_msr.o io_delay.o rtc.o
+>  obj-y                  += pci-iommu_table.o
+>  obj-y                  += resource.o
+>  obj-y                  += irqflags.o
+> +obj-y                  += text.o
+>
+>  obj-y                          += process.o
+>  obj-y                          += fpu/
+> diff --git a/arch/x86/kernel/ftrace.c b/arch/x86/kernel/ftrace.c
+> index 51504566b3a6..f76703ee96f2 100644
+> --- a/arch/x86/kernel/ftrace.c
+> +++ b/arch/x86/kernel/ftrace.c
+> @@ -265,11 +265,11 @@ int __init ftrace_dyn_arch_init(void)
+>  /* Module allocation simplifies allocating memory for code */
+>  static inline void *alloc_tramp(unsigned long size)
+>  {
+> -       return module_alloc(size);
+> +       return text_alloc(size);
+>  }
+>  static inline void tramp_free(void *tramp)
+>  {
+> -       module_memfree(tramp);
+> +       text_memfree(tramp);
+>  }
+>  #else
+>  /* Trampolines can only be created if modules are supported */
+> diff --git a/arch/x86/kernel/kprobes/core.c b/arch/x86/kernel/kprobes/core.c
+> index ada39ddbc922..e9ac7d3c658e 100644
+> --- a/arch/x86/kernel/kprobes/core.c
+> +++ b/arch/x86/kernel/kprobes/core.c
+> @@ -423,7 +423,7 @@ void *alloc_insn_page(void)
+>  {
+>         void *page;
+>
+> -       page = module_alloc(PAGE_SIZE);
+> +       page = text_alloc(PAGE_SIZE);
+>         if (!page)
+>                 return NULL;
+>
+> @@ -446,7 +446,7 @@ void *alloc_insn_page(void)
+>  /* Recover page to RW mode before releasing it */
+>  void free_insn_page(void *page)
+>  {
+> -       module_memfree(page);
+> +       text_memfree(page);
+>  }
+>
+>  static int arch_copy_kprobe(struct kprobe *p)
+> diff --git a/arch/x86/kernel/module.c b/arch/x86/kernel/module.c
+> index 34b153cbd4ac..261df078f127 100644
+> --- a/arch/x86/kernel/module.c
+> +++ b/arch/x86/kernel/module.c
+> @@ -36,55 +36,6 @@ do {                                                 \
+>  } while (0)
+>  #endif
+>
+> -#ifdef CONFIG_RANDOMIZE_BASE
+> -static unsigned long module_load_offset;
+> -
+> -/* Mutex protects the module_load_offset. */
+> -static DEFINE_MUTEX(module_kaslr_mutex);
+> -
+> -static unsigned long int get_module_load_offset(void)
+> -{
+> -       if (kaslr_enabled()) {
+> -               mutex_lock(&module_kaslr_mutex);
+> -               /*
+> -                * Calculate the module_load_offset the first time this
+> -                * code is called. Once calculated it stays the same until
+> -                * reboot.
+> -                */
+> -               if (module_load_offset == 0)
+> -                       module_load_offset =
+> -                               (get_random_int() % 1024 + 1) * PAGE_SIZE;
+> -               mutex_unlock(&module_kaslr_mutex);
+> -       }
+> -       return module_load_offset;
+> -}
+> -#else
+> -static unsigned long int get_module_load_offset(void)
+> -{
+> -       return 0;
+> -}
+> -#endif
+> -
+> -void *module_alloc(unsigned long size)
+> -{
+> -       void *p;
+> -
+> -       if (PAGE_ALIGN(size) > MODULES_LEN)
+> -               return NULL;
+> -
+> -       p = __vmalloc_node_range(size, MODULE_ALIGN,
+> -                                   MODULES_VADDR + get_module_load_offset(),
+> -                                   MODULES_END, GFP_KERNEL,
+> -                                   PAGE_KERNEL, 0, NUMA_NO_NODE,
+> -                                   __builtin_return_address(0));
+> -       if (p && (kasan_module_alloc(p, size) < 0)) {
+> -               vfree(p);
+> -               return NULL;
+> -       }
+> -
+> -       return p;
+> -}
+> -
+>  #ifdef CONFIG_X86_32
+>  int apply_relocate(Elf32_Shdr *sechdrs,
+>                    const char *strtab,
+> diff --git a/arch/x86/kernel/text.c b/arch/x86/kernel/text.c
+> new file mode 100644
+> index 000000000000..724ab2d93ac5
+> --- /dev/null
+> +++ b/arch/x86/kernel/text.c
+> @@ -0,0 +1,60 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + *  Kernel module help for x86.
+> + *  Copyright (C) 2001 Rusty Russell.
+> + */
+> +#include <linux/kasan.h>
+> +#include <linux/mm.h>
+> +#include <linux/moduleloader.h>
+> +#include <linux/random.h>
+> +#include <linux/vmalloc.h>
+> +#include <asm/setup.h>
+> +
+> +#ifdef CONFIG_RANDOMIZE_BASE
+> +static unsigned long module_load_offset;
+> +
+> +/* Mutex protects the module_load_offset. */
+> +static DEFINE_MUTEX(module_kaslr_mutex);
+> +
+> +static unsigned long get_module_load_offset(void)
+> +{
+> +       if (kaslr_enabled()) {
+> +               mutex_lock(&module_kaslr_mutex);
+> +               /*
+> +                * Calculate the module_load_offset the first time this
+> +                * code is called. Once calculated it stays the same until
+> +                * reboot.
+> +                */
+> +               if (module_load_offset == 0)
+> +                       module_load_offset =
+> +                               (get_random_int() % 1024 + 1) * PAGE_SIZE;
+> +               mutex_unlock(&module_kaslr_mutex);
+> +       }
+> +       return module_load_offset;
+> +}
+> +#else
+> +static unsigned long get_module_load_offset(void)
+> +{
+> +       return 0;
+> +}
+> +#endif
+> +
+> +void *text_alloc(unsigned long size)
+> +{
+> +       void *p;
+> +
+> +       if (PAGE_ALIGN(size) > MODULES_LEN)
+> +               return NULL;
+> +
+> +       p = __vmalloc_node_range(size, MODULE_ALIGN,
+> +                                   MODULES_VADDR + get_module_load_offset(),
+> +                                   MODULES_END, GFP_KERNEL,
+> +                                   PAGE_KERNEL, 0, NUMA_NO_NODE,
+> +                                   __builtin_return_address(0));
+> +       if (p && (kasan_module_alloc(p, size) < 0)) {
+> +               vfree(p);
+> +               return NULL;
+> +       }
+> +
+> +       return p;
+> +}
+> diff --git a/include/linux/moduleloader.h b/include/linux/moduleloader.h
+> index 4fa67a8b2265..4e8b9ba431ee 100644
+> --- a/include/linux/moduleloader.h
+> +++ b/include/linux/moduleloader.h
+> @@ -24,10 +24,10 @@ unsigned int arch_mod_section_prepend(struct module *mod, unsigned int section);
+>
+>  /* Allocator used for allocating struct module, core sections and init
+>     sections.  Returns NULL on failure. */
+> -void *module_alloc(unsigned long size);
+> +void *text_alloc(unsigned long size);
+>
+>  /* Free memory returned from module_alloc. */
+> -void module_memfree(void *module_region);
+> +void text_memfree(void *module_region);
+>
+>  /* Determines if the section name is an init section (that is only used during
+>   * module loading).
+> diff --git a/kernel/Makefile b/kernel/Makefile
+> index f3218bc5ec69..9e88e81f68ef 100644
+> --- a/kernel/Makefile
+> +++ b/kernel/Makefile
+> @@ -10,7 +10,7 @@ obj-y     = fork.o exec_domain.o panic.o \
+>             extable.o params.o \
+>             kthread.o sys_ni.o nsproxy.o \
+>             notifier.o ksysfs.o cred.o reboot.o \
+> -           async.o range.o smpboot.o ucount.o
+> +           async.o range.o smpboot.o ucount.o text.o
+>
+>  obj-$(CONFIG_MODULES) += kmod.o
+>  obj-$(CONFIG_MULTIUSER) += groups.o
+> diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
+> index 9df4cc9a2907..febd55019a8a 100644
+> --- a/kernel/bpf/core.c
+> +++ b/kernel/bpf/core.c
+> @@ -840,12 +840,12 @@ static void bpf_jit_uncharge_modmem(u32 pages)
+>
+>  void *__weak bpf_jit_alloc_exec(unsigned long size)
+>  {
+> -       return module_alloc(size);
+> +       return text_alloc(size);
+>  }
+>
+>  void __weak bpf_jit_free_exec(void *addr)
+>  {
+> -       module_memfree(addr);
+> +       text_memfree(addr);
+>  }
+>
+>  struct bpf_binary_header *
+> diff --git a/kernel/kprobes.c b/kernel/kprobes.c
+> index 4a904cc56d68..d1c354ec89de 100644
+> --- a/kernel/kprobes.c
+> +++ b/kernel/kprobes.c
+> @@ -111,12 +111,12 @@ enum kprobe_slot_state {
+>
+>  void __weak *alloc_insn_page(void)
+>  {
+> -       return module_alloc(PAGE_SIZE);
+> +       return text_alloc(PAGE_SIZE);
+>  }
+>
+>  void __weak free_insn_page(void *page)
+>  {
+> -       module_memfree(page);
+> +       text_memfree(page);
+>  }
+>
+>  struct kprobe_insn_cache kprobe_insn_slots = {
+> diff --git a/kernel/module.c b/kernel/module.c
+> index bee1c25ca5c5..bdb3773f3668 100644
+> --- a/kernel/module.c
+> +++ b/kernel/module.c
+> @@ -2141,16 +2141,6 @@ static void free_module_elf(struct module *mod)
+>  }
+>  #endif /* CONFIG_LIVEPATCH */
+>
+> -void __weak module_memfree(void *module_region)
+> -{
+> -       /*
+> -        * This memory may be RO, and freeing RO memory in an interrupt is not
+> -        * supported by vmalloc.
+> -        */
+> -       WARN_ON(in_interrupt());
+> -       vfree(module_region);
+> -}
+> -
+>  void __weak module_arch_cleanup(struct module *mod)
+>  {
+>  }
+> @@ -2200,7 +2190,7 @@ static void free_module(struct module *mod)
+>
+>         /* This may be empty, but that's OK */
+>         module_arch_freeing_init(mod);
+> -       module_memfree(mod->init_layout.base);
+> +       text_memfree(mod->init_layout.base);
+>         kfree(mod->args);
+>         percpu_modfree(mod);
+>
+> @@ -2208,7 +2198,7 @@ static void free_module(struct module *mod)
+>         lockdep_free_key_range(mod->core_layout.base, mod->core_layout.size);
+>
+>         /* Finally, free the core (containing the module structure) */
+> -       module_memfree(mod->core_layout.base);
+> +       text_memfree(mod->core_layout.base);
+>  }
+>
+>  void *__symbol_get(const char *symbol)
+> @@ -2781,13 +2771,6 @@ static void dynamic_debug_remove(struct module *mod, struct _ddebug *debug)
+>                 ddebug_remove_module(mod->name);
+>  }
+>
+> -void * __weak module_alloc(unsigned long size)
+> -{
+> -       return __vmalloc_node_range(size, 1, VMALLOC_START, VMALLOC_END,
+> -                       GFP_KERNEL, PAGE_KERNEL_EXEC, VM_FLUSH_RESET_PERMS,
+> -                       NUMA_NO_NODE, __builtin_return_address(0));
+> -}
+> -
+>  bool __weak module_init_section(const char *name)
+>  {
+>         return strstarts(name, ".init");
+> @@ -3246,7 +3229,7 @@ static int move_module(struct module *mod, struct load_info *info)
+>         void *ptr;
+>
+>         /* Do the allocs. */
+> -       ptr = module_alloc(mod->core_layout.size);
+> +       ptr = text_alloc(mod->core_layout.size);
+>         /*
+>          * The pointer to this block is stored in the module structure
+>          * which is inside the block. Just mark it as not being a
+> @@ -3260,7 +3243,7 @@ static int move_module(struct module *mod, struct load_info *info)
+>         mod->core_layout.base = ptr;
+>
+>         if (mod->init_layout.size) {
+> -               ptr = module_alloc(mod->init_layout.size);
+> +               ptr = text_alloc(mod->init_layout.size);
+>                 /*
+>                  * The pointer to this block is stored in the module structure
+>                  * which is inside the block. This block doesn't need to be
+> @@ -3269,7 +3252,7 @@ static int move_module(struct module *mod, struct load_info *info)
+>                  */
+>                 kmemleak_ignore(ptr);
+>                 if (!ptr) {
+> -                       module_memfree(mod->core_layout.base);
+> +                       text_memfree(mod->core_layout.base);
+>                         return -ENOMEM;
+>                 }
+>                 memset(ptr, 0, mod->init_layout.size);
+> @@ -3452,8 +3435,8 @@ static void module_deallocate(struct module *mod, struct load_info *info)
+>  {
+>         percpu_modfree(mod);
+>         module_arch_freeing_init(mod);
+> -       module_memfree(mod->init_layout.base);
+> -       module_memfree(mod->core_layout.base);
+> +       text_memfree(mod->init_layout.base);
+> +       text_memfree(mod->core_layout.base);
+>  }
+>
+>  int __weak module_finalize(const Elf_Ehdr *hdr,
+> @@ -3527,7 +3510,7 @@ static void do_free_init(struct work_struct *w)
+>
+>         llist_for_each_safe(pos, n, list) {
+>                 initfree = container_of(pos, struct mod_initfree, node);
+> -               module_memfree(initfree->module_init);
+> +               text_memfree(initfree->module_init);
+>                 kfree(initfree);
+>         }
+>  }
+> @@ -3626,10 +3609,10 @@ static noinline int do_init_module(struct module *mod)
+>          * We want to free module_init, but be aware that kallsyms may be
+>          * walking this with preempt disabled.  In all the failure paths, we
+>          * call synchronize_rcu(), but we don't want to slow down the success
+> -        * path. module_memfree() cannot be called in an interrupt, so do the
+> +        * path. text_memfree() cannot be called in an interrupt, so do the
+>          * work and call synchronize_rcu() in a work queue.
+>          *
+> -        * Note that module_alloc() on most architectures creates W+X page
+> +        * Note that text_alloc() on most architectures creates W+X page
+>          * mappings which won't be cleaned up until do_free_init() runs.  Any
+>          * code such as mark_rodata_ro() which depends on those mappings to
+>          * be cleaned up needs to sync with the queued work - ie
+> diff --git a/kernel/text.c b/kernel/text.c
+> new file mode 100644
+> index 000000000000..9a12c508ded5
+> --- /dev/null
+> +++ b/kernel/text.c
+> @@ -0,0 +1,25 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + *  Copyright (C) 2002 Richard Henderson
+> + *  Copyright (C) 2001 Rusty Russell, 2002, 2010 Rusty Russell IBM.
+> + */
+> +#include <linux/mm.h>
+> +#include <linux/moduleloader.h>
+> +#include <linux/vmalloc.h>
+> +
+> +void __weak text_memfree(void *module_region)
+> +{
+> +       /*
+> +        * This memory may be RO, and freeing RO memory in an interrupt is not
+> +        * supported by vmalloc.
+> +        */
+> +       WARN_ON(in_interrupt());
+> +       vfree(module_region);
+> +}
+> +
+> +void * __weak text_alloc(unsigned long size)
+> +{
+> +       return __vmalloc_node_range(size, 1, VMALLOC_START, VMALLOC_END,
+> +                       GFP_KERNEL, PAGE_KERNEL_EXEC, VM_FLUSH_RESET_PERMS,
+> +                       NUMA_NO_NODE, __builtin_return_address(0));
+> +}
+> --
+> 2.25.1
+>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
