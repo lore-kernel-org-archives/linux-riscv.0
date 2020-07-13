@@ -2,85 +2,56 @@ Return-Path: <SRS0=aCEi=AY=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6615AC433E1
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2020 02:40:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 22962C433E2
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2020 03:24:11 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3062C2070B
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2020 02:40:20 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id DF66F20725
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2020 03:24:10 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="wXHMeMVK";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=chromium.org header.i=@chromium.org header.b="dzJcZTQo"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3062C2070B
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=chromium.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pYC8Ejat"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DF66F20725
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=8lflYVS7Gq0m1FHWm7zitnDbSd0D63bEb3NOo4L2cc0=; b=wXHMeMVKNssnd6dBI77SIR/Uo
-	S8VMjs2j3d/Q+FDeyedldcWp324e/E9LRBCVNHmPb1ipMDZSVsK0T03Sx3mE9krgYnxSEVuyPMIOd
-	uN6tMJMn6DDZcYbH0Trk2uKfWpNdAExAwqj8yQ5lYfYzIn6RmPlPNNSNLf5wsmYY+GuiOkS8/HVf+
-	MG3KXdkev0sTR2yWbSTBHZT9cuIgQje4RKHwo15D6qSqHuaj8ICMUEheg+20MIg6VPn2JHLYtjhuC
-	UzdTVqP5oLJacLVmsTXJ+H0XWpRR7N3I2QL1qKuPVdN9yV6A7KKjv7hzF5iUyHKnYUcqOHtZCUcwj
-	KTTK++koQ==;
+	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6hp/aBzSw5rBeO4t7ySMldzWhssS+H70ZirX39agCD8=; b=pYC8Ejat/RZcy1615UZFIVE1tc
+	FE3twTG13lg7j6T2pEFVtdrS6tihhb+3Guyw15S7GQ0EpvcbAg4w6YXWM9vPwCrXS1MjndkaWFj78
+	xA0TKbROzFI0nEvuZdskqlpIqOcCGXQBIfQIO6pnkaJC3VCppGD8VfJ6ecnE/E50JjT2Wkqhm9DCE
+	9nW+8hmjsEA6kr6T4LNE411O0oD3inqkL/4TnnlkAFVnIweEP8+P5nmVOkFI4ky2E17dNwt7oEF5z
+	6+lTF+Eb9FFf/1L7Br5GSwt5voT6TVdb/8H+Cexk060J8vTFYRuizH4nuYaIwnITjQGsg8H3r3h+3
+	/3WiNn4Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1juoNw-0005qj-S3; Mon, 13 Jul 2020 02:40:04 +0000
-Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
- by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1juoNt-0005pr-6w
- for linux-riscv@lists.infradead.org; Mon, 13 Jul 2020 02:40:02 +0000
-Received: by mail-pg1-x542.google.com with SMTP id l63so5378064pge.12
- for <linux-riscv@lists.infradead.org>; Sun, 12 Jul 2020 19:40:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=jsRkdhqxS3NZSgX5ATVfGNLOv6qqnTr/cmm8NfBgbBE=;
- b=dzJcZTQoWMe2tmnqof+8OvU9bFh9EHwb5yqVnjcAUsuuC2oA3e/7ua+6nqKi2aZwk2
- RPTdokLpU/bejdGXn3l2GZyCyq250gZ2iNQ2Tjuv03asTariQZ1rZMu+7fDvZKTcoLfc
- KaJAQ2o0rHEAT06ffa3dzgaNPeIRCezF73HQg=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=jsRkdhqxS3NZSgX5ATVfGNLOv6qqnTr/cmm8NfBgbBE=;
- b=V0SAMNh2/oyNjFOKGTC4uc5JWRQo3C028TLE39ptuoq+4U+w/oHoRAqV+1rSCTp/ES
- h1tjl6o3DrhnOVFMNKIgmqmxt12L7xAr31CjgACOEXGsu54In0IvAB7jEXg/wazsutTi
- T7dTkEImHoO9wUJkYwndF6ph5NF1F46QO4XtlvMDeDbGMvrWVJtg7DOtEZW2ctIJEqS9
- Q1pfk2iUs7YwwZ2W88olN/bXynfWR9jlmSTy3X7/44LBm/M2AtLlyKmJylumE+Nz15Hr
- XAlKl5iEO80b3HG0R78VRo+LtUrKXiwmJua7sm/q8AWAtWzF6BOmU4ybyfcxy1UcmkA0
- 05IA==
-X-Gm-Message-State: AOAM533sbp2QOp60oGSj9ZpZMAWGQwT8hJnxQeh26K1fBfkZq27WLZx6
- puC0lU5slQ3phe6hncLQfTVEww==
-X-Google-Smtp-Source: ABdhPJyX+8sNQyWljdeceleZgJhFuJjzYvo/VS87Sp7fA08kQ5NiWlAeKhuViXcWtWotTPnuvfu4fQ==
-X-Received: by 2002:aa7:8d02:: with SMTP id j2mr6926476pfe.90.1594607999067;
- Sun, 12 Jul 2020 19:39:59 -0700 (PDT)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
- by smtp.gmail.com with ESMTPSA id y6sm13085278pfp.7.2020.07.12.19.39.58
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sun, 12 Jul 2020 19:39:58 -0700 (PDT)
-Date: Sun, 12 Jul 2020 19:39:57 -0700
-From: Kees Cook <keescook@chromium.org>
-To: guoren@kernel.org
-Subject: Re: [PATCH v3 2/2] riscv: Enable per-task stack canaries
-Message-ID: <202007121939.07FB14D@keescook>
-References: <1594397998-10221-1-git-send-email-guoren@kernel.org>
- <1594397998-10221-2-git-send-email-guoren@kernel.org>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <1594397998-10221-2-git-send-email-guoren@kernel.org>
+	id 1jup4S-0001xZ-39; Mon, 13 Jul 2020 03:24:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+ by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1jup4L-0001un-H1; Mon, 13 Jul 2020 03:23:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EA64C1FB;
+ Sun, 12 Jul 2020 20:23:49 -0700 (PDT)
+Received: from p8cg001049571a15.arm.com (unknown [10.163.87.124])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 92B753F7D8;
+ Sun, 12 Jul 2020 20:23:35 -0700 (PDT)
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-mm@kvack.org
+Subject: [PATCH V5 0/4] mm/debug_vm_pgtable: Add some more tests
+Date: Mon, 13 Jul 2020 08:53:03 +0530
+Message-Id: <1594610587-4172-1-git-send-email-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.7.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200712_224001_611330_4C86D4ED 
-X-CRM114-Status: GOOD (  25.10  )
+X-CRM114-CacheID: sfid-20200712_232353_713851_4A6E674F 
+X-CRM114-Status: GOOD (  16.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -92,184 +63,143 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Guo Ren <guoren@linux.alibaba.com>, anup@brainfault.org,
- palmerdabbelt@google.com, linux-kernel@vger.kernel.org,
- linux-csky@vger.kernel.org, paul.walmsley@sifive.com, atish.patra@wdc.com,
- zong.li@sifive.com, bjorn.topel@gmail.com, cooper.qu@linux.alibaba.com,
- greentime.hu@sifive.com, linux-riscv@lists.infradead.org
+Cc: linux-doc@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
+ Heiko Carstens <heiko.carstens@de.ibm.com>, Paul Mackerras <paulus@samba.org>,
+ "H. Peter Anvin" <hpa@zytor.com>, agordeev@linux.ibm.com,
+ Will Deacon <will@kernel.org>, linux-riscv@lists.infradead.org,
+ linux-arch@vger.kernel.org, linux-s390@vger.kernel.org,
+ Jonathan Corbet <corbet@lwn.net>, Michael Ellerman <mpe@ellerman.id.au>,
+ x86@kernel.org, christophe.leroy@csgroup.eu,
+ Mike Rapoport <rppt@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@de.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+ linux-arm-kernel@lists.infradead.org, ziy@nvidia.com,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ linux-snps-arc@lists.infradead.org, Vasily Gorbik <gor@linux.ibm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>, cai@lca.pw,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A . Shutemov" <kirill@shutemov.name>,
+ Thomas Gleixner <tglx@linutronix.de>, gerald.schaefer@de.ibm.com,
+ christophe.leroy@c-s.fr, Vineet Gupta <vgupta@synopsys.com>,
+ linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ aneesh.kumar@linux.ibm.com, Borislav Petkov <bp@alien8.de>,
+ Andrew Morton <akpm@linux-foundation.org>, linuxppc-dev@lists.ozlabs.org,
+ rppt@kernel.org
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 10, 2020 at 04:19:58PM +0000, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
-> 
-> This enables the use of per-task stack canary values if GCC has
-> support for emitting the stack canary reference relative to the
-> value of tp, which holds the task struct pointer in the riscv
-> kernel.
-> 
-> After compare arm64 and x86 implementations, seems arm64's is more
-> flexible and readable. The key point is how gcc get the offset of
-> stack_canary from gs/el0_sp.
-> 
-> x86: Use a fix offset from gs, not flexible.
-> 
-> struct fixed_percpu_data {
-> 	/*
-> 	 * GCC hardcodes the stack canary as %gs:40.  Since the
-> 	 * irq_stack is the object at %gs:0, we reserve the bottom
-> 	 * 48 bytes of the irq stack for the canary.
-> 	 */
-> 	char            gs_base[40]; // :(
-> 	unsigned long   stack_canary;
-> };
-> 
-> arm64: Use -mstack-protector-guard-offset & guard-reg
-> 	gcc options:
-> 	-mstack-protector-guard=sysreg
-> 	-mstack-protector-guard-reg=sp_el0
-> 	-mstack-protector-guard-offset=xxx
-> 
-> riscv: Use -mstack-protector-guard-offset & guard-reg
-> 	gcc options:
-> 	-mstack-protector-guard=tls
-> 	-mstack-protector-guard-reg=tp
-> 	-mstack-protector-guard-offset=xxx
-> 
-> Here is riscv gcc's work [1].
-> 
-> [1] https://gcc.gnu.org/pipermail/gcc-patches/2020-July/549583.html
-> 
-> In the end, these codes are inserted by gcc before return:
-> 
-> *  0xffffffe00020b396 <+120>:   ld      a5,1008(tp) # 0x3f0
-> *  0xffffffe00020b39a <+124>:   xor     a5,a5,a4
-> *  0xffffffe00020b39c <+126>:   mv      a0,s5
-> *  0xffffffe00020b39e <+128>:   bnez    a5,0xffffffe00020b61c <_do_fork+766>
->    0xffffffe00020b3a2 <+132>:   ld      ra,136(sp)
->    0xffffffe00020b3a4 <+134>:   ld      s0,128(sp)
->    0xffffffe00020b3a6 <+136>:   ld      s1,120(sp)
->    0xffffffe00020b3a8 <+138>:   ld      s2,112(sp)
->    0xffffffe00020b3aa <+140>:   ld      s3,104(sp)
->    0xffffffe00020b3ac <+142>:   ld      s4,96(sp)
->    0xffffffe00020b3ae <+144>:   ld      s5,88(sp)
->    0xffffffe00020b3b0 <+146>:   ld      s6,80(sp)
->    0xffffffe00020b3b2 <+148>:   ld      s7,72(sp)
->    0xffffffe00020b3b4 <+150>:   addi    sp,sp,144
->    0xffffffe00020b3b6 <+152>:   ret
->    ...
-> *  0xffffffe00020b61c <+766>:   auipc   ra,0x7f8
-> *  0xffffffe00020b620 <+770>:   jalr    -1764(ra) # 0xffffffe000a02f38 <__stack_chk_fail>
-> 
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: cooper <cooper.qu@linux.alibaba.com>
-> Cc: cooper <cooper.qu@linux.alibaba.com>
-> Cc: Kees Cook <keescook@chromium.org>
-> ---
-> Change v2:
->  - Change to -mstack-protector-guard=tls for gcc final define
->  - Solve compile error by changing position of KBUILD_CFLAGS in
->    Makefile
-> 
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> ---
->  arch/riscv/Kconfig                      |  7 +++++++
->  arch/riscv/Makefile                     | 10 ++++++++++
->  arch/riscv/include/asm/stackprotector.h |  3 ++-
->  arch/riscv/kernel/asm-offsets.c         |  3 +++
->  arch/riscv/kernel/process.c             |  2 +-
->  5 files changed, 23 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 4b0e308..d98ce29 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -394,6 +394,13 @@ config CMDLINE_FORCE
->  
->  endchoice
->  
-> +config CC_HAVE_STACKPROTECTOR_TLS
-> +	def_bool $(cc-option,-mstack-protector-guard=tls -mstack-protector-guard-reg=tp -mstack-protector-guard-offset=0)
-> +
-> +config STACKPROTECTOR_PER_TASK
-> +	def_bool y
-> +	depends on STACKPROTECTOR && CC_HAVE_STACKPROTECTOR_TLS
-> +
->  endmenu
->  
->  config BUILTIN_DTB
-> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> index fb6e37d..f5f8ee9 100644
-> --- a/arch/riscv/Makefile
-> +++ b/arch/riscv/Makefile
-> @@ -68,6 +68,16 @@ KBUILD_CFLAGS_MODULE += $(call cc-option,-mno-relax)
->  # architectures.  It's faster to have GCC emit only aligned accesses.
->  KBUILD_CFLAGS += $(call cc-option,-mstrict-align)
->  
-> +ifeq ($(CONFIG_STACKPROTECTOR_PER_TASK),y)
-> +prepare: stack_protector_prepare
-> +stack_protector_prepare: prepare0
-> +	$(eval KBUILD_CFLAGS += -mstack-protector-guard=tls		  \
-> +				-mstack-protector-guard-reg=tp		  \
-> +				-mstack-protector-guard-offset=$(shell	  \
-> +			awk '{if ($$2 == "TSK_STACK_CANARY") print $$3;}' \
-> +					include/generated/asm-offsets.h))
-> +endif
-> +
->  # arch specific predefines for sparse
->  CHECKFLAGS += -D__riscv -D__riscv_xlen=$(BITS)
->  
-> diff --git a/arch/riscv/include/asm/stackprotector.h b/arch/riscv/include/asm/stackprotector.h
-> index d95f7b2..a895e07 100644
-> --- a/arch/riscv/include/asm/stackprotector.h
-> +++ b/arch/riscv/include/asm/stackprotector.h
-> @@ -28,6 +28,7 @@ static __always_inline void boot_init_stack_canary(void)
->  	canary &= CANARY_MASK;
->  
->  	current->stack_canary = canary;
-> -	__stack_chk_guard = current->stack_canary;
-> +	if (!IS_ENABLED(CONFIG_STACKPROTECTOR_PER_TASK))
-> +		__stack_chk_guard = current->stack_canary;
->  }
->  #endif /* _ASM_RISCV_STACKPROTECTOR_H */
-> diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
-> index 07cb9c1..999b465 100644
-> --- a/arch/riscv/kernel/asm-offsets.c
-> +++ b/arch/riscv/kernel/asm-offsets.c
-> @@ -29,6 +29,9 @@ void asm_offsets(void)
->  	OFFSET(TASK_THREAD_S11, task_struct, thread.s[11]);
->  	OFFSET(TASK_THREAD_SP, task_struct, thread.sp);
->  	OFFSET(TASK_STACK, task_struct, stack);
-> +#ifdef CONFIG_STACKPROTECTOR
+This series adds some more arch page table helper validation tests which
+are related to core and advanced memory functions. This also creates a
+documentation, enlisting expected semantics for all page table helpers as
+suggested by Mike Rapoport previously (https://lkml.org/lkml/2020/1/30/40).
 
-Should this be CONFIG_STACKPROTECTOR_PER_TASK ?
+There are many TRANSPARENT_HUGEPAGE and ARCH_HAS_TRANSPARENT_HUGEPAGE_PUD
+ifdefs scattered across the test. But consolidating all the fallback stubs
+is not very straight forward because ARCH_HAS_TRANSPARENT_HUGEPAGE_PUD is
+not explicitly dependent on ARCH_HAS_TRANSPARENT_HUGEPAGE.
 
-> +	OFFSET(TSK_STACK_CANARY, task_struct, stack_canary);
-> +#endif
->  	OFFSET(TASK_TI, task_struct, thread_info);
->  	OFFSET(TASK_TI_FLAGS, task_struct, thread_info.flags);
->  	OFFSET(TASK_TI_PREEMPT_COUNT, task_struct, thread_info.preempt_count);
-> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-> index 6548929..cb4ac65 100644
-> --- a/arch/riscv/kernel/process.c
-> +++ b/arch/riscv/kernel/process.c
-> @@ -24,7 +24,7 @@
->  
->  register unsigned long gp_in_global __asm__("gp");
->  
-> -#ifdef CONFIG_STACKPROTECTOR
-> +#if defined(CONFIG_STACKPROTECTOR) && !defined(CONFIG_STACKPROTECTOR_PER_TASK)
->  #include <linux/stackprotector.h>
->  unsigned long __stack_chk_guard __read_mostly;
->  EXPORT_SYMBOL(__stack_chk_guard);
-> -- 
-> 2.7.4
-> 
+Tested on arm64, x86 platforms but only build tested on all other enabled
+platforms through ARCH_HAS_DEBUG_VM_PGTABLE i.e powerpc, arc, s390. The
+following failure on arm64 still exists which was mentioned previously. It
+will be fixed with the upcoming THP migration on arm64 enablement series.
+
+WARNING .... mm/debug_vm_pgtable.c:866 debug_vm_pgtable+0x940/0xa54
+WARN_ON(!pmd_present(pmd_mkinvalid(pmd_mkhuge(pmd))))
+
+This series is based on v5.8-rc5.
+
+Changes in V5:
+
+- Dropped RANDOM_ORVALUE from hugetlb_advanced_tests()
+- Folded in Mike's patch for the rst document
+- Fixed typos in the rst document
+
+Changes in V4: (https://patchwork.kernel.org/project/linux-mm/list/?series=313173)
+
+- Replaced READ_ONCE() with ptep_get() while accessing PTE pointers per Christophe
+- Fixed function argument alignments per Christophe
+
+Changes in V3: (https://patchwork.kernel.org/project/linux-mm/list/?series=302483)
+
+- Replaced HAVE_ARCH_SOFT_DIRTY with MEM_SOFT_DIRTY
+- Added HAVE_ARCH_HUGE_VMAP checks in pxx_huge_tests() per Gerald
+- Updated documentation for pmd_thp_tests() per Zi Yan
+- Replaced READ_ONCE() with huge_ptep_get() per Gerald
+- Added pte_mkhuge() and masking with PMD_MASK per Gerald
+- Replaced pte_same() with holding pfn check in pxx_swap_tests()
+- Added documentation for all (#ifdef #else #endif) per Gerald
+- Updated pmd_protnone_tests() per Gerald
+- Updated HugeTLB PTE creation in hugetlb_advanced_tests() per Gerald
+- Replaced [pmd|pud]_mknotpresent() with [pmd|pud]_mkinvalid()
+- Added has_transparent_hugepage() check for PMD and PUD tests
+- Added a patch which debug prints all individual tests being executed
+- Updated documentation for renamed [pmd|pud]_mkinvalid() helpers
+
+Changes in V2: (https://patchwork.kernel.org/project/linux-mm/list/?series=260573)
+
+- Dropped CONFIG_ARCH_HAS_PTE_SPECIAL per Christophe
+- Dropped CONFIG_NUMA_BALANCING per Christophe
+- Dropped CONFIG_HAVE_ARCH_SOFT_DIRTY per Christophe
+- Dropped CONFIG_MIGRATION per Christophe
+- Replaced CONFIG_S390 with __HAVE_ARCH_PMDP_INVALIDATE
+- Moved page allocation & free inside swap_migration_tests() per Christophe
+- Added CONFIG_TRANSPARENT_HUGEPAGE to protect pfn_pmd()
+- Added CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD to protect pfn_pud()
+- Added a patch for other arch advanced page table helper tests
+- Added a patch creating a documentation for page table helper semantics
+
+Changes in V1: (https://patchwork.kernel.org/patch/11408253/)
+
+Cc: Jonathan Corbet <corbet@lwn.net>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Mike Rapoport <rppt@linux.ibm.com>
+Cc: Vineet Gupta <vgupta@synopsys.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>
+Cc: Paul Mackerras <paulus@samba.org>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Heiko Carstens <heiko.carstens@de.ibm.com>
+Cc: Vasily Gorbik <gor@linux.ibm.com>
+Cc: Christian Borntraeger <borntraeger@de.ibm.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Borislav Petkov <bp@alien8.de>
+Cc: "H. Peter Anvin" <hpa@zytor.com>
+Cc: Kirill A. Shutemov <kirill@shutemov.name>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Zi Yan <ziy@nvidia.com>
+Cc: Gerald Schaefer <gerald.schaefer@de.ibm.com>
+Cc: Christophe Leroy <christophe.leroy@c-s.fr>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: linux-snps-arc@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: linux-s390@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org
+Cc: x86@kernel.org
+Cc: linux-mm@kvack.org
+Cc: linux-doc@vger.kernel.org
+Cc: linux-arch@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+
+Anshuman Khandual (4):
+  mm/debug_vm_pgtable: Add tests validating arch helpers for core MM features
+  mm/debug_vm_pgtable: Add tests validating advanced arch page table helpers
+  mm/debug_vm_pgtable: Add debug prints for individual tests
+  Documentation/mm: Add descriptions for arch page table helpers
+
+ Documentation/vm/arch_pgtable_helpers.rst | 258 +++++++++
+ mm/debug_vm_pgtable.c                     | 666 +++++++++++++++++++++-
+ 2 files changed, 922 insertions(+), 2 deletions(-)
+ create mode 100644 Documentation/vm/arch_pgtable_helpers.rst
 
 -- 
-Kees Cook
+2.20.1
+
 
 _______________________________________________
 linux-riscv mailing list
