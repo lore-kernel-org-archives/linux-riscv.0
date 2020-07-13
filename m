@@ -2,22 +2,22 @@ Return-Path: <SRS0=aCEi=AY=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 66AB6C433E1
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2020 20:11:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0F1B9C433F2
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2020 23:02:24 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 31B6320674
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2020 20:11:25 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D2D002145D
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2020 23:02:23 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="YuPNYdsZ";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="e/NsNBEU"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 31B6320674
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pDSuxDib";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="DhUEEM1u"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D2D002145D
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,66 +26,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=EIj5fTRLYu5mycXiEPmCF9Zy0FHaWB9rbwe3IlHdDUU=; b=YuPNYdsZPULKZzknl2nu8jdHJ
-	7hzu1rDisyizSM16R8/fA0mg7kf0WL2Ofa/Pho01aCvVgyz2O9xnk+Y7joMuGlGWbvkxYEKbC+GO0
-	r4imjqWTGbaIZuLn2THO5e9ANuT1JvObn/eBELcmTNVXK/9Jrb4CSk6QH0OS5KIxzcPVW3Cu5AuKV
-	Uih03q3xYeC8S6iInH1l6mJP7PHEqx8peFWSN9yv6QD7W9QeukcW//y/EmT9+mhx3eHOZsMqcTiJX
-	gdIwEWz7SDwggHs5rFfuoeB5qsz/IkE6p4eFwaNTQLSOUEqkuIYbv0zJz1n95nh8q3Ai/MGJJuM27
-	rObvEzmHQ==;
+	 bh=NfEywVwfqvmEYxJqmlEw+1HjzDwevAOlkGLUGrAiVpM=; b=pDSuxDibKlHXlGmPJQSGfNO20
+	g3HfkGGnlyUGYsnw+EP3MeYj1Okg22e7RpY0SF05GoXv36woeQSALEL3m4RTe+htcP87wStXpB3gV
+	ik0XtUoO1VaZKQQdPLI2ndEtA+QzsZl7YFBkw9Qh5DgGGYYtPPcWPG+dqdoABr4uSFljdOvkGTcSi
+	66lltiN3c+3XVn50lbNx5xXmuIb/7vF2CRRiJujjXX6l+RfTONqJo7PZmjdKcNRrKC2WYN2w7OnoZ
+	eZcx1OZnDqtDlnjyExHmOD1xAoEO0A1VGlgQvktEmkQJ60x+zPv+PYQQLyLIM3ujYOW8b73mMUW5K
+	ocysl2ecw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jv4nA-00017k-Ix; Mon, 13 Jul 2020 20:11:12 +0000
-Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
+	id 1jv7Sa-0004bG-Re; Mon, 13 Jul 2020 23:02:08 +0000
+Received: from mail-pj1-x1041.google.com ([2607:f8b0:4864:20::1041])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jv4n8-00016t-EU
- for linux-riscv@lists.infradead.org; Mon, 13 Jul 2020 20:11:11 +0000
-Received: by mail-pf1-x443.google.com with SMTP id x72so6506608pfc.6
- for <linux-riscv@lists.infradead.org>; Mon, 13 Jul 2020 13:11:08 -0700 (PDT)
+ id 1jv7SY-0004aM-MU
+ for linux-riscv@lists.infradead.org; Mon, 13 Jul 2020 23:02:07 +0000
+Received: by mail-pj1-x1041.google.com with SMTP id cv18so406271pjb.1
+ for <linux-riscv@lists.infradead.org>; Mon, 13 Jul 2020 16:02:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=09LknHY9dkU2M2OX/SgfAySnftMBQc2JUvSKGgKRJCQ=;
- b=e/NsNBEUiK2c9tIx0w5Wa2nFM/f6fn0Dm1wPMhDzZoNngENUVV+uLYf/RdwYXo0OWg
- pqMuzaqoK6PBQ47TV56KgWEUB7BSCB6NWS91anQRwBTg6NN6jVoiCntB7R1NGAa7IMEu
- pOYVUaJ8BPj5TB7BsSxZhZW7ekzkxmN8XVvVg6jTa4Tdknmq6EZXKeF/ZeZjg8x8T80c
- 3r3GH5P20vEZf1P6edjZ1pnfbhof/ZafcmoyiXZ34pcNiPunHTpuBMl3lX7B46shBCdI
- xMvJofQ6An2Xe8pGb9uTXECGFHIQ1+hWY6YWIxdVTJZPt3vxpDuWeJ6OmeEdQsHWKXXm
- 40gw==
+ bh=NL3F9IdRTwUV/ohOarjJNv1tgfWhRANdIZblqTPgQE4=;
+ b=DhUEEM1u0vzXTaeeqjVUNNQPl3YxCgQHnRlU4mTXrCcP9wdXRBp5OncZ73+JYp2iU9
+ BHe7m1wKgvltYJ3JO+OhQJkIbK5Nm+den0mTvXGBnjxOLjXqCUI+pIcokN9MXzcpWcmc
+ VCOII1IYjV+Yzpp0W9F3wqqxPACabnIlG078rg5RQsdHLPdwxlSMch18+dA0azggRiVW
+ IFAAFJ+QZ14xeG5YBbY3IYC+ciQUL3rqoBcakxR4vdIfr2oy3NLpz1ayc0LtTuQECnL+
+ QyJQbHngLR+BjjiLGUqzYNzHKf5daRCGRMNmkEZljVIed7iEkE+rJhNKeNwL429FA5tE
+ UEPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=09LknHY9dkU2M2OX/SgfAySnftMBQc2JUvSKGgKRJCQ=;
- b=rEZyqJkDlpzA5k1qhPTY+ilhUpUhR6rSANsSBEnvekc48oq0DM+D4CupZa9Lb/qGjI
- onaLjok0q4ggwL2MOrHAy/HUKBouXuhTsuSjUGTuQA3JRLah+jI4EOujBkUSDK5febtJ
- WfIAtOsIQJwryxXyfhb1I+hd0D2lHEenlcU+hGNWj4u+ck67fyPYHZCdpSB7CZDziDh8
- x9EDKalHXwcZCI55w6pEusKUgdnhgd/OxE6XVlLY2w+xetSOr/oOwPBy5RIY7LlgZXDj
- RurZrn5mpS/OyLt66lQnGoAp6ygmY1VbocaB02YsVci7LsD3LQYQuS6uQIEuPn1w3HJB
- pi5w==
-X-Gm-Message-State: AOAM531gvBHvb/09AwGxfeixnRElKqTey79/+gaLrKkiP6F/otbWIe3+
- HlGEJQwZbZ8FbYXsHeNJ37DoLA==
-X-Google-Smtp-Source: ABdhPJyIavVroDJAFXHGVH3iAha82aBR6fPl20kp6ciqNkYezNXkt68WOlU0Q8ksIhyn8H06/JbttQ==
-X-Received: by 2002:a05:6a00:224c:: with SMTP id
- i12mr1417007pfu.18.1594671066404; 
- Mon, 13 Jul 2020 13:11:06 -0700 (PDT)
+ bh=NL3F9IdRTwUV/ohOarjJNv1tgfWhRANdIZblqTPgQE4=;
+ b=XvM5HccNlz+p51Wn6lzJs04uTb8kN10tQ7RXbYT7gwMJNsEalMTj2SawcK1C/1jKFD
+ XyGT90iUwexiMzSidCjYGlVFWPew9WSstO2RB/Je9CAxXm2yIdhL2eTGs5rSwJv1+/lI
+ GVGJA59VyNZ7HFvJH5kXdvah/GC+6+Wxf8eJSvSsSj03VMdmTLH+1ZAXZye6yC90lC/0
+ VVGCQ/mQiVb9WNPkDKizgcHJTPUu1iGRZbkq8vqyYFeMYyuw9NyAt6KGk5SchhX23utx
+ wudFSYV/KyeKZHEFhii3dW1G6zOBK3vPv06ZqFuNYHgsFSsrtcDAhokJi1Zlhy5A8uga
+ l4Mw==
+X-Gm-Message-State: AOAM531XpE8Pxv8qVAWJGRlR0t1WHu9mJGQQqceHBkmXVp2pIrvN91tm
+ w3UmgAX+zPUFpXtm+JZG2MOUcQ==
+X-Google-Smtp-Source: ABdhPJwOqEfS8iN03p8MO6UR4stKIF/D0XwZj5+unRESovBGwUEnpb1+mFMtrSDIDR/8Nygzc6WMCQ==
+X-Received: by 2002:a17:90a:24ed:: with SMTP id
+ i100mr1796777pje.22.1594681323100; 
+ Mon, 13 Jul 2020 16:02:03 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id d16sm15290442pfo.156.2020.07.13.13.11.05
+ by smtp.gmail.com with ESMTPSA id a17sm13436706pgw.60.2020.07.13.16.02.01
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 13 Jul 2020 13:11:05 -0700 (PDT)
-Date: Mon, 13 Jul 2020 13:11:05 -0700 (PDT)
-X-Google-Original-Date: Mon, 13 Jul 2020 13:11:03 PDT (-0700)
-Subject: Re: [PATCH 1/2] riscv: Fix building error in entry.S when
- CONFIG_RISCV_M_MODE is enabled
-In-Reply-To: <742f0a82a9d4ab62d8616784db5a88a95d8b5389.1594629047.git.greentime.hu@sifive.com>
+ Mon, 13 Jul 2020 16:02:01 -0700 (PDT)
+Date: Mon, 13 Jul 2020 16:02:01 -0700 (PDT)
+X-Google-Original-Date: Mon, 13 Jul 2020 16:01:35 PDT (-0700)
+Subject: Re: [PATCH v2 0/5] Dedicated CLINT timer driver
+In-Reply-To: <20200627161957.134376-1-anup.patel@wdc.com>
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: greentime.hu@sifive.com
-Message-ID: <mhng-f7d831a1-d892-4c55-82e9-4427539f1337@palmerdabbelt-glaptop1>
+To: Anup Patel <Anup.Patel@wdc.com>
+Message-ID: <mhng-4d70be69-ef20-4d38-bda4-ec4101530c0a@palmerdabbelt-glaptop1>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200713_161110_513994_945029B9 
-X-CRM114-Status: GOOD (  18.40  )
+X-CRM114-CacheID: sfid-20200713_190206_759692_69645BB8 
+X-CRM114-Status: GOOD (  23.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -97,47 +96,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, lkp@intel.com, linux-kernel@vger.kernel.org,
- Paul Walmsley <paul.walmsley@sifive.com>, greentime.hu@sifive.com,
+Cc: devicetree@vger.kernel.org, Damien Le Moal <Damien.LeMoal@wdc.com>,
+ aou@eecs.berkeley.edu, anup@brainfault.org, daniel.lezcano@linaro.org,
+ linux-kernel@vger.kernel.org, Atish Patra <Atish.Patra@wdc.com>,
+ Anup Patel <Anup.Patel@wdc.com>, robh+dt@kernel.org,
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, tglx@linutronix.de,
  linux-riscv@lists.infradead.org
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 13 Jul 2020 01:32:15 PDT (-0700), greentime.hu@sifive.com wrote:
-> arch/riscv/kernel/entry.S: Assembler messages:
-> arch/riscv/kernel/entry.S:106: Error: illegal operands `andi a0,s1,0x00001800'
+On Sat, 27 Jun 2020 09:19:52 PDT (-0700), Anup Patel wrote:
+> The current RISC-V timer driver is convoluted and implements two
+> distinct timers:
+>  1. S-mode timer: This is for Linux RISC-V S-mode with MMU. The
+>     clocksource is implemented using TIME CSR and clockevent device
+>     is implemented using SBI Timer calls.
+>  2. M-mode timer: This is for Linux RISC-V M-mode without MMU. The
+>     clocksource is implemented using CLINT MMIO time register and
+>     clockevent device is implemented using CLINT MMIO timecmp registers.
 >
-> This building error is because of the SR_MPP value is too large to be used
-> as an immediate value for andi. To fix this issue I use li to set the
-> immediate value to t0, then it can use t0 and s1 to do and operation.
+> This patchset removes clint related code from RISC-V timer driver and
+> arch/riscv directory. Instead, the series adds a dedicated MMIO based
+> CLINT driver under drivers/clocksource directory which can be used by
+> Linux RISC-V M-mode (i.e NoMMU Linux RISC-V).
+>
+> The patchset is based up Linux-5.8-rc2 and can be found at riscv_clint_v2
+> branch of: https://github.com/avpatel/linux.git
+>
+> This series is tested on:
+>  1. QEMU RV64 virt machine using Linux RISC-V S-mode
+>  2. QEMU RV32 virt machine using Linux RISC-V S-mode
+>  3. QEMU RV64 virt machine using Linux RISC-V M-mode (i.e. NoMMU)
+>
+> Changes since v1:
+>  - Rebased series on Linux-5.8-rc2
+>  - Added pr_warn() for case where ipi_ops not available in PATCH1
+>  - Updated ipi_inject() prototype to use "struct cpumask *" in PATCH1
+>  - Updated CLINT_TIMER kconfig option to depend on RISCV_M_MODE in PATCH4
+>  - Added riscv,clint0 compatible string in DT bindings document
+>
+> Anup Patel (5):
+>   RISC-V: Add mechanism to provide custom IPI operations
+>   RISC-V: Remove CLINT related code
+>   clocksource/drivers/timer-riscv: Remove MMIO related stuff
+>   clocksource/drivers: Add CLINT timer driver
+>   dt-bindings: timer: Add CLINT bindings
 
-Thanks.  I guess I must have something wrong with my build tests, as it's
-supposed to be building the NOMMU stuff.  I was just about to fix this up in
-the patch, looks like I also lost my own Signed-off-by so I have to ammend it
-anyway.
+This all generally LGTM, though I haven't been through the code line-by-line
+yet.  It touches a bunch of trees, so I'd prefer to have some Acks before
+merging -- I'll dig through the RISC-V specific stuff, but the new CLINT driver
+probhably deserves a look from one of the clocksource folks.
+
+I think the only issue is that the port will be broken between patch 2 and 4,
+as at that point we won't have an M-mode timer driver.  I think it shouldn't be
+too much to just reorder these, LMK if you want to do it or you want me to.
+
+Thanks!
 
 >
-> Reported-by: kernel test robot <lkp@intel.com>
-> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-> ---
->  arch/riscv/kernel/entry.S | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> index 6ed579fc1073..000984695cd6 100644
-> --- a/arch/riscv/kernel/entry.S
-> +++ b/arch/riscv/kernel/entry.S
-> @@ -99,7 +99,8 @@ _save_context:
->
->  #ifdef CONFIG_CONTEXT_TRACKING
->  	/* If previous state is in user mode, call context_tracking_user_exit. */
-> -	andi a0, s1, SR_SPP
-> +	li t0, SR_PP
-> +	and a0, s1, t0
->  	bnez a0, skip_context_tracking
->  	call context_tracking_user_exit
+>  .../bindings/timer/sifive,clint.txt           |  34 +++
+>  arch/riscv/Kconfig                            |   2 +-
+>  arch/riscv/include/asm/clint.h                |  39 ---
+>  arch/riscv/include/asm/smp.h                  |  11 +
+>  arch/riscv/include/asm/timex.h                |  28 +--
+>  arch/riscv/kernel/Makefile                    |   2 +-
+>  arch/riscv/kernel/clint.c                     |  44 ----
+>  arch/riscv/kernel/sbi.c                       |  14 ++
+>  arch/riscv/kernel/setup.c                     |   2 -
+>  arch/riscv/kernel/smp.c                       |  44 ++--
+>  arch/riscv/kernel/smpboot.c                   |   4 +-
+>  drivers/clocksource/Kconfig                   |  12 +-
+>  drivers/clocksource/Makefile                  |   1 +
+>  drivers/clocksource/timer-clint.c             | 229 ++++++++++++++++++
+>  drivers/clocksource/timer-riscv.c             |  17 +-
+>  include/linux/cpuhotplug.h                    |   1 +
+>  16 files changed, 337 insertions(+), 147 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/timer/sifive,clint.txt
+>  delete mode 100644 arch/riscv/include/asm/clint.h
+>  delete mode 100644 arch/riscv/kernel/clint.c
+>  create mode 100644 drivers/clocksource/timer-clint.c
 
 _______________________________________________
 linux-riscv mailing list
