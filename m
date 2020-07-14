@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 310F0C433E0
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 11:08:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9BFA8C433E0
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 11:10:38 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E7D58221FC
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 11:08:25 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6972922206
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 11:10:38 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="XJ0bIjIu";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="JHv0MLPb"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E7D58221FC
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="gpk4tkNc";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="I23oUhor"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6972922206
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,33 +26,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=d1H2elKg6Z4yWs3pRi133eAuLKVInnRjfDzqEZ+M+LQ=; b=XJ0bIjIu788FXlWxJf03inbXI
-	k2Iwry0Dy4TgF1IAfkbksfaGt5qA98YaQawbaOZgJkGXM7SlltRclnNJr4S/hQeadKvPqyABHztz7
-	PgI8pxF3bfFrdWcDJ/Lvvk/+psCbEpcCMGjG08oQfuND3ydTZuq9eORR7AegsrCRbrd1KSBZ4d3oB
-	vNz2mRtesFoR9iJ8cuPuapcKQJiFWU+jSGgvLQGqR51Xagiql6rpS0XLep2qYULEAYYDW4OZ3RG+u
-	oYSj5lzoMu4R7W9k7FqiW3km8d5ed3+GKckAXTlBMhBE8wAfnzzdRKOvjJaXEQvzOeFTEL3Odaq7q
-	L66lixHAA==;
+	 bh=8hSnghA2kJ/4Opg4GlfnZ2jbKvl4O5koXCA42H7IOQU=; b=gpk4tkNcdU8Rj4AAzPR9p904f
+	jbuOMDZ1pdpwZXW2aw0BMwIGNyZXDfI7lhVDOVz8e1glqckrUZf7/6n8Xn6nyGsBszwkWzTTmVZAU
+	Sod4kq12M7BUHMZbvAMSW75jbsYeWhXdeb2NmaKcSRzQz5jcbQwBJ2T0mQUQtu7uNXEHESO6wpOa/
+	h4bypdN/Yejk9ZYyqPWHVDUmxzEr+2AfNK3zCZlqmvIrE6mUI2PRpV9L7l9GOyedTzTzmGTU2lOMA
+	oumzyWvJbsXLrnUZE/swC4I00qKf6cjlOxuFAGDf3cXfHdDPtKQcXPACIteCZ+qjrg4wnbQJPnj19
+	/C3UbIkMQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jvInL-0002D8-6L; Tue, 14 Jul 2020 11:08:19 +0000
+	id 1jvIpU-0002UG-P1; Tue, 14 Jul 2020 11:10:32 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jvInJ-0002Cp-Ez
- for linux-riscv@merlin.infradead.org; Tue, 14 Jul 2020 11:08:17 +0000
+ id 1jvIpT-0002Tx-GQ
+ for linux-riscv@merlin.infradead.org; Tue, 14 Jul 2020 11:10:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
  References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
  Content-Type:Content-ID:Content-Description;
- bh=7qsqAB1GTQZdXIU5ltqKpMvtkbvDGRB46qqaMNIcr8s=; b=JHv0MLPbWVkliGvDfvrCbxVm0Y
- ypXtFAxX3TYiTT6rMUMQvSakmyNJG4L279FypjlAHYsneDz2sIMQwWNSbfEuzPuRoweYfYgswYjhy
- lHoCfNYJFNPGmZclXr02hg8yFD2Tdjh2tY6Iml/caUBD4coSQIn3cC194dZN1mKPR0QoL45dImChb
- z35/VbN5xosdoRXS7HeMbNHippa6vBL7Lc6kQYAL5SSevrBYBkVhsUD7yNzKfhX24S73DEoWNEijq
- UaPr4kIeg8tdPEmYIaTMwgSXCwz3Y3sGEIHLvLeIXX02qBKV2j5CTd/sGqyFoDNdltuj1m83QCDBZ
- FM7tTKcw==;
+ bh=aA679qIodiBpC5vbULiwbVKx3fOumlOYyYuEKhecoTI=; b=I23oUhorQvkUc3pKxqW65dWZKi
+ 2fvnRyOEcYQiwRX71KaxF5fb1WDG9GhMZ0whjJ4vniWBpxRO+H4GEqTsMWqFwK88N8jITuk5W5dzq
+ 964ngvwoNriO55HokZ0KVUAATgpYwv7/l2gjlugolwHLuVj7WlJlE//60NlcNcyzqauvWByDcKjSJ
+ 7Fv51WGpAXn+LU5rCKIO7zOLWNs/SrNcTp5pWrbsbYxma8sEaB72+1iDJlLGTd2VnQ97nIKoe1xMK
+ eTx5w1U1nwg7BYSroNLCMEwFnKIR79GysRyZxtpMg5ya2xRvud3GD+pkGvH1WKaGvX+CzkoWoN/aS
+ XwKN5xUQ==;
 Received: from 089144201169.atnat0010.highway.a1.net ([89.144.201.169]
  helo=localhost)
  by casper.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jvInG-0006Lb-Ig; Tue, 14 Jul 2020 11:08:16 +0000
+ id 1jvIpP-0006Ta-Mr; Tue, 14 Jul 2020 11:10:28 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>,
  Vincent Chen <deanbo422@gmail.com>,
@@ -60,9 +60,9 @@ To: Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>,
  Palmer Dabbelt <palmer@dabbelt.com>,
  Andrew Morton <akpm@linux-foundation.org>,
  Linus Torvalds <torvalds@linux-foundation.org>
-Subject: [PATCH 5/6] uaccess: add force_uaccess_{begin,end} helpers
-Date: Tue, 14 Jul 2020 12:55:04 +0200
-Message-Id: <20200714105505.935079-6-hch@lst.de>
+Subject: [PATCH 6/6] exec: use force_uaccess_begin during exec and exit
+Date: Tue, 14 Jul 2020 12:55:05 +0200
+Message-Id: <20200714105505.935079-7-hch@lst.de>
 X-Mailer: git-send-email 2.26.2
 In-Reply-To: <20200714105505.935079-1-hch@lst.de>
 References: <20200714105505.935079-1-hch@lst.de>
@@ -80,444 +80,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-arch@vger.kernel.org, Mark Rutland <mark.rutland@arm.com>,
- linux-riscv@lists.infradead.org, Geert Uytterhoeven <geert@linux-m68k.org>,
+Cc: linux-arch@vger.kernel.org, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add helpers to wrap the get_fs/set_fs magic for undoing any damange done
-by set_fs(KERNEL_DS).  There is no real functional benefit, but this
-documents the intent of these calls better, and will allow stubbing the
-functions out easily for kernels builds that do not allow address space
-overrides in the future.
+Both exec and exit want to ensure that the uaccess routines actually do
+access user pointers.  Use the newly added force_uaccess_begin helper
+instead of an open coded set_fs for that to prepare for kernel builds
+where set_fs() does not exist.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
-Acked-by: Greentime Hu <green.hu@gmail.com>
-Acked-by: Mark Rutland <mark.rutland@arm.com>
-Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
 ---
- arch/arm64/kernel/sdei.c         |  2 +-
- arch/m68k/include/asm/tlbflush.h |  6 +++---
- arch/mips/kernel/unaligned.c     | 27 +++++++++++++--------------
- arch/nds32/mm/alignment.c        |  7 +++----
- arch/sh/kernel/traps_32.c        | 12 +++++-------
- drivers/firmware/arm_sdei.c      |  5 ++---
- include/linux/uaccess.h          | 18 ++++++++++++++++++
- kernel/events/callchain.c        |  5 ++---
- kernel/events/core.c             |  5 ++---
- kernel/kthread.c                 |  5 ++---
- kernel/stacktrace.c              |  5 ++---
- mm/maccess.c                     | 22 ++++++++++------------
- 12 files changed, 63 insertions(+), 56 deletions(-)
+ fs/exec.c     | 7 ++++++-
+ kernel/exit.c | 2 +-
+ 2 files changed, 7 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kernel/sdei.c b/arch/arm64/kernel/sdei.c
-index dab88260b13739..7689f2031c0c41 100644
---- a/arch/arm64/kernel/sdei.c
-+++ b/arch/arm64/kernel/sdei.c
-@@ -180,7 +180,7 @@ static __kprobes unsigned long _sdei_handler(struct pt_regs *regs,
+diff --git a/fs/exec.c b/fs/exec.c
+index e6e8a9a7032784..769af470b69124 100644
+--- a/fs/exec.c
++++ b/fs/exec.c
+@@ -1380,7 +1380,12 @@ int begin_new_exec(struct linux_binprm * bprm)
+ 	if (retval)
+ 		goto out_unlock;
  
- 	/*
- 	 * We didn't take an exception to get here, set PAN. UAO will be cleared
--	 * by sdei_event_handler()s set_fs(USER_DS) call.
-+	 * by sdei_event_handler()s force_uaccess_begin() call.
+-	set_fs(USER_DS);
++	/*
++	 * Ensure that the uaccess routines can actually operate on userspace
++	 * pointers:
++	 */
++	force_uaccess_begin();
++
+ 	me->flags &= ~(PF_RANDOMIZE | PF_FORKNOEXEC | PF_KTHREAD |
+ 					PF_NOFREEZE | PF_NO_SETAFFINITY);
+ 	flush_thread();
+diff --git a/kernel/exit.c b/kernel/exit.c
+index 727150f2810338..17d486a20f0dc6 100644
+--- a/kernel/exit.c
++++ b/kernel/exit.c
+@@ -731,7 +731,7 @@ void __noreturn do_exit(long code)
+ 	 * mm_release()->clear_child_tid() from writing to a user-controlled
+ 	 * kernel address.
  	 */
- 	__uaccess_enable_hw_pan();
- 
-diff --git a/arch/m68k/include/asm/tlbflush.h b/arch/m68k/include/asm/tlbflush.h
-index 191e75a6bb249e..5337bc2c262f22 100644
---- a/arch/m68k/include/asm/tlbflush.h
-+++ b/arch/m68k/include/asm/tlbflush.h
-@@ -85,10 +85,10 @@ static inline void flush_tlb_mm(struct mm_struct *mm)
- static inline void flush_tlb_page(struct vm_area_struct *vma, unsigned long addr)
- {
- 	if (vma->vm_mm == current->active_mm) {
--		mm_segment_t old_fs = get_fs();
--		set_fs(USER_DS);
-+		mm_segment_t old_fs = force_uaccess_begin();
-+
- 		__flush_tlb_one(addr);
--		set_fs(old_fs);
-+		force_uaccess_end(old_fs);
- 	}
- }
- 
-diff --git a/arch/mips/kernel/unaligned.c b/arch/mips/kernel/unaligned.c
-index 0adce604fa44cb..126a5f3f4e4ce3 100644
---- a/arch/mips/kernel/unaligned.c
-+++ b/arch/mips/kernel/unaligned.c
-@@ -191,17 +191,16 @@ static void emulate_load_store_insn(struct pt_regs *regs,
- 			 * memory, so we need to "switch" the address limit to
- 			 * user space, so that address check can work properly.
- 			 */
--			seg = get_fs();
--			set_fs(USER_DS);
-+			seg = force_uaccess_begin();
- 			switch (insn.spec3_format.func) {
- 			case lhe_op:
- 				if (!access_ok(addr, 2)) {
--					set_fs(seg);
-+					force_uaccess_end(seg);
- 					goto sigbus;
- 				}
- 				LoadHWE(addr, value, res);
- 				if (res) {
--					set_fs(seg);
-+					force_uaccess_end(seg);
- 					goto fault;
- 				}
- 				compute_return_epc(regs);
-@@ -209,12 +208,12 @@ static void emulate_load_store_insn(struct pt_regs *regs,
- 				break;
- 			case lwe_op:
- 				if (!access_ok(addr, 4)) {
--					set_fs(seg);
-+					force_uaccess_end(seg);
- 					goto sigbus;
- 				}
- 				LoadWE(addr, value, res);
- 				if (res) {
--					set_fs(seg);
-+					force_uaccess_end(seg);
- 					goto fault;
- 				}
- 				compute_return_epc(regs);
-@@ -222,12 +221,12 @@ static void emulate_load_store_insn(struct pt_regs *regs,
- 				break;
- 			case lhue_op:
- 				if (!access_ok(addr, 2)) {
--					set_fs(seg);
-+					force_uaccess_end(seg);
- 					goto sigbus;
- 				}
- 				LoadHWUE(addr, value, res);
- 				if (res) {
--					set_fs(seg);
-+					force_uaccess_end(seg);
- 					goto fault;
- 				}
- 				compute_return_epc(regs);
-@@ -235,35 +234,35 @@ static void emulate_load_store_insn(struct pt_regs *regs,
- 				break;
- 			case she_op:
- 				if (!access_ok(addr, 2)) {
--					set_fs(seg);
-+					force_uaccess_end(seg);
- 					goto sigbus;
- 				}
- 				compute_return_epc(regs);
- 				value = regs->regs[insn.spec3_format.rt];
- 				StoreHWE(addr, value, res);
- 				if (res) {
--					set_fs(seg);
-+					force_uaccess_end(seg);
- 					goto fault;
- 				}
- 				break;
- 			case swe_op:
- 				if (!access_ok(addr, 4)) {
--					set_fs(seg);
-+					force_uaccess_end(seg);
- 					goto sigbus;
- 				}
- 				compute_return_epc(regs);
- 				value = regs->regs[insn.spec3_format.rt];
- 				StoreWE(addr, value, res);
- 				if (res) {
--					set_fs(seg);
-+					force_uaccess_end(seg);
- 					goto fault;
- 				}
- 				break;
- 			default:
--				set_fs(seg);
-+				force_uaccess_end(seg);
- 				goto sigill;
- 			}
--			set_fs(seg);
-+			force_uaccess_end(seg);
- 		}
- #endif
- 		break;
-diff --git a/arch/nds32/mm/alignment.c b/arch/nds32/mm/alignment.c
-index c8b9061a2ee3d5..1eb7ded6992b57 100644
---- a/arch/nds32/mm/alignment.c
-+++ b/arch/nds32/mm/alignment.c
-@@ -512,7 +512,7 @@ int do_unaligned_access(unsigned long addr, struct pt_regs *regs)
- {
- 	unsigned long inst;
- 	int ret = -EFAULT;
--	mm_segment_t seg = get_fs();
-+	mm_segment_t seg;
- 
- 	inst = get_inst(regs->ipc);
- 
-@@ -520,13 +520,12 @@ int do_unaligned_access(unsigned long addr, struct pt_regs *regs)
- 	      "Faulting addr: 0x%08lx, pc: 0x%08lx [inst: 0x%08lx ]\n", addr,
- 	      regs->ipc, inst);
- 
 -	set_fs(USER_DS);
--
-+	seg = force_uaccess_begin();
- 	if (inst & NDS32_16BIT_INSTRUCTION)
- 		ret = do_16((inst >> 16) & 0xffff, regs);
- 	else
- 		ret = do_32(inst, regs);
--	set_fs(seg);
-+	force_uaccess_end(seg);
++	force_uaccess_begin();
  
- 	return ret;
- }
-diff --git a/arch/sh/kernel/traps_32.c b/arch/sh/kernel/traps_32.c
-index 058c6181bb306c..b62ad0ba23950a 100644
---- a/arch/sh/kernel/traps_32.c
-+++ b/arch/sh/kernel/traps_32.c
-@@ -482,8 +482,6 @@ asmlinkage void do_address_error(struct pt_regs *regs,
- 	error_code = lookup_exception_vector();
- #endif
- 
--	oldfs = get_fs();
--
- 	if (user_mode(regs)) {
- 		int si_code = BUS_ADRERR;
- 		unsigned int user_action;
-@@ -491,13 +489,13 @@ asmlinkage void do_address_error(struct pt_regs *regs,
- 		local_irq_enable();
- 		inc_unaligned_user_access();
- 
--		set_fs(USER_DS);
-+		oldfs = force_uaccess_begin();
- 		if (copy_from_user(&instruction, (insn_size_t *)(regs->pc & ~1),
- 				   sizeof(instruction))) {
--			set_fs(oldfs);
-+			force_uaccess_end(oldfs);
- 			goto uspace_segv;
- 		}
--		set_fs(oldfs);
-+		force_uaccess_end(oldfs);
- 
- 		/* shout about userspace fixups */
- 		unaligned_fixups_notify(current, instruction, regs);
-@@ -520,11 +518,11 @@ asmlinkage void do_address_error(struct pt_regs *regs,
- 			goto uspace_segv;
- 		}
- 
--		set_fs(USER_DS);
-+		oldfs = force_uaccess_begin();
- 		tmp = handle_unaligned_access(instruction, regs,
- 					      &user_mem_access, 0,
- 					      address);
--		set_fs(oldfs);
-+		force_uaccess_end(oldfs);
- 
- 		if (tmp == 0)
- 			return; /* sorted */
-diff --git a/drivers/firmware/arm_sdei.c b/drivers/firmware/arm_sdei.c
-index e7e36aab2386ff..b4b9ce97f415e3 100644
---- a/drivers/firmware/arm_sdei.c
-+++ b/drivers/firmware/arm_sdei.c
-@@ -1136,15 +1136,14 @@ int sdei_event_handler(struct pt_regs *regs,
- 	 * access kernel memory.
- 	 * Do the same here because this doesn't come via the same entry code.
- 	*/
--	orig_addr_limit = get_fs();
--	set_fs(USER_DS);
-+	orig_addr_limit = force_uaccess_begin();
- 
- 	err = arg->callback(event_num, regs, arg->callback_arg);
- 	if (err)
- 		pr_err_ratelimited("event %u on CPU %u failed with error: %d\n",
- 				   event_num, smp_processor_id(), err);
- 
--	set_fs(orig_addr_limit);
-+	force_uaccess_end(orig_addr_limit);
- 
- 	return err;
- }
-diff --git a/include/linux/uaccess.h b/include/linux/uaccess.h
-index 5c62d0c6f15b16..94b28541165929 100644
---- a/include/linux/uaccess.h
-+++ b/include/linux/uaccess.h
-@@ -8,6 +8,24 @@
- 
- #include <asm/uaccess.h>
- 
-+/*
-+ * Force the uaccess routines to be wired up for actual userspace access,
-+ * overriding any possible set_fs(KERNEL_DS) still lingering around.  Undone
-+ * using force_uaccess_end below.
-+ */
-+static inline mm_segment_t force_uaccess_begin(void)
-+{
-+	mm_segment_t fs = get_fs();
-+
-+	set_fs(USER_DS);
-+	return fs;
-+}
-+
-+static inline void force_uaccess_end(mm_segment_t oldfs)
-+{
-+	set_fs(oldfs);
-+}
-+
- /*
-  * Architectures should provide two primitives (raw_copy_{to,from}_user())
-  * and get rid of their private instances of copy_{to,from}_user() and
-diff --git a/kernel/events/callchain.c b/kernel/events/callchain.c
-index 334d48b16c36d7..dddc773e99f7b5 100644
---- a/kernel/events/callchain.c
-+++ b/kernel/events/callchain.c
-@@ -218,10 +218,9 @@ get_perf_callchain(struct pt_regs *regs, u32 init_nr, bool kernel, bool user,
- 			if (add_mark)
- 				perf_callchain_store_context(&ctx, PERF_CONTEXT_USER);
- 
--			fs = get_fs();
--			set_fs(USER_DS);
-+			fs = force_uaccess_begin();
- 			perf_callchain_user(&ctx, regs);
--			set_fs(fs);
-+			force_uaccess_end(fs);
- 		}
- 	}
- 
-diff --git a/kernel/events/core.c b/kernel/events/core.c
-index 856d98c36f562d..c0c6f462a393e1 100644
---- a/kernel/events/core.c
-+++ b/kernel/events/core.c
-@@ -6436,10 +6436,9 @@ perf_output_sample_ustack(struct perf_output_handle *handle, u64 dump_size,
- 
- 		/* Data. */
- 		sp = perf_user_stack_pointer(regs);
--		fs = get_fs();
--		set_fs(USER_DS);
-+		fs = force_uaccess_begin();
- 		rem = __output_copy_user(handle, (void *) sp, dump_size);
--		set_fs(fs);
-+		force_uaccess_end(fs);
- 		dyn_size = dump_size - rem;
- 
- 		perf_output_skip(handle, rem);
-diff --git a/kernel/kthread.c b/kernel/kthread.c
-index 132f84a5fde3f0..379bf1e543371a 100644
---- a/kernel/kthread.c
-+++ b/kernel/kthread.c
-@@ -1254,8 +1254,7 @@ void kthread_use_mm(struct mm_struct *mm)
- 	if (active_mm != mm)
- 		mmdrop(active_mm);
- 
--	to_kthread(tsk)->oldfs = get_fs();
--	set_fs(USER_DS);
-+	to_kthread(tsk)->oldfs = force_uaccess_begin();
- }
- EXPORT_SYMBOL_GPL(kthread_use_mm);
- 
-@@ -1270,7 +1269,7 @@ void kthread_unuse_mm(struct mm_struct *mm)
- 	WARN_ON_ONCE(!(tsk->flags & PF_KTHREAD));
- 	WARN_ON_ONCE(!tsk->mm);
- 
--	set_fs(to_kthread(tsk)->oldfs);
-+	force_uaccess_end(to_kthread(tsk)->oldfs);
- 
- 	task_lock(tsk);
- 	sync_mm_rss(mm);
-diff --git a/kernel/stacktrace.c b/kernel/stacktrace.c
-index 2af66e449aa6a8..946f44a9e86afb 100644
---- a/kernel/stacktrace.c
-+++ b/kernel/stacktrace.c
-@@ -233,10 +233,9 @@ unsigned int stack_trace_save_user(unsigned long *store, unsigned int size)
- 	if (current->flags & PF_KTHREAD)
- 		return 0;
- 
--	fs = get_fs();
--	set_fs(USER_DS);
-+	fs = force_uaccess_begin();
- 	arch_stack_walk_user(consume_entry, &c, task_pt_regs(current));
--	set_fs(fs);
-+	force_uaccess_end(fs);
- 
- 	return c.len;
- }
-diff --git a/mm/maccess.c b/mm/maccess.c
-index f98ff91e32c6df..3bd70405f2d848 100644
---- a/mm/maccess.c
-+++ b/mm/maccess.c
-@@ -205,15 +205,14 @@ long strncpy_from_kernel_nofault(char *dst, const void *unsafe_addr, long count)
- long copy_from_user_nofault(void *dst, const void __user *src, size_t size)
- {
- 	long ret = -EFAULT;
--	mm_segment_t old_fs = get_fs();
-+	mm_segment_t old_fs = force_uaccess_begin();
- 
--	set_fs(USER_DS);
- 	if (access_ok(src, size)) {
- 		pagefault_disable();
- 		ret = __copy_from_user_inatomic(dst, src, size);
- 		pagefault_enable();
- 	}
--	set_fs(old_fs);
-+	force_uaccess_end(old_fs);
- 
- 	if (ret)
- 		return -EFAULT;
-@@ -233,15 +232,14 @@ EXPORT_SYMBOL_GPL(copy_from_user_nofault);
- long copy_to_user_nofault(void __user *dst, const void *src, size_t size)
- {
- 	long ret = -EFAULT;
--	mm_segment_t old_fs = get_fs();
-+	mm_segment_t old_fs = force_uaccess_begin();
- 
--	set_fs(USER_DS);
- 	if (access_ok(dst, size)) {
- 		pagefault_disable();
- 		ret = __copy_to_user_inatomic(dst, src, size);
- 		pagefault_enable();
- 	}
--	set_fs(old_fs);
-+	force_uaccess_end(old_fs);
- 
- 	if (ret)
- 		return -EFAULT;
-@@ -270,17 +268,17 @@ EXPORT_SYMBOL_GPL(copy_to_user_nofault);
- long strncpy_from_user_nofault(char *dst, const void __user *unsafe_addr,
- 			      long count)
- {
--	mm_segment_t old_fs = get_fs();
-+	mm_segment_t old_fs;
- 	long ret;
- 
- 	if (unlikely(count <= 0))
- 		return 0;
- 
--	set_fs(USER_DS);
-+	old_fs = force_uaccess_begin();
- 	pagefault_disable();
- 	ret = strncpy_from_user(dst, unsafe_addr, count);
- 	pagefault_enable();
--	set_fs(old_fs);
-+	force_uaccess_end(old_fs);
- 
- 	if (ret >= count) {
- 		ret = count;
-@@ -310,14 +308,14 @@ long strncpy_from_user_nofault(char *dst, const void __user *unsafe_addr,
-  */
- long strnlen_user_nofault(const void __user *unsafe_addr, long count)
- {
--	mm_segment_t old_fs = get_fs();
-+	mm_segment_t old_fs;
- 	int ret;
- 
--	set_fs(USER_DS);
-+	old_fs = force_uaccess_begin();
- 	pagefault_disable();
- 	ret = strnlen_user(unsafe_addr, count);
- 	pagefault_enable();
--	set_fs(old_fs);
-+	force_uaccess_end(old_fs);
- 
- 	return ret;
- }
+ 	if (unlikely(in_atomic())) {
+ 		pr_info("note: %s[%d] exited with preempt_count %d\n",
 -- 
 2.26.2
 
