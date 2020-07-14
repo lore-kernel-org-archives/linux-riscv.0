@@ -2,79 +2,83 @@ Return-Path: <SRS0=l78j=AZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C9A5DC433EA
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 09:55:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9D777C433E5
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 10:01:05 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9A345221F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 09:55:47 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6730221D7A
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 10:01:05 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="h5xT6dxm";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=armlinux.org.uk header.i=@armlinux.org.uk header.b="DzRdxgzq"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9A345221F5
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=armlinux.org.uk
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="xtMWsyeb";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="HuNNLCWL"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6730221D7A
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=H+PeT4ek8/ZWcqUgCHTg91ywV9fEU5edjBQbaceETrU=; b=h5xT6dxm0ob0UDdEfBHyzp/mP
-	5X2jAYRDr1dca34e/0PqL0k212qslSvp74yNsZHydtftFRfGZPguWQe33QuHxg1CEua23BH3pnWmR
-	V3qnwRgVry2C7aFNYZhnIirODY0cl5Q+4ZxHrh1dvdFPt7AUznnS/GcQ2WWzD9VdwB7ze3t9+ZeOc
-	l7Skvs8rduQNNb+QuoEoleUpATM3/6UtcTwo7UtdirbAE95TBRcq17JmwTH03rDjaZn7S++eleBTg
-	+hkELGqkh/f58+/HqabOTkxl2wt2sb000yroJxs5mesAuAe8dZ6Cvr7hXUCOGfWNO6MQ4WLenkUJl
-	czThnuX9g==;
+	 bh=jgILgxvL0ki5YCLY2QHQD2elei0rqm7Y4MFp7nRR6G8=; b=xtMWsyeboC5viUBJ45ZJ7H6Th
+	JC+fhduTvxL4xGHDg81nvqUye5JdC2oTwuEXpKlf1Kw0PQwAL+JiMQ1QO9fTcMDWi67JeFrhhb0ry
+	/NE2eL9X6G1UK4Tx9FEFDKuR6QNcc6iaLkmMUv0Ij51YoV1Qjyeq8sHiCv2hIWV2A7zGTRJ/g3NHS
+	zMNJFvYS2+OfvfDM49M3zFNOJ7IZTiDVxMbk08mjAZLAZw9FPX4Q4N9S4X9qv9TOMSLjRxt+IgKGj
+	sLfTgIMq7fMnhq3Ojy6qPzVsapWH0NfX+b6hvIHvK9G3F8Uj/v+fWAdnYJFzSSayoXp7SxkTvA4EJ
+	ShD63altw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jvHf4-0001aZ-Rh; Tue, 14 Jul 2020 09:55:42 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1jvHkC-0002MH-EC; Tue, 14 Jul 2020 10:01:00 +0000
+Received: from mail-qv1-xf43.google.com ([2607:f8b0:4864:20::f43])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jvHf0-0001ZP-MN; Tue, 14 Jul 2020 09:55:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
- MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=J4Ka59dcMikVp35QPQMFqJHxEAVMkkUAFnV88fuGsI4=; b=DzRdxgzqEKSDZhMDp+2U2nh2c
- IArxVML1LOtJWFiuW0xPmOxkAa0qr6V6rEZ4el59j7/XsgBHo1IpGZn++6KaXAmUh+HCdrDrIbcO3
- esZT32ryUAbv3Ergm9f4wl3EbKkosBtpwoeVrKvQA29j0K9Ac8tdMuxVw9QqtQ9M4fucRYfDKowOG
- 0omhBwWG2VVBCaAA6eqLsRQBEYwte95h9sI6CgwWuRGpea2Z+9U1YVVdnUoiIXMxXcHoyX3Z+eode
- qaC+kavumdZei7rN7gurw8Q65G3DqOX4YG2qgnEON+ohmmJQ1tumlMSoCZOWcyplyDHMDnM0bpJig
- b3yUQyNLg==;
-Received: from shell.armlinux.org.uk
- ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:39344)
- by pandora.armlinux.org.uk with esmtpsa
- (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
- (envelope-from <linux@armlinux.org.uk>)
- id 1jvHdD-0004xm-TI; Tue, 14 Jul 2020 10:53:47 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.92)
- (envelope-from <linux@shell.armlinux.org.uk>)
- id 1jvHdC-0007CZ-L9; Tue, 14 Jul 2020 10:53:46 +0100
-Date: Tue, 14 Jul 2020 10:53:46 +0100
-From: Russell King - ARM Linux admin <linux@armlinux.org.uk>
-To: Jarkko Sakkinen <jarkko.sakkinen@linux.intel.com>
-Subject: Re: [PATCH 1/3] module: Rename module_alloc() to text_alloc() and
- move to kernel proper
-Message-ID: <20200714095346.GA1551@shell.armlinux.org.uk>
-References: <20200713182030.1418041-1-jarkko.sakkinen@linux.intel.com>
- <20200713183410.GY1551@shell.armlinux.org.uk>
- <20200714094928.GA1442951@linux.intel.com>
+ id 1jvHkA-0002LQ-3u
+ for linux-riscv@lists.infradead.org; Tue, 14 Jul 2020 10:00:58 +0000
+Received: by mail-qv1-xf43.google.com with SMTP id u8so7160874qvj.12
+ for <linux-riscv@lists.infradead.org>; Tue, 14 Jul 2020 03:00:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=E3aSxh26goEMg49y7nPlNJKfQGeq71gxBSg9jeZCq4s=;
+ b=HuNNLCWLYQuwoiUYuikvRvHQFMLSJGTRZ+1NwNISEfuKNatfSh4aEAoPdXr5P0Oe3G
+ 3KSN8r6l9J4A7X77CYVjJkCwCATS4+XxbZqcLsY8f5bN0Pb0cZMqooAjJmXowx8IZsHt
+ IsiFLxgsaA9JLbZw+JCAKs/9E7TWDwfyRGD4OxeASleLrDwGSaKs+kgQtNzOQ/ij7Fg5
+ +z0IufLixFdSPl/foK3DZhhjVv9/nXMMXoaSzmaI/yDjybUHAiWqgGPP30r387Efa5OK
+ ptGR0S6hO3FQ4yNm5td1hE0yEWa9/DkbeUwdnVAhZR3dM7a0ckntbBzfjboDitrY+4Mz
+ GmcA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=E3aSxh26goEMg49y7nPlNJKfQGeq71gxBSg9jeZCq4s=;
+ b=DXarNiJXa6eNDCaU63yQ2Nk/DHCI7I5cBF3Q4iXMy6PI/zqPnO1VBnr2jiDgUc0U4a
+ InvaV10jaQ+LWaRQZJCakHWJGF2E+rM3CDx4pqsMudhduUo0MKZkg6IMqWC4Zmfhlb6l
+ WWsqWiff2HAPHHuQSsdQUHEdVS9dOgt3Zb7EgJuLXkwepGwnb8rQnLaM0/84ji+AKwAc
+ y3XqPnzo2fQ2EVHDTMI3/XLnhj4gLoJxaC539jWd1rqjfficGcivPCzaCtZhDhoExOQt
+ 6m561F9HUhHXxdwLb/YxMk74OT227iTWsa0NIFMqjNCEbf7hNlEYAwKcZ8t5k45OM8g1
+ ICMg==
+X-Gm-Message-State: AOAM533KwCmFzKlxTeSNxJDG81Ldy/qqUpspTelv06+ZWg9pPk+qcRx8
+ 6kid8VPASw9g99mGKTZrfSOJAPxQlfxipxTsZqw=
+X-Google-Smtp-Source: ABdhPJx030VurvM5wVZ6JelAjJu5L8sWH+Sxz5vv4ICdNnc2Tz1pP/PA+HAi5721r1d0jbkPiyBqtWvK7qOJ8Tfj684=
+X-Received: by 2002:ad4:4cc3:: with SMTP id i3mr3597672qvz.114.1594720854753; 
+ Tue, 14 Jul 2020 03:00:54 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20200714094928.GA1442951@linux.intel.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+References: <20200630062827.16589-1-penberg@gmail.com>
+ <mhng-ca438661-49c2-4d6b-b8ab-c2f5eca9a806@palmerdabbelt-glaptop1>
+In-Reply-To: <mhng-ca438661-49c2-4d6b-b8ab-c2f5eca9a806@palmerdabbelt-glaptop1>
+From: Pekka Enberg <penberg@gmail.com>
+Date: Tue, 14 Jul 2020 13:00:38 +0300
+Message-ID: <CAOJsxLH9BBRoWs=d4mG488EB0Ufx0i_9P7hzS6R9CZfENU1NzA@mail.gmail.com>
+Subject: Re: [RESEND PATCH] riscv: Move nommu pgprot_* macros to pgtable.h
+To: Palmer Dabbelt <palmer@dabbelt.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200714_055538_738404_F618C5DE 
-X-CRM114-Status: GOOD (  25.58  )
+X-CRM114-CacheID: sfid-20200714_060058_191515_CB4BE0C3 
+X-CRM114-Status: UNSURE (   7.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -86,107 +90,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
- Kefeng Wang <wangkefeng.wang@huawei.com>, Paul Mackerras <paulus@samba.org>,
- Zong Li <zong.li@sifive.com>, Andi Kleen <ak@linux.intel.com>,
- Paul Burton <paulburton@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
- Vincent Whitchurch <vincent.whitchurch@axis.com>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Petr Mladek <pmladek@suse.com>, Brian Gerst <brgerst@gmail.com>,
- Andy Lutomirski <luto@kernel.org>, Yonghong Song <yhs@fb.com>,
- Thomas Gleixner <tglx@linutronix.de>, Jiri Kosina <jkosina@suse.cz>,
- Anup Patel <anup.patel@wdc.com>, linux-kernel@vger.kernel.org,
- Philipp Rudo <prudo@linux.ibm.com>, Torsten Duwe <duwe@lst.de>,
- Masami Hiramatsu <mhiramat@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>, Mark Rutland <mark.rutland@arm.com>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Vincent Chen <deanbo422@gmail.com>,
- "open list:S390" <linux-s390@vger.kernel.org>,
- Joe Lawrence <joe.lawrence@redhat.com>, Helge Deller <deller@gmx.de>,
- John Fastabend <john.fastabend@gmail.com>,
- Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
- Andrey Ryabinin <aryabinin@virtuozzo.com>, Iurii Zaikin <yzaikin@google.com>,
- Andrii Nakryiko <andriin@fb.com>, Vasily Gorbik <gor@linux.ibm.com>,
- "moderated list:ARM PORT" <linux-arm-kernel@lists.infradead.org>,
- Daniel Axtens <dja@axtens.net>, Damien Le Moal <damien.lemoal@wdc.com>,
- Peter Oberparleiter <oberpar@linux.ibm.com>,
- Sean Christopherson <sean.j.christopherson@intel.com>,
- Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Heiko Carstens <heiko.carstens@de.ibm.com>,
- Alexei Starovoitov <ast@kernel.org>, Atish Patra <atish.patra@wdc.com>,
- Will Deacon <will@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Masahiro Yamada <masahiroy@kernel.org>, Nayna Jain <nayna@linux.ibm.com>,
- Ley Foon Tan <ley.foon.tan@intel.com>,
- Christian Borntraeger <borntraeger@de.ibm.com>,
- Dmitry Vyukov <dvyukov@google.com>, Sami Tolvanen <samitolvanen@google.com>,
- "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>, Mao Han <han_mao@c-sky.com>,
- Marco Elver <elver@google.com>, Steven Rostedt <rostedt@goodmis.org>,
- Babu Moger <Babu.Moger@amd.com>, Borislav Petkov <bp@alien8.de>,
- Greentime Hu <green.hu@gmail.com>, Ben Dooks <ben-linux@fluff.org>,
- Guan Xuetao <gxt@pku.edu.cn>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- "open list:PARISC ARCHITECTURE" <linux-parisc@vger.kernel.org>,
- Jessica Yu <jeyu@kernel.org>,
- "open list:BPF JIT for MIPS \(32-BIT AND 64-BIT\)" <bpf@vger.kernel.org>,
- "David S. Miller" <davem@davemloft.net>,
- Thiago Jung Bauermann <bauerman@linux.ibm.com>,
- Peter Zijlstra <peterz@infradead.org>,
- "open list:SPARC + UltraSPARC \(sparc/sparc64\)" <sparclinux@vger.kernel.org>,
- Sandipan Das <sandipan@linux.ibm.com>, "H. Peter Anvin" <hpa@zytor.com>,
- Amit Daniel Kachhap <amit.kachhap@arm.com>,
- Tiezhu Yang <yangtiezhu@loongson.cn>, Miroslav Benes <mbenes@suse.cz>,
- Jiri Olsa <jolsa@redhat.com>, Ard Biesheuvel <ardb@kernel.org>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Anders Roxell <anders.roxell@linaro.org>, Sven Schnelle <svens@stackframe.org>,
- "maintainer:X86 ARCHITECTURE \(32-BIT AND 64-BIT\)" <x86@kernel.org>,
- "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
- Mike Rapoport <rppt@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- Albert Ou <aou@eecs.berkeley.edu>, "Paul E. McKenney" <paulmck@kernel.org>,
- Josh Poimboeuf <jpoimboe@redhat.com>, KP Singh <kpsingh@chromium.org>,
- Gerald Schaefer <gerald.schaefer@de.ibm.com>, Nick Hu <nickhu@andestech.com>,
- "open list:BPF JIT for MIPS \(32-BIT AND 64-BIT\)" <netdev@vger.kernel.org>,
- "open list:MIPS" <linux-mips@vger.kernel.org>,
- Sergey Senozhatsky <sergey.senozhatsky@gmail.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- "open list:LINUX FOR POWERPC \(32-BIT AND 64-BIT\)"
- <linuxppc-dev@lists.ozlabs.org>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>,
+ Albert Ou <aou@eecs.berkeley.edu>, Kefeng Wang <wangkefeng.wang@huawei.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2020 at 12:49:28PM +0300, Jarkko Sakkinen wrote:
-> On Mon, Jul 13, 2020 at 07:34:10PM +0100, Russell King - ARM Linux admin wrote:
-> > On Mon, Jul 13, 2020 at 09:19:37PM +0300, Jarkko Sakkinen wrote:
-> > > Rename module_alloc() to text_alloc() and module_memfree() to
-> > > text_memfree(), and move them to kernel/text.c, which is unconditionally
-> > > compiled to the kernel proper. This allows kprobes, ftrace and bpf to
-> > > allocate space for executable code without requiring to compile the modules
-> > > support (CONFIG_MODULES=y) in.
-> > 
-> > I'm not sure this is a good idea for 32-bit ARM.  The code you are
-> > moving for 32-bit ARM is quite specific to module use in that it also
-> > supports allocating from the vmalloc area, where the module code
-> > knows to add PLT entries.
-> > 
-> > If the other proposed users of this text_alloc() do not have the logic
-> > to add PLT entries when branches between kernel code and this
-> > allocation are not reachable by, e.g. a 26-bit signed offset for 32-bit
-> > ARM code, then this code is not suitable for that use.
-> 
-> My intention is to use this in kprobes code in the place of
-> module_alloc().  I'm not sure why moving this code out of the module
-> subsystem could possibly break anything.  Unfortunately I forgot to add
-> covere letter to my series. Sending v2 with that to explain my use case
-> for this.
+Hi Palmer,
 
-Ah, so you're merely renaming module_alloc() to text_alloc() everywhere?
-It sounded from the initial patch like you were also converting other
-users to use module_alloc().
+On Tue, Jul 14, 2020 at 4:21 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+> This seems fine, but I guess I don't understand why they don't have default
+> values in the generic code for !MMU.  It kind of seems like it's an oversight
+> due to nested #ifdefs.  Assuming that's the case, we can just juggle those
+> around and then remove these from all the ports that define the now useless
+> macros.
+>
+> LMK if you want to pursue that or if you want me to take it over.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 40Mbps down 10Mbps up. Decent connectivity at last!
+Yeah, makes sense, I'll send patches to do that instead. Thanks!
+
+- Pekka
 
 _______________________________________________
 linux-riscv mailing list
