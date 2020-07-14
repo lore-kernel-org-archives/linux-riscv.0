@@ -7,16 +7,16 @@ X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D5917C433E0
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 11:56:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1D7A0C433E7
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 12:12:53 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A339222225
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 11:56:21 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E3281222D9
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 12:12:52 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sDnrKNdP"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A339222225
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="OZhYfE4N"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E3281222D9
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.intel.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,51 +25,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=F0flWkxeoXB07rrU7NuxSK3Dc35Y43oZWxCMloF4B34=; b=sDnrKNdP4DPkO7ozFtQnpx1/v
-	8ZdN33zEFlaoRBDMjNKgSnlGMFeB9koMk3TCE+bEaRmMknJ+aXmvRAJZaPkHirbwVdWffu50yGSqj
-	EaOXkTKhT3x/irZpyTW/i5Sr3h2x5SlrCPR2yte/69BIxh2eBjjPYNdG0ycHXHttQmP3tDX14lA8B
-	8yb12m35sXUm0XUvXIeoTn+vesj/OXjGP5t/wXbxWSua5XucVHkIN6KyO+inJC/eGJjC1/yNpOdFb
-	XuUnF1VhCmiProyx3iTrmrVucx12O0cu263nDmyypYhuUdyriAZ1Yuf+oCZ4jKw7rTeu7SZ5Gb1cC
-	S5xqQQy5Q==;
+	 bh=EygeOd2ZKLSKgK8RZIq1uY0nOoW4FjlCUDIwPkA3sC4=; b=OZhYfE4Njc96YCJe8dLtA4eAM
+	SIWVfV4AAdRXcfJtYQnlHbMfrtYAE1bCsgYZournbRcfu7kJp/Zlkkkd7GFoWnI6CbAWwBN5FDOzA
+	tgtS1GXNyetWtJqi6sbJ4g7eBxqmBJYHPo/720538EPc2bO8dOQaxmQmDENip9pFQJdj2t29YaoHQ
+	2gyXhGAmnU05LbK8EcbPDbXJBE9r0Pv5FD+2lzPVIsFBbFuNDLpFZzstoAOUCZcwKuAj1KY4BN1eI
+	laqOLqj6HcQK7aMPmmU34HMmfY0vzxDvcgW0PnFVBr2e3ASkGIYeZ5v5krtOFcc5qnePwaMV2R8pj
+	qRUi9kpFA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jvJXk-0004XH-2Q; Tue, 14 Jul 2020 11:56:16 +0000
-Received: from mga11.intel.com ([192.55.52.93])
+	id 1jvJnb-0007Pk-8D; Tue, 14 Jul 2020 12:12:39 +0000
+Received: from mga04.intel.com ([192.55.52.120])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jvJXh-0004Vl-6G; Tue, 14 Jul 2020 11:56:13 +0000
-IronPort-SDR: mFA9c30E2hM8AhbEfvgfHUNeWCequzz11iFKiaTIIFZsQu+RcsyAJCNm2MjlvgfBc7z2Nm1WVM
- 1HiDBfcmbbuw==
-X-IronPort-AV: E=McAfee;i="6000,8403,9681"; a="146882800"
-X-IronPort-AV: E=Sophos;i="5.75,350,1589266800"; d="scan'208";a="146882800"
+ id 1jvJnY-0007Om-QU; Tue, 14 Jul 2020 12:12:37 +0000
+IronPort-SDR: 7/OOm5UuQYJr6NKM4i8klONojZ8eKvkuqXOvdzfxK7wniRKk/Gzuhsle5wWYSbnXO1Sjxnk4eV
+ HqQ/goDsn15g==
+X-IronPort-AV: E=McAfee;i="6000,8403,9681"; a="146361691"
+X-IronPort-AV: E=Sophos;i="5.75,350,1589266800"; d="scan'208";a="146361691"
 X-Amp-Result: SKIPPED(no attachment in message)
 X-Amp-File-Uploaded: False
-Received: from fmsmga008.fm.intel.com ([10.253.24.58])
- by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 14 Jul 2020 04:56:11 -0700
-IronPort-SDR: 487d/LctlM4NM8jYh/JS9KK/zGZd1fU1eze/erpvpmGH/ZEWZizBiq2A4pLK65bnn1iknNmTRD
- CTFA4LupyJiQ==
+Received: from fmsmga002.fm.intel.com ([10.253.24.26])
+ by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 14 Jul 2020 05:12:35 -0700
+IronPort-SDR: gy5QgnmkOnvrE5FE0suJR8q17BCUDnIMq9U3Z/E6bO2L2CHcMBL7ozMWn6dB19fD/Uv6Qw8RhN
+ QKqcw9ce1qhw==
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.75,350,1589266800"; d="scan'208";a="269990139"
+X-IronPort-AV: E=Sophos;i="5.75,350,1589266800"; d="scan'208";a="317697684"
 Received: from pipper-mobl1.ger.corp.intel.com (HELO localhost)
  ([10.249.46.185])
- by fmsmga008.fm.intel.com with ESMTP; 14 Jul 2020 04:55:32 -0700
-Date: Tue, 14 Jul 2020 14:55:30 +0300
+ by fmsmga002.fm.intel.com with ESMTP; 14 Jul 2020 05:12:01 -0700
+Date: Tue, 14 Jul 2020 15:11:59 +0300
 From: Jarkko Sakkinen <jarkko.sakkinen@linux.intel.com>
-To: Ard Biesheuvel <ardb@kernel.org>
+To: Russell King - ARM Linux admin <linux@armlinux.org.uk>
 Subject: Re: [PATCH 1/3] module: Rename module_alloc() to text_alloc() and
  move to kernel proper
-Message-ID: <20200714115530.GC1463346@linux.intel.com>
+Message-ID: <20200714121159.GD1463346@linux.intel.com>
 References: <20200713182030.1418041-1-jarkko.sakkinen@linux.intel.com>
  <CAMj1kXGhZYxjZTP+_PGdBy4hZgdeeTNUkuaE_eQKwB4pPAYNXA@mail.gmail.com>
  <20200714095243.GB1442951@linux.intel.com>
  <CAMj1kXGV_bWehdQvxaMBTOYHXUoFjifBWNpyVy3gaWKktko1mg@mail.gmail.com>
+ <20200714103333.GB1551@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAMj1kXGV_bWehdQvxaMBTOYHXUoFjifBWNpyVy3gaWKktko1mg@mail.gmail.com>
+In-Reply-To: <20200714103333.GB1551@shell.armlinux.org.uk>
 Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200714_075613_365781_E34EB494 
-X-CRM114-Status: GOOD (  25.47  )
+X-CRM114-CacheID: sfid-20200714_081237_017286_35A505E8 
+X-CRM114-Status: GOOD (  39.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -131,16 +132,15 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
  Sandipan Das <sandipan@linux.ibm.com>, "H. Peter Anvin" <hpa@zytor.com>,
  Amit Daniel Kachhap <amit.kachhap@arm.com>,
  Tiezhu Yang <yangtiezhu@loongson.cn>, Miroslav Benes <mbenes@suse.cz>,
- Jiri Olsa <jolsa@redhat.com>,
- "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
+ Jiri Olsa <jolsa@redhat.com>, Ard Biesheuvel <ardb@kernel.org>,
  Vincenzo Frascino <vincenzo.frascino@arm.com>,
  Anders Roxell <anders.roxell@linaro.org>, Sven Schnelle <svens@stackframe.org>,
  "maintainer:X86 ARCHITECTURE \(32-BIT AND 64-BIT\)" <x86@kernel.org>,
- Russell King <linux@armlinux.org.uk>, Mike Rapoport <rppt@linux.ibm.com>,
- Ingo Molnar <mingo@redhat.com>, Albert Ou <aou@eecs.berkeley.edu>,
- "Paul E. McKenney" <paulmck@kernel.org>, Josh Poimboeuf <jpoimboe@redhat.com>,
- KP Singh <kpsingh@chromium.org>, Gerald Schaefer <gerald.schaefer@de.ibm.com>,
- Nick Hu <nickhu@andestech.com>,
+ "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
+ Mike Rapoport <rppt@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, "Paul E. McKenney" <paulmck@kernel.org>,
+ Josh Poimboeuf <jpoimboe@redhat.com>, KP Singh <kpsingh@chromium.org>,
+ Gerald Schaefer <gerald.schaefer@de.ibm.com>, Nick Hu <nickhu@andestech.com>,
  "open list:BPF JIT for MIPS \(32-BIT AND 64-BIT\)" <netdev@vger.kernel.org>,
  "open list:MIPS" <linux-mips@vger.kernel.org>,
  Sergey Senozhatsky <sergey.senozhatsky@gmail.com>,
@@ -152,39 +152,111 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2020 at 01:17:22PM +0300, Ard Biesheuvel wrote:
-> > This series essentially does this: introduces text_alloc() and
-> > text_memfree(), which have generic implementations in kernel/text.c.
-> > Those can be overriddent by arch specific implementations.
-> >
-> > What you think should be done differently than in my patch set?
-> >
+On Tue, Jul 14, 2020 at 11:33:33AM +0100, Russell King - ARM Linux admin wrote:
+> On Tue, Jul 14, 2020 at 01:17:22PM +0300, Ard Biesheuvel wrote:
+> > On Tue, 14 Jul 2020 at 12:53, Jarkko Sakkinen
+> > <jarkko.sakkinen@linux.intel.com> wrote:
+> > >
+> > > On Mon, Jul 13, 2020 at 10:49:48PM +0300, Ard Biesheuvel wrote:
+> > > > This patch suggests that there are other reasons why conflating
+> > > > allocation of module space and allocating  text pages for other uses
+> > > > is a bad idea, but switching all users to text_alloc() is a step in
+> > > > the wrong direction. It would be better to stop using module_alloc()
+> > > > in core code except in the module loader, and have a generic
+> > > > text_alloc() that can be overridden by the arch if necessary. Note
+> > > > that x86  and s390 are the only architectures that use module_alloc()
+> > > > in ftrace code.
+> > >
+> > > This series essentially does this: introduces text_alloc() and
+> > > text_memfree(), which have generic implementations in kernel/text.c.
+> > > Those can be overriddent by arch specific implementations.
+> > >
+> > > What you think should be done differently than in my patch set?
+> > >
+> > 
+> > On arm64, module_alloc is only used by the module loader, and so
+> > pulling it out and renaming it will cause unused code to be
+> > incorporated into the kernel when building without module support,
+> > which is the use case you claim to be addressing.
+> > 
+> > Module_alloc has semantics that are intimately tied to the module
+> > loader, but over the years, it ended up being (ab)used by other
+> > subsystems, which don't require those semantics but just need n pages
+> > of vmalloc space with executable permissions.
+> > 
+> > So the correct approach is to make text_alloc() implement just that,
+> > generically, and switch bpf etc to use it. Then, only on architectures
+> > that need it, override it with an implementation that has the required
+> > additional semantics.
+> > 
+> > Refactoring 10+ architectures like this without any regard for how
+> > text_alloc() deviates from module_alloc() just creates a lot of churn
+> > that others will have to clean up after you.
 > 
-> On arm64, module_alloc is only used by the module loader, and so
-> pulling it out and renaming it will cause unused code to be
-> incorporated into the kernel when building without module support,
-> which is the use case you claim to be addressing.
+> For 32-bit ARM, our bpf code uses "blx/bx" (or equivalent code
+> sequences) rather than encoding a "bl" or "b", so BPF there doesn't
+> care where the executable memory is mapped, and doesn't need any
+> PLTs.  Given that, should bpf always allocate from the vmalloc()
+> region to preserve the module space for modules?
 
-It certainly does not cause the full module loader to be bundle, only
-the allocator.
+Most of the allocators use __vmalloc_node_range() but arch/nios2
+uses just plain kmalloc():
 
-> Module_alloc has semantics that are intimately tied to the module
-> loader, but over the years, it ended up being (ab)used by other
-> subsystems, which don't require those semantics but just need n pages
-> of vmalloc space with executable permissions.
-> 
-> So the correct approach is to make text_alloc() implement just that,
-> generically, and switch bpf etc to use it. Then, only on architectures
-> that need it, override it with an implementation that has the required
-> additional semantics.
-> 
-> Refactoring 10+ architectures like this without any regard for how
-> text_alloc() deviates from module_alloc() just creates a lot of churn
-> that others will have to clean up after you.
+/*
+ * Modules should NOT be allocated with kmalloc for (obvious) reasons.
+ * But we do it for now to avoid relocation issues. CALL26/PCREL26 cannot reach
+ * from 0x80000000 (vmalloc area) to 0xc00000000 (kernel) (kmalloc returns
+ * addresses in 0xc0000000)
+ */
+void *module_alloc(unsigned long size)
+{
+	if (size == 0)
+		return NULL;
+	return kmalloc(size, GFP_KERNEL);
+}
 
-Using generic text_alloc() in kernel/kprobes.c would make it behave
-differently in arch's that reimplement module_alloc(). That's the main
-driver for my approach.
+Also consider arch/x86 module_alloc():
+
+void *module_alloc(unsigned long size)
+{
+	void *p;
+
+	if (PAGE_ALIGN(size) > MODULES_LEN)
+		return NULL;
+
+	p = __vmalloc_node_range(size, MODULE_ALIGN,
+				    MODULES_VADDR + get_module_load_offset(),
+				    MODULES_END, GFP_KERNEL,
+				    PAGE_KERNEL, 0, NUMA_NO_NODE,
+				    __builtin_return_address(0));
+	if (p && (kasan_module_alloc(p, size) < 0)) {
+		vfree(p);
+		return NULL;
+	}
+
+	return p;
+}
+
+The generic version is
+
+void * __weak module_alloc(unsigned long size)
+{
+	return __vmalloc_node_range(size, 1, VMALLOC_START, VMALLOC_END,
+			GFP_KERNEL, PAGE_KERNEL_EXEC, VM_FLUSH_RESET_PERMS,
+			NUMA_NO_NODE, __builtin_return_address(0));
+}
+
+There is quite a lot of divergence from the generic version.
+
+However, in other arch's it's mostly just divergence in vmalloc()
+parameters and not as radical as in x86.
+
+I could probably limit the total havoc to just nios2 and x86 if there
+is a set of vmalloc parameters that work for all arch's. Then there
+could be kernel/text.c and re-implementations for x86 and nios2.
+
+I'm all for having separate text_alloc() and text_memfree() if these
+issues can be somehow sorted out.
 
 /Jarkko
 
