@@ -2,88 +2,61 @@ Return-Path: <SRS0=l78j=AZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-5.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_2 autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 85E7BC433E0
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 01:21:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BF16CC433DF
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 02:04:57 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5912521924
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 01:21:41 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 7CEFD21974
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 02:04:57 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="qev+jH/7";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.b="Tdeet8Ev"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5912521924
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="zzjwCOrd"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7CEFD21974
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=goodmis.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:From:MIME-Version:Message-Id:Date:Subject:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LVlXg24u4un4eBCVg8+/b/jNAoyEFRkUdA/ij19AoaY=; b=qev+jH/7LvQordXVRbUM4GjyJp
-	C5h4liLGvPgAK2ZEkO9bJ5kTFAe7dDvXsk3FXiAMpeaEA75nh/w6bM5sxm0KivDHn/lsA/dDDbeds
-	PlyukQ+F91io2q9Do7ZvtGFZj8PJpfMXhAZY7RKS4RISKLOk9Ke0kxX0PuS1iDfdBM4vPJXNbBlXS
-	DJzWEuzWjTecMTuwyN5x3v+m2DuidnvmkFnlhTn18PyGi6ZnhD6HqXsQyHb433PSNYiKLwU44ALbs
-	NEf0DvvnGV6miY5vaCkfDMxpO5IVwTcDaC1dkf2uPk10VtfdXpG3w3G2NpguekaByDYnziOp90YEz
-	xkyEo/Zg==;
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=FIDW6SEay7xXW02Ze638YFlAs37EoECLImi7yny/fX8=; b=zzjwCOrd4+m8WJOM4ZhK0mnxr
+	EBYa9ZOozh9qoRDPwMHPTQCp61DHxPDNpmxu9008cw53JLEJbAxOjGGXHJlhBblgsmCFAaiaOUmRH
+	lNRr/T7G0vFEkZ9PkFl9USMGPNhVaWE7IxCeifML0U/jWxWIYlZX0lruT/dhiGEU35ZiKSDuZiU4B
+	9w3lqaLLre9cohJRmqnDTvBC8U76fDE0iA7GyEDZVBr448E4leUMgvmPKni2GooQGDLyzhv3EC+gv
+	jW7/7AhQJnojdVU0M57ZNFBKeHg6fjSwsMZ6AWXmo2ViSOw8Ybj4+ViDa2XREB+pPwaLYaVqSKNYH
+	rERpK9Dkw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jv9dS-0005Zm-1u; Tue, 14 Jul 2020 01:21:30 +0000
-Received: from mail-pl1-x644.google.com ([2607:f8b0:4864:20::644])
+	id 1jvAJO-0007LF-OF; Tue, 14 Jul 2020 02:04:50 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jv9dP-0005Ym-9n
- for linux-riscv@lists.infradead.org; Tue, 14 Jul 2020 01:21:28 +0000
-Received: by mail-pl1-x644.google.com with SMTP id 72so6322071ple.0
- for <linux-riscv@lists.infradead.org>; Mon, 13 Jul 2020 18:21:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
- h=subject:date:message-id:mime-version:content-transfer-encoding:cc
- :from:to; bh=VmDhhDgTu8bitXq1iZew/NUmGohT7Wuy/FvS0rrJGXQ=;
- b=Tdeet8EvRDaTtWDzWgQvTn4KEIgIGAvIZYhUzYee7Pk6WWtSWxASEsDha/qBdBFBn9
- mE/hoaavMp/IyycuDvogQZnqv0Xw99qL8ejowqrdusZCMkHl3IeKnZnH2WpRzz+9vhiB
- TJH8ZVm0b7FvlJXUklAZc90qpub8JPZFgoOgSOvtX8WdI5n9QXngkYC8zy4vPtDDirJb
- yPnYt92eAjWtbgywHQHEbR6rXYiyHQX3wLaZAXOq8dQWvKlGF3lOdYvHgxzS8szlCtFL
- v17XdsrPEq5RWa/uVVR8JdDG28QThJmRXOJWPYYQiJLi97vtp3TzmEqfiIsbm27182fN
- hx+g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:date:message-id:mime-version
- :content-transfer-encoding:cc:from:to;
- bh=VmDhhDgTu8bitXq1iZew/NUmGohT7Wuy/FvS0rrJGXQ=;
- b=lU3ZDU1k10WMApLIModSpLcuNFEj/zJdviX3lR7Keb/VVkpkmfZXl1bTlmudu62GHx
- FA98n9lBqMRV2Tlk8VvicjsMof1V8qomd0NEp45tdhT8tSyoFPQzH7FDhEDJfH4YEVmn
- bII7J+MkPcSmFlpyWz4L2bHopowLz66GXDHdagR4/9X0Y2lzp7hmVLYx6y4zSoRIDuep
- KQ0vyMYxurW8wzxI8cknRueYcB5NdRQYSk6We5kFtxMGZuhiAW4n2Re5w2rC4tf1VdJA
- ijTWMPw4zP54ivSHIwf6e1XXxMRjL9uE5yT66dUf74taG8R8n7GOx/8H/76R/el7W2Jr
- bs9g==
-X-Gm-Message-State: AOAM533YROPCrg7sedLd0DEYz3KsIc1TnalUN5l/lfMfK28GNaPfBUan
- J1V6ZlkrDtKAW0DDYa9fSpveLmp8gWs=
-X-Google-Smtp-Source: ABdhPJxWsth4zPvtSfnuToBEPBCUNhjgzKz8npOCTMDqjy+lKxmJJGV2UjSLFLTSrhDjNwy6C7MLpw==
-X-Received: by 2002:a17:90a:9bc5:: with SMTP id
- b5mr2140055pjw.76.1594689683937; 
- Mon, 13 Jul 2020 18:21:23 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id lx2sm715779pjb.16.2020.07.13.18.21.23
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 13 Jul 2020 18:21:23 -0700 (PDT)
-Subject: [PATCH] RISC-V: Double the stack size on rv64
-Date: Mon, 13 Jul 2020 18:19:23 -0700
-Message-Id: <20200714011922.138617-1-palmerdabbelt@google.com>
-X-Mailer: git-send-email 2.27.0.389.gc38d7665816-goog
+ id 1jvAJM-0007KG-Bn; Tue, 14 Jul 2020 02:04:49 +0000
+Received: from oasis.local.home (cpe-66-24-58-225.stny.res.rr.com
+ [66.24.58.225])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 1BD2E2186A;
+ Tue, 14 Jul 2020 02:04:38 +0000 (UTC)
+Date: Mon, 13 Jul 2020 22:04:36 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Subject: Re: [PATCH 1/3] module: Rename module_alloc() to text_alloc() and
+ move to kernel proper
+Message-ID: <20200713220436.2f21d366@oasis.local.home>
+In-Reply-To: <CAMj1kXGhZYxjZTP+_PGdBy4hZgdeeTNUkuaE_eQKwB4pPAYNXA@mail.gmail.com>
+References: <20200713182030.1418041-1-jarkko.sakkinen@linux.intel.com>
+ <CAMj1kXGhZYxjZTP+_PGdBy4hZgdeeTNUkuaE_eQKwB4pPAYNXA@mail.gmail.com>
+X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-From: Palmer Dabbelt <palmerdabbelt@google.com>
-To: colin.king@canonical.com, schwab@suse.de, david.abdurachmanov@gmail.com,
- dvyukov@google.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200713_212127_424505_B4FCA27B 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20200713_220448_530226_D50F7B55 
+X-CRM114-Status: GOOD (  25.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -95,48 +68,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmerdabbelt@google.com>,
- stable@vger.kernel.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+ Kefeng Wang <wangkefeng.wang@huawei.com>, Paul Mackerras <paulus@samba.org>,
+ Zong Li <zong.li@sifive.com>, Andi Kleen <ak@linux.intel.com>,
+ Paul Burton <paulburton@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
+ Vincent Whitchurch <vincent.whitchurch@axis.com>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Petr Mladek <pmladek@suse.com>, Brian Gerst <brgerst@gmail.com>,
+ Andy Lutomirski <luto@kernel.org>, Yonghong Song <yhs@fb.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Jiri Kosina <jkosina@suse.cz>,
+ Anup Patel <anup.patel@wdc.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Philipp Rudo <prudo@linux.ibm.com>, Torsten Duwe <duwe@lst.de>,
+ Masami Hiramatsu <mhiramat@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Mark Rutland <mark.rutland@arm.com>,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Vincent Chen <deanbo422@gmail.com>,
+ "open list:S390" <linux-s390@vger.kernel.org>,
+ Joe Lawrence <joe.lawrence@redhat.com>, Helge Deller <deller@gmx.de>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
+ Andrey Ryabinin <aryabinin@virtuozzo.com>, Iurii Zaikin <yzaikin@google.com>,
+ Andrii Nakryiko <andriin@fb.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ "moderated list:ARM PORT" <linux-arm-kernel@lists.infradead.org>,
+ Daniel Axtens <dja@axtens.net>, Damien Le Moal <damien.lemoal@wdc.com>,
+ Peter Oberparleiter <oberpar@linux.ibm.com>,
+ Sean Christopherson <sean.j.christopherson@intel.com>,
+ Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Heiko Carstens <heiko.carstens@de.ibm.com>,
+ Alexei Starovoitov <ast@kernel.org>,
+ Jarkko Sakkinen <jarkko.sakkinen@linux.intel.com>,
+ Atish Patra <atish.patra@wdc.com>, Will Deacon <will@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Masahiro Yamada <masahiroy@kernel.org>,
+ Nayna Jain <nayna@linux.ibm.com>, Ley Foon Tan <ley.foon.tan@intel.com>,
+ Christian Borntraeger <borntraeger@de.ibm.com>,
+ Dmitry Vyukov <dvyukov@google.com>, Sami Tolvanen <samitolvanen@google.com>,
+ "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>, Mao Han <han_mao@c-sky.com>,
+ Marco Elver <elver@google.com>, Babu Moger <Babu.Moger@amd.com>,
+ Borislav Petkov <bp@alien8.de>, Greentime Hu <green.hu@gmail.com>,
+ Ben Dooks <ben-linux@fluff.org>, Guan Xuetao <gxt@pku.edu.cn>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ "open list:PARISC ARCHITECTURE" <linux-parisc@vger.kernel.org>,
+ Jessica Yu <jeyu@kernel.org>, "open list:BPF JIT for MIPS
+ \(32-BIT AND 64-BIT\)" <bpf@vger.kernel.org>,
+ "David S. Miller" <davem@davemloft.net>,
+ Thiago Jung Bauermann <bauerman@linux.ibm.com>,
+ Peter Zijlstra <peterz@infradead.org>, "open list:SPARC + UltraSPARC
+ \(sparc/sparc64\)" <sparclinux@vger.kernel.org>,
+ Sandipan Das <sandipan@linux.ibm.com>, "H. Peter Anvin" <hpa@zytor.com>,
+ Amit Daniel Kachhap <amit.kachhap@arm.com>,
+ Tiezhu Yang <yangtiezhu@loongson.cn>, Miroslav Benes <mbenes@suse.cz>,
+ Jiri Olsa <jolsa@redhat.com>,
+ "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Anders Roxell <anders.roxell@linaro.org>, Sven Schnelle <svens@stackframe.org>,
+ "maintainer:X86 ARCHITECTURE \(32-BIT AND 64-BIT\)" <x86@kernel.org>,
+ Russell King <linux@armlinux.org.uk>, Mike Rapoport <rppt@linux.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ "Paul E. McKenney" <paulmck@kernel.org>, Josh Poimboeuf <jpoimboe@redhat.com>,
+ KP Singh <kpsingh@chromium.org>, Gerald Schaefer <gerald.schaefer@de.ibm.com>,
+ Nick Hu <nickhu@andestech.com>, "open list:BPF JIT for MIPS
+ \(32-BIT AND 64-BIT\)" <netdev@vger.kernel.org>, "open
+ list:MIPS" <linux-mips@vger.kernel.org>,
+ Sergey Senozhatsky <sergey.senozhatsky@gmail.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, "open list:LINUX FOR POWERPC \(32-BIT AND
+ 64-BIT\)" <linuxppc-dev@lists.ozlabs.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This was suggested in the syzkaller thread as a fix for a bunch of issues.  It
-seems in line with what other architectures are doing, and while I haven't
-personally figured out how to reproduce the issues they seem believable enough
-to just change it.
+On Mon, 13 Jul 2020 22:49:48 +0300
+Ard Biesheuvel <ardb@kernel.org> wrote:
 
-Fixes: 7db91e57a0ac ("RISC-V: Task implementation")
-Cc: stable@vger.kernel.org
-Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
----
-I've put this on fixes as I don't see a patch from anyone on that thread, and
-it seems straight-forward enough to just do it.  If there's any issues I'm
-happy to listen, otherwise this is going up later this week.
----
- arch/riscv/include/asm/thread_info.h | 4 ++++
- 1 file changed, 4 insertions(+)
+> On arm64, we no longer use module_alloc for bpf or kprobes, to avoid
+> wasting va space on code that does not need to be loaded close to the
+> kernel. Also, module_alloc() allocates kasan shadow, which is
+> unnecessary for kprobes or bpf programs, which don't have kasan
+> instrumentation.
+> 
+> This patch suggests that there are other reasons why conflating
+> allocation of module space and allocating  text pages for other uses
+> is a bad idea, but switching all users to text_alloc() is a step in
+> the wrong direction. It would be better to stop using module_alloc()
+> in core code except in the module loader, and have a generic
+> text_alloc() that can be overridden by the arch if necessary. Note
+> that x86  and s390 are the only architectures that use module_alloc()
+> in ftrace code.
+> 
+> Please have a look at alloc_insn_page() or bpf_jit_alloc_exec() in the
+> arm64 tree to see what I mean.
 
-diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
-index 1dd12a0cbb2b..2026076b1d30 100644
---- a/arch/riscv/include/asm/thread_info.h
-+++ b/arch/riscv/include/asm/thread_info.h
-@@ -12,7 +12,11 @@
- #include <linux/const.h>
- 
- /* thread information allocation */
-+#if defined(CONFIG_32BIT)
- #define THREAD_SIZE_ORDER	(1)
-+#elif defined(CONFIG_64BIT)
-+#define THREAD_SIZE_ORDER   (2)
-+#endif
- #define THREAD_SIZE		(PAGE_SIZE << THREAD_SIZE_ORDER)
- 
- #ifndef __ASSEMBLY__
--- 
-2.27.0.389.gc38d7665816-goog
+Hmm, so you have another method for allocating memory for trampolines?
+(I haven't looked at those functions you pointed out, out of sheer
+laziness ;-)
 
+It would be nice to implement the trampoline optimization in arm, which
+x86 has (see arch_ftrace_update_trampoline() and
+arch_ftrace_trampoline_func()).
+
+It helps when you have two different callbacks for different functions
+(like having live patching enabled and function tracing enabled, or
+kprobes using ftrace). Each callback will get its own allocated
+trampoline to jump to instead of jumping to the a trampoline that calls
+a looping function that tests to see which callback wants to be called
+by the traced function.
+
+-- Steve
 
 _______________________________________________
 linux-riscv mailing list
