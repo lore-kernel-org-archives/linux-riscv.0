@@ -2,80 +2,89 @@ Return-Path: <SRS0=l78j=AZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 301E4C433E0
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 16:46:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1E324C433E3
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 17:32:52 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EBDDA2256F
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 16:46:36 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id DB30922450
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 17:32:51 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="nRsqEzkG";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="prJBLy+H"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EBDDA2256F
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="RY1ORlKu";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="s61LyeHx"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DB30922450
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=w/x900lRM9Md4s27jBnppS19BSXPlcCMP6R075jtyeE=; b=nRsqEzkGbUFYH5DNqvd8EEOe5
-	zfi71XslPu6zi5rOfCEyxDaG1X4ExHBQ6GI3OOlByavPKMzY1OwqIIeRukaHsV+5dwGA1fj9hhSkv
-	WojLrQ1kUmeDQ3vAcrQIJg0XMB+Y1Dz2pI/YmE2pL6Sxgh3oOZRaI7XV82GL80Q/27+YpJrEP03mx
-	6yGY6bq1wlM1seO//FjyzZJQpL6gK7KivI2oB/cOklXIEqsYEoMabunwVzFlMtCxRw4X3TtrjqBrl
-	IUrVaGsslXhwNSTqsJAuzGFqIXL1noz5VeYoTtpYngUELAgoc9iUagRIDVsZVv6bSGx+RtVJbHp//
-	dM5QR5mBw==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=H9kFkz6It98FxQ228QexvYnfwxI4BFDFX6eWx/i+zdo=; b=RY1ORlKuIHgr8zFX4FPVTh3Mi
+	R3Be7+MRqkZn+fZSXSsBJ5KTzQqC2U1J/0bmTDQWifQ+/2T9Y0Qc1s5N3qS4Dw7BKE8ShstUjlG8p
+	cBqfBBZZUXEedRQnm3AtrfN6Egt47Rn+Sl4C1yMqpzAEDLEWKiNiVHSdKImWC3T2vtg1rhU618LIb
+	S1hkdD9s64+mF0mNh8JKlAFH/TIt5/syUyLIGzZfYv3F4XpXwctUJE1khf6PeaFOwgfgJW1bE0F0W
+	6kPwNA7KnvC3YmNm6h+4y9mcJe+YYXlg9JLhOkiUbpmj7L+rKiUcfwgUzRc0CAdBiwH9mMef4N5K8
+	YrqQIN0ZA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jvO4Z-0004JV-Q7; Tue, 14 Jul 2020 16:46:27 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1jvOnH-00089P-M4; Tue, 14 Jul 2020 17:32:39 +0000
+Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jvO4X-0004Io-EW; Tue, 14 Jul 2020 16:46:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=lMfxGNMVoYOEfkBUsJtItE9upelYcUOPHcRW+zyqzic=; b=prJBLy+HldU4/X+cRPRbDZC/QJ
- LqT18Ym5+qACPv6G2N/gA0B2SEqcOHztarakYVh3lKoPDjh7Wx7TWhdQgrAb0V+SIyEgR6IOA+efj
- QLxJ+LNEiMx4FycdkDwQET2pBbuT0sNPkTFnqCS/E/kjILJjpoMpPAt7hHMCkEUqZRNlUGEg9cP82
- F1gZdu6P4cLa0ow/PQ0Nwg9PObddUxnu47kGAounufTQnAk/X0oF+yhcd2ATzKcAkSRswd9HHlMjF
- kH8TS0yBh2ryX/KDwW/+lNX0sqPd8ClJXOMnhdRUbT7vBsibZZwzuxX5A6winidsAmsyVP2pI9D9R
- FcEVSYSw==;
-Received: from j217100.upc-j.chello.nl ([24.132.217.100]
- helo=noisy.programming.kicks-ass.net)
- by casper.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jvO4O-0006OG-EV; Tue, 14 Jul 2020 16:46:16 +0000
-Received: from hirez.programming.kicks-ass.net
- (hirez.programming.kicks-ass.net [192.168.1.225])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (Client did not present a certificate)
- by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id DE1B5305B23;
- Tue, 14 Jul 2020 18:46:11 +0200 (CEST)
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
- id B969821211CEB; Tue, 14 Jul 2020 18:46:11 +0200 (CEST)
-Date: Tue, 14 Jul 2020 18:46:11 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Jarkko Sakkinen <jarkko.sakkinen@linux.intel.com>
-Subject: Re: [PATCH v2 1/3] module: Rename module_alloc() to text_alloc() and
- move to kernel proper
-Message-ID: <20200714164611.GA10769@hirez.programming.kicks-ass.net>
-References: <20200714094625.1443261-1-jarkko.sakkinen@linux.intel.com>
- <20200714094625.1443261-2-jarkko.sakkinen@linux.intel.com>
- <20200714102826.GB4756@willie-the-truck>
- <20200714112927.GV10769@hirez.programming.kicks-ass.net>
- <CAMj1kXGG4vxWrp1de1FxdU=8F4Jof00=T1x-7e+BW7_HP-oZMQ@mail.gmail.com>
- <20200714130109.GX10769@hirez.programming.kicks-ass.net>
- <20200714163103.GA1472166@linux.intel.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20200714163103.GA1472166@linux.intel.com>
+ id 1jvOnE-000880-Iv
+ for linux-riscv@lists.infradead.org; Tue, 14 Jul 2020 17:32:37 +0000
+Received: by mail-pg1-x541.google.com with SMTP id n5so494025pgf.7
+ for <linux-riscv@lists.infradead.org>; Tue, 14 Jul 2020 10:32:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=QoBje5b/NmuCH8o43ocVMZgnOX9gwDN8EjpWPtaCPEg=;
+ b=s61LyeHx7aYK+1uQWhnB7wsqDmJK2BJAHKu0a3D/YyIBits6T11Ed08Dh5RHiwmHxR
+ jv4N3r6BuoDOFuoKuPH1sb1sMmTlD/iycyDjAJRugMLCsG6xhHbL9e3n9JJ5b3Iyyqdx
+ Ab4QB3HLbX9Ay3zjzjwAOd4Sb7gPLBbSRl3UILLHpbZ06Uu83CWwwe07BBeCwFx4M4MT
+ 8lyslow7f5kZayZALIISgU96szKwYiX2CaH7YiZ6QmHZzTjfoVhr89jOHG0UAnGNCEdn
+ ZD2rGdMwNjXarkhJyWyPWswRzMXxjcp0lVMd35zmU+T1cnllQHUkYmGncymyn2iQy6c/
+ 24lw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=QoBje5b/NmuCH8o43ocVMZgnOX9gwDN8EjpWPtaCPEg=;
+ b=rDsZxvGFjmXI9PDWcT4CI+PRb2h6tQU2PwE8SIQaMJ5LFRewE/j+LJl3J6is2yAJXZ
+ UJwTPiRE5MINq43iY3SsNsOLsNeiTg3732u2z75QavhH/iOJjVvHBu4tIPTVXooEUdMF
+ UblGXFsiIMwAWE46rwWBNojI2BSpj+5X2sdiDlbrvO66s88uzbDMsrA/8LXO1Q3GZh8z
+ CF/8S92D/g04BHRxQcLH9b9hdIy+ItfkSDQHNnoMw+FUaq2QaQUr5jmP7RsOWJdzeEfk
+ y10Jd1B/c9FPrFY1guPrWgOV742PlmitQsrT+84r8KMUpGxMYSD/kM6Zum6zQu5CRJ/B
+ qu3A==
+X-Gm-Message-State: AOAM530RJPnLvdwrgrPWwNXnD04nrOuZXos2oGx4DjhLCn99ydQH47yG
+ wxBHu5Tuyg4F3E+EoF7waVkYhQ==
+X-Google-Smtp-Source: ABdhPJzt45nHU7tWAPbDQyJuKtV2mV3A76dj9LEA0Ush9k4eEUq77PjJXQZBVR87EspR6vxQN5X7kg==
+X-Received: by 2002:a05:6a00:5c:: with SMTP id
+ i28mr5361924pfk.274.1594747953909; 
+ Tue, 14 Jul 2020 10:32:33 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id j3sm17081668pfe.102.2020.07.14.10.32.32
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 14 Jul 2020 10:32:32 -0700 (PDT)
+Date: Tue, 14 Jul 2020 10:32:32 -0700 (PDT)
+X-Google-Original-Date: Tue, 14 Jul 2020 10:31:17 PDT (-0700)
+Subject: Re: [PATCH RESEND] riscv: Fix typo in asm/hwcap.h uapi header
+In-Reply-To: <20200703134911.4006-1-tklauser@distanz.ch>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: tklauser@distanz.ch
+Message-ID: <mhng-c6c7ebc7-1eb5-49bb-aa60-7375c918fd33@palmerdabbelt-glaptop1>
+Mime-Version: 1.0 (MHng)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20200714_133236_800058_9D7678C3 
+X-CRM114-Status: GOOD (  17.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -87,84 +96,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
- Kefeng Wang <wangkefeng.wang@huawei.com>, Paul Mackerras <paulus@samba.org>,
- Zong Li <zong.li@sifive.com>, Andi Kleen <ak@linux.intel.com>,
- Paul Burton <paulburton@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
- Vincent Whitchurch <vincent.whitchurch@axis.com>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Petr Mladek <pmladek@suse.com>, Brian Gerst <brgerst@gmail.com>,
- Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Jiri Kosina <jkosina@suse.cz>, Anup Patel <anup.patel@wdc.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Philipp Rudo <prudo@linux.ibm.com>, Torsten Duwe <duwe@lst.de>,
- Masami Hiramatsu <mhiramat@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>, Mark Rutland <mark.rutland@arm.com>,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Vincent Chen <deanbo422@gmail.com>, Omar Sandoval <osandov@fb.com>,
- "open list:S390" <linux-s390@vger.kernel.org>,
- Joe Lawrence <joe.lawrence@redhat.com>, Helge Deller <deller@gmx.de>,
- John Fastabend <john.fastabend@gmail.com>,
- Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
- Yonghong Song <yhs@fb.com>, Iurii Zaikin <yzaikin@google.com>,
- Andrii Nakryiko <andriin@fb.com>, Thomas Huth <thuth@redhat.com>,
- Vasily Gorbik <gor@linux.ibm.com>,
- "moderated list:ARM PORT" <linux-arm-kernel@lists.infradead.org>,
- Daniel Axtens <dja@axtens.net>, Damien Le Moal <damien.lemoal@wdc.com>,
- Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Heiko Carstens <heiko.carstens@de.ibm.com>,
- Alexei Starovoitov <ast@kernel.org>, Atish Patra <atish.patra@wdc.com>,
- Will Deacon <will@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Masahiro Yamada <masahiroy@kernel.org>, Nayna Jain <nayna@linux.ibm.com>,
- Ley Foon Tan <ley.foon.tan@intel.com>,
- Christian Borntraeger <borntraeger@de.ibm.com>,
- Sami Tolvanen <samitolvanen@google.com>,
- "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>, Mao Han <han_mao@c-sky.com>,
- Marco Elver <elver@google.com>, Steven Rostedt <rostedt@goodmis.org>,
- Babu Moger <Babu.Moger@amd.com>, Borislav Petkov <bp@alien8.de>,
- Greentime Hu <green.hu@gmail.com>, Ben Dooks <ben-linux@fluff.org>,
- Guan Xuetao <gxt@pku.edu.cn>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- "open list:PARISC ARCHITECTURE" <linux-parisc@vger.kernel.org>,
- Jessica Yu <jeyu@kernel.org>,
- "open list:BPF JIT for MIPS \(32-BIT AND 64-BIT\)" <bpf@vger.kernel.org>,
- "David S. Miller" <davem@davemloft.net>,
- Thiago Jung Bauermann <bauerman@linux.ibm.com>,
- David Howells <dhowells@redhat.com>,
- "open list:SPARC + UltraSPARC \(sparc/sparc64\)" <sparclinux@vger.kernel.org>,
- Sandipan Das <sandipan@linux.ibm.com>, "H. Peter Anvin" <hpa@zytor.com>,
- Amit Daniel Kachhap <amit.kachhap@arm.com>,
- Tiezhu Yang <yangtiezhu@loongson.cn>, Miroslav Benes <mbenes@suse.cz>,
- Jiri Olsa <jolsa@redhat.com>, Ard Biesheuvel <ardb@kernel.org>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Anders Roxell <anders.roxell@linaro.org>, Sven Schnelle <svens@stackframe.org>,
- "maintainer:X86 ARCHITECTURE \(32-BIT AND 64-BIT\)" <x86@kernel.org>,
- Russell King <linux@armlinux.org.uk>,
- "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
- Mike Rapoport <rppt@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- Albert Ou <aou@eecs.berkeley.edu>, "Paul E. McKenney" <paulmck@kernel.org>,
- Josh Poimboeuf <jpoimboe@redhat.com>, KP Singh <kpsingh@chromium.org>,
- Dmitry Vyukov <dvyukov@google.com>, Nick Hu <nickhu@andestech.com>,
- "open list:BPF JIT for MIPS \(32-BIT AND 64-BIT\)" <netdev@vger.kernel.org>,
- "open list:MIPS" <linux-mips@vger.kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- "open list:LINUX FOR POWERPC \(32-BIT AND 64-BIT\)"
- <linuxppc-dev@lists.ozlabs.org>
-Content-Type: text/plain; charset="us-ascii"
+Cc: linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu,
+ Paul Walmsley <paul.walmsley@sifive.com>
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2020 at 07:31:03PM +0300, Jarkko Sakkinen wrote:
-> On Tue, Jul 14, 2020 at 03:01:09PM +0200, Peter Zijlstra wrote:
-> > to help with text_alloc() usage in generic code, but I think
-> > fundamentally, there's only these two options.
-> 
-> There is one arch (nios2), which uses a regular kzalloc(). This means
-> that both text_alloc() and text_memfree() need to be weaks symbols and
-> nios2 needs to have overriding text.c to do its thing.
+On Fri, 03 Jul 2020 06:49:11 PDT (-0700), tklauser@distanz.ch wrote:
+> s/userpsace/userspace/
+>
+> Signed-off-by: Tobias Klauser <tklauser@distanz.ch>
+> ---
+> Resent due to infradead.org mailing list issues.
+>
+>  arch/riscv/include/uapi/asm/hwcap.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/include/uapi/asm/hwcap.h b/arch/riscv/include/uapi/asm/hwcap.h
+> index dee98ee28318..46dc3f5ee99f 100644
+> --- a/arch/riscv/include/uapi/asm/hwcap.h
+> +++ b/arch/riscv/include/uapi/asm/hwcap.h
+> @@ -11,7 +11,7 @@
+>  /*
+>   * Linux saves the floating-point registers according to the ISA Linux is
+>   * executing on, as opposed to the ISA the user program is compiled for.  This
+> - * is necessary for a handful of esoteric use cases: for example, userpsace
+> + * is necessary for a handful of esoteric use cases: for example, userspace
+>   * threading libraries must be able to examine the actual machine state in
+>   * order to fully reconstruct the state of a thread.
+>   */
 
-IMO nios2 is just broken.
+Thanks.  Looks like this one escaped.  It's on for-next now: while it's
+trivial, it's not technically a fix and things have started to settle down.
 
 _______________________________________________
 linux-riscv mailing list
