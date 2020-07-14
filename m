@@ -2,66 +2,77 @@ Return-Path: <SRS0=l78j=AZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_2 autolearn=no
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E1BF1C433DF
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 14:04:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 12B52C433E7
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 15:04:37 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A5951224BE
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 14:04:08 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D154422453
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 15:04:36 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="d8Qld2gF"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A5951224BE
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=goodmis.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Edpk1IT4";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="0Yaex1f/"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D154422453
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=EVno2j+bhPaBmLutOYWV4WmU4druF41S4bhOtwrGLqc=; b=d8Qld2gFyVuKWP0B3oN23xlnL
-	IjxHIJmMJY+tYHqcetRQPTr74DxwJx2bNF6uwTujKZocEsqKqpWPmNhiQfCGxET2Je6DIT8rlUdE7
-	a43EvJhXYPs1J2F+ODE1o8pblhbZtOexKOjbM8ACNzrFssw294GlzdevDmM/EktILPY2l5lb3EIY8
-	AcLRewBUmkp7+x9DdMgP4paG5QKK2mrusor68ryqveppE1DTph3I2f7q1Nc9XSwWWwyOa9YMGFhV4
-	Z3M8aVV8SQUS2Il180kBbkATyQgMLVZbcQwHFiy+v3qRkeNdP2EDcn4tp3/neYI4DcrWuyctGo/Q/
-	jBuBDYH4A==;
+	 bh=exv70tCQPPrTrVeIabR0RXpWQEf+nkbsB5FScC6FNEk=; b=Edpk1IT4yaF4wsBWs9AxMOA+L
+	9qYisxe08GOiIbf2bEvtUIEyKo1EV+c22fO9FOSIL9SY3UDZbSeyp6ekO9bEIMUNzgXHFE94kWkrU
+	omMVFSy2jQWxxN6/79XsfNNGg6QKyPvzc8B4QIckxNRzCDs5HI82xhXm4E7TNUUhZqEx8yy8jb5cH
+	uyCV+/PNb31vLRviQMsN84PJ1/3KSDRXHO3sy48Nrpy1QlapQAsPjv26O8tmqbQINroyilKS3kEDg
+	J82MhTcFmJ8B1NQu30SGPIZk8+ITfxAkGZgdShNimiiqesKsQYwY/1q9M/+0fZvJKhKXp7GKRh1jg
+	IspIXCAKA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jvLXM-0006d7-OW; Tue, 14 Jul 2020 14:04:00 +0000
+	id 1jvMTr-0008I3-O5; Tue, 14 Jul 2020 15:04:27 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jvLXI-0006cA-06; Tue, 14 Jul 2020 14:03:58 +0000
-Received: from oasis.local.home (cpe-66-24-58-225.stny.res.rr.com
- [66.24.58.225])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ id 1jvMTo-0008HM-QA
+ for linux-riscv@lists.infradead.org; Tue, 14 Jul 2020 15:04:25 +0000
+Received: from mail-oo1-f51.google.com (mail-oo1-f51.google.com
+ [209.85.161.51])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 06BB622267;
- Tue, 14 Jul 2020 14:03:46 +0000 (UTC)
-Date: Tue, 14 Jul 2020 10:03:45 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH v2 1/3] module: Rename module_alloc() to text_alloc()
- and move to kernel proper
-Message-ID: <20200714100345.38354010@oasis.local.home>
-In-Reply-To: <20200714133314.GA67386@C02TD0UTHF1T.local>
-References: <20200714094625.1443261-1-jarkko.sakkinen@linux.intel.com>
- <20200714094625.1443261-2-jarkko.sakkinen@linux.intel.com>
- <20200714102826.GB4756@willie-the-truck>
- <20200714112927.GV10769@hirez.programming.kicks-ass.net>
- <CAMj1kXGG4vxWrp1de1FxdU=8F4Jof00=T1x-7e+BW7_HP-oZMQ@mail.gmail.com>
- <20200714130109.GX10769@hirez.programming.kicks-ass.net>
- <20200714133314.GA67386@C02TD0UTHF1T.local>
-X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+ by mail.kernel.org (Postfix) with ESMTPSA id DE21A22516
+ for <linux-riscv@lists.infradead.org>; Tue, 14 Jul 2020 15:04:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1594739064;
+ bh=FYCfNCt5uaRkVo5QbOItUGbXRJQEdHEvBhLF5JIiyX4=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=0Yaex1f/6ldTkIAO0d3Rk2HfONj2eMQ0N+HcfaEuKFQj7beUx4qgw1jg46Zt7ydTb
+ doNPcEm/d0nMSQ/Y8Cr5BolXv+g4tfDbsnY8uTvOmaKGYbw5p9HZ3sAzvWwvGNFYbK
+ 9G41aRAlpGksPHkQBe8t4WTu2Wp0BaaL34aCzD7I=
+Received: by mail-oo1-f51.google.com with SMTP id c4so3395202oou.6
+ for <linux-riscv@lists.infradead.org>; Tue, 14 Jul 2020 08:04:23 -0700 (PDT)
+X-Gm-Message-State: AOAM533MiFC078CKhwJe56Kn6KBuy3JEox6G/qMGqBKUw2jnGxaCcozt
+ Ozm1WPcVys1UdIEaqukHq4T3gsPkh+hFlDFNRA==
+X-Google-Smtp-Source: ABdhPJwsDP9x0kim57Rk9m1PvNioEMAED/geuEjKV85XSOp5N+kWkC9OHZn74arPvotNxGhaS6KiH03426VYKBf/v/I=
+X-Received: by 2002:a4a:ae07:: with SMTP id z7mr1744282oom.25.1594739063197;
+ Tue, 14 Jul 2020 08:04:23 -0700 (PDT)
 MIME-Version: 1.0
+References: <20200627161957.134376-1-anup.patel@wdc.com>
+ <20200627161957.134376-6-anup.patel@wdc.com>
+ <20200714023748.GA1164267@bogus>
+ <CAAhSdy0O0YoDJ84NX8OasjuTdE8pd=Yk51WJWLpBiAEk3AcCQQ@mail.gmail.com>
+In-Reply-To: <CAAhSdy0O0YoDJ84NX8OasjuTdE8pd=Yk51WJWLpBiAEk3AcCQQ@mail.gmail.com>
+From: Rob Herring <robh@kernel.org>
+Date: Tue, 14 Jul 2020 09:04:12 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqL9xcnzNAtL5nM3tt21pbfwz8qB_BSwfFAtXe0mj=MVEA@mail.gmail.com>
+Message-ID: <CAL_JsqL9xcnzNAtL5nM3tt21pbfwz8qB_BSwfFAtXe0mj=MVEA@mail.gmail.com>
+Subject: Re: [PATCH v2 5/5] dt-bindings: timer: Add CLINT bindings
+To: Anup Patel <anup@brainfault.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200714_100356_266766_EFE186C0 
-X-CRM114-Status: GOOD (  16.48  )
+X-CRM114-CacheID: sfid-20200714_110424_986554_D357FC41 
+X-CRM114-Status: GOOD (  23.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -73,98 +84,90 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
- Kefeng Wang <wangkefeng.wang@huawei.com>, Paul Mackerras <paulus@samba.org>,
- Zong Li <zong.li@sifive.com>, Andi Kleen <ak@linux.intel.com>,
- Paul Burton <paulburton@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
- Vincent Whitchurch <vincent.whitchurch@axis.com>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Petr Mladek <pmladek@suse.com>, Brian Gerst <brgerst@gmail.com>,
- Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Jiri Kosina <jkosina@suse.cz>, Anup Patel <anup.patel@wdc.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Philipp Rudo <prudo@linux.ibm.com>, Torsten Duwe <duwe@lst.de>,
- Masami Hiramatsu <mhiramat@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Vincent Chen <deanbo422@gmail.com>, Omar Sandoval <osandov@fb.com>,
- "open list:S390" <linux-s390@vger.kernel.org>,
- Joe Lawrence <joe.lawrence@redhat.com>, Helge Deller <deller@gmx.de>,
- John Fastabend <john.fastabend@gmail.com>,
- Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
- Yonghong Song <yhs@fb.com>, Iurii Zaikin <yzaikin@google.com>,
- Andrii Nakryiko <andriin@fb.com>, Thomas Huth <thuth@redhat.com>,
- Vasily Gorbik <gor@linux.ibm.com>,
- "moderated list:ARM PORT" <linux-arm-kernel@lists.infradead.org>,
- Daniel Axtens <dja@axtens.net>, Damien Le Moal <damien.lemoal@wdc.com>,
- Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Heiko Carstens <heiko.carstens@de.ibm.com>,
- Alexei Starovoitov <ast@kernel.org>,
- Jarkko Sakkinen <jarkko.sakkinen@linux.intel.com>,
- Atish Patra <atish.patra@wdc.com>, Will Deacon <will@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Masahiro Yamada <masahiroy@kernel.org>,
- Nayna Jain <nayna@linux.ibm.com>, Ley Foon Tan <ley.foon.tan@intel.com>,
- Christian Borntraeger <borntraeger@de.ibm.com>,
- Sami Tolvanen <samitolvanen@google.com>,
- "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>, Mao Han <han_mao@c-sky.com>,
- Marco Elver <elver@google.com>, Babu Moger <Babu.Moger@amd.com>,
- Borislav Petkov <bp@alien8.de>, Greentime Hu <green.hu@gmail.com>,
- Ben Dooks <ben-linux@fluff.org>, Guan Xuetao <gxt@pku.edu.cn>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- "open list:PARISC ARCHITECTURE" <linux-parisc@vger.kernel.org>,
- Jessica Yu <jeyu@kernel.org>, "open list:BPF JIT for MIPS \(32-BIT AND
- 64-BIT\)" <bpf@vger.kernel.org>, "David S. Miller" <davem@davemloft.net>,
- Thiago Jung Bauermann <bauerman@linux.ibm.com>,
- Peter Zijlstra <peterz@infradead.org>, David Howells <dhowells@redhat.com>,
- "open list:SPARC + UltraSPARC
- \(sparc/sparc64\)" <sparclinux@vger.kernel.org>,
- Sandipan Das <sandipan@linux.ibm.com>, "H. Peter Anvin" <hpa@zytor.com>,
- Amit Daniel Kachhap <amit.kachhap@arm.com>,
- Tiezhu Yang <yangtiezhu@loongson.cn>, Miroslav Benes <mbenes@suse.cz>,
- Jiri Olsa <jolsa@redhat.com>, Ard Biesheuvel <ardb@kernel.org>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Anders Roxell <anders.roxell@linaro.org>, Sven Schnelle <svens@stackframe.org>,
- "maintainer:X86 ARCHITECTURE \(32-BIT AND 64-BIT\)" <x86@kernel.org>,
- Russell King <linux@armlinux.org.uk>,
- "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
- Mike Rapoport <rppt@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- Albert Ou <aou@eecs.berkeley.edu>, "Paul E. McKenney" <paulmck@kernel.org>,
- Josh Poimboeuf <jpoimboe@redhat.com>, KP Singh <kpsingh@chromium.org>,
- Dmitry Vyukov <dvyukov@google.com>, Nick Hu <nickhu@andestech.com>,
- "open list:BPF JIT for MIPS \(32-BIT AND
- 64-BIT\)" <netdev@vger.kernel.org>,
- "open list:MIPS" <linux-mips@vger.kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, "open list:LINUX FOR POWERPC \(32-BIT AND
- 64-BIT\)" <linuxppc-dev@lists.ozlabs.org>
+Cc: devicetree@vger.kernel.org, Damien Le Moal <damien.lemoal@wdc.com>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Anup Patel <anup.patel@wdc.com>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Atish Patra <atish.patra@wdc.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>,
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ linux-riscv <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 14 Jul 2020 14:33:14 +0100
-Mark Rutland <mark.rutland@arm.com> wrote:
+On Mon, Jul 13, 2020 at 9:47 PM Anup Patel <anup@brainfault.org> wrote:
+>
+> On Tue, Jul 14, 2020 at 8:07 AM Rob Herring <robh@kernel.org> wrote:
+> >
+> > On Sat, Jun 27, 2020 at 09:49:57PM +0530, Anup Patel wrote:
+> > > We add DT bindings documentation for CLINT device.
+> > >
+> > > Signed-off-by: Anup Patel <anup.patel@wdc.com>
+> > > Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
+> > > ---
+> > >  .../bindings/timer/sifive,clint.txt           | 34 +++++++++++++++++++
+> > >  1 file changed, 34 insertions(+)
+> > >  create mode 100644 Documentation/devicetree/bindings/timer/sifive,clint.txt
+> >
+> > Bindings should be in DT schema format now.
+>
+> Okay, will update.
+>
+> >
+> > >
+> > > diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.txt b/Documentation/devicetree/bindings/timer/sifive,clint.txt
+> > > new file mode 100644
+> > > index 000000000000..45b75347a7d5
+> > > --- /dev/null
+> > > +++ b/Documentation/devicetree/bindings/timer/sifive,clint.txt
+> > > @@ -0,0 +1,34 @@
+> > > +SiFive Core Local Interruptor (CLINT)
+> > > +-------------------------------------
+> > > +
+> > > +SiFive (and other RISC-V) SOCs include an implementation of the SiFive Core
+> > > +Local Interruptor (CLINT) for M-mode timer and inter-processor interrupts.
+> > > +
+> > > +It directly connects to the timer and inter-processor interrupt lines of
+> > > +various HARTs (or CPUs) so RISC-V per-HART (or per-CPU) local interrupt
+> > > +controller is the parent interrupt controller for CLINT device.
+> > > +
+> > > +The clock frequency of CLINT is specified via "timebase-frequency" DT
+> > > +property of "/cpus" DT node. The "timebase-frequency" DT property is
+> > > +described in: Documentation/devicetree/bindings/riscv/cpus.yaml
+> > > +
+> > > +Required properties:
+> > > +- compatible : should be "riscv,clint0" or "sifive,clint-1.0.0". A specific
+> >
+> > A new versioning scheme from SiFive? To review, we don't do version
+> > numbers unless there's a well defined and documented scheme. IOW, one
+> > that's not s/w folks just making up v1, v2, v3, etc.
+>
+> The "riscv,clint0" is already used by various RISC-V systems (including QEMU).
 
-> > Should work for all cases. Yes, we might then want something like a per
-> > arch:
-> > 
-> > 	{BPF,FTRACE,KPROBE}_TEXT_TYPE  
-> 
-> ... at that point why not:
-> 
->   text_alloc_ftrace();
->   text_alloc_module();
->   text_alloc_bpf();
->   text_alloc_kprobe();
+Not my problem that undocumented bindings are being used.
 
-I don't know about bpf and kprobes, but for ftrace, the only place that
-it allocates text happens to be in arch specific code.
+> The "sifive,clint-1.0.0" is for being consistent with the PLIC
+> versioning scheme.
 
-If you want something special for ftrace, you could just add your own
-function. But for x86, a text_alloc_immediate() would work.
-(BTW, I like the function names over the enums)
+Where is that documented? This is what I expect you to be following or
+updating to match:
 
--- Steve
+Documentation/devicetree/bindings/sifive/sifive-blocks-ip-versioning.txt
+
+>
+> There is no clear documentation of CLINT versioning scheme. I think it's best
+> to just drop "sifive,clint-1.0.0" . Agree ??
+
+No, because then you are left with a very generic compatible string.
+You need something specific enough to handle any implementation
+features/quirks/bugs without needing a DT update. Typically, this
+means a per SoC compatible string for a block as even the same IP
+version can have different integration quirks.
+
+Rob
 
 _______________________________________________
 linux-riscv mailing list
