@@ -2,68 +2,76 @@ Return-Path: <SRS0=l78j=AZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C3788C433E3
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 11:25:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DDE72C433E0
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 11:29:50 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8307B217D8
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 11:25:31 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A43D022203
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 11:29:50 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="RcqE4g64";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="UxDHbXM/"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8307B217D8
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sFBdPZSW";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="hrGFcKo8"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A43D022203
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:Message-Id:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=MGj7KX+c6Wp8eRwqw+p/t9bXRgZOUP5YYf9ptr1bD1Q=; b=RcqE4g64t6hWLbqp/uHBXZ+Wl
-	61HQOKs4T+CiFkgh6Wy2VP26i4UoANGdjFdboqh5EhmX3D9sLt/tAxRu7CUrzpHZMrtopSn49bJoD
-	KtjErFveow//TvcsXTmxfIkoUm+uZN21ziGM09bZSM+fQ1KPR3XJCi9bIdFYwO1++Mt9KBerSLiMj
-	Utm+YsFhy1zqg74LpWOI8Lfa49lbI178YDYwBQsNPPMhVw0LxevmULjRnbClnRRLTZV13molQ1R2u
-	TlUpHOzrG59861tGR3JXSOALfLq1SoHwodUutD1aoOg+CmWi/HGFzVnWcwRGINWvsEHv7y51e20/X
-	jtGaMZ4LA==;
+	 bh=Q4eVjroCk8ICIs1Pab375ccycKsXvC/9BN1mRqUqx7Y=; b=sFBdPZSW8HybR9uQZJ9hv3rgn
+	MY9BnO15QJYaqoCnsjY63KSBxzTFEw+g7D5nNnTraPccz4uHMU36N3Hrw/DCOVFdOphGl1vKZzbhx
+	HFM4O+mFta47ah31xVV5KnDBnaZ5qrhuDUa9qGMqI7/JD3m/t3ybJdyq6Tydq68FEmgZSWJIqHHJA
+	7jc6sQsjJxSHb8TIFhos/eSv/ddEKy6Anf//pRawLlWgpsh91mDmqDevEdCoF7Wvhi0l2IkiD5/5h
+	yHZ/bMIuHuYtiRsXl2nJj2vFfdqryn6gDqay83ggyrY6UL90ULCdDtqiUpSW4/NL9zbcv9m7HG+GC
+	tnvH1QLuA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jvJ3u-0008I0-Od; Tue, 14 Jul 2020 11:25:26 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1jvJ83-00019z-R6; Tue, 14 Jul 2020 11:29:43 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jvJ3s-0008Gu-NQ
- for linux-riscv@lists.infradead.org; Tue, 14 Jul 2020 11:25:25 +0000
-Received: from devnote2 (NE2965lan1.rev.em-net.ne.jp [210.141.244.193])
+ id 1jvJ82-00017T-5I; Tue, 14 Jul 2020 11:29:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+ References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description;
+ bh=mBAAn7GcnY789er4I0OpUocuqYSPX5WhCC5fznzjclA=; b=hrGFcKo8ZrEd6UkzshoCllaXtg
+ AehQk/etyRu6krmeTDwCK+j3IC426FaDZfEttJFr53O6MimoifEDZAIoTZVTx6den0SsdVJ8dujkH
+ nsH5nJbCdQyNu4UlJXrP9dLAJb0rKuWYtxLJdQWh7cRR+sF3QKsxMJnFGaZm3eL1eP0ZUbnhTnkCw
+ fj/5UPnu5p8k9kH3UtarQ8k9AWimlw64Ai5r0rYZBEOWmfS4d9d5pRZ6Vl0bZU0qhZcyVDAqn55//
+ /StURudPZC4WS50DPBKnTd7TsNtJ5HA4bD70QlSKLWOViFF8H9CB4AhAugteXOc4EmzZmd46DrOGr
+ kvGvgyPw==;
+Received: from j217100.upc-j.chello.nl ([24.132.217.100]
+ helo=noisy.programming.kicks-ass.net)
+ by casper.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1jvJ7r-0007Gf-PB; Tue, 14 Jul 2020 11:29:32 +0000
+Received: from hirez.programming.kicks-ass.net
+ (hirez.programming.kicks-ass.net [192.168.1.225])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 05CD42077D;
- Tue, 14 Jul 2020 11:25:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1594725924;
- bh=6ZvUkrPctgXnpkfo0fUBL2cQ2/rmdUyIWl3ZJGuFlyA=;
- h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
- b=UxDHbXM/O+tqeajBaeop7BCKzSDCGhqDsnoGlRWqvwC23DwE9KgJV+qGvOQ5Wu2U3
- giI9y3wGhMPzyoVlXwy7TqF3DigNHZAUCgayGblna1BIn6vPH4hYgaegjvZ2Dzuqec
- 7pfYVtQ8QNQNz9YNAW4kTCRzf90somJh68PBNp6k=
-Date: Tue, 14 Jul 2020 20:25:18 +0900
-From: Masami Hiramatsu <mhiramat@kernel.org>
-To: guoren@kernel.org
-Subject: Re: [PATCH v3 1/7] RISC-V: Implement ptrace regs and stack API
-Message-Id: <20200714202518.2d052f8d046e00329b167f15@kernel.org>
-In-Reply-To: <1594683562-68149-2-git-send-email-guoren@kernel.org>
-References: <1594683562-68149-1-git-send-email-guoren@kernel.org>
- <1594683562-68149-2-git-send-email-guoren@kernel.org>
-X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200714_072524_915261_388F245D 
-X-CRM114-Status: GOOD (  27.00  )
+ (Client did not present a certificate)
+ by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 3AE66302753;
+ Tue, 14 Jul 2020 13:29:27 +0200 (CEST)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+ id 22E982994C0FD; Tue, 14 Jul 2020 13:29:27 +0200 (CEST)
+Date: Tue, 14 Jul 2020 13:29:27 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v2 1/3] module: Rename module_alloc() to text_alloc() and
+ move to kernel proper
+Message-ID: <20200714112927.GV10769@hirez.programming.kicks-ass.net>
+References: <20200714094625.1443261-1-jarkko.sakkinen@linux.intel.com>
+ <20200714094625.1443261-2-jarkko.sakkinen@linux.intel.com>
+ <20200714102826.GB4756@willie-the-truck>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20200714102826.GB4756@willie-the-truck>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -75,131 +83,103 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: me@packi.ch, Guo Ren <guoren@linux.alibaba.com>, anup@brainfault.org,
- palmerdabbelt@google.com, linux-kernel@vger.kernel.org,
- linux-csky@vger.kernel.org, oleg@redhat.com, zong.li@sifive.com,
- paul.walmsley@sifive.com, greentime.hu@sifive.com,
- linux-riscv@lists.infradead.org, bjorn.topel@gmail.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+ Kefeng Wang <wangkefeng.wang@huawei.com>, Paul Mackerras <paulus@samba.org>,
+ Zong Li <zong.li@sifive.com>, Andi Kleen <ak@linux.intel.com>,
+ Paul Burton <paulburton@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
+ Vincent Whitchurch <vincent.whitchurch@axis.com>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Petr Mladek <pmladek@suse.com>, Brian Gerst <brgerst@gmail.com>,
+ Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Jiri Kosina <jkosina@suse.cz>, Anup Patel <anup.patel@wdc.com>,
+ linux-kernel@vger.kernel.org, Philipp Rudo <prudo@linux.ibm.com>,
+ Torsten Duwe <duwe@lst.de>, Masami Hiramatsu <mhiramat@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Mark Rutland <mark.rutland@arm.com>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Vincent Chen <deanbo422@gmail.com>, Omar Sandoval <osandov@fb.com>,
+ "open list:S390" <linux-s390@vger.kernel.org>,
+ Joe Lawrence <joe.lawrence@redhat.com>, Helge Deller <deller@gmx.de>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
+ Yonghong Song <yhs@fb.com>, Iurii Zaikin <yzaikin@google.com>,
+ Andrii Nakryiko <andriin@fb.com>, Thomas Huth <thuth@redhat.com>,
+ Vasily Gorbik <gor@linux.ibm.com>,
+ "moderated list:ARM PORT" <linux-arm-kernel@lists.infradead.org>,
+ Daniel Axtens <dja@axtens.net>, Damien Le Moal <damien.lemoal@wdc.com>,
+ Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Heiko Carstens <heiko.carstens@de.ibm.com>,
+ Alexei Starovoitov <ast@kernel.org>,
+ Jarkko Sakkinen <jarkko.sakkinen@linux.intel.com>,
+ Atish Patra <atish.patra@wdc.com>, Daniel Borkmann <daniel@iogearbox.net>,
+ Masahiro Yamada <masahiroy@kernel.org>, Nayna Jain <nayna@linux.ibm.com>,
+ Ley Foon Tan <ley.foon.tan@intel.com>,
+ Christian Borntraeger <borntraeger@de.ibm.com>,
+ Sami Tolvanen <samitolvanen@google.com>,
+ "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>, Mao Han <han_mao@c-sky.com>,
+ Marco Elver <elver@google.com>, Steven Rostedt <rostedt@goodmis.org>,
+ Babu Moger <Babu.Moger@amd.com>, Borislav Petkov <bp@alien8.de>,
+ Greentime Hu <green.hu@gmail.com>, Ben Dooks <ben-linux@fluff.org>,
+ Guan Xuetao <gxt@pku.edu.cn>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ "open list:PARISC ARCHITECTURE" <linux-parisc@vger.kernel.org>,
+ Jessica Yu <jeyu@kernel.org>,
+ "open list:BPF JIT for MIPS \(32-BIT AND 64-BIT\)" <bpf@vger.kernel.org>,
+ "David S. Miller" <davem@davemloft.net>,
+ Thiago Jung Bauermann <bauerman@linux.ibm.com>,
+ David Howells <dhowells@redhat.com>,
+ "open list:SPARC + UltraSPARC \(sparc/sparc64\)" <sparclinux@vger.kernel.org>,
+ Sandipan Das <sandipan@linux.ibm.com>, "H. Peter Anvin" <hpa@zytor.com>,
+ Amit Daniel Kachhap <amit.kachhap@arm.com>,
+ Tiezhu Yang <yangtiezhu@loongson.cn>, Miroslav Benes <mbenes@suse.cz>,
+ Sven Schnelle <svens@stackframe.org>, Ard Biesheuvel <ardb@kernel.org>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Anders Roxell <anders.roxell@linaro.org>, Jiri Olsa <jolsa@redhat.com>,
+ "maintainer:X86 ARCHITECTURE \(32-BIT AND 64-BIT\)" <x86@kernel.org>,
+ Russell King <linux@armlinux.org.uk>,
+ "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
+ Mike Rapoport <rppt@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, "Paul E. McKenney" <paulmck@kernel.org>,
+ Josh Poimboeuf <jpoimboe@redhat.com>, KP Singh <kpsingh@chromium.org>,
+ Dmitry Vyukov <dvyukov@google.com>, Nick Hu <nickhu@andestech.com>,
+ "open list:BPF JIT for MIPS \(32-BIT AND 64-BIT\)" <netdev@vger.kernel.org>,
+ "open list:MIPS" <linux-mips@vger.kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ "open list:LINUX FOR POWERPC \(32-BIT AND 64-BIT\)"
+ <linuxppc-dev@lists.ozlabs.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAxMyBKdWwgMjAyMCAyMzozOToxNiArMDAwMApndW9yZW5Aa2VybmVsLm9yZyB3cm90
-ZToKCj4gRnJvbTogUGF0cmljayBTdMOkaGxpbiA8bWVAcGFja2kuY2g+Cj4gCj4gTmVlZGVkIGZv
-ciBrcHJvYmVzIHN1cHBvcnQuIENvcGllZCBhbmQgYWRhcHRlZCBmcm9tIGFybTY0IGNvZGUuCj4g
-Cj4gR3VvIFJlbiBmaXh1cCBwdF9yZWdzIHR5cGUgZm9yIGxpbnV4LTUuOC1yYzEuCj4gCgpMb29r
-cyBnb29kIHRvIG1lLgoKUmV2aWV3ZWQtYnk6IE1hc2FtaSBIaXJhbWF0c3UgPG1oaXJhbWF0QGtl
-cm5lbC5vcmc+CgpUaGFuayB5b3UhCgo+IFNpZ25lZC1vZmYtYnk6IFBhdHJpY2sgU3TDpGhsaW4g
-PG1lQHBhY2tpLmNoPgo+IFNpZ25lZC1vZmYtYnk6IEd1byBSZW4gPGd1b3JlbkBsaW51eC5hbGli
-YWJhLmNvbT4KPiBSZXZpZXdlZC1ieTogUGVra2EgRW5iZXJnIDxwZW5iZXJnQGtlcm5lbC5vcmc+
-Cj4gUmV2aWV3ZWQtYnk6IFpvbmcgTGkgPHpvbmcubGlAc2lmaXZlLmNvbT4KPiAtLS0KPiAgYXJj
-aC9yaXNjdi9LY29uZmlnICAgICAgICAgICAgICB8ICAxICsKPiAgYXJjaC9yaXNjdi9pbmNsdWRl
-L2FzbS9wdHJhY2UuaCB8IDI5ICsrKysrKysrKysrKwo+ICBhcmNoL3Jpc2N2L2tlcm5lbC9wdHJh
-Y2UuYyAgICAgIHwgOTkgKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysK
-PiAgMyBmaWxlcyBjaGFuZ2VkLCAxMjkgaW5zZXJ0aW9ucygrKQo+IAo+IGRpZmYgLS1naXQgYS9h
-cmNoL3Jpc2N2L0tjb25maWcgYi9hcmNoL3Jpc2N2L0tjb25maWcKPiBpbmRleCAzMjMwYzFkLi5l
-NzA0NDlhIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvS2NvbmZpZwo+ICsrKyBiL2FyY2gvcmlz
-Y3YvS2NvbmZpZwo+IEBAIC03OCw2ICs3OCw3IEBAIGNvbmZpZyBSSVNDVgo+ICAJc2VsZWN0IFNQ
-QVJTRV9JUlEKPiAgCXNlbGVjdCBTWVNDVExfRVhDRVBUSU9OX1RSQUNFCj4gIAlzZWxlY3QgVEhS
-RUFEX0lORk9fSU5fVEFTSwo+ICsJc2VsZWN0IEhBVkVfUkVHU19BTkRfU1RBQ0tfQUNDRVNTX0FQ
-SQo+ICAKPiAgY29uZmlnIEFSQ0hfTU1BUF9STkRfQklUU19NSU4KPiAgCWRlZmF1bHQgMTggaWYg
-NjRCSVQKPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wdHJhY2UuaCBiL2Fy
-Y2gvcmlzY3YvaW5jbHVkZS9hc20vcHRyYWNlLmgKPiBpbmRleCBlZTQ5ZjgwLi4yMzM3MmJiIDEw
-MDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcHRyYWNlLmgKPiArKysgYi9hcmNo
-L3Jpc2N2L2luY2x1ZGUvYXNtL3B0cmFjZS5oCj4gQEAgLTgsNiArOCw3IEBACj4gIAo+ICAjaW5j
-bHVkZSA8dWFwaS9hc20vcHRyYWNlLmg+Cj4gICNpbmNsdWRlIDxhc20vY3NyLmg+Cj4gKyNpbmNs
-dWRlIDxsaW51eC9jb21waWxlci5oPgo+ICAKPiAgI2lmbmRlZiBfX0FTU0VNQkxZX18KPiAgCj4g
-QEAgLTYwLDYgKzYxLDcgQEAgc3RydWN0IHB0X3JlZ3Mgewo+ICAKPiAgI2RlZmluZSB1c2VyX21v
-ZGUocmVncykgKCgocmVncyktPnN0YXR1cyAmIFNSX1BQKSA9PSAwKQo+ICAKPiArI2RlZmluZSBN
-QVhfUkVHX09GRlNFVCBvZmZzZXRvZihzdHJ1Y3QgcHRfcmVncywgb3JpZ19hMCkKPiAgCj4gIC8q
-IEhlbHBlcnMgZm9yIHdvcmtpbmcgd2l0aCB0aGUgaW5zdHJ1Y3Rpb24gcG9pbnRlciAqLwo+ICBz
-dGF0aWMgaW5saW5lIHVuc2lnbmVkIGxvbmcgaW5zdHJ1Y3Rpb25fcG9pbnRlcihzdHJ1Y3QgcHRf
-cmVncyAqcmVncykKPiBAQCAtODUsNiArODcsMTIgQEAgc3RhdGljIGlubGluZSB2b2lkIHVzZXJf
-c3RhY2tfcG9pbnRlcl9zZXQoc3RydWN0IHB0X3JlZ3MgKnJlZ3MsCj4gIAlyZWdzLT5zcCA9ICB2
-YWw7Cj4gIH0KPiAgCj4gKy8qIFZhbGlkIG9ubHkgZm9yIEtlcm5lbCBtb2RlIHRyYXBzLiAqLwo+
-ICtzdGF0aWMgaW5saW5lIHVuc2lnbmVkIGxvbmcga2VybmVsX3N0YWNrX3BvaW50ZXIoc3RydWN0
-IHB0X3JlZ3MgKnJlZ3MpCj4gK3sKPiArCXJldHVybiByZWdzLT5zcDsKPiArfQo+ICsKPiAgLyog
-SGVscGVycyBmb3Igd29ya2luZyB3aXRoIHRoZSBmcmFtZSBwb2ludGVyICovCj4gIHN0YXRpYyBp
-bmxpbmUgdW5zaWduZWQgbG9uZyBmcmFtZV9wb2ludGVyKHN0cnVjdCBwdF9yZWdzICpyZWdzKQo+
-ICB7Cj4gQEAgLTEwMSw2ICsxMDksMjcgQEAgc3RhdGljIGlubGluZSB1bnNpZ25lZCBsb25nIHJl
-Z3NfcmV0dXJuX3ZhbHVlKHN0cnVjdCBwdF9yZWdzICpyZWdzKQo+ICAJcmV0dXJuIHJlZ3MtPmEw
-Owo+ICB9Cj4gIAo+ICtleHRlcm4gaW50IHJlZ3NfcXVlcnlfcmVnaXN0ZXJfb2Zmc2V0KGNvbnN0
-IGNoYXIgKm5hbWUpOwo+ICtleHRlcm4gdW5zaWduZWQgbG9uZyByZWdzX2dldF9rZXJuZWxfc3Rh
-Y2tfbnRoKHN0cnVjdCBwdF9yZWdzICpyZWdzLAo+ICsJCQkJCSAgICAgICB1bnNpZ25lZCBpbnQg
-bik7Cj4gKwo+ICsvKioKPiArICogcmVnc19nZXRfcmVnaXN0ZXIoKSAtIGdldCByZWdpc3RlciB2
-YWx1ZSBmcm9tIGl0cyBvZmZzZXQKPiArICogQHJlZ3M6CXB0X3JlZ3MgZnJvbSB3aGljaCByZWdp
-c3RlciB2YWx1ZSBpcyBnb3R0ZW4KPiArICogQG9mZnNldDoJb2Zmc2V0IG9mIHRoZSByZWdpc3Rl
-ci4KPiArICoKPiArICogcmVnc19nZXRfcmVnaXN0ZXIgcmV0dXJucyB0aGUgdmFsdWUgb2YgYSBy
-ZWdpc3RlciB3aG9zZSBvZmZzZXQgZnJvbSBAcmVncy4KPiArICogVGhlIEBvZmZzZXQgaXMgdGhl
-IG9mZnNldCBvZiB0aGUgcmVnaXN0ZXIgaW4gc3RydWN0IHB0X3JlZ3MuCj4gKyAqIElmIEBvZmZz
-ZXQgaXMgYmlnZ2VyIHRoYW4gTUFYX1JFR19PRkZTRVQsIHRoaXMgcmV0dXJucyAwLgo+ICsgKi8K
-PiArc3RhdGljIGlubGluZSB1bnNpZ25lZCBsb25nIHJlZ3NfZ2V0X3JlZ2lzdGVyKHN0cnVjdCBw
-dF9yZWdzICpyZWdzLAo+ICsJCQkJCSAgICAgIHVuc2lnbmVkIGludCBvZmZzZXQpCj4gK3sKPiAr
-CWlmICh1bmxpa2VseShvZmZzZXQgPiBNQVhfUkVHX09GRlNFVCkpCj4gKwkJcmV0dXJuIDA7Cj4g
-Kwo+ICsJcmV0dXJuICoodW5zaWduZWQgbG9uZyAqKSgodW5zaWduZWQgbG9uZylyZWdzICsgb2Zm
-c2V0KTsKPiArfQo+ICAjZW5kaWYgLyogX19BU1NFTUJMWV9fICovCj4gIAo+ICAjZW5kaWYgLyog
-X0FTTV9SSVNDVl9QVFJBQ0VfSCAqLwo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9w
-dHJhY2UuYyBiL2FyY2gvcmlzY3Yva2VybmVsL3B0cmFjZS5jCj4gaW5kZXggNDQ0ZGM3Yi4uYTEx
-YzY5MiAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9wdHJhY2UuYwo+ICsrKyBiL2Fy
-Y2gvcmlzY3Yva2VybmVsL3B0cmFjZS5jCj4gQEAgLTEyNSw2ICsxMjUsMTA1IEBAIGNvbnN0IHN0
-cnVjdCB1c2VyX3JlZ3NldF92aWV3ICp0YXNrX3VzZXJfcmVnc2V0X3ZpZXcoc3RydWN0IHRhc2tf
-c3RydWN0ICp0YXNrKQo+ICAJcmV0dXJuICZyaXNjdl91c2VyX25hdGl2ZV92aWV3Owo+ICB9Cj4g
-IAo+ICtzdHJ1Y3QgcHRfcmVnc19vZmZzZXQgewo+ICsJY29uc3QgY2hhciAqbmFtZTsKPiArCWlu
-dCBvZmZzZXQ7Cj4gK307Cj4gKwo+ICsjZGVmaW5lIFJFR19PRkZTRVRfTkFNRShyKSB7Lm5hbWUg
-PSAjciwgLm9mZnNldCA9IG9mZnNldG9mKHN0cnVjdCBwdF9yZWdzLCByKX0KPiArI2RlZmluZSBS
-RUdfT0ZGU0VUX0VORCB7Lm5hbWUgPSBOVUxMLCAub2Zmc2V0ID0gMH0KPiArCj4gK3N0YXRpYyBj
-b25zdCBzdHJ1Y3QgcHRfcmVnc19vZmZzZXQgcmVnb2Zmc2V0X3RhYmxlW10gPSB7Cj4gKwlSRUdf
-T0ZGU0VUX05BTUUoZXBjKSwKPiArCVJFR19PRkZTRVRfTkFNRShyYSksCj4gKwlSRUdfT0ZGU0VU
-X05BTUUoc3ApLAo+ICsJUkVHX09GRlNFVF9OQU1FKGdwKSwKPiArCVJFR19PRkZTRVRfTkFNRSh0
-cCksCj4gKwlSRUdfT0ZGU0VUX05BTUUodDApLAo+ICsJUkVHX09GRlNFVF9OQU1FKHQxKSwKPiAr
-CVJFR19PRkZTRVRfTkFNRSh0MiksCj4gKwlSRUdfT0ZGU0VUX05BTUUoczApLAo+ICsJUkVHX09G
-RlNFVF9OQU1FKHMxKSwKPiArCVJFR19PRkZTRVRfTkFNRShhMCksCj4gKwlSRUdfT0ZGU0VUX05B
-TUUoYTEpLAo+ICsJUkVHX09GRlNFVF9OQU1FKGEyKSwKPiArCVJFR19PRkZTRVRfTkFNRShhMyks
-Cj4gKwlSRUdfT0ZGU0VUX05BTUUoYTQpLAo+ICsJUkVHX09GRlNFVF9OQU1FKGE1KSwKPiArCVJF
-R19PRkZTRVRfTkFNRShhNiksCj4gKwlSRUdfT0ZGU0VUX05BTUUoYTcpLAo+ICsJUkVHX09GRlNF
-VF9OQU1FKHMyKSwKPiArCVJFR19PRkZTRVRfTkFNRShzMyksCj4gKwlSRUdfT0ZGU0VUX05BTUUo
-czQpLAo+ICsJUkVHX09GRlNFVF9OQU1FKHM1KSwKPiArCVJFR19PRkZTRVRfTkFNRShzNiksCj4g
-KwlSRUdfT0ZGU0VUX05BTUUoczcpLAo+ICsJUkVHX09GRlNFVF9OQU1FKHM4KSwKPiArCVJFR19P
-RkZTRVRfTkFNRShzOSksCj4gKwlSRUdfT0ZGU0VUX05BTUUoczEwKSwKPiArCVJFR19PRkZTRVRf
-TkFNRShzMTEpLAo+ICsJUkVHX09GRlNFVF9OQU1FKHQzKSwKPiArCVJFR19PRkZTRVRfTkFNRSh0
-NCksCj4gKwlSRUdfT0ZGU0VUX05BTUUodDUpLAo+ICsJUkVHX09GRlNFVF9OQU1FKHQ2KSwKPiAr
-CVJFR19PRkZTRVRfTkFNRShzdGF0dXMpLAo+ICsJUkVHX09GRlNFVF9OQU1FKGJhZGFkZHIpLAo+
-ICsJUkVHX09GRlNFVF9OQU1FKGNhdXNlKSwKPiArCVJFR19PRkZTRVRfTkFNRShvcmlnX2EwKSwK
-PiArCVJFR19PRkZTRVRfRU5ELAo+ICt9Owo+ICsKPiArLyoqCj4gKyAqIHJlZ3NfcXVlcnlfcmVn
-aXN0ZXJfb2Zmc2V0KCkgLSBxdWVyeSByZWdpc3RlciBvZmZzZXQgZnJvbSBpdHMgbmFtZQo+ICsg
-KiBAbmFtZToJdGhlIG5hbWUgb2YgYSByZWdpc3Rlcgo+ICsgKgo+ICsgKiByZWdzX3F1ZXJ5X3Jl
-Z2lzdGVyX29mZnNldCgpIHJldHVybnMgdGhlIG9mZnNldCBvZiBhIHJlZ2lzdGVyIGluIHN0cnVj
-dAo+ICsgKiBwdF9yZWdzIGZyb20gaXRzIG5hbWUuIElmIHRoZSBuYW1lIGlzIGludmFsaWQsIHRo
-aXMgcmV0dXJucyAtRUlOVkFMOwo+ICsgKi8KPiAraW50IHJlZ3NfcXVlcnlfcmVnaXN0ZXJfb2Zm
-c2V0KGNvbnN0IGNoYXIgKm5hbWUpCj4gK3sKPiArCWNvbnN0IHN0cnVjdCBwdF9yZWdzX29mZnNl
-dCAqcm9mZjsKPiArCj4gKwlmb3IgKHJvZmYgPSByZWdvZmZzZXRfdGFibGU7IHJvZmYtPm5hbWUg
-IT0gTlVMTDsgcm9mZisrKQo+ICsJCWlmICghc3RyY21wKHJvZmYtPm5hbWUsIG5hbWUpKQo+ICsJ
-CQlyZXR1cm4gcm9mZi0+b2Zmc2V0Owo+ICsJcmV0dXJuIC1FSU5WQUw7Cj4gK30KPiArCj4gKy8q
-Kgo+ICsgKiByZWdzX3dpdGhpbl9rZXJuZWxfc3RhY2soKSAtIGNoZWNrIHRoZSBhZGRyZXNzIGlu
-IHRoZSBzdGFjawo+ICsgKiBAcmVnczogICAgICBwdF9yZWdzIHdoaWNoIGNvbnRhaW5zIGtlcm5l
-bCBzdGFjayBwb2ludGVyLgo+ICsgKiBAYWRkcjogICAgICBhZGRyZXNzIHdoaWNoIGlzIGNoZWNr
-ZWQuCj4gKyAqCj4gKyAqIHJlZ3Nfd2l0aGluX2tlcm5lbF9zdGFjaygpIGNoZWNrcyBAYWRkciBp
-cyB3aXRoaW4gdGhlIGtlcm5lbCBzdGFjayBwYWdlKHMpLgo+ICsgKiBJZiBAYWRkciBpcyB3aXRo
-aW4gdGhlIGtlcm5lbCBzdGFjaywgaXQgcmV0dXJucyB0cnVlLiBJZiBub3QsIHJldHVybnMgZmFs
-c2UuCj4gKyAqLwo+ICtzdGF0aWMgYm9vbCByZWdzX3dpdGhpbl9rZXJuZWxfc3RhY2soc3RydWN0
-IHB0X3JlZ3MgKnJlZ3MsIHVuc2lnbmVkIGxvbmcgYWRkcikKPiArewo+ICsJcmV0dXJuIChhZGRy
-ICYgfihUSFJFQURfU0laRSAtIDEpKSAgPT0KPiArCQkoa2VybmVsX3N0YWNrX3BvaW50ZXIocmVn
-cykgJiB+KFRIUkVBRF9TSVpFIC0gMSkpOwo+ICt9Cj4gKwo+ICsvKioKPiArICogcmVnc19nZXRf
-a2VybmVsX3N0YWNrX250aCgpIC0gZ2V0IE50aCBlbnRyeSBvZiB0aGUgc3RhY2sKPiArICogQHJl
-Z3M6CXB0X3JlZ3Mgd2hpY2ggY29udGFpbnMga2VybmVsIHN0YWNrIHBvaW50ZXIuCj4gKyAqIEBu
-OgkJc3RhY2sgZW50cnkgbnVtYmVyLgo+ICsgKgo+ICsgKiByZWdzX2dldF9rZXJuZWxfc3RhY2tf
-bnRoKCkgcmV0dXJucyBAbiB0aCBlbnRyeSBvZiB0aGUga2VybmVsIHN0YWNrIHdoaWNoCj4gKyAq
-IGlzIHNwZWNpZmllZCBieSBAcmVncy4gSWYgdGhlIEBuIHRoIGVudHJ5IGlzIE5PVCBpbiB0aGUg
-a2VybmVsIHN0YWNrLAo+ICsgKiB0aGlzIHJldHVybnMgMC4KPiArICovCj4gK3Vuc2lnbmVkIGxv
-bmcgcmVnc19nZXRfa2VybmVsX3N0YWNrX250aChzdHJ1Y3QgcHRfcmVncyAqcmVncywgdW5zaWdu
-ZWQgaW50IG4pCj4gK3sKPiArCXVuc2lnbmVkIGxvbmcgKmFkZHIgPSAodW5zaWduZWQgbG9uZyAq
-KWtlcm5lbF9zdGFja19wb2ludGVyKHJlZ3MpOwo+ICsKPiArCWFkZHIgKz0gbjsKPiArCWlmIChy
-ZWdzX3dpdGhpbl9rZXJuZWxfc3RhY2socmVncywgKHVuc2lnbmVkIGxvbmcpYWRkcikpCj4gKwkJ
-cmV0dXJuICphZGRyOwo+ICsJZWxzZQo+ICsJCXJldHVybiAwOwo+ICt9Cj4gKwo+ICB2b2lkIHB0
-cmFjZV9kaXNhYmxlKHN0cnVjdCB0YXNrX3N0cnVjdCAqY2hpbGQpCj4gIHsKPiAgCWNsZWFyX3Rz
-a190aHJlYWRfZmxhZyhjaGlsZCwgVElGX1NZU0NBTExfVFJBQ0UpOwo+IC0tIAo+IDIuNy40Cj4g
-CgoKLS0gCk1hc2FtaSBIaXJhbWF0c3UgPG1oaXJhbWF0QGtlcm5lbC5vcmc+CgpfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
-IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
-ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Tue, Jul 14, 2020 at 11:28:27AM +0100, Will Deacon wrote:
+
+> As Ard says, module_alloc() _is_ special, in the sense that the virtual
+> memory it allocates wants to be close to the kernel text, whereas the
+> concept of allocating executable memory is broader and doesn't have these
+> restrictions. So, while I'm in favour of having a text_alloc() interface
+> that can be used by callers which only require an executable mapping, I'd
+> much prefer for the module_alloc() code to remain for, err, modules.
+
+So on x86 all those things (kprobes, bpf, ftrace) require that same
+closeness.
+
+An interface like the late vmalloc_exec() will simply not work for us.
+
+We recently talked about arm64-kprobes and how you're not doing any of
+the optimizations and fully rely on the exception return. And I see
+you're one of the few archs that has bpf_jit_alloc_exec() (also,
+shouldn't you be using PAGE_KERNEL_EXEC there?). But the BPF core seems
+to use module_alloc() as a default means of allocating text.
+
+
+So what should this look like? Have a text_alloc() with an argument that
+indicates where? But then I suppose we also need a means to manage PLT
+entries. Otherwise I don't exactly see how you're going to call BPF
+code, or how that BPF stuff is going to call back into its helpers.
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
