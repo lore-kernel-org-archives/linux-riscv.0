@@ -3,75 +3,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
 X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DDE72C433E0
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 11:29:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 02993C433E4
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 11:32:25 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A43D022203
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 11:29:50 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C55E622203
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 11:32:24 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sFBdPZSW";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="hrGFcKo8"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A43D022203
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="xjCMLudH";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="K9OxxVXF"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C55E622203
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:Message-Id:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Q4eVjroCk8ICIs1Pab375ccycKsXvC/9BN1mRqUqx7Y=; b=sFBdPZSW8HybR9uQZJ9hv3rgn
-	MY9BnO15QJYaqoCnsjY63KSBxzTFEw+g7D5nNnTraPccz4uHMU36N3Hrw/DCOVFdOphGl1vKZzbhx
-	HFM4O+mFta47ah31xVV5KnDBnaZ5qrhuDUa9qGMqI7/JD3m/t3ybJdyq6Tydq68FEmgZSWJIqHHJA
-	7jc6sQsjJxSHb8TIFhos/eSv/ddEKy6Anf//pRawLlWgpsh91mDmqDevEdCoF7Wvhi0l2IkiD5/5h
-	yHZ/bMIuHuYtiRsXl2nJj2vFfdqryn6gDqay83ggyrY6UL90ULCdDtqiUpSW4/NL9zbcv9m7HG+GC
-	tnvH1QLuA==;
+	 bh=J3gwhEL+mcEcHdHi6oUjlZ3qpcYn+8hzu1T4LQGr5bU=; b=xjCMLudH+DQH+hDNQYDvvN5ei
+	8X4m+ufwMfTk9ShwE7CBNLRaTuFIAesddOSxKpzYCDjYmn8jtvZ7IoESFVbsdCyNjnSfmIhoSIANp
+	mszTs9hR90h8BYIS01CbqNRzpjU/sCFJxc42wT3Rh2N2SP93pbfwZm+eATKCf+KSwU6Xv6MqhCpK+
+	CIGHfFC/QR5Z86DiaK7zyNm0lrjNRRY0CzvMfuRKazKelN7aUCtUftuZNQHAjNOWAaJThkxNerClu
+	neqdcUmrfzNkoZI9uU3skcurqqJYZhZ6DucnVRYg1LF2QKGdWE1WiPcFZmi2C+BcOFPaYcPhXRwuM
+	joffjgcjw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jvJ83-00019z-R6; Tue, 14 Jul 2020 11:29:43 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1jvJAa-0001bW-3d; Tue, 14 Jul 2020 11:32:20 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jvJ82-00017T-5I; Tue, 14 Jul 2020 11:29:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=mBAAn7GcnY789er4I0OpUocuqYSPX5WhCC5fznzjclA=; b=hrGFcKo8ZrEd6UkzshoCllaXtg
- AehQk/etyRu6krmeTDwCK+j3IC426FaDZfEttJFr53O6MimoifEDZAIoTZVTx6den0SsdVJ8dujkH
- nsH5nJbCdQyNu4UlJXrP9dLAJb0rKuWYtxLJdQWh7cRR+sF3QKsxMJnFGaZm3eL1eP0ZUbnhTnkCw
- fj/5UPnu5p8k9kH3UtarQ8k9AWimlw64Ai5r0rYZBEOWmfS4d9d5pRZ6Vl0bZU0qhZcyVDAqn55//
- /StURudPZC4WS50DPBKnTd7TsNtJ5HA4bD70QlSKLWOViFF8H9CB4AhAugteXOc4EmzZmd46DrOGr
- kvGvgyPw==;
-Received: from j217100.upc-j.chello.nl ([24.132.217.100]
- helo=noisy.programming.kicks-ass.net)
- by casper.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jvJ7r-0007Gf-PB; Tue, 14 Jul 2020 11:29:32 +0000
-Received: from hirez.programming.kicks-ass.net
- (hirez.programming.kicks-ass.net [192.168.1.225])
+ id 1jvJAW-0001aT-GC
+ for linux-riscv@lists.infradead.org; Tue, 14 Jul 2020 11:32:17 +0000
+Received: from devnote2 (NE2965lan1.rev.em-net.ne.jp [210.141.244.193])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (Client did not present a certificate)
- by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 3AE66302753;
- Tue, 14 Jul 2020 13:29:27 +0200 (CEST)
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
- id 22E982994C0FD; Tue, 14 Jul 2020 13:29:27 +0200 (CEST)
-Date: Tue, 14 Jul 2020 13:29:27 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v2 1/3] module: Rename module_alloc() to text_alloc() and
- move to kernel proper
-Message-ID: <20200714112927.GV10769@hirez.programming.kicks-ass.net>
-References: <20200714094625.1443261-1-jarkko.sakkinen@linux.intel.com>
- <20200714094625.1443261-2-jarkko.sakkinen@linux.intel.com>
- <20200714102826.GB4756@willie-the-truck>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20200714102826.GB4756@willie-the-truck>
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id ED7E622203;
+ Tue, 14 Jul 2020 11:32:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1594726335;
+ bh=TtYXJCaAfVAvmXpndjUmq8mNbDnr+kPGfgYNHKOGZfw=;
+ h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+ b=K9OxxVXF0L5Tjod5E1qIyBeJa5zwBm4VZFHIxJUcNK2+Gu0v0neorOgsLghlxU5XY
+ URaH5+u4Sz2oza/Acl3WTQ47DDv7ccQ1D6TA44pgArxCcjzH3E7g2hJIohyyOwRvhB
+ BWbYBouIxFi4uOYS+4p1f8P7YxXfwPMztvQAITgk=
+Date: Tue, 14 Jul 2020 20:32:09 +0900
+From: Masami Hiramatsu <mhiramat@kernel.org>
+To: Guo Ren <guoren@kernel.org>
+Subject: Re: [PATCH v2 6/6] riscv: Add KPROBES_ON_FTRACE supported
+Message-Id: <20200714203209.29d3a3b967238f0cf04c4c6e@kernel.org>
+In-Reply-To: <CAJF2gTQcRYHPmyM_T9g2rYRDN2DPedO0+s5X-MOiEzaFX+xxmA@mail.gmail.com>
+References: <1594261154-69745-1-git-send-email-guoren@kernel.org>
+ <1594261154-69745-7-git-send-email-guoren@kernel.org>
+ <20200710225017.5ce329485e911f99e17cd483@kernel.org>
+ <CAJF2gTSfFY6qf7gZ9t80P-3cACWi3oEe4X8ek+_1nQZZT3Uk5w@mail.gmail.com>
+ <20200712223748.9cb00fdf7938fbf7353c11cc@kernel.org>
+ <CAJF2gTQcRYHPmyM_T9g2rYRDN2DPedO0+s5X-MOiEzaFX+xxmA@mail.gmail.com>
+X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20200714_073216_665393_ABBAAFBB 
+X-CRM114-Status: GOOD (  36.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -83,101 +78,189 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
- Kefeng Wang <wangkefeng.wang@huawei.com>, Paul Mackerras <paulus@samba.org>,
- Zong Li <zong.li@sifive.com>, Andi Kleen <ak@linux.intel.com>,
- Paul Burton <paulburton@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
- Vincent Whitchurch <vincent.whitchurch@axis.com>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Petr Mladek <pmladek@suse.com>, Brian Gerst <brgerst@gmail.com>,
- Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Jiri Kosina <jkosina@suse.cz>, Anup Patel <anup.patel@wdc.com>,
- linux-kernel@vger.kernel.org, Philipp Rudo <prudo@linux.ibm.com>,
- Torsten Duwe <duwe@lst.de>, Masami Hiramatsu <mhiramat@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>, Mark Rutland <mark.rutland@arm.com>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Vincent Chen <deanbo422@gmail.com>, Omar Sandoval <osandov@fb.com>,
- "open list:S390" <linux-s390@vger.kernel.org>,
- Joe Lawrence <joe.lawrence@redhat.com>, Helge Deller <deller@gmx.de>,
- John Fastabend <john.fastabend@gmail.com>,
- Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
- Yonghong Song <yhs@fb.com>, Iurii Zaikin <yzaikin@google.com>,
- Andrii Nakryiko <andriin@fb.com>, Thomas Huth <thuth@redhat.com>,
- Vasily Gorbik <gor@linux.ibm.com>,
- "moderated list:ARM PORT" <linux-arm-kernel@lists.infradead.org>,
- Daniel Axtens <dja@axtens.net>, Damien Le Moal <damien.lemoal@wdc.com>,
- Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
+Cc: Patrick =?UTF-8?B?U3TDpGhsaW4=?= <me@packi.ch>,
+ Guo Ren <guoren@linux.alibaba.com>, Anup Patel <anup@brainfault.org>,
+ Palmer Dabbelt <palmerdabbelt@google.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-csky@vger.kernel.org, penberg@kernel.org,
+ Atish Patra <atish.patra@wdc.com>, Zong Li <zong.li@sifive.com>,
  Paul Walmsley <paul.walmsley@sifive.com>,
- Heiko Carstens <heiko.carstens@de.ibm.com>,
- Alexei Starovoitov <ast@kernel.org>,
- Jarkko Sakkinen <jarkko.sakkinen@linux.intel.com>,
- Atish Patra <atish.patra@wdc.com>, Daniel Borkmann <daniel@iogearbox.net>,
- Masahiro Yamada <masahiroy@kernel.org>, Nayna Jain <nayna@linux.ibm.com>,
- Ley Foon Tan <ley.foon.tan@intel.com>,
- Christian Borntraeger <borntraeger@de.ibm.com>,
- Sami Tolvanen <samitolvanen@google.com>,
- "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>, Mao Han <han_mao@c-sky.com>,
- Marco Elver <elver@google.com>, Steven Rostedt <rostedt@goodmis.org>,
- Babu Moger <Babu.Moger@amd.com>, Borislav Petkov <bp@alien8.de>,
- Greentime Hu <green.hu@gmail.com>, Ben Dooks <ben-linux@fluff.org>,
- Guan Xuetao <gxt@pku.edu.cn>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- "open list:PARISC ARCHITECTURE" <linux-parisc@vger.kernel.org>,
- Jessica Yu <jeyu@kernel.org>,
- "open list:BPF JIT for MIPS \(32-BIT AND 64-BIT\)" <bpf@vger.kernel.org>,
- "David S. Miller" <davem@davemloft.net>,
- Thiago Jung Bauermann <bauerman@linux.ibm.com>,
- David Howells <dhowells@redhat.com>,
- "open list:SPARC + UltraSPARC \(sparc/sparc64\)" <sparclinux@vger.kernel.org>,
- Sandipan Das <sandipan@linux.ibm.com>, "H. Peter Anvin" <hpa@zytor.com>,
- Amit Daniel Kachhap <amit.kachhap@arm.com>,
- Tiezhu Yang <yangtiezhu@loongson.cn>, Miroslav Benes <mbenes@suse.cz>,
- Sven Schnelle <svens@stackframe.org>, Ard Biesheuvel <ardb@kernel.org>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Anders Roxell <anders.roxell@linaro.org>, Jiri Olsa <jolsa@redhat.com>,
- "maintainer:X86 ARCHITECTURE \(32-BIT AND 64-BIT\)" <x86@kernel.org>,
- Russell King <linux@armlinux.org.uk>,
- "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
- Mike Rapoport <rppt@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- Albert Ou <aou@eecs.berkeley.edu>, "Paul E. McKenney" <paulmck@kernel.org>,
- Josh Poimboeuf <jpoimboe@redhat.com>, KP Singh <kpsingh@chromium.org>,
- Dmitry Vyukov <dvyukov@google.com>, Nick Hu <nickhu@andestech.com>,
- "open list:BPF JIT for MIPS \(32-BIT AND 64-BIT\)" <netdev@vger.kernel.org>,
- "open list:MIPS" <linux-mips@vger.kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- "open list:LINUX FOR POWERPC \(32-BIT AND 64-BIT\)"
- <linuxppc-dev@lists.ozlabs.org>
+ Greentime Hu <greentime.hu@sifive.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2020 at 11:28:27AM +0100, Will Deacon wrote:
+Hi Guo,
 
-> As Ard says, module_alloc() _is_ special, in the sense that the virtual
-> memory it allocates wants to be close to the kernel text, whereas the
-> concept of allocating executable memory is broader and doesn't have these
-> restrictions. So, while I'm in favour of having a text_alloc() interface
-> that can be used by callers which only require an executable mapping, I'd
-> much prefer for the module_alloc() code to remain for, err, modules.
+On Tue, 14 Jul 2020 07:47:20 +0800
+Guo Ren <guoren@kernel.org> wrote:
 
-So on x86 all those things (kprobes, bpf, ftrace) require that same
-closeness.
+> Hi Masami,
+> 
+> On Sun, Jul 12, 2020 at 9:37 PM Masami Hiramatsu <mhiramat@kernel.org> wrote:
+> >
+> > On Sat, 11 Jul 2020 09:32:01 +0800
+> > Guo Ren <guoren@kernel.org> wrote:
+> >
+> > > Thx Masami,
+> > >
+> > > On Fri, Jul 10, 2020 at 9:50 PM Masami Hiramatsu <mhiramat@kernel.org> wrote:
+> > > >
+> > > > Hi Guo,
+> > > >
+> > > > On Thu,  9 Jul 2020 02:19:14 +0000
+> > > > guoren@kernel.org wrote:
+> > > >
+> > > > > +/* Ftrace callback handler for kprobes -- called under preepmt disabed */
+> > > > > +void kprobe_ftrace_handler(unsigned long ip, unsigned long parent_ip,
+> > > > > +                        struct ftrace_ops *ops, struct pt_regs *regs)
+> > > > > +{
+> > > > > +     struct kprobe *p;
+> > > > > +     struct kprobe_ctlblk *kcb;
+> > > > > +
+> > > > > +     p = get_kprobe((kprobe_opcode_t *)ip);
+> > > > > +     if (unlikely(!p) || kprobe_disabled(p))
+> > > > > +             return;
+> > > > > +
+> > > > > +     kcb = get_kprobe_ctlblk();
+> > > > > +     if (kprobe_running()) {
+> > > > > +             kprobes_inc_nmissed_count(p);
+> > > > > +     } else {
+> > > > > +             /*
+> > > > > +              * The regs->epc hasn't been saved by SAVE_ALL in mcount-dyn.S
+> > > > > +              * So no need to resume it, just for kprobe handler.
+> > > > > +              */
+> > > > > +             instruction_pointer_set(regs, ip);
+> > > > > +             __this_cpu_write(current_kprobe, p);
+> > > > > +             kcb->kprobe_status = KPROBE_HIT_ACTIVE;
+> > > > > +             if (!p->pre_handler || !p->pre_handler(p, regs)) {
+> > > > > +                     /*
+> > > > > +                      * Emulate singlestep (and also recover regs->pc)
+> > > > > +                      * as if there is a nop
+> > > > > +                      */
+> > > > > +                     instruction_pointer_set(regs,
+> > > > > +                             (unsigned long)p->addr + MCOUNT_INSN_SIZE);
+> > > > > +                     if (unlikely(p->post_handler)) {
+> > > > > +                             kcb->kprobe_status = KPROBE_HIT_SSDONE;
+> > > > > +                             p->post_handler(p, regs, 0);
+> > > > > +                     }
+> > > >
+> > > > Hmm, don't you need restoring the previous instruction pointer here?
+> > > look at  riscv mcount-dyn.S SAVE_ALL function, sp frame lay out like this:
+> > > -----------------------
+> > > | return address |
+> > > -----------------------
+> > > | frame pointer   |
+> > > -----------------------
+> > > | pt_regs x1-x31|
+> > > -----------------------
+> > > It's not a complete pt_regs for the handler, so modifing regs->ip is no use.
+> >
+> > Yes, that is same on x86. But ftrace regs_caller on x86-64 modifies the
+> > return address on the stack by regs->ip.
+> >
+> > See arch/x86/kernel/ftrace_64.S:
+> >
+> > -----
+> > SYM_INNER_LABEL(ftrace_regs_call, SYM_L_GLOBAL)
+> >         call ftrace_stub
+> >
+> >         /* Copy flags back to SS, to restore them */
+> >         movq EFLAGS(%rsp), %rax
+> >         movq %rax, MCOUNT_REG_SIZE(%rsp)
+> >
+> >         /* Handlers can change the RIP */
+> >         movq RIP(%rsp), %rax
+> >         movq %rax, MCOUNT_REG_SIZE+8(%rsp)
+> > -----
+> Yes, and in save_mcount_regs, it prepare the origin pt_regs RIP.
+> 
+>          /* Move RIP to its proper location */
+>         movq MCOUNT_REG_SIZE+\added(%rsp), %rdi
+>         movq %rdi, RIP(%rsp)
+> 
+> I've fixed up riscv's: [1]
+> [1]: https://lore.kernel.org/linux-riscv/1594683562-68149-4-git-send-email-guoren@kernel.org/T/#u
 
-An interface like the late vmalloc_exec() will simply not work for us.
+OK, looks good :)
 
-We recently talked about arm64-kprobes and how you're not doing any of
-the optimizations and fully rely on the exception return. And I see
-you're one of the few archs that has bpf_jit_alloc_exec() (also,
-shouldn't you be using PAGE_KERNEL_EXEC there?). But the BPF core seems
-to use module_alloc() as a default means of allocating text.
+> >
+> > The last part update the return address on the stack.
+> >
+> > > > If you don't support modifying the instruction pointer in the handler,
+> > > We can modify ip like this if necessary:
+> > > *(unsigned long *)((unsigned long)regs + sizeof(struct pt_regs) + 8) = xxx;
+> > >
+> > > > it must not be compatible with kprobes.
+> > > Why, can you show related codes? thank you very much.
+> >
+> > The "Changing Execution Path" section in the Documentation/kprobes.txt said
+> >
+> > -----
+> > Since kprobes can probe into a running kernel code, it can change the
+> > register set, including instruction pointer.
+> > -----
+> Got it, thx for correct me.
+> 
+> >
+> > As you can see, this is the expected behavior on kprobes.
+> > Since user will not know the kprobes is working on a breakpoint or
+> > ftrace, we have to support this behavior transparently. So, could you
+> > enable this feature at first on ftrace@RISCV?
+> Ditto
+> 
+> >
+> > >
+> > > >
+> > > > Now BPF function override and function error injection depends on
+> > > > this behevior, so could you consider to support it in the "ftrace"
+> > > > implementation at first? (And if it is enabled, you can enable the
+> > > > livepatch on RISCV too)
+> > > Great message!
+> > >
+> > > But can you show me codes that bpf and err-jnject using the behavior? Thx
+> >
+> > In kernel/fail_function.c
+> Nice tip, thx. And I've tested err-jnject: [2]
+> [2]: https://lore.kernel.org/linux-riscv/1594683562-68149-4-git-send-email-guoren@kernel.org/T/#md66e4e58f3463c1369e11ab9e5d646343f7d250d
+
+Good! Thanks for porting it!
 
 
-So what should this look like? Have a text_alloc() with an argument that
-indicates where? But then I suppose we also need a means to manage PLT
-entries. Otherwise I don't exactly see how you're going to call BPF
-code, or how that BPF stuff is going to call back into its helpers.
+> 
+> >
+> > -----
+> > static int fei_kprobe_handler(struct kprobe *kp, struct pt_regs *regs)
+> > {
+> >         struct fei_attr *attr = container_of(kp, struct fei_attr, kp);
+> >
+> >         if (should_fail(&fei_fault_attr, 1)) {
+> >                 regs_set_return_value(regs, attr->retval);
+> >                 override_function_with_return(regs);
+> >                 return 1;
+> >         }
+> >
+> >         return 0;
+> > }
+> > -----
+> >
+> > And follow the code related to CONFIG_BPF_KPROBE_OVERRIDE in
+> > kernel/trace/bpf_trace.c. (doing similar thing, but fail_function.c
+> > is simpler.)
+> Nice tip, thx
+> 
+> --
+> Best Regards
+>  Guo Ren
+> 
+> ML: https://lore.kernel.org/linux-csky/
 
 
+-- 
+Masami Hiramatsu <mhiramat@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
