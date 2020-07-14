@@ -2,22 +2,22 @@ Return-Path: <SRS0=l78j=AZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-7.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7370BC433E5
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 21:37:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 076D2C433E8
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 21:37:39 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3AD4020656
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 21:37:36 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C6FE320656
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 21:37:38 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sAWfF3FB";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.b="bhlOrFqq"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3AD4020656
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="aH9GIuui";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.b="qTx730Tf"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C6FE320656
 Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,63 +26,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=piU63txstSqlzlNTx46ddQ7yWfUIVLnCSzsouJgGtMg=; b=sAWfF3FBR1c7MkaSC96MaaaCK
-	bChXuLZodpccgTlQ/jz5NJ6KQ5kzGSgO9aNM0hXyEsX7LKQsuiEO08e+o4SgLO9M36GYROdkCfXIX
-	BncgW2hnxa10e9o3Ae8M0ExEzh1cV/WTAvrqDEYPHx58gDWquR6sCRiB2qw5TuTpYRobRfuhLmjVL
-	2+1DhP1Cp73po1NABknal9IgOgw9ae+zaUJh/+3GgV8Ghrt1Nj6pUruUc+ps8wEmN/wzqBGfxfBRg
-	wCAO+7o+/pKj9n/CvzDx3DrlgUHu34zx+u3DsLhpdsQJTDl1Crgr5X2/7pZK8qTURris/oy5jGjof
-	CO5cJeyFQ==;
+	 bh=5adZLmO6joGWJ8D7FJsbbgvi/mFN9rnF/LvILHJguYY=; b=aH9GIuuiidRVSPUZevm4N3faN
+	+RcPhg+LoomcoeDq59MRgTPdQ0MewLcefPgcXzZZidhYIVEiAifUXasOikM3yN3rbwyiMY2odWGwE
+	SDzKcozy/Ofuxg4csl42W2Pza+FBOObd9a2SobEPbPyLByWV4eqDafCC9Po0NvrOhx8ElovwmWjXj
+	L/eST66cPPvFWHpNCDBQbwLXCpeWUn34JeWA9DPEApLlx/sqBzGBW+Eg1KApyfZErUdSrcwkW7Deu
+	OHs7JD40I3dr90NjvtZlhvnGpHHBHHw/xlsii5FH8AWQcCH3a8GhmhfFPPXOSpt0HOk7nWI3EH2xn
+	SdqIyg0uw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jvScE-00085T-Hn; Tue, 14 Jul 2020 21:37:30 +0000
-Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
+	id 1jvScG-000869-8A; Tue, 14 Jul 2020 21:37:32 +0000
+Received: from mail-pg1-x543.google.com ([2607:f8b0:4864:20::543])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jvScC-00084h-CU
- for linux-riscv@lists.infradead.org; Tue, 14 Jul 2020 21:37:29 +0000
-Received: by mail-pg1-x542.google.com with SMTP id s189so3283357pgc.13
- for <linux-riscv@lists.infradead.org>; Tue, 14 Jul 2020 14:37:27 -0700 (PDT)
+ id 1jvScD-00084l-7b
+ for linux-riscv@lists.infradead.org; Tue, 14 Jul 2020 21:37:30 +0000
+Received: by mail-pg1-x543.google.com with SMTP id s189so3283391pgc.13
+ for <linux-riscv@lists.infradead.org>; Tue, 14 Jul 2020 14:37:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=YJ0G1WscJm4FfZPiovvokq1HLkA2cFUNl9/Ll9hz56Y=;
- b=bhlOrFqq49tLbK37KIEbbFF0YS7WVT1j4BIcVWCY1z+DhlHPzW6Ei7oUWauYcOaeL0
- BUIyjZqvrIPiy2BmUEw3Usbqut8KFxSiSwaRmjXKgLGwoX2sR/TkIpKm8HjEmODSsGdr
- dKJ7hgWmGou4ifi3YJatsQP2zJYh9YXVvo5LjO8hJb21TbFIBeNUltyMRp9UvdoMDu60
- NkZX8ZospCIqOAqVNC3SA2RbnMTMIlKRjR1qLpRyf1d2d3sq6KeLA9LpOukqNgYuYLGo
- HSJXAv2DUlDDaoNE/gh2ZZZplHHA9r2+NsIZk6169hV7ZdCbVU10dUBBT0MTwlEx9Mva
- S3dA==
+ bh=C54nHXHsUM0Qzrx7nhavmp50YQVhcvTqM8Ua357T2Pw=;
+ b=qTx730TfxP3JHwMdHeZOqrmvpY7Mg6iX9sEkXdL9theGEKszlTww7DhX3BJm36q918
+ zqkrmNinmRP0OWR8vQ+dteXXFN3heC0Zk6aLTGhLgYlQx8qir3daIHA0nKHfV19fWrde
+ UZNClH+UUrV/mWjU3Z9ygCqLiTTVgVIajCcGFI7JO3fhS3GcDA4FtbW6UX0b7a4VoXsq
+ NxQPa+/HLOFE44obe2NHXwG0YNiCa124MgFjl8SpXx4fgBZkpHgsA7XyjDJ23hMyenA8
+ dnOQM0J8JRSTe2fUS8TTDoV2Apo3GqvTNGTSMI/1Yr098hWPBXcpuxlS0fCjWczIlXzD
+ n2mg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=YJ0G1WscJm4FfZPiovvokq1HLkA2cFUNl9/Ll9hz56Y=;
- b=i/dA6PH/D3NGD6XIpkV5WMjh+ksHgs0tiz+lWRXONFhTUeVbNcjViygFDAsU5L7pzo
- QhZsCL8wf9pm68mnbM9MCQy5gG1NeaNFhXd6HCKLZChM//JNAZZo/0/GglFJ28OIuDar
- jmqo+kp6bIGsy8YCzS7pM6Yq9xx0pPD07GyrWblx3yP7N8uECPfi3ODYGnA5J/pUncCG
- oVYm6LiE9SKC3pPYNej5QpUcDDoWYxTEOv4V6ciYp/OguNuZZatr0XndPp1abmTHazDu
- GhrI1wVLlipGy3hVwJaAPPk4rWuvfeJ+3B721JtddB0VpNsxMShLh1gVvZKqliso1wU0
- UlLw==
-X-Gm-Message-State: AOAM5336e1u0uZ7j2Dg92dfruPCRzldaMkSLqMdfC1nmqKe77rgaSzLB
- uqaEcQUSXYqNh80HPX2qJCS3kQ==
-X-Google-Smtp-Source: ABdhPJx5GhHJyhVweUPdY3X0RJfcQ8peciN79Bv6P89HIfszH5h2UWvvhuZvNxkMJBuTpBesMjPIbA==
-X-Received: by 2002:a63:dc50:: with SMTP id f16mr4714443pgj.19.1594762645146; 
- Tue, 14 Jul 2020 14:37:25 -0700 (PDT)
+ bh=C54nHXHsUM0Qzrx7nhavmp50YQVhcvTqM8Ua357T2Pw=;
+ b=Ru0rT/Ja5El3IKxLcu5pKCG/Kr2tMlYe3fqZrx+yx2aMG05Jl1ODDrSLmTIBtygqFC
+ Xeiw9Yqm9Woisfnb/TTI7bn84CM3m676iDKJOOFuycpm832Lc2qpsL36dJCNfR+j/sNO
+ DDaqvHVLmqL3eF+LvkCqyWqYNJ7THSGWUc1EZECuXp0amJZjB8TsMWS/ApKFL32JEM/o
+ VVpctUXsAPm+Cd9uPRaZdwXxh0uHlg+Kfto72zlEKihxfeuH5dyuFj48lu6A6ixQZxnM
+ RRDOKCQ2Xpie8eEht1w7mgBAKBvP9eW2fxmeANeQDBJRrynpTw20FKaE2yGe9WDy7nGY
+ pBeA==
+X-Gm-Message-State: AOAM5310U1DXQPp6MSysUotFxSzUAkiE8COB7rTaYCAw2f4YdnrM6kvG
+ rPW7xVaP+7iAvl8VUWZ9kZj/tw==
+X-Google-Smtp-Source: ABdhPJxbt04MjtWU9INStQlDLZYpgWBPOi6Ww+voTCMPjUB55b48eu35Lsfm+KBmADjDJ1Q6aZ6f4g==
+X-Received: by 2002:a62:140e:: with SMTP id 14mr5745202pfu.196.1594762647015; 
+ Tue, 14 Jul 2020 14:37:27 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id 191sm110567pfw.150.2020.07.14.14.37.23
+ by smtp.gmail.com with ESMTPSA id 141sm121736pfw.72.2020.07.14.14.37.25
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 14 Jul 2020 14:37:24 -0700 (PDT)
-Date: Tue, 14 Jul 2020 14:37:24 -0700 (PDT)
-X-Google-Original-Date: Tue, 14 Jul 2020 14:23:00 PDT (-0700)
-Subject: Re: [PATCH v3 2/2] riscv: Enable per-task stack canaries
-In-Reply-To: <1594397998-10221-2-git-send-email-guoren@kernel.org>
+ Tue, 14 Jul 2020 14:37:26 -0700 (PDT)
+Date: Tue, 14 Jul 2020 14:37:26 -0700 (PDT)
+X-Google-Original-Date: Tue, 14 Jul 2020 14:23:52 PDT (-0700)
+Subject: Re: [PATCH] RISC-V: Double the stack size on rv64
+In-Reply-To: <87v9iq4q6d.fsf@igel.home>
 From: Palmer Dabbelt <palmerdabbelt@google.com>
-To: guoren@kernel.org
-Message-ID: <mhng-1f027fd5-a558-4bf4-8168-59a75f36caac@palmerdabbelt-glaptop1>
+To: schwab@suse.de, Christoph Hellwig <hch@infradead.org>
+Message-ID: <mhng-c3f9f747-5069-4688-ab68-9e43f413d4fa@palmerdabbelt-glaptop1>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200714_173728_552760_017618BD 
-X-CRM114-Status: GOOD (  26.23  )
+X-CRM114-CacheID: sfid-20200714_173729_286173_C7E8C6C2 
+X-CRM114-Status: GOOD (  14.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -94,186 +94,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: guoren@linux.alibaba.com, keescook@chromium.org, anup@brainfault.org,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org,
- linux-csky@vger.kernel.org, Atish Patra <Atish.Patra@wdc.com>,
- guoren@kernel.org, zong.li@sifive.com, Bjorn Topel <bjorn.topel@gmail.com>,
- cooper.qu@linux.alibaba.com, greentime.hu@sifive.com,
- linux-riscv@lists.infradead.org
+Cc: colin.king@canonical.com, linux-riscv@lists.infradead.org,
+ stable@vger.kernel.org, dvyukov@google.com, david.abdurachmanov@gmail.com
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 10 Jul 2020 09:19:58 PDT (-0700), guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
+On Mon, 13 Jul 2020 22:32:42 PDT (-0700), schwab@suse.de wrote:
+> On Jul 13 2020, Palmer Dabbelt wrote:
 >
-> This enables the use of per-task stack canary values if GCC has
-> support for emitting the stack canary reference relative to the
-> value of tp, which holds the task struct pointer in the riscv
-> kernel.
+>> This was suggested in the syzkaller thread as a fix for a bunch of issues.  It
+>> seems in line with what other architectures are doing, and while I haven't
+>> personally figured out how to reproduce the issues they seem believable enough
+>> to just change it.
+>>
+>> Fixes: 7db91e57a0ac ("RISC-V: Task implementation")
+>> Cc: stable@vger.kernel.org
+>> Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
+>> ---
+>> I've put this on fixes as I don't see a patch from anyone on that thread, and
+>> it seems straight-forward enough to just do it.  If there's any issues I'm
+>> happy to listen, otherwise this is going up later this week.
 >
-> After compare arm64 and x86 implementations, seems arm64's is more
-> flexible and readable. The key point is how gcc get the offset of
-> stack_canary from gs/el0_sp.
->
-> x86: Use a fix offset from gs, not flexible.
->
-> struct fixed_percpu_data {
-> 	/*
-> 	 * GCC hardcodes the stack canary as %gs:40.  Since the
-> 	 * irq_stack is the object at %gs:0, we reserve the bottom
-> 	 * 48 bytes of the irq stack for the canary.
-> 	 */
-> 	char            gs_base[40]; // :(
-> 	unsigned long   stack_canary;
-> };
->
-> arm64: Use -mstack-protector-guard-offset & guard-reg
-> 	gcc options:
-> 	-mstack-protector-guard=sysreg
-> 	-mstack-protector-guard-reg=sp_el0
-> 	-mstack-protector-guard-offset=xxx
->
-> riscv: Use -mstack-protector-guard-offset & guard-reg
-> 	gcc options:
-> 	-mstack-protector-guard=tls
-> 	-mstack-protector-guard-reg=tp
-> 	-mstack-protector-guard-offset=xxx
->
-> Here is riscv gcc's work [1].
->
-> [1] https://gcc.gnu.org/pipermail/gcc-patches/2020-July/549583.html
->
-> In the end, these codes are inserted by gcc before return:
->
-> *  0xffffffe00020b396 <+120>:   ld      a5,1008(tp) # 0x3f0
-> *  0xffffffe00020b39a <+124>:   xor     a5,a5,a4
-> *  0xffffffe00020b39c <+126>:   mv      a0,s5
-> *  0xffffffe00020b39e <+128>:   bnez    a5,0xffffffe00020b61c <_do_fork+766>
->    0xffffffe00020b3a2 <+132>:   ld      ra,136(sp)
->    0xffffffe00020b3a4 <+134>:   ld      s0,128(sp)
->    0xffffffe00020b3a6 <+136>:   ld      s1,120(sp)
->    0xffffffe00020b3a8 <+138>:   ld      s2,112(sp)
->    0xffffffe00020b3aa <+140>:   ld      s3,104(sp)
->    0xffffffe00020b3ac <+142>:   ld      s4,96(sp)
->    0xffffffe00020b3ae <+144>:   ld      s5,88(sp)
->    0xffffffe00020b3b0 <+146>:   ld      s6,80(sp)
->    0xffffffe00020b3b2 <+148>:   ld      s7,72(sp)
->    0xffffffe00020b3b4 <+150>:   addi    sp,sp,144
->    0xffffffe00020b3b6 <+152>:   ret
->    ...
-> *  0xffffffe00020b61c <+766>:   auipc   ra,0x7f8
-> *  0xffffffe00020b620 <+770>:   jalr    -1764(ra) # 0xffffffe000a02f38 <__stack_chk_fail>
->
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: cooper <cooper.qu@linux.alibaba.com>
+> See
+> <https://lore.kernel.org/linux-riscv/20200708145625.GA438@infradead.org/T/>.
 
-IIRC we're required to use full names here.  I'm assuming that's meant to be
-"Signed-off-by: Cooper Qu ...", and I know it's a bit procedural but I can't
-make that change.
+Sorry, for some reason that didn't make my inbox.  I'm taking it instead (with
+Anup's review and the stable stuff).  It's on fixes.
 
-Otherwise these two look good, the first one is on for-next.  I can boot with a
-defconfig ammended with CONFIG_STACKPROTECTOR=y, 
+Christoph: Some sort of CONFIG_IRQSTACKS seems reasonable, as I'm assuming that
+very small systems may want to try and save memory.  That seems like too
+invasive of a change for rc6, and given this fixes some concrete issues I think
+it's better to just take it for now and do the better version later.
+
+I'll add it to my TODO list, though that's pretty long so if someone else wants
+to take a look they're more than welcome to.
 
 Thanks!
-
-> Cc: cooper <cooper.qu@linux.alibaba.com>
-> Cc: Kees Cook <keescook@chromium.org>
-> ---
-> Change v2:
->  - Change to -mstack-protector-guard=tls for gcc final define
->  - Solve compile error by changing position of KBUILD_CFLAGS in
->    Makefile
->
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> ---
->  arch/riscv/Kconfig                      |  7 +++++++
->  arch/riscv/Makefile                     | 10 ++++++++++
->  arch/riscv/include/asm/stackprotector.h |  3 ++-
->  arch/riscv/kernel/asm-offsets.c         |  3 +++
->  arch/riscv/kernel/process.c             |  2 +-
->  5 files changed, 23 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 4b0e308..d98ce29 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -394,6 +394,13 @@ config CMDLINE_FORCE
->
->  endchoice
->
-> +config CC_HAVE_STACKPROTECTOR_TLS
-> +	def_bool $(cc-option,-mstack-protector-guard=tls -mstack-protector-guard-reg=tp -mstack-protector-guard-offset=0)
-> +
-> +config STACKPROTECTOR_PER_TASK
-> +	def_bool y
-> +	depends on STACKPROTECTOR && CC_HAVE_STACKPROTECTOR_TLS
-> +
->  endmenu
->
->  config BUILTIN_DTB
-> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> index fb6e37d..f5f8ee9 100644
-> --- a/arch/riscv/Makefile
-> +++ b/arch/riscv/Makefile
-> @@ -68,6 +68,16 @@ KBUILD_CFLAGS_MODULE += $(call cc-option,-mno-relax)
->  # architectures.  It's faster to have GCC emit only aligned accesses.
->  KBUILD_CFLAGS += $(call cc-option,-mstrict-align)
->
-> +ifeq ($(CONFIG_STACKPROTECTOR_PER_TASK),y)
-> +prepare: stack_protector_prepare
-> +stack_protector_prepare: prepare0
-> +	$(eval KBUILD_CFLAGS += -mstack-protector-guard=tls		  \
-> +				-mstack-protector-guard-reg=tp		  \
-> +				-mstack-protector-guard-offset=$(shell	  \
-> +			awk '{if ($$2 == "TSK_STACK_CANARY") print $$3;}' \
-> +					include/generated/asm-offsets.h))
-> +endif
-> +
->  # arch specific predefines for sparse
->  CHECKFLAGS += -D__riscv -D__riscv_xlen=$(BITS)
->
-> diff --git a/arch/riscv/include/asm/stackprotector.h b/arch/riscv/include/asm/stackprotector.h
-> index d95f7b2..a895e07 100644
-> --- a/arch/riscv/include/asm/stackprotector.h
-> +++ b/arch/riscv/include/asm/stackprotector.h
-> @@ -28,6 +28,7 @@ static __always_inline void boot_init_stack_canary(void)
->  	canary &= CANARY_MASK;
->
->  	current->stack_canary = canary;
-> -	__stack_chk_guard = current->stack_canary;
-> +	if (!IS_ENABLED(CONFIG_STACKPROTECTOR_PER_TASK))
-> +		__stack_chk_guard = current->stack_canary;
->  }
->  #endif /* _ASM_RISCV_STACKPROTECTOR_H */
-> diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
-> index 07cb9c1..999b465 100644
-> --- a/arch/riscv/kernel/asm-offsets.c
-> +++ b/arch/riscv/kernel/asm-offsets.c
-> @@ -29,6 +29,9 @@ void asm_offsets(void)
->  	OFFSET(TASK_THREAD_S11, task_struct, thread.s[11]);
->  	OFFSET(TASK_THREAD_SP, task_struct, thread.sp);
->  	OFFSET(TASK_STACK, task_struct, stack);
-> +#ifdef CONFIG_STACKPROTECTOR
-> +	OFFSET(TSK_STACK_CANARY, task_struct, stack_canary);
-> +#endif
->  	OFFSET(TASK_TI, task_struct, thread_info);
->  	OFFSET(TASK_TI_FLAGS, task_struct, thread_info.flags);
->  	OFFSET(TASK_TI_PREEMPT_COUNT, task_struct, thread_info.preempt_count);
-> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-> index 6548929..cb4ac65 100644
-> --- a/arch/riscv/kernel/process.c
-> +++ b/arch/riscv/kernel/process.c
-> @@ -24,7 +24,7 @@
->
->  register unsigned long gp_in_global __asm__("gp");
->
-> -#ifdef CONFIG_STACKPROTECTOR
-> +#if defined(CONFIG_STACKPROTECTOR) && !defined(CONFIG_STACKPROTECTOR_PER_TASK)
->  #include <linux/stackprotector.h>
->  unsigned long __stack_chk_guard __read_mostly;
->  EXPORT_SYMBOL(__stack_chk_guard);
 
 _______________________________________________
 linux-riscv mailing list
