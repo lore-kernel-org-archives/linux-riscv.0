@@ -2,76 +2,60 @@ Return-Path: <SRS0=l78j=AZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A6BC6C433E2
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 06:36:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 881E8C433EA
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 07:12:22 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 73498221F0
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 06:36:14 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 577662076D
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 07:12:22 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="b7llHPZ/";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="kPFbutbK"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 73498221F0
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="RS/Itq+b"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 577662076D
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Ot7lKsbtr/dJSs19ocqNzZ1iqpPwOh4DzgB/lq7Uuhk=; b=b7llHPZ/dtgoIUBGnxjh9ZG0i
-	gKjfagcTB3OtrfKLMDd1+yc1XTw7/RRzvx51dZd/a1p7OU08YVJu3j2ZDUGeWksny08PTPxv8VkcF
-	JUG7x6ZKcPEFso4MIiu+fF5k5HNKEOtecXZY7WVPUlbaaXNLGmvmFYqt8/XJobp/JJ3X6EWbE5S5w
-	zV+IfPxAlRaaZGuFFHIk8f32lWBNjLXSLaf8YW+6HOc3pUiUUI9fZyFqUdJ/qjqLTm0IlDyCvmehW
-	thNO83jqN+AXCVUNQ/FAsW1ALio1ATuiBc7Kbr63MvYs6wtWJannoAjS9XkdJr+EURmkSRSjZ2Hnr
-	YUZN8vEMw==;
+	 bh=Wx1JsZY3iTBAetgxRxEhx9LwTRCbc1NDwPmhKMUaXHs=; b=RS/Itq+bukkP3ZFB4VjmhS8zQ
+	EIwMauer1YY0KcSHLZn1jMsI6GXuvw+dRUGjBmZcawTLBHBtZO562byMnNubSZY7bAeh9pQCFWzxG
+	RcYXIHHlQDuqJqblEd64UR9OZ/hxQmUa2d83tE/ggeyGwaeLCWLvvLOmMNcWBsnFz1g9CaiKPdaHA
+	/xVaB27A8bXHCf2+Q97H9+TfoSCLXLmR4aaGUwKvqRaBPvdxa952hAmXhMaYLM2aj79EgQz6RjWtR
+	NbNkHgoGQIDi77cOV8xoA1jFdTswNcKAE6tfTycobhVWpqHi2Wd1hejZGTigSZNcmQ/u/Em2AFxTW
+	mYgnKgSoA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jvEXu-00066k-8y; Tue, 14 Jul 2020 06:36:06 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1jvF6u-00027e-IT; Tue, 14 Jul 2020 07:12:16 +0000
+Received: from verein.lst.de ([213.95.11.211])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jvEXq-00066G-SF; Tue, 14 Jul 2020 06:36:03 +0000
-Received: from mail-oi1-f170.google.com (mail-oi1-f170.google.com
- [209.85.167.170])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 235FA22227;
- Tue, 14 Jul 2020 06:36:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1594708562;
- bh=rMGDsLugxhJ6ZQ/FTRs1UWrQVzA58IvbXzTThQvg9II=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=kPFbutbKKgUJXSiHH0OTfDBjGlJ5KA++yL8URL7JhPTgkklLoUJyDFX+EYKk0Eumi
- 21FGhGo46N7BGEkeW9hr9CtVUNJ/q5Hea0icVEGjX5vRVsdS2B2OYojUIpsJ9ZISP7
- yJGXh8pWtUYJARgvVZkqH55srxrlN/jsETL1SrzQ=
-Received: by mail-oi1-f170.google.com with SMTP id e4so13129552oib.1;
- Mon, 13 Jul 2020 23:36:02 -0700 (PDT)
-X-Gm-Message-State: AOAM530Xi8esIQFM3i3rEkvltJfyxb90FpRSWZ5f7x5PLa5vlerAw2A8
- CH0AotKrNsUMtS15Rc0kSTajznr+w92kn3+vCVE=
-X-Google-Smtp-Source: ABdhPJxeIqtBGKiL/BO7yZP2m6SYAvzirQX9jLPamq/B/I05RCp3jdo+tgAtgh/y0esL3fR2qht2nHhgvHlmtvjg1H0=
-X-Received: by 2002:aca:f257:: with SMTP id q84mr2598467oih.174.1594708560357; 
- Mon, 13 Jul 2020 23:36:00 -0700 (PDT)
+ id 1jvF6s-00026x-L0
+ for linux-riscv@lists.infradead.org; Tue, 14 Jul 2020 07:12:15 +0000
+Received: by verein.lst.de (Postfix, from userid 2407)
+ id DB14B68CFE; Tue, 14 Jul 2020 09:12:11 +0200 (CEST)
+Date: Tue, 14 Jul 2020 09:12:11 +0200
+From: Christoph Hellwig <hch@lst.de>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Subject: Re: [PATCH 5/6] uaccess: add force_uaccess_{begin,end} helpers
+Message-ID: <20200714071211.GC776@lst.de>
+References: <20200710135706.537715-1-hch@lst.de>
+ <20200710135706.537715-6-hch@lst.de>
+ <20200713122148.GA51007@lakrids.cambridge.arm.com>
+ <CAMuHMdUCmEeU0G9wkUxZKm5tC9YoB-KXSSCLKwpSia746Myebw@mail.gmail.com>
 MIME-Version: 1.0
-References: <20200713182030.1418041-1-jarkko.sakkinen@linux.intel.com>
- <CAMj1kXGhZYxjZTP+_PGdBy4hZgdeeTNUkuaE_eQKwB4pPAYNXA@mail.gmail.com>
- <20200713220436.2f21d366@oasis.local.home>
-In-Reply-To: <20200713220436.2f21d366@oasis.local.home>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Tue, 14 Jul 2020 09:35:48 +0300
-X-Gmail-Original-Message-ID: <CAMj1kXELzkrXiM=CouaVnQbY-Sfd30ccCk4D+PkY7g63op8Jvg@mail.gmail.com>
-Message-ID: <CAMj1kXELzkrXiM=CouaVnQbY-Sfd30ccCk4D+PkY7g63op8Jvg@mail.gmail.com>
-Subject: Re: [PATCH 1/3] module: Rename module_alloc() to text_alloc() and
- move to kernel proper
-To: Steven Rostedt <rostedt@goodmis.org>
+Content-Disposition: inline
+In-Reply-To: <CAMuHMdUCmEeU0G9wkUxZKm5tC9YoB-KXSSCLKwpSia746Myebw@mail.gmail.com>
+User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200714_023603_029570_22749999 
-X-CRM114-Status: GOOD (  30.30  )
+X-CRM114-CacheID: sfid-20200714_031214_821850_C59E806C 
+X-CRM114-Status: GOOD (  17.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -83,120 +67,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
- Kefeng Wang <wangkefeng.wang@huawei.com>, Paul Mackerras <paulus@samba.org>,
- Zong Li <zong.li@sifive.com>, Andi Kleen <ak@linux.intel.com>,
- Paul Burton <paulburton@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
- Vincent Whitchurch <vincent.whitchurch@axis.com>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Petr Mladek <pmladek@suse.com>, Brian Gerst <brgerst@gmail.com>,
- Andy Lutomirski <luto@kernel.org>, Yonghong Song <yhs@fb.com>,
- Thomas Gleixner <tglx@linutronix.de>, Jiri Kosina <jkosina@suse.cz>,
- Anup Patel <anup.patel@wdc.com>,
+Cc: Mark Rutland <mark.rutland@arm.com>,
+ Linux-Arch <linux-arch@vger.kernel.org>, Nick Hu <nickhu@andestech.com>,
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Philipp Rudo <prudo@linux.ibm.com>, Torsten Duwe <duwe@lst.de>,
- Masami Hiramatsu <mhiramat@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>, Mark Rutland <mark.rutland@arm.com>,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Vincent Chen <deanbo422@gmail.com>,
- "open list:S390" <linux-s390@vger.kernel.org>,
- Joe Lawrence <joe.lawrence@redhat.com>, Helge Deller <deller@gmx.de>,
- John Fastabend <john.fastabend@gmail.com>,
- Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
- Andrey Ryabinin <aryabinin@virtuozzo.com>, Iurii Zaikin <yzaikin@google.com>,
- Andrii Nakryiko <andriin@fb.com>, Vasily Gorbik <gor@linux.ibm.com>,
- "moderated list:ARM PORT" <linux-arm-kernel@lists.infradead.org>,
- Daniel Axtens <dja@axtens.net>, Damien Le Moal <damien.lemoal@wdc.com>,
- Peter Oberparleiter <oberpar@linux.ibm.com>,
- Sean Christopherson <sean.j.christopherson@intel.com>,
- Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Greentime Hu <green.hu@gmail.com>,
  Paul Walmsley <paul.walmsley@sifive.com>,
- Heiko Carstens <heiko.carstens@de.ibm.com>,
- Alexei Starovoitov <ast@kernel.org>,
- Jarkko Sakkinen <jarkko.sakkinen@linux.intel.com>,
- Atish Patra <atish.patra@wdc.com>, Will Deacon <will@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Masahiro Yamada <masahiroy@kernel.org>,
- Nayna Jain <nayna@linux.ibm.com>, Ley Foon Tan <ley.foon.tan@intel.com>,
- Christian Borntraeger <borntraeger@de.ibm.com>,
- Dmitry Vyukov <dvyukov@google.com>, Sami Tolvanen <samitolvanen@google.com>,
- "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>, Mao Han <han_mao@c-sky.com>,
- Marco Elver <elver@google.com>, Babu Moger <Babu.Moger@amd.com>,
- Borislav Petkov <bp@alien8.de>, Greentime Hu <green.hu@gmail.com>,
- Ben Dooks <ben-linux@fluff.org>, Guan Xuetao <gxt@pku.edu.cn>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- "open list:PARISC ARCHITECTURE" <linux-parisc@vger.kernel.org>,
- Jessica Yu <jeyu@kernel.org>,
- "open list:BPF JIT for MIPS \(32-BIT AND 64-BIT\)" <bpf@vger.kernel.org>,
- "David S. Miller" <davem@davemloft.net>,
- Thiago Jung Bauermann <bauerman@linux.ibm.com>,
- Peter Zijlstra <peterz@infradead.org>,
- "open list:SPARC + UltraSPARC \(sparc/sparc64\)" <sparclinux@vger.kernel.org>,
- Sandipan Das <sandipan@linux.ibm.com>, "H. Peter Anvin" <hpa@zytor.com>,
- Amit Daniel Kachhap <amit.kachhap@arm.com>,
- Tiezhu Yang <yangtiezhu@loongson.cn>, Miroslav Benes <mbenes@suse.cz>,
- Jiri Olsa <jolsa@redhat.com>,
- "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Anders Roxell <anders.roxell@linaro.org>, Sven Schnelle <svens@stackframe.org>,
- "maintainer:X86 ARCHITECTURE \(32-BIT AND 64-BIT\)" <x86@kernel.org>,
- Russell King <linux@armlinux.org.uk>, Mike Rapoport <rppt@linux.ibm.com>,
- Ingo Molnar <mingo@redhat.com>, Albert Ou <aou@eecs.berkeley.edu>,
- "Paul E. McKenney" <paulmck@kernel.org>, Josh Poimboeuf <jpoimboe@redhat.com>,
- KP Singh <kpsingh@chromium.org>, Gerald Schaefer <gerald.schaefer@de.ibm.com>,
- Nick Hu <nickhu@andestech.com>,
- "open list:BPF JIT for MIPS \(32-BIT AND 64-BIT\)" <netdev@vger.kernel.org>,
- "open list:MIPS" <linux-mips@vger.kernel.org>,
- Sergey Senozhatsky <sergey.senozhatsky@gmail.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- "open list:LINUX FOR POWERPC \(32-BIT AND 64-BIT\)"
- <linuxppc-dev@lists.ozlabs.org>
+ Andrew Morton <akpm@linux-foundation.org>, Vincent Chen <deanbo422@gmail.com>,
+ Linus Torvalds <torvalds@linux-foundation.org>, Christoph Hellwig <hch@lst.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 14 Jul 2020 at 05:04, Steven Rostedt <rostedt@goodmis.org> wrote:
->
-> On Mon, 13 Jul 2020 22:49:48 +0300
-> Ard Biesheuvel <ardb@kernel.org> wrote:
->
-> > On arm64, we no longer use module_alloc for bpf or kprobes, to avoid
-> > wasting va space on code that does not need to be loaded close to the
-> > kernel. Also, module_alloc() allocates kasan shadow, which is
-> > unnecessary for kprobes or bpf programs, which don't have kasan
-> > instrumentation.
-> >
-> > This patch suggests that there are other reasons why conflating
-> > allocation of module space and allocating  text pages for other uses
-> > is a bad idea, but switching all users to text_alloc() is a step in
-> > the wrong direction. It would be better to stop using module_alloc()
-> > in core code except in the module loader, and have a generic
-> > text_alloc() that can be overridden by the arch if necessary. Note
-> > that x86  and s390 are the only architectures that use module_alloc()
-> > in ftrace code.
-> >
-> > Please have a look at alloc_insn_page() or bpf_jit_alloc_exec() in the
-> > arm64 tree to see what I mean.
->
-> Hmm, so you have another method for allocating memory for trampolines?
-> (I haven't looked at those functions you pointed out, out of sheer
-> laziness ;-)
->
-> It would be nice to implement the trampoline optimization in arm, which
-> x86 has (see arch_ftrace_update_trampoline() and
-> arch_ftrace_trampoline_func()).
->
-> It helps when you have two different callbacks for different functions
-> (like having live patching enabled and function tracing enabled, or
-> kprobes using ftrace). Each callback will get its own allocated
-> trampoline to jump to instead of jumping to the a trampoline that calls
-> a looping function that tests to see which callback wants to be called
-> by the traced function.
->
+On Mon, Jul 13, 2020 at 03:19:42PM +0200, Geert Uytterhoeven wrote:
+> > This used to set KERNEL_DS, and now it sets USER_DS, which looks wrong
+> > superficially.
+> 
+> Thanks for noticing, and sorry for missing that myself.
+> 
+> The same issue is present for SuperH:
+> 
+>     -               set_fs(KERNEL_DS);
+>     +               oldfs = force_uaccess_begin();
+> 
+> So the patch description should be:
+> 
+>     "Add helpers to wraper the get_fs/set_fs magic for undoing any damage
+>      done by set_fs(USER_DS)."
+> 
+> and leave alone users setting KERNEL_DS?
 
-So in what sense are ftrace trampolines like kernel modules, apart
-from the fact that they are executable pages that live in the vmalloc
-space?
+Yes, this was broken.  Fixed for the next version.
+
+> > If the new behaviour is fine it suggests that the old behaviour was
+> > wrong, or that this is superfluous and could go entirely.
+> >
+> > Geert?
+> 
+> Nope, on m68k, TLB cache operations operate on the current address space.
+> Hence to flush a kernel TLB entry, you have to switch to KERNEL_DS first.
+> 
+> If we're guaranteed to be already using KERNEL_DS, I guess the
+> address space handling can be removed.  But can we be sure?
+
+We can't be sure yet.  But with a lot of my pending work we should be
+able to get there in the not too far future.
 
 _______________________________________________
 linux-riscv mailing list
