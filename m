@@ -2,21 +2,21 @@ Return-Path: <SRS0=l78j=AZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-7.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A83C6C433E0
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 16:31:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 239B5C433E1
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 16:38:38 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7303622464
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 16:31:55 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E4E8322475
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 16:38:37 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="S/oZGcFN"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7303622464
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="a7MLm8+0"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E4E8322475
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.intel.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,53 +25,50 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Tq8VE1miSuAM9YOj3x1F6XX6yk2O1XU6dHXZQruTOuw=; b=S/oZGcFNnyTTvokPSqnXVUZ8N
-	z03Zy0pBHDqgw2f7mwb6SNfpVztU+7yrURQAXxInOeyXjgNhM4u7j0MXrsHFkfsZ8PtRAw9Uxb4Yd
-	+aieQ2e2a+1EvbpLT7A6E5dSagFrMLRKLjPRy0E0PY1VAttdjgZyT6HJATIRZQXAnReT/tGo2K6M4
-	V/EMicjtkUMiImWc3VjPqAm1BtHs+mBuVXJRKPE5Rz1YxfJkt0rA7+FJ1cQn++3eBgkx9DKhWoDMn
-	rWR1u8YxtBaChYfhtfmsF8N2w0NuEdPb2OSixFyrHXdi0v4F5kgc/ZANFI/B6lc0FCX6cuTeaMVOb
-	9gcgE9Tww==;
+	 bh=rXlnBU+P/YxOdQcUMl74CU3CPwcPoXfruz1Ic35HIHY=; b=a7MLm8+0Bza4RvpsVR/nvy1Ka
+	svARU0ux0O95mUFhdkbPbXgLGzak7afBHbEbplZ9BdBFJX1akD1y6GD69XukFVCwNd4Trfjv12DmS
+	fIeaErf1uM48cxtiY/RchAdM3gtQNafUjOsWpNHgjwOjRIi/Nnu432mNkTVwIdKM4NGI3cwbZjysP
+	QRipJpL8uhekPcjiv/byMgkMEcb2NgD8+madTTrAwQ4i5I7TJnXJpXZL34lhYyDhtJeHNtWvxy/iw
+	63U9RbuAA0PVJ7v3H2hMrQLky/MMRgPLB4UjYm4kC97YiRom4TmPY0A5ucwPbanNkjFejbA2WcZ3V
+	OjFCIa0mQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jvNqK-00028o-RL; Tue, 14 Jul 2020 16:31:44 +0000
-Received: from mga06.intel.com ([134.134.136.31])
+	id 1jvNwp-0002fm-RQ; Tue, 14 Jul 2020 16:38:27 +0000
+Received: from mga05.intel.com ([192.55.52.43])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jvNqH-00027X-Mj; Tue, 14 Jul 2020 16:31:42 +0000
-IronPort-SDR: +aarHTAxxik6k45UpMSOm7IkfdeLJGCx/+oOZg+70vXCGOi3fty4KVNo3X9hsJoOTGOEBTD044
- d/yQ9Bupy8tg==
-X-IronPort-AV: E=McAfee;i="6000,8403,9681"; a="210493397"
-X-IronPort-AV: E=Sophos;i="5.75,352,1589266800"; d="scan'208";a="210493397"
+ id 1jvNwm-0002ei-KN; Tue, 14 Jul 2020 16:38:25 +0000
+IronPort-SDR: Ew7cMLTN9KPaoJnMuLhDRCZQtmOvb/fBGW+ENJX9rAZVtd4ij4QkN3gfzV88dT3ohGE67JXKRd
+ OlUeQCB9hyXA==
+X-IronPort-AV: E=McAfee;i="6000,8403,9681"; a="233820223"
+X-IronPort-AV: E=Sophos;i="5.75,352,1589266800"; d="scan'208";a="233820223"
 X-Amp-Result: SKIPPED(no attachment in message)
 X-Amp-File-Uploaded: False
-Received: from orsmga008.jf.intel.com ([10.7.209.65])
- by orsmga104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 14 Jul 2020 09:31:38 -0700
-IronPort-SDR: fcIVyBiiy87ArSQBQ9bBCRdpH5T8cVmHqC7sDn4u8xmAwPyfL/b179YnP+BhGbJyH8rNN59HYL
- iqlKNF6rkwcQ==
+Received: from orsmga001.jf.intel.com ([10.7.209.18])
+ by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 14 Jul 2020 09:38:22 -0700
+IronPort-SDR: Si0IVwjHMeGgEu5Ir9HK13P7ePixA3KDrQ46k1/Y1R6jgll0hGtKTYfGX0jVy8GrdTuEYc2THE
+ 4nqCuCfUzBHg==
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.75,352,1589266800"; d="scan'208";a="316433992"
+X-IronPort-AV: E=Sophos;i="5.75,352,1589266800"; d="scan'208";a="360439708"
 Received: from pipper-mobl1.ger.corp.intel.com (HELO localhost)
  ([10.249.46.185])
- by orsmga008.jf.intel.com with ESMTP; 14 Jul 2020 09:31:04 -0700
-Date: Tue, 14 Jul 2020 19:31:03 +0300
+ by orsmga001.jf.intel.com with ESMTP; 14 Jul 2020 09:37:45 -0700
+Date: Tue, 14 Jul 2020 19:37:44 +0300
 From: Jarkko Sakkinen <jarkko.sakkinen@linux.intel.com>
-To: Peter Zijlstra <peterz@infradead.org>
+To: Jessica Yu <jeyu@kernel.org>
 Subject: Re: [PATCH v2 1/3] module: Rename module_alloc() to text_alloc() and
  move to kernel proper
-Message-ID: <20200714163103.GA1472166@linux.intel.com>
+Message-ID: <20200714163744.GB1472166@linux.intel.com>
 References: <20200714094625.1443261-1-jarkko.sakkinen@linux.intel.com>
  <20200714094625.1443261-2-jarkko.sakkinen@linux.intel.com>
- <20200714102826.GB4756@willie-the-truck>
- <20200714112927.GV10769@hirez.programming.kicks-ass.net>
- <CAMj1kXGG4vxWrp1de1FxdU=8F4Jof00=T1x-7e+BW7_HP-oZMQ@mail.gmail.com>
- <20200714130109.GX10769@hirez.programming.kicks-ass.net>
+ <20200714135651.GA27819@linux-8ccs>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20200714130109.GX10769@hirez.programming.kicks-ass.net>
+In-Reply-To: <20200714135651.GA27819@linux-8ccs>
 Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200714_123142_070087_FC3A01CE 
-X-CRM114-Status: GOOD (  26.25  )
+X-CRM114-CacheID: sfid-20200714_123824_841606_6619220F 
+X-CRM114-Status: GOOD (  25.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -92,9 +89,8 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
  Petr Mladek <pmladek@suse.com>, Brian Gerst <brgerst@gmail.com>,
  Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
  Jiri Kosina <jkosina@suse.cz>, Anup Patel <anup.patel@wdc.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Philipp Rudo <prudo@linux.ibm.com>, Torsten Duwe <duwe@lst.de>,
- Masami Hiramatsu <mhiramat@kernel.org>,
+ linux-kernel@vger.kernel.org, Philipp Rudo <prudo@linux.ibm.com>,
+ Torsten Duwe <duwe@lst.de>, Masami Hiramatsu <mhiramat@kernel.org>,
  Andrew Morton <akpm@linux-foundation.org>, Mark Rutland <mark.rutland@arm.com>,
  "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
  Vincent Chen <deanbo422@gmail.com>, Omar Sandoval <osandov@fb.com>,
@@ -122,11 +118,10 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
  Greentime Hu <green.hu@gmail.com>, Ben Dooks <ben-linux@fluff.org>,
  Guan Xuetao <gxt@pku.edu.cn>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
  "open list:PARISC ARCHITECTURE" <linux-parisc@vger.kernel.org>,
- Jessica Yu <jeyu@kernel.org>,
  "open list:BPF JIT for MIPS \(32-BIT AND 64-BIT\)" <bpf@vger.kernel.org>,
  "David S. Miller" <davem@davemloft.net>,
  Thiago Jung Bauermann <bauerman@linux.ibm.com>,
- David Howells <dhowells@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>, David Howells <dhowells@redhat.com>,
  "open list:SPARC + UltraSPARC \(sparc/sparc64\)" <sparclinux@vger.kernel.org>,
  Sandipan Das <sandipan@linux.ibm.com>, "H. Peter Anvin" <hpa@zytor.com>,
  Amit Daniel Kachhap <amit.kachhap@arm.com>,
@@ -151,64 +146,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2020 at 03:01:09PM +0200, Peter Zijlstra wrote:
-> On Tue, Jul 14, 2020 at 03:19:24PM +0300, Ard Biesheuvel wrote:
-> > So perhaps the answer is to have text_alloc() not with a 'where'
-> > argument but with a 'why' argument. Or more simply, just have separate
-> > alloc/free APIs for each case, with generic versions that can be
-> > overridden by the architecture.
+On Tue, Jul 14, 2020 at 03:56:52PM +0200, Jessica Yu wrote:
+> +++ Jarkko Sakkinen [14/07/20 12:45 +0300]:
+> > Rename module_alloc() to text_alloc() and module_memfree() to
+> > text_memfree(), and move them to kernel/text.c, which is unconditionally
+> > compiled to the kernel proper. This allows kprobes, ftrace and bpf to
+> > allocate space for executable code without requiring to compile the modules
+> > support (CONFIG_MODULES=y) in.
+> > 
+> > Cc: Andi Kleen <ak@linux.intel.com>
+> > Suggested-by: Peter Zijlstra <peterz@infradead.org>
+> > Signed-off-by: Jarkko Sakkinen <jarkko.sakkinen@linux.intel.com>
 > 
-> Well, there only seem to be 2 cases here, either the pointer needs to
-> fit in some immediate displacement, or not.
+> As Ard and Will have already explained, the major issue I'm having
+> with this is that we're taking module_alloc(), an allocator that was
+> originally specific to module loading, and turning it into a generic
+> interface to be used by other subsystems. You're pulling in all the
+> module loading semantics that vary by architecture and expecting it to
+> work as a generic text allocator. I'm not against the existence of a
+> generic text_alloc() but I would very much rather that module_alloc()
+> be left alone to the module loader and instead work on introducing a
+> *separate* generic text_alloc() interface that would work for its
+> intended users (kprobes, bpf, etc) and have existing users of
+> module_alloc() switch to that instead.
 > 
-> On x86 we seem have the advantage of a fairly large immediate
-> displacement as compared to many other architectures (due to our
-> variable sized instructions). And thus have been fairly liberal with our
-> usage of it (also our indirect jmps/calls suck, double so with
-> RETCH-POLINE).
-> 
-> Still, the indirect jump, as mentioned by Russel should work for
-> arbitrarily placed code for us too.
-> 
-> 
-> So I'm thinking that something like:
-> 
-> enum ptr_type {
-> 	immediate_displacement,
-> 	absolute,
-> };
-> 
-> void *text_alloc(unsigned long size, enum ptr_type type)
-> {
-> 	unsigned long vstart = VMALLOC_START;
-> 	unsigned long vend   = VMALLOC_END;
-> 
-> 	if (type == immediate_displacement) {
-> 		vstart = MODULES_VADDR;
-> 		vend   = MODULES_END;
-> 	}
-> 
-> 	return __vmalloc_node_range(size, TEXT_ALIGN, vstart, vend,
-> 				    GFP_KERNEL, PAGE_KERNEL_EXEC, 0,
-> 				    NUMA_NO_NODE, _RET_IP_);
-> }
-> 
-> void text_free(void *ptr)
-> {
-> 	vfree(ptr);
-> }
-> 
-> Should work for all cases. Yes, we might then want something like a per
-> arch:
-> 
-> 	{BPF,FTRACE,KPROBE}_TEXT_TYPE
-> 
-> to help with text_alloc() usage in generic code, but I think
-> fundamentally, there's only these two options.
+> Jessica
 
-There is one arch (nios2), which uses a regular kzalloc(). This means
-that both text_alloc() and text_memfree() need to be weaks symbols and
-nios2 needs to have overriding text.c to do its thing.
+This is kind of patch set where you do not have any other chances than
+to get it wrong in the first time, so I just did something that flys
+in my environment. At the same time I believe that taking the bound
+out of tracing and module loading is a generally accepted idea.
+
+I'm refining the next version with CONFIG_HAS_TEXT_ALLOC, which I
+explained in more details in my earlier response to this thread.
 
 /Jarkko
 
