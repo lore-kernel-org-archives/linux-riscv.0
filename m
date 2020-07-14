@@ -1,80 +1,90 @@
-Return-Path: <SRS0=aCEi=AY=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=l78j=AZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
 X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=3.4.0
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 28A38C433E3
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2020 23:47:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1668BC433E4
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 01:21:46 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EAD1021473
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jul 2020 23:47:44 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D9AFC2192A
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 01:21:45 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sOnbILzm";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="sdRO0XmK"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EAD1021473
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Xbo28A6P";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="Kt0vQNDk"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D9AFC2192A
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=mgYYppKPBGq7Jd2mZzB/XBHJeoVb4zdko+JRYmTOgzA=; b=sOnbILzm+DwRg6Od9rPZq+pPL
-	BykhyGweRIfyL8Wu1GllbzGmg8NxuYHl+gSvbwYOzLOsygL/Neyh32FFDb6c1HEt93nFNw7m8twEl
-	CbrnqL5sRIuMZGQSzdY1Ba9hHe8mhTb7jAfgkV56SPWLexo9I+udNrqhdE2tPAQWlbSW6H+J9y5i7
-	ZqUr1hcpYZvNATIOJusdtkNqD9/WlV30Ac70ALT18CmDc5UflZt9mqpNaK/5EVk/KwAYNSmuq0jNl
-	LfDO9auUXEiBqHY7urw1lwqE76xUhn0r8Jq+FmHFcZs9niX8qC/LfGuLlu3aBh5FuOcwMLa97dBaI
-	gHF54GPQg==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=frRzI+1g69S3+Irph497//TXg2K5kv0o3OTSPCwnEY0=; b=Xbo28A6PI0lOV5KPRj0zELYX+
+	GSBmiY51b/E4jQhsz3prSIljhMPImIiIi3enCAdEyU3SdPD1ZIgTZZUnl0EVFSkK1dSGWwzM7qJUg
+	LqDbpVWGI3oZDQenv3nMKVTaPUfEk7gY77hGwqJ5Rry3C9MKr/nZ7jTMllZ5kgL1uR/wceKWZonWL
+	d8RlV1w8ghSjQz+Cghji4NRrbxyVK9U7v2fWV0ASqq3S5Gq7gT5jcflJPBaI7B2wsVEBKK2HubPMj
+	MSDspmfTfDB7XVMID3+xazAjtfmV5jNKDeVuKg5KOtquRm/iX2PWgb8S9/ZOtJ9X8JjU5h8DE27Jx
+	sUjfFalCQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jv8Aa-0008R4-TD; Mon, 13 Jul 2020 23:47:36 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1jv9dP-0005Z9-8V; Tue, 14 Jul 2020 01:21:27 +0000
+Received: from mail-pj1-x1041.google.com ([2607:f8b0:4864:20::1041])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jv8AY-0008Qk-P1
- for linux-riscv@lists.infradead.org; Mon, 13 Jul 2020 23:47:35 +0000
-Received: from mail-lj1-f172.google.com (mail-lj1-f172.google.com
- [209.85.208.172])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id A724921534
- for <linux-riscv@lists.infradead.org>; Mon, 13 Jul 2020 23:47:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1594684054;
- bh=M+fPqr3keD0MLuA1DPbRUZHfZtD8rh06mB1ZvF5p1Nc=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=sdRO0XmKhq/n+Tn/m2Rs0MZTOgPoOC4cyiKY8VUlASf6LjIOYFq5OuLl1xoF3IuzY
- f24j6469FmK7dJ4vG3lRAaxZDI00lPhYHIE+JtodejdMV9mddXh0Ohbdp0uvyCgIcG
- SQDQVxKdRpc0CT8bckg3srG9A4pG8T7neAjqQX44=
-Received: by mail-lj1-f172.google.com with SMTP id h22so20226982lji.9
- for <linux-riscv@lists.infradead.org>; Mon, 13 Jul 2020 16:47:33 -0700 (PDT)
-X-Gm-Message-State: AOAM533CgiXXxXRap1P762CPEcZ+F7OF3m5Kk0sUbMrpDynMcbINByyT
- ekK0jRzSXMm6iGxWLpxutMRzLW24NDgBrVnVCfQ=
-X-Google-Smtp-Source: ABdhPJzYF4F2WFkO5qBgcY0yowt20vpBCIxfZIh7tILdXiXuqCt9AuLvb9Bms1PmNGo9LdllpTFgiRflTuufR9LXll0=
-X-Received: by 2002:a05:651c:2da:: with SMTP id
- f26mr847407ljo.377.1594684051850; 
- Mon, 13 Jul 2020 16:47:31 -0700 (PDT)
-MIME-Version: 1.0
-References: <1594261154-69745-1-git-send-email-guoren@kernel.org>
- <1594261154-69745-7-git-send-email-guoren@kernel.org>
- <20200710225017.5ce329485e911f99e17cd483@kernel.org>
- <CAJF2gTSfFY6qf7gZ9t80P-3cACWi3oEe4X8ek+_1nQZZT3Uk5w@mail.gmail.com>
- <20200712223748.9cb00fdf7938fbf7353c11cc@kernel.org>
-In-Reply-To: <20200712223748.9cb00fdf7938fbf7353c11cc@kernel.org>
-From: Guo Ren <guoren@kernel.org>
-Date: Tue, 14 Jul 2020 07:47:20 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQcRYHPmyM_T9g2rYRDN2DPedO0+s5X-MOiEzaFX+xxmA@mail.gmail.com>
-Message-ID: <CAJF2gTQcRYHPmyM_T9g2rYRDN2DPedO0+s5X-MOiEzaFX+xxmA@mail.gmail.com>
-Subject: Re: [PATCH v2 6/6] riscv: Add KPROBES_ON_FTRACE supported
-To: Masami Hiramatsu <mhiramat@kernel.org>
+ id 1jv9dM-0005YI-Jr
+ for linux-riscv@lists.infradead.org; Tue, 14 Jul 2020 01:21:25 +0000
+Received: by mail-pj1-x1041.google.com with SMTP id k71so782624pje.0
+ for <linux-riscv@lists.infradead.org>; Mon, 13 Jul 2020 18:21:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=sWnb+gthe9x90ok2xM2dbHoyY21tz4yzg4eowq9VW40=;
+ b=Kt0vQNDk9u4MOrwkaJaWy7vwPiADkwLX0apTn5IadVZYKmoWMniPgCb8W5Qis9nZrG
+ 2nE9XgnUwYgT1hC6kkHiMQ9szK9vh2hdPzsfUYJaYA4fOXTsKw03FeVo8YRBqVFSBs7v
+ 1GA/T6nqS4ZzxhNVBFkeU6H4Tw3I2bH47Sk0+ZGXmtp6l1oBhFEbn7r4VlpxXzdJqd7z
+ wSJTxJsroZWRo2jGfHZPTyQk0pV0OAjKXfXslqD99tXQgJdBB8v7iTHIMWsvI3a/yvHS
+ H0zMR7JBR/FuuWthkpYgVpsHJ5ipS4y1W/CaOiD/UG4NMIhf3/zWvXQXpN/WietnKqyT
+ aswQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=sWnb+gthe9x90ok2xM2dbHoyY21tz4yzg4eowq9VW40=;
+ b=VcdpwomPopBspayGNvMSFdPok0cSomQpoCXAYBi1/4nCDfNq1Z+CdLCUq1/fhXCy4x
+ YSlCMP6+zlxNUq4hja7fzQwgJ96p9JMymfDLOSwEhcVs024fMWPsDUgZlrksEFT6Q0ez
+ riJW0Sm92OaYSNsPxeGQ03WhTTX8f8qqBaFsbqyWXWbz5cwFrvCzmhuocMkrNHv7bsfj
+ fJ+2fmu8qpwQT4tFs2IPaRXg2fsKh67teQrtOk3fIM4R5Ew4XXqxjAp5VLttVONTu6mu
+ GEZua/h9+OtjEHVbSfPzUbbjvnMgS83NKf831ecJkBGVo1b+yFrjGbq0XW/m6iiAzLUF
+ xXvQ==
+X-Gm-Message-State: AOAM532aF1s2go+I6zjV6REhgk0tE1DMRehOMfC9K3HftwY6dCCrdH9O
+ uvsQXWzpq9dtPN9mZ7zIt+Gw8w==
+X-Google-Smtp-Source: ABdhPJw50C1pKgy4aWqXPm+z2QIbpBrolQtNxyX/pYZ9XA3S69J07UNHN+iU57Xy9o6DhWNXL0WvrA==
+X-Received: by 2002:a17:902:a412:: with SMTP id
+ p18mr1867568plq.283.1594689682492; 
+ Mon, 13 Jul 2020 18:21:22 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id 83sm15799984pfu.60.2020.07.13.18.21.21
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 13 Jul 2020 18:21:21 -0700 (PDT)
+Date: Mon, 13 Jul 2020 18:21:21 -0700 (PDT)
+X-Google-Original-Date: Mon, 13 Jul 2020 17:44:32 PDT (-0700)
+Subject: Re: syzkaller on risc-v
+In-Reply-To: <eca54139-e4a7-5370-fd86-110fd198f44c@canonical.com>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: colin.king@canonical.com
+Message-ID: <mhng-113ca485-43e4-4454-beb3-5fe333db5080@palmerdabbelt-glaptop1>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200713_194734_957048_23E5070A 
-X-CRM114-Status: GOOD (  32.24  )
+X-CRM114-CacheID: sfid-20200713_212124_687251_246578A6 
+X-CRM114-Status: GOOD (  19.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -86,174 +96,168 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: =?UTF-8?Q?Patrick_St=C3=A4hlin?= <me@packi.ch>,
- Guo Ren <guoren@linux.alibaba.com>, Anup Patel <anup@brainfault.org>,
- Palmer Dabbelt <palmerdabbelt@google.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-csky@vger.kernel.org, penberg@kernel.org,
- Atish Patra <atish.patra@wdc.com>, Zong Li <zong.li@sifive.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Greentime Hu <greentime.hu@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>
-Content-Type: text/plain; charset="us-ascii"
+Cc: aou@eecs.berkeley.edu, david.abdurachmanov@gmail.com, schwab@suse.de,
+ Paul Walmsley <paul.walmsley@sifive.com>, syzkaller@googlegroups.com,
+ Bjorn Topel <bjorn.topel@gmail.com>, tklauser@distanz.ch,
+ linux-riscv@lists.infradead.org, dvyukov@google.com
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Masami,
+On Mon, 06 Jul 2020 03:12:05 PDT (-0700), colin.king@canonical.com wrote:
+> FYI, increasing the THREAD_SIZE_ORDER to 2 fixes the gcov stack crashes
+> I'm seeing on a 5.4 kernel.
 
-On Sun, Jul 12, 2020 at 9:37 PM Masami Hiramatsu <mhiramat@kernel.org> wrote:
->
-> On Sat, 11 Jul 2020 09:32:01 +0800
-> Guo Ren <guoren@kernel.org> wrote:
->
-> > Thx Masami,
-> >
-> > On Fri, Jul 10, 2020 at 9:50 PM Masami Hiramatsu <mhiramat@kernel.org> wrote:
-> > >
-> > > Hi Guo,
-> > >
-> > > On Thu,  9 Jul 2020 02:19:14 +0000
-> > > guoren@kernel.org wrote:
-> > >
-> > > > +/* Ftrace callback handler for kprobes -- called under preepmt disabed */
-> > > > +void kprobe_ftrace_handler(unsigned long ip, unsigned long parent_ip,
-> > > > +                        struct ftrace_ops *ops, struct pt_regs *regs)
-> > > > +{
-> > > > +     struct kprobe *p;
-> > > > +     struct kprobe_ctlblk *kcb;
-> > > > +
-> > > > +     p = get_kprobe((kprobe_opcode_t *)ip);
-> > > > +     if (unlikely(!p) || kprobe_disabled(p))
-> > > > +             return;
-> > > > +
-> > > > +     kcb = get_kprobe_ctlblk();
-> > > > +     if (kprobe_running()) {
-> > > > +             kprobes_inc_nmissed_count(p);
-> > > > +     } else {
-> > > > +             /*
-> > > > +              * The regs->epc hasn't been saved by SAVE_ALL in mcount-dyn.S
-> > > > +              * So no need to resume it, just for kprobe handler.
-> > > > +              */
-> > > > +             instruction_pointer_set(regs, ip);
-> > > > +             __this_cpu_write(current_kprobe, p);
-> > > > +             kcb->kprobe_status = KPROBE_HIT_ACTIVE;
-> > > > +             if (!p->pre_handler || !p->pre_handler(p, regs)) {
-> > > > +                     /*
-> > > > +                      * Emulate singlestep (and also recover regs->pc)
-> > > > +                      * as if there is a nop
-> > > > +                      */
-> > > > +                     instruction_pointer_set(regs,
-> > > > +                             (unsigned long)p->addr + MCOUNT_INSN_SIZE);
-> > > > +                     if (unlikely(p->post_handler)) {
-> > > > +                             kcb->kprobe_status = KPROBE_HIT_SSDONE;
-> > > > +                             p->post_handler(p, regs, 0);
-> > > > +                     }
-> > >
-> > > Hmm, don't you need restoring the previous instruction pointer here?
-> > look at  riscv mcount-dyn.S SAVE_ALL function, sp frame lay out like this:
-> > -----------------------
-> > | return address |
-> > -----------------------
-> > | frame pointer   |
-> > -----------------------
-> > | pt_regs x1-x31|
-> > -----------------------
-> > It's not a complete pt_regs for the handler, so modifing regs->ip is no use.
->
-> Yes, that is same on x86. But ftrace regs_caller on x86-64 modifies the
-> return address on the stack by regs->ip.
->
-> See arch/x86/kernel/ftrace_64.S:
->
-> -----
-> SYM_INNER_LABEL(ftrace_regs_call, SYM_L_GLOBAL)
->         call ftrace_stub
->
->         /* Copy flags back to SS, to restore them */
->         movq EFLAGS(%rsp), %rax
->         movq %rax, MCOUNT_REG_SIZE(%rsp)
->
->         /* Handlers can change the RIP */
->         movq RIP(%rsp), %rax
->         movq %rax, MCOUNT_REG_SIZE+8(%rsp)
-> -----
-Yes, and in save_mcount_regs, it prepare the origin pt_regs RIP.
+Sorry I'm a bit slow here, but I think setting THREAD_SIZE_ORDER to 2 on the
+64-bit targets seems in line with what everyone else is doing.  IIRC this is
+essentially the stack size, which does tend to be larger on 64-bit platforms,
+so it seems reasonable.  I wouldn't be terribly surprised if we also have
+larger stacks on rv32 than other platforms do, but I think it's best to avoid
+increasing the size over there without at least seeing some failures.
 
-         /* Move RIP to its proper location */
-        movq MCOUNT_REG_SIZE+\added(%rsp), %rdi
-        movq %rdi, RIP(%rsp)
+I've just sent out a patch, as I don't see one in my inbox.
 
-I've fixed up riscv's: [1]
-[1]: https://lore.kernel.org/linux-riscv/1594683562-68149-4-git-send-email-guoren@kernel.org/T/#u
+Thanks!
 
 >
-> The last part update the return address on the stack.
->
-> > > If you don't support modifying the instruction pointer in the handler,
-> > We can modify ip like this if necessary:
-> > *(unsigned long *)((unsigned long)regs + sizeof(struct pt_regs) + 8) = xxx;
-> >
-> > > it must not be compatible with kprobes.
-> > Why, can you show related codes? thank you very much.
->
-> The "Changing Execution Path" section in the Documentation/kprobes.txt said
->
-> -----
-> Since kprobes can probe into a running kernel code, it can change the
-> register set, including instruction pointer.
-> -----
-Got it, thx for correct me.
-
->
-> As you can see, this is the expected behavior on kprobes.
-> Since user will not know the kprobes is working on a breakpoint or
-> ftrace, we have to support this behavior transparently. So, could you
-> enable this feature at first on ftrace@RISCV?
-Ditto
-
->
-> >
-> > >
-> > > Now BPF function override and function error injection depends on
-> > > this behevior, so could you consider to support it in the "ftrace"
-> > > implementation at first? (And if it is enabled, you can enable the
-> > > livepatch on RISCV too)
-> > Great message!
-> >
-> > But can you show me codes that bpf and err-jnject using the behavior? Thx
->
-> In kernel/fail_function.c
-Nice tip, thx. And I've tested err-jnject: [2]
-[2]: https://lore.kernel.org/linux-riscv/1594683562-68149-4-git-send-email-guoren@kernel.org/T/#md66e4e58f3463c1369e11ab9e5d646343f7d250d
-
->
-> -----
-> static int fei_kprobe_handler(struct kprobe *kp, struct pt_regs *regs)
-> {
->         struct fei_attr *attr = container_of(kp, struct fei_attr, kp);
->
->         if (should_fail(&fei_fault_attr, 1)) {
->                 regs_set_return_value(regs, attr->retval);
->                 override_function_with_return(regs);
->                 return 1;
->         }
->
->         return 0;
-> }
-> -----
->
-> And follow the code related to CONFIG_BPF_KPROBE_OVERRIDE in
-> kernel/trace/bpf_trace.c. (doing similar thing, but fail_function.c
-> is simpler.)
-Nice tip, thx
-
---
-Best Regards
- Guo Ren
-
-ML: https://lore.kernel.org/linux-csky/
+> On 30/06/2020 14:57, David Abdurachmanov wrote:
+>> On Tue, Jun 30, 2020 at 4:38 PM Colin Ian King <colin.king@canonical.com> wrote:
+>>>
+>>> I believe I'm also seeing some potential stack smashing issues in the
+>>> lua engine in ZFS on risc-v. It is taking a while for me to debug, but I
+>>> don't see the failure on other arches.  Is there a way to bump the stack
+>>> size up temporarily to test with larger stacks on risc-v?
+>>
+>> Dmitry wrote on the original email that the follow solves issues with
+>> KCOV enabled:
+>>
+>> --- a/arch/riscv/include/asm/thread_info.h
+>> +++ b/arch/riscv/include/asm/thread_info.h
+>> -#define THREAD_SIZE_ORDER      (1)
+>> +#define THREAD_SIZE_ORDER      (2)
+>>
+>> I see MIPS have:
+>>
+>> [..]
+>>  80 /* thread information allocation */
+>>  81 #if defined(CONFIG_PAGE_SIZE_4KB) && defined(CONFIG_32BIT)
+>>  82 #define THREAD_SIZE_ORDER (1)
+>>  83 #endif
+>>  84 #if defined(CONFIG_PAGE_SIZE_4KB) && defined(CONFIG_64BIT)
+>>  85 #define THREAD_SIZE_ORDER (2)
+>> [..]
+>>
+>> david
+>>
+>>>
+>>> Colin
+>>>
+>>> On 30/06/2020 14:26, David Abdurachmanov wrote:
+>>>> On Tue, Jun 30, 2020 at 4:04 PM Andreas Schwab <schwab@suse.de> wrote:
+>>>>>
+>>>>> On Jun 30 2020, Dmitry Vyukov wrote:
+>>>>>
+>>>>>> I would assume some stack overflows can happen without KCOV as well.
+>>>>>
+>>>>> Yes, I see stack overflows quite a lot, like this:
+>>>>>
+>>>>> [62192.908680] Kernel panic - not syncing: corrupted stack end detected inside scheduler
+>>>>> [62192.915752] CPU: 0 PID: 12347 Comm: ld Not tainted 5.7.5-221-default #1 openSUSE Tumbleweed (unreleased)
+>>>>> [62192.925204] Call Trace:
+>>>>> [62192.927646] [<ffffffe0002028ae>] walk_stackframe+0x0/0xaa
+>>>>> [62192.933030] [<ffffffe000202b76>] show_stack+0x2a/0x34
+>>>>> [62192.938066] [<ffffffe000557d44>] dump_stack+0x6e/0x88
+>>>>> [62192.943098] [<ffffffe00020c2d2>] panic+0xe8/0x26a
+>>>>> [62192.947785] [<ffffffe00085ab9c>] schedule+0x0/0xb2
+>>>>> [62192.952561] [<ffffffe00085af36>] _cond_resched+0x32/0x44
+>>>>> [62192.957859] [<ffffffe0002f18ea>] invalidate_mapping_pages+0xe0/0x1ce
+>>>>> [62192.964193] [<ffffffe000370aa4>] inode_lru_isolate+0x238/0x298
+>>>>> [62192.970012] [<ffffffe000308098>] __list_lru_walk_one+0x5e/0xf6
+>>>>> [62192.975826] [<ffffffe000308516>] list_lru_walk_one+0x42/0x98
+>>>>> [62192.981470] [<ffffffe0003717e8>] prune_icache_sb+0x32/0x72
+>>>>> [62192.986941] [<ffffffe000358366>] super_cache_scan+0xe4/0x13e
+>>>>> [62192.992586] [<ffffffe0002f1fac>] do_shrink_slab+0x10e/0x17e
+>>>>> [62192.998142] [<ffffffe0002f2126>] shrink_slab_memcg+0x10a/0x1de
+>>>>> [62193.003957] [<ffffffe0002f5314>] shrink_node_memcgs+0x12e/0x1a4
+>>>>> [62193.009861] [<ffffffe0002f5484>] shrink_node+0xfa/0x43c
+>>>>> [62193.015067] [<ffffffe0002f583e>] shrink_zones+0x78/0x18c
+>>>>> [62193.020365] [<ffffffe0002f59f0>] do_try_to_free_pages+0x9e/0x23e
+>>>>> [62193.026352] [<ffffffe0002f65ac>] try_to_free_pages+0xb2/0xf4
+>>>>> [62193.031991] [<ffffffe000322952>] __alloc_pages_slowpath.constprop.0+0x2d0/0x6c2
+>>>>> [62193.039284] [<ffffffe000322e9a>] __alloc_pages_nodemask+0x156/0x1b2
+>>>>> [62193.045535] [<ffffffe00030c730>] do_anonymous_page+0x58/0x41c
+>>>>> [62193.051266] [<ffffffe00030f50e>] handle_pte_fault+0x12e/0x156
+>>>>> [62193.056994] [<ffffffe000310444>] __handle_mm_fault+0xca/0x118
+>>>>> [62193.062725] [<ffffffe000310532>] handle_mm_fault+0xa0/0x152
+>>>>> [62193.068278] [<ffffffe0002055ba>] do_page_fault+0xd6/0x370
+>>>>> [62193.073666] [<ffffffe00020140a>] ret_from_exception+0x0/0xc
+>>>>> [62193.079222] [<ffffffe0004fc16a>] copy_page_to_iter_iovec+0x4c/0x154
+>>>>
+>>>> There was a report from Canonical that enabling gcov causes similar issues.
+>>>>
+>>>> linux: riscv: corrupted stack detected inside scheduler
+>>>> https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1877954
+>>>>
+>>>> Adding Colin to CC. So far we couldn't reproduce this locally, I
+>>>> guess, because we don't have the right config.
+>>>>
+>>>> david
+>>>>
+>>>>
+>>>>>
+>>>>> or this:
+>>>>>
+>>>>> [200460.114397] Kernel panic - not syncing: corrupted stack end detected inside scheduler
+>>>>> [200460.121553] CPU: 0 PID: 32619 Comm: sh Not tainted 5.7.5-221-default #1 openSUSE Tumbleweed (unreleased)
+>>>>> [200460.131090] Call Trace:
+>>>>> [200460.133623] [<ffffffe0002028ae>] walk_stackframe+0x0/0xaa
+>>>>> [200460.139091] [<ffffffe000202b76>] show_stack+0x2a/0x34
+>>>>> [200460.144212] [<ffffffe000557d44>] dump_stack+0x6e/0x88
+>>>>> [200460.149335] [<ffffffe00020c2d2>] panic+0xe8/0x26a
+>>>>> [200460.154109] [<ffffffe00085ab9c>] schedule+0x0/0xb2
+>>>>> [200460.158969] [<ffffffe00085af36>] _cond_resched+0x32/0x44
+>>>>> [200460.164348] [<ffffffe000498572>] aa_sk_perm+0x38/0x138
+>>>>> [200460.169559] [<ffffffe00048d4b4>] apparmor_socket_sendmsg+0x18/0x20
+>>>>> [200460.175817] [<ffffffe0004508e0>] security_socket_sendmsg+0x2a/0x42
+>>>>> [200460.182061] [<ffffffe0006f4c0a>] sock_sendmsg+0x1a/0x40
+>>>>> [200460.195979] [<ffffffdf817210cc>] xprt_sock_sendmsg+0xb2/0x2b6 [sunrpc]
+>>>>> [200460.210450] [<ffffffdf81723bde>] xs_tcp_send_request+0xc6/0x206 [sunrpc]
+>>>>> [200460.224930] [<ffffffdf8171f538>] xprt_request_transmit.constprop.0+0x88/0x218 [sunrpc]
+>>>>> [200460.240731] [<ffffffdf81720610>] xprt_transmit+0x9a/0x182 [sunrpc]
+>>>>> [200460.254858] [<ffffffdf8171a584>] call_transmit+0x68/0xb8 [sunrpc]
+>>>>> [200460.268817] [<ffffffdf81726660>] __rpc_execute+0x84/0x222 [sunrpc]
+>>>>> [200460.282787] [<ffffffdf81726cea>] rpc_execute+0xac/0xb8 [sunrpc]
+>>>>> [200460.296493] [<ffffffdf8171c5ca>] rpc_run_task+0x122/0x178 [sunrpc]
+>>>>> [200460.314422] [<ffffffdf82e1533a>] nfs4_do_call_sync+0x64/0x84 [nfsv4]
+>>>>> [200460.332514] [<ffffffdf82e1541c>] _nfs4_proc_getattr+0xc2/0xd4 [nfsv4]
+>>>>> [200460.350813] [<ffffffdf82e1cafc>] nfs4_proc_getattr+0x48/0x72 [nfsv4]
+>>>>> [200460.363307] [<ffffffdf8292c1f6>] __nfs_revalidate_inode+0x104/0x2c8 [nfs]
+>>>>> [200460.376204] [<ffffffdf82926d18>] nfs_access_get_cached+0x104/0x212 [nfs]
+>>>>> [200460.389112] [<ffffffdf82926f20>] nfs_do_access+0xfa/0x178 [nfs]
+>>>>> [200460.401176] [<ffffffdf82927070>] nfs_permission+0x8e/0x184 [nfs]
+>>>>> [200460.406497] [<ffffffe000361936>] inode_permission.part.0+0x78/0x118
+>>>>> [200460.412838] [<ffffffe0003638ea>] link_path_walk.part.0+0x1bc/0x212
+>>>>> [200460.419086] [<ffffffe000363c7e>] path_lookupat+0x34/0x172
+>>>>> [200460.424559] [<ffffffe0003653de>] filename_lookup+0x5c/0xf4
+>>>>> [200460.430114] [<ffffffe00036551e>] user_path_at_empty+0x3a/0x5e
+>>>>> [200460.435931] [<ffffffe00035b838>] vfs_statx+0x62/0xbc
+>>>>> [200460.440966] [<ffffffe00035b92a>] __do_sys_newfstatat+0x24/0x3a
+>>>>> [200460.446870] [<ffffffe00035bafa>] sys_newfstatat+0x10/0x18
+>>>>> [200460.452339] [<ffffffe0002013fc>] ret_from_syscall+0x0/0x2
+>>>>>
+>>>>> Andreas.
+>>>>>
+>>>>> --
+>>>>> Andreas Schwab, SUSE Labs, schwab@suse.de
+>>>>> GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+>>>>> "And now for something completely different."
+>>>>>
+>>>>> _______________________________________________
+>>>>> linux-riscv mailing list
+>>>>> linux-riscv@lists.infradead.org
+>>>>> http://lists.infradead.org/mailman/listinfo/linux-riscv
+>>>
 
 _______________________________________________
 linux-riscv mailing list
