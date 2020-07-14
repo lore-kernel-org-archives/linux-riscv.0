@@ -2,22 +2,22 @@ Return-Path: <SRS0=l78j=AZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6C2B2C433E1
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 11:55:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D5917C433E0
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 11:56:21 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 39C2C22224
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 11:55:41 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A339222225
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 11:56:21 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="JBFPe3z6"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 39C2C22224
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sDnrKNdP"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A339222225
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.intel.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -25,80 +25,51 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=ca6vtQbInjwzTgo9HprUYYRQB3m1sb9Q8Fq8x105r7Y=; b=JBFPe3z6Xz0MXQAuDOqX91J+H
-	ARCIURBQTKZT0oqF1791DGeYxLAs3K6gyZOtcJSWrQ2iQa84YBrlWV0nUI00HhxPV4qmjHcJUxi6O
-	S8xDTe9vz0vu2B3pK/hOHGy/5rVihbVDTiclkwPBbmSjOkNlMkLByDMkYVn/W6brlUISdU1UR3Opo
-	tXqW0N5wsj5ieA0fItErc3ALBgRGsYLFVcKVlEoGPlDkdw/mRkgfjUU8o7proVJbTSoRj1qNyvTFf
-	CZzD8Bh7dCwcbWMAkIJlnWCKg+6oUBfrLFeNHmK3FTLiVZmfqsbSEhCHVbJlliXvYaHFDgI+7EEJ6
-	XKRGKOUTw==;
+	 bh=F0flWkxeoXB07rrU7NuxSK3Dc35Y43oZWxCMloF4B34=; b=sDnrKNdP4DPkO7ozFtQnpx1/v
+	8ZdN33zEFlaoRBDMjNKgSnlGMFeB9koMk3TCE+bEaRmMknJ+aXmvRAJZaPkHirbwVdWffu50yGSqj
+	EaOXkTKhT3x/irZpyTW/i5Sr3h2x5SlrCPR2yte/69BIxh2eBjjPYNdG0ycHXHttQmP3tDX14lA8B
+	8yb12m35sXUm0XUvXIeoTn+vesj/OXjGP5t/wXbxWSua5XucVHkIN6KyO+inJC/eGJjC1/yNpOdFb
+	XuUnF1VhCmiProyx3iTrmrVucx12O0cu263nDmyypYhuUdyriAZ1Yuf+oCZ4jKw7rTeu7SZ5Gb1cC
+	S5xqQQy5Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jvJX5-0004Py-If; Tue, 14 Jul 2020 11:55:35 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1jvJXk-0004XH-2Q; Tue, 14 Jul 2020 11:56:16 +0000
+Received: from mga11.intel.com ([192.55.52.93])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jvJX4-0004HQ-0Z
- for linux-riscv@lists.infradead.org; Tue, 14 Jul 2020 11:55:35 +0000
-Received: from pps.filterd (m0098417.ppops.net [127.0.0.1])
- by mx0a-001b2d01.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id
- 06EB2nZE053842; Tue, 14 Jul 2020 07:54:05 -0400
-Received: from pps.reinject (localhost [127.0.0.1])
- by mx0a-001b2d01.pphosted.com with ESMTP id 3298wueepw-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Tue, 14 Jul 2020 07:54:04 -0400
-Received: from m0098417.ppops.net (m0098417.ppops.net [127.0.0.1])
- by pps.reinject (8.16.0.36/8.16.0.36) with SMTP id 06EBs4S3070499;
- Tue, 14 Jul 2020 07:54:04 -0400
-Received: from ppma04ams.nl.ibm.com (63.31.33a9.ip4.static.sl-reverse.com
- [169.51.49.99])
- by mx0a-001b2d01.pphosted.com with ESMTP id 3298wueenm-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Tue, 14 Jul 2020 07:54:04 -0400
-Received: from pps.filterd (ppma04ams.nl.ibm.com [127.0.0.1])
- by ppma04ams.nl.ibm.com (8.16.0.42/8.16.0.42) with SMTP id 06EBnqI5031118;
- Tue, 14 Jul 2020 11:54:02 GMT
-Received: from b06avi18626390.portsmouth.uk.ibm.com
- (b06avi18626390.portsmouth.uk.ibm.com [9.149.26.192])
- by ppma04ams.nl.ibm.com with ESMTP id 32752839te-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Tue, 14 Jul 2020 11:54:02 +0000
-Received: from d06av25.portsmouth.uk.ibm.com (d06av25.portsmouth.uk.ibm.com
- [9.149.105.61])
- by b06avi18626390.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP
- id 06EBqbSA43712804
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Tue, 14 Jul 2020 11:52:37 GMT
-Received: from d06av25.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 45F7811C04C;
- Tue, 14 Jul 2020 11:54:00 +0000 (GMT)
-Received: from d06av25.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 8C9FF11C050;
- Tue, 14 Jul 2020 11:53:59 +0000 (GMT)
-Received: from linux.ibm.com (unknown [9.148.206.228])
- by d06av25.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
- Tue, 14 Jul 2020 11:53:59 +0000 (GMT)
-Date: Tue, 14 Jul 2020 14:53:57 +0300
-From: Mike Rapoport <rppt@linux.ibm.com>
-To: Pekka Enberg <penberg@gmail.com>
-Subject: Re: [PATCH 1/2] mm: pgtable: Make generic pgprot_* macros available
- for no-MMU
-Message-ID: <20200714115357.GB1166045@linux.ibm.com>
-References: <20200714100051.345018-1-penberg@gmail.com>
+ id 1jvJXh-0004Vl-6G; Tue, 14 Jul 2020 11:56:13 +0000
+IronPort-SDR: mFA9c30E2hM8AhbEfvgfHUNeWCequzz11iFKiaTIIFZsQu+RcsyAJCNm2MjlvgfBc7z2Nm1WVM
+ 1HiDBfcmbbuw==
+X-IronPort-AV: E=McAfee;i="6000,8403,9681"; a="146882800"
+X-IronPort-AV: E=Sophos;i="5.75,350,1589266800"; d="scan'208";a="146882800"
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from fmsmga008.fm.intel.com ([10.253.24.58])
+ by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 14 Jul 2020 04:56:11 -0700
+IronPort-SDR: 487d/LctlM4NM8jYh/JS9KK/zGZd1fU1eze/erpvpmGH/ZEWZizBiq2A4pLK65bnn1iknNmTRD
+ CTFA4LupyJiQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.75,350,1589266800"; d="scan'208";a="269990139"
+Received: from pipper-mobl1.ger.corp.intel.com (HELO localhost)
+ ([10.249.46.185])
+ by fmsmga008.fm.intel.com with ESMTP; 14 Jul 2020 04:55:32 -0700
+Date: Tue, 14 Jul 2020 14:55:30 +0300
+From: Jarkko Sakkinen <jarkko.sakkinen@linux.intel.com>
+To: Ard Biesheuvel <ardb@kernel.org>
+Subject: Re: [PATCH 1/3] module: Rename module_alloc() to text_alloc() and
+ move to kernel proper
+Message-ID: <20200714115530.GC1463346@linux.intel.com>
+References: <20200713182030.1418041-1-jarkko.sakkinen@linux.intel.com>
+ <CAMj1kXGhZYxjZTP+_PGdBy4hZgdeeTNUkuaE_eQKwB4pPAYNXA@mail.gmail.com>
+ <20200714095243.GB1442951@linux.intel.com>
+ <CAMj1kXGV_bWehdQvxaMBTOYHXUoFjifBWNpyVy3gaWKktko1mg@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20200714100051.345018-1-penberg@gmail.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.235, 18.0.687
- definitions=2020-07-14_02:2020-07-14,
- 2020-07-14 signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0
- priorityscore=1501 lowpriorityscore=0 suspectscore=1 adultscore=0
- impostorscore=0 spamscore=0 phishscore=0 malwarescore=0 mlxscore=0
- mlxlogscore=999 clxscore=1011 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.12.0-2006250000 definitions=main-2007140085
+In-Reply-To: <CAMj1kXGV_bWehdQvxaMBTOYHXUoFjifBWNpyVy3gaWKktko1mg@mail.gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200714_075534_117037_4771D509 
-X-CRM114-Status: GOOD (  24.80  )
+X-CRM114-CacheID: sfid-20200714_075613_365781_E34EB494 
+X-CRM114-Status: GOOD (  25.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -110,132 +81,112 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Pekka Enberg <penberg@kernel.org>, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmerdabbelt@google.com>,
- Tom Lendacky <thomas.lendacky@amd.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+ Kefeng Wang <wangkefeng.wang@huawei.com>, Paul Mackerras <paulus@samba.org>,
+ Zong Li <zong.li@sifive.com>, Andi Kleen <ak@linux.intel.com>,
+ Paul Burton <paulburton@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
+ Vincent Whitchurch <vincent.whitchurch@axis.com>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Petr Mladek <pmladek@suse.com>, Brian Gerst <brgerst@gmail.com>,
+ Andy Lutomirski <luto@kernel.org>, Yonghong Song <yhs@fb.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Jiri Kosina <jkosina@suse.cz>,
+ Anup Patel <anup.patel@wdc.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Philipp Rudo <prudo@linux.ibm.com>, Torsten Duwe <duwe@lst.de>,
+ Masami Hiramatsu <mhiramat@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Mark Rutland <mark.rutland@arm.com>,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Vincent Chen <deanbo422@gmail.com>,
+ "open list:S390" <linux-s390@vger.kernel.org>,
+ Joe Lawrence <joe.lawrence@redhat.com>, Helge Deller <deller@gmx.de>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
+ Andrey Ryabinin <aryabinin@virtuozzo.com>, Iurii Zaikin <yzaikin@google.com>,
+ Andrii Nakryiko <andriin@fb.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ "moderated list:ARM PORT" <linux-arm-kernel@lists.infradead.org>,
+ Daniel Axtens <dja@axtens.net>, Damien Le Moal <damien.lemoal@wdc.com>,
+ Peter Oberparleiter <oberpar@linux.ibm.com>,
+ Sean Christopherson <sean.j.christopherson@intel.com>,
+ Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Heiko Carstens <heiko.carstens@de.ibm.com>,
+ Alexei Starovoitov <ast@kernel.org>, Atish Patra <atish.patra@wdc.com>,
+ Will Deacon <will@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Masahiro Yamada <masahiroy@kernel.org>, Nayna Jain <nayna@linux.ibm.com>,
+ Ley Foon Tan <ley.foon.tan@intel.com>,
+ Christian Borntraeger <borntraeger@de.ibm.com>,
+ Dmitry Vyukov <dvyukov@google.com>, Sami Tolvanen <samitolvanen@google.com>,
+ "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>, Mao Han <han_mao@c-sky.com>,
+ Marco Elver <elver@google.com>, Steven Rostedt <rostedt@goodmis.org>,
+ Babu Moger <Babu.Moger@amd.com>, Borislav Petkov <bp@alien8.de>,
+ Greentime Hu <green.hu@gmail.com>, Ben Dooks <ben-linux@fluff.org>,
+ Guan Xuetao <gxt@pku.edu.cn>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ "open list:PARISC ARCHITECTURE" <linux-parisc@vger.kernel.org>,
+ Jessica Yu <jeyu@kernel.org>,
+ "open list:BPF JIT for MIPS \(32-BIT AND 64-BIT\)" <bpf@vger.kernel.org>,
+ "David S. Miller" <davem@davemloft.net>,
+ Thiago Jung Bauermann <bauerman@linux.ibm.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ "open list:SPARC + UltraSPARC \(sparc/sparc64\)" <sparclinux@vger.kernel.org>,
+ Sandipan Das <sandipan@linux.ibm.com>, "H. Peter Anvin" <hpa@zytor.com>,
+ Amit Daniel Kachhap <amit.kachhap@arm.com>,
+ Tiezhu Yang <yangtiezhu@loongson.cn>, Miroslav Benes <mbenes@suse.cz>,
+ Jiri Olsa <jolsa@redhat.com>,
+ "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Anders Roxell <anders.roxell@linaro.org>, Sven Schnelle <svens@stackframe.org>,
+ "maintainer:X86 ARCHITECTURE \(32-BIT AND 64-BIT\)" <x86@kernel.org>,
+ Russell King <linux@armlinux.org.uk>, Mike Rapoport <rppt@linux.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ "Paul E. McKenney" <paulmck@kernel.org>, Josh Poimboeuf <jpoimboe@redhat.com>,
+ KP Singh <kpsingh@chromium.org>, Gerald Schaefer <gerald.schaefer@de.ibm.com>,
+ Nick Hu <nickhu@andestech.com>,
+ "open list:BPF JIT for MIPS \(32-BIT AND 64-BIT\)" <netdev@vger.kernel.org>,
+ "open list:MIPS" <linux-mips@vger.kernel.org>,
+ Sergey Senozhatsky <sergey.senozhatsky@gmail.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ "open list:LINUX FOR POWERPC \(32-BIT AND 64-BIT\)"
+ <linuxppc-dev@lists.ozlabs.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2020 at 01:00:50PM +0300, Pekka Enberg wrote:
-> From: Pekka Enberg <penberg@kernel.org>
+On Tue, Jul 14, 2020 at 01:17:22PM +0300, Ard Biesheuvel wrote:
+> > This series essentially does this: introduces text_alloc() and
+> > text_memfree(), which have generic implementations in kernel/text.c.
+> > Those can be overriddent by arch specific implementations.
+> >
+> > What you think should be done differently than in my patch set?
+> >
 > 
-> The <linux/pgtable.h> header defines some generic pgprot_*
-> implementations, but they are only available when CONFIG_MMU is enabled.
-> The RISC-V architecture, for example, therefore defines some of these
-> pgprot_* macros for !NOMMU.
-> 
-> Let's make the pgprot_* generic available even for !NOMMU so we can
-> remove the RISC-V specific definitions.
-> 
-> Compile-tested with x86 defconfig, and riscv defconfig and !MMU defconfig.
-> 
-> Suggested-by: Palmer Dabbelt <palmerdabbelt@google.com>
-> Cc: Mike Rapoport <rppt@linux.ibm.com>
-> Cc: Tom Lendacky <thomas.lendacky@amd.com>
-> Signed-off-by: Pekka Enberg <penberg@kernel.org>
+> On arm64, module_alloc is only used by the module loader, and so
+> pulling it out and renaming it will cause unused code to be
+> incorporated into the kernel when building without module support,
+> which is the use case you claim to be addressing.
 
-Reviewed-by: Mike Rapoport <rppt@linux.ibm.com>
+It certainly does not cause the full module loader to be bundle, only
+the allocator.
 
-> ---
->  include/linux/pgtable.h | 69 +++++++++++++++++++++--------------------
->  1 file changed, 35 insertions(+), 34 deletions(-)
+> Module_alloc has semantics that are intimately tied to the module
+> loader, but over the years, it ended up being (ab)used by other
+> subsystems, which don't require those semantics but just need n pages
+> of vmalloc space with executable permissions.
 > 
-> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-> index 56c1e8eb7bb0..ed9026ad7c31 100644
-> --- a/include/linux/pgtable.h
-> +++ b/include/linux/pgtable.h
-> @@ -647,40 +647,6 @@ static inline int arch_unmap_one(struct mm_struct *mm,
->  #define flush_tlb_fix_spurious_fault(vma, address) flush_tlb_page(vma, address)
->  #endif
->  
-> -#ifndef pgprot_nx
-> -#define pgprot_nx(prot)	(prot)
-> -#endif
-> -
-> -#ifndef pgprot_noncached
-> -#define pgprot_noncached(prot)	(prot)
-> -#endif
-> -
-> -#ifndef pgprot_writecombine
-> -#define pgprot_writecombine pgprot_noncached
-> -#endif
-> -
-> -#ifndef pgprot_writethrough
-> -#define pgprot_writethrough pgprot_noncached
-> -#endif
-> -
-> -#ifndef pgprot_device
-> -#define pgprot_device pgprot_noncached
-> -#endif
-> -
-> -#ifndef pgprot_modify
-> -#define pgprot_modify pgprot_modify
-> -static inline pgprot_t pgprot_modify(pgprot_t oldprot, pgprot_t newprot)
-> -{
-> -	if (pgprot_val(oldprot) == pgprot_val(pgprot_noncached(oldprot)))
-> -		newprot = pgprot_noncached(newprot);
-> -	if (pgprot_val(oldprot) == pgprot_val(pgprot_writecombine(oldprot)))
-> -		newprot = pgprot_writecombine(newprot);
-> -	if (pgprot_val(oldprot) == pgprot_val(pgprot_device(oldprot)))
-> -		newprot = pgprot_device(newprot);
-> -	return newprot;
-> -}
-> -#endif
-> -
->  /*
->   * When walking page tables, get the address of the next boundary,
->   * or the end address of the range if that comes earlier.  Although no
-> @@ -840,6 +806,41 @@ static inline void ptep_modify_prot_commit(struct vm_area_struct *vma,
->   * No-op macros that just return the current protection value. Defined here
->   * because these macros can be used used even if CONFIG_MMU is not defined.
->   */
-> +
-> +#ifndef pgprot_nx
-> +#define pgprot_nx(prot)	(prot)
-> +#endif
-> +
-> +#ifndef pgprot_noncached
-> +#define pgprot_noncached(prot)	(prot)
-> +#endif
-> +
-> +#ifndef pgprot_writecombine
-> +#define pgprot_writecombine pgprot_noncached
-> +#endif
-> +
-> +#ifndef pgprot_writethrough
-> +#define pgprot_writethrough pgprot_noncached
-> +#endif
-> +
-> +#ifndef pgprot_device
-> +#define pgprot_device pgprot_noncached
-> +#endif
-> +
-> +#ifndef pgprot_modify
-> +#define pgprot_modify pgprot_modify
-> +static inline pgprot_t pgprot_modify(pgprot_t oldprot, pgprot_t newprot)
-> +{
-> +	if (pgprot_val(oldprot) == pgprot_val(pgprot_noncached(oldprot)))
-> +		newprot = pgprot_noncached(newprot);
-> +	if (pgprot_val(oldprot) == pgprot_val(pgprot_writecombine(oldprot)))
-> +		newprot = pgprot_writecombine(newprot);
-> +	if (pgprot_val(oldprot) == pgprot_val(pgprot_device(oldprot)))
-> +		newprot = pgprot_device(newprot);
-> +	return newprot;
-> +}
-> +#endif
-> +
->  #ifndef pgprot_encrypted
->  #define pgprot_encrypted(prot)	(prot)
->  #endif
-> -- 
-> 2.26.2
+> So the correct approach is to make text_alloc() implement just that,
+> generically, and switch bpf etc to use it. Then, only on architectures
+> that need it, override it with an implementation that has the required
+> additional semantics.
 > 
+> Refactoring 10+ architectures like this without any regard for how
+> text_alloc() deviates from module_alloc() just creates a lot of churn
+> that others will have to clean up after you.
 
--- 
-Sincerely yours,
-Mike.
+Using generic text_alloc() in kernel/kprobes.c would make it behave
+differently in arch's that reimplement module_alloc(). That's the main
+driver for my approach.
+
+/Jarkko
 
 _______________________________________________
 linux-riscv mailing list
