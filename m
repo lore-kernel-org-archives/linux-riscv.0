@@ -2,23 +2,23 @@ Return-Path: <SRS0=l78j=AZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E3C7BC433E0
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 15:12:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F1F33C433E1
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 15:27:42 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B3CC72076C
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 15:12:43 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id BD7BB22209
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 15:27:42 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="us/ojBfF";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="QgbqGoc3"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B3CC72076C
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="aN8mfCQJ";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=linux-foundation.org header.i=@linux-foundation.org header.b="JrWgTBRd"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BD7BB22209
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -26,59 +26,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=kixZKJB2zkKrLITLb1x3ibiCQLrXvvnP4G18J4pH3WI=; b=us/ojBfFREgNwWZSBqQgl7Jt3
-	vvWxU+UNH1Yng6Pv4wsyNstU2hYf98gUsKkIsiNKl7imy8mA+Do/ppEnQwFXgQntV956YLd0NyTul
-	jPzClJm3ySF1y7xzfUumOX08hBDYFHKGkeox+RN9EYJc5EIwRLMe8sb+f/56hwylO8suDx6EQ2Wk9
-	hn1/4UBIh/AfCAF735fDp9X8064V4oo7HRus0cXh4KmVipYnrvbj7XL+0pIzXwSuV6JXro7oFp9mb
-	hoGLdwViglOTVNv06Q7KZtFLSF2b1iGucMmAOuDzO7VEZQHmEYF3kUsuboQRxMJAxniHGMFoP46t2
-	bNiPmhhLg==;
+	 bh=TtUhp6m+Fxx3w1DNOYZYFoZu0ZCb1ukKW+1d3LL2Y8o=; b=aN8mfCQJRe9CqPQEI8F59SJZD
+	ZXyWBUy9QKvIJ4r4ZwnH7WXSUnn7NeX9SQRHAzl7OblVkJIpB67x+Bmz11xykB1loeWkF1GZGggQg
+	nEx/yktIaE+9QwC8dsNMMqscPOMsrUJJiM7UJOdk2xQYXPCyM+bQQkI3k8a5oJaGiiStss3BG6bNJ
+	8kHF5/1eTXe+wkJ1fkmr1yKqklqSm7EdmUACxpJMm1yfoORVIDEGoaIEIJuR4XMvLs2bH3HDkNZtb
+	boNllG9fK27x704lT962Cn13y2UY8wcE035C/aAMj93gjYk2oDoVGoIw5tGEtETZOe8P9BYseWO4P
+	jZWHfKd0g==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jvMbk-0000dk-Os; Tue, 14 Jul 2020 15:12:36 +0000
-Received: from mail-qk1-x741.google.com ([2607:f8b0:4864:20::741])
+	id 1jvMqG-0002Kx-MA; Tue, 14 Jul 2020 15:27:36 +0000
+Received: from mail-lj1-x241.google.com ([2a00:1450:4864:20::241])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jvMbh-0000ce-6U
- for linux-riscv@lists.infradead.org; Tue, 14 Jul 2020 15:12:34 +0000
-Received: by mail-qk1-x741.google.com with SMTP id k18so15868162qke.4
- for <linux-riscv@lists.infradead.org>; Tue, 14 Jul 2020 08:12:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ id 1jvMqE-0002K9-KD
+ for linux-riscv@lists.infradead.org; Tue, 14 Jul 2020 15:27:35 +0000
+Received: by mail-lj1-x241.google.com with SMTP id z24so23279776ljn.8
+ for <linux-riscv@lists.infradead.org>; Tue, 14 Jul 2020 08:27:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=linux-foundation.org; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=lPY0nKFKw8Xh+fQpn89J/uEUcRoylDvAgOjS6f+f+YA=;
- b=QgbqGoc3EpeCC0EJeM1hRblC8I4e2KKabqrfFBqfPiCekpfex6JB6ojBptjaeR5lYx
- 7qcv0OgfQlF4wY8ZCtpvruDgEY4d4zNsTz4WEzqkqXG2HWP1505zVWJimhu2Cp23HF3c
- 7+1jWAUXqLrnbBNGiZT7ZQ6UzQNf3Dyiuxx2AMkf533qpm9IQJFd+M01+dA6XnJlLc3v
- P5WkGOuGmeRlLoI41BFWPrTLZcvgquh0fNAyvC0Gyv0xyTnmqBYB/sGWt98KPAQ4TPyL
- jF3UxOaUkgf6BKCI0tktLfbln5SINT+SNL9fgV05p4d+E/kX6Ljccd0MHzn9v/T6pUxU
- II5g==
+ :cc; bh=jCyLOhQV57mz1Tz9y5V98kqwmWTue4420M9y+zk47sY=;
+ b=JrWgTBRdBX1cUe5aCb73+TsaK4ECM13FS6SYZxjTTs/VcET75Za3d/5OpAFolMLiG2
+ rmM293nxQKfX4PiAjnofjoAJ6qAZh+dcMJ5TZE8IAzVTRLCvzUlr0FPZQ4Ha2hKtav0P
+ Hy7ruQElpq2zZYq8uOxErUU6Ocv4g8NOdw6hg=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=lPY0nKFKw8Xh+fQpn89J/uEUcRoylDvAgOjS6f+f+YA=;
- b=EcPKSEmmnic8RtiI43n/KovToR+MEbLMu0DFQFrjJgC8O+xskPDRcO3zW2kLj0N1jA
- 0F83pAJAFq5Lzyqftij0+R8sjSx6q0UdpmrhWjh6Eun4THsNGPmLvZsY13r/Sgc4+vJx
- awCYyJclYlOXy4w7QbAyoopzaG2H35S3KLWQaLGxrKuwymtlFZ6D2lo3VM0orr2v/G1p
- dDmqiN1v6WHaOWgRj+KxgI5V+H3ZPVOL3Vc00LggxCZ8ons0S1jGQmaM/I0eg4pcfGdC
- JN2uQgEsRCQIwSKelIkRJByZbGPtKSvGaFfB4+VIRyAheuq4OProdMmDfbkBqyjaGuFt
- ddSQ==
-X-Gm-Message-State: AOAM532P639uRNNHy3nZeny5AZqFSrCik/hQ7Spt8XuBj82HzsyFx2YX
- iduuRjLCZsMqvT34xCH+NPDz4fDPstzXb/6nnMA=
-X-Google-Smtp-Source: ABdhPJzp5y71Cl5iC+1fgXXPFCvds9tatsYOKuM+mUZJNt5qRokpYb5gzBe8SFxB8DRBH0l7+0ZV2wEUCJJ8kaNUyfQ=
-X-Received: by 2002:a37:4289:: with SMTP id p131mr4968739qka.28.1594739551071; 
- Tue, 14 Jul 2020 08:12:31 -0700 (PDT)
+ bh=jCyLOhQV57mz1Tz9y5V98kqwmWTue4420M9y+zk47sY=;
+ b=ODMEfbRfU8nxjykxDLXAyzgNlWyVQVF0uEVR+cx+D1CgiEIgESTvcApzDCWgLwH9Zw
+ EvytpWpsWdPp6tTBn/z7vNi2Op8PPecAMM1N/a1UZ5FHwZL/7I2bIe5yAxcQ4YURocyG
+ +/VV2+2jAjXULZXdmasw/LyFiXu9QiU72hxKDEgFnyuHSCkYhdLylWmeIXOQu9LRAOD4
+ M/CicWeb0zdxux+6mCDTW2rwYQZuJMii0Cx1xSzkOa4NNAQz9osGADunnAvH5JUlyUZI
+ pZjbugJVkVQuOGhGNziruHE3IHWpHrrF7J5Kjjj6MKqN5m28cEV7h4hgjrDeU9Usxf80
+ 3TYA==
+X-Gm-Message-State: AOAM531X2wthwmFIzCbqHh1vtAx102UPpiSEkg5aW/3NQMye7PF0RbsL
+ qisM+PeHn0IkLfoCXFVtRDYaH2/4uzQ=
+X-Google-Smtp-Source: ABdhPJwdW1VHZpyOO7flS+6Lw0RLKK0NdyZFeZL3Jt6dzMlLPAjqUF0dRfiA++0ucYicGzs5oRtcIw==
+X-Received: by 2002:a2e:9b92:: with SMTP id z18mr2799299lji.364.1594740452457; 
+ Tue, 14 Jul 2020 08:27:32 -0700 (PDT)
+Received: from mail-lj1-f176.google.com (mail-lj1-f176.google.com.
+ [209.85.208.176])
+ by smtp.gmail.com with ESMTPSA id y2sm5371682lfh.1.2020.07.14.08.27.30
+ for <linux-riscv@lists.infradead.org>
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Tue, 14 Jul 2020 08:27:31 -0700 (PDT)
+Received: by mail-lj1-f176.google.com with SMTP id r19so23257893ljn.12
+ for <linux-riscv@lists.infradead.org>; Tue, 14 Jul 2020 08:27:30 -0700 (PDT)
+X-Received: by 2002:a2e:86c4:: with SMTP id n4mr2701790ljj.312.1594740450439; 
+ Tue, 14 Jul 2020 08:27:30 -0700 (PDT)
 MIME-Version: 1.0
-References: <20200626223625.199813-1-peterx@redhat.com>
- <mhng-9a62674e-ca04-4e59-a03a-5e4924ef83ca@palmerdabbelt-glaptop1>
-In-Reply-To: <mhng-9a62674e-ca04-4e59-a03a-5e4924ef83ca@palmerdabbelt-glaptop1>
-From: Pekka Enberg <penberg@gmail.com>
-Date: Tue, 14 Jul 2020 18:12:14 +0300
-Message-ID: <CAOJsxLHOMCtoty49+8u9+5EA2H76nE5-MAbyPSzP4gvYAfG+2A@mail.gmail.com>
-Subject: Re: [PATCH 17/26] mm/riscv: Use general page fault accounting
-To: Palmer Dabbelt <palmer@dabbelt.com>
+References: <20200714105505.935079-1-hch@lst.de>
+ <20200714105505.935079-5-hch@lst.de>
+In-Reply-To: <20200714105505.935079-5-hch@lst.de>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Tue, 14 Jul 2020 08:27:14 -0700
+X-Gmail-Original-Message-ID: <CAHk-=wgpYFEPMfYmNR-9SuPaeC432sC7nmZrismRHQEiR2GM4g@mail.gmail.com>
+Message-ID: <CAHk-=wgpYFEPMfYmNR-9SuPaeC432sC7nmZrismRHQEiR2GM4g@mail.gmail.com>
+Subject: Re: [PATCH 4/6] uaccess: remove segment_eq
+To: Christoph Hellwig <hch@lst.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200714_111233_288863_47299FC6 
-X-CRM114-Status: UNSURE (   8.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200714_112734_764551_369D9EC2 
+X-CRM114-Status: GOOD (  11.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -90,37 +98,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Andrea Arcangeli <aarcange@redhat.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Will Deacon <will@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- LKML <linux-kernel@vger.kernel.org>, Peter Xu <peterx@redhat.com>,
- "linux-mm@kvack.org" <linux-mm@kvack.org>,
- Michael Ellerman <mpe@ellerman.id.au>,
- Andrew Morton <akpm@linux-foundation.org>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Gerald Schaefer <gerald.schaefer@de.ibm.com>
+Cc: linux-arch <linux-arch@vger.kernel.org>, Nick Hu <nickhu@andestech.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Greentime Hu <green.hu@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Vincent Chen <deanbo422@gmail.com>,
+ linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Palmer,
+Ack, just with a note:
 
-On Sat, Jul 11, 2020 at 10:43 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
-> This still slightly changes the accounting numbers, but I don't think it does
-> so in a way that's meaningful enough to care about.  SIGBUS is the only one
-> that might happen frequently enough to notice, I doubt anyone cares about
-> whether faults are accounted for during OOM.
+On Tue, Jul 14, 2020 at 4:06 AM Christoph Hellwig <hch@lst.de> wrote:
+>
+> --- a/arch/x86/include/asm/uaccess.h
+> +++ b/arch/x86/include/asm/uaccess.h
+> @@ -33,7 +33,7 @@ static inline void set_fs(mm_segment_t fs)
+>         set_thread_flag(TIF_FSCHECK);
+>  }
+>
+> -#define segment_eq(a, b)       ((a).seg == (b).seg)
+> +#define uaccess_kernel() (get_fs().seg == KERNEL_DS.seg)
+>  #define user_addr_max() (current->thread.addr_limit.seg)
 
-What do you mean?
+This "uaccess_kernel()" interface is a better model anyway, because at
+least on x86 (and from a quick glance at others), we might avoid the
+exact equality comparison, and instead do simpler/better things.
 
-AFAICT, this patch _fixes_ the accounting to be correct on page fault
-restarts. I sent a patch to fix this up some time ago, but of course
-this generic solutions is better:
+On x86-64, for example, checking whether the limit has the high bit
+set is not only more flexible and correct, it's much cheaper too.
 
-http://lists.infradead.org/pipermail/linux-riscv/2020-June/000775.html
+Of course, trying to get rid of all this means that it doesn't matter
+so much, but it would probably have been good to do this part years
+ago regardless.
 
-- Pekka
+                  Linus
 
 _______________________________________________
 linux-riscv mailing list
