@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A5391C433E3
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 11:01:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7305EC433E0
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 11:04:00 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7566C21D79
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 11:01:48 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 43CA7207CD
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 11:04:00 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="tlRo/PNg";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="Kz01khxc"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7566C21D79
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="h6bMOGt4";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="OSM7z2Fk"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 43CA7207CD
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,33 +26,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=8eazZ9IlByl/wlZHAVD2+bz5/EDsHc3pbpVL59MH5Os=; b=tlRo/PNgcNcbFAWfgjRqbIV1F
-	8A7l4k9dwPj7POqSQ4Hg3B6QwPzIvC96Nf+7GNSYg45nnL0uTTIAf9rA08QDr0RdQi+QnfVQIzRSg
-	vzVCSTHhUet6aX5IhXxEDYUE2+qNWGV1Ym32ZkvIJvYkOq74/AS73J/zzoOErkWc6mkg5/712j/qM
-	EvL1D2IDT60KN0QkaFrwkKBv115A6yH1kmh/GMD5HCNamlXoP4B++SZIzBPpSPJJityuOIogFuTiM
-	R8S84Kcj9EGD/dMcqFgEPWyLk0oJIM9brIFVGbPNAn8i6WMOHxRnZ5wJCkGOHeM8Yd74wVOXqqgtI
-	tfrl0dmAA==;
+	 bh=4d+GTx0senHuExBGDUD5kzKfMZ+H539lpQ3yQayfC6M=; b=h6bMOGt4aP2oNy21gm4nQFV56
+	KfD39nElREvJwkWUkbTnX9EiEIwsLOhjjZMny2UvIMJeYlioLXSxXx4Byna6p9MUZCSkpUs6brl/0
+	Z8LPg0qeIizG51UqEiJuV1i0pICatRQ9iOAlGt3LSf9RGENdHoRRAKx7+0+SM14gDLG3mptbyJaya
+	rlD7OXOeH5HkMO+Nt31SHNs8spnnLJY/7NTDbOj5VdxRYkMzUaLQtOjD8OEjyayuxVsvBSbUOiEmZ
+	SIWNF1KABkj0UWwJM3p/30ruTdG90RQ6+gp1YfhCvLc9L1ecMJ2S+NInfA509UV2cHcRcDSLHU7nh
+	uqm/OHYCw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jvIgw-0001Mh-OB; Tue, 14 Jul 2020 11:01:42 +0000
+	id 1jvIj5-0001a2-7W; Tue, 14 Jul 2020 11:03:55 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jvIgu-0001MD-Vs
- for linux-riscv@merlin.infradead.org; Tue, 14 Jul 2020 11:01:41 +0000
+ id 1jvIj2-0001Zm-Lo
+ for linux-riscv@merlin.infradead.org; Tue, 14 Jul 2020 11:03:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
  References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
  Content-Type:Content-ID:Content-Description;
- bh=dLJ+rswlwOb9VgarkBahNyYojmAUY/xiMFDZ6ppJYq8=; b=Kz01khxc0JwwuZnVk8sIru0ipf
- o0d8wJyabxrEX2NNseTwAW9ee/TD6/cNvWILaL6Jyr1x1fwztZHD9HGX1/nF+lhj0I6J+4Zy/pBs5
- zy3/VlfHrn2a9R29W3rU/ZDeSZekvc+Jc2XJi/KpH4Zq2CqAwUQSXrvalLeS33yo5y1ufgkkEV6gj
- iiCgi4O4JciPs8Kxjg6z5bGsJx8WVKqosaMuX36dAliAyMFuCTSFZ4mAy0FK+MZHBJH1Iti6GRTlu
- 7G+lR2TYNLx5MMBH58KjINfHWfuicHp3DvETkmodt5HAUCdYFiM51FXMNYNUGiXUsO6AVoEhOxoM6
- bzBJcIdA==;
+ bh=wO7HFuaPN2PyMlA7RlKTUtBx6uiRejKmUIauiPOSfj0=; b=OSM7z2FkP6QewfE+zQd32Z1KZs
+ BFOZmnnBZ7z/1DApnT2fqXZYMia6JVDaAPU57gBg3Z7JSAYi7AOSp62k8IiTrOlQhKLE5qBjJBpjO
+ CuHkmT3M/idtb1smuV+rFuSdAAjHnMPtR1FF2l1JlPxF3MbxJOlIRldz+CiHJ7y0nbhFw6489mFqo
+ 9y+HuQwsBQ53C6cHfxDiG+VK1XSoLo1b4EM5BtkFBoq6yt+wCdYAg4NVmknaO4zsyrZPliZpLbmyR
+ 7i/+PTU+mu9c7dK5zBZZQJX7gnicSDG/QxuBvnO7FUGoR/sc9rNgbA7kaMaw0vjuiF2w+aV+dDcVg
+ l8d0oSQA==;
 Received: from 089144201169.atnat0010.highway.a1.net ([89.144.201.169]
  helo=localhost)
  by casper.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jvIgt-00065C-BH; Tue, 14 Jul 2020 11:01:39 +0000
+ id 1jvIj0-0006Al-CC; Tue, 14 Jul 2020 11:03:50 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>,
  Vincent Chen <deanbo422@gmail.com>,
@@ -60,9 +60,9 @@ To: Nick Hu <nickhu@andestech.com>, Greentime Hu <green.hu@gmail.com>,
  Palmer Dabbelt <palmer@dabbelt.com>,
  Andrew Morton <akpm@linux-foundation.org>,
  Linus Torvalds <torvalds@linux-foundation.org>
-Subject: [PATCH 2/6] nds32: use uaccess_kernel in show_regs
-Date: Tue, 14 Jul 2020 12:55:01 +0200
-Message-Id: <20200714105505.935079-3-hch@lst.de>
+Subject: [PATCH 3/6] riscv: include <asm/pgtable.h> in <asm/uaccess.h>
+Date: Tue, 14 Jul 2020 12:55:02 +0200
+Message-Id: <20200714105505.935079-4-hch@lst.de>
 X-Mailer: git-send-email 2.26.2
 In-Reply-To: <20200714105505.935079-1-hch@lst.de>
 References: <20200714105505.935079-1-hch@lst.de>
@@ -87,27 +87,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use the uaccess_kernel helper instead of duplicating it.
+To ensure TASK_SIZE is defined for USER_DS.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
-Acked-by: Greentime Hu <green.hu@gmail.com>
 ---
- arch/nds32/kernel/process.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/riscv/include/asm/uaccess.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/nds32/kernel/process.c b/arch/nds32/kernel/process.c
-index 9712fd474f2ca3..f06265949ec28b 100644
---- a/arch/nds32/kernel/process.c
-+++ b/arch/nds32/kernel/process.c
-@@ -121,7 +121,7 @@ void show_regs(struct pt_regs *regs)
- 		regs->uregs[3], regs->uregs[2], regs->uregs[1], regs->uregs[0]);
- 	pr_info("  IRQs o%s  Segment %s\n",
- 		interrupts_enabled(regs) ? "n" : "ff",
--		segment_eq(get_fs(), KERNEL_DS)? "kernel" : "user");
-+		uaccess_kernel() ? "kernel" : "user");
- }
+diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
+index 8ce9d607b53dce..22de922d6ecb2f 100644
+--- a/arch/riscv/include/asm/uaccess.h
++++ b/arch/riscv/include/asm/uaccess.h
+@@ -8,6 +8,8 @@
+ #ifndef _ASM_RISCV_UACCESS_H
+ #define _ASM_RISCV_UACCESS_H
  
- EXPORT_SYMBOL(show_regs);
++#include <asm/pgtable.h>		/* for TASK_SIZE */
++
+ /*
+  * User space memory access functions
+  */
 -- 
 2.26.2
 
