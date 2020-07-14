@@ -2,68 +2,74 @@ Return-Path: <SRS0=l78j=AZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 45F78C433E6
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 11:43:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DA6B8C433E0
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 11:43:58 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1206920BED
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 11:43:19 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A770120BED
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 11:43:58 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="JjZihSo0";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="tE0u9TlA"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1206920BED
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="q205ci+r"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A770120BED
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.intel.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:Message-Id:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=ffjdSrfCwdiPc16kPI03E4cAru3FXOXlpd9BK0GPTR4=; b=JjZihSo05raHSKYs/nQBXbe9Z
-	rATQ780RtVTHhUB3KhYDK95VRD0EGVAJ1QiN3aerw22mYEZPn6CXP7m8jSPqT23VHD58P2c3oAp3C
-	lvvFMpA3zS1iXCjZ1SK9p34HmF8B7OeuohHkjIdPaIdHmS4zOfdN+s7j0oo/XBjhvhdcs7aRdzMsE
-	hDsmE7UMy7USVahhfp4tdGxOF/J2X6YIvKPPnA0F9v4A2ZHC9CeJ5PwMVxPX1nIfhWYFCVE5LFsr+
-	79OrJAS5A4U9kmQZ9BDewXcDtXTv4vBi/buzAuTgZOideEx/TIPLBiLN3HZsMfKvi5Nqc1TnJGdEg
-	6VbbzM/Sg==;
+	 bh=+gxnAmteTPfO/LzdMB21j/+0w9pGBJN1pmSWKw8LTjI=; b=q205ci+rO2vOboqKQVRqnfrj9
+	mN+VZzYw/4RWHaSB36mbGJkrNuEEDrpMz0kO5a+lj2TR11UkFW31E14ivahtTuINg/6p4oGjU4g5b
+	Lf3h8RW3EwfhcUOZwEFywoU7jwz11gPf5h8kt4SWm7kvLCvOXbSCvo9luiXBhyBBLE2fGpmE1K076
+	TdBXWUY9MyzeesiOIAMzlNOwJZHM9Su2C0kwJhz6Ym9+udd8Z5o1D7XSccpWvDpVvHP2aoDdlUH4J
+	yvs44bu8xb6uDAhR7kTRm39jSA8ono47lU+tJ5JFEuPO3dp+/mSQdCEn9Vr86/fbJxWuXpzi0iG8q
+	iu3TEjjtA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jvJL7-0003C1-NT; Tue, 14 Jul 2020 11:43:13 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1jvJLl-0003IK-Fk; Tue, 14 Jul 2020 11:43:53 +0000
+Received: from mga11.intel.com ([192.55.52.93])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jvJL5-0003B8-AR
- for linux-riscv@lists.infradead.org; Tue, 14 Jul 2020 11:43:12 +0000
-Received: from devnote2 (NE2965lan1.rev.em-net.ne.jp [210.141.244.193])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 9958D20BED;
- Tue, 14 Jul 2020 11:43:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1594726990;
- bh=cVmijVoFVzbUvu8fDT/dJyJnUDFjkjRUgn8Ctil7QrQ=;
- h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
- b=tE0u9TlAoXY3svJF3yeRIYYYcEzsS2duKcVk5vMd62IsQrVixbg63cI1xTh0aCFYA
- UtbBHxPX6ThWFG2vjLypD7C+yUbAG0G9qL4NbODpZdsdLrr575vmJILb7RwZGW0Eus
- EeWMpfWFpBnKNVCZkWWALc57eUAzndusdm8nSojk=
-Date: Tue, 14 Jul 2020 20:43:05 +0900
-From: Masami Hiramatsu <mhiramat@kernel.org>
-To: guoren@kernel.org
-Subject: Re: [PATCH v3 7/7] riscv: Add support for function error injection
-Message-Id: <20200714204305.89ee1183f7c3fc4400e6d7c6@kernel.org>
-In-Reply-To: <1594683562-68149-8-git-send-email-guoren@kernel.org>
-References: <1594683562-68149-1-git-send-email-guoren@kernel.org>
- <1594683562-68149-8-git-send-email-guoren@kernel.org>
-X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+ id 1jvJLi-0003H9-Mo; Tue, 14 Jul 2020 11:43:51 +0000
+IronPort-SDR: XMsFOpaOQFhrbz/+Cotmi6n5rzw1dAob6EI6u0Oi4q6YfOqxjy5IJs1dvZFXzCpj/ObUnZ+PWi
+ lqOK+di+Lm4g==
+X-IronPort-AV: E=McAfee;i="6000,8403,9681"; a="146881968"
+X-IronPort-AV: E=Sophos;i="5.75,350,1589266800"; d="scan'208";a="146881968"
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from fmsmga004.fm.intel.com ([10.253.24.48])
+ by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 14 Jul 2020 04:43:49 -0700
+IronPort-SDR: fstJxPQ124MmOQa5plQpg5ev9IKavwl9YKD5USnNHmGOKRNNXKQN8YtHnAadJpH2+M9zOyL+hi
+ VGzfrISS6hXA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.75,350,1589266800"; d="scan'208";a="307841427"
+Received: from pipper-mobl1.ger.corp.intel.com (HELO localhost)
+ ([10.249.46.185])
+ by fmsmga004.fm.intel.com with ESMTP; 14 Jul 2020 04:43:10 -0700
+Date: Tue, 14 Jul 2020 14:43:09 +0300
+From: Jarkko Sakkinen <jarkko.sakkinen@linux.intel.com>
+To: Russell King - ARM Linux admin <linux@armlinux.org.uk>
+Subject: Re: [PATCH 1/3] module: Rename module_alloc() to text_alloc() and
+ move to kernel proper
+Message-ID: <20200714114309.GB1463346@linux.intel.com>
+References: <20200713182030.1418041-1-jarkko.sakkinen@linux.intel.com>
+ <20200713183410.GY1551@shell.armlinux.org.uk>
+ <20200714094928.GA1442951@linux.intel.com>
+ <20200714095346.GA1551@shell.armlinux.org.uk>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20200714095346.GA1551@shell.armlinux.org.uk>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200714_074311_568037_284A259D 
-X-CRM114-Status: GOOD (  23.32  )
+X-CRM114-CacheID: sfid-20200714_074351_009612_550D7001 
+X-CRM114-Status: GOOD (  32.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -75,134 +81,116 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: me@packi.ch, Guo Ren <guoren@linux.alibaba.com>, anup@brainfault.org,
- palmerdabbelt@google.com, linux-kernel@vger.kernel.org,
- linux-csky@vger.kernel.org, oleg@redhat.com, zong.li@sifive.com,
- paul.walmsley@sifive.com, greentime.hu@sifive.com,
- linux-riscv@lists.infradead.org, bjorn.topel@gmail.com
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+ Kefeng Wang <wangkefeng.wang@huawei.com>, Paul Mackerras <paulus@samba.org>,
+ Zong Li <zong.li@sifive.com>, Andi Kleen <ak@linux.intel.com>,
+ Paul Burton <paulburton@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
+ Vincent Whitchurch <vincent.whitchurch@axis.com>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Petr Mladek <pmladek@suse.com>, Brian Gerst <brgerst@gmail.com>,
+ Andy Lutomirski <luto@kernel.org>, Yonghong Song <yhs@fb.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Jiri Kosina <jkosina@suse.cz>,
+ Anup Patel <anup.patel@wdc.com>, linux-kernel@vger.kernel.org,
+ Philipp Rudo <prudo@linux.ibm.com>, Torsten Duwe <duwe@lst.de>,
+ Masami Hiramatsu <mhiramat@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Mark Rutland <mark.rutland@arm.com>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Vincent Chen <deanbo422@gmail.com>,
+ "open list:S390" <linux-s390@vger.kernel.org>,
+ Joe Lawrence <joe.lawrence@redhat.com>, Helge Deller <deller@gmx.de>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
+ Andrey Ryabinin <aryabinin@virtuozzo.com>, Iurii Zaikin <yzaikin@google.com>,
+ Andrii Nakryiko <andriin@fb.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ "moderated list:ARM PORT" <linux-arm-kernel@lists.infradead.org>,
+ Daniel Axtens <dja@axtens.net>, Damien Le Moal <damien.lemoal@wdc.com>,
+ Peter Oberparleiter <oberpar@linux.ibm.com>,
+ Sean Christopherson <sean.j.christopherson@intel.com>,
+ Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Heiko Carstens <heiko.carstens@de.ibm.com>,
+ Alexei Starovoitov <ast@kernel.org>, Atish Patra <atish.patra@wdc.com>,
+ Will Deacon <will@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Masahiro Yamada <masahiroy@kernel.org>, Nayna Jain <nayna@linux.ibm.com>,
+ Ley Foon Tan <ley.foon.tan@intel.com>,
+ Christian Borntraeger <borntraeger@de.ibm.com>,
+ Dmitry Vyukov <dvyukov@google.com>, Sami Tolvanen <samitolvanen@google.com>,
+ "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>, Mao Han <han_mao@c-sky.com>,
+ Marco Elver <elver@google.com>, Steven Rostedt <rostedt@goodmis.org>,
+ Babu Moger <Babu.Moger@amd.com>, Borislav Petkov <bp@alien8.de>,
+ Greentime Hu <green.hu@gmail.com>, Ben Dooks <ben-linux@fluff.org>,
+ Guan Xuetao <gxt@pku.edu.cn>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ "open list:PARISC ARCHITECTURE" <linux-parisc@vger.kernel.org>,
+ Jessica Yu <jeyu@kernel.org>,
+ "open list:BPF JIT for MIPS \(32-BIT AND 64-BIT\)" <bpf@vger.kernel.org>,
+ "David S. Miller" <davem@davemloft.net>,
+ Thiago Jung Bauermann <bauerman@linux.ibm.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ "open list:SPARC + UltraSPARC \(sparc/sparc64\)" <sparclinux@vger.kernel.org>,
+ Sandipan Das <sandipan@linux.ibm.com>, "H. Peter Anvin" <hpa@zytor.com>,
+ Amit Daniel Kachhap <amit.kachhap@arm.com>,
+ Tiezhu Yang <yangtiezhu@loongson.cn>, Miroslav Benes <mbenes@suse.cz>,
+ Jiri Olsa <jolsa@redhat.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Anders Roxell <anders.roxell@linaro.org>, Sven Schnelle <svens@stackframe.org>,
+ "maintainer:X86 ARCHITECTURE \(32-BIT AND 64-BIT\)" <x86@kernel.org>,
+ "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
+ Mike Rapoport <rppt@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, "Paul E. McKenney" <paulmck@kernel.org>,
+ Josh Poimboeuf <jpoimboe@redhat.com>, KP Singh <kpsingh@chromium.org>,
+ Gerald Schaefer <gerald.schaefer@de.ibm.com>, Nick Hu <nickhu@andestech.com>,
+ "open list:BPF JIT for MIPS \(32-BIT AND 64-BIT\)" <netdev@vger.kernel.org>,
+ "open list:MIPS" <linux-mips@vger.kernel.org>,
+ Sergey Senozhatsky <sergey.senozhatsky@gmail.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ "open list:LINUX FOR POWERPC \(32-BIT AND 64-BIT\)"
+ <linuxppc-dev@lists.ozlabs.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Guo,
-
-On Mon, 13 Jul 2020 23:39:22 +0000
-guoren@kernel.org wrote:
-
-> From: Guo Ren <guoren@linux.alibaba.com>
+On Tue, Jul 14, 2020 at 10:53:46AM +0100, Russell King - ARM Linux admin wrote:
+> On Tue, Jul 14, 2020 at 12:49:28PM +0300, Jarkko Sakkinen wrote:
+> > On Mon, Jul 13, 2020 at 07:34:10PM +0100, Russell King - ARM Linux admin wrote:
+> > > On Mon, Jul 13, 2020 at 09:19:37PM +0300, Jarkko Sakkinen wrote:
+> > > > Rename module_alloc() to text_alloc() and module_memfree() to
+> > > > text_memfree(), and move them to kernel/text.c, which is unconditionally
+> > > > compiled to the kernel proper. This allows kprobes, ftrace and bpf to
+> > > > allocate space for executable code without requiring to compile the modules
+> > > > support (CONFIG_MODULES=y) in.
+> > > 
+> > > I'm not sure this is a good idea for 32-bit ARM.  The code you are
+> > > moving for 32-bit ARM is quite specific to module use in that it also
+> > > supports allocating from the vmalloc area, where the module code
+> > > knows to add PLT entries.
+> > > 
+> > > If the other proposed users of this text_alloc() do not have the logic
+> > > to add PLT entries when branches between kernel code and this
+> > > allocation are not reachable by, e.g. a 26-bit signed offset for 32-bit
+> > > ARM code, then this code is not suitable for that use.
+> > 
+> > My intention is to use this in kprobes code in the place of
+> > module_alloc().  I'm not sure why moving this code out of the module
+> > subsystem could possibly break anything.  Unfortunately I forgot to add
+> > covere letter to my series. Sending v2 with that to explain my use case
+> > for this.
 > 
-> Inspired by the commit 42d038c4fb00 ("arm64: Add support for function
-> error injection"), this patch supports function error injection for
-> riscv.
-> 
-> This patch mainly support two functions: one is regs_set_return_value()
-> which is used to overwrite the return value; the another function is
-> override_function_with_return() which is to override the probed
-> function returning and jump to its caller.
-> 
-> Test log:
->  cd /sys/kernel/debug/fail_function
->  echo sys_clone > inject
->  echo 100 > probability
->  echo 1 > interval
->  ls /
-> [  313.176875] FAULT_INJECTION: forcing a failure.
-> [  313.176875] name fail_function, interval 1, probability 100, space 0, times 1
-> [  313.184357] CPU: 0 PID: 87 Comm: sh Not tainted 5.8.0-rc5-00007-g6a758cc #117
-> [  313.187616] Call Trace:
-> [  313.189100] [<ffffffe0002036b6>] walk_stackframe+0x0/0xc2
-> [  313.191626] [<ffffffe00020395c>] show_stack+0x40/0x4c
-> [  313.193927] [<ffffffe000556c60>] dump_stack+0x7c/0x96
-> [  313.194795] [<ffffffe0005522e8>] should_fail+0x140/0x142
-> [  313.195923] [<ffffffe000299ffc>] fei_kprobe_handler+0x2c/0x5a
-> [  313.197687] [<ffffffe0009e2ec4>] kprobe_breakpoint_handler+0xb4/0x18a
-> [  313.200054] [<ffffffe00020357e>] do_trap_break+0x36/0xca
-> [  313.202147] [<ffffffe000201bca>] ret_from_exception+0x0/0xc
-> [  313.204556] [<ffffffe000201bbc>] ret_from_syscall+0x0/0x2
-> -sh: can't fork: Invalid argument
+> Ah, so you're merely renaming module_alloc() to text_alloc() everywhere?
+> It sounded from the initial patch like you were also converting other
+> users to use module_alloc().
 
-OK, this looks good to me.
+Yes, exactly. I'm making the allocators unconditionally part of the
+kernel proper.
 
-Reviewed-by: Masami Hiramatsu <mhiramat@kernel.org>
+My application for this is test kernels. I never compile anything as
+modules when I test a release.
 
-Thank you,
+Also, I could imagine that especially in small scale embedded devices,
+it could be sometimes useful to be able to have tracing support w/o
+module support.
 
-> 
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Cc: Masami Hiramatsu <mhiramat@kernel.org>
-> Cc: Palmer Dabbelt <palmerdabbelt@google.com>
-> Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> ---
->  arch/riscv/Kconfig              |  1 +
->  arch/riscv/include/asm/ptrace.h |  6 ++++++
->  arch/riscv/lib/Makefile         |  2 ++
->  arch/riscv/lib/error-inject.c   | 10 ++++++++++
->  4 files changed, 19 insertions(+)
->  create mode 100644 arch/riscv/lib/error-inject.c
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 0e9f5eb..ad73174 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -58,6 +58,7 @@ config RISCV
->  	select HAVE_DMA_CONTIGUOUS if MMU
->  	select HAVE_EBPF_JIT if MMU
->  	select HAVE_FUTEX_CMPXCHG if FUTEX
-> +	select HAVE_FUNCTION_ERROR_INJECTION
->  	select HAVE_GENERIC_VDSO if MMU && 64BIT
->  	select HAVE_KPROBES
->  	select HAVE_KPROBES_ON_FTRACE
-> diff --git a/arch/riscv/include/asm/ptrace.h b/arch/riscv/include/asm/ptrace.h
-> index 23372bb..cb4abb6 100644
-> --- a/arch/riscv/include/asm/ptrace.h
-> +++ b/arch/riscv/include/asm/ptrace.h
-> @@ -109,6 +109,12 @@ static inline unsigned long regs_return_value(struct pt_regs *regs)
->  	return regs->a0;
->  }
->  
-> +static inline void regs_set_return_value(struct pt_regs *regs,
-> +					 unsigned long val)
-> +{
-> +	regs->a0 = val;
-> +}
-> +
->  extern int regs_query_register_offset(const char *name);
->  extern unsigned long regs_get_kernel_stack_nth(struct pt_regs *regs,
->  					       unsigned int n);
-> diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-> index 0d0db80..04baa93 100644
-> --- a/arch/riscv/lib/Makefile
-> +++ b/arch/riscv/lib/Makefile
-> @@ -4,3 +4,5 @@ lib-y			+= memcpy.o
->  lib-y			+= memset.o
->  lib-y			+= uaccess.o
->  lib-$(CONFIG_64BIT)	+= tishift.o
-> +
-> +obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
-> diff --git a/arch/riscv/lib/error-inject.c b/arch/riscv/lib/error-inject.c
-> new file mode 100644
-> index 00000000..d667ade
-> --- /dev/null
-> +++ b/arch/riscv/lib/error-inject.c
-> @@ -0,0 +1,10 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +
-> +#include <linux/error-injection.h>
-> +#include <linux/kprobes.h>
-> +
-> +void override_function_with_return(struct pt_regs *regs)
-> +{
-> +	instruction_pointer_set(regs, regs->ra);
-> +}
-> +NOKPROBE_SYMBOL(override_function_with_return);
-> -- 
-> 2.7.4
-> 
-
-
--- 
-Masami Hiramatsu <mhiramat@kernel.org>
+/Jarkko
 
 _______________________________________________
 linux-riscv mailing list
