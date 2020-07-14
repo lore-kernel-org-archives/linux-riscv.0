@@ -2,22 +2,22 @@ Return-Path: <SRS0=l78j=AZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D9E85C433E4
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 03:48:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 37457C433E3
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 03:50:19 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A524D206F0
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 03:48:05 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 06AAC207E8
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jul 2020 03:50:19 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="eWWUg8fT";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="Dn/xsk6E"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A524D206F0
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Wvmdo/TU";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="xSUjBlOy"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 06AAC207E8
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,60 +26,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=pXnW9YjSSS/YWFCxoHMguZBB4gs972ag+vRkGqX/qy0=; b=eWWUg8fTnVtW7NVUcEtbts7+n
-	8OGQyIqGn1qW/fF+Ts9TPK4ZC+CQfBTMQC6YWveZn5JWxf1ePKIAYbQfoCIhu/nMLQ+V33GeGa71c
-	N9pWFzzAQiqiUhtHLf8RBchf3bb9SVEiY70qArLHBj9fQArBcSlgeaqnvfHCZbIBkUT6yzo+GXWDv
-	tLBTg/UVBIuSck8HiF7sW+M2/KFlTIXGkAOnldorQA46cSqgZ0RrHBhZXwK7gnHEG7YuZqaJ2boig
-	QABZY0U3T9cDcfxI46OSxx5EMdLz/+2/yIavLD25UwiYuPrimaj7U+fZC3QdPIY5FsQOk+NPhOm03
-	P5cgfI+xw==;
+	 bh=juZcBcwzX2L/DluSI37ukxAfQwtQ/bOC9yj1Q/EvtPo=; b=Wvmdo/TUp5uzyEvm6EnarH8QV
+	VgUOgSJzuKKPY8Zy1lgMAkdsOTGm3smS1s1XlqZNQTK+MoMa9XBgRFUw6/EZR6YQqJ5fGu9mmtijD
+	lEW0fZxwaLnMLF18TVhqg+9xEuchv8tQeNeWDaL578FDjqr0RCn1g+d2KI3q6e7VAohuh5E6Krn1n
+	MVnWJvnpy9NPOPtZ5FhGkHsIsyLdkpHbZre+BFkBfU23dQm4AtqRAQGIHc5P/roZiiuSroxL/4+GT
+	XSUN4abbtoebl7jPTmIrvhCqIevRa5+qzrs/D9YMvH23ovm3bqOlhC9qhIJ+lFJExM3YWOT2+PktD
+	/GEuVPKmA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jvBvB-0007ZU-OB; Tue, 14 Jul 2020 03:47:57 +0000
-Received: from mail-wr1-x444.google.com ([2a00:1450:4864:20::444])
+	id 1jvBxO-0007eV-NT; Tue, 14 Jul 2020 03:50:14 +0000
+Received: from mail-wr1-x441.google.com ([2a00:1450:4864:20::441])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jvBv8-0007Yw-Uy
- for linux-riscv@lists.infradead.org; Tue, 14 Jul 2020 03:47:55 +0000
-Received: by mail-wr1-x444.google.com with SMTP id k6so19546040wrn.3
- for <linux-riscv@lists.infradead.org>; Mon, 13 Jul 2020 20:47:52 -0700 (PDT)
+ id 1jvBxL-0007du-0V
+ for linux-riscv@lists.infradead.org; Tue, 14 Jul 2020 03:50:12 +0000
+Received: by mail-wr1-x441.google.com with SMTP id q5so19565666wru.6
+ for <linux-riscv@lists.infradead.org>; Mon, 13 Jul 2020 20:50:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=qI24xBB/rzdG/cpOm9YsxEJKq/zwmC3JEgqbChZ686c=;
- b=Dn/xsk6EaU3zSb3BKgpl+10/FOdZR1egP1f1UGyP/yNSXO++t5ytc1+ErOGmvm+3Qw
- sKKbiNY4LnTQ8EzxXcs6o3fPg+FB3aGqwwk3T6BNlzi4Ebc4Vte3BvxGAccxcvLgprJa
- dFBBCrQvDqm3cTojPiUdKlSODLmPVNibHOmFmaV2z2OCkvZrDheBxM9q99AG3Wx/GhRM
- k91NIQFoXCd1vjRmkwAntBQQEg72tpb5qFckMM4QyANyda/c40HxMabSblMYJX4kJvGL
- FujGdM2y3OlTkTveXMZupSqKsV0sqI50l2HoHWCBz7yh3OzxseS/idJUYn88p5lbQsXx
- a7aQ==
+ :cc; bh=W2pU/oRXe8zSH98/qlLNnZqVfljdKaiKGd5Djyh/EW4=;
+ b=xSUjBlOytxheMN0Qygh7ElYrmY/6f5sOe3XoReILxBTvS+M/NKh4zZDDmr6WF4A6Ft
+ zU/Ghe9q8AOapCe1xcwtRt2f7CkyVqHXMc4q7C7uZqjLywbOOv5Ru/SFE7w08PPgMQ7/
+ yyJIXh69rVO4dfbZ+bYhMnPUywUqj1pUJmHYwT16W/PAkASHlCtRov419gtTrAhc+Lz1
+ T2GxOF8p6rzAUVzDP64yxNHkjqUEvCckMKaO1qMzxeVsIGDeFDfdw0VbeEQu5t/GauLR
+ makvc8Ts0BG2zt2oi+VysQqrk74fGbMeiaJ+7SGSrfRb0dBYR/PkOSsOy8iSR9XEwOwv
+ EdEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=qI24xBB/rzdG/cpOm9YsxEJKq/zwmC3JEgqbChZ686c=;
- b=TrXhZWQTsB88YpEKIqquSh3mdJOjG4i0yvysm6euwIfQjSAV/pfnRECj0spPszWO5B
- 1EBlhtMlLziPpezUylL6a6rnjUsoPNVuULVKM9vnD93ZJJXY5RsCxteNBG63cZmgv/26
- HMit5CvI29BBBMbhC4tRJ2eayUEZVmL8Dm6xKMIKmZJk2/gsiBhCNyN0Ll2X6/1+TysP
- BySXr0eXIl/ShmgQgoJyep/LXpKcpaUO1+C3cWc7GwgJZcvJDsvuv2Z/BdTi94et//Cb
- gqlCNqdXU6r6dN9SpVvIiaO43+rqL9GAkh+UV26k9+rIRUQdbMReNDpwWksDfQyepIwn
- QY7A==
-X-Gm-Message-State: AOAM533O0f1VVF3RicDLmf8aobcWbT4wRit0LcYtyCC5yn0W+YBw1agN
- IQQdjmrJS5GihbU/EqtUY7Mh02a4QLEOXw8XF7EArA==
-X-Google-Smtp-Source: ABdhPJyzmGfojs4K3LUS8fPXgGa7xK2rYTn4JhLpsd4yeuJCR3uTFmQBj4zD54/cXBQfEZqb4E1JRCJz4UWUThjGymE=
-X-Received: by 2002:adf:fcca:: with SMTP id f10mr2659455wrs.325.1594698471722; 
- Mon, 13 Jul 2020 20:47:51 -0700 (PDT)
+ bh=W2pU/oRXe8zSH98/qlLNnZqVfljdKaiKGd5Djyh/EW4=;
+ b=KwI/s4WL/ehHg0lvEY/2xePlM2ULEP2lBHxyJzIdkx0M7xEg/TjHOKr2jbVQBKUDbl
+ q0iqY11F6Ysf2vtAe2DjRFiczZm708F+ezTcqrRzM3367IHYGEVg5d2fn57Rkwqdk1XE
+ AGenIgnZeZclA7yJLIaLwnaLxPriH7I7VbkH4KGjJGqJoN6Xt6etz53+3Euabmr+MTox
+ r6xFIK/VaP67zU2mQxO6S1vDCUfUq31kAXEOi4DcUbeAucPW8zqNXacMsH9utS84tHi5
+ OCXcxlDhCtnzl0+x1i/o80sr6pWN6aMSzD7rkQpmXh19eDvS67wB0sr07ILTB8iUy2z1
+ 6+5A==
+X-Gm-Message-State: AOAM533OxCs8mEWI+xjKwTFkD07eFplthXXfaaAcxCSiNkOfyHhK5qUu
+ nGgqYB31/WMH8e0a8NINiLGqxSkGv4dXXvnTr6SiBw==
+X-Google-Smtp-Source: ABdhPJyxhhnTBn9Z/d3RQByv+5O7q0RnlhAbpx4mldb52mcVpL0AUfedlXqbhjWWfR/hwCGcWa89EFLWLUtbzxojgNo=
+X-Received: by 2002:adf:fcca:: with SMTP id f10mr2671322wrs.325.1594698609842; 
+ Mon, 13 Jul 2020 20:50:09 -0700 (PDT)
 MIME-Version: 1.0
 References: <20200627161957.134376-1-anup.patel@wdc.com>
- <20200627161957.134376-6-anup.patel@wdc.com>
- <20200714023748.GA1164267@bogus>
-In-Reply-To: <20200714023748.GA1164267@bogus>
+ <mhng-4d70be69-ef20-4d38-bda4-ec4101530c0a@palmerdabbelt-glaptop1>
+In-Reply-To: <mhng-4d70be69-ef20-4d38-bda4-ec4101530c0a@palmerdabbelt-glaptop1>
 From: Anup Patel <anup@brainfault.org>
-Date: Tue, 14 Jul 2020 09:17:39 +0530
-Message-ID: <CAAhSdy0O0YoDJ84NX8OasjuTdE8pd=Yk51WJWLpBiAEk3AcCQQ@mail.gmail.com>
-Subject: Re: [PATCH v2 5/5] dt-bindings: timer: Add CLINT bindings
-To: Rob Herring <robh@kernel.org>
+Date: Tue, 14 Jul 2020 09:19:57 +0530
+Message-ID: <CAAhSdy3mHhaKTrhRnNd_gGv7GbmjqxkB28sOw4q7ZTxw4oRd1Q@mail.gmail.com>
+Subject: Re: [PATCH v2 0/5] Dedicated CLINT timer driver
+To: Palmer Dabbelt <palmer@dabbelt.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200713_234755_009814_0A732ADF 
-X-CRM114-Status: GOOD (  21.89  )
+X-CRM114-CacheID: sfid-20200713_235012_137018_71B21F3C 
+X-CRM114-Status: GOOD (  26.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -91,104 +90,100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Damien Le Moal <damien.lemoal@wdc.com>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Anup Patel <anup.patel@wdc.com>,
+Cc: devicetree@vger.kernel.org, Damien Le Moal <Damien.LeMoal@wdc.com>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Anup Patel <Anup.Patel@wdc.com>,
  "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Atish Patra <atish.patra@wdc.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>,
+ Atish Patra <Atish.Patra@wdc.com>, Rob Herring <robh+dt@kernel.org>,
  Alistair Francis <Alistair.Francis@wdc.com>,
- Thomas Gleixner <tglx@linutronix.de>,
- linux-riscv <linux-riscv@lists.infradead.org>
+ Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Albert Ou <aou@eecs.berkeley.edu>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2020 at 8:07 AM Rob Herring <robh@kernel.org> wrote:
+On Tue, Jul 14, 2020 at 4:32 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
 >
-> On Sat, Jun 27, 2020 at 09:49:57PM +0530, Anup Patel wrote:
-> > We add DT bindings documentation for CLINT device.
+> On Sat, 27 Jun 2020 09:19:52 PDT (-0700), Anup Patel wrote:
+> > The current RISC-V timer driver is convoluted and implements two
+> > distinct timers:
+> >  1. S-mode timer: This is for Linux RISC-V S-mode with MMU. The
+> >     clocksource is implemented using TIME CSR and clockevent device
+> >     is implemented using SBI Timer calls.
+> >  2. M-mode timer: This is for Linux RISC-V M-mode without MMU. The
+> >     clocksource is implemented using CLINT MMIO time register and
+> >     clockevent device is implemented using CLINT MMIO timecmp registers.
 > >
-> > Signed-off-by: Anup Patel <anup.patel@wdc.com>
-> > Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
-> > ---
-> >  .../bindings/timer/sifive,clint.txt           | 34 +++++++++++++++++++
-> >  1 file changed, 34 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/timer/sifive,clint.txt
->
-> Bindings should be in DT schema format now.
-
-Okay, will update.
-
->
+> > This patchset removes clint related code from RISC-V timer driver and
+> > arch/riscv directory. Instead, the series adds a dedicated MMIO based
+> > CLINT driver under drivers/clocksource directory which can be used by
+> > Linux RISC-V M-mode (i.e NoMMU Linux RISC-V).
 > >
-> > diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.txt b/Documentation/devicetree/bindings/timer/sifive,clint.txt
-> > new file mode 100644
-> > index 000000000000..45b75347a7d5
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/timer/sifive,clint.txt
-> > @@ -0,0 +1,34 @@
-> > +SiFive Core Local Interruptor (CLINT)
-> > +-------------------------------------
-> > +
-> > +SiFive (and other RISC-V) SOCs include an implementation of the SiFive Core
-> > +Local Interruptor (CLINT) for M-mode timer and inter-processor interrupts.
-> > +
-> > +It directly connects to the timer and inter-processor interrupt lines of
-> > +various HARTs (or CPUs) so RISC-V per-HART (or per-CPU) local interrupt
-> > +controller is the parent interrupt controller for CLINT device.
-> > +
-> > +The clock frequency of CLINT is specified via "timebase-frequency" DT
-> > +property of "/cpus" DT node. The "timebase-frequency" DT property is
-> > +described in: Documentation/devicetree/bindings/riscv/cpus.yaml
-> > +
-> > +Required properties:
-> > +- compatible : should be "riscv,clint0" or "sifive,clint-1.0.0". A specific
->
-> A new versioning scheme from SiFive? To review, we don't do version
-> numbers unless there's a well defined and documented scheme. IOW, one
-> that's not s/w folks just making up v1, v2, v3, etc.
-
-The "riscv,clint0" is already used by various RISC-V systems (including QEMU).
-
-The "sifive,clint-1.0.0" is for being consistent with the PLIC
-versioning scheme.
-
-There is no clear documentation of CLINT versioning scheme. I think it's best
-to just drop "sifive,clint-1.0.0" . Agree ??
-
->
-> > +  string identifying the actual implementation can be added if implementation
-> > +  specific worked arounds are needed.
-> > +- reg : Should contain 1 register range (address and length).
-> > +- interrupts-extended : Specifies which HARTs (or CPUs) are connected to
-> > +  the CLINT.  Each node pointed to should be a riscv,cpu-intc node, which
-> > +  has a riscv node as parent.
-> > +
-> > +Example:
-> > +
-> > +     clint@2000000 {
-> > +             compatible = "sifive,clint-1.0.0", "sifive,fu540-c000-clint";
->
-> Doesn't match the binding.
-
-Okay, will update.
-
->
-> > +             interrupts-extended = <
-> > +                     &cpu1-intc 3 &cpu1-intc 7
-> > +                     &cpu2-intc 3 &cpu2-intc 7
-> > +                     &cpu3-intc 3 &cpu3-intc 7
-> > +                     &cpu4-intc 3 &cpu4-intc 7>;
-> > +             reg = <0x2000000 0x4000000>;
-> > +     };
-> > --
-> > 2.25.1
+> > The patchset is based up Linux-5.8-rc2 and can be found at riscv_clint_v2
+> > branch of: https://github.com/avpatel/linux.git
 > >
+> > This series is tested on:
+> >  1. QEMU RV64 virt machine using Linux RISC-V S-mode
+> >  2. QEMU RV32 virt machine using Linux RISC-V S-mode
+> >  3. QEMU RV64 virt machine using Linux RISC-V M-mode (i.e. NoMMU)
+> >
+> > Changes since v1:
+> >  - Rebased series on Linux-5.8-rc2
+> >  - Added pr_warn() for case where ipi_ops not available in PATCH1
+> >  - Updated ipi_inject() prototype to use "struct cpumask *" in PATCH1
+> >  - Updated CLINT_TIMER kconfig option to depend on RISCV_M_MODE in PATCH4
+> >  - Added riscv,clint0 compatible string in DT bindings document
+> >
+> > Anup Patel (5):
+> >   RISC-V: Add mechanism to provide custom IPI operations
+> >   RISC-V: Remove CLINT related code
+> >   clocksource/drivers/timer-riscv: Remove MMIO related stuff
+> >   clocksource/drivers: Add CLINT timer driver
+> >   dt-bindings: timer: Add CLINT bindings
+>
+> This all generally LGTM, though I haven't been through the code line-by-line
+> yet.  It touches a bunch of trees, so I'd prefer to have some Acks before
+> merging -- I'll dig through the RISC-V specific stuff, but the new CLINT driver
+> probhably deserves a look from one of the clocksource folks.
+>
+> I think the only issue is that the port will be broken between patch 2 and 4,
+> as at that point we won't have an M-mode timer driver.  I think it shouldn't be
+> too much to just reorder these, LMK if you want to do it or you want me to.
+
+Okay, I will try your suggestion to reorder patches. There is another minor
+build issue reported by test bots which I will fix as well.
+
+I will send v3 in a couple of days before end-of-week.
 
 Regards,
 Anup
+
+>
+> Thanks!
+>
+> >
+> >  .../bindings/timer/sifive,clint.txt           |  34 +++
+> >  arch/riscv/Kconfig                            |   2 +-
+> >  arch/riscv/include/asm/clint.h                |  39 ---
+> >  arch/riscv/include/asm/smp.h                  |  11 +
+> >  arch/riscv/include/asm/timex.h                |  28 +--
+> >  arch/riscv/kernel/Makefile                    |   2 +-
+> >  arch/riscv/kernel/clint.c                     |  44 ----
+> >  arch/riscv/kernel/sbi.c                       |  14 ++
+> >  arch/riscv/kernel/setup.c                     |   2 -
+> >  arch/riscv/kernel/smp.c                       |  44 ++--
+> >  arch/riscv/kernel/smpboot.c                   |   4 +-
+> >  drivers/clocksource/Kconfig                   |  12 +-
+> >  drivers/clocksource/Makefile                  |   1 +
+> >  drivers/clocksource/timer-clint.c             | 229 ++++++++++++++++++
+> >  drivers/clocksource/timer-riscv.c             |  17 +-
+> >  include/linux/cpuhotplug.h                    |   1 +
+> >  16 files changed, 337 insertions(+), 147 deletions(-)
+> >  create mode 100644 Documentation/devicetree/bindings/timer/sifive,clint.txt
+> >  delete mode 100644 arch/riscv/include/asm/clint.h
+> >  delete mode 100644 arch/riscv/kernel/clint.c
+> >  create mode 100644 drivers/clocksource/timer-clint.c
 
 _______________________________________________
 linux-riscv mailing list
