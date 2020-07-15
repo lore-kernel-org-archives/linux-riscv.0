@@ -2,23 +2,23 @@ Return-Path: <SRS0=uYfr=A2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 552A4C433E2
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2020 19:28:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 259B4C433E4
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2020 20:09:05 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 25B402065D
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2020 19:28:45 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E996C2065D
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2020 20:09:04 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="DTzCkUdB";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="QQl+stRx"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 25B402065D
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="kUPX2HwC";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="jnQVra4+"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E996C2065D
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -26,59 +26,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=QDWvLNaNNBfupM50Zw3FRSLL3sfJcDH15o/EK1eaBcM=; b=DTzCkUdBk1w6zwfDxufv9f117
-	0+Cn4g8xDZclONKFTfPgFX0JxQpl07YaJ7AeD6JZ0AJZk6DsRmVm6Q6vn4Kj1WVu1xbVcIYcO75tu
-	NwMtL+u6uK2TET8ZYX36tJ0WH/H+MSyxp+hNa/+DDdWWtxJSXGxHF2EivOVXDWM7DPMLVDBTrSP3w
-	LqBzPpXIjJ2wJaQ3Vrn0ToRpphm6/0v4xN5zPxtD467L8dxQLtVDlTmNJGIiCFw9F78CPPBBg49dg
-	j1eYzBWodwtSHKtcu1Q24zdhVrKJqo0Hk+lL/uKmIo8W7EIUyLFO1So69dLfDxfUVDQQc26B/WnUZ
-	XJ+Otbmmg==;
+	 bh=s59PBYz5RcczJ1CX4YmfqGjPciOH07UIRWUc0qwkuvY=; b=kUPX2HwCS1mRxPbSz8g1FwDd6
+	0Y1nHonNtCkA/YRoKzJHEyjyR8Fe9MjitpcMu3MGRwjQRGM6VqWxsAR5t7rzkskxXOcdGnjd0gpAT
+	aA5vAvfsNtLTMPQSawVAgQbgY4oTgzCEKSbJDpxv4rWvJgMehHkGNv4vpeM9uMVozvizS31F1C0Jj
+	WtakG6JIfSCtBiR1BYQDAj1aEiwOhJG6koiqZBJP4X4/JY4uNiZzU017Q3khwEckCuYLtCyX+Ym3u
+	Ad9WlpTS2TOn5hiHkHFNtnBTZ7/9u3BFSUwyZOP5XHDU73ypMLcJGbKb8PWMPmqR8qFF2J9xSvceG
+	52Po2kDaw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jvn54-0002eD-Gr; Wed, 15 Jul 2020 19:28:38 +0000
-Received: from mail-qt1-x841.google.com ([2607:f8b0:4864:20::841])
+	id 1jvni7-0005gI-7o; Wed, 15 Jul 2020 20:08:59 +0000
+Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jvn4z-0002bo-J7
- for linux-riscv@lists.infradead.org; Wed, 15 Jul 2020 19:28:35 +0000
-Received: by mail-qt1-x841.google.com with SMTP id i3so2644352qtq.13
- for <linux-riscv@lists.infradead.org>; Wed, 15 Jul 2020 12:28:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ id 1jvni5-0005fm-MJ
+ for linux-riscv@lists.infradead.org; Wed, 15 Jul 2020 20:08:58 +0000
+Received: by mail-wm1-x343.google.com with SMTP id 17so7322255wmo.1
+ for <linux-riscv@lists.infradead.org>; Wed, 15 Jul 2020 13:08:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=PMgEusFSc7qqgR9Wh9Vc9NkHNHEql1tbsxy2XlEu5jA=;
- b=QQl+stRx0THiGLOhlhYjMC/gkTN5p/8VNdlFA1b3dbpXE2kjdJPTZb3EGj9hV5SIAu
- vLj71MR0+Cppdy39ehbR/V9sRXY+f472sj48uR/zVcYeIuIqmrhSBhsgb6bxk3AhkNZx
- G94GEPiVQCFtyIJqzwNqn6s5gXAg5KVLCVChJKGgD27o6gf8NTjAy+i2K6S8e6TOwi5B
- 8vAZudsswFHNL92L8C2dKDHUJ1v/CE57tP8mrz1Br7oY0VRwfoxv6dZg2ZNV8clT7nWn
- E6xrcEoZJRf4yzcqex3PbmqbKUZO5isuJkGzc9jCxnurQnI/rmdD5JQOo+His6SYgFSK
- f5Gg==
+ :cc; bh=TolZEtxgsV3An5H/SdGdZj4fiN57mXcD++DOPxm6nec=;
+ b=jnQVra4+13tS061DNIkTvsRN58izvTQtayCFy3EenQN3TZszDfT5iQLKl4CCwDqXac
+ mxK9lP5rUoskc/FzlXEjYSQ22MICw9Ui5tV3HckDCZIIFV+54zKHfWCZgYgTUk+/61nc
+ rCKSyiStxwsayPsHroTFsJkBZoB2PHBxrq/zRKBXKsRApgfUlHICMl6a5toV5myHQ/Ij
+ Tnn292G6AN8i7Yxz7kQTNMpq6TJF6bVlC9KWpmmPQ5tLqqLvKmon9O8RB9aSvc/bFnK9
+ lSmT5ex5uekMteqlOYR7EnNLWRxDWzM69X6xAGMJ0ujYqE03nCF6nbcps76viWv163se
+ /4ww==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=PMgEusFSc7qqgR9Wh9Vc9NkHNHEql1tbsxy2XlEu5jA=;
- b=jrQwqKfhPtZ5ejhXVabHMzaS4LGvKFk/tFjPE4XqPmPGvlAMdeMBW5xMSQ14H+4QBv
- YPiqsqaaJ6FcVbiLULKSFIBceloyiAd0xu3+vIu9n3uHseRNQAYMYzaMGEHNlaV0cUb6
- oOG6Ym6ovXf7fqDPGVeRy+YnNrqj5waH9Dsinyi8/gzEakCQCmjbKBfhgRkvJnUb7y8Z
- OP6BVq6kfGlxK5XIdpdQ0aiZ02vxALQkXbQIJnvBOPwcs+7WORzRk0SU8BEcT8V5iTSw
- JU6Qdlpkar9rePQDC5DiFviIn02oK8wgl8uHTPjfIxvijiTxT9Abk3ZPxvCFxKUcjwmX
- JrCg==
-X-Gm-Message-State: AOAM531rXxP+N/K4Kmb+1f8kuOJjwtDhCl04deaxjN2c0wwjV+8H8HNd
- zJ+R78lPQ1xIpZaswbEQ37LXpCx56n2YE+szJrI38Q==
-X-Google-Smtp-Source: ABdhPJwh2eRhat/lWnPhQw89dDCcMnYwZRHtiVGy2runEadgzqTjasvHuiQwiQz+a9HV0oMXaq4y2jsH/3ExGFMFZyk=
-X-Received: by 2002:ac8:1bad:: with SMTP id z42mr1523513qtj.110.1594841310184; 
- Wed, 15 Jul 2020 12:28:30 -0700 (PDT)
+ bh=TolZEtxgsV3An5H/SdGdZj4fiN57mXcD++DOPxm6nec=;
+ b=DTgC0gbCdIGLCk3Bwxx7EygQcERPOTcdFJAjNZYr75+iPTAugQVDNtfgJszOZiKS5D
+ csjRqS0uMPrO/vPwjRG7pZTDd9VjI6ihafO5ZcXY7YOPaLl5J/Lcje8Cxe/tzwiqolnQ
+ 6GKQE+1LnVS+3+mwsrPgxTtiTStjEdPzuog25j8I1UoPINx8sIHZPdpqcSkrVsd5LZNX
+ /PyKcqKFuhcIlOMVC62kFrplbn+fojlGKynXpVuk7Z9387obaKH0AbQX6TwJj+aQvQ4l
+ Bzp+9cLELXgbdIFy59zP2kYS5FNGW+28R1wQ8ChITtMdrTo752j8aLN0+w1OXCQE+sB6
+ bvXw==
+X-Gm-Message-State: AOAM533dj4Zm88AhRaYMKnQ5oa5BxRQDTay7Y1FnMo1siF+aaaKM5CDY
+ +tIx1T54YwHlmAb0q+sIvrdaF3KJW3CHFc2pMpg=
+X-Google-Smtp-Source: ABdhPJxxxn/p48diSigUNGjm4Jnah7ajXIZF5W1reXQTfbH4SrdS7LWBtgRqa0NxXagT2e1CXjGCce/zqJQ+MyLpXa8=
+X-Received: by 2002:a1c:ab56:: with SMTP id u83mr1111488wme.94.1594843734608; 
+ Wed, 15 Jul 2020 13:08:54 -0700 (PDT)
 MIME-Version: 1.0
-References: <20200715144806.GA3443108@google.com>
- <mhng-d6287ba3-3b57-431e-b0e7-9d17b514748c@palmerdabbelt-glaptop1>
-In-Reply-To: <mhng-d6287ba3-3b57-431e-b0e7-9d17b514748c@palmerdabbelt-glaptop1>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-Date: Wed, 15 Jul 2020 12:28:19 -0700
-Message-ID: <CANs6eM=qamw=vgh7GFSLBL_MiPTcj7MGa3+qQ9+gyT16i0zeJA@mail.gmail.com>
-Subject: Re: [PATCH] asm-generic/mmiowb: Get cpu in mmiowb_set_pending
-To: Will Deacon <willdeacon@google.com>
+References: <20200713183711.762244-1-luke.r.nels@gmail.com>
+ <CAJ+HfNg_qV=umB9T1U9vRo2pUpmUFfBN44WpAOfMoi75Ymh2dw@mail.gmail.com>
+In-Reply-To: <CAJ+HfNg_qV=umB9T1U9vRo2pUpmUFfBN44WpAOfMoi75Ymh2dw@mail.gmail.com>
+From: Luke Nelson <luke.r.nels@gmail.com>
+Date: Wed, 15 Jul 2020 13:08:43 -0700
+Message-ID: <CAB-e3NQFE9rsVZ55Y=jivuBsd1A+V4GWtceqjOz80qtmFsFQVA@mail.gmail.com>
+Subject: Re: [RFC PATCH bpf-next 0/3] bpf, riscv: Add compressed instructions
+ to rv64 JIT
+To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200715_152833_657546_01FCC3A4 
-X-CRM114-Status: GOOD (  49.90  )
+X-CRM114-CacheID: sfid-20200715_160857_757113_52EE32B3 
+X-CRM114-Status: GOOD (  10.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -90,140 +90,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-arch@vger.kernel.org, kernel@esmil.dk, Arnd Bergmann <arnd@arndb.de>,
- Guo Ren <guoren@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv@lists.infradead.org
+Cc: Song Liu <songliubraving@fb.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Daniel Borkmann <daniel@iogearbox.net>, Netdev <netdev@vger.kernel.org>,
+ John Fastabend <john.fastabend@gmail.com>, Alexei Starovoitov <ast@kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ LKML <linux-kernel@vger.kernel.org>, Luke Nelson <lukenels@cs.washington.edu>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ KP Singh <kpsingh@chromium.org>, Yonghong Song <yhs@fb.com>,
+ bpf <bpf@vger.kernel.org>, Andrii Nakryiko <andriin@fb.com>,
+ Martin KaFai Lau <kafai@fb.com>, Xi Wang <xi.wang@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 15, 2020 at 9:41 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
 >
-> On Wed, 15 Jul 2020 07:48:06 PDT (-0700), Will Deacon wrote:
-> > On Wed, Jul 15, 2020 at 07:03:49AM -0700, Palmer Dabbelt wrote:
-> >> On Wed, 15 Jul 2020 03:42:46 PDT (-0700), Will Deacon wrote:
-> >> > Hmm. Although I _think_ something like the diff below ought to work, are you
-> >> > sure you want to be doing MMIO writes in preemptible context? Setting
-> >> > '.disable_locking = true' in 'sifive_gpio_regmap_config' implies to me that
-> >> > you should be handling the locking within the driver itself, and all the
-> >> > other regmap writes are protected by '&gc->bgpio_lock'.
-> >>
-> >> I guess my goal here was to avoid fixing the drivers: it's one thing if it's
-> >> just broken SiFive drivers, as they're all a bit crusty, but this is blowing up
-> >> for me in the 8250 driver on QEMU as well.  At that point I figured there'd be
-> >> an endless stream of bugs around this and I'd rather just.
-> >
-> > Right, and my patch should solve that.
-> >
-> >> > Given that riscv is one of the few architectures needing an implementation
-> >> > of mmiowb(), doing MMIO in a preemptible section seems especially dangerous
-> >> > as you have no way to ensure completion of the writes without adding an
-> >> > mmiowb() to the CPU migration path (i.e. context switch).
-> >>
-> >> I was going to just stick one in our context switching code unconditionally.
-> >> While we could go track cumulative writes outside the locks, the mmiowb is
-> >> essentially free for us because the one RISC-V implementation treats all fences
-> >> the same way so the subsequent store_release would hold all this up anyway.
-> >>
-> >> I think the right thing to do is to add some sort of arch hook right about here
-> >>
-> >> diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-> >> index cfd71d61aa3c..14b4f8b7433f 100644
-> >> --- a/kernel/sched/core.c
-> >> +++ b/kernel/sched/core.c
-> >> @@ -3212,6 +3212,7 @@ static struct rq *finish_task_switch(struct task_struct *prev)
-> >>      prev_state = prev->state;
-> >>      vtime_task_switch(prev);
-> >>      perf_event_task_sched_in(prev, current);
-> >> +    finish_arch_pre_release(prev);
-> >>      finish_task(prev);
-> >>      finish_lock_switch(rq);
-> >>      finish_arch_post_lock_switch();
-> >>
-> >> but I was just going to stick it in switch_to for now... :).  I guess we could
-> >> also roll the fence up into yet another one-off primitive for the scheduler,
-> >> something like
-> >
-> > What does the above get you over switch_to()?
-> >
-> >> > diff --git a/include/asm-generic/mmiowb.h b/include/asm-generic/mmiowb.h
-> >> > index 9439ff037b2d..5698fca3bf56 100644
-> >> > --- a/include/asm-generic/mmiowb.h
-> >> > +++ b/include/asm-generic/mmiowb.h
-> >> > @@ -27,7 +27,7 @@
-> >> >  #include <asm/smp.h>
-> >> >
-> >> >  DECLARE_PER_CPU(struct mmiowb_state, __mmiowb_state);
-> >> > -#define __mmiowb_state()       this_cpu_ptr(&__mmiowb_state)
-> >> > +#define __mmiowb_state()       raw_cpu_ptr(&__mmiowb_state)
-> >> >  #else
-> >> >  #define __mmiowb_state()       arch_mmiowb_state()
-> >> >  #endif /* arch_mmiowb_state */
-> >> > @@ -35,7 +35,9 @@ DECLARE_PER_CPU(struct mmiowb_state, __mmiowb_state);
-> >> >  static inline void mmiowb_set_pending(void)
-> >> >  {
-> >> >         struct mmiowb_state *ms = __mmiowb_state();
-> >> > -       ms->mmiowb_pending = ms->nesting_count;
-> >> > +
-> >> > +       if (likely(ms->nesting_count))
-> >> > +               ms->mmiowb_pending = ms->nesting_count;
-> >>
-> >> Ya, that's one of the earlier ideas I had, but I decided it doesn't actually do
-> >> anything: if we're scheduleable then we know that pending and count are zero,
-> >> thus the check isn't necessary.  It made sense late last night and still does
-> >> this morning, but I haven't had my coffee yet.
-> >
-> > What it does is prevent preemptible writeX() from trashing the state on
-> > another CPU, so I think it's a valid fix. I agree that it doesn't help
-> > you if you need mmiowb(), but then that _really_ should only be needed if
-> > you're holding a spinlock. If you're doing concurrent lockless MMIO you
-> > deserve all the pain you get.
-> >
-> > I don't get why you think the patch does nothing, as it will operate as
-> > expected if writeX() is called with preemption disabled, which is the common
-> > case.
+> First of all; Really nice work. I like this, and it makes the code
+> easier to read as well (e.g. emit_mv). I'm a bit curious why you only
+> did it for RV64, and not RV32? I have some minor comments on the
+> patches. I strongly encourage you to submit this as a proper (non-RFC)
+> set for bpf-next.
 >
-> Aside from PREEMPT_RT, I don't understand how you can be scheduled onto a CPU
-> that has a non-zero nesting_count.  Doesn't that mean that the CPU you're
-> scheduled on to is itself holding a spinlock, and therefor can't be scheduled
-> on?
->
-> Sure, some interrupt could come in the middle, but it's still going to see the
-> non-zero nesting_count left over from the spinlock being held and therefor will
-> avoid trashing the accumulated mmiowb.  As far as I can tell everything then
-> proceeds acceptably: when the interrupt unlocks it'll do an mmiowb (whether it
-> did an IO or not), which is sufficient to ensure that the IO from the
-> interrupted code is completed before the unlock from that code.
->
-> I must be missing something here?
 
-Will and I talked for a bit, this patch is correct.  He's going to
-send it, I'm promoting smp_mb__after_spinlock to include IO ordering
-so we don't break code when scheduling.
+Thanks for the feedback! I'll clean up the patches and address your
+comments in the next revision.
 
-Thanks!
+The patch adding RVC to the RV32 JIT is forthcoming; some of the
+optimizations there are more difficult since the RV32 JIT makes more
+use of "internal" jumps whose offsets depend on the sizes of emitted
+instructions. I plan to clean up that code and add RVC support in a
+future series.
 
->
-> >> I'm kind of tempted to just declare "mmiowb() is fast on RISC-V, so let's do it
-> >> unconditionally everywhere it's necessary".  IIRC that's essentially true on
-> >> the existing implementation, as it'll get rolled up to any upcoming fence
-> >> anyway.  It seems like building any real machine that relies on the orderings
-> >> provided by mmiowb is going to have an infinate rabbit hole of bugs anyway, so
-> >> in that case we'd just rely on the hardware to elide the now unnecessary fences
-> >> so we'd just be throwing static code size at this wacky memory model and then
-> >> forgetting about it.
-> >
-> > If you can do that, that's obviously the best approach.
-> >
-> >> I'm going to send out a patch set that does all the work I think is necessary
-> >> to avoid fixing up the various drivers, with the accounting code to avoid
-> >> mmiowbs all over our port.  I'm not sure I'm going to like it, but I guess we
-> >> can argue as to exactly how ugly it is :)
-> >
-> > Ok.
-> >
-> > Will
+- Luke
 
 _______________________________________________
 linux-riscv mailing list
