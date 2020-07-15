@@ -2,82 +2,88 @@ Return-Path: <SRS0=uYfr=A2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-7.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 06ED4C433E3
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2020 08:46:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1252CC433E1
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2020 10:43:10 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CAF812064C
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2020 08:46:54 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D6D7D20656
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2020 10:43:09 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="buW0gvM5"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CAF812064C
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=ACULAB.COM
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="uHEqe8bC";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.b="CxgsK7z+"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D6D7D20656
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:Message-ID:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=LRqMYiB3s0eV3i2czHbt7WAeUYgy4mc9DBCXz3j4n6E=; b=buW0gvM5PAUduDwlcKHm/luJX
-	lwvVIWYNa5eFafSeDuFnaw53f+A4rYScA86Axix8ls1ItnF4n7Kuan+ooN3SeDoOZO3mbX660ukXh
-	tf1mAEEv2xKAWt8b6AvBorcuM+nodhuv+13ZCSGVpYeE1r8jTiu1aMsovdtnA54EbOA/HUVMkvCP+
-	BHiYnmrryqGZBdSX+Ao2sRmyS8I8zfL4t4aFpWKv8URYn0y0DyvzUdCeSCOGyXLE7sGT6ZMfYguZ/
-	6E9n8uhyBtyH4aAb3sYNEFoNIGNCl3y1t2ZDrDVOrNC0ZJ6gjyKwHO4DiizNTD8Vhc37RlChauMrk
-	n3z1ocAPQ==;
+	 bh=DLczEjUEnOyErO1ycfYx55kBM8ciT+PySP385bDcr68=; b=uHEqe8bCUb8bqM72YlA9U3+39
+	/GPEVnIK+EVDtYThbfZixYsmAtxFmd7QxtW5DkywPCMmV4+4NflcGmW2kwFspHPl0C8Ba4tGHWYVK
+	iUx2MElb4wRyvoT57EJVtRZRVleq39a9FTWTwBX5SBQGWGOs3TiBoYi8UlI9hLY14okIYQEvlg3Lj
+	z9Lj9yp4bSm+Jtx8513HctMx9olTuI2a3LXU/q9HlpvZ4A+idNbKZ9rSB/E/efa8ipCk6q6W0a4qS
+	P+ZlY6AiG7LuVjYXxdF5bH5s9PL2mvDraD4is8qr1LSd6gO24ILnYYj2LJ+8W5dW38oJmBzL1E3Q2
+	ZmhG4Mwsg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jvcaJ-0001O7-6S; Wed, 15 Jul 2020 08:16:11 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.86.151])
+	id 1jvesL-0000d0-64; Wed, 15 Jul 2020 10:42:57 +0000
+Received: from mail-wr1-x442.google.com ([2a00:1450:4864:20::442])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jvcaE-0001Ks-9y
- for linux-riscv@lists.infradead.org; Wed, 15 Jul 2020 08:16:08 +0000
-Received: from AcuMS.aculab.com (156.67.243.126 [156.67.243.126]) (Using
- TLS) by relay.mimecast.com with ESMTP id
- uk-mta-118-VUzQIPn9PGiRcCFwemuUlA-1; Wed, 15 Jul 2020 09:15:49 +0100
-X-MC-Unique: VUzQIPn9PGiRcCFwemuUlA-1
-Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:43c:695e:880f:8750) by
- AcuMS.aculab.com (fd9f:af1c:a25b:0:43c:695e:880f:8750) with Microsoft SMTP
- Server (TLS) id 15.0.1347.2; Wed, 15 Jul 2020 09:15:47 +0100
-Received: from AcuMS.Aculab.com ([fe80::43c:695e:880f:8750]) by
- AcuMS.aculab.com ([fe80::43c:695e:880f:8750%12]) with mapi id 15.00.1347.000; 
- Wed, 15 Jul 2020 09:15:47 +0100
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Jarkko Sakkinen' <jarkko.sakkinen@linux.intel.com>, Peter Zijlstra
- <peterz@infradead.org>
-Subject: RE: [PATCH v2 1/3] module: Rename module_alloc() to text_alloc() and
- move to kernel proper
-Thread-Topic: [PATCH v2 1/3] module: Rename module_alloc() to text_alloc() and
- move to kernel proper
-Thread-Index: AQHWWhTZJFla60Gj2kinqcyPQzfqlakISLKA
-Date: Wed, 15 Jul 2020 08:15:47 +0000
-Message-ID: <778f330d994340c89241f5318a54422f@AcuMS.aculab.com>
-References: <20200714094625.1443261-1-jarkko.sakkinen@linux.intel.com>
- <20200714094625.1443261-2-jarkko.sakkinen@linux.intel.com>
- <20200714102826.GB4756@willie-the-truck>
- <20200714112927.GV10769@hirez.programming.kicks-ass.net>
- <CAMj1kXGG4vxWrp1de1FxdU=8F4Jof00=T1x-7e+BW7_HP-oZMQ@mail.gmail.com>
- <20200714130109.GX10769@hirez.programming.kicks-ass.net>
- <20200714163103.GA1472166@linux.intel.com>
-In-Reply-To: <20200714163103.GA1472166@linux.intel.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+ id 1jvesI-0000cG-Lw
+ for linux-riscv@lists.infradead.org; Wed, 15 Jul 2020 10:42:55 +0000
+Received: by mail-wr1-x442.google.com with SMTP id k6so2074108wrn.3
+ for <linux-riscv@lists.infradead.org>; Wed, 15 Jul 2020 03:42:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=RMoJg0iwHXCKzoaQm24OqDN7mm5uxvqFCCrIZxIcI3U=;
+ b=CxgsK7z+UwYBgoJlF//D64fKl2zoYe1rLiBIWxaKmUFy6RR3XQqNvhT2PPTmpSDLU+
+ wu8zhlU5PIpyzNKrhGEdLkdDlOTZXumAbJ2pGwHo6UqmKmB9S6qXaKnpUbPZuZrEL8UI
+ P0EZbWGs+O2PFGuJkrZzAopZnPeD4KspNsq0f4tys3ZnSGk+lG9PhCmBkmc0wPtHSlH9
+ SXe3KDATj8a00yL/cuMS/R1gCdyQ3Olh+SATMIo0RmJFaYQlV2bQgXpwNG9CnOVrny7t
+ bYe9qGTGP+jWT60tebE98NkVlqY9H1YVOEhhlAlK7WUIVdx6y/JGXoZigcFG6ctR8Axo
+ qhlg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=RMoJg0iwHXCKzoaQm24OqDN7mm5uxvqFCCrIZxIcI3U=;
+ b=MkgYrFPdT5BafD8g6bM1uU9HsnJiIvImueNngkAMdSfOVZ5WpxAQ63ceJpUwY1oQFy
+ EKijVtmmu/NJ3lbA9E4be2MG4QFUMC+MjHbz8uPzqiRRo/PF/938eBX6TOr0hTWM5IMa
+ uKACzHU4UoFsSMbCHQWT5ODxYM+sO4ZHs44ZdFE/GCWZHPxXc+/uToG9gW78/v2YAFqp
+ BN9XdQP8bKyyaIPjmLNYwzuUamAWr+gmgnJmCX5NYHSrCbTjLBcj5Trf4hAP6/9dvyIS
+ /M7Hyn1eRqZC7chjCPhE77taoI/bB1dZKQ39mPbp1y95xJFWgiemeaGU3SoK2jiXRavz
+ 74QQ==
+X-Gm-Message-State: AOAM531oXK1INA0bE8NpMZ2Db1sDOIqXG3mVBV8UHUzLv0HzohWxP4O/
+ 9E2GOcMIFko0VIpIvoNA0M1A+g==
+X-Google-Smtp-Source: ABdhPJxv0l68wRCEYAeGzveZKt/xu+hM6J2CDy20/QEAv04ewqEXjQi8ZDiNAKNZHoje3x1NrQvkMQ==
+X-Received: by 2002:a5d:4e81:: with SMTP id e1mr10126799wru.22.1594809771755; 
+ Wed, 15 Jul 2020 03:42:51 -0700 (PDT)
+Received: from google.com ([2a00:79e0:d:110:f693:9fff:fef4:a833])
+ by smtp.gmail.com with ESMTPSA id n16sm2890572wrq.39.2020.07.15.03.42.50
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 15 Jul 2020 03:42:51 -0700 (PDT)
+Date: Wed, 15 Jul 2020 11:42:46 +0100
+From: Will Deacon <willdeacon@google.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Subject: Re: [PATCH] asm-generic/mmiowb: Get cpu in mmiowb_set_pending
+Message-ID: <20200715104246.GA3143299@google.com>
+References: <CANBLGcw8nVvshaOxiBO3zSpjE2oEmWE7C4vuvDXYheRdFVLK0A@mail.gmail.com>
+ <mhng-09237735-4773-4f28-bfb6-b619f1dd4e09@palmerdabbelt-glaptop1>
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
+Content-Disposition: inline
+In-Reply-To: <mhng-09237735-4773-4f28-bfb6-b619f1dd4e09@palmerdabbelt-glaptop1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200715_041606_532979_D9CD04C5 
-X-CRM114-Status: GOOD (  12.00  )
+X-CRM114-CacheID: sfid-20200715_064254_785322_EBAF0AFE 
+X-CRM114-Status: GOOD (  23.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -89,95 +95,103 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Song Liu <songliubraving@fb.com>,
- Paul Mackerras <paulus@samba.org>, Zong Li <zong.li@sifive.com>,
- Andi Kleen <ak@linux.intel.com>, Paul Burton <paulburton@kernel.org>,
- Vincent Whitchurch <vincent.whitchurch@axis.com>,
- Petr Mladek <pmladek@suse.com>, Brian Gerst <brgerst@gmail.com>, Andy
- Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Jiri
- Kosina <jkosina@suse.cz>, Anup Patel <anup.patel@wdc.com>, Linux Kernel
- Mailing List <linux-kernel@vger.kernel.org>, Philipp Rudo <prudo@linux.ibm.com>,
- Torsten Duwe <duwe@lst.de>, Masami Hiramatsu <mhiramat@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>, Mark
- Rutland <mark.rutland@arm.com>,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Vincent Chen <deanbo422@gmail.com>, Omar Sandoval <osandov@fb.com>,
- "open list:S390" <linux-s390@vger.kernel.org>,
- Joe Lawrence <joe.lawrence@redhat.com>, Helge
- Deller <deller@gmx.de>, John Fastabend <john.fastabend@gmail.com>, Anil S
- Keshavamurthy <anil.s.keshavamurthy@intel.com>, Yonghong Song <yhs@fb.com>,
- Iurii Zaikin <yzaikin@google.com>, Andrii Nakryiko <andriin@fb.com>, Thomas
- Huth <thuth@redhat.com>, Vasily Gorbik <gor@linux.ibm.com>, "moderated
- list:ARM PORT" <linux-arm-kernel@lists.infradead.org>,
- Daniel Axtens <dja@axtens.net>, Damien Le Moal <damien.lemoal@wdc.com>,
- Martin KaFai Lau <kafai@fb.com>, Kefeng Wang <wangkefeng.wang@huawei.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Heiko Carstens <heiko.carstens@de.ibm.com>,
- Alexei Starovoitov <ast@kernel.org>, Atish Patra <atish.patra@wdc.com>, Will
- Deacon <will@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Masahiro
- Yamada <masahiroy@kernel.org>, Nayna Jain <nayna@linux.ibm.com>,
- Ley Foon Tan <ley.foon.tan@intel.com>,
- Christian Borntraeger <borntraeger@de.ibm.com>,
- Sami Tolvanen <samitolvanen@google.com>,
- "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>, Mao Han <han_mao@c-sky.com>,
- Marco Elver <elver@google.com>, Steven Rostedt <rostedt@goodmis.org>,
- Babu Moger <Babu.Moger@amd.com>, Borislav Petkov <bp@alien8.de>,
- Greentime Hu <green.hu@gmail.com>, Ben Dooks <ben-linux@fluff.org>,
- Guan Xuetao <gxt@pku.edu.cn>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- "open list:PARISC ARCHITECTURE" <linux-parisc@vger.kernel.org>,
- Jessica Yu <jeyu@kernel.org>,
- "open list:BPF JIT for MIPS \(32-BIT AND 64-BIT\)" <bpf@vger.kernel.org>,
- "David S. Miller" <davem@davemloft.net>, Thiago Jung
- Bauermann <bauerman@linux.ibm.com>, David Howells <dhowells@redhat.com>,
- Amit Daniel Kachhap <amit.kachhap@arm.com>,
- Sandipan Das <sandipan@linux.ibm.com>, "H. Peter Anvin" <hpa@zytor.com>,
- "open list:SPARC + UltraSPARC \(sparc/sparc64\)" <sparclinux@vger.kernel.org>,
- Tiezhu Yang <yangtiezhu@loongson.cn>, Miroslav Benes <mbenes@suse.cz>,
- Sven Schnelle <svens@stackframe.org>, Ard Biesheuvel <ardb@kernel.org>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Anders Roxell <anders.roxell@linaro.org>, Jiri Olsa <jolsa@redhat.com>,
- "maintainer:X86 ARCHITECTURE \(32-BIT AND
- 64-BIT\)" <x86@kernel.org>, Russell King <linux@armlinux.org.uk>, "open
- list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
- Mike Rapoport <rppt@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- Albert Ou <aou@eecs.berkeley.edu>, "Paul E. McKenney" <paulmck@kernel.org>,
- Josh Poimboeuf <jpoimboe@redhat.com>, KP Singh <kpsingh@chromium.org>,
- Dmitry Vyukov <dvyukov@google.com>, Nick Hu <nickhu@andestech.com>,
- "open list:BPF
- JIT for MIPS \(32-BIT AND 64-BIT\)" <netdev@vger.kernel.org>,
- "open list:MIPS" <linux-mips@vger.kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, "open
- list:LINUX FOR POWERPC \(32-BIT AND 64-BIT\)" <linuxppc-dev@lists.ozlabs.org>
+Cc: linux-arch@vger.kernel.org, kernel@esmil.dk, Arnd Bergmann <arnd@arndb.de>,
+ guoren@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Jarkko Sakkinen
-> Sent: 14 July 2020 17:31
-..
-> There is one arch (nios2), which uses a regular kzalloc(). This means
-> that both text_alloc() and text_memfree() need to be weaks symbols and
-> nios2 needs to have overriding text.c to do its thing.
+On Tue, Jul 14, 2020 at 11:45:11PM -0700, Palmer Dabbelt wrote:
+> > > > > > > > [<ffffffe00047365e>] regmap_mmio_write32le+0x18/0x46
+> > > > > > > > [<ffffffe0005c4c26>] check_preemption_disabled+0xa4/0xaa
+> > > > > > > > [<ffffffe00047365e>] regmap_mmio_write32le+0x18/0x46
+> > > > > > > > [<ffffffe0004737c8>] regmap_mmio_write+0x26/0x44
+> > > > > > > > [<ffffffe0004715c4>] regmap_write+0x28/0x48
+> > > > > > > > [<ffffffe00043dccc>] sifive_gpio_probe+0xc0/0x1da
+> > > > > > > > [<ffffffe00000113e>] rdinit_setup+0x22/0x26
+> > > > > > > > [<ffffffe000469054>] platform_drv_probe+0x24/0x52
+> > > > > > > > [<ffffffe000467e16>] really_probe+0x92/0x21a
+> > > > > > > > [<ffffffe0004683a8>] device_driver_attach+0x42/0x4a
+> > > > > > > > [<ffffffe0004683ac>] device_driver_attach+0x46/0x4a
+> > > > > > > > [<ffffffe0004683f0>] __driver_attach+0x40/0xac
+> > > > > > > > [<ffffffe0004683ac>] device_driver_attach+0x46/0x4a
+> > > > > > > > [<ffffffe000466a3e>] bus_for_each_dev+0x3c/0x64
+> > > > > > > > [<ffffffe000467118>] bus_add_driver+0x11e/0x184
+> > > > > > > > [<ffffffe00046889a>] driver_register+0x32/0xc6
+> > > > > > > > [<ffffffe00000e5ac>] gpiolib_sysfs_init+0xaa/0xae
+> > > > > > > > [<ffffffe0000019ec>] do_one_initcall+0x50/0xfc
+> > > >
+> > > > Hmm.. the problem is that preemption is *not* disabled when
+> > > > smp_processor_id is called, right?
+> > > 
+> > > Yes!
+> > > 
+> > > smp_processor_id is defined as:
+> > > 
+> > >  * This is the normal accessor to the CPU id and should be used
+> > >  * whenever possible.
+> > >  *
+> > >  * The CPU id is stable when:
+> > >  *
+> > >  *  - IRQs are disabled;
+> > >  *  - preemption is disabled;
+> > >  *  - the task is CPU affine.
+> > >  *
+> > >  * When CONFIG_DEBUG_PREEMPT; we verify these assumption and WARN
+> > >  * when smp_processor_id() is used when the CPU id is not stable.
+> > > 
+> > > So regmap_write->regmap_mmio_write should be PREEMPT disabled in
+> > > sifive_gpio_probe().
+> > 
+> > Ah! Sorry, now I think I understand. So you're saying that the real
+> > problem is that the driver framework should have disabled preemption
+> > before calling any .probe functions, but for some reason that doesn't
+> > happen on RISC-V?
+> 
+> I think it's actually an issue with the generic mmiowb stuff and that we should
+> just elide the check.  I'm adding Will, for context.  I'll send out a patch.
 
-That could be handled by an arch-specific inline wrapper in a .h file.
+Hmm. Although I _think_ something like the diff below ought to work, are you
+sure you want to be doing MMIO writes in preemptible context? Setting
+'.disable_locking = true' in 'sifive_gpio_regmap_config' implies to me that
+you should be handling the locking within the driver itself, and all the
+other regmap writes are protected by '&gc->bgpio_lock'.
 
-Although I actually suspect the nios2 code is just being lazy.
-The processor is a very simple in-order 32bit soft cpu for Intel (Altera)
-FPGA.
+Given that riscv is one of the few architectures needing an implementation
+of mmiowb(), doing MMIO in a preemptible section seems especially dangerous
+as you have no way to ensure completion of the writes without adding an
+mmiowb() to the CPU migration path (i.e. context switch).
 
-We have four nios2 cpu on one of our fpga images - all running small
-(almost single function) code loops.
-I can't imagine actually trying to run Linux on one to do anything
-useful - clock speed is unlikely to be much above 100MHz.
-We can't meet timing at 125MHZ (I've tried quite hard) so have
-to run at 62.5MHz because of the PCIe clock.
+Will
 
-	David
+--->8
 
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
+diff --git a/include/asm-generic/mmiowb.h b/include/asm-generic/mmiowb.h
+index 9439ff037b2d..5698fca3bf56 100644
+--- a/include/asm-generic/mmiowb.h
++++ b/include/asm-generic/mmiowb.h
+@@ -27,7 +27,7 @@
+ #include <asm/smp.h>
+ 
+ DECLARE_PER_CPU(struct mmiowb_state, __mmiowb_state);
+-#define __mmiowb_state()       this_cpu_ptr(&__mmiowb_state)
++#define __mmiowb_state()       raw_cpu_ptr(&__mmiowb_state)
+ #else
+ #define __mmiowb_state()       arch_mmiowb_state()
+ #endif /* arch_mmiowb_state */
+@@ -35,7 +35,9 @@ DECLARE_PER_CPU(struct mmiowb_state, __mmiowb_state);
+ static inline void mmiowb_set_pending(void)
+ {
+        struct mmiowb_state *ms = __mmiowb_state();
+-       ms->mmiowb_pending = ms->nesting_count;
++
++       if (likely(ms->nesting_count))
++               ms->mmiowb_pending = ms->nesting_count;
+ }
+ 
+ static inline void mmiowb_spin_lock(void)
 
 
 _______________________________________________
