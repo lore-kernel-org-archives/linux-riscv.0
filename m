@@ -8,17 +8,17 @@ X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id ED534C433E2
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2020 18:02:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 62C7CC433E3
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2020 18:10:28 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B496920656
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2020 18:02:59 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2CE1D205CB
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2020 18:10:28 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="eAzPsMls";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="G0XZdSlH"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B496920656
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="dohUGW4t";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="eqfXI4Pi"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2CE1D205CB
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -27,60 +27,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=WwsgbG/AfxqmtDPWgAgh9PaTZJMZnZy55Jewsjs0cy8=; b=eAzPsMlsE+KV0WThqk5VmHSjv
-	SyxycaqH6A/guLCNjHXO+l7QFxzganU8OVCQ09LZ0T2+e6dne9lWDVPZ0KOkWsWZb0c5gJOMePl2f
-	PPaOMIlZRst0MmJwuz+G8qdR81AaxzEt00qrEEfjUuG2CtXpwJaR8US8lIWS9Fx+iEUvwQv8aqJma
-	Lg8eFi6dsapWF9w3OW23fEjov0pvzxZKtZ2zj7DgYVgCSheShXPIp8EzVtmtO74KSL1YdhZ2RZuuE
-	4KVrmH/Y12+XHAoDiCj1gcto5jwpF9O8x04vqjA3SJaz2h7T8dC98uUBH7fp6P/z4VJ+IqazR761p
-	fPbmWkurQ==;
+	 bh=+dQO3r83UYugoX2jaXw+8UMhO39FbO9ZEk3GSbsJRPw=; b=dohUGW4tXrgX3e6mqdtT5NfBj
+	A5rO2sIatIzHoO5oTiSR1RaqoSrpo4QNmaRR5So6LGN4av3t152nfQu6/rDHah2wBitzf5PCqwl66
+	tFJdD7K3yczZ/jBx6LZadZFDH4XyUyt1moagz6DFBFlEmAZp6E/P4GDLFUA4ShGAc5+aWw1O+Qiip
+	9DMlvUO8rZlQd+eHgvuGUdGGi64HEsb/p7ei8od1WpTQSYsFbezSTpvT59h6xS+fAZCLnRtEB5i2+
+	MXFTgE0AbRRrJJLR1ScnvtL0fQESbJX+92vi/b27ZdMU60UoxIs6cD9+1ISCC6rQvFdBpzN0Fxpeg
+	AIUOdUpbw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jvlk5-0005Ex-0j; Wed, 15 Jul 2020 18:02:53 +0000
-Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
+	id 1jvlrK-0005Xe-7J; Wed, 15 Jul 2020 18:10:22 +0000
+Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jvlk1-0005ES-TT
- for linux-riscv@lists.infradead.org; Wed, 15 Jul 2020 18:02:50 +0000
-Received: by mail-wm1-x343.google.com with SMTP id l2so6772396wmf.0
- for <linux-riscv@lists.infradead.org>; Wed, 15 Jul 2020 11:02:49 -0700 (PDT)
+ id 1jvlrH-0005XL-Up
+ for linux-riscv@lists.infradead.org; Wed, 15 Jul 2020 18:10:21 +0000
+Received: by mail-wr1-x443.google.com with SMTP id k6so3739357wrn.3
+ for <linux-riscv@lists.infradead.org>; Wed, 15 Jul 2020 11:10:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=Eil6LDjZbv2elmBPkCUpzUyDkgfrn8kdQr/A4WGSttk=;
- b=G0XZdSlHs+WwuMnlmEjoaF9L1cfSnn1ePFJBbmEHrX+c3Ro/UspO5vOnhk2SHceT0s
- VRBQtazfrW/HviSeUr4tDzOQ65nOw6HU7DD2m0LFGlmVNhMaiOLXo0AudRP8r1o5ky6+
- jlX4VWuA/9s9CWguDGcc0p6RLSanDK0alG7HdWaSUsvGdOKCsiMiPFl/r0v4ITQVavAv
- t66eGymem5Wx9TiJ/GeSOSC7Gh7YpOAO46NrMOUOWy5IEhe2SJpoiJfv0m26POTBmNuS
- qxPiJdFnH1MytdnmUxC8blk5BNgma+isfSS1TEKlCYhJhGWp0AjqEt8WZCMYTziGcGM6
- Fw0w==
+ :cc; bh=mjCUOJ0O5KePPNwJTgg5X5nCpqITS6XdNSuqlESvfWw=;
+ b=eqfXI4PivMKYdt3MLUNPEM4U7Zyj6bFtIuZozw2vngPP2x0H7DaAm1jscZ64TAC5GK
+ TynTSH/SUFx4FImmexD1SZpPxnDLzswwfPFWXsbxNleqTrwip8oz7JaYt7roDpEqKzRD
+ UQqSwzmBUUsnrh1/5i2bXTqdLHIphDMm7npaSd7kz7eYIuMH1ykLZNOu2CEHyZBAqYfq
+ G2qeSu40Sot5gIDwFcCgjx/7MfIty8CZp+AUMZMtsM7EgrN5lwXTZLyGaxMCXec4bJbi
+ n9VZglAkKx/ozjAvDYE+PWcCuuK52Hd4xVZFzl3I3bohHJPOlquxPhbLFKnb7iSy4a7M
+ d3Ug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=Eil6LDjZbv2elmBPkCUpzUyDkgfrn8kdQr/A4WGSttk=;
- b=J/AJDUbLrQRH/2QmectHv8KBG8QwEdpK/P1Jnkuel4OAgNc6Mhz9pFukWeEIP5VNMP
- bRzzTa81t/Ye0cwxxcgsNtzWc8x94dp3ERK5QTtgEk/paRYSlQI2aZ3HKAWQyfmHAXho
- vf9/UvTbvHLKrfg0vOqf9XxIDOeBq/uENwrQdiiSn3y8HLXqz/be1SaQ8k86QioRkRaw
- 1kEgPWTueAiTg/mfMOR32IlirfqsE4dw9K1L5SnL6csLGchfV1CIhqkS1zxn+QO7GK4K
- mewdIYlBe1/U0jeg+gvwPNIWqKf695rxpwNQ+CLCQCefvvHYCvhmO7FZ9AVKBOetFO7s
- erlg==
-X-Gm-Message-State: AOAM530YHyNbTxdehcmOZACO6aoCswAtpEoMenaPcdi0Cm5ykqBkZ2yY
- C53MKtDJu6aieSzqUJE4CSExTE2DWDY91rf/+y2L1z00gZfwfg==
-X-Google-Smtp-Source: ABdhPJyByQWWJa0hrbtV1myKAByDFfesZeheLqaUjzI8byWPA4Bi94k7+ygX07+flE2IDHP0e/qIgUprliQEtcEjRtQ=
-X-Received: by 2002:a1c:cc12:: with SMTP id h18mr664101wmb.56.1594836168503;
- Wed, 15 Jul 2020 11:02:48 -0700 (PDT)
+ :message-id:subject:to:cc;
+ bh=mjCUOJ0O5KePPNwJTgg5X5nCpqITS6XdNSuqlESvfWw=;
+ b=iKISk7kjOdaPsgtMcr8gfTi0q1nLSp3rbPVdjGLcoTyWC+LjER/DYTBHI1hlP7jKQw
+ z9mgsTprPv36fKUJE1glaPl9Ht53A4GE83KpeKq8EzjjAoAHJNSZP47PIK3A0uljuygh
+ X03VjKrbD2l0CdacYP8OuLw0Qh8CYWwgWa5C3OtfZc8UfUBbhePgAvXYqcSPeRnM716A
+ MRLfa80WtEdzYQKJBDYKDZRZPRp9cYboH+D3JHw7gxPMlzYdbbht5CKatrhKHIKGguKb
+ cghtsVpOSMF7TwSpJQ2UMJKqjlg3VnEY2e0x+crk4twDY9rmuoHLW5qKLC6JFXlFS58T
+ 1hDg==
+X-Gm-Message-State: AOAM532oXZB0K9kXs/cownZd/Tw+KJ5Fr9WYqm5jSXmqK/1PIJkRvIHK
+ 0tOV1H1KRysuO9e5rFqszfRNaH2H7P4QJ40Irw4=
+X-Google-Smtp-Source: ABdhPJyZND3cUQHOKNs6YYf3feiWmCEvFFN+U5Hxq/SO3+Kv3z10VxTP6aKKDJn6cGDz6HUxEURn5pf1PBLgUXIhEk4=
+X-Received: by 2002:adf:e884:: with SMTP id d4mr592037wrm.176.1594836618846;
+ Wed, 15 Jul 2020 11:10:18 -0700 (PDT)
 MIME-Version: 1.0
 References: <20200713183711.762244-1-luke.r.nels@gmail.com>
- <20200713183711.762244-2-luke.r.nels@gmail.com>
-In-Reply-To: <20200713183711.762244-2-luke.r.nels@gmail.com>
+ <20200713183711.762244-3-luke.r.nels@gmail.com>
+In-Reply-To: <20200713183711.762244-3-luke.r.nels@gmail.com>
 From: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>
-Date: Wed, 15 Jul 2020 20:02:36 +0200
-Message-ID: <CAJ+HfNghhE37mAWvfUQaTfnzHktYHd+XYq3SMLJcY19Qbsz7Ww@mail.gmail.com>
-Subject: Re: [RFC PATCH bpf-next 1/3] bpf, riscv: Modify JIT ctx to support
- compressed instructions
+Date: Wed, 15 Jul 2020 20:10:06 +0200
+Message-ID: <CAJ+HfNiH6xCgnYbbWv1Nc1n60MBJjQC-uFbTrzKBsnHRdS5Y3A@mail.gmail.com>
+Subject: Re: [RFC PATCH bpf-next 2/3] bpf,
+ riscv: Add encodings for compressed instructions
 To: Luke Nelson <lukenels@cs.washington.edu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200715_140250_004051_CF9E40E3 
-X-CRM114-Status: GOOD (  26.95  )
+X-CRM114-CacheID: sfid-20200715_141020_116311_6CC0683F 
+X-CRM114-Status: GOOD (  21.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -102,189 +101,566 @@ Cc: Song Liu <songliubraving@fb.com>, Albert Ou <aou@eecs.berkeley.edu>,
  Yonghong Song <yhs@fb.com>, bpf <bpf@vger.kernel.org>,
  Andrii Nakryiko <andriin@fb.com>, Martin KaFai Lau <kafai@fb.com>,
  Xi Wang <xi.wang@gmail.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAxMyBKdWwgMjAyMCBhdCAyMDozNywgTHVrZSBOZWxzb24gPGx1a2VuZWxzQGNzLndh
-c2hpbmd0b24uZWR1PiB3cm90ZToKPgo+IFRoaXMgcGF0Y2ggbWFrZXMgdGhlIG5lY2Vzc2FyeSBj
-aGFuZ2VzIHRvIHN0cnVjdCBydl9qaXRfY29udGV4dCBhbmQgdG8KPiBicGZfaW50X2ppdF9jb21w
-aWxlIHRvIHN1cHBvcnQgY29tcHJlc3NlZCByaXNjdiAoUlZDKSBpbnN0cnVjdGlvbnMgaW4KPiB0
-aGUgQlBGIEpJVC4KPgo+IEl0IGNoYW5nZXMgdGhlIEpJVCBpbWFnZSB0byBiZSB1MTYgaW5zdGVh
-ZCBvZiB1MzIsIHNpbmNlIFJWQyBpbnN0cnVjdGlvbnMKPiBhcmUgMiBieXRlcyBhcyBvcHBvc2Vk
-IHRvIDQuCj4KPiBJdCBhbHNvIGNoYW5nZXMgY3R4LT5vZmZzZXQgYW5kIGN0eC0+bmluc25zIHRv
-IHJlZmVyIHRvIDItYnl0ZQo+IGluc3RydWN0aW9ucyByYXRoZXIgdGhhbiA0LWJ5dGUgb25lcy4g
-VGhlIHJpc2N2IFBDIGlzIGFsd2F5cyAxNi1iaXQKPiBhbGlnbmVkLCBzbyB0aGlzIGlzIHN1ZmZp
-Y2llbnQgdG8gcmVmZXIgdG8gYW55IHZhbGlkIHJpc2N2IG9mZnNldC4KPgo+IFRoZSBjb2RlIGZv
-ciBjb21wdXRpbmcganVtcCBvZmZzZXRzIGluIGJ5dGVzIGlzIHVwZGF0ZWQgYWNjb3JkaW5nbHks
-Cj4gYW5kIGZhY3RvcmVkIGluIHRvIHRoZSBSVk9GRiBtYWNybyB0byBzaW1wbGlmeSB0aGUgY29k
-ZS4KPgo+IFNpZ25lZC1vZmYtYnk6IEx1a2UgTmVsc29uIDxsdWtlLnIubmVsc0BnbWFpbC5jb20+
-Cj4gLS0tCj4gIGFyY2gvcmlzY3YvbmV0L2JwZl9qaXQuaCAgICAgICAgfCAyMyArKysrKysrKysr
-KysrKysrKysrKy0tLQo+ICBhcmNoL3Jpc2N2L25ldC9icGZfaml0X2NvbXAzMi5jIHwgMTQgKysr
-KysrKy0tLS0tLS0KPiAgYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wNjQuYyB8IDEyICsrKysr
-Ky0tLS0tLQo+ICBhcmNoL3Jpc2N2L25ldC9icGZfaml0X2NvcmUuYyAgIHwgIDYgKysrLS0tCj4g
-IDQgZmlsZXMgY2hhbmdlZCwgMzYgaW5zZXJ0aW9ucygrKSwgMTkgZGVsZXRpb25zKC0pCj4KPiBk
-aWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdC5oIGIvYXJjaC9yaXNjdi9uZXQvYnBm
-X2ppdC5oCj4gaW5kZXggMjBlMjM1ZDA2ZjY2Li41Yzg5ZWE5MDRjMWEgMTAwNjQ0Cj4gLS0tIGEv
-YXJjaC9yaXNjdi9uZXQvYnBmX2ppdC5oCj4gKysrIGIvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdC5o
-Cj4gQEAgLTUwLDcgKzUwLDcgQEAgZW51bSB7Cj4KPiAgc3RydWN0IHJ2X2ppdF9jb250ZXh0IHsK
-PiAgICAgICAgIHN0cnVjdCBicGZfcHJvZyAqcHJvZzsKPiAtICAgICAgIHUzMiAqaW5zbnM7ICAg
-ICAgICAgICAgIC8qIFJWIGluc25zICovCj4gKyAgICAgICB1MTYgKmluc25zOyAgICAgICAgICAg
-ICAvKiBSViBpbnNucyAqLwo+ICAgICAgICAgaW50IG5pbnNuczsKPiAgICAgICAgIGludCBlcGls
-b2d1ZV9vZmZzZXQ7Cj4gICAgICAgICBpbnQgKm9mZnNldDsgICAgICAgICAgICAvKiBCUEYgdG8g
-UlYgKi8KPiBAQCAtNTgsNiArNTgsOSBAQCBzdHJ1Y3QgcnZfaml0X2NvbnRleHQgewo+ICAgICAg
-ICAgaW50IHN0YWNrX3NpemU7Cj4gIH07Cj4KPiArLyogQ29udmVydCBmcm9tIG5pbnNucyB0byBi
-eXRlcy4gKi8KPiArI2RlZmluZSBSVk9GRihuaW5zbnMpICAoKG5pbnNucykgPDwgMSkKPiArCgpJ
-IGd1ZXNzIGl0J3MgYSBtYXR0ZXIgb2YgdGFzdGUsIGJ1dCBJJ2QgcHJlZmVyIGEgc2ltcGxlIHN0
-YXRpYyBpbmxpbmUKZnVuY3Rpb24gaW5zdGVhZCBvZiB0aGUgbWFjcm8uCgo+ICBzdHJ1Y3QgcnZf
-aml0X2RhdGEgewo+ICAgICAgICAgc3RydWN0IGJwZl9iaW5hcnlfaGVhZGVyICpoZWFkZXI7Cj4g
-ICAgICAgICB1OCAqaW1hZ2U7Cj4gQEAgLTc0LDggKzc3LDIyIEBAIHN0YXRpYyBpbmxpbmUgdm9p
-ZCBicGZfZmx1c2hfaWNhY2hlKHZvaWQgKnN0YXJ0LCB2b2lkICplbmQpCj4gICAgICAgICBmbHVz
-aF9pY2FjaGVfcmFuZ2UoKHVuc2lnbmVkIGxvbmcpc3RhcnQsICh1bnNpZ25lZCBsb25nKWVuZCk7
-Cj4gIH0KPgo+ICsvKiBFbWl0IGEgNC1ieXRlIHJpc2N2IGluc3RydWN0aW9uLiAqLwo+ICBzdGF0
-aWMgaW5saW5lIHZvaWQgZW1pdChjb25zdCB1MzIgaW5zbiwgc3RydWN0IHJ2X2ppdF9jb250ZXh0
-ICpjdHgpCj4gIHsKPiArICAgICAgIGlmIChjdHgtPmluc25zKSB7Cj4gKyAgICAgICAgICAgICAg
-IGN0eC0+aW5zbnNbY3R4LT5uaW5zbnNdID0gaW5zbjsKPiArICAgICAgICAgICAgICAgY3R4LT5p
-bnNuc1tjdHgtPm5pbnNucyArIDFdID0gKGluc24gPj4gMTYpOwo+ICsgICAgICAgfQo+ICsKPiAr
-ICAgICAgIGN0eC0+bmluc25zICs9IDI7Cj4gK30KPiArCj4gKy8qIEVtaXQgYSAyLWJ5dGUgcmlz
-Y3YgY29tcHJlc3NlZCBpbnN0cnVjdGlvbi4gKi8KPiArc3RhdGljIGlubGluZSB2b2lkIGVtaXRj
-KGNvbnN0IHUxNiBpbnNuLCBzdHJ1Y3QgcnZfaml0X2NvbnRleHQgKmN0eCkKPiArewo+ICsgICAg
-ICAgQlVJTERfQlVHX09OKCFydmNfZW5hYmxlZCgpKTsKPiArCj4gICAgICAgICBpZiAoY3R4LT5p
-bnNucykKPiAgICAgICAgICAgICAgICAgY3R4LT5pbnNuc1tjdHgtPm5pbnNuc10gPSBpbnNuOwo+
-Cj4gQEAgLTg2LDcgKzEwMyw3IEBAIHN0YXRpYyBpbmxpbmUgaW50IGVwaWxvZ3VlX29mZnNldChz
-dHJ1Y3QgcnZfaml0X2NvbnRleHQgKmN0eCkKPiAgewo+ICAgICAgICAgaW50IHRvID0gY3R4LT5l
-cGlsb2d1ZV9vZmZzZXQsIGZyb20gPSBjdHgtPm5pbnNuczsKPgo+IC0gICAgICAgcmV0dXJuICh0
-byAtIGZyb20pIDw8IDI7Cj4gKyAgICAgICByZXR1cm4gUlZPRkYodG8gLSBmcm9tKTsKPiAgfQo+
-Cj4gIC8qIFJldHVybiAtMSBvciBpbnZlcnRlZCBjb25kLiAqLwo+IEBAIC0xNDksNyArMTY2LDcg
-QEAgc3RhdGljIGlubGluZSBpbnQgcnZfb2Zmc2V0KGludCBpbnNuLCBpbnQgb2ZmLCBzdHJ1Y3Qg
-cnZfaml0X2NvbnRleHQgKmN0eCkKPiAgICAgICAgIG9mZisrOyAvKiBCUEYgYnJhbmNoIGlzIGZy
-b20gUEMrMSwgUlYgaXMgZnJvbSBQQyAqLwo+ICAgICAgICAgZnJvbSA9IChpbnNuID4gMCkgPyBj
-dHgtPm9mZnNldFtpbnNuIC0gMV0gOiAwOwo+ICAgICAgICAgdG8gPSAoaW5zbiArIG9mZiA+IDAp
-ID8gY3R4LT5vZmZzZXRbaW5zbiArIG9mZiAtIDFdIDogMDsKPiAtICAgICAgIHJldHVybiAodG8g
-LSBmcm9tKSA8PCAyOwo+ICsgICAgICAgcmV0dXJuIFJWT0ZGKHRvIC0gZnJvbSk7Cj4gIH0KPgo+
-ICAvKiBJbnN0cnVjdGlvbiBmb3JtYXRzLiAqLwo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L25l
-dC9icGZfaml0X2NvbXAzMi5jIGIvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wMzIuYwo+IGlu
-ZGV4IGIxOThlYWE3NDQ1Ni4uZDIyMDAxYWEwMDU3IDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yv
-bmV0L2JwZl9qaXRfY29tcDMyLmMKPiArKysgYi9hcmNoL3Jpc2N2L25ldC9icGZfaml0X2NvbXAz
-Mi5jCj4gQEAgLTY0NCw3ICs2NDQsNyBAQCBzdGF0aWMgaW50IGVtaXRfYnJhbmNoX3I2NChjb25z
-dCBzOCAqc3JjMSwgY29uc3QgczggKnNyYzIsIHMzMiBydm9mZiwKPgo+ICAgICAgICAgZSA9IGN0
-eC0+bmluc25zOwo+ICAgICAgICAgLyogQWRqdXN0IGZvciBleHRyYSBpbnNucy4gKi8KPiAtICAg
-ICAgIHJ2b2ZmIC09IChlIC0gcykgPDwgMjsKPiArICAgICAgIHJ2b2ZmIC09IFJWT0ZGKGUgLSBz
-KTsKPiAgICAgICAgIGVtaXRfanVtcF9hbmRfbGluayhSVl9SRUdfWkVSTywgcnZvZmYsIHRydWUs
-IGN0eCk7Cj4gICAgICAgICByZXR1cm4gMDsKPiAgfQo+IEBAIC03MTMsNyArNzEzLDcgQEAgc3Rh
-dGljIGludCBlbWl0X2JjYyh1OCBvcCwgdTggcmQsIHU4IHJzLCBpbnQgcnZvZmYsIHN0cnVjdCBy
-dl9qaXRfY29udGV4dCAqY3R4KQo+ICAgICAgICAgaWYgKGZhcikgewo+ICAgICAgICAgICAgICAg
-ICBlID0gY3R4LT5uaW5zbnM7Cj4gICAgICAgICAgICAgICAgIC8qIEFkanVzdCBmb3IgZXh0cmEg
-aW5zbnMuICovCj4gLSAgICAgICAgICAgICAgIHJ2b2ZmIC09IChlIC0gcykgPDwgMjsKPiArICAg
-ICAgICAgICAgICAgcnZvZmYgLT0gUlZPRkYoZSAtIHMpOwo+ICAgICAgICAgICAgICAgICBlbWl0
-X2p1bXBfYW5kX2xpbmsoUlZfUkVHX1pFUk8sIHJ2b2ZmLCB0cnVlLCBjdHgpOwo+ICAgICAgICAg
-fQo+ICAgICAgICAgcmV0dXJuIDA7Cj4gQEAgLTczMSw3ICs3MzEsNyBAQCBzdGF0aWMgaW50IGVt
-aXRfYnJhbmNoX3IzMihjb25zdCBzOCAqc3JjMSwgY29uc3QgczggKnNyYzIsIHMzMiBydm9mZiwK
-Pgo+ICAgICAgICAgZSA9IGN0eC0+bmluc25zOwo+ICAgICAgICAgLyogQWRqdXN0IGZvciBleHRy
-YSBpbnNucy4gKi8KPiAtICAgICAgIHJ2b2ZmIC09IChlIC0gcykgPDwgMjsKPiArICAgICAgIHJ2
-b2ZmIC09IFJWT0ZGKGUgLSBzKTsKPgo+ICAgICAgICAgaWYgKGVtaXRfYmNjKG9wLCBsbyhyczEp
-LCBsbyhyczIpLCBydm9mZiwgY3R4KSkKPiAgICAgICAgICAgICAgICAgcmV0dXJuIC0xOwo+IEBA
-IC03OTUsNyArNzk1LDcgQEAgc3RhdGljIGludCBlbWl0X2JwZl90YWlsX2NhbGwoaW50IGluc24s
-IHN0cnVjdCBydl9qaXRfY29udGV4dCAqY3R4KQo+ICAgICAgICAgICogaWYgKGluZGV4ID49IG1h
-eF9lbnRyaWVzKQo+ICAgICAgICAgICogICBnb3RvIG91dDsKPiAgICAgICAgICAqLwo+IC0gICAg
-ICAgb2ZmID0gKHRjX25pbnNuIC0gKGN0eC0+bmluc25zIC0gc3RhcnRfaW5zbikpIDw8IDI7Cj4g
-KyAgICAgICBvZmYgPSBSVk9GRih0Y19uaW5zbiAtIChjdHgtPm5pbnNucyAtIHN0YXJ0X2luc24p
-KTsKPiAgICAgICAgIGVtaXRfYmNjKEJQRl9KR0UsIGxvKGlkeF9yZWcpLCBSVl9SRUdfVDEsIG9m
-ZiwgY3R4KTsKPgo+ICAgICAgICAgLyoKPiBAQCAtODA0LDcgKzgwNCw3IEBAIHN0YXRpYyBpbnQg
-ZW1pdF9icGZfdGFpbF9jYWxsKGludCBpbnNuLCBzdHJ1Y3QgcnZfaml0X2NvbnRleHQgKmN0eCkK
-PiAgICAgICAgICAqICAgZ290byBvdXQ7Cj4gICAgICAgICAgKi8KPiAgICAgICAgIGVtaXQocnZf
-YWRkaShSVl9SRUdfVDEsIFJWX1JFR19UQ0MsIC0xKSwgY3R4KTsKPiAtICAgICAgIG9mZiA9ICh0
-Y19uaW5zbiAtIChjdHgtPm5pbnNucyAtIHN0YXJ0X2luc24pKSA8PCAyOwo+ICsgICAgICAgb2Zm
-ID0gUlZPRkYodGNfbmluc24gLSAoY3R4LT5uaW5zbnMgLSBzdGFydF9pbnNuKSk7Cj4gICAgICAg
-ICBlbWl0X2JjYyhCUEZfSlNMVCwgUlZfUkVHX1RDQywgUlZfUkVHX1pFUk8sIG9mZiwgY3R4KTsK
-Pgo+ICAgICAgICAgLyoKPiBAQCAtODE4LDcgKzgxOCw3IEBAIHN0YXRpYyBpbnQgZW1pdF9icGZf
-dGFpbF9jYWxsKGludCBpbnNuLCBzdHJ1Y3QgcnZfaml0X2NvbnRleHQgKmN0eCkKPiAgICAgICAg
-IGlmIChpc18xMmJfY2hlY2sob2ZmLCBpbnNuKSkKPiAgICAgICAgICAgICAgICAgcmV0dXJuIC0x
-Owo+ICAgICAgICAgZW1pdChydl9sdyhSVl9SRUdfVDAsIG9mZiwgUlZfUkVHX1QwKSwgY3R4KTsK
-PiAtICAgICAgIG9mZiA9ICh0Y19uaW5zbiAtIChjdHgtPm5pbnNucyAtIHN0YXJ0X2luc24pKSA8
-PCAyOwo+ICsgICAgICAgb2ZmID0gUlZPRkYodGNfbmluc24gLSAoY3R4LT5uaW5zbnMgLSBzdGFy
-dF9pbnNuKSk7Cj4gICAgICAgICBlbWl0X2JjYyhCUEZfSkVRLCBSVl9SRUdfVDAsIFJWX1JFR19a
-RVJPLCBvZmYsIGN0eCk7Cj4KPiAgICAgICAgIC8qCj4gQEAgLTEyMTQsNyArMTIxNCw3IEBAIGlu
-dCBicGZfaml0X2VtaXRfaW5zbihjb25zdCBzdHJ1Y3QgYnBmX2luc24gKmluc24sIHN0cnVjdCBy
-dl9qaXRfY29udGV4dCAqY3R4LAo+ICAgICAgICAgICAgICAgICAgICAgICAgIGVtaXRfaW1tMzIo
-dG1wMiwgaW1tLCBjdHgpOwo+ICAgICAgICAgICAgICAgICAgICAgICAgIHNyYyA9IHRtcDI7Cj4g
-ICAgICAgICAgICAgICAgICAgICAgICAgZSA9IGN0eC0+bmluc25zOwo+IC0gICAgICAgICAgICAg
-ICAgICAgICAgIHJ2b2ZmIC09IChlIC0gcykgPDwgMjsKPiArICAgICAgICAgICAgICAgICAgICAg
-ICBydm9mZiAtPSBSVk9GRihlIC0gcyk7Cj4gICAgICAgICAgICAgICAgIH0KPgo+ICAgICAgICAg
-ICAgICAgICBpZiAoaXM2NCkKPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9j
-b21wNjQuYyBiL2FyY2gvcmlzY3YvbmV0L2JwZl9qaXRfY29tcDY0LmMKPiBpbmRleCA2Y2ZkMTY0
-Y2JlODguLjI2ZmVlZDkyZjFiYyAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L25ldC9icGZfaml0
-X2NvbXA2NC5jCj4gKysrIGIvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wNjQuYwo+IEBAIC0z
-MDQsMTQgKzMwNCwxNCBAQCBzdGF0aWMgaW50IGVtaXRfYnBmX3RhaWxfY2FsbChpbnQgaW5zbiwg
-c3RydWN0IHJ2X2ppdF9jb250ZXh0ICpjdHgpCj4gICAgICAgICBpZiAoaXNfMTJiX2NoZWNrKG9m
-ZiwgaW5zbikpCj4gICAgICAgICAgICAgICAgIHJldHVybiAtMTsKPiAgICAgICAgIGVtaXQocnZf
-bHd1KFJWX1JFR19UMSwgb2ZmLCBSVl9SRUdfQTEpLCBjdHgpOwo+IC0gICAgICAgb2ZmID0gKHRj
-X25pbnNuIC0gKGN0eC0+bmluc25zIC0gc3RhcnRfaW5zbikpIDw8IDI7Cj4gKyAgICAgICBvZmYg
-PSBSVk9GRih0Y19uaW5zbiAtIChjdHgtPm5pbnNucyAtIHN0YXJ0X2luc24pKTsKPiAgICAgICAg
-IGVtaXRfYnJhbmNoKEJQRl9KR0UsIFJWX1JFR19BMiwgUlZfUkVHX1QxLCBvZmYsIGN0eCk7Cj4K
-PiAgICAgICAgIC8qIGlmIChUQ0MtLSA8IDApCj4gICAgICAgICAgKiAgICAgZ290byBvdXQ7Cj4g
-ICAgICAgICAgKi8KPiAgICAgICAgIGVtaXQocnZfYWRkaShSVl9SRUdfVDEsIHRjYywgLTEpLCBj
-dHgpOwo+IC0gICAgICAgb2ZmID0gKHRjX25pbnNuIC0gKGN0eC0+bmluc25zIC0gc3RhcnRfaW5z
-bikpIDw8IDI7Cj4gKyAgICAgICBvZmYgPSBSVk9GRih0Y19uaW5zbiAtIChjdHgtPm5pbnNucyAt
-IHN0YXJ0X2luc24pKTsKPiAgICAgICAgIGVtaXRfYnJhbmNoKEJQRl9KU0xULCB0Y2MsIFJWX1JF
-R19aRVJPLCBvZmYsIGN0eCk7Cj4KPiAgICAgICAgIC8qIHByb2cgPSBhcnJheS0+cHRyc1tpbmRl
-eF07Cj4gQEAgLTMyNCw3ICszMjQsNyBAQCBzdGF0aWMgaW50IGVtaXRfYnBmX3RhaWxfY2FsbChp
-bnQgaW5zbiwgc3RydWN0IHJ2X2ppdF9jb250ZXh0ICpjdHgpCj4gICAgICAgICBpZiAoaXNfMTJi
-X2NoZWNrKG9mZiwgaW5zbikpCj4gICAgICAgICAgICAgICAgIHJldHVybiAtMTsKPiAgICAgICAg
-IGVtaXQocnZfbGQoUlZfUkVHX1QyLCBvZmYsIFJWX1JFR19UMiksIGN0eCk7Cj4gLSAgICAgICBv
-ZmYgPSAodGNfbmluc24gLSAoY3R4LT5uaW5zbnMgLSBzdGFydF9pbnNuKSkgPDwgMjsKPiArICAg
-ICAgIG9mZiA9IFJWT0ZGKHRjX25pbnNuIC0gKGN0eC0+bmluc25zIC0gc3RhcnRfaW5zbikpOwo+
-ICAgICAgICAgZW1pdF9icmFuY2goQlBGX0pFUSwgUlZfUkVHX1QyLCBSVl9SRUdfWkVSTywgb2Zm
-LCBjdHgpOwo+Cj4gICAgICAgICAvKiBnb3RvICoocHJvZy0+YnBmX2Z1bmMgKyA0KTsgKi8KPiBA
-QCAtNzU3LDcgKzc1Nyw3IEBAIGludCBicGZfaml0X2VtaXRfaW5zbihjb25zdCBzdHJ1Y3QgYnBm
-X2luc24gKmluc24sIHN0cnVjdCBydl9qaXRfY29udGV4dCAqY3R4LAo+ICAgICAgICAgICAgICAg
-ICAgICAgICAgIGUgPSBjdHgtPm5pbnNuczsKPgo+ICAgICAgICAgICAgICAgICAgICAgICAgIC8q
-IEFkanVzdCBmb3IgZXh0cmEgaW5zbnMgKi8KPiAtICAgICAgICAgICAgICAgICAgICAgICBydm9m
-ZiAtPSAoZSAtIHMpIDw8IDI7Cj4gKyAgICAgICAgICAgICAgICAgICAgICAgcnZvZmYgLT0gUlZP
-RkYoZSAtIHMpOwo+ICAgICAgICAgICAgICAgICB9Cj4KPiAgICAgICAgICAgICAgICAgaWYgKEJQ
-Rl9PUChjb2RlKSA9PSBCUEZfSlNFVCkgewo+IEBAIC04MTAsNyArODEwLDcgQEAgaW50IGJwZl9q
-aXRfZW1pdF9pbnNuKGNvbnN0IHN0cnVjdCBicGZfaW5zbiAqaW5zbiwgc3RydWN0IHJ2X2ppdF9j
-b250ZXh0ICpjdHgsCj4gICAgICAgICAgICAgICAgIGUgPSBjdHgtPm5pbnNuczsKPgo+ICAgICAg
-ICAgICAgICAgICAvKiBBZGp1c3QgZm9yIGV4dHJhIGluc25zICovCj4gLSAgICAgICAgICAgICAg
-IHJ2b2ZmIC09IChlIC0gcykgPDwgMjsKPiArICAgICAgICAgICAgICAgcnZvZmYgLT0gUlZPRkYo
-ZSAtIHMpOwo+ICAgICAgICAgICAgICAgICBlbWl0X2JyYW5jaChCUEZfT1AoY29kZSksIHJkLCBy
-cywgcnZvZmYsIGN0eCk7Cj4gICAgICAgICAgICAgICAgIGJyZWFrOwo+Cj4gQEAgLTgzMSw3ICs4
-MzEsNyBAQCBpbnQgYnBmX2ppdF9lbWl0X2luc24oY29uc3Qgc3RydWN0IGJwZl9pbnNuICppbnNu
-LCBzdHJ1Y3QgcnZfaml0X2NvbnRleHQgKmN0eCwKPiAgICAgICAgICAgICAgICAgaWYgKCFpczY0
-ICYmIGltbSA8IDApCj4gICAgICAgICAgICAgICAgICAgICAgICAgZW1pdChydl9hZGRpdyhSVl9S
-RUdfVDEsIFJWX1JFR19UMSwgMCksIGN0eCk7Cj4gICAgICAgICAgICAgICAgIGUgPSBjdHgtPm5p
-bnNuczsKPiAtICAgICAgICAgICAgICAgcnZvZmYgLT0gKGUgLSBzKSA8PCAyOwo+ICsgICAgICAg
-ICAgICAgICBydm9mZiAtPSBSVk9GRihlIC0gcyk7Cj4gICAgICAgICAgICAgICAgIGVtaXRfYnJh
-bmNoKEJQRl9KTkUsIFJWX1JFR19UMSwgUlZfUkVHX1pFUk8sIHJ2b2ZmLCBjdHgpOwo+ICAgICAg
-ICAgICAgICAgICBicmVhazsKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L25ldC9icGZfaml0
-X2NvcmUuYyBiL2FyY2gvcmlzY3YvbmV0L2JwZl9qaXRfY29yZS5jCj4gaW5kZXggNzA5Yjk0ZWNl
-M2VkLi5jZDE1NmVmZTQ5NDQgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9j
-b3JlLmMKPiArKysgYi9hcmNoL3Jpc2N2L25ldC9icGZfaml0X2NvcmUuYwo+IEBAIC03Myw3ICs3
-Myw3IEBAIHN0cnVjdCBicGZfcHJvZyAqYnBmX2ludF9qaXRfY29tcGlsZShzdHJ1Y3QgYnBmX3By
-b2cgKnByb2cpCj4KPiAgICAgICAgIGlmIChjdHgtPm9mZnNldCkgewo+ICAgICAgICAgICAgICAg
-ICBleHRyYV9wYXNzID0gdHJ1ZTsKPiAtICAgICAgICAgICAgICAgaW1hZ2Vfc2l6ZSA9IHNpemVv
-Zih1MzIpICogY3R4LT5uaW5zbnM7Cj4gKyAgICAgICAgICAgICAgIGltYWdlX3NpemUgPSBzaXpl
-b2YodTE2KSAqIGN0eC0+bmluc25zOwoKTWF5YmUgc2l6ZW9mKCpjdHgtPmluc25zKT8KCj4gICAg
-ICAgICAgICAgICAgIGdvdG8gc2tpcF9pbml0X2N0eDsKPiAgICAgICAgIH0KPgo+IEBAIC0xMDMs
-NyArMTAzLDcgQEAgc3RydWN0IGJwZl9wcm9nICpicGZfaW50X2ppdF9jb21waWxlKHN0cnVjdCBi
-cGZfcHJvZyAqcHJvZykKPiAgICAgICAgICAgICAgICAgICAgICAgICBpZiAoaml0X2RhdGEtPmhl
-YWRlcikKPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJyZWFrOwo+Cj4gLSAgICAg
-ICAgICAgICAgICAgICAgICAgaW1hZ2Vfc2l6ZSA9IHNpemVvZih1MzIpICogY3R4LT5uaW5zbnM7
-Cj4gKyAgICAgICAgICAgICAgICAgICAgICAgaW1hZ2Vfc2l6ZSA9IHNpemVvZih1MTYpICogY3R4
-LT5uaW5zbnM7CgpEaXRvLgoKCkJqw7Zybgo+ICAgICAgICAgICAgICAgICAgICAgICAgIGppdF9k
-YXRhLT5oZWFkZXIgPQo+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYnBmX2ppdF9i
-aW5hcnlfYWxsb2MoaW1hZ2Vfc2l6ZSwKPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICZqaXRfZGF0YS0+aW1hZ2UsCj4gQEAgLTExNCw3ICsxMTQs
-NyBAQCBzdHJ1Y3QgYnBmX3Byb2cgKmJwZl9pbnRfaml0X2NvbXBpbGUoc3RydWN0IGJwZl9wcm9n
-ICpwcm9nKQo+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZ290byBvdXRfb2Zmc2V0
-Owo+ICAgICAgICAgICAgICAgICAgICAgICAgIH0KPgo+IC0gICAgICAgICAgICAgICAgICAgICAg
-IGN0eC0+aW5zbnMgPSAodTMyICopaml0X2RhdGEtPmltYWdlOwo+ICsgICAgICAgICAgICAgICAg
-ICAgICAgIGN0eC0+aW5zbnMgPSAodTE2ICopaml0X2RhdGEtPmltYWdlOwo+ICAgICAgICAgICAg
-ICAgICAgICAgICAgIC8qCj4gICAgICAgICAgICAgICAgICAgICAgICAgICogTm93LCB3aGVuIHRo
-ZSBpbWFnZSBpcyBhbGxvY2F0ZWQsIHRoZSBpbWFnZSBjYW4KPiAgICAgICAgICAgICAgICAgICAg
-ICAgICAgKiBwb3RlbnRpYWxseSBzaHJpbmsgbW9yZSAoYXVpcGMvamFsciAtPiBqYWwpLgo+IC0t
-Cj4gMi4yNS4xCj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+On Mon, 13 Jul 2020 at 20:37, Luke Nelson <lukenels@cs.washington.edu> wrote:
+>
+> This patch adds functions for encoding and emitting compressed riscv
+> (RVC) instructions to the BPF JIT.
+>
+> Some regular riscv instructions can be compressed into an RVC instruction
+> if the instruction fields meet some requirements. For example, "add rd,
+> rs1, rs2" can be compressed into "c.add rd, rs2" when rd == rs1.
+>
+> To make using RVC encodings simpler, this patch also adds helper
+> functions that selectively emit either a regular instruction or a
+> compressed instruction if possible.
+>
+> For example, emit_add will produce a "c.add" if possible and regular
+> "add" otherwise.
+>
+> Signed-off-by: Luke Nelson <luke.r.nels@gmail.com>
+> ---
+>  arch/riscv/net/bpf_jit.h | 474 +++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 474 insertions(+)
+>
+> diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
+> index 5c89ea904c1a..f3ac2d4a50f7 100644
+> --- a/arch/riscv/net/bpf_jit.h
+> +++ b/arch/riscv/net/bpf_jit.h
+> @@ -13,6 +13,15 @@
+>  #include <linux/filter.h>
+>  #include <asm/cacheflush.h>
+>
+> +static inline bool rvc_enabled(void)
+> +{
+> +#ifdef CONFIG_RISCV_ISA_C
+> +       return true;
+> +#else
+> +       return false;
+> +#endif
+> +}
+> +
+>  enum {
+>         RV_REG_ZERO =   0,      /* The constant value 0 */
+>         RV_REG_RA =     1,      /* Return address */
+> @@ -48,6 +57,18 @@ enum {
+>         RV_REG_T6 =     31,
+>  };
+>
+> +static inline bool is_creg(u8 reg)
+> +{
+> +       return (1 << reg) & (BIT(RV_REG_FP) |
+> +                            BIT(RV_REG_S1) |
+> +                            BIT(RV_REG_A0) |
+> +                            BIT(RV_REG_A1) |
+> +                            BIT(RV_REG_A2) |
+> +                            BIT(RV_REG_A3) |
+> +                            BIT(RV_REG_A4) |
+> +                            BIT(RV_REG_A5));
+> +}
+> +
+>  struct rv_jit_context {
+>         struct bpf_prog *prog;
+>         u16 *insns;             /* RV insns */
+> @@ -134,6 +155,16 @@ static inline int invert_bpf_cond(u8 cond)
+>         return -1;
+>  }
+>
+> +static inline bool is_6b_int(long val)
+> +{
+> +       return -(1L << 5) <= val && val < (1L << 5);
+> +}
+> +
+> +static inline bool is_10b_int(long val)
+> +{
+> +       return -(1L << 9) <= val && val < (1L << 9);
+> +}
+> +
+>  static inline bool is_12b_int(long val)
+>  {
+>         return -(1L << 11) <= val && val < (1L << 11);
+> @@ -224,6 +255,59 @@ static inline u32 rv_amo_insn(u8 funct5, u8 aq, u8 rl, u8 rs2, u8 rs1,
+>         return rv_r_insn(funct7, rs2, rs1, funct3, rd, opcode);
+>  }
+>
+> +/* RISC-V compressed instruction formats. */
+> +
+> +static inline u32 rv_cr_insn(u8 funct4, u8 rd, u8 rs2, u8 op)
+
+Please change so that the return type is u16, so it matches emitc.
+
+> +{
+> +       return (funct4 << 12) | (rd << 7) | (rs2 << 2) | op;
+> +}
+> +
+> +static inline u32 rv_ci_insn(u8 funct3, u32 imm6, u8 rd, u8 op)
+> +{
+> +       u16 imm;
+> +
+> +       imm = ((imm6 & 0x20) << 7) | ((imm6 & 0x1f) << 2);
+> +       return (funct3 << 13) | (rd << 7) | op | imm;
+> +}
+> +
+> +static inline u32 rv_css_insn(u8 funct3, u32 uimm, u8 rs2, u8 op)
+> +{
+> +       return (funct3 << 13) | (uimm << 7) | (rs2 << 2) | op;
+> +}
+> +
+> +static inline u32 rv_ciw_insn(u8 funct3, u32 uimm, u8 rd, u8 op)
+> +{
+> +       return (funct3 << 13) | (uimm << 5) | ((rd & 0x7) << 2) | op;
+> +}
+> +
+> +static inline u32 rv_cl_insn(u8 funct3, u32 imm_hi, u8 rs1, u32 imm_lo, u8 rd,
+> +                            u8 op)
+> +{
+> +       return (funct3 << 13) | (imm_hi << 10) | ((rs1 & 0x7) << 7) |
+> +               (imm_lo << 5) | ((rd & 0x7) << 2) | op;
+> +}
+> +
+> +static inline u32 rv_cs_insn(u8 funct3, u32 imm_hi, u8 rs1, u32 imm_lo, u8 rs2,
+> +                            u8 op)
+> +{
+> +       return (funct3 << 13) | (imm_hi << 10) | ((rs1 & 0x7) << 7) |
+> +               (imm_lo << 5) | ((rs2 & 0x7) << 2) | op;
+> +}
+> +
+> +static inline u32 rv_ca_insn(u8 funct6, u8 rd, u8 funct2, u8 rs2, u8 op)
+> +{
+> +       return (funct6 << 10) | ((rd & 0x7) << 7) | (funct2 << 5) |
+> +               ((rs2 & 0x7) << 2) | op;
+> +}
+> +
+> +static inline u32 rv_cb_insn(u8 funct3, u32 imm6, u8 funct2, u8 rd, u8 op)
+> +{
+> +       u16 imm;
+> +
+> +       imm = ((imm6 & 0x20) << 7) | ((imm6 & 0x1f) << 2);
+> +       return (funct3 << 13) | (funct2 << 10) | ((rd & 0x7) << 7) | op | imm;
+> +}
+> +
+>  /* Instructions shared by both RV32 and RV64. */
+>
+>  static inline u32 rv_addi(u8 rd, u8 rs1, u16 imm11_0)
+> @@ -431,6 +515,135 @@ static inline u32 rv_amoadd_w(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
+>         return rv_amo_insn(0, aq, rl, rs2, rs1, 2, rd, 0x2f);
+>  }
+>
+> +/* RVC instrutions. */
+> +
+> +static inline u32 rvc_addi4spn(u8 rd, u32 imm10)
+
+And same here. Change to u16 for the return value.
+
+> +{
+> +       u32 imm;
+> +
+> +       imm = ((imm10 & 0x30) << 2) | ((imm10 & 0x3c0) >> 4) |
+> +               ((imm10 & 0x4) >> 1) | ((imm10 & 0x8) >> 3);
+> +       return rv_ciw_insn(0x0, imm, rd, 0x0);
+> +}
+> +
+> +static inline u32 rvc_lw(u8 rd, u32 imm7, u8 rs1)
+> +{
+> +       u32 imm_hi, imm_lo;
+> +
+> +       imm_hi = (imm7 & 0x38) >> 3;
+> +       imm_lo = ((imm7 & 0x4) >> 1) | ((imm7 & 0x40) >> 6);
+> +       return rv_cl_insn(0x2, imm_hi, rs1, imm_lo, rd, 0x0);
+> +}
+> +
+> +static inline u32 rvc_sw(u8 rs1, u32 imm7, u8 rs2)
+> +{
+> +       u32 imm_hi, imm_lo;
+> +
+> +       imm_hi = (imm7 & 0x38) >> 3;
+> +       imm_lo = ((imm7 & 0x4) >> 1) | ((imm7 & 0x40) >> 6);
+> +       return rv_cs_insn(0x6, imm_hi, rs1, imm_lo, rs2, 0x0);
+> +}
+> +
+> +static inline u32 rvc_addi(u8 rd, u8 imm6)
+> +{
+> +       return rv_ci_insn(0, imm6, rd, 0x1);
+> +}
+> +
+> +static inline u32 rvc_li(u8 rd, u8 imm6)
+> +{
+> +       return rv_ci_insn(0x2, imm6, rd, 0x1);
+> +}
+> +
+> +static inline u32 rvc_addi16sp(u32 imm10)
+> +{
+> +       u32 imm;
+> +
+> +       imm = ((imm10 & 0x200) >> 4) | (imm10 & 0x10) | ((imm10 & 0x40) >> 3) |
+> +               ((imm10 & 0x180) >> 6) | ((imm10 & 0x20) >> 5);
+> +       return rv_ci_insn(0x3, imm, RV_REG_SP, 0x1);
+> +}
+> +
+> +static inline u32 rvc_lui(u8 rd, u8 imm6)
+> +{
+> +       return rv_ci_insn(0x3, imm6, rd, 0x1);
+> +}
+> +
+> +static inline u32 rvc_srli(u8 rd, u8 imm6)
+> +{
+> +       return rv_cb_insn(0x4, imm6, 0, rd, 0x1);
+> +}
+> +
+> +static inline u32 rvc_srai(u8 rd, u8 imm6)
+> +{
+> +       return rv_cb_insn(0x4, imm6, 0x1, rd, 0x1);
+> +}
+> +
+> +static inline u32 rvc_andi(u8 rd, u8 imm6)
+> +{
+> +       return rv_cb_insn(0x4, imm6, 0x2, rd, 0x1);
+> +}
+> +
+> +static inline u32 rvc_sub(u8 rd, u8 rs)
+> +{
+> +       return rv_ca_insn(0x23, rd, 0, rs, 0x1);
+> +}
+> +
+> +static inline u32 rvc_xor(u8 rd, u8 rs)
+> +{
+> +       return rv_ca_insn(0x23, rd, 0x1, rs, 0x1);
+> +}
+> +
+> +static inline u32 rvc_or(u8 rd, u8 rs)
+> +{
+> +       return rv_ca_insn(0x23, rd, 0x2, rs, 0x1);
+> +}
+> +
+> +static inline u32 rvc_and(u8 rd, u8 rs)
+> +{
+> +       return rv_ca_insn(0x23, rd, 0x3, rs, 0x1);
+> +}
+> +
+> +static inline u32 rvc_slli(u8 rd, u8 imm6)
+> +{
+> +       return rv_ci_insn(0, imm6, rd, 0x2);
+> +}
+> +
+> +static inline u32 rvc_lwsp(u8 rd, u32 imm8)
+> +{
+> +       u32 imm;
+> +
+> +       imm = ((imm8 & 0xc0) >> 6) | (imm8 & 0x3c);
+> +       return rv_ci_insn(0x2, imm, rd, 0x2);
+> +}
+> +
+> +static inline u32 rvc_jr(u8 rs1)
+> +{
+> +       return rv_cr_insn(0x8, rs1, RV_REG_ZERO, 0x2);
+> +}
+> +
+> +static inline u32 rvc_mv(u8 rd, u8 rs)
+> +{
+> +       return rv_cr_insn(0x8, rd, rs, 0x2);
+> +}
+> +
+> +static inline u32 rvc_jalr(u8 rs1)
+> +{
+> +       return rv_cr_insn(0x9, rs1, RV_REG_ZERO, 0x2);
+> +}
+> +
+> +static inline u32 rvc_add(u8 rd, u8 rs)
+> +{
+> +       return rv_cr_insn(0x9, rd, rs, 0x2);
+> +}
+> +
+> +static inline u32 rvc_swsp(u32 imm8, u8 rs2)
+> +{
+> +       u32 imm;
+> +
+> +       imm = (imm8 & 0x3c) | ((imm8 & 0xc0) >> 6);
+> +       return rv_css_insn(0x6, imm, rs2, 0x2);
+> +}
+> +
+>  /*
+>   * RV64-only instructions.
+>   *
+> @@ -520,6 +733,267 @@ static inline u32 rv_amoadd_d(u8 rd, u8 rs2, u8 rs1, u8 aq, u8 rl)
+>         return rv_amo_insn(0, aq, rl, rs2, rs1, 3, rd, 0x2f);
+>  }
+>
+> +/* RV64-only RVC instructions. */
+> +
+> +static inline u32 rvc_ld(u8 rd, u32 imm8, u8 rs1)
+
+...and again also u16 return type.
+
+> +{
+> +       u32 imm_hi, imm_lo;
+> +
+> +       imm_hi = (imm8 & 0x38) >> 3;
+> +       imm_lo = (imm8 & 0xc0) >> 6;
+> +       return rv_cl_insn(0x3, imm_hi, rs1, imm_lo, rd, 0x0);
+> +}
+> +
+> +static inline u32 rvc_sd(u8 rs1, u32 imm8, u8 rs2)
+> +{
+> +       u32 imm_hi, imm_lo;
+> +
+> +       imm_hi = (imm8 & 0x38) >> 3;
+> +       imm_lo = (imm8 & 0xc0) >> 6;
+> +       return rv_cs_insn(0x7, imm_hi, rs1, imm_lo, rs2, 0x0);
+> +}
+> +
+> +static inline u32 rvc_subw(u8 rd, u8 rs)
+> +{
+> +       return rv_ca_insn(0x27, rd, 0, rs, 0x1);
+> +}
+> +
+> +static inline u32 rvc_addiw(u8 rd, u8 imm6)
+> +{
+> +       return rv_ci_insn(0x1, imm6, rd, 0x1);
+> +}
+> +
+> +static inline u32 rvc_ldsp(u8 rd, u32 imm9)
+> +{
+> +       u32 imm;
+> +
+> +       imm = ((imm9 & 0x1c0) >> 6) | (imm9 & 0x38);
+> +       return rv_ci_insn(0x3, imm, rd, 0x2);
+> +}
+> +
+> +static inline u32 rvc_sdsp(u32 imm9, u8 rs2)
+> +{
+> +       u32 imm;
+> +
+> +       imm = (imm9 & 0x38) | ((imm9 & 0x1c0) >> 6);
+> +       return rv_css_insn(0x7, imm, rs2, 0x2);
+> +}
+> +
+> +#endif /* __riscv_xlen == 64 */
+> +
+> +/* Helper functions that emit RVC instructions when possible. */
+> +
+> +static inline void emit_jalr(u8 rd, u8 rs, s32 imm, struct rv_jit_context *ctx)
+> +{
+> +       if (rvc_enabled() && rd == RV_REG_RA && rs && !imm)
+> +               emitc(rvc_jalr(rs), ctx);
+> +       else if (rvc_enabled() && !rd && rs && !imm)
+> +               emitc(rvc_jr(rs), ctx);
+> +       else
+> +               emit(rv_jalr(rd, rs, imm), ctx);
+> +}
+> +
+> +static inline void emit_mv(u8 rd, u8 rs, struct rv_jit_context *ctx)
+> +{
+> +       if (rvc_enabled() && rd && rs)
+> +               emitc(rvc_mv(rd, rs), ctx);
+> +       else
+> +               emit(rv_addi(rd, rs, 0), ctx);
+> +}
+> +
+> +static inline void emit_add(u8 rd, u8 rs1, u8 rs2, struct rv_jit_context *ctx)
+> +{
+> +       if (rvc_enabled() && rd && rd == rs1 && rs2)
+> +               emitc(rvc_add(rd, rs2), ctx);
+> +       else
+> +               emit(rv_add(rd, rs1, rs2), ctx);
+> +}
+> +
+> +static inline void emit_addi(u8 rd, u8 rs, s32 imm, struct rv_jit_context *ctx)
+> +{
+> +       if (rd == rs && !imm)
+> +               /*
+> +                * RVC cannot handle imm == 0. Handle it here by emitting
+> +                * no instructions since it should behave as a no-op.
+> +                */
+> +               return;
+> +       else if (rvc_enabled() && rd == RV_REG_SP && rd == rs &&
+> +                is_10b_int(imm) && !(imm & 0xf))
+> +               emitc(rvc_addi16sp(imm), ctx);
+> +       else if (rvc_enabled() && is_creg(rd) && rs == RV_REG_SP &&
+> +                (u32)imm < 0x400 && !(imm & 0x3) && imm)
+> +               emitc(rvc_addi4spn(rd, imm), ctx);
+> +       else if (rvc_enabled() && rd && rd == rs && is_6b_int(imm))
+> +               emitc(rvc_addi(rd, imm), ctx);
+> +       else
+> +               emit(rv_addi(rd, rs, imm), ctx);
+> +}
+> +
+> +static inline void emit_li(u8 rd, s32 imm, struct rv_jit_context *ctx)
+> +{
+> +       if (rvc_enabled() && rd && is_6b_int(imm))
+> +               emitc(rvc_li(rd, imm), ctx);
+> +       else
+> +               emit(rv_addi(rd, RV_REG_ZERO, imm), ctx);
+> +}
+> +
+> +static inline void emit_lui(u8 rd, s32 imm, struct rv_jit_context *ctx)
+> +{
+> +       if (rvc_enabled() && rd && rd != RV_REG_SP && is_6b_int(imm) && imm)
+> +               emitc(rvc_lui(rd, imm), ctx);
+> +       else
+> +               emit(rv_lui(rd, imm), ctx);
+> +}
+> +
+> +static inline void emit_slli(u8 rd, u8 rs, s32 imm, struct rv_jit_context *ctx)
+> +{
+> +       if (rd == rs && !imm)
+> +               /*
+> +                * RVC cannot handle imm == 0. Handle it here by emitting
+> +                * no instructions since it should behave as a no-op.
+> +                */
+> +               return;
+> +       else if (rvc_enabled() && rd && rd == rs)
+> +               emitc(rvc_slli(rd, imm), ctx);
+> +       else
+> +               emit(rv_slli(rd, rs, imm), ctx);
+> +}
+> +
+> +static inline void emit_andi(u8 rd, u8 rs, s32 imm, struct rv_jit_context *ctx)
+> +{
+> +       if (rvc_enabled() && is_creg(rd) && rd == rs && is_6b_int(imm))
+> +               emitc(rvc_andi(rd, imm), ctx);
+> +       else
+> +               emit(rv_andi(rd, rs, imm), ctx);
+> +}
+> +
+> +static inline void emit_srli(u8 rd, u8 rs, s32 imm, struct rv_jit_context *ctx)
+> +{
+> +       if (rd == rs && !imm)
+> +               /*
+> +                * RVC cannot handle imm == 0. Handle it here by emitting
+> +                * no instructions since it should behave as a no-op.
+> +                */
+> +               return;
+> +       else if (rvc_enabled() && is_creg(rd) && rd == rs)
+> +               emitc(rvc_srli(rd, imm), ctx);
+> +       else
+> +               emit(rv_srli(rd, rs, imm), ctx);
+> +}
+> +
+> +static inline void emit_srai(u8 rd, u8 rs, s32 imm, struct rv_jit_context *ctx)
+> +{
+> +       if (rd == rs && !imm)
+> +               /*
+> +                * RVC cannot handle imm == 0. Handle it here by emitting
+> +                * no instructions since it should behave as a no-op.
+> +                */
+> +               return;
+> +       else if (rvc_enabled() && is_creg(rd) && rd == rs)
+> +               emitc(rvc_srai(rd, imm), ctx);
+> +       else
+> +               emit(rv_srai(rd, rs, imm), ctx);
+> +}
+> +
+> +static inline void emit_sub(u8 rd, u8 rs1, u8 rs2, struct rv_jit_context *ctx)
+> +{
+> +       if (rvc_enabled() && is_creg(rd) && rd == rs1 && is_creg(rs2))
+> +               emitc(rvc_sub(rd, rs2), ctx);
+> +       else
+> +               emit(rv_sub(rd, rs1, rs2), ctx);
+> +}
+> +
+> +static inline void emit_or(u8 rd, u8 rs1, u8 rs2, struct rv_jit_context *ctx)
+> +{
+> +       if (rvc_enabled() && is_creg(rd) && rd == rs1 && is_creg(rs2))
+> +               emitc(rvc_or(rd, rs2), ctx);
+> +       else
+> +               emit(rv_or(rd, rs1, rs2), ctx);
+> +}
+> +
+> +static inline void emit_and(u8 rd, u8 rs1, u8 rs2, struct rv_jit_context *ctx)
+> +{
+> +       if (rvc_enabled() && is_creg(rd) && rd == rs1 && is_creg(rs2))
+> +               emitc(rvc_and(rd, rs2), ctx);
+> +       else
+> +               emit(rv_and(rd, rs1, rs2), ctx);
+> +}
+> +
+> +static inline void emit_xor(u8 rd, u8 rs1, u8 rs2, struct rv_jit_context *ctx)
+> +{
+> +       if (rvc_enabled() && is_creg(rd) && rd == rs1 && is_creg(rs2))
+> +               emitc(rvc_xor(rd, rs2), ctx);
+> +       else
+> +               emit(rv_xor(rd, rs1, rs2), ctx);
+> +}
+> +
+> +static inline void emit_lw(u8 rd, s32 off, u8 rs1, struct rv_jit_context *ctx)
+> +{
+> +       if (rvc_enabled() && rs1 == RV_REG_SP && rd && (u32)off < 0x100 &&
+> +           !(off & 0x3))
+> +               emitc(rvc_lwsp(rd, off), ctx);
+> +       else if (rvc_enabled() && is_creg(rd) && is_creg(rs1) &&
+> +                (u32)off < 0x80 && !(off & 0x3))
+> +               emitc(rvc_lw(rd, off, rs1), ctx);
+> +       else
+> +               emit(rv_lw(rd, off, rs1), ctx);
+> +}
+> +
+> +static inline void emit_sw(u8 rs1, s32 off, u8 rs2, struct rv_jit_context *ctx)
+> +{
+> +       if (rvc_enabled() && rs1 == RV_REG_SP && (u32)off < 0x100 &&
+> +           !(off & 0x3))
+> +               emitc(rvc_swsp(off, rs2), ctx);
+> +       else if (rvc_enabled() && is_creg(rs1) && is_creg(rs2) &&
+> +                (u32)off < 0x80 && !(off & 0x3))
+> +               emitc(rvc_sw(rs1, off, rs2), ctx);
+> +       else
+> +               emit(rv_sw(rs1, off, rs2), ctx);
+> +}
+> +
+> +/* RV64-only helper functions. */
+> +#if __riscv_xlen == 64
+> +
+> +static inline void emit_addiw(u8 rd, u8 rs, s32 imm, struct rv_jit_context *ctx)
+> +{
+> +       if (rvc_enabled() && rd && rd == rs && is_6b_int(imm))
+> +               emitc(rvc_addiw(rd, imm), ctx);
+> +       else
+> +               emit(rv_addiw(rd, rs, imm), ctx);
+> +}
+> +
+> +static inline void emit_ld(u8 rd, s32 off, u8 rs1, struct rv_jit_context *ctx)
+> +{
+> +       if (rvc_enabled() && rs1 == RV_REG_SP && rd && (u32)off < 0x200 &&
+> +           !(off & 0x7))
+> +               emitc(rvc_ldsp(rd, off), ctx);
+> +       else if (rvc_enabled() && is_creg(rd) && is_creg(rs1) &&
+> +                (u32)off < 0x100 && !(off & 0x7))
+> +               emitc(rvc_ld(rd, off, rs1), ctx);
+> +       else
+> +               emit(rv_ld(rd, off, rs1), ctx);
+> +}
+> +
+> +static inline void emit_sd(u8 rs1, s32 off, u8 rs2, struct rv_jit_context *ctx)
+> +{
+> +       if (rvc_enabled() && rs1 == RV_REG_SP && (u32)off < 0x200 &&
+> +           !(off & 0x7))
+> +               emitc(rvc_sdsp(off, rs2), ctx);
+> +       else if (rvc_enabled() && is_creg(rs1) && is_creg(rs2) &&
+> +                (u32)off < 0x100 && !(off & 0x7))
+> +               emitc(rvc_sd(rs1, off, rs2), ctx);
+> +       else
+> +               emit(rv_sd(rs1, off, rs2), ctx);
+> +}
+> +
+> +static inline void emit_subw(u8 rd, u8 rs1, u8 rs2, struct rv_jit_context *ctx)
+> +{
+> +       if (rvc_enabled() && is_creg(rd) && rd == rs1 && is_creg(rs2))
+> +               emitc(rvc_subw(rd, rs2), ctx);
+> +       else
+> +               emit(rv_subw(rd, rs1, rs2), ctx);
+> +}
+> +
+>  #endif /* __riscv_xlen == 64 */
+>
+>  void bpf_jit_build_prologue(struct rv_jit_context *ctx);
+> --
+> 2.25.1
+>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
