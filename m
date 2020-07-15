@@ -2,146 +2,82 @@ Return-Path: <SRS0=uYfr=A2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
+X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8F7E3C433FB
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2020 07:16:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 06ED4C433E3
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2020 08:46:55 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4A2B72065E
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2020 07:16:21 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id CAF812064C
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2020 08:46:54 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Wigwq1nK";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="ii9HEdJ2";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="oCzKustm"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4A2B72065E
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="buW0gvM5"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CAF812064C
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=ACULAB.COM
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:Message-ID:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=QjFIcX/7EfoD1Y7dFve4p41gkhE4wKkE79EHq+9BPC0=; b=Wigwq1nKZ6S7Gicfvt+byzMon
-	zVMkzRz0+NyDWEzN+xii/1k7vQoiR7nDxVU0JiZcNy4POa2x8wPHT6U6ZnRYmK/4Lo3hWvqbcFNv6
-	mD+Y7n3xIliqHycwsTz05bHfZX8aPEil9JtkdPt244WbGbJt9gFZ1iodEfTNAujeMqRdSRSakN5Q+
-	S1sFd2cIULl2kMW3adn7xWZgfHGQuiXNP93aCszxf8L/0fxHHwtaHetrTqVuoV8Esen7FSP7QfZLC
-	hJ/U1w1C1mdUKrzfo6HHxbhf+pSy4NwBbaVWRVYT4ShXXNvv/DX9EQvioPG+gB/ZZWf/65qC/CLpb
-	8brivu7eg==;
+	 bh=LRqMYiB3s0eV3i2czHbt7WAeUYgy4mc9DBCXz3j4n6E=; b=buW0gvM5PAUduDwlcKHm/luJX
+	lwvVIWYNa5eFafSeDuFnaw53f+A4rYScA86Axix8ls1ItnF4n7Kuan+ooN3SeDoOZO3mbX660ukXh
+	tf1mAEEv2xKAWt8b6AvBorcuM+nodhuv+13ZCSGVpYeE1r8jTiu1aMsovdtnA54EbOA/HUVMkvCP+
+	BHiYnmrryqGZBdSX+Ao2sRmyS8I8zfL4t4aFpWKv8URYn0y0DyvzUdCeSCOGyXLE7sGT6ZMfYguZ/
+	6E9n8uhyBtyH4aAb3sYNEFoNIGNCl3y1t2ZDrDVOrNC0ZJ6gjyKwHO4DiizNTD8Vhc37RlChauMrk
+	n3z1ocAPQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jvbeE-000268-UV; Wed, 15 Jul 2020 07:16:10 +0000
-Received: from esa4.hgst.iphmx.com ([216.71.154.42])
+	id 1jvcaJ-0001O7-6S; Wed, 15 Jul 2020 08:16:11 +0000
+Received: from eu-smtp-delivery-151.mimecast.com ([185.58.86.151])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jvbeB-000259-V3
- for linux-riscv@lists.infradead.org; Wed, 15 Jul 2020 07:16:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1594797367; x=1626333367;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:content-transfer-encoding:mime-version;
- bh=Psn2yIlpD2KVWNBMrqJPqh57Z8NfDyZUoIAT3x0wKaQ=;
- b=ii9HEdJ2uIfJYMNzgN6poN63QsjQHzYUm2ZmnKcyq80Vy7QkoYve6VFS
- /6JdXkZEhu7i7A4vKwDh5F3TNHpaEr0XdIdiO2CnGf8Iy+aEewKMVLxOL
- ujTJl3SsjnFPxt5JqKDoeIrSFQTAFiyDNUooNdE4zBs/YbUs7JwNpi3va
- upI54UpVN8vl452j49PPfj13l4bn61cBupKyLqrIrEWvWyBHDIgoksSI5
- 1ZaLCGvNRIjX4Q/nIO80s1683u6Pp8N5c+FrzWFUFeokH+r5hEG4iQ+mp
- 0wuLc5r7uN87qrvX0Fg6B6KGTiSmyixu9rubAcHLklcil8rB0R6bsNQ3D g==;
-IronPort-SDR: 7nvuNnhmDYohmD64NDKPIknEOgDQOgKtQe/hcYu+HwU3B5sryA/pwpdVaIqLCPD6sbjClVidRk
- rW4DtS/X/f+MehNI7chTOiHampstLHlNb2l0smDZoXc65UxtNpteqOvvyY/VSgi9cEtQxpQ5v2
- oocX253ZIwXBAzv5N3ccLmvBSyTRobG9eZrTk6T2+pTMA/5++vGn2L48rGR/KFWShUrel5ZlbJ
- nwPByEVARXpwXPkqNAfly4RxZLvMFV3xZdp8DqYPUM1bjHDiN4Gk+PXW1n2UNXII7vOXc41Lo6
- 6fw=
-X-IronPort-AV: E=Sophos;i="5.75,354,1589212800"; d="scan'208";a="142495417"
-Received: from mail-sn1nam04lp2057.outbound.protection.outlook.com (HELO
- NAM04-SN1-obe.outbound.protection.outlook.com) ([104.47.44.57])
- by ob1.hgst.iphmx.com with ESMTP; 15 Jul 2020 15:15:51 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=aL6f9076nPzQlWW5r5YNW7hOqQTcORwUIAf+4tOyk8jDU4iCR9fKmkpXWOU0BKKE1CLpp65eZreIg3xLk1QC2oIgORmcnc2nzI/cR0Quuv0xKmA1afUSSLMLzNLq2Eew3EEjjqVw+kOIIYrVEg+qjNmk4HQ/5xY9C5gGE8TB1VGj6EqCe7RcaID+LF8aSEVHzmsLxL3REILVGlUiWHsYKG0Ia0Dh6cMSgyAMGDx/NBeDrDt2Z+Pr8uPd0PHaXPsourLxrZLfCeN+UqCfEIFn30alugJgM8ahuTzvqKz4WTfQYXH2DWXsYeTC2BmYu6KFhHDEy5Av1q9RYvmSTa9zjQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=W8cJoT3K4mOWnXe7fu/2byOoPfzc0fZXjumTg03NI+w=;
- b=h9zEhXiJI+1jDAgy1zijgWjDoiJ14kq9FsJfjBcqOm+bMtebm5f42hiKMrYx1mmUTmPO6jmxVGNDwXVjMsB8NheUnkflKp3K657mDIxf4MHrB1HUgveF2wGgKGtE3Oj8Few5f0e3azk08CK9Q2ZL4tykQgnaxFA8Oa7K2cTxxbLUANv2AQZo+lTd3WkXoJ5yMl9uEd22EJJWbD8eKv6p2fprRgBxpXy0rh9g/Gehm/enx0p0n3FQC5jC4C2VbueT5luwzEz/byCU04v+mXMBX0+YqoXdQbe/JRzEOTtlL3ORA/KmbpLRf+Gp9gGX0ymIxxyb+m6hv9yuLB4j3xKyFg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
- header.d=wdc.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=W8cJoT3K4mOWnXe7fu/2byOoPfzc0fZXjumTg03NI+w=;
- b=oCzKustmsrwswU4zb39tRlhDNaNC6QlVcNN46e9v2yW2KfJrjjlGa7ODsrekS94Xj6HxNEsYnbtK2Cy4h8UTqbRHbt72fsmYFuGMyNxoRw3Nwt6agwFyB0I1A/5N6BiYfS3edB6JltykIbmjKcZZAPLZIpESmFU6DdY/ps9R3NU=
-Authentication-Results: dabbelt.com; dkim=none (message not signed)
- header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
-Received: from DM6PR04MB6201.namprd04.prod.outlook.com (2603:10b6:5:127::32)
- by DM6PR04MB4329.namprd04.prod.outlook.com (2603:10b6:5:9a::26) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3195.17; Wed, 15 Jul
- 2020 07:15:50 +0000
-Received: from DM6PR04MB6201.namprd04.prod.outlook.com
- ([fe80::e0a4:aa82:1847:dea5]) by DM6PR04MB6201.namprd04.prod.outlook.com
- ([fe80::e0a4:aa82:1847:dea5%7]) with mapi id 15.20.3174.026; Wed, 15 Jul 2020
- 07:15:50 +0000
-From: Anup Patel <anup.patel@wdc.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh+dt@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>
-Subject: [PATCH v3 3/4] RISC-V: Remove CLINT related code from timer and arch
-Date: Wed, 15 Jul 2020 12:45:04 +0530
-Message-Id: <20200715071506.10994-4-anup.patel@wdc.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20200715071506.10994-1-anup.patel@wdc.com>
-References: <20200715071506.10994-1-anup.patel@wdc.com>
-X-ClientProxiedBy: PN1PR0101CA0047.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:c00:c::33) To DM6PR04MB6201.namprd04.prod.outlook.com
- (2603:10b6:5:127::32)
+ id 1jvcaE-0001Ks-9y
+ for linux-riscv@lists.infradead.org; Wed, 15 Jul 2020 08:16:08 +0000
+Received: from AcuMS.aculab.com (156.67.243.126 [156.67.243.126]) (Using
+ TLS) by relay.mimecast.com with ESMTP id
+ uk-mta-118-VUzQIPn9PGiRcCFwemuUlA-1; Wed, 15 Jul 2020 09:15:49 +0100
+X-MC-Unique: VUzQIPn9PGiRcCFwemuUlA-1
+Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:43c:695e:880f:8750) by
+ AcuMS.aculab.com (fd9f:af1c:a25b:0:43c:695e:880f:8750) with Microsoft SMTP
+ Server (TLS) id 15.0.1347.2; Wed, 15 Jul 2020 09:15:47 +0100
+Received: from AcuMS.Aculab.com ([fe80::43c:695e:880f:8750]) by
+ AcuMS.aculab.com ([fe80::43c:695e:880f:8750%12]) with mapi id 15.00.1347.000; 
+ Wed, 15 Jul 2020 09:15:47 +0100
+From: David Laight <David.Laight@ACULAB.COM>
+To: 'Jarkko Sakkinen' <jarkko.sakkinen@linux.intel.com>, Peter Zijlstra
+ <peterz@infradead.org>
+Subject: RE: [PATCH v2 1/3] module: Rename module_alloc() to text_alloc() and
+ move to kernel proper
+Thread-Topic: [PATCH v2 1/3] module: Rename module_alloc() to text_alloc() and
+ move to kernel proper
+Thread-Index: AQHWWhTZJFla60Gj2kinqcyPQzfqlakISLKA
+Date: Wed, 15 Jul 2020 08:15:47 +0000
+Message-ID: <778f330d994340c89241f5318a54422f@AcuMS.aculab.com>
+References: <20200714094625.1443261-1-jarkko.sakkinen@linux.intel.com>
+ <20200714094625.1443261-2-jarkko.sakkinen@linux.intel.com>
+ <20200714102826.GB4756@willie-the-truck>
+ <20200714112927.GV10769@hirez.programming.kicks-ass.net>
+ <CAMj1kXGG4vxWrp1de1FxdU=8F4Jof00=T1x-7e+BW7_HP-oZMQ@mail.gmail.com>
+ <20200714130109.GX10769@hirez.programming.kicks-ass.net>
+ <20200714163103.GA1472166@linux.intel.com>
+In-Reply-To: <20200714163103.GA1472166@linux.intel.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-Received: from wdc.com (103.15.57.135) by
- PN1PR0101CA0047.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c00:c::33) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3195.18 via Frontend
- Transport; Wed, 15 Jul 2020 07:15:45 +0000
-X-Mailer: git-send-email 2.25.1
-X-Originating-IP: [103.15.57.135]
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-HT: Tenant
-X-MS-Office365-Filtering-Correlation-Id: 8225230c-2f8a-42eb-be22-08d8288ee73f
-X-MS-TrafficTypeDiagnostic: DM6PR04MB4329:
-X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <DM6PR04MB43298BC26D439AAEEDD561AE8D7E0@DM6PR04MB4329.namprd04.prod.outlook.com>
-WDCIPOUTBOUND: EOP-TRUE
-X-MS-Oob-TLC-OOBClassifiers: OLM:3826;
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: K8BHC13ARUpogdQssKTp4o5Zm0uo3KkJO5jQmefiVER1FzKH1DhQtB6AIhv2MJFzT/OLQtRR0NPzrelOSlUYdX5Nopm1KfCVzMLLurGB4tJsJEUGJjGmEZEuh8bfDkh8IksNEEN34XzXVB56e8inj3CW8Ns+b5HbFYHuXrW+M9OPd9U00ZlmAESa97gwmz2llKLiX0YCkEeuOCtHwDjyE+nxWuoftbVeWh2mbOJedoF0MhTYnkB0ySWndUdSmUFI+vfpeKQRc894BVyrIa4CZ4OhShACO0LxwarAFoWBJmSBvw216xLcFaA0xYJAEvTQj15am8wBANk4y3ufyUZxTg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:DM6PR04MB6201.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFTY:;
- SFS:(4636009)(346002)(366004)(396003)(39860400002)(376002)(136003)(8936002)(16526019)(8886007)(186003)(44832011)(36756003)(7696005)(478600001)(26005)(66476007)(7416002)(66556008)(66946007)(54906003)(110136005)(52116002)(2616005)(316002)(956004)(6666004)(2906002)(86362001)(55016002)(1076003)(8676002)(83380400001)(4326008)(5660300002);
- DIR:OUT; SFP:1102; 
-X-MS-Exchange-AntiSpam-MessageData: BNMY4h7rY8jWLvdL9BkNg4PCMV8f+t1SaWKzCUDl0BfqSSdkFYGknj9WcNBo0R+78+cD/XW/5uhwnc1eNRETZjzp0CRtz1mM+O3uEMcf1J0BNS7N4Os6/9ua7yqtTalTg5OjZZpQGRNk1n2d+odYF/BIJsex7bSw1dLYPhXnn1/8XHYNH9hSTz5o3qV5kt1CaNauN+arzBj2g5IUv4HVyH3oLkQzx/TY9Nz/qT4AQa7W+h9MrE7XS9VTVebIna7SYzwqh63zACyvBRfB36k8fUyqj2luL/I1MZrysf71AiW5xRa3NlGE+BqYBcMhkDGTryJ+l5pLIr0fJX8s418jFHfFxl8pfMOAFDHdFEos2HcaDtqt4iApY/EfIZbYM6v4stt3uknQ4hOwU9lJEySpzHqzp0TonvOaRPK9JagvWlRMp/QaPmXiu1i3iryyhcfus+oZ5Svc7810eP9AZEcsCscS6JaAG1VndjDxcpU21tE=
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8225230c-2f8a-42eb-be22-08d8288ee73f
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR04MB6201.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2020 07:15:50.7423 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: GwqbIm1IlL8RcpB5rUXM2Zx/h96OE9tNd1dPqOUU/o9PYJZ5pSvOoPSWTHZcZnQxsOloAWFPXZ6WByvwpAJEAQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR04MB4329
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: aculab.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200715_031608_238063_93965CC1 
-X-CRM114-Status: GOOD (  21.64  )
+X-CRM114-CacheID: sfid-20200715_041606_532979_D9CD04C5 
+X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -153,308 +89,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Damien Le Moal <damien.lemoal@wdc.com>,
- Anup Patel <anup@brainfault.org>, Anup Patel <anup.patel@wdc.com>,
- linux-kernel@vger.kernel.org, Atish Patra <atish.patra@wdc.com>,
- Alistair Francis <Alistair.Francis@wdc.com>, linux-riscv@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Song Liu <songliubraving@fb.com>,
+ Paul Mackerras <paulus@samba.org>, Zong Li <zong.li@sifive.com>,
+ Andi Kleen <ak@linux.intel.com>, Paul Burton <paulburton@kernel.org>,
+ Vincent Whitchurch <vincent.whitchurch@axis.com>,
+ Petr Mladek <pmladek@suse.com>, Brian Gerst <brgerst@gmail.com>, Andy
+ Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Jiri
+ Kosina <jkosina@suse.cz>, Anup Patel <anup.patel@wdc.com>, Linux Kernel
+ Mailing List <linux-kernel@vger.kernel.org>, Philipp Rudo <prudo@linux.ibm.com>,
+ Torsten Duwe <duwe@lst.de>, Masami Hiramatsu <mhiramat@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Mark
+ Rutland <mark.rutland@arm.com>,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Vincent Chen <deanbo422@gmail.com>, Omar Sandoval <osandov@fb.com>,
+ "open list:S390" <linux-s390@vger.kernel.org>,
+ Joe Lawrence <joe.lawrence@redhat.com>, Helge
+ Deller <deller@gmx.de>, John Fastabend <john.fastabend@gmail.com>, Anil S
+ Keshavamurthy <anil.s.keshavamurthy@intel.com>, Yonghong Song <yhs@fb.com>,
+ Iurii Zaikin <yzaikin@google.com>, Andrii Nakryiko <andriin@fb.com>, Thomas
+ Huth <thuth@redhat.com>, Vasily Gorbik <gor@linux.ibm.com>, "moderated
+ list:ARM PORT" <linux-arm-kernel@lists.infradead.org>,
+ Daniel Axtens <dja@axtens.net>, Damien Le Moal <damien.lemoal@wdc.com>,
+ Martin KaFai Lau <kafai@fb.com>, Kefeng Wang <wangkefeng.wang@huawei.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Heiko Carstens <heiko.carstens@de.ibm.com>,
+ Alexei Starovoitov <ast@kernel.org>, Atish Patra <atish.patra@wdc.com>, Will
+ Deacon <will@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Masahiro
+ Yamada <masahiroy@kernel.org>, Nayna Jain <nayna@linux.ibm.com>,
+ Ley Foon Tan <ley.foon.tan@intel.com>,
+ Christian Borntraeger <borntraeger@de.ibm.com>,
+ Sami Tolvanen <samitolvanen@google.com>,
+ "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>, Mao Han <han_mao@c-sky.com>,
+ Marco Elver <elver@google.com>, Steven Rostedt <rostedt@goodmis.org>,
+ Babu Moger <Babu.Moger@amd.com>, Borislav Petkov <bp@alien8.de>,
+ Greentime Hu <green.hu@gmail.com>, Ben Dooks <ben-linux@fluff.org>,
+ Guan Xuetao <gxt@pku.edu.cn>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ "open list:PARISC ARCHITECTURE" <linux-parisc@vger.kernel.org>,
+ Jessica Yu <jeyu@kernel.org>,
+ "open list:BPF JIT for MIPS \(32-BIT AND 64-BIT\)" <bpf@vger.kernel.org>,
+ "David S. Miller" <davem@davemloft.net>, Thiago Jung
+ Bauermann <bauerman@linux.ibm.com>, David Howells <dhowells@redhat.com>,
+ Amit Daniel Kachhap <amit.kachhap@arm.com>,
+ Sandipan Das <sandipan@linux.ibm.com>, "H. Peter Anvin" <hpa@zytor.com>,
+ "open list:SPARC + UltraSPARC \(sparc/sparc64\)" <sparclinux@vger.kernel.org>,
+ Tiezhu Yang <yangtiezhu@loongson.cn>, Miroslav Benes <mbenes@suse.cz>,
+ Sven Schnelle <svens@stackframe.org>, Ard Biesheuvel <ardb@kernel.org>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Anders Roxell <anders.roxell@linaro.org>, Jiri Olsa <jolsa@redhat.com>,
+ "maintainer:X86 ARCHITECTURE \(32-BIT AND
+ 64-BIT\)" <x86@kernel.org>, Russell King <linux@armlinux.org.uk>, "open
+ list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
+ Mike Rapoport <rppt@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, "Paul E. McKenney" <paulmck@kernel.org>,
+ Josh Poimboeuf <jpoimboe@redhat.com>, KP Singh <kpsingh@chromium.org>,
+ Dmitry Vyukov <dvyukov@google.com>, Nick Hu <nickhu@andestech.com>,
+ "open list:BPF
+ JIT for MIPS \(32-BIT AND 64-BIT\)" <netdev@vger.kernel.org>,
+ "open list:MIPS" <linux-mips@vger.kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, "open
+ list:LINUX FOR POWERPC \(32-BIT AND 64-BIT\)" <linuxppc-dev@lists.ozlabs.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Right now the RISC-V timer driver is convoluted to support:
-1. Linux RISC-V S-mode (with MMU) where it will use TIME CSR for
-   clocksource and SBI timer calls for clockevent device.
-2. Linux RISC-V M-mode (without MMU) where it will use CLINT MMIO
-   counter register for clocksource and CLINT MMIO compare register
-   for clockevent device.
+From: Jarkko Sakkinen
+> Sent: 14 July 2020 17:31
+..
+> There is one arch (nios2), which uses a regular kzalloc(). This means
+> that both text_alloc() and text_memfree() need to be weaks symbols and
+> nios2 needs to have overriding text.c to do its thing.
 
-We now have a separate CLINT timer driver which also provide CLINT
-based IPI operations so let's remove CLINT MMIO related code from
-arch/riscv directory and RISC-V timer driver.
+That could be handled by an arch-specific inline wrapper in a .h file.
 
-Signed-off-by: Anup Patel <anup.patel@wdc.com>
----
- arch/riscv/Kconfig                |  2 +-
- arch/riscv/include/asm/clint.h    | 39 ---------------------------
- arch/riscv/include/asm/timex.h    | 28 +++++---------------
- arch/riscv/kernel/Makefile        |  2 +-
- arch/riscv/kernel/clint.c         | 44 -------------------------------
- arch/riscv/kernel/setup.c         |  2 --
- arch/riscv/kernel/smp.c           |  1 -
- arch/riscv/kernel/smpboot.c       |  1 -
- drivers/clocksource/Kconfig       |  2 +-
- drivers/clocksource/timer-riscv.c | 17 ++----------
- 10 files changed, 12 insertions(+), 126 deletions(-)
- delete mode 100644 arch/riscv/include/asm/clint.h
- delete mode 100644 arch/riscv/kernel/clint.c
+Although I actually suspect the nios2 code is just being lazy.
+The processor is a very simple in-order 32bit soft cpu for Intel (Altera)
+FPGA.
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index fedb4a72b29a..57a72ae23d10 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -74,7 +74,7 @@ config RISCV
- 	select PCI_DOMAINS_GENERIC if PCI
- 	select PCI_MSI if PCI
- 	select RISCV_INTC
--	select RISCV_TIMER
-+	select RISCV_TIMER if RISCV_SBI
- 	select SPARSEMEM_STATIC if 32BIT
- 	select SPARSE_IRQ
- 	select SYSCTL_EXCEPTION_TRACE
-diff --git a/arch/riscv/include/asm/clint.h b/arch/riscv/include/asm/clint.h
-deleted file mode 100644
-index a279b17a6aad..000000000000
---- a/arch/riscv/include/asm/clint.h
-+++ /dev/null
-@@ -1,39 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0 */
--#ifndef _ASM_RISCV_CLINT_H
--#define _ASM_RISCV_CLINT_H 1
+We have four nios2 cpu on one of our fpga images - all running small
+(almost single function) code loops.
+I can't imagine actually trying to run Linux on one to do anything
+useful - clock speed is unlikely to be much above 100MHz.
+We can't meet timing at 125MHZ (I've tried quite hard) so have
+to run at 62.5MHz because of the PCIe clock.
+
+	David
+
 -
--#include <linux/io.h>
--#include <linux/smp.h>
--
--#ifdef CONFIG_RISCV_M_MODE
--extern u32 __iomem *clint_ipi_base;
--
--void clint_init_boot_cpu(void);
--
--static inline void clint_send_ipi_single(unsigned long hartid)
--{
--	writel(1, clint_ipi_base + hartid);
--}
--
--static inline void clint_send_ipi_mask(const struct cpumask *mask)
--{
--	int cpu;
--
--	for_each_cpu(cpu, mask)
--		clint_send_ipi_single(cpuid_to_hartid_map(cpu));
--}
--
--static inline void clint_clear_ipi(unsigned long hartid)
--{
--	writel(0, clint_ipi_base + hartid);
--}
--#else /* CONFIG_RISCV_M_MODE */
--#define clint_init_boot_cpu()	do { } while (0)
--
--/* stubs to for code is only reachable under IS_ENABLED(CONFIG_RISCV_M_MODE): */
--void clint_send_ipi_single(unsigned long hartid);
--void clint_send_ipi_mask(const struct cpumask *hartid_mask);
--void clint_clear_ipi(unsigned long hartid);
--#endif /* CONFIG_RISCV_M_MODE */
--
--#endif /* _ASM_RISCV_CLINT_H */
-diff --git a/arch/riscv/include/asm/timex.h b/arch/riscv/include/asm/timex.h
-index bad2a7c2cda5..a3fb85d505d4 100644
---- a/arch/riscv/include/asm/timex.h
-+++ b/arch/riscv/include/asm/timex.h
-@@ -7,41 +7,27 @@
- #define _ASM_RISCV_TIMEX_H
- 
- #include <asm/csr.h>
--#include <asm/mmio.h>
- 
- typedef unsigned long cycles_t;
- 
--extern u64 __iomem *riscv_time_val;
--extern u64 __iomem *riscv_time_cmp;
--
--#ifdef CONFIG_64BIT
--#define mmio_get_cycles()	readq_relaxed(riscv_time_val)
--#else
--#define mmio_get_cycles()	readl_relaxed(riscv_time_val)
--#define mmio_get_cycles_hi()	readl_relaxed(((u32 *)riscv_time_val) + 1)
--#endif
--
- static inline cycles_t get_cycles(void)
- {
--	if (IS_ENABLED(CONFIG_RISCV_SBI))
--		return csr_read(CSR_TIME);
--	return mmio_get_cycles();
-+	return csr_read(CSR_TIME);
- }
- #define get_cycles get_cycles
- 
-+static inline u32 get_cycles_hi(void)
-+{
-+	return csr_read(CSR_TIMEH);
-+}
-+#define get_cycles_hi get_cycles_hi
-+
- #ifdef CONFIG_64BIT
- static inline u64 get_cycles64(void)
- {
- 	return get_cycles();
- }
- #else /* CONFIG_64BIT */
--static inline u32 get_cycles_hi(void)
--{
--	if (IS_ENABLED(CONFIG_RISCV_SBI))
--		return csr_read(CSR_TIMEH);
--	return mmio_get_cycles_hi();
--}
--
- static inline u64 get_cycles64(void)
- {
- 	u32 hi, lo;
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index b355cf485671..7edf15643146 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -31,7 +31,7 @@ obj-y	+= cacheinfo.o
- obj-y	+= patch.o
- obj-$(CONFIG_MMU) += vdso.o vdso/
- 
--obj-$(CONFIG_RISCV_M_MODE)	+= clint.o traps_misaligned.o
-+obj-$(CONFIG_RISCV_M_MODE)	+= traps_misaligned.o
- obj-$(CONFIG_FPU)		+= fpu.o
- obj-$(CONFIG_SMP)		+= smpboot.o
- obj-$(CONFIG_SMP)		+= smp.o
-diff --git a/arch/riscv/kernel/clint.c b/arch/riscv/kernel/clint.c
-deleted file mode 100644
-index 3647980d14c3..000000000000
---- a/arch/riscv/kernel/clint.c
-+++ /dev/null
-@@ -1,44 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0
--/*
-- * Copyright (c) 2019 Christoph Hellwig.
-- */
--
--#include <linux/io.h>
--#include <linux/of_address.h>
--#include <linux/types.h>
--#include <asm/clint.h>
--#include <asm/csr.h>
--#include <asm/timex.h>
--#include <asm/smp.h>
--
--/*
-- * This is the layout used by the SiFive clint, which is also shared by the qemu
-- * virt platform, and the Kendryte KD210 at least.
-- */
--#define CLINT_IPI_OFF		0
--#define CLINT_TIME_CMP_OFF	0x4000
--#define CLINT_TIME_VAL_OFF	0xbff8
--
--u32 __iomem *clint_ipi_base;
--
--void clint_init_boot_cpu(void)
--{
--	struct device_node *np;
--	void __iomem *base;
--
--	np = of_find_compatible_node(NULL, NULL, "riscv,clint0");
--	if (!np) {
--		panic("clint not found");
--		return;
--	}
--
--	base = of_iomap(np, 0);
--	if (!base)
--		panic("could not map CLINT");
--
--	clint_ipi_base = base + CLINT_IPI_OFF;
--	riscv_time_cmp = base + CLINT_TIME_CMP_OFF;
--	riscv_time_val = base + CLINT_TIME_VAL_OFF;
--
--	clint_clear_ipi(boot_cpu_hartid);
--}
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index f04373be54a6..2c6dd329312b 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -18,7 +18,6 @@
- #include <linux/swiotlb.h>
- #include <linux/smp.h>
- 
--#include <asm/clint.h>
- #include <asm/cpu_ops.h>
- #include <asm/setup.h>
- #include <asm/sections.h>
-@@ -79,7 +78,6 @@ void __init setup_arch(char **cmdline_p)
- #else
- 	unflatten_device_tree();
- #endif
--	clint_init_boot_cpu();
- 
- #ifdef CONFIG_SWIOTLB
- 	swiotlb_init(1);
-diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
-index 8b85683ce203..07626be78c23 100644
---- a/arch/riscv/kernel/smp.c
-+++ b/arch/riscv/kernel/smp.c
-@@ -17,7 +17,6 @@
- #include <linux/seq_file.h>
- #include <linux/delay.h>
- 
--#include <asm/clint.h>
- #include <asm/sbi.h>
- #include <asm/tlbflush.h>
- #include <asm/cacheflush.h>
-diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index 5fe849791bf0..a6cfa9842d4b 100644
---- a/arch/riscv/kernel/smpboot.c
-+++ b/arch/riscv/kernel/smpboot.c
-@@ -24,7 +24,6 @@
- #include <linux/of.h>
- #include <linux/sched/task_stack.h>
- #include <linux/sched/mm.h>
--#include <asm/clint.h>
- #include <asm/cpu_ops.h>
- #include <asm/irq.h>
- #include <asm/mmu_context.h>
-diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
-index eabcf1cfb0c0..d3bf66123c4e 100644
---- a/drivers/clocksource/Kconfig
-+++ b/drivers/clocksource/Kconfig
-@@ -649,7 +649,7 @@ config ATCPIT100_TIMER
- 
- config RISCV_TIMER
- 	bool "Timer for the RISC-V platform"
--	depends on GENERIC_SCHED_CLOCK && RISCV
-+	depends on GENERIC_SCHED_CLOCK && RISCV_SBI
- 	default y
- 	select TIMER_PROBE
- 	select TIMER_OF
-diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
-index 9de1dabfb126..c51c5ed15aa7 100644
---- a/drivers/clocksource/timer-riscv.c
-+++ b/drivers/clocksource/timer-riscv.c
-@@ -19,26 +19,13 @@
- #include <linux/of_irq.h>
- #include <asm/smp.h>
- #include <asm/sbi.h>
--
--u64 __iomem *riscv_time_cmp;
--u64 __iomem *riscv_time_val;
--
--static inline void mmio_set_timer(u64 val)
--{
--	void __iomem *r;
--
--	r = riscv_time_cmp + cpuid_to_hartid_map(smp_processor_id());
--	writeq_relaxed(val, r);
--}
-+#include <asm/timex.h>
- 
- static int riscv_clock_next_event(unsigned long delta,
- 		struct clock_event_device *ce)
- {
- 	csr_set(CSR_IE, IE_TIE);
--	if (IS_ENABLED(CONFIG_RISCV_SBI))
--		sbi_set_timer(get_cycles64() + delta);
--	else
--		mmio_set_timer(get_cycles64() + delta);
-+	sbi_set_timer(get_cycles64() + delta);
- 	return 0;
- }
- 
--- 
-2.25.1
+Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+Registration No: 1397386 (Wales)
 
 
 _______________________________________________
