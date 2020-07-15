@@ -5,19 +5,19 @@ X-Spam-Level:
 X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AD316C433E2
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2020 23:30:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A4607C433E0
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2020 23:30:31 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 78F9B20658
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2020 23:30:36 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6322C20658
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jul 2020 23:30:31 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="skqF5Ito";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="pRN8QE/i"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 78F9B20658
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="rkZ7B8sU";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="mvNE7jgA"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6322C20658
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,63 +26,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=RjzoVd+wy8vE//Vwuoh36hKHYvA5OGlb3IBcKk4410M=; b=skqF5Ito6lN6Wl4qWFKi+XwfA
-	/gyFnz5b2DSpqNDoFk9+DhcSN65ivUdeVCk1NpdFJw2oNGiz6pV588PL6tXszjELlyKLw7InfRfif
-	9DeXDRAYYBjP12Qyu5KqiuuzABfz4YSUqASL+27AswnypQLIxWZhFlfzLp20hzq7M++mT8BehCnbU
-	7bkz57Smm2LFEfS0foSBxhOXVH5uI9rlP1yGXT4f97Bk5g39FjRZfCW2fHPHSOgExxBQphC70Z0Vy
-	KVcHPhX7a/oRGR8GMg+C0Gy+tif4UTWYbk7EDh+RV119u0eac0E9sA0kkdBaQCANE4TWeptda15wU
-	yhayYSanw==;
+	 bh=L2IywrC6OtL2s/JnAKBEBVKhVS726B6FX9NJ+f5jiCI=; b=rkZ7B8sUBSj0V7zV66vvbGL3q
+	Lyb9k9e2tRqEqubpJTttCjnTZIHYVsKk56Gx/zttQMms5jn4JuN3zp2pUiD1LFJCOmux12Hv3qZS1
+	XvfU3ecf5utP9nPz3hTx8vyNArfH3Ldf+ERNpmMKuyfMEmCLBlGdisvbrGripOltZIQTFayLlCDk9
+	Nd6MPmraPnk5lvw6Eh6XcVc1UnvKGhfEYju9oPu1zoDCQEfvJqbzB6uMTQk9+zBx8Z6ggHJfFR4pf
+	XTXWM6SgMFFpIeri32Fbh4ATQZGUN3/HOwhz/PevocLlJHYEbEh2RvsnkFx8+8lcPVbkJ1fKq926G
+	WGiOQpBqg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jvqr3-00072r-QN; Wed, 15 Jul 2020 23:30:25 +0000
+	id 1jvqr1-00071t-4G; Wed, 15 Jul 2020 23:30:23 +0000
 Received: from esa2.hgst.iphmx.com ([68.232.143.124])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jvqqz-00070Y-PM
- for linux-riscv@lists.infradead.org; Wed, 15 Jul 2020 23:30:22 +0000
+ id 1jvqqy-00070f-Ib
+ for linux-riscv@lists.infradead.org; Wed, 15 Jul 2020 23:30:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1594855824; x=1626391824;
+ t=1594855822; x=1626391822;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=twVd2hS4vHLegZi/5Yb2c/TlDfLbVg6CqN55yP8mnGU=;
- b=pRN8QE/i9Tn5deSc/bMF9aPUKO2U+8f8M0BQDGwvwIJvt8W2/8W3i2eC
- UzWux2E7PboduthcIy5GXTgbmmdCpjZLcDFJcMhh0jrratC/Nspcr1XCl
- zDP9UjfP5jcJ1Rx7K0QkSkL/L6iUuTKOO4M3shBG2SVsKXeltyUm7mHlu
- PMVoL00dPo05W4mjTarUoMIf7t4KKGIxCEwcWbxENbPMx0ZHWwLqsfYjd
- Jf1t6LrfHpr4QGxYo4tg8ziWDg5ayfQsjw4WJelRPOxvQhMjwrzjabtxL
- OwGe+G5iAE9AgIcFJ/qbo8+SPMV7i678ONVKT9kGij9P+knN4/FSNd+mt Q==;
-IronPort-SDR: gobyFW7pzdHP4A5YS/M3cKRwn1LGsQ3LQKlI8ZoEG4ehUZyvCwZNO1ffTpQ11gB5Fk/VG53XKJ
- 8fdLL5HhCYX+PeR9Lm0VnysiH94INOJtny1iNC+gHw9kxB80efC2mHJgiS5Hwmzyy5U3fqyNQE
- tUQ9C+K1XTMdPrubs30Cr/dzHV5mTirDihNUAYtvbWySK0iElQmaUVOCFZidUj8mEpdwDZ0frC
- z8rFyp4WNvKX1J8LhtDwk5zJqthLq7e6kB62r8cvDKqM7XSTKzwR7Zp1FhmlWpmXKZSSMRfUUg
- Lwc=
-X-IronPort-AV: E=Sophos;i="5.75,357,1589212800"; d="scan'208";a="245592882"
+ bh=GmdUefgLBOB6PwU6TU8acnzTWIcf74JT8SNUiU8W9IE=;
+ b=mvNE7jgA5ww9fkkJna/Abdk67z6d22kCL+ElROhSdYK4zn9g5ZQGJf2R
+ 5qzSL1IyiYIukTmFsqHlstrQlqlrOsF5xP6ZXtf/hGOGIk8HrXbQRmKKc
+ pwRSYbDttuHjEnKLvFyNvM2jnmdSBGnhJwbqD1+L8cV+GvArM6brRk0Mh
+ hYC3Q6aaRnXGDGL4w1YrsKnRCRmtFIP1CiNeDWba1SVwAs6BeJkgGwTrh
+ c7/4Dec5IOMwEefinYehHmydG+mfWp+HQjgAqjTbViZ8Z6/DfFD7ZLRdR
+ Wd+Iur4blI5jBI49MZd3JRgCOl2W6qHqxmnLS5jSCJGyNpfiVnP9lS43H Q==;
+IronPort-SDR: 3sCQGqG1rP0XZdCS8qm+rZUiy6artuk+dz/51i+otjfT6sLkZlTGV5qUnkIteZh5sTWjzpIeB6
+ X9ZFnlA1JQYgfCVl4fDutHhzQ3MLDr4j4hJ8sN42oYQcWSQ/8J8IrG8VDdbfoTtvunZz4rQRnA
+ VqgNtexk+cGtsj9YRpkMYAOqSqb3ctsoU32qI9zDlRCxQD7mC2tFut53yajpshOAXkvQsuB3gl
+ TXufhwi1J8sAMhC4OsMuY4KKKWmLd6LDI5L7sFFyqd8TTRd+0OLIQQVaIO32K3AEQP5UWoZ/lV
+ +QY=
+X-IronPort-AV: E=Sophos;i="5.75,357,1589212800"; d="scan'208";a="245592874"
 Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
  ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 16 Jul 2020 07:30:23 +0800
-IronPort-SDR: iI5dC46/GZmQahlQhsQj7b6Qso2xrrtbypGUPDeX1E3CDf2V/mSWLJKAfxuoNetFBk94gGnge9
- 54mkdXCjF+uHTrHHwH/0ZTTWOn0CdXxR4=
+ by ob1.hgst.iphmx.com with ESMTP; 16 Jul 2020 07:30:18 +0800
+IronPort-SDR: 1f5DUEQWvYnin624cHkFMp1ZCqm6Ig511GDlYvQVSZ87ttSj42/VPJksFkHt53up7soHzckjaO
+ MOuSUe/zWqJwqX5Ze13pywx9g6pcZ8qys=
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
  by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 15 Jul 2020 16:18:13 -0700
-IronPort-SDR: 1TTYe0RSrUU0ahO9ycR7q0BEobnWgWFg1uIOeSBYtrEvYohsOdcY2b28Lv3l2aiAAIgzG22WQB
- HIGAlkAB8iAA==
+ 15 Jul 2020 16:18:09 -0700
+IronPort-SDR: Q9PPzO3I5sP4soZoy+FP95bTTSmzWIFA2ZaPnmYDUwcXva5OXZSyHl61x14Sl0d10zsFYjODc0
+ JfkewB3zndJg==
 WDCIronportException: Internal
 Received: from cnf009656.ad.shared (HELO jedi-01.hgst.com) ([10.86.58.5])
- by uls-op-cesaip01.wdc.com with ESMTP; 15 Jul 2020 16:30:19 -0700
+ by uls-op-cesaip01.wdc.com with ESMTP; 15 Jul 2020 16:30:15 -0700
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [PATCH 3/4] RISC-V: Do not rely on initrd_start/end computed during
- early dt parsing
-Date: Wed, 15 Jul 2020 16:30:08 -0700
-Message-Id: <20200715233009.27183-4-atish.patra@wdc.com>
+Subject: [PATCH 1/4] RISC-V: Setup exception vector early
+Date: Wed, 15 Jul 2020 16:30:06 -0700
+Message-Id: <20200715233009.27183-2-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.24.0
 In-Reply-To: <20200715233009.27183-1-atish.patra@wdc.com>
 References: <20200715233009.27183-1-atish.patra@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200715_193021_974397_D6E7BCE4 
-X-CRM114-Status: GOOD (  15.86  )
+X-CRM114-CacheID: sfid-20200715_193020_749181_4FB6B549 
+X-CRM114-Status: GOOD (  11.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -104,90 +103,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, initrd_start/end are computed during early_init_dt_scan
-but used during arch_setup. We will get the following panic if initrd is used
-and CONFIG_DEBUG_VIRTUAL is turned on.
+The trap vector is set only in trap_init which may be too late in some
+cases. Early ioremap/efi spits many warning messages which may be useful.
 
-[    0.000000] ------------[ cut here ]------------
-[    0.000000] kernel BUG at arch/riscv/mm/physaddr.c:33!
-[    0.000000] Kernel BUG [#1]
-[    0.000000] Modules linked in:
-[    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 5.8.0-rc4-00015-ged0b226fed02 #886
-[    0.000000] epc: ffffffe0002058d2 ra : ffffffe0000053f0 sp : ffffffe001001f40
-[    0.000000]  gp : ffffffe00106e250 tp : ffffffe001009d40 t0 : ffffffe00107ee28
-[    0.000000]  t1 : 0000000000000000 t2 : ffffffe000a2e880 s0 : ffffffe001001f50
-[    0.000000]  s1 : ffffffe0001383e8 a0 : ffffffe00c087e00 a1 : 0000000080200000
-[    0.000000]  a2 : 00000000010bf000 a3 : ffffffe00106f3c8 a4 : ffffffe0010bf000
-[    0.000000]  a5 : ffffffe000000000 a6 : 0000000000000006 a7 : 0000000000000001
-[    0.000000]  s2 : ffffffe00106f068 s3 : ffffffe00106f070 s4 : 0000000080200000
-[    0.000000]  s5 : 0000000082200000 s6 : 0000000000000000 s7 : 0000000000000000
-[    0.000000]  s8 : 0000000080011010 s9 : 0000000080012700 s10: 0000000000000000
-[    0.000000]  s11: 0000000000000000 t3 : 000000000001fe30 t4 : 000000000001fe30
-[    0.000000]  t5 : 0000000000000000 t6 : ffffffe00107c471
-[    0.000000] status: 0000000000000100 badaddr: 0000000000000000 cause: 0000000000000003
-[    0.000000] random: get_random_bytes called from print_oops_end_marker+0x22/0x46 with crng_init=0
+Setup the trap vector early so that any warning/bug can be handled before
+generic code invokes trap_init.
 
-To avoid the error, initrd_start/end can be computed from phys_initrd_start/size
-in setup itself. It also improves the initrd placement by aligning the start
-and size with the page size.
-
-Fixes: 6435f773d81f (riscv: mm: add support for CONFIG_DEBUG_VIRTUAL)
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
 ---
- arch/riscv/mm/init.c | 33 +++++++++++++++++++++++++++------
- 1 file changed, 27 insertions(+), 6 deletions(-)
+ arch/riscv/kernel/head.S    | 10 ++++++++--
+ arch/riscv/kernel/smpboot.c |  1 -
+ arch/riscv/kernel/traps.c   |  8 +-------
+ 3 files changed, 9 insertions(+), 10 deletions(-)
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 8d22973bde40..f818a47a72d1 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -95,19 +95,40 @@ void __init mem_init(void)
- #ifdef CONFIG_BLK_DEV_INITRD
- static void __init setup_initrd(void)
- {
-+	phys_addr_t start;
- 	unsigned long size;
+diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+index 7ed1b22950fd..d0c5c316e9bb 100644
+--- a/arch/riscv/kernel/head.S
++++ b/arch/riscv/kernel/head.S
+@@ -77,10 +77,16 @@ relocate:
+ 	csrw CSR_SATP, a0
+ .align 2
+ 1:
+-	/* Set trap vector to spin forever to help debug */
+-	la a0, .Lsecondary_park
++	/* Set trap vector to exception handler */
++	la a0, handle_exception
+ 	csrw CSR_TVEC, a0
  
--	if (initrd_start >= initrd_end) {
--		pr_info("initrd not found or empty");
-+	/* Ignore the virtul address computed during device tree parsing */
-+	initrd_start = initrd_end = 0;
-+
-+	if (!phys_initrd_size)
-+		return;
 +	/*
-+	 * Round the memory region to page boundaries as per free_initrd_mem()
-+	 * This allows us to detect whether the pages overlapping the initrd
-+	 * are in use, but more importantly, reserves the entire set of pages
-+	 * as we don't want these pages allocated for other purposes.
++	 * Set sup0 scratch register to 0, indicating to exception vector that
++	 * we are presently executing in kernel.
 +	 */
-+	start = round_down(phys_initrd_start, PAGE_SIZE);
-+	size = phys_initrd_size + (phys_initrd_start - start);
-+	size = round_up(size, PAGE_SIZE);
++	csrw CSR_SCRATCH, zero
 +
-+	if (!memblock_is_region_memory(start, size)) {
-+		pr_err("INITRD: 0x%08llx+0x%08lx is not a memory region",
-+		       (u64)start, size);
- 		goto disable;
- 	}
--	if (__pa_symbol(initrd_end) > PFN_PHYS(max_low_pfn)) {
--		pr_err("initrd extends beyond end of memory");
-+
-+	if (memblock_is_region_reserved(start, size)) {
-+		pr_err("INITRD: 0x%08llx+0x%08lx overlaps in-use memory region\n",
-+		       (u64)start, size);
- 		goto disable;
- 	}
+ 	/* Reload the global pointer */
+ .option push
+ .option norelax
+diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+index 4e9922790f6e..5a9c127a380e 100644
+--- a/arch/riscv/kernel/smpboot.c
++++ b/arch/riscv/kernel/smpboot.c
+@@ -154,7 +154,6 @@ asmlinkage __visible void smp_callin(void)
+ 	mmgrab(mm);
+ 	current->active_mm = mm;
  
--	size = initrd_end - initrd_start;
--	memblock_reserve(__pa_symbol(initrd_start), size);
-+	memblock_reserve(start, size);
-+	/* Now convert initrd to virtual addresses */
-+	initrd_start = (unsigned long)__va(phys_initrd_start);
-+	initrd_end = initrd_start + phys_initrd_size;
- 	initrd_below_start_ok = 1;
+-	trap_init();
+ 	notify_cpu_starting(smp_processor_id());
+ 	update_siblings_masks(smp_processor_id());
+ 	set_cpu_online(smp_processor_id(), 1);
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index 7d95cce5e47c..ad14f4466d92 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -174,13 +174,7 @@ int is_valid_bugaddr(unsigned long pc)
+ }
+ #endif /* CONFIG_GENERIC_BUG */
  
- 	pr_info("Initial ramdisk at: 0x%p (%lu bytes)\n",
++/* stvec & scratch is already set from head.S */
+ void trap_init(void)
+ {
+-	/*
+-	 * Set sup0 scratch register to 0, indicating to exception vector
+-	 * that we are presently executing in the kernel
+-	 */
+-	csr_write(CSR_SCRATCH, 0);
+-	/* Set the exception vector address */
+-	csr_write(CSR_TVEC, &handle_exception);
+ }
 -- 
 2.24.0
 
