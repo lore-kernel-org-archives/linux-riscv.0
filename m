@@ -2,93 +2,85 @@ Return-Path: <SRS0=HL6o=A3=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=no autolearn_force=no version=3.4.0
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AA69CC433E4
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2020 14:06:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D5498C433DF
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2020 14:06:54 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 532EF207BC
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2020 14:06:29 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 3BA0B20825
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2020 14:06:54 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="TZooQC8U";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=linaro.org header.i=@linaro.org header.b="BPn/z1Lg"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 532EF207BC
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="rKwfBbUV"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3BA0B20825
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ics.forth.gr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Message-ID:References:In-Reply-To:Subject:To:From:
+	Date:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=1nWYQ3jndo+MByuntFc+xkzVP2x9ItdZRBXwjqruq6c=; b=TZooQC8UBrRr6g761ZBHMoKGR
-	3ki+yAHiXrAFEGcU4ntQk7sHGg3SHHjn6T23PO9LpFKacE1lGG6mEZYMn67HjypCJ2kvkm5ZMSd8G
-	83ijDJZ4MUpkzhuWfRMKFXgEQC4zieLxmoQ3sG+bo5OS+dWW7sLrU23C6TlUZgvdknQ39odYhJrYt
-	6QqI9eMP1op2Uofu8rdmgaLhp8jFZkTTuy8X4sXDB7ptwu1BFtnDxaNEsU6DOyMS1AVexHql2Spsl
-	WnCqOlrxIxwRdVQHmWTfX0Gl+D3bawywsASFEZ/vtCjwoqnrzw2J66QBy5YQqOq4pCMXyrk0DH/OF
-	PppfQKa1w==;
+	 bh=b3oqHu3g/GT5hgdd7PmdL5FNz6mJbROiCuzJCm4/Jp0=; b=rKwfBbUVbuqAc77V/hjwpn9ZD
+	tM01ss1fPmyJPIvYGsy/z8HbXAtluOV8as/T5ZHyZoDPc1Cm03Z5ZwkBq1UGxnvR17eNti4BVUKmI
+	fYnTvQgT5LG++FW7bciksl8u+X3YCV4kaOSdnmoIE8TKiOQN7xbg7NTkjfGDwJk3qD31NhorK/Djr
+	7653fXi+L6cBBAK6oJASQaoBET0Cns62vak4mnhMqa/RMAGJY7eJj4dMgtx8ql6PuPAM6rUPXk1oR
+	td2pX+Mrn6ytiFAs++NlVH5B+6+UGo6MDTFd8fCngCpel2Qsp/dMtYho7xFv+W4a3r/MfADC5yQ8Z
+	PwYZWbDIQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jw4WX-0000SJ-73; Thu, 16 Jul 2020 14:06:09 +0000
-Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
+	id 1jw4Wt-0000aT-SH; Thu, 16 Jul 2020 14:06:31 +0000
+Received: from mailgate-2.ics.forth.gr ([139.91.1.5])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jw4S8-0004eg-Q7
- for linux-riscv@lists.infradead.org; Thu, 16 Jul 2020 14:01:37 +0000
-Received: by mail-wr1-x443.google.com with SMTP id z2so7218037wrp.2
- for <linux-riscv@lists.infradead.org>; Thu, 16 Jul 2020 07:01:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=subject:to:cc:references:from:message-id:date:user-agent
- :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=cBgidtm3K2UC7bZZD55ufcqNRxLA7lDeHaLH7hy/Zr8=;
- b=BPn/z1Lg4Ha3YThdEhMABfg1GUZMLmrkbn22btW3YQXptrhrx2hxb6Q/uSuFdMTzhm
- pMfcXaPSnKoNCfaJg/0W2zZ5D46xvftkaMQ3RslriCnOiUWvf9G8u9VQaeZN2DCboxPU
- xAGk8J2dVTTdOI2ZEKlmdD79jH9qen6wcLfFGtJDVYCE55JHtrZnCfcfRjSeDlkP/i4O
- Pk7/81psmTfylLNQVbzi/R3250fofHM3xPxtq7Q3K3hxRB3JtaThKcgp7loQWMbSFEUR
- BMspmu4NGwWXSWAglvfwUs5AAnFJDLwYdwjfecHnoin3JHBoUCwFGbFgDj//M2iPjZ8E
- EfnQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:to:cc:references:from:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=cBgidtm3K2UC7bZZD55ufcqNRxLA7lDeHaLH7hy/Zr8=;
- b=F8LoFJ0dq3kUT03tTh7DbaBz2/g46XTMRbmDXVEAtrpuMtRpIf+9JruxSMSa7RKb8G
- 8jzVmQIZtGdu/5K36QUw+msdMfU5BnDCwWWM5ZMuW1zz3IXToqfA4D1tUpOZyoNusZKj
- kV0FP6XTW0DBpFh6ibTbeqpfQf4QsOzyhFJzar1aJHYiG2wZbpTBOe6FyEPa/HmqsnzF
- FrjNBc92SWHAaDZCp7qdj4k3LH+bz9oEtYdFQl4aGt4VntnNhaSKYpuv7q0OuCdjImUD
- h9PiDV38jSlaunoxXM7FI/ZL5+rc4NDSKLwlJKyjst4jfMJZxegWGwK4w98dVyYfmEzt
- 2MIg==
-X-Gm-Message-State: AOAM531ZHsQtfFTjCxy/QCbm868j1aokeygLiWlzuUyLoiOt/FjtGatX
- g04ZoslrhiPYHwwXSsZYKtnujA==
-X-Google-Smtp-Source: ABdhPJxWuTEqJ0U0mmug3AZEYrGs0qIUBJq6BWHdQAoQMxFMyqmaghCWr1vGT05W3k5rLX9Hq4gauA==
-X-Received: by 2002:adf:edc6:: with SMTP id v6mr5240273wro.413.1594908093264; 
- Thu, 16 Jul 2020 07:01:33 -0700 (PDT)
-Received: from ?IPv6:2a01:e34:ed2f:f020:9880:a643:3e69:6393?
- ([2a01:e34:ed2f:f020:9880:a643:3e69:6393])
- by smtp.googlemail.com with ESMTPSA id b62sm8730073wmh.38.2020.07.16.07.01.31
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Thu, 16 Jul 2020 07:01:32 -0700 (PDT)
-Subject: Re: [PATCH v3 4/4] dt-bindings: timer: Add CLINT bindings
-To: Anup Patel <anup@brainfault.org>, Rob Herring <robh@kernel.org>
-References: <20200715071506.10994-1-anup.patel@wdc.com>
- <20200715071506.10994-5-anup.patel@wdc.com> <20200715175052.GA497000@bogus>
- <CAAhSdy04h-PD-=VhjB=5MOf=-RZMrMOcvEtbtUaDc3-kbV47BA@mail.gmail.com>
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-Message-ID: <9c12dd2c-7285-5664-973e-3ec066eec0a2@linaro.org>
-Date: Thu, 16 Jul 2020 16:01:30 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.10.0
+ id 1jw4Vw-0000JU-Mz
+ for linux-riscv@lists.infradead.org; Thu, 16 Jul 2020 14:05:38 +0000
+Received: from av3.ics.forth.gr (av3in [139.91.1.77])
+ by mailgate-2.ics.forth.gr (8.14.4/ICS-FORTH/V10-1.8-GATE) with ESMTP id
+ 06GE51VM014188; Thu, 16 Jul 2020 14:05:03 GMT
+X-AuditID: 8b5b014d-257ff700000045c5-2d-5f105e8d5e56
+Received: from enigma.ics.forth.gr (enigma.ics.forth.gr [139.91.151.35])
+ by av3.ics.forth.gr (Symantec Messaging Gateway) with SMTP id
+ A1.FD.17861.D8E501F5; Thu, 16 Jul 2020 17:05:01 +0300 (EEST)
+X-ICS-AUTH-INFO: Authenticated user:  at ics.forth.gr
 MIME-Version: 1.0
-In-Reply-To: <CAAhSdy04h-PD-=VhjB=5MOf=-RZMrMOcvEtbtUaDc3-kbV47BA@mail.gmail.com>
-Content-Language: en-US
+Date: Thu, 16 Jul 2020 17:04:59 +0300
+From: Nick Kossifidis <mick@ics.forth.gr>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Subject: Re:
+ BPATCH=20v2=200/3=5D=20RISC-V=3A=20Add=20kexec/kdump=20support=E2=80=8B?=
+Organization: FORTH
+In-Reply-To: <mhng-fc462e0b-31c6-4588-8801-41458430fffa@palmerdabbelt-glaptop1>
+References: <mhng-fc462e0b-31c6-4588-8801-41458430fffa@palmerdabbelt-glaptop1>
+Message-ID: <8958a0b0623fbcbb3d1f84f96371226a@mailhost.ics.forth.gr>
+X-Sender: mick@mailhost.ics.forth.gr
+User-Agent: Roundcube Webmail/1.3.9
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrOLMWRmVeSWpSXmKPExsXSHT1dWbc3TiDeYPtyXYuWD+9YLRat+M5i
+ seXwI2aLbZ9b2Cya351jt3h5uYfZom0Wv0XTi+vMFh/uzmZz4PSY+vsMi0fXjxmsHm9evmTx
+ eLjpEpPH5iX1Hpear7N7tB/oZgpgj+KySUnNySxLLdK3S+DK2Hn2EnNBJ3PF1tPrmBsYtzJ1
+ MXJySAiYSGybPIWli5GLQ0jgKKPE+5tHGSESphKz93aC2bwCghInZz5hAbGZBSwkpl7Zzwhh
+ y0s0b53N3MXIwcEioCpx5bASSJhNQFNi/qWDYOUiAuoSB17fYQaZzyzQziRxbspJsHphgQiJ
+ Jb0BIDX8AsISn+5eZAWxOQX8Je5c7AYbLyTgJ7Fgx0kmiBNcJPqu97NAnKYi8eH3A3YQW1RA
+ WeLm4efsExgFZyG5dBaSS2chuXQBI/MqRoHEMmO9zORivbT8opIMvfSiTYzguGD03cF4e/Nb
+ vUOMTByMhxglOJiVRHh5uHjjhXhTEiurUovy44tKc1KLDzFKc7AoifPmcS+PFRJITyxJzU5N
+ LUgtgskycXBKNTCxmr1dklaV+l7vvUdaMccL2XNFR5myUo8q9Fw6vWVlh7N3s1Lt7vDZ96d9
+ epny1vZDZfDsbeKV4Xc/dv5USNTMyLz583Hx/x33di7pMnpTvjWROUutmiHwfnTEHjmxR6vn
+ 9i87k7Bpz2WrjFcRaxS+8FyT2Ld/eciSuPDcV5aOXGxBFYZeT7rmJSf/2xi5Q+r4i9kG/3Kf
+ rueO8Fo7qdqBr07vNEeL+b7X01WfrJOyt7CQCGrXMzgekHGz/Mhip/XF97h6dn6d+3mRU9Qk
+ tvNXrheunrnDbZ3Iw0l27Q9OGOQnTXj6sSsq58mrZztnFK9bFnjiHs/lZRtu7/6tLPb1jS/n
+ 3e3bmye7bkqKfK3WosRSnJFoqMVcVJwIADDCwmr6AgAA
+X-Greylist: inspected by milter-greylist-4.6.2 (mailgate-2.ics.forth.gr
+ [139.91.1.5]);
+ Thu, 16 Jul 2020 14:05:03 +0000 (GMT) for IP:'139.91.1.77' DOMAIN:'av3in'
+ HELO:'av3.ics.forth.gr' FROM:'mick@ics.forth.gr' RCPT:''
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.6.2
+ (mailgate-2.ics.forth.gr [139.91.1.5]); Thu, 16 Jul 2020 14:05:03 +0000 (GMT)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200716_100136_907930_DF8F9631 
-X-CRM114-Status: UNSURE (   9.50  )
+X-CRM114-CacheID: sfid-20200716_100533_107986_FEB7EFC3 
+X-CRM114-Status: UNSURE (   6.62  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -101,29 +93,22 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Damien Le Moal <damien.lemoal@wdc.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup.patel@wdc.com>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Atish Patra <atish.patra@wdc.com>, Rob Herring <robh+dt@kernel.org>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Thomas Gleixner <tglx@linutronix.de>,
- linux-riscv <linux-riscv@lists.infradead.org>
-Content-Type: text/plain; charset="utf-8"
+Cc: david.abdurachmanov@sifive.com, anup@brainfault.org,
+ Atish Patra <Atish.Patra@wdc.com>, yibin_liu@c-sky.com, zong.li@sifive.com,
+ Paul Walmsley <paul.walmsley@sifive.com>, mick@ics.forth.gr,
+ linux-riscv@lists.infradead.org
 Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CkhpIEFudXAsCgoKT24gMTYvMDcvMjAyMCAxNDozMiwgQW51cCBQYXRlbCB3cm90ZToKPiBPbiBX
-ZWQsIEp1bCAxNSwgMjAyMCBhdCAxMToyMCBQTSBSb2IgSGVycmluZyA8cm9iaEBrZXJuZWwub3Jn
-PiB3cm90ZToKClsgLi4uIF0KCj4gVGhhbmtzIGZvciB0aGVzZSBzdGVwcy4gSSB3aWxsIGZpeCBh
-bmQgc2VuZCB2NC4KClBsZWFzZSB0YWtlIHRoZSBvcHBvcnR1bml0eSB0byBjbGFyaWZ5IGhvdyB5
-b3Ugd2FudCB0aGUgc2VyaWVzIHRvIGJlIG1lcmdlZC4KCgotLSAKPGh0dHA6Ly93d3cubGluYXJv
-Lm9yZy8+IExpbmFyby5vcmcg4pSCIE9wZW4gc291cmNlIHNvZnR3YXJlIGZvciBBUk0gU29DcwoK
-Rm9sbG93IExpbmFybzogIDxodHRwOi8vd3d3LmZhY2Vib29rLmNvbS9wYWdlcy9MaW5hcm8+IEZh
-Y2Vib29rIHwKPGh0dHA6Ly90d2l0dGVyLmNvbS8jIS9saW5hcm9vcmc+IFR3aXR0ZXIgfAo8aHR0
-cDovL3d3dy5saW5hcm8ub3JnL2xpbmFyby1ibG9nLz4gQmxvZwoKX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
-bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
-bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+zqPPhM65z4IgMjAyMC0wNy0xMSAwNjo1OSwgUGFsbWVyIERhYmJlbHQgzq3Os8+BzrHPiM61Ogo+
+IFRoZXJlJ3Mgc29tZSBmYWlybHkgc3RyYWlnaHQtZm9yd2FyZCB0byBmaXggaXNzdWVzIGhlcmUs
+IExNSyBpZiB5b3UgCj4gd2FudCB0byBmaXgKPiB0aGVtIG9yIGlmIHlvdSB3YW50IG1lIHRvIHRh
+a2UgaXQgb3Zlci4KPiAKPiBUaGFua3MhCgpUaGFua3MgYSBsb3QgZm9yIHRoZSBmZWVkYmFjayAh
+IEknbGwgc2VuZCBhIHBhdGNoIHRvIGZpeCB0aGUgaXNzdWVzIHdpdGggCmtleGVjIChhbHNvIHRo
+ZSBvbmUgY2F1Z2h0IGJ5IHRoZSBidWlsZCBib3QpLCBhbm90aGVyIHBhdGNoIGZvciB0aGUgCmlv
+cmVzb3VyY2VzIGFuZCByZS1zZW5kIGtkdW1wL2NyYXNoa2VybmVsLgoKX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
+CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
+cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
