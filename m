@@ -2,23 +2,23 @@ Return-Path: <SRS0=HL6o=A3=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 24B6DC433E1
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2020 13:07:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E0780C433E2
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2020 13:13:27 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E78AC2065F
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2020 13:07:38 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A63BF20760
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2020 13:13:27 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="nHykdzIu";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="cCv/Msoh"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E78AC2065F
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="z+OHqa0I";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="lUDpaAUi"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A63BF20760
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -26,59 +26,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=yfeWQ5J+beaidWRvagnmcMoq9yGv1NNOGwZkZiw8Mxg=; b=nHykdzIucevviAM6u7FIvLsAJ
-	+BHAs/LJIg0HxncDy8Kjnfk4TUVzZZrO2cVa3QoT1jmEBFY+DUQCFwAtBW5/DItz1AzAXhl1Z03gb
-	2B0YmGGZkMQ8zxSSLOTHZfil6K7FjQunlT1QJN6xLgNpmjObYqTkXPiqgq/sZdCEbEtdktHetv2WQ
-	43fPghkDrHIccakP8eAEeCqQAIaeVUOPpqERxDIdxOSH7Nrl3pIk0vSpsyzSD1KfeYHAMxV+O0T7w
-	P0zOlq4m0GbkROi5mMxlqc6w1rRf+oGPH7JrIt1Yk4h7KrS+tSGMR6BDmv+yYK/Zt8gx/lHMzalN4
-	s4vQOOA8w==;
+	 bh=lpTqrFDnwYxRR96ml8MHUhgw0JqmWZjikFZeH4UFoLM=; b=z+OHqa0I0ua8soUEef6yIDFVL
+	dHST4YZ/WhaqZsUno/u9Yvap25ohRUk/HbKCYLezQ0Pe6P3ZIAJx5OOsIdo4cdD9p2/qMKZRCL+Db
+	lDK0UoOTv6HJhws5Oe/emlJdHDV5EJyGSDzi6UNJEp6qwYAynQIYPgMWcgJ64qZ5Q223I6DNetDZf
+	i0cCbeMFitaCtT4D0FUBznhxlQoSVQfHosMdBfDH+K5k133MM/bIUabf5bKnxJeQZvPSnc+CBC24D
+	lr4ApgJYX6P8HPx5H9P0PpB1T/PM2sJpDY24DWaGexy/geJxPhVM7lnZ2S6XEvS59ZVe3Z9E/QrZU
+	wI8efpHgw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jw3bo-0005a0-CV; Thu, 16 Jul 2020 13:07:32 +0000
-Received: from mail-qv1-xf44.google.com ([2607:f8b0:4864:20::f44])
+	id 1jw3hS-0005nx-CZ; Thu, 16 Jul 2020 13:13:22 +0000
+Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jw3bm-0005Zg-EE
- for linux-riscv@lists.infradead.org; Thu, 16 Jul 2020 13:07:31 +0000
-Received: by mail-qv1-xf44.google.com with SMTP id dm12so2636436qvb.9
- for <linux-riscv@lists.infradead.org>; Thu, 16 Jul 2020 06:07:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ id 1jw3hP-0005nZ-HT
+ for linux-riscv@lists.infradead.org; Thu, 16 Jul 2020 13:13:20 +0000
+Received: by mail-wr1-x443.google.com with SMTP id z13so7018079wrw.5
+ for <linux-riscv@lists.infradead.org>; Thu, 16 Jul 2020 06:13:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=yTCgb6pNfriHa7QdwxnKN0JEx+SnNfgA6oWTF7AfWbo=;
- b=cCv/Msoh8UW7Bm1Ew8GT4XIMHQ5AJwvGTe8s9LT94fF+PJeTQgsP+v5v1GAmtbExv4
- AZSIzhBLiBCorjt2hS6uoOZf3czaI3ZFMgL0smOQJjeSTYT/fXqHwrKG7qIY1e+MVnF1
- pdhbZMbDN4UFVQ7ArTXFQ1Wj7wV9UKXSdeZrHyxP6hN+L11P7Ft/kzJocP8n4wn9TRDl
- UR5G/QfuxcTytcAFVRnxVNxv8I13sJI6+uh+bcHqlhKRRdjngerDzHOHo5qC/55+MmTF
- Fcw0EL5Pk2ZUydhrgaAjpwPsvCd18e8CY8m0lkfnhfJaYQeKi8qj3zqARNnlmdcy5qDt
- yW4g==
+ :cc; bh=s9u0OaI73oXhhsb+oeV3fiveuxa7GdvhC13FjWGvhnU=;
+ b=lUDpaAUiBGrLCQlRiX+SgWv6HzFUpZjxg8IbVIxQAjEem/sOgyzudjH1Ew2udNkvnz
+ CZQSIxD0QpP+GxU65RWUZKiEl0ZDuVnwaLPZPBDrX5kZkpcmDn8l/GDC7vsLr1ZCUryT
+ 4vJH83uX+Essxes/0nPXT4VXyiKkziIPkQLw6/kBXq/75Z8wp1rTV9Uryv4E2RCddiz8
+ UQwqwUHWPADle7ZRaPjCIafb33zMWegcMSWgTAtWGaMuLFtJNkrInhBMHuM7UYV/8zJo
+ +x9vGTpqvugEAC74jtG6zR8B3/mqj8+TiAyjE3pwPzLa5VMPohnn2OePR443sucX3oBx
+ KihA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=yTCgb6pNfriHa7QdwxnKN0JEx+SnNfgA6oWTF7AfWbo=;
- b=Sbgqk3YKSKA1XPJbTtX4Q8vnda2wuSvMo5fnLtbGVwazfdxV977TKVxlw4sXka2GIN
- Bk7xYJ6AASKI7URQjF+127AM8RnxdpRrMa9OuOKB+LJXGSbkYZJ143la1sUBSWZR4xS+
- PLK96/XMm/v/27eqdIM5HeGJfuxfC3QVkSgG4n5E1hotRkIebDyJ/jLcezkncHO/tZhm
- gW4rpY0aC6w6qtrNcpAhoo9ihpLDSKU/mrj7PApAqbPDZ/GL7C6gVyRtQFOYfEr+8nNK
- CmNyeSWc7UgDqGrP7FnWhUiIF4c6uwJjwVxTeZj87qyMyobLS1ePlM23yAf/4J4lkqaE
- YPHQ==
-X-Gm-Message-State: AOAM533/YjT1K5wGjnb7xw8lInqa8JdVRN1ngN+UZHKCvfZROHvhC5kf
- 94aw6fzSwC59UWMHlenslcuakiWqSHvBI9CsM2wpcyBLE7U=
-X-Google-Smtp-Source: ABdhPJzn1A/7btlIYG1X8bKeCTor+oIvCx7P+mI1jm4vqroo6Gd9feuKoyUcA12m6b+vBd3k4GzVkMJZVa3kylzK+iM=
-X-Received: by 2002:ad4:4cc3:: with SMTP id i3mr4073553qvz.114.1594904848734; 
- Thu, 16 Jul 2020 06:07:28 -0700 (PDT)
+ bh=s9u0OaI73oXhhsb+oeV3fiveuxa7GdvhC13FjWGvhnU=;
+ b=Hy6a+hSMFtsHvVsMeRMRiNha/VXqPpi2zcK/6rBzWw5v4a462ofrZgyJrfnUw+dh9r
+ ZqNKcdgFyRzhzaZQ8GbLWbn6Q5y+9Kyy66dHBcdjlyEraYU6zGc2o4GOW9yAC10UoeEz
+ u04hkYjr4kJ9Gmgw0zSGh9jUMl7VBs8kNtDNxl4Z8AFT8xBI5AgW5PhflnIRsmz5CYEz
+ 4+ZrqF5tYFV9Tr73Dih89auRfn1GEdRXS49nbXJca5B3sJNJlCw5WyItDr3at/5fXqtz
+ ObNw9LLBgd8rR82MRFBZPOersPu88y+7UStLYQELdhjJ0LQCwH1hFazjcl4cCRr1jb9g
+ mWcw==
+X-Gm-Message-State: AOAM533hcCJHGZqRDC9jqNtvbnVAS6K7GLLORO71Zuo82OvpnxZf5S5+
+ tavrgr8Mt+/wjmcUEyzf+qLI9MS0GpXmInplhnvHeA==
+X-Google-Smtp-Source: ABdhPJyNrDd++3iRKErtZgLSEvCnoA9VLxRwm6VVLX4CuD9FS6IlrIlhxCvro2daVx57TMR+P//3sqVgv/nFdgNLLZg=
+X-Received: by 2002:adf:ff87:: with SMTP id j7mr5358437wrr.128.1594905197215; 
+ Thu, 16 Jul 2020 06:13:17 -0700 (PDT)
 MIME-Version: 1.0
-References: <cover.1594886530.git.zong.li@sifive.com>
- <628efa24c79a493e39ce6ef13017ae52eaf13388.1594886530.git.zong.li@sifive.com>
-In-Reply-To: <628efa24c79a493e39ce6ef13017ae52eaf13388.1594886530.git.zong.li@sifive.com>
-From: Pekka Enberg <penberg@gmail.com>
-Date: Thu, 16 Jul 2020 16:07:12 +0300
-Message-ID: <CAOJsxLHrOjaUVUASz067_VX8tYV2DZgR6pvK4V07+ZvhSophPQ@mail.gmail.com>
-Subject: Re: [PATCH v2 1/2] riscv: Fix build warning for mm/init
-To: Zong Li <zong.li@sifive.com>
+References: <1594874393-23620-1-git-send-email-bmeng.cn@gmail.com>
+In-Reply-To: <1594874393-23620-1-git-send-email-bmeng.cn@gmail.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Thu, 16 Jul 2020 18:43:03 +0530
+Message-ID: <CAAhSdy0==OEUUs6-+0g=kogqm2J=64XFiacNL7HdgZwyS-3hWA@mail.gmail.com>
+Subject: Re: [PATCH] riscv: Add SiFive drivers to rv32_defconfig
+To: Bin Meng <bmeng.cn@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200716_090730_497534_F4FDAA7D 
-X-CRM114-Status: UNSURE (   6.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200716_091319_660119_FB2AD873 
+X-CRM114-Status: GOOD (  13.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -90,29 +89,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, LKML <linux-kernel@vger.kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Bin Meng <bin.meng@windriver.com>, Anup Patel <anup.patel@wdc.com>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Atish Patra <atish.patra@wdc.com>, Alistair Francis <alistair.francis@wdc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 16, 2020 at 4:06 PM Zong Li <zong.li@sifive.com> wrote:
+On Thu, Jul 16, 2020 at 10:10 AM Bin Meng <bmeng.cn@gmail.com> wrote:
 >
-> Add static keyword for resource_init, this function is only used in this
-> object file.
+> From: Bin Meng <bin.meng@windriver.com>
 >
-> The warning message as follow (with W=1 build):
+> This adds SiFive drivers to rv32_defconfig, to keep in sync with the
+> 64-bit config. This is useful when testing 32-bit kernel with QEMU
+> 'sifive_u' 32-bit machine.
 >
-> arch/riscv/mm/init.c:520:13:
-> warning: no previous prototype for 'resource_init' [-Wmissing-prototypes]
+> Signed-off-by: Bin Meng <bin.meng@windriver.com>
+> ---
 >
-> Signed-off-by: Zong Li <zong.li@sifive.com>
+>  arch/riscv/configs/rv32_defconfig | 5 +++++
+>  1 file changed, 5 insertions(+)
+>
+> diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
+> index 05bbf52..8759501 100644
+> --- a/arch/riscv/configs/rv32_defconfig
+> +++ b/arch/riscv/configs/rv32_defconfig
+> @@ -14,6 +14,7 @@ CONFIG_CHECKPOINT_RESTORE=y
+>  CONFIG_BLK_DEV_INITRD=y
+>  CONFIG_EXPERT=y
+>  CONFIG_BPF_SYSCALL=y
+> +CONFIG_SOC_SIFIVE=y
+>  CONFIG_SOC_VIRT=y
+>  CONFIG_ARCH_RV32I=y
+>  CONFIG_SMP=y
+> @@ -61,6 +62,8 @@ CONFIG_HVC_RISCV_SBI=y
+>  CONFIG_VIRTIO_CONSOLE=y
+>  CONFIG_HW_RANDOM=y
+>  CONFIG_HW_RANDOM_VIRTIO=y
+> +CONFIG_SPI=y
+> +CONFIG_SPI_SIFIVE=y
+>  # CONFIG_PTP_1588_CLOCK is not set
+>  CONFIG_POWER_RESET=y
+>  CONFIG_DRM=y
+> @@ -76,6 +79,8 @@ CONFIG_USB_OHCI_HCD=y
+>  CONFIG_USB_OHCI_HCD_PLATFORM=y
+>  CONFIG_USB_STORAGE=y
+>  CONFIG_USB_UAS=y
+> +CONFIG_MMC=y
+> +CONFIG_MMC_SPI=y
+>  CONFIG_RTC_CLASS=y
+>  CONFIG_VIRTIO_PCI=y
+>  CONFIG_VIRTIO_BALLOON=y
+> --
+> 2.7.4
+>
 
-Reviewed-by: Pekka Enberg <penberg@kernel.org>
+Looks good to me.
 
-- Pekka
+Reviewed-by: Anup Patel <anup@brainfault.org>
+
+Regards,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
