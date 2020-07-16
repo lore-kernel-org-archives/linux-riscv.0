@@ -7,72 +7,78 @@ X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8D0B4C433E0
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2020 07:24:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3F81CC433E6
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2020 07:47:08 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 42E682067D
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2020 07:24:43 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id EDBEA206C1
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2020 07:47:07 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="NCOPBcNI"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 42E682067D
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="oki11Roc";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="SvqjbM1I"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EDBEA206C1
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:Date:References:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=944+dwf4jMXKx6G7oCTf5je4IyGfVWqVhxEJooK+NdA=; b=NCOPBcNI2C/IDKLlZpoh35KlY
-	FittlJvbb2yIu08IP5ogqlYdeVWpB+IplXhjluv+6ZP46JmQhovU1ERinL382gwaFy5EqFAwYYqU/
-	tfYiSwlcCiQWTXg1Pa1ZggF+FldrUbhjRhg/jZS7ZrA+crTdgS6dd8s1lZn9l7hUJtHcTnK909s3r
-	FN0pm1HjfOdB2Vk+t4v7fQ0j12sLXSyQnBFBUgaG1DIUQzzBKdIIp1q3gw3A+pVXH/yts2bG3b2eb
-	upEXgfaAM3Qq4f2rTL0VN8J+vx2hX6GffXGgAtR8khs+cQ8tiXFMgLbniVypEOvVO3xuzfaAMibPv
-	/oVqKOGXA==;
+	 bh=N3dgXQToHj5htzSMFMgI2l3tN0Dy8aUm1RLRmxogz78=; b=oki11Rocv3I353V34TbO1CiTq
+	YktzEiEq0esINYXgiT8rIJUmZT0i5zvEDOEdGq1VwNCos9yUBJa/lFU3Wylt4xi/VHv6up/x5Kw+c
+	D1qyTpCVge4SoXrOo2la/rLDAQwoYI2Xhxv8QB8ng87nAq6K2D52Fjsx2kMvda3ZWA8udYqrmoaHf
+	7xWBJQYcthPFX6q0hxb+cbzVUDmFL17OxTstMeWFv5JGimZzCKLUlhnIFDXL3sZlDiXNoXQBGXNww
+	c+Zuq7HYGQtMfOPSAVqUukZDDcr/zVj8PHIvaIZ/6CfbS00LQT4iFM45Z2GfL+dCz2BcKNzNwLEkJ
+	CmMdGMHVA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jvyFv-000708-F0; Thu, 16 Jul 2020 07:24:35 +0000
-Received: from mail-out.m-online.net ([212.18.0.9])
+	id 1jvybd-0000qX-FG; Thu, 16 Jul 2020 07:47:01 +0000
+Received: from mail-oi1-x242.google.com ([2607:f8b0:4864:20::242])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jvyFs-0006zN-GU
- for linux-riscv@lists.infradead.org; Thu, 16 Jul 2020 07:24:33 +0000
-Received: from frontend01.mail.m-online.net (unknown [192.168.8.182])
- by mail-out.m-online.net (Postfix) with ESMTP id 4B6m3J2gbWz1qsZw;
- Thu, 16 Jul 2020 09:24:28 +0200 (CEST)
-Received: from localhost (dynscan1.mnet-online.de [192.168.6.70])
- by mail.m-online.net (Postfix) with ESMTP id 4B6m3J1lMtz1qtwB;
- Thu, 16 Jul 2020 09:24:28 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at mnet-online.de
-Received: from mail.mnet-online.de ([192.168.8.182])
- by localhost (dynscan1.mail.m-online.net [192.168.6.70]) (amavisd-new,
- port 10024)
- with ESMTP id J70jrAzaypsO; Thu, 16 Jul 2020 09:24:27 +0200 (CEST)
-X-Auth-Info: +GkvJW+U7a1jkwpYYtwvJGW4qb6pdIBqEmyMYF7EgbvcE/fEsu3c4+4SqZRjkrRE
-Received: from igel.home (ppp-46-244-175-239.dynamic.mnet-online.de
- [46.244.175.239])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.mnet-online.de (Postfix) with ESMTPSA;
- Thu, 16 Jul 2020 09:24:27 +0200 (CEST)
-Received: by igel.home (Postfix, from userid 1000)
- id D5C4F2C28D5; Thu, 16 Jul 2020 09:24:26 +0200 (CEST)
-From: Andreas Schwab <schwab@linux-m68k.org>
-To: Zong Li <zong.li@sifive.com>
-Subject: Re: [PATCH 2/2] riscv: fix build warning of mm/pageattr
+ id 1jvybb-0000pn-2e
+ for linux-riscv@lists.infradead.org; Thu, 16 Jul 2020 07:47:00 +0000
+Received: by mail-oi1-x242.google.com with SMTP id e4so4407136oib.1
+ for <linux-riscv@lists.infradead.org>; Thu, 16 Jul 2020 00:46:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=3BUXUL9AKrDqMaBqwt9woIa2xKGZFsJ8thm8KS7GNOo=;
+ b=SvqjbM1I8bN85zcWimONZ2ozTVklUFbPOB/mg5lt6Y+tKPILTkC89j1wv+TI/vHEWy
+ PtYOQw0C9VRBd7uliQgJiZ1E2UFUYq0EGNJ77CLsmHLivGWnmB4naXdj+kJeicdi167z
+ YDIvILeC4NZhNsBXtgsqUht1RvatrtdtATbVSG67GB2XyNBOgVjICI/1vyj4lpuxkVE+
+ V3xvVI1wJWKylQD6RWYPdI0bgHS75tgDGStMjQlL2bXLjqwIthAF+AUEh1uH5tdS+pB4
+ ac48QYZi+yViVAbeXObD7OnMDUTrquYdZJR7VorvbJ8XykuIPcpl92sBT0MGX8cKTLSR
+ KKKA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=3BUXUL9AKrDqMaBqwt9woIa2xKGZFsJ8thm8KS7GNOo=;
+ b=JF48P+OWfzEMUFuBuujuWgwLc6k6CYbtE8fJ2WCLC/PymCHVGpEXApgIqECLp7quif
+ TPEDaWJshtFFg1sbgL3/5D+Rg2k+Zs0SPOYR+pfUWhE/5NVOCTwpxncVIIyPIbm2l/xF
+ IBaEgshou3iHrI8uneEC+LXqoYVmUPc3RbIC/kZNtOTZVCSrSzPKAWJMGsm3vrEVEJAk
+ d4Wgnca/5KZ3Nb9SUy1es8T1GrPG4c+JBbhG3fQifquZxHG0P68HFzlFpGeVhTZoH764
+ 8or97I0nsuH//ez0ebTAZx7hjN5e+MnAwfwAeyYc1fK7dAgakx4xClg8ATffGBhIpgM5
+ IdZQ==
+X-Gm-Message-State: AOAM531vu0IaG6GS+VbpRKIpeJmZev/SFe1bnWpYt1f4Z2Vm4FrBZWYw
+ Gj1W3n07/FbE7rTDq+T+Hk5bMz5m/E3asPQrORc5hA==
+X-Google-Smtp-Source: ABdhPJzCKBDq7dV4e8atqNGFS0KfPTtTyRSbv0GrxEGTjPSIOfpn+4bk/ky8L19DllK9NXe9m/wIBKvsRsRbgjA7I2U=
+X-Received: by 2002:aca:be57:: with SMTP id o84mr2821993oif.32.1594885616879; 
+ Thu, 16 Jul 2020 00:46:56 -0700 (PDT)
+MIME-Version: 1.0
 References: <cover.1594880014.git.zong.li@sifive.com>
  <28365b581b04d0237e127363a63c1ad72dbea683.1594880014.git.zong.li@sifive.com>
-X-Yow: I just remembered something about a TOAD!
-Date: Thu, 16 Jul 2020 09:24:26 +0200
-In-Reply-To: <28365b581b04d0237e127363a63c1ad72dbea683.1594880014.git.zong.li@sifive.com>
- (Zong Li's message of "Thu, 16 Jul 2020 14:15:27 +0800")
-Message-ID: <87sgdrx6qd.fsf@igel.home>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/27.0.91 (gnu/linux)
-MIME-Version: 1.0
+ <87sgdrx6qd.fsf@igel.home>
+In-Reply-To: <87sgdrx6qd.fsf@igel.home>
+From: Zong Li <zong.li@sifive.com>
+Date: Thu, 16 Jul 2020 15:46:45 +0800
+Message-ID: <CANXhq0omXrUCAFscZy5tDFisR29_4agA1ZTTYTezgZTmQg5Y3Q@mail.gmail.com>
+Subject: Re: [PATCH 2/2] riscv: fix build warning of mm/pageattr
+To: Andreas Schwab <schwab@linux-m68k.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200716_032432_655414_A17D7832 
-X-CRM114-Status: UNSURE (   7.31  )
+X-CRM114-CacheID: sfid-20200716_034659_456440_4D4C1564 
+X-CRM114-Status: UNSURE (   7.85  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -85,25 +91,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
- linux-kernel@vger.kernel.org, paul.walmsley@sifive.com
+Cc: linux-riscv <linux-riscv@lists.infradead.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Jul 16 2020, Zong Li wrote:
+On Thu, Jul 16, 2020 at 3:24 PM Andreas Schwab <schwab@linux-m68k.org> wrote:
+>
+> On Jul 16 2020, Zong Li wrote:
+>
+> > Add hearder for missing prototype. Also, static keyword should be at
+>
+> s/hearder/header/
+>
+> Andreas.
+>
+> --
+> Andreas Schwab, schwab@linux-m68k.org
+> GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
+> "And now for something completely different."
 
-> Add hearder for missing prototype. Also, static keyword should be at
+Hi all,
 
-s/hearder/header/
-
-Andreas.
-
--- 
-Andreas Schwab, schwab@linux-m68k.org
-GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
-"And now for something completely different."
+Let me describe the details in the commit message and fix the typo in
+the next version.
+Thanks for reviewing.
 
 _______________________________________________
 linux-riscv mailing list
