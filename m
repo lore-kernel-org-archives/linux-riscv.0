@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 54C0DC433F4
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2020 23:41:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2A738C433F7
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2020 23:41:39 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 241D3206F4
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2020 23:41:37 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E5A05206F4
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jul 2020 23:41:38 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="CUN8Qf8I";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="bGPjMIu/"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 241D3206F4
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ToAWcJde";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="bTpzvJsu"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E5A05206F4
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,61 +26,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=oXzvTBt+tLs63J6lqF38wqlVBWnC+BEn2I32Sov/y+M=; b=CUN8Qf8ITpxCoixIGmoQKmyTK
-	RuCnWR5wDMBqhA85o33UUgPmksZyVItN/xjq8YOm/eOUMNvSldrieGdhVO132EysY6hGCkk7jShRD
-	8+5D4l2SL3n0K1DBQgKmzru5n2Q+OjGRGrtqvx4qWEHGLWEygLyhHqwquvL7EfyAcNagYCmkz15qW
-	tWOJDvT16ZR8/cSGYLhFax5AC37TQz6iggh33TohaKiR+Rf2dOvVh8i2EzQMhYmm1mQWJEpXTNkll
-	OEhnlsPMQ73Xk5ir1HfY+gdMm/N85QM5NNT8AJJt8bVGlOlLhTWE42YLz777oiEZ/UIsj45slxgSq
-	FBVVwHN1Q==;
+	 bh=FuuFGtM3HPpiNz9IEluEOPgzcLElzdr9GdWMZ10tALU=; b=ToAWcJde6O7s7eQqCnJPBUsu4
+	fEMEZeJ7hOU2ZvmQjRkKOZ5DwcNwDLdBOZajZF9JCb0wmgp7SYwuppkC08gxtbQq/qBmEVDKYPeYN
+	daZ4KKJbXJxdb6/cqFnHzZjrFLhcDVnwEljwl2ZgXmgqPonC4ekgqwT1ybSsBTtMIVCcp8xYKmycN
+	+dwivii+J16cti17g0a8ajv1EHPWxL5rqXlN9AQLrcNdeQfFqRcYlejBDgwgwpMrxTjuYebdPcfY0
+	vXBiSwn5MLDDhCxZphhAoZdrwWIJ8t2s+iSoZZBT0vzZBeibxEnit8n/PvCAEsbYTXc0q/hDxtl30
+	Cs6SYk9yg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jwDVJ-0007je-Bg; Thu, 16 Jul 2020 23:41:29 +0000
+	id 1jwDVK-0007k8-9C; Thu, 16 Jul 2020 23:41:30 +0000
 Received: from esa5.hgst.iphmx.com ([216.71.153.144])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jwDV8-0007eY-0X; Thu, 16 Jul 2020 23:41:19 +0000
+ id 1jwDV8-0007dh-4I; Thu, 16 Jul 2020 23:41:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
  t=1594942878; x=1626478878;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=qPX9w03TDCYp7bNgQz0FtRslpyDBjDFxb0GnLRnufaQ=;
- b=bGPjMIu/EKWLvUU7gxsDwXbD6TvIXHnj8ap+63+x0K+MdSv9u8Of8U7B
- 0+4imnNPqV6sspMa0QlCMrEQUqwH6259VdIruTZ++bFYlhMcz6YwMo5wa
- 9J0BtUlUE3kWgO6eIhHDnB5cb8MwHB94QgGdUohwtMzXwx8QN0N1B+5vU
- aDYMI1VRAwr254sLov4qwU9y+9KgJyRxOuqQwYUDQH1fC50YRTonNeDw4
- FHle/Tbfahr5r3aAXAHF8qIEOB15OETXASDS88frHS/hRyuZLMLmb8sMn
- nyDImSU6vRtT+DTIAUoE+JJZOzT3/EJhpFBlmrbx+M5GeaL+kw59WSxBd A==;
-IronPort-SDR: wKZ24lkkf4D6+NyKDKri30rbtl5n9dWEbx6BpZ28kt5hJuZwcz24GgXPzX221grlHOOVZjmQ/X
- 39Fh/wfs/UV/A8PEoIVv2XrIWb1kIKPi+RETJGf38EZ4EpNpLLVEo2U3jgk+GBH4qplc+fLvjV
- +H898iOZaAMyf2PxJZqUPO3/WEJEaoiHE6jsAzNd4qrhruBEWo0NauteeP6tvHRrRj7Pb+8zch
- FyIwb3ogRftjXklUbaAD9APPs6dveS3zYWPHDtSupIY0NCesR1FmIfUsVzmKUA4qg0WHX+fB98
- zDE=
-X-IronPort-AV: E=Sophos;i="5.75,360,1589212800"; d="scan'208";a="142782167"
+ bh=/BM/mH4XsaV/6iCpj8IfqSeogZjHIyxg63ZlS/DCX0c=;
+ b=bTpzvJsucoElvY64//PAyaHdpdXdm7sFUjxXZm65IAykdUL8Knr0Il6T
+ NK73BLBqf7xji5FdQ3vDa/QPhhc0IDtlt2ELHfPPusozOmh6ONTWFDI6z
+ qNj4dcAtSwGYcSCA3zHMvNpa297TRN9kiA0/WAufh1Q1vvKbctRvdh6v0
+ Uh6X6kceCJcMJFPNJ7so2XbvcLRn4aU0iJWfUAnQ7cTWyQvpKF6CAJ0L+
+ Lj/f1b0H+LZM6HE36zUK5y1gj9nch1mrzvVpbzuV/QyyOGVDpmZQQ/p7O
+ BjNfaBb0lkyNpyM4qab6a7d1cFMfUO1zxmcVwXsRrPwURn/t2MwFDOfDA Q==;
+IronPort-SDR: auCrvU5m9fAH9fJkya78hw7t4k4wBYiYwr2TdjmPgCBDQ8Iz7fCAGR1li/7PQ6CDasHumxfVlP
+ YwQY27kLiJZY216iVnBmS8Anmum68pgt5VZpvd7LVx94eQzuz1yzK1L15hJ1IT3Qazstu9d8wF
+ YR7ewZNQbFdn00bm3lTx/nK9DxmKy9vxCxn4S4OOR1kU2u65UBL80KmBnzAIxMgiPzYHJ8zJy3
+ gaaMsF5ZmApEO0P/RKqQmAPIJMnz6mFSqHJBKXT32vqTNaUqKX9PUD05pS8Zv/Nbd0x0DbY5BL
+ 2Aw=
+X-IronPort-AV: E=Sophos;i="5.75,360,1589212800"; d="scan'208";a="142782171"
 Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 17 Jul 2020 07:41:15 +0800
-IronPort-SDR: HVKJfH8j5pfB+h4oLzeCxHYVnS+KfxmQmr4U27M0l2brxnBgskq4v8tf+WVJdbVrA0esEt9WDo
- Hc/6ZsWStGhLB4s0NBcXJtr5U7b2AY99I=
+ by ob1.hgst.iphmx.com with ESMTP; 17 Jul 2020 07:41:17 +0800
+IronPort-SDR: NzaNYKNFds0Qt65xJMx2umuu6osBD99xMljLVTpNmB/b+sbhJPeevSJcl09bhvssQUWRpdJy4I
+ x5yqbFdlKnc8YoOmRJk36JWDrk6R1OzXI=
 Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 16 Jul 2020 16:29:38 -0700
-IronPort-SDR: 1UshUQNcXTNsprKeRtIsDqnTeMiI0w4SfIFZKKNnMH/qjkqzAg8SSedlw515LvZ0cVKy0u6QxP
- uEX1mYyKMT7g==
+ 16 Jul 2020 16:29:40 -0700
+IronPort-SDR: 1+ar9xAJ3WTp7oABqVmJQP3GTHTux1IitmQm3mpW+sB48jlZAs+hJYRHCo86g6rEcJCK8R9Kxq
+ CuVbwebNiq1g==
 WDCIronportException: Internal
 Received: from phd004806.ad.shared (HELO jedi-01.hgst.com) ([10.86.58.54])
- by uls-op-cesaip02.wdc.com with ESMTP; 16 Jul 2020 16:41:14 -0700
+ by uls-op-cesaip02.wdc.com with ESMTP; 16 Jul 2020 16:41:16 -0700
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [RFT PATCH v3 2/9] RISC-V: Add early ioremap support
-Date: Thu, 16 Jul 2020 16:40:57 -0700
-Message-Id: <20200716234104.29049-3-atish.patra@wdc.com>
+Subject: [RFT PATCH v3 3/9] RISC-V: Implement late mapping page table
+ allocation functions
+Date: Thu, 16 Jul 2020 16:40:58 -0700
+Message-Id: <20200716234104.29049-4-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.24.0
 In-Reply-To: <20200716234104.29049-1-atish.patra@wdc.com>
 References: <20200716234104.29049-1-atish.patra@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200716_194118_226838_B11E3FE9 
-X-CRM114-Status: GOOD (  14.85  )
+X-CRM114-CacheID: sfid-20200716_194118_441570_0BEECC40 
+X-CRM114-Status: GOOD (  14.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -107,141 +108,101 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-UEFI uses early IO or memory mappings for runtime services before
-normal ioremap() is usable. Add the necessary fixmap bindings and
-pmd mappings for generic ioremap support to work.
+Currently, page table setup is done during setup_va_final where fixmap can
+be used to create the temporary mappings. The physical frame is allocated
+from memblock_alloc_* functions. However, this won't work if page table
+mapping needs to be created for a different mm context (i.e. efi mm) at
+a later point of time.
+
+Use generic kernel page allocation function & macros for any mapping
+after setup_vm_final.
 
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
 ---
- arch/riscv/Kconfig              |  1 +
- arch/riscv/include/asm/Kbuild   |  1 +
- arch/riscv/include/asm/fixmap.h | 13 +++++++++++++
- arch/riscv/include/asm/io.h     |  1 +
- arch/riscv/kernel/setup.c       |  1 +
- arch/riscv/mm/init.c            | 33 +++++++++++++++++++++++++++++++++
- 6 files changed, 50 insertions(+)
+ arch/riscv/mm/init.c | 29 ++++++++++++++++++++++++-----
+ 1 file changed, 24 insertions(+), 5 deletions(-)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 3230c1d48562..e6c1c98a53fb 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -34,6 +34,7 @@ config RISCV
- 	select GENERIC_ARCH_TOPOLOGY if SMP
- 	select GENERIC_ATOMIC64 if !64BIT
- 	select GENERIC_CLOCKEVENTS
-+	select GENERIC_EARLY_IOREMAP
- 	select GENERIC_GETTIMEOFDAY if HAVE_GENERIC_VDSO
- 	select GENERIC_IOREMAP
- 	select GENERIC_IRQ_MULTI_HANDLER
-diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
-index 3d9410bb4de0..59dd7be55005 100644
---- a/arch/riscv/include/asm/Kbuild
-+++ b/arch/riscv/include/asm/Kbuild
-@@ -1,4 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0
-+generic-y += early_ioremap.h
- generic-y += extable.h
- generic-y += flat.h
- generic-y += kvm_para.h
-diff --git a/arch/riscv/include/asm/fixmap.h b/arch/riscv/include/asm/fixmap.h
-index 11613f38228a..54cbf07fb4e9 100644
---- a/arch/riscv/include/asm/fixmap.h
-+++ b/arch/riscv/include/asm/fixmap.h
-@@ -27,6 +27,19 @@ enum fixed_addresses {
- 	FIX_TEXT_POKE1,
- 	FIX_TEXT_POKE0,
- 	FIX_EARLYCON_MEM_BASE,
-+
-+	__end_of_permanent_fixed_addresses,
-+	/*
-+	 * Temporary boot-time mappings, used by early_ioremap(),
-+	 * before ioremap() is functional.
-+	 */
-+#define NR_FIX_BTMAPS		(SZ_256K / PAGE_SIZE)
-+#define FIX_BTMAPS_SLOTS	7
-+#define TOTAL_FIX_BTMAPS	(NR_FIX_BTMAPS * FIX_BTMAPS_SLOTS)
-+
-+	FIX_BTMAP_END = __end_of_permanent_fixed_addresses,
-+	FIX_BTMAP_BEGIN = FIX_BTMAP_END + TOTAL_FIX_BTMAPS - 1,
-+
- 	__end_of_fixed_addresses
- };
- 
-diff --git a/arch/riscv/include/asm/io.h b/arch/riscv/include/asm/io.h
-index 3835c3295dc5..c025a746a148 100644
---- a/arch/riscv/include/asm/io.h
-+++ b/arch/riscv/include/asm/io.h
-@@ -14,6 +14,7 @@
- #include <linux/types.h>
- #include <linux/pgtable.h>
- #include <asm/mmiowb.h>
-+#include <asm/early_ioremap.h>
- 
- /*
-  * MMIO access functions are separated out to break dependency cycles
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index 8519a6d29857..1244b433fe7c 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -72,6 +72,7 @@ void __init setup_arch(char **cmdline_p)
- 
- 	*cmdline_p = boot_command_line;
- 
-+	early_ioremap_setup();
- 	parse_early_param();
- 
- 	setup_bootmem();
 diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 5e9328fa635b..62c90161765f 100644
+index 62c90161765f..9f3129c76985 100644
 --- a/arch/riscv/mm/init.c
 +++ b/arch/riscv/mm/init.c
-@@ -401,6 +401,9 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
- 	uintptr_t load_pa = (uintptr_t)(&_start);
- 	uintptr_t load_sz = (uintptr_t)(&_end) - load_pa;
- 	uintptr_t map_size = best_map_size(load_pa, MAX_EARLY_MAPPING_SIZE);
-+#ifndef __PAGETABLE_PMD_FOLDED
-+	pmd_t fix_bmap_spmd, fix_bmap_epmd;
-+#endif
+@@ -209,6 +209,7 @@ pgd_t swapper_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
+ pgd_t trampoline_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
+ pte_t fixmap_pte[PTRS_PER_PTE] __page_aligned_bss;
+ static bool mmu_enabled;
++static bool late_mapping;
  
- 	va_pa_offset = PAGE_OFFSET - load_pa;
- 	pfn_base = PFN_DOWN(load_pa);
-@@ -451,6 +454,36 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
- 	dtb_size = fdt_totalsize((void *)dtb_pa);
- 	dtb_size = (dtb_size > DTB_EARLY_SIZE) ? DTB_EARLY_SIZE : dtb_size;
- 	memcpy((void *)pa, (void *)dtb_pa, dtb_size);
-+
-+	/*
-+	 * Bootime fixmap only can handle PMD_SIZE mapping. Thus, boot-ioremap
-+	 * range can not span multiple pmds.
-+	 */
-+	BUILD_BUG_ON((__fix_to_virt(FIX_BTMAP_BEGIN) >> PMD_SHIFT)
-+		     != (__fix_to_virt(FIX_BTMAP_END) >> PMD_SHIFT));
-+
-+#ifndef __PAGETABLE_PMD_FOLDED
-+	/*
-+	 * Early ioremap fixmap is already created as it lies within first 2MB
-+	 * of fixmap region. We always map PMD_SIZE. Thus, both FIX_BTMAP_END
-+	 * FIX_BTMAP_BEGIN should lie in the same pmd. Verify that and warn
-+	 * the user if not.
-+	 */
-+	fix_bmap_spmd = fixmap_pmd[pmd_index(__fix_to_virt(FIX_BTMAP_BEGIN))];
-+	fix_bmap_epmd = fixmap_pmd[pmd_index(__fix_to_virt(FIX_BTMAP_END))];
-+	if (pmd_val(fix_bmap_spmd) != pmd_val(fix_bmap_epmd)) {
-+		WARN_ON(1);
-+		pr_warn("fixmap btmap start [%08lx] != end [%08lx]\n",
-+			pmd_val(fix_bmap_spmd), pmd_val(fix_bmap_epmd));
-+		pr_warn("fix_to_virt(FIX_BTMAP_BEGIN): %08lx\n",
-+			fix_to_virt(FIX_BTMAP_BEGIN));
-+		pr_warn("fix_to_virt(FIX_BTMAP_END):   %08lx\n",
-+			fix_to_virt(FIX_BTMAP_END));
-+
-+		pr_warn("FIX_BTMAP_END:       %d\n", FIX_BTMAP_END);
-+		pr_warn("FIX_BTMAP_BEGIN:     %d\n", FIX_BTMAP_BEGIN);
-+	}
-+#endif
+ #define MAX_EARLY_MAPPING_SIZE	SZ_128M
+ 
+@@ -233,7 +234,9 @@ void __set_fixmap(enum fixed_addresses idx, phys_addr_t phys, pgprot_t prot)
+ 
+ static pte_t *__init get_pte_virt(phys_addr_t pa)
+ {
+-	if (mmu_enabled) {
++	if (late_mapping)
++		return (pte_t *) __va(pa);
++	else if (mmu_enabled) {
+ 		clear_fixmap(FIX_PTE);
+ 		return (pte_t *)set_fixmap_offset(FIX_PTE, pa);
+ 	} else {
+@@ -243,13 +246,19 @@ static pte_t *__init get_pte_virt(phys_addr_t pa)
+ 
+ static phys_addr_t __init alloc_pte(uintptr_t va)
+ {
++	unsigned long vaddr;
+ 	/*
+ 	 * We only create PMD or PGD early mappings so we
+ 	 * should never reach here with MMU disabled.
+ 	 */
+ 	BUG_ON(!mmu_enabled);
+-
+-	return memblock_phys_alloc(PAGE_SIZE, PAGE_SIZE);
++	if (late_mapping) {
++		vaddr = __get_free_page(GFP_KERNEL);
++		if (!vaddr || !pgtable_pte_page_ctor(virt_to_page(vaddr)))
++			BUG();
++		return __pa(vaddr);
++	} else
++		return memblock_phys_alloc(PAGE_SIZE, PAGE_SIZE);
  }
  
- static void __init setup_vm_final(void)
+ static void __init create_pte_mapping(pte_t *ptep,
+@@ -278,7 +287,9 @@ pmd_t early_pmd[PTRS_PER_PMD * NUM_EARLY_PMDS] __initdata __aligned(PAGE_SIZE);
+ 
+ static pmd_t *__init get_pmd_virt(phys_addr_t pa)
+ {
+-	if (mmu_enabled) {
++	if (late_mapping)
++		return (pmd_t *) __va(pa);
++	else if (mmu_enabled) {
+ 		clear_fixmap(FIX_PMD);
+ 		return (pmd_t *)set_fixmap_offset(FIX_PMD, pa);
+ 	} else {
+@@ -289,8 +300,13 @@ static pmd_t *__init get_pmd_virt(phys_addr_t pa)
+ static phys_addr_t __init alloc_pmd(uintptr_t va)
+ {
+ 	uintptr_t pmd_num;
++	unsigned long vaddr;
+ 
+-	if (mmu_enabled)
++	if (late_mapping) {
++		vaddr = __get_free_page(GFP_KERNEL);
++		BUG_ON(!vaddr);
++		return __pa(vaddr);
++	} else if (mmu_enabled)
+ 		return memblock_phys_alloc(PAGE_SIZE, PAGE_SIZE);
+ 
+ 	pmd_num = (va - PAGE_OFFSET) >> PGDIR_SHIFT;
+@@ -528,6 +544,9 @@ static void __init setup_vm_final(void)
+ 	/* Move to swapper page table */
+ 	csr_write(CSR_SATP, PFN_DOWN(__pa_symbol(swapper_pg_dir)) | SATP_MODE);
+ 	local_flush_tlb_all();
++
++	/* generic page allocation function must be used to setup page table */
++	late_mapping = true;
+ }
+ #else
+ void *dtb_early_va __initdata;
 -- 
 2.24.0
 
