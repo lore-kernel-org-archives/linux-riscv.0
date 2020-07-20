@@ -2,106 +2,87 @@ Return-Path: <SRS0=LUeZ=A7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_2 autolearn=no
-	autolearn_force=no version=3.4.0
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 20F10C433E0
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jul 2020 19:17:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E11DFC433E2
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jul 2020 20:06:15 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E3AD222B4E
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jul 2020 19:17:22 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id ADF722080D
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jul 2020 20:06:15 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="SleB9y+O"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E3AD222B4E
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="GimcI8lx"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ADF722080D
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arndb.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:Reply-To:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:Date:To:From:
-	Subject:Message-ID:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ECXx1hmAye6OEhbztWSyt1AYZ+Tg26KiHoUtrkcTuJY=; b=SleB9y+OjPtCYFokZNix58JZsP
-	/w2jXUS/8CMRYkm5rnwlVU9w9uoERatpkiOz2jHUhtuPQNbDb1Nubhbdy5THWX2Z+0YESwPk3A5v1
-	U1N8rfuNZN6Swst85zf3Y1bi9/ayQFihry5rQGGceh5iAoPt9sCR/WXfmlgd/c1zWbmA1om9G+xUC
-	dPJOdFF1ypQQybWitlS3A3+lpBC46hoWN3ic2oMZbc8bT5wI7n1wCTdsAV8+aESkHiZ8F7Z8FG3U6
-	S4g54sIlaKyXNlIwC2+UXbXsSXmjQTeTQJtmX+BfEYQqvo65BmMiILtGIx901WZ3/ZbJbzhis1P6s
-	U0iB+S+g==;
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=X0LCMq9qOMzxM8iJ57LzbKsJOr8GWZ7ZqQyXKKffTWE=; b=GimcI8lxT5rhUc2tBhJgZ1Mft
+	yp91ZVbTLiSMUEPqgfa4YW7zQybA+y45MCJHqMIxWLXj8r1wfXgMgueItvqLI5gqmMIR+uTPqbvPO
+	vbN3gjZbsNy5Lcxm8sV5XNQzpZPYAK1ErNy45amCZIboMP0apWxRKmyE48IORdKCXdobokdJz7lsZ
+	mw/IoH4BgSl1jRwP/ivMXDezKdg6hdisPNfmf4H4qt7GPIcU9LPRcpkoW3azi8Y52TR3iwY5vA7YS
+	Q4KbecoYspO2UntBkNgPaeZrOh6nj8dJfluwH5+3tNivioNM3x7Ov0NEEEFBNSgAi1Z91+qID16Fl
+	d4OvUqKsQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jxbHm-00066W-Pw; Mon, 20 Jul 2020 19:17:14 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1jxc35-0003WZ-IA; Mon, 20 Jul 2020 20:06:07 +0000
+Received: from mout.kundenserver.de ([217.72.192.74])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jxbHh-00064i-8C; Mon, 20 Jul 2020 19:17:10 +0000
-Received: from pps.filterd (m0098409.ppops.net [127.0.0.1])
- by mx0a-001b2d01.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id
- 06KJ3Kws110242; Mon, 20 Jul 2020 15:16:36 -0400
-Received: from pps.reinject (localhost [127.0.0.1])
- by mx0a-001b2d01.pphosted.com with ESMTP id 32d5h7y11u-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Mon, 20 Jul 2020 15:16:36 -0400
-Received: from m0098409.ppops.net (m0098409.ppops.net [127.0.0.1])
- by pps.reinject (8.16.0.36/8.16.0.36) with SMTP id 06KJ3QeO110872;
- Mon, 20 Jul 2020 15:16:35 -0400
-Received: from ppma03dal.us.ibm.com (b.bd.3ea9.ip4.static.sl-reverse.com
- [169.62.189.11])
- by mx0a-001b2d01.pphosted.com with ESMTP id 32d5h7y11c-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Mon, 20 Jul 2020 15:16:35 -0400
-Received: from pps.filterd (ppma03dal.us.ibm.com [127.0.0.1])
- by ppma03dal.us.ibm.com (8.16.0.42/8.16.0.42) with SMTP id 06KJ6AQW029169;
- Mon, 20 Jul 2020 19:16:34 GMT
-Received: from b03cxnp07028.gho.boulder.ibm.com
- (b03cxnp07028.gho.boulder.ibm.com [9.17.130.15])
- by ppma03dal.us.ibm.com with ESMTP id 32brq90hx8-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Mon, 20 Jul 2020 19:16:34 +0000
-Received: from b03ledav004.gho.boulder.ibm.com
- (b03ledav004.gho.boulder.ibm.com [9.17.130.235])
- by b03cxnp07028.gho.boulder.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
- 06KJGWTR38207870
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Mon, 20 Jul 2020 19:16:32 GMT
-Received: from b03ledav004.gho.boulder.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 41D1D78064;
- Mon, 20 Jul 2020 19:16:32 +0000 (GMT)
-Received: from b03ledav004.gho.boulder.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 55DB078066;
- Mon, 20 Jul 2020 19:16:26 +0000 (GMT)
-Received: from [153.66.254.194] (unknown [9.85.132.116])
- by b03ledav004.gho.boulder.ibm.com (Postfix) with ESMTP;
- Mon, 20 Jul 2020 19:16:26 +0000 (GMT)
-Message-ID: <1595272585.4554.28.camel@linux.ibm.com>
-Subject: Re: [PATCH 3/6] mm: introduce secretmemfd system call to create
- "secret" memory areas
-From: James Bottomley <jejb@linux.ibm.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Date: Mon, 20 Jul 2020 12:16:25 -0700
-In-Reply-To: <CAK8P3a34kx4aAFY=-SBHX3suCLwxeZY7+YSRzct93YM_OFbSWA@mail.gmail.com>
+ id 1jxc32-0003Vg-OB; Mon, 20 Jul 2020 20:06:05 +0000
+Received: from mail-qt1-f172.google.com ([209.85.160.172]) by
+ mrelayeu.kundenserver.de (mreue107 [212.227.15.145]) with ESMTPSA (Nemesis)
+ id 1M27ep-1jzWn90xfl-002Y5J; Mon, 20 Jul 2020 22:05:58 +0200
+Received: by mail-qt1-f172.google.com with SMTP id w9so1698497qts.6;
+ Mon, 20 Jul 2020 13:05:56 -0700 (PDT)
+X-Gm-Message-State: AOAM531/+q82BHFvPtxwiHREaYss/jYz13o71tva77RRLgL3jTs2SoSw
+ FZ30XAUNoKPtU5UqgXTuwaflnRgy8gP0DLP3Ry4=
+X-Google-Smtp-Source: ABdhPJzP8ED75eP/64ZTWgc8CqM8513IRGly4LjDrHp/zECs6vcVhK6MaJY0JaFbbN4kfnMI9cRAMEvStsrfDJyQR1k=
+X-Received: by 2002:ac8:7587:: with SMTP id s7mr25919753qtq.304.1595275555970; 
+ Mon, 20 Jul 2020 13:05:55 -0700 (PDT)
+MIME-Version: 1.0
 References: <20200720092435.17469-1-rppt@kernel.org>
  <20200720092435.17469-4-rppt@kernel.org>
  <CAK8P3a0NyvRMqH7X0YNO5E6DGtvZXD5ZcD6Y6n7AkocufkMnHA@mail.gmail.com>
  <1595260305.4554.9.camel@linux.ibm.com>
  <CAK8P3a34kx4aAFY=-SBHX3suCLwxeZY7+YSRzct93YM_OFbSWA@mail.gmail.com>
-X-Mailer: Evolution 3.26.6 
-Mime-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.235, 18.0.687
- definitions=2020-07-20_09:2020-07-20,
- 2020-07-20 signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 phishscore=0
- mlxlogscore=999 spamscore=0 adultscore=0 clxscore=1015 mlxscore=0
- priorityscore=1501 bulkscore=0 impostorscore=0 suspectscore=0
- lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2006250000 definitions=main-2007200128
+ <1595272585.4554.28.camel@linux.ibm.com>
+In-Reply-To: <1595272585.4554.28.camel@linux.ibm.com>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Mon, 20 Jul 2020 22:05:39 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a0ExFSSw-SCL=dSXzyv4jnp=yQs=ZooKDrL_tQogazrjg@mail.gmail.com>
+Message-ID: <CAK8P3a0ExFSSw-SCL=dSXzyv4jnp=yQs=ZooKDrL_tQogazrjg@mail.gmail.com>
+Subject: Re: [PATCH 3/6] mm: introduce secretmemfd system call to create
+ "secret" memory areas
+To: "James E.J. Bottomley" <jejb@linux.ibm.com>
+X-Provags-ID: V03:K1:/QCCelSX63mvegYdBqCzuPaqk7VyzYI6VvTtxJ8/hslmoCbYC7t
+ UkHfss+IDl2AVIAkPDDAJCeCZNqyLbdRhqHjaBO/vXxKLv3MBGzfv7cPeEyskFqnLapCmfR
+ OM5qnC0MFdjI9cjnli48HKMuqY8K0J0qrauDyDX52rn/3bFctdCG+u9v1CXAickTvWQwaRi
+ atMX3yVkMqSweYgOrhB7w==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:csri+pN6cbA=:dWMqNv+CYxvYS5FRYFj17H
+ uWZT0a+6jsVoweEoEh2Lr+FmCPT1YMcdy+U6zGRxrYzs40XEnBL9GVHSo2yhqAE7SeiasDQnc
+ CIzl5MRDT/wf4aXXGu4MGzldqjp5bsYPGsE/SZTIbqCR9LnN2FDFomdYl2y48u2t3pQqjrcDz
+ xNvqa9je4WmhMmgfvZeRVaYzB0giIjE1r47UJhdo9BfVWEQE6/ldnesYetumhh5xNVssMpJ6D
+ mgSt7tvenrI+e6ialK7Brdj5VP22jf14ctOq7zh8ahmsu211QcLNrnykv+0H4D0PgGKH2jzdE
+ +c0M+Y29CB8aA4Tl5gB2bcwBs12rYtPZE+gmuOrduii8xU+LOq1h+js/YwPE8RvhNtAQl2tHG
+ rDq8/OcYrKWG7AVvBMG0eveGfxakTLwqU7GVVdJ8Sf1roc///hFMGVVZ5vMXhjj5ePqwa2/5D
+ L0UlHMUzKT3XnRYYgVaK0ZCvG2VA6BgEAk7YatmJCD0GgeI3tXb4K8UbF29Gb0KsJ854rnxEQ
+ sNSRZjM1KWGmxW3JxQuzHVJWWqhlX3cAVqSn5OKCfsFjObezLFq4Ipx/CJjnnD1eHNQDhp9a/
+ wUAyFVLZgwhuAZNWL2/rV7y1OVI13Whip7/FDjLFI2kC5Sabqgnmty/5/0J6pxgxIJXtQCoSO
+ eyyk0xfYZJwaSNi2Shypj85bvCo6SJu4Q5ri07r5hJQP5FV4lqmw5X7aHUMiyyZjE1zeIBIoI
+ xZLqgS5EH2/ZqZi4Yvn9nvkPSGvI/ohQl1oAZl3VGXRxmGTWrJjHpN/XcJNPLxMRWqktd+EYs
+ 5aN2eo4sSqV53AmtvIiMYVczabNzHY8HuFXJ/zqvCV6Ep8fW3KZKANcY4qyphZ7LyduLKs6p0
+ tljKxCGL6IAk8K1VmraXEmyJN2rVXK/AHeqJTh4y8l2JsHA0c6vuTYVLGGNw3I1KvKzMJ91Q/
+ Pjg2VKHuc/INMmjg0d/B4BkeJwhANqssXR2Alugw/uLOUhqYwopEe
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200720_151709_452195_260246BF 
-X-CRM114-Status: GOOD (  41.50  )
+X-CRM114-CacheID: sfid-20200720_160605_014868_61DFCADC 
+X-CRM114-Status: GOOD (  29.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -113,7 +94,6 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: jejb@linux.ibm.com
 Cc: Peter Zijlstra <peterz@infradead.org>,
  Catalin Marinas <catalin.marinas@arm.com>,
  Dave Hansen <dave.hansen@linux.intel.com>, Linux-MM <linux-mm@kvack.org>,
@@ -142,87 +122,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2020-07-20 at 20:08 +0200, Arnd Bergmann wrote:
-> On Mon, Jul 20, 2020 at 5:52 PM James Bottomley <jejb@linux.ibm.com>
-> wrote:
-> > On Mon, 2020-07-20 at 13:30 +0200, Arnd Bergmann wrote:
-> > 
-> > I'll assume you mean the dmabuf userspace API?  Because the kernel
-> > API is completely device exchange specific and wholly inappropriate
-> > for this use case.
-> > 
-> > The user space API of dmabuf uses a pseudo-filesystem.  So you
-> > mount the dmabuf file type (and by "you" I mean root because an
-> > ordinary user doesn't have sufficient privilege).  This is
-> > basically because every dmabuf is usable by any user who has
-> > permissions.  This really isn't the initial interface we want for
-> > secret memory because secret regions are supposed to be per process
-> > and not shared (at least we don't want other tenants to see who's
-> > using what).
-> > 
-> > Once you have the fd, you can seek to find the size, mmap, poll and
-> > ioctl it.  The ioctls are all to do with memory synchronization (as
-> > you'd expect from a device backed region) and the mmap is handled
-> > by the dma_buf_ops, which is device specific.  Sizing is missing
-> > because that's reported by the device not settable by the user.
-> 
-> I was mainly talking about the in-kernel interface that is used for
-> sharing a buffer with hardware. Aside from the limited ioctls,
-> anything in the kernel can decide on how it wants to export a dma_buf
-> by calling dma_buf_export()/dma_buf_fd(), which is roughly what the
-> new syscall does as well. Using dma_buf vs the proposed
-> implementation for this is not a big difference in complexity.
+On Mon, Jul 20, 2020 at 9:16 PM James Bottomley <jejb@linux.ibm.com> wrote:
+> On Mon, 2020-07-20 at 20:08 +0200, Arnd Bergmann wrote:
+> > On Mon, Jul 20, 2020 at 5:52 PM James Bottomley <jejb@linux.ibm.com>
+> >
+> > If there is no way the data stored in this new secret memory area
+> > would relate to secret data in a TEE or some other hardware
+> > device, then I agree that dma-buf has no value.
+>
+> Never say never, but current TEE designs tend to require full
+> confidentiality for the entire execution.  What we're probing is
+> whether we can improve security by doing an API that requires less than
+> full confidentiality for the process.  I think if the API proves useful
+> then we will get HW support for it, but it likely won't be in the
+> current TEE of today form.
 
-I have thought about it, but haven't got much further:  We can't couple
-to SGX without a huge break in the current simple userspace API (it
-becomes complex because you'd have to enter the enclave each time you
-want to use the memory, or put the whole process in the enclave, which
-is a bit of a nightmare for simplicity), and we could only couple it to
-SEV if the memory encryption engine would respond to PCID as well as
-ASID, which it doesn't.
+As I understand it, you normally have two kinds of buffers for the TEE:
+one that may be allocated by Linux but is owned by the TEE itself
+and not accessible by any process, and one that is used for
+communication between the TEE and a user process.
 
-> The one thing that a dma_buf does is that it allows devices to
-> do DMA on it. This is either something that can turn out to be
-> useful later, or it is not. From the description, it sounded like
-> the sharing might be useful, since we already have known use
-> cases in which "secret" data is exchanged with a trusted execution
-> environment using the dma-buf interface.
+The sharing would clearly work only for the second type: data that
+a process wants to share with the TEE but as little else as possible.
 
-The current use case for private keys is that you take an encrypted
-file (which would be the DMA coupled part) and you decrypt the contents
-into the secret memory.  There might possibly be a DMA component later
-where a HSM like device DMAs a key directly into your secret memory to
-avoid exposure, but I wouldn't anticipate any need for anything beyond
-the usual page cache API for that case (effectively this would behave
-like an ordinary page cache page except that only the current process
-would be able to touch the contents).
+A hypothetical example might be a process that passes encrypted
+data to the TEE (which holds the key) for decryption, receives
+decrypted data and then consumes that data in its own address
+space. An electronic voting system (I know, evil example) might
+receive encrypted ballots and sum them up this way without itself
+having the secret key or anything else being able to observe
+intermediate results.
 
-> If there is no way the data stored in this new secret memory area
-> would relate to secret data in a TEE or some other hardware
-> device, then I agree that dma-buf has no value.
+> > > What we want is the ability to get an fd, set the properties and
+> > > the size and mmap it.  This is pretty much a 100% overlap with the
+> > > memfd API and not much overlap with the dmabuf one, which is why I
+> > > don't think the interface is very well suited.
+> >
+> > Does that mean you are suggesting to use additional flags on
+> > memfd_create() instead of a new system call?
+>
+> Well, that was what the previous patch did.  I'm agnostic on the
+> mechanism for obtaining the fd: new syscall as this patch does or
+> extension to memfd like the old one did.  All I was saying is that once
+> you have the fd, the API you use on it is the same as the memfd API.
 
-Never say never, but current TEE designs tend to require full
-confidentiality for the entire execution.  What we're probing is
-whether we can improve security by doing an API that requires less than
-full confidentiality for the process.  I think if the API proves useful
-then we will get HW support for it, but it likely won't be in the
-current TEE of today form.
+Ok.
 
-> > What we want is the ability to get an fd, set the properties and
-> > the size and mmap it.  This is pretty much a 100% overlap with the
-> > memfd API and not much overlap with the dmabuf one, which is why I
-> > don't think the interface is very well suited.
-> 
-> Does that mean you are suggesting to use additional flags on
-> memfd_create() instead of a new system call?
+I suppose we could even retrofit dma-buf underneath the
+secretmemfd implementation if it ends up being useful later on,
 
-Well, that was what the previous patch did.  I'm agnostic on the
-mechanism for obtaining the fd: new syscall as this patch does or
-extension to memfd like the old one did.  All I was saying is that once
-you have the fd, the API you use on it is the same as the memfd API.
-
-James
-
+      Arnd
 
 _______________________________________________
 linux-riscv mailing list
