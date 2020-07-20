@@ -2,87 +2,72 @@ Return-Path: <SRS0=LUeZ=A7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E11DFC433E2
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jul 2020 20:06:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 43C63C4346A
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jul 2020 21:38:27 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id ADF722080D
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jul 2020 20:06:15 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 0E60022D02
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jul 2020 21:38:27 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="GimcI8lx"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ADF722080D
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arndb.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZEDq1cRI";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="K2zLYRU5"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0E60022D02
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=X0LCMq9qOMzxM8iJ57LzbKsJOr8GWZ7ZqQyXKKffTWE=; b=GimcI8lxT5rhUc2tBhJgZ1Mft
-	yp91ZVbTLiSMUEPqgfa4YW7zQybA+y45MCJHqMIxWLXj8r1wfXgMgueItvqLI5gqmMIR+uTPqbvPO
-	vbN3gjZbsNy5Lcxm8sV5XNQzpZPYAK1ErNy45amCZIboMP0apWxRKmyE48IORdKCXdobokdJz7lsZ
-	mw/IoH4BgSl1jRwP/ivMXDezKdg6hdisPNfmf4H4qt7GPIcU9LPRcpkoW3azi8Y52TR3iwY5vA7YS
-	Q4KbecoYspO2UntBkNgPaeZrOh6nj8dJfluwH5+3tNivioNM3x7Ov0NEEEFBNSgAi1Z91+qID16Fl
-	d4OvUqKsQ==;
+	 bh=Ur7l7y5cwpfJmQlOGuQ0nmtGpMrB1z5cnhb3W6lkaGM=; b=ZEDq1cRIrIMKwXlR74/3WvlWr
+	4kquzigSmKJ/LU+047iqMjtPJPCLBpw7bHGweuPWXHR3bSit2udamE+DXFeaqQYrMtdOtP65talTz
+	FWXTzE3b93+OW95pSVDCB75gtF3e+9eYoSvY6zL0WmKs+B33h5NSpzh1LR0ivgNEeveg1hNqfmW5a
+	kz+uDWWOIyoiyJ90Ah1AH3sqGfC6bTf6gEtq9x3dnFt6Ogrv46opzvxBj/NoD8itH+7Zzh6sj1grZ
+	2o4wX8Pwy0FoGUkeLuQGO2c0Zi6lKudOm2/wuKpEbkQ9uYUcbsLb4jqWYFz/uBGHReQK0uEqfsNgO
+	nBAeI6f2Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jxc35-0003WZ-IA; Mon, 20 Jul 2020 20:06:07 +0000
-Received: from mout.kundenserver.de ([217.72.192.74])
+	id 1jxdUE-0001x6-9I; Mon, 20 Jul 2020 21:38:14 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jxc32-0003Vg-OB; Mon, 20 Jul 2020 20:06:05 +0000
-Received: from mail-qt1-f172.google.com ([209.85.160.172]) by
- mrelayeu.kundenserver.de (mreue107 [212.227.15.145]) with ESMTPSA (Nemesis)
- id 1M27ep-1jzWn90xfl-002Y5J; Mon, 20 Jul 2020 22:05:58 +0200
-Received: by mail-qt1-f172.google.com with SMTP id w9so1698497qts.6;
- Mon, 20 Jul 2020 13:05:56 -0700 (PDT)
-X-Gm-Message-State: AOAM531/+q82BHFvPtxwiHREaYss/jYz13o71tva77RRLgL3jTs2SoSw
- FZ30XAUNoKPtU5UqgXTuwaflnRgy8gP0DLP3Ry4=
-X-Google-Smtp-Source: ABdhPJzP8ED75eP/64ZTWgc8CqM8513IRGly4LjDrHp/zECs6vcVhK6MaJY0JaFbbN4kfnMI9cRAMEvStsrfDJyQR1k=
-X-Received: by 2002:ac8:7587:: with SMTP id s7mr25919753qtq.304.1595275555970; 
- Mon, 20 Jul 2020 13:05:55 -0700 (PDT)
+ id 1jxdU1-0001sQ-9S
+ for linux-riscv@lists.infradead.org; Mon, 20 Jul 2020 21:38:03 +0000
+Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net
+ [73.47.72.35])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 6E25022D04;
+ Mon, 20 Jul 2020 21:37:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1595281080;
+ bh=dVQ0hwlWWpDvG5Xm+0dZcSPdLlPaxjOtR+QNtoShlzE=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=K2zLYRU593nx12iFElgAmBndEGNWW81NANOK3NCUOTpiHnYxh42agFjTaBFAqgUm1
+ +diutGeLibd2Jl3Q+7vQ1MyMLqJBaAV5ICquTC4iOeYB5yNbgx8EmYc/bZc1LwNm6/
+ qXoar2cKTHQ6nbo140ElTYwj4Gm2ijajVfcVxwgA=
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH AUTOSEL 5.7 36/40] asm-generic/mmiowb: Allow
+ mmiowb_set_pending() when preemptible()
+Date: Mon, 20 Jul 2020 17:37:11 -0400
+Message-Id: <20200720213715.406997-36-sashal@kernel.org>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20200720213715.406997-1-sashal@kernel.org>
+References: <20200720213715.406997-1-sashal@kernel.org>
 MIME-Version: 1.0
-References: <20200720092435.17469-1-rppt@kernel.org>
- <20200720092435.17469-4-rppt@kernel.org>
- <CAK8P3a0NyvRMqH7X0YNO5E6DGtvZXD5ZcD6Y6n7AkocufkMnHA@mail.gmail.com>
- <1595260305.4554.9.camel@linux.ibm.com>
- <CAK8P3a34kx4aAFY=-SBHX3suCLwxeZY7+YSRzct93YM_OFbSWA@mail.gmail.com>
- <1595272585.4554.28.camel@linux.ibm.com>
-In-Reply-To: <1595272585.4554.28.camel@linux.ibm.com>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Mon, 20 Jul 2020 22:05:39 +0200
-X-Gmail-Original-Message-ID: <CAK8P3a0ExFSSw-SCL=dSXzyv4jnp=yQs=ZooKDrL_tQogazrjg@mail.gmail.com>
-Message-ID: <CAK8P3a0ExFSSw-SCL=dSXzyv4jnp=yQs=ZooKDrL_tQogazrjg@mail.gmail.com>
-Subject: Re: [PATCH 3/6] mm: introduce secretmemfd system call to create
- "secret" memory areas
-To: "James E.J. Bottomley" <jejb@linux.ibm.com>
-X-Provags-ID: V03:K1:/QCCelSX63mvegYdBqCzuPaqk7VyzYI6VvTtxJ8/hslmoCbYC7t
- UkHfss+IDl2AVIAkPDDAJCeCZNqyLbdRhqHjaBO/vXxKLv3MBGzfv7cPeEyskFqnLapCmfR
- OM5qnC0MFdjI9cjnli48HKMuqY8K0J0qrauDyDX52rn/3bFctdCG+u9v1CXAickTvWQwaRi
- atMX3yVkMqSweYgOrhB7w==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:csri+pN6cbA=:dWMqNv+CYxvYS5FRYFj17H
- uWZT0a+6jsVoweEoEh2Lr+FmCPT1YMcdy+U6zGRxrYzs40XEnBL9GVHSo2yhqAE7SeiasDQnc
- CIzl5MRDT/wf4aXXGu4MGzldqjp5bsYPGsE/SZTIbqCR9LnN2FDFomdYl2y48u2t3pQqjrcDz
- xNvqa9je4WmhMmgfvZeRVaYzB0giIjE1r47UJhdo9BfVWEQE6/ldnesYetumhh5xNVssMpJ6D
- mgSt7tvenrI+e6ialK7Brdj5VP22jf14ctOq7zh8ahmsu211QcLNrnykv+0H4D0PgGKH2jzdE
- +c0M+Y29CB8aA4Tl5gB2bcwBs12rYtPZE+gmuOrduii8xU+LOq1h+js/YwPE8RvhNtAQl2tHG
- rDq8/OcYrKWG7AVvBMG0eveGfxakTLwqU7GVVdJ8Sf1roc///hFMGVVZ5vMXhjj5ePqwa2/5D
- L0UlHMUzKT3XnRYYgVaK0ZCvG2VA6BgEAk7YatmJCD0GgeI3tXb4K8UbF29Gb0KsJ854rnxEQ
- sNSRZjM1KWGmxW3JxQuzHVJWWqhlX3cAVqSn5OKCfsFjObezLFq4Ipx/CJjnnD1eHNQDhp9a/
- wUAyFVLZgwhuAZNWL2/rV7y1OVI13Whip7/FDjLFI2kC5Sabqgnmty/5/0J6pxgxIJXtQCoSO
- eyyk0xfYZJwaSNi2Shypj85bvCo6SJu4Q5ri07r5hJQP5FV4lqmw5X7aHUMiyyZjE1zeIBIoI
- xZLqgS5EH2/ZqZi4Yvn9nvkPSGvI/ohQl1oAZl3VGXRxmGTWrJjHpN/XcJNPLxMRWqktd+EYs
- 5aN2eo4sSqV53AmtvIiMYVczabNzHY8HuFXJ/zqvCV6Ep8fW3KZKANcY4qyphZ7LyduLKs6p0
- tljKxCGL6IAk8K1VmraXEmyJN2rVXK/AHeqJTh4y8l2JsHA0c6vuTYVLGGNw3I1KvKzMJ91Q/
- Pjg2VKHuc/INMmjg0d/B4BkeJwhANqssXR2Alugw/uLOUhqYwopEe
+X-stable: review
+X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200720_160605_014868_61DFCADC 
-X-CRM114-Status: GOOD (  29.33  )
+X-CRM114-CacheID: sfid-20200720_173801_537441_D1513508 
+X-CRM114-Status: GOOD (  16.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -94,84 +79,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, Linux-MM <linux-mm@kvack.org>,
- "H. Peter Anvin" <hpa@zytor.com>, Christopher Lameter <cl@linux.com>,
- Idan Yaniv <idan.yaniv@ibm.com>, Dan Williams <dan.j.williams@intel.com>,
- Elena Reshetova <elena.reshetova@intel.com>,
- linux-arch <linux-arch@vger.kernel.org>, Tycho Andersen <tycho@tycho.ws>,
- linux-nvdimm@lists.01.org, Will Deacon <will@kernel.org>,
- the arch/x86 maintainers <x86@kernel.org>,
- Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
- Ingo Molnar <mingo@redhat.com>, linaro-mm-sig@lists.linaro.org,
- Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Thomas Gleixner <tglx@linutronix.de>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- Linux API <linux-api@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Linux FS-devel Mailing List <linux-fsdevel@vger.kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Sumit Semwal <sumit.semwal@linaro.org>, Mike Rapoport <rppt@kernel.org>
+Cc: Sasha Levin <sashal@kernel.org>, linux-arch@vger.kernel.org,
+ Emil Renner Berthing <kernel@esmil.dk>, Arnd Bergmann <arnd@arndb.de>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ Palmer Dabbelt <palmerdabbelt@google.com>, Guo Ren <guoren@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 20, 2020 at 9:16 PM James Bottomley <jejb@linux.ibm.com> wrote:
-> On Mon, 2020-07-20 at 20:08 +0200, Arnd Bergmann wrote:
-> > On Mon, Jul 20, 2020 at 5:52 PM James Bottomley <jejb@linux.ibm.com>
-> >
-> > If there is no way the data stored in this new secret memory area
-> > would relate to secret data in a TEE or some other hardware
-> > device, then I agree that dma-buf has no value.
->
-> Never say never, but current TEE designs tend to require full
-> confidentiality for the entire execution.  What we're probing is
-> whether we can improve security by doing an API that requires less than
-> full confidentiality for the process.  I think if the API proves useful
-> then we will get HW support for it, but it likely won't be in the
-> current TEE of today form.
+From: Will Deacon <will@kernel.org>
 
-As I understand it, you normally have two kinds of buffers for the TEE:
-one that may be allocated by Linux but is owned by the TEE itself
-and not accessible by any process, and one that is used for
-communication between the TEE and a user process.
+[ Upstream commit bd024e82e4cd95c7f1a475a55f99871936c2b2db ]
 
-The sharing would clearly work only for the second type: data that
-a process wants to share with the TEE but as little else as possible.
+Although mmiowb() is concerned only with serialising MMIO writes occuring
+in contexts where a spinlock is held, the call to mmiowb_set_pending()
+from the MMIO write accessors can occur in preemptible contexts, such
+as during driver probe() functions where ordering between CPUs is not
+usually a concern, assuming that the task migration path provides the
+necessary ordering guarantees.
 
-A hypothetical example might be a process that passes encrypted
-data to the TEE (which holds the key) for decryption, receives
-decrypted data and then consumes that data in its own address
-space. An electronic voting system (I know, evil example) might
-receive encrypted ballots and sum them up this way without itself
-having the secret key or anything else being able to observe
-intermediate results.
+Unfortunately, the default implementation of mmiowb_set_pending() is not
+preempt-safe, as it makes use of a a per-cpu variable to track its
+internal state. This has been reported to generate the following splat
+on riscv:
 
-> > > What we want is the ability to get an fd, set the properties and
-> > > the size and mmap it.  This is pretty much a 100% overlap with the
-> > > memfd API and not much overlap with the dmabuf one, which is why I
-> > > don't think the interface is very well suited.
-> >
-> > Does that mean you are suggesting to use additional flags on
-> > memfd_create() instead of a new system call?
->
-> Well, that was what the previous patch did.  I'm agnostic on the
-> mechanism for obtaining the fd: new syscall as this patch does or
-> extension to memfd like the old one did.  All I was saying is that once
-> you have the fd, the API you use on it is the same as the memfd API.
+ | BUG: using smp_processor_id() in preemptible [00000000] code: swapper/0/1
+ | caller is regmap_mmio_write32le+0x1c/0x46
+ | CPU: 3 PID: 1 Comm: swapper/0 Not tainted 5.8.0-rc3-hfu+ #1
+ | Call Trace:
+ |  walk_stackframe+0x0/0x7a
+ |  dump_stack+0x6e/0x88
+ |  regmap_mmio_write32le+0x18/0x46
+ |  check_preemption_disabled+0xa4/0xaa
+ |  regmap_mmio_write32le+0x18/0x46
+ |  regmap_mmio_write+0x26/0x44
+ |  regmap_write+0x28/0x48
+ |  sifive_gpio_probe+0xc0/0x1da
 
-Ok.
+Although it's possible to fix the driver in this case, other splats have
+been seen from other drivers, including the infamous 8250 UART, and so
+it's better to address this problem in the mmiowb core itself.
 
-I suppose we could even retrofit dma-buf underneath the
-secretmemfd implementation if it ends up being useful later on,
+Fix mmiowb_set_pending() by using the raw_cpu_ptr() to get at the mmiowb
+state and then only updating the 'mmiowb_pending' field if we are not
+preemptible (i.e. we have a non-zero nesting count).
 
-      Arnd
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Guo Ren <guoren@kernel.org>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Reported-by: Palmer Dabbelt <palmer@dabbelt.com>
+Reported-by: Emil Renner Berthing <kernel@esmil.dk>
+Tested-by: Emil Renner Berthing <kernel@esmil.dk>
+Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
+Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
+Link: https://lore.kernel.org/r/20200716112816.7356-1-will@kernel.org
+Signed-off-by: Will Deacon <will@kernel.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ include/asm-generic/mmiowb.h | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/include/asm-generic/mmiowb.h b/include/asm-generic/mmiowb.h
+index 9439ff037b2d1..5698fca3bf560 100644
+--- a/include/asm-generic/mmiowb.h
++++ b/include/asm-generic/mmiowb.h
+@@ -27,7 +27,7 @@
+ #include <asm/smp.h>
+ 
+ DECLARE_PER_CPU(struct mmiowb_state, __mmiowb_state);
+-#define __mmiowb_state()	this_cpu_ptr(&__mmiowb_state)
++#define __mmiowb_state()	raw_cpu_ptr(&__mmiowb_state)
+ #else
+ #define __mmiowb_state()	arch_mmiowb_state()
+ #endif	/* arch_mmiowb_state */
+@@ -35,7 +35,9 @@ DECLARE_PER_CPU(struct mmiowb_state, __mmiowb_state);
+ static inline void mmiowb_set_pending(void)
+ {
+ 	struct mmiowb_state *ms = __mmiowb_state();
+-	ms->mmiowb_pending = ms->nesting_count;
++
++	if (likely(ms->nesting_count))
++		ms->mmiowb_pending = ms->nesting_count;
+ }
+ 
+ static inline void mmiowb_spin_lock(void)
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
