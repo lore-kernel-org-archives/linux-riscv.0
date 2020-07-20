@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 25EBFC43457
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jul 2020 09:25:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D0309C433DF
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jul 2020 09:26:16 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E584D22B4E
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jul 2020 09:25:44 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8C6BF22B4E
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jul 2020 09:26:16 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="0oTqmk4t";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="g5qTGQIO"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E584D22B4E
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="KZhA1F1/";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="ZgkGf1Wc"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8C6BF22B4E
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,42 +26,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=OeXM5MpurLrweJQnHC7lwDqKRXH8nGXTzmhdT1etG0I=; b=0oTqmk4to2fnfwYSxBho9Y47N
-	rQyulRJuYWsON8MkUHWoQCsHrScaSsUtdP6uqyuIQEaqD6evvYGBmZfeGUnnu/9KqHeJKwjFvCwh6
-	7GFengDR4y39SVDV8hs6CeVkjuchH3bGHKzDI3hxgwy5Vkah1tlRDgymKPjeCovtzXw+y+mUr1wHP
-	SGbKURHQ2Wi9woW07JaWZH8ohx/4WVzi60mqa4zXonHYG5YQ9Li/w6vE3zpxWDUycwW8cMzKxPGnY
-	0KEtMrhhhItfptuJfpl4oKIFn00AcEDCP/NaItn2QXXnv+8CL5IWYQN3siwtJktcyTuRU02x2tf5O
-	QGeWTPnYg==;
+	 bh=CZqjd+S/BMCBhvLxyM9o359qncwim8lIk5llMvNCPjk=; b=KZhA1F1/com2HxowXxfbNz/1w
+	bvgbwco9pzHTWbwzbOoEb6AjVVb7LGevk0FhMCiB/HFL/nMFAgbMoBBPNPbMmvCf1vIhr9ZirO7jl
+	1asej2PRLdyQls3mFBvzG0Bq7lvD8BA4mPuxNNlmdMfGTTC2m3kyOwKxSuo5ktHp+gjyfanLuvIDh
+	jPA+3Y3Ld9Tt/ywF9L8nEN7CfhDPJb9uwVrXiPPfUJnWf77x9uXkQJb7RwcXPb1O4UlzKMEhbhpKW
+	BVQ1DkHbE4ikE7klgSiIMijzGWbH043ATrh+joXz4dxyvQe9z00pP3Cbdkx1A/eCUGhRbk0NvN6P6
+	c8l90fApA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jxS3D-0007LC-AM; Mon, 20 Jul 2020 09:25:35 +0000
+	id 1jxS3h-0007b0-B9; Mon, 20 Jul 2020 09:26:05 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jxS35-0007D1-TV; Mon, 20 Jul 2020 09:25:29 +0000
+ id 1jxS3E-0007Lg-Hq; Mon, 20 Jul 2020 09:25:39 +0000
 Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 738D922482;
- Mon, 20 Jul 2020 09:25:19 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id CD77F2176B;
+ Mon, 20 Jul 2020 09:25:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1595237127;
- bh=vyyX1LP4325hfnYgliYCjSjLjNxzM/CYe+v7FBLTqDc=;
+ s=default; t=1595237135;
+ bh=Z/sZw0k7cZFxzkUbMe55tJwLGvtJJOQ7SGuhFi0U+rs=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=g5qTGQIOWj1V9NU4yK00jz5UQP5Nt5v+OLzEYnJ2fYYF2s2RpuPHOjWCkAadxsvBt
- KfGvj5cZa5KE3IDq7FgOMY35cboLHnI1EYroJXHTtzwIE4rD8KANUXvfFp/YUVmUzZ
- gfaX0xMnS7xqZREdic3XBeaF92Yg2TjKzwFszmFw=
+ b=ZgkGf1Wc9H6JzuDl5pY0/KECfPO1tcrBYmpW1+56T7pB9O569N0dkSVB4WpXrecrb
+ rYgQdhhtzTz2r/eTJjgKf7BRLAF+HCBEp8TNnXAMNQg4MfPgGW6ao+YXzAYnVioNV/
+ uVXs5bIdL4Q+6NN3XCNbWe++ZmkNYi1XRvldfJgQ=
 From: Mike Rapoport <rppt@kernel.org>
 To: linux-kernel@vger.kernel.org
-Subject: [PATCH 2/6] mmap: make mlock_future_check() global
-Date: Mon, 20 Jul 2020 12:24:31 +0300
-Message-Id: <20200720092435.17469-3-rppt@kernel.org>
+Subject: [PATCH 3/6] mm: introduce secretmemfd system call to create "secret"
+ memory areas
+Date: Mon, 20 Jul 2020 12:24:32 +0300
+Message-Id: <20200720092435.17469-4-rppt@kernel.org>
 X-Mailer: git-send-email 2.26.2
 In-Reply-To: <20200720092435.17469-1-rppt@kernel.org>
 References: <20200720092435.17469-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200720_052528_098124_C840D1D6 
-X-CRM114-Status: GOOD (  13.41  )
+X-CRM114-CacheID: sfid-20200720_052537_029873_8A32A32A 
+X-CRM114-Status: GOOD (  31.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -98,44 +99,356 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Mike Rapoport <rppt@linux.ibm.com>
 
-It will be used by the upcoming secret memory implementation.
+Introduce "secretmemfd" system call with the ability to create memory areas
+visible only in the context of the owning process and not mapped not only
+to other processes but in the kernel page tables as well.
+
+The user will create a file descriptor using the secretmemfd system call
+where flags supplied as a parameter to this system call will define the
+desired protection mode for the memory associated with that file
+descriptor. Currently there are two protection modes:
+
+* exclusive - the memory area is unmapped from the kernel direct map and it
+              is present only in the page tables of the owning mm.
+* uncached  - the memory area is present only in the page tables of the
+              owning mm and it is mapped there as uncached.
+
+For instance, the following example will create an uncached mapping (error
+handling is omitted):
+
+	fd = secretmemfd(SECRETMEM_UNCACHED);
+	ftruncate(fd, MAP_SIZE);
+	ptr = mmap(NULL, MAP_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED,
+		   fd, 0);
 
 Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
 ---
- mm/internal.h | 3 +++
- mm/mmap.c     | 5 ++---
- 2 files changed, 5 insertions(+), 3 deletions(-)
+ include/uapi/linux/magic.h     |   1 +
+ include/uapi/linux/secretmem.h |   9 ++
+ mm/Kconfig                     |   4 +
+ mm/Makefile                    |   1 +
+ mm/secretmem.c                 | 263 +++++++++++++++++++++++++++++++++
+ 5 files changed, 278 insertions(+)
+ create mode 100644 include/uapi/linux/secretmem.h
+ create mode 100644 mm/secretmem.c
 
-diff --git a/mm/internal.h b/mm/internal.h
-index 9886db20d94f..af0a92f8f6bc 100644
---- a/mm/internal.h
-+++ b/mm/internal.h
-@@ -349,6 +349,9 @@ static inline void munlock_vma_pages_all(struct vm_area_struct *vma)
- extern void mlock_vma_page(struct page *page);
- extern unsigned int munlock_vma_page(struct page *page);
+diff --git a/include/uapi/linux/magic.h b/include/uapi/linux/magic.h
+index f3956fc11de6..35687dcb1a42 100644
+--- a/include/uapi/linux/magic.h
++++ b/include/uapi/linux/magic.h
+@@ -97,5 +97,6 @@
+ #define DEVMEM_MAGIC		0x454d444d	/* "DMEM" */
+ #define Z3FOLD_MAGIC		0x33
+ #define PPC_CMM_MAGIC		0xc7571590
++#define SECRETMEM_MAGIC		0x5345434d	/* "SECM" */
  
-+extern int mlock_future_check(struct mm_struct *mm, unsigned long flags,
-+			      unsigned long len);
+ #endif /* __LINUX_MAGIC_H__ */
+diff --git a/include/uapi/linux/secretmem.h b/include/uapi/linux/secretmem.h
+new file mode 100644
+index 000000000000..cef7a59f7492
+--- /dev/null
++++ b/include/uapi/linux/secretmem.h
+@@ -0,0 +1,9 @@
++/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
++#ifndef _UAPI_LINUX_SECRERTMEM_H
++#define _UAPI_LINUX_SECRERTMEM_H
 +
- /*
-  * Clear the page's PageMlocked().  This can be useful in a situation where
-  * we want to unconditionally remove a page from the pagecache -- e.g.,
-diff --git a/mm/mmap.c b/mm/mmap.c
-index 59a4682ebf3f..4dd40a4fedfb 100644
---- a/mm/mmap.c
-+++ b/mm/mmap.c
-@@ -1310,9 +1310,8 @@ static inline unsigned long round_hint_to_min(unsigned long hint)
- 	return hint;
- }
++/* secretmem operation modes */
++#define SECRETMEM_EXCLUSIVE	0x1
++#define SECRETMEM_UNCACHED	0x2
++
++#endif /* _UAPI_LINUX_SECRERTMEM_H */
+diff --git a/mm/Kconfig b/mm/Kconfig
+index f2104cc0d35c..c5aa948214f9 100644
+--- a/mm/Kconfig
++++ b/mm/Kconfig
+@@ -872,4 +872,8 @@ config ARCH_HAS_HUGEPD
+ config MAPPING_DIRTY_HELPERS
+         bool
  
--static inline int mlock_future_check(struct mm_struct *mm,
--				     unsigned long flags,
--				     unsigned long len)
-+int mlock_future_check(struct mm_struct *mm, unsigned long flags,
-+		       unsigned long len)
- {
- 	unsigned long locked, lock_limit;
- 
++config SECRETMEM
++        def_bool ARCH_HAS_SET_DIRECT_MAP
++	select GENERIC_ALLOCATOR
++
+ endmenu
+diff --git a/mm/Makefile b/mm/Makefile
+index 6e9d46b2efc9..c2aa7a393b73 100644
+--- a/mm/Makefile
++++ b/mm/Makefile
+@@ -121,3 +121,4 @@ obj-$(CONFIG_MEMFD_CREATE) += memfd.o
+ obj-$(CONFIG_MAPPING_DIRTY_HELPERS) += mapping_dirty_helpers.o
+ obj-$(CONFIG_PTDUMP_CORE) += ptdump.o
+ obj-$(CONFIG_PAGE_REPORTING) += page_reporting.o
++obj-$(CONFIG_SECRETMEM) += secretmem.o
+diff --git a/mm/secretmem.c b/mm/secretmem.c
+new file mode 100644
+index 000000000000..2f65219baf80
+--- /dev/null
++++ b/mm/secretmem.c
+@@ -0,0 +1,263 @@
++// SPDX-License-Identifier: GPL-2.0
++#include <linux/mm.h>
++#include <linux/fs.h>
++#include <linux/mount.h>
++#include <linux/memfd.h>
++#include <linux/bitops.h>
++#include <linux/printk.h>
++#include <linux/pagemap.h>
++#include <linux/syscalls.h>
++#include <linux/pseudo_fs.h>
++#include <linux/set_memory.h>
++#include <linux/sched/signal.h>
++
++#include <uapi/linux/secretmem.h>
++#include <uapi/linux/magic.h>
++
++#include <asm/tlbflush.h>
++
++#include "internal.h"
++
++#undef pr_fmt
++#define pr_fmt(fmt) "secretmem: " fmt
++
++#define SECRETMEM_MODE_MASK	(SECRETMEM_EXCLUSIVE | SECRETMEM_UNCACHED)
++#define SECRETMEM_FLAGS_MASK	SECRETMEM_MODE_MASK
++
++struct secretmem_ctx {
++	unsigned int mode;
++};
++
++static struct page *secretmem_alloc_page(gfp_t gfp)
++{
++	/*
++	 * FIXME: use a cache of large pages to reduce the direct map
++	 * fragmentation
++	 */
++	return alloc_page(gfp);
++}
++
++static vm_fault_t secretmem_fault(struct vm_fault *vmf)
++{
++	struct address_space *mapping = vmf->vma->vm_file->f_mapping;
++	struct inode *inode = file_inode(vmf->vma->vm_file);
++	pgoff_t offset = vmf->pgoff;
++	unsigned long addr;
++	struct page *page;
++	int ret = 0;
++
++	if (((loff_t)vmf->pgoff << PAGE_SHIFT) >= i_size_read(inode))
++		return vmf_error(-EINVAL);
++
++	page = find_get_entry(mapping, offset);
++	if (!page) {
++		page = secretmem_alloc_page(vmf->gfp_mask);
++		if (!page)
++			return vmf_error(-ENOMEM);
++
++		ret = add_to_page_cache(page, mapping, offset, vmf->gfp_mask);
++		if (unlikely(ret))
++			goto err_put_page;
++
++		ret = set_direct_map_invalid_noflush(page);
++		if (ret)
++			goto err_del_page_cache;
++
++		addr = (unsigned long)page_address(page);
++		flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
++
++		__SetPageUptodate(page);
++
++		ret = VM_FAULT_LOCKED;
++	}
++
++	vmf->page = page;
++	return ret;
++
++err_del_page_cache:
++	delete_from_page_cache(page);
++err_put_page:
++	put_page(page);
++	return vmf_error(ret);
++}
++
++static const struct vm_operations_struct secretmem_vm_ops = {
++	.fault = secretmem_fault,
++};
++
++static int secretmem_mmap(struct file *file, struct vm_area_struct *vma)
++{
++	struct secretmem_ctx *ctx = file->private_data;
++	unsigned long mode = ctx->mode;
++	unsigned long len = vma->vm_end - vma->vm_start;
++
++	if (!mode)
++		return -EINVAL;
++
++	if (mlock_future_check(vma->vm_mm, vma->vm_flags | VM_LOCKED, len))
++		return -EAGAIN;
++
++	switch (mode) {
++	case SECRETMEM_UNCACHED:
++		vma->vm_page_prot = pgprot_noncached(vma->vm_page_prot);
++		fallthrough;
++	case SECRETMEM_EXCLUSIVE:
++		vma->vm_ops = &secretmem_vm_ops;
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	vma->vm_flags |= VM_LOCKED;
++
++	return 0;
++}
++
++const struct file_operations secretmem_fops = {
++	.mmap		= secretmem_mmap,
++};
++
++static bool secretmem_isolate_page(struct page *page, isolate_mode_t mode)
++{
++	return false;
++}
++
++static int secretmem_migratepage(struct address_space *mapping,
++				 struct page *newpage, struct page *page,
++				 enum migrate_mode mode)
++{
++	return -EBUSY;
++}
++
++static void secretmem_freepage(struct page *page)
++{
++	set_direct_map_default_noflush(page);
++}
++
++static const struct address_space_operations secretmem_aops = {
++	.freepage	= secretmem_freepage,
++	.migratepage	= secretmem_migratepage,
++	.isolate_page	= secretmem_isolate_page,
++};
++
++static struct vfsmount *secretmem_mnt;
++
++static struct file *secretmem_file_create(unsigned long flags)
++{
++	struct file *file = ERR_PTR(-ENOMEM);
++	struct secretmem_ctx *ctx;
++	struct inode *inode;
++
++	inode = alloc_anon_inode(secretmem_mnt->mnt_sb);
++	if (IS_ERR(inode))
++		return ERR_CAST(inode);
++
++	ctx = kzalloc(sizeof(*ctx), GFP_KERNEL);
++	if (!ctx)
++		goto err_free_inode;
++
++	file = alloc_file_pseudo(inode, secretmem_mnt, "secretmem",
++				 O_RDWR, &secretmem_fops);
++	if (IS_ERR(file))
++		goto err_free_ctx;
++
++	mapping_set_unevictable(inode->i_mapping);
++
++	inode->i_mapping->private_data = ctx;
++	inode->i_mapping->a_ops = &secretmem_aops;
++
++	/* pretend we are a normal file with zero size */
++	inode->i_mode |= S_IFREG;
++	inode->i_size = 0;
++
++	file->private_data = ctx;
++
++	ctx->mode = flags & SECRETMEM_MODE_MASK;
++
++	return file;
++
++err_free_ctx:
++	kfree(ctx);
++err_free_inode:
++	iput(inode);
++	return file;
++}
++
++SYSCALL_DEFINE1(secretmemfd, unsigned long, flags)
++{
++	struct file *file;
++	unsigned int mode;
++	int fd, err;
++
++	/* make sure local flags do not confict with global fcntl.h */
++	BUILD_BUG_ON(SECRETMEM_FLAGS_MASK & O_CLOEXEC);
++
++	if (flags & ~(SECRETMEM_FLAGS_MASK | O_CLOEXEC))
++		return -EINVAL;
++
++	/* modes are mutually exclusive, only one mode bit should be set */
++	mode = flags & SECRETMEM_FLAGS_MASK;
++	if (ffs(mode) != fls(mode))
++		return -EINVAL;
++
++	fd = get_unused_fd_flags(flags & O_CLOEXEC);
++	if (fd < 0)
++		return fd;
++
++	file = secretmem_file_create(flags);
++	if (IS_ERR(file)) {
++		err = PTR_ERR(file);
++		goto err_put_fd;
++	}
++
++	file->f_flags |= O_LARGEFILE;
++
++	fd_install(fd, file);
++	return fd;
++
++err_put_fd:
++	put_unused_fd(fd);
++	return err;
++}
++
++static void secretmem_evict_inode(struct inode *inode)
++{
++	struct secretmem_ctx *ctx = inode->i_private;
++
++	truncate_inode_pages_final(&inode->i_data);
++	clear_inode(inode);
++	kfree(ctx);
++}
++
++static const struct super_operations secretmem_super_ops = {
++	.evict_inode = secretmem_evict_inode,
++};
++
++static int secretmem_init_fs_context(struct fs_context *fc)
++{
++	struct pseudo_fs_context *ctx = init_pseudo(fc, SECRETMEM_MAGIC);
++
++	if (!ctx)
++		return -ENOMEM;
++	ctx->ops = &secretmem_super_ops;
++
++	return 0;
++}
++
++static struct file_system_type secretmem_fs = {
++	.name		= "secretmem",
++	.init_fs_context = secretmem_init_fs_context,
++	.kill_sb	= kill_anon_super,
++};
++
++static int secretmem_init(void)
++{
++	int ret = 0;
++
++	secretmem_mnt = kern_mount(&secretmem_fs);
++	if (IS_ERR(secretmem_mnt))
++		ret = PTR_ERR(secretmem_mnt);
++
++	return ret;
++}
++fs_initcall(secretmem_init);
 -- 
 2.26.2
 
