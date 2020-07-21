@@ -2,23 +2,23 @@ Return-Path: <SRS0=tQi0=BA=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5CF40C433E1
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2020 19:39:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 80CE5C433EA
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2020 19:42:53 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1B02D20720
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2020 19:39:48 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 3F5A1206C1
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2020 19:42:53 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ueHOPuaB";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="pPcteCtg"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1B02D20720
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="MOHmOEs0";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="XVbfRQ7G"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3F5A1206C1
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -26,58 +26,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=562DxqAyvp6d6OsEujM6QOVDQLEth770YbjhI3OwdZc=; b=ueHOPuaBBTLPmboTRYCIV4rR5
-	ufe6OgIZrW/Cq8/9Vu++HBl/j3gEO4HOqMxZ1wzaZu50WePR0eTwnLczaV9r1RxNnhObXR+budzh9
-	QCeAqHd87FISij8oY5auBYFR4ElQia0P6XDkr9AbaRpz65gTeXcIwdVl5npT9Smuozu3/CPnfiwnl
-	kJT8QLgjSTExwPiQIHsOLOA+HG00dFlbIcT5E35G3RqNalnvBUYg1qUgNcGjVhXk4C8g+/wLMMPF3
-	sXyheEDdbARPL95uWMVpL4fm1rQuuCVQyuzgRvXjGXepV8vFv4Iwv97KRzxEhwBKyUR55uPfW9Dbg
-	fwB+o7/1g==;
+	 bh=DTn+ehlK4dWvlm82R1A2+9a+xGJfHq++j4um/zAIMIU=; b=MOHmOEs0tY1KKbsAjZa+lOoIi
+	pE6QWevBxBLKYHdAGCQa8bNSbdCMTWWDhifa7SEMDjADDaW7suHiPAh9sJqWwLlKtiC+Nvs8DQvL5
+	fCY8JhEfC5M10TUyTUSvonBbdk+pZ5CAHA9OFF9fZ7PdKxxyeE1somPz7zSFd735z1nhL4JUarpN4
+	sqG53x7mqiE+su5Jr16/7c3EGXOFq6/hfn91oC9ErJzdxmJm2S+1U/H6RRNkb41I6pH3YYR0JTCxe
+	vw9xDbLmIx3dGcl+OJrCFGfuSW7Tqoh6XVrJCCBm2txiI5VVyHFCSLkOQlldGrGlhnE0eHLZq1/pD
+	nL162tZfg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jxy70-0001ya-EZ; Tue, 21 Jul 2020 19:39:38 +0000
-Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
+	id 1jxy9z-0002UC-H6; Tue, 21 Jul 2020 19:42:43 +0000
+Received: from mail-lj1-x242.google.com ([2a00:1450:4864:20::242])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jxy6x-0001xj-6y
- for linux-riscv@lists.infradead.org; Tue, 21 Jul 2020 19:39:36 +0000
-Received: by mail-wm1-x343.google.com with SMTP id o8so3932862wmh.4
- for <linux-riscv@lists.infradead.org>; Tue, 21 Jul 2020 12:39:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
+ id 1jxy9w-0002TS-TA
+ for linux-riscv@lists.infradead.org; Tue, 21 Jul 2020 19:42:41 +0000
+Received: by mail-lj1-x242.google.com with SMTP id x9so25342868ljc.5
+ for <linux-riscv@lists.infradead.org>; Tue, 21 Jul 2020 12:42:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=ROGDfW/sOKRuVITcXBG6WpnxRQy78vMNrySdIALy/lI=;
- b=pPcteCtglZkTGAXbs0qulCkbIifjc8RThcdXIOzexJxKk/WXWIy1bOP1A6ugn6q1Wj
- YhBkjEJVrrZk8Y0IEBq9RXZq6ZyPfYl2dS4jbaJaCFH3JELzov4vGSUmgHiDMInPm9WT
- bbLVfeqW8ntMGL6X0JuLsr9zBt875iugxAq4o=
+ :cc:content-transfer-encoding;
+ bh=zn3oCH5CRZRIoZdGuexp9I9Q7LLOIdY9Q8tgaDGFEws=;
+ b=XVbfRQ7GD2NNtonWSkDqH1EA8GG/Qn4DvTnWv/9sOeiyTDM3l/lx20fldiE00TKYHU
+ X5cLQpPHv0LP3dSQjnKVQTbOIRU2zyAO4nsh4P35mY4rt3n230CRUpQTJYkqXLavDc7P
+ dpg0qDl/s0HGdAgzoSk7Auwayiq6yIJ5dJwqxMWVvUdsovFEg+yCS1ohAnAkgmJyEwLX
+ oT2Ne4SA1F+Spp7fojMuaeOMh0kCgkZgt4G+svSDHRO8SFUjK/41MRWOBAlYa/hXAGGr
+ m2T8tTXj1p5/K7vQPsaW4oIyClvLHGmr+qPTtXrOd9dh6+i4JTbzqXXf5bALCWSGqNBD
+ qbow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=ROGDfW/sOKRuVITcXBG6WpnxRQy78vMNrySdIALy/lI=;
- b=Tev7glSVV8v9PTBtXq0t4aa8OQxGsjTCTGk2+5iky3lj6djovqiMpv8KBnCUIfJsV4
- 36r4DM8DkwhedFpo+iYnUV966T0EhKgJuU8qEtqaVVFMVr6faBpF+iB8S2YVNoJvNhO1
- 5yCLpfJSLkCWf96M4n2oFTNwCBZZ+zNA1g1nJ+ue9lx3fdvs+1kvUPawkSJyNxkmupZr
- p6Wecac180FEcjlYcy7lCJBXYIs4gG155i9cUfXkft8srDVOH/gQNxUhNII6a2WHNyq2
- L0SMscGYl3kvmQmBKRCb04Icl+Nh/+r2mhVByY2u0T1+94m6LnK7y1/vBUlHFJ2Psh9g
- iw8A==
-X-Gm-Message-State: AOAM531a960xq4RJVihCw6j4yekvw2aM42A+mbns872pyqOBjn75RB7d
- i5aMVUud404s8VPGIU/qszWnpmtISfHfRFifR+sD
-X-Google-Smtp-Source: ABdhPJxyAn1vQoGf/buvBDraXct4LF9Xdi+8G+j/HHs1UTu85DhtfEaDBlAL/3+WgcaqfxRA+C7xSsuoMv5uPtSGmIw=
-X-Received: by 2002:a1c:7c19:: with SMTP id x25mr5263186wmc.176.1595360373924; 
- Tue, 21 Jul 2020 12:39:33 -0700 (PDT)
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=zn3oCH5CRZRIoZdGuexp9I9Q7LLOIdY9Q8tgaDGFEws=;
+ b=jricEYrSIEDgKsx8OhKPSIUrWXN2dDFCXl8/7QI9hPRUB2ao083vAiVGWi/3+rOYpt
+ NlpSkr02tbYiW9i7IY1XCCgEieDuJk+J22R61veLd2+31b72pOU2W+t9RP6qeDIFVR8s
+ SYUxykZoSZIAZHpZcg8juwBthxoVe9KE80njOY7+mMZ4lYs8EG1/53OFlxWzdxc41+iq
+ uSPUvpEjQLl5XOtsKJCah0cVrGOdlGhXPrdtOVEQt6mprAA7rkLD1jyhKw2Wm80xciXV
+ 2Zxt/USAAFo5r+inX4Yx1J0ysfd8OKKXbPqoaT84OFzKnT66khh9xxMYyvOfr8I0H/zV
+ 0zZA==
+X-Gm-Message-State: AOAM5328FtpkV64PSPPAeLOuTQen7ZNmUxeeyfC9NWjdIIA4W6akp3VX
+ 24PdfwirmN2+jyWlKFFPbuWQTHB1PclFPyaBCpY=
+X-Google-Smtp-Source: ABdhPJx41S1R54wbQ48qsg99/1eW252tJ+3am3lEQacHLg2rhczrR7TtktDpmYg7Z0JMvPG8I/U4F3GyFBLov6YTXe8=
+X-Received: by 2002:a2e:8357:: with SMTP id l23mr12608428ljh.290.1595360557492; 
+ Tue, 21 Jul 2020 12:42:37 -0700 (PDT)
 MIME-Version: 1.0
-References: <20200717075101.263332-1-anup.patel@wdc.com>
- <20200717075101.263332-3-anup.patel@wdc.com>
- <CAOnJCUL=LSEfK67GbZ6c0NjEpHmpWq3HM1odgU=bo5JAjAGO2A@mail.gmail.com>
- <CAAhSdy1AJAp7WOMPhJRk9ahs2Puhpct2nb+ZDz02iYG2NVP1rA@mail.gmail.com>
-In-Reply-To: <CAAhSdy1AJAp7WOMPhJRk9ahs2Puhpct2nb+ZDz02iYG2NVP1rA@mail.gmail.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Tue, 21 Jul 2020 12:39:22 -0700
-Message-ID: <CAOnJCUKCs2TaxYHjsLnyQbmEMA+tbaD8Cj7=MpTVxKp318Y50g@mail.gmail.com>
-Subject: Re: [PATCH v4 2/4] clocksource/drivers: Add CLINT timer driver
-To: Anup Patel <anup@brainfault.org>
+References: <20200721025241.8077-1-luke.r.nels@gmail.com>
+ <CAJ+HfNj151ew9pOuu+tUmo7LjgXw1W0zAAQ9qWosFVkR5Gky2g@mail.gmail.com>
+In-Reply-To: <CAJ+HfNj151ew9pOuu+tUmo7LjgXw1W0zAAQ9qWosFVkR5Gky2g@mail.gmail.com>
+From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Date: Tue, 21 Jul 2020 12:42:26 -0700
+Message-ID: <CAADnVQ+MyO5x3dYYWvkGSbCfHuw0PyzbyrYHM-rj4T=JL8qXyA@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v1 0/3] bpf, riscv: Add compressed instructions
+ to rv64 JIT
+To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200721_153935_363007_E8DEC11C 
-X-CRM114-Status: GOOD (  40.80  )
+X-CRM114-CacheID: sfid-20200721_154240_951540_C0129335 
+X-CRM114-Status: GOOD (  21.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -89,384 +91,130 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Damien Le Moal <damien.lemoal@wdc.com>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Emil Renner Berhing <kernel@esmil.dk>, Anup Patel <anup.patel@wdc.com>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Atish Patra <atish.patra@wdc.com>, Rob Herring <robh+dt@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- Thomas Gleixner <tglx@linutronix.de>,
+Cc: Song Liu <songliubraving@fb.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Daniel Borkmann <daniel@iogearbox.net>, Luke Nelson <luke.r.nels@gmail.com>,
+ Netdev <netdev@vger.kernel.org>, John Fastabend <john.fastabend@gmail.com>,
+ Alexei Starovoitov <ast@kernel.org>,
  linux-riscv <linux-riscv@lists.infradead.org>,
- Albert Ou <aou@eecs.berkeley.edu>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+ LKML <linux-kernel@vger.kernel.org>, Luke Nelson <lukenels@cs.washington.edu>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ KP Singh <kpsingh@chromium.org>, Yonghong Song <yhs@fb.com>,
+ bpf <bpf@vger.kernel.org>, Andrii Nakryiko <andriin@fb.com>,
+ Martin KaFai Lau <kafai@fb.com>, Xi Wang <xi.wang@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 21, 2020 at 4:44 AM Anup Patel <anup@brainfault.org> wrote:
->
-> On Tue, Jul 21, 2020 at 6:41 AM Atish Patra <atishp@atishpatra.org> wrote:
-> >
-> > On Fri, Jul 17, 2020 at 12:52 AM Anup Patel <anup.patel@wdc.com> wrote:
-> > >
-> > > We add a separate CLINT timer driver for Linux RISC-V M-mode (i.e.
-> > > RISC-V NoMMU kernel).
-> > >
-> > > The CLINT MMIO device provides three things:
-> > > 1. 64bit free running counter register
-> > > 2. 64bit per-CPU time compare registers
-> > > 3. 32bit per-CPU inter-processor interrupt registers
-> > >
-> > > Unlike other timer devices, CLINT provides IPI registers along with
-> > > timer registers. To use CLINT IPI registers, the CLINT timer driver
-> > > provides IPI related callbacks to arch/riscv.
-> > >
-> > > Signed-off-by: Anup Patel <anup.patel@wdc.com>
-> > > Tested-by: Emil Renner Berhing <kernel@esmil.dk>
-> > > ---
-> > >  drivers/clocksource/Kconfig       |   9 ++
-> > >  drivers/clocksource/Makefile      |   1 +
-> > >  drivers/clocksource/timer-clint.c | 231 ++++++++++++++++++++++++++++++
-> > >  include/linux/cpuhotplug.h        |   1 +
-> > >  4 files changed, 242 insertions(+)
-> > >  create mode 100644 drivers/clocksource/timer-clint.c
-> > >
-> > > diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
-> > > index 91418381fcd4..e1ce0d510a03 100644
-> > > --- a/drivers/clocksource/Kconfig
-> > > +++ b/drivers/clocksource/Kconfig
-> > > @@ -658,6 +658,15 @@ config RISCV_TIMER
-> > >           is accessed via both the SBI and the rdcycle instruction.  This is
-> > >           required for all RISC-V systems.
-> > >
-> > > +config CLINT_TIMER
-> > > +       bool "Timer for the RISC-V platform"
-> > > +       depends on GENERIC_SCHED_CLOCK && RISCV_M_MODE
-> > > +       select TIMER_PROBE
-> > > +       select TIMER_OF
-> > > +       help
-> > > +         This option enables the CLINT timer for RISC-V systems. The CLINT
-> > > +         driver is usually used for NoMMU RISC-V systems.
-> > > +
-> > >  config CSKY_MP_TIMER
-> > >         bool "SMP Timer for the C-SKY platform" if COMPILE_TEST
-> > >         depends on CSKY
-> > > diff --git a/drivers/clocksource/Makefile b/drivers/clocksource/Makefile
-> > > index bdda1a2e4097..18e700e703a0 100644
-> > > --- a/drivers/clocksource/Makefile
-> > > +++ b/drivers/clocksource/Makefile
-> > > @@ -87,6 +87,7 @@ obj-$(CONFIG_CLKSRC_ST_LPC)           += clksrc_st_lpc.o
-> > >  obj-$(CONFIG_X86_NUMACHIP)             += numachip.o
-> > >  obj-$(CONFIG_ATCPIT100_TIMER)          += timer-atcpit100.o
-> > >  obj-$(CONFIG_RISCV_TIMER)              += timer-riscv.o
-> > > +obj-$(CONFIG_CLINT_TIMER)              += timer-clint.o
-> > >  obj-$(CONFIG_CSKY_MP_TIMER)            += timer-mp-csky.o
-> > >  obj-$(CONFIG_GX6605S_TIMER)            += timer-gx6605s.o
-> > >  obj-$(CONFIG_HYPERV_TIMER)             += hyperv_timer.o
-> > > diff --git a/drivers/clocksource/timer-clint.c b/drivers/clocksource/timer-clint.c
-> > > new file mode 100644
-> > > index 000000000000..e1698efa73a1
-> > > --- /dev/null
-> > > +++ b/drivers/clocksource/timer-clint.c
-> > > @@ -0,0 +1,231 @@
-> > > +// SPDX-License-Identifier: GPL-2.0
-> > > +/*
-> > > + * Copyright (C) 2020 Western Digital Corporation or its affiliates.
-> > > + *
-> > > + * Most of the M-mode (i.e. NoMMU) RISC-V systems usually have a
-> > > + * CLINT MMIO timer device.
-> > > + */
-> > > +
-> > > +#define pr_fmt(fmt) "clint: " fmt
-> > > +#include <linux/bitops.h>
-> > > +#include <linux/clocksource.h>
-> > > +#include <linux/clockchips.h>
-> > > +#include <linux/cpu.h>
-> > > +#include <linux/delay.h>
-> > > +#include <linux/module.h>
-> > > +#include <linux/of_address.h>
-> > > +#include <linux/sched_clock.h>
-> > > +#include <linux/io-64-nonatomic-lo-hi.h>
-> > > +#include <linux/interrupt.h>
-> > > +#include <linux/of_irq.h>
-> > > +#include <linux/smp.h>
-> > > +
-> > > +#define CLINT_IPI_OFF          0
-> > > +#define CLINT_TIMER_CMP_OFF    0x4000
-> > > +#define CLINT_TIMER_VAL_OFF    0xbff8
-> > > +
-> > > +/* CLINT manages IPI and Timer for RISC-V M-mode  */
-> > > +static u32 __iomem *clint_ipi_base;
-> > > +static u64 __iomem *clint_timer_cmp;
-> > > +static u64 __iomem *clint_timer_val;
-> > > +static unsigned long clint_timer_freq;
-> > > +static unsigned int clint_timer_irq;
-> > > +
-> > > +static void clint_send_ipi(const struct cpumask *target)
-> > > +{
-> > > +       unsigned int cpu;
-> > > +
-> > > +       for_each_cpu(cpu, target)
-> > > +               writel(1, clint_ipi_base + cpuid_to_hartid_map(cpu));
-> > > +}
-> > > +
-> > > +static void clint_clear_ipi(void)
-> > > +{
-> > > +       writel(0, clint_ipi_base + cpuid_to_hartid_map(smp_processor_id()));
-> > > +}
-> > > +
-> > > +static struct riscv_ipi_ops clint_ipi_ops = {
-> > > +       .ipi_inject = clint_send_ipi,
-> > > +       .ipi_clear = clint_clear_ipi,
-> > > +};
-> > > +
-> > > +#ifdef CONFIG_64BIT
-> > > +#define clint_get_cycles()     readq_relaxed(clint_timer_val)
-> > > +#else
-> > > +#define clint_get_cycles()     readl_relaxed(clint_timer_val)
-> > > +#define clint_get_cycles_hi()  readl_relaxed(((u32 *)clint_timer_val) + 1)
-> > > +#endif
-> > > +
-> > > +#ifdef CONFIG_64BIT
-> > > +static u64 notrace clint_get_cycles64(void)
-> > > +{
-> > > +       return clint_get_cycles();
-> > > +}
-> > > +#else /* CONFIG_64BIT */
-> > > +static u64 notrace clint_get_cycles64(void)
-> > > +{
-> > > +       u32 hi, lo;
-> > > +
-> > > +       do {
-> > > +               hi = clint_get_cycles_hi();
-> > > +               lo = clint_get_cycles();
-> > > +       } while (hi != clint_get_cycles_hi());
-> > > +
-> > > +       return ((u64)hi << 32) | lo;
-> > > +}
-> > > +#endif /* CONFIG_64BIT */
-> > > +
-> > > +static u64 clint_rdtime(struct clocksource *cs)
-> > > +{
-> > > +       return clint_get_cycles64();
-> > > +}
-> > > +
-> > > +static struct clocksource clint_clocksource = {
-> > > +       .name           = "clint_clocksource",
-> > > +       .rating = 300,
-> >
-> > nit: Not aligned with other structure members.
-> >
-> > > +       .mask           = CLOCKSOURCE_MASK(64),
-> > > +       .flags          = CLOCK_SOURCE_IS_CONTINUOUS,
-> > > +       .read           = clint_rdtime,
-> > > +};
-> > > +
-> > > +static int clint_clock_next_event(unsigned long delta,
-> > > +                                  struct clock_event_device *ce)
-> > > +{
-> > > +       void __iomem *r = clint_timer_cmp +
-> > > +                         cpuid_to_hartid_map(smp_processor_id());
-> > > +
-> > > +       csr_set(CSR_IE, IE_TIE);
-> > > +       writeq_relaxed(clint_get_cycles64() + delta, r);
-> > > +       return 0;
-> > > +}
-> > > +
-> > > +static DEFINE_PER_CPU(struct clock_event_device, clint_clock_event) = {
-> > > +       .name                   = "clint_clockevent",
-> > > +       .features               = CLOCK_EVT_FEAT_ONESHOT,
-> > > +       .rating         = 100,
-> > > +       .set_next_event = clint_clock_next_event,
-> >
-> > nit: Not aligned with other structure members.
->
-> Okay, will update.
->
-> > > +};
-> > > +
-> > > +static DEFINE_PER_CPU(bool, clint_clock_event_registered);
-> > > +
-> > > +static int clint_timer_starting_cpu(unsigned int cpu)
-> > > +{
-> > > +       bool *registered = per_cpu_ptr(&clint_clock_event_registered, cpu);
-> > > +       struct clock_event_device *ce = per_cpu_ptr(&clint_clock_event, cpu);
-> > > +
-> > > +       if (!(*registered)) {
-> > > +               ce->cpumask = cpumask_of(cpu);
-> > > +               clockevents_config_and_register(ce, clint_timer_freq, 200,
-> > > +                                                ULONG_MAX);
-> >
-> > Is there a specific reason to choose different values from the timer-riscv ?
-> > The min_delta is set to 100 and max_delta is set to 0x7fffffff in
-> > timer-riscv driver.
->
-> Not really, I will update. I think it's better to use 100 and ULONG_MAX to
-> have fewer magic values.
->
-
-Yeah. Looking at the other timer driver, max_delta is all over the place :).
-I guess we should just keep the same max/min_delta between riscv timer
-and clint driver.
-
-> >
-> > > +               *registered = true;
-> > > +       }
-> > > +
-> > > +       enable_percpu_irq(clint_timer_irq,
-> > > +                         irq_get_trigger_type(clint_timer_irq));
-> > > +       return 0;
-> > > +}
-> > > +
-> > > +static int clint_timer_dying_cpu(unsigned int cpu)
-> > > +{
-> > > +       disable_percpu_irq(clint_timer_irq);
-> > > +       return 0;
-> > > +}
-> > > +
-> > > +static irqreturn_t clint_timer_interrupt(int irq, void *dev_id)
-> > > +{
-> > > +       struct clock_event_device *evdev = this_cpu_ptr(&clint_clock_event);
-> > > +
-> > > +       csr_clear(CSR_IE, IE_TIE);
-> > > +       evdev->event_handler(evdev);
-> > > +
-> > > +       return IRQ_HANDLED;
-> > > +}
-> > > +
-> > > +static int __init clint_timer_init_dt(struct device_node *np)
-> > > +{
-> > > +       int rc;
-> > > +       u32 i, nr_irqs;
-> > > +       void __iomem *base;
-> > > +       struct of_phandle_args oirq;
-> > > +
-> > > +       /*
-> > > +        * Ensure that CLINT device interrupts are either RV_IRQ_TIMER or
-> > > +        * RV_IRQ_SOFT. If it's anything else then we ignore the device.
-> > > +        */
-> > > +       nr_irqs = of_irq_count(np);
-> > > +       for (i = 0; i < nr_irqs; i++) {
-> > > +               if (of_irq_parse_one(np, i, &oirq)) {
-> > > +                       pr_err("%pOFP: failed to parse irq %d.\n", np, i);
-> > > +                       continue;
-> > > +               }
-> > > +
-> > > +               if ((oirq.args_count != 1) ||
-> > > +                   (oirq.args[0] != RV_IRQ_TIMER &&
-> > > +                    oirq.args[0] != RV_IRQ_SOFT)) {
-> > > +                       pr_err("%pOFP: invalid irq %d (hwirq %d)\n",
-> > > +                              np, i, oirq.args[0]);
-> > > +                       return -ENODEV;
-> > > +               }
-> > > +
-> > > +               /* Find parent irq domain and map timer irq */
-> > > +               if (!clint_timer_irq &&
-> > > +                   oirq.args[0] == RV_IRQ_TIMER &&
-> > > +                   irq_find_host(oirq.np))
-> > > +                       clint_timer_irq = irq_of_parse_and_map(np, i);
-> > > +       }
-> > > +
-> > > +       /* If CLINT timer irq not found then fail */
-> > > +       if (!clint_timer_irq) {
-> > > +               pr_err("%pOFP: timer irq not found\n", np);
-> > > +               return -ENODEV;
-> > > +       }
-> > > +
-> > > +       base = of_iomap(np, 0);
-> > > +       if (!base) {
-> > > +               pr_err("%pOFP: could not map registers\n", np);
-> > > +               return -ENODEV;
-> > > +       }
-> > > +
-> > > +       clint_ipi_base = base + CLINT_IPI_OFF;
-> > > +       clint_timer_cmp = base + CLINT_TIMER_CMP_OFF;
-> > > +       clint_timer_val = base + CLINT_TIMER_VAL_OFF;
-> > > +       clint_timer_freq = riscv_timebase;
-> > > +
-> > > +       pr_info("%pOFP: timer running at %ld Hz\n", np, clint_timer_freq);
-> > > +
-> > > +       rc = clocksource_register_hz(&clint_clocksource, clint_timer_freq);
-> > > +       if (rc) {
-> > > +               iounmap(base);
-> > > +               pr_err("%pOFP: clocksource register failed [%d]\n", np, rc);
-> > > +               return rc;
-> > > +       }
-> > > +
-> > > +       sched_clock_register(clint_get_cycles64, 64, clint_timer_freq);
-> > > +
-> > > +       rc = request_percpu_irq(clint_timer_irq, clint_timer_interrupt,
-> > > +                                "clint-timer", &clint_clock_event);
-> > > +       if (rc) {
-> > > +               iounmap(base);
-> > > +               pr_err("registering percpu irq failed [%d]\n", rc);
-> > > +               return rc;
-> > > +       }
-> > > +
-> > > +       rc = cpuhp_setup_state(CPUHP_AP_CLINT_TIMER_STARTING,
-> > > +                               "clockevents/clint/timer:starting",
-> > > +                               clint_timer_starting_cpu,
-> > > +                               clint_timer_dying_cpu);
-> > > +       if (rc) {
-> > > +               free_irq(clint_timer_irq, &clint_clock_event);
-> > > +               iounmap(base);
-> > > +               pr_err("%pOFP: cpuhp setup state failed [%d]\n", np, rc);
-> > > +               return rc;
-> >
-> > All the iounmap & return statements can be moved to a goto at the end
-> > of the function.
->
-> Okay, will update.
->
-> >
-> > > +       }
-> > > +
-> > > +       riscv_set_ipi_ops(&clint_ipi_ops);
-> > > +       clint_clear_ipi();
-> > > +
-> > > +       return 0;
-> > > +}
-> > > +
-> > > +TIMER_OF_DECLARE(clint_timer, "riscv,clint0", clint_timer_init_dt);
-> > > +TIMER_OF_DECLARE(clint_timer1, "sifive,clint0", clint_timer_init_dt);
-> > > diff --git a/include/linux/cpuhotplug.h b/include/linux/cpuhotplug.h
-> > > index 191772d4a4d7..1451f4625833 100644
-> > > --- a/include/linux/cpuhotplug.h
-> > > +++ b/include/linux/cpuhotplug.h
-> > > @@ -132,6 +132,7 @@ enum cpuhp_state {
-> > >         CPUHP_AP_MIPS_GIC_TIMER_STARTING,
-> > >         CPUHP_AP_ARC_TIMER_STARTING,
-> > >         CPUHP_AP_RISCV_TIMER_STARTING,
-> > > +       CPUHP_AP_CLINT_TIMER_STARTING,
-> > >         CPUHP_AP_CSKY_TIMER_STARTING,
-> > >         CPUHP_AP_HYPERV_TIMER_STARTING,
-> > >         CPUHP_AP_KVM_STARTING,
-> > > --
-> > > 2.25.1
-> > >
-> > >
-> > > _______________________________________________
-> > > linux-riscv mailing list
-> > > linux-riscv@lists.infradead.org
-> > > http://lists.infradead.org/mailman/listinfo/linux-riscv
-> >
-> >
-> >
-> > --
-> > Regards,
-> > Atish
->
-> Regards,
-> Anup
-
-
-
--- 
-Regards,
-Atish
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBKdWwgMjEsIDIwMjAgYXQgMTI6MjcgQU0gQmrDtnJuIFTDtnBlbCA8Ympvcm4udG9w
+ZWxAZ21haWwuY29tPiB3cm90ZToKPgo+IE9uIFR1ZSwgMjEgSnVsIDIwMjAgYXQgMDQ6NTIsIEx1
+a2UgTmVsc29uIDxsdWtlbmVsc0Bjcy53YXNoaW5ndG9uLmVkdT4gd3JvdGU6Cj4gPgo+ID4gVGhp
+cyBwYXRjaCBzZXJpZXMgZW5hYmxlcyB1c2luZyBjb21wcmVzc2VkIHJpc2N2IChSVkMpIGluc3Ry
+dWN0aW9ucwo+ID4gaW4gdGhlIHJ2NjQgQlBGIEpJVC4KPiA+Cj4gPiBSVkMgaXMgYSBzdGFuZGFy
+ZCByaXNjdiBleHRlbnNpb24gdGhhdCBhZGRzIGEgc2V0IG9mIGNvbXByZXNzZWQsCj4gPiAyLWJ5
+dGUgaW5zdHJ1Y3Rpb25zIHRoYXQgY2FuIHJlcGxhY2Ugc29tZSByZWd1bGFyIDQtYnl0ZSBpbnN0
+cnVjdGlvbnMKPiA+IGZvciBpbXByb3ZlZCBjb2RlIGRlbnNpdHkuCj4gPgo+ID4gVGhpcyBzZXJp
+ZXMgZmlyc3QgbW9kaWZpZXMgdGhlIEpJVCB0byBzdXBwb3J0IHVzaW5nIDItYnl0ZSBpbnN0cnVj
+dGlvbnMKPiA+IChlLmcuLCBpbiBqdW1wIG9mZnNldCBjb21wdXRhdGlvbnMpLCB0aGVuIGFkZHMg
+UlZDIGVuY29kaW5nIGFuZAo+ID4gaGVscGVyIGZ1bmN0aW9ucywgYW5kIGZpbmFsbHkgdXNlcyB0
+aGUgaGVscGVyIGZ1bmN0aW9ucyB0byBvcHRpbWl6ZQo+ID4gdGhlIHJ2NjQgSklULgo+ID4KPiA+
+IEkgdXNlZCBvdXIgZm9ybWFsIHZlcmlmaWNhdGlvbiBmcmFtZXdvcmssIFNlcnZhbCwgdG8gdmVy
+aWZ5IHRoZQo+ID4gY29ycmVjdG5lc3Mgb2YgdGhlIFJWQyBlbmNvZGluZ3MgYW5kIHRoZWlyIHVz
+ZXMgaW4gdGhlIHJ2NjQgSklULgo+ID4KPiA+IFRoZSBKSVQgY29udGludWVzIHRvIHBhc3MgYWxs
+IHRlc3RzIGluIGxpYi90ZXN0X2JwZi5jLCBhbmQgaW50cm9kdWNlcwo+ID4gbm8gbmV3IGZhaWx1
+cmVzIHRvIHRlc3RfdmVyaWZpZXI7IGJvdGggd2l0aCBhbmQgd2l0aG91dCBSVkMgYmVpbmcgZW5h
+YmxlZC4KPiA+Cj4gPiBUaGUgZm9sbG93aW5nIGFyZSBleGFtcGxlcyBvZiB0aGUgSklUZWQgY29k
+ZSBmb3IgdGhlIHZlcmlmaWVyIHNlbGZ0ZXN0Cj4gPiAiZGlyZWN0IHBhY2tldCByZWFkIHRlc3Qj
+MyBmb3IgQ0dST1VQX1NLQiBPSyIsIHdpdGhvdXQgYW5kIHdpdGggUlZDCj4gPiBlbmFibGVkLCBy
+ZXNwZWN0aXZlbHkuIFRoZSBmb3JtZXIgdXNlcyAxNzggYnl0ZXMsIGFuZCB0aGUgbGF0dGVyIHVz
+ZXMgMTEyLAo+ID4gZm9yIGEgfjM3JSByZWR1Y3Rpb24gaW4gY29kZSBzaXplIGZvciB0aGlzIGV4
+YW1wbGUuCj4gPgo+ID4gV2l0aG91dCBSVkM6Cj4gPgo+ID4gICAgMDogMDIwMDA4MTMgICAgYWRk
+aSAgYTYsemVybywzMgo+ID4gICAgNDogZmQwMTAxMTMgICAgYWRkaSAgc3Asc3AsLTQ4Cj4gPiAg
+ICA4OiAwMjgxMzQyMyAgICBzZCAgICBzMCw0MChzcCkKPiA+ICAgIGM6IDAyOTEzMDIzICAgIHNk
+ICAgIHMxLDMyKHNwKQo+ID4gICAxMDogMDEyMTNjMjMgICAgc2QgICAgczIsMjQoc3ApCj4gPiAg
+IDE0OiAwMTMxMzgyMyAgICBzZCAgICBzMywxNihzcCkKPiA+ICAgMTg6IDAxNDEzNDIzICAgIHNk
+ICAgIHM0LDgoc3ApCj4gPiAgIDFjOiAwMzAxMDQxMyAgICBhZGRpICBzMCxzcCw0OAo+ID4gICAy
+MDogMDMwNTY2ODMgICAgbHd1ICAgYTMsNDgoYTApCj4gPiAgIDI0OiAwMjA2OTY5MyAgICBzbGxp
+ICBhMyxhMywweDIwCj4gPiAgIDI4OiAwMjA2ZDY5MyAgICBzcmxpICBhMyxhMywweDIwCj4gPiAg
+IDJjOiAwMzQ1NjcwMyAgICBsd3UgICBhNCw1MihhMCkKPiA+ICAgMzA6IDAyMDcxNzEzICAgIHNs
+bGkgIGE0LGE0LDB4MjAKPiA+ICAgMzQ6IDAyMDc1NzEzICAgIHNybGkgIGE0LGE0LDB4MjAKPiA+
+ICAgMzg6IDAzODU2NDgzICAgIGx3dSAgIHMxLDU2KGEwKQo+ID4gICAzYzogMDIwNDk0OTMgICAg
+c2xsaSAgczEsczEsMHgyMAo+ID4gICA0MDogMDIwNGQ0OTMgICAgc3JsaSAgczEsczEsMHgyMAo+
+ID4gICA0NDogMDNjNTY5MDMgICAgbHd1ICAgczIsNjAoYTApCj4gPiAgIDQ4OiAwMjA5MTkxMyAg
+ICBzbGxpICBzMixzMiwweDIwCj4gPiAgIDRjOiAwMjA5NTkxMyAgICBzcmxpICBzMixzMiwweDIw
+Cj4gPiAgIDUwOiAwNDA1Njk4MyAgICBsd3UgICBzMyw2NChhMCkKPiA+ICAgNTQ6IDAyMDk5OTkz
+ICAgIHNsbGkgIHMzLHMzLDB4MjAKPiA+ICAgNTg6IDAyMDlkOTkzICAgIHNybGkgIHMzLHMzLDB4
+MjAKPiA+ICAgNWM6IDA5MDU2YTAzICAgIGx3dSAgIHM0LDE0NChhMCkKPiA+ICAgNjA6IDAyMGEx
+YTEzICAgIHNsbGkgIHM0LHM0LDB4MjAKPiA+ICAgNjQ6IDAyMGE1YTEzICAgIHNybGkgIHM0LHM0
+LDB4MjAKPiA+ICAgNjg6IDAwOTAwMzEzICAgIGFkZGkgIHQxLHplcm8sOQo+ID4gICA2YzogMDA2
+YTc0NjMgICAgYmdldSAgczQsdDEsMHg3NAo+ID4gICA3MDogMDAwMDBhMTMgICAgYWRkaSAgczQs
+emVybywwCj4gPiAgIDc0OiAwMmQ1MjgyMyAgICBzdyAgICBhMyw0OChhMCkKPiA+ICAgNzg6IDAy
+ZTUyYTIzICAgIHN3ICAgIGE0LDUyKGEwKQo+ID4gICA3YzogMDI5NTJjMjMgICAgc3cgICAgczEs
+NTYoYTApCj4gPiAgIDgwOiAwMzI1MmUyMyAgICBzdyAgICBzMiw2MChhMCkKPiA+ICAgODQ6IDA1
+MzUyMDIzICAgIHN3ICAgIHMzLDY0KGEwKQo+ID4gICA4ODogMDAwMDA3OTMgICAgYWRkaSAgYTUs
+emVybywwCj4gPiAgIDhjOiAwMjgxMzQwMyAgICBsZCAgICBzMCw0MChzcCkKPiA+ICAgOTA6IDAy
+MDEzNDgzICAgIGxkICAgIHMxLDMyKHNwKQo+ID4gICA5NDogMDE4MTM5MDMgICAgbGQgICAgczIs
+MjQoc3ApCj4gPiAgIDk4OiAwMTAxMzk4MyAgICBsZCAgICBzMywxNihzcCkKPiA+ICAgOWM6IDAw
+ODEzYTAzICAgIGxkICAgIHM0LDgoc3ApCj4gPiAgIGEwOiAwMzAxMDExMyAgICBhZGRpICBzcCxz
+cCw0OAo+ID4gICBhNDogMDAwNzg1MTMgICAgYWRkaSAgYTAsYTUsMAo+ID4gICBhODogMDAwMDgw
+NjcgICAgamFsciAgemVybywwKHJhKQo+ID4KPiA+IFdpdGggUlZDOgo+ID4KPiA+ICAgIDA6ICAg
+MDIwMDA4MTMgICAgYWRkaSAgICBhNix6ZXJvLDMyCj4gPiAgICA0OiAgIDcxNzkgICAgICAgIGMu
+YWRkaTE2c3AgIHNwLC00OAo+ID4gICAgNjogICBmNDIyICAgICAgICBjLnNkc3AgIHMwLDQwKHNw
+KQo+ID4gICAgODogICBmMDI2ICAgICAgICBjLnNkc3AgIHMxLDMyKHNwKQo+ID4gICAgYTogICBl
+YzRhICAgICAgICBjLnNkc3AgIHMyLDI0KHNwKQo+ID4gICAgYzogICBlODRlICAgICAgICBjLnNk
+c3AgIHMzLDE2KHNwKQo+ID4gICAgZTogICBlNDUyICAgICAgICBjLnNkc3AgIHM0LDgoc3ApCj4g
+PiAgIDEwOiAgIDE4MDAgICAgICAgIGMuYWRkaTRzcG4gIHMwLHNwLDQ4Cj4gPiAgIDEyOiAgIDAz
+MDU2NjgzICAgIGx3dSAgICAgYTMsNDgoYTApCj4gPiAgIDE2OiAgIDE2ODIgICAgICAgIGMuc2xs
+aSAgYTMsMHgyMAo+ID4gICAxODogICA5MjgxICAgICAgICBjLnNybGkgIGEzLDB4MjAKPiA+ICAg
+MWE6ICAgMDM0NTY3MDMgICAgbHd1ICAgICBhNCw1MihhMCkKPiA+ICAgMWU6ICAgMTcwMiAgICAg
+ICAgYy5zbGxpICBhNCwweDIwCj4gPiAgIDIwOiAgIDkzMDEgICAgICAgIGMuc3JsaSAgYTQsMHgy
+MAo+ID4gICAyMjogICAwMzg1NjQ4MyAgICBsd3UgICAgIHMxLDU2KGEwKQo+ID4gICAyNjogICAx
+NDgyICAgICAgICBjLnNsbGkgIHMxLDB4MjAKPiA+ICAgMjg6ICAgOTA4MSAgICAgICAgYy5zcmxp
+ICBzMSwweDIwCj4gPiAgIDJhOiAgIDAzYzU2OTAzICAgIGx3dSAgICAgczIsNjAoYTApCj4gPiAg
+IDJlOiAgIDE5MDIgICAgICAgIGMuc2xsaSAgczIsMHgyMAo+ID4gICAzMDogICAwMjA5NTkxMyAg
+ICBzcmxpICAgIHMyLHMyLDB4MjAKPiA+ICAgMzQ6ICAgMDQwNTY5ODMgICAgbHd1ICAgICBzMyw2
+NChhMCkKPiA+ICAgMzg6ICAgMTk4MiAgICAgICAgYy5zbGxpICBzMywweDIwCj4gPiAgIDNhOiAg
+IDAyMDlkOTkzICAgIHNybGkgICAgczMsczMsMHgyMAo+ID4gICAzZTogICAwOTA1NmEwMyAgICBs
+d3UgICAgIHM0LDE0NChhMCkKPiA+ICAgNDI6ICAgMWEwMiAgICAgICAgYy5zbGxpICBzNCwweDIw
+Cj4gPiAgIDQ0OiAgIDAyMGE1YTEzICAgIHNybGkgICAgczQsczQsMHgyMAo+ID4gICA0ODogICA0
+MzI1ICAgICAgICBjLmxpICAgIHQxLDkKPiA+ICAgNGE6ICAgMDA2YTczNjMgICAgYmdldSAgICBz
+NCx0MSwweDUwCj4gPiAgIDRlOiAgIDRhMDEgICAgICAgIGMubGkgICAgczQsMAo+ID4gICA1MDog
+ICBkOTE0ICAgICAgICBjLnN3ICAgIGEzLDQ4KGEwKQo+ID4gICA1MjogICBkOTU4ICAgICAgICBj
+LnN3ICAgIGE0LDUyKGEwKQo+ID4gICA1NDogICBkZDA0ICAgICAgICBjLnN3ICAgIHMxLDU2KGEw
+KQo+ID4gICA1NjogICAwMzI1MmUyMyAgICBzdyAgICAgIHMyLDYwKGEwKQo+ID4gICA1YTogICAw
+NTM1MjAyMyAgICBzdyAgICAgIHMzLDY0KGEwKQo+ID4gICA1ZTogICA0NzgxICAgICAgICBjLmxp
+ICAgIGE1LDAKPiA+ICAgNjA6ICAgNzQyMiAgICAgICAgYy5sZHNwICBzMCw0MChzcCkKPiA+ICAg
+NjI6ICAgNzQ4MiAgICAgICAgYy5sZHNwICBzMSwzMihzcCkKPiA+ICAgNjQ6ICAgNjk2MiAgICAg
+ICAgYy5sZHNwICBzMiwyNChzcCkKPiA+ICAgNjY6ICAgNjljMiAgICAgICAgYy5sZHNwICBzMywx
+NihzcCkKPiA+ICAgNjg6ICAgNmEyMiAgICAgICAgYy5sZHNwICBzNCw4KHNwKQo+ID4gICA2YTog
+ICA2MTQ1ICAgICAgICBjLmFkZGkxNnNwICBzcCw0OAo+ID4gICA2YzogICA4NTNlICAgICAgICBj
+Lm12ICAgIGEwLGE1Cj4gPiAgIDZlOiAgIDgwODIgICAgICAgIGMuanIgICAgcmEKPiA+Cj4gPiBS
+RkMgLT4gdjE6Cj4gPiAgIC0gRnJvbSBCasO2cm4gVMO2cGVsOgo+ID4gICAgICogQ2hhbmdlZCBS
+Vk9GRiBtYWNybyB0byBzdGF0aWMgaW5saW5lICJuaW5zbnNfcnZvZmYiLgo+ID4gICAgICogQ2hh
+bmdlZCByZXR1cm4gdHlwZSBvZiBydmNfIGZ1bmN0aW9ucyBmcm9tIHUzMiB0byB1MTYuCj4gPiAg
+ICAgKiBDaGFuZ2VkIHNpemVvZih1MTYpIHRvIHNpemVvZigqY3R4LT5pbnNucykuCj4gPiAgICog
+RmFjdG9yZWQgdW5zaWduZWQgaW1tZWRpYXRlIGNoZWNrcyBpbnRvIGhlbHBlciBmdW5jdGlvbnMK
+PiA+ICAgICAoaXNfOGJfdWludCwgZXRjLikKPiA+ICAgKiBDaGFuZ2VkIHRvIHVzZSBJU19FTkFC
+TEVEIGluc3RlYWQgb2YgI2lmZGVmIHRvIGNoZWNrIGlmIFJWQyBpcwo+ID4gICAgIGVuYWJsZWQu
+Cj4gPiAgICogQ2hhbmdlZCB0eXBlIG9mIGltbWVkaWF0ZSBhcmd1bWVudHMgdG8gcnZjXyogZW5j
+b2RpbmcgdG8gdTMyCj4gPiAgICAgdG8gYXZvaWQgaXNzdWVzIGZyb20gcHJvbW90aW9uIG9mIHUx
+NiB0byBzaWduZWQgaW50Lgo+ID4gICAqIENsZWFuZWQgdXAgUlZDIGNoZWNrcyBpbiBlbWl0X3th
+ZGRpLHNsbGksc3JsaSxzcmFpfS4KPiA+ICAgICArIFdyYXBwZWQgbGluZXMgYXQgMTAwIGluc3Rl
+YWQgb2YgODAgY29sdW1ucyBmb3IgaW5jcmVhc2VkIGNsYXJpdHkuCj4gPiAgICAgICAgICsgTW92
+ZSAhaW1tIGNoZWNrcyBpbnRvIGVhY2ggYnJhbmNoIGluc3RlYWQgb2YgY2hlY2tpbmcKPiA+ICAg
+ICAgICAgICBzZXBhcmF0ZWx5Lgo+ID4gICAgICAgICArIFN0cmVuZ3RoZWQgY2hlY2tzIGZvciBj
+LntzbGxpLHNybGksc3JhaX0gdG8gY2hlY2sgdGhhdAo+ID4gICAgICAgICAgIGltbSA8IFhMRU4u
+IE90aGVyd2lzZSwgaW1tIGNvdWxkIGJlIG5vbi16ZXJvIGJ1dCB0aGUgbG93ZXIKPiA+ICAgICAg
+ICAgICBYTEVOIGJpdHMgY291bGQgYWxsIGJlIHplcm8sIGxlYWRpbmcgdG8gaW52YWxpZCBSVkMg
+ZW5jb2RpbmcuCj4gPiAgICogQ2hhbmdlZCBlbWl0X2ltbSB0byBzaWduLWV4dGVuZCB0aGUgMTIt
+Yml0IHZhbHVlIGluICJsb3dlciIKPiA+ICAgICArIFRoZSBpbW1lZGlhdGUgY2hlY2tzIGZvciBl
+bWl0X3thZGRpdyxsaSxhZGRpfSB1c2Ugc2lnbmVkCj4gPiAgICAgICAgICAgY29tcGFyaXNvbnMs
+IHNvIHRoaXMgZW5hYmxlcyB0aGUgUlZDIHZhcmlhbnRzIHRvIGJlIHVzZWQKPiA+ICAgICAgICAg
+ICBtb3JlIG9mdGVuIChlLmcuLCBpZiB2YWwgPT0gLTEsIHRoZW4gbG93ZXIgc2hvdWxkIGJlIC0x
+Cj4gPiAgICAgICAgICAgYXMgb3Bwb3NlZCB0byA0MDk1KS4KPiA+Cj4KPiBGaW5hbGx5IFJWQyBz
+dXBwb3J0ISBUaGFuayB5b3UhCj4KPiBGb3IgdGhlIHNlcmllczoKPiBSZXZpZXdlZC1ieTogQmrD
+tnJuIFTDtnBlbCA8Ympvcm4udG9wZWxAZ21haWwuY29tPgo+IEFja2VkLWJ5OiBCasO2cm4gVMO2
+cGVsIDxiam9ybi50b3BlbEBnbWFpbC5jb20+CgpBcHBsaWVkLiBUaGFua3MKCl9fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
+bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
+YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
