@@ -7,16 +7,16 @@ X-Spam-Status: No, score=-5.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_2 autolearn=no
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 38F04C433EC
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2020 23:11:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 47FDEC433E0
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2020 23:13:43 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 04FC4207BB
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2020 23:11:58 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 12F0520771
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jul 2020 23:13:42 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="0tp4WObo"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 04FC4207BB
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ALvlojci"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 12F0520771
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=kernel.crashing.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,38 +25,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:Date:To:From:
 	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=hTf2pRVJEN5mtFor8/y9ASgGzqxrSdybWu5IFggMuhA=; b=0tp4WOboBj3Mf0NlJ+BdoXu/W
-	GRNVafvF0Ej5x1RbJu4W+H5n1LCBeOHbwI67vlPEicBmF4R/0CHPmloNlvnCUk6QePCDy9FcSy9pc
-	anh6Vb/S+w3v2n53Uq1TbVJAzVftoW2vNT1zevV+3dsJU9l3Ep22IuegSpvt5wNlMi6sXq1reMGZj
-	b0BbNpOjLy5BX/WPlqd1qMaYEPptAaukH/7rbp/XRUL54YLSLkqd1twxtQMBAy+difzLyVRbtgIvE
-	9mM3BBbPiAt2L0A/FuOOTODlXzf8bTCIedlkbjSgza+WvREeZNlXKprS+2s+WYr0qjYPses6bMo1M
-	n+TReTbrA==;
+	 bh=v+xFb2A+uQassLymUpSG0PgZAzUaW2AAkZ9f+bBdcss=; b=ALvlojcio+VS0B4pu7fhYEq2g
+	OZGgnOMYOVGyaJgeibznErqP1oClYniTZMtsTz469lmgQw1iyTYd384+n0Ge8uoYkatamcghOye8h
+	EqNoqMWFE6AxxOUqoL3W1ZVAz0dWCcvRun3rqtg+KprrXuPg4+AdL9xMDS+d98SgRybNVa9sk3jaH
+	i0NIr1OU1cp+Up581N9Zh//2N1lUt8BTgJbCSQEPlJkzg4CTd5tHh2QS1ZBrKbfIUdnRL2+xdYFvZ
+	Nabp/zX2TuX2R/tERb18rV5Zm/oTrWHHBIDmmB5Jb9kdlsN4217jUpxbu2ZcTP5Zy+nkTsAeeYwU+
+	5/909tZpQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jy1QO-0007Ma-92; Tue, 21 Jul 2020 23:11:52 +0000
+	id 1jy1S1-0007Wo-6h; Tue, 21 Jul 2020 23:13:33 +0000
 Received: from kernel.crashing.org ([76.164.61.194])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jy1QL-0007L7-Pp
- for linux-riscv@lists.infradead.org; Tue, 21 Jul 2020 23:11:50 +0000
+ id 1jy1Ry-0007WL-Dv
+ for linux-riscv@lists.infradead.org; Tue, 21 Jul 2020 23:13:31 +0000
 Received: from localhost (gate.crashing.org [63.228.1.57])
  (authenticated bits=0)
- by kernel.crashing.org (8.14.7/8.14.7) with ESMTP id 06LNB4EP017146
+ by kernel.crashing.org (8.14.7/8.14.7) with ESMTP id 06LNCxrb017185
  (version=TLSv1/SSLv3 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
- Tue, 21 Jul 2020 18:11:11 -0500
-Message-ID: <54af168083aee9dbda1b531227521a26b77ba2c8.camel@kernel.crashing.org>
+ Tue, 21 Jul 2020 18:13:05 -0500
+Message-ID: <6fbea8347bdb8434d91cf3ec2b95b134bd66cfe3.camel@kernel.crashing.org>
 Subject: Re: [PATCH v5 1/4] riscv: Move kernel mapping to vmalloc zone
 From: Benjamin Herrenschmidt <benh@kernel.crashing.org>
-To: Alex Ghiti <alex@ghiti.fr>, Palmer Dabbelt <palmer@dabbelt.com>
-Date: Wed, 22 Jul 2020 09:11:02 +1000
-In-Reply-To: <7cb2285e-68ba-6827-5e61-e33a4b65ac03@ghiti.fr>
-References: <mhng-831c4073-aefa-4aa0-a583-6a17f9aff9b7@palmerdabbelt-glaptop1>
- <d7e3cbb7-c12a-bce2-f1db-c336d15f74bd@ghiti.fr>
- <7cb2285e-68ba-6827-5e61-e33a4b65ac03@ghiti.fr>
+To: Palmer Dabbelt <palmer@dabbelt.com>, alex@ghiti.fr
+Date: Wed, 22 Jul 2020 09:12:58 +1000
+In-Reply-To: <mhng-08bff01a-ca15-4bbc-8454-2ca3e823fef8@palmerdabbelt-glaptop1>
+References: <mhng-08bff01a-ca15-4bbc-8454-2ca3e823fef8@palmerdabbelt-glaptop1>
 X-Mailer: Evolution 3.28.5-0ubuntu0.18.04.2 
 Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200721_191149_962485_B17E100B 
-X-CRM114-Status: GOOD (  18.91  )
+X-CRM114-CacheID: sfid-20200721_191330_766253_6B19F784 
+X-CRM114-Status: GOOD (  25.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -78,48 +76,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2020-07-21 at 14:36 -0400, Alex Ghiti wrote:
-> > > I guess I don't understand why this is necessary at all.  
-> > > Specifically: why
-> > > can't we just relocate the kernel within the linear map?  That would 
-> > > let the
-> > > bootloader put the kernel wherever it wants, modulo the physical 
-> > > memory size we
-> > > support.  We'd need to handle the regions that are coupled to the 
-> > > kernel's
-> > > execution address, but we could just put them in an explicit memory 
-> > > region
-> > > which is what we should probably be doing anyway.
-> > 
-> > Virtual relocation in the linear mapping requires to move the kernel 
-> > physically too. Zong implemented this physical move in its KASLR RFC 
-> > patchset, which is cumbersome since finding an available physical spot 
-> > is harder than just selecting a virtual range in the vmalloc range.
-> > 
-> > In addition, having the kernel mapping in the linear mapping prevents 
-> > the use of hugepage for the linear mapping resulting in performance loss 
-> > (at least for the GB that encompasses the kernel).
-> > 
-> > Why do you find this "ugly" ? The vmalloc region is just a bunch of 
-> > available virtual addresses to whatever purpose we want, and as noted by 
-> > Zong, arm64 uses the same scheme.
+On Tue, 2020-07-21 at 12:05 -0700, Palmer Dabbelt wrote:
+> 
+> * We waste vmalloc space on 32-bit systems, where there isn't a lot of it.
+> * On 64-bit systems the VA space around the kernel is precious because it's the
+>   only place we can place text (modules, BPF, whatever). 
 
-I don't get it :-)
+Why ? Branch distance limits ? You can't use trampolines ?
 
-At least on powerpc we move the kernel in the linear mapping and it
-works fine with huge pages, what is your problem there ? You rely on
-punching small-page size holes in there ?
+>  If we start putting
+>   the kernel in the vmalloc space then we either have to pre-allocate a bunch
+>   of space around it (essentially making it a fixed mapping anyway) or it
+>   becomes likely that we won't be able to find space for modules as they're
+>   loaded into running systems.
 
-At least in the old days, there were a number of assumptions that
-the kernel text/data/bss resides in the linear mapping.
+I dislike the kernel being in the vmalloc space (see my other email)
+but I don't understand the specific issue with modules.
 
-If you change that you need to ensure that it's still physically
-contiguous and you'll have to tweak __va and __pa, which might induce
-extra overhead.
+> * Relying on a relocatable kernel for sv48 support introduces a fairly large
+>   performance hit.
 
-Cheers,
-Ben.
- 
+Out of curiosity why would relocatable kernels introduce a significant
+hit ? Where about do you see the overhead coming from ?
+
+> Roughly, my proposal would be to:
+> 
+> * Leave the 32-bit memory map alone.  On 32-bit systems we can load modules
+>   anywhere and we only have one VA width, so we're not really solving any
+>   problems with these changes.
+> * Staticly allocate a 2GiB portion of the VA space for all our text, as its own
+>   region.  We'd link/relocate the kernel here instead of around PAGE_OFFSET,
+>   which would decouple the kernel from the physical memory layout of the system.
+>   This would have the side effect of sorting out a bunch of bootloader headaches
+>   that we currently have.
+> * Sort out how to maintain a linear map as the canonical hole moves around
+>   between the VA widths without adding a bunch of overhead to the virt2phys and
+>   friends.  This is probably going to be the trickiest part, but I think if we
+>   just change the page table code to essentially lie about VAs when an sv39
+>   system runs an sv48+sv39 kernel we could make it work -- there'd be some
+>   logical complexity involved, but it would remain fast.
+> 
+> This doesn't solve the problem of virtually relocatable kernels, but it does
+> let us decouple that from the sv48 stuff.  It also lets us stop relying on a
+> fixed physical address the kernel is loaded into, which is another thing I
+> don't like.
+> 
+> I know this may be a more complicated approach, but there aren't any sv48
+> systems around right now so I just don't see the rush to support them,
+> particularly when there's a cost to what already exists (for those who haven't
+> been watching, so far all the sv48 patch sets have imposed a significant
+> performance penalty on all systems).
 
 
 _______________________________________________
