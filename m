@@ -6,83 +6,80 @@ X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
 	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CB71EC433E2
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2020 19:52:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 51E9CC433E4
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2020 20:23:01 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9485B20771
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2020 19:52:59 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 1CAED20684
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2020 20:23:01 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="HiqAhePN";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="Yoy1F4D5"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9485B20771
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="wropAYmd"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1CAED20684
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arndb.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=rncD7nBP3Cxclo6z8BVK9nL5bsfLk7wCdGJMmbV2yhA=; b=HiqAhePNCjA/i5SDJGRJtqAxV
-	gvtyWWmyyMY61zkZA6Zl3fhkMBrht6s7rWY8VNjVxAm3KqEBzUC/25MGqZNsmTy9wU9gZYxgW9eF0
-	pc1zWfHv4ksu4gpy7ytGvhBHJcHd5E7giPCAsm7RmQ+NVrB3BSGMGr5Rcum0lIi7evCzGBoXGU00g
-	W/NrG0C3GSDuiMY4HUJxPkqHxFTszklI/YvERR6y5G44RX31kIw9fZIsUhgt6r1drbBop+7rUXbxi
-	hhkcPnX6XXlkE2UtvZVdVu90imIjtt5zGYmY9bc+1YuflTPp0Ca+siR2Ous0pvy/wQjyCLjsrZDLK
-	qZdOOcgBg==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=XCTzSLTXjBwef/Hy2O3wGOMFRfayYKy1Ai9JseeJ5ak=; b=wropAYmdW5K/gw7og+OGJygAr
+	qV0wMcGwnkUcLBrqgZoRKMJ1q16JRUo9yFom6vZJwwBE4KAoywfHmg1Tng+x6BN282xMctjU08Zwo
+	Mj/F7QPjL4kTOvOQRl3fuI6QEEDbNWaWQNzmChMMM0VgW8daTAsOJLQqVXTANN3+ng+FWnFEzu48a
+	lMF4/+3NnmfoVv88o7ya6dczC79S8RPVFBlrRmVrMboC81b49YLzotVlbhYZzX2/f5FoVWFHPwldj
+	Rp6cuN8kwh7SsoYN1+l3nkbpBZT8SCproSoMOAD/rjk953nWgFSNp8H5uMLOFdEinp+tUwVBtxcBg
+	7lky2LyJQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jyKnF-0002er-VP; Wed, 22 Jul 2020 19:52:46 +0000
-Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
+	id 1jyLGO-0006f9-1D; Wed, 22 Jul 2020 20:22:52 +0000
+Received: from mout.kundenserver.de ([212.227.17.13])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jyKnC-0002eI-Oo
- for linux-riscv@lists.infradead.org; Wed, 22 Jul 2020 19:52:44 +0000
-Received: by mail-pg1-x544.google.com with SMTP id e8so1840483pgc.5
- for <linux-riscv@lists.infradead.org>; Wed, 22 Jul 2020 12:52:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=1cGKIJpjawJti4g8SzXEonfEdlP5yq0CvN8z5K3Dldw=;
- b=Yoy1F4D5SdX59+ds7mcQz5JHUDBl4fr7U9s03rPcO/LhScRFnIG9oYi04943Pyg2ap
- QO8rRLplFMiQLcJhq6abEof80+wc3Cq6YgtwLMpVrrfBBOLBgDW9EtB8SRwK7b5TouNo
- FG7RpEdSt3aWO6VpWh5zPY+WHf6SYyc+NMhPEgpsdu+1hdfzb5rqGk7Mk2vGBCpiLMfk
- M2WMXdpC7+mWmSRDiq6A2yI2qfWzI9/2a5PLaIDTVfkIW+UfI26AMELRrElSVaArF2AH
- f+NZ0cHy9P0lcCkdQ8Agh4YYefdHQyxAnmIhKl992R0eGV3Njth6PWUOMpPlFy1YKm3v
- Muug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=1cGKIJpjawJti4g8SzXEonfEdlP5yq0CvN8z5K3Dldw=;
- b=F8xxiTeiNEGBEBWpyHzkDuh9Kh3tCn7iZtNxhBiGPEe1onOVvh4RR30/K9nerDZYGb
- SG2lwgcmnOW6P0Z37Smsob/WpiHxMsxtuy7zW4haEqKrI+Zi+bNIws9IxAkneE3voIM6
- vqJ31tn2LghTsfDK8bYfksZImT3MQ4poUWvTwWt2A/kFxTnGSpCjQ9TnOpNUMuYfs34G
- iSnzSvHStRvF5x2YsJZWCURVgcpNzBOc2rhisCuOxGZumtr/TL+CSgFeLySGpaxCBfG0
- oKyFpsb5R76Di1x/Crnz6Uxm2advtdMOEDmqX/iCl8P32sbJeSyvKpCzLphDjbY13pB8
- Z45A==
-X-Gm-Message-State: AOAM531UZlx2ATybrCS+J+2X+VyZgBgUB42HimzKnqdJmzSH/0kFidxC
- cqCw+GpfNNcyORR9EC7v3zemuw==
-X-Google-Smtp-Source: ABdhPJzfnsEJ9u3sgDkfEADIkHOoeK603qojzxPEwBQeACIUHuB6n2njWNz3cI4X1mmHVknKJAO4xQ==
-X-Received: by 2002:a63:8c4f:: with SMTP id q15mr1206804pgn.373.1595447560352; 
- Wed, 22 Jul 2020 12:52:40 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id q13sm443560pfk.8.2020.07.22.12.52.38
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 22 Jul 2020 12:52:39 -0700 (PDT)
-Date: Wed, 22 Jul 2020 12:52:39 -0700 (PDT)
-X-Google-Original-Date: Wed, 22 Jul 2020 12:52:36 PDT (-0700)
+ id 1jyLGL-0006e7-AJ
+ for linux-riscv@lists.infradead.org; Wed, 22 Jul 2020 20:22:50 +0000
+Received: from mail-qt1-f171.google.com ([209.85.160.171]) by
+ mrelayeu.kundenserver.de (mreue107 [212.227.15.145]) with ESMTPSA (Nemesis)
+ id 1N64JK-1krGIu0y8O-016O2B for <linux-riscv@lists.infradead.org>; Wed, 22
+ Jul 2020 22:22:44 +0200
+Received: by mail-qt1-f171.google.com with SMTP id e7so2857590qti.1
+ for <linux-riscv@lists.infradead.org>; Wed, 22 Jul 2020 13:22:42 -0700 (PDT)
+X-Gm-Message-State: AOAM5316/d9WX787/M+Mk3MEO7+n5bSfDld7WMTs450KVIB2lNvKZNvC
+ 9cGCEQcs4EMxmzdGtOrm+OLWBNNU2jF99HTssXQ=
+X-Google-Smtp-Source: ABdhPJzomOuvyv87HLrmnRqLMg+xagc+vFRLOHIlCjUhIO6Ps1D+MblDa1Ac6NHH61/GfVpqpoR58oXKvv+qOpTZNZk=
+X-Received: by 2002:ac8:6743:: with SMTP id n3mr1132159qtp.7.1595449361849;
+ Wed, 22 Jul 2020 13:22:41 -0700 (PDT)
+MIME-Version: 1.0
+References: <CAK8P3a34sT2bQbkZUjaxaShzCkn+s35pXxS0UNhqGFu+t2hZYw@mail.gmail.com>
+ <mhng-820ebe55-b4a3-4ab3-b848-6d3551b43091@palmerdabbelt-glaptop1>
+In-Reply-To: <mhng-820ebe55-b4a3-4ab3-b848-6d3551b43091@palmerdabbelt-glaptop1>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Wed, 22 Jul 2020 22:22:25 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a2VHXDLK6iba=NxSQ-t=9P7LSwzwx3XrK=N=M+qoX_oeQ@mail.gmail.com>
+Message-ID: <CAK8P3a2VHXDLK6iba=NxSQ-t=9P7LSwzwx3XrK=N=M+qoX_oeQ@mail.gmail.com>
 Subject: Re: [PATCH v5 1/4] riscv: Move kernel mapping to vmalloc zone
-In-Reply-To: <CAK8P3a34sT2bQbkZUjaxaShzCkn+s35pXxS0UNhqGFu+t2hZYw@mail.gmail.com>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Message-ID: <mhng-820ebe55-b4a3-4ab3-b848-6d3551b43091@palmerdabbelt-glaptop1>
-Mime-Version: 1.0 (MHng)
+To: Palmer Dabbelt <palmer@dabbelt.com>
+X-Provags-ID: V03:K1:J8ck2IcelAMzGc53QPdXUblwo//9C65t+/ud5oyCvtjfg/JA3Dv
+ OZwmYNVHGMAHDEYnnD1g238AV+O01f08cQk4ZP3kMlQAJOAcyHSdO+rAwp2Xsw+geDjINdI
+ a5mDLdsSVNurlqmURYZoB6ha0N0+ZtqJiU/YzCIEZrKRmAFYAR0RDRi1JZIINByvcWHauAf
+ 0xFpnjL1XZf0SDjDNc7qg==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:dBmn0ZZNjdY=:BcSKhULG0M4xE8aaAR1tn2
+ VNKZQtxMm/ELcF8HecKBkw58W7Q+uQbx3X0ynJ6a2Fe47VzzVmQxyWg8509nNkJAH1iFuRK0R
+ ZPtzJvGxuRivn/iQAsgVX1WSwHPEAr9XhWtpLlMMsT/G66UvBSvKQ0M8Inr0OQDenEyWw49XP
+ A1tTZmAjhDDD5bP/Nvib5qATauzt03TFfYn3DhAV6L+6Q0Z+37hTEJeLDmjSnO+n+CXIBm5P9
+ 4ZkcQgWffQ0U3D5WeXyQsqc4pq1M3nVoknz5zBYjPkAyqzF08WLInS4t7TFaba11xqnnxyrpq
+ fjJAzRGMScDpLUNwsNXnvRZZ6Cd/MeMWvwabsntMUMGyp7T8Eryv5bPkPWCFdoifT5qZzxKed
+ SYmidNcxvp6Q0QblzuPTZIVC71QE6Bgx+hFizeGJ766LtZrt+9pxTk/OC4zRKLsQpGqPiI7xL
+ noUALyjzwajpWetd3/8GY2xQ5MXB3J6iWEq8rmgwDe+EGcl21vVOCUyFiPrJ4SFaJwOkbR4cx
+ W/5Fwqg3IznN4LV23ENrKm1ANVmzvlfiOzyNecoirEiY41hL58N4ybTgCErXQ5Yw7gpIxrq8V
+ TMJYorCTaM25Vp7F+hihlycDCkqtI74xV0WheV2BKHpOhy2O2EziTCYC9M/DExxcZ35tgtFUQ
+ mLVJjPC8b5mlacx6900tNug2JBTF4gkiaveHiVR0EjYU6AV+c+8El6ed/Jn2O1xSGI0Fu2Cuc
+ LlADnpW6EgeoFMZP3YoRcz6IFTAqd1WUjdKT+0eW9xHoqUnGdDEWDzkdfBvVJqV3bdUhLvp7n
+ 769QEgZAfkz2BskpGFgDc1d5kVqsNaK91os56Fb9iSc7librA+o/KTp8q2mHJJHar65iH19x7
+ vlPlRnGYdRxPGrUA6/Ssj28jYLy+RiaLf9IL3wxwlPYcdCZM9wYpu6qHtPpfukr/10WqP4tSP
+ V2SZ+sWiDraeW7H1dpx2X5gwZubz3WJKprgcwKswbjdhC8A3X+9yz
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200722_155242_972449_E5BB6C7F 
-X-CRM114-Status: GOOD (  33.06  )
+X-CRM114-CacheID: sfid-20200722_162249_560255_DDCCC0F5 
+X-CRM114-Status: GOOD (  15.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -94,75 +91,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, alex@ghiti.fr, Atish Patra <Atish.Patra@wdc.com>,
- benh@kernel.crashing.org, Anup Patel <Anup.Patel@wdc.com>,
- linux-kernel@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-mm@kvack.org, paulus@samba.org, zong.li@sifive.com, mpe@ellerman.id.au,
- linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Atish Patra <Atish.Patra@wdc.com>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Anup Patel <Anup.Patel@wdc.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Linux-MM <linux-mm@kvack.org>,
+ Paul Mackerras <paulus@samba.org>, Zong Li <zong.li@sifive.com>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 22 Jul 2020 02:43:50 PDT (-0700), Arnd Bergmann wrote:
-> On Tue, Jul 21, 2020 at 9:06 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
->>
->> On Tue, 21 Jul 2020 11:36:10 PDT (-0700), alex@ghiti.fr wrote:
->> > Let's try to make progress here: I add linux-mm in CC to get feedback on
->> > this patch as it blocks sv48 support too.
->>
->> Sorry for being slow here.  I haven't replied because I hadn't really fleshed
->> out the design yet, but just so everyone's on the same page my problems with
->> this are:
->>
->> * We waste vmalloc space on 32-bit systems, where there isn't a lot of it.
+On Wed, Jul 22, 2020 at 9:52 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+> On Wed, 22 Jul 2020 02:43:50 PDT (-0700), Arnd Bergmann wrote:
+> > On Tue, Jul 21, 2020 at 9:06 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+> > The eventual goal is to have a split of 3840MB for either user or linear map
+> > plus and 256MB for vmalloc, including the kernel. Switching between linear
+> > and user has a noticeable runtime overhead, but it relaxes both the limits
+> > for user memory and lowmem, and it provides a somewhat stronger
+> > address space isolation.
 >
-> There is actually an ongoing work to make 32-bit Arm kernels move
-> vmlinux into the vmalloc space, as part of the move to avoid highmem.
->
-> Overall, a 32-bit system would waste about 0.1% of its virtual address space
-> by having the kernel be located in both the linear map and the vmalloc area.
-> It's not zero, but not that bad either. With the typical split of 3072 MB user,
-> 768MB linear and 256MB vmalloc, it's also around 1.5% of the available
-> vmalloc area (assuming a 4MB vmlinux in a typical 32-bit kernel), but the
-> boundaries can be changed arbitrarily if needed.
+> Ya, I think we decided not to do that, at least for now.  I guess the right
+> answer there will depend on what 32-bit systems look like, and since we don't
+> have any I'm inclined to just stick to the fast option.
 
-OK, I guess maybe it's not so bad.  Our 32-bit defconfig is 10MiB, but I
-wouldn't really put much weight behind that number as it's just a 64-bit
-defconfig built for 32-bit.  We don't have any 32-bit hardware anyway, so if
-this becomes an issue later I guess we can just deal with it then.
+Makes sense. Actually on 32-bit Arm we see fewer large-memory
+configurations in new machines than we had in the past before 64-bit
+machines were widely available at low cost, so I expect not to see a
+lot new hardware with more than 1GB of DDR3 (two 256Mbit x16 chips)
+for cost reasons, and rv32 is likely going to be similar, so you may never
+really see a need for highmem or the above hack to increase the
+size of the linear mapping.
 
-> The eventual goal is to have a split of 3840MB for either user or linear map
-> plus and 256MB for vmalloc, including the kernel. Switching between linear
-> and user has a noticeable runtime overhead, but it relaxes both the limits
-> for user memory and lowmem, and it provides a somewhat stronger
-> address space isolation.
+I just noticed that rv32 allows 2GB of lowmem rather than just the usual
+768MB or 1GB, at the expense of addressable user memory. This seems
+like an unusual choice, but I also don't see any reason to change this
+or make it more flexible unless actual users appear.
 
-Ya, I think we decided not to do that, at least for now.  I guess the right
-answer there will depend on what 32-bit systems look like, and since we don't
-have any I'm inclined to just stick to the fast option.
-
-> Another potential idea would be to completely randomize the physical
-> addresses underneath the kernel by using a random permutation of the
-> pages in the kernel image. This adds even more overhead (virt_to_phys
-> may need to call vmalloc_to_page or similar) and may cause problems
-> with DMA into kernel .data across page boundaries,
->
->> * Sort out how to maintain a linear map as the canonical hole moves around
->>   between the VA widths without adding a bunch of overhead to the virt2phys and
->>   friends.  This is probably going to be the trickiest part, but I think if we
->>   just change the page table code to essentially lie about VAs when an sv39
->>   system runs an sv48+sv39 kernel we could make it work -- there'd be some
->>   logical complexity involved, but it would remain fast.
->
-> I assume you can't use the trick that x86 has where all kernel addresses
-> are at the top of the 64-bit address space and user addresses are at the
-> bottom, regardless of the size of the page tables?
-
-They have the load in their mapping functions, as far as I can tell that's
-required to do this sort of thing.  We do as well to handle some of the
-implicit boot stuff for now, but I was assuming that we'd want to get rid of
-that for performance reasons.  That said, maybe it just doesn't matter?  
+       Arnd
 
 _______________________________________________
 linux-riscv mailing list
