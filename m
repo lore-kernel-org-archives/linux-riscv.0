@@ -2,88 +2,78 @@ Return-Path: <SRS0=J8tV=BB=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
+X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 43CFBC433E3
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2020 05:46:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0648DC433E3
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2020 08:40:23 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0EE1320792
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2020 05:46:57 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C66DE205CB
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2020 08:40:22 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="k4NJcUoo";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="fCuEEXu+"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0EE1320792
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="d9VFbGgJ";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="XMHZYDe+"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C66DE205CB
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=w8pvyIvhF9Ti3fkSrlMxQVg97fE7tVYiZDwpsmV3k7E=; b=k4NJcUoo/rjKagTyGEi7BHBnf
-	m1GQ1PYwihLsh7ApxeYPjNxRGHPACxqHLjx5IoqO9WFkKQkY91aS+t9KtRXvbOmBAA2NEBw7jqmtV
-	SzfiJN558Ta8QkYUWVb+/8r6J2aebxY6cVd0QGnZ6INKPVZzLBRzeIo1SmtmwoU+acJ+oEW4TNCO+
-	DnfTOiV/11wer0O7NYF4Dd3k28+qV1XDRLovnmlzmokVkSJOc+Xz6W5RcPbhch9meqPDGBC/fl1e6
-	KDTqOIuGC7K11kcZmIeN6idAgnax7dT4o8XNMHB3vU6X97QZ8yIF1mSLV4mm62PxWd2jltiD2hyGV
-	TSetDu+jQ==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=I8I9tX04br56XoJx8PMEmPeNhLJz81drlOadI3jRuRA=; b=d9VFbGgJHtr58ifuAal1smdOK
+	9xR8YfqEv7ynFsSpNfoqQpas9GnAg36WKnK59Oh0LgzzmfYZoygLc9UlD71Z4/WZgMZsKJ3BbuQyj
+	jJxEbTnmy0nfixpAtH3rm7SWQVpedjrmLysdIGpmNUpvZCOCkN9u+fu3J/U6oeFQzFZn9FC8gzz0b
+	xfSr3E7OI6zjlKlH5oyVeAnsZV7lXUUeL2sc+NrariafRMWfqHdfNRs9HyDZpFGaF/r6+mHZJ/O23
+	G4TBAslQTIWqr71P4amBc09wyhUbXluk7kFbUsCQeNKoY6RiR96t0spF0L5PoEe8nOnTtT8sXCtWr
+	KQaWMAbqg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jy7aY-00060u-7b; Wed, 22 Jul 2020 05:46:46 +0000
-Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
+	id 1jyAIN-0003de-TO; Wed, 22 Jul 2020 08:40:11 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jy7aV-0005zu-3L
- for linux-riscv@lists.infradead.org; Wed, 22 Jul 2020 05:46:44 +0000
-Received: by mail-pf1-x443.google.com with SMTP id 1so587339pfn.9
- for <linux-riscv@lists.infradead.org>; Tue, 21 Jul 2020 22:46:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=c3WKCCywdgvLGCz57S7am54sr0h7w7V/JrEMUHUMU/o=;
- b=fCuEEXu++BATZZEgu63jyhgE+Y1XNFfh/hfRTuYGDp7tRoc6LbkGOtZmRlJEX0Q4mc
- 58Wx5DrHLgqWGA15ODfmp4BD+A6kqkaXmwBVAcQy7tZT4nC6LrgGJ3lzv06Ej9jur88k
- XGQBpKOytzyljGp9JTo/2ytrZBP2jJniHbB1MwjDRZhque2NwdZ0aWGsgryRqU+3DE9U
- m+vgwzNJSvheMii7MxNhJxPUYaZbP4XIj428wVkVonkWkFnWlNi3Hd/UlX/sByadTgHP
- sXR0VV6uQ74NOk6fTFxzR7f22jvf+xzhKswTeZHjL411qPbZeON+M2WgzsdrCjh868sb
- i6BA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=c3WKCCywdgvLGCz57S7am54sr0h7w7V/JrEMUHUMU/o=;
- b=fp9oMa/FCP1DDV8w9/jaeusKox2tQ9nja6eCEJP7QFrbEqraUP+NKXW3H69X4rjKsv
- GK0QyXHgd/jTICoKO7CAfRJeRfd5Mcrxo6SLR2s4Xzxc+TFTWOR7qO5Nld1hr34FAOaV
- iQpXYj98ay/2FOyg2YYihx9bD6550gmg2bQ8RAgH7rMPGZ/Quw/9/uxgiN1gycswJCPm
- gPAev68V1MdXuzy+UGBW1W1JjlKiQkMC6xxDX19rVvpOqmVyI75/BF2DtRzZSYFeiyrU
- YzsiMqm/zWgEdElfUMtIc4GpDo/sqYvdG5/UH2cDFIB6KUXKn9hW4TfcNjvpa2/Yoffk
- 2LXw==
-X-Gm-Message-State: AOAM530vRIIMrGCurs3XSvR0mdQFHVlEH/02q6nPQrdm4nykXXH7A/AO
- jLY2/bZWS0Eno68Li7eX+gHXgg==
-X-Google-Smtp-Source: ABdhPJwR06FNegYVsAU8o74hwv373Yq9KlDunC4jItd8mIVMPn3zgJSHBlM3MLtzBDjvCEtSQnV5Fg==
-X-Received: by 2002:a62:7505:: with SMTP id q5mr25490271pfc.262.1595396799507; 
- Tue, 21 Jul 2020 22:46:39 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id r16sm22153983pfh.64.2020.07.21.22.46.38
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 21 Jul 2020 22:46:38 -0700 (PDT)
-Date: Tue, 21 Jul 2020 22:46:38 -0700 (PDT)
-X-Google-Original-Date: Tue, 21 Jul 2020 22:46:37 PDT (-0700)
-Subject: Re: [PATCH v5 1/4] riscv: Move kernel mapping to vmalloc zone
-In-Reply-To: <87sgdkqhjx.fsf@mpe.ellerman.id.au>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: mpe@ellerman.id.au
-Message-ID: <mhng-378c6e4e-9eba-4bfd-89d6-b4d2549ff3a1@palmerdabbelt-glaptop1>
-Mime-Version: 1.0 (MHng)
+ id 1jyAIK-0003cs-QP
+ for linux-riscv@lists.infradead.org; Wed, 22 Jul 2020 08:40:09 +0000
+Received: from mail-lf1-f43.google.com (mail-lf1-f43.google.com
+ [209.85.167.43])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 386D122B51
+ for <linux-riscv@lists.infradead.org>; Wed, 22 Jul 2020 08:40:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1595407207;
+ bh=VE9TEy4TaBrXAUOfVps22D3GyNc1Lgjd/KIVOsr7iRE=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=XMHZYDe+HsqdgolM4FM11vgpgBo8oGNFi12pM1TVZ6sjBUvaLd9cUwKAOd7RYyuxP
+ MBUaWckX7gAQthcfoY7rZOdxuysoT0ZKMswKBL6X/iA+JS2AIm7g7d3FOVHpmAxFXO
+ MnPJx7OxZLdvV0r/ix+jzajqQAJpF+NAUyrRVZNQ=
+Received: by mail-lf1-f43.google.com with SMTP id m15so192515lfp.7
+ for <linux-riscv@lists.infradead.org>; Wed, 22 Jul 2020 01:40:07 -0700 (PDT)
+X-Gm-Message-State: AOAM530/lQh94r/COVTLf7qxNaN5+GNUROMseMSxSkVicWTloKCz+xR1
+ kpv5m/2OA8S6vaO/8eOYSVR92KlcqjFYQwESXLM=
+X-Google-Smtp-Source: ABdhPJxM9I8nLASjXFg39htK/rhr5fByxOJVsWiQcQfWB4zl8ffRhBZFGXHlg/WB63xIk+kZZJguVKSDf1KZ39lRh64=
+X-Received: by 2002:ac2:5935:: with SMTP id v21mr15443904lfi.135.1595407205384; 
+ Wed, 22 Jul 2020 01:40:05 -0700 (PDT)
+MIME-Version: 1.0
+References: <1594683562-68149-1-git-send-email-guoren@kernel.org>
+ <1594683562-68149-7-git-send-email-guoren@kernel.org>
+ <20200714203757.512ce7fb5fa61a88b1dbb2f3@kernel.org>
+ <CAJF2gTSMUnHfv3GLj_TGT2dJkKq2zbEsnbPKREiq5i6PPjyTBg@mail.gmail.com>
+ <20200721222701.3074315f6a9f6c42c5963f40@kernel.org>
+In-Reply-To: <20200721222701.3074315f6a9f6c42c5963f40@kernel.org>
+From: Guo Ren <guoren@kernel.org>
+Date: Wed, 22 Jul 2020 16:39:53 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTTM6fsK5A9CKFkEhCC3hdsM8bCfBh613ohvM50fTLc5cw@mail.gmail.com>
+Message-ID: <CAJF2gTTM6fsK5A9CKFkEhCC3hdsM8bCfBh613ohvM50fTLc5cw@mail.gmail.com>
+Subject: Re: [PATCH v3 6/7] riscv: Add KPROBES_ON_FTRACE supported
+To: Masami Hiramatsu <mhiramat@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200722_014643_236985_E3A17835 
-X-CRM114-Status: GOOD (  18.03  )
+X-CRM114-CacheID: sfid-20200722_044008_992369_7C73A617 
+X-CRM114-Status: GOOD (  19.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -95,73 +85,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, alex@ghiti.fr, linux-mm@kvack.org,
- benh@kernel.crashing.org, Anup Patel <Anup.Patel@wdc.com>,
- linux-kernel@vger.kernel.org, Atish Patra <Atish.Patra@wdc.com>,
- paulus@samba.org, zong.li@sifive.com, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Cc: =?UTF-8?Q?Patrick_St=C3=A4hlin?= <me@packi.ch>,
+ Guo Ren <guoren@linux.alibaba.com>, Anup Patel <anup@brainfault.org>,
+ Palmer Dabbelt <palmerdabbelt@google.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-csky@vger.kernel.org, Oleg Nesterov <oleg@redhat.com>,
+ Pekka Enberg <penberg@kernel.org>, Zong Li <zong.li@sifive.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Greentime Hu <greentime.hu@sifive.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 21 Jul 2020 21:50:42 PDT (-0700), mpe@ellerman.id.au wrote:
-> Benjamin Herrenschmidt <benh@kernel.crashing.org> writes:
->> On Tue, 2020-07-21 at 16:48 -0700, Palmer Dabbelt wrote:
->>> > Why ? Branch distance limits ? You can't use trampolines ?
->>>
->>> Nothing fundamental, it's just that we don't have a large code model in the C
->>> compiler.  As a result all the global symbols are resolved as 32-bit
->>> PC-relative accesses.  We could fix this with a fast large code model, but then
->>> the kernel would need to relax global symbol references in modules and we don't
->>> even do that for the simple code models we have now.  FWIW, some of the
->>> proposed large code models are essentially just split-PLT/GOT and therefor
->>> don't require relaxation, but at that point we're essentially PIC until we
->>> have more that 2GiB of kernel text -- and even then, we keep all the
->>> performance issues.
->>
->> My memory might be out of date but I *think* we do it on powerpc
->> without going to a large code model, but just having the in-kernel
->> linker insert trampolines.
->
-> We build modules with the large code model, and always have AFAIK:
->
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/powerpc/Makefile?commit=4fa640dc52302b5e62b01b05c755b055549633ae#n129
->
->   # -mcmodel=medium breaks modules because it uses 32bit offsets from
->   # the TOC pointer to create pointers where possible. Pointers into the
->   # percpu data area are created by this method.
->   #
->   # The kernel module loader relocates the percpu data section from the
->   # original location (starting with 0xd...) to somewhere in the base
->   # kernel percpu data space (starting with 0xc...). We need a full
->   # 64bit relocation for this to work, hence -mcmodel=large.
->   KBUILD_CFLAGS_MODULE += -mcmodel=large
-
-Well, a fast large code model would solve a lot of problems :).  Unfortunately
-we just don't have enough people working on this stuff to do that.  It's a
-somewhat tricky thing to do on RISC-V as there aren't any quick sequences for
-long addresses, but I don't think we're that much worse off than everyone else.
-At some point I had a bunch of designs written up, but they probably went along
-with my SiFive computer.  I think we ended up decided that the best bet would
-be to distribute constant tables throughout the text such that they're
-accessible via the 32-bit PC-relative loads at any point -- essentially the
-multi-GOT stuff that MIPS used for big objects.  Doing that well is a lot of
-work and doing it poorly is just as slow as PIC, so we never got around to it.
-
-> We also insert trampolines for branches, but IIUC that's a separate
-> issue.
-
-"PowerPC branch trampolines" points me here
-https://sourceware.org/binutils/docs-2.20/ld/PowerPC-ELF32.html .  That sounds
-like what we're doing already in the medium code models: we have short and
-medium control transfer sequences, linker relaxation optimizes them when
-possible.  Since we rely on linker relaxation pretty heavily we just don't
-bother with the smaller code model: it'd be a 12-bit address space for data and
-a 21-bit address space for text (with 13-bit maximum function size).  Instead
-of building out such a small code model we just spent time improving the linker.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgTWFzYW1pLAoKT24gVHVlLCBKdWwgMjEsIDIwMjAgYXQgOToyNyBQTSBNYXNhbWkgSGlyYW1h
+dHN1IDxtaGlyYW1hdEBrZXJuZWwub3JnPiB3cm90ZToKPgo+IE9uIFdlZCwgMTUgSnVsIDIwMjAg
+MDA6MjQ6NTQgKzA4MDAKPiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4gd3JvdGU6Cj4KPiA+
+IFRoeCBNYXNhbWksCj4gPgo+ID4gT24gVHVlLCBKdWwgMTQsIDIwMjAgYXQgNzozOCBQTSBNYXNh
+bWkgSGlyYW1hdHN1IDxtaGlyYW1hdEBrZXJuZWwub3JnPiB3cm90ZToKPiA+ID4KPiA+ID4gT24g
+TW9uLCAxMyBKdWwgMjAyMCAyMzozOToyMSArMDAwMAo+ID4gPiBndW9yZW5Aa2VybmVsLm9yZyB3
+cm90ZToKPiA+ID4KPiA+ID4gPiBGcm9tOiBHdW8gUmVuIDxndW9yZW5AbGludXguYWxpYmFiYS5j
+b20+Cj4gPiA+ID4KPiA+ID4gPiBUaGlzIHBhdGNoIGFkZHMgc3VwcG9ydCBmb3Iga3Byb2JlcyBv
+biBmdHJhY2UgY2FsbCBzaXRlcyB0byBhdm9pZHMKPiA+ID4gPiBtdWNoIG9mIHRoZSBvdmVyaGVh
+ZCB3aXRoIHJlZ3VsYXIga3Byb2Jlcy4gVHJ5IGl0IHdpdGggc2ltcGxlCj4gPiA+ID4gc3RlcHM6
+Cj4gPiA+ID4KPiA+ID4gPiAxLiBHZXQgX2RvX2ZvcmsgZnRyYWNlIGNhbGwgc2l0ZS4KPiA+ID4g
+PiBEdW1wIG9mIGFzc2VtYmxlciBjb2RlIGZvciBmdW5jdGlvbiBfZG9fZm9yazoKPiA+ID4gPiAg
+ICAweGZmZmZmZmUwMDAyMGFmNjQgPCswPjogICAgIGFkZGkgICAgc3Asc3AsLTEyOAo+ID4gPiA+
+ICAgIDB4ZmZmZmZmZTAwMDIwYWY2NiA8KzI+OiAgICAgc2QgICAgICBzMCwxMTIoc3ApCj4gPiA+
+ID4gICAgMHhmZmZmZmZlMDAwMjBhZjY4IDwrND46ICAgICBzZCAgICAgIHJhLDEyMChzcCkKPiA+
+ID4gPiAgICAweGZmZmZmZmUwMDAyMGFmNmEgPCs2PjogICAgIGFkZGkgICAgczAsc3AsMTI4Cj4g
+PiA+ID4gICAgMHhmZmZmZmZlMDAwMjBhZjZjIDwrOD46ICAgICBzZCAgICAgIHMxLDEwNChzcCkK
+PiA+ID4gPiAgICAweGZmZmZmZmUwMDAyMGFmNmUgPCsxMD46ICAgIHNkICAgICAgczIsOTYoc3Ap
+Cj4gPiA+ID4gICAgMHhmZmZmZmZlMDAwMjBhZjcwIDwrMTI+OiAgICBzZCAgICAgIHMzLDg4KHNw
+KQo+ID4gPiA+ICAgIDB4ZmZmZmZmZTAwMDIwYWY3MiA8KzE0PjogICAgc2QgICAgICBzNCw4MChz
+cCkKPiA+ID4gPiAgICAweGZmZmZmZmUwMDAyMGFmNzQgPCsxNj46ICAgIHNkICAgICAgczUsNzIo
+c3ApCj4gPiA+ID4gICAgMHhmZmZmZmZlMDAwMjBhZjc2IDwrMTg+OiAgICBzZCAgICAgIHM2LDY0
+KHNwKQo+ID4gPiA+ICAgIDB4ZmZmZmZmZTAwMDIwYWY3OCA8KzIwPjogICAgc2QgICAgICBzNyw1
+NihzcCkKPiA+ID4gPiAgICAweGZmZmZmZmUwMDAyMGFmN2EgPCsyMj46ICAgIG12ICAgICAgczQs
+YTAKPiA+ID4gPiAgICAweGZmZmZmZmUwMDAyMGFmN2MgPCsyND46ICAgIG12ICAgICAgYTAscmEK
+PiA+ID4gPiAgICAweGZmZmZmZmUwMDAyMGFmN2UgPCsyNj46ICAgIG5vcCAgIDw8PDw8PDw8IGhl
+cmUhCj4gPiA+ID4gICAgMHhmZmZmZmZlMDAwMjBhZjgyIDwrMzA+OiAgICBub3AKPiA+ID4gPiAg
+ICAweGZmZmZmZmUwMDAyMGFmODYgPCszND46ICAgIGxkICAgICAgczMsMChzNCkKPiA+ID4gPgo+
+ID4gPiA+IDIuIFNldCBfZG9fZm9yaysyNiBhcyB0aGUga3Byb2JlLgo+ID4gPiA+ICAgZWNobyAn
+cDpteXByb2JlIF9kb19mb3JrKzI2IGRmZD0lYTAgZmlsZW5hbWU9JWExIGZsYWdzPSVhMiBtb2Rl
+PSs0KCRzdGFjayknID4gL3N5cy9rZXJuZWwvZGVidWcvdHJhY2luZy9rcHJvYmVfZXZlbnRzCj4g
+PiA+ID4gICBlY2hvIDEgPiAvc3lzL2tlcm5lbC9kZWJ1Zy90cmFjaW5nL2V2ZW50cy9rcHJvYmVz
+L2VuYWJsZQo+ID4gPiA+ICAgY2F0IC9zeXMva2VybmVsL2RlYnVnL3RyYWNpbmcvdHJhY2UKPiA+
+ID4gPiAgIHRyYWNlcjogbm9wCj4gPiA+ID4KPiA+ID4gPiAgIGVudHJpZXMtaW4tYnVmZmVyL2Vu
+dHJpZXMtd3JpdHRlbjogMy8zICAgI1A6MQo+ID4gPiA+Cj4gPiA+ID4gICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIF8tLS0tLT0+IGlycXMtb2ZmCj4gPiA+ID4gICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgLyBfLS0tLT0+IG5lZWQtcmVzY2hlZAo+ID4gPiA+ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgfCAvIF8tLS09PiBoYXJkaXJxL3NvZnRpcnEKPiA+ID4gPiAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIHx8IC8gXy0tPT4gcHJlZW1wdC1kZXB0aAo+ID4gPiA+
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfHx8IC8gICAgIGRlbGF5Cj4gPiA+ID4gICAg
+ICAgICAgICAgVEFTSy1QSUQgICBDUFUjICB8fHx8ICAgIFRJTUVTVEFNUCAgRlVOQ1RJT04KPiA+
+ID4gPiAgICAgICAgICAgICAgICB8IHwgICAgICAgfCAgIHx8fHwgICAgICAgfCAgICAgICAgIHwK
+PiA+ID4gPiAgICAgICAgICAgICAgIHNoLTg3ICAgIFswMDBdIC4uLi4gICA1NTEuNTU3MDMxOiBt
+eXByb2JlOiAoX2RvX2ZvcmsrMHgxYS8weDJlNikgZGZkPTB4ZmZmZmZmZTAwMDIwYWY3ZSBmaWxl
+bmFtZT0weGZmZmZmZmUwMDAyMGIzNGUgZmxhZ3M9MHhmZmZmZmZlMDAxMDFlN2MwIG1vZGU9MHgy
+MGFmODZmZmZmZmZlMAo+ID4gPiA+Cj4gPiA+ID4gICBjYXQgL3N5cy9rZXJuZWwvZGVidWcva3By
+b2Jlcy9saXN0Cj4gPiA+ID4gZmZmZmZmZTAwMDIwYWY3ZSAgayAgX2RvX2ZvcmsrMHgxYSAgICBb
+RlRSQUNFXQo+ID4gPiA+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF5e
+Xl5eXgo+ID4gPgo+ID4gPiBIbW0sIHRoaXMgc2VlbXMgZmVudHJ5IGlzIG5vdCBzdXBwb3J0ZWQg
+b24gUklTQy1WIHlldC4gQnV0IGFueXdheSwKPiA+ID4gaXQgd2lsbCBiZSB1c2VmdWwgZm9yIHVz
+ZXJzIChpZiB0aGV5IGNhbiBmaW5kIHRoZSBvZmZzZXQpLgo+ID4KPiA+IFNlZW1zIG9ubHkgeDg2
+ICYg4qyG77iPOTAgdXNlIGZlbnRyee+8jGNhbiB5b3UgZWxhYm9yYXRlIG1vcmUgYWJvdXQgZmVu
+dHJ5J3MKPiA+IGJlbmVmaXQgYW5kIGhvdyB0aGUgdXNlciBjb3VsZCBzZXQga3Byb2JlIG9uIGZ0
+cmFjZSBjYWxsIHNpdGUgd2l0aG91dAo+ID4gZGlzYXNzZW1ibGU/Cj4KPiBPbiB4ODYsIHRoZSBm
+ZW50cnkgcmVwbGFjZXMgdGhlIG1jb3VudCB3aXRoIGp1c3Qgb25lIGNhbGwgaW5zdHJ1Y3Rpb24s
+IHdpdGhvdXQKPiBzYXZpbmcgYW55IGFyZ3VtZW50cy4gVGhpcyBtZWFucyBhbGwgcHJvYmVzIHdo
+aWNoIGFyZSBwdXRzIG9uIHRoZSBhZGRyZXNzIG9mCj4gdGFyZ2V0IHN5bWJvbCwgYXJlIGF1dG9t
+YXRpY2FsbHkgdXNpbmcgZnRyYWNlLiBJT1csIGFsbCBwcm9iZXMgb24gX2RvX2ZvcmsrMAo+IHdp
+bGwgdXNlIGZ0cmFjZS4gV2UgZG9uJ3QgbmVlZCBhbnkgZGlzYXNzZW1ibGluZy4KPgo+IEkgdGhp
+bmsgaWYgUklTQy1WIGFscmVhZHkgc3VwcG9ydCAiLWZwYXRjaGFibGUtZnVuY3Rpb24tZW50cnk9
+MiIgb3B0aW9uIG9uCj4gR0NDLCB5b3UgY2FuIGVhc2lseSBlbmFibGUgaXQgYXMgc2FtZSBhcyBh
+cm02NC4gU2VlIGh0dHBzOi8vbGttbC5vcmcvbGttbC8yMDE5LzYvMTgvNjQ4CnRoZSBsaW5rIGlz
+OgpbUEFUQ0ggMC83XSBwb3dlcnBjL2Z0cmFjZTogUGF0Y2ggb3V0IC1tcHJvZmlsZS1rZXJuZWwg
+aW5zdHJ1Y3Rpb25zCgpJcyB0aGF0IHJpZ2h0PwoKLS0gCkJlc3QgUmVnYXJkcwogR3VvIFJlbgoK
+TUw6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LWNza3kvCgpfX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
+bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
+Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
