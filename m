@@ -3,21 +3,20 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
 X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=3.4.0
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0648DC433E3
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2020 08:40:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 895E6C433E0
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2020 09:44:29 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C66DE205CB
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2020 08:40:22 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 50F4A20714
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jul 2020 09:44:29 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="d9VFbGgJ";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="XMHZYDe+"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C66DE205CB
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="UUPS9CGa"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 50F4A20714
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arndb.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -25,55 +24,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=I8I9tX04br56XoJx8PMEmPeNhLJz81drlOadI3jRuRA=; b=d9VFbGgJHtr58ifuAal1smdOK
-	9xR8YfqEv7ynFsSpNfoqQpas9GnAg36WKnK59Oh0LgzzmfYZoygLc9UlD71Z4/WZgMZsKJ3BbuQyj
-	jJxEbTnmy0nfixpAtH3rm7SWQVpedjrmLysdIGpmNUpvZCOCkN9u+fu3J/U6oeFQzFZn9FC8gzz0b
-	xfSr3E7OI6zjlKlH5oyVeAnsZV7lXUUeL2sc+NrariafRMWfqHdfNRs9HyDZpFGaF/r6+mHZJ/O23
-	G4TBAslQTIWqr71P4amBc09wyhUbXluk7kFbUsCQeNKoY6RiR96t0spF0L5PoEe8nOnTtT8sXCtWr
-	KQaWMAbqg==;
+	 bh=DsGu+H6wKYTNH4k1i+OVORnk6TozICHb6JtlWIJa4N0=; b=UUPS9CGakquJAOHImCGICo3ly
+	OEGVOalHhOGPLNLNFjywVpTVAevWimaKmkF8yzQUtiBSfCs/ZvlFDmSegh9NXXPnf/pfGJGSrmYYZ
+	oaJCtJaNo6XrowD9SKKvMfxNeZHYavDWxyk1aUMCvg6ogLpEVb1I/EuyGxY3KbGk8d81ZNfy5AvH4
+	f0B7M83Hty8lJTb1EGIPduMFH03T2jHgsqJSjST4EjeZWYK2z5S4qxCm/49o+pYmAzvhz0C6mbCnA
+	42DWvwQA/Pwc1EtUD/KqVrTk6kTnVhYvkBaqTRnPJfBldiZKoa7rCuOlTEDP0qGQ+KCXzvStZHfXR
+	TDJjsbxrQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jyAIN-0003de-TO; Wed, 22 Jul 2020 08:40:11 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1jyBIR-0006he-Dw; Wed, 22 Jul 2020 09:44:19 +0000
+Received: from mout.kundenserver.de ([212.227.126.131])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jyAIK-0003cs-QP
- for linux-riscv@lists.infradead.org; Wed, 22 Jul 2020 08:40:09 +0000
-Received: from mail-lf1-f43.google.com (mail-lf1-f43.google.com
- [209.85.167.43])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 386D122B51
- for <linux-riscv@lists.infradead.org>; Wed, 22 Jul 2020 08:40:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1595407207;
- bh=VE9TEy4TaBrXAUOfVps22D3GyNc1Lgjd/KIVOsr7iRE=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=XMHZYDe+HsqdgolM4FM11vgpgBo8oGNFi12pM1TVZ6sjBUvaLd9cUwKAOd7RYyuxP
- MBUaWckX7gAQthcfoY7rZOdxuysoT0ZKMswKBL6X/iA+JS2AIm7g7d3FOVHpmAxFXO
- MnPJx7OxZLdvV0r/ix+jzajqQAJpF+NAUyrRVZNQ=
-Received: by mail-lf1-f43.google.com with SMTP id m15so192515lfp.7
- for <linux-riscv@lists.infradead.org>; Wed, 22 Jul 2020 01:40:07 -0700 (PDT)
-X-Gm-Message-State: AOAM530/lQh94r/COVTLf7qxNaN5+GNUROMseMSxSkVicWTloKCz+xR1
- kpv5m/2OA8S6vaO/8eOYSVR92KlcqjFYQwESXLM=
-X-Google-Smtp-Source: ABdhPJxM9I8nLASjXFg39htK/rhr5fByxOJVsWiQcQfWB4zl8ffRhBZFGXHlg/WB63xIk+kZZJguVKSDf1KZ39lRh64=
-X-Received: by 2002:ac2:5935:: with SMTP id v21mr15443904lfi.135.1595407205384; 
- Wed, 22 Jul 2020 01:40:05 -0700 (PDT)
+ id 1jyBIO-0006g5-Nf
+ for linux-riscv@lists.infradead.org; Wed, 22 Jul 2020 09:44:17 +0000
+Received: from mail-qt1-f180.google.com ([209.85.160.180]) by
+ mrelayeu.kundenserver.de (mreue012 [212.227.15.129]) with ESMTPSA (Nemesis)
+ id 1M4bd0-1jzpim2KJi-001hI4 for <linux-riscv@lists.infradead.org>; Wed, 22
+ Jul 2020 11:44:10 +0200
+Received: by mail-qt1-f180.google.com with SMTP id g13so1330005qtv.8
+ for <linux-riscv@lists.infradead.org>; Wed, 22 Jul 2020 02:44:08 -0700 (PDT)
+X-Gm-Message-State: AOAM5300qJ6YPvalQW778HlYxwNXDOqiafTTv55eoC/PWGjbbPpKoGtt
+ /MPiBEXSSE2rTAzlJfEL1BqapFpT2YcGjyt9kOA=
+X-Google-Smtp-Source: ABdhPJxwkYMqqlMOkCtiDhkAnK0U1Z3J/eM92Y3pA2ZYfCjSxZxJC559Vt8UZd0LKulfbnhn81unz3J72RGNNuPEagQ=
+X-Received: by 2002:ac8:7587:: with SMTP id s7mr33522432qtq.304.1595411047084; 
+ Wed, 22 Jul 2020 02:44:07 -0700 (PDT)
 MIME-Version: 1.0
-References: <1594683562-68149-1-git-send-email-guoren@kernel.org>
- <1594683562-68149-7-git-send-email-guoren@kernel.org>
- <20200714203757.512ce7fb5fa61a88b1dbb2f3@kernel.org>
- <CAJF2gTSMUnHfv3GLj_TGT2dJkKq2zbEsnbPKREiq5i6PPjyTBg@mail.gmail.com>
- <20200721222701.3074315f6a9f6c42c5963f40@kernel.org>
-In-Reply-To: <20200721222701.3074315f6a9f6c42c5963f40@kernel.org>
-From: Guo Ren <guoren@kernel.org>
-Date: Wed, 22 Jul 2020 16:39:53 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTTM6fsK5A9CKFkEhCC3hdsM8bCfBh613ohvM50fTLc5cw@mail.gmail.com>
-Message-ID: <CAJF2gTTM6fsK5A9CKFkEhCC3hdsM8bCfBh613ohvM50fTLc5cw@mail.gmail.com>
-Subject: Re: [PATCH v3 6/7] riscv: Add KPROBES_ON_FTRACE supported
-To: Masami Hiramatsu <mhiramat@kernel.org>
+References: <7cb2285e-68ba-6827-5e61-e33a4b65ac03@ghiti.fr>
+ <mhng-08bff01a-ca15-4bbc-8454-2ca3e823fef8@palmerdabbelt-glaptop1>
+In-Reply-To: <mhng-08bff01a-ca15-4bbc-8454-2ca3e823fef8@palmerdabbelt-glaptop1>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Wed, 22 Jul 2020 11:43:50 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a34sT2bQbkZUjaxaShzCkn+s35pXxS0UNhqGFu+t2hZYw@mail.gmail.com>
+Message-ID: <CAK8P3a34sT2bQbkZUjaxaShzCkn+s35pXxS0UNhqGFu+t2hZYw@mail.gmail.com>
+Subject: Re: [PATCH v5 1/4] riscv: Move kernel mapping to vmalloc zone
+To: Palmer Dabbelt <palmer@dabbelt.com>
+X-Provags-ID: V03:K1:zbwgqOck5hK0P4NelU0NUh1x3C+lWioh7oZE+N5d4b4C/yL80WP
+ 4Wxvf8QfEB0ZWlT798LJnAU3GuzUbhjXECK12aeJvEEoO3YpI3R2LvpJNMKNkgf/E/Xv3Lv
+ CIVvOXXGhz2QYv9lV9HRyi33/jvrwtv7N50cFlCLDVBzURPWjjnlQbvhtQ47ywDnXL8yQvf
+ 8lb/rKlb3oqagap2qXi2A==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:Q3tnOHwSvoE=:vYCH2uBkau4aoWToDWjTTS
+ 09qG/NBatxx/hJA8OWryhH0NzjHYgRODNqUdJNkS2x0AVaaY5yMAsEJwrpSBtBkAqISVvjLM6
+ qbtkMT2BzceHEclRs585rJWrPvYJE+NR9heRHvUh/Dpta7nQfg//kr9a7z3kVfiRCMR3HgQ1i
+ dv4+ER2b82fs70dsPz7T+vGNsl+5D0sjTdkUmWprI1JjfUT+4Jb08QmDw/JZ3Wb4Ud6IV4JNn
+ qqTu5nbpNJ6gXfiyBHzzAc5Ck7r8DvhlrMP9nOZCQ+KwKNYwzyW5rXWuiHHo6hcV0/fJE/wL5
+ n2l8LQzcyvkWv2Tw2oQTbULww51ZOmdIA9uBMrJ39POIrUyc8uwqMzJ+ULMLTC1YMmK05NrIX
+ dKo3CqD9ukPqD2oN58ZdOIxSAtxYFVr1l4YngR9/kSTh0/BkPNZ4Q1w4+iiGUjfjt7MLL6u4i
+ /rEoNTGSY6zJ/w+rgwZyxl7ix/HEV2Z0XgW6+3squVAoCcD6k4m58pdsLMh/B3G8XwL0kQJO1
+ wkL6AzuqJ0sI8WHNs1lsDR9qubu8HXLVRz5PYfdPIxkLmjWmiBsGgZlX+8CnEqaMcZRFV6WdE
+ TFRC4gnF++mhvkoG5uoRc9e8jM+CgR8LdJd2a9XDJPZdUncox11rxCo3kTxPAVmqmTdPhw2u6
+ AGhweoJoNkCNRfuH5TmisVi8fzRODo457lzBaesTGolhMxSvFcV6kq6x804fzD9TzIP77XoUq
+ Rl4cdgM4wr9u/SdrCMcuXdZutiC/FNCpR+qsyESvPqoB4x2QLeIyvqnFTP4dJEHPOpB6D4wvD
+ fimoB23e4xTHRIrzYczNcWVMvZOtr6VjowENFuipUjPlnnEebXQzjTWIwwmbPjQmtSoUNoOkG
+ 4JBvxSBeHfhVLKwCteskIjmpTKwG6FvPdxiUMOG3PkwtPVk9U9WFp1MGSMv5eo2jo0+LXDiNU
+ mNtIXxMlhC3sP3mZMSB1U8bW/cSHrGDNVWgbHfXbBtCj8TcKZU65E
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200722_044008_992369_7C73A617 
-X-CRM114-Status: GOOD (  19.58  )
+X-CRM114-CacheID: sfid-20200722_054417_002173_EEDAB9F7 
+X-CRM114-Status: GOOD (  21.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -85,86 +91,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: =?UTF-8?Q?Patrick_St=C3=A4hlin?= <me@packi.ch>,
- Guo Ren <guoren@linux.alibaba.com>, Anup Patel <anup@brainfault.org>,
- Palmer Dabbelt <palmerdabbelt@google.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-csky@vger.kernel.org, Oleg Nesterov <oleg@redhat.com>,
- Pekka Enberg <penberg@kernel.org>, Zong Li <zong.li@sifive.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Greentime Hu <greentime.hu@sifive.com>,
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Atish Patra <Atish.Patra@wdc.com>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Anup Patel <Anup.Patel@wdc.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Linux-MM <linux-mm@kvack.org>,
+ Paul Mackerras <paulus@samba.org>, Zong Li <zong.li@sifive.com>,
+ Michael Ellerman <mpe@ellerman.id.au>,
  linux-riscv <linux-riscv@lists.infradead.org>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgTWFzYW1pLAoKT24gVHVlLCBKdWwgMjEsIDIwMjAgYXQgOToyNyBQTSBNYXNhbWkgSGlyYW1h
-dHN1IDxtaGlyYW1hdEBrZXJuZWwub3JnPiB3cm90ZToKPgo+IE9uIFdlZCwgMTUgSnVsIDIwMjAg
-MDA6MjQ6NTQgKzA4MDAKPiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4gd3JvdGU6Cj4KPiA+
-IFRoeCBNYXNhbWksCj4gPgo+ID4gT24gVHVlLCBKdWwgMTQsIDIwMjAgYXQgNzozOCBQTSBNYXNh
-bWkgSGlyYW1hdHN1IDxtaGlyYW1hdEBrZXJuZWwub3JnPiB3cm90ZToKPiA+ID4KPiA+ID4gT24g
-TW9uLCAxMyBKdWwgMjAyMCAyMzozOToyMSArMDAwMAo+ID4gPiBndW9yZW5Aa2VybmVsLm9yZyB3
-cm90ZToKPiA+ID4KPiA+ID4gPiBGcm9tOiBHdW8gUmVuIDxndW9yZW5AbGludXguYWxpYmFiYS5j
-b20+Cj4gPiA+ID4KPiA+ID4gPiBUaGlzIHBhdGNoIGFkZHMgc3VwcG9ydCBmb3Iga3Byb2JlcyBv
-biBmdHJhY2UgY2FsbCBzaXRlcyB0byBhdm9pZHMKPiA+ID4gPiBtdWNoIG9mIHRoZSBvdmVyaGVh
-ZCB3aXRoIHJlZ3VsYXIga3Byb2Jlcy4gVHJ5IGl0IHdpdGggc2ltcGxlCj4gPiA+ID4gc3RlcHM6
-Cj4gPiA+ID4KPiA+ID4gPiAxLiBHZXQgX2RvX2ZvcmsgZnRyYWNlIGNhbGwgc2l0ZS4KPiA+ID4g
-PiBEdW1wIG9mIGFzc2VtYmxlciBjb2RlIGZvciBmdW5jdGlvbiBfZG9fZm9yazoKPiA+ID4gPiAg
-ICAweGZmZmZmZmUwMDAyMGFmNjQgPCswPjogICAgIGFkZGkgICAgc3Asc3AsLTEyOAo+ID4gPiA+
-ICAgIDB4ZmZmZmZmZTAwMDIwYWY2NiA8KzI+OiAgICAgc2QgICAgICBzMCwxMTIoc3ApCj4gPiA+
-ID4gICAgMHhmZmZmZmZlMDAwMjBhZjY4IDwrND46ICAgICBzZCAgICAgIHJhLDEyMChzcCkKPiA+
-ID4gPiAgICAweGZmZmZmZmUwMDAyMGFmNmEgPCs2PjogICAgIGFkZGkgICAgczAsc3AsMTI4Cj4g
-PiA+ID4gICAgMHhmZmZmZmZlMDAwMjBhZjZjIDwrOD46ICAgICBzZCAgICAgIHMxLDEwNChzcCkK
-PiA+ID4gPiAgICAweGZmZmZmZmUwMDAyMGFmNmUgPCsxMD46ICAgIHNkICAgICAgczIsOTYoc3Ap
-Cj4gPiA+ID4gICAgMHhmZmZmZmZlMDAwMjBhZjcwIDwrMTI+OiAgICBzZCAgICAgIHMzLDg4KHNw
-KQo+ID4gPiA+ICAgIDB4ZmZmZmZmZTAwMDIwYWY3MiA8KzE0PjogICAgc2QgICAgICBzNCw4MChz
-cCkKPiA+ID4gPiAgICAweGZmZmZmZmUwMDAyMGFmNzQgPCsxNj46ICAgIHNkICAgICAgczUsNzIo
-c3ApCj4gPiA+ID4gICAgMHhmZmZmZmZlMDAwMjBhZjc2IDwrMTg+OiAgICBzZCAgICAgIHM2LDY0
-KHNwKQo+ID4gPiA+ICAgIDB4ZmZmZmZmZTAwMDIwYWY3OCA8KzIwPjogICAgc2QgICAgICBzNyw1
-NihzcCkKPiA+ID4gPiAgICAweGZmZmZmZmUwMDAyMGFmN2EgPCsyMj46ICAgIG12ICAgICAgczQs
-YTAKPiA+ID4gPiAgICAweGZmZmZmZmUwMDAyMGFmN2MgPCsyND46ICAgIG12ICAgICAgYTAscmEK
-PiA+ID4gPiAgICAweGZmZmZmZmUwMDAyMGFmN2UgPCsyNj46ICAgIG5vcCAgIDw8PDw8PDw8IGhl
-cmUhCj4gPiA+ID4gICAgMHhmZmZmZmZlMDAwMjBhZjgyIDwrMzA+OiAgICBub3AKPiA+ID4gPiAg
-ICAweGZmZmZmZmUwMDAyMGFmODYgPCszND46ICAgIGxkICAgICAgczMsMChzNCkKPiA+ID4gPgo+
-ID4gPiA+IDIuIFNldCBfZG9fZm9yaysyNiBhcyB0aGUga3Byb2JlLgo+ID4gPiA+ICAgZWNobyAn
-cDpteXByb2JlIF9kb19mb3JrKzI2IGRmZD0lYTAgZmlsZW5hbWU9JWExIGZsYWdzPSVhMiBtb2Rl
-PSs0KCRzdGFjayknID4gL3N5cy9rZXJuZWwvZGVidWcvdHJhY2luZy9rcHJvYmVfZXZlbnRzCj4g
-PiA+ID4gICBlY2hvIDEgPiAvc3lzL2tlcm5lbC9kZWJ1Zy90cmFjaW5nL2V2ZW50cy9rcHJvYmVz
-L2VuYWJsZQo+ID4gPiA+ICAgY2F0IC9zeXMva2VybmVsL2RlYnVnL3RyYWNpbmcvdHJhY2UKPiA+
-ID4gPiAgIHRyYWNlcjogbm9wCj4gPiA+ID4KPiA+ID4gPiAgIGVudHJpZXMtaW4tYnVmZmVyL2Vu
-dHJpZXMtd3JpdHRlbjogMy8zICAgI1A6MQo+ID4gPiA+Cj4gPiA+ID4gICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgIF8tLS0tLT0+IGlycXMtb2ZmCj4gPiA+ID4gICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgLyBfLS0tLT0+IG5lZWQtcmVzY2hlZAo+ID4gPiA+ICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgfCAvIF8tLS09PiBoYXJkaXJxL3NvZnRpcnEKPiA+ID4gPiAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgIHx8IC8gXy0tPT4gcHJlZW1wdC1kZXB0aAo+ID4gPiA+
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfHx8IC8gICAgIGRlbGF5Cj4gPiA+ID4gICAg
-ICAgICAgICAgVEFTSy1QSUQgICBDUFUjICB8fHx8ICAgIFRJTUVTVEFNUCAgRlVOQ1RJT04KPiA+
-ID4gPiAgICAgICAgICAgICAgICB8IHwgICAgICAgfCAgIHx8fHwgICAgICAgfCAgICAgICAgIHwK
-PiA+ID4gPiAgICAgICAgICAgICAgIHNoLTg3ICAgIFswMDBdIC4uLi4gICA1NTEuNTU3MDMxOiBt
-eXByb2JlOiAoX2RvX2ZvcmsrMHgxYS8weDJlNikgZGZkPTB4ZmZmZmZmZTAwMDIwYWY3ZSBmaWxl
-bmFtZT0weGZmZmZmZmUwMDAyMGIzNGUgZmxhZ3M9MHhmZmZmZmZlMDAxMDFlN2MwIG1vZGU9MHgy
-MGFmODZmZmZmZmZlMAo+ID4gPiA+Cj4gPiA+ID4gICBjYXQgL3N5cy9rZXJuZWwvZGVidWcva3By
-b2Jlcy9saXN0Cj4gPiA+ID4gZmZmZmZmZTAwMDIwYWY3ZSAgayAgX2RvX2ZvcmsrMHgxYSAgICBb
-RlRSQUNFXQo+ID4gPiA+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF5e
-Xl5eXgo+ID4gPgo+ID4gPiBIbW0sIHRoaXMgc2VlbXMgZmVudHJ5IGlzIG5vdCBzdXBwb3J0ZWQg
-b24gUklTQy1WIHlldC4gQnV0IGFueXdheSwKPiA+ID4gaXQgd2lsbCBiZSB1c2VmdWwgZm9yIHVz
-ZXJzIChpZiB0aGV5IGNhbiBmaW5kIHRoZSBvZmZzZXQpLgo+ID4KPiA+IFNlZW1zIG9ubHkgeDg2
-ICYg4qyG77iPOTAgdXNlIGZlbnRyee+8jGNhbiB5b3UgZWxhYm9yYXRlIG1vcmUgYWJvdXQgZmVu
-dHJ5J3MKPiA+IGJlbmVmaXQgYW5kIGhvdyB0aGUgdXNlciBjb3VsZCBzZXQga3Byb2JlIG9uIGZ0
-cmFjZSBjYWxsIHNpdGUgd2l0aG91dAo+ID4gZGlzYXNzZW1ibGU/Cj4KPiBPbiB4ODYsIHRoZSBm
-ZW50cnkgcmVwbGFjZXMgdGhlIG1jb3VudCB3aXRoIGp1c3Qgb25lIGNhbGwgaW5zdHJ1Y3Rpb24s
-IHdpdGhvdXQKPiBzYXZpbmcgYW55IGFyZ3VtZW50cy4gVGhpcyBtZWFucyBhbGwgcHJvYmVzIHdo
-aWNoIGFyZSBwdXRzIG9uIHRoZSBhZGRyZXNzIG9mCj4gdGFyZ2V0IHN5bWJvbCwgYXJlIGF1dG9t
-YXRpY2FsbHkgdXNpbmcgZnRyYWNlLiBJT1csIGFsbCBwcm9iZXMgb24gX2RvX2ZvcmsrMAo+IHdp
-bGwgdXNlIGZ0cmFjZS4gV2UgZG9uJ3QgbmVlZCBhbnkgZGlzYXNzZW1ibGluZy4KPgo+IEkgdGhp
-bmsgaWYgUklTQy1WIGFscmVhZHkgc3VwcG9ydCAiLWZwYXRjaGFibGUtZnVuY3Rpb24tZW50cnk9
-MiIgb3B0aW9uIG9uCj4gR0NDLCB5b3UgY2FuIGVhc2lseSBlbmFibGUgaXQgYXMgc2FtZSBhcyBh
-cm02NC4gU2VlIGh0dHBzOi8vbGttbC5vcmcvbGttbC8yMDE5LzYvMTgvNjQ4CnRoZSBsaW5rIGlz
-OgpbUEFUQ0ggMC83XSBwb3dlcnBjL2Z0cmFjZTogUGF0Y2ggb3V0IC1tcHJvZmlsZS1rZXJuZWwg
-aW5zdHJ1Y3Rpb25zCgpJcyB0aGF0IHJpZ2h0PwoKLS0gCkJlc3QgUmVnYXJkcwogR3VvIFJlbgoK
-TUw6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LWNza3kvCgpfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
-bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
-Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Tue, Jul 21, 2020 at 9:06 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+>
+> On Tue, 21 Jul 2020 11:36:10 PDT (-0700), alex@ghiti.fr wrote:
+> > Let's try to make progress here: I add linux-mm in CC to get feedback on
+> > this patch as it blocks sv48 support too.
+>
+> Sorry for being slow here.  I haven't replied because I hadn't really fleshed
+> out the design yet, but just so everyone's on the same page my problems with
+> this are:
+>
+> * We waste vmalloc space on 32-bit systems, where there isn't a lot of it.
+
+There is actually an ongoing work to make 32-bit Arm kernels move
+vmlinux into the vmalloc space, as part of the move to avoid highmem.
+
+Overall, a 32-bit system would waste about 0.1% of its virtual address space
+by having the kernel be located in both the linear map and the vmalloc area.
+It's not zero, but not that bad either. With the typical split of 3072 MB user,
+768MB linear and 256MB vmalloc, it's also around 1.5% of the available
+vmalloc area (assuming a 4MB vmlinux in a typical 32-bit kernel), but the
+boundaries can be changed arbitrarily if needed.
+
+The eventual goal is to have a split of 3840MB for either user or linear map
+plus and 256MB for vmalloc, including the kernel. Switching between linear
+and user has a noticeable runtime overhead, but it relaxes both the limits
+for user memory and lowmem, and it provides a somewhat stronger
+address space isolation.
+
+Another potential idea would be to completely randomize the physical
+addresses underneath the kernel by using a random permutation of the
+pages in the kernel image. This adds even more overhead (virt_to_phys
+may need to call vmalloc_to_page or similar) and may cause problems
+with DMA into kernel .data across page boundaries,
+
+> * Sort out how to maintain a linear map as the canonical hole moves around
+>   between the VA widths without adding a bunch of overhead to the virt2phys and
+>   friends.  This is probably going to be the trickiest part, but I think if we
+>   just change the page table code to essentially lie about VAs when an sv39
+>   system runs an sv48+sv39 kernel we could make it work -- there'd be some
+>   logical complexity involved, but it would remain fast.
+
+I assume you can't use the trick that x86 has where all kernel addresses
+are at the top of the 64-bit address space and user addresses are at the
+bottom, regardless of the size of the page tables?
+
+      Arnd
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
