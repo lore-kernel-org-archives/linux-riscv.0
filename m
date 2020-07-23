@@ -2,79 +2,60 @@ Return-Path: <SRS0=QO1u=BC=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
+X-Spam-Status: No, score=-3.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_REPLYTO_END_DIGIT,
+	HEADER_FROM_DIFFERENT_DOMAINS,LOTS_OF_MONEY,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,SUBJ_ALL_CAPS,URIBL_BLOCKED autolearn=no autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 61456C433DF
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jul 2020 17:08:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0C854C433E0
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jul 2020 19:50:06 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2DB6F20792
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jul 2020 17:08:18 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D20342065F
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jul 2020 19:49:49 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="cS2QKC+5"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2DB6F20792
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="EBB0WEjo"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D20342065F
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=znettelecom.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=jHtzWlhP3ZXZIvE1ofngMhZRzGXzYWWSWsZVOBEYDZU=; b=cS2QKC+5nRsbvV74qCdr9wU+l
-	4ENFByfj8nJgJtbKhxmW8hPGgMr8yjk9LSSoJMA/ABDDpDIBOkb6lGlsBk8SZCe4s32Te1ympcQ5Z
-	yBW+2bCV4xAAHDPYVVBVdWCYTSZPnYT/6orFzdidggSrBazxYcWdHnlKhNC3zT6XoQpLqzv8uWdD4
-	uMLEGoRUerVCUSA5SNVQibL1Al85O+D9VHSdf191l7fguhs5T8IRiyhkx6tX08zGQQaKBLHHYKLJr
-	iTH8KeJDK47QzAbDkDAukIOy4+i46cAwjoH8kwB7S2Wb92c4gUAogQqmfb2KJP5TArDTlZF8/56lS
-	0/7GPcrMA==;
+	Content-Type:Reply-To:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Message-Id:Date:From:To:Subject:Content-Description:
+	MIME-Version:Cc:Content-ID:Resent-Date:Resent-From:Resent-Sender:Resent-To:
+	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=od8+NRJk1yCUicv0DKaEf3ZAT8V51vSJR9O6Q7PkSts=; b=EBB0WEjoAD3iETzvn6RRMVasN/
+	qb6WE0iL58mj333VIhGwkxKfsY/rleLiQ7KB3cxiVNUkHku8BX8uJN0+8hjBbx5R3w7O4Hvv8x4FB
+	G357j069ImDDqxrkCz1GcjkctqsxG4OsZuzyrCyFSmiLKhWIrR0oguo0qCHkxYkw3YasaEvG5U3HL
+	Yf0DUq5onth95dF/lk07WbIaugXF9uxlXe8LRuAoF1ksrwMPPmjmuNSsqKew1s4naFHWzCF7+ikQM
+	kk1xFaWAp3wmKYhHHWv73LEZU+YtkApJlO2fIGPSiM+t4Q7PKqMMZeiKoLM8FacwyLNv4hsWNq4zL
+	F/Lbidcg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jyehW-0002Ty-Q8; Thu, 23 Jul 2020 17:08:10 +0000
-Received: from mail-io1-f68.google.com ([209.85.166.68])
+	id 1jyhDl-0000l4-Rn; Thu, 23 Jul 2020 19:49:37 +0000
+Received: from [187.0.30.10] (helo=srv01.znettelecom.net)
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jyehV-0002TM-0K
- for linux-riscv@lists.infradead.org; Thu, 23 Jul 2020 17:08:09 +0000
-Received: by mail-io1-f68.google.com with SMTP id e64so6996066iof.12
- for <linux-riscv@lists.infradead.org>; Thu, 23 Jul 2020 10:08:08 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=2PWZkJpZ4ipb8P8p+Pg9LEmAeqADVPvG7RRrCZ//S+E=;
- b=PoQNpp8G3cQZUQB5hPuwKHvZDDKKu8LrH2NfajwAEdi2VrC6uaG3X23/OKSB0JavjN
- Sv3IjkksHQ9zUccR3kwpYk5XluEGNvzpSlKCl4QU7Geg5N7uHfnqMOxf+9a5x52Qvayg
- ottgZAh3nb3Qc9YkLp8rVNKwoRL2cgY4xWB+Iv+GWIokH9SJjWbQQ5jXmrrisXcqably
- GwVsn3tFXYtBHXZBjL6lSaN9aEPt43L27MmaR4+PbJRbzVx0TIGn5qRyuSQhOLCkWO4U
- /qFFQ5jAOwWga11NbWFCyrxKnR5e7kuM3nAMkitCG4VgTsUa3FpH+Lj5qvZxBOPPotfO
- VCig==
-X-Gm-Message-State: AOAM532jFeLNMKvhyNhZgdQrqq+TK9Zt6DZCdtBHgxI+EYqQqogJWAFO
- jPlYClyQPQVBlnzRgbLJDg==
-X-Google-Smtp-Source: ABdhPJy+mKukhzCYRjhxLsHsBZnW1R9/7jgyhS48f5gwxsaDSYQ5vRd5zhVrQuLqdvM6icVj9WOxxA==
-X-Received: by 2002:a6b:7c08:: with SMTP id m8mr2363635iok.200.1595524087764; 
- Thu, 23 Jul 2020 10:08:07 -0700 (PDT)
-Received: from xps15 ([64.188.179.252])
- by smtp.gmail.com with ESMTPSA id n15sm1524181ioc.15.2020.07.23.10.08.06
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 23 Jul 2020 10:08:07 -0700 (PDT)
-Received: (nullmailer pid 542912 invoked by uid 1000);
- Thu, 23 Jul 2020 17:08:06 -0000
-Date: Thu, 23 Jul 2020 11:08:06 -0600
-From: Rob Herring <robh@kernel.org>
-To: Anup Patel <anup.patel@wdc.com>
-Subject: Re: [PATCH v5 4/4] dt-bindings: timer: Add CLINT bindings
-Message-ID: <20200723170806.GA535824@bogus>
-References: <20200723142409.47057-1-anup.patel@wdc.com>
- <20200723142409.47057-5-anup.patel@wdc.com>
+ id 1jyhDV-0000fo-GE
+ for linux-riscv@lists.infradead.org; Thu, 23 Jul 2020 19:49:34 +0000
+Received: from 135.205.136.77.rev.sfr.net ([77.136.205.135] helo=[172.20.10.2])
+ by srv01.znettelecom.net with esmtpa (Exim 4.92.2)
+ (envelope-from <alan@znettelecom.net>) id 1jyhDT-0000MK-5l
+ for linux-riscv@lists.infradead.org; Thu, 23 Jul 2020 16:49:19 -0300
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20200723142409.47057-5-anup.patel@wdc.com>
+Content-Description: Mail message body
+Subject: DONATION OFFER
+To: linux-riscv@lists.infradead.org
+From: "Steve lenka" <alan@znettelecom.net>
+Date: Thu, 23 Jul 2020 21:49:09 +0200
+X-Antivirus: Avast (VPS 200723-2, 23/07/2020), Outbound message
+X-Antivirus-Status: Clean
+Message-Id: <E1jyhDT-0000MK-5l@srv01.znettelecom.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200723_130809_063963_83F81E5C 
-X-CRM114-Status: GOOD (  17.84  )
+X-CRM114-CacheID: sfid-20200723_154921_773077_6545616A 
+X-CRM114-Status: UNSURE (  -4.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -86,112 +67,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Damien Le Moal <damien.lemoal@wdc.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Emil Renner Berhing <kernel@esmil.dk>,
- Anup Patel <anup@brainfault.org>, Daniel Lezcano <daniel.lezcano@linaro.org>,
- linux-kernel@vger.kernel.org, Atish Patra <atish.patra@wdc.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- Thomas Gleixner <tglx@linutronix.de>, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Reply-To: stevelenkathomson12@gmail.com
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 23, 2020 at 07:54:09PM +0530, Anup Patel wrote:
-> We add DT bindings documentation for CLINT device.
-> 
-> Signed-off-by: Anup Patel <anup.patel@wdc.com>
-> Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
-> Tested-by: Emil Renner Berhing <kernel@esmil.dk>
-> ---
->  .../bindings/timer/sifive,clint.yaml          | 58 +++++++++++++++++++
->  1 file changed, 58 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/timer/sifive,clint.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-> new file mode 100644
-> index 000000000000..8ad115611860
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-> @@ -0,0 +1,58 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/timer/sifive,clint.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: SiFive Core Local Interruptor
-> +
-> +maintainers:
-> +  - Palmer Dabbelt <palmer@dabbelt.com>
-> +  - Anup Patel <anup.patel@wdc.com>
-> +
-> +description:
-> +  SiFive (and other RISC-V) SOCs include an implementation of the SiFive
-> +  Core Local Interruptor (CLINT) for M-mode timer and M-mode inter-processor
-> +  interrupts. It directly connects to the timer and inter-processor interrupt
-> +  lines of various HARTs (or CPUs) so RISC-V per-HART (or per-CPU) local
-> +  interrupt controller is the parent interrupt controller for CLINT device.
-> +  The clock frequency of CLINT is specified via "timebase-frequency" DT
-> +  property of "/cpus" DT node. The "timebase-frequency" DT property is
-> +  described in Documentation/devicetree/bindings/riscv/cpus.yaml
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - const: sifive,clint0
-> +      - const: sifive,fu540-c000-clint
+Hello, Donation of 1,000,000.00 GBP given to you by Steve & Lenka Thomson, =
+This is to help fight against Corona Virus and help the poor people off the=
+ streets. send email for more details: stevelenkathomson12@gmail.com
+Steve & Lenka Thomson
 
-Wrong order. Most specific goes first.
+-- =
 
-> +
-> +    description:
-> +      Should be "sifive,<chip>-clint" and "sifive,clint<version>".
-> +      Supported compatible strings are -
-> +      "sifive,fu540-c000-clint" for the SiFive CLINT v0 as integrated
-> +      onto the SiFive FU540 chip, and "sifive,clint0" for the SiFive
-> +      CLINT v0 IP block with no chip integration tweaks.
-> +      Please refer to sifive-blocks-ip-versioning.txt for details
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts-extended:
-> +    minItems: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts-extended
+L'absence de virus dans ce courrier =E9lectronique a =E9t=E9 v=E9rifi=E9e p=
+ar le logiciel antivirus Avast.
+https://www.avast.com/antivirus
 
-Add:
-
-additionalProperties: false
-
-> +
-> +examples:
-> +  - |
-> +    clint@2000000 {
-
-timer@...
-
-> +      compatible = "sifive,clint0", "sifive,fu540-c000-clint";
-> +      interrupts-extended = <&cpu1intc 3 &cpu1intc 7
-> +                             &cpu2intc 3 &cpu2intc 7
-> +                             &cpu3intc 3 &cpu3intc 7
-> +                             &cpu4intc 3 &cpu4intc 7>;
-> +       reg = <0x2000000 0x4000000>;
-
-64MB of register space? Doesn't matter much for 64-bit, but would waste 
-lots of virtual space (low mem) on 32-bit.
-
-> +    };
-> +...
-> -- 
-> 2.25.1
-> 
 
 _______________________________________________
 linux-riscv mailing list
