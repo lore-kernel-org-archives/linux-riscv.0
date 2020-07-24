@@ -2,85 +2,142 @@ Return-Path: <SRS0=jwAp=BD=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-12.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A246DC433E5
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2020 02:56:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 09C57C433EB
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2020 07:19:09 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 549A8206C1
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2020 02:56:41 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C049D2073E
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2020 07:19:08 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ipmUfBd/";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="nXoaNHWH"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 549A8206C1
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sLi0ZzvG";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="dvB9GaMh";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="VvVy4nER"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C049D2073E
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=0knK+i+UhjAZBIW3kVVNnql4ke4IwrGZxgDqa6gyU6I=; b=ipmUfBd/Wm3LGNxJFX1rv5Aww
-	vOcqaFqAdd300nbqy/VhNNRYl+Ds0/I/C6kW+uE0c6TG1RvQdd7TXNzJ4NaP9JCxK06YErnXZYSqj
-	Ls6oxuwbZFwPbX0Ncb2Gj9N0i6ckAfmD70L3GiOxhW/WURM8u21sOLR72z5Ylcf8/Lv8+eJA4SmIn
-	R4/vZSM8llNNTYKZL4NGPvOR5BSf3kTzFwvXaH7zfAPmoW3L8R8gOlzxS35P80bMTHN4GUrSmW+wH
-	aXu/a6zKWlgnM/BLj5k9FZT3V+fuN0+5t1t4q2TnnQUhhQSBMWrIITLv/93mQ5HRpNzT8h7n7Gy3r
-	Jz8TRSqpA==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nJdhUVeH1JtWZa76z4QxTKN9Qju6lPhE4yDTrYk5/Bo=; b=sLi0ZzvGmiy1dwnR38WLBm2xNG
+	OX91cJdyOKoOksg4OgftXOVY/4A0C9hl5x2EHWesy4Uu5HGsEOmrDlR2AUhHW4f63sdzPkOrKOdlh
+	vlsYxCwuqvTCf9DyoB3rX1KuvHCKIM2/ulB1AAKZD74iy2/Yf01zmwvxbYQxJkLJujeOzaa0QhiTF
+	KOmI/qwXNw5LK1oTqucMgEaSg6RZETe84cTeN3kDbdxo/G/CdaoMcYlU+Orvpf4WGyITIx0noo68l
+	ebunwewLCd5EqUInKz1svSAdP+CvLv7+DEGT8oPYr1ZIUebsyDtfla9IHQnepf9y8cUwKDK/kXLG4
+	P+ZD5Aww==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jynsg-0005U1-IY; Fri, 24 Jul 2020 02:56:18 +0000
-Received: from mail-wm1-x344.google.com ([2a00:1450:4864:20::344])
+	id 1jyryp-0004CK-1o; Fri, 24 Jul 2020 07:18:55 +0000
+Received: from esa2.hgst.iphmx.com ([68.232.143.124])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jynsb-0005TU-St
- for linux-riscv@lists.infradead.org; Fri, 24 Jul 2020 02:56:15 +0000
-Received: by mail-wm1-x344.google.com with SMTP id 184so6937504wmb.0
- for <linux-riscv@lists.infradead.org>; Thu, 23 Jul 2020 19:56:11 -0700 (PDT)
+ id 1jyryl-0004At-M9
+ for linux-riscv@lists.infradead.org; Fri, 24 Jul 2020 07:18:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1595575148; x=1627111148;
+ h=from:to:cc:subject:date:message-id:
+ content-transfer-encoding:mime-version;
+ bh=vfF3ezd9BKAXGDtXBLzJ82rFbaS/+AIsExrexUxIt6E=;
+ b=dvB9GaMh6KZYC1OJL6LZM5l3+G6+3WNzDm8Ge6EQ9apvLp2JZweSxZQq
+ LDa0W+vIHgELS7y4k2ojxDHfafxvC1lB8kvdGks9pGOHggSL05fzHO1qu
+ ZYzo1M8vo7agJsnF+l0I1yRyDYP8xUmalNOz+I34vlAvMDxekLfgaOSiU
+ wLDTS1Kln16fLLJPdj+V5gClxjzAl6S3QRimIsGiGXkYIHlG0PhP14v/f
+ Dm+eJ17qFE5m5kgjCsb2QNhzx3Dj7kY9qKJuLNBYO5ydOVRf7E6SbO0/p
+ HM2Uw1zzAhYQc3QIbNTAPJZbqUzYOrj3ijqpM9kzgn2LfjAJ2NnAqQe5q Q==;
+IronPort-SDR: XcTA52ZER6SpoOwc8/KScmQfs/dfG7sm+hd1vyQwkoVVv6BON1ikvjuQmCqOn1tLex1O8X+VcV
+ KDqENs+M9VCVqn1Z1IRRaWqAU6nqQzyZOITBMitmQ2HdHYAr2/FqMCRN3DKcTI/H/Uc1ansrmp
+ yO8Rox3yBI+HjCKJn5b45k/rBUitoMrC0m6wZZTFz2TyBE125+qvrPUXEsXUdwcjCkBEZWdTcM
+ xfo9YTXDoKqOZLoIq4AoIxnlkNPyS31DBsQ06QgXeK9Sn2ALUiKX3aJaNxdOadV72jqWJO1uzD
+ Ik8=
+X-IronPort-AV: E=Sophos;i="5.75,389,1589212800"; d="scan'208";a="246341010"
+Received: from mail-bn8nam12lp2171.outbound.protection.outlook.com (HELO
+ NAM12-BN8-obe.outbound.protection.outlook.com) ([104.47.55.171])
+ by ob1.hgst.iphmx.com with ESMTP; 24 Jul 2020 15:19:02 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=TePlCv7wZxggUYtSLcbpCj20eEpweo0YD6TDv1vKXCkojTvM/DG4wxvgnJ2ToukJ0GDd647bGOeXvgEzUWpO9lzz5pDCZBQ+tdXSfkiY6t9Lv2undpAvUA5G/lhI3fUiOszdrlomQ6TSnrhYPRB3MXVLSy1d4lt1/49yO93XqvpUtbaLqT5fNasX6byH9AsUaUQVkB3qr/02Dz2/LLiDZFJ28khRZeGM/yCRlV6Rv/zezfxwkgwtKIWi7h9nwhmJ68wa9WW0hIolSNFj+4PHDqxQwZj0pr/YEURV/Saqs4/pLGq47E11qe3m9ZPNZaDCTRsmHnmE6xc8fOgm/JmVvQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qcbba1LtUTmUzEbbW+1gSnCWFTY1zYCZx5ZhJ+CE4i8=;
+ b=NCEvOMvnpKa5GubG6qND+MjlgZMoOUqFUAfVJLBLQ39tLemwNzhJzg4DtMcEtqeJ71QPe5lICl2DjcTN7iypA66LrWZHfZBtJz1EipxptWAhNBbPEDs1JUG5YDnRk50s1yCxgGDQmPEq+WUmUpguo2v22CH6bJYng8wuRwBNZmrfdF85zwl3A2IW0KZGPUt4Kr/w6EZ944oP8zZ9tor0eBFOSeltPebCiUdFPJlnP4YE3euVcPNZKISVlvpD+7eONPnUD47sEdYwjpXEsCdeh8fMAJWSpfgZiM7Xgsb5MvGlFL4XWQQBsk2RU0qzQHF1MNTbZ0yFrpSjyJiptmOUOg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
+ header.d=wdc.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=CtmtjWywAWpjYkCnJwgMZyShNjYxCaF8KfigHWMZhhU=;
- b=nXoaNHWHDTCezdp5CpduMelSEcFsS/xXZFFJj7yT6pEpVyCUFKyrt3fvZXfzn5uZ0w
- YxhvKfAzaEEun8oxMcPODKbWEFiIWpJv5uUZuAEG3yBf0SXH8Dj4NOJRrwrrNdq3h+UM
- 1pU8M69WeKOtqWcfh6H0UlM3+c8AcDiqRPGMcXGiu6JrYVimRr+oO4GfDp8ovLKAtpE1
- eplbQPmszATGctckqs6k2WKrOK8XU9bUbWbKz1LcU5bhzpBNcrQcm2dweXduv2HTtG99
- 9+30OR+DxqdvdP5t1In8yZQwgzngwx0aYZPzwb3t3OMSdhZO6ELLnbrOQWmRflw3s1jn
- 6Glg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=CtmtjWywAWpjYkCnJwgMZyShNjYxCaF8KfigHWMZhhU=;
- b=hjA+5P5QGny13LVbrt+SGrFCReQCZrfMiCAGmkssKyY/Efy2mx1tz6e86+odT5z/Tz
- cmEPHBeUflCTgWs9Pu8sR/87Iw7TzJNpkUrYwheq/D6Zj0xcGZ6dC6QgP2uH8vdA/Y/D
- JLMrdBsQ0J4Bg++mx9qdbIh4qns9GniYfOlIIUxVyl8yJiHTdQT1f/OTRya80tJtonds
- TyQRmhlpdRa7H0jmRmycitSyphxX3BNGUiwKkGx7RDGtmTLM7R479rAkYRI2GRaBReLY
- Oev+Y3ip0WY4uBcIW4STxz2KQNGMJVcEj2r8/Cp145t9xkZnv2pVE56OhQ9ozsW18d7F
- D44A==
-X-Gm-Message-State: AOAM533LgZ3UlwfECUYOtkQ5R53dZXDZkJ0AlC87oBVAaASdJeMlipkA
- 177Ig91cZxtQNvV2ENmjcTIEJhDMGTQgigQnHOgf7w==
-X-Google-Smtp-Source: ABdhPJz7gHCgz3xS846jQtIQ7O74yrODpOHmRg9I3TY6YB258gHiQKrSSldHgTJt52Oo44AJgBXEEL5aWfj/KoNhfJg=
-X-Received: by 2002:a05:600c:2154:: with SMTP id
- v20mr7119713wml.185.1595559370601; 
- Thu, 23 Jul 2020 19:56:10 -0700 (PDT)
+ d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qcbba1LtUTmUzEbbW+1gSnCWFTY1zYCZx5ZhJ+CE4i8=;
+ b=VvVy4nERks0reJV8Ajt9tl2MAzLbft8M1rHesn1eQzoyqmCQLTc4Q/hnjokTaR4+W+vyBkPj7rXhMP1jbV53kE+0FErYzs1UImGiUOrVG+Z0RfkbBd5zMaRIFRFN1gthexVYktOiwSY/bOdEN7pH7j20tkmceTSy8+qeEU3hyQk=
+Authentication-Results: dabbelt.com; dkim=none (message not signed)
+ header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
+Received: from DM6PR04MB6201.namprd04.prod.outlook.com (2603:10b6:5:127::32)
+ by DM6PR04MB5131.namprd04.prod.outlook.com (2603:10b6:5:fe::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3216.24; Fri, 24 Jul
+ 2020 07:18:47 +0000
+Received: from DM6PR04MB6201.namprd04.prod.outlook.com
+ ([fe80::e0a4:aa82:1847:dea5]) by DM6PR04MB6201.namprd04.prod.outlook.com
+ ([fe80::e0a4:aa82:1847:dea5%7]) with mapi id 15.20.3216.023; Fri, 24 Jul 2020
+ 07:18:47 +0000
+From: Anup Patel <anup.patel@wdc.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh+dt@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>
+Subject: [PATCH v6 0/4] Dedicated CLINT timer driver
+Date: Fri, 24 Jul 2020 12:48:18 +0530
+Message-Id: <20200724071822.126758-1-anup.patel@wdc.com>
+X-Mailer: git-send-email 2.25.1
+X-ClientProxiedBy: BMXPR01CA0095.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:b00:54::35) To DM6PR04MB6201.namprd04.prod.outlook.com
+ (2603:10b6:5:127::32)
 MIME-Version: 1.0
-References: <20200723142409.47057-1-anup.patel@wdc.com>
- <20200723142409.47057-5-anup.patel@wdc.com>
- <20200723170806.GA535824@bogus>
-In-Reply-To: <20200723170806.GA535824@bogus>
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 24 Jul 2020 08:25:58 +0530
-Message-ID: <CAAhSdy0tvy65zYSqeSAq781gRA4P0v5Suad+PidNFgPYLd+U1w@mail.gmail.com>
-Subject: Re: [PATCH v5 4/4] dt-bindings: timer: Add CLINT bindings
-To: Rob Herring <robh@kernel.org>
+X-MS-Exchange-MessageSentRepresentingType: 1
+Received: from wdc.com (103.20.29.132) by
+ BMXPR01CA0095.INDPRD01.PROD.OUTLOOK.COM (2603:1096:b00:54::35) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.3216.20 via Frontend Transport; Fri, 24 Jul 2020 07:18:41 +0000
+X-Mailer: git-send-email 2.25.1
+X-Originating-IP: [103.20.29.132]
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-HT: Tenant
+X-MS-Office365-Filtering-Correlation-Id: 379e6593-f982-4164-5bcf-08d82fa1ce19
+X-MS-TrafficTypeDiagnostic: DM6PR04MB5131:
+X-MS-Exchange-Transport-Forked: True
+X-Microsoft-Antispam-PRVS: <DM6PR04MB5131A5D2DC73A0358CBC4E2D8D770@DM6PR04MB5131.namprd04.prod.outlook.com>
+WDCIPOUTBOUND: EOP-TRUE
+X-MS-Oob-TLC-OOBClassifiers: OLM:2887;
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: VNvmimoUvev41WWFgsHGFhXebTeHpP5orRwLgE7ZWk8Fr1BpK1Oe0HxmUmYukS2IV/BLLeeuU69VllhIq6UMFKDCpgWNGpz435oGZwkYyKiTyULejwOOpz1FiqdvSxs5UsX5Vl9LaDBUkdnwJ7/ixNUDl5RZU+CzttxjgwQt204pXzuGuBCzDpLXZiJsvWkDd1+/PszDltETthx12I+7vcjJ615MVRwWm7oBaV0zesDPG0hgfeAHfc0nWTKl5luGXR21ce5Z8kWbimC7AJDiQCnT9K9qB7mSB223+7A3W9bTg82+QOJxYItcugussrBx9iaB/bcvKxBn2C8WsqVyK8nvgfiJfD4gbTnb5gNBHQzyhOOQcNB4iCV3j7XtDWX47v2dphIt97lHXSr2bT5ESA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:DM6PR04MB6201.namprd04.prod.outlook.com; PTR:; CAT:NONE;
+ SFTY:;
+ SFS:(4636009)(136003)(366004)(346002)(396003)(39860400002)(376002)(7416002)(55016002)(186003)(478600001)(2616005)(52116002)(26005)(956004)(7696005)(110136005)(66476007)(44832011)(36756003)(66946007)(83380400001)(966005)(1076003)(316002)(54906003)(6666004)(4326008)(16526019)(5660300002)(8936002)(66556008)(2906002)(8676002)(8886007)(86362001);
+ DIR:OUT; SFP:1102; 
+X-MS-Exchange-AntiSpam-MessageData: sGDpnFNg2x2MsLarAK5QnG/TT5zOuRvlgZAXaRmzZEb3Bd4vTBqKRNVzNJj93u8TIvvhE9XZUDamYMbLtSS1laAhiwp/HHV6LIJk5Uh7wIbJB6t+RBQ94TvRPK0tm1cfTpMo6wRkcG3Wvv6Kld+zJeGclmfF69Bs2WFcemqCrLngJXxEMmvmK1w9bzDaT20mgt73wzhkHxbjRf31amW9oiWlSk7QYCKLe0bpLwk3xp7TgQGvzrfQTijdhwh/Sfpmbn7JB1m0JVk+GZQXCj4RJ3t7Znku2S2A6xBqzJtJKMNaCPAyBVM/Ddakr30KBsdPHRSP9dZz/SZ1NLlVavwcJXOCVCzWOtJOk8vpIuUT2x81l98uge5rhem0AZ3yobPI7aGUaPL/8kFlYXLwzuYObeG7cH9+fD6wTkG4WDvz6SQjMCUSCLlHsgkzz/ee40iXr5U3YFgUiz+cEt44FmH1ap4GY9+j8iy6N02xHG/xWPY=
+X-OriginatorOrg: wdc.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 379e6593-f982-4164-5bcf-08d82fa1ce19
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR04MB6201.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jul 2020 07:18:46.8962 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: TjObZe3w5licLFHWcC8E2a7DQT0oV6pswl7UoVKxTS/njnSf2a/DkY/UK52gr2F4BuKhRbc5Gioe48ezrhPcqA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR04MB5131
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200723_225613_945268_CBF1B435 
-X-CRM114-Status: GOOD (  21.23  )
+X-CRM114-CacheID: sfid-20200724_031851_847865_F3515A49 
+X-CRM114-Status: GOOD (  18.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -93,130 +150,102 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: devicetree@vger.kernel.org, Damien Le Moal <damien.lemoal@wdc.com>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Emil Renner Berhing <kernel@esmil.dk>, Anup Patel <anup.patel@wdc.com>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Atish Patra <atish.patra@wdc.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- Thomas Gleixner <tglx@linutronix.de>,
- linux-riscv <linux-riscv@lists.infradead.org>
+ Anup Patel <anup@brainfault.org>, Anup Patel <anup.patel@wdc.com>,
+ linux-kernel@vger.kernel.org, Atish Patra <atish.patra@wdc.com>,
+ Alistair Francis <Alistair.Francis@wdc.com>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 23, 2020 at 10:38 PM Rob Herring <robh@kernel.org> wrote:
->
-> On Thu, Jul 23, 2020 at 07:54:09PM +0530, Anup Patel wrote:
-> > We add DT bindings documentation for CLINT device.
-> >
-> > Signed-off-by: Anup Patel <anup.patel@wdc.com>
-> > Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
-> > Tested-by: Emil Renner Berhing <kernel@esmil.dk>
-> > ---
-> >  .../bindings/timer/sifive,clint.yaml          | 58 +++++++++++++++++++
-> >  1 file changed, 58 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/timer/sifive,clint.yaml
-> >
-> > diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-> > new file mode 100644
-> > index 000000000000..8ad115611860
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-> > @@ -0,0 +1,58 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/timer/sifive,clint.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: SiFive Core Local Interruptor
-> > +
-> > +maintainers:
-> > +  - Palmer Dabbelt <palmer@dabbelt.com>
-> > +  - Anup Patel <anup.patel@wdc.com>
-> > +
-> > +description:
-> > +  SiFive (and other RISC-V) SOCs include an implementation of the SiFive
-> > +  Core Local Interruptor (CLINT) for M-mode timer and M-mode inter-processor
-> > +  interrupts. It directly connects to the timer and inter-processor interrupt
-> > +  lines of various HARTs (or CPUs) so RISC-V per-HART (or per-CPU) local
-> > +  interrupt controller is the parent interrupt controller for CLINT device.
-> > +  The clock frequency of CLINT is specified via "timebase-frequency" DT
-> > +  property of "/cpus" DT node. The "timebase-frequency" DT property is
-> > +  described in Documentation/devicetree/bindings/riscv/cpus.yaml
-> > +
-> > +properties:
-> > +  compatible:
-> > +    items:
-> > +      - const: sifive,clint0
-> > +      - const: sifive,fu540-c000-clint
->
-> Wrong order. Most specific goes first.
+The current RISC-V timer driver is convoluted and implements two
+distinct timers:
+ 1. S-mode timer: This is for Linux RISC-V S-mode with MMU. The
+    clocksource is implemented using TIME CSR and clockevent device
+    is implemented using SBI Timer calls.
+ 2. M-mode timer: This is for Linux RISC-V M-mode without MMU. The
+    clocksource is implemented using CLINT MMIO time register and
+    clockevent device is implemented using CLINT MMIO timecmp registers.
 
-Okay, will update.
+This patchset removes clint related code from RISC-V timer driver and
+arch/riscv directory. Instead, the series adds a dedicated MMIO based
+CLINT driver under drivers/clocksource directory which can be used by
+Linux RISC-V M-mode (i.e NoMMU Linux RISC-V).
 
->
-> > +
-> > +    description:
-> > +      Should be "sifive,<chip>-clint" and "sifive,clint<version>".
-> > +      Supported compatible strings are -
-> > +      "sifive,fu540-c000-clint" for the SiFive CLINT v0 as integrated
-> > +      onto the SiFive FU540 chip, and "sifive,clint0" for the SiFive
-> > +      CLINT v0 IP block with no chip integration tweaks.
-> > +      Please refer to sifive-blocks-ip-versioning.txt for details
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +
-> > +  interrupts-extended:
-> > +    minItems: 1
-> > +
-> > +required:
-> > +  - compatible
-> > +  - reg
-> > +  - interrupts-extended
->
-> Add:
->
-> additionalProperties: false
+The patchset is based up Linux-5.8-rc6 and can be found at riscv_clint_v6
+branch of: https://github.com/avpatel/linux.git
 
-Okay, will add.
+This series is tested on:
+ 1. QEMU RV64 virt machine using Linux RISC-V S-mode
+ 2. QEMU RV32 virt machine using Linux RISC-V S-mode
+ 3. QEMU RV64 virt machine using Linux RISC-V M-mode (i.e. NoMMU)
 
->
-> > +
-> > +examples:
-> > +  - |
-> > +    clint@2000000 {
->
-> timer@...
+Changes since v5:
+ - Fixed order of compatible strings in PATCH4
+ - Added "additionalProperties: false" in PATCH4
+ - Fixed register space size for example DT node in PATCH4
 
-Okay, will rename.
+Changes since v4:
+ - Rebased series on Linux-5.8-rc6
+ - Updated Kconfig option as suggested by Daniel in PATCH2
+ - Removed per-CPU registered flag in PATCH2
+ - Addressed nit comments from Atish in PATCH2
 
->
-> > +      compatible = "sifive,clint0", "sifive,fu540-c000-clint";
-> > +      interrupts-extended = <&cpu1intc 3 &cpu1intc 7
-> > +                             &cpu2intc 3 &cpu2intc 7
-> > +                             &cpu3intc 3 &cpu3intc 7
-> > +                             &cpu4intc 3 &cpu4intc 7>;
-> > +       reg = <0x2000000 0x4000000>;
->
-> 64MB of register space? Doesn't matter much for 64-bit, but would waste
-> lots of virtual space (low mem) on 32-bit.
+Changes since v3:
+ - Updated commit description of PATCH2
+ - Use clint_get_cycles64() in clint_rdtime() of PATCH2
+ - Call clockevents_config_and_register() only once for each CPU in
+   clint_timer_starting_cpu of PATCH2
+ - Select CLINT timer driver from platform Kconfig in PATCH3
+ - Fixed 'make dt_binding_check' for PATCH4
 
-This is a typo. The register space size is 64KB not 64MB. I will update.
+Changes since v2:
+ - Rebased series on Linux-5.8-rc5
+ - Squashed PATCH3 onto PATCH2 to preserve GIT bisectability
+ - Moved PATCH4 before PATCH2 to preserve GIT bisectability
+ - Replaced CLINT dt-bindings text document with YAML schema
+ - Use SiFive CLINT compatible string as per SiFive IP block versioning
 
->
-> > +    };
-> > +...
-> > --
-> > 2.25.1
-> >
+Changes since v1:
+ - Rebased series on Linux-5.8-rc2
+ - Added pr_warn() for case where ipi_ops not available in PATCH1
+ - Updated ipi_inject() prototype to use "struct cpumask *" in PATCH1
+ - Updated CLINT_TIMER kconfig option to depend on RISCV_M_MODE in PATCH4
+ - Added riscv,clint0 compatible string in DT bindings document
 
-Regards,
-Anup
+Anup Patel (4):
+  RISC-V: Add mechanism to provide custom IPI operations
+  clocksource/drivers: Add CLINT timer driver
+  RISC-V: Remove CLINT related code from timer and arch
+  dt-bindings: timer: Add CLINT bindings
+
+ .../bindings/timer/sifive,clint.yaml          |  60 +++++
+ arch/riscv/Kconfig                            |   2 +-
+ arch/riscv/Kconfig.socs                       |   2 +
+ arch/riscv/configs/nommu_virt_defconfig       |   7 +-
+ arch/riscv/include/asm/clint.h                |  39 ---
+ arch/riscv/include/asm/smp.h                  |  19 ++
+ arch/riscv/include/asm/timex.h                |  28 +--
+ arch/riscv/kernel/Makefile                    |   2 +-
+ arch/riscv/kernel/clint.c                     |  44 ----
+ arch/riscv/kernel/sbi.c                       |  14 ++
+ arch/riscv/kernel/setup.c                     |   2 -
+ arch/riscv/kernel/smp.c                       |  44 ++--
+ arch/riscv/kernel/smpboot.c                   |   4 +-
+ drivers/clocksource/Kconfig                   |  12 +-
+ drivers/clocksource/Makefile                  |   1 +
+ drivers/clocksource/timer-clint.c             | 226 ++++++++++++++++++
+ drivers/clocksource/timer-riscv.c             |  17 +-
+ include/linux/cpuhotplug.h                    |   1 +
+ 18 files changed, 371 insertions(+), 153 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/timer/sifive,clint.yaml
+ delete mode 100644 arch/riscv/include/asm/clint.h
+ delete mode 100644 arch/riscv/kernel/clint.c
+ create mode 100644 drivers/clocksource/timer-clint.c
+
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
