@@ -7,80 +7,70 @@ X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 49D2CC433EA
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2020 07:21:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D52DBC433E3
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2020 07:37:31 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 15C6E2065E
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2020 07:21:01 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 9EC4B20748
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2020 07:37:31 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="zf3SPkKf"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 15C6E2065E
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arndb.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Ljw1cm+V"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9EC4B20748
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.intel.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=BDQ5Mdbwwed1ht28f0hx8V8glFrrl8QTvZQV9pCa7nE=; b=zf3SPkKfMOj4boLrsBe2vhpil
-	KGLDWJEJsGX9lG/GnF2+60UmvXdFnNg2+KFATY+5XYAWpdL4gXH29WSE0tPET/5dnTz6q07YSUzKH
-	JCc/4fmp5z00O8xmAAfaEtX9Jt3OYy6AALuMdPAHPotC/w4Ir6v9ysPM8Zlu6Cs2G+Oec/p7J+0jM
-	336Yk2ZPjNbBjDwsgAVnTv/ngE7pqOxgv9lYOK4MjyHfkvLESBi4hXDikwC2OTEfqn6AaFzQmEFdR
-	sObd4svrdALZ5C5xWTU6COZIdQm1sB6TCpy6EyY5YvV8QPu8bVPlWeQxM9+uVkDGzqvUBkEB9CKng
-	8rS4T/V9w==;
+	 bh=BAFhlC48mJTbpYkCUc+RAF856sRH7+3NJnt+7PRCovg=; b=Ljw1cm+VzJ0BO+nFqGq7f+0OX
+	uoxBIZArKDBPZKLRpf93jEvVjz22aj6SIzQ5RwcWGqre8dsoAbfZsT+0fy5PPtuCT1dnGdwPe7DKt
+	3VkQCJy9broLGmg6SncwA+Gu0+bRDJi4zegPcPVaiYc/ZE9MZwGzCjwxjgYczapIY2vcU0Lgplc+J
+	8UeUo5V2rgXFZN/yHLf3wdAOpkVB36fjpTP3VajPBsgFVtWfbf/7WcQmkHil8UJ9gRYNf9R55sMXs
+	VEP74kqwz1Oj3v9/HJB+c25g/+g4cQYXCMuV07C4YYPkqol+UNwYwpsVsfgCwbQnyEIf3t+QsVq7s
+	Bz3scAyuA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jys0e-0004h4-5m; Fri, 24 Jul 2020 07:20:48 +0000
-Received: from mout.kundenserver.de ([212.227.17.13])
+	id 1jysGZ-0008Sf-Nq; Fri, 24 Jul 2020 07:37:15 +0000
+Received: from mga07.intel.com ([134.134.136.100])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jys0b-0004gA-UV
- for linux-riscv@lists.infradead.org; Fri, 24 Jul 2020 07:20:47 +0000
-Received: from mail-qt1-f176.google.com ([209.85.160.176]) by
- mrelayeu.kundenserver.de (mreue107 [212.227.15.145]) with ESMTPSA (Nemesis)
- id 1N7yuz-1ktlpR363v-0151ej for <linux-riscv@lists.infradead.org>; Fri, 24
- Jul 2020 09:20:42 +0200
-Received: by mail-qt1-f176.google.com with SMTP id o22so6015827qtt.13
- for <linux-riscv@lists.infradead.org>; Fri, 24 Jul 2020 00:20:42 -0700 (PDT)
-X-Gm-Message-State: AOAM532lBXSb+e1HxUjCVKWCnB2Racp0tsJ+1km1lOLYgRok+CJmLWMc
- arj/Gk7IPpp8lgldd2B4U/ET4oc0ssAJMbTz9Ug=
-X-Google-Smtp-Source: ABdhPJxmIVXnbEioXbPXSA7ZMWes4VKvilueIEtCY7yjI+BhfVsAWHUQWo3DE1p/ihdJ0qb68PSFrNOEs1zZFP+V6+8=
-X-Received: by 2002:ac8:688e:: with SMTP id m14mr1188191qtq.7.1595575241528;
- Fri, 24 Jul 2020 00:20:41 -0700 (PDT)
+ id 1jysGO-0008Ma-4I; Fri, 24 Jul 2020 07:37:08 +0000
+IronPort-SDR: S+QSh22f0QdgTCsOeWivs0boD2Tcn7hiN0bNu5E+Zs8icm6lYhXxnJYEfgsmb3VFybghv9oJmk
+ aTeWChd5jYRA==
+X-IronPort-AV: E=McAfee;i="6000,8403,9691"; a="215259404"
+X-IronPort-AV: E=Sophos;i="5.75,389,1589266800"; d="scan'208";a="215259404"
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from orsmga006.jf.intel.com ([10.7.209.51])
+ by orsmga105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 24 Jul 2020 00:37:01 -0700
+IronPort-SDR: TAB03xecSlI4basjrQIy2hbhaeXXyXKAkMJFtaNhpLJDNY3l0q2EBJc0tt5g94JWjrS8//u4J3
+ 0Kk+Cc01yUeA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.75,389,1589266800"; d="scan'208";a="288909362"
+Received: from cbuerkle-mobl1.ger.corp.intel.com (HELO localhost)
+ ([10.249.36.184])
+ by orsmga006.jf.intel.com with ESMTP; 24 Jul 2020 00:36:23 -0700
+Date: Fri, 24 Jul 2020 10:36:21 +0300
+From: Jarkko Sakkinen <jarkko.sakkinen@linux.intel.com>
+To: Ard Biesheuvel <ardb@kernel.org>
+Subject: Re: [PATCH v2 1/3] module: Rename module_alloc() to text_alloc() and
+ move to kernel proper
+Message-ID: <20200724073621.GC1872662@linux.intel.com>
+References: <20200714094625.1443261-1-jarkko.sakkinen@linux.intel.com>
+ <20200714094625.1443261-2-jarkko.sakkinen@linux.intel.com>
+ <20200716184909.Horde.JVRLLcKix_jhrJfiQYRbbQ1@messagerie.si.c-s.fr>
+ <20200723015127.GE45081@linux.intel.com>
+ <CAMj1kXGJhqC+asc6JUNeEkRsHYTzNQVe4-65vKqigbW03gO9Jg@mail.gmail.com>
 MIME-Version: 1.0
-References: <CAK8P3a34sT2bQbkZUjaxaShzCkn+s35pXxS0UNhqGFu+t2hZYw@mail.gmail.com>
- <mhng-820ebe55-b4a3-4ab3-b848-6d3551b43091@palmerdabbelt-glaptop1>
- <CAK8P3a2VHXDLK6iba=NxSQ-t=9P7LSwzwx3XrK=N=M+qoX_oeQ@mail.gmail.com>
- <CAOnJCULmX+vUcpEmBd5w7xjtZSFk=Ju2V=wBJCOXHQ8m9yG9-Q@mail.gmail.com>
-In-Reply-To: <CAOnJCULmX+vUcpEmBd5w7xjtZSFk=Ju2V=wBJCOXHQ8m9yG9-Q@mail.gmail.com>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Fri, 24 Jul 2020 09:20:25 +0200
-X-Gmail-Original-Message-ID: <CAK8P3a2u9Z6wfyRduC7396929t4VnJQ0cXMiMWO7o6tgx_uNOw@mail.gmail.com>
-Message-ID: <CAK8P3a2u9Z6wfyRduC7396929t4VnJQ0cXMiMWO7o6tgx_uNOw@mail.gmail.com>
-Subject: Re: [PATCH v5 1/4] riscv: Move kernel mapping to vmalloc zone
-To: Atish Patra <atishp@atishpatra.org>
-X-Provags-ID: V03:K1:VQVxWZvrZSi/IO51ekkuJSR9BqLUhYjLNOVWCqBSBsxlaDkp48n
- jVx/j9BIODwdaRpwSKyWN3xBYYOWMXyqv6RowWMjFNTjPaxwGXMA/QLsP+7qcvkMQvNt3xU
- TxBXR9ctKFlDhhDG8UsnS+AFpb0ATD4OG0pMFt2+Llge5k5py4hlJRcreXcMceffOTFSPCd
- n3VXMYg9+PtfUjJpt6o+Q==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:V1SPju+LasQ=:H2q2fTTTcA5MV/f5dM/Pdk
- ZYhXiajv5xM753LKTCudihnG7W2TS9xP1nvIaoV73+DZGO01ovBwjE3R5akv3VOHns5i4M08Q
- lVMnwGt94avuahUIOpg/n4qlk5NoGpzulhPac4Irx5ckCA3RS51QUBjHlYqVVamon6Zi9puOl
- KKvW1U3s1dSNgQeKUSnARXHgMPzdU+rnP4ZNtYDZx8ytyJr9XSeFHFzQIqnV/8qYCNnrM0h5l
- fzG0pXNYwvwgVmrebPmG1sO5dbPz3YXm5xJdDFTXM7qwExGfSxx/1759bMICnT8QCqgy4gPgX
- TgfzCwC+xpLgl/EwAhZIWTEsQkEqOiV9UJ+ZF3FD/AImxreMXuFn/dLuOP2jMY1cshlmRFY5P
- lhaGRNkd9jm2zFWMzs7l2e5Vtxm87OdYsWA/N8QxuwUMaKXbHpqR35VwXrzJj67SoKwkDcSgS
- r2YHjf5HtiU+pakrywsF2xEPfBLfG5pAxMWIjsWvSvNIfQ8I8gOsLW/wK0hLdilKd+WcbPq4l
- 97qDCOG/5IkEPOXAmgRbMKdc3j3EGP3NubBuBIwP0KEXItz7nz5VmmE5+Ub6XgbfzX+TxQwgo
- VL5/pvGEGv/3JLFFdp/d/ZdSx6WJP2Q81GQWsXI2vfZiaZxS6ZeBXhMAKwSTZF2XrzBYTeN/o
- lLnOFXKjCnn5Vf3jfESHy15KktsGwcpwuucfOnDUs4hkFJvB81Z7fn61utamZN0Dupt1zMNkJ
- fu5umw+q5VB4mgLPW5Mq2NMChjtPJOgIRTGj5gLuBgzgfV8XwoP+IscmS17TZxjXhMeD8e8VH
- vbCh5yVfJAVvebYpKF1OxY1tWFXS0R/Yn2jjIaSKNA57wy7vvAWb7Ef/97xag4+4wB1Kk2L
+Content-Disposition: inline
+In-Reply-To: <CAMj1kXGJhqC+asc6JUNeEkRsHYTzNQVe4-65vKqigbW03gO9Jg@mail.gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200724_032046_215878_E8D22527 
-X-CRM114-Status: GOOD (  20.25  )
+X-CRM114-CacheID: sfid-20200724_033704_597029_2F5B3CA9 
+X-CRM114-Status: GOOD (  27.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -92,74 +82,140 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Linux-MM <linux-mm@kvack.org>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Anup Patel <Anup.Patel@wdc.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Atish Patra <Atish.Patra@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Zong Li <zong.li@sifive.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Paul Mackerras <paulus@samba.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+ Kefeng Wang <wangkefeng.wang@huawei.com>, Paul Mackerras <paulus@samba.org>,
+ Zong Li <zong.li@sifive.com>, Andi Kleen <ak@linux.intel.com>,
+ Paul Burton <paulburton@kernel.org>,
+ Vincent Whitchurch <vincent.whitchurch@axis.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>, Petr Mladek <pmladek@suse.com>,
+ Brian Gerst <brgerst@gmail.com>, Andy Lutomirski <luto@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Jiri Kosina <jkosina@suse.cz>,
+ Anup Patel <anup.patel@wdc.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Philipp Rudo <prudo@linux.ibm.com>, Torsten Duwe <duwe@lst.de>,
+ Masami Hiramatsu <mhiramat@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Mark Rutland <mark.rutland@arm.com>,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Vincent Chen <deanbo422@gmail.com>, Omar Sandoval <osandov@fb.com>,
+ "open list:S390" <linux-s390@vger.kernel.org>,
+ Joe Lawrence <joe.lawrence@redhat.com>, Helge Deller <deller@gmx.de>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
+ Yonghong Song <yhs@fb.com>, Iurii Zaikin <yzaikin@google.com>,
+ Andrii Nakryiko <andriin@fb.com>, Thomas Huth <thuth@redhat.com>,
+ Vasily Gorbik <gor@linux.ibm.com>,
+ "moderated list:ARM PORT" <linux-arm-kernel@lists.infradead.org>,
+ Daniel Axtens <dja@axtens.net>, Damien Le Moal <damien.lemoal@wdc.com>,
+ Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
+ Josh Poimboeuf <jpoimboe@redhat.com>,
+ Heiko Carstens <heiko.carstens@de.ibm.com>,
+ Alexei Starovoitov <ast@kernel.org>, Atish Patra <atish.patra@wdc.com>,
+ Will Deacon <will@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Masahiro Yamada <masahiroy@kernel.org>, Nayna Jain <nayna@linux.ibm.com>,
+ Ley Foon Tan <ley.foon.tan@intel.com>,
+ Christian Borntraeger <borntraeger@de.ibm.com>,
+ Sami Tolvanen <samitolvanen@google.com>,
+ "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>, Mao Han <han_mao@c-sky.com>,
+ Marco Elver <elver@google.com>, Steven Rostedt <rostedt@goodmis.org>,
+ Babu Moger <Babu.Moger@amd.com>, Borislav Petkov <bp@alien8.de>,
+ Greentime Hu <green.hu@gmail.com>, Ben Dooks <ben-linux@fluff.org>,
+ Guan Xuetao <gxt@pku.edu.cn>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ "open list:PARISC ARCHITECTURE" <linux-parisc@vger.kernel.org>,
+ Jessica Yu <jeyu@kernel.org>,
+ "open list:BPF JIT for MIPS 32-BIT AND 64-BIT" <bpf@vger.kernel.org>,
+ "David S. Miller" <davem@davemloft.net>,
+ Thiago Jung Bauermann <bauerman@linux.ibm.com>,
+ Peter Zijlstra <peterz@infradead.org>, David Howells <dhowells@redhat.com>,
+ Amit Daniel Kachhap <amit.kachhap@arm.com>,
+ Sandipan Das <sandipan@linux.ibm.com>, "H. Peter Anvin" <hpa@zytor.com>,
+ "open list:SPARC + UltraSPARC sparc/sparc64" <sparclinux@vger.kernel.org>,
+ "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
+ Miroslav Benes <mbenes@suse.cz>, Jiri Olsa <jolsa@redhat.com>,
+ Tiezhu Yang <yangtiezhu@loongson.cn>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Anders Roxell <anders.roxell@linaro.org>, Sven Schnelle <svens@stackframe.org>,
+ "maintainer:X86 ARCHITECTURE 32-BIT AND 64-BIT" <x86@kernel.org>,
+ Russell King <linux@armlinux.org.uk>, Mike Rapoport <rppt@linux.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ "Paul E. McKenney" <paulmck@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, KP Singh <kpsingh@chromium.org>,
+ Dmitry Vyukov <dvyukov@google.com>, Nick Hu <nickhu@andestech.com>,
+ "open list:BPF JIT for MIPS 32-BIT AND 64-BIT" <netdev@vger.kernel.org>,
+ "open list:MIPS" <linux-mips@vger.kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ "open list:LINUX FOR POWERPC 32-BIT AND 64-BIT"
+ <linuxppc-dev@lists.ozlabs.org>
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 22, 2020 at 11:06 PM Atish Patra <atishp@atishpatra.org> wrote:
->
-> On Wed, Jul 22, 2020 at 1:23 PM Arnd Bergmann <arnd@arndb.de> wrote:
+On Thu, Jul 23, 2020 at 03:42:09PM +0300, Ard Biesheuvel wrote:
+> On Thu, 23 Jul 2020 at 04:52, Jarkko Sakkinen
+> <jarkko.sakkinen@linux.intel.com> wrote:
 > >
-> > I just noticed that rv32 allows 2GB of lowmem rather than just the usual
-> > 768MB or 1GB, at the expense of addressable user memory. This seems
-> > like an unusual choice, but I also don't see any reason to change this
-> > or make it more flexible unless actual users appear.
+> > On Thu, Jul 16, 2020 at 06:49:09PM +0200, Christophe Leroy wrote:
+> > > Jarkko Sakkinen <jarkko.sakkinen@linux.intel.com> a =E9crit :
+> > >
+> > > > Rename module_alloc() to text_alloc() and module_memfree() to
+> > > > text_memfree(), and move them to kernel/text.c, which is unconditio=
+nally
+> > > > compiled to the kernel proper. This allows kprobes, ftrace and bpf =
+to
+> > > > allocate space for executable code without requiring to compile the=
+ modules
+> > > > support (CONFIG_MODULES=3Dy) in.
+> > >
+> > > You are not changing enough in powerpc to have this work.
+> > > On powerpc 32 bits (6xx), when STRICT_KERNEL_RWX is selected, the vma=
+lloc
+> > > space is set to NX (no exec) at segment level (ie by 256Mbytes zone) =
+unless
+> > > CONFIG_MODULES is selected.
+> > >
+> > > Christophe
 > >
->
-> I am a bit confused here. As per my understanding, RV32 supports 1GB
-> of lowmem only
-> as the page offset is set to 0xC0000000. The config option
-> MAXPHYSMEM_2GB is misleading
-> as RV32 actually allows 1GB of physical memory only.
+> > This has been deduced down to:
+> >
+> > https://lore.kernel.org/lkml/20200717030422.679972-1-jarkko.sakkinen@li=
+nux.intel.com/
+> >
+> > I.e. not intruding PPC anymore :-)
+> >
+> =
 
-Ok, in that case I was apparently misled by the Kconfig option name.
+> Ok, so after the elaborate discussion we had between Jessica, Russell,
+> Peter, Will, Mark, you and myself, where we pointed out that
+> a) a single text_alloc() abstraction for bpf, kprobes and ftrace does
+> not fit other architectures very well, and
+> b) that module_alloc() is not suitable as a default to base text_alloc() =
+on,
 
-I just tried building a kernel to see what the boundaries actually are,
-as this is not the only confusing bit. Here is what I see:
+In the latest iteration (v5) it is conditionally available only if arch
+defines and fallback has been removed.
 
-0x9dc00000 TASK_SIZE/FIXADDR_START   /* code comment says 0x9fc00000 */
-0x9e000000 FIXADDR_TOP/PCI_IO_START
-0x9f000000 PCI_IO_END/VMEMMAP_START
-0xa0000000 VMEMMAP_END/VMALLOC_START
-0xc0000000 VMALLOC_END/PAGE_OFFSET
+> you went ahead and implemented that anyway, but only cc'ing Peter,
+> akpm, Masami and the mm list this time?
 
-Having exactly 1GB of linear map does make a lot of sense. Having PCI I/O,
-vmemmap and fixmap come out of the user range means you get slightly
-different behavior in user space if there are any changes to that set, but
-that is probably fine as well, if you want the flexibility to go to a 2GB linear
-map and expect user space to deal with that as well.
+No problems with that. Actually each patch gets everything that
+get_maintainer.pl gives with a cc cmd script, not just the ones
+explicitly listed in the patch.
 
-There is one common trick from arm32 however that you might want to
-consider: if vmalloc was moved above the linear map rather than below,
-the size of the vmalloc area can dynamically depend on the amount of
-RAM that is actually present rather than be set to a fixed value.
+Should I explicitly CC you to the next version? I'm happy to grow
+the list when requested.
 
-On arm32, there is around 240MB of vmalloc space if the linear map
-is fully populated with RAM, but it can grow to use all of the avaialable
-address space if less RAM was detected at boot time (up to 3GB
-depending on CONFIG_VMSPLIT).
+> Sorry, but that is not how it works. Once people get pulled into a
+> discussion, you cannot dismiss them or their feedback like that and go
+> off and do your own thing anyway. Generic features like this are
+> tricky to get right, and it will likely take many iterations and input
+> from many different people.
 
-> Any memory blocks beyond
-> DRAM + 1GB are removed in setup_bootmem. IMHO, The current config
-> should clarify that.
->
-> Moreover, we should add 2G split under a separate configuration if we
-> want to support that.
+Sure. I'm not expecting this move quickly.
 
-Right. It's probably not needed immediately, but can't hurt either.
+I don't think I've at least purposely done that. As you said it's tricky
+to get this right.
 
-    Arnd
+/Jarkko
 
 _______________________________________________
 linux-riscv mailing list
