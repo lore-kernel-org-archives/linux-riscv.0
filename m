@@ -1,78 +1,87 @@
-Return-Path: <SRS0=jwAp=BD=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=Z8g5=BE=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+X-Spam-Status: No, score=-12.9 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3C778C433E1
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2020 15:47:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 66B27C433E1
+	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jul 2020 01:01:22 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 06E49206D8
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jul 2020 15:47:45 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 011D820674
+	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jul 2020 01:01:21 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="tSs/Ssg/"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 06E49206D8
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.intel.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="QMeQ7nrV";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="BwLTw4Fb"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 011D820674
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=TOl7CIP/CHc2Kqagj2e1FCedjChsfR/Ec6BU5/zTB74=; b=tSs/Ssg/1X6IbQumzNxyzQXnX
-	j4o3XocpIFtFKLjD2TXRS0FpgkouUcfikQXxNY8YQ54dXhgrfyPSrVNQ1EIbu7DvPSwo6HN6b1AbX
-	qRwxbk4jp128yY6hURvxCEAzs4UakP5UkDrcLmau4SV0Rpd+38MR8GUNDuxcVBEc5+1MN/ivG2h1Z
-	0vAP+rKQPWOXneHPwjgx/OSjWm3BjWpu9fLAk+6jksWpPhXp83K4yDR7qnp97BMQZsN8AFmB5mLBQ
-	ZvGICSaO5BRCnHBJFt16bsHhkhXiTi+m1KRI0xdLrI8dLKYd1WdDi4eF3v3pSE3WCQZS1QDYqTWUV
-	yFMLjUpLw==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Aq6AJnBTuFYOSXI/QN4iFouCaZwwMf6ekihmHxTMZfU=; b=QMeQ7nrVjKZoiO8TebMayQsMYi
+	0OJnobxILuFvr5h0YuEuxO1ifHr7B2CBBhfABxsTA1XXp/a0hffwVYOASmgSskKrryZhtkdKb6yqj
+	cTfeiencZog/e3dFaEIPkkMlDQeuriYo4eD8crhjZJROqGWPJNNmO2yOk4ZB/qFkf4c1eVVofWMyM
+	DY08CcjEI7e0n+QBFIFZ8ied3VfI9K2wyTLQPFCtcWPtBn4BaFKgN7h27Pr/i4xVEerXc8NvZv0nG
+	hZO96VWNX7wIrDseq98GourhrcOVsiqFcODei9wFGgZK0eV2ARgamBI+0GK4WGUYiVXxhXIOM32yd
+	L45qgEfQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jyzv5-0006Ow-32; Fri, 24 Jul 2020 15:47:35 +0000
-Received: from mga02.intel.com ([134.134.136.20])
+	id 1jz8Yl-0003nu-3s; Sat, 25 Jul 2020 01:01:07 +0000
+Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jyzv1-0006Nr-Pf; Fri, 24 Jul 2020 15:47:32 +0000
-IronPort-SDR: DJwk3m3RBTGFVdKnxIR1NUeRu3bJ4Do7o/m7NkNK5e9D3O4OfiNVVQory2UYVsI9kdTPVFSacW
- fFgWf8kjZrjA==
-X-IronPort-AV: E=McAfee;i="6000,8403,9692"; a="138789604"
-X-IronPort-AV: E=Sophos;i="5.75,391,1589266800"; d="scan'208";a="138789604"
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from fmsmga004.fm.intel.com ([10.253.24.48])
- by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 24 Jul 2020 08:47:27 -0700
-IronPort-SDR: mEEvLVGw49kcLRQfPZFp1jNlLAzx7ijrCWdV0BmV8Ca+I1GMr2U0qQ0Wxo2AzsAPmTcm93xEuQ
- ZLA3g5xQ9nHw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.75,391,1589266800"; d="scan'208";a="311441549"
-Received: from dschukli-mobl.ger.corp.intel.com (HELO localhost)
- ([10.252.36.3])
- by fmsmga004.fm.intel.com with ESMTP; 24 Jul 2020 08:47:00 -0700
-Date: Fri, 24 Jul 2020 18:46:59 +0300
-From: Jarkko Sakkinen <jarkko.sakkinen@linux.intel.com>
-To: Jessica Yu <jeyu@kernel.org>
-Subject: Re: [PATCH v2 1/3] module: Rename module_alloc() to text_alloc() and
- move to kernel proper
-Message-ID: <20200724154659.GA1879026@linux.intel.com>
-References: <20200714094625.1443261-1-jarkko.sakkinen@linux.intel.com>
- <20200714094625.1443261-2-jarkko.sakkinen@linux.intel.com>
- <20200716184909.Horde.JVRLLcKix_jhrJfiQYRbbQ1@messagerie.si.c-s.fr>
- <20200723015127.GE45081@linux.intel.com>
- <CAMj1kXGJhqC+asc6JUNeEkRsHYTzNQVe4-65vKqigbW03gO9Jg@mail.gmail.com>
- <20200724073621.GC1872662@linux.intel.com>
- <20200724080508.GA17719@linux-8ccs>
+ id 1jz8Yi-0003nN-RU
+ for linux-riscv@lists.infradead.org; Sat, 25 Jul 2020 01:01:05 +0000
+Received: by mail-pf1-x442.google.com with SMTP id f185so1257737pfg.10
+ for <linux-riscv@lists.infradead.org>; Fri, 24 Jul 2020 18:01:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=RqfdT0iZfHl2g0qn8q8pqEPbfkgN0EeoAjSG+bhJsWM=;
+ b=BwLTw4FbxSU927pXuNBAIQ/zdNnVr8ABcb1hYugeTjvBRQz75GA7I12kXAzqrx8DDg
+ YV7VNEd9io8i6PLH0KBF5AjFHN9AF8CYiQkX8vqyzKOSB6SYStkcHZRyFsz0Ym5v2NDf
+ MfS2FY+2zodBlmo5gkKdN+eVW91sjboR7QsX7qTOgQGRWQLeUuo1Osi9cCng/Bm9xIXb
+ M8Cd7/C6Q/N7+6JIEmVKxCcTTxYeUgy8HD972pTpM2q9rfc1H/b1DMs0RXhpkeBzvem3
+ xk4z3AykPin0qIvAT/DiyMNqkrwOT8gB8uOyoPPHZqmvITfeJl7Zd3Kh02qiNglUi36l
+ zW8Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=RqfdT0iZfHl2g0qn8q8pqEPbfkgN0EeoAjSG+bhJsWM=;
+ b=lH5U3VeRPMc57Os267Af7sHIKWgD27w6bnvaZZUqRUcfOCyROCXtBPdLKbLtR6aluh
+ 5ZyUIOgKCsQicHbLnqqF5KCMaOyXl7ehw1ckWKWfCYkg0JjJYqiJroh9q4p5p3U87V8H
+ 1nLbyYLLuHLH5G/XOucX02JV+BetmAkVc7OyJnboihKOyP5+cK3yronh4c4C502O34Gh
+ bd7hOiDZ2uf6DrH5gHhJhCXkKFVBnWH5VvEpfKfJu1mSsY3UFd9z8eABFMEHyKCp6QNM
+ nFlHwOSm+NlzvMSdY5uVmw/JlFtQPUEbd8xZ5PPkqXsLFLt1XiqUbLweZFPcEayIhMbO
+ YZFQ==
+X-Gm-Message-State: AOAM533v9CEZsy8K75XyAXxX6s7SXM5nPJiQ4QbVGkBJC8dcrzjRpZel
+ kfaIoBFUV9WkCx2q/px4Bd4=
+X-Google-Smtp-Source: ABdhPJwIwSYwgF8/I5anvvdT5qNxsbMhiZWLMtmNB4W8VdwUCEpFISwzCSU0iSFsPoJarZHCBisOzQ==
+X-Received: by 2002:aa7:860f:: with SMTP id p15mr11315893pfn.59.1595638860753; 
+ Fri, 24 Jul 2020 18:01:00 -0700 (PDT)
+Received: from localhost (g155.222-224-148.ppp.wakwak.ne.jp. [222.224.148.155])
+ by smtp.gmail.com with ESMTPSA id kx3sm6886397pjb.32.2020.07.24.18.00.59
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 24 Jul 2020 18:01:00 -0700 (PDT)
+From: Stafford Horne <shorne@gmail.com>
+To: LKML <linux-kernel@vger.kernel.org>
+Subject: [PATCH] openrisc: Implement proper SMP tlb flushing
+Date: Sat, 25 Jul 2020 10:00:47 +0900
+Message-Id: <20200725010049.693421-1-shorne@gmail.com>
+X-Mailer: git-send-email 2.26.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20200724080508.GA17719@linux-8ccs>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200724_114731_952800_D6B2ADAD 
-X-CRM114-Status: GOOD (  34.65  )
+X-CRM114-CacheID: sfid-20200724_210104_978450_6D1F671A 
+X-CRM114-Status: GOOD (  15.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -84,160 +93,186 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
- Kefeng Wang <wangkefeng.wang@huawei.com>, Paul Mackerras <paulus@samba.org>,
- Zong Li <zong.li@sifive.com>, Andi Kleen <ak@linux.intel.com>,
- Paul Burton <paulburton@kernel.org>,
- Vincent Whitchurch <vincent.whitchurch@axis.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>, Petr Mladek <pmladek@suse.com>,
- Brian Gerst <brgerst@gmail.com>, Andy Lutomirski <luto@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>, Jiri Kosina <jkosina@suse.cz>,
- Anup Patel <anup.patel@wdc.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Philipp Rudo <prudo@linux.ibm.com>, Torsten Duwe <duwe@lst.de>,
- Masami Hiramatsu <mhiramat@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>, Mark Rutland <mark.rutland@arm.com>,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Vincent Chen <deanbo422@gmail.com>, Omar Sandoval <osandov@fb.com>,
- "open list:S390" <linux-s390@vger.kernel.org>,
- Joe Lawrence <joe.lawrence@redhat.com>, Helge Deller <deller@gmx.de>,
- John Fastabend <john.fastabend@gmail.com>,
- Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
- Yonghong Song <yhs@fb.com>, Iurii Zaikin <yzaikin@google.com>,
- Andrii Nakryiko <andriin@fb.com>, Thomas Huth <thuth@redhat.com>,
- Vasily Gorbik <gor@linux.ibm.com>,
- "moderated list:ARM PORT" <linux-arm-kernel@lists.infradead.org>,
- Daniel Axtens <dja@axtens.net>, Damien Le Moal <damien.lemoal@wdc.com>,
- Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
- Josh Poimboeuf <jpoimboe@redhat.com>,
- Heiko Carstens <heiko.carstens@de.ibm.com>,
- Alexei Starovoitov <ast@kernel.org>, Atish Patra <atish.patra@wdc.com>,
- Will Deacon <will@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Masahiro Yamada <masahiroy@kernel.org>, Nayna Jain <nayna@linux.ibm.com>,
- Ley Foon Tan <ley.foon.tan@intel.com>,
- Christian Borntraeger <borntraeger@de.ibm.com>,
- Sami Tolvanen <samitolvanen@google.com>,
- "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>, Mao Han <han_mao@c-sky.com>,
- Marco Elver <elver@google.com>, Steven Rostedt <rostedt@goodmis.org>,
- Babu Moger <Babu.Moger@amd.com>, Borislav Petkov <bp@alien8.de>,
- Greentime Hu <green.hu@gmail.com>, Ben Dooks <ben-linux@fluff.org>,
- Guan Xuetao <gxt@pku.edu.cn>, Tiezhu Yang <yangtiezhu@loongson.cn>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- "open list:PARISC ARCHITECTURE" <linux-parisc@vger.kernel.org>,
- "open list:BPF JIT for MIPS 32-BIT AND 64-BIT" <bpf@vger.kernel.org>,
- "David S. Miller" <davem@davemloft.net>,
- Thiago Jung Bauermann <bauerman@linux.ibm.com>,
- Peter Zijlstra <peterz@infradead.org>, David Howells <dhowells@redhat.com>,
- Amit Daniel Kachhap <amit.kachhap@arm.com>,
- Sandipan Das <sandipan@linux.ibm.com>, "H. Peter Anvin" <hpa@zytor.com>,
- "open list:SPARC + UltraSPARC sparc/sparc64" <sparclinux@vger.kernel.org>,
- "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
- Miroslav Benes <mbenes@suse.cz>, Jiri Olsa <jolsa@redhat.com>,
- Ard Biesheuvel <ardb@kernel.org>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Anders Roxell <anders.roxell@linaro.org>, Sven Schnelle <svens@stackframe.org>,
- "maintainer:X86 ARCHITECTURE 32-BIT AND 64-BIT" <x86@kernel.org>,
- Russell King <linux@armlinux.org.uk>, Mike Rapoport <rppt@linux.ibm.com>,
- Ingo Molnar <mingo@redhat.com>, Albert Ou <aou@eecs.berkeley.edu>,
- "Paul E. McKenney" <paulmck@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, KP Singh <kpsingh@chromium.org>,
- Dmitry Vyukov <dvyukov@google.com>, Nick Hu <nickhu@andestech.com>,
- "open list:BPF JIT for MIPS 32-BIT AND 64-BIT" <netdev@vger.kernel.org>,
- "open list:MIPS" <linux-mips@vger.kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- "open list:LINUX FOR POWERPC 32-BIT AND 64-BIT"
- <linuxppc-dev@lists.ozlabs.org>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Cc: Jonas Bonn <jonas@southpole.se>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv@lists.infradead.org,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Julia Lawall <Julia.Lawall@inria.fr>, openrisc@lists.librecores.org,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Stafford Horne <shorne@gmail.com>, Mike Rapoport <rppt@linux.ibm.com>,
+ Andrew Morton <akpm@linux-foundation.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 24, 2020 at 10:05:08AM +0200, Jessica Yu wrote:
-> +++ Jarkko Sakkinen [24/07/20 10:36 +0300]:
-> > On Thu, Jul 23, 2020 at 03:42:09PM +0300, Ard Biesheuvel wrote:
-> > > On Thu, 23 Jul 2020 at 04:52, Jarkko Sakkinen
-> > > <jarkko.sakkinen@linux.intel.com> wrote:
-> > > >
-> > > > On Thu, Jul 16, 2020 at 06:49:09PM +0200, Christophe Leroy wrote:
-> > > > > Jarkko Sakkinen <jarkko.sakkinen@linux.intel.com> a =E9crit :
-> > > > >
-> > > > > > Rename module_alloc() to text_alloc() and module_memfree() to
-> > > > > > text_memfree(), and move them to kernel/text.c, which is uncond=
-itionally
-> > > > > > compiled to the kernel proper. This allows kprobes, ftrace and =
-bpf to
-> > > > > > allocate space for executable code without requiring to compile=
- the modules
-> > > > > > support (CONFIG_MODULES=3Dy) in.
-> > > > >
-> > > > > You are not changing enough in powerpc to have this work.
-> > > > > On powerpc 32 bits (6xx), when STRICT_KERNEL_RWX is selected, the=
- vmalloc
-> > > > > space is set to NX (no exec) at segment level (ie by 256Mbytes zo=
-ne) unless
-> > > > > CONFIG_MODULES is selected.
-> > > > >
-> > > > > Christophe
-> > > >
-> > > > This has been deduced down to:
-> > > >
-> > > > https://lore.kernel.org/lkml/20200717030422.679972-1-jarkko.sakkine=
-n@linux.intel.com/
-> > > >
-> > > > I.e. not intruding PPC anymore :-)
-> > > >
-> > > =
+Up until now when flushing pages from the TLB on SMP OpenRISC was always
+resorting to flush the entire TLB on all CPUs.  This patch adds the
+mechanics for flushing specific ranges and pages based on the usage.
 
-> > > Ok, so after the elaborate discussion we had between Jessica, Russell,
-> > > Peter, Will, Mark, you and myself, where we pointed out that
-> > > a) a single text_alloc() abstraction for bpf, kprobes and ftrace does
-> > > not fit other architectures very well, and
-> > > b) that module_alloc() is not suitable as a default to base text_allo=
-c() on,
-> > =
+The function switch_mm is updated to account for cpu usage by updating
+mm_struct's cpumask.  This is used in the SMP flush routines.
 
-> > In the latest iteration (v5) it is conditionally available only if arch
-> > defines and fallback has been removed.
-> > =
+This mostly follows the riscv implementation.
 
-> > > you went ahead and implemented that anyway, but only cc'ing Peter,
-> > > akpm, Masami and the mm list this time?
-> > =
+Signed-off-by: Stafford Horne <shorne@gmail.com>
+---
+ arch/openrisc/kernel/smp.c | 85 ++++++++++++++++++++++++++++++++++----
+ arch/openrisc/mm/tlb.c     | 17 +++++---
+ 2 files changed, 89 insertions(+), 13 deletions(-)
 
-> > No problems with that. Actually each patch gets everything that
-> > get_maintainer.pl gives with a cc cmd script, not just the ones
-> > explicitly listed in the patch.
-> > =
+diff --git a/arch/openrisc/kernel/smp.c b/arch/openrisc/kernel/smp.c
+index bd1e660bbc89..29c82ef2e207 100644
+--- a/arch/openrisc/kernel/smp.c
++++ b/arch/openrisc/kernel/smp.c
+@@ -219,30 +219,99 @@ static inline void ipi_flush_tlb_all(void *ignored)
+ 	local_flush_tlb_all();
+ }
+ 
++static inline void ipi_flush_tlb_mm(void *info)
++{
++	struct mm_struct *mm = (struct mm_struct *)info;
++
++	local_flush_tlb_mm(mm);
++}
++
++static void smp_flush_tlb_mm(struct cpumask *cmask, struct mm_struct *mm)
++{
++	unsigned int cpuid;
++
++	if (cpumask_empty(cmask))
++		return;
++
++	cpuid = get_cpu();
++
++	if (cpumask_any_but(cmask, cpuid) >= nr_cpu_ids) {
++		/* local cpu is the only cpu present in cpumask */
++		local_flush_tlb_mm(mm);
++	} else {
++		on_each_cpu_mask(cmask, ipi_flush_tlb_mm, mm, 1);
++	}
++	put_cpu();
++}
++
++struct flush_tlb_data {
++	unsigned long addr1;
++	unsigned long addr2;
++};
++
++static inline void ipi_flush_tlb_page(void *info)
++{
++	struct flush_tlb_data *fd = (struct flush_tlb_data *)info;
++
++	local_flush_tlb_page(NULL, fd->addr1);
++}
++
++static inline void ipi_flush_tlb_range(void *info)
++{
++	struct flush_tlb_data *fd = (struct flush_tlb_data *)info;
++
++	local_flush_tlb_range(NULL, fd->addr1, fd->addr2);
++}
++
++static void smp_flush_tlb_range(struct cpumask *cmask, unsigned long start,
++				unsigned long end)
++{
++	unsigned int cpuid;
++
++	if (cpumask_empty(cmask))
++		return;
++
++	cpuid = get_cpu();
++
++	if (cpumask_any_but(cmask, cpuid) >= nr_cpu_ids) {
++		/* local cpu is the only cpu present in cpumask */
++		if ((end - start) <= PAGE_SIZE)
++			local_flush_tlb_page(NULL, start);
++		else
++			local_flush_tlb_range(NULL, start, end);
++	} else {
++		struct flush_tlb_data fd;
++
++		fd.addr1 = start;
++		fd.addr2 = end;
++
++		if ((end - start) <= PAGE_SIZE)
++			on_each_cpu_mask(cmask, ipi_flush_tlb_page, &fd, 1);
++		else
++			on_each_cpu_mask(cmask, ipi_flush_tlb_range, &fd, 1);
++	}
++	put_cpu();
++}
++
+ void flush_tlb_all(void)
+ {
+ 	on_each_cpu(ipi_flush_tlb_all, NULL, 1);
+ }
+ 
+-/*
+- * FIXME: implement proper functionality instead of flush_tlb_all.
+- * *But*, as things currently stands, the local_tlb_flush_* functions will
+- * all boil down to local_tlb_flush_all anyway.
+- */
+ void flush_tlb_mm(struct mm_struct *mm)
+ {
+-	on_each_cpu(ipi_flush_tlb_all, NULL, 1);
++	smp_flush_tlb_mm(mm_cpumask(mm), mm);
+ }
+ 
+ void flush_tlb_page(struct vm_area_struct *vma, unsigned long uaddr)
+ {
+-	on_each_cpu(ipi_flush_tlb_all, NULL, 1);
++	smp_flush_tlb_range(mm_cpumask(vma->vm_mm), uaddr, uaddr + PAGE_SIZE);
+ }
+ 
+ void flush_tlb_range(struct vm_area_struct *vma,
+ 		     unsigned long start, unsigned long end)
+ {
+-	on_each_cpu(ipi_flush_tlb_all, NULL, 1);
++	smp_flush_tlb_range(mm_cpumask(vma->vm_mm), start, end);
+ }
+ 
+ /* Instruction cache invalidate - performed on each cpu */
+diff --git a/arch/openrisc/mm/tlb.c b/arch/openrisc/mm/tlb.c
+index 4b680aed8f5f..2b6feabf6381 100644
+--- a/arch/openrisc/mm/tlb.c
++++ b/arch/openrisc/mm/tlb.c
+@@ -137,21 +137,28 @@ void local_flush_tlb_mm(struct mm_struct *mm)
+ void switch_mm(struct mm_struct *prev, struct mm_struct *next,
+ 	       struct task_struct *next_tsk)
+ {
++	unsigned int cpu;
++
++	if (unlikely(prev == next))
++		return;
++
++	cpu = smp_processor_id();
++
++	cpumask_clear_cpu(cpu, mm_cpumask(prev));
++	cpumask_set_cpu(cpu, mm_cpumask(next));
++
+ 	/* remember the pgd for the fault handlers
+ 	 * this is similar to the pgd register in some other CPU's.
+ 	 * we need our own copy of it because current and active_mm
+ 	 * might be invalid at points where we still need to derefer
+ 	 * the pgd.
+ 	 */
+-	current_pgd[smp_processor_id()] = next->pgd;
++	current_pgd[cpu] = next->pgd;
+ 
+ 	/* We don't have context support implemented, so flush all
+ 	 * entries belonging to previous map
+ 	 */
+-
+-	if (prev != next)
+-		local_flush_tlb_mm(prev);
+-
++	local_flush_tlb_mm(prev);
+ }
+ 
+ /*
+-- 
+2.26.2
 
-> > Should I explicitly CC you to the next version? I'm happy to grow
-> > the list when requested.
-> =
-
-> Yes, please CC everybody that was part of the discussion last time
-> especially during v2, and please use a consistent CC list for the
-> whole patchset. It is difficult to review when you only receive patch
-> 1 out of 6 with no mention of text_alloc() anywhere and without being
-> CC'd on the cover letter.
-> =
-
-> Jessica
-
-I'll make the following additions to the CC list (in alphabetical
-order):
-
-  Cc: Ard Biesheuvel <ardb@kernel.org>
-  Cc: Jessica Yu <jeyu@kernel.org>
-  Cc: Mark Rutland <mark.rutland@arm.com>,
-  Cc: Mike Rapoport <rppt@kernel.org>
-  Cc: Russell King <linux@armlinux.org.uk>
-  Cc: Will Deacon <will@kernel.org>
-
-This is also reflected now in the kprobes branch of
-https://github.com/jsakkine-intel/linux-sgx.git. My candidate patches
-are located in my SGX tree because I mainly use them when poking SGX.
-The patches are kind of sidekick of SGX upstreaming process.
-
-/Jarkko
 
 _______________________________________________
 linux-riscv mailing list
