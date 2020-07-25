@@ -2,87 +2,85 @@ Return-Path: <SRS0=Z8g5=BE=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PULL_REQUEST,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CD56AC433E1
-	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jul 2020 18:25:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3BEB4C433E1
+	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jul 2020 18:31:10 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 99108206D7
-	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jul 2020 18:25:07 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 073BD206D7
+	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jul 2020 18:31:09 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="1y+thkgj";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="0AVLkDg4"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 99108206D7
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="2FuuBYN4";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="xqchFIz3"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 073BD206D7
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=Lw/s1tiAu96W/eR8L2sIWPD65MeC6DcYo3aoJca+77k=; b=1y+thkgj7LwgqA7GY5VVT8AxU
-	mBmC4XuqqG0o/tx+HIpQM8XIEIKlnhnylzmiqmBvKMP1OLoYsLX6ao8XAj+3laLvCK0Ku6JiTRsj+
-	jCu61cul5zNzFCICrCxs8WZy2esJNo5KcwRB+ApdKnrLg5fFe3AhBkANUBrZzClsA9+hrQndvqkGx
-	nXHAX+xxZzcETz/GGVKjah9WiVn00TOYK1M93gAtanYI/h4uP5NjfCzYTnCLVr2a3uxgKuBNTtz0B
-	HjRMghWnIvROgMcKsS3VAb95aXv55PeHyiDQjDFz1MFnRT3+9yEken0g+gj5ReBWSs81y+mcgzbnL
-	AbUqDW6Rg==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Message-ID:To:From:Subject:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WxHav+wHhogaNqKaACqtcwx8uazzQrPuMWRaRYjGiDw=; b=2FuuBYN4goKWUWygDYuSbpfbnW
+	tnRFTuqlViXQyHa/UIwkGHQvPKze3+9ZcW2K0ccQJJ4MxDKqq5IXtKYbiXJCl+RJMQ3ydbICRxjj+
+	O7oyBX2KVru55CXfuU2w8rlwPV2Qk3LFqEmcVjwSHtzv+CNgPcsFUDCRXawJEznF1A1HjtmsnwRcH
+	/shJ682b4pA+U3U5p6I8p3meOrE3PVq69rCFWizJfkQFf9mzoZ4yzY/YOP6YOoXfhQbH4GbrruZDV
+	+O/AW6gwNgkB8Ody2ao/HD0sLy2CJbwUphXlDQ4NfoiZRrvwQPmLdRkOdJMwKBePaBc6yVZNXTMML
+	G47o0s2Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jzOqq-0002CE-B7; Sat, 25 Jul 2020 18:24:52 +0000
-Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
+	id 1jzOwm-0002bt-BQ; Sat, 25 Jul 2020 18:31:00 +0000
+Received: from mail-pg1-x543.google.com ([2607:f8b0:4864:20::543])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jzOqn-0002Bl-D6
- for linux-riscv@lists.infradead.org; Sat, 25 Jul 2020 18:24:50 +0000
-Received: by mail-pf1-x442.google.com with SMTP id j20so6954840pfe.5
- for <linux-riscv@lists.infradead.org>; Sat, 25 Jul 2020 11:24:48 -0700 (PDT)
+ id 1jzOwj-0002aB-K2
+ for linux-riscv@lists.infradead.org; Sat, 25 Jul 2020 18:30:58 +0000
+Received: by mail-pg1-x543.google.com with SMTP id m22so7153167pgv.9
+ for <linux-riscv@lists.infradead.org>; Sat, 25 Jul 2020 11:30:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=g5KV4oQr9blE2xaUSgxxVlTAVbR4qnTHAPsngn5VHhU=;
- b=0AVLkDg4gvYXOyCyuaQ/UyC2NTl8sa7rUS972GkzEEkWYey9OY2uwFrAoxMvrbUKk6
- x6uShijEDCqjc3W/VfyzX2UUHz4g3J7vJoapE7AN0jar+CW7JDQOm4KxbJ6uMPSkdx/j
- /sfQhtEJQkzDwZCKtZ3dUovhjSMG3beQI9c+4ND3zgsPal5T3b9h+wTjClcJZ8OZbgla
- qooCMTDklefjTGQtl7HKpdN21EPGnLV2HpQRFsQux3YcaBcXNIXPpewlNW/QoFke8JiM
- FJ7zNZK7IkOtQIjbkhs9mvA2AaGpuCYX69o7w6BMoCz8rTLhCAaLD4gMBY+r/o+6LtFT
- gWMA==
+ h=date:subject:cc:from:to:message-id;
+ bh=RpLA+fP+DoLvbUEvg6utInkVa5lt66wslkma7Mkucds=;
+ b=xqchFIz3EfC5rjOlPK5SwVCU2Hutak9YpYOb4GS4j6KEy8w82eIBqWXUjJJl0vra0x
+ jFtrQzf50jI+hRpAQo6UreFtU1A2Y2A5IHDPuxl6BuBOVzXt8jckw6w4BkMrdrRsBOEl
+ XRrD+de4uODky1/HBnJjoaMcTJEbVSuTwGgi06M7IUeKdTNfXVGYISY0F4pSS+nsNn0h
+ pVsBgDhzVlMOikrsFsi3XK+RgoI0EvzP2OTKhEL11N3YTXDoGz5lVWBcOzu48WpDBf8Q
+ xBmEwTOJ1nXSliKHw9kpDyYIHH0pNKkw2XBDYjbCo9pxvzcvyLdDOGff1O74u9pBzFqd
+ eQ+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=g5KV4oQr9blE2xaUSgxxVlTAVbR4qnTHAPsngn5VHhU=;
- b=EIMFnAxMkPzpIwN7f0VxqEX8/wBKPjTFWpd6KC4bevTmcZILk86Tn5YyWg+qbhme8v
- xucfOziYGV0Y16w59HbF63HUEdNlgxBJxW/V0CWkiJKPcbnYA69k64pOeebgFSVR9AG3
- jGJepoi/sbHsEgdu4atxUuMJWqtrcjW5Yf0/uFJ7rJAswVbT1A26h5m5TVRCPBM0Wbcw
- 3SbgRtNsUsyEABNDOBufUP5BA5n/DSOJgcptpx4uJzi4lipD5L0kADTPONdIjXrDQKDH
- SVHjivPQTiYTeBf4+VhMBIVXpDM9U8/Yf7gB/vujthbkS47afvWmzbf48m+oJ22zrmBC
- hT/g==
-X-Gm-Message-State: AOAM533+1X50krU77zWSfvBjph6n+wv8+q/Ct33YlQon+zAB3J6AYugs
- gJoPziTOLmeCT2zGbnr//tTucA==
-X-Google-Smtp-Source: ABdhPJws9Ncp+xuPpJvv/8k128LHXFkxmXtpwAUE3C5X74SuXudwiFvjH0EoAMdDaY+TX1yoajakZw==
-X-Received: by 2002:a63:9342:: with SMTP id w2mr13144548pgm.20.1595701486207; 
- Sat, 25 Jul 2020 11:24:46 -0700 (PDT)
+ h=x-gm-message-state:date:subject:cc:from:to:message-id;
+ bh=RpLA+fP+DoLvbUEvg6utInkVa5lt66wslkma7Mkucds=;
+ b=tYnjAm6KQY2bTwQtio2Dy9le/T8Pt3Hkxxre/xb8CsRJccBX5iEah3fAKzfZN2S4T7
+ kHcoCrwr795ENLDWvAdl/dm510oXgmqAHHadXrl7oMeSbDX6qbCY4SnY+uS0XJ0CCz4e
+ wZQZhxsFo2Z0udjhsyqJn6HNKuCWsqCnuSdkvXf9DsYRijolJU3D/Esdz4+ZWf/upD0Q
+ l+A8MKrVwwo6rwkoPFcNYllWrls05UCGQXqm6zX2W9qxOyqbFSLjWB9U/yAD12SPHBi5
+ IyQ8t0UCJN9VYU+kLLqCDNnFHSlJF1UvnkVyw3FAos1+yvl5xlSsowxUfmbuTzk8ySOg
+ VHAg==
+X-Gm-Message-State: AOAM532oIG3VhQXM0XMBFjCVICKQNGHP+cdGjrQf5IdWyPjiTfCOM04n
+ KsBUycj21XWEGETD6fJVXMclfxLrNbk=
+X-Google-Smtp-Source: ABdhPJzkcgAw5QaTaebC9kG4nrkATQ3qDp2O73dkpdQpImjpzDubCoAEBaBw4g8NzSFaCp5LppMGGw==
+X-Received: by 2002:a62:b409:: with SMTP id h9mr13600700pfn.305.1595701854895; 
+ Sat, 25 Jul 2020 11:30:54 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id m9sm9046242pjs.18.2020.07.25.11.24.45
+ by smtp.gmail.com with ESMTPSA id u8sm9276274pjn.24.2020.07.25.11.30.54
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sat, 25 Jul 2020 11:24:45 -0700 (PDT)
-Date: Sat, 25 Jul 2020 11:24:45 -0700 (PDT)
-X-Google-Original-Date: Fri, 24 Jul 2020 22:21:16 PDT (-0700)
-Subject: Re: [PATCH 0/2] Fix some build warnings when W=1
-In-Reply-To: <cover.1594880014.git.zong.li@sifive.com>
+ Sat, 25 Jul 2020 11:30:54 -0700 (PDT)
+Date: Sat, 25 Jul 2020 11:30:54 -0700 (PDT)
+X-Google-Original-Date: Sat, 25 Jul 2020 11:29:26 PDT (-0700)
+Subject: [GIT PULL] RISC-V Fixes for 5.8-rc7
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: zong.li@sifive.com
-Message-ID: <mhng-7bb6277d-bca5-4cd0-a791-3fa2b9891f69@palmerdabbelt-glaptop1>
-Mime-Version: 1.0 (MHng)
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-f2bb3f7e-e2d6-48e5-a8f6-5e47edf5441e@palmerdabbelt-glaptop1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200725_142449_557928_82D7BFD2 
-X-CRM114-Status: GOOD (  10.88  )
+X-CRM114-CacheID: sfid-20200725_143057_681746_24281707 
+X-CRM114-Status: UNSURE (   7.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -94,35 +92,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- zong.li@sifive.com, Paul Walmsley <paul.walmsley@sifive.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 15 Jul 2020 23:15:25 PDT (-0700), zong.li@sifive.com wrote:
-> These patches fix some build warnings when W=1, the most of warnings are
-> missing prototype as follows:
->
-> arch/riscv/mm/init.c:520:13: warning: no previous prototype for 'resource_init' [-Wmissing-prototypes]
-> arch/riscv/mm/pageattr.c:130:5: warning: no previous prototype for 'set_memory_ro' [-Wmissing-prototypes]
-> arch/riscv/mm/pageattr.c:136:5: warning: no previous prototype for 'set_memory_rw' [-Wmissing-prototypes]
-> arch/riscv/mm/pageattr.c:142:5: warning: no previous prototype for 'set_memory_x' [-Wmissing-prototypes]
-> arch/riscv/mm/pageattr.c:147:5: warning: no previous prototype for 'set_memory_nx' [-Wmissing-prototypes]
-> arch/riscv/mm/pageattr.c:152:5: warning: no previous prototype for 'set_direct_map_invalid_noflush' [-Wmissing-prototypes]
-> arch/riscv/mm/pageattr.c:169:5: warning: no previous prototype for 'set_direct_map_default_noflush' [-Wmissing-prototypes]
-> arch/riscv/mm/pageattr.c:97:1: warning: 'static' is not at beginning of declaration [-Wold-style-declaration]
->
-> Zong Li (2):
->   riscv: Fix build warning for mm/init
->   riscv: fix build warning of mm/pageattr
->
->  arch/riscv/mm/init.c     | 2 +-
->  arch/riscv/mm/pageattr.c | 3 ++-
->  2 files changed, 3 insertions(+), 2 deletions(-)
+The following changes since commit ba47d845d715a010f7b51f6f89bae32845e6acb7:
 
-Thanks, these are on for-next.
+  Linux 5.8-rc6 (2020-07-19 15:41:18 -0700)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.8-rc7
+
+for you to fetch changes up to fa5a198359053c8e21dcc2b39c0e13871059bc9f:
+
+  riscv: Parse all memory blocks to remove unusable memory (2020-07-24 22:08:25 -0700)
+
+----------------------------------------------------------------
+RISC-V Fixes for 5.8-rc7
+
+I have a few more fixes this week:
+
+* A fix to avoid using SBI calls during kasan initialization, as the SBI calls
+  themselves have not been probed yet.
+* Three fixes related to systems with multiple memory regions.
+
+----------------------------------------------------------------
+Atish Patra (3):
+      RISC-V: Set maximum number of mapped pages correctly
+      RISC-V: Do not rely on initrd_start/end computed during early dt parsing
+      riscv: Parse all memory blocks to remove unusable memory
+
+Vincent Chen (1):
+      riscv: kasan: use local_tlb_flush_all() to avoid uninitialized __sbi_rfence
+
+ arch/riscv/mm/init.c       | 66 +++++++++++++++++++++++++++++++---------------
+ arch/riscv/mm/kasan_init.c |  4 +--
+ 2 files changed, 47 insertions(+), 23 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
