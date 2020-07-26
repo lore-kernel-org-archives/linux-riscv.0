@@ -2,22 +2,22 @@ Return-Path: <SRS0=UGSk=BF=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-9.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
-	UNWANTED_LANGUAGE_BODY autolearn=unavailable autolearn_force=no version=3.4.0
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D8882C433E3
-	for <linux-riscv@archiver.kernel.org>; Sun, 26 Jul 2020 12:57:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6497AC433E3
+	for <linux-riscv@archiver.kernel.org>; Sun, 26 Jul 2020 12:59:28 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A4C1C2065E
-	for <linux-riscv@archiver.kernel.org>; Sun, 26 Jul 2020 12:57:40 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 302672065E
+	for <linux-riscv@archiver.kernel.org>; Sun, 26 Jul 2020 12:59:28 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Ze6KpVgJ";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="l4ouuUm+"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A4C1C2065E
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="gJPnRhAj";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="e3qylBuP"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 302672065E
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,59 +26,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=akrs86pSGvJINE5LteYjBA5ieGheF5BguydLIY6SxqQ=; b=Ze6KpVgJUGzY+DDWJSlI6INvp
-	EsW/gng6jtBPbpKIzBWJcJr+fiNRusUcK92osqvihBm7RC8cP/SfloYksaWTZ3CAHVAMF0HPcvgsM
-	GNUSwIysuozAolomSbaXuLlddYyfhx7gN1benRFuQkh1Bi8lHN6ykEepImEqzTHG9Us9bpBCXYVYe
-	/qsjv6wSXobWxH3vf/GamO8UcG1Xxa/b0xVh11zhUajiAby72G/K1GlHXngGu/AnfJiK+B1rSxwmU
-	pnwhbcdERu2gn83b8+F/7Pt9GW/SeRf7EOEdQfaGAqsqklDrX2FYNVfC+zjObzcAQhpKLh8uz22Xv
-	KjbKagpZw==;
+	 bh=qH37ZUyyfJfhUHAtJ72DdCvpj6kYx5tS/LjBLmqHoss=; b=gJPnRhAjC1GKZgGAuFJeVJc4c
+	P/EXrGFaNa9uFU6pGhEA6AX0lZAVAP6E7nWeWNU5t54tQJI/qh8ASfqgWdDDoIHy+dCR71EpPzaFE
+	xfmceKKY5C6xftWD28JSrvip7g9TcnIc3UwN5M8kt1IGQ6FVsft/xmmImI5ki0iIsX0cpG2p7YSVH
+	natGhWA4dorb7WGQRUL/Qy9EngHDaAsoSVVcR89bxGCYjq4UfElT5GYoMPA6nlXfvcyLuj7U1RpLz
+	dh3+Nqb8ktz/6rFvWMS+cL9C9OFUUvPpV/6+sOvREQr1VfEqKSRs5fRuM6QTjusELAMyyHVeJ6ezW
+	4Y0hUi7jA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jzgDc-0004SH-CC; Sun, 26 Jul 2020 12:57:32 +0000
-Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
+	id 1jzgFE-0004Xw-4x; Sun, 26 Jul 2020 12:59:12 +0000
+Received: from mail-wr1-x444.google.com ([2a00:1450:4864:20::444])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jzgDa-0004RC-1O
- for linux-riscv@lists.infradead.org; Sun, 26 Jul 2020 12:57:31 +0000
-Received: by mail-wm1-x341.google.com with SMTP id p14so11364336wmg.1
- for <linux-riscv@lists.infradead.org>; Sun, 26 Jul 2020 05:57:29 -0700 (PDT)
+ id 1jzgFC-0004XG-0s
+ for linux-riscv@lists.infradead.org; Sun, 26 Jul 2020 12:59:10 +0000
+Received: by mail-wr1-x444.google.com with SMTP id a14so12270361wra.5
+ for <linux-riscv@lists.infradead.org>; Sun, 26 Jul 2020 05:59:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=cj1AA+QajmRenSwYh/8g5RjvZ+1Kfi4azWkbk5rVJMY=;
- b=l4ouuUm+RZKjkDPNsYC7yAU3y2YJaYqK7fRoN7KnpfYrRUJXIdaNeqJraLDSLj+Hsq
- DoCjcYHNOPx4wQ8IoFKBY8oXq+gP6wlJ5S/+4ZJRUZe7F+op3/uY4m7z1/B2VnkOgD5m
- t2uIGFEk+6v+lJhjcexw3MSjbYwv9XzgPyuSk2nG7+0gRoCIhPcpMUQxBQ0CXJeMW7Bq
- Pj3YcVraJh5zWRzVM0CLCI1eEwZtk2hlU89S/EKMlfBzmwOSdLrkBcQe9JB7QgVZ03Q+
- zeks5A6Odx9k1ILsGYWcElYbzhHbp57Sf/ChsiYlNzHYRcSM26Z/AA8OZ33WJhBEDIgd
- p68A==
+ :cc; bh=aJ0QTk1kAr2FXG3tNKxMDTj3E6xC0tBqD5CEm/p3JFE=;
+ b=e3qylBuPPyd36kYi09rS61kEhLJtEb/XiQOym4M3xymiMBeoHEsRYf7Cl7PEyEpyzg
+ c6RjEdgiKjPRk80f99amxldvIWn8kAn2HrIK+4WB97VzHtKsfAq4IidLgJqkLaPb8vf2
+ lgOrGq2sfuOHdd2NQeeywpEG7BhiYWAOtFlnHV9PhGwA855BfYE19uhn8Cud4Mvvd23l
+ pKb4vFdCWBWOzwXwFnKBv/Wod/PlT0wyvHouPqYCoQQpUfqTUYylmYyoq5AYUZC3dbBp
+ LxEonSSWb6BKqUxWs+cLg65BjTqzXH6n5wq0JqZqrEzIBxAzVyPpSfVirsjtlJylWK0p
+ 256A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=cj1AA+QajmRenSwYh/8g5RjvZ+1Kfi4azWkbk5rVJMY=;
- b=DAVQvRCO95nYSzr3Kib9gYSk8PgqoqCK2Zy15R1683M5wPvIkQvDg78jpruF5dqzOo
- MzEUCfI46hro8a7bpY/nDxPb6BAwzpi898yRmVL/bLqQd+349dwcERFXqsShtZDywWJ6
- F0RXPjsZwis1ImcICjHG5gFQKy82y8nNtRjdpVZ4eDBsEF6R6OTUCXPryZ3UhDuXCYC7
- Qoz9PegU9OTuls5aO+NnOBbHD5q8HF3gfi+QNM/i5ovbE8jMLffihznUMo8LM1UrYnrk
- cKBsJAUSC23oaEhNvBoWbznl2omauMF8i2AtgMz/s/KEUub7HFZ9ivzFFK5R/UPVJFvy
- RUuA==
-X-Gm-Message-State: AOAM532Wh3gYeEGK6HpDvqMFXCVI04hvMo3mz7LiI4PcQDI4Ing9ZVzw
- a8nLwO4VBbJZQqiSynzv43exJtbgctMH7F+/DAkAQQ==
-X-Google-Smtp-Source: ABdhPJwiFhCYXoqV5R1BrUk4cFAFcu/0v8ywSpRptTToyE31Qt/lRbVUr0NbxhMSfFzTA3SQmpsU/BUW05YZkVeyxhw=
-X-Received: by 2002:a1c:5f41:: with SMTP id t62mr17178624wmb.134.1595768248343; 
- Sun, 26 Jul 2020 05:57:28 -0700 (PDT)
+ bh=aJ0QTk1kAr2FXG3tNKxMDTj3E6xC0tBqD5CEm/p3JFE=;
+ b=q3s81BtyQhhN+n3U1ISKAbI96XDKKsxpGa+1iyEW3V6r1YzXbcFAnWbGEW+DEz3JRh
+ fonE9Mj9/iObmpQi2HR3OO8kyUqOowp5B/T7tsiU/koAylFlcbptJNZz2NWcvK0gopd+
+ R64nn0mbI2gusifRMAbgpdowirRXAu0v8pvXd58HES/e7/lAjpdcovF4YB3TdnVKIAii
+ /+sw7b+8hdHa9QmAyyC84zZI2GJdjSCm8qgqPtpVTCLD5PLq6m6v4t8XakO8ODTZMGmt
+ qieiRTNkUm8aB4nNeiHeyQVdQ5WFbexJhFbpylGGmpyOi4qcci+v+z9alZngzViVkOZx
+ cGhw==
+X-Gm-Message-State: AOAM531I3KIMnMu9Cr2kEvi8LRBgqTe3mEzafX1Lt8euv+Jah7BUruni
+ SuK1CF5p0JRg/ENTGOESv+x3fop7bgnbkdopYs7d2A==
+X-Google-Smtp-Source: ABdhPJwkwpK6Km+ushc9A1CmJalY7YDxkaZpWvaeV6P1vmcPyklRXsQahQs5E1vm5UD0ctxrGufZWxwQaQTBXHNbh18=
+X-Received: by 2002:adf:f186:: with SMTP id h6mr16468220wro.144.1595768348627; 
+ Sun, 26 Jul 2020 05:59:08 -0700 (PDT)
 MIME-Version: 1.0
 References: <20200724085441.1514-1-jiangyifei@huawei.com>
  <20200724085441.1514-3-jiangyifei@huawei.com>
 In-Reply-To: <20200724085441.1514-3-jiangyifei@huawei.com>
 From: Anup Patel <anup@brainfault.org>
-Date: Sun, 26 Jul 2020 18:27:16 +0530
-Message-ID: <CAAhSdy3q3tNUqSxnFy2tdmXOLJZjt4rMAZirZh88-0BXT7-X1g@mail.gmail.com>
+Date: Sun, 26 Jul 2020 18:28:57 +0530
+Message-ID: <CAAhSdy18+3ub9Lw+2v0WEujYkFJ2yU0x=GqZ+PQGe2DrWCR8Bg@mail.gmail.com>
 Subject: Re: [RFC 2/2] RISC-V: KVM: read\write kernel mmio device support
 To: Yifei Jiang <jiangyifei@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200726_085730_181052_18AC0012 
-X-CRM114-Status: GOOD (  17.68  )
+X-CRM114-CacheID: sfid-20200726_085910_104905_1710D100 
+X-CRM114-Status: GOOD (  16.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -104,6 +104,11 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
+
+Change subject to:
+RISC-V: KVM: kernel mmio read/write support
+
+Also add 1-2 sentences of commit description.
 
 On Fri, Jul 24, 2020 at 2:25 PM Yifei Jiang <jiangyifei@huawei.com> wrote:
 >
@@ -136,9 +141,6 @@ On Fri, Jul 24, 2020 at 2:25 PM Yifei Jiang <jiangyifei@huawei.com> wrote:
 > +       ret = kvm_io_bus_read(vcpu, KVM_MMIO_BUS, fault_addr, len,
 > +                                                 data_buf);
 > +
-
-Move "ret = kvm_io_bus_read()" just before "if (!ret)".
-
 >         run->mmio.is_write = false;
 >         run->mmio.phys_addr = fault_addr;
 >         run->mmio.len = len;
@@ -175,11 +177,6 @@ Move "ret = kvm_io_bus_read()" just before "if (!ret)".
 > +       ret = kvm_io_bus_write(vcpu, KVM_MMIO_BUS, fault_addr, len,
 > +                                                  run->mmio.data);
 > +
-
-Same as above.
-
-Move "ret = kvm_io_bus_write()" just before "if (!ret) {"
-
 >         run->mmio.is_write = true;
 >         run->mmio.phys_addr = fault_addr;
 >         run->mmio.len = len;
