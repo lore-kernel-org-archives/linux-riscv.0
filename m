@@ -2,82 +2,64 @@ Return-Path: <SRS0=GA+h=BG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E3177C433DF
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jul 2020 13:13:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 86AACC433E0
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jul 2020 16:30:13 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A5B30206D8
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jul 2020 13:13:32 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5323D2075A
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jul 2020 16:30:13 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="oxLPbOF+";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="NCT/HgeB"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A5B30206D8
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="GuAGP6GT";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="tdbYsatE"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5323D2075A
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=FpsE6nyKF4KtpxqXCpab9JerLcPmMNLuoaA66in+rTI=; b=oxLPbOF+OGEvP3uAgSghmTVNp
-	VsJGxu0QlvQ3Q4/cfTBCn94zVhIclNfLIOH/imxPEMXvyc4pKcnKi4TQ4ST9tzk8nzvxiEi2EQm6d
-	OeYxSmiBCwRxXBERop1l5uOhMnxAUQ5n3LqGpefyLveS0f5lUhVNo6gmDoiuZMmGSW6xjSJ+zJi0d
-	veaqoVBl3JEHb/ltsIxcvU1jyKFsErUTzuCabCxeZ9hhUjCnaiT3miOrmpzAq1jnRc/JvAtbJ+Eii
-	6Yxy1SbXwfStHul+SDMIwBexCdvYH8HuDdDz+/jlg3DzJzTdT3408ovrXM3D3TBeiTTIC2lu+vSqD
-	oBLXWqQAQ==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rHFYu0JdLaUkOXaDeU2ow3TdsVuDk4ijvyB1sLVkk5E=; b=GuAGP6GTeDiAR4ljZxDl/jyP/d
+	2q6RnqxHSCFYItGt8R7APkkutZmGRAIepiSmarRh8NcGJ1aN3g68hQc3lRe6FiW9jR0LEsLDYSPT1
+	nCvfgaEYpU0FinsFUlfa77AZHeuI4BjiIJS0Llp1XjGXmf8BYQhNDCn5ubtTcz2zmMPvZldosrZri
+	osgfEQFsHgpcq3jel6xqkXRbMu7bKahqpjncUbwLBSvi5R7iRUCIGVgTzOiNoRW6K6YDMQtU26V88
+	l++Ba6Bd85rXn8/BBuAoEcLVmaqu+fFndm+tCjQ1OoICuEXHlRlxyL6Ih2F6doohTPRtf0n9jloqK
+	B2cVpTJg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k02wQ-0003si-NC; Mon, 27 Jul 2020 13:13:18 +0000
-Received: from mail-wr1-x442.google.com ([2a00:1450:4864:20::442])
+	id 1k060e-0006o2-Si; Mon, 27 Jul 2020 16:29:52 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k02wO-0003rx-Rs
- for linux-riscv@lists.infradead.org; Mon, 27 Jul 2020 13:13:17 +0000
-Received: by mail-wr1-x442.google.com with SMTP id 88so14842348wrh.3
- for <linux-riscv@lists.infradead.org>; Mon, 27 Jul 2020 06:13:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=g4i/nZmoIHgwQy9k4TlqY2STkIhHTH3UyXg9heo329E=;
- b=NCT/HgeBpzcXJ8puF1nv3nenzUG16+57U7u2hsX/ElnWZiLQ6Kum4UKNXc/xuoHTWN
- t8bR1GuOeow8jlFQ7mWb+XP4d6doNRy/yJHOhiOv9rzHFD54J48VLia/wvW86YFqZPvz
- UsdN9gZjCf7U7JsPpr3NBLznFlXZBZZ/THciTJgrc2VvmW8MhD+Dk8afEq93fpNdHM4E
- 4fHXvEgpqUTX1JpOayAYDyVpl0Kewf/HsMnm6hToJ8VouWvw6O3XwWXWYDTN/v71ljQt
- qdv19Ke4HU2f1EFt1VCYB1jH978pJhmKfDvvFhdALxQE/PvSeTjJOiHs+rF/gdJgXDSc
- 6DwQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=g4i/nZmoIHgwQy9k4TlqY2STkIhHTH3UyXg9heo329E=;
- b=eXE+gT7EEuoaMk7LrLwzx8u5PJK06CJvBv24O7FhC+TvVzLOHF7daGUZhgsXXRey8f
- i09Co7j5/5Pibvs3ju4327W8IOZtKvxJF9yztH9Eg99Qc24T2X6X6EvPtWjQbqAaPDOt
- tpj+SDPT6PBnYmKouaFoaZR1iQy3l2Wa0LwSu+fzOjZYGLik7uUMvUKUazKoTXRxtzcE
- lkUU2ChriqSdpYQLjWo5JWeHg/+aB+N8Obv17Y86g0FHV/vGBsNjTwYXmRQ2z0pYDDc2
- O3Yt3WhPnqBGAGa6zWNoiFcWNhZsAXviPJ0d2q+HDdVFgeK8wvqs4uADUORfd1cJt8ON
- gYhA==
-X-Gm-Message-State: AOAM532Z7fGGrFUgU0rvOhwiRc5aYDshcQJvgckXCz0b7gQ+qusxT+mx
- amN1pouA9FuoqUlkXHKhqPwO8cGHxovxDVko5+B/SA==
-X-Google-Smtp-Source: ABdhPJxVH+67k5w750MLOs3qmI9ttAa1To4qXnnN1vha35aXv13xtoZGB+q5ZG8RxsIeIaTBADA+aJQDAfB5AFVoVRA=
-X-Received: by 2002:adf:bb52:: with SMTP id x18mr19976623wrg.325.1595855593608; 
- Mon, 27 Jul 2020 06:13:13 -0700 (PDT)
+ id 1k060a-0006ln-1d; Mon, 27 Jul 2020 16:29:48 +0000
+Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id CE56E20719;
+ Mon, 27 Jul 2020 16:29:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1595867386;
+ bh=1PymWJz6RqT23RguokfRhZhMZo/87Fa8H/0q6564/rc=;
+ h=From:To:Cc:Subject:Date:From;
+ b=tdbYsatEX9lPKXNdD1eLJ1He1Zbd9UJGKhexYs7Sr6JILer93X48jWJQGry4mEAUz
+ VXiJ4Azn03ad1Q9XUqH3tJZ6LMX9053R5xJDIbgDNhkILVK1ZyNZ4e0n1yggfchO6b
+ RtIohhjE8HOKM8v8AoO8j78Q3y7BpZ618fS3Ipy8=
+From: Mike Rapoport <rppt@kernel.org>
+To: linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/7] mm: introduce memfd_secret system call to create
+ "secret" memory areas
+Date: Mon, 27 Jul 2020 19:29:28 +0300
+Message-Id: <20200727162935.31714-1-rppt@kernel.org>
+X-Mailer: git-send-email 2.26.2
 MIME-Version: 1.0
-References: <a08d725612aac35f30b3c422d3617bc4c733d8c7.1595838303.git.zong.li@sifive.com>
-In-Reply-To: <a08d725612aac35f30b3c422d3617bc4c733d8c7.1595838303.git.zong.li@sifive.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Mon, 27 Jul 2020 18:43:02 +0530
-Message-ID: <CAAhSdy2gSVZcvx0jVgEC7BGDwix62JCVvZeR5-vGWT7MRwf=AA@mail.gmail.com>
-Subject: Re: [RFC PATCH] dt-bindings: riscv: Add YAML documentation for PMU
-To: Zong Li <zong.li@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200727_091317_019758_B8277A8A 
-X-CRM114-Status: GOOD (  22.62  )
+X-CRM114-CacheID: sfid-20200727_122948_216050_89C6C1AB 
+X-CRM114-Status: GOOD (  25.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -89,111 +71,126 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Christopher Lameter <cl@linux.com>,
+ Idan Yaniv <idan.yaniv@ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
+ Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
+ Will Deacon <will@kernel.org>, x86@kernel.org,
+ Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
+ Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
+ Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ linux-api@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Palmer Dabbelt <palmer@dabbelt.com>, linux-fsdevel@vger.kernel.org,
+ Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 27, 2020 at 1:57 PM Zong Li <zong.li@sifive.com> wrote:
->
-> Add device tree bindings for performance monitor unit. It passes the
-> dt_binding_check verification.
->
-> Signed-off-by: Zong Li <zong.li@sifive.com>
-> ---
->  .../devicetree/bindings/riscv/pmu.yaml        | 71 +++++++++++++++++++
->  1 file changed, 71 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/riscv/pmu.yaml
->
-> diff --git a/Documentation/devicetree/bindings/riscv/pmu.yaml b/Documentation/devicetree/bindings/riscv/pmu.yaml
-> new file mode 100644
-> index 000000000000..0c49039a5d3b
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/riscv/pmu.yaml
-> @@ -0,0 +1,71 @@
-> +# SPDX-License-Identifier: GPL-2.0
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/riscv/pmu.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: RISC-V Performance Monitor Units
-> +
-> +maintainers:
-> +  - Zong Li <zong.li@sifive.com>
-> +  - Paul Walmsley <paul.walmsley@sifive.com>
-> +  - Palmer Dabbelt <palmer@dabbelt.com>
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - const: riscv,pmu
-> +
-> +  riscv,width-hpmcntr:
-> +    description: The width of hpmcounter CSRs. Default is 64.
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +
-> +  riscv,n-hpmcntr:
-> +    description: The number of hpmcounter CSRs. Default is zero.
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +
-> +  riscv,hw-event-map:
-> +    description: The mapping of generic hardware events to values of hpmcounter.
-> +      The key is the encoding of generic hardware events, and the value is the
-> +      actual value which is implemented by platform. If there is no a key-value
-> +      pair for specific generic hardware event, view the generic hardware event
-> +      as not supported. CYCLE and INSTRET be mapped by default, so we shouldn't
-> +      list PERF_COUNT_HW_CPU_CYCLES and PERF_COUNT_HW_INSTRUCTIONS here.
-> +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> +
-> +  riscv,hw-cache-event-map:
-> +    description: The mapping of generic hardware cache events to values of
-> +      hpmcounter. The key is encoding of generic hardware cache events, and the
-> +      value is the actual value which is implemented by platform. If there is no
-> +      a key-value pair for specific generic hardware cache event, view the
-> +      generic hardware cache event as not supported.
-> +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> +
-> +  riscv,hpmcntr-of-event:
-> +    description: The mapping of platform hardware events to allowed hmpcounters.
-> +      The key is the platform hardware event, and the value is the bitmap for
-> +      hmpcounters which support this event. If there is no a key-value pair for
-> +      specific platform hardware events, view the platform hardware events as
-> +      supported by all hpmcounters.
-> +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> +
-> +required:
-> +  - compatible
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    pmu {
-> +      compatible = "riscv,pmu";
-> +      riscv,width-hpmcntr = <40>;
-> +      riscv,n-hpmcntr = <2>;
-> +      riscv,hw-event-map = <0x3 0x0202
-> +                            0x4 0x4000>;
-> +      riscv,hw-cache-event-map = <0x010201 0x0102
-> +                                  0x010204 0x0802>;
-> +      riscv,hpmcntr-of-event = <0x100 0x18
-> +                                0x400 0x10>;
-> +    };
-> +
-> +...
-> --
-> 2.27.0
->
+From: Mike Rapoport <rppt@linux.ibm.com>
 
-I don't see the point of sending DT bindings documents
-until the SBI PMU extension is defined and accepted
-by everyone.
+Hi,
 
-Regards,
-Anup
+This is an implementation of "secret" mappings backed by a file descriptor. 
+
+v2 changes:
+* Follow Michael's suggestion and name the new system call 'memfd_secret'
+* Add kernel-parameters documentation about the boot option
+* Fix i386-tinyconfig regression reported by the kbuild bot.
+  CONFIG_SECRETMEM now depends on !EMBEDDED to disable it on small systems
+  from one side and still make it available unconditionally on
+  architectures that support SET_DIRECT_MAP.
+
+The file descriptor backing secret memory mappings is created using a
+dedicated memfd_secret system call The desired protection mode for the
+memory is configured using flags parameter of the system call. The mmap()
+of the file descriptor created with memfd_secret() will create a "secret"
+memory mapping. The pages in that mapping will be marked as not present in
+the direct map and will have desired protection bits set in the user page
+table. For instance, current implementation allows uncached mappings.
+
+Although normally Linux userspace mappings are protected from other users, 
+such secret mappings are useful for environments where a hostile tenant is
+trying to trick the kernel into giving them access to other tenants
+mappings.
+
+Additionally, the secret mappings may be used as a mean to protect guest
+memory in a virtual machine host.
+
+For demonstration of secret memory usage we've created a userspace library
+[1] that does two things: the first is act as a preloader for openssl to
+redirect all the OPENSSL_malloc calls to secret memory meaning any secret
+keys get automatically protected this way and the other thing it does is
+expose the API to the user who needs it. We anticipate that a lot of the
+use cases would be like the openssl one: many toolkits that deal with
+secret keys already have special handling for the memory to try to give
+them greater protection, so this would simply be pluggable into the
+toolkits without any need for user application modification.
+
+I've hesitated whether to continue to use new flags to memfd_create() or to
+add a new system call and I've decided to use a new system call after I've
+started to look into man pages update. There would have been two completely
+independent descriptions and I think it would have been very confusing.
+
+Hiding secret memory mappings behind an anonymous file allows (ab)use of
+the page cache for tracking pages allocated for the "secret" mappings as
+well as using address_space_operations for e.g. page migration callbacks.
+
+The anonymous file may be also used implicitly, like hugetlb files, to
+implement mmap(MAP_SECRET) and use the secret memory areas with "native" mm
+ABIs in the future.
+
+As the fragmentation of the direct map was one of the major concerns raised
+during the previous postings, I've added an amortizing cache of PMD-size
+pages to each file descriptor and an ability to reserve large chunks of the
+physical memory at boot time and then use this memory as an allocation pool
+for the secret memory areas.
+
+v1: https://lore.kernel.org/lkml/20200720092435.17469-1-rppt@kernel.org/
+rfc-v2: https://lore.kernel.org/lkml/20200706172051.19465-1-rppt@kernel.org/
+rfc-v1: https://lore.kernel.org/lkml/20200130162340.GA14232@rapoport-lnx/
+
+Mike Rapoport (7):
+  mm: add definition of PMD_PAGE_ORDER
+  mmap: make mlock_future_check() global
+  mm: introduce memfd_secret system call to create "secret" memory areas
+  arch, mm: wire up memfd_secret system call were relevant
+  mm: secretmem: use PMD-size pages to amortize direct map fragmentation
+  mm: secretmem: add ability to reserve memory at boot
+  mm: secretmem: add ability to reserve memory at boot
+
+ .../admin-guide/kernel-parameters.txt         |   4 +
+ arch/arm64/include/asm/unistd32.h             |   2 +
+ arch/arm64/include/uapi/asm/unistd.h          |   1 +
+ arch/riscv/include/asm/unistd.h               |   1 +
+ arch/x86/entry/syscalls/syscall_32.tbl        |   1 +
+ arch/x86/entry/syscalls/syscall_64.tbl        |   1 +
+ fs/dax.c                                      |  10 +-
+ include/linux/pgtable.h                       |   3 +
+ include/linux/syscalls.h                      |   1 +
+ include/uapi/asm-generic/unistd.h             |   7 +-
+ include/uapi/linux/magic.h                    |   1 +
+ include/uapi/linux/secretmem.h                |   9 +
+ kernel/sys_ni.c                               |   2 +
+ mm/Kconfig                                    |   4 +
+ mm/Makefile                                   |   1 +
+ mm/internal.h                                 |   3 +
+ mm/mmap.c                                     |   5 +-
+ mm/secretmem.c                                | 453 ++++++++++++++++++
+ 18 files changed, 500 insertions(+), 9 deletions(-)
+ create mode 100644 include/uapi/linux/secretmem.h
+ create mode 100644 mm/secretmem.c
+
+-- 
+2.26.2
+
 
 _______________________________________________
 linux-riscv mailing list
