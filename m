@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 39D6DC4345D
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jul 2020 23:24:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1D258C433EC
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jul 2020 23:25:00 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 07E1A208E4
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jul 2020 23:24:34 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id CE0B520A8B
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jul 2020 23:24:59 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="cpup4FQA";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="X6uXejaX"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 07E1A208E4
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="MrXnjPnG";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="fDUbjLgV"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CE0B520A8B
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,48 +26,48 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=AohT50f9DrfExgColNM7+CpBr2R2Rk/qgHc0Vj4NV6M=; b=cpup4FQA/ieJ5lnFnq+BaAa7Y
-	c5QL+i5+JONPC8yk3V0aI3TTjyO9FBy2jF5oqccOisNmdeIUXyoSWWWQdW3Egvphd420GgoxDIxke
-	BUwEj2ZZfCkyNYlocu6K5bIjW9XTVI6zvYkZ9ksnbknIyjfF+WjefDOaBbD8bEPXjdsnc0zJdmWGN
-	m/M2cLRyO/a1XuZ7wLxKOvmAtZLi2J8kMIvkHVBDgH3h8JxuBT9+wmUycdrDQAuPiFaBx+fpts6Yx
-	Va2vZSBo1y+eSF0lBm++jHwTdYbPU3YIAhnKgtAsI7kOTBgkrooz8O2SZb4FEo38pgrbAZMZa/RuR
-	uDzFAnZEg==;
+	 bh=Borqh1LE57hB4bdxhaCWwV1Lt4Z68pMLNQkiF7c8Z0I=; b=MrXnjPnGxCEyrWDZAXwQuM1xz
+	wJjE96Bk4Kh5uafdXizK6Np9pbZVCd3xqc+4v7ye/axLn+9JkEok2PYwu7nS5vLuOQTs+9Ab5OJeC
+	0o18OIcxp+zyLH2XzpL+0bPyFbuNrxxrHCRGE83u1UmB9Yy1/6qhR/pBLV5alQOJ9Mp4haIrMGdLd
+	IrplgMJZY7RV1GaN0UhHnMV/OnOsrdJsiPPHZaKqAkW9sQd8+ulSRM8N5jhA0i19vQgS1aB3yy7h5
+	qoGOkfJJRyvOkuFnykhz9is36AX+s4fGxeFNyvHh0N73K3JhgaGzsDf6O9Nus9SPbg7vaf5Kb0NLb
+	cMZvbwnqg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k0CTp-00084t-Le; Mon, 27 Jul 2020 23:24:25 +0000
+	id 1k0CUB-0008FR-73; Mon, 27 Jul 2020 23:24:47 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k0CTk-00082I-3d
- for linux-riscv@lists.infradead.org; Mon, 27 Jul 2020 23:24:21 +0000
+ id 1k0CU6-0008Cu-89
+ for linux-riscv@lists.infradead.org; Mon, 27 Jul 2020 23:24:43 +0000
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net
  [73.47.72.35])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id D30C420A8B;
- Mon, 27 Jul 2020 23:24:18 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id E2352208E4;
+ Mon, 27 Jul 2020 23:24:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1595892259;
- bh=khXc0PSnnR6Npc3HWD8WDMk3xlt4pTF7I/aNk6Z3DTc=;
+ s=default; t=1595892281;
+ bh=n1FukGZuQXyu2MVVpZOdKAmj1C0W92scKOGnuT4UQO8=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=X6uXejaXggZwECBMGK8JLzzRf3bGkRzqMETJCtryktaAenOpiLaw+Cly1e1AegqGI
- SF1WuVTD13DjWICBMcOzGFH5Fm+hCpEkfmE0vyaFceviM/5GlSp6igp5WQT5HVUBqT
- xkC6iewMiBKN9YuQubjzDkME9I4dtOTm68VuN+uU=
+ b=fDUbjLgVDLKH3ZBC4o7O0sap26ef3QtaCDvmkjqFi+SD9BugZw8dVVC38vJ9Paimo
+ p5KL0t9biHW/+x1xtTj3V3u7n8Q4FQXDSM31o1Kv8hIOUd8zAq89DFw4Dsmx4IAdVO
+ gJOyunQXPWZ/c7jeXP2XlRYnnOvkt9KyqMl1LpOU=
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Subject: [PATCH AUTOSEL 5.7 25/25] riscv: Parse all memory blocks to remove
- unusable memory
-Date: Mon, 27 Jul 2020 19:23:45 -0400
-Message-Id: <20200727232345.717432-25-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.4 16/17] RISC-V: Set maximum number of mapped pages
+ correctly
+Date: Mon, 27 Jul 2020 19:24:19 -0400
+Message-Id: <20200727232420.717684-16-sashal@kernel.org>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20200727232345.717432-1-sashal@kernel.org>
-References: <20200727232345.717432-1-sashal@kernel.org>
+In-Reply-To: <20200727232420.717684-1-sashal@kernel.org>
+References: <20200727232420.717684-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200727_192420_236842_04C11832 
-X-CRM114-Status: GOOD (  16.85  )
+X-CRM114-CacheID: sfid-20200727_192442_413380_5190F5FD 
+X-CRM114-Status: GOOD (  16.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -88,71 +88,38 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Atish Patra <atish.patra@wdc.com>
 
-[ Upstream commit fa5a198359053c8e21dcc2b39c0e13871059bc9f ]
+[ Upstream commit d0d8aae64566b753c4330fbd5944b88af035f299 ]
 
-Currently, maximum physical memory allowed is equal to -PAGE_OFFSET.
-That's why we remove any memory blocks spanning beyond that size. However,
-it is done only for memblock containing linux kernel which will not work
-if there are multiple memblocks.
+Currently, maximum number of mapper pages are set to the pfn calculated
+from the memblock size of the memblock containing kernel. This will work
+until that memblock spans the entire memory. However, it will be set to
+a wrong value if there are multiple memblocks defined in kernel
+(e.g. with efi runtime services).
 
-Process all memory blocks to figure out how much memory needs to be removed
-and remove at the end instead of updating the memblock list in place.
+Set the the maximum value to the pfn calculated from dram size.
 
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
 Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- arch/riscv/mm/init.c | 31 +++++++++++++++++--------------
- 1 file changed, 17 insertions(+), 14 deletions(-)
+ arch/riscv/mm/init.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 753f2cdbeab8f..5e3dccf74ca92 100644
+index 3198129230126..b1eb6a0411183 100644
 --- a/arch/riscv/mm/init.c
 +++ b/arch/riscv/mm/init.c
-@@ -125,26 +125,29 @@ void __init setup_bootmem(void)
- {
- 	struct memblock_region *reg;
- 	phys_addr_t mem_size = 0;
-+	phys_addr_t total_mem = 0;
-+	phys_addr_t mem_start, end = 0;
- 	phys_addr_t vmlinux_end = __pa_symbol(&_end);
- 	phys_addr_t vmlinux_start = __pa_symbol(&_start);
- 
- 	/* Find the memory region containing the kernel */
- 	for_each_memblock(memory, reg) {
--		phys_addr_t end = reg->base + reg->size;
--
--		if (reg->base <= vmlinux_start && vmlinux_end <= end) {
--			mem_size = min(reg->size, (phys_addr_t)-PAGE_OFFSET);
--
--			/*
--			 * Remove memblock from the end of usable area to the
--			 * end of region
--			 */
--			if (reg->base + mem_size < end)
--				memblock_remove(reg->base + mem_size,
--						end - reg->base - mem_size);
--		}
-+		end = reg->base + reg->size;
-+		if (!total_mem)
-+			mem_start = reg->base;
-+		if (reg->base <= vmlinux_start && vmlinux_end <= end)
-+			BUG_ON(reg->size == 0);
-+		total_mem = total_mem + reg->size;
- 	}
--	BUG_ON(mem_size == 0);
-+
-+	/*
-+	 * Remove memblock from the end of usable area to the
-+	 * end of region
-+	 */
-+	mem_size = min(total_mem, (phys_addr_t)-PAGE_OFFSET);
-+	if (mem_start + mem_size < end)
-+		memblock_remove(mem_start + mem_size,
-+				end - mem_start - mem_size);
- 
+@@ -115,9 +115,9 @@ void __init setup_bootmem(void)
  	/* Reserve from the start of the kernel to the end of the kernel */
  	memblock_reserve(vmlinux_start, vmlinux_end - vmlinux_start);
+ 
+-	set_max_mapnr(PFN_DOWN(mem_size));
+ 	max_pfn = PFN_DOWN(memblock_end_of_DRAM());
+ 	max_low_pfn = max_pfn;
++	set_max_mapnr(max_low_pfn);
+ 
+ #ifdef CONFIG_BLK_DEV_INITRD
+ 	setup_initrd();
 -- 
 2.25.1
 
