@@ -6,17 +6,17 @@ X-Spam-Status: No, score=-7.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
 	SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5E485C433DF
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jul 2020 10:45:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 04D14C433E5
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jul 2020 10:56:44 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3053C20786
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jul 2020 10:45:13 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C761B204EA
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jul 2020 10:56:43 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="aG5LxpJ2";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="rFUcMCUj"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3053C20786
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Fd/3C0V3";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="GaqX56Rb"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C761B204EA
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,64 +25,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=v2+ek4NJeLQ+9Nf1ucE9m/CyTNUpUpQDIiSXbqiSmI4=; b=aG5LxpJ2jv10Gn1Kek2ub7Qar
-	R/zRbfFt1toQnFdBsPDW5fZCZCzdpvDn4SCKQSWxzaUpFn22fynzii6oO17+8CDashM6rHPmccJaD
-	xJC+O2SpWMFV5pgpqNM7SCn+5IIt4uf9FY/PLCq4bgVtTkkJMN4lycFJZS4SaPaKp5kKgzVdCv5h3
-	S7dZ/DyqU2+8WU1AbKy72u8TuhsbKsL+ltYrQMvrdSkeOe4k1gQQBXn6ZwoVwoKt7/IpPW4PuYE4R
-	cAapyRfE6oIUz2XC2OALt/w3NgZQJQj1tL0hX6rNGtqiDfbpBMHKKxAdNRfaEd8lSC9WEF02ym7Pj
-	Pp6RruZ4Q==;
+	 bh=FhEPNtuHhlsoLLQQsI1IRzReOkvVvLeBM8ES6Buoj3I=; b=Fd/3C0V3GrRg39pnPZ4b6EmV9
+	Kb0Lm2ektxPwMf28n8coOGIxm8zi7JoyrFEX8Su14NZzhhd8ZBzeqoFHuroCRFX3aiH0CnHr0mTFU
+	8mwwEKdpupazoEBEAVrHbYu1TjbofihYq1XXQKibRkaCcBYO/bwGOzYmgKKsG71/NmXrSMlqy9Zze
+	XlbFNLyGYVlH+CiOHJWLLY9f3wfPQZ1jiKEmfhuGsfYPGBEy9ASQi6dwyklho+xb/UCoVWgWNSbUJ
+	pYaRNUukDB0VKP0PAdwoNEHOze69nWGxYklmu2yfX3X9jamAqvXj0FMXkCRSGGrghSzqioH9oXfbj
+	SuEfpLXtg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k0N6L-0000N0-5s; Tue, 28 Jul 2020 10:44:53 +0000
-Received: from mail-ed1-x541.google.com ([2a00:1450:4864:20::541])
+	id 1k0NHZ-0004Jp-Sa; Tue, 28 Jul 2020 10:56:29 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k0N6D-0000HQ-DM; Tue, 28 Jul 2020 10:44:46 +0000
-Received: by mail-ed1-x541.google.com with SMTP id c15so4788867edj.3;
- Tue, 28 Jul 2020 03:44:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=sender:date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=3Jtd/NLDfEi5mS55S0K4WbnSIzqpGJbZScZKeEtsXAQ=;
- b=rFUcMCUj2AwdC69csGGjJVjr3K/8WS4HC4QuFwZtg451Qj4L37BpO16QBPnCSOnEqP
- 0XLFh6CAcMNi+86g1xCyy/bqdVTYRHcM+S9kEIZb7EWJKKOmGB7fGMyBy9goHLKaJvij
- l3J//FegCgxfC20hSO+SeOOi0ojcNdANd874jllkW9bgWXdBSGjDZ+KKsJ5ItnWu5ElM
- TutsV7Y/UWKyR2rEXX1BEUlxaWMHKF0PMaSsOZWNK/0D0ZH9xxW9nIbDP8AygACtKk6q
- SuVbplxJKZehbky/ztC2U7bihOneNjqjj52Fn1yyk39lDMDQeAEZqoI3viUUxFXSv5vl
- 9XJg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
- :references:mime-version:content-disposition:in-reply-to;
- bh=3Jtd/NLDfEi5mS55S0K4WbnSIzqpGJbZScZKeEtsXAQ=;
- b=Dq/LreK3rmzLx0Di8JRwWWoR+z/jkrcXLlWPc800mRPn4grp9vXv+na37uXfl25lIu
- EAPDTvHw3QE9rbr3d6ts6f0oCRR8LjtX4Pm/Jgrn0G9mJACSUl0kqgTetmZmXPUT4Ik0
- dRuAde7uECIe0ABNX0AK88r2njXwnV8P745jzCZHm/5QDGky5qujYtnpCAhuxMpSO5cy
- HodYa1WKp8rZbCgD8JUIDwr4xXq/XqOtyh2+ZnFGh32Wkixmt0J9OxqDSvy9Vh7CD9Tz
- Jp1Rx2XeuVytOAiWmmYvvpc/6Oby278TZjC/xj2GcK3yCSePJgVE5WLjZTABJOBp7jVF
- rKkA==
-X-Gm-Message-State: AOAM533wYXtKQoYKZEaiLcx73gVwMEqlhbCCkga1d5RiCH1ssqwV50Cg
- NGpvVz1qU7F9zen2YCP1HtI=
-X-Google-Smtp-Source: ABdhPJztizS2/FT37W5GVOnd6egL7RbIXP7ubjCB3LMqpraJ3F9fNNOV7TQhtwANWplTQvf13TbOQg==
-X-Received: by 2002:aa7:dd15:: with SMTP id i21mr12013673edv.153.1595933084517; 
- Tue, 28 Jul 2020 03:44:44 -0700 (PDT)
-Received: from gmail.com (54033286.catv.pool.telekom.hu. [84.3.50.134])
- by smtp.gmail.com with ESMTPSA id cf10sm460841ejb.4.2020.07.28.03.44.42
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 28 Jul 2020 03:44:43 -0700 (PDT)
-Date: Tue, 28 Jul 2020 12:44:40 +0200
-From: Ingo Molnar <mingo@kernel.org>
-To: Mike Rapoport <rppt@kernel.org>
+ id 1k0NHQ-0004Fu-49; Tue, 28 Jul 2020 10:56:21 +0000
+Received: from kernel.org (unknown [87.71.40.38])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 0F93A204EA;
+ Tue, 28 Jul 2020 10:56:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1595933779;
+ bh=rNeOQgk8Ja8EnwwwD3eYzStK24lMrD6z0cTMgy9a9QQ=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=GaqX56Rbj+N1Mz6UyTAyoeiV2UjmyQ1JRRE5tNv2GNU4C8YMxHr+kbNtL4JzJlsAy
+ ScdjYPyI8moETB7oZ34zmIQmli78wpYsgkku4f7CIjv3woY2fEo2HxXSUsaNO4HEay
+ kodVMJnUU7dTJtF+OWGSFGl3TO2fwrpo3QfCz2LQ=
+Date: Tue, 28 Jul 2020 13:56:02 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Ingo Molnar <mingo@kernel.org>
 Subject: Re: [PATCH 14/15] x86/numa: remove redundant iteration over
  memblock.reserved
-Message-ID: <20200728104440.GA222284@gmail.com>
+Message-ID: <20200728105602.GB3655207@kernel.org>
 References: <20200728051153.1590-1-rppt@kernel.org>
  <20200728051153.1590-15-rppt@kernel.org>
+ <20200728104440.GA222284@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20200728051153.1590-15-rppt@kernel.org>
+In-Reply-To: <20200728104440.GA222284@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200728_064445_519811_13F3BD73 
-X-CRM114-Status: GOOD (  14.82  )
+X-CRM114-CacheID: sfid-20200728_065620_269029_08FBDD7E 
+X-CRM114-Status: GOOD (  17.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -119,31 +100,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-* Mike Rapoport <rppt@kernel.org> wrote:
-
-> From: Mike Rapoport <rppt@linux.ibm.com>
+On Tue, Jul 28, 2020 at 12:44:40PM +0200, Ingo Molnar wrote:
 > 
-> numa_clear_kernel_node_hotplug() function first traverses numa_meminfo
-> regions to set node ID in memblock.reserved and than traverses
-> memblock.reserved to update reserved_nodemask to include node IDs that were
-> set in the first loop.
+> * Mike Rapoport <rppt@kernel.org> wrote:
 > 
-> Remove redundant traversal over memblock.reserved and update
-> reserved_nodemask while iterating over numa_meminfo.
+> > From: Mike Rapoport <rppt@linux.ibm.com>
+> > 
+> > numa_clear_kernel_node_hotplug() function first traverses numa_meminfo
+> > regions to set node ID in memblock.reserved and than traverses
+> > memblock.reserved to update reserved_nodemask to include node IDs that were
+> > set in the first loop.
+> > 
+> > Remove redundant traversal over memblock.reserved and update
+> > reserved_nodemask while iterating over numa_meminfo.
+> > 
+> > Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+> > ---
+> >  arch/x86/mm/numa.c | 26 ++++++++++----------------
+> >  1 file changed, 10 insertions(+), 16 deletions(-)
 > 
-> Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
-> ---
->  arch/x86/mm/numa.c | 26 ++++++++++----------------
->  1 file changed, 10 insertions(+), 16 deletions(-)
+> I suspect you'd like to carry this in the -mm tree?
 
-I suspect you'd like to carry this in the -mm tree?
+Yes.
+ 
+> Acked-by: Ingo Molnar <mingo@kernel.org>
 
-Acked-by: Ingo Molnar <mingo@kernel.org>
+Thanks!
 
-Thanks,
+> Thanks,
+> 
+> 	Ingo
 
-	Ingo
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
