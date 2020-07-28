@@ -2,57 +2,84 @@ Return-Path: <SRS0=Fr2v=BH=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.5 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	FROM_LOCAL_NOVOWEL,HEADER_FROM_DIFFERENT_DOMAINS,HK_RANDOM_FROM,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 68822C433E1
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jul 2020 06:38:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C560CC433E0
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jul 2020 08:10:25 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 33A9421744
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jul 2020 06:38:19 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 9222220656
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jul 2020 08:10:25 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="nHfUWKsZ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 33A9421744
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="zaOxBArP";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="bNG6JL/O"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9222220656
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=DDLvMHnzwCxT4rd50QD6XF1HJbEA5+4gMmSit7P1sgs=; b=nHfUWKsZgZWmwzOJDjVxYilZu
-	4l8bZ5QVzBe2/KpHHkJfATVgEK7O+u8i6l4U2QvYWYRN9Het/MQH2JObaVefWA4tB+H++Me54fHMB
-	RK0RXBKYUQipYFWAA5fjA2VfcxBWPmCUt6hdRQrU9ihAao2QrK+wSVHOPrYDqLifwDjZhVqs3H6lG
-	l2SvPFyF1W2wxqxT/akgRQ8JQUsVCK3ZrZ3ZkNVw8W3qCeGcq1zORFgdXlMKFkEd62kRY7unEvx6U
-	v7GF9gpIEi0qFtiSfZdhgcVi9gC9bpK7J/6jjMbQChSLsJGBRCTW1wKIgEzrTfkhEP0yHCf12nMJt
-	30jR5474w==;
+	 bh=3HSAsUJPFLigWfvReO0kn+7e2m4ueK3Jxi0Ns9a9514=; b=zaOxBArPtLk8PoZun+8xVdR8c
+	0FJBRVFoaI6k/RQIJNWehOvNHw25bLLfFyexhDYMGlxj9VL3iPsJQdGugIlticZ9LZjRu71k23n27
+	GYVLe0L/HOKHLWsgAtVdXvT3dR4GX2z2XjMF8qPiPWfALRlxJTjDPn0y+ce1K/B79stVJxEzFIOmb
+	l4/zDLm1K/hJrhMSOSzJtVTIJIorTvYvb35zdviG9ptYY2G6PxI4EnzojP4vXd8hVbWD6SFcDtXje
+	jXFdNnI00baP1dSeGk1P4MCs5XdIlspR4IkEpJEkOtqGi9K+17G66cNohiTiVaEZZwKyc9ObRKDo3
+	ZI/e5A4Xw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k0JFS-0000a5-7A; Tue, 28 Jul 2020 06:38:02 +0000
-Received: from verein.lst.de ([213.95.11.211])
+	id 1k0Kga-0002RH-MZ; Tue, 28 Jul 2020 08:10:08 +0000
+Received: from mail-pj1-x1042.google.com ([2607:f8b0:4864:20::1042])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k0JFL-0000Vv-EC; Tue, 28 Jul 2020 06:37:56 +0000
-Received: by verein.lst.de (Postfix, from userid 2407)
- id EF4D868B05; Tue, 28 Jul 2020 08:37:49 +0200 (CEST)
-Date: Tue, 28 Jul 2020 08:37:49 +0200
-From: Christoph Hellwig <hch@lst.de>
-To: Mike Rapoport <rppt@kernel.org>
-Subject: Re: [PATCH 02/15] dma-contiguous: simplify cma_early_percent_memory()
-Message-ID: <20200728063749.GA21221@lst.de>
-References: <20200728051153.1590-1-rppt@kernel.org>
- <20200728051153.1590-3-rppt@kernel.org>
+ id 1k0KgS-0002Mp-OH; Tue, 28 Jul 2020 08:10:01 +0000
+Received: by mail-pj1-x1042.google.com with SMTP id ha11so3752813pjb.1;
+ Tue, 28 Jul 2020 01:09:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=mO4UW6jhce2IwLYWJIjyNoNVa+Gr5PBQ2rV1LkhhIeA=;
+ b=bNG6JL/O5TVQki3sHfHEOfTczEIMUXR0OLqZGWSVnVXN0YvSLXQj4R1CZin1hIrLmj
+ rDRSSHKktD8YAK18dQ3Ix7Lo07yJ8erIxBxxxxqVLyUXKDeyjbkBvyU6KTuEXDNL+VQr
+ 1QQzuFpqB0CYmf+5pX3A4eJDz9R/FeezQPycBuGnXY4EFLSYZVijwWE1t6E2M5B99qAH
+ FniHRX5RxN1gZw65OKCdqnG/UzIrS3ICQ278hYR6IoGyzyd6ykow+PajTtCN7ldzFD83
+ Hcz6o03i9dPHjv0yz+B7ucVCSupfsp/DKM7XkQQq14g4beE60uqTFBLLU79wWmkWweg4
+ xE4g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=mO4UW6jhce2IwLYWJIjyNoNVa+Gr5PBQ2rV1LkhhIeA=;
+ b=hde6iQz/MhEipYQoyJWS3Id68zSsAlJ42AZ1HygJVtMBwoOLojTbm4HDQsuQCpXt+x
+ fH9FLufXuq9Ti8TIFU1rjG3/4rAmjH+U9cHVxjJAHHLb2GbustqZLdn3vL2sBs2Ri7i0
+ lJCBBXkyb10vyrvphOt/U2zqJ82EWojKY9jdiDEznMTpK7b6L3D0D+9QRMjIo+ccKWqH
+ ZWwGgZZoF4JxdUsHxBjtCJJvCTSqlIiCdcC2PL9BQWeDq4HpaxmpR+953az6JhIh4NF5
+ yOEhnAs0cNaWfbtyJ6KCCLi/qyZUlZrvx8ra58N3EAElqVOeBwhqt3Ron+JHsWK8elSM
+ C3UQ==
+X-Gm-Message-State: AOAM5320Ybivf9GSHPNqjaM2iPToEIv0ULFt3bOU7SzhttS/UxBlEnQ4
+ vJNMchMsVD5uM5ZifYEjuT5ogBHtmN3YVseHIb/SVQcHu+w=
+X-Google-Smtp-Source: ABdhPJwl2tr9ClL3asn7D0daWCLxpbWcicGBHl3RglmUadciWpYNtKvtb4F0xzOXS215QqSA9z2se3QNEhc8iGYlMEA=
+X-Received: by 2002:a17:90a:8918:: with SMTP id
+ u24mr3082134pjn.7.1595923796912; 
+ Tue, 28 Jul 2020 01:09:56 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20200728051153.1590-3-rppt@kernel.org>
-User-Agent: Mutt/1.5.17 (2007-11-01)
+References: <20200728051153.1590-1-rppt@kernel.org>
+ <20200728051153.1590-4-rppt@kernel.org>
+In-Reply-To: <20200728051153.1590-4-rppt@kernel.org>
+From: Max Filippov <jcmvbkbc@gmail.com>
+Date: Tue, 28 Jul 2020 01:09:45 -0700
+Message-ID: <CAMo8Bf+VKHmAm1GV=0D9Um2mpsxjnwp9WrAJq_eKW1MK+_8r6g@mail.gmail.com>
+Subject: Re: [PATCH 03/15] arm,
+ xtensa: simplify initialization of high memory pages
+To: Mike Rapoport <rppt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200728_023755_611812_A8ACD172 
-X-CRM114-Status: GOOD (  15.27  )
+X-CRM114-CacheID: sfid-20200728_041000_797800_0429CEEA 
+X-CRM114-Status: GOOD (  15.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -64,49 +91,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-sh@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>,
+Cc: "open list:SUPERH" <linux-sh@vger.kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>,
  Benjamin Herrenschmidt <benh@kernel.crashing.org>,
  Dave Hansen <dave.hansen@linux.intel.com>, linux-mips@vger.kernel.org,
- Max Filippov <jcmvbkbc@gmail.com>, Paul Mackerras <paulus@samba.org>,
- sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
- Will Deacon <will@kernel.org>, Stafford Horne <shorne@gmail.com>,
- Marek Szyprowski <m.szyprowski@samsung.com>, linux-s390@vger.kernel.org,
- linux-c6x-dev@linux-c6x.org, Yoshinori Sato <ysato@users.sourceforge.jp>,
- Michael Ellerman <mpe@ellerman.id.au>, x86@kernel.org,
+ Linux Memory Management List <linux-mm@kvack.org>,
+ Paul Mackerras <paulus@samba.org>,
+ "open list:SPARC + UltraSPAR..." <sparclinux@vger.kernel.org>,
+ linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>,
+ Stafford Horne <shorne@gmail.com>, Marek Szyprowski <m.szyprowski@samsung.com>,
+ linux-s390 <linux-s390@vger.kernel.org>, linux-c6x-dev@linux-c6x.org,
+ Yoshinori Sato <ysato@users.sourceforge.jp>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ "maintainer:X86 ARCHITECTURE..." <x86@kernel.org>,
  Russell King <linux@armlinux.org.uk>, Mike Rapoport <rppt@linux.ibm.com>,
  clang-built-linux@googlegroups.com, Ingo Molnar <mingo@redhat.com>,
  Catalin Marinas <catalin.marinas@arm.com>,
- uclinux-h8-devel@lists.sourceforge.jp, linux-xtensa@linux-xtensa.org,
+ "moderated list:H8/300 ARCHITECTURE" <uclinux-h8-devel@lists.sourceforge.jp>,
+ "open list:TENSILICA XTENSA PORT \(xtensa\)" <linux-xtensa@linux-xtensa.org>,
  openrisc@lists.librecores.org, Borislav Petkov <bp@alien8.de>,
  Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
  Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org,
- Michal Simek <monstr@monstr.eu>, linux-mm@kvack.org,
- linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- iommu@lists.linux-foundation.org, Palmer Dabbelt <palmer@dabbelt.com>,
- Andrew Morton <akpm@linux-foundation.org>, Christoph Hellwig <hch@lst.de>
+ Michal Simek <monstr@monstr.eu>, linuxppc-dev@lists.ozlabs.org,
+ LKML <linux-kernel@vger.kernel.org>, iommu@lists.linux-foundation.org,
+ Palmer Dabbelt <palmer@dabbelt.com>, Andrew Morton <akpm@linux-foundation.org>,
+ Christoph Hellwig <hch@lst.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 28, 2020 at 08:11:40AM +0300, Mike Rapoport wrote:
+On Mon, Jul 27, 2020 at 10:12 PM Mike Rapoport <rppt@kernel.org> wrote:
+>
 > From: Mike Rapoport <rppt@linux.ibm.com>
-> 
-> The memory size calculation in cma_early_percent_memory() traverses
-> memblock.memory rather than simply call memblock_phys_mem_size(). The
-> comment in that function suggests that at some point there should have been
-> call to memblock_analyze() before memblock_phys_mem_size() could be used.
-> As of now, there is no memblock_analyze() at all and
-> memblock_phys_mem_size() can be used as soon as cold-plug memory is
-> registerd with memblock.
-> 
-> Replace loop over memblock.memory with a call to memblock_phys_mem_size().
-> 
+>
+> The function free_highpages() in both arm and xtensa essentially open-code
+> for_each_free_mem_range() loop to detect high memory pages that were not
+> reserved and that should be initialized and passed to the buddy allocator.
+>
+> Replace open-coded implementation of for_each_free_mem_range() with usage
+> of memblock API to simplify the code.
+>
 > Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+> ---
+>  arch/arm/mm/init.c    | 48 +++++++------------------------------
+>  arch/xtensa/mm/init.c | 55 ++++++++-----------------------------------
+>  2 files changed, 18 insertions(+), 85 deletions(-)
 
-Looks good:
+For the xtensa part:
+Reviewed-by: Max Filippov <jcmvbkbc@gmail.com>
+Tested-by: Max Filippov <jcmvbkbc@gmail.com>
 
-Reviewed-by: Christoph Hellwig <hch@lst.de>
+-- 
+Thanks.
+-- Max
 
 _______________________________________________
 linux-riscv mailing list
