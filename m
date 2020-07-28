@@ -2,22 +2,23 @@ Return-Path: <SRS0=Fr2v=BH=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
-	SPF_PASS autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-11.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 04D14C433E5
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jul 2020 10:56:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 00E22C433E8
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jul 2020 11:05:21 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C761B204EA
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jul 2020 10:56:43 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C5B6620656
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jul 2020 11:05:20 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Fd/3C0V3";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="GaqX56Rb"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C761B204EA
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="eecnrU2h";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=redhat.com header.i=@redhat.com header.b="EOC3+Vjv"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C5B6620656
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -25,45 +26,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=FhEPNtuHhlsoLLQQsI1IRzReOkvVvLeBM8ES6Buoj3I=; b=Fd/3C0V3GrRg39pnPZ4b6EmV9
-	Kb0Lm2ektxPwMf28n8coOGIxm8zi7JoyrFEX8Su14NZzhhd8ZBzeqoFHuroCRFX3aiH0CnHr0mTFU
-	8mwwEKdpupazoEBEAVrHbYu1TjbofihYq1XXQKibRkaCcBYO/bwGOzYmgKKsG71/NmXrSMlqy9Zze
-	XlbFNLyGYVlH+CiOHJWLLY9f3wfPQZ1jiKEmfhuGsfYPGBEy9ASQi6dwyklho+xb/UCoVWgWNSbUJ
-	pYaRNUukDB0VKP0PAdwoNEHOze69nWGxYklmu2yfX3X9jamAqvXj0FMXkCRSGGrghSzqioH9oXfbj
-	SuEfpLXtg==;
+	 bh=+trmfkVMo6axRiQ39PWWHMiDewQZcGoPMhkuDk8glgU=; b=eecnrU2hNlLEufXwO5ftXVEKa
+	3GBScoy/w9A/1nbBiO5QBBP5pC2MEmXnBqWZN94fGJJ7HveCfpXGkhb+F6An5dfb5URJvFxB6ZjGN
+	SXrq4mebweFlKGl5OOLl86GW4RaFujAcCfywuNNN7rWns+3EFjh6W0fsQk4/UESSW7qVG24X/mCao
+	DPk0QVlnmi/6NxF9hJ7Z2rdRP2PHJxnwiVVPkm5zPJqMrVQwSw8+Tg32/QeCXCp1ADi4wfqfcqRur
+	kzZseHHsvgccuaXut8mQaCDOICD6gmi9nWkULN/AtCNq/lODLN+MCHBgC0kfY07m8VjrJauu6UmsR
+	ELRHNi1hQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k0NHZ-0004Jp-Sa; Tue, 28 Jul 2020 10:56:29 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1k0NPv-00066x-KW; Tue, 28 Jul 2020 11:05:07 +0000
+Received: from us-smtp-delivery-1.mimecast.com ([207.211.31.120]
+ helo=us-smtp-1.mimecast.com)
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k0NHQ-0004Fu-49; Tue, 28 Jul 2020 10:56:21 +0000
-Received: from kernel.org (unknown [87.71.40.38])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ id 1k0NPq-00064Q-7o
+ for linux-riscv@lists.infradead.org; Tue, 28 Jul 2020 11:05:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1595934301;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=KbH/+n2HvZybv5SHoykd6djdgy/t/5KkFVDCxrMDM1E=;
+ b=EOC3+VjvG0ytpLgxvYRbWfjMpGkuZkeP6MvS5caBAhTxJYcZgORX1LyHOILviBHhBrMyPM
+ 8pIFj596nMgTVZKR8j/BNSu7FGWNcfBGmpG7u5nBjXdrQMzJPSoIetyO3Gfzj7fhYMqbNJ
+ buIWRDfh/33ycmfaY4LattCiQnzVpf4=
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-230-YtpimbUANf-rLILSqHuJcA-1; Tue, 28 Jul 2020 07:03:08 -0400
+X-MC-Unique: YtpimbUANf-rLILSqHuJcA-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com
+ [10.5.11.14])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 0F93A204EA;
- Tue, 28 Jul 2020 10:56:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1595933779;
- bh=rNeOQgk8Ja8EnwwwD3eYzStK24lMrD6z0cTMgy9a9QQ=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=GaqX56Rbj+N1Mz6UyTAyoeiV2UjmyQ1JRRE5tNv2GNU4C8YMxHr+kbNtL4JzJlsAy
- ScdjYPyI8moETB7oZ34zmIQmli78wpYsgkku4f7CIjv3woY2fEo2HxXSUsaNO4HEay
- kodVMJnUU7dTJtF+OWGSFGl3TO2fwrpo3QfCz2LQ=
-Date: Tue, 28 Jul 2020 13:56:02 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Ingo Molnar <mingo@kernel.org>
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id DA57C800597;
+ Tue, 28 Jul 2020 11:03:00 +0000 (UTC)
+Received: from localhost (ovpn-13-103.pek2.redhat.com [10.72.13.103])
+ by smtp.corp.redhat.com (Postfix) with ESMTPS id 8BD995DA33;
+ Tue, 28 Jul 2020 11:02:56 +0000 (UTC)
+Date: Tue, 28 Jul 2020 19:02:54 +0800
+From: Baoquan He <bhe@redhat.com>
+To: Mike Rapoport <rppt@kernel.org>
 Subject: Re: [PATCH 14/15] x86/numa: remove redundant iteration over
  memblock.reserved
-Message-ID: <20200728105602.GB3655207@kernel.org>
+Message-ID: <20200728110254.GA14854@MiWiFi-R3L-srv>
 References: <20200728051153.1590-1-rppt@kernel.org>
  <20200728051153.1590-15-rppt@kernel.org>
- <20200728104440.GA222284@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20200728104440.GA222284@gmail.com>
+In-Reply-To: <20200728051153.1590-15-rppt@kernel.org>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200728_065620_269029_08FBDD7E 
-X-CRM114-Status: GOOD (  17.87  )
+X-CRM114-CacheID: sfid-20200728_070502_407550_EF445134 
+X-CRM114-Status: GOOD (  26.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -100,40 +114,83 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 28, 2020 at 12:44:40PM +0200, Ingo Molnar wrote:
+On 07/28/20 at 08:11am, Mike Rapoport wrote:
+> From: Mike Rapoport <rppt@linux.ibm.com>
 > 
-> * Mike Rapoport <rppt@kernel.org> wrote:
+> numa_clear_kernel_node_hotplug() function first traverses numa_meminfo
+> regions to set node ID in memblock.reserved and than traverses
+> memblock.reserved to update reserved_nodemask to include node IDs that were
+> set in the first loop.
 > 
-> > From: Mike Rapoport <rppt@linux.ibm.com>
-> > 
-> > numa_clear_kernel_node_hotplug() function first traverses numa_meminfo
-> > regions to set node ID in memblock.reserved and than traverses
-> > memblock.reserved to update reserved_nodemask to include node IDs that were
-> > set in the first loop.
-> > 
-> > Remove redundant traversal over memblock.reserved and update
-> > reserved_nodemask while iterating over numa_meminfo.
-> > 
-> > Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
-> > ---
-> >  arch/x86/mm/numa.c | 26 ++++++++++----------------
-> >  1 file changed, 10 insertions(+), 16 deletions(-)
+> Remove redundant traversal over memblock.reserved and update
+> reserved_nodemask while iterating over numa_meminfo.
 > 
-> I suspect you'd like to carry this in the -mm tree?
-
-Yes.
- 
-> Acked-by: Ingo Molnar <mingo@kernel.org>
-
-Thanks!
-
-> Thanks,
+> Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+> ---
+>  arch/x86/mm/numa.c | 26 ++++++++++----------------
+>  1 file changed, 10 insertions(+), 16 deletions(-)
 > 
-> 	Ingo
+> diff --git a/arch/x86/mm/numa.c b/arch/x86/mm/numa.c
+> index 8ee952038c80..4078abd33938 100644
+> --- a/arch/x86/mm/numa.c
+> +++ b/arch/x86/mm/numa.c
+> @@ -498,31 +498,25 @@ static void __init numa_clear_kernel_node_hotplug(void)
+>  	 * and use those ranges to set the nid in memblock.reserved.
+>  	 * This will split up the memblock regions along node
+>  	 * boundaries and will set the node IDs as well.
+> +	 *
+> +	 * The nid will also be set in reserved_nodemask which is later
+> +	 * used to clear MEMBLOCK_HOTPLUG flag.
+> +	 *
+> +	 * [ Note, when booting with mem=nn[kMG] or in a kdump kernel,
+> +	 *   numa_meminfo might not include all memblock.reserved
+> +	 *   memory ranges, because quirks such as trim_snb_memory()
+> +	 *   reserve specific pages for Sandy Bridge graphics.
+> +	 *   These ranges will remain with nid == MAX_NUMNODES. ]
+>  	 */
+>  	for (i = 0; i < numa_meminfo.nr_blks; i++) {
+>  		struct numa_memblk *mb = numa_meminfo.blk + i;
+>  		int ret;
+>  
+>  		ret = memblock_set_node(mb->start, mb->end - mb->start, &memblock.reserved, mb->nid);
+> +		node_set(mb->nid, reserved_nodemask);
 
--- 
-Sincerely yours,
-Mike.
+Really? This will set all node id into reserved_nodemask. But in the
+current code, it's setting nid into memblock reserved region which
+interleaves with numa_memoinfo, then get those nid and set it in
+reserved_nodemask. This is so different, with my understanding. Please
+correct me if I am wrong.
+
+Thanks
+Baoquan
+
+>  		WARN_ON_ONCE(ret);
+>  	}
+>  
+> -	/*
+> -	 * Now go over all reserved memblock regions, to construct a
+> -	 * node mask of all kernel reserved memory areas.
+> -	 *
+> -	 * [ Note, when booting with mem=nn[kMG] or in a kdump kernel,
+> -	 *   numa_meminfo might not include all memblock.reserved
+> -	 *   memory ranges, because quirks such as trim_snb_memory()
+> -	 *   reserve specific pages for Sandy Bridge graphics. ]
+> -	 */
+> -	for_each_memblock(reserved, mb_region) {
+> -		int nid = memblock_get_region_node(mb_region);
+> -
+> -		if (nid != MAX_NUMNODES)
+> -			node_set(nid, reserved_nodemask);
+> -	}
+> -
+>  	/*
+>  	 * Finally, clear the MEMBLOCK_HOTPLUG flag for all memory
+>  	 * belonging to the reserved node mask.
+> -- 
+> 2.26.2
+> 
+> 
+
 
 _______________________________________________
 linux-riscv mailing list
