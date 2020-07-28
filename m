@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 924C0C433F4
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jul 2020 05:12:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F04B3C4345B
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jul 2020 05:12:55 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 61DD721883
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jul 2020 05:12:42 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B635F22B45
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jul 2020 05:12:55 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="rRPJoos/";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="D4u/UIbz"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 61DD721883
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="qQrIraP1";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="m3WIeA90"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B635F22B45
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,42 +26,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=xAGkHQCOODS94wUMZB+PltPxGPIuniHt+QjQn+1LGy0=; b=rRPJoos/+AnSc4fCLcmhDrN9i
-	vhtdBr06p2Yp8CXxRcmNun1JGOBu1Woee3GToogwg1DQdHxjfa2AWumfb3UPslnsKBZw0N3BaBmqB
-	QHo8bmVTofs0e4NACp39RxHD0CcEgZgVdO8R5W1mSPp8YxXEp8AUmn+k/EWn0bavOjAo/gU/5p7IL
-	Z+8onoeUfmNKiJXpFqwQyFcrD6isXim4E0SQz6sZ6+fY0MN4arMLKHYSiEVtWdv7wr2B+QRQlnqxU
-	lkz1cV2ZgVK6cKmhE8IyeV5JXycF6zv8EBn4Qx/33r5/QcAP4Lik2fBxAqXH/ei5ocLpgPs4HMVWC
-	s6vXdAPgw==;
+	 bh=iA0J3UTODHNDpQMtOKSKPsaAFxWu+1iOoDlmJO1HRnQ=; b=qQrIraP11PLoLCVoGM1LDTDS3
+	xjCUqLyqXpaDpfhBeLcs5gfmT9N95oTEeaLFOZnvQABfCQwuTsABr48YDZRXyMPZD1CPnd2Jw8KK/
+	FWocGnIRL5AaWhiN8z3TJITj+9z5J+oBNkFhOb09mt7mL0P3XifOfKebSQYJciMd/jPINJXXTgcRl
+	S1zXUi5Yvbv+xLh5zwJC5gOPQAXbLARb6CTIVXhFL0xuWANx4OLaq6Id/DVwq8ugyc2EdQIBOKTpa
+	aW4SSlehJaUPjR37LiNy5kk2tECHiFUUuZFkJvoGS+K3+3djvdm9KYOpYkT2f4X18ltRz1PG5DJPE
+	RqKorofPQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k0Huf-0004hX-IM; Tue, 28 Jul 2020 05:12:29 +0000
+	id 1k0Hur-0004lv-1O; Tue, 28 Jul 2020 05:12:41 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k0Hua-0004f6-Ab; Tue, 28 Jul 2020 05:12:25 +0000
+ id 1k0Huk-0004iO-5L; Tue, 28 Jul 2020 05:12:36 +0000
 Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 5790E22B3F;
- Tue, 28 Jul 2020 05:12:14 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 2B6452070A;
+ Tue, 28 Jul 2020 05:12:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1595913143;
- bh=4WuJOQlNfEjZEgWh7mIgx+GQ0z3C84AGorDeAuZhOK8=;
+ s=default; t=1595913153;
+ bh=4DNtFGpQ7uDaB3zOvxrPIrzPc60FGUwiPzAlH9TywcA=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=D4u/UIbzLlEIUGvsu7oIEk1r9y1HdyXe4bGFS4uPFFZlE1SvR0Ic/VsazPLkmlfYo
- MGSySQinsMEKx0a460QO0p336yu3q4NZYJLjS2vVr0K3k0pnoZ2v/GrKkVnCKHf3ZV
- mwea1G2DA7ZiDVovETmAVBrYbEJIl1dz6OHL4Gts=
+ b=m3WIeA90qkRvl2gsmAfQuDGwJAbJi5UUCCAg4LmaseT2GduhfCilwi3H3N+JLaGfy
+ J6liV31fxMOs5Q3H2ZjqTO28omsPhlPG1oCTgC9Eu3s2MLIy3PimP/FPxYL28QvZkd
+ olHKuwsJqS/tqZjOOqJgFqsJsJs1UbU0Wq3HadR8=
 From: Mike Rapoport <rppt@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH 01/15] KVM: PPC: Book3S HV: simplify kvm_cma_reserve()
-Date: Tue, 28 Jul 2020 08:11:39 +0300
-Message-Id: <20200728051153.1590-2-rppt@kernel.org>
+Subject: [PATCH 02/15] dma-contiguous: simplify cma_early_percent_memory()
+Date: Tue, 28 Jul 2020 08:11:40 +0300
+Message-Id: <20200728051153.1590-3-rppt@kernel.org>
 X-Mailer: git-send-email 2.26.2
 In-Reply-To: <20200728051153.1590-1-rppt@kernel.org>
 References: <20200728051153.1590-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200728_011224_522305_C91C6BA0 
-X-CRM114-Status: GOOD (  17.97  )
+X-CRM114-CacheID: sfid-20200728_011234_437734_D3417483 
+X-CRM114-Status: GOOD (  16.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -100,10 +100,10 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Mike Rapoport <rppt@linux.ibm.com>
 
-The memory size calculation in kvm_cma_reserve() traverses memblock.memory
-rather than simply call memblock_phys_mem_size(). The comment in that
-function suggests that at some point there should have been call to
-memblock_analyze() before memblock_phys_mem_size() could be used.
+The memory size calculation in cma_early_percent_memory() traverses
+memblock.memory rather than simply call memblock_phys_mem_size(). The
+comment in that function suggests that at some point there should have been
+call to memblock_analyze() before memblock_phys_mem_size() could be used.
 As of now, there is no memblock_analyze() at all and
 memblock_phys_mem_size() can be used as soon as cold-plug memory is
 registerd with memblock.
@@ -112,38 +112,31 @@ Replace loop over memblock.memory with a call to memblock_phys_mem_size().
 
 Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
 ---
- arch/powerpc/kvm/book3s_hv_builtin.c | 11 ++---------
- 1 file changed, 2 insertions(+), 9 deletions(-)
+ kernel/dma/contiguous.c | 11 +----------
+ 1 file changed, 1 insertion(+), 10 deletions(-)
 
-diff --git a/arch/powerpc/kvm/book3s_hv_builtin.c b/arch/powerpc/kvm/book3s_hv_builtin.c
-index 7cd3cf3d366b..56ab0d28de2a 100644
---- a/arch/powerpc/kvm/book3s_hv_builtin.c
-+++ b/arch/powerpc/kvm/book3s_hv_builtin.c
-@@ -95,22 +95,15 @@ EXPORT_SYMBOL_GPL(kvm_free_hpt_cma);
- void __init kvm_cma_reserve(void)
- {
- 	unsigned long align_size;
--	struct memblock_region *reg;
--	phys_addr_t selected_size = 0;
-+	phys_addr_t selected_size;
+diff --git a/kernel/dma/contiguous.c b/kernel/dma/contiguous.c
+index 15bc5026c485..1992afd8ca7b 100644
+--- a/kernel/dma/contiguous.c
++++ b/kernel/dma/contiguous.c
+@@ -73,16 +73,7 @@ early_param("cma", early_cma);
  
- 	/*
- 	 * We need CMA reservation only when we are in HV mode
- 	 */
- 	if (!cpu_has_feature(CPU_FTR_HVMODE))
- 		return;
+ static phys_addr_t __init __maybe_unused cma_early_percent_memory(void)
+ {
+-	struct memblock_region *reg;
+-	unsigned long total_pages = 0;
+-
 -	/*
 -	 * We cannot use memblock_phys_mem_size() here, because
 -	 * memblock_analyze() has not been called yet.
 -	 */
 -	for_each_memblock(memory, reg)
--		selected_size += memblock_region_memory_end_pfn(reg) -
--				 memblock_region_memory_base_pfn(reg);
+-		total_pages += memblock_region_memory_end_pfn(reg) -
+-			       memblock_region_memory_base_pfn(reg);
++	unsigned long total_pages = PHYS_PFN(memblock_phys_mem_size());
  
-+	selected_size = PHYS_PFN(memblock_phys_mem_size());
- 	selected_size = (selected_size * kvm_cma_resv_ratio / 100) << PAGE_SHIFT;
- 	if (selected_size) {
- 		pr_debug("%s: reserving %ld MiB for global area\n", __func__,
+ 	return (total_pages * CONFIG_CMA_SIZE_PERCENTAGE / 100) << PAGE_SHIFT;
+ }
 -- 
 2.26.2
 
