@@ -5,56 +5,63 @@ X-Spam-Level:
 X-Spam-Status: No, score=-11.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+	USER_AGENT_SANE_2 autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5E0F4C433DF
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2020 08:29:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1E799C433DF
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2020 08:32:24 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2D5BB206D4
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2020 08:29:25 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id DEDB320838
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2020 08:32:23 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="piw5HrfR"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2D5BB206D4
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=distanz.ch
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="kov0Xivz"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DEDB320838
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=Huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=tPMFFhkB1JZAxSFVdjWO9q5xAjAKvDnhof2hK1sLPXg=; b=piw5HrfR+JFTcP3qweIMlndSx
-	KS38dlyZ5nArftzZy7RZWRdI+32rJBnSNvLv/YLeIlao0J82t00PqcHON2/11pziCb3iYCGLMb608
-	WN9oMjMMbdZRMvazveWIn6/MK6E9VtSabQG1Rle3G1J8eA2+7AGR1S3N7/vEX+zNR3VeDKX95Syy7
-	9BmFLr8vhE6AmdhyUhYrNYLAUViH+zVGPZ2Ppux0h1PJdumyroNx4XxKsy7kfHtMLWx2HppJPPikl
-	PFXZSTN3lJSpVBJi2mwuSYpLG9vYr0o8Zrct8hmNnw52+lTSK9iPPcE5pHfrE5WT6Uo2VMWX/D31s
-	7Xyzj52kQ==;
+	 bh=sFHbU10Oce1mF0Gd09imYzlOYQ5oT9hBE72NJMmdics=; b=kov0XivzAzyQ74wx9PbscZW//
+	egiq2P0T+7SQmclsMQ8v6FbbMH2R/R6GcLDeioAFrVpFjG5skdu7gJyk6nwDInktcVHSLT0etuWpJ
+	TxUA++8oQc34yit1qGvSJ5K6mfdCyjvdTEMM+/LR9XYzXMrdJFSHqjrmheXhbEQ6y59XYpxKL+ZfL
+	rcrqCMDwsy+4DqsAJ+Kz72z+eP6h0+9h5dbgmuazssbC80hrTCmJmi9spLfKnaP1sJEAH09LzwhA9
+	YGU4RhTwMwmzar5/9mYEgcIIcc+C/E8vL2og2+YNBA9L6Xikc8HtmZeIvy6OqZuLO7Xr0RMjqk6WG
+	H/HSkL+Lw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k0hSY-0005vQ-UU; Wed, 29 Jul 2020 08:29:10 +0000
-Received: from sym2.noone.org ([2a01:4f8:120:4161::3])
+	id 1k0hVS-0006le-A2; Wed, 29 Jul 2020 08:32:10 +0000
+Received: from lhrrgout.huawei.com ([185.176.76.210] helo=huawei.com)
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k0hSV-0005su-VR
- for linux-riscv@lists.infradead.org; Wed, 29 Jul 2020 08:29:09 +0000
-Received: by sym2.noone.org (Postfix, from userid 1002)
- id 4BGmss0QVVzvjc1; Wed, 29 Jul 2020 10:29:04 +0200 (CEST)
-Date: Wed, 29 Jul 2020 10:29:04 +0200
-From: Tobias Klauser <tklauser@distanz.ch>
-To: Jerome Forissier <jerome@forissier.org>
-Subject: Re: [PATCH RESEND] riscv: don't specify -mno-save-restore when
- building with clang
-Message-ID: <20200729082903.6ix42nylg2e36lh6@distanz.ch>
-References: <20200729044143.tzok6p3nctqzms4w@distanz.ch>
- <20200729080811.12111-1-jerome@forissier.org>
+ id 1k0hVM-0006iU-UP; Wed, 29 Jul 2020 08:32:06 +0000
+Received: from lhreml710-chm.china.huawei.com (unknown [172.18.7.106])
+ by Forcepoint Email with ESMTP id 2439AD46260FB3D2AD69;
+ Wed, 29 Jul 2020 09:31:58 +0100 (IST)
+Received: from localhost (10.52.120.141) by lhreml710-chm.china.huawei.com
+ (10.201.108.61) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1913.5; Wed, 29 Jul
+ 2020 09:31:56 +0100
+Date: Wed, 29 Jul 2020 09:30:31 +0100
+From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
+To: Mike Rapoport <rppt@kernel.org>
+Subject: Re: [PATCH 04/15] arm64: numa: simplify dummy_numa_init()
+Message-ID: <20200729093031.0000316b@Huawei.com>
+In-Reply-To: <20200728051153.1590-5-rppt@kernel.org>
+References: <20200728051153.1590-1-rppt@kernel.org>
+ <20200728051153.1590-5-rppt@kernel.org>
+Organization: Huawei Technologies Research and Development (UK) Ltd.
+X-Mailer: Claws Mail 3.17.4 (GTK+ 2.24.32; i686-w64-mingw32)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20200729080811.12111-1-jerome@forissier.org>
-User-Agent: NeoMutt/20170113 (1.7.2)
+X-Originating-IP: [10.52.120.141]
+X-ClientProxiedBy: lhreml738-chm.china.huawei.com (10.201.108.188) To
+ lhreml710-chm.china.huawei.com (10.201.108.61)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200729_042908_167060_0B1C88BA 
-X-CRM114-Status: GOOD (  28.19  )
+X-CRM114-CacheID: sfid-20200729_043205_110108_48926770 
+X-CRM114-Status: GOOD (  35.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -66,71 +73,181 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu, palmer@dabbelt.com,
- paul.walmsley@sifive.com
+Cc: linux-sh@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-kernel@vger.kernel.org,
+ Max Filippov <jcmvbkbc@gmail.com>, Paul
+ Mackerras <paulus@samba.org>, sparclinux@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>, linux-s390@vger.kernel.org,
+ linux-c6x-dev@linux-c6x.org, Yoshinori Sato <ysato@users.sourceforge.jp>,
+ Michael Ellerman <mpe@ellerman.id.au>, x86@kernel.org,
+ Russell King <linux@armlinux.org.uk>, Mike Rapoport <rppt@linux.ibm.com>,
+ clang-built-linux@googlegroups.com, Ingo Molnar <mingo@redhat.com>,
+ Christoph Hellwig <hch@lst.de>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ uclinux-h8-devel@lists.sourceforge.jp, linux-xtensa@linux-xtensa.org,
+ openrisc@lists.librecores.org, Borislav Petkov <bp@alien8.de>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Stafford Horne <shorne@gmail.com>, linux-arm-kernel@lists.infradead.org,
+ Michal Simek <monstr@monstr.eu>, linux-mm@kvack.org,
+ linux-mips@vger.kernel.org, iommu@lists.linux-foundation.org, Palmer
+ Dabbelt <palmer@dabbelt.com>, Andrew Morton <akpm@linux-foundation.org>,
+ linuxppc-dev@lists.ozlabs.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2020-07-29 at 10:08:11 +0200, Jerome Forissier <jerome@forissier.org> wrote:
-> > On 2020-07-28 at 18:06:36 +0200, Tobias Klauser <tklauser@distanz.ch> wrote:
-> > > On 2020-07-28 at 17:20:45 +0200, Palmer Dabbelt <palmer@dabbelt.com> wrote:
-> > > > On Tue, 28 Jul 2020 06:12:52 PDT (-0700), tklauser@distanz.ch wrote:
-> > > > > Clang doesn't support -msave-restore and -mno-save-restore. This avoids
-> > > > > the following message emitted by clang:
-> > > > > 
-> > > > >   '-save-restore' is not a recognized feature for this target (ignoring feature)
-> > > > > 
-> > > > > Signed-off-by: Tobias Klauser <tklauser@distanz.ch>
-> > > > > ---
-> > > > > Resent due to infradead.org mailing list issues.
-> > > > > 
-> > > > >  arch/riscv/Makefile | 2 ++
-> > > > >  1 file changed, 2 insertions(+)
-> > > > > 
-> > > > > diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> > > > > index fb6e37db836d..cd3720bc45e8 100644
-> > > > > --- a/arch/riscv/Makefile
-> > > > > +++ b/arch/riscv/Makefile
-> > > > > @@ -44,7 +44,9 @@ riscv-march-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-y)c
-> > > > >  KBUILD_CFLAGS += -march=$(subst fd,,$(riscv-march-y))
-> > > > >  KBUILD_AFLAGS += -march=$(riscv-march-y)
-> > > > > 
-> > > > > +ifndef CONFIG_CC_IS_CLANG
-> > > > >  KBUILD_CFLAGS += -mno-save-restore
-> > > > > +endif
-> > > > >  KBUILD_CFLAGS += -DCONFIG_PAGE_OFFSET=$(CONFIG_PAGE_OFFSET)
-> > > > > 
-> > > > >  ifeq ($(CONFIG_CMODEL_MEDLOW),y)
-> > > > 
-> > > > Thanks, this one didn't make it the first time.  Is there a reason we can't use
-> > > > cc-option here?  IIRC that's what we use for the other compiler options that
-> > > > may be unimplemented, and it has the advantage of avoiding encoding specific
-> > > > compilers into the build system.
-> > > 
-> > > Thanks for the hint. I don't know how I could've overlooked cc-option.
-> > > Will send a v2 using cc-option.
-> > 
-> > Looks like it's a bit more complicated:
-> > 
-> > Using just cc-option still leads to the warning being emitted, so I
-> > think the CONFIG_CC_IS_CLANG check is still needed (checked using clang
+On Tue, 28 Jul 2020 08:11:42 +0300
+Mike Rapoport <rppt@kernel.org> wrote:
+
+> From: Mike Rapoport <rppt@linux.ibm.com>
 > 
-> Shouldnt cc-option be fixed instead? The warning effectively means the option
-> is not supported, so why should cc-option pretend it is?
+> dummy_numa_init() loops over memblock.memory and passes nid=0 to
+> numa_add_memblk() which essentially wraps memblock_set_node(). However,
+> memblock_set_node() can cope with entire memory span itself, so the loop
+> over memblock.memory regions is redundant.
+> 
+> Replace the loop with a single call to memblock_set_node() to the entire
+> memory.
 
-The problem is that clang somewhat handles the option, i.e. doesn't
-treat it as an unknown option like others and thus doesn't exit with
-non-zero, like it does for other options only available for gcc. This is
-what cc-option relies on.
+Hi Mike,
 
-Like mentioned in the follow-up patch [1] clang 11 will handle
--m{no,}save-restore correctly, so we need to address that case as well
-(which [1] does). Unfortunately, I currently see no other way than using
-these ifeq's to fix this.
+I had a similar patch I was going to post shortly so can add a bit more
+on the advantages of this one.
 
-[1] https://lore.kernel.org/linux-riscv/20200729044428.32460-1-tklauser@distanz.ch/T/#u
+Beyond cleaning up, it also fixes an issue with a buggy ACPI firmware in which the SRAT
+table covers some but not all of the memory in the EFI memory map.  Stealing bits
+from the draft cover letter I had for that...
+
+> This issue can be easily triggered by having an SRAT table which fails
+> to cover all elements of the EFI memory map.
+> 
+> This firmware error is detected and a warning printed. e.g.
+> "NUMA: Warning: invalid memblk node 64 [mem 0x240000000-0x27fffffff]"
+> At that point we fall back to dummy_numa_init().
+> 
+> However, the failed ACPI init has left us with our memblocks all broken
+> up as we split them when trying to assign them to NUMA nodes.
+> 
+> We then iterate over the memblocks and add them to node 0.
+> 
+> for_each_memblock(memory, mblk) {
+> 	ret = numa_add_memblk(0, mblk->base, mblk->base + mblk->size);
+> 	if (!ret)
+> 		continue;
+> 	pr_err("NUMA init failed\n");
+> 	return ret;
+> }
+> 
+> numa_add_memblk() calls memblock_set_node() which merges regions that
+> were previously split up during the earlier attempt to add them to different
+> nodes during parsing of SRAT.
+> 
+> This means elements are moved in the memblock array and we can end up
+> in a different memblock after the call to numa_add_memblk().
+> Result is:
+> 
+> Unable to handle kernel paging request at virtual address 0000000000003a40
+> Mem abort info:
+>   ESR = 0x96000004
+>   EC = 0x25: DABT (current EL), IL = 32 bits
+>   SET = 0, FnV = 0
+>   EA = 0, S1PTW = 0
+> Data abort info:
+>   ISV = 0, ISS = 0x00000004
+>   CM = 0, WnR = 0
+> [0000000000003a40] user address but active_mm is swapper
+> Internal error: Oops: 96000004 [#1] PREEMPT SMP
+> 
+> ...
+> 
+> Call trace:
+>   sparse_init_nid+0x5c/0x2b0
+>   sparse_init+0x138/0x170
+>   bootmem_init+0x80/0xe0
+>   setup_arch+0x2a0/0x5fc
+>   start_kernel+0x8c/0x648
+> 
+> As an illustrative example:
+> EFI table has one block of memory.
+> memblks[0] = [0...0x2f]  so we start with a single memblock.
+> 
+> SRAT has
+> [0x00...0x0f] in node 0
+> [0x10...0x1f] in node 1
+> but no entry covering 
+> [0x20...0x2f].
+> 
+> Whilst parsing SRAT the single memblock is broken into 3.
+> memblks[0] = [0x00...0x0f] in node 0
+> memblks[1] = [0x10...0x1f] in node 1
+> memblks[2] = [0x20...0x2f] in node MAX_NUM_NODES (invalid value)
+> 
+> A sanity check parse then detects the invalid section and acpi_numa_init
+> fails.  We then fall back to the dummy path.
+> 
+> That iterates over the memblocks.  We'll use i an index in the array of memblocks
+> 
+> i = 0;
+> memblks[0] = [0x00...0x0f] set to node0.
+>    merge doesn't do anything because the neighbouring memblock is still in node1.
+> 
+> i = 1
+> memblks[1] = [0x10...0x1f] set to node 0.
+>    merge combines memblock 0 and 1 to give a new set of memblocks.
+> 
+> memblks[0] = [0x00..0x1f] in node 0
+> memblks[1] = [0x20..0x2f] in node MAX_NUM_NODES.
+> 
+> i = 2 off the end of the now reduced array of memblocks, so exit the loop.
+> (if we restart the loop here everything will be fine).
+> 
+> Later sparse_init_nid tries to use the node of the second memblock to index
+> somethings and boom.
+
+
+> 
+> Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+
+Acked-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+
+> ---
+>  arch/arm64/mm/numa.c | 13 +++++--------
+>  1 file changed, 5 insertions(+), 8 deletions(-)
+> 
+> diff --git a/arch/arm64/mm/numa.c b/arch/arm64/mm/numa.c
+> index aafcee3e3f7e..0cbdbcc885fb 100644
+> --- a/arch/arm64/mm/numa.c
+> +++ b/arch/arm64/mm/numa.c
+> @@ -423,19 +423,16 @@ static int __init numa_init(int (*init_func)(void))
+>   */
+>  static int __init dummy_numa_init(void)
+>  {
+> +	phys_addr_t start = memblock_start_of_DRAM();
+> +	phys_addr_t end = memblock_end_of_DRAM();
+>  	int ret;
+> -	struct memblock_region *mblk;
+>  
+>  	if (numa_off)
+>  		pr_info("NUMA disabled\n"); /* Forced off on command line. */
+> -	pr_info("Faking a node at [mem %#018Lx-%#018Lx]\n",
+> -		memblock_start_of_DRAM(), memblock_end_of_DRAM() - 1);
+> -
+> -	for_each_memblock(memory, mblk) {
+> -		ret = numa_add_memblk(0, mblk->base, mblk->base + mblk->size);
+> -		if (!ret)
+> -			continue;
+> +	pr_info("Faking a node at [mem %#018Lx-%#018Lx]\n", start, end - 1);
+>  
+> +	ret = numa_add_memblk(0, start, end);
+> +	if (ret) {
+>  		pr_err("NUMA init failed\n");
+>  		return ret;
+>  	}
+
+
 
 _______________________________________________
 linux-riscv mailing list
