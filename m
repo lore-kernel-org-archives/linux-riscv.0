@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C4B25C433EA
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2020 23:37:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 461A0C433E8
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2020 23:37:20 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 960292074B
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2020 23:37:21 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B03A02082E
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jul 2020 23:37:19 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="vMtovmEs";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="WGL340Vb"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 960292074B
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="GZTw7g3u";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="e9uLr5Uj"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B03A02082E
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,63 +26,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=RjTVQ9nkzPVS5d5pHty1tkydxmiofj73FzKFRpIZGtc=; b=vMtovmEshHoht8rXXjtV4HeSJ
-	7myaXbkLoS1qB/61TLuDAlD3XTheRUoeUWB0cChCjuDkORU+C4mxTmaZfEsQT+JD70Ck+juyDgyjX
-	dJkK/Dp+ARn13rLa+oUAZeDE7lLhaEHmUcElzDBVRtfGeSKL8GaaIm75zB3yTejo5qCLcplVLNPiD
-	5WQc8jd7/olg5XzDnUJQiwdjbIcLFNlY5xnvDhB9Bawiv60rW1j+rWAOLmQvREpjXZkU1Dm8PlnZp
-	aWyrMRuCWgXSe5vg4zVuUTvsHI7HZCR5xVUChjUp+04FO5g3yQXbA5/O/k+3wjIW16tpdsiq+xsmD
-	34iNyYdWw==;
+	 bh=CwOFoA8/p2xzcZprODVFJUTVyT26sQwXRVXZu9BI/0s=; b=GZTw7g3ugLuQqGTqcs3sdLMHS
+	W+2J3H84NwhPqbKHzM4K5cl4p9+L53WH5Ld+YdAlE9fkXOPEiwvPLn4k0zKrytwk0croNfvHazm/m
+	GGfU7JAT062a1t5oICWX2eoYm7+bwr1wTmjrPI7ck2sqCUxN3iYD41xNli2o8RQBVRKxcvoL+auzy
+	nOjF+GonahZmfOME09OTjNyUIznb1ZVCY5TmuZWbL7cqLQhgI2rc+f2enlV/rWcyACM9dvRoJz0t7
+	qQYwusEBB5NzJMRfigsCEHiIiL8dsTt2AqEQzUOxrhPoDd+hocJteqiCRzZmkmqyzysGr0rsaAUXJ
+	+wDqOTbCw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k0vdF-0004wX-88; Wed, 29 Jul 2020 23:37:09 +0000
+	id 1k0vdF-0004x1-Og; Wed, 29 Jul 2020 23:37:09 +0000
 Received: from esa1.hgst.iphmx.com ([68.232.141.245])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k0vd6-0004qb-Tl
- for linux-riscv@lists.infradead.org; Wed, 29 Jul 2020 23:37:02 +0000
+ id 1k0vd7-0004qm-G2
+ for linux-riscv@lists.infradead.org; Wed, 29 Jul 2020 23:37:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1596065820; x=1627601820;
+ t=1596065821; x=1627601821;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=DyEurdMM7t8WzBtZdDLIioAaOEsgMahGYE+/JYR6gZQ=;
- b=WGL340VbbP+o/x0v6QJlU0sGxOi2tMwAJpuLJgCOG6TCzdJqdeajxTN4
- 1ic0R8zRZVHYyU+A6dZ+2o4trhEtMpAElLp2y/7+6loMzv6pvJRglggB7
- Kc5LiNV3vXDj++TSd/bbT0E31IzCC4mAmmmTLGINx+/07/QI8BTHAMvIw
- x4+83RgXYA/7PX0uTooif13i1d69QVKufVXAODhsuoTpP8Xx13kpWi5ry
- DToeiwGKjSC2cmjj/JuZtSBCxFTwwDIIRqDKOpl4Sz+Zz23QSiVBk4541
- giUC9wJGYwUTU8qwDlzyuYphfsmBcigZK4aicpru4Ot2K9xuTOGdnpgT0 g==;
-IronPort-SDR: aP+i5aU/YcFYeZVkWRa/Qp8JKeV6EIO0iZ5te2BInLtxUVuaLv7GAQvjOyWCHaoysp43WouZIw
- VG2TJr+2iydfH5uNBMscdQKwb9QRBCiCEtSbJzpKzL4vHj13YxNR3udmPSXVwcc+uKk5KAL/2o
- 6sobb3Wg5bPiO4DIh6r/Xpu41F1nsKIQaJUuYR188S45o8nNDcVpIN9fGsp2an3+GSE8iVMq9L
- Ag+DgyQxDv6NiJCFTEY6yM5jfQFcEClRryUM/0q15EOvdquDdAKv9eZUVWwVpG5m5hix+7BYTa
- gIg=
-X-IronPort-AV: E=Sophos;i="5.75,412,1589212800"; d="scan'208";a="253037254"
+ bh=spvJLOrCMG2kB0qB9a2UXS0zgvYoQmwLv54vbaGUmPA=;
+ b=e9uLr5UjZqtqP5zBkL89WOwauu4B71b0i0nmxNkn2l/OALRV0VjC/GNc
+ 6fOGCJuhPCkqkoP8XWAQ4TMnFw1nyxXlHcLi/xoyMVSdJcMvFE+UhVNUr
+ 9dzgmDb/UkFrQNzsiLr0kJpaPA0D31/wEHzU8Ct96Vtoc0rk406pO0CVr
+ yQO39U9q4N/Spe0/xCfzqAJw0rG9oOPeROhrHn9k0yG3MPn57NPCB+fxF
+ q1lDkVXnqbjVTyu+yQb76c2x7U+GZcg9/Lw35HpB0AIXPSxHz4KVKM6Fq
+ tFHX8vog7qVolvujU+Q+xA5n7nWmcqHVvm7XsV0MHM96TzgFqprE+BxOT Q==;
+IronPort-SDR: DIS8AckjQcPUMvdb7Cg/Ljw+uklti8SDG0JP8Zw4iknmwHJEqz/Eqn5OLch19nmX21f9KYa00Y
+ FxK1zUK96aQg0JtEBcGsvXBy+z5380iN0g2OvYcCUvWxAchDJRtS8o74UrqN4Ft6pSramIdpat
+ Yb74wN17t+PHmB6OQObr8g1mVlpMFSx/E1QUFu7jxzMVo5+fZ6yjksECaDA9ScMxBkj+p70U4h
+ tJR5C5uC6kBbJ96tU2m+1Bf89aUWk0V1654PsSfIYdE98q2YUAVRvB08/Sk/vzbC3EPa1y7suS
+ Sdg=
+X-IronPort-AV: E=Sophos;i="5.75,412,1589212800"; d="scan'208";a="253037260"
 Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
  ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 30 Jul 2020 07:36:53 +0800
-IronPort-SDR: 6eSJlw4T5ZkD8IgxIpvCshEjpI4YaeJlT6DQ8IchwLAAtQsL5C3juF5irocVNGDgL452FaXmZZ
- H5JE2VaWa/QqeY5aL0mOmUieZvYQHxu+I=
+ by ob1.hgst.iphmx.com with ESMTP; 30 Jul 2020 07:36:55 +0800
+IronPort-SDR: JcxcANb9Ub7TExzESyPpEXFPq3fWIgX3sv5wgc9r5BYnGylxK4qEE3uEdsOFprWelf2Ry61wNM
+ CivzgTTi7KT5ksDpntAxRHGqTVHQdogLg=
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
  by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 29 Jul 2020 16:24:24 -0700
-IronPort-SDR: pZDzXPWULnCuyCiOuS3QpLbSXXunBDLbHFoUdamqzzwaKyWJ2yyNVRytnIpaFbvwyr1lpG/qvq
- LT0Yr1745Ljw==
+ 29 Jul 2020 16:24:25 -0700
+IronPort-SDR: PVN+VdhHC1HhISka1o+UUtTA3UdwBhulDx3zaB6EGjij+k9olOeYuPseVzMVsbWayPzevlYnga
+ 5eufqJJvE2bw==
 WDCIronportException: Internal
 Received: from jpf009043.ad.shared (HELO jedi-01.hgst.com) ([10.86.58.210])
- by uls-op-cesaip01.wdc.com with ESMTP; 29 Jul 2020 16:36:54 -0700
+ by uls-op-cesaip01.wdc.com with ESMTP; 29 Jul 2020 16:36:56 -0700
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [RFT PATCH v4 3/9] RISC-V: Implement late mapping page table
- allocation functions
-Date: Wed, 29 Jul 2020 16:36:29 -0700
-Message-Id: <20200729233635.14406-4-atish.patra@wdc.com>
+Subject: [RFT PATCH v4 5/9] RISC-V: Add PE/COFF header for EFI stub
+Date: Wed, 29 Jul 2020 16:36:31 -0700
+Message-Id: <20200729233635.14406-6-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.24.0
 In-Reply-To: <20200729233635.14406-1-atish.patra@wdc.com>
 References: <20200729233635.14406-1-atish.patra@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200729_193701_102347_2A70455A 
-X-CRM114-Status: GOOD (  17.65  )
+X-CRM114-CacheID: sfid-20200729_193701_750921_F9369F6B 
+X-CRM114-Status: GOOD (  25.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -110,101 +109,339 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, page table setup is done during setup_va_final where fixmap can
-be used to create the temporary mappings. The physical frame is allocated
-from memblock_alloc_* functions. However, this won't work if page table
-mapping needs to be created for a different mm context (i.e. efi mm) at
-a later point of time.
+Linux kernel Image can appear as an EFI application With appropriate
+PE/COFF header fields in the beginning of the Image header. An EFI
+application loader can directly load a Linux kernel Image and an EFI
+stub residing in kernel can boot Linux kernel directly.
 
-Use generic kernel page allocation function & macros for any mapping
-after setup_vm_final.
+Add the necessary PE/COFF header.
 
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
+Link: https://lore.kernel.org/r/20200421033336.9663-3-atish.patra@wdc.com
+[ardb: - use C prefix for c.li to ensure the expected opcode is emitted
+       - align all image sections according to PE/COFF section alignment ]
+Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/riscv/mm/init.c | 29 ++++++++++++++++++++++++-----
- 1 file changed, 24 insertions(+), 5 deletions(-)
+ arch/riscv/include/asm/sections.h |  13 ++++
+ arch/riscv/kernel/Makefile        |   4 ++
+ arch/riscv/kernel/efi-header.S    | 104 ++++++++++++++++++++++++++++++
+ arch/riscv/kernel/head.S          |  16 +++++
+ arch/riscv/kernel/image-vars.h    |  51 +++++++++++++++
+ arch/riscv/kernel/vmlinux.lds.S   |  22 ++++++-
+ 6 files changed, 208 insertions(+), 2 deletions(-)
+ create mode 100644 arch/riscv/include/asm/sections.h
+ create mode 100644 arch/riscv/kernel/efi-header.S
+ create mode 100644 arch/riscv/kernel/image-vars.h
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 68c608a0e91f..cba03fec08c1 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -212,6 +212,7 @@ pgd_t swapper_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
- pgd_t trampoline_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
- pte_t fixmap_pte[PTRS_PER_PTE] __page_aligned_bss;
- static bool mmu_enabled;
-+static bool late_mapping;
- 
- #define MAX_EARLY_MAPPING_SIZE	SZ_128M
- 
-@@ -236,7 +237,9 @@ void __set_fixmap(enum fixed_addresses idx, phys_addr_t phys, pgprot_t prot)
- 
- static pte_t *__init get_pte_virt(phys_addr_t pa)
- {
--	if (mmu_enabled) {
-+	if (late_mapping)
-+		return (pte_t *) __va(pa);
-+	else if (mmu_enabled) {
- 		clear_fixmap(FIX_PTE);
- 		return (pte_t *)set_fixmap_offset(FIX_PTE, pa);
- 	} else {
-@@ -246,13 +249,19 @@ static pte_t *__init get_pte_virt(phys_addr_t pa)
- 
- static phys_addr_t __init alloc_pte(uintptr_t va)
- {
-+	unsigned long vaddr;
- 	/*
- 	 * We only create PMD or PGD early mappings so we
- 	 * should never reach here with MMU disabled.
- 	 */
- 	BUG_ON(!mmu_enabled);
--
--	return memblock_phys_alloc(PAGE_SIZE, PAGE_SIZE);
-+	if (late_mapping) {
-+		vaddr = __get_free_page(GFP_KERNEL);
-+		if (!vaddr || !pgtable_pte_page_ctor(virt_to_page(vaddr)))
-+			BUG();
-+		return __pa(vaddr);
-+	} else
-+		return memblock_phys_alloc(PAGE_SIZE, PAGE_SIZE);
- }
- 
- static void __init create_pte_mapping(pte_t *ptep,
-@@ -281,7 +290,9 @@ pmd_t early_pmd[PTRS_PER_PMD * NUM_EARLY_PMDS] __initdata __aligned(PAGE_SIZE);
- 
- static pmd_t *__init get_pmd_virt(phys_addr_t pa)
- {
--	if (mmu_enabled) {
-+	if (late_mapping)
-+		return (pmd_t *) __va(pa);
-+	else if (mmu_enabled) {
- 		clear_fixmap(FIX_PMD);
- 		return (pmd_t *)set_fixmap_offset(FIX_PMD, pa);
- 	} else {
-@@ -292,8 +303,13 @@ static pmd_t *__init get_pmd_virt(phys_addr_t pa)
- static phys_addr_t __init alloc_pmd(uintptr_t va)
- {
- 	uintptr_t pmd_num;
-+	unsigned long vaddr;
- 
--	if (mmu_enabled)
-+	if (late_mapping) {
-+		vaddr = __get_free_page(GFP_KERNEL);
-+		BUG_ON(!vaddr);
-+		return __pa(vaddr);
-+	} else if (mmu_enabled)
- 		return memblock_phys_alloc(PAGE_SIZE, PAGE_SIZE);
- 
- 	pmd_num = (va - PAGE_OFFSET) >> PGDIR_SHIFT;
-@@ -533,6 +549,9 @@ static void __init setup_vm_final(void)
- 	/* Move to swapper page table */
- 	csr_write(CSR_SATP, PFN_DOWN(__pa_symbol(swapper_pg_dir)) | SATP_MODE);
- 	local_flush_tlb_all();
+diff --git a/arch/riscv/include/asm/sections.h b/arch/riscv/include/asm/sections.h
+new file mode 100644
+index 000000000000..3a9971b1210f
+--- /dev/null
++++ b/arch/riscv/include/asm/sections.h
+@@ -0,0 +1,13 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2020 Western Digital Corporation or its affiliates.
++ */
++#ifndef __ASM_SECTIONS_H
++#define __ASM_SECTIONS_H
 +
-+	/* generic page allocation function must be used to setup page table */
-+	late_mapping = true;
- }
- #else
- asmlinkage void __init setup_vm(uintptr_t dtb_pa)
++#include <asm-generic/sections.h>
++
++extern char _start[];
++extern char _start_kernel[];
++
++#endif /* __ASM_SECTIONS_H */
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index b355cf485671..6f7a3b3771fd 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -32,6 +32,10 @@ obj-y	+= patch.o
+ obj-$(CONFIG_MMU) += vdso.o vdso/
+ 
+ obj-$(CONFIG_RISCV_M_MODE)	+= clint.o traps_misaligned.o
++OBJCOPYFLAGS := --prefix-symbols=__efistub_
++$(obj)/%.stub.o: $(obj)/%.o FORCE
++	$(call if_changed,objcopy)
++
+ obj-$(CONFIG_FPU)		+= fpu.o
+ obj-$(CONFIG_SMP)		+= smpboot.o
+ obj-$(CONFIG_SMP)		+= smp.o
+diff --git a/arch/riscv/kernel/efi-header.S b/arch/riscv/kernel/efi-header.S
+new file mode 100644
+index 000000000000..822b4c9ff2bb
+--- /dev/null
++++ b/arch/riscv/kernel/efi-header.S
+@@ -0,0 +1,104 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2020 Western Digital Corporation or its affiliates.
++ * Adapted from arch/arm64/kernel/efi-header.S
++ */
++
++#include <linux/pe.h>
++#include <linux/sizes.h>
++
++	.macro	__EFI_PE_HEADER
++	.long	PE_MAGIC
++coff_header:
++#ifdef CONFIG_64BIT
++	.short	IMAGE_FILE_MACHINE_RISCV64		// Machine
++#else
++	.short	IMAGE_FILE_MACHINE_RISCV32		// Machine
++#endif
++	.short	section_count				// NumberOfSections
++	.long	0 					// TimeDateStamp
++	.long	0					// PointerToSymbolTable
++	.long	0					// NumberOfSymbols
++	.short	section_table - optional_header		// SizeOfOptionalHeader
++	.short	IMAGE_FILE_DEBUG_STRIPPED | \
++		IMAGE_FILE_EXECUTABLE_IMAGE | \
++		IMAGE_FILE_LINE_NUMS_STRIPPED		// Characteristics
++
++optional_header:
++	.short	PE_OPT_MAGIC_PE32PLUS			// PE32+ format
++	.byte	0x02					// MajorLinkerVersion
++	.byte	0x14					// MinorLinkerVersion
++	.long	__pecoff_text_end - efi_header_end	// SizeOfCode
++	.long	__pecoff_data_virt_size			// SizeOfInitializedData
++	.long	0					// SizeOfUninitializedData
++	.long	__efistub_efi_pe_entry - _start		// AddressOfEntryPoint
++	.long	efi_header_end - _start			// BaseOfCode
++
++extra_header_fields:
++	.quad	0					// ImageBase
++	.long	PECOFF_SECTION_ALIGNMENT		// SectionAlignment
++	.long	PECOFF_FILE_ALIGNMENT			// FileAlignment
++	.short	0					// MajorOperatingSystemVersion
++	.short	0					// MinorOperatingSystemVersion
++	.short	LINUX_EFISTUB_MAJOR_VERSION		// MajorImageVersion
++	.short	LINUX_EFISTUB_MINOR_VERSION		// MinorImageVersion
++	.short	0					// MajorSubsystemVersion
++	.short	0					// MinorSubsystemVersion
++	.long	0					// Win32VersionValue
++
++	.long	_end - _start				// SizeOfImage
++
++	// Everything before the kernel image is considered part of the header
++	.long	efi_header_end - _start			// SizeOfHeaders
++	.long	0					// CheckSum
++	.short	IMAGE_SUBSYSTEM_EFI_APPLICATION		// Subsystem
++	.short	0					// DllCharacteristics
++	.quad	0					// SizeOfStackReserve
++	.quad	0					// SizeOfStackCommit
++	.quad	0					// SizeOfHeapReserve
++	.quad	0					// SizeOfHeapCommit
++	.long	0					// LoaderFlags
++	.long	(section_table - .) / 8			// NumberOfRvaAndSizes
++
++	.quad	0					// ExportTable
++	.quad	0					// ImportTable
++	.quad	0					// ResourceTable
++	.quad	0					// ExceptionTable
++	.quad	0					// CertificationTable
++	.quad	0					// BaseRelocationTable
++
++	// Section table
++section_table:
++	.ascii	".text\0\0\0"
++	.long	__pecoff_text_end - efi_header_end	// VirtualSize
++	.long	efi_header_end - _start			// VirtualAddress
++	.long	__pecoff_text_end - efi_header_end	// SizeOfRawData
++	.long	efi_header_end - _start			// PointerToRawData
++
++	.long	0					// PointerToRelocations
++	.long	0					// PointerToLineNumbers
++	.short	0					// NumberOfRelocations
++	.short	0					// NumberOfLineNumbers
++	.long	IMAGE_SCN_CNT_CODE | \
++		IMAGE_SCN_MEM_READ | \
++		IMAGE_SCN_MEM_EXECUTE			// Characteristics
++
++	.ascii	".data\0\0\0"
++	.long	__pecoff_data_virt_size			// VirtualSize
++	.long	__pecoff_text_end - _start		// VirtualAddress
++	.long	__pecoff_data_raw_size			// SizeOfRawData
++	.long	__pecoff_text_end - _start		// PointerToRawData
++
++	.long	0					// PointerToRelocations
++	.long	0					// PointerToLineNumbers
++	.short	0					// NumberOfRelocations
++	.short	0					// NumberOfLineNumbers
++	.long	IMAGE_SCN_CNT_INITIALIZED_DATA | \
++		IMAGE_SCN_MEM_READ | \
++		IMAGE_SCN_MEM_WRITE			// Characteristics
++
++	.set	section_count, (. - section_table) / 40
++
++	.balign	0x1000
++efi_header_end:
++	.endm
+diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+index eb123eda3663..3a05a9222b82 100644
+--- a/arch/riscv/kernel/head.S
++++ b/arch/riscv/kernel/head.S
+@@ -13,6 +13,7 @@
+ #include <asm/csr.h>
+ #include <asm/hwcap.h>
+ #include <asm/image.h>
++#include "efi-header.S"
+ 
+ __HEAD
+ ENTRY(_start)
+@@ -22,10 +23,18 @@ ENTRY(_start)
+ 	 * Do not modify it without modifying the structure and all bootloaders
+ 	 * that expects this header format!!
+ 	 */
++#ifdef CONFIG_EFI
++	/*
++	 * This instruction decodes to "MZ" ASCII required by UEFI.
++	 */
++	c.li s4,-13
++	j _start_kernel
++#else
+ 	/* jump to start kernel */
+ 	j _start_kernel
+ 	/* reserved */
+ 	.word 0
++#endif
+ 	.balign 8
+ #if __riscv_xlen == 64
+ 	/* Image load offset(2MB) from start of RAM */
+@@ -43,7 +52,14 @@ ENTRY(_start)
+ 	.ascii RISCV_IMAGE_MAGIC
+ 	.balign 4
+ 	.ascii RISCV_IMAGE_MAGIC2
++#ifdef CONFIG_EFI
++	.word pe_head_start - _start
++pe_head_start:
++
++	__EFI_PE_HEADER
++#else
+ 	.word 0
++#endif
+ 
+ .align 2
+ #ifdef CONFIG_MMU
+diff --git a/arch/riscv/kernel/image-vars.h b/arch/riscv/kernel/image-vars.h
+new file mode 100644
+index 000000000000..8c212efb37a6
+--- /dev/null
++++ b/arch/riscv/kernel/image-vars.h
+@@ -0,0 +1,51 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2020 Western Digital Corporation or its affiliates.
++ * Linker script variables to be set after section resolution, as
++ * ld.lld does not like variables assigned before SECTIONS is processed.
++ * Based on arch/arm64/kerne/image-vars.h
++ */
++#ifndef __RISCV_KERNEL_IMAGE_VARS_H
++#define __RISCV_KERNEL_IMAGE_VARS_H
++
++#ifndef LINKER_SCRIPT
++#error This file should only be included in vmlinux.lds.S
++#endif
++
++#ifdef CONFIG_EFI
++
++/*
++ * The EFI stub has its own symbol namespace prefixed by __efistub_, to
++ * isolate it from the kernel proper. The following symbols are legally
++ * accessed by the stub, so provide some aliases to make them accessible.
++ * Only include data symbols here, or text symbols of functions that are
++ * guaranteed to be safe when executed at another offset than they were
++ * linked at. The routines below are all implemented in assembler in a
++ * position independent manner
++ */
++__efistub_memcmp		= memcmp;
++__efistub_memchr		= memchr;
++__efistub_memcpy		= memcpy;
++__efistub_memmove		= memmove;
++__efistub_memset		= memset;
++__efistub_strlen		= strlen;
++__efistub_strnlen		= strnlen;
++__efistub_strcmp		= strcmp;
++__efistub_strncmp		= strncmp;
++__efistub_strrchr		= strrchr;
++
++#ifdef CONFIG_KASAN
++__efistub___memcpy		= memcpy;
++__efistub___memmove		= memmove;
++__efistub___memset		= memset;
++#endif
++
++__efistub__start		= _start;
++__efistub__start_kernel		= _start_kernel;
++__efistub__end			= _end;
++__efistub__edata		= _edata;
++__efistub_screen_info		= screen_info;
++
++#endif
++
++#endif /* __RISCV_KERNEL_IMAGE_VARS_H */
+diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
+index e6f8016b366a..2616230da1e7 100644
+--- a/arch/riscv/kernel/vmlinux.lds.S
++++ b/arch/riscv/kernel/vmlinux.lds.S
+@@ -10,6 +10,7 @@
+ #include <asm/cache.h>
+ #include <asm/thread_info.h>
+ #include <asm/set_memory.h>
++#include "image-vars.h"
+ 
+ #include <linux/sizes.h>
+ OUTPUT_ARCH(riscv)
+@@ -17,6 +18,9 @@ ENTRY(_start)
+ 
+ jiffies = jiffies_64;
+ 
++PECOFF_SECTION_ALIGNMENT = 0x1000;
++PECOFF_FILE_ALIGNMENT = 0x200;
++
+ SECTIONS
+ {
+ 	/* Beginning of code and text segment */
+@@ -76,6 +80,10 @@ SECTIONS
+ 
+ 	EXCEPTION_TABLE(0x10)
+ 
++#ifdef CONFIG_EFI
++	. = ALIGN(PECOFF_SECTION_ALIGNMENT);
++	__pecoff_text_end = .;
++#endif
+ 	. = ALIGN(SECTION_ALIGN);
+ 	_data = .;
+ 
+@@ -83,16 +91,26 @@ SECTIONS
+ 	.sdata : {
+ 		__global_pointer$ = . + 0x800;
+ 		*(.sdata*)
+-		/* End of data section */
+-		_edata = .;
+ 	}
+ 
++#ifdef CONFIG_EFI
++	.pecoff_edata_padding : { BYTE(0); . = ALIGN(PECOFF_FILE_ALIGNMENT); }
++	__pecoff_data_raw_size = ABSOLUTE(. - __pecoff_text_end);
++#endif
++
++	/* End of data section */
++	_edata = .;
++
+ 	BSS_SECTION(PAGE_SIZE, PAGE_SIZE, 0)
+ 
+ 	.rel.dyn : {
+ 		*(.rel.dyn*)
+ 	}
+ 
++#ifdef CONFIG_EFI
++	. = ALIGN(PECOFF_SECTION_ALIGNMENT);
++	__pecoff_data_virt_size = ABSOLUTE(. - __pecoff_text_end);
++#endif
+ 	_end = .;
+ 
+ 	STABS_DEBUG
 -- 
 2.24.0
 
