@@ -2,68 +2,89 @@ Return-Path: <SRS0=rfC7=BJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0F3FEC433E0
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jul 2020 20:44:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E0E95C433DF
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jul 2020 21:21:04 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C92F620838
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jul 2020 20:44:50 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A8AFA20829
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jul 2020 21:21:04 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="qTjI4DG+";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="BmsOo3YU"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C92F620838
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="G++rtUmu";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="UM7q/hh3"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A8AFA20829
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=hXfDGo0VgCOjbx7jKVaLanLh//sc4fFRAmX2P2NyVQU=; b=qTjI4DG+WgrWN7JuHoudf8GkX
-	wfeKNXbaUaRXjFqxNdLGXSCRvZmHXmvH7D+wKKFaRh9WyZTAvvulfKlFZ3BZHqGmqjC9FzggYYaOk
-	OupIaeLp8cKWDMg4GKBZ72As3WX59F+dineo/duXTyfNsIoszebJiE2Nm5pE4mKMlR9zdSCMtBpTY
-	p6KeMqxtimcXmQ3zP3+kj5bQx+KgkXX9IAKX/Fe74VL9tk0fNuMEygdLBZfA+ILi3eCEHt0dHe0yy
-	jOWTLKr18fO9Q5bD6Z4AheTOXHyGvmq+ZU353Ws9gpPbGsSkAVPdvDoxKd78cRHLwHLteMgXrooCw
-	zVApXMJbQ==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=97jTvwJW7UD6gOTcT9m94k5UtOWqF4cmEe+3lSqCHOQ=; b=G++rtUmu8g/8eqZWOJ8TRSzvr
+	I6opbxcBhId2zxZwFFHb0VmqdoIL1hqFyf21L9z1bLS3HQKZC/5a28zB2dyE6nO6IBgyvjkBJTpeI
+	muw1+CDQ1Dyg0wOqZAYE74ztPY8pt9zbh0R57WdIKzSGIf+pUnWzSD+gVimY+VXqH8SLmHysbNneZ
+	Gz4XzYfKHkbGtqaacZvJKTmFW5yPFI6dn8XxnRYzVu3xNcW1XqZG6wxKQltJYis4Ao9nHwRDK0ICU
+	kpUTXzhufJG4ogVhzFnL7YjsAwRYAqtCo++tuMy2927mN5MPnRkkHnMTrn8furl+WDqpBOvmGzBWy
+	rjvXfdJ7g==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k1FPl-000499-1c; Thu, 30 Jul 2020 20:44:33 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1k1Fyp-0008WM-Ns; Thu, 30 Jul 2020 21:20:47 +0000
+Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k1FPg-000477-BM; Thu, 30 Jul 2020 20:44:29 +0000
-Received: from kernel.org (unknown [87.70.91.42])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 715E220838;
- Thu, 30 Jul 2020 20:44:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1596141866;
- bh=sZKYPMSX12eBmbaRqySKTHS1smjkmdh3zWo010nIk8M=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=BmsOo3YUFCDw4gkyz7ZfQOn2kMn5QK/7KTwPtnQBqKiwbYcNBoz+qwKW/hGKQwn6F
- B9NMUdyu3EPJylOAMbuE0DD99sT3k6OWuEoKFMV4rR/rqwql2n/fAPL1B+he1E2TFF
- 0UoU05MxTEQpp1qzhn8HCcZC6Zx2ZqD62fqBrpYw=
-Date: Thu, 30 Jul 2020 23:44:09 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Subject: Re: [PATCH v2 3/7] mm: introduce memfd_secret system call to create
- "secret" memory areas
-Message-ID: <20200730204409.GB534153@kernel.org>
-References: <20200727162935.31714-1-rppt@kernel.org>
- <20200727162935.31714-4-rppt@kernel.org>
- <20200730162209.GB3128@gaia>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20200730162209.GB3128@gaia>
+ id 1k1Fym-0008VH-M9
+ for linux-riscv@lists.infradead.org; Thu, 30 Jul 2020 21:20:45 +0000
+Received: by mail-pl1-x643.google.com with SMTP id m16so15350548pls.5
+ for <linux-riscv@lists.infradead.org>; Thu, 30 Jul 2020 14:20:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=T9TN+IiG05axbq9DvASXkbUWMclW/1L5ezZkeAERv5E=;
+ b=UM7q/hh3+ycXamy6DmVDsqTeyGwToom5lGdDqRMu9nAmBIv9chtjGOtptQGetwvOLM
+ dsbPN8u5TFZ4QxDmLlK2Qc8xKyIcI/Q4NYjbUuaSrkkEI6pidokfHVungFblJBmjzoz6
+ m8k0/Kw7NxtrkfSYNWkXwhoqyaNZZ6d/gv+ZRsx9H+ofRvhogUmbxCvbEb9ELRr/ntEr
+ seYQhSQhj4IkcOY/BiB6K++rUFLn5u5hKFGYT3+Q79YBWK/qBEMpIgkbhzctmN/Qmqqt
+ CMP9i25xSEC9So5qlz7pEJooph+gaPlzD40QmetOhYuvq0Tc5Ft0hUd0GDEKws4bGMMs
+ xBpA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=T9TN+IiG05axbq9DvASXkbUWMclW/1L5ezZkeAERv5E=;
+ b=Tz4ZqIk1YYvn0rEzkqR0ys/yZbFxXgSFV2d9HOh8M3qLme7S8IKqWh2OVQp7IGBuhN
+ f9lVCw07w5Xc+CWyiZ9WGqAHbFDs7UomFo2tK5/HkgHBALEbKbaYTKcKM66k9UupAP0t
+ YIPhR0SZiorNZwh8dHhf43oNfk7kyGQWc4JpQSzVNLRPqfgxankfbLyTPl+bpz1h5S8X
+ 6G30RUYap73RuZDDzx+sOVxM87KeiT8DuGrS1aUltuJ/pWaIu25p2cmCXMAkBReUU7h4
+ QGLNc7gMKXKGhoWS8Z0tWZLHiwE2x8jIZFuNYWhy3JmB0MzS3RE0lqVxnuPpR/Ox1u+6
+ AQaA==
+X-Gm-Message-State: AOAM5311+TnknosdXIzo4g1fPFtW1Q7YIOOENCTwv0saLgVTKnZBgMZX
+ meGNBela88G4fLWW8QR4nVTzCA==
+X-Google-Smtp-Source: ABdhPJzjBOdzPpZw2Zy8gz/U2wDGlNr+GQCGfyGI52RbMq/aPY97IjWGN5aeZxp17vggsWF8JUIiGw==
+X-Received: by 2002:a63:5b55:: with SMTP id l21mr813118pgm.348.1596144040321; 
+ Thu, 30 Jul 2020 14:20:40 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id d9sm7277389pgv.45.2020.07.30.14.20.39
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 30 Jul 2020 14:20:39 -0700 (PDT)
+Date: Thu, 30 Jul 2020 14:20:39 -0700 (PDT)
+X-Google-Original-Date: Thu, 30 Jul 2020 14:20:34 PDT (-0700)
+Subject: Re: [PATCH 17/24] riscv: use asm-generic/mmu_context.h for no-op
+ implementations
+In-Reply-To: <20200728033405.78469-18-npiggin@gmail.com>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: npiggin@gmail.com
+Message-ID: <mhng-5c1b7324-11f8-4334-bfc4-6fc1920aeaa3@palmerdabbelt-glaptop1>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200730_164428_511895_9B7B9C07 
-X-CRM114-Status: GOOD (  30.74  )
+X-CRM114-CacheID: sfid-20200730_172044_777919_631671BA 
+X-CRM114-Status: GOOD (  18.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -75,167 +96,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Peter Zijlstra <peterz@infradead.org>,
- Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
- "H. Peter Anvin" <hpa@zytor.com>, Christopher Lameter <cl@linux.com>,
- Idan Yaniv <idan.yaniv@ibm.com>, Dan Williams <dan.j.williams@intel.com>,
- Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
- Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
- Will Deacon <will@kernel.org>, x86@kernel.org,
- Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
- Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
- Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
- Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org,
- linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-fsdevel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>
-Content-Type: text/plain; charset="us-ascii"
+Cc: linux-arch@vger.kernel.org, aou@eecs.berkeley.edu,
+ Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org, npiggin@gmail.com,
+ linux-mm@kvack.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv@lists.infradead.org
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 30, 2020 at 05:22:10PM +0100, Catalin Marinas wrote:
-> Hi Mike,
-> 
-> On Mon, Jul 27, 2020 at 07:29:31PM +0300, Mike Rapoport wrote:
-> > For instance, the following example will create an uncached mapping (error
-> > handling is omitted):
-> > 
-> > 	fd = memfd_secret(SECRETMEM_UNCACHED);
-> > 	ftruncate(fd, MAP_SIZE);
-> > 	ptr = mmap(NULL, MAP_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
-> [...]
-> > +static struct page *secretmem_alloc_page(gfp_t gfp)
-> > +{
-> > +	/*
-> > +	 * FIXME: use a cache of large pages to reduce the direct map
-> > +	 * fragmentation
-> > +	 */
-> > +	return alloc_page(gfp);
-> > +}
-> > +
-> > +static vm_fault_t secretmem_fault(struct vm_fault *vmf)
-> > +{
-> > +	struct address_space *mapping = vmf->vma->vm_file->f_mapping;
-> > +	struct inode *inode = file_inode(vmf->vma->vm_file);
-> > +	pgoff_t offset = vmf->pgoff;
-> > +	unsigned long addr;
-> > +	struct page *page;
-> > +	int ret = 0;
-> > +
-> > +	if (((loff_t)vmf->pgoff << PAGE_SHIFT) >= i_size_read(inode))
-> > +		return vmf_error(-EINVAL);
-> > +
-> > +	page = find_get_entry(mapping, offset);
-> > +	if (!page) {
-> > +		page = secretmem_alloc_page(vmf->gfp_mask);
-> > +		if (!page)
-> > +			return vmf_error(-ENOMEM);
-> > +
-> > +		ret = add_to_page_cache(page, mapping, offset, vmf->gfp_mask);
-> > +		if (unlikely(ret))
-> > +			goto err_put_page;
-> > +
-> > +		ret = set_direct_map_invalid_noflush(page);
-> > +		if (ret)
-> > +			goto err_del_page_cache;
-> > +
-> > +		addr = (unsigned long)page_address(page);
-> > +		flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
-> > +
-> > +		__SetPageUptodate(page);
-> > +
-> > +		ret = VM_FAULT_LOCKED;
-> > +	}
-> > +
-> > +	vmf->page = page;
-> > +	return ret;
-> > +
-> > +err_del_page_cache:
-> > +	delete_from_page_cache(page);
-> > +err_put_page:
-> > +	put_page(page);
-> > +	return vmf_error(ret);
-> > +}
-> > +
-> > +static const struct vm_operations_struct secretmem_vm_ops = {
-> > +	.fault = secretmem_fault,
-> > +};
-> > +
-> > +static int secretmem_mmap(struct file *file, struct vm_area_struct *vma)
-> > +{
-> > +	struct secretmem_ctx *ctx = file->private_data;
-> > +	unsigned long mode = ctx->mode;
-> > +	unsigned long len = vma->vm_end - vma->vm_start;
-> > +
-> > +	if (!mode)
-> > +		return -EINVAL;
-> > +
-> > +	if ((vma->vm_flags & (VM_SHARED | VM_MAYSHARE)) == 0)
-> > +		return -EINVAL;
-> > +
-> > +	if (mlock_future_check(vma->vm_mm, vma->vm_flags | VM_LOCKED, len))
-> > +		return -EAGAIN;
-> > +
-> > +	switch (mode) {
-> > +	case SECRETMEM_UNCACHED:
-> > +		vma->vm_page_prot = pgprot_noncached(vma->vm_page_prot);
-> > +		fallthrough;
-> > +	case SECRETMEM_EXCLUSIVE:
-> > +		vma->vm_ops = &secretmem_vm_ops;
-> > +		break;
-> > +	default:
-> > +		return -EINVAL;
-> > +	}
-> > +
-> > +	vma->vm_flags |= VM_LOCKED;
-> > +
-> > +	return 0;
-> > +}
-> 
-> I think the uncached mapping is not the right thing for arm/arm64. First
-> of all, pgprot_noncached() gives us Strongly Ordered (Device memory)
-> semantics together with not allowing unaligned accesses. I suspect the
-> semantics are different on x86.
- 
-Hmm, on x86 it's also Strongly Ordered, but I didn't find any alignment
-restrictions. Is there a mode for arm64 that can provide similar
-semantics?
+On Mon, 27 Jul 2020 20:33:58 PDT (-0700), npiggin@gmail.com wrote:
+> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Albert Ou <aou@eecs.berkeley.edu>
+> Cc: linux-riscv@lists.infradead.org
+> Signed-off-by: Nicholas Piggin <npiggin@gmail.com>
+> ---
+>  arch/riscv/include/asm/mmu_context.h | 22 ++--------------------
+>  1 file changed, 2 insertions(+), 20 deletions(-)
+>
+> diff --git a/arch/riscv/include/asm/mmu_context.h b/arch/riscv/include/asm/mmu_context.h
+> index 67c463812e2d..250defa06f3a 100644
+> --- a/arch/riscv/include/asm/mmu_context.h
+> +++ b/arch/riscv/include/asm/mmu_context.h
+> @@ -13,34 +13,16 @@
+>  #include <linux/mm.h>
+>  #include <linux/sched.h>
+>
+> -static inline void enter_lazy_tlb(struct mm_struct *mm,
+> -	struct task_struct *task)
+> -{
+> -}
+> -
+> -/* Initialize context-related info for a new mm_struct */
+> -static inline int init_new_context(struct task_struct *task,
+> -	struct mm_struct *mm)
+> -{
+> -	return 0;
+> -}
+> -
+> -static inline void destroy_context(struct mm_struct *mm)
+> -{
+> -}
+> -
+>  void switch_mm(struct mm_struct *prev, struct mm_struct *next,
+>  	struct task_struct *task);
+>
+> +#define activate_mm activate_mm
+>  static inline void activate_mm(struct mm_struct *prev,
+>  			       struct mm_struct *next)
+>  {
+>  	switch_mm(prev, next, NULL);
+>  }
+>
+> -static inline void deactivate_mm(struct task_struct *task,
+> -	struct mm_struct *mm)
+> -{
+> -}
+> +#include <asm-generic/mmu_context.h>
+>
+>  #endif /* _ASM_RISCV_MMU_CONTEXT_H */
 
-Would it make sence to use something like
+Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
 
-#define pgprot_uncached(prot) \
-	__pgprot_modify(prot, PTE_ATTRINDX_MASK, \
-			PTE_ATTRINDX(MT_NORMAL_NC) | PTE_PXN)
-
-or is it too weak?
-
-> The second, more serious problem, is that I can't find any place where
-> the caches are flushed for the page mapped on fault. When a page is
-> allocated, assuming GFP_ZERO, only the caches are guaranteed to be
-> zeroed. Exposing this subsequently to user space as uncached would allow
-> the user to read stale data prior to zeroing. The arm64
-> set_direct_map_default_noflush() doesn't do any cache maintenance.
-
-Well, the idea of uncached mappings came from Elena [1] to prevent
-possibility of side channels that leak user space memory. So I think
-even without cache flushing after the allocation, user space is
-protected as all its memory accesses bypass cache so even after the page
-is freed there won't be stale data in the cache.
-
-I think that it makes sense to limit SECRETMEM_UNCACHED only for
-architectures that define an appropriate protection, e.g.
-pgprot_uncahced(). For x86 it can be aliased to pgprot_noncached() and
-other architecures can define their versions.
-
-[1] https://lore.kernel.org/lkml/2236FBA76BA1254E88B949DDB74E612BA4EEC0CE@IRSMSX102.ger.corp.intel.com/
-
--- 
-Sincerely yours,
-Mike.
+I'm assuming this is going in along with the others.  Thanks!
 
 _______________________________________________
 linux-riscv mailing list
