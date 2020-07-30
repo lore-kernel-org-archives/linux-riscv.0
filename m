@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-11.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 52ABEC433E0
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jul 2020 01:54:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3953DC433DF
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jul 2020 02:22:46 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1EF052074B
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jul 2020 01:54:54 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 06D1720FC3
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jul 2020 02:22:45 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="x0NZnciU";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=redhat.com header.i=@redhat.com header.b="ZUoHFUFe"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1EF052074B
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="t6dzU2b5";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=redhat.com header.i=@redhat.com header.b="GpU16cbj"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 06D1720FC3
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,58 +26,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=kbuKKvdIuPa+WaXygvIhQXkfY7+InduKvLL98krJUXM=; b=x0NZnciUfj2+n//hUll4Fa9qc
-	GcwJ3LvccftAolzqYIGYjkayGw338k30DFjhskgkbKxBvZKY3F44TFcl0JgpMyn+RhsSkQ6ygsCBJ
-	Zv4nH8BhJEJjqLYz5Ct9ETn8zsqAn63RXYZPorKvfUpCUrrt7/3KwwPq06ppFS81QYpIvHPuctHtU
-	wW5KNNS5DYdNnrO0q851P4SsudmNceATAAQptn4VEzwUf4MDpnGfaOWYfcpdzxpY0xxmqg4EshV7A
-	vq3cVb/OyX9ncfvyBXXtQ63EfFggyd2fzdvP5x7fgsJEhnRhhCY2LLban/bujbeTCPcjjMfGicU1B
-	mTKZxCTUw==;
+	 bh=6WG4DDII+IbJWq5Zc24msM5+XOjCsL+6+zja1FrwoIE=; b=t6dzU2b54k3gENdWRLwdJZ9Qw
+	5xcqM9egERoBkYaj7CPuIhPnWmOSmGQGxcrPX7xTRA2xZv9UripfnL06FVQEIk4Rdv2xuKZych4/w
+	GHc8MA8lj7+248YHiCylJvobLJYzupp82Sb600zJ8YmiUeqiALd4zLwakogak3MIyjdfbhTs9L+lp
+	pVIH9Q6LPVxgtAa1jCliJjflmWWQ9EWCBHNIwmUO5h9KoWx5cN6kro7eRMQaLCDC0Xe8YuQJSJD3R
+	sRbZT0bV6hRcfKC37nO2+7q/Wkw4ZsPYiamBO5gCKAaAShi+FOUEZOFWw5onRcp036jNug4SoDVlF
+	E9ZYTqjnA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k0xmJ-00072c-02; Thu, 30 Jul 2020 01:54:39 +0000
-Received: from us-smtp-delivery-1.mimecast.com ([207.211.31.120]
+	id 1k0yDF-0001Uu-Hi; Thu, 30 Jul 2020 02:22:29 +0000
+Received: from us-smtp-delivery-1.mimecast.com ([205.139.110.120]
  helo=us-smtp-1.mimecast.com)
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k0xmE-0006zi-Qc
- for linux-riscv@lists.infradead.org; Thu, 30 Jul 2020 01:54:37 +0000
+ id 1k0yDB-0001TL-L2
+ for linux-riscv@lists.infradead.org; Thu, 30 Jul 2020 02:22:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1596074074;
+ s=mimecast20190719; t=1596075745;
  h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
  to:to:cc:cc:mime-version:mime-version:content-type:content-type:
  in-reply-to:in-reply-to:references:references;
- bh=RRu2DjMF0v0Jv3loZnZu2suQTSJCldR+3yWZSkhX+qw=;
- b=ZUoHFUFe+7GtUdAa/2lyjOXlWkd0pKVIoEDqWjaycK60pUjowupVXMhDtxHKJggGtIO5iB
- olTqgzvQxkKFQuJ2KKt2btCM9XkkkQO+zavRP+1Ykd+PPIW0GHssRL0xGKUwOoFtUNwoUZ
- /TVtjcrQUiQ1xE3zIe4MEOC505ukKL4=
+ bh=KXlCZQMZEmyQ5Mo2+6vJS9lY2Q4U/rCj7yYVDEkdTyE=;
+ b=GpU16cbj1ulweW3uhJocIvnHV/zEkOb39waeKExdYR/yiwBf9tnPnCuYFwaKeKyZ1IUyLJ
+ bRSb2Q8PpL6y9KOcMVvs5ndvWh7d5RJOB/iG3mgN0eoKggMh/F0uCdI+pg3D/6xYBg9kSC
+ uaWryy7sQ7suVULWi20Z987wQnsNPcs=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-251-MKISxg0TPU6a-4FvLzbZhQ-1; Wed, 29 Jul 2020 21:54:32 -0400
-X-MC-Unique: MKISxg0TPU6a-4FvLzbZhQ-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com
- [10.5.11.12])
+ us-mta-450-x5Uy2qT2P5q-DIcPrk6VSQ-1; Wed, 29 Jul 2020 22:22:21 -0400
+X-MC-Unique: x5Uy2qT2P5q-DIcPrk6VSQ-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com
+ [10.5.11.23])
  (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
  (No client certificate requested)
- by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 6832D1005510;
- Thu, 30 Jul 2020 01:54:27 +0000 (UTC)
-Received: from localhost (ovpn-12-125.pek2.redhat.com [10.72.12.125])
- by smtp.corp.redhat.com (Postfix) with ESMTPS id 56EE9619B5;
- Thu, 30 Jul 2020 01:54:26 +0000 (UTC)
-Date: Thu, 30 Jul 2020 09:54:24 +0800
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 90479801504;
+ Thu, 30 Jul 2020 02:22:16 +0000 (UTC)
+Received: from localhost (ovpn-13-67.pek2.redhat.com [10.72.13.67])
+ by smtp.corp.redhat.com (Postfix) with ESMTPS id 62E1519D82;
+ Thu, 30 Jul 2020 02:22:15 +0000 (UTC)
+Date: Thu, 30 Jul 2020 10:22:09 +0800
 From: Baoquan He <bhe@redhat.com>
 To: Mike Rapoport <rppt@kernel.org>
-Subject: Re: [PATCH 10/15] memblock: make memblock_debug and related
- functionality private
-Message-ID: <20200730015424.GJ14854@MiWiFi-R3L-srv>
+Subject: Re: [PATCH 11/15] memblock: reduce number of parameters in
+ for_each_mem_range()
+Message-ID: <20200730022209.GK14854@MiWiFi-R3L-srv>
 References: <20200728051153.1590-1-rppt@kernel.org>
- <20200728051153.1590-11-rppt@kernel.org>
+ <20200728051153.1590-12-rppt@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20200728051153.1590-11-rppt@kernel.org>
+In-Reply-To: <20200728051153.1590-12-rppt@kernel.org>
 User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200729_215434_961567_1E3D298A 
-X-CRM114-Status: GOOD (  25.16  )
+X-CRM114-CacheID: sfid-20200729_222225_751170_ADDAB8A9 
+X-CRM114-Status: GOOD (  26.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -117,113 +117,157 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On 07/28/20 at 08:11am, Mike Rapoport wrote:
 > From: Mike Rapoport <rppt@linux.ibm.com>
 > 
-> The only user of memblock_dbg() outside memblock was s390 setup code and it
-> is converted to use pr_debug() instead.
-> This allows to stop exposing memblock_debug and memblock_dbg() to the rest
-> of the kernel.
+> Currently for_each_mem_range() iterator is the most generic way to traverse
+> memblock regions. As such, it has 8 parameters and it is hardly convenient
+> to users. Most users choose to utilize one of its wrappers and the only
+> user that actually needs most of the parameters outside memblock is s390
+> crash dump implementation.
+> 
+> To avoid yet another naming for memblock iterators, rename the existing
+> for_each_mem_range() to __for_each_mem_range() and add a new
+> for_each_mem_range() wrapper with only index, start and end parameters.
+> 
+> The new wrapper nicely fits into init_unavailable_mem() and will be used in
+> upcoming changes to simplify memblock traversals.
 > 
 > Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
 > ---
->  arch/s390/kernel/setup.c |  4 ++--
->  include/linux/memblock.h | 12 +-----------
->  mm/memblock.c            | 13 +++++++++++--
->  3 files changed, 14 insertions(+), 15 deletions(-)
-
-Nice clean up.
+>  .clang-format                          |  1 +
+>  arch/arm64/kernel/machine_kexec_file.c |  6 ++----
+>  arch/s390/kernel/crash_dump.c          |  8 ++++----
+>  include/linux/memblock.h               | 18 ++++++++++++++----
+>  mm/page_alloc.c                        |  3 +--
+>  5 files changed, 22 insertions(+), 14 deletions(-)
 
 Reviewed-by: Baoquan He <bhe@redhat.com>
 
 > 
-> diff --git a/arch/s390/kernel/setup.c b/arch/s390/kernel/setup.c
-> index 07aa15ba43b3..8b284cf6e199 100644
-> --- a/arch/s390/kernel/setup.c
-> +++ b/arch/s390/kernel/setup.c
-> @@ -776,8 +776,8 @@ static void __init memblock_add_mem_detect_info(void)
->  	unsigned long start, end;
->  	int i;
+> diff --git a/.clang-format b/.clang-format
+> index a0a96088c74f..52ededab25ce 100644
+> --- a/.clang-format
+> +++ b/.clang-format
+> @@ -205,6 +205,7 @@ ForEachMacros:
+>    - 'for_each_memblock_type'
+>    - 'for_each_memcg_cache_index'
+>    - 'for_each_mem_pfn_range'
+> +  - '__for_each_mem_range'
+>    - 'for_each_mem_range'
+>    - 'for_each_mem_range_rev'
+>    - 'for_each_migratetype_order'
+> diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
+> index 361a1143e09e..5b0e67b93cdc 100644
+> --- a/arch/arm64/kernel/machine_kexec_file.c
+> +++ b/arch/arm64/kernel/machine_kexec_file.c
+> @@ -215,8 +215,7 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
+>  	phys_addr_t start, end;
 >  
-> -	memblock_dbg("physmem info source: %s (%hhd)\n",
-> -		     get_mem_info_source(), mem_detect.info_source);
-> +	pr_debug("physmem info source: %s (%hhd)\n",
-> +		 get_mem_info_source(), mem_detect.info_source);
->  	/* keep memblock lists close to the kernel */
->  	memblock_set_bottom_up(true);
->  	for_each_mem_detect_block(i, &start, &end) {
+>  	nr_ranges = 1; /* for exclusion of crashkernel region */
+> -	for_each_mem_range(i, &memblock.memory, NULL, NUMA_NO_NODE,
+> -					MEMBLOCK_NONE, &start, &end, NULL)
+> +	for_each_mem_range(i, &start, &end)
+>  		nr_ranges++;
+>  
+>  	cmem = kmalloc(struct_size(cmem, ranges, nr_ranges), GFP_KERNEL);
+> @@ -225,8 +224,7 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
+>  
+>  	cmem->max_nr_ranges = nr_ranges;
+>  	cmem->nr_ranges = 0;
+> -	for_each_mem_range(i, &memblock.memory, NULL, NUMA_NO_NODE,
+> -					MEMBLOCK_NONE, &start, &end, NULL) {
+> +	for_each_mem_range(i, &start, &end) {
+>  		cmem->ranges[cmem->nr_ranges].start = start;
+>  		cmem->ranges[cmem->nr_ranges].end = end - 1;
+>  		cmem->nr_ranges++;
+> diff --git a/arch/s390/kernel/crash_dump.c b/arch/s390/kernel/crash_dump.c
+> index f96a5857bbfd..e28085c725ff 100644
+> --- a/arch/s390/kernel/crash_dump.c
+> +++ b/arch/s390/kernel/crash_dump.c
+> @@ -549,8 +549,8 @@ static int get_mem_chunk_cnt(void)
+>  	int cnt = 0;
+>  	u64 idx;
+>  
+> -	for_each_mem_range(idx, &memblock.physmem, &oldmem_type, NUMA_NO_NODE,
+> -			   MEMBLOCK_NONE, NULL, NULL, NULL)
+> +	__for_each_mem_range(idx, &memblock.physmem, &oldmem_type, NUMA_NO_NODE,
+> +			     MEMBLOCK_NONE, NULL, NULL, NULL)
+>  		cnt++;
+>  	return cnt;
+>  }
+> @@ -563,8 +563,8 @@ static void loads_init(Elf64_Phdr *phdr, u64 loads_offset)
+>  	phys_addr_t start, end;
+>  	u64 idx;
+>  
+> -	for_each_mem_range(idx, &memblock.physmem, &oldmem_type, NUMA_NO_NODE,
+> -			   MEMBLOCK_NONE, &start, &end, NULL) {
+> +	__for_each_mem_range(idx, &memblock.physmem, &oldmem_type, NUMA_NO_NODE,
+> +			     MEMBLOCK_NONE, &start, &end, NULL) {
+>  		phdr->p_filesz = end - start;
+>  		phdr->p_type = PT_LOAD;
+>  		phdr->p_offset = start;
 > diff --git a/include/linux/memblock.h b/include/linux/memblock.h
-> index 220b5f0dad42..e6a23b3db696 100644
+> index e6a23b3db696..d70c2835e913 100644
 > --- a/include/linux/memblock.h
 > +++ b/include/linux/memblock.h
-> @@ -90,7 +90,6 @@ struct memblock {
->  };
->  
->  extern struct memblock memblock;
-> -extern int memblock_debug;
->  
->  #ifndef CONFIG_ARCH_KEEP_MEMBLOCK
->  #define __init_memblock __meminit
-> @@ -102,9 +101,6 @@ void memblock_discard(void);
->  static inline void memblock_discard(void) {}
->  #endif
->  
-> -#define memblock_dbg(fmt, ...) \
-> -	if (memblock_debug) printk(KERN_INFO pr_fmt(fmt), ##__VA_ARGS__)
-> -
->  phys_addr_t memblock_find_in_range(phys_addr_t start, phys_addr_t end,
->  				   phys_addr_t size, phys_addr_t align);
->  void memblock_allow_resize(void);
-> @@ -456,13 +452,7 @@ bool memblock_is_region_memory(phys_addr_t base, phys_addr_t size);
->  bool memblock_is_reserved(phys_addr_t addr);
->  bool memblock_is_region_reserved(phys_addr_t base, phys_addr_t size);
->  
-> -extern void __memblock_dump_all(void);
-> -
-> -static inline void memblock_dump_all(void)
-> -{
-> -	if (memblock_debug)
-> -		__memblock_dump_all();
-> -}
-> +void memblock_dump_all(void);
+> @@ -142,7 +142,7 @@ void __next_reserved_mem_region(u64 *idx, phys_addr_t *out_start,
+>  void __memblock_free_late(phys_addr_t base, phys_addr_t size);
 >  
 >  /**
->   * memblock_set_current_limit - Set the current allocation limit to allow
-> diff --git a/mm/memblock.c b/mm/memblock.c
-> index a5b9b3df81fc..824938849f6d 100644
-> --- a/mm/memblock.c
-> +++ b/mm/memblock.c
-> @@ -134,7 +134,10 @@ struct memblock memblock __initdata_memblock = {
->  	     i < memblock_type->cnt;					\
->  	     i++, rgn = &memblock_type->regions[i])
+> - * for_each_mem_range - iterate through memblock areas from type_a and not
+> + * __for_each_mem_range - iterate through memblock areas from type_a and not
+>   * included in type_b. Or just type_a if type_b is NULL.
+>   * @i: u64 used as loop variable
+>   * @type_a: ptr to memblock_type to iterate
+> @@ -153,7 +153,7 @@ void __memblock_free_late(phys_addr_t base, phys_addr_t size);
+>   * @p_end: ptr to phys_addr_t for end address of the range, can be %NULL
+>   * @p_nid: ptr to int for nid of the range, can be %NULL
+>   */
+> -#define for_each_mem_range(i, type_a, type_b, nid, flags,		\
+> +#define __for_each_mem_range(i, type_a, type_b, nid, flags,		\
+>  			   p_start, p_end, p_nid)			\
+>  	for (i = 0, __next_mem_range(&i, nid, flags, type_a, type_b,	\
+>  				     p_start, p_end, p_nid);		\
+> @@ -182,6 +182,16 @@ void __memblock_free_late(phys_addr_t base, phys_addr_t size);
+>  	     __next_mem_range_rev(&i, nid, flags, type_a, type_b,	\
+>  				  p_start, p_end, p_nid))
 >  
-> -int memblock_debug __initdata_memblock;
-> +#define memblock_dbg(fmt, ...) \
-> +	if (memblock_debug) printk(KERN_INFO pr_fmt(fmt), ##__VA_ARGS__)
+> +/**
+> + * for_each_mem_range - iterate through memory areas.
+> + * @i: u64 used as loop variable
+> + * @p_start: ptr to phys_addr_t for start address of the range, can be %NULL
+> + * @p_end: ptr to phys_addr_t for end address of the range, can be %NULL
+> + */
+> +#define for_each_mem_range(i, p_start, p_end) \
+> +	__for_each_mem_range(i, &memblock.memory, NULL, NUMA_NO_NODE,	\
+> +			     MEMBLOCK_NONE, p_start, p_end, NULL)
 > +
-> +static int memblock_debug __initdata_memblock;
->  static bool system_has_some_mirror __initdata_memblock = false;
->  static int memblock_can_resize __initdata_memblock;
->  static int memblock_memory_in_slab __initdata_memblock = 0;
-> @@ -1919,7 +1922,7 @@ static void __init_memblock memblock_dump(struct memblock_type *type)
->  	}
->  }
+>  /**
+>   * for_each_reserved_mem_region - iterate over all reserved memblock areas
+>   * @i: u64 used as loop variable
+> @@ -287,8 +297,8 @@ int __init deferred_page_init_max_threads(const struct cpumask *node_cpumask);
+>   * soon as memblock is initialized.
+>   */
+>  #define for_each_free_mem_range(i, nid, flags, p_start, p_end, p_nid)	\
+> -	for_each_mem_range(i, &memblock.memory, &memblock.reserved,	\
+> -			   nid, flags, p_start, p_end, p_nid)
+> +	__for_each_mem_range(i, &memblock.memory, &memblock.reserved,	\
+> +			     nid, flags, p_start, p_end, p_nid)
 >  
-> -void __init_memblock __memblock_dump_all(void)
-> +static void __init_memblock __memblock_dump_all(void)
->  {
->  	pr_info("MEMBLOCK configuration:\n");
->  	pr_info(" memory size = %pa reserved size = %pa\n",
-> @@ -1933,6 +1936,12 @@ void __init_memblock __memblock_dump_all(void)
->  #endif
->  }
->  
-> +void __init_memblock memblock_dump_all(void)
-> +{
-> +	if (memblock_debug)
-> +		__memblock_dump_all();
-> +}
-> +
->  void __init memblock_allow_resize(void)
->  {
->  	memblock_can_resize = 1;
+>  /**
+>   * for_each_free_mem_range_reverse - rev-iterate through free memblock areas
+> diff --git a/mm/page_alloc.c b/mm/page_alloc.c
+> index e028b87ce294..95af111d69d3 100644
+> --- a/mm/page_alloc.c
+> +++ b/mm/page_alloc.c
+> @@ -6972,8 +6972,7 @@ static void __init init_unavailable_mem(void)
+>  	 * Loop through unavailable ranges not covered by memblock.memory.
+>  	 */
+>  	pgcnt = 0;
+> -	for_each_mem_range(i, &memblock.memory, NULL,
+> -			NUMA_NO_NODE, MEMBLOCK_NONE, &start, &end, NULL) {
+> +	for_each_mem_range(i, &start, &end) {
+>  		if (next < start)
+>  			pgcnt += init_unavailable_range(PFN_DOWN(next),
+>  							PFN_UP(start));
 > -- 
 > 2.26.2
 > 
