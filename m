@@ -2,23 +2,22 @@ Return-Path: <SRS0=O7qi=BK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 19DF5C433E0
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Jul 2020 09:44:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0B92AC433E1
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Jul 2020 13:26:32 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C45BD20829
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Jul 2020 09:44:46 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id CCE802245C
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Jul 2020 13:26:31 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="tLvb8h2s";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="ESf1W651"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C45BD20829
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="gxXoIQhO";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="HFIrJcQV"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CCE802245C
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -26,64 +25,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=5JupHNa/QuGpXjW1fG4B4h9p4KFlpzDohmeXMyj5GBQ=; b=tLvb8h2sGEWqUlmJk2wnIc50x
-	8c8uGIRZ3aa/eREW7orybeiXQwf28jNdGUrkwdSrTKZxBlCfOZBJWxKTcrchn2SB3m/iUm/o0Cb9J
-	N3BNP2EoSHjSMdIDPpNonGEvdYTaVxTi284Aw5qoJ9Z6E3u/n+o8qLP8as+VTMCwiNQfCcbi0S6lf
-	pMKT+NMCzvVSGA7Mk4ZWDO3fMOwkjPWKqKY1Phcbm5SLkaCTqpRi0CTtMWt6kRU3vo/cCRAW7iL7P
-	q5hKwG8KhLMHJhrO3eNua43lIqKaYzj+jHF1wtl1th9j2v1AHFEkmavSd7YYq07C7q5RLzRaOd8zm
-	1aeXUeyQg==;
+	 bh=jODiSyEVBljy2B8iamGdr7cI96a6v3HVWt/v/2I3y2o=; b=gxXoIQhOgWEFo9lLCw1vPyjQ1
+	Nu/+UpxAWgVqFR4R7W2jNDbULAjx1HqWiyYd+K6HVrUNY+Bru3IqgPUIqYVPbTXzfmZN1YhA5NHMq
+	fiITZ8ZFT7X8MWVADJ3wd2OMThLJmIdR/MldnXphpl7ckN+CRz3hNGAmWZuiJn26d+laoWjET4Tw+
+	ZqiEN1r+DX8nqjz8TSfhdt07bJCHzwG/tlOMk1t+9uFhqHiDd3ki3omFzL4enlvewjjypZXAffn3W
+	+j0LjyOkaOgARMnLglWu4LEs2oIrP3cBGNghAaHnSecJNatAJ6LxDBlzp/u/kIL4PRV83DKnLLU4j
+	wFm5GDD7A==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k1RaY-0003Ws-9c; Fri, 31 Jul 2020 09:44:30 +0000
-Received: from mail-wr1-x441.google.com ([2a00:1450:4864:20::441])
+	id 1k1V33-0002W8-Qk; Fri, 31 Jul 2020 13:26:09 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k1RaV-0003Ue-1K
- for linux-riscv@lists.infradead.org; Fri, 31 Jul 2020 09:44:28 +0000
-Received: by mail-wr1-x441.google.com with SMTP id r12so27350530wrj.13
- for <linux-riscv@lists.infradead.org>; Fri, 31 Jul 2020 02:44:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=g6XCInppQ4hAyrEImIpQA4KD04+A7IbOsURFL+RrBCA=;
- b=ESf1W651uZ0IWGmVUDMpqq79lA12C8LewiCBE9/zCSYa0Fk411h5s4KeJEtQWzpLP5
- RQxFZ1ttezfbUfkYfYSyvWH+3TMR6ESE0PgoUo7VbNrta/3M6msD24R3Zu32wneold9m
- bwvy4PyzofK3wdjlTei9u2gaJOYMNQML+de0aUKAwTr5LVium502OOQTCbRmW9j7RTnd
- isElkeDdWGV1xsDuS9hMP7HOmuTZp2e7HJttPAKVibDfdNM2XAvm+z2pViexkAcy7BYu
- Z5W9NZyYnWhAAmHlNdASGMhojHfonUxbTNRUOrfVAwoa4IoI60VEUx7cdx9cibcofrrD
- iH1g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=g6XCInppQ4hAyrEImIpQA4KD04+A7IbOsURFL+RrBCA=;
- b=B/Wx+qMzcSnS1eWLYk3QdzWKRULA/SlmPuzeuCF6aYMpyvNxX757bVr43AktAi534S
- mhAg+MV4/JloIF6mtmn2wM6Eb8pjD66sTV0LLrg3aZwd0oUH2yZUw2yUn/0UXXNZo1kg
- Kb6wsswhxLK6U4mmytONE/Jj2gOfOQbc7fW9AEmyb6f2kCYaiQeSxCSfYqW3GZNGazuz
- 3bL4jNt1Tai6vVot0VQY7URx+w6aiJzwRuntJqy8arPLcmpRshvTawa1kNPectNiQF/C
- UaQdUYOvdUooqXmh++L7j01KYXO08Yw3GsbD7Dq7LPx+2wO0J8QvTlBLoNxjrJycDRj3
- POnw==
-X-Gm-Message-State: AOAM530ZEKSw9dmaVluxi5mp+1sFGOND7TJT20eeq+bNoUKigNHJ3Gkz
- p+eVKaquBUnStwO19hVw99wTiT0YerWhNXGABTIqtw==
-X-Google-Smtp-Source: ABdhPJzqzWWboLVNWykF/RkCrGtdznOCbCBfr6cIlDPEg4l1E66wtQwA9Ue2S9N/7KsHMcp5Ic262Peadlaw1doGEa0=
-X-Received: by 2002:adf:f247:: with SMTP id b7mr2920218wrp.128.1596188664034; 
- Fri, 31 Jul 2020 02:44:24 -0700 (PDT)
+ id 1k1V31-0002Vk-2i
+ for linux-riscv@lists.infradead.org; Fri, 31 Jul 2020 13:26:08 +0000
+Received: from mail-ot1-f50.google.com (mail-ot1-f50.google.com
+ [209.85.210.50])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 77BA722B42
+ for <linux-riscv@lists.infradead.org>; Fri, 31 Jul 2020 13:26:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1596201965;
+ bh=kiABRkM+l4ig/cD2nH8sLh6Q2EQZatMUbedijCspTS8=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=HFIrJcQVIlRxhjRE5g2guG8BBTbB8gcY4mFfzRn6ftJBOOzaKG3r97YkZzZcFqWVp
+ C91LyF17sRKj0jnuP0iqt+z5BwQod9BugSBsC+vfz4fkLlcErxySo1ecxhoToH0Fqk
+ BO74fjI62dBL1TkQRhoodGL+PUFcPv9hattKw1yQ=
+Received: by mail-ot1-f50.google.com with SMTP id v21so15346678otj.9
+ for <linux-riscv@lists.infradead.org>; Fri, 31 Jul 2020 06:26:05 -0700 (PDT)
+X-Gm-Message-State: AOAM530OQMaW2ZEJsUq2s0VLTvQuJ6fDSzvXHVGcMSUJ/I4YjKtMcB2D
+ XZbfvP5iB82Uh0VpsMhlWYwKRR2NVDCAIqk/hWg=
+X-Google-Smtp-Source: ABdhPJwqejim9uD7ymbbLYfkTjOqYSs8DwQcIR8vUokBpFtUDjoUc/mptlY54R9ubTh7sxn+dne50wJnW9nGTqi4byY=
+X-Received: by 2002:a05:6830:1094:: with SMTP id
+ y20mr2790921oto.90.1596201964770; 
+ Fri, 31 Jul 2020 06:26:04 -0700 (PDT)
 MIME-Version: 1.0
-References: <a08d725612aac35f30b3c422d3617bc4c733d8c7.1595838303.git.zong.li@sifive.com>
- <CAAhSdy2gSVZcvx0jVgEC7BGDwix62JCVvZeR5-vGWT7MRwf=AA@mail.gmail.com>
- <CANXhq0rBWByF5PxxuctCyM-UUOa3CgQVdxp8xVXUGLjq0Qx5gA@mail.gmail.com>
- <CAAhSdy1TKf4CidGR9pOB29iPuV6hPKr=n7gt=s==v8pu8m8a=Q@mail.gmail.com>
- <CANXhq0oJ9pMnVHfx25yZMJo3yThAZRix_8=BWEo_diNfxxdugQ@mail.gmail.com>
- <CAAhSdy2BrAXLbv3tgj3U58ZshMFW6VCRG9-AJV5u8HUyuCw5Uw@mail.gmail.com>
- <CANXhq0qLM-9ijY=97w3GKL+M777r=T5JBNrS26PTMBGgfvpmKg@mail.gmail.com>
-In-Reply-To: <CANXhq0qLM-9ijY=97w3GKL+M777r=T5JBNrS26PTMBGgfvpmKg@mail.gmail.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 31 Jul 2020 15:14:12 +0530
-Message-ID: <CAAhSdy01rbGjw-Euhjt5UyUukP9-DYDZWg++pRozP3ZOGBgH3w@mail.gmail.com>
-Subject: Re: [RFC PATCH] dt-bindings: riscv: Add YAML documentation for PMU
-To: Zong Li <zong.li@sifive.com>
+References: <20200729233635.14406-1-atish.patra@wdc.com>
+In-Reply-To: <20200729233635.14406-1-atish.patra@wdc.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Fri, 31 Jul 2020 16:25:53 +0300
+X-Gmail-Original-Message-ID: <CAMj1kXFC-mQRrr+U_HRSzDEYsub-2Gb_F0r1Teh=MB0oJ-de2g@mail.gmail.com>
+Message-ID: <CAMj1kXFC-mQRrr+U_HRSzDEYsub-2Gb_F0r1Teh=MB0oJ-de2g@mail.gmail.com>
+Subject: Re: [RFT PATCH v4 0/9] Add UEFI support for RISC-V
+To: Atish Patra <atish.patra@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200731_054427_248038_9942EDAD 
-X-CRM114-Status: GOOD (  60.35  )
+X-CRM114-CacheID: sfid-20200731_092607_270032_4CE6F6AE 
+X-CRM114-Status: GOOD (  31.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -95,281 +82,170 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Mark Rutland <mark.rutland@arm.com>, linux-efi <linux-efi@vger.kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Kees Cook <keescook@chromium.org>,
+ Nick Hu <nickhu@andestech.com>, "Paul E. McKenney" <paulmck@kernel.org>,
+ Masahiro Yamada <masahiroy@kernel.org>, Anup Patel <anup.patel@wdc.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Arvind Sankar <nivedita@alum.mit.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Yash Shah <yash.shah@sifive.com>, Zong Li <zong.li@sifive.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Greentime Hu <greentime.hu@sifive.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>, Will Deacon <will@kernel.org>,
+ Ingo Molnar <mingo@kernel.org>, Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 30, 2020 at 11:23 AM Zong Li <zong.li@sifive.com> wrote:
+On Thu, 30 Jul 2020 at 02:36, Atish Patra <atish.patra@wdc.com> wrote:
 >
-> On Tue, Jul 28, 2020 at 8:10 PM Anup Patel <anup@brainfault.org> wrote:
-> >
-> > On Tue, Jul 28, 2020 at 9:38 AM Zong Li <zong.li@sifive.com> wrote:
-> > >
-> > > On Tue, Jul 28, 2020 at 11:27 AM Anup Patel <anup@brainfault.org> wrote:
-> > > >
-> > > > On Tue, Jul 28, 2020 at 8:35 AM Zong Li <zong.li@sifive.com> wrote:
-> > > > >
-> > > > > On Mon, Jul 27, 2020 at 9:13 PM Anup Patel <anup@brainfault.org> wrote:
-> > > > > >
-> > > > > > On Mon, Jul 27, 2020 at 1:57 PM Zong Li <zong.li@sifive.com> wrote:
-> > > > > > >
-> > > > > > > Add device tree bindings for performance monitor unit. It passes the
-> > > > > > > dt_binding_check verification.
-> > > > > > >
-> > > > > > > Signed-off-by: Zong Li <zong.li@sifive.com>
-> > > > > > > ---
-> > > > > > >  .../devicetree/bindings/riscv/pmu.yaml        | 71 +++++++++++++++++++
-> > > > > > >  1 file changed, 71 insertions(+)
-> > > > > > >  create mode 100644 Documentation/devicetree/bindings/riscv/pmu.yaml
-> > > > > > >
-> > > > > > > diff --git a/Documentation/devicetree/bindings/riscv/pmu.yaml b/Documentation/devicetree/bindings/riscv/pmu.yaml
-> > > > > > > new file mode 100644
-> > > > > > > index 000000000000..0c49039a5d3b
-> > > > > > > --- /dev/null
-> > > > > > > +++ b/Documentation/devicetree/bindings/riscv/pmu.yaml
-> > > > > > > @@ -0,0 +1,71 @@
-> > > > > > > +# SPDX-License-Identifier: GPL-2.0
-> > > > > > > +%YAML 1.2
-> > > > > > > +---
-> > > > > > > +$id: http://devicetree.org/schemas/riscv/pmu.yaml#
-> > > > > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > > > > > +
-> > > > > > > +title: RISC-V Performance Monitor Units
-> > > > > > > +
-> > > > > > > +maintainers:
-> > > > > > > +  - Zong Li <zong.li@sifive.com>
-> > > > > > > +  - Paul Walmsley <paul.walmsley@sifive.com>
-> > > > > > > +  - Palmer Dabbelt <palmer@dabbelt.com>
-> > > > > > > +
-> > > > > > > +properties:
-> > > > > > > +  compatible:
-> > > > > > > +    items:
-> > > > > > > +      - const: riscv,pmu
-> > > > > > > +
-> > > > > > > +  riscv,width-hpmcntr:
-> > > > > > > +    description: The width of hpmcounter CSRs. Default is 64.
-> > > > > > > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > > > > > > +
-> > > > > > > +  riscv,n-hpmcntr:
-> > > > > > > +    description: The number of hpmcounter CSRs. Default is zero.
-> > > > > > > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > > > > > > +
-> > > > > > > +  riscv,hw-event-map:
-> > > > > > > +    description: The mapping of generic hardware events to values of hpmcounter.
-> > > > > > > +      The key is the encoding of generic hardware events, and the value is the
-> > > > > > > +      actual value which is implemented by platform. If there is no a key-value
-> > > > > > > +      pair for specific generic hardware event, view the generic hardware event
-> > > > > > > +      as not supported. CYCLE and INSTRET be mapped by default, so we shouldn't
-> > > > > > > +      list PERF_COUNT_HW_CPU_CYCLES and PERF_COUNT_HW_INSTRUCTIONS here.
-> > > > > > > +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> > > > > > > +
-> > > > > > > +  riscv,hw-cache-event-map:
-> > > > > > > +    description: The mapping of generic hardware cache events to values of
-> > > > > > > +      hpmcounter. The key is encoding of generic hardware cache events, and the
-> > > > > > > +      value is the actual value which is implemented by platform. If there is no
-> > > > > > > +      a key-value pair for specific generic hardware cache event, view the
-> > > > > > > +      generic hardware cache event as not supported.
-> > > > > > > +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> > > > > > > +
-> > > > > > > +  riscv,hpmcntr-of-event:
-> > > > > > > +    description: The mapping of platform hardware events to allowed hmpcounters.
-> > > > > > > +      The key is the platform hardware event, and the value is the bitmap for
-> > > > > > > +      hmpcounters which support this event. If there is no a key-value pair for
-> > > > > > > +      specific platform hardware events, view the platform hardware events as
-> > > > > > > +      supported by all hpmcounters.
-> > > > > > > +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> > > > > > > +
-> > > > > > > +required:
-> > > > > > > +  - compatible
-> > > > > > > +
-> > > > > > > +additionalProperties: false
-> > > > > > > +
-> > > > > > > +examples:
-> > > > > > > +  - |
-> > > > > > > +    pmu {
-> > > > > > > +      compatible = "riscv,pmu";
-> > > > > > > +      riscv,width-hpmcntr = <40>;
-> > > > > > > +      riscv,n-hpmcntr = <2>;
-> > > > > > > +      riscv,hw-event-map = <0x3 0x0202
-> > > > > > > +                            0x4 0x4000>;
-> > > > > > > +      riscv,hw-cache-event-map = <0x010201 0x0102
-> > > > > > > +                                  0x010204 0x0802>;
-> > > > > > > +      riscv,hpmcntr-of-event = <0x100 0x18
-> > > > > > > +                                0x400 0x10>;
-> > > > > > > +    };
-> > > > > > > +
-> > > > > > > +...
-> > > > > > > --
-> > > > > > > 2.27.0
-> > > > > > >
-> > > > > >
-> > > > > > I don't see the point of sending DT bindings documents
-> > > > > > until the SBI PMU extension is defined and accepted
-> > > > > > by everyone.
-> > > > > >
-> > > > >
-> > > > > It seems to me that it doesn't conflict with the SBI PMU extension.
-> > > > > SBI PMU extension is the interface for communication with the lower
-> > > > > privilege levels, we still can come out the DT in parallel, and make
-> > > > > sure what information is needed by m-mode firmware. OTOH, we also need
-> > > > > a Linux driver which has to parse the dtb when we build Linux as nommu
-> > > > > and run it on m-mode privilege, so if we could define the DT for PMU
-> > > > > node, we can go the driver for nommu first (the implementation would
-> > > > > also consider HW counter, SW counter together). I think you have got
-> > > > > the picture about m-mode firmware, it would be great to start to
-> > > > > collect the idea of DT.
-> > > >
-> > > > The RISC-V PMU DT binding is not just for Linux. Even M-mode
-> > > > runtime firmware (OpenSBI) will be using this binding.
-> > > >
-> > > > The DT bindings you are proposing is conflicting with the
-> > > > expected RISC-V PMU DT bindings:
-> > > > 1. The event-map should be mapping SBI PMU event_idx
-> > > > to HARDWARE HPMEVENT value whereas this binding
-> > > > defines event-map as mapping Linux perf event types to
-> > > > HPMEVENT value.
-> > >
-> > > It is more suitable by using Linux perf event types directly here. On
-> > > nommu Linux, it doesn't have additional m-mode firmware, so it doesn't
-> > > have the rule like SMI PMU event_idx. Unless we apply the same rule in
-> > > nommu pmu drivers as well, it doesn't need to translate the event_idx
-> > > to Linux perf event types in Linux nommu driver.
-> >
-> > This means you will end-up with a separate driver and binding
-> > for NoMMU Linux as compared to S-mode Linux. The PMU DT
-> > node for M-mode and S-mode will also look totally different.
+> This series adds UEFI support for RISC-V.
 >
-> No, we would have only one driver. The initial idea is that we
-> separate the implementation for HW counter, SW counter and nommu
-> respectively, they could register callback functions to the main perf
-> driver. Ideally, I hope we can have only one binding for m-mode and
-> s-mode, these properties are optional, so in the s-mode case, we don't
-> need to give the properties which are needed by m-mode.
+> Linux kernel: 5.8-rc7 + 1 exception vector setup patch (queued for for-next)
+> U-Boot: v2020.07
+> OpenSBI: master
+>
+> This series depends on early setup of exeception vector patch
+> http://lists.infradead.org/pipermail/linux-riscv/2020-July/001207.html
+>
+> Patch 1-3 are generic riscv feature addition required for UEFI support.
+> Patch 4-7 adds the efi stub support for RISC-V which was reviewed few months back.
+> https://www.spinics.net/lists/linux-efi/msg19144.html
+> Patch 8 just renames arm-init code so that it can be used across different
+> architectures. Patch 11 adds the runtime services for RISC-V.
+>
+> The working set of patches can also be found in following git repo.
+> https://github.com/atishp04/linux/tree/uefi_riscv_5.9_v4
+>
 
-Let's focus on only one DT binding and driver for RISC-V PMU which
-will work for both M-mode and S-mode.
 
-In future, DT bindings document can clearly state that for event-map
-properties are only for NoMMU (i.e. M-mode) Linux.
+Thanks Atish.
 
->
-> >
-> > For S-mode case, we only need compatible string and optional
-> > interrupts DT property.
-> >
-> > >
-> > > > 2. Each HPMCOUNTER can support a different set of events
-> > > > so this DT bindings won't work for it.
-> > >
-> > > There is a property "riscv,hpmcntr-of-event" to indicate which
-> > > counters can serve the specific event, if we don't list the particular
-> > > event in this property, we view this event could be served by all
-> > > counters.
-> >
-> > The name of this property is totally misleading.
->
-> Yes, I also struggled with the name for it, welcome to improve it if
-> you have a good idea.
->
-> >
-> > >
-> > > > 3. The SBI PMU driver can have optional edge-triggered
-> > > > per-HART interrupts for overflow detection. This DT bindings
-> > > > does not consider this as well.
-> > > >
-> > >
-> > > We don't have an overflow interrupt mechanism in RISC-V spec now, we
-> > > should postpone and add the properties of interrupt stuff after the
-> > > mechanism is standardized.
-> >
-> > I totally disagree. The RISC-V spec does not prevent any RISC-V
-> > implementation from having per-HART edge triggered interrupts
-> > which are routed through PLIC.
-> >
->
-> Yes, I know, my point is that we don't have a standard way to
-> implement overflow interrupt mechanism for PMU yet, it is being
-> discussed, so even through we give the interrupt properties, it
-> doesn't seem to be used for current driver.
+I think these patches have now reached a state where you can stop
+sending out new revisions until you have something that works as
+expected in combination with EDK2 based firmware that implements  the
+UEFI runtime services fully.
 
-Based on discussions on RISC-V privilege mailing list, it seems
-we won't have major changes in current PMU CSRs. Mostly
-one optional hpmoverflow CSR would be added to handle
-overflow interrupts.
 
-This means the RISC-V PMU driver will certainly need an optional
-interrupts property.
-
-The RISC-V PMU driver is now gated by SBI PMU extension
-and improved PMU support in RISC-V privilege spec.
-
+> The patches have been verified on Qemu/HiFive unleashed using bootefi command in
+> U-Boot for both RV32 and RV64.
 >
-> > (Please see the discussion on RISC-V privilege mailing list).
-> >
-> > That's why RISC-V PMU DT bindings should have an optional
-> > interrupts DT property.
-> >
-> > >
-> > > > The SBI PMU event_idx definition is not yet finalized. Please
-> > > > wait for SBI PMU extension to be finalized.
-> > > >
-> > >
-> > > As I mentioned above, it need to be discussed whether we should do id
-> > > translation in Linux nommu driver.
-> >
-> > All this implies that you want two separate drivers, bindings and DT
-> > nodes for M-mode and S-mode cases.
+> For RV32, maximum allocated memory should be 1G as RISC-V kernel can not map
+> beyond 1G of physical memory for RV32.
 >
-> No, I hope we only have one driver and one binding, so we should come
-> out a common way for them.
+> Runtime services have been verified with fwts. Here is the snippet of the result.
 >
-> >
-> > I disagree with this approach. This will lead to a lot of duplication
-> > and confusion.
-> >
-> > Better approach would be to have SBI PMU event_idx to HPMEVENT
-> > CSR value mappings in the DT properties. For M-mode (NoMMU) linux,
-> > we convert the Linux perf event to SBI PMU event_idx and then to the
-> > HPMEVENT value using event-map. For S-mode (MMU) linux, we can
-> > convert the Linux perf event to the SBI PMU event_idx and then use
-> > this SBI PMU event_idx with SBI_PMU_SET_EVENT call.
+> ***********************************************************************
+> This test run on 16/07/20 at 17:54:53 on host Linux fedora-riscv
+> 5.8.0-rc5-00015-g5e61441080fd-dirty #938 SMP Thu Jul 16 14:50:11 PDT 2020
+> riscv64.
 >
-> It is trade off, we can let m-mode driver convert the event between
-> SBI event_idx and Linux perf event, we also can let opensbi convert
-> the event between Linux perf event and SBI event_idx, But I think your
-> approach is also good to me, because we can make s-mode and m-mode
-> driver use identical way to get the actual value of hpmcounter, even
-> m-mode driver doesn't need to give an abstract level for SBI PMU
-> event_idx
-
-I think having HW event to SBI event_idx mapping in DT bindings is
-the way to go because this will avoid making DT bindings Linux specific
-and other OSes (e.g. FreeBSD) can also use the same DT bindings.
-
+> Command: "fwts uefirtvariable".
+> Running tests: uefirtvariable.
 >
-> >
-> > The optional interrupts DT property should be available in both M-mode
-> > (NoMMU) and S-mode cases so that RISC-V implementation can at
-> > least provide edge-triggered per-HART interrupts which are routed
-> > through PLIC.
-> >
-> > Please wait for the SBI PMU extension to be finalized. Once it is
-> > finalized, we can come-up with a common RISC-V PMU driver which
-> > works for both M-mode (NoMMU) Linux and S-mode Linux.
-> >
+> uefirtvariable: UEFI Runtime service variable interface tests.
+> Test 1 of 9: Test UEFI RT service get variable interface.
+> SKIPPED: Test 1, Skipping test, SetVariable runtime service is not supported on
+> this platform.
 >
-> Ok, fine, though I think DT and SBI PMU extension can be in parallel,
-> let's postpone the DT definition.
-
-We will try to close the SBI PMU extension sooner. Even if SBI v0.3 spe
-release with SBI PMU extension happens much later. The OpenSBI PMU
-extension efforts are also gated on SBI PMU extension.
-
-Regards,
-Anup
+> Test 2 of 9: Test UEFI RT service get next variable name interface.
+> The runtime service GetNextVariableName interface function test.
+> SKIPPED: Test 2, Skipping test, SetVariable runtime service is not supported on
+> this platform.
+>
+> ...
+>
+> Test 4 of 9: Test UEFI RT service query variable info interface.
+> SKIPPED: Test 4, Not support the QueryVariableInfo UEFI runtime interface:
+> cannot test.
+>
+> ADVICE: Firmware also needs to check if the revision of system table is correct
+> or not. Linux kernel returns EFI_UNSUPPORTED as well, if the FirmwareRevision of
+> system table is less than EFI_2_00_SYSTEM_TABLE_REVISION.
+>
+> ...
+> ***********************************************************************
+>
+> Currently, U-Boot EFI implementation returns EFI_UNSUPPORTED for set_variable
+> service. That's why all tests have been skipped but I manually verified that the
+> value is returned from U-Boot not kernel :).
+>
+> EDK2 can boot quite far into Linux with the current series. However, it crashes
+> before userspace because of a possible memory corruption by EDK2.
+>
+> Changes from v3->v4:
+> 1. Used pgd mapping to avoid copying DT to bss.
+>
+> Changes from v2->v3:
+> 1. Fixed few bugs in run time services page table mapping.
+> 2. Dropped patch 1 as it is already taken into efi-tree.
+> 3. Sent few generic mmu fixes as a separate series to ease the merge conflicts.
+>
+> Changes from v1->v2:
+> 1. Removed patch 1 as it is already taken into efi-tree.
+> 2. Fixed compilation issues with patch 9.
+> 3. Moved few function prototype declaration to header file to keep kbuild happy.
+>
+> Changes from previous version:
+> 1. Added full ioremap support.
+> 2. Added efi runtime services support.
+> 3. Fixes mm issues
+>
+> Anup Patel (1):
+> RISC-V: Move DT mapping outof fixmap
+>
+> Atish Patra (8):
+> RISC-V: Add early ioremap support
+> RISC-V: Implement late mapping page table allocation functions
+> include: pe.h: Add RISC-V related PE definition
+> RISC-V: Add PE/COFF header for EFI stub
+> RISC-V: Add EFI stub support.
+> efi: Rename arm-init to efi-init common for all arch
+> RISC-V: Add EFI runtime services
+> RISC-V: Add page table dump support for uefi
+>
+> arch/riscv/Kconfig                            |  25 +++
+> arch/riscv/Makefile                           |   1 +
+> arch/riscv/configs/defconfig                  |   1 +
+> arch/riscv/include/asm/Kbuild                 |   1 +
+> arch/riscv/include/asm/efi.h                  |  56 +++++++
+> arch/riscv/include/asm/fixmap.h               |  16 +-
+> arch/riscv/include/asm/io.h                   |   1 +
+> arch/riscv/include/asm/mmu.h                  |   2 +
+> arch/riscv/include/asm/pgtable.h              |   5 +
+> arch/riscv/include/asm/sections.h             |  13 ++
+> arch/riscv/kernel/Makefile                    |   5 +
+> arch/riscv/kernel/efi-header.S                | 104 +++++++++++++
+> arch/riscv/kernel/efi.c                       | 105 +++++++++++++
+> arch/riscv/kernel/head.S                      |  17 ++-
+> arch/riscv/kernel/head.h                      |   2 -
+> arch/riscv/kernel/image-vars.h                |  51 +++++++
+> arch/riscv/kernel/setup.c                     |  17 ++-
+> arch/riscv/kernel/vmlinux.lds.S               |  22 ++-
+> arch/riscv/mm/init.c                          |  90 ++++++++---
+> arch/riscv/mm/ptdump.c                        |  48 +++++-
+> drivers/firmware/efi/Kconfig                  |   3 +-
+> drivers/firmware/efi/Makefile                 |   4 +-
+> .../firmware/efi/{arm-init.c => efi-init.c}   |   0
+> drivers/firmware/efi/libstub/Makefile         |  10 ++
+> drivers/firmware/efi/libstub/efi-stub.c       |  11 +-
+> drivers/firmware/efi/libstub/riscv-stub.c     | 110 ++++++++++++++
+> drivers/firmware/efi/riscv-runtime.c          | 143 ++++++++++++++++++
+> include/linux/pe.h                            |   3 +
+> 28 files changed, 825 insertions(+), 41 deletions(-)
+> create mode 100644 arch/riscv/include/asm/efi.h
+> create mode 100644 arch/riscv/include/asm/sections.h
+> create mode 100644 arch/riscv/kernel/efi-header.S
+> create mode 100644 arch/riscv/kernel/efi.c
+> create mode 100644 arch/riscv/kernel/image-vars.h
+> rename drivers/firmware/efi/{arm-init.c => efi-init.c} (100%)
+> create mode 100644 drivers/firmware/efi/libstub/riscv-stub.c
+> create mode 100644 drivers/firmware/efi/riscv-runtime.c
+>
+> --
+> 2.24.0
+>
 
 _______________________________________________
 linux-riscv mailing list
