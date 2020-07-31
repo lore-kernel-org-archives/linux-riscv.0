@@ -1,23 +1,23 @@
-Return-Path: <SRS0=rfC7=BJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=O7qi=BK=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E0E95C433DF
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jul 2020 21:21:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3C66EC433DF
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Jul 2020 03:58:34 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A8AFA20829
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jul 2020 21:21:04 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 069ED207F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Jul 2020 03:58:34 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="G++rtUmu";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="UM7q/hh3"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A8AFA20829
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="BL9/5K+j";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="GXb0qJsE"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 069ED207F5
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,65 +26,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=97jTvwJW7UD6gOTcT9m94k5UtOWqF4cmEe+3lSqCHOQ=; b=G++rtUmu8g/8eqZWOJ8TRSzvr
-	I6opbxcBhId2zxZwFFHb0VmqdoIL1hqFyf21L9z1bLS3HQKZC/5a28zB2dyE6nO6IBgyvjkBJTpeI
-	muw1+CDQ1Dyg0wOqZAYE74ztPY8pt9zbh0R57WdIKzSGIf+pUnWzSD+gVimY+VXqH8SLmHysbNneZ
-	Gz4XzYfKHkbGtqaacZvJKTmFW5yPFI6dn8XxnRYzVu3xNcW1XqZG6wxKQltJYis4Ao9nHwRDK0ICU
-	kpUTXzhufJG4ogVhzFnL7YjsAwRYAqtCo++tuMy2927mN5MPnRkkHnMTrn8furl+WDqpBOvmGzBWy
-	rjvXfdJ7g==;
+	 bh=GnYRLGUHLHtxoe431siYLLRJahpMmT5TVdNwNsuo2ZY=; b=BL9/5K+j/6z2eAdLUqynCmBbk
+	uDeaZwNlAjYqhE30ySZByhqU2u/2Skn+JkDBYSVo+I28v+lgjCplEVR3AMBq8lH5XYaprph5SsVf9
+	Fugl2OHHfiF5h3LwTJxCoTZ+k2kmsJzlcbrpkP4Mh5HEhRKDoFQ9XEB/NBkRlAUsNME6gd1UocsS6
+	n8s3FIqW881NOxzEhKFh+zxyxuf1NHE1XTmEJZnYqnHMpG2dfI0nMl7J1soVgp5k6toGsFw3IYN9d
+	tFePflxYCau/QzhPaUuQF7nmrJ1q/ro/3Jec0P36jxmJcjhMYXJ9rpDXXUbAHcojWTrE7xE68JSqU
+	OLd4R0P2w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k1Fyp-0008WM-Ns; Thu, 30 Jul 2020 21:20:47 +0000
+	id 1k1MBY-0000UJ-3n; Fri, 31 Jul 2020 03:58:20 +0000
 Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k1Fym-0008VH-M9
- for linux-riscv@lists.infradead.org; Thu, 30 Jul 2020 21:20:45 +0000
-Received: by mail-pl1-x643.google.com with SMTP id m16so15350548pls.5
- for <linux-riscv@lists.infradead.org>; Thu, 30 Jul 2020 14:20:42 -0700 (PDT)
+ id 1k1MBV-0000TX-4x
+ for linux-riscv@lists.infradead.org; Fri, 31 Jul 2020 03:58:18 +0000
+Received: by mail-pl1-x643.google.com with SMTP id w17so16155236ply.11
+ for <linux-riscv@lists.infradead.org>; Thu, 30 Jul 2020 20:58:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=T9TN+IiG05axbq9DvASXkbUWMclW/1L5ezZkeAERv5E=;
- b=UM7q/hh3+ycXamy6DmVDsqTeyGwToom5lGdDqRMu9nAmBIv9chtjGOtptQGetwvOLM
- dsbPN8u5TFZ4QxDmLlK2Qc8xKyIcI/Q4NYjbUuaSrkkEI6pidokfHVungFblJBmjzoz6
- m8k0/Kw7NxtrkfSYNWkXwhoqyaNZZ6d/gv+ZRsx9H+ofRvhogUmbxCvbEb9ELRr/ntEr
- seYQhSQhj4IkcOY/BiB6K++rUFLn5u5hKFGYT3+Q79YBWK/qBEMpIgkbhzctmN/Qmqqt
- CMP9i25xSEC9So5qlz7pEJooph+gaPlzD40QmetOhYuvq0Tc5Ft0hUd0GDEKws4bGMMs
- xBpA==
+ bh=NQzoZlQ0/4rcsXbnjkrazIOlBy8Cl4Z03XZanrhAWT4=;
+ b=GXb0qJsEdZIWDVJczeo8n5pUfF7eJnHaMcDJwtR9SMpY0GDgWvSUT4YUW9zoRTzlCn
+ QvlvdEddW7b/MJXBnv895+A+plHP7GNSn7lPTYqWebHLNiC8qEEYHQptFUbMnIjKhK80
+ S5DC1NIHHAWQFZnjmIRYHq5bcByDOn2dw83S+GFoKD4o2JB0+gfLspFgo05goaDYbWi4
+ yc9cjXmIWRcRzPQre7FcJIEr9cuFpODva56wOOtibq93MHdZu6GrvIQJFusAQ7FC9lkL
+ Is42pstzsWKWgEhgYSkocWERmtsEc/1Leb3MxHXhDAT6+bZK/ItcdYR/MSTD3eIfS93R
+ 9lEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=T9TN+IiG05axbq9DvASXkbUWMclW/1L5ezZkeAERv5E=;
- b=Tz4ZqIk1YYvn0rEzkqR0ys/yZbFxXgSFV2d9HOh8M3qLme7S8IKqWh2OVQp7IGBuhN
- f9lVCw07w5Xc+CWyiZ9WGqAHbFDs7UomFo2tK5/HkgHBALEbKbaYTKcKM66k9UupAP0t
- YIPhR0SZiorNZwh8dHhf43oNfk7kyGQWc4JpQSzVNLRPqfgxankfbLyTPl+bpz1h5S8X
- 6G30RUYap73RuZDDzx+sOVxM87KeiT8DuGrS1aUltuJ/pWaIu25p2cmCXMAkBReUU7h4
- QGLNc7gMKXKGhoWS8Z0tWZLHiwE2x8jIZFuNYWhy3JmB0MzS3RE0lqVxnuPpR/Ox1u+6
- AQaA==
-X-Gm-Message-State: AOAM5311+TnknosdXIzo4g1fPFtW1Q7YIOOENCTwv0saLgVTKnZBgMZX
- meGNBela88G4fLWW8QR4nVTzCA==
-X-Google-Smtp-Source: ABdhPJzjBOdzPpZw2Zy8gz/U2wDGlNr+GQCGfyGI52RbMq/aPY97IjWGN5aeZxp17vggsWF8JUIiGw==
-X-Received: by 2002:a63:5b55:: with SMTP id l21mr813118pgm.348.1596144040321; 
- Thu, 30 Jul 2020 14:20:40 -0700 (PDT)
+ bh=NQzoZlQ0/4rcsXbnjkrazIOlBy8Cl4Z03XZanrhAWT4=;
+ b=lz21Ik61tGO/3N6TfJpBSXNaYixeV0PPjP38cra9DlQ3AEs+ivSS0+kht0mWAGB3c1
+ qx37dMgQmQczEQ29VHegDzNRc+RB5nao1hjxB08ClAe5dwvjYkXyqdqGjOYq8c5ZQ7l8
+ 1Valm5SsKumkSwu23855WlRlgIwn9iwmmB6S1RtAxnWzIzdEbxxUaN3efy4956Dh6+eH
+ ailbei44sf5aiwo/eeoIqWmi7Hi1gOuAGOxvlYEOSoiMUjrhOAFIdT7X9Z+RRmd0k/Lh
+ Ks5Yv7BnEuWdaIE+RTFxCsh3y4yPbUjEzNqrs/jyzTRv4dQZFrq+b2y4m9TVJRFJ63Qk
+ g3HQ==
+X-Gm-Message-State: AOAM5317pgW8pLNkc7sxXsCHSFO+A3SZmdLUUD0OnZNMCALUMUaaW8CT
+ GPYAHpoTs2YNASdtH6+4M7OdhA==
+X-Google-Smtp-Source: ABdhPJwx4UF7SIxaiVMvWevP/FtV+ONc8tTa7tqCzifdRhzZmhC8JSkLR70alptCFLbNO9czCaOBzQ==
+X-Received: by 2002:a62:fb07:: with SMTP id x7mr2032496pfm.252.1596167895228; 
+ Thu, 30 Jul 2020 20:58:15 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id d9sm7277389pgv.45.2020.07.30.14.20.39
+ by smtp.gmail.com with ESMTPSA id fh14sm7076579pjb.38.2020.07.30.20.58.14
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 30 Jul 2020 14:20:39 -0700 (PDT)
-Date: Thu, 30 Jul 2020 14:20:39 -0700 (PDT)
-X-Google-Original-Date: Thu, 30 Jul 2020 14:20:34 PDT (-0700)
-Subject: Re: [PATCH 17/24] riscv: use asm-generic/mmu_context.h for no-op
- implementations
-In-Reply-To: <20200728033405.78469-18-npiggin@gmail.com>
+ Thu, 30 Jul 2020 20:58:14 -0700 (PDT)
+Date: Thu, 30 Jul 2020 20:58:14 -0700 (PDT)
+X-Google-Original-Date: Thu, 30 Jul 2020 20:21:59 PDT (-0700)
+Subject: Re: [PATCH] riscv: disable stack-protector for vDSO
+In-Reply-To: <20200729075129.11538-1-tklauser@distanz.ch>
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: npiggin@gmail.com
-Message-ID: <mhng-5c1b7324-11f8-4334-bfc4-6fc1920aeaa3@palmerdabbelt-glaptop1>
+To: tklauser@distanz.ch
+Message-ID: <mhng-ffa63ba2-4220-4caa-80aa-5eb42f58010a@palmerdabbelt-glaptop1>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200730_172044_777919_631671BA 
-X-CRM114-Status: GOOD (  18.46  )
+X-CRM114-CacheID: sfid-20200730_235817_244590_51FFB265 
+X-CRM114-Status: GOOD (  17.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -96,70 +95,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-arch@vger.kernel.org, aou@eecs.berkeley.edu,
- Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org, npiggin@gmail.com,
- linux-mm@kvack.org, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv@lists.infradead.org
+Cc: linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu,
+ Paul Walmsley <paul.walmsley@sifive.com>
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 27 Jul 2020 20:33:58 PDT (-0700), npiggin@gmail.com wrote:
-> Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Albert Ou <aou@eecs.berkeley.edu>
-> Cc: linux-riscv@lists.infradead.org
-> Signed-off-by: Nicholas Piggin <npiggin@gmail.com>
+On Wed, 29 Jul 2020 00:51:29 PDT (-0700), tklauser@distanz.ch wrote:
+> Currently, building the vDSO with clang leads assembler errors like the
+> following:
+>
+>   /tmp/vgettimeofday-1ae0d2.s: Assembler messages:
+>   /tmp/vgettimeofday-1ae0d2.s:28: Error: bad expression
+>   /tmp/vgettimeofday-1ae0d2.s:28: Error: illegal operands `auipc a2,%got_pcrel_hi(__stack_chk_guard)'
+>
+> Disable the stack-protector for vDSO to fix these.
+>
+> Link: https://github.com/ClangBuiltLinux/linux/issues/1112
+> Signed-off-by: Tobias Klauser <tklauser@distanz.ch>
 > ---
->  arch/riscv/include/asm/mmu_context.h | 22 ++--------------------
->  1 file changed, 2 insertions(+), 20 deletions(-)
+>  arch/riscv/kernel/vdso/Makefile | 2 ++
+>  1 file changed, 2 insertions(+)
 >
-> diff --git a/arch/riscv/include/asm/mmu_context.h b/arch/riscv/include/asm/mmu_context.h
-> index 67c463812e2d..250defa06f3a 100644
-> --- a/arch/riscv/include/asm/mmu_context.h
-> +++ b/arch/riscv/include/asm/mmu_context.h
-> @@ -13,34 +13,16 @@
->  #include <linux/mm.h>
->  #include <linux/sched.h>
+> diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+> index c8c9e40023c6..478e7338ddc1 100644
+> --- a/arch/riscv/kernel/vdso/Makefile
+> +++ b/arch/riscv/kernel/vdso/Makefile
+> @@ -16,6 +16,8 @@ vdso-syms += flush_icache
+>  # Files to link into the vdso
+>  obj-vdso = $(patsubst %, %.o, $(vdso-syms)) note.o
 >
-> -static inline void enter_lazy_tlb(struct mm_struct *mm,
-> -	struct task_struct *task)
-> -{
-> -}
-> -
-> -/* Initialize context-related info for a new mm_struct */
-> -static inline int init_new_context(struct task_struct *task,
-> -	struct mm_struct *mm)
-> -{
-> -	return 0;
-> -}
-> -
-> -static inline void destroy_context(struct mm_struct *mm)
-> -{
-> -}
-> -
->  void switch_mm(struct mm_struct *prev, struct mm_struct *next,
->  	struct task_struct *task);
->
-> +#define activate_mm activate_mm
->  static inline void activate_mm(struct mm_struct *prev,
->  			       struct mm_struct *next)
->  {
->  	switch_mm(prev, next, NULL);
->  }
->
-> -static inline void deactivate_mm(struct task_struct *task,
-> -	struct mm_struct *mm)
-> -{
-> -}
-> +#include <asm-generic/mmu_context.h>
->
->  #endif /* _ASM_RISCV_MMU_CONTEXT_H */
+> +ccflags-y := -fno-stack-protector
+> +
+>  ifneq ($(c-gettimeofday-y),)
+>    CFLAGS_vgettimeofday.o += -fPIC -include $(c-gettimeofday-y)
+>  endif
 
-Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
-
-I'm assuming this is going in along with the others.  Thanks!
+Thanks, this is on fixes.
 
 _______________________________________________
 linux-riscv mailing list
