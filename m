@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 862F0C433E0
-	for <linux-riscv@archiver.kernel.org>; Sun,  2 Aug 2020 16:37:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 30990C433DF
+	for <linux-riscv@archiver.kernel.org>; Sun,  2 Aug 2020 16:37:40 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5660E22B40
-	for <linux-riscv@archiver.kernel.org>; Sun,  2 Aug 2020 16:37:26 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id F11B3208B3
+	for <linux-riscv@archiver.kernel.org>; Sun,  2 Aug 2020 16:37:39 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="YleovGU1";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="pHqq6Fah"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5660E22B40
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="dEuioZQV";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="XkobRDns"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F11B3208B3
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,42 +26,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=tWfFrtJqE0KLTkg5la80RSjOEKzbOesBEQxjZF53QJA=; b=YleovGU1vh3hErdNQkiKUs9BT
-	lpqT/5inPv+ZjsB6FtteGRLR30Y9wj4abl914yWaiQnjxj3ATByRUZr5ntwMEUmM2WirDuHNnJZMY
-	/iQYR3U17xH1eqsRGCgMFfTjC17Jcnd1jUlNi6Fm4MBKmoWbBhVXIjlxrVGkwmG5k+gZLbZJbVLgw
-	tw0tvb3mcVvL7ASfCa6g5KzjpHg3CYmwCdcQHfx7oyyLrxPnuqdHc4KBDP/8PrYyt9NF/jmDQFgDC
-	VRd7Qfiz2+7PCF7GHuxk9p0SvI60r2UGdRkxUZ68zCXTzaBBFwBxLOGQIYYaGrKvIVoNfgnl3zc9s
-	QpVOctotw==;
+	 bh=h5C1Cjf3nXH35iZXJKTZIJ+GR0klRS6C/eeEN0eKNdc=; b=dEuioZQV/Z1XyJUPtw0bJC5qo
+	hW6EOtLRtVq8OCKKhkgLLBo66nIX9xzZSUypnJnl2CD0W0d+m6SskcnA7NTca2fJKQRBfG3uXFAah
+	DyOIZNhj7ZTTjHE/ir+PFEirHf6XSUWhsxKsHM3JUsnrbZIX/Iuv1BM/l9Moz62BKscZ0khcnJh3d
+	FXjrgVTCHKJZ2QGAXSIOxIncoNPyUUX2WeoPp871XVxTLeZyxBQa2n6ZoQp2hCLRi5h6+bvoMcyq5
+	8v3RwQI1kLuI7CXb1F0t4r34eZzoxFo/S6frNE9YG9rbDMwjGJApcKmz5DVLbBY1En1XwM28Ldn5t
+	x2SYDP3AA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k2Gyy-0007D9-UX; Sun, 02 Aug 2020 16:37:08 +0000
+	id 1k2GzB-0007Ky-PA; Sun, 02 Aug 2020 16:37:21 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k2Gyq-00077j-M5; Sun, 02 Aug 2020 16:37:03 +0000
+ id 1k2Gz1-0007Eb-Fz; Sun, 02 Aug 2020 16:37:13 +0000
 Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 61207207BB;
- Sun,  2 Aug 2020 16:36:49 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 79B9E20759;
+ Sun,  2 Aug 2020 16:37:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1596386219;
- bh=ZNedWWEIR7TjyqHerem6v1zcO0bsRchN/rxztlGnBuY=;
+ s=default; t=1596386230;
+ bh=AMOYvuZ/her7m+eqvV/W61Gb+3lMX5jMPD36qVEB+h0=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=pHqq6FahliEH30kIlqPeo4mDFVDbMBYtzNQjYqi+0+McbruOc0824V9shITYaBbsE
- drhDOyhFCdGhq1OkgwrUWBpsWUckdWsjE555OcyBI2trXf/BnbC/sxKILe31cYdrsi
- UOClFX1+acUGkqTFA8GkqPJWP99b6NKzFSdLnqgw=
+ b=XkobRDnslNvkbET3s8a765CgR+CoQW7Lz73pcB2Vu/C3Q3ZQuhFAKrsw4xYvT9L3B
+ rWYBMoBBt5cUWMzPTYMp97l6nMm7xLiIfEcygKCxGqn1vH3JvBe21jHFYqL8Irgxkl
+ C4RH3kgHLYZRs/lETcx0TJHEWWVmIow5S7yDOFR4=
 From: Mike Rapoport <rppt@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH v2 04/17] arm64: numa: simplify dummy_numa_init()
-Date: Sun,  2 Aug 2020 19:35:48 +0300
-Message-Id: <20200802163601.8189-5-rppt@kernel.org>
+Subject: [PATCH v2 05/17] h8300, nds32,
+ openrisc: simplify detection of memory extents
+Date: Sun,  2 Aug 2020 19:35:49 +0300
+Message-Id: <20200802163601.8189-6-rppt@kernel.org>
 X-Mailer: git-send-email 2.26.2
 In-Reply-To: <20200802163601.8189-1-rppt@kernel.org>
 References: <20200802163601.8189-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200802_123700_933295_F305126D 
-X-CRM114-Status: GOOD (  20.90  )
+X-CRM114-CacheID: sfid-20200802_123711_724334_F7F2D6D9 
+X-CRM114-Status: GOOD (  15.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -95,8 +96,7 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
  Michal Simek <monstr@monstr.eu>, Yoshinori Sato <ysato@users.sourceforge.jp>,
  linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  iommu@lists.linux-foundation.org, Palmer Dabbelt <palmer@dabbelt.com>,
- Jonathan Cameron <Jonathan.Cameron@huawei.com>, linuxppc-dev@lists.ozlabs.org,
- Mike Rapoport <rppt@kernel.org>
+ linuxppc-dev@lists.ozlabs.org, Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
@@ -104,97 +104,85 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Mike Rapoport <rppt@linux.ibm.com>
 
-dummy_numa_init() loops over memblock.memory and passes nid=0 to
-numa_add_memblk() which essentially wraps memblock_set_node(). However,
-memblock_set_node() can cope with entire memory span itself, so the loop
-over memblock.memory regions is redundant.
-
-Using a single call to memblock_set_node() rather than a loop also fixes an
-issue with a buggy ACPI firmware in which the SRAT table covers some but
-not all of the memory in the EFI memory map.
-
-Jonathan Cameron says:
-
-  This issue can be easily triggered by having an SRAT table which fails
-  to cover all elements of the EFI memory map.
-
-  This firmware error is detected and a warning printed. e.g.
-  "NUMA: Warning: invalid memblk node 64 [mem 0x240000000-0x27fffffff]"
-  At that point we fall back to dummy_numa_init().
-
-  However, the failed ACPI init has left us with our memblocks all broken
-  up as we split them when trying to assign them to NUMA nodes.
-
-  We then iterate over the memblocks and add them to node 0.
-
-  numa_add_memblk() calls memblock_set_node() which merges regions that
-  were previously split up during the earlier attempt to add them to different
-  nodes during parsing of SRAT.
-
-  This means elements are moved in the memblock array and we can end up
-  in a different memblock after the call to numa_add_memblk().
-  Result is:
-
-  Unable to handle kernel paging request at virtual address 0000000000003a40
-  Mem abort info:
-    ESR = 0x96000004
-    EC = 0x25: DABT (current EL), IL = 32 bits
-    SET = 0, FnV = 0
-    EA = 0, S1PTW = 0
-  Data abort info:
-    ISV = 0, ISS = 0x00000004
-    CM = 0, WnR = 0
-  [0000000000003a40] user address but active_mm is swapper
-  Internal error: Oops: 96000004 [#1] PREEMPT SMP
-
-  ...
-
-  Call trace:
-    sparse_init_nid+0x5c/0x2b0
-    sparse_init+0x138/0x170
-    bootmem_init+0x80/0xe0
-    setup_arch+0x2a0/0x5fc
-    start_kernel+0x8c/0x648
-
-Replace the loop with a single call to memblock_set_node() to the entire
-memory.
+Instead of traversing memblock.memory regions to find memory_start and
+memory_end, simply query memblock_{start,end}_of_DRAM().
 
 Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
-Acked-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+Acked-by: Stafford Horne <shorne@gmail.com>
 ---
- arch/arm64/mm/numa.c | 13 +++++--------
- 1 file changed, 5 insertions(+), 8 deletions(-)
+ arch/h8300/kernel/setup.c    | 8 +++-----
+ arch/nds32/kernel/setup.c    | 8 ++------
+ arch/openrisc/kernel/setup.c | 9 ++-------
+ 3 files changed, 7 insertions(+), 18 deletions(-)
 
-diff --git a/arch/arm64/mm/numa.c b/arch/arm64/mm/numa.c
-index aafcee3e3f7e..0cbdbcc885fb 100644
---- a/arch/arm64/mm/numa.c
-+++ b/arch/arm64/mm/numa.c
-@@ -423,19 +423,16 @@ static int __init numa_init(int (*init_func)(void))
-  */
- static int __init dummy_numa_init(void)
- {
-+	phys_addr_t start = memblock_start_of_DRAM();
-+	phys_addr_t end = memblock_end_of_DRAM();
- 	int ret;
--	struct memblock_region *mblk;
+diff --git a/arch/h8300/kernel/setup.c b/arch/h8300/kernel/setup.c
+index 28ac88358a89..0281f92eea3d 100644
+--- a/arch/h8300/kernel/setup.c
++++ b/arch/h8300/kernel/setup.c
+@@ -74,17 +74,15 @@ static void __init bootmem_init(void)
+ 	memory_end = memory_start = 0;
  
- 	if (numa_off)
- 		pr_info("NUMA disabled\n"); /* Forced off on command line. */
--	pr_info("Faking a node at [mem %#018Lx-%#018Lx]\n",
--		memblock_start_of_DRAM(), memblock_end_of_DRAM() - 1);
--
--	for_each_memblock(memory, mblk) {
--		ret = numa_add_memblk(0, mblk->base, mblk->base + mblk->size);
--		if (!ret)
--			continue;
-+	pr_info("Faking a node at [mem %#018Lx-%#018Lx]\n", start, end - 1);
+ 	/* Find main memory where is the kernel */
+-	for_each_memblock(memory, region) {
+-		memory_start = region->base;
+-		memory_end = region->base + region->size;
+-	}
++	memory_start = memblock_start_of_DRAM();
++	memory_end = memblock_end_of_DRAM();
  
-+	ret = numa_add_memblk(0, start, end);
-+	if (ret) {
- 		pr_err("NUMA init failed\n");
- 		return ret;
- 	}
+ 	if (!memory_end)
+ 		panic("No memory!");
+ 
+ 	/* setup bootmem globals (we use no_bootmem, but mm still depends on this) */
+ 	min_low_pfn = PFN_UP(memory_start);
+-	max_low_pfn = PFN_DOWN(memblock_end_of_DRAM());
++	max_low_pfn = PFN_DOWN(memory_end);
+ 	max_pfn = max_low_pfn;
+ 
+ 	memblock_reserve(__pa(_stext), _end - _stext);
+diff --git a/arch/nds32/kernel/setup.c b/arch/nds32/kernel/setup.c
+index a066efbe53c0..c356e484dcab 100644
+--- a/arch/nds32/kernel/setup.c
++++ b/arch/nds32/kernel/setup.c
+@@ -249,12 +249,8 @@ static void __init setup_memory(void)
+ 	memory_end = memory_start = 0;
+ 
+ 	/* Find main memory where is the kernel */
+-	for_each_memblock(memory, region) {
+-		memory_start = region->base;
+-		memory_end = region->base + region->size;
+-		pr_info("%s: Memory: 0x%x-0x%x\n", __func__,
+-			memory_start, memory_end);
+-	}
++	memory_start = memblock_start_of_DRAM();
++	memory_end = memblock_end_of_DRAM();
+ 
+ 	if (!memory_end) {
+ 		panic("No memory!");
+diff --git a/arch/openrisc/kernel/setup.c b/arch/openrisc/kernel/setup.c
+index 8aa438e1f51f..c5706153d3b6 100644
+--- a/arch/openrisc/kernel/setup.c
++++ b/arch/openrisc/kernel/setup.c
+@@ -48,17 +48,12 @@ static void __init setup_memory(void)
+ 	unsigned long ram_start_pfn;
+ 	unsigned long ram_end_pfn;
+ 	phys_addr_t memory_start, memory_end;
+-	struct memblock_region *region;
+ 
+ 	memory_end = memory_start = 0;
+ 
+ 	/* Find main memory where is the kernel, we assume its the only one */
+-	for_each_memblock(memory, region) {
+-		memory_start = region->base;
+-		memory_end = region->base + region->size;
+-		printk(KERN_INFO "%s: Memory: 0x%x-0x%x\n", __func__,
+-		       memory_start, memory_end);
+-	}
++	memory_start = memblock_start_of_DRAM();
++	memory_end = memblock_end_of_DRAM();
+ 
+ 	if (!memory_end) {
+ 		panic("No memory!");
 -- 
 2.26.2
 
