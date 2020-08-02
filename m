@@ -2,67 +2,88 @@ Return-Path: <SRS0=216k=BM=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
+	SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 247A2C433DF
-	for <linux-riscv@archiver.kernel.org>; Sun,  2 Aug 2020 16:41:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 24C7DC433DF
+	for <linux-riscv@archiver.kernel.org>; Sun,  2 Aug 2020 18:01:42 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E300920738
-	for <linux-riscv@archiver.kernel.org>; Sun,  2 Aug 2020 16:41:15 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E6AF120738
+	for <linux-riscv@archiver.kernel.org>; Sun,  2 Aug 2020 18:01:41 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="LShgU1TR";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="expYlg32"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E300920738
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="VKLSHr0Z";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="uknpQ4DM"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E6AF120738
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=pYhLLfnHUkG/5I72T7/vc9a1zmw0ygqkrNYNTWwT250=; b=LShgU1TR5byIG9nd2EuyFgGmd
-	/q1Sq++Tosb/f8XEjb8ygyG8k4hLFBV0JCUZjIO7wHzF/J1GAU4boefHyXWCTWKMYChT9ILlYodl6
-	2JtVp9lAnjJftsXWkHH6QIQHntd1yi/B5NdcAQa4DpkKZLMx5fHSqLBCjDuRzkyOlnpJwm7ZGyG0L
-	JQIYgnICKsuoeDx2ezG53Nc5GT0geGH3JZY5OP/h5bBcsU6T4rOQhwZYfyYRI4c6tjmTXn7ElnqOc
-	K2AQpejqlbzckLSP3aGq6fHPORDKgRIzV7AlsfzJ4Cw7c+XLo1yGYmXiNfrCUeuGdkvFZXTCLYpiI
-	pVL4stvHQ==;
+	 bh=Ue2SYQupT1/SVeTtkWKo20Q0VsU0zNEXR0hY1BLb4fc=; b=VKLSHr0Z2cIqZCiy1iBoMdkVC
+	RjzRwK7tPjxMUqQpo5p+cYE3xRhhMeC3O2xxiaogozXV7SD529cIJ0Lt2tDR7GfmYI2AH6FBbm4pv
+	kTHI1F75Uf3/Do2XpHgevQ1oQdm2D2GDmyP4iJ+/7jMg46a3ZYaHrDYlz/+vsm3X0Pz9hLc/tPfWE
+	e17NeH8qvGtIO0ld6qCAtcCl+v6pmFLoQ0mQF6cWxM1PcJv+M0nL1lLrxKIqFJdaEcGt1/nSZK9rT
+	ERmNgTxoixJARWoPQfryg7BgQuoG+joeEXMzTtrKY1+bH/gyq0nyLvEY0LKa5g0dMMcd0nceVf/hs
+	nradESnDA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k2H2c-0001Gn-Pb; Sun, 02 Aug 2020 16:40:54 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1k2IIT-0008DJ-1r; Sun, 02 Aug 2020 18:01:21 +0000
+Received: from mail-ej1-x643.google.com ([2a00:1450:4864:20::643])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k2H19-0000II-GR; Sun, 02 Aug 2020 16:39:27 +0000
-Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 7CDE02086A;
- Sun,  2 Aug 2020 16:39:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1596386361;
- bh=4D18U4LqzeXJ7rz+8d0QKOKWX/v62M4XIaiFZKMrU2g=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=expYlg32VKO393ycu/8mgvTP8o7aTQ0t+w3y+ImhCOBmcHrMgKsHPWZrIbJLNgfgC
- Bm2vjh0nkZR+iuadKG9/iuI0LX7a8yAWHL7in80/MdMtdUm7db6niZEyjtfTAFy76P
- C8qr+uEz5cJ6hO9r0B0W6Jn6zW/HAt2qdvztbZp0=
-From: Mike Rapoport <rppt@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH v2 17/17] memblock: use separate iterators for memory and
- reserved regions
-Date: Sun,  2 Aug 2020 19:36:01 +0300
-Message-Id: <20200802163601.8189-18-rppt@kernel.org>
-X-Mailer: git-send-email 2.26.2
-In-Reply-To: <20200802163601.8189-1-rppt@kernel.org>
+ id 1k2IIP-0008BT-NV; Sun, 02 Aug 2020 18:01:18 +0000
+Received: by mail-ej1-x643.google.com with SMTP id d6so22500036ejr.5;
+ Sun, 02 Aug 2020 11:01:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=sender:date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=cWqP425OZ00Oz4x2XaCg5sL4Bi3BuFHBZ9fhbstEoPo=;
+ b=uknpQ4DMxgwRI+7RXzKKaxSHSsHT4JX+qN+G3Zw62I+z7K+v0oM82e+YsM5L2ibFwZ
+ ZtPLnfzJt8IFqkH991n5kK4zcZ2/fsZTMmLNrFK7hPe3auCniFr0qepP8+PKlvq/+X4Y
+ 6FOXivLK6+BH8tYzSACnWRFDv80Xb8yKxgJKQm36t4gslbAugHoQp37YMrGD2IIEXvEW
+ lHLgWw9HHo88+yhhI1SsXvM9DHpmveOnmArUrLkNHDmUxgOR5yVJEiJKHqYfS7BI8LbU
+ 2xANFxjuEWzWjHDwLiCM886yebnNr5jnEbr0RMGk15mMx04KzIUKhAfWZe7dw+zaroY/
+ roWA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
+ :references:mime-version:content-disposition:in-reply-to;
+ bh=cWqP425OZ00Oz4x2XaCg5sL4Bi3BuFHBZ9fhbstEoPo=;
+ b=k1Lnpkn3qic30B+fEjxsJlIgP7X+YXrjU12aJ6NSv9B+++OJsxS8927vj49c+o3Jez
+ UFYddJbCzKVnP5XZD5apHy/P7dmR3crvEylQ0/nIIu3Wn9UebvhLC6W6DRiqNUQqwTbX
+ dgskfW2Ligp0Ijw52N4L3kvgdK6Iv2S4uQHVCDvElyPODLTAguOxmRsnmucABlHGHMUM
+ l0dm7X6Oo0xTZY7DBGP/ks1gcW7uCH4QH19Indz0JqClHTUfmOMuI6xzbYFRrg1Fdldp
+ js0zziz2jKtMXSvNPdncAUxkY5p4LJWsPiIc7+feyrFqxaazDxq+LDjwSbaex9/u1fiJ
+ 3EYg==
+X-Gm-Message-State: AOAM531ku18MEpGDVL8udgrMuHESXL+DIbr2s0VuW2lxN5r5T9iUdtGO
+ OZgkhj1cJfB7SCcjxO/rJss=
+X-Google-Smtp-Source: ABdhPJzKJVSrfGoQ7+sK5UMaqi5wNpNE5CXoSPOw/FVAw4VikTzayUXH2AGSuVR6AmkbWWniCTFE/A==
+X-Received: by 2002:a17:906:c187:: with SMTP id
+ g7mr13929214ejz.108.1596391275076; 
+ Sun, 02 Aug 2020 11:01:15 -0700 (PDT)
+Received: from gmail.com (54033286.catv.pool.telekom.hu. [84.3.50.134])
+ by smtp.gmail.com with ESMTPSA id t19sm14191760edw.63.2020.08.02.11.01.12
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sun, 02 Aug 2020 11:01:13 -0700 (PDT)
+Date: Sun, 2 Aug 2020 20:01:10 +0200
+From: Ingo Molnar <mingo@kernel.org>
+To: Mike Rapoport <rppt@kernel.org>
+Subject: Re: [PATCH v2 13/17] x86/setup: simplify initrd relocation and
+ reservation
+Message-ID: <20200802180110.GA86614@gmail.com>
 References: <20200802163601.8189-1-rppt@kernel.org>
+ <20200802163601.8189-14-rppt@kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20200802163601.8189-14-rppt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200802_123923_984948_37940860 
-X-CRM114-Status: GOOD (  19.60  )
+X-CRM114-CacheID: sfid-20200802_140117_855130_8F643CC7 
+X-CRM114-Status: GOOD (  15.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -96,201 +117,40 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
  Michal Simek <monstr@monstr.eu>, Yoshinori Sato <ysato@users.sourceforge.jp>,
  linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  iommu@lists.linux-foundation.org, Palmer Dabbelt <palmer@dabbelt.com>,
- linuxppc-dev@lists.ozlabs.org, Mike Rapoport <rppt@kernel.org>
+ Andrew Morton <akpm@linux-foundation.org>, linuxppc-dev@lists.ozlabs.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Mike Rapoport <rppt@linux.ibm.com>
 
-for_each_memblock() is used to iterate over memblock.memory in
-a few places that use data from memblock_region rather than the memory
-ranges.
+* Mike Rapoport <rppt@kernel.org> wrote:
 
-Introduce separate for_each_mem_region() and for_each_reserved_mem_region()
-to improve encapsulation of memblock internals from its users.
+> From: Mike Rapoport <rppt@linux.ibm.com>
+> 
+> Currently, initrd image is reserved very early during setup and then it
+> might be relocated and re-reserved after the initial physical memory
+> mapping is created. The "late" reservation of memblock verifies that mapped
+> memory size exceeds the size of initrd, the checks whether the relocation
+> required and, if yes, relocates inirtd to a new memory allocated from
+> memblock and frees the old location.
+> 
+> The check for memory size is excessive as memblock allocation will anyway
+> fail if there is not enough memory. Besides, there is no point to allocate
+> memory from memblock using memblock_find_in_range() + memblock_reserve()
+> when there exists memblock_phys_alloc_range() with required functionality.
+> 
+> Remove the redundant check and simplify memblock allocation.
+> 
+> Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
 
-Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
----
- .clang-format                  |  3 ++-
- arch/arm64/kernel/setup.c      |  2 +-
- arch/arm64/mm/numa.c           |  2 +-
- arch/mips/netlogic/xlp/setup.c |  2 +-
- arch/x86/mm/numa.c             |  2 +-
- include/linux/memblock.h       | 19 ++++++++++++++++---
- mm/memblock.c                  |  4 ++--
- mm/page_alloc.c                |  8 ++++----
- 8 files changed, 28 insertions(+), 14 deletions(-)
+Assuming there's no hidden dependency here breaking something:
 
-diff --git a/.clang-format b/.clang-format
-index e28a849a1c58..cff71d345456 100644
---- a/.clang-format
-+++ b/.clang-format
-@@ -201,7 +201,7 @@ ForEachMacros:
-   - 'for_each_matching_node'
-   - 'for_each_matching_node_and_match'
-   - 'for_each_member'
--  - 'for_each_memblock'
-+  - 'for_each_mem_region'
-   - 'for_each_memblock_type'
-   - 'for_each_memcg_cache_index'
-   - 'for_each_mem_pfn_range'
-@@ -267,6 +267,7 @@ ForEachMacros:
-   - 'for_each_property_of_node'
-   - 'for_each_registered_fb'
-   - 'for_each_reserved_mem_range'
-+  - 'for_each_reserved_mem_region'
-   - 'for_each_rtd_codec_dais'
-   - 'for_each_rtd_codec_dais_rollback'
-   - 'for_each_rtd_components'
-diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
-index f3aec7244aab..52ea2f1a7184 100644
---- a/arch/arm64/kernel/setup.c
-+++ b/arch/arm64/kernel/setup.c
-@@ -217,7 +217,7 @@ static void __init request_standard_resources(void)
- 	if (!standard_resources)
- 		panic("%s: Failed to allocate %zu bytes\n", __func__, res_size);
- 
--	for_each_memblock(memory, region) {
-+	for_each_mem_region(region) {
- 		res = &standard_resources[i++];
- 		if (memblock_is_nomap(region)) {
- 			res->name  = "reserved";
-diff --git a/arch/arm64/mm/numa.c b/arch/arm64/mm/numa.c
-index 0cbdbcc885fb..f121e42246a6 100644
---- a/arch/arm64/mm/numa.c
-+++ b/arch/arm64/mm/numa.c
-@@ -350,7 +350,7 @@ static int __init numa_register_nodes(void)
- 	struct memblock_region *mblk;
- 
- 	/* Check that valid nid is set to memblks */
--	for_each_memblock(memory, mblk) {
-+	for_each_mem_region(mblk) {
- 		int mblk_nid = memblock_get_region_node(mblk);
- 
- 		if (mblk_nid == NUMA_NO_NODE || mblk_nid >= MAX_NUMNODES) {
-diff --git a/arch/mips/netlogic/xlp/setup.c b/arch/mips/netlogic/xlp/setup.c
-index 1a0fc5b62ba4..6e3102bcd2f1 100644
---- a/arch/mips/netlogic/xlp/setup.c
-+++ b/arch/mips/netlogic/xlp/setup.c
-@@ -70,7 +70,7 @@ static void nlm_fixup_mem(void)
- 	const int pref_backup = 512;
- 	struct memblock_region *mem;
- 
--	for_each_memblock(memory, mem) {
-+	for_each_mem_region(mem) {
- 		memblock_remove(mem->base + mem->size - pref_backup,
- 			pref_backup);
- 	}
-diff --git a/arch/x86/mm/numa.c b/arch/x86/mm/numa.c
-index 8ee952038c80..fe6ea18d6923 100644
---- a/arch/x86/mm/numa.c
-+++ b/arch/x86/mm/numa.c
-@@ -516,7 +516,7 @@ static void __init numa_clear_kernel_node_hotplug(void)
- 	 *   memory ranges, because quirks such as trim_snb_memory()
- 	 *   reserve specific pages for Sandy Bridge graphics. ]
- 	 */
--	for_each_memblock(reserved, mb_region) {
-+	for_each_reserved_mem_region(mb_region) {
- 		int nid = memblock_get_region_node(mb_region);
- 
- 		if (nid != MAX_NUMNODES)
-diff --git a/include/linux/memblock.h b/include/linux/memblock.h
-index 9e51b3fd4134..a6970e058bd7 100644
---- a/include/linux/memblock.h
-+++ b/include/linux/memblock.h
-@@ -522,9 +522,22 @@ static inline unsigned long memblock_region_reserved_end_pfn(const struct memblo
- 	return PFN_UP(reg->base + reg->size);
- }
- 
--#define for_each_memblock(memblock_type, region)					\
--	for (region = memblock.memblock_type.regions;					\
--	     region < (memblock.memblock_type.regions + memblock.memblock_type.cnt);	\
-+/**
-+ * for_each_mem_region - itereate over registered memory regions
-+ * @region: loop variable
-+ */
-+#define for_each_mem_region(region)					\
-+	for (region = memblock.memory.regions;				\
-+	     region < (memblock.memory.regions + memblock.memory.cnt);	\
-+	     region++)
-+
-+/**
-+ * for_each_reserved_mem_region - itereate over reserved memory regions
-+ * @region: loop variable
-+ */
-+#define for_each_reserved_mem_region(region)				\
-+	for (region = memblock.reserved.regions;			\
-+	     region < (memblock.reserved.regions + memblock.reserved.cnt); \
- 	     region++)
- 
- extern void *alloc_large_system_hash(const char *tablename,
-diff --git a/mm/memblock.c b/mm/memblock.c
-index dadf579f7c53..7d30db5c539f 100644
---- a/mm/memblock.c
-+++ b/mm/memblock.c
-@@ -1653,7 +1653,7 @@ static phys_addr_t __init_memblock __find_max_addr(phys_addr_t limit)
- 	 * the memory memblock regions, if the @limit exceeds the total size
- 	 * of those regions, max_addr will keep original value PHYS_ADDR_MAX
- 	 */
--	for_each_memblock(memory, r) {
-+	for_each_mem_region(r) {
- 		if (limit <= r->size) {
- 			max_addr = r->base + limit;
- 			break;
-@@ -1823,7 +1823,7 @@ void __init_memblock memblock_trim_memory(phys_addr_t align)
- 	phys_addr_t start, end, orig_start, orig_end;
- 	struct memblock_region *r;
- 
--	for_each_memblock(memory, r) {
-+	for_each_mem_region(r) {
- 		orig_start = r->base;
- 		orig_end = r->base + r->size;
- 		start = round_up(orig_start, align);
-diff --git a/mm/page_alloc.c b/mm/page_alloc.c
-index 95af111d69d3..948c7a754cdb 100644
---- a/mm/page_alloc.c
-+++ b/mm/page_alloc.c
-@@ -5927,7 +5927,7 @@ overlap_memmap_init(unsigned long zone, unsigned long *pfn)
- 
- 	if (mirrored_kernelcore && zone == ZONE_MOVABLE) {
- 		if (!r || *pfn >= memblock_region_memory_end_pfn(r)) {
--			for_each_memblock(memory, r) {
-+			for_each_mem_region(r) {
- 				if (*pfn < memblock_region_memory_end_pfn(r))
- 					break;
- 			}
-@@ -6528,7 +6528,7 @@ static unsigned long __init zone_absent_pages_in_node(int nid,
- 		unsigned long start_pfn, end_pfn;
- 		struct memblock_region *r;
- 
--		for_each_memblock(memory, r) {
-+		for_each_mem_region(r) {
- 			start_pfn = clamp(memblock_region_memory_base_pfn(r),
- 					  zone_start_pfn, zone_end_pfn);
- 			end_pfn = clamp(memblock_region_memory_end_pfn(r),
-@@ -7122,7 +7122,7 @@ static void __init find_zone_movable_pfns_for_nodes(void)
- 	 * options.
- 	 */
- 	if (movable_node_is_enabled()) {
--		for_each_memblock(memory, r) {
-+		for_each_mem_region(r) {
- 			if (!memblock_is_hotpluggable(r))
- 				continue;
- 
-@@ -7143,7 +7143,7 @@ static void __init find_zone_movable_pfns_for_nodes(void)
- 	if (mirrored_kernelcore) {
- 		bool mem_below_4gb_not_mirrored = false;
- 
--		for_each_memblock(memory, r) {
-+		for_each_mem_region(r) {
- 			if (memblock_is_mirror(r))
- 				continue;
- 
--- 
-2.26.2
+  Acked-by: Ingo Molnar <mingo@kernel.org>
 
+Thanks,
+
+	Ingo
 
 _______________________________________________
 linux-riscv mailing list
