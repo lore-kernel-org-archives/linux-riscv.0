@@ -2,86 +2,84 @@ Return-Path: <SRS0=FXTp=BN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-12.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7DDEFC433E1
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Aug 2020 17:59:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 560BCC433E5
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Aug 2020 17:59:25 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B51FD22B4E
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Aug 2020 17:59:22 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8B00D22B45
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Aug 2020 17:59:24 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZLNo+xDe";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="d9Ig3iJY"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B51FD22B4E
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="GUF7rWzG";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="DbWXW36t"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8B00D22B45
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=U6Q2L42c+vrrFRbARkCaxLIaDFXmlp/zmD/L1Z3q4hs=; b=ZLNo+xDelOrY8PFLg1KBgRG51
-	Bk6FRynxSIjtcZJ9vfmgbu9FE+cBDnXOnlPYo51JOGiibuWHqtqyrOml5xzvGkKEwoe8dBj58guEe
-	rnzcLS4bjDP9HuM3oqfw7pqza0HNih86/pFCjhz+gA9ahO0EV+PvBTFdQwbAnvVr9OZ5sCtZ0PXF2
-	AZU9peftthMVUT1/fJY1WTJKWHwdZWZVKUKb2S5eOOnutJhoaQEeaNnKrhg3b0wsgECabd8QYqbJk
-	qKm+8+aeG76HM0aRZsskEY5Ll4Fn6RbusYjMarPW2gGmqetFITlFqpjl4+aoP7KbiqFn9Aj7xRSAt
-	w7+W8GOJg==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AiCaMEKw1B8PzAd4IDWMzHgeeuyd6y4mfW97OknOY78=; b=GUF7rWzGj/Q5VvHJrObF+UkfIk
+	6ZF7+ob7uL6ibi/E5UUoiw1kVYXXaPiHtztp2DI1Xmm/8X+2gFszWdiy5yKw9I8k7LNEUr8x0Pm1H
+	4WC6YRDoi/NGIbPjZuOQDz2iNNeX+cUUw5Q7k13ExjLe3GaKqqzfEykA8UXDXgFASYJTU6A9bHmcp
+	zIDPpoDlty0X0/aQBt2CVYXQMcwwMtE6ZJLA4v61RgO5YtnrOLh6VPMOy4LyQScM0oKaLH7XFo26n
+	9PKeGcaM7Q9XpDjQR7fov1AQeabajOvsqIWuA3eiodjRRbV/lOd7+uYDtbi1NKfR4zhbG+IWVhC6M
+	KyK7ie2g==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k2ejz-00056K-29; Mon, 03 Aug 2020 17:59:15 +0000
+	id 1k2eju-00054R-Re; Mon, 03 Aug 2020 17:59:10 +0000
 Received: from esa6.hgst.iphmx.com ([216.71.154.45])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k2ejs-00051w-Nd; Mon, 03 Aug 2020 17:59:10 +0000
+ id 1k2ejq-00051f-9d; Mon, 03 Aug 2020 17:59:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1596477549; x=1628013549;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=jU9YUiaLBL5uWBVTinVot5g73YeyDZgqDfT7h5RHaK0=;
- b=d9Ig3iJYcjGpV5jqezD1IVcaXfCRfZfI3D1g/hzLQRCBJWn3ho+xOgQb
- kAsGPtV7xjtPQ7ZBJ+gtB2H2IienT6ayPSRLxPHrD95dlGF3FHI4TOShh
- Xl0SeMZkW28Gm2TeImYlb/CdU7yXc+D5g2rxB8AVsqzeCyzjLjAIWiGQk
- vnTI9MLQYrZ8tZhTXvc69/C+PaP6gW79KJhV8SB4x6lqOCDahHTIzOT5D
- VbwuMdpftPflJOKDXTfhu9okQijwwTW6OgZKejym9XA8qdH3JGsDgs0h9
- GI5MXaV9OJ4bb8s8XOFFp3+aROedIG76bKe2eF8/+ME2Twy5yLSK6EJx+ w==;
-IronPort-SDR: x+EcOSM/hRc6i7FARjyPZxyK5t5RMrebmhn4c4zt6eKuJzIUzzpucqePdDxgDxag/a7m/m7CZs
- onVqjMvnkwKalf3a39Ta8EHe74xjnPW51FU9bOCRy6ixTrZ0wcszSOJTwPrflvrhOc0H+o/ogI
- RLa1ioM2+mecrXU8V8+WOqSSRGTiI9iMVHYzjHp0YPveCam0eUpjM2I3VC2M5AoQdd+UbivgN4
- g5VUWCYq6XaR0W0U0IEMlvnWIZRAbY8I38rZBoiGOormkm41kDTjlBqWZzvIzIGnT5mqgb8+zO
- fY8=
-X-IronPort-AV: E=Sophos;i="5.75,430,1589212800"; d="scan'208";a="145273252"
+ t=1596477547; x=1628013547;
+ h=from:to:cc:subject:date:message-id:mime-version:
+ content-transfer-encoding;
+ bh=VOtqlyeTI7pj/+WHRY84iOltoY1CldDSHk2ut6rF0TA=;
+ b=DbWXW36t4bSQYDrlLnfKHGqAvlMSTI8pfivap9e0Cl9l7HipLdhI4/E6
+ atc68noaMocJoNZATpGflGv1LnDOl0bFJ7PX1A5yxuk+cQ9lu+4ST9k+1
+ n4Chfqyq7+YK0AztLNQIiAD/p8rrEFQVSv9r1QMwgkSE3zfsLXPT0QMUA
+ wC9y13PezquqpDdHsSweHIYHK7LKCgzfZUwWd88FJD6J4NDWb+T0+wHLH
+ lB+SJ58YY350iwIhkKd6Gmymgp5aQt93yRF+7NRJzx6FN6etSR5YEjakC
+ ecIEvoZjKHu6uBnmEjhsuU/TO08dzwC5FN2Dbsoge3uESluG9oxgAAbka Q==;
+IronPort-SDR: eFiq/ls39xhs6D8IceGAYXtIk+rgTMCL/I/6m2qPUVoDtFAfNHHAgVxBz18h8u4ZXHHD3jMTBO
+ oBHmzT+oWn1pxy8pmEJFjnnv+nVurr3NEKkOMl8skoyVa4AMZQnJ1lOlDHAmmCUNfhuM4+/ZQK
+ GvLHiyXY0DJzAb4zNlGHsJk2bvDtwM/wc9qnTqiK1ktZghvXsjBp2qiRl1GD3MyfRRfTZ9V8tJ
+ jb3R+ElYCNUcSlOrj7ieJH7KlibDw8egWY7ONWObjpEhqbxco18PPrBdQKDjNr5/SH+7MUF9JA
+ iP8=
+X-IronPort-AV: E=Sophos;i="5.75,430,1589212800"; d="scan'208";a="145273245"
 Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
  ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 04 Aug 2020 01:59:07 +0800
-IronPort-SDR: 1EKg1k+vHBAHoScN4sU8wMLWqCBJZsAAJb94uN8TzdcwnUqIy+eBouXBLUgd+6QmvhA+O7xEPW
- zn0dR7eK0gvg==
+ by ob1.hgst.iphmx.com with ESMTP; 04 Aug 2020 01:59:04 +0800
+IronPort-SDR: TrN8lWpdvmlGuV71aKlpp+52+t3UjTWZMClfoTQxIWsGtZt3OVZBvvU2pe294Jz2yABmDxzpRl
+ UvMNLbmZ4ELQ==
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
  by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 03 Aug 2020 10:46:28 -0700
-IronPort-SDR: UG53wW/fsc7pTLfYnTrWL5HIO4RpvYc7yZ62ccSKI1De9f1BmKIPMtdK31OiH8/TfRKOylDfwP
- Pacm67hl6K2A==
+ 03 Aug 2020 10:46:25 -0700
+IronPort-SDR: iZb2sq5TmobDGkm1+xth6Z7qWVDWypo/WO9cBwNRRp0XCuOe4j67qj5bOnpyao4FekVWUgDZom
+ eh4CemSsEC9g==
 WDCIronportException: Internal
 Received: from cnf007830.ad.shared (HELO jedi-01.hgst.com) ([10.86.58.196])
- by uls-op-cesaip01.wdc.com with ESMTP; 03 Aug 2020 10:59:06 -0700
+ by uls-op-cesaip01.wdc.com with ESMTP; 03 Aug 2020 10:59:03 -0700
 From: Atish Patra <atish.patra@wdc.com>
 To: kvm-riscv@lists.infradead.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH 5/6] RISC-V: Add v0.1 replacement SBI extensions defined in v02
-Date: Mon,  3 Aug 2020 10:58:45 -0700
-Message-Id: <20200803175846.26272-6-atish.patra@wdc.com>
+Subject: [PATCH 0/6] Add SBI v0.2 support for KVM
+Date: Mon,  3 Aug 2020 10:58:40 -0700
+Message-Id: <20200803175846.26272-1-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.24.0
-In-Reply-To: <20200803175846.26272-1-atish.patra@wdc.com>
-References: <20200803175846.26272-1-atish.patra@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200803_135908_927836_7F0ECF6E 
-X-CRM114-Status: GOOD (  22.28  )
+X-CRM114-CacheID: sfid-20200803_135906_536731_C2EE262B 
+X-CRM114-Status: GOOD (  14.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -105,194 +103,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The SBI v0.2 contains some of the improved versions of required v0.1
-extensions such as remote fence, timer and IPI.
+The Supervisor Binary Interface(SBI) specification[1] now defines a
+base extension that provides extendability to add future extensions
+while maintaining backward compatibility with previous versions.
+The new version is defined as 0.2 and older version is marked as 0.1.
 
-This patch implements those extensions.
+This series adds following features to RISC-V Linux KVM.
+1. Adds support for SBI v0.2 in KVM
+2. SBI Hart state management extension (HSM) in KVM
+3. Ordered booting of guest vcpus in guest Linux
 
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
----
- arch/riscv/kvm/Makefile           |   2 +-
- arch/riscv/kvm/vcpu_sbi.c         |   6 ++
- arch/riscv/kvm/vcpu_sbi_replace.c | 136 ++++++++++++++++++++++++++++++
- 3 files changed, 143 insertions(+), 1 deletion(-)
- create mode 100644 arch/riscv/kvm/vcpu_sbi_replace.c
+This series depends on the base kvm support series[2].
 
-diff --git a/arch/riscv/kvm/Makefile b/arch/riscv/kvm/Makefile
-index a95c91ba9a51..b0e8b760fda0 100644
---- a/arch/riscv/kvm/Makefile
-+++ b/arch/riscv/kvm/Makefile
-@@ -10,5 +10,5 @@ kvm-objs := $(common-objs-y)
- 
- kvm-objs += main.o vm.o vmid.o tlb.o mmu.o
- kvm-objs += vcpu.o vcpu_exit.o vcpu_switch.o vcpu_timer.o
--kvm-objs += vcpu_sbi.o vcpu_sbi_base.o vcpu_sbi_legacy.o
-+kvm-objs += vcpu_sbi.o vcpu_sbi_base.o vcpu_sbi_legacy.o vcpu_sbi_replace.o
- obj-$(CONFIG_KVM)	+= kvm.o
-diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
-index bb50d63f78e7..8c3ca522dddb 100644
---- a/arch/riscv/kvm/vcpu_sbi.c
-+++ b/arch/riscv/kvm/vcpu_sbi.c
-@@ -32,10 +32,16 @@ static int kvm_linux_err_map_sbi(int err)
- 
- extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_legacy;
- extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_base;
-+extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_time;
-+extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_ipi;
-+extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_rfence;
- 
- static const struct kvm_vcpu_sbi_extension *sbi_ext[] = {
- 	&vcpu_sbi_ext_legacy,
- 	&vcpu_sbi_ext_base,
-+	&vcpu_sbi_ext_time,
-+	&vcpu_sbi_ext_ipi,
-+	&vcpu_sbi_ext_rfence,
- };
- 
- void kvm_riscv_vcpu_sbi_forward(struct kvm_vcpu *vcpu, struct kvm_run *run)
-diff --git a/arch/riscv/kvm/vcpu_sbi_replace.c b/arch/riscv/kvm/vcpu_sbi_replace.c
-new file mode 100644
-index 000000000000..8e6b57fc1622
---- /dev/null
-+++ b/arch/riscv/kvm/vcpu_sbi_replace.c
-@@ -0,0 +1,136 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/**
-+ * Copyright (c) 2020 Western Digital Corporation or its affiliates.
-+ *
-+ * Authors:
-+ *     Atish Patra <atish.patra@wdc.com>
-+ */
-+
-+#include <linux/errno.h>
-+#include <linux/err.h>
-+#include <linux/kvm_host.h>
-+#include <asm/csr.h>
-+#include <asm/sbi.h>
-+#include <asm/kvm_vcpu_timer.h>
-+#include <asm/kvm_vcpu_sbi.h>
-+
-+static int kvm_sbi_ext_time_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
-+				    unsigned long *out_val,
-+				    struct kvm_cpu_trap *utrap, bool *exit)
-+{
-+	int ret = 0;
-+	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
-+	u64 next_cycle;
-+
-+	if (!cp || (cp->a6 != SBI_EXT_TIME_SET_TIMER))
-+		return -EINVAL;
-+
-+#if __riscv_xlen == 32
-+	next_cycle = ((u64)cp->a1 << 32) | (u64)cp->a0;
-+#else
-+	next_cycle = (u64)cp->a0;
-+#endif
-+	kvm_riscv_vcpu_timer_next_event(vcpu, next_cycle);
-+
-+	return ret;
-+}
-+
-+const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_time = {
-+	.extid_start = SBI_EXT_TIME,
-+	.extid_end = SBI_EXT_TIME,
-+	.handler = kvm_sbi_ext_time_handler,
-+};
-+
-+static int kvm_sbi_ext_ipi_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
-+				   unsigned long *out_val,
-+				   struct kvm_cpu_trap *utrap, bool *exit)
-+{
-+	int i, ret = 0;
-+	struct kvm_vcpu *tmp;
-+	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
-+	unsigned long hmask = cp->a0;
-+	unsigned long hbase = cp->a1;
-+
-+	if (!cp || (cp->a6 != SBI_EXT_IPI_SEND_IPI))
-+		return -EINVAL;
-+
-+	kvm_for_each_vcpu(i, tmp, vcpu->kvm) {
-+		if (hbase != -1UL) {
-+			if (tmp->vcpu_id < hbase)
-+				continue;
-+			if (!(hmask & (1UL << (tmp->vcpu_id - hbase))))
-+				continue;
-+		}
-+		ret = kvm_riscv_vcpu_set_interrupt(tmp, IRQ_VS_SOFT);
-+		if (ret < 0)
-+			break;
-+	}
-+
-+	return ret;
-+}
-+
-+const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_ipi = {
-+	.extid_start = SBI_EXT_IPI,
-+	.extid_end = SBI_EXT_IPI,
-+	.handler = kvm_sbi_ext_ipi_handler,
-+};
-+
-+static int kvm_sbi_ext_rfence_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
-+				      unsigned long *out_val,
-+				      struct kvm_cpu_trap *utrap, bool *exit)
-+{
-+	int i, ret = 0;
-+	struct cpumask cm, hm;
-+	struct kvm_vcpu *tmp;
-+	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
-+	unsigned long hmask = cp->a0;
-+	unsigned long hbase = cp->a1;
-+	unsigned long funcid = cp->a6;
-+
-+	if (!cp)
-+		return -EINVAL;
-+
-+	cpumask_clear(&cm);
-+	cpumask_clear(&hm);
-+	kvm_for_each_vcpu(i, tmp, vcpu->kvm) {
-+		if (hbase != -1UL) {
-+			if (tmp->vcpu_id < hbase)
-+				continue;
-+			if (!(hmask & (1UL << (tmp->vcpu_id - hbase))))
-+				continue;
-+		}
-+		if (tmp->cpu < 0)
-+			continue;
-+		cpumask_set_cpu(tmp->cpu, &cm);
-+	}
-+
-+	riscv_cpuid_to_hartid_mask(&cm, &hm);
-+
-+	switch (funcid) {
-+	case SBI_EXT_RFENCE_REMOTE_FENCE_I:
-+		ret = sbi_remote_fence_i(cpumask_bits(&hm));
-+		break;
-+	case SBI_EXT_RFENCE_REMOTE_SFENCE_VMA:
-+		ret = sbi_remote_hfence_vvma(cpumask_bits(&hm), cp->a2, cp->a3);
-+		break;
-+	case SBI_EXT_RFENCE_REMOTE_SFENCE_VMA_ASID:
-+		ret = sbi_remote_hfence_vvma_asid(cpumask_bits(&hm), cp->a2,
-+						  cp->a3, cp->a4);
-+		break;
-+	case SBI_EXT_RFENCE_REMOTE_HFENCE_GVMA:
-+	case SBI_EXT_RFENCE_REMOTE_HFENCE_GVMA_VMID:
-+	case SBI_EXT_RFENCE_REMOTE_HFENCE_VVMA:
-+	case SBI_EXT_RFENCE_REMOTE_HFENCE_VVMA_ASID:
-+	/* TODO: implement for nested hypervisor case */
-+	default:
-+		ret = -ENOTSUPP;
-+	}
-+
-+	return ret;
-+}
-+
-+const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_rfence = {
-+	.extid_start = SBI_EXT_RFENCE,
-+	.extid_end = SBI_EXT_RFENCE,
-+	.handler = kvm_sbi_ext_rfence_handler,
-+};
--- 
+Guest kernel needs to also support SBI v0.2 and HSM extension in Kernel
+to boot multiple vcpus. Linux kernel supports both starting v5.7.
+In absense of that, guest can only boot 1vcpu.
+
+[1] https://github.com/riscv/riscv-sbi-doc/blob/master/riscv-sbi.adoc
+[2] http://lists.infradead.org/pipermail/linux-riscv/2020-July/001028.html
+
+Atish Patra (6):
+RISC-V: Add a non-void return for sbi v02 functions
+RISC-V: Mark the existing SBI v0.1 implementation as legacy
+RISC-V: Reorganize SBI code by moving legacy SBI to its own file
+RISC-V: Add SBI v0.2 base extension
+RISC-V: Add v0.1 replacement SBI extensions defined in v02
+RISC-V: Add SBI HSM extension in KVM
+
+arch/riscv/include/asm/kvm_vcpu_sbi.h |  32 +++++
+arch/riscv/include/asm/sbi.h          |  17 ++-
+arch/riscv/kernel/sbi.c               |  32 ++---
+arch/riscv/kvm/Makefile               |   4 +-
+arch/riscv/kvm/vcpu.c                 |  19 +++
+arch/riscv/kvm/vcpu_sbi.c             | 194 ++++++++++++--------------
+arch/riscv/kvm/vcpu_sbi_base.c        |  73 ++++++++++
+arch/riscv/kvm/vcpu_sbi_hsm.c         | 109 +++++++++++++++
+arch/riscv/kvm/vcpu_sbi_legacy.c      | 129 +++++++++++++++++
+arch/riscv/kvm/vcpu_sbi_replace.c     | 136 ++++++++++++++++++
+10 files changed, 619 insertions(+), 126 deletions(-)
+create mode 100644 arch/riscv/include/asm/kvm_vcpu_sbi.h
+create mode 100644 arch/riscv/kvm/vcpu_sbi_base.c
+create mode 100644 arch/riscv/kvm/vcpu_sbi_hsm.c
+create mode 100644 arch/riscv/kvm/vcpu_sbi_legacy.c
+create mode 100644 arch/riscv/kvm/vcpu_sbi_replace.c
+
+--
 2.24.0
 
 
