@@ -2,86 +2,89 @@ Return-Path: <SRS0=FXTp=BN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 72F1DC433E3
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Aug 2020 17:59:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0574CC433DF
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Aug 2020 20:28:23 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A604122B4E
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Aug 2020 17:59:24 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id DB0FB2086A
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Aug 2020 20:28:22 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="biADdtNB";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="FBId+6B9"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A604122B4E
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="BGYjckE9";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="0EozY3rM"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DB0FB2086A
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=sHXAz0dKWwoltY448/ccMyvgKZsXwjmSyv6Ihce2zF0=; b=biADdtNB9GIAOekelUoy19P6m
-	gkGXZo32CLaS9mluSGCSBpSyRJVNu8SkmElFIw2xo0+o4xrVBwuGMU7o2aoRaoim8BdsnM8fdktdP
-	1i1lMPxcTkgsjUVBGcO4APVKhG0BRs9WxDA66AY+rSZqIwCApJS6yM2vKkHcVzQ1WRVlXYvZj9KJm
-	+lcM8TxQ6EqROrQeJ4HC5n8L4pikXe7RNtu/PrHtIfqFvGElwOia7aqCRihTt/2l1EL9x+gVp4ZAL
-	ImgHWwiMSgAoN1eu5+zW3YIqSy4TDKB3wA13rGxCzh/TlIeVtM/fM9ZNAqfbwceBI7aUPGbeC8dY6
-	alEpY+jVQ==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=jjG9QDPjOYC1h0skZsuF3PX6j11ArPNItTvJRbAP7cg=; b=BGYjckE93uki2BVEvm1X55KIV
+	3/HGujHZXurnORw6BiWRkxYLU3NDzxD0ElgDYr9GGl14q+QGx03/++AYBFfojB+V5OFRx2tvwmg1t
+	V9Tj2JiN9W91uP6nV8Aes8BAoZ+C76mFNxrq61xKsLLaDNoTzTX3/DmWx7O04R1gTAecgvOb6DM2d
+	SbjbCobkwA1EOfQOueToDHWLeJ+Z1RwWIKbV7kClUMYI7e6RPs18qtgrOlvdgOR0uCwf5p3xDhF1z
+	7gW8/PB4hlwrBlDFInDZO+zK5eGZUcerOiQLb+Q5r+e2ey5WxJvJGre5GoYBixjoVwD1uSUqo5qWb
+	uG3NA1q6Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k2ek1-00058E-LI; Mon, 03 Aug 2020 17:59:17 +0000
-Received: from esa6.hgst.iphmx.com ([216.71.154.45])
+	id 1k2h47-0005c6-FO; Mon, 03 Aug 2020 20:28:11 +0000
+Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k2eju-00051j-60; Mon, 03 Aug 2020 17:59:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1596477551; x=1628013551;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=NetUIh98Lh3twSMeBSYk+d3Kbtv98SHWIpPw/siizNE=;
- b=FBId+6B9isa8R6wINSRCG5KhzJVeZ0dT2d52H905saNPJRlKReG3k2ic
- 03Q0Dioypd38j07689O5rkOBwSbiPEK3WTa+nbtNFX9Rb3dcRedztdBso
- +xZt8mJ74H+JJikYB4U0g1ADyP6SrfW8iPc9r1l8L/x4fKAC26xCjJETj
- mO4SystmTgvxKBvl1gkDlPH+Lls+co9iL/Sf04CY/bjt+tvcAzTe8u0MU
- JrwIiOcVnLouBEDrl+pakUZNnh/k3s6IOOFJyZqEEL/OHPOuNjgCv44FX
- u4AOrnHomiG08Wtg1+5HcsUzv5ah2Sczfw0WvlOO38EVTA7cn6usQAIi9 A==;
-IronPort-SDR: BTZy0gDWilMcgp83dke7CpKcuLqftDdRjr1jseQ5QIjYzMTnGn6z3zO/X2fbxxiStgLUMAF5Q3
- 8SF70ZchHzezt+Nu0M2dUcZBxIfj7e5nubGCGprZVWOZNAuAFmDzelRjvtsO/xCp5ioERccc64
- Qv5odDcDPLyStpmmEcRylfG6jJnDsIcDHuzBoByTCqaBQK31oMreJ4dONb2hijICyVg1qSOI7c
- XwmJ9ccK/q3F5+e4C2DA156T34ULc+5vMn/kuRGk1oUbyjzdT4AZxOmSVY8bRTW70yrr4IXt8W
- LkM=
-X-IronPort-AV: E=Sophos;i="5.75,430,1589212800"; d="scan'208";a="145273253"
-Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
- ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 04 Aug 2020 01:59:08 +0800
-IronPort-SDR: Oi1zryX5vb4mlkQBVYxcz+Qp52qWvgr//dkuyv0Q8EaWSRZetsvt1Jio/Jep3i9XNOSkcZVUjc
- 43PXKD1cvHkQ==
-Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
- by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 03 Aug 2020 10:46:29 -0700
-IronPort-SDR: 7X+6upqgL4IKeTt7Dwe+wA4Ydqh+2t9rQWgGRVP6Oub5IbMwTdcLxybcvMUXZQzYh6OcQ00nD+
- oAvQYMf10Thw==
-WDCIronportException: Internal
-Received: from cnf007830.ad.shared (HELO jedi-01.hgst.com) ([10.86.58.196])
- by uls-op-cesaip01.wdc.com with ESMTP; 03 Aug 2020 10:59:06 -0700
-From: Atish Patra <atish.patra@wdc.com>
-To: kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH 6/6] RISC-V: Add SBI HSM extension in KVM
-Date: Mon,  3 Aug 2020 10:58:46 -0700
-Message-Id: <20200803175846.26272-7-atish.patra@wdc.com>
-X-Mailer: git-send-email 2.24.0
-In-Reply-To: <20200803175846.26272-1-atish.patra@wdc.com>
-References: <20200803175846.26272-1-atish.patra@wdc.com>
-MIME-Version: 1.0
+ id 1k2h43-0005be-Jq
+ for linux-riscv@lists.infradead.org; Mon, 03 Aug 2020 20:28:09 +0000
+Received: by mail-pf1-x441.google.com with SMTP id d22so545172pfn.5
+ for <linux-riscv@lists.infradead.org>; Mon, 03 Aug 2020 13:28:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=DsyHG58Ml3el1klPF1bwBCrgnOm9NV9u/jTv68prhdo=;
+ b=0EozY3rM+AKUvBQaldReZIEHQoZZn+QeItYkc6NopwPAm1+4L8J88UMKDRVc0Loc7y
+ CEZnWoAwfqNu8Bo/4F5RbqcFJ1ypilSIDbMPRdPh9358pUTyq7OiWNkQ2eyEwqg01aSH
+ aWWzEA7pNbpfK2ycb7Bs5tOtxVfInBI1+TIq+91zOjvWZ30lkQ7TEh6HQMQElIDlVdQo
+ q7sw14f8PxnwdkFuDr9IDVYz+1sGMCtQdAhmbo9X6p2GVdRlK8oyplpMiks6F6HaRKzw
+ GbPC9t6LhDCpq9CH2sYf78MiCs1YiJ1P+MQ+Wg+fmc7M4QXu3cE2QoAXtzEdb3zgMavh
+ xXaA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=DsyHG58Ml3el1klPF1bwBCrgnOm9NV9u/jTv68prhdo=;
+ b=OHnAcRvpNSdwxl8ogGMtfhYB2e2SiUIfF1SgGxyZO9r5wUEzksAb11TKV7q+o1dDFl
+ 3jD9khxsD4o0kMPpF8TwFlxyGQooUVtUh5IBQAKQ40g7aaXN2BxuUaXmXEOE8oYJs1Fh
+ Il39j8IG6DjXKov1JNsqkH2ErsUKL4ioAsEPSE1EDw3PeJ6qVnKMaKTHh92A2Ju9ACdl
+ uX3k7SPvEV8R8ldq5CiJawtGBLhkPsxmRE5AQeXvrh3cvoWAWJWFHPX7n2FgeVvYbB66
+ Js7PI8dDyFBjtdRVen1ST55yOUyasY3AyD2iMeyhhGB3dPb65UwIR9BSQKJUC0mrodlI
+ Jtug==
+X-Gm-Message-State: AOAM533ZECLlJZcAtuzxjQVs/8zYwH5iW7+l6OZtHMU4LYGTAgGzFIi8
+ jLVQAM4AiNnPejSBllu0YVMaxg==
+X-Google-Smtp-Source: ABdhPJwWy59mN15dEZz73tgDeTM9hlcOWhQ8dG4GRqA+j4YfM28o5M+DWqQ35OxU6A8Jf2A61kG5wg==
+X-Received: by 2002:a63:5d1:: with SMTP id 200mr16589218pgf.59.1596486482038; 
+ Mon, 03 Aug 2020 13:28:02 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id q24sm19614316pgg.3.2020.08.03.13.28.00
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 03 Aug 2020 13:28:01 -0700 (PDT)
+Date: Mon, 03 Aug 2020 13:28:01 -0700 (PDT)
+X-Google-Original-Date: Mon, 03 Aug 2020 13:27:57 PDT (-0700)
+Subject: Re: [PATCH v2] riscv: don't specify -mno-save-restore when building
+ with clang < 11
+In-Reply-To: <20200801103016.l2hs2g2vdsphkjbt@distanz.ch>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: tklauser@distanz.ch
+Message-ID: <mhng-7ade2879-fcf9-4419-aca8-0c80c1990887@palmerdabbelt-glaptop1>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200803_135910_401627_7379849F 
-X-CRM114-Status: GOOD (  25.04  )
+X-CRM114-CacheID: sfid-20200803_162807_793133_06E66104 
+X-CRM114-Status: GOOD (  42.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -93,250 +96,191 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Kefeng Wang <wangkefeng.wang@huawei.com>, Albert Ou <aou@eecs.berkeley.edu>,
- kvm@vger.kernel.org, Anup Patel <anup.patel@wdc.com>,
- linux-kernel@vger.kernel.org, Atish Patra <atish.patra@wdc.com>,
- Paolo Bonzini <pbonzini@redhat.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Alexander Graf <graf@amazon.com>,
- Thomas Gleixner <tglx@linutronix.de>
-Content-Type: text/plain; charset="us-ascii"
+Cc: linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu,
+ Paul Walmsley <paul.walmsley@sifive.com>
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SBI HSM extension allows OS to start/stop harts any time. It also allows
-ordered booting of harts instead of random booting.
+On Sat, 01 Aug 2020 03:30:17 PDT (-0700), tklauser@distanz.ch wrote:
+> On 2020-07-31 at 18:16:28 +0200, Palmer Dabbelt <palmer@dabbelt.com> wrote:
+>> On Fri, 31 Jul 2020 01:16:51 PDT (-0700), tklauser@distanz.ch wrote:
+>> > On 2020-07-31 at 05:58:13 +0200, Palmer Dabbelt <palmer@dabbelt.com> wrote:
+>> > > On Tue, 28 Jul 2020 21:44:28 PDT (-0700), tklauser@distanz.ch wrote:
+>> > > > Clang before version 11 doesn't support -msave-restore and
+>> > > > -mno-save-restore [1].
+>> > > >
+>> > > > [1] https://github.com/ClangBuiltLinux/linux/issues/804
+>> > > >
+>> > > > This avoids the following message when building with clang 10 and older:
+>> > > >
+>> > > >   '-save-restore' is not a recognized feature for this target (ignoring feature)
+>> > > >
+>> > > > Signed-off-by: Tobias Klauser <tklauser@distanz.ch>
+>> > > > ---
+>> > > > v2: use cc-option and check for clang version
+>> > > >
+>> > > >  arch/riscv/Makefile | 9 ++++++++-
+>> > > >  1 file changed, 8 insertions(+), 1 deletion(-)
+>> > > >
+>> > > > diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+>> > > > index fb6e37db836d..30e34946af86 100644
+>> > > > --- a/arch/riscv/Makefile
+>> > > > +++ b/arch/riscv/Makefile
+>> > > > @@ -44,7 +44,14 @@ riscv-march-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-y)c
+>> > > >  KBUILD_CFLAGS += -march=$(subst fd,,$(riscv-march-y))
+>> > > >  KBUILD_AFLAGS += -march=$(riscv-march-y)
+>> > > >
+>> > > > -KBUILD_CFLAGS += -mno-save-restore
+>> > > > +KBUILD_CFLAGS += $(call cc-option,-mno-save-restore)
+>> > > > +# Clang versions less than 11 do not support save-restore. See
+>> > > > +# https://github.com/ClangBuiltLinux/linux/issues/804
+>> > > > +ifeq ($(CONFIG_CC_IS_CLANG), y)
+>> > > > +  ifeq ($(shell test $(CONFIG_CLANG_VERSION) -lt 110000; echo $$?),0)
+>> > > > +    KBUILD_CFLAGS := $(filter-out -mno-save-restore,$(KBUILD_CFLAGS))
+>> > > > +  endif
+>> > > > +endif
+>> > > >  KBUILD_CFLAGS += -DCONFIG_PAGE_OFFSET=$(CONFIG_PAGE_OFFSET)
+>> > > >
+>> > > >  ifeq ($(CONFIG_CMODEL_MEDLOW),y)
+>> > >
+>> > > Ya, that seems worse ;).
+>> > >
+>> > > Does this work?  I still get a -mno-save-restore on GCC, but I don't have an
+>> > > LLVM lying around to test it with.
+>> >
+>> > Yeah, it should still emit -mno-save-restore on GCC and on Clang >= 11,
+>> > which is what it does in my tests here.
+>> >
+>> > It is certainly rather brittle by relying on the specific Clang version
+>> > and not very nice to look at, so your solution would certainly be much
+>> > nicer. Unfortunately, with cc-option-skipwarn I still get:
+>> >
+>> >   '-save-restore' is not a recognized feature for this target (ignoring feature)
+>> >
+>> > when building with Clang 10 :( I think the issue is that Clang
+>> > "somewhat" accepts/handles the option  i.e. doesn't treat it as an
+>> > unknown option like others and thus doesn't exit with non-zero, like it
+>> > does for other options only available for gcc.
+>>
+>> Sorry, I was asking if my patches below work.  Your stuff seems like it'd
+>> pretty obviously work, I just don't like sticking the version in there.  The
+>> patches are below.
+>
+> Sorry, I should have been more explicit in my message. I was testing
+> with cc-option-skipwarn with your two patches applied already. But
+> unfortunately, the warning still appeared when building with Clang 10
+> :-(
 
-Implement SBI HSM exntesion and designate the vcpu 0 as the boot vcpu id.
-All other non-zero non-booting vcpus should be brought up by the OS
-implementing HSM extension. If the guest OS doesn't implement HSM
-extension, only single vcpu will be available to OS.
+Bummer.
 
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
----
- arch/riscv/include/asm/sbi.h  |   1 +
- arch/riscv/kvm/Makefile       |   2 +-
- arch/riscv/kvm/vcpu.c         |  19 ++++++
- arch/riscv/kvm/vcpu_sbi.c     |   4 ++
- arch/riscv/kvm/vcpu_sbi_hsm.c | 109 ++++++++++++++++++++++++++++++++++
- 5 files changed, 134 insertions(+), 1 deletion(-)
- create mode 100644 arch/riscv/kvm/vcpu_sbi_hsm.c
+> The only way I can currently think of to detect this case using a
+> cc-option helper would be to somehow parse clang's stdout/stderr for the
+> message which IMO would be equally brittle as making the flag version
+> dependent :-(
 
-diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-index 7d8f2b389253..e18ba15fc9e1 100644
---- a/arch/riscv/include/asm/sbi.h
-+++ b/arch/riscv/include/asm/sbi.h
-@@ -90,6 +90,7 @@ enum sbi_hsm_hart_status {
- #define SBI_ERR_INVALID_PARAM	-3
- #define SBI_ERR_DENIED		-4
- #define SBI_ERR_INVALID_ADDRESS	-5
-+#define SBI_ERR_ALREADY_AVAILABLE -6
- 
- extern unsigned long sbi_spec_version;
- struct sbiret {
-diff --git a/arch/riscv/kvm/Makefile b/arch/riscv/kvm/Makefile
-index b0e8b760fda0..5c3c40636067 100644
---- a/arch/riscv/kvm/Makefile
-+++ b/arch/riscv/kvm/Makefile
-@@ -10,5 +10,5 @@ kvm-objs := $(common-objs-y)
- 
- kvm-objs += main.o vm.o vmid.o tlb.o mmu.o
- kvm-objs += vcpu.o vcpu_exit.o vcpu_switch.o vcpu_timer.o
--kvm-objs += vcpu_sbi.o vcpu_sbi_base.o vcpu_sbi_legacy.o vcpu_sbi_replace.o
-+kvm-objs += vcpu_sbi.o vcpu_sbi_base.o vcpu_sbi_legacy.o vcpu_sbi_replace.o vcpu_sbi_hsm.o
- obj-$(CONFIG_KVM)	+= kvm.o
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index adb0815951aa..f921d7771f40 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -130,6 +130,13 @@ static void kvm_riscv_reset_vcpu(struct kvm_vcpu *vcpu)
- 	struct kvm_vcpu_csr *reset_csr = &vcpu->arch.guest_reset_csr;
- 	struct kvm_cpu_context *cntx = &vcpu->arch.guest_context;
- 	struct kvm_cpu_context *reset_cntx = &vcpu->arch.guest_reset_context;
-+	bool loaded;
-+
-+	/* Disable preemption to avoid race with preempt notifiers */
-+	preempt_disable();
-+	loaded = (vcpu->cpu != -1);
-+	if (loaded)
-+		kvm_arch_vcpu_put(vcpu);
- 
- 	memcpy(csr, reset_csr, sizeof(*csr));
- 
-@@ -141,6 +148,11 @@ static void kvm_riscv_reset_vcpu(struct kvm_vcpu *vcpu)
- 
- 	WRITE_ONCE(vcpu->arch.irqs_pending, 0);
- 	WRITE_ONCE(vcpu->arch.irqs_pending_mask, 0);
-+
-+	/* Reset the guest CSRs for hotplug usecase */
-+	if (loaded)
-+		kvm_arch_vcpu_load(vcpu, smp_processor_id());
-+	preempt_enable();
- }
- 
- int kvm_arch_vcpu_precreate(struct kvm *kvm, unsigned int id)
-@@ -182,6 +194,13 @@ int kvm_arch_vcpu_setup(struct kvm_vcpu *vcpu)
- 
- void kvm_arch_vcpu_postcreate(struct kvm_vcpu *vcpu)
- {
-+	/**
-+	 * vcpu with id 0 is the designated boot cpu.
-+	 * Keep all vcpus with non-zero cpu id in power-off state so that they
-+	 * can brought to online using SBI HSM extension.
-+	 */
-+	if (vcpu->vcpu_idx != 0)
-+		kvm_riscv_vcpu_power_off(vcpu);
- }
- 
- void kvm_arch_vcpu_destroy(struct kvm_vcpu *vcpu)
-diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
-index 8c3ca522dddb..2f59b56d8640 100644
---- a/arch/riscv/kvm/vcpu_sbi.c
-+++ b/arch/riscv/kvm/vcpu_sbi.c
-@@ -25,6 +25,8 @@ static int kvm_linux_err_map_sbi(int err)
- 		return SBI_ERR_INVALID_ADDRESS;
- 	case -ENOTSUPP:
- 		return SBI_ERR_NOT_SUPPORTED;
-+	case -EALREADY:
-+		return SBI_ERR_ALREADY_AVAILABLE;
- 	default:
- 		return SBI_ERR_FAILURE;
- 	};
-@@ -35,6 +37,7 @@ extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_base;
- extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_time;
- extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_ipi;
- extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_rfence;
-+extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_hsm;
- 
- static const struct kvm_vcpu_sbi_extension *sbi_ext[] = {
- 	&vcpu_sbi_ext_legacy,
-@@ -42,6 +45,7 @@ static const struct kvm_vcpu_sbi_extension *sbi_ext[] = {
- 	&vcpu_sbi_ext_time,
- 	&vcpu_sbi_ext_ipi,
- 	&vcpu_sbi_ext_rfence,
-+	&vcpu_sbi_ext_hsm,
- };
- 
- void kvm_riscv_vcpu_sbi_forward(struct kvm_vcpu *vcpu, struct kvm_run *run)
-diff --git a/arch/riscv/kvm/vcpu_sbi_hsm.c b/arch/riscv/kvm/vcpu_sbi_hsm.c
-new file mode 100644
-index 000000000000..f8ab64f5f344
---- /dev/null
-+++ b/arch/riscv/kvm/vcpu_sbi_hsm.c
-@@ -0,0 +1,109 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/**
-+ * Copyright (c) 2020 Western Digital Corporation or its affiliates.
-+ *
-+ * Authors:
-+ *     Atish Patra <atish.patra@wdc.com>
-+ */
-+
-+#include <linux/errno.h>
-+#include <linux/err.h>
-+#include <linux/kvm_host.h>
-+#include <asm/csr.h>
-+#include <asm/sbi.h>
-+#include <asm/kvm_vcpu_sbi.h>
-+
-+static int kvm_sbi_hsm_vcpu_start(struct kvm_vcpu *vcpu)
-+{
-+	struct kvm_cpu_context *reset_cntx;
-+	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
-+	struct kvm_vcpu *target_vcpu;
-+	unsigned long target_vcpuid = cp->a0;
-+
-+	target_vcpu = kvm_get_vcpu_by_id(vcpu->kvm, target_vcpuid);
-+	if (!target_vcpu)
-+		return -EINVAL;
-+	if (!target_vcpu->arch.power_off)
-+		return -EALREADY;
-+
-+	reset_cntx = &target_vcpu->arch.guest_reset_context;
-+	/* start address */
-+	reset_cntx->sepc = cp->a1;
-+	/* target vcpu id to start */
-+	reset_cntx->a0 = target_vcpuid;
-+	/* private data passed from kernel */
-+	reset_cntx->a1 = cp->a2;
-+	kvm_make_request(KVM_REQ_VCPU_RESET, target_vcpu);
-+
-+	/* Make sure that the reset request is enqueued before power on */
-+	smp_wmb();
-+	kvm_riscv_vcpu_power_on(target_vcpu);
-+
-+	return 0;
-+}
-+
-+static int kvm_sbi_hsm_vcpu_stop(struct kvm_vcpu *vcpu)
-+{
-+	if ((!vcpu) || (vcpu->arch.power_off))
-+		return -EINVAL;
-+
-+	kvm_riscv_vcpu_power_off(vcpu);
-+
-+	return 0;
-+}
-+
-+static int kvm_sbi_hsm_vcpu_get_status(struct kvm_vcpu *vcpu)
-+{
-+	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
-+	unsigned long target_vcpuid = cp->a0;
-+	struct kvm_vcpu *target_vcpu;
-+
-+	target_vcpu = kvm_get_vcpu_by_id(vcpu->kvm, target_vcpuid);
-+	if (!target_vcpu)
-+		return -EINVAL;
-+	if (!target_vcpu->arch.power_off)
-+		return SBI_HSM_HART_STATUS_STARTED;
-+	else
-+		return SBI_HSM_HART_STATUS_STOPPED;
-+}
-+
-+static int kvm_sbi_ext_hsm_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
-+				   unsigned long *out_val,
-+				   struct kvm_cpu_trap *utrap,
-+				   bool *exit)
-+{
-+	int ret = 0;
-+	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
-+	struct kvm *kvm = vcpu->kvm;
-+	unsigned long funcid = cp->a6;
-+
-+	if (!cp)
-+		return -EINVAL;
-+	switch (funcid) {
-+	case SBI_EXT_HSM_HART_START:
-+		mutex_lock(&kvm->lock);
-+		ret = kvm_sbi_hsm_vcpu_start(vcpu);
-+		mutex_unlock(&kvm->lock);
-+		break;
-+	case SBI_EXT_HSM_HART_STOP:
-+		ret = kvm_sbi_hsm_vcpu_stop(vcpu);
-+		break;
-+	case SBI_EXT_HSM_HART_STATUS:
-+		ret = kvm_sbi_hsm_vcpu_get_status(vcpu);
-+		if (ret >= 0) {
-+			*out_val = ret;
-+			ret = 0;
-+		}
-+		break;
-+	default:
-+		ret = -ENOTSUPP;
-+	}
-+
-+	return ret;
-+}
-+
-+const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_hsm = {
-+	.extid_start = SBI_EXT_HSM,
-+	.extid_end = SBI_EXT_HSM,
-+	.handler = kvm_sbi_ext_hsm_handler,
-+};
--- 
-2.24.0
+Ya, that's worse.  I'm going to take a poke at clang and see if I can get
+something cleaner to work, otherwise I'll just take your patch.  I should
+probably add clang-based builds to my tests anyway.
 
+Thanks!
+
+>
+>> >
+>> > > From 3e3ae8610db0abba9dd6a18e5d6b9bc8c495c2fc Mon Sep 17 00:00:00 2001
+>> > > From: Palmer Dabbelt <palmerdabbelt@google.com>
+>> > > Date: Thu, 30 Jul 2020 19:41:11 -0700
+>> > > Subject: [PATCH 1/2] Kbuild: add cc-option-skipwarn
+>> > >
+>> > > The documentation describes the behavior of this function.  In theory we could
+>> > > just add -Werror to cc-option, but I don't want to chase around an infinate
+>> > > tail of weird build bugs due to compilers that have this odd behavior.
+>> > >
+>> > > Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
+>> > > ---
+>> > > Documentation/kbuild/makefiles.rst | 7 +++++++
+>> > > scripts/Kbuild.include             | 6 ++++++
+>> > > 2 files changed, 13 insertions(+)
+>> > >
+>> > > diff --git a/Documentation/kbuild/makefiles.rst b/Documentation/kbuild/makefiles.rst
+>> > > index 6515ebc12b6f..dba9faf4af29 100644
+>> > > --- a/Documentation/kbuild/makefiles.rst
+>> > > +++ b/Documentation/kbuild/makefiles.rst
+>> > > @@ -507,6 +507,13 @@ more details, with real examples.
+>> > > 	cflags-y will be assigned no value if first option is not supported.
+>> > > 	Note: cc-option uses KBUILD_CFLAGS for $(CC) options
+>> > >
+>> > > +   cc-option-skipwarn
+>> > > +	Some compilers emit a warning on unsupported options rather than an
+>> > > +	error.  This trips up cc-option, as the test compiler run will succeed
+>> > > +	only to spit out the warning for every file.  cc-option-skipwarn allows
+>> > > +	the build infastructure to detect compiles that behave this way, but
+>> > > +	otherwise acts exactly as cc-option does.
+>> > > +
+>> > >    cc-option-yn
+>> > > 	cc-option-yn is used to check if gcc supports a given option
+>> > > 	and return 'y' if supported, otherwise 'n'.
+>> > > diff --git a/scripts/Kbuild.include b/scripts/Kbuild.include
+>> > > index 9a15fbf66aa1..2efd3a8890c7 100644
+>> > > --- a/scripts/Kbuild.include
+>> > > +++ b/scripts/Kbuild.include
+>> > > @@ -129,6 +129,12 @@ CC_OPTION_CFLAGS = $(filter-out $(GCC_PLUGINS_CFLAGS),$(KBUILD_CFLAGS))
+>> > > cc-option = $(call __cc-option, $(CC),\
+>> > > 	$(KBUILD_CPPFLAGS) $(CC_OPTION_CFLAGS),$(1),$(2))
+>> > >
+>> > > +# cc-option-skipwarn
+>> > > +# Usage: cflags-y += $(call cc-option-skipwarn,-mno-save-restore)
+>> > > +
+>> > > +cc-option-skipwarn = $(call __cc-option, $(CC),\
+>> > > +	$(KBUILD_CPPFLAGS) -Werror $(CC_OPTION_CFLAGS),$(1),$(2))
+>> > > +
+>> > > # cc-option-yn
+>> > > # Usage: flag := $(call cc-option-yn,-march=winchip-c6)
+>> > > cc-option-yn = $(call try-run,\
+>> > > --
+>> > > 2.28.0.163.g6104cc2f0b6-goog
+>> > >
+>> > >
+>> > > From 8509566a1a3480ea309fd81317d8cd6125b5e294 Mon Sep 17 00:00:00 2001
+>> > > From: Tobias Klauser <tklauser@distanz.ch>
+>> > > Date: Wed, 29 Jul 2020 06:44:28 +0200
+>> > > Subject: [PATCH 2/2] riscv: don't specify -mno-save-restore unless it's
+>> > > supported
+>> > >
+>> > > Clang before version 11 doesn't support -msave-restore and
+>> > > -mno-save-restore [1].
+>> > >
+>> > > [1] https://github.com/ClangBuiltLinux/linux/issues/804
+>> > >
+>> > > This avoids the following message when building with clang 10 and older:
+>> > >
+>> > >  '-save-restore' is not a recognized feature for this target (ignoring feature)
+>> > >
+>> > > Signed-off-by: Tobias Klauser <tklauser@distanz.ch>
+>> > > [Palmer: Use cc-option-nowarn]
+>> > > Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
+>> > > ---
+>> > > arch/riscv/Makefile | 2 +-
+>> > > 1 file changed, 1 insertion(+), 1 deletion(-)
+>> > >
+>> > > diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+>> > > index fb6e37db836d..532029c887f1 100644
+>> > > --- a/arch/riscv/Makefile
+>> > > +++ b/arch/riscv/Makefile
+>> > > @@ -44,7 +44,7 @@ riscv-march-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-y)c
+>> > > KBUILD_CFLAGS += -march=$(subst fd,,$(riscv-march-y))
+>> > > KBUILD_AFLAGS += -march=$(riscv-march-y)
+>> > >
+>> > > -KBUILD_CFLAGS += -mno-save-restore
+>> > > +KBUILD_CFLAGS += $(call cc-option-skipwarn,-mno-save-restore)
+>> > > KBUILD_CFLAGS += -DCONFIG_PAGE_OFFSET=$(CONFIG_PAGE_OFFSET)
+>> > >
+>> > > ifeq ($(CONFIG_CMODEL_MEDLOW),y)
+>> > > --
+>> > > 2.28.0.163.g6104cc2f0b6-goog
+>> > >
+>>
 
 _______________________________________________
 linux-riscv mailing list
