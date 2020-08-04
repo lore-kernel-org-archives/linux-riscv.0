@@ -2,82 +2,64 @@ Return-Path: <SRS0=zqIG=BO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id F0BA1C433E0
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Aug 2020 03:30:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 65CB2C433E0
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Aug 2020 09:51:18 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DCB8E2068F
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Aug 2020 03:30:02 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 545D422CAD
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Aug 2020 09:51:18 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="CvGKgSnh";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="N2Lx7bIp"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DCB8E2068F
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="vgc6OrTz";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="RmFywTyR"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 545D422CAD
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=PkiE1kW7F7wVAthk8je81hCPrYkjvq/iGseoY1789To=; b=CvGKgSnhWE8/g8sAGfm0aq4+C
-	T524VCWxtfiXEa/lqO8o4YwPvEfwHnfdHQ2c6LanUu4JDlDsHxWm0SHzAhinIwC4ftR0Nqq2iij+T
-	BwaS8kQZ3+F77++Z5FSwzg+v3yW3C2jVzPw3zHRpD7ivQyS20zWxzS/vtP7jJfMOjM/wVWxSFHwcg
-	SF7uVQkCbr2/Aa+ORA6j0pZQyaZVV45AD7YBaqBrw5ykFjditRq7BIyJcCkLM5XK2fFDo0g9cLMlI
-	eqfR6UdrR+3TXPZ8gRR0iTuYj3MHyLsZiM2Y5F9/mYK8isR1yQMpDAicffPE8/BhtdpfLfeNlKscb
-	SpgJRna2Q==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dua2la9pXAVudlLdhxrxxWpTNAFw7NXXCLGPDXT9UwY=; b=vgc6OrTziPD0XxeytKPpPdvMBh
+	+FSDM8qpeGf2wfzzUaM59yJX8lGp+UKf8wgxbFpiFe7nNxDDz1rr+eL2212e0epYo7Zerg1dW3iXc
+	kHEa1EXfdy7sW0/Ye3suFs9WOzKn09MgG8vPRCqAgF0DLdjetSwRDodszqOYVAEvTlddU0WMWpAiA
+	wTYBI27eUV+uWO7zU0UKgBh6JxIiGtclZI7530/VRyAkrjSxuBcR33YySoJwbOu+QgylgzPvVBI3b
+	gllo72s3OJdZzskj16Tdhp0yJySDVQg6wVy9JVct2dAj+FFa7Bx9dZtHYMQtd8OsOK1W3D7NnClNf
+	E/gwlMsA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k2neA-0004bo-Cn; Tue, 04 Aug 2020 03:29:50 +0000
-Received: from mail-wr1-x442.google.com ([2a00:1450:4864:20::442])
+	id 1k2tay-0001kp-4d; Tue, 04 Aug 2020 09:50:56 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k2ne7-0004b6-PR
- for linux-riscv@lists.infradead.org; Tue, 04 Aug 2020 03:29:48 +0000
-Received: by mail-wr1-x442.google.com with SMTP id f7so36016954wrw.1
- for <linux-riscv@lists.infradead.org>; Mon, 03 Aug 2020 20:29:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=LmKKzdmsH+1VZAyS/bcCQ07sLy0DbSnTthJzq4HEE1c=;
- b=N2Lx7bIpVS3FuJKK0Z0ef/alEh+npxvLnHgcnIQmEEHSV+bOdivorBtrAUOaIjaQuM
- /eLnzoiN2RHn5o1vELmITihEHOO1s7vfh3oLze4o01+BvJh61NtK3lY3JGcrm11VHvA3
- XWw5mSxLNCwU1VcD8M1Bx+/ZrsYDZFBVUeM/1pDg7SJ9T4sWiiy5WrOyAcymIlTB+GHE
- 5mcsx6xQqdsgGXxYVoIHdGjoPjIjjlKHmYw2RNFeIbGMXEncp3CtPnFNqwM4BeujMFkn
- 0BThrq0Ha2ymRqGfYsvbBo8ibUwzjiePhV6KYPqfqV+MXGsBlerMbU2HLYvKZwXW00Au
- OCbA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=LmKKzdmsH+1VZAyS/bcCQ07sLy0DbSnTthJzq4HEE1c=;
- b=aN2/1t9IC9jIZxusJz5chUA3DxcEZogw/BuDkPNAoltdVGmNFNOTzXTfkXGTv6Hv+V
- L6V7qMYcb9m/H/QaBlTAiACxUpZHiEWSrUbCtle+dNu/xGVCgozVuv26VdmiLqN8YyOn
- NNz+EiI9eticjBZfe57qPAMNB+31JlYBfldjx0OZnSHBYCb/JYoDxteM7Ibq+hPICqyE
- LF4vgC9FzSsL+yTWdiZVRDgfYuNhwSAs1gLdiQOgbXpcDq21PJCS9BWtMIOOVVj9IN2+
- KP8Uyry74KYPiX8h/rLmVrk3aR314lca1MdViFrKSeRZdfng8oTVucGdELS9rPtxouQU
- ZYOA==
-X-Gm-Message-State: AOAM532+MwjSzy1C3a+uYJiBAtsbjqmI7N9ZpZzd9q6nHD15312cb7re
- Bi0qgXi0Jr9IjNd9AUCb+iy9eJBzF9/ddb0wY/4jiw==
-X-Google-Smtp-Source: ABdhPJyFa+mc48R5ry3vm9Zy21Kc2uGTPuKBXSUBVyTN7VIdD1/fesiIXrwx4JlGChud9jFDvW10FSsVJaAlhWGNI1s=
-X-Received: by 2002:adf:fb87:: with SMTP id a7mr18913370wrr.390.1596511784511; 
- Mon, 03 Aug 2020 20:29:44 -0700 (PDT)
+ id 1k2tas-0001j9-6P; Tue, 04 Aug 2020 09:50:51 +0000
+Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 2A61D206DA;
+ Tue,  4 Aug 2020 09:50:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1596534648;
+ bh=td5J9Vxgk+gTO+L9zbaF5BaPjjiLjmM4vrr/SBOLFKU=;
+ h=From:To:Cc:Subject:Date:From;
+ b=RmFywTyRGmjSjjTGim05to90O8GVoSHviD+l0nIkYuIaFtl1JVO+6upwcXnWdTUQX
+ lkiRQ6AbRc5Y05F6PO7WjYZU9ibrAtxRMsRsAfzikpflcCJKMWGPzYp8AwUTqpVpkc
+ YWncexe8pS1r0ZZ6v4SxAIyNUNyGQ+9cOkXZRy8k=
+From: Mike Rapoport <rppt@kernel.org>
+To: linux-kernel@vger.kernel.org
+Subject: [PATCH v3 0/6] mm: introduce memfd_secret system call to create
+ "secret" memory areas
+Date: Tue,  4 Aug 2020 12:50:29 +0300
+Message-Id: <20200804095035.18778-1-rppt@kernel.org>
+X-Mailer: git-send-email 2.26.2
 MIME-Version: 1.0
-References: <20200804030205.91656-1-greentime.hu@sifive.com>
-In-Reply-To: <20200804030205.91656-1-greentime.hu@sifive.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Tue, 4 Aug 2020 08:59:32 +0530
-Message-ID: <CAAhSdy1QbMjZxxu+wSBYr3+3oaM2Qg=_Uwj8dfQidi=ck6PV_Q@mail.gmail.com>
-Subject: Re: [PATCH] riscv: Add sfence.vma after page table changed
-To: Greentime Hu <greentime.hu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200803_232947_939837_8F42151D 
-X-CRM114-Status: GOOD (  18.01  )
+X-CRM114-CacheID: sfid-20200804_055050_366926_55E3D519 
+X-CRM114-Status: GOOD (  26.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -89,70 +71,134 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, syven.wang@sifive.com,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Christopher Lameter <cl@linux.com>,
+ Idan Yaniv <idan.yaniv@ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
+ Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
+ Will Deacon <will@kernel.org>, x86@kernel.org,
+ Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
+ Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
+ Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ linux-api@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Palmer Dabbelt <palmer@dabbelt.com>, linux-fsdevel@vger.kernel.org,
+ Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 4, 2020 at 8:32 AM Greentime Hu <greentime.hu@sifive.com> wrote:
->
-> This patch addes local_flush_tlb_page(addr) to use sfence.vma after the
+From: Mike Rapoport <rppt@linux.ibm.com>
 
-s/addes/adds
+Hi,
 
-> page table changed. That address will be used immediately in
-> memset(nextp, 0, PAGE_SIZE) to cause this issue so we should add the
-> sfence.vma before we use it.
+This is an implementation of "secret" mappings backed by a file descriptor. 
 
-Alternate version of this commit description can be:
+v3 changes:
+* Squash kernel-parameters.txt update into the commit that added the
+  command line option.
+* Make uncached mode explicitly selectable by architectures. For now enable
+  it only on x86.
 
-Invalidate local TLB after both set_pet() and clear_pte() because the
-address can be used immediately after page table change.
+v2 changes:
+* Follow Michael's suggestion and name the new system call 'memfd_secret'
+* Add kernel-parameters documentation about the boot option
+* Fix i386-tinyconfig regression reported by the kbuild bot.
+  CONFIG_SECRETMEM now depends on !EMBEDDED to disable it on small systems
+  from one side and still make it available unconditionally on
+  architectures that support SET_DIRECT_MAP.
 
->
-> Fixes: f2c17aabc917 ("RISC-V: Implement compile-time fixed mappings")
->
-> Reported-by: Syven Wang <syven.wang@sifive.com>
-> Signed-off-by: Syven Wang <syven.wang@sifive.com>
-> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-> ---
->  arch/riscv/mm/init.c | 7 +++----
->  1 file changed, 3 insertions(+), 4 deletions(-)
->
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index f4adb3684f3d..29b0f7108054 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -202,12 +202,11 @@ void __set_fixmap(enum fixed_addresses idx, phys_addr_t phys, pgprot_t prot)
->
->         ptep = &fixmap_pte[pte_index(addr)];
->
-> -       if (pgprot_val(prot)) {
-> +       if (pgprot_val(prot))
->                 set_pte(ptep, pfn_pte(phys >> PAGE_SHIFT, prot));
-> -       } else {
-> +       else
->                 pte_clear(&init_mm, addr, ptep);
-> -               local_flush_tlb_page(addr);
-> -       }
-> +       local_flush_tlb_page(addr);
->  }
->
->  static pte_t *__init get_pte_virt(phys_addr_t pa)
-> --
-> 2.28.0
->
+The file descriptor backing secret memory mappings is created using a
+dedicated memfd_secret system call The desired protection mode for the
+memory is configured using flags parameter of the system call. The mmap()
+of the file descriptor created with memfd_secret() will create a "secret"
+memory mapping. The pages in that mapping will be marked as not present in
+the direct map and will have desired protection bits set in the user page
+table. For instance, current implementation allows uncached mappings.
 
-Otherwise looks good to me.
+Although normally Linux userspace mappings are protected from other users, 
+such secret mappings are useful for environments where a hostile tenant is
+trying to trick the kernel into giving them access to other tenants
+mappings.
 
-Reviewed-by: Anup Patel <anup@brainfault.org>
+Additionally, the secret mappings may be used as a mean to protect guest
+memory in a virtual machine host.
 
-Regards,
-Anup
+For demonstration of secret memory usage we've created a userspace library
+[1] that does two things: the first is act as a preloader for openssl to
+redirect all the OPENSSL_malloc calls to secret memory meaning any secret
+keys get automatically protected this way and the other thing it does is
+expose the API to the user who needs it. We anticipate that a lot of the
+use cases would be like the openssl one: many toolkits that deal with
+secret keys already have special handling for the memory to try to give
+them greater protection, so this would simply be pluggable into the
+toolkits without any need for user application modification.
+
+I've hesitated whether to continue to use new flags to memfd_create() or to
+add a new system call and I've decided to use a new system call after I've
+started to look into man pages update. There would have been two completely
+independent descriptions and I think it would have been very confusing.
+
+Hiding secret memory mappings behind an anonymous file allows (ab)use of
+the page cache for tracking pages allocated for the "secret" mappings as
+well as using address_space_operations for e.g. page migration callbacks.
+
+The anonymous file may be also used implicitly, like hugetlb files, to
+implement mmap(MAP_SECRET) and use the secret memory areas with "native" mm
+ABIs in the future.
+
+As the fragmentation of the direct map was one of the major concerns raised
+during the previous postings, I've added an amortizing cache of PMD-size
+pages to each file descriptor and an ability to reserve large chunks of the
+physical memory at boot time and then use this memory as an allocation pool
+for the secret memory areas.
+
+v2: https://lore.kernel.org/lkml/20200727162935.31714-1-rppt@kernel.org
+v1: https://lore.kernel.org/lkml/20200720092435.17469-1-rppt@kernel.org/
+rfc-v2: https://lore.kernel.org/lkml/20200706172051.19465-1-rppt@kernel.org/
+rfc-v1: https://lore.kernel.org/lkml/20200130162340.GA14232@rapoport-lnx/
+
+Mike Rapoport (6):
+  mm: add definition of PMD_PAGE_ORDER
+  mmap: make mlock_future_check() global
+  mm: introduce memfd_secret system call to create "secret" memory areas
+  arch, mm: wire up memfd_secret system call were relevant
+  mm: secretmem: use PMD-size pages to amortize direct map fragmentation
+  mm: secretmem: add ability to reserve memory at boot
+
+ arch/Kconfig                           |   7 +
+ arch/arm64/include/asm/unistd.h        |   2 +-
+ arch/arm64/include/asm/unistd32.h      |   2 +
+ arch/arm64/include/uapi/asm/unistd.h   |   1 +
+ arch/riscv/include/asm/unistd.h        |   1 +
+ arch/x86/Kconfig                       |   1 +
+ arch/x86/entry/syscalls/syscall_32.tbl |   1 +
+ arch/x86/entry/syscalls/syscall_64.tbl |   1 +
+ fs/dax.c                               |  10 +-
+ include/linux/pgtable.h                |   3 +
+ include/linux/syscalls.h               |   1 +
+ include/uapi/asm-generic/unistd.h      |   7 +-
+ include/uapi/linux/magic.h             |   1 +
+ include/uapi/linux/secretmem.h         |   9 +
+ kernel/sys_ni.c                        |   2 +
+ mm/Kconfig                             |   4 +
+ mm/Makefile                            |   1 +
+ mm/internal.h                          |   3 +
+ mm/mmap.c                              |   5 +-
+ mm/secretmem.c                         | 458 +++++++++++++++++++++++++
+ 20 files changed, 510 insertions(+), 10 deletions(-)
+ create mode 100644 include/uapi/linux/secretmem.h
+ create mode 100644 mm/secretmem.c
+
+-- 
+2.26.2
+
 
 _______________________________________________
 linux-riscv mailing list
