@@ -2,23 +2,22 @@ Return-Path: <SRS0=W16s=BP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id F1867C433DF
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2020 17:11:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 15963C433E0
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2020 17:29:00 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BB325206F6
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2020 17:11:56 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id BD32F22D06
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2020 17:28:59 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="RRw+FjwX";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="oziJJooK"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BB325206F6
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sXVttm9G"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BD32F22D06
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=esmil.dk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -26,59 +25,50 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=3BC0uzi17sV0zctqeldq4u189pk9lXWN7YeXoNWXW3w=; b=RRw+FjwXmrFm72KGcJHK9Fq7v
-	4Jr2W6toOaKjswVObQfcgAjjhCjLbFarrDHoB3k181PtNnuEo0yIGDlV5u9SXXkibpavWm4a3olLg
-	gyTYAAhvoSfIAEJerXd1+JmCMeYX8896Wg9ZYkfgqlxEufW89D1YF/xT+BMwqvVH29X62nxBOcLYR
-	ipBGUGaO9ni0EkNs9AsbYQy418iP8tVjdcyQ872239VfH2CULzG5ccM+UbwzhQDaj6oHdycraIBxd
-	k30GhWHzCzYw/kKhEn6g1kzWu/9AOTLlrwclOYX4CbzabEcf4fvUN5Jp8UBWtRY51Lo7rMDeGV9e3
-	0yGyfVkIw==;
+	 bh=2eduUFn4yA67Mb46FpYcOqTm2X8gD0xPnkshruw/rIY=; b=sXVttm9GfCiqg5mgEDNlC1AxL
+	0bUPK1u03EqLF4lkjgp5rWyJiNa+d/a7X0npVI4RHgPiN91ur5BHj4h6R6uOeVvzPPyRctfc/Cq8O
+	0yTVqAs538N9NJ0lXfNmKoov9NcYvc7WOsI/xP8ossDTdhHJfMRQRW3u3y5hyWMqLNubhGVCsJcxI
+	7FgHIXxNXgKCRRsooL7vGUTTo0xy8RDTJetylrZwCjU2RZ+1nilqRYaqSgYELZJwKZ3ermlk4JgcG
+	YPxFb2PDAKv8cXDYbnzp3WxEMtzDq0A1AhF0OhOEll62GpJ+tCiuffZWXAvYkdheIq0M6Ir0mvFGv
+	twgxOH8QA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k3MxA-0007Uw-Fd; Wed, 05 Aug 2020 17:11:48 +0000
-Received: from mail-lj1-x244.google.com ([2a00:1450:4864:20::244])
+	id 1k3NDc-0000uk-Ky; Wed, 05 Aug 2020 17:28:48 +0000
+Received: from mail-yb1-f195.google.com ([209.85.219.195])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k3Mx5-0007Sb-9i; Wed, 05 Aug 2020 17:11:44 +0000
-Received: by mail-lj1-x244.google.com with SMTP id t6so35623044ljk.9;
- Wed, 05 Aug 2020 10:11:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=wXACrCF85ppHwQuHqdOjCkc1N78NkRlSijLNjTow210=;
- b=oziJJooKYyQ5sG761r04I5LKIuXOAb4zkqQY0rWC/xo2s+cTYTs9U7RyQWnqJ5pq1v
- Nbi4cMvrIp/CIcHu8pIr+eoqlm0BvwqSZf/j11GWMus1IVdOI8eFA+JP3OpxAqxrqH8K
- 4U3LrHkbnbOlDfybyMuly/WmuqEo0ptHsHBq2XUlda4WU2cHiLw7ZD+AnmV8uuOJ/jgu
- 3gjhgLG0ATcZI4I3fwTk7ZEPoMTcfQVSsz4xqNOlCB6RK7j7M3zBxlIMpYdsF8DV3rrq
- yNVU9YFhsTtYiIivGSgzfm9XcHZ9fq/Ugzzwuzkf0diKBR/hJ5MKs2YpE9NsOoFGUM2c
- kG+Q==
+ id 1k3NDa-0000u5-AE
+ for linux-riscv@lists.infradead.org; Wed, 05 Aug 2020 17:28:47 +0000
+Received: by mail-yb1-f195.google.com with SMTP id e187so11874941ybc.5
+ for <linux-riscv@lists.infradead.org>; Wed, 05 Aug 2020 10:28:42 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=wXACrCF85ppHwQuHqdOjCkc1N78NkRlSijLNjTow210=;
- b=rVWhDPWwnZMsC8vZLBKB96b22BZgtl0GCcKCTKghzX+j0gw/wMMyB+348AoR5piT1f
- P+Fl3bth/xhulWxNL2KLWSLyY+duTHaI2LExDdNa4jrfE8M3G1am18vTVPW7ku96qcTN
- FFQ/mLDBCcxvMpa1cgm/y6qY+DUSGLbqbLw70pEDpcIntJWLFFM0CrSR5KQsjp4X7Kt2
- Ade9U4zxHkB7mEW4ueT3d7pIl9sCf5eBF+tWlOC26ekMPa8fAhuzXBaespX47IdQtJts
- Ws2s4Ebrtq0jN9ZJLVBZXpRPNecfqw8wm0yhzurSgtsrmySjhkoky/1c9dxED0LHxJ/u
- 9qbA==
-X-Gm-Message-State: AOAM533BrGgRoDd9xhNpp7GIhYGSLnaIgOhxC0xhAwlY8y8ONINHLbLN
- CpwiOixI7Qpk7uH+QgwQjq0oAS1E6/bM2OxRFOQ=
-X-Google-Smtp-Source: ABdhPJwaicIhf8YdyAekvXwX7eOOzcHPiY2LvmIo6u440HJ6sOevFi0lA9FP0nbD1iVE8pjbKUmnQK8GBjMj1kpsXT0=
-X-Received: by 2002:a2e:b814:: with SMTP id u20mr1829339ljo.202.1596647501750; 
- Wed, 05 Aug 2020 10:11:41 -0700 (PDT)
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=jIESkjbosNzI2i/4mKhOLQJDIy5XIt98gpDKy5En5c4=;
+ b=pafpX3ELfnvs0K2LdGlneRs3235TD/RdfYWe786so23h4YJsjfTLP9a7xKSOEdy0a6
+ V3RqNzSo7aCB/MbiGWYciwafxJtgUXCo3YBz/x34Kl5rh35aufGiQBPxZZZK9FVNCiPG
+ v4t7jRyfW1KeTOKX4xKgFBt0Rsn+J/X609sQUbjUBaW5OBW3m5CeThTuBqXqkHyMVpHA
+ T3QyW+hiCA+equI/yDcq4mgIry6pjV7On2zDjhA6eQZf1h8aQ6riiGkHpcl6nxHT1w+J
+ gqbM/VVUd6DVmsowJ/LEYMLdpQJR6ZlHmdo6nqRjjqoSa89rfFBO2wsZ5hiCyhh9VgVp
+ o9kQ==
+X-Gm-Message-State: AOAM533y9S6jrzdTobbmxIv9lX1t667VEID44+p8+YlWu99gDFgtykAg
+ R92lyJJC9Rd0brLYfEBOozywgrFRUmAOq61sMzc=
+X-Google-Smtp-Source: ABdhPJzte+8NoKSJuGw9eYFA13DSpKHsDBmKqgn4k/Mm9Ytk75/dvy05IZxLYFMiua2sOAJDf1Wocp/j2vKgV+Qprrs=
+X-Received: by 2002:a25:4609:: with SMTP id t9mr6233360yba.231.1596648521373; 
+ Wed, 05 Aug 2020 10:28:41 -0700 (PDT)
 MIME-Version: 1.0
-References: <20200802163601.8189-1-rppt@kernel.org>
- <20200802163601.8189-17-rppt@kernel.org>
-In-Reply-To: <20200802163601.8189-17-rppt@kernel.org>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Wed, 5 Aug 2020 19:11:30 +0200
-Message-ID: <CANiq72k-hZwbnttADQhi3+NrHkLDVe95jxLAPvLbvSOW41+HaQ@mail.gmail.com>
-Subject: Re: [PATCH v2 16/17] memblock: implement
- for_each_reserved_mem_region() using __next_mem_region()
-To: Mike Rapoport <rppt@kernel.org>
+References: <20200722152422.72532-1-kernel@esmil.dk>
+ <20200722152422.72532-2-kernel@esmil.dk>
+ <CADasFoDfRwcfFHM_Sa-HzwSDyXEr2PNu3Wfe5riwZJM9XsELBQ@mail.gmail.com>
+In-Reply-To: <CADasFoDfRwcfFHM_Sa-HzwSDyXEr2PNu3Wfe5riwZJM9XsELBQ@mail.gmail.com>
+From: Emil Renner Berthing <kernel@esmil.dk>
+Date: Wed, 5 Aug 2020 19:28:29 +0200
+Message-ID: <CANBLGcym5LER30xEVCmVU=6BTNTTLJDUL72DnVSB0V2MsBOwuA@mail.gmail.com>
+Subject: Re: [PATCH v1 2/2] riscv: Clean up module relocations
+To: Luke Nelson <lukenels@cs.washington.edu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200805_131143_397122_986EC87F 
-X-CRM114-Status: UNSURE (   9.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200805_132846_377941_65D81F47 
+X-CRM114-Status: GOOD (  19.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -90,49 +80,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
- Emil Renner Berthing <kernel@esmil.dk>, linux-sh@vger.kernel.org,
- Peter Zijlstra <peterz@infradead.org>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Dave Hansen <dave.hansen@linux.intel.com>, linux-mips@vger.kernel.org,
- Max Filippov <jcmvbkbc@gmail.com>, Paul Mackerras <paulus@samba.org>,
- sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
- Will Deacon <will@kernel.org>, Christoph Hellwig <hch@lst.de>,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- linux-arch <linux-arch@vger.kernel.org>, linux-s390@vger.kernel.org,
- linux-c6x-dev@linux-c6x.org, Baoquan He <bhe@redhat.com>,
- Michael Ellerman <mpe@ellerman.id.au>,
- "maintainer:X86 ARCHITECTURE \(32-BIT AND 64-BIT\)" <x86@kernel.org>,
- Russell King <linux@armlinux.org.uk>, Mike Rapoport <rppt@linux.ibm.com>,
- clang-built-linux <clang-built-linux@googlegroups.com>,
- Ingo Molnar <mingo@redhat.com>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- uclinux-h8-devel@lists.sourceforge.jp, linux-xtensa@linux-xtensa.org,
- openrisc@lists.librecores.org, Borislav Petkov <bp@alien8.de>,
- Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Stafford Horne <shorne@gmail.com>, Hari Bathini <hbathini@linux.ibm.com>,
- Michal Simek <monstr@monstr.eu>, Yoshinori Sato <ysato@users.sourceforge.jp>,
- Linux-MM <linux-mm@kvack.org>, linux-kernel <linux-kernel@vger.kernel.org>,
- iommu@lists.linux-foundation.org, Palmer Dabbelt <palmer@dabbelt.com>,
- Andrew Morton <akpm@linux-foundation.org>, linuxppc-dev@lists.ozlabs.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, LKML <linux-kernel@vger.kernel.org>,
+ Zong Li <zong@andestech.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Andreas Schwab <schwab@suse.de>, linux-riscv <linux-riscv@lists.infradead.org>,
+ Xi Wang <xi.wang@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 2, 2020 at 6:40 PM Mike Rapoport <rppt@kernel.org> wrote:
->
->  .clang-format                    |  2 +-
-
-The .clang-format bit:
-
-Acked-by: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-
-Cheers,
-Miguel
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCAzMCBKdWwgMjAyMCBhdCAyMDo1MywgTHVrZSBOZWxzb24gPGx1a2VuZWxzQGNzLndh
+c2hpbmd0b24uZWR1PiB3cm90ZToKPgo+IFRoYW5rcyBmb3IgdGhlIHBhdGNoIQo+Cj4gPiBBbHNv
+IFJJU0MtViBoYXMgYSBudW1iZXIgb2YgaW5zdHJ1Y3Rpb24gcGFpcnMgdG8KPiA+IGdlbmVyYXRl
+IDMyYml0IGltbWVkaWF0ZXMgb3IganVtcC9jYWxsIG9mZnNldHMuIEVnLjoKPiA+Cj4gPiBsdWkg
+ICByZCwgaGkyMAo+ID4gYWRkaSAgcmQsIHJkLCBsbzEyCj4KPiBPbiBSVjY0LCBib3RoIGhpMjAg
+ZnJvbSBsdWkgYW5kIGxvMTIgZnJvbSBhZGRpIGFyZSBzaWduLWV4dGVuZGVkIHRvIDY0IGJpdHMu
+Cj4gVGhpcyBtZWFucyB0aGF0IHRoZXJlIGFyZSBzb21lIDMyLWJpdCBzaWduZWQgb2Zmc2V0cyAo
+aW4gdGhlIHJhbmdlCj4gWzJeMzEtMl4xMSwgMl4zMS0xXSkKPiB0aGF0IGFyZSBub3QgZW5jb2Rh
+YmxlIHVzaW5nIChsdWkrYWRkaSksIChhdWlwYytqYWxyKSwgZXRjLiAoc2VlCj4gZGlzY3Vzc2lv
+biBhdCBbMV0pLgo+Cj4gVGhlIGZvbGxvd2luZyBub3RlIGlzIGZyb20gdGhlIElTQSBtYW51YWw6
+Cj4gPj4+IE5vdGUgdGhhdCB0aGUgc2V0IG9mIGFkZHJlc3Mgb2Zmc2V0cyB0aGF0IGNhbiBiZSBm
+b3JtZWQgYnkgcGFpcmluZyBMVUkgd2l0aCBMRCwKPiA+Pj4gQVVJUEMgd2l0aCBKQUxSLCBldGMu
+IGluIFJWNjRJIGlzIFviiJIyXjMx4oiSMl4xMSwgMl4zMeKIkjJeMTHiiJIxXS4KCkdvb2QgcG9p
+bnQhCgo+IFRoZSBleGlzdGluZyBjb2RlIGFuZCB0aGUgbmV3IGNvZGUgYm90aCBzZWVtIGJ1Z2d5
+IGlmIHRoZSBvZmZzZXQgaGFwcGVucyB0bwo+IGJlIGEgMzItYml0IGludCBidXQgZmFsbHMgb3V0
+c2lkZSBvZiB0aGUgZW5jb2RhYmxlIHJhbmdlLgo+Cj4gPiArICAgICAgIGlmIChvZmZzZXQgIT0g
+KHMzMilvZmZzZXQpIHsKPiA+IFsuLi5dCj4gPiArICAgICAgIGlmIChvZmZzZXQgIT0gKHMzMilv
+ZmZzZXQpIHsKPiA+IFsuLi5dCj4KPiBUaGVzZSBjaGVja3Mgc2hvdWxkIHByb2JhYmx5IGJlIHJl
+cGxhY2VkIHdpdGggc29tZXRoaW5nIHNpbWlsYXIgdG8KPiB3aGF0J3MgdXNlZCBpbiB0aGUgUlY2
+NCBCUEYgSklUIGhlcmU6IFsyXSwKPiBleGNlcHQgdGhhdCB0aGlzIGNvZGUgc2hvdWxkIGNoZWNr
+IGlmIHVzaW5nIFJWMzIgb3IgUlY2NCwgc2luY2UgdGhlCj4gZW5jb2RhYmxlIHJhbmdlIGRpZmZl
+cnMgZm9yIGVhY2guCgpZZWFoLCBJIGRlY2lkZWQgdG8gbGVhdmUgdGhlc2UgY2hlY2tzIGFzIHRo
+ZXkgYXJlIHRvIG5vdCBjaGFuZ2UKZXZlcnl0aGluZyBhdCBvbmNlLCBidXQgSSdsbCBzZWUgaWYg
+SSBjYW4gaW1wcm92ZSBvbiB0aG9zZSBpbiB0aGUgbmV4dAp2ZXJzaW9uLgoKPiA+IE15IGhvcGUg
+aXMgdGhhdCB3ZSBjYW4gZXZlbnR1YWxseSBmYWN0b3Igb3V0IHRoZSBjb2RlIHRvIGdlbmVyYXRl
+Cj4gPiBpbW1lZGlhdGVzIGFuZCBpbnN0cnVjdGlvbnMgc28gaXQgY2FuIGJlIHJldXNlZCBib3Ro
+IGhlcmUsIGluIHRoZQo+ID4ganVtcC1sYWJlbCBjb2RlIGFuZCBpbiB0aGUgYnBmLWppdCBjb2Rl
+LCBidXQgbGV0J3MgdGFrZSBpdAo+ID4gb25lIHN0ZXAgYXQgYSB0aW1lLgo+Cj4gVGhpcyBzb3Vu
+ZHMgZ3JlYXQhIEhhdmluZyBmZXdlciBjb3BpZXMgb2YgUklTQy1WIGVuY29kaW5nIGxvZ2ljIGFy
+b3VuZCB3aWxsCj4gaG9wZWZ1bGx5IGRlY3JlYXNlIHRoZSBsaWtlbGlob29kIG9mIGJ1Z3MgOikg
+U29tZSBvdGhlciBhcmNocyBhbHJlYWR5Cj4gaGF2ZSBzaGFyZWQKPiBpbmZyYXN0cnVjdHVyZSBm
+b3IgZG9pbmcgaW5zdHJ1Y3Rpb24gZW5jb2RpbmcgKGUuZy4sIGluCj4gYXJjaC9hcm02NC9rZXJu
+ZWwvaW5zbi5jKTsKPiB3ZSBzaG91bGQgY29uc2lkZXIgZG9pbmcgc29tZXRoaW5nIHNpbWlsYXIg
+Zm9yIFJJU0MtVi4KCkV4YWN0bHkgdGhpcy4gSSd2ZSBldmVuIHRyaWVkIHRvIGNvcHkgdGhlIG5h
+bWluZyBmcm9tIGFybTY0IGFzIHdlbGwuCkknbGwgc2VuZCBhIDJuZCB2ZXJzaW9uIG9mIHRoaXMg
+YWZ0ZXIgLXJjMS4KCj4KPiAtIEx1a2UgTmVsc29uCj4KPiBbMV06IGh0dHBzOi8vZ3JvdXBzLmdv
+b2dsZS5jb20vYS9ncm91cHMucmlzY3Yub3JnL2ZvcnVtLyMhdG9waWMvaXNhLWRldi9id1dGaEJu
+blpGUQo+IFsyXTogaHR0cHM6Ly9naXQua2VybmVsLm9yZy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9n
+aXQvYnBmL2JwZi5naXQvY29tbWl0Lz9pZD00ODk1NTNkZDEzYTg4ZDhhODgyZGIxMDYyMmJhOGI5
+YjU4NTgyY2U0CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
+ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
+Cg==
