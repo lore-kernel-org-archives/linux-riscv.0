@@ -2,22 +2,22 @@ Return-Path: <SRS0=W16s=BP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-11.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1AD15C433DF
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2020 03:57:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7B71EC433DF
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2020 04:20:57 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E0AD220842
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2020 03:57:52 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 4C34C2177B
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2020 04:20:57 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="h3XnhGG4";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=redhat.com header.i=@redhat.com header.b="Xr2voHUY"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E0AD220842
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="IyUqzCza";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=redhat.com header.i=@redhat.com header.b="RhB7tJrW"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4C34C2177B
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,58 +26,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=WHQCSj29djiokoaiOv8U/g7VYusbTsIkXK+4VY0idhQ=; b=h3XnhGG4zs6VfJokYI0Z8fldr
-	3kGMwAbJXKRB5P8VqpVdaZeMXnTB5Yh3+7TNfMDNoYXbjgxEVCCJzdyJSPzVaVPFNwntGusMqLTfQ
-	7IVdz6ubPd31YEtoQYTBWyXwnwzhvjNY4VJnk8fHvGuTrX2pzqhk4eMxZ1CXGKz6ASf1j9MHm2GvI
-	wDjQWBf/1EptC59MlotqME9JKw4YjYRn+rWZ3rYiI4vmmSX3V44zykROdp8CiJqXstO7nkavfbcB/
-	Mf85NyolAL1DGdz7czSt3GOOckmy1I2YzmJjpnTWYyZZ7Os4HnZSwrOO4q7mEP1vdDZHMXBgrLHTA
-	hzmqcmVqA==;
+	 bh=F2gYIRBZjNLsR43qpQj1ePDzjUFFSgCkqv1DMeCTy5Y=; b=IyUqzCzaiymzKJV7K/rCdXNxu
+	GdeDklQPcJStggM7O3fsht1dz9B5Pu0q4DXpe4CBokZJTksAYQfZrh7GQX6OugwTe69pXeH7CuTs9
+	5WxSL8ekYHBTdWIeyUB57/tRcA0aojJlcIc4egEoRVkKeEhWVpzGryVyd8I0YjuGpHuYRK5TDwLiw
+	I0sL6iaq6mFp88sgP/X3QXx1xuTwWa15jde5LK3XG1QJ5SKnKdVpWKLQZraGUdwoamq9HPTYO3s9m
+	gx2xiT0fXkSABkf8AKxAQ4GUL7MjgVgNdyGBR/CdPhyEuKAgZqS9B0A/OpLJ/migVYvO3A1ggAtVQ
+	4d4BIuIbQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k3AYZ-0004Tv-6b; Wed, 05 Aug 2020 03:57:35 +0000
-Received: from us-smtp-1.mimecast.com ([207.211.31.81]
- helo=us-smtp-delivery-1.mimecast.com)
+	id 1k3Auv-0006uM-Eb; Wed, 05 Aug 2020 04:20:41 +0000
+Received: from us-smtp-1.mimecast.com ([205.139.110.61])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k3AYT-0004Rx-Qv
- for linux-riscv@lists.infradead.org; Wed, 05 Aug 2020 03:57:30 +0000
+ id 1k3Aus-0006t0-AK
+ for linux-riscv@lists.infradead.org; Wed, 05 Aug 2020 04:20:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1596599849;
+ s=mimecast20190719; t=1596601237;
  h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
  to:to:cc:cc:mime-version:mime-version:content-type:content-type:
  in-reply-to:in-reply-to:references:references;
- bh=TYHMWO+/kd/xb1BEqnZIo41jyaK7ZhQvyZqkmGc35KI=;
- b=Xr2voHUYkBjlVhxBLEFlUUZQkFLmFIMB9d+ScRmkNqp8Ban4KesCOdD6ZLMwI2DHfddeQL
- PFG6UFzzLTKW6Ye954Fd+rwM1ZVy1XRJXJBxCAEDlew3/IvEgIwYcK6ReAyzVz3ywuopXh
- GnPqhg0mlMnNU9x4elFXTWXxDJPlCEk=
+ bh=twertatwzUrM7ldiTnLyq8dIY3NouOKQbE23vgZibYc=;
+ b=RhB7tJrWsV46yFoehAYmxLRKZCWlHdsxIYJKxQV1BjXImPnPGbcPU6V368xtzPpT8l+y2N
+ KOIzb3ETxq+JUYWFHDfnWn7ZFyX7kyfYNAjP/tGJCSGm5VxuDZQnRtGjoaDq+EoKLy2dTo
+ aEXBlqjVykf8BUIRQmUAnBKVDoaGdv8=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-301-qwjgBZnQPM-_Txp2UuCA1g-1; Tue, 04 Aug 2020 23:57:25 -0400
-X-MC-Unique: qwjgBZnQPM-_Txp2UuCA1g-1
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com
- [10.5.11.11])
+ us-mta-14-pdUQtGUaN4iDPq52ne80Vw-1; Wed, 05 Aug 2020 00:20:34 -0400
+X-MC-Unique: pdUQtGUaN4iDPq52ne80Vw-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com
+ [10.5.11.15])
  (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
  (No client certificate requested)
- by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 7FD12800138;
- Wed,  5 Aug 2020 03:57:20 +0000 (UTC)
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id B26651009600;
+ Wed,  5 Aug 2020 04:20:29 +0000 (UTC)
 Received: from localhost (ovpn-12-71.pek2.redhat.com [10.72.12.71])
- by smtp.corp.redhat.com (Postfix) with ESMTPS id B719C87B38;
- Wed,  5 Aug 2020 03:57:18 +0000 (UTC)
-Date: Wed, 5 Aug 2020 11:57:15 +0800
+ by smtp.corp.redhat.com (Postfix) with ESMTPS id 2C71071765;
+ Wed,  5 Aug 2020 04:20:27 +0000 (UTC)
+Date: Wed, 5 Aug 2020 12:20:24 +0800
 From: Baoquan He <bhe@redhat.com>
 To: Mike Rapoport <rppt@kernel.org>
-Subject: Re: [PATCH v2 11/17] arch, mm: replace for_each_memblock() with
- for_each_mem_pfn_range()
-Message-ID: <20200805035715.GS10792@MiWiFi-R3L-srv>
+Subject: Re: [PATCH v2 13/17] x86/setup: simplify initrd relocation and
+ reservation
+Message-ID: <20200805042024.GT10792@MiWiFi-R3L-srv>
 References: <20200802163601.8189-1-rppt@kernel.org>
- <20200802163601.8189-12-rppt@kernel.org>
+ <20200802163601.8189-14-rppt@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20200802163601.8189-12-rppt@kernel.org>
+In-Reply-To: <20200802163601.8189-14-rppt@kernel.org>
 User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200804_235729_960111_385DC70E 
-X-CRM114-Status: GOOD (  16.86  )
+X-CRM114-CacheID: sfid-20200805_002038_484752_8A9A057F 
+X-CRM114-Status: GOOD (  26.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -120,34 +119,83 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 On 08/02/20 at 07:35pm, Mike Rapoport wrote:
 > From: Mike Rapoport <rppt@linux.ibm.com>
 > 
-> There are several occurrences of the following pattern:
+> Currently, initrd image is reserved very early during setup and then it
+> might be relocated and re-reserved after the initial physical memory
+> mapping is created. The "late" reservation of memblock verifies that mapped
+> memory size exceeds the size of initrd, the checks whether the relocation
+                                          ~ then?
+> required and, if yes, relocates inirtd to a new memory allocated from
+> memblock and frees the old location.
 > 
-> 	for_each_memblock(memory, reg) {
-> 		start_pfn = memblock_region_memory_base_pfn(reg);
-> 		end_pfn = memblock_region_memory_end_pfn(reg);
+> The check for memory size is excessive as memblock allocation will anyway
+> fail if there is not enough memory. Besides, there is no point to allocate
+> memory from memblock using memblock_find_in_range() + memblock_reserve()
+> when there exists memblock_phys_alloc_range() with required functionality.
 > 
-> 		/* do something with start_pfn and end_pfn */
-> 	}
-> 
-> Rather than iterate over all memblock.memory regions and each time query
-> for their start and end PFNs, use for_each_mem_pfn_range() iterator to get
-> simpler and clearer code.
+> Remove the redundant check and simplify memblock allocation.
 > 
 > Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
 > ---
->  arch/arm/mm/init.c           | 11 ++++-------
->  arch/arm64/mm/init.c         | 11 ++++-------
->  arch/powerpc/kernel/fadump.c | 11 ++++++-----
->  arch/powerpc/mm/mem.c        | 15 ++++++++-------
->  arch/powerpc/mm/numa.c       |  7 ++-----
->  arch/s390/mm/page-states.c   |  6 ++----
->  arch/sh/mm/init.c            |  9 +++------
->  mm/memblock.c                |  6 ++----
->  mm/sparse.c                  | 10 ++++------
->  9 files changed, 35 insertions(+), 51 deletions(-)
+>  arch/x86/kernel/setup.c | 16 +++-------------
+>  1 file changed, 3 insertions(+), 13 deletions(-)
 > 
+> diff --git a/arch/x86/kernel/setup.c b/arch/x86/kernel/setup.c
+> index a3767e74c758..d8de4053c5e8 100644
+> --- a/arch/x86/kernel/setup.c
+> +++ b/arch/x86/kernel/setup.c
+> @@ -262,16 +262,12 @@ static void __init relocate_initrd(void)
+>  	u64 area_size     = PAGE_ALIGN(ramdisk_size);
+>  
+>  	/* We need to move the initrd down into directly mapped mem */
+> -	relocated_ramdisk = memblock_find_in_range(0, PFN_PHYS(max_pfn_mapped),
+> -						   area_size, PAGE_SIZE);
+> -
+> +	relocated_ramdisk = memblock_phys_alloc_range(area_size, PAGE_SIZE, 0,
+> +						      PFN_PHYS(max_pfn_mapped));
+>  	if (!relocated_ramdisk)
+>  		panic("Cannot find place for new RAMDISK of size %lld\n",
+>  		      ramdisk_size);
+>  
+> -	/* Note: this includes all the mem currently occupied by
+> -	   the initrd, we rely on that fact to keep the data intact. */
+> -	memblock_reserve(relocated_ramdisk, area_size);
+>  	initrd_start = relocated_ramdisk + PAGE_OFFSET;
+>  	initrd_end   = initrd_start + ramdisk_size;
+>  	printk(KERN_INFO "Allocated new RAMDISK: [mem %#010llx-%#010llx]\n",
+> @@ -298,13 +294,13 @@ static void __init early_reserve_initrd(void)
+>  
+>  	memblock_reserve(ramdisk_image, ramdisk_end - ramdisk_image);
+>  }
+> +
+>  static void __init reserve_initrd(void)
+>  {
+>  	/* Assume only end is not page aligned */
+>  	u64 ramdisk_image = get_ramdisk_image();
+>  	u64 ramdisk_size  = get_ramdisk_size();
+>  	u64 ramdisk_end   = PAGE_ALIGN(ramdisk_image + ramdisk_size);
+> -	u64 mapped_size;
+>  
+>  	if (!boot_params.hdr.type_of_loader ||
+>  	    !ramdisk_image || !ramdisk_size)
+> @@ -312,12 +308,6 @@ static void __init reserve_initrd(void)
+>  
+>  	initrd_start = 0;
+>  
+> -	mapped_size = memblock_mem_size(max_pfn_mapped);
+> -	if (ramdisk_size >= (mapped_size>>1))
+> -		panic("initrd too large to handle, "
+> -		       "disabling initrd (%lld needed, %lld available)\n",
+> -		       ramdisk_size, mapped_size>>1);
 
 Reviewed-by: Baoquan He <bhe@redhat.com>
+
+> -
+>  	printk(KERN_INFO "RAMDISK: [mem %#010llx-%#010llx]\n", ramdisk_image,
+>  			ramdisk_end - 1);
+>  
+> -- 
+> 2.26.2
+> 
 
 
 _______________________________________________
