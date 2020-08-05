@@ -2,22 +2,22 @@ Return-Path: <SRS0=W16s=BP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-11.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id ED24BC433DF
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2020 08:29:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5C277C433DF
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2020 09:11:33 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B9EA920792
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2020 08:29:57 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 21ECD20792
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2020 09:11:33 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="xaRxTk4g";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=redhat.com header.i=@redhat.com header.b="UUTWGjMa"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B9EA920792
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="jTWi1FUT";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=redhat.com header.i=@redhat.com header.b="PKa1vVZ2"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 21ECD20792
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,57 +26,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=P+Xq96DvD1IdDsoKMzXlXGJOx7sm30GYmp+dOlNnTFY=; b=xaRxTk4gRlOD5zlwaIzNAfDuv
-	fU90E9j6w/UFPgawKw+XJWyIY0IfaUG3C/SX33uDiHG3b0KzMduG+M6/YUw5XII1RjQuOnotRO+5B
-	HOuF8lKXl/ktPHC/XFA7dnmOxH3RMJEWckzQyqRgjLfjyPfayGIBxGBW9jt4r9IJoqpVHxKN/fo1v
-	z8D/9UyATfIm6+y67V7cxpu3AIpJnO4mQV9BQRbN0krUFd+aRCMxKEHPTmg+yGOI9TItxFLG7Vxh4
-	MToIRD1TtgpaClJJOhKC+49zDbmLt83FJeMRr4ImrWQD3MjiDjnv8vzhTe59NNfcuFW3CaTdGBeQP
-	Yoe5hLQCQ==;
+	 bh=lmiotujdl7Y3SSq9z6b30liT6Ut4zzbRfd0jm/FiYFU=; b=jTWi1FUTqVXKBPsCv7uOzfiFc
+	tvEd6UcfafTXTK1X1qSr3OvBfPEndjJ4Yz5Dzx3tzAXvEI1tCjLOw+lSFhYigjb3nSX9hE1/RabqM
+	Z6a2UiMO8WwDh9oaJ1PBhEgDFFTSuzoVwe0TJ3ZCmBr7MilkR4lQHENDbCi4Nds7GZj1ahlJ0OB0W
+	J4kF2NB57QSVwuhlZ6mf39MfXGE+I6bPph1ynmxWRNnNBkqriSLwuzuzGk6JefZPFZnVTPu9X5rin
+	SG8dxU4u6MWmqv1vWFZI4nlJp4HInwIZPswjmLyW4T8r+z4D1Hf0o2S5YgrRX/8sgZlUpXDvnw2Iw
+	Lfte3xPuQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k3Enz-0008NE-21; Wed, 05 Aug 2020 08:29:47 +0000
-Received: from us-smtp-delivery-1.mimecast.com ([207.211.31.120]
+	id 1k3FSF-0006Vt-7x; Wed, 05 Aug 2020 09:11:23 +0000
+Received: from us-smtp-2.mimecast.com ([205.139.110.61]
  helo=us-smtp-1.mimecast.com)
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k3Enw-0008M5-Nx
- for linux-riscv@lists.infradead.org; Wed, 05 Aug 2020 08:29:45 +0000
+ id 1k3FSD-0006Ul-DB
+ for linux-riscv@lists.infradead.org; Wed, 05 Aug 2020 09:11:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1596616184;
+ s=mimecast20190719; t=1596618680;
  h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
  to:to:cc:cc:mime-version:mime-version:content-type:content-type:
  in-reply-to:in-reply-to:references:references;
- bh=FvaMXP5a+m7YjPK069Q+H34K0fPtN+F8dCVJuIAUPpY=;
- b=UUTWGjMaC589yMqIkc0P3tcJrgvfrnzLO8GogIGJlXgVmu4mZ8riSGVZ80gJd910sZWZnH
- x/6LkzLnS3lm3aS9tSyXrJKXxfyikTxKoZ52heun1ooQqpuN/VBShPPPSyIpZ1aw8AoC7W
- o+e4SIr3MyXoeyUk2C1AfLQ7axybcPE=
+ bh=4ozBDa1/xPHY8DQkaA9JqUMmSyVVQ14zD1Crd0znMso=;
+ b=PKa1vVZ2ktwBbfJkH7uBUaodNzgQ70N4m/jCCX7g/UIAZUY8lbCvw7c9g+fCCXqVyht8ex
+ 9nC4o/YKAN4lSfzxNsQjmVN66prsFkDwEUcJYUhezxiXCa9yG0tA9vq0Ik9tc6LfFXIAx8
+ 0LsaCfLZyY43EVbe7qQasoabcd3WOxU=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-459-Fs5bhd50MLqa0hbUoos07g-1; Wed, 05 Aug 2020 04:29:36 -0400
-X-MC-Unique: Fs5bhd50MLqa0hbUoos07g-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com
- [10.5.11.22])
+ us-mta-16-yG35Dv0sMVyPaqKEAb-z_A-1; Wed, 05 Aug 2020 05:11:16 -0400
+X-MC-Unique: yG35Dv0sMVyPaqKEAb-z_A-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com
+ [10.5.11.11])
  (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
  (No client certificate requested)
- by mimecast-mx01.redhat.com (Postfix) with ESMTPS id F02638064AB;
- Wed,  5 Aug 2020 08:29:30 +0000 (UTC)
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id DB37818C63C1;
+ Wed,  5 Aug 2020 09:11:11 +0000 (UTC)
 Received: from localhost (ovpn-12-71.pek2.redhat.com [10.72.12.71])
- by smtp.corp.redhat.com (Postfix) with ESMTPS id E2DCC10013D0;
- Wed,  5 Aug 2020 08:29:26 +0000 (UTC)
-Date: Wed, 5 Aug 2020 16:29:24 +0800
+ by smtp.corp.redhat.com (Postfix) with ESMTPS id E2D2772E4F;
+ Wed,  5 Aug 2020 09:11:07 +0000 (UTC)
+Date: Wed, 5 Aug 2020 17:11:05 +0800
 From: Baoquan He <bhe@redhat.com>
 To: Mike Rapoport <rppt@kernel.org>
-Subject: Re: [PATCH v2 15/17] memblock: remove unused memblock_mem_size()
-Message-ID: <20200805082924.GV10792@MiWiFi-R3L-srv>
+Subject: Re: [PATCH v2 16/17] memblock: implement
+ for_each_reserved_mem_region() using __next_mem_region()
+Message-ID: <20200805091105.GW10792@MiWiFi-R3L-srv>
 References: <20200802163601.8189-1-rppt@kernel.org>
- <20200802163601.8189-16-rppt@kernel.org>
+ <20200802163601.8189-17-rppt@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20200802163601.8189-16-rppt@kernel.org>
+In-Reply-To: <20200802163601.8189-17-rppt@kernel.org>
 User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200805_042944_800995_64B7EE31 
-X-CRM114-Status: GOOD (  18.41  )
+X-CRM114-CacheID: sfid-20200805_051121_535248_1BE95147 
+X-CRM114-Status: GOOD (  15.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -116,52 +117,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 08/02/20 at 07:35pm, Mike Rapoport wrote:
+On 08/02/20 at 07:36pm, Mike Rapoport wrote:
 > From: Mike Rapoport <rppt@linux.ibm.com>
 > 
-> The only user of memblock_mem_size() was x86 setup code, it is gone now and
-> memblock_mem_size() funciton can be removed.
+> Iteration over memblock.reserved with for_each_reserved_mem_region() used
+> __next_reserved_mem_region() that implemented a subset of
+> __next_mem_region().
+> 
+> Use __for_each_mem_range() and, essentially, __next_mem_region() with
+> appropriate parameters to reduce code duplication.
+> 
+> While on it, rename for_each_reserved_mem_region() to
+> for_each_reserved_mem_range() for consistency.
 > 
 > Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
 > ---
->  include/linux/memblock.h |  1 -
->  mm/memblock.c            | 15 ---------------
->  2 files changed, 16 deletions(-)
-> 
-> diff --git a/include/linux/memblock.h b/include/linux/memblock.h
-> index d70c2835e913..ec2fd8f32a19 100644
-> --- a/include/linux/memblock.h
-> +++ b/include/linux/memblock.h
-> @@ -450,7 +450,6 @@ static inline bool memblock_bottom_up(void)
->  
->  phys_addr_t memblock_phys_mem_size(void);
->  phys_addr_t memblock_reserved_size(void);
-> -phys_addr_t memblock_mem_size(unsigned long limit_pfn);
->  phys_addr_t memblock_start_of_DRAM(void);
->  phys_addr_t memblock_end_of_DRAM(void);
->  void memblock_enforce_memory_limit(phys_addr_t memory_limit);
-> diff --git a/mm/memblock.c b/mm/memblock.c
-> index c1a4c8798973..48d614352b25 100644
-> --- a/mm/memblock.c
-> +++ b/mm/memblock.c
-> @@ -1656,21 +1656,6 @@ phys_addr_t __init_memblock memblock_reserved_size(void)
->  	return memblock.reserved.total_size;
->  }
->  
-> -phys_addr_t __init memblock_mem_size(unsigned long limit_pfn)
-> -{
-> -	unsigned long pages = 0;
-> -	unsigned long start_pfn, end_pfn;
-> -	int i;
-> -
-> -	for_each_mem_pfn_range(i, MAX_NUMNODES, &start_pfn, &end_pfn, NULL) {
-> -		start_pfn = min_t(unsigned long, start_pfn, limit_pfn);
-> -		end_pfn = min_t(unsigned long, end_pfn, limit_pfn);
-> -		pages += end_pfn - start_pfn;
-> -	}
-> -
-> -	return PFN_PHYS(pages);
-> -}
+>  .clang-format                    |  2 +-
+>  arch/arm64/kernel/setup.c        |  2 +-
+>  drivers/irqchip/irq-gic-v3-its.c |  2 +-
+>  include/linux/memblock.h         | 12 +++------
+>  mm/memblock.c                    | 46 +++++++-------------------------
+>  5 files changed, 17 insertions(+), 47 deletions(-)
 
 Reviewed-by: Baoquan He <bhe@redhat.com>
 
