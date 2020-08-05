@@ -7,16 +7,16 @@ X-Spam-Status: No, score=-8.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8A9ADC433E0
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2020 11:02:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3155CC433DF
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2020 11:02:26 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 583C422CAD
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2020 11:02:13 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id ED88022CAD
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2020 11:02:25 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="FOwKdX5h"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 583C422CAD
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="avrrZQa5"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ED88022CAD
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=alpha.franken.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,38 +25,38 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=qz7qV4+JmTCTUmsQqhx0hAK4HM9bFoYZoG9Y0ZD3fLs=; b=FOwKdX5hpRbj8o2Ige6izs4C1
-	BS1Mm04Qmd+3SduiOohcEsZJFH0BXh7CI01P1pCoYyxBZFldJvDv+CrGbnPBoFqNORCfKKQdOra9G
-	GP+hDjlYQskAWQ8xrPdpWV3oNPL9AQ+bLlYTiIDMWESiv1vtM2zbR9Vm5CkXGp0tXQtzVWTiHdZU7
-	Ky3rUjHFrBedC+bPlwFLrbpBd3hsmXq8OsJhc4sJKtbNxnguA/zKQoIxIq/tjlOKrPB/lPThLYu6C
-	sLH9ZkrrrToNR6yYPBBT02Lh8SNH9PDKGzsjTv4BNI9SpnkEC88xffEAgQopnEtWckVLeJUkdaQO0
-	xg199ZW1A==;
+	 bh=eVG1hPrGLFFBZG5MZ/weEZNa00R2LN+2IKmcOszC/xI=; b=avrrZQa5yVdCpwAa5zn4QSSDD
+	UkfMRzb951kNJjk4u1iEpyFoxY0OfmgcrQKqX7uihyoq2OsgK+2Ut6ZlXou2Z2uDnUB4BGm7o7gQp
+	/Po1OCZBwS/D3LZiZLdrOubdJ5NM5ieDxc1S+LEO/D6CS42cbSGGZDl+j/K4GpWGZDwKeqxCYN/Te
+	I+7P9GkYauSKw66XG5FXZE+T2/tWd+cdLqeJG0QCAXT/esvK1SAqPR9Rg0dvkRgRDs2pVv/f7hXy9
+	9iGBeHRmvnFL8P51xC9irXvgc75rcvmHLVOOQQsE3CwLLQp6kcgQQP0u6OWBq+E8KCGybIvJ2XR0m
+	+th0us7Og==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k3HBI-0004NW-CY; Wed, 05 Aug 2020 11:02:00 +0000
+	id 1k3HBK-0004On-3R; Wed, 05 Aug 2020 11:02:02 +0000
 Received: from elvis.franken.de ([193.175.24.41])
  by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k3HB7-0004Gl-S0; Wed, 05 Aug 2020 11:01:51 +0000
+ id 1k3HB7-0004Gm-S1; Wed, 05 Aug 2020 11:01:51 +0000
 Received: from uucp (helo=alpha)
  by elvis.franken.de with local-bsmtp (Exim 3.36 #1)
- id 1k3HAl-0001HW-00; Wed, 05 Aug 2020 13:01:27 +0200
+ id 1k3HAl-0001HW-01; Wed, 05 Aug 2020 13:01:27 +0200
 Received: by alpha.franken.de (Postfix, from userid 1000)
- id 27D27C0BF1; Wed,  5 Aug 2020 12:58:44 +0200 (CEST)
-Date: Wed, 5 Aug 2020 12:58:44 +0200
+ id 899DDC0C25; Wed,  5 Aug 2020 13:00:35 +0200 (CEST)
+Date: Wed, 5 Aug 2020 13:00:35 +0200
 From: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
 To: Mike Rapoport <rppt@kernel.org>
-Subject: Re: [PATCH v2 17/17] memblock: use separate iterators for memory and
- reserved regions
-Message-ID: <20200805105844.GA11658@alpha.franken.de>
+Subject: Re: [PATCH v2 12/17] arch, drivers: replace for_each_membock() with
+ for_each_mem_range()
+Message-ID: <20200805110035.GB11658@alpha.franken.de>
 References: <20200802163601.8189-1-rppt@kernel.org>
- <20200802163601.8189-18-rppt@kernel.org>
+ <20200802163601.8189-13-rppt@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20200802163601.8189-18-rppt@kernel.org>
+In-Reply-To: <20200802163601.8189-13-rppt@kernel.org>
 User-Agent: Mutt/1.5.23 (2014-03-12)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200805_070150_214874_46C0FBFB 
-X-CRM114-Status: GOOD (  15.87  )
+X-CRM114-CacheID: sfid-20200805_070150_258912_7CC0508F 
+X-CRM114-Status: GOOD (  16.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -96,19 +96,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 02, 2020 at 07:36:01PM +0300, Mike Rapoport wrote:
+On Sun, Aug 02, 2020 at 07:35:56PM +0300, Mike Rapoport wrote:
 > From: Mike Rapoport <rppt@linux.ibm.com>
 > 
-> for_each_memblock() is used to iterate over memblock.memory in
-> a few places that use data from memblock_region rather than the memory
-> ranges.
+> There are several occurrences of the following pattern:
 > 
-> Introduce separate for_each_mem_region() and for_each_reserved_mem_region()
-> to improve encapsulation of memblock internals from its users.
+> 	for_each_memblock(memory, reg) {
+> 		start = __pfn_to_phys(memblock_region_memory_base_pfn(reg);
+> 		end = __pfn_to_phys(memblock_region_memory_end_pfn(reg));
+> 
+> 		/* do something with start and end */
+> 	}
+> 
+> Using for_each_mem_range() iterator is more appropriate in such cases and
+> allows simpler and cleaner code.
 > 
 > Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
 > ---
->  arch/mips/netlogic/xlp/setup.c |  2 +-
+>  arch/mips/cavium-octeon/dma-octeon.c     | 12 +++---
+>  arch/mips/kernel/setup.c                 | 31 +++++++--------
 
 Acked-by: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
 
