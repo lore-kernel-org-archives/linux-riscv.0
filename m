@@ -2,89 +2,82 @@ Return-Path: <SRS0=W16s=BP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-11.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3AF65C433DF
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2020 03:15:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8F219C433DF
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2020 03:51:04 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0C3EA207FC
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2020 03:15:49 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6731E22CB3
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2020 03:51:04 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Cq03Xg24";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="zJXG3v/h"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0C3EA207FC
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="OBjgjoG+";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=redhat.com header.i=@redhat.com header.b="EpqpRnxl"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6731E22CB3
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=hd4ToEuj/GA5bC9mO8pMEEs+qtcs9HoNHKYcqUCATPQ=; b=Cq03Xg24tpcMWzUZ6HByUwBSv
-	Kh550Ueyfts8CwTEf+Tl+HpX37U+NFQLqTeqIUSHvt1Sf2MZ4fxvctmaiJ3fbrfFqVrxO1Uzc059P
-	Z4zsjZI4IED+QisevJe9c9H1iMb4NTNRR3Rflvekn7opBI/4PMtZR3Of2JeAoiFuY0ojkRbEDeWPY
-	teI7yAlcPb32zxDlPWrN5D0N4nnEa7ZFGtLYs+vKPiI4iUgAW2jirlNxoS70LDLEcbOKvXgTm7xkl
-	UkGMk/2OwmfznIPS5E2QECxNMW7iw7XQ6v+EaSsFLLQDFy/sIYjB8jPnCsNf0z06e+O+Ks48fcjbo
-	C6d4GYeeA==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=V0EdIz1SIciGB8+VjQXxjfBvCf6rAyZNrq02TROeh9s=; b=OBjgjoG+OX8HbH50GfjuI0S6Z
+	jpULqodaOEsDE+0+CUYTjvt//2GwyBridJctyqG0C6vuGYArqLAbh4oYtNAqvWiEfdCnlEibUf1px
+	WLeSeIQ22KoY/Kp29X40jKzmTksdkY5gkGN4CVysmg5TJ1HTPoFtXYruSClRl0VLtGLcXSeu7ENpE
+	WvKGR27h/S7XsbB74vFRS0goM+zM76DCulJtxLuKuN15tBvbIEj5wFtspL4b9acBWp2JXW63e00UP
+	wXUqW+BZeHllT3NWwJMFx2a97H1bK0NV+6c76OS7X8xM9+1/+HuRmNwQy8CpMWvG5bHy0toHLAcjm
+	j3I7cvHMw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k39tn-00025X-4W; Wed, 05 Aug 2020 03:15:27 +0000
-Received: from mail-pj1-x1041.google.com ([2607:f8b0:4864:20::1041])
+	id 1k3ARz-0003sG-LS; Wed, 05 Aug 2020 03:50:47 +0000
+Received: from us-smtp-2.mimecast.com ([207.211.31.81]
+ helo=us-smtp-delivery-1.mimecast.com)
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k39tj-00024u-VN
- for linux-riscv@lists.infradead.org; Wed, 05 Aug 2020 03:15:25 +0000
-Received: by mail-pj1-x1041.google.com with SMTP id ha11so3531883pjb.1
- for <linux-riscv@lists.infradead.org>; Tue, 04 Aug 2020 20:15:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=VtIghFUUQN5mDIDgH3ibaPqJHhjrfIMsBIz4Kx+N5Ow=;
- b=zJXG3v/hVCrB+1rVcOQ6m9Yd0dtr2TN4bTZWw8Zu1q5/MQWvJ4DwFqCrIcfwGunIEp
- ucW/z3YH4km9BvKmyUXePzMMjY7EgMsbXoWGeRueG7leIua6KOTit+hv0QLyEhY007Io
- VFcoElqsSZkts2Evqn94Us0FFofeU+X0vJyPc7J0K6u/ma9K7E8rE/8v+A/bT9fWF7C5
- CHjKNqngi+xZAVGpkMVDUHIU87S50gkaXEb+OqkdzNnc1y4y440Tu0/ccW5d6CfKfys5
- Ptma1t87IloKNk5AuPTCYukFVebK9gKUXA2Z7jT6z4luMlaFrOVkl2LR9GCbaEbpi9yi
- yAlA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=VtIghFUUQN5mDIDgH3ibaPqJHhjrfIMsBIz4Kx+N5Ow=;
- b=HwyEKT4jdcFf6JbNVeF0AFoMOY8zLw3C4X1dUWM6Dd5OpzaG72hHbTuEsFlPWn7U9t
- Xx9xExEjjm+OZgt7CNgsguEuHoiPRu/Rug1/9rGMiaTdHGjx3NqrEPTJuE11YGNmuPGh
- +7nvcXMaIS/tNNKoxNDGUjKY8Z4mNzhueJA2gf4aA+Rtm1IGhwWdgh2TKLkfyoc/p4K/
- 86EsYmncmdepYJyjbDCWHtmLpF0xMXw7I9uZeKAA+75pDaUk30tT9A/kVRn2Yrx8bT6H
- TctSSaw66OedqWdwD82Z9ghazYFloCaTWnLxJ5brdz7ypGva4guADE3kvzegMOZy4/8m
- ZHtQ==
-X-Gm-Message-State: AOAM531aEQqdrzIUtp5qCTU+qXtURynowc/V0cHZE1nWvPdFqVWFmDte
- oAW/1wJ3OPA8+IvDiu+eM8CFMw==
-X-Google-Smtp-Source: ABdhPJwACgfukRamo/zUHdUPi8KTwWhQHcSlNJgrqdqyEldAO2Q5ZM3XH0cxBgJ2eb195FpT47V41Q==
-X-Received: by 2002:a17:90a:25a9:: with SMTP id
- k38mr1178872pje.103.1596597321290; 
- Tue, 04 Aug 2020 20:15:21 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id il10sm816178pjb.54.2020.08.04.20.15.20
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 04 Aug 2020 20:15:20 -0700 (PDT)
-Date: Tue, 04 Aug 2020 20:15:20 -0700 (PDT)
-X-Google-Original-Date: Tue, 04 Aug 2020 20:15:19 PDT (-0700)
-Subject: Re: [PATCH 1/2] riscv: ptrace: Use the correct API for `fcsr' access
-In-Reply-To: <20200805024807.GM1236603@ZenIV.linux.org.uk>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: viro@zeniv.linux.org.uk
-Message-ID: <mhng-2d0483dd-411b-4e2b-aae1-b8bb52417d29@palmerdabbelt-glaptop1>
-Mime-Version: 1.0 (MHng)
+ id 1k3ARv-0003qE-Jd
+ for linux-riscv@lists.infradead.org; Wed, 05 Aug 2020 03:50:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1596599441;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=PBRFUAvhtw5NCrkPVOAd8K2sp2Oav4oQ9F6n5x6FCHA=;
+ b=EpqpRnxlyFlrjlyw7bkaQaUpWOIT9jx/4C19hWNepyupGYYcajnOtvCObEUC2XGNdjQ9vn
+ uJmxFXEE7fMaVz2lR3eQEA/RXH440BKOjEvx5OY3HbcQl4SerTeiACcz4a5Jb2qJt7TBLo
+ cjEHrvRh9CTzwQnBBpQT7xNOtjNMI4Y=
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-185-xI0_yRdGMPGizyxDuo-nyA-1; Tue, 04 Aug 2020 23:50:36 -0400
+X-MC-Unique: xI0_yRdGMPGizyxDuo-nyA-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com
+ [10.5.11.13])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+ (No client certificate requested)
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 8CFAE102C7EC;
+ Wed,  5 Aug 2020 03:50:30 +0000 (UTC)
+Received: from localhost (ovpn-12-71.pek2.redhat.com [10.72.12.71])
+ by smtp.corp.redhat.com (Postfix) with ESMTPS id 17E4F8AC06;
+ Wed,  5 Aug 2020 03:50:27 +0000 (UTC)
+Date: Wed, 5 Aug 2020 11:50:24 +0800
+From: Baoquan He <bhe@redhat.com>
+To: Mike Rapoport <rppt@kernel.org>
+Subject: Re: [PATCH v2 02/17] dma-contiguous: simplify
+ cma_early_percent_memory()
+Message-ID: <20200805035024.GR10792@MiWiFi-R3L-srv>
+References: <20200802163601.8189-1-rppt@kernel.org>
+ <20200802163601.8189-3-rppt@kernel.org>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20200802163601.8189-3-rppt@kernel.org>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200804_231524_056265_6F47E1C2 
-X-CRM114-Status: GOOD (  32.02  )
+X-CRM114-CacheID: sfid-20200804_235043_710029_223E2EB8 
+X-CRM114-Status: GOOD (  23.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -96,70 +89,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org, stable@vger.kernel.org,
- Paul Walmsley <paul.walmsley@sifive.com>, macro@wdc.com,
- linux-riscv@lists.infradead.org
+Cc: Emil Renner Berthing <kernel@esmil.dk>, linux-sh@vger.kernel.org,
+ Peter Zijlstra <peterz@infradead.org>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mips@vger.kernel.org,
+ Max Filippov <jcmvbkbc@gmail.com>, Paul Mackerras <paulus@samba.org>,
+ sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Will Deacon <will@kernel.org>, Stafford Horne <shorne@gmail.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>, linux-arch@vger.kernel.org,
+ linux-s390@vger.kernel.org, linux-c6x-dev@linux-c6x.org,
+ Yoshinori Sato <ysato@users.sourceforge.jp>,
+ Michael Ellerman <mpe@ellerman.id.au>, x86@kernel.org,
+ Russell King <linux@armlinux.org.uk>, Mike Rapoport <rppt@linux.ibm.com>,
+ clang-built-linux@googlegroups.com, Ingo Molnar <mingo@redhat.com>,
+ linux-arm-kernel@lists.infradead.org,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ uclinux-h8-devel@lists.sourceforge.jp, linux-xtensa@linux-xtensa.org,
+ openrisc@lists.librecores.org, Borislav Petkov <bp@alien8.de>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Hari Bathini <hbathini@linux.ibm.com>,
+ Michal Simek <monstr@monstr.eu>, linux-mm@kvack.org,
+ linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+ iommu@lists.linux-foundation.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Christoph Hellwig <hch@lst.de>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 04 Aug 2020 19:48:07 PDT (-0700), viro@zeniv.linux.org.uk wrote:
-> On Tue, Aug 04, 2020 at 07:20:05PM -0700, Palmer Dabbelt wrote:
->> On Tue, 04 Aug 2020 19:07:45 PDT (-0700), viro@zeniv.linux.org.uk wrote:
->> > On Tue, Aug 04, 2020 at 07:01:01PM -0700, Palmer Dabbelt wrote:
->> >
->> > > > We currently have @start_pos fixed at 0 across all calls, which works as
->> > > > a result of the implementation, in particular because we have no padding
->> > > > between the FP general registers and the FP control and status register,
->> > > > but appears not to have been the intent of the API and is not what other
->> > > > ports do, requiring one to study the copy handlers to understand what is
->> > > > going on here.
->> >
->> > start_pos *is* fixed at 0 and it's going to go away, along with the
->> > sodding user_regset_copyout() very shortly.  ->get() is simply a bad API.
->> > See vfs.git#work.regset for replacement.  And ->put() is also going to be
->> > taken out and shot (next cycle, most likely).
->>
->> I'm not sure I understand what you're saying, but given that branch replaces
->> all of this I guess it's best to just do nothing on our end here?
->
-> It doesn't replace ->put() (for now); it _does_ replace ->get() and AFAICS the
-> replacement is much saner:
->
-> static int riscv_fpr_get(struct task_struct *target,
->                          const struct user_regset *regset,
->                          struct membuf to)
-> {
-> 	struct __riscv_d_ext_state *fstate = &target->thread.fstate;
->
-> 	membuf_write(&to, fstate, offsetof(struct __riscv_d_ext_state, fcsr));
-> 	membuf_store(&to, fstate->fcsr);
-> 	return membuf_zero(&to, 4);     // explicitly pad
-> }
->
-> user_regset_copyout() calling conventions are atrocious and so are those of
-> regset ->get().  The best thing to do with both is to take them out of their
-> misery and be done with that.  Do you see any problems with riscv gdbserver
-> on current linux-next?  If not, I'd rather see that "API" simply go away...
-> If there are problems, I would very much prefer fixes on top of what's done
-> in that branch.
+On 08/02/20 at 07:35pm, Mike Rapoport wrote:
+> From: Mike Rapoport <rppt@linux.ibm.com>
+> 
+> The memory size calculation in cma_early_percent_memory() traverses
+> memblock.memory rather than simply call memblock_phys_mem_size(). The
+> comment in that function suggests that at some point there should have been
+> call to memblock_analyze() before memblock_phys_mem_size() could be used.
+> As of now, there is no memblock_analyze() at all and
+> memblock_phys_mem_size() can be used as soon as cold-plug memory is
+> registerd with memblock.
+> 
+> Replace loop over memblock.memory with a call to memblock_phys_mem_size().
+> 
+> Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+> Reviewed-by: Christoph Hellwig <hch@lst.de>
+> ---
+>  kernel/dma/contiguous.c | 11 +----------
+>  1 file changed, 1 insertion(+), 10 deletions(-)
+> 
+> diff --git a/kernel/dma/contiguous.c b/kernel/dma/contiguous.c
+> index 15bc5026c485..1992afd8ca7b 100644
+> --- a/kernel/dma/contiguous.c
+> +++ b/kernel/dma/contiguous.c
+> @@ -73,16 +73,7 @@ early_param("cma", early_cma);
+>  
+>  static phys_addr_t __init __maybe_unused cma_early_percent_memory(void)
+>  {
+> -	struct memblock_region *reg;
+> -	unsigned long total_pages = 0;
+> -
+> -	/*
+> -	 * We cannot use memblock_phys_mem_size() here, because
+> -	 * memblock_analyze() has not been called yet.
+> -	 */
+> -	for_each_memblock(memory, reg)
+> -		total_pages += memblock_region_memory_end_pfn(reg) -
+> -			       memblock_region_memory_base_pfn(reg);
+> +	unsigned long total_pages = PHYS_PFN(memblock_phys_mem_size());
 
-I guess my confusion was about "start_pos *is* fixed at 0": it certainly is
-zero in the code right now, but when poking around while review the patch I
-didn't see any reason that must be so.  Admittedly all I did was read the
-prototype and function, so maybe I'm just missing something.  That said, if
-it's all going away anyway then I don't really care either way.
+Reviewed-by: Baoquan He <bhe@redhat.com>
 
-As far as I can tell the patch set in question (the RISC-V one) doesn't change
-any functionality.  I don't actually use GDB, but I haven't seen any issues
-reported in a few years so if there is one I've missed it.
+>  
+>  	return (total_pages * CONFIG_CMA_SIZE_PERCENTAGE / 100) << PAGE_SHIFT;
+>  }
+> -- 
+> 2.26.2
+> 
 
-I did this ptrace stuff many years ago (IIRC it was actually my first RISC-V
-Linux patch), and all I really remember is that it seemed way more complicated
-than it needed to be.  I'm happy to just drop our patch set, as yours looks way
-cleaner to me and if you're already planning on fixing put() then it doesn't
-seem worth the churn.
 
 _______________________________________________
 linux-riscv mailing list
