@@ -2,23 +2,23 @@ Return-Path: <SRS0=W16s=BP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-11.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C0869C433E0
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2020 08:13:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id ED24BC433DF
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2020 08:29:57 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 823762177B
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2020 08:13:13 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B9EA920792
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Aug 2020 08:29:57 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="b9SJ96v2";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.b="AdpdWlhX"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 823762177B
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="xaRxTk4g";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=redhat.com header.i=@redhat.com header.b="UUTWGjMa"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B9EA920792
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -26,64 +26,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=j/9RrM5roJ7Ys9kkW6jom282jXrBN6unJwYl0A5t8dQ=; b=b9SJ96v2sOoSyVC1ipn6N9Fee
-	HyMvdEparEG5KxG+Qm8OncK/Fa214FMrrYM/UQiKeE006owcCqhrxiKEYRqFpwbVNQefUXPycm7cT
-	jGvhkqHV3brsNrhl+qiYhLQH+wEtpuR8iXeblcDUfsUuL417Xs72CevHMRUNWaax4mhxrY+Um4vjl
-	SqLzr7uIWTTT/z9P2BWJeb+1G3UTFtzF26q56/MJjn5QI+EMG3WYlrz6IeZsb10q40o2va8cFBaJ9
-	c8+fuqy1eKqROP7HjPDRx6CZxD7cg7pUQZ8FXm/a47Lg6aX3+1yOvgXz0naNZfk6W1BptIlf+SSYm
-	0kJbStwtQ==;
+	 bh=P+Xq96DvD1IdDsoKMzXlXGJOx7sm30GYmp+dOlNnTFY=; b=xaRxTk4gRlOD5zlwaIzNAfDuv
+	fU90E9j6w/UFPgawKw+XJWyIY0IfaUG3C/SX33uDiHG3b0KzMduG+M6/YUw5XII1RjQuOnotRO+5B
+	HOuF8lKXl/ktPHC/XFA7dnmOxH3RMJEWckzQyqRgjLfjyPfayGIBxGBW9jt4r9IJoqpVHxKN/fo1v
+	z8D/9UyATfIm6+y67V7cxpu3AIpJnO4mQV9BQRbN0krUFd+aRCMxKEHPTmg+yGOI9TItxFLG7Vxh4
+	MToIRD1TtgpaClJJOhKC+49zDbmLt83FJeMRr4ImrWQD3MjiDjnv8vzhTe59NNfcuFW3CaTdGBeQP
+	Yoe5hLQCQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k3EXh-0005jO-LA; Wed, 05 Aug 2020 08:12:57 +0000
-Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
+	id 1k3Enz-0008NE-21; Wed, 05 Aug 2020 08:29:47 +0000
+Received: from us-smtp-delivery-1.mimecast.com ([207.211.31.120]
+ helo=us-smtp-1.mimecast.com)
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k3EXf-0005is-B2
- for linux-riscv@lists.infradead.org; Wed, 05 Aug 2020 08:12:56 +0000
-Received: by mail-wm1-x343.google.com with SMTP id t14so5399154wmi.3
- for <linux-riscv@lists.infradead.org>; Wed, 05 Aug 2020 01:12:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=lQpAXAKr6GTVwsUX1cbs0chy8xDobqsX5dTE8YjHl24=;
- b=AdpdWlhXTzCcR+WzTN1v4E0OsU4J2DMIl8YWvZ3Sj9Yh7o68EKCRpwq9r+QzMLyyir
- TnwhUmcCtmDuyIcndoKOrhe1r4agoZ3COSZO9GlnjNxXvFsi70tu1i3HdomJveoMVIl2
- yOz6crp34Rxxq6WbaOtwjYoB/VsiHREjqs4FdJGIoR+wAdmw0Z46hKqRRmeop4RpGfEs
- w3tGKNfgWF4wzGDa3iRVSRqHt/rv2hL87qdjHnerIOBP/alshyNwmF54PActY99ka0bu
- u66WrEsPE3cy+d/GtaAz6i7iKyNq3QLFxTP7bPLqrk3egU+tzs7Knvn0ilnYjMdYv/Xo
- aCuw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=lQpAXAKr6GTVwsUX1cbs0chy8xDobqsX5dTE8YjHl24=;
- b=C51fSaebRsUFIumh/mIE4Sjk7Lol5gdgiN/x9WV8cykCedSEtWkvY7Y/n4w2GLmgns
- ON1c3JuMozjTWnx2I3yUrJPWJabt1PeM3/Y3+6sQs93V56AupyBUDExdVhrMMAa329Yc
- FJSwayec79JbAie+97eIfGj3BF2O1azbmOWANd4R68z2o2wOS5fN6iTpUQ3/Q0+Cq2QT
- MxyunrtrMChRTexsnfMvYRjX/32vXXa/zwMPYQAYGermBQrAP7smWtyl4iFaHXhspfhZ
- F2d/PmmwktQZ1b8Od9S97knmGAAfBO+5rXdYN8FV5ECV8UOZ4Voiqd7cNHvmK0PEay+1
- 5Uow==
-X-Gm-Message-State: AOAM530C8jMDqMuGrto+eBfTNbWCBIbXRVUech7VdMSfqeZeaz5pW6Vv
- M3yOW4PEeqdmA9+NyYTNnWhaW0ECjot+3A==
-X-Google-Smtp-Source: ABdhPJzEchxyBP3fBg8aeweqi9LZ95rwdUU2Ah+J0k/rWSDJPv5NCgO6JGaZjKSIO01Vepgvc9S+mg==
-X-Received: by 2002:a1c:9c91:: with SMTP id f139mr2302972wme.134.1596615172354; 
- Wed, 05 Aug 2020 01:12:52 -0700 (PDT)
-Received: from google.com ([2a00:79e0:d:110:f693:9fff:fef4:a833])
- by smtp.gmail.com with ESMTPSA id e4sm1635863wru.55.2020.08.05.01.12.51
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 05 Aug 2020 01:12:51 -0700 (PDT)
-Date: Wed, 5 Aug 2020 09:12:50 +0100
-From: Will Deacon <willdeacon@google.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Subject: Re: [PATCH] riscv: Add sfence.vma after page table changed
-Message-ID: <20200805081250.GA3064472@google.com>
-References: <CAAhSdy1QbMjZxxu+wSBYr3+3oaM2Qg=_Uwj8dfQidi=ck6PV_Q@mail.gmail.com>
- <mhng-1f7adcd7-551c-4b8a-80f5-e1230b335c6a@palmerdabbelt-glaptop1>
+ id 1k3Enw-0008M5-Nx
+ for linux-riscv@lists.infradead.org; Wed, 05 Aug 2020 08:29:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1596616184;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=FvaMXP5a+m7YjPK069Q+H34K0fPtN+F8dCVJuIAUPpY=;
+ b=UUTWGjMaC589yMqIkc0P3tcJrgvfrnzLO8GogIGJlXgVmu4mZ8riSGVZ80gJd910sZWZnH
+ x/6LkzLnS3lm3aS9tSyXrJKXxfyikTxKoZ52heun1ooQqpuN/VBShPPPSyIpZ1aw8AoC7W
+ o+e4SIr3MyXoeyUk2C1AfLQ7axybcPE=
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-459-Fs5bhd50MLqa0hbUoos07g-1; Wed, 05 Aug 2020 04:29:36 -0400
+X-MC-Unique: Fs5bhd50MLqa0hbUoos07g-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com
+ [10.5.11.22])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+ (No client certificate requested)
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id F02638064AB;
+ Wed,  5 Aug 2020 08:29:30 +0000 (UTC)
+Received: from localhost (ovpn-12-71.pek2.redhat.com [10.72.12.71])
+ by smtp.corp.redhat.com (Postfix) with ESMTPS id E2DCC10013D0;
+ Wed,  5 Aug 2020 08:29:26 +0000 (UTC)
+Date: Wed, 5 Aug 2020 16:29:24 +0800
+From: Baoquan He <bhe@redhat.com>
+To: Mike Rapoport <rppt@kernel.org>
+Subject: Re: [PATCH v2 15/17] memblock: remove unused memblock_mem_size()
+Message-ID: <20200805082924.GV10792@MiWiFi-R3L-srv>
+References: <20200802163601.8189-1-rppt@kernel.org>
+ <20200802163601.8189-16-rppt@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <mhng-1f7adcd7-551c-4b8a-80f5-e1230b335c6a@palmerdabbelt-glaptop1>
+In-Reply-To: <20200802163601.8189-16-rppt@kernel.org>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200805_041255_421388_7E0A478B 
-X-CRM114-Status: GOOD (  22.38  )
+X-CRM114-CacheID: sfid-20200805_042944_800995_64B7EE31 
+X-CRM114-Status: GOOD (  18.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -95,56 +88,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, Marc Zyngier <maz@kernel.org>, aou@eecs.berkeley.edu,
- syven.wang@sifive.com, catalin.marinas@arm.com,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org,
- anup@brainfault.org, greentime.hu@sifive.com, linux-riscv@lists.infradead.org
+Cc: Emil Renner Berthing <kernel@esmil.dk>, linux-sh@vger.kernel.org,
+ Peter Zijlstra <peterz@infradead.org>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mips@vger.kernel.org,
+ Max Filippov <jcmvbkbc@gmail.com>, Paul Mackerras <paulus@samba.org>,
+ sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Will Deacon <will@kernel.org>, Stafford Horne <shorne@gmail.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>, linux-arch@vger.kernel.org,
+ linux-s390@vger.kernel.org, linux-c6x-dev@linux-c6x.org,
+ Yoshinori Sato <ysato@users.sourceforge.jp>,
+ Michael Ellerman <mpe@ellerman.id.au>, x86@kernel.org,
+ Russell King <linux@armlinux.org.uk>, Mike Rapoport <rppt@linux.ibm.com>,
+ clang-built-linux@googlegroups.com, Ingo Molnar <mingo@redhat.com>,
+ linux-arm-kernel@lists.infradead.org,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ uclinux-h8-devel@lists.sourceforge.jp, linux-xtensa@linux-xtensa.org,
+ openrisc@lists.librecores.org, Borislav Petkov <bp@alien8.de>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Hari Bathini <hbathini@linux.ibm.com>,
+ Michal Simek <monstr@monstr.eu>, linux-mm@kvack.org,
+ linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+ iommu@lists.linux-foundation.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Christoph Hellwig <hch@lst.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 04, 2020 at 07:03:06PM -0700, Palmer Dabbelt wrote:
-> > On Tue, Aug 4, 2020 at 8:32 AM Greentime Hu <greentime.hu@sifive.com> wrote:
-> > > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> > > index f4adb3684f3d..29b0f7108054 100644
-> > > --- a/arch/riscv/mm/init.c
-> > > +++ b/arch/riscv/mm/init.c
-> > > @@ -202,12 +202,11 @@ void __set_fixmap(enum fixed_addresses idx, phys_addr_t phys, pgprot_t prot)
-> > > 
-> > >         ptep = &fixmap_pte[pte_index(addr)];
-> > > 
-> > > -       if (pgprot_val(prot)) {
-> > > +       if (pgprot_val(prot))
-> > >                 set_pte(ptep, pfn_pte(phys >> PAGE_SHIFT, prot));
-> > > -       } else {
-> > > +       else
-> > >                 pte_clear(&init_mm, addr, ptep);
-> > > -               local_flush_tlb_page(addr);
-> > > -       }
-> > > +       local_flush_tlb_page(addr);
-> > >  }
+On 08/02/20 at 07:35pm, Mike Rapoport wrote:
+> From: Mike Rapoport <rppt@linux.ibm.com>
 > 
-> arm64 appears to be upgrading all set_pte()s on valid kernel mappings to
-> include the fence.  It looks like the message from 7f0b1bf04511 ("arm64: Fix
-> barriers used for page table modifications") is out of date, as I can't find
-> create_mapping() any more.  If that was some generic kernel thing then we
-> should probably upgrade ours as well, but if it was arch/arm64/ code then this
-> approach seems fine as __set_fixmap() isn't on the hot path -- I guess this is
-> fine either way, but there may be other issues that the arm64 approach fixes.
+> The only user of memblock_mem_size() was x86 setup code, it is gone now and
+> memblock_mem_size() funciton can be removed.
 > 
-> Do you guys happen to remember what was going on here?
+> Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+> ---
+>  include/linux/memblock.h |  1 -
+>  mm/memblock.c            | 15 ---------------
+>  2 files changed, 16 deletions(-)
+> 
+> diff --git a/include/linux/memblock.h b/include/linux/memblock.h
+> index d70c2835e913..ec2fd8f32a19 100644
+> --- a/include/linux/memblock.h
+> +++ b/include/linux/memblock.h
+> @@ -450,7 +450,6 @@ static inline bool memblock_bottom_up(void)
+>  
+>  phys_addr_t memblock_phys_mem_size(void);
+>  phys_addr_t memblock_reserved_size(void);
+> -phys_addr_t memblock_mem_size(unsigned long limit_pfn);
+>  phys_addr_t memblock_start_of_DRAM(void);
+>  phys_addr_t memblock_end_of_DRAM(void);
+>  void memblock_enforce_memory_limit(phys_addr_t memory_limit);
+> diff --git a/mm/memblock.c b/mm/memblock.c
+> index c1a4c8798973..48d614352b25 100644
+> --- a/mm/memblock.c
+> +++ b/mm/memblock.c
+> @@ -1656,21 +1656,6 @@ phys_addr_t __init_memblock memblock_reserved_size(void)
+>  	return memblock.reserved.total_size;
+>  }
+>  
+> -phys_addr_t __init memblock_mem_size(unsigned long limit_pfn)
+> -{
+> -	unsigned long pages = 0;
+> -	unsigned long start_pfn, end_pfn;
+> -	int i;
+> -
+> -	for_each_mem_pfn_range(i, MAX_NUMNODES, &start_pfn, &end_pfn, NULL) {
+> -		start_pfn = min_t(unsigned long, start_pfn, limit_pfn);
+> -		end_pfn = min_t(unsigned long, end_pfn, limit_pfn);
+> -		pages += end_pfn - start_pfn;
+> -	}
+> -
+> -	return PFN_PHYS(pages);
+> -}
 
-Basically, the architecture says we need these fences in order to guarantee
-that the page-table walker sees the updated entry. Since we couldn't
-tolerate spurious faults on kernel mappings, we had to add them (for
-userspace we don't bother because in reality we don't tend to take the
-spurious fault, and it's harmless if we do).
+Reviewed-by: Baoquan He <bhe@redhat.com>
 
-But having said all that, check out 42f91093b043 ("arm64: mm: Ignore spurious
-translation faults taken from the kernel").
-
-Will
 
 _______________________________________________
 linux-riscv mailing list
