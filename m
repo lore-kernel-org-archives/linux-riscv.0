@@ -2,104 +2,85 @@ Return-Path: <SRS0=vd3C=BQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PULL_REQUEST,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2A307C433DF
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2020 12:29:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9F1A4C433E0
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2020 23:18:21 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 043D222DFA
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2020 12:29:37 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 9753A2075A
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2020 23:18:21 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="PHbrfFDV"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 043D222DFA
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="cUB/+ZAI";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="syzHWmPv"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9753A2075A
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=ujFAGVZPlGv9l3V8h163zX+n6HTcgBQB2p8ODEJoayE=; b=PHbrfFDVxkssJ/diZwQkOiYtx
-	s3IY3ZwfX/ZexhtQTdczeY6igCMDKM0lf/mt76vigK5DNqkmn7USqP25SSZXLQK/JPBDUvfgggLMX
-	GyL6fffupuYvU7XkZNGnB2pxJM0W9Cz9hygje/PrdR5PisVM+F1BMY0Y/aENA0zrHjL0I2UPLa3L7
-	ryzUfGv5bfcRzEMXavjZrGHaTW4/qRI4DsdXUsVRq+ahozMgbO0JR+6AE1BuEQboaGtPA2vg+LC9+
-	kC2SN2j2xCWaN9vbQ9IVIgcLORR82Ln0FE1GGouGV6YgvTTEAqk30tvIBMNqju+RIXmnOiQ954i3H
-	0NpaRp81g==;
+	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Message-ID:To:From:Subject:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YWTK/DmwaaGlSzHjBqa++X8puo/kB78XZZTU6PsFhAc=; b=cUB/+ZAIyz+tU8qxMBPCZ0pT9P
+	wq5VE4heSSc8PMPyk7SkodiOlUKFc9wZwq+IOgaQiVJNGTsvUmd8p5J0zGmV4PCf4G99k6ZxZUsjT
+	hTWxy5xJh0fMBwNP0yvdwzn+Hy9aF7B2aXJ33cJKhy94soPKTd9kU2uBBGSm3ANdfaqJTcsDrZQjk
+	kuwOBwsKYuRN57uvyuseuEt8TQk+DzQl4AsxG5ShS/R+svXB31JZpg+ysKDJgZ4ddtHuMxo5C1Oow
+	4YMvKimb7MYL01lMa34xcirGeLgsOfQHEFAAeQ1XPeNxE68RokEqKI5isLFTLQ2/gFOoihb9JnjJq
+	xImc1Yrg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k3drE-0003MB-Ud; Thu, 06 Aug 2020 11:14:49 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1k3p96-0004li-JZ; Thu, 06 Aug 2020 23:18:00 +0000
+Received: from mail-pj1-x1043.google.com ([2607:f8b0:4864:20::1043])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k3drB-0003L7-GC; Thu, 06 Aug 2020 11:14:46 +0000
-Received: from pps.filterd (m0098394.ppops.net [127.0.0.1])
- by mx0a-001b2d01.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id
- 076B5Irv003910; Thu, 6 Aug 2020 07:14:27 -0400
-Received: from pps.reinject (localhost [127.0.0.1])
- by mx0a-001b2d01.pphosted.com with ESMTP id 32ra0rjm1p-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Thu, 06 Aug 2020 07:14:26 -0400
-Received: from m0098394.ppops.net (m0098394.ppops.net [127.0.0.1])
- by pps.reinject (8.16.0.36/8.16.0.36) with SMTP id 076B5tLh007950;
- Thu, 6 Aug 2020 07:14:26 -0400
-Received: from ppma06fra.de.ibm.com (48.49.7a9f.ip4.static.sl-reverse.com
- [159.122.73.72])
- by mx0a-001b2d01.pphosted.com with ESMTP id 32ra0rjm0j-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Thu, 06 Aug 2020 07:14:25 -0400
-Received: from pps.filterd (ppma06fra.de.ibm.com [127.0.0.1])
- by ppma06fra.de.ibm.com (8.16.0.42/8.16.0.42) with SMTP id 076B6ULk029608;
- Thu, 6 Aug 2020 11:14:23 GMT
-Received: from b06avi18878370.portsmouth.uk.ibm.com
- (b06avi18878370.portsmouth.uk.ibm.com [9.149.26.194])
- by ppma06fra.de.ibm.com with ESMTP id 32mynhba4f-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Thu, 06 Aug 2020 11:14:22 +0000
-Received: from d06av26.portsmouth.uk.ibm.com (d06av26.portsmouth.uk.ibm.com
- [9.149.105.62])
- by b06avi18878370.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP
- id 076BEKJH58065174
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Thu, 6 Aug 2020 11:14:20 GMT
-Received: from d06av26.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id B613BAE051;
- Thu,  6 Aug 2020 11:14:20 +0000 (GMT)
-Received: from d06av26.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 6127CAE055;
- Thu,  6 Aug 2020 11:14:17 +0000 (GMT)
-Received: from linux.ibm.com (unknown [9.145.24.39])
- by d06av26.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
- Thu,  6 Aug 2020 11:14:17 +0000 (GMT)
-Date: Thu, 6 Aug 2020 14:14:15 +0300
-From: Mike Rapoport <rppt@linux.ibm.com>
-To: "Kirill A. Shutemov" <kirill@shutemov.name>
-Subject: Re: [PATCH v3 3/6] mm: introduce memfd_secret system call to create
- "secret" memory areas
-Message-ID: <20200806111415.GL163101@linux.ibm.com>
-References: <20200804095035.18778-1-rppt@kernel.org>
- <20200804095035.18778-4-rppt@kernel.org>
- <20200806102757.7vobcaewdukr2xdl@box>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20200806102757.7vobcaewdukr2xdl@box>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.235, 18.0.687
- definitions=2020-08-06_06:2020-08-06,
- 2020-08-06 signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- mlxscore=0 adultscore=0
- mlxlogscore=923 lowpriorityscore=0 suspectscore=1 bulkscore=0
- clxscore=1015 spamscore=0 priorityscore=1501 impostorscore=0 phishscore=0
- malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2006250000 definitions=main-2008060079
+ id 1k3p93-0004l8-L2
+ for linux-riscv@lists.infradead.org; Thu, 06 Aug 2020 23:17:59 +0000
+Received: by mail-pj1-x1043.google.com with SMTP id kr4so7644723pjb.2
+ for <linux-riscv@lists.infradead.org>; Thu, 06 Aug 2020 16:17:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:cc:from:to:message-id;
+ bh=i/OwUIJf7SuJHYzeBOib/eEDsTwDweM8G7B4I7i5Bvo=;
+ b=syzHWmPvTWALcrWBF18nmFt2CvSrIQYFi1YMgwYoeqCG1noUVuvEyvzppBNyxLschE
+ vuX35e4wHBO2uDnVXgHHa8SUMo7ibA3GrjjlHw62UO3BE9b+AsLtvN/JyMadYkvn4cQB
+ F3I6JVnvZAFkwunDEY7J34CGXmCvq6kj94LsGSGNaO1D7KmdlrfxCP8hD4QSZ+qwvGxv
+ ts8MAebxt/4uuGVrn+HQQBvKWhMbRkgXVOKJQVgyyyyJ9u3Q3x7hA0FYzvwlFoa8GdGq
+ UZBHbIpd73ITwUoJJrESh7jQtaxz4GsC4Q0/6nLr7QDEGJ9N+dGy5PZNv/uPqRVdFyf9
+ HZFg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:cc:from:to:message-id;
+ bh=i/OwUIJf7SuJHYzeBOib/eEDsTwDweM8G7B4I7i5Bvo=;
+ b=KWwmWIdu1eLLJSoGXghxfRNerrZQOzrxpCRxJGQYiBX/rghC4bUBL9gQ86wIjkz9TX
+ 2zp3Cas9pMskC7YoZchDY4Q+jEPQ9ZKmgATbRSbk7IuIKJz2Tfd0EaiSjV4W6rSqppYr
+ aMdCzzHyUqQPGiduryFjd7OSqNm77jYK/S1/wEcROXpE5Va5EzPcG8SCNOy0q96QlsOL
+ nqFiMnuMT+H96jriypFdrsX385XeX1Sf/vrlWWiZKOHDLqZsIK0raXHw9jZqxJOGtpEi
+ OYIFQaNiHFdN68WEmfi9fiRcbmj+gMuGsLk4Zw1a1a+yqqL+ptN+8az/FXFrsxp8rc35
+ AP+Q==
+X-Gm-Message-State: AOAM530T3J98FUai2s5dMyPIZKHR4IzpZm7vtPTEMaUpQZZUchTP77dr
+ Ywl1Iq2nuQjm1hhQrzcigrOMh4mFaZk=
+X-Google-Smtp-Source: ABdhPJx9PA/4CJu14d0jYRFqd7WVyGbfengXQHp8k+Q/wkU6L2M8uCVqMNWs1WC93enhL/GT20beMw==
+X-Received: by 2002:a17:902:368:: with SMTP id
+ 95mr10201850pld.279.1596755870455; 
+ Thu, 06 Aug 2020 16:17:50 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id e9sm9761253pfh.151.2020.08.06.16.17.40
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 06 Aug 2020 16:17:49 -0700 (PDT)
+Date: Thu, 06 Aug 2020 16:17:49 -0700 (PDT)
+X-Google-Original-Date: Thu, 06 Aug 2020 16:17:37 PDT (-0700)
+Subject: [GIT PULL] RISC-V Patches for the 5.9 Merge Window, Part 1
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-bb218bf7-4f63-48f8-95a6-67ff0d32a166@palmerdabbelt-glaptop1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200806_071445_757608_FDC050A9 
-X-CRM114-Status: GOOD (  27.46  )
+X-CRM114-CacheID: sfid-20200806_191757_715983_7C5A0245 
+X-CRM114-Status: GOOD (  16.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -111,60 +92,137 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
- "H. Peter Anvin" <hpa@zytor.com>, Christopher Lameter <cl@linux.com>,
- Idan Yaniv <idan.yaniv@ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
- Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
- Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
- Will Deacon <will@kernel.org>, x86@kernel.org,
- Matthew Wilcox <willy@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Michael Kerrisk <mtk.manpages@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
- James Bottomley <jejb@linux.ibm.com>, Borislav Petkov <bp@alien8.de>,
- Alexander Viro <viro@zeniv.linux.org.uk>, Andy Lutomirski <luto@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
- linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-fsdevel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
- Mike Rapoport <rppt@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 06, 2020 at 01:27:57PM +0300, Kirill A. Shutemov wrote:
-> On Tue, Aug 04, 2020 at 12:50:32PM +0300, Mike Rapoport wrote:
-> > From: Mike Rapoport <rppt@linux.ibm.com>
-> > 
-> > Introduce "memfd_secret" system call with the ability to create memory
-> > areas visible only in the context of the owning process and not mapped not
-> > only to other processes but in the kernel page tables as well.
-> > 
-> > The user will create a file descriptor using the memfd_secret() system call
-> > where flags supplied as a parameter to this system call will define the
-> > desired protection mode for the memory associated with that file
-> > descriptor. Currently there are two protection modes:
-> > 
-> > * exclusive - the memory area is unmapped from the kernel direct map and it
-> >               is present only in the page tables of the owning mm.
-> > * uncached  - the memory area is present only in the page tables of the
-> >               owning mm and it is mapped there as uncached.
-> 
-> I'm not sure why flag for exclusive mode is needed. It has to be default.
-> And if you want uncached on top of that set the flag.
+The following changes since commit 9ebcfadb0610322ac537dd7aa5d9cbc2b2894c68:
 
-Makes sense.
+  Linux 5.8-rc3 (2020-06-28 15:00:24 -0700)
 
-> What am I missing?
->
-> -- 
->  Kirill A. Shutemov
+are available in the Git repository at:
 
--- 
-Sincerely yours,
-Mike.
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.9-mw0
+
+for you to fetch changes up to 40284a072c42f6177184fb1f62ba94c69e0c0277:
+
+  riscv: disable stack-protector for vDSO (2020-08-04 15:02:49 -0700)
+
+----------------------------------------------------------------
+RISC-V Patches for the 5.9 Merge Window, Part 1
+
+We have a lot of new kernel features for this merge window:
+
+* ARCH_SUPPORTS_ATOMIC_RMW, to allow OSQ locks to be enabled.
+* The ability to enable NO_HZ_FULL
+* Support for enabling kcov, kmemleak, stack protector, and VM debugging.
+* JUMP_LABEL support.
+
+There are also a handful of cleanups.
+
+next points out a trivial Kconfig merge conflict.  I don't see any way to have
+done this better: the symbols are sorted, it just happens that
+HAVE_COPY_THREAD_TLS was in the middle of two new symbols.  In case it helps
+any, here's a pretty current conflict resolution:
+
+diff --cc arch/riscv/Kconfig
+index bc37241a6875,6c4bce7cad8a..7b5905529146
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@@ -57,9 -54,6 +59,8 @@@ config RISC
+        select HAVE_ARCH_SECCOMP_FILTER
+        select HAVE_ARCH_TRACEHOOK
+        select HAVE_ASM_MODVERSIONS
+ +      select HAVE_CONTEXT_TRACKING
+-       select HAVE_COPY_THREAD_TLS
+ +      select HAVE_DEBUG_KMEMLEAK
+        select HAVE_DMA_CONTIGUOUS if MMU
+        select HAVE_EBPF_JIT if MMU
+        select HAVE_FUTEX_CMPXCHG if FUTEX
+
+----------------------------------------------------------------
+Alexander A. Klimov (1):
+      Replace HTTP links with HTTPS ones: RISC-V
+
+Atish Patra (2):
+      RISC-V: Setup exception vector early
+      RISC-V: Fix build warning for smpboot.c
+
+Chenxi Mao (1):
+      riscv: Select ARCH_SUPPORTS_ATOMIC_RMW by default
+
+Emil Renner Berthing (3):
+      riscv: Support R_RISCV_ADD64 and R_RISCV_SUB64 relocs
+      riscv: Add jump-label implementation
+      riscv: Select ARCH_HAS_DEBUG_VM_PGTABLE
+
+Greentime Hu (3):
+      RISC-V: Use a local variable instead of smp_processor_id()
+      riscv: Support irq_work via self IPIs
+      riscv: Enable context tracking
+
+Guo Ren (4):
+      riscv: Fixup static_obj() fail
+      riscv: Enable LOCKDEP_SUPPORT & fixup TRACE_IRQFLAGS_SUPPORT
+      riscv: Add STACKPROTECTOR supported
+      riscv: Cleanup unnecessary define in asm-offset.c
+
+Pekka Enberg (2):
+      mm: pgtable: Make generic pgprot_* macros available for no-MMU
+      riscv: Use generic pgprot_* macros from <linux/pgtable.h>
+
+Tobias Klauser (4):
+      riscv: Allow building with kcov coverage
+      riscv: Add kmemleak support
+      riscv: Fix typo in asm/hwcap.h uapi header
+      riscv: disable stack-protector for vDSO
+
+Zong Li (4):
+      riscv: Register System RAM as iomem resources
+      riscv: Fixup lockdep_assert_held with wrong param cpu_running
+      riscv: Fix build warning for mm/init
+      riscv: fix build warning of mm/pageattr
+
+ .../features/core/jump-labels/arch-support.txt     |  2 +-
+ .../debug/debug-vm-pgtable/arch-support.txt        |  2 +-
+ arch/riscv/Kconfig                                 | 12 ++++
+ arch/riscv/boot/Makefile                           |  2 +
+ arch/riscv/configs/defconfig                       |  1 +
+ arch/riscv/configs/nommu_k210_defconfig            |  1 +
+ arch/riscv/configs/nommu_virt_defconfig            |  1 +
+ arch/riscv/configs/rv32_defconfig                  |  1 +
+ arch/riscv/include/asm/irq_work.h                  | 10 +++
+ arch/riscv/include/asm/jump_label.h                | 60 ++++++++++++++++++
+ arch/riscv/include/asm/mmio.h                      |  6 --
+ arch/riscv/include/asm/smp.h                       |  3 +
+ arch/riscv/include/asm/stackprotector.h            | 33 ++++++++++
+ arch/riscv/include/uapi/asm/hwcap.h                |  2 +-
+ arch/riscv/include/uapi/asm/unistd.h               |  2 +-
+ arch/riscv/kernel/Makefile                         |  2 +
+ arch/riscv/kernel/asm-offsets.c                    |  3 -
+ arch/riscv/kernel/entry.S                          | 54 ++++++++++++++--
+ arch/riscv/kernel/head.S                           | 10 ++-
+ arch/riscv/kernel/jump_label.c                     | 53 ++++++++++++++++
+ arch/riscv/kernel/module.c                         | 16 +++++
+ arch/riscv/kernel/process.c                        |  6 ++
+ arch/riscv/kernel/smp.c                            | 15 +++++
+ arch/riscv/kernel/smpboot.c                        | 12 ++--
+ arch/riscv/kernel/traps.c                          |  8 +--
+ arch/riscv/kernel/vdso/Makefile                    |  3 +
+ arch/riscv/kernel/vmlinux.lds.S                    |  2 +-
+ arch/riscv/mm/Makefile                             |  2 +
+ arch/riscv/mm/init.c                               | 27 ++++++++
+ arch/riscv/mm/pageattr.c                           |  3 +-
+ include/linux/pgtable.h                            | 71 +++++++++++-----------
+ tools/arch/riscv/include/uapi/asm/unistd.h         |  2 +-
+ 32 files changed, 356 insertions(+), 71 deletions(-)
+ create mode 100644 arch/riscv/include/asm/irq_work.h
+ create mode 100644 arch/riscv/include/asm/jump_label.h
+ create mode 100644 arch/riscv/include/asm/stackprotector.h
+ create mode 100644 arch/riscv/kernel/jump_label.c
 
 _______________________________________________
 linux-riscv mailing list
