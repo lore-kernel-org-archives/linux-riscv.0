@@ -2,22 +2,22 @@ Return-Path: <SRS0=vd3C=BQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1BF1AC433E0
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2020 12:16:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5A6E8C433DF
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2020 12:21:30 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DF6D6204FD
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2020 12:16:49 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 381A8204FD
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Aug 2020 12:21:30 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="XxIx8YIf";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=shutemov-name.20150623.gappssmtp.com header.i=@shutemov-name.20150623.gappssmtp.com header.b="q44JM/Mh"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DF6D6204FD
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="SnseLeOE";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=shutemov-name.20150623.gappssmtp.com header.i=@shutemov-name.20150623.gappssmtp.com header.b="vdAe04pQ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 381A8204FD
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=shutemov.name
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,69 +26,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=eagY8VR9VfB2+K+bSkfUHpDN89YrUnHDPoeqGeYjgfE=; b=XxIx8YIfzcMObqhveqZMeBw2Z
-	M10DnqwysTppazILRwdja1SqUp/Vov7mDDePYqTxngvyGd7waDmwgmenBJIQ2TJpY3W9FYFu6d6AJ
-	WhPzvpHuFJxpwqsNrGSMNfQeRwvbvqd5NlmmsGecPQyVsLZ1yn+nBYPbfaVNRXkn606PtVMlRUbFv
-	sNu9fR7hyWWG5cfMlM2Vq06ExaRPV+Uza4v9UKSdnKdqB4+V+Yf1Lsz1drdP7N/V8jEDhrGmz6sHD
-	Aa/PPsvqw9LjKw8vpy/YP1T1X0xI4U74bXa77IHNvdE1xttXcBDSKWyxIOitCOpxJp8jaXlTs2azD
-	5+7D0etHA==;
+	 bh=XKxwvsmQJHGqwLxJuqpqnFUjDNUqmn5Oiifs/fhqdwo=; b=SnseLeOEgh4zYpVmpu/zzgxES
+	bM9shGyi2oLx5zlvJ1SXagN6DKXVX7zulZVE56NeAe4ZToPIoIhG1k4Rh6tzGWqZU+SlKqgCVY6oj
+	RCvX6My2Jd/C4wjDZZB7aiZitpAklvHJhO2Ni8o9k8tQgtezk4SF5Krgjy3JBCj8zvrFaqaLSiy4/
+	g3xcFoOJRBMkG6YOjHMFNh7HyQiVRoydUwG0/NfI68CaqDr4ChT4hxMxDExRgPTjIkLcF0F1fM1QL
+	2tyagaX0bT3xNki4xKEEv9bypANqF3QwBKujX49OWs4QzhZ6oPUXdHPTC1nXwGX8qwocn4kPKf+hx
+	g2/E+u9Nw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k3d7u-0007pf-E6; Thu, 06 Aug 2020 10:27:58 +0000
-Received: from mail-lj1-x242.google.com ([2a00:1450:4864:20::242])
+	id 1k3crh-0005Fa-Rt; Thu, 06 Aug 2020 10:11:13 +0000
+Received: from mail-lf1-x142.google.com ([2a00:1450:4864:20::142])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k3d7n-0007nY-I8
- for linux-riscv@lists.infradead.org; Thu, 06 Aug 2020 10:27:53 +0000
-Received: by mail-lj1-x242.google.com with SMTP id g6so38507632ljn.11
- for <linux-riscv@lists.infradead.org>; Thu, 06 Aug 2020 03:27:51 -0700 (PDT)
+ id 1k3crc-0005DF-Bi
+ for linux-riscv@lists.infradead.org; Thu, 06 Aug 2020 10:11:09 +0000
+Received: by mail-lf1-x142.google.com with SMTP id x24so8493974lfe.11
+ for <linux-riscv@lists.infradead.org>; Thu, 06 Aug 2020 03:11:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=shutemov-name.20150623.gappssmtp.com; s=20150623;
  h=date:from:to:cc:subject:message-id:references:mime-version
  :content-disposition:in-reply-to;
- bh=kMBgMZhsaHkiYpNXe6mnulxBmErGl6mZVT718X/hP1s=;
- b=q44JM/MhPtGS1X8CEtdPT8jY1IsznRmL/EUJCRVKZ0SQjpJuKmiF3MRSg0V201k6/0
- 7wdleRwGXgcpS6GBcJQn3aN4+K1pHDGZuvFRDvTF9APAIhXb+a2xl9Jp+eur4UHwQKOG
- a+RLO7aCLHiHjNUkqDHv3KHpAByqNpYKygFYVYfjG2rDRNZ1boVJjHid9G6QxHXMRDHj
- lxu6G5SWy3EMKBtlkZJxRZeLycn9DXYVVNUnw64xSNl8FhKmMBKmB/5GaDUrg6bknGVy
- 69EcKcUZE3qqrUPWzoTffaHacemMJWCOZb/G6QEBjYa8rAKMuVSkNGFwC876gdtvvS/j
- Xp6w==
+ bh=FmHNrmiGc1oEc9Yta/aBuQn+1EulEN2xZuLGLoeLXHQ=;
+ b=vdAe04pQJi4piGZ5+mZ0j2zhjTn6XVtWXoKVvfYvjkZt497I/uZbgq0bCXUw9yqxv1
+ aDwbG4fQLRxllT940g4JJIoLaihdHAzLTznrUByrMW1Sxn0NV4LG6ITrocLkxfQ/UbR8
+ /22r5p3LxUUJDP/bT5Lo9OvmnoXmRxUSyOPo0gH4uKUH+elU8Mn1VlYg4xH7/Swt6AEz
+ woNXvCrI7kpsrhxnMJDhchfVxMGgUKsXYC/i/xUa92sA04Rdaab+RLuwLDiP7hERRYMU
+ MGSXXRnFS4yE+plzwECIlQPOIq5Q9sL11BNdJXjz4h7FpV4jOJJQ0vybui6R3DGZ4y4F
+ e/Cw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to;
- bh=kMBgMZhsaHkiYpNXe6mnulxBmErGl6mZVT718X/hP1s=;
- b=bG3eHptUkYyzMZZxd1AbbMbxlIjv0cyzaqLzrpqkpYRaa4rIxFUdzFOVhk/xr7RrKp
- R2ZuwNBVyeJo1oaT4dHbxQOBcCxYV09ORxEEdW+LqosdZxfSzPAJqEVozd6BFz6Td0jX
- 7XIlMeIrYw7EWii5vGicEyqFEVu7cTWTVnH5n2CVQKf9FRcc+pYGYYeI2zx6CwW/Bg82
- JFnBTYDyActBAAaVp6/TjBvG8bRh9wM8TbvUZ5b2zAkDXNUS0HUfLgpMZ/dy76Yz72Eh
- K4wq36bSS5NK1ys3Kwu/dMhPUWeVBYqsutiwVb7YNGFGkpsLrzBt7dkV70UEIRTIm61c
- 0Dcw==
-X-Gm-Message-State: AOAM533wF57+k/vkwLrjPsyIhgDGwM1aDEK9IewfvJ3KiU+3/iIe3ZE9
- 3/ch4IMT/jWFpeEltddOykvxVA==
-X-Google-Smtp-Source: ABdhPJwKs0kOBphzk4nhXY72GuBZVVKvwfIRMs8kMWmC7io4Zo82tk1RHZ72Ob2Qcz50sTYcK1DvmA==
-X-Received: by 2002:a05:651c:201b:: with SMTP id
- s27mr3653296ljo.468.1596709669841; 
- Thu, 06 Aug 2020 03:27:49 -0700 (PDT)
+ bh=FmHNrmiGc1oEc9Yta/aBuQn+1EulEN2xZuLGLoeLXHQ=;
+ b=k+qQq4IlppiVbpa1cOE5iKtWMiDUgXE4KVaBwIfBQtgQkh2gaXnwLqaErZWDCAC/YT
+ TijoYT4Qy3hiRG6xwx9dmEzv0Bfubs+l7ESSrPmuf5hJQuILh21FVZ8awbLwKMehEcbC
+ JyhmokqAO5wR7zoXerVEheWXMPbI8jSk/ijFIdCbH7weTtnV+6/EVFrI+sajlcUXwDUm
+ jdQlsYy69rYE4QskW+R4CAGyEUNQjLxD64DmnBEbrU8FH8qrriHDT3lhpfq50ps495yi
+ cIg5Baixn9N7x7wk90m7Mmq8bIP2s1q4N4ea1+kdr7yhCYhdftKnMTlOOr7oNT2hcSAn
+ fzJQ==
+X-Gm-Message-State: AOAM532LDbyfNTQZdDBo5wtL5G58K1cy4enq7tpuDO8yDHl+DPNvgG6N
+ ICoiSuJcbNYyLKJrJs0IhfMJRQ==
+X-Google-Smtp-Source: ABdhPJztxQdmUqdlmLCUV07uqArQbN1pckvCcR5Q9hxz1Dr0Q7jnsmbBT95GM1N8CkcdipmeoNGGIA==
+X-Received: by 2002:a19:70c:: with SMTP id 12mr3611270lfh.207.1596708665300;
+ Thu, 06 Aug 2020 03:11:05 -0700 (PDT)
 Received: from box.localdomain ([86.57.175.117])
- by smtp.gmail.com with ESMTPSA id h18sm2208204ljk.7.2020.08.06.03.27.48
+ by smtp.gmail.com with ESMTPSA id v9sm2356183lja.81.2020.08.06.03.11.04
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 06 Aug 2020 03:27:49 -0700 (PDT)
+ Thu, 06 Aug 2020 03:11:04 -0700 (PDT)
 Received: by box.localdomain (Postfix, from userid 1000)
- id 80A47102E1B; Thu,  6 Aug 2020 13:27:57 +0300 (+03)
-Date: Thu, 6 Aug 2020 13:27:57 +0300
+ id 92823102E1B; Thu,  6 Aug 2020 13:11:12 +0300 (+03)
+Date: Thu, 6 Aug 2020 13:11:12 +0300
 From: "Kirill A. Shutemov" <kirill@shutemov.name>
 To: Mike Rapoport <rppt@kernel.org>
-Subject: Re: [PATCH v3 3/6] mm: introduce memfd_secret system call to create
- "secret" memory areas
-Message-ID: <20200806102757.7vobcaewdukr2xdl@box>
+Subject: Re: [PATCH v3 1/6] mm: add definition of PMD_PAGE_ORDER
+Message-ID: <20200806101112.bjw4mxu2odpsg2hh@box>
 References: <20200804095035.18778-1-rppt@kernel.org>
- <20200804095035.18778-4-rppt@kernel.org>
+ <20200804095035.18778-2-rppt@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20200804095035.18778-4-rppt@kernel.org>
+In-Reply-To: <20200804095035.18778-2-rppt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200806_062752_334416_F39CE1F3 
-X-CRM114-Status: GOOD (  18.86  )
+X-CRM114-CacheID: sfid-20200806_061108_638263_DFF4FA64 
+X-CRM114-Status: GOOD (  21.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -122,26 +120,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 04, 2020 at 12:50:32PM +0300, Mike Rapoport wrote:
+On Tue, Aug 04, 2020 at 12:50:30PM +0300, Mike Rapoport wrote:
 > From: Mike Rapoport <rppt@linux.ibm.com>
 > 
-> Introduce "memfd_secret" system call with the ability to create memory
-> areas visible only in the context of the owning process and not mapped not
-> only to other processes but in the kernel page tables as well.
+> The definition of PMD_PAGE_ORDER denoting the number of base pages in the
+> second-level leaf page is already used by DAX and maybe handy in other
+> cases as well.
 > 
-> The user will create a file descriptor using the memfd_secret() system call
-> where flags supplied as a parameter to this system call will define the
-> desired protection mode for the memory associated with that file
-> descriptor. Currently there are two protection modes:
+> Several architectures already have definition of PMD_ORDER as the size of
+> second level page table, so to avoid conflict with these definitions use
+> PMD_PAGE_ORDER name and update DAX respectively.
 > 
-> * exclusive - the memory area is unmapped from the kernel direct map and it
->               is present only in the page tables of the owning mm.
-> * uncached  - the memory area is present only in the page tables of the
->               owning mm and it is mapped there as uncached.
+> Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+> ---
+>  fs/dax.c                | 10 +++++-----
+>  include/linux/pgtable.h |  3 +++
+>  2 files changed, 8 insertions(+), 5 deletions(-)
+> 
+> diff --git a/fs/dax.c b/fs/dax.c
+> index 11b16729b86f..b91d8c8dda45 100644
+> --- a/fs/dax.c
+> +++ b/fs/dax.c
+> @@ -50,7 +50,7 @@ static inline unsigned int pe_order(enum page_entry_size pe_size)
+>  #define PG_PMD_NR	(PMD_SIZE >> PAGE_SHIFT)
+>  
+>  /* The order of a PMD entry */
+> -#define PMD_ORDER	(PMD_SHIFT - PAGE_SHIFT)
+> +#define PMD_PAGE_ORDER	(PMD_SHIFT - PAGE_SHIFT)
 
-I'm not sure why flag for exclusive mode is needed. It has to be default.
-And if you want uncached on top of that set the flag.
-What am I missing?
+Hm. Wouldn't it conflict with definition in pgtable.h? Or should we
+include it instead?
+
+> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> index 56c1e8eb7bb0..79f8443609e7 100644
+> --- a/include/linux/pgtable.h
+> +++ b/include/linux/pgtable.h
+> @@ -28,6 +28,9 @@
+>  #define USER_PGTABLES_CEILING	0UL
+>  #endif
+>  
+> +/* Number of base pages in a second level leaf page */
+> +#define PMD_PAGE_ORDER	(PMD_SHIFT - PAGE_SHIFT)
+> +
+>  /*
+>   * A page table page can be thought of an array like this: pXd_t[PTRS_PER_PxD]
+>   *
 
 -- 
  Kirill A. Shutemov
