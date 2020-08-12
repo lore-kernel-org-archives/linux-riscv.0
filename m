@@ -7,18 +7,18 @@ X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6E491C433E0
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Aug 2020 01:58:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A984FC433E0
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Aug 2020 07:42:11 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3AEEA206B2
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Aug 2020 01:58:04 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 7428D2065C
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Aug 2020 07:42:11 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="oKcP0sxK";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="MtrgH4e6"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3AEEA206B2
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="bLHDD3Cn";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="ie94EZvB"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7428D2065C
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -26,60 +26,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=iG/z2XsH1M6ZPKP86nMG8g/jO7M0RBEaXR6LAOYo4xo=; b=oKcP0sxKEn6GJmCVjiiAyefHo
-	FfavHyVBygp46mlXSCkJVtOVJhHhwxgTeP/ifk8ktfrkBVK+tn5DHgYWKVhQ1fNPWef/Mhhucrtv4
-	4AnMhqd8LmIm2LVKCBIHmcvy9Lryk/Vm3/HeijBVllU/c24yNxBBSSGY9RRzcT+/SW2NjujK/+5fm
-	78pdYSxUNYTDH9IfC/iPbHivjFpoU5nz5XPnrZeXmH03RV3LSYJkPTtH6NfYD8BVBQ3KrlC92U8qD
-	tCJMJxPy/5kovAXu84gfNyKwor5fGHR/Cjf5MyEYkkgUrwaJEIIgAdThMny+HAhIw+BbdXRZ5TxQO
-	f/u19ec4A==;
+	 bh=DoBvNQuGh5KWLTYvR/5WgGy+0v7QNU/zGqMb80+DfpY=; b=bLHDD3CnTKsF3omkS43CQFSXS
+	rmOK8EinmLmqnIMbgiS/9WMMexy3Vsu0wZpJa2A/GlRjsJwbPvLrOCZEKOS3jCDMeHGCd/AWh6DJU
+	VsrWACFoZs7HZlm15En8exY7yy+0yJ9mspid4T1yRHxzSRa1tvycTn8O+a9s9TLL1ZI70XZ3MGgo8
+	69vTHHfsZh53bjMpRjnDlLNqSI4iydOOrMBClFPpYsO5z9yaUeZdHZ1ht43OfxLApFz8RkMnrYSUp
+	0oJ/AatR0PNODpdKZT5InjmWh6l/FiBMmu33CsO3MyqSjA0TT4pOKQZNycYGOsJwa4I0Ju88mqU8P
+	0vzC0rA+w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k5g1P-0005mR-5V; Wed, 12 Aug 2020 01:57:43 +0000
-Received: from mail-wm1-x344.google.com ([2a00:1450:4864:20::344])
+	id 1k5lOV-0001Zj-Fc; Wed, 12 Aug 2020 07:41:55 +0000
+Received: from mail-wr1-x444.google.com ([2a00:1450:4864:20::444])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k5g1M-0005lw-4B
- for linux-riscv@lists.infradead.org; Wed, 12 Aug 2020 01:57:41 +0000
-Received: by mail-wm1-x344.google.com with SMTP id g75so466226wme.4
- for <linux-riscv@lists.infradead.org>; Tue, 11 Aug 2020 18:57:39 -0700 (PDT)
+ id 1k5lOS-0001ZG-GB
+ for linux-riscv@lists.infradead.org; Wed, 12 Aug 2020 07:41:53 +0000
+Received: by mail-wr1-x444.google.com with SMTP id r4so1066422wrx.9
+ for <linux-riscv@lists.infradead.org>; Wed, 12 Aug 2020 00:41:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
+ d=atishpatra.org; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=wCc2Gl+2ZTzj2s1NxZep6jFJoKEN1M3r6ckrO/cMZEo=;
- b=MtrgH4e68InVhMQvBNFrmb+HAGSNG13qFb8CyTSJCmb0k9WC6LJcTKtaurJ0h3bvtg
- we1YeNt+fVkQP1vC+8nGUh4yG83PbqsRs0TSMDuLPfAzjWJE6WJxx8fVU2c0aGZ6hdoL
- yJLVsnpfeCe+xo3I/82ccIopkEGlV2XWig7rcszlLgSCN/gZusb8Tqne1dh7h9eibUWx
- 7VGxjHoBxqU+FYo7AhSEzTJJ0XawChqTtaMgsXcUyGHCZOEm21qxM+WyRfVKarc6w8Q1
- A7qiCllGLKTyFma03Pe0vd1Al9TuWVFnd2BXJAE6MlXXCo3+UL+EQsAkcnQqiGyWm4GL
- Npxg==
+ :cc; bh=qcgI980fiRK7SzxZtdY0+aQKjgScVqiUUhN/ufIMkto=;
+ b=ie94EZvBjlMPBYC7v+ZULaM3vEkmlqRbQup1ISoqE7/k++/Nxg7Zo3hGSK6NGo6J2E
+ ov5MLZQyA7Ey345t2WDXVw8/jykGfhDUCDePGYVmEm2Z6AitQLrEVkQXtv6LRmrT4rHF
+ pSt/LUexc4sHFDschR7ooBgKqAcTMzk4XhZgY=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=wCc2Gl+2ZTzj2s1NxZep6jFJoKEN1M3r6ckrO/cMZEo=;
- b=fqIdSKYBeIMxU9CMlTq/0qBLxZiUGxVFyFMVO8JxDlz6cq84ZdNzF8cxhIaDhkmfNw
- oqJmktxmNHmgTseW6UUt5rGlIKEdHC9vxKGTjpfq8jrM1ZlPuKV4myjUNooFYLWUrfmw
- CI5AAW0V7Uz7s4XgZsZwQJIBmdt8QF+1DvdFVz+Llw/U6TzuwOZopkP3HF6QTbCfyVhZ
- qIhJXUqG7dk8sOhsjQ+fLyfNrsDA/5L84s5BoXXoag0rs3uDJcwfY760pVcRMWcgfUKi
- UJuvvqWtE+FMfLdEovPDKJaFWNCLGVbrNW27Zp1zpW/tQn8F5N5NRo1iidLFPKi7Jz0X
- jABw==
-X-Gm-Message-State: AOAM5336c07jMLhwi7nF6sy0BfTu3wwdA/adWSIYev1tnGUZtvneEmOK
- J+1MhGkd+slOr06Hpqp8cX9lu7siktoGCfXN5NFIXQ==
-X-Google-Smtp-Source: ABdhPJz95b1SCywW9YKLXjnSml+205qMM5HwcHslPl1JunI9ijY6bMGsFm70gRZfhcgms4KMTm0evXHaUy55A+Kolas=
-X-Received: by 2002:a1c:9c91:: with SMTP id f139mr6595552wme.134.1597197458091; 
- Tue, 11 Aug 2020 18:57:38 -0700 (PDT)
+ bh=qcgI980fiRK7SzxZtdY0+aQKjgScVqiUUhN/ufIMkto=;
+ b=UtuPnRFMD7mugpedG2570PkQIWrdxI/8gjtWGtZrbENTKnMsCHcQs/gW0lrwrKFn8U
+ DqkWb3lNn6M/NFewnuktwZ6BcwWDA2VL7vqSXDenohbvsFXSFFVDt/KSE3LhTAiifE2P
+ 6QOWONxibRalzbN/MG53UeG3rovc045jFhkutNGFQEZt2BWtG+jjGClx2/KyBcXySQ25
+ uUY3w1F699KqEq6Fe6HqYQjFw+Nw+9Acb4j8NhGjhqbi50Cr5lTNi1kfHStHNaJqt/ry
+ HfxA+IKC1OpYUI2GHAc/oCLAwb0TCpHHrRofRu57hRtJgVISEonmPjsaPm/BrChGRBZU
+ 9WDw==
+X-Gm-Message-State: AOAM532JGIMV1/XsnaQABjq01GKDW9u8BTgYkSNTIyoaut5vAiG+qI+o
+ zRbLucZJLJmsM1N082iMEbYwBV+Db3eZ77DcAEMGTCc=
+X-Google-Smtp-Source: ABdhPJxE9iPhEi+Ighffl+MyFz80beV70ynZhB9O2kOx/VILETEiMy0EHhp5f4+WmccEEZUdbbgH6SIO5ou6TM23tvY=
+X-Received: by 2002:adf:d84f:: with SMTP id k15mr31107746wrl.176.1597218110811; 
+ Wed, 12 Aug 2020 00:41:50 -0700 (PDT)
 MIME-Version: 1.0
 References: <20200811063659.284088-1-qiuwenbo@phytium.com.cn>
  <CAAhSdy1c=R6aUZ6EOggmJ_Bqm2O0VLKEku=zyFfabExSzOKErA@mail.gmail.com>
  <CAOnJCUJiLVyzMFkn157Zmdrtm66Z=gWmQbXCJiMRY8LCJ3xkaw@mail.gmail.com>
-In-Reply-To: <CAOnJCUJiLVyzMFkn157Zmdrtm66Z=gWmQbXCJiMRY8LCJ3xkaw@mail.gmail.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Wed, 12 Aug 2020 07:27:26 +0530
-Message-ID: <CAAhSdy0yV154R9EBbmQqR6mN-U7j02hGto76k+PY0W6xpJMW_A@mail.gmail.com>
+ <CAAhSdy0yV154R9EBbmQqR6mN-U7j02hGto76k+PY0W6xpJMW_A@mail.gmail.com>
+In-Reply-To: <CAAhSdy0yV154R9EBbmQqR6mN-U7j02hGto76k+PY0W6xpJMW_A@mail.gmail.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Wed, 12 Aug 2020 00:41:39 -0700
+Message-ID: <CAOnJCULTwbmHta04VLqF=cTh=M68mTyF1bueSF8CQQV5XxFUCg@mail.gmail.com>
 Subject: Re: [PATCH] riscv: Setup exception vector for K210 properly
-To: Atish Patra <atishp@atishpatra.org>
+To: Anup Patel <anup@brainfault.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200811_215740_303218_CDDCAA15 
-X-CRM114-Status: GOOD (  28.80  )
+X-CRM114-CacheID: sfid-20200812_034152_697554_B5CCD177 
+X-CRM114-Status: GOOD (  30.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -104,144 +102,155 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 12, 2020 at 12:16 AM Atish Patra <atishp@atishpatra.org> wrote:
+On Tue, Aug 11, 2020 at 6:57 PM Anup Patel <anup@brainfault.org> wrote:
 >
-> On Tue, Aug 11, 2020 at 1:41 AM Anup Patel <anup@brainfault.org> wrote:
+> On Wed, Aug 12, 2020 at 12:16 AM Atish Patra <atishp@atishpatra.org> wrote:
 > >
-> > On Tue, Aug 11, 2020 at 12:07 PM Qiu Wenbo <qiuwenbo@phytium.com.cn> wrote:
+> > On Tue, Aug 11, 2020 at 1:41 AM Anup Patel <anup@brainfault.org> wrote:
 > > >
-> > > Exception vector is missing on nommu platform and it is a big issue.
-> > > This patch is tested in Sipeed MAIX Bit Dev Board.
+> > > On Tue, Aug 11, 2020 at 12:07 PM Qiu Wenbo <qiuwenbo@phytium.com.cn> wrote:
+> > > >
+> > > > Exception vector is missing on nommu platform and it is a big issue.
+> > > > This patch is tested in Sipeed MAIX Bit Dev Board.
+> > > >
+> > > > Fixes: 79b1feba5455 ("RISC-V: Setup exception vector early")
+> > > > Signed-off-by: Qiu Wenbo <qiuwenbo@phytium.com.cn>
+> >
+> > Thanks for testing it on the kendryte board.
+> >
+> > > > ---
+> > > >  arch/riscv/kernel/smpboot.c |  1 +
+> > > >  arch/riscv/kernel/traps.c   | 11 ++++++++++-
+> > > >  2 files changed, 11 insertions(+), 1 deletion(-)
+> > > >
+> > > > diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+> > > > index 356825a57551..23cde0ceb39d 100644
+> > > > --- a/arch/riscv/kernel/smpboot.c
+> > > > +++ b/arch/riscv/kernel/smpboot.c
+> > > > @@ -154,6 +154,7 @@ asmlinkage __visible void smp_callin(void)
+> > > >         mmgrab(mm);
+> > > >         current->active_mm = mm;
+> > > >
+> > > > +       trap_init();
+> > > >         notify_cpu_starting(curr_cpuid);
+> > > >         update_siblings_masks(curr_cpuid);
+> > > >         set_cpu_online(curr_cpuid, 1);
+> > > > diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+> > > > index ad14f4466d92..a390239818ae 100644
+> > > > --- a/arch/riscv/kernel/traps.c
+> > > > +++ b/arch/riscv/kernel/traps.c
+> > > > @@ -174,7 +174,16 @@ int is_valid_bugaddr(unsigned long pc)
+> > > >  }
+> > > >  #endif /* CONFIG_GENERIC_BUG */
+> > > >
+> > > > -/* stvec & scratch is already set from head.S */
+> > > > +/* stvec & scratch is already set from head.S when mmu is enabled */
+> > > >  void trap_init(void)
+> > > >  {
+> > > > +#ifndef CONFIG_MMU
+> > > > +       /*
+> > > > +        * Set sup0 scratch register to 0, indicating to exception vector
+> > > > +        * that we are presently executing in the kernel
+> > > > +        */
+> > > > +       csr_write(CSR_SCRATCH, 0);
+> > > > +       /* Set the exception vector address */
+> > > > +       csr_write(CSR_TVEC, &handle_exception);
+> > > > +#endif
+> > > >  }
+> > > > --
+> > > > 2.28.0
+> > > >
 > > >
-> > > Fixes: 79b1feba5455 ("RISC-V: Setup exception vector early")
-> > > Signed-off-by: Qiu Wenbo <qiuwenbo@phytium.com.cn>
->
-> Thanks for testing it on the kendryte board.
->
-> > > ---
-> > >  arch/riscv/kernel/smpboot.c |  1 +
-> > >  arch/riscv/kernel/traps.c   | 11 ++++++++++-
-> > >  2 files changed, 11 insertions(+), 1 deletion(-)
+> > > This issue seems to be only on the latest master branch of
+> > > Linux stable tree so this fix need not be a stable fix.
 > > >
-> > > diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-> > > index 356825a57551..23cde0ceb39d 100644
-> > > --- a/arch/riscv/kernel/smpboot.c
-> > > +++ b/arch/riscv/kernel/smpboot.c
-> > > @@ -154,6 +154,7 @@ asmlinkage __visible void smp_callin(void)
-> > >         mmgrab(mm);
-> > >         current->active_mm = mm;
+> > > For MMU kernel, the CSR_TVEC is setup in relocate() function
+> > > called from secondary_start_common() function of head.S
 > > >
-> > > +       trap_init();
-> > >         notify_cpu_starting(curr_cpuid);
-> > >         update_siblings_masks(curr_cpuid);
-> > >         set_cpu_online(curr_cpuid, 1);
-> > > diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-> > > index ad14f4466d92..a390239818ae 100644
-> > > --- a/arch/riscv/kernel/traps.c
-> > > +++ b/arch/riscv/kernel/traps.c
-> > > @@ -174,7 +174,16 @@ int is_valid_bugaddr(unsigned long pc)
-> > >  }
-> > >  #endif /* CONFIG_GENERIC_BUG */
-> > >
-> > > -/* stvec & scratch is already set from head.S */
-> > > +/* stvec & scratch is already set from head.S when mmu is enabled */
-> > >  void trap_init(void)
-> > >  {
-> > > +#ifndef CONFIG_MMU
-> > > +       /*
-> > > +        * Set sup0 scratch register to 0, indicating to exception vector
-> > > +        * that we are presently executing in the kernel
-> > > +        */
-> > > +       csr_write(CSR_SCRATCH, 0);
-> > > +       /* Set the exception vector address */
-> > > +       csr_write(CSR_TVEC, &handle_exception);
-> > > +#endif
-> > >  }
-> > > --
-> > > 2.28.0
+> > > For NoMMU kernel, we should set CSR_TVEC directly in
+> > > secondary_start_common() function as "#else" case of the
+> > > "#ifdef CONFIG_MMU".
 > > >
 > >
-> > This issue seems to be only on the latest master branch of
-> > Linux stable tree so this fix need not be a stable fix.
+> > That would enable the trap only for secondary harts. But the exception
+> > vector on boot hart
+> > is still uninitialized. How about this change ?
 > >
-> > For MMU kernel, the CSR_TVEC is setup in relocate() function
-> > called from secondary_start_common() function of head.S
+> > diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+> > index d0c5c316e9bb..7822054dbd88 100644
+> > --- a/arch/riscv/kernel/head.S
+> > +++ b/arch/riscv/kernel/head.S
+> > @@ -77,16 +77,6 @@ relocate:
+> >         csrw CSR_SATP, a0
+> >  .align 2
+> >  1:
+> > -       /* Set trap vector to exception handler */
+> > -       la a0, handle_exception
+> > -       csrw CSR_TVEC, a0
+> > -
+> > -       /*
+> > -        * Set sup0 scratch register to 0, indicating to exception vector that
+> > -        * we are presently executing in kernel.
+> > -        */
+> > -       csrw CSR_SCRATCH, zero
+> > -
+>
+> Instead of having no trap vector setup here, we should
+> at least have dummy trap vector (just like original code).
+>
+
+Ahh yes. We should include that.
+
+> /* Set trap vector to spin forever to help debug */
+> la a0, .Lsecondary_park
+> csrw CSR_TVEC, a0
+>
+> >         /* Reload the global pointer */
+> >  .option push
+> >  .option norelax
+> > @@ -144,9 +134,23 @@ secondary_start_common:
+> >         la a0, swapper_pg_dir
+> >         call relocate
+> >  #endif
+> > +       call setup_trap_vector
+> >         tail smp_callin
+> >  #endif /* CONFIG_SMP */
 > >
-> > For NoMMU kernel, we should set CSR_TVEC directly in
-> > secondary_start_common() function as "#else" case of the
-> > "#ifdef CONFIG_MMU".
+> > +.align 2
+> > +setup_trap_vector:
+> > +       /* Set trap vector to exception handler */
+> > +       la a0, handle_exception
+> > +       csrw CSR_TVEC, a0
+> > +
+> > +       /*
+> > +        * Set sup0 scratch register to 0, indicating to exception vector that
+> > +        * we are presently executing in kernel.
+> > +        */
+> > +       csrw CSR_SCRATCH, zero
+> > +       ret
+> > +
+> >  .Lsecondary_park:
+> >         /* We lack SMP support or have too many harts, so park this hart */
+> >         wfi
+> > @@ -240,6 +244,7 @@ clear_bss_done:
+> >         call relocate
+> >  #endif /* CONFIG_MMU */
 > >
+> > +       call setup_trap_vector
+> >         /* Restore C environment */
+> >         la tp, init_task
+> >         sw zero, TASK_TI_CPU(tp)
 >
-> That would enable the trap only for secondary harts. But the exception
-> vector on boot hart
-> is still uninitialized. How about this change ?
+> Apart from above, this looks good.
 >
-> diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-> index d0c5c316e9bb..7822054dbd88 100644
-> --- a/arch/riscv/kernel/head.S
-> +++ b/arch/riscv/kernel/head.S
-> @@ -77,16 +77,6 @@ relocate:
->         csrw CSR_SATP, a0
->  .align 2
->  1:
-> -       /* Set trap vector to exception handler */
-> -       la a0, handle_exception
-> -       csrw CSR_TVEC, a0
-> -
-> -       /*
-> -        * Set sup0 scratch register to 0, indicating to exception vector that
-> -        * we are presently executing in kernel.
-> -        */
-> -       csrw CSR_SCRATCH, zero
-> -
+> Regards,
+> Anup
 
-Instead of having no trap vector setup here, we should
-at least have dummy trap vector (just like original code).
 
-/* Set trap vector to spin forever to help debug */
-la a0, .Lsecondary_park
-csrw CSR_TVEC, a0
 
->         /* Reload the global pointer */
->  .option push
->  .option norelax
-> @@ -144,9 +134,23 @@ secondary_start_common:
->         la a0, swapper_pg_dir
->         call relocate
->  #endif
-> +       call setup_trap_vector
->         tail smp_callin
->  #endif /* CONFIG_SMP */
->
-> +.align 2
-> +setup_trap_vector:
-> +       /* Set trap vector to exception handler */
-> +       la a0, handle_exception
-> +       csrw CSR_TVEC, a0
-> +
-> +       /*
-> +        * Set sup0 scratch register to 0, indicating to exception vector that
-> +        * we are presently executing in kernel.
-> +        */
-> +       csrw CSR_SCRATCH, zero
-> +       ret
-> +
->  .Lsecondary_park:
->         /* We lack SMP support or have too many harts, so park this hart */
->         wfi
-> @@ -240,6 +244,7 @@ clear_bss_done:
->         call relocate
->  #endif /* CONFIG_MMU */
->
-> +       call setup_trap_vector
->         /* Restore C environment */
->         la tp, init_task
->         sw zero, TASK_TI_CPU(tp)
-
-Apart from above, this looks good.
-
+-- 
 Regards,
-Anup
+Atish
 
 _______________________________________________
 linux-riscv mailing list
