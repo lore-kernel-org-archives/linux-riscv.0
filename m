@@ -2,82 +2,86 @@ Return-Path: <SRS0=T9/Q=BW=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
-	autolearn_force=no version=3.4.0
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A984FC433E0
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Aug 2020 07:42:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B5BD9C433E1
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Aug 2020 23:48:51 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7428D2065C
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Aug 2020 07:42:11 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5E5932076B
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Aug 2020 23:48:51 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="bLHDD3Cn";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="ie94EZvB"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7428D2065C
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="tfgHp6hp";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="IMNxETqg"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5E5932076B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=DoBvNQuGh5KWLTYvR/5WgGy+0v7QNU/zGqMb80+DfpY=; b=bLHDD3CnTKsF3omkS43CQFSXS
-	rmOK8EinmLmqnIMbgiS/9WMMexy3Vsu0wZpJa2A/GlRjsJwbPvLrOCZEKOS3jCDMeHGCd/AWh6DJU
-	VsrWACFoZs7HZlm15En8exY7yy+0yJ9mspid4T1yRHxzSRa1tvycTn8O+a9s9TLL1ZI70XZ3MGgo8
-	69vTHHfsZh53bjMpRjnDlLNqSI4iydOOrMBClFPpYsO5z9yaUeZdHZ1ht43OfxLApFz8RkMnrYSUp
-	0oJ/AatR0PNODpdKZT5InjmWh6l/FiBMmu33CsO3MyqSjA0TT4pOKQZNycYGOsJwa4I0Ju88mqU8P
-	0vzC0rA+w==;
+	 bh=9fyYBuXu+2osGaLUqAop0JLOXVuWkMcAipZ3vSr95/k=; b=tfgHp6hpOkALhWFysMl010Qy1
+	vHD+gfyNbHoMSQUAdg+j5j46jfWOf1UP+DueURkgIVJdtfPlxpvvpMHTgKXmHUBv5lqyLUeGDSPjL
+	modItHl+H6aziB7GxBqsAum7cIh6AkK1d1uVVtIEgVIah6dHaKbehsQSZLaLhxdBAK44XCDm+zm7M
+	K4sMrTZjpf0c3OG4FSeaCZYbjGLSP7lTAJxOrwIeJTCJ2FVBJCfQCXC+dICDxDm18xrmWb3OXxxYB
+	0B27cMYIMF0AH631sWdvipjRH8FL0HTn4QiCktaSAqfU0NbqlnbyrluiGJ7KLYcZdRKjmHnVIRmOe
+	uN6ytYRwQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k5lOV-0001Zj-Fc; Wed, 12 Aug 2020 07:41:55 +0000
-Received: from mail-wr1-x444.google.com ([2a00:1450:4864:20::444])
+	id 1k60U2-0007kP-Rs; Wed, 12 Aug 2020 23:48:38 +0000
+Received: from esa5.hgst.iphmx.com ([216.71.153.144])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k5lOS-0001ZG-GB
- for linux-riscv@lists.infradead.org; Wed, 12 Aug 2020 07:41:53 +0000
-Received: by mail-wr1-x444.google.com with SMTP id r4so1066422wrx.9
- for <linux-riscv@lists.infradead.org>; Wed, 12 Aug 2020 00:41:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=qcgI980fiRK7SzxZtdY0+aQKjgScVqiUUhN/ufIMkto=;
- b=ie94EZvBjlMPBYC7v+ZULaM3vEkmlqRbQup1ISoqE7/k++/Nxg7Zo3hGSK6NGo6J2E
- ov5MLZQyA7Ey345t2WDXVw8/jykGfhDUCDePGYVmEm2Z6AitQLrEVkQXtv6LRmrT4rHF
- pSt/LUexc4sHFDschR7ooBgKqAcTMzk4XhZgY=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=qcgI980fiRK7SzxZtdY0+aQKjgScVqiUUhN/ufIMkto=;
- b=UtuPnRFMD7mugpedG2570PkQIWrdxI/8gjtWGtZrbENTKnMsCHcQs/gW0lrwrKFn8U
- DqkWb3lNn6M/NFewnuktwZ6BcwWDA2VL7vqSXDenohbvsFXSFFVDt/KSE3LhTAiifE2P
- 6QOWONxibRalzbN/MG53UeG3rovc045jFhkutNGFQEZt2BWtG+jjGClx2/KyBcXySQ25
- uUY3w1F699KqEq6Fe6HqYQjFw+Nw+9Acb4j8NhGjhqbi50Cr5lTNi1kfHStHNaJqt/ry
- HfxA+IKC1OpYUI2GHAc/oCLAwb0TCpHHrRofRu57hRtJgVISEonmPjsaPm/BrChGRBZU
- 9WDw==
-X-Gm-Message-State: AOAM532JGIMV1/XsnaQABjq01GKDW9u8BTgYkSNTIyoaut5vAiG+qI+o
- zRbLucZJLJmsM1N082iMEbYwBV+Db3eZ77DcAEMGTCc=
-X-Google-Smtp-Source: ABdhPJxE9iPhEi+Ighffl+MyFz80beV70ynZhB9O2kOx/VILETEiMy0EHhp5f4+WmccEEZUdbbgH6SIO5ou6TM23tvY=
-X-Received: by 2002:adf:d84f:: with SMTP id k15mr31107746wrl.176.1597218110811; 
- Wed, 12 Aug 2020 00:41:50 -0700 (PDT)
+ id 1k60Tz-0007iI-Dx
+ for linux-riscv@lists.infradead.org; Wed, 12 Aug 2020 23:48:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1597276115; x=1628812115;
+ h=from:to:cc:subject:date:message-id:in-reply-to:
+ references:mime-version:content-transfer-encoding;
+ bh=UAlY9YJFPNE9jtEWEqplpZ6F76rgkCODFo1w6OH+Bsg=;
+ b=IMNxETqgoxanvMHbdbV8vr7fTn12gamLT7obCpewzMXeRIF8FHwHo92K
+ +YHSC8Pw607ntWV8kDOM78abfbD5ySRqFTc8usX1qFyPGFmzRl6MO7IyT
+ tL9DV2I+YdfXBWfzdd2bt5ZkiRcAafx/vCNrbnarVeg4fWtfvWQmeFy33
+ Qy2HSo26XGB7lFzcyLFfqTQAK65LAJgfXrUkgabhozdmVBnmlGZEMj5UH
+ m6kLMlAmvPe5n/cvhR+UramjKnZwmTWKV1OkEH1odpWsp4zVPCYK3NZHX
+ m44EXJJmk+8ibCRO4zetmRvoCPMm8/idl6BVXrP6WiOdt9V6gVS4P6wxk Q==;
+IronPort-SDR: POVyy+lbHdtm8fzfdYygopIHTGAIbrPO6CRfUEXoLOXGOddkNDqGlcF1sH0vP7SXafR/1My00P
+ qqggKbLVaORUraonFGJ7t8ZewwxAJ+33lLM/NO8WZefS8/TVjLsNNFF5Gw2YppQMevZHdPfJHA
+ IneOm0TGGmzDyg7DLb0vbLvXUpU5vOxbul/3PTGIS2P+Xx2F092Bli4xhTvISucz8xN++s/sc1
+ 15FIdBKKVxVWP5xgoeUdQZaxiq94d8Uxiq8cjPvniqYbB3ARBVlELh+S0TP+xECZpOwCMk60LH
+ 1ZU=
+X-IronPort-AV: E=Sophos;i="5.76,305,1592841600"; d="scan'208";a="144856842"
+Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
+ ([199.255.45.15])
+ by ob1.hgst.iphmx.com with ESMTP; 13 Aug 2020 07:48:32 +0800
+IronPort-SDR: En38psaCaYKL/IrgNfHnSKaVPRCcvkY9+mXMnA6//t7QRr8edtWAoWhnL3J3jnH+jMqySCnZiW
+ pCFANsyY51Ag==
+Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
+ by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 12 Aug 2020 16:35:39 -0700
+IronPort-SDR: Vj4b4msaw1AOEg7uhKiWy0lQAMxEvEepMvXXl69QcOtSIfAZ0L8ONNN0NkZ4PRswFd9MJKRUMN
+ MF9r+QyoDgYA==
+WDCIronportException: Internal
+Received: from usa002576.ad.shared (HELO jedi-01.hgst.com) ([10.86.59.59])
+ by uls-op-cesaip01.wdc.com with ESMTP; 12 Aug 2020 16:48:29 -0700
+From: Atish Patra <atish.patra@wdc.com>
+To: linux-kernel@vger.kernel.org
+Subject: [PATCH v5 1/9] RISC-V: Move DT mapping outof fixmap
+Date: Wed, 12 Aug 2020 16:47:50 -0700
+Message-Id: <20200812234758.3563-2-atish.patra@wdc.com>
+X-Mailer: git-send-email 2.24.0
+In-Reply-To: <20200812234758.3563-1-atish.patra@wdc.com>
+References: <20200812234758.3563-1-atish.patra@wdc.com>
 MIME-Version: 1.0
-References: <20200811063659.284088-1-qiuwenbo@phytium.com.cn>
- <CAAhSdy1c=R6aUZ6EOggmJ_Bqm2O0VLKEku=zyFfabExSzOKErA@mail.gmail.com>
- <CAOnJCUJiLVyzMFkn157Zmdrtm66Z=gWmQbXCJiMRY8LCJ3xkaw@mail.gmail.com>
- <CAAhSdy0yV154R9EBbmQqR6mN-U7j02hGto76k+PY0W6xpJMW_A@mail.gmail.com>
-In-Reply-To: <CAAhSdy0yV154R9EBbmQqR6mN-U7j02hGto76k+PY0W6xpJMW_A@mail.gmail.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Wed, 12 Aug 2020 00:41:39 -0700
-Message-ID: <CAOnJCULTwbmHta04VLqF=cTh=M68mTyF1bueSF8CQQV5XxFUCg@mail.gmail.com>
-Subject: Re: [PATCH] riscv: Setup exception vector for K210 properly
-To: Anup Patel <anup@brainfault.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200812_034152_697554_B5CCD177 
-X-CRM114-Status: GOOD (  30.12  )
+X-CRM114-CacheID: sfid-20200812_194835_642909_2CC9BE6A 
+X-CRM114-Status: GOOD (  20.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -89,168 +93,205 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Damien Le Moal <damien.lemoal@wdc.com>, Guo Ren <guoren@linux.alibaba.com>,
- Vincent Chen <vincent.chen@sifive.com>, Qiu Wenbo <qiuwenbo@phytium.com.cn>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Atish Patra <atish.patra@wdc.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Palmer Dabbelt <palmer@dabbelt.com>, Zong Li <zong.li@sifive.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Greentime Hu <greentime.hu@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
+Cc: linux-efi@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+ Atish Patra <atish.patra@wdc.com>, Arvind Sankar <nivedita@alum.mit.edu>,
+ Alistair Francis <alistair.francis@wdc.com>, Waiman Long <longman@redhat.com>,
+ linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>,
+ Ingo Molnar <mingo@kernel.org>, Masahiro Yamada <masahiroy@kernel.org>,
+ Michal Simek <michal.simek@xilinx.com>, Steven Price <steven.price@arm.com>,
+ Greentime Hu <greentime.hu@sifive.com>, Borislav Petkov <bp@suse.de>,
+ Mao Han <han_mao@c-sky.com>, Daniel Schaefer <daniel.schaefer@hpe.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>,
+ "abner.chang@hpe.com" <abner.chang@hpe.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup.patel@wdc.com>,
+ Nick Desaulniers <ndesaulniers@google.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, fwts-devel@lists.ubuntu.com,
+ Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 11, 2020 at 6:57 PM Anup Patel <anup@brainfault.org> wrote:
->
-> On Wed, Aug 12, 2020 at 12:16 AM Atish Patra <atishp@atishpatra.org> wrote:
-> >
-> > On Tue, Aug 11, 2020 at 1:41 AM Anup Patel <anup@brainfault.org> wrote:
-> > >
-> > > On Tue, Aug 11, 2020 at 12:07 PM Qiu Wenbo <qiuwenbo@phytium.com.cn> wrote:
-> > > >
-> > > > Exception vector is missing on nommu platform and it is a big issue.
-> > > > This patch is tested in Sipeed MAIX Bit Dev Board.
-> > > >
-> > > > Fixes: 79b1feba5455 ("RISC-V: Setup exception vector early")
-> > > > Signed-off-by: Qiu Wenbo <qiuwenbo@phytium.com.cn>
-> >
-> > Thanks for testing it on the kendryte board.
-> >
-> > > > ---
-> > > >  arch/riscv/kernel/smpboot.c |  1 +
-> > > >  arch/riscv/kernel/traps.c   | 11 ++++++++++-
-> > > >  2 files changed, 11 insertions(+), 1 deletion(-)
-> > > >
-> > > > diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-> > > > index 356825a57551..23cde0ceb39d 100644
-> > > > --- a/arch/riscv/kernel/smpboot.c
-> > > > +++ b/arch/riscv/kernel/smpboot.c
-> > > > @@ -154,6 +154,7 @@ asmlinkage __visible void smp_callin(void)
-> > > >         mmgrab(mm);
-> > > >         current->active_mm = mm;
-> > > >
-> > > > +       trap_init();
-> > > >         notify_cpu_starting(curr_cpuid);
-> > > >         update_siblings_masks(curr_cpuid);
-> > > >         set_cpu_online(curr_cpuid, 1);
-> > > > diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-> > > > index ad14f4466d92..a390239818ae 100644
-> > > > --- a/arch/riscv/kernel/traps.c
-> > > > +++ b/arch/riscv/kernel/traps.c
-> > > > @@ -174,7 +174,16 @@ int is_valid_bugaddr(unsigned long pc)
-> > > >  }
-> > > >  #endif /* CONFIG_GENERIC_BUG */
-> > > >
-> > > > -/* stvec & scratch is already set from head.S */
-> > > > +/* stvec & scratch is already set from head.S when mmu is enabled */
-> > > >  void trap_init(void)
-> > > >  {
-> > > > +#ifndef CONFIG_MMU
-> > > > +       /*
-> > > > +        * Set sup0 scratch register to 0, indicating to exception vector
-> > > > +        * that we are presently executing in the kernel
-> > > > +        */
-> > > > +       csr_write(CSR_SCRATCH, 0);
-> > > > +       /* Set the exception vector address */
-> > > > +       csr_write(CSR_TVEC, &handle_exception);
-> > > > +#endif
-> > > >  }
-> > > > --
-> > > > 2.28.0
-> > > >
-> > >
-> > > This issue seems to be only on the latest master branch of
-> > > Linux stable tree so this fix need not be a stable fix.
-> > >
-> > > For MMU kernel, the CSR_TVEC is setup in relocate() function
-> > > called from secondary_start_common() function of head.S
-> > >
-> > > For NoMMU kernel, we should set CSR_TVEC directly in
-> > > secondary_start_common() function as "#else" case of the
-> > > "#ifdef CONFIG_MMU".
-> > >
-> >
-> > That would enable the trap only for secondary harts. But the exception
-> > vector on boot hart
-> > is still uninitialized. How about this change ?
-> >
-> > diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-> > index d0c5c316e9bb..7822054dbd88 100644
-> > --- a/arch/riscv/kernel/head.S
-> > +++ b/arch/riscv/kernel/head.S
-> > @@ -77,16 +77,6 @@ relocate:
-> >         csrw CSR_SATP, a0
-> >  .align 2
-> >  1:
-> > -       /* Set trap vector to exception handler */
-> > -       la a0, handle_exception
-> > -       csrw CSR_TVEC, a0
-> > -
-> > -       /*
-> > -        * Set sup0 scratch register to 0, indicating to exception vector that
-> > -        * we are presently executing in kernel.
-> > -        */
-> > -       csrw CSR_SCRATCH, zero
-> > -
->
-> Instead of having no trap vector setup here, we should
-> at least have dummy trap vector (just like original code).
->
+From: Anup Patel <anup.patel@wdc.com>
 
-Ahh yes. We should include that.
+Currently, RISC-V reserves 1MB of fixmap memory for device tree. However,
+it maps only single PMD (2MB) space for fixmap which leaves only < 1MB space
+left for other kernel features such as early ioremap which requires fixmap
+as well. The fixmap size can be increased by another 2MB but it brings
+additional complexity and changes the virtual memory layout as well.
+If we require some additional feature requiring fixmap again, it has to be
+moved again.
 
-> /* Set trap vector to spin forever to help debug */
-> la a0, .Lsecondary_park
-> csrw CSR_TVEC, a0
->
-> >         /* Reload the global pointer */
-> >  .option push
-> >  .option norelax
-> > @@ -144,9 +134,23 @@ secondary_start_common:
-> >         la a0, swapper_pg_dir
-> >         call relocate
-> >  #endif
-> > +       call setup_trap_vector
-> >         tail smp_callin
-> >  #endif /* CONFIG_SMP */
-> >
-> > +.align 2
-> > +setup_trap_vector:
-> > +       /* Set trap vector to exception handler */
-> > +       la a0, handle_exception
-> > +       csrw CSR_TVEC, a0
-> > +
-> > +       /*
-> > +        * Set sup0 scratch register to 0, indicating to exception vector that
-> > +        * we are presently executing in kernel.
-> > +        */
-> > +       csrw CSR_SCRATCH, zero
-> > +       ret
-> > +
-> >  .Lsecondary_park:
-> >         /* We lack SMP support or have too many harts, so park this hart */
-> >         wfi
-> > @@ -240,6 +244,7 @@ clear_bss_done:
-> >         call relocate
-> >  #endif /* CONFIG_MMU */
-> >
-> > +       call setup_trap_vector
-> >         /* Restore C environment */
-> >         la tp, init_task
-> >         sw zero, TASK_TI_CPU(tp)
->
-> Apart from above, this looks good.
->
-> Regards,
-> Anup
+Technically, DT doesn't need a fixmap as the memory occupied by the DT is
+only used during boot. That's why, We map device tree in early page table
+using two consecutive PGD mappings at lower addresses (< PAGE_OFFSET).
+This frees lot of space in fixmap and also makes maximum supported
+device tree size supported as PGDIR_SIZE. Thus, init memory section can be used
+for the same purpose as well. This simplifies fixmap implementation.
 
+Signed-off-by: Anup Patel <anup.patel@wdc.com>
+Signed-off-by: Atish Patra <atish.patra@wdc.com>
+---
+ arch/riscv/include/asm/fixmap.h  |  3 ---
+ arch/riscv/include/asm/pgtable.h |  1 +
+ arch/riscv/kernel/head.S         |  1 -
+ arch/riscv/kernel/head.h         |  2 --
+ arch/riscv/kernel/setup.c        |  9 +++++++--
+ arch/riscv/mm/init.c             | 26 ++++++++++++--------------
+ 6 files changed, 20 insertions(+), 22 deletions(-)
 
-
+diff --git a/arch/riscv/include/asm/fixmap.h b/arch/riscv/include/asm/fixmap.h
+index 1ff075a8dfc7..11613f38228a 100644
+--- a/arch/riscv/include/asm/fixmap.h
++++ b/arch/riscv/include/asm/fixmap.h
+@@ -22,9 +22,6 @@
+  */
+ enum fixed_addresses {
+ 	FIX_HOLE,
+-#define FIX_FDT_SIZE	SZ_1M
+-	FIX_FDT_END,
+-	FIX_FDT = FIX_FDT_END + FIX_FDT_SIZE / PAGE_SIZE - 1,
+ 	FIX_PTE,
+ 	FIX_PMD,
+ 	FIX_TEXT_POKE1,
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index eaea1f717010..815f8c959dd4 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -464,6 +464,7 @@ static inline void __kernel_map_pages(struct page *page, int numpages, int enabl
+ #define kern_addr_valid(addr)   (1) /* FIXME */
+ 
+ extern void *dtb_early_va;
++extern uintptr_t dtb_early_pa;
+ void setup_bootmem(void);
+ void paging_init(void);
+ 
+diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+index 7822054dbd88..a2f0cb3ca0a6 100644
+--- a/arch/riscv/kernel/head.S
++++ b/arch/riscv/kernel/head.S
+@@ -255,7 +255,6 @@ clear_bss_done:
+ #endif
+ 	/* Start the kernel */
+ 	call soc_early_init
+-	call parse_dtb
+ 	tail start_kernel
+ 
+ .Lsecondary_start:
+diff --git a/arch/riscv/kernel/head.h b/arch/riscv/kernel/head.h
+index 105fb0496b24..b48dda3d04f6 100644
+--- a/arch/riscv/kernel/head.h
++++ b/arch/riscv/kernel/head.h
+@@ -16,6 +16,4 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa);
+ extern void *__cpu_up_stack_pointer[];
+ extern void *__cpu_up_task_pointer[];
+ 
+-void __init parse_dtb(void);
+-
+ #endif /* __ASM_HEAD_H */
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index f04373be54a6..6a0ee2405813 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -49,8 +49,9 @@ atomic_t hart_lottery __section(.sdata);
+ unsigned long boot_cpu_hartid;
+ static DEFINE_PER_CPU(struct cpu, cpu_devices);
+ 
+-void __init parse_dtb(void)
++static void __init parse_dtb(void)
+ {
++	/* Early scan of device tree from init memory */
+ 	if (early_init_dt_scan(dtb_early_va))
+ 		return;
+ 
+@@ -63,6 +64,7 @@ void __init parse_dtb(void)
+ 
+ void __init setup_arch(char **cmdline_p)
+ {
++	parse_dtb();
+ 	init_mm.start_code = (unsigned long) _stext;
+ 	init_mm.end_code   = (unsigned long) _etext;
+ 	init_mm.end_data   = (unsigned long) _edata;
+@@ -77,7 +79,10 @@ void __init setup_arch(char **cmdline_p)
+ #if IS_ENABLED(CONFIG_BUILTIN_DTB)
+ 	unflatten_and_copy_device_tree();
+ #else
+-	unflatten_device_tree();
++	if (early_init_dt_verify(__va(dtb_early_pa)))
++		unflatten_device_tree();
++	else
++		pr_err("No DTB found in kernel mappings\n");
+ #endif
+ 	clint_init_boot_cpu();
+ 
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 787c75f751a5..2b651f63f5c4 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -28,7 +28,9 @@ unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)]
+ EXPORT_SYMBOL(empty_zero_page);
+ 
+ extern char _start[];
+-void *dtb_early_va;
++#define DTB_EARLY_BASE_VA      PGDIR_SIZE
++void *dtb_early_va __initdata;
++uintptr_t dtb_early_pa __initdata;
+ 
+ static void __init zone_sizes_init(void)
+ {
+@@ -141,8 +143,6 @@ static void __init setup_initrd(void)
+ }
+ #endif /* CONFIG_BLK_DEV_INITRD */
+ 
+-static phys_addr_t dtb_early_pa __initdata;
+-
+ void __init setup_bootmem(void)
+ {
+ 	struct memblock_region *reg;
+@@ -399,7 +399,7 @@ static uintptr_t __init best_map_size(phys_addr_t base, phys_addr_t size)
+ 
+ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ {
+-	uintptr_t va, end_va;
++	uintptr_t va, pa, end_va;
+ 	uintptr_t load_pa = (uintptr_t)(&_start);
+ 	uintptr_t load_sz = (uintptr_t)(&_end) - load_pa;
+ 	uintptr_t map_size = best_map_size(load_pa, MAX_EARLY_MAPPING_SIZE);
+@@ -448,16 +448,13 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ 				   load_pa + (va - PAGE_OFFSET),
+ 				   map_size, PAGE_KERNEL_EXEC);
+ 
+-	/* Create fixed mapping for early FDT parsing */
+-	end_va = __fix_to_virt(FIX_FDT) + FIX_FDT_SIZE;
+-	for (va = __fix_to_virt(FIX_FDT); va < end_va; va += PAGE_SIZE)
+-		create_pte_mapping(fixmap_pte, va,
+-				   dtb_pa + (va - __fix_to_virt(FIX_FDT)),
+-				   PAGE_SIZE, PAGE_KERNEL);
+-
+-	/* Save pointer to DTB for early FDT parsing */
+-	dtb_early_va = (void *)fix_to_virt(FIX_FDT) + (dtb_pa & ~PAGE_MASK);
+-	/* Save physical address for memblock reservation */
++	/* Create two consecutive PGD mappings for FDT early scan */
++	pa = dtb_pa & ~(PGDIR_SIZE - 1);
++	create_pgd_mapping(early_pg_dir, DTB_EARLY_BASE_VA,
++			   pa, PGDIR_SIZE, PAGE_KERNEL);
++	create_pgd_mapping(early_pg_dir, DTB_EARLY_BASE_VA + PGDIR_SIZE,
++			   pa + PGDIR_SIZE, PGDIR_SIZE, PAGE_KERNEL);
++	dtb_early_va = (void *)DTB_EARLY_BASE_VA + (dtb_pa & (PGDIR_SIZE - 1));
+ 	dtb_early_pa = dtb_pa;
+ }
+ 
+@@ -516,6 +513,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ #else
+ 	dtb_early_va = (void *)dtb_pa;
+ #endif
++	dtb_early_pa = dtb_pa;
+ }
+ 
+ static inline void setup_vm_final(void)
 -- 
-Regards,
-Atish
+2.24.0
+
 
 _______________________________________________
 linux-riscv mailing list
