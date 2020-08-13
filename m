@@ -1,87 +1,77 @@
-Return-Path: <SRS0=T9/Q=BW=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=qf9j=BX=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
 X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1FF8BC433E5
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Aug 2020 23:49:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0CD52C433DF
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2020 03:40:42 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E36C12076B
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Aug 2020 23:48:59 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C461C204FD
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2020 03:40:41 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sbXS09+D";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="mE06Mcnx"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E36C12076B
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="IQlfEpeV"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C461C204FD
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=phytium.com.cn
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=SQjZF0VRVRZ3ulDQQODGthWgibnhPaxKC1Cal+eRKiM=; b=sbXS09+DWPsYo0kjTzpBtDkb8
-	vDi0REEzWHNrnSTIij9brFbVwSzCnMedU2HcYhFeABAKLwDKyhTny2VzhI5xJ/PNpmUk5yGF1SExg
-	VLICuNky+dOyL0x8PM6e5kt+z/ZV8GdzuNHfgzrylWcUTMey+XgqcrCmJw5oxciHqb2DWlbk3AA3f
-	dgisLQG0PKUOpvoO/qHbE3btt+AGbArdmbkn8CEWR9PwPCjYZ6POeIdG5GaeZTAzxJQuktWcBbTMh
-	UHg/YlfMHYefsuMze4KZhUVfQcJstkIfLhvZqKakl2nmmBCwYNCJagY9ieVaiFQvQ+I+uA1XaKrqu
-	hl6uqNWbg==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ga2MGQoDclb5HUr7VdmYrq4FYeOuiY9P0E8jSHC3Ec8=; b=IQlfEpeVFMcvpypmi+POQoLDxE
+	mUPQbJGpn/vY0qeUVDs+YoBdQNIkuFq3D8BH6NXHL4Yl7xXH/0GEK8L+rz+kj6awtoOw/0VvXdf6t
+	QJuHKd1HZE73uL8xlND0/ItTGphd2qJa9Cybw5V/nrGfB+zcl4QMDzziTmOcT5p1wwrxdWP5m0oRi
+	6ojzeO8cQiIT9zFZYJWaSqP0tlnI8ggg5HNTcax7vjiyL9sICGzbBWOUiQRt3g+Vdo8CoE8NDWcqR
+	NOnv0vL6lA2ztB2uTEjyR2xWwKjNB8wb5L9Fa7hUH/wPNXDbsz/TzNwOEAa2DQ8F+TZI5MIzrzZ4w
+	FwRzFOKA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k60UA-0007pe-Gy; Wed, 12 Aug 2020 23:48:46 +0000
-Received: from esa5.hgst.iphmx.com ([216.71.153.144])
- by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k60U4-0007iA-Hm
- for linux-riscv@lists.infradead.org; Wed, 12 Aug 2020 23:48:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1597276120; x=1628812120;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=+GUmN6ZNbnCfom5PIzX3LeRfgAzIkaN7Tqfa0vPyyjQ=;
- b=mE06McnxJLC30gizUNePVb3S0czz9lW2My8b8eGwbR8mBAuczWQ93nzn
- Ko9jqMg6A5gzxAfCDXZpAHwpVdlI5OL6lRmJAXVt4furi8vBDkVKhFGQl
- ASFwxnCsLXciw1SeMkm+0y+DVG4mQDzwdcMsE04HfJAKTyR+mgV4v+Dsn
- TKBRUJpN64CqtoSA7DjqyBJaMJcd/xksJxS1VVhsUTRZ/t8pItdHli1TW
- AIpo9Jg18RePg0P8xh5LqdpH6r0pSQ3u9WbXdcCeqFV5/Wtiem9mdoqr4
- ZuG8vd18wXKsXSAo3SUwUeQLqj0xmU1ueK8Xg7FjRmZGBedaLXVaa1awb w==;
-IronPort-SDR: fzNAc6j9IaURrChqWBfwJpEqC2o18AgJcM2jaYjaJHY2Dk/pW3fAzEgIeBDfWX4Illrs0r6/D+
- wlW6qfe1NwZtXPA7+dXoDRRohv45fSm4LLUTQNA7pgCmSzFuPNtmuHHakMsHgTfGHFkFQ6KMUN
- 0owUdqAhWvmk0Dw6nYEdqbkbwiVSPwoi0ZpNvmieUR4FouLLtJTW0uaiJWkervWXUS/HVixqko
- wmmkysNQOjN9toRf/OYrfRh7DG1mKzB/27jXJWjUfobZ8r+/Zo4D9JHPPo9j7P8fXI3PWrnCR5
- wuI=
-X-IronPort-AV: E=Sophos;i="5.76,305,1592841600"; d="scan'208";a="144856857"
-Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
- ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 13 Aug 2020 07:48:40 +0800
-IronPort-SDR: jWngkLFEdXQAhmt+BPQrODyahM8LFDnHJOmCbmmDMaAhuwcHfnuvzOE2RLFlJlczrPeao/TMVX
- kaOpXZbqimLw==
-Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
- by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 12 Aug 2020 16:35:48 -0700
-IronPort-SDR: +dohAHaMuF1o8j5s1cDIdOlHT73r5kwjnOFq7A391KyQ4LoM78TkSFfhC92PLeyjGeeBrg5iZf
- ti8uYKCVytVQ==
-WDCIronportException: Internal
-Received: from usa002576.ad.shared (HELO jedi-01.hgst.com) ([10.86.59.59])
- by uls-op-cesaip01.wdc.com with ESMTP; 12 Aug 2020 16:48:37 -0700
-From: Atish Patra <atish.patra@wdc.com>
-To: linux-kernel@vger.kernel.org
-Subject: [PATCH v5 9/9] RISC-V: Add page table dump support for uefi
-Date: Wed, 12 Aug 2020 16:47:58 -0700
-Message-Id: <20200812234758.3563-10-atish.patra@wdc.com>
-X-Mailer: git-send-email 2.24.0
-In-Reply-To: <20200812234758.3563-1-atish.patra@wdc.com>
-References: <20200812234758.3563-1-atish.patra@wdc.com>
+	id 1k646R-0001hX-5f; Thu, 13 Aug 2020 03:40:31 +0000
+Received: from lonlinode-sdnproxy-1.icoremail.net ([139.162.193.133])
+ by merlin.infradead.org with smtp (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1k646O-0001fr-BD
+ for linux-riscv@lists.infradead.org; Thu, 13 Aug 2020 03:40:29 +0000
+Received: from localhost.localdomain (unknown [175.0.107.229])
+ by c1app11 (Coremail) with SMTP id CwINCgBHjHwUtjRffJ0gAw--.51036S2;
+ Thu, 13 Aug 2020 11:40:06 +0800 (CST)
+From: Qiu Wenbo <qiuwenbo@phytium.com.cn>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
+Subject: [PATCH v2] riscv: Setup exception vector for nommu platform
+Date: Thu, 13 Aug 2020 11:38:04 +0800
+Message-Id: <20200813033807.19556-1-qiuwenbo@phytium.com.cn>
+X-Mailer: git-send-email 2.28.0
 MIME-Version: 1.0
+X-CM-TRANSID: CwINCgBHjHwUtjRffJ0gAw--.51036S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Ww15XFWDKr13CF17GrWrGrg_yoW8Aw1rp3
+ y7Cw1YyrW8Ka1xZr9xtwnY9rW3ArZ7Gw13Gr4kJayrGr95Kr98Xrn2q3srXFWUWF4Syr48
+ Zw4IvryF9w1UA37anT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+ 9KBjDU0xBIdaVrnRJUUU9014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+ rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+ 1l84ACjcxK6xIIjxv20xvE14v26r1I6r4UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+ 6F4UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr
+ 1j6F4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv
+ 7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r
+ 1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02
+ 628vn2kIc2xKxwCY02Avz4vE14v_Gr4l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7
+ v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF
+ 1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIx
+ AIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWrZr1j6s0D
+ MIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIda
+ VFxhVjvjDU0xZFpf9x0JU-miiUUUUU=
+X-Originating-IP: [175.0.107.229]
+X-CM-SenderInfo: 5tlx4vhqerq15k1wx33pof0zgofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200812_194840_774079_36EC3BDD 
-X-CRM114-Status: GOOD (  17.48  )
+X-CRM114-CacheID: sfid-20200812_234028_571839_1189F4B8 
+X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -93,151 +83,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-efi@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
- Atish Patra <atish.patra@wdc.com>, Arvind Sankar <nivedita@alum.mit.edu>,
- Alistair Francis <alistair.francis@wdc.com>, Waiman Long <longman@redhat.com>,
- linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>,
- Ingo Molnar <mingo@kernel.org>, Masahiro Yamada <masahiroy@kernel.org>,
- Michal Simek <michal.simek@xilinx.com>, Steven Price <steven.price@arm.com>,
- Greentime Hu <greentime.hu@sifive.com>, Borislav Petkov <bp@suse.de>,
- Mao Han <han_mao@c-sky.com>, Daniel Schaefer <daniel.schaefer@hpe.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>,
- "abner.chang@hpe.com" <abner.chang@hpe.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup.patel@wdc.com>,
- Nick Desaulniers <ndesaulniers@google.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, fwts-devel@lists.ubuntu.com,
- Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>
+Cc: Damien Le Moal <damien.lemoal@wdc.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Qiu Wenbo <qiuwenbo@phytium.com.cn>, Anup Patel <anup@brainfault.org>,
+ Anup Patel <anup.patel@wdc.com>, linux-kernel@vger.kernel.org,
+ Atish Patra <atish.patra@wdc.com>, Atish Patra <atishp@atishpatra.org>,
+ Greentime Hu <greentime.hu@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Extend the current page table dump support in RISC-V to include efi
-pages as well.
+Exception vector is missing on nommu platform and that is an issue.
+This patch is tested in Sipeed Maix Bit Dev Board.
 
-Here is the output of efi runtime page table mappings.
-
----[ UEFI runtime start ]---
-0x0000000020002000-0x0000000020003000 0x00000000be732000 4K PTE D A . . . W R V
-0x0000000020018000-0x0000000020019000 0x00000000be738000 4K PTE D A . . . W R V
-0x000000002002c000-0x000000002002d000 0x00000000be73c000 4K PTE D A . . . W R V
-0x0000000020031000-0x0000000020032000 0x00000000bff61000 4K PTE D A . . X W R V
----[ UEFI runtime end ]---
-
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
+Fixes: 79b1feba5455 ("RISC-V: Setup exception vector early")
+Suggested-by: Anup Patel <anup@brainfault.org>
+Suggested-by: Atish Patra <atishp@atishpatra.org>
+Signed-off-by: Qiu Wenbo <qiuwenbo@phytium.com.cn>
 ---
- arch/riscv/mm/ptdump.c | 48 ++++++++++++++++++++++++++++++++++++------
- 1 file changed, 42 insertions(+), 6 deletions(-)
+ arch/riscv/kernel/head.S | 25 +++++++++++++++++--------
+ 1 file changed, 17 insertions(+), 8 deletions(-)
 
-diff --git a/arch/riscv/mm/ptdump.c b/arch/riscv/mm/ptdump.c
-index 0831c2e61a8f..ace74dec7492 100644
---- a/arch/riscv/mm/ptdump.c
-+++ b/arch/riscv/mm/ptdump.c
-@@ -3,6 +3,7 @@
-  * Copyright (C) 2019 SiFive
-  */
+diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+index d0c5c316e9bb..0a4e81b8dc79 100644
+--- a/arch/riscv/kernel/head.S
++++ b/arch/riscv/kernel/head.S
+@@ -77,16 +77,10 @@ relocate:
+ 	csrw CSR_SATP, a0
+ .align 2
+ 1:
+-	/* Set trap vector to exception handler */
+-	la a0, handle_exception
++	/* Set trap vector to spin forever to help debug */
++	la a0, .Lsecondary_park
+ 	csrw CSR_TVEC, a0
  
-+#include <linux/efi.h>
- #include <linux/init.h>
- #include <linux/debugfs.h>
- #include <linux/seq_file.h>
-@@ -49,6 +50,14 @@ struct addr_marker {
- 	const char *name;
- };
+-	/*
+-	 * Set sup0 scratch register to 0, indicating to exception vector that
+-	 * we are presently executing in kernel.
+-	 */
+-	csrw CSR_SCRATCH, zero
+-
+ 	/* Reload the global pointer */
+ .option push
+ .option norelax
+@@ -144,9 +138,23 @@ secondary_start_common:
+ 	la a0, swapper_pg_dir
+ 	call relocate
+ #endif
++	call setup_trap_vector
+ 	tail smp_callin
+ #endif /* CONFIG_SMP */
  
-+/* Private information for debugfs */
-+struct ptd_mm_info {
-+	struct mm_struct		*mm;
-+	const struct addr_marker	*markers;
-+	unsigned long base_addr;
-+	unsigned long end;
-+};
++.align 2
++setup_trap_vector:
++	/* Set trap vector to exception handler */
++	la a0, handle_exception
++	csrw CSR_TVEC, a0
 +
- static struct addr_marker address_markers[] = {
- #ifdef CONFIG_KASAN
- 	{KASAN_SHADOW_START,	"Kasan shadow start"},
-@@ -68,6 +77,28 @@ static struct addr_marker address_markers[] = {
- 	{-1, NULL},
- };
- 
-+static struct ptd_mm_info kernel_ptd_info = {
-+	.mm		= &init_mm,
-+	.markers	= address_markers,
-+	.base_addr	= KERN_VIRT_START,
-+	.end		= ULONG_MAX,
-+};
++	/*
++	 * Set sup0 scratch register to 0, indicating to exception vector that
++	 * we are presently executing in kernel.
++	 */
++	csrw CSR_SCRATCH, zero
++	ret
 +
-+#ifdef CONFIG_EFI
-+static struct addr_marker efi_addr_markers[] = {
-+		{ 0,		"UEFI runtime start" },
-+		{ SZ_1G,	"UEFI runtime end" },
-+		{ -1,		NULL }
-+};
-+
-+static struct ptd_mm_info efi_ptd_info = {
-+	.mm		= &efi_mm,
-+	.markers	= efi_addr_markers,
-+	.base_addr	= 0,
-+	.end		= SZ_2G,
-+};
-+#endif
-+
- /* Page Table Entry */
- struct prot_bits {
- 	u64 mask;
-@@ -245,22 +276,22 @@ static void note_page(struct ptdump_state *pt_st, unsigned long addr,
- 	}
- }
+ .Lsecondary_park:
+ 	/* We lack SMP support or have too many harts, so park this hart */
+ 	wfi
+@@ -240,6 +248,7 @@ clear_bss_done:
+ 	call relocate
+ #endif /* CONFIG_MMU */
  
--static void ptdump_walk(struct seq_file *s)
-+static void ptdump_walk(struct seq_file *s, struct ptd_mm_info *pinfo)
- {
- 	struct pg_state st = {
- 		.seq = s,
--		.marker = address_markers,
-+		.marker = pinfo->markers,
- 		.level = -1,
- 		.ptdump = {
- 			.note_page = note_page,
- 			.range = (struct ptdump_range[]) {
--				{KERN_VIRT_START, ULONG_MAX},
-+				{pinfo->base_addr, pinfo->end},
- 				{0, 0}
- 			}
- 		}
- 	};
- 
--	ptdump_walk_pgd(&st.ptdump, &init_mm, NULL);
-+	ptdump_walk_pgd(&st.ptdump, pinfo->mm, NULL);
- }
- 
- void ptdump_check_wx(void)
-@@ -293,7 +324,7 @@ void ptdump_check_wx(void)
- 
- static int ptdump_show(struct seq_file *m, void *v)
- {
--	ptdump_walk(m);
-+	ptdump_walk(m, m->private);
- 
- 	return 0;
- }
-@@ -308,8 +339,13 @@ static int ptdump_init(void)
- 		for (j = 0; j < ARRAY_SIZE(pte_bits); j++)
- 			pg_level[i].mask |= pte_bits[j].mask;
- 
--	debugfs_create_file("kernel_page_tables", 0400, NULL, NULL,
-+	debugfs_create_file("kernel_page_tables", 0400, NULL, &kernel_ptd_info,
- 			    &ptdump_fops);
-+#ifdef CONFIG_EFI
-+	if (efi_enabled(EFI_RUNTIME_SERVICES))
-+		debugfs_create_file("efi_page_tables", 0400, NULL, &efi_ptd_info,
-+				    &ptdump_fops);
-+#endif
- 
- 	return 0;
- }
++	call setup_trap_vector
+ 	/* Restore C environment */
+ 	la tp, init_task
+ 	sw zero, TASK_TI_CPU(tp)
 -- 
-2.24.0
+2.28.0
 
 
 _______________________________________________
