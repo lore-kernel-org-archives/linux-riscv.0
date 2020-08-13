@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 756E8C433E1
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2020 08:50:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 760E3C433E1
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2020 08:55:35 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4032820771
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2020 08:50:27 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 3DC5E20771
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Aug 2020 08:55:35 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="SyccNMxq";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="Ad03R5Sa"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4032820771
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="NCmvcNRD";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="rbDCoRQk"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3DC5E20771
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,58 +26,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=W1qfvL4nDLNW8Ys/FzlD/mfziVMQAtAbLb30tmKe+5o=; b=SyccNMxqXAr/oNbnnzM4nVNis
-	P/JQqGR0prl3cb2OcIFxV3K8gVR21NfKJ3dojVFRxVx3wljuiYaBIOLcZNJPMAgTY5JpZKBh6WaPI
-	w3oayiuke08kQ26/YX56GmFWJzRyrrVY3qpHDhouKSdYKoJxWM9Mb3t09ngpZtkn82bw/HgTTlj8a
-	nd7iE0s9IEHNXstMtuoLaRjAr+K32/OQH0BYjJ9QFJAWOJK8bXYoAhRUK8///JvzXszquS9fgkJum
-	APzOgb0u8f/nfpC/7ft21tw9JqpfOA4dZH6j+ZVP27j6kWyutR7yAJhmrBjGIzmStjguLBUOYFDsS
-	675BcWMkw==;
+	 bh=QqO8izn6Kkml9fBvfCI84EyjSJGKLRacLQjQLVTD4Jc=; b=NCmvcNRDQkzmmG0bRZQR1Z7OW
+	2cNk2IF/hKfVzkG7TaLB1vlYyhNu1P7fEDHiqKXXi/Eyxuk/X4LvPtlDwf7nAmT5mBWKebCeAM2gN
+	oHtWEo6jtuozbxKeCRR0JVC0fp5CS+l60Fil9xalMVbE+1+e76THfApj2MGE7BmiMU6kF2Fq1msxf
+	JYWTPjmnu0S2zdyPrQBdLd1I81xdG2/EuSelO9FuCqSdgdKXYjmWE3noRtkLtuiQP/Cwtn5pS2EBY
+	bonyjwsz2SEq7+qiXsZQFB8O5JlUIfLV+0OTkorMlYlwZeci0PCESX06aq6pWxKjp4jMnKT0576Hc
+	MKKKObUnA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k68vy-0004tv-8e; Thu, 13 Aug 2020 08:50:02 +0000
-Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
+	id 1k6913-0005jv-SZ; Thu, 13 Aug 2020 08:55:17 +0000
+Received: from mail-wm1-x344.google.com ([2a00:1450:4864:20::344])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k68vv-0004sp-Ig
- for linux-riscv@lists.infradead.org; Thu, 13 Aug 2020 08:50:00 +0000
-Received: by mail-wr1-x443.google.com with SMTP id y3so4519306wrl.4
- for <linux-riscv@lists.infradead.org>; Thu, 13 Aug 2020 01:49:57 -0700 (PDT)
+ id 1k6912-0005ja-Lj
+ for linux-riscv@lists.infradead.org; Thu, 13 Aug 2020 08:55:17 +0000
+Received: by mail-wm1-x344.google.com with SMTP id d190so4008885wmd.4
+ for <linux-riscv@lists.infradead.org>; Thu, 13 Aug 2020 01:55:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=gA5BB/+6xQCvX9+gmlnfVRPEcDMzoMSPM6EjTizB38A=;
- b=Ad03R5Saypn6P9X1Gr8J7GfoCKcFVoej6TsnRSjGxd8U5Rb4uTQzTPkd2xMUsQ4B/4
- cGfkleKDShOLTjij8QNOz6l/eTLDiOW7q4MbS9NzEHqQrVMO3jxSN9d2FnZPmTH18HHt
- PoYaCyaGChM2zHe9Mrt2JYvs18uJTD0vQm3dsVJg2+7lZ2g7DH1XwAf53jE8TJS6OXZ5
- mRL7xgMNinPPWL8xTtd7Pu9+Gl4xBZvBp+eZ2HSI9Twh1TtF2EYflORFuhGTi1ucT4LZ
- jpxhIWNex1+8aKVw/jNtVKafF1ogzF/Yg08k9X7fa0SAS85DxQggL5YeaHvmG0DnwRxj
- Rmrw==
+ :cc; bh=JKYiLYK7bURAphGtstRcLZdMB577DXsbKaLESGsrXLQ=;
+ b=rbDCoRQkhTNh2AkfUqDQYaSQIV049YTK/6K7NEeRbaYAkewMaelZsPAFKBgCPxLcJi
+ Sb61f2o+AxREPTsiSGtrQyWHhM0pWYyibmFZw1eLX84itLQTn/P91+xeGrcQPjTdjpha
+ L5edI88QvqmODIHcmfvwtrFOdKkYkUPuxQBxHKQnVP7Vkb+tEX1pqchRGpjvjO6vXatL
+ jRYa27sFfBAqBiNmR44b4QxCeL+0Zp9nnlesoKFOv791plAujVCApsN/1iTxK9cMH6sO
+ 5n9tiOjOLi+KsCvaxzCxq/KGgYjMC2Qsp2wqTLt148Q3LiGK/o5gEvZRvftwM4zBZRwf
+ lQuw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=gA5BB/+6xQCvX9+gmlnfVRPEcDMzoMSPM6EjTizB38A=;
- b=bsSasjLy7uDl3jfhbdUhc7VZ0dzGQfRMAdH54uun+zhrpoauRocYh/uTLQLeElneG1
- Q5BqGSJ3/khqbuEtm4wfEY2Osoi7hEwvSP7kcYPvcnLYw26tpow0WMHFAI8vwujBmUyP
- /z+JxDs47odJNl9ZOYiFU91mLltrmah0AkEHIVcPxRWFMqEzjajwIOMPwTFbjwYBTLrn
- aZ/OK50D1cmUeJDcwdwkrSZTsGk89UADmt3ymj+4FSV06DugWwY6+V2OWSKIzsxKdTwg
- XLG5yUYKAqhp6pbPUdMAC7h+0lB+mqhXZsLljuiqvR+qRt4Z+cz5EVwLjF2cLBBsxEr6
- 4f0w==
-X-Gm-Message-State: AOAM533nyPsM9w8vujTP9yqCthFwTFbBs2wWhjKYtbG8DAKrkEfzddsD
- +l4TxBfw3LBAzubW4uFpMX0Av1f6v238mChNrhwYYg==
-X-Google-Smtp-Source: ABdhPJxe9m0zrVq6TFy9qvEwk+3us03Rs+PvTuX4Rhtblh9UKM18MT2x1MkvcTf3UnJJL0vy7PaKOK69M0GNn/+fsp8=
-X-Received: by 2002:adf:f247:: with SMTP id b7mr3217109wrp.128.1597308596480; 
- Thu, 13 Aug 2020 01:49:56 -0700 (PDT)
+ bh=JKYiLYK7bURAphGtstRcLZdMB577DXsbKaLESGsrXLQ=;
+ b=euge4s6tyyWzRLUigB5YCI0VWWjaclAkjXOpGttRKQshgrmbvJJtLdaWaTizqvw9EK
+ CZFPrdkFiBf5H3yPyyudhU9KxuRlJVRGxFdy1qoB8XEKhQCA9rFngHbtDK5U6l1WT9TD
+ tHtP3Dg5v7acYxLsb3EL13/loEkPXA10EW0UchR3H82ozirc2aT0kl+5LkKn3jyFuF5R
+ XLubUBGLZXDkUKnfnVkpyaz0o1G6vhetlcxss5sWZiYl3Pdq1JV4e3zQBAvpCxVxWJjB
+ MgLXfRLZGv/ZiWaDyiCSBvSa5Swoq32kdlP5jGwM8H7K80zI3MTjxL7ucX2w8mNIpVs+
+ jsjw==
+X-Gm-Message-State: AOAM5305IcxhTFApcL7dRrTa5iJ2XMsGKXgSBwePQxgQBrFPCmQ9a0wH
+ wuHI/k2rFbKE36ZNDV6fYHP96W8mwha8KhwP3JMe3Q==
+X-Google-Smtp-Source: ABdhPJxN5KnUnDP/cDmL4rhsc6+uNbIZmHZJqCKCT1BvEMOaQybj8EP2yzNnHJKNSMOCAJ3sR+wTAGYp+9en0GoVMaU=
+X-Received: by 2002:a7b:c4d5:: with SMTP id g21mr3586072wmk.185.1597308915101; 
+ Thu, 13 Aug 2020 01:55:15 -0700 (PDT)
 MIME-Version: 1.0
-References: <20200813033807.19556-1-qiuwenbo@phytium.com.cn>
-In-Reply-To: <20200813033807.19556-1-qiuwenbo@phytium.com.cn>
+References: <20200812234758.3563-1-atish.patra@wdc.com>
+ <20200812234758.3563-3-atish.patra@wdc.com>
+In-Reply-To: <20200812234758.3563-3-atish.patra@wdc.com>
 From: Anup Patel <anup@brainfault.org>
-Date: Thu, 13 Aug 2020 14:19:44 +0530
-Message-ID: <CAAhSdy1hLAVEHohtuZ6XYxOjWgUmZPXah=tJFrb6tWoRyEiRgA@mail.gmail.com>
-Subject: Re: [PATCH v2] riscv: Setup exception vector for nommu platform
-To: Qiu Wenbo <qiuwenbo@phytium.com.cn>
+Date: Thu, 13 Aug 2020 14:25:02 +0530
+Message-ID: <CAAhSdy0PyE3UoS-+7-ei15TgA_qEPAUcutTQ_51DTEjbHdO1YA@mail.gmail.com>
+Subject: Re: [PATCH v5 2/9] RISC-V: Add early ioremap support
+To: Atish Patra <atish.patra@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200813_044959_744095_F6579C5D 
-X-CRM114-Status: GOOD (  17.33  )
+X-CRM114-CacheID: sfid-20200813_045516_749888_BBF4810B 
+X-CRM114-Status: GOOD (  22.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -89,88 +90,165 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Damien Le Moal <damien.lemoal@wdc.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Anup Patel <anup.patel@wdc.com>,
+Cc: linux-efi <linux-efi@vger.kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+ Arvind Sankar <nivedita@alum.mit.edu>,
+ Alistair Francis <alistair.francis@wdc.com>, Waiman Long <longman@redhat.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>, Will Deacon <will@kernel.org>,
+ Ingo Molnar <mingo@kernel.org>, Masahiro Yamada <masahiroy@kernel.org>,
+ Michal Simek <michal.simek@xilinx.com>, Steven Price <steven.price@arm.com>,
+ Greentime Hu <greentime.hu@sifive.com>, Borislav Petkov <bp@suse.de>,
+ Mao Han <han_mao@c-sky.com>, Daniel Schaefer <daniel.schaefer@hpe.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>,
+ "abner.chang@hpe.com" <abner.chang@hpe.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup.patel@wdc.com>,
+ Nick Desaulniers <ndesaulniers@google.com>,
  "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Atish Patra <atish.patra@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Atish Patra <atishp@atishpatra.org>,
- Greentime Hu <greentime.hu@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
+ Palmer Dabbelt <palmer@dabbelt.com>, fwts-devel@lists.ubuntu.com,
+ Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 13, 2020 at 9:10 AM Qiu Wenbo <qiuwenbo@phytium.com.cn> wrote:
+On Thu, Aug 13, 2020 at 5:18 AM Atish Patra <atish.patra@wdc.com> wrote:
 >
-> Exception vector is missing on nommu platform and that is an issue.
-> This patch is tested in Sipeed Maix Bit Dev Board.
+> UEFI uses early IO or memory mappings for runtime services before
+> normal ioremap() is usable. Add the necessary fixmap bindings and
+> pmd mappings for generic ioremap support to work.
 >
-> Fixes: 79b1feba5455 ("RISC-V: Setup exception vector early")
-> Suggested-by: Anup Patel <anup@brainfault.org>
-> Suggested-by: Atish Patra <atishp@atishpatra.org>
-> Signed-off-by: Qiu Wenbo <qiuwenbo@phytium.com.cn>
+> Signed-off-by: Atish Patra <atish.patra@wdc.com>
 > ---
->  arch/riscv/kernel/head.S | 25 +++++++++++++++++--------
->  1 file changed, 17 insertions(+), 8 deletions(-)
+>  arch/riscv/Kconfig              |  1 +
+>  arch/riscv/include/asm/Kbuild   |  1 +
+>  arch/riscv/include/asm/fixmap.h | 13 +++++++++++++
+>  arch/riscv/include/asm/io.h     |  1 +
+>  arch/riscv/kernel/setup.c       |  1 +
+>  arch/riscv/mm/init.c            | 33 +++++++++++++++++++++++++++++++++
+>  6 files changed, 50 insertions(+)
 >
-> diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-> index d0c5c316e9bb..0a4e81b8dc79 100644
-> --- a/arch/riscv/kernel/head.S
-> +++ b/arch/riscv/kernel/head.S
-> @@ -77,16 +77,10 @@ relocate:
->         csrw CSR_SATP, a0
->  .align 2
->  1:
-> -       /* Set trap vector to exception handler */
-> -       la a0, handle_exception
-> +       /* Set trap vector to spin forever to help debug */
-> +       la a0, .Lsecondary_park
->         csrw CSR_TVEC, a0
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 7b5905529146..15597f5f504f 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -37,6 +37,7 @@ config RISCV
+>         select GENERIC_ARCH_TOPOLOGY if SMP
+>         select GENERIC_ATOMIC64 if !64BIT
+>         select GENERIC_CLOCKEVENTS
+> +       select GENERIC_EARLY_IOREMAP
+>         select GENERIC_GETTIMEOFDAY if HAVE_GENERIC_VDSO
+>         select GENERIC_IOREMAP
+>         select GENERIC_IRQ_MULTI_HANDLER
+> diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
+> index 3d9410bb4de0..59dd7be55005 100644
+> --- a/arch/riscv/include/asm/Kbuild
+> +++ b/arch/riscv/include/asm/Kbuild
+> @@ -1,4 +1,5 @@
+>  # SPDX-License-Identifier: GPL-2.0
+> +generic-y += early_ioremap.h
+>  generic-y += extable.h
+>  generic-y += flat.h
+>  generic-y += kvm_para.h
+> diff --git a/arch/riscv/include/asm/fixmap.h b/arch/riscv/include/asm/fixmap.h
+> index 11613f38228a..54cbf07fb4e9 100644
+> --- a/arch/riscv/include/asm/fixmap.h
+> +++ b/arch/riscv/include/asm/fixmap.h
+> @@ -27,6 +27,19 @@ enum fixed_addresses {
+>         FIX_TEXT_POKE1,
+>         FIX_TEXT_POKE0,
+>         FIX_EARLYCON_MEM_BASE,
+> +
+> +       __end_of_permanent_fixed_addresses,
+> +       /*
+> +        * Temporary boot-time mappings, used by early_ioremap(),
+> +        * before ioremap() is functional.
+> +        */
+> +#define NR_FIX_BTMAPS          (SZ_256K / PAGE_SIZE)
+> +#define FIX_BTMAPS_SLOTS       7
+> +#define TOTAL_FIX_BTMAPS       (NR_FIX_BTMAPS * FIX_BTMAPS_SLOTS)
+> +
+> +       FIX_BTMAP_END = __end_of_permanent_fixed_addresses,
+> +       FIX_BTMAP_BEGIN = FIX_BTMAP_END + TOTAL_FIX_BTMAPS - 1,
+> +
+>         __end_of_fixed_addresses
+>  };
 >
-> -       /*
-> -        * Set sup0 scratch register to 0, indicating to exception vector that
-> -        * we are presently executing in kernel.
-> -        */
-> -       csrw CSR_SCRATCH, zero
-> -
->         /* Reload the global pointer */
->  .option push
->  .option norelax
-> @@ -144,9 +138,23 @@ secondary_start_common:
->         la a0, swapper_pg_dir
->         call relocate
->  #endif
-> +       call setup_trap_vector
->         tail smp_callin
->  #endif /* CONFIG_SMP */
+> diff --git a/arch/riscv/include/asm/io.h b/arch/riscv/include/asm/io.h
+> index 3835c3295dc5..c025a746a148 100644
+> --- a/arch/riscv/include/asm/io.h
+> +++ b/arch/riscv/include/asm/io.h
+> @@ -14,6 +14,7 @@
+>  #include <linux/types.h>
+>  #include <linux/pgtable.h>
+>  #include <asm/mmiowb.h>
+> +#include <asm/early_ioremap.h>
 >
-> +.align 2
-> +setup_trap_vector:
-> +       /* Set trap vector to exception handler */
-> +       la a0, handle_exception
-> +       csrw CSR_TVEC, a0
+>  /*
+>   * MMIO access functions are separated out to break dependency cycles
+> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> index 6a0ee2405813..c71788e6aff4 100644
+> --- a/arch/riscv/kernel/setup.c
+> +++ b/arch/riscv/kernel/setup.c
+> @@ -72,6 +72,7 @@ void __init setup_arch(char **cmdline_p)
+>
+>         *cmdline_p = boot_command_line;
+>
+> +       early_ioremap_setup();
+>         parse_early_param();
+>
+>         setup_bootmem();
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index 2b651f63f5c4..b75ebe8e7a92 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -403,6 +403,9 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+>         uintptr_t load_pa = (uintptr_t)(&_start);
+>         uintptr_t load_sz = (uintptr_t)(&_end) - load_pa;
+>         uintptr_t map_size = best_map_size(load_pa, MAX_EARLY_MAPPING_SIZE);
+> +#ifndef __PAGETABLE_PMD_FOLDED
+> +       pmd_t fix_bmap_spmd, fix_bmap_epmd;
+> +#endif
+>
+>         va_pa_offset = PAGE_OFFSET - load_pa;
+>         pfn_base = PFN_DOWN(load_pa);
+> @@ -456,6 +459,36 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+>                            pa + PGDIR_SIZE, PGDIR_SIZE, PAGE_KERNEL);
+>         dtb_early_va = (void *)DTB_EARLY_BASE_VA + (dtb_pa & (PGDIR_SIZE - 1));
+>         dtb_early_pa = dtb_pa;
 > +
 > +       /*
-> +        * Set sup0 scratch register to 0, indicating to exception vector that
-> +        * we are presently executing in kernel.
+> +        * Bootime fixmap only can handle PMD_SIZE mapping. Thus, boot-ioremap
+> +        * range can not span multiple pmds.
 > +        */
-> +       csrw CSR_SCRATCH, zero
-> +       ret
+> +       BUILD_BUG_ON((__fix_to_virt(FIX_BTMAP_BEGIN) >> PMD_SHIFT)
+> +                    != (__fix_to_virt(FIX_BTMAP_END) >> PMD_SHIFT));
 > +
->  .Lsecondary_park:
->         /* We lack SMP support or have too many harts, so park this hart */
->         wfi
-> @@ -240,6 +248,7 @@ clear_bss_done:
->         call relocate
->  #endif /* CONFIG_MMU */
+> +#ifndef __PAGETABLE_PMD_FOLDED
+> +       /*
+> +        * Early ioremap fixmap is already created as it lies within first 2MB
+> +        * of fixmap region. We always map PMD_SIZE. Thus, both FIX_BTMAP_END
+> +        * FIX_BTMAP_BEGIN should lie in the same pmd. Verify that and warn
+> +        * the user if not.
+> +        */
+> +       fix_bmap_spmd = fixmap_pmd[pmd_index(__fix_to_virt(FIX_BTMAP_BEGIN))];
+> +       fix_bmap_epmd = fixmap_pmd[pmd_index(__fix_to_virt(FIX_BTMAP_END))];
+> +       if (pmd_val(fix_bmap_spmd) != pmd_val(fix_bmap_epmd)) {
+> +               WARN_ON(1);
+> +               pr_warn("fixmap btmap start [%08lx] != end [%08lx]\n",
+> +                       pmd_val(fix_bmap_spmd), pmd_val(fix_bmap_epmd));
+> +               pr_warn("fix_to_virt(FIX_BTMAP_BEGIN): %08lx\n",
+> +                       fix_to_virt(FIX_BTMAP_BEGIN));
+> +               pr_warn("fix_to_virt(FIX_BTMAP_END):   %08lx\n",
+> +                       fix_to_virt(FIX_BTMAP_END));
+> +
+> +               pr_warn("FIX_BTMAP_END:       %d\n", FIX_BTMAP_END);
+> +               pr_warn("FIX_BTMAP_BEGIN:     %d\n", FIX_BTMAP_BEGIN);
+> +       }
+> +#endif
+>  }
 >
-> +       call setup_trap_vector
->         /* Restore C environment */
->         la tp, init_task
->         sw zero, TASK_TI_CPU(tp)
+>  static void __init setup_vm_final(void)
 > --
-> 2.28.0
+> 2.24.0
 >
 
 Looks good to me.
