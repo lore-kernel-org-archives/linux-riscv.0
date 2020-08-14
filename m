@@ -2,82 +2,83 @@ Return-Path: <SRS0=Z5mV=BY=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+X-Spam-Status: No, score=-12.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D2BECC433DF
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Aug 2020 16:50:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4BB30C433DF
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Aug 2020 21:48:51 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9045E204EA
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Aug 2020 16:50:35 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 13D1020716
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Aug 2020 21:48:51 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="py7WTggi";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="KzqFWp6g"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9045E204EA
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="JG8PbeUx";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="h1zCGcFe"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 13D1020716
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=+lWB4bawtzjZtmsqC7D5HI9HcKOGaOjBgFBMFDIbQRg=; b=py7WTggiF0jEmkqzq3yPCJgqb
-	9v24t/4WYAXnToqPBNywRwV34Y8ED20HfgvG9HCuF8D3p7EuIA6K9FovBdhbvEghH1fOv6EFA5CTG
-	0ye53PTDbmxQUJORGIvtzhKDfs4fxcL9jHADJMf5p0+MbTcQL853KT52bwW+sF+CRTS7wsFVwn2OQ
-	l/ZsGU2J+v3XM4DCdLeZSmrrINPLz8BeBLS1XVSeFp/J0OZUIXxYwTOUpk/U/yoMXyq1DZunYapR7
-	hzSeg+AHsEz0lOoGWqcBR4KV/aenR0jTeTRKBZUqjnTlPq61/sSIs5459yeKYUbTXWfd8rwugjxC5
-	NFpePk3vA==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=g7FnBa+cFRp6xFqxL4XEpiRkg3SuYfjGCP5DWoDTikA=; b=JG8PbeUxHWhBn/v0yDZfE599cT
+	2IV2ltzUZyY4QSXoto6QF6cS3A1H1GruafvoAlOcphbEopA9WC7MnPMAxMCSMVtT46K93tFAIGtNC
+	4w+0zpeH/7NETlmWvYKOBU5kLCxGEQpRU8WliNm0U+n29yU2zLVEiWa1VTAtTYcLybN/U400jxrD3
+	93BjGXMcV5HZUH/tqr/aCskbTLg+bne6QyVD5BLijRYv2QKdOzS7Va+BPbkJB9i7jttTIhzXo527o
+	SxUylBPgzEUSs4DKoqOMUX0yY4R7DCwkvLknxPX2wkNibwVkcU3Mwhg1+DbtZnRsZ0nZuNChoouZm
+	Xf0xzVsA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k6cuP-0007DS-UA; Fri, 14 Aug 2020 16:50:25 +0000
-Received: from mail-wr1-x442.google.com ([2a00:1450:4864:20::442])
+	id 1k6hYw-0008K8-P4; Fri, 14 Aug 2020 21:48:34 +0000
+Received: from esa1.hgst.iphmx.com ([68.232.141.245])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k6cuO-0007CV-12
- for linux-riscv@lists.infradead.org; Fri, 14 Aug 2020 16:50:25 +0000
-Received: by mail-wr1-x442.google.com with SMTP id a15so8899598wrh.10
- for <linux-riscv@lists.infradead.org>; Fri, 14 Aug 2020 09:50:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=CLxzLX+VcaF8ftRc2XX+J7Z14wNbVmfBAlNMUPu33z0=;
- b=KzqFWp6gXiMuLftO1NS1V8FejDNAA4Df+LJ1jHvMAiu+pcpZSbt+6rMkLioPO2zTSr
- li7rRbUEBvw2zc5KL4i0YJ13k8VZ3T+qeHJtZIUWMDts06D22A07nyBybNlTQOm9SvwJ
- w1LquWU4CyalCyafV4nEIHvJIH1IswSvmovjo=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=CLxzLX+VcaF8ftRc2XX+J7Z14wNbVmfBAlNMUPu33z0=;
- b=Ge3RWiXKtRV7UdJbA/D19E3T5mNhslD9MUvw4shYbze5OgMUdCTDmE0fzpvKfY1+r6
- 4WF+gcvqYugDm2z5oNSmfr4F0NLdwFoAhXAG0AvoXRkMt0np4/VwBKjye1MEAX8pCZvn
- lNGBL9XMvehyRhbJFvtRMP8J73OH3dohK6y2Ev8FyPH70+ZXJXqWr2SztIpL/yel//Xy
- xYAQVae6JGss/y34+SnNriEuR8OD8nBhGuj8+BEOTySPSKc+HHy33r5yDpo/di+hYrHC
- jy4YCOzjIf5ktmy2zgdQrB07LFllz5bboj53SgSGb0x04oJqZIPNgs+t1rDoc4hk0CJJ
- n5OQ==
-X-Gm-Message-State: AOAM530v2v41KYMyCbR6WLCLVXi9SqoaXTSrMBAtcr5HNRSvEXIlyB2/
- e7WVhn8Yf9hLdME7R4NwHVBQrfSHR2r2ZprZXlul
-X-Google-Smtp-Source: ABdhPJzIAjnoAVbl8xo0cqHSkexAHYs5DSN/E5xaVwBGIW5m2LQO6jC/hWl0mbf3enA0s9uIoKbJMGKBWGln7vrE6l8=
-X-Received: by 2002:a5d:4bd0:: with SMTP id l16mr3438855wrt.384.1597423822061; 
- Fri, 14 Aug 2020 09:50:22 -0700 (PDT)
+ id 1k6hYt-0008IE-G8; Fri, 14 Aug 2020 21:48:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1597441711; x=1628977711;
+ h=from:to:cc:subject:date:message-id:mime-version:
+ content-transfer-encoding;
+ bh=cVOIibxYR9Eik4Y9Pl2EwMku9T0o7D2+6lin3phBclo=;
+ b=h1zCGcFeF87CVTl6o+ycPL+r/jg/AKOTZyKOf1J0CYKHIzkEon9N9izX
+ QrdBUAsUvQQ67FTYeJBQtXsYr4bnpBcc7Mz6fiRtoTeYmonWqwrHP8wYy
+ KhVPes75Xu5vixh2KbNcuLfqnf+svFhSK802NNS6IBq9b2n7D8164FrwL
+ TAp+90wEzi0sJX5X22EvvyKWISio1cb8oMAAA4gjc35faNyF23HOslHMO
+ 0dnPRKvwrcdALh2HQDh/Cw7WuIU9Ge+eWOElaIFMeGmYofV9BZlW56+Eu
+ umR3/DZiuQ3WQipqzMMrn7kfWRvR0j1ePeZd+Py/Zney24hqp4TAOAeLK Q==;
+IronPort-SDR: X0zOL6JlxVi7IkpjSrCjssI5wYkxyLETz4Sg8iQL232V1Fgb8MGJFZLqFPEFyuHTjnQNAN8I1h
+ 1xsvKy8mjrfZjfFP9C/06+b+gJDizp2n9iZ8uuj3vVsSkq/jsSBNhjeHaz4+nD3JqoKpzcnNZ8
+ AL7riQKlDzNUArYqGyAE2QJSBXq9ERkn3DGYjnygbW3wJ9kS+A84pxRzCrDa8paauXUcrJxMuT
+ WFqyH/c2tkGhkpHvKV9wQf0HriJMKyrQsxM5//hM67ttTGe8sj4NpjXlhGEEEzM0y0sflkdzNd
+ i7k=
+X-IronPort-AV: E=Sophos;i="5.76,313,1592841600"; d="scan'208";a="254397121"
+Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
+ ([199.255.45.15])
+ by ob1.hgst.iphmx.com with ESMTP; 15 Aug 2020 05:48:28 +0800
+IronPort-SDR: 6D7wjOv6bYMJfXW4PB2pNQW3AJKVjagfqROwmVfSz/MJbed1HOzdhdN+H2xx1/BiN3fZZ7fPhU
+ Hj4FNg2lueDQ==
+Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
+ by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 14 Aug 2020 14:35:33 -0700
+IronPort-SDR: l9oujh1ogNiL8KZfFqy7fwqsIfsdi8s8QR8PSME3DgGt+iLSNGkjDoL5CfDo85ewnW9Idf7xdE
+ o8npwh7E+v9w==
+WDCIronportException: Internal
+Received: from cnf006060.ad.shared (HELO jedi-01.hgst.com) ([10.86.59.56])
+ by uls-op-cesaip01.wdc.com with ESMTP; 14 Aug 2020 14:48:26 -0700
+From: Atish Patra <atish.patra@wdc.com>
+To: linux-kernel@vger.kernel.org
+Subject: [RFC/RFT PATCH 0/6] Unify NUMA implementation between ARM64 & RISC-V
+Date: Fri, 14 Aug 2020 14:47:19 -0700
+Message-Id: <20200814214725.28818-1-atish.patra@wdc.com>
+X-Mailer: git-send-email 2.24.0
 MIME-Version: 1.0
-References: <20200812234758.3563-1-atish.patra@wdc.com>
- <20200812234758.3563-4-atish.patra@wdc.com>
- <20200814093906.GG752365@kernel.org>
-In-Reply-To: <20200814093906.GG752365@kernel.org>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Fri, 14 Aug 2020 09:50:10 -0700
-Message-ID: <CAOnJCU+aJKnssfXr4O1+s=yo2txxEqu9xFGf9u8XTWJnav+cNA@mail.gmail.com>
-Subject: Re: [PATCH v5 3/9] RISC-V: Implement late mapping page table
- allocation functions
-To: Mike Rapoport <rppt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200814_125024_226009_C11C0531 
-X-CRM114-Status: GOOD (  29.91  )
+X-CRM114-CacheID: sfid-20200814_174831_769658_8B54C562 
+X-CRM114-Status: GOOD (  20.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -89,296 +90,112 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-efi <linux-efi@vger.kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
- Atish Patra <atish.patra@wdc.com>, Arvind Sankar <nivedita@alum.mit.edu>,
- Alistair Francis <alistair.francis@wdc.com>, Waiman Long <longman@redhat.com>,
- linux-riscv <linux-riscv@lists.infradead.org>, Will Deacon <will@kernel.org>,
- Ingo Molnar <mingo@kernel.org>, Masahiro Yamada <masahiroy@kernel.org>,
- Michal Simek <michal.simek@xilinx.com>, Steven Price <steven.price@arm.com>,
- Greentime Hu <greentime.hu@sifive.com>, Borislav Petkov <bp@suse.de>,
- Mao Han <han_mao@c-sky.com>, Daniel Schaefer <daniel.schaefer@hpe.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>,
- "abner.chang@hpe.com" <abner.chang@hpe.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup.patel@wdc.com>,
- Nick Desaulniers <ndesaulniers@google.com>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, fwts-devel@lists.ubuntu.com,
- Andrew Morton <akpm@linux-foundation.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Atish Patra <atish.patra@wdc.com>,
+ Zong Li <zong.li@sifive.com>, linux-riscv@lists.infradead.org,
+ Will Deacon <will@kernel.org>, linux-arch@vger.kernel.org,
+ Rob Herring <robh@kernel.org>, Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+ Ganapatrao Kulkarni <gkulkarni@cavium.com>,
+ Steven Price <steven.price@arm.com>, Greentime Hu <greentime.hu@sifive.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-arm-kernel@lists.infradead.org,
+ Nick Hu <nickhu@andestech.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Anup Patel <Anup.Patel@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 14, 2020 at 2:39 AM Mike Rapoport <rppt@kernel.org> wrote:
->
-> On Wed, Aug 12, 2020 at 04:47:52PM -0700, Atish Patra wrote:
-> > Currently, page table setup is done during setup_va_final where fixmap can
-> > be used to create the temporary mappings. The physical frame is allocated
-> > from memblock_alloc_* functions. However, this won't work if page table
-> > mapping needs to be created for a different mm context (i.e. efi mm) at
-> > a later point of time.
-> >
-> > Use generic kernel page allocation function & macros for any mapping
-> > after setup_vm_final.
-> >
-> > Signed-off-by: Atish Patra <atish.patra@wdc.com>
->
-> A nit below, otherwise
->
->
-> Acked-by: Mike Rapoport <rppt@linux.ibm.com>
->
-> > ---
-> >  arch/riscv/mm/init.c | 130 ++++++++++++++++++++++++++++++++-----------
-> >  1 file changed, 99 insertions(+), 31 deletions(-)
-> >
-> > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> > index b75ebe8e7a92..d238cdc501ee 100644
-> > --- a/arch/riscv/mm/init.c
-> > +++ b/arch/riscv/mm/init.c
-> > @@ -32,6 +32,17 @@ extern char _start[];
-> >  void *dtb_early_va __initdata;
-> >  uintptr_t dtb_early_pa __initdata;
-> >
-> > +struct pt_alloc_ops {
-> > +     pte_t *(*get_pte_virt)(phys_addr_t pa);
-> > +     phys_addr_t (*alloc_pte)(uintptr_t va);
-> > +#ifndef __PAGETABLE_PMD_FOLDED
-> > +     pmd_t *(*get_pmd_virt)(phys_addr_t pa);
-> > +     phys_addr_t (*alloc_pmd)(uintptr_t va);
-> > +#endif
-> > +};
-> > +
-> > +struct pt_alloc_ops pt_ops;
->
-> static?
->
+This series attempts to move the ARM64 numa implementation to common
+code so that RISC-V can leverage that as well instead of reimplementing
+it again.
 
-Ahh yes. Thanks for catching that. I will fix it in the next version.
+RISC-V specific bits are based on initial work done by Greentime Hu [1] but
+modified to reuse the common implementation to avoid duplication.
 
-> > +
-> >  static void __init zone_sizes_init(void)
-> >  {
-> >       unsigned long max_zone_pfns[MAX_NR_ZONES] = { 0, };
-> > @@ -211,7 +222,6 @@ EXPORT_SYMBOL(pfn_base);
-> >  pgd_t swapper_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
-> >  pgd_t trampoline_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
-> >  pte_t fixmap_pte[PTRS_PER_PTE] __page_aligned_bss;
-> > -static bool mmu_enabled;
-> >
-> >  #define MAX_EARLY_MAPPING_SIZE       SZ_128M
-> >
-> > @@ -234,27 +244,46 @@ void __set_fixmap(enum fixed_addresses idx, phys_addr_t phys, pgprot_t prot)
-> >       }
-> >  }
-> >
-> > -static pte_t *__init get_pte_virt(phys_addr_t pa)
-> > +static inline pte_t *__init get_pte_virt_early(phys_addr_t pa)
-> >  {
-> > -     if (mmu_enabled) {
-> > -             clear_fixmap(FIX_PTE);
-> > -             return (pte_t *)set_fixmap_offset(FIX_PTE, pa);
-> > -     } else {
-> > -             return (pte_t *)((uintptr_t)pa);
-> > -     }
-> > +     return (pte_t *)((uintptr_t)pa);
-> >  }
-> >
-> > -static phys_addr_t __init alloc_pte(uintptr_t va)
-> > +static inline pte_t *__init get_pte_virt_fixmap(phys_addr_t pa)
-> > +{
-> > +     clear_fixmap(FIX_PTE);
-> > +     return (pte_t *)set_fixmap_offset(FIX_PTE, pa);
-> > +}
-> > +
-> > +static inline pte_t *get_pte_virt_late(phys_addr_t pa)
-> > +{
-> > +     return (pte_t *) __va(pa);
-> > +}
-> > +
-> > +static inline phys_addr_t __init alloc_pte_early(uintptr_t va)
-> >  {
-> >       /*
-> >        * We only create PMD or PGD early mappings so we
-> >        * should never reach here with MMU disabled.
-> >        */
-> > -     BUG_ON(!mmu_enabled);
-> > +     BUG();
-> > +}
-> >
-> > +static inline phys_addr_t __init alloc_pte_fixmap(uintptr_t va)
-> > +{
-> >       return memblock_phys_alloc(PAGE_SIZE, PAGE_SIZE);
-> >  }
-> >
-> > +static phys_addr_t alloc_pte_late(uintptr_t va)
-> > +{
-> > +     unsigned long vaddr;
-> > +
-> > +     vaddr = __get_free_page(GFP_KERNEL);
-> > +     if (!vaddr || !pgtable_pte_page_ctor(virt_to_page(vaddr)))
-> > +             BUG();
-> > +     return __pa(vaddr);
-> > +}
-> > +
-> >  static void __init create_pte_mapping(pte_t *ptep,
-> >                                     uintptr_t va, phys_addr_t pa,
-> >                                     phys_addr_t sz, pgprot_t prot)
-> > @@ -279,28 +308,46 @@ pmd_t fixmap_pmd[PTRS_PER_PMD] __page_aligned_bss;
-> >  #endif
-> >  pmd_t early_pmd[PTRS_PER_PMD * NUM_EARLY_PMDS] __initdata __aligned(PAGE_SIZE);
-> >
-> > -static pmd_t *__init get_pmd_virt(phys_addr_t pa)
-> > +static pmd_t *__init get_pmd_virt_early(phys_addr_t pa)
-> >  {
-> > -     if (mmu_enabled) {
-> > -             clear_fixmap(FIX_PMD);
-> > -             return (pmd_t *)set_fixmap_offset(FIX_PMD, pa);
-> > -     } else {
-> > -             return (pmd_t *)((uintptr_t)pa);
-> > -     }
-> > +     /* Before MMU is enabled */
-> > +     return (pmd_t *)((uintptr_t)pa);
-> >  }
-> >
-> > -static phys_addr_t __init alloc_pmd(uintptr_t va)
-> > +static pmd_t *__init get_pmd_virt_fixmap(phys_addr_t pa)
-> >  {
-> > -     uintptr_t pmd_num;
-> > +     clear_fixmap(FIX_PMD);
-> > +     return (pmd_t *)set_fixmap_offset(FIX_PMD, pa);
-> > +}
-> > +
-> > +static pmd_t *get_pmd_virt_late(phys_addr_t pa)
-> > +{
-> > +     return (pmd_t *) __va(pa);
-> > +}
-> >
-> > -     if (mmu_enabled)
-> > -             return memblock_phys_alloc(PAGE_SIZE, PAGE_SIZE);
-> > +static phys_addr_t __init alloc_pmd_early(uintptr_t va)
-> > +{
-> > +     uintptr_t pmd_num;
-> >
-> >       pmd_num = (va - PAGE_OFFSET) >> PGDIR_SHIFT;
-> >       BUG_ON(pmd_num >= NUM_EARLY_PMDS);
-> >       return (uintptr_t)&early_pmd[pmd_num * PTRS_PER_PMD];
-> >  }
-> >
-> > +static phys_addr_t __init alloc_pmd_fixmap(uintptr_t va)
-> > +{
-> > +     return memblock_phys_alloc(PAGE_SIZE, PAGE_SIZE);
-> > +}
-> > +
-> > +static phys_addr_t alloc_pmd_late(uintptr_t va)
-> > +{
-> > +     unsigned long vaddr;
-> > +
-> > +     vaddr = __get_free_page(GFP_KERNEL);
-> > +     BUG_ON(!vaddr);
-> > +     return __pa(vaddr);
-> > +}
-> > +
-> >  static void __init create_pmd_mapping(pmd_t *pmdp,
-> >                                     uintptr_t va, phys_addr_t pa,
-> >                                     phys_addr_t sz, pgprot_t prot)
-> > @@ -316,28 +363,28 @@ static void __init create_pmd_mapping(pmd_t *pmdp,
-> >       }
-> >
-> >       if (pmd_none(pmdp[pmd_idx])) {
-> > -             pte_phys = alloc_pte(va);
-> > +             pte_phys = pt_ops.alloc_pte(va);
-> >               pmdp[pmd_idx] = pfn_pmd(PFN_DOWN(pte_phys), PAGE_TABLE);
-> > -             ptep = get_pte_virt(pte_phys);
-> > +             ptep = pt_ops.get_pte_virt(pte_phys);
-> >               memset(ptep, 0, PAGE_SIZE);
-> >       } else {
-> >               pte_phys = PFN_PHYS(_pmd_pfn(pmdp[pmd_idx]));
-> > -             ptep = get_pte_virt(pte_phys);
-> > +             ptep = pt_ops.get_pte_virt(pte_phys);
-> >       }
-> >
-> >       create_pte_mapping(ptep, va, pa, sz, prot);
-> >  }
-> >
-> >  #define pgd_next_t           pmd_t
-> > -#define alloc_pgd_next(__va) alloc_pmd(__va)
-> > -#define get_pgd_next_virt(__pa)      get_pmd_virt(__pa)
-> > +#define alloc_pgd_next(__va) pt_ops.alloc_pmd(__va)
-> > +#define get_pgd_next_virt(__pa)      pt_ops.get_pmd_virt(__pa)
-> >  #define create_pgd_next_mapping(__nextp, __va, __pa, __sz, __prot)   \
-> >       create_pmd_mapping(__nextp, __va, __pa, __sz, __prot)
-> >  #define fixmap_pgd_next              fixmap_pmd
-> >  #else
-> >  #define pgd_next_t           pte_t
-> > -#define alloc_pgd_next(__va) alloc_pte(__va)
-> > -#define get_pgd_next_virt(__pa)      get_pte_virt(__pa)
-> > +#define alloc_pgd_next(__va) pt_ops.alloc_pte(__va)
-> > +#define get_pgd_next_virt(__pa)      pt_ops.get_pte_virt(__pa)
-> >  #define create_pgd_next_mapping(__nextp, __va, __pa, __sz, __prot)   \
-> >       create_pte_mapping(__nextp, __va, __pa, __sz, __prot)
-> >  #define fixmap_pgd_next              fixmap_pte
-> > @@ -421,6 +468,12 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
-> >       BUG_ON((load_pa % map_size) != 0);
-> >       BUG_ON(load_sz > MAX_EARLY_MAPPING_SIZE);
-> >
-> > +     pt_ops.alloc_pte = alloc_pte_early;
-> > +     pt_ops.get_pte_virt = get_pte_virt_early;
-> > +#ifndef __PAGETABLE_PMD_FOLDED
-> > +     pt_ops.alloc_pmd = alloc_pmd_early;
-> > +     pt_ops.get_pmd_virt = get_pmd_virt_early;
-> > +#endif
-> >       /* Setup early PGD for fixmap */
-> >       create_pgd_mapping(early_pg_dir, FIXADDR_START,
-> >                          (uintptr_t)fixmap_pgd_next, PGDIR_SIZE, PAGE_TABLE);
-> > @@ -497,9 +550,16 @@ static void __init setup_vm_final(void)
-> >       phys_addr_t pa, start, end;
-> >       struct memblock_region *reg;
-> >
-> > -     /* Set mmu_enabled flag */
-> > -     mmu_enabled = true;
-> > -
-> > +     /**
-> > +      * MMU is enabled at this point. But page table setup is not complete yet.
-> > +      * fixmap page table alloc functions should be used at this point
-> > +      */
-> > +     pt_ops.alloc_pte = alloc_pte_fixmap;
-> > +     pt_ops.get_pte_virt = get_pte_virt_fixmap;
-> > +#ifndef __PAGETABLE_PMD_FOLDED
-> > +     pt_ops.alloc_pmd = alloc_pmd_fixmap;
-> > +     pt_ops.get_pmd_virt = get_pmd_virt_fixmap;
-> > +#endif
-> >       /* Setup swapper PGD for fixmap */
-> >       create_pgd_mapping(swapper_pg_dir, FIXADDR_START,
-> >                          __pa_symbol(fixmap_pgd_next),
-> > @@ -533,6 +593,14 @@ static void __init setup_vm_final(void)
-> >       /* Move to swapper page table */
-> >       csr_write(CSR_SATP, PFN_DOWN(__pa_symbol(swapper_pg_dir)) | SATP_MODE);
-> >       local_flush_tlb_all();
-> > +
-> > +     /* generic page allocation functions must be used to setup page table */
-> > +     pt_ops.alloc_pte = alloc_pte_late;
-> > +     pt_ops.get_pte_virt = get_pte_virt_late;
-> > +#ifndef __PAGETABLE_PMD_FOLDED
-> > +     pt_ops.alloc_pmd = alloc_pmd_late;
-> > +     pt_ops.get_pmd_virt = get_pmd_virt_late;
-> > +#endif
-> >  }
-> >  #else
-> >  asmlinkage void __init setup_vm(uintptr_t dtb_pa)
-> > --
-> > 2.24.0
-> >
->
-> --
-> Sincerely yours,
-> Mike.
+[1] https://lkml.org/lkml/2020/1/10/233
 
+This series has been tested on qemu with numa enabled for both RISC-V & ARM64.
+It would be great if somebody can test it on numa capable ARM64 hardware platforms.
+This patch series doesn't modify the maintainers list for the common code (arch_numa)
+as I am not sure if somebody from ARM64 community or Greg should take up the
+maintainership. Ganapatrao was the original author of the arm64 version.
+I would be happy to update that in the next revision once it is decided.
 
+# numactl --hardware
+available: 2 nodes (0-1)
+node 0 cpus: 0 1 2 3
+node 0 size: 486 MB
+node 0 free: 470 MB
+node 1 cpus: 4 5 6 7
+node 1 size: 424 MB
+node 1 free: 408 MB
+node distances:
+node   0   1 
+  0:  10  20 
+  1:  20  10 
+# numactl -show
+policy: default
+preferred node: current
+physcpubind: 0 1 2 3 4 5 6 7 
+cpubind: 0 1 
+nodebind: 0 1 
+membind: 0 1 
 
--- 
-Regards,
-Atish
+For RISC-V, the following qemu series is a pre-requisite to test the patches in Qemu.
+
+https://patchwork.kernel.org/project/qemu-devel/list/?series=303313
+
+The patches are also available at
+
+https://github.com/atishp04/linux/tree/5.10_numa_unified
+
+There may be some minor conflicts with Mike's cleanup series [2] depending on the
+order in which these two series are being accepted. I can rebase on top his series
+if required.
+
+[2] https://lkml.org/lkml/2020/7/28/39
+
+Atish Patra (5):
+numa: Move numa implementation to common code
+arm64, numa: Change the numa init function name to be generic
+arm64, numa: Move pcibus_to_node definition to generic numa code
+riscv: Separate memory init from paging init
+riscv: Add numa support for riscv64 platform
+
+Greentime Hu (1):
+riscv: Add support pte_protnone and pmd_protnone if
+CONFIG_NUMA_BALANCING
+
+arch/arm64/Kconfig                            |  1 +
+arch/arm64/include/asm/numa.h                 | 45 +---------------
+arch/arm64/kernel/pci.c                       | 10 ----
+arch/arm64/mm/Makefile                        |  1 -
+arch/arm64/mm/init.c                          |  4 +-
+arch/riscv/Kconfig                            | 31 ++++++++++-
+arch/riscv/include/asm/mmzone.h               | 13 +++++
+arch/riscv/include/asm/numa.h                 |  8 +++
+arch/riscv/include/asm/pci.h                  | 10 ++++
+arch/riscv/include/asm/pgtable.h              | 21 ++++++++
+arch/riscv/kernel/setup.c                     | 12 ++++-
+arch/riscv/kernel/smpboot.c                   | 12 ++++-
+arch/riscv/mm/init.c                          | 10 +++-
+drivers/base/Kconfig                          |  6 +++
+drivers/base/Makefile                         |  1 +
+.../mm/numa.c => drivers/base/arch_numa.c     | 19 ++++++-
+include/asm-generic/numa.h                    | 51 +++++++++++++++++++
+17 files changed, 190 insertions(+), 65 deletions(-)
+create mode 100644 arch/riscv/include/asm/mmzone.h
+create mode 100644 arch/riscv/include/asm/numa.h
+rename arch/arm64/mm/numa.c => drivers/base/arch_numa.c (97%)
+create mode 100644 include/asm-generic/numa.h
+
+--
+2.24.0
+
 
 _______________________________________________
 linux-riscv mailing list
