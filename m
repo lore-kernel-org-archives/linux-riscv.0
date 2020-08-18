@@ -2,64 +2,66 @@ Return-Path: <SRS0=g+2U=B4=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_GIT autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AE52CC433E5
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Aug 2020 14:16:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E66CAC433E1
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Aug 2020 14:16:44 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7912D207FF
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Aug 2020 14:16:32 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id BA48720786
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Aug 2020 14:16:44 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pMCNZL9a";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="LOEB8Bvl"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7912D207FF
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="XW0nTzyP";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="nXh/wS6b"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BA48720786
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fUwmHMJ0mk2/WkZdYpcwlvuU7y+QGgII1pDmOz2TXhs=; b=pMCNZL9aV4llc2J8wgy1Pq5v3l
-	TH6C6LdDZCvrefMoL1xyCPtA5grWt+Lykx/5krizdoUe1L9PPBFgRXBbeySbxt0/zzz/zvk5OlbcZ
-	oG6WAhVrG12pvozjuNS+T7h5C2Mf4dMiFoWoPhxw7EEgRsYcu/EyMHplSOZ42sgTHJKZq2Xg4mgC9
-	AXKZvhtCIh+C/ONVpobbEOe19rqXiOMAvFd/WIt3NLIkuVJf/CUmCxjodD7r2dzdD/YIMtxLZXh7E
-	fW8CIwkQSK/J2A/753Q9bDj+Q5P17BPCuFl8WL3wjT9itTU6WffxMZMLy8FfE8qsRq1o/L3DpyXly
-	XF1kI9+g==;
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=YRuZwiFWtfEPNn0mJq3p59yHNR30g58dbFmDZBV6ZuI=; b=XW0nTzyPBmUoDfLp/KwUXIMEz
+	6IqcEpSWm8qCjuVtDYws9Hu3evSdBdiNj2w+UvY2ew181qCBjX2IMUYMydLNnnfxIbhA/ud+LRLMl
+	9f2O/Eh2GhB8AgvCpAIZEoRJY4RbEEXg1uvVjgf+5r441k/VF02leLZG2y6iIDaHrqXORFereBaaS
+	RRMC+Zn4y9TU3eWJrmdsZqW2dJ1Iw7z7Dmn5SsK8+1AuUtZrBNvHuG6Cyw/2L0GwIoUN9W8TXKWKd
+	IvUirzlZ6Dk4jC7Nu1po+ZN73px999LInoP14qiksQ8UnMipte6kvWf7BC178K8pNYnzFAq5akCXG
+	qe1ngoDTQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k82PS-0001Cs-Tt; Tue, 18 Aug 2020 14:16:18 +0000
+	id 1k82Pf-0001GZ-Ky; Tue, 18 Aug 2020 14:16:31 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k82PN-0001Bc-4p; Tue, 18 Aug 2020 14:16:14 +0000
+ id 1k82PY-0001Dx-SV; Tue, 18 Aug 2020 14:16:26 +0000
 Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 27F7D20786;
- Tue, 18 Aug 2020 14:15:59 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id F0DAD20829;
+ Tue, 18 Aug 2020 14:16:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1597760172;
- bh=IMWe0uEfWphXmdXBrS86ktgzLDd1wXmECJxjWh3Nbo8=;
- h=From:To:Cc:Subject:Date:From;
- b=LOEB8BvlwPsxT0KMHs+tqeqV7zbJtoHgcBTgZ+8IJhT+2BYuPOPjEYKZJgJ0/iSed
- xePxCrxKM3sPMLM9VrIdwT8ed/0huYmu1K+pbIjZA+U8rLDxGliw1hPUwTj76rN7dh
- uq/IsuqIyFZiAZbDbOqQ13mwiVJK6fuUnJKnQ8sc=
+ s=default; t=1597760184;
+ bh=zc15LsD1sPr9/ZbyAvhQVudYgFhm3woFSb45SRpcY0A=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=nXh/wS6baOtHWub6WK55rP1sORfDRlaH9KA4ZH9loQ2K9uIAXB/Z1HTqFrO5Zz16m
+ L49Xr26Z6YSYWhAI/uEfDIGP8mDo7j6g7mgKdrWwdX0NU/JRR4VfY+zgPLx+m9wB9l
+ vpaideBHzS79DywiOJt8+eoDYyvEMkgiuO/dGfBE=
 From: Mike Rapoport <rppt@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH v4 0/6] mm: introduce memfd_secret system call to create
- "secret" memory areas
-Date: Tue, 18 Aug 2020 17:15:48 +0300
-Message-Id: <20200818141554.13945-1-rppt@kernel.org>
+Subject: [PATCH v4 1/6] mm: add definition of PMD_PAGE_ORDER
+Date: Tue, 18 Aug 2020 17:15:49 +0300
+Message-Id: <20200818141554.13945-2-rppt@kernel.org>
 X-Mailer: git-send-email 2.26.2
+In-Reply-To: <20200818141554.13945-1-rppt@kernel.org>
+References: <20200818141554.13945-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200818_101613_350932_B9D25816 
-X-CRM114-Status: GOOD (  27.01  )
+X-CRM114-CacheID: sfid-20200818_101625_101430_61CD0ACF 
+X-CRM114-Status: GOOD (  19.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -96,114 +98,84 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Mike Rapoport <rppt@linux.ibm.com>
 
-Hi,
+The definition of PMD_PAGE_ORDER denoting the number of base pages in the
+second-level leaf page is already used by DAX and maybe handy in other
+cases as well.
 
-This is an implementation of "secret" mappings backed by a file descriptor. 
+Several architectures already have definition of PMD_ORDER as the size of
+second level page table, so to avoid conflict with these definitions use
+PMD_PAGE_ORDER name and update DAX respectively.
 
-v4 changes:
-* rebase on v5.9-rc1
-* Do not redefine PMD_PAGE_ORDER in fs/dax.c, thanks Kirill
-* Make secret mappings exclusive by default and only require flags to
-  memfd_secret() system call for uncached mappings, thanks again Kirill :)
+Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+---
+ fs/dax.c                | 11 ++++-------
+ include/linux/pgtable.h |  3 +++
+ 2 files changed, 7 insertions(+), 7 deletions(-)
 
-v3 changes:
-* Squash kernel-parameters.txt update into the commit that added the
-  command line option.
-* Make uncached mode explicitly selectable by architectures. For now enable
-  it only on x86.
-
-v2 changes:
-* Follow Michael's suggestion and name the new system call 'memfd_secret'
-* Add kernel-parameters documentation about the boot option
-* Fix i386-tinyconfig regression reported by the kbuild bot.
-  CONFIG_SECRETMEM now depends on !EMBEDDED to disable it on small systems
-  from one side and still make it available unconditionally on
-  architectures that support SET_DIRECT_MAP.
-
-
-The file descriptor backing secret memory mappings is created using a
-dedicated memfd_secret system call The desired protection mode for the
-memory is configured using flags parameter of the system call. The mmap()
-of the file descriptor created with memfd_secret() will create a "secret"
-memory mapping. The pages in that mapping will be marked as not present in
-the direct map and will have desired protection bits set in the user page
-table. For instance, current implementation allows uncached mappings.
-
-Although normally Linux userspace mappings are protected from other users, 
-such secret mappings are useful for environments where a hostile tenant is
-trying to trick the kernel into giving them access to other tenants
-mappings.
-
-Additionally, the secret mappings may be used as a mean to protect guest
-memory in a virtual machine host.
-
-For demonstration of secret memory usage we've created a userspace library
-[1] that does two things: the first is act as a preloader for openssl to
-redirect all the OPENSSL_malloc calls to secret memory meaning any secret
-keys get automatically protected this way and the other thing it does is
-expose the API to the user who needs it. We anticipate that a lot of the
-use cases would be like the openssl one: many toolkits that deal with
-secret keys already have special handling for the memory to try to give
-them greater protection, so this would simply be pluggable into the
-toolkits without any need for user application modification.
-
-I've hesitated whether to continue to use new flags to memfd_create() or to
-add a new system call and I've decided to use a new system call after I've
-started to look into man pages update. There would have been two completely
-independent descriptions and I think it would have been very confusing.
-
-Hiding secret memory mappings behind an anonymous file allows (ab)use of
-the page cache for tracking pages allocated for the "secret" mappings as
-well as using address_space_operations for e.g. page migration callbacks.
-
-The anonymous file may be also used implicitly, like hugetlb files, to
-implement mmap(MAP_SECRET) and use the secret memory areas with "native" mm
-ABIs in the future.
-
-As the fragmentation of the direct map was one of the major concerns raised
-during the previous postings, I've added an amortizing cache of PMD-size
-pages to each file descriptor and an ability to reserve large chunks of the
-physical memory at boot time and then use this memory as an allocation pool
-for the secret memory areas.
-
-v3: https://lore.kernel.org/lkml/20200804095035.18778-1-rppt@kernel.org
-v2: https://lore.kernel.org/lkml/20200727162935.31714-1-rppt@kernel.org
-v1: https://lore.kernel.org/lkml/20200720092435.17469-1-rppt@kernel.org/
-rfc-v2: https://lore.kernel.org/lkml/20200706172051.19465-1-rppt@kernel.org/
-rfc-v1: https://lore.kernel.org/lkml/20200130162340.GA14232@rapoport-lnx/
-
-Mike Rapoport (6):
-  mm: add definition of PMD_PAGE_ORDER
-  mmap: make mlock_future_check() global
-  mm: introduce memfd_secret system call to create "secret" memory areas
-  arch, mm: wire up memfd_secret system call were relevant
-  mm: secretmem: use PMD-size pages to amortize direct map fragmentation
-  mm: secretmem: add ability to reserve memory at boot
-
- arch/Kconfig                           |   7 +
- arch/arm64/include/asm/unistd.h        |   2 +-
- arch/arm64/include/asm/unistd32.h      |   2 +
- arch/arm64/include/uapi/asm/unistd.h   |   1 +
- arch/riscv/include/asm/unistd.h        |   1 +
- arch/x86/Kconfig                       |   1 +
- arch/x86/entry/syscalls/syscall_32.tbl |   1 +
- arch/x86/entry/syscalls/syscall_64.tbl |   1 +
- fs/dax.c                               |  11 +-
- include/linux/pgtable.h                |   3 +
- include/linux/syscalls.h               |   1 +
- include/uapi/asm-generic/unistd.h      |   7 +-
- include/uapi/linux/magic.h             |   1 +
- include/uapi/linux/secretmem.h         |   8 +
- kernel/sys_ni.c                        |   2 +
- mm/Kconfig                             |   4 +
- mm/Makefile                            |   1 +
- mm/internal.h                          |   3 +
- mm/mmap.c                              |   5 +-
- mm/secretmem.c                         | 451 +++++++++++++++++++++++++
- 20 files changed, 501 insertions(+), 12 deletions(-)
- create mode 100644 include/uapi/linux/secretmem.h
- create mode 100644 mm/secretmem.c
-
+diff --git a/fs/dax.c b/fs/dax.c
+index 95341af1a966..09a7fdb879b6 100644
+--- a/fs/dax.c
++++ b/fs/dax.c
+@@ -49,9 +49,6 @@ static inline unsigned int pe_order(enum page_entry_size pe_size)
+ #define PG_PMD_COLOUR	((PMD_SIZE >> PAGE_SHIFT) - 1)
+ #define PG_PMD_NR	(PMD_SIZE >> PAGE_SHIFT)
+ 
+-/* The order of a PMD entry */
+-#define PMD_ORDER	(PMD_SHIFT - PAGE_SHIFT)
+-
+ static wait_queue_head_t wait_table[DAX_WAIT_TABLE_ENTRIES];
+ 
+ static int __init init_dax_wait_table(void)
+@@ -98,7 +95,7 @@ static bool dax_is_locked(void *entry)
+ static unsigned int dax_entry_order(void *entry)
+ {
+ 	if (xa_to_value(entry) & DAX_PMD)
+-		return PMD_ORDER;
++		return PMD_PAGE_ORDER;
+ 	return 0;
+ }
+ 
+@@ -1455,7 +1452,7 @@ static vm_fault_t dax_iomap_pmd_fault(struct vm_fault *vmf, pfn_t *pfnp,
+ {
+ 	struct vm_area_struct *vma = vmf->vma;
+ 	struct address_space *mapping = vma->vm_file->f_mapping;
+-	XA_STATE_ORDER(xas, &mapping->i_pages, vmf->pgoff, PMD_ORDER);
++	XA_STATE_ORDER(xas, &mapping->i_pages, vmf->pgoff, PMD_PAGE_ORDER);
+ 	unsigned long pmd_addr = vmf->address & PMD_MASK;
+ 	bool write = vmf->flags & FAULT_FLAG_WRITE;
+ 	bool sync;
+@@ -1514,7 +1511,7 @@ static vm_fault_t dax_iomap_pmd_fault(struct vm_fault *vmf, pfn_t *pfnp,
+ 	 * entry is already in the array, for instance), it will return
+ 	 * VM_FAULT_FALLBACK.
+ 	 */
+-	entry = grab_mapping_entry(&xas, mapping, PMD_ORDER);
++	entry = grab_mapping_entry(&xas, mapping, PMD_PAGE_ORDER);
+ 	if (xa_is_internal(entry)) {
+ 		result = xa_to_internal(entry);
+ 		goto fallback;
+@@ -1680,7 +1677,7 @@ dax_insert_pfn_mkwrite(struct vm_fault *vmf, pfn_t pfn, unsigned int order)
+ 	if (order == 0)
+ 		ret = vmf_insert_mixed_mkwrite(vmf->vma, vmf->address, pfn);
+ #ifdef CONFIG_FS_DAX_PMD
+-	else if (order == PMD_ORDER)
++	else if (order == PMD_PAGE_ORDER)
+ 		ret = vmf_insert_pfn_pmd(vmf, pfn, FAULT_FLAG_WRITE);
+ #endif
+ 	else
+diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+index a124c21e3204..fb9c386e4f54 100644
+--- a/include/linux/pgtable.h
++++ b/include/linux/pgtable.h
+@@ -28,6 +28,9 @@
+ #define USER_PGTABLES_CEILING	0UL
+ #endif
+ 
++/* Number of base pages in a second level leaf page */
++#define PMD_PAGE_ORDER	(PMD_SHIFT - PAGE_SHIFT)
++
+ /*
+  * A page table page can be thought of an array like this: pXd_t[PTRS_PER_PxD]
+  *
 -- 
 2.26.2
 
