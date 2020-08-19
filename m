@@ -2,22 +2,23 @@ Return-Path: <SRS0=trTC=B5=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,NICE_REPLY_A,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-6.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 65FC2C433E1
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2020 03:19:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DE7C1C433E1
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2020 10:48:28 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2E5BE2083B
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2020 03:19:10 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B07C3206B5
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2020 10:48:28 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ErOW97ij"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2E5BE2083B
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="fyQ/Litw";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=redhat.com header.i=@redhat.com header.b="heOI+L/S"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B07C3206B5
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -25,39 +26,104 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
 	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=O9XM5bmxIrt0mpz2ar+tnRVNTON+GANhJm74nZ2bqAY=; b=ErOW97ijWlpzSeZgz+b+InBSu
-	omxks4oY3BDnQBOlB7xcsSEuNBdRosIBCqk/GdvH5dSqBEXf1OAP+I6S32A7dElTaaRtVVm9jEf7j
-	zRy0XNceZ5yYg3Lz56n+mJi30HaCjrbfVhWqsQLpH/podHY7NU38BpcSU9hBmKBdnwWIPylTN0tFR
-	RljdLG8d9FmC6Lo37xSwMJUymVnLuOB9HUk6Mvo6sTYvxhuITenMvkrh4+37wz9Ko9mQi0b0sHm3j
-	9RdVEkb30rQ7owPWbtPKcH0aIkfNeTWBhjtZwpqMxze4otK88pmPuT+7n69STBFyuGNxOCOd5PkrK
-	ppuHBkiSQ==;
+	 bh=Zu+EjKqX0B7ON7tk9dLLbMxh2w9wmwxAoQ3dtl0LAzY=; b=fyQ/LitwG8Q/BLrY1g5MfpkeJ
+	oW+/uR/0BoRFMWhopYGij1lpDP5PZ98YHurEH791T6rMsO2ZjNdkdVdBdTVC92iwOtujhN2xl9PMh
+	1N864IWLLh/zYoa3hUI68t4gB758fJOumnhGTxaIkUNEyRKFAbp22IYTfj9xCzyX8RbuvBTWDwuX+
+	X/qYq4F7DGg23OjPr5hg2fFyENZfxx+Q8lF338JoE5h+B9Pe6xd9n71YDiqRN2p7cjrxkRiZ3JlxS
+	KK4Y7QsGOD+BYa1+fEMFhlgdoriQ5+o50GS7CYBqtOP3waQbRWGTXZYpyANGRDhl9SQN+pAXyX5RW
+	AdbcnZZxw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k8Ecs-0000n0-8X; Wed, 19 Aug 2020 03:18:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
- by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k8Eco-0000lw-Ha; Wed, 19 Aug 2020 03:18:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D837E31B;
- Tue, 18 Aug 2020 20:18:51 -0700 (PDT)
-Received: from [10.163.66.190] (unknown [10.163.66.190])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 85D2C3F71F;
- Tue, 18 Aug 2020 20:18:44 -0700 (PDT)
-Subject: Re: [RFC/RFT PATCH 1/6] numa: Move numa implementation to common code
-To: Atish Patra <atish.patra@wdc.com>, linux-kernel@vger.kernel.org
-References: <20200814214725.28818-1-atish.patra@wdc.com>
- <20200814214725.28818-2-atish.patra@wdc.com>
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-Message-ID: <2dce83a8-bda4-7664-9661-4e0542eecd57@arm.com>
-Date: Wed, 19 Aug 2020 08:48:13 +0530
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
- Thunderbird/52.9.1
+	id 1k8Ldg-00037N-LR; Wed, 19 Aug 2020 10:48:16 +0000
+Received: from us-smtp-1.mimecast.com ([207.211.31.81]
+ helo=us-smtp-delivery-1.mimecast.com)
+ by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1k8Ldb-00034q-GP
+ for linux-riscv@lists.infradead.org; Wed, 19 Aug 2020 10:48:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1597834090;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+ bh=kfvbWx2GqLRR/dNszPGKWEZ+eG10cmhk/+p25NcwL/I=;
+ b=heOI+L/SeGYUoYeSeYhvN92TlmHcp0h2uXDy+vJyBVckMx3/SnV9x3DZf+/xNQjM3mKuWT
+ XpCDtqnHqxFcQxdMy1cBV7g4gW9rzBA9a617DzwUOUcLJ/l6XCBYdjTns6q/AgpeImqjPM
+ 5MQhmZ+W6hR3jT0Hl8JQAVDEla0zBp0=
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-429-rWsmhZyBPg-YQzCOv7kMeQ-1; Wed, 19 Aug 2020 06:48:06 -0400
+X-MC-Unique: rWsmhZyBPg-YQzCOv7kMeQ-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com
+ [10.5.11.23])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+ (No client certificate requested)
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 416D9186A578;
+ Wed, 19 Aug 2020 10:48:02 +0000 (UTC)
+Received: from [10.36.114.11] (ovpn-114-11.ams2.redhat.com [10.36.114.11])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id 926B027CB7;
+ Wed, 19 Aug 2020 10:47:55 +0000 (UTC)
+Subject: Re: [PATCH v4 0/6] mm: introduce memfd_secret system call to create
+ "secret" memory areas
+To: Mike Rapoport <rppt@kernel.org>, Andrew Morton <akpm@linux-foundation.org>
+References: <20200818141554.13945-1-rppt@kernel.org>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; prefer-encrypt=mutual; keydata=
+ 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
+ WNyWQQ==
+Organization: Red Hat GmbH
+Message-ID: <e82ca20e-a88e-d7ff-e99b-4189aac54f3a@redhat.com>
+Date: Wed, 19 Aug 2020 12:47:54 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.10.0
 MIME-Version: 1.0
-In-Reply-To: <20200814214725.28818-2-atish.patra@wdc.com>
+In-Reply-To: <20200818141554.13945-1-rppt@kernel.org>
 Content-Language: en-US
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200818_231854_753310_3C9471FB 
-X-CRM114-Status: GOOD (  25.68  )
+X-CRM114-CacheID: sfid-20200819_064811_656637_D005BB82 
+X-CRM114-Status: GOOD (  27.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -69,167 +135,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-arch@vger.kernel.org, Rob Herring <robh@kernel.org>,
- Albert Ou <aou@eecs.berkeley.edu>, Nick Hu <nickhu@andestech.com>,
- Arnd Bergmann <arnd@arndb.de>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Anup Patel <Anup.Patel@wdc.com>,
- Ganapatrao Kulkarni <gkulkarni@cavium.com>,
- Steven Price <steven.price@arm.com>,
- Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, linux-arm-kernel@lists.infradead.org,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Zong Li <zong.li@sifive.com>,
- Greentime Hu <greentime.hu@sifive.com>,
- Andrew Morton <akpm@linux-foundation.org>, Will Deacon <will@kernel.org>,
- linux-riscv@lists.infradead.org, Mike Rapoport <rppt@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Christopher Lameter <cl@linux.com>,
+ Idan Yaniv <idan.yaniv@ibm.com>, Dan Williams <dan.j.williams@intel.com>,
+ Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
+ Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
+ Will Deacon <will@kernel.org>, x86@kernel.org,
+ Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
+ Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
+ Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org,
+ linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-fsdevel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 08/15/2020 03:17 AM, Atish Patra wrote:
-> ARM64 numa implementation is generic enough that RISC-V can reuse that
-> implementation with very minor cosmetic changes. This will help both
-> ARM64 and RISC-V in terms of maintanace and feature improvement
+On 18.08.20 16:15, Mike Rapoport wrote:
+> From: Mike Rapoport <rppt@linux.ibm.com>
 > 
-> Move the numa implementation code to common directory so that both ISAs
-> can reuse this. This doesn't introduce any function changes for ARM64.
+> Hi,
 > 
-> Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> ---
->  arch/arm64/Kconfig                            |  1 +
->  arch/arm64/include/asm/numa.h                 | 45 +---------------
->  arch/arm64/mm/Makefile                        |  1 -
->  drivers/base/Kconfig                          |  6 +++
->  drivers/base/Makefile                         |  1 +
->  .../mm/numa.c => drivers/base/arch_numa.c     |  0
->  include/asm-generic/numa.h                    | 51 +++++++++++++++++++
->  7 files changed, 60 insertions(+), 45 deletions(-)
->  rename arch/arm64/mm/numa.c => drivers/base/arch_numa.c (100%)
->  create mode 100644 include/asm-generic/numa.h
+> This is an implementation of "secret" mappings backed by a file descriptor. 
 > 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 6d232837cbee..955a0cf75b16 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -960,6 +960,7 @@ config HOTPLUG_CPU
->  # Common NUMA Features
->  config NUMA
->  	bool "NUMA Memory Allocation and Scheduler Support"
-> +	select GENERIC_ARCH_NUMA
+> v4 changes:
+> * rebase on v5.9-rc1
+> * Do not redefine PMD_PAGE_ORDER in fs/dax.c, thanks Kirill
+> * Make secret mappings exclusive by default and only require flags to
+>   memfd_secret() system call for uncached mappings, thanks again Kirill :)
+> 
+> v3 changes:
+> * Squash kernel-parameters.txt update into the commit that added the
+>   command line option.
+> * Make uncached mode explicitly selectable by architectures. For now enable
+>   it only on x86.
+> 
+> v2 changes:
+> * Follow Michael's suggestion and name the new system call 'memfd_secret'
+> * Add kernel-parameters documentation about the boot option
+> * Fix i386-tinyconfig regression reported by the kbuild bot.
+>   CONFIG_SECRETMEM now depends on !EMBEDDED to disable it on small systems
+>   from one side and still make it available unconditionally on
+>   architectures that support SET_DIRECT_MAP.
+> 
+> 
+> The file descriptor backing secret memory mappings is created using a
+> dedicated memfd_secret system call The desired protection mode for the
+> memory is configured using flags parameter of the system call. The mmap()
+> of the file descriptor created with memfd_secret() will create a "secret"
+> memory mapping. The pages in that mapping will be marked as not present in
+> the direct map and will have desired protection bits set in the user page
+> table. For instance, current implementation allows uncached mappings.
+> 
+> Although normally Linux userspace mappings are protected from other users, 
+> such secret mappings are useful for environments where a hostile tenant is
+> trying to trick the kernel into giving them access to other tenants
+> mappings.
+> 
+> Additionally, the secret mappings may be used as a mean to protect guest
+> memory in a virtual machine host.
+> 
 
-So this introduces a generic NUMA framework selectable with GENERIC_ARCH_NUMA.
+Just a general question. I assume such pages (where the direct mapping
+was changed) cannot get migrated - I can spot a simple alloc_page(). So
+essentially a process can just allocate a whole bunch of memory that is
+unmovable, correct? Is there any limit? Is it properly accounted towards
+the process (memctl) ?
 
->  	select ACPI_NUMA if ACPI
->  	select OF_NUMA
->  	help
-> diff --git a/arch/arm64/include/asm/numa.h b/arch/arm64/include/asm/numa.h
-> index 626ad01e83bf..8c8cf4297cc3 100644
-> --- a/arch/arm64/include/asm/numa.h
-> +++ b/arch/arm64/include/asm/numa.h
-> @@ -3,49 +3,6 @@
->  #define __ASM_NUMA_H
->  
->  #include <asm/topology.h>
-> -
-> -#ifdef CONFIG_NUMA
-> -
-> -#define NR_NODE_MEMBLKS		(MAX_NUMNODES * 2)
-> -
-> -int __node_distance(int from, int to);
-> -#define node_distance(a, b) __node_distance(a, b)
-> -
-> -extern nodemask_t numa_nodes_parsed __initdata;
-> -
-> -extern bool numa_off;
-> -
-> -/* Mappings between node number and cpus on that node. */
-> -extern cpumask_var_t node_to_cpumask_map[MAX_NUMNODES];
-> -void numa_clear_node(unsigned int cpu);
-> -
-> -#ifdef CONFIG_DEBUG_PER_CPU_MAPS
-> -const struct cpumask *cpumask_of_node(int node);
-> -#else
-> -/* Returns a pointer to the cpumask of CPUs on Node 'node'. */
-> -static inline const struct cpumask *cpumask_of_node(int node)
-> -{
-> -	return node_to_cpumask_map[node];
-> -}
-> -#endif
-> -
-> -void __init arm64_numa_init(void);
-> -int __init numa_add_memblk(int nodeid, u64 start, u64 end);
-> -void __init numa_set_distance(int from, int to, int distance);
-> -void __init numa_free_distance(void);
-> -void __init early_map_cpu_to_node(unsigned int cpu, int nid);
-> -void numa_store_cpu_info(unsigned int cpu);
-> -void numa_add_cpu(unsigned int cpu);
-> -void numa_remove_cpu(unsigned int cpu);
-> -
-> -#else	/* CONFIG_NUMA */
-> -
-> -static inline void numa_store_cpu_info(unsigned int cpu) { }
-> -static inline void numa_add_cpu(unsigned int cpu) { }
-> -static inline void numa_remove_cpu(unsigned int cpu) { }
-> -static inline void arm64_numa_init(void) { }
-> -static inline void early_map_cpu_to_node(unsigned int cpu, int nid) { }
-> -
-> -#endif	/* CONFIG_NUMA */
-> +#include <asm-generic/numa.h>
->  
->  #endif	/* __ASM_NUMA_H */
-> diff --git a/arch/arm64/mm/Makefile b/arch/arm64/mm/Makefile
-> index d91030f0ffee..928c308b044b 100644
-> --- a/arch/arm64/mm/Makefile
-> +++ b/arch/arm64/mm/Makefile
-> @@ -6,7 +6,6 @@ obj-y				:= dma-mapping.o extable.o fault.o init.o \
->  obj-$(CONFIG_HUGETLB_PAGE)	+= hugetlbpage.o
->  obj-$(CONFIG_PTDUMP_CORE)	+= dump.o
->  obj-$(CONFIG_PTDUMP_DEBUGFS)	+= ptdump_debugfs.o
-> -obj-$(CONFIG_NUMA)		+= numa.o
->  obj-$(CONFIG_DEBUG_VIRTUAL)	+= physaddr.o
->  KASAN_SANITIZE_physaddr.o	+= n
->  
-> diff --git a/drivers/base/Kconfig b/drivers/base/Kconfig
-> index 8d7001712062..73c2151de194 100644
-> --- a/drivers/base/Kconfig
-> +++ b/drivers/base/Kconfig
-> @@ -210,4 +210,10 @@ config GENERIC_ARCH_TOPOLOGY
->  	  appropriate scaling, sysfs interface for reading capacity values at
->  	  runtime.
->  
-> +config GENERIC_ARCH_NUMA
-> +	bool
-> +	help
-> +	  Enable support for generic numa implementation. Currently, RISC-V
-> +	  and ARM64 uses it.
-> +
->  endmenu
-> diff --git a/drivers/base/Makefile b/drivers/base/Makefile
-> index 157452080f3d..c3d02c644222 100644
-> --- a/drivers/base/Makefile
-> +++ b/drivers/base/Makefile
-> @@ -23,6 +23,7 @@ obj-$(CONFIG_PINCTRL) += pinctrl.o
->  obj-$(CONFIG_DEV_COREDUMP) += devcoredump.o
->  obj-$(CONFIG_GENERIC_MSI_IRQ_DOMAIN) += platform-msi.o
->  obj-$(CONFIG_GENERIC_ARCH_TOPOLOGY) += arch_topology.o
-> +obj-$(CONFIG_GENERIC_ARCH_NUMA) += arch_numa.o
->  
->  obj-y			+= test/
->  
-> diff --git a/arch/arm64/mm/numa.c b/drivers/base/arch_numa.c
-> similarity index 100%
-> rename from arch/arm64/mm/numa.c
-> rename to drivers/base/arch_numa.c
+-- 
+Thanks,
 
-drivers/base/ does not seem right place to host generic NUMA code.
-Probably it should be either mm/ or kernel/. The other question here
-would be if existing arm64 NUMA implementation is sufficient enough
-for generic NUMA. I would expect any platform selecting this config
-should get some NUMA enabled, will be that be true with present code ?
-Otherwise it will be difficult to name it as GENERIC_ARCH_NUMA.
+David / dhildenb
+
 
 _______________________________________________
 linux-riscv mailing list
