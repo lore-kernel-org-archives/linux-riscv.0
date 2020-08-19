@@ -5,19 +5,19 @@ X-Spam-Level:
 X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9AFAAC433E1
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2020 22:24:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6E7FAC433E4
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2020 22:24:54 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 46668208DB
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2020 22:24:52 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2F6BD2076E
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2020 22:24:54 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="aqsJbRkl";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="D5EoNocx"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 46668208DB
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="NLN1bNu7";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="hN5AIsQn"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2F6BD2076E
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,63 +26,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=xBzoeeFC5n9AOMWLY8QQEsoZwM7RgU25PqvWWmW2R+U=; b=aqsJbRklXCTAr2vQu0tJTm5ZR
-	Bnbot8NP8ZUGtTcrxtjjy86t5GaQ/o69Am4HGFleOpEdfxUW+0mr6Vv11g8sA5G00Ktf5uJlEg4Ns
-	aUWCXhRwMXTwrsq36opmbfYk7uV3UIzcTK2NegcKskPDUGroy9PfonDdY83NDQK/dRy25E5lTaG4O
-	qsG1h9d+xZy77gHCXxhiIWIKfJyBs5sOf/npYQEozWegfSSHjZsFNYN7uaeoZ0ZBj5cQj17NrA1yV
-	BHy01r3WKIRpISYTc4RDQWZuqLRufKj1GSagbmrm9uo03g5CEhpvQEqql9x74LhQ3M8yAJn9ac4PO
-	Zru97Uk2Q==;
+	 bh=fGk3SGz/J4jPTrkJSGi8wXDh21Z54Azr1kNv62aafas=; b=NLN1bNu7CiE6CQy9802l1Qhik
+	5eXPlISDbsdk9MZa6OyL3mIvUH/odF282q98YfdLSI7FJ9PO75RC+BAidSeNR0HtT61JR5LYeI+l1
+	lvcxqlFO0Da8b81YKHPNp//nQKOQaUWvj9z4BvUM8aeiKt+39Qc5aOQrnXHo8PKiioPDrc/4vuCKJ
+	trsVonJnxytNJE//mbOE3//BFjBMJNMWaR7qqQ1R2YRngTAtpvNGG0qx4RmBHcKvH67RXNeBK55ld
+	HzrXm7JXW7+j3TOYKwsIsGEzIn/lzdb5O2UYDq52L3rzshNHcc7SaOpTs1I1FjM+aGz79dWCPtt7K
+	tpCdfoGgw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k8WVZ-0001DF-GA; Wed, 19 Aug 2020 22:24:37 +0000
+	id 1k8WVd-0001Ft-7M; Wed, 19 Aug 2020 22:24:41 +0000
 Received: from esa4.hgst.iphmx.com ([216.71.154.42])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k8WVW-0001Ac-5E
- for linux-riscv@lists.infradead.org; Wed, 19 Aug 2020 22:24:35 +0000
+ id 1k8WVY-0001CB-LG
+ for linux-riscv@lists.infradead.org; Wed, 19 Aug 2020 22:24:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1597875873; x=1629411873;
+ t=1597875876; x=1629411876;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=9dzVAvMQzryRH4OY4uy0c2IA1NXr4r5gdlmIqy/4veo=;
- b=D5EoNocxIZ7LVSKij+Rov6Fs62ZS1CL+Xgo8TTjI+gc1sX44Y1X+9WVw
- 4/gb37Re5GIsEzDegqOX50PfcsMbyIJ+0+w7RANfRM7SmZvXGPINNzExf
- xpZL31+ZRJJ7txvR3+Tcl9KpP/hrYbR9AluD66X63Y9gbonfmc9QmJ4pV
- 0Xy5eOG+fAOua3xiU2zgOlZUKOtomRg3hbWOM0zlmA7KF29+vLLS8GP44
- m8zyyg2TvY5H+NR2gNFxOq565EIDoz3BKiI6H0DphSSj6Eoh4KaTY/Xn2
- SveEcXNItyWPWSIvF12j678d6li+PiYdYM0KK/D9xm5voTyH1xukbO7oT A==;
-IronPort-SDR: IKdv+mhExrnVWi0DXiZMwzFof57aybqljaaOWWkizv4r1m7ouFC0+78gNXO37JVnJw1f51vuap
- AO+GXSjG63D6ZVK4g3TEkdXU1SMYxDFDtYWDiiwtfoyM1XTCtimuTx17oWX0MkI2R3EhwbViK1
- w/L5P7FFhziJ/2aNIavF7qYsanWvAQncsmQnR4c9uaGETbHJUDenASP5jhxifkrQkGCLIBUXnn
- c4QWMXHcoj2jTm6Mvp+Mt0/4Lpfch39ADGy2JSMkORJztWXrK8G1EFlbAC4Rszv6//7Cbea/kF
- MiI=
-X-IronPort-AV: E=Sophos;i="5.76,332,1592841600"; d="scan'208";a="145313322"
+ bh=Le3ol56BMmIezgwhWxX9I0J5qDYUCuRI0AKGwqTYIEk=;
+ b=hN5AIsQnyzWIDAFruHYPQUtXRDLMjB1YOMaesvAGySEM/HpQI8kLQsZq
+ 3ULId16h6K6T7QLdP96YqPPz4+Zwnt80/ISV9/q7fNXnjRq8RvUdpa+Tk
+ MdkQ/s3TRlTCDi9S8yRVTGAZpURtekq4JmUiZc9q5xA+BQ0/8PEcLTlrq
+ XzXIqJcfyCR7juYv+bD/qWdrOs1wZcIavr2ampl3HygJHvQo7Q2pniK+q
+ Oh6DyrE3fUj+mlBom0njaaBkI5vJVztTsLL0btLFSGf7XBorqknEKADz2
+ FtQ7E390PBk9C5H/9YvsksdCXQGEI1kvkabkfFVjgcBuclRYUjNEnRtDa w==;
+IronPort-SDR: 8U2R+1xIaNCXlWqAgKEJgvLS1qTf8hgEi1Otho6kYUnVzVeaLyUlomB9F09Hyn7Pt1mwG8FTMV
+ YQAIZcaNPFM/lBkNOJVddz3A5/qWo57K/bzNG8kZ7Et9mVhYM3itsV7qRC2J055K9Y9XE4WF1I
+ NWHxZRgWLvAo0OsocG1+wdGY56D1sjnaska8+DhpJf2UClX7ii5mh03tukBeul8ewLPT59DSjW
+ OHzNl1jth8XEyV1FmBCoZwokMYRd2bbDhY1+2/e4ooKci4eP5/v1jUqgFnBoNd2lozG9j+WRHO
+ VtU=
+X-IronPort-AV: E=Sophos;i="5.76,332,1592841600"; d="scan'208";a="145313329"
 Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 20 Aug 2020 06:24:33 +0800
-IronPort-SDR: Qm8RZmM6M9AxlY0w1RN16wBBfjFS7boHbvi77y+sbcWhP/3eLQK2EvOezIgWEeZ57uGjRd9cYY
- GzoQsZW6j/gA==
+ by ob1.hgst.iphmx.com with ESMTP; 20 Aug 2020 06:24:36 +0800
+IronPort-SDR: /J7GW4wMmwBNz7K/t6V+YZIoOKi6cNHQS4kC0JTKyTKytnNcSziNq7IpugyOjTTW09PM/YhsKt
+ 5+wegNFFFIUA==
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 19 Aug 2020 15:12:16 -0700
-IronPort-SDR: x9Dw6rgvrMcdJEnAh9sokt2JSbRL+RqUXVRlVH8iEih69m7yf2qu57GsRmZ27cRELMBaBbPACS
- O9HbZlS1FM0w==
+ 19 Aug 2020 15:12:19 -0700
+IronPort-SDR: uJWU5zU2rYHx45wRE2xkLhz70fZbDXFMcqdV+4XMIP7ZpBou9tfPWK9jQrzSCK5xLjcituXWNL
+ /YN3QM3sssCA==
 WDCIronportException: Internal
 Received: from 6hj08h2.ad.shared (HELO jedi-01.hgst.com) ([10.86.59.62])
- by uls-op-cesaip01.wdc.com with ESMTP; 19 Aug 2020 15:24:33 -0700
+ by uls-op-cesaip01.wdc.com with ESMTP; 19 Aug 2020 15:24:36 -0700
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [PATCH v6 3/9] RISC-V: Implement late mapping page table allocation
- functions
-Date: Wed, 19 Aug 2020 15:24:19 -0700
-Message-Id: <20200819222425.30721-4-atish.patra@wdc.com>
+Subject: [PATCH v6 6/9] RISC-V: Add EFI stub support.
+Date: Wed, 19 Aug 2020 15:24:22 -0700
+Message-Id: <20200819222425.30721-7-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.24.0
 In-Reply-To: <20200819222425.30721-1-atish.patra@wdc.com>
 References: <20200819222425.30721-1-atish.patra@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200819_182434_352512_2B6FCF74 
-X-CRM114-Status: GOOD (  19.17  )
+X-CRM114-CacheID: sfid-20200819_182437_039971_28230B56 
+X-CRM114-Status: GOOD (  33.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -97,8 +96,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Cc: linux-efi@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
  Atish Patra <atish.patra@wdc.com>, Arvind Sankar <nivedita@alum.mit.edu>,
  Alistair Francis <alistair.francis@wdc.com>, Zong Li <zong.li@sifive.com>,
- linux-riscv@lists.infradead.org, Mike Rapoport <rppt@linux.ibm.com>,
- Ingo Molnar <mingo@kernel.org>, Anup Patel <anup@brainfault.org>,
+ linux-riscv@lists.infradead.org, Ingo Molnar <mingo@kernel.org>,
  Masahiro Yamada <masahiroy@kernel.org>, Michal Simek <michal.simek@xilinx.com>,
  Steven Price <steven.price@arm.com>, Waiman Long <longman@redhat.com>,
  Greentime Hu <greentime.hu@sifive.com>,
@@ -113,250 +111,300 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, page table setup is done during setup_va_final where fixmap can
-be used to create the temporary mappings. The physical frame is allocated
-from memblock_alloc_* functions. However, this won't work if page table
-mapping needs to be created for a different mm context (i.e. efi mm) at
-a later point of time.
-
-Use generic kernel page allocation function & macros for any mapping
-after setup_vm_final.
+Add a RISC-V architecture specific stub code that actually copies the
+actual kernel image to a valid address and jump to it after boot services
+are terminated. Enable UEFI related kernel configs as well for RISC-V.
 
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
-Reviewed-by: Anup Patel <anup@brainfault.org>
-Acked-by: Mike Rapoport <rppt@linux.ibm.com>
+Link: https://lore.kernel.org/r/20200421033336.9663-4-atish.patra@wdc.com
+[ardb: - move hartid fetch into check_platform_features()
+       - use image_size not reserve_size
+       - select ISA_C ]
+Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/riscv/mm/init.c | 130 ++++++++++++++++++++++++++++++++-----------
- 1 file changed, 99 insertions(+), 31 deletions(-)
+ arch/riscv/Kconfig                        |  22 +++++
+ arch/riscv/Makefile                       |   1 +
+ arch/riscv/configs/defconfig              |   1 +
+ arch/riscv/include/asm/efi.h              |  36 +++++++
+ drivers/firmware/efi/Kconfig              |   3 +-
+ drivers/firmware/efi/libstub/Makefile     |  10 ++
+ drivers/firmware/efi/libstub/riscv-stub.c | 110 ++++++++++++++++++++++
+ 7 files changed, 182 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/include/asm/efi.h
+ create mode 100644 drivers/firmware/efi/libstub/riscv-stub.c
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index b75ebe8e7a92..cac2c31f8beb 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -32,6 +32,17 @@ extern char _start[];
- void *dtb_early_va __initdata;
- uintptr_t dtb_early_pa __initdata;
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 15597f5f504f..e11907cc7a43 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -401,6 +401,26 @@ config CMDLINE_FORCE
  
-+struct pt_alloc_ops {
-+	pte_t *(*get_pte_virt)(phys_addr_t pa);
-+	phys_addr_t (*alloc_pte)(uintptr_t va);
-+#ifndef __PAGETABLE_PMD_FOLDED
-+	pmd_t *(*get_pmd_virt)(phys_addr_t pa);
-+	phys_addr_t (*alloc_pmd)(uintptr_t va);
+ endchoice
+ 
++config EFI_STUB
++	bool
++
++config EFI
++	bool "UEFI runtime support"
++	depends on OF
++	select LIBFDT
++	select UCS2_STRING
++	select EFI_PARAMS_FROM_FDT
++	select EFI_STUB
++	select EFI_GENERIC_STUB
++	select RISCV_ISA_C
++	default y
++	help
++	  This option provides support for runtime services provided
++	  by UEFI firmware (such as non-volatile variables, realtime
++	  clock, and platform reset). A UEFI stub is also provided to
++	  allow the kernel to be booted as an EFI application. This
++	  is only useful on systems that have UEFI firmware.
++
+ endmenu
+ 
+ config BUILTIN_DTB
+@@ -413,3 +433,5 @@ menu "Power management options"
+ source "kernel/power/Kconfig"
+ 
+ endmenu
++
++source "drivers/firmware/Kconfig"
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index fb6e37db836d..10df59f28add 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -80,6 +80,7 @@ head-y := arch/riscv/kernel/head.o
+ core-y += arch/riscv/
+ 
+ libs-y += arch/riscv/lib/
++libs-$(CONFIG_EFI_STUB) += $(objtree)/drivers/firmware/efi/libstub/lib.a
+ 
+ PHONY += vdso_install
+ vdso_install:
+diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+index d58c93efb603..d222d353d86d 100644
+--- a/arch/riscv/configs/defconfig
++++ b/arch/riscv/configs/defconfig
+@@ -130,3 +130,4 @@ CONFIG_DEBUG_BLOCK_EXT_DEVT=y
+ # CONFIG_RUNTIME_TESTING_MENU is not set
+ CONFIG_MEMTEST=y
+ # CONFIG_SYSFS_SYSCALL is not set
++CONFIG_EFI=y
+diff --git a/arch/riscv/include/asm/efi.h b/arch/riscv/include/asm/efi.h
+new file mode 100644
+index 000000000000..86da231909bb
+--- /dev/null
++++ b/arch/riscv/include/asm/efi.h
+@@ -0,0 +1,36 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2020 Western Digital Corporation or its affiliates.
++ */
++#ifndef _ASM_EFI_H
++#define _ASM_EFI_H
++
++#include <asm/io.h>
++#include <asm/mmu_context.h>
++#include <asm/ptrace.h>
++#include <asm/tlbflush.h>
++
++/* on RISC-V, the FDT may be located anywhere in system RAM */
++static inline unsigned long efi_get_max_fdt_addr(unsigned long dram_base)
++{
++	return ULONG_MAX;
++}
++
++/* Load initrd at enough distance from DRAM start */
++static inline unsigned long efi_get_max_initrd_addr(unsigned long dram_base,
++						    unsigned long image_addr)
++{
++	return dram_base + SZ_256M;
++}
++
++#define alloc_screen_info(x...)		(&screen_info)
++
++static inline void free_screen_info(struct screen_info *si)
++{
++}
++
++static inline void efifb_setup_from_dmi(struct screen_info *si, const char *opt)
++{
++}
++
++#endif /* _ASM_EFI_H */
+diff --git a/drivers/firmware/efi/Kconfig b/drivers/firmware/efi/Kconfig
+index 3939699e62fe..a29fbd6e657e 100644
+--- a/drivers/firmware/efi/Kconfig
++++ b/drivers/firmware/efi/Kconfig
+@@ -111,7 +111,7 @@ config EFI_GENERIC_STUB
+ 
+ config EFI_ARMSTUB_DTB_LOADER
+ 	bool "Enable the DTB loader"
+-	depends on EFI_GENERIC_STUB
++	depends on EFI_GENERIC_STUB && !RISCV
+ 	default y
+ 	help
+ 	  Select this config option to add support for the dtb= command
+@@ -128,6 +128,7 @@ config EFI_GENERIC_STUB_INITRD_CMDLINE_LOADER
+ 	bool "Enable the command line initrd loader" if !X86
+ 	depends on EFI_STUB && (EFI_GENERIC_STUB || X86)
+ 	default y
++	depends on !RISCV
+ 	help
+ 	  Select this config option to add support for the initrd= command
+ 	  line parameter, allowing an initrd that resides on the same volume
+diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
+index 296b18fbd7a2..e9fc2ddabd5f 100644
+--- a/drivers/firmware/efi/libstub/Makefile
++++ b/drivers/firmware/efi/libstub/Makefile
+@@ -22,6 +22,8 @@ cflags-$(CONFIG_ARM64)		:= $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
+ cflags-$(CONFIG_ARM)		:= $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
+ 				   -fno-builtin -fpic \
+ 				   $(call cc-option,-mno-single-pic-base)
++cflags-$(CONFIG_RISCV)		:= $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
++				   -fpic
+ 
+ cflags-$(CONFIG_EFI_GENERIC_STUB) += -I$(srctree)/scripts/dtc/libfdt
+ 
+@@ -63,6 +65,7 @@ lib-$(CONFIG_EFI_GENERIC_STUB)	+= efi-stub.o fdt.o string.o \
+ lib-$(CONFIG_ARM)		+= arm32-stub.o
+ lib-$(CONFIG_ARM64)		+= arm64-stub.o
+ lib-$(CONFIG_X86)		+= x86-stub.o
++lib-$(CONFIG_RISCV)		+= riscv-stub.o
+ CFLAGS_arm32-stub.o		:= -DTEXT_OFFSET=$(TEXT_OFFSET)
+ CFLAGS_arm64-stub.o		:= -DTEXT_OFFSET=$(TEXT_OFFSET)
+ 
+@@ -106,6 +109,13 @@ STUBCOPY_FLAGS-$(CONFIG_ARM64)	+= --prefix-alloc-sections=.init \
+ 				   --prefix-symbols=__efistub_
+ STUBCOPY_RELOC-$(CONFIG_ARM64)	:= R_AARCH64_ABS
+ 
++# For RISC-V, we don't need anything special other than arm64. Keep all the
++# symbols in .init section and make sure that no absolute symbols references
++# doesn't exist.
++STUBCOPY_FLAGS-$(CONFIG_RISCV)	+= --prefix-alloc-sections=.init \
++				   --prefix-symbols=__efistub_
++STUBCOPY_RELOC-$(CONFIG_RISCV)	:= R_RISCV_HI20
++
+ $(obj)/%.stub.o: $(obj)/%.o FORCE
+ 	$(call if_changed,stubcopy)
+ 
+diff --git a/drivers/firmware/efi/libstub/riscv-stub.c b/drivers/firmware/efi/libstub/riscv-stub.c
+new file mode 100644
+index 000000000000..77c3fd6f820e
+--- /dev/null
++++ b/drivers/firmware/efi/libstub/riscv-stub.c
+@@ -0,0 +1,110 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2020 Western Digital Corporation or its affiliates.
++ */
++
++#include <linux/efi.h>
++#include <linux/libfdt.h>
++
++#include <asm/efi.h>
++#include <asm/sections.h>
++
++#include "efistub.h"
++
++/*
++ * RISC-V requires the kernel image to placed 2 MB aligned base for 64 bit and
++ * 4MB for 32 bit.
++ */
++#ifdef CONFIG_64BIT
++#define MIN_KIMG_ALIGN		SZ_2M
++#else
++#define MIN_KIMG_ALIGN		SZ_4M
 +#endif
-+};
 +
-+static struct pt_alloc_ops pt_ops;
++typedef void __noreturn (*jump_kernel_func)(unsigned int, unsigned long);
 +
- static void __init zone_sizes_init(void)
- {
- 	unsigned long max_zone_pfns[MAX_NR_ZONES] = { 0, };
-@@ -211,7 +222,6 @@ EXPORT_SYMBOL(pfn_base);
- pgd_t swapper_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
- pgd_t trampoline_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
- pte_t fixmap_pte[PTRS_PER_PTE] __page_aligned_bss;
--static bool mmu_enabled;
- 
- #define MAX_EARLY_MAPPING_SIZE	SZ_128M
- 
-@@ -234,27 +244,46 @@ void __set_fixmap(enum fixed_addresses idx, phys_addr_t phys, pgprot_t prot)
- 	}
- }
- 
--static pte_t *__init get_pte_virt(phys_addr_t pa)
-+static inline pte_t *__init get_pte_virt_early(phys_addr_t pa)
- {
--	if (mmu_enabled) {
--		clear_fixmap(FIX_PTE);
--		return (pte_t *)set_fixmap_offset(FIX_PTE, pa);
--	} else {
--		return (pte_t *)((uintptr_t)pa);
--	}
-+	return (pte_t *)((uintptr_t)pa);
- }
- 
--static phys_addr_t __init alloc_pte(uintptr_t va)
-+static inline pte_t *__init get_pte_virt_fixmap(phys_addr_t pa)
++static u32 hartid;
++
++static u32 get_boot_hartid_from_fdt(void)
 +{
-+	clear_fixmap(FIX_PTE);
-+	return (pte_t *)set_fixmap_offset(FIX_PTE, pa);
++	const void *fdt;
++	int chosen_node, len;
++	const fdt32_t *prop;
++
++	fdt = get_efi_config_table(DEVICE_TREE_GUID);
++	if (!fdt)
++		return U32_MAX;
++
++	chosen_node = fdt_path_offset(fdt, "/chosen");
++	if (chosen_node < 0)
++		return U32_MAX;
++
++	prop = fdt_getprop((void *)fdt, chosen_node, "boot-hartid", &len);
++	if (!prop || len != sizeof(u32))
++		return U32_MAX;
++
++	return fdt32_to_cpu(*prop);
 +}
 +
-+static inline pte_t *get_pte_virt_late(phys_addr_t pa)
++efi_status_t check_platform_features(void)
 +{
-+	return (pte_t *) __va(pa);
++	hartid = get_boot_hartid_from_fdt();
++	if (hartid == U32_MAX) {
++		efi_err("/chosen/boot-hartid missing or invalid!\n");
++		return EFI_UNSUPPORTED;
++	}
++	return EFI_SUCCESS;
 +}
 +
-+static inline phys_addr_t __init alloc_pte_early(uintptr_t va)
- {
- 	/*
- 	 * We only create PMD or PGD early mappings so we
- 	 * should never reach here with MMU disabled.
- 	 */
--	BUG_ON(!mmu_enabled);
-+	BUG();
-+}
- 
-+static inline phys_addr_t __init alloc_pte_fixmap(uintptr_t va)
++void __noreturn efi_enter_kernel(unsigned long entrypoint, unsigned long fdt,
++				 unsigned long fdt_size)
 +{
- 	return memblock_phys_alloc(PAGE_SIZE, PAGE_SIZE);
- }
- 
-+static phys_addr_t alloc_pte_late(uintptr_t va)
-+{
-+	unsigned long vaddr;
++	unsigned long stext_offset = _start_kernel - _start;
++	unsigned long kernel_entry = entrypoint + stext_offset;
++	jump_kernel_func jump_kernel = (jump_kernel_func)kernel_entry;
 +
-+	vaddr = __get_free_page(GFP_KERNEL);
-+	if (!vaddr || !pgtable_pte_page_ctor(virt_to_page(vaddr)))
-+		BUG();
-+	return __pa(vaddr);
-+}
-+
- static void __init create_pte_mapping(pte_t *ptep,
- 				      uintptr_t va, phys_addr_t pa,
- 				      phys_addr_t sz, pgprot_t prot)
-@@ -279,28 +308,46 @@ pmd_t fixmap_pmd[PTRS_PER_PMD] __page_aligned_bss;
- #endif
- pmd_t early_pmd[PTRS_PER_PMD * NUM_EARLY_PMDS] __initdata __aligned(PAGE_SIZE);
- 
--static pmd_t *__init get_pmd_virt(phys_addr_t pa)
-+static pmd_t *__init get_pmd_virt_early(phys_addr_t pa)
- {
--	if (mmu_enabled) {
--		clear_fixmap(FIX_PMD);
--		return (pmd_t *)set_fixmap_offset(FIX_PMD, pa);
--	} else {
--		return (pmd_t *)((uintptr_t)pa);
--	}
-+	/* Before MMU is enabled */
-+	return (pmd_t *)((uintptr_t)pa);
- }
- 
--static phys_addr_t __init alloc_pmd(uintptr_t va)
-+static pmd_t *__init get_pmd_virt_fixmap(phys_addr_t pa)
- {
--	uintptr_t pmd_num;
-+	clear_fixmap(FIX_PMD);
-+	return (pmd_t *)set_fixmap_offset(FIX_PMD, pa);
-+}
-+
-+static pmd_t *get_pmd_virt_late(phys_addr_t pa)
-+{
-+	return (pmd_t *) __va(pa);
-+}
- 
--	if (mmu_enabled)
--		return memblock_phys_alloc(PAGE_SIZE, PAGE_SIZE);
-+static phys_addr_t __init alloc_pmd_early(uintptr_t va)
-+{
-+	uintptr_t pmd_num;
- 
- 	pmd_num = (va - PAGE_OFFSET) >> PGDIR_SHIFT;
- 	BUG_ON(pmd_num >= NUM_EARLY_PMDS);
- 	return (uintptr_t)&early_pmd[pmd_num * PTRS_PER_PMD];
- }
- 
-+static phys_addr_t __init alloc_pmd_fixmap(uintptr_t va)
-+{
-+	return memblock_phys_alloc(PAGE_SIZE, PAGE_SIZE);
-+}
-+
-+static phys_addr_t alloc_pmd_late(uintptr_t va)
-+{
-+	unsigned long vaddr;
-+
-+	vaddr = __get_free_page(GFP_KERNEL);
-+	BUG_ON(!vaddr);
-+	return __pa(vaddr);
-+}
-+
- static void __init create_pmd_mapping(pmd_t *pmdp,
- 				      uintptr_t va, phys_addr_t pa,
- 				      phys_addr_t sz, pgprot_t prot)
-@@ -316,28 +363,28 @@ static void __init create_pmd_mapping(pmd_t *pmdp,
- 	}
- 
- 	if (pmd_none(pmdp[pmd_idx])) {
--		pte_phys = alloc_pte(va);
-+		pte_phys = pt_ops.alloc_pte(va);
- 		pmdp[pmd_idx] = pfn_pmd(PFN_DOWN(pte_phys), PAGE_TABLE);
--		ptep = get_pte_virt(pte_phys);
-+		ptep = pt_ops.get_pte_virt(pte_phys);
- 		memset(ptep, 0, PAGE_SIZE);
- 	} else {
- 		pte_phys = PFN_PHYS(_pmd_pfn(pmdp[pmd_idx]));
--		ptep = get_pte_virt(pte_phys);
-+		ptep = pt_ops.get_pte_virt(pte_phys);
- 	}
- 
- 	create_pte_mapping(ptep, va, pa, sz, prot);
- }
- 
- #define pgd_next_t		pmd_t
--#define alloc_pgd_next(__va)	alloc_pmd(__va)
--#define get_pgd_next_virt(__pa)	get_pmd_virt(__pa)
-+#define alloc_pgd_next(__va)	pt_ops.alloc_pmd(__va)
-+#define get_pgd_next_virt(__pa)	pt_ops.get_pmd_virt(__pa)
- #define create_pgd_next_mapping(__nextp, __va, __pa, __sz, __prot)	\
- 	create_pmd_mapping(__nextp, __va, __pa, __sz, __prot)
- #define fixmap_pgd_next		fixmap_pmd
- #else
- #define pgd_next_t		pte_t
--#define alloc_pgd_next(__va)	alloc_pte(__va)
--#define get_pgd_next_virt(__pa)	get_pte_virt(__pa)
-+#define alloc_pgd_next(__va)	pt_ops.alloc_pte(__va)
-+#define get_pgd_next_virt(__pa)	pt_ops.get_pte_virt(__pa)
- #define create_pgd_next_mapping(__nextp, __va, __pa, __sz, __prot)	\
- 	create_pte_mapping(__nextp, __va, __pa, __sz, __prot)
- #define fixmap_pgd_next		fixmap_pte
-@@ -421,6 +468,12 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
- 	BUG_ON((load_pa % map_size) != 0);
- 	BUG_ON(load_sz > MAX_EARLY_MAPPING_SIZE);
- 
-+	pt_ops.alloc_pte = alloc_pte_early;
-+	pt_ops.get_pte_virt = get_pte_virt_early;
-+#ifndef __PAGETABLE_PMD_FOLDED
-+	pt_ops.alloc_pmd = alloc_pmd_early;
-+	pt_ops.get_pmd_virt = get_pmd_virt_early;
-+#endif
- 	/* Setup early PGD for fixmap */
- 	create_pgd_mapping(early_pg_dir, FIXADDR_START,
- 			   (uintptr_t)fixmap_pgd_next, PGDIR_SIZE, PAGE_TABLE);
-@@ -497,9 +550,16 @@ static void __init setup_vm_final(void)
- 	phys_addr_t pa, start, end;
- 	struct memblock_region *reg;
- 
--	/* Set mmu_enabled flag */
--	mmu_enabled = true;
--
-+	/**
-+	 * MMU is enabled at this point. But page table setup is not complete yet.
-+	 * fixmap page table alloc functions should be used at this point
++	/*
++	 * Jump to real kernel here with following constraints.
++	 * 1. MMU should be disabled.
++	 * 2. a0 should contain hartid
++	 * 3. a1 should DT address
 +	 */
-+	pt_ops.alloc_pte = alloc_pte_fixmap;
-+	pt_ops.get_pte_virt = get_pte_virt_fixmap;
-+#ifndef __PAGETABLE_PMD_FOLDED
-+	pt_ops.alloc_pmd = alloc_pmd_fixmap;
-+	pt_ops.get_pmd_virt = get_pmd_virt_fixmap;
-+#endif
- 	/* Setup swapper PGD for fixmap */
- 	create_pgd_mapping(swapper_pg_dir, FIXADDR_START,
- 			   __pa_symbol(fixmap_pgd_next),
-@@ -533,6 +593,14 @@ static void __init setup_vm_final(void)
- 	/* Move to swapper page table */
- 	csr_write(CSR_SATP, PFN_DOWN(__pa_symbol(swapper_pg_dir)) | SATP_MODE);
- 	local_flush_tlb_all();
++	csr_write(CSR_SATP, 0);
++	jump_kernel(hartid, fdt);
++}
 +
-+	/* generic page allocation functions must be used to setup page table */
-+	pt_ops.alloc_pte = alloc_pte_late;
-+	pt_ops.get_pte_virt = get_pte_virt_late;
-+#ifndef __PAGETABLE_PMD_FOLDED
-+	pt_ops.alloc_pmd = alloc_pmd_late;
-+	pt_ops.get_pmd_virt = get_pmd_virt_late;
-+#endif
- }
- #else
- asmlinkage void __init setup_vm(uintptr_t dtb_pa)
++efi_status_t handle_kernel_image(unsigned long *image_addr,
++				 unsigned long *image_size,
++				 unsigned long *reserve_addr,
++				 unsigned long *reserve_size,
++				 unsigned long dram_base,
++				 efi_loaded_image_t *image)
++{
++	unsigned long kernel_size = 0;
++	unsigned long preferred_addr;
++	efi_status_t status;
++
++	kernel_size = _edata - _start;
++	*image_addr = (unsigned long)_start;
++	*image_size = kernel_size + (_end - _edata);
++
++	/*
++	 * RISC-V kernel maps PAGE_OFFSET virtual address to the same physical
++	 * address where kernel is booted. That's why kernel should boot from
++	 * as low as possible to avoid wastage of memory. Currently, dram_base
++	 * is occupied by the firmware. So the preferred address for kernel to
++	 * boot is next aligned address. If preferred address is not available,
++	 * relocate_kernel will fall back to efi_low_alloc_above to allocate
++	 * lowest possible memory region as long as the address and size meets
++	 * the alignment constraints.
++	 */
++	preferred_addr = round_up(dram_base, MIN_KIMG_ALIGN) + MIN_KIMG_ALIGN;
++	status = efi_relocate_kernel(image_addr, kernel_size, *image_size,
++				     preferred_addr, MIN_KIMG_ALIGN, dram_base);
++
++	if (status != EFI_SUCCESS) {
++		efi_err("Failed to relocate kernel\n");
++		*image_size = 0;
++	}
++	return status;
++}
 -- 
 2.24.0
 
