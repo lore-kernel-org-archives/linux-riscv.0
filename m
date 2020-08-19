@@ -4,20 +4,20 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-6.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=no
-	autolearn_force=no version=3.4.0
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 67A7EC433DF
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2020 12:05:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 635E9C433E1
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2020 12:11:14 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2AEA9205CB
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2020 12:05:50 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2FAC8206DA
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2020 12:11:14 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="o3HCmGMs";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=redhat.com header.i=@redhat.com header.b="Ralex2Wo"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2AEA9205CB
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="SnK8nNih";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=redhat.com header.i=@redhat.com header.b="HeWD4tY7"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2FAC8206DA
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,49 +26,50 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
 	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Jb6LSn6mNIHBIH5jznsrFQpvpV6derzP9XbiI8eBtNk=; b=o3HCmGMsLpuir1eIdd51YB7RE
-	64tzUSsyON2a33qdD99TCDSkAy4De5dAxD+dvDOm4EF8yWFR/LqAQS/lTnRZkwR6+yc5FxmoZC1Ny
-	LtPaBAXLUgPMCfI27t78muIrUOxj7ghaMg2rf5DZKHvcYMdqh7VbW02oN8UV9yUhMxsC7oaHMOwbB
-	M58mc3rBeVJAdT+sEOJfaso8o/Xig16Zlv5NvB16QwErqSbl4J07P5elKTQ3RgC0lKMYM/s4i/1JA
-	ofYqIth2bn6nMRf60u+WHeEFsQPYlTzybEE6JFwHSCF/Wjxi+dMTe5KfSM780Pbbp/8f1jysyYzwI
-	w4+d1wG7Q==;
+	 bh=d05OcYtTTMN0OA5A+5UiCQrAQLYSr+8zofRy3/v35Tw=; b=SnK8nNihLAQku7n81k0seCQT9
+	lWq8wHB1fjZ4PL74QrN3m9h7/7LSxQDkRKE4C53YvkWpiG7iXw45Os0w1N/EounPDDqws3vu73eQY
+	FocHAWJIODZb8N/ffP4a1lN1hNe1w691zMFjwI+YrHDvOAxZ02P1eD1YSWop37oz5MtjGYzEkhfRH
+	9ucLpH6rBKl+uzcRNqwgm0Kb4kc6PnwqSK4uC5267X1Wp2Wikk360+zz5C8xkVx3GVzLX7HR8LzTV
+	R5jg267LBna/iLrJGrdz53776Z1tW8EOiH7OkfUm3FjXvcXOaCyKKVpCi8ZtgZzPLdN0z7Z7FsrZp
+	GTOFR2x2Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k8MqY-0001Ha-JD; Wed, 19 Aug 2020 12:05:38 +0000
-Received: from us-smtp-delivery-1.mimecast.com ([205.139.110.120]
+	id 1k8Mvo-00032L-33; Wed, 19 Aug 2020 12:11:04 +0000
+Received: from us-smtp-delivery-1.mimecast.com ([207.211.31.120]
  helo=us-smtp-1.mimecast.com)
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k8MqV-0001Ff-Lp
- for linux-riscv@lists.infradead.org; Wed, 19 Aug 2020 12:05:36 +0000
+ id 1k8Mvk-0002zY-6H
+ for linux-riscv@lists.infradead.org; Wed, 19 Aug 2020 12:11:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1597838735;
+ s=mimecast20190719; t=1597839059;
  h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
  to:to:cc:cc:mime-version:mime-version:content-type:content-type:
  content-transfer-encoding:content-transfer-encoding:
  in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
- bh=NA3ECXSKW/DVOnspa0nEEYBrqs7/jKx+mt/YRot/1Uo=;
- b=Ralex2WoummTsFFKA1CnxKh0g4zcty9gyc0gIX1lfjukBPBWT68Qj+dM02RgXC0nDlEBtZ
- 4WrNG+rJroc/yCLz7b8MQ2raf6t7spwLKNX9c4cXYb3HM2b+C6IgzJab4YIz2Ni7ND+dfX
- AGn703CzExqokS+07I2pr5vX1UcftJg=
+ bh=857NeQfKqudCr8cv76Y2wKGCFtbyrEb0PXm+ZG9knDI=;
+ b=HeWD4tY7tOJF2kTW+xaw005bhPEWnnrt/H3FX9ZvVZ0p3sCU6XLzltainhVEVI8Q20yulI
+ lqt/1eiE9Zmh2qbJ63spqp9sqJJ23/PnjnZD49gOdIqcDK4CIisfa8UoqFgd/iOauEKE3z
+ yRbEFsmGL6iI7ag1fxmgQbDQyy4/z+M=
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-178-TtM9FzzQOzuiNFjA1DxWNw-1; Wed, 19 Aug 2020 08:05:30 -0400
-X-MC-Unique: TtM9FzzQOzuiNFjA1DxWNw-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com
- [10.5.11.12])
+ us-mta-239-iKTZXu92MdmkJASAmtw_Ug-1; Wed, 19 Aug 2020 08:10:55 -0400
+X-MC-Unique: iKTZXu92MdmkJASAmtw_Ug-1
+Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com
+ [10.5.11.14])
  (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
  (No client certificate requested)
- by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 233E0801ADD;
- Wed, 19 Aug 2020 12:05:26 +0000 (UTC)
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 553461084C8D;
+ Wed, 19 Aug 2020 12:10:51 +0000 (UTC)
 Received: from [10.36.114.11] (ovpn-114-11.ams2.redhat.com [10.36.114.11])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 4EDD8756C3;
- Wed, 19 Aug 2020 12:05:19 +0000 (UTC)
-Subject: Re: [PATCH v4 0/6] mm: introduce memfd_secret system call to create
- "secret" memory areas
+ by smtp.corp.redhat.com (Postfix) with ESMTP id AC72E5D9E8;
+ Wed, 19 Aug 2020 12:10:44 +0000 (UTC)
+Subject: Re: [PATCH v4 6/6] mm: secretmem: add ability to reserve memory at
+ boot
 To: Mike Rapoport <rppt@kernel.org>
 References: <20200818141554.13945-1-rppt@kernel.org>
- <e82ca20e-a88e-d7ff-e99b-4189aac54f3a@redhat.com>
- <20200819114244.GT752365@kernel.org>
+ <20200818141554.13945-7-rppt@kernel.org>
+ <03ec586d-c00c-c57e-3118-7186acb7b823@redhat.com>
+ <20200819115335.GU752365@kernel.org>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; prefer-encrypt=mutual; keydata=
  mQINBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -115,17 +116,17 @@ Autocrypt: addr=david@redhat.com; prefer-encrypt=mutual; keydata=
  jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
  WNyWQQ==
 Organization: Red Hat GmbH
-Message-ID: <e5738841-c673-13d6-a632-a6413ec94c43@redhat.com>
-Date: Wed, 19 Aug 2020 14:05:18 +0200
+Message-ID: <10bf57a9-c3c2-e13c-ca50-e872b7a2db0c@redhat.com>
+Date: Wed, 19 Aug 2020 14:10:43 +0200
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
  Thunderbird/68.10.0
 MIME-Version: 1.0
-In-Reply-To: <20200819114244.GT752365@kernel.org>
+In-Reply-To: <20200819115335.GU752365@kernel.org>
 Content-Language: en-US
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200819_080535_826519_CCAB5D93 
-X-CRM114-Status: GOOD (  25.87  )
+X-CRM114-CacheID: sfid-20200819_081100_391301_D046102C 
+X-CRM114-Status: GOOD (  24.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -160,64 +161,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 19.08.20 13:42, Mike Rapoport wrote:
-> On Wed, Aug 19, 2020 at 12:47:54PM +0200, David Hildenbrand wrote:
+On 19.08.20 13:53, Mike Rapoport wrote:
+> On Wed, Aug 19, 2020 at 12:49:05PM +0200, David Hildenbrand wrote:
 >> On 18.08.20 16:15, Mike Rapoport wrote:
 >>> From: Mike Rapoport <rppt@linux.ibm.com>
 >>>
->>> Hi,
+>>> Taking pages out from the direct map and bringing them back may create
+>>> undesired fragmentation and usage of the smaller pages in the direct
+>>> mapping of the physical memory.
 >>>
->>> This is an implementation of "secret" mappings backed by a file descriptor. 
+>>> This can be avoided if a significantly large area of the physical memory
+>>> would be reserved for secretmem purposes at boot time.
 >>>
->>> v4 changes:
->>> * rebase on v5.9-rc1
->>> * Do not redefine PMD_PAGE_ORDER in fs/dax.c, thanks Kirill
->>> * Make secret mappings exclusive by default and only require flags to
->>>   memfd_secret() system call for uncached mappings, thanks again Kirill :)
->>>
->>> v3 changes:
->>> * Squash kernel-parameters.txt update into the commit that added the
->>>   command line option.
->>> * Make uncached mode explicitly selectable by architectures. For now enable
->>>   it only on x86.
->>>
->>> v2 changes:
->>> * Follow Michael's suggestion and name the new system call 'memfd_secret'
->>> * Add kernel-parameters documentation about the boot option
->>> * Fix i386-tinyconfig regression reported by the kbuild bot.
->>>   CONFIG_SECRETMEM now depends on !EMBEDDED to disable it on small systems
->>>   from one side and still make it available unconditionally on
->>>   architectures that support SET_DIRECT_MAP.
->>>
->>>
->>> The file descriptor backing secret memory mappings is created using a
->>> dedicated memfd_secret system call The desired protection mode for the
->>> memory is configured using flags parameter of the system call. The mmap()
->>> of the file descriptor created with memfd_secret() will create a "secret"
->>> memory mapping. The pages in that mapping will be marked as not present in
->>> the direct map and will have desired protection bits set in the user page
->>> table. For instance, current implementation allows uncached mappings.
->>>
->>> Although normally Linux userspace mappings are protected from other users, 
->>> such secret mappings are useful for environments where a hostile tenant is
->>> trying to trick the kernel into giving them access to other tenants
->>> mappings.
->>>
->>> Additionally, the secret mappings may be used as a mean to protect guest
->>> memory in a virtual machine host.
->>>
+>>> Add ability to reserve physical memory for secretmem at boot time using
+>>> "secretmem" kernel parameter and then use that reserved memory as a global
+>>> pool for secret memory needs.
 >>
->> Just a general question. I assume such pages (where the direct mapping
->> was changed) cannot get migrated - I can spot a simple alloc_page(). So
->> essentially a process can just allocate a whole bunch of memory that is
->> unmovable, correct? Is there any limit? Is it properly accounted towards
->> the process (memctl) ?
+>> Wouldn't something like CMA be the better fit? Just wondering. Then, the
+>> memory can actually be reused for something else while not needed.
 > 
-> The memory as accounted in the same way like with mlock(), so normal
-> user won't be able to allocate more than RLIMIT_MEMLOCK.
+> The memory allocated as secret is removed from the direct map and the
+> boot time reservation is intended to reduce direct map fragmentatioan
+> and to avoid splitting 1G pages there. So with CMA I'd still need to
+> allocate 1G chunks for this and once 1G page is dropped from the direct
+> map it still cannot be reused for anything else until it is freed.
+> 
+> I could use CMA to do the boot time reservation, but doing the
+> reservesion directly seemed simpler and more explicit to me.
 
-Okay, thanks. AFAIU the difference to mlock() is that the pages here are
-not movable, fragment memory, and limit compaction. Hm.
+Well, using CMA would give you the possibility to let the memory be used
+for other purposes until you decide it's the right time to take it +
+remove the direct mapping etc.
+
+I wonder if a sane approach would be to require to allocate a pool
+during boot and only take pages ever from that pool. That would avoid
+spilling many unmovable pages all over the place, locally limiting them
+to your area here.
 
 -- 
 Thanks,
