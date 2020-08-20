@@ -2,71 +2,65 @@ Return-Path: <SRS0=ioKI=B6=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-12.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,NICE_REPLY_A,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B28D8C433DF
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Aug 2020 00:02:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C24C3C433DF
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Aug 2020 03:21:10 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7EDE320FC3
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Aug 2020 00:02:25 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8E40D207DA
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Aug 2020 03:21:10 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WY5Q1K3v";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="xkxGtGan"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7EDE320FC3
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="hzu2Klx+"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8E40D207DA
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=YzhqRNlPNWx4ySS7fdR4khG6hhGC25XdK/Wi/K6ogQI=; b=WY5Q1K3v8U1oPWvuSuWgOKfkJ
-	+/8GWBWrjvaIOvriumoUuQbHl8LMgDFMLgQc+VZcKJeRJz3H0dgtcBJp/CJ86CDcpCK5DLVJKLGii
-	0X7YDkVWyPMnm1PmsuP2DLpUkxx1nLViDZuAQ0LauVyIHcv0x5Y0nqUM15pPwr5YwyMy8xinbh9i8
-	yNlYcubMBHtut17zoJbnAIj6NBiLGDMkzAceBf0R0WEmJupjyuhU7Cpp8RQ97qQ9wI1FCkjc2ApGW
-	p+9ZMaAk2E+AR6fN7hXQ8A1HdacLvDbFe1UI/49oJksdjL2734MhaAcJ2rACpF79spC561yeS6ue5
-	/wB/2+40A==;
+	 bh=AllFwy33u7+FhwEnOtw0S3rIE8bqtH9KfB88ED1p93k=; b=hzu2Klx+aaGNONYt/eCKtU+8f
+	TL1U3Uh7nT/WTMwzL3gbVzgBZDJDI1TUuZShRIb+TRLIWiY2e4Oc/FAaY1C0hLbNm0kytb6NhgbVJ
+	rSJSJCZvyng+HAFYieT0bI9v63ZrBQo1xER+FFl4TakbFtT2pQi1kXN+MxfRBG/3ptMgIlgA9bxV0
+	VDSCFepTiYEYxi4v0iFvRqueW6sYnJsivvK34DlT5PqKCdWu9vr2r85kQlCnJ3OO7UwSuaNJYrK40
+	yB7OIIjzN13KYsSSaqwj4p8lZT0mDRpPKOc4brSi3G450YxBmah4oAGgWVFHfRk5gY5LA1+phje/w
+	BUaRLKx8g==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k8Y23-0000kV-Jn; Thu, 20 Aug 2020 00:02:15 +0000
-Received: from mail.kernel.org ([198.145.29.99])
- by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k8Y21-0000il-JA
- for linux-riscv@lists.infradead.org; Thu, 20 Aug 2020 00:02:14 +0000
-Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net
- [73.47.72.35])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 32E8A214F1;
- Thu, 20 Aug 2020 00:02:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1597881732;
- bh=nzildonZ2Cp5d5EqEk9pDNpe/ArGo68DTb1T0ykhnEU=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=xkxGtGanMCKnMO1XfzpC3qwE5pr42J7J06rvB/BCDvCAWomXm+s8i7xQ00PWAbfy0
- gcgrEuDWDJ+NGsUPKCz5z+st4x0JS1CkGJPJknOkWxYPI49+eZrDFiOgwa5+SdPoaw
- 9CdBrfxNFuJU/4A6pKVNNBZq8CZr/L5LOmAeKfLs=
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH AUTOSEL 5.7 13/24] riscv: Fixup static_obj() fail
-Date: Wed, 19 Aug 2020 20:01:44 -0400
-Message-Id: <20200820000155.215089-13-sashal@kernel.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20200820000155.215089-1-sashal@kernel.org>
-References: <20200820000155.215089-1-sashal@kernel.org>
+	id 1k8b8M-00041t-P5; Thu, 20 Aug 2020 03:20:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+ by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1k8b8G-00040W-NG; Thu, 20 Aug 2020 03:20:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C794C1045;
+ Wed, 19 Aug 2020 20:20:51 -0700 (PDT)
+Received: from [192.168.0.130] (unknown [172.31.20.19])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 404683F66B;
+ Wed, 19 Aug 2020 20:20:45 -0700 (PDT)
+Subject: Re: [RFC/RFT PATCH 1/6] numa: Move numa implementation to common code
+To: Atish Patra <atishp@atishpatra.org>
+References: <20200814214725.28818-1-atish.patra@wdc.com>
+ <20200814214725.28818-2-atish.patra@wdc.com>
+ <2dce83a8-bda4-7664-9661-4e0542eecd57@arm.com>
+ <CAOnJCULbzjsefufgBgonBowgctEqeuLKixskD=5ph8-jUOmM+g@mail.gmail.com>
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+Message-ID: <4caa2123-970a-0241-bb6e-03bd0f8478db@arm.com>
+Date: Thu, 20 Aug 2020 08:50:14 +0530
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
+ Thunderbird/52.9.1
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
+In-Reply-To: <CAOnJCULbzjsefufgBgonBowgctEqeuLKixskD=5ph8-jUOmM+g@mail.gmail.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200819_200213_739023_8B572193 
-X-CRM114-Status: GOOD (  14.00  )
+X-CRM114-CacheID: sfid-20200819_232052_888799_E67A0F32 
+X-CRM114-Status: GOOD (  30.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -78,87 +72,211 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Palmer Dabbelt <palmerdabbelt@google.com>, Sasha Levin <sashal@kernel.org>,
- linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+ Atish Patra <atish.patra@wdc.com>, Zong Li <zong.li@sifive.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>, Will Deacon <will@kernel.org>,
+ linux-arch@vger.kernel.org, Rob Herring <robh@kernel.org>,
+ Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+ Ganapatrao Kulkarni <gkulkarni@cavium.com>,
+ Steven Price <steven.price@arm.com>, Greentime Hu <greentime.hu@sifive.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+ Nick Hu <nickhu@andestech.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Anup Patel <Anup.Patel@wdc.com>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Andrew Morton <akpm@linux-foundation.org>,
+ Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
 
-[ Upstream commit 6184358da0004c8fd940afda6c0a0fa4027dc911 ]
 
-When enable LOCKDEP, static_obj() will cause error. Because some
-__initdata static variables is before _stext:
+On 08/20/2020 12:48 AM, Atish Patra wrote:
+> On Tue, Aug 18, 2020 at 8:19 PM Anshuman Khandual
+> <anshuman.khandual@arm.com> wrote:
+>>
+>>
+>>
+>> On 08/15/2020 03:17 AM, Atish Patra wrote:
+>>> ARM64 numa implementation is generic enough that RISC-V can reuse that
+>>> implementation with very minor cosmetic changes. This will help both
+>>> ARM64 and RISC-V in terms of maintanace and feature improvement
+>>>
+>>> Move the numa implementation code to common directory so that both ISAs
+>>> can reuse this. This doesn't introduce any function changes for ARM64.
+>>>
+>>> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+>>> ---
+>>>  arch/arm64/Kconfig                            |  1 +
+>>>  arch/arm64/include/asm/numa.h                 | 45 +---------------
+>>>  arch/arm64/mm/Makefile                        |  1 -
+>>>  drivers/base/Kconfig                          |  6 +++
+>>>  drivers/base/Makefile                         |  1 +
+>>>  .../mm/numa.c => drivers/base/arch_numa.c     |  0
+>>>  include/asm-generic/numa.h                    | 51 +++++++++++++++++++
+>>>  7 files changed, 60 insertions(+), 45 deletions(-)
+>>>  rename arch/arm64/mm/numa.c => drivers/base/arch_numa.c (100%)
+>>>  create mode 100644 include/asm-generic/numa.h
+>>>
+>>> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+>>> index 6d232837cbee..955a0cf75b16 100644
+>>> --- a/arch/arm64/Kconfig
+>>> +++ b/arch/arm64/Kconfig
+>>> @@ -960,6 +960,7 @@ config HOTPLUG_CPU
+>>>  # Common NUMA Features
+>>>  config NUMA
+>>>       bool "NUMA Memory Allocation and Scheduler Support"
+>>> +     select GENERIC_ARCH_NUMA
+>>
+>> So this introduces a generic NUMA framework selectable with GENERIC_ARCH_NUMA.
+>>
+>>>       select ACPI_NUMA if ACPI
+>>>       select OF_NUMA
+>>>       help
+>>> diff --git a/arch/arm64/include/asm/numa.h b/arch/arm64/include/asm/numa.h
+>>> index 626ad01e83bf..8c8cf4297cc3 100644
+>>> --- a/arch/arm64/include/asm/numa.h
+>>> +++ b/arch/arm64/include/asm/numa.h
+>>> @@ -3,49 +3,6 @@
+>>>  #define __ASM_NUMA_H
+>>>
+>>>  #include <asm/topology.h>
+>>> -
+>>> -#ifdef CONFIG_NUMA
+>>> -
+>>> -#define NR_NODE_MEMBLKS              (MAX_NUMNODES * 2)
+>>> -
+>>> -int __node_distance(int from, int to);
+>>> -#define node_distance(a, b) __node_distance(a, b)
+>>> -
+>>> -extern nodemask_t numa_nodes_parsed __initdata;
+>>> -
+>>> -extern bool numa_off;
+>>> -
+>>> -/* Mappings between node number and cpus on that node. */
+>>> -extern cpumask_var_t node_to_cpumask_map[MAX_NUMNODES];
+>>> -void numa_clear_node(unsigned int cpu);
+>>> -
+>>> -#ifdef CONFIG_DEBUG_PER_CPU_MAPS
+>>> -const struct cpumask *cpumask_of_node(int node);
+>>> -#else
+>>> -/* Returns a pointer to the cpumask of CPUs on Node 'node'. */
+>>> -static inline const struct cpumask *cpumask_of_node(int node)
+>>> -{
+>>> -     return node_to_cpumask_map[node];
+>>> -}
+>>> -#endif
+>>> -
+>>> -void __init arm64_numa_init(void);
+>>> -int __init numa_add_memblk(int nodeid, u64 start, u64 end);
+>>> -void __init numa_set_distance(int from, int to, int distance);
+>>> -void __init numa_free_distance(void);
+>>> -void __init early_map_cpu_to_node(unsigned int cpu, int nid);
+>>> -void numa_store_cpu_info(unsigned int cpu);
+>>> -void numa_add_cpu(unsigned int cpu);
+>>> -void numa_remove_cpu(unsigned int cpu);
+>>> -
+>>> -#else        /* CONFIG_NUMA */
+>>> -
+>>> -static inline void numa_store_cpu_info(unsigned int cpu) { }
+>>> -static inline void numa_add_cpu(unsigned int cpu) { }
+>>> -static inline void numa_remove_cpu(unsigned int cpu) { }
+>>> -static inline void arm64_numa_init(void) { }
+>>> -static inline void early_map_cpu_to_node(unsigned int cpu, int nid) { }
+>>> -
+>>> -#endif       /* CONFIG_NUMA */
+>>> +#include <asm-generic/numa.h>
+>>>
+>>>  #endif       /* __ASM_NUMA_H */
+>>> diff --git a/arch/arm64/mm/Makefile b/arch/arm64/mm/Makefile
+>>> index d91030f0ffee..928c308b044b 100644
+>>> --- a/arch/arm64/mm/Makefile
+>>> +++ b/arch/arm64/mm/Makefile
+>>> @@ -6,7 +6,6 @@ obj-y                         := dma-mapping.o extable.o fault.o init.o \
+>>>  obj-$(CONFIG_HUGETLB_PAGE)   += hugetlbpage.o
+>>>  obj-$(CONFIG_PTDUMP_CORE)    += dump.o
+>>>  obj-$(CONFIG_PTDUMP_DEBUGFS) += ptdump_debugfs.o
+>>> -obj-$(CONFIG_NUMA)           += numa.o
+>>>  obj-$(CONFIG_DEBUG_VIRTUAL)  += physaddr.o
+>>>  KASAN_SANITIZE_physaddr.o    += n
+>>>
+>>> diff --git a/drivers/base/Kconfig b/drivers/base/Kconfig
+>>> index 8d7001712062..73c2151de194 100644
+>>> --- a/drivers/base/Kconfig
+>>> +++ b/drivers/base/Kconfig
+>>> @@ -210,4 +210,10 @@ config GENERIC_ARCH_TOPOLOGY
+>>>         appropriate scaling, sysfs interface for reading capacity values at
+>>>         runtime.
+>>>
+>>> +config GENERIC_ARCH_NUMA
+>>> +     bool
+>>> +     help
+>>> +       Enable support for generic numa implementation. Currently, RISC-V
+>>> +       and ARM64 uses it.
+>>> +
+>>>  endmenu
+>>> diff --git a/drivers/base/Makefile b/drivers/base/Makefile
+>>> index 157452080f3d..c3d02c644222 100644
+>>> --- a/drivers/base/Makefile
+>>> +++ b/drivers/base/Makefile
+>>> @@ -23,6 +23,7 @@ obj-$(CONFIG_PINCTRL) += pinctrl.o
+>>>  obj-$(CONFIG_DEV_COREDUMP) += devcoredump.o
+>>>  obj-$(CONFIG_GENERIC_MSI_IRQ_DOMAIN) += platform-msi.o
+>>>  obj-$(CONFIG_GENERIC_ARCH_TOPOLOGY) += arch_topology.o
+>>> +obj-$(CONFIG_GENERIC_ARCH_NUMA) += arch_numa.o
+>>>
+>>>  obj-y                        += test/
+>>>
+>>> diff --git a/arch/arm64/mm/numa.c b/drivers/base/arch_numa.c
+>>> similarity index 100%
+>>> rename from arch/arm64/mm/numa.c
+>>> rename to drivers/base/arch_numa.c
+>>
+>> drivers/base/ does not seem right place to host generic NUMA code.
+> 
+> I chose drivers/base because the common topology code is also present there.
+> drivers/base/arch_topology.c under GENERIC_ARCH_TOPOLOGY
+> The idea is to keep all common arch(at least between RISC-V & ARM64)
+> related code at one place.
+> 
+>> Probably it should be either mm/ or kernel/. The other question here
+> 
+> I am fine with mm/arch_numa.c as well if that is preferred over driver/base.
 
-static int static_obj(const void *obj)
-{
-        unsigned long start = (unsigned long) &_stext,
-                      end   = (unsigned long) &_end,
-                      addr  = (unsigned long) obj;
+GENERIC_ARCH_NUMA being near other shared code such as GENERIC_ARCH_TOPOLOGY
+do make sense. That being said, its a small nit and can be figured out later.
 
-        /*
-         * static variable?
-         */
-        if ((addr >= start) && (addr < end))
-                return 1;
+> 
+>> would be if existing arm64 NUMA implementation is sufficient enough
+>> for generic NUMA. I would expect any platform selecting this config
+>> should get some NUMA enabled, will be that be true with present code ?
+> 
+> It is for RISC-V. Here is the RISC-V support patch (last patch in the series)
+> 
+> http://lists.infradead.org/pipermail/linux-riscv/2020-August/001659.html
+>
 
-[    0.067192] INFO: trying to register non-static key.
-[    0.067325] the code is fine but needs lockdep annotation.
-[    0.067449] turning off the locking correctness validator.
-[    0.067718] CPU: 0 PID: 0 Comm: swapper/0 Not tainted 5.7.0-rc7-dirty #44
-[    0.067945] Call Trace:
-[    0.068369] [<ffffffe00020323c>] walk_stackframe+0x0/0xa4
-[    0.068506] [<ffffffe000203422>] show_stack+0x2a/0x34
-[    0.068631] [<ffffffe000521e4e>] dump_stack+0x94/0xca
-[    0.068757] [<ffffffe000255a4e>] register_lock_class+0x5b8/0x5bc
-[    0.068969] [<ffffffe000255abe>] __lock_acquire+0x6c/0x1d5c
-[    0.069101] [<ffffffe0002550fe>] lock_acquire+0xae/0x312
-[    0.069228] [<ffffffe000989a8e>] _raw_spin_lock_irqsave+0x40/0x5a
-[    0.069357] [<ffffffe000247c64>] complete+0x1e/0x50
-[    0.069479] [<ffffffe000984c38>] rest_init+0x1b0/0x28a
-[    0.069660] [<ffffffe0000016a2>] 0xffffffe0000016a2
-[    0.069779] [<ffffffe000001b84>] 0xffffffe000001b84
-[    0.069953] [<ffffffe000001092>] 0xffffffe000001092
++ Jonathan Cameron <Jonathan.Cameron@huawei.com>
 
-static __initdata DECLARE_COMPLETION(kthreadd_done);
-
-noinline void __ref rest_init(void)
-{
-	...
-	complete(&kthreadd_done);
-
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- arch/riscv/kernel/vmlinux.lds.S | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
-index 0339b6bbe11ab..bf3f34dbe630b 100644
---- a/arch/riscv/kernel/vmlinux.lds.S
-+++ b/arch/riscv/kernel/vmlinux.lds.S
-@@ -22,6 +22,7 @@ SECTIONS
- 	/* Beginning of code and text segment */
- 	. = LOAD_OFFSET;
- 	_start = .;
-+	_stext = .;
- 	HEAD_TEXT_SECTION
- 	. = ALIGN(PAGE_SIZE);
+There is another patch/discussion which is trying to unify ARM64 NUMA init
+code with X86 (https://patchwork.kernel.org/patch/11651437/). I am wondering
+if all three platforms could use GENERIC_ARCH_NUMA.
  
-@@ -49,7 +50,6 @@ SECTIONS
- 	. = ALIGN(SECTION_ALIGN);
- 	.text : {
- 		_text = .;
--		_stext = .;
- 		TEXT_TEXT
- 		SCHED_TEXT
- 		CPUIDLE_TEXT
--- 
-2.25.1
-
+>> Otherwise it will be difficult to name it as GENERIC_ARCH_NUMA.
+>>
+>> _______________________________________________
+>> linux-riscv mailing list
+>> linux-riscv@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
+> 
+> 
 
 _______________________________________________
 linux-riscv mailing list
