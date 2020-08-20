@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7018EC433E3
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Aug 2020 00:01:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B28D8C433DF
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Aug 2020 00:02:25 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3F5FC21744
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Aug 2020 00:01:52 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 7EDE320FC3
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Aug 2020 00:02:25 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="P46pfind";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="v2JxtcBJ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3F5FC21744
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WY5Q1K3v";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="xkxGtGan"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7EDE320FC3
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,47 +26,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=0TrOJMu6hCsj824fQ3V1OnVN2GFrK6n0DS3hZQIyjb4=; b=P46pfindOZKqbNG2o8a1/JIOr
-	WqaXgvH58pGlaNN9ZuqOeGGTCKB3V6W1a8PWEBCbONyXiT9bo//7lvacvOpvJUvlg797ywycP5qNb
-	gRMegxXVJZrKWAnY4tGLeH5NQqVjIM8WC1J955hffTSIWXmjhjibbrLh9UQsuqPs/1/7oWvRO8MXE
-	mE2E9NjI6ezcQbVHWq4sBLpBDrELxZtcu004ZZOKChfzWkX0O+O8mTfRjMzPfokFSFHS9Ls9yBpBL
-	7n0ZZWxa7TRuBfxahZsaLG4yaSi8JYTorJoo5LJ5Tu7Rt/samnL3mUtuoqi78RFdFzP2B1HCVW86F
-	xmNrNE8RA==;
+	 bh=YzhqRNlPNWx4ySS7fdR4khG6hhGC25XdK/Wi/K6ogQI=; b=WY5Q1K3v8U1oPWvuSuWgOKfkJ
+	+/8GWBWrjvaIOvriumoUuQbHl8LMgDFMLgQc+VZcKJeRJz3H0dgtcBJp/CJ86CDcpCK5DLVJKLGii
+	0X7YDkVWyPMnm1PmsuP2DLpUkxx1nLViDZuAQ0LauVyIHcv0x5Y0nqUM15pPwr5YwyMy8xinbh9i8
+	yNlYcubMBHtut17zoJbnAIj6NBiLGDMkzAceBf0R0WEmJupjyuhU7Cpp8RQ97qQ9wI1FCkjc2ApGW
+	p+9ZMaAk2E+AR6fN7hXQ8A1HdacLvDbFe1UI/49oJksdjL2734MhaAcJ2rACpF79spC561yeS6ue5
+	/wB/2+40A==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k8Y1U-0000UX-0V; Thu, 20 Aug 2020 00:01:40 +0000
+	id 1k8Y23-0000kV-Jn; Thu, 20 Aug 2020 00:02:15 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k8Y1R-0000Sz-LB
- for linux-riscv@lists.infradead.org; Thu, 20 Aug 2020 00:01:38 +0000
+ id 1k8Y21-0000il-JA
+ for linux-riscv@lists.infradead.org; Thu, 20 Aug 2020 00:02:14 +0000
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net
  [73.47.72.35])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 1A4DB207DA;
- Thu, 20 Aug 2020 00:01:36 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 32E8A214F1;
+ Thu, 20 Aug 2020 00:02:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1597881696;
- bh=8hxAY/ez0AI4ber36LIJeoh29mu4g8ODN0OrS542L3c=;
+ s=default; t=1597881732;
+ bh=nzildonZ2Cp5d5EqEk9pDNpe/ArGo68DTb1T0ykhnEU=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=v2JxtcBJ8KWGLihK4aQn5GzqgN8kWFC08BI9co6wU3v8H6j1Prq1YP8LDX12b8Vkf
- 7eDVjrs0yjyTcmunz7jZwypv74NQB4epXLDDalOrdIzBMM6UAUIP2wtkNTE63X5NIF
- jnK+YDZkMjZTkGluzH5h6Vj9N0bOIEJO8kMoAodk=
+ b=xkxGtGanMCKnMO1XfzpC3qwE5pr42J7J06rvB/BCDvCAWomXm+s8i7xQ00PWAbfy0
+ gcgrEuDWDJ+NGsUPKCz5z+st4x0JS1CkGJPJknOkWxYPI49+eZrDFiOgwa5+SdPoaw
+ 9CdBrfxNFuJU/4A6pKVNNBZq8CZr/L5LOmAeKfLs=
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Subject: [PATCH AUTOSEL 5.8 15/27] riscv: Fixup static_obj() fail
-Date: Wed, 19 Aug 2020 20:01:04 -0400
-Message-Id: <20200820000116.214821-15-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.7 13/24] riscv: Fixup static_obj() fail
+Date: Wed, 19 Aug 2020 20:01:44 -0400
+Message-Id: <20200820000155.215089-13-sashal@kernel.org>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20200820000116.214821-1-sashal@kernel.org>
-References: <20200820000116.214821-1-sashal@kernel.org>
+In-Reply-To: <20200820000155.215089-1-sashal@kernel.org>
+References: <20200820000155.215089-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200819_200137_813158_71D85F9F 
-X-CRM114-Status: GOOD (  14.11  )
+X-CRM114-CacheID: sfid-20200819_200213_739023_8B572193 
+X-CRM114-Status: GOOD (  14.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -137,7 +137,7 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
-index e6f8016b366ab..f3586e31ed1ec 100644
+index 0339b6bbe11ab..bf3f34dbe630b 100644
 --- a/arch/riscv/kernel/vmlinux.lds.S
 +++ b/arch/riscv/kernel/vmlinux.lds.S
 @@ -22,6 +22,7 @@ SECTIONS
@@ -148,7 +148,7 @@ index e6f8016b366ab..f3586e31ed1ec 100644
  	HEAD_TEXT_SECTION
  	. = ALIGN(PAGE_SIZE);
  
-@@ -54,7 +55,6 @@ SECTIONS
+@@ -49,7 +50,6 @@ SECTIONS
  	. = ALIGN(SECTION_ALIGN);
  	.text : {
  		_text = .;
