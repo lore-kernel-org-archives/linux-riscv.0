@@ -1,24 +1,24 @@
-Return-Path: <SRS0=trTC=B5=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=ioKI=B6=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 82484C433E1
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2020 22:24:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7018EC433E3
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Aug 2020 00:01:52 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 51D2B20758
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Aug 2020 22:24:57 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 3F5FC21744
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Aug 2020 00:01:52 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="qekLL4+Q";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="BBRHzkFl"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 51D2B20758
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="P46pfind";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="v2JxtcBJ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3F5FC21744
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -26,62 +26,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=EbffGJigQ1Ln3yxdotp755I/sgKzxDQ3XXZmTSazHj8=; b=qekLL4+Qq3+sp4MPGPoQG+PrI
-	acgrDJg9s+k3q4uui3eBA1xCuXMdpuNxmgG0Z2xmIAZtSmDe/cUmc8gRR+V34SxrQQPhdCVB5N0zD
-	gmiCf0Zk0RkBpDEtjqlYf0sqJwFzy1sp69ZZivN0I7Af8aSGrQ7EAaWlzyeiqYtRIbfDJ4tTbq1GY
-	EnGb4WLsHmOGnBkHYECw6QaDZ9ccLzeBuq7BtYw0IgJLxs+85Go3Sdcuo9zVT28EsQepc2sbkhPCe
-	S9IkNW4yPHWpxZWS9UqCSE2uMts6GopKUvtR3IuQrzHIu680N2DsbWR6X/2cOLrc3pwva4HkumrmI
-	dvt/1FnBA==;
+	 bh=0TrOJMu6hCsj824fQ3V1OnVN2GFrK6n0DS3hZQIyjb4=; b=P46pfindOZKqbNG2o8a1/JIOr
+	WqaXgvH58pGlaNN9ZuqOeGGTCKB3V6W1a8PWEBCbONyXiT9bo//7lvacvOpvJUvlg797ywycP5qNb
+	gRMegxXVJZrKWAnY4tGLeH5NQqVjIM8WC1J955hffTSIWXmjhjibbrLh9UQsuqPs/1/7oWvRO8MXE
+	mE2E9NjI6ezcQbVHWq4sBLpBDrELxZtcu004ZZOKChfzWkX0O+O8mTfRjMzPfokFSFHS9Ls9yBpBL
+	7n0ZZWxa7TRuBfxahZsaLG4yaSi8JYTorJoo5LJ5Tu7Rt/samnL3mUtuoqi78RFdFzP2B1HCVW86F
+	xmNrNE8RA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1k8WVg-0001Hx-6O; Wed, 19 Aug 2020 22:24:44 +0000
-Received: from esa4.hgst.iphmx.com ([216.71.154.42])
+	id 1k8Y1U-0000UX-0V; Thu, 20 Aug 2020 00:01:40 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1k8WVc-0001Ee-36
- for linux-riscv@lists.infradead.org; Wed, 19 Aug 2020 22:24:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1597875879; x=1629411879;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=zACmpNxMVkpKW6XFtwU9imKwJIzxQN1bq0wJXy/9ILY=;
- b=BBRHzkFloHzGnUKaJWWGH3XyPzlQ9DhaeCXYARNeB3VD63WB5SSxCQI6
- 9kLPZe0YxwPY3wCgBgmw7gJdqObgngOTATOP01MnD4BzskEHCMv9U9BOP
- Ln2paz0qdP3uh7X+ziiQjmqwR66kGCHMoKQ3uOyTeqwqS/P/uR3Acbk08
- fUoB1q/vPeIHM5wGQ0NRSf6O1CQSzCpT8Qv/YqnAN74ZGeM+dotjCmwug
- Y8830OrMMT994yQ1ugF4t9+nwWQg5Em17+GZ+WRLTu599ZY8C9JEqiSnY
- x4eM7p0VGrco/Js4wsEVkDQ9/riCSLtELARHRe1ArX0aatLRQ2fPezfX/ w==;
-IronPort-SDR: 1XN6lgPg+rs6pzGrSU0u3cOa9N9uQJEnPvKIXffWYPy33CCUGN/KXRYW4w+J+LJuEDZ5KnjpGL
- c7LsFX8aQrRim8DA3X0Hpomx5RR8UiY1+gxiVedcdI+otb9N3EAaoYaZ597yokkhEVf0CWTXkk
- rgG+2sy3Z/L31kfCDNqkMPwjVxLz3W03PTorGnqfWVdjzW8lw7iDzdePkrPEKBJ3xLSpp7uHaC
- EzyBcwuBsy4QMTrMLktksGqAsh8x3RmysMxeWU6Otr9lePaAlT9Iu7+tpdR1QlHeOsHhIGv7Pv
- J70=
-X-IronPort-AV: E=Sophos;i="5.76,332,1592841600"; d="scan'208";a="145313337"
-Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
- ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 20 Aug 2020 06:24:39 +0800
-IronPort-SDR: o/DxtecbcB/e+kPz8yE0tjxlmPlCAccaAXkJFvxmi8pu17zq5JK+9375M/+XBwIEf1v5zvFJ5t
- qhvjarylDH6Q==
-Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
- by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 19 Aug 2020 15:12:22 -0700
-IronPort-SDR: qeASOcpsC5tETXVvFIaf3jgrXLlmjsFJeBHh+JrZXvJm4MzlaZ4rUzKfhLKqp83wnyK6axFW5O
- pBEe93zZ0aVQ==
-WDCIronportException: Internal
-Received: from 6hj08h2.ad.shared (HELO jedi-01.hgst.com) ([10.86.59.62])
- by uls-op-cesaip01.wdc.com with ESMTP; 19 Aug 2020 15:24:39 -0700
-From: Atish Patra <atish.patra@wdc.com>
-To: linux-kernel@vger.kernel.org
-Subject: [PATCH v6 9/9] RISC-V: Add page table dump support for uefi
-Date: Wed, 19 Aug 2020 15:24:25 -0700
-Message-Id: <20200819222425.30721-10-atish.patra@wdc.com>
-X-Mailer: git-send-email 2.24.0
-In-Reply-To: <20200819222425.30721-1-atish.patra@wdc.com>
-References: <20200819222425.30721-1-atish.patra@wdc.com>
+ id 1k8Y1R-0000Sz-LB
+ for linux-riscv@lists.infradead.org; Thu, 20 Aug 2020 00:01:38 +0000
+Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net
+ [73.47.72.35])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 1A4DB207DA;
+ Thu, 20 Aug 2020 00:01:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1597881696;
+ bh=8hxAY/ez0AI4ber36LIJeoh29mu4g8ODN0OrS542L3c=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=v2JxtcBJ8KWGLihK4aQn5GzqgN8kWFC08BI9co6wU3v8H6j1Prq1YP8LDX12b8Vkf
+ 7eDVjrs0yjyTcmunz7jZwypv74NQB4epXLDDalOrdIzBMM6UAUIP2wtkNTE63X5NIF
+ jnK+YDZkMjZTkGluzH5h6Vj9N0bOIEJO8kMoAodk=
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH AUTOSEL 5.8 15/27] riscv: Fixup static_obj() fail
+Date: Wed, 19 Aug 2020 20:01:04 -0400
+Message-Id: <20200820000116.214821-15-sashal@kernel.org>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20200820000116.214821-1-sashal@kernel.org>
+References: <20200820000116.214821-1-sashal@kernel.org>
 MIME-Version: 1.0
+X-stable: review
+X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200819_182440_336115_B3502ACD 
-X-CRM114-Status: GOOD (  16.52  )
+X-CRM114-CacheID: sfid-20200819_200137_813158_71D85F9F 
+X-CRM114-Status: GOOD (  14.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -93,151 +78,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-efi@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
- Atish Patra <atish.patra@wdc.com>, Arvind Sankar <nivedita@alum.mit.edu>,
- Alistair Francis <alistair.francis@wdc.com>, Zong Li <zong.li@sifive.com>,
- linux-riscv@lists.infradead.org, Ingo Molnar <mingo@kernel.org>,
- Anup Patel <anup@brainfault.org>, Masahiro Yamada <masahiroy@kernel.org>,
- Michal Simek <michal.simek@xilinx.com>, Steven Price <steven.price@arm.com>,
- Waiman Long <longman@redhat.com>, Greentime Hu <greentime.hu@sifive.com>,
- Daniel Schaefer <daniel.schaefer@hpe.com>, Kees Cook <keescook@chromium.org>,
- "abner.chang@hpe.com" <abner.chang@hpe.com>,
- Heiko Carstens <hca@linux.ibm.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Damien Le Moal <damien.lemoal@wdc.com>, Anup Patel <anup.patel@wdc.com>,
- Nick Desaulniers <ndesaulniers@google.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Mike Rapoport <rppt@kernel.org>
+Cc: Palmer Dabbelt <palmerdabbelt@google.com>, Sasha Levin <sashal@kernel.org>,
+ linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Extend the current page table dump support in RISC-V to include efi
-pages as well.
+From: Guo Ren <guoren@linux.alibaba.com>
 
-Here is the output of efi runtime page table mappings.
+[ Upstream commit 6184358da0004c8fd940afda6c0a0fa4027dc911 ]
 
----[ UEFI runtime start ]---
-0x0000000020002000-0x0000000020003000 0x00000000be732000 4K PTE D A . . . W R V
-0x0000000020018000-0x0000000020019000 0x00000000be738000 4K PTE D A . . . W R V
-0x000000002002c000-0x000000002002d000 0x00000000be73c000 4K PTE D A . . . W R V
-0x0000000020031000-0x0000000020032000 0x00000000bff61000 4K PTE D A . . X W R V
----[ UEFI runtime end ]---
+When enable LOCKDEP, static_obj() will cause error. Because some
+__initdata static variables is before _stext:
 
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
-Reviewed-by: Anup Patel <anup@brainfault.org>
+static int static_obj(const void *obj)
+{
+        unsigned long start = (unsigned long) &_stext,
+                      end   = (unsigned long) &_end,
+                      addr  = (unsigned long) obj;
+
+        /*
+         * static variable?
+         */
+        if ((addr >= start) && (addr < end))
+                return 1;
+
+[    0.067192] INFO: trying to register non-static key.
+[    0.067325] the code is fine but needs lockdep annotation.
+[    0.067449] turning off the locking correctness validator.
+[    0.067718] CPU: 0 PID: 0 Comm: swapper/0 Not tainted 5.7.0-rc7-dirty #44
+[    0.067945] Call Trace:
+[    0.068369] [<ffffffe00020323c>] walk_stackframe+0x0/0xa4
+[    0.068506] [<ffffffe000203422>] show_stack+0x2a/0x34
+[    0.068631] [<ffffffe000521e4e>] dump_stack+0x94/0xca
+[    0.068757] [<ffffffe000255a4e>] register_lock_class+0x5b8/0x5bc
+[    0.068969] [<ffffffe000255abe>] __lock_acquire+0x6c/0x1d5c
+[    0.069101] [<ffffffe0002550fe>] lock_acquire+0xae/0x312
+[    0.069228] [<ffffffe000989a8e>] _raw_spin_lock_irqsave+0x40/0x5a
+[    0.069357] [<ffffffe000247c64>] complete+0x1e/0x50
+[    0.069479] [<ffffffe000984c38>] rest_init+0x1b0/0x28a
+[    0.069660] [<ffffffe0000016a2>] 0xffffffe0000016a2
+[    0.069779] [<ffffffe000001b84>] 0xffffffe000001b84
+[    0.069953] [<ffffffe000001092>] 0xffffffe000001092
+
+static __initdata DECLARE_COMPLETION(kthreadd_done);
+
+noinline void __ref rest_init(void)
+{
+	...
+	complete(&kthreadd_done);
+
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- arch/riscv/mm/ptdump.c | 48 ++++++++++++++++++++++++++++++++++++------
- 1 file changed, 42 insertions(+), 6 deletions(-)
+ arch/riscv/kernel/vmlinux.lds.S | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/mm/ptdump.c b/arch/riscv/mm/ptdump.c
-index 0831c2e61a8f..ace74dec7492 100644
---- a/arch/riscv/mm/ptdump.c
-+++ b/arch/riscv/mm/ptdump.c
-@@ -3,6 +3,7 @@
-  * Copyright (C) 2019 SiFive
-  */
+diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
+index e6f8016b366ab..f3586e31ed1ec 100644
+--- a/arch/riscv/kernel/vmlinux.lds.S
++++ b/arch/riscv/kernel/vmlinux.lds.S
+@@ -22,6 +22,7 @@ SECTIONS
+ 	/* Beginning of code and text segment */
+ 	. = LOAD_OFFSET;
+ 	_start = .;
++	_stext = .;
+ 	HEAD_TEXT_SECTION
+ 	. = ALIGN(PAGE_SIZE);
  
-+#include <linux/efi.h>
- #include <linux/init.h>
- #include <linux/debugfs.h>
- #include <linux/seq_file.h>
-@@ -49,6 +50,14 @@ struct addr_marker {
- 	const char *name;
- };
- 
-+/* Private information for debugfs */
-+struct ptd_mm_info {
-+	struct mm_struct		*mm;
-+	const struct addr_marker	*markers;
-+	unsigned long base_addr;
-+	unsigned long end;
-+};
-+
- static struct addr_marker address_markers[] = {
- #ifdef CONFIG_KASAN
- 	{KASAN_SHADOW_START,	"Kasan shadow start"},
-@@ -68,6 +77,28 @@ static struct addr_marker address_markers[] = {
- 	{-1, NULL},
- };
- 
-+static struct ptd_mm_info kernel_ptd_info = {
-+	.mm		= &init_mm,
-+	.markers	= address_markers,
-+	.base_addr	= KERN_VIRT_START,
-+	.end		= ULONG_MAX,
-+};
-+
-+#ifdef CONFIG_EFI
-+static struct addr_marker efi_addr_markers[] = {
-+		{ 0,		"UEFI runtime start" },
-+		{ SZ_1G,	"UEFI runtime end" },
-+		{ -1,		NULL }
-+};
-+
-+static struct ptd_mm_info efi_ptd_info = {
-+	.mm		= &efi_mm,
-+	.markers	= efi_addr_markers,
-+	.base_addr	= 0,
-+	.end		= SZ_2G,
-+};
-+#endif
-+
- /* Page Table Entry */
- struct prot_bits {
- 	u64 mask;
-@@ -245,22 +276,22 @@ static void note_page(struct ptdump_state *pt_st, unsigned long addr,
- 	}
- }
- 
--static void ptdump_walk(struct seq_file *s)
-+static void ptdump_walk(struct seq_file *s, struct ptd_mm_info *pinfo)
- {
- 	struct pg_state st = {
- 		.seq = s,
--		.marker = address_markers,
-+		.marker = pinfo->markers,
- 		.level = -1,
- 		.ptdump = {
- 			.note_page = note_page,
- 			.range = (struct ptdump_range[]) {
--				{KERN_VIRT_START, ULONG_MAX},
-+				{pinfo->base_addr, pinfo->end},
- 				{0, 0}
- 			}
- 		}
- 	};
- 
--	ptdump_walk_pgd(&st.ptdump, &init_mm, NULL);
-+	ptdump_walk_pgd(&st.ptdump, pinfo->mm, NULL);
- }
- 
- void ptdump_check_wx(void)
-@@ -293,7 +324,7 @@ void ptdump_check_wx(void)
- 
- static int ptdump_show(struct seq_file *m, void *v)
- {
--	ptdump_walk(m);
-+	ptdump_walk(m, m->private);
- 
- 	return 0;
- }
-@@ -308,8 +339,13 @@ static int ptdump_init(void)
- 		for (j = 0; j < ARRAY_SIZE(pte_bits); j++)
- 			pg_level[i].mask |= pte_bits[j].mask;
- 
--	debugfs_create_file("kernel_page_tables", 0400, NULL, NULL,
-+	debugfs_create_file("kernel_page_tables", 0400, NULL, &kernel_ptd_info,
- 			    &ptdump_fops);
-+#ifdef CONFIG_EFI
-+	if (efi_enabled(EFI_RUNTIME_SERVICES))
-+		debugfs_create_file("efi_page_tables", 0400, NULL, &efi_ptd_info,
-+				    &ptdump_fops);
-+#endif
- 
- 	return 0;
- }
+@@ -54,7 +55,6 @@ SECTIONS
+ 	. = ALIGN(SECTION_ALIGN);
+ 	.text : {
+ 		_text = .;
+-		_stext = .;
+ 		TEXT_TEXT
+ 		SCHED_TEXT
+ 		CPUIDLE_TEXT
 -- 
-2.24.0
+2.25.1
 
 
 _______________________________________________
