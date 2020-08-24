@@ -2,119 +2,78 @@ Return-Path: <SRS0=MOMo=CC=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,RCVD_ILLEGAL_IP,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EA931C433DF
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Aug 2020 07:51:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D587BC433DF
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Aug 2020 14:20:50 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AEB71206F0
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Aug 2020 07:51:11 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 7E22A2074D
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Aug 2020 14:20:50 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Wgsim7s5";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sifive.com header.i=@sifive.com header.b="Xe9wcDVf"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AEB71206F0
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="3XpzOsqq";
+	dkim=fail reason="key not found in DNS" (0-bit key) header.d=mab-labs.com header.i=@mab-labs.com header.b="Ky2lwH+j"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7E22A2074D
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=mab-labs.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=liR0DgMImSElktuzuM0+ocd6BLpXh7N2sQqTUmAxT1A=; b=Wgsim7s5ITb8qBqoCo2hnASA4
-	ceLhDLuNbPHbkOfINKCEr3UUqeFDSNZsWxAIKcz+t/qzzIhtS5vC+DsLJyOh7kGN4pBCk9JiBFNU6
-	RGkRL9O4ofHoD6+OrBbnVT8jsASo5QjOiG10JjXAwsasl79R30a2j9pB185NFdTZVIKnqDrmRe60H
-	O3TmuDKBOzr+1ePRl3cziANSUdVXkCBY6PLO0jQQbJu3l2C8zoHm5fjzcLq5DbeZWRD1sQ8QQHL+8
-	9DqEIuz8l7xM2pIRZp0SNClLRpUexONwObpuYRT4KULMr0iq1pCNjKnxz1oAOEfv1YW7sZv7inNZr
-	U6J7UVV5Q==;
+	Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe
+	:List-Id:To:Subject:Message-ID:Date:From:MIME-Version:Reply-To:Cc:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jN6PpZDayg7SR4wkADz2C+FM3l5MDow5ulalUknF0qc=; b=3XpzOsqq+sY5qbLzYRE/QIjmQj
+	i0EYRgXHyFlzIGHUDkWaGKoFKPuCxWta3ZqPgekDZ9CdXdah7LH8ET70D2CM2+cOXzE0+9BsNXxVL
+	A6e4MAMgYiJzJ+eKuNXjEQoDBzgtB0cVKbt264D8GuRfQkE/PsC5NgHntzP7px2Tx45wl+85kCS3N
+	bhtWnee+qhRVNe4xYOces+UpUCjh2h7VnbFR2rhnZllEIYe9hzh1YKuSN7g0yRYwO2f0AErhPsPxX
+	1jDETjGNhGsyNPcP/IZiG2QNio7BZ+sJahzZLJhki2VlKGVYAmgrwu1tCOUiAKK52ouKE9ASciXYf
+	EPAj81Iw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kA7Fp-0000g6-1b; Mon, 24 Aug 2020 07:50:57 +0000
-Received: from mail-dm6nam10on2076.outbound.protection.outlook.com
- ([40.107.93.76] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1kADKx-0000ex-AP; Mon, 24 Aug 2020 14:20:39 +0000
+Received: from mail-oi1-x244.google.com ([2607:f8b0:4864:20::244])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kA7Fl-0000eM-Q5
- for linux-riscv@lists.infradead.org; Mon, 24 Aug 2020 07:50:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=gJpntlgLfbb7iu3AyZVc/PW3uEcvy6feevGSGOzLoVJCFn8/+IWHQP9ensmiz577tNgXZXBCZoRM5kllSXhvhcMgNDw1AxLZzTO+X7jzZtWV0Wxzu/5L+sEnkpPh2KnX+EXOaQ+/gNQN8BAGfsarXQHwsulskzg/pPmdg60NM2nUqIZ0mygL9h3W8990+LW7CEFMC6Nhcwv0WTzcjToB8Ggna0opbvCc0oqrR7szMivNC0/9LILqqWPKXnGaAyS1JiLDc1OvihjRHTkG9DkexP6K+3l9bvZP6poKeDNz/GmUd5lhAuvTxm8qniw/R1lay7Q8dikajp2IwEWPKYRPdA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Bq02i526DKQwUYCvE2J6GEpfHh78zi4ZSxDWysuunGo=;
- b=coSov1Zr19tB9xtyjYPNShx74I0iRjFZL/Ok0iK2aL4ualx7z3ZEKc6MKAKEgkqGiZlvW7olWpsviz4n+W4XqELbgOcYAFw4AMch/vjlSaW/laLdNEvWfMrK/PAbkrWpE2JPuHDP6GPyw0NRgTHqc+Agtp9pLCgwOFLrkXnXtAN5Sbjt5gWQLKmgINnKDSw7r/Ela0E1f32ji6bRrruRmHgy3yUQZJmudQ8hkohShplGvIH0TUUF7OSDDM4o9krVYz/qkxqvLK/jOhxQtOqjKlvGY/D8HK6RCi+a/W3M/l2iGwbkuIaybtPZQWOn+Bk0yPA3YhzKuykl1tPejcwMgQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=openfive.com; dmarc=pass action=none header.from=sifive.com;
- dkim=pass header.d=sifive.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Bq02i526DKQwUYCvE2J6GEpfHh78zi4ZSxDWysuunGo=;
- b=Xe9wcDVfIvBFFwjJrbQ7Ls2OX2jElmC8Swt7FOa9fzsiq8xIx8FIz+XSyDdccIcuJZVAU7YU3oGyzlHWvXVhIh70/WCS8v3jSvFp0LItsYZTY01O4VMXDuO6X9O0x9K2Mmz/SM8BqTDbgCIwDc/uV7q8P76Aw+fglLOemdjTUUA=
-Authentication-Results: vger.kernel.org; dkim=none (message not signed)
- header.d=none; vger.kernel.org; dmarc=none action=none header.from=sifive.com; 
-Received: from DM6PR13MB3451.namprd13.prod.outlook.com (2603:10b6:5:1c3::10)
- by DM6PR13MB4148.namprd13.prod.outlook.com (2603:10b6:5:2af::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3326.10; Mon, 24 Aug
- 2020 07:50:44 +0000
-Received: from DM6PR13MB3451.namprd13.prod.outlook.com
- ([fe80::f570:90c6:f6d5:c078]) by DM6PR13MB3451.namprd13.prod.outlook.com
- ([fe80::f570:90c6:f6d5:c078%7]) with mapi id 15.20.3326.017; Mon, 24 Aug 2020
- 07:50:44 +0000
-From: Sagar Kadam <sagar.kadam@sifive.com>
-To: linux-kernel@vger.kernel.org
-Subject: [PATCH 1/1] dt-bindings: riscv: sifive-l2-cache: convert bindings to
- json-schema
-Date: Mon, 24 Aug 2020 13:20:21 +0530
-Message-Id: <1598255421-8274-2-git-send-email-sagar.kadam@sifive.com>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1598255421-8274-1-git-send-email-sagar.kadam@sifive.com>
-References: <1598255421-8274-1-git-send-email-sagar.kadam@sifive.com>
-X-ClientProxiedBy: BMXPR01CA0018.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:b00:d::28) To DM6PR13MB3451.namprd13.prod.outlook.com
- (2603:10b6:5:1c3::10)
+ id 1kADKv-0000e5-5G
+ for linux-riscv@lists.infradead.org; Mon, 24 Aug 2020 14:20:37 +0000
+Received: by mail-oi1-x244.google.com with SMTP id n128so8390783oif.0
+ for <linux-riscv@lists.infradead.org>; Mon, 24 Aug 2020 07:20:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mab-labs.com; s=google;
+ h=mime-version:from:date:message-id:subject:to;
+ bh=DrrrTD7krAxD/+M9so0Zn9tg7xdUSzsctM+lxBHh9pw=;
+ b=Ky2lwH+jWwCprjKWesVh6QMG13aCI8lUMP+rwGrkFzu4sAeb3AtrGfTbnSyB+FFXYN
+ bQkKiMbwxngMDUhyGUP9SZav/iEtyOW+7Bs/Swxc5D8RKzsZFeJ/Gp+clJrKLXH3VIRZ
+ 3+Nfe0X8wcWz2hiCZAoDtZ6XxV68QKcsoh2bhAYRkRfU9FAR/uA/GBKuEMeUdniC3f7l
+ QFRb2lBIF1CTkOZOsEScNuqikZTBryfAkviHav1aSdBXuu5/Y5s2rKux73laq70cGaJt
+ LsG5bNMET4DKvXaLqHwXc1YDYeG4NGBzfasI8Y+xotD/dyntd9smcRjZlkf00NKHHhX0
+ CJdA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+ bh=DrrrTD7krAxD/+M9so0Zn9tg7xdUSzsctM+lxBHh9pw=;
+ b=ga6O0LY2wZPgbn0H1o9zuACCpEhxsgqhw4G70UKZ8NakLNS8QuhKnMHnLLNJyvmeeO
+ n839Te7THD6+caybXChYbjpEnjNve/tZLnmcCQaA3WVNOAOFAuuORFrXUoa4TtCcHDj1
+ hl+FqcRU0H5juaUN9EWDYnvz5HBVjJG8L9J4V+cIpqu3izeVJ6xxRCx1ELCg9lC0NovR
+ CgzOcSs80QC///+Hh3DacAqUdOLSqsUO0gqRRngPelbZ2zz/wT3j1LZQBpH8d02BOL6O
+ iZKVQ853nY6Yg/JkmclKs7cFfVF774+1Rg/OeEcLpSE0bmLJsSsECrKdTdd/WYoITRfm
+ lIKA==
+X-Gm-Message-State: AOAM5301K5/hEUYjb8E5VpIpM1krCeyMUVt6FrXvuspS25T0c4oeA39q
+ Zfh4TA27rM2YJfwevJb9u4gX67vycHAzzUo6OUs/GzvEQyuR+w==
+X-Google-Smtp-Source: ABdhPJzUbCf5Dbb45yYzgnBKhNLkw2z6PJ10hWksnbqjKcgSGWkA//16uqfrImxZuuIoQP3iBGxSi1gbeNerv3VFnWQ=
+X-Received: by 2002:aca:4e0c:: with SMTP id c12mr3074062oib.74.1598278833606; 
+ Mon, 24 Aug 2020 07:20:33 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-Received: from 255.255.255.255 (255.255.255.255) by
- BMXPR01CA0018.INDPRD01.PROD.OUTLOOK.COM (2603:1096:b00:d::28) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id
- 15.20.3305.24 via Frontend Transport; Mon, 24 Aug 2020 07:50:41 +0000
-X-Mailer: git-send-email 2.7.4
-X-Originating-IP: [159.117.144.156]
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: af0079ab-7f71-4f1f-d614-08d848026807
-X-MS-TrafficTypeDiagnostic: DM6PR13MB4148:
-X-LD-Processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
-X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <DM6PR13MB41481B20362036106D4A387597560@DM6PR13MB4148.namprd13.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:7219;
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: pFWHf12fyidK2IAdKMxMrg+hR9DSq2uz1dGkA/musvZr4pOcsM4TxfvfdT0AoX+qL0opUn09PYcJKEDrLItqJ9H0+06VaIFzqQn4gkoJMlG+f7bXzNqL6d5edsXARf2xQ8zTnGuS+GOvYh8dvpzRRdmgch2odBiINFpfV3UxtIImCl8P11GhUe/fu5pwREViqrZl22m8T/xnnE8FBLiDjfqYuGhyczyuzorpsPqzTKDiobz/oi1qvIXV54HMvGzKPZaT7wRuvrCYIxQQ46Upqha+ZIB9u32QOY/kPEeYP5SJ5x8QfJ1PGz6fsAs9nDtzyYSU6ERhwlkREbp5f1SBvLRZL77CsvMbWjUAoUWxtVWtndw2hMfRvEKk8TMcOebyKRuSJIETjo6OJK5V8CGQxw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:DM6PR13MB3451.namprd13.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(346002)(396003)(376002)(136003)(366004)(39840400004)(83170400001)(26005)(36756003)(8936002)(2616005)(16576012)(52116002)(6916009)(5660300002)(316002)(4326008)(42882007)(107886003)(83380400001)(186003)(6666004)(478600001)(6486002)(66476007)(66556008)(66946007)(8676002)(2906002)(44832011)(956004)(966005);
- DIR:OUT; SFP:1101; 
-X-MS-Exchange-AntiSpam-MessageData: 3cpbMCcxRRJuLhqIyZaXmOaWdxCFj8KmX3b4EVnFC+6JW33XWVQXiIVfThGYNpRJW+pzRcXi2mZtEjBfYB6URBYTQJ5DhqpGY0E3XZvi1k+TY38EJVxfxJKwBsCjN3TuISlAgmNYZVOWAFnv8OF1nZaUcJt9OYfLUX8TXp9FiGGwv/HmdEbKX0k8j6Uh92uSZN6u4Q8IRuEAJi3HEjgjNcL8Vo5ayv5gUjhRYh4+a7CrRrb/gw39wA6bsaMNupw5/x4hdc9z3wBTJmsIQ4MDoBi1dDMVqRBZss7VoG/YYy//IwJo4MG11f/JJADAgHmtEl2hSU8l8ZnZLLEZwfiC8bboPVpW1vR4UUyF2xMcQ88izVt30mxpZEGzUIdgQVDVxp4TMWL/5n3y64YOoZiJrzQJqMaadRr2y+KkiKf4fmqVy203q3ulV7HoWVUKtPdgHudXQaQaYAr8Kz7g4+lgmPKrYlJUxp+A0wUplstPtySjA9Bxe2yQzHiWg0qwsx0nqXIlqinbRIUFJ8pxZJZNvleSbLdGYVaHQSFhYpVMAm3xU7NzvBuBs3JSXU9voEhvZAKfeFCpX7iSBVHlC1hHyM2d0OO/nzu43spgo3zuOOZfJGiBWBAOev3LxILWmXex6oJNloC8dSqUVOwwf6U5Lw==
-X-OriginatorOrg: sifive.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: af0079ab-7f71-4f1f-d614-08d848026807
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR13MB3451.namprd13.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Aug 2020 07:50:44.7112 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: sBcOVsN1VBwU6A8QIT96uZZ4s8VIKpsl3SXmHKx/NiAlHpxaQMdLazlKTvMcfWgqlNVqEtC5e3T5vJN02fzoEQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR13MB4148
+From: Mohammed Billoo <mab@mab-labs.com>
+Date: Mon, 24 Aug 2020 10:20:22 -0400
+Message-ID: <CALkjhPrHDHRsFDh9n864xvK4DKU2GW68_TcA-Tz17udsOWjbFg@mail.gmail.com>
+Subject: RISC-V testing needs on HW?
+To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200824_035053_934017_3809E79F 
-X-CRM114-Status: GOOD (  17.97  )
+X-CRM114-CacheID: sfid-20200824_102037_245342_1599433A 
+X-CRM114-Status: UNSURE (   5.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -126,184 +85,22 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, aou@eecs.berkeley.edu, yash.shah@sifive.com,
- robh+dt@kernel.org, palmer@dabbelt.com, Sagar Kadam <sagar.kadam@sifive.com>,
- paul.walmsley@sifive.com, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Convert the device tree bindings for the SiFive's FU540-C000 SoC's L2 Cache
-controller to YAML format.
+My Kendryte board should arrive this Thursday. Is there any targeted
+testing that anyone would like done, or should I just build the latest
+5.9 rc for riscv, load it on the board, and see what happens?
 
-Signed-off-by: Sagar Kadam <sagar.kadam@sifive.com>
----
- .../devicetree/bindings/riscv/sifive-l2-cache.txt  | 51 ------------
- .../devicetree/bindings/riscv/sifive-l2-cache.yaml | 93 ++++++++++++++++++++++
- 2 files changed, 93 insertions(+), 51 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/riscv/sifive-l2-cache.txt
- create mode 100644 Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
-
-diff --git a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.txt b/Documentation/devicetree/bindings/riscv/sifive-l2-cache.txt
-deleted file mode 100644
-index 73d8f19..0000000
---- a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.txt
-+++ /dev/null
-@@ -1,51 +0,0 @@
--SiFive L2 Cache Controller
----------------------------
--The SiFive Level 2 Cache Controller is used to provide access to fast copies
--of memory for masters in a Core Complex. The Level 2 Cache Controller also
--acts as directory-based coherency manager.
--All the properties in ePAPR/DeviceTree specification applies for this platform
--
--Required Properties:
----------------------
--- compatible: Should be "sifive,fu540-c000-ccache" and "cache"
--
--- cache-block-size: Specifies the block size in bytes of the cache.
--  Should be 64
--
--- cache-level: Should be set to 2 for a level 2 cache
--
--- cache-sets: Specifies the number of associativity sets of the cache.
--  Should be 1024
--
--- cache-size: Specifies the size in bytes of the cache. Should be 2097152
--
--- cache-unified: Specifies the cache is a unified cache
--
--- interrupts: Must contain 3 entries (DirError, DataError and DataFail signals)
--
--- reg: Physical base address and size of L2 cache controller registers map
--
--Optional Properties:
----------------------
--- next-level-cache: phandle to the next level cache if present.
--
--- memory-region: reference to the reserved-memory for the L2 Loosely Integrated
--  Memory region. The reserved memory node should be defined as per the bindings
--  in reserved-memory.txt
--
--
--Example:
--
--	cache-controller@2010000 {
--		compatible = "sifive,fu540-c000-ccache", "cache";
--		cache-block-size = <64>;
--		cache-level = <2>;
--		cache-sets = <1024>;
--		cache-size = <2097152>;
--		cache-unified;
--		interrupt-parent = <&plic0>;
--		interrupts = <1 2 3>;
--		reg = <0x0 0x2010000 0x0 0x1000>;
--		next-level-cache = <&L25 &L40 &L36>;
--		memory-region = <&l2_lim>;
--	};
-diff --git a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml b/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
-new file mode 100644
-index 0000000..d2edeb0
---- /dev/null
-+++ b/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
-@@ -0,0 +1,93 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+# Copyright (C) 2020 SiFive, Inc.
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/riscv/sifive-l2-cache.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: SiFive L2 Cache Controller
-+
-+maintainers:
-+  - Sagar Kadam <sagar.kadam@sifive.com>
-+  - Yash Shah <yash.shah@sifive.com>
-+  - Paul Walmsley  <paul.walmsley@sifive.com>
-+
-+description:
-+  The SiFive Level 2 Cache Controller is used to provide access to fast copies
-+  of memory for masters in a Core Complex. The Level 2 Cache Controller also
-+  acts as directory-based coherency manager.
-+  All the properties in ePAPR/DeviceTree specification applies for this platform.
-+
-+allOf:
-+  - $ref: /schemas/cache-controller.yaml#
-+
-+properties:
-+  compatible:
-+    items:
-+     - enum:
-+        - sifive,fu540-c000-ccache
-+     - const: cache
-+    description: |
-+      Should have "sifive,<soc>-cache" and "cache".
-+
-+  cache-block-size:
-+    const: 64
-+
-+  cache-level:
-+    const: 2
-+
-+  cache-sets:
-+    const: 1024
-+
-+  cache-size:
-+    const: 2097152
-+
-+  cache-unified: true
-+
-+  interrupts:
-+    description: |
-+      Must contain entries for DirError, DataError and DataFail signals.
-+    minItems: 1
-+    maxItems: 3
-+
-+  reg:
-+    maxItems: 1
-+    description: address of cache controller's registers.
-+
-+
-+  next-level-cache:
-+    description: |
-+      Phandle to the next level cache if present.
-+
-+  memory-region:
-+    description: |
-+      The reference to the reserved-memory for the L2 Loosely Integrated memory region.
-+      The reserved memory node should be defined as per the bindings in reserved-memory.txt.
-+
-+additionalProperties: false
-+
-+required:
-+  - compatible
-+  - cache-block-size
-+  - cache-level
-+  - cache-sets
-+  - cache-size
-+  - cache-unified
-+  - interrupts
-+  - reg
-+
-+examples:
-+  - |
-+    cache-controller@2010000 {
-+        compatible = "sifive,fu540-c000-ccache", "cache";
-+        cache-block-size = <64>;
-+        cache-level = <2>;
-+        cache-sets = <1024>;
-+        cache-size = <2097152>;
-+        cache-unified;
-+        reg = <0x2010000 0x1000>;
-+        interrupt-parent = <&plic0>;
-+        interrupts = <1 2 3>;
-+        next-level-cache = <&L25>;
-+        memory-region = <&l2_lim>;
-+    };
+Thanks
 -- 
-2.7.4
-
+Mohammed A Billoo
+Founder
+MAB Labs, LLC
+www.mab-labs.com
+201-338-2022
 
 _______________________________________________
 linux-riscv mailing list
