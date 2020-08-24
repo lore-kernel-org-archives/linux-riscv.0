@@ -2,78 +2,79 @@ Return-Path: <SRS0=MOMo=CC=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D587BC433DF
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Aug 2020 14:20:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 038F4C433DF
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Aug 2020 17:36:03 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7E22A2074D
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Aug 2020 14:20:50 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id BEEEB2067C
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Aug 2020 17:36:02 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="3XpzOsqq";
-	dkim=fail reason="key not found in DNS" (0-bit key) header.d=mab-labs.com header.i=@mab-labs.com header.b="Ky2lwH+j"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7E22A2074D
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=mab-labs.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="fvzGwIyT"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BEEEB2067C
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe
-	:List-Id:To:Subject:Message-ID:Date:From:MIME-Version:Reply-To:Cc:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jN6PpZDayg7SR4wkADz2C+FM3l5MDow5ulalUknF0qc=; b=3XpzOsqq+sY5qbLzYRE/QIjmQj
-	i0EYRgXHyFlzIGHUDkWaGKoFKPuCxWta3ZqPgekDZ9CdXdah7LH8ET70D2CM2+cOXzE0+9BsNXxVL
-	A6e4MAMgYiJzJ+eKuNXjEQoDBzgtB0cVKbt264D8GuRfQkE/PsC5NgHntzP7px2Tx45wl+85kCS3N
-	bhtWnee+qhRVNe4xYOces+UpUCjh2h7VnbFR2rhnZllEIYe9hzh1YKuSN7g0yRYwO2f0AErhPsPxX
-	1jDETjGNhGsyNPcP/IZiG2QNio7BZ+sJahzZLJhki2VlKGVYAmgrwu1tCOUiAKK52ouKE9ASciXYf
-	EPAj81Iw==;
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=KiSwlK0tA7AmpY/+0Cb79g/e94LtjG4NAJJPLWY37ZU=; b=fvzGwIyTReYPJjoh62f0q2Xjg
+	0y2tY5lxdVD2xoxGQXviFDHgeFOGg7Ul46jYUczgG0HXFrxiWREMdVtQ/4OzOw1cKN0wT1lEqOZu/
+	9iJ/WhXakE+Bmaq6qdNu4nuGShnd2aU3QoFPG2X9z8UB4jH9zeyXIys0O1eHOq3xyJsZD89lTYSux
+	zIxh7IPDpoSpNrzgBZ9Z2lxLM+jKmoVhyPTEGosm920gsqgwGzytVQK/KqBwbKLBxYrxBMVnnOJI0
+	5Ztr6qq4Dkv14TUZTs7uHnXxfxOD5jrNHyPQyWDJVXt2CMQNARwq6hy1VNtgVwfvDA0BluzDIFz8c
+	RowTqkqnA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kADKx-0000ex-AP; Mon, 24 Aug 2020 14:20:39 +0000
-Received: from mail-oi1-x244.google.com ([2607:f8b0:4864:20::244])
+	id 1kAGNo-0000FV-7D; Mon, 24 Aug 2020 17:35:48 +0000
+Received: from mail-il1-f195.google.com ([209.85.166.195])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kADKv-0000e5-5G
- for linux-riscv@lists.infradead.org; Mon, 24 Aug 2020 14:20:37 +0000
-Received: by mail-oi1-x244.google.com with SMTP id n128so8390783oif.0
- for <linux-riscv@lists.infradead.org>; Mon, 24 Aug 2020 07:20:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mab-labs.com; s=google;
- h=mime-version:from:date:message-id:subject:to;
- bh=DrrrTD7krAxD/+M9so0Zn9tg7xdUSzsctM+lxBHh9pw=;
- b=Ky2lwH+jWwCprjKWesVh6QMG13aCI8lUMP+rwGrkFzu4sAeb3AtrGfTbnSyB+FFXYN
- bQkKiMbwxngMDUhyGUP9SZav/iEtyOW+7Bs/Swxc5D8RKzsZFeJ/Gp+clJrKLXH3VIRZ
- 3+Nfe0X8wcWz2hiCZAoDtZ6XxV68QKcsoh2bhAYRkRfU9FAR/uA/GBKuEMeUdniC3f7l
- QFRb2lBIF1CTkOZOsEScNuqikZTBryfAkviHav1aSdBXuu5/Y5s2rKux73laq70cGaJt
- LsG5bNMET4DKvXaLqHwXc1YDYeG4NGBzfasI8Y+xotD/dyntd9smcRjZlkf00NKHHhX0
- CJdA==
+ id 1kAGNl-0000Dv-3N
+ for linux-riscv@lists.infradead.org; Mon, 24 Aug 2020 17:35:46 +0000
+Received: by mail-il1-f195.google.com with SMTP id q14so7998330ilj.8
+ for <linux-riscv@lists.infradead.org>; Mon, 24 Aug 2020 10:35:43 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
- bh=DrrrTD7krAxD/+M9so0Zn9tg7xdUSzsctM+lxBHh9pw=;
- b=ga6O0LY2wZPgbn0H1o9zuACCpEhxsgqhw4G70UKZ8NakLNS8QuhKnMHnLLNJyvmeeO
- n839Te7THD6+caybXChYbjpEnjNve/tZLnmcCQaA3WVNOAOFAuuORFrXUoa4TtCcHDj1
- hl+FqcRU0H5juaUN9EWDYnvz5HBVjJG8L9J4V+cIpqu3izeVJ6xxRCx1ELCg9lC0NovR
- CgzOcSs80QC///+Hh3DacAqUdOLSqsUO0gqRRngPelbZ2zz/wT3j1LZQBpH8d02BOL6O
- iZKVQ853nY6Yg/JkmclKs7cFfVF774+1Rg/OeEcLpSE0bmLJsSsECrKdTdd/WYoITRfm
- lIKA==
-X-Gm-Message-State: AOAM5301K5/hEUYjb8E5VpIpM1krCeyMUVt6FrXvuspS25T0c4oeA39q
- Zfh4TA27rM2YJfwevJb9u4gX67vycHAzzUo6OUs/GzvEQyuR+w==
-X-Google-Smtp-Source: ABdhPJzUbCf5Dbb45yYzgnBKhNLkw2z6PJ10hWksnbqjKcgSGWkA//16uqfrImxZuuIoQP3iBGxSi1gbeNerv3VFnWQ=
-X-Received: by 2002:aca:4e0c:: with SMTP id c12mr3074062oib.74.1598278833606; 
- Mon, 24 Aug 2020 07:20:33 -0700 (PDT)
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=RvtZJRVLDDkAIrUgbsaYYYpc0rnswzQQW7bcfytrw2k=;
+ b=g8DBG0hFE3ohnyHClS91BVuJ2yGf9RK2o32CS2LugAInWQo4OJNI5GBJVbd1G9StsF
+ C+3p8oJyNk8wAcTFJ7tKxA0teFtUlIZVqKPVKpPg2XFV8sMBzOYd/k2ozu8QFXdOceyU
+ VNprN9tquFdAUsLzdICJmah0DDemc3skUvZ/YAsOTq/8VP0oESkRZGkVSwVg/MVIVMKR
+ LPlR+COPj9FQKUQXWEuo+TbUbP3Yhs8NT2d2RSWusP89lGb/uwCrYejmhATl+HdS/tnm
+ EsIUQjniiKOePUVJZH8WVvfEt0duTHNP3JNPoifizvkX2spdtZNzK66ha6kYI4+Hp31c
+ fRWQ==
+X-Gm-Message-State: AOAM530PmVE/PghOvrl//k9ACtE9hxZtMUAwIKooXOxrprKxVoLmV+jE
+ cP5B1gYLraoIHO96Ld124g==
+X-Google-Smtp-Source: ABdhPJx3PuEeH9ZUnf9J9dEAAzUONc8w1DwyS3NKEIgjuNlhebcqOFLr3iHJXgxxkvBQXG3pOmyM1g==
+X-Received: by 2002:a92:7b10:: with SMTP id w16mr5453892ilc.92.1598290542423; 
+ Mon, 24 Aug 2020 10:35:42 -0700 (PDT)
+Received: from xps15 ([64.188.179.249])
+ by smtp.gmail.com with ESMTPSA id p21sm7100806ioj.10.2020.08.24.10.35.41
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 24 Aug 2020 10:35:41 -0700 (PDT)
+Received: (nullmailer pid 2943902 invoked by uid 1000);
+ Mon, 24 Aug 2020 17:35:39 -0000
+Date: Mon, 24 Aug 2020 11:35:39 -0600
+From: Rob Herring <robh@kernel.org>
+To: Sagar Kadam <sagar.kadam@sifive.com>
+Subject: Re: [PATCH 1/1] dt-bindings: riscv: sifive-l2-cache: convert
+ bindings to json-schema
+Message-ID: <20200824173539.GA2939042@bogus>
+References: <1598255421-8274-1-git-send-email-sagar.kadam@sifive.com>
+ <1598255421-8274-2-git-send-email-sagar.kadam@sifive.com>
 MIME-Version: 1.0
-From: Mohammed Billoo <mab@mab-labs.com>
-Date: Mon, 24 Aug 2020 10:20:22 -0400
-Message-ID: <CALkjhPrHDHRsFDh9n864xvK4DKU2GW68_TcA-Tz17udsOWjbFg@mail.gmail.com>
-Subject: RISC-V testing needs on HW?
-To: linux-riscv@lists.infradead.org
+Content-Disposition: inline
+In-Reply-To: <1598255421-8274-2-git-send-email-sagar.kadam@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200824_102037_245342_1599433A 
-X-CRM114-Status: UNSURE (   5.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200824_133545_196421_3AC519F6 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -85,22 +86,326 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, aou@eecs.berkeley.edu,
+ linux-kernel@vger.kernel.org, yash.shah@sifive.com, robh+dt@kernel.org,
+ palmer@dabbelt.com, paul.walmsley@sifive.com, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-My Kendryte board should arrive this Thursday. Is there any targeted
-testing that anyone would like done, or should I just build the latest
-5.9 rc for riscv, load it on the board, and see what happens?
+On Mon, 24 Aug 2020 13:20:21 +0530, Sagar Kadam wrote:
+> Convert the device tree bindings for the SiFive's FU540-C000 SoC's L2 Cache
+> controller to YAML format.
+> 
+> Signed-off-by: Sagar Kadam <sagar.kadam@sifive.com>
+> ---
+>  .../devicetree/bindings/riscv/sifive-l2-cache.txt  | 51 ------------
+>  .../devicetree/bindings/riscv/sifive-l2-cache.yaml | 93 ++++++++++++++++++++++
+>  2 files changed, 93 insertions(+), 51 deletions(-)
+>  delete mode 100644 Documentation/devicetree/bindings/riscv/sifive-l2-cache.txt
+>  create mode 100644 Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+> 
 
-Thanks
--- 
-Mohammed A Billoo
-Founder
-MAB Labs, LLC
-www.mab-labs.com
-201-338-2022
+
+My bot found errors running 'make dt_binding_check' on your patch:
+
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dt.yaml: l2-cache: $nodename:0: 'l2-cache' does not match '^(cache-controller|cpu)(@[0-9a-f,]+)*$'
+	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dt.yaml: l2-cache: compatible:0: 'cache' is not one of ['sifive,fu540-c000-ccache']
+	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dt.yaml: l2-cache: compatible: ['cache'] is too short
+	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dt.yaml: l2-cache: 'l3-cache' does not match any of the regexes: 'pinctrl-[0-9]+'
+	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dt.yaml: l2-cache: 'cache-block-size' is a required property
+	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dt.yaml: l2-cache: 'cache-level' is a required property
+	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dt.yaml: l2-cache: 'cache-sets' is a required property
+	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dt.yaml: l2-cache: 'cache-size' is a required property
+	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dt.yaml: l2-cache: 'cache-unified' is a required property
+	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dt.yaml: l2-cache: 'reg' is a required property
+	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dt.yaml: l2-cache: {'compatible': ['cache'], 'next-level-cache': [[2]], 'phandle': [[1]], 'l3-cache': {'compatible': ['cache'], 'phandle': [[2]]}, '$nodename': ['l2-cache']} is not valid under any of the given schemas
+{'$filename': '/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml',
+ '$id': 'http://devicetree.org/schemas/riscv/sifive-l2-cache.yaml#',
+ '$schema': 'http://devicetree.org/meta-schemas/core.yaml#',
+ '$select_validator': <jsonschema.validators.create.<locals>.Validator object at 0x7efcd84bc850>,
+ 'additionalProperties': False,
+ 'allOf': [{'$ref': '/schemas/cache-controller.yaml#'}],
+ 'oneOf': [{'required': ['interrupts']},
+           {'required': ['interrupts-extended']}],
+ 'patternProperties': {'pinctrl-[0-9]+': True},
+ 'properties': {'$nodename': True,
+                'cache-block-size': {'additionalItems': False,
+                                     'items': [{'additionalItems': False,
+                                                'items': [{'const': 64}],
+                                                'maxItems': 1,
+                                                'minItems': 1,
+                                                'type': 'array'}],
+                                     'maxItems': 1,
+                                     'minItems': 1,
+                                     'type': 'array'},
+                'cache-level': {'additionalItems': False,
+                                'items': [{'additionalItems': False,
+                                           'items': [{'const': 2}],
+                                           'maxItems': 1,
+                                           'minItems': 1,
+                                           'type': 'array'}],
+                                'maxItems': 1,
+                                'minItems': 1,
+                                'type': 'array'},
+                'cache-sets': {'additionalItems': False,
+                               'items': [{'additionalItems': False,
+                                          'items': [{'const': 1024}],
+                                          'maxItems': 1,
+                                          'minItems': 1,
+                                          'type': 'array'}],
+                               'maxItems': 1,
+                               'minItems': 1,
+                               'type': 'array'},
+                'cache-size': {'additionalItems': False,
+                               'items': [{'additionalItems': False,
+                                          'items': [{'const': 2097152}],
+                                          'maxItems': 1,
+                                          'minItems': 1,
+                                          'type': 'array'}],
+                               'maxItems': 1,
+                               'minItems': 1,
+                               'type': 'array'},
+                'cache-unified': True,
+                'compatible': {'additionalItems': False,
+                               'items': [{'enum': ['sifive,fu540-c000-ccache']},
+                                         {'const': 'cache'}],
+                               'maxItems': 2,
+                               'minItems': 2,
+                               'type': 'array'},
+                'interrupt-parent': True,
+                'interrupts': {'maxItems': 3, 'minItems': 1},
+                'interrupts-extended': {'maxItems': 3, 'minItems': 1},
+                'memory-region': {},
+                'next-level-cache': {},
+                'phandle': True,
+                'pinctrl-names': True,
+                'reg': {'maxItems': 1, 'minItems': 1},
+                'status': True},
+ 'required': ['compatible',
+              'cache-block-size',
+              'cache-level',
+              'cache-sets',
+              'cache-size',
+              'cache-unified',
+              'reg'],
+ 'select': {'properties': {'compatible': {'contains': {'enum': ['cache',
+                                                                'sifive,fu540-c000-ccache']}}},
+            'required': ['compatible']},
+ 'title': 'SiFive L2 Cache Controller'} (Possible causes of the failure):
+	/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dt.yaml: l2-cache: 'interrupts' is a required property
+
+	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dt.yaml: l3-cache: $nodename:0: 'l3-cache' does not match '^(cache-controller|cpu)(@[0-9a-f,]+)*$'
+	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dt.yaml: l3-cache: compatible:0: 'cache' is not one of ['sifive,fu540-c000-ccache']
+	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dt.yaml: l3-cache: compatible: ['cache'] is too short
+	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dt.yaml: l3-cache: 'cache-block-size' is a required property
+	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dt.yaml: l3-cache: 'cache-level' is a required property
+	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dt.yaml: l3-cache: 'cache-sets' is a required property
+	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dt.yaml: l3-cache: 'cache-size' is a required property
+	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dt.yaml: l3-cache: 'cache-unified' is a required property
+	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dt.yaml: l3-cache: 'reg' is a required property
+	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dt.yaml: l3-cache: {'compatible': ['cache'], 'phandle': [[2]], '$nodename': ['l3-cache']} is not valid under any of the given schemas
+{'$filename': '/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml',
+ '$id': 'http://devicetree.org/schemas/riscv/sifive-l2-cache.yaml#',
+ '$schema': 'http://devicetree.org/meta-schemas/core.yaml#',
+ '$select_validator': <jsonschema.validators.create.<locals>.Validator object at 0x7efcd84bc850>,
+ 'additionalProperties': False,
+ 'allOf': [{'$ref': '/schemas/cache-controller.yaml#'}],
+ 'oneOf': [{'required': ['interrupts']},
+           {'required': ['interrupts-extended']}],
+ 'patternProperties': {'pinctrl-[0-9]+': True},
+ 'properties': {'$nodename': True,
+                'cache-block-size': {'additionalItems': False,
+                                     'items': [{'additionalItems': False,
+                                                'items': [{'const': 64}],
+                                                'maxItems': 1,
+                                                'minItems': 1,
+                                                'type': 'array'}],
+                                     'maxItems': 1,
+                                     'minItems': 1,
+                                     'type': 'array'},
+                'cache-level': {'additionalItems': False,
+                                'items': [{'additionalItems': False,
+                                           'items': [{'const': 2}],
+                                           'maxItems': 1,
+                                           'minItems': 1,
+                                           'type': 'array'}],
+                                'maxItems': 1,
+                                'minItems': 1,
+                                'type': 'array'},
+                'cache-sets': {'additionalItems': False,
+                               'items': [{'additionalItems': False,
+                                          'items': [{'const': 1024}],
+                                          'maxItems': 1,
+                                          'minItems': 1,
+                                          'type': 'array'}],
+                               'maxItems': 1,
+                               'minItems': 1,
+                               'type': 'array'},
+                'cache-size': {'additionalItems': False,
+                               'items': [{'additionalItems': False,
+                                          'items': [{'const': 2097152}],
+                                          'maxItems': 1,
+                                          'minItems': 1,
+                                          'type': 'array'}],
+                               'maxItems': 1,
+                               'minItems': 1,
+                               'type': 'array'},
+                'cache-unified': True,
+                'compatible': {'additionalItems': False,
+                               'items': [{'enum': ['sifive,fu540-c000-ccache']},
+                                         {'const': 'cache'}],
+                               'maxItems': 2,
+                               'minItems': 2,
+                               'type': 'array'},
+                'interrupt-parent': True,
+                'interrupts': {'maxItems': 3, 'minItems': 1},
+                'interrupts-extended': {'maxItems': 3, 'minItems': 1},
+                'memory-region': {},
+                'next-level-cache': {},
+                'phandle': True,
+                'pinctrl-names': True,
+                'reg': {'maxItems': 1, 'minItems': 1},
+                'status': True},
+ 'required': ['compatible',
+              'cache-block-size',
+              'cache-level',
+              'cache-sets',
+              'cache-size',
+              'cache-unified',
+              'reg'],
+ 'select': {'properties': {'compatible': {'contains': {'enum': ['cache',
+                                                                'sifive,fu540-c000-ccache']}}},
+            'required': ['compatible']},
+ 'title': 'SiFive L2 Cache Controller'} (Possible causes of the failure):
+	/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/thermal/thermal-cooling-devices.example.dt.yaml: l3-cache: 'interrupts' is a required property
+
+	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/power/renesas,rcar-sysc.example.dt.yaml: cache-controller-0: $nodename:0: 'cache-controller-0' does not match '^(cache-controller|cpu)(@[0-9a-f,]+)*$'
+	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/power/renesas,rcar-sysc.example.dt.yaml: cache-controller-0: compatible:0: 'cache' is not one of ['sifive,fu540-c000-ccache']
+	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/power/renesas,rcar-sysc.example.dt.yaml: cache-controller-0: compatible: ['cache'] is too short
+	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/power/renesas,rcar-sysc.example.dt.yaml: cache-controller-0: 'power-domains' does not match any of the regexes: 'pinctrl-[0-9]+'
+	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/power/renesas,rcar-sysc.example.dt.yaml: cache-controller-0: 'cache-block-size' is a required property
+	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/power/renesas,rcar-sysc.example.dt.yaml: cache-controller-0: 'cache-sets' is a required property
+	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/power/renesas,rcar-sysc.example.dt.yaml: cache-controller-0: 'cache-size' is a required property
+	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/power/renesas,rcar-sysc.example.dt.yaml: cache-controller-0: 'reg' is a required property
+	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/power/renesas,rcar-sysc.example.dt.yaml: cache-controller-0: {'compatible': ['cache'], 'power-domains': [[1, 12]], 'cache-unified': True, 'cache-level': [[2]], '$nodename': ['cache-controller-0']} is not valid under any of the given schemas
+{'$filename': '/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml',
+ '$id': 'http://devicetree.org/schemas/riscv/sifive-l2-cache.yaml#',
+ '$schema': 'http://devicetree.org/meta-schemas/core.yaml#',
+ '$select_validator': <jsonschema.validators.create.<locals>.Validator object at 0x7f26dd3928b0>,
+ 'additionalProperties': False,
+ 'allOf': [{'$ref': '/schemas/cache-controller.yaml#'}],
+ 'oneOf': [{'required': ['interrupts']},
+           {'required': ['interrupts-extended']}],
+ 'patternProperties': {'pinctrl-[0-9]+': True},
+ 'properties': {'$nodename': True,
+                'cache-block-size': {'additionalItems': False,
+                                     'items': [{'additionalItems': False,
+                                                'items': [{'const': 64}],
+                                                'maxItems': 1,
+                                                'minItems': 1,
+                                                'type': 'array'}],
+                                     'maxItems': 1,
+                                     'minItems': 1,
+                                     'type': 'array'},
+                'cache-level': {'additionalItems': False,
+                                'items': [{'additionalItems': False,
+                                           'items': [{'const': 2}],
+                                           'maxItems': 1,
+                                           'minItems': 1,
+                                           'type': 'array'}],
+                                'maxItems': 1,
+                                'minItems': 1,
+                                'type': 'array'},
+                'cache-sets': {'additionalItems': False,
+                               'items': [{'additionalItems': False,
+                                          'items': [{'const': 1024}],
+                                          'maxItems': 1,
+                                          'minItems': 1,
+                                          'type': 'array'}],
+                               'maxItems': 1,
+                               'minItems': 1,
+                               'type': 'array'},
+                'cache-size': {'additionalItems': False,
+                               'items': [{'additionalItems': False,
+                                          'items': [{'const': 2097152}],
+                                          'maxItems': 1,
+                                          'minItems': 1,
+                                          'type': 'array'}],
+                               'maxItems': 1,
+                               'minItems': 1,
+                               'type': 'array'},
+                'cache-unified': True,
+                'compatible': {'additionalItems': False,
+                               'items': [{'enum': ['sifive,fu540-c000-ccache']},
+                                         {'const': 'cache'}],
+                               'maxItems': 2,
+                               'minItems': 2,
+                               'type': 'array'},
+                'interrupt-parent': True,
+                'interrupts': {'maxItems': 3, 'minItems': 1},
+                'interrupts-extended': {'maxItems': 3, 'minItems': 1},
+                'memory-region': {},
+                'next-level-cache': {},
+                'phandle': True,
+                'pinctrl-names': True,
+                'reg': {'maxItems': 1, 'minItems': 1},
+                'status': True},
+ 'required': ['compatible',
+              'cache-block-size',
+              'cache-level',
+              'cache-sets',
+              'cache-size',
+              'cache-unified',
+              'reg'],
+ 'select': {'properties': {'compatible': {'contains': {'enum': ['cache',
+                                                                'sifive,fu540-c000-ccache']}}},
+            'required': ['compatible']},
+ 'title': 'SiFive L2 Cache Controller'} (Possible causes of the failure):
+	/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/power/renesas,rcar-sysc.example.dt.yaml: cache-controller-0: 'interrupts' is a required property
+
+	From schema: /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+
+
+See https://patchwork.ozlabs.org/patch/1350111
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure dt-schema is up to date:
+
+pip3 install git+https://github.com/devicetree-org/dt-schema.git@master --upgrade
+
+Please check and re-submit.
+
 
 _______________________________________________
 linux-riscv mailing list
