@@ -2,120 +2,88 @@ Return-Path: <SRS0=kFy7=CD=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,RCVD_ILLEGAL_IP,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9B0F9C433E1
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Aug 2020 12:07:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DEEF3C433E1
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Aug 2020 16:03:08 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4EA6B20706
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Aug 2020 12:07:14 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A76F220782
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Aug 2020 16:03:08 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="TDtLbg4Y";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sifive.com header.i=@sifive.com header.b="RQiMf8hh"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4EA6B20706
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="AhydbfDn";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="okyPVVy7"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A76F220782
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=xE4E0JYZZx3KfwLZ3u4Jkcl3HUkzwTS8L6kL1rp1tbo=; b=TDtLbg4YDW+b7Z5/oPD1vpEQh
-	dnHLAYV505DmjrV8knpGEMBbI+HNpsIKT9giBuEJgivJJDWKfcjcvVXfCIymzPfXk8FJTY+somgCL
-	Jj7Hfbyosq/i8Srw6QxgdibxNZytaPPLxWjP6aQ35JCvTQM3TeYL831NcQ7Vw8SjtPcuwRnswaSja
-	r4z8aXAHMJ+VwO3AhV06a034LIA97d/nGLNbBqS599+sur/k/EUXTqX8bhToLEo7UWXEs10g+YX+j
-	xps8U7+rthOh5fleaGP24lfFOfKhF6s8cyns4j+jD5PC+nYv/FeFiPtZXah31ApYV+ujHa7XW3xzF
-	5GP65FX9g==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=5KdLLiT027OxVEJTgMmzY9wJKQMkzoORWnU469VY3N4=; b=AhydbfDnYl9LIex9N5Pt/YAoA
+	GqUk2UacgG+f6Y8XRmnKc7MJN9gAAYb4xczTL8zx1SICuFhvrsuA1//6/ME9yxkYTBhQepAr7V88n
+	WerM7XvcWP4a/QY4xyJsOQh9u+JI2ufKGqiLLC/75UGxOX8b4V0pk7HPCXDvM463EdsDX7ie04yWz
+	ITAfRF61SRzfcCWVyXY4RHDbX48+jJa6xvk65cqbL3Vk73rsmJKgfqHW4T6QQ6LlP201DwTZ/aAoc
+	mr5B3bJpspsyGbFIewAqWvRKLxAaFDt1axF1AxXtYztD49aOAldF5i7VxQ4WHumTr/YqUBZXykV6m
+	/c/OjPbTg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kAXjG-0000FP-L4; Tue, 25 Aug 2020 12:07:06 +0000
-Received: from mail-bn8nam12on2078.outbound.protection.outlook.com
- ([40.107.237.78] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1kAbPY-000492-Cy; Tue, 25 Aug 2020 16:03:00 +0000
+Received: from mail-pj1-x1042.google.com ([2607:f8b0:4864:20::1042])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kAXjD-0000CV-7P
- for linux-riscv@lists.infradead.org; Tue, 25 Aug 2020 12:07:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=SZZ/ojJqp6VWtBwgwXupfxeUXDgeGJ6BEy0wcYzr+AjxQYynr++wFMPYEfg++GpOZHnnyHUQLVVOuF/hlenAqb6DEe4xtRqUUGh4+eZuP/p/V5P1C6scO1gHseuPtr31sGAouVtNh9ZOoHufHmhyXnMvMHrnt//3Jw0q+f3tK/fAg/gIpJhpM10FBGI5497gupwN6ncNwdzEn/4BBBUU2LmjEf/3CvC948B35q/iIj4SE335szrKol0NMuIpzLZjSy4H2mGZESzA+UKWPb0WYrh/+OpE6noVwXwatiTa+dUsvmfRJryFG9Lkonj7Z2bleXa6Jg/WvIVO6gQgfXN3+A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0S8xr4KU9pWaehG5jHIU10tawLW5v1xVOP0HDmjBVyw=;
- b=UPZOj4yYyGzqkcZHSiTZMSySSgbWUGVYiBOo0yFbeRG470up1ZF1pBQFuu511ZeEWF7Zb0yPzr2wiyTxbPkOZ9xQM4faqJdjMNgyVBMKdc/pvqBzxMrKhQcedl4QSpZzv9ZOqQFAVvssm3GXAbx8BOADmrmR8HbigI04kpdHtYyc/5dLPuDHHwfsEC2CM/yMTjblo0WbktjVyRW3KzqDRUblnh8qgT05285Ar0z738lvEuuT8qGPsXQv/Rgq+S4l/ypUHaMnvgi3av50LT8wMEmCV9WenYRoTElKyE9Rbs4wh61TIjOuz3ptETgTFTEBTYwkmthxYCsUf4NHeaWO/w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=openfive.com; dmarc=pass action=none header.from=sifive.com;
- dkim=pass header.d=sifive.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0S8xr4KU9pWaehG5jHIU10tawLW5v1xVOP0HDmjBVyw=;
- b=RQiMf8hhRKTZQZJ0UUZD1+yNdNGXLGYtveEHLUQTZWXvgfjjLg1yIGmHF7xOx/50uRFoODEBbuPwCK236xbwrYLTzArQ4WRjEhSI1ApSrwbxpP8HaxQhnCYe8EzdDJoNqnwhRJvk3tOFJMJ3hlLOOKv9RtsYWiBo/Z4qq1+oxpA=
-Authentication-Results: kernel.org; dkim=none (message not signed)
- header.d=none;kernel.org; dmarc=none action=none header.from=sifive.com;
-Received: from BN6PR1301MB2020.namprd13.prod.outlook.com
- (2603:10b6:405:34::34) by BN6PR1301MB1873.namprd13.prod.outlook.com
- (2603:10b6:405:34::28) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3326.11; Tue, 25 Aug
- 2020 12:07:01 +0000
-Received: from BN6PR1301MB2020.namprd13.prod.outlook.com
- ([fe80::a446:9877:b346:93ad]) by BN6PR1301MB2020.namprd13.prod.outlook.com
- ([fe80::a446:9877:b346:93ad%5]) with mapi id 15.20.3326.019; Tue, 25 Aug 2020
- 12:07:01 +0000
-From: Yash Shah <yash.shah@sifive.com>
-To: robh+dt@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com,
- bp@alien8.de, mchehab@kernel.org, tony.luck@intel.com
-Subject: [PATCH 3/3] edac: sifive: Add EDAC support for Memory Controller in
- SiFive SoCs
-Date: Tue, 25 Aug 2020 17:36:22 +0530
-Message-Id: <1598357182-4226-4-git-send-email-yash.shah@sifive.com>
-X-Mailer: git-send-email 2.7.4
+ id 1kAbPV-000472-1t
+ for linux-riscv@lists.infradead.org; Tue, 25 Aug 2020 16:02:58 +0000
+Received: by mail-pj1-x1042.google.com with SMTP id 2so1477712pjx.5
+ for <linux-riscv@lists.infradead.org>; Tue, 25 Aug 2020 09:02:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=Ev7YebnrMJC5hGp27fNNwdoImL+JDFARELNBma0/uAA=;
+ b=okyPVVy74yhlMZQCWF4kzfTd4X55KXDYOqzLJQnAIW0h1IFAYQXbSPLOVAMXMA3C3j
+ tL/HLBWDHQzpJj4ci2GUYu5lisDQtceXxLtpRS3C1N6QiXc629q7MzAhIlKzsE/O6Jxp
+ hxXjODLVSsA6omJuJUBYBjG3837I0mbscmwd9DDiSmJNrH7kgNiRNwtZuorFkk/LFb9S
+ 8UetkH/uOhJseG0AECV3EuEvJy1vGwu2TbWICNUOLQB0uPtfvydMA8RjobjPyJ5HGasI
+ na6uzBxKd/6d/1odYvw97QotgbrYy+3q+PDbivrnLe7VTnK7Y1ItmndVIMa2H90PXS1/
+ vWZQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=Ev7YebnrMJC5hGp27fNNwdoImL+JDFARELNBma0/uAA=;
+ b=GHqN8LS27998MSSNYXdAtXPNAU13U3LWac14t+eEuU8rLEmw8OGWsKik5Ox4NC0hcu
+ sgaFSlJhHuXUW1lROp9Wp7AbWVqqhdSxlCxWU6nGP9Weash1rF+kFIja0QUg2AMT3Olf
+ eKINl64WQerqeUfG4ZyhD39nsq4mFxqpOMf/IBiX0zqc/SbTiLdoXZG6STmD0U7BvXFh
+ OEMIQu7/GHG76ksUos0XxWe3cwWiDiM8grrDTAcgxwi/3fCDl+BWxFqhbmaXSgD85SVx
+ iizjLecAa68zD2n5Eo/niXBmu5OKCXjuzn3Rw7KzJRpUR5E+bFkY8kHD7DRDi4j2ohqw
+ 4aGQ==
+X-Gm-Message-State: AOAM530jnX7eYcOH8st/eVpq3JhSSKJToQZuWXbmDmBA3JSaYnEmMW+M
+ 9kVHH2wg6Ny3DaF3fXmkFOB9yA==
+X-Google-Smtp-Source: ABdhPJxVMLNNcoGNUamsRb6XNuw5Pw/vE4Xo0oCs/JaO+Bek+U4WRn0q62JXgjoWyYfGNhJmC9XG0Q==
+X-Received: by 2002:a17:90a:f994:: with SMTP id
+ cq20mr2218207pjb.229.1598371375255; 
+ Tue, 25 Aug 2020 09:02:55 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id t19sm15483792pfq.179.2020.08.25.09.02.54
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 25 Aug 2020 09:02:54 -0700 (PDT)
+Date: Tue, 25 Aug 2020 09:02:54 -0700 (PDT)
+X-Google-Original-Date: Tue, 25 Aug 2020 09:02:48 PDT (-0700)
+Subject: Re: [PATCH 0/3] SiFive DDR controller and EDAC support
 In-Reply-To: <1598357182-4226-1-git-send-email-yash.shah@sifive.com>
-References: <1598357182-4226-1-git-send-email-yash.shah@sifive.com>
-X-ClientProxiedBy: BMXPR01CA0023.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:b00:d::33) To BN6PR1301MB2020.namprd13.prod.outlook.com
- (2603:10b6:405:34::34)
-MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-Received: from 255.255.255.255 (255.255.255.255) by
- BMXPR01CA0023.INDPRD01.PROD.OUTLOOK.COM (2603:1096:b00:d::33) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id
- 15.20.3305.24 via Frontend Transport; Tue, 25 Aug 2020 12:06:56 +0000
-X-Mailer: git-send-email 2.7.4
-X-Originating-IP: [159.117.144.156]
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 9edb6c62-97f6-4719-b1a2-08d848ef5f70
-X-MS-TrafficTypeDiagnostic: BN6PR1301MB1873:
-X-LD-Processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
-X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <BN6PR1301MB18732CB33B90AFC1EC511BF682570@BN6PR1301MB1873.namprd13.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:6108;
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: om6QpE3UacvxvZZMIi0v6Fj83fS2CeCR5RqhsXozTZm5r97RyWqrXkVuVdSRrnsvGtJNN1vKH52qIEYCMb68le/bVoqb+HSl4xEptr6GSB+zVMML2f1RDuJVuBor4cq2rw9U9g81oaVHcc6IXeO6JG1PDfPqejxGKSna1lu6ETejTk45Cd3PpO0ywDJ+frAFvSgftLBiYU44huwNRXKLxzHyaZxlm6wEiL3FEUycwq/TrlZ41ORedw99PNArIFtGBAZt9N0NTGowRNL7Il0Qkta3hVlsSg7vq+PoYeKnkL4cZLJdmVcQRcuC0lDrI0ChWyvCQW9765oWaW5w5Z8U8Q==
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:BN6PR1301MB2020.namprd13.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(6029001)(396003)(366004)(136003)(346002)(39850400004)(376002)(7416002)(4326008)(6486002)(66556008)(52116002)(26005)(66476007)(186003)(107886003)(8936002)(316002)(83170400001)(16576012)(42882007)(5660300002)(66946007)(6666004)(478600001)(36756003)(2616005)(83380400001)(956004)(2906002)(8676002)(44832011);
- DIR:OUT; SFP:1101; 
-X-MS-Exchange-AntiSpam-MessageData: Z1XsR/JLNSkQT+XdSrC3781XIcdYm5QNYfSHapmuQuJD+FDNgSodcKpgJ1KBKnv3pSnIQn0D+7NUYU28O63wUyOBkw5G8CDJUWsX0lmkEXpCz381AfOiNOgLGXaDg4mGcnCy2LOe7dcorV6y9SL+ZEdSz/EMacbFb8L3Dsj2H6BfECVVCqbwlvyxiIYtX1BtBaV/79Zs51GVjIA75V1UuSuGq73413ddZ8xlcXsk1MFeAia0DQJoKXoyy1ZVfXQriok6GuQIKM9GY2arFsW38GhKq7UTEPBCQ8Tylh83LjfT4EYcB6Q/vCHkbWoC6vppPLeULCGakApv/VBSZP83O+LjL/GCoYk8HuqryFbRePT40SLej8wiZ8F6gVGNa9d7tSfFEC977C4j2tUP8RDB6ogavY0nXaHQ/ggQ+1tNtaNZOyUeYe7qqkmcNyruXds7ZK0ZyLUXXmAwgHap48EgRZMSPoa8MON2ydvjthc85bDuDhkSKgjPAVjDwg0R2WkQdVb5tS1roJ8a1JeBzd6Ho6G3rvcXFg68D0Rjt7XeWySchRKN17WgBSzDldvqMRTiXgF3osrQOeXTy2hhFTBnInI9s4vbzoDLaUwGHeHbdeSY78mTfIVigtljHBZYo4iI+Xs/+3S2JhV4qqzmZs1uyw==
-X-OriginatorOrg: sifive.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9edb6c62-97f6-4719-b1a2-08d848ef5f70
-X-MS-Exchange-CrossTenant-AuthSource: BN6PR1301MB2020.namprd13.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Aug 2020 12:07:01.0468 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: raWz0BjIDeMQxoz/tEiFAXOrOOta7EMqqsYeLUTKe0yO1NQY93V7akx0Vz+IlE079A8vz38de7N8wVZmyowayA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN6PR1301MB1873
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: yash.shah@sifive.com
+Message-ID: <mhng-eeb15e05-0af6-42bd-8c35-0b7e9bbedba7@palmerdabbelt-glaptop1>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200825_080703_309268_F5E9840F 
-X-CRM114-Status: GOOD (  18.90  )
+X-CRM114-CacheID: sfid-20200825_120257_143776_E3F48EAD 
+X-CRM114-Status: GOOD (  20.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -127,206 +95,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, aou@eecs.berkeley.edu,
- linux-kernel@vger.kernel.org, sachin.ghadi@sifive.com,
- Yash Shah <yash.shah@sifive.com>, rrichter@marvell.com, james.morse@arm.com,
- linux-riscv@lists.infradead.org, linux-edac@vger.kernel.org
-Content-Type: text/plain; charset="us-ascii"
+Cc: devicetree@vger.kernel.org, tony.luck@intel.com,
+ linux-kernel@vger.kernel.org, rrichter@marvell.com, sachin.ghadi@sifive.com,
+ yash.shah@sifive.com, robh+dt@kernel.org, bp@alien8.de,
+ Paul Walmsley <paul.walmsley@sifive.com>, james.morse@arm.com,
+ linux-riscv@lists.infradead.org, mchehab@kernel.org, aou@eecs.berkeley.edu,
+ linux-edac@vger.kernel.org
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add Memory controller EDAC support in exisiting SiFive platform EDAC
-driver. It registers for notifier events from the SiFive DDR controller
-driver for DDR ECC events.
+On Tue, 25 Aug 2020 05:06:19 PDT (-0700), yash.shah@sifive.com wrote:
+> The series add supports for SiFive DDR controller driver. This driver
+> is use to manage the Cadence DDR controller present in SiFive SoCs.
+> Currently it manages only the EDAC feature of the DDR controller.
+> The series also adds Memory controller EDAC support for SiFive platform.
+> It register for notifier event from SiFive DDR controller driver.
+>
+> The series is tested and based on Linux v5.8.
+>
+> For testing on Hifive Unleashed:
+> 1. Enable the ECC bit of DDR controller during DDR initialization
+> 2. Erase the entire DRAM in bootloader stage
+> 3. Using FWC feature of DDR controller force ecc error to test
+>
+> Yash Shah (3):
+>   dt-bindings: riscv: Add DT documentation for DDR Controller in SiFive
+>     SoCs
+>   soc: sifive: Add SiFive specific Cadence DDR controller driver
+>   edac: sifive: Add EDAC support for Memory Controller in SiFive SoCs
+>
+>  .../devicetree/bindings/riscv/sifive-ddr.yaml      |  41 ++++
+>  drivers/edac/Kconfig                               |   2 +-
+>  drivers/edac/sifive_edac.c                         | 117 ++++++++++++
+>  drivers/soc/sifive/Kconfig                         |   6 +
+>  drivers/soc/sifive/Makefile                        |   3 +-
+>  drivers/soc/sifive/sifive_ddr.c                    | 207 +++++++++++++++++++++
+>  include/soc/sifive/sifive_ddr.h                    |  73 ++++++++
+>  7 files changed, 447 insertions(+), 2 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/riscv/sifive-ddr.yaml
+>  create mode 100644 drivers/soc/sifive/sifive_ddr.c
+>  create mode 100644 include/soc/sifive/sifive_ddr.h
 
-Signed-off-by: Yash Shah <yash.shah@sifive.com>
----
- drivers/edac/Kconfig       |   2 +-
- drivers/edac/sifive_edac.c | 117 +++++++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 118 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/edac/Kconfig b/drivers/edac/Kconfig
-index 7b6ec30..f8b3b53 100644
---- a/drivers/edac/Kconfig
-+++ b/drivers/edac/Kconfig
-@@ -462,7 +462,7 @@ config EDAC_ALTERA_SDMMC
- 
- config EDAC_SIFIVE
- 	bool "Sifive platform EDAC driver"
--	depends on EDAC=y && SIFIVE_L2
-+	depends on EDAC=y && (SIFIVE_L2 || SIFIVE_DDR)
- 	help
- 	  Support for error detection and correction on the SiFive SoCs.
- 
-diff --git a/drivers/edac/sifive_edac.c b/drivers/edac/sifive_edac.c
-index 3a3dcb1..cf032685 100644
---- a/drivers/edac/sifive_edac.c
-+++ b/drivers/edac/sifive_edac.c
-@@ -11,14 +11,120 @@
- #include <linux/platform_device.h>
- #include "edac_module.h"
- #include <soc/sifive/sifive_l2_cache.h>
-+#include <soc/sifive/sifive_ddr.h>
- 
- #define DRVNAME "sifive_edac"
-+#define SIFIVE_EDAC_MOD_NAME "Sifive ECC Manager"
- 
- struct sifive_edac_priv {
- 	struct notifier_block notifier;
- 	struct edac_device_ctl_info *dci;
- };
- 
-+struct sifive_edac_mc_priv {
-+	struct notifier_block notifier;
-+	struct mem_ctl_info *mci;
-+};
-+
-+/**
-+ * EDAC MC error callback
-+ *
-+ * @event: non-zero if unrecoverable.
-+ */
-+static
-+int ecc_mc_err_event(struct notifier_block *this, unsigned long event, void *ptr)
-+{
-+	struct sifive_ddr_priv *priv = ptr;
-+	struct sifive_edac_mc_priv *p;
-+
-+	p = container_of(this, struct sifive_edac_mc_priv, notifier);
-+	if (event == SIFIVE_DDR_ERR_TYPE_UE) {
-+		edac_mc_handle_error(HW_EVENT_ERR_UNCORRECTED, p->mci,
-+				     priv->error_count, priv->page_frame_number,
-+				     priv->offset_in_page, priv->syndrome,
-+				     priv->top_layer, priv->mid_layer,
-+				     priv->low_layer, p->mci->ctl_name, "");
-+	} else if (event == SIFIVE_DDR_ERR_TYPE_CE) {
-+		edac_mc_handle_error(HW_EVENT_ERR_CORRECTED, p->mci,
-+				     priv->error_count, priv->page_frame_number,
-+				     priv->offset_in_page, priv->syndrome,
-+				     priv->top_layer, priv->mid_layer,
-+				     priv->low_layer, p->mci->ctl_name, "");
-+	}
-+
-+	return NOTIFY_OK;
-+}
-+
-+static int ecc_mc_register(struct platform_device *pdev)
-+{
-+	struct sifive_edac_mc_priv *p;
-+	struct edac_mc_layer layers[1];
-+	int ret;
-+
-+	p = devm_kzalloc(&pdev->dev, sizeof(*p), GFP_KERNEL);
-+	if (!p)
-+		return -ENOMEM;
-+
-+	p->notifier.notifier_call = ecc_mc_err_event;
-+	platform_set_drvdata(pdev, p);
-+
-+	layers[0].type = EDAC_MC_LAYER_CHIP_SELECT;
-+	layers[0].size = 1;
-+	layers[0].is_virt_csrow = true;
-+
-+	p->mci = edac_mc_alloc(0, ARRAY_SIZE(layers), layers, 0);
-+	if (!p->mci) {
-+		dev_err(&pdev->dev, "Failed mem allocation for mc instance\n");
-+		return -ENOMEM;
-+	}
-+
-+	p->mci->pdev = &pdev->dev;
-+	/* Initialize controller capabilities */
-+	p->mci->mtype_cap = MEM_FLAG_DDR4;
-+	p->mci->edac_ctl_cap = EDAC_FLAG_NONE | EDAC_FLAG_SECDED;
-+	p->mci->edac_cap = EDAC_FLAG_SECDED;
-+	p->mci->scrub_cap = SCRUB_UNKNOWN;
-+	p->mci->scrub_mode = SCRUB_HW_PROG;
-+	p->mci->ctl_name = dev_name(&pdev->dev);
-+	p->mci->dev_name = dev_name(&pdev->dev);
-+	p->mci->mod_name = SIFIVE_EDAC_MOD_NAME;
-+	p->mci->ctl_page_to_phys = NULL;
-+
-+	/* Interrupt feature is supported by cadence mc */
-+	edac_op_state = EDAC_OPSTATE_INT;
-+
-+	ret = edac_mc_add_mc(p->mci);
-+	if (ret) {
-+		edac_printk(KERN_ERR, SIFIVE_EDAC_MOD_NAME,
-+			    "Failed to register with EDAC core\n");
-+		goto err;
-+	}
-+
-+#ifdef CONFIG_SIFIVE_DDR
-+	register_sifive_ddr_error_notifier(&p->notifier);
-+#endif
-+
-+	return 0;
-+
-+err:
-+	edac_mc_free(p->mci);
-+
-+	return -ENXIO;
-+}
-+
-+static int ecc_mc_unregister(struct platform_device *pdev)
-+{
-+	struct sifive_edac_mc_priv *p = platform_get_drvdata(pdev);
-+
-+#ifdef CONFIG_SIFIVE_DDR
-+	unregister_sifive_ddr_error_notifier(&p->notifier);
-+#endif
-+	edac_mc_del_mc(&pdev->dev);
-+	edac_mc_free(p->mci);
-+
-+	return 0;
-+}
-+
- /**
-  * EDAC error callback
-  *
-@@ -67,7 +173,9 @@ static int ecc_register(struct platform_device *pdev)
- 		goto err;
- 	}
- 
-+#ifdef CONFIG_SIFIVE_L2
- 	register_sifive_l2_error_notifier(&p->notifier);
-+#endif
- 
- 	return 0;
- 
-@@ -81,7 +189,9 @@ static int ecc_unregister(struct platform_device *pdev)
- {
- 	struct sifive_edac_priv *p = platform_get_drvdata(pdev);
- 
-+#ifdef CONFIG_SIFIVE_L2
- 	unregister_sifive_l2_error_notifier(&p->notifier);
-+#endif
- 	edac_device_del_device(&pdev->dev);
- 	edac_device_free_ctl_info(p->dci);
- 
-@@ -102,12 +212,19 @@ static int __init sifive_edac_init(void)
- 	if (ret)
- 		platform_device_unregister(sifive_pdev);
- 
-+	ret = ecc_mc_register(sifive_pdev);
-+	if (ret) {
-+		ecc_unregister(sifive_pdev);
-+		platform_device_unregister(sifive_pdev);
-+	}
-+
- 	return ret;
- }
- 
- static void __exit sifive_edac_exit(void)
- {
- 	ecc_unregister(sifive_pdev);
-+	ecc_mc_unregister(sifive_pdev);
- 	platform_device_unregister(sifive_pdev);
- }
- 
--- 
-2.7.4
-
+Thanks.  These look good to me and I'm happy to take them through the RISC-V
+tree, but I'm going to wait for a bit to see if there are any comments from the
+maintainers of the various subsystems before doing so.
 
 _______________________________________________
 linux-riscv mailing list
