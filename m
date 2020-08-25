@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-9.5 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
 	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
 	SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A32DEC433DF
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Aug 2020 18:39:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 61762C433E5
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Aug 2020 18:39:41 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7CC9B2071E
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Aug 2020 18:39:40 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2D8162074D
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Aug 2020 18:39:41 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="fbAMNLiD";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="CRBntHHo"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7CC9B2071E
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="k/3OZ+xv";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="nIM+3AfQ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2D8162074D
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,65 +26,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=lW702OozGD07UdkKpsr4KrT1FvlWHkcFejvotwgyhxE=; b=fbAMNLiD35Kmf2hqi82dEPeLf
-	h1tRe4QaVARqPNM+bTIyInDbJCMTyffBIXpOjCvciiFo/pxnBuAnszVc6fnK/zIxVqR1H6FXnzxL1
-	2nELhEPLDbH4mj/ZqpqPJ3tIJQRTDNSS7siG9S0+hmyf0BDiu4fUAa3+tcxVhSBZyK/fnOiyuVD6l
-	LZUJtfk26XkpDyX/bJiNGOTr70nEERVAy3vOVMvhO4iv8rKtFDOLGxfN3eZH8f+UpYrdpmD1O7KbP
-	votFNieI/xC3qQcYKdK6rMwTG9zOgNa89olU1uMb9B29JPE2ntZA/q4shfdEbNkGwY7iAm1IPv33N
-	O71Mgv4+w==;
+	 bh=J01Fj0vj+VV33VSy2oyE4zW2g/TNNio/hDPyteLmHc0=; b=k/3OZ+xvqmMmQiaWCGav2ADEV
+	R33qmNI20uAY4T9NussU8x/VrnEnFpseQeY3m4rdC6EEtjm3m3l6ncjyxUOWOoFNMHcCG6tcOrEoB
+	4f+CR0GruV3YDqGaxupoBlY7oJw/FW/mf+yRW2f0oM4brp+89pCxaPRL7aKGZjUJJ0xT9UV1iEkKc
+	tbPGmyJzmOVh5jPBWNyXf1gbJcP4/UpcVvzWEI5hvqq9asyNR1hf/aJ5H3XLZhfFQrFigbqEKjgxp
+	mBHwSNS65w8t1M0e3C3xMBBuvFzN1fENV+4QrOymUJdavc6Mk+p3Ygv1qk6LZtfyEKns6+Xuco7WW
+	NlRaWiEtA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kAdr2-0000CH-1F; Tue, 25 Aug 2020 18:39:32 +0000
-Received: from mail-lj1-x242.google.com ([2a00:1450:4864:20::242])
+	id 1kAdr3-0000Cx-Hn; Tue, 25 Aug 2020 18:39:33 +0000
+Received: from mail-lj1-x244.google.com ([2a00:1450:4864:20::244])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kAdqx-00009I-Jo
- for linux-riscv@lists.infradead.org; Tue, 25 Aug 2020 18:39:28 +0000
-Received: by mail-lj1-x242.google.com with SMTP id w14so15005250ljj.4
- for <linux-riscv@lists.infradead.org>; Tue, 25 Aug 2020 11:39:27 -0700 (PDT)
+ id 1kAdqz-0000AQ-Ts
+ for linux-riscv@lists.infradead.org; Tue, 25 Aug 2020 18:39:31 +0000
+Received: by mail-lj1-x244.google.com with SMTP id w14so15005327ljj.4
+ for <linux-riscv@lists.infradead.org>; Tue, 25 Aug 2020 11:39:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=etIIgbMDO2febHpxkGdQvxswY90f4Vuw17XGu7x/9yc=;
- b=CRBntHHotQi09myPxXsp7IhOEpJcPhh2U6wWvzk/MbXyB6UCTzDqgw+LFzkKrcWHHW
- gf7U6tMQvnZLPY5XCkASRLsCxWcCo6D5UpmY/u09eIIbQB3PBbBbGBi0jvMaacf3sP8B
- 4L/ZBPtTrDcd87ZFF97EvgilsrGunqz8rVakKG2HKYsQZWYuYZh4fXN2uRBORGjRAQdf
- Afs2TjGAZTuoVirIZzNE1mJivWtwL2i8jtNVbfLn9B5q0hscN7etUYrm6XD/WIv1XB+P
- gB/LdSwpf+D/o0b6vYvk6U5PlK4agoymqe9L+zEjAolScmHRdARuWSXBvfeiCHxehRi2
- LVQg==
+ bh=MbHO91ufP9iVLy6PlR7Wdl68UqE3gokYoRO3hoMerGs=;
+ b=nIM+3AfQ80W1WdU6HlFrABvXpvHmvOBmkmXNaOfZa4xDJXiw3MQS46RRsEb4ZAnnat
+ 0E3zqjpJj8Xv0DFbBnrPPz4mwqS5Ic284V3GPLW4dtddtxJ+y8TxLb7rUwMxQUqsmmfA
+ fqntKevFA3LJ1GNSNb515XdGWSxgOiVpAoA8Bvnk9n50EYdWYK/OdDB2SgzigssjN14C
+ xSt9E5tdlnnOSidAYI5AoupRNlcgPeNQqIETm8n6rWLW+gGeQsWAHa1ZmWxCmNwbeKhw
+ wcFuoO/9fLjgWMV+gNF+OBa1MEmN/M962sMHprT/i5J0i9ntQ6lm9mVQtamSeD2J0wxv
+ ZHLg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=etIIgbMDO2febHpxkGdQvxswY90f4Vuw17XGu7x/9yc=;
- b=dFSRTWGDHcthu+BwWkYRGPQSZJLB0dv995Wjj05rc0YndDT761ulAneaF8cmFjWLj/
- J9u2sMcVgucskeHeS4SoyNHlTlrU8kai95g81GH2D1Nl+xBuI8Jr2KjfTCtc4vIVP4Wa
- huJuyCaiJCX5XwBevh/oe57deivrZcGWZIsVcdtiKmXjkyUXAX1DuCWtjKnYx3xxuK6Z
- +917MNbDIsC7qlyAqCp9w6IPX+uwpzaYeZkOILjmoM2DdcApyrU9lpn8JEWhsZXzX4BP
- LDpcxfIexyAVspjSvOgV2yekrbkrPDdeQz0/lJWxNvkaJ6SLgsmsin5LSkrBxhbbugcO
- tBCA==
-X-Gm-Message-State: AOAM531SjmSsjw6q7++c1tW8wUsXE6oMHXUOmv7L23J4Kfa2+aKWSrSY
- Gxije4OSpsFyH9KJC/7IajZ0uarsBZoekg==
-X-Google-Smtp-Source: ABdhPJyfLUVExi5HiUHaQZ47GwvVViqeFTypS/gt+MMBkasqYQB6UaKd/24JlPFs6E4xEsOS6nGV8Q==
-X-Received: by 2002:a2e:1417:: with SMTP id u23mr5774130ljd.44.1598380766380; 
- Tue, 25 Aug 2020 11:39:26 -0700 (PDT)
+ bh=MbHO91ufP9iVLy6PlR7Wdl68UqE3gokYoRO3hoMerGs=;
+ b=ViHt4BzS9yCRPPcoS4J1B3voKtDUEoRPElrFQ97keC1U5rG1hXCK1KjLULWADfJ5hI
+ gdILcWObeGC4rc6sqNEwyB8Ouok0LtrFgJJVBMxfpoD2quk0QdOV6dVWp9uKqo7f7GTo
+ zbTq0LpJNYzlNN15rwcQEoLiM8NZQnv61Nhz2wgX9I5vMx5LSrenY2UBW9DL2M4jQAoY
+ km9Uso49cvSeokUmYgiqCLDtkzdyRTUdGOI5S3LaaZE2Im3nDq+Po9eI6rVOL/V4JBUH
+ 5sgshh5cCl3I1yfiv5k4AFadAG4R5HBit5zWZzd2CUmNiTcNc5x1yscBHdkqvyjxXiu6
+ WMhA==
+X-Gm-Message-State: AOAM532KyRQnonWoyaIZXBp8+OpfQGSN8bZmofKwyIEY657Ajrdrbf/W
+ mGuQ5u0yUqPi919KXudIFzekXyCbrGZuvg==
+X-Google-Smtp-Source: ABdhPJxqmRxY61epkW/FokTcGJ+l5ar701jyVowJwrGzAYdKCLwUHGumgAavMqpg5uNFXKMS9r2gwQ==
+X-Received: by 2002:a2e:5c5:: with SMTP id 188mr5192990ljf.466.1598380768050; 
+ Tue, 25 Aug 2020 11:39:28 -0700 (PDT)
 Received: from nero.bb.dnainternet.fi
  (dyn9cmyyyyyyyyyyyyyft-3.rev.dnainternet.fi. [2001:14ba:2fa:2500::9])
- by smtp.gmail.com with ESMTPSA id e14sm3187120lfd.19.2020.08.25.11.39.25
+ by smtp.gmail.com with ESMTPSA id e14sm3187120lfd.19.2020.08.25.11.39.27
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 25 Aug 2020 11:39:25 -0700 (PDT)
+ Tue, 25 Aug 2020 11:39:27 -0700 (PDT)
 From: Pekka Enberg <penberg@gmail.com>
 To: linux-riscv@lists.infradead.org
-Subject: [PATCH 5/8] riscv/mm/fault: Move fault error handling to
- mm_fault_error()
-Date: Tue, 25 Aug 2020 21:39:04 +0300
-Message-Id: <20200825183907.275950-6-penberg@gmail.com>
+Subject: [PATCH 7/8] riscv/mm/fault: Move FAULT_FLAG_WRITE handling in
+ do_page_fault()
+Date: Tue, 25 Aug 2020 21:39:06 +0300
+Message-Id: <20200825183907.275950-8-penberg@gmail.com>
 X-Mailer: git-send-email 2.26.2
 In-Reply-To: <20200825183907.275950-1-penberg@gmail.com>
 References: <20200825183907.275950-1-penberg@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200825_143927_698915_BC093079 
-X-CRM114-Status: GOOD (  14.35  )
+X-CRM114-CacheID: sfid-20200825_143930_033751_106E01D2 
+X-CRM114-Status: UNSURE (   9.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -104,87 +105,35 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Pekka Enberg <penberg@kernel.org>
 
-This patch moves the fault error handling to mm_fault_error() function
-and converts gotos to calls to the new function.
+Let's handle the translation of EXC_STORE_PAGE_FAULT to FAULT_FLAG_WRITE
+once before looking up the VMA. This makes it easier to extract access
+error logic in the next patch.
 ---
- arch/riscv/mm/fault.c | 56 ++++++++++++++++++++++++-------------------
- 1 file changed, 31 insertions(+), 25 deletions(-)
+ arch/riscv/mm/fault.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
-index bfb40927cb7a..49b190d0c088 100644
+index 3b430fb18de3..bdc70d3d507f 100644
 --- a/arch/riscv/mm/fault.c
 +++ b/arch/riscv/mm/fault.c
-@@ -37,6 +37,36 @@ static inline void no_context(struct pt_regs *regs, unsigned long addr)
- 	do_exit(SIGKILL);
- }
+@@ -208,6 +208,9 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
  
-+static inline void mm_fault_error(struct pt_regs *regs, unsigned long addr, vm_fault_t fault)
-+{
-+	if (fault & VM_FAULT_OOM)
-+		goto out_of_memory;
-+	else if (fault & VM_FAULT_SIGBUS)
-+		goto do_sigbus;
-+	BUG();
-+
-+	/*
-+	 * We ran out of memory, call the OOM killer, and return the userspace
-+	 * (which will retry the fault, or kill us if we got oom-killed).
-+	 */
-+out_of_memory:
-+	if (!user_mode(regs)) {
-+		no_context(regs, addr);
-+		return;
-+	}
-+	pagefault_out_of_memory();
-+	return;
-+
-+do_sigbus:
-+	/* Kernel mode? Handle exceptions or die */
-+	if (!user_mode(regs)) {
-+		no_context(regs, addr);
-+		return;
-+	}
-+	do_trap(regs, SIGBUS, BUS_ADRERR, addr);
-+	return;
-+}
-+
- static inline void bad_area(struct pt_regs *regs, struct mm_struct *mm, int code, unsigned long addr)
- {
- 	/*
-@@ -261,32 +291,8 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
- 	mmap_read_unlock(mm);
+ 	perf_sw_event(PERF_COUNT_SW_PAGE_FAULTS, 1, regs, addr);
  
- 	if (unlikely(fault & VM_FAULT_ERROR)) {
--		if (fault & VM_FAULT_OOM)
--			goto out_of_memory;
--		else if (fault & VM_FAULT_SIGBUS)
--			goto do_sigbus;
--		BUG();
--	}
--	return;
--
--	/*
--	 * We ran out of memory, call the OOM killer, and return the userspace
--	 * (which will retry the fault, or kill us if we got oom-killed).
--	 */
--out_of_memory:
--	if (!user_mode(regs)) {
--		no_context(regs, addr);
-+		mm_fault_error(regs, addr, fault);
- 		return;
- 	}
--	pagefault_out_of_memory();
--	return;
--
--do_sigbus:
--	/* Kernel mode? Handle exceptions or die */
--	if (!user_mode(regs)) {
--		no_context(regs, addr);
--		return;
--	}
--	do_trap(regs, SIGBUS, BUS_ADRERR, addr);
- 	return;
- }
++	if (cause == EXC_STORE_PAGE_FAULT)
++		flags |= FAULT_FLAG_WRITE;
++
+ retry:
+ 	mmap_read_lock(mm);
+ 	vma = find_vma(mm, addr);
+@@ -251,7 +254,6 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
+ 			bad_area(regs, mm, code, addr);
+ 			return;
+ 		}
+-		flags |= FAULT_FLAG_WRITE;
+ 		break;
+ 	default:
+ 		panic("%s: unhandled cause %lu", __func__, cause);
 -- 
 2.26.2
 
