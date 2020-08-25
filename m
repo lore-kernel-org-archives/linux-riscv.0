@@ -2,119 +2,88 @@ Return-Path: <SRS0=kFy7=CD=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no
+X-Spam-Status: No, score=-10.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4AAA7C433E1
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Aug 2020 16:42:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9E196C433E3
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Aug 2020 18:04:32 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 18B38207F7
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Aug 2020 16:42:10 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 628AC206EB
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Aug 2020 18:04:32 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="QER42Fuy";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=osportal.onmicrosoft.com header.i=@osportal.onmicrosoft.com header.b="Bej8Rv3F"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 18B38207F7
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=openfive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="s8Lxs77a";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="EUPHxqWH"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 628AC206EB
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:Message-ID:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=rXNGHIulFo4j4yiuaUClea2JGvkGo+WNKau8qpJjdAE=; b=QER42Fuytw++TIscf7WVxTo/O
-	PSIFl2LR5as0cwSPljwVRXmxJpKN8s1LUOAgbk+gCPmf0VJffI54Q/uTC7wIa2XBUVKpcnW9ZofaB
-	QQ9PSWG3Baj7ytUjB8OauR51gAytbeg+RDqJG6PC29mSRLpg0viv5ILjLuAQSnTpsrC9ywk31bVfu
-	pB+TuvO6G8qTw68uZqzZqy6EKeUII7E2FhwP5mnimhM1Sq2U6Sm5PWacXFoe6dirL4ZpqbZ2I0BPU
-	3bugxQJGSw34IPIXgg8N4mNpxWS+NWD3C7BGScEJsJmsG0vF6XZzOAFbwJzfmNcZf6nTb5mLNt4zO
-	d5NnmlaIw==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=8WjTSH+zOA8hJGN2IwBvySlCI0w5WZJ/jXM5pwpQJrY=; b=s8Lxs77agS/MnUg6ZI6fApYvY
+	AyoIySXI108GRV47pg1I4y+H/iWNBVWpkqhgf8VExaWyUcEQcWbiT/wb40T6BXah/TS8nC6ByHFva
+	o86cjlV7Z+DJwrf0lxeY9sNQXP1/XY91b1ZvybHDvoS1T5oVbNhGVtkBcQGtNRiNDxkyqob77ZkgN
+	Vt5zezaj4VH2WwzG+58OFkBs2uCeyCBEyF3D7XcifdvgZyWtNkGbERripJ79QjWRHHfJT0YtnxzlJ
+	o2iUD9dYz7136S/ryD/CbpetlDBEg99o1AgfdyKS6AJWMwoNc9Zvp6EaObpaqthH13ylErdzeNTE7
+	uyWZ5CI/g==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kAc1F-0007XC-T7; Tue, 25 Aug 2020 16:41:57 +0000
-Received: from mail-co1nam11on2069.outbound.protection.outlook.com
- ([40.107.220.69] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
+	id 1kAdJ0-0005Kq-9P; Tue, 25 Aug 2020 18:04:22 +0000
+Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kAc1C-0007WU-PV
- for linux-riscv@lists.infradead.org; Tue, 25 Aug 2020 16:41:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=OHkb1MYgpFiK/wdp/zrdfiT2pKz8oj3AWINYCfJk1Rqu9J5Xq6bW+ng68BWoqnWGlEa8cTUt6rO/zNbVJRlzkmM4yp3Caz8PuYsGLGPMmAN37mMSVGIzJMZJz4UDRTQv+BIzEM9x7kPfSCnVkJOSCsvyVjhOKMZiRfvp5zYXkpVGSDBIa2yJ+3qGvxE7y2nmgjJEvi0tIo4Ym9ClYjt2Z3EW9RETQC20Xb7bDggIJR38Vn3bsezvfLa+/Li+93L/T1RAo1b7oS4khAVRHpXd/laVvvRDASafTOo+8WMaOQA6JAD5QAlTYiZ/qW0m/lXLiC+YQYLD4ZEO7SI+0FabYQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AGJ3qj0AdicAXz80DBZOO08NI4PFKjgtEE9nM3/hRUA=;
- b=Mf2rmv5Z+OWFn/2eJm33zVaEokNiwWij5iqnouEPS/0ivh8C7H4Im2Buj6QBzbmLJ6DM30Zwmw3kVTz375M4Bpl9+2f52QloZpoSSaJ7MSuUjlwJkiq79ZjFFSdguiAvl7zR+iev6usRIK2z0ZkKqKH59GHD55B3z6/DeHvu18V+Zan2u+lw/w08U+JEcs2TGlXwjN85Ln+vpa87ud43Hd6D6hXArUKZdCi0nWNHPPDmPEpZM98LMpgVr4fyfXp4oWV0xkhawl/QUCr1FILc6/fkE3HB0hKuqJGNEpIoSyHFKUjXj4NSch1Nvlq70Kniljv+tOnQEd5ewk9DJUhfEQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=openfive.com; dmarc=pass action=none header.from=openfive.com;
- dkim=pass header.d=openfive.com; arc=none
+ id 1kAdIx-0005JP-2A
+ for linux-riscv@lists.infradead.org; Tue, 25 Aug 2020 18:04:20 +0000
+Received: by mail-pf1-x442.google.com with SMTP id t185so4839648pfd.13
+ for <linux-riscv@lists.infradead.org>; Tue, 25 Aug 2020 11:04:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=osportal.onmicrosoft.com; s=selector2-osportal-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AGJ3qj0AdicAXz80DBZOO08NI4PFKjgtEE9nM3/hRUA=;
- b=Bej8Rv3FAVQ0IIVUTkFWzKGgf9kH7xb93YySj4zYgpjADTuCKnhPlHf7wJFwAPjPjQalC37NqjdcoF07erVBpx/V92d6tAeUR2vNQiHSKYhEFlz3qjO5eRof50JYwhNx8lscuxBlf9pYe2nzO+sIEkDWd10ualLpCzKzG9LShiI=
-Received: from DM6PR13MB3451.namprd13.prod.outlook.com (2603:10b6:5:1c3::10)
- by DM5PR13MB1420.namprd13.prod.outlook.com (2603:10b6:3:11c::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3326.10; Tue, 25 Aug
- 2020 16:41:51 +0000
-Received: from DM6PR13MB3451.namprd13.prod.outlook.com
- ([fe80::f570:90c6:f6d5:c078]) by DM6PR13MB3451.namprd13.prod.outlook.com
- ([fe80::f570:90c6:f6d5:c078%7]) with mapi id 15.20.3326.019; Tue, 25 Aug 2020
- 16:41:51 +0000
-From: Sagar Kadam <sagar.kadam@openfive.com>
-To: Rob Herring <robh@kernel.org>
-Subject: RE: [PATCH 1/1] dt-bindings: riscv: sifive-l2-cache: convert bindings
- to json-schema
-Thread-Topic: [PATCH 1/1] dt-bindings: riscv: sifive-l2-cache: convert
- bindings to json-schema
-Thread-Index: AQHWeetFYcQYSaG/+EK5zgQ5BKIJhalHhiCAgADfjACAAJ3xgIAAAzDA
-Date: Tue, 25 Aug 2020 16:41:51 +0000
-Message-ID: <DM6PR13MB3451470F2D9FC2C87317C4EB97570@DM6PR13MB3451.namprd13.prod.outlook.com>
-References: <1598255421-8274-1-git-send-email-sagar.kadam@sifive.com>
- <1598255421-8274-2-git-send-email-sagar.kadam@sifive.com>
- <20200824173539.GA2939042@bogus>
- <DM6PR13MB3451089239FDA8F87BA6410497570@DM6PR13MB3451.namprd13.prod.outlook.com>
- <CAL_Jsq+AfvgpXDt4vQmg2UcV7ARYKPw6hxJvuLotJH5xApz6cw@mail.gmail.com>
-In-Reply-To: <CAL_Jsq+AfvgpXDt4vQmg2UcV7ARYKPw6hxJvuLotJH5xApz6cw@mail.gmail.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: kernel.org; dkim=none (message not signed)
- header.d=none;kernel.org; dmarc=none action=none header.from=openfive.com;
-x-originating-ip: [116.74.148.206]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 01118a87-c0a5-4da3-9e5b-08d84915c487
-x-ms-traffictypediagnostic: DM5PR13MB1420:
-x-ld-processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
-x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <DM5PR13MB1420C7A5C9C54E968B166C3A97570@DM5PR13MB1420.namprd13.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:6108;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: m2BH0E+TLDDoetVk5ZV7Pg17P5MdK/DqB/LQhbTZkizyolVciZU1dFXbO1gGBud3Ff02OIa6TxgnoldGD6ym+2sKWK5JKU9dgDgTztjNXZFh2aDaMl7hZ9/rxJSpI8itCXaEZPkgOcu5A7yHn2DRujo/oO5CQ/2eEpJUkRtDNTUk+G6rgh7ap21KMHrnui2tGpC+7OqrDMlFFtLp1DExiGx5e6Oo+6WBKFW8b3Lg/0p2y77vUHXwUYbm+MvgHogycfgY4PEgUUISvYJWO/DlwuIpllMbiOK8awtgao85t/cP2EGlgZg3UJvjM8FLmeLVRmleRAwYJcVdykG8EPnprg==
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:DM6PR13MB3451.namprd13.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(376002)(136003)(366004)(39830400003)(346002)(396003)(44832011)(5660300002)(4326008)(26005)(316002)(2906002)(54906003)(86362001)(478600001)(83380400001)(66556008)(66946007)(52536014)(66446008)(64756008)(76116006)(66476007)(71200400001)(9686003)(8676002)(186003)(8936002)(53546011)(55236004)(7696005)(33656002)(55016002)(6506007)(6916009);
- DIR:OUT; SFP:1101; 
-x-ms-exchange-antispam-messagedata: IRRWh8ONUJps7Zax/qGIdNkWUcoSzPZiQeorxtH04ljjOkF2vskINXaFuKRjW9x00D3tPbpP/73DYATTmDz/oLUZEpM+AbPKEhoKX5cM37/txkjFBZxUFt6u6+vZmvubSSRU5yPlVlu606fRFvbPYh9Rgdodoj5eRIKJqBgEHWNTZezwUvxGrAcSJJFB5gK+Owk6XQwrhhTp9Luy4jSQf/NXYvSFV9OTJB3K65y2Zns4W0cwrfrJVNxttjoKkpl7lynauLBGLscFjoteAuzwO9EFTWEuLzdUzaTgWaHby9xXFVvqI/jpjZ5SmN0bcWXhv0IA9rIcJy1466oW0G+wh+WJp8L8cnqhlwSTTmCTTKwb8X/skAM17D6XE7M5/NgXap/9evgeqrYe3CvQmUlAAhBJEOOe7hfMowMY1K5+DwdqFBq+JEObUZ//xVAJynPN63Xl8X6unckuEkcSxLxIrcSV70aWj3gLkTCGuL6mRLLDdfnj8sI2Vadn2Q714bmN8WJ8RGInAHqJXBzbZRJRvzRbWOExGSCP4owNY4XFddmfY7namwEcXnZ/g+dB4WRdtTBNI9o8jR8ReH+1NqV1269H7ehgKtTuzKVoCbZq31jHXLWSxGN+pD32nAkyRhHmojXQCNhvz1knQdflUxtY5w==
-MIME-Version: 1.0
-X-OriginatorOrg: openfive.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR13MB3451.namprd13.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 01118a87-c0a5-4da3-9e5b-08d84915c487
-X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Aug 2020 16:41:51.1059 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 9GcFZOXJ1NLJsHhhByqNJtiO4WkqEtWrcEpQvgpMY7S/hIj+Xa2riXltq07MnigmkVxfDogVIgkloZQSwHLYmA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM5PR13MB1420
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=XIKZdeG36XDiIOKY+kfP3pDlkpCpb2b12IJXa1o9/0M=;
+ b=EUPHxqWHzU0Y8x3BxCycUDQwDwV+5ehiJiXzBQJKytPAnL0FBWdz6Kc0Js8O+c+4lm
+ X7OrbxvvUgO17QPlSq56uhncq84dC87dMYFNIunuWx7x59AG3MkZJ2K0Z7ztt3sddFJY
+ D99Z5Q1jTqM+2M6zd/42iOADcdJ3ySXeFTmIPjxkXKcuPHBLiw/eubTYdIpQ1w9cj5oF
+ AVFd7X5L/ER7gI/L9On+hS0SDE4W8yG3KSgMG8cZf2bF2ZSVCNuYtGrqbF1jZM73FzUG
+ uYF3huBd9ZpvKOefFWAMXREhNfXz+F1wuKJ7k4HZZCmIquTCCl4N1Cv7n9Y4PI7Hdy/g
+ maSA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=XIKZdeG36XDiIOKY+kfP3pDlkpCpb2b12IJXa1o9/0M=;
+ b=uWri8BhBqNaIfL8RYc+LuSQaZuNIz0KdRPhNovn0FAK5SgSv6SoeWLnXzm6IiDHeoj
+ okLByme9GQUL8fKORs2oiJoFRIOHS65oYVPXmS/sPe8fkJhhmyV42NDOqg83TLlz+0x5
+ bTLtS1a9DvlJdFeBQh/2pjq2U45tqWDX737yGkHwK6oxtBVxBx0bS9GqT4ZnfKnud2oZ
+ FhVSrKwi3KGnRyarQnAg0fBLBxnJ+j+bVWDF7fSBDmA+4sJ3ulmxIUPqNXHltvixDDJ6
+ pAHJS5VFGMR6uEQVlFueTKMAeZTT1EqJGAnDb8B0/sUfPSEaelbW0wnPBMLHbVWxmYjb
+ c15g==
+X-Gm-Message-State: AOAM530JINRZw15W88sYOD5L3gKggf0yhdFPi+beN2yxNl9ikwluAxxS
+ iRmSFxnaSqV0rVEEnCKc3z75Hg==
+X-Google-Smtp-Source: ABdhPJytVAYp+afp8GTlMhPhfmnIIhL7VtQgzjFNaobDVV25eRuMzqxakfhRfwJSVpzWmHooQ3bTag==
+X-Received: by 2002:a63:ec04:: with SMTP id j4mr7536889pgh.393.1598378655568; 
+ Tue, 25 Aug 2020 11:04:15 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id x28sm16401572pfj.73.2020.08.25.11.04.14
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 25 Aug 2020 11:04:14 -0700 (PDT)
+Date: Tue, 25 Aug 2020 11:04:14 -0700 (PDT)
+X-Google-Original-Date: Tue, 25 Aug 2020 10:31:55 PDT (-0700)
+Subject: Re: [PATCH v6 5/9] RISC-V: Add PE/COFF header for EFI stub
+In-Reply-To: <20200819222425.30721-6-atish.patra@wdc.com>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Atish Patra <Atish.Patra@wdc.com>
+Message-ID: <mhng-e2d261a0-c4c2-497e-bcef-08b8d1576f3f@palmerdabbelt-glaptop1>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200825_124154_997207_27A76C3D 
-X-CRM114-Status: GOOD (  20.38  )
+X-CRM114-CacheID: sfid-20200825_140419_227887_01842E41 
+X-CRM114-Status: GOOD (  33.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -126,89 +95,362 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Yash Shah <yash.shah@openfive.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
- "Paul Walmsley \( Sifive\)" <paul.walmsley@sifive.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-Content-Type: text/plain; charset="us-ascii"
+Cc: linux-efi@vger.kernel.org, ardb@kernel.org,
+ Atish Patra <Atish.Patra@wdc.com>, nivedita@alum.mit.edu,
+ Alistair Francis <Alistair.Francis@wdc.com>, zong.li@sifive.com,
+ linux-riscv@lists.infradead.org, mingo@kernel.org, anup@brainfault.org,
+ masahiroy@kernel.org, michal.simek@xilinx.com, steven.price@arm.com,
+ longman@redhat.com, greentime.hu@sifive.com, daniel.schaefer@hpe.com,
+ keescook@chromium.org, abner.chang@hpe.com, hca@linux.ibm.com,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Damien Le Moal <Damien.LeMoal@wdc.com>, Anup Patel <Anup.Patel@wdc.com>,
+ Nick Desaulniers <ndesaulniers@google.com>, linux-kernel@vger.kernel.org,
+ rppt@kernel.org
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
+On Wed, 19 Aug 2020 15:24:21 PDT (-0700), Atish Patra wrote:
+> Linux kernel Image can appear as an EFI application With appropriate
+> PE/COFF header fields in the beginning of the Image header. An EFI
+> application loader can directly load a Linux kernel Image and an EFI
+> stub residing in kernel can boot Linux kernel directly.
+>
+> Add the necessary PE/COFF header.
+>
+> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> Link: https://lore.kernel.org/r/20200421033336.9663-3-atish.patra@wdc.com
+> [ardb: - use C prefix for c.li to ensure the expected opcode is emitted
+>        - align all image sections according to PE/COFF section alignment ]
+> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> Reviewed-by: Anup Patel <anup@brainfault.org>
+> ---
+>  arch/riscv/include/asm/sections.h |  13 ++++
+>  arch/riscv/kernel/Makefile        |   4 ++
+>  arch/riscv/kernel/efi-header.S    | 104 ++++++++++++++++++++++++++++++
+>  arch/riscv/kernel/head.S          |  16 +++++
+>  arch/riscv/kernel/image-vars.h    |  51 +++++++++++++++
+>  arch/riscv/kernel/vmlinux.lds.S   |  22 ++++++-
+>  6 files changed, 208 insertions(+), 2 deletions(-)
+>  create mode 100644 arch/riscv/include/asm/sections.h
+>  create mode 100644 arch/riscv/kernel/efi-header.S
+>  create mode 100644 arch/riscv/kernel/image-vars.h
+>
+> diff --git a/arch/riscv/include/asm/sections.h b/arch/riscv/include/asm/sections.h
+> new file mode 100644
+> index 000000000000..3a9971b1210f
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/sections.h
+> @@ -0,0 +1,13 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2020 Western Digital Corporation or its affiliates.
+> + */
+> +#ifndef __ASM_SECTIONS_H
+> +#define __ASM_SECTIONS_H
+> +
+> +#include <asm-generic/sections.h>
+> +
+> +extern char _start[];
+> +extern char _start_kernel[];
+> +
+> +#endif /* __ASM_SECTIONS_H */
+> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+> index a5287ab9f7f2..eabec4dce50b 100644
+> --- a/arch/riscv/kernel/Makefile
+> +++ b/arch/riscv/kernel/Makefile
+> @@ -32,6 +32,10 @@ obj-y	+= patch.o
+>  obj-$(CONFIG_MMU) += vdso.o vdso/
+>
+>  obj-$(CONFIG_RISCV_M_MODE)	+= clint.o traps_misaligned.o
+> +OBJCOPYFLAGS := --prefix-symbols=__efistub_
+> +$(obj)/%.stub.o: $(obj)/%.o FORCE
+> +	$(call if_changed,objcopy)
+> +
 
-> -----Original Message-----
-> From: Rob Herring <robh@kernel.org>
-> Sent: Tuesday, August 25, 2020 9:51 PM
-> To: Sagar Kadam <sagar.kadam@openfive.com>
-> Cc: aou@eecs.berkeley.edu; devicetree@vger.kernel.org; Paul Walmsley (
-> Sifive) <paul.walmsley@sifive.com>; Yash Shah <yash.shah@openfive.com>;
-> palmer@dabbelt.com; linux-kernel@vger.kernel.org; linux-
-> riscv@lists.infradead.org
-> Subject: Re: [PATCH 1/1] dt-bindings: riscv: sifive-l2-cache: convert bindings
-> to json-schema
-> 
-> [External Email] Do not click links or attachments unless you recognize the
-> sender and know the content is safe
-> 
-> On Tue, Aug 25, 2020 at 2:47 AM Sagar Kadam
-> <sagar.kadam@openfive.com> wrote:
-> >
-> > Hello Rob,
-> >
-> > > -----Original Message-----
-> > > From: Rob Herring <robh@kernel.org>
-> > > Sent: Monday, August 24, 2020 11:06 PM
-> > > To: Sagar Kadam <sagar.kadam@openfive.com>
-> > > Cc: aou@eecs.berkeley.edu; devicetree@vger.kernel.org; Paul Walmsley
-> > > (
-> > > Sifive) <paul.walmsley@sifive.com>; robh+dt@kernel.org; Yash Shah
-> > > <yash.shah@openfive.com>; palmer@dabbelt.com; linux-
-> > > kernel@vger.kernel.org; linux-riscv@lists.infradead.org
-> > > Subject: Re: [PATCH 1/1] dt-bindings: riscv: sifive-l2-cache:
-> > > convert bindings to json-schema
-> > >
-> > > [External Email] Do not click links or attachments unless you
-> > > recognize the sender and know the content is safe
-> > >
-> > > On Mon, 24 Aug 2020 13:20:21 +0530, Sagar Kadam wrote:
-> > > > Convert the device tree bindings for the SiFive's FU540-C000 SoC's
-> > > > L2 Cache controller to YAML format.
-> > > >
-> > > > Signed-off-by: Sagar Kadam <sagar.kadam@sifive.com>
-> > > > ---
-> > > >  .../devicetree/bindings/riscv/sifive-l2-cache.txt  | 51
-> > > > ------------ .../devicetree/bindings/riscv/sifive-l2-cache.yaml |
-> > > > 93
-> > > > ++++++++++++++++++++++
-> > > >  2 files changed, 93 insertions(+), 51 deletions(-)  delete mode
-> > > > 100644 Documentation/devicetree/bindings/riscv/sifive-l2-cache.txt
-> > > >  create mode 100644
-> > > > Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
-> > > >
-> > >
-> > >
-> > > My bot found errors running 'make dt_binding_check' on your patch:
-> > >
-> >
-> > I had checked using DT_SCHEMA_FILES option due to which it didn't
-> > catch any error on other schemas. Without this I could regenerate the
-> error you mentioned.
-> > I will fix it and update. Sorry for the error.
-> 
-> Update your kernel. DT_SCHEMA_FILES setting no longer matters on current
-> tree. It only affects 'dtbs_check' now.
-> 
+Is there a reason this is below those objects?  I don't really care, but it
+triggered a merge conflict and it seems cleaner above so I put it up there.
 
-Thanks for the input.
-Sure, I see v5.9-rc2 as latest tag on mainline, I will base and fix my patch above it.
+>  obj-$(CONFIG_FPU)		+= fpu.o
+>  obj-$(CONFIG_SMP)		+= smpboot.o
+>  obj-$(CONFIG_SMP)		+= smp.o
+> diff --git a/arch/riscv/kernel/efi-header.S b/arch/riscv/kernel/efi-header.S
+> new file mode 100644
+> index 000000000000..822b4c9ff2bb
+> --- /dev/null
+> +++ b/arch/riscv/kernel/efi-header.S
+> @@ -0,0 +1,104 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2020 Western Digital Corporation or its affiliates.
+> + * Adapted from arch/arm64/kernel/efi-header.S
+> + */
+> +
+> +#include <linux/pe.h>
+> +#include <linux/sizes.h>
+> +
+> +	.macro	__EFI_PE_HEADER
+> +	.long	PE_MAGIC
+> +coff_header:
+> +#ifdef CONFIG_64BIT
+> +	.short	IMAGE_FILE_MACHINE_RISCV64		// Machine
+> +#else
+> +	.short	IMAGE_FILE_MACHINE_RISCV32		// Machine
+> +#endif
+> +	.short	section_count				// NumberOfSections
+> +	.long	0 					// TimeDateStamp
+> +	.long	0					// PointerToSymbolTable
+> +	.long	0					// NumberOfSymbols
+> +	.short	section_table - optional_header		// SizeOfOptionalHeader
+> +	.short	IMAGE_FILE_DEBUG_STRIPPED | \
+> +		IMAGE_FILE_EXECUTABLE_IMAGE | \
+> +		IMAGE_FILE_LINE_NUMS_STRIPPED		// Characteristics
+> +
+> +optional_header:
+> +	.short	PE_OPT_MAGIC_PE32PLUS			// PE32+ format
+> +	.byte	0x02					// MajorLinkerVersion
+> +	.byte	0x14					// MinorLinkerVersion
+> +	.long	__pecoff_text_end - efi_header_end	// SizeOfCode
+> +	.long	__pecoff_data_virt_size			// SizeOfInitializedData
+> +	.long	0					// SizeOfUninitializedData
+> +	.long	__efistub_efi_pe_entry - _start		// AddressOfEntryPoint
+> +	.long	efi_header_end - _start			// BaseOfCode
+> +
+> +extra_header_fields:
+> +	.quad	0					// ImageBase
+> +	.long	PECOFF_SECTION_ALIGNMENT		// SectionAlignment
+> +	.long	PECOFF_FILE_ALIGNMENT			// FileAlignment
+> +	.short	0					// MajorOperatingSystemVersion
+> +	.short	0					// MinorOperatingSystemVersion
+> +	.short	LINUX_EFISTUB_MAJOR_VERSION		// MajorImageVersion
+> +	.short	LINUX_EFISTUB_MINOR_VERSION		// MinorImageVersion
+> +	.short	0					// MajorSubsystemVersion
+> +	.short	0					// MinorSubsystemVersion
+> +	.long	0					// Win32VersionValue
+> +
+> +	.long	_end - _start				// SizeOfImage
+> +
+> +	// Everything before the kernel image is considered part of the header
+> +	.long	efi_header_end - _start			// SizeOfHeaders
+> +	.long	0					// CheckSum
+> +	.short	IMAGE_SUBSYSTEM_EFI_APPLICATION		// Subsystem
+> +	.short	0					// DllCharacteristics
+> +	.quad	0					// SizeOfStackReserve
+> +	.quad	0					// SizeOfStackCommit
+> +	.quad	0					// SizeOfHeapReserve
+> +	.quad	0					// SizeOfHeapCommit
+> +	.long	0					// LoaderFlags
+> +	.long	(section_table - .) / 8			// NumberOfRvaAndSizes
+> +
+> +	.quad	0					// ExportTable
+> +	.quad	0					// ImportTable
+> +	.quad	0					// ResourceTable
+> +	.quad	0					// ExceptionTable
+> +	.quad	0					// CertificationTable
+> +	.quad	0					// BaseRelocationTable
+> +
+> +	// Section table
+> +section_table:
+> +	.ascii	".text\0\0\0"
+> +	.long	__pecoff_text_end - efi_header_end	// VirtualSize
+> +	.long	efi_header_end - _start			// VirtualAddress
+> +	.long	__pecoff_text_end - efi_header_end	// SizeOfRawData
+> +	.long	efi_header_end - _start			// PointerToRawData
+> +
+> +	.long	0					// PointerToRelocations
+> +	.long	0					// PointerToLineNumbers
+> +	.short	0					// NumberOfRelocations
+> +	.short	0					// NumberOfLineNumbers
+> +	.long	IMAGE_SCN_CNT_CODE | \
+> +		IMAGE_SCN_MEM_READ | \
+> +		IMAGE_SCN_MEM_EXECUTE			// Characteristics
+> +
+> +	.ascii	".data\0\0\0"
+> +	.long	__pecoff_data_virt_size			// VirtualSize
+> +	.long	__pecoff_text_end - _start		// VirtualAddress
+> +	.long	__pecoff_data_raw_size			// SizeOfRawData
+> +	.long	__pecoff_text_end - _start		// PointerToRawData
+> +
+> +	.long	0					// PointerToRelocations
+> +	.long	0					// PointerToLineNumbers
+> +	.short	0					// NumberOfRelocations
+> +	.short	0					// NumberOfLineNumbers
+> +	.long	IMAGE_SCN_CNT_INITIALIZED_DATA | \
+> +		IMAGE_SCN_MEM_READ | \
+> +		IMAGE_SCN_MEM_WRITE			// Characteristics
+> +
+> +	.set	section_count, (. - section_table) / 40
+> +
+> +	.balign	0x1000
+> +efi_header_end:
+> +	.endm
+> diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+> index c6a37e8231a8..3631147732ee 100644
+> --- a/arch/riscv/kernel/head.S
+> +++ b/arch/riscv/kernel/head.S
+> @@ -13,6 +13,7 @@
+>  #include <asm/csr.h>
+>  #include <asm/hwcap.h>
+>  #include <asm/image.h>
+> +#include "efi-header.S"
+>
+>  __HEAD
+>  ENTRY(_start)
+> @@ -22,10 +23,18 @@ ENTRY(_start)
+>  	 * Do not modify it without modifying the structure and all bootloaders
+>  	 * that expects this header format!!
+>  	 */
+> +#ifdef CONFIG_EFI
+> +	/*
+> +	 * This instruction decodes to "MZ" ASCII required by UEFI.
+> +	 */
+> +	c.li s4,-13
+> +	j _start_kernel
+> +#else
+>  	/* jump to start kernel */
+>  	j _start_kernel
+>  	/* reserved */
+>  	.word 0
+> +#endif
+>  	.balign 8
+>  #if __riscv_xlen == 64
+>  	/* Image load offset(2MB) from start of RAM */
+> @@ -43,7 +52,14 @@ ENTRY(_start)
+>  	.ascii RISCV_IMAGE_MAGIC
+>  	.balign 4
+>  	.ascii RISCV_IMAGE_MAGIC2
+> +#ifdef CONFIG_EFI
+> +	.word pe_head_start - _start
+> +pe_head_start:
+> +
+> +	__EFI_PE_HEADER
+> +#else
+>  	.word 0
+> +#endif
+>
+>  .align 2
+>  #ifdef CONFIG_MMU
+> diff --git a/arch/riscv/kernel/image-vars.h b/arch/riscv/kernel/image-vars.h
+> new file mode 100644
+> index 000000000000..8c212efb37a6
+> --- /dev/null
+> +++ b/arch/riscv/kernel/image-vars.h
+> @@ -0,0 +1,51 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2020 Western Digital Corporation or its affiliates.
+> + * Linker script variables to be set after section resolution, as
+> + * ld.lld does not like variables assigned before SECTIONS is processed.
+> + * Based on arch/arm64/kerne/image-vars.h
+> + */
+> +#ifndef __RISCV_KERNEL_IMAGE_VARS_H
+> +#define __RISCV_KERNEL_IMAGE_VARS_H
+> +
+> +#ifndef LINKER_SCRIPT
+> +#error This file should only be included in vmlinux.lds.S
+> +#endif
+> +
+> +#ifdef CONFIG_EFI
+> +
+> +/*
+> + * The EFI stub has its own symbol namespace prefixed by __efistub_, to
+> + * isolate it from the kernel proper. The following symbols are legally
+> + * accessed by the stub, so provide some aliases to make them accessible.
+> + * Only include data symbols here, or text symbols of functions that are
+> + * guaranteed to be safe when executed at another offset than they were
+> + * linked at. The routines below are all implemented in assembler in a
+> + * position independent manner
+> + */
+> +__efistub_memcmp		= memcmp;
+> +__efistub_memchr		= memchr;
+> +__efistub_memcpy		= memcpy;
+> +__efistub_memmove		= memmove;
+> +__efistub_memset		= memset;
+> +__efistub_strlen		= strlen;
+> +__efistub_strnlen		= strnlen;
+> +__efistub_strcmp		= strcmp;
+> +__efistub_strncmp		= strncmp;
+> +__efistub_strrchr		= strrchr;
+> +
+> +#ifdef CONFIG_KASAN
+> +__efistub___memcpy		= memcpy;
+> +__efistub___memmove		= memmove;
+> +__efistub___memset		= memset;
+> +#endif
+> +
+> +__efistub__start		= _start;
+> +__efistub__start_kernel		= _start_kernel;
+> +__efistub__end			= _end;
+> +__efistub__edata		= _edata;
+> +__efistub_screen_info		= screen_info;
+> +
+> +#endif
+> +
+> +#endif /* __RISCV_KERNEL_IMAGE_VARS_H */
+> diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
+> index f3586e31ed1e..6dcf790282dd 100644
+> --- a/arch/riscv/kernel/vmlinux.lds.S
+> +++ b/arch/riscv/kernel/vmlinux.lds.S
+> @@ -10,6 +10,7 @@
+>  #include <asm/cache.h>
+>  #include <asm/thread_info.h>
+>  #include <asm/set_memory.h>
+> +#include "image-vars.h"
+>
+>  #include <linux/sizes.h>
+>  OUTPUT_ARCH(riscv)
+> @@ -17,6 +18,9 @@ ENTRY(_start)
+>
+>  jiffies = jiffies_64;
+>
+> +PECOFF_SECTION_ALIGNMENT = 0x1000;
+> +PECOFF_FILE_ALIGNMENT = 0x200;
+> +
+>  SECTIONS
+>  {
+>  	/* Beginning of code and text segment */
+> @@ -76,6 +80,10 @@ SECTIONS
+>
+>  	EXCEPTION_TABLE(0x10)
+>
+> +#ifdef CONFIG_EFI
+> +	. = ALIGN(PECOFF_SECTION_ALIGNMENT);
+> +	__pecoff_text_end = .;
+> +#endif
+>  	. = ALIGN(SECTION_ALIGN);
+>  	_data = .;
+>
+> @@ -83,16 +91,26 @@ SECTIONS
+>  	.sdata : {
+>  		__global_pointer$ = . + 0x800;
+>  		*(.sdata*)
+> -		/* End of data section */
+> -		_edata = .;
+>  	}
+>
+> +#ifdef CONFIG_EFI
+> +	.pecoff_edata_padding : { BYTE(0); . = ALIGN(PECOFF_FILE_ALIGNMENT); }
+> +	__pecoff_data_raw_size = ABSOLUTE(. - __pecoff_text_end);
+> +#endif
+> +
+> +	/* End of data section */
+> +	_edata = .;
+> +
+>  	BSS_SECTION(PAGE_SIZE, PAGE_SIZE, 0)
+>
+>  	.rel.dyn : {
+>  		*(.rel.dyn*)
+>  	}
+>
+> +#ifdef CONFIG_EFI
+> +	. = ALIGN(PECOFF_SECTION_ALIGNMENT);
+> +	__pecoff_data_virt_size = ABSOLUTE(. - __pecoff_text_end);
+> +#endif
+>  	_end = .;
+>
+>  	STABS_DEBUG
 
-BR,
-Sagar
-
-> Rob
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
