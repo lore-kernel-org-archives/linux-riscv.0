@@ -2,88 +2,86 @@ Return-Path: <SRS0=kFy7=CD=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-13.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1D19FC433E3
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Aug 2020 00:30:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 01C35C433E5
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Aug 2020 00:30:10 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D5672207D8
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Aug 2020 00:30:04 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C7C1D20838
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Aug 2020 00:30:09 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="bmNFGVWf";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="c4ZZgQ2Y"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D5672207D8
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="kfdS/v+h";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.b="vNwceFJi"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C7C1D20838
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=KzJLCExnsvJkUKQM6aqC9UyTYcDws+0FJjYqL/BImc0=; b=bmNFGVWfXE2TQvMGDW6UWyfyd
-	fiJYHrkvoCK/p32TN9KEp8LQ9DYnISv/eSYKQRM10MWbhuHiOmDjGCzcBFA5cSRKTnfSDLke5QGTW
-	c5g3euKt7vxPhD12xsZPdXY0Dv0wAhHDjluuR2V+2Rsqb7cg3DLTxFdCY3QxveNrV8wWGyjKD3Ro6
-	X7OHRrL47kQiW2JtG2uauvS27uJCy+dInjlnB26NiAirroppNEdZsHvf2HU8UdYAJIEOf+iQTen9g
-	dcs3ZCFQv7WjJvvAdv4cvCYxi4msGBh3JFR5uzI6ZDBdNzzpQSOW61zEvTAyl8CmoX/f3Jo9zOHnL
-	U/ySLi3+w==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:To:From:MIME-Version:Message-Id:Date:Subject:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CmRAKt8/iINzsvgoRWntH4Lv4pkabz0syDlUGHvcqhQ=; b=kfdS/v+hQR3hbWvqMO1c6NLE7w
+	ZNknPTlgSrCKeZjhvMIeIWWWE3a2MuS2Q9kzBmyqVv6rm/unpXjJq5YS1wkTMgDhf0E7kLSlPZFpn
+	tXVBxNCurpp9frQcoTEfSFW37rCnXXGlQlJ1b0zG5GksH47uT2nBFVgAFHIIHLxD+EwrKGVpSWyIk
+	5lAN80CQxdSdIqk+3YnQd/BcBfBmGBDERakkfDZKEgJdCSVYdLYfZnfWHQ0465Hrd2tdz1z5DNYo+
+	riOyqffpEKiefCIKQyvK4PIk7z+TYHKxeWQSi+VEPxC7tf0Ly5AjgaYv6xby/r+pxZjvQPEwXAec7
+	mNhvw/EA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kAMqU-0004NO-TU; Tue, 25 Aug 2020 00:29:50 +0000
-Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
+	id 1kAMqS-0004Li-7y; Tue, 25 Aug 2020 00:29:48 +0000
+Received: from mail-pg1-x543.google.com ([2607:f8b0:4864:20::543])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kAMqH-0004C3-RP
- for linux-riscv@lists.infradead.org; Tue, 25 Aug 2020 00:29:48 +0000
-Received: by mail-pf1-x442.google.com with SMTP id u128so5931355pfb.6
- for <linux-riscv@lists.infradead.org>; Mon, 24 Aug 2020 17:29:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=rK9hGhgXVC8NPfqVY3Kpb9dQwJZSivpy8q2Mup6dtSM=;
- b=c4ZZgQ2YaOyAq7e5T+tyFU0xqMufACY+Y4SnbIlMwiY/5sKjRW9L+obI/uA+5stwVq
- JHkc5gnYKmKcZpu+NiFL8tXyLRyHW51aSKG5zmYRQHrPXaVIuq5NgouoW4qDOmWehjqd
- zj16E4/59kSSYwyPHHVeVxpg9v3KtL3+FOfjWUB1RdcCArxJqS3i1lVzSKgQ3yw2YL9M
- Z6pcqkvhHkvgQgG7oLp3n1p0Syg9AhEy+QWNtmtUU3R1boenHXU67c55myRV+Wm8XHos
- McZfUvW3KGoL+k2BVCKHx3Y3+49MLogFiC5xStqzaBZh/NGJ2gpPhZWsGXD2nq0l5LFg
- wLxA==
+ id 1kAMqG-0004BR-J2
+ for linux-riscv@lists.infradead.org; Tue, 25 Aug 2020 00:29:42 +0000
+Received: by mail-pg1-x543.google.com with SMTP id h12so5552881pgm.7
+ for <linux-riscv@lists.infradead.org>; Mon, 24 Aug 2020 17:29:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+ h=subject:date:message-id:mime-version:content-transfer-encoding:cc
+ :from:to; bh=RMVD6qaZivOGUI/zEZzB2kS1tRCCV3zkhqhOYX8y8mk=;
+ b=vNwceFJio+kfHjb19gqarS5lPvBzOi1DmrnD+KmNbi2nvysNBCXkRkmv13nNw0zPIF
+ Xoit3ZPdEF059kJNaatLMDu1Bqzf3OVuORyJhA1o/ngRA6LUHyrMIP8ZideNg3byaOqO
+ 4C8rE5qHoAl7QXUCAH/PdZmbj3fCPH1HlrQUynJT27/F32W9oC6eZ+59cRPDbojDDQAw
+ 0tGZKhtarWnIl2zud70f6x60Jw6dJ5s0+gVQQccg0KSrY8C0MvyJOh6n/BMmAf5g6IRn
+ 04d3Dketd2zXynKav/hRb3/v9le/ylOVEGhu6n+oIMtN58c4JH9yh6G5w7Ydaq/t0zn/
+ RckA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=rK9hGhgXVC8NPfqVY3Kpb9dQwJZSivpy8q2Mup6dtSM=;
- b=CC65IfNUJq/6mSTKw+OQBzdIR69B5Fi++Jj60L8UZHcoLCmmBKBZxuNq92LHTorz6O
- 4QIXNGR/HzjbRHTg0PEEFaExJIKpTpk9XwKwPJLo0pu0Ejo1+SiU1vGswyA2U+2jAngy
- oKs7bWqiWR45s9Eop2bfsGbLK3Zh7bqY6+kPCBc3HsC68BJ7tnpsybdq1IlQg0Rf6Q0R
- KzQUwPf8zaCPdHsae611euYQOb1g3HiN0kuEZrjzFdt2StGF3qsR8BGUXOZAqrV4Jzt+
- 7AxtT56o9Qv2BGZUd7kZRokAYvZoGRKkta/EGXhPYxfmPfsegrLIwdQfrXhZQziHFxvV
- IZBQ==
-X-Gm-Message-State: AOAM5302RBnXm00Rtu6KiiaZVFnatp2jSHbGRTwo3guQq+7amt5us0ZH
- jA/lbD7InoxZn1FKS6yjm/pgWQ==
-X-Google-Smtp-Source: ABdhPJw/jqpwfLOw3R6pkLUIZZ4Ecso+LA6G75jVVfmfWTR2dmWId+wwLT6HnFSbtT7bjTfvJeyROw==
-X-Received: by 2002:aa7:9aa2:: with SMTP id x2mr6097798pfi.318.1598315373559; 
- Mon, 24 Aug 2020 17:29:33 -0700 (PDT)
+ h=x-gm-message-state:subject:date:message-id:mime-version
+ :content-transfer-encoding:cc:from:to;
+ bh=RMVD6qaZivOGUI/zEZzB2kS1tRCCV3zkhqhOYX8y8mk=;
+ b=t4ttBnQIputfoguVyMG4SsOW6uwEABDusIx1EotDdYAYtF4O/dDwfDL7DCM6G+btLm
+ UlA6NONiCz0Jp3MA/IklzByTCz9bQ08WXFT/N9Y8E2XZFLoJXTEr8kP8ehRwKyzlzgB7
+ LGeMOiP5y5cSPKrJAh6z13kFWhPHhEB8H5h51fK26kt+zLCZmZmfpkV/zKqLTpnDoyrt
+ YJT/EFC55egK74rqCRa5dizXq6dFTSK0AsdkO7SQEpBAJbWXQ7RXAAxMtXo9QFwfK/cT
+ cAvCzs63EU+QiVj9eZPe8kX6ZKETDfFSGX9w5MR1inG0f1H2Nevl/lDmV9JplyEtalZf
+ YisA==
+X-Gm-Message-State: AOAM530RYQ6+byfdEQbowoJ2BqfV4GGgqFe3I5KqgvwQeIkC+oL73NNq
+ JNHSAL6tgZfwqkZKoUbuAh468e/dNUVxoQ==
+X-Google-Smtp-Source: ABdhPJxH96tMnGBA24GGy9HWiWIbbYkIrQ9lCXJqapQUd/859RDahHpl6tPgW94El/kGTZ2N3upHBQ==
+X-Received: by 2002:a05:6a00:14ce:: with SMTP id
+ w14mr5806941pfu.119.1598315371880; 
+ Mon, 24 Aug 2020 17:29:31 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id w130sm12707231pfd.104.2020.08.24.17.29.32
+ by smtp.gmail.com with ESMTPSA id u62sm12727929pfb.4.2020.08.24.17.29.31
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 24 Aug 2020 17:29:32 -0700 (PDT)
-Date: Mon, 24 Aug 2020 17:29:32 -0700 (PDT)
-X-Google-Original-Date: Mon, 24 Aug 2020 17:29:28 PDT (-0700)
-Subject: Re: [PATCH] ftrace: Fixup lockdep assert held of text_mutex
-In-Reply-To: <20200813113743.001b6c31@oasis.local.home>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: rostedt@goodmis.org
-Message-ID: <mhng-5de4c6ca-7e77-4b55-9097-59296872e6de@palmerdabbelt-glaptop1>
-Mime-Version: 1.0 (MHng)
+ Mon, 24 Aug 2020 17:29:31 -0700 (PDT)
+Subject: [PATCH] RISC-V: Take text_mutex in ftrace_init_nop()
+Date: Mon, 24 Aug 2020 17:21:22 -0700
+Message-Id: <20200825002121.1779187-1-palmerdabbelt@google.com>
+X-Mailer: git-send-email 2.28.0.297.g1956fa8f8d-goog
+MIME-Version: 1.0
+From: Palmer Dabbelt <palmerdabbelt@google.com>
+To: rostedt@goodmis.org, guoren@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200824_202938_122630_2FD7BA56 
-X-CRM114-Status: GOOD (  32.51  )
+X-CRM114-CacheID: sfid-20200824_202936_832747_5347FF74 
+X-CRM114-Status: GOOD (  17.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -95,111 +93,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: guoren@linux.alibaba.com, linux-kernel@vger.kernel.org,
- linux-csky@vger.kernel.org, mingo@redhat.com, guoren@kernel.org,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
+Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmerdabbelt@google.com>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 13 Aug 2020 08:37:43 PDT (-0700), rostedt@goodmis.org wrote:
-> On Wed, 12 Aug 2020 22:13:19 -0700 (PDT)
-> Palmer Dabbelt <palmer@dabbelt.com> wrote:
->
->> Sorry, I'm not really sure what's going on here.  I'm not really seeing code
->> that matches this in our port right now, so maybe this is aginst some other
->> tree?  If it's the RISC-V kprobes patch set then I was hoping to take a look at
->> that tomorrow (or I guess a bit earlier this week, but I had some surprise work
->> stuff to do).  IIRC there were a handful of races in the last patch set I saw,
->> but it's been a while so I don't remember for sure.
->>
->> That said, I certainly wouldn't be surprised if there's a locking bug in our
->> ftrace stuff.  It'd be way easier for me to figure out what's going on if you
->> have a concrete suggestion as to how to fix the issues -- even if it's just a
->> workaround.
->
-> The issue is actually quite basic.
->
-> ftrace_init_nop() is called quite early in boot up and never called
-> again. It's called before SMP is set up, so it's on a single CPU, and
-> no worries about synchronization with other CPUs is needed.
->
-> On x86, it is called before text_poke() is initialized (which is used
-> to synchronize code updates across CPUs), and thus can't be called.
-> There's a "text_poke_early()" that is used instead, which is basically
-> just a memcpy().
->
-> Now, if ftrace_init_nop() is not defined by the architecture, it is a
-> simple call to ftrace_make_nop(), which is also used to disable ftrace
-> callbacks.
->
-> The issue is that we have the following path on riscv:
->
->  ftrace_init_nop()
->    ftrace_make_nop()
->      __ftrace_modify_call()
->        patch_text_nosync()
->          patch_insn_write()
->            lockdep_assert_held(&text_mutex);
->
-> Boom! text_mutex is not held, and lockdep complains.
->
->
-> The difference between ftrace_make_nop() being called by
-> ftrace_init_nop() and being called later to disable function tracing is
-> that the latter will have:
->
->
-> 	ftrace_arch_code_modify_prepare();
-> 	[..]
-> 	ftrace_make_nop();
-> 	[..]
-> 	ftrace_arch_code_modify_post_process();
->
-> and the former will not have those called.
->
-> On x86, we handle the two different cases with:
->
->
-> static int ftrace_poke_late = 0;
->
-> int ftrace_arch_code_modify_prepare(void)
-> {
-> 	mutex_lock(&text_mutex);
-> 	ftrace_poke_late = 1;
-> 	return 0;
-> }
->
-> int ftrace_arch_code_modify_post_process(void)
-> {
-> 	text_poke_finish();
-> 	ftrace_poke_late = 0;
-> 	mutex_unlock(&text_mutex);
-> }
->
-> Although, the post_process() probably doesn't even need to set
-> ftrace_poke_late back to zero.
->
-> Then in ftrace_make_nop(), we have:
->
->   ftrace_make_nop()
->     ftrace_modify_code_direct()
->       if (ftrace_poke_late)
->         text_poke_queue(...); // this checks if text_mutex is held
->       else
->         text_poke_early(...); // is basically just memcpy, no test on text_mutex.
->
-> The two solutions for riscv, is either to implement the same thing as
-> above, or you can create your own ftrace_init_nop() to take the
-> text_mutex before calling ftrace_make_nop(), and that should work too.
+Without this we get lockdep failures.  They're spurious failures as SMP isn't
+up when ftrace_init_nop() is called.  As far as I can tell the easiest fix is
+to just take the lock, which also seems like the safest fix.
 
-Ya, thanks, that's a pretty straight-forward issue.  I've To'd you on a patch,
-but it's essentially just exactly what you suggested so I doubt it's that
-interesting.
+Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
+---
+I haven't actually tested this, as I don't have a workload that exercises
+ftrace in a meaningful fashion, but this seems pretty safe to me.  It smells to
+me like we should handle this in the generic code (make the generic
+ftrace_init_nop() call brand new
+ftrace_arch_code_modify_{prepare,post_process}_init(), which default to calling
+ftrace_arch_code_modify_{prepare,post_process}() or just juggling the lock
+(depending on what most architectures are doing)), but this at least fixes the
+issue on our end so it seems reasonable for now.
 
-I pointed out in the patch notes that it seems reasonable to have the generic
-code handle this case, would you be opposed to doing it that way?
+Thinking about it: I guess if I just booted with ftrace and lockdep it'd catch
+this issue, so that seems like an obvious test case to add.  If someone has an
+easy way to exercise more ftrace stuff I'm happy to run that in addition.
+---
+ arch/riscv/include/asm/ftrace.h |  7 +++++++
+ arch/riscv/kernel/ftrace.c      | 19 +++++++++++++++++++
+ 2 files changed, 26 insertions(+)
+
+diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/ftrace.h
+index ace8a6e2d11d..845002cc2e57 100644
+--- a/arch/riscv/include/asm/ftrace.h
++++ b/arch/riscv/include/asm/ftrace.h
+@@ -66,6 +66,13 @@ do {									\
+  * Let auipc+jalr be the basic *mcount unit*, so we make it 8 bytes here.
+  */
+ #define MCOUNT_INSN_SIZE 8
++
++#ifndef __ASSEMBLY__
++struct dyn_ftrace;
++int ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec);
++#define ftrace_init_nop ftrace_init_nop
++#endif
++
+ #endif
+ 
+ #endif /* _ASM_RISCV_FTRACE_H */
+diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
+index 2ff63d0cbb50..99e12faa5498 100644
+--- a/arch/riscv/kernel/ftrace.c
++++ b/arch/riscv/kernel/ftrace.c
+@@ -97,6 +97,25 @@ int ftrace_make_nop(struct module *mod, struct dyn_ftrace *rec,
+ 	return __ftrace_modify_call(rec->ip, addr, false);
+ }
+ 
++
++/*
++ * This is called early on, and isn't wrapped by
++ * ftrace_arch_code_modify_{prepare,post_process}() and therefor doesn't hold
++ * text_mutex, which triggers a lockdep failure.  SMP isn't running so we could
++ * just directly poke the text, but it's simpler to just take the lock
++ * ourselves.
++ */
++int ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec)
++{
++	int out;
++
++	ftrace_arch_code_modify_prepare();
++	out = ftrace_make_nop(mod, rec, MCOUNT_ADDR);
++	ftrace_arch_code_modify_post_process();
++
++	return out;
++}
++
+ int ftrace_update_ftrace_func(ftrace_func_t func)
+ {
+ 	int ret = __ftrace_modify_call((unsigned long)&ftrace_call,
+-- 
+2.28.0.297.g1956fa8f8d-goog
+
 
 _______________________________________________
 linux-riscv mailing list
