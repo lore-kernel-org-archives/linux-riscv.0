@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-10.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A06ADC433DF
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BC9EDC433E3
 	for <linux-riscv@archiver.kernel.org>; Tue, 25 Aug 2020 16:03:09 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 65AE020782
+	by mail.kernel.org (Postfix) with ESMTPS id 8676020786
 	for <linux-riscv@archiver.kernel.org>; Tue, 25 Aug 2020 16:03:09 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="fM/EaDjP";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="MhJjuXdt"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 65AE020782
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="d4hh8iXX";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="hXOK3FZK"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8676020786
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,66 +26,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=jrm/lxKxyD7hmSzAr9P+6/9keZXdCvMMarrjd1jt+V4=; b=fM/EaDjPJWksR1onnq+OgI4cb
-	DMyaLrOPM3Y5os6fvxosCL16q0dDybGs9eo17tkWaVr7gLDwcFFS2gdEPbxyFwaG6txQCzK/zBPsy
-	aHGRIIbusyLpVVRmXKLn5jSTvxX/3wt2aBaq2WKKuk/DagOZ+CUUO21g+6PYMhF0SFS2zK6YFQ16L
-	xeoogbAPyO2pwh0E78JxYgoAVYn8c5egn8ly73OCOki3/dXtk8T5WDr+fiuJ0PZ0oiXIHHr3fApHh
-	i8xI81V7MvFDiCehQHZ6arFIA1Tgu7++F+N4Lgl8qogNP1dA5nkPL0neJz0B9FElMzDyPWFd64qU7
-	MaQu75h8w==;
+	 bh=VuL5A1TF3S8cPrsNMA4ZLibSuc2y0lf3xzllEH4uCvE=; b=d4hh8iXXu+tEO7dT+guIk3WpH
+	ANu5s4gnalsRMjrDgbHdU9sf0FabM5xFefvcniKQuuucR4TjOZ12kbVUiebTLAkW8n9oYI2ByaAnB
+	KfoJ69wDFgpUtoqgqO97B8I2p6p/Of5Hnx90FIZp3HYL9q9do6b3u3Yngpb+GuNVBSyU8BjnPnKZu
+	kkEFhjnbPPdJi48nJVnFICZmFUMxWJvUyfKT6st8ZwYixgRToO3SM/sdH87MSit0C/+G5vCTtfIBz
+	V2raw4FcKhz3r3tefdEtAT6qEMNaMPv48Spfg4+JBDooLq3K4lIm+F5vQEtwYge+nNVj3Y1icMdbI
+	WQ4xcssMQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kAbPV-00047m-4i; Tue, 25 Aug 2020 16:02:57 +0000
-Received: from mail-pj1-x1044.google.com ([2607:f8b0:4864:20::1044])
+	id 1kAbPW-00048c-Um; Tue, 25 Aug 2020 16:02:58 +0000
+Received: from mail-pj1-x1042.google.com ([2607:f8b0:4864:20::1042])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kAbPR-00045X-Nw
- for linux-riscv@lists.infradead.org; Tue, 25 Aug 2020 16:02:55 +0000
-Received: by mail-pj1-x1044.google.com with SMTP id z18so1486246pjr.2
- for <linux-riscv@lists.infradead.org>; Tue, 25 Aug 2020 09:02:52 -0700 (PDT)
+ id 1kAbPT-00046d-VT
+ for linux-riscv@lists.infradead.org; Tue, 25 Aug 2020 16:02:57 +0000
+Received: by mail-pj1-x1042.google.com with SMTP id q1so1468875pjd.1
+ for <linux-riscv@lists.infradead.org>; Tue, 25 Aug 2020 09:02:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=Msjpy1I7gPlWRtRVg2Bli+/d+lSvFcjgfwGKLe96W7w=;
- b=MhJjuXdtauJWGiFGMyBUhB8w7n905fCcZtN/nEKJnHQ5bpdPSitrULrFdxchJP1Xxy
- K0cicK2mhLC8tLeC02a8FDe8CpII55EG+97FApnnbBd2ckNWQvL3/2ADXQ0X+M4fLTO7
- jSmC3fSQZzV2NktT5Mi3Bc8BD+vTANHMsavE2elq/pl6Ihr97S5lUOlFwCLMiBYIzZo2
- aVzn0hLwB7OsomZKMi0qlXj1mHmuTd39mUVi5NISrY0hu/c1Pa/oeb68cAOhocC5du2V
- qPCyc59bNOgoBDfjAlWu0dOMK/Z3TY99taljzEgrIMtoxBAg02WYvDZi3dRpv3mXkbjV
- vc2w==
+ bh=8dg/pzOfoX090vr3MKkHjKruXnSLmOH8ps44bLz/Dy8=;
+ b=hXOK3FZKFyQj/sHxEuzwTLPUAfnjY4BAK3nuyhFK3MF88zZxMd+AM8t0VCZQIN0m6G
+ eMTZg8PnWcTQzr8VXu7dWK/B74r6Amm0iz8hSl9QMjOjTM26S3fLC/XVdt5Df4f2ieYK
+ +C7wqXIJZYyobUZfK4XfTvBUt0g9uhkaYqQcQOrXaG6m3oww8yqsO26jkL250zgfD+Ib
+ dGIJ0rVowMRkkbcrIav0O244s0Gc4ORvkNwWW2yLLmQgwtimRx/JdnEwy5baDxz8n84X
+ jzsCF5JmhhBBz9N7MXaIGQ9szn9SDO5UDCzqOi8ktSUTFEtmRm5hYXLeeedt+y1dgqm3
+ WPtQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=Msjpy1I7gPlWRtRVg2Bli+/d+lSvFcjgfwGKLe96W7w=;
- b=uhUddRKuEsshU1xZ69PaQe2Jn21G3fEyQrhKWtz6zwTC4TojU9Of7bGSzoq/NR5oiJ
- nxC4TEdMM1nrrKw/cvnzLVJmQZRc5F4mFAl5SruNaByE7zTy6cKdSOVW9RNdn1vA1CCe
- ZM9+ZtLfLhZqTX8kcx7eX8j5t2E00cqLflQ44xRb42fmnVqOJHNsJ1ZGqCx+NxVp1vwi
- Mp5i6y6Lbl2OFw78QZ0S88gd02j22MhHPlMIhIgg8YD9dNqhpSiBqQhrwH43uixNJJqw
- GcRdOridm8FD/tuQFjOvNuclGXinQ4f+WbMm1UGAuHjSRnEKEvhfl4P/gEAOfHyXg1lw
- XrMA==
-X-Gm-Message-State: AOAM531YXGLqg7Sax9lpLGPhrjhSr2WhNeMHiLUEjp6kClcx3M1Gmd7F
- tomHJolQKB5yT1GfCZqeq7MuCA==
-X-Google-Smtp-Source: ABdhPJyM3WkQVkjNW2BFGPrFXN6f/zYk99lIwmBRlwyxazYNgpCdUEJGoEDidELLzMwf6VcDVbEl+A==
-X-Received: by 2002:a17:90a:1741:: with SMTP id
- 1mr2265282pjm.173.1598371370970; 
- Tue, 25 Aug 2020 09:02:50 -0700 (PDT)
+ bh=8dg/pzOfoX090vr3MKkHjKruXnSLmOH8ps44bLz/Dy8=;
+ b=sWASFj5xU8KIR3QYQXjoSgiccOBhfPhQKxHhbG/d2rv5PkbtpeHRB4Ohei/k74jwOl
+ hXxg5XgYofFKMCJWwkXHraRhPTiMOTGb50jwiKv+tF9HHjgJYrRdQhBdAeiNvMHYAcZp
+ FbW+qOI91PqDGRd36srT+Tge88kO3M1cGlBWZrKhntEB69SBuO8Ho1NRuy4O09gCrdOz
+ tvVujKud+ceBiYwejlb0d5js/kvbZkjljSG9o9D8HF23bAZMNCJGbwYGnUuOdkYLLbUo
+ QgYnhD4lkS+YlyvheD5trhI8DrTmD0x8NlNyUUhX3mS/HEd+pdZI+/NoMKHU/RjPNYW5
+ WONA==
+X-Gm-Message-State: AOAM5321vDeFJFBC6Gj1KZgmEwZZnQfbFwQMvnL7ZViiTtqi+mYkQ/Ly
+ ld8lsiC2Yk+6GbKB+FYX1DJd0Q==
+X-Google-Smtp-Source: ABdhPJw0IKBPCBHyT7FsIFni4cECCusosYELl80aL9fXYDOXbNFYC5Ncy0w6whnQ0XoeA0abk/V0qg==
+X-Received: by 2002:a17:90a:9405:: with SMTP id
+ r5mr2240530pjo.74.1598371373730; 
+ Tue, 25 Aug 2020 09:02:53 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id q82sm17807271pfc.139.2020.08.25.09.02.50
+ by smtp.gmail.com with ESMTPSA id d4sm3078303pju.56.2020.08.25.09.02.52
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 25 Aug 2020 09:02:50 -0700 (PDT)
-Date: Tue, 25 Aug 2020 09:02:50 -0700 (PDT)
-X-Google-Original-Date: Tue, 25 Aug 2020 07:54:07 PDT (-0700)
-Subject: Re: [PATCH 2/3] soc: sifive: Add SiFive specific Cadence DDR
- controller driver
-In-Reply-To: <1598357182-4226-3-git-send-email-yash.shah@sifive.com>
+ Tue, 25 Aug 2020 09:02:53 -0700 (PDT)
+Date: Tue, 25 Aug 2020 09:02:53 -0700 (PDT)
+X-Google-Original-Date: Tue, 25 Aug 2020 08:49:54 PDT (-0700)
+Subject: Re: [PATCH 3/3] edac: sifive: Add EDAC support for Memory Controller
+ in SiFive SoCs
+In-Reply-To: <1598357182-4226-4-git-send-email-yash.shah@sifive.com>
 From: Palmer Dabbelt <palmer@dabbelt.com>
 To: yash.shah@sifive.com
-Message-ID: <mhng-f3b4681f-2fc1-4384-94b6-efeae830795e@palmerdabbelt-glaptop1>
+Message-ID: <mhng-42bbb651-211f-4899-8839-5b6bc8e3db78@palmerdabbelt-glaptop1>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200825_120253_918834_E1B18195 
-X-CRM114-Status: GOOD (  35.02  )
+X-CRM114-CacheID: sfid-20200825_120256_064803_F1298946 
+X-CRM114-Status: GOOD (  26.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -108,343 +108,194 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 25 Aug 2020 05:06:21 PDT (-0700), yash.shah@sifive.com wrote:
-> Add a driver to manage the Cadence DDR controller present on SiFive SoCs
-> At present the driver manages the EDAC feature of the DDR controller.
-> Additional features may be added to the driver in future to control
-> other aspects of the DDR controller.
+On Tue, 25 Aug 2020 05:06:22 PDT (-0700), yash.shah@sifive.com wrote:
+> Add Memory controller EDAC support in exisiting SiFive platform EDAC
+> driver. It registers for notifier events from the SiFive DDR controller
+> driver for DDR ECC events.
 >
 > Signed-off-by: Yash Shah <yash.shah@sifive.com>
 > ---
->  drivers/soc/sifive/Kconfig      |   6 ++
->  drivers/soc/sifive/Makefile     |   3 +-
->  drivers/soc/sifive/sifive_ddr.c | 207 ++++++++++++++++++++++++++++++++++++++++
->  include/soc/sifive/sifive_ddr.h |  73 ++++++++++++++
->  4 files changed, 288 insertions(+), 1 deletion(-)
->  create mode 100644 drivers/soc/sifive/sifive_ddr.c
->  create mode 100644 include/soc/sifive/sifive_ddr.h
+>  drivers/edac/Kconfig       |   2 +-
+>  drivers/edac/sifive_edac.c | 117 +++++++++++++++++++++++++++++++++++++++++++++
+>  2 files changed, 118 insertions(+), 1 deletion(-)
 >
-> diff --git a/drivers/soc/sifive/Kconfig b/drivers/soc/sifive/Kconfig
-> index 58cf8c4..f41d8fe 100644
-> --- a/drivers/soc/sifive/Kconfig
-> +++ b/drivers/soc/sifive/Kconfig
-> @@ -7,4 +7,10 @@ config SIFIVE_L2
+> diff --git a/drivers/edac/Kconfig b/drivers/edac/Kconfig
+> index 7b6ec30..f8b3b53 100644
+> --- a/drivers/edac/Kconfig
+> +++ b/drivers/edac/Kconfig
+> @@ -462,7 +462,7 @@ config EDAC_ALTERA_SDMMC
+>
+>  config EDAC_SIFIVE
+>  	bool "Sifive platform EDAC driver"
+> -	depends on EDAC=y && SIFIVE_L2
+> +	depends on EDAC=y && (SIFIVE_L2 || SIFIVE_DDR)
 >  	help
->  	  Support for the L2 cache controller on SiFive platforms.
+>  	  Support for error detection and correction on the SiFive SoCs.
 >
-> +config SIFIVE_DDR
-> +	bool "Sifive DDR controller driver"
-> +	help
-> +	  Support for the management of cadence DDR controller on SiFive
-> +	  platforms.
-> +
->  endif
-> diff --git a/drivers/soc/sifive/Makefile b/drivers/soc/sifive/Makefile
-> index b5caff7..b4acb5c 100644
-> --- a/drivers/soc/sifive/Makefile
-> +++ b/drivers/soc/sifive/Makefile
-> @@ -1,3 +1,4 @@
->  # SPDX-License-Identifier: GPL-2.0
->
-> -obj-$(CONFIG_SIFIVE_L2)	+= sifive_l2_cache.o
-> +obj-$(CONFIG_SIFIVE_L2)		+= sifive_l2_cache.o
-> +obj-$(CONFIG_SIFIVE_DDR)	+= sifive_ddr.o
-> diff --git a/drivers/soc/sifive/sifive_ddr.c b/drivers/soc/sifive/sifive_ddr.c
-> new file mode 100644
-> index 0000000..b1b421c
-> --- /dev/null
-> +++ b/drivers/soc/sifive/sifive_ddr.c
-> @@ -0,0 +1,207 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * SiFive specific cadence DDR controller Driver
-> + *
-> + * Copyright (C) 2019-2020 SiFive, Inc.
-> + *
-> + */
-> +#include <linux/init.h>
-> +#include <linux/io.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/of_address.h>
-> +#include <linux/of_device.h>
-> +#include <linux/module.h>
-> +#include <linux/uaccess.h>
-> +#include <linux/delay.h>
+> diff --git a/drivers/edac/sifive_edac.c b/drivers/edac/sifive_edac.c
+> index 3a3dcb1..cf032685 100644
+> --- a/drivers/edac/sifive_edac.c
+> +++ b/drivers/edac/sifive_edac.c
+> @@ -11,14 +11,120 @@
+>  #include <linux/platform_device.h>
+>  #include "edac_module.h"
+>  #include <soc/sifive/sifive_l2_cache.h>
 > +#include <soc/sifive/sifive_ddr.h>
+>
+>  #define DRVNAME "sifive_edac"
+> +#define SIFIVE_EDAC_MOD_NAME "Sifive ECC Manager"
+>
+>  struct sifive_edac_priv {
+>  	struct notifier_block notifier;
+>  	struct edac_device_ctl_info *dci;
+>  };
+>
+> +struct sifive_edac_mc_priv {
+> +	struct notifier_block notifier;
+> +	struct mem_ctl_info *mci;
+> +};
 > +
-> +static ATOMIC_NOTIFIER_HEAD(ddr_err_chain);
-> +
-> +int register_sifive_ddr_error_notifier(struct notifier_block *nb)
+> +/**
+> + * EDAC MC error callback
+> + *
+> + * @event: non-zero if unrecoverable.
+> + */
+> +static
+> +int ecc_mc_err_event(struct notifier_block *this, unsigned long event, void *ptr)
 > +{
-> +	return atomic_notifier_chain_register(&ddr_err_chain, nb);
-> +}
-> +EXPORT_SYMBOL_GPL(register_sifive_ddr_error_notifier);
+> +	struct sifive_ddr_priv *priv = ptr;
+> +	struct sifive_edac_mc_priv *p;
 > +
-> +int unregister_sifive_ddr_error_notifier(struct notifier_block *nb)
-> +{
-> +	return atomic_notifier_chain_unregister(&ddr_err_chain, nb);
-> +}
-> +EXPORT_SYMBOL_GPL(unregister_sifive_ddr_error_notifier);
-> +
-> +static void handle_ce(struct sifive_ddr_priv *pv)
-> +{
-> +	u64 err_c_addr = 0x0;
-> +	u64 err_c_data = 0x0;
-> +	u32 err_c_synd, err_c_id;
-> +	u32 sig_val_l, sig_val_h;
-> +
-> +	sig_val_l = readl(pv->reg + ECC_C_ADDR_L_REG);
-> +	sig_val_h = (readl(pv->reg + ECC_C_ADDR_H_REG) &
-> +		     ECC_ADDR_H_MASK);
-> +	err_c_addr = (((ulong)sig_val_h << CTL_REG_WIDTH_SHIFT) | sig_val_l);
-> +
-> +	sig_val_l = readl(pv->reg + ECC_C_DATA_L_REG);
-> +	sig_val_h = readl(pv->reg + ECC_C_DATA_H_REG);
-> +	err_c_data = (((ulong)sig_val_h << CTL_REG_WIDTH_SHIFT) | sig_val_l);
-> +
-> +	err_c_id = ((readl(pv->reg + ECC_U_C_ID_REG) &
-> +		     ECC_C_ID_MASK) >> ECC_C_ID_SHIFT);
-> +
-> +	err_c_synd = ((readl(pv->reg + ECC_C_SYND_REG) &
-> +		      ECC_SYND_MASK) >> ECC_SYND_SHIFT);
-> +
-> +	pv->error_count = 1;
-> +	pv->page_frame_number = err_c_addr >> PAGE_SHIFT;
-> +	pv->offset_in_page = err_c_addr & ~PAGE_MASK;
-> +	pv->syndrome = err_c_synd;
-> +	pv->top_layer = 0;
-> +	pv->mid_layer = 0;
-> +	pv->low_layer = -1;
-> +
-> +	atomic_notifier_call_chain(&ddr_err_chain, SIFIVE_DDR_ERR_TYPE_CE, pv);
-> +}
-> +
-> +static void handle_ue(struct sifive_ddr_priv *pv)
-> +{
-> +	u64 err_u_addr = 0x0;
-> +	u64 err_u_data = 0x0;
-> +	u32 err_u_synd, err_u_id;
-> +	u32 sig_val_l, sig_val_h;
-> +
-> +	sig_val_l = readl(pv->reg + ECC_U_ADDR_L_REG);
-> +	sig_val_h = (readl(pv->reg + ECC_U_ADDR_H_REG) &
-> +		     ECC_ADDR_H_MASK);
-> +	err_u_addr = (((ulong)sig_val_h << CTL_REG_WIDTH_SHIFT) | sig_val_l);
-> +
-> +	sig_val_l = readl(pv->reg + ECC_U_DATA_L_REG);
-> +	sig_val_h = readl(pv->reg + ECC_U_DATA_H_REG);
-> +	err_u_data = (((ulong)sig_val_h << CTL_REG_WIDTH_SHIFT) | sig_val_l);
-> +
-> +	err_u_id = ((readl(pv->reg + ECC_U_C_ID_REG) &
-> +		    ECC_U_ID_MASK) >> ECC_U_ID_SHIFT);
-> +
-> +	err_u_synd = ((readl(pv->reg + ECC_U_SYND_REG) &
-> +		      ECC_SYND_MASK) >> ECC_SYND_SHIFT);
-> +
-> +	pv->error_count = 1;
-> +	pv->page_frame_number = err_u_addr >> PAGE_SHIFT;
-> +	pv->offset_in_page = err_u_addr & ~PAGE_MASK;
-> +	pv->syndrome = err_u_synd;
-> +	pv->top_layer = 0;
-> +	pv->mid_layer = 0;
-> +	pv->low_layer = -1;
-> +
-> +	atomic_notifier_call_chain(&ddr_err_chain, SIFIVE_DDR_ERR_TYPE_UE, pv);
-> +}
-> +
-> +static irqreturn_t ecc_isr(int irq, void *ptr)
-> +{
-> +	struct sifive_ddr_priv *pv = ptr;
-> +	u32 intr_status;
-> +	u32 val;
-> +
-> +	/* Check the intr status and confirm ECC error intr */
-> +	intr_status = readl(pv->reg + ECC_CTL_INT_STATUS_REG);
-> +
-> +	dev_dbg(pv->dev, "InterruptStatus : 0x%x\n", intr_status);
-> +	val = intr_status & (ECC_INT_CE_UE_MASK);
-> +	if (!((val & ECC_CE_INTR_MASK) || (val & ECC_UE_INTR_MASK)))
-> +		return IRQ_NONE;
-> +
-> +	if (val & ECC_CE_INTR_MASK) {
-> +		handle_ce(pv);
-> +
-> +		/* Clear the interrupt source */
-> +		if (val & ECC_INT_CE_EVENT)
-> +			writel(ECC_INT_CE_EVENT,
-> +			       pv->reg + ECC_CTL_INT_ACK_REG);
-> +		else if (val & ECC_INT_SECOND_CE_EVENT)
-> +			writel(ECC_INT_SECOND_CE_EVENT,
-> +			       pv->reg + ECC_CTL_INT_ACK_REG);
-> +		else
-> +			dev_err(pv->dev, "Failed to clear IRQ\n");
+> +	p = container_of(this, struct sifive_edac_mc_priv, notifier);
+> +	if (event == SIFIVE_DDR_ERR_TYPE_UE) {
+> +		edac_mc_handle_error(HW_EVENT_ERR_UNCORRECTED, p->mci,
+> +				     priv->error_count, priv->page_frame_number,
+> +				     priv->offset_in_page, priv->syndrome,
+> +				     priv->top_layer, priv->mid_layer,
+> +				     priv->low_layer, p->mci->ctl_name, "");
+> +	} else if (event == SIFIVE_DDR_ERR_TYPE_CE) {
+> +		edac_mc_handle_error(HW_EVENT_ERR_CORRECTED, p->mci,
+> +				     priv->error_count, priv->page_frame_number,
+> +				     priv->offset_in_page, priv->syndrome,
+> +				     priv->top_layer, priv->mid_layer,
+> +				     priv->low_layer, p->mci->ctl_name, "");
 > +	}
 > +
-> +	if (val & ECC_UE_INTR_MASK) {
-> +		handle_ue(pv);
-> +
-> +		/* Clear the interrupt source */
-> +		if (val & ECC_INT_UE_EVENT)
-> +			writel(ECC_INT_UE_EVENT,
-> +			       pv->reg + ECC_CTL_INT_ACK_REG);
-> +		else if (val & ECC_INT_SECOND_UE_EVENT)
-> +			writel(ECC_INT_SECOND_UE_EVENT,
-> +			       pv->reg + ECC_CTL_INT_ACK_REG);
-> +		else
-> +			dev_err(pv->dev, "Failed to clear IRQ\n");
-> +	}
-> +
-> +	return IRQ_HANDLED;
+> +	return NOTIFY_OK;
 > +}
 > +
-> +static int sifive_ddr_probe(struct platform_device *pdev)
+> +static int ecc_mc_register(struct platform_device *pdev)
 > +{
-> +	struct device *dev = &pdev->dev;
-> +	struct sifive_ddr_priv *priv;
-> +	struct resource *res;
-> +	int ret, irq;
+> +	struct sifive_edac_mc_priv *p;
+> +	struct edac_mc_layer layers[1];
+> +	int ret;
 > +
-> +	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-> +	if (!priv)
+> +	p = devm_kzalloc(&pdev->dev, sizeof(*p), GFP_KERNEL);
+> +	if (!p)
 > +		return -ENOMEM;
 > +
-> +	priv->dev = dev;
+> +	p->notifier.notifier_call = ecc_mc_err_event;
+> +	platform_set_drvdata(pdev, p);
 > +
-> +	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> +	priv->reg = devm_ioremap_resource(dev, res);
-> +	if (IS_ERR(priv->reg))
-> +		return PTR_ERR(priv->reg);
+> +	layers[0].type = EDAC_MC_LAYER_CHIP_SELECT;
+> +	layers[0].size = 1;
+> +	layers[0].is_virt_csrow = true;
 > +
-> +	irq = platform_get_irq(pdev, 0);
-> +	ret = devm_request_irq(dev, irq, ecc_isr, 0, "sifive-fu540-ddr", priv);
-> +	if (ret) {
-> +		dev_err(dev, "request_irq failed\n");
-> +		return ret;
+> +	p->mci = edac_mc_alloc(0, ARRAY_SIZE(layers), layers, 0);
+> +	if (!p->mci) {
+> +		dev_err(&pdev->dev, "Failed mem allocation for mc instance\n");
+> +		return -ENOMEM;
 > +	}
 > +
-> +	/* Enable & set CE/UE Interrupts for DDR4 Controller */
-> +	writel(~(ECC_INT_CE_UE_MASK), priv->reg + ECC_CTL_INT_MASK_REG);
+> +	p->mci->pdev = &pdev->dev;
+> +	/* Initialize controller capabilities */
+> +	p->mci->mtype_cap = MEM_FLAG_DDR4;
+> +	p->mci->edac_ctl_cap = EDAC_FLAG_NONE | EDAC_FLAG_SECDED;
+> +	p->mci->edac_cap = EDAC_FLAG_SECDED;
+> +	p->mci->scrub_cap = SCRUB_UNKNOWN;
+> +	p->mci->scrub_mode = SCRUB_HW_PROG;
+> +	p->mci->ctl_name = dev_name(&pdev->dev);
+> +	p->mci->dev_name = dev_name(&pdev->dev);
+> +	p->mci->mod_name = SIFIVE_EDAC_MOD_NAME;
+> +	p->mci->ctl_page_to_phys = NULL;
 > +
-> +	platform_set_drvdata(pdev, priv);
-> +	dev_info(dev, "SiFive DDR probe successful\n");
-
-I'm not sure what the rules are here, but this doesn't seem like a particularly
-useful print.
-
+> +	/* Interrupt feature is supported by cadence mc */
+> +	edac_op_state = EDAC_OPSTATE_INT;
+> +
+> +	ret = edac_mc_add_mc(p->mci);
+> +	if (ret) {
+> +		edac_printk(KERN_ERR, SIFIVE_EDAC_MOD_NAME,
+> +			    "Failed to register with EDAC core\n");
+> +		goto err;
+> +	}
+> +
+> +#ifdef CONFIG_SIFIVE_DDR
+> +	register_sifive_ddr_error_notifier(&p->notifier);
+> +#endif
 > +
 > +	return 0;
+> +
+> +err:
+> +	edac_mc_free(p->mci);
+> +
+> +	return -ENXIO;
 > +}
 > +
-> +static int sifive_ddr_remove(struct platform_device *pdev)
+> +static int ecc_mc_unregister(struct platform_device *pdev)
 > +{
-> +	struct sifive_ddr_priv *priv = platform_get_drvdata(pdev);
+> +	struct sifive_edac_mc_priv *p = platform_get_drvdata(pdev);
 > +
-> +	/* Disable All ECC Interrupts for DDR4 Controller */
-> +	writel(ECC_INT_CE_UE_MASK, priv->reg + ECC_CTL_INT_MASK_REG);
+> +#ifdef CONFIG_SIFIVE_DDR
+> +	unregister_sifive_ddr_error_notifier(&p->notifier);
+> +#endif
+> +	edac_mc_del_mc(&pdev->dev);
+> +	edac_mc_free(p->mci);
 > +
 > +	return 0;
 > +}
 > +
-> +static const struct of_device_id sifive_ddr_of_match[] = {
-> +	{ .compatible = "sifive,fu540-c000-ddr"},
-> +	{},
-> +};
+>  /**
+>   * EDAC error callback
+>   *
+> @@ -67,7 +173,9 @@ static int ecc_register(struct platform_device *pdev)
+>  		goto err;
+>  	}
+>
+> +#ifdef CONFIG_SIFIVE_L2
+>  	register_sifive_l2_error_notifier(&p->notifier);
+> +#endif
+>
+>  	return 0;
+>
+> @@ -81,7 +189,9 @@ static int ecc_unregister(struct platform_device *pdev)
+>  {
+>  	struct sifive_edac_priv *p = platform_get_drvdata(pdev);
+>
+> +#ifdef CONFIG_SIFIVE_L2
+>  	unregister_sifive_l2_error_notifier(&p->notifier);
+> +#endif
+>  	edac_device_del_device(&pdev->dev);
+>  	edac_device_free_ctl_info(p->dci);
+>
+> @@ -102,12 +212,19 @@ static int __init sifive_edac_init(void)
+>  	if (ret)
+>  		platform_device_unregister(sifive_pdev);
+>
+> +	ret = ecc_mc_register(sifive_pdev);
+> +	if (ret) {
+> +		ecc_unregister(sifive_pdev);
+> +		platform_device_unregister(sifive_pdev);
+> +	}
 > +
-> +MODULE_DEVICE_TABLE(of, sifive_ddr_of_match);
-> +
-> +static struct platform_driver sifive_ddr_driver = {
-> +	.driver = {
-> +		.name = "sifive-ddr",
-> +		.of_match_table = sifive_ddr_of_match,
-> +	},
-> +	.probe = sifive_ddr_probe,
-> +	.remove = sifive_ddr_remove,
-> +};
-> +
-> +module_platform_driver(sifive_ddr_driver);
-> +
-> +MODULE_AUTHOR("SiFive");
-> +MODULE_DESCRIPTION("SiFive DDR Controller driver");
-> +MODULE_LICENSE("GPL v2");
-> diff --git a/include/soc/sifive/sifive_ddr.h b/include/soc/sifive/sifive_ddr.h
-> new file mode 100644
-> index 0000000..2ff8623
-> --- /dev/null
-> +++ b/include/soc/sifive/sifive_ddr.h
-> @@ -0,0 +1,73 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * SiFive DDR Controller header file
-> + *
-> + */
-> +
-> +#ifndef __SOC_SIFIVE_DDR_H
-> +#define __SOC_SIFIVE_DDR_H
-> +
-> +int register_sifive_ddr_error_notifier(struct notifier_block *nb);
-> +int unregister_sifive_ddr_error_notifier(struct notifier_block *nb);
-> +
-> +struct sifive_ddr_priv {
-> +	void __iomem *reg;
-> +	struct device *dev;
-> +	u16 error_count;
-> +	unsigned long page_frame_number;
-> +	unsigned long offset_in_page;
-> +	unsigned long syndrome;
-> +	int top_layer;
-> +	int mid_layer;
-> +	int low_layer;
-> +};
-> +
-> +#define SIFIVE_DDR_ERR_TYPE_CE	(0)
-> +#define SIFIVE_DDR_ERR_TYPE_UE	(1)
-> +#define SIFIVE_DDR_EDAC_GRAIN	(1)
-> +#define SIFIVE_MEM_TYPE_DDR4	0xA
-> +#define SIFIVE_DDR_WIDTH_16	(2)
-> +#define SIFIVE_DDR_WIDTH_32	(1)
-> +#define SIFIVE_DDR_WIDTH_64	(0)
-> +
-> +#define DDR_CTL_MEM_TYPE_REG	0x000
-> +#define DDR_CTL_MEM_WIDTH_REG	0x004
-> +#define ECC_CTL_CONTROL_REG	0x174
-> +#define ECC_U_ADDR_L_REG	0x180
-> +#define ECC_U_ADDR_H_REG	0x184
-> +#define ECC_U_DATA_L_REG	0x188
-> +#define ECC_U_DATA_H_REG	0x18c
-> +
-> +#define ECC_C_ADDR_L_REG	0x190
-> +#define ECC_C_ADDR_H_REG	0x194
-> +#define ECC_C_DATA_L_REG	0x198
-> +#define ECC_C_DATA_H_REG	0x19c
-> +#define ECC_U_C_ID_REG		0x1A0
-> +#define ECC_CTL_INT_STATUS_REG	0x210
-> +#define ECC_CTL_INT_ACK_REG	0x218
-> +#define ECC_CTL_INT_MASK_REG	0x220
-> +#define ECC_C_SYND_REG		ECC_C_ADDR_H_REG
-> +#define ECC_U_SYND_REG		ECC_U_ADDR_H_REG
-> +
-> +#define ECC_CTL_MTYPE_MASK	GENMASK(11, 8)
-> +#define CTL_MEM_MAX_WIDTH_MASK	GENMASK(31, 24)
-> +#define ECC_ADDR_H_MASK		GENMASK(3, 0)
-> +#define ECC_INT_CE_UE_MASK	GENMASK(6, 3)
-> +#define ECC_CE_INTR_MASK	GENMASK(4, 3)
-> +#define ECC_UE_INTR_MASK	GENMASK(6, 5)
-> +#define ECC_INT_CE_EVENT	BIT(3)
-> +#define ECC_INT_SECOND_CE_EVENT	BIT(4)
-> +#define ECC_INT_UE_EVENT	BIT(5)
-> +#define ECC_INT_SECOND_UE_EVENT	BIT(6)
-> +#define ECC_CTL_ECC_ENABLE	BIT(16)
-> +
-> +#define ECC_C_ID_MASK		GENMASK(28, 16)
-> +#define ECC_U_ID_MASK		GENMASK(12, 0)
-> +#define ECC_C_ID_SHIFT		(16)
-> +#define ECC_U_ID_SHIFT		(0)
-> +#define ECC_SYND_MASK		GENMASK(15, 8)
-> +#define ECC_SYND_SHIFT		(8)
-> +
-> +#define CTL_REG_WIDTH_SHIFT	(32)
-> +
-> +#endif /* __SOC_SIFIVE_DDR_H */
+>  	return ret;
+>  }
+>
+>  static void __exit sifive_edac_exit(void)
+>  {
+>  	ecc_unregister(sifive_pdev);
+> +	ecc_mc_unregister(sifive_pdev);
+>  	platform_device_unregister(sifive_pdev);
+>  }
 
 Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
 Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
