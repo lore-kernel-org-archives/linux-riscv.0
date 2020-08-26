@@ -2,90 +2,88 @@ Return-Path: <SRS0=zykF=CE=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.7 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,UNWANTED_LANGUAGE_BODY,USER_AGENT_GIT autolearn=ham
+X-Spam-Status: No, score=-10.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DD52EC433DF
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Aug 2020 15:00:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 52A0DC433DF
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Aug 2020 16:22:56 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9D304214F1
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Aug 2020 15:00:32 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 0F9F72074A
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Aug 2020 16:22:56 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ks27/6/q";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="u9wJQQt5"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9D304214F1
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="wH6q2GoW";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="0XBaJLdp"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0F9F72074A
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=shUaSwJPVhw974Eh5hMdvN4pLGDTqoAa5/JzWMT2i0w=; b=ks27/6/qGKbf/2RDHuU9S/1d+
-	NlLthLlxeGou9koqUjuWKODbjqANyKz9P34lDPP9zRJYmjODeN8DxsXy5lLcxst/eWFpon1Bln92K
-	MdeeE+ytwbnY+EPsHVbii3ox/mJluVjoxEf+ByHXtFzPRYzM9wgHCQBp491scTJ3fVhskTt3/Ycjc
-	jH582eqSUwPSVVJ5q7h7cBFMSv83hWQdQKoHsW9vUEzr4hDrJmY096DYmSkYbZMuXWxMrFdN8AZOX
-	u1tcWIYz5PtvJSJiSJ4C8UEReiY6km8bDNynckdHLzNnHKV5eOAR/J23sQcM3s5P5UK23ZmTBBtAH
-	5HszwhFIA==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=XMKKLWIMl7GWtF9wFz5nkZty1q9U8FJZAP5VPscVwXA=; b=wH6q2GoWNdY+H55cFhp1DEqID
+	M0bMHgIA1O3PJzkd8PTGUUrRcJKCALpb8djQAPuKAvbhKKfEFzyt6mB710hSwCuo8OElMFptF4Ry0
+	l5KxpqHIfoYQpnQ3gut1H/tXlRelkO7sRAzGikc8EZh/w3hI70dqtuklO+7n+JLkqSVdfk+1QFv9o
+	vh443b9jMc58ZhdmjC8deZU8I+TkztQxQMNyBYfx4/AaW0Z6RIjnYGkR6uAvz0mdXe9V/j1RIczlu
+	Eio90gBmBNmcWKmSJl1TTI39c6UJlpuv+OVYNCzPWYlLfI75ZZ614eZbktqP3KE7n9eZOMxUNarWs
+	hwFYgyqXA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kAwuS-0006Iy-Hb; Wed, 26 Aug 2020 15:00:20 +0000
-Received: from mail-pj1-x1042.google.com ([2607:f8b0:4864:20::1042])
+	id 1kAyC2-0005Mh-LJ; Wed, 26 Aug 2020 16:22:34 +0000
+Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kAwoQ-0002gy-Nv
- for linux-riscv@lists.infradead.org; Wed, 26 Aug 2020 14:54:24 +0000
-Received: by mail-pj1-x1042.google.com with SMTP id nv17so1000534pjb.3
- for <linux-riscv@lists.infradead.org>; Wed, 26 Aug 2020 07:54:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=CT6s1M0q19YFhy+cBpQPX3nn1CscA8mpaTfBdcn8vdo=;
- b=u9wJQQt5hW3qa3ya9qPXmEQyMDTWMQZHbSO3RwJdp2sKyqS30CDXWxqirn98P9bvjq
- 5k9b4obnh5IAZeF3n7nfI5cHz7FVY+P1pluo2c6rNimHuQV8OYtaeX/V4Cced3rL7xFH
- NCmQH0Rh0EknPo8Tvnt6+BRX7xfXxLWINB6359wCNE+lf1Khs+fny6WA4kqbxPx7sPP2
- 4Wu6b2bDlHb8ThVwsTbMsR4G4gOOz15ZBN+OjgIx4lyrvVzbF9xPrFpaYgkafvJyfa3m
- 0kzpltobbXHAvhfSdg/A1z2zfQnA54cJJtn0xYgsVjEazuZMO04Q6WmKCtnX2fM2uoeQ
- xN4w==
+ id 1kAyBy-0005KR-VZ
+ for linux-riscv@lists.infradead.org; Wed, 26 Aug 2020 16:22:32 +0000
+Received: by mail-pg1-x541.google.com with SMTP id l191so1284789pgd.5
+ for <linux-riscv@lists.infradead.org>; Wed, 26 Aug 2020 09:22:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=M2pM6oqlNN6MFOKK7t3LmYxIe8hLNoDE+c6Oy6sDbps=;
+ b=0XBaJLdphBcrsfjbCsPV/DnDtCuoTybU7kmvMapFYxXvE3qZVFr9blFuHjPXHdTCei
+ +jJzOZv28p3I5AapTR4ZbPqikFLUJjy4pvnArkspXnEkiY7GYz3ETVp7OVydR5uMTZM2
+ kNbkLJK4XIMHrkChkpj+RwFk29h+27rr1PHt8H2kBjI/enJtfY/WnH80fl+UpX3RP0NU
+ TjeoCU06rYZPWboZIgjOEMBygqnFDHBdvdAXceru+Hk8HcCZNQ/RQ1mTpWbBaGnCmI2z
+ llHFdLKaXFPfd+lmlicsjJx0Gpg8eX+6uxm66QadJ0HlK1kjZ+gq6LrJ+vvmkLGvJN0a
+ UMvQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=CT6s1M0q19YFhy+cBpQPX3nn1CscA8mpaTfBdcn8vdo=;
- b=mRNKmuEdRBkClRBJO+Lg86SIDj4UM8Fhsc71nzta60Q/i+nOLzeBCT5mywmJMf5VAw
- MV7/6/3SNLOsIDt897cd3n6yWg2+Oq4cr1IJh/V7e/uHosxZRdtAWugy+NLivjSNK5yV
- mdmBkwz1JS9X5MfvynEb3G90E1UtzB0SEV15wJs4mecc/UHP9ttA5kYoO6QxFS4IVb1/
- 1CU3UZ44jADultmwILH1nIV4eWMawluPbUofEG2L4GC2zHecct9X+kCpoRAqfiE9j+It
- VVrq4hbX+UB2Q5HVbzf3zwne3JWNDOI+ALyqTgGSm6oXTc3DRBcjV3Ik0UDaYTYZp3U2
- 4O6w==
-X-Gm-Message-State: AOAM530QyrBukpEHYL6JvBiA4AdmnHJEghILnudPA6XAC2bsVCc1mWBb
- BH0C6NE1WmIByxctY8WcVNQ=
-X-Google-Smtp-Source: ABdhPJxvkuoGl75ZVpNr1RgzK005jvzedZlnd2QDmA+7r0p3ng9I2IdwjyZLrFMe98sls8FJaqrpYA==
-X-Received: by 2002:a17:902:c395:: with SMTP id
- g21mr12112718plg.264.1598453642763; 
- Wed, 26 Aug 2020 07:54:02 -0700 (PDT)
-Received: from bobo.ozlabs.ibm.com (61-68-212-105.tpgi.com.au. [61.68.212.105])
- by smtp.gmail.com with ESMTPSA id r7sm3327140pfl.186.2020.08.26.07.53.58
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=M2pM6oqlNN6MFOKK7t3LmYxIe8hLNoDE+c6Oy6sDbps=;
+ b=uI8uHFoih3MTfBKYYPBbNKc+/1/oNmJDbvzCKyjIs4JUO0TL6/1j7HjCxevPgZNlCp
+ oIr8a6PunF8HAtwp9yVlDZskn4Vti4LlPkAo1vo73LtL4eXn3f3zcBEvcZkQBzVcrsZY
+ TZpjYYnA26bKv4oq3D1PtgcTGFvnEWw+crsBYQebfbQGR5FM4fuqkOV3e3HWDC2x9eY7
+ AI/IZmjyMxSVf29YDQEHUiW8ziHTgaX0Hdso1XrB1jUZTAOfbUCXG9q+W54U6JBjNuZf
+ mNjWILYtIf9AyzjkUjLHLG1V5YXmWand6csjWGuBthN/zlCacatwbH/76Wc+ysQHlsNp
+ CHDw==
+X-Gm-Message-State: AOAM532I6HRK+G85/DuthgyBAKiRBBMZdK7+x5NVW9w/3Rr/+ry3O97a
+ 91+old0v1cuUqiPlYA3RWC1XGg==
+X-Google-Smtp-Source: ABdhPJxhvy1Fr0y470BQcg3U7zUExK/HTGZMY1TA2Yh1PBJT1AC0z2GSyGYGUWggFbvX+ZwTbRjMWA==
+X-Received: by 2002:a63:4543:: with SMTP id u3mr10396963pgk.398.1598458946525; 
+ Wed, 26 Aug 2020 09:22:26 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id j12sm2803760pjd.44.2020.08.26.09.22.24
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 26 Aug 2020 07:54:02 -0700 (PDT)
-From: Nicholas Piggin <npiggin@gmail.com>
-To: linux-arch@vger.kernel.org
-Subject: [PATCH v2 17/23] riscv: use asm-generic/mmu_context.h for no-op
- implementations
-Date: Thu, 27 Aug 2020 00:52:43 +1000
-Message-Id: <20200826145249.745432-18-npiggin@gmail.com>
-X-Mailer: git-send-email 2.23.0
-In-Reply-To: <20200826145249.745432-1-npiggin@gmail.com>
-References: <20200826145249.745432-1-npiggin@gmail.com>
-MIME-Version: 1.0
+ Wed, 26 Aug 2020 09:22:24 -0700 (PDT)
+Date: Wed, 26 Aug 2020 09:22:24 -0700 (PDT)
+X-Google-Original-Date: Wed, 26 Aug 2020 09:22:22 PDT (-0700)
+Subject: Re: [PATCH 4/6] pwm: sifive: Simplify with dev_err_probe()
+In-Reply-To: <20200826144747.9436-4-krzk@kernel.org>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: krzk@kernel.org
+Message-ID: <mhng-452a4fec-be33-4b49-a904-edb4b4c81e0c@palmerdabbelt-glaptop1>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200826_105406_917771_012A00D8 
-X-CRM114-Status: GOOD (  12.34  )
+X-CRM114-CacheID: sfid-20200826_122231_296585_D063CAF7 
+X-CRM114-Status: GOOD (  19.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -97,70 +95,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
- Palmer Dabbelt <palmerdabbelt@google.com>, linux-kernel@vger.kernel.org,
- Nicholas Piggin <npiggin@gmail.com>, linux-mm@kvack.org,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
+Cc: heiko@sntech.de, paul@crapouillou.net, thierry.reding@gmail.com,
+ linux-riscv@lists.infradead.org, lee.jones@linaro.org, f.fainelli@gmail.com,
+ zhang.lyra@gmail.com, krzk@kernel.org, linux-rockchip@lists.infradead.org,
+ wens@csie.org, bcm-kernel-feedback-list@broadcom.com,
+ u.kleine-koenig@pengutronix.de, orsonzhai@gmail.com, linux-pwm@vger.kernel.org,
+ rjui@broadcom.com, mripard@kernel.org, linux-rpi-kernel@lists.infradead.org,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-arm-kernel@lists.infradead.org,
+ sbranden@broadcom.com, linux-kernel@vger.kernel.org, baolin.wang7@gmail.com,
+ nsaenzjulienne@suse.de
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org
+On Wed, 26 Aug 2020 07:47:45 PDT (-0700), krzk@kernel.org wrote:
+> Common pattern of handling deferred probe can be simplified with
+> dev_err_probe().  Less code and also it prints the error value.
+>
+> Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
+> ---
+>  drivers/pwm/pwm-sifive.c | 8 +++-----
+>  1 file changed, 3 insertions(+), 5 deletions(-)
+>
+> diff --git a/drivers/pwm/pwm-sifive.c b/drivers/pwm/pwm-sifive.c
+> index 62de0bb85921..2485fbaaead2 100644
+> --- a/drivers/pwm/pwm-sifive.c
+> +++ b/drivers/pwm/pwm-sifive.c
+> @@ -254,11 +254,9 @@ static int pwm_sifive_probe(struct platform_device *pdev)
+>  		return PTR_ERR(ddata->regs);
+>
+>  	ddata->clk = devm_clk_get(dev, NULL);
+> -	if (IS_ERR(ddata->clk)) {
+> -		if (PTR_ERR(ddata->clk) != -EPROBE_DEFER)
+> -			dev_err(dev, "Unable to find controller clock\n");
+> -		return PTR_ERR(ddata->clk);
+> -	}
+> +	if (IS_ERR(ddata->clk))
+> +		return dev_err_probe(dev, PTR_ERR(ddata->clk),
+> +				     "Unable to find controller clock\n");
+>
+>  	ret = clk_prepare_enable(ddata->clk);
+>  	if (ret) {
+
 Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
-Signed-off-by: Nicholas Piggin <npiggin@gmail.com>
----
- arch/riscv/include/asm/mmu_context.h | 22 ++--------------------
- 1 file changed, 2 insertions(+), 20 deletions(-)
-
-diff --git a/arch/riscv/include/asm/mmu_context.h b/arch/riscv/include/asm/mmu_context.h
-index 67c463812e2d..250defa06f3a 100644
---- a/arch/riscv/include/asm/mmu_context.h
-+++ b/arch/riscv/include/asm/mmu_context.h
-@@ -13,34 +13,16 @@
- #include <linux/mm.h>
- #include <linux/sched.h>
- 
--static inline void enter_lazy_tlb(struct mm_struct *mm,
--	struct task_struct *task)
--{
--}
--
--/* Initialize context-related info for a new mm_struct */
--static inline int init_new_context(struct task_struct *task,
--	struct mm_struct *mm)
--{
--	return 0;
--}
--
--static inline void destroy_context(struct mm_struct *mm)
--{
--}
--
- void switch_mm(struct mm_struct *prev, struct mm_struct *next,
- 	struct task_struct *task);
- 
-+#define activate_mm activate_mm
- static inline void activate_mm(struct mm_struct *prev,
- 			       struct mm_struct *next)
- {
- 	switch_mm(prev, next, NULL);
- }
- 
--static inline void deactivate_mm(struct task_struct *task,
--	struct mm_struct *mm)
--{
--}
-+#include <asm-generic/mmu_context.h>
- 
- #endif /* _ASM_RISCV_MMU_CONTEXT_H */
--- 
-2.23.0
-
 
 _______________________________________________
 linux-riscv mailing list
