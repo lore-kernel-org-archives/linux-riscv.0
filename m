@@ -2,79 +2,90 @@ Return-Path: <SRS0=zykF=CE=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
+X-Spam-Status: No, score=-9.7 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS,UNWANTED_LANGUAGE_BODY,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 378F2C433E1
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Aug 2020 14:49:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DD52EC433DF
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Aug 2020 15:00:32 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 035D22177B
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Aug 2020 14:49:23 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 9D304214F1
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Aug 2020 15:00:32 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="zFhDOgxg";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="x3kYit/g"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 035D22177B
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ks27/6/q";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="u9wJQQt5"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9D304214F1
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:References:In-Reply-To:Message-Id:Date:Subject:To:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1gZG4BciXqcxEovNX+42IVzLsV5YrzwdE4jTrbwxL20=; b=zFhDOgxgHxQPVpjEtcSTTinvQb
-	skjWIer18ey7men7tP09RVjzO2vG4pegT+u+99lJTvD0BTxcs7X+NSflDZGujHW2YSIzPMH/xIpEQ
-	x0Gseyu7HWx8yup5B8lerr9/Wf0xUmike5oRJFi5RhnPemIlBJJAfPM7QkL/2xWgTvjZfCycMiSPj
-	WUewf9P+A15zuDpbnsq6c/0w7bw4CtGp2RGXmhw2VN1rly6CN7gBwWNAwJ2dTgMyCdHiFVseWoFmI
-	EEFtHZPFQgeChtgmY/p+PnUUgy3IJEiPo/hIjWkKz1tvj48nCv1W994jlnOolOfuSNDmcahs6a96Q
-	SVTETwRA==;
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=shUaSwJPVhw974Eh5hMdvN4pLGDTqoAa5/JzWMT2i0w=; b=ks27/6/qGKbf/2RDHuU9S/1d+
+	NlLthLlxeGou9koqUjuWKODbjqANyKz9P34lDPP9zRJYmjODeN8DxsXy5lLcxst/eWFpon1Bln92K
+	MdeeE+ytwbnY+EPsHVbii3ox/mJluVjoxEf+ByHXtFzPRYzM9wgHCQBp491scTJ3fVhskTt3/Ycjc
+	jH582eqSUwPSVVJ5q7h7cBFMSv83hWQdQKoHsW9vUEzr4hDrJmY096DYmSkYbZMuXWxMrFdN8AZOX
+	u1tcWIYz5PtvJSJiSJ4C8UEReiY6km8bDNynckdHLzNnHKV5eOAR/J23sQcM3s5P5UK23ZmTBBtAH
+	5HszwhFIA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kAwjf-00009v-6o; Wed, 26 Aug 2020 14:49:11 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1kAwuS-0006Iy-Hb; Wed, 26 Aug 2020 15:00:20 +0000
+Received: from mail-pj1-x1042.google.com ([2607:f8b0:4864:20::1042])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kAwj5-0008Hh-Qj; Wed, 26 Aug 2020 14:48:36 +0000
-Received: from localhost.localdomain (unknown [194.230.155.216])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 6185722BEF;
- Wed, 26 Aug 2020 14:48:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1598453315;
- bh=35hMooZ97OwQTX5jjyj8bENeQbr8kEyo4eXDZLy1lwI=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=x3kYit/gvf86y+JFUux3GqCO99SWjnPVlhnZf6IpzDlQZzoEcVsp3YTpc3MDCtbXo
- oX6eqODelTnXDj3Ju15PdNXcmcEmS0I5a/glLHAAewv0P+Fi0X593uhmfE342tf03u
- 6a1hXYC4ZXLX0yWlT+D4jUbMz7zmLQgVr2KvbukQ=
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Thierry Reding <thierry.reding@gmail.com>,
- =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
- Lee Jones <lee.jones@linaro.org>,
- Nicolas Saenz Julienne <nsaenzjulienne@suse.de>,
- Florian Fainelli <f.fainelli@gmail.com>, Ray Jui <rjui@broadcom.com>,
- Scott Branden <sbranden@broadcom.com>,
- bcm-kernel-feedback-list@broadcom.com,
- Paul Cercueil <paul@crapouillou.net>, Heiko Stuebner <heiko@sntech.de>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Orson Zhai <orsonzhai@gmail.com>,
- Baolin Wang <baolin.wang7@gmail.com>, Chunyan Zhang <zhang.lyra@gmail.com>,
- Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- linux-pwm@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org
-Subject: [PATCH 6/6] pwm: sun4i: Simplify with dev_err_probe()
-Date: Wed, 26 Aug 2020 16:47:47 +0200
-Message-Id: <20200826144747.9436-6-krzk@kernel.org>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20200826144747.9436-1-krzk@kernel.org>
-References: <20200826144747.9436-1-krzk@kernel.org>
+ id 1kAwoQ-0002gy-Nv
+ for linux-riscv@lists.infradead.org; Wed, 26 Aug 2020 14:54:24 +0000
+Received: by mail-pj1-x1042.google.com with SMTP id nv17so1000534pjb.3
+ for <linux-riscv@lists.infradead.org>; Wed, 26 Aug 2020 07:54:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=CT6s1M0q19YFhy+cBpQPX3nn1CscA8mpaTfBdcn8vdo=;
+ b=u9wJQQt5hW3qa3ya9qPXmEQyMDTWMQZHbSO3RwJdp2sKyqS30CDXWxqirn98P9bvjq
+ 5k9b4obnh5IAZeF3n7nfI5cHz7FVY+P1pluo2c6rNimHuQV8OYtaeX/V4Cced3rL7xFH
+ NCmQH0Rh0EknPo8Tvnt6+BRX7xfXxLWINB6359wCNE+lf1Khs+fny6WA4kqbxPx7sPP2
+ 4Wu6b2bDlHb8ThVwsTbMsR4G4gOOz15ZBN+OjgIx4lyrvVzbF9xPrFpaYgkafvJyfa3m
+ 0kzpltobbXHAvhfSdg/A1z2zfQnA54cJJtn0xYgsVjEazuZMO04Q6WmKCtnX2fM2uoeQ
+ xN4w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=CT6s1M0q19YFhy+cBpQPX3nn1CscA8mpaTfBdcn8vdo=;
+ b=mRNKmuEdRBkClRBJO+Lg86SIDj4UM8Fhsc71nzta60Q/i+nOLzeBCT5mywmJMf5VAw
+ MV7/6/3SNLOsIDt897cd3n6yWg2+Oq4cr1IJh/V7e/uHosxZRdtAWugy+NLivjSNK5yV
+ mdmBkwz1JS9X5MfvynEb3G90E1UtzB0SEV15wJs4mecc/UHP9ttA5kYoO6QxFS4IVb1/
+ 1CU3UZ44jADultmwILH1nIV4eWMawluPbUofEG2L4GC2zHecct9X+kCpoRAqfiE9j+It
+ VVrq4hbX+UB2Q5HVbzf3zwne3JWNDOI+ALyqTgGSm6oXTc3DRBcjV3Ik0UDaYTYZp3U2
+ 4O6w==
+X-Gm-Message-State: AOAM530QyrBukpEHYL6JvBiA4AdmnHJEghILnudPA6XAC2bsVCc1mWBb
+ BH0C6NE1WmIByxctY8WcVNQ=
+X-Google-Smtp-Source: ABdhPJxvkuoGl75ZVpNr1RgzK005jvzedZlnd2QDmA+7r0p3ng9I2IdwjyZLrFMe98sls8FJaqrpYA==
+X-Received: by 2002:a17:902:c395:: with SMTP id
+ g21mr12112718plg.264.1598453642763; 
+ Wed, 26 Aug 2020 07:54:02 -0700 (PDT)
+Received: from bobo.ozlabs.ibm.com (61-68-212-105.tpgi.com.au. [61.68.212.105])
+ by smtp.gmail.com with ESMTPSA id r7sm3327140pfl.186.2020.08.26.07.53.58
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 26 Aug 2020 07:54:02 -0700 (PDT)
+From: Nicholas Piggin <npiggin@gmail.com>
+To: linux-arch@vger.kernel.org
+Subject: [PATCH v2 17/23] riscv: use asm-generic/mmu_context.h for no-op
+ implementations
+Date: Thu, 27 Aug 2020 00:52:43 +1000
+Message-Id: <20200826145249.745432-18-npiggin@gmail.com>
+X-Mailer: git-send-email 2.23.0
+In-Reply-To: <20200826145249.745432-1-npiggin@gmail.com>
+References: <20200826145249.745432-1-npiggin@gmail.com>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200826_104836_024327_465A8B25 
-X-CRM114-Status: GOOD (  14.48  )
+X-CRM114-CacheID: sfid-20200826_105406_917771_012A00D8 
+X-CRM114-Status: GOOD (  12.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -86,78 +97,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>
-MIME-Version: 1.0
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
+ Palmer Dabbelt <palmerdabbelt@google.com>, linux-kernel@vger.kernel.org,
+ Nicholas Piggin <npiggin@gmail.com>, linux-mm@kvack.org,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Common pattern of handling deferred probe can be simplified with
-dev_err_probe().  Less code and also it prints the error value.
-
-Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org
+Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
+Signed-off-by: Nicholas Piggin <npiggin@gmail.com>
 ---
- drivers/pwm/pwm-sun4i.c | 36 ++++++++++++------------------------
- 1 file changed, 12 insertions(+), 24 deletions(-)
+ arch/riscv/include/asm/mmu_context.h | 22 ++--------------------
+ 1 file changed, 2 insertions(+), 20 deletions(-)
 
-diff --git a/drivers/pwm/pwm-sun4i.c b/drivers/pwm/pwm-sun4i.c
-index 961c59c99bb3..38a4c5c1317b 100644
---- a/drivers/pwm/pwm-sun4i.c
-+++ b/drivers/pwm/pwm-sun4i.c
-@@ -423,38 +423,26 @@ static int sun4i_pwm_probe(struct platform_device *pdev)
- 	 * back to the first clock of the PWM.
- 	 */
- 	pwm->clk = devm_clk_get_optional(&pdev->dev, "mod");
--	if (IS_ERR(pwm->clk)) {
--		if (PTR_ERR(pwm->clk) != -EPROBE_DEFER)
--			dev_err(&pdev->dev, "get mod clock failed %pe\n",
--				pwm->clk);
--		return PTR_ERR(pwm->clk);
--	}
-+	if (IS_ERR(pwm->clk))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(pwm->clk),
-+				     "get mod clock failed\n");
+diff --git a/arch/riscv/include/asm/mmu_context.h b/arch/riscv/include/asm/mmu_context.h
+index 67c463812e2d..250defa06f3a 100644
+--- a/arch/riscv/include/asm/mmu_context.h
++++ b/arch/riscv/include/asm/mmu_context.h
+@@ -13,34 +13,16 @@
+ #include <linux/mm.h>
+ #include <linux/sched.h>
  
- 	if (!pwm->clk) {
- 		pwm->clk = devm_clk_get(&pdev->dev, NULL);
--		if (IS_ERR(pwm->clk)) {
--			if (PTR_ERR(pwm->clk) != -EPROBE_DEFER)
--				dev_err(&pdev->dev, "get unnamed clock failed %pe\n",
--					pwm->clk);
--			return PTR_ERR(pwm->clk);
--		}
-+		if (IS_ERR(pwm->clk))
-+			return dev_err_probe(&pdev->dev, PTR_ERR(pwm->clk),
-+					     "get unnamed clock failed\n");
- 	}
+-static inline void enter_lazy_tlb(struct mm_struct *mm,
+-	struct task_struct *task)
+-{
+-}
+-
+-/* Initialize context-related info for a new mm_struct */
+-static inline int init_new_context(struct task_struct *task,
+-	struct mm_struct *mm)
+-{
+-	return 0;
+-}
+-
+-static inline void destroy_context(struct mm_struct *mm)
+-{
+-}
+-
+ void switch_mm(struct mm_struct *prev, struct mm_struct *next,
+ 	struct task_struct *task);
  
- 	pwm->bus_clk = devm_clk_get_optional(&pdev->dev, "bus");
--	if (IS_ERR(pwm->bus_clk)) {
--		if (PTR_ERR(pwm->bus_clk) != -EPROBE_DEFER)
--			dev_err(&pdev->dev, "get bus clock failed %pe\n",
--				pwm->bus_clk);
--		return PTR_ERR(pwm->bus_clk);
--	}
-+	if (IS_ERR(pwm->bus_clk))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(pwm->bus_clk),
-+				     "get bus clock failed\n");
++#define activate_mm activate_mm
+ static inline void activate_mm(struct mm_struct *prev,
+ 			       struct mm_struct *next)
+ {
+ 	switch_mm(prev, next, NULL);
+ }
  
- 	pwm->rst = devm_reset_control_get_optional_shared(&pdev->dev, NULL);
--	if (IS_ERR(pwm->rst)) {
--		if (PTR_ERR(pwm->rst) != -EPROBE_DEFER)
--			dev_err(&pdev->dev, "get reset failed %pe\n",
--				pwm->rst);
--		return PTR_ERR(pwm->rst);
--	}
-+	if (IS_ERR(pwm->rst))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(pwm->rst),
-+				     "get reset failed\n");
+-static inline void deactivate_mm(struct task_struct *task,
+-	struct mm_struct *mm)
+-{
+-}
++#include <asm-generic/mmu_context.h>
  
- 	/* Deassert reset */
- 	ret = reset_control_deassert(pwm->rst);
+ #endif /* _ASM_RISCV_MMU_CONTEXT_H */
 -- 
-2.17.1
+2.23.0
 
 
 _______________________________________________
