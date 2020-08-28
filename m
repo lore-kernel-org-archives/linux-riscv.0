@@ -2,86 +2,84 @@ Return-Path: <SRS0=ua5H=CG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A9A4FC433E2
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Aug 2020 17:21:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 014CEC433E7
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Aug 2020 17:21:07 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5ECE6207DF
+	by mail.kernel.org (Postfix) with ESMTPS id BC4C4207DF
 	for <linux-riscv@archiver.kernel.org>; Fri, 28 Aug 2020 17:21:06 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="nsuwPEWn";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="OJnf2pYe"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5ECE6207DF
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="AXl55Y5g";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="eOLdnASN"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BC4C4207DF
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=o2sOKcK9pgnZIBtik7VYyTfLAVPWsBAdmrRI4tobi2A=; b=nsuwPEWnvBB319qdrB7yXPLMw
-	xTAiAd/ahNi+CQV8A6eJISpnL/9BzX2534nzQMBSfac+2gld6mGK4EhwRFG2RKDK1R0aTcOFReXSp
-	/Bk5eY+6rEypfAIyVxxR+N3l1FyEGmzCF7CQognQWpGOf4hbVjgXUbNMhgtNh/PiVe4cLzO7w4XiG
-	mceg+Psh2xH9j3vQcgr8A3Q1uMSJBL382/qlz/J2ylSs+KbZ/Qv20XZpQkWSYUhrX9m7qVSR+/O41
-	8ClmRvS8mCiCEqP/HEDb92qeKulYNiLnMM/74zO7SNb0pmar2TgjfD1Wdpb91YN7ZciDLcrWPNPEL
-	Zdp1+dX5Q==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sY1RqLX45EjCdGzkSyQlODLn/9AITxPBpNogbnBTzAI=; b=AXl55Y5gId0HCPH5my/WpqZr18
+	8b3RbhNzSDmERLi93uipZvEjoqixdCJuQ9vHZ0pnKW1QuHAED6rcuZa1j72eWJdScssrQlRb45BZ2
+	5idvSRi0ZchbEx8KdvIcR+pZ5tHBVApBKZrx4XdrARjQ5lCNI3o9EiNGpXUz1oT/yGHheuQ7WN4vc
+	BLN1cT0THnZPYN/WDeNs2L35ZQkDZGBfm6VmPU/c0r7iJEruPRkjdCg5hvgbt9coNpFz0N/kgEjhC
+	8c1xcc2/Gb4ey400A03kM1PMD3GraP6if8VbgIzcSbfxy+HN5I/wI03I6nBexnU978x3A1bFm4Xcf
+	yFVJSlBw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kBi3d-0006VN-RP; Fri, 28 Aug 2020 17:20:57 +0000
+	id 1kBi3V-0006Qb-Vf; Fri, 28 Aug 2020 17:20:50 +0000
 Received: from esa3.hgst.iphmx.com ([216.71.153.141])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kBi3V-0006O3-Ti
- for linux-riscv@lists.infradead.org; Fri, 28 Aug 2020 17:20:53 +0000
+ id 1kBi3R-0006Nw-TB
+ for linux-riscv@lists.infradead.org; Fri, 28 Aug 2020 17:20:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1598635250; x=1630171250;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=DZn1zX5v4AKwiAK5OKt0fHKD9YO5xGV8inFUgUfZc6I=;
- b=OJnf2pYe5Fdm3zXGnV8tUcOF7/ApV9dXOsQE5cIc+oeo6sWJZjapo+Wt
- OTx4WLGdpmU+aMZL2BK57MfWcbxy6sls5bJhFWR93EMsk0ETv7agG82ft
- evRXKYCsO6skFsan3dAp4wpXLDJoOkkC1+HQqXev+NEPpVQW27nrQJZE/
- 58t9DHfeCmg7VCLXilvRGgtzS26PuryOf0oj471yYU7dc/kI5FlGgxB/a
- GkIF5VCcpCyS2dhLp2Rcq56DguKPi6SYA5G+3tAsAHVoR4CfiNb1qqy96
- +s2elYIaqVMWP/Ms8nY5ghX/Qc1Ktnct33nIKeyJxVoYT2yvNryyevOOA A==;
-IronPort-SDR: 5NJtRsDByGi3A6GPAET8zu9FwdheJ4uakBpD/wdJBEVWwa214Kyao+eC+mm6fDDojtm+RQuoSN
- GZYgkcnlFro1Hp0WGdeJ0XTZ9bu9hJoVS27O2pG6QxGtjFT+SVQpCZTRJy51E74/6wjwI0+7Em
- XLybyhgrhvy/LfDhmx+G190f4JI99GvaFTa4Zcivlv5UR8p7l6MC5TFaHwqBQxi77RFIO7UN4E
- a4mQFSpqxUZR7gTmliX5lLiGdaGpPgLNxNf4Gk6RsPw6lWpomNkkBrILhaN9cT9UDIK5XTFsvE
- ajY=
-X-IronPort-AV: E=Sophos;i="5.76,364,1592841600"; d="scan'208";a="150414091"
+ t=1598635246; x=1630171246;
+ h=from:to:cc:subject:date:message-id:mime-version:
+ content-transfer-encoding;
+ bh=gHenN6fwJGp5BObIYNPC3TZqcQqp7idU10NNnHU1wyQ=;
+ b=eOLdnASNpS8waNFLfP+HeFBkqQfmZy/FIuJMQ2+BaXnPlQXoTHLNngR7
+ uQBw8oj+DrbLTJyh7gnDnxB8hgai8Waz3fiWXywTM5Q9RGg93bhbz6Zvw
+ y1AT6Byv16THSMdGdLZDRZJFROGY9dQdJ8HgLwvTRxdywCFf+I2sSIN5m
+ OHnNSWI8riY0S6a82Q5IisNLK5anEAel33sf5VTVeq4ZV8xRwOmhVdv/l
+ 3giXXsG0wtFfWHEF30uMovfIz6yjc6xlV523e0ernTkezeNMmEqluzqMl
+ cX7KMkZ28s4m0lR8xYfaHgySVkN+yx/804XOKgazkJR/YFHa8RXygTl+b Q==;
+IronPort-SDR: 8KsObkFFwJT1F3YQ8qWrOSU7ZQ3pKI1zD9NMn3PDQDEvECjMByTg6Ya6dhrEX/ZJwsHx5p/2Lt
+ 96hX6uMqC+pJk3iIXx5mUjcjoGj/Yo4rTfTJLvoAaqdiCEQp2J2tCVb71QrfZaJSGISDjGHNPg
+ gB5aGZF5ioHZmlW8tTW9EwkKSriLLJUm4m6J5ou7pYCLNzODcbJB0l6scLbNf0jICyxTI/qG+M
+ v0EGle/IFAdPEl8DoREPfUgP27q2ntIHAUT3qm7Ry075yih7qnvDJf6Q1jI6fGYjjRDtnaZIv1
+ CP8=
+X-IronPort-AV: E=Sophos;i="5.76,364,1592841600"; d="scan'208";a="150414069"
 Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 29 Aug 2020 01:20:48 +0800
-IronPort-SDR: WwnZF1YBiYBhEr6W1xQ+5LYfGpoGFDmrsfjUfFiHhZbZ73AQYDHPJ+6hPGhwXzF/5aBbudP/YG
- uc5Ch9oLOw6A==
+ by ob1.hgst.iphmx.com with ESMTP; 29 Aug 2020 01:20:43 +0800
+IronPort-SDR: 6qPpkwPhiMx4YI8sucQ9bHfU6O+RhlmbPtLeYt1e+oSqZ+2yBh2dBfvClVFdllIc/5lLiCeOUJ
+ aO90xEI/uUwQ==
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 28 Aug 2020 10:08:19 -0700
-IronPort-SDR: 3Gcp4bXh/V3FkFUCmqd3iPOoTBHFAPbk/T9yPoEZ1UyYOPYvKmkzdPkCVzA96v/Ym7Fr9iGW3w
- Ry6Dm5m9FNrg==
+ 28 Aug 2020 10:08:14 -0700
+IronPort-SDR: ldEYICpeaM843o92uGCkExcLgncDIk+5aq2ei6+za4TuMPcSGbsH5252HtlnN6bcwl8Uf7E4Dj
+ xbTV4ZcaT/5A==
 WDCIronportException: Internal
 Received: from 6hj08h2.ad.shared (HELO jedi-01.hgst.com) ([10.86.59.137])
- by uls-op-cesaip01.wdc.com with ESMTP; 28 Aug 2020 10:20:46 -0700
+ by uls-op-cesaip01.wdc.com with ESMTP; 28 Aug 2020 10:20:41 -0700
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [PATCH v7 8/9] RISC-V: Add EFI runtime services
-Date: Fri, 28 Aug 2020 10:20:35 -0700
-Message-Id: <20200828172036.8056-9-atish.patra@wdc.com>
+Subject: [PATCH v7 0/9] Add UEFI support for RISC-V
+Date: Fri, 28 Aug 2020 10:20:27 -0700
+Message-Id: <20200828172036.8056-1-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.24.0
-In-Reply-To: <20200828172036.8056-1-atish.patra@wdc.com>
-References: <20200828172036.8056-1-atish.patra@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200828_132050_256597_3AF4624A 
-X-CRM114-Status: GOOD (  32.50  )
+X-CRM114-CacheID: sfid-20200828_132046_248111_280F618C 
+X-CRM114-Status: GOOD (  18.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -106,472 +104,145 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch adds EFI runtime service support for RISC-V.
+This series adds UEFI support for RISC-V.
 
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
----
- arch/riscv/Kconfig                      |   2 +
- arch/riscv/include/asm/efi.h            |  20 ++++
- arch/riscv/include/asm/mmu.h            |   2 +
- arch/riscv/include/asm/pgtable.h        |   4 +
- arch/riscv/kernel/Makefile              |   1 +
- arch/riscv/kernel/efi.c                 | 105 +++++++++++++++++
- arch/riscv/kernel/setup.c               |   7 +-
- arch/riscv/mm/init.c                    |   2 +-
- drivers/firmware/efi/Makefile           |   2 +
- drivers/firmware/efi/libstub/efi-stub.c |  11 +-
- drivers/firmware/efi/riscv-runtime.c    | 143 ++++++++++++++++++++++++
- 11 files changed, 295 insertions(+), 4 deletions(-)
- create mode 100644 arch/riscv/kernel/efi.c
- create mode 100644 drivers/firmware/efi/riscv-runtime.c
+Linux kernel: v5.9-rc2 
+U-Boot: v2020.07 
+OpenSBI: master
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 6ef2394be857..c8e57d77c144 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -412,7 +412,9 @@ config EFI
- 	select EFI_PARAMS_FROM_FDT
- 	select EFI_STUB
- 	select EFI_GENERIC_STUB
-+	select EFI_RUNTIME_WRAPPERS
- 	select RISCV_ISA_C
-+	depends on MMU
- 	default y
- 	help
- 	  This option provides support for runtime services provided
-diff --git a/arch/riscv/include/asm/efi.h b/arch/riscv/include/asm/efi.h
-index 86da231909bb..93c305a638f4 100644
---- a/arch/riscv/include/asm/efi.h
-+++ b/arch/riscv/include/asm/efi.h
-@@ -5,11 +5,28 @@
- #ifndef _ASM_EFI_H
- #define _ASM_EFI_H
- 
-+#include <asm/csr.h>
- #include <asm/io.h>
- #include <asm/mmu_context.h>
- #include <asm/ptrace.h>
- #include <asm/tlbflush.h>
- 
-+#ifdef CONFIG_EFI
-+extern void efi_init(void);
-+#else
-+#define efi_init()
-+#endif
-+
-+int efi_create_mapping(struct mm_struct *mm, efi_memory_desc_t *md);
-+int efi_set_mapping_permissions(struct mm_struct *mm, efi_memory_desc_t *md);
-+
-+#define arch_efi_call_virt_setup()      efi_virtmap_load()
-+#define arch_efi_call_virt_teardown()   efi_virtmap_unload()
-+
-+#define arch_efi_call_virt(p, f, args...) p->f(args)
-+
-+#define ARCH_EFI_IRQ_FLAGS_MASK (SR_IE | SR_SPIE)
-+
- /* on RISC-V, the FDT may be located anywhere in system RAM */
- static inline unsigned long efi_get_max_fdt_addr(unsigned long dram_base)
- {
-@@ -33,4 +50,7 @@ static inline void efifb_setup_from_dmi(struct screen_info *si, const char *opt)
- {
- }
- 
-+void efi_virtmap_load(void);
-+void efi_virtmap_unload(void);
-+
- #endif /* _ASM_EFI_H */
-diff --git a/arch/riscv/include/asm/mmu.h b/arch/riscv/include/asm/mmu.h
-index 967eacb01ab5..dabcf2cfb3dc 100644
---- a/arch/riscv/include/asm/mmu.h
-+++ b/arch/riscv/include/asm/mmu.h
-@@ -20,6 +20,8 @@ typedef struct {
- #endif
- } mm_context_t;
- 
-+void __init create_pgd_mapping(pgd_t *pgdp, uintptr_t va, phys_addr_t pa,
-+			       phys_addr_t sz, pgprot_t prot);
- #endif /* __ASSEMBLY__ */
- 
- #endif /* _ASM_RISCV_MMU_H */
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 815f8c959dd4..183f1f4b2ae6 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -100,6 +100,10 @@
- 
- #define PAGE_KERNEL		__pgprot(_PAGE_KERNEL)
- #define PAGE_KERNEL_EXEC	__pgprot(_PAGE_KERNEL | _PAGE_EXEC)
-+#define PAGE_KERNEL_READ	__pgprot(_PAGE_KERNEL & ~_PAGE_WRITE)
-+#define PAGE_KERNEL_EXEC	__pgprot(_PAGE_KERNEL | _PAGE_EXEC)
-+#define PAGE_KERNEL_READ_EXEC	__pgprot((_PAGE_KERNEL & ~_PAGE_WRITE) \
-+					 | _PAGE_EXEC)
- 
- #define PAGE_TABLE		__pgprot(_PAGE_TABLE)
- 
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index 41e3895a3192..e922ffe0f39e 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -35,6 +35,7 @@ OBJCOPYFLAGS := --prefix-symbols=__efistub_
- $(obj)/%.stub.o: $(obj)/%.o FORCE
- 	$(call if_changed,objcopy)
- 
-+obj-$(CONFIG_EFI)		+= efi.o
- obj-$(CONFIG_RISCV_M_MODE)	+= traps_misaligned.o
- obj-$(CONFIG_FPU)		+= fpu.o
- obj-$(CONFIG_SMP)		+= smpboot.o
-diff --git a/arch/riscv/kernel/efi.c b/arch/riscv/kernel/efi.c
-new file mode 100644
-index 000000000000..d7a723b446c3
---- /dev/null
-+++ b/arch/riscv/kernel/efi.c
-@@ -0,0 +1,105 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2020 Western Digital Corporation or its affiliates.
-+ * Adapted from arch/arm64/kernel/efi.c
-+ */
-+
-+#include <linux/efi.h>
-+#include <linux/init.h>
-+
-+#include <asm/efi.h>
-+#include <asm/pgtable.h>
-+#include <asm/pgtable-bits.h>
-+
-+/*
-+ * Only regions of type EFI_RUNTIME_SERVICES_CODE need to be
-+ * executable, everything else can be mapped with the XN bits
-+ * set. Also take the new (optional) RO/XP bits into account.
-+ */
-+static __init pgprot_t efimem_to_pgprot_map(efi_memory_desc_t *md)
-+{
-+	u64 attr = md->attribute;
-+	u32 type = md->type;
-+
-+	if (type == EFI_MEMORY_MAPPED_IO)
-+		return PAGE_KERNEL;
-+
-+	if (WARN_ONCE(!PAGE_ALIGNED(md->phys_addr),
-+		      "UEFI Runtime regions are not aligned to page size -- buggy firmware?"))
-+		/*
-+		 * If the region is not aligned to the page size of the OS, we
-+		 * can not use strict permissions, since that would also affect
-+		 * the mapping attributes of the adjacent regions.
-+		 */
-+		return PAGE_EXEC;
-+
-+	/* R-- */
-+	if ((attr & (EFI_MEMORY_XP | EFI_MEMORY_RO)) ==
-+	    (EFI_MEMORY_XP | EFI_MEMORY_RO))
-+		return PAGE_KERNEL_READ;
-+
-+	/* R-X */
-+	if (attr & EFI_MEMORY_RO)
-+		return PAGE_KERNEL_READ_EXEC;
-+
-+	/* RW- */
-+	if (((attr & (EFI_MEMORY_RP | EFI_MEMORY_WP | EFI_MEMORY_XP)) ==
-+	     EFI_MEMORY_XP) ||
-+	    type != EFI_RUNTIME_SERVICES_CODE)
-+		return PAGE_KERNEL;
-+
-+	/* RWX */
-+	return PAGE_KERNEL_EXEC;
-+}
-+
-+int __init efi_create_mapping(struct mm_struct *mm, efi_memory_desc_t *md)
-+{
-+	pgprot_t prot = __pgprot(pgprot_val(efimem_to_pgprot_map(md)) &
-+				~(_PAGE_GLOBAL));
-+	int i;
-+
-+	/* RISC-V maps one page at a time */
-+	for (i = 0; i < md->num_pages; i++)
-+		create_pgd_mapping(mm->pgd, md->virt_addr + i * PAGE_SIZE,
-+				   md->phys_addr + i * PAGE_SIZE,
-+				   PAGE_SIZE, prot);
-+	return 0;
-+}
-+
-+static int __init set_permissions(pte_t *ptep, unsigned long addr, void *data)
-+{
-+	efi_memory_desc_t *md = data;
-+	pte_t pte = READ_ONCE(*ptep);
-+	unsigned long val;
-+
-+	if (md->attribute & EFI_MEMORY_RO) {
-+		val = pte_val(pte) & ~_PAGE_WRITE;
-+		val = pte_val(pte) | _PAGE_READ;
-+		pte = __pte(val);
-+	}
-+	if (md->attribute & EFI_MEMORY_XP) {
-+		val = pte_val(pte) & ~_PAGE_EXEC;
-+		pte = __pte(val);
-+	}
-+	set_pte(ptep, pte);
-+
-+	return 0;
-+}
-+
-+int __init efi_set_mapping_permissions(struct mm_struct *mm,
-+				       efi_memory_desc_t *md)
-+{
-+	BUG_ON(md->type != EFI_RUNTIME_SERVICES_CODE &&
-+	       md->type != EFI_RUNTIME_SERVICES_DATA);
-+
-+	/*
-+	 * Calling apply_to_page_range() is only safe on regions that are
-+	 * guaranteed to be mapped down to pages. Since we are only called
-+	 * for regions that have been mapped using efi_create_mapping() above
-+	 * (and this is checked by the generic Memory Attributes table parsing
-+	 * routines), there is no need to check that again here.
-+	 */
-+	return apply_to_page_range(mm, md->virt_addr,
-+				   md->num_pages << EFI_PAGE_SHIFT,
-+				   set_permissions, md);
-+}
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index 41ef96d0d97a..4c96ac198e14 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -17,6 +17,7 @@
- #include <linux/sched/task.h>
- #include <linux/swiotlb.h>
- #include <linux/smp.h>
-+#include <linux/efi.h>
- 
- #include <asm/cpu_ops.h>
- #include <asm/early_ioremap.h>
-@@ -26,11 +27,12 @@
- #include <asm/tlbflush.h>
- #include <asm/thread_info.h>
- #include <asm/kasan.h>
-+#include <asm/efi.h>
- 
- #include "head.h"
- 
--#ifdef CONFIG_DUMMY_CONSOLE
--struct screen_info screen_info = {
-+#if defined(CONFIG_DUMMY_CONSOLE) || defined(CONFIG_EFI)
-+struct screen_info screen_info __section(.data) = {
- 	.orig_video_lines	= 30,
- 	.orig_video_cols	= 80,
- 	.orig_video_mode	= 0,
-@@ -75,6 +77,7 @@ void __init setup_arch(char **cmdline_p)
- 	early_ioremap_setup();
- 	parse_early_param();
- 
-+	efi_init();
- 	setup_bootmem();
- 	paging_init();
- #if IS_ENABLED(CONFIG_BUILTIN_DTB)
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index cac2c31f8beb..32e7258da9bb 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -390,7 +390,7 @@ static void __init create_pmd_mapping(pmd_t *pmdp,
- #define fixmap_pgd_next		fixmap_pte
- #endif
- 
--static void __init create_pgd_mapping(pgd_t *pgdp,
-+void __init create_pgd_mapping(pgd_t *pgdp,
- 				      uintptr_t va, phys_addr_t pa,
- 				      phys_addr_t sz, pgprot_t prot)
- {
-diff --git a/drivers/firmware/efi/Makefile b/drivers/firmware/efi/Makefile
-index 61fd1e8b26fb..4d628081bb2f 100644
---- a/drivers/firmware/efi/Makefile
-+++ b/drivers/firmware/efi/Makefile
-@@ -35,6 +35,8 @@ fake_map-$(CONFIG_X86)			+= x86_fake_mem.o
- arm-obj-$(CONFIG_EFI)			:= efi-init.o arm-runtime.o
- obj-$(CONFIG_ARM)			+= $(arm-obj-y)
- obj-$(CONFIG_ARM64)			+= $(arm-obj-y)
-+riscv-obj-$(CONFIG_EFI)			:= efi-init.o riscv-runtime.o
-+obj-$(CONFIG_RISCV)			+= $(riscv-obj-y)
- obj-$(CONFIG_EFI_CAPSULE_LOADER)	+= capsule-loader.o
- obj-$(CONFIG_EFI_EARLYCON)		+= earlycon.o
- obj-$(CONFIG_UEFI_CPER_ARM)		+= cper-arm.o
-diff --git a/drivers/firmware/efi/libstub/efi-stub.c b/drivers/firmware/efi/libstub/efi-stub.c
-index a5a405d8ab44..5c26725d8fd0 100644
---- a/drivers/firmware/efi/libstub/efi-stub.c
-+++ b/drivers/firmware/efi/libstub/efi-stub.c
-@@ -17,7 +17,10 @@
- 
- /*
-  * This is the base address at which to start allocating virtual memory ranges
-- * for UEFI Runtime Services. This is in the low TTBR0 range so that we can use
-+ * for UEFI Runtime Services.
-+ *
-+ * For ARM/ARM64:
-+ * This is in the low TTBR0 range so that we can use
-  * any allocation we choose, and eliminate the risk of a conflict after kexec.
-  * The value chosen is the largest non-zero power of 2 suitable for this purpose
-  * both on 32-bit and 64-bit ARM CPUs, to maximize the likelihood that it can
-@@ -25,6 +28,12 @@
-  * Since 32-bit ARM could potentially execute with a 1G/3G user/kernel split,
-  * map everything below 1 GB. (512 MB is a reasonable upper bound for the
-  * entire footprint of the UEFI runtime services memory regions)
-+ *
-+ * For RISC-V:
-+ * There is no specific reason for which, this address (512MB) can't be used
-+ * EFI runtime virtual address for RISC-V. It also helps to use EFI runtime
-+ * services on both RV32/RV64. Keep the same runtime virtual address for RISC-V
-+ * as well to minimize the code churn.
-  */
- #define EFI_RT_VIRTUAL_BASE	SZ_512M
- #define EFI_RT_VIRTUAL_SIZE	SZ_512M
-diff --git a/drivers/firmware/efi/riscv-runtime.c b/drivers/firmware/efi/riscv-runtime.c
-new file mode 100644
-index 000000000000..d28e715d2bcc
---- /dev/null
-+++ b/drivers/firmware/efi/riscv-runtime.c
-@@ -0,0 +1,143 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Extensible Firmware Interface
-+ *
-+ * Copyright (C) 2020 Western Digital Corporation or its affiliates.
-+ *
-+ * Based on Extensible Firmware Interface Specification version 2.4
-+ * Adapted from drivers/firmware/efi/arm-runtime.c
-+ *
-+ */
-+
-+#include <linux/dmi.h>
-+#include <linux/efi.h>
-+#include <linux/io.h>
-+#include <linux/memblock.h>
-+#include <linux/mm_types.h>
-+#include <linux/preempt.h>
-+#include <linux/rbtree.h>
-+#include <linux/rwsem.h>
-+#include <linux/sched.h>
-+#include <linux/slab.h>
-+#include <linux/spinlock.h>
-+#include <linux/pgtable.h>
-+
-+#include <asm/cacheflush.h>
-+#include <asm/efi.h>
-+#include <asm/mmu.h>
-+#include <asm/pgalloc.h>
-+
-+static bool __init efi_virtmap_init(void)
-+{
-+	efi_memory_desc_t *md;
-+
-+	efi_mm.pgd = pgd_alloc(&efi_mm);
-+	mm_init_cpumask(&efi_mm);
-+	init_new_context(NULL, &efi_mm);
-+
-+	for_each_efi_memory_desc(md) {
-+		phys_addr_t phys = md->phys_addr;
-+		int ret;
-+
-+		if (!(md->attribute & EFI_MEMORY_RUNTIME))
-+			continue;
-+		if (md->virt_addr == 0)
-+			return false;
-+
-+		ret = efi_create_mapping(&efi_mm, md);
-+		if (ret) {
-+			pr_warn("  EFI remap %pa: failed to create mapping (%d)\n",
-+				&phys, ret);
-+			return false;
-+		}
-+	}
-+
-+	if (efi_memattr_apply_permissions(&efi_mm, efi_set_mapping_permissions))
-+		return false;
-+
-+	return true;
-+}
-+
-+/*
-+ * Enable the UEFI Runtime Services if all prerequisites are in place, i.e.,
-+ * non-early mapping of the UEFI system table and virtual mappings for all
-+ * EFI_MEMORY_RUNTIME regions.
-+ */
-+static int __init riscv_enable_runtime_services(void)
-+{
-+	u64 mapsize;
-+
-+	if (!efi_enabled(EFI_BOOT)) {
-+		pr_info("EFI services will not be available.\n");
-+		return 0;
-+	}
-+
-+	efi_memmap_unmap();
-+
-+	mapsize = efi.memmap.desc_size * efi.memmap.nr_map;
-+
-+	if (efi_memmap_init_late(efi.memmap.phys_map, mapsize)) {
-+		pr_err("Failed to remap EFI memory map\n");
-+		return 0;
-+	}
-+
-+	if (efi_soft_reserve_enabled()) {
-+		efi_memory_desc_t *md;
-+
-+		for_each_efi_memory_desc(md) {
-+			int md_size = md->num_pages << EFI_PAGE_SHIFT;
-+			struct resource *res;
-+
-+			if (!(md->attribute & EFI_MEMORY_SP))
-+				continue;
-+
-+			res = kzalloc(sizeof(*res), GFP_KERNEL);
-+			if (WARN_ON(!res))
-+				break;
-+
-+			res->start	= md->phys_addr;
-+			res->end	= md->phys_addr + md_size - 1;
-+			res->name	= "Soft Reserved";
-+			res->flags	= IORESOURCE_MEM;
-+			res->desc	= IORES_DESC_SOFT_RESERVED;
-+
-+			insert_resource(&iomem_resource, res);
-+		}
-+	}
-+
-+	if (efi_runtime_disabled()) {
-+		pr_info("EFI runtime services will be disabled.\n");
-+		return 0;
-+	}
-+
-+	if (efi_enabled(EFI_RUNTIME_SERVICES)) {
-+		pr_info("EFI runtime services access via paravirt.\n");
-+		return 0;
-+	}
-+
-+	pr_info("Remapping and enabling EFI services.\n");
-+
-+	if (!efi_virtmap_init()) {
-+		pr_err("UEFI virtual mapping missing or invalid -- runtime services will not be available\n");
-+		return -ENOMEM;
-+	}
-+
-+	/* Set up runtime services function pointers */
-+	efi_native_runtime_setup();
-+	set_bit(EFI_RUNTIME_SERVICES, &efi.flags);
-+
-+	return 0;
-+}
-+early_initcall(riscv_enable_runtime_services);
-+
-+void efi_virtmap_load(void)
-+{
-+	preempt_disable();
-+	switch_mm(current->active_mm, &efi_mm, NULL);
-+}
-+
-+void efi_virtmap_unload(void)
-+{
-+	switch_mm(&efi_mm, current->active_mm, NULL);
-+	preempt_enable();
-+}
--- 
+Patch 1-3 are generic riscv feature addition required for UEFI support.
+Patch 4-7 adds the efi stub support for RISC-V which was reviewed few months back.
+https://www.spinics.net/lists/linux-efi/msg19144.html
+Patch 8 just renames arm-init code so that it can be used across different
+architectures.
+Patch 9 adds the runtime services for RISC-V.
+
+The working set of patches can also be found in following git repo.
+https://github.com/atishp04/linux/tree/uefi_riscv_5.10_v7
+
+The patches have been verified on following platforms:
+1. Qemu (both RV32 & RV64) for the following bootflow
+   OpenSBI->U-Boot->Linux
+   EDK2->Linux
+2. HiFive unleashed using (RV64) for the following bootflow
+   OpenSBI->U-Boot->Linux
+   EDK2->Linux
+
+Thanks Abner & Daniel for all work done for EDK2.
+The EDK2 instructions are available here.
+https://github.com/JohnAZoidberg/riscv-edk2-docker/
+
+Note:
+1. Currently, EDK2 RISC-V port doesn't support OVMF package. That's why
+EFI_GENERIC_STUB_INITRD_CMDLINE_LOADER should be enabled to load initrd via
+commandline until OVMF patches are available.
+
+2. For RV32, maximum allocated memory should be 1G as RISC-V kernel can not map
+beyond 1G of physical memory for RV32.
+
+3. Runtime services have been verified with fwts on EDK2.
+
+***********************************************************************
+[root@fedora-riscv ~]# fwts uefirtvariable
+Running 1 tests, results appended to results.log
+Test: UEFI Runtime service variable interface tests.                        
+  Test UEFI RT service get variable interface.            1 passed             
+  Test UEFI RT service get next variable name interface.  4 passed             
+  Test UEFI RT service set variable interface.            7 passed, 1 warning  
+  Test UEFI RT service query variable info interface.     1 passed             
+  Test UEFI RT service variable interface stress test.    2 passed             
+  Test UEFI RT service set variable interface stress t..  4 passed             
+  Test UEFI RT service query variable info interface s..  1 passed             
+  Test UEFI RT service get variable interface, invalid..  5 passed             
+  Test UEFI RT variable services supported status.        1 skipped 
+
+Test           |Pass |Fail |Abort|Warn |Skip |Info |
+uefirtvariable |   25|     |     |    1|    1|     |
+Total:         |   25|    0|    0|    1|    1|    0|
+
+***********************************************************************
+
+Changes from v6->v7:
+1. Fixed build error reported on linux-next for patch2.
+
+Changes from v5->v6:
+1. Fixed the static declaration for pt_ops.
+2. Added Reviewed/Acked-by.
+
+Changes from v4->v5:
+1. Late mappings allocations are now done through function pointers.
+2. EFI run time services are verified using full linux boot and fwts using EDK2.
+
+Changes from v3->v4:
+1. Used pgd mapping to avoid copying DT to bss.
+
+Changes from v2->v3:
+1. Fixed few bugs in run time services page table mapping.
+2. Dropped patch 1 as it is already taken into efi-tree.
+3. Sent few generic mmu fixes as a separate series to ease the merge conflicts.
+
+Changes from v1->v2:
+1. Removed patch 1 as it is already taken into efi-tree.
+2. Fixed compilation issues with patch 9.
+3. Moved few function prototype declaration to header file to keep kbuild happy.
+
+Changes from previous version:
+1. Added full ioremap support.
+2. Added efi runtime services support.
+3. Fixes mm issues
+
+Anup Patel (1):
+RISC-V: Move DT mapping outof fixmap
+
+Atish Patra (8):
+RISC-V: Add early ioremap support
+RISC-V: Implement late mapping page table allocation functions
+include: pe.h: Add RISC-V related PE definition
+RISC-V: Add PE/COFF header for EFI stub
+RISC-V: Add EFI stub support.
+efi: Rename arm-init to efi-init common for all arch
+RISC-V: Add EFI runtime services
+RISC-V: Add page table dump support for uefi
+
+arch/riscv/Kconfig                            |  25 +++
+arch/riscv/Makefile                           |   1 +
+arch/riscv/configs/defconfig                  |   1 +
+arch/riscv/include/asm/Kbuild                 |   1 +
+arch/riscv/include/asm/efi.h                  |  56 +++++
+arch/riscv/include/asm/fixmap.h               |  16 +-
+arch/riscv/include/asm/io.h                   |   1 +
+arch/riscv/include/asm/mmu.h                  |   2 +
+arch/riscv/include/asm/pgtable.h              |   5 +
+arch/riscv/include/asm/sections.h             |  13 ++
+arch/riscv/kernel/Makefile                    |   5 +
+arch/riscv/kernel/efi-header.S                | 104 ++++++++++
+arch/riscv/kernel/efi.c                       | 105 ++++++++++
+arch/riscv/kernel/head.S                      |  17 +-
+arch/riscv/kernel/head.h                      |   2 -
+arch/riscv/kernel/image-vars.h                |  51 +++++
+arch/riscv/kernel/setup.c                     |  18 +-
+arch/riscv/kernel/vmlinux.lds.S               |  22 +-
+arch/riscv/mm/init.c                          | 191 +++++++++++++-----
+arch/riscv/mm/ptdump.c                        |  48 ++++-
+drivers/firmware/efi/Kconfig                  |   3 +-
+drivers/firmware/efi/Makefile                 |   4 +-
+.../firmware/efi/{arm-init.c => efi-init.c}   |   0
+drivers/firmware/efi/libstub/Makefile         |  10 +
+drivers/firmware/efi/libstub/efi-stub.c       |  11 +-
+drivers/firmware/efi/libstub/riscv-stub.c     | 110 ++++++++++
+drivers/firmware/efi/riscv-runtime.c          | 143 +++++++++++++
+include/linux/pe.h                            |   3 +
+28 files changed, 901 insertions(+), 67 deletions(-)
+create mode 100644 arch/riscv/include/asm/efi.h
+create mode 100644 arch/riscv/include/asm/sections.h
+create mode 100644 arch/riscv/kernel/efi-header.S
+create mode 100644 arch/riscv/kernel/efi.c
+create mode 100644 arch/riscv/kernel/image-vars.h
+rename drivers/firmware/efi/{arm-init.c => efi-init.c} (100%)
+create mode 100644 drivers/firmware/efi/libstub/riscv-stub.c
+create mode 100644 drivers/firmware/efi/riscv-runtime.c
+
+--
 2.24.0
 
 
