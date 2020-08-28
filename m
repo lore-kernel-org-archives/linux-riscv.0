@@ -2,24 +2,23 @@ Return-Path: <SRS0=ua5H=CG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-12.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,RCVD_ILLEGAL_IP,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AD03EC433E6
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Aug 2020 17:00:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CFCA9C433E6
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Aug 2020 17:21:00 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5623720776
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Aug 2020 17:00:43 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 99908207DF
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Aug 2020 17:21:00 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="fsWpVQVg";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sifive.com header.i=@sifive.com header.b="FzmgCAu8"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5623720776
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="dwth3L+n";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="KM2KGT1i"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 99908207DF
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -27,94 +26,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=77C2TK23NrIpnBUnIyevyfkMwYN6m2HZfHZXrbxesFM=; b=fsWpVQVgpbrXwfCHNqRVmXc9z
-	S8tpend8J1nLCFqeqJudE4FhaU/MEa2xkhr9E38wW8knTuxW/8IfTmssCMPhXdKKFHB9mdjZWY8na
-	3UOfGFUNicd8xJAn9o+qOKoR9KGn/r7O3wNJQcgh62JGQCGx223Sb989v/+PUw+GjQDn8Hlq5xCq6
-	VJaw4X2u1iEyvEE8NSDUIojpGDialApCJ5tEWKNE12zOjDmG3uJXo0Nl6Yw4u2wrKyr2SYZWRM2+v
-	86E6ncCeNHwZAjKMWvm+LidSmbh8tBpHAQ5wnl/QNI4TtZyYFKgw9onDT3jxpDapjiAdnwgBTCnZj
-	OCM4Q/zqA==;
+	 bh=81xMcd2U6MI44d6gsOaRhldo9k/sBAOlJsKQn9bhguw=; b=dwth3L+nQyP80bad1POY6bk9v
+	5Y1sKx8DnijC+N+hPXT94tfyk15YD4DPctUStGLaQw2h3zlqY8d1nz6sLWdno8+4C6K5ZuJwvDyhm
+	+b8fc6SgXau+h4VotruAX+Kx8+c8KnrfZ6FWLksaApKNiuSGZxEbBiw2nQKQfLQ3zzifCvh/hDWrG
+	eeuPDyRlx7R6pHcXuvDn97tJmPTKIDDlC34f+VdMgx3UHcz/aVmgyDKv7Ffj/Ea7Ms30nbhXtK4Bw
+	rJ6FswwK/Le1+Xg9z5H2eBom5EP/uYjuiV/qcOI07Duhm9MGoh+Fs5k//ypk6dyVRA5HFJw+zQWQO
+	SOqCMT25w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kBhjn-0002FI-1D; Fri, 28 Aug 2020 17:00:27 +0000
-Received: from mail-bn8nam11on2063.outbound.protection.outlook.com
- ([40.107.236.63] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+	id 1kBi3W-0006R5-U2; Fri, 28 Aug 2020 17:20:50 +0000
+Received: from esa3.hgst.iphmx.com ([216.71.153.141])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kBhg4-0000Y2-VM
- for linux-riscv@lists.infradead.org; Fri, 28 Aug 2020 16:56:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=XqsQaaCjPEntBiinAV7DBDlZvEFBhB14dEwREuzkm2r89cAgpSY20L3TkWAkJsXBe8YLnI86Gbs3iW6RC3dI54egCxu5fSV+dnKMc7jnQvOwpVdWjm8pRLllsgt5dL9uZgjHn+9DV1OFNFwrDfMr0oVyTpxt/jeZm6Jtyr521uwW0KrNhwUdX1k75cy3AQwxjqqnhi+0TCgUGhqNvNx7Nd9DgfwyKHhkMqmcDMwzE6LdliDLZTt4zYOclCwrdQFueFwwszCjm8J4xoPvuNoTQdlrOHSI9asoDoOoFV86y8KGYWAnzmZcuqrtvXaHWFt7ihyclyzrfv6GRjDK0WgmGQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Cv9tEGcYwUq70rdwZ/BSBPEiMi4bGVqxcWtwp/rxKow=;
- b=FBm0CYfGYF/7HZNkHcrfk4oN69pH6/yog1IztQ7ksDEJNO4sl+ouSDC8XVjwq45vIPocD6PMiufdqEBBpqvqpOcBW/3JSLzOvmXPDjUweG8RcS1o9pCX2mxsU6VxTgGedTxn6dGDbW6HurJeoXF8n1lk9wiDIybQwvwVDOqsryLk36ZKLPzX3sgMUHb85UAr0lH5BhjvpnfmWSrk8YHuUOoWGxUNt2ZMs01KN0POB/pDy1d/S6I4nas7rUpKtyAbkPkZuKHFDUgQi7QV656n8K64rTtdfjPoPkJsjDeLWujCmW5fFXnm11fRiSaV0/THTjKUlvprYPpCnm16eXfKLw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=openfive.com; dmarc=pass action=none header.from=sifive.com;
- dkim=pass header.d=sifive.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Cv9tEGcYwUq70rdwZ/BSBPEiMi4bGVqxcWtwp/rxKow=;
- b=FzmgCAu8SItd7LTwjyiQdsGZHSrGjlOgnrgbpHnqxzAFmAqgSxM8MywZrhAby28eEb5Veo2p7498sLY4N2sHn2kFV2jl4379PbXyAz8i3qS5YsjFgLYP6nzEsxne/hh8SSFA7lMyxjBVPNKI4foo2KvHI8jyqyo8titAz7pY5yU=
-Authentication-Results: vger.kernel.org; dkim=none (message not signed)
- header.d=none; vger.kernel.org; dmarc=none action=none header.from=sifive.com; 
-Received: from DM6PR13MB3451.namprd13.prod.outlook.com (2603:10b6:5:1c3::10)
- by DM5PR13MB1004.namprd13.prod.outlook.com (2603:10b6:3:70::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3348.5; Fri, 28 Aug
- 2020 16:56:34 +0000
-Received: from DM6PR13MB3451.namprd13.prod.outlook.com
- ([fe80::f570:90c6:f6d5:c078]) by DM6PR13MB3451.namprd13.prod.outlook.com
- ([fe80::f570:90c6:f6d5:c078%7]) with mapi id 15.20.3326.019; Fri, 28 Aug 2020
- 16:56:34 +0000
-From: Sagar Kadam <sagar.kadam@sifive.com>
+ id 1kBi3R-0006O3-W8
+ for linux-riscv@lists.infradead.org; Fri, 28 Aug 2020 17:20:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1598635246; x=1630171246;
+ h=from:to:cc:subject:date:message-id:in-reply-to:
+ references:mime-version:content-transfer-encoding;
+ bh=uBXOC7gYWlhczehhZY3QEsUN9Uby27rSKymYN+y1E7o=;
+ b=KM2KGT1i1prv2ZjK2MHsbPqJXSk7gVn5pi0HogKOI75RTu7G76U1YQPb
+ 7Y8BNslwu0VReeNixWpzq9hnC5ZQkZMceyaugIuDFEkRzNiXPTrSRIQsO
+ /u1mH5nzNmOCobqyD334+Pd8IDp4cYRg6qOUxpltpGqOkN60sKQxFszAr
+ Bb6LO1EIo/uaxI1avpppAwuIM1xVy6QRVmK6TqvPmrBvjKqLiEl0Jr0tB
+ 1AjLhUZmPIow522X9myVpOKYHDtGc0t8z6TNW42+GMmc1ecASmPFyN2JY
+ nNxZ3fmRzAG8rauZow0lYKxknlqh+I8IrSoi1XKOfyBrjqhLfLaGkeSV6 w==;
+IronPort-SDR: 0YRbh+tXZYZsHkXrsQHZy6tDt52+ExDnkYmPTCPmqn01fPWVDMw50Q5Uz9jNF9fR5s7kiDW4X2
+ arckrWXDdGuCkoVLEvJ0M7WbLABhAi2o095VoFJvGvipYAR1GXMvjcaoiH3Er/ukmPAkkIu22W
+ RUJLE3LfDkLdlym0nBeZqJO7j1JPqWSK6Qg+sSwgNOHa9vDJfEsf7B2bgQxEYrQdg9ShbdzYCt
+ yhtZnj9HxF+pCshT00c/tB5F+/swL2t/77XZxXVVeWNINNqQtzvbrXz9uI9eOXKQasV127Mzdq
+ Tvg=
+X-IronPort-AV: E=Sophos;i="5.76,364,1592841600"; d="scan'208";a="150414073"
+Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
+ ([199.255.45.14])
+ by ob1.hgst.iphmx.com with ESMTP; 29 Aug 2020 01:20:44 +0800
+IronPort-SDR: F7ehB6fg1P1/vbR6vMxXmSAawFWz021+m0m79r2BVvBmc7OvyEBOpNT7NbtbCPFwvcIQD+Q3yt
+ XfTD6UZLHMQg==
+Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
+ by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 28 Aug 2020 10:08:15 -0700
+IronPort-SDR: d4FaQpP59/1hwIbhNKijmMWqa6effNdgkooFMgMADBpTb5fmy0vgHUlDBohd8Z46JHYkJ0dhk/
+ ncXpA3jReDMg==
+WDCIronportException: Internal
+Received: from 6hj08h2.ad.shared (HELO jedi-01.hgst.com) ([10.86.59.137])
+ by uls-op-cesaip01.wdc.com with ESMTP; 28 Aug 2020 10:20:43 -0700
+From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [RESEND PATCH v2 1/1] dt-bindings: riscv: sifive-l2-cache: convert
- bindings to json-schema
-Date: Fri, 28 Aug 2020 22:25:43 +0530
-Message-Id: <1598633743-1023-2-git-send-email-sagar.kadam@sifive.com>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1598633743-1023-1-git-send-email-sagar.kadam@sifive.com>
-References: <1598633743-1023-1-git-send-email-sagar.kadam@sifive.com>
-X-ClientProxiedBy: SG2PR02CA0032.apcprd02.prod.outlook.com
- (2603:1096:3:18::20) To DM6PR13MB3451.namprd13.prod.outlook.com
- (2603:10b6:5:1c3::10)
+Subject: [PATCH v7 2/9] RISC-V: Add early ioremap support
+Date: Fri, 28 Aug 2020 10:20:29 -0700
+Message-Id: <20200828172036.8056-3-atish.patra@wdc.com>
+X-Mailer: git-send-email 2.24.0
+In-Reply-To: <20200828172036.8056-1-atish.patra@wdc.com>
+References: <20200828172036.8056-1-atish.patra@wdc.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-Received: from 255.255.255.255 (255.255.255.255) by
- SG2PR02CA0032.apcprd02.prod.outlook.com (2603:1096:3:18::20) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id
- 15.20.3326.19 via Frontend Transport; Fri, 28 Aug 2020 16:56:31 +0000
-X-Mailer: git-send-email 2.7.4
-X-Originating-IP: [159.117.144.156]
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: e6ad8684-b5de-43f9-54f3-08d84b7351f3
-X-MS-TrafficTypeDiagnostic: DM5PR13MB1004:
-X-LD-Processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
-X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <DM5PR13MB1004A81E00F20F76431CD24F97520@DM5PR13MB1004.namprd13.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:7219;
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: JV5vbdT3N9EhbNoBZWzjUvP3FcuCMFGP1LJsD7NvOjierKC3v0JeI7Qu3xUD3SDVMapoRp20GhaE3rRmjHRnznaalmdJueFN6xgDwQCb4ZixoAcBUtZbmywGh7ravZ4cBi+YVePsJ14/XYUKgnVwRk1t2UMGrc8uIliyU3mGGWdg2gGt9NMUqYPu5DInUzj415FWJsnZgVpGo85b/TC6lUO8ugFZeu1ckkL7vnFJsdgjz0Pi95kYTrvE9h/1FgwKF6YpnT2Dcl8HOP+BSx5ppdiMtDfck1bf2192uOzDiuuY4+XYZRtAYAkCFIH1ZqZbhOvxJDzCc2TCGx0sTCtCiqEpQIw5iIOUtaUdYWmuVETjDQbhK2BUFOVA43bCEfRaveqIfaQsX3APn1DSKSFODQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:DM6PR13MB3451.namprd13.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(136003)(396003)(39850400004)(346002)(366004)(376002)(4326008)(66946007)(2906002)(316002)(478600001)(6666004)(52116002)(66476007)(8676002)(107886003)(66556008)(8936002)(16576012)(83380400001)(6486002)(2616005)(5660300002)(956004)(83170400001)(26005)(186003)(6916009)(42882007)(966005)(36756003)(44832011);
- DIR:OUT; SFP:1101; 
-X-MS-Exchange-AntiSpam-MessageData: 3sSAYDggMCQ1MpcEytVdO48laEVwtyFkeJvDUMIyDEoUCrt9NGw97XVdojtcLx9Bcig4bn+7VGaXeENAP3WVCiVpW5lqGLA8ByinYyP+NPft69O0KilAFksWHJAVUTHiNXUa1MbyyECXRiAqWRO3lyMvZYgbtm2VmPNUWjfcNqhXqv747qyHQAMuh3L6fmalAPjTwdRkrzLnRsZ9J6q4XzBCSCfI1WZDIBGPbv9oQ3Gg50DAlbe3QL5Ti+xSZdxqo7rpCpT87mvlqmyr44hI5o7H8Kkdra/YU4jfFbxl1vH8WBNMbQv77ArbVCI6kdINLZNDdLkk0zlMbY9PifmcPJg7/qG5EPcUem2QnZrwy2WZekqqJ4kO6jcxDmSCDnCPNAwYt3+UJ3DMDYMSWgvtfPXRmASea6I0rOanJhzw+zPkvyFvUeNuWt3bgl5zvtepgum5aNjj5jekeHQT5JUjyeYuq7cvk9MZlbnaWNr2oJyaR/UO9IBC05w5wyosbD7FMF11AybkV9RmdaDG0TjiQKLBap+R0zN5GDSEgtKneQWB4B0t+JTyL12xGg0fQ2B3iBWO4bLv9D1AwDxZq2mu3Kh22/bR2kXW5PF9fSIHET6iSa0f3hC8YbbGWWjTzT0H9qHadnD8rTMZNNunG9VR4w==
-X-OriginatorOrg: sifive.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e6ad8684-b5de-43f9-54f3-08d84b7351f3
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR13MB3451.namprd13.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Aug 2020 16:56:34.2937 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vMxxJ8dnyVJ0T8kqy3kC4zEaUj/HqFarwK85cPdlnmXo5L1R3V1kcjKNWRAslHokyEFTxqwZqTwvHNjQ2sOBVQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM5PR13MB1004
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200828_125637_154039_DA17A5F2 
-X-CRM114-Status: GOOD (  18.27  )
+X-CRM114-CacheID: sfid-20200828_132046_265878_6A5F4C21 
+X-CRM114-Status: GOOD (  17.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -126,182 +93,167 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, aou@eecs.berkeley.edu, yash.shah@sifive.com,
- robh+dt@kernel.org, palmer@dabbelt.com, Sagar Kadam <sagar.kadam@sifive.com>,
- paul.walmsley@sifive.com, linux-riscv@lists.infradead.org
+Cc: Palmer Dabbelt <palmerdabbelt@google.com>, Anup Patel <anup@brainfault.org>,
+ Masahiro Yamada <masahiroy@kernel.org>, Anup Patel <anup.patel@wdc.com>,
+ Nick Desaulniers <ndesaulniers@google.com>, Ingo Molnar <mingo@kernel.org>,
+ Atish Patra <atish.patra@wdc.com>, Arvind Sankar <nivedita@alum.mit.edu>,
+ linux-efi@vger.kernel.org, Alistair Francis <alistair.francis@wdc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Greentime Hu <greentime.hu@sifive.com>, linux-riscv@lists.infradead.org,
+ Ard Biesheuvel <ardb@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Convert the device tree bindings for the SiFive's FU540-C000 SoC's L2 Cache
-controller to YAML format.
+UEFI uses early IO or memory mappings for runtime services before
+normal ioremap() is usable. Add the necessary fixmap bindings and
+pmd mappings for generic ioremap support to work.
 
-Signed-off-by: Sagar Kadam <sagar.kadam@sifive.com>
+Signed-off-by: Atish Patra <atish.patra@wdc.com>
+Reviewed-by: Anup Patel <anup@brainfault.org>
+Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
 ---
- .../devicetree/bindings/riscv/sifive-l2-cache.txt  | 51 ------------
- .../devicetree/bindings/riscv/sifive-l2-cache.yaml | 92 ++++++++++++++++++++++
- 2 files changed, 92 insertions(+), 51 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/riscv/sifive-l2-cache.txt
- create mode 100644 Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+ arch/riscv/Kconfig              |  1 +
+ arch/riscv/include/asm/Kbuild   |  1 +
+ arch/riscv/include/asm/fixmap.h | 13 +++++++++++++
+ arch/riscv/include/asm/io.h     |  1 +
+ arch/riscv/kernel/setup.c       |  2 ++
+ arch/riscv/mm/init.c            | 33 +++++++++++++++++++++++++++++++++
+ 6 files changed, 51 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.txt b/Documentation/devicetree/bindings/riscv/sifive-l2-cache.txt
-deleted file mode 100644
-index 73d8f19..0000000
---- a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.txt
-+++ /dev/null
-@@ -1,51 +0,0 @@
--SiFive L2 Cache Controller
----------------------------
--The SiFive Level 2 Cache Controller is used to provide access to fast copies
--of memory for masters in a Core Complex. The Level 2 Cache Controller also
--acts as directory-based coherency manager.
--All the properties in ePAPR/DeviceTree specification applies for this platform
--
--Required Properties:
----------------------
--- compatible: Should be "sifive,fu540-c000-ccache" and "cache"
--
--- cache-block-size: Specifies the block size in bytes of the cache.
--  Should be 64
--
--- cache-level: Should be set to 2 for a level 2 cache
--
--- cache-sets: Specifies the number of associativity sets of the cache.
--  Should be 1024
--
--- cache-size: Specifies the size in bytes of the cache. Should be 2097152
--
--- cache-unified: Specifies the cache is a unified cache
--
--- interrupts: Must contain 3 entries (DirError, DataError and DataFail signals)
--
--- reg: Physical base address and size of L2 cache controller registers map
--
--Optional Properties:
----------------------
--- next-level-cache: phandle to the next level cache if present.
--
--- memory-region: reference to the reserved-memory for the L2 Loosely Integrated
--  Memory region. The reserved memory node should be defined as per the bindings
--  in reserved-memory.txt
--
--
--Example:
--
--	cache-controller@2010000 {
--		compatible = "sifive,fu540-c000-ccache", "cache";
--		cache-block-size = <64>;
--		cache-level = <2>;
--		cache-sets = <1024>;
--		cache-size = <2097152>;
--		cache-unified;
--		interrupt-parent = <&plic0>;
--		interrupts = <1 2 3>;
--		reg = <0x0 0x2010000 0x0 0x1000>;
--		next-level-cache = <&L25 &L40 &L36>;
--		memory-region = <&l2_lim>;
--	};
-diff --git a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml b/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
-new file mode 100644
-index 0000000..e14c8c6
---- /dev/null
-+++ b/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
-@@ -0,0 +1,92 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+# Copyright (C) 2020 SiFive, Inc.
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/riscv/sifive-l2-cache.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index df18372861d8..5e4ace64acbc 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -37,6 +37,7 @@ config RISCV
+ 	select GENERIC_ARCH_TOPOLOGY if SMP
+ 	select GENERIC_ATOMIC64 if !64BIT
+ 	select GENERIC_CLOCKEVENTS
++	select GENERIC_EARLY_IOREMAP
+ 	select GENERIC_GETTIMEOFDAY if HAVE_GENERIC_VDSO
+ 	select GENERIC_IOREMAP
+ 	select GENERIC_IRQ_MULTI_HANDLER
+diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
+index 3d9410bb4de0..59dd7be55005 100644
+--- a/arch/riscv/include/asm/Kbuild
++++ b/arch/riscv/include/asm/Kbuild
+@@ -1,4 +1,5 @@
+ # SPDX-License-Identifier: GPL-2.0
++generic-y += early_ioremap.h
+ generic-y += extable.h
+ generic-y += flat.h
+ generic-y += kvm_para.h
+diff --git a/arch/riscv/include/asm/fixmap.h b/arch/riscv/include/asm/fixmap.h
+index 11613f38228a..54cbf07fb4e9 100644
+--- a/arch/riscv/include/asm/fixmap.h
++++ b/arch/riscv/include/asm/fixmap.h
+@@ -27,6 +27,19 @@ enum fixed_addresses {
+ 	FIX_TEXT_POKE1,
+ 	FIX_TEXT_POKE0,
+ 	FIX_EARLYCON_MEM_BASE,
 +
-+title: SiFive L2 Cache Controller
++	__end_of_permanent_fixed_addresses,
++	/*
++	 * Temporary boot-time mappings, used by early_ioremap(),
++	 * before ioremap() is functional.
++	 */
++#define NR_FIX_BTMAPS		(SZ_256K / PAGE_SIZE)
++#define FIX_BTMAPS_SLOTS	7
++#define TOTAL_FIX_BTMAPS	(NR_FIX_BTMAPS * FIX_BTMAPS_SLOTS)
 +
-+maintainers:
-+  - Sagar Kadam <sagar.kadam@sifive.com>
-+  - Yash Shah <yash.shah@sifive.com>
-+  - Paul Walmsley  <paul.walmsley@sifive.com>
++	FIX_BTMAP_END = __end_of_permanent_fixed_addresses,
++	FIX_BTMAP_BEGIN = FIX_BTMAP_END + TOTAL_FIX_BTMAPS - 1,
 +
-+description:
-+  The SiFive Level 2 Cache Controller is used to provide access to fast copies
-+  of memory for masters in a Core Complex. The Level 2 Cache Controller also
-+  acts as directory-based coherency manager.
-+  All the properties in ePAPR/DeviceTree specification applies for this platform.
+ 	__end_of_fixed_addresses
+ };
+ 
+diff --git a/arch/riscv/include/asm/io.h b/arch/riscv/include/asm/io.h
+index 3835c3295dc5..c025a746a148 100644
+--- a/arch/riscv/include/asm/io.h
++++ b/arch/riscv/include/asm/io.h
+@@ -14,6 +14,7 @@
+ #include <linux/types.h>
+ #include <linux/pgtable.h>
+ #include <asm/mmiowb.h>
++#include <asm/early_ioremap.h>
+ 
+ /*
+  * MMIO access functions are separated out to break dependency cycles
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index edea7ef88402..41ef96d0d97a 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -19,6 +19,7 @@
+ #include <linux/smp.h>
+ 
+ #include <asm/cpu_ops.h>
++#include <asm/early_ioremap.h>
+ #include <asm/setup.h>
+ #include <asm/sections.h>
+ #include <asm/sbi.h>
+@@ -71,6 +72,7 @@ void __init setup_arch(char **cmdline_p)
+ 
+ 	*cmdline_p = boot_command_line;
+ 
++	early_ioremap_setup();
+ 	parse_early_param();
+ 
+ 	setup_bootmem();
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 2b651f63f5c4..b75ebe8e7a92 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -403,6 +403,9 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ 	uintptr_t load_pa = (uintptr_t)(&_start);
+ 	uintptr_t load_sz = (uintptr_t)(&_end) - load_pa;
+ 	uintptr_t map_size = best_map_size(load_pa, MAX_EARLY_MAPPING_SIZE);
++#ifndef __PAGETABLE_PMD_FOLDED
++	pmd_t fix_bmap_spmd, fix_bmap_epmd;
++#endif
+ 
+ 	va_pa_offset = PAGE_OFFSET - load_pa;
+ 	pfn_base = PFN_DOWN(load_pa);
+@@ -456,6 +459,36 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ 			   pa + PGDIR_SIZE, PGDIR_SIZE, PAGE_KERNEL);
+ 	dtb_early_va = (void *)DTB_EARLY_BASE_VA + (dtb_pa & (PGDIR_SIZE - 1));
+ 	dtb_early_pa = dtb_pa;
 +
-+allOf:
-+  - $ref: /schemas/cache-controller.yaml#
++	/*
++	 * Bootime fixmap only can handle PMD_SIZE mapping. Thus, boot-ioremap
++	 * range can not span multiple pmds.
++	 */
++	BUILD_BUG_ON((__fix_to_virt(FIX_BTMAP_BEGIN) >> PMD_SHIFT)
++		     != (__fix_to_virt(FIX_BTMAP_END) >> PMD_SHIFT));
 +
-+properties:
-+  compatible:
-+    items:
-+     - enum:
-+        - sifive,fu540-c000-ccache
-+    description: |
-+      Should have "sifive,<soc>-cache" and "cache".
++#ifndef __PAGETABLE_PMD_FOLDED
++	/*
++	 * Early ioremap fixmap is already created as it lies within first 2MB
++	 * of fixmap region. We always map PMD_SIZE. Thus, both FIX_BTMAP_END
++	 * FIX_BTMAP_BEGIN should lie in the same pmd. Verify that and warn
++	 * the user if not.
++	 */
++	fix_bmap_spmd = fixmap_pmd[pmd_index(__fix_to_virt(FIX_BTMAP_BEGIN))];
++	fix_bmap_epmd = fixmap_pmd[pmd_index(__fix_to_virt(FIX_BTMAP_END))];
++	if (pmd_val(fix_bmap_spmd) != pmd_val(fix_bmap_epmd)) {
++		WARN_ON(1);
++		pr_warn("fixmap btmap start [%08lx] != end [%08lx]\n",
++			pmd_val(fix_bmap_spmd), pmd_val(fix_bmap_epmd));
++		pr_warn("fix_to_virt(FIX_BTMAP_BEGIN): %08lx\n",
++			fix_to_virt(FIX_BTMAP_BEGIN));
++		pr_warn("fix_to_virt(FIX_BTMAP_END):   %08lx\n",
++			fix_to_virt(FIX_BTMAP_END));
 +
-+  cache-block-size:
-+    const: 64
-+
-+  cache-level:
-+    const: 2
-+
-+  cache-sets:
-+    const: 1024
-+
-+  cache-size:
-+    const: 2097152
-+
-+  cache-unified: true
-+
-+  interrupts:
-+    description: |
-+      Must contain entries for DirError, DataError and DataFail signals.
-+    minItems: 1
-+    maxItems: 3
-+
-+  reg:
-+    maxItems: 1
-+    description: address of cache controller's registers.
-+
-+
-+  next-level-cache:
-+    description: |
-+      Phandle to the next level cache if present.
-+
-+  memory-region:
-+    description: |
-+      The reference to the reserved-memory for the L2 Loosely Integrated memory region.
-+      The reserved memory node should be defined as per the bindings in reserved-memory.txt.
-+
-+additionalProperties: false
-+
-+required:
-+  - compatible
-+  - cache-block-size
-+  - cache-level
-+  - cache-sets
-+  - cache-size
-+  - cache-unified
-+  - interrupts
-+  - reg
-+
-+examples:
-+  - |
-+    cache-controller@2010000 {
-+        compatible = "sifive,fu540-c000-ccache";
-+        cache-block-size = <64>;
-+        cache-level = <2>;
-+        cache-sets = <1024>;
-+        cache-size = <2097152>;
-+        cache-unified;
-+        reg = <0x2010000 0x1000>;
-+        interrupt-parent = <&plic0>;
-+        interrupts = <1 2 3>;
-+        next-level-cache = <&L25>;
-+        memory-region = <&l2_lim>;
-+    };
++		pr_warn("FIX_BTMAP_END:       %d\n", FIX_BTMAP_END);
++		pr_warn("FIX_BTMAP_BEGIN:     %d\n", FIX_BTMAP_BEGIN);
++	}
++#endif
+ }
+ 
+ static void __init setup_vm_final(void)
 -- 
-2.7.4
+2.24.0
 
 
 _______________________________________________
