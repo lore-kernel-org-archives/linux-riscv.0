@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-13.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9E2E4C43461
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Aug 2020 17:21:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3BF93C433E2
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Aug 2020 17:21:13 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 65D15207DF
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Aug 2020 17:21:08 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id EDFB020848
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Aug 2020 17:21:12 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="GyJQ08c6";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="FrcjBEN0"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 65D15207DF
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="py4hLQm3";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="onRj+Qq1"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EDFB020848
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,62 +26,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=O8a95Di4CjggJ3Q6mX6kyyBjxqeWcfOB7QuR1dycKzg=; b=GyJQ08c6J3P5rOv3I4dW1Z6o6
-	hQfH8j3hmkkAxvpFdajNPykd+t8eUDdRWsL0VB7QVisKDZtYY/HmUePXPl3ZDxFO6DgVmiQ4QLcM/
-	UySl+g1RDSKOC86hGFpPv1eymm5huhyHpfgyfOaWSrcKeqz7lGctACwbRx3bEsSXSp3iV9OI48AhP
-	IYI6+uY0hWAE5x+ewkIwQhbGo/NNjjJguvghGgviW+oCkBBR1jR/N1vonFtDzLVJacbEfaoRcAJAp
-	nFS2K11QN696413gf3tcANYtUk7O/JqzsR5dsNAcLy4KC5proHCMLCUuVNs/FydjLGny1Dta8GHEA
-	EpB108/0A==;
+	 bh=EbffGJigQ1Ln3yxdotp755I/sgKzxDQ3XXZmTSazHj8=; b=py4hLQm3GDTRjiqIt6Toh7nsV
+	LECHDG+0KEi5WxvDG3cc+lzeoyBFRtg3kTjfUTqqadjhw0xxHwdDJDnacDjiYjSICVCC4JEDnaIxh
+	AdPHlbG0ywSwqgzVn8C81mq2vtCKG5l1sNtJ1P+bUnRMv0+KkY6ErHGEz6teHaMcaOcY/wkHYdwHU
+	qsGvj93FOXutVwSZGXp2kPOhQataHW8ucn01TvNcMuauyjn741OQoisqcRmW6vl/0ftMVAY4RT0Lu
+	6rSUlNaP3sHqxN7FaCcUCkfttEDMMvPlXWkTtiibL5DcIZQTW1CwCd0WPm72dBP76kaRxb5BTsZec
+	OGRalwUGw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kBi3a-0006TQ-TJ; Fri, 28 Aug 2020 17:20:54 +0000
+	id 1kBi3c-0006US-VS; Fri, 28 Aug 2020 17:20:57 +0000
 Received: from esa3.hgst.iphmx.com ([216.71.153.141])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kBi3V-0006Nw-9K
- for linux-riscv@lists.infradead.org; Fri, 28 Aug 2020 17:20:50 +0000
+ id 1kBi3W-0006Nw-QF
+ for linux-riscv@lists.infradead.org; Fri, 28 Aug 2020 17:20:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1598635249; x=1630171249;
+ t=1598635251; x=1630171251;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=Bk2Gh/XGM+blmye1lG7fqQWiRAnoRdaJAzm3HH3f+As=;
- b=FrcjBEN0cRSy921XA5X5tCMYRuB7jWkmxL3RLQ9qXyux2SB4Stm1DnYI
- QBvKduouSFCSVG1Un0lCp7aOQfjXgO8dod7zTtr+xQIb8tFuH9Iqzf8Bu
- kFHOo+Fw7LsCLGqrfvsNyCj5Q3TfCX3S/cRpPOOJiKYQvhpVZvK5q++W/
- mILHc5PzXj2sfxlk5asy+JfHKl4LAW5nfmUdKFfk8Td+D+Sjd5T4s0J7m
- ahSKjB2+0a4tI18buhS8tVuN9biE29/bj+xconRTk39G79Zb7yQZ1PgUs
- Ba0zeDtegWlx8U8uxURdbCQksEXfpYEMedG/KCtUpWgVf+7wyK4ey0crt g==;
-IronPort-SDR: 6eKi4oAMt6nuKTkOQd2tZfnZEzOfAEcKCcixWumpxyhg3XSBhwhe8eEYtBX5HwKJPrw/IUcHYN
- 7YztlTz0hA+Iqc9s0u6Ja8jDCcRwzwYaxgr9iZmNlRLy3gvhsbCh2Ec4NhzjbVhlbpW2goNLmF
- bAXhajGzBbjENrNMAczhUX8row57IE9W7Ixl4iV7HyGewlDW0dKib3JTUzJabtimZvXdYcJMKD
- D5XpUFlpwURVJGK/VsgcNOgfCP4LY0dDQ3OvnnKmL2dkqebgi/CO8BZeqSTQVeM/qgcG3G3DpL
- Dh8=
-X-IronPort-AV: E=Sophos;i="5.76,364,1592841600"; d="scan'208";a="150414088"
+ bh=zACmpNxMVkpKW6XFtwU9imKwJIzxQN1bq0wJXy/9ILY=;
+ b=onRj+Qq1TyT5ymEXyV57ysfqOvHX8b8aOp5MWngBTt3xivmZfUJHcoc5
+ ix4p9HEvw4PGWimlVHHw35tdRnucbQWsX5SqU3MwZREHSbT6hm51T9Zcp
+ UhEgrDJcuoxemVa6AcDPDsj+fn/O/ygp0YItDJH7UtX7q6bwCcxYSimdm
+ 4ZXATFQR7QN19SWPloeTjKItlM1A7e6ZtvRLsxmv4GWqdrWiQt0jq7I0F
+ Rt0klKcYJHzID+Acn+U6qkkRpxk9Pmz3e76vSgTtGGoBWi86Y4gfW5ELM
+ axWaPn1T2YrPT0u+N/n0L4wgkGIz7JEUGbhtMX78kaskO9kBkCsSb4kM+ g==;
+IronPort-SDR: jzG/MeyNokX8GFPKKOfAFeRTY6vkEP1ZMMa0HGgfYLfA1aEzgo3j9fKBnId8ggiFoC+NxkH8iD
+ 3ElLCoN30yHlsYXKvf3JKMU7B9ksc+FZlJAwqqAAU6ApMjjeHdym5WaBcY95tKbD8e4hGfk/zd
+ XmJiUr6KPre6UQhpoSRn76uGUCQtkvrO2smKPCL2vKqZbhVpaB5GgiwX4U06+/wKHctid6ydZI
+ bhpq3n26X3qPQ/FxEDuJ3PmdYqDbwVVWVmh4dclFCVpeW/FNINfvR8wPdST0CCVgaOBZROlWwA
+ hEg=
+X-IronPort-AV: E=Sophos;i="5.76,364,1592841600"; d="scan'208";a="150414093"
 Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 29 Aug 2020 01:20:47 +0800
-IronPort-SDR: XuzgbuC1WzIeyTFZuubd8JSEl1xRXuwsXLLMVnIJaKktp5HtQflDUBYKAmlSzmYtZsCS8CgnR8
- 4GO4KHSYc0DQ==
+ by ob1.hgst.iphmx.com with ESMTP; 29 Aug 2020 01:20:48 +0800
+IronPort-SDR: JaYELbvbnqtbNLgDAvXybQtbtzL2d0e6a8hfeWQBrv5X5DQlHiM5hjSXYx/vYjeu8TrLQ4iSIM
+ Wp1IIyhRfKSg==
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 28 Aug 2020 10:08:19 -0700
-IronPort-SDR: DMKenj1WplxHGuwNbsjHFV9MHODA2RxucJWJVYnstOrk1zE0LPtdWpDesbHuzbEc3OTdIuabKx
- 2Du80PCFXn3g==
+ 28 Aug 2020 10:08:20 -0700
+IronPort-SDR: l258ELJoT28WLwZNYHFmJmSjuwFsyOrEsXSTZpwi5VfI7uzXgWZriyWxxOHaE3STpkfikRXKrQ
+ moCtEqf0bz5Q==
 WDCIronportException: Internal
 Received: from 6hj08h2.ad.shared (HELO jedi-01.hgst.com) ([10.86.59.137])
- by uls-op-cesaip01.wdc.com with ESMTP; 28 Aug 2020 10:20:46 -0700
+ by uls-op-cesaip01.wdc.com with ESMTP; 28 Aug 2020 10:20:47 -0700
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [PATCH v7 7/9] efi: Rename arm-init to efi-init common for all arch
-Date: Fri, 28 Aug 2020 10:20:34 -0700
-Message-Id: <20200828172036.8056-8-atish.patra@wdc.com>
+Subject: [PATCH v7 9/9] RISC-V: Add page table dump support for uefi
+Date: Fri, 28 Aug 2020 10:20:36 -0700
+Message-Id: <20200828172036.8056-10-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.24.0
 In-Reply-To: <20200828172036.8056-1-atish.patra@wdc.com>
 References: <20200828172036.8056-1-atish.patra@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200828_132049_528618_E8941CC4 
-X-CRM114-Status: GOOD (  12.31  )
+X-CRM114-CacheID: sfid-20200828_132051_097314_703F2F76 
+X-CRM114-Status: GOOD (  16.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -93,10 +93,11 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-efi@vger.kernel.org, Masahiro Yamada <masahiroy@kernel.org>,
- Anup Patel <anup.patel@wdc.com>, Nick Desaulniers <ndesaulniers@google.com>,
- Ingo Molnar <mingo@kernel.org>, Atish Patra <atish.patra@wdc.com>,
- Arvind Sankar <nivedita@alum.mit.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
+Cc: linux-efi@vger.kernel.org, Anup Patel <anup@brainfault.org>,
+ Masahiro Yamada <masahiroy@kernel.org>, Anup Patel <anup.patel@wdc.com>,
+ Nick Desaulniers <ndesaulniers@google.com>, Ingo Molnar <mingo@kernel.org>,
+ Atish Patra <atish.patra@wdc.com>, Arvind Sankar <nivedita@alum.mit.edu>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
  Alistair Francis <alistair.francis@wdc.com>,
  Paul Walmsley <paul.walmsley@sifive.com>,
  Greentime Hu <greentime.hu@sifive.com>, linux-riscv@lists.infradead.org,
@@ -106,36 +107,131 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-arm-init is responsible for setting up efi runtime and doesn't actually
-do any ARM specific stuff. RISC-V can use the same source code as it is.
+Extend the current page table dump support in RISC-V to include efi
+pages as well.
 
-Rename it to efi-init so that RISC-V can use it.
+Here is the output of efi runtime page table mappings.
+
+---[ UEFI runtime start ]---
+0x0000000020002000-0x0000000020003000 0x00000000be732000 4K PTE D A . . . W R V
+0x0000000020018000-0x0000000020019000 0x00000000be738000 4K PTE D A . . . W R V
+0x000000002002c000-0x000000002002d000 0x00000000be73c000 4K PTE D A . . . W R V
+0x0000000020031000-0x0000000020032000 0x00000000bff61000 4K PTE D A . . X W R V
+---[ UEFI runtime end ]---
 
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
+Reviewed-by: Anup Patel <anup@brainfault.org>
 ---
- drivers/firmware/efi/Makefile                   | 2 +-
- drivers/firmware/efi/{arm-init.c => efi-init.c} | 0
- 2 files changed, 1 insertion(+), 1 deletion(-)
- rename drivers/firmware/efi/{arm-init.c => efi-init.c} (100%)
+ arch/riscv/mm/ptdump.c | 48 ++++++++++++++++++++++++++++++++++++------
+ 1 file changed, 42 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/firmware/efi/Makefile b/drivers/firmware/efi/Makefile
-index 7a216984552b..61fd1e8b26fb 100644
---- a/drivers/firmware/efi/Makefile
-+++ b/drivers/firmware/efi/Makefile
-@@ -32,7 +32,7 @@ obj-$(CONFIG_EFI_EMBEDDED_FIRMWARE)	+= embedded-firmware.o
- fake_map-y				+= fake_mem.o
- fake_map-$(CONFIG_X86)			+= x86_fake_mem.o
+diff --git a/arch/riscv/mm/ptdump.c b/arch/riscv/mm/ptdump.c
+index 0831c2e61a8f..ace74dec7492 100644
+--- a/arch/riscv/mm/ptdump.c
++++ b/arch/riscv/mm/ptdump.c
+@@ -3,6 +3,7 @@
+  * Copyright (C) 2019 SiFive
+  */
  
--arm-obj-$(CONFIG_EFI)			:= arm-init.o arm-runtime.o
-+arm-obj-$(CONFIG_EFI)			:= efi-init.o arm-runtime.o
- obj-$(CONFIG_ARM)			+= $(arm-obj-y)
- obj-$(CONFIG_ARM64)			+= $(arm-obj-y)
- obj-$(CONFIG_EFI_CAPSULE_LOADER)	+= capsule-loader.o
-diff --git a/drivers/firmware/efi/arm-init.c b/drivers/firmware/efi/efi-init.c
-similarity index 100%
-rename from drivers/firmware/efi/arm-init.c
-rename to drivers/firmware/efi/efi-init.c
++#include <linux/efi.h>
+ #include <linux/init.h>
+ #include <linux/debugfs.h>
+ #include <linux/seq_file.h>
+@@ -49,6 +50,14 @@ struct addr_marker {
+ 	const char *name;
+ };
+ 
++/* Private information for debugfs */
++struct ptd_mm_info {
++	struct mm_struct		*mm;
++	const struct addr_marker	*markers;
++	unsigned long base_addr;
++	unsigned long end;
++};
++
+ static struct addr_marker address_markers[] = {
+ #ifdef CONFIG_KASAN
+ 	{KASAN_SHADOW_START,	"Kasan shadow start"},
+@@ -68,6 +77,28 @@ static struct addr_marker address_markers[] = {
+ 	{-1, NULL},
+ };
+ 
++static struct ptd_mm_info kernel_ptd_info = {
++	.mm		= &init_mm,
++	.markers	= address_markers,
++	.base_addr	= KERN_VIRT_START,
++	.end		= ULONG_MAX,
++};
++
++#ifdef CONFIG_EFI
++static struct addr_marker efi_addr_markers[] = {
++		{ 0,		"UEFI runtime start" },
++		{ SZ_1G,	"UEFI runtime end" },
++		{ -1,		NULL }
++};
++
++static struct ptd_mm_info efi_ptd_info = {
++	.mm		= &efi_mm,
++	.markers	= efi_addr_markers,
++	.base_addr	= 0,
++	.end		= SZ_2G,
++};
++#endif
++
+ /* Page Table Entry */
+ struct prot_bits {
+ 	u64 mask;
+@@ -245,22 +276,22 @@ static void note_page(struct ptdump_state *pt_st, unsigned long addr,
+ 	}
+ }
+ 
+-static void ptdump_walk(struct seq_file *s)
++static void ptdump_walk(struct seq_file *s, struct ptd_mm_info *pinfo)
+ {
+ 	struct pg_state st = {
+ 		.seq = s,
+-		.marker = address_markers,
++		.marker = pinfo->markers,
+ 		.level = -1,
+ 		.ptdump = {
+ 			.note_page = note_page,
+ 			.range = (struct ptdump_range[]) {
+-				{KERN_VIRT_START, ULONG_MAX},
++				{pinfo->base_addr, pinfo->end},
+ 				{0, 0}
+ 			}
+ 		}
+ 	};
+ 
+-	ptdump_walk_pgd(&st.ptdump, &init_mm, NULL);
++	ptdump_walk_pgd(&st.ptdump, pinfo->mm, NULL);
+ }
+ 
+ void ptdump_check_wx(void)
+@@ -293,7 +324,7 @@ void ptdump_check_wx(void)
+ 
+ static int ptdump_show(struct seq_file *m, void *v)
+ {
+-	ptdump_walk(m);
++	ptdump_walk(m, m->private);
+ 
+ 	return 0;
+ }
+@@ -308,8 +339,13 @@ static int ptdump_init(void)
+ 		for (j = 0; j < ARRAY_SIZE(pte_bits); j++)
+ 			pg_level[i].mask |= pte_bits[j].mask;
+ 
+-	debugfs_create_file("kernel_page_tables", 0400, NULL, NULL,
++	debugfs_create_file("kernel_page_tables", 0400, NULL, &kernel_ptd_info,
+ 			    &ptdump_fops);
++#ifdef CONFIG_EFI
++	if (efi_enabled(EFI_RUNTIME_SERVICES))
++		debugfs_create_file("efi_page_tables", 0400, NULL, &efi_ptd_info,
++				    &ptdump_fops);
++#endif
+ 
+ 	return 0;
+ }
 -- 
 2.24.0
 
