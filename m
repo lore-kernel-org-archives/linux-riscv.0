@@ -1,87 +1,82 @@
-Return-Path: <SRS0=ua5H=CG=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=al3K=CH=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3BF93C433E2
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Aug 2020 17:21:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 15F59C433E2
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 Aug 2020 00:32:30 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EDFB020848
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Aug 2020 17:21:12 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C636220838
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 Aug 2020 00:32:29 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="py4hLQm3";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="onRj+Qq1"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EDFB020848
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="hBtg3DRk";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="sTC4ij59"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C636220838
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=EbffGJigQ1Ln3yxdotp755I/sgKzxDQ3XXZmTSazHj8=; b=py4hLQm3GDTRjiqIt6Toh7nsV
-	LECHDG+0KEi5WxvDG3cc+lzeoyBFRtg3kTjfUTqqadjhw0xxHwdDJDnacDjiYjSICVCC4JEDnaIxh
-	AdPHlbG0ywSwqgzVn8C81mq2vtCKG5l1sNtJ1P+bUnRMv0+KkY6ErHGEz6teHaMcaOcY/wkHYdwHU
-	qsGvj93FOXutVwSZGXp2kPOhQataHW8ucn01TvNcMuauyjn741OQoisqcRmW6vl/0ftMVAY4RT0Lu
-	6rSUlNaP3sHqxN7FaCcUCkfttEDMMvPlXWkTtiibL5DcIZQTW1CwCd0WPm72dBP76kaRxb5BTsZec
-	OGRalwUGw==;
+	 bh=uk9kmHSh8S+SBe/j+IpRPcay/lRkkcyukxsoFqXsGOg=; b=hBtg3DRkeS2FD78rpbxH5S6Z7
+	DOpiT5ki+xKOE7bMNI2uUIABnpSMbnmhPn5rrNAjFTXlSjb4MP3HbvBnANrTFr1v8bAcNiAcz/hLg
+	VPqepkpRhuJQqsagrNdfVlYQZN7MTd2Em7t92BrMd1EWuPgkQd+BxYCRRSNA0McZ78O7+hR6Pf0nb
+	8R2TD1BTpC+ct7ZxKjGFAuVPyTS229RJNF9uDYgCQCYgDjhqR6Z1dzM0zgiwuui2sCGHQ/P8Xe3fg
+	SXBktUmngfHMMBWDup89dOaV7xF0XKL+g6dWeVLIl1cdTmACPwer3e7G6QKpRZJFpSlP9QCbJI127
+	RegGgfbkg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kBi3c-0006US-VS; Fri, 28 Aug 2020 17:20:57 +0000
-Received: from esa3.hgst.iphmx.com ([216.71.153.141])
+	id 1kBon0-0001un-1p; Sat, 29 Aug 2020 00:32:14 +0000
+Received: from mail-wr1-x444.google.com ([2a00:1450:4864:20::444])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kBi3W-0006Nw-QF
- for linux-riscv@lists.infradead.org; Fri, 28 Aug 2020 17:20:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1598635251; x=1630171251;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=zACmpNxMVkpKW6XFtwU9imKwJIzxQN1bq0wJXy/9ILY=;
- b=onRj+Qq1TyT5ymEXyV57ysfqOvHX8b8aOp5MWngBTt3xivmZfUJHcoc5
- ix4p9HEvw4PGWimlVHHw35tdRnucbQWsX5SqU3MwZREHSbT6hm51T9Zcp
- UhEgrDJcuoxemVa6AcDPDsj+fn/O/ygp0YItDJH7UtX7q6bwCcxYSimdm
- 4ZXATFQR7QN19SWPloeTjKItlM1A7e6ZtvRLsxmv4GWqdrWiQt0jq7I0F
- Rt0klKcYJHzID+Acn+U6qkkRpxk9Pmz3e76vSgTtGGoBWi86Y4gfW5ELM
- axWaPn1T2YrPT0u+N/n0L4wgkGIz7JEUGbhtMX78kaskO9kBkCsSb4kM+ g==;
-IronPort-SDR: jzG/MeyNokX8GFPKKOfAFeRTY6vkEP1ZMMa0HGgfYLfA1aEzgo3j9fKBnId8ggiFoC+NxkH8iD
- 3ElLCoN30yHlsYXKvf3JKMU7B9ksc+FZlJAwqqAAU6ApMjjeHdym5WaBcY95tKbD8e4hGfk/zd
- XmJiUr6KPre6UQhpoSRn76uGUCQtkvrO2smKPCL2vKqZbhVpaB5GgiwX4U06+/wKHctid6ydZI
- bhpq3n26X3qPQ/FxEDuJ3PmdYqDbwVVWVmh4dclFCVpeW/FNINfvR8wPdST0CCVgaOBZROlWwA
- hEg=
-X-IronPort-AV: E=Sophos;i="5.76,364,1592841600"; d="scan'208";a="150414093"
-Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
- ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 29 Aug 2020 01:20:48 +0800
-IronPort-SDR: JaYELbvbnqtbNLgDAvXybQtbtzL2d0e6a8hfeWQBrv5X5DQlHiM5hjSXYx/vYjeu8TrLQ4iSIM
- Wp1IIyhRfKSg==
-Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
- by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 28 Aug 2020 10:08:20 -0700
-IronPort-SDR: l258ELJoT28WLwZNYHFmJmSjuwFsyOrEsXSTZpwi5VfI7uzXgWZriyWxxOHaE3STpkfikRXKrQ
- moCtEqf0bz5Q==
-WDCIronportException: Internal
-Received: from 6hj08h2.ad.shared (HELO jedi-01.hgst.com) ([10.86.59.137])
- by uls-op-cesaip01.wdc.com with ESMTP; 28 Aug 2020 10:20:47 -0700
-From: Atish Patra <atish.patra@wdc.com>
-To: linux-kernel@vger.kernel.org
-Subject: [PATCH v7 9/9] RISC-V: Add page table dump support for uefi
-Date: Fri, 28 Aug 2020 10:20:36 -0700
-Message-Id: <20200828172036.8056-10-atish.patra@wdc.com>
-X-Mailer: git-send-email 2.24.0
-In-Reply-To: <20200828172036.8056-1-atish.patra@wdc.com>
-References: <20200828172036.8056-1-atish.patra@wdc.com>
+ id 1kBomx-0001sW-GZ
+ for linux-riscv@lists.infradead.org; Sat, 29 Aug 2020 00:32:12 +0000
+Received: by mail-wr1-x444.google.com with SMTP id h15so643597wrt.12
+ for <linux-riscv@lists.infradead.org>; Fri, 28 Aug 2020 17:32:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=atishpatra.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=EnuZn/M2lzAJWyAIXtLX4M4QtFwlZSSzh146mAOXAjk=;
+ b=sTC4ij59BsYkVreq5DVgZaFYoXHncgMbX2v+R8885l+xH2JQGoWh6OXFM4c/H6D5DX
+ AKBM7ooUQ/cBWmSM3I3rHv93e+QMndKakD3tL678T/kDW+C3hpP1JnxL5JVd2bRvKo6Q
+ 8XVH7eKWG9nUItp2tiIw+mTk8LYyb8z7mod4Y=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=EnuZn/M2lzAJWyAIXtLX4M4QtFwlZSSzh146mAOXAjk=;
+ b=CRfyWzABK8zB7kEx3vvqE0/hPaDKJdae2RkTmtkJjRWxy8Fga/4SM3YlRYodZ7pmcN
+ 0JvrxVA+Pk7ttAA338kOPJWpwNPCJD8uAHKlkOLQp/aMEpqJr2F9MNhHYefyfCzssFUd
+ zt4IOvzcWF7KERTvua2TjqF8yO7bd9uY0h54+lb3sD269Fx0Ugkpp+9nNmTjDT4IOkD8
+ 4pz9xtgfo8ELMwQbHrsWFf4ilob8t1Ft7qJIWFd3QfyifIytU/7WMY5n2eUw50CPwKz6
+ r4VrhzrJxsJ05MdagD19f6bGnSjo5gD4o6qTdoJsHxeGrz1a3FdxBe74IeugxRt0sELh
+ YQew==
+X-Gm-Message-State: AOAM530qdeY0sb6WvlLqKPSuZW1otDE4GDsMGBNFdUngkrgk8DHYAnWu
+ F3llE2nIXl7ndZLUG/vJeku0aeDL5Nb8k/WLo1Dj
+X-Google-Smtp-Source: ABdhPJx40JH8GqHxHD/A5mY8HvJho+at1dJwD96NVwF6YY9Iao+1NQ8Z2Zv6cBNn3NDdO9FyHOExM6NtWNrii+npYZ8=
+X-Received: by 2002:adf:f7c3:: with SMTP id a3mr1233550wrq.162.1598661128695; 
+ Fri, 28 Aug 2020 17:32:08 -0700 (PDT)
 MIME-Version: 1.0
+References: <20200814214725.28818-1-atish.patra@wdc.com>
+ <20200814214725.28818-2-atish.patra@wdc.com>
+ <20200828102233.00006ef4@Huawei.com>
+In-Reply-To: <20200828102233.00006ef4@Huawei.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Fri, 28 Aug 2020 17:31:57 -0700
+Message-ID: <CAOnJCUJn7=ufw1rjyZesLSki+KZDX5c5KbwGNo8-EeXTQkMxoQ@mail.gmail.com>
+Subject: Re: [RFC/RFT PATCH 1/6] numa: Move numa implementation to common code
+To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200828_132051_097314_703F2F76 
-X-CRM114-Status: GOOD (  16.45  )
+X-CRM114-CacheID: sfid-20200828_203211_702892_2D328111 
+X-CRM114-Status: GOOD (  30.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -93,148 +88,248 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-efi@vger.kernel.org, Anup Patel <anup@brainfault.org>,
- Masahiro Yamada <masahiroy@kernel.org>, Anup Patel <anup.patel@wdc.com>,
- Nick Desaulniers <ndesaulniers@google.com>, Ingo Molnar <mingo@kernel.org>,
- Atish Patra <atish.patra@wdc.com>, Arvind Sankar <nivedita@alum.mit.edu>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Alistair Francis <alistair.francis@wdc.com>,
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Atish Patra <atish.patra@wdc.com>,
+ Zong Li <zong.li@sifive.com>, linux-riscv <linux-riscv@lists.infradead.org>,
+ Will Deacon <will@kernel.org>, linux-arch@vger.kernel.org,
+ Rob Herring <robh@kernel.org>, Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+ Ganapatrao Kulkarni <gkulkarni@cavium.com>,
+ Steven Price <steven.price@arm.com>, Greentime Hu <greentime.hu@sifive.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
  Paul Walmsley <paul.walmsley@sifive.com>,
- Greentime Hu <greentime.hu@sifive.com>, linux-riscv@lists.infradead.org,
- Ard Biesheuvel <ardb@kernel.org>, Mike Rapoport <rppt@kernel.org>
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+ Nick Hu <nickhu@andestech.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Anup Patel <Anup.Patel@wdc.com>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Andrew Morton <akpm@linux-foundation.org>,
+ Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Extend the current page table dump support in RISC-V to include efi
-pages as well.
+On Fri, Aug 28, 2020 at 2:24 AM Jonathan Cameron
+<Jonathan.Cameron@huawei.com> wrote:
+>
+> On Fri, 14 Aug 2020 14:47:20 -0700
+> Atish Patra <atish.patra@wdc.com> wrote:
+>
+> > ARM64 numa implementation is generic enough that RISC-V can reuse that
+> > implementation with very minor cosmetic changes. This will help both
+> > ARM64 and RISC-V in terms of maintanace and feature improvement
+> >
+> > Move the numa implementation code to common directory so that both ISAs
+> > can reuse this. This doesn't introduce any function changes for ARM64.
+> >
+> > Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> Hi Atish,
+>
+> One trivial question inline.  Otherwise subject to Anshuman's point about
+> location, this looks fine to me.
+>
+> I'll run some sanity checks later.
+>
+> Jonathan
+> > ---
+> >  arch/arm64/Kconfig                            |  1 +
+> >  arch/arm64/include/asm/numa.h                 | 45 +---------------
+> >  arch/arm64/mm/Makefile                        |  1 -
+> >  drivers/base/Kconfig                          |  6 +++
+> >  drivers/base/Makefile                         |  1 +
+> >  .../mm/numa.c => drivers/base/arch_numa.c     |  0
+> >  include/asm-generic/numa.h                    | 51 +++++++++++++++++++
+> >  7 files changed, 60 insertions(+), 45 deletions(-)
+> >  rename arch/arm64/mm/numa.c => drivers/base/arch_numa.c (100%)
+> >  create mode 100644 include/asm-generic/numa.h
+> >
+> > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> > index 6d232837cbee..955a0cf75b16 100644
+> > --- a/arch/arm64/Kconfig
+> > +++ b/arch/arm64/Kconfig
+> > @@ -960,6 +960,7 @@ config HOTPLUG_CPU
+> >  # Common NUMA Features
+> >  config NUMA
+> >       bool "NUMA Memory Allocation and Scheduler Support"
+> > +     select GENERIC_ARCH_NUMA
+> >       select ACPI_NUMA if ACPI
+> >       select OF_NUMA
+> >       help
+> > diff --git a/arch/arm64/include/asm/numa.h b/arch/arm64/include/asm/numa.h
+> > index 626ad01e83bf..8c8cf4297cc3 100644
+> > --- a/arch/arm64/include/asm/numa.h
+> > +++ b/arch/arm64/include/asm/numa.h
+> > @@ -3,49 +3,6 @@
+> >  #define __ASM_NUMA_H
+> >
+> >  #include <asm/topology.h>
+> > -
+> > -#ifdef CONFIG_NUMA
+> > -
+> > -#define NR_NODE_MEMBLKS              (MAX_NUMNODES * 2)
+> > -
+> > -int __node_distance(int from, int to);
+> > -#define node_distance(a, b) __node_distance(a, b)
+> > -
+> > -extern nodemask_t numa_nodes_parsed __initdata;
+> > -
+> > -extern bool numa_off;
+> > -
+> > -/* Mappings between node number and cpus on that node. */
+> > -extern cpumask_var_t node_to_cpumask_map[MAX_NUMNODES];
+> > -void numa_clear_node(unsigned int cpu);
+> > -
+> > -#ifdef CONFIG_DEBUG_PER_CPU_MAPS
+> > -const struct cpumask *cpumask_of_node(int node);
+> > -#else
+> > -/* Returns a pointer to the cpumask of CPUs on Node 'node'. */
+> > -static inline const struct cpumask *cpumask_of_node(int node)
+> > -{
+> > -     return node_to_cpumask_map[node];
+> > -}
+> > -#endif
+> > -
+> > -void __init arm64_numa_init(void);
+> > -int __init numa_add_memblk(int nodeid, u64 start, u64 end);
+> > -void __init numa_set_distance(int from, int to, int distance);
+> > -void __init numa_free_distance(void);
+> > -void __init early_map_cpu_to_node(unsigned int cpu, int nid);
+> > -void numa_store_cpu_info(unsigned int cpu);
+> > -void numa_add_cpu(unsigned int cpu);
+> > -void numa_remove_cpu(unsigned int cpu);
+> > -
+> > -#else        /* CONFIG_NUMA */
+> > -
+> > -static inline void numa_store_cpu_info(unsigned int cpu) { }
+> > -static inline void numa_add_cpu(unsigned int cpu) { }
+> > -static inline void numa_remove_cpu(unsigned int cpu) { }
+> > -static inline void arm64_numa_init(void) { }
+> > -static inline void early_map_cpu_to_node(unsigned int cpu, int nid) { }
+> > -
+> > -#endif       /* CONFIG_NUMA */
+> > +#include <asm-generic/numa.h>
+> >
+> >  #endif       /* __ASM_NUMA_H */
+> > diff --git a/arch/arm64/mm/Makefile b/arch/arm64/mm/Makefile
+> > index d91030f0ffee..928c308b044b 100644
+> > --- a/arch/arm64/mm/Makefile
+> > +++ b/arch/arm64/mm/Makefile
+> > @@ -6,7 +6,6 @@ obj-y                         := dma-mapping.o extable.o fault.o init.o \
+> >  obj-$(CONFIG_HUGETLB_PAGE)   += hugetlbpage.o
+> >  obj-$(CONFIG_PTDUMP_CORE)    += dump.o
+> >  obj-$(CONFIG_PTDUMP_DEBUGFS) += ptdump_debugfs.o
+> > -obj-$(CONFIG_NUMA)           += numa.o
+> >  obj-$(CONFIG_DEBUG_VIRTUAL)  += physaddr.o
+> >  KASAN_SANITIZE_physaddr.o    += n
+> >
+> > diff --git a/drivers/base/Kconfig b/drivers/base/Kconfig
+> > index 8d7001712062..73c2151de194 100644
+> > --- a/drivers/base/Kconfig
+> > +++ b/drivers/base/Kconfig
+> > @@ -210,4 +210,10 @@ config GENERIC_ARCH_TOPOLOGY
+> >         appropriate scaling, sysfs interface for reading capacity values at
+> >         runtime.
+> >
+> > +config GENERIC_ARCH_NUMA
+> > +     bool
+> > +     help
+> > +       Enable support for generic numa implementation. Currently, RISC-V
+> > +       and ARM64 uses it.
+> > +
+> >  endmenu
+> > diff --git a/drivers/base/Makefile b/drivers/base/Makefile
+> > index 157452080f3d..c3d02c644222 100644
+> > --- a/drivers/base/Makefile
+> > +++ b/drivers/base/Makefile
+> > @@ -23,6 +23,7 @@ obj-$(CONFIG_PINCTRL) += pinctrl.o
+> >  obj-$(CONFIG_DEV_COREDUMP) += devcoredump.o
+> >  obj-$(CONFIG_GENERIC_MSI_IRQ_DOMAIN) += platform-msi.o
+> >  obj-$(CONFIG_GENERIC_ARCH_TOPOLOGY) += arch_topology.o
+> > +obj-$(CONFIG_GENERIC_ARCH_NUMA) += arch_numa.o
+> >
+> >  obj-y                        += test/
+> >
+> > diff --git a/arch/arm64/mm/numa.c b/drivers/base/arch_numa.c
+> > similarity index 100%
+> > rename from arch/arm64/mm/numa.c
+> > rename to drivers/base/arch_numa.c
+> > diff --git a/include/asm-generic/numa.h b/include/asm-generic/numa.h
+> > new file mode 100644
+> > index 000000000000..0635c0724b7c
+> > --- /dev/null
+> > +++ b/include/asm-generic/numa.h
+> > @@ -0,0 +1,51 @@
+> > +/* SPDX-License-Identifier: GPL-2.0 */
+> > +#ifndef __ASM_GENERIC_NUMA_H
+> > +#define __ASM_GENERIC_NUMA_H
+> > +
+> > +#ifdef CONFIG_NUMA
+> > +
+> > +#define NR_NODE_MEMBLKS              (MAX_NUMNODES * 2)
+> > +
+> > +int __node_distance(int from, int to);
+> > +#define node_distance(a, b) __node_distance(a, b)
+> > +
+> > +extern nodemask_t numa_nodes_parsed __initdata;
+> > +
+> > +extern bool numa_off;
+> > +
+> > +/* Mappings between node number and cpus on that node. */
+> > +extern cpumask_var_t node_to_cpumask_map[MAX_NUMNODES];
+> > +void numa_clear_node(unsigned int cpu);
+> > +
+> > +#ifdef CONFIG_DEBUG_PER_CPU_MAPS
+> > +const struct cpumask *cpumask_of_node(int node);
+> > +#else
+> > +/* Returns a pointer to the cpumask of CPUs on Node 'node'. */
+> > +static inline const struct cpumask *cpumask_of_node(int node)
+> > +{
+> > +     return node_to_cpumask_map[node];
+> > +}
+> > +#endif
+> > +
+> > +void __init arm64_numa_init(void);
+> > +int __init numa_add_memblk(int nodeid, u64 start, u64 end);
+> > +void __init numa_set_distance(int from, int to, int distance);
+> > +void __init numa_free_distance(void);
+> > +void __init early_map_cpu_to_node(unsigned int cpu, int nid);
+> > +void numa_store_cpu_info(unsigned int cpu);
+> > +void numa_add_cpu(unsigned int cpu);
+> > +void numa_remove_cpu(unsigned int cpu);
+> > +
+> > +#else        /* CONFIG_NUMA */
+> > +
+> > +static inline void numa_store_cpu_info(unsigned int cpu) { }
+> > +static inline void numa_add_cpu(unsigned int cpu) { }
+> > +static inline void numa_remove_cpu(unsigned int cpu) { }
+> > +static inline void arm64_numa_init(void) { }
+> > +static inline void early_map_cpu_to_node(unsigned int cpu, int nid) { }
+> > +
+> > +#endif       /* CONFIG_NUMA */
+> > +
+> > +#include <asm/topology.h>
+>
+> Why the include here?
+>
 
-Here is the output of efi runtime page table mappings.
+Sorry. This was a spillover from the previous patch. Thanks for catching it.
+I will fix it in v2.
+> > +
+> > +#endif       /* __ASM_GENERIC_NUMA_H */
+>
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
----[ UEFI runtime start ]---
-0x0000000020002000-0x0000000020003000 0x00000000be732000 4K PTE D A . . . W R V
-0x0000000020018000-0x0000000020019000 0x00000000be738000 4K PTE D A . . . W R V
-0x000000002002c000-0x000000002002d000 0x00000000be73c000 4K PTE D A . . . W R V
-0x0000000020031000-0x0000000020032000 0x00000000bff61000 4K PTE D A . . X W R V
----[ UEFI runtime end ]---
 
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
-Reviewed-by: Anup Patel <anup@brainfault.org>
----
- arch/riscv/mm/ptdump.c | 48 ++++++++++++++++++++++++++++++++++++------
- 1 file changed, 42 insertions(+), 6 deletions(-)
 
-diff --git a/arch/riscv/mm/ptdump.c b/arch/riscv/mm/ptdump.c
-index 0831c2e61a8f..ace74dec7492 100644
---- a/arch/riscv/mm/ptdump.c
-+++ b/arch/riscv/mm/ptdump.c
-@@ -3,6 +3,7 @@
-  * Copyright (C) 2019 SiFive
-  */
- 
-+#include <linux/efi.h>
- #include <linux/init.h>
- #include <linux/debugfs.h>
- #include <linux/seq_file.h>
-@@ -49,6 +50,14 @@ struct addr_marker {
- 	const char *name;
- };
- 
-+/* Private information for debugfs */
-+struct ptd_mm_info {
-+	struct mm_struct		*mm;
-+	const struct addr_marker	*markers;
-+	unsigned long base_addr;
-+	unsigned long end;
-+};
-+
- static struct addr_marker address_markers[] = {
- #ifdef CONFIG_KASAN
- 	{KASAN_SHADOW_START,	"Kasan shadow start"},
-@@ -68,6 +77,28 @@ static struct addr_marker address_markers[] = {
- 	{-1, NULL},
- };
- 
-+static struct ptd_mm_info kernel_ptd_info = {
-+	.mm		= &init_mm,
-+	.markers	= address_markers,
-+	.base_addr	= KERN_VIRT_START,
-+	.end		= ULONG_MAX,
-+};
-+
-+#ifdef CONFIG_EFI
-+static struct addr_marker efi_addr_markers[] = {
-+		{ 0,		"UEFI runtime start" },
-+		{ SZ_1G,	"UEFI runtime end" },
-+		{ -1,		NULL }
-+};
-+
-+static struct ptd_mm_info efi_ptd_info = {
-+	.mm		= &efi_mm,
-+	.markers	= efi_addr_markers,
-+	.base_addr	= 0,
-+	.end		= SZ_2G,
-+};
-+#endif
-+
- /* Page Table Entry */
- struct prot_bits {
- 	u64 mask;
-@@ -245,22 +276,22 @@ static void note_page(struct ptdump_state *pt_st, unsigned long addr,
- 	}
- }
- 
--static void ptdump_walk(struct seq_file *s)
-+static void ptdump_walk(struct seq_file *s, struct ptd_mm_info *pinfo)
- {
- 	struct pg_state st = {
- 		.seq = s,
--		.marker = address_markers,
-+		.marker = pinfo->markers,
- 		.level = -1,
- 		.ptdump = {
- 			.note_page = note_page,
- 			.range = (struct ptdump_range[]) {
--				{KERN_VIRT_START, ULONG_MAX},
-+				{pinfo->base_addr, pinfo->end},
- 				{0, 0}
- 			}
- 		}
- 	};
- 
--	ptdump_walk_pgd(&st.ptdump, &init_mm, NULL);
-+	ptdump_walk_pgd(&st.ptdump, pinfo->mm, NULL);
- }
- 
- void ptdump_check_wx(void)
-@@ -293,7 +324,7 @@ void ptdump_check_wx(void)
- 
- static int ptdump_show(struct seq_file *m, void *v)
- {
--	ptdump_walk(m);
-+	ptdump_walk(m, m->private);
- 
- 	return 0;
- }
-@@ -308,8 +339,13 @@ static int ptdump_init(void)
- 		for (j = 0; j < ARRAY_SIZE(pte_bits); j++)
- 			pg_level[i].mask |= pte_bits[j].mask;
- 
--	debugfs_create_file("kernel_page_tables", 0400, NULL, NULL,
-+	debugfs_create_file("kernel_page_tables", 0400, NULL, &kernel_ptd_info,
- 			    &ptdump_fops);
-+#ifdef CONFIG_EFI
-+	if (efi_enabled(EFI_RUNTIME_SERVICES))
-+		debugfs_create_file("efi_page_tables", 0400, NULL, &efi_ptd_info,
-+				    &ptdump_fops);
-+#endif
- 
- 	return 0;
- }
 -- 
-2.24.0
-
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
