@@ -5,68 +5,81 @@ X-Spam-Level:
 X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CDCBBC433E2
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 Aug 2020 02:40:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 181C3C433E6
+	for <linux-riscv@archiver.kernel.org>; Mon, 31 Aug 2020 06:16:17 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9BAD020720
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 Aug 2020 02:40:18 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D75E420738
+	for <linux-riscv@archiver.kernel.org>; Mon, 31 Aug 2020 06:16:16 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="n72bEqw1"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9BAD020720
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="RQg7QMyB";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="TALpIUmS"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D75E420738
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:Message-ID:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=/2V2ymZLfSthSLcT0dzc7GUFbXplOQzveooQ0+T6eW8=; b=n72bEqw17pb4FP0L5xniiteWQ
-	DgVlp1Y1XV/tPZskkfoqT70BoAkXBeoUCwvjqBWRLWkfZ6rx3bgmYM+3Jus6FON065xTft0kvqgZI
-	ek8VEjEAKplvw7R4HkW9dSnFLQEFeNoy/41viJQySuIknvMloy0qLzZX42PmdcoQipjE/g6YgmQVg
-	2PCJRVyuAphv4anpYbcit0htx25zptZxg9FqA8agWmUCwi8xXOWl7QtYHIsxb5XspW1Q5Xg/B1bnB
-	Y28gbenhGypG6BOSTMvr/AvHlqFXd+XroQ+ec3xR84hM6WpDbTIxrIZhuWVKU+osQeRu9Xxe3Wyec
-	i43QwEnJg==;
+	 bh=hh0hfrM6tkTdP4LTM0EhXrNAm682pAwQ72AHnHLSS+M=; b=RQg7QMyBPvPFeFmVaz9F2wCbm
+	HaUfqWR3SO9rWUFrC7fctAPBUQaHu8ba0ZoD+1NQMbq/c+y6t3ySgWbLz7vn1NgNDGRy3kWDi4mss
+	4hNcIegj5gGUAlzSUcAFY0QznGN/nuB0+hS7xNa7htWj65HApKbage+aF11z8icwKlsNHD20344Tr
+	qUxZCWujlkpNecc/YCThJDbg2rITSPNTSWTR/ehpKhedXRqhrLBOQyE+9LVUgoSTLvVUlrZHSvhz3
+	4LBiijdN285SS3Owy9v/IyU9M2J9t4ApcZmaV1/JdQhFrehGloVOcYpNB67BJz2qhhZt0RRQ/Q9EA
+	/YyPc06Yw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kCZjj-00065Y-IO; Mon, 31 Aug 2020 02:39:59 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188] helo=huawei.com)
+	id 1kCd6l-0003n8-HS; Mon, 31 Aug 2020 06:15:59 +0000
+Received: from mail-ot1-x342.google.com ([2607:f8b0:4864:20::342])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kCZjc-000640-CC; Mon, 31 Aug 2020 02:39:53 +0000
-Received: from DGGEMM403-HUB.china.huawei.com (unknown [172.30.72.56])
- by Forcepoint Email with ESMTP id 7B494EEB1E8EDA7F4D5F;
- Mon, 31 Aug 2020 10:39:42 +0800 (CST)
-Received: from DGGEMM421-HUB.china.huawei.com (10.1.198.38) by
- DGGEMM403-HUB.china.huawei.com (10.3.20.211) with Microsoft SMTP Server (TLS)
- id 14.3.487.0; Mon, 31 Aug 2020 10:39:42 +0800
-Received: from DGGEMM525-MBS.china.huawei.com ([169.254.5.119]) by
- dggemm421-hub.china.huawei.com ([10.1.198.38]) with mapi id 14.03.0487.000;
- Mon, 31 Aug 2020 10:39:35 +0800
-From: Jiangyifei <jiangyifei@huawei.com>
-To: Anup Patel <anup@brainfault.org>
-Subject: RE: [PATCH RFC 2/2] target/kvm: Add interfaces needed for log dirty
-Thread-Topic: [PATCH RFC 2/2] target/kvm: Add interfaces needed for log dirty
-Thread-Index: AQHWfEtmTyNMW66okESUbG9EQ0iVQKlMb8AAgAUV7AA=
-Date: Mon, 31 Aug 2020 02:39:35 +0000
-Message-ID: <3915816D913D8241BB43E932213F57D4ADD8F34F@dggemm525-mbs.china.huawei.com>
-References: <20200827082251.1591-1-jiangyifei@huawei.com>
- <20200827082251.1591-3-jiangyifei@huawei.com>
- <CAAhSdy36ZCubU-1+WzjMzBaR+RipgEhvRqd9AT+28=99-EUDaQ@mail.gmail.com>
-In-Reply-To: <CAAhSdy36ZCubU-1+WzjMzBaR+RipgEhvRqd9AT+28=99-EUDaQ@mail.gmail.com>
-Accept-Language: zh-CN, en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.174.187.31]
+ id 1kCd6e-0003ll-92
+ for linux-riscv@lists.infradead.org; Mon, 31 Aug 2020 06:15:54 +0000
+Received: by mail-ot1-x342.google.com with SMTP id u25so369518otq.6
+ for <linux-riscv@lists.infradead.org>; Sun, 30 Aug 2020 23:15:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=3I5LujjeL7ILNQ6KrieN1i8IkA5pY4H5QUa+PdQ4xo0=;
+ b=TALpIUmSCxI7Jz57R5opGXjDzPhTyBi2ccZqW6mkMTR9Lhw2WKffUsymErhXFASqja
+ 0m7Qo+5ZOr8mTAd1KfyJCF7vFwAv1pTGuWrWRRgAU46crjjMEMmRwCzX+Qp78EO6MkSI
+ tg8u5OD7cc3yrJ5RLKJPeu1svFziTglA6HiLz/eCgszj13q26MYYRFvgswSjDVg5JzbC
+ vpVAiKNs8klDevVbSoz3IR0jojJz8fuCw9sPjimwpwrbNYKDaZW/ky/ObnkVYkH1+Vu4
+ VMmu9gD0XvTMnWjYQtp+6N+EKC019+CdpLmoQf+SZJQgapzramZamBYoB7+Z2rt1TNLG
+ ARCw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=3I5LujjeL7ILNQ6KrieN1i8IkA5pY4H5QUa+PdQ4xo0=;
+ b=BalRoKhdMUJ0CBKGi1Dkskk36wAuzu6sNrueOlyJfu+6Y6uRQZLwKwuRDhFimIMf2N
+ 6oXu6NOBpgt+9UY8FrC5NpmxFdYu56STEUTO1eKfGx9WHRrWi1FCzKgbZzquI5oWQuEj
+ q07A4z7vpAxZ3J0km4fZNxZyHlKjtXm0YDUNjQNBwMhX63aZAh/lwt1m5ZerNY5PJLvV
+ ag7emYdKSzKXtRGTNannLYD4jwtm9YMZfzPr+BoBWaY+bnq+3K7OuPwzoWhde1K/opu6
+ aJqpEo6nHx+XIiD3krXjuSUYupwizUSP0y5AjgU67KYiTvReO128KrQVcilQpi8zKl3r
+ tMSQ==
+X-Gm-Message-State: AOAM530CGOLICmJX4KWpE8trXtpuYk73XMg1s+uuJV5L3O/TJK3Uql5A
+ rPkOwiOrc2RpFqWfNvi0PVD/UDgaz6yEdpvhsxvTgiHBG00PDA==
+X-Google-Smtp-Source: ABdhPJwX2YDWFxt6ejUMKcV0WG4NR1WX2+KgVIHXy4QQlll2wDglV/Uc3bKraQavw2X0aKcsmmwO8e8qxp3lnpN3Y9c=
+X-Received: by 2002:a05:6830:1d94:: with SMTP id
+ y20mr83892oti.129.1598854548582; 
+ Sun, 30 Aug 2020 23:15:48 -0700 (PDT)
 MIME-Version: 1.0
-X-CFilter-Loop: Reflected
+References: <cover.1598598459.git.zong.li@sifive.com>
+ <3f1f693147f0b62f19f4a44b8e8ef3d5bde23352.1598598459.git.zong.li@sifive.com>
+ <CAOJsxLHOvvt8WGQUynGkLxZCA4OQQ+KgxxJJD7s_iP8Pxf-Omg@mail.gmail.com>
+In-Reply-To: <CAOJsxLHOvvt8WGQUynGkLxZCA4OQQ+KgxxJJD7s_iP8Pxf-Omg@mail.gmail.com>
+From: Zong Li <zong.li@sifive.com>
+Date: Mon, 31 Aug 2020 14:15:38 +0800
+Message-ID: <CANXhq0r2jg_fVZJE0shquGc25QNgenL+Qq6HRUBXEYPSf=QcFQ@mail.gmail.com>
+Subject: Re: [PATCH v3 1/3] riscv: Set more data to cacheinfo
+To: Pekka Enberg <penberg@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200830_223952_995393_332D24D4 
-X-CRM114-Status: GOOD (  30.09  )
+X-CRM114-CacheID: sfid-20200831_021552_685136_39E36A8A 
+X-CRM114-Status: GOOD (  22.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -78,184 +91,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>,
- Zhanghailiang <zhang.zhanghailiang@huawei.com>,
- KVM General <kvm@vger.kernel.org>, yinyipeng <yinyipeng1@huawei.com>,
- Anup Patel <anup.patel@wdc.com>, "linux-kernel@vger.kernel.org
- List" <linux-kernel@vger.kernel.org>, Atish Patra <atish.patra@wdc.com>,
- "Zhangxiaofeng \(F\)" <victor.zhangxiaofeng@huawei.com>,
- Alistair Francis <alistair.francis@wdc.com>,
- "deepa.kernel@gmail.com" <deepa.kernel@gmail.com>,
- "kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+Cc: David Abdurachmanov <david.abdurachmanov@sifive.com>,
  linux-riscv <linux-riscv@lists.infradead.org>,
- "zhaosiqi \(A\)" <zhaosiqi3@huawei.com>, "Wubin \(H\)" <wu.wubin@huawei.com>,
- "dengkai \(A\)" <dengkai1@huawei.com>
+ Palmer Dabbelt <palmer@dabbelt.com>, LKML <linux-kernel@vger.kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-> -----Original Message-----
-> From: Anup Patel [mailto:anup@brainfault.org]
-> Sent: Friday, August 28, 2020 12:54 PM
-> To: Jiangyifei <jiangyifei@huawei.com>
-> Cc: Paul Walmsley <paul.walmsley@sifive.com>; Palmer Dabbelt
-> <palmer@dabbelt.com>; Albert Ou <aou@eecs.berkeley.edu>; Anup Patel
-> <anup.patel@wdc.com>; Alistair Francis <alistair.francis@wdc.com>; Atish
-> Patra <atish.patra@wdc.com>; deepa.kernel@gmail.com;
-> kvm-riscv@lists.infradead.org; KVM General <kvm@vger.kernel.org>;
-> linux-riscv <linux-riscv@lists.infradead.org>; linux-kernel@vger.kernel.org List
-> <linux-kernel@vger.kernel.org>; Zhangxiaofeng (F)
-> <victor.zhangxiaofeng@huawei.com>; Wubin (H) <wu.wubin@huawei.com>;
-> Zhanghailiang <zhang.zhanghailiang@huawei.com>; dengkai (A)
-> <dengkai1@huawei.com>; yinyipeng <yinyipeng1@huawei.com>
-> Subject: Re: [PATCH RFC 2/2] target/kvm: Add interfaces needed for log dirty
-> 
-> On Thu, Aug 27, 2020 at 1:54 PM Yifei Jiang <jiangyifei@huawei.com> wrote:
+On Sun, Aug 30, 2020 at 3:54 PM Pekka Enberg <penberg@gmail.com> wrote:
+>
+> Hi,
+>
+> On Fri, Aug 28, 2020 at 10:09 AM Zong Li <zong.li@sifive.com> wrote:
 > >
-> > Add two interfaces of log dirty for kvm_main.c, and detele the
-> > interface kvm_vm_ioctl_get_dirty_log which is redundantly defined.
+> > Set cacheinfo.{size,sets,line_size} for each cache node, then we can
+> > get these information from userland through auxiliary vector.
 > >
-> > CONFIG_KVM_GENERIC_DIRTYLOG_READ_PROTECT is added in defconfig.
-> >
-> > Signed-off-by: Yifei Jiang <jiangyifei@huawei.com>
-> > Signed-off-by: Yipeng Yin <yinyipeng1@huawei.com>
+> > Signed-off-by: Zong Li <zong.li@sifive.com>
 > > ---
-> >  arch/riscv/configs/defconfig |  1 +
-> >  arch/riscv/kvm/Kconfig       |  1 +
-> >  arch/riscv/kvm/mmu.c         | 43
-> ++++++++++++++++++++++++++++++++++++
-> >  arch/riscv/kvm/vm.c          |  6 -----
-> >  4 files changed, 45 insertions(+), 6 deletions(-)
+> >  arch/riscv/kernel/cacheinfo.c | 59 ++++++++++++++++++++++++++---------
+> >  1 file changed, 44 insertions(+), 15 deletions(-)
 > >
-> > diff --git a/arch/riscv/configs/defconfig
-> > b/arch/riscv/configs/defconfig index d36e1000bbd3..857d799672c2 100644
-> > --- a/arch/riscv/configs/defconfig
-> > +++ b/arch/riscv/configs/defconfig
-> > @@ -19,6 +19,7 @@ CONFIG_SOC_VIRT=y
-> >  CONFIG_SMP=y
-> >  CONFIG_VIRTUALIZATION=y
-> >  CONFIG_KVM=y
-> > +CONFIG_KVM_GENERIC_DIRTYLOG_READ_PROTECT=y
-> >  CONFIG_HOTPLUG_CPU=y
-> >  CONFIG_MODULES=y
-> >  CONFIG_MODULE_UNLOAD=y
-> > diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig index
-> > 2356dc52ebb3..91fcffc70e5d 100644
-> > --- a/arch/riscv/kvm/Kconfig
-> > +++ b/arch/riscv/kvm/Kconfig
-> > @@ -26,6 +26,7 @@ config KVM
-> >         select KVM_MMIO
-> >         select HAVE_KVM_VCPU_ASYNC_IOCTL
-> >         select SRCU
-> > +       select KVM_GENERIC_DIRTYLOG_READ_PROTECT
-> >         help
-> >           Support hosting virtualized guest machines.
-> >
-> > diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c index
-> > 88bce80ee983..df2a470c25e4 100644
-> > --- a/arch/riscv/kvm/mmu.c
-> > +++ b/arch/riscv/kvm/mmu.c
-> > @@ -358,6 +358,43 @@ void stage2_wp_memory_region(struct kvm *kvm,
-> int slot)
-> >         kvm_flush_remote_tlbs(kvm);
+> > diff --git a/arch/riscv/kernel/cacheinfo.c b/arch/riscv/kernel/cacheinfo.c
+> > index bd0f122965c3..8b85abfbd77a 100644
+> > --- a/arch/riscv/kernel/cacheinfo.c
+> > +++ b/arch/riscv/kernel/cacheinfo.c
+> > @@ -25,12 +25,46 @@ cache_get_priv_group(struct cacheinfo *this_leaf)
+> >         return NULL;
 > >  }
 > >
-> > +/**
-> > + * kvm_mmu_write_protect_pt_masked() - write protect dirty pages
-> > + * @kvm:    The KVM pointer
-> > + * @slot:   The memory slot associated with mask
-> > + * @gfn_offset: The gfn offset in memory slot
-> > + * @mask:   The mask of dirty pages at offset 'gfn_offset' in this memory
-> > + *      slot to be write protected
-> > + *
-> > + * Walks bits set in mask write protects the associated pte's. Caller
-> > +must
-> > + * acquire kvm_mmu_lock.
-> > + */
-> > +static void kvm_mmu_write_protect_pt_masked(struct kvm *kvm,
-> > +        struct kvm_memory_slot *slot,
-> > +        gfn_t gfn_offset, unsigned long mask) {
-> > +    phys_addr_t base_gfn = slot->base_gfn + gfn_offset;
-> > +    phys_addr_t start = (base_gfn +  __ffs(mask)) << PAGE_SHIFT;
-> > +    phys_addr_t end = (base_gfn + __fls(mask) + 1) << PAGE_SHIFT;
+> > -static void ci_leaf_init(struct cacheinfo *this_leaf,
+> > -                        struct device_node *node,
+> > -                        enum cache_type type, unsigned int level)
+> > +static void ci_leaf_init(struct cacheinfo *this_leaf, enum cache_type type,
+> > +                        unsigned int level, unsigned int size,
+> > +                        unsigned int sets, unsigned int line_size)
+> >  {
+> >         this_leaf->level = level;
+> >         this_leaf->type = type;
+> > +       this_leaf->size = size;
+> > +       this_leaf->number_of_sets = sets;
+> > +       this_leaf->coherency_line_size = line_size;
 > > +
-> > +    stage2_wp_range(kvm, start, end); }
-> > +
-> > +/*
-> > + * kvm_arch_mmu_enable_log_dirty_pt_masked - enable dirty logging for
-> > +selected
-> > + * dirty pages.
-> > + *
-> > + * It calls kvm_mmu_write_protect_pt_masked to write protect selected
-> > +pages to
-> > + * enable dirty logging for them.
-> > + */
-> > +void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
-> > +        struct kvm_memory_slot *slot,
-> > +        gfn_t gfn_offset, unsigned long mask) {
-> > +    kvm_mmu_write_protect_pt_masked(kvm, slot, gfn_offset, mask); }
-> > +
-> > +
-> >  int stage2_ioremap(struct kvm *kvm, gpa_t gpa, phys_addr_t hpa,
-> >                    unsigned long size, bool writable)  { @@ -433,6
-> > +470,12 @@ void kvm_arch_sync_dirty_log(struct kvm *kvm, struct
-> > kvm_memory_slot *memslot)  {  }
-> >
-> > +void kvm_arch_flush_remote_tlbs_memslot(struct kvm *kvm,
-> > +                                       struct kvm_memory_slot
-> > +*memslot) {
-> > +       kvm_flush_remote_tlbs(kvm);
+> > +       /*
+> > +        * If the cache is fully associative, there is no need to
+> > +        * check the other properties.
+> > +        */
+> > +       if (!(sets == 1) && (sets > 0 && size > 0 && line_size > 0))
+>
+> Can you explain what this is attempting to do? AFAICT, the if
+> expression can be reduced to "sets > 1 && size > 0 && size > 0", but
+> what do you mean with the comment about fully associative caches?
+
+If the sets is one, it means that the cache is fully associative, then
+we don't need to fill the ways number, just keep way number as zero,
+so here we want to find the fully associative case first and make the
+if expression fail at the beginning. We might also rewrite it as
+follow:
+
+/* Fully associative */
+if (sets == 1)
+    return;
+
+/* n-ways associative, make sure all properties are big than zero, it
+is meaningless when one of them are zero.  Full associative case is
+filtered by the condition above, so we don't need to consider sets ==
+1 again. */
+if (sets > 0 && size > 0 && line_size >0)
+    this_leaf->ways_of_associativity = (size / sets) / line_size;
+
+>
+> > +               this_leaf->ways_of_associativity = (size / sets) / line_size;
 > > +}
-> > +
-> >  void kvm_arch_free_memslot(struct kvm *kvm, struct kvm_memory_slot
-> > *free)  {  } diff --git a/arch/riscv/kvm/vm.c b/arch/riscv/kvm/vm.c
-> > index 4f2498198cb5..f7405676903b 100644
-> > --- a/arch/riscv/kvm/vm.c
-> > +++ b/arch/riscv/kvm/vm.c
-> > @@ -12,12 +12,6 @@
-> >  #include <linux/uaccess.h>
-> >  #include <linux/kvm_host.h>
-> >
-> > -int kvm_vm_ioctl_get_dirty_log(struct kvm *kvm, struct kvm_dirty_log
-> > *log) -{
-> > -       /* TODO: To be added later. */
-> > -       return -ENOTSUPP;
-> > -}
-> > -
-> >  int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)  {
-> >         int r;
-> > --
-> > 2.19.1
-> >
-> >
-> 
-> I already have a similar change as part of v14 KVM RISC-V series.
-> 
-> Let us coordinate better. Please let us know in-advance for any KVM RISC-V
-> feature you plan to work on. Otherwise, this leads to efforts wasted at your
-> end or at our end.
-> 
-> Regards,
-> Anup
 
-Hi Anup,
-
-Thanks for accepting our patches.
-
-In the next few weeks we plan to work on the following:
-1. memory reverse mapping (rmap), related to migration.
-2. irqfd.
-3. implmentaion related to the dedicated clock event source proposal.
-
-Besides, we are aware of that you are working on irq chip emulation in KVM. Meanwhile, our implementaiton of irqfd and the clock event source has dependency on the irq chip and we may well modify the irq chip emulation code. So could you share with us any ideas, plans or progress regarding your work since there might be potential collision?
-
-Let's stay in touch in the long run and coodinate better. BTW, could you share with us if there's any regular discussion sessions focused on RISC-V KVM?
-
-Regards,
-Yifei
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
