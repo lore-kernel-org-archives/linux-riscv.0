@@ -7,16 +7,16 @@ X-Spam-Status: No, score=-7.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BD7CDC433E2
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2020 07:15:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 31393C433E2
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2020 07:16:17 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7E72D208B3
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2020 07:15:02 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id F0552206F0
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Sep 2020 07:16:16 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="tV6scQxb"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7E72D208B3
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="QOShObxN"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F0552206F0
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,44 +25,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=ENwajusfeahiiUa5SDC4CSIu4uO/wkuDeos+iFR/078=; b=tV6scQxbDtOYyBBb2LsNEonqa
-	vZUdBGsjVJgTCOavSeSPvtRLVqp/VBLAevQiJLYd22Qb9aH6wZMXGfJ3/WwdOhI+Zi1rEJnxCthB4
-	pBHIEx0FR4f7xi6xsUB95XjqaU+mqUQdfnigibN1osQ38EfzhBctWmIEVSiC9a3WW5aT1S4boAHeS
-	ign5zLwWQYHa+m3ZfbX4KuUXxw6il0qqXQxCXvi86MxSAfoQtLaoDmC7fXDaZjsEN4AE5VoKhB/Ia
-	SEmKao0HDwQGmKZHnVrtfDfyh4rx1J6+T3hgqA6zwkJncQozrq+jnvLE9+Y5Df6t25IU43iIxj/Yu
-	i68C22e4Q==;
+	 bh=3ruzTYJBitMAuRVP0zw/+NAiABuVC4LpbQXYsSx90BA=; b=QOShObxN/JNkKKV/VqqvXqDAr
+	xyERbjFwyDfErb4iseWXZMQBF9MsXvWGubjlYfaTkcsSV9fZAAYrU176s7s6Qb29QOZLQ2t74SrBj
+	giu3L80FfrgVRah3nZ2j4Pt2W+NNU+ZJvBzI5f4Hs5cWaeeoIwF0jYI8/OitSdld3UxknHlP7IpFX
+	xwrZGvSyQAfjdow0bJ5TsyM1Fy0JX99z3Ku85LFUBh9TjLBe+Uof7bTR5RkIyqxnj1jBygYabmbce
+	7H1E/o1A0tVBwDsisXt0CKa1lU0fMCm/jEi5Ml1KIHvBtxH9gxi1voBvGir76gBGeYjoQvqr8bGAe
+	B+mPFtPpA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kDMys-0007MM-UX; Wed, 02 Sep 2020 07:14:54 +0000
+	id 1kDN05-0007lR-06; Wed, 02 Sep 2020 07:16:09 +0000
 Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kDMyo-0007Ja-BR
- for linux-riscv@lists.infradead.org; Wed, 02 Sep 2020 07:14:51 +0000
+ id 1kDN00-0007jC-RU
+ for linux-riscv@lists.infradead.org; Wed, 02 Sep 2020 07:16:06 +0000
 Received: from pty.hi.pengutronix.de ([2001:67c:670:100:1d::c5])
  by metis.ext.pengutronix.de with esmtps
  (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
  (envelope-from <ukl@pengutronix.de>)
- id 1kDMyb-00041o-EA; Wed, 02 Sep 2020 09:14:37 +0200
+ id 1kDMzo-0004HT-9F; Wed, 02 Sep 2020 09:15:52 +0200
 Received: from ukl by pty.hi.pengutronix.de with local (Exim 4.89)
  (envelope-from <ukl@pengutronix.de>)
- id 1kDMyb-0007zg-0y; Wed, 02 Sep 2020 09:14:37 +0200
-Date: Wed, 2 Sep 2020 09:14:36 +0200
+ id 1kDMzn-00086v-LA; Wed, 02 Sep 2020 09:15:51 +0200
+Date: Wed, 2 Sep 2020 09:15:51 +0200
 From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
 To: Krzysztof Kozlowski <krzk@kernel.org>
-Subject: Re: [PATCH 5/6] pwm: sprd: Simplify with dev_err_probe()
-Message-ID: <20200902071436.2aoz7kgogrizswzx@pengutronix.de>
+Subject: Re: [PATCH 6/6] pwm: sun4i: Simplify with dev_err_probe()
+Message-ID: <20200902071551.vvxohzcymplhiapx@pengutronix.de>
 References: <20200826144747.9436-1-krzk@kernel.org>
- <20200826144747.9436-5-krzk@kernel.org>
+ <20200826144747.9436-6-krzk@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20200826144747.9436-5-krzk@kernel.org>
+In-Reply-To: <20200826144747.9436-6-krzk@kernel.org>
 X-SA-Exim-Connect-IP: 2001:67c:670:100:1d::c5
 X-SA-Exim-Mail-From: ukl@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
  SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200902_031450_459060_93687C0E 
-X-CRM114-Status: GOOD (  13.20  )
+X-CRM114-CacheID: sfid-20200902_031604_955789_BA92D616 
+X-CRM114-Status: GOOD (  13.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -86,25 +86,23 @@ Cc: Heiko Stuebner <heiko@sntech.de>, Paul Cercueil <paul@crapouillou.net>,
  linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
  Baolin Wang <baolin.wang7@gmail.com>,
  Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
-Content-Type: multipart/mixed; boundary="===============4468253328331761567=="
+Content-Type: multipart/mixed; boundary="===============1649408644934924095=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============4468253328331761567==
+--===============1649408644934924095==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="6xi3v245h57qpu5i"
+	protocol="application/pgp-signature"; boundary="jfczrdov2v7v4mp2"
 Content-Disposition: inline
 
 
---6xi3v245h57qpu5i
+--jfczrdov2v7v4mp2
 Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-Hello,
-
-On Wed, Aug 26, 2020 at 04:47:46PM +0200, Krzysztof Kozlowski wrote:
+On Wed, Aug 26, 2020 at 04:47:47PM +0200, Krzysztof Kozlowski wrote:
 > Common pattern of handling deferred probe can be simplified with
 > dev_err_probe().  Less code and also it prints the error value.
 >=20
@@ -119,25 +117,25 @@ Uwe
 Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
 Industrial Linux Solutions                 | https://www.pengutronix.de/ |
 
---6xi3v245h57qpu5i
+--jfczrdov2v7v4mp2
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAl9PRlkACgkQwfwUeK3K
-7AnQeAf/QCz9gUDDD22e2kZH0OqXVYBUm32UKoEw/MBgL8VguTjrYhJqNSnDeHDr
-51wsHy9UaJlufoGl5lKIRyng4Xbwxw0vJ1jt7oHIjJcx4JzaFD7doVIuK5PoC+iE
-ob0q0+joMNzN0tabF15LRQioCSCze/KwmVva8QK+BzPy1gSC8g1zWq6IUvgf4Ov4
-YQCnXeafW+DYt9yPU9Gfb3y33zq6iFHVWXy8efphFrB2IrsahXbamSCBoj0SChfP
-YNg76YfhN1c2Hdwh7Lv+oZ7O5BE/S3ALp7m8LDp3nozGyCNGL7Z5G1KaT9UBMFTB
-kzh6PNiWRdV2/u2cpPhNrGqtjBNmuA==
-=ZWhz
+iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAl9PRqQACgkQwfwUeK3K
+7AlvXwf+IN42e5ZLa5OHoBGAshX6T/xm5Fc6M+qdSKPH7B5ukJJpmx+H6RQtILHj
+pLkF3k0th9q+k1VabVbHugjyowNxFy2JlSZq0wxYSQu6ucVo3foFzjiF27KYtY+U
+SawqHvSds0HXHl5O1/VVM3xKnLUXQNUFeS6cp7+3TjQLYOyQcgIQrci0ra98NnZ5
+fNCP9RKh1zFlOkQfHQIRHXdf4cvMKGNo1gwgs8EzKVbLLmsqXlRY7GWCCZBI3cYT
+gdu1ZcOK5nue2E6lvqpa0D0lcwz0ON/lqf0Eih6RIEhzTLN847qNAB+jS8vFhPfi
+21FO0wijzj3Ysmp5CXqo9UW4/pwrAA==
+=6Weq
 -----END PGP SIGNATURE-----
 
---6xi3v245h57qpu5i--
+--jfczrdov2v7v4mp2--
 
 
---===============4468253328331761567==
+--===============1649408644934924095==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -148,5 +146,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============4468253328331761567==--
+--===============1649408644934924095==--
 
