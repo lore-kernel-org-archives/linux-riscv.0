@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7DB38C43461
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2020 19:18:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7C3CBC433E2
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2020 20:10:20 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0438B206A5
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2020 19:18:15 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 1AE4320665
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2020 20:10:20 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="VOTXx/ME";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="x6CSQIUD"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0438B206A5
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="s/+Gu/w3";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="hJ3WmZA7"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1AE4320665
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,64 +26,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=VsplkFsM2woBhkWYdebilaDsagqlhYwxPLfxFUb10ro=; b=VOTXx/MEyHpHVFUVz1Q/VXv83
-	RF1b/7m7H0sVn4dlG8XNmLUdew6n59BlNSNE9uRFPgekCF1NjrN3P3Dbg/1OCTc+ZkrpU/wnx8V1f
-	3CMVaGUGeQ5icc4IJ6262/I6477MN7ne0zYGJylIKKLQtCnMk1Xgg5HwDwpOh3uFVZmcukS+oniCt
-	UYKDBvKI3+R57ndAqiMXadkdPDb+OJOnbXI8c2qpvRcvZsuiPaxbJPCHbugkPxus4x4azlSrSjS8+
-	P9RwRhJlDMOzsP2dmTk037X6xi+dkGeWcOU43Bkw2eL0Z4J1sfipKvL+SQ3s4d1JG3Wga/QYwt/Ej
-	T1oxIIU2Q==;
+	 bh=d2GRVDWKW2gschZiQcFvU6QtyzkrUdZoUdRpOzIvPxs=; b=s/+Gu/w308Q5b0iJo7V63/BIw
+	wDgVSiNBYQnlj8naXIKOjZVCmk5NC7SuQkinHdbB7zpeZJIxnFhxuiAr39twWjpejaO6ijoPKjkqf
+	9xJ6hrpOuEaTTeCq189JcHJ9Z96Hg+RIfqyrAgBP7fc2JzO641eELVkMfVTN6zvoFg1eS2UAkYqgi
+	k19bD6lE//6qYEs9XZnWUVI2aq/ZmQqR4p+0K97bCmqw6Zm4LWIOHSHznLukD0EFQx19M0v0HWnBA
+	TVgEkBFGzK4QMeZ8IAqYomES9MxvQ8kEOWx0iGBK8a9G4LYztuMJH2sJ1M6jgdOcmryC3rs3F1RJ0
+	4HekmGxPQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kEHDh-0004ts-5A; Fri, 04 Sep 2020 19:17:57 +0000
-Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
+	id 1kEI29-0001hG-78; Fri, 04 Sep 2020 20:10:05 +0000
+Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kEHDe-0004t4-3n
- for linux-riscv@lists.infradead.org; Fri, 04 Sep 2020 19:17:55 +0000
-Received: by mail-pf1-x443.google.com with SMTP id c142so5129135pfb.7
- for <linux-riscv@lists.infradead.org>; Fri, 04 Sep 2020 12:17:53 -0700 (PDT)
+ id 1kEI27-0001gD-C8
+ for linux-riscv@lists.infradead.org; Fri, 04 Sep 2020 20:10:04 +0000
+Received: by mail-pg1-x544.google.com with SMTP id m5so4869308pgj.9
+ for <linux-riscv@lists.infradead.org>; Fri, 04 Sep 2020 13:10:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=bZwqC1RcOwlSN3VEcYwP2ZtgIrDiEXbG7sY4kaAsweU=;
- b=x6CSQIUDYYG2v4g+T0cscHCIBlh9iTfFZW03yanbsjgJxLAL4AQz9CjBE1qyGMdrqo
- wt0F5NfuED1VyMq3uZ95/R3r3O0Ue8y5C6osV6vbTZHzAqcijpX/eFhHKTha+M+GXcHP
- wdqbF15HIimeJcXcjXd0/VgBv8XevcXgu+5FUyb4+YB+zD0k98hPUf4oQ61xDTE01W+V
- feYePReyeY767cT7m4Gz23yifMx/fSaXEqMKJE3rJOr+zzTLqVhN0pCL4sFLe+41s4/t
- m9kqBm5MV0dz8865fwwT6vB0bP9kwXL84+HzFjmrnqK7Qt0nQ9kabNrsSZT1vqKWvTwb
- yNew==
+ bh=KJ5NxE/Sb6vg2FlBfCPguPeBw4GYPPc+Jx6ElFQ+lVk=;
+ b=hJ3WmZA7gEEz+H1WLmMkcHdQk079WgWN2Jghvkz4jwGsYwuMpM3+IoXFRbd+5IybMD
+ hPRwI8GnwqsqEtnP2YmOvrj2sTufMq2VH1W/5c6SGC3ORWlwzhDiyjLzaEbO7fGSeq4s
+ RhaeWSKtfxm6L4sByoQ1C/zsAZbtqGXsdQokKOlQdOkMoqelUMPWrKID/vvaXGKMhfny
+ Aq1cmcd8z8sZxvhL62TiVrBUezigtar0E7wEsDCZxq4IKOjCOXBtQoZ2bGFd/JZogUAW
+ HnIzIsdveHt3lNk5PSoscfX/FmHtVpclh3yeOAZ+IXx1QpJFwsT/Y4lppOY51TRFF/6E
+ j6cg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=bZwqC1RcOwlSN3VEcYwP2ZtgIrDiEXbG7sY4kaAsweU=;
- b=n98Pu6FXMz9Q7O8MFOGuB7Zw6JfbEzpRO5Rr9R71mzmcJxI1ItNd7aHUeLJ1iB5F+N
- A8KYmpfSkR5hb/rLdr9hbsPp6TfOZe0kDa+kIIadnLVAf+so48v2XbIHNpy4PWjqaY4n
- LiG08gHE3NgOxEkTGeLRG1rCyvmdvCyfbWVmD6ejexbCXbv5Mo2HhO8/6gQxHUshTiyu
- d41yjQxSlLtY91AhFfSryu5vr0jIxDLhJbioPfncRBhgIi2/qCu/Wn2BuP0S4VLXx8+Z
- 4A/BUkwWxFH3wJeqkmphhnwdeUWNXTR0vG2lERlJWeaNy6GFTJFPqCQMmJErilqYsjyx
- x5hg==
-X-Gm-Message-State: AOAM532ZUZb0qaiEF7K2yk2ZtigvmBUDa4p5lPQNn6nux7ifmjUvRGSp
- TxzdZ/nHDR7dMK3kDLKLJG5HEA==
-X-Google-Smtp-Source: ABdhPJwNswuWQ4CWTtTWToMlX4aX5Q9ul6jEdoZSRJQBH76X9BowhFVtHj1ksJtxW8ygzGY1V4qw6g==
-X-Received: by 2002:a63:7b16:: with SMTP id w22mr8160772pgc.17.1599247071532; 
- Fri, 04 Sep 2020 12:17:51 -0700 (PDT)
+ bh=KJ5NxE/Sb6vg2FlBfCPguPeBw4GYPPc+Jx6ElFQ+lVk=;
+ b=LO0QhXCijGb8IdvCIR/KsB0ySe2hwAWbu0wJgDq+DseeyllJOOe6eDKW1SeFxTIIbe
+ LYmJIgf1ueLmdel7qc4zRv+l0mU6cz7ctP3mYFMgULZrPC38XXC5C3ldxKy9g177ZEFi
+ 9kX3BBn2r175vCc3GNVz2OftcdAhu1DjBi63pzmQ8xVGaA9FMca/cXzAjIQmnnec1Wcv
+ pdYu1n165vFWwdGDpFxySBzm3hVax38c+LdojxAH2g6pU45nB6Y2ZDRqsQAzUBMe3ftm
+ ytYRrQvDBVLnF2oPR1Z3bKcBcPnyz0bC3R5Bvt55L6Wn8O9CVv1wISYH6PlktgVzhSeZ
+ TQjA==
+X-Gm-Message-State: AOAM5308tMrKFzHGOz7VemXZVJiQ9x5kJKy+CvBLMVRQK/hM2Wreh++9
+ FGtw3Tw7GOxWUJjVfgml45Lq+g==
+X-Google-Smtp-Source: ABdhPJwQd97Fevygs/QwspxX0CSO78eU2bGnQ7igysCzU4on56F/oWWChWBWpxi1thWzW5vN4SdgOA==
+X-Received: by 2002:a63:e249:: with SMTP id y9mr8619036pgj.117.1599250201009; 
+ Fri, 04 Sep 2020 13:10:01 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id s67sm7842917pfs.117.2020.09.04.12.17.50
+ by smtp.gmail.com with ESMTPSA id 82sm6442524pgd.6.2020.09.04.13.10.00
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 04 Sep 2020 12:17:50 -0700 (PDT)
-Date: Fri, 04 Sep 2020 12:17:50 -0700 (PDT)
-X-Google-Original-Date: Fri, 04 Sep 2020 12:17:45 PDT (-0700)
-Subject: Re: [PATCH v2 0/3] Get cache information from userland
-In-Reply-To: <cover.1598515355.git.zong.li@sifive.com>
+ Fri, 04 Sep 2020 13:10:00 -0700 (PDT)
+Date: Fri, 04 Sep 2020 13:10:00 -0700 (PDT)
+X-Google-Original-Date: Fri, 04 Sep 2020 13:09:58 PDT (-0700)
+Subject: Re: [PATCH v4 0/3] Get cache information from userland
+In-Reply-To: <cover.1598859038.git.zong.li@sifive.com>
 From: Palmer Dabbelt <palmer@dabbelt.com>
 To: zong.li@sifive.com
-Message-ID: <mhng-6b86dc70-671f-4e9f-b136-1a03e68f7d88@palmerdabbelt-glaptop1>
+Message-ID: <mhng-68e2fbf7-f87b-4a31-acaa-eed3e788fd7f@palmerdabbelt-glaptop1>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200904_151754_249965_EFC9AD5B 
-X-CRM114-Status: GOOD (  19.55  )
+X-CRM114-CacheID: sfid-20200904_161003_454493_1A56E749 
+X-CRM114-Status: GOOD (  20.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -103,7 +103,7 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 27 Aug 2020 01:22:25 PDT (-0700), zong.li@sifive.com wrote:
+On Mon, 31 Aug 2020 00:33:47 PDT (-0700), zong.li@sifive.com wrote:
 > There are no standard CSR registers to provide cache information, the
 > way for RISC-V is to get this information from DT. Currently, AT_L1I_X,
 > AT_L1D_X and AT_L2_X are present in glibc header, and sysconf syscall
@@ -126,6 +126,14 @@ On Thu, 27 Aug 2020 01:22:25 PDT (-0700), zong.li@sifive.com wrote:
 > LEVEL2_CACHE_ASSOC                 32
 > LEVEL2_CACHE_LINESIZE              64
 >
+> Changed in v4:
+>   - Check null pointer before use.
+>   - Re-write the code for readability.
+>   - Rebase source to v5.9-rc3.
+>
+> Changed in v3:
+>   - Fix sparse warning: Use NULL instead of integer 0.
+>
 > Changed in v2:
 >   - Add error checking for parsing cache properties.
 >
@@ -136,11 +144,11 @@ On Thu, 27 Aug 2020 01:22:25 PDT (-0700), zong.li@sifive.com wrote:
 >
 >  arch/riscv/include/asm/cacheinfo.h   |  5 ++
 >  arch/riscv/include/asm/elf.h         | 13 ++++
->  arch/riscv/include/uapi/asm/auxvec.h | 24 ++++++++
->  arch/riscv/kernel/cacheinfo.c        | 91 +++++++++++++++++++++++-----
->  4 files changed, 117 insertions(+), 16 deletions(-)
+>  arch/riscv/include/uapi/asm/auxvec.h | 24 +++++++
+>  arch/riscv/kernel/cacheinfo.c        | 98 +++++++++++++++++++++++-----
+>  4 files changed, 124 insertions(+), 16 deletions(-)
 
-Thanks, these are on for-next.
+Ah, I just saw these so they're in instead of the v2.  Thanks!
 
 _______________________________________________
 linux-riscv mailing list
