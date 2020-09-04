@@ -2,62 +2,73 @@ Return-Path: <SRS0=91Bs=CN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 19364C433E2
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2020 06:49:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9F59FC43461
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2020 08:30:11 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CEDAF206B8
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2020 06:48:59 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 457E3206C9
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2020 08:30:11 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="OP6HjoC3"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CEDAF206B8
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WHdllA07"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 457E3206C9
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:Message-ID:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=XFSPlfgfqyY3FkRLTF0pcIj/c/glwerC5LwRpfmLs3c=; b=OP6HjoC3ZM2Lsu0u15ZZc4fIC
-	pGpOPE0NIIOy59P+psEzWEsoATX7/6KsWmSilR5B9HdBsNPXZgUhofKKEsintNfAgvECZ6FqDfSEu
-	4TguZxCJsS0Arepfzq8BifX99OvUs5V7Qo9VwsNST7N3GPyF/+OVwfF+uvj94cmmViQ9hM/L3eJhG
-	Tp9ydYKtGnu5xGkfs2NM+0vsoSyMITGJUHu2DythptZ5G/1SQ5ttXmabKhJn+Bsrs0A6laq2D7tBY
-	7Gw/AJc/QQ3MTwXlRkx0SIGXZ6dJC51dgSu0ZH7N3kF+3ys9iCypVXNSVX7UeDutCcifcPRFwspRI
-	aR084SoYQ==;
+	 bh=bApsJZiAClU4WhWc3BRL+6va3nAZ1izsSzM5n3uzQQA=; b=WHdllA07Wm9DCKdFH7/ri6xRZ
+	ud6AuFEvZqkCJM7KdoaeQgDepue2P4LJg979cjx64crGvNa3tiM02AltAt+XCMu6p+TRR7oFj9SZq
+	qzCyFu3n9J/FZKQgsKj/IUIPheiPZreVRLfQ0soR/7/yfGTgqg+Sv1yufwQrjNMk5ENWkqHERO5IH
+	ThuKKDVM2NYiZyR3o2sjhifhV164JwcDnasXcTsbzxcsouoKkYIBlcRDmI06zHoaOeKz477aGutkI
+	imRyGawyB++xliUgn1GVmZEK0gxlmIAW1AMu76EOJbkqbdeEoZ2rSgm09/NgMSDZw1KJhqTgCTAK/
+	mET8RTl/Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kE5Wj-00040u-6L; Fri, 04 Sep 2020 06:48:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
- by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kE5Wg-0003zF-Cj; Fri, 04 Sep 2020 06:48:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B589F1045;
- Thu,  3 Sep 2020 23:48:41 -0700 (PDT)
-Received: from [10.163.70.23] (unknown [10.163.70.23])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 575CA3F66F;
- Thu,  3 Sep 2020 23:48:38 -0700 (PDT)
-Subject: Re: [PATCH v4 00/13] mm/debug_vm_pgtable fixes
-To: "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>, linux-mm@kvack.org,
- akpm@linux-foundation.org
-References: <20200902114222.181353-1-aneesh.kumar@linux.ibm.com>
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-Message-ID: <bb0f3427-e2bd-f713-3ea8-d264be0e690b@arm.com>
-Date: Fri, 4 Sep 2020 12:18:05 +0530
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
- Thunderbird/52.9.1
+	id 1kE76X-0000iz-V9; Fri, 04 Sep 2020 08:29:53 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188] helo=huawei.com)
+ by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1kE76T-0000hi-P4; Fri, 04 Sep 2020 08:29:51 +0000
+Received: from DGGEMM404-HUB.china.huawei.com (unknown [172.30.72.56])
+ by Forcepoint Email with ESMTP id D88C7772C82F0AA7A789;
+ Fri,  4 Sep 2020 16:29:42 +0800 (CST)
+Received: from DGGEMM423-HUB.china.huawei.com (10.1.198.40) by
+ DGGEMM404-HUB.china.huawei.com (10.3.20.212) with Microsoft SMTP Server (TLS)
+ id 14.3.487.0; Fri, 4 Sep 2020 16:29:42 +0800
+Received: from DGGEMM525-MBS.china.huawei.com ([169.254.5.119]) by
+ dggemm423-hub.china.huawei.com ([10.1.198.40]) with mapi id 14.03.0487.000;
+ Fri, 4 Sep 2020 16:29:33 +0800
+From: Jiangyifei <jiangyifei@huawei.com>
+To: Anup Patel <anup@brainfault.org>
+Subject: RE: [PATCH RFC 2/2] target/kvm: Add interfaces needed for log dirty
+Thread-Topic: [PATCH RFC 2/2] target/kvm: Add interfaces needed for log dirty
+Thread-Index: AQHWfEtmTyNMW66okESUbG9EQ0iVQKlMb8AAgAUV7ACAAeJzgIAEyKqQ
+Date: Fri, 4 Sep 2020 08:29:32 +0000
+Message-ID: <3915816D913D8241BB43E932213F57D4ADD964AE@dggemm525-mbs.china.huawei.com>
+References: <20200827082251.1591-1-jiangyifei@huawei.com>
+ <20200827082251.1591-3-jiangyifei@huawei.com>
+ <CAAhSdy36ZCubU-1+WzjMzBaR+RipgEhvRqd9AT+28=99-EUDaQ@mail.gmail.com>
+ <3915816D913D8241BB43E932213F57D4ADD8F34F@dggemm525-mbs.china.huawei.com>
+ <CAAhSdy3jvCcA=DsR6NoZ4HRx9qXTC-Wwc+B3T79TKDtXBPd8Jw@mail.gmail.com>
+In-Reply-To: <CAAhSdy3jvCcA=DsR6NoZ4HRx9qXTC-Wwc+B3T79TKDtXBPd8Jw@mail.gmail.com>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.174.187.31]
 MIME-Version: 1.0
-In-Reply-To: <20200902114222.181353-1-aneesh.kumar@linux.ibm.com>
-Content-Language: en-US
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200904_024846_532055_1E1A0F85 
-X-CRM114-Status: GOOD (  17.49  )
+X-CRM114-CacheID: sfid-20200904_042950_313439_04CF916A 
+X-CRM114-Status: GOOD (  45.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -69,11 +80,19 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
- mpe@ellerman.id.au, Vineet Gupta <vgupta@synopsys.com>,
+Cc: Albert Ou <aou@eecs.berkeley.edu>,
+ Zhanghailiang <zhang.zhanghailiang@huawei.com>,
+ KVM General <kvm@vger.kernel.org>, yinyipeng <yinyipeng1@huawei.com>,
+ Anup Patel <anup.patel@wdc.com>, "linux-kernel@vger.kernel.org
+ List" <linux-kernel@vger.kernel.org>, Atish Patra <atish.patra@wdc.com>,
+ "Zhangxiaofeng \(F\)" <victor.zhangxiaofeng@huawei.com>,
+ Alistair Francis <alistair.francis@wdc.com>,
+ "deepa.kernel@gmail.com" <deepa.kernel@gmail.com>,
+ "kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
  linux-riscv <linux-riscv@lists.infradead.org>,
- "linux-snps-arc@lists.infradead.org" <linux-snps-arc@lists.infradead.org>,
- linuxppc-dev@lists.ozlabs.org, Gerald Schaefer <gerald.schaefer@de.ibm.com>
+ "zhaosiqi \(A\)" <zhaosiqi3@huawei.com>, "Wubin \(H\)" <wu.wubin@huawei.com>,
+ "dengkai \(A\)" <dengkai1@huawei.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
@@ -81,80 +100,263 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 
-On 09/02/2020 05:12 PM, Aneesh Kumar K.V wrote:
-> This patch series includes fixes for debug_vm_pgtable test code so that
-> they follow page table updates rules correctly. The first two patches introduce
-> changes w.r.t ppc64. The patches are included in this series for completeness. We can
-> merge them via ppc64 tree if required.
+> -----Original Message-----
+> From: Anup Patel [mailto:anup@brainfault.org]
+> Sent: Tuesday, September 1, 2020 11:20 PM
+> To: Jiangyifei <jiangyifei@huawei.com>
+> Cc: Paul Walmsley <paul.walmsley@sifive.com>; Palmer Dabbelt
+> <palmer@dabbelt.com>; Albert Ou <aou@eecs.berkeley.edu>; Anup Patel
+> <anup.patel@wdc.com>; Alistair Francis <alistair.francis@wdc.com>; Atish
+> Patra <atish.patra@wdc.com>; deepa.kernel@gmail.com;
+> kvm-riscv@lists.infradead.org; KVM General <kvm@vger.kernel.org>;
+> linux-riscv <linux-riscv@lists.infradead.org>; linux-kernel@vger.kernel.org List
+> <linux-kernel@vger.kernel.org>; Zhangxiaofeng (F)
+> <victor.zhangxiaofeng@huawei.com>; Wubin (H) <wu.wubin@huawei.com>;
+> Zhanghailiang <zhang.zhanghailiang@huawei.com>; dengkai (A)
+> <dengkai1@huawei.com>; yinyipeng <yinyipeng1@huawei.com>; zhaosiqi (A)
+> <zhaosiqi3@huawei.com>
+> Subject: Re: [PATCH RFC 2/2] target/kvm: Add interfaces needed for log dirty
 > 
-> Hugetlb test is disabled on ppc64 because that needs larger change to satisfy
-> page table update rules.
+> On Mon, Aug 31, 2020 at 8:09 AM Jiangyifei <jiangyifei@huawei.com> wrote:
+> >
+> >
+> > > -----Original Message-----
+> > > From: Anup Patel [mailto:anup@brainfault.org]
+> > > Sent: Friday, August 28, 2020 12:54 PM
+> > > To: Jiangyifei <jiangyifei@huawei.com>
+> > > Cc: Paul Walmsley <paul.walmsley@sifive.com>; Palmer Dabbelt
+> > > <palmer@dabbelt.com>; Albert Ou <aou@eecs.berkeley.edu>; Anup Patel
+> > > <anup.patel@wdc.com>; Alistair Francis <alistair.francis@wdc.com>;
+> > > Atish Patra <atish.patra@wdc.com>; deepa.kernel@gmail.com;
+> > > kvm-riscv@lists.infradead.org; KVM General <kvm@vger.kernel.org>;
+> > > linux-riscv <linux-riscv@lists.infradead.org>;
+> > > linux-kernel@vger.kernel.org List <linux-kernel@vger.kernel.org>;
+> > > Zhangxiaofeng (F) <victor.zhangxiaofeng@huawei.com>; Wubin (H)
+> > > <wu.wubin@huawei.com>; Zhanghailiang
+> > > <zhang.zhanghailiang@huawei.com>; dengkai (A)
+> <dengkai1@huawei.com>;
+> > > yinyipeng <yinyipeng1@huawei.com>
+> > > Subject: Re: [PATCH RFC 2/2] target/kvm: Add interfaces needed for
+> > > log dirty
+> > >
+> > > On Thu, Aug 27, 2020 at 1:54 PM Yifei Jiang <jiangyifei@huawei.com>
+> wrote:
+> > > >
+> > > > Add two interfaces of log dirty for kvm_main.c, and detele the
+> > > > interface kvm_vm_ioctl_get_dirty_log which is redundantly defined.
+> > > >
+> > > > CONFIG_KVM_GENERIC_DIRTYLOG_READ_PROTECT is added in
+> defconfig.
+> > > >
+> > > > Signed-off-by: Yifei Jiang <jiangyifei@huawei.com>
+> > > > Signed-off-by: Yipeng Yin <yinyipeng1@huawei.com>
+> > > > ---
+> > > >  arch/riscv/configs/defconfig |  1 +
+> > > >  arch/riscv/kvm/Kconfig       |  1 +
+> > > >  arch/riscv/kvm/mmu.c         | 43
+> > > ++++++++++++++++++++++++++++++++++++
+> > > >  arch/riscv/kvm/vm.c          |  6 -----
+> > > >  4 files changed, 45 insertions(+), 6 deletions(-)
+> > > >
+> > > > diff --git a/arch/riscv/configs/defconfig
+> > > > b/arch/riscv/configs/defconfig index d36e1000bbd3..857d799672c2
+> > > > 100644
+> > > > --- a/arch/riscv/configs/defconfig
+> > > > +++ b/arch/riscv/configs/defconfig
+> > > > @@ -19,6 +19,7 @@ CONFIG_SOC_VIRT=y  CONFIG_SMP=y
+> > > > CONFIG_VIRTUALIZATION=y  CONFIG_KVM=y
+> > > > +CONFIG_KVM_GENERIC_DIRTYLOG_READ_PROTECT=y
+> > > >  CONFIG_HOTPLUG_CPU=y
+> > > >  CONFIG_MODULES=y
+> > > >  CONFIG_MODULE_UNLOAD=y
+> > > > diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig index
+> > > > 2356dc52ebb3..91fcffc70e5d 100644
+> > > > --- a/arch/riscv/kvm/Kconfig
+> > > > +++ b/arch/riscv/kvm/Kconfig
+> > > > @@ -26,6 +26,7 @@ config KVM
+> > > >         select KVM_MMIO
+> > > >         select HAVE_KVM_VCPU_ASYNC_IOCTL
+> > > >         select SRCU
+> > > > +       select KVM_GENERIC_DIRTYLOG_READ_PROTECT
+> > > >         help
+> > > >           Support hosting virtualized guest machines.
+> > > >
+> > > > diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c index
+> > > > 88bce80ee983..df2a470c25e4 100644
+> > > > --- a/arch/riscv/kvm/mmu.c
+> > > > +++ b/arch/riscv/kvm/mmu.c
+> > > > @@ -358,6 +358,43 @@ void stage2_wp_memory_region(struct kvm
+> *kvm,
+> > > int slot)
+> > > >         kvm_flush_remote_tlbs(kvm);  }
+> > > >
+> > > > +/**
+> > > > + * kvm_mmu_write_protect_pt_masked() - write protect dirty pages
+> > > > + * @kvm:    The KVM pointer
+> > > > + * @slot:   The memory slot associated with mask
+> > > > + * @gfn_offset: The gfn offset in memory slot
+> > > > + * @mask:   The mask of dirty pages at offset 'gfn_offset' in this
+> memory
+> > > > + *      slot to be write protected
+> > > > + *
+> > > > + * Walks bits set in mask write protects the associated pte's.
+> > > > +Caller must
+> > > > + * acquire kvm_mmu_lock.
+> > > > + */
+> > > > +static void kvm_mmu_write_protect_pt_masked(struct kvm *kvm,
+> > > > +        struct kvm_memory_slot *slot,
+> > > > +        gfn_t gfn_offset, unsigned long mask) {
+> > > > +    phys_addr_t base_gfn = slot->base_gfn + gfn_offset;
+> > > > +    phys_addr_t start = (base_gfn +  __ffs(mask)) << PAGE_SHIFT;
+> > > > +    phys_addr_t end = (base_gfn + __fls(mask) + 1) << PAGE_SHIFT;
+> > > > +
+> > > > +    stage2_wp_range(kvm, start, end); }
+> > > > +
+> > > > +/*
+> > > > + * kvm_arch_mmu_enable_log_dirty_pt_masked - enable dirty logging
+> > > > +for selected
+> > > > + * dirty pages.
+> > > > + *
+> > > > + * It calls kvm_mmu_write_protect_pt_masked to write protect
+> > > > +selected pages to
+> > > > + * enable dirty logging for them.
+> > > > + */
+> > > > +void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
+> > > > +        struct kvm_memory_slot *slot,
+> > > > +        gfn_t gfn_offset, unsigned long mask) {
+> > > > +    kvm_mmu_write_protect_pt_masked(kvm, slot, gfn_offset, mask);
+> > > > +}
+> > > > +
+> > > > +
+> > > >  int stage2_ioremap(struct kvm *kvm, gpa_t gpa, phys_addr_t hpa,
+> > > >                    unsigned long size, bool writable)  { @@ -433,6
+> > > > +470,12 @@ void kvm_arch_sync_dirty_log(struct kvm *kvm, struct
+> > > > kvm_memory_slot *memslot)  {  }
+> > > >
+> > > > +void kvm_arch_flush_remote_tlbs_memslot(struct kvm *kvm,
+> > > > +                                       struct
+> kvm_memory_slot
+> > > > +*memslot) {
+> > > > +       kvm_flush_remote_tlbs(kvm); }
+> > > > +
+> > > >  void kvm_arch_free_memslot(struct kvm *kvm, struct
+> > > > kvm_memory_slot
+> > > > *free)  {  } diff --git a/arch/riscv/kvm/vm.c
+> > > > b/arch/riscv/kvm/vm.c index 4f2498198cb5..f7405676903b 100644
+> > > > --- a/arch/riscv/kvm/vm.c
+> > > > +++ b/arch/riscv/kvm/vm.c
+> > > > @@ -12,12 +12,6 @@
+> > > >  #include <linux/uaccess.h>
+> > > >  #include <linux/kvm_host.h>
+> > > >
+> > > > -int kvm_vm_ioctl_get_dirty_log(struct kvm *kvm, struct
+> > > > kvm_dirty_log
+> > > > *log) -{
+> > > > -       /* TODO: To be added later. */
+> > > > -       return -ENOTSUPP;
+> > > > -}
+> > > > -
+> > > >  int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)  {
+> > > >         int r;
+> > > > --
+> > > > 2.19.1
+> > > >
+> > > >
+> > >
+> > > I already have a similar change as part of v14 KVM RISC-V series.
+> > >
+> > > Let us coordinate better. Please let us know in-advance for any KVM
+> > > RISC-V feature you plan to work on. Otherwise, this leads to efforts
+> > > wasted at your end or at our end.
+> > >
+> > > Regards,
+> > > Anup
+> >
+> > Hi Anup,
+> >
+> > Thanks for accepting our patches.
+> >
+> > In the next few weeks we plan to work on the following:
+> > 1. memory reverse mapping (rmap), related to migration.
 > 
-> These tests are broken w.r.t page table update rules and results in kernel
-> crash as below. 
+> This is fine.
 > 
-> [   21.083519] kernel BUG at arch/powerpc/mm/pgtable.c:304!
-> cpu 0x0: Vector: 700 (Program Check) at [c000000c6d1e76c0]
->     pc: c00000000009a5ec: assert_pte_locked+0x14c/0x380
->     lr: c0000000005eeeec: pte_update+0x11c/0x190
->     sp: c000000c6d1e7950
->    msr: 8000000002029033
->   current = 0xc000000c6d172c80
->   paca    = 0xc000000003ba0000   irqmask: 0x03   irq_happened: 0x01
->     pid   = 1, comm = swapper/0
-> kernel BUG at arch/powerpc/mm/pgtable.c:304!
-> [link register   ] c0000000005eeeec pte_update+0x11c/0x190
-> [c000000c6d1e7950] 0000000000000001 (unreliable)
-> [c000000c6d1e79b0] c0000000005eee14 pte_update+0x44/0x190
-> [c000000c6d1e7a10] c000000001a2ca9c pte_advanced_tests+0x160/0x3d8
-> [c000000c6d1e7ab0] c000000001a2d4fc debug_vm_pgtable+0x7e8/0x1338
-> [c000000c6d1e7ba0] c0000000000116ec do_one_initcall+0xac/0x5f0
-> [c000000c6d1e7c80] c0000000019e4fac kernel_init_freeable+0x4dc/0x5a4
-> [c000000c6d1e7db0] c000000000012474 kernel_init+0x24/0x160
-> [c000000c6d1e7e20] c00000000000cbd0 ret_from_kernel_thread+0x5c/0x6c
+
+Thanks.
+
+> > 2. irqfd.
 > 
-> With DEBUG_VM disabled
+> We had past discussion about doing in-kernel PLIC.
 > 
-> [   20.530152] BUG: Kernel NULL pointer dereference on read at 0x00000000
-> [   20.530183] Faulting instruction address: 0xc0000000000df330
-> cpu 0x33: Vector: 380 (Data SLB Access) at [c000000c6d19f700]
->     pc: c0000000000df330: memset+0x68/0x104
->     lr: c00000000009f6d8: hash__pmdp_huge_get_and_clear+0xe8/0x1b0
->     sp: c000000c6d19f990
->    msr: 8000000002009033
->    dar: 0
->   current = 0xc000000c6d177480
->   paca    = 0xc00000001ec4f400   irqmask: 0x03   irq_happened: 0x01
->     pid   = 1, comm = swapper/0
-> [link register   ] c00000000009f6d8 hash__pmdp_huge_get_and_clear+0xe8/0x1b0
-> [c000000c6d19f990] c00000000009f748 hash__pmdp_huge_get_and_clear+0x158/0x1b0 (unreliable)
-> [c000000c6d19fa10] c0000000019ebf30 pmd_advanced_tests+0x1f0/0x378
-> [c000000c6d19fab0] c0000000019ed088 debug_vm_pgtable+0x79c/0x1244
-> [c000000c6d19fba0] c0000000000116ec do_one_initcall+0xac/0x5f0
-> [c000000c6d19fc80] c0000000019a4fac kernel_init_freeable+0x4dc/0x5a4
-> [c000000c6d19fdb0] c000000000012474 kernel_init+0x24/0x160
-> [c000000c6d19fe20] c00000000000cbd0 ret_from_kernel_thread+0x5c/0x6c
+> Generally, in-kernel emulation of an interrupt controller provides the following
+> benefits:
+> 1. Faster emulation of timer interrupts
+> 2. Faster emulation of ipi interrupts
+> 3. Irqfd for Vhost
+> 4. Pass-through interrupt routing
+> 5. Anything else ??
 > 
-> Changes from v3:
-> * Address review feedback
-> * Move page table depost and withdraw patch after adding pmdlock to avoid bisect failure.
+> For RISC-V, timer and ipi interrupts are handled locally by each HART so
+> in-kernel PLIC emulation won't provide 1) and 2). Also, considering simplicity of
+> PLIC we can't provide 4) as well. This means 3) might be the only benefit of
+> in-kernel PLIC.
+> 
+> There are already efforts underway to have a new interrupt-controller spec
+> which has virtualization support and also supports MSIs. I think it is OKAY to
+> have PLIC emulated in user-space for now. We will go for in-kernel emulation
+> and irqfd support for the new interrupt controller.
+> 
+> Does this sound okay ??
 
-This version
+That's OK.
 
-- Builds on x86, arm64, s390, arc, powerpc and riscv (defconfig with DEBUG_VM_PGTABLE)
-- Runs on arm64 and x86 without any regression, atleast nothing that I have noticed
-- Will be great if this could get tested on s390, arc, riscv, ppc32 platforms as well
+> 
+> (Please talk to Andrew Waterman and John Hauser for more details on new
+> interrupt-controller spec)
+> 
+> > 3. implmentaion related to the dedicated clock event source proposal.
+> 
+> There are two SBI extensions required:
+> 1. Para-virt CPU steal accounting
+>     This is for accounting stolen time by hypervisors.
+> 2. Para-virt time scaling
+>     This is for migrating Guest/VM across Host with different timer frequency.
+> 
+> We are already doing 1) and we will be proposing an SBI extension for it in the
+> UnixPlatformSpec mailing list soon.
+> 
+> By "dedicated clock event source" I assume you meant something related to 2).
+> I would suggest you to join UnixPlatformSpec mailing list on RISC-V foundation
+> and propose your SBI spec related ideas over there.
 
-+ linux-riscv <linux-riscv@lists.infradead.org>
-+ linux-snps-arc@lists.infradead.org <linux-snps-arc@lists.infradead.org>
-+ linux-s390@vger.kernel.org
-+ Gerald Schaefer <gerald.schaefer@de.ibm.com>
-+ Vineet Gupta <vgupta@synopsys.com>
+OK.
 
-There is still an open git bisect issue on arm64 platform which ideally should be fixed.
+> 
+> >
+> > Besides, we are aware of that you are working on irq chip emulation in KVM.
+> Meanwhile, our implementaiton of irqfd and the clock event source has
+> dependency on the irq chip and we may well modify the irq chip emulation code.
+> So could you share with us any ideas, plans or progress regarding your work
+> since there might be potential collision?
+> 
+> Please see my comments on irqfd.
+> 
+> >
+> > Let's stay in touch in the long run and coodinate better. BTW, could you share
+> with us if there's any regular discussion sessions focused on RISC-V KVM?
+> 
+> I have started an email discussion about having regular Hypervisor sync-up call
+> on the UnixPlatformSpec mailing list. We can use this sync-up call for KVM
+> RISC-V as well.
 
-- Anshuman
+We will list our existing work and plans in the sync-up call email.
 
+> 
+> Regards,
+> Anup
+
+Regards,
+Yifei
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
