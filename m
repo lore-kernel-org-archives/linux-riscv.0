@@ -2,73 +2,67 @@ Return-Path: <SRS0=91Bs=CN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9F59FC43461
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2020 08:30:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 72B37C43461
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2020 08:31:26 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 457E3206C9
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2020 08:30:11 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 323AE206C9
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2020 08:31:26 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WHdllA07"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 457E3206C9
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="NC+c3tKZ";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="SCC0VTxH"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 323AE206C9
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:Message-ID:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=bApsJZiAClU4WhWc3BRL+6va3nAZ1izsSzM5n3uzQQA=; b=WHdllA07Wm9DCKdFH7/ri6xRZ
-	ud6AuFEvZqkCJM7KdoaeQgDepue2P4LJg979cjx64crGvNa3tiM02AltAt+XCMu6p+TRR7oFj9SZq
-	qzCyFu3n9J/FZKQgsKj/IUIPheiPZreVRLfQ0soR/7/yfGTgqg+Sv1yufwQrjNMk5ENWkqHERO5IH
-	ThuKKDVM2NYiZyR3o2sjhifhV164JwcDnasXcTsbzxcsouoKkYIBlcRDmI06zHoaOeKz477aGutkI
-	imRyGawyB++xliUgn1GVmZEK0gxlmIAW1AMu76EOJbkqbdeEoZ2rSgm09/NgMSDZw1KJhqTgCTAK/
-	mET8RTl/Q==;
+	 bh=JnhhWVydK5Tpa161RvEFigVFOi4sQ/oLtgGQ99STAfg=; b=NC+c3tKZnKeHEhUy3Pr8AZp0t
+	6OriChCz+QI5XNOdlkPjjSu41PSbp1aoSY4iUHKp2IVnkuBYrMK6PYCNhwNhsyIhjZNXuXLp4Xvja
+	U/IpcwLx6wWw5eF6kz6EbBJLKlvGfGSaz1eOpbrGBYZlDgPYhvAo6ijbXdlfY8WL/dxuyHlj4k+tC
+	JSTd8ROQahZkYjcRJR/ENddxFYJNsYB0yG0UbemblztLb78xH9zpvULtb2hl5fmzYAMhcwVylx32D
+	JsVzsP36qOFZtvo71lWCuvGLP5gZiCf5EjP5+85QSoYC5A/sjtV4u0He+x2KvWOo04eUFb3gzmZ++
+	NDcZKC7Og==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kE76X-0000iz-V9; Fri, 04 Sep 2020 08:29:53 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188] helo=huawei.com)
+	id 1kE77p-0000os-2v; Fri, 04 Sep 2020 08:31:13 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kE76T-0000hi-P4; Fri, 04 Sep 2020 08:29:51 +0000
-Received: from DGGEMM404-HUB.china.huawei.com (unknown [172.30.72.56])
- by Forcepoint Email with ESMTP id D88C7772C82F0AA7A789;
- Fri,  4 Sep 2020 16:29:42 +0800 (CST)
-Received: from DGGEMM423-HUB.china.huawei.com (10.1.198.40) by
- DGGEMM404-HUB.china.huawei.com (10.3.20.212) with Microsoft SMTP Server (TLS)
- id 14.3.487.0; Fri, 4 Sep 2020 16:29:42 +0800
-Received: from DGGEMM525-MBS.china.huawei.com ([169.254.5.119]) by
- dggemm423-hub.china.huawei.com ([10.1.198.40]) with mapi id 14.03.0487.000;
- Fri, 4 Sep 2020 16:29:33 +0800
-From: Jiangyifei <jiangyifei@huawei.com>
-To: Anup Patel <anup@brainfault.org>
-Subject: RE: [PATCH RFC 2/2] target/kvm: Add interfaces needed for log dirty
-Thread-Topic: [PATCH RFC 2/2] target/kvm: Add interfaces needed for log dirty
-Thread-Index: AQHWfEtmTyNMW66okESUbG9EQ0iVQKlMb8AAgAUV7ACAAeJzgIAEyKqQ
-Date: Fri, 4 Sep 2020 08:29:32 +0000
-Message-ID: <3915816D913D8241BB43E932213F57D4ADD964AE@dggemm525-mbs.china.huawei.com>
-References: <20200827082251.1591-1-jiangyifei@huawei.com>
- <20200827082251.1591-3-jiangyifei@huawei.com>
- <CAAhSdy36ZCubU-1+WzjMzBaR+RipgEhvRqd9AT+28=99-EUDaQ@mail.gmail.com>
- <3915816D913D8241BB43E932213F57D4ADD8F34F@dggemm525-mbs.china.huawei.com>
- <CAAhSdy3jvCcA=DsR6NoZ4HRx9qXTC-Wwc+B3T79TKDtXBPd8Jw@mail.gmail.com>
-In-Reply-To: <CAAhSdy3jvCcA=DsR6NoZ4HRx9qXTC-Wwc+B3T79TKDtXBPd8Jw@mail.gmail.com>
-Accept-Language: zh-CN, en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.174.187.31]
+ id 1kE77m-0000oh-UL
+ for linux-riscv@merlin.infradead.org; Fri, 04 Sep 2020 08:31:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+ References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description;
+ bh=gbluQpPNHdbiMWA4xN7pVTQSsV8hyhAkU366CTjL+84=; b=SCC0VTxHP3pVTSpFGnwSKYEfBk
+ XxquMP8BzgfEKVT2S5qiZsHJTZWYbYb0Tzgp3GoNQ0w/xcrSUqciagxcx3+xxKrKDth7x4Qt3POFB
+ kk2iTmtowbfDyXay2rZZ0SPx8Q9rXYVD1a7gAzJov2TM7Y6gHGdCfOs9UlWyPeiu4WvI1rgLl/dSX
+ g4TuFLQ57A89IzenfSbedJadPLzUI71y4COT0uDtunDi1B/kM7abwCKaIrm2pD4Z0oAHBPI75IdqH
+ 2QyjShdyWlKQcRj2zs3QkKOoGpn0/YCHVCTRt7L1ljAq/1hdy5Eek+FXSScxgNnALV1s0DEi/I7Nj
+ fPmoAizw==;
+Received: from hch by casper.infradead.org with local (Exim 4.92.3 #3 (Red Hat
+ Linux)) id 1kE77l-0002YB-Im; Fri, 04 Sep 2020 08:31:09 +0000
+Date: Fri, 4 Sep 2020 09:31:09 +0100
+From: Christoph Hellwig <hch@infradead.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Subject: Re: [GIT PULL] RISC-V Fixes for 5.9-rc2
+Message-ID: <20200904083109.GA9182@infradead.org>
+References: <mhng-32c8d053-acbd-4c72-b41d-8d6042ac639d@palmerdabbelt-glaptop1>
+ <CAHk-=wi_tf4qsiBj5UD0GG3wz8Hi5NrHzqdrx+CwtfAY+_UiGg@mail.gmail.com>
 MIME-Version: 1.0
-X-CFilter-Loop: Reflected
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200904_042950_313439_04CF916A 
-X-CRM114-Status: GOOD (  45.23  )
+Content-Disposition: inline
+In-Reply-To: <CAHk-=wi_tf4qsiBj5UD0GG3wz8Hi5NrHzqdrx+CwtfAY+_UiGg@mail.gmail.com>
+X-SRS-Rewrite: SMTP reverse-path rewritten from <hch@infradead.org> by
+ casper.infradead.org. See http://www.infradead.org/rpr.html
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -80,283 +74,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>,
- Zhanghailiang <zhang.zhanghailiang@huawei.com>,
- KVM General <kvm@vger.kernel.org>, yinyipeng <yinyipeng1@huawei.com>,
- Anup Patel <anup.patel@wdc.com>, "linux-kernel@vger.kernel.org
- List" <linux-kernel@vger.kernel.org>, Atish Patra <atish.patra@wdc.com>,
- "Zhangxiaofeng \(F\)" <victor.zhangxiaofeng@huawei.com>,
- Alistair Francis <alistair.francis@wdc.com>,
- "deepa.kernel@gmail.com" <deepa.kernel@gmail.com>,
- "kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- "zhaosiqi \(A\)" <zhaosiqi3@huawei.com>, "Wubin \(H\)" <wu.wubin@huawei.com>,
- "dengkai \(A\)" <dengkai1@huawei.com>
+Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-> -----Original Message-----
-> From: Anup Patel [mailto:anup@brainfault.org]
-> Sent: Tuesday, September 1, 2020 11:20 PM
-> To: Jiangyifei <jiangyifei@huawei.com>
-> Cc: Paul Walmsley <paul.walmsley@sifive.com>; Palmer Dabbelt
-> <palmer@dabbelt.com>; Albert Ou <aou@eecs.berkeley.edu>; Anup Patel
-> <anup.patel@wdc.com>; Alistair Francis <alistair.francis@wdc.com>; Atish
-> Patra <atish.patra@wdc.com>; deepa.kernel@gmail.com;
-> kvm-riscv@lists.infradead.org; KVM General <kvm@vger.kernel.org>;
-> linux-riscv <linux-riscv@lists.infradead.org>; linux-kernel@vger.kernel.org List
-> <linux-kernel@vger.kernel.org>; Zhangxiaofeng (F)
-> <victor.zhangxiaofeng@huawei.com>; Wubin (H) <wu.wubin@huawei.com>;
-> Zhanghailiang <zhang.zhanghailiang@huawei.com>; dengkai (A)
-> <dengkai1@huawei.com>; yinyipeng <yinyipeng1@huawei.com>; zhaosiqi (A)
-> <zhaosiqi3@huawei.com>
-> Subject: Re: [PATCH RFC 2/2] target/kvm: Add interfaces needed for log dirty
-> 
-> On Mon, Aug 31, 2020 at 8:09 AM Jiangyifei <jiangyifei@huawei.com> wrote:
+On Fri, Aug 21, 2020 at 12:35:20PM -0700, Linus Torvalds wrote:
+> On Fri, Aug 21, 2020 at 11:26 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
 > >
-> >
-> > > -----Original Message-----
-> > > From: Anup Patel [mailto:anup@brainfault.org]
-> > > Sent: Friday, August 28, 2020 12:54 PM
-> > > To: Jiangyifei <jiangyifei@huawei.com>
-> > > Cc: Paul Walmsley <paul.walmsley@sifive.com>; Palmer Dabbelt
-> > > <palmer@dabbelt.com>; Albert Ou <aou@eecs.berkeley.edu>; Anup Patel
-> > > <anup.patel@wdc.com>; Alistair Francis <alistair.francis@wdc.com>;
-> > > Atish Patra <atish.patra@wdc.com>; deepa.kernel@gmail.com;
-> > > kvm-riscv@lists.infradead.org; KVM General <kvm@vger.kernel.org>;
-> > > linux-riscv <linux-riscv@lists.infradead.org>;
-> > > linux-kernel@vger.kernel.org List <linux-kernel@vger.kernel.org>;
-> > > Zhangxiaofeng (F) <victor.zhangxiaofeng@huawei.com>; Wubin (H)
-> > > <wu.wubin@huawei.com>; Zhanghailiang
-> > > <zhang.zhanghailiang@huawei.com>; dengkai (A)
-> <dengkai1@huawei.com>;
-> > > yinyipeng <yinyipeng1@huawei.com>
-> > > Subject: Re: [PATCH RFC 2/2] target/kvm: Add interfaces needed for
-> > > log dirty
-> > >
-> > > On Thu, Aug 27, 2020 at 1:54 PM Yifei Jiang <jiangyifei@huawei.com>
-> wrote:
-> > > >
-> > > > Add two interfaces of log dirty for kvm_main.c, and detele the
-> > > > interface kvm_vm_ioctl_get_dirty_log which is redundantly defined.
-> > > >
-> > > > CONFIG_KVM_GENERIC_DIRTYLOG_READ_PROTECT is added in
-> defconfig.
-> > > >
-> > > > Signed-off-by: Yifei Jiang <jiangyifei@huawei.com>
-> > > > Signed-off-by: Yipeng Yin <yinyipeng1@huawei.com>
-> > > > ---
-> > > >  arch/riscv/configs/defconfig |  1 +
-> > > >  arch/riscv/kvm/Kconfig       |  1 +
-> > > >  arch/riscv/kvm/mmu.c         | 43
-> > > ++++++++++++++++++++++++++++++++++++
-> > > >  arch/riscv/kvm/vm.c          |  6 -----
-> > > >  4 files changed, 45 insertions(+), 6 deletions(-)
-> > > >
-> > > > diff --git a/arch/riscv/configs/defconfig
-> > > > b/arch/riscv/configs/defconfig index d36e1000bbd3..857d799672c2
-> > > > 100644
-> > > > --- a/arch/riscv/configs/defconfig
-> > > > +++ b/arch/riscv/configs/defconfig
-> > > > @@ -19,6 +19,7 @@ CONFIG_SOC_VIRT=y  CONFIG_SMP=y
-> > > > CONFIG_VIRTUALIZATION=y  CONFIG_KVM=y
-> > > > +CONFIG_KVM_GENERIC_DIRTYLOG_READ_PROTECT=y
-> > > >  CONFIG_HOTPLUG_CPU=y
-> > > >  CONFIG_MODULES=y
-> > > >  CONFIG_MODULE_UNLOAD=y
-> > > > diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig index
-> > > > 2356dc52ebb3..91fcffc70e5d 100644
-> > > > --- a/arch/riscv/kvm/Kconfig
-> > > > +++ b/arch/riscv/kvm/Kconfig
-> > > > @@ -26,6 +26,7 @@ config KVM
-> > > >         select KVM_MMIO
-> > > >         select HAVE_KVM_VCPU_ASYNC_IOCTL
-> > > >         select SRCU
-> > > > +       select KVM_GENERIC_DIRTYLOG_READ_PROTECT
-> > > >         help
-> > > >           Support hosting virtualized guest machines.
-> > > >
-> > > > diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c index
-> > > > 88bce80ee983..df2a470c25e4 100644
-> > > > --- a/arch/riscv/kvm/mmu.c
-> > > > +++ b/arch/riscv/kvm/mmu.c
-> > > > @@ -358,6 +358,43 @@ void stage2_wp_memory_region(struct kvm
-> *kvm,
-> > > int slot)
-> > > >         kvm_flush_remote_tlbs(kvm);  }
-> > > >
-> > > > +/**
-> > > > + * kvm_mmu_write_protect_pt_masked() - write protect dirty pages
-> > > > + * @kvm:    The KVM pointer
-> > > > + * @slot:   The memory slot associated with mask
-> > > > + * @gfn_offset: The gfn offset in memory slot
-> > > > + * @mask:   The mask of dirty pages at offset 'gfn_offset' in this
-> memory
-> > > > + *      slot to be write protected
-> > > > + *
-> > > > + * Walks bits set in mask write protects the associated pte's.
-> > > > +Caller must
-> > > > + * acquire kvm_mmu_lock.
-> > > > + */
-> > > > +static void kvm_mmu_write_protect_pt_masked(struct kvm *kvm,
-> > > > +        struct kvm_memory_slot *slot,
-> > > > +        gfn_t gfn_offset, unsigned long mask) {
-> > > > +    phys_addr_t base_gfn = slot->base_gfn + gfn_offset;
-> > > > +    phys_addr_t start = (base_gfn +  __ffs(mask)) << PAGE_SHIFT;
-> > > > +    phys_addr_t end = (base_gfn + __fls(mask) + 1) << PAGE_SHIFT;
-> > > > +
-> > > > +    stage2_wp_range(kvm, start, end); }
-> > > > +
-> > > > +/*
-> > > > + * kvm_arch_mmu_enable_log_dirty_pt_masked - enable dirty logging
-> > > > +for selected
-> > > > + * dirty pages.
-> > > > + *
-> > > > + * It calls kvm_mmu_write_protect_pt_masked to write protect
-> > > > +selected pages to
-> > > > + * enable dirty logging for them.
-> > > > + */
-> > > > +void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
-> > > > +        struct kvm_memory_slot *slot,
-> > > > +        gfn_t gfn_offset, unsigned long mask) {
-> > > > +    kvm_mmu_write_protect_pt_masked(kvm, slot, gfn_offset, mask);
-> > > > +}
-> > > > +
-> > > > +
-> > > >  int stage2_ioremap(struct kvm *kvm, gpa_t gpa, phys_addr_t hpa,
-> > > >                    unsigned long size, bool writable)  { @@ -433,6
-> > > > +470,12 @@ void kvm_arch_sync_dirty_log(struct kvm *kvm, struct
-> > > > kvm_memory_slot *memslot)  {  }
-> > > >
-> > > > +void kvm_arch_flush_remote_tlbs_memslot(struct kvm *kvm,
-> > > > +                                       struct
-> kvm_memory_slot
-> > > > +*memslot) {
-> > > > +       kvm_flush_remote_tlbs(kvm); }
-> > > > +
-> > > >  void kvm_arch_free_memslot(struct kvm *kvm, struct
-> > > > kvm_memory_slot
-> > > > *free)  {  } diff --git a/arch/riscv/kvm/vm.c
-> > > > b/arch/riscv/kvm/vm.c index 4f2498198cb5..f7405676903b 100644
-> > > > --- a/arch/riscv/kvm/vm.c
-> > > > +++ b/arch/riscv/kvm/vm.c
-> > > > @@ -12,12 +12,6 @@
-> > > >  #include <linux/uaccess.h>
-> > > >  #include <linux/kvm_host.h>
-> > > >
-> > > > -int kvm_vm_ioctl_get_dirty_log(struct kvm *kvm, struct
-> > > > kvm_dirty_log
-> > > > *log) -{
-> > > > -       /* TODO: To be added later. */
-> > > > -       return -ENOTSUPP;
-> > > > -}
-> > > > -
-> > > >  int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)  {
-> > > >         int r;
-> > > > --
-> > > > 2.19.1
-> > > >
-> > > >
-> > >
-> > > I already have a similar change as part of v14 KVM RISC-V series.
-> > >
-> > > Let us coordinate better. Please let us know in-advance for any KVM
-> > > RISC-V feature you plan to work on. Otherwise, this leads to efforts
-> > > wasted at your end or at our end.
-> > >
-> > > Regards,
-> > > Anup
-> >
-> > Hi Anup,
-> >
-> > Thanks for accepting our patches.
-> >
-> > In the next few weeks we plan to work on the following:
-> > 1. memory reverse mapping (rmap), related to migration.
+> > * The CLINT driver has been split in two: one to handle the M-mode CLINT
+> >   (memory mapped and used on NOMMU systems) and one to handle the S-mode CLINT
+> >   (via SBI).
 > 
-> This is fine.
+> This looks more like development than fixes.
 > 
+> I guess I don't care deeply enough about it, but please don't do this.
 
-Thanks.
+Well, I care because this late pull requests completely breaks nommu
+(nommu_virt_defconfig).   More specifically commit 2bc3fc877aa9
+("RISC-V: Remove CLINT related code from timer and arch") leas to this
+spew when booting under qemu:
 
-> > 2. irqfd.
-> 
-> We had past discussion about doing in-kernel PLIC.
-> 
-> Generally, in-kernel emulation of an interrupt controller provides the following
-> benefits:
-> 1. Faster emulation of timer interrupts
-> 2. Faster emulation of ipi interrupts
-> 3. Irqfd for Vhost
-> 4. Pass-through interrupt routing
-> 5. Anything else ??
-> 
-> For RISC-V, timer and ipi interrupts are handled locally by each HART so
-> in-kernel PLIC emulation won't provide 1) and 2). Also, considering simplicity of
-> PLIC we can't provide 4) as well. This means 3) might be the only benefit of
-> in-kernel PLIC.
-> 
-> There are already efforts underway to have a new interrupt-controller spec
-> which has virtualization support and also supports MSIs. I think it is OKAY to
-> have PLIC emulated in user-space for now. We will go for in-kernel emulation
-> and irqfd support for the new interrupt controller.
-> 
-> Does this sound okay ??
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] riscv-intc: 64 local interrupts mapped
+[    0.000000] plic: interrupt-controller@c000000: mapped 53 interrupts with 2 handlers for 4 contexts.
+[    0.000000] Oops - illegal instruction [#1]
+[    0.000000] CPU: 0 PID: 0 Comm: swapper/0 Not tainted 5.9.0-rc1-00003-g2bc3fc877aa9c4 #609
+[    0.000000] epc: 000000008000de78 ra : 000000008000ddaa sp : 0000000080187f40
+[    0.000000]  gp : 00000000801a3aa8 tp : 000000008018bd40 t0 : 0000000000000019
+[    0.000000]  t1 : 0000000000000018 t2 : 0000000000000001 s0 : 0000000080187f80
+[    0.000000]  s1 : 0000000000000200 a0 : 000000008019b738 a1 : 0000000000000000
+[    0.000000]  a2 : ffffffff80187f50 a3 : 0000000000000000 a4 : 0000000000000000
+[    0.000000]  a5 : 0000000080169018 a6 : 0000000000000000 a7 : 00000000000001e4
+[    0.000000]  s2 : 00000000801a40a8 s3 : 00000000801a4068 s4 : 000000008fc7c040
+[    0.000000]  s5 : 00000000801a4038 s6 : 00000000801a4030 s7 : 0000000080012da0
+[    0.000000]  s8 : 0000000000000000 s9 : 0000000000000000 s10: 0000000000000000
+[    0.000000]  s11: 0000000000000000 t3 : 00000000801c40d8 t4 : 0000000000000068
+[    0.000000]  t5 : 000000000000004c t6 : 0000000000000033
+[    0.000000] status: 0000000000001800 badaddr: 0000000000000000 cause: 0000000000000002
+[    0.000000] random: get_random_bytes called from 0x00000000800210c4 with crng_init=0
+[    0.000000] ---[ end trace 0000000000000000 ]---
+[    0.000000] Kernel panic - not syncing: Attempted to kill the idle task!
+[    0.000000] ---[ end Kernel panic - not syncing: Attempted to kill the idle task! ]---
 
-That's OK.
-
-> 
-> (Please talk to Andrew Waterman and John Hauser for more details on new
-> interrupt-controller spec)
-> 
-> > 3. implmentaion related to the dedicated clock event source proposal.
-> 
-> There are two SBI extensions required:
-> 1. Para-virt CPU steal accounting
->     This is for accounting stolen time by hypervisors.
-> 2. Para-virt time scaling
->     This is for migrating Guest/VM across Host with different timer frequency.
-> 
-> We are already doing 1) and we will be proposing an SBI extension for it in the
-> UnixPlatformSpec mailing list soon.
-> 
-> By "dedicated clock event source" I assume you meant something related to 2).
-> I would suggest you to join UnixPlatformSpec mailing list on RISC-V foundation
-> and propose your SBI spec related ideas over there.
-
-OK.
-
-> 
-> >
-> > Besides, we are aware of that you are working on irq chip emulation in KVM.
-> Meanwhile, our implementaiton of irqfd and the clock event source has
-> dependency on the irq chip and we may well modify the irq chip emulation code.
-> So could you share with us any ideas, plans or progress regarding your work
-> since there might be potential collision?
-> 
-> Please see my comments on irqfd.
-> 
-> >
-> > Let's stay in touch in the long run and coodinate better. BTW, could you share
-> with us if there's any regular discussion sessions focused on RISC-V KVM?
-> 
-> I have started an email discussion about having regular Hypervisor sync-up call
-> on the UnixPlatformSpec mailing list. We can use this sync-up call for KVM
-> RISC-V as well.
-
-We will list our existing work and plans in the sync-up call email.
-
-> 
-> Regards,
-> Anup
-
-Regards,
-Yifei
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
