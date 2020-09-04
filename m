@@ -2,68 +2,88 @@ Return-Path: <SRS0=91Bs=CN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 57E38C43461
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2020 13:33:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D2563C43461
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2020 13:57:04 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0B2BB2074D
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2020 13:33:22 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 95B492073B
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2020 13:57:04 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="uzYbeJAd";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=nifty.com header.i=@nifty.com header.b="TnOeU5Oo"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0B2BB2074D
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="LqAhL7Ki";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="fdRk2pV/"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 95B492073B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=de6l3A0sQv0bBq7VyxOyCEruWVdu3h4MjktkWEDeYto=; b=uzYbeJAdOceZiPbwUozZMMPk0l
-	SE+OBKrKqOxL+twmhGta+YDXcNhRuYDXpd4NWN0TUqJspzAzrKPdSkLh9vMgqQvnj1Nb5rTnpjF7v
-	iBlHAXVK0DACWQ8onQUFIAQX4wpe45hZkwoWog4+B8I/ifnyF53BQLbgPdh6Jy8geK/xnF5ZZL78O
-	4y4Ukwbbo8WbrM0oQr+sqYJFoW5GafSi6leAG6iZ95dUv4TgSRFENJFMJB3SKSx7cJbyG9KXf+qZd
-	6HIcUiWch5Eog549+F2Cn+HyRfn7DfLu8dMuS8Lhq+czCgY88xSk62hm6pcR/3TC1LhHR5sIDovta
-	mD8/W1kA==;
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=3SdFsxqpCMMSEIgiJG2Yb+ztJ97BIFbUjM5LenNC2c8=; b=LqAhL7KiLAGZ7IpDwAJ2ECe9/
+	oR6uR2zUyWY6L/QlLbLPKwjnolD+X7VPtpLuzrtKKSQFvuwmmKoQ/UuYir9WpIusfUt8XN8kSYFS6
+	Sa4LaAf37PxvBudruXLX2MrnpcZoBE20u9h7adFGRp2e+N1RQ+h378EDrH9XzhNvsmD8NNOZ1k5i0
+	aOiveoRE9IN36c2S9a8g0NVHdbmKjFYaKnXxcuEKlB27ipIu2t6s0wgMm9R4S8MPcv6IFy171zg98
+	fdlfai1Godj4QQ+xwoKrjkDCtCrOAID2OdbvF9tpg6oz7gUEFYBKVEYPSHiNSFuAX06zs5hedIb/S
+	5P2FV4lIA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kEBq1-0003df-BF; Fri, 04 Sep 2020 13:33:09 +0000
-Received: from conuserg-11.nifty.com ([210.131.2.78])
+	id 1kECD2-0002yr-Fc; Fri, 04 Sep 2020 13:56:56 +0000
+Received: from mail-wr1-x442.google.com ([2a00:1450:4864:20::442])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kEBpv-0003bs-SE; Fri, 04 Sep 2020 13:33:05 +0000
-Received: from oscar.flets-west.jp (softbank126090211135.bbtec.net
- [126.90.211.135]) (authenticated)
- by conuserg-11.nifty.com with ESMTP id 084DVRDU018232;
- Fri, 4 Sep 2020 22:31:27 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-11.nifty.com 084DVRDU018232
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
- s=dec2015msa; t=1599226289;
- bh=KhuHwbVOnaHwR/5Po5h9g9JE1ia7wMs0KH0UYL7hjd4=;
- h=From:To:Cc:Subject:Date:From;
- b=TnOeU5OotpjJG/3yzqnn14+3m1xxcfFCaY5s9pZCclr0d/QAjBYBzlWdez9P01L6m
- bxQpfit6PIhtd4+auw0orDB+byH8dvLG+zNYn6xwzn2Ye/3/RHWKQ+5s7Hg4maBaap
- gK86ISfHlAxBXIai9JqpqsDg7NdAcIeA+saiXsWlLTsAjT3CWUUp/g79sm22vLxDV0
- FlOBRqtz3uBSf8G43FISiKpdJB9AW0nIzIZi695E2UoAvhFmGOFpgiXG3cygRaved8
- C+No/iOvGQcDCp9jUXBY73wpFGore0tmzO7ESnlkKZthVOjSxSTPA5xkes2Owv/2M9
- G7KJpFVICFZIQ==
-X-Nifty-SrcIP: [126.90.211.135]
-From: Masahiro Yamada <masahiroy@kernel.org>
-To: linux-kbuild@vger.kernel.org
-Subject: [PATCH] kbuild: preprocess module linker script
-Date: Fri,  4 Sep 2020 22:31:21 +0900
-Message-Id: <20200904133122.133071-1-masahiroy@kernel.org>
-X-Mailer: git-send-email 2.25.1
+ id 1kECD0-0002y4-GT
+ for linux-riscv@lists.infradead.org; Fri, 04 Sep 2020 13:56:55 +0000
+Received: by mail-wr1-x442.google.com with SMTP id w5so6850085wrp.8
+ for <linux-riscv@lists.infradead.org>; Fri, 04 Sep 2020 06:56:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20150623.gappssmtp.com; s=20150623;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=B3CfhOVBGf9H9WuZ53+AjLGNuQZrbQHmVtlD/DJasis=;
+ b=fdRk2pV//7myN++zX937AgchN/lF0cwlO5vO83mfaGxBG4q2HNIp6zqYMK+Zt8XOrY
+ NjIrgYIWeNUh7JSDxmG4kHraRhjqpHbzpktsGfa+SbGMh8a1sbPyoF7IpXSqtyfgCZgb
+ FjYvTaKTlO6LYbE6ZfU35PIcl9HijlW13E5wiZ3iwZzpaAqnbWl0F90OQZckY/wZU1gf
+ A7VBE9ubp+vKLCJg6fKumSbKRAtz1MrQAzug3FVEuNdgU48dFmCQgmCLn7cJ0gcWBPA2
+ 7tqETp6BTfcc3ari0Ghn5Ue2uktePy4RJzl6OEpDYyEMYCo7NS+BaGeEN2Hb/6BUmrOC
+ /SQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=B3CfhOVBGf9H9WuZ53+AjLGNuQZrbQHmVtlD/DJasis=;
+ b=YOtna+31z4GHUNocuPvuuA8JTofL3jGnzcHI80uZm6aWcGBxi0es3CyLcEtVs8OBwn
+ srwFmiUSqAILoSO9o8UEzwsGz+HhtG63rxd8TqqeDWy9vWz2HvkIH38Xqvnv9sZ/M/Q0
+ atLOCI2Z54oGVp+DiL+l+1d++ynZ8oNIvF34+dzlcBxm8mwH692foDAMexcfrsT0v11N
+ ozPB30D3v6DQXaCITFvxhUNMLMR4xo0N6p85tRUrH2UpY1cDZmKDXkA68PmzJJTn5SZ/
+ NEcFAD0UJKbh69f0GVR257wfcos9HHKHQEO0kHGZWtbGi0g6KWCPfDidYyZZF/sqPidO
+ uweQ==
+X-Gm-Message-State: AOAM530msMBUYliGirGLV8Zvnvek5lLDiJJFuZZfPAzCAzyviuLvmdAc
+ BKDvPxIYYWL5lUXqFlAh13SmLVRkcTK3/Z/1xvxOKw==
+X-Google-Smtp-Source: ABdhPJy/VGdC6pW/0FhrX+k0bZPZot8TzrPX4TwKJOQtaQsxu0J0wg1pUbQsc0YgMyp5M+kryqPhp8FcaB2m6mL+Fk0=
+X-Received: by 2002:adf:eecb:: with SMTP id a11mr7878596wrp.356.1599227813312; 
+ Fri, 04 Sep 2020 06:56:53 -0700 (PDT)
 MIME-Version: 1.0
+References: <mhng-32c8d053-acbd-4c72-b41d-8d6042ac639d@palmerdabbelt-glaptop1>
+ <CAHk-=wi_tf4qsiBj5UD0GG3wz8Hi5NrHzqdrx+CwtfAY+_UiGg@mail.gmail.com>
+ <20200904083109.GA9182@infradead.org>
+ <CAAhSdy3S8FfMAWih_VoBHw0xd-7c=urzuJ+PPdug9iX_pWyTsQ@mail.gmail.com>
+ <20200904094617.GA27846@infradead.org>
+ <CAAhSdy2x0ROqoTzzZRZgKCTL99WPy-8e4CQ921sf-=GQDm_gxA@mail.gmail.com>
+ <f1be6ee1-0802-82ca-ffdb-4c294925cd9a@kylinos.com.cn>
+ <20200904130044.GA7842@infradead.org>
+In-Reply-To: <20200904130044.GA7842@infradead.org>
+From: Anup Patel <anup@brainfault.org>
+Date: Fri, 4 Sep 2020 19:26:41 +0530
+Message-ID: <CAAhSdy2N8L015z0-RirjXLjdzt+OrCtzzKzivsMeQXoH9Nc8Cw@mail.gmail.com>
+Subject: Re: [GIT PULL] RISC-V Fixes for 5.9-rc2
+To: Christoph Hellwig <hch@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200904_093304_327759_9A6A1383 
-X-CRM114-Status: GOOD (  21.81  )
+X-CRM114-CacheID: sfid-20200904_095654_679184_7C08FEAE 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -75,343 +95,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-ia64@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Paul Mackerras <paulus@samba.org>,
- linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>,
- Ard Biesheuvel <ardb@kernel.org>,
- Anton Ivanov <anton.ivanov@cambridgegreys.com>, linux-arch@vger.kernel.org,
- Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
- Richard Weinberger <richard@nod.at>, Masahiro Yamada <masahiroy@kernel.org>,
- Russell King <linux@armlinux.org.uk>, Ingo Molnar <mingo@redhat.com>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Fenghua Yu <fenghua.yu@intel.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Kees Cook <keescook@chromium.org>, Arnd Bergmann <arnd@arndb.de>,
- Jeff Dike <jdike@addtoit.com>, Jessica Yu <jeyu@kernel.org>,
- linux-um@lists.infradead.org, linux-m68k@lists.linux-m68k.org,
- Tony Luck <tony.luck@intel.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-arm-kernel@lists.infradead.org, Michal Marek <michal.lkml@markovi.net>,
- linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
- Michael Ellerman <mpe@ellerman.id.au>, linuxppc-dev@lists.ozlabs.org
+Cc: Linus Torvalds <torvalds@linux-foundation.org>,
+ Qiu Wenbo <qiuwenbo@kylinos.com.cn>, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There was a request to preprocess the module linker script like we do
-for the vmlinux one (https://lkml.org/lkml/2020/8/21/512).
+On Fri, Sep 4, 2020 at 6:30 PM Christoph Hellwig <hch@infradead.org> wrote:
+>
+> On Fri, Sep 04, 2020 at 08:58:25PM +0800, Qiu Wenbo wrote:
+> > I can confirm this patch also breaks K210 support. It seems that
+> > csr_read(CSR_TIME) will trigger an illegal instruction exception on K210.
+>
+> CSR_TIME is trapped by just about every implementation I know (which is
+> explicitly allowed by the spec).  That is why we should never use it
+> from common M-mode code.
 
-The difference between vmlinux.lds and module.lds is that the latter
-is needed for external module builds, thus must be cleaned up by
-'make mrproper' instead of 'make clean' (also, it must be created by
-'make modules_prepare').
+Finally, I was able to replicate this issue by manually hacking QEMU to
+not emulatie TIME CSR for virt machine.
 
-You cannot put it in arch/*/kernel/ because 'make clean' descends into
-it. I moved arch/*/kernel/module.lds to arch/*/include/asm/module.lds.h,
-which is included from scripts/module.lds.S.
+It seems this issue is only seen on older QEMU and Kendrtye K210.
 
-scripts/module.lds is fine because 'make clean' keeps all the build
-artifacts under scripts/.
+I am working on a fix for this issue.
 
-You can add arch-specific sections in <asm/module.lds.h>.
+Thanks for reporting.
 
-Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
-Tested-by: Jessica Yu <jeyu@kernel.org>
----
-
- Makefile                                               |  1 -
- arch/arm/Makefile                                      |  4 ----
- .../{kernel/module.lds => include/asm/module.lds.h}    |  2 ++
- arch/arm64/Makefile                                    |  4 ----
- .../{kernel/module.lds => include/asm/module.lds.h}    |  2 ++
- arch/ia64/Makefile                                     |  1 -
- arch/ia64/{module.lds => include/asm/module.lds.h}     |  0
- arch/m68k/Makefile                                     |  1 -
- .../{kernel/module.lds => include/asm/module.lds.h}    |  0
- arch/powerpc/Makefile                                  |  1 -
- .../{kernel/module.lds => include/asm/module.lds.h}    |  0
- arch/riscv/Makefile                                    |  3 ---
- .../{kernel/module.lds => include/asm/module.lds.h}    |  3 ++-
- arch/um/include/asm/Kbuild                             |  1 +
- include/asm-generic/Kbuild                             |  1 +
- include/asm-generic/module.lds.h                       | 10 ++++++++++
- scripts/.gitignore                                     |  1 +
- scripts/Makefile                                       |  2 ++
- scripts/Makefile.modfinal                              |  5 ++---
- scripts/{module-common.lds => module.lds.S}            |  3 +++
- scripts/package/builddeb                               |  2 +-
- 21 files changed, 27 insertions(+), 20 deletions(-)
- rename arch/arm/{kernel/module.lds => include/asm/module.lds.h} (72%)
- rename arch/arm64/{kernel/module.lds => include/asm/module.lds.h} (76%)
- rename arch/ia64/{module.lds => include/asm/module.lds.h} (100%)
- rename arch/m68k/{kernel/module.lds => include/asm/module.lds.h} (100%)
- rename arch/powerpc/{kernel/module.lds => include/asm/module.lds.h} (100%)
- rename arch/riscv/{kernel/module.lds => include/asm/module.lds.h} (84%)
- create mode 100644 include/asm-generic/module.lds.h
- rename scripts/{module-common.lds => module.lds.S} (93%)
-
-diff --git a/Makefile b/Makefile
-index 9cac6fde3479..3d9b56c6b47e 100644
---- a/Makefile
-+++ b/Makefile
-@@ -506,7 +506,6 @@ KBUILD_CFLAGS_KERNEL :=
- KBUILD_AFLAGS_MODULE  := -DMODULE
- KBUILD_CFLAGS_MODULE  := -DMODULE
- KBUILD_LDFLAGS_MODULE :=
--export KBUILD_LDS_MODULE := $(srctree)/scripts/module-common.lds
- KBUILD_LDFLAGS :=
- CLANG_FLAGS :=
- 
-diff --git a/arch/arm/Makefile b/arch/arm/Makefile
-index 4e877354515f..a0cb15de9677 100644
---- a/arch/arm/Makefile
-+++ b/arch/arm/Makefile
-@@ -16,10 +16,6 @@ LDFLAGS_vmlinux	+= --be8
- KBUILD_LDFLAGS_MODULE	+= --be8
- endif
- 
--ifeq ($(CONFIG_ARM_MODULE_PLTS),y)
--KBUILD_LDS_MODULE	+= $(srctree)/arch/arm/kernel/module.lds
--endif
--
- GZFLAGS		:=-9
- #KBUILD_CFLAGS	+=-pipe
- 
-diff --git a/arch/arm/kernel/module.lds b/arch/arm/include/asm/module.lds.h
-similarity index 72%
-rename from arch/arm/kernel/module.lds
-rename to arch/arm/include/asm/module.lds.h
-index 79cb6af565e5..0e7cb4e314b4 100644
---- a/arch/arm/kernel/module.lds
-+++ b/arch/arm/include/asm/module.lds.h
-@@ -1,5 +1,7 @@
- /* SPDX-License-Identifier: GPL-2.0 */
-+#ifdef CONFIG_ARM_MODULE_PLTS
- SECTIONS {
- 	.plt : { BYTE(0) }
- 	.init.plt : { BYTE(0) }
- }
-+#endif
-diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
-index 55bc8546d9c7..232547ec07d8 100644
---- a/arch/arm64/Makefile
-+++ b/arch/arm64/Makefile
-@@ -115,10 +115,6 @@ endif
- 
- CHECKFLAGS	+= -D__aarch64__
- 
--ifeq ($(CONFIG_ARM64_MODULE_PLTS),y)
--KBUILD_LDS_MODULE	+= $(srctree)/arch/arm64/kernel/module.lds
--endif
--
- ifeq ($(CONFIG_DYNAMIC_FTRACE_WITH_REGS),y)
-   KBUILD_CPPFLAGS += -DCC_USING_PATCHABLE_FUNCTION_ENTRY
-   CC_FLAGS_FTRACE := -fpatchable-function-entry=2
-diff --git a/arch/arm64/kernel/module.lds b/arch/arm64/include/asm/module.lds.h
-similarity index 76%
-rename from arch/arm64/kernel/module.lds
-rename to arch/arm64/include/asm/module.lds.h
-index 22e36a21c113..691f15af788e 100644
---- a/arch/arm64/kernel/module.lds
-+++ b/arch/arm64/include/asm/module.lds.h
-@@ -1,5 +1,7 @@
-+#ifdef CONFIG_ARM64_MODULE_PLTS
- SECTIONS {
- 	.plt (NOLOAD) : { BYTE(0) }
- 	.init.plt (NOLOAD) : { BYTE(0) }
- 	.text.ftrace_trampoline (NOLOAD) : { BYTE(0) }
- }
-+#endif
-diff --git a/arch/ia64/Makefile b/arch/ia64/Makefile
-index 2876a7df1b0a..703b1c4f6d12 100644
---- a/arch/ia64/Makefile
-+++ b/arch/ia64/Makefile
-@@ -20,7 +20,6 @@ CHECKFLAGS	+= -D__ia64=1 -D__ia64__=1 -D_LP64 -D__LP64__
- 
- OBJCOPYFLAGS	:= --strip-all
- LDFLAGS_vmlinux	:= -static
--KBUILD_LDS_MODULE += $(srctree)/arch/ia64/module.lds
- KBUILD_AFLAGS_KERNEL := -mconstant-gp
- EXTRA		:=
- 
-diff --git a/arch/ia64/module.lds b/arch/ia64/include/asm/module.lds.h
-similarity index 100%
-rename from arch/ia64/module.lds
-rename to arch/ia64/include/asm/module.lds.h
-diff --git a/arch/m68k/Makefile b/arch/m68k/Makefile
-index 4438ffb4bbe1..ea14f2046fb4 100644
---- a/arch/m68k/Makefile
-+++ b/arch/m68k/Makefile
-@@ -75,7 +75,6 @@ KBUILD_CPPFLAGS += -D__uClinux__
- endif
- 
- KBUILD_LDFLAGS := -m m68kelf
--KBUILD_LDS_MODULE += $(srctree)/arch/m68k/kernel/module.lds
- 
- ifdef CONFIG_SUN3
- LDFLAGS_vmlinux = -N
-diff --git a/arch/m68k/kernel/module.lds b/arch/m68k/include/asm/module.lds.h
-similarity index 100%
-rename from arch/m68k/kernel/module.lds
-rename to arch/m68k/include/asm/module.lds.h
-diff --git a/arch/powerpc/Makefile b/arch/powerpc/Makefile
-index 3e8da9cf2eb9..8935658fcd06 100644
---- a/arch/powerpc/Makefile
-+++ b/arch/powerpc/Makefile
-@@ -65,7 +65,6 @@ UTS_MACHINE := $(subst $(space),,$(machine-y))
- ifdef CONFIG_PPC32
- KBUILD_LDFLAGS_MODULE += arch/powerpc/lib/crtsavres.o
- else
--KBUILD_LDS_MODULE += $(srctree)/arch/powerpc/kernel/module.lds
- ifeq ($(call ld-ifversion, -ge, 225000000, y),y)
- # Have the linker provide sfpr if possible.
- # There is a corresponding test in arch/powerpc/lib/Makefile
-diff --git a/arch/powerpc/kernel/module.lds b/arch/powerpc/include/asm/module.lds.h
-similarity index 100%
-rename from arch/powerpc/kernel/module.lds
-rename to arch/powerpc/include/asm/module.lds.h
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index fb6e37db836d..8edaa8bd86d6 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -53,9 +53,6 @@ endif
- ifeq ($(CONFIG_CMODEL_MEDANY),y)
- 	KBUILD_CFLAGS += -mcmodel=medany
- endif
--ifeq ($(CONFIG_MODULE_SECTIONS),y)
--	KBUILD_LDS_MODULE += $(srctree)/arch/riscv/kernel/module.lds
--endif
- ifeq ($(CONFIG_PERF_EVENTS),y)
-         KBUILD_CFLAGS += -fno-omit-frame-pointer
- endif
-diff --git a/arch/riscv/kernel/module.lds b/arch/riscv/include/asm/module.lds.h
-similarity index 84%
-rename from arch/riscv/kernel/module.lds
-rename to arch/riscv/include/asm/module.lds.h
-index 295ecfb341a2..4254ff2ff049 100644
---- a/arch/riscv/kernel/module.lds
-+++ b/arch/riscv/include/asm/module.lds.h
-@@ -1,8 +1,9 @@
- /* SPDX-License-Identifier: GPL-2.0 */
- /* Copyright (C) 2017 Andes Technology Corporation */
--
-+#ifdef CONFIG_MODULE_SECTIONS
- SECTIONS {
- 	.plt (NOLOAD) : { BYTE(0) }
- 	.got (NOLOAD) : { BYTE(0) }
- 	.got.plt (NOLOAD) : { BYTE(0) }
- }
-+#endif
-diff --git a/arch/um/include/asm/Kbuild b/arch/um/include/asm/Kbuild
-index 8d435f8a6dec..1c63b260ecc4 100644
---- a/arch/um/include/asm/Kbuild
-+++ b/arch/um/include/asm/Kbuild
-@@ -16,6 +16,7 @@ generic-y += kdebug.h
- generic-y += mcs_spinlock.h
- generic-y += mm-arch-hooks.h
- generic-y += mmiowb.h
-+generic-y += module.lds.h
- generic-y += param.h
- generic-y += pci.h
- generic-y += percpu.h
-diff --git a/include/asm-generic/Kbuild b/include/asm-generic/Kbuild
-index 74b0612601dd..7cd4e627e00e 100644
---- a/include/asm-generic/Kbuild
-+++ b/include/asm-generic/Kbuild
-@@ -40,6 +40,7 @@ mandatory-y += mmiowb.h
- mandatory-y += mmu.h
- mandatory-y += mmu_context.h
- mandatory-y += module.h
-+mandatory-y += module.lds.h
- mandatory-y += msi.h
- mandatory-y += pci.h
- mandatory-y += percpu.h
-diff --git a/include/asm-generic/module.lds.h b/include/asm-generic/module.lds.h
-new file mode 100644
-index 000000000000..f210d5c1b78b
---- /dev/null
-+++ b/include/asm-generic/module.lds.h
-@@ -0,0 +1,10 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+#ifndef __ASM_GENERIC_MODULE_LDS_H
-+#define __ASM_GENERIC_MODULE_LDS_H
-+
-+/*
-+ * <asm/module.lds.h> can specify arch-specific sections for linking modules.
-+ * Empty for the asm-generic header.
-+ */
-+
-+#endif /* __ASM_GENERIC_MODULE_LDS_H */
-diff --git a/scripts/.gitignore b/scripts/.gitignore
-index 0d1c8e217cd7..a6c11316c969 100644
---- a/scripts/.gitignore
-+++ b/scripts/.gitignore
-@@ -8,3 +8,4 @@ asn1_compiler
- extract-cert
- sign-file
- insert-sys-cert
-+/module.lds
-diff --git a/scripts/Makefile b/scripts/Makefile
-index bc018e4b733e..a5058bfdd0f6 100644
---- a/scripts/Makefile
-+++ b/scripts/Makefile
-@@ -29,6 +29,8 @@ endif
- # The following programs are only built on demand
- hostprogs += unifdef
- 
-+always-$(CONFIG_MODULES)	+= module.lds
-+
- subdir-$(CONFIG_GCC_PLUGINS) += gcc-plugins
- subdir-$(CONFIG_MODVERSIONS) += genksyms
- subdir-$(CONFIG_SECURITY_SELINUX) += selinux
-diff --git a/scripts/Makefile.modfinal b/scripts/Makefile.modfinal
-index 411c1e600e7d..ae01baf96f4e 100644
---- a/scripts/Makefile.modfinal
-+++ b/scripts/Makefile.modfinal
-@@ -33,11 +33,10 @@ quiet_cmd_ld_ko_o = LD [M]  $@
-       cmd_ld_ko_o =                                                     \
- 	$(LD) -r $(KBUILD_LDFLAGS)					\
- 		$(KBUILD_LDFLAGS_MODULE) $(LDFLAGS_MODULE)		\
--		$(addprefix -T , $(KBUILD_LDS_MODULE))			\
--		-o $@ $(filter %.o, $^);				\
-+		-T scripts/module.lds -o $@ $(filter %.o, $^);		\
- 	$(if $(ARCH_POSTLINK), $(MAKE) -f $(ARCH_POSTLINK) $@, true)
- 
--$(modules): %.ko: %.o %.mod.o $(KBUILD_LDS_MODULE) FORCE
-+$(modules): %.ko: %.o %.mod.o scripts/module.lds FORCE
- 	+$(call if_changed,ld_ko_o)
- 
- targets += $(modules) $(modules:.ko=.mod.o)
-diff --git a/scripts/module-common.lds b/scripts/module.lds.S
-similarity index 93%
-rename from scripts/module-common.lds
-rename to scripts/module.lds.S
-index d61b9e8678e8..69b9b71a6a47 100644
---- a/scripts/module-common.lds
-+++ b/scripts/module.lds.S
-@@ -24,3 +24,6 @@ SECTIONS {
- 
- 	__jump_table		0 : ALIGN(8) { KEEP(*(__jump_table)) }
- }
-+
-+/* bring in arch-specific sections */
-+#include <asm/module.lds.h>
-diff --git a/scripts/package/builddeb b/scripts/package/builddeb
-index 6df3c9f8b2da..44f212e37935 100755
---- a/scripts/package/builddeb
-+++ b/scripts/package/builddeb
-@@ -55,7 +55,7 @@ deploy_kernel_headers () {
- 		cd $srctree
- 		find . arch/$SRCARCH -maxdepth 1 -name Makefile\*
- 		find include scripts -type f -o -type l
--		find arch/$SRCARCH -name module.lds -o -name Kbuild.platforms -o -name Platform
-+		find arch/$SRCARCH -name Kbuild.platforms -o -name Platform
- 		find $(find arch/$SRCARCH -name include -o -name scripts -type d) -type f
- 	) > debian/hdrsrcfiles
- 
--- 
-2.25.1
-
+Regards,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
