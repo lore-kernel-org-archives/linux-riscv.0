@@ -5,19 +5,19 @@ X-Spam-Level:
 X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D7002C43461
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2020 16:52:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DAA95C2BC84
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2020 16:52:47 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9B67E20795
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2020 16:52:44 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 9DA1F20795
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2020 16:52:47 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="20slzsTH";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="QRJAW0fI"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9B67E20795
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pELkqPpD";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="ddXIcKY6"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9DA1F20795
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,39 +26,39 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=ilADV5/DsC4FK80DTortcMrSY4ioDW6oGn1vKHAWOaY=; b=20slzsTHuFNjYf+p9fOAC4HAV
-	7v02Nv0Sg1SozDqbZpqyc96pjbc67asxtkzg3S/D+FZgionQiw9ISipBcyNGmTme2GRAfiBOXp9pD
-	a+kP96RUWwzczv633GkdjWMOTAJvO8AwjMQKliNF4lQs3qWkBUwNmDUbU7ZOPNok8orI5iLXgPQiO
-	I1ecBe09V9G2EPqPpG9ElLCBcxbuXeM/UrouMxXYnty+OEyIfWfBTHGdVQhEdRXt0GXzsoe3psI9Z
-	V7WKEwiEhsoQkICL+ZbJzM/2ythY8t/OiL20RmuB0M2ue+Y2uDQHcnNaOH1uyzjzbmvxpwmjsClu8
-	sWYJDARTQ==;
+	 bh=yU3PHNFOwyCf5wBeY/d/B42g11L2uV6BL0mVznSwNRE=; b=pELkqPpDKP7KFs8hxh8K+iiGc
+	T/aKnqjtgLl3wKiLqa1HZFP0ddTD5FGvHCERNfyB32j1tz4/qQdXrE68WYxTTMNr9yS7Bd0HiS2/+
+	g2xl32d/YLoztakw3qybIFDz2ludnflrd88GNKx9bpDgm9imbPuK7ofXEA10uLfwtjamep0ZFdn+Q
+	LNWCFmQx8b1WQrjp/YxrcUGn0OouWKleRdvf4bDnXVxNSjLLd8/+NBLwmKK08HvU+VnmfwOkP4I+t
+	8UdAj+ifhix1jk/r97Ck5hM0cNxmg5IxQl2oOCD3C4OAGLxSTi1kJf9ToMJSdwEDF4ze8NaEDkePK
+	+n2V/jmuA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kEEww-0004MF-11; Fri, 04 Sep 2020 16:52:30 +0000
+	id 1kEEwz-0004O6-Jl; Fri, 04 Sep 2020 16:52:33 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kEEwu-0004L7-4V
- for linux-riscv@merlin.infradead.org; Fri, 04 Sep 2020 16:52:28 +0000
+ id 1kEEww-0004MH-DC
+ for linux-riscv@merlin.infradead.org; Fri, 04 Sep 2020 16:52:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
  References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
  Content-Type:Content-ID:Content-Description;
- bh=z6FrPI5pfWglKEe2pj/imUUyPmjDs6Ef6TL0vmFolDw=; b=QRJAW0fIPyQOFck8NZz8+J8QAh
- tQz3XVo7IRLg/xzZlu4h1Frf917l4s78/cVE9CrswEyQv7Hm/ZnxZyJ/xzbCoxmwNi/fKXFqnreoE
- O9pL1dYFf786RT6eKt05tWZ8kAwOlVHtQSEUk2nE28HaagGia9hFVd92pny4QYPPzZh5vuIDL8J7F
- NK7CU52rymoXuCDSm3EFBAVEmossFOaQuccfcnz/VwyXgaQw54lkFg2ZKnkgXFEoRoydMKRJ4TeAS
- diLAcm1rgFheDfvikUKKzkjlYU3E1SYBxQueLjcvTHIuUCVeJyyvMQ+7RN++cTe0+H48/plpAAxyn
- G5Pm0J1w==;
+ bh=m+ZhzJSNyKv4ho4WyRpE+IYeLmm+BOA5yzpJjCDM1ow=; b=ddXIcKY60h2GtegrbJbt6w/IYp
+ MCdL/QuDY0/L5BnyUBTiAWQKfM2cn0Ftww8nYT/baLgEQ6IAiKBqQwckx4M2z67pTG76IKDoP3wcA
+ CrTiJJjIGqekbJlaAZPb22F+w6lD5MPqLXFxGpzdpwrM6KQxBInAC4mMJpxZYkksBfXCo3sEg+iuL
+ 9aTWQmdMwSZJoNXSD6qvs8T2iBlyYhGw0+qKueRwiuxGo8Tf1a/kQl8qOt3qF8n7UcpAQqWUgHBQg
+ Km+x+wO9pChmh0Fwb0xatNm50+Xo0Az2F04fD0uCan52AJ3n9wi/TEsDElrN2N7l2iaa8AcWk04Sx
+ V3/MwNhw==;
 Received: from [2001:4bb8:184:af1:704:22b1:700d:1395] (helo=localhost)
  by casper.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kEEws-00013P-U2; Fri, 04 Sep 2020 16:52:27 +0000
+ id 1kEEwv-00014M-5N; Fri, 04 Sep 2020 16:52:29 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Arnd Bergmann <arnd@arndb.de>,
  Alexander Viro <viro@zeniv.linux.org.uk>
-Subject: [PATCH 6/8] riscv: refactor __get_user and __put_user
-Date: Fri,  4 Sep 2020 18:52:14 +0200
-Message-Id: <20200904165216.1799796-7-hch@lst.de>
+Subject: [PATCH 8/8] riscv: remove address space overrides using set_fs()
+Date: Fri,  4 Sep 2020 18:52:16 +0200
+Message-Id: <20200904165216.1799796-9-hch@lst.de>
 X-Mailer: git-send-email 2.28.0
 In-Reply-To: <20200904165216.1799796-1-hch@lst.de>
 References: <20200904165216.1799796-1-hch@lst.de>
@@ -83,199 +83,117 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add new __get_user_nocheck and __put_user_nocheck that switch on the size
-and call the actual inline assembly helpers, and move the uaccess enable
-/ disable into the actual __get_user and __put_user.  This prepares for
-natively implementing __get_kernel_nofault and __put_kernel_nofault.
-
-Also don't bother with the deprecated register keyword for the error
-return.
+Stop providing the possibility to override the address space using
+set_fs() now that there is no need for that any more.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
 ---
- arch/riscv/include/asm/uaccess.h | 94 ++++++++++++++++++--------------
- 1 file changed, 52 insertions(+), 42 deletions(-)
+ arch/riscv/Kconfig                   |  1 -
+ arch/riscv/include/asm/thread_info.h |  6 ------
+ arch/riscv/include/asm/uaccess.h     | 27 +--------------------------
+ arch/riscv/kernel/process.c          |  1 -
+ 4 files changed, 1 insertion(+), 34 deletions(-)
 
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 460e3971a80fde..33dde87218ddab 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -86,7 +86,6 @@ config RISCV
+ 	select SPARSE_IRQ
+ 	select SYSCTL_EXCEPTION_TRACE
+ 	select THREAD_INFO_IN_TASK
+-	select SET_FS
+ 	select UACCESS_MEMCPY if !MMU
+ 
+ config ARCH_MMAP_RND_BITS_MIN
+diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
+index 464a2bbc97ea33..a390711129de64 100644
+--- a/arch/riscv/include/asm/thread_info.h
++++ b/arch/riscv/include/asm/thread_info.h
+@@ -24,10 +24,6 @@
+ #include <asm/processor.h>
+ #include <asm/csr.h>
+ 
+-typedef struct {
+-	unsigned long seg;
+-} mm_segment_t;
+-
+ /*
+  * low level task data that entry.S needs immediate access to
+  * - this struct should fit entirely inside of one cache line
+@@ -39,7 +35,6 @@ typedef struct {
+ struct thread_info {
+ 	unsigned long		flags;		/* low level flags */
+ 	int                     preempt_count;  /* 0=>preemptible, <0=>BUG */
+-	mm_segment_t		addr_limit;
+ 	/*
+ 	 * These stack pointers are overwritten on every system call or
+ 	 * exception.  SP is also saved to the stack it can be recovered when
+@@ -59,7 +54,6 @@ struct thread_info {
+ {						\
+ 	.flags		= 0,			\
+ 	.preempt_count	= INIT_PREEMPT_COUNT,	\
+-	.addr_limit	= KERNEL_DS,		\
+ }
+ 
+ #endif /* !__ASSEMBLY__ */
 diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
-index e8eedf22e90747..b67d1c616ec348 100644
+index 264e52fb62b143..c47e6b35c551f4 100644
 --- a/arch/riscv/include/asm/uaccess.h
 +++ b/arch/riscv/include/asm/uaccess.h
-@@ -107,7 +107,6 @@ static inline int __access_ok(unsigned long addr, unsigned long size)
- do {								\
- 	uintptr_t __tmp;					\
- 	__typeof__(x) __x;					\
--	__enable_user_access();					\
- 	__asm__ __volatile__ (					\
- 		"1:\n"						\
- 		"	" insn " %1, %3\n"			\
-@@ -125,7 +124,6 @@ do {								\
- 		"	.previous"				\
- 		: "+r" (err), "=&r" (__x), "=r" (__tmp)		\
- 		: "m" (*(ptr)), "i" (-EFAULT));			\
--	__disable_user_access();				\
- 	(x) = __x;						\
- } while (0)
+@@ -26,29 +26,6 @@
+ #define __disable_user_access()							\
+ 	__asm__ __volatile__ ("csrc sstatus, %0" : : "r" (SR_SUM) : "memory")
  
-@@ -138,7 +136,6 @@ do {								\
- 	u32 __user *__ptr = (u32 __user *)(ptr);		\
- 	u32 __lo, __hi;						\
- 	uintptr_t __tmp;					\
--	__enable_user_access();					\
- 	__asm__ __volatile__ (					\
- 		"1:\n"						\
- 		"	lw %1, %4\n"				\
-@@ -162,12 +159,30 @@ do {								\
- 			"=r" (__tmp)				\
- 		: "m" (__ptr[__LSW]), "m" (__ptr[__MSW]),	\
- 			"i" (-EFAULT));				\
--	__disable_user_access();				\
- 	(x) = (__typeof__(x))((__typeof__((x)-(x)))(		\
- 		(((u64)__hi << 32) | __lo)));			\
- } while (0)
- #endif /* CONFIG_64BIT */
- 
-+#define __get_user_nocheck(x, __gu_ptr, __gu_err)		\
-+do {								\
-+	switch (sizeof(*__gu_ptr)) {				\
-+	case 1:							\
-+		__get_user_asm("lb", (x), __gu_ptr, __gu_err);	\
-+		break;						\
-+	case 2:							\
-+		__get_user_asm("lh", (x), __gu_ptr, __gu_err);	\
-+		break;						\
-+	case 4:							\
-+		__get_user_asm("lw", (x), __gu_ptr, __gu_err);	\
-+		break;						\
-+	case 8:							\
-+		__get_user_8((x), __gu_ptr, __gu_err);	\
-+		break;						\
-+	default:						\
-+		BUILD_BUG();					\
-+	}							\
-+} while (0)
- 
+-/*
+- * The fs value determines whether argument validity checking should be
+- * performed or not.  If get_fs() == USER_DS, checking is performed, with
+- * get_fs() == KERNEL_DS, checking is bypassed.
+- *
+- * For historical reasons, these macros are grossly misnamed.
+- */
+-
+-#define MAKE_MM_SEG(s)	((mm_segment_t) { (s) })
+-
+-#define KERNEL_DS	MAKE_MM_SEG(~0UL)
+-#define USER_DS		MAKE_MM_SEG(TASK_SIZE)
+-
+-#define get_fs()	(current_thread_info()->addr_limit)
+-
+-static inline void set_fs(mm_segment_t fs)
+-{
+-	current_thread_info()->addr_limit = fs;
+-}
+-
+-#define uaccess_kernel() (get_fs().seg == KERNEL_DS.seg)
+-#define user_addr_max()	(get_fs().seg)
+-
  /**
-  * __get_user: - Get a simple variable from user space, with less checking.
-@@ -191,25 +206,15 @@ do {								\
+  * access_ok: - Checks if a user space pointer is valid
+  * @addr: User space pointer to start of block to check
+@@ -76,9 +53,7 @@ static inline void set_fs(mm_segment_t fs)
   */
- #define __get_user(x, ptr)					\
- ({								\
--	register long __gu_err = 0;				\
- 	const __typeof__(*(ptr)) __user *__gu_ptr = (ptr);	\
-+	long __gu_err = 0;					\
-+								\
- 	__chk_user_ptr(__gu_ptr);				\
--	switch (sizeof(*__gu_ptr)) {				\
--	case 1:							\
--		__get_user_asm("lb", (x), __gu_ptr, __gu_err);	\
--		break;						\
--	case 2:							\
--		__get_user_asm("lh", (x), __gu_ptr, __gu_err);	\
--		break;						\
--	case 4:							\
--		__get_user_asm("lw", (x), __gu_ptr, __gu_err);	\
--		break;						\
--	case 8:							\
--		__get_user_8((x), __gu_ptr, __gu_err);	\
--		break;						\
--	default:						\
--		BUILD_BUG();					\
--	}							\
-+								\
-+	__enable_user_access();					\
-+	__get_user_nocheck(x, __gu_ptr, __gu_err);		\
-+	__disable_user_access();				\
-+								\
- 	__gu_err;						\
- })
+ static inline int __access_ok(unsigned long addr, unsigned long size)
+ {
+-	const mm_segment_t fs = get_fs();
+-
+-	return size <= fs.seg && addr <= fs.seg - size;
++	return size <= TASK_SIZE && addr <= TASK_SIZE - size;
+ }
  
-@@ -243,7 +248,6 @@ do {								\
- do {								\
- 	uintptr_t __tmp;					\
- 	__typeof__(*(ptr)) __x = x;				\
--	__enable_user_access();					\
- 	__asm__ __volatile__ (					\
- 		"1:\n"						\
- 		"	" insn " %z3, %2\n"			\
-@@ -260,7 +264,6 @@ do {								\
- 		"	.previous"				\
- 		: "+r" (err), "=r" (__tmp), "=m" (*(ptr))	\
- 		: "rJ" (__x), "i" (-EFAULT));			\
--	__disable_user_access();				\
- } while (0)
+ /*
+diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+index 2b97c493427c9e..19225ec65db62f 100644
+--- a/arch/riscv/kernel/process.c
++++ b/arch/riscv/kernel/process.c
+@@ -84,7 +84,6 @@ void start_thread(struct pt_regs *regs, unsigned long pc,
+ 	}
+ 	regs->epc = pc;
+ 	regs->sp = sp;
+-	set_fs(USER_DS);
+ }
  
- #ifdef CONFIG_64BIT
-@@ -272,7 +275,6 @@ do {								\
- 	u32 __user *__ptr = (u32 __user *)(ptr);		\
- 	u64 __x = (__typeof__((x)-(x)))(x);			\
- 	uintptr_t __tmp;					\
--	__enable_user_access();					\
- 	__asm__ __volatile__ (					\
- 		"1:\n"						\
- 		"	sw %z4, %2\n"				\
-@@ -294,10 +296,28 @@ do {								\
- 			"=m" (__ptr[__LSW]),			\
- 			"=m" (__ptr[__MSW])			\
- 		: "rJ" (__x), "rJ" (__x >> 32), "i" (-EFAULT));	\
--	__disable_user_access();				\
- } while (0)
- #endif /* CONFIG_64BIT */
- 
-+#define __put_user_nocheck(x, __gu_ptr, __pu_err)					\
-+do {								\
-+	switch (sizeof(*__gu_ptr)) {				\
-+	case 1:							\
-+		__put_user_asm("sb", (x), __gu_ptr, __pu_err);	\
-+		break;						\
-+	case 2:							\
-+		__put_user_asm("sh", (x), __gu_ptr, __pu_err);	\
-+		break;						\
-+	case 4:							\
-+		__put_user_asm("sw", (x), __gu_ptr, __pu_err);	\
-+		break;						\
-+	case 8:							\
-+		__put_user_8((x), __gu_ptr, __pu_err);	\
-+		break;						\
-+	default:						\
-+		BUILD_BUG();					\
-+	}							\
-+} while (0)
- 
- /**
-  * __put_user: - Write a simple value into user space, with less checking.
-@@ -320,25 +340,15 @@ do {								\
-  */
- #define __put_user(x, ptr)					\
- ({								\
--	register long __pu_err = 0;				\
- 	__typeof__(*(ptr)) __user *__gu_ptr = (ptr);		\
-+	long __pu_err = 0;					\
-+								\
- 	__chk_user_ptr(__gu_ptr);				\
--	switch (sizeof(*__gu_ptr)) {				\
--	case 1:							\
--		__put_user_asm("sb", (x), __gu_ptr, __pu_err);	\
--		break;						\
--	case 2:							\
--		__put_user_asm("sh", (x), __gu_ptr, __pu_err);	\
--		break;						\
--	case 4:							\
--		__put_user_asm("sw", (x), __gu_ptr, __pu_err);	\
--		break;						\
--	case 8:							\
--		__put_user_8((x), __gu_ptr, __pu_err);	\
--		break;						\
--	default:						\
--		BUILD_BUG();					\
--	}							\
-+								\
-+	__enable_user_access();					\
-+	__put_user_nocheck(x, __gu_ptr, __pu_err);		\
-+	__disable_user_access();				\
-+								\
- 	__pu_err;						\
- })
- 
+ void flush_thread(void)
 -- 
 2.28.0
 
