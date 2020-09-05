@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9C5FAC433E2
-	for <linux-riscv@archiver.kernel.org>; Sat,  5 Sep 2020 05:53:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6F20AC43461
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Sep 2020 06:07:55 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C6B12208DB
-	for <linux-riscv@archiver.kernel.org>; Sat,  5 Sep 2020 05:53:25 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id CC1F8208DB
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Sep 2020 06:07:54 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="BSlw8g7c";
-	dkim=temperror (0-bit key) header.d=messagingengine.com header.i=@messagingengine.com header.b="gaeAJ+xG"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C6B12208DB
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="JMUps30U";
+	dkim=temperror (0-bit key) header.d=messagingengine.com header.i=@messagingengine.com header.b="sIJrizAV"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CC1F8208DB
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,38 +26,38 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YNb/CC+hD0Y9cHBvMo/aY4UR9M/cuJfbgZZpe15TUnk=; b=BSlw8g7csRx/YfsNzwQpdaHqQF
-	wq7De8k5i6/0BwYL0Tpqnwl09ukYzQXHKN9NIU30pPj2Ql9sMFqXMSYXHoV8KuFpr1DBMxOkp8l1k
-	HXnRxwQ/rmJxiRiO/nfFblQ561lrADfL3SgTdcuNs57fdzpZ7Sxb6wRHkNkabMTBFYdc9gz9ONTTK
-	YYHlVbMy13XdBi7JHQ9sY6NJNs7GIV74KS6TGHZvxKtaRxbDsK0Y0nR9RzdtME4Carv6LTG/07s4O
-	pMmQYGMvNTEgus4cyT5lETJs2iN3znpS5l5RLkjTIiKja8416zndWzf3r0t2vp0z3yXMd+qY4vbAr
-	t0rs913w==;
+	bh=4WreczLwqpya1Af05Tj27kjYPoXrMk4beOOcVURZ7Vo=; b=JMUps30UGwzvRTYd6Z2iLW8huV
+	knB2onWYcFTykfbQzk0unSzUFHR3aS2HywX8SVkRz4ySHvMMU6x3cGEZH2/q6eP4Ox8g6Xn/KRH9r
+	BQHEi9RfiF0E6BP+FOPxUdYhYWWQ89MMDuMQT88MZPBLs0uyiB6jSTqBh+HKKl0OZchGSeUy3vXVW
+	G4vzBXKdipOP9XcjsIIBJ+W4xJOKXmCYZyCS4oJYlH9KjPy7D+FMpT7U9etc3sDZg1PKw8PkcunOR
+	0awHqjQPY9/14zttGs6OnuCp+PmMe+4d9A4RqfO2iKmYTFqvWMRzcUtJ5vNGLSeAV98AiQvMO7/mq
+	cNnVQhrQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kER8R-0006vp-N3; Sat, 05 Sep 2020 05:53:11 +0000
+	id 1kERMU-0007eA-J7; Sat, 05 Sep 2020 06:07:42 +0000
 Received: from forward4-smtp.messagingengine.com ([66.111.4.238])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kER8P-0006vR-2V
- for linux-riscv@lists.infradead.org; Sat, 05 Sep 2020 05:53:10 +0000
+ id 1kERMS-0007dn-ET
+ for linux-riscv@lists.infradead.org; Sat, 05 Sep 2020 06:07:41 +0000
 Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
- by mailforward.nyi.internal (Postfix) with ESMTP id 37F5419402CB;
- Sat,  5 Sep 2020 01:53:02 -0400 (EDT)
+ by mailforward.nyi.internal (Postfix) with ESMTP id 107E119416EA;
+ Sat,  5 Sep 2020 02:07:39 -0400 (EDT)
 Received: from mailfrontend1 ([10.202.2.162])
- by compute4.internal (MEProxy); Sat, 05 Sep 2020 01:53:02 -0400
+ by compute4.internal (MEProxy); Sat, 05 Sep 2020 02:07:39 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
  messagingengine.com; h=cc:content-transfer-encoding:date:from
  :message-id:mime-version:subject:to:x-me-proxy:x-me-proxy
- :x-me-sender:x-me-sender:x-sasl-enc; s=fm3; bh=p/IqhxuUf+geXOUpq
- b/ae7GJFYBwZM31jPQfxJJcpwY=; b=gaeAJ+xGbSqG9JP9iIpuJPvovHS/xx4sN
- JVd8cmAAz8OhRjQ92+i5nOHSw1zvqHoyotWn70e7Iq+wCA7zHR7+zp5X0hAhMziw
- ZdAeTi8cAztfxXmfYz077s6lW8RKyS+z4xnGDyXq0erK/3Gd3ImmOxWmCsI7H+nt
- Ovuo02YtiNgpN1uwa8GJZV9R4ZJe7Mv6is8TcuzfUH4y442o9pmmYITKUtd+hbnU
- OP935luTeXMtHlghSdxVv4EMPVaCGb/VMOo9REfxxgO50OO2I9+/rFphiN0y/FZw
- fffWM+H6vQYgP6/Hmn6TX0ptlQpHHHCQeuJOi21eN3s8WAUVUMgjg==
-X-ME-Sender: <xms:vCdTX5kbtelNgA2uJKcsQT8md_GEZ27sDvP9oQG5dJ_TBz-gdMwHFw>
- <xme:vCdTX01S6p9ixFpVRHCxqyYmD3FkL4s9kSHAS036N7XhGA5RRBSzndlNaYPsEXHaD
- TH62Vf4-NX7M3gmJA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeduiedrudeggedguddtudcutefuodetggdotefrod
+ :x-me-sender:x-me-sender:x-sasl-enc; s=fm3; bh=hwdpGcWMy6s1+eLl8
+ +zjNCg8RTkZk5fWdap0A2pspVE=; b=sIJrizAVeqV+eOcKRx7D0L8TwnF45sbur
+ 6cyk0hR15KJJPWWhexTDx6pEYQzn41Kr17sOnWNqUKVBkAWsAxuWK6B98iFz0pIH
+ THyIgloIIwlEMU3vaFjauTf6JC8ReUsSVl1eLxxw/xU5AeG5kEKB6SLzequbxRPC
+ yMRakB4Lrhzu4df6hw1UXS3PNAJisvleDXzgem64k7FaMiIDFZTFN/3stgDlzwAg
+ 8bJvwgyQk4ixIlyE1zP6nfzMxHoRFqbZP3gsGBrPBoxAso3M0zijtU4C24n7AbMn
+ A+bKea4HdljN899kneMu6vYwmhKX9f8LzSoJ0xhz5G7BHicHWK0xg==
+X-ME-Sender: <xms:KitTXzduD8rjVIYSYRf5dMtMlSudYJsDgxPqtgX7yL8avL81yS7I5w>
+ <xme:KitTX5NzQXpvLSCxQTdTgtkcARjJW2Nb9MIkdeEsmQvlRA_1osmF7UWQhOKl1Td5v
+ kzPVZXSV9-UHF7Y3w>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeduiedrudeggedguddtgecutefuodetggdotefrod
  ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
  necuuegrihhlohhuthemuceftddtnecunecujfgurhephffvufffkffoggfgsedtkeertd
  ertddtnecuhfhrohhmpefrvghkkhgrucfgnhgsvghrghcuoehpvghnsggvrhhgsehkvghr
@@ -65,25 +65,26 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeduiedrudeggedguddtudcutefuodetgg
  elffdvgfefveeifeeujeelffdtgeefudevnecukfhppeeivddrjeekrddujeelrddufedu
  necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepphgvnh
  gsvghrgheskhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:vCdTX_qQEjkUVUgKTtGwpsaZSegrta_soycsrLBXjLkOzANPwhrrng>
- <xmx:vCdTX5nCg7KNBJpyFMfsm3c1LWfRT3Y-le_HLkLyo_4DKUQXRISnyA>
- <xmx:vCdTX30VP7JkA4SrkD-aLypirrjShLH_mfFfQjBan71-AUdgIc-hBQ>
- <xmx:vidTXyRPC0FqqbKXwjZHqiD6y8hRJ9DKurTCIabtReTDtS_hxBv98Q>
+X-ME-Proxy: <xmx:KitTX8ifmNi4ObFRV2EfbwiAQr10RSV29xexLdwRgOH6-FxfJQ3ghA>
+ <xmx:KitTX08kzVlTcI3u7iGg9F0i5GHwVsi5u_Fwpw2qEbtbIf3pNbKwRQ>
+ <xmx:KitTX_szD8Lc1sTO0wVpqBHYJZj86VdTmURYc59_J2Um8cH1dgz-TA>
+ <xmx:KytTX_Ia-_pgzsjSz5_zwum6iBXyBSJ_diYx9OhGaAiD3NvqQbqvSg>
 Received: from nero.bb.dnainternet.fi (62-78-179-131.bb.dnainternet.fi
  [62.78.179.131])
- by mail.messagingengine.com (Postfix) with ESMTPA id 298353280059;
- Sat,  5 Sep 2020 01:53:00 -0400 (EDT)
+ by mail.messagingengine.com (Postfix) with ESMTPA id E90E53280059;
+ Sat,  5 Sep 2020 02:07:37 -0400 (EDT)
 From: Pekka Enberg <penberg@kernel.org>
 To: linux-riscv@lists.infradead.org
-Subject: [PATCH for-next] riscv/mm/fault: Fix inline placement in
- vmalloc_fault() declaration
-Date: Sat,  5 Sep 2020 08:52:52 +0300
-Message-Id: <20200905055252.527753-1-penberg@kernel.org>
+Subject: [PATCH for-next] riscv/mm/fault: Set FAULT_FLAG_INSTRUCTION flag in
+ do_page_fault()
+Date: Sat,  5 Sep 2020 09:07:26 +0300
+Message-Id: <20200905060726.529182-1-penberg@kernel.org>
 X-Mailer: git-send-email 2.26.2
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200905_015309_258219_871CEF06 
-X-CRM114-Status: GOOD (  10.70  )
+X-CRM114-CacheID: sfid-20200905_020740_518643_63CEF8DD 
+X-CRM114-Status: UNSURE (   8.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -95,41 +96,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Pekka Enberg <penberg@kernel.org>, palmer@dabbelt.com,
- kernel test robot <lkp@intel.com>
+Cc: Pekka Enberg <penberg@kernel.org>, palmer@dabbelt.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The "inline" keyword is in the wrong place in vmalloc_fault()
-declaration:
+If the page fault "cause" is EXC_INST_PAGE_FAULT, set the
+FAULT_FLAG_INSTRUCTION flag to let handle_mm_fault() and friends know
+about it. This has no functional changes because RISC-V uses the default
+arch_vma_access_permitted() implementation, which always returns true.
+However, dax_pmd_fault(), for example, has a tracepoint that uses
+FAULT_FLAG_INSTRUCTION, so we might as well set it.
 
->> arch/riscv/mm/fault.c:56:1: warning: 'inline' is not at beginning of declaration [-Wold-style-declaration]
-      56 | static void inline vmalloc_fault(struct pt_regs *regs, int code, unsigned long addr)
-         | ^~~~~~
-
-Fix that up.
-
-Reported-by: kernel test robot <lkp@intel.com>
 Signed-off-by: Pekka Enberg <penberg@kernel.org>
 ---
- arch/riscv/mm/fault.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/riscv/mm/fault.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
-index a23eaf5ce95c..a173432ccf82 100644
+index a173432ccf82..1359e21c0c62 100644
 --- a/arch/riscv/mm/fault.c
 +++ b/arch/riscv/mm/fault.c
-@@ -78,7 +78,7 @@ static inline void bad_area(struct pt_regs *regs, struct mm_struct *mm, int code
- 	no_context(regs, addr);
- }
+@@ -234,7 +234,8 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
  
--static void inline vmalloc_fault(struct pt_regs *regs, int code, unsigned long addr)
-+static inline void vmalloc_fault(struct pt_regs *regs, int code, unsigned long addr)
- {
- 	pgd_t *pgd, *pgd_k;
- 	pud_t *pud, *pud_k;
+ 	if (cause == EXC_STORE_PAGE_FAULT)
+ 		flags |= FAULT_FLAG_WRITE;
+-
++	else if (cause == EXC_INST_PAGE_FAULT)
++		flags |= FAULT_FLAG_INSTRUCTION;
+ retry:
+ 	mmap_read_lock(mm);
+ 	vma = find_vma(mm, addr);
 -- 
 2.26.2
 
