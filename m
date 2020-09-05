@@ -1,60 +1,90 @@
-Return-Path: <SRS0=91Bs=CN=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=D0Wr=CO=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-7.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 68B24C433E2
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2020 22:35:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BE291C433E2
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Sep 2020 01:18:25 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7B86E207EA
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Sep 2020 22:35:41 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 27F0320797
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Sep 2020 01:18:24 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="A/u/7ZXb"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7B86E207EA
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=zeniv.linux.org.uk
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="evBiVFNs";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.b="WF/ZjbSv"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 27F0320797
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=4YzEg3SISEzG1lIgrCpnWyxqYXZjlO2TpTcE+WMjPfA=; b=A/u/7ZXb3Idd7Hu8N1Wn9oF56
-	4KNB/J7EuWZeAV0gROncqlq5CiMV55VEYoOow2FR0EVohJOnV6OOOmzSy0hyZQKR1RMB1SE26Fuk0
-	5mk3GCzQhCKyTXgKcLRkQ2vbOgl3fzfkcUFyofg593wDRPDUsalU4ku7CvvjuOOnw+bpRyZFG2cFT
-	x3XtjOCEVRSLXIhGlLmlyp4AAixaBBxusPoZvOggCLwCqJOb4f3NXfZQ6B/EoXFomNuItj3I4LY1b
-	GTVz0H3tMWjPRKLvcA/FYSn2m0eENS5pMTrIqoJAPfd15UF/e50j95WvaOpk5iRRptpVlnL+XT1SA
-	iGpyBK9Pw==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=l/ErKxsVdi7t2u8GpyX+z5xOOPgXfd+xtWL9W7hE7g4=; b=evBiVFNsco7Ps/Il274FCArt4
+	gTdxg77krTw8qnMcbPUgwmi3PsCgpNyhFXcF209EevdgfVFQhCUMn8r0XT3fkoeq/HGYMOLrve2UW
+	7Sm5hZeSHxISL65J8UMq/IlkKYlVz/+KAzlAJSYAYfrN2rU+Zwu8jWNNZSRXLQpK0p5zBmqXH2SCo
+	pWr8+B0K4WA2iPcxL6tQNiHmDfKMUk/6EX74TIb2wByv2/Y+Fg6RKZyK7gpYABWwtiM/wlClkOnaT
+	dn2QxeeVhGjy8JseThPJh2pvYgVf2yZUfhCR4sXPpAxQisizX8rd/S89DoxI7O/JgC1TDWOrW39z8
+	k3MmKGB7Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kEKIn-0003dY-Ip; Fri, 04 Sep 2020 22:35:25 +0000
-Received: from [2002:c35c:fd02::1] (helo=ZenIV.linux.org.uk)
+	id 1kEMq8-0005K2-Je; Sat, 05 Sep 2020 01:18:00 +0000
+Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kEKIk-0003d3-P2
- for linux-riscv@lists.infradead.org; Fri, 04 Sep 2020 22:35:23 +0000
-Received: from viro by ZenIV.linux.org.uk with local (Exim 4.92.3 #3 (Red Hat
- Linux)) id 1kEKIg-00AaHv-Ll; Fri, 04 Sep 2020 22:35:18 +0000
-Date: Fri, 4 Sep 2020 23:35:18 +0100
-From: Al Viro <viro@zeniv.linux.org.uk>
+ id 1kEMq6-0005JT-LZ
+ for linux-riscv@lists.infradead.org; Sat, 05 Sep 2020 01:17:59 +0000
+Received: by mail-pl1-x641.google.com with SMTP id q3so57949plr.13
+ for <linux-riscv@lists.infradead.org>; Fri, 04 Sep 2020 18:17:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=6m0dbKyQXxeXLEzMXpg1ctlvtrEkR+VkffHMyqwyVzk=;
+ b=WF/ZjbSvfAnFulSMTnjvqvM9DeHHhYL3gq4V2UQTBh/KOkxGxFhnroWUztIlfK1saf
+ q7TlVALn6ZbmB4L8/EpjFwEN8Mix3GNxBPWTLkST6ld58gXY6eeicawv4a2d0TwDg27I
+ 3tRAUoPpyCvpAxozykIYhItAU62gK8l3dyoqGHuTd4ZZMW6RnAx9LLTtkjfiQuEbECVx
+ Yi1wXYcjBJSddZGLoRKGhPPvc2yBRyt2CqY8GjelWceU86MOvKNkeFlqeIpZAonuiWMD
+ 6f9nwfWui4Mt/cHJ0GSo6IFks/F9FjDyK+IiRaTo3o7D3FlZDARe2CbJHzhBlv5wzpAM
+ XD1Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=6m0dbKyQXxeXLEzMXpg1ctlvtrEkR+VkffHMyqwyVzk=;
+ b=MNC5lftzdgaFIobuqG5MegtHlvggZtjI7VTw6/t3i5ZJqyKKfYjt3A2qsZSaCd3NYe
+ ColO6QQ42MWKuI7bRhN2QUDEGb+WQtypu868pKzJ1qNsDusnhkOB70/fs87wZBVbpxb1
+ rnKBi7jhwJWmFLj+nEyjjIlwg0rEryQS4v2bgHdsGAPSZu1YeoPlbpGvIYNdCQxy29tC
+ 3lB84OGsTp9f+j/8Uaj0cN1GzihKDuNwTP3WB7xtiW2SO6LXsYvosj8DMuKjgvkEPooA
+ JPtA/WcNfvP8u5Y42CIhgB0VtaoKRj9qGhWZn9lBJjivAbk3Ec6GwFNfnNsiZWHRxBgd
+ X/iw==
+X-Gm-Message-State: AOAM5326gS49mLWxcHVSXFSwtRL/WqBbsmVYnCA3sr5N6egzAuAjM9dE
+ /lQGBmgkwi/XmTr2fOZ4vf+gZdSmlHg/QfAI
+X-Google-Smtp-Source: ABdhPJykmXEN6n39UTPlMwiMnIXK4xvARKqrLOwEKYSy06DZN/Fx1xgeBYR5M+l/xXsQYWYxP6/BXA==
+X-Received: by 2002:a17:90a:e795:: with SMTP id
+ iz21mr10377074pjb.8.1599268672105; 
+ Fri, 04 Sep 2020 18:17:52 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id u22sm6401781pgi.85.2020.09.04.18.17.51
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 04 Sep 2020 18:17:51 -0700 (PDT)
+Date: Fri, 04 Sep 2020 18:17:51 -0700 (PDT)
+X-Google-Original-Date: Fri, 04 Sep 2020 18:17:48 PDT (-0700)
+Subject: Re: [PATCH] RISC-V: Allow drivers to provide custom read_cycles64 for
+ M-mode kernel
+In-Reply-To: <20200904165709.GA32667@lst.de>
+From: Palmer Dabbelt <palmerdabbelt@google.com>
 To: Christoph Hellwig <hch@lst.de>
-Subject: Re: [PATCH 3/8] asm-generic: fix unaligned access hamdling in
- raw_copy_{from,to}_user
-Message-ID: <20200904223518.GR1236603@ZenIV.linux.org.uk>
-References: <20200904165216.1799796-1-hch@lst.de>
- <20200904165216.1799796-4-hch@lst.de>
- <20200904180617.GQ1236603@ZenIV.linux.org.uk>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20200904180617.GQ1236603@ZenIV.linux.org.uk>
+Message-ID: <mhng-5249e999-3e82-417d-8d39-dcb4a159bd83@palmerdabbelt-glaptop1>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200904_183522_834056_5BFDF4AD 
-X-CRM114-Status: GOOD (  19.03  )
+X-CRM114-CacheID: sfid-20200904_211758_741897_B925B8CD 
+X-CRM114-Status: GOOD (  38.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -66,135 +96,179 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-arch@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
- linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
+Cc: aou@eecs.berkeley.edu, anup@brainfault.org, Anup Patel <Anup.Patel@wdc.com>,
+ linux-kernel@vger.kernel.org, Atish Patra <Atish.Patra@wdc.com>,
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
+ Linus Torvalds <torvalds@linux-foundation.org>, Christoph Hellwig <hch@lst.de>
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 04, 2020 at 07:06:17PM +0100, Al Viro wrote:
-> On Fri, Sep 04, 2020 at 06:52:11PM +0200, Christoph Hellwig wrote:
-> > Use get_unaligned and put_unaligned for the small constant size cases
-> > in the generic uaccess routines.  This ensures they can be used for
-> > architectures that do not support unaligned loads and stores, while
-> > being a no-op for those that do.
-> 
-> Frankly, I would rather get rid of those constant-sized cases entirely;
-> sure, we'd need to adjust asm-generic/uaccess.h defaults for __get_user(),
-> but there that kind of stuff would make sense; in raw_copy_from_user()
-> it really doesn't.
+On Fri, 04 Sep 2020 09:57:09 PDT (-0700), Christoph Hellwig wrote:
+> On Fri, Sep 04, 2020 at 10:13:18PM +0530, Anup Patel wrote:
+>> I respectfully disagree. IMHO, the previous code made the RISC-V
+>> timer driver convoluted (both SBI call and CLINT in one place) and
+>> mandated CLINT for NoMMU kernel. In fact, RISC-V spec does not
+>> mandate CLINT or PLIC. The RISC-V SOC vendors are free to
+>> implement their own timer device, IPI device and interrupt controller.
+>
+> Yes, exactly what we need is everyone coming up with another stupid
+> non-standard timer and irq driver.
 
-FWIW, we have asm-generic/uaccess.h used by
-	arc
-	c6x
-	hexagon
-	riscv/!MMU
-	um
-by direct includes from asm/uaccess.h
-	h8300
-picked as default from asm-generic, in place of absent native uaccess.h
+Well, we don't have a standard one so there's really no way around people
+coming up with their own.  It doesn't seem reasonable to just say "SiFive's
+driver landed first, so we will accept no other timer drivers for RISC-V
+systems".
 
-In asm-generic/uaccess.h we have
-	raw_copy_from_user(): CONFIG_UACCESS_MEMCPY
-		[h8300, riscv with your series]
-	raw_copy_to_user(): CONFIG_UACCESS_MEMCP
-		[h8300, riscv with your series]
-	set_fs group: MAKE_MM_SEG KERNEL_DS USER_DS set_fs() get_fs() uaccess_kernel()
-		all, really
-	access_ok()/__access_ok() (unless overridden)
-		[c6x/!CONFIG_ACCESS_CHECK h8300 riscv]
-	__put_user()/put_user()
-		all, implemented via __put_user_fn()
-	__put_user_fn(): raw_copy_to_user(), unless overridden [all except arc]
-	__get_user()/get_user()
-		all, implemented via __get_user_fn()
-	__get_user_fn(): raw_copy_from_user(), unless overridden [all except arc]
-	__strncpy_from_user() (unless overridden) [c6x h8300 riscv]
-	strncpy_from_user()
-	__strnlen_user() (unless overridden) [c6x h8300 riscv]
-	strnlen_user()
-	__clear_user() (unless overridden) [c6x h8300 riscv]
-	clear_user()
+> But the point is this crap came in after -rc1, and it adds totally
+> pointless indirect calls to the IPI path, and with your "fix" also
+> to get_cycles which all have exactly one implementation for MMU or
+> NOMMU kernels.
+>
+> So the only sensible thing is to revert all this crap.  And if at some
+> point we actually have to deal with different implementations do it
+> with alternatives or static_branch infrastructure so that we don't
+> pay the price for indirect calls in the super hot path.
 
-__strncpy_from_user()/__strnlen_user()/__clear_user() are never used outside
-of arch/*, and there almost all callers are non-__ variants of the same.
-Exceptions:
-arch/hexagon/include/asm/uaccess.h:76:  long res = __strnlen_user(src, n);
-	racy implementation of __strncpy_from_user()
-arch/c6x/kernel/signal.c:157:   err |= __clear_user(&frame->uc, offsetof(struct ucontext, uc_mcontext));
-arch/x86/include/asm/fpu/internal.h:367:        err = __clear_user(&buf->header, sizeof(buf->header));
-arch/x86/kernel/fpu/signal.c:138:       if (unlikely(err) && __clear_user(buf, fpu_user_xstate_size))
+I'm OK reverting the dynamic stuff, as I can buy it needs more time to bake,
+but I'm not sure performance is the right argument -- while this is adding an
+indirection, decoupling MMU/NOMMU from the timer driver is the first step
+towards getting rid of the traps which are a way bigger performance issue than
+the indirection (not to mention the issue of relying on instructions that don't
+technically exist in the ISA we're relying on any more).
 
-and that's it.
+I'm not really convinced the timers are on such a hot path that an extra load
+is that bad, but I don't have that much experience with this stuff so you may
+be right.  I'd prefer to keep the driver separate, though, and just bring back
+the direct CLINT implementation in timex.h -- we've only got one implementation
+for now anyway, so it doesn't seem that bad to just inline it (and I suppose I
+could buy that the ISA says this register has to behave this way, though I
+don't think that's all that strong of an argument).
 
-	Now, if you look at raw_copy_from_user() you'll see an interesting
-picture: some architectures special-case the handling of small constant sizes.
-Namely,
-	arc (any size; inlining in there is obscene, constant size or not),
-	c6x (1,4,8),
-	m68k/MMU (1,2,3,4,5,6,7,8,9,10,12)
-	ppc (1,2,4,8),
-	h8300 (1,2,4),
-	riscv (with your series)(1,2,4, 8 if 64bit).
+I'm not convinced this is a big performance hit for IPIs either, but we could
+just do the same thing over there -- though I guess I'd be much less convinced
+about any arguments as to the ISA having a say in that as IIRC it's a lot more
+hands off.
 
-	If you look at the callers of e.g. raw_copy_from_user(), you'll
-see this:
-	* default __get_user_fn() [relevant on c6x, h8300 and riscv - in
-all cases it should be doing get_unaligned() instead]
-	* __copy_from_user_inatomic()
-	* __copy_from_user()
-	* copy_from_user() in case of INLINE_COPY_FROM_USER [relevant on
-arc, c6x and m68k]
-	* lib/* callers, all with non-constant sizes.
+Something like this seems to fix the rdtime issue without any extra overhead,
+but I haven't tested it 
 
-Callers of __copy_from_user_inatomic() on relevant architectures, excluding the
-ones with non-constant (or huge - several get PAGE_SIZE) sizes:
-	* [ppc] p9_hmi_special_emu() - 16 bytes read; not recognized as special
-	* [riscv] user_backtrace() - 2 words read; not recognized as special
-	* __copy_from_user_inatomic_nocache()
-	* arch_perf_out_copy_user()
+diff --git a/arch/riscv/include/asm/clint.h b/arch/riscv/include/asm/clint.h
+new file mode 100644
+index 000000000000..51909ab60ad0
+--- /dev/null
++++ b/arch/riscv/include/asm/clint.h
+@@ -0,0 +1,20 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2020 Google, Inc
++ */
++
++#ifndef _ASM_RISCV_CLINT_H
++#define _ASM_RISCV_CLINT_H
++
++#include <linux/types.h>
++#include <asm/mmio.h>
++
++#ifdef CONFIG_RISCV_M_MODE
++/*
++ * This lives in the CLINT driver, but is accessed directly by timex.h to avoid
++ * any overhead when accessing the MMIO timer.
++ */
++extern u64 __iomem *clint_time_val;
++#endif
++
++#endif
+diff --git a/arch/riscv/include/asm/timex.h b/arch/riscv/include/asm/timex.h
+index a3fb85d505d4..7f659dda0032 100644
+--- a/arch/riscv/include/asm/timex.h
++++ b/arch/riscv/include/asm/timex.h
+@@ -10,6 +10,31 @@
+ 
+ typedef unsigned long cycles_t;
+ 
++#ifdef CONFIG_RISCV_M_MODE
++
++#include <asm/clint.h>
++
++#ifdef CONFIG_64BIT
++static inline cycles_t get_cycles(void)
++{
++	return readq_relaxed(clint_time_val);
++}
++#else /* !CONFIG_64BIT */
++static inline u32 get_cycles(void)
++{
++	return readl_relaxed(((u32 *)clint_time_val));
++}
++#define get_cycles get_cycles
++
++static inline u32 get_cycles_hi(void)
++{
++	return readl_relaxed(((u32 *)clint_time_val) + 1);
++}
++#define get_cycles_hi get_cycles_hi
++#endif /* CONFIG_64BIT */
++
++#else /* CONFIG_RISCV_M_MODE */
++
+ static inline cycles_t get_cycles(void)
+ {
+ 	return csr_read(CSR_TIME);
+@@ -41,6 +66,8 @@ static inline u64 get_cycles64(void)
+ }
+ #endif /* CONFIG_64BIT */
+ 
++#endif /* !CONFIG_RISCV_M_MODE */
++
+ #define ARCH_HAS_READ_CURRENT_TIMER
+ static inline int read_current_timer(unsigned long *timer_val)
+ {
+diff --git a/drivers/clocksource/timer-clint.c b/drivers/clocksource/timer-clint.c
+index 8eeafa82c03d..43ae0f885bfa 100644
+--- a/drivers/clocksource/timer-clint.c
++++ b/drivers/clocksource/timer-clint.c
+@@ -19,6 +19,11 @@
+ #include <linux/interrupt.h>
+ #include <linux/of_irq.h>
+ #include <linux/smp.h>
++#include <linux/timex.h>
++
++#ifndef CONFIG_MMU
++#include <asm/clint.h>
++#endif
+ 
+ #define CLINT_IPI_OFF		0
+ #define CLINT_TIMER_CMP_OFF	0x4000
+@@ -31,6 +36,10 @@ static u64 __iomem *clint_timer_val;
+ static unsigned long clint_timer_freq;
+ static unsigned int clint_timer_irq;
+ 
++#ifdef CONFIG_RISCV_M_MODE
++u64 __iomem *clint_time_val;
++#endif
++
+ static void clint_send_ipi(const struct cpumask *target)
+ {
+ 	unsigned int cpu;
+@@ -184,6 +193,14 @@ static int __init clint_timer_init_dt(struct device_node *np)
+ 	clint_timer_val = base + CLINT_TIMER_VAL_OFF;
+ 	clint_timer_freq = riscv_timebase;
+ 
++#ifdef CONFIG_RISCV_M_MODE
++	/*
++	 * Yes, that's an odd naming scheme.  time_val is public, but hopefully
++	 * will die in favor of something cleaner.
++	 */
++	clint_time_val = clint_timer_val;
++#endif
++
+ 	pr_info("%pOFP: timer running at %ld Hz\n", np, clint_timer_freq);
+ 
+ 	rc = clocksource_register_hz(&clint_clocksource, clint_timer_freq);
 
-All callers of __copy_from_user_inatomic_nocache() pass it non-constant sizes.
-arch_perf_out_copy_user() is called (via layers of preprocessor abuse) via
-__output_copy_user(), which gets non-constant size.
-
-Callers of __copy_from_user() potentially hitting those:
-arch/arc/kernel/signal.c:108:   err = __copy_from_user(&set, &sf->uc.uc_sigmask, sizeof(set));
-arch/c6x/kernel/signal.c:82:    if (__copy_from_user(&set, &frame->uc.uc_sigmask, sizeof(set)))
-arch/h8300/kernel/signal.c:114: if (__copy_from_user(&set, &frame->uc.uc_sigmask, sizeof(set)))
-arch/m68k/kernel/signal.c:340:          if (__copy_from_user(current->thread.fpcntl,
-arch/m68k/kernel/signal.c:794:       __copy_from_user(&set.sig[1], &frame->extramask,
-arch/m68k/kernel/signal.c:817:  if (__copy_from_user(&set, &frame->uc.uc_sigmask, sizeof(set)))
-arch/powerpc/kernel/signal_64.c:688:    if (__copy_from_user(&set, &new_ctx->uc_sigmask, sizeof(set)))
-arch/powerpc/kernel/signal_64.c:719:    if (__copy_from_user(&set, &uc->uc_sigmask, sizeof(set)))
-arch/powerpc/kvm/book3s_64_mmu_hv.c:1864:               if (__copy_from_user(&hdr, buf, sizeof(hdr)))
-arch/riscv/kernel/signal.c:113: if (__copy_from_user(&set, &frame->uc.uc_sigmask, sizeof(set)))
-drivers/gpu/drm/i915/gem/i915_gem_execbuffer.c:2244:            if (__copy_from_user(&fence, user++, sizeof(fence))) {
-include/linux/regset.h:256:             } else if (__copy_from_user(data, *ubuf, copy))
-
-The last one is user_regset_copyin() and it's going to die.
-A bunch of signal-related ones are in in sigreturn variants, reading
-sigset_t.  Considering that shitloads of data get copied nearby for
-each such call, I would be surprised if those would be worth bothering
-with.   Remaining ppc case is kvm_htab_write(), which just might be
-hot enough to care; we are copying a 64bit structure, and it might
-be worth reading it as a single 64bit.  And i915 is reading 64bit
-objects in a loop.  Hell knows, might or might not be hot.
-
-copy_from_user() callers on arc, c6x and m68k boil down to one case:
-arch/arc/kernel/disasm.c:37:            bytes_not_copied = copy_from_user(ins_buf,
-8-byte read.  And that's it.
-
-IOW, there's a scattering of potentially valid uses that might be better
-off with get_user().  And there's generic non-MMU variant that gets
-used in get_user()/__get_user() on h8300 and riscv.  This one *is*
-valid, but I don't think that raw_copy_from_user() is the right layer
-for that.
-
-For raw_copy_to_user() the picture is similar.  And I'd like to get
-rid of that magical crap.  Let's not make it harder...
 
 _______________________________________________
 linux-riscv mailing list
