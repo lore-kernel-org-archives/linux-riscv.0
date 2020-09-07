@@ -2,120 +2,56 @@ Return-Path: <SRS0=+z5f=CQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
-	version=3.4.0
+	MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 64D41C433E2
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2020 05:49:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B2719C43461
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2020 05:54:54 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BEC3420732
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2020 05:49:02 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id F407D20732
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2020 05:54:53 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="uoNPEMk1";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sifive.com header.i=@sifive.com header.b="JKhaxh3f"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BEC3420732
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="G5pFSENm"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F407D20732
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=pmU5s/FsQpwEJ5sAnALuNjFV39kP7+IhjWekduchNsI=; b=uoNPEMk1vQFkidnNpvoeFGGNX
-	GNVWM70h5IYnyLAP5PUCp873o8k/UOTey204hIPnQT22R93BDlBiACrmK9iYPn1Ceei7593OeCSGj
-	RO9jfuitOxF3PGNW1a0dm5fmyVK4yuFdggbS529fq0hIPryyDQo+nTq4vnjxFlrWtRef8mkrWoCo5
-	Gg+EgtzUDxjuiEKviE5mqWlpGWwVhHXC6Ny3W/yD3YNr/VcNnk+XaYagfUeHkHzL56+Te89S4+1qC
-	+sEGUqWdtpWj9uox4vAXBvktI4A26lm2snv69Bx4UF04uwaqRDYZSlyRUKg6ltpmVe+61FPSbuc8m
-	li9Wo1XDQ==;
+	 bh=Cri8ydTCw4NsaDgHd2aP1rWE1PvuPz/ttsplKLe5Xh4=; b=G5pFSENmaR8nlaBKRiL3PjkO6
+	XP2PqNhUVLjq8f54RMHmihE12FZX2eI9z79z1CpSwB2a2CfZssxKO6XfJkM9F3Y6UoEJcpKmBykL0
+	d0K+x337mJnfwPCLxPQTNwoZ5+0c5E6bZrKwwhd51d7DjIKBhuE/h9E6xvvokhOCwsMpG+iTAA2+0
+	AI1JA6kJ6PjpD6mLGhIe/rW9ufBKg1ENaMwPmJVlapO/5iBj5NpWbt5ELQ5gLAJNhr5sb2YHeKggU
+	esVte6SLiSngwSRDtpJmWsHsJrNqKi605xAKnpC0bKD4yqx7ThAjtOWZ90qjoy+/M72KUGD1OKKO7
+	JtzBKVxjA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kFA1K-0003Ov-Di; Mon, 07 Sep 2020 05:48:50 +0000
-Received: from mail-co1nam11on2050.outbound.protection.outlook.com
- ([40.107.220.50] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
- by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kFA1H-0003Nm-Cd
- for linux-riscv@lists.infradead.org; Mon, 07 Sep 2020 05:48:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=cuZXndPndLRZ8D6mYn3HCBHhSWd5HcKTqGyHQVAEEXA+Bypo3WV9lrBvOTOk9ZxL/3xSDCE2Zmu/9spsICH+27XlwQlV7AxNSAQI9dCQYr1hsiy63Zdcm/Mq2Xv+szkTbAPvJWNBYKScGapkAYWUjHGVZjuBH0yVGaPWlAWkVx5Oul2LLCe3ie/fAMjf9/pFYsEZfRnQDN2fLm7yVHG2pmOH739nVhitx1V0uPirvkRBtgGThIjvaFaZ+W/7QvbgZcp9jSInNP0Xp2dkAKOw1vlnwVtb5lDEQ6Gwm1a74jKfFjj4DxNLcWZVaMbQG1Pik7yHepOFffra9vPa2+DQ/w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HpubuCbL4VQt18Oxxy6rwh4I3ZJds0rj0xSlxasm8YU=;
- b=HoFZ5RdqhaK6U3hmFXGxCmA2p7l7Ji+oUT77XJEBAWEdNZH/2Drou+Eccwysp+zmycJHbo8Sr4U97yUfynXoYkPOaFH/M4Y9YjvTXkSjcNzJVOME0h+m+IwKk0diMOBecUL9p//BllzUTzCF448dvVu1m52EukFNqNpUSuj0tC8G3vvCEeT8ICYOF9QDELTjjVeCSKgE5G/W6gmHJb9b/Gw6KXBcOYsZga2jfkg8C/eGkd8iAlyCf5W8QiunqAx5feMooVKcASpKZ3O4C1t/6FVEK5uhecyZZ00zu6Cle2jcOGk8fvfL2m3cdwdbMES3Lnc9k1dQ6m6Il2+tZbU6Xw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=openfive.com; dmarc=pass action=none header.from=sifive.com;
- dkim=pass header.d=sifive.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HpubuCbL4VQt18Oxxy6rwh4I3ZJds0rj0xSlxasm8YU=;
- b=JKhaxh3fnjuKVT0RN37ra2qomsyjt4oLH+NskUCLF7S8pzVuWAHaVJ3t1p6RQY3lwLsTwwX8e4BirBP3BAv6ejRpQRjf7jY1mPd4HrzdZtlTv5avuteDajX6gjK6x3rNop0urGlaVxZkRwlJufSm1SO8GFhg2twnSzTgmABz2Fw=
-Authentication-Results: kernel.org; dkim=none (message not signed)
- header.d=none;kernel.org; dmarc=none action=none header.from=sifive.com;
-Received: from BN6PR1301MB2020.namprd13.prod.outlook.com
- (2603:10b6:405:34::34) by BN6PR13MB1569.namprd13.prod.outlook.com
- (2603:10b6:404:119::18) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3370.7; Mon, 7 Sep
- 2020 05:48:40 +0000
-Received: from BN6PR1301MB2020.namprd13.prod.outlook.com
- ([fe80::4596:33b0:db2c:dea]) by BN6PR1301MB2020.namprd13.prod.outlook.com
- ([fe80::4596:33b0:db2c:dea%3]) with mapi id 15.20.3370.011; Mon, 7 Sep 2020
- 05:48:40 +0000
-From: Yash Shah <yash.shah@sifive.com>
-To: robh+dt@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com,
- bp@alien8.de, mchehab@kernel.org, tony.luck@intel.com
-Subject: [PATCH v2 3/3] EDAC/sifive: Add EDAC support for Memory Controller in
- SiFive SoCs
-Date: Mon,  7 Sep 2020 11:17:59 +0530
-Message-Id: <1599457679-8947-4-git-send-email-yash.shah@sifive.com>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1599457679-8947-1-git-send-email-yash.shah@sifive.com>
+	id 1kFA6z-0003dM-QD; Mon, 07 Sep 2020 05:54:41 +0000
+Received: from [2601:1c0:6280:3f0::19c2]
+ by merlin.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1kFA6u-0003cz-Ar; Mon, 07 Sep 2020 05:54:36 +0000
+Subject: Re: [PATCH v2 2/3] soc: sifive: Add SiFive specific Cadence DDR
+ controller driver
+To: Yash Shah <yash.shah@sifive.com>, robh+dt@kernel.org, palmer@dabbelt.com, 
+ paul.walmsley@sifive.com, bp@alien8.de, mchehab@kernel.org,
+ tony.luck@intel.com
 References: <1599457679-8947-1-git-send-email-yash.shah@sifive.com>
-X-ClientProxiedBy: BM1PR01CA0141.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:b00:40::35) To BN6PR1301MB2020.namprd13.prod.outlook.com
- (2603:10b6:405:34::34)
+ <1599457679-8947-3-git-send-email-yash.shah@sifive.com>
+From: Randy Dunlap <rdunlap@infradead.org>
+Message-ID: <697413e6-8f44-8db4-6434-0f22984bdc9c@infradead.org>
+Date: Sun, 6 Sep 2020 22:54:29 -0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.11.0
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-Received: from osubuntu003.open-silicon.com (159.117.144.156) by
- BM1PR01CA0141.INDPRD01.PROD.OUTLOOK.COM (2603:1096:b00:40::35) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id
- 15.20.3348.15 via Frontend Transport; Mon, 7 Sep 2020 05:48:36 +0000
-X-Mailer: git-send-email 2.7.4
-X-Originating-IP: [159.117.144.156]
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: cc91f0bb-0604-40ae-320e-08d852f1ac15
-X-MS-TrafficTypeDiagnostic: BN6PR13MB1569:
-X-LD-Processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
-X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <BN6PR13MB1569743D1E2CCCF5676B7DB182280@BN6PR13MB1569.namprd13.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:4502;
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: RitRN3eVLW6s5Lwc68201e1OEzny2sh0VlS1M5XIb+AIRXNzbf85FW+ufdJXmA6muY4fOi1yy2d9csOy/4YvYuGV3DLcNci+ZmGk3iyWP1glMHKig+R7TLTNImfWJ6av1rFBBYrPjbgHxRJys8YskcVv7Dh232rGfv8ZGcYFatSWTe4aJtmu60zXcMblI2Sp1++Rdv+ERNQ8QLCyDREK/F3gYrb5zdESNhRmAWVq4RCRfYINGrBLIV2cq+wB1lg2SW0CVujQaLBgaLyTZBa/sOjb+pVU/tEBfwpdp8SLYnYKG1KaSuRHh25+gB3s0ebv2X1LLi0K8hUxAkwrHkLDMw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:BN6PR1301MB2020.namprd13.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(6029001)(376002)(396003)(136003)(366004)(39840400004)(346002)(83380400001)(44832011)(5660300002)(6506007)(2906002)(36756003)(6512007)(4326008)(6666004)(16526019)(186003)(8676002)(316002)(2616005)(956004)(52116002)(8936002)(6486002)(26005)(66476007)(107886003)(66556008)(66946007)(83170400001)(7416002)(478600001)(42882007);
- DIR:OUT; SFP:1101; 
-X-MS-Exchange-AntiSpam-MessageData: BimS8HKQJF5eyyvaNNGwq1jT9ra3CgIMIxtWfLGLU/fgyIKaBj1Lqpik0c+/XgV6y0p3XtA7qqs0zW2hR5Ka0WTkXqzvuJCHsTEOo9QEPhZkMjoNDSXLpd77snIR04lJunpOqnJv6uXgJBicjkPZz1n2p7PITjJ4EgdMDNCI1SLTL8t6vMXGbbxTq2IMGYVWRBjfnmdzXCuT2nBLrH3WcYO61g0TaxKYA/lzhJndm7bJlk2PRnspp40rPvhoGHGOb51l2bCbxe2v2zw7UsZimJj3wnvIycEWL07PNiiR/BWpDnVGavz07/K9YBUCMhu56sXEkltMRkm5R1Tgzs43TFVZ9M0Bj3YthHuanA3SzA6HdPgO3uD7PUActoVtMVZCew8oqf8+UCZD/EwcJlBbSeTghfMic1Kig4VKpJumo9QvvfC2X2bi4XJ7IGrSTD9tX2+s/QFL/WM7xwcRO7YyuYssQsVdaDDjWCHbrKeVyLf4OjrP4z6E92E+rgDR8n1zAxzeDE98ipr/cRFkakwLp70aCC6cwJW4X92afqXfbjEoQjXaDEqn1wgzsJgWEPlR5iM/UElPrSEPndoKKcXSUeugPEVqXs9/DQOtmkaY6NiMbxPKG1bc3FOElQds5SM4gOOPDlK0t2hlgpzPrF/7pA==
-X-OriginatorOrg: sifive.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cc91f0bb-0604-40ae-320e-08d852f1ac15
-X-MS-Exchange-CrossTenant-AuthSource: BN6PR1301MB2020.namprd13.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Sep 2020 05:48:40.2180 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: udXjNsrrW8zZNq8Zm89mh8JS4DSVLfoYbHmKTy5JrKEUK1VHynmzetoOHSS66G/ZPTv4uy7VhAPa6m5YPwXZ/Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN6PR13MB1569
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200907_014847_468235_C067C9E0 
-X-CRM114-Status: GOOD (  18.05  )
+In-Reply-To: <1599457679-8947-3-git-send-email-yash.shah@sifive.com>
+Content-Language: en-US
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -128,205 +64,37 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: devicetree@vger.kernel.org, aou@eecs.berkeley.edu,
- linux-kernel@vger.kernel.org, sachin.ghadi@sifive.com,
- Yash Shah <yash.shah@sifive.com>, rrichter@marvell.com, james.morse@arm.com,
- linux-riscv@lists.infradead.org, linux-edac@vger.kernel.org
+ linux-kernel@vger.kernel.org, sachin.ghadi@sifive.com, rrichter@marvell.com,
+ james.morse@arm.com, linux-riscv@lists.infradead.org,
+ linux-edac@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add Memory controller EDAC support to the SiFive platform EDAC driver.
-It registers for ECC notifier events from the memory controller.
+On 9/6/20 10:47 PM, Yash Shah wrote:
+> diff --git a/drivers/soc/sifive/Kconfig b/drivers/soc/sifive/Kconfig
+> index 58cf8c4..f41d8fe 100644
+> --- a/drivers/soc/sifive/Kconfig
+> +++ b/drivers/soc/sifive/Kconfig
+> @@ -7,4 +7,10 @@ config SIFIVE_L2
+>  	help
+>  	  Support for the L2 cache controller on SiFive platforms.
+>  
+> +config SIFIVE_DDR
+> +	bool "Sifive DDR controller driver"
+> +	help
+> +	  Support for the management of cadence DDR controller on SiFive
 
-Signed-off-by: Yash Shah <yash.shah@sifive.com>
-Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
-Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
----
- drivers/edac/Kconfig       |   2 +-
- drivers/edac/sifive_edac.c | 119 ++++++++++++++++++++++++++++++++++++++++++++-
- 2 files changed, 118 insertions(+), 3 deletions(-)
+	                                Cadence
 
-diff --git a/drivers/edac/Kconfig b/drivers/edac/Kconfig
-index 7b6ec30..f8b3b53 100644
---- a/drivers/edac/Kconfig
-+++ b/drivers/edac/Kconfig
-@@ -462,7 +462,7 @@ config EDAC_ALTERA_SDMMC
- 
- config EDAC_SIFIVE
- 	bool "Sifive platform EDAC driver"
--	depends on EDAC=y && SIFIVE_L2
-+	depends on EDAC=y && (SIFIVE_L2 || SIFIVE_DDR)
- 	help
- 	  Support for error detection and correction on the SiFive SoCs.
- 
-diff --git a/drivers/edac/sifive_edac.c b/drivers/edac/sifive_edac.c
-index 3a3dcb1..17dd556 100644
---- a/drivers/edac/sifive_edac.c
-+++ b/drivers/edac/sifive_edac.c
-@@ -11,14 +11,119 @@
- #include <linux/platform_device.h>
- #include "edac_module.h"
- #include <soc/sifive/sifive_l2_cache.h>
-+#include <soc/sifive/sifive_ddr.h>
- 
- #define DRVNAME "sifive_edac"
-+#define EDAC_MOD_NAME "Sifive ECC Manager"
- 
- struct sifive_edac_priv {
- 	struct notifier_block notifier;
- 	struct edac_device_ctl_info *dci;
- };
- 
-+struct sifive_edac_mc_priv {
-+	struct notifier_block notifier;
-+	struct mem_ctl_info *mci;
-+};
-+
-+/**
-+ * EDAC MC error callback
-+ *
-+ * @event: non-zero if unrecoverable.
-+ */
-+static
-+int ecc_mc_err_event(struct notifier_block *this, unsigned long event, void *ptr)
-+{
-+	struct sifive_ddr_priv *priv = ptr;
-+	struct sifive_edac_mc_priv *p;
-+
-+	p = container_of(this, struct sifive_edac_mc_priv, notifier);
-+	if (event == SIFIVE_DDR_ERR_TYPE_UE) {
-+		edac_mc_handle_error(HW_EVENT_ERR_UNCORRECTED, p->mci,
-+				     priv->error_count, priv->page_frame_number,
-+				     priv->offset_in_page, priv->syndrome,
-+				     priv->top_layer, priv->mid_layer,
-+				     priv->low_layer, p->mci->ctl_name, "");
-+	} else if (event == SIFIVE_DDR_ERR_TYPE_CE) {
-+		edac_mc_handle_error(HW_EVENT_ERR_CORRECTED, p->mci,
-+				     priv->error_count, priv->page_frame_number,
-+				     priv->offset_in_page, priv->syndrome,
-+				     priv->top_layer, priv->mid_layer,
-+				     priv->low_layer, p->mci->ctl_name, "");
-+	}
-+
-+	return NOTIFY_OK;
-+}
-+
-+static int ecc_mc_register(struct platform_device *pdev)
-+{
-+	struct sifive_edac_mc_priv *p;
-+	struct edac_mc_layer layers[1];
-+	int ret;
-+
-+	p = devm_kzalloc(&pdev->dev, sizeof(*p), GFP_KERNEL);
-+	if (!p)
-+		return -ENOMEM;
-+
-+	p->notifier.notifier_call = ecc_mc_err_event;
-+	platform_set_drvdata(pdev, p);
-+
-+	layers[0].type = EDAC_MC_LAYER_CHIP_SELECT;
-+	layers[0].size = 1;
-+	layers[0].is_virt_csrow = true;
-+
-+	p->mci = edac_mc_alloc(0, ARRAY_SIZE(layers), layers, 0);
-+	if (!p->mci) {
-+		dev_err(&pdev->dev, "Failed mem allocation for mc instance\n");
-+		return -ENOMEM;
-+	}
-+
-+	p->mci->pdev = &pdev->dev;
-+	/* Initialize controller capabilities */
-+	p->mci->mtype_cap = MEM_FLAG_DDR4;
-+	p->mci->edac_ctl_cap = EDAC_FLAG_NONE | EDAC_FLAG_SECDED;
-+	p->mci->edac_cap = EDAC_FLAG_SECDED;
-+	p->mci->scrub_cap = SCRUB_UNKNOWN;
-+	p->mci->scrub_mode = SCRUB_HW_PROG;
-+	p->mci->ctl_name = dev_name(&pdev->dev);
-+	p->mci->dev_name = dev_name(&pdev->dev);
-+	p->mci->mod_name = EDAC_MOD_NAME;
-+	p->mci->ctl_page_to_phys = NULL;
-+
-+	/* Interrupt feature is supported by cadence mc */
-+	edac_op_state = EDAC_OPSTATE_INT;
-+
-+	ret = edac_mc_add_mc(p->mci);
-+	if (ret) {
-+		edac_printk(KERN_ERR, EDAC_MOD_NAME,
-+			    "Failed to register with EDAC core\n");
-+		goto err;
-+	}
-+
-+	if (IS_ENABLED(CONFIG_SIFIVE_DDR))
-+		register_sifive_ddr_error_notifier(&p->notifier);
-+
-+	return 0;
-+
-+err:
-+	edac_mc_free(p->mci);
-+
-+	return -ENXIO;
-+}
-+
-+static int ecc_mc_unregister(struct platform_device *pdev)
-+{
-+	struct sifive_edac_mc_priv *p = platform_get_drvdata(pdev);
-+
-+	if (IS_ENABLED(CONFIG_SIFIVE_DDR))
-+		unregister_sifive_ddr_error_notifier(&p->notifier);
-+
-+	edac_mc_del_mc(&pdev->dev);
-+	edac_mc_free(p->mci);
-+
-+	return 0;
-+}
-+
- /**
-  * EDAC error callback
-  *
-@@ -67,7 +172,8 @@ static int ecc_register(struct platform_device *pdev)
- 		goto err;
- 	}
- 
--	register_sifive_l2_error_notifier(&p->notifier);
-+	if (IS_ENABLED(CONFIG_SIFIVE_L2))
-+		register_sifive_l2_error_notifier(&p->notifier);
- 
- 	return 0;
- 
-@@ -81,7 +187,9 @@ static int ecc_unregister(struct platform_device *pdev)
- {
- 	struct sifive_edac_priv *p = platform_get_drvdata(pdev);
- 
--	unregister_sifive_l2_error_notifier(&p->notifier);
-+	if (IS_ENABLED(CONFIG_SIFIVE_L2))
-+		unregister_sifive_l2_error_notifier(&p->notifier);
-+
- 	edac_device_del_device(&pdev->dev);
- 	edac_device_free_ctl_info(p->dci);
- 
-@@ -102,12 +210,19 @@ static int __init sifive_edac_init(void)
- 	if (ret)
- 		platform_device_unregister(sifive_pdev);
- 
-+	ret = ecc_mc_register(sifive_pdev);
-+	if (ret) {
-+		ecc_unregister(sifive_pdev);
-+		platform_device_unregister(sifive_pdev);
-+	}
-+
- 	return ret;
- }
- 
- static void __exit sifive_edac_exit(void)
- {
- 	ecc_unregister(sifive_pdev);
-+	ecc_mc_unregister(sifive_pdev);
- 	platform_device_unregister(sifive_pdev);
- }
- 
+> +	  platforms.
+> +
+>  endif
+
+
 -- 
-2.7.4
+~Randy
 
 
 _______________________________________________
