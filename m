@@ -7,17 +7,18 @@ X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3CC90C43461
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2020 08:14:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C209BC433E2
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2020 09:59:34 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AB216208C7
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2020 08:14:15 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2792B20C09
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Sep 2020 09:59:33 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="bWGUX9AY"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AB216208C7
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arndb.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="cQvuE7Cv";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="Q9Ew4Z8q"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2792B20C09
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -25,66 +26,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=MY24Q50SCkf2gfTr67++zHBQRmm3dqkL4xUnzvU4Czs=; b=bWGUX9AYWjqNUPzBS48tn7Omr
-	JP3jB/7j0vsLEftK1+GVIHHtclUoloXkETYvp0w2vitqSoWhO1q1qzRq1Nr9unzDLDHq1PvC/8g8v
-	ThNf83cwvPDVo6qxfbJ2uFdh0D8o13glo6UWQXjZn31SFrXRYJYwrcUmVPNHyQ2ssbowTkYo9Izpp
-	JmIodpsfOwMS40X6dE20Buirymi9B25PAK+MrKpv0aLAXHQjI0+6RHMbnkgNCW7kPvwed5SqdEkAq
-	P/NK+hzHClQ9w/R26I6vh0w7obxWm5/pQ/ndkxTwbWflAxlFatwt8r7fNHosrL/rLYEs8vQ2EyLCG
-	0MvNL2RZA==;
+	 bh=/aJ7W5Uhhf6GmNpaDOe7RdNMdRcotslvyt5zwZmHFzk=; b=cQvuE7CvhTrtHoh7J5dbBzxvA
+	H7YaitVjDG7U93Tr7Um4V+3wE0YCNQam9pEGZd+jnEF3tB+lk85YxrvqlpZOh2Am1DsCs08uSylA+
+	z6mii2g9HLwFb/ij3ETuV1IkT3AClw7ISZygLN2KW1UdRkDpAmz9IIzlnWX1+I1LRpVwuZ49ZV35s
+	MclP32M7XrcSN40MZlqgszvxDkSsTDlJJ+IcDpZbHnMmT9QHE+/HK//eb7oMHno09tAPa2E92qGIv
+	+Mw4RpnSytQPJtZPa+maw6P+KwFJWh994Nxi1V0Cl3k+aOdA4joKdQc+GowBlCueZrs7jfrXFxQJJ
+	iSvveOSyg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kFCHn-0000J2-RV; Mon, 07 Sep 2020 08:13:59 +0000
-Received: from mout.kundenserver.de ([212.227.17.10])
+	id 1kFDvk-0006sj-Kt; Mon, 07 Sep 2020 09:59:20 +0000
+Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kFCHl-0000I7-77
- for linux-riscv@lists.infradead.org; Mon, 07 Sep 2020 08:13:58 +0000
-Received: from mail-qt1-f172.google.com ([209.85.160.172]) by
- mrelayeu.kundenserver.de (mreue109 [212.227.15.145]) with ESMTPSA (Nemesis)
- id 1MspyA-1kYmT00uvQ-00t8kp for <linux-riscv@lists.infradead.org>; Mon, 07
- Sep 2020 10:13:50 +0200
-Received: by mail-qt1-f172.google.com with SMTP id 19so7823117qtp.1
- for <linux-riscv@lists.infradead.org>; Mon, 07 Sep 2020 01:13:47 -0700 (PDT)
-X-Gm-Message-State: AOAM532SKNaoda9h3NJt5ratgP1CSgugW+FkIi/g/83p4SbzZTjzD/pr
- eD308cmj2zIILLOoFnnzSBa+e/HphAdgwJjlXLw=
-X-Google-Smtp-Source: ABdhPJyqFRCsrEeyEM7bZdvSSTo4jU+m6vlP8peN5tbIXRsYf0JCy1F91ON0vW5MemSI01VaMJ40x2L3jNNufU0/pXE=
-X-Received: by 2002:a05:620a:15a7:: with SMTP id
- f7mr11286689qkk.3.1599466085512; 
- Mon, 07 Sep 2020 01:08:05 -0700 (PDT)
+ id 1kFDvi-0006sL-GO
+ for linux-riscv@lists.infradead.org; Mon, 07 Sep 2020 09:59:19 +0000
+Received: by mail-wm1-x342.google.com with SMTP id w2so13780181wmi.1
+ for <linux-riscv@lists.infradead.org>; Mon, 07 Sep 2020 02:59:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20150623.gappssmtp.com; s=20150623;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=c5DC9nZOly/sIshwJMs/T2M9xGwEixaZIQAAMhdaTd8=;
+ b=Q9Ew4Z8qiML0wcPyFpDAyE5dpHUOzyp540W51+cevWVCR86uUG0WM3UoGPOMrCzrdY
+ i/B7wUL9G6iwwXzGVL/bq31OOpMm5DJ4n7oJjbejnbb6QKktJfkHIfpjtO2AEy3gYx4K
+ pha94kU99hLIeq4c++tfUtg939fZT2efkzPxuPOHILGi7ci1b8AKeLHuGUwARbudSFpQ
+ m4FC4mUwYNIa5u3RD0ksuO6SvW7DrJDrm0MjqM++v+OWPvqQ1TLmyVLX79NCB4kfuMzL
+ iUeShqpbB51uBhrAXG2J2zDHW2aECCHGqzgHOaj5hGsnp8D79wCGgDOyp0mQs4NXBuqG
+ Qk9g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=c5DC9nZOly/sIshwJMs/T2M9xGwEixaZIQAAMhdaTd8=;
+ b=I/hNbMKDCLh8uoGt4B8UAAJQkGwacrm627MeYCQQP5H3MV05AqXTw1xDbQ9gLZf8v/
+ Bd+JLYpNN1myjtMLBeL6PbtV3fkoPQHBnXckNU1sclwtDE93WvAhUIT6f53keUdxcBAC
+ KObt5DdRvzDA47DYngFF3ELfB9cqXSjXXwDWY1QcBAgejPS4W/TPqviihjcMqYTAJkNK
+ 0R+rya/lodKhqaaogiNPZ346o2422r4DN8H8YGX7soigeuV/tunKCcERDWnQsDzRXVEJ
+ mc1HNSxofkNwh2TMCP/dJQOvAnsnp+XMJAtFavKOnnznXUHSXAyVP65xUf9ghDvpwL4f
+ jFxw==
+X-Gm-Message-State: AOAM53275Y8aZXjGC+bH5dRGFXXYOMdEKZmFsK+MPfuU9drr4zd0Z3Qy
+ 7tCbDbnlXWPMw2CNi4W8e+JXh40qSqIP04SpZY4OjA==
+X-Google-Smtp-Source: ABdhPJwhbVezkRsz42O01tI11rDfQ+ohnilrUWZNMj/Kyt92DMYI2Orkgg8RVLqJ6axE6DSFZmH263z4x/rqWD9gKAw=
+X-Received: by 2002:a1c:234d:: with SMTP id j74mr19248120wmj.157.1599472756116; 
+ Mon, 07 Sep 2020 02:59:16 -0700 (PDT)
 MIME-Version: 1.0
-References: <20200904165216.1799796-1-hch@lst.de>
- <20200904165216.1799796-4-hch@lst.de>
- <20200904180617.GQ1236603@ZenIV.linux.org.uk>
- <20200904223518.GR1236603@ZenIV.linux.org.uk>
-In-Reply-To: <20200904223518.GR1236603@ZenIV.linux.org.uk>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Mon, 7 Sep 2020 10:07:49 +0200
-X-Gmail-Original-Message-ID: <CAK8P3a1doHskr=8uPrGetCAtD7QTRS5r=cfy6VJSoDsnE0=Aaw@mail.gmail.com>
-Message-ID: <CAK8P3a1doHskr=8uPrGetCAtD7QTRS5r=cfy6VJSoDsnE0=Aaw@mail.gmail.com>
-Subject: Re: [PATCH 3/8] asm-generic: fix unaligned access hamdling in
- raw_copy_{from, to}_user
-To: Al Viro <viro@zeniv.linux.org.uk>
-X-Provags-ID: V03:K1:L0sna3yw++0RgqSSWA/KsjwKlVYuakgzEkFzvzra0Oz0aKjXtUm
- kpdwkTjI2MjT2sKnC3p0f5GoK7pw/ZyToAOHqIlsjRzUclDMKygLry1GvghOe2ypfE83PjX
- HlUZj0b/mW4NvzGVB8ySUAYPdXsbj0Kn5u3t/wAGY8lk1nImRzxsGV6DkZylzjXFqjCRSG6
- +nLu6Z12t6oo8Zxurxy+g==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:vAUmkS/hYUo=:X+C+bYXXb43wmlp3FJ5rjk
- fd4/157W6lIAXEcoTWOTQrJJVBzXgili+QJVQ+5XmwCMlpD7fIeuqr06CWz4qRMXfHpM7EzSS
- H37YVuiag2gPZuLsfLa1iqp5o8JDP8EAdHjQFfEGwt0jzvHaw2NpKVjikucU7faH8fwcYmYOM
- fTY/MYdci027PxznR/PRpSXV+9VbKR2u0yYbezlju7CqlbtG16yOdZ4qC2yh3EHw2L1s5KDHV
- kEk/BltvU/EDj65HOCgofc9O4Om1oV3zjC8XVdQUH/NEwWngZd03f54bDXIq4jTXP0skoV6Fu
- G9bYsd2LNmsWBZsilH6ZYWELXD26fRY7Fjal27synKwgQRIW+xY3SVLRH23YEnwJhrN73dUj7
- zY527psgEET7hD7BQdiMHVjJLzCDL8N0RjySiugX26FDx3WnHl2Vr8ckfqEW+2i9Z06byLtyz
- D024ojU9RepCgbjEr0qacjoeqDDAX1Ks4HHrAgUKB1lWB5k0WviztUL3RiCmweYi3kLIhebZ2
- XPgvFRDzjMZFQt57oFYfEpLiAgfn7TqSfgBDwtY0yoHqWxmqrxOgk3WzAoiRKh4L2vSivPlBl
- JBXAhSuyU/ZkbuUOXLjTH/TY1m8/kxWJKYRuPjyzDucCdQFBCqaTeO4Oy68zqv+Y/1ZTBd3WG
- rGdIccRShJ0qAC24S05Bz5GVPbEXaQHHY58+xX9VANY3ZfRrwKyXIV7ExdyF9LOhPQ99GBZJP
- +5hPyYcShW12lJKlqXOyZ5vl882j853tb2a+2rvBiK2HiN2/hfoP752yk1OE7G2whZvhgqgTh
- MT014ifW4lz0PpSQCO5e/eZ5TqVhxkZ2XqFkSmkVAi1b75WBxU6nZn5s0nwzrMrRf+B5ACbTc
- Fwa79wF8cznpzNbP+3/Y7ICU9cCWbWvJwLPk7uIycnoMaV93Xb9W73Kh22xjtXpIZJF337eOU
- u1FMwMVeoXSWEVCnrscHAPCgot7aGsIYHI9vevLW6Jg4TZvEvSPe0
+References: <20200904165709.GA32667@lst.de>
+ <mhng-5249e999-3e82-417d-8d39-dcb4a159bd83@palmerdabbelt-glaptop1>
+ <CAAhSdy0HW8Rjyoiu+Ldx31C9zCBdxJZxhDBcXC4sgitfXnPNDg@mail.gmail.com>
+ <CAAhSdy3ESD6L_T1rFprDF2jduN8buTz173F6_mYCbTL3s4RG2A@mail.gmail.com>
+ <20200907061853.GA19038@lst.de>
+In-Reply-To: <20200907061853.GA19038@lst.de>
+From: Anup Patel <anup@brainfault.org>
+Date: Mon, 7 Sep 2020 15:29:04 +0530
+Message-ID: <CAAhSdy2QkjZXzDBfLpu_Wtn8wWJ+pJSnUiyS+e0e4vtrJ2MWoQ@mail.gmail.com>
+Subject: Re: [PATCH] RISC-V: Allow drivers to provide custom read_cycles64 for
+ M-mode kernel
+To: Christoph Hellwig <hch@lst.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200907_041357_462214_AEF62846 
-X-CRM114-Status: GOOD (  22.37  )
+X-CRM114-CacheID: sfid-20200907_055918_645000_DCCEB87E 
+X-CRM114-Status: GOOD (  18.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -96,57 +94,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-arch <linux-arch@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>, Christoph Hellwig <hch@lst.de>
+Cc: Palmer Dabbelt <palmerdabbelt@google.com>, Anup Patel <Anup.Patel@wdc.com>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Atish Patra <Atish.Patra@wdc.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Linus Torvalds <torvalds@linux-foundation.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 5, 2020 at 12:35 AM Al Viro <viro@zeniv.linux.org.uk> wrote:
+On Mon, Sep 7, 2020 at 11:48 AM Christoph Hellwig <hch@lst.de> wrote:
 >
-> On Fri, Sep 04, 2020 at 07:06:17PM +0100, Al Viro wrote:
-> > On Fri, Sep 04, 2020 at 06:52:11PM +0200, Christoph Hellwig wrote:
-> > > Use get_unaligned and put_unaligned for the small constant size cases
-> > > in the generic uaccess routines.  This ensures they can be used for
-> > > architectures that do not support unaligned loads and stores, while
-> > > being a no-op for those that do.
+> On Sat, Sep 05, 2020 at 11:05:48AM +0530, Anup Patel wrote:
+> > Your patch will also break if the SOC specific timer has a 32bit
+> > free-running counter
+> > unlike the 64bit free-running counter found on CLINT.
 > >
-> > Frankly, I would rather get rid of those constant-sized cases entirely;
-> > sure, we'd need to adjust asm-generic/uaccess.h defaults for __get_user(),
-> > but there that kind of stuff would make sense; in raw_copy_from_user()
-> > it really doesn't.
-
-Right. When I originally wrote that part of asm-generic/uaccess.h, the
-idea was that its __get_user()/__put_user() would end up being used
-across most architectures, which then would only have to implement
-custom __copy_from_user()/__copy_to_user() with those special cases
-to get the optimum behavior. It didn't work out in the end, since
-copy_from_user() also has to deal with unaligned or partial copies
-that prevent it from degrading into a single instruction on anything
-other than the simplest NOMMU architectures.
-
-I'd still hope we can eventually come up with a generic
-__get_user()/__put_user() helper that avoids all the common
-architecture specific bugs in them, with a simpler way for
-an architecture to hook into with a set of inline functions
-while leaving the macros to common code, but that can be
-done another time.
-
-> IOW, there's a scattering of potentially valid uses that might be better
-> off with get_user().  And there's generic non-MMU variant that gets
-> used in get_user()/__get_user() on h8300 and riscv.  This one *is*
-> valid, but I don't think that raw_copy_from_user() is the right layer
-> for that.
+> > I guess it's better to let the SOC timer driver provide the
+> > method/function to read the
+> > free-running counter.
 >
-> For raw_copy_to_user() the picture is similar.  And I'd like to get
-> rid of that magical crap.  Let's not make it harder...
+> Seriously, build the interfaces once you know the consumers.  Don't
+> build pie in the sky interfaces just because you can, because that
+> is what creates all the problems.
+>
+> And of coruse at least for IPIs which absolutely are performance
+> criticical we need a standard interface (one that doesn't suck as much
+> as the SBI detour with the four extra context switches).  But I guess
+> I have already given up on RISC-V because the incompetency about things
+> like the irq design are just so horrible that it isn't worth bothering
+> any more.
 
-Agreed
+Most of us are aware of these issues. The SBI IPI call will eventually
+become fallback option once we have standard mechanism for IPI in
+RISC-V privilege spec. Until then we try our best to support all existing
+RISC-V systems out there. This also means we end-up supporting
+existing SOC specific timers and IPI injection mechanisms.
 
-         Arnd
+Regards,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
