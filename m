@@ -2,117 +2,89 @@ Return-Path: <SRS0=4W5w=CS=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-9.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0810BC433E2
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2020 03:57:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2412DC2D0E1
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2020 04:27:33 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5539D20EDD
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2020 03:57:14 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 94E3B21D43
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2020 04:27:32 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="3UYsOTeW";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=osportal.onmicrosoft.com header.i=@osportal.onmicrosoft.com header.b="ToT0B9IA"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5539D20EDD
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=openfive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="BhS8g2Ts";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="MtK9QLXz"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 94E3B21D43
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:Message-ID:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=oGB04UL7wllE/udT7tlV1Aj73Twpq+8fQ0AVnKQnrWs=; b=3UYsOTeWe2jk6vb2bYMu0HuE+
-	HRJ/rvoeHzNBlsclfcs+YOdKmbkUV1IhQEIkLO0nx9JepsIu4H8zDEkBOEWjA3AfaWCYwGY6wQXav
-	JLnmRbTQGiuLxxC2f+3CszBSJw2nt2yXSLPuIqtkKJ5KaPY5dcrzIqVT8V0xGUXZBRadSSGNlJaVp
-	EHG0RcRHdfyRrqPcXaSimfN8CcHgzK3R+NpqO3Ifpn+fS4bNZGE1P5ZjAd4uJJP37juv3Y25MabuD
-	1VGVIDhSIV40+4liCpTwDMaiN1DTz7vIzJ5qp6dWWz0juS3xa6/e2q5GXfIlIP9DHxa2LrH7InAFu
-	uDApQ63vA==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=zdc8lTb0enZJT7KWgLkYccXFqbg+IRT8vjVveHOUG/k=; b=BhS8g2TsYrTSPv+/Skpmpcf+I
+	mBek5dONiNIQyTgAHa8WhpneLbzfu70MT4PxBYb36mdUxvpaQweqX3FjOIRNE5+Vq2ehjZzlpsuR8
+	Vx5KwEQ1j+Pay/bVJBY6pKrHDlH3Dlv5uUKstURMTkXf3aX+bfADNm8tAxmRVahue0Zd8+rExM/Al
+	s/mFyIe9cT8V8oYjklWMlq8Olg36VYfCItxjqRPBJNyPBGKn+Wv02AWxtwKcstmluoA9I9te1xZME
+	qBe14twvO6gHRocc0vNRWpB07wANI5oeV0AclaS/tTiVLj+CFaPi4gJaLI/yJfMyFqjnDQEzPhzU9
+	gI1gk0u9A==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kFrEC-0005Py-VN; Wed, 09 Sep 2020 03:57:01 +0000
-Received: from mail-co1nam11on2066.outbound.protection.outlook.com
- ([40.107.220.66] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
+	id 1kFrhR-0006WF-2v; Wed, 09 Sep 2020 04:27:13 +0000
+Received: from mail-pj1-x1043.google.com ([2607:f8b0:4864:20::1043])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kFrEA-0005Oy-By
- for linux-riscv@lists.infradead.org; Wed, 09 Sep 2020 03:56:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Lfd3DQbEGrWW46FJJI2UbVwKGU7ruR9XnmIMMMqbuM/oQraVU2JV3ozVVfN3/D3ubLanshCpOFzJfrzMG/fDA3A3qziMZIpPZHkFgApemK3xguBcN4Ahwy+IxicJtXIOwbSH49ip2vVXhqlSFTtBNKk737SgrzsoOJfvw7iJusEypP/C3Febq6De9O1xzLxitwBX5JLeP0RVVfqdg6JG5UADx3WSxxxjBYNmPLUd+R5PJ9TqgJ0nZiR61YLqMTHIQiVPBdCz/HU7qNONAz6VXJqT1fkk6c6ig+rPn7eO54GiKoKZS0vRfIfaZXtLJHIttrYeksIl0AZJzNAWWimasA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=o9gWSJZFNjnRMs+ZLnKwA++lLplS/mJ53gaBpvWcd74=;
- b=lVQcxT9WacjpqJW7MeXB/bLWw/pulDfz39xWRkl5Ka5YoxmxbhVVCHK0g7pbYhhqZXdht+292UoVxcUF85uK45WTgzo4U29KW4JczUUMNfvV0EbUJVM4ZpfcrcksfJtCu0lKDnzaEqAALIzCbJR3IkgZ6vfCx6Ekp7vuPc6Ii4XAsriz9tQBgMArPxw6Zge7IKSQRW1anF3ZUAdvlCy8ShYihXSPZjAfYlKPyhg76lgvU5mTmQQEdjfZgZwke6fH+FkSB99l4CT11exHKe95m3iOImGa72u4D5L8R6J054bDPi/GpkJk2IB5KbqR5atHlVlemJs12oN9rIfW0A1Kqw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=openfive.com; dmarc=pass action=none header.from=openfive.com;
- dkim=pass header.d=openfive.com; arc=none
+ id 1kFrhN-0006V5-9b
+ for linux-riscv@lists.infradead.org; Wed, 09 Sep 2020 04:27:11 +0000
+Received: by mail-pj1-x1043.google.com with SMTP id jw11so713232pjb.0
+ for <linux-riscv@lists.infradead.org>; Tue, 08 Sep 2020 21:27:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=osportal.onmicrosoft.com; s=selector2-osportal-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=o9gWSJZFNjnRMs+ZLnKwA++lLplS/mJ53gaBpvWcd74=;
- b=ToT0B9IAQx7fYzXQp4InteiHeq20gqbk10MKSzYsd46Okx5oMJUznLPu5usjPzDbW4MM0hgAqsqEWNc/zq7TaCcqXTz+N9dFrtmcm2nQO8pUobi3eY/RYD29hRRReSmbQ3mJ16n4Dk48VO2skY5pkQ160GbtZ2NPGh61/23ikzQ=
-Received: from BN6PR1301MB2020.namprd13.prod.outlook.com
- (2603:10b6:405:34::34) by BN6PR13MB1105.namprd13.prod.outlook.com
- (2603:10b6:404:73::21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3370.7; Wed, 9 Sep
- 2020 03:56:54 +0000
-Received: from BN6PR1301MB2020.namprd13.prod.outlook.com
- ([fe80::4596:33b0:db2c:dea]) by BN6PR1301MB2020.namprd13.prod.outlook.com
- ([fe80::4596:33b0:db2c:dea%3]) with mapi id 15.20.3370.016; Wed, 9 Sep 2020
- 03:56:54 +0000
-From: Yash Shah <yash.shah@openfive.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>, Christoph Hellwig
- <hch@infradead.org>, "dkangude@cadence.com" <dkangude@cadence.com>
-Subject: RE: [PATCH v2 2/3] soc: sifive: Add SiFive specific Cadence DDR
- controller driver
-Thread-Topic: [PATCH v2 2/3] soc: sifive: Add SiFive specific Cadence DDR
- controller driver
-Thread-Index: AQHWhNqGRYMAfY+EgEGaHPHMq7eq5KlcsboAgALymwCAAAe0MA==
-Date: Wed, 9 Sep 2020 03:56:54 +0000
-Message-ID: <BN6PR1301MB20201D1CF5DE19A48306D28182260@BN6PR1301MB2020.namprd13.prod.outlook.com>
-References: <20200907061126.GA14999@infradead.org>
- <mhng-d2a95187-c772-4c5d-b30b-b053a3195177@palmerdabbelt-glaptop1>
-In-Reply-To: <mhng-d2a95187-c772-4c5d-b30b-b053a3195177@palmerdabbelt-glaptop1>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dabbelt.com; dkim=none (message not signed)
- header.d=none;dabbelt.com; dmarc=none action=none header.from=openfive.com;
-x-originating-ip: [103.109.13.228]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 8bf693a7-e990-49cc-ff77-08d85474640c
-x-ms-traffictypediagnostic: BN6PR13MB1105:
-x-ld-processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
-x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <BN6PR13MB11059F37B4DEDB69B5873A9082260@BN6PR13MB1105.namprd13.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:9508;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: pIZX6Hhg8EijYwEEjbARnvMBcHiEJ8Ns67WbG/d2hpH5UnrKkzPReG8LlMW4pQWQtrE5KxLYT9mHxvAHjVQdZbC72KoOappw6f6f1ZFYqnexL0W29BS6DRjCIwHU8RH8w3KOXSVIh7jgQgmI8sCEOw7/qfupQiaeSQfljjMuxgChmcms17oeIDkEoN9x2eFEk5JMD8J5pPTjq264RvfbKODPYZ2oyvQJQyvu8n/8C+CMUgkbKSraCD1NUSuzhMC700df6KoOfRCWi6zoe4OMF6vsni577dulVimEzzGDwnH1SFkx95DqBUBVMOrwNRvX9xHmQ/nACbIJAEkb4Ph2nLbKgFhNbm2h/5cyn6pV4+4VG14DX2KGFvkosw3g+Vkz6TPxBFQHECIG8OSN1wh7iA==
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:BN6PR1301MB2020.namprd13.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(6029001)(39840400004)(396003)(366004)(136003)(376002)(346002)(83380400001)(86362001)(8936002)(66476007)(2906002)(316002)(71200400001)(52536014)(66446008)(66556008)(64756008)(9686003)(26005)(478600001)(76116006)(7696005)(33656002)(5660300002)(44832011)(966005)(66946007)(7416002)(4326008)(8676002)(110136005)(54906003)(6506007)(186003)(55016002)(53546011);
- DIR:OUT; SFP:1101; 
-x-ms-exchange-antispam-messagedata: vwuLzI8WIjkcy34Mwb53SpIeNvNwqSWBP7TR1QDhD8Wd3gaAM6Oevd1lCwQvWuC11ALCpt4jyCRF93vXEBCJasgZOvLeCDpKTGB/L99GPIs658FMIqz0kavY3fObwlvy+8RbY76vjkE5X93lqDqQT2ymyMMLjRLsCdIzyyvcjp6fVocnlXJS7rgg1QWD6HP8pwZrLhXwNx4Sa/UUcXGPgr/q4WBKWFvw+APNnMHQRa8jEUIVJFtqpbYI/YHcR4OW99VtD+pR6sL3Y+nmbBwAxAWgGJ83e+76+k/1+Ee8fCpBuFupH/mu4t567Nh3j+tWnK+QhNyOkZoj0+WcoKDpJyMKDqRO1BV/XI7FKjP5T5GTr+ee9rjxDxcEqAh4CFgdTt/QKTo7UBg1EAauR9GXkdu9VT0rrrbZZsIn81WdI03sbXNmDhRy4bBEA3QPZfbcsNf9qClR2Fd4Dsc603UzG7RwnPuzy/9XENSkFgrDJVK/XHmgbcEd+mF+Es91tWruVCt7DCdAU7g5cnzXjO20u9RPyTxw0WFhB5k7uJxcolK7zjU8rSq7H9eL08GmZFamkI80/7L/QdCLy+b3LKFyuPbbsXfoNwWRHpvvPUCjiy5WvkEl1IBIM/ZkT6Ue/oNBf+cPd1wIZu10VhmG8Nxi0A==
-MIME-Version: 1.0
-X-OriginatorOrg: openfive.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BN6PR1301MB2020.namprd13.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8bf693a7-e990-49cc-ff77-08d85474640c
-X-MS-Exchange-CrossTenant-originalarrivaltime: 09 Sep 2020 03:56:54.2859 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 5mHb/xEW+yRb4vuj3QmpRYJsd+zT4SS8oClweJQoBSzhdSbQhJUD49kYeAqQ8h7tmT76S+Zbe9xbhiCY1j7KuQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN6PR13MB1105
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=KxYznu6/RaMBq3XnQcZXFLCOwvFdZBNPnHf5lL/gtks=;
+ b=MtK9QLXzOhZk3vWk1zQ7UUZUYCXM3qd9bRt5KSABkJ4L8vbr/v+UbmS8f/RaSdqoBX
+ GjURmZz8wJAx2hce99G5+t6B5cz7HtbSyZiLFOJ3INGrDhOti3NOlhaUu/6hudbuhGVx
+ bHm6aWt52fZyuPch9HiXJZbflwaCaF8Ls1rlNXBuBbUObBc+2EaNGG9qXW3dUeScgaJR
+ CRY198ws1rMH7JBWN5owtp36Suea7e4+RrSN9FlZd+uu0m3cswR0wqOCGDm2nhcR5BUQ
+ 82qFD58+ezefPhiyUQEgPpurMTn03A1GslE2/XtpFNEjOY/MjGpCGUZnNFQClwvKlhBI
+ YqfA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=KxYznu6/RaMBq3XnQcZXFLCOwvFdZBNPnHf5lL/gtks=;
+ b=hPW25rBsI3/T8E/o1IKN2sV2VivwFhPCmiAHZAHYmVSs990TLDZNl3+nyQ27Lb+uoW
+ LXtzTY2IPNAKmQVT04IEM4jnf3mXJxSiLrtueSj9xPmmbUeqS8Iwp+67SGJsDWvRmfng
+ NRzvkZhgqMV8WNLl25+QhGzZxCdfFUYn3W11ZhSl7+TVcMgDZ0f+SCiD/juOa8JydXEV
+ zMU8DBLPG3C1nDhWS/9j7ThOgqt7UEjxODqkeEu6GggOIcTv2r3uTqNgqXNAM0Yrmkym
+ HSeCfSSEusftmIx/WRYEFRAO4Vu4sbYscY/fyCdoF+9YdEASx5pQQVL8dv7VU3TZfz/p
+ z5iw==
+X-Gm-Message-State: AOAM532wdwNssDjG0vAoVPqlkVBpzflJEMZHzLrbjuFpPd5n7AwuyWf4
+ yhc4Xi1XNNR4U9dJwrsnxljHfw==
+X-Google-Smtp-Source: ABdhPJwdYcFaX2ADEhk739T179fDYwdfJE8FRUv6HiW4fv0EOhyxEYKQPL4AizpkC7OJU3f+nSIaMw==
+X-Received: by 2002:a17:90a:a081:: with SMTP id
+ r1mr1979398pjp.159.1599625626651; 
+ Tue, 08 Sep 2020 21:27:06 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id l13sm731744pgq.33.2020.09.08.21.27.05
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 08 Sep 2020 21:27:06 -0700 (PDT)
+Date: Tue, 08 Sep 2020 21:27:06 -0700 (PDT)
+X-Google-Original-Date: Tue, 08 Sep 2020 21:27:04 PDT (-0700)
+Subject: Re: [PATCH v2] kbuild: preprocess module linker script
+In-Reply-To: <20200908042708.2511528-1-masahiroy@kernel.org>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: masahiroy@kernel.org
+Message-ID: <mhng-66fe209f-04d5-4177-a305-d67af7bbdb8b@palmerdabbelt-glaptop1>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200908_235658_532302_A6344CEF 
-X-CRM114-Status: GOOD (  32.03  )
+X-CRM114-CacheID: sfid-20200909_002709_394142_D2FB93B6 
+X-CRM114-Status: GOOD (  31.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -124,91 +96,383 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "tony.luck@intel.com" <tony.luck@intel.com>,
- "linux-edac@vger.kernel.org" <linux-edac@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "rrichter@marvell.com" <rrichter@marvell.com>,
- "robh+dt@kernel.org" <robh+dt@kernel.org>, "bp@alien8.de" <bp@alien8.de>,
- "Paul Walmsley \( Sifive\)" <paul.walmsley@sifive.com>,
- "james.morse@arm.com" <james.morse@arm.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "mchehab@kernel.org" <mchehab@kernel.org>,
- "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
- Sachin Ghadi <sachin.ghadi@openfive.com>
-Content-Type: text/plain; charset="us-ascii"
+Cc: linux-ia64@vger.kernel.org, catalin.marinas@arm.com, paulus@samba.org,
+ linux-riscv@lists.infradead.org, will@kernel.org,
+ anton.ivanov@cambridgegreys.com, linux-arch@vger.kernel.org, richard@nod.at,
+ masahiroy@kernel.org, linux@armlinux.org.uk, geert@linux-m68k.org,
+ benh@kernel.crashing.org, fenghua.yu@intel.com, aou@eecs.berkeley.edu,
+ Arnd Bergmann <arnd@arndb.de>, linux-kbuild@vger.kernel.org, jdike@addtoit.com,
+ jeyu@kernel.org, linux-um@lists.infradead.org, linux-m68k@lists.linux-m68k.org,
+ michal.lkml@markovi.net, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-arm-kernel@lists.infradead.org, tony.luck@intel.com,
+ linux-kernel@vger.kernel.org, mpe@ellerman.id.au,
+ linuxppc-dev@lists.ozlabs.org
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> -----Original Message-----
-> From: Palmer Dabbelt <palmer@dabbelt.com>
-> Sent: 09 September 2020 08:42
-> To: Christoph Hellwig <hch@infradead.org>; dkangude@cadence.com
-> Cc: Yash Shah <yash.shah@openfive.com>; robh+dt@kernel.org; Paul
-> Walmsley ( Sifive) <paul.walmsley@sifive.com>; bp@alien8.de;
-> mchehab@kernel.org; tony.luck@intel.com; devicetree@vger.kernel.org;
-> aou@eecs.berkeley.edu; linux-kernel@vger.kernel.org; Sachin Ghadi
-> <sachin.ghadi@openfive.com>; rrichter@marvell.com;
-> james.morse@arm.com; linux-riscv@lists.infradead.org; linux-
-> edac@vger.kernel.org
-> Subject: Re: [PATCH v2 2/3] soc: sifive: Add SiFive specific Cadence DDR
-> controller driver
-> 
-> [External Email] Do not click links or attachments unless you recognize the
-> sender and know the content is safe
-> 
-> On Sun, 06 Sep 2020 23:11:26 PDT (-0700), Christoph Hellwig wrote:
-> > On Mon, Sep 07, 2020 at 11:17:58AM +0530, Yash Shah wrote:
-> >> Add a driver to manage the Cadence DDR controller present on SiFive
-> >> SoCs At present the driver manages the EDAC feature of the DDR
-> controller.
-> >> Additional features may be added to the driver in future to control
-> >> other aspects of the DDR controller.
-> >
-> > So if this is a generic(ish) Cadence IP block shouldn't it be named
-> > Cadence and made generic?  Or is the frontend somehow SiFive specific?
-> 
-> For some reason I thought we had a SiFive-specific interface to this, but I may
-> have gotten that confused with something else as it's been a while.  Someone
-> from SiFive would probably have a better idea, but it looks like the person I'd
-> ask isn't thereany more so I'm all out of options ;)
-> 
-> It looks like there was a very similar driver posted by Dhananjay Kangude
-> from Cadence in April: https://lkml.org/lkml/2020/4/6/358 .  Some of the
-> register definitions seem to be different, but the code I looked at is very
-> similar so there's at least some bits that could be shared.  I found a v4 of that
-> patch set, but that was back in May: https://lkml.org/lkml/2020/5/11/912 .  It
-> alludes to a v5, but I can't find one.  I've added Dhananjay, maybe he knows
-> what's up?
-> 
+On Mon, 07 Sep 2020 21:27:08 PDT (-0700), masahiroy@kernel.org wrote:
+> There was a request to preprocess the module linker script like we
+> do for the vmlinux one. (https://lkml.org/lkml/2020/8/21/512)
+>
+> The difference between vmlinux.lds and module.lds is that the latter
+> is needed for external module builds, thus must be cleaned up by
+> 'make mrproper' instead of 'make clean'. Also, it must be created
+> by 'make modules_prepare'.
+>
+> You cannot put it in arch/$(SRCARCH)/kernel/, which is cleaned up by
+> 'make clean'. I moved arch/$(SRCARCH)/kernel/module.lds to
+> arch/$(SRCARCH)/include/asm/module.lds.h, which is included from
+> scripts/module.lds.S.
+>
+> scripts/module.lds is fine because 'make clean' keeps all the
+> build artifacts under scripts/.
+>
+> You can add arch-specific sections in <asm/module.lds.h>.
 
-I consulted with Dhananjay before posting this patch. From what I understood, Cadence provide highly configurable and customised DDR IP blocks based on the SoC vendor's need. This impacts the register configuration and probably the offsets too.
-I had also refer the v4 patch posted by Dhananjay mentioned above and found that the registers offsets are not matching with that of Cadence DDR IP in SiFive SoC. Therefore it seems this DDR IP block has SiFive specific configurations and hence this Sifive specific driver.
+for the arch/riscv stuff
 
-> I don't know enough about the block to know if the subtle difference in
-> register names/offsets means.  They look properly jumbled up (ie, not just an
-> offset), so maybe there's just different versions or that's the SiFive-specific
-> part I had bouncing around my head?  Either way, it seems like one driver
-> with some simple configuration could handle both of these -- either sticking
-> the offsets in the DT (if they're going to be different everywhere) or by
-> coming up with some version sort of thing (if there's a handful of these).
-> 
-> I'm now also a bit worried about the provenace of this code.  The two drivers
-> are errily similar -- for example, the variable definitions in handle_ce()
-> 
->        u64 err_c_addr = 0x0;
->        u64 err_c_data = 0x0;
->        u32 err_c_synd, err_c_id;
->        u32 sig_val_l, sig_val_h;
-> 
-> are exactly the same.
+Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
 
-I apologized, I forgot to mention it in cover-letter. I have based my work on Dhananjay's v4 patch[0]. 
+Thanks!
 
-- Yash
+> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+> Tested-by: Jessica Yu <jeyu@kernel.org>
+> Acked-by: Will Deacon <will@kernel.org>
+> ---
+>
+> Changes in v2:
+>   - Fix the race between the two targets 'scripts' and 'asm-generic'
+>
+>  Makefile                                               | 10 ++++++----
+>  arch/arm/Makefile                                      |  4 ----
+>  .../{kernel/module.lds => include/asm/module.lds.h}    |  2 ++
+>  arch/arm64/Makefile                                    |  4 ----
+>  .../{kernel/module.lds => include/asm/module.lds.h}    |  2 ++
+>  arch/ia64/Makefile                                     |  1 -
+>  arch/ia64/{module.lds => include/asm/module.lds.h}     |  0
+>  arch/m68k/Makefile                                     |  1 -
+>  .../{kernel/module.lds => include/asm/module.lds.h}    |  0
+>  arch/powerpc/Makefile                                  |  1 -
+>  .../{kernel/module.lds => include/asm/module.lds.h}    |  0
+>  arch/riscv/Makefile                                    |  3 ---
+>  .../{kernel/module.lds => include/asm/module.lds.h}    |  3 ++-
+>  arch/um/include/asm/Kbuild                             |  1 +
+>  include/asm-generic/Kbuild                             |  1 +
+>  include/asm-generic/module.lds.h                       | 10 ++++++++++
+>  scripts/.gitignore                                     |  1 +
+>  scripts/Makefile                                       |  3 +++
+>  scripts/Makefile.modfinal                              |  5 ++---
+>  scripts/{module-common.lds => module.lds.S}            |  3 +++
+>  scripts/package/builddeb                               |  2 +-
+>  21 files changed, 34 insertions(+), 23 deletions(-)
+>  rename arch/arm/{kernel/module.lds => include/asm/module.lds.h} (72%)
+>  rename arch/arm64/{kernel/module.lds => include/asm/module.lds.h} (76%)
+>  rename arch/ia64/{module.lds => include/asm/module.lds.h} (100%)
+>  rename arch/m68k/{kernel/module.lds => include/asm/module.lds.h} (100%)
+>  rename arch/powerpc/{kernel/module.lds => include/asm/module.lds.h} (100%)
+>  rename arch/riscv/{kernel/module.lds => include/asm/module.lds.h} (84%)
+>  create mode 100644 include/asm-generic/module.lds.h
+>  rename scripts/{module-common.lds => module.lds.S} (93%)
+>
+> diff --git a/Makefile b/Makefile
+> index 37739ee53f27..97b1dae1783b 100644
+> --- a/Makefile
+> +++ b/Makefile
+> @@ -505,7 +505,6 @@ KBUILD_CFLAGS_KERNEL :=
+>  KBUILD_AFLAGS_MODULE  := -DMODULE
+>  KBUILD_CFLAGS_MODULE  := -DMODULE
+>  KBUILD_LDFLAGS_MODULE :=
+> -export KBUILD_LDS_MODULE := $(srctree)/scripts/module-common.lds
+>  KBUILD_LDFLAGS :=
+>  CLANG_FLAGS :=
+>
+> @@ -1395,7 +1394,7 @@ endif
+>  # using awk while concatenating to the final file.
+>
+>  PHONY += modules
+> -modules: $(if $(KBUILD_BUILTIN),vmlinux) modules_check
+> +modules: $(if $(KBUILD_BUILTIN),vmlinux) modules_check modules_prepare
+>  	$(Q)$(MAKE) -f $(srctree)/scripts/Makefile.modpost
+>
+>  PHONY += modules_check
+> @@ -1412,6 +1411,7 @@ targets += modules.order
+>  # Target to prepare building external modules
+>  PHONY += modules_prepare
+>  modules_prepare: prepare
+> +	$(Q)$(MAKE) $(build)=scripts scripts/module.lds
+>
+>  # Target to install modules
+>  PHONY += modules_install
+> @@ -1743,7 +1743,9 @@ help:
+>  	@echo  '  clean           - remove generated files in module directory only'
+>  	@echo  ''
+>
+> -PHONY += prepare
+> +# no-op for external module builds
+> +PHONY += prepare modules_prepare
+> +
+>  endif # KBUILD_EXTMOD
+>
+>  # Single targets
+> @@ -1776,7 +1778,7 @@ MODORDER := .modules.tmp
+>  endif
+>
+>  PHONY += single_modpost
+> -single_modpost: $(single-no-ko)
+> +single_modpost: $(single-no-ko) modules_prepare
+>  	$(Q){ $(foreach m, $(single-ko), echo $(extmod-prefix)$m;) } > $(MODORDER)
+>  	$(Q)$(MAKE) -f $(srctree)/scripts/Makefile.modpost
+>
+> diff --git a/arch/arm/Makefile b/arch/arm/Makefile
+> index 4e877354515f..a0cb15de9677 100644
+> --- a/arch/arm/Makefile
+> +++ b/arch/arm/Makefile
+> @@ -16,10 +16,6 @@ LDFLAGS_vmlinux	+= --be8
+>  KBUILD_LDFLAGS_MODULE	+= --be8
+>  endif
+>
+> -ifeq ($(CONFIG_ARM_MODULE_PLTS),y)
+> -KBUILD_LDS_MODULE	+= $(srctree)/arch/arm/kernel/module.lds
+> -endif
+> -
+>  GZFLAGS		:=-9
+>  #KBUILD_CFLAGS	+=-pipe
+>
+> diff --git a/arch/arm/kernel/module.lds b/arch/arm/include/asm/module.lds.h
+> similarity index 72%
+> rename from arch/arm/kernel/module.lds
+> rename to arch/arm/include/asm/module.lds.h
+> index 79cb6af565e5..0e7cb4e314b4 100644
+> --- a/arch/arm/kernel/module.lds
+> +++ b/arch/arm/include/asm/module.lds.h
+> @@ -1,5 +1,7 @@
+>  /* SPDX-License-Identifier: GPL-2.0 */
+> +#ifdef CONFIG_ARM_MODULE_PLTS
+>  SECTIONS {
+>  	.plt : { BYTE(0) }
+>  	.init.plt : { BYTE(0) }
+>  }
+> +#endif
+> diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
+> index b45f0124cc16..76667ad47980 100644
+> --- a/arch/arm64/Makefile
+> +++ b/arch/arm64/Makefile
+> @@ -115,10 +115,6 @@ endif
+>
+>  CHECKFLAGS	+= -D__aarch64__
+>
+> -ifeq ($(CONFIG_ARM64_MODULE_PLTS),y)
+> -KBUILD_LDS_MODULE	+= $(srctree)/arch/arm64/kernel/module.lds
+> -endif
+> -
+>  ifeq ($(CONFIG_DYNAMIC_FTRACE_WITH_REGS),y)
+>    KBUILD_CPPFLAGS += -DCC_USING_PATCHABLE_FUNCTION_ENTRY
+>    CC_FLAGS_FTRACE := -fpatchable-function-entry=2
+> diff --git a/arch/arm64/kernel/module.lds b/arch/arm64/include/asm/module.lds.h
+> similarity index 76%
+> rename from arch/arm64/kernel/module.lds
+> rename to arch/arm64/include/asm/module.lds.h
+> index 22e36a21c113..691f15af788e 100644
+> --- a/arch/arm64/kernel/module.lds
+> +++ b/arch/arm64/include/asm/module.lds.h
+> @@ -1,5 +1,7 @@
+> +#ifdef CONFIG_ARM64_MODULE_PLTS
+>  SECTIONS {
+>  	.plt (NOLOAD) : { BYTE(0) }
+>  	.init.plt (NOLOAD) : { BYTE(0) }
+>  	.text.ftrace_trampoline (NOLOAD) : { BYTE(0) }
+>  }
+> +#endif
+> diff --git a/arch/ia64/Makefile b/arch/ia64/Makefile
+> index 2876a7df1b0a..703b1c4f6d12 100644
+> --- a/arch/ia64/Makefile
+> +++ b/arch/ia64/Makefile
+> @@ -20,7 +20,6 @@ CHECKFLAGS	+= -D__ia64=1 -D__ia64__=1 -D_LP64 -D__LP64__
+>
+>  OBJCOPYFLAGS	:= --strip-all
+>  LDFLAGS_vmlinux	:= -static
+> -KBUILD_LDS_MODULE += $(srctree)/arch/ia64/module.lds
+>  KBUILD_AFLAGS_KERNEL := -mconstant-gp
+>  EXTRA		:=
+>
+> diff --git a/arch/ia64/module.lds b/arch/ia64/include/asm/module.lds.h
+> similarity index 100%
+> rename from arch/ia64/module.lds
+> rename to arch/ia64/include/asm/module.lds.h
+> diff --git a/arch/m68k/Makefile b/arch/m68k/Makefile
+> index 4438ffb4bbe1..ea14f2046fb4 100644
+> --- a/arch/m68k/Makefile
+> +++ b/arch/m68k/Makefile
+> @@ -75,7 +75,6 @@ KBUILD_CPPFLAGS += -D__uClinux__
+>  endif
+>
+>  KBUILD_LDFLAGS := -m m68kelf
+> -KBUILD_LDS_MODULE += $(srctree)/arch/m68k/kernel/module.lds
+>
+>  ifdef CONFIG_SUN3
+>  LDFLAGS_vmlinux = -N
+> diff --git a/arch/m68k/kernel/module.lds b/arch/m68k/include/asm/module.lds.h
+> similarity index 100%
+> rename from arch/m68k/kernel/module.lds
+> rename to arch/m68k/include/asm/module.lds.h
+> diff --git a/arch/powerpc/Makefile b/arch/powerpc/Makefile
+> index 3e8da9cf2eb9..8935658fcd06 100644
+> --- a/arch/powerpc/Makefile
+> +++ b/arch/powerpc/Makefile
+> @@ -65,7 +65,6 @@ UTS_MACHINE := $(subst $(space),,$(machine-y))
+>  ifdef CONFIG_PPC32
+>  KBUILD_LDFLAGS_MODULE += arch/powerpc/lib/crtsavres.o
+>  else
+> -KBUILD_LDS_MODULE += $(srctree)/arch/powerpc/kernel/module.lds
+>  ifeq ($(call ld-ifversion, -ge, 225000000, y),y)
+>  # Have the linker provide sfpr if possible.
+>  # There is a corresponding test in arch/powerpc/lib/Makefile
+> diff --git a/arch/powerpc/kernel/module.lds b/arch/powerpc/include/asm/module.lds.h
+> similarity index 100%
+> rename from arch/powerpc/kernel/module.lds
+> rename to arch/powerpc/include/asm/module.lds.h
+> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+> index fb6e37db836d..8edaa8bd86d6 100644
+> --- a/arch/riscv/Makefile
+> +++ b/arch/riscv/Makefile
+> @@ -53,9 +53,6 @@ endif
+>  ifeq ($(CONFIG_CMODEL_MEDANY),y)
+>  	KBUILD_CFLAGS += -mcmodel=medany
+>  endif
+> -ifeq ($(CONFIG_MODULE_SECTIONS),y)
+> -	KBUILD_LDS_MODULE += $(srctree)/arch/riscv/kernel/module.lds
+> -endif
+>  ifeq ($(CONFIG_PERF_EVENTS),y)
+>          KBUILD_CFLAGS += -fno-omit-frame-pointer
+>  endif
+> diff --git a/arch/riscv/kernel/module.lds b/arch/riscv/include/asm/module.lds.h
+> similarity index 84%
+> rename from arch/riscv/kernel/module.lds
+> rename to arch/riscv/include/asm/module.lds.h
+> index 295ecfb341a2..4254ff2ff049 100644
+> --- a/arch/riscv/kernel/module.lds
+> +++ b/arch/riscv/include/asm/module.lds.h
+> @@ -1,8 +1,9 @@
+>  /* SPDX-License-Identifier: GPL-2.0 */
+>  /* Copyright (C) 2017 Andes Technology Corporation */
+> -
+> +#ifdef CONFIG_MODULE_SECTIONS
+>  SECTIONS {
+>  	.plt (NOLOAD) : { BYTE(0) }
+>  	.got (NOLOAD) : { BYTE(0) }
+>  	.got.plt (NOLOAD) : { BYTE(0) }
+>  }
+> +#endif
+> diff --git a/arch/um/include/asm/Kbuild b/arch/um/include/asm/Kbuild
+> index 8d435f8a6dec..1c63b260ecc4 100644
+> --- a/arch/um/include/asm/Kbuild
+> +++ b/arch/um/include/asm/Kbuild
+> @@ -16,6 +16,7 @@ generic-y += kdebug.h
+>  generic-y += mcs_spinlock.h
+>  generic-y += mm-arch-hooks.h
+>  generic-y += mmiowb.h
+> +generic-y += module.lds.h
+>  generic-y += param.h
+>  generic-y += pci.h
+>  generic-y += percpu.h
+> diff --git a/include/asm-generic/Kbuild b/include/asm-generic/Kbuild
+> index 74b0612601dd..7cd4e627e00e 100644
+> --- a/include/asm-generic/Kbuild
+> +++ b/include/asm-generic/Kbuild
+> @@ -40,6 +40,7 @@ mandatory-y += mmiowb.h
+>  mandatory-y += mmu.h
+>  mandatory-y += mmu_context.h
+>  mandatory-y += module.h
+> +mandatory-y += module.lds.h
+>  mandatory-y += msi.h
+>  mandatory-y += pci.h
+>  mandatory-y += percpu.h
+> diff --git a/include/asm-generic/module.lds.h b/include/asm-generic/module.lds.h
+> new file mode 100644
+> index 000000000000..f210d5c1b78b
+> --- /dev/null
+> +++ b/include/asm-generic/module.lds.h
+> @@ -0,0 +1,10 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +#ifndef __ASM_GENERIC_MODULE_LDS_H
+> +#define __ASM_GENERIC_MODULE_LDS_H
+> +
+> +/*
+> + * <asm/module.lds.h> can specify arch-specific sections for linking modules.
+> + * Empty for the asm-generic header.
+> + */
+> +
+> +#endif /* __ASM_GENERIC_MODULE_LDS_H */
+> diff --git a/scripts/.gitignore b/scripts/.gitignore
+> index 0d1c8e217cd7..a6c11316c969 100644
+> --- a/scripts/.gitignore
+> +++ b/scripts/.gitignore
+> @@ -8,3 +8,4 @@ asn1_compiler
+>  extract-cert
+>  sign-file
+>  insert-sys-cert
+> +/module.lds
+> diff --git a/scripts/Makefile b/scripts/Makefile
+> index bc018e4b733e..b5418ec587fb 100644
+> --- a/scripts/Makefile
+> +++ b/scripts/Makefile
+> @@ -29,6 +29,9 @@ endif
+>  # The following programs are only built on demand
+>  hostprogs += unifdef
+>
+> +# The module linker script is preprocessed on demand
+> +targets += module.lds
+> +
+>  subdir-$(CONFIG_GCC_PLUGINS) += gcc-plugins
+>  subdir-$(CONFIG_MODVERSIONS) += genksyms
+>  subdir-$(CONFIG_SECURITY_SELINUX) += selinux
+> diff --git a/scripts/Makefile.modfinal b/scripts/Makefile.modfinal
+> index 411c1e600e7d..ae01baf96f4e 100644
+> --- a/scripts/Makefile.modfinal
+> +++ b/scripts/Makefile.modfinal
+> @@ -33,11 +33,10 @@ quiet_cmd_ld_ko_o = LD [M]  $@
+>        cmd_ld_ko_o =                                                     \
+>  	$(LD) -r $(KBUILD_LDFLAGS)					\
+>  		$(KBUILD_LDFLAGS_MODULE) $(LDFLAGS_MODULE)		\
+> -		$(addprefix -T , $(KBUILD_LDS_MODULE))			\
+> -		-o $@ $(filter %.o, $^);				\
+> +		-T scripts/module.lds -o $@ $(filter %.o, $^);		\
+>  	$(if $(ARCH_POSTLINK), $(MAKE) -f $(ARCH_POSTLINK) $@, true)
+>
+> -$(modules): %.ko: %.o %.mod.o $(KBUILD_LDS_MODULE) FORCE
+> +$(modules): %.ko: %.o %.mod.o scripts/module.lds FORCE
+>  	+$(call if_changed,ld_ko_o)
+>
+>  targets += $(modules) $(modules:.ko=.mod.o)
+> diff --git a/scripts/module-common.lds b/scripts/module.lds.S
+> similarity index 93%
+> rename from scripts/module-common.lds
+> rename to scripts/module.lds.S
+> index d61b9e8678e8..69b9b71a6a47 100644
+> --- a/scripts/module-common.lds
+> +++ b/scripts/module.lds.S
+> @@ -24,3 +24,6 @@ SECTIONS {
+>
+>  	__jump_table		0 : ALIGN(8) { KEEP(*(__jump_table)) }
+>  }
+> +
+> +/* bring in arch-specific sections */
+> +#include <asm/module.lds.h>
+> diff --git a/scripts/package/builddeb b/scripts/package/builddeb
+> index 6df3c9f8b2da..44f212e37935 100755
+> --- a/scripts/package/builddeb
+> +++ b/scripts/package/builddeb
+> @@ -55,7 +55,7 @@ deploy_kernel_headers () {
+>  		cd $srctree
+>  		find . arch/$SRCARCH -maxdepth 1 -name Makefile\*
+>  		find include scripts -type f -o -type l
+> -		find arch/$SRCARCH -name module.lds -o -name Kbuild.platforms -o -name Platform
+> +		find arch/$SRCARCH -name Kbuild.platforms -o -name Platform
+>  		find $(find arch/$SRCARCH -name include -o -name scripts -type d) -type f
+>  	) > debian/hdrsrcfiles
 
-[0]: https://lkml.org/lkml/2020/4/24/183
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
