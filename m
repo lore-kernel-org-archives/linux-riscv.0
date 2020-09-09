@@ -2,64 +2,110 @@ Return-Path: <SRS0=4W5w=CS=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-5.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_2 autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CFCA1C433E2
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2020 08:39:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4C38AC433E2
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2020 11:10:39 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4D671207DE
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2020 08:39:52 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id DE5C1207DE
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2020 11:10:38 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="lFLLlFI4"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4D671207DE
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WK6gQUvW";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=ibm.com header.i=@ibm.com header.b="n0WYgDx4"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DE5C1207DE
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=0Sm/H1UbmPiu1Z/AHFM1di+fOzu5ilmflSgUtM5PJlA=; b=lFLLlFI4CR9D5FJA7crgwRbPO
-	x4sohQljS75dhbCqMhd7ewTLr7Zt762RgOn9LeGU1lTF3K9TduWD/L7gjuPINtmAKAyKM2Uxl7PyB
-	0TQKVB8IfDZHXTdgFOMD+pIHltsfuaP4pX6ErBGImE9pBmbdNXJP19ibiAIQb6wknD2RJMq22izuc
-	LaKXTkOi7OWTJNsn/RXHvj870b4LRJVtnSMglPWc41j8pb1qIWq5dbMcIFGjenNu6wSdfGE7afrIh
-	vJdLcDbWdi3Seik9Mlob4W6aU0D0SoE1RyIC4mZpTgrWFxvQlm4sN0yZC75Fv50ZAP1Rv7r8gVA2T
-	h9nnarQLA==;
+	 bh=56S845qpEC34lG6pJzBJenHZz7+/pjYxWzz8htV6Z2c=; b=WK6gQUvWlA0TZWN3t+oB4A9hS
+	ajJYoCfb/V3wAy2ybdTicja4cOF61FF906atlqrvk9ox5jZGBsfuS/WROEskCTcnsIsL97sVN9WYf
+	ER+YWKtqXDzNMbJnMYmsiX4n0wxUi/amK7La20GAjKanyORssf6t5b2EUn5dE9F0qMs3/noDqptFp
+	emltl2T1V3FDUHMfXopJjp7OI+T83G8lOnajv2CJ0zewmI/lWDCxaVIDx3h0ywx6P8Ktvtupk6Dwo
+	3VMPi43ZbrX7EYvK3G2+MFQX1+m5Zd8OA6PwgLXloTCjrU/qvkCaU6n69QBnvUWWBR+Vz6xssd399
+	vMg1+lNwA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kFvde-0006nm-OL; Wed, 09 Sep 2020 08:39:34 +0000
-Received: from foss.arm.com ([217.140.110.172])
- by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kFvda-0006mV-Q2; Wed, 09 Sep 2020 08:39:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2AAA11FB;
- Wed,  9 Sep 2020 01:39:30 -0700 (PDT)
-Received: from [10.163.71.250] (unknown [10.163.71.250])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1F9E33F66E;
- Wed,  9 Sep 2020 01:39:26 -0700 (PDT)
+	id 1kFxzX-0003ua-Io; Wed, 09 Sep 2020 11:10:19 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5]
+ helo=mx0a-001b2d01.pphosted.com)
+ by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1kFxzV-0003tZ-UF; Wed, 09 Sep 2020 11:10:18 +0000
+Received: from pps.filterd (m0098413.ppops.net [127.0.0.1])
+ by mx0b-001b2d01.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id
+ 089B2lLN092037; Wed, 9 Sep 2020 07:10:08 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
+ h=date : from : to : cc :
+ subject : message-id : in-reply-to : references : mime-version :
+ content-type : content-transfer-encoding; s=pp1;
+ bh=sCHf8+v1z0J9ln9975zsHf4Oi+ryxNbRmCK/IUzVPlo=;
+ b=n0WYgDx4uS2LNO7C+UIA2TZ22DbWM1GT9lLU8O+eGJ8EkiyNNal6g/0ThLsc/C6Rmzfe
+ lpgpyDs5PNaThrXdsyVpAm07LWFOOJ62tOp0GvkOg+zng8xQcVRHLOREBohB3ON4UHe8
+ GBfS82XxbRWbJ/LSmkLeWlQLMPucHolgawl2glM4CU+v/C82dRTbQqek2bVf+xHHDNu4
+ zXm7fgSNIjYOOonwco9THzE2MlHGB8mcmrL82poROQ01AFon74J7fKmcRBRlv0jUBSLj
+ Fd8zfv3DF6qXZYHkfBzceUAEgcW/fKsVWu4MgKMfdd4N7TSoNB3hqFKG+iFK/UHma7f1 5w== 
+Received: from ppma04fra.de.ibm.com (6a.4a.5195.ip4.static.sl-reverse.com
+ [149.81.74.106])
+ by mx0b-001b2d01.pphosted.com with ESMTP id 33ewhcgtxg-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Wed, 09 Sep 2020 07:10:08 -0400
+Received: from pps.filterd (ppma04fra.de.ibm.com [127.0.0.1])
+ by ppma04fra.de.ibm.com (8.16.0.42/8.16.0.42) with SMTP id 089B8GXS032086;
+ Wed, 9 Sep 2020 11:10:06 GMT
+Received: from b06avi18878370.portsmouth.uk.ibm.com
+ (b06avi18878370.portsmouth.uk.ibm.com [9.149.26.194])
+ by ppma04fra.de.ibm.com with ESMTP id 33cm5hj7b0-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Wed, 09 Sep 2020 11:10:06 +0000
+Received: from d06av26.portsmouth.uk.ibm.com (d06av26.portsmouth.uk.ibm.com
+ [9.149.105.62])
+ by b06avi18878370.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP
+ id 089BA3eJ64881038
+ (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Wed, 9 Sep 2020 11:10:03 GMT
+Received: from d06av26.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id A7C8EAE055;
+ Wed,  9 Sep 2020 11:10:03 +0000 (GMT)
+Received: from d06av26.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 33122AE053;
+ Wed,  9 Sep 2020 11:10:03 +0000 (GMT)
+Received: from thinkpad (unknown [9.171.79.102])
+ by d06av26.portsmouth.uk.ibm.com (Postfix) with SMTP;
+ Wed,  9 Sep 2020 11:10:03 +0000 (GMT)
+Date: Wed, 9 Sep 2020 13:10:01 +0200
+From: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
 Subject: Re: [PATCH v4 00/13] mm/debug_vm_pgtable fixes
-To: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
+Message-ID: <20200909131001.7b733b3e@thinkpad>
+In-Reply-To: <ac85fd77-bca1-3318-de0e-eea40558cbbd@arm.com>
 References: <20200902114222.181353-1-aneesh.kumar@linux.ibm.com>
  <bb0f3427-e2bd-f713-3ea8-d264be0e690b@arm.com>
- <20200904172647.002113d3@thinkpad> <20200904180115.07ee5f00@thinkpad>
- <20200904195346.6d57ff9f@thinkpad>
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-Message-ID: <c6f4857e-4523-ad32-cbc1-fee417fc3f37@arm.com>
-Date: Wed, 9 Sep 2020 14:08:55 +0530
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
- Thunderbird/52.9.1
+ <20200904172647.002113d3@thinkpad>
+ <20200904180115.07ee5f00@thinkpad>
+ <ac85fd77-bca1-3318-de0e-eea40558cbbd@arm.com>
+X-Mailer: Claws Mail 3.17.6 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-In-Reply-To: <20200904195346.6d57ff9f@thinkpad>
-Content-Language: en-US
+X-TM-AS-GCONF: 00
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.235, 18.0.687
+ definitions=2020-09-09_06:2020-09-08,
+ 2020-09-09 signatures=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 clxscore=1015
+ priorityscore=1501 mlxscore=0 mlxlogscore=627 bulkscore=0 impostorscore=0
+ suspectscore=0 phishscore=0 spamscore=0 malwarescore=0 lowpriorityscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2006250000
+ definitions=main-2009090095
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200909_043930_952456_F4D7E9CE 
-X-CRM114-Status: GOOD (  33.12  )
+X-CRM114-CacheID: sfid-20200909_071018_038466_6B4DAA9D 
+X-CRM114-Status: GOOD (  21.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -83,145 +129,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 09/04/2020 11:23 PM, Gerald Schaefer wrote:
-> On Fri, 4 Sep 2020 18:01:15 +0200
-> Gerald Schaefer <gerald.schaefer@linux.ibm.com> wrote:
-> 
->> On Fri, 4 Sep 2020 17:26:47 +0200
->> Gerald Schaefer <gerald.schaefer@linux.ibm.com> wrote:
->>
->>> On Fri, 4 Sep 2020 12:18:05 +0530
->>> Anshuman Khandual <anshuman.khandual@arm.com> wrote:
->>>
->>>>
->>>>
->>>> On 09/02/2020 05:12 PM, Aneesh Kumar K.V wrote:
->>>>> This patch series includes fixes for debug_vm_pgtable test code so that
->>>>> they follow page table updates rules correctly. The first two patches introduce
->>>>> changes w.r.t ppc64. The patches are included in this series for completeness. We can
->>>>> merge them via ppc64 tree if required.
->>>>>
->>>>> Hugetlb test is disabled on ppc64 because that needs larger change to satisfy
->>>>> page table update rules.
->>>>>
->>>>> These tests are broken w.r.t page table update rules and results in kernel
->>>>> crash as below. 
->>>>>
->>>>> [   21.083519] kernel BUG at arch/powerpc/mm/pgtable.c:304!
->>>>> cpu 0x0: Vector: 700 (Program Check) at [c000000c6d1e76c0]
->>>>>     pc: c00000000009a5ec: assert_pte_locked+0x14c/0x380
->>>>>     lr: c0000000005eeeec: pte_update+0x11c/0x190
->>>>>     sp: c000000c6d1e7950
->>>>>    msr: 8000000002029033
->>>>>   current = 0xc000000c6d172c80
->>>>>   paca    = 0xc000000003ba0000   irqmask: 0x03   irq_happened: 0x01
->>>>>     pid   = 1, comm = swapper/0
->>>>> kernel BUG at arch/powerpc/mm/pgtable.c:304!
->>>>> [link register   ] c0000000005eeeec pte_update+0x11c/0x190
->>>>> [c000000c6d1e7950] 0000000000000001 (unreliable)
->>>>> [c000000c6d1e79b0] c0000000005eee14 pte_update+0x44/0x190
->>>>> [c000000c6d1e7a10] c000000001a2ca9c pte_advanced_tests+0x160/0x3d8
->>>>> [c000000c6d1e7ab0] c000000001a2d4fc debug_vm_pgtable+0x7e8/0x1338
->>>>> [c000000c6d1e7ba0] c0000000000116ec do_one_initcall+0xac/0x5f0
->>>>> [c000000c6d1e7c80] c0000000019e4fac kernel_init_freeable+0x4dc/0x5a4
->>>>> [c000000c6d1e7db0] c000000000012474 kernel_init+0x24/0x160
->>>>> [c000000c6d1e7e20] c00000000000cbd0 ret_from_kernel_thread+0x5c/0x6c
->>>>>
->>>>> With DEBUG_VM disabled
->>>>>
->>>>> [   20.530152] BUG: Kernel NULL pointer dereference on read at 0x00000000
->>>>> [   20.530183] Faulting instruction address: 0xc0000000000df330
->>>>> cpu 0x33: Vector: 380 (Data SLB Access) at [c000000c6d19f700]
->>>>>     pc: c0000000000df330: memset+0x68/0x104
->>>>>     lr: c00000000009f6d8: hash__pmdp_huge_get_and_clear+0xe8/0x1b0
->>>>>     sp: c000000c6d19f990
->>>>>    msr: 8000000002009033
->>>>>    dar: 0
->>>>>   current = 0xc000000c6d177480
->>>>>   paca    = 0xc00000001ec4f400   irqmask: 0x03   irq_happened: 0x01
->>>>>     pid   = 1, comm = swapper/0
->>>>> [link register   ] c00000000009f6d8 hash__pmdp_huge_get_and_clear+0xe8/0x1b0
->>>>> [c000000c6d19f990] c00000000009f748 hash__pmdp_huge_get_and_clear+0x158/0x1b0 (unreliable)
->>>>> [c000000c6d19fa10] c0000000019ebf30 pmd_advanced_tests+0x1f0/0x378
->>>>> [c000000c6d19fab0] c0000000019ed088 debug_vm_pgtable+0x79c/0x1244
->>>>> [c000000c6d19fba0] c0000000000116ec do_one_initcall+0xac/0x5f0
->>>>> [c000000c6d19fc80] c0000000019a4fac kernel_init_freeable+0x4dc/0x5a4
->>>>> [c000000c6d19fdb0] c000000000012474 kernel_init+0x24/0x160
->>>>> [c000000c6d19fe20] c00000000000cbd0 ret_from_kernel_thread+0x5c/0x6c
->>>>>
->>>>> Changes from v3:
->>>>> * Address review feedback
->>>>> * Move page table depost and withdraw patch after adding pmdlock to avoid bisect failure.
->>>>
->>>> This version
->>>>
->>>> - Builds on x86, arm64, s390, arc, powerpc and riscv (defconfig with DEBUG_VM_PGTABLE)
->>>> - Runs on arm64 and x86 without any regression, atleast nothing that I have noticed
->>>> - Will be great if this could get tested on s390, arc, riscv, ppc32 platforms as well
->>>
->>> When I quickly tested v3, it worked fine, but now it turned out to
->>> only work fine "sometimes", both v3 and v4. I need to look into it
->>> further, but so far it seems related to the hugetlb_advanced_tests().
->>>
->>> I guess there was already some discussion on this test, but we did
->>> not receive all of the thread(s). Please always add at least
->>> linux-s390@vger.kernel.org and maybe myself and Vasily Gorbik <gor@linux.ibm.com>
->>> for further discussions.
->>
->> BTW, with myself I mean the new address gerald.schaefer@linux.ibm.com.
->> The old gerald.schaefer@de.ibm.com seems to work (again), but is not
->> very reliable.
->>
->> BTW2, a quick test with this change (so far) made the issues on s390
->> go away:
->>
->> @@ -1069,7 +1074,7 @@ static int __init debug_vm_pgtable(void)
->>         spin_unlock(ptl);
->>
->>  #ifndef CONFIG_PPC_BOOK3S_64
->> -       hugetlb_advanced_tests(mm, vma, ptep, pte_aligned, vaddr, prot);
->> +       hugetlb_advanced_tests(mm, vma, (pte_t *) pmdp, pmd_aligned, vaddr, prot);
->>  #endif
->>
->>         spin_lock(&mm->page_table_lock);
->>
->> That would more match the "pte_t pointer" usage for hugetlb code,
->> i.e. just cast a pmd_t pointer to it. Also changed to pmd_aligned,
->> but I think the root cause is the pte_t pointer.
->>
->> Not entirely sure though if that would really be the correct fix.
->> I somehow lost whatever little track I had about what these tests
->> really want to check, and if that would still be valid with that
->> change.
-> 
-> Another potential issue, apparently not for s390, but maybe for
-> others, is that the vaddr passed to hugetlb_advanced_tests() is
-> also not pmd/pud size aligned, like you did in pmd/pud_advanced_tests().
-> 
-> I guess for the hugetlb_advanced_tests() you need to choose if
-> you want to test pmd or pud hugepages, and accordingly prepare
-> the *ptep, pfn and vaddr input. If you only check for CONFIG_HUGETLB_PAGE,
-> then probably only pmd hugepages would be safe, there might be
-> architectures only supporting one hugepage size.
+On Wed, 9 Sep 2020 13:45:48 +0530
+Anshuman Khandual <anshuman.khandual@arm.com> wrote:
 
-I guess preparing for PMD based HugeTLB tests should be sufficient
-for now, which can be improved later on to cover other levels.
+[...]
+> > 
+> > That would more match the "pte_t pointer" usage for hugetlb code,
+> > i.e. just cast a pmd_t pointer to it. Also changed to pmd_aligned,
+> > but I think the root cause is the pte_t pointer.
+> 
+> Ideally, the pte_t pointer used here should be from huge_pte_alloc()
+> not from pte_alloc_map_lock() as the case currently.
 
-> 
-> So, for s390, at least the ptep input value is a problem. Still
-> need to better understand how it goes wrong, but it seems to be
-> fixed when using proper pmdp, and also works with pudp.
-> 
-> For others, especially the apparent issues on ppc64, the other
-> non-hugepage aligned input pfn and vaddr might also be an issue,
-> e.g. power at least seems to use the vaddr in its set_huge_pte_at()
-> implementation for some pmd_off(mm, addr) calculation.
-> 
-> Again, sorry if this was already discussed, I missed most of it
-> and honestly didn't properly look at the scarce mails that we did
-> receive...
+Ah, good point. I assumed that this would also always return casted
+pmd etc. pointers, and never pte pointers. Unfortunately, that doesn't
+seem to be true for all architectures, e.g. ia64, parisc, (some) powerpc,
+where they really do a pte_alloc_map() for some reason.
 
-Sure, will consider these points and try improve tests afterwards.
+I guess that means you cannot simply cast the pmd pointer, as suggested,
+although I really do not understand how any architecture can work with
+real ptes for hugepages. But that's fair, s390 also does some things that
+nobody would expect or understand for other architectures...
+
+So, for using huge_pte_alloc() you'd also need some size, maybe
+iterating over hstates with for_each_hstate() could be an option,
+if they are already initialized at that point. Then you have the
+size(s) with huge_page_size(hstate) and can actually call the
+hugetlb tests for all supported sizes, and with proper pointer
+from huge_pte_alloc().
 
 _______________________________________________
 linux-riscv mailing list
