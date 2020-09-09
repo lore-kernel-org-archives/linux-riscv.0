@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8E63BC433E2
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2020 20:31:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A2571C433E2
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2020 20:35:32 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2776E20C09
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2020 20:31:24 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 4F69E20C09
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2020 20:35:32 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="A6my0WGD";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="MiqgAN2O"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2776E20C09
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="X9OxO6sU";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="qnfK0z+G"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4F69E20C09
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,66 +26,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=0hZwKCU+d0dZStlhPzidCLEKR0UQY61DkqqXlVpWROo=; b=A6my0WGDxRqMFZI86Q2R1JdoQ
-	p7RNr3vOMs3UaB66yWumFwtnPWccpCTtgM/KhlYGS55jprKlML7n5bzDLUf+BnmvAjlfgZfQbiL3h
-	83gY9heIfH42Qi8ltOilBAVCLFkdDrA+myehBPBk+9QeAurDMlVPzRT/JuXWqeLGjNThyYKbnLuG8
-	fTi2z61gWDL4O4/w54VJ97z7jyILum8i9O3u3BaHMooV6UeJ4pH1srUK7OT7bqW72+zj3TRuwbXd2
-	q14Kvv01LZ5fp3/9IPBHVAz2BFUBrnO53G0RLK8XCMOYF9tOKadidSZ99Txx8D6nfiofLlpM7EcVy
-	shNhz0iUA==;
+	 bh=TBS8P6McI7CN7VvgFEma1Fvd494GvdWTwxvqmkAPkOI=; b=X9OxO6sUlEvJunBgwgmbxp+Ag
+	CzIgSkMZwl3aO5jVE8O95ey4/EjsRaLp/QiBhByTEDVmHO0alTjoxn88uIprAE/pBjqzvS836CZC1
+	Xj6JlWT1YVDNTaJWuKIMkpWKnWjZMaqhx9oKRanOP+FuS+srKMzHZaZHr6wSJKnqVCJVQ0WU4Uoy+
+	LWachq85s6nJNnOGUKEmh97pUkWdceR0QeR6Lyp9qkD5xWivv5zh1aAuOUqUx/U9trbc1owQ3HQKE
+	ElECSthtk6qysoXDZwQWmK541E8HjEt9NpVtM3fdb/dWhfJB8cRM4EMnxKcGJ2u/qP/aRkST1Qe2G
+	lhf7NDxjQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kG6kG-000519-5s; Wed, 09 Sep 2020 20:31:08 +0000
-Received: from mail-pj1-x1042.google.com ([2607:f8b0:4864:20::1042])
+	id 1kG6oI-0005d6-6F; Wed, 09 Sep 2020 20:35:18 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kG6kD-00050G-1I
- for linux-riscv@lists.infradead.org; Wed, 09 Sep 2020 20:31:07 +0000
-Received: by mail-pj1-x1042.google.com with SMTP id md22so275558pjb.0
- for <linux-riscv@lists.infradead.org>; Wed, 09 Sep 2020 13:31:04 -0700 (PDT)
+ id 1kG6oF-0005cB-GC
+ for linux-riscv@lists.infradead.org; Wed, 09 Sep 2020 20:35:16 +0000
+Received: by mail-pf1-x436.google.com with SMTP id v196so3324642pfc.1
+ for <linux-riscv@lists.infradead.org>; Wed, 09 Sep 2020 13:35:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=8+h8nOrddZ60rlqGY9p7zSWVef5h+u0J2bJfQopxnyQ=;
- b=MiqgAN2OnenhsyDpyowqhXqf6C6CRJ6jVfkqQesa+MBeanQoilnFquVDff+DJUzapj
- km6Fowe25oRZ+qYHDZ/VAt5qim0j3EzThGbAvQLyq1faD5fUYevP5KAv+B92wZwakyHy
- Zmx9m+FV4gP+7WUYXWgW/vj+TXgnADnqytLUWTVwZDzpeQ56e5VOKivWCizhVSxJatFE
- QvFmSFuSVVV1Z5wkPBoljWJHLfw1eAy2OH3dsz4qGlgnF1QCCuH9nWMWpMHNQs1Zq9OD
- N9TuKc5tCYspc2dDK//nNIWJ8mfrH+k4RDSeYINS2IBNOO3QMf0rqUj7mBDbZygGWI30
- FwmA==
+ bh=/RXsnkWih2BpQqFypOG+usu++Ry9vgX3vnm3OMrwgoE=;
+ b=qnfK0z+G8TatS3L0X4+9PegtDbvuhhwQCrndp53r3b6i7RFqHb6PgdhmgM1MiHdoFZ
+ yW4Hb21nO2DCg573S4X0qWYjFHzqN2LBxTBP+k2SKC9YpAilq8nhzpKUxSmLsZfovcEx
+ dwT9hDKk2T4j9rw/WYxDcit2MTDvkVpDdSYtTy9Oczc7y3iXWl2hDYkWo2hO0boQsueJ
+ DJY1bEgejm4xywVCCLAJptGQsg2GJnGywoWFWnWeUHr1uwrUWuEtkg1L055Th3rlzA0o
+ AjZZf2iCv7l3UupqiI6LIB6Smj7N3OaY10Psp/vFsH0sLpMMbBaXklE54NZxkHJ4B4P0
+ MjEA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=8+h8nOrddZ60rlqGY9p7zSWVef5h+u0J2bJfQopxnyQ=;
- b=ZSfV5suZdW6rnkUWyWNBD/jwVs202WyQMSrIod5nlCpzNRM96bJM8lIkPbcRn2GWTq
- BJ0f4b5bbgx6nZFu1TT17eV/jlDOHZLdnfhHoxDvxn+t2adNuoW/pNg7etAU+HYoUaxX
- heBtossbFtX9nnQA/yl2j1iLmySavx6C9/tlDoWwHiojlgGDPum420kOYelUo0P+cx+K
- mewq6ETix+iGefyXF4TDHrrUAbkwI81TWd/c3Pkq5Co6CvAoB3Pfh+vmhFQEdrbd0tNK
- R4mU6/j5uthl7G36UnE9vOLV8/2fcCU//Lp54NhfntJ+wHWMYeAKmkzsQdl7DJ9yoxcq
- 81tQ==
-X-Gm-Message-State: AOAM533AkSGK2jIZR2apt1Xi07tG4P92yZQEQ43YU1o/96avpTwRzRCt
- cdCWMPI4jWJm+ocbao0OEJbVuw==
-X-Google-Smtp-Source: ABdhPJxe3euwzyJoC/f5HEii0QnaurgSe+quMpchKvFdeV9Etihcx+hbO9sMKi7a+vuksp+62X0OeA==
-X-Received: by 2002:a17:90a:3e4f:: with SMTP id
- t15mr2308869pjm.19.1599683462094; 
- Wed, 09 Sep 2020 13:31:02 -0700 (PDT)
+ bh=/RXsnkWih2BpQqFypOG+usu++Ry9vgX3vnm3OMrwgoE=;
+ b=NlJlhpIzDOAFolYImrNoOwZFEXwVWXo9ZQI+Rvvz+vnVqVsvbtLfjm22fh3k9sra2z
+ IRt0yks8ByzI2MI5YbB7dThQ5jfJLdBORtF8PfqqmlU/CRbZ31xaUFEmw0ckg7PMa/ws
+ dJpbtKA0TbQ28GgHvhnmlUZdn+JUDw/Ki/wESC11K/KUFtaP6Ouc67szLAcB+SLrOTOz
+ iovdGXAjLh+WlGeYqT6q3nptjuNvK5nos2wW30N66NfvX2qletWCJFJJ3OaA4Rdich3m
+ P7z7S+XxjFVC1vrFihdHsH3f+pcz4Lc1EkS2NlxWtWHK4pdmF7aYmtckzJtbmAktHe8G
+ gu+w==
+X-Gm-Message-State: AOAM5330NlGhf/5sB5Abj1Va38EZfknV/mEQZjtqS4wxB66vfVHIsGDr
+ n1wk2UTEXGa1LfdEVLufOctYPA==
+X-Google-Smtp-Source: ABdhPJyKq0Z82XPwGVpogzvvWPJpsuKRxhGvEV6hWi1I8xv2DG6XwOPMz1A0JbaE9mPGV/PNPEcY1w==
+X-Received: by 2002:a63:4f26:: with SMTP id d38mr1832102pgb.72.1599683711946; 
+ Wed, 09 Sep 2020 13:35:11 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id 31sm2962434pgs.59.2020.09.09.13.31.01
+ by smtp.gmail.com with ESMTPSA id o15sm2814180pgi.74.2020.09.09.13.35.11
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 09 Sep 2020 13:31:01 -0700 (PDT)
-Date: Wed, 09 Sep 2020 13:31:01 -0700 (PDT)
-X-Google-Original-Date: Wed, 09 Sep 2020 13:30:24 PDT (-0700)
-Subject: Re: [PATCH v2 2/3] soc: sifive: Add SiFive specific Cadence DDR
- controller driver
-In-Reply-To: <20200909060045.GA13647@infradead.org>
+ Wed, 09 Sep 2020 13:35:11 -0700 (PDT)
+Date: Wed, 09 Sep 2020 13:35:11 -0700 (PDT)
+X-Google-Original-Date: Wed, 09 Sep 2020 13:34:03 PDT (-0700)
+Subject: Re: vmalloc faulting on RISC-V
+In-Reply-To: <CAOJsxLFWbV6FoEgHPHVN3PksrP5mXWbbFUuzH8YEDd1VdvEp7g@mail.gmail.com>
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Christoph Hellwig <hch@infradead.org>
-Message-ID: <mhng-1b96da02-cbf5-42f4-bc30-a1c5c9cce5fa@palmerdabbelt-glaptop1>
+To: penberg@kernel.org
+Message-ID: <mhng-5b700d9d-3913-4058-ae6c-c9905582fb5a@palmerdabbelt-glaptop1>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200909_163105_120535_6F871551 
-X-CRM114-Status: GOOD (  19.15  )
+X-CRM114-CacheID: sfid-20200909_163515_547758_F8C7D2B4 
+X-CRM114-Status: GOOD (  21.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -97,41 +95,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, tony.luck@intel.com, dkangude@cadence.com,
- linux-kernel@vger.kernel.org, rrichter@marvell.com,
- Christoph Hellwig <hch@infradead.org>, sachin.ghadi@sifive.com,
- yash.shah@sifive.com, robh+dt@kernel.org, bp@alien8.de,
- Paul Walmsley <paul.walmsley@sifive.com>, james.morse@arm.com,
- linux-riscv@lists.infradead.org, mchehab@kernel.org, aou@eecs.berkeley.edu,
- linux-edac@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org, jroedel@suse.de
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 08 Sep 2020 23:00:45 PDT (-0700), Christoph Hellwig wrote:
-> On Tue, Sep 08, 2020 at 08:12:16PM -0700, Palmer Dabbelt wrote:
->> I don't know enough about the block to know if the subtle difference in
->> register names/offsets means.  They look properly jumbled up (ie, not just an
->> offset), so maybe there's just different versions or that's the SiFive-specific
->> part I had bouncing around my head?  Either way, it seems like one driver with
->> some simple configuration could handle both of these -- either sticking the
->> offsets in the DT (if they're going to be different everywhere) or by coming up
->> with some version sort of thing (if there's a handful of these).
+On Tue, 08 Sep 2020 23:29:10 PDT (-0700), penberg@kernel.org wrote:
+> Hello!
 >
-> regmap can be used to handle non-uniform register layouts for the same
-> functionality.
+> Why does RISC-V need vmalloc faulting in do_page_fault()? If I
+> understand correctly, some architectures implement it because process
+> page tables can get out of sync with "init_mm.pgd". How does that
+> happen on RISC-V?
 
-Ah, cool, I hadn't seen that before.  That seems like the way to go if this is
-truly an implementatic-specific register mapping.  As I was falling asleep last
-night I remembered that we did end up with implementation-specific register
-maps for some of the IP we integrated.  That was usually the case for IP where
-we had some signals that we just didn't know what to do with, and while I know
-the DDR integration was a real trip I'm not sure if that's where these
-registers came from.
+RISC-V requires a sfence.vma when upgrading a mapping from invalid to valid, so
+we need to do something.  Our two options are to eagerly sfence.vma (IIRC
+there's a comment about how one might do so) or to handle the faults that arise 
 
-Hopefully someone who has better access to these hardware implementations can
-comment.
+On Rocket these faults are unlikely to manifest on the vmalloc region because
+we don't speculatively fill the DTLB, memory is in order, and we don't
+regularly reference invalid vmalloc pages.  The DTLB does cache invalid
+mappings (IIRC it helps with critical path because it decouples the stall logic
+from the address calculation logic, both of which are very tight in the M stage
+of a canonical 5-stage pipeline) so they can and do show up, just not that
+often.
+
+Since the faults are rare and sfence.vma is expensive we decided that it would
+be a net win to elide the fences and handle the resulting faults.  IIRC we
+don't have any benchmarks to back that up, but intuitively it still smells like
+a reasonable decision.
+
+> I am asking because Joerg Roedel recently switched the x86
+> architecture to a different approach because apparently vmalloc
+> faulting is error-prone:
+>
+> commit 7f0a002b5a21302d9f4b29ba83c96cd433ff3769
+> Author: Joerg Roedel <jroedel@suse.de>
+> Date:   Mon Jun 1 21:52:40 2020 -0700
+>
+>     x86/mm: remove vmalloc faulting
+>
+>     Remove fault handling on vmalloc areas, as the vmalloc code now takes
+>     care of synchronizing changes to all page-tables in the system.
+>
+> If RISC-V has the issue of page tables getting out of sync, I think we
+> should switch to this approach too.
+
+If it's actually error prone then we'll need to switch over, but I'd anticipate
+we pay a performance hit on existing hardware so I'd prefer to fix the bugs if
+possible.  My guess would be that the bugs are very ISA-specific and the
+performance tradeoffs are very implementation-specific, so while the x86 folks
+are usually quite solid on these things that may not apply to our use cases.
+
+If there really is some reason shared between RISC-V and x86 that makes this
+approach infeasible then we'll have to fix it.  Knowing why x86 changed their
+approach would be the first step.
 
 _______________________________________________
 linux-riscv mailing list
