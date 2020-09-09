@@ -2,107 +2,69 @@ Return-Path: <SRS0=4W5w=CS=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 751A2C43461
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2020 06:09:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A6076C433E2
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2020 06:29:48 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 02A74207DE
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2020 06:09:13 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5B5E420936
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2020 06:29:48 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="tP0HUPZs";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=ibm.com header.i=@ibm.com header.b="OdWjVyYy"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 02A74207DE
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Vi8XE1Fr"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5B5E420936
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References:In-Reply-To:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=SQD4FWn5YI2MWC2qub030Rq1NRB+Wra3FmepdM9mmAM=; b=tP0HUPZs/yNoHwhvs6fxIn/y6
-	QhtjvFOe5cfOfbPt9iSkvLo2BUlr72+zfcT1XMetjvOxC1McW1VcM0o45IKcEXdXEeelTDYtwUSZB
-	Y0gBma8ZGxXGeMB8HFsdIOmdxtPh9qKkoowDVg9q1Q+NLCRFAg2sqpgBEh+lRiyxRsEHzb3AIFtG2
-	vObI0MpEhT8UQIsgic0ndCwtjSaTI6gQd3k0TsOq6EggtAvli8dHHbUcX0aCMX/UgO4hmRUQuUmWE
-	LgI/ME1cr6WaCmvbt3lWlHTxQ86fqT5iAztaqS87Sxa70DlnWYh7ebLDch84iYsBXspLURCL9xUKc
-	OIXAkJ4nA==;
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:MIME-Version:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yV22wJFWTA6Qr+qHWphpkR2KopkNiQwRI+Gjj/0CpSU=; b=Vi8XE1FruAcehcKbjEErSH9b7a
+	sLS/D7usJvZHrO4UUmUMSSodRWlo+X7RuHWQBXG6dPGkkPH8cKE4lq3u6PbK9vJ4mIse7AzJwzNNV
+	iaNav8KqsSpPWfbjsGjwTWEINKt2VEobOTn7A7urMDxHl5VbAXXZ7RU1vY0Kly+CczHyNT5dHP0Md
+	nX39X4dRaYZF3rRgfND2MC6lpkTaIzGZD+AABhW8pB+j3o98sxy9tlknsT8dH+BYR7IZX2dQUa0M8
+	Jqx7P31i/wyyy+GZikCoW/X0oTcpjGbItLG8y00dqaWD/6QmAJKxJt6GsrDIWDUEv5c30zmwaqTTc
+	TSGxVMFQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kFtHv-0004EN-Ju; Wed, 09 Sep 2020 06:08:59 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1kFtbn-000649-Vc; Wed, 09 Sep 2020 06:29:32 +0000
+Received: from mail-ej1-f47.google.com ([209.85.218.47])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kFtHs-0004DL-EE; Wed, 09 Sep 2020 06:08:57 +0000
-Received: from pps.filterd (m0098409.ppops.net [127.0.0.1])
- by mx0a-001b2d01.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id
- 08962X2c188595; Wed, 9 Sep 2020 02:08:47 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
- h=from : to : cc : subject
- : in-reply-to : references : date : message-id : mime-version :
- content-type; s=pp1; bh=WqrCyLM1kSjdkdfEaU09HhZXBemvwNp0cxXzy5AGdTc=;
- b=OdWjVyYyeVISErs1wyJfVmJtGw1jtxgHWUSI2mw/7V4oeH1wkFC7jmuzZoGa65enlK22
- m1prurgC/8iMl+q3MIZHNO4GJUo+ygZVOOOc7jvaheiWwyFjBKtivX4k15Fdeqy52J+Z
- 1tM7JAq/AhGrbGM+GTYhf+rNccEHH8hj+OOuJHeLi7mjEVIKPMR0rJ5RP0G1DCgK1iZD
- +fqv0RlHUXUebrKRWXf3XdMwO9WKXZjzjY39wrVHmMBQHdWIT4E6sE9PmeP728fJM127
- 8RTr31DKNMVKcW2jSwDyQ41IkzSdJWfQv9Yc9MHuXVDyEf3jodYV6EmmTLGqb3jxBz4H bw== 
-Received: from ppma04dal.us.ibm.com (7a.29.35a9.ip4.static.sl-reverse.com
- [169.53.41.122])
- by mx0a-001b2d01.pphosted.com with ESMTP id 33eqtpajas-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Wed, 09 Sep 2020 02:08:46 -0400
-Received: from pps.filterd (ppma04dal.us.ibm.com [127.0.0.1])
- by ppma04dal.us.ibm.com (8.16.0.42/8.16.0.42) with SMTP id 089688KK030482;
- Wed, 9 Sep 2020 06:08:46 GMT
-Received: from b01cxnp22036.gho.pok.ibm.com (b01cxnp22036.gho.pok.ibm.com
- [9.57.198.26]) by ppma04dal.us.ibm.com with ESMTP id 33c2a9c90g-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Wed, 09 Sep 2020 06:08:46 +0000
-Received: from b01ledav006.gho.pok.ibm.com (b01ledav006.gho.pok.ibm.com
- [9.57.199.111])
- by b01cxnp22036.gho.pok.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
- 08968jOD15270742
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Wed, 9 Sep 2020 06:08:45 GMT
-Received: from b01ledav006.gho.pok.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 34D2DAC05B;
- Wed,  9 Sep 2020 06:08:45 +0000 (GMT)
-Received: from b01ledav006.gho.pok.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id B3568AC059;
- Wed,  9 Sep 2020 06:08:41 +0000 (GMT)
-Received: from skywalker.linux.ibm.com (unknown [9.85.95.249])
- by b01ledav006.gho.pok.ibm.com (Postfix) with ESMTP;
- Wed,  9 Sep 2020 06:08:41 +0000 (GMT)
-X-Mailer: emacs 27.1 (via feedmail 11-beta-1 I)
-From: "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>
-To: Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>
-Subject: Re: [PATCH v4 00/13] mm/debug_vm_pgtable fixes
-In-Reply-To: <20200908173906.30fffaa0@thinkpad>
-References: <20200902114222.181353-1-aneesh.kumar@linux.ibm.com>
- <bb0f3427-e2bd-f713-3ea8-d264be0e690b@arm.com>
- <20200904172647.002113d3@thinkpad> <20200904180115.07ee5f00@thinkpad>
- <20200908173906.30fffaa0@thinkpad>
-Date: Wed, 09 Sep 2020 11:38:39 +0530
-Message-ID: <87wo134h3s.fsf@linux.ibm.com>
+ id 1kFtbl-00063I-5a
+ for linux-riscv@lists.infradead.org; Wed, 09 Sep 2020 06:29:30 +0000
+Received: by mail-ej1-f47.google.com with SMTP id z23so1808525ejr.13
+ for <linux-riscv@lists.infradead.org>; Tue, 08 Sep 2020 23:29:26 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:from:date:message-id:subject:to:cc;
+ bh=so+TjNN/K4Wm4BC+QFW0U44II/XaDLDY9k3oDUXiRNU=;
+ b=I7zWEn3v22X5do16mJQkySR5/mFYqnfLHyWNy+GevceqjP7nSv6eSjPjbgL/De0K0W
+ OepaA7KeIeT3StNVrWAqWavv2tyAKjNfgnMn4vTDN4GzdbHmafwrYSjxegA/khrJMPI/
+ Vr2YLIuHm/5Kq0A1uUxSxPGsCgwJlswRYSPHbp4r4kY90yQK/Vk74ln0wNsQKh82zLP2
+ zGh6fkfjcfXfUd6OVbwiEMx7F4ItlEOhhdDOX2Ch+LviCJU4f9bAl0VTyZMcaEYW+3H3
+ u8FGDMgb8uE/2UFXqKObbGVv1/HR2bzKyF0rncUvEqyDVEmXF3A0Y2yJGsyuJdn4lpeQ
+ 2+Eg==
+X-Gm-Message-State: AOAM530ytv7pIBMQ9uuf/E/XRX5GTgmgn6Cf/q9IofRf4dYTYgo+wY8l
+ 8nfOjK/WGsgf5tf1HxcDLj6Ki4xBintgXF4jXdXMbZqj0fyauA==
+X-Google-Smtp-Source: ABdhPJza0NCiz7BJJwCSyH/Y6PN16wG2a+vIPq5tgEc8cSWGMK0lriTvtNon36i8XvuyvSKc2Zn18XBfiQ0OR+eJrdA=
+X-Received: by 2002:a17:906:868c:: with SMTP id
+ g12mr2027927ejx.230.1599632965831; 
+ Tue, 08 Sep 2020 23:29:25 -0700 (PDT)
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.235, 18.0.687
- definitions=2020-09-09_03:2020-09-08,
- 2020-09-09 signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 suspectscore=0
- priorityscore=1501 spamscore=0 mlxscore=0 malwarescore=0 clxscore=1011
- mlxlogscore=956 phishscore=0 bulkscore=0 lowpriorityscore=0
- impostorscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2006250000 definitions=main-2009090050
+From: Pekka Enberg <penberg@kernel.org>
+Date: Wed, 9 Sep 2020 09:29:10 +0300
+Message-ID: <CAOJsxLFWbV6FoEgHPHVN3PksrP5mXWbbFUuzH8YEDd1VdvEp7g@mail.gmail.com>
+Subject: vmalloc faulting on RISC-V
+To: Palmer Dabbelt <palmer@dabbelt.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200909_020856_592342_B8A04CBD 
-X-CRM114-Status: GOOD (  18.56  )
+X-CRM114-CacheID: sfid-20200909_022929_258824_FECBD6E0 
+X-CRM114-Status: UNSURE (   6.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -114,56 +76,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
- mpe@ellerman.id.au, linux-mm@kvack.org, Vineet Gupta <vgupta@synopsys.com>,
- akpm@linux-foundation.org,
- "linux-snps-arc@lists.infradead.org" <linux-snps-arc@lists.infradead.org>,
- linuxppc-dev@lists.ozlabs.org, linux-riscv <linux-riscv@lists.infradead.org>,
- Gerald Schaefer <gerald.schaefer@de.ibm.com>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>,
+ Joerg Roedel <jroedel@suse.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Gerald Schaefer <gerald.schaefer@linux.ibm.com> writes:
+Hello!
 
-> On Fri, 4 Sep 2020 18:01:15 +0200
-> Gerald Schaefer <gerald.schaefer@linux.ibm.com> wrote:
->
-> [...]
->> 
->> BTW2, a quick test with this change (so far) made the issues on s390
->> go away:
->> 
->> @@ -1069,7 +1074,7 @@ static int __init debug_vm_pgtable(void)
->>         spin_unlock(ptl);
->> 
->>  #ifndef CONFIG_PPC_BOOK3S_64
->> -       hugetlb_advanced_tests(mm, vma, ptep, pte_aligned, vaddr, prot);
->> +       hugetlb_advanced_tests(mm, vma, (pte_t *) pmdp, pmd_aligned, vaddr, prot);
->>  #endif
->> 
->>         spin_lock(&mm->page_table_lock);
->> 
->> That would more match the "pte_t pointer" usage for hugetlb code,
->> i.e. just cast a pmd_t pointer to it. Also changed to pmd_aligned,
->> but I think the root cause is the pte_t pointer.
->> 
->> Not entirely sure though if that would really be the correct fix.
->> I somehow lost whatever little track I had about what these tests
->> really want to check, and if that would still be valid with that
->> change.
->
-> Uh oh, wasn't aware that this (or some predecessor) already went
-> upstream, and broke our debug kernel today.
+Why does RISC-V need vmalloc faulting in do_page_fault()? If I
+understand correctly, some architectures implement it because process
+page tables can get out of sync with "init_mm.pgd". How does that
+happen on RISC-V?
 
-Not sure i followed the above. Are you finding that s390 kernel crash
-after this patch series or the original patchset? As noted in my patch
-the hugetlb test is broken and we should fix that. A quick fix is to
-comment out that test for s390 too as i have done for PPC64.
+I am asking because Joerg Roedel recently switched the x86
+architecture to a different approach because apparently vmalloc
+faulting is error-prone:
 
+commit 7f0a002b5a21302d9f4b29ba83c96cd433ff3769
+Author: Joerg Roedel <jroedel@suse.de>
+Date:   Mon Jun 1 21:52:40 2020 -0700
 
--aneesh
+    x86/mm: remove vmalloc faulting
+
+    Remove fault handling on vmalloc areas, as the vmalloc code now takes
+    care of synchronizing changes to all page-tables in the system.
+
+If RISC-V has the issue of page tables getting out of sync, I think we
+should switch to this approach too.
+
+Regards,
+
+- Pekka
 
 _______________________________________________
 linux-riscv mailing list
