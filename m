@@ -5,19 +5,19 @@ X-Spam-Level:
 X-Spam-Status: No, score=-9.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 020D1C10DAA
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D42ABC2D0E1
 	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2020 04:59:49 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 86F3121D40
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2020 04:59:48 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 61FD521D40
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2020 04:59:49 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="VkrlqEJ4";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="gt2ptyzv"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 86F3121D40
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="rEKHzAKF";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="hpg4QcQy"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 61FD521D40
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,64 +26,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=ZX/UW9IF1rJn5R/V/LiIZJg5exlOGoouqe1A6UiVqHc=; b=VkrlqEJ44f7f6L9kwRxJn+OOx
-	FgwqLsa3oOKYd74hQBvb0IJoNUlbYZcY8NPeTsFh9b0UvWnqRIbvqpb03qqwNVuz/H9QajM7xexJ2
-	esUXeqVSvPDgWaXW6RdWMFCrx/tdL9eCY4xiq1L2HBA7gBeNWejU+xzObj1qxM6JLFZLLx49psDdS
-	MTUTF3XWJAU4SAhszCq78FWLwa7PXiFlUQjVfeKwCG79AeWDsgJ3n2ps9FbLS6m8jYD2Z8CXrLvaQ
-	6+bdGbn36h9V5DVsGsfZ0wn0pHluEG4uNPO5te0ThmucRbHU/DIr56/+8UHRJMSINqjfFFZtwJFSQ
-	4mRtVUJPg==;
+	 bh=ZJcMRDu31fv6or/Gt6jVgFNKhklzvNnUdqmaYrcmFCA=; b=rEKHzAKFuAZAD4jlxTbgi9Qa4
+	WujJQPz7BBr/NE3rhwrJWopYuPypx5VhIGBmN0Ih2h5564C2KSjidLQ2Oi64wBUqtgZk/9CFSRxOl
+	e4QiYh3KikaDKoLVDA4RAWagGl3vxJM5z4m3gMLvB4ci88+YIrsgZ+1gMMO00jOdFubVrX9HgtX/E
+	mDPAqSmDJiSN5PK2ywkltI73Dxfi51Ozsrcm+kywXHLxIIrXWQQPxdQ2wTPa3XPLSd14xe5h37xiM
+	MOh++AhlelM1+103SGFkp0qdCtuto9IJ5//cgJvDQ02TZxa1NowqeNWMy9q22kU5jOPbiocs6UrDq
+	q87LUy30w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kFsCg-0000Mk-RQ; Wed, 09 Sep 2020 04:59:30 +0000
-Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
+	id 1kFsCh-0000Nf-LD; Wed, 09 Sep 2020 04:59:31 +0000
+Received: from mail-pg1-x543.google.com ([2607:f8b0:4864:20::543])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kFsCd-0000LG-Ps
- for linux-riscv@lists.infradead.org; Wed, 09 Sep 2020 04:59:28 +0000
-Received: by mail-pf1-x444.google.com with SMTP id l126so1093565pfd.5
- for <linux-riscv@lists.infradead.org>; Tue, 08 Sep 2020 21:59:27 -0700 (PDT)
+ id 1kFsCe-0000LR-EH
+ for linux-riscv@lists.infradead.org; Wed, 09 Sep 2020 04:59:29 +0000
+Received: by mail-pg1-x543.google.com with SMTP id v15so1182272pgh.6
+ for <linux-riscv@lists.infradead.org>; Tue, 08 Sep 2020 21:59:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=lzl1nSqPEjvQ3P6IDrY13pelwMPXHe0DcJfFr0dx4o0=;
- b=gt2ptyzv2ItTIpWBA0/oN6tSIk6OUk6cOoPmRPr9hsur5LdyWRyP//DDdOadHbY0H7
- d6irVWl5BOTFP2ut9oPfBSu7s92umv3jMLa202XMQmXXvWs372sFv+f+BOkZ8WjzVnRt
- jBwS5f27WcP+lbjcRcQlcSpkHTq1R03zDC3GULMg60XPVJEFO9BGBZCgEbvqzOOZyVQY
- GnXDdsHLh04gF598ciKuZ1gtpe7cTbDE3iKO+oNitxCN4Z2FmtyvzhIwLe9jRTLWn3Y0
- 4CT5Juyn9k8i0V3dgQVrUIAd9XmzpWRTCS3mqzssOn0xYbBvXVLN7avQcGb2t8R/xa7q
- u0Mg==
+ bh=/CFjqhupI1AWKqg+mCbgMP9R+W6vd0H8IsBhpy0/FFY=;
+ b=hpg4QcQyAdlz4HPaeo1/zixNDr+qZlp7W1wiXTwWOYJ/GWcLojwWm0o9fbPsFjukK9
+ 2LKyXGPlUU1c8pEOjV/nFFboLir8U07CRMECpMSSX4NodajoEO5/g2YUnEdaUOliam3v
+ x3A/YIoz3tB3O2UOgr2XwxOPgtcNU/pjXer6Nvjw/A4SmYd3kuVE2yhD1obX3twpm0ZJ
+ uY8gePDhzkbYs2xr3tSi0I50LXoRUBZy62iivUyn1MDOazCVhaC0q5853njaJ5h6HPDo
+ vFAMxiLoka/mwDjY4FpgeA2C3f1ROVcjIJ6bOqoC3xU+j3/VplUtfN7ZTq74wSoUoqgm
+ nYuQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=lzl1nSqPEjvQ3P6IDrY13pelwMPXHe0DcJfFr0dx4o0=;
- b=rWcL2w1h85pokdx9ZbZvcf0zwXoHDe/dSZE9RLmAQU2aJLgOReMUndGSF5mBmnlNNV
- GxM7XmB9vLq/wjT3bGZsgA+T0aTKsNrZi+QqY1KJ67Pi2Ig546181+LkoO7hgGNneKXQ
- DgBq5dWqhb8EjY7to2ou4yjv5LaA8m9olh7fTP/CPJLQcZ7Qr67iGiyblU1kU1XXCnBI
- wIeNdoGo2ntZw6h9dJdr5RaRrCrPBtpab4y8uZozf/oDkUFmmCxQgbXLPrgNHo2BB0kl
- B8nF4+vqehrFM33YdbRAqNfYphW6p8YvyOpMmKywx+n2wUNREhahQj889gHtVwyCLVeX
- jz+A==
-X-Gm-Message-State: AOAM532pia1ON88k67bSNioVMJth8+RMB2JWr2LoDMQM4dm0VPd+9R6A
- XCCB2/0b+cQ3lonY579JYvfnYA==
-X-Google-Smtp-Source: ABdhPJxfdYGYwS7HdGn7Zame0oZeEcDOohwbP50ya7FCE+hsBnnfqPe4WNacmhnhsvI/Absvu7VVdQ==
-X-Received: by 2002:a62:ab06:: with SMTP id p6mr2016830pff.131.1599627565164; 
- Tue, 08 Sep 2020 21:59:25 -0700 (PDT)
+ bh=/CFjqhupI1AWKqg+mCbgMP9R+W6vd0H8IsBhpy0/FFY=;
+ b=gYbzRRTCiUPKiga5FdwLPEHFPrX8FMI5UT7Vk0AisycJdXBX2xLj7jf01mZ2axpwSU
+ EDluk9uc3oaAkFs/8G3c39voYc1UxkKTCh2YW9PPUvT+NNeXW/cH/x/n0WcySyyPyrKT
+ wqht0zokTyH8+W7XIhzcH+NcKvLddnEfA6yl/n1zbaISfZF0tmOj2dnLTAzerBKkJpsX
+ bs69boWEkKfvIT7bjCM2j9YprMT616j3/pDYa4xC0X5vQW9ABym8QHGkfkNuJlrbtLdA
+ feoqs3yLee0hK3DLe6xRwmfmW1m60Jo9/sbv4Ei+UZAilK8dALJyescH1E01CGHruoUf
+ MYHw==
+X-Gm-Message-State: AOAM531hbPvkadyCPb3G65wBAmcSXdMJnM2zfV+kjjXug9P+T2vt9kf2
+ wT8P5CA+pnkVbYmI3Om7VR07dg==
+X-Google-Smtp-Source: ABdhPJwy3yBcV7Uv8j6LpvPP4ltOvLLGG22xDuMaz75P6SEw83qpXJZok8u89m0LxFNrXKeBbGOOHw==
+X-Received: by 2002:a62:1bc2:: with SMTP id b185mr2014599pfb.75.1599627566376; 
+ Tue, 08 Sep 2020 21:59:26 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id y29sm1115400pfq.207.2020.09.08.21.59.24
+ by smtp.gmail.com with ESMTPSA id z18sm1034026pfn.186.2020.09.08.21.59.25
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 08 Sep 2020 21:59:24 -0700 (PDT)
-Date: Tue, 08 Sep 2020 21:59:24 -0700 (PDT)
-X-Google-Original-Date: Tue, 08 Sep 2020 21:42:29 PDT (-0700)
-Subject: Re: [PATCH 5/8] riscv: use memcpy based uaccess for nommu again
-In-Reply-To: <20200907055825.1917151-6-hch@lst.de>
+ Tue, 08 Sep 2020 21:59:25 -0700 (PDT)
+Date: Tue, 08 Sep 2020 21:59:25 -0700 (PDT)
+X-Google-Original-Date: Tue, 08 Sep 2020 21:43:09 PDT (-0700)
+Subject: Re: [PATCH 6/8] riscv: refactor __get_user and __put_user
+In-Reply-To: <20200907055825.1917151-7-hch@lst.de>
 From: Palmer Dabbelt <palmer@dabbelt.com>
 To: Christoph Hellwig <hch@lst.de>
-Message-ID: <mhng-05de1a3d-fcf4-4a1a-949f-a59f91678f58@palmerdabbelt-glaptop1>
+Message-ID: <mhng-e4978c15-9e83-4621-a9e6-76a550f6dcda@palmerdabbelt-glaptop1>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200909_005927_842402_BCDA4D52 
-X-CRM114-Status: GOOD (  21.84  )
+X-CRM114-CacheID: sfid-20200909_005928_487996_A12C2CED 
+X-CRM114-Status: GOOD (  22.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -103,96 +103,199 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 06 Sep 2020 22:58:22 PDT (-0700), Christoph Hellwig wrote:
-> This reverts commit adccfb1a805ea84d2db38eb53032533279bdaa97.
+On Sun, 06 Sep 2020 22:58:23 PDT (-0700), Christoph Hellwig wrote:
+> Add new __get_user_nocheck and __put_user_nocheck that switch on the size
+> and call the actual inline assembly helpers, and move the uaccess enable
+> / disable into the actual __get_user and __put_user.  This prepares for
+> natively implementing __get_kernel_nofault and __put_kernel_nofault.
 >
-> Now that the generic uaccess by mempcy code handles unaligned addresses
-> the generic code can be used for all RISC-V CPUs.
+> Also don't bother with the deprecated register keyword for the error
+> return.
 >
 > Signed-off-by: Christoph Hellwig <hch@lst.de>
 > ---
->  arch/riscv/Kconfig               |  1 +
->  arch/riscv/include/asm/uaccess.h | 36 ++++++++++++++++----------------
->  arch/riscv/lib/Makefile          |  2 +-
->  3 files changed, 20 insertions(+), 19 deletions(-)
+>  arch/riscv/include/asm/uaccess.h | 94 ++++++++++++++++++--------------
+>  1 file changed, 52 insertions(+), 42 deletions(-)
 >
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 07d53044013ede..460e3971a80fde 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -87,6 +87,7 @@ config RISCV
->  	select SYSCTL_EXCEPTION_TRACE
->  	select THREAD_INFO_IN_TASK
->  	select SET_FS
-> +	select UACCESS_MEMCPY if !MMU
->
->  config ARCH_MMAP_RND_BITS_MIN
->  	default 18 if 64BIT
 > diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
-> index f56c66b3f5fe21..e8eedf22e90747 100644
+> index e8eedf22e90747..b67d1c616ec348 100644
 > --- a/arch/riscv/include/asm/uaccess.h
 > +++ b/arch/riscv/include/asm/uaccess.h
-> @@ -13,24 +13,6 @@
->  /*
->   * User space memory access functions
+> @@ -107,7 +107,6 @@ static inline int __access_ok(unsigned long addr, unsigned long size)
+>  do {								\
+>  	uintptr_t __tmp;					\
+>  	__typeof__(x) __x;					\
+> -	__enable_user_access();					\
+>  	__asm__ __volatile__ (					\
+>  		"1:\n"						\
+>  		"	" insn " %1, %3\n"			\
+> @@ -125,7 +124,6 @@ do {								\
+>  		"	.previous"				\
+>  		: "+r" (err), "=&r" (__x), "=r" (__tmp)		\
+>  		: "m" (*(ptr)), "i" (-EFAULT));			\
+> -	__disable_user_access();				\
+>  	(x) = __x;						\
+>  } while (0)
+>
+> @@ -138,7 +136,6 @@ do {								\
+>  	u32 __user *__ptr = (u32 __user *)(ptr);		\
+>  	u32 __lo, __hi;						\
+>  	uintptr_t __tmp;					\
+> -	__enable_user_access();					\
+>  	__asm__ __volatile__ (					\
+>  		"1:\n"						\
+>  		"	lw %1, %4\n"				\
+> @@ -162,12 +159,30 @@ do {								\
+>  			"=r" (__tmp)				\
+>  		: "m" (__ptr[__LSW]), "m" (__ptr[__MSW]),	\
+>  			"i" (-EFAULT));				\
+> -	__disable_user_access();				\
+>  	(x) = (__typeof__(x))((__typeof__((x)-(x)))(		\
+>  		(((u64)__hi << 32) | __lo)));			\
+>  } while (0)
+>  #endif /* CONFIG_64BIT */
+>
+> +#define __get_user_nocheck(x, __gu_ptr, __gu_err)		\
+> +do {								\
+> +	switch (sizeof(*__gu_ptr)) {				\
+> +	case 1:							\
+> +		__get_user_asm("lb", (x), __gu_ptr, __gu_err);	\
+> +		break;						\
+> +	case 2:							\
+> +		__get_user_asm("lh", (x), __gu_ptr, __gu_err);	\
+> +		break;						\
+> +	case 4:							\
+> +		__get_user_asm("lw", (x), __gu_ptr, __gu_err);	\
+> +		break;						\
+> +	case 8:							\
+> +		__get_user_8((x), __gu_ptr, __gu_err);	\
+> +		break;						\
+> +	default:						\
+> +		BUILD_BUG();					\
+> +	}							\
+> +} while (0)
+>
+>  /**
+>   * __get_user: - Get a simple variable from user space, with less checking.
+> @@ -191,25 +206,15 @@ do {								\
 >   */
-> -
-> -extern unsigned long __must_check __asm_copy_to_user(void __user *to,
-> -	const void *from, unsigned long n);
-> -extern unsigned long __must_check __asm_copy_from_user(void *to,
-> -	const void __user *from, unsigned long n);
-> -
-> -static inline unsigned long
-> -raw_copy_from_user(void *to, const void __user *from, unsigned long n)
-> -{
-> -	return __asm_copy_from_user(to, from, n);
-> -}
-> -
-> -static inline unsigned long
-> -raw_copy_to_user(void __user *to, const void *from, unsigned long n)
-> -{
-> -	return __asm_copy_to_user(to, from, n);
-> -}
-> -
->  #ifdef CONFIG_MMU
->  #include <linux/errno.h>
->  #include <linux/compiler.h>
-> @@ -385,6 +367,24 @@ do {								\
->  		-EFAULT;					\
+>  #define __get_user(x, ptr)					\
+>  ({								\
+> -	register long __gu_err = 0;				\
+>  	const __typeof__(*(ptr)) __user *__gu_ptr = (ptr);	\
+> +	long __gu_err = 0;					\
+> +								\
+>  	__chk_user_ptr(__gu_ptr);				\
+> -	switch (sizeof(*__gu_ptr)) {				\
+> -	case 1:							\
+> -		__get_user_asm("lb", (x), __gu_ptr, __gu_err);	\
+> -		break;						\
+> -	case 2:							\
+> -		__get_user_asm("lh", (x), __gu_ptr, __gu_err);	\
+> -		break;						\
+> -	case 4:							\
+> -		__get_user_asm("lw", (x), __gu_ptr, __gu_err);	\
+> -		break;						\
+> -	case 8:							\
+> -		__get_user_8((x), __gu_ptr, __gu_err);	\
+> -		break;						\
+> -	default:						\
+> -		BUILD_BUG();					\
+> -	}							\
+> +								\
+> +	__enable_user_access();					\
+> +	__get_user_nocheck(x, __gu_ptr, __gu_err);		\
+> +	__disable_user_access();				\
+> +								\
+>  	__gu_err;						\
 >  })
 >
-> +
-> +unsigned long __must_check __asm_copy_to_user(void __user *to,
-> +	const void *from, unsigned long n);
-> +unsigned long __must_check __asm_copy_from_user(void *to,
-> +	const void __user *from, unsigned long n);
-> +
-> +static inline unsigned long
-> +raw_copy_from_user(void *to, const void __user *from, unsigned long n)
-> +{
-> +	return __asm_copy_from_user(to, from, n);
-> +}
-> +
-> +static inline unsigned long
-> +raw_copy_to_user(void __user *to, const void *from, unsigned long n)
-> +{
-> +	return __asm_copy_to_user(to, from, n);
-> +}
-> +
->  extern long strncpy_from_user(char *dest, const char __user *src, long count);
+> @@ -243,7 +248,6 @@ do {								\
+>  do {								\
+>  	uintptr_t __tmp;					\
+>  	__typeof__(*(ptr)) __x = x;				\
+> -	__enable_user_access();					\
+>  	__asm__ __volatile__ (					\
+>  		"1:\n"						\
+>  		"	" insn " %z3, %2\n"			\
+> @@ -260,7 +264,6 @@ do {								\
+>  		"	.previous"				\
+>  		: "+r" (err), "=r" (__tmp), "=m" (*(ptr))	\
+>  		: "rJ" (__x), "i" (-EFAULT));			\
+> -	__disable_user_access();				\
+>  } while (0)
 >
->  extern long __must_check strlen_user(const char __user *str);
-> diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-> index 0d0db80800c4ed..47e7a82044608d 100644
-> --- a/arch/riscv/lib/Makefile
-> +++ b/arch/riscv/lib/Makefile
-> @@ -2,5 +2,5 @@
->  lib-y			+= delay.o
->  lib-y			+= memcpy.o
->  lib-y			+= memset.o
-> -lib-y			+= uaccess.o
-> +lib-$(CONFIG_MMU)	+= uaccess.o
->  lib-$(CONFIG_64BIT)	+= tishift.o
+>  #ifdef CONFIG_64BIT
+> @@ -272,7 +275,6 @@ do {								\
+>  	u32 __user *__ptr = (u32 __user *)(ptr);		\
+>  	u64 __x = (__typeof__((x)-(x)))(x);			\
+>  	uintptr_t __tmp;					\
+> -	__enable_user_access();					\
+>  	__asm__ __volatile__ (					\
+>  		"1:\n"						\
+>  		"	sw %z4, %2\n"				\
+> @@ -294,10 +296,28 @@ do {								\
+>  			"=m" (__ptr[__LSW]),			\
+>  			"=m" (__ptr[__MSW])			\
+>  		: "rJ" (__x), "rJ" (__x >> 32), "i" (-EFAULT));	\
+> -	__disable_user_access();				\
+>  } while (0)
+>  #endif /* CONFIG_64BIT */
+>
+> +#define __put_user_nocheck(x, __gu_ptr, __pu_err)					\
+> +do {								\
+> +	switch (sizeof(*__gu_ptr)) {				\
+> +	case 1:							\
+> +		__put_user_asm("sb", (x), __gu_ptr, __pu_err);	\
+> +		break;						\
+> +	case 2:							\
+> +		__put_user_asm("sh", (x), __gu_ptr, __pu_err);	\
+> +		break;						\
+> +	case 4:							\
+> +		__put_user_asm("sw", (x), __gu_ptr, __pu_err);	\
+> +		break;						\
+> +	case 8:							\
+> +		__put_user_8((x), __gu_ptr, __pu_err);	\
+> +		break;						\
+> +	default:						\
+> +		BUILD_BUG();					\
+> +	}							\
+> +} while (0)
+>
+>  /**
+>   * __put_user: - Write a simple value into user space, with less checking.
+> @@ -320,25 +340,15 @@ do {								\
+>   */
+>  #define __put_user(x, ptr)					\
+>  ({								\
+> -	register long __pu_err = 0;				\
+>  	__typeof__(*(ptr)) __user *__gu_ptr = (ptr);		\
+> +	long __pu_err = 0;					\
+> +								\
+>  	__chk_user_ptr(__gu_ptr);				\
+> -	switch (sizeof(*__gu_ptr)) {				\
+> -	case 1:							\
+> -		__put_user_asm("sb", (x), __gu_ptr, __pu_err);	\
+> -		break;						\
+> -	case 2:							\
+> -		__put_user_asm("sh", (x), __gu_ptr, __pu_err);	\
+> -		break;						\
+> -	case 4:							\
+> -		__put_user_asm("sw", (x), __gu_ptr, __pu_err);	\
+> -		break;						\
+> -	case 8:							\
+> -		__put_user_8((x), __gu_ptr, __pu_err);	\
+> -		break;						\
+> -	default:						\
+> -		BUILD_BUG();					\
+> -	}							\
+> +								\
+> +	__enable_user_access();					\
+> +	__put_user_nocheck(x, __gu_ptr, __pu_err);		\
+> +	__disable_user_access();				\
+> +								\
+>  	__pu_err;						\
+>  })
 
 Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
 Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
