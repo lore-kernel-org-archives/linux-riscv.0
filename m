@@ -2,22 +2,22 @@ Return-Path: <SRS0=4W5w=CS=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6506EC43461
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2020 04:59:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 020D1C10DAA
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2020 04:59:49 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D0B7C21D43
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2020 04:59:45 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 86F3121D40
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Sep 2020 04:59:48 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="N7aiFjB8";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="tpgF9Rnj"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D0B7C21D43
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="VkrlqEJ4";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="gt2ptyzv"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 86F3121D40
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,64 +26,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=q+uajtlqr0b9pGHDnw0cyohH64W/9d+ZivmNlppHZB4=; b=N7aiFjB8nTLyMvIDZuZjOhuuK
-	HwUHafdPGcKgUci/q7b9xOeosPey/Wg89gtl9V3/2+4Z0ILgD1fKYrKjoDYnOKjWDuQLV312/ubl2
-	Sc2+492Eng/HfqLxR6xfYKZBj35PmJaRqwBUoyIUWoEFsHjzv8lhQILK+VgI5HySyvyL7UbRCHtuT
-	ACSFO8rFu44MgW+8Daxg+LfmanO2il7hA1S72K67CIykPXxgC4t4S6JqPhvUc8vimAPhXEAn3Yqt4
-	Qp/b+8Wh/x2+7AhI/xpCw51OjGWSi5nnRyf4B4mVekzO/iaLYiLen/FhXcY2bg/qMnGn7GuxWBiCd
-	LXiKIHW4A==;
+	 bh=ZX/UW9IF1rJn5R/V/LiIZJg5exlOGoouqe1A6UiVqHc=; b=VkrlqEJ44f7f6L9kwRxJn+OOx
+	FgwqLsa3oOKYd74hQBvb0IJoNUlbYZcY8NPeTsFh9b0UvWnqRIbvqpb03qqwNVuz/H9QajM7xexJ2
+	esUXeqVSvPDgWaXW6RdWMFCrx/tdL9eCY4xiq1L2HBA7gBeNWejU+xzObj1qxM6JLFZLLx49psDdS
+	MTUTF3XWJAU4SAhszCq78FWLwa7PXiFlUQjVfeKwCG79AeWDsgJ3n2ps9FbLS6m8jYD2Z8CXrLvaQ
+	6+bdGbn36h9V5DVsGsfZ0wn0pHluEG4uNPO5te0ThmucRbHU/DIr56/+8UHRJMSINqjfFFZtwJFSQ
+	4mRtVUJPg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kFsCk-0000PL-Mu; Wed, 09 Sep 2020 04:59:34 +0000
-Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
+	id 1kFsCg-0000Mk-RQ; Wed, 09 Sep 2020 04:59:30 +0000
+Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kFsCi-0000NE-1c
- for linux-riscv@lists.infradead.org; Wed, 09 Sep 2020 04:59:33 +0000
-Received: by mail-pg1-x541.google.com with SMTP id l191so1184524pgd.5
- for <linux-riscv@lists.infradead.org>; Tue, 08 Sep 2020 21:59:31 -0700 (PDT)
+ id 1kFsCd-0000LG-Ps
+ for linux-riscv@lists.infradead.org; Wed, 09 Sep 2020 04:59:28 +0000
+Received: by mail-pf1-x444.google.com with SMTP id l126so1093565pfd.5
+ for <linux-riscv@lists.infradead.org>; Tue, 08 Sep 2020 21:59:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=aMuaqipRQnYeqRzhZrGBU6gZzBaakoxqT2EsHc4LAkw=;
- b=tpgF9Rnjs582RVO60tHFuThNeDv8r1D7N4z/7UTKHgifa+meHjtSqF6MmXDAlaZiRY
- nqqGXLS2Xx7cWbQmv2Tsmxav1QwUJevwRHbW/8KUyfLigIRgRiFxMOMkdVqiiwNzxsYx
- HZv8VX4R32LJJljOL4S9tDoE7X7QugRVxE6gWmn/rNX4xGHSm34XkIKVGyFUcnqj/rVJ
- MZCqNIjU3Xb7c67+Vd+6NMkgv0My+pdYPoAV1fN2XSlFAnJcs7acyWbru7ghUBDihK+n
- HA3KkD9a8MMJ3mptyenmxRBX4VAJkBNGBzhWly1gBbZAze1ERi77A0PrZNZBUWYQavE1
- 4llg==
+ bh=lzl1nSqPEjvQ3P6IDrY13pelwMPXHe0DcJfFr0dx4o0=;
+ b=gt2ptyzv2ItTIpWBA0/oN6tSIk6OUk6cOoPmRPr9hsur5LdyWRyP//DDdOadHbY0H7
+ d6irVWl5BOTFP2ut9oPfBSu7s92umv3jMLa202XMQmXXvWs372sFv+f+BOkZ8WjzVnRt
+ jBwS5f27WcP+lbjcRcQlcSpkHTq1R03zDC3GULMg60XPVJEFO9BGBZCgEbvqzOOZyVQY
+ GnXDdsHLh04gF598ciKuZ1gtpe7cTbDE3iKO+oNitxCN4Z2FmtyvzhIwLe9jRTLWn3Y0
+ 4CT5Juyn9k8i0V3dgQVrUIAd9XmzpWRTCS3mqzssOn0xYbBvXVLN7avQcGb2t8R/xa7q
+ u0Mg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=aMuaqipRQnYeqRzhZrGBU6gZzBaakoxqT2EsHc4LAkw=;
- b=ra8vC8BB0do5WW1E1DSm/Pcb9cHMNQS1R6Ks2DrhSVILhzo4+yn42csVzvpGP40B9o
- 2H4RsAO0FMC4f356vo3OBTHpVXqPHdG2+UoxQqbhJK5Qqf0lvSJdMsjNxa8yuNpAJLxH
- t9wHjQ8aI61SjkUNQ1rQuttggjYda5KxSRnbwi8JbeeeIIVQoMUiAq5du81l4qdvy2dn
- sohd1D1wD9/cgMWzUGpYb7PK3t8Q/KXY/tlPR6WsGjU3YAw3JOyu8A1rJtsa+1CvU7E8
- lfFpMEVJ0XsmNjpSBQmkoaKQbtbEEWqUpEVjzsW+xUsB1XYekyT0krTLEEhXodTX/lxo
- xsoQ==
-X-Gm-Message-State: AOAM533aNFrMCzeSmEB6ME1WmUcev1A2cF6Ua0ERX04nkIUPP0l3nzau
- 7dyqrCkBCmvbkjdzklja8yRCGg==
-X-Google-Smtp-Source: ABdhPJxDDE5ivT8UmvibDFe7q7gQD1F1no9tzfg8hTFhxtCkA6fy7IjVUDNFMcPuNzrxEIhllR0ZfQ==
-X-Received: by 2002:aa7:8e85:: with SMTP id a5mr1997808pfr.96.1599627570285;
- Tue, 08 Sep 2020 21:59:30 -0700 (PDT)
+ bh=lzl1nSqPEjvQ3P6IDrY13pelwMPXHe0DcJfFr0dx4o0=;
+ b=rWcL2w1h85pokdx9ZbZvcf0zwXoHDe/dSZE9RLmAQU2aJLgOReMUndGSF5mBmnlNNV
+ GxM7XmB9vLq/wjT3bGZsgA+T0aTKsNrZi+QqY1KJ67Pi2Ig546181+LkoO7hgGNneKXQ
+ DgBq5dWqhb8EjY7to2ou4yjv5LaA8m9olh7fTP/CPJLQcZ7Qr67iGiyblU1kU1XXCnBI
+ wIeNdoGo2ntZw6h9dJdr5RaRrCrPBtpab4y8uZozf/oDkUFmmCxQgbXLPrgNHo2BB0kl
+ B8nF4+vqehrFM33YdbRAqNfYphW6p8YvyOpMmKywx+n2wUNREhahQj889gHtVwyCLVeX
+ jz+A==
+X-Gm-Message-State: AOAM532pia1ON88k67bSNioVMJth8+RMB2JWr2LoDMQM4dm0VPd+9R6A
+ XCCB2/0b+cQ3lonY579JYvfnYA==
+X-Google-Smtp-Source: ABdhPJxfdYGYwS7HdGn7Zame0oZeEcDOohwbP50ya7FCE+hsBnnfqPe4WNacmhnhsvI/Absvu7VVdQ==
+X-Received: by 2002:a62:ab06:: with SMTP id p6mr2016830pff.131.1599627565164; 
+ Tue, 08 Sep 2020 21:59:25 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id e17sm1043445pff.6.2020.09.08.21.59.29
+ by smtp.gmail.com with ESMTPSA id y29sm1115400pfq.207.2020.09.08.21.59.24
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 08 Sep 2020 21:59:29 -0700 (PDT)
-Date: Tue, 08 Sep 2020 21:59:29 -0700 (PDT)
-X-Google-Original-Date: Tue, 08 Sep 2020 21:58:57 PDT (-0700)
-Subject: Re: remove set_fs for riscv v2
-In-Reply-To: <20200907055825.1917151-1-hch@lst.de>
+ Tue, 08 Sep 2020 21:59:24 -0700 (PDT)
+Date: Tue, 08 Sep 2020 21:59:24 -0700 (PDT)
+X-Google-Original-Date: Tue, 08 Sep 2020 21:42:29 PDT (-0700)
+Subject: Re: [PATCH 5/8] riscv: use memcpy based uaccess for nommu again
+In-Reply-To: <20200907055825.1917151-6-hch@lst.de>
 From: Palmer Dabbelt <palmer@dabbelt.com>
 To: Christoph Hellwig <hch@lst.de>
-Message-ID: <mhng-5fa86587-c404-420e-a4c0-43d197d1cd27@palmerdabbelt-glaptop1>
+Message-ID: <mhng-05de1a3d-fcf4-4a1a-949f-a59f91678f58@palmerdabbelt-glaptop1>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200909_005932_152506_3A63BD47 
-X-CRM114-Status: GOOD (  20.99  )
+X-CRM114-CacheID: sfid-20200909_005927_842402_BCDA4D52 
+X-CRM114-Status: GOOD (  21.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -103,39 +103,99 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 06 Sep 2020 22:58:17 PDT (-0700), Christoph Hellwig wrote:
-> Hi all,
+On Sun, 06 Sep 2020 22:58:22 PDT (-0700), Christoph Hellwig wrote:
+> This reverts commit adccfb1a805ea84d2db38eb53032533279bdaa97.
 >
-> this series converts riscv to the new set_fs less world and is on top of this
-> branch:
+> Now that the generic uaccess by mempcy code handles unaligned addresses
+> the generic code can be used for all RISC-V CPUs.
 >
->     https://git.kernel.org/pub/scm/linux/kernel/git/viro/vfs.git/log/?h=base.set_fs
+> Signed-off-by: Christoph Hellwig <hch@lst.de>
+> ---
+>  arch/riscv/Kconfig               |  1 +
+>  arch/riscv/include/asm/uaccess.h | 36 ++++++++++++++++----------------
+>  arch/riscv/lib/Makefile          |  2 +-
+>  3 files changed, 20 insertions(+), 19 deletions(-)
 >
-> The first four patches are general improvements and enablement for all nommu
-> ports, and might make sense to merge through the above base branch.
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 07d53044013ede..460e3971a80fde 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -87,6 +87,7 @@ config RISCV
+>  	select SYSCTL_EXCEPTION_TRACE
+>  	select THREAD_INFO_IN_TASK
+>  	select SET_FS
+> +	select UACCESS_MEMCPY if !MMU
+>
+>  config ARCH_MMAP_RND_BITS_MIN
+>  	default 18 if 64BIT
+> diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
+> index f56c66b3f5fe21..e8eedf22e90747 100644
+> --- a/arch/riscv/include/asm/uaccess.h
+> +++ b/arch/riscv/include/asm/uaccess.h
+> @@ -13,24 +13,6 @@
+>  /*
+>   * User space memory access functions
+>   */
+> -
+> -extern unsigned long __must_check __asm_copy_to_user(void __user *to,
+> -	const void *from, unsigned long n);
+> -extern unsigned long __must_check __asm_copy_from_user(void *to,
+> -	const void __user *from, unsigned long n);
+> -
+> -static inline unsigned long
+> -raw_copy_from_user(void *to, const void __user *from, unsigned long n)
+> -{
+> -	return __asm_copy_from_user(to, from, n);
+> -}
+> -
+> -static inline unsigned long
+> -raw_copy_to_user(void __user *to, const void *from, unsigned long n)
+> -{
+> -	return __asm_copy_to_user(to, from, n);
+> -}
+> -
+>  #ifdef CONFIG_MMU
+>  #include <linux/errno.h>
+>  #include <linux/compiler.h>
+> @@ -385,6 +367,24 @@ do {								\
+>  		-EFAULT;					\
+>  })
+>
+> +
+> +unsigned long __must_check __asm_copy_to_user(void __user *to,
+> +	const void *from, unsigned long n);
+> +unsigned long __must_check __asm_copy_from_user(void *to,
+> +	const void __user *from, unsigned long n);
+> +
+> +static inline unsigned long
+> +raw_copy_from_user(void *to, const void __user *from, unsigned long n)
+> +{
+> +	return __asm_copy_from_user(to, from, n);
+> +}
+> +
+> +static inline unsigned long
+> +raw_copy_to_user(void __user *to, const void *from, unsigned long n)
+> +{
+> +	return __asm_copy_to_user(to, from, n);
+> +}
+> +
+>  extern long strncpy_from_user(char *dest, const char __user *src, long count);
+>
+>  extern long __must_check strlen_user(const char __user *str);
+> diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+> index 0d0db80800c4ed..47e7a82044608d 100644
+> --- a/arch/riscv/lib/Makefile
+> +++ b/arch/riscv/lib/Makefile
+> @@ -2,5 +2,5 @@
+>  lib-y			+= delay.o
+>  lib-y			+= memcpy.o
+>  lib-y			+= memset.o
+> -lib-y			+= uaccess.o
+> +lib-$(CONFIG_MMU)	+= uaccess.o
+>  lib-$(CONFIG_64BIT)	+= tishift.o
 
-Seems like it to me.  These won't work without the SET_FS code so I'm OK if you
-guys want to keep them all together.  Otherwise I think I'd need to wait until
-the SET_FS stuff gets merged before taking any of these, which would be a bit
-of a headache.
-
-Thanks!
-
-> Changes since v1:
->  - implement __get_user_fn and __put_user_fn for the UACCESS_MEMCPY case
->    and remove the small constant size optimizations in raw_copy_from_user
->    and raw_copy_to_user
->  - reshuffle the patch order a little
->
-> Diffstat
->  arch/riscv/Kconfig                   |    2
->  arch/riscv/include/asm/thread_info.h |    6 -
->  arch/riscv/include/asm/uaccess.h     |  177 +++++++++++++++++------------------
->  arch/riscv/kernel/process.c          |    1
->  arch/riscv/lib/Makefile              |    2
->  include/asm-generic/uaccess.h        |  109 +++++++++++++--------
->  include/linux/uaccess.h              |    4
->  7 files changed, 166 insertions(+), 135 deletions(-)
+Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
+Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
 
 _______________________________________________
 linux-riscv mailing list
