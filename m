@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 35C5CC433E2
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2020 08:13:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3C69CC43461
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2020 08:13:06 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CB84D20731
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2020 08:13:04 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B3DCC20731
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2020 08:13:05 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Y5qd7EYT";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="QMmGQYeC"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CB84D20731
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Ulr4Ojit";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="azD4MkWS"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B3DCC20731
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,69 +26,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=C/tkEYYGJGfPF6o7+qMZB3XURQgbNRfLZxJnH9qQg1g=; b=Y5qd7EYT1KaxGtEQPYLmRS4HU
-	MmJ2ysfXKvGQwml8XNpmZ459FOnMrRZduGqbzozjFdzJKNI53SwidTFNLp5iVQxWCHVPMAOByoCbb
-	L7jBIAcsGe5+HfUIaLNJgvmsTDj/0hywyUVRauuTZM+vNqzr/PJI6IQZyIYr64pcz2MZPLEjmBvgO
-	lQosf3rUVaRDP9W5IPBcjPOF68vZFyZTdPNVG50CuUbMGyB7Y0IOaiZHpU7Bce5uVpy8SCwXgVhpB
-	+FaYRjKm0WitK5Le0CKi5T8ufNFPPa6GKjaggN9V7IMLcD1lZ/LnPVxUXXTjOaf/UaE0JFHmiVpxN
-	9lFcF2onw==;
+	 bh=/l3H3wZ12ZvAOhWsm81WCgibwEZc9eQATtjAMTPlMbo=; b=Ulr4OjitzVPjakTq+izcTPdjU
+	BBm/NCzWi0RMIviJX5puDAb+64Em1w6N+Z0Skf/H+o0Ru5eTnaJY4JCkjG28ghLDA6XAKUORnYY1L
+	irGGKqP0IE76/CBttgXLZGuloXaSpSncKaVajQ8wRFW5QQrNpdVroMhjiTaMNl2O9BMfn39A5KY8N
+	7vKzB70iZSDzHw9Cz8pbiWBjj9Jei0NVShaWBOFz7kRKODY/XvRC4UuSvqt21We0zywaq41ZMxg/8
+	gCAyAWm4d85k6PtrzxzHM8K4CiNhL8q9WbcHZ2iXV68SKuqpXz7LzBWMrafM2kCtaaH7rnWuCVCaF
+	QiwsuTIdA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kGHhJ-0008DO-6u; Thu, 10 Sep 2020 08:12:49 +0000
-Received: from mail-pl1-x644.google.com ([2607:f8b0:4864:20::644])
+	id 1kGHhL-0008Ev-Re; Thu, 10 Sep 2020 08:12:51 +0000
+Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kGHhH-0008C6-Cb
- for linux-riscv@lists.infradead.org; Thu, 10 Sep 2020 08:12:48 +0000
-Received: by mail-pl1-x644.google.com with SMTP id a8so542074plm.2
- for <linux-riscv@lists.infradead.org>; Thu, 10 Sep 2020 01:12:46 -0700 (PDT)
+ id 1kGHhJ-0008Cx-FS
+ for linux-riscv@lists.infradead.org; Thu, 10 Sep 2020 08:12:50 +0000
+Received: by mail-pf1-x441.google.com with SMTP id w7so4196016pfi.4
+ for <linux-riscv@lists.infradead.org>; Thu, 10 Sep 2020 01:12:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=pBZg38YV3F0UBIikGh/iifz81s+4k+D3Kp7Tc68TLZI=;
- b=QMmGQYeC6WHteUVor0MkG/umERsoUyehK2V8+a5Xgv0HC+1W/5a/3SgTR1co9SZdzr
- b0TxGgynak/YrX59cQrA2aDjs+g1TnA4h28P1AoV4tqxL63aD4nfD9B3TmCMskjuaaL0
- ED7eIL2mKHpTHcOvzwn2ud/ORFKZDbShWyGUO1y4bKo2Ez1uY0bFyEpRziFilumZSLv/
- 7ZuzbGVSFp6BPE8UmMIgcRfIUlyxsSeeN4XCD2hILXiWjD/pn+uUb/um1ehh4K1BPWcT
- mwT/t1FlGLgKRToL3dEkcJDNNNOGUvmkvROg7n5fOJK1NEEf+Ar/OI9LbaMmXQut80ou
- b+wg==
+ bh=jTWmtcACzAQn5qJ6Bhs/uGk8LJx7IP1Lqtl0V+UVL/4=;
+ b=azD4MkWSBr7dTIgX/UNno4IJiwn9U8nNOQ8s9HUsHeqnVRrnURFEzjZT9lcM7D6ZOq
+ Qtcc/XgUcCXx5yOWHr6ZYbTQZK2EeBLqP0tpb+W1pNeStoC/bSIkPpzGx1XrIyqLqznI
+ gOFGvz0fzvDQz7GnULmd9o5cgBDmnznWPBC0m5hrBiHSLGB0tJkMkw7ssJphBfpR1M5/
+ V4NnYVTumV+zc09YMyI1kzZbm5p7yFtT6lBfbgdXfOavjjpkDvJwOA7LH0x4vt92Uw0F
+ 9KPhlH1QLoaP06XBpwzq26j/x2hd1QT1GdvCmVSMWcjkFlbHk1R9YpVI+YGgKa6wDUeR
+ +QWw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=pBZg38YV3F0UBIikGh/iifz81s+4k+D3Kp7Tc68TLZI=;
- b=uNr+hSAGFlZxtQ8wPBOiROQO0HsCQ7jP7waSirfTKvsC4onXw8tcOMSgYxhAF1mLWe
- uKvaze5sQf6ysvdKrpUUx2JjPoFQBM6/oP8YEqc0VbFPvHc1tQ6A4pi6KuTTgf7UsVG1
- ZdeQJqboT4FNNR8805+NEFnP6Iw0ac0Ge8/i2W0iBvmdgO2mXzT5JxSG+W6QSfSGnliU
- 48fb+f/AZPZzK/+4z+RVO061E+W4+cR8SY3sLAZbDddPbsw6VyYFaRy+/dcQaUHcrp8V
- QrOkLLp1aRtMbpVxV5a+crC/HCshAClD22LhclMnJ03HiRURmZmoOnYfPjKWdfXxivsX
- vb6g==
-X-Gm-Message-State: AOAM533B+vKwBHU4qYrz8OJIq7UCxpLDgS79uzm7Ik6PeVUDqqY1oAXV
- yx8o9IZ0IGmU+3TSVAo0domD1w==
-X-Google-Smtp-Source: ABdhPJx5AqEGmcn4ZmggG6tMGtXj1OMr4k67KXCra2/D96tG0n9Nv2iG9jor2KACZRPMEfu9BZEzBQ==
-X-Received: by 2002:a17:90b:815:: with SMTP id
- bk21mr1154992pjb.57.1599725565272; 
- Thu, 10 Sep 2020 01:12:45 -0700 (PDT)
+ bh=jTWmtcACzAQn5qJ6Bhs/uGk8LJx7IP1Lqtl0V+UVL/4=;
+ b=X0pAbhwrJtRvkLBt5rDIRkq95F5nr20hgI8+52l66qQH+CDT7/vu2IFXOJXV01C5RK
+ 30nRHNeCZBYaQo8W8Bpgl39qAJ23sfk1O6tOa03mYumBhJ4y8ejKrgETop2pRMHw9pAs
+ rWLoxaUMNMp4Y3J7UL+LlsZPUTvxpXJTI1WcbDwL5oI/LqXYirrThVglW7PKJSASpYwO
+ ZmVhlw/mk3+9R621smdM5qaYta5M2UMEF40Xv6rk+3+nTrsgMGPtoXx2Jae7pfEl+zyP
+ 86x9w+aQMxhlQjgbH9xCb5valxRTmlmSvHu2tXRL1vW2MXUHVLTzTE69tOP4otkMkfC7
+ LcHw==
+X-Gm-Message-State: AOAM531Cnbl7hMEnzqN5lDStcFymCP87sMxNXoO2ZdentNbkx9bl2y5K
+ OS4LHXNV6kt2sOANFj3rcybBRGu+FqwbITeZ
+X-Google-Smtp-Source: ABdhPJxKgW/VRNPprSjSiwbdDxz6nC0HICvtgnXwr9m2q/8ztRXpjt6uqMgZy5wNQsaju/4R2qnk4Q==
+X-Received: by 2002:aa7:9aa9:: with SMTP id x9mr2832162pfi.67.1599725567281;
+ Thu, 10 Sep 2020 01:12:47 -0700 (PDT)
 Received: from hsinchu02.internal.sifive.com
  (114-34-229-221.HINET-IP.hinet.net. [114.34.229.221])
- by smtp.gmail.com with ESMTPSA id e1sm2196056pfl.162.2020.09.10.01.12.43
+ by smtp.gmail.com with ESMTPSA id e1sm2196056pfl.162.2020.09.10.01.12.45
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 10 Sep 2020 01:12:44 -0700 (PDT)
+ Thu, 10 Sep 2020 01:12:46 -0700 (PDT)
 From: Greentime Hu <greentime.hu@sifive.com>
 To: greentime.hu@sifive.com, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, aou@eecs.berkeley.edu, palmer@dabbelt.com,
  paul.walmsley@sifive.com
-Subject: [RFC PATCH v7 04/21] riscv: Add new csr defines related to vector
- extension
-Date: Thu, 10 Sep 2020 16:11:59 +0800
-Message-Id: <c75e35c53ad8eb24a3f21f17f383d1f0177138a8.1599719352.git.greentime.hu@sifive.com>
+Subject: [RFC PATCH v7 05/21] riscv: Add vector feature to compile
+Date: Thu, 10 Sep 2020 16:12:00 +0800
+Message-Id: <a9f3a84d3dc7d66b36f10a68c49d6cb75a648a08.1599719352.git.greentime.hu@sifive.com>
 X-Mailer: git-send-email 2.28.0
 In-Reply-To: <cover.1599719352.git.greentime.hu@sifive.com>
 References: <cover.1599719352.git.greentime.hu@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200910_041247_454457_4531471D 
-X-CRM114-Status: UNSURE (   9.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200910_041249_529419_DC64F3E3 
+X-CRM114-Status: GOOD (  10.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -100,64 +97,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Guo Ren <guoren@linux.alibaba.com>, Guo Ren <guoren@kernel.org>
+Cc: Guo Ren <guoren@linux.alibaba.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Follow the riscv vector spec to add new csr numbers.
+From: Guo Ren <guoren@linux.alibaba.com>
 
-[guoren@linux.alibaba.com: first porting for new vector related csr]
-Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+This patch adds a new config option which could enable assembler's
+vector feature.
+
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Acked-by: Guo Ren <guoren@kernel.org>
+Reviewed-by: Greentime Hu <greentime.hu@sifive.com>
 ---
- arch/riscv/include/asm/csr.h | 16 ++++++++++++++--
- 1 file changed, 14 insertions(+), 2 deletions(-)
+ arch/riscv/Kconfig  | 9 +++++++++
+ arch/riscv/Makefile | 1 +
+ 2 files changed, 10 insertions(+)
 
-diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-index cec462e198ce..0d4c89fb97b5 100644
---- a/arch/riscv/include/asm/csr.h
-+++ b/arch/riscv/include/asm/csr.h
-@@ -24,6 +24,12 @@
- #define SR_FS_CLEAN	_AC(0x00004000, UL)
- #define SR_FS_DIRTY	_AC(0x00006000, UL)
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index df18372861d8..58673089c900 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -327,6 +327,15 @@ config FPU
  
-+#define SR_VS           _AC(0x00000600, UL) /* Vector Status */
-+#define SR_VS_OFF       _AC(0x00000000, UL)
-+#define SR_VS_INITIAL   _AC(0x00000200, UL)
-+#define SR_VS_CLEAN     _AC(0x00000400, UL)
-+#define SR_VS_DIRTY     _AC(0x00000600, UL)
+ 	  If you don't know what to do here, say Y.
+ 
++config VECTOR
++	bool "VECTOR support"
++	default n
++	help
++	  Say N here if you want to disable all vector related procedure
++	  in the kernel.
 +
- #define SR_XS		_AC(0x00018000, UL) /* Extension Status */
- #define SR_XS_OFF	_AC(0x00000000, UL)
- #define SR_XS_INITIAL	_AC(0x00008000, UL)
-@@ -31,9 +37,9 @@
- #define SR_XS_DIRTY	_AC(0x00018000, UL)
- 
- #ifndef CONFIG_64BIT
--#define SR_SD		_AC(0x80000000, UL) /* FS/XS dirty */
-+#define SR_SD		_AC(0x80000000, UL) /* FS/VS/XS dirty */
- #else
--#define SR_SD		_AC(0x8000000000000000, UL) /* FS/XS dirty */
-+#define SR_SD		_AC(0x8000000000000000, UL) /* FS/VS/XS dirty */
- #endif
- 
- /* SATP flags */
-@@ -111,6 +117,12 @@
- #define CSR_PMPADDR0		0x3b0
- #define CSR_MHARTID		0xf14
- 
-+#define CSR_VSTART		0x8
-+#define CSR_VCSR		0xf
-+#define CSR_VL			0xc20
-+#define CSR_VTYPE		0xc21
-+#define CSR_VLENB		0xc22
++	  If you don't know what to do here, say Y.
 +
- #ifdef CONFIG_RISCV_M_MODE
- # define CSR_STATUS	CSR_MSTATUS
- # define CSR_IE		CSR_MIE
+ endmenu
+ 
+ menu "Kernel features"
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index 957d064bead0..7c80c95582e3 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -46,6 +46,7 @@ riscv-march-aflags-$(CONFIG_ARCH_RV32I)		:= rv32ima
+ riscv-march-aflags-$(CONFIG_ARCH_RV64I)		:= rv64ima
+ riscv-march-aflags-$(CONFIG_FPU)		:= $(riscv-march-aflags-y)fd
+ riscv-march-aflags-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-aflags-y)c
++riscv-march-aflags-$(CONFIG_VECTOR)		:= $(riscv-march-aflags-y)v
+ 
+ KBUILD_CFLAGS += -march=$(riscv-march-cflags-y)
+ KBUILD_AFLAGS += -march=$(riscv-march-aflags-y)
 -- 
 2.28.0
 
