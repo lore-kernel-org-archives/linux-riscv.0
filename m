@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E40FBC43461
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2020 08:13:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 44C8AC43461
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2020 08:13:12 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7D64D20731
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2020 08:13:08 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B6C7720731
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2020 08:13:11 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="zWXJwkTh";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="fjlnvVWE"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7D64D20731
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="HVgkK3Py";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="Q2cGez+F"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B6C7720731
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,68 +26,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=YKwQT2AjIZhV5lYKm1X6LpGgbb8aI2v66ypWVLiP6/c=; b=zWXJwkTh0oWaRAMGeJ6yeA3HW
-	AplwLZ74jW3QwQsSC2LF6ud7S1vqIjwEyOKGEYthj712PGh+jBxDZCKw0U+TbTeIvN4O+35ImALB5
-	kNSMo8pTXE+hLn2K53TQMKcWYSURzR9Mt8o2NhWqm3A3X+g/z7hCG0bMQ5S+h67k/OTznw5YQw4TO
-	2jCnZ2+fuXMEoYvN8BTHby336fSLAsagkOekOh6Et1xcJYf8F80xDqikRzAan3kLjapxbA++BGYZr
-	nVk2q6bhryUSb9lvK+Mf/SnLOwed0QWcYKopAOyq6FanHSGegL0QgnEtphzDYcocsiVkP0yCcLA/D
-	Mskymv6zA==;
+	 bh=SYqqMpzAC+m/rr3eQzJeL1NYI11/U+2FXWf7LLsnBAs=; b=HVgkK3PyZ3Ijf0p1s6MXphupS
+	XTe1GmEZkPDz5SpBCXrUvCtY1kQJzvL6MUXhUV4itgykQXiCe5wgPzh+/Td8EwMV06FcV2gYLpNkp
+	dzrPexdPVU1WpMAoRAQ4Zy22p0brjU7MaWsx3QhKbHDtd8hD/THo7l6cizmYl0zd3z/HCVQj6EWIz
+	nLnukgoOzUx6xzEa95h/wAMZyEVVWlhVJajIPPGagxJO/nxzGo2bol1MINyHkwoL0g0Lk4hvRJNR2
+	bHjvkxgBehi0H0mkzWuIqvNK0xIag9TTaILmPcSVN4P064d2pW/Zj5t6euEv+wXhA0OOAMwg4EvUG
+	uwkm0zebw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kGHhN-0008Ft-Ha; Thu, 10 Sep 2020 08:12:53 +0000
-Received: from mail-pj1-x1043.google.com ([2607:f8b0:4864:20::1043])
+	id 1kGHhQ-0008IL-Tj; Thu, 10 Sep 2020 08:12:56 +0000
+Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kGHhL-0008Dx-H5
- for linux-riscv@lists.infradead.org; Thu, 10 Sep 2020 08:12:52 +0000
-Received: by mail-pj1-x1043.google.com with SMTP id jw11so2674114pjb.0
- for <linux-riscv@lists.infradead.org>; Thu, 10 Sep 2020 01:12:51 -0700 (PDT)
+ id 1kGHhN-0008FB-5u
+ for linux-riscv@lists.infradead.org; Thu, 10 Sep 2020 08:12:54 +0000
+Received: by mail-pg1-x541.google.com with SMTP id u13so3849548pgh.1
+ for <linux-riscv@lists.infradead.org>; Thu, 10 Sep 2020 01:12:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=ce1Cr9HrV3tBJGJ0t9KLA6wLyDwM2Je7xNmtW+DthqA=;
- b=fjlnvVWETnC+6Y+qjfA5cxp2pSO4p5quXLwSt7u3BYt+UpJjIXCpGJQmpHNlRoe1Ur
- ReGCCHDG3eDrCXAQ1qnd5gdIE6XCEF/gapf59sQtveWzp7tNInNhAY1U4bMK6sWzumtr
- DDtgf+qvTGdCucfNwSsjTLc3s8wqEJE+hZXFBjQ2rVOkSBUW1ETC2ySxxtq42/oTB3l0
- usTlGg1s8IBGDQPk0k5sCnY9u8FNYOICnBP3bbLXDhwqJITXqrLKOe90QRha1Zdf30wg
- BDuqVBNo3u0KEvuu0lTHInAAeceh3u5NgZLwzxeSsX/E2FOslICQvLbHwxNmsVUFTpKj
- czsQ==
+ bh=ommHQQSpigOoxveeOFgXjiVdJvwUb8j2DzRPHrvB8ew=;
+ b=Q2cGez+F8URgAoZvPAYByAl6wQOxX86fqXQguCLGEvBvEVALos9gy+uGgwCfIaqzx4
+ tQAN+B8kOPNupoqb1AZETPXjyLVaqWO0hRhl3MbUE2G4YQstbdgBJvkVE3jMsPzY9JGq
+ duU4NTbnVx7Bp3jjv+xrBpjQXRX7KXD7xZlO1c9y5iLb/siA0xBPxtbN8vIvYBmqI0bW
+ 47Swj8CvaqU/+YSM++ibx1DXz4ja3Gotg2Q7Gdcq1b+giT78Y60o6Ca8ZWg6RCUS4VX9
+ IyUfwSLcj0qa1AAxEK7saXRh6+Yw+v5qLo/zkdyEOxLScRUgFTr+PwnfhaBRt/Z3hasj
+ Y9Jw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=ce1Cr9HrV3tBJGJ0t9KLA6wLyDwM2Je7xNmtW+DthqA=;
- b=G2UE3S20n9A12tbYwxCrII++cQAlkjvNMNKX4gLsImH+B5/pqeCdMCAMSArwSGSyCk
- T06rG+szbUNaQrj1o7ccbw3dg32IisWtFeYT5KSusFDZAJ6QeTbDA/3eXELyQLHyo9y2
- wQ2FCLq638hGucOp9T/n/nPjRb5GWsMH5NzIbiXf82bWoWSZUpTwegFjSpBNiLcxtUzQ
- o76b2wjuBkhOeNWzgjzYRwMoUAdedVgIwLxFyvR/2Km51RhnRRjoRpWZtt4y7/P+8RjI
- sa8bY6gthOwjA8czbaAXpcBT4m6Tv2OQQbemlyWbbXDeJ8rHkDAwCHLpkEntcKjpQ97z
- bHSA==
-X-Gm-Message-State: AOAM5304acOFZTr9e2Bn3dn4UEWglxlYSMoxmfYQmmi0hS1Cv32GmpIp
- LaQhc7tBZaH2O/5pOudrR+CMAQ==
-X-Google-Smtp-Source: ABdhPJyai65Py1TqV8L/FUFi7cDFWoYRXd06+l/aYPNz2PTenCCc6YnHYzuHIjhwTD/+WiZw9JWlmg==
-X-Received: by 2002:a17:90b:20d1:: with SMTP id
- ju17mr3970913pjb.134.1599725569405; 
- Thu, 10 Sep 2020 01:12:49 -0700 (PDT)
+ bh=ommHQQSpigOoxveeOFgXjiVdJvwUb8j2DzRPHrvB8ew=;
+ b=AttoMJ4iDegBZ49PizY4gTu2YRpkEUcBX2WHsoj2f7MIfHCFiLbnCHLnCDP5aMmdmx
+ rBeOLix+1nRFzGzM3Vq3hBx+ybA7sD8kKwcrMLtMSSyxmP4ICEuNuxqhNQcytS7daLpa
+ SfaTa7C7foCDiIKSMBH2+K3Ma91UtmbwtsiSVATAo7Lo4A7AeKybFaOeO/EsHSipaIQ9
+ m0Yh/Kb0lWHLe83YVyBQV1+guVJyrSNLD7y4eQjaLTWI/mEA2qCG43dW1xZH4HI32bjR
+ E/ORoiZDe0Q4QwCB4lPCrL8jCthmYNTgBXAKhPWCpAv4c4xifYn2e9nyOSV+MPygMDLj
+ GJlQ==
+X-Gm-Message-State: AOAM531w4NjeoKrRGa8MG2B0+ClWH40mTB5cXQYLlYLb7bQACXUBiDRy
+ 24gBSqrteEpS0N0Ezr+7oGx6OQ==
+X-Google-Smtp-Source: ABdhPJw4mbqJR11v7mgubz1trEb59ezNxgb6EoFi6G+IlzBsjor6vQFM5ZmYEz/7BxSXw5fxGISSFw==
+X-Received: by 2002:a63:fd51:: with SMTP id m17mr3785010pgj.210.1599725571382; 
+ Thu, 10 Sep 2020 01:12:51 -0700 (PDT)
 Received: from hsinchu02.internal.sifive.com
  (114-34-229-221.HINET-IP.hinet.net. [114.34.229.221])
- by smtp.gmail.com with ESMTPSA id e1sm2196056pfl.162.2020.09.10.01.12.47
+ by smtp.gmail.com with ESMTPSA id e1sm2196056pfl.162.2020.09.10.01.12.49
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 10 Sep 2020 01:12:48 -0700 (PDT)
+ Thu, 10 Sep 2020 01:12:50 -0700 (PDT)
 From: Greentime Hu <greentime.hu@sifive.com>
 To: greentime.hu@sifive.com, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, aou@eecs.berkeley.edu, palmer@dabbelt.com,
  paul.walmsley@sifive.com
-Subject: [RFC PATCH v7 06/21] riscv: Add has_vector/riscv_vsize to save vector
- features.
-Date: Thu, 10 Sep 2020 16:12:01 +0800
-Message-Id: <d5aedcd12c8a2f777063fec8926ee396d1e263a7.1599719352.git.greentime.hu@sifive.com>
+Subject: [RFC PATCH v7 07/21] riscv: Reset vector register
+Date: Thu, 10 Sep 2020 16:12:02 +0800
+Message-Id: <9ea7cdc5f290d33f52643ec00830362723b71ec4.1599719352.git.greentime.hu@sifive.com>
 X-Mailer: git-send-email 2.28.0
 In-Reply-To: <cover.1599719352.git.greentime.hu@sifive.com>
 References: <cover.1599719352.git.greentime.hu@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200910_041251_590935_980437BC 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20200910_041253_367038_71D999BC 
+X-CRM114-Status: GOOD (  13.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -105,45 +103,106 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch is used to detect vector support status of CPU and use
-riscv_vsize to save the size of all the vector registers. It assumes
-all harts has the same capabilities in SMP system.
+From: Guo Ren <guoren@linux.alibaba.com>
 
-[guoren@linux.alibaba.com: add has_vector checking]
+Reset vector registers at boot-time and disable vector instructions
+execution for kernel mode.
+
+[greentime.hu@sifive.com: add comments]
 Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 ---
- arch/riscv/kernel/cpufeature.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ arch/riscv/kernel/entry.S |  6 ++---
+ arch/riscv/kernel/head.S  | 49 +++++++++++++++++++++++++++++++++++++--
+ 2 files changed, 50 insertions(+), 5 deletions(-)
 
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index f11ada3fa906..4d4f78f6a5db 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -21,6 +21,10 @@ static DECLARE_BITMAP(riscv_isa, RISCV_ISA_EXT_MAX) __read_mostly;
- #ifdef CONFIG_FPU
- bool has_fpu __read_mostly;
- #endif
-+#ifdef CONFIG_VECTOR
-+bool has_vector __read_mostly;
-+unsigned long riscv_vsize __read_mostly;
-+#endif
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index 524d918f3601..c905efb6c998 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -67,10 +67,10 @@ _save_context:
+ 	 * Disable user-mode memory access as it should only be set in the
+ 	 * actual user copy routines.
+ 	 *
+-	 * Disable the FPU to detect illegal usage of floating point in kernel
+-	 * space.
++	 * Disable the FPU/Vector to detect illegal usage of floating point
++	 * or vector in kernel space.
+ 	 */
+-	li t0, SR_SUM | SR_FS
++	li t0, SR_SUM | SR_FS | SR_VS
  
- /**
-  * riscv_isa_extension_base() - Get base extension word
-@@ -149,4 +153,12 @@ void riscv_fill_hwcap(void)
- 	if (elf_hwcap & (COMPAT_HWCAP_ISA_F | COMPAT_HWCAP_ISA_D))
- 		has_fpu = true;
- #endif
+ 	REG_L s0, TASK_TI_USER_SP(tp)
+ 	csrrc s1, CSR_STATUS, t0
+diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+index 0a4e81b8dc79..e97c7915ae27 100644
+--- a/arch/riscv/kernel/head.S
++++ b/arch/riscv/kernel/head.S
+@@ -204,10 +204,10 @@ pmp_done:
+ .option pop
+ 
+ 	/*
+-	 * Disable FPU to detect illegal usage of
++	 * Disable FPU & VECTOR to detect illegal usage of
+ 	 * floating point in kernel space
+ 	 */
+-	li t0, SR_FS
++	li t0, SR_FS | SR_VS
+ 	csrc CSR_STATUS, t0
+ 
+ #ifdef CONFIG_SMP
+@@ -365,6 +365,51 @@ ENTRY(reset_regs)
+ 	csrw	fcsr, 0
+ 	/* note that the caller must clear SR_FS */
+ #endif /* CONFIG_FPU */
 +
 +#ifdef CONFIG_VECTOR
-+	if (elf_hwcap & COMPAT_HWCAP_ISA_V) {
-+		has_vector = true;
-+		/* There are 32 vector registers with vlenb length. */
-+		riscv_vsize = csr_read(CSR_VLENB) * 32;
-+	}
-+#endif
- }
++	csrr	t0, CSR_MISA
++	li	t1, (COMPAT_HWCAP_ISA_V >> 16)
++	slli	t1, t1, 16
++	and	t0, t0, t1
++	beqz	t0, .Lreset_regs_done
++
++	li	t1, SR_VS
++	csrs	CSR_STATUS, t1
++	vmv.v.i v0, 0
++	vmv.v.i v1, 0
++	vmv.v.i v2, 0
++	vmv.v.i v3, 0
++	vmv.v.i v4, 0
++	vmv.v.i v5, 0
++	vmv.v.i v6, 0
++	vmv.v.i v7, 0
++	vmv.v.i v8, 0
++	vmv.v.i v9, 0
++	vmv.v.i v10, 0
++	vmv.v.i v11, 0
++	vmv.v.i v12, 0
++	vmv.v.i v13, 0
++	vmv.v.i v14, 0
++	vmv.v.i v15, 0
++	vmv.v.i v16, 0
++	vmv.v.i v17, 0
++	vmv.v.i v18, 0
++	vmv.v.i v19, 0
++	vmv.v.i v20, 0
++	vmv.v.i v21, 0
++	vmv.v.i v22, 0
++	vmv.v.i v23, 0
++	vmv.v.i v24, 0
++	vmv.v.i v25, 0
++	vmv.v.i v26, 0
++	vmv.v.i v27, 0
++	vmv.v.i v28, 0
++	vmv.v.i v29, 0
++	vmv.v.i v30, 0
++	vmv.v.i v31, 0
++	/* note that the caller must clear SR_VS */
++#endif /* CONFIG_VECTOR */
++
+ .Lreset_regs_done:
+ 	ret
+ END(reset_regs)
 -- 
 2.28.0
 
