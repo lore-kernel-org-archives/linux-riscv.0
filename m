@@ -7,86 +7,85 @@ X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 83A5EC43461
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2020 08:13:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 25425C433E2
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2020 08:13:36 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1B3EA20731
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2020 08:13:29 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id BCA5120731
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2020 08:13:35 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="sn3SjPrI";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="EoumDldE"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1B3EA20731
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="zyuGwz1P";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="LSxaUvvd"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BCA5120731
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=GGg+1W10XpMnHvua/QZLnPdf9Po7FB9pakDtPSbMqmY=; b=sn3SjPrIwB2v95fBG8Ww31zE6
-	IwQmSS5TiNXhOVZrAyH1LXDc6SAfVmhKWS7wJTcP7ykC3FatPY0Os2NajcxCHl2zdBUDbKCbPh1eY
-	3arJNW/48DkC6FsiuPE9nBFRo0+bNVArxb6BlAukVgErrGll26MYAr0IORseUZKNaAHI0Jw5mX85f
-	VLL8Mg+JefDV6LFyiGviWeHTgZsAiajqeYaHJUx7Y2DZhuwfoU6F6E2LeuIvnEyZ3ArEMYLuosfT1
-	utr5Gd7nPOJL++KIXIw24/rPEjqy/uC+FfEGx/Cv7aet/7AMLecjJT8fy2e75ICieTpRNJbW03NfQ
-	PFSJ7JK8Q==;
+	Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe
+	:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G4zifbHAbteHIksWIAX5CyPt8/q7Z5CBNR7rZHM5mMc=; b=zyuGwz1PkX0FLGjdcZCpYrMIRN
+	0EVvn6hQUzf1R/GIBH0LaMRRBxiTvM8cdh/Fmf26SmFvsjUSq5XXYL8epVh3HDuTngirASwfP6TRg
+	6hEvavnEluTJ1xuutiuIezWAZjSJ0/KLigSCL9lSJSRQ45lCmpSSiov/2x11I3DnqSuc6MqeEKLhu
+	2QG23+VW2zz21pxwDEwREYDhUhkBkBZqtjWaSCv9QQZSyXXFa8Dhwq+JnNpHgzQqT5UYPRIdQolDg
+	gwbeuNbmtNjR8ioYvO9Gz5u5vx7tvb7qHqD0YQ7QWPahOfNmeFMZEOdIaNLX/X0VhmEBNBFUta4dj
+	kDRCazAg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kGHhi-0008UQ-HZ; Thu, 10 Sep 2020 08:13:14 +0000
-Received: from mail-pl1-x642.google.com ([2607:f8b0:4864:20::642])
+	id 1kGHhr-0000A4-Qj; Thu, 10 Sep 2020 08:13:23 +0000
+Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kGHhW-0008Lr-0O
- for linux-riscv@lists.infradead.org; Thu, 10 Sep 2020 08:13:05 +0000
-Received: by mail-pl1-x642.google.com with SMTP id d19so542345pld.0
- for <linux-riscv@lists.infradead.org>; Thu, 10 Sep 2020 01:13:01 -0700 (PDT)
+ id 1kGHhb-0008Pu-OK
+ for linux-riscv@lists.infradead.org; Thu, 10 Sep 2020 08:13:09 +0000
+Received: by mail-pg1-x544.google.com with SMTP id 5so3839611pgl.4
+ for <linux-riscv@lists.infradead.org>; Thu, 10 Sep 2020 01:13:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=Y+FN/0yN24J6IiKxuS/0mgAvPddNbqvEn7AzBtkIlwI=;
- b=EoumDldEILlO7UO4CWF6SV6YO5nn0Afv+jwc8NvqD7N7k50F6/iM2SgRq7P1CmPoAA
- 4jG0qOeRmGw01BGtNrmswFi1NO4/Ne4iagdaaSr7E6o3RI8vYOwEqHr3TkZyizcK5tsA
- itE53x7VlnCMFJBVBiYmNLt8zQYDLIBK6ctIpgcM8wT3svnhEylHbb05dX2fNHgjetd4
- MBgafa+8lDv6Mi9moNehH7jp5J/LUWUcuMWlB+4eMveb2YSNkcM0B48EHn/PAomGgv9o
- oSaWxH7/jP7lgdvzbKw5iARwT15ANbc4J8AsY9YOh+/BY3mqZjASqDo3PoVnKL1H1ztR
- VaOA==
+ h=from:to:subject:date:message-id:in-reply-to:references:mime-version
+ :content-transfer-encoding;
+ bh=SrU/aV5djDmaDbtCrXOklDn69/w5fLRLzoaNlWHzHHU=;
+ b=LSxaUvvdfF3lBKbAhOWTjwB4AgDTuczCCklLYSX3hi6hg84TLH4NmlP3Tt95aJFoiD
+ vXlh2eEBegCQaozL1V3sCkBsYPTa/EyCX4Rft9Th2UpsnCQ60RaUKWYiVF63CKI8J+gS
+ 1h3UxfKyePczUDD1sa0eU/IO5OpBXkRu8s9vMDjDEV5cKtuy6HmcpXMFp+6e/ZHGlJww
+ k9J+AGxBkZWSvAWyPLCsiS8uQ8ZRqVHSigXFR7y4hOe5HWN8jtJ+PpNfuPRw7xia8qp4
+ usbyA7LDEJY4jq4FR+AFtFmeb+eADnCvl+nwkT5+F7vK9z/7B34SaiJ2L0JKp58xDS8H
+ cljw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=Y+FN/0yN24J6IiKxuS/0mgAvPddNbqvEn7AzBtkIlwI=;
- b=i1GKn4yB9NuDiEoTXU3pt7iSh3d/DQnUdIgwfB9JvW2TuFsNKZbkU4FGmyc2atyUTH
- rfX2CAz1MruGlaZ+f5zUkEzJ+1RbTTroFjD2jyXpvsLpYTCuO+dDWQUA7nXJW1b30oXj
- bZrSsqkTwb/y92gfXlrTunCBEji9MpOIEnHDEQZc/fXzd2nhTobPJVUYQB6lCfpSddGg
- awNxdFIFc7sAVZA0mP5tDM7YCXFhjNETq6bNi1Qo8tZYWb2E1LA1E23Y9nvYDMiikf8Z
- 1VVX/9mH14sTKHSFHxRBALfZ5/uceSS12jpejI56rX1wDAupkJgv+PcziUkXvNKrO+h8
- tZ/Q==
-X-Gm-Message-State: AOAM5300pwMOEOVNQgRPEaFx9/PKlZiXB7/TF3YU6zwI+zSBu/8bvVf+
- Vk+W4v6Wio/7hz9kuF8ESx5pTsNFJcG8fqWJ
-X-Google-Smtp-Source: ABdhPJyV8GaV6rV+gDCwOe+yDmOEvVPHjvGvHMWOf/pGYV37+0kwz+yEXcz4D+jvl7YBvXo5kuy90A==
-X-Received: by 2002:a17:90a:e697:: with SMTP id
- s23mr4203392pjy.175.1599725579802; 
- Thu, 10 Sep 2020 01:12:59 -0700 (PDT)
+ bh=SrU/aV5djDmaDbtCrXOklDn69/w5fLRLzoaNlWHzHHU=;
+ b=UUni/Y3x/lE2/mu4bmForHe+/0PzewJfADlMsBGwoV5X6CkQqdSPU8S2OgxxNq1YFe
+ cgJvlTWoOJKfjYFMjk8I3By81FeVpezun+A3Jrzg2KQSObvPCc8TKUGQXJBtCsCisXvG
+ /nU9wcL0jU2O297j3XwfxpcrKFHFJ0sWNIVbjZQxkkvJsDXkS+kOl74dysIIBRKA8Oh6
+ 5rEBQqt9/m0m1sQ0Dy5CiXzGWijUd2K7TrBahIof1xlGcY3YKimb5NaZJpeNIydk7sZJ
+ mjQa7sPLhtdo5t2H+UbZEoJJ+2XQUnmfIBN0YCzphERfBr8UI2VKmJoyJ8/MCNxDfjnY
+ e+nw==
+X-Gm-Message-State: AOAM5335td+O21qb+a5aQizlxzmJUtkdrUPR4R5rKL3m8hmn/qB3iCu2
+ DCrxGfdpby4KgmjYGz6kFEvASw==
+X-Google-Smtp-Source: ABdhPJzWgi6Ubl4GdF0/Uz0xQpnK40N3l0YfXPssqx2Zej/bAc1QOIHwHrOThIY6F4NPvJ69zWzVqg==
+X-Received: by 2002:a63:ba5e:: with SMTP id l30mr3539698pgu.425.1599725585503; 
+ Thu, 10 Sep 2020 01:13:05 -0700 (PDT)
 Received: from hsinchu02.internal.sifive.com
  (114-34-229-221.HINET-IP.hinet.net. [114.34.229.221])
- by smtp.gmail.com with ESMTPSA id e1sm2196056pfl.162.2020.09.10.01.12.58
+ by smtp.gmail.com with ESMTPSA id e1sm2196056pfl.162.2020.09.10.01.13.03
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 10 Sep 2020 01:12:59 -0700 (PDT)
+ Thu, 10 Sep 2020 01:13:05 -0700 (PDT)
 From: Greentime Hu <greentime.hu@sifive.com>
 To: greentime.hu@sifive.com, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, aou@eecs.berkeley.edu, palmer@dabbelt.com,
  paul.walmsley@sifive.com
-Subject: [RFC PATCH v7 11/21] riscv: Add ptrace vector support
-Date: Thu, 10 Sep 2020 16:12:06 +0800
-Message-Id: <fe2a6ead3028f14b3b20c2340078e784bb8072c5.1599719352.git.greentime.hu@sifive.com>
+Subject: [RFC PATCH v7 14/21] riscv: Add support for kernel mode vector
+Date: Thu, 10 Sep 2020 16:12:09 +0800
+Message-Id: <a219f9213d1e8efec8e27498318f096ad4d505b2.1599719352.git.greentime.hu@sifive.com>
 X-Mailer: git-send-email 2.28.0
 In-Reply-To: <cover.1599719352.git.greentime.hu@sifive.com>
 References: <cover.1599719352.git.greentime.hu@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200910_041302_138336_521FE54E 
-X-CRM114-Status: GOOD (  22.74  )
+X-CRM114-CacheID: sfid-20200910_041307_828845_C5A8161F 
+X-CRM114-Status: GOOD (  18.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -98,186 +97,254 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Guo Ren <guoren@linux.alibaba.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch adds ptrace support for riscv vector. The vector registers will
-be saved in datap pointer of __riscv_v_state. This pointer will be set
-right after the __riscv_v_state data structure then it will be put in ubuf
-for ptrace system call to get or set. It will check if the datap got from
-ubuf is set to the correct address or not when the ptrace system call is
-trying to set the vector registers.
+Add <asm/vector.h> containing kernel_rvv_begin()/kernel_rvv_end() function
+declarations and corresponding definitions in kernel_mode_vector.c
 
-[guoren@linux.alibaba.com: Add the first version porting to support vector
-of ptrace]
+These are needed to wrap uses of vector in kernel mode.
+
 Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 ---
- arch/riscv/include/uapi/asm/ptrace.h | 18 +++++++
- arch/riscv/kernel/ptrace.c           | 74 ++++++++++++++++++++++++++++
- include/uapi/linux/elf.h             |  1 +
- 3 files changed, 93 insertions(+)
+ arch/riscv/include/asm/vector.h        |  16 +++
+ arch/riscv/kernel/Makefile             |   6 +
+ arch/riscv/kernel/kernel_mode_vector.c | 184 +++++++++++++++++++++++++
+ 3 files changed, 206 insertions(+)
+ create mode 100644 arch/riscv/include/asm/vector.h
+ create mode 100644 arch/riscv/kernel/kernel_mode_vector.c
 
-diff --git a/arch/riscv/include/uapi/asm/ptrace.h b/arch/riscv/include/uapi/asm/ptrace.h
-index 661b0466b850..42144fe6acee 100644
---- a/arch/riscv/include/uapi/asm/ptrace.h
-+++ b/arch/riscv/include/uapi/asm/ptrace.h
-@@ -80,16 +80,34 @@ union __riscv_fp_state {
- struct __riscv_v_state {
- 	__u32 magic;
- 	__u32 size;
-+	/*
-+	 * This is the size of vector registers not including
-+	 * __riscv_v_state itself.
-+	 */
- 	unsigned long vstart;
- 	unsigned long vl;
- 	unsigned long vtype;
- 	unsigned long vcsr;
- 	void *datap;
-+	/*
-+	 * In signal handler, datap will be set a correct user stack offset
-+	 * and vector registers will be copied to the address of datap
-+	 * pointer.
-+	 *
-+	 * In ptrace syscall, datap will be set to zero and the vector
-+	 * registers will be copied to the address right after this
-+	 * structure.
-+	 */
- #if __riscv_xlen == 32
- 	__u32 __padding;
- #endif
- } __attribute__((aligned(16)));
- 
+diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
+new file mode 100644
+index 000000000000..3fc8d84e23c6
+--- /dev/null
++++ b/arch/riscv/include/asm/vector.h
+@@ -0,0 +1,16 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
 +/*
-+ * To define a practical maximum vlenb for ptrace and it may need to be
-+ * extended someday.
++ * linux/arch/riscv/include/asm/vector.h
++ *
++ * Copyright (C) 2020 SiFive
 + */
-+#define RISCV_MAX_VLENB (16384)
- #endif /* __ASSEMBLY__ */
- 
- #endif /* _UAPI_ASM_RISCV_PTRACE_H */
-diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
-index 2d6395f5ad54..c5f96b4e3df9 100644
---- a/arch/riscv/kernel/ptrace.c
-+++ b/arch/riscv/kernel/ptrace.c
-@@ -10,6 +10,7 @@
- #include <asm/ptrace.h>
- #include <asm/syscall.h>
- #include <asm/thread_info.h>
++
++#ifndef __ASM_RISCV_VECTOR_H
++#define __ASM_RISCV_VECTOR_H
++
++#include <linux/types.h>
++
++void kernel_rvv_begin(void);
++void kernel_rvv_end(void);
++
++#endif /* ! __ASM_RISCV_VECTOR_H */
+diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+index 3a166c21ea49..09f092f54d48 100644
+--- a/arch/riscv/kernel/Makefile
++++ b/arch/riscv/kernel/Makefile
+@@ -34,6 +34,12 @@ obj-$(CONFIG_MMU) += vdso.o vdso/
+ obj-$(CONFIG_RISCV_M_MODE)	+= traps_misaligned.o
+ obj-$(CONFIG_FPU)		+= fpu.o
+ obj-$(CONFIG_VECTOR)		+= vector.o
++obj-$(CONFIG_VECTOR)		+= kernel_mode_vector.o
++riscv-march-cflags-$(CONFIG_ARCH_RV32I)		:= rv32ima
++riscv-march-cflags-$(CONFIG_ARCH_RV64I)		:= rv64ima
++riscv-march-cflags-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-cflags-y)c
++riscv-march-cflags-$(CONFIG_VECTOR)		:= $(riscv-march-cflags-y)v
++CFLAGS_kernel_mode_vector.o	+= -march=$(riscv-march-cflags-y)
+ obj-$(CONFIG_SMP)		+= smpboot.o
+ obj-$(CONFIG_SMP)		+= smp.o
+ obj-$(CONFIG_SMP)		+= cpu_ops.o
+diff --git a/arch/riscv/kernel/kernel_mode_vector.c b/arch/riscv/kernel/kernel_mode_vector.c
+new file mode 100644
+index 000000000000..108cfafe7496
+--- /dev/null
++++ b/arch/riscv/kernel/kernel_mode_vector.c
+@@ -0,0 +1,184 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Copyright (C) 2012 ARM Ltd.
++ * Author: Catalin Marinas <catalin.marinas@arm.com>
++ * Copyright (C) 2017 Linaro Ltd. <ard.biesheuvel@linaro.org>
++ * Copyright (C) 2020 SiFive
++ */
++#include <linux/compiler.h>
++#include <linux/irqflags.h>
++#include <linux/percpu.h>
++#include <linux/preempt.h>
++#include <linux/types.h>
++
++#include <asm/vector.h>
 +#include <asm/switch_to.h>
- #include <linux/audit.h>
- #include <linux/ptrace.h>
- #include <linux/elf.h>
-@@ -26,6 +27,9 @@ enum riscv_regset {
- #ifdef CONFIG_FPU
- 	REGSET_F,
- #endif
-+#ifdef CONFIG_VECTOR
-+	REGSET_V,
-+#endif
- };
- 
- static int riscv_gpr_get(struct task_struct *target,
-@@ -81,6 +85,66 @@ static int riscv_fpr_set(struct task_struct *target,
- }
- #endif
- 
-+#ifdef CONFIG_VECTOR
-+static int riscv_vr_get(struct task_struct *target,
-+			const struct user_regset *regset,
-+			struct membuf to)
-+{
-+	struct __riscv_v_state *vstate = &target->thread.vstate;
-+	__u32 magic = RVV_MAGIC;
 +
-+	/* Copy magic number */
-+	membuf_store(&to, magic);
-+	/* Copy vector header from vstate. */
-+	membuf_write(&to, &(vstate->size), RISCV_V_STATE_DATAP - RISCV_V_STATE_SIZE);
-+	membuf_zero(&to, sizeof(void *));
-+#if __riscv_xlen == 32
-+	membuf_zero(&to, sizeof(__u32));
-+#endif
-+	/* Copy all the vector registers from vstate. */
-+	return membuf_write(&to, vstate->datap, vstate->size);
++DECLARE_PER_CPU(bool, vector_context_busy);
++DEFINE_PER_CPU(bool, vector_context_busy);
++
++/*
++ * may_use_vector - whether it is allowable at this time to issue vector
++ *                instructions or access the vector register file
++ *
++ * Callers must not assume that the result remains true beyond the next
++ * preempt_enable() or return from softirq context.
++ */
++static __must_check inline bool may_use_vector(void)
++{
++	/*
++	 * vector_context_busy is only set while preemption is disabled,
++	 * and is clear whenever preemption is enabled. Since
++	 * this_cpu_read() is atomic w.r.t. preemption, vector_context_busy
++	 * cannot change under our feet -- if it's set we cannot be
++	 * migrated, and if it's clear we cannot be migrated to a CPU
++	 * where it is set.
++	 */
++	return !in_irq() && !irqs_disabled() && !in_nmi() &&
++	       !this_cpu_read(vector_context_busy);
 +}
 +
-+static int riscv_vr_set(struct task_struct *target,
-+			 const struct user_regset *regset,
-+			 unsigned int pos, unsigned int count,
-+			 const void *kbuf, const void __user *ubuf)
++
++
++/*
++ * Claim ownership of the CPU vector context for use by the calling context.
++ *
++ * The caller may freely manipulate the vector context metadata until
++ * put_cpu_vector_context() is called.
++ */
++static void get_cpu_vector_context(void)
 +{
-+	int ret, size;
-+	struct __riscv_v_state *vstate = &target->thread.vstate;
++	bool busy;
 +
-+	/* Skip copy magic because kernel doesn't need to use it. */
-+	size = sizeof(vstate->magic);
-+	pos += size;
-+	count -= size;
-+	ubuf += size;
++	preempt_disable();
++	busy = __this_cpu_xchg(vector_context_busy, true);
 +
-+	/* Copy rest of the vstate except datap and __padding. */
-+	ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, vstate, 0,
-+				 RISCV_V_STATE_DATAP);
-+	if (unlikely(ret))
-+		return ret;
-+
-+	/* Skip copy datap. */
-+	size = sizeof(vstate->datap);
-+	count -= size;
-+	ubuf += size;
-+
-+#if __riscv_xlen == 32
-+	/* Skip copy _padding. */
-+	size = sizeof(vstate->__padding);
-+	count -= size;
-+	ubuf += size;
-+#endif
-+
-+	/* Copy all the vector registers. */
-+	pos = 0;
-+	ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, vstate->datap,
-+				 0, vstate->size);
-+	return ret;
++	WARN_ON(busy);
 +}
-+#endif
 +
- static const struct user_regset riscv_user_regset[] = {
- 	[REGSET_X] = {
- 		.core_note_type = NT_PRSTATUS,
-@@ -100,6 +164,16 @@ static const struct user_regset riscv_user_regset[] = {
- 		.set = riscv_fpr_set,
- 	},
- #endif
-+#ifdef CONFIG_VECTOR
-+	[REGSET_V] = {
-+		.core_note_type = NT_RISCV_VECTOR,
-+		.align = 16,
-+		.n = (32 * RISCV_MAX_VLENB)/sizeof(__u32),
-+		.size = sizeof(__u32),
-+		.regset_get = riscv_vr_get,
-+		.set = riscv_vr_set,
-+	},
-+#endif
- };
- 
- static const struct user_regset_view riscv_user_native_view = {
-diff --git a/include/uapi/linux/elf.h b/include/uapi/linux/elf.h
-index 22220945a5fd..66d02df08f46 100644
---- a/include/uapi/linux/elf.h
-+++ b/include/uapi/linux/elf.h
-@@ -430,6 +430,7 @@ typedef struct elf64_shdr {
- #define NT_MIPS_DSP	0x800		/* MIPS DSP ASE registers */
- #define NT_MIPS_FP_MODE	0x801		/* MIPS floating-point mode */
- #define NT_MIPS_MSA	0x802		/* MIPS SIMD registers */
-+#define NT_RISCV_VECTOR	0x900		/* RISC-V vector registers */
- 
- /* Note types with note name "GNU" */
- #define NT_GNU_PROPERTY_TYPE_0	5
++/*
++ * Release the CPU vector context.
++ *
++ * Must be called from a context in which get_cpu_vector_context() was
++ * previously called, with no call to put_cpu_vector_context() in the
++ * meantime.
++ */
++static void put_cpu_vector_context(void)
++{
++	bool busy = __this_cpu_xchg(vector_context_busy, false);
++
++	WARN_ON(!busy);
++	preempt_enable();
++}
++
++static void rvv_enable(void)
++{
++	csr_set(CSR_STATUS, SR_VS);
++}
++
++static void rvv_disable(void)
++{
++	csr_clear(CSR_STATUS, SR_VS);
++}
++
++static void vector_flush_cpu_state(void)
++{
++	long tmp;
++
++	__asm__ __volatile__ (
++		"vsetvli %0, x0, e8, m1\n"
++		"vmv.v.i v0, 0\n"
++		"vmv.v.i v1, 0\n"
++		"vmv.v.i v2, 0\n"
++		"vmv.v.i v3, 0\n"
++		"vmv.v.i v4, 0\n"
++		"vmv.v.i v5, 0\n"
++		"vmv.v.i v6, 0\n"
++		"vmv.v.i v7, 0\n"
++		"vmv.v.i v8, 0\n"
++		"vmv.v.i v9, 0\n"
++		"vmv.v.i v10, 0\n"
++		"vmv.v.i v11, 0\n"
++		"vmv.v.i v12, 0\n"
++		"vmv.v.i v13, 0\n"
++		"vmv.v.i v14, 0\n"
++		"vmv.v.i v15, 0\n"
++		"vmv.v.i v16, 0\n"
++		"vmv.v.i v17, 0\n"
++		"vmv.v.i v18, 0\n"
++		"vmv.v.i v19, 0\n"
++		"vmv.v.i v20, 0\n"
++		"vmv.v.i v21, 0\n"
++		"vmv.v.i v22, 0\n"
++		"vmv.v.i v23, 0\n"
++		"vmv.v.i v24, 0\n"
++		"vmv.v.i v25, 0\n"
++		"vmv.v.i v26, 0\n"
++		"vmv.v.i v27, 0\n"
++		"vmv.v.i v28, 0\n"
++		"vmv.v.i v29, 0\n"
++		"vmv.v.i v30, 0\n"
++		"vmv.v.i v31, 0\n":"=r"(tmp)::);
++}
++
++/*
++ * kernel_rvv_begin(): obtain the CPU vector registers for use by the calling
++ * context
++ *
++ * Must not be called unless may_use_vector() returns true.
++ * Task context in the vector registers is saved back to memory as necessary.
++ *
++ * A matching call to kernel_rvv_end() must be made before returning from the
++ * calling context.
++ *
++ * The caller may freely use the vector registers until kernel_rvv_end() is
++ * called.
++ */
++void kernel_rvv_begin(void)
++{
++	if (WARN_ON(!has_vector))
++		return;
++
++	WARN_ON(!may_use_vector());
++
++	/* Acquire kernel mode vector */
++	get_cpu_vector_context();
++
++	/* Save vector state, if any */
++	vstate_save(current, task_pt_regs(current));
++
++	/* Enable vector */
++	rvv_enable();
++
++	/* Invalidate vector regs */
++	vector_flush_cpu_state();
++}
++EXPORT_SYMBOL(kernel_rvv_begin);
++
++/*
++ * kernel_rvv_end(): give the CPU vector registers back to the current task
++ *
++ * Must be called from a context in which kernel_rvv_begin() was previously
++ * called, with no call to kernel_rvv_end() in the meantime.
++ *
++ * The caller must not use the vector registers after this function is called,
++ * unless kernel_rvv_begin() is called again in the meantime.
++ */
++void kernel_rvv_end(void)
++{
++	if (WARN_ON(!has_vector))
++		return;
++
++	/* Invalidate vector regs */
++	vector_flush_cpu_state();
++
++	/* Restore vector state, if any */
++	vstate_restore(current, task_pt_regs(current));
++
++	/* disable vector */
++	rvv_disable();
++
++	/* release kernel mode vector */
++	put_cpu_vector_context();
++}
++EXPORT_SYMBOL(kernel_rvv_end);
 -- 
 2.28.0
 
