@@ -7,88 +7,85 @@ X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5E444C2BB84
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8104DC2D0A7
 	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2020 08:13:41 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BD95620731
+	by mail.kernel.org (Postfix) with ESMTPS id 0144A20855
 	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2020 08:13:40 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="zdN2Fj6d";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="DaWHts7u"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BD95620731
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="2BHiiyLk";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="CqsqG6+T"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0144A20855
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe
-	:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a7vaB0PyVxanuH2nTqtwazqKT1+1MnZQAI6KMQ2qc64=; b=zdN2Fj6dkgBshHAGBReR0+n/Xg
-	D6ziX01xhyFHbevuSuAU8nPNas2NItY0O8L++LA78tEQIc9JPtnH8T0sFKq8GNzZWXdNJpLD6eroo
-	S1O54Mqu+v5KWjdOrRAXKJeiSvLwfQQSRgxxIJWKcjfhlgIxot5z6/lzBsFGtz73oaOHv2/gygfrj
-	wPSvdKAjU4Jadggt82VFin5LUQwMGy+KT5V/ge8feF5xy74c6+8kJhNGZU/Xrl/J1FcQEm0XVJAv3
-	z9IoqnXh/Vxhh1r+viijZDpxw/tdOjYts5TSYus7JfBxUUCoWBOmu4hceauvyqhoGJBqG5DdkQRRo
-	tPJBhSig==;
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=JvYwnIhPa1jFUxp6iBi3WZzUiAO9gmhcgIFa9TtQ6+w=; b=2BHiiyLks0WmB6t/GneE9EKVF
+	BbSUwLL/ZnSLsFL6keGXQzRNOPKW26tz9jrBeYxrXLSup1krURXyV4ILWRnarej+Yo8YijrnL361G
+	ChPumV1XE2M06zYyGdA6xWRQMm+8Y0OhVHJYWJRMAnDQ9RqHfJqlblteb5C7W7cbC7NQ6egD9XeJP
+	wpaTDK2RHNV+upNK8YKWb/Tq7gM4pTMcRSJvoRloSn7suRwscZbGKxkdV8A16X0I4G889iGmsysQc
+	1SXXBPN5535A0cBO09m678+ltcfVv6cdnRkaoS+Tf4hN4xmMBZfGZSCKVRiyF0y3YB4/db8GgchdY
+	xEB9pE5gQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kGHhu-0000C0-Oy; Thu, 10 Sep 2020 08:13:26 +0000
-Received: from mail-pj1-x1042.google.com ([2607:f8b0:4864:20::1042])
+	id 1kGHhv-0000De-Nm; Thu, 10 Sep 2020 08:13:27 +0000
+Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kGHhd-0008R2-Jn
- for linux-riscv@lists.infradead.org; Thu, 10 Sep 2020 08:13:10 +0000
-Received: by mail-pj1-x1042.google.com with SMTP id a9so2652599pjg.1
- for <linux-riscv@lists.infradead.org>; Thu, 10 Sep 2020 01:13:09 -0700 (PDT)
+ id 1kGHhh-0008TS-GE
+ for linux-riscv@lists.infradead.org; Thu, 10 Sep 2020 08:13:14 +0000
+Received: by mail-pf1-x441.google.com with SMTP id k15so4165987pfc.12
+ for <linux-riscv@lists.infradead.org>; Thu, 10 Sep 2020 01:13:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:subject:date:message-id:in-reply-to:references:mime-version
- :content-transfer-encoding;
- bh=d6gpDdMtT2tdp8xTHPaHC5JAlYMUQ3HEqBOe763/EsE=;
- b=DaWHts7ul2rTOkzR0fXiKsZlAxJcEryhI52h1vKi4+m0kudoCx3/Q/QNH5H71lJ/c+
- QpYqw9v9/g1q4MtgtVEYPtR1x213rMw/En9kNxknzYnUquuYfsrSQAaAeUx4JuQDWGi0
- Z4a+O/or/BOQwf4zD8fC8FNX0MFFTsNjMSL5ukXvCw3GNGSq4bn3jpNbKbL1TogeNIrK
- S4U1wMBttaOIwMQkQ+91X08YczsrQ+jJdojoMKu2bnSVc8ZSg2eDDGZ6/uxAhMC94oDp
- 3sFzh/HL8mlVXPl9CmjOhir3+8Q3sTyntfV9EHVGgLlWgqokpCUbYxgsN+EVJ+FLGm8A
- MpGA==
+ h=from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=XD87hlyZVgwsG9aiGYxOXLH+wE/VbkXceAnGyvTwMM0=;
+ b=CqsqG6+T7IgsVP5ubJKbHGm+4PJjhcwpssveu+V5BCbvkB6qAGOKE6E2/+PYWdSxPZ
+ arNmGkveV76zLOBSTI3q2K8iy2/MgTioQUcrYBYJTHL1d5o372WjDO4JyKEUK8HgRwU6
+ jKcdBfkG4yp1RNaI5vPoBOF2yRr8VbnGCCB69Xp5LijJsLXQdYLBGWQj22llGD5txabI
+ elynV9uCTZSIFVkA+PeZvOyhzfs2yn7qZMYxqOqYQXUGGNEWw0B1uer1626HxnsQqFHl
+ 3ElLuWNFpMXUpe7BUngTW6rciyf9uFEDn/AKhooFPm1X4kyn5oUAO+cXheIjnzVj4Uem
+ jWBQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=d6gpDdMtT2tdp8xTHPaHC5JAlYMUQ3HEqBOe763/EsE=;
- b=HqmLLQZQnTm8D4Jgj4TZXs2zaCHEOHErs1hDwGFvTrFyd/hsoMBZ4RP22nIj1L5OUz
- N78vNMznfy5I4E4oN9zvLwg/acczGxYpFOENWbJ5iVYMERKqtlzulSMAZz172unv3Mkc
- UbV+djt+zKF8ZarM2x7EoqZ7jPvDelpj8GhJj0dPJoJ/CA4sB8hkrZNVSvlc5sXMccN9
- YiOOor614BspNGl+Mrn2bg02PEfhrYLRdFLT/xppL72+rVxB3lKKHs3tnlRkSG3fhxKG
- RbDhVmzi4GA+ywlEDgxjxvFYkmXS9KXpm/+OPGn3pj+izdgxyKya/m3cfecX4ySUGHbL
- nBmA==
-X-Gm-Message-State: AOAM533y4Gg/LcnAfj37anxhe6vftUpuJz3FNpKq93H/UFzkVFzLdBdU
- I8nW4y//SydyuJO3icfNF7Um6Q==
-X-Google-Smtp-Source: ABdhPJzLRumIn2jSR9F6g6Ma/7kIPbBNBxbQ/SHx0//ffvTub9IiJiyJ/rOfRzcYF0iYwTW/qPLq6Q==
-X-Received: by 2002:a17:90a:5283:: with SMTP id
- w3mr4332541pjh.201.1599725587386; 
- Thu, 10 Sep 2020 01:13:07 -0700 (PDT)
+ bh=XD87hlyZVgwsG9aiGYxOXLH+wE/VbkXceAnGyvTwMM0=;
+ b=SmWqFPaZ7NVzB1+c3yt5MdRuXUzocUy7Q5wHo41l23Kj7qSViAPTxhyacdHboClZ2X
+ FELzpmQNpvqtZKLaVznRdBiOn6vFia/Frvv3YB6JV97E6Td+1RPRuu55ZLWD4ovSOsi0
+ rOvCQ3mXckuMZiqyAEzb9Dy5/GpIAw2CaP9kqi1G47iLoST+JHaA/RPvcZQEnTNfTz3K
+ ROtPwjovzmowOKC4BqkXFmFadyeXPb45vcpfAGpAS85Trlt5BIgQQGcL0qdpTyIsFi0x
+ g2av3yUNnhhIrqOLaeVessyPzoVVecz+iNtfRGsgbm/SGwbmCKcBLhxkyd1L6fJCaVkw
+ lK/w==
+X-Gm-Message-State: AOAM5309j4tr5t7ekMBxT70ZRQX8m3NCZs3IexVGK/dx6P+foKGAcu22
+ l0iGt7GiucwkQrvOnTvq+q60Tw==
+X-Google-Smtp-Source: ABdhPJx5XVABbyX9e2sxmvLaYxRNA1ZOzgYW0UO4o86mfVa2kZMyiSQqgXC7/Rx9xnUcNvObBvkEew==
+X-Received: by 2002:a62:38ce:: with SMTP id f197mr4201218pfa.145.1599725591105; 
+ Thu, 10 Sep 2020 01:13:11 -0700 (PDT)
 Received: from hsinchu02.internal.sifive.com
  (114-34-229-221.HINET-IP.hinet.net. [114.34.229.221])
- by smtp.gmail.com with ESMTPSA id e1sm2196056pfl.162.2020.09.10.01.13.05
+ by smtp.gmail.com with ESMTPSA id e1sm2196056pfl.162.2020.09.10.01.13.07
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 10 Sep 2020 01:13:06 -0700 (PDT)
+ Thu, 10 Sep 2020 01:13:08 -0700 (PDT)
 From: Greentime Hu <greentime.hu@sifive.com>
 To: greentime.hu@sifive.com, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, aou@eecs.berkeley.edu, palmer@dabbelt.com,
  paul.walmsley@sifive.com
-Subject: [RFC PATCH v7 15/21] riscv: Use CSR_STATUS to replace sstatus in
- vector.S
-Date: Thu, 10 Sep 2020 16:12:10 +0800
-Message-Id: <7a98a3a727b6fee760a6fe0beb4eb2f5f5e6f920.1599719352.git.greentime.hu@sifive.com>
+Subject: [RFC PATCH v7 16/21] riscv: Add vector extension XOR implementation
+Date: Thu, 10 Sep 2020 16:12:11 +0800
+Message-Id: <48fa9c9a6f13d00c67042657326d56a46ec0197f.1599719352.git.greentime.hu@sifive.com>
 X-Mailer: git-send-email 2.28.0
 In-Reply-To: <cover.1599719352.git.greentime.hu@sifive.com>
 References: <cover.1599719352.git.greentime.hu@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200910_041309_725400_69C93C61 
-X-CRM114-Status: UNSURE (   8.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200910_041313_662522_FDE7B16D 
+X-CRM114-Status: GOOD (  16.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -100,55 +97,215 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Han-Kuan Chen <hankuan.chen@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-It should use the same logic here in both m-mode and s-mode.
+This patch adds support for vector optimized XOR it is tested in spike and
+qemu.
 
+Logs in spike:
+[    0.008365] xor: measuring software checksum speed
+[    0.048885]    8regs     :  1719.000 MB/sec
+[    0.089080]    32regs    :  1717.000 MB/sec
+[    0.129275]    rvv       :  7043.000 MB/sec
+[    0.129525] xor: using function: rvv (7043.000 MB/sec)
+
+Logs in qemu:
+[    0.098943] xor: measuring software checksum speed
+[    0.139391]    8regs     :  2911.000 MB/sec
+[    0.181079]    32regs    :  2813.000 MB/sec
+[    0.224260]    rvv       :    45.000 MB/sec
+[    0.225586] xor: using function: 8regs (2911.000 MB/sec)
+
+Signed-off-by: Han-Kuan Chen <hankuan.chen@sifive.com>
 Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
 ---
- arch/riscv/kernel/vector.S | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ arch/riscv/include/asm/xor.h | 74 ++++++++++++++++++++++++++++++++
+ arch/riscv/lib/Makefile      |  1 +
+ arch/riscv/lib/xor.S         | 81 ++++++++++++++++++++++++++++++++++++
+ 3 files changed, 156 insertions(+)
+ create mode 100644 arch/riscv/include/asm/xor.h
+ create mode 100644 arch/riscv/lib/xor.S
 
-diff --git a/arch/riscv/kernel/vector.S b/arch/riscv/kernel/vector.S
-index 4c880b1c32aa..4f0c5a166e4e 100644
---- a/arch/riscv/kernel/vector.S
-+++ b/arch/riscv/kernel/vector.S
-@@ -32,7 +32,7 @@
- 
- ENTRY(__vstate_save)
- 	li      status, SR_VS
--	csrs    sstatus, status
-+	csrs    CSR_STATUS, status
- 
- 	csrr    x_vstart, CSR_VSTART
- 	csrr    x_vtype, CSR_VTYPE
-@@ -53,13 +53,13 @@ ENTRY(__vstate_save)
- 	REG_S   x_vl, RISCV_V_STATE_VL(vstatep)
- 	REG_S   x_vcsr, RISCV_V_STATE_VCSR(vstatep)
- 
--	csrc	sstatus, status
-+	csrc	CSR_STATUS, status
- 	ret
- ENDPROC(__vstate_save)
- 
- ENTRY(__vstate_restore)
- 	li      status, SR_VS
--	csrs    sstatus, status
-+	csrs    CSR_STATUS, status
- 
- 	li      m_one, -1
- 	vsetvli incr, m_one, e8, m8
-@@ -79,6 +79,6 @@ ENTRY(__vstate_restore)
- 	csrw    CSR_VSTART, x_vstart
- 	csrw    CSR_VCSR, x_vcsr
- 
--	csrc	sstatus, status
-+	csrc	CSR_STATUS, status
- 	ret
- ENDPROC(__vstate_restore)
+diff --git a/arch/riscv/include/asm/xor.h b/arch/riscv/include/asm/xor.h
+new file mode 100644
+index 000000000000..60ee0224913d
+--- /dev/null
++++ b/arch/riscv/include/asm/xor.h
+@@ -0,0 +1,74 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/*
++ * Copyright (C) 2020 SiFive
++ */
++
++#include <linux/hardirq.h>
++#include <asm-generic/xor.h>
++#ifdef CONFIG_VECTOR
++#include <asm/vector.h>
++
++extern void xor_regs_2_(unsigned long bytes, unsigned long *p1,
++			unsigned long *p2);
++extern void xor_regs_3_(unsigned long bytes, unsigned long *p1,
++			unsigned long *p2, unsigned long *p3);
++extern void xor_regs_4_(unsigned long bytes, unsigned long *p1,
++			unsigned long *p2, unsigned long *p3,
++			unsigned long *p4);
++extern void xor_regs_5_(unsigned long bytes, unsigned long *p1,
++			unsigned long *p2, unsigned long *p3, unsigned long *p4,
++			unsigned long *p5);
++
++static void xor_rvv_2(unsigned long bytes, unsigned long *p1, unsigned long *p2)
++{
++	kernel_rvv_begin();
++	xor_regs_2_(bytes, p1, p2);
++	kernel_rvv_end();
++}
++
++static void
++xor_rvv_3(unsigned long bytes, unsigned long *p1, unsigned long *p2,
++	  unsigned long *p3)
++{
++	kernel_rvv_begin();
++	xor_regs_3_(bytes, p1, p2, p3);
++	kernel_rvv_end();
++}
++
++static void
++xor_rvv_4(unsigned long bytes, unsigned long *p1, unsigned long *p2,
++	  unsigned long *p3, unsigned long *p4)
++{
++	kernel_rvv_begin();
++	xor_regs_4_(bytes, p1, p2, p3, p4);
++	kernel_rvv_end();
++}
++
++static void
++xor_rvv_5(unsigned long bytes, unsigned long *p1, unsigned long *p2,
++	  unsigned long *p3, unsigned long *p4, unsigned long *p5)
++{
++	kernel_rvv_begin();
++	xor_regs_5_(bytes, p1, p2, p3, p4, p5);
++	kernel_rvv_end();
++}
++
++static struct xor_block_template xor_block_rvv = {
++	.name = "rvv",
++	.do_2 = xor_rvv_2,
++	.do_3 = xor_rvv_3,
++	.do_4 = xor_rvv_4,
++	.do_5 = xor_rvv_5
++};
++
++extern bool has_vector;
++#undef XOR_TRY_TEMPLATES
++#define XOR_TRY_TEMPLATES           \
++	do {        \
++		xor_speed(&xor_block_8regs);    \
++		xor_speed(&xor_block_32regs);    \
++		if (has_vector) { \
++			xor_speed(&xor_block_rvv);\
++		} \
++	} while (0)
++#endif
+diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+index 0d0db80800c4..cedf8d573dc3 100644
+--- a/arch/riscv/lib/Makefile
++++ b/arch/riscv/lib/Makefile
+@@ -4,3 +4,4 @@ lib-y			+= memcpy.o
+ lib-y			+= memset.o
+ lib-y			+= uaccess.o
+ lib-$(CONFIG_64BIT)	+= tishift.o
++lib-$(CONFIG_VECTOR)	+= xor.o
+diff --git a/arch/riscv/lib/xor.S b/arch/riscv/lib/xor.S
+new file mode 100644
+index 000000000000..de2e234c39ed
+--- /dev/null
++++ b/arch/riscv/lib/xor.S
+@@ -0,0 +1,81 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/*
++ * Copyright (C) 2020 SiFive
++ */
++#include <linux/linkage.h>
++#include <asm-generic/export.h>
++#include <asm/asm.h>
++
++ENTRY(xor_regs_2_)
++	vsetvli a3, a0, e8, m8
++	vle8.v v0, (a1)
++	vle8.v v8, (a2)
++	sub a0, a0, a3
++	vxor.vv v16, v0, v8
++	add a2, a2, a3
++	vse8.v v16, (a1)
++	add a1, a1, a3
++	bnez a0, xor_regs_2_
++	ret
++END(xor_regs_2_)
++EXPORT_SYMBOL(xor_regs_2_)
++
++ENTRY(xor_regs_3_)
++	vsetvli a4, a0, e8, m8
++	vle8.v v0, (a1)
++	vle8.v v8, (a2)
++	sub a0, a0, a4
++	vxor.vv v0, v0, v8
++	vle8.v v16, (a3)
++	add a2, a2, a4
++	vxor.vv v16, v0, v16
++	add a3, a3, a4
++	vse8.v v16, (a1)
++	add a1, a1, a4
++	bnez a0, xor_regs_3_
++	ret
++END(xor_regs_3_)
++EXPORT_SYMBOL(xor_regs_3_)
++
++ENTRY(xor_regs_4_)
++	vsetvli a5, a0, e8, m8
++	vle8.v v0, (a1)
++	vle8.v v8, (a2)
++	sub a0, a0, a5
++	vxor.vv v0, v0, v8
++	vle8.v v16, (a3)
++	add a2, a2, a5
++	vxor.vv v0, v0, v16
++	vle8.v v24, (a4)
++	add a3, a3, a5
++	vxor.vv v16, v0, v24
++	add a4, a4, a5
++	vse8.v v16, (a1)
++	add a1, a1, a5
++	bnez a0, xor_regs_4_
++	ret
++END(xor_regs_4_)
++EXPORT_SYMBOL(xor_regs_4_)
++
++ENTRY(xor_regs_5_)
++	vsetvli a6, a0, e8, m8
++	vle8.v v0, (a1)
++	vle8.v v8, (a2)
++	sub a0, a0, a6
++	vxor.vv v0, v0, v8
++	vle8.v v16, (a3)
++	add a2, a2, a6
++	vxor.vv v0, v0, v16
++	vle8.v v24, (a4)
++	add a3, a3, a6
++	vxor.vv v0, v0, v24
++	vle8.v v8, (a5)
++	add a4, a4, a6
++	vxor.vv v16, v0, v8
++	add a5, a5, a6
++	vse8.v v16, (a1)
++	add a1, a1, a6
++	bnez a0, xor_regs_5_
++	ret
++END(xor_regs_5_)
++EXPORT_SYMBOL(xor_regs_5_)
 -- 
 2.28.0
 
