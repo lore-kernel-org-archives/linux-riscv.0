@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0A19CC2BB84
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2020 08:13:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 35C5CC433E2
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2020 08:13:05 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8749A20731
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2020 08:13:00 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id CB84D20731
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2020 08:13:04 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="w/aeGuQc";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="DxY9c8U9"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8749A20731
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Y5qd7EYT";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="QMmGQYeC"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CB84D20731
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,68 +26,69 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=KvC74YfkIAa+wLYmaaDxPpN9t/y7AweMv6kbSjJ+ErQ=; b=w/aeGuQcPyUM3sj7fmxY3BW8t
-	Wd2wIPZQDKfmiB1HH43HcrEh22vWPToafqB7JuQz940140ziZdD1KhD6PRhAjKk8dpYwE6zYilKje
-	02gED1WdRrOFjIK3M1WrOI3hL0+ilvPcgFSsjRjBA5jiFlU8LRtue48111MJl3l9+bAdCBb3Q3vmk
-	xmI4I9rd71N0jEQ3qAWHDs7aUsC/wySapOcDg0ROWvBArYeDi0uYenmq9di8yBZyQGed/6/CCKEYP
-	g7f+qnyjYWRZkLg9/yAqTXHF6oQSOLfIM1ZJ3osXFRRiatMo+waHpYlZ/anvZ3FUu+PmMg69pyaXR
-	J9aXCDIEQ==;
+	 bh=C/tkEYYGJGfPF6o7+qMZB3XURQgbNRfLZxJnH9qQg1g=; b=Y5qd7EYT1KaxGtEQPYLmRS4HU
+	MmJ2ysfXKvGQwml8XNpmZ459FOnMrRZduGqbzozjFdzJKNI53SwidTFNLp5iVQxWCHVPMAOByoCbb
+	L7jBIAcsGe5+HfUIaLNJgvmsTDj/0hywyUVRauuTZM+vNqzr/PJI6IQZyIYr64pcz2MZPLEjmBvgO
+	lQosf3rUVaRDP9W5IPBcjPOF68vZFyZTdPNVG50CuUbMGyB7Y0IOaiZHpU7Bce5uVpy8SCwXgVhpB
+	+FaYRjKm0WitK5Le0CKi5T8ufNFPPa6GKjaggN9V7IMLcD1lZ/LnPVxUXXTjOaf/UaE0JFHmiVpxN
+	9lFcF2onw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kGHhH-0008CY-Ig; Thu, 10 Sep 2020 08:12:47 +0000
-Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
+	id 1kGHhJ-0008DO-6u; Thu, 10 Sep 2020 08:12:49 +0000
+Received: from mail-pl1-x644.google.com ([2607:f8b0:4864:20::644])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kGHhF-0008Ai-8y
- for linux-riscv@lists.infradead.org; Thu, 10 Sep 2020 08:12:46 +0000
-Received: by mail-pf1-x444.google.com with SMTP id w7so4195926pfi.4
- for <linux-riscv@lists.infradead.org>; Thu, 10 Sep 2020 01:12:44 -0700 (PDT)
+ id 1kGHhH-0008C6-Cb
+ for linux-riscv@lists.infradead.org; Thu, 10 Sep 2020 08:12:48 +0000
+Received: by mail-pl1-x644.google.com with SMTP id a8so542074plm.2
+ for <linux-riscv@lists.infradead.org>; Thu, 10 Sep 2020 01:12:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=tH3VhkqM1acAjytNJ62tEalL9JPHCW4E9Rj2E8HYRpU=;
- b=DxY9c8U9Y9+lT00hgUY1Dsf/2yUU0Gi/XRr5Frt32Dvn/gZKLgbfq0kXissj8X1brN
- zGi0+/brafrYW6kvNcl0M6gsJTBDzg4aLpdcr9NhPEvxGTXAEyaJilT9aC56iLqkAxlW
- Gbeaiu7RxZKWqxGuMnq8LubvdzQz4qtiHH6owgpbr1c5b6pgzaZtl7W2l0hh8CbY4xXg
- u4QnKFS/tnAflzcYUfnBT8wteBrcz4y18klUYEZsp3HtzHV0YDaQNjHDPMbcyBrlLlDQ
- vFElbORqveFSUjvbIITPmqMO0Q83HHU9EnOYmb7bhlQKFEM3nTA6ryetRga19tUyMhJt
- c3GQ==
+ bh=pBZg38YV3F0UBIikGh/iifz81s+4k+D3Kp7Tc68TLZI=;
+ b=QMmGQYeC6WHteUVor0MkG/umERsoUyehK2V8+a5Xgv0HC+1W/5a/3SgTR1co9SZdzr
+ b0TxGgynak/YrX59cQrA2aDjs+g1TnA4h28P1AoV4tqxL63aD4nfD9B3TmCMskjuaaL0
+ ED7eIL2mKHpTHcOvzwn2ud/ORFKZDbShWyGUO1y4bKo2Ez1uY0bFyEpRziFilumZSLv/
+ 7ZuzbGVSFp6BPE8UmMIgcRfIUlyxsSeeN4XCD2hILXiWjD/pn+uUb/um1ehh4K1BPWcT
+ mwT/t1FlGLgKRToL3dEkcJDNNNOGUvmkvROg7n5fOJK1NEEf+Ar/OI9LbaMmXQut80ou
+ b+wg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=tH3VhkqM1acAjytNJ62tEalL9JPHCW4E9Rj2E8HYRpU=;
- b=gB6vjPZfBDscGLSiPVBqVOYcom8Ppz/1B62UJtlySRg3S+pZHN0vShpTI3dpNJxqCV
- 34AZGJtgRE75WhRsvB4tLtW41BbRXKawhj3LMb4Mzncm4ko8wz8+hmhfOgviqmzIik6T
- Bu/DMtRhIZ6vnfO05f3UKsrax69GS5Kkq3TgwFvOl2GQaZG3Pxdq/B98mzenNPNapOux
- +xLSnmZTVExmgryCOzbvcPADSnzgP41dWUdeHd7YGhOT//QL16dA/P6bhMvyfdldb+ec
- GpS3RziQNwPCaKCk8tyvI2IsSj1yLtsRRYPg4kLDRaV+SZN6jUd61iDYJJywSvE0zaFp
- 97iA==
-X-Gm-Message-State: AOAM530GG2aIkkhbfEKvjZkFCHbUkl+6OaOh1DbiQUOSZ8P7PGsTXF5F
- XMjktJUAxIlWAbBzxcTvRJ/+WQ==
-X-Google-Smtp-Source: ABdhPJz6n4IqjVW7yXiLfH7sWwLDESD0k7agKvdLsXi71/Eg+VoM+FG5UXouQdF/P8pn2bMKy8zmoQ==
-X-Received: by 2002:aa7:9ac9:0:b029:13e:d13d:a133 with SMTP id
- x9-20020aa79ac90000b029013ed13da133mr4368433pfp.27.1599725563195; 
- Thu, 10 Sep 2020 01:12:43 -0700 (PDT)
+ bh=pBZg38YV3F0UBIikGh/iifz81s+4k+D3Kp7Tc68TLZI=;
+ b=uNr+hSAGFlZxtQ8wPBOiROQO0HsCQ7jP7waSirfTKvsC4onXw8tcOMSgYxhAF1mLWe
+ uKvaze5sQf6ysvdKrpUUx2JjPoFQBM6/oP8YEqc0VbFPvHc1tQ6A4pi6KuTTgf7UsVG1
+ ZdeQJqboT4FNNR8805+NEFnP6Iw0ac0Ge8/i2W0iBvmdgO2mXzT5JxSG+W6QSfSGnliU
+ 48fb+f/AZPZzK/+4z+RVO061E+W4+cR8SY3sLAZbDddPbsw6VyYFaRy+/dcQaUHcrp8V
+ QrOkLLp1aRtMbpVxV5a+crC/HCshAClD22LhclMnJ03HiRURmZmoOnYfPjKWdfXxivsX
+ vb6g==
+X-Gm-Message-State: AOAM533B+vKwBHU4qYrz8OJIq7UCxpLDgS79uzm7Ik6PeVUDqqY1oAXV
+ yx8o9IZ0IGmU+3TSVAo0domD1w==
+X-Google-Smtp-Source: ABdhPJx5AqEGmcn4ZmggG6tMGtXj1OMr4k67KXCra2/D96tG0n9Nv2iG9jor2KACZRPMEfu9BZEzBQ==
+X-Received: by 2002:a17:90b:815:: with SMTP id
+ bk21mr1154992pjb.57.1599725565272; 
+ Thu, 10 Sep 2020 01:12:45 -0700 (PDT)
 Received: from hsinchu02.internal.sifive.com
  (114-34-229-221.HINET-IP.hinet.net. [114.34.229.221])
- by smtp.gmail.com with ESMTPSA id e1sm2196056pfl.162.2020.09.10.01.12.41
+ by smtp.gmail.com with ESMTPSA id e1sm2196056pfl.162.2020.09.10.01.12.43
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 10 Sep 2020 01:12:42 -0700 (PDT)
+ Thu, 10 Sep 2020 01:12:44 -0700 (PDT)
 From: Greentime Hu <greentime.hu@sifive.com>
 To: greentime.hu@sifive.com, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, aou@eecs.berkeley.edu, palmer@dabbelt.com,
  paul.walmsley@sifive.com
-Subject: [RFC PATCH v7 03/21] riscv: Extending cpufeature.c to detect
- V-extension
-Date: Thu, 10 Sep 2020 16:11:58 +0800
-Message-Id: <119d2ae4fd376a2095129144b0ac32970ecf7e86.1599719352.git.greentime.hu@sifive.com>
+Subject: [RFC PATCH v7 04/21] riscv: Add new csr defines related to vector
+ extension
+Date: Thu, 10 Sep 2020 16:11:59 +0800
+Message-Id: <c75e35c53ad8eb24a3f21f17f383d1f0177138a8.1599719352.git.greentime.hu@sifive.com>
 X-Mailer: git-send-email 2.28.0
 In-Reply-To: <cover.1599719352.git.greentime.hu@sifive.com>
 References: <cover.1599719352.git.greentime.hu@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200910_041245_357422_CE5E7613 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20200910_041247_454457_4531471D 
+X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -99,48 +100,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <anup@brainfault.org>, Guo Ren <guoren@linux.alibaba.com>
+Cc: Guo Ren <guoren@linux.alibaba.com>, Guo Ren <guoren@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <ren_guo@c-sky.com>
+Follow the riscv vector spec to add new csr numbers.
 
-Current cpufeature.c doesn't support detecting V-extension, because
-"rv64" also contain a 'v' letter and we need to skip it.
-
+[guoren@linux.alibaba.com: first porting for new vector related csr]
+Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Reviewed-by: Anup Patel <anup@brainfault.org>
-Reviewed-by: Greentime Hu <greentime.hu@sifive.com>
+Acked-by: Guo Ren <guoren@kernel.org>
 ---
- arch/riscv/include/uapi/asm/hwcap.h | 1 +
- arch/riscv/kernel/cpufeature.c      | 1 +
- 2 files changed, 2 insertions(+)
+ arch/riscv/include/asm/csr.h | 16 ++++++++++++++--
+ 1 file changed, 14 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/include/uapi/asm/hwcap.h b/arch/riscv/include/uapi/asm/hwcap.h
-index 46dc3f5ee99f..c52bb7bbbabe 100644
---- a/arch/riscv/include/uapi/asm/hwcap.h
-+++ b/arch/riscv/include/uapi/asm/hwcap.h
-@@ -21,5 +21,6 @@
- #define COMPAT_HWCAP_ISA_F	(1 << ('F' - 'A'))
- #define COMPAT_HWCAP_ISA_D	(1 << ('D' - 'A'))
- #define COMPAT_HWCAP_ISA_C	(1 << ('C' - 'A'))
-+#define COMPAT_HWCAP_ISA_V	(1 << ('V' - 'A'))
+diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+index cec462e198ce..0d4c89fb97b5 100644
+--- a/arch/riscv/include/asm/csr.h
++++ b/arch/riscv/include/asm/csr.h
+@@ -24,6 +24,12 @@
+ #define SR_FS_CLEAN	_AC(0x00004000, UL)
+ #define SR_FS_DIRTY	_AC(0x00006000, UL)
  
- #endif /* _UAPI_ASM_RISCV_HWCAP_H */
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index ac202f44a670..f11ada3fa906 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -73,6 +73,7 @@ void riscv_fill_hwcap(void)
- 	isa2hwcap['f'] = isa2hwcap['F'] = COMPAT_HWCAP_ISA_F;
- 	isa2hwcap['d'] = isa2hwcap['D'] = COMPAT_HWCAP_ISA_D;
- 	isa2hwcap['c'] = isa2hwcap['C'] = COMPAT_HWCAP_ISA_C;
-+	isa2hwcap['v'] = isa2hwcap['V'] = COMPAT_HWCAP_ISA_V;
++#define SR_VS           _AC(0x00000600, UL) /* Vector Status */
++#define SR_VS_OFF       _AC(0x00000000, UL)
++#define SR_VS_INITIAL   _AC(0x00000200, UL)
++#define SR_VS_CLEAN     _AC(0x00000400, UL)
++#define SR_VS_DIRTY     _AC(0x00000600, UL)
++
+ #define SR_XS		_AC(0x00018000, UL) /* Extension Status */
+ #define SR_XS_OFF	_AC(0x00000000, UL)
+ #define SR_XS_INITIAL	_AC(0x00008000, UL)
+@@ -31,9 +37,9 @@
+ #define SR_XS_DIRTY	_AC(0x00018000, UL)
  
- 	elf_hwcap = 0;
+ #ifndef CONFIG_64BIT
+-#define SR_SD		_AC(0x80000000, UL) /* FS/XS dirty */
++#define SR_SD		_AC(0x80000000, UL) /* FS/VS/XS dirty */
+ #else
+-#define SR_SD		_AC(0x8000000000000000, UL) /* FS/XS dirty */
++#define SR_SD		_AC(0x8000000000000000, UL) /* FS/VS/XS dirty */
+ #endif
  
+ /* SATP flags */
+@@ -111,6 +117,12 @@
+ #define CSR_PMPADDR0		0x3b0
+ #define CSR_MHARTID		0xf14
+ 
++#define CSR_VSTART		0x8
++#define CSR_VCSR		0xf
++#define CSR_VL			0xc20
++#define CSR_VTYPE		0xc21
++#define CSR_VLENB		0xc22
++
+ #ifdef CONFIG_RISCV_M_MODE
+ # define CSR_STATUS	CSR_MSTATUS
+ # define CSR_IE		CSR_MIE
 -- 
 2.28.0
 
