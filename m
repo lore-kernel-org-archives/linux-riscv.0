@@ -2,92 +2,117 @@ Return-Path: <SRS0=oUx1=CT=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
-	UNWANTED_LANGUAGE_BODY,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-6.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4E3BAC43461
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2020 08:13:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 48AB8C43461
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2020 10:44:47 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C6F8820731
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2020 08:13:50 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 9792B206B8
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2020 10:44:46 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="IAPvZdjy";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="gFxw0O2i"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C6F8820731
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="JepGOnXc";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sifive.com header.i=@sifive.com header.b="Nf9JdC1C"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9792B206B8
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=SnxS642V3SfmhcXCEHZxjgpNYADZLX3pFUILYAVNjb8=; b=IAPvZdjy+ZsevE+uou1qnciT/
-	M+PyUrIjoelgqM1oidiVTKLTjiLaHM5mMWUY1hyLajSVs8BdUr188gaSORX0XAoLVx1LGVQdZ4wqo
-	XvGTw+GSncwOVAXJKJiGhKyBdF4ehuOban8A1KtR+Pe90hkn+MDQgfd+YY8Mmca0TJq9VqVVwItbb
-	RCO6KufaqYiZZvBqY88ljSEp9p/8eahb9/W6GcWyVz9ZBd7DQuPjboP/2aKBtI0HEGLTegyjl1zaN
-	mO+l5iN/ZyC1x/BaA89RZuX5ejMqSDkfEYE1TIk5EuEBZaVlIWbK1HFLLcJTtNw/VSYAb1XkhfZon
-	SWKC6cTdQ==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YWlpdTxt8j5TCSz4P6bSheR1v6E8U5R92MARbyPWrmA=; b=JepGOnXc0R0UXxf/Gujd67Ufun
+	mxrIRCdAY8glpMcb0n++vl5qoCB1tVHqSIXl5BkLW1GtHCQswidX4Z0Amzv727dX3+LDZjDZyAaya
+	bqxWPiXNlRpHdJJ20snoLAO72ySh0suAUGRPCz+gDWlg7JelD6aU6psEvIegk8vnscCrYjhtTTSKi
+	i3t5SjU/bKxsIFp6XRB9vffptCNevIhPomAYCSJdKPbPOPbyDQAvHAzxdgY9VSeyPFsvaZ7imoY1X
+	nKQhIQt5OpEsM+qmTJx7F2GC5gTGJyYkh7BpVv6fGoCsVFipjrPnbvCbtPUqO1PMCjXgCSwOjJkAy
+	H8BOX6Yg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kGHi3-0000Kn-Ex; Thu, 10 Sep 2020 08:13:35 +0000
-Received: from mail-pj1-x1044.google.com ([2607:f8b0:4864:20::1044])
+	id 1kGK46-0005u4-88; Thu, 10 Sep 2020 10:44:30 +0000
+Received: from mail-bn8nam12on2079.outbound.protection.outlook.com
+ ([40.107.237.79] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kGHhq-00008X-CJ
- for linux-riscv@lists.infradead.org; Thu, 10 Sep 2020 08:13:23 +0000
-Received: by mail-pj1-x1044.google.com with SMTP id n3so962267pjq.1
- for <linux-riscv@lists.infradead.org>; Thu, 10 Sep 2020 01:13:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=WcdZYdMEIHKAJf7V6BNJ8N7QqP1cj59N2jvisfvLOK4=;
- b=gFxw0O2iyGtEjTc+9vvle+GWK8/rBNO9iGBU3yKPmjiPdrqufT2gnaJRq4oZm/lkEm
- +6apTQDPsbANW06VDwmJhuHosOE+pvEIwBCAE/JP7aseIrCBlV/nYsxBaMjvKjrY6o0D
- Kx1sqytMU01sbHmiNizSeDM0UVbAPNpm+8hegfub/N48P8g4aUTZNW7Xya1fWsexfhui
- CDoGZYyepKxkKIuRc89Zh5dL/ZEj4KaO6RfYdLm6ZC4LgTUdME6v9Oh5YhChKWEN+uUQ
- YPVRzuedyo4meFqusFzwrf0VwAlebw1osL9j5OAKnddoZZfqGLKpVBQk7Kq+7IGALsv4
- Oa2Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=WcdZYdMEIHKAJf7V6BNJ8N7QqP1cj59N2jvisfvLOK4=;
- b=qJVfzZEzC6CSYjLyfgkhOof9Hd/dl0EbVT2yck0Ud4J/dRBjcVmFEx1CtOHc0vAfP8
- YPJtNqw574Yb61MqwWhqdWSvJombDy/QywmkLUEPzMc9nUcX38PTUGg+pnbqzC/oOtKh
- ZxAcygs2gUxwPo3/vPkKIuArhkdM7+AoGkHrWP20fiXiC8T4dd/OERP6pYrxNJpjsDgq
- 2TLXmqwhHa+/1/5cjIwWhwewzskw5UMk/SIaM4v9bWm/opxSDZPaz3qJOIc9f0QtWBvr
- r6Y9baiV3fTXNxnY64L3vl0/Qffa35P0AxQ0jXvPw+OYKi9SXH5ti0OBcGi97ykFoHAt
- gP0w==
-X-Gm-Message-State: AOAM530Sy4dC/k2aja0OeOS3MwuVPbXKxY5FOaLLb6njatt8+Y5mcUMZ
- g1BYoyb1mHjRTEhg0Qba9eVOrQ==
-X-Google-Smtp-Source: ABdhPJyl9mhInSAGTEcKRk8ImSnnn8MjUxLE01XUnaBOgRsFK19fKG9dgkD37JtwLKBEt0MAbI48Jg==
-X-Received: by 2002:a17:902:aa85:b029:d0:cbe1:e70d with SMTP id
- d5-20020a170902aa85b02900d0cbe1e70dmr4616487plr.27.1599725600536; 
- Thu, 10 Sep 2020 01:13:20 -0700 (PDT)
-Received: from hsinchu02.internal.sifive.com
- (114-34-229-221.HINET-IP.hinet.net. [114.34.229.221])
- by smtp.gmail.com with ESMTPSA id e1sm2196056pfl.162.2020.09.10.01.13.18
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 10 Sep 2020 01:13:20 -0700 (PDT)
-From: Greentime Hu <greentime.hu@sifive.com>
-To: greentime.hu@sifive.com, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, aou@eecs.berkeley.edu, palmer@dabbelt.com,
- paul.walmsley@sifive.com
-Subject: [RFC PATCH v7 21/21] riscv: Optimize task switch codes of vector
-Date: Thu, 10 Sep 2020 16:12:16 +0800
-Message-Id: <50eb3d9d0a92d6faa39e9fedb941863426daca76.1599719352.git.greentime.hu@sifive.com>
-X-Mailer: git-send-email 2.28.0
-In-Reply-To: <cover.1599719352.git.greentime.hu@sifive.com>
-References: <cover.1599719352.git.greentime.hu@sifive.com>
+ id 1kGK43-0005tD-96
+ for linux-riscv@lists.infradead.org; Thu, 10 Sep 2020 10:44:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=m1mW597Jv21LrWD6UqtMDBTocGHx0/IO8WbjHLJKTH+saLfMgJanS9HjHZ2W9zUMNQ3sbSndJ1KikKlJQkgcdGob9UVFIpKytva1qOaBfk2w1RsfV4Ooy9kSkORS2sk8LU85yxLf56SywXY5LlwF7Nf2yFVLz3TSTWGYGY3/gucr2xaU77pisEkFDU8/oW2Bq28Sxi00SgohhHLuThJdqz34qQKJZsOaqFL9/Jl3bvZwe7szqqY5ETZLq3urjAnPhEJq0ADw4l+8aW7OLTDmpfSjY+EcoU/CbGFkfXPW51BLmgM10Z7LOB9ObgnifqSFflTt849ZKgo9Su91cGLzLA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=W9X2XoooE1ZGtXFc7HiH4o7Ntp9X+LreW4l/6KNnf94=;
+ b=dAic5THLZQGtVHMsPAQyMPjDFxX5oyNPWWUGFI6WGM/yy9qXbafFC6Jd2B/0NSJ7l6ua3pTBFUa0iHf565KgXy4A91XBWcgF9jlGCLGEywz87WyiyX0DbXp0zryfhAbpj/NxSdt6C8KzGKEY1ZjtasKq+P8TQjA/stmUYKbrZrvbnLXvjjWJqG2pFl7y6EqBHp0JjJFolMZBLwvltyP34XNnLz/8+4NK/ntZ1fm2RQ/hzbLCblYO1V7kzWJ9YByKw3KqGz6wEhsMZoTwaYe778Jxphu1ZppCgPD4DZGOf61h1GhgXItnIjp1DhGFEsswNlonki+JkKRP2G0Qx9+n2A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=openfive.com; dmarc=pass action=none header.from=sifive.com;
+ dkim=pass header.d=sifive.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=W9X2XoooE1ZGtXFc7HiH4o7Ntp9X+LreW4l/6KNnf94=;
+ b=Nf9JdC1C5PxC4+DiPnnRO/YlHvk20eV6v5mh1tQ33HT4yx3rSt+NmPNLyJ0h/Yc6sW+ZeN4VAuSZPBBsteHmc/x/XPjV9LN0ATLxshPCe+XonPtDcwflyj9vM8C+2P5DUJTUMXL/Qtf6HVTFXgfnqwhflihFzOo0sILjTPkdz4k=
+Authentication-Results: vger.kernel.org; dkim=none (message not signed)
+ header.d=none; vger.kernel.org; dmarc=none action=none header.from=sifive.com; 
+Received: from DM6PR13MB3451.namprd13.prod.outlook.com (2603:10b6:5:1c3::10)
+ by DM5PR1301MB2106.namprd13.prod.outlook.com (2603:10b6:4:32::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3348.5; Thu, 10 Sep
+ 2020 10:44:24 +0000
+Received: from DM6PR13MB3451.namprd13.prod.outlook.com
+ ([fe80::a48a:1f7c:267c:876]) by DM6PR13MB3451.namprd13.prod.outlook.com
+ ([fe80::a48a:1f7c:267c:876%7]) with mapi id 15.20.3370.016; Thu, 10 Sep 2020
+ 10:44:24 +0000
+From: Sagar Kadam <sagar.kadam@sifive.com>
+To: linux-pwm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-clk@vger.kernel.org
+Subject: [PATCH v1 0/3] convert sifive's prci, plic and pwm bindings to yaml 
+Date: Thu, 10 Sep 2020 16:14:01 +0530
+Message-Id: <1599734644-4791-1-git-send-email-sagar.kadam@sifive.com>
+X-Mailer: git-send-email 2.7.4
+X-ClientProxiedBy: BMXPR01CA0087.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:b00:54::27) To DM6PR13MB3451.namprd13.prod.outlook.com
+ (2603:10b6:5:1c3::10)
 MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+Received: from osubuntu003.open-silicon.com (159.117.144.156) by
+ BMXPR01CA0087.INDPRD01.PROD.OUTLOOK.COM (2603:1096:b00:54::27) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id
+ 15.20.3326.19 via Frontend Transport; Thu, 10 Sep 2020 10:44:18 +0000
+X-Mailer: git-send-email 2.7.4
+X-Originating-IP: [159.117.144.156]
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 9e1ef478-9a0f-4fc4-9019-08d855767b95
+X-MS-TrafficTypeDiagnostic: DM5PR1301MB2106:
+X-LD-Processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
+X-MS-Exchange-Transport-Forked: True
+X-Microsoft-Antispam-PRVS: <DM5PR1301MB2106A2A94362F73A5D64EB0797270@DM5PR1301MB2106.namprd13.prod.outlook.com>
+X-MS-Oob-TLC-OOBClassifiers: OLM:2276;
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: kUJbS4YG4D98hiHmLt2ay6Tf15pPalZm+WIsSm6JUmrfNGIOenJGeJ53VjtDac85tcjK5s4XaQ6a7VMN02VdAWQP3rqnJKWqx6/Jdr3lcVwrMl1QVMF2d2Q7zvXBmMYWpirYFE5MGuwdBweUiVLk4tW+p7MfnAIv1ZqaFGkz+MlqV0SSnQezPGjnGR33aiidZCFH8SWeiX+40xB7R9iCnj1cYbMslpPxV3bmWPgCOZhdZgJx45LzrnpMP4/O++yebTKash7zvGcvZTbsJzRyjA7qvupR+S+fBkXAhRtYePrNX1QFepsLR78U3SCzLW/i4FTkPTEPhhfRSlJlFKtWbR2nX+98e8dbBmg2BPfh6ApZ7hwJsXxSqDX323LyF8f3g0F30EHYKFhTKDCdVNmf1w==
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:DM6PR13MB3451.namprd13.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(39850400004)(346002)(376002)(136003)(366004)(396003)(6666004)(6512007)(316002)(4743002)(26005)(966005)(8676002)(6486002)(66556008)(66476007)(52116002)(2616005)(956004)(186003)(66946007)(5660300002)(4326008)(42882007)(107886003)(8936002)(36756003)(2906002)(478600001)(83380400001)(6506007)(83170400001)(7416002)(16526019)(44832011);
+ DIR:OUT; SFP:1101; 
+X-MS-Exchange-AntiSpam-MessageData: 2WgOgmhh8sVnvYy3MQYyiRHlTAIyxCfG5ScEDIT5VIfchf931QW/n4K7q0rMA2oEaxvXLpkUIOSIVJDRAxStXr2js2NiL7vMQQKeKFxOXKsSVw9boZC7DlFTCK1a3hJhOpklO75v/wOFa/gBJVDUpsEEt9WMAtHNIVp5419ccZ/z4gPx2aqiYyUAM3fcrc26dvKJmaTw6VIwcTwKfW7DlaIfmou7GYYXgzDLwUCXydw3l1sUJs2ZI9zlUwUw0pBNZllFbEwSunIqC6pkSquRGwo9t4jmT+wGq22Nu5kPS7mYuFBTW8YCt+fppmkxubRvRaWZhrxu1D/CM4a2UkjRDMdAIxocmDLcccPodjehU88N167cWKBo2rnZHrmUBJS/w1YgPX2fiioiMiMQe0cVW3KVhlz79mRxuDfKq7QnUqX1m+TdisIxiDapTPjOTtBhjkNWnv2apZrpBo4T1CWYGCsC3uyyBw9VoCh3iAQf9GggM+VUR/XRMSYLa8Ag+g7jhd8U7WvvzpOFHHPrVOKV/Fw9K08S7P/hYkdLF5SSJvpHrLHLKDszmhJ+8/SsbGv5vZ7Lu8Y9gOeo0WnB7FlbhEx/NR1xonU06/4mW3vyPkzeKgWhbLccZKz/GJ/ZlPLGFWmd6xsM2b0sbpVUOrJsBg==
+X-OriginatorOrg: sifive.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9e1ef478-9a0f-4fc4-9019-08d855767b95
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR13MB3451.namprd13.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Sep 2020 10:44:24.3085 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: SGyQhd8kkVvyQA6w3C3klNQLSJbc9aQ1XjfVeElTIyMkujcF7B5yeGAzQmNYjpjyLOHZxicwsvdmt4J6Ytr50g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM5PR1301MB2106
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200910_041322_454231_62E807CA 
-X-CRM114-Status: UNSURE (   9.65  )
+X-CRM114-CacheID: sfid-20200910_064427_536786_0C7512C4 
+X-CRM114-Status: UNSURE (   9.53  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -100,58 +125,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Andrew Waterman <andrew@sifive.com>
+Cc: aou@eecs.berkeley.edu, jason@lakedaemon.net, sboyd@kernel.org,
+ maz@kernel.org, mturquette@baylibre.com, u.kleine-koenig@pengutronix.de,
+ yash.shah@sifive.com, robh+dt@kernel.org, palmer@dabbelt.com,
+ Sagar Kadam <sagar.kadam@sifive.com>, paul.walmsley@sifive.com,
+ thierry.reding@gmail.com, tglx@linutronix.de, lee.jones@linaro.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch replacees 2 instructions with 1 instruction to do the same thing
-. rs1=x0 with rd != x0 is a special form of the instruction that sets vl to
-MAXVL.
+The PRCI and PLIC controller bindings are in txt format. Here, we convert
+them to yaml format.
 
-Suggested-by: Andrew Waterman <andrew@sifive.com>
-Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
----
- arch/riscv/kernel/vector.S | 9 +++------
- 1 file changed, 3 insertions(+), 6 deletions(-)
+These patches are tested on commit f4d51dffc6c0 ("Linux 5.9-rc4"). I have
+added the log of dt_binding_check for these IP block's on 5.9-rc4 kernel
+here [1] in case someone want's to refer it.
 
-diff --git a/arch/riscv/kernel/vector.S b/arch/riscv/kernel/vector.S
-index 4f0c5a166e4e..f7223c81b11a 100644
---- a/arch/riscv/kernel/vector.S
-+++ b/arch/riscv/kernel/vector.S
-@@ -27,8 +27,7 @@
- #define x_vl     t2
- #define x_vcsr   t3
- #define incr     t4
--#define m_one    t5
--#define status   t6
-+#define status   t5
- 
- ENTRY(__vstate_save)
- 	li      status, SR_VS
-@@ -38,8 +37,7 @@ ENTRY(__vstate_save)
- 	csrr    x_vtype, CSR_VTYPE
- 	csrr    x_vl, CSR_VL
- 	csrr    x_vcsr, CSR_VCSR
--	li      m_one, -1
--	vsetvli incr, m_one, e8, m8
-+	vsetvli incr, x0, e8, m8
- 	vse8.v   v0, (datap)
- 	add     datap, datap, incr
- 	vse8.v   v8, (datap)
-@@ -61,8 +59,7 @@ ENTRY(__vstate_restore)
- 	li      status, SR_VS
- 	csrs    CSR_STATUS, status
- 
--	li      m_one, -1
--	vsetvli incr, m_one, e8, m8
-+	vsetvli incr, x0, e8, m8
- 	vle8.v   v0, (datap)
- 	add     datap, datap, incr
- 	vle8.v   v8, (datap)
+[1] https://paste.ubuntu.com/p/VHqqnXdrkJ
+
+Additionally the default log of dt_binding_check on linux-5.9-rc4 without
+these patches can be found here [2].
+
+[2] https://paste.ubuntu.com/p/KNGJrJvvdt
+
+Patch History:
+============================
+V1: Base version.
+
+Sagar Kadam (3):
+  dt-bindings: fu540: prci: convert PRCI bindings to json-schema
+  dt-bindings: riscv: convert plic bindings to json-schema
+  dt-bindings: riscv: convert pwm bindings to json-schema
+
+ .../bindings/clock/sifive/fu540-prci.txt           |  46 ---------
+ .../bindings/clock/sifive/fu540-prci.yaml          |  75 +++++++++++++++
+ .../interrupt-controller/sifive,plic-1.0.0.txt     |  58 -----------
+ .../interrupt-controller/sifive,plic-1.0.0.yaml    | 107 +++++++++++++++++++++
+ .../devicetree/bindings/pwm/pwm-sifive.txt         |  33 -------
+ .../devicetree/bindings/pwm/pwm-sifive.yaml        |  72 ++++++++++++++
+ 6 files changed, 254 insertions(+), 137 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/clock/sifive/fu540-prci.txt
+ create mode 100644 Documentation/devicetree/bindings/clock/sifive/fu540-prci.yaml
+ delete mode 100644 Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.txt
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+ delete mode 100644 Documentation/devicetree/bindings/pwm/pwm-sifive.txt
+ create mode 100644 Documentation/devicetree/bindings/pwm/pwm-sifive.yaml
+
 -- 
-2.28.0
+2.7.4
 
 
 _______________________________________________
