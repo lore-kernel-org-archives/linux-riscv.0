@@ -1,91 +1,117 @@
-Return-Path: <SRS0=oUx1=CT=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=K12s=CU=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-12.5 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1D09AC43461
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2020 23:40:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2739DC433E2
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Sep 2020 05:21:43 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7457F208CA
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Sep 2020 23:40:29 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A6344207EA
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Sep 2020 05:21:42 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="IIMQxUB3";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="gaW8IdSb"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7457F208CA
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="v9YpkP6B";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=ibm.com header.i=@ibm.com header.b="YK4ewip5"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A6344207EA
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References:In-Reply-To:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=VMfbf3RHX5M0rQYYaLDY6dn1h8SkXi9qft4Rw+saw6g=; b=IIMQxUB3YMYdBvQ0ZZ1dQryBJ
-	MJhVGBNQsNOdDCJnzHrYiog8w3UGrtuNuoxQ4B5MX+FhbkYiVCuQunVV0lFkEOCu4vxECz3mqXcMq
-	tn7A8faX3x77vxAeYsTW9jey/0ye4y1JSzPEISE9DBjYUIVhj2qVheoHOMGDg8xDnOElxXMpS0WrO
-	F1ch5tkKWrY8Y5mIrMmWdgIjvNlXhmVm8VJjqovE6K0XL9kbfP6xr4KZxc1AuDaT4DlFWv3DUSXEC
-	nEqve8BoDVAJpJI9cDAXTbrSFQUMu/mXCftw1UOXzCwiLlWaTnMa4nquX93sIGVzzGCRktXhRrHEf
-	hj5GoNFJA==;
+	 bh=KPhXmLpKqr/k89lwoQvwKKn82Ho2AuwkU+jrUV3coss=; b=v9YpkP6BIGfuu/HAWGDFkQBf2
+	3tb3G5R/3tBz9KmvijP+1HP1/Zc/hFVAyCA18nlAyQbnysGMtomWZ1uN3vN+hF3oJn6ucIArElwN1
+	rBpqrK/c6UYIPY49XbSc5532CJyEbsLGM27Y39frExhZltsqgL43TV4m2shqZYF4EOpqga2FMGybJ
+	P2RfjYmhjPyb42BuUM9WXOK+BkAngZW9Db79XirnYWVM7KPHO6RxsRW82YfWYhWwYTMEfzeaMZF6y
+	oRJ6wDIm6CRDf2JUsl9VYpXhBp8/NO6rrTFODBEomc75mefNbNBnEUEmFrw6VuFCfZVvP3V+6xcCC
+	425wvzVLw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kGWAj-000418-SY; Thu, 10 Sep 2020 23:40:09 +0000
-Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
+	id 1kGbUz-0007X1-A5; Fri, 11 Sep 2020 05:21:25 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5]
+ helo=mx0a-001b2d01.pphosted.com)
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kGWAh-00040d-Un
- for linux-riscv@lists.infradead.org; Thu, 10 Sep 2020 23:40:08 +0000
-Received: by mail-pf1-x442.google.com with SMTP id l126so5789099pfd.5
- for <linux-riscv@lists.infradead.org>; Thu, 10 Sep 2020 16:40:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=AnsaKcjQA7XDzKaULTAgMjaBRBirV4L21FU5x5dUGKw=;
- b=gaW8IdSbf3GaFy6eEV++qACh3TrHYCYg+2WmSmuhspQ2uDt6L6BnFmJsGeojolYJUc
- HK6EM7/S5de6tgVHPcQoVRcMGKrLg+MylINLv8Z5jp8ovuRu6e8cwvp3O3sKcNGOWRa9
- ASrbCheOhgfeTfCxaKAEWUNKcpLTIhHOIufgHu+uiixW4IfCDKAS1aK4ZzyrN81gsFxG
- L5yAUgnAysa5RNrpiWMrEkKYGcUebfLx96svrrb+J+9PPnTGlxN+LPijaUcebxzDrEiu
- rfxqYsmo28NL94OGODXNW/dinC3XzbMkaQZf/EQbN0DknebmIObpNFlkucbpKMdkyJfT
- 9V4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=AnsaKcjQA7XDzKaULTAgMjaBRBirV4L21FU5x5dUGKw=;
- b=e+zU8QPPDnjzDQ4tdeogfB+cIgc6wmacWQPXnVBsaW6yI8V7cjr7TuY0iJsII/ANIw
- J+aMFk9zeqEU12j6+6cs0eqGQom348DTeEJNayiW81p4HRATcbU5eG4OPTx7WMFiCiHu
- Q/kwiabNi4WPOT9lAa5Q+i2iBRLSWuoO1hyWrX3hinXxRLgsIe/zgpCquF+2MCBjayf4
- eEH10rtGiYXh4YwdzXC9YpfNrsJgGDCmaYTnAWBc/qzGeCqm+eoEeLGTYpluv6H4zC0i
- 7lTu2EjSY2HP7J/bs0mIoYZovbTacmIa+YRFBQ1Djx2VK0eNdCKTezk7G0V1CUNNsbdy
- cIZw==
-X-Gm-Message-State: AOAM530hggRb49+XrSzyQndQALjRhaKibEOXNcg69keBsLI0aYgwmsIN
- 7VozWAvrfoSmw/Bmkq0YnU4=
-X-Google-Smtp-Source: ABdhPJyXk862vTJ+5c4YYfnbPIuEKCO7z2v14OPFQkhzPJfuY6u6irLGz+HHLFJl831tjhY9XtvqDw==
-X-Received: by 2002:a17:902:5996:b029:d0:89f1:9e2c with SMTP id
- p22-20020a1709025996b02900d089f19e2cmr66134pli.8.1599781203947; 
- Thu, 10 Sep 2020 16:40:03 -0700 (PDT)
-Received: from localhost (g168.115-65-169.ppp.wakwak.ne.jp. [115.65.169.168])
- by smtp.gmail.com with ESMTPSA id
- a15sm185866pfi.119.2020.09.10.16.40.02
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 10 Sep 2020 16:40:03 -0700 (PDT)
-From: Stafford Horne <shorne@gmail.com>
-To: LKML <linux-kernel@vger.kernel.org>
-Subject: [PATCH v3 3/3] openrisc: Fix issue with get_user for 64-bit values
-Date: Fri, 11 Sep 2020 08:39:40 +0900
-Message-Id: <20200910233940.2132107-4-shorne@gmail.com>
-X-Mailer: git-send-email 2.26.2
-In-Reply-To: <20200910233940.2132107-1-shorne@gmail.com>
-References: <20200910233940.2132107-1-shorne@gmail.com>
+ id 1kGbUw-0007WB-IZ
+ for linux-riscv@lists.infradead.org; Fri, 11 Sep 2020 05:21:23 +0000
+Received: from pps.filterd (m0098416.ppops.net [127.0.0.1])
+ by mx0b-001b2d01.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id
+ 08B51vSS143141; Fri, 11 Sep 2020 01:21:11 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
+ h=from : to : cc : subject
+ : in-reply-to : references : date : message-id : mime-version :
+ content-type; s=pp1; bh=DU/4b0UHB6uf8FRCheqNO7SFSo134jh/J2UtOUkHCNw=;
+ b=YK4ewip5IEGSpEYxV6+cDKI6yBMrZRb3GQJHnVFFZcLSpPUDURfdqixx3iYRxIaJC//B
+ O7tqh7p2Vr74+zwEf5q3GHzCPa86V7DFOmPaB1I8S2avC9ZPUlrwSlRR36r2X3S7kHrd
+ 1+GEjDRlQ37tNrb4K7xayZa6ubK+/1MHKVTBFM3i5aqED8zPyuGEf1a8S0a1welSEPlj
+ lCw9e37OG56+UlV4VgiB20UnORuU5iW+XZqm9WE0mhnYzSDpc0M+ajQv2M85M4PFtYG6
+ oYNU6VpqLwQ/cpFk55s05sokU8y5w5ebuX8bnnMCyRHNKqQZE9CLv+JXCIvT5cW2E8tQ ug== 
+Received: from pps.reinject (localhost [127.0.0.1])
+ by mx0b-001b2d01.pphosted.com with ESMTP id 33g27f1288-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Fri, 11 Sep 2020 01:21:11 -0400
+Received: from m0098416.ppops.net (m0098416.ppops.net [127.0.0.1])
+ by pps.reinject (8.16.0.36/8.16.0.36) with SMTP id 08B52AjQ144048;
+ Fri, 11 Sep 2020 01:21:11 -0400
+Received: from ppma02dal.us.ibm.com (a.bd.3ea9.ip4.static.sl-reverse.com
+ [169.62.189.10])
+ by mx0b-001b2d01.pphosted.com with ESMTP id 33g27f1281-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Fri, 11 Sep 2020 01:21:11 -0400
+Received: from pps.filterd (ppma02dal.us.ibm.com [127.0.0.1])
+ by ppma02dal.us.ibm.com (8.16.0.42/8.16.0.42) with SMTP id 08B5CVXn024308;
+ Fri, 11 Sep 2020 05:21:10 GMT
+Received: from b03cxnp08026.gho.boulder.ibm.com
+ (b03cxnp08026.gho.boulder.ibm.com [9.17.130.18])
+ by ppma02dal.us.ibm.com with ESMTP id 33c2aa0s62-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Fri, 11 Sep 2020 05:21:10 +0000
+Received: from b03ledav001.gho.boulder.ibm.com
+ (b03ledav001.gho.boulder.ibm.com [9.17.130.232])
+ by b03cxnp08026.gho.boulder.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
+ 08B5L41Z58851628
+ (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Fri, 11 Sep 2020 05:21:04 GMT
+Received: from b03ledav001.gho.boulder.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 87A456E053;
+ Fri, 11 Sep 2020 05:21:09 +0000 (GMT)
+Received: from b03ledav001.gho.boulder.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id DBEAD6E04E;
+ Fri, 11 Sep 2020 05:21:06 +0000 (GMT)
+Received: from skywalker.linux.ibm.com (unknown [9.102.1.57])
+ by b03ledav001.gho.boulder.ibm.com (Postfix) with ESMTP;
+ Fri, 11 Sep 2020 05:21:06 +0000 (GMT)
+X-Mailer: emacs 27.1 (via feedmail 11-beta-1 I)
+From: "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>
+To: Nathan Chancellor <natechancellor@gmail.com>
+Subject: Re: [PATCH v4 13/13] mm/debug_vm_pgtable: Avoid none pte in
+ pte_clear_test
+In-Reply-To: <20200911021358.GA3656343@ubuntu-n2-xlarge-x86>
+References: <20200902114222.181353-1-aneesh.kumar@linux.ibm.com>
+ <20200902114222.181353-14-aneesh.kumar@linux.ibm.com>
+ <20200911021358.GA3656343@ubuntu-n2-xlarge-x86>
+Date: Fri, 11 Sep 2020 10:51:04 +0530
+Message-ID: <87zh5wx51b.fsf@linux.ibm.com>
 MIME-Version: 1.0
+X-TM-AS-GCONF: 00
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.235, 18.0.687
+ definitions=2020-09-11_01:2020-09-10,
+ 2020-09-11 signatures=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 spamscore=0
+ suspectscore=0 impostorscore=0 mlxscore=0 lowpriorityscore=0 bulkscore=0
+ mlxlogscore=999 priorityscore=1501 phishscore=0 adultscore=0
+ malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2006250000 definitions=main-2009110036
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200910_194008_005626_6EA8E6A3 
-X-CRM114-Status: GOOD (  18.23  )
+X-CRM114-CacheID: sfid-20200911_012122_670485_1B5E1E58 
+X-CRM114-Status: GOOD (  26.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -97,138 +123,124 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Jonas Bonn <jonas@southpole.se>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org,
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
- openrisc@lists.librecores.org, Palmer Dabbelt <palmer@dabbelt.com>,
- Greentime Hu <green.hu@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Geert Uytterhoeven <geert@linux-m68k.org>, Stafford Horne <shorne@gmail.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Luc Van Oostenryck <luc.vanoostenryck@gmail.com>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>, mpe@ellerman.id.au,
+ linux-mm@kvack.org, akpm@linux-foundation.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-A build failure was raised by kbuild with the following error.
+Nathan Chancellor <natechancellor@gmail.com> writes:
 
-    drivers/android/binder.c: Assembler messages:
-    drivers/android/binder.c:3861: Error: unrecognized keyword/register name `l.lwz ?ap,4(r24)'
-    drivers/android/binder.c:3866: Error: unrecognized keyword/register name `l.addi ?ap,r0,0'
+> On Wed, Sep 02, 2020 at 05:12:22PM +0530, Aneesh Kumar K.V wrote:
+>> pte_clear_tests operate on an existing pte entry. Make sure that
+>> is not a none pte entry.
+>> 
+>> Signed-off-by: Aneesh Kumar K.V <aneesh.kumar@linux.ibm.com>
+>> ---
+>>  mm/debug_vm_pgtable.c | 7 ++++---
+>>  1 file changed, 4 insertions(+), 3 deletions(-)
+>> 
+>> diff --git a/mm/debug_vm_pgtable.c b/mm/debug_vm_pgtable.c
+>> index 9afa1354326b..c36530c69e33 100644
+>> --- a/mm/debug_vm_pgtable.c
+>> +++ b/mm/debug_vm_pgtable.c
+>> @@ -542,9 +542,10 @@ static void __init pgd_populate_tests(struct mm_struct *mm, pgd_t *pgdp,
+>>  #endif /* PAGETABLE_P4D_FOLDED */
+>>  
+>>  static void __init pte_clear_tests(struct mm_struct *mm, pte_t *ptep,
+>> -				   unsigned long vaddr)
+>> +				   unsigned long pfn, unsigned long vaddr,
+>> +				   pgprot_t prot)
+>>  {
+>> -	pte_t pte = ptep_get(ptep);
+>> +	pte_t pte = pfn_pte(pfn, prot);
+>>  
+>>  	pr_debug("Validating PTE clear\n");
+>>  	pte = __pte(pte_val(pte) | RANDOM_ORVALUE);
+>> @@ -1049,7 +1050,7 @@ static int __init debug_vm_pgtable(void)
+>>  
+>>  	ptl = pte_lockptr(mm, pmdp);
+>>  	spin_lock(ptl);
+>> -	pte_clear_tests(mm, ptep, vaddr);
+>> +	pte_clear_tests(mm, ptep, pte_aligned, vaddr, prot);
+>>  	pte_advanced_tests(mm, vma, ptep, pte_aligned, vaddr, prot);
+>>  	pte_unmap_unlock(ptep, ptl);
+>>  
+>> -- 
+> This patch causes a panic at boot for RISC-V defconfig. The rootfs is here if it is needed:
+> https://github.com/ClangBuiltLinux/boot-utils/blob/3b21a5b71451742866349ba4f18638c5a754e660/images/riscv/rootfs.cpio.zst
+>
+> $ make -skj"$(nproc)" ARCH=riscv CROSS_COMPILE=riscv64-linux- O=out/riscv distclean defconfig Image
+>
+> $ qemu-system-riscv64 -bios default -M virt -display none -initrd rootfs.cpio -kernel Image -m 512m -nodefaults -serial mon:stdio
+> ...
+>
+> OpenSBI v0.6
+>    ____                    _____ ____ _____
+>   / __ \                  / ____|  _ \_   _|
+>  | |  | |_ __   ___ _ __ | (___ | |_) || |
+>  | |  | | '_ \ / _ \ '_ \ \___ \|  _ < | |
+>  | |__| | |_) |  __/ | | |____) | |_) || |_
+>   \____/| .__/ \___|_| |_|_____/|____/_____|
+>         | |
+>         |_|
+>
+> Platform Name          : QEMU Virt Machine
+> Platform HART Features : RV64ACDFIMSU
+> Platform Max HARTs     : 8
+> Current Hart           : 0
+> Firmware Base          : 0x80000000
+> Firmware Size          : 120 KB
+> Runtime SBI Version    : 0.2
+>
+> MIDELEG : 0x0000000000000222
+> MEDELEG : 0x000000000000b109
+> PMP0    : 0x0000000080000000-0x000000008001ffff (A)
+> PMP1    : 0x0000000000000000-0xffffffffffffffff (A,R,W,X)
+> [    0.000000] Linux version 5.9.0-rc4-next-20200910 (nathan@ubuntu-n2-xlarge-x86) (riscv64-linux-gcc (GCC) 10.2.0, GNU ld (GNU Binutils) 2.35) #1 SMP Thu Sep 10 19:10:43 MST 2020
+> ...
+> [    0.294593] NET: Registered protocol family 17
+> [    0.295781] 9pnet: Installing 9P2000 support
+> [    0.296153] Key type dns_resolver registered
+> [    0.296694] debug_vm_pgtable: [debug_vm_pgtable         ]: Validating architecture page table helpers
+> [    0.297635] Unable to handle kernel paging request at virtual address 0a7fffe01dafefc8
+> [    0.298029] Oops [#1]
+> [    0.298153] Modules linked in:
+> [    0.298433] CPU: 0 PID: 1 Comm: swapper/0 Not tainted 5.9.0-rc4-next-20200910 #1
+> [    0.298792] epc: ffffffe000205afc ra : ffffffe0008be0aa sp : ffffffe01ae73d40
+> [    0.299078]  gp : ffffffe0010b9b48 tp : ffffffe01ae68000 t0 : ffffffe008152000
+> [    0.299362]  t1 : 0000000000000000 t2 : 0000000000000000 s0 : ffffffe01ae73d60
+> [    0.299648]  s1 : bffffffffffffffb a0 : 0a7fffe01dafefc8 a1 : bffffffffffffffb
+> [    0.299948]  a2 : ffffffe0010a2698 a3 : 0000000000000001 a4 : 0000000000000003
+> [    0.300231]  a5 : 0000000000000800 a6 : fffffffff0000080 a7 : 000000001b642000
+> [    0.300521]  s2 : ffffffe0081517b8 s3 : ffffffe008150a80 s4 : ffffffe01af30000
+> [    0.300806]  s5 : ffffffe01f8ca9b8 s6 : ffffffe008150000 s7 : ffffffe0010bb100
+> [    0.301161]  s8 : ffffffe0010bb108 s9 : 0000000000080202 s10: ffffffe0010bb928
+> [    0.301481]  s11: 000000002008085b t3 : 0000000000000000 t4 : 0000000000000000
+> [    0.301722]  t5 : 0000000000000000 t6 : ffffffe008150000
+> [    0.301947] status: 0000000000000120 badaddr: 0a7fffe01dafefc8 cause: 000000000000000f
+> [    0.302569] ---[ end trace 7ffb153d816164cf ]---
+> [    0.302797] note: swapper/0[1] exited with preempt_count 1
+> [    0.303101] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+> [    0.303614] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b ]---
 
-The issue is with 64-bit get_user() calls on openrisc.  I traced this to
-a problem where in the internally in the get_user macros there is a cast
-to long __gu_val this causes GCC to think the get_user call is 32-bit.
-This binder code is really long and GCC allocates register r30, which
-triggers the issue. The 64-bit get_user asm tries to get the 64-bit pair
-register, which for r30 overflows the general register names and returns
-the dummy register ?ap.
 
-The fix here is to move the temporary variables into the asm macros.  We
-use a 32-bit __gu_tmp for 32-bit and smaller macro and a 64-bit tmp in
-the 64-bit macro.  The cast in the 64-bit macro has a trick of casting
-through __typeof__((x)-(x)) which avoids the below warning.  This was
-barrowed from riscv.
+I guess it is the combination of a valid pte and usage of
+RANDOM_ORVALUE. The below change get the kernel to boot. Can somebody
+faimilar with riscv pte format take a look at the RANDOM_ORVALUE?
 
-    arch/openrisc/include/asm/uaccess.h:240:8: warning: cast to pointer from integer of different size
-
-I tested this is a small unit test to check reading between 64-bit and
-32-bit pointers to 64-bit and 32-bit values in all combinations.  Also I
-ran make C=1 to confirm no new sparse warnings came up.  It all looks
-clean to me.
-
-Link: https://lore.kernel.org/lkml/202008200453.ohnhqkjQ%25lkp@intel.com/
-Signed-off-by: Stafford Horne <shorne@gmail.com>
-Cc: Luc Van Oostenryck <luc.vanoostenryck@gmail.com>
----
-Changes since v2:
- - Add back temporary variables but move to a different place, as described in
-   commit message.
-Changes since v1:
- - New
-
- arch/openrisc/include/asm/uaccess.h | 33 ++++++++++++++++++-----------
- 1 file changed, 21 insertions(+), 12 deletions(-)
-
-diff --git a/arch/openrisc/include/asm/uaccess.h b/arch/openrisc/include/asm/uaccess.h
-index f0390211236b..120f5005461b 100644
---- a/arch/openrisc/include/asm/uaccess.h
-+++ b/arch/openrisc/include/asm/uaccess.h
-@@ -165,19 +165,19 @@ struct __large_struct {
+modified   mm/debug_vm_pgtable.c
+@@ -548,7 +548,7 @@ static void __init pte_clear_tests(struct mm_struct *mm, pte_t *ptep,
+ 	pte_t pte = pfn_pte(pfn, prot);
  
- #define __get_user_nocheck(x, ptr, size)			\
- ({								\
--	long __gu_err, __gu_val;				\
--	__get_user_size(__gu_val, (ptr), (size), __gu_err);	\
--	(x) = (__force __typeof__(*(ptr)))__gu_val;		\
-+	long __gu_err;						\
-+	__get_user_size((x), (ptr), (size), __gu_err);		\
- 	__gu_err;						\
- })
- 
- #define __get_user_check(x, ptr, size)					\
- ({									\
--	long __gu_err = -EFAULT, __gu_val = 0;				\
-+	long __gu_err = -EFAULT;					\
- 	const __typeof__(*(ptr)) __user *__gu_addr = (ptr);		\
--	if (access_ok(__gu_addr, size))			\
--		__get_user_size(__gu_val, __gu_addr, (size), __gu_err);	\
--	(x) = (__force __typeof__(*(ptr)))__gu_val;			\
-+	if (access_ok(__gu_addr, size))					\
-+		__get_user_size((x), __gu_addr, (size), __gu_err);	\
-+	else								\
-+		(x) = (__typeof__(*(ptr))) 0;				\
- 	__gu_err;							\
- })
- 
-@@ -191,11 +191,13 @@ do {									\
- 	case 2: __get_user_asm(x, ptr, retval, "l.lhz"); break;		\
- 	case 4: __get_user_asm(x, ptr, retval, "l.lwz"); break;		\
- 	case 8: __get_user_asm2(x, ptr, retval); break;			\
--	default: (x) = __get_user_bad();				\
-+	default: (x) = (__typeof__(*(ptr)))__get_user_bad();		\
- 	}								\
- } while (0)
- 
- #define __get_user_asm(x, addr, err, op)		\
-+{							\
-+	unsigned long __gu_tmp;				\
- 	__asm__ __volatile__(				\
- 		"1:	"op" %1,0(%2)\n"		\
- 		"2:\n"					\
-@@ -209,10 +211,14 @@ do {									\
- 		"	.align 2\n"			\
- 		"	.long 1b,3b\n"			\
- 		".previous"				\
--		: "=r"(err), "=r"(x)			\
--		: "r"(addr), "i"(-EFAULT), "0"(err))
-+		: "=r"(err), "=r"(__gu_tmp)		\
-+		: "r"(addr), "i"(-EFAULT), "0"(err));	\
-+	(x) = (__typeof__(*(addr)))__gu_tmp;		\
-+}
- 
- #define __get_user_asm2(x, addr, err)			\
-+{							\
-+	unsigned long long __gu_tmp;			\
- 	__asm__ __volatile__(				\
- 		"1:	l.lwz %1,0(%2)\n"		\
- 		"2:	l.lwz %H1,4(%2)\n"		\
-@@ -229,8 +235,11 @@ do {									\
- 		"	.long 1b,4b\n"			\
- 		"	.long 2b,4b\n"			\
- 		".previous"				\
--		: "=r"(err), "=&r"(x)			\
--		: "r"(addr), "i"(-EFAULT), "0"(err))
-+		: "=r"(err), "=&r"(__gu_tmp)		\
-+		: "r"(addr), "i"(-EFAULT), "0"(err));	\
-+	(x) = (__typeof__(*(addr)))(			\
-+		(__typeof__((x)-(x)))__gu_tmp);		\
-+}
- 
- /* more complex routines */
- 
--- 
-2.26.2
+ 	pr_debug("Validating PTE clear\n");
+-	pte = __pte(pte_val(pte) | RANDOM_ORVALUE);
++//	pte = __pte(pte_val(pte) | RANDOM_ORVALUE);
+ 	set_pte_at(mm, vaddr, ptep, pte);
+ 	barrier();
+ 	pte_clear(mm, vaddr, ptep);
 
 
 _______________________________________________
