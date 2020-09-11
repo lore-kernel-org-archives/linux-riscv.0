@@ -2,23 +2,23 @@ Return-Path: <SRS0=K12s=CU=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.5 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EB140C43461
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Sep 2020 20:45:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4719AC43461
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Sep 2020 20:55:49 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DBDAD207FB
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Sep 2020 20:45:54 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C33DB206B8
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Sep 2020 20:55:48 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="mhij/Q+C";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=aurel32.net header.i=@aurel32.net header.b="B+mE1wAk"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DBDAD207FB
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=aurel32.net
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="nzbhbTWV";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="Esc1QmdL"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C33DB206B8
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -26,57 +26,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=6dQhxpnO5XwpFgw+w+5Ya8KSy7yDzR/e2u8ZWSO8JmM=; b=mhij/Q+CYKnYPSkdYyeAxOLeT
-	QOs4SKe98PDkIQBOYEJrqZ4BDOqJteRCGlXCItbST2zQ3x9p9I3TnzMOnoKzz0gvJfOw8OUUHJWMx
-	tXdX0AC0RtkDZMS4pJwF4TCZ654Tl427xyHHkKxihL2R8ZOAd+0FJV4PNY/qipO2a/lBmaWKPruKE
-	8vUqgzvmAHGTxtz9cEOOBhBE7SI++wUFe4bEB0wpSlQP4njfnCOC/dM9azPcQ7gK+dutZMdcCcdnD
-	dY43Q+GyIvTAPrufQupTbAjtOSaiurhQSRY/u4xBceu4DfXT9PdKC+8R2MS9EDD9YOc03TnipX5o8
-	fhNqxMa3g==;
+	 bh=oRMut6NAQxd5dtqXnEqSvUiNDPZx9emcutXOAzjbVes=; b=nzbhbTWVyMNPM6vNgTKcMFr6d
+	4j2bqG0J3foTxn4cqYbH/7K27FShONwje0RXtmb8VU+d8W0XHvWKjnwRtCTXTBeL0jwfk0MpVAoPF
+	2y1f2HtjhPtwbEbXdvAs5r9KEoQ7r00A5TIQZGkgQmSWD/Ea1IaaYkhCrlbO5MSzx1JubvZcFg79H
+	nLcxugd1Pucd8KMXglIfyT9G2ngpbQyRPLp53ZX1NeQbLSZJjKVZQ+p19KwkF+sNSfeCPltQ2GnEs
+	e0ZDFsmxhaacNFmW8wxYozVjdMijHlmOLRi9yPKbGAniua/+vwIHdh4znKvc4hKEOdJ5OpYCPxfUo
+	6ieInCV4w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kGpvP-0008RG-DJ; Fri, 11 Sep 2020 20:45:39 +0000
-Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
+	id 1kGq51-0000cR-JU; Fri, 11 Sep 2020 20:55:35 +0000
+Received: from mail-ed1-x544.google.com ([2a00:1450:4864:20::544])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kGpvM-0008PC-QA
- for linux-riscv@lists.infradead.org; Fri, 11 Sep 2020 20:45:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
- ; s=202004.hall;
- h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
- Subject:Content-ID:Content-Description:X-Debbugs-Cc;
- bh=zEKQQeCho5wDyUtVNsTj1BSV4gF4ofzlmZRqY/qdBXs=; b=B+mE1wAk/yQA5RXAATYCANIBDt
- rhXyppgNEexBbMMDAyuOD0bgL7f+Uxb7eSLPY+v2MpOoUqWPY7DUUqzgedQaq7CPqIxOvmzRwYzZi
- zYz4tdKHsjsvJ3be+UzWDkJDTL/DeDN2MproBZtTFlLucKan+SgCSASNf7WkgNTDX3k5Jo34+eeIu
- 19bM+2TbtqcwkvEiDFxjwCaM7Fjz7b1OKKCBlcrCaHnp5Me0R8CVWmGCayNEt3QWJ3XTG+X9Xh5kF
- LDMdy+X2t1oXF3jiVeNfPOTRxMabY8IKmnjZaEqFOUMrkjrAt7Hg69xR2zqJeOKRB+MPfZNAgl+2g
- eudrdfKg==;
-Received: from [2a01:e35:2fdd:a4e1:fe91:fc89:bc43:b814] (helo=ohm.rr44.fr)
- by hall.aurel32.net with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
- (Exim 4.92) (envelope-from <aurelien@aurel32.net>)
- id 1kGpuz-0002ni-Jh; Fri, 11 Sep 2020 22:45:13 +0200
-Received: from aurel32 by ohm.rr44.fr with local (Exim 4.94)
- (envelope-from <aurelien@aurel32.net>)
- id 1kGpuy-00C5q9-Mu; Fri, 11 Sep 2020 22:45:12 +0200
-Date: Fri, 11 Sep 2020 22:45:12 +0200
-From: Aurelien Jarno <aurelien@aurel32.net>
-To: guoren@kernel.org
-Subject: Re: [PATCH V2 1/3] riscv: Fixup static_obj() fail
-Message-ID: <20200911204512.GA2705@aurel32.net>
-Mail-Followup-To: guoren@kernel.org, palmerdabbelt@google.com,
- paul.walmsley@sifive.com, anup@brainfault.org,
- greentime.hu@sifive.com, zong.li@sifive.com, aou@eecs.berkeley.edu,
- tglx@linutronix.de, tycho@tycho.ws, nickhu@andestech.com,
- linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>,
- linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org
-References: <1593266228-61125-1-git-send-email-guoren@kernel.org>
- <1593266228-61125-2-git-send-email-guoren@kernel.org>
+ id 1kGq4x-0000bt-UR
+ for linux-riscv@lists.infradead.org; Fri, 11 Sep 2020 20:55:32 +0000
+Received: by mail-ed1-x544.google.com with SMTP id e22so979099edq.6
+ for <linux-riscv@lists.infradead.org>; Fri, 11 Sep 2020 13:55:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=ggDeVKUI4NGl/o8mg/fjLzMDUrlaYtxa8WyaQiJ3Zzk=;
+ b=Esc1QmdLi/6Qx3KaIAIQHQvS4P7JAMBYZoivizjNtvFSxIcRM6aFcTDwUlzVgp7zVl
+ xZfGAKAd4+K5GljAHRzQZaFdXoJ3mXWzLg6BUVNC5gyMgAiISesnHGUQil3rv03vqihZ
+ 9X7HRf6C06TSG9WAVFbYL6tbU1PNR/YXoB7wnpZk4eTiYiC3BmLzfoVtp4823QwJRVGy
+ eaH9FxHjNJs1R8UvvB+s3VK/CtgVkp/qRGS08ycITkIDCNI85AidVJPONdTdvj9S4zB2
+ GnTXKALTM4Y5rXO3v+mJPh8qyUdYFkccTxHUp8gnLj1M9n1mnnvRXa1LwOjccbvfMbzM
+ oRvg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=ggDeVKUI4NGl/o8mg/fjLzMDUrlaYtxa8WyaQiJ3Zzk=;
+ b=aOs5h3nAL+rg/USt3pRo0RqctOWsWaNii63slqOb4SiGr25pIBC3Jgv/jq01KeIHtH
+ UhyBYV2Q7FVv6Rizm1gLXtkdS3z4/BtEc64EVP1hD54hg31v+fPkSZEaTDAHhUe0Ybhd
+ xQM0eM+bf91jYpJlGYCjbfJmmVr4BiUbSuq7hledJKgi/76G8diVoilwuJ0r01hxHjkd
+ J18gvNrk+JNAyifZPZ2wJoXxTQhVULr6CDYZLuZK8pUmaLwz3Dag3BUguQS9JYXs1Tcl
+ COGMtPLALNZ2vIYvyjGj+trd89arwSm9XTBvs3proOOzsEZnnuNC2LAJ7fPnNAIhW0Oj
+ SlTA==
+X-Gm-Message-State: AOAM532Eoqrl9asHlJy+ZkHQLEI0tCoXBJ89hSQKzrFxyvUV+NxEy1E4
+ nJOUxM9WhoGv1xcKjLVt6fJKv6JA+bs=
+X-Google-Smtp-Source: ABdhPJwe7IN3NAF7/5APCdifVHq2JNF9augUg+dt+qFalvnsfMz7Z0m4AuUDYm3aoMQVPr/iCU4J9w==
+X-Received: by 2002:a50:84a2:: with SMTP id 31mr4534948edq.138.1599857729206; 
+ Fri, 11 Sep 2020 13:55:29 -0700 (PDT)
+Received: from ltop.local ([2a02:a03f:b7fe:f700:e86e:d952:c3c2:494c])
+ by smtp.gmail.com with ESMTPSA id q26sm2169824ejr.97.2020.09.11.13.55.27
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 11 Sep 2020 13:55:28 -0700 (PDT)
+Date: Fri, 11 Sep 2020 22:55:26 +0200
+From: Luc Van Oostenryck <luc.vanoostenryck@gmail.com>
+To: Stafford Horne <shorne@gmail.com>
+Subject: Re: [PATCH v3 3/3] openrisc: Fix issue with get_user for 64-bit values
+Message-ID: <20200911205526.65llro2gnh7zlsu4@ltop.local>
+References: <20200910233940.2132107-1-shorne@gmail.com>
+ <20200910233940.2132107-4-shorne@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <1593266228-61125-2-git-send-email-guoren@kernel.org>
-User-Agent: Mutt/1.14.6 (2020-07-11)
+In-Reply-To: <20200910233940.2132107-4-shorne@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200911_164537_165155_DB1C7E50 
-X-CRM114-Status: GOOD (  21.71  )
+X-CRM114-CacheID: sfid-20200911_165532_052227_C1409983 
+X-CRM114-Status: GOOD (  17.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -88,124 +95,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: tycho@tycho.ws, aou@eecs.berkeley.edu, nickhu@andestech.com,
- anup@brainfault.org, palmerdabbelt@google.com, linux-kernel@vger.kernel.org,
- linux-csky@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>,
- zong.li@sifive.com, paul.walmsley@sifive.com, greentime.hu@sifive.com,
- tglx@linutronix.de, linux-riscv@lists.infradead.org
+Cc: Jonas Bonn <jonas@southpole.se>, Albert Ou <aou@eecs.berkeley.edu>,
+ LKML <linux-kernel@vger.kernel.org>,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ openrisc@lists.librecores.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ Greentime Hu <green.hu@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, linux-riscv@lists.infradead.org,
+ Andrew Morton <akpm@linux-foundation.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Fri, Sep 11, 2020 at 08:39:40AM +0900, Stafford Horne wrote:
+> A build failure was raised by kbuild with the following error.
+> 
+>     drivers/android/binder.c: Assembler messages:
+>     drivers/android/binder.c:3861: Error: unrecognized keyword/register name `l.lwz ?ap,4(r24)'
+>     drivers/android/binder.c:3866: Error: unrecognized keyword/register name `l.addi ?ap,r0,0'
+> 
+> The issue is with 64-bit get_user() calls on openrisc.  I traced this to
+> a problem where in the internally in the get_user macros there is a cast
+> to long __gu_val this causes GCC to think the get_user call is 32-bit.
+> This binder code is really long and GCC allocates register r30, which
+> triggers the issue. The 64-bit get_user asm tries to get the 64-bit pair
+> register, which for r30 overflows the general register names and returns
+> the dummy register ?ap.
+> 
+> The fix here is to move the temporary variables into the asm macros.  We
+> use a 32-bit __gu_tmp for 32-bit and smaller macro and a 64-bit tmp in
+> the 64-bit macro.  The cast in the 64-bit macro has a trick of casting
+> through __typeof__((x)-(x)) which avoids the below warning.  This was
+> barrowed from riscv.
+> 
+>     arch/openrisc/include/asm/uaccess.h:240:8: warning: cast to pointer from integer of different size
+> 
+> I tested this is a small unit test to check reading between 64-bit and
+> 32-bit pointers to 64-bit and 32-bit values in all combinations.  Also I
+> ran make C=1 to confirm no new sparse warnings came up.  It all looks
+> clean to me.
 
-On 2020-06-27 13:57, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
-> 
-> When enable LOCKDEP, static_obj() will cause error. Because some
-> __initdata static variables is before _stext:
-> 
-> static int static_obj(const void *obj)
-> {
->         unsigned long start = (unsigned long) &_stext,
->                       end   = (unsigned long) &_end,
->                       addr  = (unsigned long) obj;
-> 
->         /*
->          * static variable?
->          */
->         if ((addr >= start) && (addr < end))
->                 return 1;
-> 
-> [    0.067192] INFO: trying to register non-static key.
-> [    0.067325] the code is fine but needs lockdep annotation.
-> [    0.067449] turning off the locking correctness validator.
-> [    0.067718] CPU: 0 PID: 0 Comm: swapper/0 Not tainted 5.7.0-rc7-dirty #44
-> [    0.067945] Call Trace:
-> [    0.068369] [<ffffffe00020323c>] walk_stackframe+0x0/0xa4
-> [    0.068506] [<ffffffe000203422>] show_stack+0x2a/0x34
-> [    0.068631] [<ffffffe000521e4e>] dump_stack+0x94/0xca
-> [    0.068757] [<ffffffe000255a4e>] register_lock_class+0x5b8/0x5bc
-> [    0.068969] [<ffffffe000255abe>] __lock_acquire+0x6c/0x1d5c
-> [    0.069101] [<ffffffe0002550fe>] lock_acquire+0xae/0x312
-> [    0.069228] [<ffffffe000989a8e>] _raw_spin_lock_irqsave+0x40/0x5a
-> [    0.069357] [<ffffffe000247c64>] complete+0x1e/0x50
-> [    0.069479] [<ffffffe000984c38>] rest_init+0x1b0/0x28a
-> [    0.069660] [<ffffffe0000016a2>] 0xffffffe0000016a2
-> [    0.069779] [<ffffffe000001b84>] 0xffffffe000001b84
-> [    0.069953] [<ffffffe000001092>] 0xffffffe000001092
-> 
-> static __initdata DECLARE_COMPLETION(kthreadd_done);
-> 
-> noinline void __ref rest_init(void)
-> {
-> 	...
-> 	complete(&kthreadd_done);
-> 
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> ---
->  arch/riscv/kernel/vmlinux.lds.S | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
-> index e6f8016..f3586e3 100644
-> --- a/arch/riscv/kernel/vmlinux.lds.S
-> +++ b/arch/riscv/kernel/vmlinux.lds.S
-> @@ -22,6 +22,7 @@ SECTIONS
->  	/* Beginning of code and text segment */
->  	. = LOAD_OFFSET;
->  	_start = .;
-> +	_stext = .;
->  	HEAD_TEXT_SECTION
->  	. = ALIGN(PAGE_SIZE);
->  
-> @@ -54,7 +55,6 @@ SECTIONS
->  	. = ALIGN(SECTION_ALIGN);
->  	.text : {
->  		_text = .;
-> -		_stext = .;
->  		TEXT_TEXT
->  		SCHED_TEXT
->  		CPUIDLE_TEXT
+It looks correct to me too now at C & assembly level.
+Feel free to add my:
+Reviewed-by: Luc Van Oostenryck <luc.vanoostenryck@gmail.com>
 
-
-This patch has been backported to kernel 5.8.4. This causes the kernel
-to crash when trying to execute the init process:
-
-[    3.484586] AppArmor: AppArmor sha1 policy hashing enabled
-[    4.749835] Freeing unused kernel memory: 492K
-[    4.752017] Run /init as init process
-[    4.753571] usercopy: Kernel memory overwrite attempt detected to kernel text (offset 507879, size 11)!
-[    4.754838] ------------[ cut here ]------------
-[    4.755651] kernel BUG at mm/usercopy.c:99!
-[    4.756445] Kernel BUG [#1]
-[    4.756815] Modules linked in:
-[    4.757542] CPU: 1 PID: 1 Comm: swapper/0 Not tainted 5.8.0-1-riscv64 #1 Debian 5.8.7-1
-[    4.758372] epc: ffffffe0003b5120 ra : ffffffe0003b5120 sp : ffffffe07f783ca0
-[    4.758960]  gp : ffffffe000cc7230 tp : ffffffe07f77cec0 t0 : ffffffe000cdafc0
-[    4.759772]  t1 : 0000000000000064 t2 : 0000000000000000 s0 : ffffffe07f783cf0
-[    4.760534]  s1 : ffffffe00095d780 a0 : 000000000000005b a1 : 0000000000000020
-[    4.761309]  a2 : 0000000000000005 a3 : 0000000000000000 a4 : ffffffe000c1f340
-[    4.761848]  a5 : ffffffe000c1f340 a6 : 0000000000000000 a7 : 0000000000000087
-[    4.762684]  s2 : ffffffe000941848 s3 : 000000000007bfe7 s4 : 000000000000000b
-[    4.763500]  s5 : 0000000000000000 s6 : ffffffe00091cc00 s7 : fffffffffffff000
-[    4.764376]  s8 : 0000003ffffff000 s9 : ffffffe0769f3200 s10: 000000000000000b
-[    4.765208]  s11: ffffffe07d548c40 t3 : 0000000000000000 t4 : 000000000001dcd0
-[    4.766059]  t5 : ffffffe000cc8510 t6 : ffffffe000cd64aa
-[    4.766712] status: 0000000000000120 badaddr: 0000000000000000 cause: 0000000000000003
-[    4.768308] ---[ end trace 1f8e733e834d4c3e ]---
-[    4.769129] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
-[    4.770070] SMP: stopping secondary CPUs
-[    4.771110] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b ]---
-
-Note that this is with CONFIG_HARDENED_USERCOPY=y
-
-Aurelien
-
--- 
-Aurelien Jarno                          GPG: 4096R/1DDD8C9B
-aurelien@aurel32.net                 http://www.aurel32.net
+-- Luc
 
 _______________________________________________
 linux-riscv mailing list
