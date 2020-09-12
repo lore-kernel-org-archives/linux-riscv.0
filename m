@@ -2,84 +2,85 @@ Return-Path: <SRS0=wYeJ=CV=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2B052C433E2
-	for <linux-riscv@archiver.kernel.org>; Sat, 12 Sep 2020 02:10:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EBE49C433E2
+	for <linux-riscv@archiver.kernel.org>; Sat, 12 Sep 2020 02:40:08 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7EDEC20672
-	for <linux-riscv@archiver.kernel.org>; Sat, 12 Sep 2020 02:10:40 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 694AD221E5
+	for <linux-riscv@archiver.kernel.org>; Sat, 12 Sep 2020 02:40:08 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Ycm3PJrF";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="NhZ6t58s"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7EDEC20672
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="uJBzz/VE";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="qX3GJ4p4"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 694AD221E5
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=erT4zImgTFy5kdciL/JgLBUwWVJvvMIUyRQfDo9fJO4=; b=Ycm3PJrF1IFVM4T+h25Lxakwq
-	62wi7iILBM5jhzCe7oYCAazCDr0Kf9QyLC9+LWjBLLU+ZOLwYfM6PXcEKyEs/z++TpKUtJ4BGv22V
-	f0LwerMaBVxfJdN4DAKll2I4sI/6ZFgdmAzFNsdHw3lRKEdNlibDZ+HngVXFMzU3cHhpggOGbo2rs
-	zLOA0S1L2xTW6Eq5pLdHj3Jtk4bDB4oQmFcTW4JgIlQJadqX8AVgoRAcgLZf590bFPWaFh/1H+MCa
-	S1ZSrBLKNXcJNhzJP5KBvtdvagaATtoX3yzbLLd4CA0GdrkOnpI6JhQywewG5f+efrH/cAUnk268D
-	cwUZ5ks9w==;
+	Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe
+	:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sMLnIn9m/YhvZNztm6U/+AZylzrM5x5XnMtZ1iGdjOQ=; b=uJBzz/VE1sZZSz6EfxWusZ3KpW
+	kUYYxpHfeZnFqAQsjemDY0/DjnwY7veHk5X0cqGR9wUz7J/5xR2aUpyYZepjpZe6bjC8+xAHN8uBU
+	Y1vwB5X4LlsXAwQdbEsEOLy52H7KKkjz62h5dTaimUeOcN+SFtD41TpENDhwP6M0IMycv9KFk01UR
+	GkpEvt/Rsc4L7llC40wklIO4NR+XuNl25ObEiV/HdzlRyRRG7KCrMNaRrb0PGfrzA75/bcI58+G3V
+	vE6TMLRY4DYpZknS8wzspzxTLhxZfbt3+Vkvz4U4y5WW1Was4/+Gy6jdSS3cOHiIiOGYpOSuuxu9r
+	Hautyb/w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kGuzl-0005JP-El; Sat, 12 Sep 2020 02:10:29 +0000
-Received: from mail-qt1-x841.google.com ([2607:f8b0:4864:20::841])
+	id 1kGvS7-0006UB-87; Sat, 12 Sep 2020 02:39:47 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kGuzi-0005Iu-BZ
- for linux-riscv@lists.infradead.org; Sat, 12 Sep 2020 02:10:27 +0000
-Received: by mail-qt1-x841.google.com with SMTP id t20so9426575qtr.8
- for <linux-riscv@lists.infradead.org>; Fri, 11 Sep 2020 19:10:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=ZiqJJzRszA8sfylho0I06IV4lu0RleMsXL29ujwW9Qc=;
- b=NhZ6t58sndgHcFesG2epVOV01yvEmPYqN8GFSC1/TpoKeXCsxndzzKNQu4jsKA7Hr5
- Xs08pBMsNdgRG7Uxzv7m955oW+OslAMzQdzIxBpA1XQqDnmtNNvOZCr20BhdNoTLIqKC
- 0hgWV1DU7XaVbjufHui2ymxoInHFlP/KqFfxpm7PbX3+ggGYgu2NWc9qYpVilJ+BRx0X
- R281BW7nSbkNpxCqdK8JqGdSbRy3Cw7vNNdmncqaY2snh4mMTj0UW0aJU2yjANsq3pGr
- RZaer54KiY1/8xVWPpQhSJ0ITjyrabRFxulj4dY6jEGXofmmYetEPA64FEdstcPVClP2
- lk2w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=ZiqJJzRszA8sfylho0I06IV4lu0RleMsXL29ujwW9Qc=;
- b=rBXUysnXv2XvuiGeInK2MftlQTIwnnotP2oGtwmKbJ84L4lvc0QoSl8Jjd1KgyoZex
- gCihHbXP8P6o+ZVk2UIbfM/rX7ctijaVtrDrxVlxn+y+Wf/tsC/O1j+qX9079j3Qm/Rz
- oWJKWckB4aynGaa5oFxRYIZKnp1k1NQ+aET1HkLvv0fBzT1y5rgSCmCqPwCbTEWx/yUW
- n+kSPVDPV3o9300+d8mujxSI7tCRPaUb3oVkJR3Wp4IeocRU0kgwVFH+25Zdwz+MkF/1
- ALgXfIaY9fIE4HVEteTT1MpvGMGbLLj3pEboxdM95t1RwSAxgY/FPmU4qBH0dU7rUI8g
- BvPQ==
-X-Gm-Message-State: AOAM532qP0f2H1RXDdUmOWUeTk+XMiixlmske3D/7O5L61FeFxOH2YIk
- DY4Yusv6RIiMHgkIV1e4V6l/NgkszcNJwFcI9HdjwA==
-X-Google-Smtp-Source: ABdhPJyQ9TcOcosXc8x+MEogEBhbztazXLTte+z2BLrqlvJOLe/OFX/EBEgJi/a6XOqalPPPB9DZD/3ae4mc6P8ir5k=
-X-Received: by 2002:ac8:1667:: with SMTP id x36mr4647841qtk.51.1599876622754; 
- Fri, 11 Sep 2020 19:10:22 -0700 (PDT)
+ id 1kGvS4-0006Tq-AL
+ for linux-riscv@lists.infradead.org; Sat, 12 Sep 2020 02:39:45 +0000
+Received: from mail-lj1-f173.google.com (mail-lj1-f173.google.com
+ [209.85.208.173])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 7FC3822226
+ for <linux-riscv@lists.infradead.org>; Sat, 12 Sep 2020 02:39:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1599878381;
+ bh=zjnMbxyDgv9DNdXWqu1foZndnKirmwQusVIC9nJ03o8=;
+ h=References:In-Reply-To:From:Date:Subject:To:From;
+ b=qX3GJ4p4w9WN/QnhxzvLukRcXEkm8O+yQbpVH7tLPOL4kVXDYJK2O/mEuTEajs72F
+ TVJXtA0sssAi+O+AdmqFNeGfTVNgkFKQz3msNSMeYyKdgzBiNyN3lghqvSrstmLdym
+ EB297rqxdOpNuwVCuDBQKlYAjt20w/E4Bv9munLY=
+Received: by mail-lj1-f173.google.com with SMTP id k25so13996594ljg.9
+ for <linux-riscv@lists.infradead.org>; Fri, 11 Sep 2020 19:39:41 -0700 (PDT)
+X-Gm-Message-State: AOAM5337wdIc3rq8/8QUcHz8meM/KeS+VCrz0pNZFQnWHsBfUdbpYz2q
+ uMaj37S+juYRIFTkpHuac3n9E5DtARSzJSbEeQY=
+X-Google-Smtp-Source: ABdhPJytsey538IOnpbeCR8B4v5A2X9XnZH4cx0iSaezGYFiyXrMK3kHBmAwm/JsOOUsi6l7lmd4O1eckw8VgK1cVng=
+X-Received: by 2002:a2e:6c08:: with SMTP id h8mr1672796ljc.66.1599878379668;
+ Fri, 11 Sep 2020 19:39:39 -0700 (PDT)
 MIME-Version: 1.0
-References: <20200912013441.9730-1-atish.patra@wdc.com>
- <20200912013441.9730-4-atish.patra@wdc.com>
-In-Reply-To: <20200912013441.9730-4-atish.patra@wdc.com>
-From: Greentime Hu <greentime.hu@sifive.com>
-Date: Sat, 12 Sep 2020 10:10:09 +0800
-Message-ID: <CAHCEehJqV1aBQjWCB1b=r+aQmkMmQnx1ynYzHgCW92NNntZrfg@mail.gmail.com>
-Subject: Re: [RFC/RFT PATCH v2 3/5] riscv: Separate memory init from paging
- init
-To: Atish Patra <atish.patra@wdc.com>
+References: <1593266228-61125-1-git-send-email-guoren@kernel.org>
+ <1593266228-61125-2-git-send-email-guoren@kernel.org>
+ <20200911204512.GA2705@aurel32.net>
+In-Reply-To: <20200911204512.GA2705@aurel32.net>
+From: Guo Ren <guoren@kernel.org>
+Date: Sat, 12 Sep 2020 10:39:28 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQiLV8sDE5cnvP=aBog4zaiMvMeieg_JtXwRODky1u3Hg@mail.gmail.com>
+Message-ID: <CAJF2gTQiLV8sDE5cnvP=aBog4zaiMvMeieg_JtXwRODky1u3Hg@mail.gmail.com>
+Subject: Re: [PATCH V2 1/3] riscv: Fixup static_obj() fail
+To: Guo Ren <guoren@kernel.org>, Palmer Dabbelt <palmerdabbelt@google.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup@brainfault.org>, 
+ Greentime Hu <greentime.hu@sifive.com>, Zong Li <zong.li@sifive.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Thomas Gleixner <tglx@linutronix.de>, 
+ Tycho Andersen <tycho@tycho.ws>, Nick Hu <nickhu@andestech.com>, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Guo Ren <guoren@linux.alibaba.com>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-csky@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200911_221026_693529_4B1FAB2F 
-X-CRM114-Status: GOOD (  18.24  )
+X-CRM114-CacheID: sfid-20200911_223944_477258_DEFCC237 
+X-CRM114-Status: GOOD (  29.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -91,62 +92,150 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: David Hildenbrand <david@redhat.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Zong Li <zong.li@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>, Will Deacon <will@kernel.org>,
- linux-arch@vger.kernel.org, Jia He <justin.he@arm.com>,
- Anup Patel <anup@brainfault.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Steven Price <steven.price@arm.com>, Bjorn Helgaas <helgaas@kernel.org>,
- Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Jonathan Cameron <Jonathan.Cameron@huawei.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Mike Rapoport <rppt@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QXRpc2ggUGF0cmEgPGF0aXNoLnBhdHJhQHdkYy5jb20+IOaWvCAyMDIw5bm0OeaciDEy5pelIOmA
-seWFrSDkuIrljYg5OjM05a+r6YGT77yaCj4KPiBDdXJyZW50bHksIHdlIHBlcmZvcm0gc29tZSBt
-ZW1vcnkgaW5pdCBmdW5jdGlvbnMgaW4gcGFnaW5nIGluaXQuIEJ1dCwKPiB0aGF0IHdpbGwgYmUg
-YW4gaXNzdWUgZm9yIE5VTUEgc3VwcG9ydCB3aGVyZSBEVCBuZWVkcyB0byBiZSBmbGF0dGVuZWQK
-PiBiZWZvcmUgbnVtYSBpbml0aWFsaXphdGlvbiBhbmQgbWVtYmxvY2tfcHJlc2VudCBjYW4gb25s
-eSBiZSBjYWxsZWQKPiBhZnRlciBudW1hIGluaXRpYWxpemF0aW9uLgo+Cj4gTW92ZSBtZW1vcnkg
-aW5pdGlhbGl6YXRpb24gcmVsYXRlZCBmdW5jdGlvbnMgdG8gYSBzZXBhcmF0ZSBmdW5jdGlvbi4K
-Pgo+IFNpZ25lZC1vZmYtYnk6IEF0aXNoIFBhdHJhIDxhdGlzaC5wYXRyYUB3ZGMuY29tPgo+IC0t
-LQo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaCB8IDEgKwo+ICBhcmNoL3Jpc2N2
-L2tlcm5lbC9zZXR1cC5jICAgICAgICB8IDEgKwo+ICBhcmNoL3Jpc2N2L21tL2luaXQuYyAgICAg
-ICAgICAgICB8IDYgKysrKystCj4gIDMgZmlsZXMgY2hhbmdlZCwgNyBpbnNlcnRpb25zKCspLCAx
-IGRlbGV0aW9uKC0pCj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3Rh
-YmxlLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaAo+IGluZGV4IGVhZWExZjcx
-NzAxMC4uNTE1YjQyZjk4ZDM0IDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20v
-cGd0YWJsZS5oCj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLmgKPiBAQCAt
-NDY2LDYgKzQ2Niw3IEBAIHN0YXRpYyBpbmxpbmUgdm9pZCBfX2tlcm5lbF9tYXBfcGFnZXMoc3Ry
-dWN0IHBhZ2UgKnBhZ2UsIGludCBudW1wYWdlcywgaW50IGVuYWJsCj4gIGV4dGVybiB2b2lkICpk
-dGJfZWFybHlfdmE7Cj4gIHZvaWQgc2V0dXBfYm9vdG1lbSh2b2lkKTsKPiAgdm9pZCBwYWdpbmdf
-aW5pdCh2b2lkKTsKPiArdm9pZCBtaXNjX21lbV9pbml0KHZvaWQpOwo+Cj4gICNkZWZpbmUgRklS
-U1RfVVNFUl9BRERSRVNTICAwCj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvc2V0
-dXAuYyBiL2FyY2gvcmlzY3Yva2VybmVsL3NldHVwLmMKPiBpbmRleCAyYzZkZDMyOTMxMmIuLjA3
-ZmE2ZDEzMzY3ZSAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9zZXR1cC5jCj4gKysr
-IGIvYXJjaC9yaXNjdi9rZXJuZWwvc2V0dXAuYwo+IEBAIC03OCw2ICs3OCw3IEBAIHZvaWQgX19p
-bml0IHNldHVwX2FyY2goY2hhciAqKmNtZGxpbmVfcCkKPiAgI2Vsc2UKPiAgICAgICAgIHVuZmxh
-dHRlbl9kZXZpY2VfdHJlZSgpOwo+ICAjZW5kaWYKPiArICAgICAgIG1pc2NfbWVtX2luaXQoKTsK
-Pgo+ICAjaWZkZWYgQ09ORklHX1NXSU9UTEIKPiAgICAgICAgIHN3aW90bGJfaW5pdCgxKTsKPiBk
-aWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9tbS9pbml0LmMgYi9hcmNoL3Jpc2N2L21tL2luaXQuYwo+
-IGluZGV4IDE4ODI4MWZjMjgxNi4uOGYzMWE1NDI4Y2U0IDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlz
-Y3YvbW0vaW5pdC5jCj4gKysrIGIvYXJjaC9yaXNjdi9tbS9pbml0LmMKPiBAQCAtNTY4LDggKzU2
-OCwxMiBAQCBzdGF0aWMgdm9pZCBfX2luaXQgcmVzb3VyY2VfaW5pdCh2b2lkKQo+ICB2b2lkIF9f
-aW5pdCBwYWdpbmdfaW5pdCh2b2lkKQo+ICB7Cj4gICAgICAgICBzZXR1cF92bV9maW5hbCgpOwo+
-IC0gICAgICAgc3BhcnNlX2luaXQoKTsKPiAgICAgICAgIHNldHVwX3plcm9fcGFnZSgpOwo+ICt9
-Cj4gKwo+ICt2b2lkIF9faW5pdCBtaXNjX21lbV9pbml0KHZvaWQpCj4gK3sKPiArICAgICAgIHNw
-YXJzZV9pbml0KCk7Cj4gICAgICAgICB6b25lX3NpemVzX2luaXQoKTsKPiAgICAgICAgIHJlc291
-cmNlX2luaXQoKTsKPiAgfQoKVGhhbmsgeW91LCBBdGlzaC4KUmV2aWV3ZWQtYnk6IEdyZWVudGlt
-ZSBIdSA8Z3JlZW50aW1lLmh1QHNpZml2ZS5jb20+CgpfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+It's come from mm/usercopy.c
+/* Is this address range in the kernel text area? */
+static inline void check_kernel_text_object(const unsigned long ptr,
+                                            unsigned long n, bool to_user)
+{
+        unsigned long textlow = (unsigned long)_stext;
+        unsigned long texthigh = (unsigned long)_etext;
+        unsigned long textlow_linear, texthigh_linear;
+
+        if (overlaps(ptr, n, textlow, texthigh))
+                usercopy_abort("kernel text", NULL, to_user, ptr - textlow, n);
+
+The __init_text/data areas will be freed after bootup, so I think it should be:
+-        unsigned long textlow = (unsigned long)_stext;
++        unsigned long textlow = (unsigned long)_text;
+
+That means _stext should include init_text/data and _text is only for freeable.
+
+
+On Sat, Sep 12, 2020 at 5:01 AM Aurelien Jarno <aurelien@aurel32.net> wrote:
+>
+> Hi,
+>
+> On 2020-06-27 13:57, guoren@kernel.org wrote:
+> > From: Guo Ren <guoren@linux.alibaba.com>
+> >
+> > When enable LOCKDEP, static_obj() will cause error. Because some
+> > __initdata static variables is before _stext:
+> >
+> > static int static_obj(const void *obj)
+> > {
+> >         unsigned long start = (unsigned long) &_stext,
+> >                       end   = (unsigned long) &_end,
+> >                       addr  = (unsigned long) obj;
+> >
+> >         /*
+> >          * static variable?
+> >          */
+> >         if ((addr >= start) && (addr < end))
+> >                 return 1;
+> >
+> > [    0.067192] INFO: trying to register non-static key.
+> > [    0.067325] the code is fine but needs lockdep annotation.
+> > [    0.067449] turning off the locking correctness validator.
+> > [    0.067718] CPU: 0 PID: 0 Comm: swapper/0 Not tainted 5.7.0-rc7-dirty #44
+> > [    0.067945] Call Trace:
+> > [    0.068369] [<ffffffe00020323c>] walk_stackframe+0x0/0xa4
+> > [    0.068506] [<ffffffe000203422>] show_stack+0x2a/0x34
+> > [    0.068631] [<ffffffe000521e4e>] dump_stack+0x94/0xca
+> > [    0.068757] [<ffffffe000255a4e>] register_lock_class+0x5b8/0x5bc
+> > [    0.068969] [<ffffffe000255abe>] __lock_acquire+0x6c/0x1d5c
+> > [    0.069101] [<ffffffe0002550fe>] lock_acquire+0xae/0x312
+> > [    0.069228] [<ffffffe000989a8e>] _raw_spin_lock_irqsave+0x40/0x5a
+> > [    0.069357] [<ffffffe000247c64>] complete+0x1e/0x50
+> > [    0.069479] [<ffffffe000984c38>] rest_init+0x1b0/0x28a
+> > [    0.069660] [<ffffffe0000016a2>] 0xffffffe0000016a2
+> > [    0.069779] [<ffffffe000001b84>] 0xffffffe000001b84
+> > [    0.069953] [<ffffffe000001092>] 0xffffffe000001092
+> >
+> > static __initdata DECLARE_COMPLETION(kthreadd_done);
+> >
+> > noinline void __ref rest_init(void)
+> > {
+> >       ...
+> >       complete(&kthreadd_done);
+> >
+> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> > ---
+> >  arch/riscv/kernel/vmlinux.lds.S | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
+> > index e6f8016..f3586e3 100644
+> > --- a/arch/riscv/kernel/vmlinux.lds.S
+> > +++ b/arch/riscv/kernel/vmlinux.lds.S
+> > @@ -22,6 +22,7 @@ SECTIONS
+> >       /* Beginning of code and text segment */
+> >       . = LOAD_OFFSET;
+> >       _start = .;
+> > +     _stext = .;
+> >       HEAD_TEXT_SECTION
+> >       . = ALIGN(PAGE_SIZE);
+> >
+> > @@ -54,7 +55,6 @@ SECTIONS
+> >       . = ALIGN(SECTION_ALIGN);
+> >       .text : {
+> >               _text = .;
+> > -             _stext = .;
+> >               TEXT_TEXT
+> >               SCHED_TEXT
+> >               CPUIDLE_TEXT
+>
+>
+> This patch has been backported to kernel 5.8.4. This causes the kernel
+> to crash when trying to execute the init process:
+>
+> [    3.484586] AppArmor: AppArmor sha1 policy hashing enabled
+> [    4.749835] Freeing unused kernel memory: 492K
+> [    4.752017] Run /init as init process
+> [    4.753571] usercopy: Kernel memory overwrite attempt detected to kernel text (offset 507879, size 11)!
+> [    4.754838] ------------[ cut here ]------------
+> [    4.755651] kernel BUG at mm/usercopy.c:99!
+> [    4.756445] Kernel BUG [#1]
+> [    4.756815] Modules linked in:
+> [    4.757542] CPU: 1 PID: 1 Comm: swapper/0 Not tainted 5.8.0-1-riscv64 #1 Debian 5.8.7-1
+> [    4.758372] epc: ffffffe0003b5120 ra : ffffffe0003b5120 sp : ffffffe07f783ca0
+> [    4.758960]  gp : ffffffe000cc7230 tp : ffffffe07f77cec0 t0 : ffffffe000cdafc0
+> [    4.759772]  t1 : 0000000000000064 t2 : 0000000000000000 s0 : ffffffe07f783cf0
+> [    4.760534]  s1 : ffffffe00095d780 a0 : 000000000000005b a1 : 0000000000000020
+> [    4.761309]  a2 : 0000000000000005 a3 : 0000000000000000 a4 : ffffffe000c1f340
+> [    4.761848]  a5 : ffffffe000c1f340 a6 : 0000000000000000 a7 : 0000000000000087
+> [    4.762684]  s2 : ffffffe000941848 s3 : 000000000007bfe7 s4 : 000000000000000b
+> [    4.763500]  s5 : 0000000000000000 s6 : ffffffe00091cc00 s7 : fffffffffffff000
+> [    4.764376]  s8 : 0000003ffffff000 s9 : ffffffe0769f3200 s10: 000000000000000b
+> [    4.765208]  s11: ffffffe07d548c40 t3 : 0000000000000000 t4 : 000000000001dcd0
+> [    4.766059]  t5 : ffffffe000cc8510 t6 : ffffffe000cd64aa
+> [    4.766712] status: 0000000000000120 badaddr: 0000000000000000 cause: 0000000000000003
+> [    4.768308] ---[ end trace 1f8e733e834d4c3e ]---
+> [    4.769129] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+> [    4.770070] SMP: stopping secondary CPUs
+> [    4.771110] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b ]---
+>
+> Note that this is with CONFIG_HARDENED_USERCOPY=y
+>
+> Aurelien
+>
+> --
+> Aurelien Jarno                          GPG: 4096R/1DDD8C9B
+> aurelien@aurel32.net                 http://www.aurel32.net
+
+
+
+-- 
+Best Regards
+ Guo Ren
+
+ML: https://lore.kernel.org/linux-csky/
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
