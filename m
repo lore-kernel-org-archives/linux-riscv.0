@@ -2,22 +2,22 @@ Return-Path: <SRS0=wYeJ=CV=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-11.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D75DBC433E2
-	for <linux-riscv@archiver.kernel.org>; Sat, 12 Sep 2020 00:24:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 385C7C43461
+	for <linux-riscv@archiver.kernel.org>; Sat, 12 Sep 2020 01:35:01 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id F135E221E3
-	for <linux-riscv@archiver.kernel.org>; Sat, 12 Sep 2020 00:24:07 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 790AE221EB
+	for <linux-riscv@archiver.kernel.org>; Sat, 12 Sep 2020 01:35:00 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ANcqenNn";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="Q3xu/fR8"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F135E221E3
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="uT6TL98E";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="MXYSmVSq"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 790AE221EB
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,60 +26,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cpoFROULG0yIEPk2t/IpTh/i6ZaCT6nVS6CnsuhcAbM=; b=ANcqenNnJH/+2IyOuzkXXsU0Vv
-	54rPkpQRCnzCIOoVUS0CMejWlpbifd51EXu83DFMJ5MdC5QrEZfT6Izm9NCs2tFM1HaZANY6a8E5j
-	6AWKJIRGSu/Lkul+ei5vI9AT6X6vhlSYZBDfDRH4TT/19s+f/Vfqf246IrEud2PCibnQToyIGfIdj
-	qCFrtiiPsZ9mOobF93iYypq4bj867148RRzqqiUq5lNg8G1TfmfO1euBswto+XF9k2KtbAe8rS9ku
-	WJuzHi8VmQi4lMVXTw39qo3OM1Gp93wvi7sZ9x5ST7DiGcTbh6tX/wdz5dBV6SC9Nip3PWQR/u2Kn
-	qOrYT9dA==;
+	bh=WVZFGxr2uEUS6Oq2kFfupF7dNMUyZoe2ygu70gDqFOo=; b=uT6TL98Ep5vrzd/30c4vs8iWMz
+	xMwf4Lqx6CGJQgFqRy0Nwa/hLh4DCV/SQOs28ipd/IC6IOttoMsJ7WMFBzFvWk8jQzQ9ftKht7z0J
+	hZr950ZB37Exip5OVmvF+ramcttYwjz0JabvSFt2Q5NDyC07XzhNlB6Elp3fTURNuR2MxJk1bCo4r
+	vWBxpEW9W9PgdCV6W94C7f9Q/YZtqPDiL+rbxp7ALUdkGwa2uaMgrSHENACUQR4Q4Rw6z09RQ0rSN
+	NKbYElIp1hj7um2qYq3D2vWa3dGez6A0qZMYfZiPaIFbutJETqYy9p24+rZrnQRLsXobn6VsX5rjY
+	13KXmu9Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kGtKY-0008D7-2W; Sat, 12 Sep 2020 00:23:50 +0000
-Received: from esa6.hgst.iphmx.com ([216.71.154.45])
+	id 1kGuRE-0003vC-Vy; Sat, 12 Sep 2020 01:34:49 +0000
+Received: from esa1.hgst.iphmx.com ([68.232.141.245])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kGtKV-0008Co-Eh
- for linux-riscv@lists.infradead.org; Sat, 12 Sep 2020 00:23:48 +0000
+ id 1kGuRC-0003tl-Jx
+ for linux-riscv@lists.infradead.org; Sat, 12 Sep 2020 01:34:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1599870227; x=1631406227;
+ t=1599874486; x=1631410486;
  h=from:to:cc:subject:date:message-id:mime-version:
  content-transfer-encoding;
- bh=/hsea2x47F0MN5xVlvN7uaRSxJBMCY8XyO44RdpLtjI=;
- b=Q3xu/fR8yfvPSZ0xtqIjKGJMv0La5ymMlM2LQ2osfvASzvdTjEtKEb7m
- 3OTmE5eVS60ORXIkdaeO3No7uJBXnKl96/KG4NXXTUc0iiE0zb8Lr1YFj
- sKZZuQmJZfyyctrnd166vde1OenwRCH38AvnEabeuxNiKkWRQmq9IjCPt
- z1lQf3ekARRFStOfIgFzudtwNYYUmDYpq11jq5Id8NHuEhSgVDVoEztrF
- A1qBa/CRqDJmJuQjS0F+ao/I0KLTodzTTd1rtt2KPRDY0k0utKvnL89DY
- TMHa2hagBsy4Oy0KUmXVB/LTN7wLgeAF3yWSzkSZ0VAmQezx9SdXu8/IG g==;
-IronPort-SDR: 9Rt491RJQOLbnXzDRABJfJ2WPoaDWt2pK9OHttDoyjuKeoDM002+hoA82qJHM1eT7sY+/9fQ+Q
- sotpqzravtiNwalNQY6ic+9UdFd7KkgwnSr6aj9k8+W5YD8zvY7GiTQr/eMUm0gFi7GLKyVxwe
- lSWJPUPgIlBdeLVR7QwBu5h32kMhEKdwqNleTAGf6JfMrVByHdnc5gpObdFtGpP7DmVErr0NJb
- a/t6oqsng6ylbuUWN5/qFucQz4zf0V3uXUvg6m0lRl5WdfVJGKA74Gsny4Ttm4tysbKNm3qQGf
- ooI=
-X-IronPort-AV: E=Sophos;i="5.76,418,1592841600"; d="scan'208";a="148407742"
-Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
+ bh=i2IoWykb7HuBzS5tSv/XkodyucYzXuuq1LC24xxJfzE=;
+ b=MXYSmVSqFyQqh2s9bSwOob2T56JrY/AZRshAt6C5cGrgUMprFwXoPuC6
+ ZUkRQjLLosrRGZynV2qMhCdiferwO2mz94zlGQSjwLDv6x5D91i4mE8P7
+ JpC0WOnKv7DBNtE328Ls4Oamj2KvHI4ea95OZvzhaFzCeLNvRIzv6o/lL
+ k65e54xESuWXS+vIs2CiJDn1sj3SVlnDucA8lPpkNgl1MqqJJKRkbiru9
+ 9VUItaszdnovs3DVENr9qH+YexlILBru5Ai69UCNx7odnB7c2bmmwjosx
+ LEnCI6TQsoFA7zXHqmm8v48qjLdickhoEYfUQVWDmzchCdziUCWUcDucA Q==;
+IronPort-SDR: SBMmx547EbraOkX/+OwNSXsfkKjgf8MooYOxdDIxrQqVNRA8hMiymOXvgTflxVaGJaOb3mjnQi
+ z2voUoyjfHnQiT/W9ovmWhqn7C7/2px71yl5Xgwbs8lJI7ZjQs8vhDaUImnvLfdJ1chwrrC1Gf
+ D3xrnXFqTcxiXgKZazbtJE1k/6q7O0rQwOtJBlKrGqB0tymFQyW5lBdaclp7gKXMB1YDjVt3cS
+ dMut4vJ+xMhpd7zd5i9L06QfXbFElaRLMS3K2GecJsZ0PTN08sSv64dHIZt3ZPRW6D9+wyhYyZ
+ 0bM=
+X-IronPort-AV: E=Sophos;i="5.76,418,1592841600"; d="scan'208";a="256787988"
+Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
  ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 12 Sep 2020 08:23:44 +0800
-IronPort-SDR: oFTtDQDhe/mFhMSJ568EIL0YYkM2O7zAoGdsedbe84L0MihO20XSluCigrDj7k9OYdcGwxCGKY
- qNjWN72Qieww==
+ by ob1.hgst.iphmx.com with ESMTP; 12 Sep 2020 09:34:44 +0800
+IronPort-SDR: df1nhfVbQBcaAAAXLCP4q/h1VNFPYKekKZsxZWNylL6M3IVmBEa7X4a0oPBl+iqL0bnsVAFOSz
+ HI3vKV8kK0aQ==
 Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
  by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 11 Sep 2020 17:10:04 -0700
-IronPort-SDR: AyWggxGakAL0OV49dIZqCueRDcobwmAd0LGIlkqV8w1WCFzOuTkNrgG2qsCRYMQvV0pYvpGeca
- x3D9x7AmYBQw==
+ 11 Sep 2020 18:21:05 -0700
+IronPort-SDR: qY7VYxrseh/RhlJyz0RffEAYIQCptuw4PxQZLocbWF4FJBaQ1dwdimjIbbFKG27t6x/UoB0VY3
+ Phe+TTHjGIXA==
 WDCIronportException: Internal
 Received: from unknown (HELO jedi-01.hgst.com) ([10.86.59.229])
- by uls-op-cesaip02.wdc.com with ESMTP; 11 Sep 2020 17:23:43 -0700
+ by uls-op-cesaip02.wdc.com with ESMTP; 11 Sep 2020 18:34:44 -0700
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [PATCH] RISC-V: Consider sparse memory while removing unusable memory
-Date: Fri, 11 Sep 2020 17:23:41 -0700
-Message-Id: <20200912002341.4869-1-atish.patra@wdc.com>
+Subject: [RFC/RFT PATCH v2 0/5] Unify NUMA implementation between ARM64 &
+ RISC-V
+Date: Fri, 11 Sep 2020 18:34:36 -0700
+Message-Id: <20200912013441.9730-1-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.24.0
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200911_202347_678265_0ED8EC2D 
-X-CRM114-Status: GOOD (  15.72  )
+X-CRM114-CacheID: sfid-20200911_213446_847504_641F857F 
+X-CRM114-Status: GOOD (  21.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -91,62 +92,111 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup.patel@wdc.com>,
- Atish Patra <atish.patra@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Zong Li <zong.li@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv@lists.infradead.org, Mike Rapoport <rppt@kernel.org>
+Cc: David Hildenbrand <david@redhat.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+ Atish Patra <atish.patra@wdc.com>, Zong Li <zong.li@sifive.com>,
+ linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>,
+ linux-arch@vger.kernel.org, Jia He <justin.he@arm.com>,
+ Anup Patel <anup@brainfault.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Steven Price <steven.price@arm.com>, Bjorn Helgaas <helgaas@kernel.org>,
+ Greentime Hu <greentime.hu@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Arnd Bergmann <arnd@arndb.de>, Anshuman Khandual <anshuman.khandual@arm.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Mike Rapoport <rppt@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, any usable memory area beyond page_offset is removed by adding the
-memory sizes from each memblock. That may not work for sparse memory
-as memory regions can be very far apart resulting incorrect removal of some
-usable memory.
+This series attempts to move the ARM64 numa implementation to common
+code so that RISC-V can leverage that as well instead of reimplementing
+it again.
 
-Just use the start of the first memory block and the end of the last memory
-block to compute the size of the total memory that can be used.
+RISC-V specific bits are based on initial work done by Greentime Hu [1] but
+modified to reuse the common implementation to avoid duplication.
 
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
----
- arch/riscv/mm/init.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+[1] https://lkml.org/lkml/2020/1/10/233
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 787c75f751a5..188281fc2816 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -147,7 +147,6 @@ void __init setup_bootmem(void)
- {
- 	struct memblock_region *reg;
- 	phys_addr_t mem_size = 0;
--	phys_addr_t total_mem = 0;
- 	phys_addr_t mem_start, end = 0;
- 	phys_addr_t vmlinux_end = __pa_symbol(&_end);
- 	phys_addr_t vmlinux_start = __pa_symbol(&_start);
-@@ -155,18 +154,17 @@ void __init setup_bootmem(void)
- 	/* Find the memory region containing the kernel */
- 	for_each_memblock(memory, reg) {
- 		end = reg->base + reg->size;
--		if (!total_mem)
-+		if (!mem_start)
- 			mem_start = reg->base;
- 		if (reg->base <= vmlinux_start && vmlinux_end <= end)
- 			BUG_ON(reg->size == 0);
--		total_mem = total_mem + reg->size;
- 	}
- 
- 	/*
- 	 * Remove memblock from the end of usable area to the
- 	 * end of region
- 	 */
--	mem_size = min(total_mem, (phys_addr_t)-PAGE_OFFSET);
-+	mem_size = min(end - mem_start, (phys_addr_t)-PAGE_OFFSET);
- 	if (mem_start + mem_size < end)
- 		memblock_remove(mem_start + mem_size,
- 				end - mem_start - mem_size);
--- 
+This series has been tested on qemu with numa enabled for both RISC-V & ARM64.
+It would be great if somebody can test it on numa capable ARM64 hardware platforms.
+This patch series doesn't modify the maintainers list for the common code (arch_numa)
+as I am not sure if somebody from ARM64 community or Greg should take up the
+maintainership. Ganapatrao was the original author of the arm64 version.
+I would be happy to update that in the next revision once it is decided.
+
+# numactl --hardware
+available: 2 nodes (0-1)
+node 0 cpus: 0 1 2 3
+node 0 size: 486 MB
+node 0 free: 470 MB
+node 1 cpus: 4 5 6 7
+node 1 size: 424 MB
+node 1 free: 408 MB
+node distances:
+node   0   1 
+  0:  10  20 
+  1:  20  10 
+# numactl -show
+policy: default
+preferred node: current
+physcpubind: 0 1 2 3 4 5 6 7 
+cpubind: 0 1 
+nodebind: 0 1 
+membind: 0 1 
+
+For RISC-V, the following qemu series is a pre-requisite(already available in upstream)
+to test the patches in Qemu and 2 socket OmniXtend FPGA.
+
+https://patchwork.kernel.org/project/qemu-devel/list/?series=303313
+
+The patches are also available at
+
+https://github.com/atishp04/linux/tree/5.10_numa_unified_v2
+
+There may be some minor conflicts with Mike's cleanup series [2] depending on the
+order in which these two series are being accepted. I can rebase on top his series
+if required.
+
+[2] https://lkml.org/lkml/2020/8/18/754
+
+Atish Patra (4):
+numa: Move numa implementation to common code
+arm64, numa: Change the numa init function name to be generic
+riscv: Separate memory init from paging init
+riscv: Add numa support for riscv64 platform
+
+Greentime Hu (1):
+riscv: Add support pte_protnone and pmd_protnone if
+CONFIG_NUMA_BALANCING
+
+arch/arm64/Kconfig                            |  1 +
+arch/arm64/include/asm/numa.h                 | 45 +----------------
+arch/arm64/kernel/acpi_numa.c                 | 13 -----
+arch/arm64/mm/Makefile                        |  1 -
+arch/arm64/mm/init.c                          |  4 +-
+arch/riscv/Kconfig                            | 31 +++++++++++-
+arch/riscv/include/asm/mmzone.h               | 13 +++++
+arch/riscv/include/asm/numa.h                 |  8 +++
+arch/riscv/include/asm/pci.h                  | 14 ++++++
+arch/riscv/include/asm/pgtable.h              | 21 ++++++++
+arch/riscv/kernel/setup.c                     | 11 ++++-
+arch/riscv/kernel/smpboot.c                   | 12 ++++-
+arch/riscv/mm/init.c                          | 10 +++-
+drivers/base/Kconfig                          |  6 +++
+drivers/base/Makefile                         |  1 +
+.../mm/numa.c => drivers/base/arch_numa.c     | 29 +++++++++--
+include/asm-generic/numa.h                    | 49 +++++++++++++++++++
+17 files changed, 200 insertions(+), 69 deletions(-)
+create mode 100644 arch/riscv/include/asm/mmzone.h
+create mode 100644 arch/riscv/include/asm/numa.h
+rename arch/arm64/mm/numa.c => drivers/base/arch_numa.c (95%)
+create mode 100644 include/asm-generic/numa.h
+
+--
 2.24.0
 
 
