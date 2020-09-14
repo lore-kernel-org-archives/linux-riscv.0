@@ -7,18 +7,18 @@ X-Spam-Status: No, score=-11.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B70FDC2BC11
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2020 17:22:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2E8BAC433E2
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2020 17:53:32 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2D38120715
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2020 17:22:34 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A82BB20EDD
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2020 17:53:31 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Pw9rnmWQ";
-	dkim=fail reason="key not found in DNS" (0-bit key) header.d=mab-labs.com header.i=@mab-labs.com header.b="KgNuQbHz"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2D38120715
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=mab-labs.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="VDLptkar";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="LSYBezCb"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A82BB20EDD
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -26,58 +26,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Js+kDO0krVQoO1gACfB4a65ZXTSOfKwTJ3Sg0HJn+KQ=; b=Pw9rnmWQwU8YjEQTryZwyJ6/1
-	L4jIogXxFUE8fCNXDf5EquYzKWomfszG8eDQ4HNMv6CI0xA+/H5qbK8NXeqCa6V9oHkkN1ttUIGdT
-	IYueWurIAOCrw2T9KbPx2jg2aulPcRpZsBNx878UsqvSb6Zg3X3vrYjB5bCn71O4EMj3Y132qj8Z7
-	EQnlXGSq+lVcjP4TTJRFTTfRmYIqSlyS6Ed1TsD/epYanSQ7zTRkUy1ZmeQezbZHP7sVr0ib+E9N8
-	U+OGpPCNCWox+hVTQNmZ9UsAU9ISuJBpeXEtpFI8BqRJRwLRgj3q0310/rB/hEaFATsZduLYO7iaN
-	N3ngLuKqQ==;
+	 bh=5vNCkWcY1LELJeyoBdWgWjoDWIa+de2rl3MFgdXNrAk=; b=VDLptkarfMVfnWL9L+eaNJu7G
+	ImA5/TwNXRpJqhA/h8uSYb4AbmNSb/0n0CpccQNNXtYAQZzcQJ92OjkNdOHoiaJW046ocgYJZFdUo
+	letYj35hB1zyFRn4P7uro9dgBdxCaDNs6dOVcVUcJNqXtHHRrK5lPXf9iHXD8e12Yo93kzethu+32
+	dwLiJgtneuipL+6VZQCp7j2GjHjz8w6geC0wmOmhimTfa6CAFOzmN8LcHYzgpvwaaiF363zMx93ls
+	6NhWxFnr3344+QWHNh7QGAzXFYSRqfUax4iIOoyy5nLqsiy+UcgweY6YHNIpqpzsjGW2ZxPn1NZb6
+	YY68FzRMw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kHsBI-0008Rc-Fl; Mon, 14 Sep 2020 17:22:20 +0000
-Received: from mail-ot1-x344.google.com ([2607:f8b0:4864:20::344])
+	id 1kHsfE-00072w-7J; Mon, 14 Sep 2020 17:53:16 +0000
+Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kHsBF-0008Qr-0P
- for linux-riscv@lists.infradead.org; Mon, 14 Sep 2020 17:22:17 +0000
-Received: by mail-ot1-x344.google.com with SMTP id g10so612364otq.9
- for <linux-riscv@lists.infradead.org>; Mon, 14 Sep 2020 10:22:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mab-labs.com; s=google;
+ id 1kHsfB-00072P-Jd
+ for linux-riscv@lists.infradead.org; Mon, 14 Sep 2020 17:53:14 +0000
+Received: by mail-wm1-x342.google.com with SMTP id k18so907604wmj.5
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Sep 2020 10:53:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=atishpatra.org; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=tmqyNHQgafliDLcOYBK4s79Er7ZV1RJUdhKpn9Iv1fQ=;
- b=KgNuQbHzycdrNRJaIjtOuf6zKNei2hlWA/znEwjTWIqleDMwTn7Gt2ATPpZVTHOzdn
- b7bPFl+W3aKngnPICe1Mx6GSsLcB3ZPJToBrCg3WM7Hb43Hqlupb+nxC65ltFzdACAmi
- KFDwQJSREyYZUvJaqzuUXArpwjXzRWMNik8e5LqERtLcW8jSS4Gss1seb65GBX/VZ7Mj
- W7lOW3Eofwaz0+Wy7RNNfam2vDoOudXf6UPAuEZcfbc9Tt+HmrYBHeuL0pNu8WzPFCz3
- Gmt2aaOfrvmf8FwZ7wYqUV2sIxI7/wrcVOHqL9qk4pMTLeNCrnmyO5//GKHC2sX4Otxz
- o/Vw==
+ :cc; bh=ZKhv5rTCRwwZYJ4fJZiFA0QJHdmQ369d7Ye56iqS39I=;
+ b=LSYBezCbF3qD2J1/hnvedLtI3NNJxjkCI3H7K3OpFvBX9JZU0AhCfLK8/EptPQIA1x
+ AzWCI/TnXymeOP930uBLk0o6wdCrYsuqj1ik1lCEEVx3QSZI4XJkHJ61lRT4e5wbGq9z
+ hlCIWs01gU+mS+7JoC9yORjrjQkPCTlgo2oho=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=tmqyNHQgafliDLcOYBK4s79Er7ZV1RJUdhKpn9Iv1fQ=;
- b=gLdouJIXFRinOqYx0v1zveu5EjN2h6+h+Km2RUsyFVOeiNYmXknafyftQazp7a6LNS
- FKLR+v/3GwdVy08zz/bkyAZr/FUsBOvg3qwwnuGWoqJ4r0Ep9+/y/AnIUH8DI7oxKkV3
- aInBzTAOaqh+OJBGdPfRkcP74srj9HWRPurXHgJReqFNr4xjnolIBHZi6a1XhmQtyQSD
- TSqR29hoEE9Ms51ZEU2FsP2akBaIBAHULAajGcIUHEVRnvL9rHqBJqsQqc3ayTMamxqC
- uMIX2KpFGjBTusfeNOypPfmZ7Bryb3Kdm7TH/b5+WVyuc533ZAnJPyYACOfn3a1DUP9W
- TavQ==
-X-Gm-Message-State: AOAM531g6EwesC16rh+iP4+F5noc0k9zAKX/3HEUd5fV8LzSro+m3VmA
- 33ewstn05HFPiJqmYbC2L1YxBQCkiyEL/2m311FX5Q==
-X-Google-Smtp-Source: ABdhPJwH+EOGvDHrm/mNDucaSEio88Onm16PLnimaIKgQd394sqTk8h9gH0iOGBIm9p/pjEVkckOsuP3x36xDrbxZgg=
-X-Received: by 2002:a9d:77d3:: with SMTP id w19mr10210450otl.44.1600104133313; 
- Mon, 14 Sep 2020 10:22:13 -0700 (PDT)
+ bh=ZKhv5rTCRwwZYJ4fJZiFA0QJHdmQ369d7Ye56iqS39I=;
+ b=Hg3dCsGewmtAtLb0AjdAoJ9TUzjVM4uyrc18m5naGMepFRy9kSYRB6ouFMXCDad6RI
+ gqOTtGSNkWboCZXixnIvcP6nahyayHIONhWN/yR4cIKDrgTpQpRpxUAZ3FSkjllbTYeH
+ G/7fnLg9hN6Dgrx6719KNIl+Z/XIp8v85Aj7qzOowj+LvzyXXs0SGjNF9yksxF+qK33K
+ JhLxwhbRQDYGpPWno+0WKAnZ1xWP8b1e5HTMyDDjiK+P6LsjytF4rmcw7UbOcgg73Qjk
+ d2W/v87lsb8rMGN+JwHAT2QUW9UTPwWs3Xl9EE0CI19DehHqtngfBTNdbeKStYHtyxWB
+ ZmXA==
+X-Gm-Message-State: AOAM530oxlyHNX8guhfX+gKzyg6T7uTDhM7IChbfEZ4hO90gnx8bcIfG
+ usYdGgd1oz0AZW4Pmw5pTRJQI6MlDVAxBz8Endrj
+X-Google-Smtp-Source: ABdhPJxw1Qpj5A7GWHWLHZ09ZPMi/B/UvNz/rjGtLMnwaH4Nhx+vHKTB51J5Q9V4CbzLicMUN+/4uZ5UPpaX2uHHBfE=
+X-Received: by 2002:a05:600c:2215:: with SMTP id
+ z21mr531634wml.176.1600105992277; 
+ Mon, 14 Sep 2020 10:53:12 -0700 (PDT)
 MIME-Version: 1.0
-References: <20200914165628.445087-1-palmerdabbelt@google.com>
-In-Reply-To: <20200914165628.445087-1-palmerdabbelt@google.com>
-From: Mohammed Billoo <mab@mab-labs.com>
-Date: Mon, 14 Sep 2020 13:22:01 -0400
-Message-ID: <CALkjhPqmJPxsayVkUbN1Z++1LEpPB88TWm7iux34JXeWJ7bFpw@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: Resurrect the MMIO timer implementation for
- M-mode systems
-To: Palmer Dabbelt <palmerdabbelt@google.com>
+References: <20200912002341.4869-1-atish.patra@wdc.com>
+ <20200912104502.GF2142832@kernel.org>
+ <CAOnJCU+yK8uxFU-zv5BPTzmtxwiVpiPxGsNkVEtnTQ+64UU-ug@mail.gmail.com>
+ <CAAhSdy0cudvf4Lc3YaSc7MH5oGH1V60C3rToMUZU01LPxRWLKQ@mail.gmail.com>
+In-Reply-To: <CAAhSdy0cudvf4Lc3YaSc7MH5oGH1V60C3rToMUZU01LPxRWLKQ@mail.gmail.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Mon, 14 Sep 2020 10:53:00 -0700
+Message-ID: <CAOnJCUKqUZVTKzgjK0=Kj_WCZU+hP27SX8V0mvT+2AVk_MMC5w@mail.gmail.com>
+Subject: Re: [PATCH] RISC-V: Consider sparse memory while removing unusable
+ memory
+To: Anup Patel <anup@brainfault.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200914_132217_081082_F14D39B5 
-X-CRM114-Status: GOOD (  32.58  )
+X-CRM114-CacheID: sfid-20200914_135313_747777_B59EAD54 
+X-CRM114-Status: GOOD (  33.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -89,177 +91,125 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Christoph Hellwig <hch@infradead.org>, linux-riscv@lists.infradead.org,
- Anup Patel <Anup.Patel@wdc.com>, kernel-team@android.com
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup.patel@wdc.com>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Atish Patra <atish.patra@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Zong Li <zong.li@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>, Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I can test this for you. Can you provide a high level description on
-what you'd like tested (it's not obvious to me what impact your patch
-will have)?
+On Mon, Sep 14, 2020 at 4:52 AM Anup Patel <anup@brainfault.org> wrote:
+>
+> On Mon, Sep 14, 2020 at 5:18 AM Atish Patra <atishp@atishpatra.org> wrote:
+> >
+> > On Sat, Sep 12, 2020 at 3:45 AM Mike Rapoport <rppt@kernel.org> wrote:
+> > >
+> > > Hello Atish,
+> > >
+> > > On Fri, Sep 11, 2020 at 05:23:41PM -0700, Atish Patra wrote:
+> > > > Currently, any usable memory area beyond page_offset is removed by adding the
+> > > > memory sizes from each memblock. That may not work for sparse memory
+> > > > as memory regions can be very far apart resulting incorrect removal of some
+> > > > usable memory.
+> > >
+> > > If I understand correctly, the memory with physical addresses larger
+> > > than (-PAGE_OFFSET) cannot be used. Since it was aready
+> > > memblock_add()'ed during device tree parsing, you need to remove it from
+> > > memblock.
+> > >
+> >
+> > IIRC, the original intention was to fix MAXPHYSMEM_2GB option for RV64
+> > for the medlow model.
+> > That's why the patch removed any memory beyond -PAGE_OFFSET.
+> >
+> > > For that you can use memblock_enforce_memory_limit(-PAGE_OFFSET).
+> > >
+> > Thanks. I think we can just call memblock_enforce_memory_limit without
+> > tracking the total memory size
+> > and whether maximum memory described in DT is greater than  -PAGE_OFFSET.
+> >
+> > @Anup Patel Was there any other reason for this change originally?
+>
+> No other reason. We just wanted to ensure that amount of memory addressable
+> by kernel (i.e. -PAGE_OFFSET) is also considered when removing memblock.
+>
 
-Thanks
+It looks like we have an agreement here then. I will update the patch
+to directly call
+memblock_enforce_memory_limit as suggested by Mike.
 
-
-On Mon, Sep 14, 2020 at 1:16 PM Palmer Dabbelt <palmerdabbelt@google.com> wrote:
+> Regards,
+> Anup
 >
-> The K210 doesn't implement rdtime in M-mode, and since that's where Linux runs
-> in the NOMMU systems that means we can't use rdtime.  The K210 is the only
-> system that anyone is currently running NOMMU or M-mode on, so here we're just
-> inlining the timer read directly.
->
-> Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
-> ---
-> I don't actually have a K210 so I haven't tested this.  If nobody else has the
-> time to I'll put together a QEMU that doesn't support rdtime in M-mode, but
-> I've yet to mess around with the !MMU stuff so that might take a little while.
-> This certainly doesn't seem worse than what's there right now, though, as
-> rdtime isn't valid in M-mode on the K210 (our only M-mode platform).
-> ---
->  arch/riscv/include/asm/clint.h    | 26 ++++++++++++++++++++++++++
->  arch/riscv/include/asm/timex.h    | 27 +++++++++++++++++++++++++++
->  drivers/clocksource/timer-clint.c | 17 +++++++++++++++++
->  3 files changed, 70 insertions(+)
->  create mode 100644 arch/riscv/include/asm/clint.h
->
-> diff --git a/arch/riscv/include/asm/clint.h b/arch/riscv/include/asm/clint.h
-> new file mode 100644
-> index 000000000000..0789fd37b40a
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/clint.h
-> @@ -0,0 +1,26 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (C) 2020 Google, Inc
-> + */
-> +
-> +#ifndef _ASM_RISCV_CLINT_H
-> +#define _ASM_RISCV_CLINT_H
-> +
-> +#include <linux/types.h>
-> +#include <asm/mmio.h>
-> +
-> +#ifdef CONFIG_RISCV_M_MODE
-> +/*
-> + * This lives in the CLINT driver, but is accessed directly by timex.h to avoid
-> + * any overhead when accessing the MMIO timer.
-> + *
-> + * The ISA defines mtime as a 64-bit memory-mapped register that increments at
-> + * a constant frequency, but it doesn't define some other constraints we depend
-> + * on (most notably ordering constraints, but also some simpler stuff like the
-> + * memory layout).  Thus, this is called "clint_time_val" instead of something
-> + * like "riscv_mtime", to signify that these non-ISA assumptions must hold.
-> + */
-> +extern u64 __iomem *clint_time_val;
-> +#endif
-> +
-> +#endif
-> diff --git a/arch/riscv/include/asm/timex.h b/arch/riscv/include/asm/timex.h
-> index a3fb85d505d4..7f659dda0032 100644
-> --- a/arch/riscv/include/asm/timex.h
-> +++ b/arch/riscv/include/asm/timex.h
-> @@ -10,6 +10,31 @@
->
->  typedef unsigned long cycles_t;
->
-> +#ifdef CONFIG_RISCV_M_MODE
-> +
-> +#include <asm/clint.h>
-> +
-> +#ifdef CONFIG_64BIT
-> +static inline cycles_t get_cycles(void)
-> +{
-> +       return readq_relaxed(clint_time_val);
-> +}
-> +#else /* !CONFIG_64BIT */
-> +static inline u32 get_cycles(void)
-> +{
-> +       return readl_relaxed(((u32 *)clint_time_val));
-> +}
-> +#define get_cycles get_cycles
-> +
-> +static inline u32 get_cycles_hi(void)
-> +{
-> +       return readl_relaxed(((u32 *)clint_time_val) + 1);
-> +}
-> +#define get_cycles_hi get_cycles_hi
-> +#endif /* CONFIG_64BIT */
-> +
-> +#else /* CONFIG_RISCV_M_MODE */
-> +
->  static inline cycles_t get_cycles(void)
->  {
->         return csr_read(CSR_TIME);
-> @@ -41,6 +66,8 @@ static inline u64 get_cycles64(void)
->  }
->  #endif /* CONFIG_64BIT */
->
-> +#endif /* !CONFIG_RISCV_M_MODE */
-> +
->  #define ARCH_HAS_READ_CURRENT_TIMER
->  static inline int read_current_timer(unsigned long *timer_val)
->  {
-> diff --git a/drivers/clocksource/timer-clint.c b/drivers/clocksource/timer-clint.c
-> index 8eeafa82c03d..d17367dee02c 100644
-> --- a/drivers/clocksource/timer-clint.c
-> +++ b/drivers/clocksource/timer-clint.c
-> @@ -19,6 +19,11 @@
->  #include <linux/interrupt.h>
->  #include <linux/of_irq.h>
->  #include <linux/smp.h>
-> +#include <linux/timex.h>
-> +
-> +#ifndef CONFIG_RISCV_M_MODE
-> +#include <asm/clint.h>
-> +#endif
->
->  #define CLINT_IPI_OFF          0
->  #define CLINT_TIMER_CMP_OFF    0x4000
-> @@ -31,6 +36,10 @@ static u64 __iomem *clint_timer_val;
->  static unsigned long clint_timer_freq;
->  static unsigned int clint_timer_irq;
->
-> +#ifdef CONFIG_RISCV_M_MODE
-> +u64 __iomem *clint_time_val;
-> +#endif
-> +
->  static void clint_send_ipi(const struct cpumask *target)
->  {
->         unsigned int cpu;
-> @@ -184,6 +193,14 @@ static int __init clint_timer_init_dt(struct device_node *np)
->         clint_timer_val = base + CLINT_TIMER_VAL_OFF;
->         clint_timer_freq = riscv_timebase;
->
-> +#ifdef CONFIG_RISCV_M_MODE
-> +       /*
-> +        * Yes, that's an odd naming scheme.  time_val is public, but hopefully
-> +        * will die in favor of something cleaner.
-> +        */
-> +       clint_time_val = clint_timer_val;
-> +#endif
-> +
->         pr_info("%pOFP: timer running at %ld Hz\n", np, clint_timer_freq);
->
->         rc = clocksource_register_hz(&clint_clocksource, clint_timer_freq);
-> --
-> 2.28.0.618.gf4bc123cb7-goog
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> >
+> > > > Just use the start of the first memory block and the end of the last memory
+> > > > block to compute the size of the total memory that can be used.
+> > > >
+> > > > Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> > > > ---
+> > > >  arch/riscv/mm/init.c | 6 ++----
+> > > >  1 file changed, 2 insertions(+), 4 deletions(-)
+> > > >
+> > > > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> > > > index 787c75f751a5..188281fc2816 100644
+> > > > --- a/arch/riscv/mm/init.c
+> > > > +++ b/arch/riscv/mm/init.c
+> > > > @@ -147,7 +147,6 @@ void __init setup_bootmem(void)
+> > > >  {
+> > > >       struct memblock_region *reg;
+> > > >       phys_addr_t mem_size = 0;
+> > > > -     phys_addr_t total_mem = 0;
+> > > >       phys_addr_t mem_start, end = 0;
+> > > >       phys_addr_t vmlinux_end = __pa_symbol(&_end);
+> > > >       phys_addr_t vmlinux_start = __pa_symbol(&_start);
+> > > > @@ -155,18 +154,17 @@ void __init setup_bootmem(void)
+> > > >       /* Find the memory region containing the kernel */
+> > > >       for_each_memblock(memory, reg) {
+> > > >               end = reg->base + reg->size;
+> > > > -             if (!total_mem)
+> > > > +             if (!mem_start)
+> > > >                       mem_start = reg->base;
+> > > >               if (reg->base <= vmlinux_start && vmlinux_end <= end)
+> > > >                       BUG_ON(reg->size == 0);
+> > > > -             total_mem = total_mem + reg->size;
+> > > >       }
+> > > >
+> > > >       /*
+> > > >        * Remove memblock from the end of usable area to the
+> > > >        * end of region
+> > > >        */
+> > > > -     mem_size = min(total_mem, (phys_addr_t)-PAGE_OFFSET);
+> > > > +     mem_size = min(end - mem_start, (phys_addr_t)-PAGE_OFFSET);
+> > > >       if (mem_start + mem_size < end)
+> > > >               memblock_remove(mem_start + mem_size,
+> > > >                               end - mem_start - mem_size);
+> > > > --
+> > > > 2.24.0
+> > > >
+> > >
+> > > --
+> > > Sincerely yours,
+> > > Mike.
+> > >
+> > > _______________________________________________
+> > > linux-riscv mailing list
+> > > linux-riscv@lists.infradead.org
+> > > http://lists.infradead.org/mailman/listinfo/linux-riscv
+> >
+> >
+> >
+> > --
+> > Regards,
+> > Atish
 
 
 
 -- 
-Mohammed A Billoo
-Founder
-MAB Labs, LLC
-www.mab-labs.com
-201-338-2022
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
