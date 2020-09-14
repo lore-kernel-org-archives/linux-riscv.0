@@ -2,81 +2,89 @@ Return-Path: <SRS0=Swg1=CX=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+X-Spam-Status: No, score=-11.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E0A97C43461
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2020 19:34:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4CBEEC43461
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2020 22:09:00 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 90852207EA
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2020 19:34:33 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D3B97208DB
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2020 22:08:59 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="dNIfJMsr";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="gsdcsC0G"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 90852207EA
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="EF49GqUk";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="lCvAw4eD"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D3B97208DB
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=KF8wbzmK0Sqa82jSA/wdhwT0zjeVYA1oJcsSQbQxLzU=; b=dNIfJMsrMSBz3EFQ0NQhdw5O/
-	uowBc31jqKX+Qt++hms00pnDGRSdcjzvIbjVRrMQcgJ4TfY27Ad6WFpfdjzGGVMI9HZep8Tb6yjk0
-	99+9Og4ryRsE87/gCCZk63X5KApUmHQe+uHGNy0a8EgtK5F9yO8wGQJabXWfONeuhntpYZkjgzVkQ
-	WEx4oUbQlQ6+lW5OodsEnQzp0Kl887tm+cRFlR9fclt/ESDOaGzh7ZX6DE9fKsBK9cJecxDGEhTZP
-	Ys/6rYR8i+qhH3s1XytEmFVpxbDAsp7OCbbv2S2JpUoMUZKszTpMBvpW+a2WspoebCIV2kB2t5e5v
-	dB43rCKXQ==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=MaT3hMJJPthUsNT7E3UDRN2YfTZRtJrcGDi824eySn8=; b=EF49GqUkkI+E2beQVytepAjWL
+	91zkVHwjhWUmPUJ0YLgFDKBRcVOwIQgMJUk1U5tIVc32YzAtArPKsscl34wugB1ALF0kB4gZXEZ/0
+	65hAUx9KP2Rv5Qd411ZarJK886wZPuoNcIgjqm6DJet2BkLuz1WItAnOXnlo7VXI82Q0J+EQZH7Dv
+	05lVktPezhONq/rTO4YVMQAxoz2r/DDkNmHui13oHzRdOzcUHDCHJrv1uwqFZirNGowhciN5Vg2Ux
+	8ybsn1Si9HWT2J/AtVErznRRetJya3a/u8s23Zv7lPdOz3+ydvqDCS3cUYoJRYZAKtM0aT9m7GBls
+	1eAaHhQyA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kHuEw-0001jc-Ll; Mon, 14 Sep 2020 19:34:14 +0000
-Received: from mail-wr1-x444.google.com ([2a00:1450:4864:20::444])
+	id 1kHweQ-0008SY-VX; Mon, 14 Sep 2020 22:08:43 +0000
+Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kHuEu-0001jA-3K
- for linux-riscv@lists.infradead.org; Mon, 14 Sep 2020 19:34:13 +0000
-Received: by mail-wr1-x444.google.com with SMTP id w5so835861wrp.8
- for <linux-riscv@lists.infradead.org>; Mon, 14 Sep 2020 12:34:11 -0700 (PDT)
+ id 1kHweO-0008Ql-FO
+ for linux-riscv@lists.infradead.org; Mon, 14 Sep 2020 22:08:41 +0000
+Received: by mail-pl1-x641.google.com with SMTP id e4so224698pln.10
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Sep 2020 15:08:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=6ZfPOOIwny+SOWWvDFrp9jH/Hf5AY76Y31ECLzz/08s=;
- b=gsdcsC0Gc5RLhkew2L2+Fxf3KeQILEy4nktJHEr+6Hi/lqt644KELt8WBFyJk81t3b
- zZBUM5i0EiZDNNjPJgitM6iBqDe4SL765QTJ61syEWXwDDSOBjCoQB3iRbUlVuZuZeQj
- u6jwnVwV7aQ3mVQ00vDiqCnitWIVibSy9sQ74=
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=ACcaZ7zDQbpB1KvqQAlAsDR8BmSbNCNG05Rdb2jou+A=;
+ b=lCvAw4eDj179Tcmto2DAiULdnxNCHmni70ucCSNAkKQJeImpWuVV7trWDtTapcOL0y
+ KTt02PXDk0Au6TvOlAuldSlt9I3qPkCJkfqZhXSZyeVyT15k6Ex1n82Vmau+v9SDB+uG
+ 9GI5GKvau/1++P8IY2KzG+Y4at908FcZ6wwYI/JQ+SpYwO3aUyqFnUwUgF4u3pr6qFYz
+ jeEeDvmfoCTnlpH6hoH5jI/UOc32jb2DOZxJt4qZbzgujR3gc7Dlybaoh6Ib2H8r7drH
+ oov5zRXnBEk/lj8ZWI7bw8MGX+rE+xKN1L4R5eoi8Ga3LKlK2P52ZiPCbrjVtyShIayj
+ x5Ew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=6ZfPOOIwny+SOWWvDFrp9jH/Hf5AY76Y31ECLzz/08s=;
- b=sU1TkBEvDzatiaqHkJOp6DSv8Sd95k06TUUwZBnw2FMzq3HuUdZf5W37DVa8/LE6H+
- AGTO+hlyaf66Q6hX69a3MpjlVhtwyI7EGBtpUIUXowY+LDjihryM2yiC6Ii2Sf4Ss4z6
- bX8g7nyHYlMwA4dmS+Rwa3KTKPoMLsrP7rR/7lpbdi/Ckcrwx7E8XkwFQje6P449xnGP
- RApUWRnWJQ2tgB1aXF+Fq+T6tApUgYuXBMXamX+tojeTZPJvGhuV9Wa8dasUXerR1mlC
- iufNtNnN5qaVIknzv4tjrs6g8To6eYOVImEfBMeIbOpaqBQy+7zgumd862AsaMe8IRKr
- ZqLw==
-X-Gm-Message-State: AOAM530StzcRF9CtvJyzAYjc0o07yK2GOFRFPZ4qmna9lvaIpMRDk6Az
- PubHLFQT51fmanIbPkvakgH1hNXXrGV0obIssMuu
-X-Google-Smtp-Source: ABdhPJxO8sy09RxWNj1AjBznbgrobV4hffaMobd39GuEuxn3nTS7FxA3HpPz0FvbuXlUjGa6ydfJfvMA8DRm3lEGOGw=
-X-Received: by 2002:a5d:4bcf:: with SMTP id l15mr17385037wrt.384.1600112050950; 
- Mon, 14 Sep 2020 12:34:10 -0700 (PDT)
-MIME-Version: 1.0
-References: <20200912013441.9730-1-atish.patra@wdc.com>
- <20200914090448.00001f7f@Huawei.com>
-In-Reply-To: <20200914090448.00001f7f@Huawei.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Mon, 14 Sep 2020 12:33:59 -0700
-Message-ID: <CAOnJCULGNha6aZaWZDn8zX3MZHn1H=uCrnNjpiqE11meRQz5eQ@mail.gmail.com>
-Subject: Re: [RFC/RFT PATCH v2 0/5] Unify NUMA implementation between ARM64 &
- RISC-V
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=ACcaZ7zDQbpB1KvqQAlAsDR8BmSbNCNG05Rdb2jou+A=;
+ b=sWRtyYSnOWSWPm0lgsOjWvBekjEeXkgA22mMk1Y0LoLkcLgtNwAk09DkpEjPeXvZmn
+ Xpos2l4SBFwt1SAv/+cVOiYeVBx6WYomM1jEYp22fl5RZUuC5jXAd5mfDbhsi8sxigBC
+ eD/h0BsMPJ+H9QQFCwoV36QlMOrPx2ae34UG8zUKOXwZQyp/racGhjDeV0SxXS3r6Vzq
+ qBT3zRCpRn7ZRXKjMfVhLqeTclx8aANPvwLiILZ+AehJYdqPe6qCVf3h7jkI1vc6nyAv
+ 8NZY9luBw+2twPFD8ceK+TSKramXV5nrCU02It4rm2ljWA5ilE6Pz1bY/EBd2Nz1rcHs
+ 1ZWg==
+X-Gm-Message-State: AOAM530nqtkKPalyjECQn3rOFDk37xYZ0D/2LD6J4G7/nRUYJxHrOiXw
+ 9ustljuDLlvPFbFlEbFzZCRO82IbFJTyU5Az
+X-Google-Smtp-Source: ABdhPJw1Q+4tj8NPap6ki/0ZVLo0cdZL3ydf1phEcI0gjrnyfRFwo0oiBuEUPiYZMvklRbg2odmQlw==
+X-Received: by 2002:a17:90b:408b:: with SMTP id
+ jb11mr1369784pjb.164.1600121316292; 
+ Mon, 14 Sep 2020 15:08:36 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id l9sm10244020pgg.29.2020.09.14.15.08.35
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 14 Sep 2020 15:08:35 -0700 (PDT)
+Date: Mon, 14 Sep 2020 15:08:35 -0700 (PDT)
+X-Google-Original-Date: Mon, 14 Sep 2020 15:08:31 PDT (-0700)
+Subject: Re: [PATCH] cpuidle: add riscv cpuidle driver
+In-Reply-To: <1600048323-2964-1-git-send-email-liush@allwinnertech.com>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: liush@allwinnertech.com
+Message-ID: <mhng-e743b908-36de-4226-832d-bc5acbbfd81b@palmerdabbelt-glaptop1>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200914_153412_192664_E3E5F4E5 
-X-CRM114-Status: GOOD (  36.24  )
+X-CRM114-CacheID: sfid-20200914_180840_625502_BAD5518E 
+X-CRM114-Status: GOOD (  31.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -88,151 +96,230 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: David Hildenbrand <david@redhat.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Atish Patra <atish.patra@wdc.com>,
- Zong Li <zong.li@sifive.com>, linux-riscv <linux-riscv@lists.infradead.org>,
- Will Deacon <will@kernel.org>, linux-arch@vger.kernel.org,
- Jia He <justin.he@arm.com>, Anup Patel <anup@brainfault.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Steven Price <steven.price@arm.com>,
- Bjorn Helgaas <helgaas@kernel.org>, Greentime Hu <greentime.hu@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Nicolas Saenz Julienne <nsaenzjulienne@suse.de>,
- Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>
-Content-Type: text/plain; charset="us-ascii"
+Cc: Damien Le Moal <Damien.LeMoal@wdc.com>, aou@eecs.berkeley.edu,
+ daniel.lezcano@linaro.org, linux-pm@vger.kernel.org, liush@allwinnertech.com,
+ Anup Patel <Anup.Patel@wdc.com>, rjw@rjwysocki.net, wangkefeng.wang@huawei.com,
+ linux-kernel@vger.kernel.org, Atish Patra <Atish.Patra@wdc.com>,
+ zong.li@sifive.com, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv@lists.infradead.org, kernel@esmil.dk
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 14, 2020 at 1:07 AM Jonathan Cameron
-<Jonathan.Cameron@huawei.com> wrote:
+On Sun, 13 Sep 2020 18:52:03 PDT (-0700), liush@allwinnertech.com wrote:
+> This patch adds a cpuidle driver for systems based RISCV architecture.
+> This patch supports state WFI. Other states will be supported in the
+> future.
 >
-> On Fri, 11 Sep 2020 18:34:36 -0700
-> Atish Patra <atish.patra@wdc.com> wrote:
+> Signed-off-by: liush <liush@allwinnertech.com>
+> ---
+>  arch/riscv/Kconfig               |  7 +++++
+>  arch/riscv/include/asm/cpuidle.h |  7 +++++
+>  arch/riscv/kernel/Makefile       |  1 +
+>  arch/riscv/kernel/cpuidle.c      |  8 ++++++
+>  drivers/cpuidle/Kconfig          |  5 ++++
+>  drivers/cpuidle/Kconfig.riscv    | 11 ++++++++
+>  drivers/cpuidle/Makefile         |  4 +++
+>  drivers/cpuidle/cpuidle-riscv.c  | 55 ++++++++++++++++++++++++++++++++++++++++
+>  8 files changed, 98 insertions(+)
+>  create mode 100644 arch/riscv/include/asm/cpuidle.h
+>  create mode 100644 arch/riscv/kernel/cpuidle.c
+>  create mode 100644 drivers/cpuidle/Kconfig.riscv
+>  create mode 100644 drivers/cpuidle/cpuidle-riscv.c
 >
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index df18372..c7ddb9d 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -86,6 +86,7 @@ config RISCV
+>  	select SPARSE_IRQ
+>  	select SYSCTL_EXCEPTION_TRACE
+>  	select THREAD_INFO_IN_TASK
+> +	select CPU_IDLE
 >
-> Hi Atish,
+>  config ARCH_MMAP_RND_BITS_MIN
+>  	default 18 if 64BIT
+> @@ -407,6 +408,12 @@ config BUILTIN_DTB
+>  	depends on RISCV_M_MODE
+>  	depends on OF
 >
-> I'm not seeing a change log from v1.  Putting one in makes it easier
-> for people who reviewed v1 to remember what to look for when looking
-> at v2.
+> +menu "CPU Power Management"
+> +
+> +source "drivers/cpuidle/Kconfig"
+> +
+> +endmenu
+> +
+>  menu "Power management options"
 >
+>  source "kernel/power/Kconfig"
+> diff --git a/arch/riscv/include/asm/cpuidle.h b/arch/riscv/include/asm/cpuidle.h
+> new file mode 100644
+> index 00000000..2599d2f
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/cpuidle.h
+> @@ -0,0 +1,7 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef __RISCV_CPUIDLE_H
+> +#define __RISCV_CPUIDLE_H
+> +
+> +extern void cpu_do_idle(void);
+> +
+> +#endif
+> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+> index dc93710..396ba9c 100644
+> --- a/arch/riscv/kernel/Makefile
+> +++ b/arch/riscv/kernel/Makefile
+> @@ -29,6 +29,7 @@ obj-y	+= riscv_ksyms.o
+>  obj-y	+= stacktrace.o
+>  obj-y	+= cacheinfo.o
+>  obj-y	+= patch.o
+> +obj-y	+= cpuidle.o
 
-My bad. I usually add a change log in the header patch but forgot this time.
-I will send out a v3 soon and update those.
+Presumably we want this to be a Kconfig option, if only to avoid excess size on
+the smaller systems?
 
-Thanks for reviewing the patches.
-> Either here, or individual patches after the --- is fine.
+>  obj-$(CONFIG_MMU) += vdso.o vdso/
 >
-> Thanks,
->
-> Jonathan
->
->
-> > This series attempts to move the ARM64 numa implementation to common
-> > code so that RISC-V can leverage that as well instead of reimplementing
-> > it again.
-> >
-> > RISC-V specific bits are based on initial work done by Greentime Hu [1] but
-> > modified to reuse the common implementation to avoid duplication.
-> >
-> > [1] https://lkml.org/lkml/2020/1/10/233
-> >
-> > This series has been tested on qemu with numa enabled for both RISC-V & ARM64.
-> > It would be great if somebody can test it on numa capable ARM64 hardware platforms.
-> > This patch series doesn't modify the maintainers list for the common code (arch_numa)
-> > as I am not sure if somebody from ARM64 community or Greg should take up the
-> > maintainership. Ganapatrao was the original author of the arm64 version.
-> > I would be happy to update that in the next revision once it is decided.
-> >
-> > # numactl --hardware
-> > available: 2 nodes (0-1)
-> > node 0 cpus: 0 1 2 3
-> > node 0 size: 486 MB
-> > node 0 free: 470 MB
-> > node 1 cpus: 4 5 6 7
-> > node 1 size: 424 MB
-> > node 1 free: 408 MB
-> > node distances:
-> > node   0   1
-> >   0:  10  20
-> >   1:  20  10
-> > # numactl -show
-> > policy: default
-> > preferred node: current
-> > physcpubind: 0 1 2 3 4 5 6 7
-> > cpubind: 0 1
-> > nodebind: 0 1
-> > membind: 0 1
-> >
-> > For RISC-V, the following qemu series is a pre-requisite(already available in upstream)
-> > to test the patches in Qemu and 2 socket OmniXtend FPGA.
-> >
-> > https://patchwork.kernel.org/project/qemu-devel/list/?series=303313
-> >
-> > The patches are also available at
-> >
-> > https://github.com/atishp04/linux/tree/5.10_numa_unified_v2
-> >
-> > There may be some minor conflicts with Mike's cleanup series [2] depending on the
-> > order in which these two series are being accepted. I can rebase on top his series
-> > if required.
-> >
-> > [2] https://lkml.org/lkml/2020/8/18/754
-> >
-> > Atish Patra (4):
-> > numa: Move numa implementation to common code
-> > arm64, numa: Change the numa init function name to be generic
-> > riscv: Separate memory init from paging init
-> > riscv: Add numa support for riscv64 platform
-> >
-> > Greentime Hu (1):
-> > riscv: Add support pte_protnone and pmd_protnone if
-> > CONFIG_NUMA_BALANCING
-> >
-> > arch/arm64/Kconfig                            |  1 +
-> > arch/arm64/include/asm/numa.h                 | 45 +----------------
-> > arch/arm64/kernel/acpi_numa.c                 | 13 -----
-> > arch/arm64/mm/Makefile                        |  1 -
-> > arch/arm64/mm/init.c                          |  4 +-
-> > arch/riscv/Kconfig                            | 31 +++++++++++-
-> > arch/riscv/include/asm/mmzone.h               | 13 +++++
-> > arch/riscv/include/asm/numa.h                 |  8 +++
-> > arch/riscv/include/asm/pci.h                  | 14 ++++++
-> > arch/riscv/include/asm/pgtable.h              | 21 ++++++++
-> > arch/riscv/kernel/setup.c                     | 11 ++++-
-> > arch/riscv/kernel/smpboot.c                   | 12 ++++-
-> > arch/riscv/mm/init.c                          | 10 +++-
-> > drivers/base/Kconfig                          |  6 +++
-> > drivers/base/Makefile                         |  1 +
-> > .../mm/numa.c => drivers/base/arch_numa.c     | 29 +++++++++--
-> > include/asm-generic/numa.h                    | 49 +++++++++++++++++++
-> > 17 files changed, 200 insertions(+), 69 deletions(-)
-> > create mode 100644 arch/riscv/include/asm/mmzone.h
-> > create mode 100644 arch/riscv/include/asm/numa.h
-> > rename arch/arm64/mm/numa.c => drivers/base/arch_numa.c (95%)
-> > create mode 100644 include/asm-generic/numa.h
-> >
-> > --
-> > 2.24.0
-> >
->
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+>  obj-$(CONFIG_RISCV_M_MODE)	+= traps_misaligned.o
+> diff --git a/arch/riscv/kernel/cpuidle.c b/arch/riscv/kernel/cpuidle.c
+> new file mode 100644
+> index 00000000..a3289e7
+> --- /dev/null
+> +++ b/arch/riscv/kernel/cpuidle.c
+> @@ -0,0 +1,8 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +#include <asm/cpuidle.h>
+> +
+> +void cpu_do_idle(void)
+> +{
+> +	__asm__ __volatile__ ("wfi");
+> +
 
+We have wait_for_interrupt() that does this already, but it's one line so it
+doesn't really matter.  Either way, there's an extra newline here.
 
+Additionally, we have arch_cpu_idle() which is calling cpu_do_idle() on other
+platforms.  Presumably we should be doing something similar, under the
+assumption that we will eventually have cpu_do_idle() hook into CPU idle
+drivers here?
 
--- 
-Regards,
-Atish
+> +}
+> diff --git a/drivers/cpuidle/Kconfig b/drivers/cpuidle/Kconfig
+> index c0aeedd..f6be0fd 100644
+> --- a/drivers/cpuidle/Kconfig
+> +++ b/drivers/cpuidle/Kconfig
+> @@ -62,6 +62,11 @@ depends on PPC
+>  source "drivers/cpuidle/Kconfig.powerpc"
+>  endmenu
+>
+> +menu "RISCV CPU Idle Drivers"
+> +depends on RISCV
+> +source "drivers/cpuidle/Kconfig.riscv"
+> +endmenu
+> +
+>  config HALTPOLL_CPUIDLE
+>  	tristate "Halt poll cpuidle driver"
+>  	depends on X86 && KVM_GUEST
+> diff --git a/drivers/cpuidle/Kconfig.riscv b/drivers/cpuidle/Kconfig.riscv
+> new file mode 100644
+> index 00000000..e86d36b
+> --- /dev/null
+> +++ b/drivers/cpuidle/Kconfig.riscv
+> @@ -0,0 +1,11 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +#
+> +# RISCV CPU Idle drivers
+> +#
+> +config RISCV_CPUIDLE
+> +        bool "Generic RISCV CPU idle Driver"
+> +        select DT_IDLE_STATES
+> +	select CPU_IDLE_MULTIPLE_DRIVERS
+
+Looks like there's some space/tab issues here.  IIRC checkpatch will catch this
+sort of thing.
+
+> +        help
+> +          Select this option to enable generic cpuidle driver for RISCV.
+> +	  Now only support C0 State.
+> diff --git a/drivers/cpuidle/Makefile b/drivers/cpuidle/Makefile
+> index 26bbc5e..4c83c4e 100644
+> --- a/drivers/cpuidle/Makefile
+> +++ b/drivers/cpuidle/Makefile
+> @@ -34,3 +34,7 @@ obj-$(CONFIG_MIPS_CPS_CPUIDLE)		+= cpuidle-cps.o
+>  # POWERPC drivers
+>  obj-$(CONFIG_PSERIES_CPUIDLE)		+= cpuidle-pseries.o
+>  obj-$(CONFIG_POWERNV_CPUIDLE)		+= cpuidle-powernv.o
+> +
+> +###############################################################################
+> +# RISCV drivers
+> +obj-$(CONFIG_RISCV_CPUIDLE)		+= cpuidle-riscv.o
+> diff --git a/drivers/cpuidle/cpuidle-riscv.c b/drivers/cpuidle/cpuidle-riscv.c
+> new file mode 100644
+> index 00000000..5dddcfa
+> --- /dev/null
+> +++ b/drivers/cpuidle/cpuidle-riscv.c
+> @@ -0,0 +1,55 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * RISC-V CPU idle driver.
+> + *
+> + * Copyright (C) 2020-2022 Allwinner Ltd
+> + *
+> + * Based on code - driver/cpuidle/cpuidle-at91.c
+> + *
+> + */
+> +#include <linux/cpuidle.h>
+> +#include <linux/cpumask.h>
+> +#include <linux/cpu_pm.h>
+> +#include <linux/kernel.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/slab.h>
+> +#include <linux/platform_device.h>
+> +#include <asm/cpuidle.h>
+> +
+> +#define MAX_IDLE_STATES	1
+> +
+> +/* TODO: Implement deeper idle states */
+> +static int riscv_low_level_suspend_enter(int state)
+> +{
+> +	return 0;
+
+As far as I can tell, this driver just doesn't do anything?  Assuming that's
+the case, it's probably best to just drop everything but cpu_do_idle() until we
+have something to exercise this.
+
+> +}
+> +
+> +/* Actual code that puts the SoC in different idle states */
+> +static int riscv_enter_idle(struct cpuidle_device *dev,
+> +			struct cpuidle_driver *drv,
+> +			       int index)
+> +{
+> +	return CPU_PM_CPU_IDLE_ENTER_PARAM(riscv_low_level_suspend_enter,
+> +					   index, 0);
+> +}
+> +
+> +static struct cpuidle_driver riscv_idle_driver = {
+> +	.name			= "riscv_idle",
+> +	.owner			= THIS_MODULE,
+> +	.states[0]		= {
+> +		.enter			= riscv_enter_idle,
+> +		.exit_latency		= 1,
+> +		.target_residency	= 1,
+> +		.name			= "WFI",
+> +		.desc			= "RISCV WFI",
+> +	},
+> +	.state_count = MAX_IDLE_STATES,
+> +};
+> +
+> +static int __init riscv_cpuidle_init(void)
+> +{
+> +	return cpuidle_register(&riscv_idle_driver, NULL);
+> +}
+> +
+> +device_initcall(riscv_cpuidle_init);
 
 _______________________________________________
 linux-riscv mailing list
