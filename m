@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-11.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 25CD4C433E2
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2020 11:50:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 20B0AC433E2
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2020 11:52:56 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AB06221741
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2020 11:50:18 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id CA4FC21741
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2020 11:52:55 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="tLZLp2eK";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="FqbYrnRQ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AB06221741
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="PV+B8sBY";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="YalQb9qX"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CA4FC21741
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,60 +26,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=wuYpjorqEYG0diKhwV4L+1vK59jbJ/gkh2AEzihrfog=; b=tLZLp2eKWt9Le5i7pNHLCExKi
-	lLrl7rD2G5/KWqPbK5a+acF55odaD9+i9xeUkO1AV/5JtY90912+CgWwaSTpLai9QoKJoq8qQmOb1
-	YB6lRxcB5+9NmPqIOdmY2J2Titul2bzLdXPhdUhyuz8K6auRDFvT868PpNsPlpHzymxBYfdWdJxhO
-	t+lO6l1gPKSOFqFgNwsoryTb3Ele4QbynDsd1okFVjHdLIJgPodn7Sds/sX4k7M0ewx8Cip1D6/0L
-	6lIe1Q0zdAMug2Zw7zqjoVNOPxPlfzlVC5gkWu47dM8NSy1n/m/LaZAbzgtIZkSMBI521qvqjuD+d
-	w9MHH00pg==;
+	 bh=C/+klHWJUuE3yNY+O9bZHzu331o30xpkfiWz9TumOT4=; b=PV+B8sBYs8Ug21DteG1LTFOib
+	gCp4WFy/VdXYSJgYgA3CgrW+9XZyqak5AzoE923fiE+Q737kdFiPmMBPmVvIB1QtrA4LYMaRQEfZQ
+	ExeUJhaFB+n+qp/hkgpeTIO9g8wKUg3EIbD8tS0eBmadp1n5TzBZNFgWj0e1JKvZE2rk2f+q84XlH
+	okRTdE1B5BrUoE1dSoKn1BWqjoKbvxylwgRR1rDJz6HTIsXGeiNwZz0JljvIpAfudzts4MLkHfyiq
+	TDCm39TV9s0U4qXd34h397p3IEmqp3Qf1z9xAkk6dJo+LY1sCosAqMfC4VITkX8qNM9HgGe+hqUsc
+	BVFrjKBRw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kHmzn-0007RV-85; Mon, 14 Sep 2020 11:50:07 +0000
-Received: from mail-wr1-x444.google.com ([2a00:1450:4864:20::444])
+	id 1kHn2L-0007ew-GI; Mon, 14 Sep 2020 11:52:45 +0000
+Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kHmzl-0007R4-IM
- for linux-riscv@lists.infradead.org; Mon, 14 Sep 2020 11:50:06 +0000
-Received: by mail-wr1-x444.google.com with SMTP id x14so18340059wrl.12
- for <linux-riscv@lists.infradead.org>; Mon, 14 Sep 2020 04:50:05 -0700 (PDT)
+ id 1kHn2K-0007eR-4L
+ for linux-riscv@lists.infradead.org; Mon, 14 Sep 2020 11:52:44 +0000
+Received: by mail-wm1-x342.google.com with SMTP id k18so10918277wmj.5
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Sep 2020 04:52:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=8iJIrFiPrthxhWR/A1W4z3Dcqg+LQz4AuT3GYaAloBA=;
- b=FqbYrnRQxKtvT4FZdy8KmgpIW72P0WkrZEi2B7ArJtMBbSoRZflgSaJAXYG/zwTnU+
- QLtnMCMTZQ3EmMhMGAWP8vk0KHeffvl9kHstfSZi0ZCLaog7Xu6jnyCgM8J3maTU9JQV
- 9G2t3RB/ZyialxoMtxnjhVqZ/Yz5D7M7qB+epat9cWSN1/fyRrEHd81t/Gxr8P2ja8lL
- Ky4e/ACib+0SodL8CDuBNdT0EmEvzDM74RllOsoa1DxI6E7DIyx32bmXsefayTzUm8Mz
- DJibCIphznDl0cMKQZpeNVCTRqadEL6PLO2+dHNvk0LKMoE9t60VbDrPFHSJ1SPcA+yl
- VN3w==
+ :cc; bh=PJ7iJNVDDaND4zplndsbl4Uby21iiMEjNanabMHyNa8=;
+ b=YalQb9qXnij3jA+z9DcxOA6IfyTifBTo3+5ciDzFu0EX8HtYUQWiH1DfbNzkQ5E4Wg
+ n9tEwxvm65+rVwSYeQMc2Aeh/gYDYfUiZN0Pn1sNa+UWyQH3JerLbfdSWlfaqGboTyxk
+ cx3klAP3OoD3zNPoXyDGb7iQc4jb276bpjW/piZZahi+ZdAaHXAPMRzwePA2V73YOOi8
+ YeF+3dio/BlVTJ9VLcik8+RQmy+l6AQFnUSvJQzDppohujPTTJT+i8wYKFDzOs/x3aQ4
+ ZCHX3caFgONUgL5jSFttJNsV5c+i+7BQbP92MTWKyiAK/xiitzOqpv0wjUVqqur0EfGU
+ QroQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=8iJIrFiPrthxhWR/A1W4z3Dcqg+LQz4AuT3GYaAloBA=;
- b=VK/4BVzBSpzNyDjvr7jyU1LQYvkGWIwMJMJrMh8Uk1vrGpQVnPufZWITz+dL65BuU7
- YD92YKLNSx6ZNp+07Zvj9/BwQy3SNnnxJYyZAMP7MasLqiqUSFhBegUKVpKzGJmLSeVL
- B647LiLWfHB9ST/yCRxzcscVWgeniGjzxKxXz1k7UJCT8Mbt6GuhzKvtpG1MvChbqo/4
- 75+LTK4MggSZQaOLSse9NAq6w9VLx8lapMnvaPYe56fOWJIEfYiSbfwRYTgHMEciODbA
- ayytLQpnFjr/oUzYy9Sjr0EeeYstEibgNRRbmjTxvX/ZPah6gyk78SSarDL9tj8zQjej
- 8uNg==
-X-Gm-Message-State: AOAM530vATLIzLL53XlFsBwB1MdKbjRjXWg7TFWWrnhDpC3+bWPRoYlA
- x1i3ax0/oe5VMkWaoYwH1aTBlzA+ZhYRGUII/Dtocw==
-X-Google-Smtp-Source: ABdhPJy6MIIdbvLYKBOQIzmZLcO7OWcE4uQ0vDEm/jLOAh6B4JGz5ZPiZggdqVLrP+uq6zNUPFLurlO2Qnos9mx+P/g=
-X-Received: by 2002:adf:db48:: with SMTP id f8mr16058134wrj.144.1600084204302; 
- Mon, 14 Sep 2020 04:50:04 -0700 (PDT)
+ bh=PJ7iJNVDDaND4zplndsbl4Uby21iiMEjNanabMHyNa8=;
+ b=qheBNVNohAZRFyy4zWb1SNFaC+UwZf3NJI0v/cR7zNJj4pRa+kn4mYBMHHj3hFSA/I
+ +V4grVHvO1BVRa1oTWQetgkRzkKZM0l89fzTeVczBnmpCj3MplrLKTtb8ubd4gS4n+xN
+ AuvRbaLIfXRdYHIkyL3Ucn+z4gJU+Ft4lFdS13C8o54AvfWoTp0rFffkZ5lYgWYBsmb0
+ 0893o00YqaTk2yR5dHXv3cITVpw7hc95oh71HkKXJqRX/C7vJLAAMKcHH8RH7C9t3hty
+ QHH+cZBQcsgimEsZnqozrc+7eFkbLeDXkuz/Z/sW2PX0hpgJIhjS69xF0L44YDjy4/gv
+ nf4w==
+X-Gm-Message-State: AOAM530GJgoKY9IzMz+BvKdiEuQWRy4EMH2HWBMOkZ5AURsCuECJpxcI
+ I7gy0i374nPvmL8X0ONON8JRXIo+GhSVZ5kHlg7IUA==
+X-Google-Smtp-Source: ABdhPJxRyS8Ai4E8v9nf+FcXijbMUkAsU+Eigzaf0copkXWk29uviSgjKvIWApV4fAHRX2LCjI94vgVq+VQJ/1zXIU0=
+X-Received: by 2002:a7b:c0c5:: with SMTP id s5mr14501327wmh.152.1600084362966; 
+ Mon, 14 Sep 2020 04:52:42 -0700 (PDT)
 MIME-Version: 1.0
 References: <20200912002341.4869-1-atish.patra@wdc.com>
  <20200912104502.GF2142832@kernel.org>
-In-Reply-To: <20200912104502.GF2142832@kernel.org>
+ <CAOnJCU+yK8uxFU-zv5BPTzmtxwiVpiPxGsNkVEtnTQ+64UU-ug@mail.gmail.com>
+In-Reply-To: <CAOnJCU+yK8uxFU-zv5BPTzmtxwiVpiPxGsNkVEtnTQ+64UU-ug@mail.gmail.com>
 From: Anup Patel <anup@brainfault.org>
-Date: Mon, 14 Sep 2020 17:19:52 +0530
-Message-ID: <CAAhSdy1D2BC4Z=nf7Tv6znQMMGwaVNH0QhO0Oj6gqYwwbnLt_g@mail.gmail.com>
+Date: Mon, 14 Sep 2020 17:22:31 +0530
+Message-ID: <CAAhSdy0cudvf4Lc3YaSc7MH5oGH1V60C3rToMUZU01LPxRWLKQ@mail.gmail.com>
 Subject: Re: [PATCH] RISC-V: Consider sparse memory while removing unusable
  memory
-To: Mike Rapoport <rppt@kernel.org>
+To: Atish Patra <atishp@atishpatra.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200914_075005_722472_93DAA95C 
-X-CRM114-Status: GOOD (  25.25  )
+X-CRM114-CacheID: sfid-20200914_075244_194547_6A1F7D84 
+X-CRM114-Status: GOOD (  31.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -95,89 +96,108 @@ Cc: Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup.patel@wdc.com>,
  "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
  Atish Patra <atish.patra@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
  Zong Li <zong.li@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
+ linux-riscv <linux-riscv@lists.infradead.org>, Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 12, 2020 at 4:15 PM Mike Rapoport <rppt@kernel.org> wrote:
+On Mon, Sep 14, 2020 at 5:18 AM Atish Patra <atishp@atishpatra.org> wrote:
 >
-> Hello Atish,
+> On Sat, Sep 12, 2020 at 3:45 AM Mike Rapoport <rppt@kernel.org> wrote:
+> >
+> > Hello Atish,
+> >
+> > On Fri, Sep 11, 2020 at 05:23:41PM -0700, Atish Patra wrote:
+> > > Currently, any usable memory area beyond page_offset is removed by adding the
+> > > memory sizes from each memblock. That may not work for sparse memory
+> > > as memory regions can be very far apart resulting incorrect removal of some
+> > > usable memory.
+> >
+> > If I understand correctly, the memory with physical addresses larger
+> > than (-PAGE_OFFSET) cannot be used. Since it was aready
+> > memblock_add()'ed during device tree parsing, you need to remove it from
+> > memblock.
+> >
 >
-> On Fri, Sep 11, 2020 at 05:23:41PM -0700, Atish Patra wrote:
-> > Currently, any usable memory area beyond page_offset is removed by adding the
-> > memory sizes from each memblock. That may not work for sparse memory
-> > as memory regions can be very far apart resulting incorrect removal of some
-> > usable memory.
+> IIRC, the original intention was to fix MAXPHYSMEM_2GB option for RV64
+> for the medlow model.
+> That's why the patch removed any memory beyond -PAGE_OFFSET.
 >
-> If I understand correctly, the memory with physical addresses larger
-> than (-PAGE_OFFSET) cannot be used. Since it was aready
-> memblock_add()'ed during device tree parsing, you need to remove it from
-> memblock.
-
--PAGE_OFFSET represents the size of memory addressable by the kernel and
-not the last physical address.
-
-mem_start + (-PAGE_OFFSET) will be the last physical address usable by kernel.
-
+> > For that you can use memblock_enforce_memory_limit(-PAGE_OFFSET).
+> >
+> Thanks. I think we can just call memblock_enforce_memory_limit without
+> tracking the total memory size
+> and whether maximum memory described in DT is greater than  -PAGE_OFFSET.
 >
-> For that you can use memblock_enforce_memory_limit(-PAGE_OFFSET).
+> @Anup Patel Was there any other reason for this change originally?
 
-I think we should use memblock_enforce_memory_limit(mem_start - PAGE_OFFSET).
+No other reason. We just wanted to ensure that amount of memory addressable
+by kernel (i.e. -PAGE_OFFSET) is also considered when removing memblock.
 
 Regards,
 Anup
 
 >
-> > Just use the start of the first memory block and the end of the last memory
-> > block to compute the size of the total memory that can be used.
+> > > Just use the start of the first memory block and the end of the last memory
+> > > block to compute the size of the total memory that can be used.
+> > >
+> > > Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> > > ---
+> > >  arch/riscv/mm/init.c | 6 ++----
+> > >  1 file changed, 2 insertions(+), 4 deletions(-)
+> > >
+> > > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> > > index 787c75f751a5..188281fc2816 100644
+> > > --- a/arch/riscv/mm/init.c
+> > > +++ b/arch/riscv/mm/init.c
+> > > @@ -147,7 +147,6 @@ void __init setup_bootmem(void)
+> > >  {
+> > >       struct memblock_region *reg;
+> > >       phys_addr_t mem_size = 0;
+> > > -     phys_addr_t total_mem = 0;
+> > >       phys_addr_t mem_start, end = 0;
+> > >       phys_addr_t vmlinux_end = __pa_symbol(&_end);
+> > >       phys_addr_t vmlinux_start = __pa_symbol(&_start);
+> > > @@ -155,18 +154,17 @@ void __init setup_bootmem(void)
+> > >       /* Find the memory region containing the kernel */
+> > >       for_each_memblock(memory, reg) {
+> > >               end = reg->base + reg->size;
+> > > -             if (!total_mem)
+> > > +             if (!mem_start)
+> > >                       mem_start = reg->base;
+> > >               if (reg->base <= vmlinux_start && vmlinux_end <= end)
+> > >                       BUG_ON(reg->size == 0);
+> > > -             total_mem = total_mem + reg->size;
+> > >       }
+> > >
+> > >       /*
+> > >        * Remove memblock from the end of usable area to the
+> > >        * end of region
+> > >        */
+> > > -     mem_size = min(total_mem, (phys_addr_t)-PAGE_OFFSET);
+> > > +     mem_size = min(end - mem_start, (phys_addr_t)-PAGE_OFFSET);
+> > >       if (mem_start + mem_size < end)
+> > >               memblock_remove(mem_start + mem_size,
+> > >                               end - mem_start - mem_size);
+> > > --
+> > > 2.24.0
+> > >
 > >
-> > Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> > ---
-> >  arch/riscv/mm/init.c | 6 ++----
-> >  1 file changed, 2 insertions(+), 4 deletions(-)
-> >
-> > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> > index 787c75f751a5..188281fc2816 100644
-> > --- a/arch/riscv/mm/init.c
-> > +++ b/arch/riscv/mm/init.c
-> > @@ -147,7 +147,6 @@ void __init setup_bootmem(void)
-> >  {
-> >       struct memblock_region *reg;
-> >       phys_addr_t mem_size = 0;
-> > -     phys_addr_t total_mem = 0;
-> >       phys_addr_t mem_start, end = 0;
-> >       phys_addr_t vmlinux_end = __pa_symbol(&_end);
-> >       phys_addr_t vmlinux_start = __pa_symbol(&_start);
-> > @@ -155,18 +154,17 @@ void __init setup_bootmem(void)
-> >       /* Find the memory region containing the kernel */
-> >       for_each_memblock(memory, reg) {
-> >               end = reg->base + reg->size;
-> > -             if (!total_mem)
-> > +             if (!mem_start)
-> >                       mem_start = reg->base;
-> >               if (reg->base <= vmlinux_start && vmlinux_end <= end)
-> >                       BUG_ON(reg->size == 0);
-> > -             total_mem = total_mem + reg->size;
-> >       }
-> >
-> >       /*
-> >        * Remove memblock from the end of usable area to the
-> >        * end of region
-> >        */
-> > -     mem_size = min(total_mem, (phys_addr_t)-PAGE_OFFSET);
-> > +     mem_size = min(end - mem_start, (phys_addr_t)-PAGE_OFFSET);
-> >       if (mem_start + mem_size < end)
-> >               memblock_remove(mem_start + mem_size,
-> >                               end - mem_start - mem_size);
 > > --
-> > 2.24.0
+> > Sincerely yours,
+> > Mike.
 > >
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+>
+>
 >
 > --
-> Sincerely yours,
-> Mike.
+> Regards,
+> Atish
 
 _______________________________________________
 linux-riscv mailing list
