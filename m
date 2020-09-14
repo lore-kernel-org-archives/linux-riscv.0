@@ -4,78 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-11.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2C4CCC43461
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2020 18:00:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 464A6C433E2
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2020 18:32:58 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B683C20757
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2020 18:00:20 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C6B4F20731
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2020 18:32:57 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="dfE3o9z/"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B683C20757
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="LgjVosaY";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="mCcdtJGO"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C6B4F20731
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=/nJ28qxkslgi3UrrKOxrso+Fsl6aiFYMS2dUT8bheUo=; b=dfE3o9z/sr5ayPPoGk29xSW1v
-	O1MoBgkTyMMdQEb/1n0F2NDp0jU8QLI9CqLKZyAWaZ7+nIvm3xfBttkr9vge0OHgiAYIiY/S6IvuA
-	iShJG3a1gTGS0yqynn+kvJm01eIzvlGTLPiBJ+qm0adFFKDz1Iac530JMcPxzVIeKmUh9+boWZXAc
-	9LTowLQmFRsgga9UCzJkwIDnAG/WszTZXTOTQdprEy28jI+sf1s7BwLSIxbni9GEU+4zDOXU/X67+
-	t/xR11y4clAqGssOSx0vghBgJ3ZIr8n8/tzZ0ryZNjL6vvAdU+sgfk8+oq9pEchznaX2Dxl5+SzmD
-	VZfyOgSwg==;
+	 bh=wrn0Gq5guXhh2tqxHLiMaLNDbSYqJdKYo3zOKBbo7K4=; b=LgjVosaYHJzXEylIe8FHA8cbV
+	H7+ruVnGvmWwpctv94WrWdW43UWw51wsWT39XqgvHaWH03bWNxxf0U46FPacWLLMUP5Kaxc3RfMPX
+	kYfJZXBaiGS+3sbQjM909q0xdjzuiWmOrrzm1CNaqfAZA+l0igtYs20N7lt7/WyRe4qnYDJVpedwU
+	c1a0LH0xWGd6CGwgmp6pncA9NgaSJxOZUcNpCLOVZ5rSkrPCi695Oe9AAxjlAu/crF889+uFmCMry
+	1mmIQPDXi/kOtihqac+V4/O/W9+Qqqlf24QgB8yHEQ/adCiRzOUFR5SJjOICorTc3NaY7lHbOcouZ
+	bDwNVvynQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kHslq-00085r-N3; Mon, 14 Sep 2020 18:00:06 +0000
-Received: from mail-io1-f65.google.com ([209.85.166.65])
+	id 1kHtHL-0004fE-81; Mon, 14 Sep 2020 18:32:39 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kHslo-000858-GS
- for linux-riscv@lists.infradead.org; Mon, 14 Sep 2020 18:00:05 +0000
-Received: by mail-io1-f65.google.com with SMTP id h4so1072011ioe.5
- for <linux-riscv@lists.infradead.org>; Mon, 14 Sep 2020 11:00:03 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=gzNN3HZZcC4xGOcBJqGS3DjMEJgqFY3enUUKhW0YfKM=;
- b=doPNVLXLWIo+0KTeAlDvNXjhoueYon9LeXSzbX5DHG3LNDF0++GNJdWucRDj2ZsU5t
- pscvF3crJyrhLj6Z2ZgbmFBpDLJO0yXjf9gIy3ASSjAJv6jQVA7a/BZowinXSE+zhubA
- ouCf35RI6B0p+ORCmAE/WF0K8Oid/AhHXqz9puh5gYmjpoUhvaHH33FvokfP+WzZNZKw
- 0U6H9/xAENgAU6rbCrAgVZKIX7unkKXFGY9kMOydZzqyYd9o8s8oNQXNvL+HJV5lWsQ+
- meQ2WUj8UJ9R0tDIfUKYvDYpqIX2b93az99ajudxWyU5G6cVQj2elAfkaHh9wWw4y1ZN
- TcQw==
-X-Gm-Message-State: AOAM530+GWB3b/F5y2WmJ2Qvcub4hxyC0T+aVWqq5z/wS3oXV31DClbt
- PmzsCXWxpDCiumDjk1ewpA==
-X-Google-Smtp-Source: ABdhPJy1fWF8jAS3tfIaj/ZZ32fOJcUmIOzJdJiLdBMrivkmifvH6f13QOTpJlSIyKsE8qAV9BgQBg==
-X-Received: by 2002:a6b:8f10:: with SMTP id r16mr12351915iod.165.1600106403423; 
- Mon, 14 Sep 2020 11:00:03 -0700 (PDT)
-Received: from xps15 ([64.188.179.253])
- by smtp.gmail.com with ESMTPSA id l10sm1015753ilm.75.2020.09.14.11.00.01
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 14 Sep 2020 11:00:02 -0700 (PDT)
-Received: (nullmailer pid 4145728 invoked by uid 1000);
- Mon, 14 Sep 2020 18:00:00 -0000
-Date: Mon, 14 Sep 2020 12:00:00 -0600
-From: Rob Herring <robh@kernel.org>
-To: Sagar Kadam <sagar.kadam@sifive.com>
-Subject: Re: [RESEND PATCH v2 1/1] dt-bindings: riscv: sifive-l2-cache:
- convert bindings to json-schema
-Message-ID: <20200914180000.GA4136408@bogus>
-References: <1598633743-1023-1-git-send-email-sagar.kadam@sifive.com>
- <1598633743-1023-2-git-send-email-sagar.kadam@sifive.com>
+ id 1kHtHI-0004ea-Ga
+ for linux-riscv@lists.infradead.org; Mon, 14 Sep 2020 18:32:37 +0000
+Received: from mail-oo1-f48.google.com (mail-oo1-f48.google.com
+ [209.85.161.48])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 852A621D7B
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Sep 2020 18:32:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1600108355;
+ bh=+yvukRg7EzNH2haF4QwVMJONmZtj4liSgeyRP0PGKWA=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=mCcdtJGOclc/eZq3fo5/vtGjTgv8x1GMWj/AFrOZz/v/lf5perhrR8hrhfPS7uFyP
+ M/hXlz7KnzN7u1JzIlrOVzUys3Es9ms5wh7Ic2pDThfmpirQcn/PD0JbWGRMFsH9JN
+ hQMezUv/Qsq/duM5aiZrCXznBT+9dZDVeE7XwsoE=
+Received: by mail-oo1-f48.google.com with SMTP id m25so121409oou.0
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Sep 2020 11:32:35 -0700 (PDT)
+X-Gm-Message-State: AOAM531Drua8sQyxAS5x6IVAhyIIFhAYudSepepCu4tR77tjQLMF3P3T
+ n8rbO10KVqngZO9XM7F3zzfrAvqaAbTioF6k9TM=
+X-Google-Smtp-Source: ABdhPJyG/PePd6j9W+RuHl2CGNX0GWKReIwvTzvgNJc0TBjIhvuT19o7oVCgn9iZYzW6x6OzZHY/eJhKwEEEA0a6Kgg=
+X-Received: by 2002:a4a:c541:: with SMTP id j1mr11175843ooq.13.1600108354689; 
+ Mon, 14 Sep 2020 11:32:34 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <1598633743-1023-2-git-send-email-sagar.kadam@sifive.com>
+References: <20200828172036.8056-1-atish.patra@wdc.com>
+ <20200828172036.8056-6-atish.patra@wdc.com>
+ <CAMj1kXH82MGDLNkyWae=wqNxZY7ZMvrDU3gNAOSF+m9YFGe7aw@mail.gmail.com>
+ <CAOnJCUJhxLVNi74F7n6+ZaqkL36urh+4oybozmK4ypgD0-=Cxw@mail.gmail.com>
+In-Reply-To: <CAOnJCUJhxLVNi74F7n6+ZaqkL36urh+4oybozmK4ypgD0-=Cxw@mail.gmail.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Mon, 14 Sep 2020 21:32:23 +0300
+X-Gmail-Original-Message-ID: <CAMj1kXE1qi1zKZiXpEB+z5bQORRKz4ampNAVK2XiSawgq5zc+g@mail.gmail.com>
+Message-ID: <CAMj1kXE1qi1zKZiXpEB+z5bQORRKz4ampNAVK2XiSawgq5zc+g@mail.gmail.com>
+Subject: Re: [PATCH v7 5/9] RISC-V: Add PE/COFF header for EFI stub
+To: Atish Patra <atishp@atishpatra.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200914_140004_573489_6900D263 
-X-CRM114-Status: GOOD (  25.76  )
+X-CRM114-CacheID: sfid-20200914_143236_668428_C7F9B230 
+X-CRM114-Status: GOOD (  40.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -87,203 +85,399 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, aou@eecs.berkeley.edu,
- linux-kernel@vger.kernel.org, yash.shah@sifive.com, palmer@dabbelt.com,
- paul.walmsley@sifive.com, linux-riscv@lists.infradead.org
+Cc: linux-efi <linux-efi@vger.kernel.org>, Anup Patel <anup@brainfault.org>,
+ Masahiro Yamada <masahiroy@kernel.org>, Anup Patel <anup.patel@wdc.com>,
+ Nick Desaulniers <ndesaulniers@google.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Ingo Molnar <mingo@kernel.org>, Atish Patra <atish.patra@wdc.com>,
+ Arvind Sankar <nivedita@alum.mit.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Alistair Francis <alistair.francis@wdc.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Greentime Hu <greentime.hu@sifive.com>, Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 28, 2020 at 10:25:43PM +0530, Sagar Kadam wrote:
-> Convert the device tree bindings for the SiFive's FU540-C000 SoC's L2 Cache
-> controller to YAML format.
-> 
-> Signed-off-by: Sagar Kadam <sagar.kadam@sifive.com>
-> ---
->  .../devicetree/bindings/riscv/sifive-l2-cache.txt  | 51 ------------
->  .../devicetree/bindings/riscv/sifive-l2-cache.yaml | 92 ++++++++++++++++++++++
->  2 files changed, 92 insertions(+), 51 deletions(-)
->  delete mode 100644 Documentation/devicetree/bindings/riscv/sifive-l2-cache.txt
->  create mode 100644 Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.txt b/Documentation/devicetree/bindings/riscv/sifive-l2-cache.txt
-> deleted file mode 100644
-> index 73d8f19..0000000
-> --- a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.txt
-> +++ /dev/null
-> @@ -1,51 +0,0 @@
-> -SiFive L2 Cache Controller
-> ---------------------------
-> -The SiFive Level 2 Cache Controller is used to provide access to fast copies
-> -of memory for masters in a Core Complex. The Level 2 Cache Controller also
-> -acts as directory-based coherency manager.
-> -All the properties in ePAPR/DeviceTree specification applies for this platform
-> -
-> -Required Properties:
-> ---------------------
-> -- compatible: Should be "sifive,fu540-c000-ccache" and "cache"
-> -
-> -- cache-block-size: Specifies the block size in bytes of the cache.
-> -  Should be 64
-> -
-> -- cache-level: Should be set to 2 for a level 2 cache
-> -
-> -- cache-sets: Specifies the number of associativity sets of the cache.
-> -  Should be 1024
-> -
-> -- cache-size: Specifies the size in bytes of the cache. Should be 2097152
-> -
-> -- cache-unified: Specifies the cache is a unified cache
-> -
-> -- interrupts: Must contain 3 entries (DirError, DataError and DataFail signals)
-> -
-> -- reg: Physical base address and size of L2 cache controller registers map
-> -
-> -Optional Properties:
-> ---------------------
-> -- next-level-cache: phandle to the next level cache if present.
-> -
-> -- memory-region: reference to the reserved-memory for the L2 Loosely Integrated
-> -  Memory region. The reserved memory node should be defined as per the bindings
-> -  in reserved-memory.txt
-> -
-> -
-> -Example:
-> -
-> -	cache-controller@2010000 {
-> -		compatible = "sifive,fu540-c000-ccache", "cache";
-> -		cache-block-size = <64>;
-> -		cache-level = <2>;
-> -		cache-sets = <1024>;
-> -		cache-size = <2097152>;
-> -		cache-unified;
-> -		interrupt-parent = <&plic0>;
-> -		interrupts = <1 2 3>;
-> -		reg = <0x0 0x2010000 0x0 0x1000>;
-> -		next-level-cache = <&L25 &L40 &L36>;
-> -		memory-region = <&l2_lim>;
-> -	};
-> diff --git a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml b/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
-> new file mode 100644
-> index 0000000..e14c8c6
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
-> @@ -0,0 +1,92 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +# Copyright (C) 2020 SiFive, Inc.
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/riscv/sifive-l2-cache.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: SiFive L2 Cache Controller
-> +
-> +maintainers:
-> +  - Sagar Kadam <sagar.kadam@sifive.com>
-> +  - Yash Shah <yash.shah@sifive.com>
-> +  - Paul Walmsley  <paul.walmsley@sifive.com>
-> +
-> +description:
-> +  The SiFive Level 2 Cache Controller is used to provide access to fast copies
-> +  of memory for masters in a Core Complex. The Level 2 Cache Controller also
-> +  acts as directory-based coherency manager.
-> +  All the properties in ePAPR/DeviceTree specification applies for this platform.
-> +
-> +allOf:
-> +  - $ref: /schemas/cache-controller.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +     - enum:
-> +        - sifive,fu540-c000-ccache
-> +    description: |
-> +      Should have "sifive,<soc>-cache" and "cache".
+On Sat, 12 Sep 2020 at 05:04, Atish Patra <atishp@atishpatra.org> wrote:
+>
+> On Fri, Sep 11, 2020 at 6:09 AM Ard Biesheuvel <ardb@kernel.org> wrote:
+> >
+> > On Fri, 28 Aug 2020 at 20:20, Atish Patra <atish.patra@wdc.com> wrote:
+> > >
+> > > Linux kernel Image can appear as an EFI application With appropriate
+> > > PE/COFF header fields in the beginning of the Image header. An EFI
+> > > application loader can directly load a Linux kernel Image and an EFI
+> > > stub residing in kernel can boot Linux kernel directly.
+> > >
+> > > Add the necessary PE/COFF header.
+> > >
+> > > Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> > > Link: https://lore.kernel.org/r/20200421033336.9663-3-atish.patra@wdc.com
+> > > [ardb: - use C prefix for c.li to ensure the expected opcode is emitted
+> > >        - align all image sections according to PE/COFF section alignment ]
+> > > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> > > Reviewed-by: Anup Patel <anup@brainfault.org>
+> >
+> > Since you need to respin this anyway, one comment below on a thing
+> > that I spotted while revisiting these patches.
+> >
+> > > ---
+> > >  arch/riscv/include/asm/sections.h |  13 ++++
+> > >  arch/riscv/kernel/Makefile        |   4 ++
+> > >  arch/riscv/kernel/efi-header.S    | 104 ++++++++++++++++++++++++++++++
+> > >  arch/riscv/kernel/head.S          |  16 +++++
+> > >  arch/riscv/kernel/image-vars.h    |  51 +++++++++++++++
+> > >  arch/riscv/kernel/vmlinux.lds.S   |  22 ++++++-
+> > >  6 files changed, 208 insertions(+), 2 deletions(-)
+> > >  create mode 100644 arch/riscv/include/asm/sections.h
+> > >  create mode 100644 arch/riscv/kernel/efi-header.S
+> > >  create mode 100644 arch/riscv/kernel/image-vars.h
+> > >
+> > > diff --git a/arch/riscv/include/asm/sections.h b/arch/riscv/include/asm/sections.h
+> > > new file mode 100644
+> > > index 000000000000..3a9971b1210f
+> > > --- /dev/null
+> > > +++ b/arch/riscv/include/asm/sections.h
+> > > @@ -0,0 +1,13 @@
+> > > +/* SPDX-License-Identifier: GPL-2.0-only */
+> > > +/*
+> > > + * Copyright (C) 2020 Western Digital Corporation or its affiliates.
+> > > + */
+> > > +#ifndef __ASM_SECTIONS_H
+> > > +#define __ASM_SECTIONS_H
+> > > +
+> > > +#include <asm-generic/sections.h>
+> > > +
+> > > +extern char _start[];
+> > > +extern char _start_kernel[];
+> > > +
+> > > +#endif /* __ASM_SECTIONS_H */
+> > > diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+> > > index dc93710f0b2f..41e3895a3192 100644
+> > > --- a/arch/riscv/kernel/Makefile
+> > > +++ b/arch/riscv/kernel/Makefile
+> > > @@ -31,6 +31,10 @@ obj-y        += cacheinfo.o
+> > >  obj-y  += patch.o
+> > >  obj-$(CONFIG_MMU) += vdso.o vdso/
+> > >
+> > > +OBJCOPYFLAGS := --prefix-symbols=__efistub_
+> > > +$(obj)/%.stub.o: $(obj)/%.o FORCE
+> > > +       $(call if_changed,objcopy)
+> > > +
+> > >  obj-$(CONFIG_RISCV_M_MODE)     += traps_misaligned.o
+> > >  obj-$(CONFIG_FPU)              += fpu.o
+> > >  obj-$(CONFIG_SMP)              += smpboot.o
+> > > diff --git a/arch/riscv/kernel/efi-header.S b/arch/riscv/kernel/efi-header.S
+> > > new file mode 100644
+> > > index 000000000000..822b4c9ff2bb
+> > > --- /dev/null
+> > > +++ b/arch/riscv/kernel/efi-header.S
+> > > @@ -0,0 +1,104 @@
+> > > +/* SPDX-License-Identifier: GPL-2.0-only */
+> > > +/*
+> > > + * Copyright (C) 2020 Western Digital Corporation or its affiliates.
+> > > + * Adapted from arch/arm64/kernel/efi-header.S
+> > > + */
+> > > +
+> > > +#include <linux/pe.h>
+> > > +#include <linux/sizes.h>
+> > > +
+> > > +       .macro  __EFI_PE_HEADER
+> > > +       .long   PE_MAGIC
+> > > +coff_header:
+> > > +#ifdef CONFIG_64BIT
+> > > +       .short  IMAGE_FILE_MACHINE_RISCV64              // Machine
+> > > +#else
+> > > +       .short  IMAGE_FILE_MACHINE_RISCV32              // Machine
+> > > +#endif
+> > > +       .short  section_count                           // NumberOfSections
+> > > +       .long   0                                       // TimeDateStamp
+> > > +       .long   0                                       // PointerToSymbolTable
+> > > +       .long   0                                       // NumberOfSymbols
+> > > +       .short  section_table - optional_header         // SizeOfOptionalHeader
+> > > +       .short  IMAGE_FILE_DEBUG_STRIPPED | \
+> > > +               IMAGE_FILE_EXECUTABLE_IMAGE | \
+> > > +               IMAGE_FILE_LINE_NUMS_STRIPPED           // Characteristics
+> > > +
+> > > +optional_header:
+> > > +       .short  PE_OPT_MAGIC_PE32PLUS                   // PE32+ format
+> >
+> > Are you sure both riscv32 and riscv64 use PE32+? IIUC, 32-bit
+> > architectures use PE32 not PE32+ (but I could be wrong)
+> >
+>
+> Ahh yes. You are correct. Thanks for noticing it.
+> I just followed the U-Boot implementation [1]. I will update this in
+> the next revision and update the U-Boot code as well.
+>
+> As per the specification, we also need to add a BaseOfData[2] entry for RV32.
+> Does any of the efi application loader actually use BaseOfData or can
+> we set it to zero for RV32 ?
+>
 
-That's not what the schema describes or the example has (the 'cache' 
-fallback).
+Just do whatever ARM and 32-bit x86 do.
 
-> +
-> +  cache-block-size:
-> +    const: 64
-> +
-> +  cache-level:
-> +    const: 2
-> +
-> +  cache-sets:
-> +    const: 1024
-> +
-> +  cache-size:
-> +    const: 2097152
-> +
-> +  cache-unified: true
-> +
-> +  interrupts:
-> +    description: |
-> +      Must contain entries for DirError, DataError and DataFail signals.
-> +    minItems: 1
 
-The old doc said must have 3 entries.
-
-> +    maxItems: 3
-> +
-> +  reg:
-> +    maxItems: 1
-> +    description: address of cache controller's registers.
-
-Drop this.
-
-> +
-> +
-
-One blank line please.
-
-> +  next-level-cache:
-> +    description: |
-> +      Phandle to the next level cache if present.
-
-No need to re-describe common properties unless you have something 
-unique to this device to say. Just:
-
-'next-level-cache: true'
-
-> +
-> +  memory-region:
-> +    description: |
-> +      The reference to the reserved-memory for the L2 Loosely Integrated memory region.
-> +      The reserved memory node should be defined as per the bindings in reserved-memory.txt.
-> +
-> +additionalProperties: false
-> +
-> +required:
-> +  - compatible
-> +  - cache-block-size
-> +  - cache-level
-> +  - cache-sets
-> +  - cache-size
-> +  - cache-unified
-> +  - interrupts
-> +  - reg
-> +
-> +examples:
-> +  - |
-> +    cache-controller@2010000 {
-> +        compatible = "sifive,fu540-c000-ccache";
-> +        cache-block-size = <64>;
-> +        cache-level = <2>;
-> +        cache-sets = <1024>;
-> +        cache-size = <2097152>;
-> +        cache-unified;
-> +        reg = <0x2010000 0x1000>;
-> +        interrupt-parent = <&plic0>;
-> +        interrupts = <1 2 3>;
-> +        next-level-cache = <&L25>;
-> +        memory-region = <&l2_lim>;
-> +    };
-> -- 
-> 2.7.4
-> 
+> [1] https://gitlab.denx.de/u-boot/custodians/u-boot-amlogic/-/blob/u-boot-amlogic/arch/riscv/lib/crt0_riscv_efi.S#L51
+> [2] https://docs.microsoft.com/en-us/windows/win32/debug/pe-format
+>
+> > > +       .byte   0x02                                    // MajorLinkerVersion
+> > > +       .byte   0x14                                    // MinorLinkerVersion
+> > > +       .long   __pecoff_text_end - efi_header_end      // SizeOfCode
+> > > +       .long   __pecoff_data_virt_size                 // SizeOfInitializedData
+> > > +       .long   0                                       // SizeOfUninitializedData
+> > > +       .long   __efistub_efi_pe_entry - _start         // AddressOfEntryPoint
+> > > +       .long   efi_header_end - _start                 // BaseOfCode
+> > > +
+> > > +extra_header_fields:
+> > > +       .quad   0                                       // ImageBase
+> > > +       .long   PECOFF_SECTION_ALIGNMENT                // SectionAlignment
+> > > +       .long   PECOFF_FILE_ALIGNMENT                   // FileAlignment
+> > > +       .short  0                                       // MajorOperatingSystemVersion
+> > > +       .short  0                                       // MinorOperatingSystemVersion
+> > > +       .short  LINUX_EFISTUB_MAJOR_VERSION             // MajorImageVersion
+> > > +       .short  LINUX_EFISTUB_MINOR_VERSION             // MinorImageVersion
+> > > +       .short  0                                       // MajorSubsystemVersion
+> > > +       .short  0                                       // MinorSubsystemVersion
+> > > +       .long   0                                       // Win32VersionValue
+> > > +
+> > > +       .long   _end - _start                           // SizeOfImage
+> > > +
+> > > +       // Everything before the kernel image is considered part of the header
+> > > +       .long   efi_header_end - _start                 // SizeOfHeaders
+> > > +       .long   0                                       // CheckSum
+> > > +       .short  IMAGE_SUBSYSTEM_EFI_APPLICATION         // Subsystem
+> > > +       .short  0                                       // DllCharacteristics
+> > > +       .quad   0                                       // SizeOfStackReserve
+> > > +       .quad   0                                       // SizeOfStackCommit
+> > > +       .quad   0                                       // SizeOfHeapReserve
+> > > +       .quad   0                                       // SizeOfHeapCommit
+> > > +       .long   0                                       // LoaderFlags
+> > > +       .long   (section_table - .) / 8                 // NumberOfRvaAndSizes
+> > > +
+> > > +       .quad   0                                       // ExportTable
+> > > +       .quad   0                                       // ImportTable
+> > > +       .quad   0                                       // ResourceTable
+> > > +       .quad   0                                       // ExceptionTable
+> > > +       .quad   0                                       // CertificationTable
+> > > +       .quad   0                                       // BaseRelocationTable
+> > > +
+> > > +       // Section table
+> > > +section_table:
+> > > +       .ascii  ".text\0\0\0"
+> > > +       .long   __pecoff_text_end - efi_header_end      // VirtualSize
+> > > +       .long   efi_header_end - _start                 // VirtualAddress
+> > > +       .long   __pecoff_text_end - efi_header_end      // SizeOfRawData
+> > > +       .long   efi_header_end - _start                 // PointerToRawData
+> > > +
+> > > +       .long   0                                       // PointerToRelocations
+> > > +       .long   0                                       // PointerToLineNumbers
+> > > +       .short  0                                       // NumberOfRelocations
+> > > +       .short  0                                       // NumberOfLineNumbers
+> > > +       .long   IMAGE_SCN_CNT_CODE | \
+> > > +               IMAGE_SCN_MEM_READ | \
+> > > +               IMAGE_SCN_MEM_EXECUTE                   // Characteristics
+> > > +
+> > > +       .ascii  ".data\0\0\0"
+> > > +       .long   __pecoff_data_virt_size                 // VirtualSize
+> > > +       .long   __pecoff_text_end - _start              // VirtualAddress
+> > > +       .long   __pecoff_data_raw_size                  // SizeOfRawData
+> > > +       .long   __pecoff_text_end - _start              // PointerToRawData
+> > > +
+> > > +       .long   0                                       // PointerToRelocations
+> > > +       .long   0                                       // PointerToLineNumbers
+> > > +       .short  0                                       // NumberOfRelocations
+> > > +       .short  0                                       // NumberOfLineNumbers
+> > > +       .long   IMAGE_SCN_CNT_INITIALIZED_DATA | \
+> > > +               IMAGE_SCN_MEM_READ | \
+> > > +               IMAGE_SCN_MEM_WRITE                     // Characteristics
+> > > +
+> > > +       .set    section_count, (. - section_table) / 40
+> > > +
+> > > +       .balign 0x1000
+> > > +efi_header_end:
+> > > +       .endm
+> > > diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+> > > index c6a37e8231a8..3631147732ee 100644
+> > > --- a/arch/riscv/kernel/head.S
+> > > +++ b/arch/riscv/kernel/head.S
+> > > @@ -13,6 +13,7 @@
+> > >  #include <asm/csr.h>
+> > >  #include <asm/hwcap.h>
+> > >  #include <asm/image.h>
+> > > +#include "efi-header.S"
+> > >
+> > >  __HEAD
+> > >  ENTRY(_start)
+> > > @@ -22,10 +23,18 @@ ENTRY(_start)
+> > >          * Do not modify it without modifying the structure and all bootloaders
+> > >          * that expects this header format!!
+> > >          */
+> > > +#ifdef CONFIG_EFI
+> > > +       /*
+> > > +        * This instruction decodes to "MZ" ASCII required by UEFI.
+> > > +        */
+> > > +       c.li s4,-13
+> > > +       j _start_kernel
+> > > +#else
+> > >         /* jump to start kernel */
+> > >         j _start_kernel
+> > >         /* reserved */
+> > >         .word 0
+> > > +#endif
+> > >         .balign 8
+> > >  #if __riscv_xlen == 64
+> > >         /* Image load offset(2MB) from start of RAM */
+> > > @@ -43,7 +52,14 @@ ENTRY(_start)
+> > >         .ascii RISCV_IMAGE_MAGIC
+> > >         .balign 4
+> > >         .ascii RISCV_IMAGE_MAGIC2
+> > > +#ifdef CONFIG_EFI
+> > > +       .word pe_head_start - _start
+> > > +pe_head_start:
+> > > +
+> > > +       __EFI_PE_HEADER
+> > > +#else
+> > >         .word 0
+> > > +#endif
+> > >
+> > >  .align 2
+> > >  #ifdef CONFIG_MMU
+> > > diff --git a/arch/riscv/kernel/image-vars.h b/arch/riscv/kernel/image-vars.h
+> > > new file mode 100644
+> > > index 000000000000..8c212efb37a6
+> > > --- /dev/null
+> > > +++ b/arch/riscv/kernel/image-vars.h
+> > > @@ -0,0 +1,51 @@
+> > > +/* SPDX-License-Identifier: GPL-2.0-only */
+> > > +/*
+> > > + * Copyright (C) 2020 Western Digital Corporation or its affiliates.
+> > > + * Linker script variables to be set after section resolution, as
+> > > + * ld.lld does not like variables assigned before SECTIONS is processed.
+> > > + * Based on arch/arm64/kerne/image-vars.h
+> > > + */
+> > > +#ifndef __RISCV_KERNEL_IMAGE_VARS_H
+> > > +#define __RISCV_KERNEL_IMAGE_VARS_H
+> > > +
+> > > +#ifndef LINKER_SCRIPT
+> > > +#error This file should only be included in vmlinux.lds.S
+> > > +#endif
+> > > +
+> > > +#ifdef CONFIG_EFI
+> > > +
+> > > +/*
+> > > + * The EFI stub has its own symbol namespace prefixed by __efistub_, to
+> > > + * isolate it from the kernel proper. The following symbols are legally
+> > > + * accessed by the stub, so provide some aliases to make them accessible.
+> > > + * Only include data symbols here, or text symbols of functions that are
+> > > + * guaranteed to be safe when executed at another offset than they were
+> > > + * linked at. The routines below are all implemented in assembler in a
+> > > + * position independent manner
+> > > + */
+> > > +__efistub_memcmp               = memcmp;
+> > > +__efistub_memchr               = memchr;
+> > > +__efistub_memcpy               = memcpy;
+> > > +__efistub_memmove              = memmove;
+> > > +__efistub_memset               = memset;
+> > > +__efistub_strlen               = strlen;
+> > > +__efistub_strnlen              = strnlen;
+> > > +__efistub_strcmp               = strcmp;
+> > > +__efistub_strncmp              = strncmp;
+> > > +__efistub_strrchr              = strrchr;
+> > > +
+> > > +#ifdef CONFIG_KASAN
+> > > +__efistub___memcpy             = memcpy;
+> > > +__efistub___memmove            = memmove;
+> > > +__efistub___memset             = memset;
+> > > +#endif
+> > > +
+> > > +__efistub__start               = _start;
+> > > +__efistub__start_kernel                = _start_kernel;
+> > > +__efistub__end                 = _end;
+> > > +__efistub__edata               = _edata;
+> > > +__efistub_screen_info          = screen_info;
+> > > +
+> > > +#endif
+> > > +
+> > > +#endif /* __RISCV_KERNEL_IMAGE_VARS_H */
+> > > diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
+> > > index f3586e31ed1e..6dcf790282dd 100644
+> > > --- a/arch/riscv/kernel/vmlinux.lds.S
+> > > +++ b/arch/riscv/kernel/vmlinux.lds.S
+> > > @@ -10,6 +10,7 @@
+> > >  #include <asm/cache.h>
+> > >  #include <asm/thread_info.h>
+> > >  #include <asm/set_memory.h>
+> > > +#include "image-vars.h"
+> > >
+> > >  #include <linux/sizes.h>
+> > >  OUTPUT_ARCH(riscv)
+> > > @@ -17,6 +18,9 @@ ENTRY(_start)
+> > >
+> > >  jiffies = jiffies_64;
+> > >
+> > > +PECOFF_SECTION_ALIGNMENT = 0x1000;
+> > > +PECOFF_FILE_ALIGNMENT = 0x200;
+> > > +
+> > >  SECTIONS
+> > >  {
+> > >         /* Beginning of code and text segment */
+> > > @@ -76,6 +80,10 @@ SECTIONS
+> > >
+> > >         EXCEPTION_TABLE(0x10)
+> > >
+> > > +#ifdef CONFIG_EFI
+> > > +       . = ALIGN(PECOFF_SECTION_ALIGNMENT);
+> > > +       __pecoff_text_end = .;
+> > > +#endif
+> > >         . = ALIGN(SECTION_ALIGN);
+> > >         _data = .;
+> > >
+> > > @@ -83,16 +91,26 @@ SECTIONS
+> > >         .sdata : {
+> > >                 __global_pointer$ = . + 0x800;
+> > >                 *(.sdata*)
+> > > -               /* End of data section */
+> > > -               _edata = .;
+> > >         }
+> > >
+> > > +#ifdef CONFIG_EFI
+> > > +       .pecoff_edata_padding : { BYTE(0); . = ALIGN(PECOFF_FILE_ALIGNMENT); }
+> > > +       __pecoff_data_raw_size = ABSOLUTE(. - __pecoff_text_end);
+> > > +#endif
+> > > +
+> > > +       /* End of data section */
+> > > +       _edata = .;
+> > > +
+> > >         BSS_SECTION(PAGE_SIZE, PAGE_SIZE, 0)
+> > >
+> > >         .rel.dyn : {
+> > >                 *(.rel.dyn*)
+> > >         }
+> > >
+> > > +#ifdef CONFIG_EFI
+> > > +       . = ALIGN(PECOFF_SECTION_ALIGNMENT);
+> > > +       __pecoff_data_virt_size = ABSOLUTE(. - __pecoff_text_end);
+> > > +#endif
+> > >         _end = .;
+> > >
+> > >         STABS_DEBUG
+> > > --
+> > > 2.24.0
+> > >
+> >
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+>
+>
+>
+> --
+> Regards,
+> Atish
 
 _______________________________________________
 linux-riscv mailing list
