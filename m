@@ -5,18 +5,18 @@ X-Spam-Level:
 X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_SANE_2 autolearn=unavailable autolearn_force=no version=3.4.0
+	USER_AGENT_SANE_2 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 95823C433E2
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2020 14:23:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CFBD4C433E2
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2020 14:32:47 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 001D62074B
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2020 14:22:59 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E388A206C9
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2020 14:32:46 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="k+wR0V+E"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 001D62074B
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="z4hmN4ED"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E388A206C9
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=Huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,35 +25,35 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=J63ir68tZm6t+3kAuqGDEixn5iVkmKCVq5Rfs2r7pu4=; b=k+wR0V+EsFtt5kqpvVWQgLRp8
-	mVMvSHueQNQ7EY+AiI2y5mpZIPqpHq/5US/ppETwiltgHVvgypSQnZgyK/OgkybB4vvl1UyXgDEEm
-	umIsHS6xEZVRRgJTjdxqUCblpFnWNnZIn6qMsmN7CqzbgtqiXn+hBV3OegGQ+58q3jj0RCW0UH79H
-	HCUOkJff0jhvcESB+lYqDx708L3PsBnQtQCkrglK95DxSK6zRIIPoS+oFYgxQZ9X+NH99cpt6Q2rs
-	3xybH77/itvTpZfXhl0sveD61bh4l4p34iLBxvuEgtk06zZrqZE3Qm9T7Q/EY99Dwn+TY+Dgzgq7X
-	AhB+QnpiQ==;
+	 bh=fZymbjaf8rVNrRFizIGY+vWtvlL651hxQf6v7Qsa3Lg=; b=z4hmN4EDwI6w5dsLaYAESQSxz
+	Ys9DWfd42Phs/4fvOYwb/r6pn/OmplbGHSN30aWm3O/OovUKXiMr6em9AZ/9rNjr0uEiK88Vjcp0s
+	cOu/3u1PYb3C3acRM+7HT7dBgI/VPZylidcFWYJddbsrbNW7r455rnTl96bikbLIZZqG5QnLgL67+
+	QXzO1RvcYD+HFX17+TOaqSMBlBk17m4M6B5+fKI6habCwDE0mBIljr+RBqTSeXxiFmxDJ/9iCDAy+
+	/c4IRk7RHyQXHz3dFfzf9v6e2wiYNtWAQ9V1T90tc1czUzj5OzEuAu4fl1YxmKkGrNI5NMzuxVk5j
+	Lny+0okkQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kHpNW-0000Eq-DT; Mon, 14 Sep 2020 14:22:46 +0000
+	id 1kHpWx-00026C-0z; Mon, 14 Sep 2020 14:32:31 +0000
 Received: from lhrrgout.huawei.com ([185.176.76.210] helo=huawei.com)
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kHpNT-0000AE-Iy
- for linux-riscv@lists.infradead.org; Mon, 14 Sep 2020 14:22:44 +0000
-Received: from lhreml710-chm.china.huawei.com (unknown [172.18.7.106])
- by Forcepoint Email with ESMTP id 12434ADA93495CC8BBE9;
- Mon, 14 Sep 2020 15:22:41 +0100 (IST)
+ id 1kHpWu-00025b-JL
+ for linux-riscv@lists.infradead.org; Mon, 14 Sep 2020 14:32:29 +0000
+Received: from lhreml710-chm.china.huawei.com (unknown [172.18.7.108])
+ by Forcepoint Email with ESMTP id C7D0D341D0945326592E;
+ Mon, 14 Sep 2020 15:32:25 +0100 (IST)
 Received: from localhost (10.52.126.156) by lhreml710-chm.china.huawei.com
  (10.201.108.61) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1913.5; Mon, 14 Sep
- 2020 15:22:40 +0100
-Date: Mon, 14 Sep 2020 15:21:03 +0100
+ 2020 15:32:24 +0100
+Date: Mon, 14 Sep 2020 15:30:48 +0100
 From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
 To: Atish Patra <atish.patra@wdc.com>
-Subject: Re: [RFC/RFT PATCH v2 1/5] numa: Move numa implementation to common
- code
-Message-ID: <20200914152103.000062e3@Huawei.com>
-In-Reply-To: <20200912013441.9730-2-atish.patra@wdc.com>
+Subject: Re: [RFC/RFT PATCH v2 2/5] arm64, numa: Change the numa init
+ function name to be generic
+Message-ID: <20200914153048.000038ed@Huawei.com>
+In-Reply-To: <20200912013441.9730-3-atish.patra@wdc.com>
 References: <20200912013441.9730-1-atish.patra@wdc.com>
- <20200912013441.9730-2-atish.patra@wdc.com>
+ <20200912013441.9730-3-atish.patra@wdc.com>
 Organization: Huawei Technologies Research and Development (UK) Ltd.
 X-Mailer: Claws Mail 3.17.4 (GTK+ 2.24.32; i686-w64-mingw32)
 MIME-Version: 1.0
@@ -62,8 +62,8 @@ X-ClientProxiedBy: lhreml717-chm.china.huawei.com (10.201.108.68) To
  lhreml710-chm.china.huawei.com (10.201.108.61)
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200914_102244_059547_08ED97BE 
-X-CRM114-Status: GOOD (  21.36  )
+X-CRM114-CacheID: sfid-20200914_103228_785717_F78B4304 
+X-CRM114-Status: GOOD (  21.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -94,198 +94,154 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 11 Sep 2020 18:34:37 -0700
+On Fri, 11 Sep 2020 18:34:38 -0700
 Atish Patra <atish.patra@wdc.com> wrote:
 
-> ARM64 numa implementation is generic enough that RISC-V can reuse that
-> implementation with very minor cosmetic changes. This will help both
-> ARM64 and RISC-V in terms of maintanace and feature improvement
-> 
-> Move the numa implementation code to common directory so that both ISAs
-> can reuse this. This doesn't introduce any function changes for ARM64.
+> As we are using generic numa implementation code, modify the init function
+> name to indicate that generic implementation.
 > 
 > Signed-off-by: Atish Patra <atish.patra@wdc.com>
-Looks good to me.
 
-Acked-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+A few comments inline but more about which layer we do the build protections
+at than anything important.
+
+Thanks,
+
+Jonathan
 
 > ---
->  arch/arm64/Kconfig                            |  1 +
->  arch/arm64/include/asm/numa.h                 | 45 +----------------
->  arch/arm64/mm/Makefile                        |  1 -
->  drivers/base/Kconfig                          |  6 +++
->  drivers/base/Makefile                         |  1 +
->  .../mm/numa.c => drivers/base/arch_numa.c     |  0
->  include/asm-generic/numa.h                    | 49 +++++++++++++++++++
->  7 files changed, 58 insertions(+), 45 deletions(-)
->  rename arch/arm64/mm/numa.c => drivers/base/arch_numa.c (100%)
->  create mode 100644 include/asm-generic/numa.h
+>  arch/arm64/kernel/acpi_numa.c | 13 -------------
+>  arch/arm64/mm/init.c          |  4 ++--
+>  drivers/base/arch_numa.c      | 29 ++++++++++++++++++++++++++---
+>  include/asm-generic/numa.h    |  4 ++--
+>  4 files changed, 30 insertions(+), 20 deletions(-)
 > 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 6d232837cbee..955a0cf75b16 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -960,6 +960,7 @@ config HOTPLUG_CPU
->  # Common NUMA Features
->  config NUMA
->  	bool "NUMA Memory Allocation and Scheduler Support"
-> +	select GENERIC_ARCH_NUMA
->  	select ACPI_NUMA if ACPI
->  	select OF_NUMA
->  	help
-> diff --git a/arch/arm64/include/asm/numa.h b/arch/arm64/include/asm/numa.h
-> index 626ad01e83bf..8c8cf4297cc3 100644
-> --- a/arch/arm64/include/asm/numa.h
-> +++ b/arch/arm64/include/asm/numa.h
-> @@ -3,49 +3,6 @@
->  #define __ASM_NUMA_H
+> diff --git a/arch/arm64/kernel/acpi_numa.c b/arch/arm64/kernel/acpi_numa.c
+> index 7ff800045434..96502ff92af5 100644
+> --- a/arch/arm64/kernel/acpi_numa.c
+> +++ b/arch/arm64/kernel/acpi_numa.c
+> @@ -117,16 +117,3 @@ void __init acpi_numa_gicc_affinity_init(struct acpi_srat_gicc_affinity *pa)
 >  
->  #include <asm/topology.h>
+>  	node_set(node, numa_nodes_parsed);
+>  }
 > -
-> -#ifdef CONFIG_NUMA
-> -
-> -#define NR_NODE_MEMBLKS		(MAX_NUMNODES * 2)
-> -
-> -int __node_distance(int from, int to);
-> -#define node_distance(a, b) __node_distance(a, b)
-> -
-> -extern nodemask_t numa_nodes_parsed __initdata;
-> -
-> -extern bool numa_off;
-> -
-> -/* Mappings between node number and cpus on that node. */
-> -extern cpumask_var_t node_to_cpumask_map[MAX_NUMNODES];
-> -void numa_clear_node(unsigned int cpu);
-> -
-> -#ifdef CONFIG_DEBUG_PER_CPU_MAPS
-> -const struct cpumask *cpumask_of_node(int node);
-> -#else
-> -/* Returns a pointer to the cpumask of CPUs on Node 'node'. */
-> -static inline const struct cpumask *cpumask_of_node(int node)
+> -int __init arm64_acpi_numa_init(void)
 > -{
-> -	return node_to_cpumask_map[node];
+> -	int ret;
+> -
+> -	ret = acpi_numa_init();
+> -	if (ret) {
+> -		pr_info("Failed to initialise from firmware\n");
+> -		return ret;
+> -	}
+> -
+> -	return srat_disabled() ? -EINVAL : 0;
 > -}
-> -#endif
-> -
-> -void __init arm64_numa_init(void);
-> -int __init numa_add_memblk(int nodeid, u64 start, u64 end);
-> -void __init numa_set_distance(int from, int to, int distance);
-> -void __init numa_free_distance(void);
-> -void __init early_map_cpu_to_node(unsigned int cpu, int nid);
-> -void numa_store_cpu_info(unsigned int cpu);
-> -void numa_add_cpu(unsigned int cpu);
-> -void numa_remove_cpu(unsigned int cpu);
-> -
-> -#else	/* CONFIG_NUMA */
-> -
-> -static inline void numa_store_cpu_info(unsigned int cpu) { }
-> -static inline void numa_add_cpu(unsigned int cpu) { }
-> -static inline void numa_remove_cpu(unsigned int cpu) { }
-> -static inline void arm64_numa_init(void) { }
-> -static inline void early_map_cpu_to_node(unsigned int cpu, int nid) { }
-> -
-> -#endif	/* CONFIG_NUMA */
-> +#include <asm-generic/numa.h>
+> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+> index 481d22c32a2e..93b660229e1d 100644
+> --- a/arch/arm64/mm/init.c
+> +++ b/arch/arm64/mm/init.c
+> @@ -418,10 +418,10 @@ void __init bootmem_init(void)
+>  	max_pfn = max_low_pfn = max;
+>  	min_low_pfn = min;
 >  
->  #endif	/* __ASM_NUMA_H */
-> diff --git a/arch/arm64/mm/Makefile b/arch/arm64/mm/Makefile
-> index d91030f0ffee..928c308b044b 100644
-> --- a/arch/arm64/mm/Makefile
-> +++ b/arch/arm64/mm/Makefile
-> @@ -6,7 +6,6 @@ obj-y				:= dma-mapping.o extable.o fault.o init.o \
->  obj-$(CONFIG_HUGETLB_PAGE)	+= hugetlbpage.o
->  obj-$(CONFIG_PTDUMP_CORE)	+= dump.o
->  obj-$(CONFIG_PTDUMP_DEBUGFS)	+= ptdump_debugfs.o
-> -obj-$(CONFIG_NUMA)		+= numa.o
->  obj-$(CONFIG_DEBUG_VIRTUAL)	+= physaddr.o
->  KASAN_SANITIZE_physaddr.o	+= n
+> -	arm64_numa_init();
+> +	arch_numa_init();
 >  
-> diff --git a/drivers/base/Kconfig b/drivers/base/Kconfig
-> index 8d7001712062..c5956c8845cc 100644
-> --- a/drivers/base/Kconfig
-> +++ b/drivers/base/Kconfig
-> @@ -210,4 +210,10 @@ config GENERIC_ARCH_TOPOLOGY
->  	  appropriate scaling, sysfs interface for reading capacity values at
->  	  runtime.
+>  	/*
+> -	 * must be done after arm64_numa_init() which calls numa_init() to
+> +	 * must be done after arch_numa_init() which calls numa_init() to
+>  	 * initialize node_online_map that gets used in hugetlb_cma_reserve()
+>  	 * while allocating required CMA size across online nodes.
+>  	 */
+> diff --git a/drivers/base/arch_numa.c b/drivers/base/arch_numa.c
+> index 73f8b49d485c..a4039dcabd3e 100644
+> --- a/drivers/base/arch_numa.c
+> +++ b/drivers/base/arch_numa.c
+> @@ -13,7 +13,9 @@
+>  #include <linux/module.h>
+>  #include <linux/of.h>
 >  
-> +config GENERIC_ARCH_NUMA
-> +	bool
-> +	help
-> +	  Enable support for generic NUMA implementation. Currently, RISC-V
-> +	  and ARM64 uses it.
-> +
->  endmenu
-> diff --git a/drivers/base/Makefile b/drivers/base/Makefile
-> index 157452080f3d..c3d02c644222 100644
-> --- a/drivers/base/Makefile
-> +++ b/drivers/base/Makefile
-> @@ -23,6 +23,7 @@ obj-$(CONFIG_PINCTRL) += pinctrl.o
->  obj-$(CONFIG_DEV_COREDUMP) += devcoredump.o
->  obj-$(CONFIG_GENERIC_MSI_IRQ_DOMAIN) += platform-msi.o
->  obj-$(CONFIG_GENERIC_ARCH_TOPOLOGY) += arch_topology.o
-> +obj-$(CONFIG_GENERIC_ARCH_NUMA) += arch_numa.o
+> +#ifdef CONFIG_ACPI_NUMA
+>  #include <asm/acpi.h>
+> +#endif
+
+Could include linux/acpi.h which I think gets you everything you need in here
+and has protections against building for non ACPI cases.
+
+>  #include <asm/sections.h>
 >  
->  obj-y			+= test/
+>  struct pglist_data *node_data[MAX_NUMNODES] __read_mostly;
+> @@ -444,16 +446,37 @@ static int __init dummy_numa_init(void)
+>  	return 0;
+>  }
 >  
-> diff --git a/arch/arm64/mm/numa.c b/drivers/base/arch_numa.c
-> similarity index 100%
-> rename from arch/arm64/mm/numa.c
-> rename to drivers/base/arch_numa.c
-> diff --git a/include/asm-generic/numa.h b/include/asm-generic/numa.h
-> new file mode 100644
-> index 000000000000..2718d5a6ff03
-> --- /dev/null
-> +++ b/include/asm-generic/numa.h
-> @@ -0,0 +1,49 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef __ASM_GENERIC_NUMA_H
-> +#define __ASM_GENERIC_NUMA_H
-> +
-> +#ifdef CONFIG_NUMA
-> +
-> +#define NR_NODE_MEMBLKS		(MAX_NUMNODES * 2)
-> +
-> +int __node_distance(int from, int to);
-> +#define node_distance(a, b) __node_distance(a, b)
-> +
-> +extern nodemask_t numa_nodes_parsed __initdata;
-> +
-> +extern bool numa_off;
-> +
-> +/* Mappings between node number and cpus on that node. */
-> +extern cpumask_var_t node_to_cpumask_map[MAX_NUMNODES];
-> +void numa_clear_node(unsigned int cpu);
-> +
-> +#ifdef CONFIG_DEBUG_PER_CPU_MAPS
-> +const struct cpumask *cpumask_of_node(int node);
-> +#else
-> +/* Returns a pointer to the cpumask of CPUs on Node 'node'. */
-> +static inline const struct cpumask *cpumask_of_node(int node)
+> +#ifdef CONFIG_ACPI_NUMA
+> +int __init arch_acpi_numa_init(void)
 > +{
-> +	return node_to_cpumask_map[node];
+> +	int ret;
+> +
+> +	ret = acpi_numa_init();
+
+I wonder if this is the correct level at which to stub this out
+as opposed to providing a stub for acpi_numa_init()
+and srat_disabled()
+
+At this stage I'm not sure I care too strongly though.
+
+> +	if (ret) {
+> +		pr_info("Failed to initialise from firmware\n");
+> +		return ret;
+> +	}
+> +
+> +	return srat_disabled() ? -EINVAL : 0;
 > +}
+> +#else
+> +int __init arch_acpi_numa_init(void)
+> +{
+> +	return -EOPNOTSUPP;
+> +}
+> +
 > +#endif
 > +
-> +void __init arm64_numa_init(void);
-> +int __init numa_add_memblk(int nodeid, u64 start, u64 end);
-> +void __init numa_set_distance(int from, int to, int distance);
-> +void __init numa_free_distance(void);
-> +void __init early_map_cpu_to_node(unsigned int cpu, int nid);
-> +void numa_store_cpu_info(unsigned int cpu);
-> +void numa_add_cpu(unsigned int cpu);
-> +void numa_remove_cpu(unsigned int cpu);
-> +
-> +#else	/* CONFIG_NUMA */
-> +
-> +static inline void numa_store_cpu_info(unsigned int cpu) { }
-> +static inline void numa_add_cpu(unsigned int cpu) { }
-> +static inline void numa_remove_cpu(unsigned int cpu) { }
-> +static inline void arm64_numa_init(void) { }
-> +static inline void early_map_cpu_to_node(unsigned int cpu, int nid) { }
-> +
-> +#endif	/* CONFIG_NUMA */
-> +
-> +#endif	/* __ASM_GENERIC_NUMA_H */
+>  /**
+> - * arm64_numa_init() - Initialize NUMA
+> + * arch_numa_init() - Initialize NUMA
+>   *
+>   * Try each configured NUMA initialization method until one succeeds. The
+>   * last fallback is dummy single node config encomapssing whole memory.
+>   */
+> -void __init arm64_numa_init(void)
+> +void __init arch_numa_init(void)
+>  {
+>  	if (!numa_off) {
+> -		if (!acpi_disabled && !numa_init(arm64_acpi_numa_init))
+> +		if (!acpi_disabled && !numa_init(arch_acpi_numa_init))
+>  			return;
+>  		if (acpi_disabled && !numa_init(of_numa_init))
+>  			return;
+> diff --git a/include/asm-generic/numa.h b/include/asm-generic/numa.h
+> index 2718d5a6ff03..e7962db4ba44 100644
+> --- a/include/asm-generic/numa.h
+> +++ b/include/asm-generic/numa.h
+> @@ -27,7 +27,7 @@ static inline const struct cpumask *cpumask_of_node(int node)
+>  }
+>  #endif
+>  
+> -void __init arm64_numa_init(void);
+> +void __init arch_numa_init(void);
+>  int __init numa_add_memblk(int nodeid, u64 start, u64 end);
+>  void __init numa_set_distance(int from, int to, int distance);
+>  void __init numa_free_distance(void);
+> @@ -41,7 +41,7 @@ void numa_remove_cpu(unsigned int cpu);
+>  static inline void numa_store_cpu_info(unsigned int cpu) { }
+>  static inline void numa_add_cpu(unsigned int cpu) { }
+>  static inline void numa_remove_cpu(unsigned int cpu) { }
+> -static inline void arm64_numa_init(void) { }
+> +static inline void arch_numa_init(void) { }
+>  static inline void early_map_cpu_to_node(unsigned int cpu, int nid) { }
+>  
+>  #endif	/* CONFIG_NUMA */
 
 
 
