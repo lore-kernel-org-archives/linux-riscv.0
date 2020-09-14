@@ -2,64 +2,96 @@ Return-Path: <SRS0=Swg1=CX=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,
-	URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
-	version=3.4.0
+	MAILING_LIST_MULTI,NICE_REPLY_A,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1EF08C433E2
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2020 01:52:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 25F4AC43461
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2020 05:47:09 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AA3E6208C7
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2020 01:52:40 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C1F392074B
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2020 05:47:08 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="g6VC1tfl"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AA3E6208C7
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=allwinnertech.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="wZClwz/P";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=linaro.org header.i=@linaro.org header.b="eY+okMC8"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C1F392074B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YgkIuuy1hbzL02P+33YYX4rNoi6JILXkGpEWj6FKI7I=; b=g6VC1tflGHSHyr7aVxiio/391m
-	M8l3g/wgLpZJFI9VYQpatvia9BAsjXX5eBcm11/tk1ivLL2N13ZJ2HZqYuYuIdwmN+ye0mV3E2QLc
-	CnmqZc8JBcUa3WfVKFM+iBrw6CADGinemqjbSSIxpribF56v41po2BkdA3jAOATWX15eTPbAA+xnM
-	5cjn2Y2XLfnSFxWMyHnolCB2fG3an+ZXd//IjZCLI/2BNdmjaSc/H3UZVbEEzrInAwJ1AX8VqesxU
-	T+GwUfhrcWwo2IZh9776axyQtl5f8k2gvUUg10sYBGqFhFP9uAkEsaQ5O7bh92MQ/+9wfOB04jNB5
-	a3qSU6HA==;
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=GXswjbeOyTooeLAiBRKzNvb1cH3QqMH9BUSwPxpSj10=; b=wZClwz/PtTaT8oTDV0FjXvVWF
+	U/O/VmiRHe20By/TFnnW65gRf+NQrd33rQqtfVIzZl6RpcMQkVhE+r3cCeMhPGYgdpyHeOfVzl/JH
+	6+mG+YYZntKG2bX+kvo1/LBHe/EC5CB4eN8bJw8SU3W5CriA69G8hNBpcPvoQYYnzZJvC2NGceZNf
+	MVRhFGTnMip/msIjzXlrOtsNkLQFRDn8qAIlv+wM6BxQcPgrm4PRWMJ/MjwqRjZ/P+tAkXmJd3GJZ
+	zggh3x0jTxIgfOQg2v5l93fWdYY5up0pj4S4/AzaqUbrSSleyjwe3DxuRVMIGh1HLsWx7IilmW5j6
+	eM+Wv/z/Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kHdfP-0006M4-1y; Mon, 14 Sep 2020 01:52:27 +0000
-Received: from smtp2207-205.mail.aliyun.com ([121.197.207.205])
+	id 1kHhKL-0000Al-7B; Mon, 14 Sep 2020 05:46:57 +0000
+Received: from mail-wm1-x344.google.com ([2a00:1450:4864:20::344])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kHdfK-0006L8-Uj
- for linux-riscv@lists.infradead.org; Mon, 14 Sep 2020 01:52:25 +0000
-X-Alimail-AntiSpam: AC=CONTINUE; BC=0.07457206|-1; CH=green;
- DM=|CONTINUE|false|;
- DS=CONTINUE|ham_system_inform|0.00567186-0.0021741-0.992154;
- FP=0|0|0|0|0|-1|-1|-1; HT=e01l10434; MF=liush@allwinnertech.com; NM=1; PH=DS;
- RN=15; RT=15; SR=0; TI=SMTPD_---.IWjNbES_1600048326; 
-Received: from localhost.localdomain(mailfrom:liush@allwinnertech.com
- fp:SMTPD_---.IWjNbES_1600048326)
- by smtp.aliyun-inc.com(10.147.41.120);
- Mon, 14 Sep 2020 09:52:13 +0800
-From: liush <liush@allwinnertech.com>
-To: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- rjw@rjwysocki.net, daniel.lezcano@linaro.org, anup.patel@wdc.com,
- atish.patra@wdc.com, damien.lemoal@wdc.com, wangkefeng.wang@huawei.com,
- kernel@esmil.dk, zong.li@sifive.com
-Subject: [PATCH] cpuidle: add riscv cpuidle driver
-Date: Mon, 14 Sep 2020 09:52:03 +0800
-Message-Id: <1600048323-2964-1-git-send-email-liush@allwinnertech.com>
-X-Mailer: git-send-email 2.7.4
+ id 1kHhKJ-00009z-64
+ for linux-riscv@lists.infradead.org; Mon, 14 Sep 2020 05:46:56 +0000
+Received: by mail-wm1-x344.google.com with SMTP id w2so9388756wmi.1
+ for <linux-riscv@lists.infradead.org>; Sun, 13 Sep 2020 22:46:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
+ h=subject:to:cc:references:from:message-id:date:user-agent
+ :mime-version:in-reply-to:content-language:content-transfer-encoding;
+ bh=sDD9xbXrOHoErjZLRR+/+AtDLaCnVmHRrkVezZM912Y=;
+ b=eY+okMC8xfBiRH3cE/90LzCYt3zAjKBnNwVqBIqPfCCKGfS4LiZkI1tz5tVuAKD9Bt
+ gHHBuuvOIghEFOViq4ZTL21bCZXni8/Zlat4xIzctM+SS4EZdWsHZhBzUfXknGocvPSZ
+ mn+q3/tooHeVkXczfc+2yfawVsDQCwVVlOXbeB0gLAozyKoOoX7PO0KpkOk0jzw0OKiz
+ 3VTlXVTjQia8VZeLobuuTUCrBFsjKu2CQdjs7vPq06bmvTkCRG7NOvMKj6xW/SGdOY9S
+ MQSRrUXP4HCb/O+HyjwfRdOpOfcCETks981G/J9Y+KeI7juc5WC4LpooQ2Fz/esbZE+4
+ Vf8A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:subject:to:cc:references:from:message-id:date
+ :user-agent:mime-version:in-reply-to:content-language
+ :content-transfer-encoding;
+ bh=sDD9xbXrOHoErjZLRR+/+AtDLaCnVmHRrkVezZM912Y=;
+ b=tpL05DSq3yVzYIJpRtFP0aBC6s8jqOXuG5Mmgtg4ySQ7906fY3XVQA6WvQ5OYFt3Wx
+ bsrmrUy+llvZ9DGbZUmUPBnqVsQe3hY46PYRlljljZltzXz9PyK6lpirF/Ws1WecuKWG
+ HNinYIQRFjHVoIwXdvZ5/nVBt1GzLOVrFkfvQ6dgUDCfIrDneXfqhJWyXbGunzxgyEEP
+ WDhUZ2ZAoV1Pr3+mlPGl/4zUX3tNyCvUZ22KBLdfLSWHVG0NdXL6fVPrRdna30b4mIYt
+ tdcTi1Eb+0NcsdPbvG5aFz8SD6eniWyygwNrfXRKgrE0qeYfvPM2Zpq8oaQ3xzp0s2gI
+ buOg==
+X-Gm-Message-State: AOAM533KDBYAWJiQ7pO1KgoaDDd4YkX9Q9eyRZLJahfcXnZ8SqgHe6tc
+ yyOC4bGSalEHI+tJBb2QJ0KSXQ==
+X-Google-Smtp-Source: ABdhPJyUVCGBR93hL6wzG0lCe51kAZFFaJG76CajpH7T3daMVWhHg+pdihb6Vi5OLEnx0XzSO+6QCg==
+X-Received: by 2002:a05:600c:22c5:: with SMTP id
+ 5mr13272418wmg.34.1600062412115; 
+ Sun, 13 Sep 2020 22:46:52 -0700 (PDT)
+Received: from ?IPv6:2a01:e34:ed2f:f020:a402:e7fb:d494:d130?
+ ([2a01:e34:ed2f:f020:a402:e7fb:d494:d130])
+ by smtp.googlemail.com with ESMTPSA id
+ h204sm17849917wmf.35.2020.09.13.22.46.50
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Sun, 13 Sep 2020 22:46:51 -0700 (PDT)
+Subject: Re: [PATCH] cpuidle: add riscv cpuidle driver
+To: liush <liush@allwinnertech.com>, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, rjw@rjwysocki.net,
+ anup.patel@wdc.com, atish.patra@wdc.com, damien.lemoal@wdc.com,
+ wangkefeng.wang@huawei.com, kernel@esmil.dk, zong.li@sifive.com
+References: <1600048323-2964-1-git-send-email-liush@allwinnertech.com>
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+Message-ID: <80bc85f5-fba3-5f08-4d73-372b5f495833@linaro.org>
+Date: Mon, 14 Sep 2020 07:46:50 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.10.0
+MIME-Version: 1.0
+In-Reply-To: <1600048323-2964-1-git-send-email-liush@allwinnertech.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200913_215223_275221_333BEDFB 
-X-CRM114-Status: GOOD (  17.74  )
+X-CRM114-CacheID: sfid-20200914_014655_531600_0D6F975F 
+X-CRM114-Status: GOOD (  19.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -71,209 +103,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: liush <liush@allwinnertech.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-pm@vger.kernel.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch adds a cpuidle driver for systems based RISCV architecture.
-This patch supports state WFI. Other states will be supported in the
-future.
-
-Signed-off-by: liush <liush@allwinnertech.com>
----
- arch/riscv/Kconfig               |  7 +++++
- arch/riscv/include/asm/cpuidle.h |  7 +++++
- arch/riscv/kernel/Makefile       |  1 +
- arch/riscv/kernel/cpuidle.c      |  8 ++++++
- drivers/cpuidle/Kconfig          |  5 ++++
- drivers/cpuidle/Kconfig.riscv    | 11 ++++++++
- drivers/cpuidle/Makefile         |  4 +++
- drivers/cpuidle/cpuidle-riscv.c  | 55 ++++++++++++++++++++++++++++++++++++++++
- 8 files changed, 98 insertions(+)
- create mode 100644 arch/riscv/include/asm/cpuidle.h
- create mode 100644 arch/riscv/kernel/cpuidle.c
- create mode 100644 drivers/cpuidle/Kconfig.riscv
- create mode 100644 drivers/cpuidle/cpuidle-riscv.c
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index df18372..c7ddb9d 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -86,6 +86,7 @@ config RISCV
- 	select SPARSE_IRQ
- 	select SYSCTL_EXCEPTION_TRACE
- 	select THREAD_INFO_IN_TASK
-+	select CPU_IDLE
- 
- config ARCH_MMAP_RND_BITS_MIN
- 	default 18 if 64BIT
-@@ -407,6 +408,12 @@ config BUILTIN_DTB
- 	depends on RISCV_M_MODE
- 	depends on OF
- 
-+menu "CPU Power Management"
-+
-+source "drivers/cpuidle/Kconfig"
-+
-+endmenu
-+
- menu "Power management options"
- 
- source "kernel/power/Kconfig"
-diff --git a/arch/riscv/include/asm/cpuidle.h b/arch/riscv/include/asm/cpuidle.h
-new file mode 100644
-index 00000000..2599d2f
---- /dev/null
-+++ b/arch/riscv/include/asm/cpuidle.h
-@@ -0,0 +1,7 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __RISCV_CPUIDLE_H
-+#define __RISCV_CPUIDLE_H
-+
-+extern void cpu_do_idle(void);
-+
-+#endif
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index dc93710..396ba9c 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -29,6 +29,7 @@ obj-y	+= riscv_ksyms.o
- obj-y	+= stacktrace.o
- obj-y	+= cacheinfo.o
- obj-y	+= patch.o
-+obj-y	+= cpuidle.o
- obj-$(CONFIG_MMU) += vdso.o vdso/
- 
- obj-$(CONFIG_RISCV_M_MODE)	+= traps_misaligned.o
-diff --git a/arch/riscv/kernel/cpuidle.c b/arch/riscv/kernel/cpuidle.c
-new file mode 100644
-index 00000000..a3289e7
---- /dev/null
-+++ b/arch/riscv/kernel/cpuidle.c
-@@ -0,0 +1,8 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include <asm/cpuidle.h>
-+
-+void cpu_do_idle(void)
-+{
-+	__asm__ __volatile__ ("wfi");
-+
-+}
-diff --git a/drivers/cpuidle/Kconfig b/drivers/cpuidle/Kconfig
-index c0aeedd..f6be0fd 100644
---- a/drivers/cpuidle/Kconfig
-+++ b/drivers/cpuidle/Kconfig
-@@ -62,6 +62,11 @@ depends on PPC
- source "drivers/cpuidle/Kconfig.powerpc"
- endmenu
- 
-+menu "RISCV CPU Idle Drivers"
-+depends on RISCV
-+source "drivers/cpuidle/Kconfig.riscv"
-+endmenu
-+
- config HALTPOLL_CPUIDLE
- 	tristate "Halt poll cpuidle driver"
- 	depends on X86 && KVM_GUEST
-diff --git a/drivers/cpuidle/Kconfig.riscv b/drivers/cpuidle/Kconfig.riscv
-new file mode 100644
-index 00000000..e86d36b
---- /dev/null
-+++ b/drivers/cpuidle/Kconfig.riscv
-@@ -0,0 +1,11 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+#
-+# RISCV CPU Idle drivers
-+#
-+config RISCV_CPUIDLE
-+        bool "Generic RISCV CPU idle Driver"
-+        select DT_IDLE_STATES
-+	select CPU_IDLE_MULTIPLE_DRIVERS
-+        help
-+          Select this option to enable generic cpuidle driver for RISCV.
-+	  Now only support C0 State.
-diff --git a/drivers/cpuidle/Makefile b/drivers/cpuidle/Makefile
-index 26bbc5e..4c83c4e 100644
---- a/drivers/cpuidle/Makefile
-+++ b/drivers/cpuidle/Makefile
-@@ -34,3 +34,7 @@ obj-$(CONFIG_MIPS_CPS_CPUIDLE)		+= cpuidle-cps.o
- # POWERPC drivers
- obj-$(CONFIG_PSERIES_CPUIDLE)		+= cpuidle-pseries.o
- obj-$(CONFIG_POWERNV_CPUIDLE)		+= cpuidle-powernv.o
-+
-+###############################################################################
-+# RISCV drivers
-+obj-$(CONFIG_RISCV_CPUIDLE)		+= cpuidle-riscv.o
-diff --git a/drivers/cpuidle/cpuidle-riscv.c b/drivers/cpuidle/cpuidle-riscv.c
-new file mode 100644
-index 00000000..5dddcfa
---- /dev/null
-+++ b/drivers/cpuidle/cpuidle-riscv.c
-@@ -0,0 +1,55 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * RISC-V CPU idle driver.
-+ *
-+ * Copyright (C) 2020-2022 Allwinner Ltd
-+ *
-+ * Based on code - driver/cpuidle/cpuidle-at91.c
-+ *
-+ */
-+#include <linux/cpuidle.h>
-+#include <linux/cpumask.h>
-+#include <linux/cpu_pm.h>
-+#include <linux/kernel.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/slab.h>
-+#include <linux/platform_device.h>
-+#include <asm/cpuidle.h>
-+
-+#define MAX_IDLE_STATES	1
-+
-+/* TODO: Implement deeper idle states */
-+static int riscv_low_level_suspend_enter(int state)
-+{
-+	return 0;
-+}
-+
-+/* Actual code that puts the SoC in different idle states */
-+static int riscv_enter_idle(struct cpuidle_device *dev,
-+			struct cpuidle_driver *drv,
-+			       int index)
-+{
-+	return CPU_PM_CPU_IDLE_ENTER_PARAM(riscv_low_level_suspend_enter,
-+					   index, 0);
-+}
-+
-+static struct cpuidle_driver riscv_idle_driver = {
-+	.name			= "riscv_idle",
-+	.owner			= THIS_MODULE,
-+	.states[0]		= {
-+		.enter			= riscv_enter_idle,
-+		.exit_latency		= 1,
-+		.target_residency	= 1,
-+		.name			= "WFI",
-+		.desc			= "RISCV WFI",
-+	},
-+	.state_count = MAX_IDLE_STATES,
-+};
-+
-+static int __init riscv_cpuidle_init(void)
-+{
-+	return cpuidle_register(&riscv_idle_driver, NULL);
-+}
-+
-+device_initcall(riscv_cpuidle_init);
--- 
-2.7.4
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMTQvMDkvMjAyMCAwMzo1MiwgbGl1c2ggd3JvdGU6Cj4gVGhpcyBwYXRjaCBhZGRzIGEgY3B1
+aWRsZSBkcml2ZXIgZm9yIHN5c3RlbXMgYmFzZWQgUklTQ1YgYXJjaGl0ZWN0dXJlLgo+IFRoaXMg
+cGF0Y2ggc3VwcG9ydHMgc3RhdGUgV0ZJLiBPdGhlciBzdGF0ZXMgd2lsbCBiZSBzdXBwb3J0ZWQg
+aW4gdGhlCj4gZnV0dXJlLgo+IAo+IFNpZ25lZC1vZmYtYnk6IGxpdXNoIDxsaXVzaEBhbGx3aW5u
+ZXJ0ZWNoLmNvbT4KPiAtLS0KClsgLi4uIF0KCj4gIAo+ICBvYmotJChDT05GSUdfUklTQ1ZfTV9N
+T0RFKQkrPSB0cmFwc19taXNhbGlnbmVkLm8KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJu
+ZWwvY3B1aWRsZS5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvY3B1aWRsZS5jCj4gbmV3IGZpbGUgbW9k
+ZSAxMDA2NDQKPiBpbmRleCAwMDAwMDAwMC4uYTMyODllNwo+IC0tLSAvZGV2L251bGwKPiArKysg
+Yi9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVpZGxlLmMKPiBAQCAtMCwwICsxLDggQEAKPiArLy8gU1BE
+WC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAKPiArI2luY2x1ZGUgPGFzbS9jcHVpZGxlLmg+
+Cj4gKwo+ICt2b2lkIGNwdV9kb19pZGxlKHZvaWQpCj4gK3sKPiArCV9fYXNtX18gX192b2xhdGls
+ZV9fICgid2ZpIik7Cj4gKwoKZXh0cmEgbGluZQoKPiArfQoKQXMgZm9yIHRoZSBuZXh0IGRlZXBl
+ciBzdGF0ZXMgc2hvdWxkIGVuZCB1cCB3aXRoIHRoZSBjcHVfZG9faWRsZQpmdW5jdGlvbiwgaXNu
+J3QgdGhlcmUgYW4gZXh0cmEgb3BlcmF0aW9uIHdpdGggdGhlIHdmaSgpIGxpa2UgZmx1c2hpbmcK
+dGhlIGwxIGNhY2hlPwoKPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9jcHVpZGxlL0tjb25maWcgYi9k
+cml2ZXJzL2NwdWlkbGUvS2NvbmZpZwo+IGluZGV4IGMwYWVlZGQuLmY2YmUwZmQgMTAwNjQ0Cj4g
+LS0tIGEvZHJpdmVycy9jcHVpZGxlL0tjb25maWcKPiArKysgYi9kcml2ZXJzL2NwdWlkbGUvS2Nv
+bmZpZwo+IEBAIC02Miw2ICs2MiwxMSBAQCBkZXBlbmRzIG9uIFBQQwo+ICBzb3VyY2UgImRyaXZl
+cnMvY3B1aWRsZS9LY29uZmlnLnBvd2VycGMiCj4gIGVuZG1lbnUKPiAgCj4gK21lbnUgIlJJU0NW
+IENQVSBJZGxlIERyaXZlcnMiCj4gK2RlcGVuZHMgb24gUklTQ1YKPiArc291cmNlICJkcml2ZXJz
+L2NwdWlkbGUvS2NvbmZpZy5yaXNjdiIKPiArZW5kbWVudQo+ICsKPiAgY29uZmlnIEhBTFRQT0xM
+X0NQVUlETEUKPiAgCXRyaXN0YXRlICJIYWx0IHBvbGwgY3B1aWRsZSBkcml2ZXIiCj4gIAlkZXBl
+bmRzIG9uIFg4NiAmJiBLVk1fR1VFU1QKPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9jcHVpZGxlL0tj
+b25maWcucmlzY3YgYi9kcml2ZXJzL2NwdWlkbGUvS2NvbmZpZy5yaXNjdgo+IG5ldyBmaWxlIG1v
+ZGUgMTAwNjQ0Cj4gaW5kZXggMDAwMDAwMDAuLmU4NmQzNmIKPiAtLS0gL2Rldi9udWxsCj4gKysr
+IGIvZHJpdmVycy9jcHVpZGxlL0tjb25maWcucmlzY3YKPiBAQCAtMCwwICsxLDExIEBACj4gKyMg
+U1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAtb25seQo+ICsjCj4gKyMgUklTQ1YgQ1BV
+IElkbGUgZHJpdmVycwo+ICsjCj4gK2NvbmZpZyBSSVNDVl9DUFVJRExFCj4gKyAgICAgICAgYm9v
+bCAiR2VuZXJpYyBSSVNDViBDUFUgaWRsZSBEcml2ZXIiCj4gKyAgICAgICAgc2VsZWN0IERUX0lE
+TEVfU1RBVEVTCj4gKwlzZWxlY3QgQ1BVX0lETEVfTVVMVElQTEVfRFJJVkVSUwo+ICsgICAgICAg
+IGhlbHAKPiArICAgICAgICAgIFNlbGVjdCB0aGlzIG9wdGlvbiB0byBlbmFibGUgZ2VuZXJpYyBj
+cHVpZGxlIGRyaXZlciBmb3IgUklTQ1YuCj4gKwkgIE5vdyBvbmx5IHN1cHBvcnQgQzAgU3RhdGUu
+CgpJZGVudGF0aW9uCgpSZXN0IGxvb2tzIG9rIGZvciBtZS4KCgotLSAKPGh0dHA6Ly93d3cubGlu
+YXJvLm9yZy8+IExpbmFyby5vcmcg4pSCIE9wZW4gc291cmNlIHNvZnR3YXJlIGZvciBBUk0gU29D
+cwoKRm9sbG93IExpbmFybzogIDxodHRwOi8vd3d3LmZhY2Vib29rLmNvbS9wYWdlcy9MaW5hcm8+
+IEZhY2Vib29rIHwKPGh0dHA6Ly90d2l0dGVyLmNvbS8jIS9saW5hcm9vcmc+IFR3aXR0ZXIgfAo8
+aHR0cDovL3d3dy5saW5hcm8ub3JnL2xpbmFyby1ibG9nLz4gQmxvZwoKX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
+CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
+cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
