@@ -2,85 +2,68 @@ Return-Path: <SRS0=Swg1=CX=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-11.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_SANE_2 autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 20B0AC433E2
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2020 11:52:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 95823C433E2
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2020 14:23:00 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CA4FC21741
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2020 11:52:55 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 001D62074B
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Sep 2020 14:22:59 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="PV+B8sBY";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="YalQb9qX"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CA4FC21741
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="k+wR0V+E"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 001D62074B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=Huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=C/+klHWJUuE3yNY+O9bZHzu331o30xpkfiWz9TumOT4=; b=PV+B8sBYs8Ug21DteG1LTFOib
-	gCp4WFy/VdXYSJgYgA3CgrW+9XZyqak5AzoE923fiE+Q737kdFiPmMBPmVvIB1QtrA4LYMaRQEfZQ
-	ExeUJhaFB+n+qp/hkgpeTIO9g8wKUg3EIbD8tS0eBmadp1n5TzBZNFgWj0e1JKvZE2rk2f+q84XlH
-	okRTdE1B5BrUoE1dSoKn1BWqjoKbvxylwgRR1rDJz6HTIsXGeiNwZz0JljvIpAfudzts4MLkHfyiq
-	TDCm39TV9s0U4qXd34h397p3IEmqp3Qf1z9xAkk6dJo+LY1sCosAqMfC4VITkX8qNM9HgGe+hqUsc
-	BVFrjKBRw==;
+	 bh=J63ir68tZm6t+3kAuqGDEixn5iVkmKCVq5Rfs2r7pu4=; b=k+wR0V+EsFtt5kqpvVWQgLRp8
+	mVMvSHueQNQ7EY+AiI2y5mpZIPqpHq/5US/ppETwiltgHVvgypSQnZgyK/OgkybB4vvl1UyXgDEEm
+	umIsHS6xEZVRRgJTjdxqUCblpFnWNnZIn6qMsmN7CqzbgtqiXn+hBV3OegGQ+58q3jj0RCW0UH79H
+	HCUOkJff0jhvcESB+lYqDx708L3PsBnQtQCkrglK95DxSK6zRIIPoS+oFYgxQZ9X+NH99cpt6Q2rs
+	3xybH77/itvTpZfXhl0sveD61bh4l4p34iLBxvuEgtk06zZrqZE3Qm9T7Q/EY99Dwn+TY+Dgzgq7X
+	AhB+QnpiQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kHn2L-0007ew-GI; Mon, 14 Sep 2020 11:52:45 +0000
-Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
+	id 1kHpNW-0000Eq-DT; Mon, 14 Sep 2020 14:22:46 +0000
+Received: from lhrrgout.huawei.com ([185.176.76.210] helo=huawei.com)
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kHn2K-0007eR-4L
- for linux-riscv@lists.infradead.org; Mon, 14 Sep 2020 11:52:44 +0000
-Received: by mail-wm1-x342.google.com with SMTP id k18so10918277wmj.5
- for <linux-riscv@lists.infradead.org>; Mon, 14 Sep 2020 04:52:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=PJ7iJNVDDaND4zplndsbl4Uby21iiMEjNanabMHyNa8=;
- b=YalQb9qXnij3jA+z9DcxOA6IfyTifBTo3+5ciDzFu0EX8HtYUQWiH1DfbNzkQ5E4Wg
- n9tEwxvm65+rVwSYeQMc2Aeh/gYDYfUiZN0Pn1sNa+UWyQH3JerLbfdSWlfaqGboTyxk
- cx3klAP3OoD3zNPoXyDGb7iQc4jb276bpjW/piZZahi+ZdAaHXAPMRzwePA2V73YOOi8
- YeF+3dio/BlVTJ9VLcik8+RQmy+l6AQFnUSvJQzDppohujPTTJT+i8wYKFDzOs/x3aQ4
- ZCHX3caFgONUgL5jSFttJNsV5c+i+7BQbP92MTWKyiAK/xiitzOqpv0wjUVqqur0EfGU
- QroQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=PJ7iJNVDDaND4zplndsbl4Uby21iiMEjNanabMHyNa8=;
- b=qheBNVNohAZRFyy4zWb1SNFaC+UwZf3NJI0v/cR7zNJj4pRa+kn4mYBMHHj3hFSA/I
- +V4grVHvO1BVRa1oTWQetgkRzkKZM0l89fzTeVczBnmpCj3MplrLKTtb8ubd4gS4n+xN
- AuvRbaLIfXRdYHIkyL3Ucn+z4gJU+Ft4lFdS13C8o54AvfWoTp0rFffkZ5lYgWYBsmb0
- 0893o00YqaTk2yR5dHXv3cITVpw7hc95oh71HkKXJqRX/C7vJLAAMKcHH8RH7C9t3hty
- QHH+cZBQcsgimEsZnqozrc+7eFkbLeDXkuz/Z/sW2PX0hpgJIhjS69xF0L44YDjy4/gv
- nf4w==
-X-Gm-Message-State: AOAM530GJgoKY9IzMz+BvKdiEuQWRy4EMH2HWBMOkZ5AURsCuECJpxcI
- I7gy0i374nPvmL8X0ONON8JRXIo+GhSVZ5kHlg7IUA==
-X-Google-Smtp-Source: ABdhPJxRyS8Ai4E8v9nf+FcXijbMUkAsU+Eigzaf0copkXWk29uviSgjKvIWApV4fAHRX2LCjI94vgVq+VQJ/1zXIU0=
-X-Received: by 2002:a7b:c0c5:: with SMTP id s5mr14501327wmh.152.1600084362966; 
- Mon, 14 Sep 2020 04:52:42 -0700 (PDT)
+ id 1kHpNT-0000AE-Iy
+ for linux-riscv@lists.infradead.org; Mon, 14 Sep 2020 14:22:44 +0000
+Received: from lhreml710-chm.china.huawei.com (unknown [172.18.7.106])
+ by Forcepoint Email with ESMTP id 12434ADA93495CC8BBE9;
+ Mon, 14 Sep 2020 15:22:41 +0100 (IST)
+Received: from localhost (10.52.126.156) by lhreml710-chm.china.huawei.com
+ (10.201.108.61) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1913.5; Mon, 14 Sep
+ 2020 15:22:40 +0100
+Date: Mon, 14 Sep 2020 15:21:03 +0100
+From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
+To: Atish Patra <atish.patra@wdc.com>
+Subject: Re: [RFC/RFT PATCH v2 1/5] numa: Move numa implementation to common
+ code
+Message-ID: <20200914152103.000062e3@Huawei.com>
+In-Reply-To: <20200912013441.9730-2-atish.patra@wdc.com>
+References: <20200912013441.9730-1-atish.patra@wdc.com>
+ <20200912013441.9730-2-atish.patra@wdc.com>
+Organization: Huawei Technologies Research and Development (UK) Ltd.
+X-Mailer: Claws Mail 3.17.4 (GTK+ 2.24.32; i686-w64-mingw32)
 MIME-Version: 1.0
-References: <20200912002341.4869-1-atish.patra@wdc.com>
- <20200912104502.GF2142832@kernel.org>
- <CAOnJCU+yK8uxFU-zv5BPTzmtxwiVpiPxGsNkVEtnTQ+64UU-ug@mail.gmail.com>
-In-Reply-To: <CAOnJCU+yK8uxFU-zv5BPTzmtxwiVpiPxGsNkVEtnTQ+64UU-ug@mail.gmail.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Mon, 14 Sep 2020 17:22:31 +0530
-Message-ID: <CAAhSdy0cudvf4Lc3YaSc7MH5oGH1V60C3rToMUZU01LPxRWLKQ@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: Consider sparse memory while removing unusable
- memory
-To: Atish Patra <atishp@atishpatra.org>
+X-Originating-IP: [10.52.126.156]
+X-ClientProxiedBy: lhreml717-chm.china.huawei.com (10.201.108.68) To
+ lhreml710-chm.china.huawei.com (10.201.108.61)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200914_075244_194547_6A1F7D84 
-X-CRM114-Status: GOOD (  31.99  )
+X-CRM114-CacheID: sfid-20200914_102244_059547_08ED97BE 
+X-CRM114-Status: GOOD (  21.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -92,112 +75,219 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup.patel@wdc.com>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Atish Patra <atish.patra@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Zong Li <zong.li@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>, Mike Rapoport <rppt@kernel.org>
+Cc: David
+ Hildenbrand <david@redhat.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Zong Li <zong.li@sifive.com>, linux-riscv@lists.infradead.org,
+ Will Deacon <will@kernel.org>, linux-arch@vger.kernel.org,
+ Jia He <justin.he@arm.com>, Anup Patel <anup@brainfault.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Steven Price <steven.price@arm.com>,
+ Bjorn Helgaas <helgaas@kernel.org>, Greentime Hu <greentime.hu@sifive.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Arnd
+ Bergmann <arnd@arndb.de>, Anshuman Khandual <anshuman.khandual@arm.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
+ Palmer Dabbelt <palmer@dabbelt.com>, Mike
+ Rapoport <rppt@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
+ Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 14, 2020 at 5:18 AM Atish Patra <atishp@atishpatra.org> wrote:
->
-> On Sat, Sep 12, 2020 at 3:45 AM Mike Rapoport <rppt@kernel.org> wrote:
-> >
-> > Hello Atish,
-> >
-> > On Fri, Sep 11, 2020 at 05:23:41PM -0700, Atish Patra wrote:
-> > > Currently, any usable memory area beyond page_offset is removed by adding the
-> > > memory sizes from each memblock. That may not work for sparse memory
-> > > as memory regions can be very far apart resulting incorrect removal of some
-> > > usable memory.
-> >
-> > If I understand correctly, the memory with physical addresses larger
-> > than (-PAGE_OFFSET) cannot be used. Since it was aready
-> > memblock_add()'ed during device tree parsing, you need to remove it from
-> > memblock.
-> >
->
-> IIRC, the original intention was to fix MAXPHYSMEM_2GB option for RV64
-> for the medlow model.
-> That's why the patch removed any memory beyond -PAGE_OFFSET.
->
-> > For that you can use memblock_enforce_memory_limit(-PAGE_OFFSET).
-> >
-> Thanks. I think we can just call memblock_enforce_memory_limit without
-> tracking the total memory size
-> and whether maximum memory described in DT is greater than  -PAGE_OFFSET.
->
-> @Anup Patel Was there any other reason for this change originally?
+On Fri, 11 Sep 2020 18:34:37 -0700
+Atish Patra <atish.patra@wdc.com> wrote:
 
-No other reason. We just wanted to ensure that amount of memory addressable
-by kernel (i.e. -PAGE_OFFSET) is also considered when removing memblock.
+> ARM64 numa implementation is generic enough that RISC-V can reuse that
+> implementation with very minor cosmetic changes. This will help both
+> ARM64 and RISC-V in terms of maintanace and feature improvement
+> 
+> Move the numa implementation code to common directory so that both ISAs
+> can reuse this. This doesn't introduce any function changes for ARM64.
+> 
+> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+Looks good to me.
 
-Regards,
-Anup
+Acked-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 
->
-> > > Just use the start of the first memory block and the end of the last memory
-> > > block to compute the size of the total memory that can be used.
-> > >
-> > > Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> > > ---
-> > >  arch/riscv/mm/init.c | 6 ++----
-> > >  1 file changed, 2 insertions(+), 4 deletions(-)
-> > >
-> > > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> > > index 787c75f751a5..188281fc2816 100644
-> > > --- a/arch/riscv/mm/init.c
-> > > +++ b/arch/riscv/mm/init.c
-> > > @@ -147,7 +147,6 @@ void __init setup_bootmem(void)
-> > >  {
-> > >       struct memblock_region *reg;
-> > >       phys_addr_t mem_size = 0;
-> > > -     phys_addr_t total_mem = 0;
-> > >       phys_addr_t mem_start, end = 0;
-> > >       phys_addr_t vmlinux_end = __pa_symbol(&_end);
-> > >       phys_addr_t vmlinux_start = __pa_symbol(&_start);
-> > > @@ -155,18 +154,17 @@ void __init setup_bootmem(void)
-> > >       /* Find the memory region containing the kernel */
-> > >       for_each_memblock(memory, reg) {
-> > >               end = reg->base + reg->size;
-> > > -             if (!total_mem)
-> > > +             if (!mem_start)
-> > >                       mem_start = reg->base;
-> > >               if (reg->base <= vmlinux_start && vmlinux_end <= end)
-> > >                       BUG_ON(reg->size == 0);
-> > > -             total_mem = total_mem + reg->size;
-> > >       }
-> > >
-> > >       /*
-> > >        * Remove memblock from the end of usable area to the
-> > >        * end of region
-> > >        */
-> > > -     mem_size = min(total_mem, (phys_addr_t)-PAGE_OFFSET);
-> > > +     mem_size = min(end - mem_start, (phys_addr_t)-PAGE_OFFSET);
-> > >       if (mem_start + mem_size < end)
-> > >               memblock_remove(mem_start + mem_size,
-> > >                               end - mem_start - mem_size);
-> > > --
-> > > 2.24.0
-> > >
-> >
-> > --
-> > Sincerely yours,
-> > Mike.
-> >
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
->
->
->
-> --
-> Regards,
-> Atish
+> ---
+>  arch/arm64/Kconfig                            |  1 +
+>  arch/arm64/include/asm/numa.h                 | 45 +----------------
+>  arch/arm64/mm/Makefile                        |  1 -
+>  drivers/base/Kconfig                          |  6 +++
+>  drivers/base/Makefile                         |  1 +
+>  .../mm/numa.c => drivers/base/arch_numa.c     |  0
+>  include/asm-generic/numa.h                    | 49 +++++++++++++++++++
+>  7 files changed, 58 insertions(+), 45 deletions(-)
+>  rename arch/arm64/mm/numa.c => drivers/base/arch_numa.c (100%)
+>  create mode 100644 include/asm-generic/numa.h
+> 
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 6d232837cbee..955a0cf75b16 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -960,6 +960,7 @@ config HOTPLUG_CPU
+>  # Common NUMA Features
+>  config NUMA
+>  	bool "NUMA Memory Allocation and Scheduler Support"
+> +	select GENERIC_ARCH_NUMA
+>  	select ACPI_NUMA if ACPI
+>  	select OF_NUMA
+>  	help
+> diff --git a/arch/arm64/include/asm/numa.h b/arch/arm64/include/asm/numa.h
+> index 626ad01e83bf..8c8cf4297cc3 100644
+> --- a/arch/arm64/include/asm/numa.h
+> +++ b/arch/arm64/include/asm/numa.h
+> @@ -3,49 +3,6 @@
+>  #define __ASM_NUMA_H
+>  
+>  #include <asm/topology.h>
+> -
+> -#ifdef CONFIG_NUMA
+> -
+> -#define NR_NODE_MEMBLKS		(MAX_NUMNODES * 2)
+> -
+> -int __node_distance(int from, int to);
+> -#define node_distance(a, b) __node_distance(a, b)
+> -
+> -extern nodemask_t numa_nodes_parsed __initdata;
+> -
+> -extern bool numa_off;
+> -
+> -/* Mappings between node number and cpus on that node. */
+> -extern cpumask_var_t node_to_cpumask_map[MAX_NUMNODES];
+> -void numa_clear_node(unsigned int cpu);
+> -
+> -#ifdef CONFIG_DEBUG_PER_CPU_MAPS
+> -const struct cpumask *cpumask_of_node(int node);
+> -#else
+> -/* Returns a pointer to the cpumask of CPUs on Node 'node'. */
+> -static inline const struct cpumask *cpumask_of_node(int node)
+> -{
+> -	return node_to_cpumask_map[node];
+> -}
+> -#endif
+> -
+> -void __init arm64_numa_init(void);
+> -int __init numa_add_memblk(int nodeid, u64 start, u64 end);
+> -void __init numa_set_distance(int from, int to, int distance);
+> -void __init numa_free_distance(void);
+> -void __init early_map_cpu_to_node(unsigned int cpu, int nid);
+> -void numa_store_cpu_info(unsigned int cpu);
+> -void numa_add_cpu(unsigned int cpu);
+> -void numa_remove_cpu(unsigned int cpu);
+> -
+> -#else	/* CONFIG_NUMA */
+> -
+> -static inline void numa_store_cpu_info(unsigned int cpu) { }
+> -static inline void numa_add_cpu(unsigned int cpu) { }
+> -static inline void numa_remove_cpu(unsigned int cpu) { }
+> -static inline void arm64_numa_init(void) { }
+> -static inline void early_map_cpu_to_node(unsigned int cpu, int nid) { }
+> -
+> -#endif	/* CONFIG_NUMA */
+> +#include <asm-generic/numa.h>
+>  
+>  #endif	/* __ASM_NUMA_H */
+> diff --git a/arch/arm64/mm/Makefile b/arch/arm64/mm/Makefile
+> index d91030f0ffee..928c308b044b 100644
+> --- a/arch/arm64/mm/Makefile
+> +++ b/arch/arm64/mm/Makefile
+> @@ -6,7 +6,6 @@ obj-y				:= dma-mapping.o extable.o fault.o init.o \
+>  obj-$(CONFIG_HUGETLB_PAGE)	+= hugetlbpage.o
+>  obj-$(CONFIG_PTDUMP_CORE)	+= dump.o
+>  obj-$(CONFIG_PTDUMP_DEBUGFS)	+= ptdump_debugfs.o
+> -obj-$(CONFIG_NUMA)		+= numa.o
+>  obj-$(CONFIG_DEBUG_VIRTUAL)	+= physaddr.o
+>  KASAN_SANITIZE_physaddr.o	+= n
+>  
+> diff --git a/drivers/base/Kconfig b/drivers/base/Kconfig
+> index 8d7001712062..c5956c8845cc 100644
+> --- a/drivers/base/Kconfig
+> +++ b/drivers/base/Kconfig
+> @@ -210,4 +210,10 @@ config GENERIC_ARCH_TOPOLOGY
+>  	  appropriate scaling, sysfs interface for reading capacity values at
+>  	  runtime.
+>  
+> +config GENERIC_ARCH_NUMA
+> +	bool
+> +	help
+> +	  Enable support for generic NUMA implementation. Currently, RISC-V
+> +	  and ARM64 uses it.
+> +
+>  endmenu
+> diff --git a/drivers/base/Makefile b/drivers/base/Makefile
+> index 157452080f3d..c3d02c644222 100644
+> --- a/drivers/base/Makefile
+> +++ b/drivers/base/Makefile
+> @@ -23,6 +23,7 @@ obj-$(CONFIG_PINCTRL) += pinctrl.o
+>  obj-$(CONFIG_DEV_COREDUMP) += devcoredump.o
+>  obj-$(CONFIG_GENERIC_MSI_IRQ_DOMAIN) += platform-msi.o
+>  obj-$(CONFIG_GENERIC_ARCH_TOPOLOGY) += arch_topology.o
+> +obj-$(CONFIG_GENERIC_ARCH_NUMA) += arch_numa.o
+>  
+>  obj-y			+= test/
+>  
+> diff --git a/arch/arm64/mm/numa.c b/drivers/base/arch_numa.c
+> similarity index 100%
+> rename from arch/arm64/mm/numa.c
+> rename to drivers/base/arch_numa.c
+> diff --git a/include/asm-generic/numa.h b/include/asm-generic/numa.h
+> new file mode 100644
+> index 000000000000..2718d5a6ff03
+> --- /dev/null
+> +++ b/include/asm-generic/numa.h
+> @@ -0,0 +1,49 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef __ASM_GENERIC_NUMA_H
+> +#define __ASM_GENERIC_NUMA_H
+> +
+> +#ifdef CONFIG_NUMA
+> +
+> +#define NR_NODE_MEMBLKS		(MAX_NUMNODES * 2)
+> +
+> +int __node_distance(int from, int to);
+> +#define node_distance(a, b) __node_distance(a, b)
+> +
+> +extern nodemask_t numa_nodes_parsed __initdata;
+> +
+> +extern bool numa_off;
+> +
+> +/* Mappings between node number and cpus on that node. */
+> +extern cpumask_var_t node_to_cpumask_map[MAX_NUMNODES];
+> +void numa_clear_node(unsigned int cpu);
+> +
+> +#ifdef CONFIG_DEBUG_PER_CPU_MAPS
+> +const struct cpumask *cpumask_of_node(int node);
+> +#else
+> +/* Returns a pointer to the cpumask of CPUs on Node 'node'. */
+> +static inline const struct cpumask *cpumask_of_node(int node)
+> +{
+> +	return node_to_cpumask_map[node];
+> +}
+> +#endif
+> +
+> +void __init arm64_numa_init(void);
+> +int __init numa_add_memblk(int nodeid, u64 start, u64 end);
+> +void __init numa_set_distance(int from, int to, int distance);
+> +void __init numa_free_distance(void);
+> +void __init early_map_cpu_to_node(unsigned int cpu, int nid);
+> +void numa_store_cpu_info(unsigned int cpu);
+> +void numa_add_cpu(unsigned int cpu);
+> +void numa_remove_cpu(unsigned int cpu);
+> +
+> +#else	/* CONFIG_NUMA */
+> +
+> +static inline void numa_store_cpu_info(unsigned int cpu) { }
+> +static inline void numa_add_cpu(unsigned int cpu) { }
+> +static inline void numa_remove_cpu(unsigned int cpu) { }
+> +static inline void arm64_numa_init(void) { }
+> +static inline void early_map_cpu_to_node(unsigned int cpu, int nid) { }
+> +
+> +#endif	/* CONFIG_NUMA */
+> +
+> +#endif	/* __ASM_GENERIC_NUMA_H */
+
+
 
 _______________________________________________
 linux-riscv mailing list
