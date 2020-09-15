@@ -7,134 +7,64 @@ X-Spam-Status: No, score=-6.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BCE40C43461
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Sep 2020 06:50:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 11A2CC43461
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Sep 2020 06:51:53 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5B81120756
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Sep 2020 06:50:42 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2F8BE20756
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Sep 2020 06:51:52 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="PNJLJkiJ";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="fOBble7U";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="y2mL7ZF6"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5B81120756
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="r2XOIUhn";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="QjEmc6zX"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2F8BE20756
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:Date:Subject:To:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	 bh=O4oXo6irhpEfHL/vKWscZRYoTYbXkIqCKg4XoRDZ7J0=; b=PNJLJkiJEVZeXX1Jarbfj7k4d
-	1g+8wHc/ITY3w6G3VS9XKK51FJgxG+rhEuB4USqud3uPFJX0ASMi6ePgR+c5VquA0+d3HkeRyqRcK
-	+7ZAzBKXDTx7Lx2I9ARr8boyGexxLTDtrZyXQD4gYvm7ZwPJJduTkaDUjdfGe1OvF2tp/GhqeNlOc
-	Q3XtbQE6uRPGfOZVkDwGgtJXfuqeO+JCaKyo9t4sFZ2PGl1+LUgtgYNKQ2IyPQ4h0YMz3GBEovGM9
-	mxXY0VKVykInWz8Pjf9+Syw9vLgV/9OmVpHIHZ6GTNMzjjUr0EMOVRp40QjHRyvRu7myyuBgFbs/T
-	CCW+mAisg==;
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=wnnvCVhPFzKP03MOf8QeNpHTJeiBivdeQBT0xH2iqEs=; b=r2XOIUhnDTEboVALyKwFbBgX5
+	K6YUkPdxJK+h/0p47pEUVne+o/hhgWjzE7lZmN3dWi1IwyHPgMKXNdit9HuDNG4f4MgFvdhSNQvkz
+	2RLKwpTg+lxIuAhjDjPMqomUdZuOhnDBZh7jGPKNgpq1YD5nM/f/AQq0cEbz6NW0QjReP/nwdIxvb
+	FxmerNDToMbHCytw+RRFvm6WL7+ef2YYmR8iLzrKfi+oZtaX/t9Cbor3Gs7vhKVHIO92xx4Ssu6cZ
+	q2DvSSXeFG9HZoUeXYgA0XdRECqQrHjthU3h4Gw4AoqhnRXi4tpW4pQHmMyZiZHgW7Hgb6Rl3nEFj
+	EJAzfFCew==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kI4nP-0003q3-K2; Tue, 15 Sep 2020 06:50:31 +0000
-Received: from esa2.hgst.iphmx.com ([68.232.143.124])
+	id 1kI4oZ-00042a-PD; Tue, 15 Sep 2020 06:51:43 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kI4nM-0003p1-Ix
- for linux-riscv@lists.infradead.org; Tue, 15 Sep 2020 06:50:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1600152644; x=1631688644;
- h=from:to:cc:subject:date:message-id:references:
- content-transfer-encoding:mime-version;
- bh=W3FkkQafQj2Z0St47JQDoeJ21KdzD8m9godXwRtb2YY=;
- b=fOBble7U4qR2esTZkw9ECdKMHtEbdj+jvcjW2CS2IJfLTkbnA04Zm9rc
- GxG6M0rLOEESX2Fr2AvPLWl5iIfyGdjizBuVt4C/6O4NZfu6Qoa2HVWah
- D9mU0NxFyKJ2nxT8DHrlU96GhubyPn3hRc38r/C5e0kG1XAPIZaMo734V
- M9I/IYb/ddhiQsaErWwhVfPzt+BpaV5Xfp6wgVaCth1LSKwhY2PtpsFTI
- t6sSaus7ox3aK60krJSSNolxWOqPpKj5yD7TPmGD/7MdSftNo0+a2Ozu5
- U1EIqmhNzBxoT0TQa/lHEhQCL/bv17w7y17Gz25eQMgX7Q1PyFbnqj8vo Q==;
-IronPort-SDR: M0r9i2qPy+gylvqjND33YCZkkarCn0Ef6s404cdPf5Vkfv7fyXB3rCZtwymgkrfDVIb7odFmZQ
- vMcPD1GfSprFEAG5sgBkOii/FXNgJVAbNmbJ9Ouqd0W8TxET7p+zAmLQyWJv9vLyAij5mHreH0
- PicEFBoxhXPKueLkLPpiSOoAhlu4IQU9hVQQ7ClIunq2gAIdOcrVZuG/PwMxFp0wTaxXkByi0x
- QDfMpupVayQrixW1QhjQGE6zx5Hj2QK3tGFyx4ajEQFkwYX2iMh25AIMEMybh5aUUHkZU256bJ
- 4o4=
-X-IronPort-AV: E=Sophos;i="5.76,429,1592841600"; d="scan'208";a="250715441"
-Received: from mail-dm6nam08lp2043.outbound.protection.outlook.com (HELO
- NAM04-DM6-obe.outbound.protection.outlook.com) ([104.47.73.43])
- by ob1.hgst.iphmx.com with ESMTP; 15 Sep 2020 14:50:39 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Loy4kqf8roFmZQf83pk7zqWwfWB5R49OMnZXmwUpH0/Z0fJBtBUahdFPbPipMbrmsIclLyxB4Jg2QINVhYorKjEvnBUlaLUxZFdpCNBM5EADTRrwRdJfeVuBSbSsmvZjai+D8/j9/8dpMo9urFhbRz/rBPO70wLEBlyzImGocYL2UqhwTFtwnAgHhCnC0skNMppxWnIXRa+RLTx1wxvz/1ZcWkRNMlZa4IYJVqCTB7BLR9+C4XG1BXV/5JnUlLVThtkGeHx8W7HJJ++PztbALqajDRhc75A+O/4K+yPD0EfKkidW3d4ljp3peskT88HcyOJYYHpn07i06LhkzTjU2A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DPSbtConWoG0ohhtbOWWmNfobYJUe5mJ7NYj62ByQXA=;
- b=AflqQJLr906/EH0e8wyyPxm6Dpe+km+GG0O94z88q0/pr2rI55ci/0mASdQBQMNCgUPJ/XGNwTVySR0+55D04MntPzrfKovLxYRiOMZs2g2Zz6MtWREL/IaybZE2AAjiUB8zA1m+qebDzkTo6f2URWNdy889PstRC5ApUTJ7bXqQd8lNnPax6/xUs8tkRX+5nuEpLkm/Vp0yyLQDPLhQFvDiSqTXTBLHMJOx72Iw+bHY1i98ZfVoQuDMkNR5j9Pwf8lbHfLGYsJ49rICd1NvhegoDz+5LFTpZGiFSlSPCgWK8B0gxZpfvY8WvqlwnXkL3UIlXiqcYNmFzHj3Y50Tdw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
- header.d=wdc.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DPSbtConWoG0ohhtbOWWmNfobYJUe5mJ7NYj62ByQXA=;
- b=y2mL7ZF65CH/Tzw6EfpVgBxTTC0uHc3xs9DlQ7Ml+HUvaP9ly3BBRdmA99KEtFM9XV96AArjAYLxYh3dT8c9qJdENpoYkt6//U4+VC8PgozgtugB77GZ+CN/rB22fO3TtmDC7SwmZ0omO1XHFv7aeR7BPMRhGaLLkcsVW3fX4tE=
-Received: from CY4PR04MB3751.namprd04.prod.outlook.com (2603:10b6:903:ec::14)
- by CY4PR04MB0727.namprd04.prod.outlook.com (2603:10b6:903:e5::20)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3370.17; Tue, 15 Sep
- 2020 06:50:24 +0000
-Received: from CY4PR04MB3751.namprd04.prod.outlook.com
- ([fe80::9124:2453:fe9c:9a7]) by CY4PR04MB3751.namprd04.prod.outlook.com
- ([fe80::9124:2453:fe9c:9a7%12]) with mapi id 15.20.3370.019; Tue, 15 Sep 2020
- 06:50:24 +0000
-From: Damien Le Moal <Damien.LeMoal@wdc.com>
-To: "hch@infradead.org" <hch@infradead.org>, Palmer Dabbelt
- <palmerdabbelt@google.com>
+ id 1kI4oX-00042A-N6
+ for linux-riscv@merlin.infradead.org; Tue, 15 Sep 2020 06:51:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+ References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description;
+ bh=z9q5JzGJ9bbdpQmFVTXpkgryVrOXueGpKooYCbdm3/8=; b=QjEmc6zXuT8yG9UICzZ8AmPM1q
+ XJ98Svu1kbLcZnmX3qdlLjthEkalFWdOU5UfJn9LDLfP3L39Bm255ATzl4c+M1YMnZ3i6KEHv9EFq
+ vnn8dMi7cn9w8lJSQunlqJJeoeZEG4hr+CcHxykq/4Y+8Cf29fUTyE51mMCayaIeEvVu8SUg4WjoS
+ p0J0UZZojFaOBErmBql7zFVDMS4yKUw8zcbnPSkp59P0yaZxodZHNfAIdKQBPISiRFYGo92+PcV9g
+ O3EY1UVcorjAeRt4OmyZUrr/pNoBLSXS5lWyZTLhnWJRnORwIgT79WRcFT3zluKBm0B4WM9Oq1Y81
+ d1qBzzaQ==;
+Received: from hch by casper.infradead.org with local (Exim 4.92.3 #3 (Red Hat
+ Linux)) id 1kI4oU-0008IH-PU; Tue, 15 Sep 2020 06:51:38 +0000
+Date: Tue, 15 Sep 2020 07:51:38 +0100
+From: "hch@infradead.org" <hch@infradead.org>
+To: Damien Le Moal <Damien.LeMoal@wdc.com>
 Subject: Re: [PATCH] RISC-V: Resurrect the MMIO timer implementation for
  M-mode systems
-Thread-Topic: [PATCH] RISC-V: Resurrect the MMIO timer implementation for
- M-mode systems
-Thread-Index: AQHWirrpPJWbe2PlHEeKVCGYd69a+w==
-Date: Tue, 15 Sep 2020 06:50:24 +0000
-Message-ID: <CY4PR04MB37512693510EE0C8E8B29F4CE7200@CY4PR04MB3751.namprd04.prod.outlook.com>
+Message-ID: <20200915065138.GA31702@infradead.org>
 References: <20200914165628.445087-1-palmerdabbelt@google.com>
  <20200915054649.GA16371@infradead.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: infradead.org; dkim=none (message not signed)
- header.d=none;infradead.org; dmarc=none action=none header.from=wdc.com;
-x-originating-ip: [2400:2411:43c0:6000:f58c:fb44:b59e:e65e]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-ht: Tenant
-x-ms-office365-filtering-correlation-id: bb873a2e-4cff-48a1-80bd-08d859439f38
-x-ms-traffictypediagnostic: CY4PR04MB0727:
-x-ld-processed: b61c8803-16f3-4c35-9b17-6f65f441df86,ExtAddr
-x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <CY4PR04MB072790A51E7F3C1025082C5EE7200@CY4PR04MB0727.namprd04.prod.outlook.com>
-wdcipoutbound: EOP-TRUE
-x-ms-oob-tlc-oobclassifiers: OLM:8882;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: VLoYTw7givXbZMuH80JAC0lxconK/tPjd/0W2MB6WKctx4vwVUxbpabss3pp6XHdyIwQMZodh49bULvzYfP2gakjRlHnwwb0J1qUXx6Ymqh3iJc0QEysBvmvr/f4bENHXN13Sb32kVQlwFYmmPjkSw/HgcgwJTe/3CgbQub28TJRVX+r0uEYeLLU/SO2MbG516zY0SMiOSoP5WWgRrCBML26h89/e1njYPCD8jgCDYhnacJfM3nx2u2cFcr1tWOJ8iO8gJtHdQhlg1UoAWJGBz4gENlV1IE+ibwwZqARlQKKilkcswSpZRFWU3bje1amneSDs32L+cz9cB7dQPNLUoc4ZxcZ8qw6NfhhZPJMgH7hQPRu1qBbJjthTMeW38dR7DFK6CmS5Mo3lQY49SWd1JSmhNwuINnX47z+/Q4K9bU62gt2l1Y0GNFVUp4TjqCCGaORo4vvZKATfJNKoywRig==
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:CY4PR04MB3751.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(39860400002)(136003)(366004)(346002)(376002)(396003)(52536014)(4326008)(7696005)(2906002)(71200400001)(966005)(91956017)(76116006)(66946007)(66476007)(64756008)(66556008)(66446008)(186003)(316002)(6506007)(53546011)(55016002)(5660300002)(9686003)(54906003)(33656002)(4744005)(110136005)(8936002)(86362001)(478600001)(8676002);
- DIR:OUT; SFP:1102; 
-x-ms-exchange-antispam-messagedata: wgBhAIjgdEdCsTewfPZ5NVlTXriF8cF4so3TSiRydW31szEAINf+GSJDu56y8zFtNCP2VJX3ZLp/F9Vbn/BIYce9MSkZZFNWDuxXmYsMIQ66ufYqeMf33gwuFThVdKXMKwd4SwpShZK1homKD2okXX2G0XvIj8GJJDcjNaDmTWNdwVwTeQ3sOOcAiVIDQbjjMjxVSzcSRsgcdKKsg1fXPXRTnm1ODuexiVMls+5IQ0qjRxkjzysV1fE5/LhhOs6aCgVtIhBGmXKGm/TYb9XFYG+JSqGeMuPcRBjawzkUReHA+ih9xzdImUy7G0RexYv1y0WH7v1qhvaW4ll6hknHXBTfpwm3y+VxBmh5KGK6Dhbt7/BcKlwZpjT+Qyl9kT2pJUJBlIVWeu7o27dwA9mq4X4R5JEjczrtqS01BYLh45orpKiQnzplJy0WtZHY8k0OYtAT9D2W2qpYzmhCFuecXPuNln9UUqmoXEP3v3IU5KbP2TjZlxYy8QT8TRWQ1B2OxEyaajxaO7PRb/9o/LbHg/4pYKRHYyG8JVAjBTGCw6i5CnoazY4bOnzlqOeEhd47hEllZ/vOZ6fL/QUuLCwsatB3dLw3y5+SWVITHDNLXagyfxlNmBTU//XJ6hCBcr0O9l/2XKdJPAwWkJyMW5UUOH0k1do/lXkIRBjrJpk1NaB+eR6fjXBDOv7MNNfhUi3B72+utFHftyn2ve2yEZdnSA==
+ <CY4PR04MB37512693510EE0C8E8B29F4CE7200@CY4PR04MB3751.namprd04.prod.outlook.com>
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CY4PR04MB3751.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bb873a2e-4cff-48a1-80bd-08d859439f38
-X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Sep 2020 06:50:24.0547 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: sLFdOBwmCgk9jj8KniCRUYaPz2Ob95jkOwnGkD2DiOg8P1dLSRdUQGK1T8zgtZ2zRScyshMka8I2YsZ7OMs0Sg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY4PR04MB0727
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200915_025028_878491_F983ABE2 
-X-CRM114-Status: GOOD (  11.97  )
+Content-Disposition: inline
+In-Reply-To: <CY4PR04MB37512693510EE0C8E8B29F4CE7200@CY4PR04MB3751.namprd04.prod.outlook.com>
+X-SRS-Rewrite: SMTP reverse-path rewritten from <hch@infradead.org> by
+ casper.infradead.org. See http://www.infradead.org/rpr.html
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -146,38 +76,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- Anup Patel <Anup.Patel@wdc.com>,
+Cc: "hch@infradead.org" <hch@infradead.org>, Anup Patel <Anup.Patel@wdc.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ Palmer Dabbelt <palmerdabbelt@google.com>,
  "kernel-team@android.com" <kernel-team@android.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2020/09/15 14:47, Christoph Hellwig wrote:
-> I won't have time to set up the K210, but this fixes the timer issues
-> on older Qemu versions that don't implement the time CSR.  Although I
-> also need to revert the binfmt_flat patch to actually get to userspace.
-
-So revert is needed ? Digging in the flatbin format, I do not see why the offset
-you removed would be needed, and it does not seem to affect other arch anyway.
-So I am really suspecting a problem with riscv uclibcb or elf2flt, but can't
-quite yet figure out what may be wrong there.
-
-
+On Tue, Sep 15, 2020 at 06:50:24AM +0000, Damien Le Moal wrote:
+> On 2020/09/15 14:47, Christoph Hellwig wrote:
+> > I won't have time to set up the K210, but this fixes the timer issues
+> > on older Qemu versions that don't implement the time CSR.  Although I
+> > also need to revert the binfmt_flat patch to actually get to userspace.
 > 
-> Tested-by: Christoph Hellwig <hch@lst.de>
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-> 
+> So revert is needed ? Digging in the flatbin format, I do not see why the offset
+> you removed would be needed, and it does not seem to affect other arch anyway.
+> So I am really suspecting a problem with riscv uclibcb or elf2flt, but can't
+> quite yet figure out what may be wrong there.
 
-
--- 
-Damien Le Moal
-Western Digital Research
+I did not have time to find out if what we did in RISC-V nommu was
+correct or wrong.  But to get my existing userspace to work I had to
+revert the revert.  I'll try to find some time to dig into the binfmt
+flat issue and elf2flt soon.
 
 _______________________________________________
 linux-riscv mailing list
