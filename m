@@ -7,16 +7,16 @@ X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,
 	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3CB4CC43461
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 15:24:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F232BC43461
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 15:24:29 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B8AB52137B
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 15:24:25 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 97A3F20708
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 15:24:29 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="xBbb+LQ3"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B8AB52137B
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="2EKFm5tO"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 97A3F20708
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=allwinnertech.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,49 +25,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:References:MIME-Version:Subject:
 	Message-ID:To:From:Date:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=6wnbnvZDT+JahQRev6+HePsgNJt5qYKmlDH2CKD7kiQ=; b=xBbb+LQ3svQIWczp311jk4Rhl
-	dMnr/FljhcYg9O768zcB3OYHui0SSKL/G7jtWglmXxTuIjyMSX+pMb2/ul1Bhrsp0fwQdYjGpC6e8
-	f+13TDxHOiYrsM47+6OqxLZCKgj5mTo/tsePCvSbwZ5MjbrYM6XfqtFMQJ9ogcnIQLdaIc4RkRaM6
-	zg4KR682t3h8zFz5tsCNIIeZMxWxJoxrfmvDlgc8+BU3ySqZiJ9qgexxh+P0qeJAYkMudx8Ywz+kf
-	qWXZuhxtzMtmhIu72CTCAnbq96JvFyYgGK2Ah3tcHl6lcdHoq9vDUfg4XGkZNdL6Ie9yRk6U1DwP/
-	IuaGHSc+g==;
+	 bh=cFV5Ks/1/T6aNsQGgpMYDPmo3PRIIyVxs/NLDUBUL9E=; b=2EKFm5tOVl9x3RbtV9TcE0Olp
+	OkSQ0LvJ/1pJ8QgTHG7xMmbxcwDC6szPPxEorMW8s/NLs1VCpZr5IKlNLz9x3puAlkVFHlpeCJE9E
+	oA9JQcwIk0sGawtsv5oZG08INXWBWSOYs+/D3/iZ/qgS/oZ1GZ6TvJyUnDAfHqe8W4Nrhcq2M0gzS
+	wnXLayvprYBkffigJ7WwhyGxj+PwnXaIwpPr132WqTxxcQ/WJOFjc5cVxf9v8gh7dxStgNrGkiVHB
+	n7oqzpbK8sX1vanqbf5TV3VMFXVTdESSlPQq1vRETKuLv+Zti17GUXoyn32x6ma1wH1icniMJGioq
+	Gb2ITIZkQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kIvli-0004Gl-FB; Thu, 17 Sep 2020 15:24:18 +0000
+	id 1kIvlk-0004HM-3a; Thu, 17 Sep 2020 15:24:20 +0000
 Received: from smtp2207-205.mail.aliyun.com ([121.197.207.205])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kHo3b-0002Ci-9f
- for linux-riscv@lists.infradead.org; Mon, 14 Sep 2020 12:58:14 +0000
-X-Alimail-AntiSpam: AC=CONTINUE; BC=0.08253667|-1; CH=green;
+ id 1kIAYZ-0005iX-8J
+ for linux-riscv@lists.infradead.org; Tue, 15 Sep 2020 12:59:37 +0000
+X-Alimail-AntiSpam: AC=CONTINUE; BC=0.07386647|-1; CH=green;
  DM=|CONTINUE|false|;
- DS=CONTINUE|ham_system_inform|0.012044-0.00337727-0.984579;
- FP=0|0|0|0|0|-1|-1|-1; HT=e02c03308; MF=liush@allwinnertech.com; NM=1; PH=DW;
- RN=14; RT=14; SR=0; TI=W4_5948689_DEFAULT_0A93261A_1600088218642_o7001c1057e; 
+ DS=CONTINUE|ham_system_inform|0.0476423-0.000196116-0.952162;
+ FP=0|0|0|0|0|-1|-1|-1; HT=e01l10422; MF=liush@allwinnertech.com; NM=1; PH=DW;
+ RN=14; RT=14; SR=0; TI=W4_5948689_DEFAULT_0A9326FA_1600174289947_o7001c2340k; 
 Received: from WS-web
- (liush@allwinnertech.com[W4_5948689_DEFAULT_0A93261A_1600088218642_o7001c1057e])
- by ay29a011140100189.et135 at Mon, 14 Sep 2020 20:58:02 +0800
-Date: Mon, 14 Sep 2020 20:58:02 +0800
+ (liush@allwinnertech.com[W4_5948689_DEFAULT_0A9326FA_1600174289947_o7001c2340k])
+ by ay29a011140100197.et135 at Tue, 15 Sep 2020 20:59:23 +0800
+Date: Tue, 15 Sep 2020 20:59:23 +0800
 From: "=?UTF-8?B?5YiY6YK15Y2OQlRE?=" <liush@allwinnertech.com>
-To: "paul.walmsley" <paul.walmsley@sifive.com>, "palmer" <palmer@dabbelt.com>,
- "aou" <aou@eecs.berkeley.edu>, "rjw" <rjw@rjwysocki.net>,
- "anup.patel" <anup.patel@wdc.com>, "atish.patra" <atish.patra@wdc.com>,
- "damien.lemoal" <damien.lemoal@wdc.com>,
- "wangkefeng.wang" <wangkefeng.wang@huawei.com>, "kernel" <kernel@esmil.dk>,
- "zong.li" <zong.li@sifive.com>,
- "Daniel Lezcano" <daniel.lezcano@linaro.org>
-Message-ID: <58abe153-689d-460c-a119-91270cd110cf.liush@allwinnertech.com>
+To: "Palmer Dabbelt" <palmer@dabbelt.com>
+Message-ID: <83f5615c-0ab0-4e1e-b083-b5558ee222b9.liush@allwinnertech.com>
 Subject: =?UTF-8?B?5Zue5aSN77yaW1BBVENIXSBjcHVpZGxlOiBhZGQgcmlzY3YgY3B1aWRsZSBkcml2ZXI=?=
-X-Mailer: [Alimail-Mailagent][W4_5948689][DEFAULT][Chrome]
+X-Mailer: [Alimail-Mailagent][W4_5948689][DEFAULT][Firefox]
 MIME-Version: 1.0
 References: <1600048323-2964-1-git-send-email-liush@allwinnertech.com>,
- <80bc85f5-fba3-5f08-4d73-372b5f495833@linaro.org>
-In-Reply-To: <80bc85f5-fba3-5f08-4d73-372b5f495833@linaro.org>
-x-aliyun-mail-creator: W4_5948689_DEFAULT_MzYTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgNi4xOyBXaW42NDsgeDY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvODUuMC40MTgzLjEwMiBTYWZhcmkvNTM3LjM2zc
+ <mhng-e743b908-36de-4226-832d-bc5acbbfd81b@palmerdabbelt-glaptop1>
+x-aliyun-mail-creator: W4_5948689_DEFAULT_IHJTW96aWxsYS81LjAgKFgxMTsgVWJ1bnR1OyBMaW51eCB4ODZfNjQ7IHJ2OjgwLjApIEdlY2tvLzIwMTAwMTAxIEZpcmVmb3gvODAuMA==jQ
+In-Reply-To: <mhng-e743b908-36de-4226-832d-bc5acbbfd81b@palmerdabbelt-glaptop1>
 X-Bad-Reply: References and In-Reply-To but no 'Re:' in Subject.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200914_085810_770242_673189D4 
-X-CRM114-Status: GOOD (  15.26  )
-X-Mailman-Approved-At: Thu, 17 Sep 2020 11:24:16 -0400
+X-CRM114-CacheID: sfid-20200915_085936_366537_A562CB7F 
+X-CRM114-Status: GOOD (  33.63  )
+X-Mailman-Approved-At: Thu, 17 Sep 2020 11:24:17 -0400
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -80,25 +74,97 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Reply-To: =?UTF-8?B?5YiY6YK15Y2OQlRE?= <liush@allwinnertech.com>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>,
- linux-kernel <linux-kernel@vger.kernel.org>,
- linux-pm <linux-pm@vger.kernel.org>
+Cc: Damien Le Moal <Damien.LeMoal@wdc.com>, aou <aou@eecs.berkeley.edu>,
+ "daniel.lezcano" <daniel.lezcano@linaro.org>,
+ linux-pm <linux-pm@vger.kernel.org>, Anup Patel <Anup.Patel@wdc.com>,
+ rjw <rjw@rjwysocki.net>, "wangkefeng.wang" <wangkefeng.wang@huawei.com>,
+ linux-kernel <linux-kernel@vger.kernel.org>, Atish Patra <Atish.Patra@wdc.com>,
+ "zong.li" <zong.li@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>, kernel <kernel@esmil.dk>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Daniel,
+Hi Palmer,
+
 > > This patch adds a cpuidle driver for systems based RISCV architecture.
 > > This patch supports state WFI. Other states will be supported in the
 > > future.
-> > 
+> >
 > > Signed-off-by: liush <liush@allwinnertech.com>
 > > ---
-> 
-> [ ... ]
-> 
-> >  
+> >  arch/riscv/Kconfig               |  7 +++++
+> >  arch/riscv/include/asm/cpuidle.h |  7 +++++
+> >  arch/riscv/kernel/Makefile       |  1 +
+> >  arch/riscv/kernel/cpuidle.c      |  8 ++++++
+> >  drivers/cpuidle/Kconfig          |  5 ++++
+> >  drivers/cpuidle/Kconfig.riscv    | 11 ++++++++
+> >  drivers/cpuidle/Makefile         |  4 +++
+> >  drivers/cpuidle/cpuidle-riscv.c  | 55 ++++++++++++++++++++++++++++++++++++++++
+> >  8 files changed, 98 insertions(+)
+> >  create mode 100644 arch/riscv/include/asm/cpuidle.h
+> >  create mode 100644 arch/riscv/kernel/cpuidle.c
+> >  create mode 100644 drivers/cpuidle/Kconfig.riscv
+> >  create mode 100644 drivers/cpuidle/cpuidle-riscv.c
+> >
+> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > index df18372..c7ddb9d 100644
+> > --- a/arch/riscv/Kconfig
+> > +++ b/arch/riscv/Kconfig
+> > @@ -86,6 +86,7 @@ config RISCV
+> >   select SPARSE_IRQ
+> >   select SYSCTL_EXCEPTION_TRACE
+> >   select THREAD_INFO_IN_TASK
+> > + select CPU_IDLE
+> >
+> >  config ARCH_MMAP_RND_BITS_MIN
+> >   default 18 if 64BIT
+> > @@ -407,6 +408,12 @@ config BUILTIN_DTB
+> >   depends on RISCV_M_MODE
+> >   depends on OF
+> >
+> > +menu "CPU Power Management"
+> > +
+> > +source "drivers/cpuidle/Kconfig"
+> > +
+> > +endmenu
+> > +
+> >  menu "Power management options"
+> >
+> >  source "kernel/power/Kconfig"
+> > diff --git a/arch/riscv/include/asm/cpuidle.h b/arch/riscv/include/asm/cpuidle.h
+> > new file mode 100644
+> > index 00000000..2599d2f
+> > --- /dev/null
+> > +++ b/arch/riscv/include/asm/cpuidle.h
+> > @@ -0,0 +1,7 @@
+> > +/* SPDX-License-Identifier: GPL-2.0 */
+> > +#ifndef __RISCV_CPUIDLE_H
+> > +#define __RISCV_CPUIDLE_H
+> > +
+> +extern void cpu_do_idle(void);
+> > +
+> > +#endif
+> > diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
+> > index dc93710..396ba9c 100644
+> > --- a/arch/riscv/kernel/Makefile
+> > +++ b/arch/riscv/kernel/Makefile
+> > @@ -29,6 +29,7 @@ obj-y += riscv_ksyms.o
+> >  obj-y += stacktrace.o
+> >  obj-y += cacheinfo.o
+> >  obj-y += patch.o
+> > +obj-y += cpuidle.o
+
+> Presumably we want this to be a Kconfig option, if only to avoid excess size on
+> the smaller systems?
+
+Thank you for your suggestions.
+I am considering following Anup's suggestion - delete cpuidle.c and implement 
+cpu_do_idle in cpuidle.h.
+
+> >  obj-$(CONFIG_MMU) += vdso.o vdso/
+> >
 > >  obj-$(CONFIG_RISCV_M_MODE) += traps_misaligned.o
 > > diff --git a/arch/riscv/kernel/cpuidle.c b/arch/riscv/kernel/cpuidle.c
 > > new file mode 100644
@@ -113,41 +179,56 @@ Hi Daniel,
 > > +{
 > > + __asm__ __volatile__ ("wfi");
 > > +
-> 
-> extra line
-> 
+
+> We have wait_for_interrupt() that does this already, but it's one line so it
+> doesn't really matter.  Either way, there's an extra newline here.
+
+Thanks, i'll modify it
+
+> Additionally, we have arch_cpu_idle() which is calling cpu_do_idle() on other
+> platforms.  Presumably we should be doing something similar, under the
+> assumption that we will eventually have cpu_do_idle() hook into CPU idle
+> drivers here?
+
+Based on your comments, I run a test and found that arch_cpu_idle could be executed 
+normally without enabling the idle driver.Part of the code of the experiment:
+ 
+--- /dev/null
++++ b/arch/riscv/include/asm/cpuidle.h
+@@ -0,0 +1,11 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef __RISCV_CPUIDLE_H
++#define __RISCV_CPUIDLE_H
++
++static inline void cpu_do_idle(void)
++{
++       mb();
++       wait_for_interrupt();
++}
++
++#endif
+
++++ b/arch/riscv/kernel/process.c
+@@ -21,6 +21,7 @@
+ #include <asm/string.h>
+ #include <asm/switch_to.h>
+ #include <asm/thread_info.h>
++#include <asm/cpuidle.h>
+ 
+ register unsigned long gp_in_global __asm__("gp");
+ 
+@@ -35,7 +36,7 @@ extern asmlinkage void ret_from_kernel_thread(void);
+ 
+ void arch_cpu_idle(void)
+ {
+-       wait_for_interrupt();
++       cpu_do_idle();
+        local_irq_enable();
+ }
+ 
+
+
 > > +}
-
-> As for the next deeper states should end up with the cpu_do_idle
-> function, isn't there an extra operation with the wfi() like flushing
-> the l1 cache?
-
-Data cache consistency is mainly ensured by hardware in riscv, and there is no 
-implementation of flushing data cache in kernel. Before wfi(),add an memory 
-barrier operation - mb(). Is this feasible? 
-
-  //arch/riscv/include/asm/barrier.h
-
-  17 #define RISCV_FENCE(p, s) \
-  18         __asm__ __volatile__ ("fence " #p "," #s : : : "memory")
-  19 
-  20 /* These barriers need to enforce ordering on both devices or memory. */                                                                                                            
-  21 #define mb()            RISCV_FENCE(iorw,iorw) 
-
-
-After modification, the codes is as follows.
-
-81 @@ -0,0 +1,8 @@
-82 +// SPDX-License-Identifier: GPL-2.0
-83 +#include <asm/cpuidle.h>
-84 +
-85 +void cpu_do_idle(void)
-86 +{
-87 +       mb();
-88 +       __asm__ __volatile__ ("wfi");
-89 +
-90 +}
-
 > > diff --git a/drivers/cpuidle/Kconfig b/drivers/cpuidle/Kconfig
 > > index c0aeedd..f6be0fd 100644
 > > --- a/drivers/cpuidle/Kconfig
@@ -155,7 +236,7 @@ After modification, the codes is as follows.
 > > @@ -62,6 +62,11 @@ depends on PPC
 > >  source "drivers/cpuidle/Kconfig.powerpc"
 > >  endmenu
-> >  
+> >
 > > +menu "RISCV CPU Idle Drivers"
 > > +depends on RISCV
 > > +source "drivers/cpuidle/Kconfig.riscv"
@@ -178,13 +259,98 @@ After modification, the codes is as follows.
 > > +        bool "Generic RISCV CPU idle Driver"
 > > +        select DT_IDLE_STATES
 > > + select CPU_IDLE_MULTIPLE_DRIVERS
+
+> Looks like there's some space/tab issues here.  IIRC checkpatch will catch this
+> sort of thing.
+
+yes, i'll modify it
+
 > > +        help
 > > +          Select this option to enable generic cpuidle driver for RISCV.
 > > +   Now only support C0 State.
-> 
-> Identation
+> > diff --git a/drivers/cpuidle/Makefile b/drivers/cpuidle/Makefile
+> > index 26bbc5e..4c83c4e 100644
+> > --- a/drivers/cpuidle/Makefile
+> > +++ b/drivers/cpuidle/Makefile
+> > @@ -34,3 +34,7 @@ obj-$(CONFIG_MIPS_CPS_CPUIDLE)  += cpuidle-cps.o
+> >  # POWERPC drivers
+> >  obj-$(CONFIG_PSERIES_CPUIDLE)  += cpuidle-pseries.o
+> >  obj-$(CONFIG_POWERNV_CPUIDLE)  += cpuidle-powernv.o
+> > +
+> > +###############################################################################
+> > +# RISCV drivers
+> > +obj-$(CONFIG_RISCV_CPUIDLE)  += cpuidle-riscv.o
+> > diff --git a/drivers/cpuidle/cpuidle-riscv.c b/drivers/cpuidle/cpuidle-riscv.c
+> > new file mode 100644
+> > index 00000000..5dddcfa
+> > --- /dev/null
+> > +++ b/drivers/cpuidle/cpuidle-riscv.c
+> > @@ -0,0 +1,55 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +/*
+> > + * RISC-V CPU idle driver.
+> > + *
+> > + * Copyright (C) 2020-2022 Allwinner Ltd
+> > + *
+> > + * Based on code - driver/cpuidle/cpuidle-at91.c
+> > + *
+> > + */
+> > +#include <linux/cpuidle.h>
+> > +#include <linux/cpumask.h>
+> > +#include <linux/cpu_pm.h>
+> > +#include <linux/kernel.h>
+> > +#include <linux/module.h>
+> > +#include <linux/of.h>
+> > +#include <linux/slab.h>
+> > +#include <linux/platform_device.h>
+> > +#include <asm/cpuidle.h>
+> > +
+> > +#define MAX_IDLE_STATES 1
+> > +
+> > +/* TODO: Implement deeper idle states */
+> > +static int riscv_low_level_suspend_enter(int state)
+> > +{
+> > + return 0;
 
-I'll fix it. Thank you!
+> As far as I can tell, this driver just doesn't do anything?  Assuming that's
+> the case, it's probably best to just drop everything but cpu_do_idle() until we
+> have something to exercise this.
+
+Although, the driver in this case is not necessary, it is essential when work in the macro 
+CPU_PM_CPU_IDLE_ENTER_PARAM.And it could also be used for supporting other 
+deeper states in the future. So I think it would be better to keep 
+riscv_low_level_suspend_enter but change it to __weak function.
+
+> > +}
+> > +
+> > +/* Actual code that puts the SoC in different idle states */
+> > +static int riscv_enter_idle(struct cpuidle_device *dev,
+> > +   struct cpuidle_driver *drv,
+> > +          int index)
+> > +{
+> > + return CPU_PM_CPU_IDLE_ENTER_PARAM(riscv_low_level_suspend_enter,
+> > +        index, 0);
+> > +}
+> > +
+> > +static struct cpuidle_driver riscv_idle_driver = {
+> > + .name   = "riscv_idle",
+> > + .owner   = THIS_MODULE,
+> > + .states[0]  = {
+> > +  .enter   = riscv_enter_idle,
+> > +  .exit_latency  = 1,
+> > +  .target_residency = 1,
+> > +  .name   = "WFI",
+> > +  .desc   = "RISCV WFI",
+> > + },
+> > + .state_count = MAX_IDLE_STATES,
+> > +};
+> > +
+> > +static int __init riscv_cpuidle_init(void)
+> > +{
+> > + return cpuidle_register(&riscv_idle_driver, NULL);
+> > +}
+> > +
+> > +device_initcall(riscv_cpuidle_init);
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
