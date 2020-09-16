@@ -2,81 +2,65 @@ Return-Path: <SRS0=kUFi=CZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0716AC43461
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2020 04:59:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 26B99C43461
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2020 07:29:14 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8C34A20936
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2020 04:59:39 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B05FC2076C
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2020 07:29:13 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="quTrZo4H";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="CP38OmPJ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8C34A20936
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="HXE+beHK";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="F0h5DWgU"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B05FC2076C
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=NZL+sd/HSk0Riqg7amiOxAHdwt1dMvfTCbVlboXrlMI=; b=quTrZo4HijMzHVUhFQKUVmxTP
-	E8Frakxdz+cRmv7RCknTogj7kkxEWFUvw922RunGkm9qIR94FfEqfZEIySpOUv7KDV4P/WQNAcSXR
-	6NW0pFKijIClOUvi9eRwW7pWyfzeF7u5T7t8jZIrOf2qoBPGn9OdvUJU7VltnMcE26puLvMYy3Po8
-	m7qCrfLxErN6DVHAcVdymNLs5ovWKakcr0zPt3oPGCpTyB86+awus25pcgzNbOM/3L9+goRev3cIR
-	f+ywfRE4KuTfRTPmv1TmnlJ8fRtK3owmdR0SbAFb2Xsc48plE3YFogh6SwlbelADSNQ3bksbHIfPc
-	G8BmUxqSw==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7GAhJZ0bmzBl6F9v85PqlijVHeXSexMLQdsnuc6Kjuw=; b=HXE+beHKg+WXFexG6YjpfsD5PK
+	9BKTqLBhP86k22ymXaT0OHVyJAKvdWSxtLYqtpRxGW42/2JARGALXkeLRc70mBpVJzYW9u8LpWxsz
+	VaXIML/Z37bvPoggsAGsziV8KG718UdfrK9e+zR2xiSlMRg+6lBlxT89OAFOlczC4Xx7i+l3D0sIH
+	YWuWTxxy8MeVocO4LvZnkRWLX/KXyVCQg6StGkQmKgMy6UFznQasg5//6C+Z2Np83WW3r1hq0hS9W
+	V3rVxtcDBh7neadm//EiTW+52rl7NgXmhlUXs0hBRynmpGFidiotLRpRHH0yehU0cKKUSk3Yt1Dl0
+	+LjwWCjg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kIPXW-0007z3-SP; Wed, 16 Sep 2020 04:59:30 +0000
-Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
+	id 1kIRsG-00084e-5b; Wed, 16 Sep 2020 07:29:04 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kIPXU-0007yU-Ky
- for linux-riscv@lists.infradead.org; Wed, 16 Sep 2020 04:59:29 +0000
-Received: by mail-wm1-x342.google.com with SMTP id x23so1429597wmi.3
- for <linux-riscv@lists.infradead.org>; Tue, 15 Sep 2020 21:59:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=rCTuhyZQOUG1QUoZGvCM2ORI/jmuwqWCZicbq3DWhhA=;
- b=CP38OmPJy4NLsBbgQvFeP7CL6J1ebskg20FlasF5X/WDg++ZFzxrF94fZL9BCAW4Ix
- rMaao5R/1PtNEhYuUk3EAm8UTlgQ3E5Eoetbs2XqxLbFlfZ3lNG3e4FsY7Bt1lv5roCw
- SlaOiCYabeQKWUNQeIIUt570KfWmccLtgC498=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=rCTuhyZQOUG1QUoZGvCM2ORI/jmuwqWCZicbq3DWhhA=;
- b=elWo0PVSprHOQVjHm4r0h7pinQaeyyg7RPfSFfM4sgrh4kdnaJvjOxz9+FUuxqTHK9
- dQLdv+PU28JaDlPzSzCwP9yfPdN4Zh7RVR3XUHLGlhrA6HzaZnCGHb4DjKLSphCwNe/N
- ZUUtytT/grssTNQgjWxNUcFYCxw9DqabPJt03/5mRguxR8SLQ9eJjblYnxslCTaIUpKJ
- /6ubrQuKND5ju6NKFHQ1yeZdmabZJ+ZuPYiqztpagog433tLBJq5CjanFnSqLGvMa+Qo
- 2BpoGzIgD8Z2DKHhULuvkDgMgvD6scaHbS0kvV4dtrleun0sueylAA5aXQZwCXLMsLdu
- N1nw==
-X-Gm-Message-State: AOAM533fPcvW/9CQ72/UYuXuOFcb2ikFF32Bfwj5nILJouehclNs5Oen
- Y+kBYCI8mvjtSXS+eU5AoHrDxhRoO9EYgkkJ9yd0ODgmMBHj
-X-Google-Smtp-Source: ABdhPJxSHpK+pvszjJErsLvbX24k1ZOF1jpjwqsuq+xDkucs8PzAfObnjYLDsoIWip/iaP/VhTTci6XtyaaLioog1tc=
-X-Received: by 2002:a1c:a988:: with SMTP id s130mr614595wme.31.1600232367435; 
- Tue, 15 Sep 2020 21:59:27 -0700 (PDT)
+ id 1kIRsA-00082S-MK; Wed, 16 Sep 2020 07:29:00 +0000
+Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id DE27F20771;
+ Wed, 16 Sep 2020 07:28:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1600241337;
+ bh=2pPFIyfq0HjxH/I1nQKf+tcVT9qAd8yS6QngBOEx7EM=;
+ h=From:To:Cc:Subject:Date:From;
+ b=F0h5DWgUhvU5XLcsYtcxIKA1Q3wQfwVGd3nw0B8mU624p9XWkw6wiW7p1Zuz/xTRZ
+ O9KcB9xE81T9A1Gvj+KtDQXmGmJhd84/x+WIU0x3WwcVe459cy+13EBlfQ+CQkNRJM
+ twHYIljA0tJ22HO3pmMbhJOKF/hh5PkILOigTe2g=
+From: Mike Rapoport <rppt@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>
+Subject: [PATCH v5 0/5] mm: introduce memfd_secret system call to create
+ "secret" memory areas
+Date: Wed, 16 Sep 2020 10:28:37 +0300
+Message-Id: <20200916072842.3502-1-rppt@kernel.org>
+X-Mailer: git-send-email 2.28.0
 MIME-Version: 1.0
-References: <CY4PR04MB375179E27AE26DBD3ED0FF76E7210@CY4PR04MB3751.namprd04.prod.outlook.com>
- <mhng-bb93a26a-2217-4540-83f7-99b896516413@palmerdabbelt-glaptop1>
-In-Reply-To: <mhng-bb93a26a-2217-4540-83f7-99b896516413@palmerdabbelt-glaptop1>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Tue, 15 Sep 2020 21:59:16 -0700
-Message-ID: <CAOnJCU+=nU73qOO11H3QoxmzfwjsWOfOiMv-5C0LFiqsOjoz2w@mail.gmail.com>
-Subject: Re: [PATCH] riscv: Fix compilation warning
-To: Palmer Dabbelt <palmer@dabbelt.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200916_005928_706165_C0C2DEB1 
-X-CRM114-Status: GOOD (  32.44  )
+X-CRM114-CacheID: sfid-20200916_032858_895328_7B50A3DB 
+X-CRM114-Status: GOOD (  27.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -88,72 +72,151 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Damien Le Moal <Damien.LeMoal@wdc.com>, Anup Patel <Anup.Patel@wdc.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Christopher Lameter <cl@linux.com>,
+ Idan Yaniv <idan.yaniv@ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
+ Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
+ Will Deacon <will@kernel.org>, x86@kernel.org,
+ Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
+ Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
+ Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-fsdevel@vger.kernel.org, Mike Rapoport <rppt@kernel.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBTZXAgMTUsIDIwMjAgYXQgNzowMiBQTSBQYWxtZXIgRGFiYmVsdCA8cGFsbWVyQGRh
-YmJlbHQuY29tPiB3cm90ZToKPgo+ID5PbiBUdWUsIDE1IFNlcCAyMDIwIDE4OjI5OjUyIFBEVCAo
-LTA3MDApLCBEYW1pZW4gTGUgTW9hbCB3cm90ZToKPiA+PiBPbiAyMDIwLzA5LzE2IDQ6NDQsIEF0
-aXNoIFBhdHJhIHdyb3RlOgo+ID4+IE9uIFR1ZSwgU2VwIDE1LCAyMDIwIGF0IDI6MTYgQU0gRGFt
-aWVuIExlIE1vYWwgPGRhbWllbi5sZW1vYWxAd2RjLmNvbT4gd3JvdGU6Cj4gPj4+Cj4gPj4+IE1v
-dmUgdGhlIGRlY2xhcmF0aW9uIG9mIHB0X29wcyB1bmRlciAiI2lmZGVmIGlDT05GSUdfTU1VIiB0
-byBhdm9pZCB0aGUKPiA+Pj4gY29tcGlsYXRpb24gd2FybmluZzoKPiA+Pj4KPiA+Pj4gYXJjaC9y
-aXNjdi9tbS9pbml0LmM6NDQ6Mjg6IHdhcm5pbmc6IOKAmHB0X29wc+KAmSBkZWZpbmVkIGJ1dCBu
-b3QgdXNlZAo+ID4+PiBbLVd1bnVzZWQtdmFyaWFibGVdCj4gPj4+ICAgIDQ0IHwgc3RhdGljIHN0
-cnVjdCBwdF9hbGxvY19vcHMgcHRfb3BzOwo+ID4+PiAgICAgICB8ICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgIF5+fn5+fgo+ID4+Pgo+ID4+PiB3aXRoIE5PIE1NVSBidWlsZHMgKGUuZy4gbm9t
-bXVfazIxMF9kZWZjb25maWcpLgo+ID4+Pgo+ID4+Cj4gPj4gVGhhbmtzIGZvciB0aGUgZml4LiBw
-dF9vcHMgd2FzIGFkZGVkIGFzIGEgcGFydCBvZiBFRkkgc2VyaWVzLgo+ID4+IEkgYW0gcGxhbm5p
-bmcgdG8gc2VuZCB2OCB0byBpbmNsdWRlIHNvbWUgbW9yZSBnZW5lcmljIEVGSSBjaGFuZ2VzLgo+
-ID4+Cj4gPj4gRG8geW91IG1pbmQgaWYgSSBqdXN0IGluY2x1ZGUgdGhpcyBmaXggaW4gbXkgc2Vy
-aWVzID8KPiA+Cj4gPiBQbGVhc2UgZmVlbCBmcmVlIHRvIGludGVncmF0ZS9zcXVhc2ggdGhpcyBj
-aGFuZ2UgaW4geW91ciBzZXJpZXMuIE5vIG5lZWQgZm9yIGEKPiA+IHNlcGFyYXRlIHBhdGNoIGZv
-ciBqdXN0IHRoYXQuIEJ1dDogSWYgeW91ciBFRkkgc2VyaWVzIGlzIG5vdCBmaW5hbCwgd2hhdCBp
-cyBpdAo+ID4gZG9pbmcgb24gdGhlIGZvci1uZXh0IGJyYW5jaCA/Pz8KPiA+Cj4gPiBQYWxtZXIs
-Cj4gPgo+ID4gV2hhdCBpcyBnb2luZyBvbiBoZXJlID8gSWYgQXRpc2ggVjcgc2VyaWVzIGhhcyBw
-cm9ibGVtcyBhbmQgaXMgbm90IGZpbmFsLCB3aHkgaXMKPiA+IGl0IGFscmVhZHkgaW4gZm9yLW5l
-eHQgPwo+Cj4gSSdtIGJlaGluZCBvbiB0aGlzIHRocmVhZCwgSSBqdXN0IHNhdyB0aGlzIGFzIEkg
-d2FzIHNpdHRpbmcgZG93biB0byBkbwo+IHNvbWV0aGluZyBlbHNlLgo+Cj4gSXQgd2FzIHN1cHBv
-c2VkIHRvIGJlIHJlYWR5IHRvIGdvLCBidXQgaXQgaGFkIHRvIGJlIHJvbGxlZCBiYWNrLiAgQXMg
-ZmFyIGFzIEkKPiB1bmRlcnN0YW5kIGl0IG15IGZvci1uZXh0IGRvZXNuJ3QgYWN0dWFsbHkgaGF2
-ZSBicm9rZW4gc3R1ZmYgb24gaXQsIHRoZSBpc3N1ZQo+IGlzIG1vcmUgdGhhdCBzb21lIG90aGVy
-IEVGSSB0cmVlIGNoYW5nZXMgbGFuZGVkIHRoYXQgd291bGQgbWFrZSBtZXJnaW5nIHRoZQo+IHRy
-ZWVzIG1vcmUgZGlmZmljdWx0LiAgSUlSQyBBcmQgd2FzIGdvaW5nIHRvIGFuIEVGSSB0cmVlIHRh
-ZyBmb3IgbWUgdG8gbWVyZ2UsCj4gYW5kIEkgd2FzIHdhaXRpbmcgdW50aWwgdGhhdCB0byBzaG93
-IHVwIGZvciB0aGUgcmViYXNlIHNvIHdlIGRpZG4ndCBqdWdnbGUKPiB0aGluZ3MgdG9vIG11Y2gu
-ICBJIGd1ZXNzIEknZCBhc3N1bWVkIHRoYXQgdGhlIGFjdHVhbCBwYXRjaGVzIHdlcmVuJ3QgY2hh
-bmdpbmcKPiB0aGF0IG11Y2ggaW4gdGhlIHByb2Nlc3MsIGJ1dCBpZiBBdGlzaCBpcyBnb2luZyB0
-byBiZSBzZW5kaW5nIGFub3RoZXIgdmVyc2lvbgo+IHdpdGggbWVhbmluZ2Z1bCBjaGFuZ2VzIHRo
-ZW4gSSBzdXBwb3NlIGl0J3MgYmVzdCB0byBkcm9wIHRoZSBFRkkgc3R1ZmYgZm9yIG5vdy4KPgoK
-VGhlIGFjdHVhbCBjaGFuZ2VzIGFyZSBub3QgYmlnIGJ1dCBpdCBoYXMgdG8gYmUgcmViYXNlZCBv
-biB0b3Agb2YKQXJkJ3MgdHJlZSBhbmQgYSBmZXcgc21hbGwgaW1wcm92ZW1lbnRzCmZvciBSVjMy
-ICsgdGhpcyBwYXRjaC4KCkkgd2lsbCBzZW5kIHRoZSBzZXJpZXMgdG9tb3Jyb3cuCj4gSSBqdXN0
-IHJlYmFzZWQgZm9yLW5leHQsIGRyb3BwaW5nIHRoZSBFRkkgcGF0Y2hlcy4KPgoKVGhhbmtzLiBB
-cG9sb2dpZXMgZm9yIHRoZSBjb25mdXNpb24uCgpSZWdhcmRzLApBdGlzaAo+ID4+PiBTaWduZWQt
-b2ZmLWJ5OiBEYW1pZW4gTGUgTW9hbCA8ZGFtaWVuLmxlbW9hbEB3ZGMuY29tPgo+ID4+PiAtLS0K
-PiA+Pj4gIGFyY2gvcmlzY3YvbW0vaW5pdC5jIHwgNCArKy0tCj4gPj4+ICAxIGZpbGUgY2hhbmdl
-ZCwgMiBpbnNlcnRpb25zKCspLCAyIGRlbGV0aW9ucygtKQo+ID4+Pgo+ID4+PiBkaWZmIC0tZ2l0
-IGEvYXJjaC9yaXNjdi9tbS9pbml0LmMgYi9hcmNoL3Jpc2N2L21tL2luaXQuYwo+ID4+PiBpbmRl
-eCAzMmU3MjU4ZGE5YmIuLmM4ODhjNDQ3MGIzNCAxMDA2NDQKPiA+Pj4gLS0tIGEvYXJjaC9yaXNj
-di9tbS9pbml0LmMKPiA+Pj4gKysrIGIvYXJjaC9yaXNjdi9tbS9pbml0LmMKPiA+Pj4gQEAgLTQx
-LDggKzQxLDYgQEAgc3RydWN0IHB0X2FsbG9jX29wcyB7Cj4gPj4+ICAjZW5kaWYKPiA+Pj4gIH07
-Cj4gPj4+Cj4gPj4+IC1zdGF0aWMgc3RydWN0IHB0X2FsbG9jX29wcyBwdF9vcHM7Cj4gPj4+IC0K
-PiA+Pj4gIHN0YXRpYyB2b2lkIF9faW5pdCB6b25lX3NpemVzX2luaXQodm9pZCkKPiA+Pj4gIHsK
-PiA+Pj4gICAgICAgICB1bnNpZ25lZCBsb25nIG1heF96b25lX3BmbnNbTUFYX05SX1pPTkVTXSA9
-IHsgMCwgfTsKPiA+Pj4gQEAgLTIxNCw2ICsyMTIsOCBAQCB2b2lkIF9faW5pdCBzZXR1cF9ib290
-bWVtKHZvaWQpCj4gPj4+ICB9Cj4gPj4+Cj4gPj4+ICAjaWZkZWYgQ09ORklHX01NVQo+ID4+PiAr
-c3RhdGljIHN0cnVjdCBwdF9hbGxvY19vcHMgcHRfb3BzOwo+ID4+PiArCj4gPj4+ICB1bnNpZ25l
-ZCBsb25nIHZhX3BhX29mZnNldDsKPiA+Pj4gIEVYUE9SVF9TWU1CT0wodmFfcGFfb2Zmc2V0KTsK
-PiA+Pj4gIHVuc2lnbmVkIGxvbmcgcGZuX2Jhc2U7Cj4gPj4+IC0tCj4gPj4+IDIuMjYuMgo+ID4+
-Pgo+ID4+Pgo+ID4+PiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwo+ID4+PiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKPiA+Pj4gbGludXgtcmlzY3ZAbGlz
-dHMuaW5mcmFkZWFkLm9yZwo+ID4+PiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cj4gPj4KPiA+Pgo+ID4+Cj4gPgo+ID4KPiA+LS0KPiA+RGFt
-aWVuIExlIE1vYWwKPiA+V2VzdGVybiBEaWdpdGFsIFJlc2VhcmNoCj4gPgoKCgotLSAKUmVnYXJk
-cywKQXRpc2gKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+From: Mike Rapoport <rppt@linux.ibm.com>
+
+Hi,
+
+This is an implementation of "secret" mappings backed by a file descriptor. 
+I've dropped the boot time reservation patch for now as it is not strictly
+required for the basic usage and can be easily added later either with or
+without CMA.
+
+v5 changes:
+* rebase on v5.9-rc5
+* drop boot time memory reservation patch
+
+v4 changes:
+* rebase on v5.9-rc1
+* Do not redefine PMD_PAGE_ORDER in fs/dax.c, thanks Kirill
+* Make secret mappings exclusive by default and only require flags to
+  memfd_secret() system call for uncached mappings, thanks again Kirill :)
+
+v3 changes:
+* Squash kernel-parameters.txt update into the commit that added the
+  command line option.
+* Make uncached mode explicitly selectable by architectures. For now enable
+  it only on x86.
+
+v2 changes:
+* Follow Michael's suggestion and name the new system call 'memfd_secret'
+* Add kernel-parameters documentation about the boot option
+* Fix i386-tinyconfig regression reported by the kbuild bot.
+  CONFIG_SECRETMEM now depends on !EMBEDDED to disable it on small systems
+  from one side and still make it available unconditionally on
+  architectures that support SET_DIRECT_MAP.
+
+The file descriptor backing secret memory mappings is created using a
+dedicated memfd_secret system call The desired protection mode for the
+memory is configured using flags parameter of the system call. The mmap()
+of the file descriptor created with memfd_secret() will create a "secret"
+memory mapping. The pages in that mapping will be marked as not present in
+the direct map and will have desired protection bits set in the user page
+table. For instance, current implementation allows uncached mappings.
+
+Although normally Linux userspace mappings are protected from other users, 
+such secret mappings are useful for environments where a hostile tenant is
+trying to trick the kernel into giving them access to other tenants
+mappings.
+
+Additionally, the secret mappings may be used as a mean to protect guest
+memory in a virtual machine host.
+
+For demonstration of secret memory usage we've created a userspace library
+[1] that does two things: the first is act as a preloader for openssl to
+redirect all the OPENSSL_malloc calls to secret memory meaning any secret
+keys get automatically protected this way and the other thing it does is
+expose the API to the user who needs it. We anticipate that a lot of the
+use cases would be like the openssl one: many toolkits that deal with
+secret keys already have special handling for the memory to try to give
+them greater protection, so this would simply be pluggable into the
+toolkits without any need for user application modification.
+
+I've hesitated whether to continue to use new flags to memfd_create() or to
+add a new system call and I've decided to use a new system call after I've
+started to look into man pages update. There would have been two completely
+independent descriptions and I think it would have been very confusing.
+
+Hiding secret memory mappings behind an anonymous file allows (ab)use of
+the page cache for tracking pages allocated for the "secret" mappings as
+well as using address_space_operations for e.g. page migration callbacks.
+
+The anonymous file may be also used implicitly, like hugetlb files, to
+implement mmap(MAP_SECRET) and use the secret memory areas with "native" mm
+ABIs in the future.
+
+As the fragmentation of the direct map was one of the major concerns raised
+during the previous postings, I've added an amortizing cache of PMD-size
+pages to each file descriptor that is used as an allocation pool for the
+secret memory areas.
+
+v4: https://lore.kernel.org/lkml/20200818141554.13945-1-rppt@kernel.org
+v3: https://lore.kernel.org/lkml/20200804095035.18778-1-rppt@kernel.org
+v2: https://lore.kernel.org/lkml/20200727162935.31714-1-rppt@kernel.org
+v1: https://lore.kernel.org/lkml/20200720092435.17469-1-rppt@kernel.org/
+rfc-v2: https://lore.kernel.org/lkml/20200706172051.19465-1-rppt@kernel.org/
+rfc-v1: https://lore.kernel.org/lkml/20200130162340.GA14232@rapoport-lnx/
+
+
+Mike Rapoport (5):
+  mm: add definition of PMD_PAGE_ORDER
+  mmap: make mlock_future_check() global
+  mm: introduce memfd_secret system call to create "secret" memory areas
+  arch, mm: wire up memfd_secret system call were relevant
+  mm: secretmem: use PMD-size pages to amortize direct map fragmentation
+
+ arch/Kconfig                           |   7 +
+ arch/arm64/include/asm/unistd.h        |   2 +-
+ arch/arm64/include/asm/unistd32.h      |   2 +
+ arch/arm64/include/uapi/asm/unistd.h   |   1 +
+ arch/riscv/include/asm/unistd.h        |   1 +
+ arch/x86/Kconfig                       |   1 +
+ arch/x86/entry/syscalls/syscall_32.tbl |   1 +
+ arch/x86/entry/syscalls/syscall_64.tbl |   1 +
+ fs/dax.c                               |  11 +-
+ include/linux/pgtable.h                |   3 +
+ include/linux/syscalls.h               |   1 +
+ include/uapi/asm-generic/unistd.h      |   7 +-
+ include/uapi/linux/magic.h             |   1 +
+ include/uapi/linux/secretmem.h         |   8 +
+ kernel/sys_ni.c                        |   2 +
+ mm/Kconfig                             |   4 +
+ mm/Makefile                            |   1 +
+ mm/internal.h                          |   3 +
+ mm/mmap.c                              |   5 +-
+ mm/secretmem.c                         | 333 +++++++++++++++++++++++++
+ 20 files changed, 383 insertions(+), 12 deletions(-)
+ create mode 100644 include/uapi/linux/secretmem.h
+ create mode 100644 mm/secretmem.c
+
+-- 
+2.28.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
