@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-16.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 225F0C433E2
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2020 16:25:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 49055C43461
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2020 16:25:36 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9752722AB9
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2020 16:25:09 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id BEA4922246
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2020 16:25:35 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="06jFY7EK";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="udRBoC74"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9752722AB9
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="hFjkSaFD";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="HxmF52lZ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BEA4922246
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,30 +26,30 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:References:In-Reply-To:Message-Id:Date:Subject:To:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sdwvt5xbJkt1AQUFCD4WirBAtDPMZqAdwlpGUQv0D80=; b=06jFY7EKfpI28oOeUlN+7popOz
-	cyaUu2PE4HCPU7Hq2ggunplUgDI1f/rIuU/3EnhhuRlqcZ2TViWjOvXt4LTMMLwy/C/Sb41SOAQGD
-	9x44SxlfIokyVTAdAPR2GhztRvaisJy/Xxkc3nW2h8w40fEm9wmckJXtasINj1zebODU8rBpZ2NEz
-	8D5exfjVn70EqooueplVIceslD4io6hR1YCi3Lor7xTCiMjTtOAtifUwe3sxXH37hy3fcZ7BKfQTD
-	pxkZyCNRGl0N8iIXk109J8KMn630sIQTuzN3gBtwr0VImPEWveSCddy7bHSUuMkp+L6K4oT12iSt7
-	bObdcNiw==;
+	bh=nGafbNVds5sXoThzUdetW6DYip/DAcEBw98LpUpTZQA=; b=hFjkSaFDGVbZLNhbiyT3onszFJ
+	30fK0l55ZzRQmkLLaocZqjJkTS5CMDpWrEhNSwpgfizDZj5IWPPkagz4dlnMwELIIiwioX9EeiOW3
+	QHPFP0uyX0MU3z1mzhL7X228yLQbOWuFR5KYTsZqNtOIATehYVAEAMhroMckgxlqOugSoVN8Spini
+	dFD/A9ObLP9NyZrnZrIMIsgpoZ1IeIAC/Op+Bk/lH6bFrLOogL4wUx8MsyobjPXjXvyX6mtvbfUwS
+	9wW7vmp4wQBpe5pRyWugqRoO69z4509jq0C8Cd0p1vkN6WQYQgq0Dr7JL+EqbUY6ezQbNV7kpeUmZ
+	bUnByErQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kIaEn-0004gp-Jx; Wed, 16 Sep 2020 16:24:53 +0000
+	id 1kIaFA-0004tG-Bl; Wed, 16 Sep 2020 16:25:16 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kIaDm-0004DH-Ri; Wed, 16 Sep 2020 16:23:54 +0000
+ id 1kIaDu-0004GJ-Mw; Wed, 16 Sep 2020 16:24:01 +0000
 Received: from kozik-lap.mshome.net (unknown [194.230.155.191])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 89C7F229F0;
- Wed, 16 Sep 2020 16:23:42 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 56877229EF;
+ Wed, 16 Sep 2020 16:23:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1600273429;
- bh=HczLzPQr6OtHbam5qOdkdD+vA7dPuNPd8y9fq4tyixw=;
+ s=default; t=1600273437;
+ bh=4dW5n48JqvNP10b6scxas3MFTEWsL4Xf/7dxjZPBmik=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=udRBoC741hVrAMNNNgaMrrgAMaa2x0h0rLyJ19wsz9BTWuGAY+fz1GaGf8wzU4N+p
- vE8WwSvPC/DYFmmrpVqqePxWIRzeRk1iEre7HFHqbFFbvdTWc963Xh+nPzsDkRyO/V
- meT4S4yafrXyYms7rq+eoCCb9/Iw5Vrn5p4fi35s=
+ b=HxmF52lZgoYDVBhxTb89piXhWW+R9uWck3a+/W6iU4V7ZQZjRq2KrMQVXMKsI257U
+ pm74a+0hTPrqq8NIRC8PypqsXvlsh+zgzOchalpNewTyo+jUdNoEHybEeXi5NJSONr
+ EATgyIQ1pGPmQDEOr7oopIWnf/dmxVP49dkYHs4E=
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Linus Walleij <linus.walleij@linaro.org>,
  Bartosz Golaszewski <bgolaszewski@baylibre.com>,
@@ -77,15 +77,15 @@ To: Linus Walleij <linus.walleij@linaro.org>,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-unisoc@lists.infradead.org, linux-arm-msm@vger.kernel.org,
  linux-riscv@lists.infradead.org
-Subject: [PATCH 5/8] dt-bindings: gpio: fsl-imx-gpio: add gpio-line-names
-Date: Wed, 16 Sep 2020 18:22:47 +0200
-Message-Id: <20200916162250.16098-6-krzk@kernel.org>
+Subject: [PATCH 6/8] arm64: dts: imx8mq-librem5: correct GPIO hog property
+Date: Wed, 16 Sep 2020 18:22:48 +0200
+Message-Id: <20200916162250.16098-7-krzk@kernel.org>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20200916162250.16098-1-krzk@kernel.org>
 References: <20200916162250.16098-1-krzk@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200916_122351_010593_E153F6AF 
-X-CRM114-Status: GOOD (  14.43  )
+X-CRM114-CacheID: sfid-20200916_122358_855399_B5E549F1 
+X-CRM114-Status: GOOD (  14.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -104,30 +104,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Describe common "gpio-line-names" property to fix dtbs_check warnings
-like:
-
-  arch/arm/boot/dts/imx53-m53menlo.dt.yaml: gpio@53f84000:
-    'gpio-line-names' does not match any of the regexes: '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
+Correct the name of property for GPIO specifier in GPIO hog.
 
 Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
 ---
- Documentation/devicetree/bindings/gpio/fsl-imx-gpio.yaml | 2 +-
+ arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/gpio/fsl-imx-gpio.yaml b/Documentation/devicetree/bindings/gpio/fsl-imx-gpio.yaml
-index ad761e2f380a..347f059d347a 100644
---- a/Documentation/devicetree/bindings/gpio/fsl-imx-gpio.yaml
-+++ b/Documentation/devicetree/bindings/gpio/fsl-imx-gpio.yaml
-@@ -65,7 +65,7 @@ properties:
-     const: 2
+diff --git a/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi b/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
+index 56295dd2fa8f..e4dedcb58f76 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
+@@ -251,7 +251,7 @@
  
-   gpio-controller: true
--
-+  gpio-line-names: true
-   gpio-ranges: true
- 
-   power-domains:
+ 	pmic-5v {
+ 		gpio-hog;
+-		gpio = <&gpio1 1 GPIO_ACTIVE_HIGH>;
++		gpios = <&gpio1 1 GPIO_ACTIVE_HIGH>;
+ 		input;
+ 	};
+ };
 -- 
 2.17.1
 
