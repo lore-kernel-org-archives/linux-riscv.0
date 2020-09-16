@@ -7,16 +7,16 @@ X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,
 	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id F232BC43461
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 15:24:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2C23FC433E2
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 15:24:35 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 97A3F20708
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 15:24:29 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B3EAB2078D
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 15:24:34 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="2EKFm5tO"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 97A3F20708
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="y6wrSYfd"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B3EAB2078D
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=allwinnertech.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,42 +25,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:References:MIME-Version:Subject:
 	Message-ID:To:From:Date:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=cFV5Ks/1/T6aNsQGgpMYDPmo3PRIIyVxs/NLDUBUL9E=; b=2EKFm5tOVl9x3RbtV9TcE0Olp
-	OkSQ0LvJ/1pJ8QgTHG7xMmbxcwDC6szPPxEorMW8s/NLs1VCpZr5IKlNLz9x3puAlkVFHlpeCJE9E
-	oA9JQcwIk0sGawtsv5oZG08INXWBWSOYs+/D3/iZ/qgS/oZ1GZ6TvJyUnDAfHqe8W4Nrhcq2M0gzS
-	wnXLayvprYBkffigJ7WwhyGxj+PwnXaIwpPr132WqTxxcQ/WJOFjc5cVxf9v8gh7dxStgNrGkiVHB
-	n7oqzpbK8sX1vanqbf5TV3VMFXVTdESSlPQq1vRETKuLv+Zti17GUXoyn32x6ma1wH1icniMJGioq
-	Gb2ITIZkQ==;
+	 bh=L/Q9yYIYxR0KEdMYjIhGenTAW1OoAi8RhQ+1ZqdGhIE=; b=y6wrSYfdzRxg6d6Crywe6KXEj
+	Rn7+h7HJs+uhQ0CcBtHitql++3y17VC5Jz4SLWqTpqjCUvTuo1hKxqEUodJ5vy1+SykqBnSNviKYp
+	XOEfISsiubp+SR93GpAE8IpM2UAYWvms2SsCXvzsvD21/m3Dry8zqqtHvzfdkWvSP572WJTohl4tR
+	alORCs2S220ejhfy6GPtKAniATZBPJlBQZ8svMkTcHYyIlZjJ19qabkYM7naHlq5LqIBPEMl6+z6h
+	FJr5Xxh7Gy1TGZugUwi30kmjxy4wRzT/Q21V9waIFqZDvQt3Lqv19ta7UlAty4CY2+b1U4qTFXONS
+	jaiIrQsRQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kIvlk-0004HM-3a; Thu, 17 Sep 2020 15:24:20 +0000
+	id 1kIvlk-0004Hg-Ia; Thu, 17 Sep 2020 15:24:20 +0000
 Received: from smtp2207-205.mail.aliyun.com ([121.197.207.205])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kIAYZ-0005iX-8J
- for linux-riscv@lists.infradead.org; Tue, 15 Sep 2020 12:59:37 +0000
-X-Alimail-AntiSpam: AC=CONTINUE; BC=0.07386647|-1; CH=green;
+ id 1kIMEc-00040p-A0
+ for linux-riscv@lists.infradead.org; Wed, 16 Sep 2020 01:27:48 +0000
+X-Alimail-AntiSpam: AC=CONTINUE; BC=0.07386801|-1; CH=green;
  DM=|CONTINUE|false|;
- DS=CONTINUE|ham_system_inform|0.0476423-0.000196116-0.952162;
- FP=0|0|0|0|0|-1|-1|-1; HT=e01l10422; MF=liush@allwinnertech.com; NM=1; PH=DW;
- RN=14; RT=14; SR=0; TI=W4_5948689_DEFAULT_0A9326FA_1600174289947_o7001c2340k; 
+ DS=CONTINUE|ham_system_inform|0.0709241-0.000172201-0.928904;
+ FP=11851636359211976435|3|2|12|0|-1|-1|-1; HT=e02c03307;
+ MF=liush@allwinnertech.com; NM=1; PH=DW; RN=14; RT=14; SR=0;
+ TI=W4_5948689_DEFAULT_0AC264F1_1600219605038_o7001c9512; 
 Received: from WS-web
- (liush@allwinnertech.com[W4_5948689_DEFAULT_0A9326FA_1600174289947_o7001c2340k])
- by ay29a011140100197.et135 at Tue, 15 Sep 2020 20:59:23 +0800
-Date: Tue, 15 Sep 2020 20:59:23 +0800
-From: "=?UTF-8?B?5YiY6YK15Y2OQlRE?=" <liush@allwinnertech.com>
+ (liush@allwinnertech.com[W4_5948689_DEFAULT_0AC264F1_1600219605038_o7001c9512])
+ by ay29a011140100200.et135 at Wed, 16 Sep 2020 09:27:40 +0800
+Date: Wed, 16 Sep 2020 09:27:40 +0800
+From: "liush" <liush@allwinnertech.com>
 To: "Palmer Dabbelt" <palmer@dabbelt.com>
-Message-ID: <83f5615c-0ab0-4e1e-b083-b5558ee222b9.liush@allwinnertech.com>
+Message-ID: <e7eec7e8-083f-4802-962f-99adc89b28ac.liush@allwinnertech.com>
 Subject: =?UTF-8?B?5Zue5aSN77yaW1BBVENIXSBjcHVpZGxlOiBhZGQgcmlzY3YgY3B1aWRsZSBkcml2ZXI=?=
-X-Mailer: [Alimail-Mailagent][W4_5948689][DEFAULT][Firefox]
+X-Mailer: [Alimail-Mailagent][W4_5948689][DEFAULT][Chrome]
 MIME-Version: 1.0
 References: <1600048323-2964-1-git-send-email-liush@allwinnertech.com>,
  <mhng-e743b908-36de-4226-832d-bc5acbbfd81b@palmerdabbelt-glaptop1>
-x-aliyun-mail-creator: W4_5948689_DEFAULT_IHJTW96aWxsYS81LjAgKFgxMTsgVWJ1bnR1OyBMaW51eCB4ODZfNjQ7IHJ2OjgwLjApIEdlY2tvLzIwMTAwMTAxIEZpcmVmb3gvODAuMA==jQ
 In-Reply-To: <mhng-e743b908-36de-4226-832d-bc5acbbfd81b@palmerdabbelt-glaptop1>
+x-aliyun-mail-creator: W4_5948689_DEFAULT_MzYTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgNi4xOyBXaW42NDsgeDY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvODUuMC40MTgzLjEwMiBTYWZhcmkvNTM3LjM2zc
 X-Bad-Reply: References and In-Reply-To but no 'Re:' in Subject.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200915_085936_366537_A562CB7F 
-X-CRM114-Status: GOOD (  33.63  )
+X-CRM114-CacheID: sfid-20200915_212746_624990_AF820B8A 
+X-CRM114-Status: GOOD (  31.47  )
 X-Mailman-Approved-At: Thu, 17 Sep 2020 11:24:17 -0400
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -73,7 +74,7 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: =?UTF-8?B?5YiY6YK15Y2OQlRE?= <liush@allwinnertech.com>
+Reply-To: liush <liush@allwinnertech.com>
 Cc: Damien Le Moal <Damien.LeMoal@wdc.com>, aou <aou@eecs.berkeley.edu>,
  "daniel.lezcano" <daniel.lezcano@linaro.org>,
  linux-pm <linux-pm@vger.kernel.org>, Anup Patel <Anup.Patel@wdc.com>,
@@ -193,41 +194,19 @@ Thanks, i'll modify it
 Based on your comments, I run a test and found that arch_cpu_idle could be executed 
 normally without enabling the idle driver.Part of the code of the experiment:
  
---- /dev/null
-+++ b/arch/riscv/include/asm/cpuidle.h
-@@ -0,0 +1,11 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __RISCV_CPUIDLE_H
-+#define __RISCV_CPUIDLE_H
-+
 +static inline void cpu_do_idle(void)
 +{
 +       mb();
 +       wait_for_interrupt();
 +}
-+
-+#endif
-
-+++ b/arch/riscv/kernel/process.c
-@@ -21,6 +21,7 @@
- #include <asm/string.h>
- #include <asm/switch_to.h>
- #include <asm/thread_info.h>
-+#include <asm/cpuidle.h>
- 
- register unsigned long gp_in_global __asm__("gp");
- 
-@@ -35,7 +36,7 @@ extern asmlinkage void ret_from_kernel_thread(void);
  
  void arch_cpu_idle(void)
  {
 -       wait_for_interrupt();
 +       cpu_do_idle();
         local_irq_enable();
- }
+ } 
  
-
-
 > > +}
 > > diff --git a/drivers/cpuidle/Kconfig b/drivers/cpuidle/Kconfig
 > > index c0aeedd..f6be0fd 100644
@@ -316,9 +295,9 @@ yes, i'll modify it
 > the case, it's probably best to just drop everything but cpu_do_idle() until we
 > have something to exercise this.
 
-Although, the driver in this case is not necessary, it is essential when work in the macro 
-CPU_PM_CPU_IDLE_ENTER_PARAM.And it could also be used for supporting other 
-deeper states in the future. So I think it would be better to keep 
+Although, the driver in this case is not necessary, it is essential when work 
+in the macro CPU_PM_CPU_IDLE_ENTER_PARAM.And it could also be used for supporting 
+other deeper states in the future. So I think it would be better to keep 
 riscv_low_level_suspend_enter but change it to __weak function.
 
 > > +}
@@ -351,6 +330,9 @@ riscv_low_level_suspend_enter but change it to __weak function.
 > > +}
 > > +
 > > +device_initcall(riscv_cpuidle_init);
+
+Regards,
+liush
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
