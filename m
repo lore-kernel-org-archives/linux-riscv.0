@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-16.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 88EB4C43461
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2020 16:24:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 225F0C433E2
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2020 16:25:10 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0E35C22AAB
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2020 16:24:51 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 9752722AB9
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2020 16:25:09 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="S3OdJXmq";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="2eFT/IHd"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0E35C22AAB
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="06jFY7EK";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="udRBoC74"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9752722AB9
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,30 +26,30 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:References:In-Reply-To:Message-Id:Date:Subject:To:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LNs3hJ1CINKFUpZHaLSD0sRXNBzGLm1E9ehraqNYyeE=; b=S3OdJXmq53/DENbaQtZotFGYJr
-	UD2eJIFIM7yNSsaiIzTKTv6tRTHnjnVbxW93atu3dJ1/c2cO8m8RHepM+Fsr+Wk+ms6Rw4sJ7jyvM
-	yhdBhCxlQ/obfjdke8aiLgKcVdPMgzuzynbnC9/GVeF2BtB9Rg4OfHao21uXb6AfjtbODwkR0HfP9
-	iaaWSzpRLDYG+gzpTwHSLj6wBt08C/dlFiDAl+HZBrEjhvXYC2pc7FcQyOkr7ZV6I4rlng06kz+pZ
-	jED7aHz+2liQVwgWBTKywGnqkLIb17z78ciZF/v69FSMVjMrIH8GRKNmJFtmj/CqxqNWtDLFjIspB
-	HoYfPBZQ==;
+	bh=sdwvt5xbJkt1AQUFCD4WirBAtDPMZqAdwlpGUQv0D80=; b=06jFY7EKfpI28oOeUlN+7popOz
+	cyaUu2PE4HCPU7Hq2ggunplUgDI1f/rIuU/3EnhhuRlqcZ2TViWjOvXt4LTMMLwy/C/Sb41SOAQGD
+	9x44SxlfIokyVTAdAPR2GhztRvaisJy/Xxkc3nW2h8w40fEm9wmckJXtasINj1zebODU8rBpZ2NEz
+	8D5exfjVn70EqooueplVIceslD4io6hR1YCi3Lor7xTCiMjTtOAtifUwe3sxXH37hy3fcZ7BKfQTD
+	pxkZyCNRGl0N8iIXk109J8KMn630sIQTuzN3gBtwr0VImPEWveSCddy7bHSUuMkp+L6K4oT12iSt7
+	bObdcNiw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kIaEY-0004Xh-LE; Wed, 16 Sep 2020 16:24:38 +0000
+	id 1kIaEn-0004gp-Jx; Wed, 16 Sep 2020 16:24:53 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kIaDe-000491-SV; Wed, 16 Sep 2020 16:23:43 +0000
+ id 1kIaDm-0004DH-Ri; Wed, 16 Sep 2020 16:23:54 +0000
 Received: from kozik-lap.mshome.net (unknown [194.230.155.191])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 9600A22A84;
- Wed, 16 Sep 2020 16:23:32 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 89C7F229F0;
+ Wed, 16 Sep 2020 16:23:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1600273422;
- bh=fNcuVWkN1TjhyVwmEX+PcPTSMs1C1wjtAwGI/ZRYd+M=;
+ s=default; t=1600273429;
+ bh=HczLzPQr6OtHbam5qOdkdD+vA7dPuNPd8y9fq4tyixw=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=2eFT/IHdk8kMc/sJr3aSUS93e7LsG7FvG1/lyhD03N9x4hHEjJcen2uN41Pr0BUUJ
- cIoCliYuD46rWdiSiZ/MsWqo9yW/KgSCOUEdnQXn6GrR3/XLHts9Anzhk3/2cZ5gie
- G8SYT29d6WLaOA2cDY0mZLuXoIdliyUA6me1lePs=
+ b=udRBoC741hVrAMNNNgaMrrgAMaa2x0h0rLyJ19wsz9BTWuGAY+fz1GaGf8wzU4N+p
+ vE8WwSvPC/DYFmmrpVqqePxWIRzeRk1iEre7HFHqbFFbvdTWc963Xh+nPzsDkRyO/V
+ meT4S4yafrXyYms7rq+eoCCb9/Iw5Vrn5p4fi35s=
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Linus Walleij <linus.walleij@linaro.org>,
  Bartosz Golaszewski <bgolaszewski@baylibre.com>,
@@ -77,16 +77,15 @@ To: Linus Walleij <linus.walleij@linaro.org>,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-unisoc@lists.infradead.org, linux-arm-msm@vger.kernel.org,
  linux-riscv@lists.infradead.org
-Subject: [PATCH 4/8] dt-bindings: gpio: fsl-imx-gpio: add i.MX ARMv6 and ARMv7
- compatibles
-Date: Wed, 16 Sep 2020 18:22:46 +0200
-Message-Id: <20200916162250.16098-5-krzk@kernel.org>
+Subject: [PATCH 5/8] dt-bindings: gpio: fsl-imx-gpio: add gpio-line-names
+Date: Wed, 16 Sep 2020 18:22:47 +0200
+Message-Id: <20200916162250.16098-6-krzk@kernel.org>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20200916162250.16098-1-krzk@kernel.org>
 References: <20200916162250.16098-1-krzk@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200916_122343_020378_B69430E0 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20200916_122351_010593_E153F6AF 
+X-CRM114-Status: GOOD (  14.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -105,45 +104,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Several DTSes with ARMv6 and ARMv7 i.MX SoCs introduce their own
-compatibles so add them to fix dtbs_check warnings like:
+Describe common "gpio-line-names" property to fix dtbs_check warnings
+like:
 
-  arch/arm/boot/dts/imx35-pdk.dt.yaml: gpio@53fa4000:
-    compatible: ['fsl,imx35-gpio', 'fsl,imx31-gpio'] is not valid under any of the given schemas
-
-  arch/arm/boot/dts/imx51-babbage.dt.yaml: gpio@73f90000:
-    compatible: ['fsl,imx51-gpio', 'fsl,imx35-gpio'] is not valid under any of the given schemas
+  arch/arm/boot/dts/imx53-m53menlo.dt.yaml: gpio@53f84000:
+    'gpio-line-names' does not match any of the regexes: '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
 
 Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
 ---
- .../devicetree/bindings/gpio/fsl-imx-gpio.yaml       | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ Documentation/devicetree/bindings/gpio/fsl-imx-gpio.yaml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/Documentation/devicetree/bindings/gpio/fsl-imx-gpio.yaml b/Documentation/devicetree/bindings/gpio/fsl-imx-gpio.yaml
-index 737756e081fb..ad761e2f380a 100644
+index ad761e2f380a..347f059d347a 100644
 --- a/Documentation/devicetree/bindings/gpio/fsl-imx-gpio.yaml
 +++ b/Documentation/devicetree/bindings/gpio/fsl-imx-gpio.yaml
-@@ -21,8 +21,20 @@ properties:
-           - fsl,imx31-gpio
-           - fsl,imx35-gpio
-           - fsl,imx7d-gpio
-+      - items:
-+          - const: fsl,imx35-gpio
-+          - const: fsl,imx31-gpio
-       - items:
-           - enum:
-+              - fsl,imx50-gpio
-+              - fsl,imx51-gpio
-+              - fsl,imx53-gpio
-+              - fsl,imx6q-gpio
-+              - fsl,imx6sl-gpio
-+              - fsl,imx6sll-gpio
-+              - fsl,imx6sx-gpio
-+              - fsl,imx6ul-gpio
-+              - fsl,imx7d-gpio
-               - fsl,imx8mm-gpio
-               - fsl,imx8mn-gpio
-               - fsl,imx8mp-gpio
+@@ -65,7 +65,7 @@ properties:
+     const: 2
+ 
+   gpio-controller: true
+-
++  gpio-line-names: true
+   gpio-ranges: true
+ 
+   power-domains:
 -- 
 2.17.1
 
