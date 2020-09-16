@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-16.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DF040C433E2
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2020 16:26:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 727D5C43461
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2020 16:26:30 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6A3A42224C
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2020 16:26:02 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 1F4542224C
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2020 16:26:30 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZnHZyGTK";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="b5tyTJTJ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6A3A42224C
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="1Fz9zQN7";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="tfKj/be4"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1F4542224C
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,30 +26,30 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:References:In-Reply-To:Message-Id:Date:Subject:To:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EvemmhqFeKtLcl8Fb3yp8sjr/LeToQgMn4RErEobTNk=; b=ZnHZyGTKjIn/JlRs1sYFz/Qfnn
-	xje09rZxPUDyrdWFtsV2kDJXfSLFa+UJQkTMxr3JnM9fMF7vpf8y9uWOGYNLQxo9W7mbX8mv/JsYa
-	sVr9PO/UBpWqzWXNFx3llPv3kGaaPo7pclnpEzwsX7mJquq/yQkCyiO/9VkU1ow3qhwGI77ehp+WC
-	uiBblPNXwfMRgdNF67M9y7K6n1Ev4KfMco34QaZzLkt5MKwyNqK04uQpk9ftzhCULUXk8y3mHmLzJ
-	D6i6r/nKFgB93lSH0T7HcwOZikR3xnnrc1RUrjV88ieWSC9hdkk4I1i2QDDuEgRAhCBaXcdgoMgm9
-	tHFZ/IyA==;
+	bh=mS+yjlDIUrnoKnUvbsOOTUxdTpm51/80mMnaR3MdRog=; b=1Fz9zQN7rydE2eEJyBORrLIzRN
+	BGURjhBIsGPmsg0RicpXk3VxmYcHrPqf6fY2X+Mn0e8IK7Tya2/klWFxaJjuxZN9AbUqtCruRy/78
+	bHzSY7aY5JS1Teymxw1jDxEWT08xCqRL3gAmrX80yQ3fOxokS046V+xAfu17NdyO5LbPGBSuX1mtO
+	wEPgBgyBC7/FcSN/ucakDgd8gapATyvE17tQF+QMuUd6/guXfCJ7APAH70gP+UHkBsu80IfOuFTEG
+	N5ArxzTKqL2E0Xcc5Nl3C/bL0xblUUxJnYSR4Dv1bfhfATQHFn9nS+GHz4hKj9b9ia4+0n2bMqh40
+	80R5qccg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kIaFg-0005AA-BG; Wed, 16 Sep 2020 16:25:48 +0000
+	id 1kIaG4-0005Mf-Pt; Wed, 16 Sep 2020 16:26:12 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kIaE2-0004Iu-Ns; Wed, 16 Sep 2020 16:24:08 +0000
+ id 1kIaE9-0004Lg-GY; Wed, 16 Sep 2020 16:24:15 +0000
 Received: from kozik-lap.mshome.net (unknown [194.230.155.191])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 5B7AE22AAD;
- Wed, 16 Sep 2020 16:23:58 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 9D44922B30;
+ Wed, 16 Sep 2020 16:24:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1600273445;
- bh=Jyj1xhY3bfoHP8MamoDVB6jYumTCPOuxehh3CoJHYe8=;
+ s=default; t=1600273452;
+ bh=OZQQiNgbEb8ZHtloDc4attI+pGJEHjLlrjIjhE2p740=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=b5tyTJTJejhb/FIGR9kdHGFYDxnRuqn1kL953jieGY7lUS9QvXS/58u7ZzvIzBaY/
- dZKdf0zyJGDFlj2eRmx3c49c4cU3rxA4bMc97/o6RLhKJb3B5DMCK33+dcVE8UbInQ
- kgtpJHVuJjWhxUtg4bJlieN4RdKjAzpp0U0xdir8=
+ b=tfKj/be4+r8rwTNc7bmVfsswqTcOXsQiNqhKVO+RtwvaQhrdo5ToeYXNBAAl8nb0I
+ gT1RG4b4JL+rLMux5Wi2aVdF6caBm7WWSoLETztCmT7+CXCFKsmzKw9GibovgMGalE
+ YeauZ8qQHDDpbkR182aQ3e6mfpTRZGPF1yuc0/WA=
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Linus Walleij <linus.walleij@linaro.org>,
  Bartosz Golaszewski <bgolaszewski@baylibre.com>,
@@ -77,16 +77,15 @@ To: Linus Walleij <linus.walleij@linaro.org>,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-unisoc@lists.infradead.org, linux-arm-msm@vger.kernel.org,
  linux-riscv@lists.infradead.org
-Subject: [PATCH 7/8] arm64: dts: imx8mq-librem5: align GPIO hog names with
- dtschema
-Date: Wed, 16 Sep 2020 18:22:49 +0200
-Message-Id: <20200916162250.16098-8-krzk@kernel.org>
+Subject: [PATCH 8/8] ARM: dts: imx: align GPIO hog names with dtschema
+Date: Wed, 16 Sep 2020 18:22:50 +0200
+Message-Id: <20200916162250.16098-9-krzk@kernel.org>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20200916162250.16098-1-krzk@kernel.org>
 References: <20200916162250.16098-1-krzk@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200916_122406_938345_9C40A7F5 
-X-CRM114-Status: GOOD (  14.18  )
+X-CRM114-CacheID: sfid-20200916_122413_803912_8987F26C 
+X-CRM114-Status: GOOD (  14.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -105,26 +104,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-dtschema expects GPIO hogs to end with 'hog' prefix.
+dtschema for GPIO controllers expects GPIO hogs to end with 'hog'
+prefix.
 
 Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
 ---
- arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm/boot/dts/imx51-zii-rdu1.dts        | 2 +-
+ arch/arm/boot/dts/imx6qdl-zii-rdu2.dtsi     | 8 ++++----
+ arch/arm/boot/dts/imx6ul-ccimx6ulsbcpro.dts | 2 +-
+ 3 files changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi b/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
-index e4dedcb58f76..6cbcee2fb938 100644
---- a/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
-@@ -249,7 +249,7 @@
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_pmic_5v>;
+diff --git a/arch/arm/boot/dts/imx51-zii-rdu1.dts b/arch/arm/boot/dts/imx51-zii-rdu1.dts
+index e559ab0c3645..ec8ca3ac2c1c 100644
+--- a/arch/arm/boot/dts/imx51-zii-rdu1.dts
++++ b/arch/arm/boot/dts/imx51-zii-rdu1.dts
+@@ -451,7 +451,7 @@
+ 			  "", "", "", "",
+ 			  "", "", "", "";
  
--	pmic-5v {
-+	pmic-5v-hog {
+-	unused-sd3-wp-gpio {
++	unused-sd3-wp-hog {
+ 		/*
+ 		 * See pinctrl_esdhc1 below for more details on this
+ 		 */
+diff --git a/arch/arm/boot/dts/imx6qdl-zii-rdu2.dtsi b/arch/arm/boot/dts/imx6qdl-zii-rdu2.dtsi
+index 66b15748e287..c0a76202e16b 100644
+--- a/arch/arm/boot/dts/imx6qdl-zii-rdu2.dtsi
++++ b/arch/arm/boot/dts/imx6qdl-zii-rdu2.dtsi
+@@ -330,28 +330,28 @@
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_gpio3_hog>;
+ 
+-	usb-emulation {
++	usb-emulation-hog {
  		gpio-hog;
- 		gpios = <&gpio1 1 GPIO_ACTIVE_HIGH>;
- 		input;
+ 		gpios = <19 GPIO_ACTIVE_HIGH>;
+ 		output-low;
+ 		line-name = "usb-emulation";
+ 	};
+ 
+-	usb-mode1 {
++	usb-mode1-hog {
+ 		gpio-hog;
+ 		gpios = <20 GPIO_ACTIVE_HIGH>;
+ 		output-high;
+ 		line-name = "usb-mode1";
+ 	};
+ 
+-	usb-pwr {
++	usb-pwr-hog {
+ 		gpio-hog;
+ 		gpios = <22 GPIO_ACTIVE_LOW>;
+ 		output-high;
+ 		line-name = "usb-pwr-ctrl-en-n";
+ 	};
+ 
+-	usb-mode2 {
++	usb-mode2-hog {
+ 		gpio-hog;
+ 		gpios = <23 GPIO_ACTIVE_HIGH>;
+ 		output-high;
+diff --git a/arch/arm/boot/dts/imx6ul-ccimx6ulsbcpro.dts b/arch/arm/boot/dts/imx6ul-ccimx6ulsbcpro.dts
+index a0bbec57ddc7..3ec042bfccba 100644
+--- a/arch/arm/boot/dts/imx6ul-ccimx6ulsbcpro.dts
++++ b/arch/arm/boot/dts/imx6ul-ccimx6ulsbcpro.dts
+@@ -110,7 +110,7 @@
+ };
+ 
+ &gpio5 {
+-	emmc-usd-mux {
++	emmc-usd-mux-hog {
+ 		gpio-hog;
+ 		gpios = <1 GPIO_ACTIVE_LOW>;
+ 		output-high;
 -- 
 2.17.1
 
