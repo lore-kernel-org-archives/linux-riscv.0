@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 26B99C43461
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2020 07:29:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 58727C35256
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2020 07:36:13 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B05FC2076C
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2020 07:29:13 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id EF093221E5
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Sep 2020 07:36:12 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="HXE+beHK";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="F0h5DWgU"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B05FC2076C
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="fGZWDnYm";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="vmdF6YyE"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EF093221E5
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,40 +26,40 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7GAhJZ0bmzBl6F9v85PqlijVHeXSexMLQdsnuc6Kjuw=; b=HXE+beHKg+WXFexG6YjpfsD5PK
-	9BKTqLBhP86k22ymXaT0OHVyJAKvdWSxtLYqtpRxGW42/2JARGALXkeLRc70mBpVJzYW9u8LpWxsz
-	VaXIML/Z37bvPoggsAGsziV8KG718UdfrK9e+zR2xiSlMRg+6lBlxT89OAFOlczC4Xx7i+l3D0sIH
-	YWuWTxxy8MeVocO4LvZnkRWLX/KXyVCQg6StGkQmKgMy6UFznQasg5//6C+Z2Np83WW3r1hq0hS9W
-	V3rVxtcDBh7neadm//EiTW+52rl7NgXmhlUXs0hBRynmpGFidiotLRpRHH0yehU0cKKUSk3Yt1Dl0
-	+LjwWCjg==;
+	bh=7GAhJZ0bmzBl6F9v85PqlijVHeXSexMLQdsnuc6Kjuw=; b=fGZWDnYm3Tvyslqn8HU1/gVq4C
+	IiMhMB3z9sbE79wDjRAuc78RPULfCooQ5+mW0Ji41nzv2BRSAul/nDclCD+i4TfanGHe7u/aRMmkC
+	7HlYnZh/wSofR8UeEORHLuvOZHTNIwOeUAwv/5FULS+QfgNmZNhMmPnZlbm0ZHAWKOSUgyoftSdGv
+	xbBX/O6oAy5EIRt7j2EjOUdShvcePOPtFSyi+9KPiLnzdKF/H9ecMbRP4D1rJsDSsSSpqLY/t0svq
+	YWmtQzYa5BLTb2UsOj80FwGEe7VgsOOF2RHqbaVz87JZ1kYgVazd6vMkeooIWSl+pbVyuq4nWWwAq
+	mqNfTWdA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kIRsG-00084e-5b; Wed, 16 Sep 2020 07:29:04 +0000
+	id 1kIRyz-0000LB-Gk; Wed, 16 Sep 2020 07:36:01 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kIRsA-00082S-MK; Wed, 16 Sep 2020 07:29:00 +0000
+ id 1kIRyt-0000Is-0I; Wed, 16 Sep 2020 07:35:57 +0000
 Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id DE27F20771;
- Wed, 16 Sep 2020 07:28:47 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id CC64420684;
+ Wed, 16 Sep 2020 07:35:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1600241337;
+ s=default; t=1600241753;
  bh=2pPFIyfq0HjxH/I1nQKf+tcVT9qAd8yS6QngBOEx7EM=;
  h=From:To:Cc:Subject:Date:From;
- b=F0h5DWgUhvU5XLcsYtcxIKA1Q3wQfwVGd3nw0B8mU624p9XWkw6wiW7p1Zuz/xTRZ
- O9KcB9xE81T9A1Gvj+KtDQXmGmJhd84/x+WIU0x3WwcVe459cy+13EBlfQ+CQkNRJM
- twHYIljA0tJ22HO3pmMbhJOKF/hh5PkILOigTe2g=
+ b=vmdF6YyEB8K43yb24Kg6zm0j4OO0J4YfRQUhda6kxWGSkiiiEYf+hLqZ02CIXPwlM
+ Jdr8dbGjeKvbOlyunWXwNBY1AnSuPi1Px8CjQNkSTzaGVLH+Ni/iKzRTu6j/sknoVZ
+ k8/99vOci9u79NSkO4xPycClE/DSngY3k0XJOHdA=
 From: Mike Rapoport <rppt@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
 Subject: [PATCH v5 0/5] mm: introduce memfd_secret system call to create
  "secret" memory areas
-Date: Wed, 16 Sep 2020 10:28:37 +0300
-Message-Id: <20200916072842.3502-1-rppt@kernel.org>
+Date: Wed, 16 Sep 2020 10:35:34 +0300
+Message-Id: <20200916073539.3552-1-rppt@kernel.org>
 X-Mailer: git-send-email 2.28.0
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200916_032858_895328_7B50A3DB 
+X-CRM114-CacheID: sfid-20200916_033555_262185_A296B9E9 
 X-CRM114-Status: GOOD (  27.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
