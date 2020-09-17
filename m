@@ -2,65 +2,68 @@ Return-Path: <SRS0=KFrn=C2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2A69AC2BBD1
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 19:04:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 69854C43463
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 20:10:30 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9DB4720878
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 19:04:25 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id F2AE520725
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 20:10:29 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="dgvQaDuM";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=crapouillou.net header.i=@crapouillou.net header.b="dyOMV3sQ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9DB4720878
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=crapouillou.net
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="D+1C1jqP";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=ideasonboard.com header.i=@ideasonboard.com header.b="Q0VtsHkh"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F2AE520725
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ideasonboard.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:To:
-	Subject:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=lPeLI9b/oAsu5aj9UixGSjA6r+K0+PU+vvY5qnxHX3g=; b=dgvQaDuMsE3S8XjNj+SqKDZ9/
-	ZKiiPCqg81e3Mc0lb7k1xuoAJSr2ib7iDDvjEt/R4jYKs0mvo/6RE3tUnFs/7eq63LjbhbWdW/U1g
-	GGC85jPqMD8T0FUaZbLletnAMEZdNTp133IjiOhtxOT0DMIZ9iv1HcI0aJu135xekDPRzIBhp1do/
-	ufR5aoPf2eD+uUeAT/vvSsaBLMlYsRJbRX4joZXBKyt5zwSnn77o2TjcSPENMS9X1RvtHUSs33wFP
-	xRe3YwKk3j+IPUcy0NSj12PCh2zZgf+Zp3/jm4BDWvDWQHMARhOhti9cTfaX27/BNM/oZ74za+8mb
-	xF7dkviLw==;
+	 bh=lJcFnUsQNtoufv4i5kzLT+slJ3Yx3Fuicob/jKBaI94=; b=D+1C1jqP0rHYnhgV9MKZqCIAZ
+	I6jArElLpctXuMy3VWcSDEYwgqRdBozFp1ROajFCiJ9PCXQIGBG3cwTGHmvEo01l5yEETUQDWbpNf
+	UFtCypOJ/M4tIjR7xIq0e3J6SD5RiAbXCS3jXlY6SGwsT6j1nMo7AGvcR2IvUHUMpa3iYrGNAhPj6
+	iC91CNTzf3Mem4VgwQu3kme+sSYIHKOE99QzwOXSw/HZBwaHaYfcNVh5ShipUMvhUqrmrxejq8Y+V
+	rsRzHJsU8eq1yBiOFz5wGpq+CviAIVV5dgpMdpM3WTEmEslCZGTfgAUtiHICQ759OmgdDYExv//Ip
+	8w+ocPSLQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kIzCV-0004MH-4t; Thu, 17 Sep 2020 19:04:11 +0000
-Received: from crapouillou.net ([89.234.176.41])
+	id 1kJ0ES-0002QG-Sr; Thu, 17 Sep 2020 20:10:16 +0000
+Received: from perceval.ideasonboard.com
+ ([2001:4b98:dc2:55:216:3eff:fef7:d647])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kIzCR-0004Kn-EU; Thu, 17 Sep 2020 19:04:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=crapouillou.net;
- s=mail; t=1600369440; h=from:from:sender:reply-to:subject:subject:date:date:
- message-id:message-id:to:to:cc:cc:mime-version:mime-version:
- content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=L3OBK4G1Rvv8T0Xnqj3/8Lbig0kqsWBBjd0US1g/rPo=;
- b=dyOMV3sQSIuXwuaky8QYur2ywbBqBFDkh4I8lC8CviZwJ4xXUpL4z0HKUxmZFgT1wCRV+i
- lmglasQwXio0xAlmn9AwPeNsR0gejQ1N0ipvwaxZk7O7qZVgtm6UVhMbStHccEmV266mP4
- NNt/TuV+D6L8z9EtegHwMbZvBfl1a4o=
-Date: Thu, 17 Sep 2020 21:03:36 +0200
-From: Paul Cercueil <paul@crapouillou.net>
-Subject: Re: [PATCH v2 09/13] dt-bindings: pinctrl: include common schema in
- GPIO controllers
+ id 1kJ0EN-0002P2-LO; Thu, 17 Sep 2020 20:10:14 +0000
+Received: from pendragon.ideasonboard.com (62-78-145-57.bb.dnainternet.fi
+ [62.78.145.57])
+ by perceval.ideasonboard.com (Postfix) with ESMTPSA id 361D6E42;
+ Thu, 17 Sep 2020 22:10:06 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+ s=mail; t=1600373406;
+ bh=4DMjAbU38sRZa4Hb+7uteuEdS1wnI9GFHiIgCUgEZ/c=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=Q0VtsHkhoUVlzTu7tNMMcMsFAPfpXoYMh4cRGn6MmDxvumEgpl8HoPhsaS9P5RQ0Y
+ NVTFOFHBfusC0IIVq9IenTWY3skD0ldFuVOF8UWv0RFNF3NZ/lN8K6JSoJROzof6o8
+ kv65KBP9KWCuIrAttiiUNKk2jIgT65ueP7LagMtc=
+Date: Thu, 17 Sep 2020 23:09:36 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 To: Krzysztof Kozlowski <krzk@kernel.org>
-Message-Id: <0YGTGQ.TCQDDTXFCWNX2@crapouillou.net>
-In-Reply-To: <20200917165301.23100-10-krzk@kernel.org>
+Subject: Re: [PATCH v2 01/13] dt-bindings: gpio: add common schema for GPIO
+ controllers
+Message-ID: <20200917200936.GF3969@pendragon.ideasonboard.com>
 References: <20200917165301.23100-1-krzk@kernel.org>
- <20200917165301.23100-10-krzk@kernel.org>
+ <20200917165301.23100-2-krzk@kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20200917165301.23100-2-krzk@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200917_150407_841408_3D188D6A 
-X-CRM114-Status: GOOD (  17.24  )
+X-CRM114-CacheID: sfid-20200917_161011_987305_96ADD567 
+X-CRM114-Status: GOOD (  33.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -77,6 +80,7 @@ Cc: Amelie Delaunay <amelie.delaunay@st.com>,
  Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
  Linus Walleij <linus.walleij@linaro.org>, alsa-devel@alsa-project.org,
  Stefan Agner <stefan@agner.ch>, Bjorn Andersson <bjorn.andersson@linaro.org>,
+ Paul Cercueil <paul@crapouillou.net>,
  Masahiro Yamada <yamada.masahiro@socionext.com>,
  Chris Brandt <chris.brandt@renesas.com>,
  Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
@@ -104,7 +108,7 @@ Cc: Amelie Delaunay <amelie.delaunay@st.com>,
  Sricharan R <sricharan@codeaurora.org>,
  Mauro Carvalho Chehab <mchehab@kernel.org>,
  Hoan Tran <hoan@os.amperecomputing.com>, linux-arm-kernel@lists.infradead.org,
- Niklas =?iso-8859-1?q?S=F6derlund?= <niklas.soderlund+renesas@ragnatech.se>,
+ Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>,
  Scott Branden <sbranden@broadcom.com>, linux-unisoc@lists.infradead.org,
  - <patches@opensource.cirrus.com>,
  Chris Packham <chris.packham@alliedtelesis.co.nz>,
@@ -116,330 +120,179 @@ Cc: Amelie Delaunay <amelie.delaunay@st.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Mark Brown <broonie@kernel.org>,
  Pengutronix Kernel Team <kernel@pengutronix.de>, linux-media@vger.kernel.org,
  Shawn Guo <shawnguo@kernel.org>,
- Andreas =?iso-8859-1?q?F=E4rber?= <afaerber@suse.de>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"; Format="flowed"
+ Andreas =?utf-8?Q?F=C3=A4rber?= <afaerber@suse.de>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Krzysztof,
 
+Thank you for the patch.
 
-Le jeu. 17 sept. 2020 =E0 18:52, Krzysztof Kozlowski <krzk@kernel.org> a =
+On Thu, Sep 17, 2020 at 06:52:49PM +0200, Krzysztof Kozlowski wrote:
+> Convert parts of gpio.txt bindings into common dtschema file for GPIO
+> controllers.
 
-=E9crit :
-> Include the common GPIO schema in GPIO controllers to be sure all =
+How about deleting the part that has been converted from gpio.txt ?
 
-> common
-> properties are properly validated.
-> =
+> The schema enforces proper naming of GPIO controller nodes and GPIO
+> hogs.
+> 
+> The schema should be included by specific GPIO controllers bindings.
+
+Instead of including it manually, could we use a conditional select: to
+apply the schema automatically when a gpio-controller property is
+present ?
 
 > Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
-
-Acked-by: Paul Cercueil <paul@crapouillou.net>
-
-Cheers,
--Paul
-
-> =
-
+> 
 > ---
-> =
-
+> 
 > Changes since v1:
-> 1. New patch
+> 1. Do not require compatible (some child nodes are gpio-controllers
+>    without the compatible).
 > ---
->  .../devicetree/bindings/pinctrl/actions,s500-pinctrl.yaml      | 3 =
-
-> +++
->  .../bindings/pinctrl/allwinner,sun4i-a10-pinctrl.yaml          | 1 +
->  .../devicetree/bindings/pinctrl/cirrus,lochnagar.yaml          | 3 =
-
-> +++
->  Documentation/devicetree/bindings/pinctrl/ingenic,pinctrl.yaml | 3 =
-
-> +++
->  .../devicetree/bindings/pinctrl/mediatek,mt6779-pinctrl.yaml   | 3 =
-
-> +++
->  Documentation/devicetree/bindings/pinctrl/pinctrl-mt8192.yaml  | 3 =
-
-> +++
->  .../devicetree/bindings/pinctrl/qcom,ipq6018-pinctrl.yaml      | 3 =
-
-> +++
->  .../devicetree/bindings/pinctrl/qcom,msm8226-pinctrl.yaml      | 3 =
-
-> +++
->  .../devicetree/bindings/pinctrl/qcom,sm8250-pinctrl.yaml       | 3 =
-
-> +++
->  .../devicetree/bindings/pinctrl/renesas,rza2-pinctrl.yaml      | 3 =
-
-> +++
->  .../devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml          | 3 =
-
-> +++
->  11 files changed, 31 insertions(+)
-> =
-
-> diff --git =
-
-> a/Documentation/devicetree/bindings/pinctrl/actions,s500-pinctrl.yaml =
-
-> b/Documentation/devicetree/bindings/pinctrl/actions,s500-pinctrl.yaml
-> index 33391d30c00c..51bfc214bba6 100644
-> --- =
-
-> a/Documentation/devicetree/bindings/pinctrl/actions,s500-pinctrl.yaml
-> +++ =
-
-> b/Documentation/devicetree/bindings/pinctrl/actions,s500-pinctrl.yaml
-> @@ -15,6 +15,9 @@ description: |
->    GPIO function selection & GPIO attributes configuration. Please =
-
-> refer to
->    pinctrl-bindings.txt in this directory for common binding part and =
-
-> usage.
-> =
-
-> +allOf:
-> +  - $ref: /schemas/gpio/gpio-common.yaml#
+>  .../devicetree/bindings/gpio/gpio-common.yaml | 125 ++++++++++++++++++
+>  1 file changed, 125 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/gpio/gpio-common.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/gpio/gpio-common.yaml b/Documentation/devicetree/bindings/gpio/gpio-common.yaml
+> new file mode 100644
+> index 000000000000..af9f6c7feeec
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/gpio/gpio-common.yaml
+> @@ -0,0 +1,125 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/gpio/gpio-common.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
->  properties:
->    compatible:
->      const: actions,s500-pinctrl
-> diff --git =
-
-> a/Documentation/devicetree/bindings/pinctrl/allwinner,sun4i-a10-pinctrl.y=
-aml =
-
-> b/Documentation/devicetree/bindings/pinctrl/allwinner,sun4i-a10-pinctrl.y=
-aml
-> index 7556be6e2754..55662f8d1f94 100644
-> --- =
-
-> a/Documentation/devicetree/bindings/pinctrl/allwinner,sun4i-a10-pinctrl.y=
-aml
-> +++ =
-
-> b/Documentation/devicetree/bindings/pinctrl/allwinner,sun4i-a10-pinctrl.y=
-aml
-> @@ -143,6 +143,7 @@ allOf:
->    # boards are defining it at the moment so it would generate a lot =
-
-> of
->    # warnings.
-> =
-
-> +  - $ref: /schemas/gpio/gpio-common.yaml#
->    - if:
->        properties:
->          compatible:
-> diff --git =
-
-> a/Documentation/devicetree/bindings/pinctrl/cirrus,lochnagar.yaml =
-
-> b/Documentation/devicetree/bindings/pinctrl/cirrus,lochnagar.yaml
-> index 420d74856032..ed478b0ed4cc 100644
-> --- a/Documentation/devicetree/bindings/pinctrl/cirrus,lochnagar.yaml
-> +++ b/Documentation/devicetree/bindings/pinctrl/cirrus,lochnagar.yaml
-> @@ -31,6 +31,9 @@ description: |
->    This binding must be part of the Lochnagar MFD binding:
->      [4] ../mfd/cirrus,lochnagar.yaml
-> =
-
-> +allOf:
-> +  - $ref: /schemas/gpio/gpio-common.yaml#
+> +title: Common GPIO controller properties
 > +
->  properties:
->    compatible:
->      enum:
-> diff --git =
-
-> a/Documentation/devicetree/bindings/pinctrl/ingenic,pinctrl.yaml =
-
-> b/Documentation/devicetree/bindings/pinctrl/ingenic,pinctrl.yaml
-> index 44c04d11ae4c..ffa64832b4f9 100644
-> --- a/Documentation/devicetree/bindings/pinctrl/ingenic,pinctrl.yaml
-> +++ b/Documentation/devicetree/bindings/pinctrl/ingenic,pinctrl.yaml
-> @@ -59,6 +59,9 @@ properties:
->  patternProperties:
->    "^gpio@[0-9]$":
->      type: object
-> +    allOf:
-> +      - $ref: /schemas/gpio/gpio-common.yaml#
+> +maintainers:
+> +  - Krzysztof Kozlowski <krzk@kernel.org>
+> +  - Linus Walleij <linus.walleij@linaro.org>
 > +
->      properties:
->        compatible:
->          enum:
-> diff --git =
-
-> a/Documentation/devicetree/bindings/pinctrl/mediatek,mt6779-pinctrl.yaml =
-
-> b/Documentation/devicetree/bindings/pinctrl/mediatek,mt6779-pinctrl.yaml
-> index 152c151c27ad..7d0a4cb96f39 100644
-> --- =
-
-> a/Documentation/devicetree/bindings/pinctrl/mediatek,mt6779-pinctrl.yaml
-> +++ =
-
-> b/Documentation/devicetree/bindings/pinctrl/mediatek,mt6779-pinctrl.yaml
-> @@ -14,6 +14,9 @@ description: |+
->    required property:
->    - compatible: "syscon"
-> =
-
-> +allOf:
-> +  - $ref: /schemas/gpio/gpio-common.yaml#
+> +properties:
+> +  nodename:
+> +    pattern: "^(gpio-controller|gpio)(@[0-9a-f]+|-[0-9a-f]+)?$"
 > +
->  properties:
->    compatible:
->      const: mediatek,mt6779-pinctrl
-> diff --git =
-
-> a/Documentation/devicetree/bindings/pinctrl/pinctrl-mt8192.yaml =
-
-> b/Documentation/devicetree/bindings/pinctrl/pinctrl-mt8192.yaml
-> index 5556def6b99b..bc8bc0ac1926 100644
-> --- a/Documentation/devicetree/bindings/pinctrl/pinctrl-mt8192.yaml
-> +++ b/Documentation/devicetree/bindings/pinctrl/pinctrl-mt8192.yaml
-> @@ -12,6 +12,9 @@ maintainers:
->  description: |
->    The Mediatek's Pin controller is used to control SoC pins.
-> =
-
-> +allOf:
-> +  - $ref: /schemas/gpio/gpio-common.yaml#
+> +  '#gpio-cells': true
+> +  gpio-controller: true
+> +  gpio-ranges: true
 > +
->  properties:
->    compatible:
->      const: mediatek,mt8192-pinctrl
-> diff --git =
-
-> a/Documentation/devicetree/bindings/pinctrl/qcom,ipq6018-pinctrl.yaml =
-
-> b/Documentation/devicetree/bindings/pinctrl/qcom,ipq6018-pinctrl.yaml
-> index c64c93206817..22a6b80b4c0e 100644
-> --- =
-
-> a/Documentation/devicetree/bindings/pinctrl/qcom,ipq6018-pinctrl.yaml
-> +++ =
-
-> b/Documentation/devicetree/bindings/pinctrl/qcom,ipq6018-pinctrl.yaml
-> @@ -13,6 +13,9 @@ description: |
->    This binding describes the Top Level Mode Multiplexer block found =
-
-> in the
->    IPQ6018 platform.
-> =
-
-> +allOf:
-> +  - $ref: /schemas/gpio/gpio-common.yaml#
+> +  gpio-line-names:
+> +    description: |
+> +      Optionally, a GPIO controller may have a "gpio-line-names" property. This
+> +      is an array of strings defining the names of the GPIO lines going out of
+> +      the GPIO controller. This name should be the most meaningful producer
+> +      name for the system, such as a rail name indicating the usage. Package
+> +      names such as pin name are discouraged: such lines have opaque names
+> +      (since they are by definition generic purpose) and such names are usually
+> +      not very helpful.
 > +
->  properties:
->    compatible:
->      const: qcom,ipq6018-pinctrl
-> diff --git =
-
-> a/Documentation/devicetree/bindings/pinctrl/qcom,msm8226-pinctrl.yaml =
-
-> b/Documentation/devicetree/bindings/pinctrl/qcom,msm8226-pinctrl.yaml
-> index 1f0f5757f9e1..9855d859fe61 100644
-> --- =
-
-> a/Documentation/devicetree/bindings/pinctrl/qcom,msm8226-pinctrl.yaml
-> +++ =
-
-> b/Documentation/devicetree/bindings/pinctrl/qcom,msm8226-pinctrl.yaml
-> @@ -13,6 +13,9 @@ description: |
->    This binding describes the Top Level Mode Multiplexer block found =
-
-> in the
->    MSM8226 platform.
-> =
-
-> +allOf:
-> +  - $ref: /schemas/gpio/gpio-common.yaml#
+> +      For example "MMC-CD", "Red LED Vdd" and "ethernet reset" are reasonable
+> +      line names as they describe what the line is used for. "GPIO0" is not a
+> +      good name to give to a GPIO line.
 > +
->  properties:
->    compatible:
->      const: qcom,msm8226-pinctrl
-> diff --git =
-
-> a/Documentation/devicetree/bindings/pinctrl/qcom,sm8250-pinctrl.yaml =
-
-> b/Documentation/devicetree/bindings/pinctrl/qcom,sm8250-pinctrl.yaml
-> index 8508c57522fd..e5757b6ced40 100644
-> --- =
-
-> a/Documentation/devicetree/bindings/pinctrl/qcom,sm8250-pinctrl.yaml
-> +++ =
-
-> b/Documentation/devicetree/bindings/pinctrl/qcom,sm8250-pinctrl.yaml
-> @@ -13,6 +13,9 @@ description: |
->    This binding describes the Top Level Mode Multiplexer block found =
-
-> in the
->    SM8250 platform.
-> =
-
-> +allOf:
-> +  - $ref: /schemas/gpio/gpio-common.yaml#
+> +      Placeholders are discouraged: rather use the "" (blank string) if the use
+> +      of the GPIO line is undefined in your design. The names are assigned
+> +      starting from line offset 0 from left to right from the passed array. An
+> +      incomplete array (where the number of passed named are less than ngpios)
+> +      will still be used up until the last provided valid line index.
 > +
->  properties:
->    compatible:
->      const: qcom,sm8250-pinctrl
-> diff --git =
-
-> a/Documentation/devicetree/bindings/pinctrl/renesas,rza2-pinctrl.yaml =
-
-> b/Documentation/devicetree/bindings/pinctrl/renesas,rza2-pinctrl.yaml
-> index b7911a994f3a..4d7bf4340262 100644
-> --- =
-
-> a/Documentation/devicetree/bindings/pinctrl/renesas,rza2-pinctrl.yaml
-> +++ =
-
-> b/Documentation/devicetree/bindings/pinctrl/renesas,rza2-pinctrl.yaml
-> @@ -10,6 +10,9 @@ maintainers:
->    - Chris Brandt <chris.brandt@renesas.com>
->    - Geert Uytterhoeven <geert+renesas@glider.be>
-> =
-
-> +allOf:
-> +  - $ref: /schemas/gpio/gpio-common.yaml#
+> +  gpio-reserved-ranges:
+> +    description:
+> +      Indicates the start and size of the GPIOs that can't be used.
 > +
->  description:
->    The Renesas SoCs of the RZ/A2 series feature a combined Pin and =
-
-> GPIO
->    controller.
-> diff --git =
-
-> a/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml =
-
-> b/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
-> index 72877544ca78..28b861362ba0 100644
-> --- a/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
-> +++ b/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
-> @@ -56,6 +56,9 @@ properties:
->  patternProperties:
->    '^gpio@[0-9a-f]*$':
->      type: object
-> +    allOf:
-> +      - $ref: /schemas/gpio/gpio-common.yaml#
+> +  ngpios:
+> +    description: |
+> +      Optionally, a GPIO controller may have a "ngpios" property. This property
+> +      indicates the number of in-use slots of available slots for GPIOs. The
+> +      typical example is something like this: the hardware register is 32 bits
+> +      wide, but only 18 of the bits have a physical counterpart. The driver is
+> +      generally written so that all 32 bits can be used, but the IP block is
+> +      reused in a lot of designs, some using all 32 bits, some using 18 and
+> +      some using 12. In this case, setting "ngpios = <18>;" informs the driver
+> +      that only the first 18 GPIOs, at local offset 0 .. 17, are in use.
 > +
->      properties:
->        gpio-controller: true
->        '#gpio-cells':
-> --
-> 2.17.1
-> =
+> +      If these GPIOs do not happen to be the first N GPIOs at offset 0...N-1,
+> +      an additional set of tuples is needed to specify which GPIOs are
+> +      unusable, with the gpio-reserved-ranges binding.
+> +
+> +patternProperties:
+> +  "^(hog-[0-9]+|.+-hog(-[0-9]+)?)$":
+> +    type: object
+> +    description:
+> +      The GPIO chip may contain GPIO hog definitions. GPIO hogging is a mechanism
+> +      providing automatic GPIO request and configuration as part of the
+> +      gpio-controller's driver probe function.
+> +      Each GPIO hog definition is represented as a child node of the GPIO controller.
+> +
+> +    properties:
+> +      gpio-hog: true
+> +      gpios: true
+> +      input: true
+> +      output-high: true
+> +      output-low: true
+> +      line-name:
+> +        description:
+> +          The GPIO label name. If not present the node name is used.
+> +
+> +    required:
+> +      - gpio-hog
+> +      - gpios
+> +
+> +    oneOf:
+> +      - required:
+> +          - input
+> +      - required:
+> +          - output-high
+> +      - required:
+> +          - output-low
+> +
+> +    additionalProperties: false
+> +
+> +required:
+> +  - "#gpio-cells"
+> +  - gpio-controller
+> +
+> +examples:
+> +  - |
+> +    gpio-controller@15000000 {
+> +        compatible = "foo";
+> +        reg = <0x15000000 0x1000>;
+> +        gpio-controller;
+> +        #gpio-cells = <2>;
+> +        ngpios = <18>;
+> +        gpio-reserved-ranges = <0 4>, <12 2>;
+> +        gpio-line-names = "MMC-CD", "MMC-WP", "VDD eth", "RST eth", "LED R",
+> +                          "LED G", "LED B", "Col A", "Col B", "Col C", "Col D",
+> +                          "Row A", "Row B", "Row C", "Row D", "NMI button",
+> +                          "poweroff", "reset";
+> +    };
+> +
+> +  - |
+> +    gpio-controller@1400 {
+> +        compatible = "fsl,qe-pario-bank-a", "fsl,qe-pario-bank";
+> +        reg = <0x1400 0x18>;
+> +        gpio-controller;
+> +        #gpio-cells = <2>;
+> +
+> +        line-b-hog {
+> +            gpio-hog;
+> +            gpios = <6 0>;
+> +            input;
+> +            line-name = "foo-bar-gpio";
+> +        };
+> +    };
 
+-- 
+Regards,
 
-
+Laurent Pinchart
 
 _______________________________________________
 linux-riscv mailing list
