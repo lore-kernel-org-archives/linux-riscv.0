@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-16.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7EF25C43461
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 16:55:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2AFC1C43461
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 16:56:04 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 33B922078D
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 16:55:48 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B60642078D
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 16:56:03 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="NLmqdpBI";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="ZezngZwD"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 33B922078D
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="yRQPi4Sj";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="Upx+hOpc"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B60642078D
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,30 +26,30 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:References:In-Reply-To:Message-Id:Date:Subject:To:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tBrOBdpdJpp9LzRAQnqYQIk4SyPXyysGD1A83Ra22cU=; b=NLmqdpBIfca2FuPAL9bBV6O1Y3
-	OMBPhGHPl7vaU87tT8Ij7LXcbfKr/3OlBQYcdXdv925jhUWer1oulycyX8cF1f5tcHJYv6rd7w3Df
-	t+Z8sjrgUhbmtzTw4IHl8icsoNZuA7lbAGTRBzlEMWnNAo83qenp2/ZjVnFD03rCayE1WASDPwtJe
-	QLWR5rnYmZlXHvMl/ynRqB6DGDaIYWbOCvIYK5tdeUUgi9ZFkXNO0eExYk1i21l253DAtbjXtKwv8
-	GX2SxXXIqL9ltfdCA1khiRO6v/y3jH8k1f56qgIHwhUnEgkRFbvfq8qGm+px1gdayZ2hbTVUycvVN
-	XhfA1sWA==;
+	bh=e1U3I8Y18kd4Idr50cqrc2jS8XCn0AfZ3ZTUJjLpNVg=; b=yRQPi4SjCbUYiYNKV5MIST3cmC
+	Ah4xXb/OStmhJ0SaFRLdZPIoqDStin73i7l2WqBgp/IwMhBDI4IP55GRp8lWYixRlnKKYXrLJK2h5
+	tatE3yj6pIgw7L5kwZiyPbj7hnLG2uFEEl1m9H5T8yPZo/MqjBUsk3Ho4vVGRHq3fg9vasHJ5Gs0c
+	c+tn5tIKUA2W9ojS0qkdVke6YMr/cWz+S/QeXHzauhtT+/tHKbn3b92S8m8X27/ZaghEW+6Xc/3Fv
+	pq/+mVTNVQSBArWPH2m3sW0ksunSOHAskMSAxP9Xs6bpTq5e9zrxPWh+x48aMCRZCVmPfiMkF0VUU
+	+jh3ebaw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kIxC4-0008K3-8G; Thu, 17 Sep 2020 16:55:36 +0000
+	id 1kIxCI-0008S4-Uh; Thu, 17 Sep 2020 16:55:50 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kIxBy-0008HY-It; Thu, 17 Sep 2020 16:55:31 +0000
+ id 1kIxCD-0008PA-HQ; Thu, 17 Sep 2020 16:55:47 +0000
 Received: from kozik-lap.mshome.net (unknown [194.230.155.191])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 647A521D24;
- Thu, 17 Sep 2020 16:55:14 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 58EBE2064B;
+ Thu, 17 Sep 2020 16:55:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1600361729;
- bh=pV5NUEmeW9mZ1TS+/Jc3oFxArHOIVWs9UQjncMMV5dA=;
+ s=default; t=1600361744;
+ bh=dFPbOAJ+oeV4JL1+FvEz/lM51pVEtTgDCeXjIbkcrXE=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=ZezngZwDO3KQgBWc5kH7o+363k3VkzXLGbSLbSc0tebpQso6t6pYwNkEyZCDiQPmV
- SDInDhjroyojBh7Mphf9Czz2rjH6R5ZkFLMbtuCEXnnrfdP8uQrsgKQcvItrVphoK1
- F0JF12gmB5ueiJxBeEsZOAKj0ouhtPyo/iU8CgBA=
+ b=Upx+hOpc9J/lcbE9OKI5mOafpckAkFpvyhiPVxHgkbSz/QxP6k6EPmqz7szVNd/39
+ 6eOasWlgoMnY4DHRsjiBftWmNe9v14c9O6l5BB0m6Ua3DO2E5DUk2JBB65TQTF4fN+
+ Sxhxa+BRxFcOEfuTjStNi0ooVufbYHRCNy1c+vnE=
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Linus Walleij <linus.walleij@linaro.org>,
  Bartosz Golaszewski <bgolaszewski@baylibre.com>,
@@ -102,16 +102,16 @@ To: Linus Walleij <linus.walleij@linaro.org>,
  linux-media@vger.kernel.org, alsa-devel@alsa-project.org,
  linux-stm32@st-md-mailman.stormreply.com,
  linux-mediatek@lists.infradead.org, linux-renesas-soc@vger.kernel.org
-Subject: [PATCH v2 06/13] dt-bindings: gpio: gpio-vf610: fix iMX 7ULP
- compatible matching
-Date: Thu, 17 Sep 2020 18:52:54 +0200
-Message-Id: <20200917165301.23100-7-krzk@kernel.org>
+Subject: [PATCH v2 07/13] dt-bindings: media: include common schema in GPIO
+ controllers
+Date: Thu, 17 Sep 2020 18:52:55 +0200
+Message-Id: <20200917165301.23100-8-krzk@kernel.org>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20200917165301.23100-1-krzk@kernel.org>
 References: <20200917165301.23100-1-krzk@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200917_125530_985347_57163333 
-X-CRM114-Status: GOOD (  13.59  )
+X-CRM114-CacheID: sfid-20200917_125545_743945_9FA69C3E 
+X-CRM114-Status: GOOD (  14.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -130,14 +130,8 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The i.MX 7ULP DTSes use two compatibles so update the binding to fix
-dtbs_check warnings like:
-
-  arch/arm/boot/dts/imx7ulp-com.dt.yaml: gpio@40ae0000:
-    compatible: ['fsl,imx7ulp-gpio', 'fsl,vf610-gpio'] is too long
-
-  arch/arm/boot/dts/imx7ulp-com.dt.yaml: gpio@40ae0000:
-    compatible: Additional items are not allowed ('fsl,vf610-gpio' was unexpected)
+Include the common GPIO schema in GPIO controllers to be sure all common
+properties are properly validated.
 
 Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
 
@@ -146,28 +140,23 @@ Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
 Changes since v1:
 1. New patch
 ---
- Documentation/devicetree/bindings/gpio/gpio-vf610.yaml | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+ Documentation/devicetree/bindings/media/i2c/maxim,max9286.yaml | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/gpio/gpio-vf610.yaml b/Documentation/devicetree/bindings/gpio/gpio-vf610.yaml
-index 82f3e4b407d1..7a5745255969 100644
---- a/Documentation/devicetree/bindings/gpio/gpio-vf610.yaml
-+++ b/Documentation/devicetree/bindings/gpio/gpio-vf610.yaml
-@@ -22,9 +22,11 @@ allOf:
+diff --git a/Documentation/devicetree/bindings/media/i2c/maxim,max9286.yaml b/Documentation/devicetree/bindings/media/i2c/maxim,max9286.yaml
+index 9ea827092fdd..3f72c37b99f7 100644
+--- a/Documentation/devicetree/bindings/media/i2c/maxim,max9286.yaml
++++ b/Documentation/devicetree/bindings/media/i2c/maxim,max9286.yaml
+@@ -24,6 +24,9 @@ description: |
+   serializer will output it on a local I2C bus. In the other direction all I2C
+   traffic received over GMSL by the MAX9286 is output on the local I2C bus.
  
++allOf:
++  - $ref: /schemas/gpio/gpio-common.yaml#
++
  properties:
-   compatible:
--    enum:
--      - fsl,vf610-gpio
--      - fsl,imx7ulp-gpio
-+    oneOf:
-+      - const: fsl,vf610-gpio
-+      - items:
-+          - const: fsl,imx7ulp-gpio
-+          - const: fsl,vf610-gpio
- 
-   reg:
-     description: The first reg tuple represents the PORT module, the second tuple
+   '#address-cells':
+     const: 1
 -- 
 2.17.1
 
