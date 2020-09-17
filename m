@@ -2,66 +2,113 @@ Return-Path: <SRS0=KFrn=C2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BB5F3C433E2
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 15:25:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DE4D9C433E2
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 16:53:46 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 400BF206BE
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 15:25:41 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 807F92087D
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 16:53:46 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="UTxX7A1D";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="wBhVIgTg"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 400BF206BE
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="SFTtXOUY";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="QWWMJnyn"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 807F92087D
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=FDgFEzfgXx5UVACbDay+ETWQFYumecma20TCbTcIS4I=; b=UTxX7A1D7JrmKAfWEjtAGXkuD
-	eiyQE62DGBDh8O5Uh+9f0wXNw9eZVA6lcNKCylI47q/c1WcCwW93J55nDoJ1XawPtq9H4PCARxV/I
-	ZqCSBLC7ekl5fD39yTONTrOsRT9U/0qFMUrGUz1xFGuvt2DNH8bEltYdXdiYRbDu5JyRMziCFTRk2
-	VhWZvc2k8uaG8PKxDqETpa5p71JfRnkktKhU4huEbbHol5MArsISa34iz6JuEki9e1FIdu4+0Zgr0
-	0esBe6bfcqcV4w4m+Fg9k61v7pvqrqAObKZh/IJ7fDbAzyW/oH39fgSk6qnhSKwkvyTfhWBrP6dQU
-	CnN0uB4Pg==;
+	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4Hk3ynqOtJrnQko9rp/Cs10OWgOYYpDZbQg3PBYHxUM=; b=SFTtXOUYPhYDZFFWoaKgwyWnqC
+	pMWi5xEmF56ll5m5JsVKCy6JXbehkofjKvgNB4Bsns5Up+HR4KW8QXduc7cKgOzYMNpzyDnT5q6KM
+	DxaSP/rP/Gebe8MNWOuR1xDS0+ALIAfk+01LoFZtv6/oBX/TSHhM+p8OmkrqAaP8hOCXlaSw7QUG3
+	+YCBrPzk4aEOUuGxbY9YjCPjetIK0YmHMzmy7s3RALUO2rQ6kAH/y4nSIpg1iZP1Ov20FVo0RFYit
+	cNLDxocqiEwKZj+DeL+zQ1NV+5judRpKg6Sy0daDX3gbk57rCoi+7LCFG1D2TNd+9CMnHLe/u2GhW
+	zcpSu1GA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kIvmn-0004b2-Fv; Thu, 17 Sep 2020 15:25:25 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1kIxA4-0007S7-Dv; Thu, 17 Sep 2020 16:53:32 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kIvmm-0004al-FE
- for linux-riscv@merlin.infradead.org; Thu, 17 Sep 2020 15:25:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=0E1nBfTCTThpxoXia4dttriCoGxK8LXuWWVjqYQOOus=; b=wBhVIgTg/IPNFaqOfy71TTH/wK
- jOiMEWMkCZyyEB4flL/P/uVlfcV2/SmaJagZtVHFn/0qsQkL5sX1ov1UQKb3m774i6ACb/yYqt8oX
- +UHYrVIChiGqVfdXP3UAoPkiMS2Qgf7Jd+hDXSSqdbepEk3LT5PAIz0r+yiawj7QZ0DNjNbYmGv3y
- qSkyjnHyd79/21ict28OSCcJ6hSFabDFG80IhzEhE1GnfPiTqs6D7+5hE6c9NEFbuhtrR6+I682PM
- dMD14z/lhfo4YbJqE3/KM5SKXiP6xTvOhypfnfHGoBH7VxyQvBjlU4AvjuyA5FqPtC5FvqfMKHXBP
- bdd7sCxw==;
-Received: from hch by casper.infradead.org with local (Exim 4.92.3 #3 (Red Hat
- Linux)) id 1kIvmg-0002V9-VH; Thu, 17 Sep 2020 15:25:19 +0000
-Date: Thu, 17 Sep 2020 16:25:18 +0100
-From: Christoph Hellwig <hch@infradead.org>
-To: liush <liush@allwinnertech.com>
-Subject: Re: [PATCH] riscv: fix pfn_to_virt err in do_page_fault().
-Message-ID: <20200917152518.GA8930@infradead.org>
-References: <1600327549-3995-1-git-send-email-liush@allwinnertech.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <1600327549-3995-1-git-send-email-liush@allwinnertech.com>
-X-SRS-Rewrite: SMTP reverse-path rewritten from <hch@infradead.org> by
- casper.infradead.org. See http://www.infradead.org/rpr.html
+ id 1kIx9z-0007Q2-FW; Thu, 17 Sep 2020 16:53:29 +0000
+Received: from kozik-lap.mshome.net (unknown [194.230.155.191])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 39C1520708;
+ Thu, 17 Sep 2020 16:53:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1600361605;
+ bh=P6t4EObPuKTAtjmptm4+AFH+z1+4hhhtxhJjS4UyDF0=;
+ h=From:To:Cc:Subject:Date:From;
+ b=QWWMJnynLqLOQxMCeIhdb30C/fJHQKsRzanwLdTpwbhaMyXT+tXpbqbOYpkb+Ly2M
+ aBumK6+zCHsWhNp6ZfqN5QXKUzl+nO1TwJgKiLkTRKlRiFxwyqIPdifsq9tCyheivp
+ WIbwLhtE7vcm3MGDi0wpAwkD5yRasj8RADVLwNo8=
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <bgolaszewski@baylibre.com>,
+ Rob Herring <robh+dt@kernel.org>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>,
+ bcm-kernel-feedback-list@broadcom.com, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ Andy Gross <agross@kernel.org>,
+ Bjorn Andersson <bjorn.andersson@linaro.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Hoan Tran <hoan@os.amperecomputing.com>,
+ Serge Semin <fancer.lancer@gmail.com>,
+ Masahiro Yamada <yamada.masahiro@socionext.com>,
+ Jacopo Mondi <jacopo+renesas@jmondi.org>,
+ Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>,
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+ =?UTF-8?q?Niklas=20S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Charles Keepax <ckeepax@opensource.cirrus.com>,
+ Richard Fitzgerald <rf@opensource.cirrus.com>,
+ Lee Jones <lee.jones@linaro.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@st.com>,
+ =?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.de>,
+ Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Chris Packham <chris.packham@alliedtelesis.co.nz>,
+ Anson Huang <Anson.Huang@nxp.com>, Sungbo Eo <mans0n@gorani.run>,
+ Stefan Agner <stefan@agner.ch>,
+ Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+ Magnus Damm <magnus.damm@gmail.com>, Yash Shah <yash.shah@sifive.com>,
+ Paul Kocialkowski <paul.kocialkowski@bootlin.com>,
+ - <patches@opensource.cirrus.com>,
+ Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
+ Amelie Delaunay <amelie.delaunay@st.com>,
+ Cristian Ciocaltea <cristian.ciocaltea@gmail.com>,
+ Paul Cercueil <paul@crapouillou.net>, Andy Teng <andy.teng@mediatek.com>,
+ Sean Wang <sean.wang@mediatek.com>, Sricharan R <sricharan@codeaurora.org>,
+ Chris Brandt <chris.brandt@renesas.com>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-unisoc@lists.infradead.org,
+ linux-arm-msm@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-media@vger.kernel.org, alsa-devel@alsa-project.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-mediatek@lists.infradead.org, linux-renesas-soc@vger.kernel.org
+Subject: [PATCH v2 00/13] gpio: add common dtschema
+Date: Thu, 17 Sep 2020 18:52:48 +0200
+Message-Id: <20200917165301.23100-1-krzk@kernel.org>
+X-Mailer: git-send-email 2.17.1
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20200917_125328_098517_704C5770 
+X-CRM114-Status: GOOD (  13.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -73,36 +120,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org, peterx@redhat.com,
- daniel.m.jordan@oracle.com, palmer@dabbelt.com, rppt@kernel.org,
- paul.walmsley@sifive.com, akpm@linux-foundation.org, walken@google.com,
- linux-riscv@lists.infradead.org, vbabka@suse.cz
+Cc: Krzysztof Kozlowski <krzk@kernel.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 17, 2020 at 03:25:49PM +0800, liush wrote:
-> The argument to pfn_to_virt() should be pfn not the value of CSR_SATP.
-> 
-> Signed-off-by: liush <liush@allwinnertech.com>
-> ---
->  arch/riscv/mm/fault.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
-> index 716d64e..9b4e088 100644
-> --- a/arch/riscv/mm/fault.c
-> +++ b/arch/riscv/mm/fault.c
-> @@ -212,7 +212,7 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
->  		 * of a task switch.
->  		 */
->  		index = pgd_index(addr);
-> -		pgd = (pgd_t *)pfn_to_virt(csr_read(CSR_SATP)) + index;
-> +		pgd = (pgd_t *)pfn_to_virt(csr_read(CSR_SATP) & SATP_PPN) + index;
+Hi,
 
-This adds a crazy long line.  One nice way to clean this up would be to
-add a local pfn variable, as it would also make the code more readable.
+Changes since v1
+================
+1. Use common schema in bindings outside of gpio/ (new patches).
+2. Minor fixes - see individual patches for changelogs.
+
+
+Notes
+=====
+This is independent work of pca953x bindings:
+https://lore.kernel.org/lkml/20200916155715.21009-1-krzk@kernel.org/T/#u
+
+The DTS patches can be also applied independently.
+The bindings patches depend on first one, adding common schema.
+
+Best regards,
+Krzysztof
+
+Krzysztof Kozlowski (13):
+  dt-bindings: gpio: add common schema for GPIO controllers
+  dt-bindings: gpio: include common schema in GPIO controllers
+  dt-bindings: gpio: pl061: add missing properties and include common
+    schema
+  dt-bindings: gpio: fsl-imx-gpio: add i.MX ARMv6 and ARMv7 compatibles
+  dt-bindings: gpio: fsl-imx-gpio: add gpio-line-names
+  dt-bindings: gpio: gpio-vf610: fix iMX 7ULP compatible matching
+  dt-bindings: media: include common schema in GPIO controllers
+  dt-bindings: mfd: include common schema in GPIO controllers
+  dt-bindings: pinctrl: include common schema in GPIO controllers
+  ASoC: dt-bindings: zl38060: include common schema in GPIO controllers
+  arm64: dts: imx8mq-librem5: correct GPIO hog property
+  arm64: dts: imx8mq-librem5: align GPIO hog names with dtschema
+  ARM: dts: imx: align GPIO hog names with dtschema
+
+ .../bindings/gpio/brcm,xgs-iproc-gpio.yaml    |   3 +
+ .../bindings/gpio/fsl-imx-gpio.yaml           |  17 ++-
+ .../devicetree/bindings/gpio/gpio-common.yaml | 125 ++++++++++++++++++
+ .../devicetree/bindings/gpio/gpio-mxs.yaml    |   4 +
+ .../bindings/gpio/gpio-pca9570.yaml           |   3 +
+ .../devicetree/bindings/gpio/gpio-rda.yaml    |   3 +
+ .../devicetree/bindings/gpio/gpio-vf610.yaml  |  11 +-
+ .../devicetree/bindings/gpio/mrvl-gpio.yaml   |   1 +
+ .../devicetree/bindings/gpio/pl061-gpio.yaml  |   6 +
+ .../bindings/gpio/qcom,wcd934x-gpio.yaml      |   3 +
+ .../bindings/gpio/renesas,em-gio.yaml         |   3 +
+ .../bindings/gpio/renesas,rcar-gpio.yaml      |   3 +
+ .../devicetree/bindings/gpio/sifive,gpio.yaml |   3 +
+ .../bindings/gpio/snps,dw-apb-gpio.yaml       |   3 +
+ .../gpio/socionext,uniphier-gpio.yaml         |   3 +
+ .../bindings/gpio/xylon,logicvc-gpio.yaml     |   3 +
+ .../bindings/media/i2c/maxim,max9286.yaml     |   3 +
+ .../bindings/mfd/cirrus,madera.yaml           |   1 +
+ .../devicetree/bindings/mfd/max77650.yaml     |   3 +
+ .../bindings/mfd/rohm,bd71828-pmic.yaml       |   3 +
+ .../devicetree/bindings/mfd/st,stmfx.yaml     |   2 +
+ .../devicetree/bindings/mfd/wlf,arizona.yaml  |   1 +
+ .../pinctrl/actions,s500-pinctrl.yaml         |   3 +
+ .../pinctrl/allwinner,sun4i-a10-pinctrl.yaml  |   1 +
+ .../bindings/pinctrl/cirrus,lochnagar.yaml    |   3 +
+ .../bindings/pinctrl/ingenic,pinctrl.yaml     |   3 +
+ .../pinctrl/mediatek,mt6779-pinctrl.yaml      |   3 +
+ .../bindings/pinctrl/pinctrl-mt8192.yaml      |   3 +
+ .../pinctrl/qcom,ipq6018-pinctrl.yaml         |   3 +
+ .../pinctrl/qcom,msm8226-pinctrl.yaml         |   3 +
+ .../bindings/pinctrl/qcom,sm8250-pinctrl.yaml |   3 +
+ .../pinctrl/renesas,rza2-pinctrl.yaml         |   3 +
+ .../bindings/pinctrl/st,stm32-pinctrl.yaml    |   3 +
+ .../devicetree/bindings/sound/zl38060.yaml    |   3 +
+ arch/arm/boot/dts/imx51-zii-rdu1.dts          |   2 +-
+ arch/arm/boot/dts/imx6qdl-zii-rdu2.dtsi       |   8 +-
+ arch/arm/boot/dts/imx6ul-ccimx6ulsbcpro.dts   |   2 +-
+ .../boot/dts/freescale/imx8mq-librem5.dtsi    |   4 +-
+ 38 files changed, 245 insertions(+), 12 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/gpio/gpio-common.yaml
+
+-- 
+2.17.1
+
 
 _______________________________________________
 linux-riscv mailing list
