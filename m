@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-16.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D10F1C43461
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 16:56:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BB2BEC2BBD1
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 16:57:13 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6D21C221E7
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 16:56:56 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6E1DD221E7
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 16:57:13 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="lwop203l";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="voWH5Mj8"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6D21C221E7
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="wo1QEQkB";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="ehh/IOcV"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6E1DD221E7
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,30 +26,30 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:References:In-Reply-To:Message-Id:Date:Subject:To:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nGafbNVds5sXoThzUdetW6DYip/DAcEBw98LpUpTZQA=; b=lwop203lPqkhD5dhtn0XrBjeeR
-	OmI0yTL/PBE+3QXWy6dh6v0i/Q47o65jrBukotWMUjrtTkQoIzICUM52X69ShtJkwjRV/90TrQU+L
-	xtIt3sBu6bAT0WpzXhMNTUkMnzt7EHPz2b6nSFqPiaxqpgomsHRjEcXLsugTilhnf7molWlm7ihg7
-	/OgqI9wCEUd901MkTG/wFTtIYvEN+f3L77DYiJnepSwYpLaIqJrxU0TlZpfwf9zJuM9kz6+LlOOKX
-	C4shlbjs4fxnQVz0cygX9Ext3W4/ga/qGwv1U/LbZ2OsnxPptZG2LqVDKx7OVE4Kaecf2dTDbDn37
-	MO9NNNdA==;
+	bh=u5I2IQw2VNux6UnX1Wpc9Sjzh624clJDMJgrnvheQxk=; b=wo1QEQkB/EyVylAVZB807uZWq4
+	3BJ6ITAI4gZaSiEJM7wFa9dZ7fPasuY2XDRGwVAmrPqowMQ0NAuoLruTXYa1ItAKLWqFtG3Yv/C93
+	WnHx7FLODMehSQOZp50Xj/ZgvYwWZZjKM5n8DYdAlhXvpLQ6sSEZs04rT/Cu43VuGkdkHPbXzWZN7
+	0/pB+91hucd2rM4KAjUgrmyqfkrTX8+TwhX4RZ5X2bK2vwCESI8s+NHxPKpLUxAoSXF/fRCO4ty8/
+	BD8k+pmUcniMzz5AzVv5EjCaNSAAtB8c11v3C4XnI5wW28uD+8GdDC0VCVpa1zrFweO8mm7UdGOZL
+	A1bqq63Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kIxDD-0000Zm-Qj; Thu, 17 Sep 2020 16:56:47 +0000
+	id 1kIxDU-0000hY-9g; Thu, 17 Sep 2020 16:57:04 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kIxD8-0000Wx-Ps; Thu, 17 Sep 2020 16:56:44 +0000
+ id 1kIxDM-0000dg-6m; Thu, 17 Sep 2020 16:56:57 +0000
 Received: from kozik-lap.mshome.net (unknown [194.230.155.191])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 9D4092064B;
- Thu, 17 Sep 2020 16:56:27 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 7E0292220E;
+ Thu, 17 Sep 2020 16:56:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1600361802;
- bh=4dW5n48JqvNP10b6scxas3MFTEWsL4Xf/7dxjZPBmik=;
+ s=default; t=1600361815;
+ bh=3CcSAgmJymqX4erpPOGNuiR94tStAH1tIhGienjiYwc=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=voWH5Mj8BlY0YQbektVPJVIihTg4JqOT0bdGzRFdwEuQJQYXAZe22zdzn6SIFqo+L
- WYVQYHdMqQ9HBxLjIUTDxVs7XjFArq2WAuDZpxQHcbFzeZs98yKrot5dAlXsjPI6pH
- sALQqtb7ax8x+xX+P3HSx9zP5MxhbwecFqbmuxQE=
+ b=ehh/IOcVlyp+UzApCJd2uZjTnmaJ85CG1bFw5Xp5VD6lgKUEw8ObK1OdLXYqAxsAI
+ /FQXYjYHs/evznTntqzPiI+ybw3MYVG6jh3P53c2dKcURoHyEflt5A0qgMIexJ4Coz
+ hWB1F8aIxFFehtu2IMK2+HseBdDD+lc6ZKAlu6is=
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Linus Walleij <linus.walleij@linaro.org>,
  Bartosz Golaszewski <bgolaszewski@baylibre.com>,
@@ -102,15 +102,16 @@ To: Linus Walleij <linus.walleij@linaro.org>,
  linux-media@vger.kernel.org, alsa-devel@alsa-project.org,
  linux-stm32@st-md-mailman.stormreply.com,
  linux-mediatek@lists.infradead.org, linux-renesas-soc@vger.kernel.org
-Subject: [PATCH v2 11/13] arm64: dts: imx8mq-librem5: correct GPIO hog property
-Date: Thu, 17 Sep 2020 18:52:59 +0200
-Message-Id: <20200917165301.23100-12-krzk@kernel.org>
+Subject: [PATCH v2 12/13] arm64: dts: imx8mq-librem5: align GPIO hog names
+ with dtschema
+Date: Thu, 17 Sep 2020 18:53:00 +0200
+Message-Id: <20200917165301.23100-13-krzk@kernel.org>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20200917165301.23100-1-krzk@kernel.org>
 References: <20200917165301.23100-1-krzk@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200917_125643_024222_9A275C0C 
-X-CRM114-Status: GOOD (  15.28  )
+X-CRM114-CacheID: sfid-20200917_125656_477249_491FB14D 
+X-CRM114-Status: GOOD (  14.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -129,7 +130,7 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Correct the name of property for GPIO specifier in GPIO hog.
+dtschema expects GPIO hogs to end with 'hog' suffix.
 
 Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
 ---
@@ -137,18 +138,18 @@ Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi b/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
-index 56295dd2fa8f..e4dedcb58f76 100644
+index e4dedcb58f76..6cbcee2fb938 100644
 --- a/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
 +++ b/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
-@@ -251,7 +251,7 @@
+@@ -249,7 +249,7 @@
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_pmic_5v>;
  
- 	pmic-5v {
+-	pmic-5v {
++	pmic-5v-hog {
  		gpio-hog;
--		gpio = <&gpio1 1 GPIO_ACTIVE_HIGH>;
-+		gpios = <&gpio1 1 GPIO_ACTIVE_HIGH>;
+ 		gpios = <&gpio1 1 GPIO_ACTIVE_HIGH>;
  		input;
- 	};
- };
 -- 
 2.17.1
 
