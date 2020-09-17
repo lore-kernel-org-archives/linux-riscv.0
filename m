@@ -2,22 +2,22 @@ Return-Path: <SRS0=KFrn=C2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 687CAC433E2
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 06:40:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 13403C35257
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 06:58:43 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E319D2067C
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 06:40:37 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B01382083B
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 06:58:42 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="gZNIYIHz"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E319D2067C
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="s7zc2tOy";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="ireK4mUj"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B01382083B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -25,49 +25,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=mVW/RY417hAF+3u655A8v4+OhWd+PrI0/zNtmSa8ut4=; b=gZNIYIHzkmSRVaGkwJdZXCpo7
-	4aMhgQTEbkBJ+HDlYbD33SThzWG97vEs/7zRi6TN+Ap+vsmBhYPKo2xYlFWSCjysI/j6NwpZzNHRy
-	PLATeGQdjl/dUIRQfccEr7ScU5L9WK1qWDSwrv/V7CKjV9nPXIzazJ1DZz2Iv1MEXKcuV4RuTdT6a
-	wgFTBf7+ET/lf7+T1yUSY6jk8xKpxy43Hv3zj5tyKPiQ8sIPZYMtxQqrjMsqh5O3yO5vQT0pH7GT1
-	obGKyueKod2XFajJnTaVc17YKfoj2aEfHZCbmaYYRXJku3d61z6KBsNc7bycP86BRu/FjF2gidL8M
-	wPz0kCtZw==;
+	 bh=NuQMZP7KF1ruLg2hv+PeAoKRgZOMijD8cqYQluShLkM=; b=s7zc2tOysv8toyPJ9ASEb4iXf
+	LS3eAjRKcVZXknPnbTZKr1QL5B0NhZCdK0B3gmOhOGadKHCa0uPfv+9trJMcGZHTADbCUISoX0m7k
+	+4UQ8oubNuTJwthAXATRTN9yUDC9hTNuxSBpO6SEkgZMcLxvdl9UOJkeezSFFuCufVtnjDPbftiJA
+	5nI8ROjrSYr/Vl8E6G/A/F6j/RL1fmbIJDPi+n8tnPUYAAAujAIxZV3yopkd4ClaRpPEn5lXydaVn
+	DAXLsQRz6SWt4TeBxTZaDH/dzcxX6t9aNAm9sgo5/n/8VY/JSv27ooAAnAlMuO0m8JDhf7mRFNL1V
+	YtJK0qwTg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kInam-0005PB-FX; Thu, 17 Sep 2020 06:40:28 +0000
-Received: from mail-oi1-f196.google.com ([209.85.167.196])
+	id 1kInsG-0008Mk-89; Thu, 17 Sep 2020 06:58:32 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kInah-0005No-2J; Thu, 17 Sep 2020 06:40:25 +0000
-Received: by mail-oi1-f196.google.com with SMTP id x69so1251633oia.8;
- Wed, 16 Sep 2020 23:40:22 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=5pAuv3apgn3zMedgKzg1fHsW6HJeuRQq0Uxv7kzEHzU=;
- b=iAsZ9GZQj59O5PE38zIAxtiICy86x4wrvCF0Fwpg3LIOGRiEBPTwpl8dc5zq+zMKTU
- B1DcjyEjQpdNaHgsWWrvlrA/jZzlElWL0plv1Nq6GSmWqDEwwndwVFdtnNcy9/I5LNib
- tPG2RXpi/ECmoOtDCkzdUumBV56EoTkVn0U8CF6TFgExm8AeavmSUHIHTjFNyjbOyI6D
- aq7UN+KxoE54EZy2dxgtssLVOueq3KKu0tN01MtqLbsrpQBZPngw6lJj+cqm5TaFY0zT
- vqA982dNkI1DoNb+14xMwdw8083SOpsX9Qq0spyZbTNvTckTQVxy05rYl8pGwjrrpC4X
- EABw==
-X-Gm-Message-State: AOAM533uq9xTBqK2Xt+LQQ9MDPgwSDY1PbDf00MU8u8NuVaUxadi0bQx
- +hoCYkLhg5L1bl02zN8G3EZAt0HonNIp9IEznRw=
-X-Google-Smtp-Source: ABdhPJwRx5EmCljn9g3yX8DYdM4t9aUSxsmqF94I58rxrRGiI/zXEZcu6GX1mLgMwnc0JY0rw/qLetnZRUk/FQe87lA=
-X-Received: by 2002:aca:52d6:: with SMTP id g205mr5458445oib.54.1600324822000; 
- Wed, 16 Sep 2020 23:40:22 -0700 (PDT)
+ id 1kInsC-0008LU-4F; Thu, 17 Sep 2020 06:58:29 +0000
+Received: from mail-ed1-f50.google.com (mail-ed1-f50.google.com
+ [209.85.208.50])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id C2DB0221F1;
+ Thu, 17 Sep 2020 06:58:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1600325907;
+ bh=nPSrDuBIqK++Cs2Yf8watCT9FKUAvE8l/UEvBK+iyoI=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=ireK4mUjRTqzSuHxOMq/8P03KTTPU2Z0ts/OTfO2sTSPznNJ0a2B67cYEfQeGlg4j
+ 6xip99TL20eHHAbQBd3VMLQXOngAAOdVrQIff8ySO/3rl31MfU87HFrn9V1fNJHVB9
+ lB3AMi2Zv2pGKQ9u4wSxtVx1pDOYuaaBqYRzKQ+Y=
+Received: by mail-ed1-f50.google.com with SMTP id w1so1336812edr.3;
+ Wed, 16 Sep 2020 23:58:26 -0700 (PDT)
+X-Gm-Message-State: AOAM532Pdyd0BLM6MtSRfhT8EMwwMHQaf89PsRlo8AO9b7tUJWumyYMn
+ x/fU4BE3EkMVL+ykRstFzbVkWAJyVJCdWkl/+2k=
+X-Google-Smtp-Source: ABdhPJw6oBjGfpKJpPCFXBca1WTyVw1bjowRIiOkT6Iq1M84hhnCUG0jSC0ArmHu21bBl/Bc3OMUftiIy2mZoqPT59s=
+X-Received: by 2002:a50:e78f:: with SMTP id b15mr31833332edn.104.1600325905101; 
+ Wed, 16 Sep 2020 23:58:25 -0700 (PDT)
 MIME-Version: 1.0
 References: <20200916162250.16098-1-krzk@kernel.org>
  <20200916162250.16098-3-krzk@kernel.org>
-In-Reply-To: <20200916162250.16098-3-krzk@kernel.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 17 Sep 2020 08:40:10 +0200
-Message-ID: <CAMuHMdUS134fokz9Xus_pnL6tVYvgQE_uAS4Q-+B4r77VeY=xg@mail.gmail.com>
+ <CAMuHMdUS134fokz9Xus_pnL6tVYvgQE_uAS4Q-+B4r77VeY=xg@mail.gmail.com>
+In-Reply-To: <CAMuHMdUS134fokz9Xus_pnL6tVYvgQE_uAS4Q-+B4r77VeY=xg@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Date: Thu, 17 Sep 2020 08:58:13 +0200
+X-Gmail-Original-Message-ID: <CAJKOXPeTTbrz5Ja8Y=qeCx_vbUub9sBzQqQY1yNa8dWN0nafGg@mail.gmail.com>
+Message-ID: <CAJKOXPeTTbrz5Ja8Y=qeCx_vbUub9sBzQqQY1yNa8dWN0nafGg@mail.gmail.com>
 Subject: Re: [PATCH 2/8] dt-bindings: gpio: include common schema in GPIO
  controllers
-To: Krzysztof Kozlowski <krzk@kernel.org>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200917_024023_143253_19B319A7 
-X-CRM114-Status: GOOD (  13.26  )
+X-CRM114-CacheID: sfid-20200917_025828_310083_71040AEB 
+X-CRM114-Status: GOOD (  19.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -112,46 +116,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
-
-On Wed, Sep 16, 2020 at 6:23 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
-> Include the common GPIO schema in GPIO controllers to be sure all common
-> properties are properly validated.
+On Thu, 17 Sep 2020 at 08:40, Geert Uytterhoeven <geert@linux-m68k.org> wrote:
 >
-> Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
+> Hi Krzysztof,
+>
+> On Wed, Sep 16, 2020 at 6:23 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> > Include the common GPIO schema in GPIO controllers to be sure all common
+> > properties are properly validated.
+> >
+> > Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
+>
+> Thanks for your patch!
+>
+> > ---
+> >  .../devicetree/bindings/gpio/brcm,xgs-iproc-gpio.yaml          | 3 +++
+> >  Documentation/devicetree/bindings/gpio/fsl-imx-gpio.yaml       | 3 +++
+> >  Documentation/devicetree/bindings/gpio/gpio-mxs.yaml           | 3 +++
+> >  Documentation/devicetree/bindings/gpio/gpio-pca9570.yaml       | 3 +++
+> >  Documentation/devicetree/bindings/gpio/gpio-rda.yaml           | 3 +++
+> >  Documentation/devicetree/bindings/gpio/gpio-vf610.yaml         | 3 +++
+> >  Documentation/devicetree/bindings/gpio/mrvl-gpio.yaml          | 1 +
+> >  Documentation/devicetree/bindings/gpio/qcom,wcd934x-gpio.yaml  | 3 +++
+> >  Documentation/devicetree/bindings/gpio/renesas,em-gio.yaml     | 3 +++
+> >  Documentation/devicetree/bindings/gpio/renesas,rcar-gpio.yaml  | 3 +++
+> >  Documentation/devicetree/bindings/gpio/sifive,gpio.yaml        | 3 +++
+> >  .../devicetree/bindings/gpio/socionext,uniphier-gpio.yaml      | 3 +++
+> >  Documentation/devicetree/bindings/gpio/xylon,logicvc-gpio.yaml | 3 +++
+> >  13 files changed, 37 insertions(+)
+>
+> There are more binding files describing GPIO controllers outside the
+> Documentation/devicetree/bindings/gpio/ subdirectory, cfr.
+> 'git grep gpio-controller:.true -- "Doc*yaml"'
 
-Thanks for your patch!
+Oh, indeed. Thanks for spotting these. I will check them and send a follow up.
 
-> ---
->  .../devicetree/bindings/gpio/brcm,xgs-iproc-gpio.yaml          | 3 +++
->  Documentation/devicetree/bindings/gpio/fsl-imx-gpio.yaml       | 3 +++
->  Documentation/devicetree/bindings/gpio/gpio-mxs.yaml           | 3 +++
->  Documentation/devicetree/bindings/gpio/gpio-pca9570.yaml       | 3 +++
->  Documentation/devicetree/bindings/gpio/gpio-rda.yaml           | 3 +++
->  Documentation/devicetree/bindings/gpio/gpio-vf610.yaml         | 3 +++
->  Documentation/devicetree/bindings/gpio/mrvl-gpio.yaml          | 1 +
->  Documentation/devicetree/bindings/gpio/qcom,wcd934x-gpio.yaml  | 3 +++
->  Documentation/devicetree/bindings/gpio/renesas,em-gio.yaml     | 3 +++
->  Documentation/devicetree/bindings/gpio/renesas,rcar-gpio.yaml  | 3 +++
->  Documentation/devicetree/bindings/gpio/sifive,gpio.yaml        | 3 +++
->  .../devicetree/bindings/gpio/socionext,uniphier-gpio.yaml      | 3 +++
->  Documentation/devicetree/bindings/gpio/xylon,logicvc-gpio.yaml | 3 +++
->  13 files changed, 37 insertions(+)
-
-There are more binding files describing GPIO controllers outside the
-Documentation/devicetree/bindings/gpio/ subdirectory, cfr.
-'git grep gpio-controller:.true -- "Doc*yaml"'
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
