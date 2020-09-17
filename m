@@ -2,88 +2,62 @@ Return-Path: <SRS0=KFrn=C2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.5 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-15.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,
+	URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 72BBEC43461
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 07:26:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 38D00C43461
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 07:26:24 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 21EAA21973
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 07:26:10 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id DFE3D2072E
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 07:26:23 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ImplEh7H";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=gmx.net header.i=@gmx.net header.b="QMccrluT"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 21EAA21973
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=gmx.net
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="m9aY10Ma"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DFE3D2072E
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=allwinnertech.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=TD1xI/nL88VLEwVEilZL/VouL0DJTmjT1PiyyOXpaTU=; b=ImplEh7H4I5W4S/3Rl/NrXUW6
-	zkcVVP3aHcSlX4XE5xjS0GgOJmjYFLVK4Wvi+cPg8CV52GHnJzgzee7iIigb+t+tDAhlX+bvDcLmd
-	W/TlVz0JF+9E4a7lvRhoP9d4gZPWvLfjWsyR+OTV/tDcnrgkVLBlH+7uMz2HESwjFvGm75zWGoC8Y
-	QkZtIu/Q4xOwX80WW2ruWl7dmGVE20YbkgfoAxUSsLifnluNnoaAEZpeYKW+21Kdd45RWP7FDile7
-	4HR5+kzyVYBusb9DqBKLOg2XYuch5dWD2PfQxtR4WhSXBT6t2/gfT3A8GfHJiftw/d0ss6BeDfTYR
-	Gp8Tzo1RQ==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JkHUJQ282F3PIgbtZSC3D1bL1Alrq+lSOvaN/MPHkz4=; b=m9aY10MaSaP+kZqEZji6FdH4YQ
+	XRLgO92imCV/vKV9S5dz8IPNpAAxf1phmc6HDI4U6+FRwQmWNYPMF5O7/C5KIc0lxk2YDcHs4Kk0t
+	tXDvVvHYmSJDi9QF4XHuGdyrshdgwhYyUgz58tBQzEgmw7PILfYHcjv6LrB0JbmggZnxQxKTMYYaq
+	CqOG5MlaTrYga6txXkib1+cFIVBPW7UQ56uyFgICKNFtz7oOfoD+DWWTFPWc51TroZYYFeQa3fvv1
+	cqJC31N/Up1UTTc3dlJ0ngN/rnuINjGCT4g9WiK3CrJvhGynp8wqp2HUlNica60Lf8CTUTAtwj99T
+	Fa2zmsdQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kIoIn-0004r5-MJ; Thu, 17 Sep 2020 07:25:57 +0000
-Received: from mout.gmx.net ([212.227.15.19])
+	id 1kIoJ4-0004ut-Si; Thu, 17 Sep 2020 07:26:14 +0000
+Received: from smtp2207-205.mail.aliyun.com ([121.197.207.205])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kIoIi-0004pU-Hd; Thu, 17 Sep 2020 07:25:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
- s=badeba3b8450; t=1600327547;
- bh=zXWtad0JIIFPcwVYIpkWAbxd5f/Xglqob2hHG1bVTJw=;
- h=X-UI-Sender-Class:Date:From:To:Cc:Subject:References:In-Reply-To;
- b=QMccrluTswFKdC4vzqLbTwsDnY5Fi6s62lnyubzZXYqReT/meO2gx6E4FPmy/yJJA
- JvhMt23jQ0tJuXIBGeA/ouC5sBW8yelnG6747VoyShStPAOoXlY3eCfyC0nTb2bIg/
- I4EiphjIC3JuzEc4SVKXdCR1osbhauOQJ0nCIYnQ=
-X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
-Received: from longitude ([5.146.195.151]) by mail.gmx.com (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MTiU3-1jvWjJ31tl-00Tylu; Thu, 17
- Sep 2020 09:19:40 +0200
-Date: Thu, 17 Sep 2020 09:19:32 +0200
-From: Jonathan =?utf-8?Q?Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Subject: Re: [PATCH 8/8] ARM: dts: imx: align GPIO hog names with dtschema
-Message-ID: <20200917071932.GF3306@latitude>
-References: <20200916162250.16098-1-krzk@kernel.org>
- <20200916162250.16098-9-krzk@kernel.org>
-MIME-Version: 1.0
-In-Reply-To: <20200916162250.16098-9-krzk@kernel.org>
-X-Provags-ID: V03:K1:YorKu7pZDQvPgwcW74yxwuNVFEWXjpKmR+QQ6aCm2kjASQe781T
- gyUNKzv6xZx4M4wwltaekmcBFF56mIMGiApidvEyvD91soIu76ecvOnAWz9Y7Rovj2sShwX
- 32LYp5Gxiqo7cY8aSzhwh/VfYZsBtibMCT8gNTUvzpGI4VLobehqvbg7P5fMmCM8MgIzAmo
- 8uIUIEgW8UoeyErWXINdQ==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:Y7I6dMnRb2k=:ExMK8jy0Hy6akrnQXgge2U
- 2lZyxPYOqgYe5iMPk/CVzt3Ndhq6ZwIhd5v/x1Jr3O2qXg3MIUPNO1Ux9omlkeRI1dDs0cpwq
- uiVy/j2hysoMJbPbx+seuo0vNWrqHwihtPYSwdW8Pm+RHzjZgew3osZUkoPbdd2PXiWaTHG7Z
- z73UNyIK8rdZzvJ7tw7VdlRA0lTwnbili5irQ4EY2bYVh66MzguQH/YhNIAZmqMZwq1599vtM
- qzDTSy0aMYYisS6Yb77Zk8z5mY2HWxStdwx7qm6YN1u6HjrEM20QlAdlVcTRWyIPTLhj7amtZ
- G/QQvb7liwYx497e8Dl6YV04JaTX2St51RBNbp5QgAgz0USJTg2yc7RRbVvm3wAAZGlmABbld
- eevwaBm/wBHFTdoni63EoMwiEr1o7qDnnhwrIp1ltq/1P7r1hmLmzlPmKRjSiRNgyaAo1CuvP
- DsXANagkKzz2eXRCFvlVVwc0bR14YGUzB4/0cwwFrMb/YzD9gC7AH8+hL+i7XkBPC8QFVM8xa
- l5NHNjlf/7dLuG84gzBXx3N4vMVaF+9DH4wTLrM5iUBcox1pWV47StAZ8IgMFtKVt9hwV3AOc
- YI/IspB3MBCDnu2duH7cSxPL2lRnvbtY8gtSGVH2qNozvrHQCG9T3iR8IO+Ukf/5lvD0LuGVi
- a3DA5+fEUD5fSeR0uzBdkhLO+IecK0A+v21ufsB0jNcFsqAYYGiFJf0Pt1frHoxULS71/RWvX
- dwQ8ryYbMvbfOiat/yp7KN/ddydSMumW+qAIA89pGfjZP/euCbkaS49uhFckQYIi38Ykyg9Nq
- mzY0RXepOxy+lLjZoAfrQMEebCpWZOsZMXBEnb3/984bh18hLHS/aOH+VW3e0NC+aba4F7HIb
- fuW0MtRh6Km8jmVh1gll0nh3eN7G7pJUZsIq/rl5KST0+PDfDHv7TyCrWuUX1VuwrASHrhpqL
- xeWxJjUUkXSLyCob548sr4MPFJH8VFV5P0ye7D4FRpwTh8CQsbetIOu99DsFY6I8xLkiP9Ie+
- s47fcWGAYUhImFnN5f/D6xpfdfbO4YF5i5vLpxIzl/VWFDQZUS9gNv4m1tou3MbksBoi/xrRO
- eQi7VpsbXG4decRCv7DSQ2undAKXwqL8ENnUW4s9ZNseawwg6plMRV0wd1N4nIE7yIq9JSDUG
- sUL5jnSLpLLLSL/oXobvW43U+HUZ8D0NHAHcpMl2DzaT+NRyv0IznCuGwtcKncpH3NyYeIJP+
- BhhZa6dk5iei0R3QeDJoJfhaW7owR7rZs5ai3rg==
+ id 1kIoJ1-0004re-DI
+ for linux-riscv@lists.infradead.org; Thu, 17 Sep 2020 07:26:13 +0000
+X-Alimail-AntiSpam: AC=CONTINUE; BC=0.2132557|-1; CH=green; DM=|CONTINUE|false|;
+ DS=CONTINUE|ham_system_inform|0.00687124-0.000952784-0.992176;
+ FP=0|0|0|0|0|-1|-1|-1; HT=e01a16378; MF=liush@allwinnertech.com; NM=1; PH=DS;
+ RN=12; RT=12; SR=0; TI=SMTPD_---.IYFcKJ1_1600327552; 
+Received: from localhost.localdomain(mailfrom:liush@allwinnertech.com
+ fp:SMTPD_---.IYFcKJ1_1600327552)
+ by smtp.aliyun-inc.com(10.147.41.199);
+ Thu, 17 Sep 2020 15:25:59 +0800
+From: liush <liush@allwinnertech.com>
+To: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ akpm@linux-foundation.org, peterx@redhat.com, walken@google.com,
+ daniel.m.jordan@oracle.com, vbabka@suse.cz, rppt@kernel.org
+Subject: [PATCH] riscv: fix pfn_to_virt err in do_page_fault().
+Date: Thu, 17 Sep 2020 15:25:49 +0800
+Message-Id: <1600327549-3995-1-git-send-email-liush@allwinnertech.com>
+X-Mailer: git-send-email 2.7.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200917_032552_808779_80635025 
-X-CRM114-Status: GOOD (  11.91  )
+X-CRM114-CacheID: sfid-20200917_032611_727827_0685BA1E 
+X-CRM114-Status: UNSURE (   8.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -95,87 +69,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
- Linus Walleij <linus.walleij@linaro.org>, Stefan Agner <stefan@agner.ch>,
- Bjorn Andersson <bjorn.andersson@linaro.org>,
- Masahiro Yamada <yamada.masahiro@socionext.com>,
- Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- linux-riscv@lists.infradead.org, Fabio Estevam <festevam@gmail.com>,
- Anson Huang <Anson.Huang@nxp.com>, Magnus Damm <magnus.damm@gmail.com>,
- Bartosz Golaszewski <bgolaszewski@baylibre.com>,
- Andy Gross <agross@kernel.org>, bcm-kernel-feedback-list@broadcom.com,
- NXP Linux Team <linux-imx@nxp.com>, linux-arm-msm@vger.kernel.org,
- Sungbo Eo <mans0n@gorani.run>, devicetree@vger.kernel.org,
- Ray Jui <rjui@broadcom.com>, Sascha Hauer <s.hauer@pengutronix.de>,
- linux-gpio@vger.kernel.org, Chris Packham <chris.packham@alliedtelesis.co.nz>,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-arm-kernel@lists.infradead.org,
- Scott Branden <sbranden@broadcom.com>, linux-unisoc@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- Paul Kocialkowski <paul.kocialkowski@bootlin.com>,
- Yash Shah <yash.shah@sifive.com>, Rob Herring <robh+dt@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Shawn Guo <shawnguo@kernel.org>
-Content-Type: multipart/mixed; boundary="===============6527740214009478555=="
+Cc: liush <liush@allwinnertech.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The argument to pfn_to_virt() should be pfn not the value of CSR_SATP.
 
---===============6527740214009478555==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="w3uUfsyyY1Pqa/ej"
-Content-Disposition: inline
+Signed-off-by: liush <liush@allwinnertech.com>
+---
+ arch/riscv/mm/fault.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
+index 716d64e..9b4e088 100644
+--- a/arch/riscv/mm/fault.c
++++ b/arch/riscv/mm/fault.c
+@@ -212,7 +212,7 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
+ 		 * of a task switch.
+ 		 */
+ 		index = pgd_index(addr);
+-		pgd = (pgd_t *)pfn_to_virt(csr_read(CSR_SATP)) + index;
++		pgd = (pgd_t *)pfn_to_virt(csr_read(CSR_SATP) & SATP_PPN) + index;
+ 		pgd_k = init_mm.pgd + index;
+ 
+ 		if (!pgd_present(*pgd_k))
+-- 
+2.7.4
 
---w3uUfsyyY1Pqa/ej
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Sep 16, 2020 at 06:22:50PM +0200, Krzysztof Kozlowski wrote:
-> dtschema for GPIO controllers expects GPIO hogs to end with 'hog'
-> prefix.
-
-Nit: It's a suffix if it's at the end.
-
-
-Thanks,
-Jonathan Neusch=C3=A4fer
-
---w3uUfsyyY1Pqa/ej
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEvHAHGBBjQPVy+qvDCDBEmo7zX9sFAl9jDfwACgkQCDBEmo7z
-X9tyrRAAil2Ws9RX5xEhOM4JTYZZs2cN+39EFsN/UxgAFfH6d5DSDAvTwsAKLVYu
-fN2VXncB+EnJuFS1poUbhIHVv8UKAhd51hVXveutQjhCXRCqTRxhsTbE2NamacUZ
-TMUzWwXkZbmeH3GFQ07pgxKh8SSvrqeVn95IupKHWtSIHNomGY4ZccO4iuaRlD1e
-Ginacpkf107eon+YEJgoAX6CMumZbzCFM9LVyaWiT9psJQvdS9aDp26ER785IaYH
-UT+9LtBrXytog7EzrJHJEMbDboewPKtJ+yMWfmP33FnqR+9MvUkt+N+d7g5H0Mkb
-fUPqL0NFd01jkVWAmUOGem1baRHQlupf4hcm609RGakdHyZUB0g8MBhL6O5inUZO
-/m/HkeO4Gx2Y7FR3aVfIC2sDwUzglI4fHqRdoHC+4lexbvhsBfoVZw5XHe2LmSX1
-lvVW3jYfGQaiJiBhFR2nWZU2CkRm7Ur4bGBa0z6Rthv0BUYNdZ9JvOuVJRKzKl0D
-deUbMLt1YdCVvELm1SbG6y0ItP9EkVJVK5cTtPr1H5PIP8zl7JdAnxkR3YOEbpxt
-Hkthrhjh48Cvb5id6Xqf5O6g17rAtKqKxZGjjSLDvwxDu5tQCfSad7M3gxNIb/KV
-a4eXNUuwJYhawOtgrFyjvg0jJ2PXZbfZLZqIfvhepUz5Xv9gQ94=
-=n42d
------END PGP SIGNATURE-----
-
---w3uUfsyyY1Pqa/ej--
-
-
---===============6527740214009478555==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6527740214009478555==--
-
