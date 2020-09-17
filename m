@@ -2,68 +2,86 @@ Return-Path: <SRS0=KFrn=C2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 686DBC43464
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 20:14:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 17A77C43463
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 22:37:56 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D8A2520707
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 20:13:57 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B0B40208DB
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 22:37:55 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="FkJpfpR7";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=ideasonboard.com header.i=@ideasonboard.com header.b="ghKM0GYx"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D8A2520707
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ideasonboard.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="T3BxU6T8";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="X7/Pfuyk"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B0B40208DB
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=T6ABPwsY9IEpJ7I0lv1YttuCVvSLwik2OIvjwJ8Zb7M=; b=FkJpfpR7LFu2GbCuvBw9sVFhr
-	m2+g7br6DQ53NhXwf6cAKe+2NdCQotOvhbtZy151HC48Cm0+BhKIVRpxXvlWWDE4uW37VdnGGw9SI
-	5bNFP0zjOFFIbqFEozkv7WoOegS/+rbbGevYd8W1zUWX62xgMW1SAfVQatZ37t8P0/w/Ad9GuFjO/
-	BvWrZDVuuRyN8Zc7oktYw/vJXbzVKgwyjbwFJ5dYzRBnAvn25FGlLPGWoI2KRVZaJeLuts9rZg6gY
-	eRU2piveAGw0SIqnT82zwXn1xPNBCBxU7EFPgrm47w241I+iy0PggQq5BjLM+Gr6DTlVr7H1m9Kj9
-	7fGNn3eyg==;
+	 bh=P21K4yyaNkh24BmgRqN/kfnLUOvrBIG1+Iz4ZI5tfho=; b=T3BxU6T8lS0Mgld+U8iyslLwq
+	KBdXK2SQAid2ceK/B4J1QrVWefGBTUjOvsLutInjpFGZJyu5CZRaRjoil1fpUTZPQyfTh7/Y00kpL
+	67skFGroS3fltOWf8U0vAIP3emCxYFfSm+Iw2wNLMt4129spjXszIapagNhUsd7nAcuIM9UyxmN7K
+	GBwjrau0EzDHosZPlrP0aj5rb3PoBgNSpO/BOrYf0tGs5aCLHzGiEl2C38x9kTMeA90Bh4lCuQ5ER
+	CazUh0VY5uEMtAYcXWwnhPKu+phG2nTxiXlNSyS3TWKd37tHIgEFB3uu/Yz5+o3mO9peZGrQ3sZne
+	xFNr2sxFw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kJ0Hr-0002gc-5l; Thu, 17 Sep 2020 20:13:47 +0000
-Received: from perceval.ideasonboard.com
- ([2001:4b98:dc2:55:216:3eff:fef7:d647])
+	id 1kJ2XA-0005iJ-Ui; Thu, 17 Sep 2020 22:37:44 +0000
+Received: from esa1.hgst.iphmx.com ([68.232.141.245])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kJ0Hm-0002fK-9U; Thu, 17 Sep 2020 20:13:43 +0000
-Received: from pendragon.ideasonboard.com (62-78-145-57.bb.dnainternet.fi
- [62.78.145.57])
- by perceval.ideasonboard.com (Postfix) with ESMTPSA id E541EFED;
- Thu, 17 Sep 2020 22:13:40 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
- s=mail; t=1600373621;
- bh=Lgq9PKRDYhVRmNU7RasyOZL9cSKALVzKVkOgyrxq3OM=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=ghKM0GYxCHRhO2OzSWfqAhvO7iCRt7cu1MM1uolJIk+nsQMPRL7i+oqzAG17EDXFX
- hXLgKqL8giZLAXpZS4JYEwCm7oygNVuf1gJW1iEqCumOXugar6+RcBIw2vSYE1k5Ma
- eNzDgBcqBKHUcXSs2SWfCLHPqVWYAO4XJE6hsiWs=
-Date: Thu, 17 Sep 2020 23:13:11 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Subject: Re: [PATCH v2 02/13] dt-bindings: gpio: include common schema in
- GPIO controllers
-Message-ID: <20200917201311.GH3969@pendragon.ideasonboard.com>
-References: <20200917165301.23100-1-krzk@kernel.org>
- <20200917165301.23100-3-krzk@kernel.org>
+ id 1kJ2X6-0005fc-Qs
+ for linux-riscv@lists.infradead.org; Thu, 17 Sep 2020 22:37:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1600382260; x=1631918260;
+ h=from:to:cc:subject:date:message-id:in-reply-to:
+ references:mime-version:content-transfer-encoding;
+ bh=cF20uOFMMd9tTFHAC0Pjs+HW70yT62Ub+JgCsnEO3VM=;
+ b=X7/Pfuykaq+5gZC4Y/jHPC9CeP00JOs6AkzpyvpJqPeDu7822C2TiSoN
+ deJsccRhlYFtQua0S0rf/qAiySH6cGwo42MQP2iTwJ6S8V8LZ31zA3+o5
+ JEJnEzRa/yCoOKVA9jfN9DboF8y+pwfM991O5xC1Ym0rN2fjtu9qmrlhF
+ n/dIweRBLGZyQeWprf3GY5AZUe6Pk2yVGW0+xGZa2K4aOrLvCgUxHUlNT
+ PzFfVcDBh1qwe0Fc7FF6xwdwmYuWCB3iEfzK17qh6HZh6OnuY12mxP3G9
+ 6nmzEqihr6FbVinKRtAs1ZYbO52ExHRJs2lVV2Ps5j2ZrZoxc2HUA+QTp A==;
+IronPort-SDR: FDKKiLh2HSnn0XZyNkd/8It+DbpYlGnd9ML7BEPsEMQepQ6a0mv3rZp2byxg4fwffksI3emsR1
+ FLJM9Stk+rLa34oPV/UKuaIteQGtnj5cRAprp9Bj60FzdJPYRy44rkdH6CwumcEQadLtecSqvL
+ 13h8HTYsCP6X8CoEkAFUoQBsz1+QcQFYA38FcGrKEDZuyy6lMFlYlfCEoHlfsCW2MlWNcAPDmR
+ qD/BmYXXn9x9TrocDbNrQQj5xBALTkHyK4o0wt2klA0nkytiMuya2FGLRnQlyvmuAoDOho2f1q
+ 4Fs=
+X-IronPort-AV: E=Sophos;i="5.77,272,1596470400"; d="scan'208";a="257336252"
+Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
+ ([199.255.45.15])
+ by ob1.hgst.iphmx.com with ESMTP; 18 Sep 2020 06:37:37 +0800
+IronPort-SDR: 272UB729zhFIIXhoxvDaQlHxaLWgr1khCbXE+CMmj87Eqt7rzVTXVq22qQYhFjnkoeKjoHfVgh
+ U/i+l4yIl5VQ==
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+ by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 17 Sep 2020 15:23:51 -0700
+IronPort-SDR: MUPJqvCz1YSPdNZJgpZNSoQ6FVJT1OCgAetfE0XPtatLNB3mUXEOsJVh1lXfoCkcbNBcz46AxM
+ 4WUBWHiMBg7g==
+WDCIronportException: Internal
+Received: from use204338.ad.shared (HELO jedi-01.hgst.com) ([10.86.60.39])
+ by uls-op-cesaip02.wdc.com with ESMTP; 17 Sep 2020 15:37:37 -0700
+From: Atish Patra <atish.patra@wdc.com>
+To: linux-kernel@vger.kernel.org
+Subject: [PATCH v8 1/7] RISC-V: Move DT mapping outof fixmap
+Date: Thu, 17 Sep 2020 15:37:10 -0700
+Message-Id: <20200917223716.2300238-2-atish.patra@wdc.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20200917223716.2300238-1-atish.patra@wdc.com>
+References: <20200917223716.2300238-1-atish.patra@wdc.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20200917165301.23100-3-krzk@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200917_161342_598981_E1666895 
-X-CRM114-Status: GOOD (  20.35  )
+X-CRM114-CacheID: sfid-20200917_183741_006838_381696F3 
+X-CRM114-Status: GOOD (  19.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -75,292 +93,206 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Amelie Delaunay <amelie.delaunay@st.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
- Linus Walleij <linus.walleij@linaro.org>, alsa-devel@alsa-project.org,
- Stefan Agner <stefan@agner.ch>, Bjorn Andersson <bjorn.andersson@linaro.org>,
- Paul Cercueil <paul@crapouillou.net>,
- Masahiro Yamada <yamada.masahiro@socionext.com>,
- Chris Brandt <chris.brandt@renesas.com>,
- Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- linux-riscv@lists.infradead.org, Fabio Estevam <festevam@gmail.com>,
- linux-stm32@st-md-mailman.stormreply.com,
- Alexandre Torgue <alexandre.torgue@st.com>, linux-renesas-soc@vger.kernel.org,
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
- Anson Huang <Anson.Huang@nxp.com>, Lee Jones <lee.jones@linaro.org>,
- Takashi Iwai <tiwai@suse.com>, Magnus Damm <magnus.damm@gmail.com>,
- Bartosz Golaszewski <bgolaszewski@baylibre.com>, Chen-Yu Tsai <wens@csie.org>,
- Andy Gross <agross@kernel.org>, bcm-kernel-feedback-list@broadcom.com,
- NXP Linux Team <linux-imx@nxp.com>, Andy Teng <andy.teng@mediatek.com>,
- Jacopo Mondi <jacopo+renesas@jmondi.org>, Jaroslav Kysela <perex@perex.cz>,
- Sungbo Eo <mans0n@gorani.run>, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org, Cristian Ciocaltea <cristian.ciocaltea@gmail.com>,
- Charles Keepax <ckeepax@opensource.cirrus.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, Ray Jui <rjui@broadcom.com>,
- Sascha Hauer <s.hauer@pengutronix.de>, Sean Wang <sean.wang@mediatek.com>,
- Maxime Ripard <mripard@kernel.org>, linux-gpio@vger.kernel.org,
- Richard Fitzgerald <rf@opensource.cirrus.com>,
- Rob Herring <robh+dt@kernel.org>, linux-mediatek@lists.infradead.org,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- Sricharan R <sricharan@codeaurora.org>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Hoan Tran <hoan@os.amperecomputing.com>, linux-arm-kernel@lists.infradead.org,
- Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>,
- Scott Branden <sbranden@broadcom.com>, linux-unisoc@lists.infradead.org,
- - <patches@opensource.cirrus.com>,
- Chris Packham <chris.packham@alliedtelesis.co.nz>,
- Liam Girdwood <lgirdwood@gmail.com>, Serge Semin <fancer.lancer@gmail.com>,
- linux-kernel@vger.kernel.org,
- Paul Kocialkowski <paul.kocialkowski@bootlin.com>,
- Yash Shah <yash.shah@sifive.com>,
- Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Mark Brown <broonie@kernel.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>, linux-media@vger.kernel.org,
- Shawn Guo <shawnguo@kernel.org>,
- Andreas =?utf-8?Q?F=C3=A4rber?= <afaerber@suse.de>
+Cc: linux-efi@vger.kernel.org, Palmer Dabbelt <palmerdabbelt@google.com>,
+ Atish Patra <atish.patra@wdc.com>, Arvind Sankar <nivedita@alum.mit.edu>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alistair Francis <alistair.francis@wdc.com>,
+ Zong Li <zong.li@sifive.com>, linux-riscv@lists.infradead.org,
+ Ingo Molnar <mingo@kernel.org>, Masahiro Yamada <masahiroy@kernel.org>,
+ Michal Simek <michal.simek@xilinx.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Greentime Hu <greentime.hu@sifive.com>, Borislav Petkov <bp@suse.de>,
+ Maxim Uvarov <maxim.uvarov@linaro.org>, Kees Cook <keescook@chromium.org>,
+ Heiko Carstens <hca@linux.ibm.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Anup Patel <anup.patel@wdc.com>,
+ Nick Desaulniers <ndesaulniers@google.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Andrew Morton <akpm@linux-foundation.org>,
+ Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+From: Anup Patel <anup.patel@wdc.com>
 
-Thank you for the patch.
+Currently, RISC-V reserves 1MB of fixmap memory for device tree. However,
+it maps only single PMD (2MB) space for fixmap which leaves only < 1MB space
+left for other kernel features such as early ioremap which requires fixmap
+as well. The fixmap size can be increased by another 2MB but it brings
+additional complexity and changes the virtual memory layout as well.
+If we require some additional feature requiring fixmap again, it has to be
+moved again.
 
-On Thu, Sep 17, 2020 at 06:52:50PM +0200, Krzysztof Kozlowski wrote:
-> Include the common GPIO schema in GPIO controllers to be sure all common
-> properties are properly validated.
+Technically, DT doesn't need a fixmap as the memory occupied by the DT is
+only used during boot. That's why, We map device tree in early page table
+using two consecutive PGD mappings at lower addresses (< PAGE_OFFSET).
+This frees lot of space in fixmap and also makes maximum supported
+device tree size supported as PGDIR_SIZE. Thus, init memory section can be used
+for the same purpose as well. This simplifies fixmap implementation.
 
-Same comment as for patch 09/13, shouldn't we delete redundant
-properties from all these schemas ?
+Signed-off-by: Anup Patel <anup.patel@wdc.com>
+Signed-off-by: Atish Patra <atish.patra@wdc.com>
+Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
+Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
+---
+ arch/riscv/include/asm/fixmap.h  |  3 ---
+ arch/riscv/include/asm/pgtable.h |  1 +
+ arch/riscv/kernel/head.S         |  1 -
+ arch/riscv/kernel/head.h         |  2 --
+ arch/riscv/kernel/setup.c        |  9 +++++++--
+ arch/riscv/mm/init.c             | 26 ++++++++++++--------------
+ 6 files changed, 20 insertions(+), 22 deletions(-)
 
-> Signed-off-by: Krzysztof Kozlowski <krzk@kernel.org>
-> 
-> ---
-> 
-> Changes since v1:
-> 1. Fix gpio-mxs.yaml
-> 2. Add snps,dw-apb-gpio.yaml
-> ---
->  .../devicetree/bindings/gpio/brcm,xgs-iproc-gpio.yaml         | 3 +++
->  Documentation/devicetree/bindings/gpio/fsl-imx-gpio.yaml      | 3 +++
->  Documentation/devicetree/bindings/gpio/gpio-mxs.yaml          | 4 ++++
->  Documentation/devicetree/bindings/gpio/gpio-pca9570.yaml      | 3 +++
->  Documentation/devicetree/bindings/gpio/gpio-rda.yaml          | 3 +++
->  Documentation/devicetree/bindings/gpio/gpio-vf610.yaml        | 3 +++
->  Documentation/devicetree/bindings/gpio/mrvl-gpio.yaml         | 1 +
->  Documentation/devicetree/bindings/gpio/qcom,wcd934x-gpio.yaml | 3 +++
->  Documentation/devicetree/bindings/gpio/renesas,em-gio.yaml    | 3 +++
->  Documentation/devicetree/bindings/gpio/renesas,rcar-gpio.yaml | 3 +++
->  Documentation/devicetree/bindings/gpio/sifive,gpio.yaml       | 3 +++
->  Documentation/devicetree/bindings/gpio/snps,dw-apb-gpio.yaml  | 3 +++
->  .../devicetree/bindings/gpio/socionext,uniphier-gpio.yaml     | 3 +++
->  .../devicetree/bindings/gpio/xylon,logicvc-gpio.yaml          | 3 +++
->  14 files changed, 41 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/gpio/brcm,xgs-iproc-gpio.yaml b/Documentation/devicetree/bindings/gpio/brcm,xgs-iproc-gpio.yaml
-> index c213cb9ddb9f..1ac69b9c03f9 100644
-> --- a/Documentation/devicetree/bindings/gpio/brcm,xgs-iproc-gpio.yaml
-> +++ b/Documentation/devicetree/bindings/gpio/brcm,xgs-iproc-gpio.yaml
-> @@ -13,6 +13,9 @@ description: |
->    This controller is the Chip Common A GPIO present on a number of Broadcom
->    switch ASICs with integrated SoCs.
->  
-> +allOf:
-> +  - $ref: gpio-common.yaml#
-> +
->  properties:
->    compatible:
->      const: brcm,iproc-gpio-cca
-> diff --git a/Documentation/devicetree/bindings/gpio/fsl-imx-gpio.yaml b/Documentation/devicetree/bindings/gpio/fsl-imx-gpio.yaml
-> index de0b9b5f6a70..737756e081fb 100644
-> --- a/Documentation/devicetree/bindings/gpio/fsl-imx-gpio.yaml
-> +++ b/Documentation/devicetree/bindings/gpio/fsl-imx-gpio.yaml
-> @@ -9,6 +9,9 @@ title: Freescale i.MX/MXC GPIO controller
->  maintainers:
->    - Anson Huang <Anson.Huang@nxp.com>
->  
-> +allOf:
-> +  - $ref: gpio-common.yaml#
-> +
->  properties:
->    compatible:
->      oneOf:
-> diff --git a/Documentation/devicetree/bindings/gpio/gpio-mxs.yaml b/Documentation/devicetree/bindings/gpio/gpio-mxs.yaml
-> index dfa1133f8c5e..bd0c4f329625 100644
-> --- a/Documentation/devicetree/bindings/gpio/gpio-mxs.yaml
-> +++ b/Documentation/devicetree/bindings/gpio/gpio-mxs.yaml
-> @@ -34,6 +34,10 @@ properties:
->  patternProperties:
->    "gpio@[0-9]+$":
->      type: object
-> +
-> +    allOf:
-> +      - $ref: gpio-common.yaml#
-> +
->      properties:
->        compatible:
->          enum:
-> diff --git a/Documentation/devicetree/bindings/gpio/gpio-pca9570.yaml b/Documentation/devicetree/bindings/gpio/gpio-pca9570.yaml
-> index 338c5312a106..69b12041c893 100644
-> --- a/Documentation/devicetree/bindings/gpio/gpio-pca9570.yaml
-> +++ b/Documentation/devicetree/bindings/gpio/gpio-pca9570.yaml
-> @@ -9,6 +9,9 @@ title: PCA9570 I2C GPO expander
->  maintainers:
->    - Sungbo Eo <mans0n@gorani.run>
->  
-> +allOf:
-> +  - $ref: gpio-common.yaml#
-> +
->  properties:
->    compatible:
->      enum:
-> diff --git a/Documentation/devicetree/bindings/gpio/gpio-rda.yaml b/Documentation/devicetree/bindings/gpio/gpio-rda.yaml
-> index 6ece555f074f..d70c99f463c2 100644
-> --- a/Documentation/devicetree/bindings/gpio/gpio-rda.yaml
-> +++ b/Documentation/devicetree/bindings/gpio/gpio-rda.yaml
-> @@ -9,6 +9,9 @@ title: RDA Micro GPIO controller
->  maintainers:
->    - Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
->  
-> +allOf:
-> +  - $ref: gpio-common.yaml#
-> +
->  properties:
->    compatible:
->      const: rda,8810pl-gpio
-> diff --git a/Documentation/devicetree/bindings/gpio/gpio-vf610.yaml b/Documentation/devicetree/bindings/gpio/gpio-vf610.yaml
-> index 6ac5a78ad3da..82f3e4b407d1 100644
-> --- a/Documentation/devicetree/bindings/gpio/gpio-vf610.yaml
-> +++ b/Documentation/devicetree/bindings/gpio/gpio-vf610.yaml
-> @@ -17,6 +17,9 @@ description: |
->    Note: Each GPIO port should have an alias correctly numbered in "aliases"
->    node.
->  
-> +allOf:
-> +  - $ref: gpio-common.yaml#
-> +
->  properties:
->    compatible:
->      enum:
-> diff --git a/Documentation/devicetree/bindings/gpio/mrvl-gpio.yaml b/Documentation/devicetree/bindings/gpio/mrvl-gpio.yaml
-> index 4db3b8a3332c..e2b7d2d133a8 100644
-> --- a/Documentation/devicetree/bindings/gpio/mrvl-gpio.yaml
-> +++ b/Documentation/devicetree/bindings/gpio/mrvl-gpio.yaml
-> @@ -12,6 +12,7 @@ maintainers:
->    - Rob Herring <robh+dt@kernel.org>
->  
->  allOf:
-> +  - $ref: gpio-common.yaml#
->    - if:
->        properties:
->          compatible:
-> diff --git a/Documentation/devicetree/bindings/gpio/qcom,wcd934x-gpio.yaml b/Documentation/devicetree/bindings/gpio/qcom,wcd934x-gpio.yaml
-> index 32a566ec3558..2eee374e8396 100644
-> --- a/Documentation/devicetree/bindings/gpio/qcom,wcd934x-gpio.yaml
-> +++ b/Documentation/devicetree/bindings/gpio/qcom,wcd934x-gpio.yaml
-> @@ -13,6 +13,9 @@ description: |
->    Qualcomm Technologies Inc WCD9340/WCD9341 Audio Codec has integrated
->    gpio controller to control 5 gpios on the chip.
->  
-> +allOf:
-> +  - $ref: gpio-common.yaml#
-> +
->  properties:
->    compatible:
->      enum:
-> diff --git a/Documentation/devicetree/bindings/gpio/renesas,em-gio.yaml b/Documentation/devicetree/bindings/gpio/renesas,em-gio.yaml
-> index 8bdef812c87c..845689807678 100644
-> --- a/Documentation/devicetree/bindings/gpio/renesas,em-gio.yaml
-> +++ b/Documentation/devicetree/bindings/gpio/renesas,em-gio.yaml
-> @@ -9,6 +9,9 @@ title: Renesas EMMA Mobile General Purpose I/O Interface
->  maintainers:
->    - Magnus Damm <magnus.damm@gmail.com>
->  
-> +allOf:
-> +  - $ref: gpio-common.yaml#
-> +
->  properties:
->    compatible:
->      const: renesas,em-gio
-> diff --git a/Documentation/devicetree/bindings/gpio/renesas,rcar-gpio.yaml b/Documentation/devicetree/bindings/gpio/renesas,rcar-gpio.yaml
-> index 5026662e4508..c116000d579f 100644
-> --- a/Documentation/devicetree/bindings/gpio/renesas,rcar-gpio.yaml
-> +++ b/Documentation/devicetree/bindings/gpio/renesas,rcar-gpio.yaml
-> @@ -9,6 +9,9 @@ title: Renesas R-Car General-Purpose Input/Output Ports (GPIO)
->  maintainers:
->    - Geert Uytterhoeven <geert+renesas@glider.be>
->  
-> +allOf:
-> +  - $ref: gpio-common.yaml#
-> +
->  properties:
->    compatible:
->      oneOf:
-> diff --git a/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml b/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml
-> index a0efd8dc2538..f2d93b40fc7e 100644
-> --- a/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml
-> +++ b/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml
-> @@ -10,6 +10,9 @@ maintainers:
->    - Yash Shah <yash.shah@sifive.com>
->    - Paul Walmsley <paul.walmsley@sifive.com>
->  
-> +allOf:
-> +  - $ref: gpio-common.yaml#
-> +
->  properties:
->    compatible:
->      items:
-> diff --git a/Documentation/devicetree/bindings/gpio/snps,dw-apb-gpio.yaml b/Documentation/devicetree/bindings/gpio/snps,dw-apb-gpio.yaml
-> index b391cc1b4590..459aafe5fd47 100644
-> --- a/Documentation/devicetree/bindings/gpio/snps,dw-apb-gpio.yaml
-> +++ b/Documentation/devicetree/bindings/gpio/snps,dw-apb-gpio.yaml
-> @@ -49,6 +49,9 @@ properties:
->  patternProperties:
->    "^gpio-(port|controller)@[0-9a-f]+$":
->      type: object
-> +    allOf:
-> +      - $ref: gpio-common.yaml#
-> +
->      properties:
->        compatible:
->          const: snps,dw-apb-gpio-port
-> diff --git a/Documentation/devicetree/bindings/gpio/socionext,uniphier-gpio.yaml b/Documentation/devicetree/bindings/gpio/socionext,uniphier-gpio.yaml
-> index c58ff9a94f45..94a911e9c313 100644
-> --- a/Documentation/devicetree/bindings/gpio/socionext,uniphier-gpio.yaml
-> +++ b/Documentation/devicetree/bindings/gpio/socionext,uniphier-gpio.yaml
-> @@ -9,6 +9,9 @@ title: UniPhier GPIO controller
->  maintainers:
->    - Masahiro Yamada <yamada.masahiro@socionext.com>
->  
-> +allOf:
-> +  - $ref: gpio-common.yaml#
-> +
->  properties:
->    $nodename:
->      pattern: "^gpio@[0-9a-f]+$"
-> diff --git a/Documentation/devicetree/bindings/gpio/xylon,logicvc-gpio.yaml b/Documentation/devicetree/bindings/gpio/xylon,logicvc-gpio.yaml
-> index a36aec27069c..0e4581241b3f 100644
-> --- a/Documentation/devicetree/bindings/gpio/xylon,logicvc-gpio.yaml
-> +++ b/Documentation/devicetree/bindings/gpio/xylon,logicvc-gpio.yaml
-> @@ -23,6 +23,9 @@ description: |
->    - EN_VEE (power control) mapped to index 7
->    - V_EN (power control) mapped to index 8
->  
-> +allOf:
-> +  - $ref: gpio-common.yaml#
-> +
->  properties:
->    $nodename:
->      pattern: "^gpio@[0-9a-f]+$"
-
+diff --git a/arch/riscv/include/asm/fixmap.h b/arch/riscv/include/asm/fixmap.h
+index 1ff075a8dfc7..11613f38228a 100644
+--- a/arch/riscv/include/asm/fixmap.h
++++ b/arch/riscv/include/asm/fixmap.h
+@@ -22,9 +22,6 @@
+  */
+ enum fixed_addresses {
+ 	FIX_HOLE,
+-#define FIX_FDT_SIZE	SZ_1M
+-	FIX_FDT_END,
+-	FIX_FDT = FIX_FDT_END + FIX_FDT_SIZE / PAGE_SIZE - 1,
+ 	FIX_PTE,
+ 	FIX_PMD,
+ 	FIX_TEXT_POKE1,
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index eaea1f717010..815f8c959dd4 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -464,6 +464,7 @@ static inline void __kernel_map_pages(struct page *page, int numpages, int enabl
+ #define kern_addr_valid(addr)   (1) /* FIXME */
+ 
+ extern void *dtb_early_va;
++extern uintptr_t dtb_early_pa;
+ void setup_bootmem(void);
+ void paging_init(void);
+ 
+diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+index 0a4e81b8dc79..c6a37e8231a8 100644
+--- a/arch/riscv/kernel/head.S
++++ b/arch/riscv/kernel/head.S
+@@ -259,7 +259,6 @@ clear_bss_done:
+ #endif
+ 	/* Start the kernel */
+ 	call soc_early_init
+-	call parse_dtb
+ 	tail start_kernel
+ 
+ .Lsecondary_start:
+diff --git a/arch/riscv/kernel/head.h b/arch/riscv/kernel/head.h
+index 105fb0496b24..b48dda3d04f6 100644
+--- a/arch/riscv/kernel/head.h
++++ b/arch/riscv/kernel/head.h
+@@ -16,6 +16,4 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa);
+ extern void *__cpu_up_stack_pointer[];
+ extern void *__cpu_up_task_pointer[];
+ 
+-void __init parse_dtb(void);
+-
+ #endif /* __ASM_HEAD_H */
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index 2c6dd329312b..edea7ef88402 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -48,8 +48,9 @@ atomic_t hart_lottery __section(.sdata);
+ unsigned long boot_cpu_hartid;
+ static DEFINE_PER_CPU(struct cpu, cpu_devices);
+ 
+-void __init parse_dtb(void)
++static void __init parse_dtb(void)
+ {
++	/* Early scan of device tree from init memory */
+ 	if (early_init_dt_scan(dtb_early_va))
+ 		return;
+ 
+@@ -62,6 +63,7 @@ void __init parse_dtb(void)
+ 
+ void __init setup_arch(char **cmdline_p)
+ {
++	parse_dtb();
+ 	init_mm.start_code = (unsigned long) _stext;
+ 	init_mm.end_code   = (unsigned long) _etext;
+ 	init_mm.end_data   = (unsigned long) _edata;
+@@ -76,7 +78,10 @@ void __init setup_arch(char **cmdline_p)
+ #if IS_ENABLED(CONFIG_BUILTIN_DTB)
+ 	unflatten_and_copy_device_tree();
+ #else
+-	unflatten_device_tree();
++	if (early_init_dt_verify(__va(dtb_early_pa)))
++		unflatten_device_tree();
++	else
++		pr_err("No DTB found in kernel mappings\n");
+ #endif
+ 
+ #ifdef CONFIG_SWIOTLB
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 787c75f751a5..2b651f63f5c4 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -28,7 +28,9 @@ unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)]
+ EXPORT_SYMBOL(empty_zero_page);
+ 
+ extern char _start[];
+-void *dtb_early_va;
++#define DTB_EARLY_BASE_VA      PGDIR_SIZE
++void *dtb_early_va __initdata;
++uintptr_t dtb_early_pa __initdata;
+ 
+ static void __init zone_sizes_init(void)
+ {
+@@ -141,8 +143,6 @@ static void __init setup_initrd(void)
+ }
+ #endif /* CONFIG_BLK_DEV_INITRD */
+ 
+-static phys_addr_t dtb_early_pa __initdata;
+-
+ void __init setup_bootmem(void)
+ {
+ 	struct memblock_region *reg;
+@@ -399,7 +399,7 @@ static uintptr_t __init best_map_size(phys_addr_t base, phys_addr_t size)
+ 
+ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ {
+-	uintptr_t va, end_va;
++	uintptr_t va, pa, end_va;
+ 	uintptr_t load_pa = (uintptr_t)(&_start);
+ 	uintptr_t load_sz = (uintptr_t)(&_end) - load_pa;
+ 	uintptr_t map_size = best_map_size(load_pa, MAX_EARLY_MAPPING_SIZE);
+@@ -448,16 +448,13 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ 				   load_pa + (va - PAGE_OFFSET),
+ 				   map_size, PAGE_KERNEL_EXEC);
+ 
+-	/* Create fixed mapping for early FDT parsing */
+-	end_va = __fix_to_virt(FIX_FDT) + FIX_FDT_SIZE;
+-	for (va = __fix_to_virt(FIX_FDT); va < end_va; va += PAGE_SIZE)
+-		create_pte_mapping(fixmap_pte, va,
+-				   dtb_pa + (va - __fix_to_virt(FIX_FDT)),
+-				   PAGE_SIZE, PAGE_KERNEL);
+-
+-	/* Save pointer to DTB for early FDT parsing */
+-	dtb_early_va = (void *)fix_to_virt(FIX_FDT) + (dtb_pa & ~PAGE_MASK);
+-	/* Save physical address for memblock reservation */
++	/* Create two consecutive PGD mappings for FDT early scan */
++	pa = dtb_pa & ~(PGDIR_SIZE - 1);
++	create_pgd_mapping(early_pg_dir, DTB_EARLY_BASE_VA,
++			   pa, PGDIR_SIZE, PAGE_KERNEL);
++	create_pgd_mapping(early_pg_dir, DTB_EARLY_BASE_VA + PGDIR_SIZE,
++			   pa + PGDIR_SIZE, PGDIR_SIZE, PAGE_KERNEL);
++	dtb_early_va = (void *)DTB_EARLY_BASE_VA + (dtb_pa & (PGDIR_SIZE - 1));
+ 	dtb_early_pa = dtb_pa;
+ }
+ 
+@@ -516,6 +513,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ #else
+ 	dtb_early_va = (void *)dtb_pa;
+ #endif
++	dtb_early_pa = dtb_pa;
+ }
+ 
+ static inline void setup_vm_final(void)
 -- 
-Regards,
+2.25.1
 
-Laurent Pinchart
 
 _______________________________________________
 linux-riscv mailing list
