@@ -2,77 +2,61 @@ Return-Path: <SRS0=9SVT=C3=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-15.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,
+	URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 32D1EC43463
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2020 07:53:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B5DB7C43464
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2020 08:56:32 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DA6EC208DB
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2020 07:53:30 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 3C95021D42
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2020 08:56:32 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="lIdonTlm";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="cZJCNtkf"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DA6EC208DB
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="FHrSDblR"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3C95021D42
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=allwinnertech.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=hhbxXcsr4sqJPjREEh9K3Dvx3ph/hEm/MiWd01no+dQ=; b=lIdonTlmey6+EW+lqhFKc2fMA
-	PkH2xOtBLuSxxFlQHJ9hapducFD1ecIcLUrRoyUsEbAbSjn8gYigfXrtD7Zkul9XgqEVol0zK09qM
-	J9aR9hJSHOi4yecw6gPdarzbJZ41p2ra3f4mXY+ewYQS0rnDRMoqTWYrpgdaGSK2mZ0xM9GB4ouNG
-	ElUahEhDMkr9IoHCuRT6c4mnByDsgZ1XQ8Yi0FqDynbAHKg2P2v2/qT83DnkaXlqmxs/PVPSLFWBJ
-	+tfLQnrio+AmJP+KGQt5MGtKasuN5cOyHxvtVtwlaSTW7ndj+ZQKeKnMiJJBGEcr7UOPWjXiafVWb
-	yTZwP5FeA==;
+	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8wqqnnR1QEMq2wIHZSWxOVvj93kcKR7lCQA4KmXGd9k=; b=FHrSDblRHnoA7Aw7xrvz/rdGC+
+	GEVTFIO+5VGNjUDeZ67YBVPAaus3XGeC+N+2hLP3+Xpy8LAfcemWsO4eVb0AKE47eGMEI3rzwmDyJ
+	Yy7SSTny5y96B9hDcvVNJKUdBkwUlvOCzSynQIoi90iiT70YN9UD1qW07/4qyxxWALLt888PFlwoO
+	BJpA7pTLNdCZ8jYU7nNDHFuOX+qc0vBMQREvKSq8tliPff8ygDxWPAgsmaU5LWaOJJRlabAH3dA09
+	Z95pYQN+IVLXri1frcD/TSfGZGfOFJ0Eib8kQ9zpS5KvCTmINAR299HdLOniJcPjXSwVaoNghcUkt
+	lTuNmvJA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kJBCp-0007D6-JU; Fri, 18 Sep 2020 07:53:19 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1kJCBp-00065t-2t; Fri, 18 Sep 2020 08:56:21 +0000
+Received: from smtp2207-205.mail.aliyun.com ([121.197.207.205])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kJBCk-0007Bu-M0; Fri, 18 Sep 2020 07:53:15 +0000
-Received: from mail-lj1-f175.google.com (mail-lj1-f175.google.com
- [209.85.208.175])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id A092D235F9;
- Fri, 18 Sep 2020 07:53:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1600415594;
- bh=zR4pC32CsRwkRMcQjTnnCp339wA8YZYmTzvhc8Ku3wQ=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=cZJCNtkfkHA0r0FeMIAWY7D+QPapfLaH15sFE1WNYM4PKyUdb33JlOgilSdSSTwM4
- xGabXi2sfwLjYfFwquhkvjT02UVDctUBVqx+oQlovxOMWqP6oSQxOmeXlwiNQh93Do
- /Vu58+Vdi5m6dZbWmFufI2IgJXtwo+Id3LfJFLZc=
-Received: by mail-lj1-f175.google.com with SMTP id u21so4287129ljl.6;
- Fri, 18 Sep 2020 00:53:13 -0700 (PDT)
-X-Gm-Message-State: AOAM531UXoBCGZBiVlOAt5+3BTZvZHEU9oF0G1hsmvRKFdNKUF68W+w8
- n0sJYiry8sO7sZ9CRVCfxhcfbQ/OCGmsYn9Nm/I=
-X-Google-Smtp-Source: ABdhPJz4h58zSa29o5A1o7MhoFoews9vi+zWZmYhOt2gWbPt5yeBvYS4l1uut8tLvrHP24ftCZlb9SA8h3ZMk81xBpI=
-X-Received: by 2002:a17:906:5008:: with SMTP id
- s8mr36525529ejj.408.1600415590292; 
- Fri, 18 Sep 2020 00:53:10 -0700 (PDT)
-MIME-Version: 1.0
-References: <20200917165301.23100-1-krzk@kernel.org>
- <20200917165301.23100-2-krzk@kernel.org>
- <20200917200936.GF3969@pendragon.ideasonboard.com>
-In-Reply-To: <20200917200936.GF3969@pendragon.ideasonboard.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Date: Fri, 18 Sep 2020 09:52:57 +0200
-X-Gmail-Original-Message-ID: <CAJKOXPc=o0vtU0VKE5b5Ro3nF=ra-p7UnbFfjj_++onw8MeSKQ@mail.gmail.com>
-Message-ID: <CAJKOXPc=o0vtU0VKE5b5Ro3nF=ra-p7UnbFfjj_++onw8MeSKQ@mail.gmail.com>
-Subject: Re: [PATCH v2 01/13] dt-bindings: gpio: add common schema for GPIO
- controllers
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+ id 1kJCBl-000640-Of
+ for linux-riscv@lists.infradead.org; Fri, 18 Sep 2020 08:56:19 +0000
+X-Alimail-AntiSpam: AC=CONTINUE; BC=0.1160887|-1; CH=green; DM=|CONTINUE|false|;
+ DS=CONTINUE|ham_system_inform|0.00896768-0.00102384-0.990008;
+ FP=0|0|0|0|0|-1|-1|-1; HT=e01a16368; MF=liush@allwinnertech.com; NM=1; PH=DS;
+ RN=12; RT=12; SR=0; TI=SMTPD_---.IYnLyfc_1600419360; 
+Received: from localhost.localdomain(mailfrom:liush@allwinnertech.com
+ fp:SMTPD_---.IYnLyfc_1600419360)
+ by smtp.aliyun-inc.com(10.147.42.16); Fri, 18 Sep 2020 16:56:07 +0800
+From: liush <liush@allwinnertech.com>
+To: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ akpm@linux-foundation.org, peterx@redhat.com, daniel.m.jordan@oracle.com,
+ walken@google.com, vbabka@suse.cz, rppt@kernel.org
+Subject: [V2] riscv: fix pfn_to_virt err in do_page_fault().
+Date: Fri, 18 Sep 2020 16:55:58 +0800
+Message-Id: <1600419358-21446-1-git-send-email-liush@allwinnertech.com>
+X-Mailer: git-send-email 2.7.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200918_035314_845164_B34220FD 
-X-CRM114-Status: GOOD (  22.41  )
+X-CRM114-CacheID: sfid-20200918_045618_122128_824DE48E 
+X-CRM114-Status: UNSURE (   8.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -84,92 +68,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Amelie Delaunay <amelie.delaunay@st.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
- Linus Walleij <linus.walleij@linaro.org>, alsa-devel@alsa-project.org,
- Stefan Agner <stefan@agner.ch>, Bjorn Andersson <bjorn.andersson@linaro.org>,
- Paul Cercueil <paul@crapouillou.net>,
- Masahiro Yamada <yamada.masahiro@socionext.com>,
- Chris Brandt <chris.brandt@renesas.com>,
- Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- linux-riscv@lists.infradead.org, Fabio Estevam <festevam@gmail.com>,
- linux-stm32@st-md-mailman.stormreply.com,
- Alexandre Torgue <alexandre.torgue@st.com>, linux-renesas-soc@vger.kernel.org,
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
- Anson Huang <Anson.Huang@nxp.com>, Lee Jones <lee.jones@linaro.org>,
- Takashi Iwai <tiwai@suse.com>, Magnus Damm <magnus.damm@gmail.com>,
- Bartosz Golaszewski <bgolaszewski@baylibre.com>, Chen-Yu Tsai <wens@csie.org>,
- Andy Gross <agross@kernel.org>, bcm-kernel-feedback-list@broadcom.com,
- NXP Linux Team <linux-imx@nxp.com>, Andy Teng <andy.teng@mediatek.com>,
- Jacopo Mondi <jacopo+renesas@jmondi.org>, Jaroslav Kysela <perex@perex.cz>,
- Sungbo Eo <mans0n@gorani.run>, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org, Cristian Ciocaltea <cristian.ciocaltea@gmail.com>,
- Charles Keepax <ckeepax@opensource.cirrus.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, Ray Jui <rjui@broadcom.com>,
- Sascha Hauer <s.hauer@pengutronix.de>, Sean Wang <sean.wang@mediatek.com>,
- Maxime Ripard <mripard@kernel.org>, linux-gpio@vger.kernel.org,
- Richard Fitzgerald <rf@opensource.cirrus.com>,
- Rob Herring <robh+dt@kernel.org>, linux-mediatek@lists.infradead.org,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- Sricharan R <sricharan@codeaurora.org>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Hoan Tran <hoan@os.amperecomputing.com>, linux-arm-kernel@lists.infradead.org,
- =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>,
- Scott Branden <sbranden@broadcom.com>, linux-unisoc@lists.infradead.org,
- - <patches@opensource.cirrus.com>,
- Chris Packham <chris.packham@alliedtelesis.co.nz>,
- Liam Girdwood <lgirdwood@gmail.com>, Serge Semin <fancer.lancer@gmail.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Paul Kocialkowski <paul.kocialkowski@bootlin.com>,
- Yash Shah <yash.shah@sifive.com>,
- Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Mark Brown <broonie@kernel.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>, linux-media@vger.kernel.org,
- Shawn Guo <shawnguo@kernel.org>,
- =?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>
+Cc: liush <liush@allwinnertech.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 17 Sep 2020 at 22:10, Laurent Pinchart
-<laurent.pinchart@ideasonboard.com> wrote:
->
-> Hi Krzysztof,
->
-> Thank you for the patch.
->
-> On Thu, Sep 17, 2020 at 06:52:49PM +0200, Krzysztof Kozlowski wrote:
-> > Convert parts of gpio.txt bindings into common dtschema file for GPIO
-> > controllers.
->
-> How about deleting the part that has been converted from gpio.txt ?
+The argument to pfn_to_virt() should be pfn not the value of CSR_SATP.
 
-I did not move everything from the gpio.txt and it is really nicely
-explained there. I think to leave it as it works as a overview/guide
-better than YAML.
+Signed-off-by: liush <liush@allwinnertech.com>
+---
+ arch/riscv/mm/fault.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
->
-> > The schema enforces proper naming of GPIO controller nodes and GPIO
-> > hogs.
-> >
-> > The schema should be included by specific GPIO controllers bindings.
->
-> Instead of including it manually, could we use a conditional select: to
-> apply the schema automatically when a gpio-controller property is
-> present ?
+diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
+index 716d64e..3e560ec13 100644
+--- a/arch/riscv/mm/fault.c
++++ b/arch/riscv/mm/fault.c
+@@ -198,6 +198,7 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
+ 		pmd_t *pmd, *pmd_k;
+ 		pte_t *pte_k;
+ 		int index;
++		unsigned long pfn;
+ 
+ 		/* User mode accesses just cause a SIGSEGV */
+ 		if (user_mode(regs))
+@@ -212,7 +213,8 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
+ 		 * of a task switch.
+ 		 */
+ 		index = pgd_index(addr);
+-		pgd = (pgd_t *)pfn_to_virt(csr_read(CSR_SATP)) + index;
++		pfn = csr_read(CSR_SATP) & SATP_PPN;
++		pgd = (pgd_t *)pfn_to_virt(pfn) + index;
+ 		pgd_k = init_mm.pgd + index;
+ 
+ 		if (!pgd_present(*pgd_k))
+-- 
+2.7.4
 
-You mean the same way as generic schema for GPIO controllers work?
-This could be done but the point is to enforce the GPIO controller
-bindings in GPIO controllers, so also in cases when someone forgets to
-add "gpio-controller" property. Although, if given GPIO controller
-schema requires "gpio-controller" then indeed select would work...
-
-Best regards,
-Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
