@@ -1,86 +1,78 @@
-Return-Path: <SRS0=KFrn=C2=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=9SVT=C3=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B0CFCC43464
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 23:41:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 32D1EC43463
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2020 07:53:31 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2471420665
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Sep 2020 23:41:32 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id DA6EC208DB
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2020 07:53:30 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="dwFyDYLa";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="cFPcOKx9"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2471420665
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="lIdonTlm";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="cZJCNtkf"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DA6EC208DB
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nB19WuXEHKUo6SDyHaLQj/sogrhE7BBCyg5F1eTtvZo=; b=dwFyDYLammjjoRfOHey8k3wUHo
-	d2YWMsaBWhMunO+A3Hmh+PvJ7a6slkYqTqH/KXaORYfBOGV7dj5ih4OLFkHzOuaECI0/eCZxws9Vw
-	jscSySrQRfq9VaYKXDTDcIQccKKkXUyVvWmWjKT2oDKxFOC4/WV0sT12DmmLz+zHDfJU6pqb1QVRd
-	A0STNYoZM6DrWwW5uAmydfg2iMxiTyGATiw1PpQjOhMwd+ovaOJ4Gny1AQLfsvPubUVi0kTgY/0zp
-	2ldJYywSsAjn7N8ju6wpLpxj+RNmIi5mPto6IKTXzCCMLkl/yOjsTlQzaiyUkztwaB/Rcp2Wav1n7
-	zLfiXGDw==;
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=hhbxXcsr4sqJPjREEh9K3Dvx3ph/hEm/MiWd01no+dQ=; b=lIdonTlmey6+EW+lqhFKc2fMA
+	PkH2xOtBLuSxxFlQHJ9hapducFD1ecIcLUrRoyUsEbAbSjn8gYigfXrtD7Zkul9XgqEVol0zK09qM
+	J9aR9hJSHOi4yecw6gPdarzbJZ41p2ra3f4mXY+ewYQS0rnDRMoqTWYrpgdaGSK2mZ0xM9GB4ouNG
+	ElUahEhDMkr9IoHCuRT6c4mnByDsgZ1XQ8Yi0FqDynbAHKg2P2v2/qT83DnkaXlqmxs/PVPSLFWBJ
+	+tfLQnrio+AmJP+KGQt5MGtKasuN5cOyHxvtVtwlaSTW7ndj+ZQKeKnMiJJBGEcr7UOPWjXiafVWb
+	yTZwP5FeA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kJ3Wh-0001wp-KH; Thu, 17 Sep 2020 23:41:19 +0000
-Received: from esa3.hgst.iphmx.com ([216.71.153.141])
+	id 1kJBCp-0007D6-JU; Fri, 18 Sep 2020 07:53:19 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kJ3We-0001wK-7P
- for linux-riscv@lists.infradead.org; Thu, 17 Sep 2020 23:41:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1600386077; x=1631922077;
- h=from:to:cc:subject:date:message-id:mime-version:
- content-transfer-encoding;
- bh=NBBooLWx4dX/xQPDDaQE8cweQZvaQZMOQrLJFZ3y+F8=;
- b=cFPcOKx9qIOx+HQZ0hZN/Q+PWdCp25llehNKbdJPtCHDkKovwyNWwLNa
- IGd4483XD4EVDp26qNFSULjBlfqgiITszX8e3+KVilKIQiOIkwc0DsyH5
- Gjw52st7VU2bUAt3yOMD7oNcw/WjZjs31xtWCBXpsOCBf9PfrJKJ77q5i
- ICW2xkE8eNoxEpDQ8BcR/G4MBAuV5Tx4OIORxLKMXcAbLFjUI+amqVrTD
- OSqZICW0fsICtUdNOUI1yuFCfpceGhy+0th+ZvRLM0sz8ZQ5Ohf+dGtJZ
- YUcFRVPUBbxNzRU9cffAKhZ5v5aXYpwJkl1h3tVqdrExrt+XireZv5NPZ w==;
-IronPort-SDR: i51YejxHvVUtKDgpgWUCe4fJiYQwCw+7ONCQEKCDQ9uIc+hFUzENu8YiHsZmTqFxxmN8s9W07t
- SQYxsXnHbJmjmWmdgcSv42/hJrpjL9nQ41pNamyNP0YKGuzaS4lFJztoNWSXjOB58dib3q54yG
- bx6fHzL0ejp2UdTvQ+LKqzk1V8I9wL9OQT7bMEzZwSs+m9muIOF/A9JTfAk0upEOE6fNQ6s7ql
- ceOoOrTJUCGwnFGylj6nhkx9clYPdA+A/TV1iDyAIAI32/30xhdQfPykafp9bY7GvvpShbejxs
- ZtA=
-X-IronPort-AV: E=Sophos;i="5.77,272,1596470400"; d="scan'208";a="152041698"
-Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
- ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 18 Sep 2020 07:41:13 +0800
-IronPort-SDR: F6JGwQoFqmalbid7aM8wHI1FX8BH+vZ59NPBJYGkM9AHmCBrkj1L93Oq92AiOAmAH8lVVPHLH3
- /xxVj82kJQ4Q==
-Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
- by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 17 Sep 2020 16:28:20 -0700
-IronPort-SDR: AqIqh7onWLPTwrZYu9YWnVbKUodp27nHtfmGPfYmcgIhjqU7JYKDqG8BcMfwhGPkzpN2rbC4Nq
- EDgcRgO12Pgw==
-WDCIronportException: Internal
-Received: from use204338.ad.shared (HELO jedi-01.hgst.com) ([10.86.60.39])
- by uls-op-cesaip01.wdc.com with ESMTP; 17 Sep 2020 16:41:11 -0700
-From: Atish Patra <atish.patra@wdc.com>
-To: linux-kernel@vger.kernel.org
-Subject: [PATCH v2] RISC-V: Remove any memblock representing unusable memory
- area
-Date: Thu, 17 Sep 2020 16:40:55 -0700
-Message-Id: <20200917234055.2321977-1-atish.patra@wdc.com>
-X-Mailer: git-send-email 2.25.1
+ id 1kJBCk-0007Bu-M0; Fri, 18 Sep 2020 07:53:15 +0000
+Received: from mail-lj1-f175.google.com (mail-lj1-f175.google.com
+ [209.85.208.175])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id A092D235F9;
+ Fri, 18 Sep 2020 07:53:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1600415594;
+ bh=zR4pC32CsRwkRMcQjTnnCp339wA8YZYmTzvhc8Ku3wQ=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=cZJCNtkfkHA0r0FeMIAWY7D+QPapfLaH15sFE1WNYM4PKyUdb33JlOgilSdSSTwM4
+ xGabXi2sfwLjYfFwquhkvjT02UVDctUBVqx+oQlovxOMWqP6oSQxOmeXlwiNQh93Do
+ /Vu58+Vdi5m6dZbWmFufI2IgJXtwo+Id3LfJFLZc=
+Received: by mail-lj1-f175.google.com with SMTP id u21so4287129ljl.6;
+ Fri, 18 Sep 2020 00:53:13 -0700 (PDT)
+X-Gm-Message-State: AOAM531UXoBCGZBiVlOAt5+3BTZvZHEU9oF0G1hsmvRKFdNKUF68W+w8
+ n0sJYiry8sO7sZ9CRVCfxhcfbQ/OCGmsYn9Nm/I=
+X-Google-Smtp-Source: ABdhPJz4h58zSa29o5A1o7MhoFoews9vi+zWZmYhOt2gWbPt5yeBvYS4l1uut8tLvrHP24ftCZlb9SA8h3ZMk81xBpI=
+X-Received: by 2002:a17:906:5008:: with SMTP id
+ s8mr36525529ejj.408.1600415590292; 
+ Fri, 18 Sep 2020 00:53:10 -0700 (PDT)
 MIME-Version: 1.0
+References: <20200917165301.23100-1-krzk@kernel.org>
+ <20200917165301.23100-2-krzk@kernel.org>
+ <20200917200936.GF3969@pendragon.ideasonboard.com>
+In-Reply-To: <20200917200936.GF3969@pendragon.ideasonboard.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Date: Fri, 18 Sep 2020 09:52:57 +0200
+X-Gmail-Original-Message-ID: <CAJKOXPc=o0vtU0VKE5b5Ro3nF=ra-p7UnbFfjj_++onw8MeSKQ@mail.gmail.com>
+Message-ID: <CAJKOXPc=o0vtU0VKE5b5Ro3nF=ra-p7UnbFfjj_++onw8MeSKQ@mail.gmail.com>
+Subject: Re: [PATCH v2 01/13] dt-bindings: gpio: add common schema for GPIO
+ controllers
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200917_194116_487037_9577B237 
-X-CRM114-Status: GOOD (  14.68  )
+X-CRM114-CacheID: sfid-20200918_035314_845164_B34220FD 
+X-CRM114-Status: GOOD (  22.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -92,71 +84,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup.patel@wdc.com>,
- Atish Patra <atish.patra@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Zong Li <zong.li@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv@lists.infradead.org, Mike Rapoport <rppt@kernel.org>
+Cc: Amelie Delaunay <amelie.delaunay@st.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
+ Linus Walleij <linus.walleij@linaro.org>, alsa-devel@alsa-project.org,
+ Stefan Agner <stefan@agner.ch>, Bjorn Andersson <bjorn.andersson@linaro.org>,
+ Paul Cercueil <paul@crapouillou.net>,
+ Masahiro Yamada <yamada.masahiro@socionext.com>,
+ Chris Brandt <chris.brandt@renesas.com>,
+ Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ linux-riscv@lists.infradead.org, Fabio Estevam <festevam@gmail.com>,
+ linux-stm32@st-md-mailman.stormreply.com,
+ Alexandre Torgue <alexandre.torgue@st.com>, linux-renesas-soc@vger.kernel.org,
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+ Anson Huang <Anson.Huang@nxp.com>, Lee Jones <lee.jones@linaro.org>,
+ Takashi Iwai <tiwai@suse.com>, Magnus Damm <magnus.damm@gmail.com>,
+ Bartosz Golaszewski <bgolaszewski@baylibre.com>, Chen-Yu Tsai <wens@csie.org>,
+ Andy Gross <agross@kernel.org>, bcm-kernel-feedback-list@broadcom.com,
+ NXP Linux Team <linux-imx@nxp.com>, Andy Teng <andy.teng@mediatek.com>,
+ Jacopo Mondi <jacopo+renesas@jmondi.org>, Jaroslav Kysela <perex@perex.cz>,
+ Sungbo Eo <mans0n@gorani.run>, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org, Cristian Ciocaltea <cristian.ciocaltea@gmail.com>,
+ Charles Keepax <ckeepax@opensource.cirrus.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, Ray Jui <rjui@broadcom.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Sean Wang <sean.wang@mediatek.com>,
+ Maxime Ripard <mripard@kernel.org>, linux-gpio@vger.kernel.org,
+ Richard Fitzgerald <rf@opensource.cirrus.com>,
+ Rob Herring <robh+dt@kernel.org>, linux-mediatek@lists.infradead.org,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ Sricharan R <sricharan@codeaurora.org>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Hoan Tran <hoan@os.amperecomputing.com>, linux-arm-kernel@lists.infradead.org,
+ =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>,
+ Scott Branden <sbranden@broadcom.com>, linux-unisoc@lists.infradead.org,
+ - <patches@opensource.cirrus.com>,
+ Chris Packham <chris.packham@alliedtelesis.co.nz>,
+ Liam Girdwood <lgirdwood@gmail.com>, Serge Semin <fancer.lancer@gmail.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Paul Kocialkowski <paul.kocialkowski@bootlin.com>,
+ Yash Shah <yash.shah@sifive.com>,
+ Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Mark Brown <broonie@kernel.org>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>, linux-media@vger.kernel.org,
+ Shawn Guo <shawnguo@kernel.org>,
+ =?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RISC-V limits the physical memory size by -PAGE_OFFSET. Any memory beyond
-that size from DRAM start is unusable. Just remove any memblock pointing
-to those memory region without worrying about computing the maximum size.
+On Thu, 17 Sep 2020 at 22:10, Laurent Pinchart
+<laurent.pinchart@ideasonboard.com> wrote:
+>
+> Hi Krzysztof,
+>
+> Thank you for the patch.
+>
+> On Thu, Sep 17, 2020 at 06:52:49PM +0200, Krzysztof Kozlowski wrote:
+> > Convert parts of gpio.txt bindings into common dtschema file for GPIO
+> > controllers.
+>
+> How about deleting the part that has been converted from gpio.txt ?
 
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
----
-Changes from v1->v2:
-Used memblock_enforce_memory_limit instead of memblock_remove without
-computing the maximum memory size.
----
- arch/riscv/mm/init.c | 15 +++++----------
- 1 file changed, 5 insertions(+), 10 deletions(-)
+I did not move everything from the gpio.txt and it is really nicely
+explained there. I think to leave it as it works as a overview/guide
+better than YAML.
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 787c75f751a5..ed6e83871112 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -146,8 +146,6 @@ static phys_addr_t dtb_early_pa __initdata;
- void __init setup_bootmem(void)
- {
- 	struct memblock_region *reg;
--	phys_addr_t mem_size = 0;
--	phys_addr_t total_mem = 0;
- 	phys_addr_t mem_start, end = 0;
- 	phys_addr_t vmlinux_end = __pa_symbol(&_end);
- 	phys_addr_t vmlinux_start = __pa_symbol(&_start);
-@@ -155,21 +153,18 @@ void __init setup_bootmem(void)
- 	/* Find the memory region containing the kernel */
- 	for_each_memblock(memory, reg) {
- 		end = reg->base + reg->size;
--		if (!total_mem)
-+		if (!mem_start)
- 			mem_start = reg->base;
- 		if (reg->base <= vmlinux_start && vmlinux_end <= end)
- 			BUG_ON(reg->size == 0);
--		total_mem = total_mem + reg->size;
- 	}
- 
- 	/*
--	 * Remove memblock from the end of usable area to the
--	 * end of region
-+	 * The maximum physical memory supported is -PAGE_OFFSET.
-+	 * Make sure that any memory beyond mem_start + (-PAGE_OFFSET) is removed
-+	 * as it is unusable by kernel.
- 	 */
--	mem_size = min(total_mem, (phys_addr_t)-PAGE_OFFSET);
--	if (mem_start + mem_size < end)
--		memblock_remove(mem_start + mem_size,
--				end - mem_start - mem_size);
-+	memblock_enforce_memory_limit(mem_start - PAGE_OFFSET);
- 
- 	/* Reserve from the start of the kernel to the end of the kernel */
- 	memblock_reserve(vmlinux_start, vmlinux_end - vmlinux_start);
--- 
-2.25.1
+>
+> > The schema enforces proper naming of GPIO controller nodes and GPIO
+> > hogs.
+> >
+> > The schema should be included by specific GPIO controllers bindings.
+>
+> Instead of including it manually, could we use a conditional select: to
+> apply the schema automatically when a gpio-controller property is
+> present ?
 
+You mean the same way as generic schema for GPIO controllers work?
+This could be done but the point is to enforce the GPIO controller
+bindings in GPIO controllers, so also in cases when someone forgets to
+add "gpio-controller" property. Although, if given GPIO controller
+schema requires "gpio-controller" then indeed select would work...
+
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
