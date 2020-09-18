@@ -2,61 +2,60 @@ Return-Path: <SRS0=9SVT=C3=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,
-	URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B5DB7C43464
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2020 08:56:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 46ACFC43463
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2020 12:08:58 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3C95021D42
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2020 08:56:32 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id DA13F21582
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2020 12:08:57 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="FHrSDblR"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3C95021D42
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=allwinnertech.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="bi6ebA/y"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DA13F21582
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8wqqnnR1QEMq2wIHZSWxOVvj93kcKR7lCQA4KmXGd9k=; b=FHrSDblRHnoA7Aw7xrvz/rdGC+
-	GEVTFIO+5VGNjUDeZ67YBVPAaus3XGeC+N+2hLP3+Xpy8LAfcemWsO4eVb0AKE47eGMEI3rzwmDyJ
-	Yy7SSTny5y96B9hDcvVNJKUdBkwUlvOCzSynQIoi90iiT70YN9UD1qW07/4qyxxWALLt888PFlwoO
-	BJpA7pTLNdCZ8jYU7nNDHFuOX+qc0vBMQREvKSq8tliPff8ygDxWPAgsmaU5LWaOJJRlabAH3dA09
-	Z95pYQN+IVLXri1frcD/TSfGZGfOFJ0Eib8kQ9zpS5KvCTmINAR299HdLOniJcPjXSwVaoNghcUkt
-	lTuNmvJA==;
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=N8O7YKxRtzC4DD04BqcILGV9qL4AECEI+CFfwcqCico=; b=bi6ebA/y+rBD07djkpI1wrFk6
+	71vb2N5KfZ/FrkjlSYtmagxwM5VYXFRtRDfrUinu88rAQDAX1pA7xQ+cWQ2c5hNBGgnQi385JVC7U
+	uFrWZMytRmoKTQ86UIhgu5HYOkFYJIBEqS/wqbqiQ1djwm80XKhpl6PnBkBvdHlMS39p8NkQZsyZ4
+	vttuDrPRGJA6gBwDH/U5r0ExRybkn5BCme+wVs2rubnGgCARH/SD6/T4t3seR+8pOg2Ub1wN0czhp
+	jf0n02LyhIVyNxZsq0jT2kSzZP2khOtMngwjyjsKR2RHVzc8kovCAIlO4VsssGrg86zyaT70G39Th
+	WWVN6JbxQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kJCBp-00065t-2t; Fri, 18 Sep 2020 08:56:21 +0000
-Received: from smtp2207-205.mail.aliyun.com ([121.197.207.205])
+	id 1kJFC1-000165-TX; Fri, 18 Sep 2020 12:08:45 +0000
+Received: from mx2.suse.de ([195.135.220.15])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kJCBl-000640-Of
- for linux-riscv@lists.infradead.org; Fri, 18 Sep 2020 08:56:19 +0000
-X-Alimail-AntiSpam: AC=CONTINUE; BC=0.1160887|-1; CH=green; DM=|CONTINUE|false|;
- DS=CONTINUE|ham_system_inform|0.00896768-0.00102384-0.990008;
- FP=0|0|0|0|0|-1|-1|-1; HT=e01a16368; MF=liush@allwinnertech.com; NM=1; PH=DS;
- RN=12; RT=12; SR=0; TI=SMTPD_---.IYnLyfc_1600419360; 
-Received: from localhost.localdomain(mailfrom:liush@allwinnertech.com
- fp:SMTPD_---.IYnLyfc_1600419360)
- by smtp.aliyun-inc.com(10.147.42.16); Fri, 18 Sep 2020 16:56:07 +0800
-From: liush <liush@allwinnertech.com>
-To: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- akpm@linux-foundation.org, peterx@redhat.com, daniel.m.jordan@oracle.com,
- walken@google.com, vbabka@suse.cz, rppt@kernel.org
-Subject: [V2] riscv: fix pfn_to_virt err in do_page_fault().
-Date: Fri, 18 Sep 2020 16:55:58 +0800
-Message-Id: <1600419358-21446-1-git-send-email-liush@allwinnertech.com>
-X-Mailer: git-send-email 2.7.4
+ id 1kJFBz-00015h-Ie
+ for linux-riscv@lists.infradead.org; Fri, 18 Sep 2020 12:08:44 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.221.27])
+ by mx2.suse.de (Postfix) with ESMTP id 95200AC2F;
+ Fri, 18 Sep 2020 12:09:15 +0000 (UTC)
+Date: Fri, 18 Sep 2020 14:08:39 +0200
+From: Joerg Roedel <jroedel@suse.de>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Subject: Re: vmalloc faulting on RISC-V
+Message-ID: <20200918120839.GB31722@suse.de>
+References: <CAOJsxLFWbV6FoEgHPHVN3PksrP5mXWbbFUuzH8YEDd1VdvEp7g@mail.gmail.com>
+ <mhng-5b700d9d-3913-4058-ae6c-c9905582fb5a@palmerdabbelt-glaptop1>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <mhng-5b700d9d-3913-4058-ae6c-c9905582fb5a@palmerdabbelt-glaptop1>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200918_045618_122128_824DE48E 
-X-CRM114-Status: UNSURE (   8.02  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200918_080843_743477_F4748B25 
+X-CRM114-Status: GOOD (  18.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -68,46 +67,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: liush <liush@allwinnertech.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-MIME-Version: 1.0
+Cc: penberg@kernel.org, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The argument to pfn_to_virt() should be pfn not the value of CSR_SATP.
+On Wed, Sep 09, 2020 at 01:35:11PM -0700, Palmer Dabbelt wrote:
+> If there really is some reason shared between RISC-V and x86 that makes this
+> approach infeasible then we'll have to fix it.  Knowing why x86 changed their
+> approach would be the first step.
 
-Signed-off-by: liush <liush@allwinnertech.com>
----
- arch/riscv/mm/fault.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+On x86 there is a need to sync vmalloc paging updates at one single
+level to all page-tables in the system. This is a slow operation and
+requires a global spin-lock to be taken, so x86 did not synchronize the
+mappings at creation time but used faulting to sync them to other
+page-tables.
 
-diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
-index 716d64e..3e560ec13 100644
---- a/arch/riscv/mm/fault.c
-+++ b/arch/riscv/mm/fault.c
-@@ -198,6 +198,7 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
- 		pmd_t *pmd, *pmd_k;
- 		pte_t *pte_k;
- 		int index;
-+		unsigned long pfn;
- 
- 		/* User mode accesses just cause a SIGSEGV */
- 		if (user_mode(regs))
-@@ -212,7 +213,8 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
- 		 * of a task switch.
- 		 */
- 		index = pgd_index(addr);
--		pgd = (pgd_t *)pfn_to_virt(csr_read(CSR_SATP)) + index;
-+		pfn = csr_read(CSR_SATP) & SATP_PPN;
-+		pgd = (pgd_t *)pfn_to_virt(pfn) + index;
- 		pgd_k = init_mm.pgd + index;
- 
- 		if (!pgd_present(*pgd_k))
--- 
-2.7.4
+But this approach is problematic for at least two reasons:
 
+	1) The page-fault handler might also access vmalloc'ed memory,
+	   which can then result in recursive faults because the
+	   page-fault handler can never finish the synchronization.
+
+	   The primary reason where this happened on x86 was with
+	   tracing enabled, as the trace-buffer can be vmalloc'ed,
+	   leading to recursive faults and an effectivly frozen system.
+
+	2) Faulting for synchronization does not work if valid ->
+	   invalid changes need to be synchronized. This has happened on
+	   x86-32 an caused memory corruption, because the page-table
+	   level which needs synchronization (PMD) is also a huge-page
+	   mapping level. The ioremap code can use huge-pages, so there
+	   is a need to synchronize unmappings.
+
+So x86 worked around these problems by having a function in the kernel
+called vmalloc_sync_all() which had to be called at random places to
+actively synchronize the mappings. But that never solved the underlying
+issues so they popped up again and again in the past.
+
+This was the reason I removed the vmalloc_sync_all() interface [by the
+time it was already split into vmalloc_sync_mappings/unmappings()] and
+introduced the arch_sync_kernel_mappings() function, which is only
+called when a relevant mapping changed and which makes sure the memory
+is mapped when vmalloc() returns.
+
+Initially I thought this would also allow to remove vmalloc faulting
+completly, but that is not the case because of the race condition. But
+arch_sync_kernel_mappings() serves as a decent replacement for the old
+and even more broken vmalloc_sync_all() interface.
+
+Regards,
+
+	Joerg
 
 _______________________________________________
 linux-riscv mailing list
