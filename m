@@ -2,22 +2,23 @@ Return-Path: <SRS0=9SVT=C3=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-6.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham
-	autolearn_force=no version=3.4.0
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 46ACFC43463
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2020 12:08:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 99197C43463
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2020 14:19:41 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DA13F21582
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2020 12:08:57 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 45BB2208C3
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Sep 2020 14:19:41 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="bi6ebA/y"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DA13F21582
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="oNQWBMgD";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=ideasonboard.com header.i=@ideasonboard.com header.b="E/Zvmkqb"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 45BB2208C3
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ideasonboard.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -25,37 +26,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=N8O7YKxRtzC4DD04BqcILGV9qL4AECEI+CFfwcqCico=; b=bi6ebA/y+rBD07djkpI1wrFk6
-	71vb2N5KfZ/FrkjlSYtmagxwM5VYXFRtRDfrUinu88rAQDAX1pA7xQ+cWQ2c5hNBGgnQi385JVC7U
-	uFrWZMytRmoKTQ86UIhgu5HYOkFYJIBEqS/wqbqiQ1djwm80XKhpl6PnBkBvdHlMS39p8NkQZsyZ4
-	vttuDrPRGJA6gBwDH/U5r0ExRybkn5BCme+wVs2rubnGgCARH/SD6/T4t3seR+8pOg2Ub1wN0czhp
-	jf0n02LyhIVyNxZsq0jT2kSzZP2khOtMngwjyjsKR2RHVzc8kovCAIlO4VsssGrg86zyaT70G39Th
-	WWVN6JbxQ==;
+	 bh=BO5TIgSV9Pzw8UIbNzw9wUa5w+ZwGjriHNGF+AqEdIQ=; b=oNQWBMgDl5X0VpMIizCRmifOI
+	gL1SM2QJWR8ufSCUwvObTfXg6/8ao6e44qcUkxD+tliml+1lrs8sS5Pzuu+mlweExwgz50sHYQ3z6
+	V4FmXEqz7c/YPFn3M5UXSGIO4WUlinMyjOxPdox9bGw8Q53voa9mDUuWUIHq+XaFSYZyqab+NVIrX
+	QtnXuiJ8rolwMDHW7MmR6bIBfvTXpHTUuYi5D/rQK+Q9/vnYK6HsQHQETvPWTOx8/o8//oILN8x1k
+	JmwFn6piJrG8EnlEDiceNE0edfYYMZaHtCD9wNa816uUPaY8QYKpzEpYZ8AqXsFTFZk27CbNsr5ET
+	1awcxEbpA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kJFC1-000165-TX; Fri, 18 Sep 2020 12:08:45 +0000
-Received: from mx2.suse.de ([195.135.220.15])
+	id 1kJHET-00012b-VQ; Fri, 18 Sep 2020 14:19:26 +0000
+Received: from perceval.ideasonboard.com
+ ([2001:4b98:dc2:55:216:3eff:fef7:d647])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kJFBz-00015h-Ie
- for linux-riscv@lists.infradead.org; Fri, 18 Sep 2020 12:08:44 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.221.27])
- by mx2.suse.de (Postfix) with ESMTP id 95200AC2F;
- Fri, 18 Sep 2020 12:09:15 +0000 (UTC)
-Date: Fri, 18 Sep 2020 14:08:39 +0200
-From: Joerg Roedel <jroedel@suse.de>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Subject: Re: vmalloc faulting on RISC-V
-Message-ID: <20200918120839.GB31722@suse.de>
-References: <CAOJsxLFWbV6FoEgHPHVN3PksrP5mXWbbFUuzH8YEDd1VdvEp7g@mail.gmail.com>
- <mhng-5b700d9d-3913-4058-ae6c-c9905582fb5a@palmerdabbelt-glaptop1>
+ id 1kJHEQ-00011V-Ie; Fri, 18 Sep 2020 14:19:23 +0000
+Received: from pendragon.ideasonboard.com (62-78-145-57.bb.dnainternet.fi
+ [62.78.145.57])
+ by perceval.ideasonboard.com (Postfix) with ESMTPSA id 5EC382D7;
+ Fri, 18 Sep 2020 16:19:18 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+ s=mail; t=1600438758;
+ bh=fIZGQZZYM2FyHIfA+1pya2D9PN88lhv1BbBbmjKpOQY=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=E/ZvmkqbpHcJAzSJWAcR9DD4mJds6aQ4ZFQLl81hgVUiAjz1lfibYnZHTp00xOuII
+ mcjifMkOztY3aI9rZ53HCbQjoKLmJZelTc6VG1oDpdrdIMGDhNOqDxzZ/QnX7EXqLb
+ tevVCNbQW2u28SmRYp6swCcNwEWZ9cVPc2mEccA8=
+Date: Fri, 18 Sep 2020 17:18:47 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v2 01/13] dt-bindings: gpio: add common schema for GPIO
+ controllers
+Message-ID: <20200918141847.GE28436@pendragon.ideasonboard.com>
+References: <20200917165301.23100-1-krzk@kernel.org>
+ <20200917165301.23100-2-krzk@kernel.org>
+ <20200917200936.GF3969@pendragon.ideasonboard.com>
+ <CAJKOXPc=o0vtU0VKE5b5Ro3nF=ra-p7UnbFfjj_++onw8MeSKQ@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <mhng-5b700d9d-3913-4058-ae6c-c9905582fb5a@palmerdabbelt-glaptop1>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <CAJKOXPc=o0vtU0VKE5b5Ro3nF=ra-p7UnbFfjj_++onw8MeSKQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200918_080843_743477_F4748B25 
-X-CRM114-Status: GOOD (  18.08  )
+X-CRM114-CacheID: sfid-20200918_101922_750211_C1827E80 
+X-CRM114-Status: GOOD (  21.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -67,59 +77,98 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: penberg@kernel.org, linux-riscv@lists.infradead.org
+Cc: Amelie Delaunay <amelie.delaunay@st.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
+ Linus Walleij <linus.walleij@linaro.org>, alsa-devel@alsa-project.org,
+ Stefan Agner <stefan@agner.ch>, Bjorn Andersson <bjorn.andersson@linaro.org>,
+ Paul Cercueil <paul@crapouillou.net>,
+ Masahiro Yamada <yamada.masahiro@socionext.com>,
+ Chris Brandt <chris.brandt@renesas.com>,
+ Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ linux-riscv@lists.infradead.org, Fabio Estevam <festevam@gmail.com>,
+ linux-stm32@st-md-mailman.stormreply.com,
+ Alexandre Torgue <alexandre.torgue@st.com>, linux-renesas-soc@vger.kernel.org,
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+ Anson Huang <Anson.Huang@nxp.com>, Lee Jones <lee.jones@linaro.org>,
+ Takashi Iwai <tiwai@suse.com>, Magnus Damm <magnus.damm@gmail.com>,
+ Bartosz Golaszewski <bgolaszewski@baylibre.com>, Chen-Yu Tsai <wens@csie.org>,
+ Andy Gross <agross@kernel.org>, bcm-kernel-feedback-list@broadcom.com,
+ NXP Linux Team <linux-imx@nxp.com>, Andy Teng <andy.teng@mediatek.com>,
+ Jacopo Mondi <jacopo+renesas@jmondi.org>, Jaroslav Kysela <perex@perex.cz>,
+ Sungbo Eo <mans0n@gorani.run>, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org, Cristian Ciocaltea <cristian.ciocaltea@gmail.com>,
+ Charles Keepax <ckeepax@opensource.cirrus.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, Ray Jui <rjui@broadcom.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Sean Wang <sean.wang@mediatek.com>,
+ Maxime Ripard <mripard@kernel.org>, linux-gpio@vger.kernel.org,
+ Richard Fitzgerald <rf@opensource.cirrus.com>,
+ Rob Herring <robh+dt@kernel.org>, linux-mediatek@lists.infradead.org,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ Sricharan R <sricharan@codeaurora.org>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Hoan Tran <hoan@os.amperecomputing.com>, linux-arm-kernel@lists.infradead.org,
+ Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>,
+ Scott Branden <sbranden@broadcom.com>, linux-unisoc@lists.infradead.org,
+ - <patches@opensource.cirrus.com>,
+ Chris Packham <chris.packham@alliedtelesis.co.nz>,
+ Liam Girdwood <lgirdwood@gmail.com>, Serge Semin <fancer.lancer@gmail.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Paul Kocialkowski <paul.kocialkowski@bootlin.com>,
+ Yash Shah <yash.shah@sifive.com>,
+ Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Mark Brown <broonie@kernel.org>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>, linux-media@vger.kernel.org,
+ Shawn Guo <shawnguo@kernel.org>,
+ Andreas =?utf-8?Q?F=C3=A4rber?= <afaerber@suse.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 09, 2020 at 01:35:11PM -0700, Palmer Dabbelt wrote:
-> If there really is some reason shared between RISC-V and x86 that makes this
-> approach infeasible then we'll have to fix it.  Knowing why x86 changed their
-> approach would be the first step.
+Hi Krzysztof,
 
-On x86 there is a need to sync vmalloc paging updates at one single
-level to all page-tables in the system. This is a slow operation and
-requires a global spin-lock to be taken, so x86 did not synchronize the
-mappings at creation time but used faulting to sync them to other
-page-tables.
+On Fri, Sep 18, 2020 at 09:52:57AM +0200, Krzysztof Kozlowski wrote:
+> On Thu, 17 Sep 2020 at 22:10, Laurent Pinchart wrote:
+> > On Thu, Sep 17, 2020 at 06:52:49PM +0200, Krzysztof Kozlowski wrote:
+> > > Convert parts of gpio.txt bindings into common dtschema file for GPIO
+> > > controllers.
+> >
+> > How about deleting the part that has been converted from gpio.txt ?
+> 
+> I did not move everything from the gpio.txt and it is really nicely
+> explained there. I think to leave it as it works as a overview/guide
+> better than YAML.
 
-But this approach is problematic for at least two reasons:
+I'm just a bit worried that duplicating some of the information in two
+places will lead to them becoming out of sync, but maybe the risk isn't
+that high.
 
-	1) The page-fault handler might also access vmalloc'ed memory,
-	   which can then result in recursive faults because the
-	   page-fault handler can never finish the synchronization.
+> > > The schema enforces proper naming of GPIO controller nodes and GPIO
+> > > hogs.
+> > >
+> > > The schema should be included by specific GPIO controllers bindings.
+> >
+> > Instead of including it manually, could we use a conditional select: to
+> > apply the schema automatically when a gpio-controller property is
+> > present ?
+> 
+> You mean the same way as generic schema for GPIO controllers work?
+> This could be done but the point is to enforce the GPIO controller
+> bindings in GPIO controllers, so also in cases when someone forgets to
+> add "gpio-controller" property. Although, if given GPIO controller
+> schema requires "gpio-controller" then indeed select would work...
 
-	   The primary reason where this happened on x86 was with
-	   tracing enabled, as the trace-buffer can be vmalloc'ed,
-	   leading to recursive faults and an effectivly frozen system.
+You could just make gpio-controller mandatory in the schema, and get
+everything else automatically selected based on that, without needing a
+manual $ref.
 
-	2) Faulting for synchronization does not work if valid ->
-	   invalid changes need to be synchronized. This has happened on
-	   x86-32 an caused memory corruption, because the page-table
-	   level which needs synchronization (PMD) is also a huge-page
-	   mapping level. The ioremap code can use huge-pages, so there
-	   is a need to synchronize unmappings.
-
-So x86 worked around these problems by having a function in the kernel
-called vmalloc_sync_all() which had to be called at random places to
-actively synchronize the mappings. But that never solved the underlying
-issues so they popped up again and again in the past.
-
-This was the reason I removed the vmalloc_sync_all() interface [by the
-time it was already split into vmalloc_sync_mappings/unmappings()] and
-introduced the arch_sync_kernel_mappings() function, which is only
-called when a relevant mapping changed and which makes sure the memory
-is mapped when vmalloc() returns.
-
-Initially I thought this would also allow to remove vmalloc faulting
-completly, but that is not the case because of the race condition. But
-arch_sync_kernel_mappings() serves as a decent replacement for the old
-and even more broken vmalloc_sync_all() interface.
-
+-- 
 Regards,
 
-	Joerg
+Laurent Pinchart
 
 _______________________________________________
 linux-riscv mailing list
