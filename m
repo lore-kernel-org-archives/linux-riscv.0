@@ -2,69 +2,79 @@ Return-Path: <SRS0=dJHb=C5=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
-	SPF_PASS,UNWANTED_LANGUAGE_BODY,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_SANE_1 autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A4256C43465
-	for <linux-riscv@archiver.kernel.org>; Sun, 20 Sep 2020 18:00:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 887C0C43465
+	for <linux-riscv@archiver.kernel.org>; Sun, 20 Sep 2020 19:39:43 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2631220719
-	for <linux-riscv@archiver.kernel.org>; Sun, 20 Sep 2020 18:00:34 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 3B0FC20866
+	for <linux-riscv@archiver.kernel.org>; Sun, 20 Sep 2020 19:39:43 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="oPeHAH77";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="RpOFY3dR"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2631220719
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="rfaqW4Tu"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3B0FC20866
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Date:Message-Id:References:In-Reply-To:From:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KBJWD2YLbcuBKgCXqxvLL/eu88T1NBN9dJppT7J+5j4=; b=oPeHAH77fTcgiagq1bWii8SEUW
-	wg3Mxsg2p+MA/oXC6GWpPvZvbDSztu/TYgBfV0edtQLThMNaGUmJjJB62J4Vrvm1+UGgMj2aKfORF
-	xQFfvclWLa7DlZqZJzX6zAoY+EFffh/0RgSME7jXK71nXuTyDL+1Qp9WSvh98vxvdPWticFzTUmKN
-	wE2aYb0WG21mVOwzbtKOtEaV/1FS4ItJfw7UWUncL6sOHplbW87jpEE+ZUXZqZMZ24TN3LjQurtAF
-	0bFAi1ZaIqB52M0j+QPk7UID0VR+07mx9tz06fDXeMsdby0O6O9jHBMg/0gIQBkDoyKSt4VhDT545
-	e2L0h7ew==;
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=NhuSaKy7Gs8w/yaVeCdGLuzKcfCODEJdAwhEWyezlWU=; b=rfaqW4Tu1b4c6ZJRGpuEOnvBx
+	0wTsdpbceiaKWp1WR2b4TF2DlGqz50Izkx1uATuO1vn4yUDunlTzILgt/IGix8EuzWJE3UUgmfYuS
+	xntyp+k+iZP5nZkjLi9cDjEqPayYsjrOtkBBJbk1e1GnuRvUkFvLsDaxQVZA4DjfroE/VGx1Rf++u
+	n1r7CVgr6FODTORK2ESEiNjmeUovBmPzwn2E1jpzw9MH6pVdNhw8PKl546K2S4VM1EtVN/1ODHaAW
+	Pd3NQSwR0d9X8T95zHDdY9uEO8ZIaJYCzN/t4N1JwdR4y72R1RG5d9EZZScOUxXXKcaknA7GEHMcS
+	eNls3LHeQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kK3dL-00006O-8l; Sun, 20 Sep 2020 18:00:19 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1kK5BH-0004Ks-Aj; Sun, 20 Sep 2020 19:39:27 +0000
+Received: from mail-ed1-f68.google.com ([209.85.208.68])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kK3dJ-00005g-64
- for linux-riscv@lists.infradead.org; Sun, 20 Sep 2020 18:00:17 +0000
-Subject: Re: [GIT PULL] RISC-V Fixes for 5.9-rc6 (or shortly after)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1600624815;
- bh=zDZdy2/rOnaDLkaUwDrgQ6iWegH8r8eZeBuVbfVBAuo=;
- h=From:In-Reply-To:References:Date:To:Cc:From;
- b=RpOFY3dRA1kjtEBFlEyzubKpkWKi1vjwiMbCqj4BohEHju+Fj++kUR029nvp3rsZ2
- BI8xY8fPGFjXnRl9cpjOw460Eps1pc7RqSvvd3uSbDS+Qadt4oMOjTEu15+w7aWQvY
- aSS7rVGXg44eO3xwekrB11yqLiDazdnFrmEBmpIE=
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <mhng-a3f22c5c-7980-4ed9-b198-da86bf6d1162@palmerdabbelt-glaptop1>
-References: <mhng-a3f22c5c-7980-4ed9-b198-da86bf6d1162@palmerdabbelt-glaptop1>
-X-PR-Tracked-List-Id: <linux-riscv.lists.infradead.org>
-X-PR-Tracked-Message-Id: <mhng-a3f22c5c-7980-4ed9-b198-da86bf6d1162@palmerdabbelt-glaptop1>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
- tags/riscv-for-linus-5.9-rc6
-X-PR-Tracked-Commit-Id: d5be89a8d118a8e8d09cd74a921a808f17fbdd09
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: bdcf11de8f776152c82d2197b255c2d04603f976
-Message-Id: <160062481552.1698.11531166567985103507.pr-tracker-bot@kernel.org>
-Date: Sun, 20 Sep 2020 18:00:15 +0000
-To: Palmer Dabbelt <palmer@dabbelt.com>
+ id 1kK5BC-0004JU-GN; Sun, 20 Sep 2020 19:39:23 +0000
+Received: by mail-ed1-f68.google.com with SMTP id n22so10856400edt.4;
+ Sun, 20 Sep 2020 12:39:20 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=EjOn6uRQVdPuymFl16y3sShxeseL+O0M4hlLdZpwFpM=;
+ b=rpm3DyCrPyzRvwpSmklVjUKTBPXfHk8SawMEFWDDNQjbV1QAE75ijI2VC7EabassIU
+ kzPGw/gwVV0QChvXFIKgiRQoFOYVSVZd0UMnajFtiMGx4ZfDHmBmtG0zQSQmO/UxKVD/
+ EvZKx72S7Qg9lhNfAk6wahDbyqcouIFPEGkZtaeZbTsN4mafb4yhto75PqgqTXjVDhss
+ 4VXSgxByRu6B5Eq/8lDvzw6tnUtbmCy5tVGuQoaHpDWSboVFQdyz12CfdPBKnb9F0Gv7
+ QNp8opZoxgOX/2FWuHCNlyzTj/KNZwKacg6RFZdPOgKDs92UpB+4LO4X/Mo7hTMZxSv9
+ m8Pw==
+X-Gm-Message-State: AOAM530dkoEre4Sq+nkuiqHu6FhIvlwYzWjUcGqR1JosmTPx75YweZEz
+ Z4DhYAgJZuxCGR/HEpgzMTk=
+X-Google-Smtp-Source: ABdhPJxm64DrxO2BCAhB/Z2FKAFGkrjja3e7GI7Mop9Y1YiJS/Mzx02Jc3rgIeVCd0fm8AibxTyTyA==
+X-Received: by 2002:a05:6402:326:: with SMTP id
+ q6mr48977643edw.216.1600630759279; 
+ Sun, 20 Sep 2020 12:39:19 -0700 (PDT)
+Received: from kozik-lap ([194.230.155.191])
+ by smtp.googlemail.com with ESMTPSA id bf25sm6956900edb.95.2020.09.20.12.39.16
+ (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+ Sun, 20 Sep 2020 12:39:18 -0700 (PDT)
+Date: Sun, 20 Sep 2020 21:39:15 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Rob Herring <robh+dt@kernel.org>
+Subject: Re: [PATCH v2 01/13] dt-bindings: gpio: add common schema for GPIO
+ controllers
+Message-ID: <20200920193915.GA31074@kozik-lap>
+References: <20200917165301.23100-1-krzk@kernel.org>
+ <20200917165301.23100-2-krzk@kernel.org>
+ <CAL_JsqJCLgf6syqV=jNPHPyu02ygwWCDDV+U9VCm0qRpLkirSQ@mail.gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAL_JsqJCLgf6syqV=jNPHPyu02ygwWCDDV+U9VCm0qRpLkirSQ@mail.gmail.com>
+User-Agent: Mutt/1.9.4 (2018-02-28)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200920_140017_288778_CDD35775 
-X-CRM114-Status: UNSURE (   3.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200920_153922_539018_9781CB70 
+X-CRM114-Status: GOOD (  15.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -76,26 +86,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org,
- Linus Torvalds <torvalds@linux-foundation.org>, linux-kernel@vger.kernel.org
-MIME-Version: 1.0
+Cc: Linux-ALSA <alsa-devel@alsa-project.org>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Fabio Estevam <festevam@gmail.com>, "moderated list:ARM/STM32 ARCHITECTURE"
+ <linux-stm32@st-md-mailman.stormreply.com>,
+ Bartosz Golaszewski <bgolaszewski@baylibre.com>,
+ "maintainer:BROADCOM BCM7XXX ARM ARCHITECTURE"
+ <bcm-kernel-feedback-list@broadcom.com>, NXP Linux Team <linux-imx@nxp.com>,
+ linux-arm-msm <linux-arm-msm@vger.kernel.org>,
+ Linux Media Mailing List <linux-media@vger.kernel.org>,
+ devicetree@vger.kernel.org, Ray Jui <rjui@broadcom.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>, linux-unisoc@lists.infradead.org,
+ "moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ Scott Branden <sbranden@broadcom.com>,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "open list:MEDIA DRIVERS FOR RENESAS - FCP"
+ <linux-renesas-soc@vger.kernel.org>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Shawn Guo <shawnguo@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Sun, 20 Sep 2020 10:26:34 -0700 (PDT):
+On Fri, Sep 18, 2020 at 08:30:02AM -0600, Rob Herring wrote:
+> On Thu, Sep 17, 2020 at 10:53 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> >
+> > Convert parts of gpio.txt bindings into common dtschema file for GPIO
+> > controllers.  The schema enforces proper naming of GPIO controller nodes
+> > and GPIO hogs.
+> 
+> Did you not see my previous reply about a common schema? We already
+> have a common GPIO and hog schema in dtschema. Please add to it
+> whatever is missing.
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.9-rc6
+Indeed, I'll enhance the dt-schema.
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/bdcf11de8f776152c82d2197b255c2d04603f976
+The trouble is that each in-kernel YAML file still has to mention
+possible gpio-hogs nodes. Is the proper solution to put them in common
+YAML inside kernel sources?
 
-Thank you!
+> 
+> My goal is all common schema end up in dtschema, but I haven't pushed
+> folks to do that yet. Ones I've done are there though. One issue is
+> what's in dtschema should be GPL/BSD and the existing text bindings
+> are default GPL, so there's a relicensing exercise. In some cases, the
+> schema is there but I haven't copied over the descriptions.
 
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+Right, I'll skip the descriptions when posting to dt-schema.
+
+Best regards,
+Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
