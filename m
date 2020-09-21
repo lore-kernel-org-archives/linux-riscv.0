@@ -7,17 +7,18 @@ X-Spam-Status: No, score=-14.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 88F2AC4346A
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2020 14:44:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 53959C43465
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2020 15:01:52 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3FFB62076E
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2020 14:44:57 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 7BE3C2075E
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2020 15:01:51 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="zKudaiT2";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="g4Bfoo1Z"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3FFB62076E
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="C/bbaTp/";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="vRvPuMQh";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="BwkNdHhx"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7BE3C2075E
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,47 +27,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=jnIEGHpq59OrL/PcghctUEOn02Ss6QXAlf/O8QjtTxU=; b=zKudaiT2VHIZJ41zsZU+sxz6m
-	lIFs6ptP9hkfj68vtILreLCpXEu1qhP4n8Zl24/xCI5M0IV+2VpKbjQ0eYVIyB588XCZDjeAqavQ2
-	zTVFEnSgw/rv0VjX7wpFlEd1zZ5q5XYltZR36kw45xPgKwfFsmilDPtFkRzyn24DgO9oziszPOYFZ
-	6ujvC8zKgj0VlxkpRIsl9A02L7xl39vNa28p+jr/fcbsEl33HPaKebcgabnCNklCSi4znvERm5TPN
-	T9QDSKJ8jSB1KPQFZpmB38IKv/PQDyCjEP59Z8TFqhAUGgsT7iqX9oBslZRT+vdCD0xqe+3IPEukq
-	V0cyKvEmQ==;
+	 bh=n1zOYWediveWWK1wqK4pHPsRymmNxgcrrDWqHB9gNTI=; b=C/bbaTp/Byr5gnIuxF35T3PYI
+	gGbUx0wZGW/thPlegfO5EPwbo6AJDWi/lPWee+Je6GJgOBAyeww1vEsHQsuEPtTrwpSbKdklaLEr2
+	wbeZVia6Qiv7LZ/iMxhyDccV7om91GNZjgvBOqypkCoCYV/QWwdkSliwIuRVvMSOU8EoETJGrtNgP
+	YQO9YuclpukLIJlh3GFxCQJK4KP+r4e6RpXR0AccLX1DKj4hhO1mDmr9XWVgFOOaS3KSoT5c4iGUJ
+	jp2QHvalpS66TI4IoJdmhe6yJu5gsCi9uIkyzqBHRmvtrO7+oS2pEhEyfQMfX53MFJX7Z/RKDhjKJ
+	NwcKwWCUQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kKN3Y-0007nX-OM; Mon, 21 Sep 2020 14:44:40 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1kKNK3-0003Yy-4P; Mon, 21 Sep 2020 15:01:43 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kKN0L-0005zI-SX
- for linux-riscv@lists.infradead.org; Mon, 21 Sep 2020 14:41:38 +0000
+ id 1kKNJs-0003Xj-Dv
+ for linux-riscv@merlin.infradead.org; Mon, 21 Sep 2020 15:01:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+ References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+ Content-Type:Content-ID:Content-Description;
+ bh=sQEBEJDBifGk3tJdDbe+fvW/T4J0VUcdvhY6JITEot8=; b=vRvPuMQhmHakT2ArdzMKGsAqxx
+ jSVWdtjvNgSSWBLwPWkAIwNhgNcI3NRnIwaVMGttWtRRmk+fUGybhnonb3cZ3ge6TDO5is3YtXLHH
+ AeQa0SsZ5CpuX0h3QNbaONYhAfd/ZN7Jf1hOtP9cX5W/OxIKEPqDVAo0Y0SmLsA5T9fOnMDqMQpzj
+ g1xWNg/fA75R872Woe7FIBvG+0er7Ryg9Ypf9FXCystOQ2DcjbFYoUv3am1GALE/2HeanaPbqiQIV
+ z6j95v60PPjdDqsjoV5a1WqGa0+9fgWKZeahawfoeZZKGhDNRzxGk7YJV6lg9VHq0N18uIhL1Dixf
+ ZvUex8Mg==;
+Received: from mail.kernel.org ([198.145.29.99])
+ by casper.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1kKN05-0000To-9K
+ for linux-riscv@lists.infradead.org; Mon, 21 Sep 2020 14:41:16 +0000
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net
  [73.47.72.35])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id D9AC52389F;
- Mon, 21 Sep 2020 14:41:19 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 0B0E12389F;
+ Mon, 21 Sep 2020 14:41:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1600699280;
- bh=MdUKsgIK7/XLrFbqnswTNRxhEGOstKAHiiyS57mqC18=;
+ s=default; t=1600699262;
+ bh=GmXUaK7KDx5Au+pQK6GEf2o0wJ5SeLpezqoStuF2LQ8=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=g4Bfoo1ZWu+aC/1H+Lk6I2oAfYGP5NGbjgFcfBqgqx9Miv58+7u9HJ8KP+YUsLAFT
- Sm8vnooGYhM4uLbm1UlZxvhlhZL462WaqDdCSdYffZEBdcktDq/3rLI8Lcthswa1gR
- UYlzF0qvYX//2MJdAbgsgFmTMw7L36uxtFT2GpJo=
+ b=BwkNdHhxkr5j4jtYNcAuvzg4sZpIyXh25+lu64E9VlrtxKs++sLFxz8Wwg4JquP7R
+ PqhbvUk5vkQsU7ZPDov3gH17HxGO1Tu0GPOBNFaMw9Dq7fvYS9/zw97T0WMcR/eKvG
+ HVDnHUpvxJkZwNZ7Sw6+3XR/Auo8fszwdloWVLyU=
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Subject: [PATCH AUTOSEL 4.19 4/9] RISC-V: Take text_mutex in ftrace_init_nop()
-Date: Mon, 21 Sep 2020 10:41:09 -0400
-Message-Id: <20200921144114.2135773-4-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.4 06/15] RISC-V: Take text_mutex in ftrace_init_nop()
+Date: Mon, 21 Sep 2020 10:40:45 -0400
+Message-Id: <20200921144054.2135602-6-sashal@kernel.org>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20200921144114.2135773-1-sashal@kernel.org>
-References: <20200921144114.2135773-1-sashal@kernel.org>
+In-Reply-To: <20200921144054.2135602-1-sashal@kernel.org>
+References: <20200921144054.2135602-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200921_104122_593619_E049A7CF 
-X-CRM114-Status: GOOD (  14.01  )
+X-CRM114-CacheID: sfid-20200921_154106_187844_62E96B0E 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -119,7 +134,7 @@ index c6dcc5291f972..02fbc175142e2 100644
 +
  #endif
 diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
-index 6d39f64e4dce4..fa8530f05ed4f 100644
+index c40fdcdeb950a..291c579e12457 100644
 --- a/arch/riscv/kernel/ftrace.c
 +++ b/arch/riscv/kernel/ftrace.c
 @@ -88,6 +88,25 @@ int ftrace_make_nop(struct module *mod, struct dyn_ftrace *rec,
