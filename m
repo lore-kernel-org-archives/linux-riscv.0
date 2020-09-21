@@ -1,80 +1,73 @@
-Return-Path: <SRS0=dJHb=C5=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=aYu6=C6=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_SANE_1 autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-13.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 887C0C43465
-	for <linux-riscv@archiver.kernel.org>; Sun, 20 Sep 2020 19:39:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 60C93C43466
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2020 08:10:49 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3B0FC20866
-	for <linux-riscv@archiver.kernel.org>; Sun, 20 Sep 2020 19:39:43 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 1C1632085B
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2020 08:10:49 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="rfaqW4Tu"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3B0FC20866
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="hmfNs0e9";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=canb.auug.org.au header.i=@canb.auug.org.au header.b="K5wKwexm"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1C1632085B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=canb.auug.org.au
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:References:In-Reply-To:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=NhuSaKy7Gs8w/yaVeCdGLuzKcfCODEJdAwhEWyezlWU=; b=rfaqW4Tu1b4c6ZJRGpuEOnvBx
-	0wTsdpbceiaKWp1WR2b4TF2DlGqz50Izkx1uATuO1vn4yUDunlTzILgt/IGix8EuzWJE3UUgmfYuS
-	xntyp+k+iZP5nZkjLi9cDjEqPayYsjrOtkBBJbk1e1GnuRvUkFvLsDaxQVZA4DjfroE/VGx1Rf++u
-	n1r7CVgr6FODTORK2ESEiNjmeUovBmPzwn2E1jpzw9MH6pVdNhw8PKl546K2S4VM1EtVN/1ODHaAW
-	Pd3NQSwR0d9X8T95zHDdY9uEO8ZIaJYCzN/t4N1JwdR4y72R1RG5d9EZZScOUxXXKcaknA7GEHMcS
-	eNls3LHeQ==;
+	 bh=ToeEEINbGKhx8oKwSN85rAMJFh6m/HHBr+FgrOje1OM=; b=hmfNs0e90vnspTk9H7GYRzUIB
+	MWYTj7vvX/KeR1QLzeE5kAcMKFdjkGKIJecTqxsTFKthbOBFISBMLT/qrzb1CmtdMwwh9KMmuoDzB
+	MfvBrY2fWgFAt0qxfV3VMQlAajow3pOXeuu9JcSPPO0UobbO4+8afFsXSM/eJDUw1+r+NWhJn3BC/
+	JY4jDX9oBURQRlalfbL5MYiOQ3AvEHOq1d7aVhYQtqcCV+n81X5TdZ03wF4JJd17GLZ99k2cORLri
+	F3JmzbkNBfVBcX3ZY8BS08CWE13VtYFdc/rKCcX/l3f8Jup4lz6VSfexOWWcCc+uX6Jr5IyQ6aNpJ
+	h0qqVcZJQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kK5BH-0004Ks-Aj; Sun, 20 Sep 2020 19:39:27 +0000
-Received: from mail-ed1-f68.google.com ([209.85.208.68])
+	id 1kKGu3-0005dA-Qg; Mon, 21 Sep 2020 08:10:28 +0000
+Received: from bilbo.ozlabs.org ([2401:3900:2:1::2] helo=ozlabs.org)
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kK5BC-0004JU-GN; Sun, 20 Sep 2020 19:39:23 +0000
-Received: by mail-ed1-f68.google.com with SMTP id n22so10856400edt.4;
- Sun, 20 Sep 2020 12:39:20 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to:user-agent;
- bh=EjOn6uRQVdPuymFl16y3sShxeseL+O0M4hlLdZpwFpM=;
- b=rpm3DyCrPyzRvwpSmklVjUKTBPXfHk8SawMEFWDDNQjbV1QAE75ijI2VC7EabassIU
- kzPGw/gwVV0QChvXFIKgiRQoFOYVSVZd0UMnajFtiMGx4ZfDHmBmtG0zQSQmO/UxKVD/
- EvZKx72S7Qg9lhNfAk6wahDbyqcouIFPEGkZtaeZbTsN4mafb4yhto75PqgqTXjVDhss
- 4VXSgxByRu6B5Eq/8lDvzw6tnUtbmCy5tVGuQoaHpDWSboVFQdyz12CfdPBKnb9F0Gv7
- QNp8opZoxgOX/2FWuHCNlyzTj/KNZwKacg6RFZdPOgKDs92UpB+4LO4X/Mo7hTMZxSv9
- m8Pw==
-X-Gm-Message-State: AOAM530dkoEre4Sq+nkuiqHu6FhIvlwYzWjUcGqR1JosmTPx75YweZEz
- Z4DhYAgJZuxCGR/HEpgzMTk=
-X-Google-Smtp-Source: ABdhPJxm64DrxO2BCAhB/Z2FKAFGkrjja3e7GI7Mop9Y1YiJS/Mzx02Jc3rgIeVCd0fm8AibxTyTyA==
-X-Received: by 2002:a05:6402:326:: with SMTP id
- q6mr48977643edw.216.1600630759279; 
- Sun, 20 Sep 2020 12:39:19 -0700 (PDT)
-Received: from kozik-lap ([194.230.155.191])
- by smtp.googlemail.com with ESMTPSA id bf25sm6956900edb.95.2020.09.20.12.39.16
- (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
- Sun, 20 Sep 2020 12:39:18 -0700 (PDT)
-Date: Sun, 20 Sep 2020 21:39:15 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Rob Herring <robh+dt@kernel.org>
-Subject: Re: [PATCH v2 01/13] dt-bindings: gpio: add common schema for GPIO
- controllers
-Message-ID: <20200920193915.GA31074@kozik-lap>
-References: <20200917165301.23100-1-krzk@kernel.org>
- <20200917165301.23100-2-krzk@kernel.org>
- <CAL_JsqJCLgf6syqV=jNPHPyu02ygwWCDDV+U9VCm0qRpLkirSQ@mail.gmail.com>
+ id 1kKGrg-0004H9-TW; Mon, 21 Sep 2020 08:08:08 +0000
+Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest
+ SHA256) (No client certificate requested)
+ by mail.ozlabs.org (Postfix) with ESMTPSA id 4BvxrN6CR4z9sRf;
+ Mon, 21 Sep 2020 18:07:48 +1000 (AEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=canb.auug.org.au;
+ s=201702; t=1600675674;
+ bh=iaBdLJOvxyJXfcUEqmY+3Nksf5Jf9xHCFLBtVdF2GM8=;
+ h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+ b=K5wKwexmDJAci9TTwYRSQ0w9PM5CiPqAwagC2tcao/hBigyuoMxG1C8D0UmTRvwbU
+ EhPScTRFe/siLj3BjXiyv9uIFmQY0S4UmOdPSVysuZGSDahrfPB83W3uawREPQpzd0
+ kHld44CU++GsPbN3dC1XVd4QoBpM6Lgj+V1kNNdSetTvjN8TgT8QvRc6F00jrjsQD6
+ lDVtnrJaxh5Jw5LEvG/jpEkcuTha5XPYFINClW5XVtzMcKkHT38c4BYivb3A3RLDRr
+ JaS6Iuw/LnkzJSYvM742RWyWBJTrmzSqPEqXAqPcsYg8niNwEgDNwWig1CMgfOS4OB
+ vkx4v/7kdkZQQ==
+Date: Mon, 21 Sep 2020 18:07:48 +1000
+From: Stephen Rothwell <sfr@canb.auug.org.au>
+To: Qian Cai <cai@redhat.com>
+Subject: Re: [PATCH v5 0/5] mm: introduce memfd_secret system call to create
+ "secret" memory areas
+Message-ID: <20200921180748.4f88028d@canb.auug.org.au>
+In-Reply-To: <fdd0240c187f974fccc553acea895f638d5e822a.camel@redhat.com>
+References: <20200916073539.3552-1-rppt@kernel.org>
+ <5d97da4d86db258fdc9b20be3c12588089e17da2.camel@redhat.com>
+ <fdd0240c187f974fccc553acea895f638d5e822a.camel@redhat.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAL_JsqJCLgf6syqV=jNPHPyu02ygwWCDDV+U9VCm0qRpLkirSQ@mail.gmail.com>
-User-Agent: Mutt/1.9.4 (2018-02-28)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200920_153922_539018_9781CB70 
-X-CRM114-Status: GOOD (  15.97  )
+X-CRM114-CacheID: sfid-20200921_040801_373515_2159FD4E 
+X-CRM114-Status: GOOD (  22.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -86,63 +79,115 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Linux-ALSA <alsa-devel@alsa-project.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Fabio Estevam <festevam@gmail.com>, "moderated list:ARM/STM32 ARCHITECTURE"
- <linux-stm32@st-md-mailman.stormreply.com>,
- Bartosz Golaszewski <bgolaszewski@baylibre.com>,
- "maintainer:BROADCOM BCM7XXX ARM ARCHITECTURE"
- <bcm-kernel-feedback-list@broadcom.com>, NXP Linux Team <linux-imx@nxp.com>,
- linux-arm-msm <linux-arm-msm@vger.kernel.org>,
- Linux Media Mailing List <linux-media@vger.kernel.org>,
- devicetree@vger.kernel.org, Ray Jui <rjui@broadcom.com>,
- Sascha Hauer <s.hauer@pengutronix.de>, linux-unisoc@lists.infradead.org,
- "moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- Scott Branden <sbranden@broadcom.com>,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "open list:MEDIA DRIVERS FOR RENESAS - FCP"
- <linux-renesas-soc@vger.kernel.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Shawn Guo <shawnguo@kernel.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Christopher Lameter <cl@linux.com>,
+ Idan Yaniv <idan.yaniv@ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
+ Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
+ Will Deacon <will@kernel.org>, x86@kernel.org,
+ Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
+ Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
+ Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-next@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+ Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>
+Content-Type: multipart/mixed; boundary="===============5740374878969439228=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 18, 2020 at 08:30:02AM -0600, Rob Herring wrote:
-> On Thu, Sep 17, 2020 at 10:53 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
-> >
-> > Convert parts of gpio.txt bindings into common dtschema file for GPIO
-> > controllers.  The schema enforces proper naming of GPIO controller nodes
-> > and GPIO hogs.
-> 
-> Did you not see my previous reply about a common schema? We already
-> have a common GPIO and hog schema in dtschema. Please add to it
-> whatever is missing.
+--===============5740374878969439228==
+Content-Type: multipart/signed; boundary="Sig_/qIGimAfxVKTvCJ+PllFC0A/";
+ protocol="application/pgp-signature"; micalg=pgp-sha256
 
-Indeed, I'll enhance the dt-schema.
+--Sig_/qIGimAfxVKTvCJ+PllFC0A/
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-The trouble is that each in-kernel YAML file still has to mention
-possible gpio-hogs nodes. Is the proper solution to put them in common
-YAML inside kernel sources?
+Hi all,
 
-> 
-> My goal is all common schema end up in dtschema, but I haven't pushed
-> folks to do that yet. Ones I've done are there though. One issue is
-> what's in dtschema should be GPL/BSD and the existing text bindings
-> are default GPL, so there's a relicensing exercise. In some cases, the
-> schema is there but I haven't copied over the descriptions.
+On Fri, 18 Sep 2020 14:25:15 -0400 Qian Cai <cai@redhat.com> wrote:
+>
+> On Thu, 2020-09-17 at 09:27 -0400, Qian Cai wrote:
+> > On Wed, 2020-09-16 at 10:35 +0300, Mike Rapoport wrote: =20
+> > > From: Mike Rapoport <rppt@linux.ibm.com>
+> > >=20
+> > > This is an implementation of "secret" mappings backed by a file descr=
+iptor.=20
+> > > I've dropped the boot time reservation patch for now as it is not str=
+ictly
+> > > required for the basic usage and can be easily added later either wit=
+h or
+> > > without CMA. =20
+> >=20
+> > On powerpc: https://gitlab.com/cailca/linux-mm/-/blob/master/powerpc.co=
+nfig
+> >=20
+> > There is a compiling warning from the today's linux-next:
+> >=20
+> > <stdin>:1532:2: warning: #warning syscall memfd_secret not implemented =
+[-Wcpp] =20
+>=20
+> This should silence the warning:
+>=20
+> diff --git a/scripts/checksyscalls.sh b/scripts/checksyscalls.sh
+> index a18b47695f55..b7609958ee36 100755
+> --- a/scripts/checksyscalls.sh
+> +++ b/scripts/checksyscalls.sh
+> @@ -40,6 +40,10 @@ cat << EOF
+>  #define __IGNORE_setrlimit	/* setrlimit */
+>  #endif
+> =20
+> +#ifndef __ARCH_WANT_MEMFD_SECRET
+> +#define __IGNORE_memfd_secret
+> +#endif
+> +
+>  /* Missing flags argument */
+>  #define __IGNORE_renameat	/* renameat2 */
+>=20
 
-Right, I'll skip the descriptions when posting to dt-schema.
+Added to linux-next today.
 
-Best regards,
-Krzysztof
+--=20
+Cheers,
+Stephen Rothwell
 
+--Sig_/qIGimAfxVKTvCJ+PllFC0A/
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCAAdFiEENIC96giZ81tWdLgKAVBC80lX0GwFAl9oX1QACgkQAVBC80lX
+0GwVfQgAho6bGSHnGAjI0IiMmFRLcHM+KMH0XiVgh9bvUjVASl1mVgeIe7v//Oef
+uyH9zCWyUFof0EnaT4f5uZctC2pe/qvb7BsEdaSlLUSz4X8J1xLWfdYbdJHMvtYR
+WnrFHwGCmEtpImNTTZtXcdDZeliVgq41XGd/h1Z59o6givzPYTtIK59LlOOcZj3y
+KIY0ELXUPauFOINBbfRzs0xlB6upYfVrHUdh9/glsrY4wVcEfPhjgFVAk+Ua/4/E
+/ksLJ+WeUZxJ/2SOPL5Vm23vZvmSE0fD4krBBiANbBiKShRgJRU21uc/ulEdHh5E
+qZjQA6jjcKFGbIbi78Sb6LxIzI/mKQ==
+=OfZk
+-----END PGP SIGNATURE-----
+
+--Sig_/qIGimAfxVKTvCJ+PllFC0A/--
+
+
+--===============5740374878969439228==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5740374878969439228==--
+
