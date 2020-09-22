@@ -1,23 +1,23 @@
-Return-Path: <SRS0=aYu6=C6=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=X0/G=C7=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+X-Spam-Status: No, score=-10.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2977AC4727D
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2020 23:50:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5A6E8C4727C
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Sep 2020 00:09:00 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BBA9223A6C
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Sep 2020 23:50:57 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 0B8A0207C4
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Sep 2020 00:08:59 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="uyM9+SYU";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="E/KUgl8k"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BBA9223A6C
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="iPBbC2jw";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="gYIGIDI+"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0B8A0207C4
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,58 +26,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=gNpisjDSTMU+p37NayR01r/y+tilKYFUHdIGTL7VsOk=; b=uyM9+SYU7ynSuNVFhXWlGBZrC
-	kXQXXlhj2gFNAksyRscAxGXeU08subf0LZtd0r5X2td+tv/g4QWAis5XZ9EZUeqgDTkmKIDLvgqBE
-	5rLFY3Ql6e7yRzZBRlCS2wHYWxT9OYdpsRNPvQSvsPWmvv/Js7R9kk+5rh5RsoKSJM/w+mR+3mXLL
-	birbqJV04+NT2Jt46la++aQGpkt5/wPJmlSvrRn+nfXJ9U/c5d6Mw9drkzp/D4D4KYx33jp4+mUxb
-	oDEoMx+wj/rlLKqSrX/w1TLm5Xc9iwZrL4lJpY4/JMoZgxzfo4gHZ2Wpbe6jPHloca1CcmRiUK1PT
-	/BHalsMvQ==;
+	 bh=dPrCLWEa8+juDcp6661djBOxCzvD6gv2XiZQqU7/ys8=; b=iPBbC2jwVLYOd2i6rLZxY7UWK
+	Eztv9aFave9wis1hh31umBAcWF5sePMYQTzETuGLuM5mwK1yjXKV2kWXtOyM4P+sVT17JyX/CVHLO
+	5vIvbsvGBWKMyQx20vew8fqfBLjoiL+6LvTd0gMBdT/MIBk9/TUvW1z+G6y4jq3TzRlH1RDGpG9BX
+	7SJ3VVL455wji3n9o2SfcUqb64tkbSXKg40cnFrU3UeIs06c1tOLmQmwVzETAXXTpMIsvlBaY00eq
+	SED6NAPov6XsmdBgUK0XVMmWcYHIDbXe7kcR54e/ukWK4/PyWy7Siul+JLiie6Q83tegLpRdBvkma
+	wTrrr8dVg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kKVZr-0007j9-D1; Mon, 21 Sep 2020 23:50:35 +0000
-Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
+	id 1kKVrV-000174-6C; Tue, 22 Sep 2020 00:08:49 +0000
+Received: from mail-wm1-x344.google.com ([2a00:1450:4864:20::344])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kKVZn-0007i7-Q9
- for linux-riscv@lists.infradead.org; Mon, 21 Sep 2020 23:50:33 +0000
-Received: by mail-wr1-x443.google.com with SMTP id t10so15011373wrv.1
- for <linux-riscv@lists.infradead.org>; Mon, 21 Sep 2020 16:50:30 -0700 (PDT)
+ id 1kKVrS-00015R-AA
+ for linux-riscv@lists.infradead.org; Tue, 22 Sep 2020 00:08:47 +0000
+Received: by mail-wm1-x344.google.com with SMTP id k18so1504651wmj.5
+ for <linux-riscv@lists.infradead.org>; Mon, 21 Sep 2020 17:08:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=atishpatra.org; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=1Y1U9iOOezYjCOoSPo/fvJd1TAyzAwihRmGNwzWZWTg=;
- b=E/KUgl8kVQeaBO5tKkqTMAySFYVmhQ+29OfnU/pcF5XqLDAj3IUqUB7nONZnshcY1c
- HH8iRtQ4ruQX/MPlEpnL9na3p24tSCCkCrFOz167nx/PaxVdCPNFPZCcSTrJmt10Eo1i
- lpRs+tqxJOq8eM8AwWGcWIiN3zFvZsnD2NGaI=
+ :cc; bh=hEV8TO4mdFZF8/iM9S4OFGlFE4L0gQ5gzDQBkMBrODI=;
+ b=gYIGIDI+OKHtg00WTkRcUagV3FN4QuKjLS6GPsx/DCSktOkq2OQmm8LosqoZDTsii5
+ 1zvRr9v2n81J/6UtZvWxHyTMW/8BqDj5AF4HJ6V7HCaasuIJMiRLytw6mWIhQ+iZeZMY
+ zCOb+PV+//UAFc+RhirY6n79q0VnYXyL1V+E8=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=1Y1U9iOOezYjCOoSPo/fvJd1TAyzAwihRmGNwzWZWTg=;
- b=r2urE3W7vy7WC/6altEynWiaTnryvcotUP/wntSSypagLHx4bkLUSRI/vCKvRskKXP
- Ctm0pJNuvKF9bVKYWZ/t5Ze3k2GOp/uSLtYtJT88tjwpElT2fM8gcvEaYWNcNcbfkKTr
- b/RCtYBAqcyZfscoNhIEsmWzjFNRuOT5Q8hmeJ0EzMZEgZAxhU7NkbkH67sFQOVCWmb5
- Tx171o4X80BNczF7G2SXF+pX7KafABiR+ZrIqpcvEK8JQpAd7ZBZYt6BaOx1uPvVb8Ls
- KWqmN+sEYSiKnN8VWFMsCJA6fyCwDsNgaGeEhy4eA3W/h0G70pqJo5rsT8+qcjK8YtJU
- bOfA==
-X-Gm-Message-State: AOAM531CUvE8qZuoGFXgA52Zqob2wXpR5cUv00VZu23kLfgX5VEoNzlh
- x5gwx2V7vWSamBbP3rw4/TyW8hht+Yl+7mls02K4
-X-Google-Smtp-Source: ABdhPJw2IeRlvWLmwCeYs9YRK4GBQmKJ92ij4ToI7a1BmtiQYXkXLov+SRIDwmstOVNyvvPfcdOX9/+PYbjmLndPxnI=
-X-Received: by 2002:adf:81c6:: with SMTP id 64mr2135564wra.176.1600732229175; 
- Mon, 21 Sep 2020 16:50:29 -0700 (PDT)
+ bh=hEV8TO4mdFZF8/iM9S4OFGlFE4L0gQ5gzDQBkMBrODI=;
+ b=MDkby3Bf08bsH9mh2pLsJoY2Km2MowOvyqf2/hrEy763Dp95bfEQiTtvAX1E9Gjf4Z
+ Tu+UpYH4JjqTk2WITS+/pB22jqjsReoMy+VPhURqCZ7NoUeIyvDz3SkP8NeSCO2ru77t
+ T6DmZntcdDV51HuK6ifxR1Sp7GCGneLpXYAS4qrRUes6ulO7BcxLkwkWUrV+II1w9cq3
+ vzatHKgxdZVztfqc5druw7MRNZp4QFP+uCo7zXzqRK4xWHeLlNlgW6XNBHMcfoqXcjh7
+ SkImPaIpuli51Ka5UqT3WcmuEAR0iRGIR5A8HTE3odduPb1wZXYcVpKjJsWNZcevBs5S
+ hTYw==
+X-Gm-Message-State: AOAM531BQ0YadSbNUiFvO3kJkHU+uAUmbInNxVIQ9+9DNxxSkBO5Vh/G
+ 0IBUQp5ICNfN1C6SJ70e4hKspct8XdMUTwX5GANR
+X-Google-Smtp-Source: ABdhPJwjJextrW2u2RMl/77W5IKbRzlLI/rNGeMx1PYcfnUc2oAuEhYU9I1Obt1omiSn8H/SIpY/n0H/ktHwbS9FQrk=
+X-Received: by 2002:a1c:a988:: with SMTP id s130mr1589106wme.31.1600733323651; 
+ Mon, 21 Sep 2020 17:08:43 -0700 (PDT)
 MIME-Version: 1.0
 References: <20200918201140.3172284-1-atish.patra@wdc.com>
- <20200918201140.3172284-3-atish.patra@wdc.com>
- <20200921100131.00005238@Huawei.com>
-In-Reply-To: <20200921100131.00005238@Huawei.com>
+ <20200921164947.000048e1@Huawei.com>
+In-Reply-To: <20200921164947.000048e1@Huawei.com>
 From: Atish Patra <atishp@atishpatra.org>
-Date: Mon, 21 Sep 2020 16:50:18 -0700
-Message-ID: <CAOnJCUKwn6dh8yuEf__Sr9uKyjTwSJyb8UFJo31-_ZDA_kmOwQ@mail.gmail.com>
-Subject: Re: [RFT PATCH v3 2/5] arm64, numa: Change the numa init functions
- name to be generic
+Date: Mon, 21 Sep 2020 17:08:32 -0700
+Message-ID: <CAOnJCU+mg13P609kut2cK9igmyepOvDc4kU-EzXsdjde7D_RpQ@mail.gmail.com>
+Subject: Re: [RFT PATCH v3 0/5] Unify NUMA implementation between ARM64 &
+ RISC-V
 To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200921_195031_913596_5BCDFB05 
-X-CRM114-Status: GOOD (  31.31  )
+X-CRM114-CacheID: sfid-20200921_200846_375500_B4CC695D 
+X-CRM114-Status: GOOD (  36.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -109,158 +108,123 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 21, 2020 at 2:03 AM Jonathan Cameron
+On Mon, Sep 21, 2020 at 8:51 AM Jonathan Cameron
 <Jonathan.Cameron@huawei.com> wrote:
 >
-> On Fri, 18 Sep 2020 13:11:37 -0700
+> On Fri, 18 Sep 2020 13:11:35 -0700
 > Atish Patra <atish.patra@wdc.com> wrote:
 >
-> > As we are using generic numa implementation code, modify the acpi & numa
-> > init functions name to indicate that generic implementation.
+> > This series attempts to move the ARM64 numa implementation to common
+> > code so that RISC-V can leverage that as well instead of reimplementing
+> > it again.
 > >
-> > Signed-off-by: Atish Patra <atish.patra@wdc.com>
->
-> Other than the double include of linux/acpi.h below this looks good to me.
->
-> Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
->
-> > ---
-> >  arch/arm64/kernel/acpi_numa.c | 13 -------------
-> >  arch/arm64/mm/init.c          |  4 ++--
-> >  drivers/base/arch_numa.c      | 31 +++++++++++++++++++++++++++----
-> >  include/asm-generic/numa.h    |  4 ++--
-> >  4 files changed, 31 insertions(+), 21 deletions(-)
+> > RISC-V specific bits are based on initial work done by Greentime Hu [1] but
+> > modified to reuse the common implementation to avoid duplication.
 > >
-> > diff --git a/arch/arm64/kernel/acpi_numa.c b/arch/arm64/kernel/acpi_numa.c
-> > index 7ff800045434..96502ff92af5 100644
-> > --- a/arch/arm64/kernel/acpi_numa.c
-> > +++ b/arch/arm64/kernel/acpi_numa.c
-> > @@ -117,16 +117,3 @@ void __init acpi_numa_gicc_affinity_init(struct acpi_srat_gicc_affinity *pa)
+> > [1] https://lkml.org/lkml/2020/1/10/233
 > >
-> >       node_set(node, numa_nodes_parsed);
-> >  }
-> > -
-> > -int __init arm64_acpi_numa_init(void)
-> > -{
-> > -     int ret;
-> > -
-> > -     ret = acpi_numa_init();
-> > -     if (ret) {
-> > -             pr_info("Failed to initialise from firmware\n");
-> > -             return ret;
-> > -     }
-> > -
-> > -     return srat_disabled() ? -EINVAL : 0;
-> > -}
-> > diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-> > index 481d22c32a2e..93b660229e1d 100644
-> > --- a/arch/arm64/mm/init.c
-> > +++ b/arch/arm64/mm/init.c
-> > @@ -418,10 +418,10 @@ void __init bootmem_init(void)
-> >       max_pfn = max_low_pfn = max;
-> >       min_low_pfn = min;
-> >
-> > -     arm64_numa_init();
-> > +     arch_numa_init();
-> >
-> >       /*
-> > -      * must be done after arm64_numa_init() which calls numa_init() to
-> > +      * must be done after arch_numa_init() which calls numa_init() to
-> >        * initialize node_online_map that gets used in hugetlb_cma_reserve()
-> >        * while allocating required CMA size across online nodes.
-> >        */
-> > diff --git a/drivers/base/arch_numa.c b/drivers/base/arch_numa.c
-> > index 73f8b49d485c..1649c90a3bc5 100644
-> > --- a/drivers/base/arch_numa.c
-> > +++ b/drivers/base/arch_numa.c
-> > @@ -13,7 +13,9 @@
-> >  #include <linux/module.h>
-> >  #include <linux/of.h>
-> >
-> > -#include <asm/acpi.h>
-> > +#ifdef CONFIG_ACPI_NUMA
-> > +#include <linux/acpi.h>
-> > +#endif
->
-> Why do we need this ifdef stuff here?
-> In particular acpi_disabled is defined in that header
-> in the !CONFIG_ACPI case so seems like we should include it always.
->
-> Also given we've just moved arch/arm64/numa.c to become this file,
-> it has an include of that header a few lines off the top of this diff anyway.
->
-> So I think you can just drop the additional include here.
+> > This series has been tested on qemu with numa enabled for both RISC-V & ARM64.
+> > It would be great if somebody can test it on numa capable ARM64 hardware platforms.
+> > This patch series doesn't modify the maintainers list for the common code (arch_numa)
+> > as I am not sure if somebody from ARM64 community or Greg should take up the
+> > maintainership. Ganapatrao was the original author of the arm64 version.
+> > I would be happy to update that in the next revision once it is decided.
 >
 
-Ahh Yes. Sorry for the oversight. Fixed it.
+Any thoughts on the maintenanership of this code ?
 
+> Was fairly sure this set was a noop on arm64 ACPI systems, but ran a quick
+> sanity check on a 2 socket kunpeng920 and everything came up as normal
+> (4 nodes, around 250G a node)
 >
-> >  #include <asm/sections.h>
+> Tested-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+> For patches 1 and 2.  Doesn't seem relevant to the rest :)
+>
+
+Thanks a lot!
+
 > >
-> >  struct pglist_data *node_data[MAX_NUMNODES] __read_mostly;
-> > @@ -444,16 +446,37 @@ static int __init dummy_numa_init(void)
-> >       return 0;
-> >  }
+> > # numactl --hardware
+> > available: 2 nodes (0-1)
+> > node 0 cpus: 0 1 2 3
+> > node 0 size: 486 MB
+> > node 0 free: 470 MB
+> > node 1 cpus: 4 5 6 7
+> > node 1 size: 424 MB
+> > node 1 free: 408 MB
+> > node distances:
+> > node   0   1
+> >   0:  10  20
+> >   1:  20  10
+> > # numactl -show
+> > policy: default
+> > preferred node: current
+> > physcpubind: 0 1 2 3 4 5 6 7
+> > cpubind: 0 1
+> > nodebind: 0 1
+> > membind: 0 1
 > >
-> > +#ifdef CONFIG_ACPI_NUMA
-> > +static int __init arch_acpi_numa_init(void)
-> > +{
-> > +     int ret;
-> > +
-> > +     ret = acpi_numa_init();
-> > +     if (ret) {
-> > +             pr_info("Failed to initialise from firmware\n");
-> > +             return ret;
-> > +     }
-> > +
-> > +     return srat_disabled() ? -EINVAL : 0;
-> > +}
-> > +#else
-> > +static int __init arch_acpi_numa_init(void)
-> > +{
-> > +     return -EOPNOTSUPP;
-> > +}
-> > +
-> > +#endif
-> > +
-> >  /**
-> > - * arm64_numa_init() - Initialize NUMA
-> > + * arch_numa_init() - Initialize NUMA
-> >   *
-> >   * Try each configured NUMA initialization method until one succeeds. The
-> >   * last fallback is dummy single node config encomapssing whole memory.
-> >   */
-> > -void __init arm64_numa_init(void)
-> > +void __init arch_numa_init(void)
-> >  {
-> >       if (!numa_off) {
-> > -             if (!acpi_disabled && !numa_init(arm64_acpi_numa_init))
-> > +             if (!acpi_disabled && !numa_init(arch_acpi_numa_init))
-> >                       return;
-> >               if (acpi_disabled && !numa_init(of_numa_init))
-> >                       return;
-> > diff --git a/include/asm-generic/numa.h b/include/asm-generic/numa.h
-> > index 2718d5a6ff03..e7962db4ba44 100644
-> > --- a/include/asm-generic/numa.h
-> > +++ b/include/asm-generic/numa.h
-> > @@ -27,7 +27,7 @@ static inline const struct cpumask *cpumask_of_node(int node)
-> >  }
-> >  #endif
+> > For RISC-V, the following qemu series is a pre-requisite(already available in upstream)
+> > to test the patches in Qemu and 2 socket OmniXtend FPGA.
 > >
-> > -void __init arm64_numa_init(void);
-> > +void __init arch_numa_init(void);
-> >  int __init numa_add_memblk(int nodeid, u64 start, u64 end);
-> >  void __init numa_set_distance(int from, int to, int distance);
-> >  void __init numa_free_distance(void);
-> > @@ -41,7 +41,7 @@ void numa_remove_cpu(unsigned int cpu);
-> >  static inline void numa_store_cpu_info(unsigned int cpu) { }
-> >  static inline void numa_add_cpu(unsigned int cpu) { }
-> >  static inline void numa_remove_cpu(unsigned int cpu) { }
-> > -static inline void arm64_numa_init(void) { }
-> > +static inline void arch_numa_init(void) { }
-> >  static inline void early_map_cpu_to_node(unsigned int cpu, int nid) { }
+> > https://patchwork.kernel.org/project/qemu-devel/list/?series=303313
 > >
-> >  #endif       /* CONFIG_NUMA */
+> > The patches are also available at
+> >
+> > https://github.com/atishp04/linux/tree/5.10_numa_unified_v3
+> >
+> > There may be some minor conflicts with Mike's cleanup series [2] depending on the
+> > order in which these two series are being accepted. I can rebase on top his series
+> > if required.
+> >
+> > [2] https://lkml.org/lkml/2020/8/18/754
+> >
+> > Changes from v2->v3:
+> > 1. Added Acked-by/Reviewed-by tags.
+> > 2. Replaced asm/acpi.h with linux/acpi.h
+> > 3. Defined arch_acpi_numa_init as static.
+> >
+> > Changes from v1->v2:
+> > 1. Replaced ARM64 specific compile time protection with ACPI specific ones.
+> > 2. Dropped common pcibus_to_node changes. Added required changes in RISC-V.
+> > 3. Fixed few typos.
+> >
+> > Atish Patra (4):
+> > numa: Move numa implementation to common code
+> > arm64, numa: Change the numa init functions name to be generic
+> > riscv: Separate memory init from paging init
+> > riscv: Add numa support for riscv64 platform
+> >
+> > Greentime Hu (1):
+> > riscv: Add support pte_protnone and pmd_protnone if
+> > CONFIG_NUMA_BALANCING
+> >
+> > arch/arm64/Kconfig                            |  1 +
+> > arch/arm64/include/asm/numa.h                 | 45 +----------------
+> > arch/arm64/kernel/acpi_numa.c                 | 13 -----
+> > arch/arm64/mm/Makefile                        |  1 -
+> > arch/arm64/mm/init.c                          |  4 +-
+> > arch/riscv/Kconfig                            | 31 +++++++++++-
+> > arch/riscv/include/asm/mmzone.h               | 13 +++++
+> > arch/riscv/include/asm/numa.h                 |  8 +++
+> > arch/riscv/include/asm/pci.h                  | 14 ++++++
+> > arch/riscv/include/asm/pgtable.h              | 21 ++++++++
+> > arch/riscv/kernel/setup.c                     | 11 ++++-
+> > arch/riscv/kernel/smpboot.c                   | 12 ++++-
+> > arch/riscv/mm/init.c                          | 10 +++-
+> > drivers/base/Kconfig                          |  6 +++
+> > drivers/base/Makefile                         |  1 +
+> > .../mm/numa.c => drivers/base/arch_numa.c     | 31 ++++++++++--
+> > include/asm-generic/numa.h                    | 49 +++++++++++++++++++
+> > 17 files changed, 201 insertions(+), 70 deletions(-)
+> > create mode 100644 arch/riscv/include/asm/mmzone.h
+> > create mode 100644 arch/riscv/include/asm/numa.h
+> > rename arch/arm64/mm/numa.c => drivers/base/arch_numa.c (95%)
+> > create mode 100644 include/asm-generic/numa.h
+> >
+> > --
+> > 2.25.1
+> >
 >
 >
 >
