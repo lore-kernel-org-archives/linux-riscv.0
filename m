@@ -2,68 +2,80 @@ Return-Path: <SRS0=X0/G=C7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-11.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_2
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A2C7FC2D0E2
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Sep 2020 11:31:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 87AC8C2D0E2
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Sep 2020 15:40:43 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 000B2221EB
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Sep 2020 11:31:27 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2F49E20C09
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Sep 2020 15:40:43 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="iwBfDenI"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 000B2221EB
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=Huawei.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="qck2LtBj"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2F49E20C09
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Qnl0Yvyb3aj5rX7CcFeW7ghheLeAdyL0nvz/EmLAZfk=; b=iwBfDenI6mk7iQenvLGs1uDEz
-	cu6qQcNzPYyQEgB0IWMOhgV7eWSkqenDEbYxgrlpd1LS+w4wd+gdwfvSOn+qEeYmhJLCN6Z4nE5ri
-	slMtnI1L0TMCfuundPX/YUl5+JaqmEEWvQgQ/UGnW0KiBIiNW3+/Gdr+4GrUED0BRtTKWSIs1Hq8v
-	2L3Ol+VfVSP3EzMLWIILYeznebU9PgaGBKjzvlTlq1uBahbZaSeyU2/seqqh2wbrFcZSa2AJ+7iF+
-	9c1tOfZfx58LMteEr5SmiOsg1s5ZwupwVC7n47M424HGVWBwdSR5gR1JjJuO+kc84MjGFu260eMT7
-	rpipDVsCA==;
+	 bh=tgT/Bg26ccssdso3i0D4lnVH1/JfvpdDnP9/r+ze1TI=; b=qck2LtBjl2YCUlTubd5JIuXYT
+	F5MygRkbtLejzwnJqx0U6pajLEt9hgHj81VN5Lmv6J5/Hb/3KOwpXpYLjmJtijhdBO24rdFUjPGwv
+	/zD17dnMEW7NI19MU6EB/x21UqX5aMYhjZlxTFYAv1GjgwLY+8mxr4/pzgFYhpHX6Y++0Vejr5IJF
+	LJBo+vL2TFKLPoONh9WU5GzUHrVu8Y52HkywAgM3GG7f/vBimDnDf7CEUMRXBBfW3ulr2k0yCLizv
+	u1Q2Fva75tf9dyYglUyn/I6XAnKAb9p9EWzbQEmFhD9dIf4qBMQYCOlMa7n7OosqXx2DDgTc5T9MU
+	zqjolzd9w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kKgVj-0005fN-53; Tue, 22 Sep 2020 11:31:03 +0000
-Received: from lhrrgout.huawei.com ([185.176.76.210] helo=huawei.com)
+	id 1kKkP6-0004zu-EK; Tue, 22 Sep 2020 15:40:28 +0000
+Received: from mail-il1-f194.google.com ([209.85.166.194])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kKgVe-0005dV-KF; Tue, 22 Sep 2020 11:30:59 +0000
-Received: from lhreml710-chm.china.huawei.com (unknown [172.18.7.107])
- by Forcepoint Email with ESMTP id E76C7428A485CBA319EF;
- Tue, 22 Sep 2020 12:30:52 +0100 (IST)
-Received: from localhost (10.52.121.155) by lhreml710-chm.china.huawei.com
- (10.201.108.61) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id 15.1.1913.5; Tue, 22 Sep
- 2020 12:30:52 +0100
-Date: Tue, 22 Sep 2020 12:29:12 +0100
-From: Jonathan Cameron <Jonathan.Cameron@Huawei.com>
-To: Atish Patra <atishp@atishpatra.org>
-Subject: Re: [RFT PATCH v3 0/5] Unify NUMA implementation between ARM64 &
- RISC-V
-Message-ID: <20200922122912.00004bcb@Huawei.com>
-In-Reply-To: <CAOnJCU+mg13P609kut2cK9igmyepOvDc4kU-EzXsdjde7D_RpQ@mail.gmail.com>
-References: <20200918201140.3172284-1-atish.patra@wdc.com>
- <20200921164947.000048e1@Huawei.com>
- <CAOnJCU+mg13P609kut2cK9igmyepOvDc4kU-EzXsdjde7D_RpQ@mail.gmail.com>
-Organization: Huawei Technologies Research and Development (UK) Ltd.
-X-Mailer: Claws Mail 3.17.4 (GTK+ 2.24.32; i686-w64-mingw32)
+ id 1kKkP1-0004yO-7Q; Tue, 22 Sep 2020 15:40:24 +0000
+Received: by mail-il1-f194.google.com with SMTP id t13so17705078ile.9;
+ Tue, 22 Sep 2020 08:40:21 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=8GdJRN6siN1K/3VUt/RzQ7dwFh0PUHODAfHPAkJXVec=;
+ b=DACpAJtOY1SiSTOueG57TOyuLpqtUYsR56bwyJDUwBo/Jrllc1mQeQB4oufe/0lOtg
+ En0iqsZobJiAhiviNhCUz3yzu1boaj3VP/SCSfqc4VpdDa3j+DX7zBk3s7WISu8pPuBo
+ oWuPtflSKI9IWhBWPtuEWR9bn94l5bzn8RAD3JREQhTL1UbwUehg7m8bZcBRTgQr+aqm
+ oaqHQe8RDYc9cJfkgZEPU+5ZolL+J2m1XPo6VkIsmkU5mppaarWuHGggSS80XOvHNRdM
+ 0oG1SCOFP8l0pSmmzopnh8vE6232jmfCVbKei1abfT3Cd599G/i3lRhFg1ev7G+yUJHp
+ 1WYA==
+X-Gm-Message-State: AOAM533j6tifVhQUkDoiAok5DfccBj9J7tSmyvEpolEouqhGnBReamIK
+ IjXEJyAk2f8hO/vCPwakgg==
+X-Google-Smtp-Source: ABdhPJyREJxSIdBKii6r07HwAtgscFY+xZM0Hzr/ADdWxpwvmnoH8SQzW6oBqLEpp2gzISGF/n+Kjw==
+X-Received: by 2002:a92:b503:: with SMTP id f3mr4935318ile.23.1600789220548;
+ Tue, 22 Sep 2020 08:40:20 -0700 (PDT)
+Received: from xps15 ([64.188.179.253])
+ by smtp.gmail.com with ESMTPSA id e4sm7533543iom.14.2020.09.22.08.40.18
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 22 Sep 2020 08:40:19 -0700 (PDT)
+Received: (nullmailer pid 2730094 invoked by uid 1000);
+ Tue, 22 Sep 2020 15:40:18 -0000
+Date: Tue, 22 Sep 2020 09:40:18 -0600
+From: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v2 01/13] dt-bindings: gpio: add common schema for GPIO
+ controllers
+Message-ID: <20200922154018.GA2657058@bogus>
+References: <20200917165301.23100-1-krzk@kernel.org>
+ <20200917165301.23100-2-krzk@kernel.org>
+ <CAL_JsqJCLgf6syqV=jNPHPyu02ygwWCDDV+U9VCm0qRpLkirSQ@mail.gmail.com>
+ <20200920193915.GA31074@kozik-lap>
 MIME-Version: 1.0
-X-Originating-IP: [10.52.121.155]
-X-ClientProxiedBy: lhreml706-chm.china.huawei.com (10.201.108.55) To
- lhreml710-chm.china.huawei.com (10.201.108.61)
-X-CFilter-Loop: Reflected
+Content-Disposition: inline
+In-Reply-To: <20200920193915.GA31074@kozik-lap>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200922_073058_775934_451A7E2A 
-X-CRM114-Status: GOOD (  39.41  )
+X-CRM114-CacheID: sfid-20200922_114023_284571_5B1977F2 
+X-CRM114-Status: GOOD (  21.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -75,172 +87,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: David Hildenbrand <david@redhat.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Atish Patra <atish.patra@wdc.com>,
- Zong Li <zong.li@sifive.com>, linux-riscv <linux-riscv@lists.infradead.org>,
- Will Deacon <will@kernel.org>, linux-arch@vger.kernel.org,
- Anup Patel <anup@brainfault.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Steven
- Price <steven.price@arm.com>, Greentime Hu <greentime.hu@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>, Anshuman
- Khandual <anshuman.khandual@arm.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Nicolas Saenz Julienne <nsaenzjulienne@suse.de>,
- Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>
+Cc: Linux-ALSA <alsa-devel@alsa-project.org>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Fabio Estevam <festevam@gmail.com>, "moderated list:ARM/STM32 ARCHITECTURE"
+ <linux-stm32@st-md-mailman.stormreply.com>,
+ Bartosz Golaszewski <bgolaszewski@baylibre.com>,
+ "maintainer:BROADCOM BCM7XXX ARM ARCHITECTURE"
+ <bcm-kernel-feedback-list@broadcom.com>, NXP Linux Team <linux-imx@nxp.com>,
+ linux-arm-msm <linux-arm-msm@vger.kernel.org>,
+ Linux Media Mailing List <linux-media@vger.kernel.org>,
+ devicetree@vger.kernel.org, Ray Jui <rjui@broadcom.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>, linux-unisoc@lists.infradead.org,
+ "moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ Scott Branden <sbranden@broadcom.com>,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "open list:MEDIA DRIVERS FOR RENESAS - FCP"
+ <linux-renesas-soc@vger.kernel.org>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Shawn Guo <shawnguo@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 21 Sep 2020 17:08:32 -0700
-Atish Patra <atishp@atishpatra.org> wrote:
-
-> On Mon, Sep 21, 2020 at 8:51 AM Jonathan Cameron
-> <Jonathan.Cameron@huawei.com> wrote:
-> >
-> > On Fri, 18 Sep 2020 13:11:35 -0700
-> > Atish Patra <atish.patra@wdc.com> wrote:
-> >  
-> > > This series attempts to move the ARM64 numa implementation to common
-> > > code so that RISC-V can leverage that as well instead of reimplementing
-> > > it again.
+On Sun, Sep 20, 2020 at 09:39:15PM +0200, Krzysztof Kozlowski wrote:
+> On Fri, Sep 18, 2020 at 08:30:02AM -0600, Rob Herring wrote:
+> > On Thu, Sep 17, 2020 at 10:53 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
 > > >
-> > > RISC-V specific bits are based on initial work done by Greentime Hu [1] but
-> > > modified to reuse the common implementation to avoid duplication.
-> > >
-> > > [1] https://lkml.org/lkml/2020/1/10/233
-> > >
-> > > This series has been tested on qemu with numa enabled for both RISC-V & ARM64.
-> > > It would be great if somebody can test it on numa capable ARM64 hardware platforms.
-> > > This patch series doesn't modify the maintainers list for the common code (arch_numa)
-> > > as I am not sure if somebody from ARM64 community or Greg should take up the
-> > > maintainership. Ganapatrao was the original author of the arm64 version.
-> > > I would be happy to update that in the next revision once it is decided.  
-> >  
+> > > Convert parts of gpio.txt bindings into common dtschema file for GPIO
+> > > controllers.  The schema enforces proper naming of GPIO controller nodes
+> > > and GPIO hogs.
+> > 
+> > Did you not see my previous reply about a common schema? We already
+> > have a common GPIO and hog schema in dtschema. Please add to it
+> > whatever is missing.
 > 
-> Any thoughts on the maintenanership of this code ?
-
-Currently it is a trivial enough bit of code, I'd not be too worried
-as long as it doesn't fall through the cracks.  Changes that directory are going
-to need a GregKH Ack so unlikely anything will get missed.
-
-If you feel a specific entry is needed in MAINTAINERS go for it.
-Feel free to stick me down as a reviewer and I'll keep an eye on
-it from ARM64 side of things.
-
-Thanks,
-
-Jonathan
-
-
+> Indeed, I'll enhance the dt-schema.
 > 
-> > Was fairly sure this set was a noop on arm64 ACPI systems, but ran a quick
-> > sanity check on a 2 socket kunpeng920 and everything came up as normal
-> > (4 nodes, around 250G a node)
-> >
-> > Tested-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-> > For patches 1 and 2.  Doesn't seem relevant to the rest :)
-> >  
-> 
-> Thanks a lot!
-> 
-> > >
-> > > # numactl --hardware
-> > > available: 2 nodes (0-1)
-> > > node 0 cpus: 0 1 2 3
-> > > node 0 size: 486 MB
-> > > node 0 free: 470 MB
-> > > node 1 cpus: 4 5 6 7
-> > > node 1 size: 424 MB
-> > > node 1 free: 408 MB
-> > > node distances:
-> > > node   0   1
-> > >   0:  10  20
-> > >   1:  20  10
-> > > # numactl -show
-> > > policy: default
-> > > preferred node: current
-> > > physcpubind: 0 1 2 3 4 5 6 7
-> > > cpubind: 0 1
-> > > nodebind: 0 1
-> > > membind: 0 1
-> > >
-> > > For RISC-V, the following qemu series is a pre-requisite(already available in upstream)
-> > > to test the patches in Qemu and 2 socket OmniXtend FPGA.
-> > >
-> > > https://patchwork.kernel.org/project/qemu-devel/list/?series=303313
-> > >
-> > > The patches are also available at
-> > >
-> > > https://github.com/atishp04/linux/tree/5.10_numa_unified_v3
-> > >
-> > > There may be some minor conflicts with Mike's cleanup series [2] depending on the
-> > > order in which these two series are being accepted. I can rebase on top his series
-> > > if required.
-> > >
-> > > [2] https://lkml.org/lkml/2020/8/18/754
-> > >
-> > > Changes from v2->v3:
-> > > 1. Added Acked-by/Reviewed-by tags.
-> > > 2. Replaced asm/acpi.h with linux/acpi.h
-> > > 3. Defined arch_acpi_numa_init as static.
-> > >
-> > > Changes from v1->v2:
-> > > 1. Replaced ARM64 specific compile time protection with ACPI specific ones.
-> > > 2. Dropped common pcibus_to_node changes. Added required changes in RISC-V.
-> > > 3. Fixed few typos.
-> > >
-> > > Atish Patra (4):
-> > > numa: Move numa implementation to common code
-> > > arm64, numa: Change the numa init functions name to be generic
-> > > riscv: Separate memory init from paging init
-> > > riscv: Add numa support for riscv64 platform
-> > >
-> > > Greentime Hu (1):
-> > > riscv: Add support pte_protnone and pmd_protnone if
-> > > CONFIG_NUMA_BALANCING
-> > >
-> > > arch/arm64/Kconfig                            |  1 +
-> > > arch/arm64/include/asm/numa.h                 | 45 +----------------
-> > > arch/arm64/kernel/acpi_numa.c                 | 13 -----
-> > > arch/arm64/mm/Makefile                        |  1 -
-> > > arch/arm64/mm/init.c                          |  4 +-
-> > > arch/riscv/Kconfig                            | 31 +++++++++++-
-> > > arch/riscv/include/asm/mmzone.h               | 13 +++++
-> > > arch/riscv/include/asm/numa.h                 |  8 +++
-> > > arch/riscv/include/asm/pci.h                  | 14 ++++++
-> > > arch/riscv/include/asm/pgtable.h              | 21 ++++++++
-> > > arch/riscv/kernel/setup.c                     | 11 ++++-
-> > > arch/riscv/kernel/smpboot.c                   | 12 ++++-
-> > > arch/riscv/mm/init.c                          | 10 +++-
-> > > drivers/base/Kconfig                          |  6 +++
-> > > drivers/base/Makefile                         |  1 +
-> > > .../mm/numa.c => drivers/base/arch_numa.c     | 31 ++++++++++--
-> > > include/asm-generic/numa.h                    | 49 +++++++++++++++++++
-> > > 17 files changed, 201 insertions(+), 70 deletions(-)
-> > > create mode 100644 arch/riscv/include/asm/mmzone.h
-> > > create mode 100644 arch/riscv/include/asm/numa.h
-> > > rename arch/arm64/mm/numa.c => drivers/base/arch_numa.c (95%)
-> > > create mode 100644 include/asm-generic/numa.h
-> > >
-> > > --
-> > > 2.25.1
-> > >  
-> >
-> >
-> >
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv  
-> 
-> 
-> 
+> The trouble is that each in-kernel YAML file still has to mention
+> possible gpio-hogs nodes. Is the proper solution to put them in common
+> YAML inside kernel sources?
+
+Currently, the gpio.yaml schema is applied to all nodes. That has the 
+advantage that GPIO related properties are always checked whether we 
+have a device specific schema or not. It has the disadvantage that you 
+can't do some constraints like required properties or what's in child 
+nodes.
+
+We could (and probably should) change it to be referenced by specific 
+gpio controller schemas like we do for i2c, spi, etc. Then you can 
+define required properties there and do something like:
+
+"-hogs$":
+  type: object
+  $ref: gpio-hogs.yaml#
 
 
+> > My goal is all common schema end up in dtschema, but I haven't pushed
+> > folks to do that yet. Ones I've done are there though. One issue is
+> > what's in dtschema should be GPL/BSD and the existing text bindings
+> > are default GPL, so there's a relicensing exercise. In some cases, the
+> > schema is there but I haven't copied over the descriptions.
+> 
+> Right, I'll skip the descriptions when posting to dt-schema.
+
+I was hoping someone would add the descriptions. :)
+
+Rob
 
 _______________________________________________
 linux-riscv mailing list
