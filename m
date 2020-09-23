@@ -2,137 +2,68 @@ Return-Path: <SRS0=huAv=DA=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,NICE_REPLY_A,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B127BC4727E
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Sep 2020 00:28:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9400DC4363D
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Sep 2020 03:15:44 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 38F912085B
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Sep 2020 00:28:05 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E8307205CB
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Sep 2020 03:15:43 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Vo3gOjen";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="Civ7fDQ3";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="OfF/ZP8S"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 38F912085B
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="HgHXnNLE"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E8307205CB
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=arm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:Date:Subject:To:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	 bh=jpfQJnj+XXY9dA6wSYY8zFmZ9UUXn+B97crglsjWZ1w=; b=Vo3gOjenuAodhy7eyMe3yg1vg
-	1uk5My0FwgqNJa3Fz8rxEd2FvpQnAGFIYTU0TbEkjJMpciGRLOqbi7xhKLBTSZSdFrlst0dUR3qbp
-	VbGgoBHWP8HBHOjOJIwoyzW/fGA/rh7Z7ge9/PK0LVyT1azKDPqkQu7nyjPK063Y7BaqfnoZD7d/b
-	tCxQWxpN62jmmq87wPojuUtUnHxAJ/Iqb8msDjSDtugfZEkbLm0028a5VkjBbN0tUp6bQ2YrXAg35
-	+ysMEVh8S9Twqglw3YIGUbxRh2+LCBhpZ2Kvn1njvbmTAwlta9MMU5zp2/KTl254MTzrrWnhm2Kox
-	rAJQOTeiQ==;
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=ksS9ERGSoKV3wr6QWCKjFF3btX/X+MfvEwYpWQT5Q8I=; b=HgHXnNLEKUVbdBxuUt1ns6kPU
+	5w2S8FmGqvcqfwAqBfXVefBe/OKim5NekNV4UBlGIPSlYqjYBHMOa1fnyWcHmnYMkpiqpKRu5hb3/
+	050C0DXvtL+jOMd9F/mNkxjd5Cf2oHJ/+NuY3UpDwMRKn9N7Dnh8tybxiQ7I/ELq50B2s2axHLmpc
+	PLsAUuObB6tHPU8uLK0Q6IcRsKwNy/qZ7FPf4GA++p8MIKrGxpkBIWMaR4FloCj43b7fUKMIsAoqN
+	hHv/Ls4eNdlkVwfs4giJQsmcf3T0m4OT0nrlMVRtPYUdzBi7RRo6xyrRtA8xMuf6dWHLIcoHdpOA0
+	CjaDSjchA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kKsdT-0003gR-JL; Wed, 23 Sep 2020 00:27:51 +0000
-Received: from esa3.hgst.iphmx.com ([216.71.153.141])
- by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kKsdQ-0003fI-R1
- for linux-riscv@lists.infradead.org; Wed, 23 Sep 2020 00:27:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1600820869; x=1632356869;
- h=from:to:cc:subject:date:message-id:references:
- content-transfer-encoding:mime-version;
- bh=F4CZK/JuOSq9IWHN8+/h7kv/igPrBlwEmNb6BSXPVm8=;
- b=Civ7fDQ3P3WcOdj7TO9tTs19tiYYSUlJSbBfywwHaigKguJIHhMCJJEB
- T09Epce8AAWIHbzomFM4c9ylkV11jWxHZ4BpmcIZ98GL0Pt1KbWN6MEjU
- +mTuzuPqv70eetG4p3NjOTF1lLmdEt8u2Avt1xHSDku1hQP+6AdDxAqZy
- TzkfeP+D2k/ECdVLrlpOHfKcb+XC76pfSxce62v89wgPPqf4xs+erzE3Z
- r0FMW9/LatuSi9OuM1tdI+9M7lo2LgmQPrzrTC0TiZmGaf/51jLG9OvsG
- PQdioW9dFXYhoO2lpOVv3ISQfe50+0uewFJVkcPnF3PHXhlLZz7O+LwlG A==;
-IronPort-SDR: pi0alN4S+u2c4lzqRoOSEevoVYcQ2eltmlI7eUp2haEPTJhObtcVeTNcuojzz9cS1MTUWUkdDp
- yh3eEXJXgWupcIzod3xsB0AXksUYexh317dOHj27vVoepFnH+pBqNJtIRlbeo7gGyUrkk0b8In
- W3C3qk5mTFMVx02gE8epLRqjTsTuaSZwt//EgimesmanbAqRTYSAYOLBJ/gV685aGwDokRFaO9
- Frj6SobiI+uNdtMMw2XhfAzOrqL1zzWt/zdFSmYotncK2HR9m3u5hPIIlFiMtyk0nX1VVfivu1
- kLk=
-X-IronPort-AV: E=Sophos;i="5.77,292,1596470400"; d="scan'208";a="152405983"
-Received: from mail-bn8nam12lp2169.outbound.protection.outlook.com (HELO
- NAM12-BN8-obe.outbound.protection.outlook.com) ([104.47.55.169])
- by ob1.hgst.iphmx.com with ESMTP; 23 Sep 2020 08:27:44 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=DzHhkM12F3ml2mOVCsXf1Pm9RxSdWFmumw0JQGsZ9MTdGoFj0MUXgbLBYokFK998cq5omzH9qlVYCJ+zSTats9HHL45e87/r9ALJ7wYfboSYDjaRKMCpgSlO/w9gDRXELQNn/d9VJRHNUMjHJ6vwgtJ22dE8zDlDq6Kf5tgzrcP7SHLAWTv4YFnc6NKz/9XSfcmxLOgd7M6z+61ekoZVLRpM0M9WFnDhJJgOhTTbr5Ws5/dYd+zwwL1v9nklOamwV1GrknqwyQ7/NCxs/b8aZE1RbFbG+8ttfjEnGugmOvdUivCmGzz5rP/Y8hVMxFlX8TbWbjbuiL8pNxEZa7cSTQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=B/UhHn0L3JF0bFKT1wRUHHPOe89fnDUItWqnpJUMKe0=;
- b=jf5t1AS+Oy5kKHD0XsJ9UNnHK16M53R3PT5AGfO7/1ZtEuQzuisS16FNaf+orZikwyUbPwqIBuKrGXAtwnz4qOAFGuC8nKFPa2UtFG6wu5E3k7NTDZ2kdHJVFHDcX7LGwHY3uRb09WHAec4dLVy/9eK6eoft1FZQEy6zWnYRQcKJez9xBwyK0RIXodc10rJQwYK59ELJt1PqyxVLRxRrOZjfGI4rNPFRgRuS0eNchq/M1dh70yARNGA4T1n78AEHWyYFB+djGUdVMVfg3DF3t3cOiGO9VCnbXp7M8mQEq/tTVGlzGEVgV0VAADFMICBptstSIo1WfiYofRLRMTcavA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
- header.d=wdc.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=B/UhHn0L3JF0bFKT1wRUHHPOe89fnDUItWqnpJUMKe0=;
- b=OfF/ZP8SBDJpIdgHcrpVXCSlte6yIxdjOHsoAHrhvSJfbg0PQC25vLUuDO4PJv+icYbIUO9a8ocjr1JvkpzJ3X4b1GCOZNj7ZjPzPQqtMtQv9efbxkwacLG4Ty0HWkM8vodBmDnYcPjZVnOdb45HwNLZqrnc2huhggcJtdaLElo=
-Received: from CY4PR04MB3751.namprd04.prod.outlook.com (2603:10b6:903:ec::14)
- by CY4PR04MB0968.namprd04.prod.outlook.com (2603:10b6:910:51::20)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3391.11; Wed, 23 Sep
- 2020 00:27:43 +0000
-Received: from CY4PR04MB3751.namprd04.prod.outlook.com
- ([fe80::9124:2453:fe9c:9a7]) by CY4PR04MB3751.namprd04.prod.outlook.com
- ([fe80::9124:2453:fe9c:9a7%12]) with mapi id 15.20.3391.024; Wed, 23 Sep 2020
- 00:27:42 +0000
-From: Damien Le Moal <Damien.LeMoal@wdc.com>
-To: Sasha Levin <sashal@kernel.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, "stable@vger.kernel.org"
- <stable@vger.kernel.org>
-Subject: Re: [PATCH AUTOSEL 5.8 20/20] riscv: Fix Kendryte K210 device tree
-Thread-Topic: [PATCH AUTOSEL 5.8 20/20] riscv: Fix Kendryte K210 device tree
-Thread-Index: AQHWkCU53Yt83wGZ7keUFBY/2Egj+g==
-Date: Wed, 23 Sep 2020 00:27:42 +0000
-Message-ID: <CY4PR04MB3751BE40C3EC0BD2F392E9EEE7380@CY4PR04MB3751.namprd04.prod.outlook.com>
-References: <20200921144027.2135390-1-sashal@kernel.org>
- <20200921144027.2135390-20-sashal@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: kernel.org; dkim=none (message not signed)
- header.d=none;kernel.org; dmarc=none action=none header.from=wdc.com;
-x-originating-ip: [2400:2411:43c0:6000:dc1c:cac6:da47:3b6b]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-ht: Tenant
-x-ms-office365-filtering-correlation-id: 16895b07-74c7-49cf-dc1a-08d85f577c8b
-x-ms-traffictypediagnostic: CY4PR04MB0968:
-x-microsoft-antispam-prvs: <CY4PR04MB09684CDCB73D40D098B39EDCE7380@CY4PR04MB0968.namprd04.prod.outlook.com>
-wdcipoutbound: EOP-TRUE
-x-ms-oob-tlc-oobclassifiers: OLM:644;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: VrVsM8C9eoXaahcQCUDzYo+cksumtuWEmFC5bOklNZX1J/gYUeGCBQczlbzaG2GGV/WwqWhAXPjaAEkzIJkneHJrLKsZpCcg7srYiu5Clr5jHoRG2fmuk1p2eVIB+Rx3pFmMYNVJF2ibbbRdGBAdkTQ4ZsjSYfx/KtfoE12XbmwowVJFIjzkrHFu0s9RoGQEAwjJMzTSaELvkkGaegh3DMt3HIL2/VJ0viUjHbjSU9oqnA7ACHpBsmpJMuHT2SpoqNX6rI42Nkh2RCp2PvTtwkk0BvRrzEtsDI+8Slf8XGVA08KPvZLvaPKkoHGFzPyxV46GubY2uz24Y6NmwjWouGAgIAIsEpx8pXHitE8pXso3DkhTslCbIcvrOEIhxFQB
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:CY4PR04MB3751.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(136003)(39860400002)(376002)(396003)(346002)(366004)(76116006)(66556008)(66446008)(9686003)(66946007)(64756008)(2906002)(52536014)(5660300002)(55016002)(33656002)(53546011)(86362001)(478600001)(91956017)(66476007)(8936002)(7696005)(83380400001)(6506007)(4326008)(110136005)(54906003)(316002)(8676002)(186003)(71200400001);
- DIR:OUT; SFP:1102; 
-x-ms-exchange-antispam-messagedata: QfKBrDPUKPFASs1Yi9neGRTgMxBXHCF2hR0Ba2xrWHEMSV0kAsqpzCNyaGl/40oP2+WsBZsPodPSFw/QGg4uCnm7lT8kyvsRriQmtQMTeK4arLiAZwPZDJqI+LWJyELZ/91PL4YCBsKqhD8kaY7eRTXlUi0n0LIz5zJjCErQJE6Fk/Z7jHzEM8S8oYbioE3aZvJQK5JmA4+PmbIoGEBiO84mhVyLUPlh7XKHRy+R5ITPXYCuQsccw79/w/3RBu1T5R4ghuAd85iF9uA+mMeFS1AHTWC5KIZomA4LnGwLtumtqfy+kZkTA3wie0s1seQJmiHALZMvF5CHRH+jSvzEvOidkFxGGI7dpbv2jqDMeYHomJ9lyvXGD2Q9SPuV+ol5M/bhPwZKdwhyDJa8ZdvdsCkB5I4kRGsaTbKFoSxIVqT4WBlF3e5Uovoq2voMwtzWOZeqtFnMj8WzrhHNHOh7B5LCi1LwUOD3SSkcSWnBBGiQDnyupeKZi3vQvkLFJHLXhMFn+Sw9/ZE0M5C9e6jlWqW4intGw9uFk2r/wy/Xi/lxvP6d6tXnjrXPgknsgIRMi8wikyPB/V8tq/AQsiMfaAI07l7dEmYTAQYucyp0Xa2xGSi6GTANHzm9EyxQjVDtZh2Xr8Uo/gWHpXBuObKwiFrriP/ZkYHTdzdd67eGy6PtqXFwkf0D8VvMsA3FoOwuVNf9D9gfq9PmFCRVWxVgzQ==
-x-ms-exchange-transport-forked: True
+	id 1kKvFk-0007sf-Bt; Wed, 23 Sep 2020 03:15:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+ by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1kKvFg-0007rg-Q7
+ for linux-riscv@lists.infradead.org; Wed, 23 Sep 2020 03:15:30 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 84E71D6E;
+ Tue, 22 Sep 2020 20:15:26 -0700 (PDT)
+Received: from [10.163.72.76] (unknown [10.163.72.76])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 066233F718;
+ Tue, 22 Sep 2020 20:15:23 -0700 (PDT)
+Subject: Re: [PATCH v4 13/13] mm/debug_vm_pgtable: Avoid none pte in
+ pte_clear_test
+To: "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>,
+ Nathan Chancellor <natechancellor@gmail.com>
+References: <20200902114222.181353-1-aneesh.kumar@linux.ibm.com>
+ <20200902114222.181353-14-aneesh.kumar@linux.ibm.com>
+ <20200911021358.GA3656343@ubuntu-n2-xlarge-x86>
+ <87zh5wx51b.fsf@linux.ibm.com>
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+Message-ID: <37a9facc-ca36-290f-3748-16c4a7a778fa@arm.com>
+Date: Wed, 23 Sep 2020 08:44:48 +0530
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
+ Thunderbird/52.9.1
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CY4PR04MB3751.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 16895b07-74c7-49cf-dc1a-08d85f577c8b
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Sep 2020 00:27:42.6230 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 2wDChNX9KNFM0OWBSh35Ua8GXznxxyW6IRsgTOL7MRStf8ZQ/g6IyU/+1KUEJt3tjXjcSQ1Zuj1fPEo2ysb+Qw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY4PR04MB0968
+In-Reply-To: <87zh5wx51b.fsf@linux.ibm.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200922_202749_226894_E1F71445 
-X-CRM114-Status: GOOD (  17.87  )
+X-CRM114-CacheID: sfid-20200922_231528_949974_9CC03524 
+X-CRM114-Status: GOOD (  22.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -144,73 +75,130 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- Palmer Dabbelt <palmerdabbelt@google.com>
+Cc: linux-mm@kvack.org, akpm@linux-foundation.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ mpe@ellerman.id.au
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2020/09/21 23:41, Sasha Levin wrote:
-> From: Damien Le Moal <damien.lemoal@wdc.com>
+
+
+On 09/11/2020 10:51 AM, Aneesh Kumar K.V wrote:
+> Nathan Chancellor <natechancellor@gmail.com> writes:
 > 
-> [ Upstream commit f025d9d9934b84cd03b7796072d10686029c408e ]
+>> On Wed, Sep 02, 2020 at 05:12:22PM +0530, Aneesh Kumar K.V wrote:
+>>> pte_clear_tests operate on an existing pte entry. Make sure that
+>>> is not a none pte entry.
+>>>
+>>> Signed-off-by: Aneesh Kumar K.V <aneesh.kumar@linux.ibm.com>
+>>> ---
+>>>  mm/debug_vm_pgtable.c | 7 ++++---
+>>>  1 file changed, 4 insertions(+), 3 deletions(-)
+>>>
+>>> diff --git a/mm/debug_vm_pgtable.c b/mm/debug_vm_pgtable.c
+>>> index 9afa1354326b..c36530c69e33 100644
+>>> --- a/mm/debug_vm_pgtable.c
+>>> +++ b/mm/debug_vm_pgtable.c
+>>> @@ -542,9 +542,10 @@ static void __init pgd_populate_tests(struct mm_struct *mm, pgd_t *pgdp,
+>>>  #endif /* PAGETABLE_P4D_FOLDED */
+>>>  
+>>>  static void __init pte_clear_tests(struct mm_struct *mm, pte_t *ptep,
+>>> -				   unsigned long vaddr)
+>>> +				   unsigned long pfn, unsigned long vaddr,
+>>> +				   pgprot_t prot)
+>>>  {
+>>> -	pte_t pte = ptep_get(ptep);
+>>> +	pte_t pte = pfn_pte(pfn, prot);
+>>>  
+>>>  	pr_debug("Validating PTE clear\n");
+>>>  	pte = __pte(pte_val(pte) | RANDOM_ORVALUE);
+>>> @@ -1049,7 +1050,7 @@ static int __init debug_vm_pgtable(void)
+>>>  
+>>>  	ptl = pte_lockptr(mm, pmdp);
+>>>  	spin_lock(ptl);
+>>> -	pte_clear_tests(mm, ptep, vaddr);
+>>> +	pte_clear_tests(mm, ptep, pte_aligned, vaddr, prot);
+>>>  	pte_advanced_tests(mm, vma, ptep, pte_aligned, vaddr, prot);
+>>>  	pte_unmap_unlock(ptep, ptl);
+>>>  
+>>> -- 
+>> This patch causes a panic at boot for RISC-V defconfig. The rootfs is here if it is needed:
+>> https://github.com/ClangBuiltLinux/boot-utils/blob/3b21a5b71451742866349ba4f18638c5a754e660/images/riscv/rootfs.cpio.zst
+>>
+>> $ make -skj"$(nproc)" ARCH=riscv CROSS_COMPILE=riscv64-linux- O=out/riscv distclean defconfig Image
+>>
+>> $ qemu-system-riscv64 -bios default -M virt -display none -initrd rootfs.cpio -kernel Image -m 512m -nodefaults -serial mon:stdio
+>> ...
+>>
+>> OpenSBI v0.6
+>>    ____                    _____ ____ _____
+>>   / __ \                  / ____|  _ \_   _|
+>>  | |  | |_ __   ___ _ __ | (___ | |_) || |
+>>  | |  | | '_ \ / _ \ '_ \ \___ \|  _ < | |
+>>  | |__| | |_) |  __/ | | |____) | |_) || |_
+>>   \____/| .__/ \___|_| |_|_____/|____/_____|
+>>         | |
+>>         |_|
+>>
+>> Platform Name          : QEMU Virt Machine
+>> Platform HART Features : RV64ACDFIMSU
+>> Platform Max HARTs     : 8
+>> Current Hart           : 0
+>> Firmware Base          : 0x80000000
+>> Firmware Size          : 120 KB
+>> Runtime SBI Version    : 0.2
+>>
+>> MIDELEG : 0x0000000000000222
+>> MEDELEG : 0x000000000000b109
+>> PMP0    : 0x0000000080000000-0x000000008001ffff (A)
+>> PMP1    : 0x0000000000000000-0xffffffffffffffff (A,R,W,X)
+>> [    0.000000] Linux version 5.9.0-rc4-next-20200910 (nathan@ubuntu-n2-xlarge-x86) (riscv64-linux-gcc (GCC) 10.2.0, GNU ld (GNU Binutils) 2.35) #1 SMP Thu Sep 10 19:10:43 MST 2020
+>> ...
+>> [    0.294593] NET: Registered protocol family 17
+>> [    0.295781] 9pnet: Installing 9P2000 support
+>> [    0.296153] Key type dns_resolver registered
+>> [    0.296694] debug_vm_pgtable: [debug_vm_pgtable         ]: Validating architecture page table helpers
+>> [    0.297635] Unable to handle kernel paging request at virtual address 0a7fffe01dafefc8
+>> [    0.298029] Oops [#1]
+>> [    0.298153] Modules linked in:
+>> [    0.298433] CPU: 0 PID: 1 Comm: swapper/0 Not tainted 5.9.0-rc4-next-20200910 #1
+>> [    0.298792] epc: ffffffe000205afc ra : ffffffe0008be0aa sp : ffffffe01ae73d40
+>> [    0.299078]  gp : ffffffe0010b9b48 tp : ffffffe01ae68000 t0 : ffffffe008152000
+>> [    0.299362]  t1 : 0000000000000000 t2 : 0000000000000000 s0 : ffffffe01ae73d60
+>> [    0.299648]  s1 : bffffffffffffffb a0 : 0a7fffe01dafefc8 a1 : bffffffffffffffb
+>> [    0.299948]  a2 : ffffffe0010a2698 a3 : 0000000000000001 a4 : 0000000000000003
+>> [    0.300231]  a5 : 0000000000000800 a6 : fffffffff0000080 a7 : 000000001b642000
+>> [    0.300521]  s2 : ffffffe0081517b8 s3 : ffffffe008150a80 s4 : ffffffe01af30000
+>> [    0.300806]  s5 : ffffffe01f8ca9b8 s6 : ffffffe008150000 s7 : ffffffe0010bb100
+>> [    0.301161]  s8 : ffffffe0010bb108 s9 : 0000000000080202 s10: ffffffe0010bb928
+>> [    0.301481]  s11: 000000002008085b t3 : 0000000000000000 t4 : 0000000000000000
+>> [    0.301722]  t5 : 0000000000000000 t6 : ffffffe008150000
+>> [    0.301947] status: 0000000000000120 badaddr: 0a7fffe01dafefc8 cause: 000000000000000f
+>> [    0.302569] ---[ end trace 7ffb153d816164cf ]---
+>> [    0.302797] note: swapper/0[1] exited with preempt_count 1
+>> [    0.303101] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+>> [    0.303614] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b ]---
 > 
-> The Kendryte K210 SoC CLINT is compatible with Sifive clint v0
-> (sifive,clint0). Fix the Kendryte K210 device tree clint entry to be
-> inline with the sifive timer definition documented in
-> Documentation/devicetree/bindings/timer/sifive,clint.yaml.
-> The device tree clint entry is renamed similarly to u-boot device tree
-> definition to improve compatibility with u-boot defined device tree.
-> To ensure correct initialization, the interrup-cells attribute is added
-> and the interrupt-extended attribute definition fixed.
 > 
-> This fixes boot failures with Kendryte K210 SoC boards.
+> I guess it is the combination of a valid pte and usage of
+> RANDOM_ORVALUE. The below change get the kernel to boot. Can somebody
+> faimilar with riscv pte format take a look at the RANDOM_ORVALUE?
 > 
-> Note that the clock referenced is kept as K210_CLK_ACLK, which does not
-> necessarilly match the clint MTIME increment rate. This however does not
-> seem to cause any problem for now.
-> 
-> Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
-> Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
-> Signed-off-by: Sasha Levin <sashal@kernel.org>
-> ---
->  arch/riscv/boot/dts/kendryte/k210.dtsi | 6 ++++--
->  1 file changed, 4 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/riscv/boot/dts/kendryte/k210.dtsi b/arch/riscv/boot/dts/kendryte/k210.dtsi
-> index c1df56ccb8d55..d2d0ff6456325 100644
-> --- a/arch/riscv/boot/dts/kendryte/k210.dtsi
-> +++ b/arch/riscv/boot/dts/kendryte/k210.dtsi
-> @@ -95,10 +95,12 @@ sysctl: sysctl@50440000 {
->  			#clock-cells = <1>;
->  		};
+> modified   mm/debug_vm_pgtable.c
+> @@ -548,7 +548,7 @@ static void __init pte_clear_tests(struct mm_struct *mm, pte_t *ptep,
+>  	pte_t pte = pfn_pte(pfn, prot);
 >  
-> -		clint0: interrupt-controller@2000000 {
-> +		clint0: clint@2000000 {
-> +			#interrupt-cells = <1>;
->  			compatible = "riscv,clint0";
->  			reg = <0x2000000 0xC000>;
-> -			interrupts-extended = <&cpu0_intc 3>,  <&cpu1_intc 3>;
-> +			interrupts-extended =  <&cpu0_intc 3 &cpu0_intc 7
-> +						&cpu1_intc 3 &cpu1_intc 7>;
->  			clocks = <&sysctl K210_CLK_ACLK>;
->  		};
->  
-> 
+>  	pr_debug("Validating PTE clear\n");
+> -	pte = __pte(pte_val(pte) | RANDOM_ORVALUE);
+> +//	pte = __pte(pte_val(pte) | RANDOM_ORVALUE);
+>  	set_pte_at(mm, vaddr, ptep, pte);
+>  	barrier();
+>  	pte_clear(mm, vaddr, ptep);
 
-Sasha,
-
-This is a fix for a problem in 5.9 tree. 5.8 kernel is fine without this patch.
-And I think applying it to 5.8 might actually break things since the proper
-clint driver was added to kernel 5.9 and does not exist in 5.8.
-
-Best regards.
-
--- 
-Damien Le Moal
-Western Digital Research
+Do we have a fix for this problem ? Otherwise we just risk going into
+the next release with this regression on riscv platforms.
 
 _______________________________________________
 linux-riscv mailing list
