@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D43DFC4727E
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Sep 2020 13:31:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2F6D2C4363D
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Sep 2020 13:35:57 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 519E42344C
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Sep 2020 13:31:21 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B875C20657
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Sep 2020 13:35:56 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="b1I3VUMs";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="RyVUh10c"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 519E42344C
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="RUSsnvFg";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="p32nBzNW"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B875C20657
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,42 +26,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=zStW3iMyb7n4TIvJJ3sKaf77jPhse5/2tCju0oixCEc=; b=b1I3VUMsGLSgwp+5O8asCAd8+
-	VwoG7ZO8xcKDpaIHsTcdrmBPBlKgN40HRsNORPQE9GiIti4pyAIJlKfm8ELUwZs1p5LoaOUFwERF5
-	409CqQxohcvZzLfHNCYUtW07CLrQp5ZTS8hXSm1igDzkNi4yPH3fMzsMakysTIcfNqoj/9YpBqZVT
-	ETe7FxmpvBPhDEGql1IxSksmXZuznzSlq4YPDzAt/C4U29Iy+g9r8jB2CBPMQ1/ctJg5JZjO48cpw
-	phW7o58ilrZItA0xPrw13USqaVQYZxLWOzE4flDs878WP4/lbf4yU+kq4xOzCpCBeG9wTpxCgv63p
-	YGk3KY1tg==;
+	 bh=Lsm0eoq5pthEHwU1H9tH/2gZAcpfuRnh+K4U33OPz6U=; b=RUSsnvFg50XdFRJ61YWSkeLAs
+	qhpzIpBlinevbupDuUiqp6kAPIjmExiG0lKWGX7cKZ2X7Kp5CpZyRC9mywbAuPDFsEROhYKC6upTE
+	86SINfi5KOmO4H6qZZy24tQmzw0m55B7KHMhrasiXbw+LelU7N7P+ctcHC4GtEJGq7bAKW6EaAQKV
+	JeD1W8fWLhs9EnOpYoXf/XliQOi8vEyIhtgS5xxodKjNMqYQvp9OlkB6+OR+vwX41KLH+Nrlu2cIg
+	/TrHmaRWAhvtGeT2FRdmapsx7n9NAJkFzyVEtIeWJiAsePLk4ydqnvJsvVwaLHVwyOkCIAxGUy+mp
+	JlXWRb/1w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kLRL4-00035r-M1; Thu, 24 Sep 2020 13:31:10 +0000
+	id 1kLRPW-000525-1I; Thu, 24 Sep 2020 13:35:46 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kLRKP-0002ke-AT; Thu, 24 Sep 2020 13:30:32 +0000
+ id 1kLRPD-0004uO-Qv; Thu, 24 Sep 2020 13:35:29 +0000
 Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id D8C2C2076D;
- Thu, 24 Sep 2020 13:30:18 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 90FE6238E4;
+ Thu, 24 Sep 2020 13:35:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1600954228;
- bh=ZF6ebB6ByDsVPLqbeCAiZ/D5kFit/eGAiTgw70Mqjh0=;
+ s=default; t=1600954527;
+ bh=gmPXyAX6NRORABRS1X+O+hlaJaxz4SMaYcsWwU32+YQ=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=RyVUh10cgDLiIdEqoRsO4Go/maTrDx6hf/gA6CT7BTYPMUcxh8gbb1QtRGyTj9JHD
- MW+bufqUeQloXkLoxL7WWTaiaNCtDvOQZPp8tGZPJENMn0a4jJo+B9RALkyJQaO6k5
- 1K8hF4tr6/W/LUOczKEP0RsH7toijiGM3qJp2MDc=
+ b=p32nBzNWVSlkrVPnxwe/lSmc0i585xyETJ13vozHH4MSaiQYdYQhbLRYp8OcGNviF
+ A3s8z1nuUKq2G3l1nKn8slJz++kKmb/ls5QtnT5kqETxZYNCs9p2nQ4ZN/ur/PWnmp
+ cAZVHTBRLlUKnA2dGaS9fYLKh/bUtZqXJRPNtM3c=
 From: Mike Rapoport <rppt@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH v6 6/6] secretmem: test: add basic selftest for memfd_secret(2)
-Date: Thu, 24 Sep 2020 16:29:04 +0300
-Message-Id: <20200924132904.1391-7-rppt@kernel.org>
+To: Michael Kerrisk <mtk.manpages@gmail.com>
+Subject: [PATCH] man2: new page describing memfd_secret() system call
+Date: Thu, 24 Sep 2020 16:35:13 +0300
+Message-Id: <20200924133513.1589-1-rppt@kernel.org>
 X-Mailer: git-send-email 2.28.0
 In-Reply-To: <20200924132904.1391-1-rppt@kernel.org>
 References: <20200924132904.1391-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200924_093029_673795_05A5A83F 
-X-CRM114-Status: GOOD (  28.31  )
+X-CRM114-CacheID: sfid-20200924_093528_048090_231BBFC9 
+X-CRM114-Status: GOOD (  27.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -73,8 +73,8 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
- Peter Zijlstra <peterz@infradead.org>,
+Cc: Mark Rutland <mark.rutland@arm.com>, linux-man@vger.kernel.org,
+ David Hildenbrand <david@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
  Catalin Marinas <catalin.marinas@arm.com>,
  Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
  Will Deacon <will@kernel.org>, linux-kselftest@vger.kernel.org,
@@ -84,15 +84,16 @@ Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
  Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
  Shuah Khan <shuah@kernel.org>, x86@kernel.org,
  Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
- Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
- Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
- Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Ingo Molnar <mingo@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
+ James Bottomley <jejb@linux.ibm.com>, Borislav Petkov <bp@alien8.de>,
+ Alexander Viro <viro@zeniv.linux.org.uk>, Andy Lutomirski <luto@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
  "Kirill A. Shutemov" <kirill@shutemov.name>,
  Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
  linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-fsdevel@vger.kernel.org, Mike Rapoport <rppt@kernel.org>
+ linux-fsdevel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+ Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
@@ -100,382 +101,196 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Mike Rapoport <rppt@linux.ibm.com>
 
-The test verifies that file descriptor created with memfd_secret does
-not allow read/write operations, that secret memory mappings respect
-RLIMIT_MEMLOCK and that remote accesses with process_vm_read() and
-ptrace() to the secret memory fail.
-
 Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
 ---
- tools/testing/selftests/vm/.gitignore     |   1 +
- tools/testing/selftests/vm/Makefile       |   3 +-
- tools/testing/selftests/vm/memfd_secret.c | 301 ++++++++++++++++++++++
- tools/testing/selftests/vm/run_vmtests    |  17 ++
- 4 files changed, 321 insertions(+), 1 deletion(-)
- create mode 100644 tools/testing/selftests/vm/memfd_secret.c
+ man2/memfd_secret.2 | 176 ++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 176 insertions(+)
+ create mode 100644 man2/memfd_secret.2
 
-diff --git a/tools/testing/selftests/vm/.gitignore b/tools/testing/selftests/vm/.gitignore
-index 849e8226395a..8a951fed3c3f 100644
---- a/tools/testing/selftests/vm/.gitignore
-+++ b/tools/testing/selftests/vm/.gitignore
-@@ -20,3 +20,4 @@ va_128TBswitch
- map_fixed_noreplace
- write_to_hugetlbfs
- hmm-tests
-+memfd_secret
-diff --git a/tools/testing/selftests/vm/Makefile b/tools/testing/selftests/vm/Makefile
-index a9026706d597..937afee6a8af 100644
---- a/tools/testing/selftests/vm/Makefile
-+++ b/tools/testing/selftests/vm/Makefile
-@@ -21,6 +21,7 @@ TEST_GEN_FILES += thuge-gen
- TEST_GEN_FILES += transhuge-stress
- TEST_GEN_FILES += userfaultfd
- TEST_GEN_FILES += khugepaged
-+TEST_GEN_FILES += memfd_secret
- 
- ifeq ($(ARCH),x86_64)
- CAN_BUILD_I386 := $(shell ./../x86/check_cc.sh $(CC) ../x86/trivial_32bit_program.c -m32)
-@@ -112,4 +113,4 @@ endif
- 
- $(OUTPUT)/userfaultfd: LDLIBS += -lpthread
- 
--$(OUTPUT)/mlock-random-test: LDLIBS += -lcap
-+$(OUTPUT)/mlock-random-test $(OUTPUT)/memfd_secret: LDLIBS += -lcap
-diff --git a/tools/testing/selftests/vm/memfd_secret.c b/tools/testing/selftests/vm/memfd_secret.c
+diff --git a/man2/memfd_secret.2 b/man2/memfd_secret.2
 new file mode 100644
-index 000000000000..81e1a8689241
+index 000000000..e4ecd3662
 --- /dev/null
-+++ b/tools/testing/selftests/vm/memfd_secret.c
-@@ -0,0 +1,301 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright 2020, Mike Rapoport, IBM Corporation.
-+ */
-+
-+#define _GNU_SOURCE
-+#include <sys/uio.h>
-+#include <sys/mman.h>
-+#include <sys/wait.h>
-+#include <sys/types.h>
-+#include <sys/ptrace.h>
-+#include <sys/syscall.h>
-+#include <sys/resource.h>
-+#include <sys/capability.h>
-+
-+#include <stdlib.h>
-+#include <string.h>
-+#include <unistd.h>
-+#include <errno.h>
-+#include <stdio.h>
-+
-+#include "../kselftest.h"
-+
-+#define fail(fmt, ...) ksft_test_result_fail(fmt, ##__VA_ARGS__)
-+#define pass(fmt, ...) ksft_test_result_pass(fmt, ##__VA_ARGS__)
-+#define skip(fmt, ...) ksft_test_result_skip(fmt, ##__VA_ARGS__)
-+
-+#ifdef __NR_memfd_secret
-+
-+#include <linux/secretmem.h>
-+
-+#define PATTERN	0x55
-+
-+static const int prot = PROT_READ | PROT_WRITE;
-+static const int mode = MAP_SHARED;
-+
-+static unsigned long page_size;
-+static unsigned long mlock_limit_cur;
-+static unsigned long mlock_limit_max;
-+
-+static int memfd_secret(unsigned long flags)
-+{
-+	return syscall(__NR_memfd_secret, flags);
-+}
-+
-+static void test_file_apis(int fd)
-+{
-+	char buf[64];
-+
-+	if ((read(fd, buf, sizeof(buf)) >= 0) ||
-+	    (write(fd, buf, sizeof(buf)) >= 0) ||
-+	    (pread(fd, buf, sizeof(buf), 0) >= 0) ||
-+	    (pwrite(fd, buf, sizeof(buf), 0) >= 0))
-+		fail("unexpected file IO\n");
-+	else
-+		pass("file IO is blocked as expected\n");
-+}
-+
-+static void test_mlock_limit(int fd)
-+{
-+	size_t len;
-+	char *mem;
-+
-+	len = mlock_limit_cur;
-+	mem = mmap(NULL, len, prot, mode, fd, 0);
-+	if (mem == MAP_FAILED) {
-+		fail("unable to mmap secret memory\n");
-+		return;
-+	}
-+	munmap(mem, len);
-+
-+	len = mlock_limit_max * 2;
-+	mem = mmap(NULL, len, prot, mode, fd, 0);
-+	if (mem != MAP_FAILED) {
-+		fail("unexpected mlock limit violation\n");
-+		munmap(mem, len);
-+		return;
-+	}
-+
-+	pass("mlock limit is respected\n");
-+}
-+
-+static void try_process_vm_read(int fd, int pipefd[2])
-+{
-+	struct iovec liov, riov;
-+	char buf[64];
-+	char *mem;
-+
-+	if (read(pipefd[0], &mem, sizeof(mem)) < 0) {
-+		fail("pipe write: %s\n", strerror(errno));
-+		exit(KSFT_FAIL);
-+	}
-+
-+	liov.iov_len = riov.iov_len = sizeof(buf);
-+	liov.iov_base = buf;
-+	riov.iov_base = mem;
-+
-+	if (process_vm_readv(getppid(), &liov, 1, &riov, 1, 0) < 0) {
-+		if (errno == ENOSYS)
-+			exit(KSFT_SKIP);
-+		exit(KSFT_PASS);
-+	}
-+
-+	exit(KSFT_FAIL);
-+}
-+
-+static void try_ptrace(int fd, int pipefd[2])
-+{
-+	pid_t ppid = getppid();
-+	int status;
-+	char *mem;
-+	long ret;
-+
-+	if (read(pipefd[0], &mem, sizeof(mem)) < 0) {
-+		perror("pipe write");
-+		exit(KSFT_FAIL);
-+	}
-+
-+	ret = ptrace(PTRACE_ATTACH, ppid, 0, 0);
-+	if (ret) {
-+		perror("ptrace_attach");
-+		exit(KSFT_FAIL);
-+	}
-+
-+	ret = waitpid(ppid, &status, WUNTRACED);
-+	if ((ret != ppid) || !(WIFSTOPPED(status))) {
-+		fprintf(stderr, "weird waitppid result %ld stat %x\n",
-+			ret, status);
-+		exit(KSFT_FAIL);
-+	}
-+
-+	/* this access should fail and the task should be killed */
-+	ret = ptrace(PTRACE_PEEKDATA, ppid, mem, 0);
-+	if (ret < 0) {
-+		perror("ptrace_peek");
-+		exit(KSFT_FAIL);
-+	}
-+
-+	/* we shouldn't survive PTRACE_PEEKDATA */
-+	exit(KSFT_FAIL);
-+}
-+
-+static void check_child_status(pid_t pid, const char *name)
-+{
-+	int status;
-+
-+	waitpid(pid, &status, 0);
-+
-+	if (WIFEXITED(status) && WEXITSTATUS(status) == KSFT_SKIP) {
-+		skip("%s is not supported\n", name);
-+		return;
-+	}
-+
-+	if ((WIFEXITED(status) && WEXITSTATUS(status) == KSFT_PASS) ||
-+	    WIFSIGNALED(status)) {
-+		pass("%s failed as expected\n", name);
-+		return;
-+	}
-+
-+	fail("%s: unexpected memory access\n", name);
-+}
-+
-+static void test_remote_access(int fd, const char *name,
-+			       void (*func)(int fd, int pipefd[2]))
-+{
-+	int pipefd[2];
-+	pid_t pid;
-+	char *mem;
-+
-+	if (pipe(pipefd)) {
-+		fail("pipe failed: %s\n", strerror(errno));
-+		return;
-+	}
-+
-+	pid = fork();
-+	if (pid < 0) {
-+		fail("fork failed: %s\n", strerror(errno));
-+		return;
-+	}
-+
-+	if (pid == 0) {
-+		func(fd, pipefd);
-+		return;
-+	}
-+
-+	mem = mmap(NULL, page_size, prot, mode, fd, 0);
-+	if (mem == MAP_FAILED) {
-+		fail("Unable to mmap secret memory\n");
-+		return;
-+	}
-+
-+	ftruncate(fd, page_size);
-+	memset(mem, PATTERN, page_size);
-+
-+	if (write(pipefd[1], &mem, sizeof(mem)) < 0) {
-+		fail("pipe write: %s\n", strerror(errno));
-+		return;
-+	}
-+
-+	check_child_status(pid, name);
-+}
-+
-+static void test_process_vm_read(int fd)
-+{
-+	test_remote_access(fd, "process_vm_read", try_process_vm_read);
-+}
-+
-+static void test_ptrace(int fd)
-+{
-+	test_remote_access(fd, "ptrace", try_ptrace);
-+}
-+
-+static int set_cap_limits(rlim_t max)
-+{
-+	struct rlimit new;
-+	cap_t cap = cap_init();
-+
-+	new.rlim_cur = max;
-+	new.rlim_max = max;
-+	if (setrlimit(RLIMIT_MEMLOCK, &new)) {
-+		perror("setrlimit() returns error");
-+		return -1;
-+	}
-+
-+	/* drop capabilities including CAP_IPC_LOCK */
-+	if (cap_set_proc(cap)) {
-+		perror("cap_set_proc() returns error");
-+		return -2;
-+	}
-+
-+	return 0;
-+}
-+
-+static void prepare(void)
-+{
-+	struct rlimit rlim;
-+
-+	page_size = sysconf(_SC_PAGE_SIZE);
-+	if (!page_size)
-+		ksft_exit_fail_msg("Failed to get page size %s\n",
-+				   strerror(errno));
-+
-+	if (getrlimit(RLIMIT_MEMLOCK, &rlim))
-+		ksft_exit_fail_msg("Unable to detect mlock limit: %s\n",
-+				   strerror(errno));
-+
-+	mlock_limit_cur = rlim.rlim_cur;
-+	mlock_limit_max = rlim.rlim_max;
-+
-+	printf("page_size: %ld, mlock.soft: %ld, mlock.hard: %ld\n",
-+	       page_size, mlock_limit_cur, mlock_limit_max);
-+
-+	if (page_size > mlock_limit_cur)
-+		mlock_limit_cur = page_size;
-+	if (page_size > mlock_limit_max)
-+		mlock_limit_max = page_size;
-+
-+	if (set_cap_limits(mlock_limit_max))
-+		ksft_exit_fail_msg("Unable to set mlock limit: %s\n",
-+				   strerror(errno));
-+}
-+
-+#define NUM_TESTS 4
-+
-+int main(int argc, char *argv[])
-+{
-+	int fd;
-+
-+	prepare();
-+
-+	ksft_print_header();
-+	ksft_set_plan(NUM_TESTS);
-+
-+	fd = memfd_secret(0);
-+	if (fd < 0) {
-+		if (errno == ENOSYS)
-+			ksft_exit_skip("memfd_secret is not supported\n");
-+		else
-+			ksft_exit_fail_msg("memfd_secret failed: %s\n",
-+					   strerror(errno));
-+	}
-+
-+	test_mlock_limit(fd);
-+	test_file_apis(fd);
-+	test_process_vm_read(fd);
-+	test_ptrace(fd);
-+
-+	close(fd);
-+
-+	ksft_exit(!ksft_get_fail_cnt());
-+}
-+
-+#else /* __NR_memfd_secret */
-+
-+int main(int argc, char *argv[])
-+{
-+	printf("skip: skipping memfd_secret test (missing __NR_memfd_secret)\n");
-+	return KSFT_SKIP;
-+}
-+
-+#endif /* __NR_memfd_secret */
-diff --git a/tools/testing/selftests/vm/run_vmtests b/tools/testing/selftests/vm/run_vmtests
-index a3f4f30f0a2e..bee7365f3cc2 100755
---- a/tools/testing/selftests/vm/run_vmtests
-+++ b/tools/testing/selftests/vm/run_vmtests
-@@ -323,4 +323,21 @@ else
- 	exitcode=1
- fi
- 
-+echo "running memfd_secret test"
-+echo "------------------------------------"
-+./memfd_secret
-+ret_val=$?
-+
-+if [ $ret_val -eq 0 ]; then
-+	echo "[PASS]"
-+elif [ $ret_val -eq $ksft_skip ]; then
-+	echo "[SKIP]"
-+	exitcode=$ksft_skip
-+else
-+	echo "[FAIL]"
-+	exitcode=1
-+fi
-+
-+exit $exitcode
-+
- exit $exitcode
++++ b/man2/memfd_secret.2
+@@ -0,0 +1,176 @@
++.\" Copyright (c) 2020, IBM Corporation.
++.\" Written by Mike Rapoport <rppt@linux.ibm.com>
++.\"
++.\" Based on memfd_create(2) man page
++.\" Copyright (C) 2014 Michael Kerrisk <mtk.manpages@gmail.com>
++.\" and Copyright (C) 2014 David Herrmann <dh.herrmann@gmail.com>
++.\"
++.\" %%%LICENSE_START(GPLv2+)
++.\"
++.\" This program is free software; you can redistribute it and/or modify
++.\" it under the terms of the GNU General Public License as published by
++.\" the Free Software Foundation; either version 2 of the License, or
++.\" (at your option) any later version.
++.\"
++.\" This program is distributed in the hope that it will be useful,
++.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
++.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
++.\" GNU General Public License for more details.
++.\"
++.\" You should have received a copy of the GNU General Public
++.\" License along with this manual; if not, see
++.\" <http://www.gnu.org/licenses/>.
++.\" %%%LICENSE_END
++.\"
++.TH MEMFD_SECRET 2 2020-08-02 Linux "Linux Programmer's Manual"
++.SH NAME
++memfd_secret \- create an anonymous file to map secret memory regions
++.SH SYNOPSIS
++.nf
++.B #include <linux/secretmem.h>
++.PP
++.BI "int memfd_secret(unsigned long " flags ");"
++.fi
++.PP
++.IR Note :
++There is no glibc wrapper for this system call; see NOTES.
++.SH DESCRIPTION
++.BR memfd_secret ()
++creates an anonymous file and returns a file descriptor that refers to it.
++The file can only be memory-mapped;
++the memory in such mapping
++will have stronger protection than usual memory mapped files,
++and so it can be used to store application secrets.
++Unlike a regular file, a file created with
++.BR memfd_secret ()
++lives in RAM and has a volatile backing storage.
++Once all references to the file are dropped, it is automatically released.
++The initial size of the file is set to 0.
++Following the call, the file size should be set using
++.BR ftruncate (2).
++.PP
++The memory areas obtained with
++.BR mmap (2)
++from the file descriptor are exclusive to the owning context.
++These areas are removed from the kernel page tables
++and only the page table of the process holding the file descriptor
++maps the corresponding physical memory.
++.PP
++The following values may be bitwise ORed in
++.IR flags
++to control the behavior of
++.BR memfd_secret (2):
++.TP
++.BR FD_CLOEXEC
++Set the close-on-exec flag on the new file descriptor.
++See the description of the
++.B O_CLOEXEC
++flag in
++.BR open (2)
++for reasons why this may be useful.
++.PP
++.TP
++.BR SECRETMEM_UNCACHED
++In addition to excluding memory areas from the kernel page tables,
++mark the memory mappings uncached in the page table of the owning process.
++Such mappings can be used to prevent speculative loads
++and cache-based side channels.
++This mode of
++.BR memfd_secret ()
++is not supported on all architectures.
++.PP
++See also NOTES below.
++.PP
++As its return value,
++.BR memfd_secret ()
++returns a new file descriptor that can be used to refer to an anonymous file.
++This file descriptor is opened for both reading and writing
++.RB ( O_RDWR )
++and
++.B O_LARGEFILE
++is set for the file descriptor.
++.PP
++With respect to
++.BR fork (2)
++and
++.BR execve (2),
++the usual semantics apply for the file descriptor created by
++.BR memfd_secret ().
++A copy of the file descriptor is inherited by the child produced by
++.BR fork (2)
++and refers to the same file.
++The file descriptor is preserved across
++.BR execve (2),
++unless the close-on-exec flag has been set.
++.PP
++The memory regions backed with
++.BR memfd_secret ()
++are locked in the same way as
++.BR mlock (2),
++however the implementation will not try to
++populate the whole range during the
++.BR mmap ()
++call.
++The amount of memory allowed for memory mappings
++of the file descriptor obeys the same rules as
++.BR mlock (2)
++and cannot exceed
++.B RLIMIT_MEMLOCK.
++.SH RETURN VALUE
++On success,
++.BR memfd_secret ()
++returns a new file descriptor.
++On error, \-1 is returned and
++.I errno
++is set to indicate the error.
++.SH ERRORS
++.TP
++.B ENOSYS
++.BR memfd_secret ()
++is not implemented on this architecture.
++.TP
++.B EINVAL
++.I flags
++included unknown bits.
++.TP
++.B EMFILE
++The per-process limit on the number of open file descriptors has been reached.
++.TP
++.B EMFILE
++The system-wide limit on the total number of open files has been reached.
++.TP
++.B ENOMEM
++There was insufficient memory to create a new anonymous file.
++.SH VERSIONS
++The
++.BR memfd_secret (2)
++system call first appeared in Linux 5.X;
++.SH CONFORMING TO
++The
++.BR memfd_secret (2)
++system call is Linux-specific.
++.SH NOTES
++The
++.BR memfd_secret (2)
++system call provides an ability to hide information
++from the operating system.
++Normally Linux userspace mappings are protected from other users,
++but they are visible to the privileged code.
++The mappings created using
++.BR memfd_secret ()
++are hidden from the kernel as well.
++.PP
++If an architecture supports
++.B SECRETMEM_UNCACHED,
++the mappings also have protection from speculative execution vulnerabilties,
++at the expense of increased memory access latency.
++Care should be taken when using
++.B
++SECRETMEM_UNCACHED
++to avoid degrading application performance.
++.SH SEE ALSO
++.BR fcntl (2),
++.BR ftruncate (2),
++.BR mlock (2),
++.BR mmap (2),
++.BR setrlimit (2),
 -- 
-2.28.0
+2.25.4
 
 
 _______________________________________________
