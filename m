@@ -2,90 +2,76 @@ Return-Path: <SRS0=cKew=DB=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.5 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-8.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 26741C4363D
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Sep 2020 14:56:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DD9B1C4363D
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Sep 2020 16:04:50 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AF455206C3
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Sep 2020 14:56:09 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 53D5F2388A
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Sep 2020 16:04:50 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="uVf38sXY";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="UF9OPLc7"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AF455206C3
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="TYTnFThK";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=nifty.com header.i=@nifty.com header.b="hzTI5ClF"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 53D5F2388A
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	Subject:References:To:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=YhFRAagXqf/hNSnMZhYyTXT1JAdVF+g9neGXVk1GI5E=; b=uVf38sXYLx4/2gUTffliBGPvN
-	VakMF1bzVWXgoBWilLm+CWyPRWBS0HwFqUU+AsmgPeI08zdG8cfTiInRRNXFZe17AVRiCiRHk8/bi
-	VSXN6I43ZID9m5tx/XaNzZ075ATu+OtO3hcfDHlnvZDssOk+EDl/ekKgIowAiSuukeww4odBC4Mj7
-	zuHbwMBbMJ7Flffcse9xVqFa153UM5aXpDnUIMs99Y6GQOQwlq1qVm3mf9WQnDJxQn53TK0vK21A1
-	u8wzU3gFCXhxrwOU0CV5sunyPmxc8Gwz2dMRI+cNbgzpDJIPI/wvjIg94skh6bTcfRg+EA3Taje7N
-	xEVwIrWig==;
+	 bh=2zGh/bSDzlreOD3C7UPuvYzZiQuUzHJEnKzDRO0l18U=; b=TYTnFThKoePDwitkceANTdjYm
+	f8/PiIfQqNgaGoRzl04smjup9Hla+5tic2hlEPglpDmwby2Cvt/nUawZ2T++D2y8my4OTouGRniiK
+	o03e7bhwlchrQ3M8s951AARVzv+1BwBgNaZQ+ZS+ECRsaOarBVcNss7Ug80+upqC4IDU4zkqDyjn1
+	FaXQom+tGoOEOjPZ9tK4Zwtvqyp7idV7d/wtj6qubNpR8EWSa8uohYAAK9eORoU+E7ULCRZwl3gBG
+	91BXJfo4hLQCQlUQzcz/n8dbJj8FdFdh0904PnY1u9yQghPHt6Sv53m4a41YKHDQFzlOV9Mp2VDh8
+	4Nkg8CBgA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kLSf9-0007r8-Ek; Thu, 24 Sep 2020 14:55:59 +0000
-Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
+	id 1kLTjY-000272-F1; Thu, 24 Sep 2020 16:04:36 +0000
+Received: from conssluserg-06.nifty.com ([210.131.2.91])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kLSf7-0007pQ-C3; Thu, 24 Sep 2020 14:55:58 +0000
-Received: by mail-wm1-x343.google.com with SMTP id b79so3913463wmb.4;
- Thu, 24 Sep 2020 07:55:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=to:cc:references:subject:from:message-id:date:user-agent
- :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=cxvl2MAleQcMTiG0WSrWtQ8ZVgZ+BIbKryf5RRhV2Ew=;
- b=UF9OPLc72qF28w6y+ivkNrmXc5fop6lS4sjwHWDd9rzAFwH/YxcaJyc57rdANGsIN4
- rYSEqsboWQ/6Rad3EEZAYH6sJkptJizRO8lNfWk6XYA0XKnfcTxYON3ug44BYQg9EMER
- pVgAFcgLfPn4DVLiJ3Hib3T01PXbwRe+Vojn0wE3Yok5pMEIejrXlJffXDd6qKuKAg44
- VtKof8h0scpGdPAcmiLAwTnzsODA8lRMiZPWSwQRsP90h1aLFuABF5VbrFI/sWnrFX0b
- uEmRRAQsmZaOnouVl0mGoQ3uar4fcGrE+qSzboc3C0J0BGGDyYXkJ66tiP5wIrQLNFZH
- wH4w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:to:cc:references:subject:from:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=cxvl2MAleQcMTiG0WSrWtQ8ZVgZ+BIbKryf5RRhV2Ew=;
- b=LA4TLe7fcCPECHQUjwWIIBd6A77abu5iPH26SsiRtq3WMkKzbt4E5DUqBuI1nnsadp
- Mu/eYiJRfBZl+TahqN66JeXaBEVa/fipTw2lg691xSXdvt0KNWfTR9ylbzVy4gr/5jTW
- QBEVF5NB64dyqpBCsqPIa7EsF4dlI3hmM9Sx7ILK41eP9FkZe8t8uArfBaEGvB8u2NX+
- NH38eZAoKlb5tCOSw3Ibe1Yg+7/ZOCxUAl/CIJCxhd5TjqqHteLWC3xpr/5Wai0RbH6F
- xNCntinRkvDa4rc5KWqtd4wENVZAJy65f5W+pUIrlaUYlIU5HkIVQhsQPPp8ctnkqque
- wlag==
-X-Gm-Message-State: AOAM533zou3VJE01FCc+srrY6DQtMWLaveuc+19RrJNOJehUtEDAGDNm
- vBElm+U2819emh+rAmXbx4g=
-X-Google-Smtp-Source: ABdhPJwA7ld5rBdiNBafXko+QQDLwn3uoHLR26xm9fJkwIdPYX0Ec6468qIEwFlntmVrZ1YEq/Neew==
-X-Received: by 2002:a1c:4b17:: with SMTP id y23mr5136571wma.162.1600959354790; 
- Thu, 24 Sep 2020 07:55:54 -0700 (PDT)
-Received: from [192.168.1.143] ([170.253.60.68])
- by smtp.gmail.com with ESMTPSA id h76sm4156994wme.10.2020.09.24.07.55.52
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Thu, 24 Sep 2020 07:55:54 -0700 (PDT)
-To: rppt@kernel.org
-References: <20200924133513.1589-1-rppt@kernel.org>
-Subject: Re: [PATCH] man2: new page describing memfd_secret() system call
-From: Alejandro Colomar <colomar.6.4.3@gmail.com>
-Message-ID: <efb6d051-2104-af26-bfb0-995f4716feb2@gmail.com>
-Date: Thu, 24 Sep 2020 16:55:51 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.12.0
+ id 1kLTjT-00025r-U6; Thu, 24 Sep 2020 16:04:33 +0000
+Received: from mail-pj1-f42.google.com (mail-pj1-f42.google.com
+ [209.85.216.42]) (authenticated)
+ by conssluserg-06.nifty.com with ESMTP id 08OG3umH021486;
+ Fri, 25 Sep 2020 01:03:57 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-06.nifty.com 08OG3umH021486
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
+ s=dec2015msa; t=1600963437;
+ bh=9ee9VwwvdZUxUdcXkkdp1U0lx4DpuWOQMZvDwgytdP8=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=hzTI5ClFT4hOzIoN61jwlSFslzZdSjOWWXR+OdW95+DN+iQjYnA0h0WUtB5ir816s
+ +DZ87UAF+nIACgqkwIw4F9pB0RMs1ARNQnZ4wFcSQGRMvfJthFhuGd/ENCPHOENHuh
+ octp/bzp1hYU7SieXdp8Wf8kOOIRC3q0kMMR+lkPNoxHYcUfwQ7enFrI2lNYZ4K/LV
+ gY9Q0QWN0Mw/Cl3KeRn0ZGc48MJPMumbOKVzGFiExWK6dhJe1YOlO3W3WCSsJW8CB2
+ QDxuQfR6FNom+nQiZKHYiceUnq0wFU2t6828TZmfd13Es7qIWNtebAxMt9+XnooEz8
+ GPoSxtqBHqrCQ==
+X-Nifty-SrcIP: [209.85.216.42]
+Received: by mail-pj1-f42.google.com with SMTP id u3so1836730pjr.3;
+ Thu, 24 Sep 2020 09:03:57 -0700 (PDT)
+X-Gm-Message-State: AOAM532JRihs+G0dsToDM3yGwcwPXb0bWRwRvggaRRFfjypV0K1CMuiP
+ mUPlyUXoInZ/Hah/ujgApDE8jCiO8mmvUyLIVhs=
+X-Google-Smtp-Source: ABdhPJyETrEzNzrVd1OXy91uCC2rbMXAsfzVerHQYhaGFjYLlItBVGJOuJ4Yzsw08mGvCA0s2iw7gEeNxhCwz3+/C+c=
+X-Received: by 2002:a17:90b:208:: with SMTP id fy8mr27540pjb.153.1600963436461; 
+ Thu, 24 Sep 2020 09:03:56 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20200924133513.1589-1-rppt@kernel.org>
-Content-Language: en-US
+References: <20200922232140.1994390-1-morbo@google.com>
+In-Reply-To: <20200922232140.1994390-1-morbo@google.com>
+From: Masahiro Yamada <masahiroy@kernel.org>
+Date: Fri, 25 Sep 2020 01:03:19 +0900
+X-Gmail-Original-Message-ID: <CAK7LNATjf+bVqkkoZgwu9sr-A+VXxEnW_R8nEwmH=aDEU6NAQw@mail.gmail.com>
+Message-ID: <CAK7LNATjf+bVqkkoZgwu9sr-A+VXxEnW_R8nEwmH=aDEU6NAQw@mail.gmail.com>
+Subject: Re: [PATCH] kbuild: explicitly specify the build id style
+To: Bill Wendling <morbo@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200924_105557_431750_F971BF81 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20200924_120432_283914_E118C729 
+X-CRM114-Status: GOOD (  12.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -97,40 +83,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, linux-man@vger.kernel.org, tglx@linutronix.de,
- david@redhat.com, peterz@infradead.org, catalin.marinas@arm.com,
- dave.hansen@linux.intel.com, linux-mm@kvack.org, will@kernel.org,
- linux-kselftest@vger.kernel.org, hpa@zytor.com, cl@linux.com,
- idan.yaniv@ibm.com, linux-riscv@lists.infradead.org, elena.reshetova@intel.com,
- linux-arch@vger.kernel.org, tycho@tycho.ws, linux-nvdimm@lists.01.org,
- shuah@kernel.org, x86@kernel.org, willy@infradead.org, rppt@linux.ibm.com,
- mingo@redhat.com, mtk.manpages@gmail.com, arnd@arndb.de, jejb@linux.ibm.com,
- bp@alien8.de, viro@zeniv.linux.org.uk, luto@kernel.org,
- paul.walmsley@sifive.com, kirill@shutemov.name, dan.j.williams@intel.com,
- linux-arm-kernel@lists.infradead.org, linux-api@vger.kernel.org,
- linux-kernel@vger.kernel.org, palmer@dabbelt.com,
- linux-fsdevel@vger.kernel.org, akpm@linux-foundation.org
+Cc: linux-s390 <linux-s390@vger.kernel.org>,
+ "open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>,
+ Michal Marek <michal.lkml@markovi.net>, bpf <bpf@vger.kernel.org>,
+ Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-mips@vger.kernel.org, Nathan Chancellor <natechancellor@gmail.com>,
+ Networking <netdev@vger.kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Andy Lutomirski <luto@kernel.org>, "H . Peter Anvin" <hpa@zytor.com>,
+ sparclinux <sparclinux@vger.kernel.org>,
+ "open list:SIFIVE DRIVERS" <linux-riscv@lists.infradead.org>,
+ Will Deacon <will@kernel.org>, "David S . Miller" <davem@davemloft.net>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-* Mike Rapoport:
- > +.PP
- > +.IR Note :
- > +There is no glibc wrapper for this system call; see NOTES.
+On Wed, Sep 23, 2020 at 8:21 AM Bill Wendling <morbo@google.com> wrote:
+>
+> ld's --build-id defaults to "sha1" style, while lld defaults to "fast".
+> The build IDs are very different between the two, which may confuse
+> programs that reference them.
+>
+> Signed-off-by: Bill Wendling <morbo@google.com>
+> ---
+>  Makefile                             | 4 ++--
+>  arch/arm/vdso/Makefile               | 2 +-
+>  arch/arm64/kernel/vdso/Makefile      | 2 +-
+>  arch/arm64/kernel/vdso32/Makefile    | 2 +-
+>  arch/mips/vdso/Makefile              | 2 +-
+>  arch/riscv/kernel/vdso/Makefile      | 2 +-
+>  arch/s390/kernel/vdso64/Makefile     | 2 +-
+>  arch/sparc/vdso/Makefile             | 2 +-
+>  arch/x86/entry/vdso/Makefile         | 2 +-
+>  tools/testing/selftests/bpf/Makefile | 2 +-
+>  10 files changed, 11 insertions(+), 11 deletions(-)
 
-You added a reference to NOTES, but then in notes there is nothing about 
-it.  I guess you wanted to add the following to NOTES (taken from 
-membarrier.2):
 
-.PP
-Glibc does not provide a wrapper for this system call; call it using
-.BR syscall (2).
+Applied to linux-kbuild.
+Thanks.
 
-Cheers,
-
-Alex
+-- 
+Best Regards
+Masahiro Yamada
 
 _______________________________________________
 linux-riscv mailing list
