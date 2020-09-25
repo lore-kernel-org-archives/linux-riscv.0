@@ -2,64 +2,67 @@ Return-Path: <SRS0=Z1AH=DC=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,
-	URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-10.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EABEDC4363D
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Sep 2020 03:47:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 75DF9C4363D
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Sep 2020 06:43:36 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4661B206CC
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Sep 2020 03:47:19 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id EE44B21D91
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Sep 2020 06:43:35 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="SnW6DJI/"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4661B206CC
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=allwinnertech.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="2tbYunlB";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="gp4/PTjO"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EE44B21D91
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MXWHAyVzyipauQQe8YVJqMfhBN1u7ZOAhh+8kNVixOA=; b=SnW6DJI/QJ5JK7Zrk2wXI+SZaS
-	8+qkqulJXDHb41scUoRTnAME4jQuhCGtUUt9BBeHrxy8PKho0eJ+LkzXFyDiBO64yyx3amxeLM0KV
-	iyn8/VBQHy3Rxl1j+K0D+W9W6Orc2HjdCtCUsRn9bYIWYWBD2i2jvM7DeB6jpGb2PYrpApfmtFia6
-	3XrAVnFaLdrltmAIGGEAXUtFEVvrOpkOjJnjOvlkL7PkjHJZT6O4ZybwwGQNHncHuB2AYXqgUGMTa
-	dGo+cYUzuN61KsCeg+CSwg0T/xcPOcjemUu8NHoYtRbJeEGmQ4CT9M9G2UDqb4udzV4hYluhFAjq8
-	a8qetcUA==;
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=c4Iifz3mRu1y8TZpqKes1A4OI4blCXHMykJEjJcJtkM=; b=2tbYunlBzTg465ZricstayWFM
+	hy3EV1CT4SRGEAh+mwCi5yS/45lztAcR2qBmCYH0Je7UdgKNwY8dS0iIgm16Ckw43iNOyWFvim2hX
+	OUTe1W0R/1wuLwpM6Dbo8I/1skhk3H+4VhcOJrvE3IQoRRssTOf+1vX/EUSFQkUxPJAZVirZd1lxi
+	uokM/eWIThr3nwBFFgMN4Wtiz0ya5YRC7KY6CS20GEBLx3CPOuKgV/bqbPwhZjeTSm88XVixbOLFs
+	DmynKxTVnZrjlfwf32M1IpoEsgDVM0/TH6DiUdq6xDvq2Q/4kyO5MUKG4XlDu3GhOyGT9I0Ldb3/1
+	UMFq/tXcA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kLehL-0003Vq-AS; Fri, 25 Sep 2020 03:47:03 +0000
-Received: from smtp2207-205.mail.aliyun.com ([121.197.207.205])
+	id 1kLhRx-0002WP-4T; Fri, 25 Sep 2020 06:43:21 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kLehF-0003Uz-H8
- for linux-riscv@lists.infradead.org; Fri, 25 Sep 2020 03:47:01 +0000
-X-Alimail-AntiSpam: AC=CONTINUE; BC=0.07447582|-1; CH=green;
- DM=|CONTINUE|false|;
- DS=CONTINUE|ham_system_inform|0.0059429-0.00236251-0.991695;
- FP=0|0|0|0|0|-1|-1|-1; HT=e02c03303; MF=liush@allwinnertech.com; NM=1; PH=DS;
- RN=15; RT=15; SR=0; TI=SMTPD_---.IbxjZj1_1601005602; 
-Received: from localhost.localdomain(mailfrom:liush@allwinnertech.com
- fp:SMTPD_---.IbxjZj1_1601005602)
- by smtp.aliyun-inc.com(10.147.41.143);
- Fri, 25 Sep 2020 11:46:46 +0800
-From: liush <liush@allwinnertech.com>
-To: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- rjw@rjwysocki.net, daniel.lezcano@linaro.org, anup.patel@wdc.com,
- keescook@chromium.org, christian.brauner@ubuntu.com, geert@linux-m68k.org,
- amanieu@gmail.com, guoren@linux.alibaba.com
-Subject: [v3] cpuidle: add riscv cpuidle driver
-Date: Fri, 25 Sep 2020 11:46:40 +0800
-Message-Id: <1601005600-32653-1-git-send-email-liush@allwinnertech.com>
-X-Mailer: git-send-email 2.7.4
+ id 1kLhRr-0002Tz-KN; Fri, 25 Sep 2020 06:43:17 +0000
+Received: from kernel.org (unknown [87.71.73.56])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 648B621D91;
+ Fri, 25 Sep 2020 06:43:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1601016194;
+ bh=w9IKlZIfJMsHxegJ+VLXCONApnJkHjt/WLrJovIxo84=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=gp4/PTjOTCt6wK+y6cBEuicvnrMX77A7MiRNbWPoUrNLDFWXc7dXI8MhLKiFWXqsv
+ W10CVzH2Sh5bikH6aMEPT2GD6WMerz6IjUQAM+CvT/52Z2l6KeVLCZlvbVQ+NG092g
+ JDBOaIbH10dUGBs84yFpT+eEft/TvzNhegpH41cU=
+Date: Fri, 25 Sep 2020 09:42:57 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>
+Subject: Re: [PATCH v6 0/6] mm: introduce memfd_secret system call to create
+ "secret" memory areas
+Message-ID: <20200925064257.GX2142832@kernel.org>
+References: <20200924132904.1391-1-rppt@kernel.org>
+ <20200924193428.6642e0cc3436bb67ddf8024a@linux-foundation.org>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20200924193428.6642e0cc3436bb67ddf8024a@linux-foundation.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200924_234658_084787_021CBC0D 
-X-CRM114-Status: GOOD (  22.10  )
+X-CRM114-CacheID: sfid-20200925_024315_929823_77CE3245 
+X-CRM114-Status: GOOD (  28.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -71,224 +74,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: liush <liush@allwinnertech.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
-MIME-Version: 1.0
+Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ Will Deacon <will@kernel.org>, linux-kselftest@vger.kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Christopher Lameter <cl@linux.com>,
+ Idan Yaniv <idan.yaniv@ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
+ Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
+ Shuah Khan <shuah@kernel.org>, x86@kernel.org,
+ Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
+ Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
+ Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-fsdevel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch adds a simple cpuidle driver for RISC-V systems using
-the WFI state. Other states will be supported in the future.
+On Thu, Sep 24, 2020 at 07:34:28PM -0700, Andrew Morton wrote:
+> On Thu, 24 Sep 2020 16:28:58 +0300 Mike Rapoport <rppt@kernel.org> wrote:
+> 
+> > From: Mike Rapoport <rppt@linux.ibm.com>
+> > 
+> > Hi,
+> > 
+> > This is an implementation of "secret" mappings backed by a file descriptor. 
+> > I've dropped the boot time reservation patch for now as it is not strictly
+> > required for the basic usage and can be easily added later either with or
+> > without CMA.
+> > 
+> > ...
+> > 
+> > The file descriptor backing secret memory mappings is created using a
+> > dedicated memfd_secret system call The desired protection mode for the
+> > memory is configured using flags parameter of the system call. The mmap()
+> > of the file descriptor created with memfd_secret() will create a "secret"
+> > memory mapping. The pages in that mapping will be marked as not present in
+> > the direct map and will have desired protection bits set in the user page
+> > table. For instance, current implementation allows uncached mappings.
+> > 
+> > Although normally Linux userspace mappings are protected from other users, 
+> > such secret mappings are useful for environments where a hostile tenant is
+> > trying to trick the kernel into giving them access to other tenants
+> > mappings.
+> > 
+> > Additionally, the secret mappings may be used as a mean to protect guest
+> > memory in a virtual machine host.
+> > 
+> > For demonstration of secret memory usage we've created a userspace library
+> > [1] that does two things: the first is act as a preloader for openssl to
+> 
+> I can find no [1].
 
-Reported-by: kernel test robot <lkp@intel.com>
-Signed-off-by: liush <liush@allwinnertech.com>
----
-Changes in v3:
-- fix the issue reported by kernel test robot
-  "drivers/cpuidle/cpuidle-riscv.c:22:12: warning: no previous prototype 
-   for 'riscv_low_level_suspend_enter' [-Wmissing-prototypes]"
-Changes in v2:
-- call "mb()" before run "WFI" in cpu_do_idle 
-- modify commit description 
-- place "select CPU_IDLE" in alphabetical order  
-- replace "__asm__ __volatile__ ("wfi")" with "wait_for_interrupt()" 
-- delete "cpuidle.c",move "cpu_do_idle()" to cpuidle.h 
-- modify "arch_cpu_idle", "cpu_do_idle" can be called by 
-  "arch_cpu_idle"
-- fix space/tab issues
-- modify riscv_low_level_suspend_enter to __weak mode
+Oops, sorry. It's
 
- arch/riscv/Kconfig               |  7 +++++
- arch/riscv/include/asm/cpuidle.h | 16 ++++++++++++
- arch/riscv/kernel/process.c      |  3 ++-
- drivers/cpuidle/Kconfig          |  5 ++++
- drivers/cpuidle/Kconfig.riscv    | 11 ++++++++
- drivers/cpuidle/Makefile         |  4 +++
- drivers/cpuidle/cpuidle-riscv.c  | 55 ++++++++++++++++++++++++++++++++++++++++
- 7 files changed, 100 insertions(+), 1 deletion(-)
- create mode 100644 arch/riscv/include/asm/cpuidle.h
- create mode 100644 drivers/cpuidle/Kconfig.riscv
- create mode 100644 drivers/cpuidle/cpuidle-riscv.c
+https://git.kernel.org/pub/scm/linux/kernel/git/jejb/secret-memory-preloader.git/
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index df18372..799bf86 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -33,6 +33,7 @@ config RISCV
- 	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
- 	select CLONE_BACKWARDS
- 	select COMMON_CLK
-+	select CPU_IDLE
- 	select EDAC_SUPPORT
- 	select GENERIC_ARCH_TOPOLOGY if SMP
- 	select GENERIC_ATOMIC64 if !64BIT
-@@ -407,6 +408,12 @@ config BUILTIN_DTB
- 	depends on RISCV_M_MODE
- 	depends on OF
- 
-+menu "CPU Power Management"
-+
-+source "drivers/cpuidle/Kconfig"
-+
-+endmenu
-+
- menu "Power management options"
- 
- source "kernel/power/Kconfig"
-diff --git a/arch/riscv/include/asm/cpuidle.h b/arch/riscv/include/asm/cpuidle.h
-new file mode 100644
-index 00000000..599b810
---- /dev/null
-+++ b/arch/riscv/include/asm/cpuidle.h
-@@ -0,0 +1,16 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __RISCV_CPUIDLE_H
-+#define __RISCV_CPUIDLE_H
-+
-+static inline void cpu_do_idle(void)
-+{
-+	/*
-+	 * Add mb() here to ensure that all
-+	 * IO/MEM access are completed prior
-+	 * to enter WFI.
-+	 */
-+	mb();
-+	wait_for_interrupt();
-+}
-+
-+#endif
-diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index 2b97c49..5431aaa 100644
---- a/arch/riscv/kernel/process.c
-+++ b/arch/riscv/kernel/process.c
-@@ -21,6 +21,7 @@
- #include <asm/string.h>
- #include <asm/switch_to.h>
- #include <asm/thread_info.h>
-+#include <asm/cpuidle.h>
- 
- register unsigned long gp_in_global __asm__("gp");
- 
-@@ -35,7 +36,7 @@ extern asmlinkage void ret_from_kernel_thread(void);
- 
- void arch_cpu_idle(void)
- {
--	wait_for_interrupt();
-+	cpu_do_idle();
- 	local_irq_enable();
- }
- 
-diff --git a/drivers/cpuidle/Kconfig b/drivers/cpuidle/Kconfig
-index c0aeedd..f6be0fd 100644
---- a/drivers/cpuidle/Kconfig
-+++ b/drivers/cpuidle/Kconfig
-@@ -62,6 +62,11 @@ depends on PPC
- source "drivers/cpuidle/Kconfig.powerpc"
- endmenu
- 
-+menu "RISCV CPU Idle Drivers"
-+depends on RISCV
-+source "drivers/cpuidle/Kconfig.riscv"
-+endmenu
-+
- config HALTPOLL_CPUIDLE
- 	tristate "Halt poll cpuidle driver"
- 	depends on X86 && KVM_GUEST
-diff --git a/drivers/cpuidle/Kconfig.riscv b/drivers/cpuidle/Kconfig.riscv
-new file mode 100644
-index 00000000..7bec059
---- /dev/null
-+++ b/drivers/cpuidle/Kconfig.riscv
-@@ -0,0 +1,11 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+#
-+# RISCV CPU Idle drivers
-+#
-+config RISCV_CPUIDLE
-+	bool "Generic RISCV CPU idle Driver"
-+	select DT_IDLE_STATES
-+	select CPU_IDLE_MULTIPLE_DRIVERS
-+	help
-+	  Select this option to enable generic cpuidle driver for RISCV.
-+	  Now only support C0 State.
-diff --git a/drivers/cpuidle/Makefile b/drivers/cpuidle/Makefile
-index 26bbc5e..4c83c4e 100644
---- a/drivers/cpuidle/Makefile
-+++ b/drivers/cpuidle/Makefile
-@@ -34,3 +34,7 @@ obj-$(CONFIG_MIPS_CPS_CPUIDLE)		+= cpuidle-cps.o
- # POWERPC drivers
- obj-$(CONFIG_PSERIES_CPUIDLE)		+= cpuidle-pseries.o
- obj-$(CONFIG_POWERNV_CPUIDLE)		+= cpuidle-powernv.o
-+
-+###############################################################################
-+# RISCV drivers
-+obj-$(CONFIG_RISCV_CPUIDLE)		+= cpuidle-riscv.o
-diff --git a/drivers/cpuidle/cpuidle-riscv.c b/drivers/cpuidle/cpuidle-riscv.c
-new file mode 100644
-index 00000000..5dddcfa
---- /dev/null
-+++ b/drivers/cpuidle/cpuidle-riscv.c
-@@ -0,0 +1,55 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * RISC-V CPU idle driver.
-+ *
-+ * Copyright (C) 2020-2022 Allwinner Ltd
-+ *
-+ * Based on code - driver/cpuidle/cpuidle-at91.c
-+ *
-+ */
-+#include <linux/cpuidle.h>
-+#include <linux/cpumask.h>
-+#include <linux/cpu_pm.h>
-+#include <linux/kernel.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/slab.h>
-+#include <linux/platform_device.h>
-+#include <asm/cpuidle.h>
-+
-+#define MAX_IDLE_STATES	1
-+
-+/* TODO: Implement deeper idle states */
-+static int riscv_low_level_suspend_enter(int state)
-+{
-+	return 0;
-+}
-+
-+/* Actual code that puts the SoC in different idle states */
-+static int riscv_enter_idle(struct cpuidle_device *dev,
-+			struct cpuidle_driver *drv,
-+			       int index)
-+{
-+	return CPU_PM_CPU_IDLE_ENTER_PARAM(riscv_low_level_suspend_enter,
-+					   index, 0);
-+}
-+
-+static struct cpuidle_driver riscv_idle_driver = {
-+	.name			= "riscv_idle",
-+	.owner			= THIS_MODULE,
-+	.states[0]		= {
-+		.enter			= riscv_enter_idle,
-+		.exit_latency		= 1,
-+		.target_residency	= 1,
-+		.name			= "WFI",
-+		.desc			= "RISCV WFI",
-+	},
-+	.state_count = MAX_IDLE_STATES,
-+};
-+
-+static int __init riscv_cpuidle_init(void)
-+{
-+	return cpuidle_register(&riscv_idle_driver, NULL);
-+}
-+
-+device_initcall(riscv_cpuidle_init);
+> I'm not a fan of the enumerated footnote thing.  Why not inline the url
+> right here so readers don't need to jump around?
+> 
+> 
+
 -- 
-2.7.4
-
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
