@@ -7,19 +7,18 @@ X-Spam-Status: No, score=-15.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
 	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2A6A4C2D0A8
-	for <linux-riscv@archiver.kernel.org>; Sat, 26 Sep 2020 04:35:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1C220C2D0A8
+	for <linux-riscv@archiver.kernel.org>; Sat, 26 Sep 2020 04:51:41 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AE2852075E
-	for <linux-riscv@archiver.kernel.org>; Sat, 26 Sep 2020 04:35:22 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 44565207EA
+	for <linux-riscv@archiver.kernel.org>; Sat, 26 Sep 2020 04:51:40 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Ue7QzFHR";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="EkgXmk9m";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="BE9XIvFv"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AE2852075E
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="UaJQ6Pil";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=osportal.onmicrosoft.com header.i=@osportal.onmicrosoft.com header.b="II/1ZLrS"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 44565207EA
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=openfive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -27,112 +26,93 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:Message-ID:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=qzv6qzwMVDsj4kBf0GIOeLuxly/rZUOpF64n6jq7kFI=; b=Ue7QzFHRZqMZvUdAJcFP2y6kT
-	YJNW32baALk4uFxAn6jQIQ9qGL6Ad4GyMs/pBWzJBcUJtbcAdUhuW/1fD3TMQpJVUxoV4E6bYF6MU
-	dqklyt2Yja1jvwOtfFnlB2q7oIWgvzEpAmq0i3YUPhrc5mqIVVAnlXPG1X1udKKBoUHFbvY1ryK2x
-	mLBbfyAswX5SX2NSLvVNxmOQEgQFyPDFAavAr/bLdW0l6nxZ3U6OAK7JzhjO6t2YYHmMBJoI0/Rnx
-	hQGTRSMBEXgkzazdauihm4q3Z0+Yf7VYN9iToqwd8KK/4eryU+ULlP5EVbJCumH4jE0JwYkBO/Iex
-	43scAYajg==;
+	 bh=H96HrDHUJasmy9lDohP+XRngiE8Z9IKyMOqV5VcJ6DU=; b=UaJQ6PilXPIVBeGjJm8RkZDk9
+	9RkLGMuSQ3707xcGTYWzDLUILHLkBOBSGGX+98SNCE19o13MWYaqh8y4jJq+7tfDdSFLbXfDKGsQT
+	r9kJYuRk5Rc68vizo/8+XzN4nTKvzk++ukMFRVouxL1dEc3IpJt2JsQ78/bRn14KDHdz3FqnhydVS
+	NvutzqToD4PR+S61fxorkNKXaVhpF/AKqeI3u1nCQqj7ymszN6f6QF/FIyzRjGLcal5ncZQA0mM3d
+	gMYeCdKO8dk3Rd2HlNb2SfGDVPXWZdukd82J0O5AOKlvvAdzH++hql0Cuu72J+EGOqAAvZg6tiGZC
+	W/njQgf3w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kM1vQ-0007F5-7N; Sat, 26 Sep 2020 04:35:08 +0000
-Received: from esa4.hgst.iphmx.com ([216.71.154.42])
+	id 1kM2BC-00005P-0N; Sat, 26 Sep 2020 04:51:26 +0000
+Received: from mail-bn8nam08on2085.outbound.protection.outlook.com
+ ([40.107.100.85] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kM1vO-0007Eh-A0
- for linux-riscv@lists.infradead.org; Sat, 26 Sep 2020 04:35:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1601094906; x=1632630906;
- h=from:to:cc:subject:date:message-id:references:
- in-reply-to:content-transfer-encoding:mime-version;
- bh=pIoLDN9Uvg57CkDEvrGWpBPrreQe2c5hNprev5L4gs8=;
- b=EkgXmk9mZCoPwkaE+2FoQ3tRRVVI9m/2tGMQ/QU2RMgxvbctmvCPIfxf
- cBzdRkgVaHDy5tiaIIpCRi3Nc4YJrx16UKYa/Ec+JugYFPKRO/KdbTChF
- N6ZIRVvPwvuBeCVxvWvLG30mRmahZmY4Wn0qAJOdu/ENoO/JVEkwdAFRo
- 8r7EVxz6cJySCbT/ZgwO+02Vsouzfc5S94KapciaS+XvpgstuVVZjt9mM
- se1CbQb8+ix1hT0cA9SwzjKXLDbWzGglhkEXSxf2y6ecHSFlw9UdF5KMM
- 4YIsfr98qJrSTRCLJE+dgELACy8uccrWRrlYlXYgLqTVnFiU71WQXnb1r A==;
-IronPort-SDR: XKH66uIxifvPyNeKm4g2o16hQ6+5uqYE21Q3Pr2eBYgYosS1POpbPaOZiKxsuKWE7CR0nDWsPK
- OQ/K78zBQ10ZTjY0Usl/KY8/incu+U27L6RD2hKQUhdNoXIZpSOwGZSqig5Nam+XVUOQIN7GMV
- apT8bcrBLMbo7V+ZhPVMO7rkz9C+xQ7s902t9GN8YYcVBNQComj9a3MEJ3YWxpv6nyxeuu2s3+
- 4sHArr9Qea5IusTPygSUirCMjpiqmTXUCcxOvs0dPy/zjku40ELFGw2lNoE9D5SvFCnCKpA1Yz
- uRA=
-X-IronPort-AV: E=Sophos;i="5.77,303,1596470400"; d="scan'208";a="148244306"
-Received: from mail-dm6nam12lp2173.outbound.protection.outlook.com (HELO
- NAM12-DM6-obe.outbound.protection.outlook.com) ([104.47.59.173])
- by ob1.hgst.iphmx.com with ESMTP; 26 Sep 2020 12:35:05 +0800
+ id 1kM2B9-0008Ob-1v
+ for linux-riscv@lists.infradead.org; Sat, 26 Sep 2020 04:51:24 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=GJIA2wemB6KQmZpNKps3D/EaEev9KhiTVPKsqdlk39XZLZNSE6Fxr84Ljf0xdfmC7dd7DKc1jmgjNnhaHGrholptugS/fQMvlTLdOT3csRB2ovv1t3CRHFKJN9NuuiLNEAqoVJLqwq6mss9XXZCdx7y9U8QM4rTCyT1n++6aanjG+lKyUzPmxjd/QZoD0LVwYpzPh6iLt3Ogc9KCEABbpt06y57UMIeSkj3udVvmsMexTjBm3NeVVdsTg3VS4LHq/s+pzTO98LqvdPrMj906FjEaRM21r3SoHTy53IcIBn2V0gTQogR+3wc+gbtfdj1P6zaknjXfVQ8Z3q1QvCEqHg==
+ b=Ssk9CjTjntKF2mx15PX1Y2z002r2+bcfmmRegNCEqcFnMtOXMFQZ9g6P2r45jVgit+xCC/Bum5ePkxFicjeYb6pes8JXEf5m2L6coGc/bIfrSVDGKShnpG68Y5egbgBsPEIE6GDfEV/Xz1mrN1s2pB/m8V4zkUF7aISzvkjP9/Bp/HjTvpvK58gL8nsqb7yQp2DlKlpRwbiu6q1u+gOo6p/gxCLKS6hTQZT3U37yUnkWgmCCa/XEg3YMHvHMxdyWWXBfHCae6lh87Tezz+Bm1ozgjPlO8tmp0Tuw2773N8OR2azNE8P19H5sU7p0AwDMNXG27GjJkzlnTIGY+uOKnw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7FRbs1XD1VFreMmb6fbiSWAKqUYy0ol1Gup9kRkUlfw=;
- b=HacSqdlMmb3RWP81B6z5FsN7Tuakd8hEbyH8Gkh9+5puENEXNcwpZ0WC8PGfVWGXRYxPPqetqbURfuAxFiKRPyagwMW5pDqRHuGHcD1oL5uN2DUWxih6Asz0UI4Op4CZNO1Xyp28M7rlevbDYm0bS/yl+qnSmFBneoDRMEyuNdI/prwZXqnnO4leqBh7p3kVg7jKAy4cdJ9oLsJep+Prozfhq/QyI7IlaW875EmIXlq2YhT1RA9+mtWx811YS1D3T/NBAnYPIJsQKp+XB6VZJrPIaXTeXyRmlpbHdyPhN54UyyW87IkOJLR9YsiA2BZyhnD6JBHAt1/QZ/ym/3pDCg==
+ bh=8/tAcgnSqSHtVwCgWm6wNOruR9r7HfGLL9aZ+CqMCB8=;
+ b=jM7xb5IN5NZ9lnUH11B+i0+io2ii4y7udjzY2pDSBcOv3xs7GJ9DkvQ2uDyd2D+5hfcwWpakLX+cduw258ZP0iY/vCZgmh38uuupwaOZ7Xg7BAfEEhYEccGThHT8mjtcw6UdEgcxS7SZAJ9WUfYN42ckadMSkJ0CoLVhs+2zHE/ZXrqNSI/Hz0RxCzMUtEvkh2m1x22Dpn5zgXquonnLhXzNnD8pe5sIMOpl79JV9nyQGSNN2C7IE4572dSBRVQCIh0Yo87Y52QgyTq+UzVRFl6DqG+JB9nGuauPIumOctdS4iST6mUDZ5p5EjM2GnIhHqHrQgdrcwIl2vNy0FiTCg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
- header.d=wdc.com; arc=none
+ smtp.mailfrom=openfive.com; dmarc=pass action=none header.from=openfive.com;
+ dkim=pass header.d=openfive.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
+ d=osportal.onmicrosoft.com; s=selector2-osportal-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7FRbs1XD1VFreMmb6fbiSWAKqUYy0ol1Gup9kRkUlfw=;
- b=BE9XIvFvXWG6jPHeCB8d6K4OeaCJEtbsqGLNkGN3EaKUwvgluZs8//hqICMtePNd0dopXkE9HBk8WMEdG+F5U8yASZEokn+MxwgQ+CHkVkyrm1OUG6saeX3ah0LOSeuuY9F90KfXLYm7MFtRWAkVzZ3RR3VXpDQdUUe2nSowPkA=
-Received: from DM6PR04MB6201.namprd04.prod.outlook.com (2603:10b6:5:127::32)
- by DM6PR04MB6361.namprd04.prod.outlook.com (2603:10b6:5:1e4::21) with
+ bh=8/tAcgnSqSHtVwCgWm6wNOruR9r7HfGLL9aZ+CqMCB8=;
+ b=II/1ZLrSuRL81AjtbdDDtZk/EqrfMtthZxV1ik1Lw963CJWV0zBhsVJbTk81RhRwQlk0k6ZvE4W93OKlx/wvdiA5kFYnTMsINYpK8ZjdeEc6AwxO8rcecJHOZMnqG5OQoMm/Q4apRmkCcUSenuON570uJzc7U9voYN9WFFVtDGc=
+Received: from DM6PR13MB3451.namprd13.prod.outlook.com (2603:10b6:5:1c3::10)
+ by DM6PR13MB4284.namprd13.prod.outlook.com (2603:10b6:5:33::20) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3412.22; Sat, 26 Sep
- 2020 04:35:04 +0000
-Received: from DM6PR04MB6201.namprd04.prod.outlook.com
- ([fe80::607a:44ed:1477:83e]) by DM6PR04MB6201.namprd04.prod.outlook.com
- ([fe80::607a:44ed:1477:83e%7]) with mapi id 15.20.3391.020; Sat, 26 Sep 2020
- 04:35:04 +0000
-From: Anup Patel <Anup.Patel@wdc.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>, Palmer Dabbelt
- <palmerdabbelt@google.com>, Paul Walmsley <paul.walmsley@sifive.com>, Albert
- Ou <aou@eecs.berkeley.edu>
-Subject: RE: [RFC PATCH] RISC-V: Use SBI SRST extension when available
-Thread-Topic: [RFC PATCH] RISC-V: Use SBI SRST extension when available
-Thread-Index: AQHWky9myNjW22P19EaZyMWbu6RR4al6Vj3g
-Date: Sat, 26 Sep 2020 04:35:04 +0000
-Message-ID: <DM6PR04MB620119FCC5EFE2D32AE833778D370@DM6PR04MB6201.namprd04.prod.outlook.com>
-References: <20200925113057.725911-1-anup.patel@wdc.com>
-In-Reply-To: <20200925113057.725911-1-anup.patel@wdc.com>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3433.13; Sat, 26 Sep
+ 2020 04:51:10 +0000
+Received: from DM6PR13MB3451.namprd13.prod.outlook.com
+ ([fe80::a48a:1f7c:267c:876]) by DM6PR13MB3451.namprd13.prod.outlook.com
+ ([fe80::a48a:1f7c:267c:876%7]) with mapi id 15.20.3433.013; Sat, 26 Sep 2020
+ 04:51:10 +0000
+From: Sagar Kadam <sagar.kadam@openfive.com>
+To: Rob Herring <robh@kernel.org>
+Subject: RE: [PATCH v1 3/3] dt-bindings: riscv: convert pwm bindings to
+ json-schema
+Thread-Topic: [PATCH v1 3/3] dt-bindings: riscv: convert pwm bindings to
+ json-schema
+Thread-Index: AQHWh19mPLif9BYIJ02zgijqLyV6M6l1MZAAgARda5A=
+Date: Sat, 26 Sep 2020 04:51:09 +0000
+Message-ID: <DM6PR13MB3451F3BECC0B04765B68ED4997370@DM6PR13MB3451.namprd13.prod.outlook.com>
+References: <1599734644-4791-1-git-send-email-sagar.kadam@sifive.com>
+ <1599734644-4791-4-git-send-email-sagar.kadam@sifive.com>
+ <20200922203714.GA3195489@bogus>
+In-Reply-To: <20200922203714.GA3195489@bogus>
 Accept-Language: en-US
 Content-Language: en-US
 X-MS-Has-Attach: 
 X-MS-TNEF-Correlator: 
-authentication-results: dabbelt.com; dkim=none (message not signed)
- header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
-x-originating-ip: [122.179.118.155]
+authentication-results: kernel.org; dkim=none (message not signed)
+ header.d=none;kernel.org; dmarc=none action=none header.from=openfive.com;
+x-originating-ip: [116.74.145.229]
 x-ms-publictraffictype: Email
-x-ms-office365-filtering-ht: Tenant
-x-ms-office365-filtering-correlation-id: 9c55b253-cb46-496c-93c7-08d861d58a0c
-x-ms-traffictypediagnostic: DM6PR04MB6361:
+x-ms-office365-filtering-correlation-id: 14f411b0-0615-4a49-67f0-08d861d7c9a2
+x-ms-traffictypediagnostic: DM6PR13MB4284:
+x-ld-processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
 x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <DM6PR04MB6361FE07BBAE0BC9EF8693308D370@DM6PR04MB6361.namprd04.prod.outlook.com>
-wdcipoutbound: EOP-TRUE
-x-ms-oob-tlc-oobclassifiers: OLM:6108;
+x-microsoft-antispam-prvs: <DM6PR13MB42844FD5FC1B37CE7F251AC997370@DM6PR13MB4284.namprd13.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:5236;
 x-ms-exchange-senderadcheck: 1
 x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: jCi3rxZBaYAm6+XREtFWC/bL1ZxFlxM9cnvPKLP+2/2VMfTeVYw3sMRpcC9mvQNyGW3KpWY9ygE/1mRovn6E5HdKxF14Im9M0UrLUuz+muRE6a38EJMxYiPDLmioxIA26+Xy0AKt+AqkApxSGvaqzOjAMDwx3+apUjcuYAyFsU/L8rr8/zDinbC8Vb6EsW0T0Qz+8Nnh2xyDg+a8XWAH+geamqLa+TaIf81EITEXJuqbqg2QETV50nbl3ZPlhvqA1fcmIc4NrnNgMajXt4tGaunhAG8wQJ4GYq2gCgTK9alYM1/5C0tIXR9JLftxMiXnfD+8bfCtJn63s9idnKYePRC0rSAuOvxugMDhtvvJZxrKggMtx2IuVb21nYWMXD8RhqtlRElC/d5KvYihEGE9KEkm7/JA2rZlr27ceTqERs+Jz7bWhsrhsbQ/pcMB7XoIQKF5vuHALoaT2BNh+0mG9Q==
+x-microsoft-antispam-message-info: sq93CtvmUjIBJqdA7p2x6L/kY9rfJVZFoKnFyHoo4R2yr1QIanrXnT26k4DfxkuXzsr+rnTdDUL35HfH11Fqd8qTIEwKXojB6FaZUcDjVblOLARZpfyQZ5IX72lyi/g0alKD3zDkxa5LwjkCvpD6O5XTSclPjJnBOOI+UgYLjCG4tDXdLDwMI8c7G3lEUkCBlxUuv0O8lQGEr+WqMcKeTru39v1hxXxQtVmTrzCMKyyTtVDtfoK/vkhpyeFct4kdmP5yDYm9Ok9XRQiCEOityix7I08sZwSSZCbR9u9YwoiACShQwOkRVZjmaIp3xohzMyXcqPn+EiVqeGalCXx9ip490trXz+QbirYyy2qTBMuSNMBGFmm+uGsmTZJ6dZvn9NsqTSJrRfaPL2AGiZTCkg==
 x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:DM6PR04MB6201.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(396003)(136003)(346002)(376002)(39860400002)(366004)(6506007)(53546011)(54906003)(110136005)(55016002)(33656002)(26005)(316002)(8936002)(186003)(7696005)(76116006)(66946007)(83380400001)(5660300002)(8676002)(478600001)(9686003)(71200400001)(966005)(52536014)(2906002)(64756008)(4326008)(66556008)(66476007)(66446008)(86362001);
- DIR:OUT; SFP:1102; 
-x-ms-exchange-antispam-messagedata: JvYPmL9xF7eZR7hUjuQr1hmDnX4vRq5lFMJfigk/DB+Y3F9KczeKo82Ge8wnQP3l2lrEFO+Hqnh/X86SXVyQCXTsgp81maxoyZVsnLwapTfw7l8PA71YUcgeu6gPE5XO2WeK8ZGNzb5NF9QYjbhdyQ2L/yVIv2y9OqcB+yjMPgqBRcBXC0UX+UpEd/HCalGNx+eaDGXDU3sLGmxNujzO6zmKpVhpLnGJ6jmd4sSdJSIy51tsg8JfrnRNb+jsrbVZ7AWI4RIsOCw4jWzgFtStY820f37jJIXWnQ4z8lBme6jzooizO2G4JjzmMDWOltl+iUliT9mKt7K74ko2+fksolPGYnsgWHZb9HSnC0JuiC+OwtOU8R0STDudIt7Y/bhOnTQgHusIkQhmkdqKv2VTRr4oQo59wOY8uQqtn5zY8/JnAB9Zy67rSOmJUFzvSoFJpUjruYbHvt6n0qojKXO8W74/K0gAZV1q5UgIEChcSpBFnJ4LXNT7uoEOKrCs0uXKfiQ4BWG2CJ9N0iCOse8NwCe6SXc6Z1LiPSrgMwcYKNrf9XStwuFhYmHKtO+hvBt8vAuxLlHgJflahxFgbWNTVeZR2D9IZ0pxJ0Ows6MmyGQLnABc1Nvf39bQLUCgBpLiSZvgtFqzqnISrRlF2mHV6w==
+ IPV:NLI; SFV:NSPM; H:DM6PR13MB3451.namprd13.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(366004)(396003)(39840400004)(376002)(346002)(136003)(4326008)(186003)(44832011)(26005)(7416002)(86362001)(7696005)(8936002)(966005)(83080400001)(6506007)(53546011)(83380400001)(55236004)(107886003)(8676002)(33656002)(478600001)(66556008)(66446008)(66476007)(64756008)(52536014)(5660300002)(54906003)(316002)(55016002)(9686003)(2906002)(71200400001)(66946007)(76116006)(6916009);
+ DIR:OUT; SFP:1101; 
+x-ms-exchange-antispam-messagedata: ZmSQuDScKBGe7S1DnxTqWxhLc6xhnunAUOfILYaqPQML1GXnQ283zYDWySwGAZPN0Q3Fyea8+WJ6M+MzbTix1BSA+9VCsggcM+7y91mmVFSTY63BgyWVdgdGu8TbggCVyfmpQfZjY8jU8P/NYz68C8qR70EpXP10rs/rqKh0985LMSovwxouWCLuiBxefDVq5010H9emA0hQddBdiOCXBbu2zz0DmoSPXqVcXGIAIrYdfYOeK4tJXztWCSe6iUHLpNj/x7f9/O5mE7YJeFDMjlbuZ/gZ1lh0FWBTm0x88O7ssNuZF7FQabUpYDNQ0NuhszVZ0HvJys7aapShKG0iv1yQmoE4itwhdnqw+tfhcPP4BnL5Nf91cJ6v64lnoLAtWRTpvwqr1yWxN3hO3VE0/PVLL/VYMVAPk90BMQS4R5q1E3z9Q+FeAKId9Upho3NDvkL2VwmTIDxQ3qHRvVdXWgNDCgkXA6byA5+SeP5vJP30F7f3KT50/sL+2By44/heweqdNsfhheItwosV58QJbkVpN0nLTIRbknJDx4ts6mL6/FoESoBo3MkYsE7hFqnVOc+TDFwdXVivsO3WL+T+0jziQaFYw5j4wzJgGgE1X1grQ6OKOsalwT/hIRKoYrYelE1OoxKHyVABMgbXyxzQRw==
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
+X-OriginatorOrg: openfive.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR04MB6201.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9c55b253-cb46-496c-93c7-08d861d58a0c
-X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Sep 2020 04:35:04.4034 (UTC)
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR13MB3451.namprd13.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 14f411b0-0615-4a49-67f0-08d861d7c9a2
+X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Sep 2020 04:51:09.9193 (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
+X-MS-Exchange-CrossTenant-id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: x+Bwrpf+Cw4QBFD4/qXYze1gZKOjLh1pUMTtUjlmTJNGIIzWDhA7k3Ez7/0Qe9D7JpA06Zm/Q2hhZ7SZchPwGg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR04MB6361
+X-MS-Exchange-CrossTenant-userprincipalname: zOuvvn3k2XQ2289LA1xbG8ANrZ5vRnAb2xjKcZag5zZH/5nLQYp1f80zEXC1YXRPjxvW6M/Y1MrlmX8HT+EkaA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR13MB4284
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200926_003506_472418_985C60C2 
-X-CRM114-Status: GOOD (  22.03  )
+X-CRM114-CacheID: sfid-20200926_005123_114632_94F815FE 
+X-CRM114-Status: GOOD (  29.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -144,135 +124,226 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Atish Patra <Atish.Patra@wdc.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- Alistair Francis <Alistair.Francis@wdc.com>,
+Cc: "linux-pwm@vger.kernel.org" <linux-pwm@vger.kernel.org>,
+ "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+ "tglx@linutronix.de" <tglx@linutronix.de>,
+ "jason@lakedaemon.net" <jason@lakedaemon.net>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "sboyd@kernel.org" <sboyd@kernel.org>, "maz@kernel.org" <maz@kernel.org>,
+ "mturquette@baylibre.com" <mturquette@baylibre.com>,
+ "u.kleine-koenig@pengutronix.de" <u.kleine-koenig@pengutronix.de>,
  "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Anup Patel <anup@brainfault.org>
+ Yash Shah <yash.shah@openfive.com>,
+ "thierry.reding@gmail.com" <thierry.reding@gmail.com>,
+ "palmer@dabbelt.com" <palmer@dabbelt.com>,
+ "Paul Walmsley \( Sifive\)" <paul.walmsley@sifive.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "lee.jones@linaro.org" <lee.jones@linaro.org>,
+ "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
+Hello Rob,
 
 > -----Original Message-----
-> From: Anup Patel <Anup.Patel@wdc.com>
-> Sent: 25 September 2020 17:01
-> To: Palmer Dabbelt <palmer@dabbelt.com>; Palmer Dabbelt
-> <palmerdabbelt@google.com>; Paul Walmsley <paul.walmsley@sifive.com>;
-> Albert Ou <aou@eecs.berkeley.edu>
-> Cc: Atish Patra <Atish.Patra@wdc.com>; Alistair Francis
-> <Alistair.Francis@wdc.com>; Anup Patel <anup@brainfault.org>; linux-
-> riscv@lists.infradead.org; linux-kernel@vger.kernel.org; Anup Patel
-> <Anup.Patel@wdc.com>
-> Subject: [RFC PATCH] RISC-V: Use SBI SRST extension when available
+> From: Rob Herring <robh@kernel.org>
+> Sent: Wednesday, September 23, 2020 2:07 AM
+> To: Sagar Kadam <sagar.kadam@openfive.com>
+> Cc: linux-pwm@vger.kernel.org; linux-kernel@vger.kernel.org; linux-
+> riscv@lists.infradead.org; devicetree@vger.kernel.org; linux-
+> clk@vger.kernel.org; mturquette@baylibre.com; sboyd@kernel.org; Paul
+> Walmsley ( Sifive) <paul.walmsley@sifive.com>; palmer@dabbelt.com;
+> tglx@linutronix.de; jason@lakedaemon.net; maz@kernel.org;
+> thierry.reding@gmail.com; u.kleine-koenig@pengutronix.de;
+> lee.jones@linaro.org; aou@eecs.berkeley.edu; Yash Shah
+> <yash.shah@openfive.com>
+> Subject: Re: [PATCH v1 3/3] dt-bindings: riscv: convert pwm bindings to json-
+> schema
 > 
-> The SBI SRST extension provides a standard way to poweroff and reboot the
-> system irrespective to whether Linux RISC-V S-mode is running natively (HS-
-> mode) or inside Guest/VM (VS-mode).
+> [External Email] Do not click links or attachments unless you recognize the
+> sender and know the content is safe
 > 
-> The draft specification of SBI SRST extension is available in
-> srbt_v1 branch of: https://github.com/avpatel/riscv-sbi-doc.
+> On Thu, Sep 10, 2020 at 04:14:04PM +0530, Sagar Kadam wrote:
+> > Convert device tree bindings for SiFive's PWM controller to YAML
+> > format.
+> >
+> > Signed-off-by: Sagar Kadam <sagar.kadam@sifive.com>
+> > ---
+> >  .../devicetree/bindings/pwm/pwm-sifive.txt         | 33 ----------
+> >  .../devicetree/bindings/pwm/pwm-sifive.yaml        | 72
+> ++++++++++++++++++++++
+> >  2 files changed, 72 insertions(+), 33 deletions(-)  delete mode
+> > 100644 Documentation/devicetree/bindings/pwm/pwm-sifive.txt
+> >  create mode 100644
+> > Documentation/devicetree/bindings/pwm/pwm-sifive.yaml
+> >
+> > diff --git a/Documentation/devicetree/bindings/pwm/pwm-sifive.txt
+> > b/Documentation/devicetree/bindings/pwm/pwm-sifive.txt
+> > deleted file mode 100644
+> > index 3d1dd7b0..0000000
+> > --- a/Documentation/devicetree/bindings/pwm/pwm-sifive.txt
+> > +++ /dev/null
+> > @@ -1,33 +0,0 @@
+> > -SiFive PWM controller
+> > -
+> > -Unlike most other PWM controllers, the SiFive PWM controller
+> > currently only -supports one period for all channels in the PWM. All
+> > PWMs need to run at -the same period. The period also has significant
+> > restrictions on the values -it can achieve, which the driver rounds to the
+> nearest achievable period.
+> > -PWM RTL that corresponds to the IP block version numbers can be found
+> > -here:
+> > -
+> > -https://github.com/sifive/sifive-blocks/tree/master/src/main/scala/de
+> > vices/pwm
+> > -
+> > -Required properties:
+> > -- compatible: Should be "sifive,<chip>-pwm" and "sifive,pwm<version>".
+> > -  Supported compatible strings are: "sifive,fu540-c000-pwm" for the
+> > SiFive
+> > -  PWM v0 as integrated onto the SiFive FU540 chip, and "sifive,pwm0"
+> > for the
+> > -  SiFive PWM v0 IP block with no chip integration tweaks.
+> > -  Please refer to sifive-blocks-ip-versioning.txt for details.
+> > -- reg: physical base address and length of the controller's registers
+> > -- clocks: Should contain a clock identifier for the PWM's parent clock.
+> > -- #pwm-cells: Should be 3. See pwm.yaml in this directory
+> > -  for a description of the cell format.
+> > -- interrupts: one interrupt per PWM channel
+> > -
+> > -Examples:
+> > -
+> > -pwm:  pwm@10020000 {
+> > -     compatible = "sifive,fu540-c000-pwm", "sifive,pwm0";
+> > -     reg = <0x0 0x10020000 0x0 0x1000>;
+> > -     clocks = <&tlclk>;
+> > -     interrupt-parent = <&plic>;
+> > -     interrupts = <42 43 44 45>;
+> > -     #pwm-cells = <3>;
+> > -};
+> > diff --git a/Documentation/devicetree/bindings/pwm/pwm-sifive.yaml
+> > b/Documentation/devicetree/bindings/pwm/pwm-sifive.yaml
+> > new file mode 100644
+> > index 0000000..415d053
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/pwm/pwm-sifive.yaml
+> > @@ -0,0 +1,72 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) # Copyright
+> > +(C) 2020 SiFive, Inc.
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/pwm/pwm-sifive.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: SiFive PWM controller
+> > +
+> > +maintainers:
+> > +  - Yash Shah <yash.shah@sifive.com>
+> > +  - Sagar Kadam <sagar.kadam@sifive.com>
+> > +  - Paul Walmsley <paul.walmsley@sifive.com>
+> > +
+> > +description:
+> > +  Unlike most other PWM controllers, the SiFive PWM controller
+> > +currently
+> > +  only supports one period for all channels in the PWM. All PWMs need
+> > +to
+> > +  run at the same period. The period also has significant
+> > +restrictions on
+> > +  the values it can achieve, which the driver rounds to the nearest
+> > +  achievable period. PWM RTL that corresponds to the IP block version
+> > +  numbers can be found here -
+> > +
+> > +
+> > + https://github.com/sifive/sifive-blocks/tree/master/src/main/scala/d
+> > + evices/pwm
+> > +
+> > +properties:
+> > +  compatible:
+> > +    items:
+> > +      - const: sifive,fu540-c000-pwm
+> > +      - const: sifive,pwm0
+> > +    description:
+> > +      Should be "sifive,<chip>-pwm" and "sifive,pwm<version>". Supported
+> > +      compatible strings are "sifive,fu540-c000-pwm" for the SiFive PWM v0
+> > +      as integrated onto the SiFive FU540 chip, and "sifive,pwm0" for the
+> > +      SiFive PWM v0 IP block with no chip integration tweaks.
+> > +      Please refer to sifive-blocks-ip-versioning.txt for details.
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +    description: Physical base address and length of the controller's
+> > + registers
 > 
-> This patch extends Linux RISC-V SBI implementation to detect and use SBI
-> SRST extension.
+> Drop description.
+Okay.
 > 
-> Signed-off-by: Anup Patel <anup.patel@wdc.com>
-> ---
->  arch/riscv/include/asm/sbi.h |  7 +++++++
->  arch/riscv/kernel/sbi.c      | 25 +++++++++++++++++++++++++
->  2 files changed, 32 insertions(+)
+> > +
+> > +  clocks:
+> > +    description: Should contain a clock identifier for the PWM's parent
+> clock.
 > 
-> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h index
-> 653edb25d495..2fcecec7dd0c 100644
-> --- a/arch/riscv/include/asm/sbi.h
-> +++ b/arch/riscv/include/asm/sbi.h
-> @@ -27,6 +27,7 @@ enum sbi_ext_id {
->  	SBI_EXT_IPI = 0x735049,
->  	SBI_EXT_RFENCE = 0x52464E43,
->  	SBI_EXT_HSM = 0x48534D,
-> +	SBI_EXT_SRST = 0x53525354,
->  };
+> How many clocks?
 > 
->  enum sbi_ext_base_fid {
-> @@ -70,6 +71,12 @@ enum sbi_hsm_hart_status {
->  	SBI_HSM_HART_STATUS_STOP_PENDING,
->  };
+PWM IP block instance is clocked with single clock (tlclk).
+> > +
+> > +  "#pwm-cells":
+> > +    const: 3
+> > +    description:
+> > +      Should be 3. See pwm.yaml in this directory for a description of the
+> > +      cell format.
 > 
-> +enum sbi_ext_srst_fid {
-> +	SBI_EXT_SRST_SHUTDOWN = 0,
-> +	SBI_EXT_SRST_COLD_REBOOT,
-> +	SBI_EXT_SRST_WARM_REBOOT
-> +};
-> +
+> Drop.
+Okay, I will drop this description.
+> 
+> > +
+> > +  interrupts:
+> > +    maxItems: 1
+> 
+> Is it 1 or...
+> 
+> > +    description: One interrupt per PWM channel.
+> 
+> one per channel?
+> 
+Each PWM instance in FU540-C000 has 4 independent comparator's 
+each capable of generating interrupts.  So maxItems need to be 4 and I can 
+include it in description something like:
+ " description: 
+        Each PWM instance in FU540-C000 has 4 comparators. One interrupt per comparator" 
+> > +
+> > +required:
+> > +  - compatible
+> > +  - reg
+> > +  - clocks
+> > +  - "#pwm-cells"
+> > +  - interrupts
+> > +
+> > +additionalProperties: false
+> > +
+> > +examples:
+> > +  - |
+> > +    pwm:  pwm@10020000 {
+> > +      compatible = "sifive,fu540-c000-pwm", "sifive,pwm0";
+> > +      reg = <0x10020000 0x1000>;
+> > +      clocks = <&tlclk>;
+> > +      interrupt-parent = <&plic>;
+> > +      interrupts = <42 43 44 45>;
+> 
+> Split entries:
+> 
+> interrupts = <42>, <43>, <44>, <45>;
+> 
+Yes, I will split entries as suggested.
 
-I referred older SBI SRST extension draft where we have separate
-function ID for shutdown, cold reboot, and warm reboot.
-
-I will send v2 patch as-per latest SBI SRST extension draft.
-
-My apologies for the noise.
-
-Regards,
-Anup
-
->  #define SBI_SPEC_VERSION_DEFAULT	0x1
->  #define SBI_SPEC_VERSION_MAJOR_SHIFT	24
->  #define SBI_SPEC_VERSION_MAJOR_MASK	0x7f
-> diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c index
-> 226ccce0f9e0..865e028a9a4b 100644
-> --- a/arch/riscv/kernel/sbi.c
-> +++ b/arch/riscv/kernel/sbi.c
-> @@ -7,6 +7,7 @@
-> 
->  #include <linux/init.h>
->  #include <linux/pm.h>
-> +#include <linux/reboot.h>
->  #include <asm/sbi.h>
->  #include <asm/smp.h>
-> 
-> @@ -501,6 +502,23 @@ int sbi_remote_hfence_vvma_asid(const unsigned
-> long *hart_mask,  }  EXPORT_SYMBOL(sbi_remote_hfence_vvma_asid);
-> 
-> +static int sbi_srst_reboot(struct notifier_block *this,
-> +			   unsigned long mode, void *cmd)
-> +{
-> +	sbi_ecall(SBI_EXT_SRST, (mode == REBOOT_WARM || mode ==
-> REBOOT_SOFT) ?
-> +		  SBI_EXT_SRST_WARM_REBOOT :
-> SBI_EXT_SRST_COLD_REBOOT,
-> +		  0, 0, 0, 0, 0, 0);
-> +
-> +	return NOTIFY_DONE;
-> +}
-> +
-> +static struct notifier_block sbi_srst_reboot_nb;
-> +
-> +static void sbi_srst_power_off(void)
-> +{
-> +	sbi_ecall(SBI_EXT_SRST, SBI_EXT_SRST_SHUTDOWN, 0, 0, 0, 0, 0, 0); }
-> +
->  /**
->   * sbi_probe_extension() - Check if an SBI extension ID is supported or not.
->   * @extid: The extension ID to be probed.
-> @@ -593,6 +611,13 @@ int __init sbi_init(void)
->  		} else {
->  			__sbi_rfence	= __sbi_rfence_v01;
->  		}
-> +		if (sbi_probe_extension(SBI_EXT_SRST) > 0) {
-> +			pr_info("SBI v0.2 SRST extension detected\n");
-> +			pm_power_off = sbi_srst_power_off;
-> +			sbi_srst_reboot_nb.notifier_call = sbi_srst_reboot;
-> +			sbi_srst_reboot_nb.priority = 192;
-> +			register_restart_handler(&sbi_srst_reboot_nb);
-> +		}
->  	} else {
->  		__sbi_set_timer = __sbi_set_timer_v01;
->  		__sbi_send_ipi	= __sbi_send_ipi_v01;
-> --
-> 2.25.1
-
+Thanks & BR,
+Sagar
+> > +      #pwm-cells = <3>;
+> > +    };
+> > --
+> > 2.7.4
+> >
 
 _______________________________________________
 linux-riscv mailing list
