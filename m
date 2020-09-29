@@ -2,22 +2,22 @@ Return-Path: <SRS0=aBv4=DG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id F19CFC4727C
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2020 14:05:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 25F99C4727D
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2020 14:12:41 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 67DC420848
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2020 14:05:19 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 9C1A6206C1
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2020 14:12:40 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="kvVmmNtU";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="g/sTn+vu"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 67DC420848
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="GpNZuH//"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9C1A6206C1
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -25,48 +25,40 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=RBG3San3xENulcpvx6bWiyYKP5VfjINEDXzGIzUSfzA=; b=kvVmmNtUI/G+JqgSXaEjVUUy4
-	P215OPMMbMu6sOgWd5p4gxTVgFOWV/Eby0FoeDcNIxrzJ5xkdo6H4ZeOiZwCYk38HdQraxpAZkh4G
-	6OkOKEKZr74NXWZXCisLltFuc+1XCz+Y9njhmRsxuEo7aY1iGk+bpOK4mNO14Pnso16Lmm/6Koym1
-	bbQX3joeFKn3mPKaWWxaTKgpRKmxSpdxg7q1N9N93+458H3esuBGvVBs5L4yu5ARAorTsuZLwW2hn
-	LEjlM9mY6F73yq30WJ0dlCX9eHmlQ5fptatQ2PwEdkZIC/nHAd9c6I3z1yPaILhs/u0ythzMdKm2x
-	z9Wfe9x5g==;
+	 bh=UPOvp6YMjpTA40A7GcVpem+kmr5GeYsDUdL17xeNlR8=; b=GpNZuH//JsyN1dWBkvn/zd5UF
+	6rJSNZvuNIZLHoCpIhVMvMeqljJnTmg/hRTV30iuqNCHARBMe2LKvO070rrwzcicRG3qZtmHYjDFX
+	//+RzNM3SAfAsF01aopdHcglPrdn+TYX4XkLJ4BvVKcY3WKmgNmOyRB6yfybh+bK+avKM643ax4M1
+	qIXzLkqsfUS0cz8Mog46rocNF6wgk95J17WA7ocIVf3h9HbCdv5izKUSXK1ZR2reypCuVOj0jWD9/
+	wWpKhMaZde46XFGmTa/YJhY5fit5PbZlAGekPEDw7yw4xAAIf84wdwMKhAJLr9yh28drMLfSJf8dx
+	LTF2Z9xHw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kNGFd-0004S3-KX; Tue, 29 Sep 2020 14:05:05 +0000
-Received: from mail.kernel.org ([198.145.29.99])
- by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kNGFG-0004IA-Ng; Tue, 29 Sep 2020 14:04:44 +0000
-Received: from kernel.org (unknown [87.71.73.56])
+	id 1kNGMn-0006bO-Ad; Tue, 29 Sep 2020 14:12:29 +0000
+Received: from j217100.upc-j.chello.nl ([24.132.217.100]
+ helo=noisy.programming.kicks-ass.net)
+ by merlin.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1kNGMf-0006Z5-8p; Tue, 29 Sep 2020 14:12:21 +0000
+Received: from hirez.programming.kicks-ass.net
+ (hirez.programming.kicks-ass.net [192.168.1.225])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 2C8EF20848;
- Tue, 29 Sep 2020 14:04:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1601388281;
- bh=WaJTg3SQjbcW6v/DzBgW2ai/TQzh1nqimfbp97MMiZg=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=g/sTn+vuGDTybOkywy/hzK7aJ4iFWFxujqk7E2jgui44H35NmFrCcMr3S2mhlUWeH
- RlNghCYd1xYJLA4ucZ8Vo4pHssTfstFhjlURUf8gE12YAEPb3mM3qxx0M1Gl8xPkdq
- sLFMhLXPdlIflpJ6y2oTcFDApMPO11kHq6sLeZiY=
-Date: Tue, 29 Sep 2020 17:04:24 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
+ (Client did not present a certificate)
+ by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 2E2C9303F45;
+ Tue, 29 Sep 2020 16:12:16 +0200 (CEST)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+ id 1F4DD2022B66B; Tue, 29 Sep 2020 16:12:16 +0200 (CEST)
+Date: Tue, 29 Sep 2020 16:12:16 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Mike Rapoport <rppt@kernel.org>
 Subject: Re: [PATCH v6 5/6] mm: secretmem: use PMD-size pages to amortize
  direct map fragmentation
-Message-ID: <20200929140424.GI2142832@kernel.org>
+Message-ID: <20200929141216.GO2628@hirez.programming.kicks-ass.net>
 References: <20200924132904.1391-1-rppt@kernel.org>
  <20200924132904.1391-6-rppt@kernel.org>
  <20200925074125.GQ2628@hirez.programming.kicks-ass.net>
- <8435eff6-7fa9-d923-45e5-d8850e4c6d73@redhat.com>
- <20200925095029.GX2628@hirez.programming.kicks-ass.net>
- <20200925103114.GA7407@C02TD0UTHF1T.local>
+ <20200929130529.GE2142832@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20200925103114.GA7407@C02TD0UTHF1T.local>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200929_100442_994312_8DAB124A 
-X-CRM114-Status: GOOD (  31.21  )
+In-Reply-To: <20200929130529.GE2142832@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -78,7 +70,7 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: David Hildenbrand <david@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
  Catalin Marinas <catalin.marinas@arm.com>,
  Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
  Will Deacon <will@kernel.org>, linux-kselftest@vger.kernel.org,
@@ -102,72 +94,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 25, 2020 at 11:31:14AM +0100, Mark Rutland wrote:
-> Hi,
+On Tue, Sep 29, 2020 at 04:05:29PM +0300, Mike Rapoport wrote:
+> On Fri, Sep 25, 2020 at 09:41:25AM +0200, Peter Zijlstra wrote:
+> > On Thu, Sep 24, 2020 at 04:29:03PM +0300, Mike Rapoport wrote:
+> > > From: Mike Rapoport <rppt@linux.ibm.com>
+> > > 
+> > > Removing a PAGE_SIZE page from the direct map every time such page is
+> > > allocated for a secret memory mapping will cause severe fragmentation of
+> > > the direct map. This fragmentation can be reduced by using PMD-size pages
+> > > as a pool for small pages for secret memory mappings.
+> > > 
+> > > Add a gen_pool per secretmem inode and lazily populate this pool with
+> > > PMD-size pages.
+> > 
+> > What's the actual efficacy of this? Since the pmd is per inode, all I
+> > need is a lot of inodes and we're in business to destroy the directmap,
+> > no?
+> > 
+> > Afaict there's no privs needed to use this, all a process needs is to
+> > stay below the mlock limit, so a 'fork-bomb' that maps a single secret
+> > page will utterly destroy the direct map.
 > 
-> Agreed. I think if we really need something like this, something between
-> XPFO and DEBUG_PAGEALLOC would be generally better, since:
-> 
-> * Secretmem puts userspace in charge of kernel internals (AFAICT without
->   any ulimits?), so that seems like an avenue for malicious or buggy
->   userspace to exploit and trigger DoS, etc. The other approaches leave
->   the kernel in charge at all times, and it's a system-level choice
->   which is easier to reason about and test.
+> This indeed will cause 1G pages in the direct map to be split into 2M
+> chunks, but I disagree with 'destroy' term here. Citing the cover letter
+> of an earlier version of this series:
 
-Secretmem obeys RLIMIT_MLOCK.
-I don't see why it "puts userpspace in charge of kernel internals" more
-than other system calls. The fact that memory is dropped from
-linear/direct mapping does not make userspace in charge of the kernel
-internals. The fact that this is not system-level actually makes it more
-controllable and tunable, IMHO.
+It will drop them down to 4k pages. Given enough inodes, and allocating
+only a single sekrit page per pmd, we'll shatter the directmap into 4k.
 
-> * Secretmem interaction with existing ABIs is unclear. Should uaccess
->   primitives work for secretmem? If so, this means that it's not valid
->   to transform direct uaccesses in syscalls etc into accesses via the
->   linear/direct map. If not, how do we prevent syscalls? The other
->   approaches are clear that this should always work, but the kernel
->   should avoid mappings wherever possible.
+>   I've tried to find some numbers that show the benefit of using larger
+>   pages in the direct map, but I couldn't find anything so I've run a
+>   couple of benchmarks from phoronix-test-suite on my laptop (i7-8650U
+>   with 32G RAM).
 
-Our idea was that direct uaccess in the context of the process that owns
-the secretmem should work and that transforming the direct uaccesses
-into accesses via the linear map would be valid only when allowed
-explicitly. E.g with addition of FOLL_SOMETHING to gup.
-Yet, this would be required for any implementation of memory areas that
-excludes pages from the linear mapping.
+Existing benchmarks suck at this, but FB had a load that had a
+deterministic enough performance regression to bisect to a directmap
+issue, fixed by:
 
-> * The uncached option doesn't work in a number of situations, such as
->   systems which are purely cache coherent at all times, or where the
->   hypervisor has overridden attributes. The kernel cannot even know that
->   whther this works as intended. On its own this doens't solve a
->   particular problem, and I think this is a solution looking for a
->   problem.
+  7af0145067bc ("x86/mm/cpa: Prevent large page split when ftrace flips RW on kernel text")
 
-As we discussed at one of the previous iterations, the uncached makes
-sense for x86 to reduce availability of side channels and I've only
-enabled uncached mappings on x86.
+>   I've tested three variants: the default with 28G of the physical
+>   memory covered with 1G pages, then I disabled 1G pages using
+>   "nogbpages" in the kernel command line and at last I've forced the
+>   entire direct map to use 4K pages using a simple patch to
+>   arch/x86/mm/init.c.  I've made runs of the benchmarks with SSD and
+>   tmpfs.
+>   
+>   Surprisingly, the results does not show huge advantage for large
+>   pages. For instance, here the results for kernel build with
+>   'make -j8', in seconds:
 
-> ... and fundamentally, this seems like a "more security, please" option
-> that is going to be abused, since everyone wants security, regardless of
-> how we say it *should* be used. The few use-cases that may make sense
-> (e.g. protection of ketys and/or crypto secrrets), aren't going to be
-> able to rely on this (since e.g. other uses may depelete memory pools),
-> so this is going to be best-effort. With all that in mind, I struggle to
-> beleive that this is going to be worth the maintenance cost (e.g. with
-> any issues arising from uaccess, IO, etc).
+Your benchmark should stress the TLB of your uarch, such that additional
+pressure added by the shattered directmap shows up.
 
-I think that making secretmem a file descriptor that only allows mmap()
-already makes it quite self contained and simple. There could be several
-cases that will need special treatment, but I don't think it will have
-large maintenance cost.
-I've run syzkaller for some time with memfd_secret() enabled and I never
-hit a crash because of it.
+And no, I don't have one either.
 
-> Thanks,
-> Mark.
+>                         |  1G    |  2M    |  4K
+>   ----------------------+--------+--------+---------
+>   ssd, mitigations=on	| 308.75 | 317.37 | 314.9
+>   ssd, mitigations=off	| 305.25 | 295.32 | 304.92
+>   ram, mitigations=on	| 301.58 | 322.49 | 306.54
+>   ram, mitigations=off	| 299.32 | 288.44 | 310.65
 
--- 
-Sincerely yours,
-Mike.
+These results lack error data, but assuming the reults are significant,
+then this very much makes a case for 1G mappings. 5s on a kernel builds
+is pretty good.
 
 _______________________________________________
 linux-riscv mailing list
