@@ -2,91 +2,145 @@ Return-Path: <SRS0=aBv4=DG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2F510C4727C
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2020 18:52:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BE934C4727C
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2020 20:06:29 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 48EAB2075E
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2020 18:52:07 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 302482076A
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2020 20:06:29 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="v+/Aib2c";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=aurel32.net header.i=@aurel32.net header.b="LYrI13lQ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 48EAB2075E
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=aurel32.net
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="rEIcEWMx";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=intel.onmicrosoft.com header.i=@intel.onmicrosoft.com header.b="r7t5HExW"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 302482076A
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=intel.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:References:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=4O/ZmIR3/6wNYcDcYTDhIpHj4uxiy1CRVqyIgQZK8FY=; b=v+/Aib2c3PZBavzUVjpeKk53J
-	zk/4+dhynaZhcBsWxOqm2NqsjQXsmH+DSoDZLQIheFQra/vdw5X8oJiezK/Rv93tzcXdU4H/l2dvZ
-	/T6GqihCzZp2g2kZ22liJJdNXC62pVMJ+NMoYxej/gGJWa4/SLaWBZHB9Qfdr3e9YtWzgmoAlqVT6
-	fwbF8rC8HLK54KXPChQweQ5T5X5YmO6dmCOImxSujfmy+H/uQsRUp8idXA0vRhMQqZnUC+y/O9xtA
-	dbHTP7q4GErwoF7T01zVklVKjh2kuScT9VA/U5bFcqkSGOftxt5VSyjK6STGDRm1z/CflYAWM5cXG
-	uzSIBzj5A==;
+	 bh=jLEbfAScc3bCJFmcE4KqiFKFw5kOg70UybcB2p014Y4=; b=rEIcEWMx9G+8X4STDzFKRSPkA
+	mnF3o2qfDxN3nAp/gge/yWumlBL3ZgKTzDjMQKZLHd4HvNVhdn9UrC+UJgxcnx8L2+hWEwbJ4MZ8S
+	y7L+t5mOiziGCRb0pEWLURlQ8tbuQALqIKGpJbe029mcfj54Mioqf7EEexaN0Z4QzcAcgHb5F8ZFy
+	7E02YcVhoBQWdYvX/OOBBoEO3ctNvSD1qJxcvm2LLTAkFMQX80fDNJTBAD3dZFPoEU/bRMPV8/EXl
+	QX1B655bqaBXY66Mb08MwY+pW6jaKQ2AwVq9fkFthRGGTXBPBe1kBKgh4SYpsoayMrKX5lrQArv4X
+	1uCJb4vYg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kNKjD-0008SB-Tr; Tue, 29 Sep 2020 18:51:55 +0000
-Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
+	id 1kNLtA-0003nF-Cj; Tue, 29 Sep 2020 20:06:16 +0000
+Received: from mga05.intel.com ([192.55.52.43])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kNKjC-0008QU-GP
- for linux-riscv@lists.infradead.org; Tue, 29 Sep 2020 18:51:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
- ; s=202004.hall;
- h=In-Reply-To:Content-Type:MIME-Version:References:
- Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
- Subject:Content-ID:Content-Description:X-Debbugs-Cc;
- bh=4oPHUpydHQHVg7N/DiTg/2k5w4HoApzrMoMKz556bOk=; b=LYrI13lQzAkLkQtkFjsnhoaIto
- +1o1p738YrPZINi8UpfLvfRYPfu9YXt/TWANnemzsu/WSbVsODTgNC/ARyLKp/gLoIW2mMZcjbv3h
- xuq8plU4wHnSGvLKW7Na6oePETtve74DhVmSH1azo2sOAD20v1lKUPSjlfwiZTCV4h428O7imIpgq
- Snj2dEUyADwX3v8TK2TE3RW9aKAlgwp0u6u7LrqL0g3WUhu28JHW/wN0OwOFJb3Vw1LrEIoySZeWm
- pL3Vh556nV4bXwDnWg55LQ2iKoMUCR+NdXDfzufhACNgLNiyB5lv78YOlT6Ir/QgO5WLarIidRO86
- Tg+BbfCw==;
-Received: from [2a01:e35:2fdd:a4e1:fe91:fc89:bc43:b814] (helo=ohm.rr44.fr)
- by hall.aurel32.net with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
- (Exim 4.92) (envelope-from <aurelien@aurel32.net>)
- id 1kNKio-0004jI-HC; Tue, 29 Sep 2020 20:51:30 +0200
-Received: from aurel32 by ohm.rr44.fr with local (Exim 4.94)
- (envelope-from <aurelien@aurel32.net>)
- id 1kNKil-000oKY-UZ; Tue, 29 Sep 2020 20:51:27 +0200
-Date: Tue, 29 Sep 2020 20:51:27 +0200
-From: Aurelien Jarno <aurelien@aurel32.net>
-To: Guo Ren <guoren@kernel.org>
-Subject: Re: [PATCH V2 1/3] riscv: Fixup static_obj() fail
-Message-ID: <20200929185127.GC2705@aurel32.net>
-Mail-Followup-To: Guo Ren <guoren@kernel.org>,
- Andreas Schwab <schwab@linux-m68k.org>,
- Tycho Andersen <tycho@tycho.ws>, Albert Ou <aou@eecs.berkeley.edu>,
- Nick Hu <nickhu@andestech.com>, Anup Patel <anup@brainfault.org>,
- Palmer Dabbelt <palmerdabbelt@google.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-csky@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>,
- Zong Li <zong.li@sifive.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Greentime Hu <greentime.hu@sifive.com>,
- Thomas Gleixner <tglx@linutronix.de>,
- linux-riscv <linux-riscv@lists.infradead.org>
-References: <1593266228-61125-1-git-send-email-guoren@kernel.org>
- <1593266228-61125-2-git-send-email-guoren@kernel.org>
- <20200911204512.GA2705@aurel32.net>
- <CAJF2gTQiLV8sDE5cnvP=aBog4zaiMvMeieg_JtXwRODky1u3Hg@mail.gmail.com>
- <20200914103836.GB2705@aurel32.net> <87lfgzeidk.fsf@igel.home>
- <CAJF2gTQ8ONde3GRhQgx2Nqvb5X20nTmW8jZEemZKhezRDzP3aQ@mail.gmail.com>
+ id 1kNLt2-0003kC-IE; Tue, 29 Sep 2020 20:06:11 +0000
+IronPort-SDR: hM/dgVb7UCL681NyCw0jTzecyu3So8Umed000oTqGDq9iDl/eCxNZr8JvAPqTfX/KdQP4NUR9d
+ l5PnazZjoFRw==
+X-IronPort-AV: E=McAfee;i="6000,8403,9759"; a="247009265"
+X-IronPort-AV: E=Sophos;i="5.77,319,1596524400"; d="scan'208";a="247009265"
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from fmsmga002.fm.intel.com ([10.253.24.26])
+ by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 29 Sep 2020 13:06:06 -0700
+IronPort-SDR: VcVE3O2n5Laha4XZ2A4FlwBt8xsol1geTPl7q03FLZby9R3+H0dkJnEwfGRq375qodYFs/VDc6
+ V65VQdzWegvQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.77,319,1596524400"; d="scan'208";a="345390630"
+Received: from fmsmsx604.amr.corp.intel.com ([10.18.126.84])
+ by fmsmga002.fm.intel.com with ESMTP; 29 Sep 2020 13:06:05 -0700
+Received: from fmsmsx603.amr.corp.intel.com (10.18.126.83) by
+ fmsmsx604.amr.corp.intel.com (10.18.126.84) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.1713.5; Tue, 29 Sep 2020 13:06:05 -0700
+Received: from fmsedg601.ED.cps.intel.com (10.1.192.135) by
+ fmsmsx603.amr.corp.intel.com (10.18.126.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1713.5
+ via Frontend Transport; Tue, 29 Sep 2020 13:06:05 -0700
+Received: from NAM12-BN8-obe.outbound.protection.outlook.com (104.47.55.176)
+ by edgegateway.intel.com (192.55.55.70) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.1713.5; Tue, 29 Sep 2020 13:06:04 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=ENBop0ePI1rc/FcjS4xrNJ5ze0x4uONCgvsY15Kdra+HLv4X8mV95PPh9WVB7Zq48WY9aBJzDwWsFGQBwQpc13Wn2FaDAjDaGXeXHv3kLGGQ1yjand+YatKmmUsa2W8DRKkcWXrfeYVs977SRDOY15cs5BymbfNEooqM7PGffA4IWg/IKbz34RKQ87bXDVnMF1P5buh9LHm2KrcrW+VCwe8ncxJyqk1X9RuRA4+/TkNY+1tsDgmvaA8HeciqUWdfEcKhxZbw57+sDaLkRmtAR5raNPLdR8Wue4pG2nrPXq7NGmpeZfTE2pLxtaB5o8sitzMXUD2lMnOOr2LCnn0ffg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=koed3BpYmv9VUEcOHyz7SbD00fGiUDop4Xo8houxLng=;
+ b=TCZjiQndK5Klfp29RtPXYXD02CnWq2x2mue3odH14NZ3uYjgwLkrIJLi2uppDIZ0Sq7FXX85FoyC8nKWJivW8roYcnbgSjezYmJRloXpBqaslHFuqn7cMGV7+p8vrKKkjeAKypvgzPQV26JDogX53NNkpeK2Vp7YJjVArFUzTbudM8+X0Dk9YpaFMMXObmOqrxIdz/u1KJHOQm8aRMFPU6Z8gHbTXVIgBE+RLTZPsfcvypSreRSU7sFqxuHf8hb/O16ZSzcRtoKDJ26Pq4q073wGHOhyxZP53dn5uWl0rZlGZ0sg9RNElSJdWnofNq9uL4RgF7U7/mJMzlR0b6ywBw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.onmicrosoft.com; 
+ s=selector2-intel-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=koed3BpYmv9VUEcOHyz7SbD00fGiUDop4Xo8houxLng=;
+ b=r7t5HExWv1hdNBBWOZviTL67lHH62+oW5lfxWEVnr35DwJwJpaB4HxrGXx+907KoXS4ZbzLQBusxTdZzyLvG/9tis6zLPK7Lcu61TmZtieKoyA7z9NpFlOok6wToWP9PtDnwowoF/QC7lqZokJPXw3mTMuNqpEb86jIkMcE6jy4=
+Received: from SN6PR11MB3184.namprd11.prod.outlook.com (2603:10b6:805:bd::17)
+ by SA0PR11MB4557.namprd11.prod.outlook.com (2603:10b6:806:96::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3412.23; Tue, 29 Sep
+ 2020 20:06:03 +0000
+Received: from SN6PR11MB3184.namprd11.prod.outlook.com
+ ([fe80::b901:8e07:4340:6704]) by SN6PR11MB3184.namprd11.prod.outlook.com
+ ([fe80::b901:8e07:4340:6704%7]) with mapi id 15.20.3412.029; Tue, 29 Sep 2020
+ 20:06:03 +0000
+From: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
+To: "rppt@kernel.org" <rppt@kernel.org>
+Subject: Re: [PATCH v6 3/6] mm: introduce memfd_secret system call to create
+ "secret" memory areas
+Thread-Topic: [PATCH v6 3/6] mm: introduce memfd_secret system call to create
+ "secret" memory areas
+Thread-Index: AQHWlh00WOVRjW6Kw0OmwswTJieWmql/llUAgAB1WIA=
+Date: Tue, 29 Sep 2020 20:06:03 +0000
+Message-ID: <839fbb26254dc9932dcff3c48a3a4ab038c016ea.camel@intel.com>
+References: <20200924132904.1391-1-rppt@kernel.org>
+ <20200924132904.1391-4-rppt@kernel.org>
+ <d466e1f13ff615332fe1f513f6c1d763db28bd9a.camel@intel.com>
+ <20200929130602.GF2142832@kernel.org>
+In-Reply-To: <20200929130602.GF2142832@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Evolution 3.30.1 (3.30.1-1.fc29) 
+authentication-results: kernel.org; dkim=none (message not signed)
+ header.d=none;kernel.org; dmarc=none action=none header.from=intel.com;
+x-originating-ip: [134.134.137.77]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 98a3e0c7-0d63-4378-d126-08d864b317f4
+x-ms-traffictypediagnostic: SA0PR11MB4557:
+x-ld-processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr,ExtFwd
+x-ms-exchange-transport-forked: True
+x-microsoft-antispam-prvs: <SA0PR11MB455769A7B059D65FD6CF3BBDC9320@SA0PR11MB4557.namprd11.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:9508;
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: 33zyXaXOtIT2Gi6nr8USAnRyrrn0ahQhan39d2fVcuqUpjheqX2wOEBfsGkshaAnBD8C+LiKJciUW4iy1SdsHEEdJGqcH+YOd96umFEfPIdZYMx795MNHD/ekCw+ulBuSRVE2bP+ZzIR8Jkj7vpiKK6zo8ec2ii6atpRKf+LBxUwnqelX0a3SuaEO/fKyP7hWe0l8Q+11aO7RjHG8RffDHlX6+UE1oPlmcXMS4OXhT2s3iFusUZ01JrHbCdQrPDeqAdY1/gXmfWCBqQOxjjzRj8wNWNZqmNzJrbaq+qSlTIpd5zP+mRjcDhCQAwr65ro9zQMgGHVY1+Yjcyz22i1B4cq3tO12CznA0n4ipHudFzdpJpBiLY/JgqtWdsM654nwhUSrJOHTemXnO95/hdHp16/10eIOY3fZXaDsiomYcM=
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:SN6PR11MB3184.namprd11.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(4636009)(39860400002)(376002)(136003)(366004)(346002)(396003)(6506007)(186003)(6512007)(26005)(66946007)(76116006)(91956017)(5660300002)(2906002)(83380400001)(71200400001)(316002)(4326008)(478600001)(54906003)(2616005)(36756003)(8676002)(7406005)(7416002)(6916009)(6486002)(8936002)(86362001)(66556008)(66476007)(64756008)(66446008)(219293001);
+ DIR:OUT; SFP:1102; 
+x-ms-exchange-antispam-messagedata: b3FzD7aP75Zl8mMBqptRH9cBlwAPaDH9PtSbG7uTP32Lo77BSEjkA5V2t37LjO4DdIwqylDeGfnE/GCLHYP/Moig8i4NM43+Pem7wMG3ud2i0cpRXLH0oeVuZDA7YJ9ifILxuircngxIpJ59vMY7qPJq7O3KqB7VF1jLJwYONIgXMjICRPQgpIjGVy1fgTTAt/5QaZhsxcLWbnDIfW8E2e/7AmSEc6C7+s2Al2SJ9GACDOExH/h42FFVaoBUgP8lZ19PU6ZTWi3BElU9y9rOwfMoYVyOwCgjnELR3cdiW/+Uip+TqppGoLxx1wVgBUorEIg71XIeRwq4BiOdvGPwwm6byZagwx2YIQExlI1AhsIzqdDC1kjyI1trkthfaELjLKfDerz9ZdD553MasndxCIfdH9AUUt2tNnbEAjUXJQhNkSKuvaBR4NTi4skpQoCEo2W9gbogV0Kq8nNCRDUz1OnKfFGcMc/Aq4M2FpLJLdx/KUB55mJbCS5DW43rT/KKcFTiFkPOzAAnKnuYcV0UD9Pde+d1tY2NsNFmN+lWatkE6tMkj5idLtMZCmQ7jF3J/aUzGYunGz/niaMOx8XDJg+iZRhHguTwpZ3J8g+FEVVlR9PjAPzUwvUfNaliZfOZsYJPyUY3CTpNzTeVQO3p7g==
+Content-ID: <2263CE22901AC047BEFEFC460E5A3197@namprd11.prod.outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAJF2gTQ8ONde3GRhQgx2Nqvb5X20nTmW8jZEemZKhezRDzP3aQ@mail.gmail.com>
-User-Agent: Mutt/1.14.6 (2020-07-11)
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR11MB3184.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 98a3e0c7-0d63-4378-d126-08d864b317f4
+X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Sep 2020 20:06:03.2431 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: qerPx6uvSfiDlNkAn28LFar8dqkVT0D7PYtTQX37E+jOeHFUu4i91ljcPYyoeqKxGuWJQtakG92lFFpNSzrUBDA8Y8loSYskpx9SPDS4p1I=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR11MB4557
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200929_145154_553153_195F066B 
-X-CRM114-Status: GOOD (  15.05  )
+X-CRM114-CacheID: sfid-20200929_160608_772675_F02A9DC4 
+X-CRM114-Status: GOOD (  31.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -98,76 +152,107 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Tycho Andersen <tycho@tycho.ws>, Albert Ou <aou@eecs.berkeley.edu>,
- Nick Hu <nickhu@andestech.com>, Anup Patel <anup@brainfault.org>,
- Palmer Dabbelt <palmerdabbelt@google.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-csky@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>,
- Andreas Schwab <schwab@linux-m68k.org>, Zong Li <zong.li@sifive.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Greentime Hu <greentime.hu@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
- linux-riscv <linux-riscv@lists.infradead.org>
+Cc: "mark.rutland@arm.com" <mark.rutland@arm.com>,
+ "david@redhat.com" <david@redhat.com>,
+ "peterz@infradead.org" <peterz@infradead.org>,
+ "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+ "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+ "linux-mm@kvack.org" <linux-mm@kvack.org>,
+ "linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
+ "hpa@zytor.com" <hpa@zytor.com>, "cl@linux.com" <cl@linux.com>,
+ "shuah@kernel.org" <shuah@kernel.org>,
+ "tglx@linutronix.de" <tglx@linutronix.de>, "Reshetova,
+ Elena" <elena.reshetova@intel.com>,
+ "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+ "tycho@tycho.ws" <tycho@tycho.ws>, "arnd@arndb.de" <arnd@arndb.de>,
+ "linux-nvdimm@lists.01.org" <linux-nvdimm@lists.01.org>,
+ "idan.yaniv@ibm.com" <idan.yaniv@ibm.com>, "x86@kernel.org" <x86@kernel.org>,
+ "willy@infradead.org" <willy@infradead.org>,
+ "rppt@linux.ibm.com" <rppt@linux.ibm.com>,
+ "mingo@redhat.com" <mingo@redhat.com>,
+ "mtk.manpages@gmail.com" <mtk.manpages@gmail.com>,
+ "will@kernel.org" <will@kernel.org>, "jejb@linux.ibm.com" <jejb@linux.ibm.com>,
+ "bp@alien8.de" <bp@alien8.de>,
+ "viro@zeniv.linux.org.uk" <viro@zeniv.linux.org.uk>,
+ "luto@kernel.org" <luto@kernel.org>,
+ "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+ "kirill@shutemov.name" <kirill@shutemov.name>, "Williams,
+ Dan J" <dan.j.williams@intel.com>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+ "linux-api@vger.kernel.org" <linux-api@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "palmer@dabbelt.com" <palmer@dabbelt.com>,
+ "linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
+ "akpm@linux-foundation.org" <akpm@linux-foundation.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 2020-09-25 00:19, Guo Ren wrote:
-> How about this, revert the commit and don't free INIT_DATA_SECTION. I
-> think the solution is safe enough, but wast a little memory.
+On Tue, 2020-09-29 at 16:06 +0300, Mike Rapoport wrote:
+> On Tue, Sep 29, 2020 at 04:58:44AM +0000, Edgecombe, Rick P wrote:
+> > On Thu, 2020-09-24 at 16:29 +0300, Mike Rapoport wrote:
+> > > Introduce "memfd_secret" system call with the ability to create
+> > > memory
+> > > areas visible only in the context of the owning process and not
+> > > mapped not
+> > > only to other processes but in the kernel page tables as well.
+> > > 
+> > > The user will create a file descriptor using the memfd_secret()
+> > > system call
+> > > where flags supplied as a parameter to this system call will
+> > > define
+> > > the
+> > > desired protection mode for the memory associated with that file
+> > > descriptor.
+> > > 
+> > >   Currently there are two protection modes:
+> > > 
+> > > * exclusive - the memory area is unmapped from the kernel direct
+> > > map
+> > > and it
+> > >                is present only in the page tables of the owning
+> > > mm.
+> > 
+> > Seems like there were some concerns raised around direct map
+> > efficiency, but in case you are going to rework this...how does
+> > this
+> > memory work for the existing kernel functionality that does things
+> > like
+> > this?
+> > 
+> > get_user_pages(, &page);
+> > ptr = kmap(page);
+> > foo = *ptr;
+> > 
+> > Not sure if I'm missing something, but I think apps could cause the
+> > kernel to access a not-present page and oops.
 > 
-> diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
-> index f3586e3..34d00d9 100644
-> --- a/arch/riscv/kernel/vmlinux.lds.S
-> +++ b/arch/riscv/kernel/vmlinux.lds.S
-> @@ -22,13 +22,11 @@ SECTIONS
->         /* Beginning of code and text segment */
->         . = LOAD_OFFSET;
->         _start = .;
-> -       _stext = .;
->         HEAD_TEXT_SECTION
->         . = ALIGN(PAGE_SIZE);
+> The idea is that this memory should not be accessible by the kernel,
+> so
+> the sequence you describe should indeed fail.
 > 
->         __init_begin = .;
->         INIT_TEXT_SECTION(PAGE_SIZE)
-> -       INIT_DATA_SECTION(16)
->         . = ALIGN(8);
->         __soc_early_init_table : {
->                 __soc_early_init_table_start = .;
-> @@ -55,6 +53,7 @@ SECTIONS
->         . = ALIGN(SECTION_ALIGN);
->         .text : {
->                 _text = .;
-> +               _stext = .;
->                 TEXT_TEXT
->                 SCHED_TEXT
->                 CPUIDLE_TEXT
-> @@ -67,6 +66,8 @@ SECTIONS
->                 _etext = .;
->         }
-> 
-> +       INIT_DATA_SECTION(16)
-> +
->         /* Start of data section */
->         _sdata = .;
->         RO_DATA(SECTION_ALIGN)
-> 
+> Probably oops would be to noisy and in this case the report needs to
+> be
+> less verbose.
 
-This patch doesn't apply, as tabs have been converted to space
-somewhere. After fixing that, the patch applies and I confirm that it
-fixes the problem.
+I was more concerned that it could cause kernel instabilities.
 
-Tested-by: Aurelien Jarno <aurelien@aurel32.net>
+I see, so it should not be accessed even at the userspace address? I
+wonder if it should be prevented somehow then. At least
+get_user_pages() should be prevented I think. Blocking copy_*_user()
+access might not be simple.
 
-Thanks,
-Aurelien
+I'm also not so sure that a user would never have any possible reason
+to copy data from this memory into the kernel, even if it's just
+convenience. In which case a user setup could break if a specific
+kernel implementation switched to get_user_pages()/kmap() from using
+copy_*_user(). So seems maybe a bit thorny without fully blocking
+access from the kernel, or deprecating that pattern.
 
--- 
-Aurelien Jarno                          GPG: 4096R/1DDD8C9B
-aurelien@aurel32.net                 http://www.aurel32.net
-
+You should probably call out these "no passing data to/from the kernel"
+expectations, unless I missed them somewhere.
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
