@@ -7,139 +7,76 @@ X-Spam-Status: No, score=-4.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C7DE4C4346E
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2020 04:59:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 59489C4741F
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2020 11:57:19 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2707820897
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2020 04:59:26 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id EE2CF206F7
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2020 11:57:18 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="y96DfBxH";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=intel.onmicrosoft.com header.i=@intel.onmicrosoft.com header.b="jEE2yb6R"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2707820897
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=intel.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="kGmkbyQv";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=linaro.org header.i=@linaro.org header.b="yHaYZoOW"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EE2CF206F7
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=xfV56JaGGKe4/aJ/B1fyb60P4wK6WmCeybFdmt4yvyA=; b=y96DfBxHWewdS2L+76n+hLWzI
-	wNh48Q4xcirbbJ40jOppkzPsMPJyClco1FsTrL7M2lSV9OtEXgCdz6HM7MMeG9p98aBYioAPMKmnh
-	yX9rTKgKa5gWkcYShIlaM2U85ZjZY9rpt5bfhhdLc94cLnb9XTZFCl4H9Dy1ICqFmD01DexsyHPFU
-	W1fslm1KMcuREkH8FTTAcak/4x7fp9WfDZc2eJZIqhv8OzQVndplGrL2CRiQjQ+YOOYwfcZ5xBNY9
-	kj1tI17ePpKkH7Ld6zjUrtx/um+3rjMszYHYGUAWP3iMJwxThw3yZpxH3nLl/nYiSzrecExmGsE/v
-	kPbGBfZdw==;
+	 bh=PYZjNH+xUEPSAgpYgwujtMJLJXq35rJIIGgXe2f5vSY=; b=kGmkbyQvgHgmLyjHM5Ffs/Mgp
+	TUr6107BmCyuIKsJxldHbsfuQcYkjX4wpzjrEFJAOYm/n8bBpGMWd6N2+tEo45FaDqngIuTQ7eWV9
+	gWv1YRthFVrs6x8hlMN0MTO+92LbJ/rrBuLx0zYMZ2dk75UEB0Or5F9uwp26yNyz7S7i/bQG1X4WH
+	QIJip12WWxUqrOSwxGauDz0isYY8mzljsMjrjR7UTqHBiaXtTkUZrztiROPqcK3DodUW+JyRuPl9z
+	yB4SFOWSHi5QLiVTLFP1fUFO+c4BQ840z4DMvnN3PpYD10bdkftzZz3cJcC7xjiHmKwd25qZprOAK
+	eA+DlkY3w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kN7jK-0000NN-Al; Tue, 29 Sep 2020 04:59:10 +0000
-Received: from mga04.intel.com ([192.55.52.120])
+	id 1kNEFm-0008C3-WE; Tue, 29 Sep 2020 11:57:07 +0000
+Received: from mail-lf1-x142.google.com ([2a00:1450:4864:20::142])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kN7jG-0000M4-1q; Tue, 29 Sep 2020 04:59:07 +0000
-IronPort-SDR: ZUJU/hV8L2BGbU8qDWLpGLba3wVdKRT8ju6exa/IY50dYn43GIU82ZYCpbyFXovXcC1CTU3h3H
- mwr+COgZ0DMw==
-X-IronPort-AV: E=McAfee;i="6000,8403,9758"; a="159492524"
-X-IronPort-AV: E=Sophos;i="5.77,317,1596524400"; d="scan'208";a="159492524"
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from orsmga003.jf.intel.com ([10.7.209.27])
- by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 28 Sep 2020 21:58:56 -0700
-IronPort-SDR: MTa3SG/D44iPy0JwazIs4vYf6q4sqQXDHzSUKL55ywUxjojUAHVckBJLYiTCfwbvERNG4JggIG
- lQ0mmaWesEtA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.77,317,1596524400"; d="scan'208";a="307614587"
-Received: from fmsmsx601.amr.corp.intel.com ([10.18.126.81])
- by orsmga003.jf.intel.com with ESMTP; 28 Sep 2020 21:58:55 -0700
-Received: from fmsmsx603.amr.corp.intel.com (10.18.126.83) by
- fmsmsx601.amr.corp.intel.com (10.18.126.81) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.1713.5; Mon, 28 Sep 2020 21:58:54 -0700
-Received: from fmsedg602.ED.cps.intel.com (10.1.192.136) by
- fmsmsx603.amr.corp.intel.com (10.18.126.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1713.5
- via Frontend Transport; Mon, 28 Sep 2020 21:58:54 -0700
-Received: from NAM12-DM6-obe.outbound.protection.outlook.com (104.47.59.169)
- by edgegateway.intel.com (192.55.55.71) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.1713.5; Mon, 28 Sep 2020 21:58:47 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Cjk+TjRFFzrQVZP8/NQqAuTdBvNyVCNKraSHHBOXgS7Jr8314m9q6gf/1kSny7UgDvIPTwNLlhA6aJ3IaU8ZKL6cNNrIDQETGm4ln0Z3VBdqNXUAjGD2K7jckaYQ5TOREnRWPsvTZENdUSGoIJ4gakMYQxdFmWExiKneE5euY9hoFOhRivoa7Infe3Afj/GyVuvlrdEHsQ1W64U2qbPAyyoc68HailuVnp+tVyHVZhC1fFobNzEn3Ab+gP0LtfgsLw9lhHAVypqB+lJU87RuRYuIw8MPQXRxY75HCkzf82KeKHwIhEiD5gKM7bDnosxctfDeN5iXNnKS7SRRfbjgrQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FUsklQmapfplnqf1yTcJidXuvWTsT7CgEvKfdT9uYGA=;
- b=Yo3WbhvaZyeUOlSYy6/LeB8v7qWxBpxXv1nlOx4h8+M5NxzrST0pP54laPmmf9XVDzS6zCGgusYntb6hvenQNoyCYBedXo5YkZDTNKe1hkpsUA+caIZGGuB+GEb68qneDVOiHPxkdRuInma79ixhjkE2STdUqbbnRIokk6azsjZsMhgpGJlm9HVqMQI1BdVG5V1NK5SUq7A6P5flWabkHR3S1NdMNSHxeILJsx+pHV6OuuB7pF55ml/jQPFiDxNNlFQqQ5JM2uVl11sIolXjcyNADdFY/mSTEsr353aX8qz3olUUEyv8UDBJukHZhYDOrm7mFnQpF97xodFJbPmClQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.onmicrosoft.com; 
- s=selector2-intel-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FUsklQmapfplnqf1yTcJidXuvWTsT7CgEvKfdT9uYGA=;
- b=jEE2yb6RnQ0rsQ9qDKcMYvr/aBP5IoS3W6zJ8EuQy4gulLXEIFXDj82054aAg54qBKUZyECehLlNfWmEZF36bHOeMMlAXfNMLXpZ/n9chorIBzMpIxsQw5+lFBoAtLRVwimT4LVTvMdKGVOxGXw4rbJTJf3lj/ow/BTQvLxJ74Y=
-Received: from SN6PR11MB3184.namprd11.prod.outlook.com (2603:10b6:805:bd::17)
- by SA0PR11MB4653.namprd11.prod.outlook.com (2603:10b6:806:94::19)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3412.22; Tue, 29 Sep
- 2020 04:58:44 +0000
-Received: from SN6PR11MB3184.namprd11.prod.outlook.com
- ([fe80::b901:8e07:4340:6704]) by SN6PR11MB3184.namprd11.prod.outlook.com
- ([fe80::b901:8e07:4340:6704%7]) with mapi id 15.20.3412.029; Tue, 29 Sep 2020
- 04:58:44 +0000
-From: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
-To: "rppt@kernel.org" <rppt@kernel.org>, "akpm@linux-foundation.org"
- <akpm@linux-foundation.org>
-Subject: Re: [PATCH v6 3/6] mm: introduce memfd_secret system call to create
- "secret" memory areas
-Thread-Topic: [PATCH v6 3/6] mm: introduce memfd_secret system call to create
- "secret" memory areas
-Thread-Index: AQHWlh00WOVRjW6Kw0OmwswTJieWmg==
-Date: Tue, 29 Sep 2020 04:58:44 +0000
-Message-ID: <d466e1f13ff615332fe1f513f6c1d763db28bd9a.camel@intel.com>
-References: <20200924132904.1391-1-rppt@kernel.org>
- <20200924132904.1391-4-rppt@kernel.org>
-In-Reply-To: <20200924132904.1391-4-rppt@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.30.1 (3.30.1-1.fc29) 
-authentication-results: kernel.org; dkim=none (message not signed)
- header.d=none;kernel.org; dmarc=none action=none header.from=intel.com;
-x-originating-ip: [192.55.55.43]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: f70bc009-fad6-405a-8e4d-08d8643457cd
-x-ms-traffictypediagnostic: SA0PR11MB4653:
-x-ld-processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr,ExtFwd
-x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <SA0PR11MB4653F3AF8D931E8B3292D667C9320@SA0PR11MB4653.namprd11.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:10000;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: ieS4qv3igJqVq2uNt8hS2k67axxhLmQpSmyH4p/UhJwfou7k9DeSxTNFgFcZlnjNXNBMA6P2MLM9paGd+6AJcLBwAI1LeqPtFqG83RPIPUiL3OB4uDE/RYQARLa+BPcvje3Kw++No46etp7OUi1bN3DJijZEBPbruuqh/eH7tquAnQogNbIRK1irozw17BH6RXIkJlIY6kql/wSavqO9h22SfkFejG9U4Qb0LcOrizbvhCL+Hw9iXN69n2E76JdQjcfNKxVeEijTRbHeK2zBCE1VDHk5B777G73nJ6I07P0V3/DQPTagPN75esUsU7FEiMyHbTUw/FeClE0pcEQ8LHSvIWMke6S8Yl2ClKSas5+v00NZ9N4cBqqj3ziG6FSjGsiGDzFOfw1xFVnH28GcZo+sbbogI4h3MRV/T8Dbc3M=
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:SN6PR11MB3184.namprd11.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(39860400002)(376002)(346002)(366004)(396003)(136003)(7406005)(316002)(66446008)(4326008)(64756008)(186003)(5660300002)(66476007)(66556008)(6512007)(6486002)(8936002)(26005)(91956017)(76116006)(66946007)(8676002)(86362001)(36756003)(83380400001)(110136005)(7416002)(6506007)(2906002)(478600001)(71200400001)(2616005)(54906003)(219293001);
- DIR:OUT; SFP:1102; 
-x-ms-exchange-antispam-messagedata: RxwwA1BEh2ArsB3KR0Moev6U8/fZwfr8YodkyCbo1nSTSbC3k2hqil6A7vXde1YZGqgwqG0OnuBn/XSfKLUeFRbHFXziVwc/57IA4IE2iFNh/1U+YRGE6ZWFWJ0o9lJIE9FCJ58Vh0h6Tg4Mh0VWth/UrvqgkjcsYBY2hI7PIeu/sMOvsQqJkmOAvNno4QeIYZUPyfq6mtaddTP0wjeEG51ws5/L0YuTmTizeH+LBrmy6GnxdMo/uFjp7jlYn2uVo9JI6mFgxSGbKC+tPl1jMB15kE8pbOcjIpcA0/0SBeUZsfEukKryQv8VvPm61qrHj29la/xPD7RWjeSlywFBy820BJBsz+tQ3JjgbesYr3WnpCFMLjmIQMTYBFVbvARNut0SmOE7iDjp3m9VJ42uD4gIa2Rl4malMnc76DZhXDzhvbXQgN+5IeIfAMDJKgc7vBlnI8TVXeADuRQZ7vt2ZJDJVnBq0tQt7mytDphUgP+zBu79/3SV4raAm6IMyxM+iaZaYafqhv0Qmg7ZY6Fr7ERxwLvhr2nK9cznuw2x7Su/JMGvuNcpPDvef237krn4qOQORCXM3V31YueNAw0UpZIDEXFIz9ezmDrdPA9yGjPqjiMnga2pbWmA6dgiNGJBt7KUxWQ0q3XYF19KSJxZ4Q==
-Content-ID: <9FEAF26BDE791E4CAE434527DF482AD0@namprd11.prod.outlook.com>
+ id 1kNEFa-00086X-Q9
+ for linux-riscv@lists.infradead.org; Tue, 29 Sep 2020 11:56:56 +0000
+Received: by mail-lf1-x142.google.com with SMTP id b22so5124811lfs.13
+ for <linux-riscv@lists.infradead.org>; Tue, 29 Sep 2020 04:56:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=wEyAKkg0BRNQb0XI+Fllxgmsp9nACuRk2KZy+Qn9luc=;
+ b=yHaYZoOWCf/DHJ8zu/uGiwS87eaTWm5X0wFr6/CgM+gCpKVtO1OPRnU7MlwLFUI9p+
+ mBBWvwggrUlrZvBFXfkwqtk502CUhlHOaT2t559bQqiY1oR4qARzAybhVKHCCgQHiZLT
+ z69TeGvPcFpc3YXXgHwmSAOjmXQYzvcmKvNXmKoMPL/nwFhT6VHaXnL/m5pe2QWup9fT
+ HkFJ5uGvhPyMuJZfZ0r1AsSxtKq16wvunbGCMvHBsESfALV2QBUJNT9JLStrZS4uJfHu
+ GEs3vqIorBxvGYEIXEWYX/cEK5FE32k08PERFeKojMhszEQoYxqUrzdUjNTac2pDAHfi
+ kuYg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=wEyAKkg0BRNQb0XI+Fllxgmsp9nACuRk2KZy+Qn9luc=;
+ b=P11IZ8a4Fn6NLg5TeXGS5atZ3QI+hIXDNbi9C7Ji6NPo218mJ5/jeXTAFPVkrnl8L8
+ oSQK1G7wiCjjj9Y13m54TOmEEiqG1W7QYQMtQ5HvCyc8FAyt7oV1YD05tqJ3NIL2QWQr
+ GBWUmvN0VWrroOQLMhuZtqN7N8QnaoOMMzxWDOAF5Tpzrie5NEXewVRfm9Wi4bNvMd7f
+ 2x+uSGlMoVmHIWWSuU5sEDnsYaxOoXv4J1ghCDT2k2j60WsAqjDZXzAdUPdCZVVIf+NB
+ TQ2gPkgLnFtyE1MbLNbH7f9OcVudwLN734uUFg/SjX2itpCEMfWzdscuk5ZHwPSlbVey
+ 9dCg==
+X-Gm-Message-State: AOAM5318vB6vxUYG8aMisuguq9+mauIIb/O7+DsNxf+5AKsTwgX4vSNP
+ Zh6b6k4NcoYhjuXgHlw58j1C7D5CDVHT9iAt096WhT9GemAJnQ==
+X-Google-Smtp-Source: ABdhPJxD9RnJu9niLvXl7peBAqIn8XNlpZwat8yHk+I/9rvKMxpEJuaIW7mJjGdLPOSa+o71BKqK6zUX6arDevsifYk=
+X-Received: by 2002:a19:1c8:: with SMTP id 191mr1004517lfb.585.1601380613115; 
+ Tue, 29 Sep 2020 04:56:53 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SN6PR11MB3184.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f70bc009-fad6-405a-8e4d-08d8643457cd
-X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Sep 2020 04:58:44.4152 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: etO50W/t3kxQxurmTtPYdwh2lIDsJCMEOsAsZgbyH0b+f4mv2fltU/sZqL5BUysy+feywqIiVmJEnSrFbZ2N2W7WcYwG47lolWQLnvPYgCI=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR11MB4653
-X-OriginatorOrg: intel.com
+References: <20200916162250.16098-1-krzk@kernel.org>
+In-Reply-To: <20200916162250.16098-1-krzk@kernel.org>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 29 Sep 2020 13:56:42 +0200
+Message-ID: <CACRpkdacWQKgCY1E=ONegPRE001UA-DmvRKB+Yz1maapYQ5rVQ@mail.gmail.com>
+Subject: Re: [PATCH 0/8] gpio: add common dtschema
+To: Krzysztof Kozlowski <krzk@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200929_005906_279606_7F8EE076 
-X-CRM114-Status: GOOD (  18.74  )
+X-CRM114-CacheID: sfid-20200929_075654_918110_55D2ED3C 
+X-CRM114-Status: GOOD (  11.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -151,74 +88,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "mark.rutland@arm.com" <mark.rutland@arm.com>,
- "david@redhat.com" <david@redhat.com>,
- "peterz@infradead.org" <peterz@infradead.org>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
- "linux-mm@kvack.org" <linux-mm@kvack.org>,
- "linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
- "hpa@zytor.com" <hpa@zytor.com>, "cl@linux.com" <cl@linux.com>,
- "idan.yaniv@ibm.com" <idan.yaniv@ibm.com>, "Williams,
- Dan J" <dan.j.williams@intel.com>, "Reshetova,
- Elena" <elena.reshetova@intel.com>,
- "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
- "tycho@tycho.ws" <tycho@tycho.ws>, "arnd@arndb.de" <arnd@arndb.de>,
- "linux-nvdimm@lists.01.org" <linux-nvdimm@lists.01.org>,
- "shuah@kernel.org" <shuah@kernel.org>, "x86@kernel.org" <x86@kernel.org>,
- "willy@infradead.org" <willy@infradead.org>,
- "rppt@linux.ibm.com" <rppt@linux.ibm.com>,
- "mingo@redhat.com" <mingo@redhat.com>,
- "mtk.manpages@gmail.com" <mtk.manpages@gmail.com>,
- "will@kernel.org" <will@kernel.org>, "jejb@linux.ibm.com" <jejb@linux.ibm.com>,
- "bp@alien8.de" <bp@alien8.de>,
- "viro@zeniv.linux.org.uk" <viro@zeniv.linux.org.uk>,
- "luto@kernel.org" <luto@kernel.org>,
- "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
- "kirill@shutemov.name" <kirill@shutemov.name>,
- "tglx@linutronix.de" <tglx@linutronix.de>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
- "linux-api@vger.kernel.org" <linux-api@vger.kernel.org>,
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
+ Stefan Agner <stefan@agner.ch>, Bjorn Andersson <bjorn.andersson@linaro.org>,
+ Masahiro Yamada <yamada.masahiro@socionext.com>,
+ Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ linux-riscv@lists.infradead.org, Fabio Estevam <festevam@gmail.com>,
+ Anson Huang <Anson.Huang@nxp.com>, Magnus Damm <magnus.damm@gmail.com>,
+ Bartosz Golaszewski <bgolaszewski@baylibre.com>,
+ Andy Gross <agross@kernel.org>,
+ bcm-kernel-feedback-list <bcm-kernel-feedback-list@broadcom.com>,
+ NXP Linux Team <linux-imx@nxp.com>, MSM <linux-arm-msm@vger.kernel.org>,
+ Sungbo Eo <mans0n@gorani.run>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, Ray Jui <rjui@broadcom.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ Chris Packham <chris.packham@alliedtelesis.co.nz>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ Scott Branden <sbranden@broadcom.com>, linux-unisoc@lists.infradead.org,
  "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "palmer@dabbelt.com" <palmer@dabbelt.com>,
- "linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>
+ Paul Kocialkowski <paul.kocialkowski@bootlin.com>,
+ Yash Shah <yash.shah@sifive.com>, Rob Herring <robh+dt@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Shawn Guo <shawnguo@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2020-09-24 at 16:29 +0300, Mike Rapoport wrote:
-> Introduce "memfd_secret" system call with the ability to create
-> memory
-> areas visible only in the context of the owning process and not
-> mapped not
-> only to other processes but in the kernel page tables as well.
-> 
-> The user will create a file descriptor using the memfd_secret()
-> system call
-> where flags supplied as a parameter to this system call will define
-> the
-> desired protection mode for the memory associated with that file
-> descriptor.
-> 
->  Currently there are two protection modes:
-> 
-> * exclusive - the memory area is unmapped from the kernel direct map
-> and it
->               is present only in the page tables of the owning mm.
+On Wed, Sep 16, 2020 at 6:23 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
 
-Seems like there were some concerns raised around direct map
-efficiency, but in case you are going to rework this...how does this
-memory work for the existing kernel functionality that does things like
-this?
+> This is independent work of pca953x bindings:
+> https://lore.kernel.org/lkml/20200916155715.21009-1-krzk@kernel.org/T/#u
+>
+> The DTS patches can be also applied independently.
 
-get_user_pages(, &page);
-ptr = kmap(page);
-foo = *ptr;
+I'm a big fan of this patch series and hope for a v2 soon
+so I can apply them.
 
-Not sure if I'm missing something, but I think apps could cause the
-kernel to access a not-present page and oops.
+If you do not foresee any conflicts in the DTS files I can
+apply also these, else you can apply them in the i.MX DTS
+tree (wherever that is) or I can provide an immutable
+branch, whichever you like!
+
+Yours,
+Linus Walleij
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
