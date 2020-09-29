@@ -2,115 +2,77 @@ Return-Path: <SRS0=aBv4=DG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1EF8FC4741F
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2020 12:18:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3D78FC4727F
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2020 12:38:31 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 967E22076A
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2020 12:18:55 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B6ED62075F
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2020 12:38:30 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="rnU9DAqW";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sifive.com header.i=@sifive.com header.b="ahK30Vuq"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 967E22076A
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="goF1/jBJ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B6ED62075F
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HDSf2FjsA+PfT4GOo67Nn2Hs/4IN+WnZ1kLmSTxL57M=; b=rnU9DAqWcL8Dm3WZ7hJJzeRgoD
-	i0s4yiMzgfU/GaEjbt00X2h9NSeA5o2iFnurpxRxSdij10QaokTpdDRPCuHOHc6ON3iiiIOYt5diw
-	QKMahQKr+ScLlIx71uY4wDMVxYhWUyX9OR5nvhAKBV/3dlVWHXY+fdLo6mnUTbtf1oWNQnQLb9N/o
-	mmOcGf1mMHTsXYD+ZvifaFCEzjQtAXy0R/SXG9M9Qq7oCCLFA6Oah1l/pQuzNZ89KD+BzfeFo89er
-	akYorogcxHtzWAY7GMa68sXnERq1Z5lYCtdvswUTRfmD0d7XiDUoydlMR0GMrvsam5Bhzb+WPvz8M
-	fE1m34nw==;
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=qI6z7ZlC1j5YjAIYdFLDGYDlSs7QCn6f0ZkXkZ36KsI=; b=goF1/jBJPSdrkZbgw/dIZz5Ja
+	VilPVse/2oi7nH0CFOp9/czTvhumFJV00apWYJnnUJQNM6itksX00UP1YPFEyZb2Wa/r1tK4eEynu
+	4MqOyAqy4TmruyLe/am5oF8bWVDwHcPiKZe2EWjXsbPdlH3nYpBBIOALd8VpL8o9O5RdlSJrPdYnF
+	W7nygrzDNiZnfAntEnh43XtBfuH78kMfmJNnG6qVvQIiNTddI/wog1iGbSCwPUljmmtywNau4h/di
+	eivsB/ck+KF2P1Ty+wYmFtCNI/kmmV+GZGlriZ20UBJxOOzgLwAyHkcjHIDHx5RkUAZ/veK6Wqkha
+	WlZnqdTVQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kNEae-0002FU-H9; Tue, 29 Sep 2020 12:18:40 +0000
-Received: from mail-eopbgr770089.outbound.protection.outlook.com
- ([40.107.77.89] helo=NAM02-SN1-obe.outbound.protection.outlook.com)
+	id 1kNEtf-0005tW-5H; Tue, 29 Sep 2020 12:38:19 +0000
+Received: from mail-ej1-f67.google.com ([209.85.218.67])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kNEab-0002En-HB
- for linux-riscv@lists.infradead.org; Tue, 29 Sep 2020 12:18:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=n2Z+c2V4R4huwMNBMgbWxevxzarBi5yMGgik8689ut0K78YLlznaFKxSCh0tbFdmPoUTBhSOds2AuWF4UiOcIAtSQneSQg6+gkQVPVKrUMyyuSQpyQJTC5idzCxiWWjsu2GJeBhlnNj0zDDbPJJtsM/3hoo9BOQysetHVq+rqoi12xSBeCYuO61fon0IA6yDP8yrW+tjPML3PBVzt/wEx9755NjDzSWtokGPBIHsS3V88QYvVcV5gZX6dJrCOvfr4PjJPYT//cJCuZCU+1Rzije8Vp04dUOr+F5s53yxmOVayiX8okvTE3JjxIq9Ri0/CpNqKiOpvLwEujQxi5Ccyg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EA1BX21cFK26eil0VeitXapqX39jRnMOgI3OctH63Ms=;
- b=ePw2rTP++5pwXj1QFWq9rA8Gw9Ene79iq8l0/efPD0bhoJlwotNhrmukShdCRHZouLe2pVbGbksE1m4Gb8Xx403tn3uUxve4XIFI2QvAXfl+yRtgCJZFhXjypZuoVszMuj/jeRLtBJz78dRd++3Be6VzWakBII3owi+P9SzvrWLqq1lKNY9Wtv99rCtC/HIEgW37L3XDLOGxv3qeVeLYkupd0TXcljMAxcx04rmUBTGDwfeL0i8iMFJmVRhn7xcns5PpZU+GXdryxx8aNr9FMQ+lcdhsMIyCrbU/Ix58aCs03vjus3CQ3SOZ5ijtVTsqaRvXEnc5Ha95Ir+ucEz2NA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=openfive.com; dmarc=pass action=none header.from=sifive.com;
- dkim=pass header.d=sifive.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EA1BX21cFK26eil0VeitXapqX39jRnMOgI3OctH63Ms=;
- b=ahK30VuqjYd+fsiBVKIXKHqJwfhVSV3GWt/izqOgrm862TQ0y/4wrg0Fdau/IXTnAEfxxAkuKin2+oDHqSIOdTF7TY2Bdik65kPRpWmFQrbUIviifzH8WeIZWHj2egWkVPw5flqd2ejIqc6qrxHcinjp1KIxqbDmRhamPw+DrYA=
-Authentication-Results: vger.kernel.org; dkim=none (message not signed)
- header.d=none; vger.kernel.org; dmarc=none action=none header.from=sifive.com; 
-Received: from DM6PR13MB3451.namprd13.prod.outlook.com (2603:10b6:5:1c3::10)
- by DM6PR13MB4050.namprd13.prod.outlook.com (2603:10b6:5:2ae::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3433.20; Tue, 29 Sep
- 2020 12:18:34 +0000
-Received: from DM6PR13MB3451.namprd13.prod.outlook.com
- ([fe80::a48a:1f7c:267c:876]) by DM6PR13MB3451.namprd13.prod.outlook.com
- ([fe80::a48a:1f7c:267c:876%7]) with mapi id 15.20.3433.032; Tue, 29 Sep 2020
- 12:18:34 +0000
-From: Sagar Kadam <sagar.kadam@sifive.com>
-To: linux-kernel@vger.kernel.org
-Subject: [PATCH v4 0/1] convert l2 cache dt bindings to YAML format
-Date: Tue, 29 Sep 2020 17:48:15 +0530
-Message-Id: <1601381896-29716-1-git-send-email-sagar.kadam@sifive.com>
-X-Mailer: git-send-email 2.7.4
-X-Originating-IP: [159.117.144.156]
-X-ClientProxiedBy: SG2PR03CA0149.apcprd03.prod.outlook.com
- (2603:1096:4:c8::22) To DM6PR13MB3451.namprd13.prod.outlook.com
- (2603:10b6:5:1c3::10)
+ id 1kNEta-0005sA-Jl; Tue, 29 Sep 2020 12:38:15 +0000
+Received: by mail-ej1-f67.google.com with SMTP id j11so14825594ejk.0;
+ Tue, 29 Sep 2020 05:38:14 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=8cBo88Rf0XB3Amo8WHaoA3mvFSPQ6LbFDMO+GstCOgU=;
+ b=BXezsaxzppWu8aoDTiYOs/7YCWPqrHn/WeqAIPXHFzrkTZt87yc2l+g3c21DZD+F9g
+ QW6cBl8MluMUJmvPWFWCxXkkzRsqwSTRXV1qmwu1TV2CBak3xfSez2nfJtHCcKVJfKhp
+ +EPTTCaifOnm0xfDqdZA9PTs0xpmsdYCFBchqG22l2N7Dohq4UddXzc+WjyFBWxG/aEY
+ AGfhKBHJgTq0tErfKWSNVmul4/SbWRDJ0HzfOiCJ1nwHn5QEZQDwm3g2eYyqp/PsI10c
+ //0R6mnFdLlytNDPN6vKKOvNt+mGKRMyoB+qh37mmWDXHrOWk71jhSPXq0w0iJHPSvfd
+ 1Q2A==
+X-Gm-Message-State: AOAM530hEmVgODH6/Qfc/f2xb/lS+fqhhppklGezUvUBtcNH4fbtqavm
+ VuVi7vZzgQumtOGIfcoxW+w=
+X-Google-Smtp-Source: ABdhPJywdVpCr+WJQxL/CB+8FU0Ise/EiUvtP1NqlRdfdlKrgf438XWp3aGFvYREkH3IV2E+mX7okA==
+X-Received: by 2002:a17:906:b28d:: with SMTP id
+ q13mr3590683ejz.378.1601383092996; 
+ Tue, 29 Sep 2020 05:38:12 -0700 (PDT)
+Received: from kozik-lap ([194.230.155.194])
+ by smtp.googlemail.com with ESMTPSA id c5sm5704977edt.24.2020.09.29.05.38.09
+ (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+ Tue, 29 Sep 2020 05:38:11 -0700 (PDT)
+Date: Tue, 29 Sep 2020 14:38:08 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Linus Walleij <linus.walleij@linaro.org>
+Subject: Re: [PATCH 0/8] gpio: add common dtschema
+Message-ID: <20200929123808.GA21809@kozik-lap>
+References: <20200916162250.16098-1-krzk@kernel.org>
+ <CACRpkdacWQKgCY1E=ONegPRE001UA-DmvRKB+Yz1maapYQ5rVQ@mail.gmail.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-Received: from osubuntu003.open-silicon.com (159.117.144.156) by
- SG2PR03CA0149.apcprd03.prod.outlook.com (2603:1096:4:c8::22) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id
- 15.20.3433.20 via Frontend Transport; Tue, 29 Sep 2020 12:18:30 +0000
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 6c596193-eadd-413c-35c0-08d86471c889
-X-MS-TrafficTypeDiagnostic: DM6PR13MB4050:
-X-LD-Processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
-X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <DM6PR13MB40509BDDAA6B66225D8BDF3797320@DM6PR13MB4050.namprd13.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:364;
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: pm/M4I0gGiNeXFzm2WlNMkRVxECufABEi3BQjjpd/HPS++6ri4iAZNTRxYZhx7fJUb8ysNvIor9J5HxUJ9MkOnnsa/wUmOyfWA13vk8gjsX3FUx+v7Mavl9HopkkEHCwtqKqx4KoM4BJD0RftVFXQ3MdGP5qQH9oeygafEjVIEu+KmKZGiQKOsA24rA4Gpis5h1nwCSUcHWxKe+ScSV1Nz0o5V5++qScvq47J714JAAadJ3YFZ6HUwY83DijUU8MoUFwkvz1vGGvNrn1vjZ9fySpm2ACtCpLwXRsYsO++9zBxfxRsaeUPLJL/8nTQjsvogg4VwbeUHWrsgTKSKcya+VAGtRiaALTJv38OEqzj2USTqu9JwIhF7QRa/K3ioHln4MRFJavwaeHWonYxIY0ZA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:DM6PR13MB3451.namprd13.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(136003)(39850400004)(396003)(346002)(366004)(376002)(8676002)(66476007)(66946007)(6506007)(966005)(66556008)(4326008)(107886003)(6486002)(83080400001)(52116002)(6916009)(83170400001)(83380400001)(316002)(2616005)(186003)(42882007)(26005)(36756003)(956004)(44832011)(6512007)(2906002)(478600001)(16526019)(6666004)(8936002)(5660300002);
- DIR:OUT; SFP:1101; 
-X-MS-Exchange-AntiSpam-MessageData: RBEv0t01QITiuJ23O7lg3F7WujG6SgdqAqWymqk9QDrowVGSUZwcItzSKVAkk6+C0jZ/yzRNnPQ0dzVZ0HIG4XaL3rluSB55EEzGkudz1o/ONPfsgYojNrRh0Jxlmn1HuloHGHkIrz/zWOycqOfV+dioH15RdVAGNct3IFHJCW6LdbZAZINCNh4B0vE0HrN8AkC/tyc1fqQAlAEcxOT3sfT5GhFVB2JKDWpIdYtPcUBIE0Y0L7YHo50CwDdfZL5khyeNAmM4V7LcIpsMOhzCX6GZdRFhmi1bga4I2FF9myQhPHfv1YuWwkhZ+xMkdOpaPpjcAFi2ylnryhtpNILyKq6OSQIG8NZo1Vz9pDXYawtJvkuRGTbkjjYiij0v1JY5TDAi7CkPv4NimV1fyDhClVyXqC6PAiJPB1F7IHGTSkrdIaHcsAc5LZuGqIhzXIekiKbwDIOu8s41CB+iwci8BXGfOLb0NfCPHfnK/EuW797VmWdeIi75ck8sWBA9wVhuDb0wT19WSAuyY1gOS4n6GnPp/uWqt38BBqYkAe1BK5kF/G4mu9zlUyHOJm1RVYXP9+FIDa0AZpwRjWGLvTHXHqWRkjkSAYZ3QOiqUH2wcQRFgqGY8SIVBUlvmVXnEYz844eRJs+TdtxqtVXt4vh+7g==
-X-OriginatorOrg: sifive.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6c596193-eadd-413c-35c0-08d86471c889
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR13MB3451.namprd13.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2020 12:18:33.8738 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 9toO3JtxrdcU91j/G+uAhoABQSCpZEsHuqk2T5cJ2sbH5TeQQPkC4DLwBkW4xwxyGgqkuBek1oiEq8Kya654iQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR13MB4050
+Content-Disposition: inline
+In-Reply-To: <CACRpkdacWQKgCY1E=ONegPRE001UA-DmvRKB+Yz1maapYQ5rVQ@mail.gmail.com>
+User-Agent: Mutt/1.9.4 (2018-02-28)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200929_081837_770276_15524023 
-X-CRM114-Status: UNSURE (   9.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200929_083814_657157_F2D7E9A8 
+X-CRM114-Status: GOOD (  17.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -122,54 +84,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, aou@eecs.berkeley.edu, yash.shah@sifive.com,
- robh+dt@kernel.org, palmer@dabbelt.com, Sagar Kadam <sagar.kadam@sifive.com>,
- paul.walmsley@sifive.com, linux-riscv@lists.infradead.org
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
+ Stefan Agner <stefan@agner.ch>, Bjorn Andersson <bjorn.andersson@linaro.org>,
+ Masahiro Yamada <yamada.masahiro@socionext.com>,
+ Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ linux-riscv@lists.infradead.org, Fabio Estevam <festevam@gmail.com>,
+ Anson Huang <Anson.Huang@nxp.com>, Magnus Damm <magnus.damm@gmail.com>,
+ Bartosz Golaszewski <bgolaszewski@baylibre.com>,
+ Andy Gross <agross@kernel.org>,
+ bcm-kernel-feedback-list <bcm-kernel-feedback-list@broadcom.com>,
+ NXP Linux Team <linux-imx@nxp.com>, MSM <linux-arm-msm@vger.kernel.org>,
+ Sungbo Eo <mans0n@gorani.run>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, Ray Jui <rjui@broadcom.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ Chris Packham <chris.packham@alliedtelesis.co.nz>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ Scott Branden <sbranden@broadcom.com>, linux-unisoc@lists.infradead.org,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Paul Kocialkowski <paul.kocialkowski@bootlin.com>,
+ Yash Shah <yash.shah@sifive.com>, Rob Herring <robh+dt@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Shawn Guo <shawnguo@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch is created and tested on top of mainline linux 
-commit a1b8638ba132 ("Linux 5.9-rc7")
-Reference log of "make dt_binding_check" is available here[1].
+On Tue, Sep 29, 2020 at 01:56:42PM +0200, Linus Walleij wrote:
+> On Wed, Sep 16, 2020 at 6:23 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> 
+> > This is independent work of pca953x bindings:
+> > https://lore.kernel.org/lkml/20200916155715.21009-1-krzk@kernel.org/T/#u
+> >
+> > The DTS patches can be also applied independently.
+> 
+> I'm a big fan of this patch series and hope for a v2 soon
+> so I can apply them.
 
-Just in case required, reference log of "make dt_binding_check"
-without this patch is available here[2].
+I sent the dt-bindings part of it already to dtschema and it was
+applied.  It's missing the description of properties due to licensing
+but at least it brings the hog nodes validation.
 
-[1] https://paste.ubuntu.com/p/8TmWDZJs3g/
-[2] https://paste.ubuntu.com/p/ys5XNn38VP/
+> 
+> If you do not foresee any conflicts in the DTS files I can
+> apply also these, else you can apply them in the i.MX DTS
+> tree (wherever that is) or I can provide an immutable
+> branch, whichever you like!
 
-Change History:
-====================
-V4:
--Incorporated changes as suggested by Rob Herring here[3]
- [3] https://lkml.org/lkml/2020/9/22/929
--Rebased patch on 5.9-rc7
+Thanks! I resent already the DTS in separate patchset and most of them
+went in.
 
-V3:
--Incorporated changes as suggested by Rob Herring here[3]
- [3] https://lkml.org/lkml/2020/9/15/670
--Rebased patch on 5.9-rc5
-
-V2:
--Fixed bot failure mentioned by Rob Herring
--Updated dt-schema and kernel as suggested
-
-V1:
-Base version
-
-Sagar Kadam (1):
-  dt-bindings: riscv: sifive-l2-cache: convert bindings to json-schema
-
- .../devicetree/bindings/riscv/sifive-l2-cache.txt  | 51 -----------
- .../devicetree/bindings/riscv/sifive-l2-cache.yaml | 98 ++++++++++++++++++++++
- 2 files changed, 98 insertions(+), 51 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/riscv/sifive-l2-cache.txt
- create mode 100644 Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
-
--- 
-2.7.4
+Best regards,
+Krzysztof
 
 
 _______________________________________________
