@@ -2,117 +2,58 @@ Return-Path: <SRS0=aBv4=DG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-18.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,MSGID_FROM_MTA_HEADER,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-11.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 34272C4727C
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2020 15:33:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C08D7C47420
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2020 18:03:55 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7A8C320773
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2020 15:33:56 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 3FD9420C09
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Sep 2020 18:03:55 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="t3T3tiuq";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sifive.com header.i=@sifive.com header.b="JcvSrAfs"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7A8C320773
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="s/N35hFA"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3FD9420C09
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=81u5bEaCzmVdt0AHcYn/UD4Tp8VUYKFlIPn/qmF2Dmc=; b=t3T3tiuqmeFytnpWl2DFl7Nyd
-	MUkqfxTnIF+f5iroQiG/ryDXN2ZqAGQGiT0pfzBFfMrI9q3Q0avOSEZyWVEaN/rabyyD+Vqk7sbkJ
-	Xih6tODsUjFiPqi++YPtCq6nkdffeY10PFPce4bx18DIx9atnzI3EMLpWTFEljKsbOkqszTt6ICB1
-	Pb9fohVUOLjjcXN9qfz7w1+sUjvCwoLJeJzPxeaLBkgESDJXSF4NOwPL3O6msIu/3eohsQTsKIeF8
-	oN1x7YISkoBrbiELyTBa7QHSZsWq8gFU4CMo5JBzxfGdJWzB9TrYVEKutiQj3rxiPLjnZ2+uNz1/2
-	hdP8NZL6w==;
+	 bh=5XxiFWol78N12vQW9lIRIZPoI2VqTA7TS07E/5e/Fpg=; b=s/N35hFAdewL34br5tOqXGrly
+	NHZVtY8Wj3lW+i10Yl+TZRN2CpLZ5Mdlj7DcnpWBwBmU2nZr3XKQjh1fUsV0RNtUapTev4+pjeI6s
+	OCQ8c5/tYjfz6+sAkOVc8nwyLzKvHyuM5/09Z7Fe+UJBv1vp3OxsnnUx0PxACsJW+EuLmeu+yi4Mw
+	3uW2cDG71lUz87xEV+W7IoA40uYXFT1SklFm5EnsSbItiaKzGoZcZYDIKS2M4ZL1ZLrSA2vREq9ZT
+	56tbsGUq8LVmPg+DV/bs62J/ioQuYmLX6lLQEbVG3T1uimppq+0wH75sm2EYMBue/Pe7ANhTSZTEq
+	X2amVK+9w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kNHdT-0003ms-6E; Tue, 29 Sep 2020 15:33:47 +0000
-Received: from mail-bn7nam10on2066.outbound.protection.outlook.com
- ([40.107.92.66] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	id 1kNJyc-0000gY-5l; Tue, 29 Sep 2020 18:03:46 +0000
+Received: from verein.lst.de ([213.95.11.211])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kNHdP-0003kx-Se
- for linux-riscv@lists.infradead.org; Tue, 29 Sep 2020 15:33:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=cjpv92j2oo3ZdGNqg/LcfOJsCjgvs8e5JM5Jyow7/aUyt1SJRNo5buR5DeisX8QAcb3D1twXwfUA7TXXN1RTw5mu4+8iF1tnPGWv09pfh29FkEKPUXpGAJYZms1A3qkRdkgaN8skMLiryi2llsGxBXEn069IiURCsNomQNn5TSyACkOkB46EU1CMGrQoFU9A23vIBwaf7g2J/De2NSNHSsY97HVG9NUxFGtpIWNlPSdygw+H9j9Z83qUtpcKezhE1d98C1g3K8UehNW2KQ0YmaewMZPA9Nbnq+Rk3DCCZ9eZTTrDkZxgT7gmthyQqERTtv5tY4OSkwaRo7tkvBAIDg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=u3Ulm3ee2XLjQQ6jk3sWu1TMLDoYUWn2nb7NWclCEnU=;
- b=aD76apwZAa2eWLq3i5rnPefnHfNJ4fpBeIgBrQyDnD8MDokJDv3zYL6lf9Zar25eXQQvf5SS69aoHh7N5LqPq8U7wCxW2NFsmcLtoxF31+8uavxAbKUD3DHHhveqr13xn2S2HDEzOrXNWGvU/peLLXkbPMxRlgDy7gELrRKg0bWhqQDv7tcjgNaay49P0DqBXYwxLjF5rHbXqsGqhvj1sUTFAT7+V9l5OK5GrSQKdHb5enHnJmx1rReXW+rjSRN5WUFyJZo/mM4+KBxxGVwdkQnLc6inbni2JPAoK+Ha6IUG0P0Lsspp8FghpGHqXNHdAA+6FzZFtVY6uI0Sj8/zdA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=openfive.com; dmarc=pass action=none header.from=sifive.com;
- dkim=pass header.d=sifive.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=u3Ulm3ee2XLjQQ6jk3sWu1TMLDoYUWn2nb7NWclCEnU=;
- b=JcvSrAfsqK0otYPTY1hjikjfQbOPRP4lOvRm4T3NIurJc/WjY39SIxPFhrzo6fclW1XTidhoLOPe0BfvqlXJ/1sCcoEFVo/4XNDZ/sH5b7BdPPMAV6foM1kcym84UIbEfmg/nOZaUbxFNm3PRfgEVD+GNMoke8HoU5oEtkWB2wE=
-Authentication-Results: vger.kernel.org; dkim=none (message not signed)
- header.d=none; vger.kernel.org; dmarc=none action=none header.from=sifive.com; 
-Received: from DM6PR13MB3451.namprd13.prod.outlook.com (2603:10b6:5:1c3::10)
- by DM6PR13MB2412.namprd13.prod.outlook.com (2603:10b6:5:c3::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3433.14; Tue, 29 Sep
- 2020 15:33:41 +0000
-Received: from DM6PR13MB3451.namprd13.prod.outlook.com
- ([fe80::a48a:1f7c:267c:876]) by DM6PR13MB3451.namprd13.prod.outlook.com
- ([fe80::a48a:1f7c:267c:876%7]) with mapi id 15.20.3433.032; Tue, 29 Sep 2020
- 15:33:41 +0000
-From: Sagar Kadam <sagar.kadam@sifive.com>
-To: linux-clk@vger.kernel.org
-Subject: [PATCH v2 3/3] dt-bindings: riscv: convert pwm bindings to json-schema
-Date: Tue, 29 Sep 2020 21:02:11 +0530
-Message-Id: <1601393531-2402-4-git-send-email-sagar.kadam@sifive.com>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1601393531-2402-1-git-send-email-sagar.kadam@sifive.com>
-References: <1601393531-2402-1-git-send-email-sagar.kadam@sifive.com>
-X-Originating-IP: [159.117.144.156]
-X-ClientProxiedBy: SG2PR02CA0101.apcprd02.prod.outlook.com
- (2603:1096:4:92::17) To DM6PR13MB3451.namprd13.prod.outlook.com
- (2603:10b6:5:1c3::10)
+ id 1kNJyY-0000fR-Pd
+ for linux-riscv@lists.infradead.org; Tue, 29 Sep 2020 18:03:43 +0000
+Received: by verein.lst.de (Postfix, from userid 2407)
+ id 21E3667373; Tue, 29 Sep 2020 20:03:39 +0200 (CEST)
+Date: Tue, 29 Sep 2020 20:03:39 +0200
+From: Christoph Hellwig <hch@lst.de>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Subject: Re: remove set_fs for riscv v2
+Message-ID: <20200929180339.GA12546@lst.de>
+References: <20200928124928.GA5834@lst.de>
+ <mhng-a034d2ee-67eb-4432-be9e-66fff000acda@palmerdabbelt-glaptop1>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-Received: from osubuntu003.open-silicon.com (159.117.144.156) by
- SG2PR02CA0101.apcprd02.prod.outlook.com (2603:1096:4:92::17) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id
- 15.20.3433.32 via Frontend Transport; Tue, 29 Sep 2020 15:33:34 +0000
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 39f21467-2767-4cf2-259f-08d8648d0aaf
-X-MS-TrafficTypeDiagnostic: DM6PR13MB2412:
-X-LD-Processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
-X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <DM6PR13MB2412E18C4139CFCB54A0DE3D97320@DM6PR13MB2412.namprd13.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:7691;
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: xyKLjQnNOW1/MqAb8gRuzDsxVBaNrV6Qlm3IFTcJ/Yo5fTJLLv4S8xYZO/wsy/cg4VBZ+l7+Qma8mFpimBScUqnQkxregIO1+4TGD8d9iaHTq8PKsFQFhunx3EirTEAc/oR9Yjwba19ZyKlHiIa8k2XsFjgalSzP6lS28nddbcHF1e5dpBwobU10Vnv0BWe3pOOnzR4Vib5JZ9azAhsBdnsqMfwWF1L0TheZ5yChop4vv0G2MNNG268KleScnLFfU38prJQrsU6A0YyQEz35DJb2S2f07elKF45UBUcv3IK8l78y09UPIA2ZveWvdHeicqIX2ApdVEfObVu3UIWLolo3Giyg5Egu1SiadfFTqcVQGQWS8cz1CjFXgmDhTuqMsCCK3sA3Gn6SiVG8VxBVhA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:DM6PR13MB3451.namprd13.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(136003)(366004)(396003)(346002)(376002)(39850400004)(6512007)(966005)(44832011)(83380400001)(4326008)(66946007)(7416002)(52116002)(8676002)(83080400001)(2906002)(5660300002)(107886003)(6506007)(66476007)(66556008)(83170400001)(6666004)(36756003)(8936002)(2616005)(478600001)(6486002)(956004)(316002)(186003)(16526019)(26005)(42882007)(6916009);
- DIR:OUT; SFP:1101; 
-X-MS-Exchange-AntiSpam-MessageData: ZsBFYqPpdmZxxdGC2lnOVLn6r/VS4QRy/wcw/c8D1WLrG56onY0AWMk4swRRldhV4zcUXoKLFZaSYTMeOfbr+iMxdYPBECX7jTi6ZeRVVdUSOXsyumtLJaMFPWGw0JC3BARXKY6RwNTfvLnVzsmd3TSnatIKYUZRDnj7o0koUfIOQCTdDYdSwLYfIf1ND2baLOTiWKzWgtgLeSz8VA67CPCH4F2PhV8+wYyilii/iiH+XLxs9D28uyc61QDhRzv9Bzlr5zdnUjww8422cnApxF3nRxFq6HJMdaXfJa4G0k3B2XSku4BqCz1KzAl9L31qsw7BeLPasEKNXhs9qYgr/jyJX3Vd8fLT52C7DTk0UPeiZ8Q81YXSR88jrISz5w1ZKZIxwds+999pVDKcsCL3o3K24XfZXcAbL7wx5KfptxGjsq5UTzWc/He3jg/2UVi62QoLEIVlPE8DGHIFWiG8Y81kx8e5pDlwEu6yZbxliQiu/qLlI+UCJUKh47KITgbdCnBsRzlpLJ3evd40ZnqHc2QTvlEQ9jghVAZvDMDSorvSGQ9CP8YQFQz8nzmkZXk1NVSnz++C+ywAr1QyDj0HRooAaKrAzUzx7g5JPWkSOYZANu83a/LqtzIZF5gmkL8Zk7+cjrVtY3egaP9ipC39TA==
-X-OriginatorOrg: sifive.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 39f21467-2767-4cf2-259f-08d8648d0aaf
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR13MB3451.namprd13.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2020 15:33:40.8300 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: snonmJ+CmwWVMKYBqLN3NUxQWzQ1WxZ31NpJQ98DByYbJEHhp2KEDNm40AY3YkF1ML4UxVUnCkY+6jiZ6q03SA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR13MB2412
+Content-Disposition: inline
+In-Reply-To: <mhng-a034d2ee-67eb-4432-be9e-66fff000acda@palmerdabbelt-glaptop1>
+User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200929_113343_937388_E843FBE4 
-X-CRM114-Status: GOOD (  18.24  )
+X-CRM114-CacheID: sfid-20200929_140342_942983_284677D9 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -124,146 +65,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, aou@eecs.berkeley.edu, jason@lakedaemon.net,
- linux-pwm@vger.kernel.org, sboyd@kernel.org, maz@kernel.org,
- mturquette@baylibre.com, u.kleine-koenig@pengutronix.de,
- linux-kernel@vger.kernel.org, yash.shah@sifive.com, robh+dt@kernel.org,
- palmer@dabbelt.com, Sagar Kadam <sagar.kadam@sifive.com>,
- paul.walmsley@sifive.com, thierry.reding@gmail.com,
- linux-riscv@lists.infradead.org, lee.jones@linaro.org, tglx@linutronix.de
+Cc: linux-arch@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
+ linux-kernel@vger.kernel.org, viro@zeniv.linux.org.uk,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
+ Christoph Hellwig <hch@lst.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Convert device tree bindings for SiFive's PWM controller to YAML
-format.
+On Mon, Sep 28, 2020 at 09:45:30AM -0700, Palmer Dabbelt wrote:
+>>>    https://git.kernel.org/pub/scm/linux/kernel/git/palmer/linux.git/log/?h=riscv-remove_set_fs
+>>>
+>>> under the assumption it might get lost otherwise, but let me know if that's not
+>>> what you were looking for.
+>>
+>> Well, we'll want it in linux-next and then 5.10.  Either a merge through
+>> the RISC-V maintainer, or as part of the base branch from Al would
+>> make sense to me.
+>
+> Sorry, I guess my question was really: does that branch have all the
+> dependencies necessary for the RISC-V stuff to actually work?  IIRC this actual
+> patch set depended on some other one, and while I thinK I got everything I
+> don't want to pull in something broken.
 
-Signed-off-by: Sagar Kadam <sagar.kadam@sifive.com>
----
- .../devicetree/bindings/pwm/pwm-sifive.txt         | 33 -----------
- .../devicetree/bindings/pwm/pwm-sifive.yaml        | 69 ++++++++++++++++++++++
- 2 files changed, 69 insertions(+), 33 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/pwm/pwm-sifive.txt
- create mode 100644 Documentation/devicetree/bindings/pwm/pwm-sifive.yaml
-
-diff --git a/Documentation/devicetree/bindings/pwm/pwm-sifive.txt b/Documentation/devicetree/bindings/pwm/pwm-sifive.txt
-deleted file mode 100644
-index 3d1dd7b0..0000000
---- a/Documentation/devicetree/bindings/pwm/pwm-sifive.txt
-+++ /dev/null
-@@ -1,33 +0,0 @@
--SiFive PWM controller
--
--Unlike most other PWM controllers, the SiFive PWM controller currently only
--supports one period for all channels in the PWM. All PWMs need to run at
--the same period. The period also has significant restrictions on the values
--it can achieve, which the driver rounds to the nearest achievable period.
--PWM RTL that corresponds to the IP block version numbers can be found
--here:
--
--https://github.com/sifive/sifive-blocks/tree/master/src/main/scala/devices/pwm
--
--Required properties:
--- compatible: Should be "sifive,<chip>-pwm" and "sifive,pwm<version>".
--  Supported compatible strings are: "sifive,fu540-c000-pwm" for the SiFive
--  PWM v0 as integrated onto the SiFive FU540 chip, and "sifive,pwm0" for the
--  SiFive PWM v0 IP block with no chip integration tweaks.
--  Please refer to sifive-blocks-ip-versioning.txt for details.
--- reg: physical base address and length of the controller's registers
--- clocks: Should contain a clock identifier for the PWM's parent clock.
--- #pwm-cells: Should be 3. See pwm.yaml in this directory
--  for a description of the cell format.
--- interrupts: one interrupt per PWM channel
--
--Examples:
--
--pwm:  pwm@10020000 {
--	compatible = "sifive,fu540-c000-pwm", "sifive,pwm0";
--	reg = <0x0 0x10020000 0x0 0x1000>;
--	clocks = <&tlclk>;
--	interrupt-parent = <&plic>;
--	interrupts = <42 43 44 45>;
--	#pwm-cells = <3>;
--};
-diff --git a/Documentation/devicetree/bindings/pwm/pwm-sifive.yaml b/Documentation/devicetree/bindings/pwm/pwm-sifive.yaml
-new file mode 100644
-index 0000000..5ac2527
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pwm/pwm-sifive.yaml
-@@ -0,0 +1,69 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+# Copyright (C) 2020 SiFive, Inc.
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pwm/pwm-sifive.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: SiFive PWM controller
-+
-+maintainers:
-+  - Yash Shah <yash.shah@sifive.com>
-+  - Sagar Kadam <sagar.kadam@sifive.com>
-+  - Paul Walmsley <paul.walmsley@sifive.com>
-+
-+description:
-+  Unlike most other PWM controllers, the SiFive PWM controller currently
-+  only supports one period for all channels in the PWM. All PWMs need to
-+  run at the same period. The period also has significant restrictions on
-+  the values it can achieve, which the driver rounds to the nearest
-+  achievable period. PWM RTL that corresponds to the IP block version
-+  numbers can be found here -
-+
-+  https://github.com/sifive/sifive-blocks/tree/master/src/main/scala/devices/pwm
-+
-+properties:
-+  compatible:
-+    items:
-+      - const: sifive,fu540-c000-pwm
-+      - const: sifive,pwm0
-+    description:
-+      Should be "sifive,<chip>-pwm" and "sifive,pwm<version>". Supported
-+      compatible strings are "sifive,fu540-c000-pwm" for the SiFive PWM v0
-+      as integrated onto the SiFive FU540 chip, and "sifive,pwm0" for the
-+      SiFive PWM v0 IP block with no chip integration tweaks.
-+      Please refer to sifive-blocks-ip-versioning.txt for details.
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  "#pwm-cells":
-+    const: 3
-+
-+  interrupts:
-+    maxItems: 4
-+    description:
-+      Each PWM instance in FU540-C000 has 4 comparators. One interrupt per comparator.
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - "#pwm-cells"
-+  - interrupts
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    pwm:  pwm@10020000 {
-+      compatible = "sifive,fu540-c000-pwm", "sifive,pwm0";
-+      reg = <0x10020000 0x1000>;
-+      clocks = <&tlclk>;
-+      interrupt-parent = <&plic>;
-+      interrupts = <42>, <43>, <44>, <45>;
-+      #pwm-cells = <3>;
-+    };
--- 
-2.7.4
-
+The riscv patchset depend only on the base.set_fs branch in Als tree.
 
 _______________________________________________
 linux-riscv mailing list
