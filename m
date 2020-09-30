@@ -2,138 +2,79 @@ Return-Path: <SRS0=Qujn=DH=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 67916C4727C
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2020 15:25:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F0CD8C4727C
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2020 18:21:54 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id F1CF4206E3
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2020 15:25:48 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 768A120759
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2020 18:21:54 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="QnswjFEJ";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=redhat.com header.i=@redhat.com header.b="Ouhunx+Q"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F1CF4206E3
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="MYlA7S3s"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 768A120759
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=5FjxPzlVRRbP5+QuHYx9dFjOaGxA9iYXDRkJShO+bxE=; b=QnswjFEJIl9yyUY64ziwkQgs6
-	FVm7X1IJDuRSaQ809bOLHBOXSlMt8fiqHYpjrs7UwikJQ7zevlFOXlzGA9XrVdOlpkkMsqE4Sng+y
-	jNvAa0OdUDfR8uO73E+K9uwyjvd0niCVOjJDymVco0YpRHXdgd5oS1KwStv1934nsGsOAHdRVVOe6
-	9ENZL/qI55/gqdBjen+6iq68a0wEvGAMBa0WlkF59oKkL3T73hxzBAXaw8vhqye4vMSl6cG0gCSbL
-	Gr59JcGMO4ayfhCB9pxn7W1TqYl00AKyDAwldbRLuCTcvmpRkEETs9BcgEEhK0oyA7krpIc2O3v99
-	Aymt7U9og==;
+	 bh=kCrzycGlYkyuTk3mlaT7dFUIfKv168oxCcNI1JZ0vT8=; b=MYlA7S3sbrUueUJAFVgSqetod
+	EtYRCQsc0OG5jSmlRtviGgJtPHJW9n5p5VZpo80jMOlq1KyO6cHfeFE+FRu8biiDLrQ8n4/q/WceI
+	1CTZVaFqSyTu6Iq+14AYULA0cBR26BhbcleIBdFbqusd0TLCoF4b28aZU+TDP9Ghl8IWKVQ1xzM+A
+	pqcv9bDq3PQOd6Try9g/HBrtgRkZ4BzfVVwv2m0HiEeDOA+41JRDZ/I5MvRVwJAPo5OznjqHsxaFp
+	xemuMu3xq00sSqtH5WtA1ex+v0b5IWrwl7op3TykChydC5VC/ZnijFHrs9MLw2UZdWMAVuYWsWTJS
+	yEUxdbHGg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kNdz6-0005Uu-Tg; Wed, 30 Sep 2020 15:25:36 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([216.205.24.124])
+	id 1kNgjY-000215-2H; Wed, 30 Sep 2020 18:21:44 +0000
+Received: from mail-ot1-f68.google.com ([209.85.210.68])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kNdz4-0005TZ-NN
- for linux-riscv@lists.infradead.org; Wed, 30 Sep 2020 15:25:35 +0000
-Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1601479534;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
- bh=ULbhIL/q0cLG65xaFbVUTBshEy8FHXvXhINnXmLRfqc=;
- b=Ouhunx+QRlBcjBgumsVA/QY0EUUh1yT5x9L83/gUaHJTEo1XtYRl6y9sGy2Pnnk+osseLy
- RD6GfSazISYNq/5jsJBzqjaVYPo41BbK5fR89TFNOaMfwyer4JyP04LAiWvMHlCS6TAueY
- jo+kpteZnaNjVawWvYYjqhezJm/eInc=
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-167-vtD09YPQPl2abOAtTVC-OA-1; Wed, 30 Sep 2020 11:25:29 -0400
-X-MC-Unique: vtD09YPQPl2abOAtTVC-OA-1
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com
- [10.5.11.22])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mimecast-mx01.redhat.com (Postfix) with ESMTPS id EE1CD81CB07;
- Wed, 30 Sep 2020 15:25:24 +0000 (UTC)
-Received: from [10.36.113.220] (ovpn-113-220.ams2.redhat.com [10.36.113.220])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 859A11001901;
- Wed, 30 Sep 2020 15:25:16 +0000 (UTC)
-Subject: Re: [PATCH v6 5/6] mm: secretmem: use PMD-size pages to amortize
- direct map fragmentation
-To: jejb@linux.ibm.com, Mike Rapoport <rppt@linux.ibm.com>,
- Peter Zijlstra <peterz@infradead.org>
-References: <20200924132904.1391-1-rppt@kernel.org>
- <20200924132904.1391-6-rppt@kernel.org>
- <20200925074125.GQ2628@hirez.programming.kicks-ass.net>
- <20200929130529.GE2142832@kernel.org>
- <20200929141216.GO2628@hirez.programming.kicks-ass.net>
- <20200929145813.GA3226834@linux.ibm.com>
- <20200929151552.GS2628@hirez.programming.kicks-ass.net>
- <20200930102745.GC3226834@linux.ibm.com>
- <371c27d97067654171e5c1019340b56cffadae7a.camel@linux.ibm.com>
- <6568383f-4e43-2fe4-ecf1-8a55e306440b@redhat.com>
- <ba7fbd31b37363c002318f633d7cc47d9ef46822.camel@linux.ibm.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; prefer-encrypt=mutual; keydata=
- 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
- WNyWQQ==
-Organization: Red Hat GmbH
-Message-ID: <3f1d1c65-0b94-21ca-e427-814e73ca7bc4@redhat.com>
-Date: Wed, 30 Sep 2020 17:25:15 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.11.0
+ id 1kNgjV-000204-Hi
+ for linux-riscv@lists.infradead.org; Wed, 30 Sep 2020 18:21:42 +0000
+Received: by mail-ot1-f68.google.com with SMTP id y5so2775252otg.5
+ for <linux-riscv@lists.infradead.org>; Wed, 30 Sep 2020 11:21:41 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=Hd2ocInfi4avQ8AdBOhBE6fs1Q1midhjtlq5o5WVWcE=;
+ b=BcHgeaWPkmKoE4farIYq02JcpgTW3zz2f7w2DnTo1l0972vHPDPQbhfaLg825eNI+S
+ NuYLXxDuZ1LqwBZyJx73KxpfV+x9co1rC9Xx5tkbFJS5hY6hyOvqVMVb7/iJRtpDYak7
+ dO5hTWTceLDK1XJA+F0VDkO4/bd+flApGcrr9aRO4J9WE/0gmu4pSVOcNp3vAy9bzAfk
+ rBXCBAvXuKVphMhOXbKK/AYkjB+FqEvejSQm+3tuS6T8rpJCTrHJ3zIRCaECZhxvkF2y
+ otgxvPIhdtr7774abQfPzsMF8etAUAg/G7tvnF2UuVRSwK1wYptb7kkkXxpowUa6b9w1
+ 9Iwg==
+X-Gm-Message-State: AOAM530PHM6xI1+kbOc0PPlrfP4G3JhO1bvu+Mxk8HwzkZ3+6Iv6L2La
+ MnEnZyV5Ih51gEjM3IfFRw==
+X-Google-Smtp-Source: ABdhPJxyEnxtE5TN21dfNl5HNX7z/8XKKNKHcxJqiex1hzRxLB7plOS8FUvEWWricA3DV1qIvpltSA==
+X-Received: by 2002:a05:6830:210f:: with SMTP id
+ i15mr2412279otc.327.1601490100656; 
+ Wed, 30 Sep 2020 11:21:40 -0700 (PDT)
+Received: from xps15 (24-155-109-49.dyn.grandenetworks.net. [24.155.109.49])
+ by smtp.gmail.com with ESMTPSA id g21sm629885oos.36.2020.09.30.11.21.39
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 30 Sep 2020 11:21:40 -0700 (PDT)
+Received: (nullmailer pid 3176490 invoked by uid 1000);
+ Wed, 30 Sep 2020 18:21:38 -0000
+Date: Wed, 30 Sep 2020 13:21:38 -0500
+From: Rob Herring <robh@kernel.org>
+To: Alex Dewar <alex.dewar90@gmail.com>
+Subject: Re: [PATCH v2] PCI: keystone: Enable compile-testing on !ARM
+Message-ID: <20200930182138.GA3176461@bogus>
+References: <20200906194850.63glbnehjcuw356k@lenovo-laptop>
+ <20200906195128.279342-1-alex.dewar90@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <ba7fbd31b37363c002318f633d7cc47d9ef46822.camel@linux.ibm.com>
-Content-Language: en-US
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+Content-Disposition: inline
+In-Reply-To: <20200906195128.279342-1-alex.dewar90@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200930_112534_903181_C13D4C59 
-X-CRM114-Status: GOOD (  22.53  )
+X-CRM114-CacheID: sfid-20200930_142141_618101_62B94718 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -145,81 +86,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
- Will Deacon <will@kernel.org>, linux-kselftest@vger.kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, Christopher Lameter <cl@linux.com>,
- Shuah Khan <shuah@kernel.org>, Dan Williams <dan.j.williams@intel.com>,
- Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
- Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
- Idan Yaniv <idan.yaniv@ibm.com>, x86@kernel.org,
- Matthew Wilcox <willy@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Michael Kerrisk <mtk.manpages@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
- Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org,
- linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-fsdevel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
- Mike Rapoport <rppt@kernel.org>
+Cc: Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+ Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+ Dilip Kota <eswara.kota@linux.intel.com>, linux-pci@vger.kernel.org,
+ Jonathan Chocron <jonnyc@amazon.com>, linux-kernel@vger.kernel.org,
+ Krzysztof Kozlowski <krzk@kernel.org>, Vidya Sagar <vidyas@nvidia.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Gustavo Pimentel <gustavo.pimentel@synopsys.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Bjorn Helgaas <bhelgaas@google.com>,
+ linux-riscv@lists.infradead.org, Thierry Reding <treding@nvidia.com>,
+ Andrew Murray <amurray@thegoodpenguin.co.uk>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 30.09.20 17:17, James Bottomley wrote:
-> On Wed, 2020-09-30 at 16:45 +0200, David Hildenbrand wrote:
->> On 30.09.20 16:39, James Bottomley wrote:
->>> On Wed, 2020-09-30 at 13:27 +0300, Mike Rapoport wrote:
->>>> On Tue, Sep 29, 2020 at 05:15:52PM +0200, Peter Zijlstra wrote:
->>>>> On Tue, Sep 29, 2020 at 05:58:13PM +0300, Mike Rapoport wrote:
->>>>>> On Tue, Sep 29, 2020 at 04:12:16PM +0200, Peter Zijlstra
->>>>>> wrote:
->>>>>>> It will drop them down to 4k pages. Given enough inodes,
->>>>>>> and allocating only a single sekrit page per pmd, we'll
->>>>>>> shatter the directmap into 4k.
->>>>>>
->>>>>> Why? Secretmem allocates PMD-size page per inode and uses it
->>>>>> as a pool of 4K pages for that inode. This way it ensures
->>>>>> that __kernel_map_pages() is always called on PMD boundaries.
->>>>>
->>>>> Oh, you unmap the 2m page upfront? I read it like you did the
->>>>> unmap at the sekrit page alloc, not the pool alloc side of
->>>>> things.
->>>>>
->>>>> Then yes, but then you're wasting gobs of memory. Basically you
->>>>> can pin 2M per inode while only accounting a single page.
->>>>
->>>> Right, quite like THP :)
->>>>
->>>> I considered using a global pool of 2M pages for secretmem and
->>>> handing 4K pages to each inode from that global pool. But I've
->>>> decided to waste memory in favor of simplicity.
->>>
->>> I can also add that the user space consumer of this we wrote does
->>> its user pool allocation at a 2M granularity, so nothing is
->>> actually wasted.
->>
->> ... for that specific user space consumer. (or am I missing
->> something?)
+On Sun, 06 Sep 2020 20:51:27 +0100, Alex Dewar wrote:
+> Currently the Keystone driver can only be compile-tested on ARM, but
+> this restriction seems unnecessary. Get rid of it to increase test
+> coverage.
 > 
-> I'm not sure I understand what you mean?  It's designed to be either
-> the standard wrapper or an example of how to do the standard wrapper
-> for the syscall.  It uses the same allocator system glibc uses for
-> malloc/free ... which pretty much everyone uses instead of calling
-> sys_brk directly.  If you look at the granularity glibc uses for
-> sys_brk, it's not 4k either.
+> Build-tested with allyesconfig on x86, ppc, mips and riscv.
+> 
+> Signed-off-by: Alex Dewar <alex.dewar90@gmail.com>
+> ---
+>  drivers/pci/controller/dwc/Kconfig | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
 
-Okay thanks, "the user space consumer of this we wrote" didn't sound as
-generic to me as "the standard wrapper".
-
--- 
-Thanks,
-
-David / dhildenb
-
+Acked-by: Rob Herring <robh@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
