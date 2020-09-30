@@ -2,70 +2,60 @@ Return-Path: <SRS0=Qujn=DH=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-4.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=no autolearn_force=no version=3.4.0
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BA2D1C4727C
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2020 14:45:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E9F93C4727C
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2020 15:09:52 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 64AA32076B
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2020 14:45:50 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 7B64F206FC
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2020 15:09:52 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="dpI+jJar";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=redhat.com header.i=@redhat.com header.b="b964O6uO"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 64AA32076B
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="wHHMLmO8";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="BuH49sEn"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7B64F206FC
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=5XjhxIC+Q4brwQg4YeiiMR3CbFrfWDA3y3xrlzL38No=; b=dpI+jJarzOGAp/Qd52ahBCb5a
-	DXuqhKwN8XO6kAjcS3feIgBtZ/LYTB3hVWHIFx3DMXOJpWFQ67VLVSxDVb6FW3/jPYAhX7FowW5K9
-	b97NXeiH7R9+IW5/kkibS75m1qx0kQU98L6fo0xdvzi5UTnmKJlTEhwoCjlPO+HJnpnbIZy3DWSXi
-	/4M9zQigNk+ShQ2FzsiZN7D5QiCWdrtn9zqcw1zGkxSlEgFrK3RI4ySxVfq4/dNKx18/3xij/Ef3d
-	M5ariDyHXRRXM2KShR+RBsEmh56/RVxAyOLEezuvGIXm0FomH6WRYJW6bZnM2seeF0MvPhQcpGXO0
-	38ENbg/kA==;
+	 bh=m0XU5sCJ8S/vdpghH0gO5ZYxlNnUGrH1euI8HW7AZFs=; b=wHHMLmO8hapRwsccKeKPuRMWV
+	n4k9nDrZh9tnO0YdTsQ31Hef0uuBWA9RzoC75fnayiyYNduLna+TgwNDOE+/tRGHye2ht/awtg0LQ
+	lEFUeuRoyUfYbftqqeOfO0rUr+5FvY243HMEbzCpd1Dj+Uv6FP24/4lo3cvhpHuLU8qXdjn+dWpe7
+	X65TviGwrb17aYEJxDHufl5Y+A8DMxfGWj4sbB7r77JZUON29Bmru3Mp3Hr1VI1yRvBfMmaaHR5/o
+	fiUHPu0EKlD86a7vMZnhFzPFvPE2BYy8NBQwB3DOGtFpDq165odYZge+c3yneBaMo82ECPB8onuvd
+	8a6OrvsgQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kNdMR-0000Ql-T9; Wed, 30 Sep 2020 14:45:39 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([216.205.24.124])
+	id 1kNdje-00038T-QH; Wed, 30 Sep 2020 15:09:38 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kNdMO-0000PT-DZ
- for linux-riscv@lists.infradead.org; Wed, 30 Sep 2020 14:45:37 +0000
-Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1601477136;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
- bh=XVWQp+sLhBmvUA8h/roMi5oHAKQz8zXP4pU7zsey/PU=;
- b=b964O6uO1ozD7VCnt4/iJaEGAA4b3O3wi61/2PQqVQcO40bqSgLg7iqqpbHx2wJP8BTKlR
- nuRrSXHOD0bPr6to3PqKpENtlSMW2FsaEbGbnnWHluYuScWn18L/DVZRbYDF9WG4tCoECm
- J9p117yZrkRKqWtLuzAQPKz2PMkk8yQ=
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-149-e6gCzBMwNE6TrMjfCM972g-1; Wed, 30 Sep 2020 10:45:30 -0400
-X-MC-Unique: e6gCzBMwNE6TrMjfCM972g-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com
- [10.5.11.15])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 95B9B1018F65;
- Wed, 30 Sep 2020 14:45:25 +0000 (UTC)
-Received: from [10.36.113.220] (ovpn-113-220.ams2.redhat.com [10.36.113.220])
- by smtp.corp.redhat.com (Postfix) with ESMTP id A62D95579B;
- Wed, 30 Sep 2020 14:45:12 +0000 (UTC)
+ id 1kNdjb-00037i-3e; Wed, 30 Sep 2020 15:09:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+ References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description;
+ bh=5MQ9wWjMl2wFlC5FFeBBoGdxqFKxERQlgHCfOe6SJqc=; b=BuH49sEnpXdPdqBuzbVs2V633x
+ nj0QNsnZGyV7Ur1XjcD+GgLOUPiioSSgYAd5LQANsJHnqdR8DPJWazR4b6fyMIXitNoG7i2qACEk+
+ x90zdteFRAk01MpO/bR6H/INrJI1XI2Z43TfeD0w4o67kW8JKU7F7v72SRgVVditUoo8hvSGVzDht
+ IAsFpsrXy2rohggWiPlFlZ49/3gB8uDSMyALzcjv+0EyTng6cu9mrYkRLaKyDQJSYJSgaeqtXpg7T
+ r4qwLvOvtVk6qnTcZdu5tJ+aiAkiq/I/XPzY9EzutGsKlZpzzVHG+lZEakQO08fZJbB9Z3UwWnHbB
+ qlCH3W+Q==;
+Received: from willy by casper.infradead.org with local (Exim 4.92.3 #3 (Red
+ Hat Linux)) id 1kNdjU-0007EC-6u; Wed, 30 Sep 2020 15:09:28 +0000
+Date: Wed, 30 Sep 2020 16:09:28 +0100
+From: Matthew Wilcox <willy@infradead.org>
+To: Mike Rapoport <rppt@linux.ibm.com>
 Subject: Re: [PATCH v6 5/6] mm: secretmem: use PMD-size pages to amortize
  direct map fragmentation
-To: jejb@linux.ibm.com, Mike Rapoport <rppt@linux.ibm.com>,
- Peter Zijlstra <peterz@infradead.org>
+Message-ID: <20200930150928.GR20115@casper.infradead.org>
 References: <20200924132904.1391-1-rppt@kernel.org>
  <20200924132904.1391-6-rppt@kernel.org>
  <20200925074125.GQ2628@hirez.programming.kicks-ass.net>
@@ -74,64 +64,9 @@ References: <20200924132904.1391-1-rppt@kernel.org>
  <20200929145813.GA3226834@linux.ibm.com>
  <20200929151552.GS2628@hirez.programming.kicks-ass.net>
  <20200930102745.GC3226834@linux.ibm.com>
- <371c27d97067654171e5c1019340b56cffadae7a.camel@linux.ibm.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; prefer-encrypt=mutual; keydata=
- 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
- WNyWQQ==
-Organization: Red Hat GmbH
-Message-ID: <6568383f-4e43-2fe4-ecf1-8a55e306440b@redhat.com>
-Date: Wed, 30 Sep 2020 16:45:11 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.11.0
 MIME-Version: 1.0
-In-Reply-To: <371c27d97067654171e5c1019340b56cffadae7a.camel@linux.ibm.com>
-Content-Language: en-US
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200930_104536_507519_8E0D9935 
-X-CRM114-Status: GOOD (  20.36  )
+Content-Disposition: inline
+In-Reply-To: <20200930102745.GC3226834@linux.ibm.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -143,65 +78,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>,
+Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>,
  Catalin Marinas <catalin.marinas@arm.com>,
  Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
  Will Deacon <will@kernel.org>, linux-kselftest@vger.kernel.org,
  "H. Peter Anvin" <hpa@zytor.com>, Christopher Lameter <cl@linux.com>,
- Shuah Khan <shuah@kernel.org>, Dan Williams <dan.j.williams@intel.com>,
+ Idan Yaniv <idan.yaniv@ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
  Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
  Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
- Idan Yaniv <idan.yaniv@ibm.com>, x86@kernel.org,
- Matthew Wilcox <willy@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Michael Kerrisk <mtk.manpages@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
+ Shuah Khan <shuah@kernel.org>, x86@kernel.org, linux-riscv@lists.infradead.org,
+ Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
+ Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
  Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
  Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
  "Kirill A. Shutemov" <kirill@shutemov.name>,
- Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
  linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-fsdevel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
- Mike Rapoport <rppt@kernel.org>
+ Palmer Dabbelt <palmer@dabbelt.com>, linux-fsdevel@vger.kernel.org,
+ Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 30.09.20 16:39, James Bottomley wrote:
-> On Wed, 2020-09-30 at 13:27 +0300, Mike Rapoport wrote:
->> On Tue, Sep 29, 2020 at 05:15:52PM +0200, Peter Zijlstra wrote:
->>> On Tue, Sep 29, 2020 at 05:58:13PM +0300, Mike Rapoport wrote:
->>>> On Tue, Sep 29, 2020 at 04:12:16PM +0200, Peter Zijlstra wrote:
->>>>> It will drop them down to 4k pages. Given enough inodes, and
->>>>> allocating only a single sekrit page per pmd, we'll shatter the
->>>>> directmap into 4k.
->>>>
->>>> Why? Secretmem allocates PMD-size page per inode and uses it as a
->>>> pool of 4K pages for that inode. This way it ensures that
->>>> __kernel_map_pages() is always called on PMD boundaries.
->>>
->>> Oh, you unmap the 2m page upfront? I read it like you did the unmap
->>> at the sekrit page alloc, not the pool alloc side of things.
->>>
->>> Then yes, but then you're wasting gobs of memory. Basically you can
->>> pin 2M per inode while only accounting a single page.
->>
->> Right, quite like THP :)
->>
->> I considered using a global pool of 2M pages for secretmem and
->> handing 4K pages to each inode from that global pool. But I've
->> decided to waste memory in favor of simplicity.
+On Wed, Sep 30, 2020 at 01:27:45PM +0300, Mike Rapoport wrote:
+> On Tue, Sep 29, 2020 at 05:15:52PM +0200, Peter Zijlstra wrote:
+> > On Tue, Sep 29, 2020 at 05:58:13PM +0300, Mike Rapoport wrote:
+> > > On Tue, Sep 29, 2020 at 04:12:16PM +0200, Peter Zijlstra wrote:
+> > 
+> > > > It will drop them down to 4k pages. Given enough inodes, and allocating
+> > > > only a single sekrit page per pmd, we'll shatter the directmap into 4k.
+> > > 
+> > > Why? Secretmem allocates PMD-size page per inode and uses it as a pool
+> > > of 4K pages for that inode. This way it ensures that
+> > > __kernel_map_pages() is always called on PMD boundaries.
+> > 
+> > Oh, you unmap the 2m page upfront? I read it like you did the unmap at
+> > the sekrit page alloc, not the pool alloc side of things.
+> > 
+> > Then yes, but then you're wasting gobs of memory. Basically you can pin
+> > 2M per inode while only accounting a single page.
 > 
-> I can also add that the user space consumer of this we wrote does its
-> user pool allocation at a 2M granularity, so nothing is actually
-> wasted.
+> Right, quite like THP :)
 
-... for that specific user space consumer. (or am I missing something?)
-
--- 
-Thanks,
-
-David / dhildenb
+Huh?  THP accounts every page it allocates.  If you allocate 2MB,
+it accounts 512 pages.  And THP are reclaimable by vmscan, this is
+obviously not.
 
 
 _______________________________________________
