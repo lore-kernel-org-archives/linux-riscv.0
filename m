@@ -2,88 +2,70 @@ Return-Path: <SRS0=Qujn=DH=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6DA77C2D0A8
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2020 06:58:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3305BC4727E
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2020 10:21:10 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CBDD62075F
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2020 06:58:44 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id CE90120719
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Sep 2020 10:21:09 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="nZ95/2n7";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.b="IGLm/TPd"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CBDD62075F
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="qPfD4t4Z";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="jcekzk5d"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CE90120719
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=2D82YmvLHyTluygOSaMosXYTXYY8SSD63w0ESxTMfvU=; b=nZ95/2n7gNTjhl6kFU+/3y5hE
-	XW73VpsBGCOX4uTFuPKwDcBnsP/i/moF31Ov+UkqUC5MDJc2yyapu3qSyIDhUlrZ9WxhqwAehCQGo
-	OwOQgoZ69PJMsXB60CG7VoHXzujGN3j1PsS1mjyUPxMNQxmvOonaEFHOimFUn4QlwAqVoFm/rvR1+
-	j2rEdYOokMHhG8G5IjEr/VvYTMnuFPQtMJOC4w36UqyghEfIqApXaunEAgxud3p9yzsyPZy3DCjSz
-	yWtsmrlx2sXPLIlCAAwnXdyvVlWJyUhDu5YcSe8uZ/GxhmIEWjUJoRkaJxDT++l8duCJtu7nlub4P
-	JmNak+P1w==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=tb1r+xgQajMri4zyJBuh/PDiSYmwouxCyaWm9RCZSgk=; b=qPfD4t4Zb3sC8VfM0Z8kRij3m
+	Sk9/7iTzrSiwp+73wc2U3R04ii+uDkxBKB4h3kmoCKK+GiUTtoFeGVcY2NWX9pogoi3EzzwCtMUYo
+	T/+miWHPHmcCkfMMyTrFVDuurhqzEWYZiRdIzCMSwPOrOE6Xd+ofSRzPT6iOfLC4WT4rdxbtmxW3W
+	niqYwYBd08a2D92IkGrG/fb02AZwiPO5/7OVOVmbM+XVOmOPXByV0fhZM+9YSIE0srU8SabrzUqB9
+	7F7vQPiv3eZiazf8FjvzR45nJfPE7K1FHPaWgfmCuewGp7ZEPzJEYAg8rZ7Y+81MH2/CoE1Ifbsix
+	iej12SmEQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kNW4P-0006LT-4F; Wed, 30 Sep 2020 06:58:33 +0000
-Received: from mail-pj1-x1044.google.com ([2607:f8b0:4864:20::1044])
+	id 1kNZEK-0005w0-Et; Wed, 30 Sep 2020 10:21:00 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kNW4M-0006K0-AK
- for linux-riscv@lists.infradead.org; Wed, 30 Sep 2020 06:58:31 +0000
-Received: by mail-pj1-x1044.google.com with SMTP id b17so364660pji.1
- for <linux-riscv@lists.infradead.org>; Tue, 29 Sep 2020 23:58:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=WxGFU9YDPgIQ/fxu1xfkvWboEWfSXnck0Qqf8eZXDR4=;
- b=IGLm/TPd2cst9B3C+u06qjtEKQHk+YAAmFT2oHnDCCUKaQfjJ/ekdr/zHUEGjJKH3E
- a4fh5Uxiqzy2uwR1TgeEhTonnE48LpF7QM8lExLsyIQxGz76DLcANWFokDgFvV0Iw6wg
- EYyIjBtOnJr1WYzHGvpi3M4ElFtJOkPJop5KNWYpGn7VUJmi52Nh985b02bXCSFrk2zM
- vxDjjfFfeGop+iYi0luPhQDM+LIYBoxXYnidtry8EZM5fnwD0hSO3P/cESQWCok6DM9+
- 5p2OuSU+nKfAR0sHWVCIXnl18hp4dqtLlsk7fC65wx3Q9+RkxL5o3oivfTWWWdEtt298
- VvuQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=WxGFU9YDPgIQ/fxu1xfkvWboEWfSXnck0Qqf8eZXDR4=;
- b=orjKQuIb68bq8/0OJ53m9rvhHAsUz0KpRwXTa4s1gf0c3yVYzD4fqamFtsHeyL0X92
- EtlvI+GhEDB+lZh+5d5G8/7rlgF43UqdSQXJT4X4cS2fgtmm30B2obun3Aj5C0e/iFyH
- XYFohdfhkH+XW0i5/ByOaSv7LTDyc3K22YdkMLGMaZQSFPLHffIqtVmjdNUlXhDvH8oq
- gx+UIFb2PqiE6suKWMIxjU/mmPmBpamGtHJqPnRTMIqzrUBF+pQrNpvhlmQeuHu60A59
- bJrJdrDkkBU0Nu3d+U1rmS9ZKLSKgiw4TF7NSLvk4PSoAhklT9ae9o1jgVXI/bB4LGWN
- mFGA==
-X-Gm-Message-State: AOAM533QH4mhIJARY98h0lqovpne2lUHaWWl41sDs+MvIXnsZ6JwptZy
- 8d9dhSM4S71v5+uq/kKxnfHAXw==
-X-Google-Smtp-Source: ABdhPJx5K7wSx+QNqAsFDY7NVRMJVu6NqeQEZpcM36Fmvm6hPdyBnKRyFQgmxcyXEBEwYV++xLMsFw==
-X-Received: by 2002:a17:90a:ca82:: with SMTP id
- y2mr1238562pjt.233.1601449108087; 
- Tue, 29 Sep 2020 23:58:28 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id a71sm1063804pfa.26.2020.09.29.23.58.27
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 29 Sep 2020 23:58:27 -0700 (PDT)
-Date: Tue, 29 Sep 2020 23:58:27 -0700 (PDT)
-X-Google-Original-Date: Tue, 29 Sep 2020 23:58:25 PDT (-0700)
-Subject: Re: [PATCH v3] RISC-V: Check clint_time_val before use
-In-Reply-To: <c0ec481bf0413f391b16415530d2606114ea150a.camel@wdc.com>
-From: Palmer Dabbelt <palmerdabbelt@google.com>
-To: Damien Le Moal <Damien.LeMoal@wdc.com>
-Message-ID: <mhng-6eec6bf8-1c59-4c5a-9a93-8e4f7bd7faed@palmerdabbelt-glaptop1>
-Mime-Version: 1.0 (MHng)
+ id 1kNZE9-0005q2-6i; Wed, 30 Sep 2020 10:20:53 +0000
+Received: from kernel.org (unknown [87.71.73.56])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id BD4B3205F4;
+ Wed, 30 Sep 2020 10:20:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1601461247;
+ bh=6oXQqyXoqD62Xsdx5psnVPQRRFcKJD7TzaHCNaM+cfo=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=jcekzk5dBYwe2jH5pSJRmExmxQTx5Y/sk708kFA+J4dcQopXM92llD+OqjWCXgKuT
+ dmrRBkYzNmmpQuJcEzNThsHaZcV+G7b6pQg9hev7AIEYe3G8ksdc6iTRWS4tzmiNvV
+ tQmVGE7L8Bxs8vTgd7E6jHGnxc1rUFFqUOmdsY+s=
+Date: Wed, 30 Sep 2020 13:20:31 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>
+Subject: Re: [PATCH v6 5/6] mm: secretmem: use PMD-size pages to amortize
+ direct map fragmentation
+Message-ID: <20200930102031.GJ2142832@kernel.org>
+References: <20200924132904.1391-1-rppt@kernel.org>
+ <20200924132904.1391-6-rppt@kernel.org>
+ <20200925074125.GQ2628@hirez.programming.kicks-ass.net>
+ <20200929130529.GE2142832@kernel.org>
+ <20200929141216.GO2628@hirez.programming.kicks-ass.net>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20200929141216.GO2628@hirez.programming.kicks-ass.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200930_025830_393283_940F2309 
-X-CRM114-Status: GOOD (  21.48  )
+X-CRM114-CacheID: sfid-20200930_062049_426679_A37BE37F 
+X-CRM114-Status: GOOD (  40.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -95,106 +77,134 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, anup@brainfault.org, Anup Patel <Anup.Patel@wdc.com>,
- linux-kernel@vger.kernel.org, Atish Patra <Atish.Patra@wdc.com>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
+Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ Will Deacon <will@kernel.org>, linux-kselftest@vger.kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Christopher Lameter <cl@linux.com>,
+ Idan Yaniv <idan.yaniv@ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
+ Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
+ Shuah Khan <shuah@kernel.org>, x86@kernel.org,
+ Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
+ Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
+ Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-fsdevel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 26 Sep 2020 22:52:19 PDT (-0700), Damien Le Moal wrote:
-> On Sun, 2020-09-27 at 11:09 +0530, Anup Patel wrote:
->> The NoMMU kernel is broken for QEMU virt machine from Linux-5.9-rc6
->> because clint_time_val is used even before CLINT driver is probed
->> at following places:
->> 1. rand_initialize() calls get_cycles() which in-turn uses
->>    clint_time_val
->> 2. boot_init_stack_canary() calls get_cycles() which in-turn
->>    uses clint_time_val
->> 
->> The issue#1 (above) is fixed by providing custom random_get_entropy()
->> for RISC-V NoMMU kernel. For issue#2 (above), we remove dependency of
->> boot_init_stack_canary() on get_cycles() and this is aligned with the
->> boot_init_stack_canary() implementations of ARM, ARM64 and MIPS kernel.
->> 
->> Fixes: d5be89a8d118 ("RISC-V: Resurrect the MMIO timer implementation
->> for M-mode systems")
->> Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
->> Signed-off-by: Anup Patel <anup.patel@wdc.com>
->> ---
->> Changes since v2:
->>  - Take different approach and provide custom random_get_entropy() for
->>    RISC-V NoMMU kernel
->>  - Remove dependency of boot_init_stack_canary() on get_cycles()
->>  - Hopefully we don't require to set clint_time_val = NULL in CLINT
->>    driver with a different approach to fix.
->> Changes since v1:
->>  - Explicitly initialize clint_time_val to NULL in CLINT driver to
->>    avoid hang on Kendryte K210
->> ---
->>  arch/riscv/include/asm/stackprotector.h |  4 ----
->>  arch/riscv/include/asm/timex.h          | 13 +++++++++++++
->>  2 files changed, 13 insertions(+), 4 deletions(-)
->> 
->> diff --git a/arch/riscv/include/asm/stackprotector.h b/arch/riscv/include/asm/stackprotector.h
->> index d95f7b2a7f37..5962f8891f06 100644
->> --- a/arch/riscv/include/asm/stackprotector.h
->> +++ b/arch/riscv/include/asm/stackprotector.h
->> @@ -5,7 +5,6 @@
->>  
->>  #include <linux/random.h>
->>  #include <linux/version.h>
->> -#include <asm/timex.h>
->>  
->>  extern unsigned long __stack_chk_guard;
->>  
->> @@ -18,12 +17,9 @@ extern unsigned long __stack_chk_guard;
->>  static __always_inline void boot_init_stack_canary(void)
->>  {
->>  	unsigned long canary;
->> -	unsigned long tsc;
->>  
->>  	/* Try to get a semi random initial value. */
->>  	get_random_bytes(&canary, sizeof(canary));
->> -	tsc = get_cycles();
->> -	canary += tsc + (tsc << BITS_PER_LONG/2);
->>  	canary ^= LINUX_VERSION_CODE;
->>  	canary &= CANARY_MASK;
->>  
->> diff --git a/arch/riscv/include/asm/timex.h b/arch/riscv/include/asm/timex.h
->> index 7f659dda0032..ab104905d4db 100644
->> --- a/arch/riscv/include/asm/timex.h
->> +++ b/arch/riscv/include/asm/timex.h
->> @@ -33,6 +33,19 @@ static inline u32 get_cycles_hi(void)
->>  #define get_cycles_hi get_cycles_hi
->>  #endif /* CONFIG_64BIT */
->>  
->> +/*
->> + * Much like MIPS, we may not have a viable counter to use at an early point
->> + * in the boot process. Unfortunately we don't have a fallback, so instead
->> + * we just return 0.
->> + */
->> +static inline unsigned long random_get_entropy(void)
->> +{
->> +	if (unlikely(clint_time_val == NULL))
->> +		return 0;
->> +	return get_cycles();
->> +}
->> +#define random_get_entropy()	random_get_entropy()
->> +
->>  #else /* CONFIG_RISCV_M_MODE */
->>  
->>  static inline cycles_t get_cycles(void)
+On Tue, Sep 29, 2020 at 04:12:16PM +0200, Peter Zijlstra wrote:
+> On Tue, Sep 29, 2020 at 04:05:29PM +0300, Mike Rapoport wrote:
+> > On Fri, Sep 25, 2020 at 09:41:25AM +0200, Peter Zijlstra wrote:
+> > > On Thu, Sep 24, 2020 at 04:29:03PM +0300, Mike Rapoport wrote:
+> > > > From: Mike Rapoport <rppt@linux.ibm.com>
+> > > > 
+> > > > Removing a PAGE_SIZE page from the direct map every time such page is
+> > > > allocated for a secret memory mapping will cause severe fragmentation of
+> > > > the direct map. This fragmentation can be reduced by using PMD-size pages
+> > > > as a pool for small pages for secret memory mappings.
+> > > > 
+> > > > Add a gen_pool per secretmem inode and lazily populate this pool with
+> > > > PMD-size pages.
+> > > 
+> > > What's the actual efficacy of this? Since the pmd is per inode, all I
+> > > need is a lot of inodes and we're in business to destroy the directmap,
+> > > no?
+> > > 
+> > > Afaict there's no privs needed to use this, all a process needs is to
+> > > stay below the mlock limit, so a 'fork-bomb' that maps a single secret
+> > > page will utterly destroy the direct map.
+> > 
+> > This indeed will cause 1G pages in the direct map to be split into 2M
+> > chunks, but I disagree with 'destroy' term here. Citing the cover letter
+> > of an earlier version of this series:
 > 
-> Did not reply to the patch... So again for Kendryte:
+> It will drop them down to 4k pages. Given enough inodes, and allocating
+> only a single sekrit page per pmd, we'll shatter the directmap into 4k.
 > 
-> Tested-by: Damien Le Moal <damien.lemoal@wdc.com>
+> >   I've tried to find some numbers that show the benefit of using larger
+> >   pages in the direct map, but I couldn't find anything so I've run a
+> >   couple of benchmarks from phoronix-test-suite on my laptop (i7-8650U
+> >   with 32G RAM).
+> 
+> Existing benchmarks suck at this, but FB had a load that had a
 
-Thanks.  I've put this on for-next, right after the patch I just posted to add
-EXPORT_SYMBOL(clint_time_val) as it turns out random_get_entropy() is used by a
-driver.
+I tried to dig the regression report in the mailing list, and the best I
+could find is
+
+https://lore.kernel.org/lkml/20190823052335.572133-1-songliubraving@fb.com/
+
+which does not mention the actual performance regression but it only
+complaints about kernel text mapping being split into 4K pages.
+
+Any chance you have the regression report handy? 
+
+> deterministic enough performance regression to bisect to a directmap
+> issue, fixed by:
+> 
+>   7af0145067bc ("x86/mm/cpa: Prevent large page split when ftrace flips RW on kernel text")
+
+This commit talks about large page split for the text and mentions iTLB
+performance.
+Could it be that for data the behavoiur is different?
+
+> >   I've tested three variants: the default with 28G of the physical
+> >   memory covered with 1G pages, then I disabled 1G pages using
+> >   "nogbpages" in the kernel command line and at last I've forced the
+> >   entire direct map to use 4K pages using a simple patch to
+> >   arch/x86/mm/init.c.  I've made runs of the benchmarks with SSD and
+> >   tmpfs.
+> >   
+> >   Surprisingly, the results does not show huge advantage for large
+> >   pages. For instance, here the results for kernel build with
+> >   'make -j8', in seconds:
+> 
+> Your benchmark should stress the TLB of your uarch, such that additional
+> pressure added by the shattered directmap shows up.
+
+I understand that the benchmark should stress the TLB, but it's not that
+we can add something like random access to a large working set as a
+kernel module and insmod it. The userspace should do something that will
+cause the stress to the TLB so that entries corresponding to the direct
+map will be evicted frequently. And, frankly, 
+
+> And no, I don't have one either.
+> 
+> >                         |  1G    |  2M    |  4K
+> >   ----------------------+--------+--------+---------
+> >   ssd, mitigations=on	| 308.75 | 317.37 | 314.9
+> >   ssd, mitigations=off	| 305.25 | 295.32 | 304.92
+> >   ram, mitigations=on	| 301.58 | 322.49 | 306.54
+> >   ram, mitigations=off	| 299.32 | 288.44 | 310.65
+> 
+> These results lack error data, but assuming the reults are significant,
+> then this very much makes a case for 1G mappings. 5s on a kernel builds
+> is pretty good.
+
+The standard error for those are between 2.5 and 4.5 out of 3 runs for
+each variant. 
+
+For kernel build 1G mappings perform better, but here 5s is only 1.6% of
+300s and the direct map fragmentation was taken to the extreme here.
+I'm not saying that the direct map fragmentation comes with no cost, but
+the cost is not so big to dismiss features that cause the fragmentation
+out of hand.
+
+There were also benchmarks that actually performed better with 2M pages
+in the direct map, so I'm still not convinced that 1G pages in the
+direct map are the clear cut winner.
+
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
