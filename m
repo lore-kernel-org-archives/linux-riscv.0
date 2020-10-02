@@ -1,85 +1,68 @@
-Return-Path: <SRS0=Vlvd=DI=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=HnHo=DJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 166A0C4727F
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Oct 2020 22:03:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AE467C4363D
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Oct 2020 06:49:19 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 92849206FC
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Oct 2020 22:03:06 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 59AE2206DD
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Oct 2020 06:49:19 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="wtivntq3";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="r37dZxzJ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 92849206FC
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="HeIKwoEB";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="KDDxxvWM"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 59AE2206DD
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=ngy1srbV3aMtbitjDUitH365EjUacYiznybf3sFImQM=; b=wtivntq3oD/FPJyhI/c/FkY8S
-	oTtcd0DA73gv4NqEEBTv80NDxsLBWX9+8HuoP+cpDwnSIH7Nxs/iDDDH7iRC7papToL58sVazf+d9
-	94vWDPNzCMcimSSQPaZF7eDUGGjnnXZilVHNQrdbsTySjfT3YQNYfFeIqYBcUvf45dU3Cu0ZFsIoq
-	dWiCXnF0UNC0UIXcrUjC/YlMuEJnZ30otMMkXwR1vqhGe/Bx/+YTbXFW67cKPCdSp7OcBk976BEzJ
-	Tb5YIitsXSGdnHVO9gCW+O6PzPcGGgPyw1mua09ob4ju8LNnJBchtqouSJkBRCXmMjXV9TsnMlI0G
-	4BwKU0oAg==;
+	 bh=ENlGeSvbLBNvjWTlkKwMZhrZtdpZaGn0alQkN3m0gco=; b=HeIKwoEB9kGdNARcU3DJlCTky
+	n8gOyxIU/jnA6eB+FTjXRfoes5L82SQiLBweQsr9uIvu2X3Cz94DzXijz1bb/wqCySgOmrTFHSOlj
+	sBKHoN6W+EkUigR1WAhpbo4jHZc23fRY/6rwgALrGXXmaTSs/i4eGHtfDypVLEVSUZuWWg46AuOOg
+	iaPK69OkaA91uqnSf19+PtE1ylrOHBzqP1Z/Y/Nl15pfbk7ivI1msVLpuACMB19CsZyq3aeNMrzo1
+	UJcTbS4+WFGq0518bNeNlniPeHTpkBiL42p8O2uk0Tothi1WNMUfbsTYaKXmN72WGyjMpLVuK+NE7
+	0BKGXQ/8Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kO6fA-0004ie-DP; Thu, 01 Oct 2020 22:02:56 +0000
-Received: from mail-il1-x141.google.com ([2607:f8b0:4864:20::141])
+	id 1kOEsP-0004cB-JV; Fri, 02 Oct 2020 06:49:09 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kO6ez-0004ec-D0
- for linux-riscv@lists.infradead.org; Thu, 01 Oct 2020 22:02:49 +0000
-Received: by mail-il1-x141.google.com with SMTP id e5so7813183ils.10
- for <linux-riscv@lists.infradead.org>; Thu, 01 Oct 2020 15:02:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=7L7K8C/1mZIVHV/yJEj8lKlJqviWDQigWaxJX7/IdHc=;
- b=r37dZxzJZDMlxnOGWQ0REeugaWE+DNvx1t/53cR5oKf5wiit+zmGKwz9MHRMnSeMyb
- QByHvKKhmIAGF67naFtzmx0LTOB4BB6UI0xerTngQw7Sq6Ctegj+pvcjneDRLq4Xwfyi
- w5H5UGpFcnggm/C7BJpE2W0ynaK9YDn7RIwcs=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=7L7K8C/1mZIVHV/yJEj8lKlJqviWDQigWaxJX7/IdHc=;
- b=LO3C6CuoVTr1t1RA1wBNPZZzU83MBNtStSxA5G2eeaulrik0ZGgtCFJg0Ac+eEN7Eg
- yzEkgHPX3laHDOpdisQEdO89fUbGIhhFxBLbIzzS31vrjpswmmoP5WzKUXRod5rXY+Zh
- 72m8WbcUZuUu1ZEOGwafBgTaNSEmhbEQ1y4y+Gkjalayy0ABkKuzVJ05VnHwxMiPkt9M
- vXZg5fnEfpo8qAgInq8eeIEyMyH7J/lG3HQSna0bQg/DzEgOKsZLZdvVQLkN9v0D8J0t
- qEIFo0IQhCto5cGWiua6A7PfIJxscmCwBiz0Fo5lTdJLqg0nUub7H+zWDow6lkREg8f3
- P0IA==
-X-Gm-Message-State: AOAM530COBBMIprpen5XZNrwRrsFDIKjfcyZmk2E3ikFGQ7dFwXOn/AH
- 10n7wSPwt09K0yQHIYOFviqUqn87apWbKWRQI7Bi
-X-Google-Smtp-Source: ABdhPJy+h7aS2d6ce7vQoMadNRVQ5lCvPyOl9bI6y3UkxMXpJ0ZfXX8vRMMSY43BXQ1oBWzcQfG7mFy2xUCI5cY56HA=
-X-Received: by 2002:a92:ad11:: with SMTP id w17mr4445282ilh.77.1601589761726; 
- Thu, 01 Oct 2020 15:02:41 -0700 (PDT)
+ id 1kOEsO-0004bx-Bp
+ for linux-riscv@merlin.infradead.org; Fri, 02 Oct 2020 06:49:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+ References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description;
+ bh=F0HxCM48zlkqvSK9HVb3prVdbtr0XoJkMcMZ8q5cNvA=; b=KDDxxvWM+qd+VQy/Z9mnWYLcrp
+ VPcBmyOR0oC8nWvEYSkDW2MLWZ7ZsnvBDbhUPxXsUP7NiB3KZEPdJgXdtfJQI/d+tF5UbJR4W+SIq
+ clptew4ZQQo8cacoEUinGzP4g4x4Y5oaz9/JtjccY5fesqA8GDnOOx377W0WwIuqUD4sSbYNkEnBe
+ h+O5gx9IDFJvsVPyX7/3QEnZXiuHEYlaH+8SgPbpOY5B+vftVpHvQkm6k78TG54crxU4xHqQgdpCt
+ yg6HpDXyGGYupQltDce++CaqvL7dchYJ/fsCUegBIg3GpqScn3s3Ff069AXOZ+ragf9ss4ZcGko/X
+ vuD2YdAw==;
+Received: from hch by casper.infradead.org with local (Exim 4.92.3 #3 (Red Hat
+ Linux)) id 1kOEsL-0007XM-Ky; Fri, 02 Oct 2020 06:49:05 +0000
+Date: Fri, 2 Oct 2020 07:49:05 +0100
+From: Christoph Hellwig <hch@infradead.org>
+To: Palmer Dabbelt <palmerdabbelt@google.com>
+Subject: get_cycles from modular code in jitterentropy, was Re: [PATCH]
+ clocksource: clint: Export clint_time_val for modules
+Message-ID: <20201002064905.GA27115@infradead.org>
+References: <20200930065617.934638-1-palmerdabbelt@google.com>
 MIME-Version: 1.0
-References: <20200918201140.3172284-1-atish.patra@wdc.com>
- <20200921164947.000048e1@Huawei.com>
- <CAOnJCU+mg13P609kut2cK9igmyepOvDc4kU-EzXsdjde7D_RpQ@mail.gmail.com>
- <20200922122912.00004bcb@Huawei.com>
- <CAOnJCULdRR1JOkZq6aHW3Xv6ZHo8edOAU-3gf1zxNqQdioek9w@mail.gmail.com>
-In-Reply-To: <CAOnJCULdRR1JOkZq6aHW3Xv6ZHo8edOAU-3gf1zxNqQdioek9w@mail.gmail.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Thu, 1 Oct 2020 15:02:30 -0700
-Message-ID: <CAOnJCUKkJrqAfnmeSKXiVKMZUucydEQ63mpFRpuBQHX7-joJkg@mail.gmail.com>
-Subject: Re: [RFT PATCH v3 0/5] Unify NUMA implementation between ARM64 &
- RISC-V
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201001_180245_478151_9BBC62AD 
-X-CRM114-Status: GOOD (  47.28  )
+Content-Disposition: inline
+In-Reply-To: <20200930065617.934638-1-palmerdabbelt@google.com>
+X-SRS-Rewrite: SMTP reverse-path rewritten from <hch@infradead.org> by
+ casper.infradead.org. See http://www.infradead.org/rpr.html
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -91,199 +74,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: David Hildenbrand <david@redhat.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Atish Patra <atish.patra@wdc.com>,
- Zong Li <zong.li@sifive.com>, linux-riscv <linux-riscv@lists.infradead.org>,
- Will Deacon <will@kernel.org>, linux-arch@vger.kernel.org,
- Anup Patel <anup@brainfault.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Steven Price <steven.price@arm.com>, Greentime Hu <greentime.hu@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Nicolas Saenz Julienne <nsaenzjulienne@suse.de>,
- Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>
+Cc: kernel test robot <lkp@intel.com>, smueller@chronox.de,
+ linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
+ linux-riscv@lists.infradead.org, kernel-team@android.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 22, 2020 at 2:04 PM Atish Patra <atishp@atishpatra.org> wrote:
->
-> On Tue, Sep 22, 2020 at 4:30 AM Jonathan Cameron
-> <Jonathan.Cameron@huawei.com> wrote:
-> >
-> > On Mon, 21 Sep 2020 17:08:32 -0700
-> > Atish Patra <atishp@atishpatra.org> wrote:
-> >
-> > > On Mon, Sep 21, 2020 at 8:51 AM Jonathan Cameron
-> > > <Jonathan.Cameron@huawei.com> wrote:
-> > > >
-> > > > On Fri, 18 Sep 2020 13:11:35 -0700
-> > > > Atish Patra <atish.patra@wdc.com> wrote:
-> > > >
-> > > > > This series attempts to move the ARM64 numa implementation to common
-> > > > > code so that RISC-V can leverage that as well instead of reimplementing
-> > > > > it again.
-> > > > >
-> > > > > RISC-V specific bits are based on initial work done by Greentime Hu [1] but
-> > > > > modified to reuse the common implementation to avoid duplication.
-> > > > >
-> > > > > [1] https://lkml.org/lkml/2020/1/10/233
-> > > > >
-> > > > > This series has been tested on qemu with numa enabled for both RISC-V & ARM64.
-> > > > > It would be great if somebody can test it on numa capable ARM64 hardware platforms.
-> > > > > This patch series doesn't modify the maintainers list for the common code (arch_numa)
-> > > > > as I am not sure if somebody from ARM64 community or Greg should take up the
-> > > > > maintainership. Ganapatrao was the original author of the arm64 version.
-> > > > > I would be happy to update that in the next revision once it is decided.
-> > > >
-> > >
-> > > Any thoughts on the maintenanership of this code ?
-> >
-> > Currently it is a trivial enough bit of code, I'd not be too worried
-> > as long as it doesn't fall through the cracks.  Changes that directory are going
-> > to need a GregKH Ack so unlikely anything will get missed.
-> >
->
-> Yeah. I am fine with the current structure. I just wanted to confirm that
-> everybody is on board with that.
->
-> > If you feel a specific entry is needed in MAINTAINERS go for it.
-> > Feel free to stick me down as a reviewer and I'll keep an eye on
-> > it from ARM64 side of things.
-> >
->
-> I will not add any specific entry in MAINTAINERS unless somebody
-> complains about it.
->
->
-> > Thanks,
-> >
-> > Jonathan
-> >
-> >
-> > >
-> > > > Was fairly sure this set was a noop on arm64 ACPI systems, but ran a quick
-> > > > sanity check on a 2 socket kunpeng920 and everything came up as normal
-> > > > (4 nodes, around 250G a node)
-> > > >
-> > > > Tested-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-> > > > For patches 1 and 2.  Doesn't seem relevant to the rest :)
-> > > >
-> > >
-> > > Thanks a lot!
-> > >
-> > > > >
-> > > > > # numactl --hardware
-> > > > > available: 2 nodes (0-1)
-> > > > > node 0 cpus: 0 1 2 3
-> > > > > node 0 size: 486 MB
-> > > > > node 0 free: 470 MB
-> > > > > node 1 cpus: 4 5 6 7
-> > > > > node 1 size: 424 MB
-> > > > > node 1 free: 408 MB
-> > > > > node distances:
-> > > > > node   0   1
-> > > > >   0:  10  20
-> > > > >   1:  20  10
-> > > > > # numactl -show
-> > > > > policy: default
-> > > > > preferred node: current
-> > > > > physcpubind: 0 1 2 3 4 5 6 7
-> > > > > cpubind: 0 1
-> > > > > nodebind: 0 1
-> > > > > membind: 0 1
-> > > > >
-> > > > > For RISC-V, the following qemu series is a pre-requisite(already available in upstream)
-> > > > > to test the patches in Qemu and 2 socket OmniXtend FPGA.
-> > > > >
-> > > > > https://patchwork.kernel.org/project/qemu-devel/list/?series=303313
-> > > > >
-> > > > > The patches are also available at
-> > > > >
-> > > > > https://github.com/atishp04/linux/tree/5.10_numa_unified_v3
-> > > > >
-> > > > > There may be some minor conflicts with Mike's cleanup series [2] depending on the
-> > > > > order in which these two series are being accepted. I can rebase on top his series
-> > > > > if required.
-> > > > >
-> > > > > [2] https://lkml.org/lkml/2020/8/18/754
-> > > > >
-> > > > > Changes from v2->v3:
-> > > > > 1. Added Acked-by/Reviewed-by tags.
-> > > > > 2. Replaced asm/acpi.h with linux/acpi.h
-> > > > > 3. Defined arch_acpi_numa_init as static.
-> > > > >
-> > > > > Changes from v1->v2:
-> > > > > 1. Replaced ARM64 specific compile time protection with ACPI specific ones.
-> > > > > 2. Dropped common pcibus_to_node changes. Added required changes in RISC-V.
-> > > > > 3. Fixed few typos.
-> > > > >
-> > > > > Atish Patra (4):
-> > > > > numa: Move numa implementation to common code
-> > > > > arm64, numa: Change the numa init functions name to be generic
-> > > > > riscv: Separate memory init from paging init
-> > > > > riscv: Add numa support for riscv64 platform
-> > > > >
-> > > > > Greentime Hu (1):
-> > > > > riscv: Add support pte_protnone and pmd_protnone if
-> > > > > CONFIG_NUMA_BALANCING
-> > > > >
-> > > > > arch/arm64/Kconfig                            |  1 +
-> > > > > arch/arm64/include/asm/numa.h                 | 45 +----------------
-> > > > > arch/arm64/kernel/acpi_numa.c                 | 13 -----
-> > > > > arch/arm64/mm/Makefile                        |  1 -
-> > > > > arch/arm64/mm/init.c                          |  4 +-
-> > > > > arch/riscv/Kconfig                            | 31 +++++++++++-
-> > > > > arch/riscv/include/asm/mmzone.h               | 13 +++++
-> > > > > arch/riscv/include/asm/numa.h                 |  8 +++
-> > > > > arch/riscv/include/asm/pci.h                  | 14 ++++++
-> > > > > arch/riscv/include/asm/pgtable.h              | 21 ++++++++
-> > > > > arch/riscv/kernel/setup.c                     | 11 ++++-
-> > > > > arch/riscv/kernel/smpboot.c                   | 12 ++++-
-> > > > > arch/riscv/mm/init.c                          | 10 +++-
-> > > > > drivers/base/Kconfig                          |  6 +++
-> > > > > drivers/base/Makefile                         |  1 +
-> > > > > .../mm/numa.c => drivers/base/arch_numa.c     | 31 ++++++++++--
-> > > > > include/asm-generic/numa.h                    | 49 +++++++++++++++++++
-> > > > > 17 files changed, 201 insertions(+), 70 deletions(-)
-> > > > > create mode 100644 arch/riscv/include/asm/mmzone.h
-> > > > > create mode 100644 arch/riscv/include/asm/numa.h
-> > > > > rename arch/arm64/mm/numa.c => drivers/base/arch_numa.c (95%)
-> > > > > create mode 100644 include/asm-generic/numa.h
-> > > > >
-> > > > > --
-> > > > > 2.25.1
-> > > > >
-> > > >
-> > > >
-> > > >
-> > > > _______________________________________________
-> > > > linux-riscv mailing list
-> > > > linux-riscv@lists.infradead.org
-> > > > http://lists.infradead.org/mailman/listinfo/linux-riscv
-> > >
-> > >
-> > >
-> >
-> >
->
->
-> --
-> Regards,
-> Atish
+On Tue, Sep 29, 2020 at 11:56:18PM -0700, Palmer Dabbelt wrote:
+> clint_time_val will soon be used by the RISC-V implementation of
+> random_get_entropy(), which is a static inline function that may be used by
+> modules (at least CRYPTO_JITTERENTROPY=m).
 
-I am planning to send a v4 with a small fix Jonathan pointed out.
-Any more comments/concerns that I can address before that?
-Otherwise, can we get it queued for the next merge window?
+At very least this needs to be an EXPORT_SYMBOL_GPL.  But I really don't
+think modules have any business using get_cycles, so I'd much rather
+fix CRYPTO_JITTERENTROPY to be required to be build in.
 
--- 
-Regards,
-Atish
+> 
+> Reported-by: kernel test robot <lkp@intel.com>
+> Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
+> ---
+>  drivers/clocksource/timer-clint.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/drivers/clocksource/timer-clint.c b/drivers/clocksource/timer-clint.c
+> index d17367dee02c..6cfe2ab73eb0 100644
+> --- a/drivers/clocksource/timer-clint.c
+> +++ b/drivers/clocksource/timer-clint.c
+> @@ -38,6 +38,7 @@ static unsigned int clint_timer_irq;
+>  
+>  #ifdef CONFIG_RISCV_M_MODE
+>  u64 __iomem *clint_time_val;
+> +EXPORT_SYMBOL(clint_time_val);
+>  #endif
+>  
+>  static void clint_send_ipi(const struct cpumask *target)
+> -- 
+> 2.28.0.709.gb0816b6eb0-goog
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+---end quoted text---
 
 _______________________________________________
 linux-riscv mailing list
