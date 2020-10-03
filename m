@@ -2,91 +2,83 @@ Return-Path: <SRS0=eDvz=DK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.5 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-14.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C1D6AC4363D
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 Oct 2020 09:33:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1007FC41604
+	for <linux-riscv@archiver.kernel.org>; Sat,  3 Oct 2020 17:17:18 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 773122067C
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 Oct 2020 09:33:04 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 3A60C2064C
+	for <linux-riscv@archiver.kernel.org>; Sat,  3 Oct 2020 17:17:16 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="3WBNHvbm";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="i1gww9oL"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 773122067C
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="rvzT6yMg";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="eIQ2T+P6"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3A60C2064C
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:References:
-	To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=IYu93iJLXgteyY2NCQ54WxgO3cSHSyXrBoNHcM740U4=; b=3WBNHvbmCrNvRDzQUMuJBVbM+
-	9ZrJIyxMj9LVPf5hh0dmkUG7Gf9qYabrOq9b6gao3Qgsmng9kotGbJ7bzEACvfUIyYvmvmCxRqENW
-	rD6sd8E6MnruhdpTXIxaT3Ocg/UTTLQG/TAqAc577AF0dB7tmUaq6IQrzTrOlXbO6K/4dj4zcMexB
-	XCg+QAtkFIKm9LZ5CohC6qtvgEIFtyOjZPUQHIaQJk+OKyQSVsi0vYSA3fmBQqdeyE6Ubw95uW1EI
-	jEBuTJjmi3JXxN4KCcCIeNdAqdMULR/YA4ylFfWcYnkSk8Em/LGo8ZT+ErWmwPVKTQbDtPvI2YtPp
-	fdnq09KVQ==;
+	 bh=C13e9PsSoqym97QO4TuyxvFonOXvigVw9HA48Q7YdgQ=; b=rvzT6yMgQ4MDMP1CuPbwAHrb0
+	Yqp/qDcA4smMTNOJSLUjaEZRETO2ZGNMDraOiIdZAnojELD8LGddpmIK1hc2+kWwkPh87xJsX0KjB
+	L9dfdlLqaBcAJChh+1iSw0qs9jf7rOKU+0wjtyBSAovJlGFcbhptmpdNHvyP+hrg3vCEvrho9lE8E
+	CoGezZyJzDpay4OrsgVRDJsrIClCx3EeCsXmvWHUsDKuJEfdN6d8wBq9MA0DuPKLqQ0X+eGMMFkE4
+	/4AWl9npbzdCN0X3QUJ/wXRxDMxBTFlkA4qAjObC6w0CaxkjK1qSv9y4rTD+3I8OY7EKgdOYaK+1g
+	jNZmTdFuw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kOduO-0008VV-9q; Sat, 03 Oct 2020 09:32:52 +0000
-Received: from mail-wr1-x442.google.com ([2a00:1450:4864:20::442])
+	id 1kOl9Z-00080x-Op; Sat, 03 Oct 2020 17:17:01 +0000
+Received: from mail-io1-xd41.google.com ([2607:f8b0:4864:20::d41])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kOduK-0008St-Sr; Sat, 03 Oct 2020 09:32:49 +0000
-Received: by mail-wr1-x442.google.com with SMTP id h7so727593wre.4;
- Sat, 03 Oct 2020 02:32:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=subject:from:to:cc:references:message-id:date:user-agent
- :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=wmkJ9FxHCpTr+iWv6GHurEZpNNofEO+mT2y21utzFUs=;
- b=i1gww9oLCuAl7ps5bghVOHqyGmypLPIhDKuBqotkCvdnqEFRaD36CeVYStIMsJFTUN
- D6OtC9a5Pd3uni6o0V4KWqVjMy4G9aoHk65TQ0a3vqdwc8JJkyW9d2HuLnCONT5/aDfg
- 6/s3VQo5bRbDCwgHl10h4opIShPXPwp0jNEqEv/LXoy0m9KLmBLPzE2Ma/7RxYryfpvx
- KDR4E1aW4hiJeLllUYcX3LaBX6pETHnRvDUFo4bDzUh+KpIuRoixv+Md31XOw1sV9Y0U
- jfsAyXPOLfP0gNHv1chHDLJodyRwn8IOgMLUW4LseTUQ8ulmWGY0taiIppcuxmyOrSSX
- QMJw==
+ id 1kOl9W-000803-ED
+ for linux-riscv@lists.infradead.org; Sat, 03 Oct 2020 17:16:59 +0000
+Received: by mail-io1-xd41.google.com with SMTP id k6so4885062ior.2
+ for <linux-riscv@lists.infradead.org>; Sat, 03 Oct 2020 10:16:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=atishpatra.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=8XrZQLqnNMpD94S1G4sNZjRBettAl+4T8HbFLiItGrM=;
+ b=eIQ2T+P6x2QPcxs1/JG3GsHnHMYI/bX1FzFRKyAKsYiwwbsyWTEZkpzIEiO4+6gL2y
+ WAJlRooHf26F3JF2p9IYXC9Cs7nt5COQRcBYhJJRBHIW7Ap6QDsjGm7aFjkXzfmk6jp3
+ 0yftHf4IDDNCqkPXtgxTYjWX5S6bSvzH5SXgI=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:from:to:cc:references:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=wmkJ9FxHCpTr+iWv6GHurEZpNNofEO+mT2y21utzFUs=;
- b=ciS6nzzk3KuJQ6w0jkGm9tZMUZB5ws4S2BbKNvNN9Q5i1Gow70bYzWPOXh/y4ECGMu
- hbt9X0XDpWVs5NuvxHppcHko1rm8wkBnIwDBGXYP28dMwJj9AH8v2ViNa0wR9qJjZi8X
- bISDg7Bn2it/z6gzLaEpsO51EqdgVIbTtbRZPlrOeki1XmFcdq7yjmD4I5WAsggrUfg/
- JcJ18k0es8XnmCzu2UJfCj23G7dYpXUSiR/w+Jo5IZbmtwVx5IgeK7pzMWUZjEDRNivT
- LHG8axjIUGMHWBb8AbSCiujlC37IihcSLN+xN3eRrLJYmhpOfvzooaJMMtWBCnHvqksr
- kuZQ==
-X-Gm-Message-State: AOAM5310S4pzki1SP10vy+oI4ia81kzjhliTpY3Kxi5RVpKgBqLn4IKC
- liXPwoVRoWrhgvNar97eksk=
-X-Google-Smtp-Source: ABdhPJxF6OsanYU7MGuhJyTy3ufPHyRz/VHEz71PltEzIDMI5xb5/GcsYkMEQc6B2ut+ufvoU3MTDA==
-X-Received: by 2002:adf:e391:: with SMTP id e17mr7048859wrm.289.1601717566307; 
- Sat, 03 Oct 2020 02:32:46 -0700 (PDT)
-Received: from [192.168.1.143] ([170.253.60.68])
- by smtp.gmail.com with ESMTPSA id i14sm4778140wml.24.2020.10.03.02.32.43
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Sat, 03 Oct 2020 02:32:45 -0700 (PDT)
-Subject: Re: [PATCH] man2: new page describing memfd_secret() system call
-From: Alejandro Colomar <colomar.6.4.3@gmail.com>
-To: rppt@kernel.org, mtk.manpages@gmail.com
-References: <20200924133513.1589-1-rppt@kernel.org>
- <efb6d051-2104-af26-bfb0-995f4716feb2@gmail.com>
-Message-ID: <94cf1b3a-e191-a896-a27d-cd7649cb2c59@gmail.com>
-Date: Sat, 3 Oct 2020 11:32:43 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.12.0
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=8XrZQLqnNMpD94S1G4sNZjRBettAl+4T8HbFLiItGrM=;
+ b=cMxWDRVvxvL0fwLgTeMSpUNuzcyvVJb1fYAas5fU2PCDJ0nMBQldJLF8w7wrJw4FI4
+ VhEr1o6Fb3MNpKyp8zPSH3vTELSuz7pamOv/2H8/4dOCnDRasvyhZfvByC2xNiOZWlcI
+ tHzZ0p3JkBsdkn3zL+pGYv4RSSDbSmqLI8IRSM2D8rCHIE9t01iACJOQfwlHcah6kuw8
+ d9B2Df+QcZxAq2DJpXI7TLrkVI65N45U3d4mMmC37cRJYHNKNAeQG6Odcr9+eitiHMuG
+ 9dKDz2U6cuWE+VbLiG6m3jLO/grFEbb9RVm3H2yakmbL4Yq8ZTSbXZbFCgmRkUZMWdMZ
+ 24+g==
+X-Gm-Message-State: AOAM530nZrLR4RMsPzhmQzOKNst+DiPxcZz+nZiiYuog522try5vdigc
+ vJRxRBBj0VEosxSMJb753fOGEIXfpUkzEIL7UDY0
+X-Google-Smtp-Source: ABdhPJw08RqpDULJ2XMeNRLoZk91UBhQgs+FPEYURdxrpoIj5OTTH9GFtO38kLkwuVFd5mZ+O05/5mnyG4xmbEqI/k0=
+X-Received: by 2002:a05:6602:18a:: with SMTP id
+ m10mr5793676ioo.174.1601745415299; 
+ Sat, 03 Oct 2020 10:16:55 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <efb6d051-2104-af26-bfb0-995f4716feb2@gmail.com>
-Content-Language: en-US
+References: <20201003063725.8698-1-xypron.glpk@gmx.de>
+ <20201003063725.8698-2-xypron.glpk@gmx.de>
+ <CAOnJCU+kit2dHihTad9UPYUmN0+EAdVN9m97ibs=Jnu44Qe_LQ@mail.gmail.com>
+ <0c654506-9bb9-9aee-876e-8c1b8619eb67@gmx.de>
+In-Reply-To: <0c654506-9bb9-9aee-876e-8c1b8619eb67@gmx.de>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Sat, 3 Oct 2020 10:16:44 -0700
+Message-ID: <CAOnJCU+1vOk3AkGPBah8gPzwf1V1PXUfdxq9+Y17P=F_rOp9hg@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] docs: admin-guide: fdt and initrd load in EFI stub
+To: Heinrich Schuchardt <xypron.glpk@gmx.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201003_053248_948907_F6AB4FD3 
-X-CRM114-Status: GOOD (  13.94  )
+X-CRM114-CacheID: sfid-20201003_131658_859094_B8045085 
+X-CRM114-Status: GOOD (  43.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -98,33 +90,175 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, linux-man@vger.kernel.org, tglx@linutronix.de,
- david@redhat.com, peterz@infradead.org, catalin.marinas@arm.com,
- dave.hansen@linux.intel.com, linux-mm@kvack.org, will@kernel.org,
- linux-kselftest@vger.kernel.org, hpa@zytor.com, cl@linux.com,
- idan.yaniv@ibm.com, linux-riscv@lists.infradead.org, elena.reshetova@intel.com,
- linux-arch@vger.kernel.org, tycho@tycho.ws, linux-nvdimm@lists.01.org,
- shuah@kernel.org, x86@kernel.org, willy@infradead.org, rppt@linux.ibm.com,
- mingo@redhat.com, arnd@arndb.de, jejb@linux.ibm.com, bp@alien8.de,
- viro@zeniv.linux.org.uk, luto@kernel.org, paul.walmsley@sifive.com,
- kirill@shutemov.name, dan.j.williams@intel.com,
- linux-arm-kernel@lists.infradead.org, linux-api@vger.kernel.org,
- linux-kernel@vger.kernel.org, palmer@dabbelt.com,
- linux-fsdevel@vger.kernel.org, akpm@linux-foundation.org
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet <corbet@lwn.net>,
+ Linux Doc Mailing List <linux-doc@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ linux-efi <linux-efi@vger.kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Ard Biesheuvel <ardb@kernel.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgTWlrZSBhbmQgTWljaGFlbCwKClBpbmcuIDopCgpUaGFua3MsCgpBbGV4CgpPbiAyMDIwLTA5
-LTI0IDE2OjU1LCBBbGVqYW5kcm8gQ29sb21hciB3cm90ZToKPiAqIE1pa2UgUmFwb3BvcnQ6Cj4g
-ID4gKy5QUAo+ICA+ICsuSVIgTm90ZSA6Cj4gID4gK1RoZXJlIGlzIG5vIGdsaWJjIHdyYXBwZXIg
-Zm9yIHRoaXMgc3lzdGVtIGNhbGw7IHNlZSBOT1RFUy4KPiAKPiBZb3UgYWRkZWQgYSByZWZlcmVu
-Y2UgdG8gTk9URVMsIGJ1dCB0aGVuIGluIG5vdGVzIHRoZXJlIGlzIG5vdGhpbmcgYWJvdXQgCj4g
-aXQuwqAgSSBndWVzcyB5b3Ugd2FudGVkIHRvIGFkZCB0aGUgZm9sbG93aW5nIHRvIE5PVEVTICh0
-YWtlbiBmcm9tIAo+IG1lbWJhcnJpZXIuMik6Cj4gCj4gLlBQCj4gR2xpYmMgZG9lcyBub3QgcHJv
-dmlkZSBhIHdyYXBwZXIgZm9yIHRoaXMgc3lzdGVtIGNhbGw7IGNhbGwgaXQgdXNpbmcKPiAuQlIg
-c3lzY2FsbCAoMikuCj4gCj4gQ2hlZXJzLAo+IAo+IEFsZXgKCl9fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
-eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
-aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Sat, Oct 3, 2020 at 1:29 AM Heinrich Schuchardt <xypron.glpk@gmx.de> wrote:
+>
+> On 03.10.20 09:34, Atish Patra wrote:
+> > On Fri, Oct 2, 2020 at 11:38 PM Heinrich Schuchardt <xypron.glpk@gmx.de> wrote:
+> >>
+> >> Describe how a device tree and an initial RAM disk can be passed to the EFI
+> >> Boot Stub.
+> >>
+> >> Signed-off-by: Heinrich Schuchardt <xypron.glpk@gmx.de>
+> >> ---
+> >> v2:
+> >>         mention EFI_GENERIC_STUB_INITRD_CMDLINE_LOADER (thx Atish)
+> >> ---
+> >>  Documentation/admin-guide/efi-stub.rst | 35 ++++++++++++++++++++++++++
+> >>  1 file changed, 35 insertions(+)
+> >>
+> >> diff --git a/Documentation/admin-guide/efi-stub.rst b/Documentation/admin-guide/efi-stub.rst
+> >> index 833edb0d0bc4..4965dec48af4 100644
+> >> --- a/Documentation/admin-guide/efi-stub.rst
+> >> +++ b/Documentation/admin-guide/efi-stub.rst
+> >> @@ -38,6 +38,34 @@ arch/arm/boot/zImage should be copied to the system partition, and it
+> >>  may not need to be renamed. Similarly for arm64, arch/arm64/boot/Image
+> >>  should be copied but not necessarily renamed.
+> >>
+> >> +Passing an initial RAM disk to the EFI Boot Stub
+> >> +------------------------------------------------
+> >> +
+> >> +The following means sorted by decreasing priority can be used to provide an
+> >> +initial RAM disk to the EFI Boot Stub:
+> >> +
+> >> +* The firmware may provide a UEFI Load File 2 Protocol. The stub will try to
+> >> +  load the RAM disk by calling the LoadFile() service of the protocol using
+> >> +  a vendor device path with the vendor GUID
+> >> +  5568e427-0x68fc-4f3d-ac74-ca555231cc68.
+> >> +* Next the EFI stub will try to load the file indicated by the "initrd=" command
+> >> +  line parameter if CONFIG_EFI_GENERIC_STUB_INITRD_CMDLINE_LOADER is enabled.
+> >> +* The prior boot stage may pass the location of the initial RAM disk via the
+> >> +  "linux,initrd-start" and "linux,initrd-end" properties of the "/chosen" node
+> >> +  of the device-tree.
+> >> +
+> >
+> > Should we also specify which method is enabled by default for which
+> > ARCH and recommended methods?
+>
+> The user relevant configuration is not the Linux' defconfig but what the
+> distribution maintainer has baked. I doubt mentioning Linux' defaults is
+> meaningful here.
+>
+
+Yes. But some distribution admin may think that one of these two configs
+(initrd or dtb) are not enabled for RISC-V by mistake and enable it in
+the distro config.
+Ard had suggested that it is best if RISC-V doesn't inherit the legacy options.
+
+> >
+> > For example, It's recommended to use the LoadFile method for RISC-V
+> > and new ARM systems.
+>
+> GRUB does not implement the LoadFile2 protocol yet. In U-Boot it is only
+> good for testing. I am not aware of usability with unmodified EDK II.
+> Why should we recommend anything before building the ecosystem that
+> makes it useful?
+>
+> What is best may depend on the use case. There is nothing insecure in
+> passing the initrd via "linux,initrd-start" and "linux,initrd-end" if
+> you control the load options.
+>
+> The EBBR (https://github.com/arm-software/ebbr) might be a better place
+> for a recommendation.
+>
+
+Agreed.
+
+> > Existing ARM ones will continue to use the initrd argument as that's
+> > the method enabled by default.
+>
+> Only if if the LoadFile2 protocol is not available because that has a
+> higher priority for ARM, x86, and RISC-V.
+>
+> Should I consider my i.mx6 Wandboard Quad bought in 2013 "old" while it
+> is running the U-Boot v2020.10-rc5, Linux v5.9-rc7, and Debian testing?
+> A distinction between "old" and "new" systems seems irrelevant here. All
+> are treated equal by the EFI stub.
+>
+> >
+> >> +The first two items are inhibited by the "noinitrd" command line parameter.
+> >> +
+> >> +Passing a device-tree to the EFI Boot Stub
+> >> +------------------------------------------
+> >> +
+> >> +A device-tree can be passed to the EFI Boot Stub in decreasing priority using
+> >> +
+> >> +* command line option dtb=
+> >> +* a UEFI configuration table with GUID b1b621d5-f19c-41a5-830b-d9152c69aae0.
+> >> +
+> >
+> > I am just curious. Is there any specific reason why efistub tries to
+> > load the dtb from the command line first
+> > and loads from the config table only if it fails from the first approach ?
+>
+> As we disable dtb= in secure boot it would make sense to turn the
+> priorities around for non-secure boot too.
+>
+> But this is beyond the scope of a documentation patch.
+>
+
+Yes. I was just using the context to ask the question. I will send a
+separate patch
+for that.
+
+> Best regards
+>
+> Heinrich
+>
+> >
+> >> +The command line option is only available if CONFIG_EFI_ARMSTUB_DTB_LOADER=y
+> >> +and secure boot is disabled.
+> >>
+> >>  Passing kernel parameters from the EFI shell
+> >>  --------------------------------------------
+> >> @@ -46,6 +74,10 @@ Arguments to the kernel can be passed after bzImage.efi, e.g.::
+> >>
+> >>         fs0:> bzImage.efi console=ttyS0 root=/dev/sda4
+> >>
+> >> +The "noinitrd" option
+> >> +---------------------
+> >> +
+> >> +The "noinitrd" option stops the EFI stub from loading an initial RAM disk.
+> >>
+> >>  The "initrd=" option
+> >>  --------------------
+> >> @@ -98,3 +130,6 @@ CONFIGURATION TABLE.
+> >>
+> >>  "dtb=" is processed in the same manner as the "initrd=" option that is
+> >>  described above.
+> >> +
+> >> +This option is only available if CONFIG_EFI_ARMSTUB_DTB_LOADER=y and secure
+> >> +boot is disabled.
+> >> --
+> >> 2.28.0
+> >>
+> >>
+> >> _______________________________________________
+> >> linux-riscv mailing list
+> >> linux-riscv@lists.infradead.org
+> >> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> >
+> >
+> >
+>
+
+
+-- 
+Regards,
+Atish
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
