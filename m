@@ -1,85 +1,90 @@
-Return-Path: <SRS0=eDvz=DK=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=yqZG=DL=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-9.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 419C4C4363D
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 Oct 2020 17:33:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CCB75C4363D
+	for <linux-riscv@archiver.kernel.org>; Sun,  4 Oct 2020 17:28:04 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8F1FC206B8
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 Oct 2020 17:33:39 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 3DDEB206B6
+	for <linux-riscv@archiver.kernel.org>; Sun,  4 Oct 2020 17:28:04 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="K883x4pq";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="TtfeTiM6"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8F1FC206B8
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="iGZ6JETp";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="XzvA1ibY"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3DDEB206B6
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=CeC7J0kUdhD51PVcD2GqzvGj8LCmtiLRmginPbZ3s7s=; b=K883x4pqcwmfTMUlPJv9k5i3h
-	3CpaGWD4LIJV50iX6IEWhksJMHU1eZRl451ZhTuMZcEtZMc9FW1tavIkFZ6rQEo6K0nDFpw2qvMpV
-	k0Fx+XO7s1MlC2xoaxtR5CDq9Eey/GJRoGr52y/KNfV0RNc1FtEFILsyW33I5OIgjPp+WLKIu6hMx
-	f8tfSUta8OoBnvNcDJO0vXtJ77gLYZf9uY+2d8Apy/GhXb0tl8IJwpVD8oko8EME56n4rGz/GBB2d
-	poXZjEdmF9P4IMZznkbWgBftm7hEF8Mg+39GfXt9y2HwFPmFJ8S6AOj+tApjjOHkKUtv+IoTiBhS4
-	9FU3OYU0A==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=gd3mUhbw+pPRSSFebFX3/Gu17HqSYMuxSQFUA6czJVA=; b=iGZ6JETphM4nx+CA6utojHInr
+	sX/Z78LQ30Cq6Zm8iTu9sv3Nb269YrbAkRCZGIValoddChsUuyN9bg+1+nh5wljkEojN3/sSnzUHj
+	LtxO/PMmC5YF/xCbg1hz+xli5mfFcK7YfPBHGUq8KaTSzNJtzEV+yornScEWLL49ynJ7z84jy4f1P
+	kwsEGwYN1o5JZ/M9q4drA9AzENW0BAEhEqiYM2g37sLlo4wbgS7oOkxM8MH5NKoSfSqKqkmgsthsY
+	/fKQZbZBxRLmMseYrk0K8MGncALbr5EmTEAnWZd7bsG0hWcSH9Tf8mhTPKSLfLEI2AP2jRXFdDJ+X
+	DFk07bf0g==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kOlPO-0001X7-DO; Sat, 03 Oct 2020 17:33:22 +0000
-Received: from mail-io1-xd42.google.com ([2607:f8b0:4864:20::d42])
+	id 1kP7ne-0005Pf-B3; Sun, 04 Oct 2020 17:27:54 +0000
+Received: from mail-pj1-x1044.google.com ([2607:f8b0:4864:20::1044])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kOlPM-0001We-NQ
- for linux-riscv@lists.infradead.org; Sat, 03 Oct 2020 17:33:21 +0000
-Received: by mail-io1-xd42.google.com with SMTP id d197so4915758iof.0
- for <linux-riscv@lists.infradead.org>; Sat, 03 Oct 2020 10:33:20 -0700 (PDT)
+ id 1kP7na-0005OO-Fx
+ for linux-riscv@lists.infradead.org; Sun, 04 Oct 2020 17:27:51 +0000
+Received: by mail-pj1-x1044.google.com with SMTP id b17so3864017pji.1
+ for <linux-riscv@lists.infradead.org>; Sun, 04 Oct 2020 10:27:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=MK5uVqASqRoyPGix1z3iLbSJV9eTUDiTtMGnbaIWbDE=;
- b=TtfeTiM6Bu8KDOBYg+UOw+aUjK4K8FSO1lNVk6VODxoFEX7bIGz4XyPR76AWYvEuoj
- KYB4bunpwahtwP/KBoROWdvDiVxUxRv0hn74b4gmAbuaI76fm/QubP643BltlIZsKUyW
- 8eKAlmSUnTL8Mug9u7Kq23GJuGNcKWoUG1nQg=
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=tj85vc+tFzKQ8Ts1wgqekj2S97wfjTOBg845eefHhNk=;
+ b=XzvA1ibYwKJjhuT5kV/gBCfVWaqWGosfZel3llNCYnpQOhIwyifIfQ8jyAzGMCIcmz
+ IXTW5yCQRCQ2yNTHAg7p09RQDe/XmI4dzRB2/fGwR1YO26n1KCD+Y278Fm7nYK2uvkYq
+ BnVLgkcDRg4Qk73FZ1UcCv1xE8xXDkPncjHn244CzbcWYTd+uPWiIW8uqjWy0tTLLWpP
+ mhbXT33DK5yrAgz0kRvpl+10PFWL6PP6DYdEg0LSt9atD8Cn6f0y3vb0HuU6A9naQDHf
+ 7iM+AA6xDNobK8ePVCyQRSie1VOiOrI55NOMBapYv7yN9quU4/JsEqcKt/WbW81cjsZH
+ CO4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=MK5uVqASqRoyPGix1z3iLbSJV9eTUDiTtMGnbaIWbDE=;
- b=YB/KL0bxncJhE9486PKbbYaX4OLdGvSBX/Rd5P1jsKtPPE4x7Chgm0/A+ZlJp+VuDQ
- n6L1mdd/XuIUSnQ0U71eWnSOsEtEO+gr9ox42rqgaeml1B51oJqxlDIABrnv2dytje4L
- Oz7u07QSnF4g9LNoECXNbjFBOL2IU1pQvr1qxBnX6T+wan/n26SHpK+dGqs3nvaU5o+f
- fJpwhVQ2YWwmBQ0QC0c9tI5wBSRcQJv4S6bhvY76rlvvBk/kvSKe35+4HyBmIJ8USASh
- /xsD33IJO5/pkgsF1mzSojyzKZNPmkpZsCDmntAbG3guOkRt+OKVALw9n0x7pSFeUkYA
- Rgaw==
-X-Gm-Message-State: AOAM532HPhUbhDYF3y0XxWTpMgA+dB3tArBB8lHoDg1wwukvkNbos4fH
- imqeSEEYnMek/zVuczf7j3cOMKtMJ0pID/8gAQ+O
-X-Google-Smtp-Source: ABdhPJxF5XjTpqjoAoetC0Qpvrxi7mQ4ZOXBEKnuOWzzvzBGYi8KHxY9YWAPoSOX74+9heXweJg8YKy8lpzGfOA3olM=
-X-Received: by 2002:a05:6602:18a:: with SMTP id
- m10mr5823189ioo.174.1601746398592; 
- Sat, 03 Oct 2020 10:33:18 -0700 (PDT)
-MIME-Version: 1.0
-References: <bug-209317-8243@https.bugzilla.kernel.org/>
- <bug-209317-8243-E6Z0ICootN@https.bugzilla.kernel.org/>
- <20200928111341.7eaa98a8@oasis.local.home>
- <67278555f143564677878cc849155393a93c018a.camel@wdc.com>
-In-Reply-To: <67278555f143564677878cc849155393a93c018a.camel@wdc.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Sat, 3 Oct 2020 10:33:07 -0700
-Message-ID: <CAOnJCUJgzWkKixYyFCrqbNF2ONgB_RUOSTB9BhT5D0stnf=vUw@mail.gmail.com>
-Subject: Re: [Bug 209317] ftrace kernel self test failure on RISC-V on 5.8,
- regression from 5.4.0
-To: Alan Kao <alankao@andestech.com>, Zong Li <zong.li@sifive.com>
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=tj85vc+tFzKQ8Ts1wgqekj2S97wfjTOBg845eefHhNk=;
+ b=mK2JSxW3qw/jsORvzhf5A77YnipdUW213/I9zB2j5jSz8VXQSdDXsc6ssO6csZ9sMl
+ uamEPVYFH+haI1wnHaz2QR0K5gG0Hc+0NVpUoWPNomJ8yiT+Cd6o/sPliWtyOT0031Ww
+ CW6bGP5Ae8MOLdrnUKPVlu8W4h0Hdjh94gmDaWR+7YUDveAw/NV5EH2yC6GNhBzdqdq0
+ zmj21Q/EvERJaA6kRmAfkzQPed9FXnJij5NxfXVx7m1ll78rpG/LJJTimk9O86qYY8g/
+ 4eIg0ShuvrmVCzeLTmO9QK4UiYHOrz0qX/SP6cQwEG7rR1DtReo90zJSkYUVMehvcbvG
+ yWeA==
+X-Gm-Message-State: AOAM532fC5P/bpAgyFLnYOWW0rTzwVveCH+Xx5IRntEAFub5uGQMdDj7
+ HrgefdIw4UlaXIWl+MEQx5G5hw==
+X-Google-Smtp-Source: ABdhPJwj4IDhoydeLRkvglo0zKQhrjklU5j3+KfqxjL9fpv2XPSptrijTRwQ5V5iJTKPN9mcSPtL2Q==
+X-Received: by 2002:a17:90a:5292:: with SMTP id
+ w18mr13086015pjh.72.1601832466217; 
+ Sun, 04 Oct 2020 10:27:46 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id 16sm7810102pjl.27.2020.10.04.10.27.45
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sun, 04 Oct 2020 10:27:45 -0700 (PDT)
+Date: Sun, 04 Oct 2020 10:27:45 -0700 (PDT)
+X-Google-Original-Date: Sun, 04 Oct 2020 10:27:39 PDT (-0700)
+Subject: Re: remove set_fs for riscv v2
+In-Reply-To: <CAK8P3a3ONxXm_MWKn9BSswtLH3etVwOUh52NYoXpj032=WP0gw@mail.gmail.com>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Message-ID: <mhng-de10f104-52e9-4531-8d33-981b0692682a@palmerdabbelt-glaptop1>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201003_133320_782471_F0ACFD96 
-X-CRM114-Status: GOOD (  18.99  )
+X-CRM114-CacheID: sfid-20201004_132750_563074_99DB9B7C 
+X-CRM114-Status: GOOD (  15.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -91,76 +96,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
- "bugzilla-daemon@bugzilla.kernel.org"
- <bugzilla-daemon@bugzilla.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "rostedt@goodmis.org" <rostedt@goodmis.org>, Atish Patra <Atish.Patra@wdc.com>,
- "palmer@dabbelt.com" <palmer@dabbelt.com>,
- "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-Content-Type: text/plain; charset="us-ascii"
+Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+ viro@zeniv.linux.org.uk, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv@lists.infradead.org, Christoph Hellwig <hch@lst.de>
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Alan and Zong,
-I initially suspected ftrace is broken between v5.6 & v5.7 as Kolin pointed out.
-I couldn't find any reason how the HSM patch is related. Zong's ftrace
-patching code was also merged in that release.
-However, I was able to reproduce the issue in the older kernel(v5.4)
-as well on both Qemu & Unleashed hardware.
-Here are the steps:
-
-mount -t debugfs none /sys/kernel/debug/
-cd /sys/kernel/debug/tracing
-echo function_graph > current_tracer
-echo function > current_tracer
-
-It works for the first time with function_graph but writing any other
-tracer crashes immediately.
-Can you take a look to check if the bug is in ftrace infrastructure code ?
-
-On Mon, Sep 28, 2020 at 10:25 AM Atish Patra <Atish.Patra@wdc.com> wrote:
+On Sat, 26 Sep 2020 12:13:41 PDT (-0700), Arnd Bergmann wrote:
+> On Sat, Sep 26, 2020 at 7:50 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+>> I'm OK taking it, but there's a few things I'd like to sort out.  IIRC I put it
+>> on a temporary branch over here
+>>
+>>     https://git.kernel.org/pub/scm/linux/kernel/git/palmer/linux.git/log/?h=riscv-remove_set_fs
+>>
+>> under the assumption it might get lost otherwise, but let me know if that's not
+>> what you were looking for.
+>>
+>> Arnd: Are you OK with the asm-generic stuff?  I couldn't find anything in my
+>> mail history, so sorry if I just missed it.
 >
-> On Mon, 2020-09-28 at 11:13 -0400, Steven Rostedt wrote:
-> > On Sat, 26 Sep 2020 22:02:35 +0000
-> > bugzilla-daemon@bugzilla.kernel.org wrote:
-> >
-> > > https://bugzilla.kernel.org/show_bug.cgi?id=209317
-> > >
-> > > --- Comment #4 from Colin Ian King (colin.king@canonical.com) ---
-> > > Issue still in 5.9-rc6
-> > >
-> >
-> > Atish,
-> >
-> > As the issues bisects down to your commit, care to take a look at
-> > this.
-> > (And take ownership of this bug)
-> >
+> For some reason I had missed that __copy_from_user() change earlier,
+> but I had a closer look now and this is all very good, feel free to
+> add an
 >
-> Yes. I am already looking into this. Colin informed me about the bug
-> over the weekend.
->
-> I couldn't change the ownership as I am not part of the editbugs group.
-> I have sent an email to helpdesk@kernel.org for access.
->
-> > -- Steve
->
-> --
-> Regards,
-> Atish
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> Acked-by: Arnd Bergmann <arnd@arndb.de>
 
-
-
--- 
-Regards,
-Atish
+Thanks.  These (along with the rest of Christoph's patch set, and a merge from
+base.set_fs) are on my for-next.
 
 _______________________________________________
 linux-riscv mailing list
