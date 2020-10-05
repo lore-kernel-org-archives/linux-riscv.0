@@ -2,21 +2,21 @@ Return-Path: <SRS0=7nvN=DM=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 030B3C4363A
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Oct 2020 20:05:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 04EF6C4727F
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Oct 2020 20:29:40 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8E0AC21481
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Oct 2020 20:05:54 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 95E2C21481
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Oct 2020 20:29:39 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="AFq8ZIqb";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="DqVP1YOq"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8E0AC21481
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="F5VUM++A";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="IAQGZH82"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 95E2C21481
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,45 +25,99 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=0mhY/pCgpYZ68z4jlNbS+eVOEKaCkffp5ZFc2TyyvEI=; b=AFq8ZIqb5lKh3sR0MsqHLWW0n
-	oZDg5SkfVtWoMf5iviTdHMLWEz74I3rNlkQpBLB7ep81zv2peS9lktbrTRra6vhN+jiVBBnjSwR1b
-	FH2vKKfv7Fh/xw3rr1vu6aCDfxCKimGqjp2/R2mj0z47Ns3W1oKvZVL8ltHq2bJXcnCLsuf3X1vWD
-	bhCNs8TBXNFzF5zyMHdykNLRpjyfVdEraAGVIOKFRu6MDcEWYg/kadTL4aPBii0UgHpkxl2pmK69P
-	uZ1RrNij08m+ITCt76j+G+CoQkfooi+LAYs7Fd1FesWbIzPtQt5lHsZgmc7qds+wVXeRYE1UZUY9E
-	kn/0fLQ2g==;
+	 bh=F7VHj3jMfDGNBsjkJ6e4jejXwGj5J6GVGh3U82G+QNg=; b=F5VUM++AwijTTOsLyo1ALV6hz
+	Dc3GSzICmFpJWhWCLYEtNoyOEfphZMzI6HmIoV6K9wNzIGnvAKbpLxClFF+6bWsfbUUV4S4tRUBY2
+	VefMwgwpf9VnGSzWuxryouHHrWyRrERkuy3rKUZpwaIdfEpRsos1PgDG4bHU+1DfNTqigct33rABi
+	gr0B/Iv3CSs0J9JivlMZlO0o3kamZpH++Z1scY6SwhY6Y62woZyiHQliGDeH4QE/1H+mxhSHmXd3H
+	FqK/zKDDJXZhevE7BcT3eKmxScHjSG5dOfpQSQ3a5ljejvARaW6IlLkyd11tDpMMc+n5auqraw0xk
+	wxaIpRp/A==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kPWjy-0002Yg-7B; Mon, 05 Oct 2020 20:05:46 +0000
+	id 1kPX6v-0005Ae-Tq; Mon, 05 Oct 2020 20:29:29 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kPWjs-0002WX-2E; Mon, 05 Oct 2020 20:05:41 +0000
-Received: from localhost (fw-tnat.cambridge.arm.com [217.140.96.140])
+ id 1kPX6p-00058d-0W; Mon, 05 Oct 2020 20:29:24 +0000
+Received: from localhost (p54b33598.dip0.t-ipconnect.de [84.179.53.152])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 9829A2100A;
- Mon,  5 Oct 2020 20:05:38 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 4CCD32100A;
+ Mon,  5 Oct 2020 20:29:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1601928339;
- bh=s+rmToXuZeBQt1ZHeq5xiuVm9SotCIz3Xgvl28Fw5Sk=;
+ s=default; t=1601929760;
+ bh=CY8NqwoVQ25QxGoVqPI6StG/ZplQMdc5HDso6arArXo=;
  h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=DqVP1YOqAYnjot5TUTkRAhiW2RtwXuZ5e5qz8LvSojfsw/z32Rk8JnWfVD5BXymWO
- 4EC8eVcvmcazYR6gF5tPzQsFFesNCU4EysDpYM4X3KWybj3QeQ+4owhDRliTEy4tgT
- h8Rdu73GXKv3vnIEWQo8yVgIc1dlj/a6GR3mBv04=
-Date: Mon, 5 Oct 2020 21:04:35 +0100
-From: Mark Brown <broonie@kernel.org>
+ b=IAQGZH829noPSNM2cZ1jm/jbS+7T503wG9x/AZUWWP2n3Pg2wGypVyMaS3fKZcMYB
+ Ea6Ur4RMIOEayysWQOCHXCoKmViXancH5KHZDAu5uc5mAKVPb7rn0HFH2ULioIDlS1
+ 6LHXpcLLAuibafU7o/srB/FAdz59EYbjBZljJeUI=
+Date: Mon, 5 Oct 2020 22:29:10 +0200
+From: Wolfram Sang <wsa@kernel.org>
 To: Rob Herring <robh@kernel.org>
-Subject: Re: [PATCH 4/4] dt-bindings: Explicitly allow additional properties
- in common schemas
-Message-ID: <20201005200435.GI5139@sirena.org.uk>
+Subject: Re: [PATCH 1/4] dt-bindings: Add missing 'unevaluatedProperties'
+Message-ID: <20201005202910.GA1397@kunai>
+Mail-Followup-To: Wolfram Sang <wsa@kernel.org>,
+ Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
+ Alessandro Zummo <a.zummo@towertech.it>,
+ Andrew Lunn <andrew@lunn.ch>, Bjorn Helgaas <bhelgaas@google.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ "David S. Miller" <davem@davemloft.net>, dmaengine@vger.kernel.org,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+ dri-devel@lists.freedesktop.org,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Heiner Kallweit <hkallweit1@gmail.com>,
+ Jakub Kicinski <kuba@kernel.org>,
+ Jason Cooper <jason@lakedaemon.net>, Jens Axboe <axboe@kernel.dk>,
+ Jonathan Cameron <jic23@kernel.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>,
+ Lars-Peter Clausen <lars@metafoo.de>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Lee Jones <lee.jones@linaro.org>,
+ Liam Girdwood <lgirdwood@gmail.com>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Marc Kleine-Budde <mkl@pengutronix.de>,
+ Marc Zyngier <maz@kernel.org>, Mark Brown <broonie@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ MyungJoo Ham <myungjoo.ham@samsung.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Pavel Machek <pavel@ucw.cz>,
+ Peter Meerwald-Stadler <pmeerw@pmeerw.net>,
+ Richard Weinberger <richard@nod.at>,
+ Sam Ravnborg <sam@ravnborg.org>, Sebastian Reichel <sre@kernel.org>,
+ Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+ Stephen Boyd <sboyd@kernel.org>,
+ Thierry Reding <thierry.reding@gmail.com>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Ulf Hansson <ulf.hansson@linaro.org>,
+ Vignesh Raghavendra <vigneshr@ti.com>,
+ Vinod Koul <vkoul@kernel.org>, Viresh Kumar <vireshk@kernel.org>,
+ Vivien Didelot <vivien.didelot@gmail.com>,
+ Wim Van Sebroeck <wim@linux-watchdog.org>,
+ Wolfgang Grandegger <wg@grandegger.com>,
+ Zhang Rui <rui.zhang@intel.com>,
+ linux-arm-kernel@lists.infradead.org, linux-can@vger.kernel.org,
+ linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
+ linux-hwmon@vger.kernel.org, linux-i2c@vger.kernel.org,
+ linux-ide@vger.kernel.org, linux-iio@vger.kernel.org,
+ linux-input@vger.kernel.org, linux-leds@vger.kernel.org,
+ linux-media@vger.kernel.org, linux-mips@vger.kernel.org,
+ linux-mmc@vger.kernel.org, linux-mtd@lists.infradead.org,
+ linux-pci@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-pwm@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-rtc@vger.kernel.org, linux-serial@vger.kernel.org,
+ linux-spi@vger.kernel.org, linux-usb@vger.kernel.org,
+ linux-watchdog@vger.kernel.org
 References: <20201005183830.486085-1-robh@kernel.org>
- <20201005183830.486085-5-robh@kernel.org>
+ <20201005183830.486085-2-robh@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20201005183830.486085-5-robh@kernel.org>
-X-Cookie: Most of your faults are not your fault.
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <20201005183830.486085-2-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201005_160540_278339_E28A463C 
-X-CRM114-Status: GOOD (  15.63  )
+X-CRM114-CacheID: sfid-20201005_162923_285963_9FB4A9AF 
+X-CRM114-Status: GOOD (  19.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -99,9 +153,9 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Ulf Hansson <ulf.hansson@linaro.org>,
  devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
  Jason Cooper <jason@lakedaemon.net>, linux-pm@vger.kernel.org,
  linux-can@vger.kernel.org, linux-gpio@vger.kernel.org,
- Marc Kleine-Budde <mkl@pengutronix.de>, Sebastian Reichel <sre@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Bjorn Helgaas <bhelgaas@google.com>,
- Thomas Gleixner <tglx@linutronix.de>,
+ Mark Brown <broonie@kernel.org>, Marc Kleine-Budde <mkl@pengutronix.de>,
+ Sebastian Reichel <sre@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Bjorn Helgaas <bhelgaas@google.com>, Thomas Gleixner <tglx@linutronix.de>,
  Mauro Carvalho Chehab <mchehab@kernel.org>,
  linux-arm-kernel@lists.infradead.org, Jens Axboe <axboe@kernel.dk>,
  Alessandro Zummo <a.zummo@towertech.it>, linux-watchdog@vger.kernel.org,
@@ -115,48 +169,66 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Ulf Hansson <ulf.hansson@linaro.org>,
  Richard Weinberger <richard@nod.at>, dmaengine@vger.kernel.org,
  linux-mtd@lists.infradead.org, "David S. Miller" <davem@davemloft.net>,
  Jonathan Cameron <jic23@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>
-Content-Type: multipart/mixed; boundary="===============2032919191575469198=="
+Content-Type: multipart/mixed; boundary="===============7683312976175819804=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============2032919191575469198==
+--===============7683312976175819804==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="xQR6quUbZ63TTuTU"
+	protocol="application/pgp-signature"; boundary="sdtB3X0nJg68CQEu"
 Content-Disposition: inline
 
 
---xQR6quUbZ63TTuTU
+--sdtB3X0nJg68CQEu
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Mon, Oct 05, 2020 at 01:38:30PM -0500, Rob Herring wrote:
-> In order to add meta-schema checks for additional/unevaluatedProperties
-> being present, all schema need to make this explicit. As common/shared
-> schema are included by other schemas, they should always allow for
-> additionalProperties.
+On Mon, Oct 05, 2020 at 01:38:27PM -0500, Rob Herring wrote:
+> This doesn't yet do anything in the tools, but make it explicit so we can
+> check either 'unevaluatedProperties' or 'additionalProperties' is present
+> in schemas.
+>=20
+> 'unevaluatedProperties' is appropriate when including another schema (via
+> '$ref') and all possible properties and/or child nodes are not
+> explicitly listed in the schema with the '$ref'.
+>=20
+> This is in preparation to add a meta-schema to check for missing
+> 'unevaluatedProperties' or 'additionalProperties'. This has been a
+> constant source of review issues.
+>=20
+> Signed-off-by: Rob Herring <robh@kernel.org>
 
-Acked-by: Mark Brown <broonie@kernel.org>
+I trust you, so for I2C:
 
---xQR6quUbZ63TTuTU
+Acked-by: Wolfram Sang <wsa@kernel.org>
+
+
+--sdtB3X0nJg68CQEu
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAl97fFMACgkQJNaLcl1U
-h9DCqAf/a9EeZYWOXZv/LQBnsV0pTr5pJVTXHTFORoU7ocgeq0B1wRP1R0CB2gX5
-02KvSUXUKRSz1wILRE0Hwj5RwgbxAlyEDBdIYlDR5SqjkTGNCarpOBZreDmcob1C
-GnjvAYmqiPk7ePzKZAw85NhrzueXJ1GJGyMzyr1yCvjL5z+Z6i5KH2vPzmmAS+Tz
-dTL1z6aXNmdpEtczrZ2E8EuFY2L+idqCGlsBOArLCXDredG6tUQCVWzUVIP0et8s
-AUMwi5jdpHe35QKhkvvRnOPt0m0Fby/3hJST/7hSDOzSt4FSn+mr25qkLWUjlBIq
-ilJizVLCpovAeESSKfeELYHuBDpe6w==
-=rSQi
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAl97ghIACgkQFA3kzBSg
+KbYJ5RAAjJS4BOtSb0VfyQOja2YZWdMWRFXBU1L1D+ACpJcI62QbNvUHo23Ro50c
+vepNyfgedwO30jW0i1gziEm0wZQiuW0P0Kxdyx+wb06krLMdMVsi/m1Yas0tKHmt
+82rwOyQR5NEpkLJQtPz5+9C6qT/rubui/EjpViUGojHSE3hZfXyd+nxS9FM+l89L
+M3hBX9C4Xtgp2bKC1DRxrv8ts6/mPD/d6hh9FLz+2XV9KkefVttwQhb9QIjUhFwq
+9opGCMByjookdg563dQswbd/eQYTz976tdEYNyE4xr8HSuPSYL9pvpVKzCq4ryEt
+Qt2/tWvS3fppcEOT9wAqoFbP61sHL+uvpBmUKt71lVx9anRMynypLKmcG4c+vB9a
+7n79V/eAMfFYwRbYPn9u6dM3ZFU7kgngof9KiVKH72NiSSZIARkrpXcU8A2InG0Q
+mAIapWr5Vosr2iMQlCUft8lBhVzLURMFF40TqIk/L1BqtqhjsHM/rPMUQY2Vlouk
+6FL6v3IAqMhlVgGEJvCyw0p1GnFW0zvFbR+YiWejLCbVYe2zqxHhC6KmACEzyz+v
+vopR4fJnQq7TRMaQPBzZpS59mQILCd+cHY1BbhtjuqO3lzon9BgTDNHxq1MWn8SI
+5W0HC2V5ruQigH4motf4QjGzdPL84FgykA6jGarTgyEQ/bB8/CQ=
+=33gN
 -----END PGP SIGNATURE-----
 
---xQR6quUbZ63TTuTU--
+--sdtB3X0nJg68CQEu--
 
 
---===============2032919191575469198==
+--===============7683312976175819804==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -167,5 +239,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============2032919191575469198==--
+--===============7683312976175819804==--
 
