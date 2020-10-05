@@ -7,71 +7,80 @@ X-Spam-Status: No, score=-4.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 15358C4363A
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Oct 2020 18:41:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A5A83C4727D
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Oct 2020 18:47:36 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 530AF20853
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Oct 2020 18:41:12 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 1B1AD20853
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Oct 2020 18:47:35 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="r+LNc538"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 530AF20853
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="RIhPClXY";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="D8ti+2Pu"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1B1AD20853
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:Date:References:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=7dfNBBdsUUnJNwaIhiPOIVvRwHn06moi2OD9f10Lrn4=; b=r+LNc538GLT5a4afb114LMODG
-	CSXBiJ0hl0HDb7ZaQVtMsMSxSuxZgldzKxtjdeZKkbAl/B2tYADOFd9yE6wzasrBccFqTkPw7Vmm5
-	iK4UMLJ6d8c/i6ICoIEe4Qa+UmOqOtryv2SEqMaAGXcvZ4axWZK1jUn2As58uVD5pLi6mQERUxpJY
-	5UxfmwZliFUJLDQbaZdzije2Vkoyj+R4THJiyVqVJmD2kNGYV/hF7TWzRpB+9CZXT0vKT0GeWXMX5
-	l5YhZ5EPNkmUhRg7Ar9GenZH9C9iBmgbMMjGpiGKWZsd/NjojJ7w4X8Zu0hxGysjPxReS9w1UtfO1
-	qRqTfYV8Q==;
+	 bh=YACDYiiPDLTO5hRDzIa+ugi4aoYk7S6nM+S+OaXlFZ4=; b=RIhPClXY1ow65O7/NIhBzLOFu
+	D4XXcWuoB5RcS97Ny2svn+7k6EqfmKtl6MdRC1ITJGeSlJNglbXfvOaor34yNK6gq6AF3Z3KA0sdh
+	Q3Pd/oZ/of0JuRpFbtAiv6GqkTkfTAJX3H24tR60XXbalDcHj4+FtnLBzXAeXeU48iSeXxk6TpRp4
+	JOidKe15qyvvejlPd2yHL/6f8aEDs6fSu4yfooNqTElDhkNGkeNW+mGt6f8GZJhkbhXL+VRbaQQtU
+	8Cp89+6uJYsfNYhCDwtUr5faRt0LO3+lIlgpWQb8nUgBGOg/rj+w1mHYuO974XDaklLVlHfRLAL0w
+	7iFsKLYaw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kPVPy-0002Og-Tc; Mon, 05 Oct 2020 18:41:02 +0000
-Received: from mail-out.m-online.net ([212.18.0.9])
+	id 1kPVW8-0003Xf-Hm; Mon, 05 Oct 2020 18:47:24 +0000
+Received: from mail-io1-xd41.google.com ([2607:f8b0:4864:20::d41])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kPVPw-0002Ni-Gs
- for linux-riscv@lists.infradead.org; Mon, 05 Oct 2020 18:41:01 +0000
-Received: from frontend01.mail.m-online.net (unknown [192.168.8.182])
- by mail-out.m-online.net (Postfix) with ESMTP id 4C4qDT3bBpz1qt4L;
- Mon,  5 Oct 2020 20:40:56 +0200 (CEST)
-Received: from localhost (dynscan1.mnet-online.de [192.168.6.70])
- by mail.m-online.net (Postfix) with ESMTP id 4C4qDS5R48z1r0lS;
- Mon,  5 Oct 2020 20:40:56 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at mnet-online.de
-Received: from mail.mnet-online.de ([192.168.8.182])
- by localhost (dynscan1.mail.m-online.net [192.168.6.70]) (amavisd-new,
- port 10024)
- with ESMTP id dhxAh5FxZBrC; Mon,  5 Oct 2020 20:40:55 +0200 (CEST)
-X-Auth-Info: wToZBNEoEF1rWN+IPsWKDZkac8E1RIC382M0Q6fDxQgtEkwRSbB5xQed0w7uOL0i
-Received: from igel.home (ppp-46-244-175-195.dynamic.mnet-online.de
- [46.244.175.195])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.mnet-online.de (Postfix) with ESMTPSA;
- Mon,  5 Oct 2020 20:40:55 +0200 (CEST)
-Received: by igel.home (Postfix, from userid 1000)
- id E303C2C2982; Mon,  5 Oct 2020 20:40:54 +0200 (CEST)
-From: Andreas Schwab <schwab@linux-m68k.org>
-To: Palmer Dabbelt <palmerdabbelt@google.com>
-Subject: Re: [PATCH V2 1/3] riscv: Fixup static_obj() fail
-References: <mhng-847e71cf-64bc-464b-8d09-3bcec40aa491@palmerdabbelt-glaptop1>
-X-Yow: HOW could a GLASS be YELLING??
-Date: Mon, 05 Oct 2020 20:40:54 +0200
-In-Reply-To: <mhng-847e71cf-64bc-464b-8d09-3bcec40aa491@palmerdabbelt-glaptop1>
- (Palmer Dabbelt's message of "Mon, 05 Oct 2020 09:39:51 -0700 (PDT)")
-Message-ID: <87362stt1l.fsf@igel.home>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/27.1 (gnu/linux)
+ id 1kPVW5-0003Wh-VG
+ for linux-riscv@lists.infradead.org; Mon, 05 Oct 2020 18:47:22 +0000
+Received: by mail-io1-xd41.google.com with SMTP id k25so10293076ioh.7
+ for <linux-riscv@lists.infradead.org>; Mon, 05 Oct 2020 11:47:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=atishpatra.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=FY+LqDabhhgCzF/kHUiBASBrGmAFBGdYjQoHH5CUHuk=;
+ b=D8ti+2Pu9A3A7OT9eu5u8g809BBk1hASH2RdiLyOGvjrIfeX7mcLWCLc2RBZLm2PDg
+ KnQUmSkt41Tk+Km3Q92kCAsB5Nw+5z1uCG42UUt59OHSQ1ga51b3ESs6fegFK8mqig2G
+ 8OD2rZzjxIO1M5dYgWyIhSBpB4O7EdeF656Qs=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=FY+LqDabhhgCzF/kHUiBASBrGmAFBGdYjQoHH5CUHuk=;
+ b=Ymv69RorpVtOQJwq059LjJhKuEN1H3Xu6i6aJfq34dWVZ5pW+e6or9t7NLEXzjkf8G
+ wwQG63gMVInZSRh4dhaH1BkGUHhRSMg/HHSbs/NYtwOekc4w8Gahw+tDgBtKGcPzUBsf
+ 8+3D9V0T0OeHpdblfJl0x7N+FKVtAlscv/nMxX7zOdkkTGKLGNDD2hlEK5ZvwcKuKe83
+ nNwO8JM5VXRmg7t7um1J9hsYZnaDM8x1QDjMLmZVi8DcQZn1JFS4ENAp7Fd3Ypg57PY1
+ JrYArJwmGOkaCgLqQmu6RgU4sRveb81XoqX4Sfdmht92JcRbekTdf//C7m+LTDUOhi4M
+ tnIA==
+X-Gm-Message-State: AOAM5306FNBqjY9RhE7d6NdveF2E7a2ZvWS3gFA//iBFhlvvtYkuVyf4
+ CtjR08nWBH8E802IhHHzbJH/iAZmb8J1tFa2RaRA
+X-Google-Smtp-Source: ABdhPJwBWJVGjbpxIiKdfK3X5F9BKCLWk5LXkXrOV6AiTriAM780Wu2t637zT39lnDE4ZAH0aldf8qHoIsKQ3RUi+Pg=
+X-Received: by 2002:a5d:9842:: with SMTP id p2mr996172ios.113.1601923638595;
+ Mon, 05 Oct 2020 11:47:18 -0700 (PDT)
 MIME-Version: 1.0
+References: <bug-209317-8243@https.bugzilla.kernel.org/>
+ <bug-209317-8243-E6Z0ICootN@https.bugzilla.kernel.org/>
+ <20200928111341.7eaa98a8@oasis.local.home>
+ <67278555f143564677878cc849155393a93c018a.camel@wdc.com>
+ <CAOnJCUJgzWkKixYyFCrqbNF2ONgB_RUOSTB9BhT5D0stnf=vUw@mail.gmail.com>
+ <CANXhq0qzi2LjYekG0yk876znrpk7tMo+-zT6wR77nhy89rm2kQ@mail.gmail.com>
+In-Reply-To: <CANXhq0qzi2LjYekG0yk876znrpk7tMo+-zT6wR77nhy89rm2kQ@mail.gmail.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Mon, 5 Oct 2020 11:47:07 -0700
+Message-ID: <CAOnJCULU7qy35vhiFcJKHFgbe+w5Gn2q_SskjjbjtM3X90uT_g@mail.gmail.com>
+Subject: Re: [Bug 209317] ftrace kernel self test failure on RISC-V on 5.8,
+ regression from 5.4.0
+To: Zong Li <zong.li@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201005_144100_766426_733E7769 
-X-CRM114-Status: GOOD (  15.26  )
+X-CRM114-CacheID: sfid-20201005_144722_014349_88D96B5E 
+X-CRM114-Status: GOOD (  28.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -83,61 +92,102 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: tycho@tycho.ws, aou@eecs.berkeley.edu, nickhu@andestech.com,
- anup@brainfault.org, linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
- guoren@linux.alibaba.com, guoren@kernel.org, zong.li@sifive.com,
- Paul Walmsley <paul.walmsley@sifive.com>, greentime.hu@sifive.com,
- tglx@linutronix.de, linux-riscv@lists.infradead.org
+Cc: "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+ Alan Kao <alankao@andestech.com>,
+ "bugzilla-daemon@bugzilla.kernel.org" <bugzilla-daemon@bugzilla.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "rostedt@goodmis.org" <rostedt@goodmis.org>, Atish Patra <Atish.Patra@wdc.com>,
+ "palmer@dabbelt.com" <palmer@dabbelt.com>,
+ "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Okt 05 2020, Palmer Dabbelt wrote:
-
-> On Mon, 05 Oct 2020 01:25:22 PDT (-0700), schwab@linux-m68k.org wrote:
->> On Sep 14 2020, Aurelien Jarno wrote:
->>
->>> How should we proceed to get that fixed in time for 5.9? For the older
->>> branches where it has been backported (so far 5.7 and 5.8), should we
->>> just get that commit reverted instead?
->>
->> Why is this still broken?
+On Sun, Oct 4, 2020 at 11:08 PM Zong Li <zong.li@sifive.com> wrote:
 >
-> Sorry, I hadn't seen this.  I'm not seeing a boot failure on 5.9-rc8 with just
-> CONFIG_HARDENED_USERCPOY=y in addition to defconfig (on QEMU, though I doubt
-> that's relevant here).
+> Hi Atish,
+>
+> I can take out some time to take a look at it together, if anyone here
+> fixes it or has ideas, please share the information, thanks.
+>
 
-I don't see a boot failure either, but eventually you will get crashes
-like this, and resources are not properly released:
+Thanks. I observed this in case it helps.
 
-[ 4560.936645] usercopy: Kernel memory overwrite attempt detected to kernel text (offset 241626, size 16)!
-[ 4560.945324] ------------[ cut here ]------------
-[ 4560.949954] kernel BUG at mm/usercopy.c:99!
-[ 4560.954030] Kernel BUG [#1]
-[ 4560.956805] Modules linked in: nfsv3 nfs_acl rfkill mmc_block sf_pdma i2c_ocores virt_dma spi_sifive uio_pdrv_genirq uio loop drm drm_panel_orientation_quirks rpcsec_gss_krb5 auth_rpcgss nfsv4 dns_resolver nfs lockd grace fscache af_packet mscc macsec macb ptp pps_core phylink of_mdio fixed_phy libphy pwm_sifive mmc_spi crc_itu_t crc7 of_mmc_spi mmc_core spi_bitbang sunrpc sg dm_multipath dm_mod scsi_dh_rdac scsi_dh_emc scsi_dh_alua
-[ 4560.995103] CPU: 2 PID: 23806 Comm: nis Not tainted 5.8.10-1-default #1 openSUSE Tumbleweed (unreleased)
-[ 4561.004563] epc: ffffffe00036140e ra : ffffffe00036140e sp : ffffffe004bc7d60
-[ 4561.011679]  gp : ffffffe00127ee60 tp : ffffffe1b05d0000 t0 : ffffffe001297ca0
-[ 4561.018886]  t1 : ffffffe001297c30 t2 : 0000000000000000 s0 : ffffffe004bc7d80
-[ 4561.026093]  s1 : ffffffe00003afda a0 : 000000000000005b a1 : ffffffe1f7d67588
-[ 4561.033298]  a2 : ffffffe1f7d6c108 a3 : 0000000000000000 a4 : ffffffe000043e80
-[ 4561.040506]  a5 : ffffffe1f7d6be80 a6 : 0000000000000144 a7 : 0000000000000000
-[ 4561.047712]  s2 : 0000000000000010 s3 : 0000000000000000 s4 : ffffffe00003afea
-[ 4561.054918]  s5 : ffffffe1f7e00e80 s6 : 0000002af4a2c2e0 s7 : fffffffffffff000
-[ 4561.062124]  s8 : 0000003ffffff000 s9 : ffffffe19f985400 s10: 0000000000000010
-[ 4561.069329]  s11: ffffffe1f7e00e80 t3 : 0000000000038fa8 t4 : 0000000000038fa8
-[ 4561.076533]  t5 : 0000000000000001 t6 : ffffffe00128e062
-[ 4561.081832] status: 0000000200000120 badaddr: 0000000000000000 cause: 0000000000000003
-[ 4561.089821] ---[ end trace a7c93e7595e9c2cc ]---
-[ 4561.095589] BUG: Bad rss-counter state mm:00000000c54f4c29 type:MM_ANONPAGES val:1
+Across kernels, the panic trace seems to point out the one of the
+first two functions after patching is corrupted.
+rcu_momentary_dyntick_idle or stop_machine_yield[1]
 
-Andreas.
+[1]https://elixir.bootlin.com/linux/v5.9-rc7/source/kernel/stop_machine.c#L213
+
+I am suspecting nop was not replaced with the correct auipc+jalr pair?
+
+> On Sun, Oct 4, 2020 at 1:33 AM Atish Patra <atishp@atishpatra.org> wrote:
+> >
+> > Hi Alan and Zong,
+> > I initially suspected ftrace is broken between v5.6 & v5.7 as Kolin pointed out.
+> > I couldn't find any reason how the HSM patch is related. Zong's ftrace
+> > patching code was also merged in that release.
+> > However, I was able to reproduce the issue in the older kernel(v5.4)
+> > as well on both Qemu & Unleashed hardware.
+> > Here are the steps:
+> >
+> > mount -t debugfs none /sys/kernel/debug/
+> > cd /sys/kernel/debug/tracing
+> > echo function_graph > current_tracer
+> > echo function > current_tracer
+> >
+> > It works for the first time with function_graph but writing any other
+> > tracer crashes immediately.
+> > Can you take a look to check if the bug is in ftrace infrastructure code ?
+> >
+> > On Mon, Sep 28, 2020 at 10:25 AM Atish Patra <Atish.Patra@wdc.com> wrote:
+> > >
+> > > On Mon, 2020-09-28 at 11:13 -0400, Steven Rostedt wrote:
+> > > > On Sat, 26 Sep 2020 22:02:35 +0000
+> > > > bugzilla-daemon@bugzilla.kernel.org wrote:
+> > > >
+> > > > > https://bugzilla.kernel.org/show_bug.cgi?id=209317
+> > > > >
+> > > > > --- Comment #4 from Colin Ian King (colin.king@canonical.com) ---
+> > > > > Issue still in 5.9-rc6
+> > > > >
+> > > >
+> > > > Atish,
+> > > >
+> > > > As the issues bisects down to your commit, care to take a look at
+> > > > this.
+> > > > (And take ownership of this bug)
+> > > >
+> > >
+> > > Yes. I am already looking into this. Colin informed me about the bug
+> > > over the weekend.
+> > >
+> > > I couldn't change the ownership as I am not part of the editbugs group.
+> > > I have sent an email to helpdesk@kernel.org for access.
+> > >
+> > > > -- Steve
+> > >
+> > > --
+> > > Regards,
+> > > Atish
+> > > _______________________________________________
+> > > linux-riscv mailing list
+> > > linux-riscv@lists.infradead.org
+> > > http://lists.infradead.org/mailman/listinfo/linux-riscv
+> >
+> >
+> >
+> > --
+> > Regards,
+> > Atish
+
+
 
 -- 
-Andreas Schwab, schwab@linux-m68k.org
-GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
-"And now for something completely different."
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
