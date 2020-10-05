@@ -2,88 +2,74 @@ Return-Path: <SRS0=7nvN=DM=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_GIT autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4A7C6C4727D
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Oct 2020 16:40:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1CDAAC4743C
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Oct 2020 18:39:03 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 80E7F2076E
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Oct 2020 16:40:06 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B0E4220E65
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Oct 2020 18:39:02 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="XBkzXRWD";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.b="l6LKrMfj"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 80E7F2076E
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="JW3GesvL"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B0E4220E65
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=TR2EWZJLFvHjQr1KoKp2iKJKNcam3FLcM1ThIubOd1s=; b=XBkzXRWDdYvCdnUUzuG/ZfyHS
-	xuUvDkLLIrGnnss4t8ZMPqBfqd34w1zxbkDK3J5W3tWmtaJykgwsapOdGJip32poFDMpmJH8rPTen
-	ahjMgm3A0XYP9jGNx91ixcseYMBACxVxiBKvsh0n+KnSKmjEsBymzPZG0WB63kphVHwFfn6yEsGT8
-	os+RMIJUAJnyVA/1Qgi3s2wZ2YX0Tmb7UGBL/hAiZfhONxw3h6lrCEpGGwBxj2jRvDxzcR25VyL/R
-	Ob59tk5+ijCPgnYQFTehGW9cvRI/84aAoxEGeY4repnUfhkjLAgAm8zSMJdXpuI/yChA0PkQwT1BJ
-	4LHoDNmhQ==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZBB+800qCDaHQosKIOs2fETxcVjw7E4h+n4yZAPDgHE=; b=JW3GesvL0Zty6l8iNX3+IzkqqL
+	wXyZfbh5A5WcoMlSJXsoXBRAroqMF4FnuJ58EK2IC05JgYeMtjaEsvfah/I522SJHbRM69rqk9mlU
+	fgE0RpjeP6DNHWahY+ii/h62nTHOdnVKHSR+n3Lv1UFXlrViyWrvpTeHWSnnvwzDVSpi6kYULLstv
+	hYN9gVml2rPkAeE6f+9iUNCGCKjD5C8FDW516GCka9EF+TFuvHSMgnP5QzpBtaGM/NwsiM9TrfH+J
+	gElDUfpXj+bUiB4CeAjrJmt+0MlqlkD887rmMGNUs//3M5knmXgAKJymQhleLEbXezUta1bBVXLDD
+	jnKxt+1Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kPTWm-0000x2-5B; Mon, 05 Oct 2020 16:39:56 +0000
-Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
+	id 1kPVNn-0001XN-57; Mon, 05 Oct 2020 18:38:47 +0000
+Received: from mail-oi1-f194.google.com ([209.85.167.194])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kPTWk-0000wP-NN
- for linux-riscv@lists.infradead.org; Mon, 05 Oct 2020 16:39:55 +0000
-Received: by mail-pf1-x442.google.com with SMTP id e10so6726227pfj.1
- for <linux-riscv@lists.infradead.org>; Mon, 05 Oct 2020 09:39:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=bgKuiZru+fzYOW+rknHpx1Qb/5rCkL8zdBgqBiopZMo=;
- b=l6LKrMfjBVohHwxF9jv9cqtVCwnHkEr5vlQIuvPbeEgaOLBzDUY+wRtP25s/t70Hhk
- 5kWV73hIpokOwi1l3tHFPB2vRCReQJOQ4ip2SfbDgwGkEVVTeChIsI38ZzqFLsIBYJ54
- Co2LtOtfJKXU4ezUVwnCkRZlXHoLRNgYZANjYnRB2g2PAYqQGWe+iLcKStDvNMwo9wl4
- 2IEPUjd/4a30CwRyaXqR5Y/7BZTsWDS/rqJ5l9ENklSFMXLNAF4CIFlDSZ3Q4xVN9M0O
- H3omOE7p1NxvhbLbxwFC1f0wKnxwTlqnG1HOfQuubft5h5kKaYf0aCI7hgPx+yG0l8YJ
- X32g==
+ id 1kPVNf-0001Td-0d; Mon, 05 Oct 2020 18:38:40 +0000
+Received: by mail-oi1-f194.google.com with SMTP id x62so5272164oix.11;
+ Mon, 05 Oct 2020 11:38:35 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=bgKuiZru+fzYOW+rknHpx1Qb/5rCkL8zdBgqBiopZMo=;
- b=Bq0nzhW5Kgl8eh5xqxvz00uIi3zkzEhArdb54PF1H/PRp5V4TxIm7RkZnKVnz4BOIP
- EOsbLND0YGXUV/uete/KLH1gIyjq/g/aJX0wKkKw0SdvA82IJUMRyw6BBh/AOIdoF/jw
- Hf617TgUc3kfj63xpJ3cK3WEB7TtFNYoob63Un3r1IZh/937MW8RMW3/G7jTBsn8TIST
- d0hJYaM/7Gi35mULEGWs9Q2vU53hOckZPNYewamhUeOabCX+dGJFoCTanMH9U3wea7On
- iH6R9dcAmXWswjNCwDLCStNMzxu2HtrML10lAAAcgmfHLB/7rgjm05isyjzpCOvAzc7b
- 7ddg==
-X-Gm-Message-State: AOAM530ovg+NpwSgDNtAItYnQJLeyxMtenrsQCKAXWw+xq/aUUgak241
- V1y04ZVfFwJmufw1gpbqYbaL0A==
-X-Google-Smtp-Source: ABdhPJzscDCmybkxTYMeNPHRJvgED0ZxQ648JzxM13dAod0j3fjEo4NfbnuwNAzcN1JII0PYa0oCnw==
-X-Received: by 2002:a05:6a00:1356:b029:13e:5203:fba3 with SMTP id
- k22-20020a056a001356b029013e5203fba3mr565585pfu.3.1601915992319; 
- Mon, 05 Oct 2020 09:39:52 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id z9sm418686pfk.118.2020.10.05.09.39.47
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=FKBuvtLQAdMRryG6abzok93hEZkfxfk1NvbdtZDThTc=;
+ b=BzStj72XpjMkya/KqOHUR52a+8OSghoUoKk5I8mszmkdMOIV0VcotY5hwn539o081C
+ aFNhvpCzxagH74F0/7yDn5cgZxzdtjNPkdvQ7rX39Iy/VdSgemj9F3neZ5buGtgeFVGm
+ Q8bvExD7wbQnNwXSLOHXgpmOAHENVuTDS69hudgZmD5W6XbwaizsA+r9DCG0BmlPAk0g
+ JKb54bsJseX6xNW42p/uL4CKMoT2h2xsxuCZcTc9QbixlwbB4wNiwrD6oZsxqfDMKi9s
+ BXH8lO6gIb15aczIbypkLLtZqZlHna8h2LYGz0q1liKx06qBXQdV0Qh2s1QgF2dkuB6A
+ BJtg==
+X-Gm-Message-State: AOAM530f0YHwUSTlyiS9STC5k9//aizMq+n4BWWklEpcc4WIs2Wq/W/I
+ n+f/Xoj2r5BmgwNUhcocaA==
+X-Google-Smtp-Source: ABdhPJwtSa8Y/I6DT15kFb+c+yKVzbdUj3v7XcBfx5+TPJ0mpN3ESYoYQunOScJs66Yn+dcB/iKTAA==
+X-Received: by 2002:aca:50d2:: with SMTP id e201mr416333oib.31.1601923115204; 
+ Mon, 05 Oct 2020 11:38:35 -0700 (PDT)
+Received: from xps15.herring.priv (24-155-109-49.dyn.grandenetworks.net.
+ [24.155.109.49])
+ by smtp.googlemail.com with ESMTPSA id z25sm143140otq.31.2020.10.05.11.38.30
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 05 Oct 2020 09:39:51 -0700 (PDT)
-Date: Mon, 05 Oct 2020 09:39:51 -0700 (PDT)
-X-Google-Original-Date: Mon, 05 Oct 2020 09:39:45 PDT (-0700)
-Subject: Re: [PATCH V2 1/3] riscv: Fixup static_obj() fail
-In-Reply-To: <87lfglt6z1.fsf@igel.home>
-From: Palmer Dabbelt <palmerdabbelt@google.com>
-To: schwab@linux-m68k.org
-Message-ID: <mhng-847e71cf-64bc-464b-8d09-3bcec40aa491@palmerdabbelt-glaptop1>
-Mime-Version: 1.0 (MHng)
+ Mon, 05 Oct 2020 11:38:34 -0700 (PDT)
+From: Rob Herring <robh@kernel.org>
+To: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/4] dt-bindings: additional/unevaluatedProperties clean-ups
+Date: Mon,  5 Oct 2020 13:38:26 -0500
+Message-Id: <20201005183830.486085-1-robh@kernel.org>
+X-Mailer: git-send-email 2.25.1
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201005_123954_780157_109669FB 
-X-CRM114-Status: GOOD (  14.76  )
+X-CRM114-CacheID: sfid-20201005_143839_101583_4F1675D5 
+X-CRM114-Status: GOOD (  15.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -95,34 +81,329 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: tycho@tycho.ws, aou@eecs.berkeley.edu, nickhu@andestech.com,
- anup@brainfault.org, linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
- guoren@linux.alibaba.com, guoren@kernel.org, zong.li@sifive.com,
- Paul Walmsley <paul.walmsley@sifive.com>, greentime.hu@sifive.com,
- tglx@linutronix.de, linux-riscv@lists.infradead.org
+Cc: Andrew Lunn <andrew@lunn.ch>, Ulf Hansson <ulf.hansson@linaro.org>,
+ linux-usb@vger.kernel.org, Peter Meerwald-Stadler <pmeerw@pmeerw.net>,
+ Sam Ravnborg <sam@ravnborg.org>, linux-pwm@vger.kernel.org,
+ linux-iio@vger.kernel.org, Viresh Kumar <vireshk@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>, linux-pci@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, Sebastian Reichel <sre@kernel.org>,
+ linux-ide@vger.kernel.org, Thierry Reding <thierry.reding@gmail.com>,
+ Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Pavel Machek <pavel@ucw.cz>, Miquel Raynal <miquel.raynal@bootlin.com>,
+ linux-riscv@lists.infradead.org, Lee Jones <lee.jones@linaro.org>,
+ linux-clk@vger.kernel.org, linux-leds@vger.kernel.org,
+ Vignesh Raghavendra <vigneshr@ti.com>, linux-rtc@vger.kernel.org,
+ Lars-Peter Clausen <lars@metafoo.de>, Marc Zyngier <maz@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Chanwoo Choi <cw00.choi@samsung.com>,
+ MyungJoo Ham <myungjoo.ham@samsung.com>, linux-serial@vger.kernel.org,
+ linux-input@vger.kernel.org, Jakub Kicinski <kuba@kernel.org>,
+ Zhang Rui <rui.zhang@intel.com>, linux-mips@vger.kernel.org,
+ Vivien Didelot <vivien.didelot@gmail.com>,
+ Wolfgang Grandegger <wg@grandegger.com>, linux-media@vger.kernel.org,
+ linux-hwmon@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
+ Jason Cooper <jason@lakedaemon.net>, linux-pm@vger.kernel.org,
+ linux-can@vger.kernel.org, linux-gpio@vger.kernel.org,
+ Mark Brown <broonie@kernel.org>, Marc Kleine-Budde <mkl@pengutronix.de>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Bjorn Helgaas <bhelgaas@google.com>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, Jens Axboe <axboe@kernel.dk>,
+ Alessandro Zummo <a.zummo@towertech.it>, linux-watchdog@vger.kernel.org,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>, Stephen Boyd <sboyd@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, linux-mmc@vger.kernel.org,
+ Liam Girdwood <lgirdwood@gmail.com>, linux-spi@vger.kernel.org,
+ linux-i2c@vger.kernel.org, Vinod Koul <vkoul@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Wim Van Sebroeck <wim@linux-watchdog.org>,
+ Richard Weinberger <richard@nod.at>, dmaengine@vger.kernel.org,
+ linux-mtd@lists.infradead.org, "David S. Miller" <davem@davemloft.net>,
+ Jonathan Cameron <jic23@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 05 Oct 2020 01:25:22 PDT (-0700), schwab@linux-m68k.org wrote:
-> On Sep 14 2020, Aurelien Jarno wrote:
->
->> How should we proceed to get that fixed in time for 5.9? For the older
->> branches where it has been backported (so far 5.7 and 5.8), should we
->> just get that commit reverted instead?
->
-> Why is this still broken?
+The default behavior for json-schema is any unknown property is allowed.
+That is generally not the behavior we want for DT. In order to disallow
+extra properties, schemas need to define 'additionalProperties: false'
+typically. Ideally, we'd just add that automatically with the tools, but
+there are some exceptions so only making things explicit everywhere
+really works. Missing 'additionalProperties' or 'unevaluatedProperties'
+has been a constant source of review comments, so a meta-schema check is
+really needed here.
 
-Sorry, I hadn't seen this.  I'm not seeing a boot failure on 5.9-rc8 with just
-CONFIG_HARDENED_USERCPOY=y in addition to defconfig (on QEMU, though I doubt
-that's relevant here).  It looks like the fix is to essentially revert this,
-which I'm fine with, but I'd prefer to have a failing test to make sure this
-doesn't break again.
+Once this series is in place, the meta-schema can be updated with a
+check. The rule is if there's a $ref to another schema, then either
+'additionalProperties' or 'unevaluatedProperties' is required. If not,
+then 'additionalProperties' is required.
 
-Guo: I don't see an actual patch (signed off and such) posted for this, do you
-mind posting one?  Otherwise I'll take a crack at constructing the revert
-myself.
+Rob
+
+
+Rob Herring (4):
+  dt-bindings: Add missing 'unevaluatedProperties'
+  dt-bindings: Use 'additionalProperties' instead of
+    'unevaluatedProperties'
+  dt-bindings: Explicitly allow additional properties in board/SoC
+    schemas
+  dt-bindings: Explicitly allow additional properties in common schemas
+
+ Documentation/devicetree/bindings/arm/actions.yaml     |  2 ++
+ Documentation/devicetree/bindings/arm/altera.yaml      |  3 +++
+ Documentation/devicetree/bindings/arm/amazon,al.yaml   |  2 ++
+ Documentation/devicetree/bindings/arm/amlogic.yaml     |  3 +++
+ .../devicetree/bindings/arm/arm,integrator.yaml        |  2 ++
+ .../devicetree/bindings/arm/arm,realview.yaml          |  2 ++
+ .../devicetree/bindings/arm/arm,versatile.yaml         |  2 ++
+ .../devicetree/bindings/arm/arm,vexpress-juno.yaml     |  2 ++
+ Documentation/devicetree/bindings/arm/atmel-at91.yaml  |  2 ++
+ Documentation/devicetree/bindings/arm/axxia.yaml       |  2 ++
+ Documentation/devicetree/bindings/arm/bcm/bcm2835.yaml |  2 ++
+ .../devicetree/bindings/arm/bcm/brcm,bcm11351.yaml     |  2 ++
+ .../devicetree/bindings/arm/bcm/brcm,bcm21664.yaml     |  2 ++
+ .../devicetree/bindings/arm/bcm/brcm,bcm23550.yaml     |  2 ++
+ .../devicetree/bindings/arm/bcm/brcm,bcm4708.yaml      |  3 +++
+ .../devicetree/bindings/arm/bcm/brcm,cygnus.yaml       |  2 ++
+ .../devicetree/bindings/arm/bcm/brcm,hr2.yaml          |  2 ++
+ .../devicetree/bindings/arm/bcm/brcm,ns2.yaml          |  2 ++
+ .../devicetree/bindings/arm/bcm/brcm,nsp.yaml          |  2 ++
+ .../devicetree/bindings/arm/bcm/brcm,stingray.yaml     |  2 ++
+ .../devicetree/bindings/arm/bcm/brcm,vulcan-soc.yaml   |  2 ++
+ Documentation/devicetree/bindings/arm/bitmain.yaml     |  3 +++
+ Documentation/devicetree/bindings/arm/calxeda.yaml     |  2 ++
+ .../devicetree/bindings/arm/coresight-cti.yaml         |  2 ++
+ Documentation/devicetree/bindings/arm/cpus.yaml        |  2 ++
+ Documentation/devicetree/bindings/arm/digicolor.yaml   |  2 ++
+ Documentation/devicetree/bindings/arm/fsl.yaml         |  2 ++
+ .../devicetree/bindings/arm/hisilicon/hisilicon.yaml   |  3 +++
+ .../devicetree/bindings/arm/intel,keembay.yaml         |  3 +++
+ .../devicetree/bindings/arm/intel-ixp4xx.yaml          |  2 ++
+ .../bindings/arm/keystone/ti,k3-sci-common.yaml        |  2 ++
+ .../devicetree/bindings/arm/marvell/armada-7k-8k.yaml  |  2 ++
+ Documentation/devicetree/bindings/arm/mediatek.yaml    |  3 +++
+ .../devicetree/bindings/arm/microchip,sparx5.yaml      |  2 ++
+ Documentation/devicetree/bindings/arm/moxart.yaml      |  1 +
+ Documentation/devicetree/bindings/arm/mrvl/mrvl.yaml   |  3 +++
+ Documentation/devicetree/bindings/arm/mstar/mstar.yaml |  2 ++
+ .../bindings/arm/nvidia,tegra194-ccplex.yaml           |  2 ++
+ Documentation/devicetree/bindings/arm/nxp/lpc32xx.yaml |  2 ++
+ Documentation/devicetree/bindings/arm/qcom.yaml        |  2 ++
+ Documentation/devicetree/bindings/arm/rda.yaml         |  2 ++
+ Documentation/devicetree/bindings/arm/realtek.yaml     |  3 +++
+ Documentation/devicetree/bindings/arm/renesas.yaml     |  2 ++
+ Documentation/devicetree/bindings/arm/rockchip.yaml    |  3 +++
+ .../bindings/arm/samsung/samsung-boards.yaml           |  2 ++
+ Documentation/devicetree/bindings/arm/sirf.yaml        |  3 +++
+ .../devicetree/bindings/arm/socionext/milbeaut.yaml    |  3 +++
+ .../devicetree/bindings/arm/socionext/uniphier.yaml    |  2 ++
+ Documentation/devicetree/bindings/arm/spear.yaml       |  3 +++
+ Documentation/devicetree/bindings/arm/sprd/sprd.yaml   |  2 ++
+ Documentation/devicetree/bindings/arm/sti.yaml         |  3 +++
+ .../devicetree/bindings/arm/stm32/st,mlahb.yaml        |  2 ++
+ Documentation/devicetree/bindings/arm/stm32/stm32.yaml |  3 +++
+ Documentation/devicetree/bindings/arm/sunxi.yaml       |  2 ++
+ Documentation/devicetree/bindings/arm/tegra.yaml       |  2 ++
+ Documentation/devicetree/bindings/arm/ti/nspire.yaml   |  3 +++
+ .../devicetree/bindings/arm/ti/ti,davinci.yaml         |  3 +++
+ Documentation/devicetree/bindings/arm/ux500.yaml       |  2 ++
+ Documentation/devicetree/bindings/arm/vt8500.yaml      |  3 +++
+ Documentation/devicetree/bindings/arm/xilinx.yaml      |  2 ++
+ Documentation/devicetree/bindings/arm/zte.yaml         |  2 ++
+ .../devicetree/bindings/ata/faraday,ftide010.yaml      |  2 ++
+ Documentation/devicetree/bindings/ata/pata-common.yaml |  2 ++
+ Documentation/devicetree/bindings/ata/sata-common.yaml |  2 ++
+ Documentation/devicetree/bindings/bus/renesas,bsc.yaml |  2 ++
+ .../devicetree/bindings/bus/simple-pm-bus.yaml         |  2 ++
+ .../bindings/chrome/google,cros-ec-typec.yaml          |  2 ++
+ .../devicetree/bindings/clock/baikal,bt1-ccu-div.yaml  |  6 +++++-
+ .../devicetree/bindings/clock/baikal,bt1-ccu-pll.yaml  |  2 +-
+ .../devicetree/bindings/clock/imx8m-clock.yaml         |  2 +-
+ .../devicetree/bindings/connector/usb-connector.yaml   |  2 ++
+ .../bindings/display/bridge/snps,dw-mipi-dsi.yaml      |  2 ++
+ .../devicetree/bindings/display/dsi-controller.yaml    |  2 ++
+ .../devicetree/bindings/display/panel/lvds.yaml        |  2 ++
+ .../bindings/display/panel/panel-common.yaml           |  2 ++
+ .../devicetree/bindings/display/panel/tpo,tpg110.yaml  |  2 ++
+ Documentation/devicetree/bindings/dma/dma-common.yaml  |  2 ++
+ .../devicetree/bindings/dma/dma-controller.yaml        |  2 ++
+ Documentation/devicetree/bindings/dma/dma-router.yaml  |  2 ++
+ Documentation/devicetree/bindings/dma/ingenic,dma.yaml |  2 ++
+ .../devicetree/bindings/dma/st,stm32-dma.yaml          |  2 ++
+ .../devicetree/bindings/dma/st,stm32-dmamux.yaml       |  2 ++
+ .../devicetree/bindings/dma/st,stm32-mdma.yaml         |  2 ++
+ Documentation/devicetree/bindings/dma/ti/k3-udma.yaml  |  2 ++
+ .../devicetree/bindings/extcon/wlf,arizona.yaml        |  2 ++
+ .../devicetree/bindings/hwmon/baikal,bt1-pvt.yaml      |  4 ++--
+ .../devicetree/bindings/i2c/amlogic,meson6-i2c.yaml    |  2 ++
+ .../devicetree/bindings/i2c/cdns,i2c-r1p10.yaml        |  2 ++
+ Documentation/devicetree/bindings/i2c/i2c-gpio.yaml    |  2 ++
+ Documentation/devicetree/bindings/i2c/i2c-rk3x.yaml    |  2 ++
+ .../bindings/i2c/socionext,uniphier-fi2c.yaml          |  2 ++
+ .../bindings/i2c/socionext,uniphier-i2c.yaml           |  2 ++
+ .../devicetree/bindings/i2c/st,stm32-i2c.yaml          |  2 ++
+ .../devicetree/bindings/i2c/xlnx,xps-iic-2.00.a.yaml   |  2 ++
+ .../devicetree/bindings/iio/accel/adi,adis16240.yaml   |  4 ++++
+ .../devicetree/bindings/iio/accel/adi,adxl345.yaml     |  4 ++++
+ .../devicetree/bindings/iio/accel/adi,adxl372.yaml     |  4 ++++
+ .../devicetree/bindings/iio/adc/adi,ad7124.yaml        |  4 ++++
+ .../devicetree/bindings/iio/adc/adi,ad7192.yaml        |  4 ++++
+ .../devicetree/bindings/iio/adc/adi,ad7292.yaml        |  4 ++++
+ .../devicetree/bindings/iio/adc/adi,ad7606.yaml        |  6 ++++++
+ .../devicetree/bindings/iio/adc/adi,ad7923.yaml        |  4 ++++
+ .../devicetree/bindings/iio/adc/maxim,max1241.yaml     |  4 ++++
+ .../bindings/iio/adc/samsung,exynos-adc.yaml           |  5 ++++-
+ Documentation/devicetree/bindings/iio/common.yaml      |  2 ++
+ .../devicetree/bindings/iio/dac/adi,ad5770r.yaml       | 10 ++++++++++
+ .../devicetree/bindings/iio/frequency/adf4371.yaml     |  4 ++++
+ .../devicetree/bindings/iio/imu/adi,adis16460.yaml     |  4 ++++
+ .../devicetree/bindings/iio/imu/adi,adis16475.yaml     |  2 ++
+ .../devicetree/bindings/iio/imu/bosch,bmi160.yaml      |  4 ++++
+ .../devicetree/bindings/iio/imu/nxp,fxos8700.yaml      |  4 ++++
+ .../devicetree/bindings/input/fsl,mpr121-touchkey.yaml |  2 ++
+ Documentation/devicetree/bindings/input/input.yaml     |  2 ++
+ .../devicetree/bindings/input/matrix-keymap.yaml       |  2 ++
+ .../bindings/input/touchscreen/touchscreen.yaml        |  2 ++
+ .../bindings/interrupt-controller/loongson,htpic.yaml  |  2 ++
+ .../interrupt-controller/loongson,liointc.yaml         |  2 ++
+ .../bindings/interrupt-controller/mti,gic.yaml         |  2 +-
+ Documentation/devicetree/bindings/leds/common.yaml     |  2 ++
+ .../bindings/leds/leds-class-multicolor.yaml           |  3 +++
+ .../devicetree/bindings/leds/trigger-source.yaml       |  2 ++
+ Documentation/devicetree/bindings/media/rc.yaml        |  2 ++
+ .../bindings/memory-controllers/renesas,rpc-if.yaml    |  2 ++
+ .../devicetree/bindings/mfd/cirrus,lochnagar.yaml      | 10 +++++++++-
+ Documentation/devicetree/bindings/mfd/syscon.yaml      |  2 +-
+ .../bindings/mfd/ti,j721e-system-controller.yaml       |  5 ++++-
+ .../devicetree/bindings/mips/ingenic/devices.yaml      |  3 +++
+ .../devicetree/bindings/mips/loongson/devices.yaml     |  3 +++
+ .../devicetree/bindings/misc/olpc,xo1.75-ec.yaml       |  4 +++-
+ .../devicetree/bindings/mmc/amlogic,meson-mx-sdhc.yaml |  2 ++
+ Documentation/devicetree/bindings/mmc/cdns,sdhci.yaml  |  2 ++
+ Documentation/devicetree/bindings/mmc/ingenic,mmc.yaml |  2 ++
+ .../devicetree/bindings/mmc/mmc-controller.yaml        |  2 ++
+ Documentation/devicetree/bindings/mmc/owl-mmc.yaml     |  2 ++
+ .../devicetree/bindings/mmc/rockchip-dw-mshc.yaml      |  2 ++
+ Documentation/devicetree/bindings/mmc/sdhci-pxa.yaml   |  2 ++
+ .../devicetree/bindings/mmc/socionext,uniphier-sd.yaml |  2 ++
+ .../bindings/mmc/synopsys-dw-mshc-common.yaml          |  2 ++
+ .../devicetree/bindings/mmc/synopsys-dw-mshc.yaml      |  2 ++
+ Documentation/devicetree/bindings/mtd/denali,nand.yaml |  2 ++
+ .../devicetree/bindings/mtd/ingenic,nand.yaml          |  2 ++
+ .../devicetree/bindings/mtd/nand-controller.yaml       |  2 ++
+ .../devicetree/bindings/mtd/st,stm32-fmc2-nand.yaml    |  2 ++
+ Documentation/devicetree/bindings/net/adi,adin.yaml    |  2 ++
+ .../devicetree/bindings/net/amlogic,meson-dwmac.yaml   |  2 ++
+ .../devicetree/bindings/net/aspeed,ast2600-mdio.yaml   |  2 ++
+ .../devicetree/bindings/net/can/can-transceiver.yaml   |  2 ++
+ Documentation/devicetree/bindings/net/dsa/dsa.yaml     |  2 ++
+ .../devicetree/bindings/net/ethernet-controller.yaml   |  2 ++
+ .../devicetree/bindings/net/ethernet-phy.yaml          |  2 ++
+ .../devicetree/bindings/net/marvell,mvusb.yaml         |  2 ++
+ Documentation/devicetree/bindings/net/mdio.yaml        |  2 ++
+ .../devicetree/bindings/net/mediatek,star-emac.yaml    |  2 ++
+ Documentation/devicetree/bindings/net/nxp,tja11xx.yaml |  2 ++
+ Documentation/devicetree/bindings/net/qca,ar71xx.yaml  |  2 ++
+ Documentation/devicetree/bindings/net/qca,ar803x.yaml  |  2 ++
+ .../devicetree/bindings/net/qcom,ipq4019-mdio.yaml     |  2 ++
+ .../devicetree/bindings/net/qcom,ipq8064-mdio.yaml     |  2 ++
+ .../devicetree/bindings/net/renesas,ether.yaml         |  2 ++
+ Documentation/devicetree/bindings/net/snps,dwmac.yaml  |  2 ++
+ Documentation/devicetree/bindings/net/stm32-dwmac.yaml |  2 ++
+ .../devicetree/bindings/net/ti,davinci-mdio.yaml       |  2 ++
+ Documentation/devicetree/bindings/net/ti,dp83867.yaml  |  2 ++
+ Documentation/devicetree/bindings/net/ti,dp83869.yaml  |  2 ++
+ Documentation/devicetree/bindings/nvmem/imx-ocotp.yaml |  2 ++
+ .../devicetree/bindings/nvmem/nvmem-consumer.yaml      |  2 ++
+ Documentation/devicetree/bindings/nvmem/nvmem.yaml     |  2 ++
+ .../devicetree/bindings/nvmem/qcom,qfprom.yaml         |  2 ++
+ .../devicetree/bindings/nvmem/qcom,spmi-sdam.yaml      |  2 ++
+ .../devicetree/bindings/nvmem/rockchip-efuse.yaml      |  2 ++
+ .../devicetree/bindings/nvmem/st,stm32-romem.yaml      |  2 ++
+ .../opp/allwinner,sun50i-h6-operating-points.yaml      |  4 +++-
+ .../devicetree/bindings/pci/cdns,cdns-pcie-ep.yaml     |  2 ++
+ .../devicetree/bindings/pci/cdns,cdns-pcie-host.yaml   |  2 ++
+ .../devicetree/bindings/pci/cdns-pcie-ep.yaml          |  2 ++
+ .../devicetree/bindings/pci/cdns-pcie-host.yaml        |  2 ++
+ Documentation/devicetree/bindings/pci/cdns-pcie.yaml   |  2 ++
+ .../devicetree/bindings/pci/host-generic-pci.yaml      |  2 ++
+ Documentation/devicetree/bindings/pci/loongson.yaml    |  2 ++
+ Documentation/devicetree/bindings/pci/pci-ep.yaml      |  2 ++
+ .../devicetree/bindings/pci/ti,j721e-pci-ep.yaml       |  2 ++
+ .../devicetree/bindings/pci/ti,j721e-pci-host.yaml     |  2 ++
+ Documentation/devicetree/bindings/pci/versatile.yaml   |  2 ++
+ .../devicetree/bindings/pinctrl/cirrus,madera.yaml     |  2 ++
+ .../devicetree/bindings/pinctrl/pincfg-node.yaml       |  2 ++
+ .../devicetree/bindings/pinctrl/pinmux-node.yaml       |  2 ++
+ .../devicetree/bindings/power/pd-samsung.yaml          |  2 ++
+ .../devicetree/bindings/power/power-domain.yaml        |  2 ++
+ .../devicetree/bindings/power/supply/power-supply.yaml |  2 ++
+ Documentation/devicetree/bindings/pwm/pwm.yaml         |  2 ++
+ .../devicetree/bindings/regulator/fixed-regulator.yaml |  2 ++
+ .../bindings/regulator/google,cros-ec-regulator.yaml   |  2 ++
+ .../devicetree/bindings/regulator/gpio-regulator.yaml  |  2 ++
+ .../bindings/regulator/qcom-labibb-regulator.yaml      |  2 +-
+ .../devicetree/bindings/regulator/regulator.yaml       |  2 ++
+ .../bindings/regulator/st,stm32-booster.yaml           |  2 ++
+ .../bindings/regulator/st,stm32-vrefbuf.yaml           |  2 ++
+ .../bindings/regulator/vqmmc-ipq4019-regulator.yaml    |  2 ++
+ .../devicetree/bindings/regulator/wlf,arizona.yaml     |  2 ++
+ Documentation/devicetree/bindings/riscv/cpus.yaml      |  2 ++
+ Documentation/devicetree/bindings/riscv/sifive.yaml    |  3 +++
+ Documentation/devicetree/bindings/rtc/ingenic,rtc.yaml |  2 ++
+ Documentation/devicetree/bindings/rtc/rtc.yaml         |  2 ++
+ Documentation/devicetree/bindings/rtc/s3c-rtc.yaml     |  2 ++
+ .../devicetree/bindings/serial/ingenic,uart.yaml       |  5 +++++
+ .../devicetree/bindings/serial/renesas,hscif.yaml      |  2 ++
+ .../devicetree/bindings/serial/renesas,sci.yaml        |  2 ++
+ .../devicetree/bindings/serial/renesas,scif.yaml       |  2 ++
+ .../devicetree/bindings/serial/renesas,scifa.yaml      |  2 ++
+ .../devicetree/bindings/serial/renesas,scifb.yaml      |  2 ++
+ Documentation/devicetree/bindings/serial/rs485.yaml    |  3 +++
+ Documentation/devicetree/bindings/serial/serial.yaml   |  2 ++
+ .../devicetree/bindings/serial/snps-dw-apb-uart.yaml   |  2 ++
+ .../devicetree/bindings/soc/imx/fsl,aips-bus.yaml      |  2 ++
+ .../devicetree/bindings/sound/amlogic,aiu.yaml         |  2 ++
+ .../devicetree/bindings/sound/cirrus,madera.yaml       |  2 ++
+ .../bindings/sound/nvidia,tegra210-ahub.yaml           |  3 +++
+ .../devicetree/bindings/sound/wlf,arizona.yaml         |  2 ++
+ .../bindings/soundwire/soundwire-controller.yaml       |  2 ++
+ .../bindings/spi/amlogic,meson-gx-spicc.yaml           |  2 ++
+ .../devicetree/bindings/spi/amlogic,meson6-spifc.yaml  |  2 ++
+ .../devicetree/bindings/spi/mikrotik,rb4xx-spi.yaml    |  2 ++
+ .../devicetree/bindings/spi/qca,ar934x-spi.yaml        |  2 ++
+ .../devicetree/bindings/spi/qcom,spi-qcom-qspi.yaml    |  2 ++
+ .../devicetree/bindings/spi/renesas,hspi.yaml          |  2 ++
+ .../devicetree/bindings/spi/renesas,rspi.yaml          |  2 ++
+ .../devicetree/bindings/spi/renesas,sh-msiof.yaml      |  2 ++
+ .../bindings/spi/socionext,uniphier-spi.yaml           |  2 ++
+ .../devicetree/bindings/spi/spi-controller.yaml        |  2 ++
+ Documentation/devicetree/bindings/spi/spi-gpio.yaml    |  2 ++
+ Documentation/devicetree/bindings/spi/spi-mux.yaml     |  2 ++
+ Documentation/devicetree/bindings/spi/spi-pl022.yaml   |  2 ++
+ .../devicetree/bindings/spi/spi-rockchip.yaml          |  2 ++
+ Documentation/devicetree/bindings/spi/spi-sifive.yaml  |  2 ++
+ .../devicetree/bindings/spi/st,stm32-qspi.yaml         |  2 ++
+ .../devicetree/bindings/spi/st,stm32-spi.yaml          |  2 ++
+ Documentation/devicetree/bindings/spmi/spmi.yaml       |  2 ++
+ .../bindings/thermal/thermal-cooling-devices.yaml      |  2 ++
+ .../devicetree/bindings/thermal/thermal-sensor.yaml    |  2 ++
+ .../devicetree/bindings/timer/snps,dw-apb-timer.yaml   |  2 +-
+ Documentation/devicetree/bindings/usb/ti,tps6598x.yaml |  2 ++
+ Documentation/devicetree/bindings/usb/usb-hcd.yaml     |  2 ++
+ .../bindings/watchdog/amlogic,meson-gxbb-wdt.yaml      |  2 ++
+ .../devicetree/bindings/watchdog/arm-smc-wdt.yaml      |  2 ++
+ .../devicetree/bindings/watchdog/qcom-wdt.yaml         |  2 ++
+ .../devicetree/bindings/watchdog/samsung-wdt.yaml      |  2 ++
+ .../devicetree/bindings/watchdog/st,stm32-iwdg.yaml    |  2 ++
+ .../devicetree/bindings/watchdog/ti,rti-wdt.yaml       |  2 ++
+ .../devicetree/bindings/watchdog/watchdog.yaml         |  2 ++
+ 249 files changed, 570 insertions(+), 14 deletions(-)
+
+--
+2.25.1
 
 _______________________________________________
 linux-riscv mailing list
