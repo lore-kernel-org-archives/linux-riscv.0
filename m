@@ -7,16 +7,16 @@ X-Spam-Status: No, score=-9.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 83F54C47428
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Oct 2020 20:32:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C3256C4363A
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Oct 2020 20:33:20 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0F4A521527
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Oct 2020 20:32:08 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 687EB21527
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Oct 2020 20:33:20 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="G7kOIIM7"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0F4A521527
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Kg+FpUPw"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 687EB21527
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,54 +25,55 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=YZzCqQ7DC1Iz1Gmp5ZcQeSJR1upekx+WAZuDKwvWJOk=; b=G7kOIIM7FKbhhwPTmKJ3lDiA5
-	9GfhkVa7b3eK6Rn0MPP6jHprmPIu1VvxgCsWzSQ/RWi6FPgNrCwTh/hog787wpUDY5NTYk3zKJ2l8
-	VrLX06iU3xoUeawpZFvta/OfEWUOfj0wVRbNLmCjIDWUihtL87JcW7bXjyWRrrmQPh4XPgz7BbKnH
-	y/iJldA96rUw/vpJSG1+dYvYo5xKHN5Ii2D4ozFOymHCinWoKQU3QwwXiLjTzblJRwHu9hNCnhw2G
-	cFocJM8DejsVGIjC0J50yHtMarqqwKsyeoq+4Du3us2yyKCsAsz37hw0diVx+iYpc0i/Oueweix6j
-	lHN8G+OVQ==;
+	 bh=u0W3Evrch04NpO5YBYiCkIjByLAu/DQcV4dpCpGAzcQ=; b=Kg+FpUPwZA6qh/amHP99/r8xb
+	NFx9GSaI6h5tlvtSnKcZRgHVNz37qLdHHV5AroXJmkPCOVd+fUr2C3jbIdp4mW9HdA0pZIF2uwvFM
+	hi88hk2ZHXZEgjeDshXUOE1lc6QlR5uyGCWtIGPWKCJqNrckOLVxhgIeGWkRy/aNtwwURpd6POUo/
+	RMHN66xQSkuy+lNQ3K/C5Pt8uSUHs7A5r2CWnX+cHbm+Oe8NDKmT7/hS4Pcj7fv6TmoiUJSqIOXAD
+	8ZkM0bjAtjammgvxH2ZGXF3PKvQMJtFZc9/UDN9wuxU5I0FDEVp9jwvr+XHOldotYeTzaVwtHlbUN
+	j76RPwo2A==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kPX9N-0005b2-8l; Mon, 05 Oct 2020 20:32:01 +0000
-Received: from mail-wm1-f67.google.com ([209.85.128.67])
+	id 1kPXAW-0005qS-9u; Mon, 05 Oct 2020 20:33:12 +0000
+Received: from mail-wr1-f66.google.com ([209.85.221.66])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kPX9I-0005Z9-Ii; Mon, 05 Oct 2020 20:31:57 +0000
-Received: by mail-wm1-f67.google.com with SMTP id l11so792101wmh.2;
- Mon, 05 Oct 2020 13:31:55 -0700 (PDT)
+ id 1kPXAR-0005oR-LD; Mon, 05 Oct 2020 20:33:08 +0000
+Received: by mail-wr1-f66.google.com with SMTP id h7so7423365wre.4;
+ Mon, 05 Oct 2020 13:33:07 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to:user-agent;
- bh=B4PwgTffJiJmPt6zUisqAw6fhFqqUXNEIJ77LrR5pRQ=;
- b=COghX+HrcvekPctOwMlN8VVhOF5LFIfoAEceslYqXzJa8dPXWQWPuCekQu4gfDA5iI
- wHvbV00DpocqrO840lOSQSIvwnbAD8SQD3WbOPTP/h4qbcUSyBerMP2eSsnU5gAs3V0M
- re+lKAAUSF2h3kukNPHOuuUTUGg3o0VFagVrFgUWKL64vzTjZKccNFsPUaxDoltRNSq0
- TUwOBmSLAOIUGRfCjogkpF2+RoQR5uipaT+cEFmJZwE2Hli4n6d1+PowfNy2c9AGPMcg
- 9OixMQh1NYF8mgpEC/AyYA0BGneXC1/k6K0wHCoj9XiGOZNyuc/aOcH2/bdVVqmrGsRr
- ryhA==
-X-Gm-Message-State: AOAM533UkHsMeKmczydkzx8S+/G/YyP5zEz54Pmfxyi2JFnnPbmaDyMw
- zh1hYqmWQ0JC19Fuei8gVuc=
-X-Google-Smtp-Source: ABdhPJzy/knAUMS+nLZ2ZykupLkPHOuEPodU8SYLBLWYdXtI/NOcJ+WVMZPLLZLhgC0dauFczWhBnQ==
-X-Received: by 2002:a1c:35c5:: with SMTP id c188mr1144613wma.11.1601929914355; 
- Mon, 05 Oct 2020 13:31:54 -0700 (PDT)
+ bh=ARrZ6TB7yXMqpP/+XXhswWetXRSqYRU5CXxzWSIwqA0=;
+ b=Q++v3IZQXtJdc9fNtpcYeujb9yeQGc5GIk9yVO0un8Hf5iJtXYVlK4nsdRAQowB28e
+ B1InEBgOwjwU36NCpYonhmTb8a1TnAnmay93JOgNfn2532cuGvVr+kqUuqTv07pe+hWN
+ CGSRbRbPJCcYzYb1XqkGCkZkN3U90ljB1MqCRzMAmR04lQgIOu8ukp4Iy97ADS02LyCm
+ GEHnK/iD0n0WAfF9ppPKfX8EfkoW7rRL4QEJcZEyPg+YxWkap7wm4gcCLgEIRMhhZFAW
+ Ea21qox/llTNxcuiDbuAOmspkN8N3fWUtFnUqTUZ/dBRzrjt01rNE8U/NgDzFKBC0LwI
+ Rsiw==
+X-Gm-Message-State: AOAM5338HNTRh/qoHBS1phCjjMU/enD68/9NjBvbNaRJPllrAO0TnMcf
+ +HSSDDoCGMSj4HLOhRj9iOk=
+X-Google-Smtp-Source: ABdhPJweyRYGmXLqO/tcc/k2HRzuAg/v1oLgLOtbvTUusAAWSCQYB/uOgoLBn7Xz9zdrfu5geKiRqw==
+X-Received: by 2002:a5d:4682:: with SMTP id u2mr1245871wrq.254.1601929986334; 
+ Mon, 05 Oct 2020 13:33:06 -0700 (PDT)
 Received: from kozik-lap ([194.230.155.194])
- by smtp.googlemail.com with ESMTPSA id z11sm1294344wru.88.2020.10.05.13.31.50
+ by smtp.googlemail.com with ESMTPSA id c14sm1265048wrm.64.2020.10.05.13.33.02
  (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
- Mon, 05 Oct 2020 13:31:53 -0700 (PDT)
-Date: Mon, 5 Oct 2020 22:31:48 +0200
+ Mon, 05 Oct 2020 13:33:05 -0700 (PDT)
+Date: Mon, 5 Oct 2020 22:33:00 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Rob Herring <robh@kernel.org>
-Subject: Re: [PATCH 1/4] dt-bindings: Add missing 'unevaluatedProperties'
-Message-ID: <20201005203148.GA23742@kozik-lap>
+Subject: Re: [PATCH 2/4] dt-bindings: Use 'additionalProperties' instead of
+ 'unevaluatedProperties'
+Message-ID: <20201005203300.GB23742@kozik-lap>
 References: <20201005183830.486085-1-robh@kernel.org>
- <20201005183830.486085-2-robh@kernel.org>
+ <20201005183830.486085-3-robh@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20201005183830.486085-2-robh@kernel.org>
+In-Reply-To: <20201005183830.486085-3-robh@kernel.org>
 User-Agent: Mutt/1.9.4 (2018-02-28)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201005_163156_617732_E2ADFFC6 
-X-CRM114-Status: GOOD (  19.03  )
+X-CRM114-CacheID: sfid-20201005_163307_694303_E272544E 
+X-CRM114-Status: GOOD (  15.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -128,18 +129,15 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 05, 2020 at 01:38:27PM -0500, Rob Herring wrote:
-> This doesn't yet do anything in the tools, but make it explicit so we can
-> check either 'unevaluatedProperties' or 'additionalProperties' is present
-> in schemas.
+On Mon, Oct 05, 2020 at 01:38:28PM -0500, Rob Herring wrote:
+> In cases where we don't reference another schema, 'additionalProperties'
+> can be used instead. This is preferred for now as 'unevaluatedProperties'
+> support isn't implemented yet.
 > 
-> 'unevaluatedProperties' is appropriate when including another schema (via
-> '$ref') and all possible properties and/or child nodes are not
-> explicitly listed in the schema with the '$ref'.
-> 
-> This is in preparation to add a meta-schema to check for missing
-> 'unevaluatedProperties' or 'additionalProperties'. This has been a
-> constant source of review issues.
+> In a few cases, this means adding some missing property definitions of
+> which most are for SPI bus properties. 'unevaluatedProperties' is not going
+> to work for the SPI bus properties anyways as they are evaluated from the
+> parent node, not the SPI child node.
 > 
 > Signed-off-by: Rob Herring <robh@kernel.org>
 
