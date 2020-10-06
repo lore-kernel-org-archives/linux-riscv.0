@@ -2,85 +2,151 @@ Return-Path: <SRS0=uiah=DN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	NICE_REPLY_A,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9F723C4363A
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Oct 2020 00:18:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 620A9C4363A
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Oct 2020 01:10:43 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 56190206F4
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Oct 2020 00:18:41 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C2FFB2076B
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Oct 2020 01:10:42 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="aprN14on";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="g4ibtRpt"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 56190206F4
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="X4XAQ67d";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=samsung.com header.i=@samsung.com header.b="Rx8RJtC6"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C2FFB2076B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=samsung.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:References:In-Reply-To:MIME-Version:Date:Message-ID:
+	From:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=wp4lJvgFxw/K+J+RJkUUXAa+DO7iLTJE4MH+Hrfj6HA=; b=aprN14oncZNIccqejIhgblygh
-	OGBgTT+w2rNLJ/0vRoo9BCa8QicQINSlJAJ/+tEChIuC2UbtSPp2SQic3bVsoVehMk2xUlfv0g03m
-	50A5SHZcoHt3DHPtWQ7User2Uo1YDnTuPyfWq1oDjU3VH0bRrrqXulewM2v0k3PVSDR9o5Wl2CyUo
-	cK1EfgX/e0nU8X1Ba3ZjXqR5kFqj2AxWc89Ki+qH1mpEULkw2wUArRjynBlEsgGBXrtBXqVcQTh7E
-	XEowkWXArZr0q0fs20N98ho5LMMMQYW9JaGpqHD0ClyGjWjIfx5Mvw5daHcUdQE8FuVp5LEC5Apc5
-	X7EyjU0xw==;
+	 bh=GzCJY1QHbXK0fyDtZTfyKVS2dWQBLIY2IeXTT/OC+4I=; b=X4XAQ67diAZIE11HZpXSKeVZO
+	MdZfIElxCyqRTvWb9tlZ2yM0VRMVZkBpxJYwbb3Jv9PXKNRm+BQKF7yssUgZq045oPdACjaW3gisH
+	cNrf1j5c23jdPVcdzwVnC2PS0pNbLUTgfF6Ol2oKidhVpaAhldY2EzHaK1+fJ76a83pt7+EhzOTbd
+	LNPS7If7lYVeD6kMcVTJakr+8pWlelmwgg1y0sIP3zvMLk+iDFBodhP/haX5tmAaYCkRVhUFNCeol
+	o007pTx946eyK1CTcVVMuh+HKABI+wbdu3q+YKwG+gG0/7JHIZEPOE0y1Rf+kxLYY+kMhYBO5eZGM
+	OAHGSdvpA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kPagY-00071L-UI; Tue, 06 Oct 2020 00:18:30 +0000
-Received: from esa3.hgst.iphmx.com ([216.71.153.141])
+	id 1kPbUs-0002xS-Rw; Tue, 06 Oct 2020 01:10:30 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kPagA-0006oa-Sl; Tue, 06 Oct 2020 00:18:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1601943486; x=1633479486;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=gEM2YpjTYs5tWM9BBH2qcr+4GjK6yIjG9J+n45VG2/0=;
- b=g4ibtRpt2hR9/6tv8BBCTFBFuCYcVOCoy8jW49RDnVX9ylRTqsi/C6aa
- vvtH7xqtcZOCorUWSWPcWRsRuQw3ei6N8TMbunfMjPBo9QAYfPc1rm7pL
- 3fGqBV8iohZ/6tSVismWDosyd2BYYUtt+NgqysxiLlE0kk6Z/TWvcfCO8
- mVp4B2yV1uK6BoRWL25YDXy5/ruVaXnqbrKwazU3w3DOqVpCP+Gsf26dH
- QNK92143AEbdoxX55Ls2fpGenhYHEbXl8ifYJ1UzvCVi7/45w+CYArs9u
- BaZQMg6ejbmkbktClXY2mVNJjLg4/7mMEgqJ/INpuyLkGB6AODWZ42G5K A==;
-IronPort-SDR: FL53KY3HKdc6lIbeSUjAIkNdJh/Ah64JF7h+tpewVcI37krDS0ntELS/X9jQMwHPn3Qo9uScAf
- Eq2w9CeBnk1IioBVVsmn0XDMC2IPXKb85NNSvnqaxnjzmODSqhzufnjuUDleoEZ0RYHfa1llQT
- hq2BWRuuBoe+YCNUGa5YccAcXrC9fWEGcmh0mUZdFsZNGjRy9+VXxWqMpGz0/fdsdjRDcaOsys
- mtBMyPNFisxYF4j3Gj/wn0GJNvpORExurcqwMkUtD4nkx9rvQkzhyk5XbIQnbSzheaFAJ4VeSu
- Omw=
-X-IronPort-AV: E=Sophos;i="5.77,341,1596470400"; d="scan'208";a="153530932"
-Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
- ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 06 Oct 2020 08:18:01 +0800
-IronPort-SDR: Tf9CoJSKZ3OeQI6QW7RI7wYg7/cgdNjJYbXURYEdn5kw2aEY8H87slBxwJ3gRZVqmOZ4CEX+rW
- Q8OsNgo426YQ==
-Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
- by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 05 Oct 2020 17:04:47 -0700
-IronPort-SDR: 12KSYvIFFfXK28dsyH+igP+PiS0T35+N2bjA29qz8RRuighC+yUNiQHr9uOdkc/7IkJ5QFUl39
- m1qGh0EHAkaA==
-WDCIronportException: Internal
-Received: from b9f8262.ad.shared (HELO jedi-01.hgst.com) ([10.86.59.253])
- by uls-op-cesaip01.wdc.com with ESMTP; 05 Oct 2020 17:18:00 -0700
-From: Atish Patra <atish.patra@wdc.com>
-To: linux-kernel@vger.kernel.org
-Subject: [PATCH v4 5/5] riscv: Add numa support for riscv64 platform
-Date: Mon,  5 Oct 2020 17:17:52 -0700
-Message-Id: <20201006001752.248564-6-atish.patra@wdc.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20201006001752.248564-1-atish.patra@wdc.com>
-References: <20201006001752.248564-1-atish.patra@wdc.com>
+ id 1kPbUn-0002uD-LQ; Tue, 06 Oct 2020 01:10:27 +0000
+Received: from epcas1p2.samsung.com (unknown [182.195.41.46])
+ by mailout2.samsung.com (KnoxPortal) with ESMTP id
+ 20201006011017epoutp0296e01a9602596620fa94cb505b1f2ccc~7QfYIgmPy1813818138epoutp02j;
+ Tue,  6 Oct 2020 01:10:17 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com
+ 20201006011017epoutp0296e01a9602596620fa94cb505b1f2ccc~7QfYIgmPy1813818138epoutp02j
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+ s=mail20170921; t=1601946617;
+ bh=B4PawtUJM2t4wzU2pvIySnG7we9Bhgj1khiFTd9d9CE=;
+ h=Subject:To:Cc:From:Date:In-Reply-To:References:From;
+ b=Rx8RJtC6Yj3KjGbngnY3QrOD1xUh97k2CcjP1L4bTfTZIPheVmtqSJrA4EZdpPPOg
+ trAwp0No0N/0erQYIZqHeGT1O8Y1jJ5bsPfmRbRjm0h8DI5JF5XlW5/vhGg3S/8m9/
+ spUfOkBMrCNoisTG2YOcZI8q4vf8cCSD1/9SF9L8=
+Received: from epsnrtp4.localdomain (unknown [182.195.42.165]) by
+ epcas1p4.samsung.com (KnoxPortal) with ESMTP id
+ 20201006011016epcas1p459c312e10a907b7832b22cd23eb9d8a4~7QfXew6HM1279312793epcas1p4Q;
+ Tue,  6 Oct 2020 01:10:16 +0000 (GMT)
+Received: from epsmges1p5.samsung.com (unknown [182.195.40.154]) by
+ epsnrtp4.localdomain (Postfix) with ESMTP id 4C4zsY6sg8zMqYks; Tue,  6 Oct
+ 2020 01:10:09 +0000 (GMT)
+Received: from epcas1p4.samsung.com ( [182.195.41.48]) by
+ epsmges1p5.samsung.com (Symantec Messaging Gateway) with SMTP id
+ 20.E2.09577.1F3CB7F5; Tue,  6 Oct 2020 10:10:09 +0900 (KST)
+Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
+ epcas1p3.samsung.com (KnoxPortal) with ESMTPA id
+ 20201006011008epcas1p300f9dc6918a008b4b0acf5870f438a2e~7QfP7yysc1939819398epcas1p3e;
+ Tue,  6 Oct 2020 01:10:08 +0000 (GMT)
+Received: from epsmgms1p1new.samsung.com (unknown [182.195.42.41]) by
+ epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
+ 20201006011008epsmtrp151af87c3414c2b6b37057fcba7d215f2~7QfP5fMXI0584005840epsmtrp1N;
+ Tue,  6 Oct 2020 01:10:08 +0000 (GMT)
+X-AuditID: b6c32a39-bfdff70000002569-24-5f7bc3f11c68
+Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
+ epsmgms1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+ C1.AB.08604.0F3CB7F5; Tue,  6 Oct 2020 10:10:08 +0900 (KST)
+Received: from [10.113.221.102] (unknown [10.113.221.102]) by
+ epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
+ 20201006011007epsmtip14dca797b06e6c0e4525f28d6ead67ad0~7QfO-JeoX3017730177epsmtip1d;
+ Tue,  6 Oct 2020 01:10:07 +0000 (GMT)
+Subject: Re: [PATCH 4/4] dt-bindings: Explicitly allow additional properties
+ in common schemas
+To: Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+From: Chanwoo Choi <cw00.choi@samsung.com>
+Organization: Samsung Electronics
+Message-ID: <0e155728-89b3-5f31-f008-dfd57b6c4f6b@samsung.com>
+Date: Tue, 6 Oct 2020 10:23:28 +0900
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:59.0) Gecko/20100101
+ Thunderbird/59.0
 MIME-Version: 1.0
+In-Reply-To: <20201005183830.486085-5-robh@kernel.org>
+Content-Language: en-US
+X-Brightmail-Tracker: H4sIAAAAAAAAA01UaVBTVxSe+/KWoFKfiOXCVIHYOtUqEhF66KB1lNpXdapVy1hnbIzwBhhD
+ kknAqnQYQMCouFBcSkRgCC5sChGQTVBWaQtBUEQxrmhAFgUEXKA2EJzy7zvnfOd8850z9woF
+ NiahgzBQHsyr5FKZiJ5CFlTOd13UVxkqcU0cXQxpN28zYDBWCCD/vZaBTONRGtIiA+DE43Ya
+ kgZmQ6IhioTkqgYKMk+MUlCZ2oHg1uBLGvbpLtGQ+vJPCiLSmkl4FJlBgMGQw0BjwREK0uKT
+ KTgQl8bAw8FqBEO3NAQcHzlPgP5pCwUZwycE0Bf7gILLySMI9nflI9CMvkZQU/iEgKSqXhLu
+ 9g9R0FycSEN+90UEsTn55nl6M6/qw1EEJZHnGKhPqqVh4HAVAqMxA0HBQBQNNZm3aPhHd5iB
+ iL67DKSeixZA68UyBvJLrxFQlFhHwTn9CAGV+8souJR6nIS2iAs0dDbHCiBGOx2Mf1XT8L64
+ hoH4om4EH0oLGWh/fISGC2/N2v+25JLwd0kwxNTUUCvWcNFN50kuKSuU6+7sJLm89LsEV6l5
+ zXBFWiPDpehDuL6mNsSd1iRQnK60k+Ca60M4fcYBmgu/ZiC5+y2lNNfb0MBw6VlZ1AbHrTu9
+ AnipH69y4uW+Cr9Auf8y0dpNklUSdw9X8SKxJ3wtcpJLg/hlIu91GxatDpSZjypy2iWVhZhT
+ G6RqtWjxci+VIiSYdwpQqIOXiXiln0zpqXRRS4PUIXJ/F19F0DdiV9cl7mbi9p0ByRffEUo9
+ uTun+yYVjuoFB5GVELNLcVfXfXQQTRHasIUIv0h5QlqCfoTr4zIoSzCEcElkA/mx5VR1FmMp
+ XEW4sT9lgvUS4aL2B+Osmex2bBpqGxexZbfh2nsvxucK2DRbXN0WO16g2QW4vKOVHsPTWWd8
+ +81TNIat2eX48tk3xBgm2c+x4W3r+NBZrA+uK4ia4MzAdQnt5rxQaMV64Lz0eWNpAWuH77Un
+ ExbsiK/0JArGdDHbPBV3HHuGLBa8cd/pjokNzMQvavMYC3bAnUdjJnAoTq+roi3NGoTzyhsp
+ S8ENl5+NJ8aEBex8fKl4sSXtjIven0EW4U9w72AsNUbBrDXWxNhYKHNx8yMjYcH2WLf/AH0M
+ ibST3GgnWdBOsqD9XywFkRnoU16pDvLn1WKl++Rz69H4i1/gWYhO9bxyqUCEEFUgLBSIbK1d
+ fHZLbKz9pHv28iqFRBUi49UVyN283ziBwyxfhfnLkAdLxO5L3NzcYKnYw10sFtlZP77nJLFh
+ /aXB/E6eV/Kqj32E0MohnHC0Cr9uN/qLx0oUL2mqWLHQ3SDbfHL1g0SvGblX91k3eLY8jFtZ
+ aveqKbs/bsuhz5yPcyafMvsuU3h7j1PY2sK2nxqmrTuUlOzhoBs2Zuderc5N7bmxRRs2tzg1
+ TNMTuGezH/fFwqJ5I4p5Pnsdt//2+/36gNqN+iub1iR8f2rY7dcdmWr7Q93DP288Mnvrm/gz
+ LlFLTaFZTL1uTuY227gn30WXZWWv831rMgavcpL/WCZ7fmdtxNMv7da3vtt1Q/dtzvU5lVKP
+ P2a8HqgxmbxadPLn630Hs4fnS21brSN/uFBSVb4jgV7p/FXjM+81u+0ls+x8o1dPvbk3qCTs
+ pKDj8p3erdPsMsNHRaQ6QCpeIFCppf8BncC7Z3oFAAA=
+X-Brightmail-Tracker: H4sIAAAAAAAAA02Sa0xTZxiA851rgRCOBcIB41SGmBHBsTD2uhlisjkO0yWbm2RbdNiMBlBA
+ RmFDWTJA5CaXOQWh0pZLASlYoFCkgIC0sMCklYsExDoRzEDuooCCshayhH9P3u95vvfPy8P5
+ BsqJFxIeJYwMF4Q6U5ZEvdb5Hfd5bWzA+2MaR5D33qfBYGzHQb0qpqHCmEWBPCEYskfHKZAu
+ 7oB8QyIBMp2ehIrsNyRoiyYQDLyco+BCcRUFRXO5JMTL+wl4nKDAwGCopuFefSYJ8isyElIv
+ y2n452UHgqWBFAyurpVhoBobJEGxnI3DQvojEmplawiSp9QIUt68QNDZ8AQDqW6WgOHnSyT0
+ N+ZToJ5WIkivVpv+U5k83XoWgqaEUhp6pH9RsJihQ2A0KhDULyZS0FkxQMHd4gwa4heGaSgq
+ vYjDkLKFBnVzGwaa/C4SSlVrGGiTW0ioKrpKwEj8DQom+9NxSBLbgLG7g4LVxk4armimEaw3
+ N9AwPppJwY1Xpt1vB2sI+LspCpI6O8lDX3AX+8oITloZy01PThJcXfkwxmlTXtCcRmykuQJV
+ NLfQN4K46yl5JFfcPIlx/T3RnEqRSnFxbQaCezjYTHGzej3NlVdWkl/t/MHyYKAwNOQXYeR+
+ n1OWwTLlayxCRcRUT/eScagHT0MWPJbxYq91VNJm5jNNiJXmO2/OHdmc3g6TwzOxLavVitKQ
+ pUmZQezsQvJGa8ucYv9dGtlw7JiTbMZzS7ODM0o7dqxRT24GasSup0k2FlCMG9s6MUSZ2YbZ
+ zd5fGUNmtmZ82NqSFczMBOPCGl4NEWa2Z/xZjXwM23S2sV1544R5mQXjzdaVu5rHOLOXXZP2
+ 4ZvswD4Yl2GbvJO9NZOP/4FsxVtq8ZZEvCURb0kKEKFAjsIIUVhQmMgzwjNc+KuHSBAmig4P
+ 8vjpbJgKbdy823sN6JZi3qMdYTzUjlge7mxn7eEfE8C3DhScOy+MPBsQGR0qFLWj7TzC2cF6
+ 6OfCH/lMkCBKeEYojBBG/v+K8Syc4jCL2x+7enjndd+V7Tp/WP9g38D3kuNtCwUdvMRrOcQ9
+ 7yn+apJ0wD1G6dLm0i3ZI7F4NhZ3wr/s8Sxhm9r95aef+HgNn9Me8AtE/GFdpo9VwtShE3d6
+ JaV43TbdrmLXiQ+qVlMnjX57vEvOnFzLfrKvde/DY+OF64Xhjwb+DP399NGYcu60+Gn3bnuh
+ Plrqq3E1hF5qIattpkZHu5JKahwor5zrTPqz166tB46VyY+UH92vr/1opWbHN1a+ys7j2tIs
+ q7J5z88Lb4a4bf+u6UO/b8uXvUSWt2fm7hysh9y3n03nGn0dpxoEgQFPL1WnXoiVHL7p9C64
+ X7a30fymDsxaFjW2fO1MiIIFnm54pEjwH6+El7RiBAAA
+X-CMS-MailID: 20201006011008epcas1p300f9dc6918a008b4b0acf5870f438a2e
+X-Msg-Generator: CA
+X-Sendblock-Type: SVC_REQ_APPROVE
+CMS-TYPE: 101P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20201005183933epcas1p36d2c9cc1f3ad9180421269ca74330d65
+References: <20201005183830.486085-1-robh@kernel.org>
+ <CGME20201005183933epcas1p36d2c9cc1f3ad9180421269ca74330d65@epcas1p3.samsung.com>
+ <20201005183830.486085-5-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201005_201807_161575_CCC09028 
-X-CRM114-Status: GOOD (  29.55  )
+X-CRM114-CacheID: sfid-20201005_211026_171816_B99FEBAA 
+X-CRM114-Status: GOOD (  21.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -92,280 +158,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Kefeng Wang <wangkefeng.wang@huawei.com>,
- David Hildenbrand <david@redhat.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Jonathan Cameron <Jonathan.Cameron@huawei.com>,
- Atish Patra <atish.patra@wdc.com>, Zong Li <zong.li@sifive.com>,
- linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>,
- linux-arch@vger.kernel.org, Jia He <justin.he@arm.com>,
- Anup Patel <anup@brainfault.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Steven Price <steven.price@arm.com>, Greentime Hu <greentime.hu@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-arm-kernel@lists.infradead.org,
+Cc: Andrew Lunn <andrew@lunn.ch>, Ulf Hansson <ulf.hansson@linaro.org>,
+ linux-usb@vger.kernel.org, Peter Meerwald-Stadler <pmeerw@pmeerw.net>,
+ Sam Ravnborg <sam@ravnborg.org>, linux-pwm@vger.kernel.org,
+ linux-iio@vger.kernel.org, Viresh Kumar <vireshk@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>, linux-pci@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, Sebastian Reichel <sre@kernel.org>,
+ linux-ide@vger.kernel.org, Thierry Reding <thierry.reding@gmail.com>,
+ Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Pavel Machek <pavel@ucw.cz>, Miquel Raynal <miquel.raynal@bootlin.com>,
+ linux-riscv@lists.infradead.org, Lee Jones <lee.jones@linaro.org>,
+ linux-clk@vger.kernel.org, linux-leds@vger.kernel.org,
+ Vignesh Raghavendra <vigneshr@ti.com>, linux-rtc@vger.kernel.org,
+ Lars-Peter Clausen <lars@metafoo.de>, Marc Zyngier <maz@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>, MyungJoo Ham <myungjoo.ham@samsung.com>,
+ linux-serial@vger.kernel.org, linux-input@vger.kernel.org,
+ Jakub Kicinski <kuba@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
+ linux-mips@vger.kernel.org, Vivien Didelot <vivien.didelot@gmail.com>,
+ Wolfgang Grandegger <wg@grandegger.com>, linux-media@vger.kernel.org,
+ linux-hwmon@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
+ Jason Cooper <jason@lakedaemon.net>, linux-pm@vger.kernel.org,
+ linux-can@vger.kernel.org, linux-gpio@vger.kernel.org,
+ Mark Brown <broonie@kernel.org>, Marc Kleine-Budde <mkl@pengutronix.de>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Bjorn Helgaas <bhelgaas@google.com>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, Jens Axboe <axboe@kernel.dk>,
+ Alessandro Zummo <a.zummo@towertech.it>, linux-watchdog@vger.kernel.org,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>, Stephen Boyd <sboyd@kernel.org>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Mike Rapoport <rppt@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, linux-mmc@vger.kernel.org,
+ Liam Girdwood <lgirdwood@gmail.com>, linux-spi@vger.kernel.org,
+ linux-i2c@vger.kernel.org, Vinod Koul <vkoul@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Wim Van Sebroeck <wim@linux-watchdog.org>,
+ Richard Weinberger <richard@nod.at>, dmaengine@vger.kernel.org,
+ linux-mtd@lists.infradead.org, "David S.
+ Miller" <davem@davemloft.net>, Jonathan Cameron <jic23@kernel.org>,
+ Heiner Kallweit <hkallweit1@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use the generic numa implementation to add NUMA support for RISC-V.
-This is based on Greentime's patch[1] but modified to use generic NUMA
-implementation and few more fixes.
+On 10/6/20 3:38 AM, Rob Herring wrote:
+> In order to add meta-schema checks for additional/unevaluatedProperties
+> being present, all schema need to make this explicit. As common/shared
+> schema are included by other schemas, they should always allow for
+> additionalProperties.
+> 
+> Signed-off-by: Rob Herring <robh@kernel.org>
+> ---
+(snip)
 
-[1] https://lkml.org/lkml/2020/1/10/233
+>  Documentation/devicetree/bindings/extcon/wlf,arizona.yaml    | 2 ++
+(snip)
 
-Co-developed-by: Greentime Hu <greentime.hu@sifive.com>
-Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
----
- arch/riscv/Kconfig              | 31 ++++++++++++++++++++++++++++++-
- arch/riscv/include/asm/mmzone.h | 13 +++++++++++++
- arch/riscv/include/asm/numa.h   |  8 ++++++++
- arch/riscv/include/asm/pci.h    | 14 ++++++++++++++
- arch/riscv/kernel/setup.c       | 10 ++++++++--
- arch/riscv/kernel/smpboot.c     | 12 +++++++++++-
- arch/riscv/mm/init.c            |  4 +++-
- 7 files changed, 87 insertions(+), 5 deletions(-)
- create mode 100644 arch/riscv/include/asm/mmzone.h
- create mode 100644 arch/riscv/include/asm/numa.h
+For the extcon part,
+Acked-by: Chanwoo Choi <cw00.choi@samsung.com>
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index df18372861d8..7beb6ddb6eb1 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -137,7 +137,7 @@ config PAGE_OFFSET
- 	default 0xffffffe000000000 if 64BIT && MAXPHYSMEM_128GB
- 
- config ARCH_FLATMEM_ENABLE
--	def_bool y
-+	def_bool !NUMA
- 
- config ARCH_SPARSEMEM_ENABLE
- 	def_bool y
-@@ -295,6 +295,35 @@ config TUNE_GENERIC
- 
- endchoice
- 
-+# Common NUMA Features
-+config NUMA
-+	bool "NUMA Memory Allocation and Scheduler Support"
-+	select GENERIC_ARCH_NUMA
-+	select OF_NUMA
-+	select ARCH_SUPPORTS_NUMA_BALANCING
-+	help
-+	  Enable NUMA (Non-Uniform Memory Access) support.
-+
-+	  The kernel will try to allocate memory used by a CPU on the
-+	  local memory of the CPU and add some more NUMA awareness to the kernel.
-+
-+config NODES_SHIFT
-+	int "Maximum NUMA Nodes (as a power of 2)"
-+	range 1 10
-+	default "2"
-+	depends on NEED_MULTIPLE_NODES
-+	help
-+	  Specify the maximum number of NUMA Nodes available on the target
-+	  system.  Increases memory reserved to accommodate various tables.
-+
-+config USE_PERCPU_NUMA_NODE_ID
-+	def_bool y
-+	depends on NUMA
-+
-+config NEED_PER_CPU_EMBED_FIRST_CHUNK
-+	def_bool y
-+	depends on NUMA
-+
- config RISCV_ISA_C
- 	bool "Emit compressed instructions when building Linux"
- 	default y
-diff --git a/arch/riscv/include/asm/mmzone.h b/arch/riscv/include/asm/mmzone.h
-new file mode 100644
-index 000000000000..fa17e01d9ab2
---- /dev/null
-+++ b/arch/riscv/include/asm/mmzone.h
-@@ -0,0 +1,13 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __ASM_MMZONE_H
-+#define __ASM_MMZONE_H
-+
-+#ifdef CONFIG_NUMA
-+
-+#include <asm/numa.h>
-+
-+extern struct pglist_data *node_data[];
-+#define NODE_DATA(nid)		(node_data[(nid)])
-+
-+#endif /* CONFIG_NUMA */
-+#endif /* __ASM_MMZONE_H */
-diff --git a/arch/riscv/include/asm/numa.h b/arch/riscv/include/asm/numa.h
-new file mode 100644
-index 000000000000..8c8cf4297cc3
---- /dev/null
-+++ b/arch/riscv/include/asm/numa.h
-@@ -0,0 +1,8 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __ASM_NUMA_H
-+#define __ASM_NUMA_H
-+
-+#include <asm/topology.h>
-+#include <asm-generic/numa.h>
-+
-+#endif	/* __ASM_NUMA_H */
-diff --git a/arch/riscv/include/asm/pci.h b/arch/riscv/include/asm/pci.h
-index 1c473a1bd986..658e112c3ce7 100644
---- a/arch/riscv/include/asm/pci.h
-+++ b/arch/riscv/include/asm/pci.h
-@@ -32,6 +32,20 @@ static inline int pci_proc_domain(struct pci_bus *bus)
- 	/* always show the domain in /proc */
- 	return 1;
- }
-+
-+#ifdef	CONFIG_NUMA
-+
-+static inline int pcibus_to_node(struct pci_bus *bus)
-+{
-+	return dev_to_node(&bus->dev);
-+}
-+#ifndef cpumask_of_pcibus
-+#define cpumask_of_pcibus(bus)	(pcibus_to_node(bus) == -1 ?		\
-+				 cpu_all_mask :				\
-+				 cpumask_of_node(pcibus_to_node(bus)))
-+#endif
-+#endif	/* CONFIG_NUMA */
-+
- #endif  /* CONFIG_PCI */
- 
- #endif  /* _ASM_RISCV_PCI_H */
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index 07fa6d13367e..53a806a9cbaf 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -101,13 +101,19 @@ void __init setup_arch(char **cmdline_p)
- 
- static int __init topology_init(void)
- {
--	int i;
-+	int i, ret;
-+
-+	for_each_online_node(i)
-+		register_one_node(i);
- 
- 	for_each_possible_cpu(i) {
- 		struct cpu *cpu = &per_cpu(cpu_devices, i);
- 
- 		cpu->hotpluggable = cpu_has_hotplug(i);
--		register_cpu(cpu, i);
-+		ret = register_cpu(cpu, i);
-+		if (unlikely(ret))
-+			pr_warn("Warning: %s: register_cpu %d failed (%d)\n",
-+			       __func__, i, ret);
- 	}
- 
- 	return 0;
-diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index 96167d55ed98..5e276c25646f 100644
---- a/arch/riscv/kernel/smpboot.c
-+++ b/arch/riscv/kernel/smpboot.c
-@@ -27,6 +27,7 @@
- #include <asm/cpu_ops.h>
- #include <asm/irq.h>
- #include <asm/mmu_context.h>
-+#include <asm/numa.h>
- #include <asm/tlbflush.h>
- #include <asm/sections.h>
- #include <asm/sbi.h>
-@@ -45,13 +46,18 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
- {
- 	int cpuid;
- 	int ret;
-+	unsigned int curr_cpuid;
-+
-+	curr_cpuid = smp_processor_id();
-+	numa_store_cpu_info(curr_cpuid);
-+	numa_add_cpu(curr_cpuid);
- 
- 	/* This covers non-smp usecase mandated by "nosmp" option */
- 	if (max_cpus == 0)
- 		return;
- 
- 	for_each_possible_cpu(cpuid) {
--		if (cpuid == smp_processor_id())
-+		if (cpuid == curr_cpuid)
- 			continue;
- 		if (cpu_ops[cpuid]->cpu_prepare) {
- 			ret = cpu_ops[cpuid]->cpu_prepare(cpuid);
-@@ -59,6 +65,7 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
- 				continue;
- 		}
- 		set_cpu_present(cpuid, true);
-+		numa_store_cpu_info(cpuid);
- 	}
- }
- 
-@@ -79,6 +86,7 @@ void __init setup_smp(void)
- 		if (hart == cpuid_to_hartid_map(0)) {
- 			BUG_ON(found_boot_cpu);
- 			found_boot_cpu = 1;
-+			early_map_cpu_to_node(0, of_node_to_nid(dn));
- 			continue;
- 		}
- 		if (cpuid >= NR_CPUS) {
-@@ -88,6 +96,7 @@ void __init setup_smp(void)
- 		}
- 
- 		cpuid_to_hartid_map(cpuid) = hart;
-+		early_map_cpu_to_node(cpuid, of_node_to_nid(dn));
- 		cpuid++;
- 	}
- 
-@@ -153,6 +162,7 @@ asmlinkage __visible void smp_callin(void)
- 	current->active_mm = mm;
- 
- 	notify_cpu_starting(curr_cpuid);
-+	numa_add_cpu(curr_cpuid);
- 	update_siblings_masks(curr_cpuid);
- 	set_cpu_online(curr_cpuid, 1);
- 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 114c3966aadb..c4046e11d264 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -20,6 +20,7 @@
- #include <asm/soc.h>
- #include <asm/io.h>
- #include <asm/ptdump.h>
-+#include <asm/numa.h>
- 
- #include "../kernel/head.h"
- 
-@@ -185,7 +186,6 @@ void __init setup_bootmem(void)
- 
- 	early_init_fdt_scan_reserved_mem();
- 	memblock_allow_resize();
--	memblock_dump_all();
- 
- 	for_each_memblock(memory, reg) {
- 		unsigned long start_pfn = memblock_region_memory_base_pfn(reg);
-@@ -570,9 +570,11 @@ void __init paging_init(void)
- 
- void __init misc_mem_init(void)
- {
-+	arch_numa_init();
- 	sparse_init();
- 	zone_sizes_init();
- 	resource_init();
-+	memblock_dump_all();
- }
- 
- #ifdef CONFIG_SPARSEMEM_VMEMMAP
 -- 
-2.25.1
-
+Best Regards,
+Chanwoo Choi
+Samsung Electronics
 
 _______________________________________________
 linux-riscv mailing list
