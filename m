@@ -2,138 +2,80 @@ Return-Path: <SRS0=uiah=DN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-12.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,NICE_REPLY_A,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-7.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0756FC46466
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Oct 2020 14:32:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8AB53C4727E
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Oct 2020 16:47:08 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 87D64204EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Oct 2020 14:32:54 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 196B1206DD
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Oct 2020 16:47:08 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="tb8mX8t5";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="sKAkVjTo"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 87D64204EF
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="zXP8n+HC";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="BF9Y+dbl"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 196B1206DD
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=4K/AolktVIeqKtdH7rm+ctZaxE0QI3CObDG/UiRZYcA=; b=tb8mX8t5v3NQJRp9JnQHLL31V
-	0pgbg9cuRGtucpFVOSlCFANKP02aUNsSl1d+wWnuKn88YMKli8pyaR1o/PWWytp5dCOFEX4xSe3Oh
-	s4Q5dwCap67ekgDsLERM0PeiWzFKrjv0YnMOnBQmaEyt6p6dU2y3m5hjkMWCpa/3yqzoaQZ1whb8C
-	4L2LgKuzmCS4zbNuI8nFN2Sp053OX4kAoh9g3CAQySFk+kcN9hsoZy1aEzlO/zE1DuiN8KCnSC3Eh
-	7ykjWJrllM/W2UmbsD1LZ/ehMDZDo8VSlu9iR4QKxziWB1qQXwIm90mXigDDcqUl3YXFzEqMVxjkU
-	UZasiBYHg==;
+	 bh=Q2vWOkE3aLGJETv9syGKUI5O0SNaZo9xvSrpbAHjo5A=; b=zXP8n+HChIp0B+tLsh27pJBpM
+	glOe0KHv7ZE2FxCZCOrQqhKD0eftcOY8U5zr8P6lHfpxo3WHFgWNNrmBhI7W8KLFP51pGA0I8IBDy
+	bFonfiD+YWhXHZfyEbPeVnU45QaFlQHxmX1TEZ/Eezr6kHOB/cm/G7y/+KQ3/KNciRkvylntZI+1U
+	ZcM3Zahf0TWIzVsVDjIwVYWXwe3xfrh4Jz1S1jVM5F++g8VOiZTk5gJsb97MsUKLRo7P5+ppotvqZ
+	6FHNzUy19li2/Oor1Nmg0ZdTukHHppBU5qOkwgdm33OKnG6ToX5pFH+jB9ZlPulyi0ke3vBun0FDx
+	hL6TlW0ig==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kPo1C-000684-54; Tue, 06 Oct 2020 14:32:42 +0000
-Received: from mail-oi1-x243.google.com ([2607:f8b0:4864:20::243])
+	id 1kPq79-0000tG-1p; Tue, 06 Oct 2020 16:46:59 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kPo15-000661-I3; Tue, 06 Oct 2020 14:32:38 +0000
-Received: by mail-oi1-x243.google.com with SMTP id u126so12760216oif.13;
- Tue, 06 Oct 2020 07:32:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=sender:subject:to:cc:references:from:autocrypt:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=UoNaoUaTCMTDCiGTknlcOmAM3Futp5tqRsa1U1r5e9E=;
- b=sKAkVjTo3odSgHiwmP1rDW8JAehtowuci7KRMfr5j6unTSnJZ5s0FZeKicg5RfuQxa
- 0+kzIwTyD8J9p0dpl+IAEQSF6DptLBGhgV51V53QgjLDQ9RsgzUXHf+kf7BG0aEGcQz7
- KsAl5cW1o2UZHPFrvKiXx6eIZpVy7k/UyXJctdeYDMGho4EoyaW35LlwOF4SaNfHQbiJ
- zQq5a/K2TunqxQpVhYAsIHqkoSdbG0vlu1VdZx/zyiD4HSOySj6O0C3guaZDzkYrbRPq
- Wglm96N6CPxwZx72qNOeAw8i07G3YqC7fTKK+nQ+PZL3QB+GCGjAm4jJI265p3cYVcSI
- 8xIA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:sender:subject:to:cc:references:from:autocrypt
- :message-id:date:user-agent:mime-version:in-reply-to
- :content-language:content-transfer-encoding;
- bh=UoNaoUaTCMTDCiGTknlcOmAM3Futp5tqRsa1U1r5e9E=;
- b=iDB9TVeMUbX4dgeqmQ0EuzMA1blZXzxIkvqTyal54KkIJf2cnkZlAcXnsQrdLLLPTy
- GP2uVwV9Gi1r/Yx63fl8XfegW7YBSpX+aZOo9GB7RzJFAPGHwxhwrP/4qWTFxar0KfGL
- sRpHT/JL5SRoU3rH4jOn4Nh3lBAfAf8GeEMlYTaGmIoTN3F96VuHfuEXZ/aztHSXVDi9
- fKRQ8IB7GY4NMTbo7ysnc6UWT0E3HS6FgWLlVqeSsqOOh4WjlGm6rVvN8P0lxWEQljmn
- XnhHrMlsccxi9Na0ezIEHygSSAvoPKqaTbYopRJwuYvAucEOEIkvj+oKwomg3LryMLDF
- 91Cg==
-X-Gm-Message-State: AOAM533+FAq3GBiqSZ2P5pfpnkIGipCmNlKbzMkt7u82ekcAnqah8url
- X2XtSXF22RN+8tFw7xnCyik=
-X-Google-Smtp-Source: ABdhPJzya6lh3Oq83ny18wnrwHMER1Mx0kX4Mqu2arBEPssMY3MyHpoyGJIs0ifmRfkjl56l9szssQ==
-X-Received: by 2002:aca:6209:: with SMTP id w9mr2906691oib.68.1601994753150;
- Tue, 06 Oct 2020 07:32:33 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
- by smtp.gmail.com with ESMTPSA id
- a11sm1021816oid.18.2020.10.06.07.32.22
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Tue, 06 Oct 2020 07:32:32 -0700 (PDT)
-Subject: Re: [PATCH 2/4] dt-bindings: Use 'additionalProperties' instead of
- 'unevaluatedProperties'
-To: Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20201005183830.486085-1-robh@kernel.org>
- <20201005183830.486085-3-robh@kernel.org>
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- xsFNBE6H1WcBEACu6jIcw5kZ5dGeJ7E7B2uweQR/4FGxH10/H1O1+ApmcQ9i87XdZQiB9cpN
- RYHA7RCEK2dh6dDccykQk3bC90xXMPg+O3R+C/SkwcnUak1UZaeK/SwQbq/t0tkMzYDRxfJ7
- nyFiKxUehbNF3r9qlJgPqONwX5vJy4/GvDHdddSCxV41P/ejsZ8PykxyJs98UWhF54tGRWFl
- 7i1xvaDB9lN5WTLRKSO7wICuLiSz5WZHXMkyF4d+/O5ll7yz/o/JxK5vO/sduYDIlFTvBZDh
- gzaEtNf5tQjsjG4io8E0Yq0ViobLkS2RTNZT8ICq/Jmvl0SpbHRvYwa2DhNsK0YjHFQBB0FX
- IdhdUEzNefcNcYvqigJpdICoP2e4yJSyflHFO4dr0OrdnGLe1Zi/8Xo/2+M1dSSEt196rXaC
- kwu2KgIgmkRBb3cp2vIBBIIowU8W3qC1+w+RdMUrZxKGWJ3juwcgveJlzMpMZNyM1jobSXZ0
- VHGMNJ3MwXlrEFPXaYJgibcg6brM6wGfX/LBvc/haWw4yO24lT5eitm4UBdIy9pKkKmHHh7s
- jfZJkB5fWKVdoCv/omy6UyH6ykLOPFugl+hVL2Prf8xrXuZe1CMS7ID9Lc8FaL1ROIN/W8Vk
- BIsJMaWOhks//7d92Uf3EArDlDShwR2+D+AMon8NULuLBHiEUQARAQABzTJHdWVudGVyIFJv
- ZWNrIChMaW51eCBhY2NvdW50KSA8bGludXhAcm9lY2stdXMubmV0PsLBgQQTAQIAKwIbAwYL
- CQgHAwIGFQgCCQoLBBYCAwECHgECF4ACGQEFAlVcphcFCRmg06EACgkQyx8mb86fmYFg0RAA
- nzXJzuPkLJaOmSIzPAqqnutACchT/meCOgMEpS5oLf6xn5ySZkl23OxuhpMZTVX+49c9pvBx
- hpvl5bCWFu5qC1jC2eWRYU+aZZE4sxMaAGeWenQJsiG9lP8wkfCJP3ockNu0ZXXAXwIbY1O1
- c+l11zQkZw89zNgWgKobKzrDMBFOYtAh0pAInZ9TSn7oA4Ctejouo5wUugmk8MrDtUVXmEA9
- 7f9fgKYSwl/H7dfKKsS1bDOpyJlqhEAH94BHJdK/b1tzwJCFAXFhMlmlbYEk8kWjcxQgDWMu
- GAthQzSuAyhqyZwFcOlMCNbAcTSQawSo3B9yM9mHJne5RrAbVz4TWLnEaX8gA5xK3uCNCeyI
- sqYuzA4OzcMwnnTASvzsGZoYHTFP3DQwf2nzxD6yBGCfwNGIYfS0i8YN8XcBgEcDFMWpOQhT
- Pu3HeztMnF3HXrc0t7e5rDW9zCh3k2PA6D2NV4fews9KDFhLlTfCVzf0PS1dRVVWM+4jVl6l
- HRIAgWp+2/f8dx5vPc4Ycp4IsZN0l1h9uT7qm1KTwz+sSl1zOqKD/BpfGNZfLRRxrXthvvY8
- BltcuZ4+PGFTcRkMytUbMDFMF9Cjd2W9dXD35PEtvj8wnEyzIos8bbgtLrGTv/SYhmPpahJA
- l8hPhYvmAvpOmusUUyB30StsHIU2LLccUPPOwU0ETofVZwEQALlLbQeBDTDbwQYrj0gbx3bq
- 7kpKABxN2MqeuqGr02DpS9883d/t7ontxasXoEz2GTioevvRmllJlPQERVxM8gQoNg22twF7
- pB/zsrIjxkE9heE4wYfN1AyzT+AxgYN6f8hVQ7Nrc9XgZZe+8IkuW/Nf64KzNJXnSH4u6nJM
- J2+Dt274YoFcXR1nG76Q259mKwzbCukKbd6piL+VsT/qBrLhZe9Ivbjq5WMdkQKnP7gYKCAi
- pNVJC4enWfivZsYupMd9qn7Uv/oCZDYoBTdMSBUblaLMwlcjnPpOYK5rfHvC4opxl+P/Vzyz
- 6WC2TLkPtKvYvXmdsI6rnEI4Uucg0Au/Ulg7aqqKhzGPIbVaL+U0Wk82nz6hz+WP2ggTrY1w
- ZlPlRt8WM9w6WfLf2j+PuGklj37m+KvaOEfLsF1v464dSpy1tQVHhhp8LFTxh/6RWkRIR2uF
- I4v3Xu/k5D0LhaZHpQ4C+xKsQxpTGuYh2tnRaRL14YMW1dlI3HfeB2gj7Yc8XdHh9vkpPyuT
- nY/ZsFbnvBtiw7GchKKri2gDhRb2QNNDyBnQn5mRFw7CyuFclAksOdV/sdpQnYlYcRQWOUGY
- HhQ5eqTRZjm9z+qQe/T0HQpmiPTqQcIaG/edgKVTUjITfA7AJMKLQHgp04Vylb+G6jocnQQX
- JqvvP09whbqrABEBAAHCwWUEGAECAA8CGwwFAlVcpi8FCRmg08MACgkQyx8mb86fmYHNRQ/+
- J0OZsBYP4leJvQF8lx9zif+v4ZY/6C9tTcUv/KNAE5leyrD4IKbnV4PnbrVhjq861it/zRQW
- cFpWQszZyWRwNPWUUz7ejmm9lAwPbr8xWT4qMSA43VKQ7ZCeTQJ4TC8kjqtcbw41SjkjrcTG
- wF52zFO4bOWyovVAPncvV9eGA/vtnd3xEZXQiSt91kBSqK28yjxAqK/c3G6i7IX2rg6pzgqh
- hiH3/1qM2M/LSuqAv0Rwrt/k+pZXE+B4Ud42hwmMr0TfhNxG+X7YKvjKC+SjPjqp0CaztQ0H
- nsDLSLElVROxCd9m8CAUuHplgmR3seYCOrT4jriMFBtKNPtj2EE4DNV4s7k0Zy+6iRQ8G8ng
- QjsSqYJx8iAR8JRB7Gm2rQOMv8lSRdjva++GT0VLXtHULdlzg8VjDnFZ3lfz5PWEOeIMk7Rj
- trjv82EZtrhLuLjHRCaG50OOm0hwPSk1J64R8O3HjSLdertmw7eyAYOo4RuWJguYMg5DRnBk
- WkRwrSuCn7UG+qVWZeKEsFKFOkynOs3pVbcbq1pxbhk3TRWCGRU5JolI4ohy/7JV1TVbjiDI
- HP/aVnm6NC8of26P40Pg8EdAhajZnHHjA7FrJXsy3cyIGqvg9os4rNkUWmrCfLLsZDHD8FnU
- mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
-Message-ID: <d0ebc3f9-3497-3718-4b61-bd50b0fa0d5b@roeck-us.net>
-Date: Tue, 6 Oct 2020 07:32:20 -0700
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.10.0
+ id 1kPq76-0000rr-44
+ for linux-riscv@lists.infradead.org; Tue, 06 Oct 2020 16:46:57 +0000
+Received: from mail-lf1-f46.google.com (mail-lf1-f46.google.com
+ [209.85.167.46])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 2F72F2075A
+ for <linux-riscv@lists.infradead.org>; Tue,  6 Oct 2020 16:46:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1602002814;
+ bh=6N+wobMAF8IDk/3qDidkLTePM+37ZvHyxc4HmXmoJ1c=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=BF9Y+dblnnqOoSkiL8Cu4L+HICS17ElwDmAcgBEhWIW0dK9tYf7dz5YiIFggv2lR4
+ R4wad3CFaPcdR0am35OTcuG7bD1vJOrcwe6UAF3WYDnrwhsy9aiA1tpcbgfA+yaxIc
+ qEsTKDBh+N3Os2f049MjERzQ03NlRgf/RBsOK5nY=
+Received: by mail-lf1-f46.google.com with SMTP id z19so15827402lfr.4
+ for <linux-riscv@lists.infradead.org>; Tue, 06 Oct 2020 09:46:54 -0700 (PDT)
+X-Gm-Message-State: AOAM533iA1EEDNPts/2xYo/8Ewe8b23drwvyNi6C7R7Yagl6U6O+r6pq
+ xj/gTL4s7vU0yt3R5jtNFIz1kcAHysD/aBFmKv0=
+X-Google-Smtp-Source: ABdhPJwtmt0yVvix028cPsVw2WUiutEQ6nut7CVVXsWMH1AsUC4wFfHGzamo+vtertKc8n/lduNuaP6Rc5riToZ+vuI=
+X-Received: by 2002:a19:7508:: with SMTP id y8mr771313lfe.540.1602002812413;
+ Tue, 06 Oct 2020 09:46:52 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20201005183830.486085-3-robh@kernel.org>
-Content-Language: en-US
+References: <1593266228-61125-1-git-send-email-guoren@kernel.org>
+ <1593266228-61125-2-git-send-email-guoren@kernel.org>
+ <20200911204512.GA2705@aurel32.net>
+ <CAJF2gTQiLV8sDE5cnvP=aBog4zaiMvMeieg_JtXwRODky1u3Hg@mail.gmail.com>
+ <20200914103836.GB2705@aurel32.net> <87lfgzeidk.fsf@igel.home>
+ <CAJF2gTQ8ONde3GRhQgx2Nqvb5X20nTmW8jZEemZKhezRDzP3aQ@mail.gmail.com>
+ <CAOnJCUJhb2K89pRETbfTJ=5jHQhWfyfrOUu8zOE77j+id6OpSA@mail.gmail.com>
+In-Reply-To: <CAOnJCUJhb2K89pRETbfTJ=5jHQhWfyfrOUu8zOE77j+id6OpSA@mail.gmail.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Wed, 7 Oct 2020 00:46:40 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTRc-RUBiQ=ZE7BT8tABHu3=Bcmuc+ADyBLZ7r7fozwahg@mail.gmail.com>
+Message-ID: <CAJF2gTRc-RUBiQ=ZE7BT8tABHu3=Bcmuc+ADyBLZ7r7fozwahg@mail.gmail.com>
+Subject: Re: [PATCH V2 1/3] riscv: Fixup static_obj() fail
+To: Atish Patra <atishp@atishpatra.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201006_103235_633266_C05E81B4 
-X-CRM114-Status: GOOD (  23.29  )
+X-CRM114-CacheID: sfid-20201006_124656_370023_EC12ACEA 
+X-CRM114-Status: GOOD (  32.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -145,608 +87,150 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Andrew Lunn <andrew@lunn.ch>, Ulf Hansson <ulf.hansson@linaro.org>,
- linux-usb@vger.kernel.org, Peter Meerwald-Stadler <pmeerw@pmeerw.net>,
- Sam Ravnborg <sam@ravnborg.org>, linux-pwm@vger.kernel.org,
- linux-iio@vger.kernel.org, Viresh Kumar <vireshk@kernel.org>,
- Linus Walleij <linus.walleij@linaro.org>, linux-pci@vger.kernel.org,
- dri-devel@lists.freedesktop.org, Sebastian Reichel <sre@kernel.org>,
- linux-ide@vger.kernel.org, Thierry Reding <thierry.reding@gmail.com>,
- Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Pavel Machek <pavel@ucw.cz>, Miquel Raynal <miquel.raynal@bootlin.com>,
- linux-riscv@lists.infradead.org, Lee Jones <lee.jones@linaro.org>,
- linux-clk@vger.kernel.org, linux-leds@vger.kernel.org,
- Vignesh Raghavendra <vigneshr@ti.com>, linux-rtc@vger.kernel.org,
- Lars-Peter Clausen <lars@metafoo.de>, Marc Zyngier <maz@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Krzysztof Kozlowski <krzk@kernel.org>, Chanwoo Choi <cw00.choi@samsung.com>,
- MyungJoo Ham <myungjoo.ham@samsung.com>, linux-serial@vger.kernel.org,
- linux-input@vger.kernel.org, Jakub Kicinski <kuba@kernel.org>,
- Zhang Rui <rui.zhang@intel.com>, linux-mips@vger.kernel.org,
- Vivien Didelot <vivien.didelot@gmail.com>,
- Wolfgang Grandegger <wg@grandegger.com>, linux-media@vger.kernel.org,
- linux-hwmon@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
- Jason Cooper <jason@lakedaemon.net>, linux-pm@vger.kernel.org,
- linux-can@vger.kernel.org, linux-gpio@vger.kernel.org,
- Mark Brown <broonie@kernel.org>, Marc Kleine-Budde <mkl@pengutronix.de>,
- Paul Walmsley <paul.walmsley@sifive.com>, Bjorn Helgaas <bhelgaas@google.com>,
- Thomas Gleixner <tglx@linutronix.de>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- linux-arm-kernel@lists.infradead.org, Jens Axboe <axboe@kernel.dk>,
- Alessandro Zummo <a.zummo@towertech.it>, linux-watchdog@vger.kernel.org,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Mathieu Poirier <mathieu.poirier@linaro.org>, Stephen Boyd <sboyd@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Dmitry Torokhov <dmitry.torokhov@gmail.com>, linux-mmc@vger.kernel.org,
- Liam Girdwood <lgirdwood@gmail.com>, linux-spi@vger.kernel.org,
- linux-i2c@vger.kernel.org, Vinod Koul <vkoul@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Wim Van Sebroeck <wim@linux-watchdog.org>,
- Richard Weinberger <richard@nod.at>, dmaengine@vger.kernel.org,
- linux-mtd@lists.infradead.org, "David S. Miller" <davem@davemloft.net>,
- Jonathan Cameron <jic23@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Tycho Andersen <tycho@tycho.ws>, Albert Ou <aou@eecs.berkeley.edu>,
+ Nick Hu <nickhu@andestech.com>, Anup Patel <anup@brainfault.org>,
+ Palmer Dabbelt <palmerdabbelt@google.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-csky@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>,
+ Andreas Schwab <schwab@linux-m68k.org>, Zong Li <zong.li@sifive.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Greentime Hu <greentime.hu@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
+ linux-riscv <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/5/20 11:38 AM, Rob Herring wrote:
-> In cases where we don't reference another schema, 'additionalProperties'
-> can be used instead. This is preferred for now as 'unevaluatedProperties'
-> support isn't implemented yet.
-> 
-> In a few cases, this means adding some missing property definitions of
-> which most are for SPI bus properties. 'unevaluatedProperties' is not going
-> to work for the SPI bus properties anyways as they are evaluated from the
-> parent node, not the SPI child node.
-> 
-> Signed-off-by: Rob Herring <robh@kernel.org>
-> ---
->  .../devicetree/bindings/clock/baikal,bt1-ccu-div.yaml  |  6 +++++-
->  .../devicetree/bindings/clock/baikal,bt1-ccu-pll.yaml  |  2 +-
->  .../devicetree/bindings/clock/imx8m-clock.yaml         |  2 +-
->  .../devicetree/bindings/hwmon/baikal,bt1-pvt.yaml      |  4 ++--
+On Tue, Oct 6, 2020 at 3:14 AM Atish Patra <atishp@atishpatra.org> wrote:
+>
+> On Thu, Sep 24, 2020 at 9:19 AM Guo Ren <guoren@kernel.org> wrote:
+> >
+> > How about this, revert the commit and don't free INIT_DATA_SECTION. I
+> > think the solution is safe enough, but wast a little memory.
+> >
+> > diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
+> > index f3586e3..34d00d9 100644
+> > --- a/arch/riscv/kernel/vmlinux.lds.S
+> > +++ b/arch/riscv/kernel/vmlinux.lds.S
+> > @@ -22,13 +22,11 @@ SECTIONS
+> >         /* Beginning of code and text segment */
+> >         . = LOAD_OFFSET;
+> >         _start = .;
+> > -       _stext = .;
+> >         HEAD_TEXT_SECTION
+> >         . = ALIGN(PAGE_SIZE);
+> >
+> >         __init_begin = .;
+> >         INIT_TEXT_SECTION(PAGE_SIZE)
+> > -       INIT_DATA_SECTION(16)
+> >         . = ALIGN(8);
+> >         __soc_early_init_table : {
+> >                 __soc_early_init_table_start = .;
+> > @@ -55,6 +53,7 @@ SECTIONS
+> >         . = ALIGN(SECTION_ALIGN);
+> >         .text : {
+> >                 _text = .;
+> > +               _stext = .;
+> >                 TEXT_TEXT
+> >                 SCHED_TEXT
+> >                 CPUIDLE_TEXT
+> > @@ -67,6 +66,8 @@ SECTIONS
+> >                 _etext = .;
+> >         }
+> >
+> > +       INIT_DATA_SECTION(16)
+> > +
+>
+> I think you need to move EXIT_DATA as well. Currently, we have init
+> data & text in one section.
+It's not related to this issue. There is two check code problem:
+ 1.     static int static_obj(const void *obj)
+    {
+            unsigned long start = (unsigned long) &_stext,
+                          end   = (unsigned long) &_end,
+                          addr  = (unsigned long) obj;
 
-For hwmon:
+            /*
+             * static variable?
+             */
+            if ((addr >= start) && (addr < end))
+                    return 1;
 
-Acked-by: Guenter Roeck <linux@roeck-us.net>
+ 2.     /* Is this address range in the kernel text area? */
+    static inline void check_kernel_text_object(const unsigned long ptr,
+                                                unsigned long n, bool to_user)
+    {
+            unsigned long textlow = (unsigned long)_stext;
+            unsigned long texthigh = (unsigned long)_etext;
+            unsigned long textlow_linear, texthigh_linear;
 
->  .../devicetree/bindings/iio/accel/adi,adis16240.yaml   |  4 +++-
->  .../devicetree/bindings/iio/accel/adi,adxl345.yaml     |  4 +++-
->  .../devicetree/bindings/iio/accel/adi,adxl372.yaml     |  4 +++-
->  .../devicetree/bindings/iio/adc/adi,ad7124.yaml        |  4 +++-
->  .../devicetree/bindings/iio/adc/adi,ad7192.yaml        |  4 +++-
->  .../devicetree/bindings/iio/adc/adi,ad7292.yaml        |  4 +++-
->  .../devicetree/bindings/iio/adc/adi,ad7606.yaml        |  6 +++++-
->  .../devicetree/bindings/iio/adc/adi,ad7923.yaml        |  4 +++-
->  .../devicetree/bindings/iio/adc/maxim,max1241.yaml     |  4 +++-
->  .../devicetree/bindings/iio/dac/adi,ad5770r.yaml       | 10 +++++++++-
->  .../devicetree/bindings/iio/frequency/adf4371.yaml     |  4 +++-
->  .../devicetree/bindings/iio/imu/adi,adis16460.yaml     |  4 +++-
->  .../devicetree/bindings/iio/imu/adi,adis16475.yaml     |  2 +-
->  .../devicetree/bindings/iio/imu/bosch,bmi160.yaml      |  4 +++-
->  .../devicetree/bindings/iio/imu/nxp,fxos8700.yaml      |  4 +++-
->  .../bindings/interrupt-controller/mti,gic.yaml         |  2 +-
->  .../devicetree/bindings/mfd/cirrus,lochnagar.yaml      | 10 +++++++++-
->  .../bindings/mfd/ti,j721e-system-controller.yaml       |  5 ++++-
->  .../devicetree/bindings/misc/olpc,xo1.75-ec.yaml       |  4 +++-
->  .../opp/allwinner,sun50i-h6-operating-points.yaml      |  4 +++-
->  .../bindings/regulator/qcom-labibb-regulator.yaml      |  2 +-
->  .../devicetree/bindings/timer/snps,dw-apb-timer.yaml   |  2 +-
->  26 files changed, 82 insertions(+), 27 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/clock/baikal,bt1-ccu-div.yaml b/Documentation/devicetree/bindings/clock/baikal,bt1-ccu-div.yaml
-> index 2821425ee445..bd4cefbb1244 100644
-> --- a/Documentation/devicetree/bindings/clock/baikal,bt1-ccu-div.yaml
-> +++ b/Documentation/devicetree/bindings/clock/baikal,bt1-ccu-div.yaml
-> @@ -134,7 +134,11 @@ properties:
->    "#reset-cells":
->      const: 1
->  
-> -unevaluatedProperties: false
-> +  clocks: true
-> +
-> +  clock-names: true
-> +
-> +additionalProperties: false
->  
->  required:
->    - compatible
-> diff --git a/Documentation/devicetree/bindings/clock/baikal,bt1-ccu-pll.yaml b/Documentation/devicetree/bindings/clock/baikal,bt1-ccu-pll.yaml
-> index 97131bfa6f87..624984d51c10 100644
-> --- a/Documentation/devicetree/bindings/clock/baikal,bt1-ccu-pll.yaml
-> +++ b/Documentation/devicetree/bindings/clock/baikal,bt1-ccu-pll.yaml
-> @@ -101,7 +101,7 @@ properties:
->    clock-names:
->      const: ref_clk
->  
-> -unevaluatedProperties: false
-> +additionalProperties: false
->  
->  required:
->    - compatible
-> diff --git a/Documentation/devicetree/bindings/clock/imx8m-clock.yaml b/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
-> index 31e7cc9693c3..625f573a7b90 100644
-> --- a/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
-> +++ b/Documentation/devicetree/bindings/clock/imx8m-clock.yaml
-> @@ -96,7 +96,7 @@ allOf:
->              - const: clk_ext3
->              - const: clk_ext4
->  
-> -unevaluatedProperties: false
-> +additionalProperties: false
->  
->  examples:
->    # Clock Control Module node:
-> diff --git a/Documentation/devicetree/bindings/hwmon/baikal,bt1-pvt.yaml b/Documentation/devicetree/bindings/hwmon/baikal,bt1-pvt.yaml
-> index 84ae4cdd08ed..00a6511354e6 100644
-> --- a/Documentation/devicetree/bindings/hwmon/baikal,bt1-pvt.yaml
-> +++ b/Documentation/devicetree/bindings/hwmon/baikal,bt1-pvt.yaml
-> @@ -79,7 +79,7 @@ properties:
->        minimum: 0
->        maximum: 7130
->  
-> -unevaluatedProperties: false
-> +additionalProperties: false
->  
->  required:
->    - compatible
-> @@ -99,7 +99,7 @@ examples:
->  
->        interrupts = <GIC_SHARED 31 IRQ_TYPE_LEVEL_HIGH>;
->  
-> -      baikal,pvt-temp-trim-millicelsius = <1000>;
-> +      baikal,pvt-temp-offset-millicelsius = <1000>;
->  
->        clocks = <&ccu_sys>, <&ccu_sys>;
->        clock-names = "ref", "pclk";
-> diff --git a/Documentation/devicetree/bindings/iio/accel/adi,adis16240.yaml b/Documentation/devicetree/bindings/iio/accel/adi,adis16240.yaml
-> index 8589b722028d..4fcbfd93e218 100644
-> --- a/Documentation/devicetree/bindings/iio/accel/adi,adis16240.yaml
-> +++ b/Documentation/devicetree/bindings/iio/accel/adi,adis16240.yaml
-> @@ -25,12 +25,14 @@ properties:
->    interrupts:
->      maxItems: 1
->  
-> +  spi-max-frequency: true
-> +
->  required:
->    - compatible
->    - reg
->    - interrupts
->  
-> -unevaluatedProperties: false
-> +additionalProperties: false
->  
->  examples:
->    - |
-> diff --git a/Documentation/devicetree/bindings/iio/accel/adi,adxl345.yaml b/Documentation/devicetree/bindings/iio/accel/adi,adxl345.yaml
-> index 591ca32181b0..11d32a288535 100644
-> --- a/Documentation/devicetree/bindings/iio/accel/adi,adxl345.yaml
-> +++ b/Documentation/devicetree/bindings/iio/accel/adi,adxl345.yaml
-> @@ -32,6 +32,8 @@ properties:
->  
->    spi-cpol: true
->  
-> +  spi-max-frequency: true
-> +
->    interrupts:
->      maxItems: 1
->  
-> @@ -40,7 +42,7 @@ required:
->    - reg
->    - interrupts
->  
-> -unevaluatedProperties: false
-> +additionalProperties: false
->  
->  examples:
->    - |
-> diff --git a/Documentation/devicetree/bindings/iio/accel/adi,adxl372.yaml b/Documentation/devicetree/bindings/iio/accel/adi,adxl372.yaml
-> index 64f275c8e2d9..38b59b6454ce 100644
-> --- a/Documentation/devicetree/bindings/iio/accel/adi,adxl372.yaml
-> +++ b/Documentation/devicetree/bindings/iio/accel/adi,adxl372.yaml
-> @@ -25,12 +25,14 @@ properties:
->    interrupts:
->      maxItems: 1
->  
-> +  spi-max-frequency: true
-> +
->  required:
->    - compatible
->    - reg
->    - interrupts
->  
-> -unevaluatedProperties: false
-> +additionalProperties: false
->  
->  examples:
->    - |
-> diff --git a/Documentation/devicetree/bindings/iio/adc/adi,ad7124.yaml b/Documentation/devicetree/bindings/iio/adc/adi,ad7124.yaml
-> index d0d2880626c2..f1c574c896cb 100644
-> --- a/Documentation/devicetree/bindings/iio/adc/adi,ad7124.yaml
-> +++ b/Documentation/devicetree/bindings/iio/adc/adi,ad7124.yaml
-> @@ -52,6 +52,8 @@ properties:
->    avdd-supply:
->      description: avdd supply can be used as reference for conversion.
->  
-> +  spi-max-frequency: true
-> +
->  required:
->    - compatible
->    - reg
-> @@ -108,7 +110,7 @@ patternProperties:
->        - reg
->        - diff-channels
->  
-> -unevaluatedProperties: false
-> +additionalProperties: false
->  
->  examples:
->    - |
-> diff --git a/Documentation/devicetree/bindings/iio/adc/adi,ad7192.yaml b/Documentation/devicetree/bindings/iio/adc/adi,ad7192.yaml
-> index ed363a796e50..e0cc3b2e8957 100644
-> --- a/Documentation/devicetree/bindings/iio/adc/adi,ad7192.yaml
-> +++ b/Documentation/devicetree/bindings/iio/adc/adi,ad7192.yaml
-> @@ -30,6 +30,8 @@ properties:
->  
->    spi-cpha: true
->  
-> +  spi-max-frequency: true
-> +
->    clocks:
->      maxItems: 1
->      description: phandle to the master clock (mclk)
-> @@ -92,7 +94,7 @@ required:
->    - spi-cpol
->    - spi-cpha
->  
-> -unevaluatedProperties: false
-> +additionalProperties: false
->  
->  examples:
->    - |
-> diff --git a/Documentation/devicetree/bindings/iio/adc/adi,ad7292.yaml b/Documentation/devicetree/bindings/iio/adc/adi,ad7292.yaml
-> index 55e973c6449c..108d202b288f 100644
-> --- a/Documentation/devicetree/bindings/iio/adc/adi,ad7292.yaml
-> +++ b/Documentation/devicetree/bindings/iio/adc/adi,ad7292.yaml
-> @@ -30,6 +30,8 @@ properties:
->  
->    spi-cpha: true
->  
-> +  spi-max-frequency: true
-> +
->    '#address-cells':
->      const: 1
->  
-> @@ -63,7 +65,7 @@ patternProperties:
->      required:
->        - reg
->  
-> -unevaluatedProperties: false
-> +additionalProperties: false
->  
->  examples:
->    - |
-> diff --git a/Documentation/devicetree/bindings/iio/adc/adi,ad7606.yaml b/Documentation/devicetree/bindings/iio/adc/adi,ad7606.yaml
-> index 014b020ed0c2..73775174cf57 100644
-> --- a/Documentation/devicetree/bindings/iio/adc/adi,ad7606.yaml
-> +++ b/Documentation/devicetree/bindings/iio/adc/adi,ad7606.yaml
-> @@ -31,6 +31,10 @@ properties:
->  
->    spi-cpha: true
->  
-> +  spi-cpol: true
-> +
-> +  spi-max-frequency: true
-> +
->    avcc-supply: true
->  
->    interrupts:
-> @@ -102,7 +106,7 @@ required:
->    - interrupts
->    - adi,conversion-start-gpios
->  
-> -unevaluatedProperties: false
-> +additionalProperties: false
->  
->  examples:
->    - |
-> diff --git a/Documentation/devicetree/bindings/iio/adc/adi,ad7923.yaml b/Documentation/devicetree/bindings/iio/adc/adi,ad7923.yaml
-> index 2a17641faed5..e82194974eea 100644
-> --- a/Documentation/devicetree/bindings/iio/adc/adi,ad7923.yaml
-> +++ b/Documentation/devicetree/bindings/iio/adc/adi,ad7923.yaml
-> @@ -43,11 +43,13 @@ properties:
->    '#size-cells':
->      const: 0
->  
-> +  spi-max-frequency: true
-> +
->  required:
->    - compatible
->    - reg
->  
-> -unevaluatedProperties: false
-> +additionalProperties: false
->  
->  examples:
->    - |
-> diff --git a/Documentation/devicetree/bindings/iio/adc/maxim,max1241.yaml b/Documentation/devicetree/bindings/iio/adc/maxim,max1241.yaml
-> index 181213b862db..4c7e0d94bff1 100644
-> --- a/Documentation/devicetree/bindings/iio/adc/maxim,max1241.yaml
-> +++ b/Documentation/devicetree/bindings/iio/adc/maxim,max1241.yaml
-> @@ -39,13 +39,15 @@ properties:
->        thus enabling power-down mode.
->      maxItems: 1
->  
-> +  spi-max-frequency: true
-> +
->  required:
->    - compatible
->    - reg
->    - vdd-supply
->    - vref-supply
->  
-> -unevaluatedProperties: false
-> +additionalProperties: false
->  
->  examples:
->    - |
-> diff --git a/Documentation/devicetree/bindings/iio/dac/adi,ad5770r.yaml b/Documentation/devicetree/bindings/iio/dac/adi,ad5770r.yaml
-> index faef288b7148..fb2c48fc7ce4 100644
-> --- a/Documentation/devicetree/bindings/iio/dac/adi,ad5770r.yaml
-> +++ b/Documentation/devicetree/bindings/iio/dac/adi,ad5770r.yaml
-> @@ -49,6 +49,14 @@ properties:
->        asserted during driver probe.
->      maxItems: 1
->  
-> +  spi-max-frequency: true
-> +
-> +  '#address-cells':
-> +    const: 1
-> +
-> +  '#size-cells':
-> +    const: 0
-> +
->    channel@0:
->      description: Represents an external channel which are
->        connected to the DAC. Channel 0 can act both as a current
-> @@ -130,7 +138,7 @@ required:
->    - channel@4
->    - channel@5
->  
-> -unevaluatedProperties: false
-> +additionalProperties: false
->  
->  examples:
->    - |
-> diff --git a/Documentation/devicetree/bindings/iio/frequency/adf4371.yaml b/Documentation/devicetree/bindings/iio/frequency/adf4371.yaml
-> index 11d445f7010e..6b3a611e1cf1 100644
-> --- a/Documentation/devicetree/bindings/iio/frequency/adf4371.yaml
-> +++ b/Documentation/devicetree/bindings/iio/frequency/adf4371.yaml
-> @@ -40,13 +40,15 @@ properties:
->        output stage will shut down until the ADF4371/ADF4372 achieves lock as
->        measured by the digital lock detect circuitry.
->  
-> +  spi-max-frequency: true
-> +
->  required:
->    - compatible
->    - reg
->    - clocks
->    - clock-names
->  
-> -unevaluatedProperties: false
-> +additionalProperties: false
->  
->  examples:
->    - |
-> diff --git a/Documentation/devicetree/bindings/iio/imu/adi,adis16460.yaml b/Documentation/devicetree/bindings/iio/imu/adi,adis16460.yaml
-> index 07c8ed4ee0f1..340be256f283 100644
-> --- a/Documentation/devicetree/bindings/iio/imu/adi,adis16460.yaml
-> +++ b/Documentation/devicetree/bindings/iio/imu/adi,adis16460.yaml
-> @@ -25,6 +25,8 @@ properties:
->  
->    spi-cpol: true
->  
-> +  spi-max-frequency: true
-> +
->    interrupts:
->      maxItems: 1
->  
-> @@ -33,7 +35,7 @@ required:
->    - reg
->    - interrupts
->  
-> -unevaluatedProperties: false
-> +additionalProperties: false
->  
->  examples:
->    - |
-> diff --git a/Documentation/devicetree/bindings/iio/imu/adi,adis16475.yaml b/Documentation/devicetree/bindings/iio/imu/adi,adis16475.yaml
-> index c29385697bbf..79fba1508e89 100644
-> --- a/Documentation/devicetree/bindings/iio/imu/adi,adis16475.yaml
-> +++ b/Documentation/devicetree/bindings/iio/imu/adi,adis16475.yaml
-> @@ -116,7 +116,7 @@ allOf:
->        dependencies:
->          adi,sync-mode: [ clocks ]
->  
-> -unevaluatedProperties: false
-> +additionalProperties: false
->  
->  examples:
->    - |
-> diff --git a/Documentation/devicetree/bindings/iio/imu/bosch,bmi160.yaml b/Documentation/devicetree/bindings/iio/imu/bosch,bmi160.yaml
-> index 4f215399c8df..6e73cd889b5c 100644
-> --- a/Documentation/devicetree/bindings/iio/imu/bosch,bmi160.yaml
-> +++ b/Documentation/devicetree/bindings/iio/imu/bosch,bmi160.yaml
-> @@ -46,11 +46,13 @@ properties:
->    mount-matrix:
->      description: an optional 3x3 mounting rotation matrix
->  
-> +  spi-max-frequency: true
-> +
->  required:
->    - compatible
->    - reg
->  
-> -unevaluatedProperties: false
-> +additionalProperties: false
->  
->  examples:
->    - |
-> diff --git a/Documentation/devicetree/bindings/iio/imu/nxp,fxos8700.yaml b/Documentation/devicetree/bindings/iio/imu/nxp,fxos8700.yaml
-> index 716731c2b794..479e7065d4eb 100644
-> --- a/Documentation/devicetree/bindings/iio/imu/nxp,fxos8700.yaml
-> +++ b/Documentation/devicetree/bindings/iio/imu/nxp,fxos8700.yaml
-> @@ -36,11 +36,13 @@ properties:
->    drive-open-drain:
->      type: boolean
->  
-> +  spi-max-frequency: true
-> +
->  required:
->    - compatible
->    - reg
->  
-> -unevaluatedProperties: false
-> +additionalProperties: false
->  
->  examples:
->    - |
-> diff --git a/Documentation/devicetree/bindings/interrupt-controller/mti,gic.yaml b/Documentation/devicetree/bindings/interrupt-controller/mti,gic.yaml
-> index ce6aaff15214..039e08af98bb 100644
-> --- a/Documentation/devicetree/bindings/interrupt-controller/mti,gic.yaml
-> +++ b/Documentation/devicetree/bindings/interrupt-controller/mti,gic.yaml
-> @@ -95,7 +95,7 @@ properties:
->  
->      additionalProperties: false
->  
-> -unevaluatedProperties: false
-> +additionalProperties: false
->  
->  required:
->    - compatible
-> diff --git a/Documentation/devicetree/bindings/mfd/cirrus,lochnagar.yaml b/Documentation/devicetree/bindings/mfd/cirrus,lochnagar.yaml
-> index 7a616577ac63..c00ad3e21c21 100644
-> --- a/Documentation/devicetree/bindings/mfd/cirrus,lochnagar.yaml
-> +++ b/Documentation/devicetree/bindings/mfd/cirrus,lochnagar.yaml
-> @@ -130,6 +130,14 @@ properties:
->      type: object
->      $ref: /schemas/pinctrl/cirrus,lochnagar.yaml#
->  
-> +  lochnagar-hwmon:
-> +    type: object
-> +    $ref: /schemas/hwmon/cirrus,lochnagar.yaml#
-> +
-> +  lochnagar-sc:
-> +    type: object
-> +    $ref: /schemas/sound/cirrus,lochnagar.yaml#
-> +
->    VDDCORE:
->      description:
->        Initialisation data for the VDDCORE regulator, which supplies the
-> @@ -249,7 +257,7 @@ required:
->    - lochnagar-clk
->    - lochnagar-pinctrl
->  
-> -unevaluatedProperties: false
-> +additionalProperties: false
->  
->  examples:
->    - |
-> diff --git a/Documentation/devicetree/bindings/mfd/ti,j721e-system-controller.yaml b/Documentation/devicetree/bindings/mfd/ti,j721e-system-controller.yaml
-> index da3d9ab758b9..19fcf59fd2fe 100644
-> --- a/Documentation/devicetree/bindings/mfd/ti,j721e-system-controller.yaml
-> +++ b/Documentation/devicetree/bindings/mfd/ti,j721e-system-controller.yaml
-> @@ -30,6 +30,9 @@ properties:
->        - const: syscon
->        - const: simple-mfd
->  
-> +  reg:
-> +    maxItems: 1
-> +
->    "#address-cells":
->      const: 1
->  
-> @@ -54,7 +57,7 @@ required:
->    - "#size-cells"
->    - ranges
->  
-> -unevaluatedProperties: false
-> +additionalProperties: false
->  
->  examples:
->    - |
-> diff --git a/Documentation/devicetree/bindings/misc/olpc,xo1.75-ec.yaml b/Documentation/devicetree/bindings/misc/olpc,xo1.75-ec.yaml
-> index e75d77beec6a..ade733cd60f7 100644
-> --- a/Documentation/devicetree/bindings/misc/olpc,xo1.75-ec.yaml
-> +++ b/Documentation/devicetree/bindings/misc/olpc,xo1.75-ec.yaml
-> @@ -28,11 +28,13 @@ properties:
->      description: GPIO uspecifier of the CMD pin
->      maxItems: 1
->  
-> +  spi-cpha: true
-> +
->  required:
->    - compatible
->    - cmd-gpios
->  
-> -unevaluatedProperties: false
-> +additionalProperties: false
->  
->  examples:
->    - |
-> diff --git a/Documentation/devicetree/bindings/opp/allwinner,sun50i-h6-operating-points.yaml b/Documentation/devicetree/bindings/opp/allwinner,sun50i-h6-operating-points.yaml
-> index aef87a33a7c9..aeff2bd774dd 100644
-> --- a/Documentation/devicetree/bindings/opp/allwinner,sun50i-h6-operating-points.yaml
-> +++ b/Documentation/devicetree/bindings/opp/allwinner,sun50i-h6-operating-points.yaml
-> @@ -31,6 +31,8 @@ properties:
->        Documentation/devicetree/bindings/nvmem/nvmem.txt and also
->        examples below.
->  
-> +  opp-shared: true
-> +
->  required:
->    - compatible
->    - nvmem-cells
-> @@ -53,7 +55,7 @@ patternProperties:
->  
->      unevaluatedProperties: false
->  
-> -unevaluatedProperties: false
-> +additionalProperties: false
->  
->  examples:
->    - |
-> diff --git a/Documentation/devicetree/bindings/regulator/qcom-labibb-regulator.yaml b/Documentation/devicetree/bindings/regulator/qcom-labibb-regulator.yaml
-> index fb111e2d5b99..53853ec20fe2 100644
-> --- a/Documentation/devicetree/bindings/regulator/qcom-labibb-regulator.yaml
-> +++ b/Documentation/devicetree/bindings/regulator/qcom-labibb-regulator.yaml
-> @@ -47,7 +47,7 @@ properties:
->  required:
->    - compatible
->  
-> -unevaluatedProperties: false
-> +additionalProperties: false
->  
->  examples:
->    - |
-> diff --git a/Documentation/devicetree/bindings/timer/snps,dw-apb-timer.yaml b/Documentation/devicetree/bindings/timer/snps,dw-apb-timer.yaml
-> index 7b39e3204fb3..2fc617377e2c 100644
-> --- a/Documentation/devicetree/bindings/timer/snps,dw-apb-timer.yaml
-> +++ b/Documentation/devicetree/bindings/timer/snps,dw-apb-timer.yaml
-> @@ -45,7 +45,7 @@ properties:
->        frequency in HZ, but is defined only for the backwards compatibility
->        with the picoxcell platform.
->  
-> -unevaluatedProperties: false
-> +additionalProperties: false
->  
->  required:
->    - compatible
-> 
+            if (overlaps(ptr, n, textlow, texthigh))
+                    usercopy_abort("kernel text", NULL, to_user, ptr -
+textlow, n);
 
+The patch of commit: a0fa4027dc911 (riscv: Fixup static_obj() fail) broke 2th.
+
+> In general it is better idea to separate those similar to ARM64.
+> Additionally, ARM64 applies different mapping for init data & text
+> as the init data section is marked as non-executable[1]
+Yes, it's safer to protect init text & init data, but it's should be
+another patch.
+
+>
+> However, we don't modify any permission for any init sections. Should
+> we do that as well ?
+Agree, we should do that.
+
+>
+> [1] https://patchwork.kernel.org/patch/9572869/
+>
+> >         /* Start of data section */
+> >         _sdata = .;
+> >         RO_DATA(SECTION_ALIGN)
+> >
+> > On Thu, Sep 24, 2020 at 3:36 PM Andreas Schwab <schwab@linux-m68k.org> wrote:
+> > >
+> > > On Sep 14 2020, Aurelien Jarno wrote:
+> > >
+> > > > How should we proceed to get that fixed in time for 5.9? For the older
+> > > > branches where it has been backported (so far 5.7 and 5.8), should we
+> > > > just get that commit reverted instead?
+> > >
+> > > Can this please be resolved ASAP?
+> > >
+> > > Andreas.
+> > >
+> > > --
+> > > Andreas Schwab, schwab@linux-m68k.org
+> > > GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
+> > > "And now for something completely different."
+> >
+> >
+> >
+> > --
+> > Best Regards
+> >  Guo Ren
+> >
+> > ML: https://lore.kernel.org/linux-csky/
+> >
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+>
+>
+>
+> --
+> Regards,
+> Atish
+
+
+
+-- 
+Best Regards
+ Guo Ren
+
+ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
