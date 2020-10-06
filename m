@@ -2,22 +2,22 @@ Return-Path: <SRS0=uiah=DN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-6.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2FC90C4727E
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Oct 2020 08:23:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C0F3EC47095
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Oct 2020 08:25:26 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C15E12078E
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Oct 2020 08:23:11 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 642AB2078E
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Oct 2020 08:25:26 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="i+nL0mzK";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=linaro.org header.i=@linaro.org header.b="zz0oXuy8"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C15E12078E
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="y0rEu48r";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=linaro.org header.i=@linaro.org header.b="qHporHfA"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 642AB2078E
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,70 +26,69 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
 	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=r1QxV2k5dlpLDwn1S5gem8Cdk6Z7/ER93mn9p1wD+CY=; b=i+nL0mzKc7PgPmEqBc0SfaKES
-	Kf1E0EyyzlqkM+3MVlJcjkbU2irgXDuhCUlta5GgGLN5qA59sQHeNU8A2O6AnYXNdwCTO/ndBZqNR
-	ageFc+CujM9xnVD5NlejaZG9DKu2uW5K8cTtmpUTJW8K7jAfUWnufTsXwUXF2GNBztnVi+RQl2VpI
-	OVn5/SR5m8L/nsfsgGmQsA9GUBU/tltThZr+UuS1nl9NYg0qPJRBIspeLbGYoj7me0a0loruN3/KJ
-	JPr0Aq13/6j22tL9cQPMyL9dEN0FYECQVwAeyCDmUwLffv2/sO8yXR0U8d1mCXA2o7k8ffMEICYR8
-	mKpzryWNw==;
+	 bh=sE97hdRUw2hVttWAplrU30iBuMLR745cPL2D2YaFb2Y=; b=y0rEu48rwXHZpLQYvAn7pUDxZ
+	TB+ddj9CnfemQYNBZKNHTI8t0iF7y0MJJyrpR2hH4ANN1C0KA0LfqppzZyLeVnmilJrH7Nx+FcFbP
+	CSQC2UHab/ozBNKqftwlk9Xy8CzwOggocdjp010iBh3GsTFNGxZBDTcsh1BjaFvLzcP5HmAW//zlk
+	68XRSegfRmU83yoj+UyTZGyJsImr1KyaoJN4nRK/R/ZFK1DWhLryVL72E71h3QHV/pR1//9Bi7eD2
+	OZ19HPLMK923eJwY8WZ5EkYwZkuyNLnEgnHGrW1OcxOxQwDsCB9+A2HG1SCrFelYxq0CCLGPRvG9P
+	Qi55TLDvg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kPiFQ-0007He-7U; Tue, 06 Oct 2020 08:23:00 +0000
-Received: from mail-wr1-x441.google.com ([2a00:1450:4864:20::441])
+	id 1kPiHc-0007eA-Dd; Tue, 06 Oct 2020 08:25:16 +0000
+Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kPiFL-0007FR-4o
- for linux-riscv@lists.infradead.org; Tue, 06 Oct 2020 08:22:56 +0000
-Received: by mail-wr1-x441.google.com with SMTP id n15so6645678wrq.2
- for <linux-riscv@lists.infradead.org>; Tue, 06 Oct 2020 01:22:53 -0700 (PDT)
+ id 1kPiHX-0007c5-72
+ for linux-riscv@lists.infradead.org; Tue, 06 Oct 2020 08:25:12 +0000
+Received: by mail-wr1-x443.google.com with SMTP id t9so3773344wrq.11
+ for <linux-riscv@lists.infradead.org>; Tue, 06 Oct 2020 01:25:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
  h=subject:to:cc:references:from:message-id:date:user-agent
  :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=gQZ92N8EMr7LGVwcFgd0mzk1VK6749oG4otqf+GLMOc=;
- b=zz0oXuy8DvLu/oqK9eyLFeY6GHKr0NNTLe+2Dc/x+LalYxQQw6uANkSbT/JLx0kvFw
- JsFeeLTos6PMTBn+7hMGtQhoLWEqq+QuVUSBlZUX0ftSWK1YjyFRCOSMOBqz5D6MKAf1
- trjhFyJHYmtSCLJ5XHzS7cF0NIB/qannWZC+J0hX6vMT6mPQvXUmjZ455nksyYjcFU+P
- Sjl2xSWKvUjPg0CnAC82f7nU5/tWpx/auKHYNX85Ug+b+OjV7o89Jn5KftNigXVWbulQ
- oiixrU7pMYnJfnHsL1qk6QIXkuIzWdHeWBqffLu7TxlUGZ9S3im+iPRnZpD+Am2dPSXN
- L+mA==
+ bh=YdhpNKlTW8M5AEVFobND3IcWnRcYsnTU1ylxUOoxLOQ=;
+ b=qHporHfANLglN4o1QtjGAQRWNnN7asjRL3cjazvXjsHh09RfWeLWPhNLVvwSLhWTRD
+ dq9W25RBebcUYOBXWtFq8Xg4Jpr5iwt1eXNmqsekvon7Xl48K0UpprSPFSz88KD7f3X5
+ mVcgrKZ1Q+07rFYOZ6TaIw9SiDE9zLlxqZ10OzeIv3M1P2sRohlLAogcHVmvgwhtbxWh
+ aDv0+4vxSuOdMGAP1BZwP0BlcnNmUE37U3q6XBhiOW2IywzQSNU0oPIf35dwBbDiZGem
+ YyfEcoZuw1vq+eSTNb3BPCippk6TyfUXDjeg7Imo0qPxxzlaz4AKfZHvUV+rJldsOuzH
+ 6yMA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:subject:to:cc:references:from:message-id:date
  :user-agent:mime-version:in-reply-to:content-language
  :content-transfer-encoding;
- bh=gQZ92N8EMr7LGVwcFgd0mzk1VK6749oG4otqf+GLMOc=;
- b=NyQSA0KPq/Koq3gWL+A5BScQGCPWPjm0k+XFd8vJgEHOEaPz25j6vfkh4MWfa43Ng6
- cPylm8yHlnEsWW9Ieipl5knFz55UE14WWDcVCZ0LV9wGzhWZOdwS47s6/B9vniFZX2fv
- qqGTZQuV1208xrkHf76IJn2fFdtV6aOtn4bByrwQBHquWRUsJToaO1RavPVnrliyeleO
- n2/qm0GytrlTTbHhGiMAdkE4VAqiZLUQFNK6/bYPUshJH375mUMgUxyEU/DHGxhxU4Ks
- QL6tLGwogljHHeL/PUjoEN8VO93yVILrICcoR7o0I0bCIcN41eTQS/a26HJ7hkh5FF+6
- ASJQ==
-X-Gm-Message-State: AOAM531wZ/1l7MOP5pAqKin+qmCCal/7GYJFHp0PdD7tjyMRl0UyaEEr
- 4W3WoSjsZZDEO3xGKUNe1vlVfg==
-X-Google-Smtp-Source: ABdhPJxneCP/XHEIGTuaYnepMY95XJGJWgT/9+OwKrX8AbsmbSuGbQwcSXMgWa3UoshUsl19yJaa5g==
-X-Received: by 2002:adf:fa52:: with SMTP id y18mr3564855wrr.264.1601972572464; 
- Tue, 06 Oct 2020 01:22:52 -0700 (PDT)
+ bh=YdhpNKlTW8M5AEVFobND3IcWnRcYsnTU1ylxUOoxLOQ=;
+ b=B1G3LIsbSnidZcgZQuhW2Fr1bjAmH525HDR5IvJ32VX5Yg1JHpCRyh1EyDPecmJaS9
+ mDqkHYqXSjSDokS6UGsR3tMmQlNw0gW6kF90ouYpK8AgQLdWSbZkCYFua5Y7Kst8h1I6
+ pXljF3GyMGLLfmug+bJvOXMV0NwQ2ivWJmQHuQspghHt6aOVewy5V5tYRK66axmkyLSe
+ E61/nQ5j46w3G8J3+IgJHDjnKPfqSvsWqZMts5D/xEA06tDe9ZO8EVsE/gxYK3w+keNp
+ URPEDWm7BCLONQ+61/Fp89b/5s8wvxh3oLIVufD9Gk/pz/uzn4Zgp+QW9YQ9uInBh3Mu
+ +p1g==
+X-Gm-Message-State: AOAM5331xtkQDIbf2KpxGomHp7WOyofcRfXJRYnIL1cPg2KNtvt1GY5f
+ DFuWwPD8uRXS3IQp89MkEkjKgw==
+X-Google-Smtp-Source: ABdhPJxsjuEumsaEtaU67N9vbg2cBftfsc/wZW21wnFzsv2BjeMFHC1JmQFLaFRJtrvHxARri2Z8Zg==
+X-Received: by 2002:a5d:6409:: with SMTP id z9mr120080wru.391.1601972710164;
+ Tue, 06 Oct 2020 01:25:10 -0700 (PDT)
 Received: from [192.168.86.34]
  (cpc86377-aztw32-2-0-cust226.18-1.cable.virginm.net. [92.233.226.227])
- by smtp.googlemail.com with ESMTPSA id v17sm3056116wrc.23.2020.10.06.01.22.49
+ by smtp.googlemail.com with ESMTPSA id y11sm3353486wrs.16.2020.10.06.01.25.07
  (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
- Tue, 06 Oct 2020 01:22:51 -0700 (PDT)
-Subject: Re: [PATCH 4/4] dt-bindings: Explicitly allow additional properties
- in common schemas
+ Tue, 06 Oct 2020 01:25:09 -0700 (PDT)
+Subject: Re: [PATCH 0/4] dt-bindings: additional/unevaluatedProperties
+ clean-ups
 To: Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org
 References: <20201005183830.486085-1-robh@kernel.org>
- <20201005183830.486085-5-robh@kernel.org>
 From: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>
-Message-ID: <9d2a9da4-d28d-dcf0-2b43-66e28b6b8dec@linaro.org>
-Date: Tue, 6 Oct 2020 09:22:48 +0100
+Message-ID: <d04c47dd-6e37-a7ac-f3c4-d6e6c308dbcd@linaro.org>
+Date: Tue, 6 Oct 2020 09:25:06 +0100
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
  Thunderbird/60.8.0
 MIME-Version: 1.0
-In-Reply-To: <20201005183830.486085-5-robh@kernel.org>
+In-Reply-To: <20201005183830.486085-1-robh@kernel.org>
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201006_042255_385605_F956B000 
-X-CRM114-Status: GOOD (  17.36  )
+X-CRM114-CacheID: sfid-20201006_042511_368001_A87E0F3B 
+X-CRM114-Status: GOOD (  18.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -149,22 +148,27 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 On 05/10/2020 19:38, Rob Herring wrote:
-> In order to add meta-schema checks for additional/unevaluatedProperties
-> being present, all schema need to make this explicit. As common/shared
-> schema are included by other schemas, they should always allow for
-> additionalProperties.
+> The default behavior for json-schema is any unknown property is allowed.
+> T
 > 
-> Signed-off-by: Rob Herring<robh@kernel.org>
+> hat is generally not the behavior we want for DT. In order to disallow
+> extra properties, schemas need to define 'additionalProperties: false'
+> typically. Ideally, we'd just add that automatically with the tools, but
+> there are some exceptions so only making things explicit everywhere
+> really works. Missing 'additionalProperties' or 'unevaluatedProperties'
+> has been a constant source of review comments, so a meta-schema check is
+> really needed here.
 > 
->   Documentation/devicetree/bindings/nvmem/nvmem-consumer.yaml  | 2 ++
->   Documentation/devicetree/bindings/nvmem/nvmem.yaml           | 2 ++
+>   Documentation/devicetree/bindings/nvmem/nvmem.yaml     |  2 ++
+>   .../devicetree/bindings/nvmem/qcom,qfprom.yaml         |  2 ++
 
 for nvmem parts,
 
 Acked-by: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>
 
+
 thanks,
-srini
+--srini
 
 _______________________________________________
 linux-riscv mailing list
