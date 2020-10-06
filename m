@@ -2,83 +2,137 @@ Return-Path: <SRS0=FvZO=D5=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	MAILING_LIST_MULTI,NICE_REPLY_A,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0474FC5517A
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2020 21:30:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DF256C388F7
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2020 21:30:40 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 460A8241A6
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2020 21:30:33 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 1595924630
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2020 21:30:39 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="u0VKiLYn";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=linaro.org header.i=@linaro.org header.b="BNlP07G2"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 460A8241A6
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="CWTl3/YY";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="phaTkyO1"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1595924630
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=epOB7n81LncF8F5oPXKOJx+Xirylz74r/kvRsO1l9RU=; b=u0VKiLYnydP6SoICD/jDLwAl6
-	46Qb3TXSBId+thkYE8YdMX7ioxjkHg476EDCkMd4lEDQFFrHb126C1T2ROt6CVUrtTzrmRApOmmhv
-	2Dv9k4KZrBRSohJPTQBkEmPcHT5C3dFgADQNvxM/Z7B337yA4gzo1/iMOEQzx/XcTOADmIOCGNSuH
-	gpJa16SQhOVzc6BMgcYOXssSVSX6kp706dEeFpf+byhJWucpwpXHPywfBkpYIQ12YAdICjwdLDtF2
-	RQgemwV/QTE0X/4KRTckqSgZMq6/SDp/YSAB/swJo5ecZi2ikBGn5ikjm5EEB/4EdMPqc9qw4gz78
-	uDBLStyAg==;
+	 bh=/y5nj5CTGSI/BSvZ2vqQC8NTdIgX+MNV/2XqHB9zSmA=; b=CWTl3/YYZuGGeOzeYaXyYKOy1
+	qfUUflOsJaZmiBnBKR1cdTjzFaS1MNJUeA03YC0IBV+6aYn6DaI74GIygnLvBBQsRkjEGVdoSa8k7
+	AG/4YTMD962ZG9EkgYdq47MWUyMfiz8vVQM/Z4nz/yGpI29p1eWWTfCCDl293GWU7CsdiQmtexOzg
+	AswOOUZR2mwDj9wPokEmCo2D0nS8hOs/nWGDIcuDtgcMMdIMtyPPzMCUDy0tvp1GZDmELXdm3ohTD
+	8opwCVRjgiBbrT9jbZ1TTgwWxiBq18vyA84nGzcjGnS4PLCYOnafcu9DO1FD5ry+iHKad6kG4Piuc
+	zmQJHqjGw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kViA6-00005s-Tf; Thu, 22 Oct 2020 21:30:18 +0000
-Received: from mail-io1-xd42.google.com ([2607:f8b0:4864:20::d42])
+	id 1kViA6-00005b-6b; Thu, 22 Oct 2020 21:30:18 +0000
+Received: from mail-ot1-x343.google.com ([2607:f8b0:4864:20::343])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kPqHm-0001bi-MU
- for linux-riscv@lists.infradead.org; Tue, 06 Oct 2020 16:58:02 +0000
-Received: by mail-io1-xd42.google.com with SMTP id n6so7309639ioc.12
- for <linux-riscv@lists.infradead.org>; Tue, 06 Oct 2020 09:57:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=DHrOFpKmiQPqygrsi76mVafr6Hnv7oIeTDmAlk50SEw=;
- b=BNlP07G273E4+0hQBOiJc97MDRv4c26kMFybo4P6FVE7aJ4NnGx3UpMpVLhoAEMky5
- dg/t37eaYAfO3Vn3yqNuKOAPRMubPrBoQY6IcLcN55SYoC086vIsWEFXnyOihCmoq2E6
- MfO4KEVvNoPueSehxRqmODwScFXuRhWhRzYfPmQaeE77ff2U2NbjbdPjMddO4VnJImmY
- sjk9xJXT93P2U4cZHL34iWfDnVdVRsuFEYgtEfTNUUe6ouWjFwRozfQ/ivvUjlyZ7ECt
- erUc1GdWrkEvn9f3vNXgvmi01ErZ8gQtKfjCF6OKcEXcbsDIwLg3kV6zl2gVJyxG3wp+
- JbPQ==
+ id 1kPo2M-0006Ls-EL; Tue, 06 Oct 2020 14:33:57 +0000
+Received: by mail-ot1-x343.google.com with SMTP id t15so2085218otk.0;
+ Tue, 06 Oct 2020 07:33:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=sender:subject:to:cc:references:from:autocrypt:message-id:date
+ :user-agent:mime-version:in-reply-to:content-language
+ :content-transfer-encoding;
+ bh=FTJOMRgNjOToAcXPJkmXLa7vLqsenaphJtffgkk66Qk=;
+ b=phaTkyO13rpXYHo4O5AG958iYSrSfQe1qFcb/UKDQzNqH4Srs9tSB81O8BoH85sYWD
+ LSfmW30I8b3dXbe1ltjh8ynt5/vshQway6lXJlLTGT6ZeyHr+s++4Z87T9Li7mmE0smY
+ ml0urep/7pu6QaViwCvVNZGYEa8JXD9wS76H0yQQs98wvz9+KaPBMCuguUyue7hOuPCh
+ cy1AjwN+ykTHDh0vkq1DiE1XzjdZxiolfstEH5P8QHJtudAXjSKVKPzKrbzXVgnJRnED
+ XuTjRhkkvKyXAvc0WV7ELLk7T7HYa3aG23qtrbSoK3wyvaxXZinGY6etw6QrrMTsRnXK
+ PAdw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=DHrOFpKmiQPqygrsi76mVafr6Hnv7oIeTDmAlk50SEw=;
- b=Y384dHEGhPlg4KKkLRarDdM16oQxaGvTE0MqpJkApSG6q1Y07sYvTksojG0vYMIiEu
- s9mYXgEhaffAeGPqOz6+G6GuFiNgKjnNbIE25bfqCyQf5IEELZszyZ4x+8TNI2fPdCT0
- P7Gy48RLe4rhH0HDU8XSRRs/kqpu82ySFg9RqMyI01MkfzXuef7TxeFBABiBIjj0uMPH
- upsGwWQnu6ssG5W3libP3hmSqd/W9xrXUELYUaNmbfzJzywDcupaqBvn5HinGVwy7AdM
- yXGKdYFodYMCXB51uGPMB53KUWnAOqd/d154pTYc4aghlpx0dYuLHKpTz1wTaL+SXIGk
- 4kxg==
-X-Gm-Message-State: AOAM530zhOrQo8PUoqsAFscECHZrv+A8HCCZHOzLWbwcNDL7JYMpuT6O
- zOzFn3yTNKt6e0VRinovikTEaifjgjQVe6geOCoMHQ==
-X-Google-Smtp-Source: ABdhPJypUewWN3RG/GCbrcRtnZy3PEqBVFt13TUjm1lNIkNSsIi0TIwav1FBHp6Am4T6R+kYegyeHi4iTqvVSCxvKzw=
-X-Received: by 2002:a05:6638:3a7:: with SMTP id
- z7mr2258771jap.52.1602003474851; 
- Tue, 06 Oct 2020 09:57:54 -0700 (PDT)
-MIME-Version: 1.0
+ h=x-gm-message-state:sender:subject:to:cc:references:from:autocrypt
+ :message-id:date:user-agent:mime-version:in-reply-to
+ :content-language:content-transfer-encoding;
+ bh=FTJOMRgNjOToAcXPJkmXLa7vLqsenaphJtffgkk66Qk=;
+ b=J+oVXNf8uagGipcX0lC1SCtIsogEide14nQM0nkfzgZ51VeGOnFqTIfCRgY4laC1oc
+ BzkDrfKHcNmRLJiH78GifgakmJiep0VL2yXVFPdlh++nURgFhNpIvXFRk2JjwKskDOcZ
+ k1RSj0+yfy4VubTMSpOteVQ8ijyifYwJ5xKBPYfy2BkluXg0H6QvvfNKR6GAPqnZMCK/
+ m9fPwYDOrCYMAHVTrFAQ0UmQAiLNjd4N0agjj7aFqPGHLMJSUYD6RT7djq2LMGU/BAwN
+ ztDAeKF3ArUYemtBVaImOwRNsGIftN8Samtl8bWDvuv34mU3aKIa+vIUYnJUMIMVGYme
+ x3zQ==
+X-Gm-Message-State: AOAM5312i2mgjXncQjOH8CdLF8jO8lThMEBu2lBk59MzewNlstz96emD
+ 3Pr2XLm3WPxSKiGziQVNCIk=
+X-Google-Smtp-Source: ABdhPJy7v7zJX4C6TL0lVDafxVsm/taAEx4zkJ1jUiobCtK5p+Ip7ZhMfsFJwAZ3Yzi8rzOORrcfpA==
+X-Received: by 2002:a9d:6:: with SMTP id 6mr1049161ota.235.1601994832308;
+ Tue, 06 Oct 2020 07:33:52 -0700 (PDT)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
+ by smtp.gmail.com with ESMTPSA id
+ h5sm919134otb.11.2020.10.06.07.33.43
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Tue, 06 Oct 2020 07:33:51 -0700 (PDT)
+Subject: Re: [PATCH 1/4] dt-bindings: Add missing 'unevaluatedProperties'
+To: Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
 References: <20201005183830.486085-1-robh@kernel.org>
  <20201005183830.486085-2-robh@kernel.org>
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ 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
+ mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
+Message-ID: <0e1c8745-120c-ccb1-656a-cb3e0fbbe1fd@roeck-us.net>
+Date: Tue, 6 Oct 2020 07:33:42 -0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.10.0
+MIME-Version: 1.0
 In-Reply-To: <20201005183830.486085-2-robh@kernel.org>
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-Date: Tue, 6 Oct 2020 10:57:43 -0600
-Message-ID: <CANLsYkz=TCkU9NPiF5aywP0VNYqOL9BvJK0uAMBSyKmZA=1gwA@mail.gmail.com>
-Subject: Re: [PATCH 1/4] dt-bindings: Add missing 'unevaluatedProperties'
-To: Rob Herring <robh@kernel.org>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201006_125759_094576_6F691D7B 
-X-CRM114-Status: GOOD (  23.30  )
+X-CRM114-CacheID: sfid-20201006_103354_874953_4029594B 
+X-CRM114-Status: GOOD (  21.22  )
 X-Mailman-Approved-At: Thu, 22 Oct 2020 17:30:12 -0400
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -96,70 +150,62 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Ulf Hansson <ulf.hansson@linaro.org>,
  Sam Ravnborg <sam@ravnborg.org>, linux-pwm@vger.kernel.org,
  linux-iio@vger.kernel.org, Viresh Kumar <vireshk@kernel.org>,
  Linus Walleij <linus.walleij@linaro.org>, linux-pci@vger.kernel.org,
- dri-devel@lists.freedesktop.org, Liam Girdwood <lgirdwood@gmail.com>,
+ dri-devel@lists.freedesktop.org, Sebastian Reichel <sre@kernel.org>,
  linux-ide@vger.kernel.org, Thierry Reding <thierry.reding@gmail.com>,
  Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
  Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
  Pavel Machek <pavel@ucw.cz>, Miquel Raynal <miquel.raynal@bootlin.com>,
- linux-riscv@lists.infradead.org, linux-hwmon@vger.kernel.org,
- Lee Jones <lee.jones@linaro.org>, linux-clk@vger.kernel.org,
- linux-leds@vger.kernel.org, Vignesh Raghavendra <vigneshr@ti.com>,
- linux-rtc@vger.kernel.org, Lars-Peter Clausen <lars@metafoo.de>,
- Marc Zyngier <maz@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>,
+ linux-riscv@lists.infradead.org, Lee Jones <lee.jones@linaro.org>,
+ linux-clk@vger.kernel.org, linux-leds@vger.kernel.org,
+ Vignesh Raghavendra <vigneshr@ti.com>, linux-rtc@vger.kernel.org,
+ Lars-Peter Clausen <lars@metafoo.de>, Marc Zyngier <maz@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
  Krzysztof Kozlowski <krzk@kernel.org>, Chanwoo Choi <cw00.choi@samsung.com>,
  MyungJoo Ham <myungjoo.ham@samsung.com>, linux-serial@vger.kernel.org,
  linux-input@vger.kernel.org, Jakub Kicinski <kuba@kernel.org>,
  Zhang Rui <rui.zhang@intel.com>, linux-mips@vger.kernel.org,
  Vivien Didelot <vivien.didelot@gmail.com>,
  Wolfgang Grandegger <wg@grandegger.com>, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-hwmon@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
  Jason Cooper <jason@lakedaemon.net>, linux-pm@vger.kernel.org,
  linux-can@vger.kernel.org, linux-gpio@vger.kernel.org,
  Mark Brown <broonie@kernel.org>, Marc Kleine-Budde <mkl@pengutronix.de>,
- Sebastian Reichel <sre@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Bjorn Helgaas <bhelgaas@google.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Bjorn Helgaas <bhelgaas@google.com>,
+ Thomas Gleixner <tglx@linutronix.de>,
  Mauro Carvalho Chehab <mchehab@kernel.org>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- Jens Axboe <axboe@kernel.dk>, Alessandro Zummo <a.zummo@towertech.it>,
- linux-watchdog@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Jens Axboe <axboe@kernel.dk>,
+ Alessandro Zummo <a.zummo@towertech.it>, linux-watchdog@vger.kernel.org,
  Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Stephen Boyd <sboyd@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>, Stephen Boyd <sboyd@kernel.org>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Dmitry Torokhov <dmitry.torokhov@gmail.com>, linux-mmc@vger.kernel.org,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-spi@vger.kernel.org, linux-i2c@vger.kernel.org,
- Vinod Koul <vkoul@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Wim Van Sebroeck <wim@linux-watchdog.org>, Richard Weinberger <richard@nod.at>,
- dmaengine@vger.kernel.org, linux-mtd@lists.infradead.org,
- "David S. Miller" <davem@davemloft.net>, Jonathan Cameron <jic23@kernel.org>,
- Heiner Kallweit <hkallweit1@gmail.com>
+ Liam Girdwood <lgirdwood@gmail.com>, linux-spi@vger.kernel.org,
+ linux-i2c@vger.kernel.org, Vinod Koul <vkoul@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Wim Van Sebroeck <wim@linux-watchdog.org>,
+ Richard Weinberger <richard@nod.at>, dmaengine@vger.kernel.org,
+ linux-mtd@lists.infradead.org, "David S. Miller" <davem@davemloft.net>,
+ Jonathan Cameron <jic23@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 5 Oct 2020 at 12:38, Rob Herring <robh@kernel.org> wrote:
->
+On 10/5/20 11:38 AM, Rob Herring wrote:
 > This doesn't yet do anything in the tools, but make it explicit so we can
 > check either 'unevaluatedProperties' or 'additionalProperties' is present
 > in schemas.
->
+> 
 > 'unevaluatedProperties' is appropriate when including another schema (via
 > '$ref') and all possible properties and/or child nodes are not
 > explicitly listed in the schema with the '$ref'.
->
+> 
 > This is in preparation to add a meta-schema to check for missing
 > 'unevaluatedProperties' or 'additionalProperties'. This has been a
 > constant source of review issues.
->
+> 
 > Signed-off-by: Rob Herring <robh@kernel.org>
 > ---
 >  Documentation/devicetree/bindings/arm/coresight-cti.yaml     | 2 ++
-
-For CoreSight:
-
-Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
-
 >  Documentation/devicetree/bindings/arm/stm32/st,mlahb.yaml    | 2 ++
 >  Documentation/devicetree/bindings/ata/faraday,ftide010.yaml  | 2 ++
 >  Documentation/devicetree/bindings/bus/renesas,bsc.yaml       | 2 ++
@@ -272,8 +318,15 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 >  Documentation/devicetree/bindings/watchdog/samsung-wdt.yaml  | 2 ++
 >  .../devicetree/bindings/watchdog/st,stm32-iwdg.yaml          | 2 ++
 >  Documentation/devicetree/bindings/watchdog/ti,rti-wdt.yaml   | 2 ++
+
+For watchdog:
+
+Acked-by: Guenter Roeck <linux@roeck-us.net>
+
+Guenter
+
 >  113 files changed, 229 insertions(+)
->
+> 
 > diff --git a/Documentation/devicetree/bindings/arm/coresight-cti.yaml b/Documentation/devicetree/bindings/arm/coresight-cti.yaml
 > index e42ff69d8bfb..21e3515491f4 100644
 > --- a/Documentation/devicetree/bindings/arm/coresight-cti.yaml
@@ -281,7 +334,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -220,6 +220,8 @@ then:
 >    required:
 >      - cpu
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -294,7 +347,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -50,6 +50,8 @@ required:
 >    - '#size-cells'
 >    - dma-ranges
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -307,7 +360,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -64,6 +64,8 @@ allOf:
 >        required:
 >          - sata
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -320,7 +373,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -44,6 +44,8 @@ properties:
 >  required:
 >    - reg
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -333,7 +386,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -72,6 +72,8 @@ required:
 >    - spi-max-frequency
 >    - port
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -346,7 +399,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -62,6 +62,8 @@ required:
 >    - interrupts
 >    - clocks
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -359,7 +412,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -81,6 +81,8 @@ required:
 >    - clocks
 >    - interrupts
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -372,7 +425,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -33,6 +33,8 @@ required:
 >    - reg
 >    - dma-masters
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -385,7 +438,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -84,6 +84,8 @@ required:
 >    - clocks
 >    - interrupts
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -398,7 +451,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -141,6 +141,8 @@ then:
 >    required:
 >      - ti,udma-atype
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -411,7 +464,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -36,6 +36,8 @@ required:
 >    - interrupts
 >    - clocks
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -424,7 +477,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -44,6 +44,8 @@ required:
 >    - clocks
 >    - interrupts
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -437,7 +490,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -70,4 +70,6 @@ required:
 >    - sda-gpios
 >    - scl-gpios
->
+>  
 > +unevaluatedProperties: false
 > +
 >  ...
@@ -448,7 +501,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -117,6 +117,8 @@ then:
 >    required:
 >      - rockchip,grf
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -461,7 +514,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -37,6 +37,8 @@ required:
 >    - interrupts
 >    - clocks
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -474,7 +527,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -37,6 +37,8 @@ required:
 >    - interrupts
 >    - clocks
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -487,7 +540,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -94,6 +94,8 @@ required:
 >    - resets
 >    - clocks
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -500,7 +553,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -36,6 +36,8 @@ required:
 >    - interrupts
 >    - clocks
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -513,7 +566,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -30,6 +30,8 @@ required:
 >    - reg
 >    - interrupts
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -526,7 +579,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -40,6 +40,8 @@ required:
 >    - reg
 >    - interrupts
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -539,7 +592,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -30,6 +30,8 @@ required:
 >    - reg
 >    - interrupts
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -552,7 +605,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -108,6 +108,8 @@ patternProperties:
 >        - reg
 >        - diff-channels
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -565,7 +618,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -92,6 +92,8 @@ required:
 >    - spi-cpol
 >    - spi-cpha
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -578,7 +631,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -63,6 +63,8 @@ patternProperties:
 >      required:
 >        - reg
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -591,7 +644,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -102,6 +102,8 @@ required:
 >    - interrupts
 >    - adi,conversion-start-gpios
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -604,7 +657,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -47,6 +47,8 @@ required:
 >    - compatible
 >    - reg
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -617,7 +670,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -45,6 +45,8 @@ required:
 >    - vdd-supply
 >    - vref-supply
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -630,7 +683,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -130,6 +130,8 @@ required:
 >    - channel@4
 >    - channel@5
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -643,7 +696,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -46,6 +46,8 @@ required:
 >    - clocks
 >    - clock-names
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -656,7 +709,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -33,6 +33,8 @@ required:
 >    - reg
 >    - interrupts
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -669,7 +722,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -116,6 +116,8 @@ allOf:
 >        dependencies:
 >          adi,sync-mode: [ clocks ]
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -682,7 +735,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -50,6 +50,8 @@ required:
 >    - compatible
 >    - reg
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -695,7 +748,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -40,6 +40,8 @@ required:
 >    - compatible
 >    - reg
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -708,7 +761,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -48,6 +48,8 @@ required:
 >    - vdd-supply
 >    - linux,keycodes
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -721,7 +774,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -41,6 +41,8 @@ required:
 >    - interrupt-controller
 >    - '#interrupt-cells'
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -733,8 +786,8 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > +++ b/Documentation/devicetree/bindings/interrupt-controller/loongson,liointc.yaml
 > @@ -67,6 +67,8 @@ required:
 >    - 'loongson,parent_int_map'
->
->
+>  
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -747,7 +800,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -61,6 +61,8 @@ patternProperties:
 >            - cfi-flash
 >            - jedec,spi-nor
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -760,7 +813,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -50,6 +50,8 @@ required:
 >    - clocks
 >    - clock-names
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -773,7 +826,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -117,6 +117,8 @@ required:
 >    - interrupts
 >    - clocks
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -786,7 +839,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -56,6 +56,8 @@ required:
 >    - dmas
 >    - dma-names
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -799,7 +852,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -43,6 +43,8 @@ required:
 >    - dmas
 >    - dma-names
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -812,7 +865,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -102,6 +102,8 @@ required:
 >    - clocks
 >    - clock-names
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -825,7 +878,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -73,6 +73,8 @@ required:
 >    - clocks
 >    - clock-names
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -838,7 +891,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -77,6 +77,8 @@ required:
 >    - reset-names
 >    - resets
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -851,7 +904,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -42,6 +42,8 @@ required:
 >    - clocks
 >    - clock-names
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -864,7 +917,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -128,6 +128,8 @@ required:
 >    - clock-names
 >    - clocks
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -877,7 +930,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -51,6 +51,8 @@ required:
 >    - compatible
 >    - reg
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -890,7 +943,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -94,6 +94,8 @@ required:
 >    - reg
 >    - interrupts
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -903,7 +956,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -36,6 +36,8 @@ properties:
 >      enum: [ 4, 8, 12, 16, 20, 24 ]
 >      default: 8
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -916,7 +969,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -120,6 +120,8 @@ required:
 >    - clock-names
 >    - phy-mode
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -929,7 +982,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -30,6 +30,8 @@ required:
 >    - "#address-cells"
 >    - "#size-cells"
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -942,7 +995,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -35,6 +35,8 @@ required:
 >    - "#address-cells"
 >    - "#size-cells"
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -955,7 +1008,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -61,6 +61,8 @@ required:
 >    - mediatek,pericfg
 >    - phy-handle
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -968,7 +1021,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -34,6 +34,8 @@ patternProperties:
 >      required:
 >        - reg
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -981,7 +1034,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -72,6 +72,8 @@ required:
 >    - resets
 >    - reset-names
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -994,7 +1047,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -59,6 +59,8 @@ properties:
 >        regulator to VDDIO.
 >      $ref: /schemas/regulator/regulator.yaml
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1007,7 +1060,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -31,6 +31,8 @@ required:
 >    - "#address-cells"
 >    - "#size-cells"
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1020,7 +1073,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -33,6 +33,8 @@ required:
 >    - "#address-cells"
 >    - "#size-cells"
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1033,7 +1086,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -85,6 +85,8 @@ required:
 >    - clocks
 >    - pinctrl-0
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1046,7 +1099,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -88,6 +88,8 @@ required:
 >    - clock-names
 >    - st,syscon
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1059,7 +1112,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -58,6 +58,8 @@ required:
 >    - "#address-cells"
 >    - "#size-cells"
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1072,7 +1125,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -109,6 +109,8 @@ properties:
 >  required:
 >    - reg
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1085,7 +1138,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -79,6 +79,8 @@ properties:
 >  required:
 >    - reg
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1096,9 +1149,9 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > --- a/Documentation/devicetree/bindings/nvmem/imx-ocotp.yaml
 > +++ b/Documentation/devicetree/bindings/nvmem/imx-ocotp.yaml
 > @@ -76,6 +76,8 @@ patternProperties:
->
+>  
 >      additionalProperties: false
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1111,7 +1164,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -49,6 +49,8 @@ required:
 >    - compatible
 >    - reg
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1122,9 +1175,9 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > --- a/Documentation/devicetree/bindings/nvmem/qcom,spmi-sdam.yaml
 > +++ b/Documentation/devicetree/bindings/nvmem/qcom,spmi-sdam.yaml
 > @@ -66,6 +66,8 @@ patternProperties:
->
+>  
 >      additionalProperties: false
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1137,7 +1190,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -51,6 +51,8 @@ required:
 >    - clocks
 >    - clock-names
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1150,7 +1203,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -42,6 +42,8 @@ required:
 >    - compatible
 >    - reg
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1163,7 +1216,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -29,6 +29,8 @@ required:
 >    - reg
 >    - reg-names
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1176,7 +1229,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -31,6 +31,8 @@ required:
 >    - reg
 >    - reg-names
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1189,12 +1242,12 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -137,6 +137,8 @@ allOf:
 >          reg:
 >            maxItems: 1
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
 >    - |
->
+>  
 > diff --git a/Documentation/devicetree/bindings/pci/loongson.yaml b/Documentation/devicetree/bindings/pci/loongson.yaml
 > index 30e7cf1aeb87..81bae060cbde 100644
 > --- a/Documentation/devicetree/bindings/pci/loongson.yaml
@@ -1202,12 +1255,12 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -39,6 +39,8 @@ required:
 >    - reg
 >    - ranges
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
 >    - |
->
+>  
 > diff --git a/Documentation/devicetree/bindings/pci/ti,j721e-pci-ep.yaml b/Documentation/devicetree/bindings/pci/ti,j721e-pci-ep.yaml
 > index b3c3d0c3c390..3ae3e1a2d4b0 100644
 > --- a/Documentation/devicetree/bindings/pci/ti,j721e-pci-ep.yaml
@@ -1215,7 +1268,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -63,6 +63,8 @@ required:
 >    - phys
 >    - phy-names
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1228,7 +1281,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -72,6 +72,8 @@ required:
 >    - phys
 >    - phy-names
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1241,7 +1294,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -48,6 +48,8 @@ required:
 >    - interrupt-map
 >    - interrupt-map-mask
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1254,7 +1307,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -49,6 +49,8 @@ required:
 >    - "#power-domain-cells"
 >    - reg
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1267,7 +1320,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -73,6 +73,8 @@ required:
 >    - compatible
 >    - regulator-name
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1280,7 +1333,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -28,6 +28,8 @@ required:
 >    - compatible
 >    - reg
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1293,7 +1346,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -91,6 +91,8 @@ required:
 >    - gpios
 >    - states
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1306,7 +1359,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -34,6 +34,8 @@ required:
 >    - st,syscfg
 >    - vdda-supply
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1319,7 +1372,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -36,6 +36,8 @@ required:
 >    - clocks
 >    - vdda-supply
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1332,7 +1385,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -28,6 +28,8 @@ required:
 >    - compatible
 >    - reg
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1345,7 +1398,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -68,6 +68,8 @@ required:
 >    - clocks
 >    - clock-names
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1358,7 +1411,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -74,6 +74,8 @@ allOf:
 >            items:
 >              - const: rtc
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1371,7 +1424,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -9,6 +9,9 @@ title: Ingenic SoCs UART controller devicetree bindings
 >  maintainers:
 >    - Paul Cercueil <paul@crapouillou.net>
->
+>  
 > +allOf:
 > +  - $ref: /schemas/serial.yaml#
 > +
@@ -1381,7 +1434,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -64,6 +67,8 @@ required:
 >    - dmas
 >    - dma-names
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1394,7 +1447,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -100,6 +100,8 @@ required:
 >    - clock-names
 >    - power-domains
->
+>  
 > +unevaluatedProperties: false
 > +
 >  if:
@@ -1407,7 +1460,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -54,6 +54,8 @@ required:
 >    - clocks
 >    - clock-names
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1420,7 +1473,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -149,6 +149,8 @@ then:
 >    required:
 >      - resets
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1433,7 +1486,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -75,6 +75,8 @@ required:
 >    - clock-names
 >    - power-domains
->
+>  
 > +unevaluatedProperties: false
 > +
 >  if:
@@ -1446,7 +1499,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -75,6 +75,8 @@ required:
 >    - clock-names
 >    - power-domains
->
+>  
 > +unevaluatedProperties: false
 > +
 >  if:
@@ -1459,7 +1512,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -101,6 +101,8 @@ required:
 >    - reg
 >    - interrupts
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1472,7 +1525,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -77,6 +77,8 @@ required:
 >    - clocks
 >    - clock-names
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1485,7 +1538,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -35,6 +35,8 @@ required:
 >    - reg
 >    - clocks
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1498,7 +1551,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -24,6 +24,8 @@ required:
 >    - compatible
 >    - reg
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1511,7 +1564,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -29,6 +29,8 @@ required:
 >    - '#address-cells'
 >    - '#size-cells'
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1524,7 +1577,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -56,6 +56,8 @@ required:
 >    - clock-names
 >    - clocks
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1537,7 +1590,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -40,6 +40,8 @@ required:
 >    - '#address-cells'
 >    - '#size-cells'
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1550,7 +1603,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -123,6 +123,8 @@ allOf:
 >        required:
 >          - resets
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1563,7 +1616,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -140,6 +140,8 @@ required:
 >    - '#address-cells'
 >    - '#size-cells'
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1576,7 +1629,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -44,6 +44,8 @@ required:
 >    - "#address-cells"
 >    - "#size-cells"
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1589,7 +1642,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -53,6 +53,8 @@ required:
 >    - num-chipselects
 >    - sck-gpios
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1602,7 +1655,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -48,6 +48,8 @@ required:
 >    - spi-max-frequency
 >    - mux-controls
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1615,7 +1668,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -128,6 +128,8 @@ required:
 >    - reg
 >    - interrupts
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1628,7 +1681,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -85,6 +85,8 @@ required:
 >    - clocks
 >    - clock-names
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1641,7 +1694,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -66,6 +66,8 @@ required:
 >    - interrupts
 >    - clocks
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1654,7 +1707,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -53,6 +53,8 @@ required:
 >    - clocks
 >    - interrupts
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1667,7 +1720,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -76,6 +76,8 @@ required:
 >    - clocks
 >    - interrupts
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1680,7 +1733,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -31,6 +31,8 @@ required:
 >    - reg
 >    - clocks
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1693,7 +1746,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -25,6 +25,8 @@ properties:
 >  required:
 >    - compatible
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1706,7 +1759,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -38,6 +38,8 @@ required:
 >    - reg
 >    - clocks
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1719,7 +1772,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -62,6 +62,8 @@ allOf:
 >        required:
 >          - samsung,syscon-phandle
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1732,7 +1785,7 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -43,6 +43,8 @@ required:
 >    - clocks
 >    - clock-names
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
@@ -1745,15 +1798,14 @@ Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 > @@ -46,6 +46,8 @@ required:
 >    - clocks
 >    - power-domains
->
+>  
 > +unevaluatedProperties: false
 > +
 >  examples:
 >    - |
 >      /*
-> --
-> 2.25.1
->
+> 
+
 
 _______________________________________________
 linux-riscv mailing list
