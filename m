@@ -2,77 +2,115 @@ Return-Path: <SRS0=bFkC=DQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-6.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6601FC433E7
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Oct 2020 01:54:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D745EC433E7
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Oct 2020 15:40:53 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AE35522248
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Oct 2020 01:54:10 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5BF5D22251
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Oct 2020 15:40:53 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="jBqhDIES";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="vQlab+a1"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AE35522248
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="MaMFm/h8";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sifive.com header.i=@sifive.com header.b="D9lg26GZ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5BF5D22251
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Xr3fUfHaYABu74GIEbm9ujZm76kwLTLab2W1exIVPS0=; b=jBqhDIES9ZMWpZQItTRfZ73jf
-	nFjf98Us0BtfZevE9B0kZnCYWLoUAxwoNJ3yqkfaYPOhwRXeDMw/TEYcz25eCeEsp9GdTpCSoM+n6
-	oaxJBIVXNfiiOHwVTc+37d07NRGBDkpNfUv8G9dC6J9mleU7EK70r6v/XLsQxI9RHTV95prWzoAn6
-	wzkQrHcxgWgAryrArK1BPgzmDkxdNiGfxYUHY4ZC1W4nfgLgmdzAWwS/xrCE9uaYwfeXasQpe5aqh
-	5cmYo8M/4eXNdhNOjBFqN1CYHUJuPBIuEZkiepwxzh+fQ1BSp/EN7VXjCvFUuyFBNcFEUrLsyN40O
-	0VnI9rjlg==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aiP8MN3DLA6cDfRnb7hTxDLGpOR72yAVMHQHteBs/Bw=; b=MaMFm/h8plRlRf7lYaPyH+DpmY
+	PCSg6bWq2XjRPcdY4+7D9XNkKqREgLO6jCNphXwcRilt0kX4kLvQDVAwXyXOE2Q0qpzuXWA45iOmr
+	n4IZqLXEgQgZNXASByaM6jLJnBdP/Q2gIikqI7QaVt81diOIPwU37yCDeQFvj7qV8i+ZOcGZGtzMN
+	+xQPpxOotCIF09WGttU1e4cn3ij5vf5n6mkj9LaYM0KRmc3stqLog95aFvv9dG6/3Sojxdukk30hQ
+	aUwfBXMoFPZ0P+becInPcio2FNR8NU7kVk5EjLFDbON7wyG6ugq1C8DxommEEtvPyggGZ0bRZg3S0
+	7K6xaAvw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kQhbT-0007OH-W7; Fri, 09 Oct 2020 01:53:52 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1kQuVY-0007TD-Ei; Fri, 09 Oct 2020 15:40:36 +0000
+Received: from mail-bn7nam10on2046.outbound.protection.outlook.com
+ ([40.107.92.46] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kQhbQ-0007Nk-Lk
- for linux-riscv@lists.infradead.org; Fri, 09 Oct 2020 01:53:49 +0000
-Received: from mail-lj1-f171.google.com (mail-lj1-f171.google.com
- [209.85.208.171])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 7BD4622258
- for <linux-riscv@lists.infradead.org>; Fri,  9 Oct 2020 01:53:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1602208423;
- bh=jCIrFu87d+E1x9HacgfDZzXwSuHK9+KJTI3Z1+eyGrg=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=vQlab+a1/Cl38vpMTmcKxX9R/giFpyoI0LiOj/h3Pml0/SnJP40BkruI/oFIdEIxE
- 1qc0P16buykkFgbPa+WyCs5ETRMcz13PzMr9eRhYQJsvuuOAD+B3P1qSEXph36jBCA
- lXAh0sPnVLNPjo/lYtJN4ayqZgdkeYyJaAqL3YmU=
-Received: by mail-lj1-f171.google.com with SMTP id m16so7981120ljo.6
- for <linux-riscv@lists.infradead.org>; Thu, 08 Oct 2020 18:53:43 -0700 (PDT)
-X-Gm-Message-State: AOAM531Aquf/KAlN2lGiHlQlwHzmAKTcr+40TtT8KEd2zZJwzjHzND5v
- 2KqyShxpyJKspYmW94T/l2DytQKpKfJTqvbl+fY=
-X-Google-Smtp-Source: ABdhPJzRIpxykDRUax0a099/OVW8djIDlZt78680SFqpzIGdY54NwH7FhXdSJmz/fQfLlDZtH7SeSsV3EHpAHsu5oas=
-X-Received: by 2002:a05:651c:510:: with SMTP id
- o16mr3940739ljp.79.1602208421742; 
- Thu, 08 Oct 2020 18:53:41 -0700 (PDT)
+ id 1kQuVV-0007S9-E6
+ for linux-riscv@lists.infradead.org; Fri, 09 Oct 2020 15:40:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=DG4cU5ykNGpbnjdTUxRODJ8feRSxfNhr3QSxGTccHmbrtasEoCHqgJZbVzn0LON8IXqm6KQUNth+KApVlFCi4oyBFByWiLiM+k1pi+7+in46XJsXAYqYgI2LZPAyNx9ai/8nhW66AnW8sZpHgtm5Px3tK7OCY/5rYI7hSf68QlvUazGSTBCsCzLLgOL3Sr8ghsINI95G9qFliazefsSfwrREAz3kO3peFTYG1/SkwOchYMeslp36eZ+ko5/0q1dl/Kp7f6LdZI2aNeLerQ1bEakFMgy2sHxasvcVioNjSRoDdYdg/6Q69xwt8o/VPmSe5mrX0ziz229jvmJajp+4PA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=O53e94OJcx2pQnGuZmPtzDtiaRJQ8mBApQ6rYH2Emu4=;
+ b=c80jDvhBgs6u4fQny/2qwcz8XFAQ9u/AH2b4zK0//ffwa0csvlN9Ia9dvIK9wjz8EaA66rJRldxYVwiGCy+I+/ky8425RmJUHO51qL5U9q//sm6FoF0+tjJaYiUSKtXZtqNp+CYXb07tXG2y6AlzPf9laMW7XB6NFQOdXiWpcjBTxXqIL2CC3losI9BJxUhJvqxuhBFw1E8TuTKEUsCqOaVpqfQUKVushEehoEXBRnZTgnykBJ3JT8duByrfxQA6KQi9sF4Y5VfU3uE5klsaE+47yh882JlyA8YQaMoasspGzlmV6Mo1k3di1zcubxMvDDd90i0iQvai8fB6JIY7iw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=openfive.com; dmarc=pass action=none header.from=sifive.com;
+ dkim=pass header.d=sifive.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=O53e94OJcx2pQnGuZmPtzDtiaRJQ8mBApQ6rYH2Emu4=;
+ b=D9lg26GZr0bAk4tHLf0T/iCocgOLdLvXH4y7hyQHzPr9cJ6+XA8GOKMOSWZOOf/iSi8SoT1W+bi1jFwhXw6iO7mLgtOuZrig8bLh8MBm3egdj6ZOBY6cS64W80SwwJTH9orfhDSXSoqEkL0AQCmmQJhlPh0Yt0aZnpH/ZXxyszk=
+Authentication-Results: vger.kernel.org; dkim=none (message not signed)
+ header.d=none; vger.kernel.org; dmarc=none action=none header.from=sifive.com; 
+Received: from DM6PR13MB3451.namprd13.prod.outlook.com (2603:10b6:5:1c3::10)
+ by DM5PR13MB1658.namprd13.prod.outlook.com (2603:10b6:3:137::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3477.11; Fri, 9 Oct
+ 2020 15:40:30 +0000
+Received: from DM6PR13MB3451.namprd13.prod.outlook.com
+ ([fe80::f49f:d6d6:4c97:e5d5]) by DM6PR13MB3451.namprd13.prod.outlook.com
+ ([fe80::f49f:d6d6:4c97:e5d5%7]) with mapi id 15.20.3477.013; Fri, 9 Oct 2020
+ 15:40:30 +0000
+From: Sagar Shrikant Kadam <sagar.kadam@sifive.com>
+To: linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/1] fix i2c polling mode workaround for FU540-C000 SoC
+Date: Fri,  9 Oct 2020 08:39:39 -0700
+Message-Id: <1602257980-375157-1-git-send-email-sagar.kadam@sifive.com>
+X-Mailer: git-send-email 2.7.4
+X-Originating-IP: [64.62.193.194]
+X-ClientProxiedBy: BYAPR08CA0041.namprd08.prod.outlook.com
+ (2603:10b6:a03:117::18) To DM6PR13MB3451.namprd13.prod.outlook.com
+ (2603:10b6:5:1c3::10)
 MIME-Version: 1.0
-References: <1602083313-19239-2-git-send-email-guoren@kernel.org>
- <mhng-81dee5c2-f8ee-4ab5-92d7-0e46dc952e87@palmerdabbelt-glaptop1>
-In-Reply-To: <mhng-81dee5c2-f8ee-4ab5-92d7-0e46dc952e87@palmerdabbelt-glaptop1>
-From: Guo Ren <guoren@kernel.org>
-Date: Fri, 9 Oct 2020 09:53:30 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTS2fTQNYAtK=FfVHR8g49vfm7mQPe72xD+RRpa4C3T9Dw@mail.gmail.com>
-Message-ID: <CAJF2gTS2fTQNYAtK=FfVHR8g49vfm7mQPe72xD+RRpa4C3T9Dw@mail.gmail.com>
-Subject: Re: [PATCH 2/2] riscv: Fixup static_obj() fail v2
-To: Palmer Dabbelt <palmerdabbelt@google.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+Received: from gamma15.internal.sifive.com (64.62.193.194) by
+ BYAPR08CA0041.namprd08.prod.outlook.com (2603:10b6:a03:117::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id 15.20.3455.21 via Frontend
+ Transport; Fri, 9 Oct 2020 15:40:29 +0000
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 3c7eb70b-cda7-4e83-bb39-08d86c69a6af
+X-MS-TrafficTypeDiagnostic: DM5PR13MB1658:
+X-LD-Processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
+X-MS-Exchange-Transport-Forked: True
+X-Microsoft-Antispam-PRVS: <DM5PR13MB1658682E6DD24ECCA146430197080@DM5PR13MB1658.namprd13.prod.outlook.com>
+X-MS-Oob-TLC-OOBClassifiers: OLM:9508;
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 8OMGfjWkAv04Qmfqchz6xVTE1/YWIaayNZRRnrsMEHlQyz10qVfvD5u1zEldbiSMQaZo5AeDEYh/QEE4E/aTRnTAqiR8tn9HOjSRA2II44QhKQT1Zz5UR/WoQSMNSQsJzwgugj28Qd1Sy4Yf4XsMbuFxJ+/radPMAcEAZJYEpwKnrqxQFgzFck/gdh+WRVfB2fUMrDVfzIk3fg5sgUCsKxzfxSUFa04fVKQLZb1n6HCONoYeNVBbtAMO2H5bQuUIQ0F2j00Ka2ZLQch1SUN0hB+VA2aZhywj4A9M3wAJUgzF5S1oBcocAMOPSjTAO5SEv6O2bbF7q59IfFU2AemSYmKkxXrJu5n5k32t09Y9hPLhBBJY4YnjS0nX7dz4io6FCbAJhKwn75Z+sC/c2BA0tg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:DM6PR13MB3451.namprd13.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(346002)(396003)(376002)(136003)(39850400004)(366004)(6666004)(26005)(186003)(16526019)(8936002)(6486002)(36756003)(2616005)(83380400001)(956004)(8676002)(6916009)(107886003)(83170400001)(83080400001)(2906002)(7696005)(966005)(66556008)(66476007)(66946007)(4326008)(478600001)(316002)(52116002)(42882007)(5660300002);
+ DIR:OUT; SFP:1101; 
+X-MS-Exchange-AntiSpam-MessageData: YlXy2+7CGcQh9y5EG/xhZlVAEMrjq/u6th+CtgWGOHv4w26MOvWEU7KFievMLmiYypxGuaJ7PwFJ72z6C5CFAGSFOMoF2ziC7q8d0pmOsBZBrA8TcFkSawr0s+FyT9mdC3zqkWEWpCdO1fFaX0nwsANOH0rgnF0L7uyYMy4yf2iZgnEDW1vGK0r2ZOlXxFttnja8RqELREoqEIbBxj+73EPgFhonPyzOgWIBtF6k/xgI802kboUiwqSMc8FT7mNgdCzybDnb7bqsdGTmVKFONQ+dGGKm0WsP7RC0v0OyaoxL9kw9PYB+j5WxBq5njuKf2HrBqwAx2EDu1Yrfv1BVZWJiHOzBQhtfNqdhaWOp4RxvjbTkOSwQJu2MhkiBwmgvgQ3TRNGm1HvrH1jd54E2IakPEZn/FjtIqtroGJ4JQtyTPTYMTp2dCLFZTzYh6K0N3L9NLHILzBhE9dNq5i4bRYTSa44nvDkNo7aAFejDv9Mi0vTSyrbr7QJuFz00xSZVWlP89VuaZLNfo5MO7B4Xdwjz+m3kXQRskRzivhJrroSAYwjGkmsfkMEGXDR6Hsyd6Llvo2ZiGw7r2qWjVDH49SjG9QZvqx38LFdWZWUWuCMGh8inPclSuMhTSURtPdT9mMaLUdeUCQjSIg5PBkk4yg==
+X-OriginatorOrg: sifive.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3c7eb70b-cda7-4e83-bb39-08d86c69a6af
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR13MB3451.namprd13.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Oct 2020 15:40:29.9604 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: cgEW4iVrC0+vxZbiQgLJZIDorGUdhQgs4wlj54hr1jt38vHU4fRfYJ0WxVOLb4YFTAP3IIxzM11QH5nt3XFMqA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM5PR13MB1658
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201008_215348_841621_603018E5 
-X-CRM114-Status: GOOD (  33.72  )
+X-CRM114-CacheID: sfid-20201009_114033_660983_1B276730 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -84,154 +122,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Guo Ren <guoren@linux.alibaba.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Andreas Schwab <schwab@linux-m68k.org>, Atish Patra <atishp@atishpatra.org>,
- linux-riscv <linux-riscv@lists.infradead.org>, aurelien@aurel32.net
+Cc: andrew@lunn.ch, peter@korsgaard.com, aou@eecs.berkeley.edu,
+ palmer@dabbelt.com, linux-i2c@vger.kernel.org, paul.walmsley@sifive.com,
+ linux-riscv@lists.infradead.org, Sagar Shrikant Kadam <sagar.kadam@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 8, 2020 at 11:54 AM Palmer Dabbelt <palmerdabbelt@google.com> wrote:
->
-> On Wed, 07 Oct 2020 08:08:33 PDT (-0700), guoren@kernel.org wrote:
-> > From: Guo Ren <guoren@linux.alibaba.com>
-> >
-> > v1 is commit: 6184358da0004c8fd940afda6c0a0fa4027dc911 which has
-> > been reverted.
-> >
-> > When enable LOCKDEP, static_obj() will cause error:
-> >
-> > [    0.067192] INFO: trying to register non-static key.
-> > [    0.067325] the code is fine but needs lockdep annotation.
-> > [    0.067449] turning off the locking correctness validator.
-> > [    0.067718] CPU: 0 PID: 0 Comm: swapper/0 Not tainted 5.7.0-rc7-dirty #44
-> > [    0.067945] Call Trace:
-> > [    0.068369] [<ffffffe00020323c>] walk_stackframe+0x0/0xa4
-> > [    0.068506] [<ffffffe000203422>] show_stack+0x2a/0x34
-> > [    0.068631] [<ffffffe000521e4e>] dump_stack+0x94/0xca
-> > [    0.068757] [<ffffffe000255a4e>] register_lock_class+0x5b8/0x5bc
-> > [    0.068969] [<ffffffe000255abe>] __lock_acquire+0x6c/0x1d5c
-> > [    0.069101] [<ffffffe0002550fe>] lock_acquire+0xae/0x312
-> > [    0.069228] [<ffffffe000989a8e>] _raw_spin_lock_irqsave+0x40/0x5a
-> > [    0.069357] [<ffffffe000247c64>] complete+0x1e/0x50
-> > [    0.069479] [<ffffffe000984c38>] rest_init+0x1b0/0x28a
-> > [    0.069660] [<ffffffe0000016a2>] 0xffffffe0000016a2
-> > [    0.069779] [<ffffffe000001b84>] 0xffffffe000001b84
-> > [    0.069953] [<ffffffe000001092>] 0xffffffe000001092
-> >
-> > Because some __initdata static variables is before _stext:
-> >
-> > static int static_obj(const void *obj)
-> > {
-> >         unsigned long start = (unsigned long) &_stext,
-> >                       end   = (unsigned long) &_end,
-> >                       addr  = (unsigned long) obj;
-> >
-> >         /*
-> >          * static variable?
-> >          */
-> >         if ((addr >= start) && (addr < end))
-> >                 return 1;
-> >
-> >       if (arch_is_kernel_data(addr))
-> >               return 1;
-> >
-> > We could implement arch_is_kernel_data to fixup it.
-> >
-> > Link: https://lore.kernel.org/linux-riscv/1593266228-61125-1-git-send-email-guoren@kernel.org/T/#t
-> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> > Reported-by: Aurelien Jarno <aurelien@aurel32.net>
-> > Cc: Palmer Dabbelt <palmerdabbelt@google.com>
-> > Cc: Atish Patra <atishp@atishpatra.org>
-> > Cc: Andreas Schwab <schwab@linux-m68k.org>
-> > Cc: Aurelien Jarno <aurelien@aurel32.net>
-> > ---
-> >  arch/riscv/include/asm/sections.h | 20 ++++++++++++++++++++
-> >  arch/riscv/kernel/setup.c         |  9 +++++++++
-> >  2 files changed, 29 insertions(+)
-> >  create mode 100644 arch/riscv/include/asm/sections.h
-> >
-> > diff --git a/arch/riscv/include/asm/sections.h b/arch/riscv/include/asm/sections.h
-> > new file mode 100644
-> > index 00000000..2317b9e
-> > --- /dev/null
-> > +++ b/arch/riscv/include/asm/sections.h
-> > @@ -0,0 +1,20 @@
-> > +/* SPDX-License-Identifier: GPL-2.0-only */
-> > +
-> > +#ifndef _ASM_RISCV_SECTIONS_H
-> > +#define _ASM_RISCV_SECTIONS_H
-> > +
-> > +#define arch_is_kernel_data arch_is_kernel_data
-> > +
-> > +#include <asm-generic/sections.h>
-> > +
-> > +extern bool init_mem_is_free;
-> > +
-> > +static inline int arch_is_kernel_data(unsigned long addr)
-> > +{
-> > +     if (init_mem_is_free)
-> > +             return 0;
-> > +
-> > +     return addr >= (unsigned long)__init_begin &&
-> > +             addr < (unsigned long)__init_end;
-> > +}
-> > +#endif /* _ASM_RISCV_SECTIONS_H */
-> > diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> > index 2c6dd32..9ebd5eb4 100644
-> > --- a/arch/riscv/kernel/setup.c
-> > +++ b/arch/riscv/kernel/setup.c
-> > @@ -17,6 +17,7 @@
-> >  #include <linux/sched/task.h>
-> >  #include <linux/swiotlb.h>
-> >  #include <linux/smp.h>
-> > +#include <linux/poison.h>
-> >
-> >  #include <asm/cpu_ops.h>
-> >  #include <asm/setup.h>
-> > @@ -112,3 +113,11 @@ static int __init topology_init(void)
-> >       return 0;
-> >  }
-> >  subsys_initcall(topology_init);
-> > +
-> > +bool init_mem_is_free = false;
-> > +
-> > +void free_initmem(void)
-> > +{
-> > +     free_initmem_default(POISON_FREE_INITMEM);
-> > +     init_mem_is_free = true;
-> > +}
->
-> I'm a bit confused as to what you're trying to do here.  Yesterday I got
-> another version of this patch set that moves init data around, today a
-> different one.  Yesterday's is tested and simpler, and given it's so late in
-> the process I'm inclined to take that as I don't want to break anything.
->
-> Right now I have
->
-> 84814460eef9 ("riscv: Fixup bootup failure with HARDENED_USERCOPY")
-> a78c6f5956a9 ("RISC-V: Make sure memblock reserves the memory containing DT")
-> 549738f15da0 ("Linux 5.9-rc8")
->
-> Unless there's some functional bug, that's what I'm going to send out for 5.9
-> -- I'm not all that worried about lacking the ability to free init data.  The
-> above seems like fine 5.10 material.
->
-> Let me know if I'm missing something here.
-84814460eef9 could resolve the problem and Atish ask for any other
-idea? So It's another choice, I forgot RFC in prefix.
+The polling mode workaround for the FU540-C000 on HiFive Unleashed A00
+board was added earlier. The logic for this seems to work only in case
+the interrupt property was missing/not added into the i2c0 device node.
 
-6184358da0004c8fd940afda6c0a0fa4027dc911("riscv: Fixup static_obj()
-fail") is a sloppy patch that introduces another problem. Sorry about
-that.
+Here we address this issue by identifying the SOC based on compatibility
+string and set the master xfer's to polling mode if it's the FU540-C000
+SoC.
+
+The fix has been tested on Linux 5.9.0-rc8 with a PMOD based RTCC sensor
+connected to I2C pins J1 header of the board. Log for reference
+
+# uname -a
+Linux buildroot 5.9.0-rc8-00001-g9da7791 #1 SMP Fri Oct 9 07:56:13 PDT 2020 riscv64 GNU/Linux
+# i2cdetect -y 0
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:          -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- 57 -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 6f
+70: -- -- -- -- -- -- -- --
+# i2cget 0 0x57 0 b -y
+0xa5
+# i2cset 0 0x57 0 0x9f b -y
+# i2cget 0 0x57 0 b -y
+0x9f
+# i2cget 0 0x57 1 b -y
+0xff
+# i2cset 0 0x57 1 0xa9 b -y
+# i2cget 0 0x57 1 b -y
+0xa9
+# i2cget 0 0x6f 0x20 b -y
+0x98
+# i2cset 0 0x6f 0x20 0xa5 b -y
+# i2cget 0 0x6f 0x20 b -y
+0xa5
+# i2cget 0 0x6f 0x5f b -y
+0x55
+# i2cset 0 0x6f 0x5f 0x5a b -y
+# i2cget 0 0x6f 0x5f b -y
+0x5a
+#
+
+Without the fix here, it's observed that "i2cdetect -y 0"
+turns the system unresponsive, with CPU stall messages.
+
+Patch History:
+===============================
+V2: 
+-Incorporated changes as suggested by Peter Kosgaard
+ https://lkml.org/lkml/2020/10/8/663
+
+V1: Base version
+
+Sagar Shrikant Kadam (1):
+  i2c: ocores: fix polling mode workaround on FU540-C000 SoC
+
+ drivers/i2c/busses/i2c-ocores.c | 22 +++++++++++++---------
+ 1 file changed, 13 insertions(+), 9 deletions(-)
 
 -- 
-Best Regards
- Guo Ren
+2.7.4
 
-ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
