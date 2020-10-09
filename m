@@ -2,84 +2,78 @@ Return-Path: <SRS0=bFkC=DQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PULL_REQUEST,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-6.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1EF7AC433DF
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Oct 2020 17:52:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 89B51C433DF
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Oct 2020 18:24:54 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A9B30206B2
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Oct 2020 17:52:28 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 26ADB222B9
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Oct 2020 18:24:54 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="gVU6MSYp";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="XhIyavq8"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A9B30206B2
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="x2diKSKg"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 26ADB222B9
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Message-ID:To:From:Subject:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=a3EPjevRKSzj30biW356W6jk1Ia5osbUgC1hsVYBDKs=; b=gVU6MSYpafZiP+h255NvUkRkYh
-	00lkBNOUBuL2x+0TlE2opjSS/iQpdQ9K9JFBTyAPU1kcr/E3QEKPPIAR9gcKT/pjGNJVBaVqYyn45
-	cSMLDAVOehcVDOWzdAPku1omQWb01CnfT7vx0ZRXSq5eire9wnNzNaO1LIg10aHZxBH2iheYkbGQr
-	Ph7/4MFQs63ESaSSPTL8UtxmdZ2cOVWjOsXtEFnL6hdIX/9iQRlP2G0PLJkkw1BVsWNtyhWUW2qvX
-	nHXpwJlfD9t3yo1k5FW3HdZeC5YZY8s5gGjq9s2iXtt5sAQkTm81VXdgVM20WIdmk8FdGptTz/USA
-	BoYlF18w==;
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:Date:References:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=cDxxMuY76I6XPhxIaNTe9WBVjnOdQam66aK+3tV0rMk=; b=x2diKSKgdcp6aJXImBV32z/2n
+	AYHXj4EYmSfPVmChjmO+/kSYEm5OwVGGUOVqBbB8+nqFnN2fjOE3iA9WgW/pH8b+r7I2ZG+ShmJh8
+	Obuo/p1Kl/2OGX11RHbm5xt+SIyv1IETKDgefg3eRbwRw5jbrHviktKTv7xAdj/Xfuoa9Zaw2iDCZ
+	o1kNmf3lGenCedW+uKFFjIMMIbiaNYIsna8FaGN5FfVBQvN5kucTz9ywRcdzy0SZKMej57ZDAJdN/
+	GcVVl5qU0b4HydeN5id14/0JZYqFl0LEOBNL26OYfRTGtVm8iDSQq6LxNFsyjMTCfDlWux9M+JVag
+	tzMZHZ51g==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kQwYz-0000NG-Nh; Fri, 09 Oct 2020 17:52:17 +0000
-Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
+	id 1kQx4N-00028R-C3; Fri, 09 Oct 2020 18:24:43 +0000
+Received: from mail-out.m-online.net ([2001:a60:0:28:0:1:25:1])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kQwYw-0000MS-NP
- for linux-riscv@lists.infradead.org; Fri, 09 Oct 2020 17:52:15 +0000
-Received: by mail-pf1-x441.google.com with SMTP id a200so7475328pfa.10
- for <linux-riscv@lists.infradead.org>; Fri, 09 Oct 2020 10:52:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:cc:from:to:message-id;
- bh=wVsQ9q5Q7s1s2K/FqK048q1RDnfVI41to7Mmyngot/U=;
- b=XhIyavq8e/26hIs74uPffC+5QFXoQULQ7hdbrnAqZ1ilmOUyi3gcaCVmzNwEpzLX2b
- rKdCg9+tqIsMw+K2pOKGx5xvlHB2OOdPs4Eq8q/gRJDTXXXLZsJgigJWuDrj6IYY0BuW
- yI0C4N3AZQ/ZaL8lBoPMR1tgZYBBGCnfbxbk7bNlQ+n6Nw5y4n8E1eqDyJLfr+rbiU5W
- aclex6pKaax2Gwve3s3NMXqQq/s9i90/CTaeN3JCP1UmZ5ARmEidDYEWviaUgkRHwMBH
- okzei8cKuXRjIZCncGfKjXJ99nvn/ejIv89XDGvHLgz06IYJ3SviWV6CPka/g+gTNI95
- fuQA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:cc:from:to:message-id;
- bh=wVsQ9q5Q7s1s2K/FqK048q1RDnfVI41to7Mmyngot/U=;
- b=arsDu3hncyERgRIM59pnPhd6ZToMRObuo/0mjrpJcyqVLmy4QouwFeOgdHbYSdfis+
- W77g7orR8+nuc6ZYSSMGcNWoNaLKa3o3zSH7eGaPjx6Llo82JVtM2U+mLsE4bJvDgS8V
- sf9uUmyhlXlld15HDoEe8t+oh/yHflzAf+Rv0uj2owEvZCVbQ1kQ+4h0XBAVJ0KdaGR/
- ECX/EMhZ7nO3PsVrr9bJ0HlgzjmNjfxBgINgO62XGBQy3k82o74/6HDhkn8l0nPGLKgK
- +hMOgCq8kK16HYmHdiswAeD7goc+Ejtlcaz9soPVe0LdvlTgX8Dz14GWX5/0FEbn83GM
- hs9Q==
-X-Gm-Message-State: AOAM530+T16Rw0+mszrmYeXhQf1tiKwrzbZo0UiZ4OWshz5lFGFH+j55
- WiHKswfak8wlm1aWS5eDA0tYjNBsznXwBKCv
-X-Google-Smtp-Source: ABdhPJw1UfBrhjq/v8VFLEsMgIVl2JkDSyZFhDM9kj9WzdsuIxN1Qahc4T3xKTzOzmdFNEtgVaGoeg==
-X-Received: by 2002:a63:4f5e:: with SMTP id p30mr4176607pgl.6.1602265930214;
- Fri, 09 Oct 2020 10:52:10 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id k25sm1207735pfi.42.2020.10.09.10.52.09
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 09 Oct 2020 10:52:09 -0700 (PDT)
-Date: Fri, 09 Oct 2020 10:52:09 -0700 (PDT)
-X-Google-Original-Date: Fri, 09 Oct 2020 10:52:06 PDT (-0700)
-Subject: [GIT PULL] RISC-V Fixes for 5.9
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <mhng-9c92c420-8192-474d-906c-3f43e1f4d7e0@palmerdabbelt-glaptop1>
+ id 1kQx4K-00027V-Az
+ for linux-riscv@lists.infradead.org; Fri, 09 Oct 2020 18:24:41 +0000
+Received: from frontend01.mail.m-online.net (unknown [192.168.8.182])
+ by mail-out.m-online.net (Postfix) with ESMTP id 4C7Ggl6dbdz1rsMq;
+ Fri,  9 Oct 2020 20:24:35 +0200 (CEST)
+Received: from localhost (dynscan1.mnet-online.de [192.168.6.70])
+ by mail.m-online.net (Postfix) with ESMTP id 4C7Ggl5Rsxz1qrDV;
+ Fri,  9 Oct 2020 20:24:35 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at mnet-online.de
+Received: from mail.mnet-online.de ([192.168.8.182])
+ by localhost (dynscan1.mail.m-online.net [192.168.6.70]) (amavisd-new,
+ port 10024)
+ with ESMTP id 2mbYlDZWbOcq; Fri,  9 Oct 2020 20:24:34 +0200 (CEST)
+X-Auth-Info: LZoooTdPUM9XaQoDhU03clxRO+LEeX6w/lImTE/OmOPPBdMcRJILnzkfJa/RlVrk
+Received: from igel.home (ppp-46-244-168-131.dynamic.mnet-online.de
+ [46.244.168.131])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.mnet-online.de (Postfix) with ESMTPSA;
+ Fri,  9 Oct 2020 20:24:34 +0200 (CEST)
+Received: by igel.home (Postfix, from userid 1000)
+ id 17F1F2C2864; Fri,  9 Oct 2020 20:24:34 +0200 (CEST)
+From: Andreas Schwab <schwab@linux-m68k.org>
+To: Sagar Shrikant Kadam <sagar.kadam@sifive.com>
+Subject: Re: [PATCH v2 1/1] i2c: ocores: fix polling mode workaround on
+ FU540-C000 SoC
+References: <1602257980-375157-1-git-send-email-sagar.kadam@sifive.com>
+ <1602257980-375157-2-git-send-email-sagar.kadam@sifive.com>
+X-Yow: Dehydrated EGGS are STREWN across ROULETTE TABLES..
+Date: Fri, 09 Oct 2020 20:24:34 +0200
+In-Reply-To: <1602257980-375157-2-git-send-email-sagar.kadam@sifive.com>
+ (Sagar Shrikant Kadam's message of "Fri, 9 Oct 2020 08:39:40 -0700")
+Message-ID: <87pn5rp89p.fsf@igel.home>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/27.1 (gnu/linux)
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201009_135214_766756_53A03ADF 
-X-CRM114-Status: GOOD (  11.97  )
+X-CRM114-CacheID: sfid-20201009_142440_485583_63B1E217 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -91,47 +85,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-MIME-Version: 1.0
+Cc: andrew@lunn.ch, peter@korsgaard.com, aou@eecs.berkeley.edu,
+ linux-kernel@vger.kernel.org, palmer@dabbelt.com, linux-i2c@vger.kernel.org,
+ paul.walmsley@sifive.com, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 549738f15da0e5a00275977623be199fbbf7df50:
+On Okt 09 2020, Sagar Shrikant Kadam wrote:
 
-  Linux 5.9-rc8 (2020-10-04 16:04:34 -0700)
+> diff --git a/drivers/i2c/busses/i2c-ocores.c b/drivers/i2c/busses/i2c-ocores.c
+> index f5fc75b..9b3d1ab 100644
+> --- a/drivers/i2c/busses/i2c-ocores.c
+> +++ b/drivers/i2c/busses/i2c-ocores.c
+> @@ -686,17 +686,21 @@ static int ocores_i2c_probe(struct platform_device *pdev)
+>  
+>  	init_waitqueue_head(&i2c->wait);
+>  
+> +	/*
+> +	 * Set OCORES_FLAG_BROKEN_IRQ to enable workaround for
+> +	 * FU540-C000 SoC in polling mode.
+> +	 * Since the SoC does have interrupt it's dt has the interrupt
 
-are available in the Git repository at:
+Typo: its
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.9
+Andreas.
 
-for you to fetch changes up to 84814460eef9af0fb56a4698341c9cb7996a6312:
-
-  riscv: Fixup bootup failure with HARDENED_USERCOPY (2020-10-06 18:34:00 -0700)
-
-----------------------------------------------------------------
-RISC-V Fixes for 5.9
-
-I have two fixes this week:
-
-* A fix to actually reserve the device tree's memory.  Without this the device
-  tree can be overwritten on systems that don't otherwise reserve it.  This
-  issue should only manifest on !MMU systems.
-* A workaround for a BUG() that triggers when the memory that originally
-  contained initdata is freed and later repurposed.  This triggers a BUG() on
-  builds that with HARDENED_USERCOPY enabled.
-
-----------------------------------------------------------------
-Atish Patra (1):
-      RISC-V: Make sure memblock reserves the memory containing DT
-
-Guo Ren (1):
-      riscv: Fixup bootup failure with HARDENED_USERCOPY
-
- arch/riscv/kernel/vmlinux.lds.S | 5 +++--
- arch/riscv/mm/init.c            | 1 +
- 2 files changed, 4 insertions(+), 2 deletions(-)
+-- 
+Andreas Schwab, schwab@linux-m68k.org
+GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
