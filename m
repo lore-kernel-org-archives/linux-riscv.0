@@ -5,19 +5,19 @@ X-Spam-Level:
 X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EE303C433DF
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Oct 2020 21:14:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 99533C433E7
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Oct 2020 21:14:12 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A36332240A
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Oct 2020 21:14:11 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 334722240A
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Oct 2020 21:14:12 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ykQ8cSML";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="W+1iEf1Z"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A36332240A
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="LlYVT2Xt";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="jxqX9Ib3"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 334722240A
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,68 +26,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=bUQqLiTe6ENmwM4RRqizrnBDLcFTB0lgEXDOzwGIubY=; b=ykQ8cSMLgJaRcZL8c2gPiz9BL
-	Pj9VP6Z5TxYiIjzohsnAToP8CEFqbL4mmOOc0+P5fKGJQxPCiDzAn+FANAm6BvcO3fWf/9tADU9ZZ
-	X9J5VavQjKcGwEOCNcKI1irXOX+G32USVuMmeNo+YX+VbtdeS9stULFvhkxk0naYcPHYueJDqMXfn
-	TaUGXiQPgtaETg1T3Y/GbYUUx3j+Eti+BL5omaga1Hc5NrnM3cYT4xvil9Wvh0Ff8xE9AxKV25xoB
-	0LVoC2huk8CZ4RD8sE0Loguj7iHLGXDr4yJ2QHjTG2bf01m5nXabQUP50kC5MxKeNQUYbopDZxjmQ
-	FEP+lWuOA==;
+	 bh=EFyU15w+pQR3MQk94TN3Rol9+FXkj3AeeWwxNBLHNQ0=; b=LlYVT2Xt0vR3Ba3THucXtSTYa
+	jsPaNFfYclxS9q1eD/xspzX1OTQhq7/25qReiOxOaSOYSe+dvv3/QYc3UqdEVWdJLnNpX0ASMhIlo
+	17SQ4tc9qIsa33Xhmt+qbHKAifq1slFdm9arX5Wf5Lg/RjLhjJcDvVyG+0LZY9yazsShDUbSWrmrr
+	O6NipcvKJxJyazznWh6hY6v4676VCVm++sMLag7FJu5YZBwPsxv44p0rVwkQfiKTraek19sn7XYBg
+	ynSqrzc07pIESPYnBMLKcHsj04eTuj5TMd1/KRtIkM4lJj3B2ZOESa7hc0X3XL39/O5H7IikbgOrA
+	MwrK9b5cw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kQziF-0004sz-2Q; Fri, 09 Oct 2020 21:14:03 +0000
+	id 1kQziE-0004sV-DG; Fri, 09 Oct 2020 21:14:02 +0000
 Received: from esa4.hgst.iphmx.com ([216.71.154.42])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kQziA-0004kW-Fk
+ id 1kQzi9-0004kL-J2
  for linux-riscv@lists.infradead.org; Fri, 09 Oct 2020 21:13:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1602278038; x=1633814038;
+ t=1602278037; x=1633814037;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=CEOo6JngBKtDuR3zNiPVEE237ISONrVcfU90kTdl4dc=;
- b=W+1iEf1ZTinqJmyI4y91+U0AkcOLMBCKxWVmMjMdaD6Mhf6zn5riUSA4
- Fv1jIW2lg5d62x4mU496TbDpZjISu7Fv+2OEHqnFcqmCRRERi66EcbB2B
- tcgE4GMpxjdgcjLFeBfvIU2bZIlSMXm/YhLYavVqwRD/hAmYLcxHVyaAD
- 7obteQ6Kb7BEtQZN4vy5jGe/MslbvAj72pXhv+rn/fHy+gzL6eR4Bgyrv
- VlxnXvDYn9zpn234sdmAKkFLqbmomLcgaMGhbnF68rRa/rFrQFzDBe3/B
- lHas6PFVYK9uKorFuNZWixXdPVh2N/kBhPmDTyMiIFpC4Aa0lipJWqchl w==;
-IronPort-SDR: dgsg4SF3LsGIKlWIYEAbCNDCNRRzsh17JfSTlbYFd38MxytTq1nSc1bf9tq7a39tktp62zE9Su
- vfNpFSqqjGazGNqFkJd2dNikk9NCYWyTCjOqD0OrQD+H3UIgrn/G/uLyQqKyaFUJlAMOxNN67A
- y/hgJcO5bEfOhOluJ5pCzlzOL0sybzmxYnmmTg3xB4u663Yalq2ZgLoiTzwyeeEmBbhtjggnT0
- GAoy++nKj8W+Y9j4EiR+pU88GNzWeLRECrfrEVwNxhcj/goEeqsoFMz6fGDzWMZPhwUknba206
- a+s=
-X-IronPort-AV: E=Sophos;i="5.77,356,1596470400"; d="scan'208";a="149406020"
+ bh=/rFWaVS2Mp29X2G5njahMGadr4BBV3Wqr3D/UpzWpM8=;
+ b=jxqX9Ib3lPpMXjvo6JJBYJzvRmtq51oafpoukB1eeWh9aaCWBYSbiyjH
+ C5UmjSBDxpkEsfjGqmTieG7WH/Slslj/eJpyLnnPjgGPyFAZ21d6ZENZE
+ n+yWTLOXeeu4TV7ZubQ/AwlHywEgSSh0KiXNE2mk1s7DjboWQWBlL+fM+
+ dCdqseB9PflFU1YmS9AUosHjZSbecF5MR6FhHeRXdy6++ifJLhLWg8r6i
+ mQ92Xl51bfhWbwmsDSBnYG7CcNOTpkABDBW5kLqgrg7WefFvvx4+SGiJY
+ z6T8c1C3qQgX/f3M37kEa8dTJm2z+Ziuv2Z2kIKk3PsxYgn2DySzi5jR0 w==;
+IronPort-SDR: yKqN7uN1anlpKxsDgMeWi8EX8cGeagh66ll3hpqoE9wpPpWQt5TE9aj5FGF+5x/NhsqkAk5TlF
+ mqDEmIOXv/XXDMlzaRh9GnE2CSCwkdiHdpY9chy3mIXNnGsrGW2NWUXe9EFvxJm5c/pMRao+Q/
+ CL2jMp44yj6TdKCiD9k9ocfMgDklNoHYH89xPCCsjNAqzB156qignvdACPNHI4kFiWEwS03ybf
+ ubtE1Gbdp0YOG9QsAcO3HHG32/BO3jIxYRNC6pBqjXS14GudF2OHdw6Mu/DLJLIpgXS4AmDGKT
+ xKc=
+X-IronPort-AV: E=Sophos;i="5.77,356,1596470400"; d="scan'208";a="149406018"
 Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
  ([199.255.45.15])
  by ob1.hgst.iphmx.com with ESMTP; 10 Oct 2020 05:13:55 +0800
-IronPort-SDR: s8mODAAUNTK6Q/h8fFRFUMmAFE/nOAEAB+USdVPISUrYv3o8BB2tzATMEru8pykRqON2btyaCL
- m2ojxzgc+3N7NZ0HJWLasRWFhtsHCH6xsiYc6ln+k0SAbI3zha9RIjF24aI9PpW+YZnLXQJUo6
- sypNUEbf4abmeJ+fEf6HY8SRmYVseuadcM6944qAT0+Ex3RiQbervDtyDHhEf6vdZtGVZplkHK
- 2RLy/pK6asJj/4YNLQUPcK2Ig1e3oCp7Eo4ZQtHT9ufevLWakZTs+o++b63Bfet2Ci2G08a58G
- +VKBl9Xl45cYD5AWmgxE7tIo
+IronPort-SDR: X+mRQPuXPVbJNkbfSz9S7dnmTN4K0vGAUTkX+naiMxSVs/EHz5Tj7qIzWgq2zYda7cExGDJFYU
+ IYfeBT3dQfVb+shGJXB422KD4mavW4/8P0gGNB94QU6Sn67ITf0S02Tq2XeBasUOwZFaSM1qjH
+ aZ9Twx1d4id9prdAXQLfSF1igPcNLLELgakKGauqJFMm/fBzQYZ4ISchv2geve4bdh315a554F
+ BkBSfoAfx0pm4G5fhSZXQBJCsuwq22soxe3YuCdruhKqe0KPpc8tgv2prXBv1swMIowPsBPLbm
+ PCHw80YPfOfl1PJmLwlO6F8H
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
  by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 09 Oct 2020 13:59:43 -0700
-IronPort-SDR: xXNYNpuECda/K0oZVXImx5r+Kibd3x1J+MzfXjxi413udaVCYh0GU2b9kRFOJQn6wk7UK+WREx
- 6re5MRNGaGLYrVcdHJ4myYpM6ZmmwsiDeRlg1H1HDTmFSL3f4U/rI3hhlrx4QDGErN2QmVAO8g
- W30shVY2Tf7Pa4N3JshPtZyShOaRH4PWQRuUxGcwO/q8e0ZkuccrWJFe3QSBV55xw/1B6xWNps
- X2UT0lQgjuSXucitoPhpWdZf5ZcYabUQQrMLWzxL3t448DGDaNz9ugmCJChIyzUCsf1OD8dx9v
- Odg=
+ 09 Oct 2020 13:59:42 -0700
+IronPort-SDR: vm6/p5xIqey4ku5y72/6cCg/OOc897k5XjcVj4FdaEbbZDVCqcq4mtvLumHn2E24vNG6BFLfrL
+ 912oWzPCuZmN2zDXb3PgxZBnOqpcCPq9fMDZBxTuUudr23AxRDHvlHa/zPDeiMfZxxDFhvTuky
+ 7czWnLbJZ6V5eBNSjxQCyeAoKDbjENsMPgEGOrZXdrH8gm1AKioXf1z5JKxljqEWNrxJhp/uho
+ Giuf2oHZim1ErI19qM5Uuo/QkTDEP+CwFfP7hmgoD3GA3kPXZTihlsKZfLn55pv/KHYwvJ9z++
+ 1UA=
 WDCIronportException: Internal
 Received: from usa003000.ad.shared (HELO jedi-01.hgst.com) ([10.86.60.38])
  by uls-op-cesaip01.wdc.com with ESMTP; 09 Oct 2020 14:13:55 -0700
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [PATCH 5/5] RISC-V: Move dynamic relocation section under __init
-Date: Fri,  9 Oct 2020 14:13:44 -0700
-Message-Id: <20201009211344.2358688-6-atish.patra@wdc.com>
+Subject: [PATCH 4/5] RISC-V: Protect .init.text & .init.data
+Date: Fri,  9 Oct 2020 14:13:43 -0700
+Message-Id: <20201009211344.2358688-5-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20201009211344.2358688-1-atish.patra@wdc.com>
 References: <20201009211344.2358688-1-atish.patra@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201009_171358_760359_3B68F6A1 
-X-CRM114-Status: GOOD (  10.82  )
+X-CRM114-CacheID: sfid-20201009_171357_812589_89B53303 
+X-CRM114-Status: GOOD (  16.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -112,40 +112,147 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Dynamic relocation section are only required during boot. Those sections
-can be freed after init. Thus, it can be moved to __init section.
+Currently, .init.text & .init.data are intermixed which makes it impossible
+apply different permissions to them. .init.data shouldn't need exec
+permissions while .init.text shouldn't have write permission.
+
+Keep them in separate sections so that different permissions are applied to
+each section. This improves the kernel protection under
+CONFIG_STRICT_KERNEL_RWX. We also need to restore the permissions for the
+entire _init section after it is freed so that those pages can be used for
+other purpose.
 
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
 ---
- arch/riscv/kernel/vmlinux.lds.S | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ arch/riscv/include/asm/sections.h   |  2 ++
+ arch/riscv/include/asm/set_memory.h |  2 ++
+ arch/riscv/kernel/setup.c           |  4 ++++
+ arch/riscv/kernel/vmlinux.lds.S     | 10 +++++++++-
+ arch/riscv/mm/init.c                |  6 ++++++
+ arch/riscv/mm/pageattr.c            |  6 ++++++
+ 6 files changed, 29 insertions(+), 1 deletion(-)
 
+diff --git a/arch/riscv/include/asm/sections.h b/arch/riscv/include/asm/sections.h
+index d60802bfafbc..730d2c4a844d 100644
+--- a/arch/riscv/include/asm/sections.h
++++ b/arch/riscv/include/asm/sections.h
+@@ -10,6 +10,8 @@
+ #include <asm-generic/sections.h>
+ extern char _start[];
+ extern char _start_kernel[];
++extern char __init_data_begin[], __init_data_end[];
++extern char __init_text_begin[], __init_text_end[];
+ 
+ extern bool init_mem_is_free;
+ 
+diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
+index 4cc3a4e2afd3..913429c9c1ae 100644
+--- a/arch/riscv/include/asm/set_memory.h
++++ b/arch/riscv/include/asm/set_memory.h
+@@ -15,6 +15,7 @@ int set_memory_ro(unsigned long addr, int numpages);
+ int set_memory_rw(unsigned long addr, int numpages);
+ int set_memory_x(unsigned long addr, int numpages);
+ int set_memory_nx(unsigned long addr, int numpages);
++int set_memory_default(unsigned long addr, int numpages);
+ void protect_kernel_text_data(void);
+ #else
+ static inline int set_memory_ro(unsigned long addr, int numpages) { return 0; }
+@@ -22,6 +23,7 @@ static inline int set_memory_rw(unsigned long addr, int numpages) { return 0; }
+ static inline int set_memory_x(unsigned long addr, int numpages) { return 0; }
+ static inline int set_memory_nx(unsigned long addr, int numpages) { return 0; }
+ static inline void protect_kernel_text_data(void) {};
++static inline int set_memory_default(unsigned long addr, int numpages) { return 0; }
+ #endif
+ 
+ int set_direct_map_invalid_noflush(struct page *page);
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index 4176a2affd1d..b8a35ef0eab0 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -129,6 +129,10 @@ bool init_mem_is_free = false;
+ 
+ void free_initmem(void)
+ {
++	unsigned long init_begin = (unsigned long)__init_begin;
++	unsigned long init_end = (unsigned long)__init_end;
++
++	set_memory_default(init_begin, (init_end - init_begin) >> PAGE_SHIFT);
+ 	free_initmem_default(POISON_FREE_INITMEM);
+ 	init_mem_is_free = true;
+ }
 diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
-index 15b9882588ae..4aedb4fd79e5 100644
+index 0807633f0dc8..15b9882588ae 100644
 --- a/arch/riscv/kernel/vmlinux.lds.S
 +++ b/arch/riscv/kernel/vmlinux.lds.S
-@@ -60,6 +60,10 @@ SECTIONS
+@@ -30,8 +30,8 @@ SECTIONS
+ 	. = ALIGN(PAGE_SIZE);
+ 
+ 	__init_begin = .;
++	__init_text_begin = .;
+ 	INIT_TEXT_SECTION(PAGE_SIZE)
+-	INIT_DATA_SECTION(16)
+ 	. = ALIGN(8);
+ 	__soc_early_init_table : {
+ 		__soc_early_init_table_start = .;
+@@ -48,11 +48,19 @@ SECTIONS
+ 	{
+ 		EXIT_TEXT
+ 	}
++
++	__init_text_end = .;
++	. = ALIGN(SECTION_ALIGN);
++	/* Start of init data section */
++	__init_data_begin = .;
++	INIT_DATA_SECTION(16)
+ 	.exit.data :
+ 	{
+ 		EXIT_DATA
  	}
  	PERCPU_SECTION(L1_CACHE_BYTES)
- 
-+	.rel.dyn : {
-+		*(.rel.dyn*)
-+	}
 +
- 	__init_data_end = .;
++	__init_data_end = .;
  	__init_end = .;
  
-@@ -112,10 +116,6 @@ SECTIONS
+ 	. = ALIGN(SECTION_ALIGN);
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 7859a1d1b34d..3ef0eafcc7c7 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -627,11 +627,17 @@ void protect_kernel_text_data(void)
+ {
+ 	unsigned long text_start = (unsigned long)_text;
+ 	unsigned long text_end = (unsigned long)_etext;
++	unsigned long init_text_start = (unsigned long)__init_text_begin;
++	unsigned long init_text_end = (unsigned long)__init_text_end;
++	unsigned long init_data_start = (unsigned long)__init_data_begin;
++	unsigned long init_data_end = (unsigned long)__init_data_end;
+ 	unsigned long rodata_start = (unsigned long)__start_rodata;
+ 	unsigned long data_start = (unsigned long)_data;
+ 	unsigned long max_low = (unsigned long)(__va(PFN_PHYS(max_low_pfn)));
  
- 	BSS_SECTION(PAGE_SIZE, PAGE_SIZE, 0)
++	set_memory_ro(init_text_start, (init_text_end - init_text_start) >> PAGE_SHIFT);
+ 	set_memory_ro(text_start, (text_end - text_start) >> PAGE_SHIFT);
++	set_memory_nx(init_data_start, (init_data_end - init_data_start) >> PAGE_SHIFT);
+ 	set_memory_nx(rodata_start, (data_start - rodata_start) >> PAGE_SHIFT);
+ 	set_memory_nx(data_start, (max_low - data_start) >> PAGE_SHIFT);
+ }
+diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
+index 19fecb362d81..aecedaf086ab 100644
+--- a/arch/riscv/mm/pageattr.c
++++ b/arch/riscv/mm/pageattr.c
+@@ -128,6 +128,12 @@ static int __set_memory(unsigned long addr, int numpages, pgprot_t set_mask,
+ 	return ret;
+ }
  
--	.rel.dyn : {
--		*(.rel.dyn*)
--	}
--
- #ifdef CONFIG_EFI
- 	. = ALIGN(PECOFF_SECTION_ALIGNMENT);
- 	__pecoff_data_virt_size = ABSOLUTE(. - __pecoff_text_end);
++int set_memory_default(unsigned long addr, int numpages)
++{
++	return __set_memory(addr, numpages, __pgprot(_PAGE_KERNEL | _PAGE_EXEC),
++			    __pgprot(0));
++}
++
+ int set_memory_ro(unsigned long addr, int numpages)
+ {
+ 	return __set_memory(addr, numpages, __pgprot(_PAGE_READ),
 -- 
 2.25.1
 
