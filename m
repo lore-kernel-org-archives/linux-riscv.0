@@ -1,96 +1,89 @@
-Return-Path: <SRS0=zN9r=DR=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=iHCa=DS=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.5 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,NICE_REPLY_A,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 42F30C433DF
-	for <linux-riscv@archiver.kernel.org>; Sat, 10 Oct 2020 09:04:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DD272C433DF
+	for <linux-riscv@archiver.kernel.org>; Sun, 11 Oct 2020 03:05:18 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D4CF6207C4
-	for <linux-riscv@archiver.kernel.org>; Sat, 10 Oct 2020 09:04:51 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 573CB21734
+	for <linux-riscv@archiver.kernel.org>; Sun, 11 Oct 2020 03:05:18 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="CbOTXEPK";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="UrufEpvA"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D4CF6207C4
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="lZByJURe";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="t81ebUlJ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 573CB21734
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=0CqdgHNuchQEEZNuHCErrmL3TeqFk3s3Ee3jTHYQz6Y=; b=CbOTXEPKoY+vlNFa9kQ4m4EY3
-	WrM325Y1wQ0FEl/meml+R9jN/TwIR69KmCD7n42DIYES62+Wt92oHAA0gzxJwCfFsThcrrR+mmHMq
-	NBx27TTSMMufl3uiEjqYWfMFEHpc36TY+bJ5pgpF5ZyLqmxj/ykssiVN8ao4JaDgl9Kiiayg2X9u/
-	bmwrMyT2Ovcbq4p3j4LC8Ihehyo6Cnw6XmNiBOq/IqmjruDjVcxqRwWWVHlOh5HW9OO5db6/kow/u
-	b49FkLUCm0LMjgUTmR9KKtr+Zbuk6HnCGs1Lfey4FGUzgwBmYdhRTj3sYTYAYDgvjrL2YNmRQFU85
-	GkULkpFrg==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8BHGnb40luCRkCiiW3Kci+35c64tC+QYdAkRCF5R7p0=; b=lZByJUReL3eivr++GcszTxsE9+
+	ZnRcRkKGsCeIJktYTDjbyxfg4EeVLDH1qOCzDXPjTfz1eZIJWYJ2zLzuNKPmnFBTnVCzYULftvvXw
+	xBJ6MzMeyo26nkUHiXYrXyKMiB8kwt1j0fB+Ut9/ttIKRlOMERP76xWcB6E+tU8/dHai4F0+AkbIt
+	Y4GdK96kcsSfDMnKWngMMHgoyHTe9CxLclQo0TwBcDXLPYo0V4qrZEXHcz/7JJ9GFq1QhuPMHQ3+3
+	3X1nqEpT8Srdanxvf6Dxd9mmTmLEfPXrnKFPQHlDM203XXgActgiRMr+BE7tA7pT3fW38urbMcFxJ
+	lOjV/uqQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kRAnw-0000yZ-Gx; Sat, 10 Oct 2020 09:04:40 +0000
-Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
+	id 1kRRfP-0003DM-AW; Sun, 11 Oct 2020 03:04:59 +0000
+Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kRAns-0000yA-QD
- for linux-riscv@lists.infradead.org; Sat, 10 Oct 2020 09:04:37 +0000
-Received: by mail-wm1-x341.google.com with SMTP id d3so11997493wma.4
- for <linux-riscv@lists.infradead.org>; Sat, 10 Oct 2020 02:04:34 -0700 (PDT)
+ id 1kRRfN-0003Cx-18
+ for linux-riscv@lists.infradead.org; Sun, 11 Oct 2020 03:04:57 +0000
+Received: by mail-pl1-x643.google.com with SMTP id d23so6583372pll.7
+ for <linux-riscv@lists.infradead.org>; Sat, 10 Oct 2020 20:04:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=subject:to:cc:references:from:message-id:date:user-agent
- :mime-version:in-reply-to:content-transfer-encoding:content-language;
- bh=obzmRsA49+kN9nLLhhuvco3Uy76XSh6EQ8QxAczkyH4=;
- b=UrufEpvAYBZDtrrcoVOX9u4Pa8c9JgWK9jAKhwQTprgcMonbFk7+1RbceT8lkr9kIP
- fuYTOjjvCMYDqJAhfkfTRmeC7Zc24xCU0nUPruSBeKcsfxCOEtGvyxfXjxy5jmR5lwkc
- 4IHuLX5zzEcBwqiI9DYmt7Pnvio6PlgU1NAglSmkpujqdrFo/ydqKh+ij/ZepBzukj84
- hEjvDSIdfZEXIbNilmASTz0RkWI01lmk4of//xPRrWpPaQkU/TMtBkX2spLA4s/Um91P
- 2ocQRU5XcfHhddSN2aL7H10MrzrCho9B6bdiky5yTbOlyEYG0NheJgihs109l6jO1/yV
- gJlw==
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=qO6nuQUyuGyserco0gU3gcCQDY2NGTr1pWvbXyeqv+A=;
+ b=t81ebUlJb42YhvlO/hFbSD98Qc9uHt47kxM/QdCwPpQt1acNswG6v9rINqAsVk4P9D
+ t5u06PBpJEIixpXlFfwGiENCo9fwl34i999jJpl34iu5YA+GrgTMUsZj8GXGdC1SsmdM
+ niRjVe+2F21FJwvW4owFYNKJrO7gJ2/aum0vaiokMrF9k5AuADRWBhd8c6PeN8t986N8
+ 6AdUCfG5tehKX+po5fqEIJ83DPRPl90Wo+yxQ1CI0nc/FPV0v4HDjicCM/5MlIHc4pFY
+ 3LgvYC/WGHh9i+qrfIIBLhT0VqREGV+TKL8qi0j12XLq0DMunMIrd/WrO5UzDW31Isci
+ nWUA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:to:cc:references:from:message-id:date
- :user-agent:mime-version:in-reply-to:content-transfer-encoding
- :content-language;
- bh=obzmRsA49+kN9nLLhhuvco3Uy76XSh6EQ8QxAczkyH4=;
- b=fe9PevO0BL9Kgp8mA3occEQTwDGv5uXI4SaoLcIRenGEbl1S2J4uiId1uPeUkTjgCT
- Yq1OCuFdwU8p1RmGffyjhj+kdz3esOkp62+CNDVQLs02KzLV0UVvj+0yZxEusUKRgHPt
- td22IPjlSk28Qxjuo+gLl06HUg3x5aCFzVwXi3tNcCOtY1YJ3z85GTpHpQzhrtNm7hQQ
- qRJmc2SuWsDY9Y8JcbPd8kNLn86TvHWuTE/xTtmMgQgHs1t7RTYNaRadnTEGNSijW5St
- LltBo24fOA8MDsbCCcIox1kijh4N3wJHyfCd3fAzHf9/puL5pan7T37hoOerLLlUTuYK
- aswA==
-X-Gm-Message-State: AOAM532S0dc0d+SNF74sYcbOE5B35GkJ6DiIJP3c6jQCWsg+5p1YC813
- H2gTfRFdtW7yuHbKujbrI+k=
-X-Google-Smtp-Source: ABdhPJyOWCYq8HTIrJ10s9a6rJjjy3r0hgPGOb9G/M5AN/JBrJ/WFJZVlbpWRluU+DZIwA/MsjWUNQ==
-X-Received: by 2002:a1c:2c0a:: with SMTP id s10mr1920266wms.103.1602320673727; 
- Sat, 10 Oct 2020 02:04:33 -0700 (PDT)
-Received: from [192.168.0.66]
- (cpc83661-brig20-2-0-cust443.3-3.cable.virginm.net. [82.28.105.188])
- by smtp.gmail.com with ESMTPSA id j17sm15700595wrw.68.2020.10.10.02.04.32
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Sat, 10 Oct 2020 02:04:33 -0700 (PDT)
-Subject: Re: [PATCH v2] PCI: keystone: Enable compile-testing on !ARM
-To: Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
- Murali Karicheri <m-karicheri2@ti.com>
-References: <20200906194850.63glbnehjcuw356k@lenovo-laptop>
- <20200906195128.279342-1-alex.dewar90@gmail.com>
- <20200930182138.GA3176461@bogus>
-From: Alex Dewar <alex.dewar90@gmail.com>
-Message-ID: <91c7c7b5-fc97-325c-7cba-520d99eede9a@gmail.com>
-Date: Sat, 10 Oct 2020 10:04:12 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.12.0
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=qO6nuQUyuGyserco0gU3gcCQDY2NGTr1pWvbXyeqv+A=;
+ b=H17UCjcL+C1frw4tkHWhBAmxLS6o404IsQFbJ4kAt8jT+FaJKYqPXEsgYeV1oL9ZRS
+ tf5hACActcHpa6Qch3IyYyXl41AO0yDTjPNcpbU47lANMYb8D8cpOs+8csYN4gbP1g/m
+ QCQ3R6WCWHvQv3/oLl9rXUSwa5kpTo2DvwF/IN0nvkT9vf0uJSktzlTaCMDsvrYvygYW
+ SjPNVJmrifkH4R9pKaXKPE70ZQRojlAf7wY2F7KCxVr2KqWlxOEt9vlbnYp7Zp3r+dO9
+ fgpad/bHIyq0nvxZztymCRS4Iji+xug585kqjISRCUYv1g+GN66Z53i0pQcWewAsRV5x
+ ymhQ==
+X-Gm-Message-State: AOAM531AJj0OHmIrGR+P6f5oWj05VTbfiiZLZ75utEWI7awC0KHj1BNI
+ HBM2f8qZ14cqmD9JxMBrU4U=
+X-Google-Smtp-Source: ABdhPJyehudg9KH8YKCqKKFWN3Sq5s9woTPhA1B1g5ujCDIm+hymvjVj3M+KVTvzLxt3dAnRdn7AWg==
+X-Received: by 2002:a17:902:b611:b029:d3:89e2:7957 with SMTP id
+ b17-20020a170902b611b02900d389e27957mr18227295pls.19.1602385493628; 
+ Sat, 10 Oct 2020 20:04:53 -0700 (PDT)
+Received: from localhost.localdomain (cpe-70-95-82-187.san.res.rr.com.
+ [70.95.82.187])
+ by smtp.gmail.com with ESMTPSA id m4sm14601218pgv.87.2020.10.10.20.04.52
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sat, 10 Oct 2020 20:04:53 -0700 (PDT)
+From: Ryan Kosta <ryanpkosta@gmail.com>
+To: rostedt@goodmis.org
+Subject: [PATCH] risc-v: kernel: ftrace: Fixes improper SPDX comment style
+Date: Sat, 10 Oct 2020 20:03:51 -0700
+Message-Id: <20201011030351.4619-1-ryanpkosta@gmail.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-In-Reply-To: <20200930182138.GA3176461@bogus>
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201010_050436_875917_57CDE0FF 
-X-CRM114-Status: GOOD (  15.01  )
+X-CRM114-CacheID: sfid-20201010_230457_099842_D9987FE6 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -102,37 +95,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
- Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
- Dilip Kota <eswara.kota@linux.intel.com>, linux-pci@vger.kernel.org,
- Jonathan Chocron <jonnyc@amazon.com>, linux-kernel@vger.kernel.org,
- Krzysztof Kozlowski <krzk@kernel.org>, Vidya Sagar <vidyas@nvidia.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Gustavo Pimentel <gustavo.pimentel@synopsys.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Bjorn Helgaas <bhelgaas@google.com>,
- linux-riscv@lists.infradead.org, Thierry Reding <treding@nvidia.com>,
- Andrew Murray <amurray@thegoodpenguin.co.uk>
+Cc: aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org,
+ Ryan Kosta <ryanpkosta@gmail.com>, mingo@redhat.com, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 30/09/2020 19:21, Rob Herring wrote:
-> On Sun, 06 Sep 2020 20:51:27 +0100, Alex Dewar wrote:
->> Currently the Keystone driver can only be compile-tested on ARM, but
->> this restriction seems unnecessary. Get rid of it to increase test
->> coverage.
->>
->> Build-tested with allyesconfig on x86, ppc, mips and riscv.
->>
->> Signed-off-by: Alex Dewar <alex.dewar90@gmail.com>
->> ---
->>   drivers/pci/controller/dwc/Kconfig | 4 ++--
->>   1 file changed, 2 insertions(+), 2 deletions(-)
->>
-> Acked-by: Rob Herring <robh@kernel.org>
+Signed-off-by: Ryan Kosta <ryanpkosta@gmail.com>
+---
+ arch/riscv/kernel/ftrace.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Ping ping? :-)
+diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
+index 99e12faa549..765b62434f3 100644
+--- a/arch/riscv/kernel/ftrace.c
++++ b/arch/riscv/kernel/ftrace.c
+@@ -1,4 +1,4 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
++// SPDX-License-Identifier: GPL-2.0
+ /*
+  * Copyright (C) 2013 Linaro Limited
+  * Author: AKASHI Takahiro <takahiro.akashi@linaro.org>
+-- 
+2.20.1
+
 
 _______________________________________________
 linux-riscv mailing list
