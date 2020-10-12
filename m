@@ -7,86 +7,68 @@ X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EC57EC43457
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2020 13:57:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9818EC433DF
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2020 14:25:09 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9A62C206FB
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2020 13:57:56 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C913B2076C
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2020 14:25:08 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="AWnp3Wc8";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="PRqy1Jms"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9A62C206FB
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="H1TfEEvV"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C913B2076C
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ics.forth.gr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe
-	:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A08mskxO8pG94NLJKcXwSoJOC96B+EVsyOcD816SdXw=; b=AWnp3Wc8zUqmLVSpFwMZdL/3Ww
-	9GdS8GkwNOj8AXxaC7lnEBap6565jtvGmk5CvToRvM0oP+MJFIS25eNwJBQ22ni9vd0TQAhcZPa8w
-	ef3um3OkNHAsQUkVO3KK+/j7rQ360zhpOG6k5CTjMuiVO8ZsW/pgZtrXEFZTTg38howLktWj4F7Wz
-	MoW0GzOa/J/bSC2/J8+fsTM5l+i31wBxqNQeprSit5IexohwgIUZ4rqkm2Dp//MkR1mKuw2qCpUeV
-	N+kGwgt2x7HJnVHKUuADSpnlEM6WffzHnf4eCjCUgkGS9F1snapQAFOmWpXbe7avMOSLcNl1Z4qYe
-	W9dJjSIw==;
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=X1X8P3kPSHSGNCk3KpaQPKqtuRYGB8NbpyG5i1UpfFI=; b=H1TfEEvVlEM2zqZ6mRlYKY3R1N
+	vLR4KjwbJgPSbPKNLiZXtFbH7IvNvT6KDnFdCbFXFKiK89brcPBrOkJ5Bxljpjebp1M18vGPcO6Uj
+	i3eD/5ZTeQx40mYHDXbe+4b1FFM7M5e06KJS8SmjdUbfBE3Sh5jYKi1DZ3Hi9UeM87SZgnypY+gv2
+	vCxfV0vqomxQhRw6dVfsN3WCyUzhwIX2ZsM/FHhYaAKxAPxQgZdT+85ZlQdSyMjeO+poDRDKT1Ac4
+	UVnKiB6XRl58ENpoq8Aqk724iyawLpN9F5UWqkI8Tgjco79wu2qrX3u1Xq200eszD7Cgk85lELGrW
+	qp+lCHpA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kRyKh-0005Oa-0X; Mon, 12 Oct 2020 13:57:47 +0000
-Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
+	id 1kRyl2-0001kz-7V; Mon, 12 Oct 2020 14:25:00 +0000
+Received: from mailgate.ics.forth.gr ([139.91.1.2])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kRyKe-0005NT-JA
- for linux-riscv@lists.infradead.org; Mon, 12 Oct 2020 13:57:45 +0000
-Received: by mail-pf1-x441.google.com with SMTP id b26so13593831pff.3
- for <linux-riscv@lists.infradead.org>; Mon, 12 Oct 2020 06:57:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:subject:date:message-id:in-reply-to:references:mime-version
- :content-transfer-encoding;
- bh=Q1wnaKsyvuMXKi7fs7oMuZr+hnbrwNWLrapTgOtuEpI=;
- b=PRqy1JmsF7Ra7sTdljtU/xin9hXipV61CkD/nqQc6hDlDCA7GvAf36G0+7uYOydo5M
- 19MTH/xehhZrNd2VhYOgfcuqfBxRHheycm+SujUnxGkm5IKmqfM/Kmv3THohngzKhIZZ
- 3uuBCxUgzHOT3MmLtA7U5hZSKMDQJ7LF0ak0KbkoGxJTU1yrQ7bm5UJAIBWp2LpMs/XL
- zVkCVRFVzmFRMeMhlmzeliZt3N084OARRHRP0m+b9YiJKIlb2+8AzGtztVkAqmiK1c1C
- uJ80aXUPOK8hynccbr1SSBjtKNKYiruZ7lQnLO+MWvXGawDcPQEfOQxT/PoSt8bfHEdE
- GvbQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=Q1wnaKsyvuMXKi7fs7oMuZr+hnbrwNWLrapTgOtuEpI=;
- b=aT5H0Txe8IGf9BdVciO0q2PiLfgeOqGHNMIYMzrxATZ6CbmQKn+ykGxg+bpXq4EHcl
- w2gYXX1accKuZTxhZ0RqXDYB3ls5PLF1Y2wKpCC77yBhHuC8jKGPYjuqLyHeHgC7TyeV
- vYHpqHeBZskZtg9QyJ4uahbWFgvYvTUR2qYPXqjIWSmvmIS9r8TonlNX5AN7iIZnkMNo
- Ndx7WpkJbrPgbfQiNh3OCjG06+1e37rcp5H9LhwcdW7YzbDoOz5kj+kEy7OvNA5Pe4G+
- KU4M3Foguy/cGhi1iQ3rs+pFXPdZgXRrWYMVn+btNmQ3WAJlEQr+GuNpxg44etVOhEOE
- NUHA==
-X-Gm-Message-State: AOAM532SOGXpVwY4RJ8EjBv2KJvMHdSOVUwD9PTpfev3551A+AxtTbrz
- uB1qVIhAcGaKz3MmcxHvH7/rbg==
-X-Google-Smtp-Source: ABdhPJzcrHQeZk4zgWWyuluZxje2uj0PyWtM6YbdgCeVVIsUCbXBIgZTTXg9ohn70dPUcgnAubNMuA==
-X-Received: by 2002:a63:470a:: with SMTP id u10mr4433502pga.48.1602511062540; 
- Mon, 12 Oct 2020 06:57:42 -0700 (PDT)
-Received: from hsinchu02.internal.sifive.com
- (114-34-229-221.HINET-IP.hinet.net. [114.34.229.221])
- by smtp.gmail.com with ESMTPSA id e1sm20019316pjv.2.2020.10.12.06.57.40
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 12 Oct 2020 06:57:42 -0700 (PDT)
-From: Greentime Hu <greentime.hu@sifive.com>
-To: greentime.hu@sifive.com, tglx@linutronix.de, jason@lakedaemon.net,
- maz@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: [PATCH 2/2] irqchip/sifive-plic: Fix the interrupt was enabled
- accidentally issue.
-Date: Mon, 12 Oct 2020 21:57:24 +0800
-Message-Id: <20201012135724.110579-2-greentime.hu@sifive.com>
-X-Mailer: git-send-email 2.28.0
-In-Reply-To: <20201012135724.110579-1-greentime.hu@sifive.com>
-References: <20201012135724.110579-1-greentime.hu@sifive.com>
+ id 1kRyky-0001iu-Cj
+ for linux-riscv@lists.infradead.org; Mon, 12 Oct 2020 14:24:58 +0000
+Received: from av3.ics.forth.gr (av3in.ics.forth.gr [139.91.1.77])
+ by mailgate.ics.forth.gr (8.15.2/ICS-FORTH/V10-1.8-GATE) with ESMTP id
+ 09CEOfGK097792; Mon, 12 Oct 2020 17:24:41 +0300 (EEST)
+X-AuditID: 8b5b014d-2bdff70000004c4c-1a-5f84672363d3
+Received: from enigma.ics.forth.gr (enigma.ics.forth.gr [139.91.151.35])
+ by av3.ics.forth.gr (Symantec Messaging Gateway) with SMTP id
+ 70.27.19532.327648F5; Mon, 12 Oct 2020 17:24:35 +0300 (EEST)
+X-ICS-AUTH-INFO: Authenticated user: mick@ics.forth.gr at ics.forth.gr
+From: Nick Kossifidis <mick@ics.forth.gr>
+To: linux-riscv@lists.infradead.org, palmer@dabbelt.com
+Subject: [PATCH] RISC-V: Add kernel image sections to the resource tree
+Date: Mon, 12 Oct 2020 17:24:10 +0300
+Message-Id: <20201012142410.308002-1-mick@ics.forth.gr>
+X-Mailer: git-send-email 2.26.2
 MIME-Version: 1.0
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprELMWRmVeSWpSXmKPExsXSHT1dWVc5vSXe4MtJC4uWD+9YLRat+M5i
+ se1zC5tF87tz7BYvL/cwW7TN4rf4cHc2mwO7x9TfZ1g83rx8yeLxcNMlJo/NS+o9LjVfZ/do
+ P9DNFMAWxWWTkpqTWZZapG+XwJUx48IdxoJpFhUvenqZGxiX63YxcnJICJhInN54nK2LkYtD
+ SOAoo8SN1uOsEAk3idv3d4LZbAKaEvMvHWQBsUUEzCWaZ75mBGlgFuhglDj45AcjSEJYwF2i
+ 9d4aJhCbRUBV4k7TNzCbF6hhfftBJoih8hLty7ezQcQFJU7OfAI2lBko3rx1NvMERp5ZSFKz
+ kKQWMDKtYhRILDPWy0wu1kvLLyrJ0Esv2sQIDjZG3x2Mtze/1TvEyMTBeIhRgoNZSYT3nHpT
+ vBBvSmJlVWpRfnxRaU5q8SFGaQ4WJXHePO7lsUIC6YklqdmpqQWpRTBZJg5OqQam7futmg84
+ TItdeEm3iC9T+sO2B3KrjWy3zdjilt2YaKBWXrBsk4JTTcEBPtmrX4smvX9Xfd2wVkn/p3kA
+ b32/jM27Zt6NCU/ylt26e+HMlSB2AT8hO/WpXgIm4Wsehvyq5v846f1r/9bXM7qEe+7deXtm
+ 2xPFA+0r029pT8l33XRZJGPukk+CbNl/5EN0eDdu2BopcL8rY6bn37euPyvEYlZNMc6IbeH1
+ MGLuvfCw8Py/va9jRE3uaAalpUw6XLfyySGpRqUnK96y+ujHdkx82d+y0+br9/1rGKVNVpzs
+ bzp96uD5Po59304318XqygqneBonnotyEvYLXSd08dsvo8hPFq/3JGVsXMmW0vZHiaU4I9FQ
+ i7moOBEAsFNdx6UCAAA=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201012_095744_635317_77829751 
-X-CRM114-Status: GOOD (  11.79  )
+X-CRM114-CacheID: sfid-20201012_102456_728494_0C57159C 
+X-CRM114-Status: GOOD (  22.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -98,70 +80,258 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Nick Kossifidis <mick@ics.forth.gr>, atish.patra@wdc.com,
+ anup@brainfault.org, zong.li@sifive.com, paul.walmsley@sifive.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In commit 2ca0b460bbcb ("genirq/affinity: Make affinity setting if activated opt-in"),
-it added irqd_affinity_on_activate() checking in the function
-irq_set_affinity_deactivated() so it will return false here.
-In that case, it will call irq_try_set_affinity() -> plic_irq_toggle()
-which will enable the interrupt to cause the CPU hang.
+This patch (previously part of my kexec/kdump series) populates
+/proc/iomem with the various sections of the kernel image. We need
+this for kexec-tools to be able to prepare the crashkernel image
+for kdump to work. Since resource tree initialization is not
+related to memory initialization I added the code to kernel/setup.c
+and removed the original code (derived from the arm64 tree) from
+mm/init.c.
 
-	if (irq_set_affinity_deactivated())
-		return 0;
-	...
-	irq_try_set_affinity(data, mask, force);
-
-[  919.015783] rcu: INFO: rcu_sched detected stalls on CPUs/tasks:
-[  919.020922] rcu:     0-...0: (0 ticks this GP)
-idle=7d2/1/0x4000000000000002 softirq=1424/1424 fqs=105807
-[  919.030295]  (detected by 1, t=225825 jiffies, g=1561, q=3496)
-[  919.036109] Task dump for CPU 0:
-[  919.039321] kworker/0:1     R  running task        0    30      2 0x00000008
-[  919.046359] Workqueue: events set_brightness_delayed
-[  919.051302] Call Trace:
-[  919.053738] [<ffffffe000930d92>] __schedule+0x194/0x4de
-[  982.035783] rcu: INFO: rcu_sched detected stalls on CPUs/tasks:
-[  982.040923] rcu:     0-...0: (0 ticks this GP)
-idle=7d2/1/0x4000000000000002 softirq=1424/1424 fqs=113325
-[  982.050294]  (detected by 1, t=241580 jiffies, g=1561, q=3509)
-[  982.056108] Task dump for CPU 0:
-[  982.059321] kworker/0:1     R  running task        0    30      2 0x00000008
-[  982.066359] Workqueue: events set_brightness_delayed
-[  982.071302] Call Trace:
-[  982.073739] [<ffffffe000930d92>] __schedule+0x194/0x4de
-[..]
-
-After applying this patch, the CPU hang issue can be fixed.
-
-Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
 ---
- drivers/irqchip/irq-sifive-plic.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/riscv/kernel/setup.c | 160 ++++++++++++++++++++++++++++++++++++++
+ arch/riscv/mm/init.c      |  27 -------
+ 2 files changed, 160 insertions(+), 27 deletions(-)
 
-diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index 4cc8a2657a6d..8a673d9cff69 100644
---- a/drivers/irqchip/irq-sifive-plic.c
-+++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -183,10 +183,14 @@ static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
- 			      irq_hw_number_t hwirq)
- {
- 	struct plic_priv *priv = d->host_data;
-+	struct irq_data *irqd;
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index 2c6dd3293..450f0142f 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -4,6 +4,8 @@
+  *  Chen Liqin <liqin.chen@sunplusct.com>
+  *  Lennox Wu <lennox.wu@sunplusct.com>
+  * Copyright (C) 2012 Regents of the University of California
++ * Copyright (C) 2020 FORTH-ICS/CARV
++ *  Nick Kossifidis <mick@ics.forth.gr>
+  */
  
- 	irq_domain_set_info(d, irq, hwirq, &plic_chip, d->host_data,
- 			    handle_fasteoi_irq, NULL, NULL);
- 	irq_set_noprobe(irq);
-+	irqd = irq_get_irq_data(irq);
-+	irqd_set_single_target(irqd);
-+	irqd_set_affinity_on_activate(irqd);
- 	irq_set_affinity(irq, &priv->lmask);
- 	return 0;
+ #include <linux/init.h>
+@@ -48,6 +50,163 @@ atomic_t hart_lottery __section(.sdata);
+ unsigned long boot_cpu_hartid;
+ static DEFINE_PER_CPU(struct cpu, cpu_devices);
+ 
++/*
++ * Place kernel memory regions on the resource tree so that
++ * kexec-tools can retrieve them from /proc/iomem. While there
++ * also add "System RAM" regions for compatibility with other
++ * archs, and the rest of the known regions for completeness.
++ */
++static struct resource code_res = { .name = "Kernel code", };
++static struct resource data_res = { .name = "Kernel data", };
++static struct resource rodata_res = { .name = "Kernel rodata", };
++static struct resource bss_res = { .name = "Kernel bss", };
++
++static int __init add_resource(struct resource *parent,
++				struct resource *res)
++{
++	int ret = 0;
++
++	ret = insert_resource(parent, res);
++	if (ret < 0) {
++		pr_err("Failed to add a %s resource at %llx\n",
++			res->name, (unsigned long long) res->start);
++		return ret;
++	}
++
++	return 1;
++}
++
++static int __init add_kernel_resources(struct resource *res)
++{
++	int ret = 0;
++
++	/*
++	 * The memory region of the kernel image is continuous and
++	 * was reserved on setup_bootmem, find it here and register
++	 * it as a resource, then register the various segments of
++	 * the image as child nodes
++	 */
++	if (!(res->start <= code_res.start && res->end >= data_res.end))
++		return 0;
++
++	res->name = "Kernel image";
++	res->flags = IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY;
++
++	/*
++	 * We removed a part of this region on setup_bootmem so
++	 * we need to expand the resource for the bss to fit in.
++	 */
++	res->end = bss_res.end;
++
++	ret = add_resource(&iomem_resource, res);
++	if (ret < 0)
++		return ret;
++
++	ret = add_resource(res, &code_res);
++	if (ret < 0)
++		return ret;
++
++	ret = add_resource(res, &rodata_res);
++	if (ret < 0)
++		return ret;
++
++	ret = add_resource(res, &data_res);
++	if (ret < 0)
++		return ret;
++
++	ret = add_resource(res, &bss_res);
++
++	return ret;
++}
++
++static void __init init_resources(void)
++{
++	struct memblock_region *region = NULL;
++	struct resource *res = NULL;
++	int ret = 0;
++
++	code_res.start = __pa_symbol(_text);
++	code_res.end = __pa_symbol(_etext) - 1;
++	code_res.flags = IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY;
++
++	rodata_res.start = __pa_symbol(__start_rodata);
++	rodata_res.end = __pa_symbol(__end_rodata) - 1;
++	rodata_res.flags = IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY;
++
++	data_res.start = __pa_symbol(_data);
++	data_res.end = __pa_symbol(_edata) - 1;
++	data_res.flags = IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY;
++
++	bss_res.start = __pa_symbol(__bss_start);
++	bss_res.end = __pa_symbol(__bss_stop) - 1;
++	bss_res.flags = IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY;
++
++	/*
++	 * Start by adding the reserved regions, if they overlap
++	 * with /memory regions, insert_resource later on will take
++	 * care of it.
++	 */
++	for_each_memblock(reserved, region) {
++		res = memblock_alloc(sizeof(struct resource), SMP_CACHE_BYTES);
++		if (!res)
++			panic("%s: Failed to allocate %zu bytes\n", __func__,
++			      sizeof(struct resource));
++
++		res->name = "Reserved";
++		res->flags = IORESOURCE_MEM | IORESOURCE_BUSY;
++		res->start = __pfn_to_phys(memblock_region_reserved_base_pfn(region));
++		res->end = __pfn_to_phys(memblock_region_reserved_end_pfn(region)) - 1;
++
++		ret = add_kernel_resources(res);
++		if (ret < 0)
++			goto error;
++		else if (ret)
++			continue;
++
++		/*
++		 * Ignore any other reserved regions within
++		 * system memory.
++		 */
++		if (memblock_is_memory(res->start))
++			continue;
++
++		ret = add_resource(&iomem_resource, res);
++		if (ret < 0)
++			goto error;
++	}
++
++	/* Add /memory regions to the resource tree */
++	for_each_memblock(memory, region) {
++		res = memblock_alloc(sizeof(struct resource), SMP_CACHE_BYTES);
++		if (!res)
++			panic("%s: Failed to allocate %zu bytes\n", __func__,
++			      sizeof(struct resource));
++
++		if (unlikely(memblock_is_nomap(region))) {
++			res->name = "Reserved";
++			res->flags = IORESOURCE_MEM | IORESOURCE_BUSY;
++		} else {
++			res->name = "System RAM";
++			res->flags = IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY;
++		}
++
++		res->start = __pfn_to_phys(memblock_region_memory_base_pfn(region));
++		res->end = __pfn_to_phys(memblock_region_memory_end_pfn(region)) - 1;
++
++		ret = add_resource(&iomem_resource, res);
++		if (ret < 0)
++			goto error;
++	}
++
++	return;
++
++ error:
++	memblock_free((phys_addr_t) res, sizeof(struct resource));
++	/* Better an empty resource tree than an inconsistent one */
++	release_child_resources(&iomem_resource);
++}
++
++
+ void __init parse_dtb(void)
+ {
+ 	if (early_init_dt_scan(dtb_early_va))
+@@ -73,6 +232,7 @@ void __init setup_arch(char **cmdline_p)
+ 
+ 	setup_bootmem();
+ 	paging_init();
++	init_resources();
+ #if IS_ENABLED(CONFIG_BUILTIN_DTB)
+ 	unflatten_and_copy_device_tree();
+ #else
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index f750e012d..05d6cf0c2 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -541,39 +541,12 @@ void mark_rodata_ro(void)
  }
+ #endif
+ 
+-static void __init resource_init(void)
+-{
+-	struct memblock_region *region;
+-
+-	for_each_memblock(memory, region) {
+-		struct resource *res;
+-
+-		res = memblock_alloc(sizeof(struct resource), SMP_CACHE_BYTES);
+-		if (!res)
+-			panic("%s: Failed to allocate %zu bytes\n", __func__,
+-			      sizeof(struct resource));
+-
+-		if (memblock_is_nomap(region)) {
+-			res->name = "reserved";
+-			res->flags = IORESOURCE_MEM;
+-		} else {
+-			res->name = "System RAM";
+-			res->flags = IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY;
+-		}
+-		res->start = __pfn_to_phys(memblock_region_memory_base_pfn(region));
+-		res->end = __pfn_to_phys(memblock_region_memory_end_pfn(region)) - 1;
+-
+-		request_resource(&iomem_resource, res);
+-	}
+-}
+-
+ void __init paging_init(void)
+ {
+ 	setup_vm_final();
+ 	sparse_init();
+ 	setup_zero_page();
+ 	zone_sizes_init();
+-	resource_init();
+ }
+ 
+ #ifdef CONFIG_SPARSEMEM_VMEMMAP
 -- 
-2.28.0
+2.26.2
 
 
 _______________________________________________
