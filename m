@@ -2,77 +2,107 @@ Return-Path: <SRS0=BUIi=DT=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-6.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=no autolearn_force=no version=3.4.0
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CEF94C433E7
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2020 02:32:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9EC60C433E7
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2020 04:29:56 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 643122072C
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2020 02:32:41 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 23D8820735
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2020 04:29:55 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="qKEQHg/p"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 643122072C
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=loongson.cn
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="PsM/cEfR";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=ibm.com header.i=@ibm.com header.b="hKc2bG10"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 23D8820735
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References:In-Reply-To:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=NLSoPTCRSgPmGxmzPx05bTQjAKOWxfoXPLRkUUDd19s=; b=qKEQHg/pWDb2mfNRboQDzFbVG
-	545FT2iU1sIFq/Y0SjvaZZ+NQNXwJoahksZ5XHDebvJpxasnfO5iAmA6ADwhJ/huvpALY1+AKWhKt
-	Kobv00Ft12fF+DVfxiabZ/lVm6INiZqTxLCc0GW0G+iBP9VXq9rY5hNsEMn94RqdTXTe7iUpc0eTb
-	nHOxZIIfIaAaFFT79LvPlZzF3wGqYApnWN+jZAfEDrtKOfyTVkv/kXBwq55ZpEMMsvxJKoEiSSH9K
-	g1jq0I/ja5RG7dJoMsX/YKlM+Ez1npWZbELN00Zt6rD4forAXJ7nQvStCp4CnsrgbsAE3YXoS2HFl
-	sRUXWyTqQ==;
+	 bh=2qLLc5Kp4XYMPyHaCnM8t6X3W5oyMVyUTR6yf+3dpQs=; b=PsM/cEfRfm2ymqwB8ox+iSnnf
+	6xEfVBuQF0oaYkdRhznzqdnbcu8uOKQP8gocgmeWsI+R78x7hIqJ/CZo8KwaYmZ0YCZD+uNCdrumd
+	veqa9BlrnuKlBbG0MsqrglUXHkMWyc/lDkVXUEaPc+/R5RBomUXxrm7hT0CIMpeTUtqUM6RICDN6v
+	oqyipBLp7xdbLM50uCDBV8j8QkTOTwBI1KSCNiYX/V9oaC1IMAhtoAUVl7d3ehWCNs84oXxhVLke8
+	QxRhhKSuAoJTvswGvlzmennSaVmlWulIsbQW/WlpGqG8aQPdB+vTvBuqywE39Hpdi4IAvA0ejeT/7
+	ASJ84g/4Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kRndV-0002Qs-0f; Mon, 12 Oct 2020 02:32:29 +0000
-Received: from mail.loongson.cn ([114.242.206.163] helo=loongson.cn)
- by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kRndS-0002P7-20; Mon, 12 Oct 2020 02:32:28 +0000
-Received: from [10.130.0.80] (unknown [113.200.148.30])
- by mail.loongson.cn (Coremail) with SMTP id AQAAf9Dxr97yv4NfkbEcAA--.4007S3;
- Mon, 12 Oct 2020 10:31:16 +0800 (CST)
-Subject: Re: [PATCH v5 00/14] irqchip: Fix potential resource leaks
-To: Marc Zyngier <maz@kernel.org>
-References: <1593998365-25910-1-git-send-email-yangtiezhu@loongson.cn>
- <ab1cd9280c7892a0230945ef5ff0880c@kernel.org>
- <02e077df-7c4e-24a7-1640-5f17894bd252@loongson.cn>
-From: Tiezhu Yang <yangtiezhu@loongson.cn>
-Message-ID: <4b18d030-76c7-1b83-3b0d-deb8ecd925dc@loongson.cn>
-Date: Mon, 12 Oct 2020 10:31:14 +0800
-User-Agent: Mozilla/5.0 (X11; Linux mips64; rv:45.0) Gecko/20100101
- Thunderbird/45.4.0
+	id 1kRpSr-0003p4-Je; Mon, 12 Oct 2020 04:29:37 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+ by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1kRpSo-0003oH-JB
+ for linux-riscv@lists.infradead.org; Mon, 12 Oct 2020 04:29:35 +0000
+Received: from pps.filterd (m0127361.ppops.net [127.0.0.1])
+ by mx0a-001b2d01.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id
+ 09C4DLkQ093147; Mon, 12 Oct 2020 00:29:23 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
+ h=from : to : cc : subject
+ : in-reply-to : references : date : message-id : mime-version :
+ content-type; s=pp1; bh=tpBQx1/o/qXftcxhMitB9KioMpDajyAdOcQuMq8tycw=;
+ b=hKc2bG10YV99YiEYQhlsl0nD0FkT67cenqb7hGIHRBs4iQhTzqkx3Pypv1iBQIQJsOoP
+ bUppPIDhfKeEbXz+iBEfIuXFR49lSxOPvc06F5GtCjl0gWv1HAAP37D7kB4kwqVgxdaB
+ xCBzu9zv7xRSHbRaRFjYFeFJ7a1v55Kr7a08tojvuv56nBLVLsLgWO+A+uXcU5E6yOe/
+ M5zqNmgZPjFen6Q2Dc/Odf70/I6o1cK548QXNjS+YajtHVKftmYbL1Jso21Nzy1pYTLl
+ RxXtYyRWQcP8wSPqG6WgWBqNxRuNQ+dRKxa6wbDHzC6rzvGX2AmbKmiJFg4G6nUVlFnd pQ== 
+Received: from ppma04dal.us.ibm.com (7a.29.35a9.ip4.static.sl-reverse.com
+ [169.53.41.122])
+ by mx0a-001b2d01.pphosted.com with ESMTP id 344fx488aq-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Mon, 12 Oct 2020 00:29:23 -0400
+Received: from pps.filterd (ppma04dal.us.ibm.com [127.0.0.1])
+ by ppma04dal.us.ibm.com (8.16.0.42/8.16.0.42) with SMTP id 09C4MQrd030991;
+ Mon, 12 Oct 2020 04:29:22 GMT
+Received: from b01cxnp22033.gho.pok.ibm.com (b01cxnp22033.gho.pok.ibm.com
+ [9.57.198.23]) by ppma04dal.us.ibm.com with ESMTP id 3434k8r74u-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Mon, 12 Oct 2020 04:29:22 +0000
+Received: from b01ledav005.gho.pok.ibm.com (b01ledav005.gho.pok.ibm.com
+ [9.57.199.110])
+ by b01cxnp22033.gho.pok.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
+ 09C4TM6k49938800
+ (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Mon, 12 Oct 2020 04:29:22 GMT
+Received: from b01ledav005.gho.pok.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 14D63AE062;
+ Mon, 12 Oct 2020 04:29:22 +0000 (GMT)
+Received: from b01ledav005.gho.pok.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 6DCD5AE063;
+ Mon, 12 Oct 2020 04:29:19 +0000 (GMT)
+Received: from skywalker.linux.ibm.com (unknown [9.79.212.9])
+ by b01ledav005.gho.pok.ibm.com (Postfix) with ESMTP;
+ Mon, 12 Oct 2020 04:29:19 +0000 (GMT)
+X-Mailer: emacs 28.0.50 (via feedmail 11-beta-1 I)
+From: "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>
+To: Guenter Roeck <linux@roeck-us.net>
+Subject: Re: [PATCH v4 13/13] mm/debug_vm_pgtable: Avoid none pte in
+ pte_clear_test
+In-Reply-To: <20201011200258.GA91021@roeck-us.net>
+References: <20200902114222.181353-1-aneesh.kumar@linux.ibm.com>
+ <20200902114222.181353-14-aneesh.kumar@linux.ibm.com>
+ <20201011200258.GA91021@roeck-us.net>
+Date: Mon, 12 Oct 2020 09:59:16 +0530
+Message-ID: <87blh8xe1v.fsf@linux.ibm.com>
 MIME-Version: 1.0
-In-Reply-To: <02e077df-7c4e-24a7-1640-5f17894bd252@loongson.cn>
-X-CM-TRANSID: AQAAf9Dxr97yv4NfkbEcAA--.4007S3
-X-Coremail-Antispam: 1UD129KBjvJXoWxJrW5Xw43tFyrCr4Duw47XFb_yoW8XF4DpF
- 13t3WYkr4kX34qyFnFkw47Xa4Iy3yDK3yUWryYgrs3Aw1q9F1DWrWrtFyFkw4DWw1rGF42
- kws5t3s7Aw1jyaUanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
- 9KBjDU0xBIdaVrnRJUUU9Eb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
- 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
- A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
- jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4
- vEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40E
- FcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Gr
- 0_Cr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY
- 04v7Mxk0xIA0c2IEe2xFo4CEbIxvr21lc2xSY4AK67AK6r4UMxAIw28IcxkI7VAKI48JMx
- C20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAF
- wI0_JrI_JrWlx4CE17CEb7AF67AKxVWrXVW8Jr1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2
- IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxK
- x2IYs7xG6rW3Jr0E3s1lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267
- AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU8aYLPUUUUU==
-X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
+X-TM-AS-GCONF: 00
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.235, 18.0.687
+ definitions=2020-10-12_01:2020-10-12,
+ 2020-10-12 signatures=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 malwarescore=0
+ phishscore=0 mlxlogscore=230 priorityscore=1501 adultscore=0 spamscore=0
+ mlxscore=0 clxscore=1011 bulkscore=0 lowpriorityscore=0 impostorscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2009150000
+ definitions=main-2010120034
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201011_223227_333266_97D8175C 
-X-CRM114-Status: GOOD (  19.81  )
+X-CRM114-CacheID: sfid-20201012_002934_707613_60CE1522 
+X-CRM114-Status: GOOD (  19.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -84,92 +114,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Baruch Siach <baruch@tkos.co.il>,
- Heiko Stuebner <heiko@sntech.de>, Tony Lindgren <tony@atomide.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Zubair Lutfullah Kakakhel <Zubair.Kakakhel@imgtec.com>,
- Sekhar Nori <nsekhar@ti.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Jiaxun Yang <jiaxun.yang@flygoat.com>,
- Grant Likely <grant.likely@secretlab.ca>, Guo Ren <guoren@kernel.org>,
- linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org,
- David Lechner <david@lechnology.com>, Jisheng Zhang <jszhang@marvell.com>,
- linux-samsung-soc@vger.kernel.org, Michal Simek <michal.simek@xilinx.com>,
- Krzysztof Kozlowski <krzk@kernel.org>,
- Bartosz Golaszewski <bgolaszewski@baylibre.com>, Kukjin Kim <kgene@kernel.org>,
- u.kleine-koenig@pengutronix.de,
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Jason Cooper <jason@lakedaemon.net>,
- Arnd Bergmann <arnd@arndb.de>, Rob Herring <rob.herring@calxeda.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
- linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Anup Patel <anup.patel@wdc.com>, linux-kernel@vger.kernel.org,
- Felipe Balbi <balbi@ti.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Alban Bedel <albeu@free.fr>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>, mpe@ellerman.id.au,
+ linux-mm@kvack.org, akpm@linux-foundation.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 09/02/2020 11:59 AM, Tiezhu Yang wrote:
-> On 07/06/2020 03:30 PM, Marc Zyngier wrote:
->> On 2020-07-06 02:19, Tiezhu Yang wrote:
->>> When I test the irqchip code of Loongson, I read the related code of 
->>> other
->>> chips in drivers/irqchip and I find some potential resource leaks in 
->>> the
->>> error path, I think it is better to fix them.
->>>
->>> v2:
->>>   - Split the first patch into a new patch series which
->>>     includes small patches and add "Fixes" tag
->>>   - Use "goto" label to handle error path in some patches
->>>
->>> v3:
->>>   - Add missed variable "ret" in the patch #5 and #13
->>>
->>> v4:
->>>   - Modify the commit message of each patch suggested by Markus Elfring
->>>   - Make "irq_domain_remove(root_domain)" under CONFIG_SMP in patch #3
->>>   - Add a return statement before goto label in patch #4
->>>
->>> v5:
->>>   - Modify the commit messages and do some code cleanups
->>
->> Please stop replying to Markus Elfring, and give people who actually
->> care a chance to review this code. Elfring will keep asking you to make
->> absolutely pointless changes until you are blue in the face
+Guenter Roeck <linux@roeck-us.net> writes:
+
+> On Wed, Sep 02, 2020 at 05:12:22PM +0530, Aneesh Kumar K.V wrote:
+>> pte_clear_tests operate on an existing pte entry. Make sure that
+>> is not a none pte entry.
+>> 
+>> Signed-off-by: Aneesh Kumar K.V <aneesh.kumar@linux.ibm.com>
 >
-> Hi Marc,
+> This patch causes all riscv64 images to crash. Reverting it
+> as well as the follow-up patch fixes the problem, but there are
+> still several warning messages starting with
+> 	BUG kmem_cache (Not tainted): Freechain corrupt
+> I did not try to track down this other problem.
 >
-> Any comments?
-> Could you please apply this patch series?
-
-Hi all,
-
-Maybe I should cc the related persons through ./scripts/get_maintainer.pl
-to get Acked-by or Reviewed-by.
-
-The cover letter link of this patch series is:
-[v5,00/14] irqchip: Fix potential resource leaks
-https://lore.kernel.org/patchwork/cover/1268043/
-
-Any comments will be much appreciated.
-
-Thanks,
-Tiezhu
-
+> A detailed crash log is at
+> 	https://kerneltests.org/builders/qemu-riscv64-next/builds/523/steps/qemubuildcommand/logs/stdio
 >
-> Thanks,
-> Tiezhu
->
->>
->>
->> Thanks,
->>
->>         M.
->
+> Bisect log is attached.
 
+
+https://lore.kernel.org/linux-mm/87zh5wx51b.fsf@linux.ibm.com
+
+This was mentioned earlier. The RANDOM_OR_VALUE used is interacting with
+some of the riscv page table accessors. 
+
+-aneesh
 
 _______________________________________________
 linux-riscv mailing list
