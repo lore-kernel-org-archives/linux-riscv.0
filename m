@@ -2,73 +2,118 @@ Return-Path: <SRS0=BUIi=DT=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-6.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9818EC433DF
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2020 14:25:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 11EEDC433E7
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2020 15:49:39 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C913B2076C
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2020 14:25:08 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 7CC8D2076E
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2020 15:49:38 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="H1TfEEvV"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C913B2076C
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ics.forth.gr
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="3aukBQ0i";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=osportal.onmicrosoft.com header.i=@osportal.onmicrosoft.com header.b="FxBb9WEX"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7CC8D2076E
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=openfive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=X1X8P3kPSHSGNCk3KpaQPKqtuRYGB8NbpyG5i1UpfFI=; b=H1TfEEvVlEM2zqZ6mRlYKY3R1N
-	vLR4KjwbJgPSbPKNLiZXtFbH7IvNvT6KDnFdCbFXFKiK89brcPBrOkJ5Bxljpjebp1M18vGPcO6Uj
-	i3eD/5ZTeQx40mYHDXbe+4b1FFM7M5e06KJS8SmjdUbfBE3Sh5jYKi1DZ3Hi9UeM87SZgnypY+gv2
-	vCxfV0vqomxQhRw6dVfsN3WCyUzhwIX2ZsM/FHhYaAKxAPxQgZdT+85ZlQdSyMjeO+poDRDKT1Ac4
-	UVnKiB6XRl58ENpoq8Aqk724iyawLpN9F5UWqkI8Tgjco79wu2qrX3u1Xq200eszD7Cgk85lELGrW
-	qp+lCHpA==;
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:Message-ID:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=2+IMUdPqlr0dxvCXjfGZRMv1K80XXy3TEAFwLqXz4qA=; b=3aukBQ0i6V4W9KYfCP6cLbKiO
+	c1yvCAdnQ+6LRpBZ3p4B2dGAtxNe/CK2yQxD0yEcbqiwcJ4CZDkwry0dC2v04u0qOIr8/o3MTs3/J
+	L1vr2NEcOu1fhuGQHmi1/hSfixpwu9kdoLCI8aXZV1G0JIloOoL1dngqClC4DnYU5V1nKQ+lnPsjN
+	EiFFYPYQPCyyGEJuVQ2TJ+Uu2jguZjZdCsyaAqjsqIH27uH+/+whCEOMoYhL9vKvi2VwX6rIaycRI
+	7zARVFsqC+RGUMUQgPF5s3d+et/gXdKF2TYqPeUT3chtNzJmvlaXcU0X/g9xXn5A/11HOSDvoFD+M
+	s7NWh7d/w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kRyl2-0001kz-7V; Mon, 12 Oct 2020 14:25:00 +0000
-Received: from mailgate.ics.forth.gr ([139.91.1.2])
+	id 1kS04l-0004UW-FC; Mon, 12 Oct 2020 15:49:27 +0000
+Received: from mail-mw2nam10on2060.outbound.protection.outlook.com
+ ([40.107.94.60] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kRyky-0001iu-Cj
- for linux-riscv@lists.infradead.org; Mon, 12 Oct 2020 14:24:58 +0000
-Received: from av3.ics.forth.gr (av3in.ics.forth.gr [139.91.1.77])
- by mailgate.ics.forth.gr (8.15.2/ICS-FORTH/V10-1.8-GATE) with ESMTP id
- 09CEOfGK097792; Mon, 12 Oct 2020 17:24:41 +0300 (EEST)
-X-AuditID: 8b5b014d-2bdff70000004c4c-1a-5f84672363d3
-Received: from enigma.ics.forth.gr (enigma.ics.forth.gr [139.91.151.35])
- by av3.ics.forth.gr (Symantec Messaging Gateway) with SMTP id
- 70.27.19532.327648F5; Mon, 12 Oct 2020 17:24:35 +0300 (EEST)
-X-ICS-AUTH-INFO: Authenticated user: mick@ics.forth.gr at ics.forth.gr
-From: Nick Kossifidis <mick@ics.forth.gr>
-To: linux-riscv@lists.infradead.org, palmer@dabbelt.com
-Subject: [PATCH] RISC-V: Add kernel image sections to the resource tree
-Date: Mon, 12 Oct 2020 17:24:10 +0300
-Message-Id: <20201012142410.308002-1-mick@ics.forth.gr>
-X-Mailer: git-send-email 2.26.2
+ id 1kS04i-0004St-Dg
+ for linux-riscv@lists.infradead.org; Mon, 12 Oct 2020 15:49:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=ePe/fd5MWw90veF8i7l8+z37+CsWedYNjKdvdrk7DYihVDhoB3TkCGby2WVyFFPdO1KnmUEZ0tkwxcvN73AXqs8+nnXAij0VIy1EsGKjJkQIuABYNTHhjmMN+EAMcU7nan8XVV1jTohhq+8ye4dIYDdT0++uXFXTN8P4lQ+cA4V06iiP7kZQ/KAMsWJgdXuu8FXbEmFjNEnPYW2rBKUpZwjoybUhpgiMVChQAlDBoJIUxkkH3YDo2BT4kTvzC8zfsyRDqQ+aYTG5KvqDoafQL+Ign++o1zsLMO227x6vanw3oWnZSX4P7WiPNVHn61pN85djY8EGPBUu2CzAqhNcSQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wXz+IGdA5hyrKCRhPva2pC49NnJKxH9GP67+wYuMskE=;
+ b=hbOrxojBCBGXVhQzVqetRw0PX9W9jZ6auqTpY6NhgOvJzkjrFLoTR0sCBnBcDdkSMDTMDxInPoXED7k9i/SO1f8RKjpWv8iwbadw1uX5WCJKXqZcSdUn/kxytDQ90sJQbX0oWT3m1+0yld8XXNmzrST9QRxwxCSZhQA3LszjzQWrAxUgJrwOVREZzePwM3ZBzm0yRg0U+KMehc62663EUPKBlfgEV8HsFP5049IPdP41XRv2RdezL+zd2vj6NPydxSRET45EirvbsUAR2V76losG+4ci5oFWPDFni5jUw6I3v0CZ0uHnmpisNpKgM4S3Cv08DcTQxxjAkzTXzVe9vQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=openfive.com; dmarc=pass action=none header.from=openfive.com;
+ dkim=pass header.d=openfive.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=osportal.onmicrosoft.com; s=selector2-osportal-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wXz+IGdA5hyrKCRhPva2pC49NnJKxH9GP67+wYuMskE=;
+ b=FxBb9WEXaXofBnAQoGQ1fMvXekdx5ojiEEL8t0Z9KvKmxsRbC/3RUO48mhiQ8dPJjK1WwRjxQMmItoVxzwnnW11z8pAvtxAw8xRPfrUsCLlm0Dv6vVmPxNAUnWQ2XoqQIzR0kVtbAxGd74s1RQEKPQCnLAiBHQ0uscWy04JzqLU=
+Received: from DM6PR13MB3451.namprd13.prod.outlook.com (2603:10b6:5:1c3::10)
+ by DM6PR13MB4146.namprd13.prod.outlook.com (2603:10b6:5:2aa::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3477.15; Mon, 12 Oct
+ 2020 15:49:22 +0000
+Received: from DM6PR13MB3451.namprd13.prod.outlook.com
+ ([fe80::f49f:d6d6:4c97:e5d5]) by DM6PR13MB3451.namprd13.prod.outlook.com
+ ([fe80::f49f:d6d6:4c97:e5d5%7]) with mapi id 15.20.3477.019; Mon, 12 Oct 2020
+ 15:49:21 +0000
+From: Sagar Kadam <sagar.kadam@openfive.com>
+To: Andreas Schwab <schwab@linux-m68k.org>
+Subject: RE: [PATCH v2 1/1] i2c: ocores: fix polling mode workaround on
+ FU540-C000 SoC
+Thread-Topic: [PATCH v2 1/1] i2c: ocores: fix polling mode workaround on
+ FU540-C000 SoC
+Thread-Index: AQHWnlKG+lvAdS0ghEalmf6VHkzmZKmPlkXvgASLWIA=
+Date: Mon, 12 Oct 2020 15:49:21 +0000
+Message-ID: <DM6PR13MB3451CCDAEDD7605E009500F397070@DM6PR13MB3451.namprd13.prod.outlook.com>
+References: <1602257980-375157-1-git-send-email-sagar.kadam@sifive.com>
+ <1602257980-375157-2-git-send-email-sagar.kadam@sifive.com>
+ <87pn5rp89p.fsf@igel.home>
+In-Reply-To: <87pn5rp89p.fsf@igel.home>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: linux-m68k.org; dkim=none (message not signed)
+ header.d=none;linux-m68k.org; dmarc=none action=none
+ header.from=openfive.com;
+x-originating-ip: [116.74.151.16]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: f8766155-8c3d-4738-f87d-08d86ec6632a
+x-ms-traffictypediagnostic: DM6PR13MB4146:
+x-ld-processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
+x-ms-exchange-transport-forked: True
+x-microsoft-antispam-prvs: <DM6PR13MB414614670C1F5D1B9AC780E297070@DM6PR13MB4146.namprd13.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:3826;
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: Hadq4XFI3MlJ/US2O4rmV5vVifhwHd1S1wWOXOEgBrrVKRcvwXuL0GZ8pX9/PTGOl06EPsJc0EXL+6L2dgH9/6aW/QsT+m+Zl98t1TqHVf0qZ1nJjQOEhGDQCXUmfoyXvKcwtWAFbMslW/mH3dEmbzTGnmO7mn1rst7LXlDBPJEYfGRQjsutuxbBVuDCuCBkILxb4GMYrG1qr054gRutBegUv7ijG5OCPkHCHA+fIBJsOt1ME5l1ZHlZIIfW7BBvCtuJyXdkYebCCTxNUmbmIulcnU2QK6pYxkJIYOlaAUDUg3pgu07iRUpiRMU/7aLq
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:DM6PR13MB3451.namprd13.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(39850400004)(376002)(136003)(366004)(396003)(346002)(9686003)(4326008)(7696005)(76116006)(66446008)(66946007)(64756008)(66556008)(66476007)(6506007)(186003)(53546011)(44832011)(8676002)(26005)(55236004)(33656002)(8936002)(83380400001)(52536014)(6916009)(5660300002)(316002)(55016002)(2906002)(71200400001)(478600001)(54906003)(86362001);
+ DIR:OUT; SFP:1101; 
+x-ms-exchange-antispam-messagedata: s66W1n9Na53JbtX8aIL55WeLdG8KTR3Ljn2w7INf3pKO/3lHNeT6mDCJLHAX0WIae2PWn8Plemd3n8ffBIWl1iXgp2aRXEhqvIgZS/HDcDmDxKiY8Ga5trjpr0wAA5NI/EixIOJ6a0qX3Xf6frfmFPIBSXBgq28h+tIJAL32/eLZ88MkKytHFde25hC9A53wg3BwDUXJ1LoKJjeUh6NWBA1+OA1iSUnJd2Rg/g74QyzMCHND1SsFfI5CfUGPdjzqzcNRuF6z898xt4t1A0lFkLNIfVxufROkXDNubTn746ACDSZKpQmtR9vZOrtrP7pDjIhzscM+uKpMkJxBzUqFCls5PzSleyWaa55h2qvA5shijvmllRsstTGX2RvV/Gw8Uj8FhZRcVwU/bu19WyXHmbn1sA8zcp9F3/MvDbRQ+PnQSuycSoafqAQneTo9o/HCgFhejLjx4GDn6QpaEa7yne3L3ZsWZLi9xHFQ8ehoFrzx9PqcnzHCweGhZeq7ohZU+nroy7dGUANyeWO5PkTxWENzKXBtLBReDVvXL8gC+ILrWIqM9tlPqSp2zGsFx1zf7Cj8WojI3sd9rERd6WtzxGfv9mgHQHwUHQbydpeeErCZ33EyQ2qiYvIyDMZ9z5gDwhJEB3IlIG2K6oByqx6F7A==
 MIME-Version: 1.0
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprELMWRmVeSWpSXmKPExsXSHT1dWVc5vSXe4MtJC4uWD+9YLRat+M5i
- se1zC5tF87tz7BYvL/cwW7TN4rf4cHc2mwO7x9TfZ1g83rx8yeLxcNMlJo/NS+o9LjVfZ/do
- P9DNFMAWxWWTkpqTWZZapG+XwJUx48IdxoJpFhUvenqZGxiX63YxcnJICJhInN54nK2LkYtD
- SOAoo8SN1uOsEAk3idv3d4LZbAKaEvMvHWQBsUUEzCWaZ75mBGlgFuhglDj45AcjSEJYwF2i
- 9d4aJhCbRUBV4k7TNzCbF6hhfftBJoih8hLty7ezQcQFJU7OfAI2lBko3rx1NvMERp5ZSFKz
- kKQWMDKtYhRILDPWy0wu1kvLLyrJ0Esv2sQIDjZG3x2Mtze/1TvEyMTBeIhRgoNZSYT3nHpT
- vBBvSmJlVWpRfnxRaU5q8SFGaQ4WJXHePO7lsUIC6YklqdmpqQWpRTBZJg5OqQam7futmg84
- TItdeEm3iC9T+sO2B3KrjWy3zdjilt2YaKBWXrBsk4JTTcEBPtmrX4smvX9Xfd2wVkn/p3kA
- b32/jM27Zt6NCU/ylt26e+HMlSB2AT8hO/WpXgIm4Wsehvyq5v846f1r/9bXM7qEe+7deXtm
- 2xPFA+0r029pT8l33XRZJGPukk+CbNl/5EN0eDdu2BopcL8rY6bn37euPyvEYlZNMc6IbeH1
- MGLuvfCw8Py/va9jRE3uaAalpUw6XLfyySGpRqUnK96y+ujHdkx82d+y0+br9/1rGKVNVpzs
- bzp96uD5Po59304318XqygqneBonnotyEvYLXSd08dsvo8hPFq/3JGVsXMmW0vZHiaU4I9FQ
- i7moOBEAsFNdx6UCAAA=
+X-OriginatorOrg: openfive.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR13MB3451.namprd13.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f8766155-8c3d-4738-f87d-08d86ec6632a
+X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Oct 2020 15:49:21.8146 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: iNnvsrRiOSMSjI7GoBaW7DK+jAdg/OKsudBg2Ze54f4hqMtD9O5nfM81uziwmUKiMLnWa0nRf/AwlMemsmbReg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR13MB4146
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201012_102456_728494_0C57159C 
-X-CRM114-Status: GOOD (  22.30  )
+X-CRM114-CacheID: sfid-20201012_114924_705801_F25D3F0C 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -80,259 +125,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Nick Kossifidis <mick@ics.forth.gr>, atish.patra@wdc.com,
- anup@brainfault.org, zong.li@sifive.com, paul.walmsley@sifive.com
+Cc: "andrew@lunn.ch" <andrew@lunn.ch>,
+ "peter@korsgaard.com" <peter@korsgaard.com>,
+ "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "palmer@dabbelt.com" <palmer@dabbelt.com>,
+ "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
+ "Paul Walmsley \( Sifive\)" <paul.walmsley@sifive.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch (previously part of my kexec/kdump series) populates
-/proc/iomem with the various sections of the kernel image. We need
-this for kexec-tools to be able to prepare the crashkernel image
-for kdump to work. Since resource tree initialization is not
-related to memory initialization I added the code to kernel/setup.c
-and removed the original code (derived from the arm64 tree) from
-mm/init.c.
 
-Signed-off-by: Nick Kossifidis <mick@ics.forth.gr>
----
- arch/riscv/kernel/setup.c | 160 ++++++++++++++++++++++++++++++++++++++
- arch/riscv/mm/init.c      |  27 -------
- 2 files changed, 160 insertions(+), 27 deletions(-)
+> -----Original Message-----
+> From: Andreas Schwab <schwab@linux-m68k.org>
+> Sent: Friday, October 9, 2020 11:55 PM
+> To: Sagar Kadam <sagar.kadam@openfive.com>
+> Cc: linux-kernel@vger.kernel.org; linux-riscv@lists.infradead.org; linux-
+> i2c@vger.kernel.org; peter@korsgaard.com; andrew@lunn.ch; Paul
+> Walmsley ( Sifive) <paul.walmsley@sifive.com>; palmer@dabbelt.com;
+> aou@eecs.berkeley.edu
+> Subject: Re: [PATCH v2 1/1] i2c: ocores: fix polling mode workaround on
+> FU540-C000 SoC
+> 
+> [External Email] Do not click links or attachments unless you recognize the
+> sender and know the content is safe
+> 
+> On Okt 09 2020, Sagar Shrikant Kadam wrote:
+> 
+> > diff --git a/drivers/i2c/busses/i2c-ocores.c
+> > b/drivers/i2c/busses/i2c-ocores.c index f5fc75b..9b3d1ab 100644
+> > --- a/drivers/i2c/busses/i2c-ocores.c
+> > +++ b/drivers/i2c/busses/i2c-ocores.c
+> > @@ -686,17 +686,21 @@ static int ocores_i2c_probe(struct
+> > platform_device *pdev)
+> >
+> >       init_waitqueue_head(&i2c->wait);
+> >
+> > +     /*
+> > +      * Set OCORES_FLAG_BROKEN_IRQ to enable workaround for
+> > +      * FU540-C000 SoC in polling mode.
+> > +      * Since the SoC does have interrupt it's dt has the interrupt
+> 
+> Typo: its
+> 
 
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index 2c6dd3293..450f0142f 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -4,6 +4,8 @@
-  *  Chen Liqin <liqin.chen@sunplusct.com>
-  *  Lennox Wu <lennox.wu@sunplusct.com>
-  * Copyright (C) 2012 Regents of the University of California
-+ * Copyright (C) 2020 FORTH-ICS/CARV
-+ *  Nick Kossifidis <mick@ics.forth.gr>
-  */
- 
- #include <linux/init.h>
-@@ -48,6 +50,163 @@ atomic_t hart_lottery __section(.sdata);
- unsigned long boot_cpu_hartid;
- static DEFINE_PER_CPU(struct cpu, cpu_devices);
- 
-+/*
-+ * Place kernel memory regions on the resource tree so that
-+ * kexec-tools can retrieve them from /proc/iomem. While there
-+ * also add "System RAM" regions for compatibility with other
-+ * archs, and the rest of the known regions for completeness.
-+ */
-+static struct resource code_res = { .name = "Kernel code", };
-+static struct resource data_res = { .name = "Kernel data", };
-+static struct resource rodata_res = { .name = "Kernel rodata", };
-+static struct resource bss_res = { .name = "Kernel bss", };
-+
-+static int __init add_resource(struct resource *parent,
-+				struct resource *res)
-+{
-+	int ret = 0;
-+
-+	ret = insert_resource(parent, res);
-+	if (ret < 0) {
-+		pr_err("Failed to add a %s resource at %llx\n",
-+			res->name, (unsigned long long) res->start);
-+		return ret;
-+	}
-+
-+	return 1;
-+}
-+
-+static int __init add_kernel_resources(struct resource *res)
-+{
-+	int ret = 0;
-+
-+	/*
-+	 * The memory region of the kernel image is continuous and
-+	 * was reserved on setup_bootmem, find it here and register
-+	 * it as a resource, then register the various segments of
-+	 * the image as child nodes
-+	 */
-+	if (!(res->start <= code_res.start && res->end >= data_res.end))
-+		return 0;
-+
-+	res->name = "Kernel image";
-+	res->flags = IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY;
-+
-+	/*
-+	 * We removed a part of this region on setup_bootmem so
-+	 * we need to expand the resource for the bss to fit in.
-+	 */
-+	res->end = bss_res.end;
-+
-+	ret = add_resource(&iomem_resource, res);
-+	if (ret < 0)
-+		return ret;
-+
-+	ret = add_resource(res, &code_res);
-+	if (ret < 0)
-+		return ret;
-+
-+	ret = add_resource(res, &rodata_res);
-+	if (ret < 0)
-+		return ret;
-+
-+	ret = add_resource(res, &data_res);
-+	if (ret < 0)
-+		return ret;
-+
-+	ret = add_resource(res, &bss_res);
-+
-+	return ret;
-+}
-+
-+static void __init init_resources(void)
-+{
-+	struct memblock_region *region = NULL;
-+	struct resource *res = NULL;
-+	int ret = 0;
-+
-+	code_res.start = __pa_symbol(_text);
-+	code_res.end = __pa_symbol(_etext) - 1;
-+	code_res.flags = IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY;
-+
-+	rodata_res.start = __pa_symbol(__start_rodata);
-+	rodata_res.end = __pa_symbol(__end_rodata) - 1;
-+	rodata_res.flags = IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY;
-+
-+	data_res.start = __pa_symbol(_data);
-+	data_res.end = __pa_symbol(_edata) - 1;
-+	data_res.flags = IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY;
-+
-+	bss_res.start = __pa_symbol(__bss_start);
-+	bss_res.end = __pa_symbol(__bss_stop) - 1;
-+	bss_res.flags = IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY;
-+
-+	/*
-+	 * Start by adding the reserved regions, if they overlap
-+	 * with /memory regions, insert_resource later on will take
-+	 * care of it.
-+	 */
-+	for_each_memblock(reserved, region) {
-+		res = memblock_alloc(sizeof(struct resource), SMP_CACHE_BYTES);
-+		if (!res)
-+			panic("%s: Failed to allocate %zu bytes\n", __func__,
-+			      sizeof(struct resource));
-+
-+		res->name = "Reserved";
-+		res->flags = IORESOURCE_MEM | IORESOURCE_BUSY;
-+		res->start = __pfn_to_phys(memblock_region_reserved_base_pfn(region));
-+		res->end = __pfn_to_phys(memblock_region_reserved_end_pfn(region)) - 1;
-+
-+		ret = add_kernel_resources(res);
-+		if (ret < 0)
-+			goto error;
-+		else if (ret)
-+			continue;
-+
-+		/*
-+		 * Ignore any other reserved regions within
-+		 * system memory.
-+		 */
-+		if (memblock_is_memory(res->start))
-+			continue;
-+
-+		ret = add_resource(&iomem_resource, res);
-+		if (ret < 0)
-+			goto error;
-+	}
-+
-+	/* Add /memory regions to the resource tree */
-+	for_each_memblock(memory, region) {
-+		res = memblock_alloc(sizeof(struct resource), SMP_CACHE_BYTES);
-+		if (!res)
-+			panic("%s: Failed to allocate %zu bytes\n", __func__,
-+			      sizeof(struct resource));
-+
-+		if (unlikely(memblock_is_nomap(region))) {
-+			res->name = "Reserved";
-+			res->flags = IORESOURCE_MEM | IORESOURCE_BUSY;
-+		} else {
-+			res->name = "System RAM";
-+			res->flags = IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY;
-+		}
-+
-+		res->start = __pfn_to_phys(memblock_region_memory_base_pfn(region));
-+		res->end = __pfn_to_phys(memblock_region_memory_end_pfn(region)) - 1;
-+
-+		ret = add_resource(&iomem_resource, res);
-+		if (ret < 0)
-+			goto error;
-+	}
-+
-+	return;
-+
-+ error:
-+	memblock_free((phys_addr_t) res, sizeof(struct resource));
-+	/* Better an empty resource tree than an inconsistent one */
-+	release_child_resources(&iomem_resource);
-+}
-+
-+
- void __init parse_dtb(void)
- {
- 	if (early_init_dt_scan(dtb_early_va))
-@@ -73,6 +232,7 @@ void __init setup_arch(char **cmdline_p)
- 
- 	setup_bootmem();
- 	paging_init();
-+	init_resources();
- #if IS_ENABLED(CONFIG_BUILTIN_DTB)
- 	unflatten_and_copy_device_tree();
- #else
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index f750e012d..05d6cf0c2 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -541,39 +541,12 @@ void mark_rodata_ro(void)
- }
- #endif
- 
--static void __init resource_init(void)
--{
--	struct memblock_region *region;
--
--	for_each_memblock(memory, region) {
--		struct resource *res;
--
--		res = memblock_alloc(sizeof(struct resource), SMP_CACHE_BYTES);
--		if (!res)
--			panic("%s: Failed to allocate %zu bytes\n", __func__,
--			      sizeof(struct resource));
--
--		if (memblock_is_nomap(region)) {
--			res->name = "reserved";
--			res->flags = IORESOURCE_MEM;
--		} else {
--			res->name = "System RAM";
--			res->flags = IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY;
--		}
--		res->start = __pfn_to_phys(memblock_region_memory_base_pfn(region));
--		res->end = __pfn_to_phys(memblock_region_memory_end_pfn(region)) - 1;
--
--		request_resource(&iomem_resource, res);
--	}
--}
--
- void __init paging_init(void)
- {
- 	setup_vm_final();
- 	sparse_init();
- 	setup_zero_page();
- 	zone_sizes_init();
--	resource_init();
- }
- 
- #ifdef CONFIG_SPARSEMEM_VMEMMAP
--- 
-2.26.2
+Thanks Andreas,
+I will submit v3 with the change.
 
+BR,
+Sagar
+> Andreas.
+> 
+> --
+> Andreas Schwab, schwab@linux-m68k.org
+> GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA
+> AEC1 "And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
