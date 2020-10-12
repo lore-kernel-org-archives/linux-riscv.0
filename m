@@ -7,85 +7,86 @@ X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 88729C43467
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2020 13:57:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EC57EC43457
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2020 13:57:56 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 006AF20665
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2020 13:57:49 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 9A62C206FB
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Oct 2020 13:57:56 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="l5G1eBNt";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="M7guIMGX"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 006AF20665
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="AWnp3Wc8";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="PRqy1Jms"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9A62C206FB
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe
-	:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=doBwYTYPolAtOJmwU0ELQnhwA4Iu8BMmJMKZ8tcXu9Y=; b=l5G1eBNtaTXIT0GDo96fD6TXrq
-	fbdTesTeKWTISSDanCtEXpADM1Crg+ZWwe+nysMY93FMihxpy2PyFupEG+vhZbbOQGzqpbb0OIU9f
-	g9edzGr2eNAJp1aFrk1YkPQF+jTVKcBLjIC+gUW0gzbIpE/oE6NU73ZIvtjxAsZf7/OxXuz9XMoSL
-	WjXAGv6uDLb0FRSzn32HChB7UDk3X9/dA7lCtt5629qDb1TnwJG3AhuFOdI3sal/FH/QrKR+9suns
-	u+Cr8NHQHV09fJJE5m7PBNuxyzTqa7ai8gzUOb8AXwkvEMbffDmGalDsqm6/E1Kgy3b7pE0X51oht
-	IULFKSYg==;
+	:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A08mskxO8pG94NLJKcXwSoJOC96B+EVsyOcD816SdXw=; b=AWnp3Wc8zUqmLVSpFwMZdL/3Ww
+	9GdS8GkwNOj8AXxaC7lnEBap6565jtvGmk5CvToRvM0oP+MJFIS25eNwJBQ22ni9vd0TQAhcZPa8w
+	ef3um3OkNHAsQUkVO3KK+/j7rQ360zhpOG6k5CTjMuiVO8ZsW/pgZtrXEFZTTg38howLktWj4F7Wz
+	MoW0GzOa/J/bSC2/J8+fsTM5l+i31wBxqNQeprSit5IexohwgIUZ4rqkm2Dp//MkR1mKuw2qCpUeV
+	N+kGwgt2x7HJnVHKUuADSpnlEM6WffzHnf4eCjCUgkGS9F1snapQAFOmWpXbe7avMOSLcNl1Z4qYe
+	W9dJjSIw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kRyKZ-0005MV-BT; Mon, 12 Oct 2020 13:57:39 +0000
-Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
+	id 1kRyKh-0005Oa-0X; Mon, 12 Oct 2020 13:57:47 +0000
+Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kRyKX-0005LZ-4X
- for linux-riscv@lists.infradead.org; Mon, 12 Oct 2020 13:57:38 +0000
-Received: by mail-pf1-x443.google.com with SMTP id f19so13558851pfj.11
- for <linux-riscv@lists.infradead.org>; Mon, 12 Oct 2020 06:57:36 -0700 (PDT)
+ id 1kRyKe-0005NT-JA
+ for linux-riscv@lists.infradead.org; Mon, 12 Oct 2020 13:57:45 +0000
+Received: by mail-pf1-x441.google.com with SMTP id b26so13593831pff.3
+ for <linux-riscv@lists.infradead.org>; Mon, 12 Oct 2020 06:57:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:subject:date:message-id:mime-version
+ h=from:to:subject:date:message-id:in-reply-to:references:mime-version
  :content-transfer-encoding;
- bh=ZiICVFIqX41C7SKKJnsrNtmwYTBihguSi/hha1GihbA=;
- b=M7guIMGXYX7w3kC+X3d/oZD+d5yoyYsqQPVuy5XK1UcpCYjQFQdOne/GanDOXnvHs4
- kpdST8zBo6hfAT452TviGrVNlVIgzKX2t+ctXvi6/jOJLw9VxNbEwKX3rd2KYDZ6ViSK
- KO3DjlrvnoriUgoaljupo/mFwZ8HQXZZzAfX/P5OVRIHCpXZ1ZGgdG31YkShSk+iVoEp
- OWoFOkSG/EREpSt3Ox8SjNeCUD99XaCqT/JIGr2OaTsPsasxEeyqWjpH4V5tsXSA8lrJ
- x7ebSgMtb+dRixsUyI2Jj4D8SKSwETmPrBrY++eV2oZOTSeNua/5wRTUE1HWVlWS/2hm
- DAFA==
+ bh=Q1wnaKsyvuMXKi7fs7oMuZr+hnbrwNWLrapTgOtuEpI=;
+ b=PRqy1JmsF7Ra7sTdljtU/xin9hXipV61CkD/nqQc6hDlDCA7GvAf36G0+7uYOydo5M
+ 19MTH/xehhZrNd2VhYOgfcuqfBxRHheycm+SujUnxGkm5IKmqfM/Kmv3THohngzKhIZZ
+ 3uuBCxUgzHOT3MmLtA7U5hZSKMDQJ7LF0ak0KbkoGxJTU1yrQ7bm5UJAIBWp2LpMs/XL
+ zVkCVRFVzmFRMeMhlmzeliZt3N084OARRHRP0m+b9YiJKIlb2+8AzGtztVkAqmiK1c1C
+ uJ80aXUPOK8hynccbr1SSBjtKNKYiruZ7lQnLO+MWvXGawDcPQEfOQxT/PoSt8bfHEdE
+ GvbQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=ZiICVFIqX41C7SKKJnsrNtmwYTBihguSi/hha1GihbA=;
- b=Z39nnLim2PnImdU2//2cVQkfsCH4W/OWaEGpV+dIfnZK0hCYbpCBVDYX6J+NtHyesK
- acM7ikkNUdzdA/QMRWWDiIe6Ixs6TbeX7n+PBV4RUDJiBPOcRRoAiTx7+JTFGC23jU4C
- DWr8bYtWE++brGKe/a49E2TQj7KiPhr0mr0F0Myo+4WkhFG3lqt+KJshq27SF6BFn5Yy
- kpnqb3eNgsBQ/O+lhEkMHTQvtXYXyG72cS/TGNPbn37Q2VZnfcn9wUN4bh1RCbIcJtM0
- U9HSRUm6s/D78evg9+4G+cVnG07erFBBofMhirGS574+X9TRLVb421ahFXMqWOjhiD0q
- qvog==
-X-Gm-Message-State: AOAM5317URZsXGXbSy9r9ae/H6k3W3ZHzMXkbsliHmVumLMbkR7ENJa2
- D261QqFM96jWliJ7XYIMfYlqvA==
-X-Google-Smtp-Source: ABdhPJx/YXjwmC3lsPfXUB0HuPWyxGgOxdVizxfDuUlT+AzybzSCHmrav3+r4MJ6Bz2FEZN6fpbQCw==
-X-Received: by 2002:a17:90a:7c03:: with SMTP id
- v3mr20003855pjf.233.1602511054990; 
- Mon, 12 Oct 2020 06:57:34 -0700 (PDT)
+ h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=Q1wnaKsyvuMXKi7fs7oMuZr+hnbrwNWLrapTgOtuEpI=;
+ b=aT5H0Txe8IGf9BdVciO0q2PiLfgeOqGHNMIYMzrxATZ6CbmQKn+ykGxg+bpXq4EHcl
+ w2gYXX1accKuZTxhZ0RqXDYB3ls5PLF1Y2wKpCC77yBhHuC8jKGPYjuqLyHeHgC7TyeV
+ vYHpqHeBZskZtg9QyJ4uahbWFgvYvTUR2qYPXqjIWSmvmIS9r8TonlNX5AN7iIZnkMNo
+ Ndx7WpkJbrPgbfQiNh3OCjG06+1e37rcp5H9LhwcdW7YzbDoOz5kj+kEy7OvNA5Pe4G+
+ KU4M3Foguy/cGhi1iQ3rs+pFXPdZgXRrWYMVn+btNmQ3WAJlEQr+GuNpxg44etVOhEOE
+ NUHA==
+X-Gm-Message-State: AOAM532SOGXpVwY4RJ8EjBv2KJvMHdSOVUwD9PTpfev3551A+AxtTbrz
+ uB1qVIhAcGaKz3MmcxHvH7/rbg==
+X-Google-Smtp-Source: ABdhPJzcrHQeZk4zgWWyuluZxje2uj0PyWtM6YbdgCeVVIsUCbXBIgZTTXg9ohn70dPUcgnAubNMuA==
+X-Received: by 2002:a63:470a:: with SMTP id u10mr4433502pga.48.1602511062540; 
+ Mon, 12 Oct 2020 06:57:42 -0700 (PDT)
 Received: from hsinchu02.internal.sifive.com
  (114-34-229-221.HINET-IP.hinet.net. [114.34.229.221])
- by smtp.gmail.com with ESMTPSA id e1sm20019316pjv.2.2020.10.12.06.57.32
+ by smtp.gmail.com with ESMTPSA id e1sm20019316pjv.2.2020.10.12.06.57.40
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 12 Oct 2020 06:57:34 -0700 (PDT)
+ Mon, 12 Oct 2020 06:57:42 -0700 (PDT)
 From: Greentime Hu <greentime.hu@sifive.com>
 To: greentime.hu@sifive.com, tglx@linutronix.de, jason@lakedaemon.net,
  maz@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: [PATCH 1/2] irqchip/sifive-plic: Enable or disable interrupt based on
- its previous setting
-Date: Mon, 12 Oct 2020 21:57:23 +0800
-Message-Id: <20201012135724.110579-1-greentime.hu@sifive.com>
+Subject: [PATCH 2/2] irqchip/sifive-plic: Fix the interrupt was enabled
+ accidentally issue.
+Date: Mon, 12 Oct 2020 21:57:24 +0800
+Message-Id: <20201012135724.110579-2-greentime.hu@sifive.com>
 X-Mailer: git-send-email 2.28.0
+In-Reply-To: <20201012135724.110579-1-greentime.hu@sifive.com>
+References: <20201012135724.110579-1-greentime.hu@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201012_095737_433786_9594D95C 
-X-CRM114-Status: GOOD (  10.69  )
+X-CRM114-CacheID: sfid-20201012_095744_635317_77829751 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -102,10 +103,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-It will always enable the interrupt after calling plic_set_affinity()
-however it should set to its previous setting. Staying disabled or enabled.
+In commit 2ca0b460bbcb ("genirq/affinity: Make affinity setting if activated opt-in"),
+it added irqd_affinity_on_activate() checking in the function
+irq_set_affinity_deactivated() so it will return false here.
+In that case, it will call irq_try_set_affinity() -> plic_irq_toggle()
+which will enable the interrupt to cause the CPU hang.
 
-This patch can also fix this pwm hang issue in Unleashed board.
+	if (irq_set_affinity_deactivated())
+		return 0;
+	...
+	irq_try_set_affinity(data, mask, force);
 
 [  919.015783] rcu: INFO: rcu_sched detected stalls on CPUs/tasks:
 [  919.020922] rcu:     0-...0: (0 ticks this GP)
@@ -127,36 +134,32 @@ idle=7d2/1/0x4000000000000002 softirq=1424/1424 fqs=113325
 [  982.073739] [<ffffffe000930d92>] __schedule+0x194/0x4de
 [..]
 
-Fixes: bb0fed1c60cc ("irqchip/sifive-plic: Switch to fasteoi flow")
+After applying this patch, the CPU hang issue can be fixed.
+
 Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
 ---
- drivers/irqchip/irq-sifive-plic.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ drivers/irqchip/irq-sifive-plic.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index eaa3e9fe54e9..4cc8a2657a6d 100644
+index 4cc8a2657a6d..8a673d9cff69 100644
 --- a/drivers/irqchip/irq-sifive-plic.c
 +++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -137,6 +137,7 @@ static int plic_set_affinity(struct irq_data *d,
- 			     const struct cpumask *mask_val, bool force)
+@@ -183,10 +183,14 @@ static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
+ 			      irq_hw_number_t hwirq)
  {
- 	unsigned int cpu;
-+	bool enable;
- 	struct cpumask amask;
- 	struct plic_priv *priv = irq_get_chip_data(d->irq);
+ 	struct plic_priv *priv = d->host_data;
++	struct irq_data *irqd;
  
-@@ -150,8 +151,10 @@ static int plic_set_affinity(struct irq_data *d,
- 	if (cpu >= nr_cpu_ids)
- 		return -EINVAL;
- 
-+	enable = !irqd_irq_disabled(d);
- 	plic_irq_toggle(&priv->lmask, d, 0);
--	plic_irq_toggle(cpumask_of(cpu), d, 1);
-+	/* Keep its original setting. */
-+	plic_irq_toggle(cpumask_of(cpu), d, enable);
- 
- 	irq_data_update_effective_affinity(d, cpumask_of(cpu));
- 
+ 	irq_domain_set_info(d, irq, hwirq, &plic_chip, d->host_data,
+ 			    handle_fasteoi_irq, NULL, NULL);
+ 	irq_set_noprobe(irq);
++	irqd = irq_get_irq_data(irq);
++	irqd_set_single_target(irqd);
++	irqd_set_affinity_on_activate(irqd);
+ 	irq_set_affinity(irq, &priv->lmask);
+ 	return 0;
+ }
 -- 
 2.28.0
 
