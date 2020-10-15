@@ -2,24 +2,23 @@ Return-Path: <SRS0=HcYa=DW=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-12.5 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-6.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DDCC6C433E7
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2020 12:46:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A46CCC43457
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2020 14:08:58 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5EF9722258
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2020 12:46:08 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 1BA9120704
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2020 14:08:58 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="glI30ezG";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="aTwNHgpk"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5EF9722258
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="cM5rGvc1";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sifive.com header.i=@sifive.com header.b="Y2qUD1xu"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1BA9120704
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -27,64 +26,90 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3Ci0ubN4fxUbVqHGVJwo3OUlCn9GogMP8w7ThCvzybU=; b=glI30ezGihf3190YNXyw9P+ZDB
-	RsgZvD8NHYW2E0l3yXL1K+XD8CM8I0Hq0ziwRfWuTLyTZbmr1grAYKMkhQgExlM6fhU9WleNJF3Zp
-	T5D/sx7saXtirf5OHw49GSSnyQwSzrFQXu9nYbL/iUTlg7GuBI0/E8k7v0lIkDBVvAsqny85bqlJ4
-	T+9biT0X8zSX1bVuqvFEEk3cET3wmrMRa8u46RdNyzEJSkX1EQeCQjLciNbamzuNrvGCrW2HtduDU
-	8lqHMYu8mUERN21FlFTZJgTNXxfUzfCxudgQCJ8k+t1F5nWd/gd2sjTTvIhW/eJyhi3UjDzn5x5Sc
-	dLk2u1UA==;
+	bh=MTz2fGdeyolCcrfgyRWX2WQJqnDXAoO/MVd0lN9COKg=; b=cM5rGvc18SDNOcs8SiJmcNaBoF
+	cpNCyEDnCWa+2bxkHagccakXedXKeJYPlWXPLIidOAFZWtbOg/gc6Ym7+dw7DermyeH/jD/lkRMT9
+	Mvpdd9HNZbhr0oAmtvopa22mhLffFXlamZqY6Jf8Un/kz3wq+v9SM3/t3erDM13tciPaAt9V2PzX9
+	hsssQvEk1xkYFsDNSZ1eqmM+kxi3V5O2P9Tph0ysEO4zEfKvY6j84wSVZrgGjz97X5AQpRCgHhsQz
+	Jb6JNVUfgxgiazmOeIoAOzHm+p/2HV/dsWEv8+YFz5sw0n5j3/Ix5WTI+FoMKA5/a2F5x36AevCS/
+	Jo6f6jAg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kT2dm-0000hT-NZ; Thu, 15 Oct 2020 12:45:54 +0000
-Received: from mail-pg1-x543.google.com ([2607:f8b0:4864:20::543])
+	id 1kT3vz-0001n0-Tn; Thu, 15 Oct 2020 14:08:47 +0000
+Received: from mail-co1nam11on2084.outbound.protection.outlook.com
+ ([40.107.220.84] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kT2dj-0000gA-TU
- for linux-riscv@lists.infradead.org; Thu, 15 Oct 2020 12:45:53 +0000
-Received: by mail-pg1-x543.google.com with SMTP id o3so1838963pgr.11
- for <linux-riscv@lists.infradead.org>; Thu, 15 Oct 2020 05:45:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=6mvSgSzdrG2Kf5lb3MWun4iW1eHn9iEbQn483O97LIM=;
- b=aTwNHgpk37miOmIvDzfMfIoPnp7G+nTSMSavBtn1FisyMgQJTaOIi/cZ9GfgowCVlt
- inMSrOwdbW9GdDBKySPQMBPpszluc2DRvK52PBy5+np/QPNQrkDjE1aKtpmhc1Er+NEf
- s5kXnqHAz6bGaz3kOJT9/GNRh/K1bUngfCobJudp2ZZZgK4Qs3NHWeXSUXgDn7gUtK1p
- FUFkWLPb+kIl6YhJpnPNJj94kqZpsdNQ9XfRbsPxr5hDNg5jXYzWQin+Q+dojPiKrOwE
- mqW0ovZ9ERnj6Us8uwk7tTc/L1MgkspiRcCdpMsRNVhjYDLn/dx+9MpraDVQwGsunuQd
- SW3Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=6mvSgSzdrG2Kf5lb3MWun4iW1eHn9iEbQn483O97LIM=;
- b=m/dZC7cHzaqaMmhpMY4jUCz9Nh3HGxuY8lYQHk+0W2EjoOR91xFUyM60X9Ok37uw0R
- phFUIe6hciA9KjaZojIqc+fBfxI+0t3GFvXVyNCveUF9fPNvumAkTyQ9dpq+GJNEe39d
- Fyp2Bw06Y6DFpAEwS4knDLPPsPLZmzCKaOMFwDcCwbraUuhZIrnqyHqb7QPmOZzOkrmO
- H2LL5uXa93WnU0uUK54oNp9sV612pjE1CfYxNvct2RPmoDAoo0l46MD2VB0Ob+PxU3eG
- zi1DXg6NERdwIEYRBFIPwcf34Ds/FjeTT4SZZzv4hIIrS8ScjkN2VbY+wT6Gm9hGVFwU
- EgOQ==
-X-Gm-Message-State: AOAM532ePDWuFzW8qBB0Y89AQ3Akx4VIvnqQ4ATk7KfhZRBrw6CM+NIV
- 2qjiyjEantueOL16K0PnYoM=
-X-Google-Smtp-Source: ABdhPJzlCrMGZ+8lx296M4DWxczLFUlW9iOq0TKuxofIvWd7tJiddoGn7si2M9GiShabfsg7/e3Sug==
-X-Received: by 2002:a63:1604:: with SMTP id w4mr3167693pgl.148.1602765947882; 
- Thu, 15 Oct 2020 05:45:47 -0700 (PDT)
-Received: from localhost.localdomain (sau-465d4-or.servercontrol.com.au.
- [43.250.207.1])
- by smtp.gmail.com with ESMTPSA id f15sm3482850pfk.21.2020.10.15.05.45.41
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 15 Oct 2020 05:45:46 -0700 (PDT)
-From: Bhaskar Chowdhury <unixbhaskar@gmail.com>
-To: w@1wt.eu, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu
-Subject: [PATCH] tools: nolibc: Absolute nit, fix a spelling in the comment,
- huh
-Date: Thu, 15 Oct 2020 18:15:17 +0530
-Message-Id: <20201015124517.3524567-1-unixbhaskar@gmail.com>
-X-Mailer: git-send-email 2.28.0
+ id 1kT3vt-0001k2-QK
+ for linux-riscv@lists.infradead.org; Thu, 15 Oct 2020 14:08:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=g8n/eeV6cqKZe3BnAmlRgKFMzF6axi666brggYG+xtCL6vz4wzPuo2vI1L0IeygLQJgR6rnPz+v+mguU5Mb+6nueAX0A1g2yBdilLWR5E/O4cQ6MlOYisCmGYWwujCcG66TlI1G2tP9juaeNUAhMW7L9pboE69U2dQfEOwZrABDnvwZINiurY3jDbS3LeouqVdQx1lD7FjPhsojtiLK94P6tCrz2gWNeH5eeoIeURQbiUxNrq0+kiHiTLlz8L5W/qOzABhCOJMN7SjM9N3tytP47qMJRrw5opAo7hmQJka7DJMyXN+YqqXU41HoDLBzlDzIjxQyrfB/sbQBIrrx2xw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=AZkZ9pVM5omCs7E57OYSvcdKYXxYCWf8YlFN3nyLCF8=;
+ b=ZkD/NBkte6QuFo7EOVFWIgFA8PDwU4qDNuMUjTREYvAg0FuFDNoT1tzI3lK3mT5LVY9BDDI/mFT/nmgd9KiVovvVR4NVb7sfRa1TOYK+s9N7SFaOw1YZ82EdUEL2F8F+cgVb+wBkyarTWmPSccqcoiGwOH793RJmKqh380rYxdS0Pmb5hNtZr/Q6RHogaKx32brKtrF2YoQF3RclIzpFgo+JEGfdvgA+2Z5L0JSB7ikhZQHvGvDG8E1o2/rY0hSdtaAMHgwvPNBI5MoJsSRxhrAwNK89+wFRM5hwf2VEKhqA0bfSGFy5JpNvI2Snv2goq6HhxiByMt5BvratQQC82g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=openfive.com; dmarc=pass action=none header.from=sifive.com;
+ dkim=pass header.d=sifive.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=AZkZ9pVM5omCs7E57OYSvcdKYXxYCWf8YlFN3nyLCF8=;
+ b=Y2qUD1xuVnHRlE5IdqapQ24jFsyZ9VwMoV7uWzEHwHllr1cyL9hA8rvI82eyDR17KhRPgk0UsIInuHSgOP8LukrHvCU5Ot+EkkPuyo7s+qVo+EDNXtA4uoPPGFNdHnnVEGSAfaSHGF99Io/5pvece9qpCYay4LAUHgpwmw25QjA=
+Authentication-Results: vger.kernel.org; dkim=none (message not signed)
+ header.d=none; vger.kernel.org; dmarc=none action=none header.from=sifive.com; 
+Received: from DM6PR13MB3451.namprd13.prod.outlook.com (2603:10b6:5:1c3::10)
+ by DM6PR13MB4067.namprd13.prod.outlook.com (2603:10b6:5:2a6::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3477.11; Thu, 15 Oct
+ 2020 14:08:38 +0000
+Received: from DM6PR13MB3451.namprd13.prod.outlook.com
+ ([fe80::f49f:d6d6:4c97:e5d5]) by DM6PR13MB3451.namprd13.prod.outlook.com
+ ([fe80::f49f:d6d6:4c97:e5d5%7]) with mapi id 15.20.3477.019; Thu, 15 Oct 2020
+ 14:08:37 +0000
+From: Sagar Shrikant Kadam <sagar.kadam@sifive.com>
+To: linux-kernel@vger.kernel.org
+Subject: [PATCH v3 0/1] fix i2c polling mode workaround for FU540-C000 SoC
+Date: Thu, 15 Oct 2020 07:08:26 -0700
+Message-Id: <1602770907-61852-1-git-send-email-sagar.kadam@sifive.com>
+X-Mailer: git-send-email 2.7.4
+X-Originating-IP: [64.62.193.194]
+X-ClientProxiedBy: BYAPR05CA0069.namprd05.prod.outlook.com
+ (2603:10b6:a03:74::46) To DM6PR13MB3451.namprd13.prod.outlook.com
+ (2603:10b6:5:1c3::10)
 MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+Received: from gamma15.internal.sifive.com (64.62.193.194) by
+ BYAPR05CA0069.namprd05.prod.outlook.com (2603:10b6:a03:74::46) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id
+ 15.20.3477.13 via Frontend Transport; Thu, 15 Oct 2020 14:08:37 +0000
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 7779916d-b86b-497b-bb51-08d87113cfb2
+X-MS-TrafficTypeDiagnostic: DM6PR13MB4067:
+X-LD-Processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
+X-MS-Exchange-Transport-Forked: True
+X-Microsoft-Antispam-PRVS: <DM6PR13MB40673B20E6293FEE3C63759B97020@DM6PR13MB4067.namprd13.prod.outlook.com>
+X-MS-Oob-TLC-OOBClassifiers: OLM:9508;
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: p9mciStoqO45mT1wFa6jbPhVr6wt2uPVlGarxm6VhH6Su0GoD763plcLT9xJe6DvBs3YlD8PZTVeXY3BVDu8NevKwI66RkZjyeIDPSmhLGvz+b3eTU+VD86/ecfrgIJrC2Th6en+7M4t23g1KvJl9PLliYgQPnN6GdSKYVnKwOIReJ6+w1m3Oz8jLx+qrtnDw7WrOagNjFZ0zqzX4/WxzxV+FYuczk8PThFn0tsml1y9OHc6GrdaIQtSpKo/0pxeEqdzs0PWw8/CIvSLDSlhq1nyCWwQ79nyGMpFuCTgJUcw7HeQdcFc2GMmBseAdkPKlSpyrwopH0Da4tgRRHgT/42S/z7u5jc+QTVFS5HgLNv6OYvUB/fh6XrxnsPa2m/ouWlkM8UCXK4s/x71UA4BFQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:DM6PR13MB3451.namprd13.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(39850400004)(366004)(396003)(346002)(376002)(136003)(36756003)(16526019)(5660300002)(83380400001)(83170400001)(2906002)(316002)(6486002)(107886003)(26005)(186003)(966005)(52116002)(8676002)(7696005)(956004)(66946007)(2616005)(66476007)(66556008)(6666004)(8936002)(83080400001)(6916009)(4326008)(478600001)(42882007);
+ DIR:OUT; SFP:1101; 
+X-MS-Exchange-AntiSpam-MessageData: j0Ak/bQw5IqihowzkN2E2l2yvuQvh+CDX1zUkAGENG9VCo5Bm6Jn5huO3FzFPLDJhq1UcCFImf+ndTX25+zFlyVrod+t8LjfBvlqO5GlkYP8BYQZsSAfFd+Kd1+nqdu+FbJs2gLpnY119EXyYMlzYpUhfCZsxpss6Ef/419UHWRFycCXsD3tcCSNxJRHbOQ08odI0bT6AeuiyTGbrLD3OOYpzPiqyLKxSftzMNb04yRUxoh3DqPIfGv1It+vPf4vZIpA0+OU9Y+GyK+26InzSP878LMHgDCbUFoDMiO3HJM1jg9wrK9dSMpaP9uGcCfX9sNK3/m5QDxbn9QNAxaFV/4OZ473XtDKr3fnvb9KoOdECyYnQErUTXvOkgMI1fVcMZvINKVb8OmlecKKEjY4loytbepwaAhlOkHetRpih5kAJ8jBq9PtDYSoQvyp80NqqllKbSfFEhn6TbIP0sV3cT1VyTyFuZLZZqdreXFPBxWEt8+fo3xkRM93fefLNFf2RuO/73f9Tt6Mzueg6te5pGD2kbpZhcIetdMY+eIekdT3GcXiLR85KblLUKLWDTdXWvASC6L1DKTPnyinep6lxWqJRvKiiCOFrCZYOcgfEXuB90ph1UYEOYy/jgD95uTI5C27Ct/4y/6+aJeq/qv0EA==
+X-OriginatorOrg: sifive.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7779916d-b86b-497b-bb51-08d87113cfb2
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR13MB3451.namprd13.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Oct 2020 14:08:37.7408 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: e21w3I1ktgWXonpq7lRYgc3jOj5SY9mTZnTL4BYPgtxaqJ422PWPBuUIcpRriGl3zVnOAk5+GCMR93qS/8zOgw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR13MB4067
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201015_084551_955509_F2198A35 
-X-CRM114-Status: GOOD (  11.72  )
+X-CRM114-CacheID: sfid-20201015_100842_588567_1A8D753E 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -96,40 +121,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, Bhaskar Chowdhury <unixbhaskar@gmail.com>,
- linux-kernel@vger.kernel.org
+Cc: andrew@lunn.ch, peter@korsgaard.com, aou@eecs.berkeley.edu,
+ palmer@dabbelt.com, linux-i2c@vger.kernel.org, paul.walmsley@sifive.com,
+ linux-riscv@lists.infradead.org, Sagar Shrikant Kadam <sagar.kadam@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The polling mode workaround for the FU540-C000 on HiFive Unleashed A00
+board was added earlier. The logic for this seems to work only in case
+the interrupt property was missing/not added into the i2c0 device node.
 
-Fix a spelling in the comment line.
+Here we address this issue by identifying the SOC based on compatibility
+string and set the master xfer's to polling mode if it's the FU540-C000
+SoC.
 
-s/memry/memory/p
+The fix has been tested on Linux 5.9.0-rc8 with a PMOD based RTCC sensor
+connected to I2C pins J1 header of the board. Log for reference
 
-This is on linux-next.
+# uname -a
+Linux buildroot 5.9.0-rc8-00001-g9da7791 #1 SMP Fri Oct 9 07:56:13 PDT 2020 riscv64 GNU/Linux
+# i2cdetect -y 0
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:          -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- 57 -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 6f
+70: -- -- -- -- -- -- -- --
+# i2cget 0 0x57 0 b -y
+0xa5
+# i2cset 0 0x57 0 0x9f b -y
+# i2cget 0 0x57 0 b -y
+0x9f
+# i2cget 0 0x57 1 b -y
+0xff
+# i2cset 0 0x57 1 0xa9 b -y
+# i2cget 0 0x57 1 b -y
+0xa9
+# i2cget 0 0x6f 0x20 b -y
+0x98
+# i2cset 0 0x6f 0x20 0xa5 b -y
+# i2cget 0 0x6f 0x20 b -y
+0xa5
+# i2cget 0 0x6f 0x5f b -y
+0x55
+# i2cset 0 0x6f 0x5f 0x5a b -y
+# i2cget 0 0x6f 0x5f b -y
+0x5a
+#
 
-Signed-off-by: Bhaskar Chowdhury <unixbhaskar@gmail.com>
----
- tools/include/nolibc/nolibc.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Without the fix here, it's observed that "i2cdetect -y 0"
+turns the system unresponsive, with CPU stall messages.
 
-diff --git a/tools/include/nolibc/nolibc.h b/tools/include/nolibc/nolibc.h
-index 2551e9b71167..0e39f89e8fe1 100644
---- a/tools/include/nolibc/nolibc.h
-+++ b/tools/include/nolibc/nolibc.h
-@@ -107,7 +107,7 @@ static int errno;
- #endif
+Patch History:
+===============================
+V3:
+-Rectified typo as suggested here:
+ https://lkml.org/lkml/2020/10/9/902
 
- /* errno codes all ensure that they will not conflict with a valid pointer
-- * because they all correspond to the highest addressable memry page.
-+ * because they all correspond to the highest addressable memory page.
-  */
- #define MAX_ERRNO 4095
+V2: 
+-Incorporated changes as suggested by Peter Kosgaard
+ https://lkml.org/lkml/2020/10/8/663
 
---
-2.28.0
+V1: Base version
+
+
+
+Sagar Shrikant Kadam (1):
+  i2c: ocores: fix polling mode workaround on FU540-C000 SoC
+
+ drivers/i2c/busses/i2c-ocores.c | 22 +++++++++++++---------
+ 1 file changed, 13 insertions(+), 9 deletions(-)
+
+-- 
+2.7.4
 
 
 _______________________________________________
