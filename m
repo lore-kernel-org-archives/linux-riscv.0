@@ -2,95 +2,83 @@ Return-Path: <SRS0=HcYa=DW=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8E318C433DF
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2020 14:49:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 14B54C43457
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2020 21:23:58 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 00AAC218AC
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2020 14:49:25 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 626452076A
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2020 21:23:57 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="yoUibJuo";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="O4M9tXza"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 00AAC218AC
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=korsgaard.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="JEMOoeq4";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="F2+Ax4gm"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 626452076A
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:Date:References:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Message-ID:References:In-Reply-To:Subject:To:From:
+	Date:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=ZeFKYh1ojFWeIxzasSGGtNEBvN1DcAIb1gXOIoASIOs=; b=yoUibJuokHyFPwTpLDr8BZdHr
-	GCd4Aa0BitACVwkBCh/ABH9CZiyb6e3BvQlamZwQkCAV3UOXESMp29hQk4z2V904CjQJ+PjdaDozR
-	pUpN78j8OaP1++bqAiU8F/G5H6WPZuHGUQLHkqJSGHGaWeUc8z5hjEw/b3dfFL71dzAFResUcuPYA
-	tIpAC+LU2cN5Trc64EOLHttAh/V5KObctMIo0JdoakUusF349TfURYNWIgz3DGmPQtcn03tHOKX8X
-	gjRj1Nu8+7tw/sY9UPK7O8DOI2CDs69W6Kzju7G2DujBzdQbn5ZNIq1MHWMQB7YreW3d8RE0wcq22
-	EpYUFTeHQ==;
+	 bh=abdnrqx5wtU86dRKNxstpG7sOAzrPO6gNM/AZZVRixs=; b=JEMOoeq4lM3aemGrdHCVU+97p
+	1p7LvMddARAk6GdlyEGPH+r74YTbilF7G48MUXk1ifaLXCAg+eTzcPF59e2Hie/+a+5S2bZUiNXtA
+	7GhezefkPYRrkkuhXdP8QqMYQROt9fId3U6DIEogwVQmIb7PGg2juhG6B08as8s61+TvhUqGqYS/O
+	8yAFz9bCh0GnyrjiBU167KBzorj/HCRNBXG+T8T7sRX4WDAYA1ShbRuWWlUl/Z/qFvpEvaaxmkm8g
+	VqiZJwt1mXQgJqJhfj7z7NAOk4aB3O2p8Hupy8Gx9zNBrZHsm2yVU1V74CEThhUlfo+d6IrSxdSru
+	W/H5l9L/g==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kT4ZA-0006IQ-7m; Thu, 15 Oct 2020 14:49:16 +0000
-Received: from mail-ej1-x641.google.com ([2a00:1450:4864:20::641])
+	id 1kTAiw-0005S1-Nx; Thu, 15 Oct 2020 21:23:46 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kT4Z8-0006HV-A5
- for linux-riscv@lists.infradead.org; Thu, 15 Oct 2020 14:49:15 +0000
-Received: by mail-ej1-x641.google.com with SMTP id qp15so4045098ejb.3
- for <linux-riscv@lists.infradead.org>; Thu, 15 Oct 2020 07:49:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=sender:from:to:cc:subject:references:date:in-reply-to:message-id
- :user-agent:mime-version;
- bh=bC6Nl9n/zHgP1uI3o+7xI4KbkfFL+8Ry+Pfph2DVdA4=;
- b=O4M9tXzaT6OTcXbp3RGumZRRBkKLagSkr9ylWhmM2HX5xzYkjELZJbAEJAXiCPpWMk
- qT2ss3NXSn2uoj1L0HYV+yniDK1h8k41/mwYbO2t5ljw8H6V7ZJHx53nHHQzVm5PwtRg
- rniEZobRWrtQ4aN1RMEacxfYStEanHAly/fvPlXahpriGaWSGlF2X4uX09pUPgXrPmJa
- cTG6jU8+UrL9ibJCd0eqGjQWsRwrusL2jWDVv9aVDT7Q5b8FK5cHl+Cd3BXWDUXvwqpd
- hTTM5EAIH2Qbsi5YYgGycKzjww5pwUAXrLfgi/5BrV38a9gCvfBnM5i29Sl2ZKjvFE1a
- dyEg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:sender:from:to:cc:subject:references:date
- :in-reply-to:message-id:user-agent:mime-version;
- bh=bC6Nl9n/zHgP1uI3o+7xI4KbkfFL+8Ry+Pfph2DVdA4=;
- b=DbG2BrWT194qUTV3AWE52/DfpNXzS42lNc0LZlksHmDE9p9qXIsvOp3eUXxLQ6I7Qk
- j5V+//ZGXdRYmoxszwNLhmsn7KULiCbPe+4AiQ+PD8wV0iKc9DS7A0U0nX+wHvNLbw3M
- /AzNfabtz9uiTTW4iR9KixGN4FKOkOZfqOd7tYop2nVCvhY7RhUu1QdieH1UDwaXOlOj
- 67/8TfGCvuBwY/tCnm5myOye0Xlbjr3Z4+RL7JtlL/j04V2Y8aFcOWZ/b0fTn/sScExH
- KNoTswc5vFRFo0Zmz2QJiKE8rK9Q7UHuFwZP8bcl9e3CVn+O11xsDp6d9YCV/pduEbHW
- LQWQ==
-X-Gm-Message-State: AOAM533AefozRiXQR6aAVHWukS7VNAT6uCT+MmnehJ1Urm1SyM5dvQuP
- TV4oFZu0+t0S46Bmm+vMIP+jBE272pI=
-X-Google-Smtp-Source: ABdhPJxr0HXg+w6OMU/X8WM2yd7oj6YKVweugY0BRAkBqIGztsdcTDwYdmEKLsXKjPgdz8FGo8S6QA==
-X-Received: by 2002:a17:906:c315:: with SMTP id
- s21mr4644832ejz.296.1602773351336; 
- Thu, 15 Oct 2020 07:49:11 -0700 (PDT)
-Received: from dell.be.48ers.dk (d51A5BC31.access.telenet.be. [81.165.188.49])
- by smtp.gmail.com with ESMTPSA id
- j18sm1676259ejc.111.2020.10.15.07.49.06
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 15 Oct 2020 07:49:06 -0700 (PDT)
-Received: from peko by dell.be.48ers.dk with local (Exim 4.92)
- (envelope-from <peter@korsgaard.com>)
- id 1kT4Z0-0000j3-2J; Thu, 15 Oct 2020 16:49:06 +0200
-From: Peter Korsgaard <peter@korsgaard.com>
-To: Sagar Shrikant Kadam <sagar.kadam@sifive.com>
-Subject: Re: [PATCH v3 1/1] i2c: ocores: fix polling mode workaround on
- FU540-C000 SoC
-References: <1602770907-61852-1-git-send-email-sagar.kadam@sifive.com>
- <1602770907-61852-2-git-send-email-sagar.kadam@sifive.com>
-Date: Thu, 15 Oct 2020 16:49:06 +0200
-In-Reply-To: <1602770907-61852-2-git-send-email-sagar.kadam@sifive.com> (Sagar
- Shrikant Kadam's message of "Thu, 15 Oct 2020 07:08:27 -0700")
-Message-ID: <87mu0nr1ct.fsf@dell.be.48ers.dk>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.1 (gnu/linux)
+ id 1kTAiu-0005RD-7X
+ for linux-riscv@lists.infradead.org; Thu, 15 Oct 2020 21:23:44 +0000
+Received: from disco-boy.misterjones.org (disco-boy.misterjones.org
+ [51.254.78.96])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 23ECE20759;
+ Thu, 15 Oct 2020 21:23:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1602797022;
+ bh=VscXPeqlcKVbdjZBU6CUVcSFWH6y6A9dEwXSrkAyznM=;
+ h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+ b=F2+Ax4gmR/rlAvQFBBLCxTl11n9Muv1FLIYT5KjeWoOqNcmA/9erXLTC/fTOU5sqw
+ /R6aEyD5tNMme1gJ5yt3lnD5+2a94ihk82WOHCzf1uwRB7Z+nLI8xdg8g4VD75rpj7
+ Ddnem6dp894T2fJIbKKp8V1PGElvmpdbfQMsiKMU=
+Received: from disco-boy.misterjones.org ([51.254.78.96] helo=www.loen.fr)
+ by disco-boy.misterjones.org with esmtpsa
+ (TLS1.2:ECDHE_RSA_AES_128_GCM_SHA256:128) (Exim 4.92)
+ (envelope-from <maz@kernel.org>)
+ id 1kTAiq-001UWJ-8L; Thu, 15 Oct 2020 22:23:40 +0100
 MIME-Version: 1.0
+Date: Thu, 15 Oct 2020 22:23:40 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: Greentime Hu <greentime.hu@sifive.com>
+Subject: Re: [PATCH 2/2] irqchip/sifive-plic: Fix the interrupt was enabled
+ accidentally issue.
+In-Reply-To: <20201012135724.110579-2-greentime.hu@sifive.com>
+References: <20201012135724.110579-1-greentime.hu@sifive.com>
+ <20201012135724.110579-2-greentime.hu@sifive.com>
+User-Agent: Roundcube Webmail/1.4.9
+Message-ID: <5bedfbc723665c979eb73eefadb21970@kernel.org>
+X-Sender: maz@kernel.org
+X-SA-Exim-Connect-IP: 51.254.78.96
+X-SA-Exim-Rcpt-To: greentime.hu@sifive.com, tglx@linutronix.de,
+ jason@lakedaemon.net, palmer@dabbelt.com, paul.walmsley@sifive.com,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org);
+ SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201015_104914_362406_D51D624D 
-X-CRM114-Status: GOOD (  23.84  )
+X-CRM114-CacheID: sfid-20201015_172344_421088_245DA3B0 
+X-CRM114-Status: GOOD (  20.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -102,83 +90,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: andrew@lunn.ch, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org,
- palmer@dabbelt.com, linux-i2c@vger.kernel.org, paul.walmsley@sifive.com,
- linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
+Cc: jason@lakedaemon.net, linux-kernel@vger.kernel.org, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, tglx@linutronix.de, linux-riscv@lists.infradead.org
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
->>>>> "Sagar" == Sagar Shrikant Kadam <sagar.kadam@sifive.com> writes:
+On 2020-10-12 14:57, Greentime Hu wrote:
+> In commit 2ca0b460bbcb ("genirq/affinity: Make affinity setting if
+> activated opt-in"),
+> it added irqd_affinity_on_activate() checking in the function
+> irq_set_affinity_deactivated() so it will return false here.
+> In that case, it will call irq_try_set_affinity() -> plic_irq_toggle()
+> which will enable the interrupt to cause the CPU hang.
+> 
+> 	if (irq_set_affinity_deactivated())
+> 		return 0;
+> 	...
+> 	irq_try_set_affinity(data, mask, force);
+> 
+> [  919.015783] rcu: INFO: rcu_sched detected stalls on CPUs/tasks:
+> [  919.020922] rcu:     0-...0: (0 ticks this GP)
+> idle=7d2/1/0x4000000000000002 softirq=1424/1424 fqs=105807
+> [  919.030295]  (detected by 1, t=225825 jiffies, g=1561, q=3496)
+> [  919.036109] Task dump for CPU 0:
+> [  919.039321] kworker/0:1     R  running task        0    30      2 
+> 0x00000008
+> [  919.046359] Workqueue: events set_brightness_delayed
+> [  919.051302] Call Trace:
+> [  919.053738] [<ffffffe000930d92>] __schedule+0x194/0x4de
+> [  982.035783] rcu: INFO: rcu_sched detected stalls on CPUs/tasks:
+> [  982.040923] rcu:     0-...0: (0 ticks this GP)
+> idle=7d2/1/0x4000000000000002 softirq=1424/1424 fqs=113325
+> [  982.050294]  (detected by 1, t=241580 jiffies, g=1561, q=3509)
+> [  982.056108] Task dump for CPU 0:
+> [  982.059321] kworker/0:1     R  running task        0    30      2 
+> 0x00000008
+> [  982.066359] Workqueue: events set_brightness_delayed
+> [  982.071302] Call Trace:
+> [  982.073739] [<ffffffe000930d92>] __schedule+0x194/0x4de
+> [..]
+> 
+> After applying this patch, the CPU hang issue can be fixed.
+> 
+> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+> ---
+>  drivers/irqchip/irq-sifive-plic.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/drivers/irqchip/irq-sifive-plic.c
+> b/drivers/irqchip/irq-sifive-plic.c
+> index 4cc8a2657a6d..8a673d9cff69 100644
+> --- a/drivers/irqchip/irq-sifive-plic.c
+> +++ b/drivers/irqchip/irq-sifive-plic.c
+> @@ -183,10 +183,14 @@ static int plic_irqdomain_map(struct irq_domain
+> *d, unsigned int irq,
+>  			      irq_hw_number_t hwirq)
+>  {
+>  	struct plic_priv *priv = d->host_data;
+> +	struct irq_data *irqd;
+> 
+>  	irq_domain_set_info(d, irq, hwirq, &plic_chip, d->host_data,
+>  			    handle_fasteoi_irq, NULL, NULL);
+>  	irq_set_noprobe(irq);
+> +	irqd = irq_get_irq_data(irq);
+> +	irqd_set_single_target(irqd);
+> +	irqd_set_affinity_on_activate(irqd);
+>  	irq_set_affinity(irq, &priv->lmask);
+>  	return 0;
+>  }
 
- > The FU540-C000 has a broken IRQ and support was added earlier
- > so that it will operate in polling mode, but seems to work only
- > in case interrupts property is missing from the i2c0 dt-node.
- > This should not be the case and the driver should handle polling
- > mode with the interrupt property present in i2c0 node of the
- > device tree.
- > So check if it's the FU540-C000 soc and enable polling mode master
- > xfers, as the IRQ for this chip is broken.
+How does this fix anything? The plic driver doesn't have an activate
+callback, so how does it make any difference? I get the feeling this
+papers over another issue.
 
- > Fixes commit c45d4ba86731 ("i2c: ocores: add polling mode workaround
- > for Sifive FU540-C000 SoC")
-
- > Signed-off-by: Sagar Shrikant Kadam <sagar.kadam@sifive.com>
- > ---
- >  drivers/i2c/busses/i2c-ocores.c | 22 +++++++++++++---------
- >  1 file changed, 13 insertions(+), 9 deletions(-)
-
- > diff --git a/drivers/i2c/busses/i2c-ocores.c b/drivers/i2c/busses/i2c-ocores.c
- > index f5fc75b..1dab02d 100644
- > --- a/drivers/i2c/busses/i2c-ocores.c
- > +++ b/drivers/i2c/busses/i2c-ocores.c
- > @@ -686,17 +686,21 @@ static int ocores_i2c_probe(struct platform_device *pdev)
- 
- >  	init_waitqueue_head(&i2c->wait);
- 
- > +	/*
- > +	 * Set OCORES_FLAG_BROKEN_IRQ to enable workaround for
- > +	 * FU540-C000 SoC in polling mode.
- > +	 * Since the SoC does have interrupt its dt has the interrupt
- > +	 * defined but it should be bypassed in driver as this SoC has
-
-NIT: Looks like there some commas missing and the wording sounds a bit
-odd to me. What about E.G.:
-
-     /*
-      * Since the SoC does have an interrupt, its DT has an interrupt
-      * property - But this should be bypassed as the IRQ logic in this
-      * SoC is broken.
-      */
-
- > +	 * a broken IRQ, hence update the master_xfer to use polling
- > +	 * transfers.
- > +	 */
- > +	if (of_device_is_compatible(pdev->dev.of_node,
- > +				    "sifive,fu540-c000-i2c"))
- > +		i2c->flags |= OCORES_FLAG_BROKEN_IRQ;
- > +
- >  	irq = platform_get_irq(pdev, 0);
- > -	if (irq == -ENXIO) {
- > +	if (i2c->flags & OCORES_FLAG_BROKEN_IRQ || irq == -ENXIO) {
-
-
-Alternatively you can move it after the irq = platform_get_irq(pdev, 0)
-line and just clear irq, E.G.:
-
-irq = platform_get_irq(pdev, 0);
-
-if (of_device_is_compatible(..)) {
-   i2c->flags |= OCORES_FLAG_BROKEN_IRQ;
-   irq = -ENXIO;
-}
-
-if (irq == -ENXIO) {
-..
-
+         M.
 -- 
-Bye, Peter Korsgaard
+Jazz is not dead. It just smells funny...
 
 _______________________________________________
 linux-riscv mailing list
