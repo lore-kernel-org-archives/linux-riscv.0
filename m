@@ -1,87 +1,103 @@
-Return-Path: <SRS0=1JfK=DV=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=HcYa=DW=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C40F9C433DF
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Oct 2020 05:25:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 889F0C433DF
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2020 03:32:45 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2C809214D8
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Oct 2020 05:25:18 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D460222241
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Oct 2020 03:32:44 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="U7yozeqS";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="Yf93tejX"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2C809214D8
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="gLC/Bwvv";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=ibm.com header.i=@ibm.com header.b="dhXzwO7T"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D460222241
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=EUUYE+LkpZfxu2cIS/aXzmi0qSpnCy1kAdOV5NL8maw=; b=U7yozeqSYAenUrOxzLeEI2Sjo
-	/JCUaj5poIi2UWT4wAPnVhmlIXJ4626w9ZkqrP3TiWo3Lz3lEjZIHFHkTlcWFBd2WsxtD6vm12nAx
-	6fkRB+B+A34gqXTeuWh0wwgJ/O7i3GVurrvGnJSd6EuxKq6XuuWjxktaaC1UPaOCO1RFuhe+nLA85
-	Yvqs/yrQZ0q4Qw6qi5/gik21Z9rAKMwxQYWz8W4s/nxKJ/L86fPIiQ7WJb1eQWLpRm/XKi2hsNSyK
-	9e4x7/PNDSM28DCVOd86OCeqfrQwX9xgGBplJELVabCbr1GWjS80Iju1OEW2UXzwBnCwr1Ea/fh3n
-	6HTGl2EjA==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Baau2ddatJF+vsRhCi5Ft1b7HpeE5IpHui6t+tylwZg=; b=gLC/Bwvv03BIp4rlD80y15Z6KF
+	FH3a0myBevkmtXDud4tuCFWu0X63/mo02gfzI2/nO8BoHahXNRUZlwOTQxmgeuBemkUBFdqgU6/iP
+	izlgYYNsGqwKKYy/3w2F7skV2cnn9r9JjdGnuS9NW3eh529f1LJUzfGXEnOMdy2Q80MU2+d4ghJMG
+	oZfh6Aly+m3Yz6VBVdbBfURDvk9G7JZS2T8LU5Q4HM11jsuKtU4UyY07sJ8nbURT2+23w1U4M/Whs
+	G4qIqGeRgjHK0ICOzb74luJHmt8HA82YxF8R2bQYFy6f+FeMScmb4L0G+73EaPxQb/pr7LQEI25CQ
+	b+ccNdrA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kSZHe-0007x6-VI; Wed, 14 Oct 2020 05:25:06 +0000
-Received: from mail-il1-x141.google.com ([2607:f8b0:4864:20::141])
+	id 1kSu0A-0006Z7-Q4; Thu, 15 Oct 2020 03:32:26 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kSZHc-0007w3-Hc
- for linux-riscv@lists.infradead.org; Wed, 14 Oct 2020 05:25:05 +0000
-Received: by mail-il1-x141.google.com with SMTP id p16so3779464ilq.5
- for <linux-riscv@lists.infradead.org>; Tue, 13 Oct 2020 22:25:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=HalJUEgFIroij+eVjjsAaxpPGCzHis17qTK2euMmLBY=;
- b=Yf93tejX2acPPVAbX3fnj9NQ+N4grno48CwAjUD2YEfuAK8dXqW7uVhkBgvOXsaRng
- 2oWEHB+FYe0fJogNf8rlXPfWs4AjufA9G4rrbELfmtk0hPm0XX7c3DWLOXiNiBZYLlpT
- lv4ka4i0CCQSHRxSKjbcQeKWaxNbAdvUceJBE=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=HalJUEgFIroij+eVjjsAaxpPGCzHis17qTK2euMmLBY=;
- b=Rmbaev/6kxQcfAQtNGral53tKVslXk0GNxMtgbGcaVhgfUG6j5yvMNnjXist1d8SXj
- W4ABhhCft6buMbSG4xBSz6gFdi7Ubw+TOx4gm/sb6waISy2dJ96nsGo4MOyQ6Si12L8t
- tZA6ymImR0LqTXOA4lo9ROkDxVNHte2o/romEkzTJHsuLuzUZfNHtCvTsKB4leMGlxwL
- ZU7ts9BMWrznvrg2V4X3X76pfcIfZQqkuiwLLaO4Sgz97gF3dD5HfbnF3jJPdomXIzKz
- B6SSXfw48HLnw9G5XX+RPo9QIzqjXeSM3KEF4rTDszLZh/BqrfiPor3N526nfUJdd0ip
- RztQ==
-X-Gm-Message-State: AOAM5304yQUG4gP+0Cb3ON4KyCZcuWgPRLgnHEi+rakgZPD/Gjkp46xu
- q2j4XRbchteX+3BKKfDo6ZOSd35IMfNdNu2RNeBq
-X-Google-Smtp-Source: ABdhPJwf5ma2+TlQJuxWd0JmN6mHEFluk9xAS3AZTnyBzNZQxJhicG5AlpYDoDF2Efr0i5KblnAPSIvNbm5CBVdBb7E=
-X-Received: by 2002:a92:91db:: with SMTP id e88mr2506931ill.126.1602653100856; 
- Tue, 13 Oct 2020 22:25:00 -0700 (PDT)
+ id 1kSu07-0006YR-LZ
+ for linux-riscv@lists.infradead.org; Thu, 15 Oct 2020 03:32:24 +0000
+Received: from pps.filterd (m0098417.ppops.net [127.0.0.1])
+ by mx0a-001b2d01.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id
+ 09F3GB0V047021; Wed, 14 Oct 2020 23:32:18 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
+ h=from : to : cc : subject
+ : date : message-id : mime-version : content-transfer-encoding; s=pp1;
+ bh=15VWw2AFltuDYg7bBruxmDbCNOmBFDkYMaDZKmmBOWA=;
+ b=dhXzwO7TWiVIMpsKAnG58tJy86QLDzHgsMccLdBCbMKy4M+20ppwswjAkWnInxvm/3O2
+ KKoYlbPysyevd2rI1nfakgo02kaTHtPnz/xgU6LwW3ocw+HfTjYXg++QNuef04WPRURy
+ ZHjo9hROuYaiSq1csd1h/W17QJQkRwNv5b/0T9VCymwERn2JQtPPM5ofxuDgJ3XR/qmc
+ wGve+St8AXBF1l8tOjXqV8M4T6xxoA/erK1iUj8a7RwXTpV5wBZYWdRAjMN/3KpE9DCj
+ 7ixVqpmBzPhrYE978kRq7rzGieXdye3+BTi7k7UourOnDreM7r7Mxl+PkQFF1gul4cMQ TQ== 
+Received: from ppma05wdc.us.ibm.com (1b.90.2fa9.ip4.static.sl-reverse.com
+ [169.47.144.27])
+ by mx0a-001b2d01.pphosted.com with ESMTP id 346ecdg8jf-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Wed, 14 Oct 2020 23:32:18 -0400
+Received: from pps.filterd (ppma05wdc.us.ibm.com [127.0.0.1])
+ by ppma05wdc.us.ibm.com (8.16.0.42/8.16.0.42) with SMTP id 09F3R28h013455;
+ Thu, 15 Oct 2020 03:32:18 GMT
+Received: from b01cxnp22034.gho.pok.ibm.com (b01cxnp22034.gho.pok.ibm.com
+ [9.57.198.24]) by ppma05wdc.us.ibm.com with ESMTP id 3434k9ehrx-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Thu, 15 Oct 2020 03:32:17 +0000
+Received: from b01ledav002.gho.pok.ibm.com (b01ledav002.gho.pok.ibm.com
+ [9.57.199.107])
+ by b01cxnp22034.gho.pok.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
+ 09F3WHP520971914
+ (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Thu, 15 Oct 2020 03:32:17 GMT
+Received: from b01ledav002.gho.pok.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 6E110124054;
+ Thu, 15 Oct 2020 03:32:17 +0000 (GMT)
+Received: from b01ledav002.gho.pok.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 44E5E124053;
+ Thu, 15 Oct 2020 03:32:15 +0000 (GMT)
+Received: from skywalker.ibmuc.com (unknown [9.199.63.66])
+ by b01ledav002.gho.pok.ibm.com (Postfix) with ESMTP;
+ Thu, 15 Oct 2020 03:32:14 +0000 (GMT)
+From: "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>
+To: linux-mm@kvack.org, linux-riscv@lists.infradead.org
+Subject: [PATCH] mm/debug_vm_pgtable: Avoid kernel crash with riscv
+Date: Thu, 15 Oct 2020 09:02:06 +0530
+Message-Id: <20201015033206.140550-1-aneesh.kumar@linux.ibm.com>
+X-Mailer: git-send-email 2.26.2
 MIME-Version: 1.0
-References: <20201009211344.2358688-1-atish.patra@wdc.com>
- <20201009211344.2358688-5-atish.patra@wdc.com>
- <CAHCEehJvMv=CYD1+QXb0uB36Hv4pvO36BAKSLOcxTXvmADZFbA@mail.gmail.com>
- <CAOnJCUKPjkm_=5eHn6=GjVGr67okZkVzqP7-ciphn986BQoc9w@mail.gmail.com>
- <CAOnJCULZMRu+sHmnjoBwtvaB3BjmCiZLzYxNOeWZmoYLKG+wTw@mail.gmail.com>
- <CAHCEehJJmLQ6W5AdH+hEZSJxpDC8HG0UN=EGt9M0Tp5NTfQnaw@mail.gmail.com>
- <CAOnJCUJN-XMZ+N5w+RbVhJag9D_dey7DAopb0Q35GDfXptyMjA@mail.gmail.com>
- <CAFyWVaYORWYZTXyXOWiY6xK-SFTvsUxDNDqKQnhVUwzc5N045Q@mail.gmail.com>
-In-Reply-To: <CAFyWVaYORWYZTXyXOWiY6xK-SFTvsUxDNDqKQnhVUwzc5N045Q@mail.gmail.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Tue, 13 Oct 2020 22:24:49 -0700
-Message-ID: <CAOnJCU+3xFyFW4ATCdYAv5zVyBSLE0mTevrJLCXW7HDgy4D4EQ@mail.gmail.com>
-Subject: Re: [PATCH 4/5] RISC-V: Protect .init.text & .init.data
-To: Jim Wilson <jimw@sifive.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.235, 18.0.687
+ definitions=2020-10-15_01:2020-10-14,
+ 2020-10-15 signatures=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0
+ adultscore=0 mlxlogscore=917 malwarescore=0 mlxscore=0 clxscore=1015
+ phishscore=0 bulkscore=0 impostorscore=0 priorityscore=1501 suspectscore=0
+ spamscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2009150000 definitions=main-2010150022
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201014_012504_717192_90C54EB1 
-X-CRM114-Status: GOOD (  20.56  )
+X-CRM114-CacheID: sfid-20201014_233223_777601_9178CC4A 
+X-CRM114-Status: GOOD (  18.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -93,56 +109,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>,
- Ard Biesheuvel <ardb@kernel.org>, Anup Patel <anup@brainfault.org>,
- Kito Cheng <kito.cheng@gmail.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Atish Patra <atish.patra@wdc.com>, Guo Ren <guoren@linux.alibaba.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Zong Li <zong.li@sifive.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Greentime Hu <greentime.hu@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>, Borislav Petkov <bp@suse.de>,
- Michel Lespinasse <walken@google.com>,
- Andrew Morton <akpm@linux-foundation.org>
+Cc: "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>, akpm@linux-foundation.org,
+ Anshuman Khandual <anshuman.khandual@arm.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 13, 2020 at 6:21 PM Jim Wilson <jimw@sifive.com> wrote:
->
-> On Tue, Oct 13, 2020 at 3:25 PM Atish Patra <atishp@atishpatra.org> wrote:
-> > This happens only when copy_from_user is called from function that is
-> > annotated with __init.
-> > Adding Kito & Jim for their input
-> >
-> > @kito, @Jim: Please let me know if I should create a issue in
-> > riscv-gnu-toolchain repo or somewhere else.
->
-> I can't do anything useful without a testcase that I can use to
-> reproduce the problem.  The interactions here are complex, so pointing
-> at lines of code or kernel config options doesn't give me any useful
-> info.
->
-> Relaxation can convert calls to a jal.  I don't know of any open bugs
-> in this area that can generate relocation errors.  if it is a
-> relaxation error then turning off relaxation should work around the
-> problem as you suggested.
->
-> A kernel build problem is serious.  I think this is worth a bug
-> report.  FSF binutils or riscv-gnu-toolchain is fine.
->
+It was observed that the usage of RANDOM_ORVALUE with a valid pte cause
+kernel crash on riscv. Comment out the usage of random value on riscv
 
-I have created an issue with detailed descriptions and reproduction steps.
-Please let me know if you need anything else.
+Signed-off-by: Aneesh Kumar K.V <aneesh.kumar@linux.ibm.com>
+---
+ mm/debug_vm_pgtable.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-> Jim
-
-
-
+diff --git a/mm/debug_vm_pgtable.c b/mm/debug_vm_pgtable.c
+index c36530c69e33..98b101a8fd2a 100644
+--- a/mm/debug_vm_pgtable.c
++++ b/mm/debug_vm_pgtable.c
+@@ -548,7 +548,9 @@ static void __init pte_clear_tests(struct mm_struct *mm, pte_t *ptep,
+ 	pte_t pte = pfn_pte(pfn, prot);
+ 
+ 	pr_debug("Validating PTE clear\n");
++#ifndef CONFIG_RISCV
+ 	pte = __pte(pte_val(pte) | RANDOM_ORVALUE);
++#endif
+ 	set_pte_at(mm, vaddr, ptep, pte);
+ 	barrier();
+ 	pte_clear(mm, vaddr, ptep);
 -- 
-Regards,
-Atish
+2.26.2
+
 
 _______________________________________________
 linux-riscv mailing list
