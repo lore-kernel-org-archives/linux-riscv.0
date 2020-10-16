@@ -2,92 +2,77 @@ Return-Path: <SRS0=aLlD=DX=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C1B8FC4363A
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Oct 2020 09:18:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5EA76C433E7
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Oct 2020 13:42:41 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 417A020FC3
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Oct 2020 09:18:56 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C0B322076A
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Oct 2020 13:42:40 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="LQzMIRwW";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="lagTdDTl"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 417A020FC3
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Yo6XWNFk";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.b="LJz8u0pL";
+	dkim=permerror (0-bit key) header.d=linutronix.de header.i=@linutronix.de header.b="p6ALofZG"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C0B322076A
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linutronix.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References:In-Reply-To:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=dYMCcI90UABmDPSuNdmJ/8cfGDbQMzYWEurmAYJjzXs=; b=LQzMIRwWt60OmY2XicjvpaPWb
-	gcV5lCR1nI2stgTCkbwyATZVbXF0bHboT3g4rqej8T6ZT0PyVmNRxc5FRmPeMs0oMPeDvBWatebek
-	7S6W5yUtQJkrS2wxOW6uFH5JmsEVLM/tIr0GiZeadOyCERaMgabUywtxDeeb1Y+NOAGKWkobPYDeY
-	A4Bjc0dVzVHXuKNgNzc4TO6t6fn1H17y+gk434Qfeig3sSaFap0w9M4R0znLIYUZ87hn1zfC30Q20
-	n+IJobjd2iZaEWHYDmyanlIFh5uNx2+n+ZfRRYrda60XApMmBKBT2oolp1uxIC9b6EmxF25dzItuy
-	6qFnq9CXg==;
+	 bh=bwgG59J4RwNnZA+Et+XglUbf/kOVBgmG1YWlH6LL7Pg=; b=Yo6XWNFkwe5tlxw9SI/w7M5y8
+	bpIF0o/FzFlvIK/IlSylu1VTSO485yKu01tfntlHwZvx3KoFfwZvqVgXudTQQs9c04pttftYMXg5q
+	c5F0Xwr6ZOZ4VV6RCEkE+e47dUYIUuWwSIBQ7R7YSRwAIDtbIuc4g/SexYRKOOtnBbz8Js+9dU2bb
+	VhxhyWJZZAUh2uN3Y/7lqMkKk1RkZRTI82Jg20J6BApjdZp56DDlIVZgpL02ZXwo9PbIBv0D/vW1T
+	+Bc470uRuVgxvtixw8L2rj6OJhxTCG9k7o1fHgUIgWiZB/BRnYXRkup4pQQTYjAbdi30JwGM0z+mn
+	5SmxGZhIQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kTLss-0001HB-7P; Fri, 16 Oct 2020 09:18:46 +0000
-Received: from mail-pj1-x1043.google.com ([2607:f8b0:4864:20::1043])
+	id 1kTQ07-0002QI-UD; Fri, 16 Oct 2020 13:42:31 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kTLsp-0001Fw-Mp
- for linux-riscv@lists.infradead.org; Fri, 16 Oct 2020 09:18:44 +0000
-Received: by mail-pj1-x1043.google.com with SMTP id j8so1133153pjy.5
- for <linux-riscv@lists.infradead.org>; Fri, 16 Oct 2020 02:18:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=hserBQdTEW9AsTQ36FTR+4nQGY1DffaxGbmIC1KLT7s=;
- b=lagTdDTlSZMSt6s3AWUZJg1jTmR1sY7a3/MhohEjooPBDyTBLQ3jy4Bvk/z4AWXh68
- q7vr0OOAMEACFFcMaujXlurc2C3ICisMchCrTj/cBuCFB6kqe1FS1DaVatoTZGYj+9dK
- E+6SW+fpDyfHnb+7UeItIZrMDcDdrpQffmexxmgvPoNNZ16sB2E+NXAiXnQir//LVqS2
- TMFNrL9tR+0TuN5OupbEIk2ypei9EPNvzvAA4kqSSgBXeTyis6B5MwpH32xFAOYtCmyv
- 7crEDlC7YHEN6g41D6tB4UhdM+i1EUA/3BH3S1flBClYZGvexByYkFUT/4s3WK3E+Q9s
- sztw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=hserBQdTEW9AsTQ36FTR+4nQGY1DffaxGbmIC1KLT7s=;
- b=q/zGXW949k+/cb1jpOko8Qq0exGZ4R43efvMUZ/CZ2pOTZCvS4N7tIw9nzN/YtTf51
- bGDIueNlyCde8a46wN1989xbuMUKVt290jbnQjuZB3tbsVjEa3HTVynsU+cF2bYsQMkh
- AJRZNyphsHW8adTwLSOsfHpGkQnSfK54kwfoiLQ/XGvHj2Ko4+SX/nTOlOZeDwcZP4zf
- Dn4larOBrJh+ZWvYY2GRHf1cAuNkUQqGnw67x2VoylXT8IzFifWOorTflb8/5EhQ6LlD
- sZeCRhTSe0EB3AvvItF5697c3K1pKkD8CFNSFjgIUxjTWc28MPtg4wQ3U0WVD/KeH7tn
- EdsQ==
-X-Gm-Message-State: AOAM5322qrHB4BZFxLvbUiAQc9U6uQy8pds05pPIAwGpZIWkfVzn+QnO
- B7t6VABc/qL3FEOg+Eo1edICIw==
-X-Google-Smtp-Source: ABdhPJxNv1gd8tfR31PlXHnSFmHYU4xv0VUQkEBD5xr0qZ/Ge1q0o4e0BcAwYuA39IssTNsypJSVSg==
-X-Received: by 2002:a17:902:7042:b029:d5:c0e6:8e35 with SMTP id
- h2-20020a1709027042b02900d5c0e68e35mr2934273plt.9.1602839921352; 
- Fri, 16 Oct 2020 02:18:41 -0700 (PDT)
-Received: from hsinchu02.internal.sifive.com
- (114-34-229-221.HINET-IP.hinet.net. [114.34.229.221])
- by smtp.gmail.com with ESMTPSA id h5sm2093263pfh.9.2020.10.16.02.18.39
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 16 Oct 2020 02:18:40 -0700 (PDT)
-From: Zong Li <zong.li@sifive.com>
-To: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- mturquette@baylibre.com, sboyd@kernel.org, yash.shah@sifive.com,
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Subject: [PATCH 4/4] clk: sifive: Refactor __prci_clock array by using macro
-Date: Fri, 16 Oct 2020 17:18:26 +0800
-Message-Id: <8ad64f9814137c5255d43d4ba670b5fcd15837ab.1602838910.git.zong.li@sifive.com>
-X-Mailer: git-send-email 2.28.0
-In-Reply-To: <cover.1602838910.git.zong.li@sifive.com>
-References: <cover.1602838910.git.zong.li@sifive.com>
+ id 1kTQ04-0002PP-L7
+ for linux-riscv@lists.infradead.org; Fri, 16 Oct 2020 13:42:29 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+ s=2020; t=1602855747;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=3qZ3wBDxLlc4y2LdirJcgerLsIDb2RZnNo4XttMjq30=;
+ b=LJz8u0pLozePlNZYgZvvpyj/qhL5C+MTWzbqD1eu+aQX3xvB+nIhmh51tGKAbVFdSMSXXn
+ bgOI8oFYUBzoQV2R+l6uLsM9+2lhxK6DweO9H6eQGNE7z5ectfb0823f66a9pezbNcg2zO
+ enw/POzOO9vGilP73TJDT0qmYRyID39Q0DeUpXBnADcGpy+rnJg6Yoye+HPQbOb/NaLP/Q
+ cHlwZKPmNQVKIZfJlA/5XDTOC9Y6Fz86kLHgzEhFatJ70/ZzqEeSjO6FOBmow5gvGXsXbB
+ 9G7vek0DpCNRR1WoZ3IQk67AHjNsdE8YTrr/1rKFVFQh7COU+hNuvn5Ug2trCg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+ s=2020e; t=1602855747;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=3qZ3wBDxLlc4y2LdirJcgerLsIDb2RZnNo4XttMjq30=;
+ b=p6ALofZGtMZBBzMf1J4rWNqTtXAgvjanZlwcjpEBhrQUzIw/w2upgOl64RezJ32xRpQ8Tn
+ 9sxasXqA3HsrFyAQ==
+To: Marc Zyngier <maz@kernel.org>, Greentime Hu <greentime.hu@sifive.com>
+Subject: Re: [PATCH 2/2] irqchip/sifive-plic: Fix the interrupt was enabled
+ accidentally issue.
+In-Reply-To: <5bedfbc723665c979eb73eefadb21970@kernel.org>
+References: <20201012135724.110579-1-greentime.hu@sifive.com>
+ <20201012135724.110579-2-greentime.hu@sifive.com>
+ <5bedfbc723665c979eb73eefadb21970@kernel.org>
+Date: Fri, 16 Oct 2020 15:42:27 +0200
+Message-ID: <87ft6ethh8.fsf@nanos.tec.linutronix.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201016_051843_753830_610524AC 
-X-CRM114-Status: GOOD (  13.74  )
+X-CRM114-CacheID: sfid-20201016_094228_812695_455A1270 
+X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -99,226 +84,101 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Zong Li <zong.li@sifive.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ palmer@dabbelt.com, jason@lakedaemon.net, paul.walmsley@sifive.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Refactor code by using DEFINE_PRCI_CLOCK to define each clock
-and reduce duplicate code.
+On Thu, Oct 15 2020 at 22:23, Marc Zyngier wrote:
+> On 2020-10-12 14:57, Greentime Hu wrote:
+>> In commit 2ca0b460bbcb ("genirq/affinity: Make affinity setting if
+>> activated opt-in"),
 
-Signed-off-by: Zong Li <zong.li@sifive.com>
----
- drivers/clk/sifive/fu540-prci.c  | 38 ++++++----------
- drivers/clk/sifive/fu540-prci.h  |  2 +-
- drivers/clk/sifive/fu740-prci.c  | 74 ++++++++++++--------------------
- drivers/clk/sifive/fu740-prci.h  |  2 +-
- drivers/clk/sifive/sifive-prci.c |  2 +-
- drivers/clk/sifive/sifive-prci.h | 10 ++++-
- 6 files changed, 53 insertions(+), 75 deletions(-)
+This commit sha does not exist in mainline. Referencing a random stable
+kernel tree is useless.
 
-diff --git a/drivers/clk/sifive/fu540-prci.c b/drivers/clk/sifive/fu540-prci.c
-index 840b97bfff85..d43b9a9984f6 100644
---- a/drivers/clk/sifive/fu540-prci.c
-+++ b/drivers/clk/sifive/fu540-prci.c
-@@ -54,29 +54,19 @@ static const struct clk_ops sifive_fu540_prci_tlclksel_clk_ops = {
- 	.recalc_rate = sifive_prci_tlclksel_recalc_rate,
- };
- 
-+DEFINE_PRCI_CLOCK(fu540, corepll, hfclk,
-+		  &sifive_fu540_prci_wrpll_clk_ops, &__prci_corepll_data);
-+DEFINE_PRCI_CLOCK(fu540, ddrpll, hfclk,
-+		  &sifive_fu540_prci_wrpll_ro_clk_ops, &__prci_ddrpll_data);
-+DEFINE_PRCI_CLOCK(fu540, gemgxlpll, hfclk,
-+		  &sifive_fu540_prci_wrpll_clk_ops, &__prci_gemgxlpll_data);
-+DEFINE_PRCI_CLOCK(fu540, tlclk, corepll,
-+		  &sifive_fu540_prci_tlclksel_clk_ops, NULL);
-+
- /* List of clock controls provided by the PRCI */
--struct __prci_clock __prci_init_clocks_fu540[] = {
--	[PRCI_CLK_COREPLL] = {
--		.name = "corepll",
--		.parent_name = "hfclk",
--		.ops = &sifive_fu540_prci_wrpll_clk_ops,
--		.pwd = &__prci_corepll_data,
--	},
--	[PRCI_CLK_DDRPLL] = {
--		.name = "ddrpll",
--		.parent_name = "hfclk",
--		.ops = &sifive_fu540_prci_wrpll_ro_clk_ops,
--		.pwd = &__prci_ddrpll_data,
--	},
--	[PRCI_CLK_GEMGXLPLL] = {
--		.name = "gemgxlpll",
--		.parent_name = "hfclk",
--		.ops = &sifive_fu540_prci_wrpll_clk_ops,
--		.pwd = &__prci_gemgxlpll_data,
--	},
--	[PRCI_CLK_TLCLK] = {
--		.name = "tlclk",
--		.parent_name = "corepll",
--		.ops = &sifive_fu540_prci_tlclksel_clk_ops,
--	},
-+struct __prci_clock *__prci_init_clocks_fu540[] = {
-+	[PRCI_CLK_COREPLL]	= &fu540_corepll,
-+	[PRCI_CLK_DDRPLL]	= &fu540_ddrpll,
-+	[PRCI_CLK_GEMGXLPLL]	= &fu540_gemgxlpll,
-+	[PRCI_CLK_TLCLK]	= &fu540_tlclk,
- };
-diff --git a/drivers/clk/sifive/fu540-prci.h b/drivers/clk/sifive/fu540-prci.h
-index c8271efa7bdc..281200cd8848 100644
---- a/drivers/clk/sifive/fu540-prci.h
-+++ b/drivers/clk/sifive/fu540-prci.h
-@@ -11,7 +11,7 @@
- 
- #define NUM_CLOCK_FU540	4
- 
--extern struct __prci_clock __prci_init_clocks_fu540[NUM_CLOCK_FU540];
-+extern struct __prci_clock *__prci_init_clocks_fu540[NUM_CLOCK_FU540];
- 
- static const struct prci_clk_desc prci_clk_fu540 = {
- 	.clks = __prci_init_clocks_fu540,
-diff --git a/drivers/clk/sifive/fu740-prci.c b/drivers/clk/sifive/fu740-prci.c
-index 3b87e273c3eb..676cad2c3886 100644
---- a/drivers/clk/sifive/fu740-prci.c
-+++ b/drivers/clk/sifive/fu740-prci.c
-@@ -71,52 +71,32 @@ static const struct clk_ops sifive_fu740_prci_hfpclkplldiv_clk_ops = {
- 	.recalc_rate = sifive_prci_hfpclkplldiv_recalc_rate,
- };
- 
-+
-+DEFINE_PRCI_CLOCK(fu740, corepll, hfclk,
-+		  &sifive_fu740_prci_wrpll_clk_ops, &__prci_corepll_data);
-+DEFINE_PRCI_CLOCK(fu740, ddrpll, hfclk,
-+		  &sifive_fu740_prci_wrpll_ro_clk_ops, &__prci_ddrpll_data);
-+DEFINE_PRCI_CLOCK(fu740, gemgxlpll, hfclk,
-+		  &sifive_fu740_prci_wrpll_clk_ops, &__prci_gemgxlpll_data);
-+DEFINE_PRCI_CLOCK(fu740, dvfscorepll, hfclk,
-+		  &sifive_fu740_prci_wrpll_clk_ops, &__prci_dvfscorepll_data);
-+DEFINE_PRCI_CLOCK(fu740, hfpclkpll, hfclk,
-+		  &sifive_fu740_prci_wrpll_clk_ops, &__prci_hfpclkpll_data);
-+DEFINE_PRCI_CLOCK(fu740, cltxpll, hfclk,
-+		  &sifive_fu740_prci_wrpll_clk_ops, &__prci_cltxpll_data);
-+DEFINE_PRCI_CLOCK(fu740, tlclk, corepll,
-+		  &sifive_fu740_prci_tlclksel_clk_ops, NULL);
-+DEFINE_PRCI_CLOCK(fu740, pclk, hfpclkpll,
-+		  &sifive_fu740_prci_hfpclkplldiv_clk_ops, NULL);
-+
- /* List of clock controls provided by the PRCI */
--struct __prci_clock __prci_init_clocks_fu740[] = {
--	[PRCI_CLK_COREPLL] = {
--		.name = "corepll",
--		.parent_name = "hfclk",
--		.ops = &sifive_fu740_prci_wrpll_clk_ops,
--		.pwd = &__prci_corepll_data,
--	},
--	[PRCI_CLK_DDRPLL] = {
--		.name = "ddrpll",
--		.parent_name = "hfclk",
--		.ops = &sifive_fu740_prci_wrpll_ro_clk_ops,
--		.pwd = &__prci_ddrpll_data,
--	},
--	[PRCI_CLK_GEMGXLPLL] = {
--		.name = "gemgxlpll",
--		.parent_name = "hfclk",
--		.ops = &sifive_fu740_prci_wrpll_clk_ops,
--		.pwd = &__prci_gemgxlpll_data,
--	},
--	[PRCI_CLK_DVFSCOREPLL] = {
--		.name = "dvfscorepll",
--		.parent_name = "hfclk",
--		.ops = &sifive_fu740_prci_wrpll_clk_ops,
--		.pwd = &__prci_dvfscorepll_data,
--	},
--	[PRCI_CLK_HFPCLKPLL] = {
--		.name = "hfpclkpll",
--		.parent_name = "hfclk",
--		.ops = &sifive_fu740_prci_wrpll_clk_ops,
--		.pwd = &__prci_hfpclkpll_data,
--	},
--	[PRCI_CLK_CLTXPLL] = {
--		.name = "cltxpll",
--		.parent_name = "hfclk",
--		.ops = &sifive_fu740_prci_wrpll_clk_ops,
--		.pwd = &__prci_cltxpll_data,
--	},
--	[PRCI_CLK_TLCLK] = {
--		.name = "tlclk",
--		.parent_name = "corepll",
--		.ops = &sifive_fu740_prci_tlclksel_clk_ops,
--	},
--	[PRCI_CLK_PCLK] = {
--		.name = "pclk",
--		.parent_name = "hfpclkpll",
--		.ops = &sifive_fu740_prci_hfpclkplldiv_clk_ops,
--	},
-+struct __prci_clock *__prci_init_clocks_fu740[] = {
-+	[PRCI_CLK_COREPLL]	= &fu740_corepll,
-+	[PRCI_CLK_DDRPLL]	= &fu740_ddrpll,
-+	[PRCI_CLK_GEMGXLPLL]	= &fu740_gemgxlpll,
-+	[PRCI_CLK_DVFSCOREPLL]	= &fu740_dvfscorepll,
-+	[PRCI_CLK_HFPCLKPLL]	= &fu740_hfpclkpll,
-+	[PRCI_CLK_CLTXPLL]	= &fu740_cltxpll,
-+	[PRCI_CLK_TLCLK]	= &fu740_tlclk,
-+	[PRCI_CLK_PCLK]		= &fu740_pclk,
- };
-diff --git a/drivers/clk/sifive/fu740-prci.h b/drivers/clk/sifive/fu740-prci.h
-index 13ef971f7764..3f03295f719a 100644
---- a/drivers/clk/sifive/fu740-prci.h
-+++ b/drivers/clk/sifive/fu740-prci.h
-@@ -11,7 +11,7 @@
- 
- #define NUM_CLOCK_FU740	8
- 
--extern struct __prci_clock __prci_init_clocks_fu740[NUM_CLOCK_FU740];
-+extern struct __prci_clock *__prci_init_clocks_fu740[NUM_CLOCK_FU740];
- 
- static const struct prci_clk_desc prci_clk_fu740 = {
- 	.clks = __prci_init_clocks_fu740,
-diff --git a/drivers/clk/sifive/sifive-prci.c b/drivers/clk/sifive/sifive-prci.c
-index 4098dbc5881a..2ef3f9f91b33 100644
---- a/drivers/clk/sifive/sifive-prci.c
-+++ b/drivers/clk/sifive/sifive-prci.c
-@@ -431,7 +431,7 @@ static int __prci_register_clocks(struct device *dev, struct __prci_data *pd,
- 
- 	/* Register PLLs */
- 	for (i = 0; i < desc->num_clks; ++i) {
--		pic = &(desc->clks[i]);
-+		pic = desc->clks[i];
- 
- 		init.name = pic->name;
- 		init.parent_names = &pic->parent_name;
-diff --git a/drivers/clk/sifive/sifive-prci.h b/drivers/clk/sifive/sifive-prci.h
-index bc0646bc9c3e..e6c9f72e20de 100644
---- a/drivers/clk/sifive/sifive-prci.h
-+++ b/drivers/clk/sifive/sifive-prci.h
-@@ -253,6 +253,14 @@ struct __prci_clock {
- 	struct __prci_data *pd;
- };
- 
-+#define DEFINE_PRCI_CLOCK(_platform, _name, _parent, _ops, _pwd)	\
-+	static struct __prci_clock _platform##_##_name = {		\
-+		.name = #_name,						\
-+		.parent_name = #_parent,				\
-+		.ops = _ops,						\
-+		.pwd = _pwd,						\
-+	}								\
-+
- #define clk_hw_to_prci_clock(pwd) container_of(pwd, struct __prci_clock, hw)
- 
- /*
-@@ -261,7 +269,7 @@ struct __prci_clock {
-  * @num_clks: the number of element of clks
-  */
- struct prci_clk_desc {
--	struct __prci_clock *clks;
-+	struct __prci_clock **clks;
- 	size_t num_clks;
- };
- 
--- 
-2.28.0
+>> it added irqd_affinity_on_activate() checking in the function
+>> irq_set_affinity_deactivated() so it will return false here.
+>> In that case, it will call irq_try_set_affinity() -> plic_irq_toggle()
+>> which will enable the interrupt to cause the CPU hang.
+>> @@ -183,10 +183,14 @@ static int plic_irqdomain_map(struct irq_domain
+>> *d, unsigned int irq,
+>>  			      irq_hw_number_t hwirq)
+>>  {
+>>  	struct plic_priv *priv = d->host_data;
+>> +	struct irq_data *irqd;
+>> 
+>>  	irq_domain_set_info(d, irq, hwirq, &plic_chip, d->host_data,
+>>  			    handle_fasteoi_irq, NULL, NULL);
+>>  	irq_set_noprobe(irq);
+>> +	irqd = irq_get_irq_data(irq);
+>> +	irqd_set_single_target(irqd);
+>> +	irqd_set_affinity_on_activate(irqd);
+>>  	irq_set_affinity(irq, &priv->lmask);
+>>  	return 0;
+>>  }
+>
+> How does this fix anything? The plic driver doesn't have an activate
+> callback, so how does it make any difference? I get the feeling this
+> papers over another issue.
+
+The existence of the activate callback is not really the interesting
+part. And of course the analysis is completely bogus.
+
+The referenced commit is a follow up to:
+
+baedb87d1b53 ("genirq/affinity: Handle affinity setting on inactive interrupts correctly")
+
+which was added on Jul 17 and the fix was added on Jul 24:
+
+f0c7baca1800 ("genirq/affinity: Make affinity setting if activated opt-in")
+
+The latter restored the original behaviour within 7 days, except for
+x86. And the original behaviour was that the core did not care about the
+activated state at all. It just invoked irqchip->irq_set_affinity()
+unconditionally, which is still does except when the interrupt is marked
+with irqd_set_affinity_on_activate().
+
+So the plic code had this problem before that change already:
+
+ 	irq_set_noprobe(irq);
+ 	irq_set_affinity(irq, &priv->lmask);
+
+Mapping happens way before anything else, so Hu is definitely barking up
+the wrong tree.
+
+What the patch works around is the irq_set_affinity() callback which is
+completely bogus and still broken even after that duct tape which"
+fixes" the boot fail.
+
+irq_set_affinity() can be called on masked interrupts so this:
+
+        plic_irq_toggle(&priv->lmask, d, 0);
+        plic_irq_toggle(cpumask_of(cpu), d, 1);
+
+will always unconditionally unmask the interrupt when affinity is
+changed.
+
+        plic_irq_toggle(cpumask_of(cpu), d, !irqd_irq_masked(d));
+
+is all it needs to work everywhere. Obvious, right?
+
+The changelog wants to be "...: Fix broken irq_set_affinity() callback"
+and the Fixes: tag referencing the commit which introduced that
+unconditional unmask. Oh well.
+
+Thanks,
+
+        tglx
+
+
+
+
+
+
+
 
 
 _______________________________________________
