@@ -1,88 +1,86 @@
-Return-Path: <SRS0=aLlD=DX=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=ZqiR=DY=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8EE60C433E7
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Oct 2020 18:24:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 64FC5C433DF
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Oct 2020 00:45:15 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8832220848
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Oct 2020 18:24:45 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id BD6C3212CC
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Oct 2020 00:45:14 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="tw3oJjJo";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="tfke49wM"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8832220848
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Y/Wmjcr6";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.b="wHQ2iNs1"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BD6C3212CC
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=a1xcAfrK9eN93qy1M9oNTP5OXcqkRqxVVExI4jD2zBg=; b=tw3oJjJobwpXPmOhTrxo4ZtAX
-	SwtPsc+w7t18H1AF36BPmniUYuknK6zCzamIsFtJvKtFAOsEcqIUNe+JdyJSFwXcXx/cAKVs31cJS
-	pTy3YEN7U3J7aO2mcbsGtCAhm8p438nGD8D8kp5HCFKg31hl/rlG6jr2/qeZeuFwp3ITnxZrJ1YzD
-	I5Ux/3nS0070y3S3nxPnzOMJZ0USTkGJqr1ZDqtm8bNB+rxvAkc43r+bW8cXyxtOfKPBxIaJ2JSyL
-	5KUe/8N1PNCG+Lje3OCPnyuzvpQJk5ricBB6fukoleJ27qDrZ3Ptg5K/a+thqJm8toCLtoWfx0FpO
-	TkWPRW2rA==;
+	List-Unsubscribe:List-Id:To:From:MIME-Version:Message-Id:Date:Subject:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5kar31MlPCmUWiubA6MKv4hGhFTcy7uUA+xqkUsVPyg=; b=Y/Wmjcr6QlzX69TSgKmeHuWd15
+	AD0MyA7d15mFoTZMV7OKyp21LQZr0j/dLOMLg8oDXWcS8XTLY4ANiV6KtKKjntEt9TOUNorLLxzrM
+	/9BBTityJwI7K4KrJp0pBjvAPk1dyhq0MB6WoD0NJJdzTxy7GJaZolMD/N1WR6hnTZgLdFQZr7NMT
+	TVBe5tXoanE7Zq5lhsU8BYhUJe1DduzgphPUKRmDdctIvodrUtggiZylZ6f72w9yktQESEj66JQO1
+	EI6lHoVejbacYgLXetZWv/ZTav9FqFDUA4oghP+osBLUx9wRWKLDp0YDT1sdfYkig6dwUeWM7JbSm
+	dxvQLYJA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kTUP4-00062E-B5; Fri, 16 Oct 2020 18:24:34 +0000
-Received: from mail-io1-xd44.google.com ([2607:f8b0:4864:20::d44])
+	id 1kTaLE-0005AH-H9; Sat, 17 Oct 2020 00:45:00 +0000
+Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kTUP2-000618-J3
- for linux-riscv@lists.infradead.org; Fri, 16 Oct 2020 18:24:33 +0000
-Received: by mail-io1-xd44.google.com with SMTP id n6so4948692ioc.12
- for <linux-riscv@lists.infradead.org>; Fri, 16 Oct 2020 11:24:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=D5NngvCZlpVByT++f7qE91SLdHEnOV1NRAu0YOMS/Lo=;
- b=tfke49wMmVeEHZ47+rOE8ezeTppkX/1ALYR5HM/MCTLUJU9PtwVpKQm+5LKx1H5t/A
- Z1S0sAV3EEiyUj8D4lhzFhbkIdluNTU3MSW1j3yUhcXDhmGfD6Pt8yGXs5WX5/rFoeRL
- LPyZYHdK4082r/fSC2bXOL/TjzC+EK8fnWigQ=
+ id 1kTaLB-00059T-O8
+ for linux-riscv@lists.infradead.org; Sat, 17 Oct 2020 00:44:58 +0000
+Received: by mail-pl1-x641.google.com with SMTP id w11so2126183pll.8
+ for <linux-riscv@lists.infradead.org>; Fri, 16 Oct 2020 17:44:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+ h=subject:date:message-id:mime-version:content-transfer-encoding:cc
+ :from:to; bh=BpVjr56bc2eZQztVfeg5TISaF4L8R2aKn65CiAfaVf8=;
+ b=wHQ2iNs1LhleNkBlRA8uaPMfl+64Pkal9YqGeEP59Aozp8AOg3XuUa/KZ63tdNiXWc
+ 4fsJEBtLk1v0DtA9yTyxSzo3E/g0LBMoVdNjs6Fd9HRTs5GJ10rYU5hLzV702d4D1j/V
+ IjqeW5szlOyw1B2PDHF6CC38AFe1cwr9oS2z0F+rRzrhj5sF1KmP8gLLSA6Gy5ON/v7b
+ clCGVSS4teYRLohBb9msXgdBVYb66Co3QRr3XK2MpE+Nabo14jqMxZVGw9QRVbJu5Cuc
+ qy5f2wdl8duTX+DEQxlY/QS12CXBB3T1kYVwfsByOHJkOd/KD81kZN+4/vJpsBR0itFS
+ /7Lg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=D5NngvCZlpVByT++f7qE91SLdHEnOV1NRAu0YOMS/Lo=;
- b=ToX6G1IqIwE4rdknwJXg95aOiFeX8617IBicrLI4LBTPw2/MP+S0Ou/BdXJoRdzHuQ
- gSk5RzESghO7/X4SZENW6pu6iLonr73OmXz1GXwxOZlsZYbcsml914Yrf/9i+ZAnyOzy
- yK1PLoQJANHdsbnJWZwQAzDWQ4U9n5zAKq24ItUwYiHHrXPm3Xduls2BEf12I/TigeKz
- NDXsyEDVUvbaFjLLGoaJChpk9kBq98e4p9hKDzdZQXQhGXQhTWAp16tT/wNJWNlGd6ap
- l3AGv8aAQixCVPuCeTTOOslm60xnCxPhMw5taqP+mkqU2lqgZOKaYFPK3uy+lx+o+WWU
- /9nQ==
-X-Gm-Message-State: AOAM531oq778Vjd9Qt682oRnCO8vOhdXIBxeJQMRF9am007eEPOWlhfT
- qgFAop0w0fHZyMuqU/e3myg5Gitjg4XoCtOS4JTs
-X-Google-Smtp-Source: ABdhPJxp/UIgSj0aDdvVfswZDSxjOZfD1HWCnBxkYKJwU/swpzjmfUCncgyzEmR83S4Y4o6+E5hxvOhG/KuGSjsc9Uc=
-X-Received: by 2002:a02:6952:: with SMTP id e79mr3738592jac.24.1602872667636; 
- Fri, 16 Oct 2020 11:24:27 -0700 (PDT)
+ h=x-gm-message-state:subject:date:message-id:mime-version
+ :content-transfer-encoding:cc:from:to;
+ bh=BpVjr56bc2eZQztVfeg5TISaF4L8R2aKn65CiAfaVf8=;
+ b=AygMqzUkUpAw2+RMF1EfNRa9shi3Lp2L73KFF2Du188Sm2GGQS6Y8h6sR8diglcdya
+ 7ICp1kSX6n7fMdszMT0IymhUqo8dmBtMvga3wG9qaOxgIUe9UlGxJ8omPk/lN/teFyE5
+ GFGi1SN4euyFx5B7PVL5ArELyg+TZnEmxnpFCdY+lCLsB2mW8hJPwYs2vC/jreYilm+/
+ O4ct9M/WAT3D/nxT6SyhkN4R6B0OfEkRZfgym1EilRLn0qYCihJlb+kgxsAA0mbJb054
+ 97SmxXxqKD9U5E64lCi1iI07i+g20teTw/jOWo2D7/bTde9FdpXifyHzqxVJJIxKDWEj
+ xLOQ==
+X-Gm-Message-State: AOAM530mNEO5+NHE1C6tDiNGlLmOjzsOmuM74ft4O73ICzRCFCplk+Jw
+ p4eqU8iDSDfgpXA1gFwDEBbX/Q==
+X-Google-Smtp-Source: ABdhPJzWsBwKhGUJdUUJ4kxHgDBcaR6EmCn+93uOzDLkQ0ulBmNG+4bCUL8ro2hiIU36MkJpacA8JQ==
+X-Received: by 2002:a17:90b:383:: with SMTP id ga3mr6919579pjb.2.1602895493712; 
+ Fri, 16 Oct 2020 17:44:53 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id b21sm3816739pfb.97.2020.10.16.17.44.52
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 16 Oct 2020 17:44:53 -0700 (PDT)
+Subject: [PATCH] RISC-V: Fix the VDSO symbol generaton for binutils-2.34+
+Date: Fri, 16 Oct 2020 17:25:00 -0700
+Message-Id: <20201017002500.503011-1-palmerdabbelt@google.com>
+X-Mailer: git-send-email 2.29.0.rc1.297.gfa9743e501-goog
 MIME-Version: 1.0
-References: <20201009211344.2358688-1-atish.patra@wdc.com>
- <20201009211344.2358688-5-atish.patra@wdc.com>
- <CAHCEehJvMv=CYD1+QXb0uB36Hv4pvO36BAKSLOcxTXvmADZFbA@mail.gmail.com>
- <CAOnJCUKPjkm_=5eHn6=GjVGr67okZkVzqP7-ciphn986BQoc9w@mail.gmail.com>
- <CAOnJCULZMRu+sHmnjoBwtvaB3BjmCiZLzYxNOeWZmoYLKG+wTw@mail.gmail.com>
- <CAHCEehJJmLQ6W5AdH+hEZSJxpDC8HG0UN=EGt9M0Tp5NTfQnaw@mail.gmail.com>
- <CAOnJCUJN-XMZ+N5w+RbVhJag9D_dey7DAopb0Q35GDfXptyMjA@mail.gmail.com>
- <CAFyWVaYORWYZTXyXOWiY6xK-SFTvsUxDNDqKQnhVUwzc5N045Q@mail.gmail.com>
- <CAOnJCU+3xFyFW4ATCdYAv5zVyBSLE0mTevrJLCXW7HDgy4D4EQ@mail.gmail.com>
-In-Reply-To: <CAOnJCU+3xFyFW4ATCdYAv5zVyBSLE0mTevrJLCXW7HDgy4D4EQ@mail.gmail.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Fri, 16 Oct 2020 11:24:16 -0700
-Message-ID: <CAOnJCUJWf9Hu4frFOJGQLUZ2BQ8qHBd7mvspgvfM1k6e4z5CcA@mail.gmail.com>
-Subject: Re: [PATCH 4/5] RISC-V: Protect .init.text & .init.data
-To: Jim Wilson <jimw@sifive.com>
+From: Palmer Dabbelt <palmerdabbelt@google.com>
+To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201016_142432_630016_AD1001F3 
-X-CRM114-Status: GOOD (  24.55  )
+X-CRM114-CacheID: sfid-20201016_204457_805917_582D4C7E 
+X-CRM114-Status: GOOD (  17.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -94,70 +92,110 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>,
- Ard Biesheuvel <ardb@kernel.org>, Anup Patel <anup@brainfault.org>,
- Kito Cheng <kito.cheng@gmail.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Atish Patra <atish.patra@wdc.com>, Guo Ren <guoren@linux.alibaba.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Zong Li <zong.li@sifive.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Greentime Hu <greentime.hu@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>, Borislav Petkov <bp@suse.de>,
- Michel Lespinasse <walken@google.com>,
- Andrew Morton <akpm@linux-foundation.org>
+Cc: clang-built-linux@googlegroups.com,
+ Palmer Dabbelt <palmerdabbelt@google.com>, kernel-team@android.com,
+ stable@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 13, 2020 at 10:24 PM Atish Patra <atishp@atishpatra.org> wrote:
->
-> On Tue, Oct 13, 2020 at 6:21 PM Jim Wilson <jimw@sifive.com> wrote:
-> >
-> > On Tue, Oct 13, 2020 at 3:25 PM Atish Patra <atishp@atishpatra.org> wrote:
-> > > This happens only when copy_from_user is called from function that is
-> > > annotated with __init.
-> > > Adding Kito & Jim for their input
-> > >
-> > > @kito, @Jim: Please let me know if I should create a issue in
-> > > riscv-gnu-toolchain repo or somewhere else.
-> >
-> > I can't do anything useful without a testcase that I can use to
-> > reproduce the problem.  The interactions here are complex, so pointing
-> > at lines of code or kernel config options doesn't give me any useful
-> > info.
-> >
-> > Relaxation can convert calls to a jal.  I don't know of any open bugs
-> > in this area that can generate relocation errors.  if it is a
-> > relaxation error then turning off relaxation should work around the
-> > problem as you suggested.
-> >
-> > A kernel build problem is serious.  I think this is worth a bug
-> > report.  FSF binutils or riscv-gnu-toolchain is fine.
-> >
->
-> I have created an issue with detailed descriptions and reproduction steps.
-> Please let me know if you need anything else.
->
+We were relying on GNU ld's ability to re-link executable files in order
+to extract our VDSO symbols.  This behavior was deemed a bug as of
+binutils-2.34 (specifically the binutils-gdb commit a87e1817a4 ("Have
+the linker fail if any attempt to link in an executable is made."),
+which IIUC landed in 2.34), which recently installed itself on my build
+setup.
 
-It may be a toolchain issue. Here is the ongoing discussion in case
-anybody else is interested.
+The previous version of this was a bit of a mess: we were linking a
+static executable version of the VDSO, containing only a subset of the
+input symbols, which we then linked into the kernel.  This worked, but
+certainly wasn't a supported path through the toolchain.  Instead this
+new version parses the textual output of nm to produce a symbol table.
+Both rely on near-zero addresses being linkable, but as we rely on weak
+undefined symbols being linkable elsewhere I don't view this as a major
+issue.
 
-https://github.com/riscv/riscv-gnu-toolchain/issues/738
+Fixes: e2c0cdfba7f6 ("RISC-V: User-facing API")
+Cc: stable@vger.kernel.org
+Cc: clang-built-linux@googlegroups.com
+Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
+---
+ arch/riscv/kernel/vdso/.gitignore |  1 +
+ arch/riscv/kernel/vdso/Makefile   | 19 +++++++++----------
+ arch/riscv/kernel/vdso/so2s.sh    |  7 +++++++
+ 3 files changed, 17 insertions(+), 10 deletions(-)
+ create mode 100755 arch/riscv/kernel/vdso/so2s.sh
 
-> > Jim
->
->
->
-> --
-> Regards,
-> Atish
-
-
-
+diff --git a/arch/riscv/kernel/vdso/.gitignore b/arch/riscv/kernel/vdso/.gitignore
+index 11ebee9e4c1d..3a19def868ec 100644
+--- a/arch/riscv/kernel/vdso/.gitignore
++++ b/arch/riscv/kernel/vdso/.gitignore
+@@ -1,3 +1,4 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ vdso.lds
+ *.tmp
++vdso-syms.S
+diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+index 478e7338ddc1..2e02958f6224 100644
+--- a/arch/riscv/kernel/vdso/Makefile
++++ b/arch/riscv/kernel/vdso/Makefile
+@@ -43,19 +43,14 @@ $(obj)/vdso.o: $(obj)/vdso.so
+ SYSCFLAGS_vdso.so.dbg = $(c_flags)
+ $(obj)/vdso.so.dbg: $(src)/vdso.lds $(obj-vdso) FORCE
+ 	$(call if_changed,vdsold)
++SYSCFLAGS_vdso.so.dbg = -shared -s -Wl,-soname=linux-vdso.so.1 \
++	-Wl,--build-id -Wl,--hash-style=both
+ 
+ # We also create a special relocatable object that should mirror the symbol
+ # table and layout of the linked DSO. With ld --just-symbols we can then
+ # refer to these symbols in the kernel code rather than hand-coded addresses.
+-
+-SYSCFLAGS_vdso.so.dbg = -shared -s -Wl,-soname=linux-vdso.so.1 \
+-	-Wl,--build-id -Wl,--hash-style=both
+-$(obj)/vdso-dummy.o: $(src)/vdso.lds $(obj)/rt_sigreturn.o FORCE
+-	$(call if_changed,vdsold)
+-
+-LDFLAGS_vdso-syms.o := -r --just-symbols
+-$(obj)/vdso-syms.o: $(obj)/vdso-dummy.o FORCE
+-	$(call if_changed,ld)
++$(obj)/vdso-syms.S: $(obj)/vdso.so FORCE
++	$(call if_changed,so2s)
+ 
+ # strip rule for the .so file
+ $(obj)/%.so: OBJCOPYFLAGS := -S
+@@ -68,11 +63,15 @@ $(obj)/%.so: $(obj)/%.so.dbg FORCE
+ # Make sure only to export the intended __vdso_xxx symbol offsets.
+ quiet_cmd_vdsold = VDSOLD  $@
+       cmd_vdsold = $(CC) $(KBUILD_CFLAGS) $(call cc-option, -no-pie) -nostdlib -nostartfiles $(SYSCFLAGS_$(@F)) \
+-                           -Wl,-T,$(filter-out FORCE,$^) -o $@.tmp && \
++                           -Wl,-T,$(filter-out FORCE,$^) -o $@.tmp -Wl,-Map,$@.map && \
+                    $(CROSS_COMPILE)objcopy \
+                            $(patsubst %, -G __vdso_%, $(vdso-syms)) $@.tmp $@ && \
+                    rm $@.tmp
+ 
++# Extracts
++quiet_cmd_so2s = SO2S    $@
++      cmd_so2s = $(CROSS_COMPILE)nm -D $< | $(src)/so2s.sh > $@
++
+ # install commands for the unstripped file
+ quiet_cmd_vdso_install = INSTALL $@
+       cmd_vdso_install = cp $(obj)/$@.dbg $(MODLIB)/vdso/$@
+diff --git a/arch/riscv/kernel/vdso/so2s.sh b/arch/riscv/kernel/vdso/so2s.sh
+new file mode 100755
+index 000000000000..7862866b5ebb
+--- /dev/null
++++ b/arch/riscv/kernel/vdso/so2s.sh
+@@ -0,0 +1,6 @@
++#!/bin/sh
++# SPDX-License-Identifier: GPL-2.0+
++# Copyright 2020 Palmer Dabbelt <palmerdabbelt@google.com>
++
++sed 's!\([0-9a-f]*\) T \([a-z0-9_]*\)@@LINUX_4.15!.global \2\n.set \2,0x\1!' \
++| grep '^\.'
 -- 
-Regards,
-Atish
+2.29.0.rc1.297.gfa9743e501-goog
+
 
 _______________________________________________
 linux-riscv mailing list
