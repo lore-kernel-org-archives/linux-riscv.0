@@ -2,69 +2,88 @@ Return-Path: <SRS0=ZqiR=DY=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.7 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS,UNWANTED_LANGUAGE_BODY,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4FBDCC433DF
-	for <linux-riscv@archiver.kernel.org>; Sat, 17 Oct 2020 07:07:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 71302C433E7
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Oct 2020 18:29:26 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B847A2074A
-	for <linux-riscv@archiver.kernel.org>; Sat, 17 Oct 2020 07:07:52 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 1A8CB2073A
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Oct 2020 18:29:26 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="D8zAL3pM";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="dpzFjkTt"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B847A2074A
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="mmJY1gug";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="osrLlI5r"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1A8CB2073A
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:References:In-Reply-To:Message-Id:Date:Subject:To:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XykbAU8HZ7xv26R6BBednPMGfV0fOn/1y01ahJ9kocc=; b=D8zAL3pMQLRerbT9sKVZb9Isq6
-	E6HmZ7VZaUVzIUJBlmBEj4E/mVEiuq57Wcjlu3VS4IdG/j9XnhRtXNDvXK/tiXGX4jIUvZSWYT2NL
-	G3dfallTQnOUNQ83qOuBR4K7WPzl5E7cREQD0EC5Gmbm427Ghg2lFdHdQbiansgi+AHOHEZpZD5KZ
-	2tNDiftWwgCwr5YSR+p/hX2ZaXov9gmrfV2p2ra+RfPp4dZKNbvqP3zxXMNQsmMonPP0i/8E3OUZr
-	1Kr04diALhNhadV+fky0msERb94tnbNZXD4cNKnFBipJVe+WwoQroRB6MrwPKT4joVrgbr9GCFIff
-	qiPBvcKg==;
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=T3Vhj4HX0twGvdBEEkhPHu7VlHsL/gBDzZBYLtbIiMc=; b=mmJY1gugxMG1iuVzMp3uPxdgdV
+	+LIFaJepcrhFwin1jx3yxSOHKLcA3vvlKdq3jAFUW/EcfG41dUWb1y9qcOJxtkRc7d8vV3/FuCilJ
+	ndbvVEBdkhm+RrDPDz6i3IV9vZxuEXWeRfP2eRJ2BHlEVt8uSp6YkqkKmNY1NTo87WO6ma9Bvip5U
+	DFKWZcdN3RUYShQYoKvO+E3MPiUIAstodzYwVqWaMisnwTDjdgcuxuykF7tyxeToIjcShsBo/JpDV
+	Ch3NRcEebBqpt/hXmjojX9gwHjG0NDltx5/P4mWJvFiVDZ6AjyezQqiR61kA5y/P40VcmA4K0Q5sP
+	e6GmqPxA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kTgJd-0001s3-NK; Sat, 17 Oct 2020 07:07:45 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1kTqx4-0003Q4-1o; Sat, 17 Oct 2020 18:29:10 +0000
+Received: from mail-io1-xd41.google.com ([2607:f8b0:4864:20::d41])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kTgJa-0001qZ-OG
- for linux-riscv@lists.infradead.org; Sat, 17 Oct 2020 07:07:43 +0000
-Received: from localhost.localdomain (89.208.247.74.16clouds.com
- [89.208.247.74])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 68EA720874;
- Sat, 17 Oct 2020 07:07:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1602918462;
- bh=srSubu9UNVpIv85z4Sxt3cqVPcjn15nIxX15NjwY84E=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=dpzFjkTtPL811x+lpJwIUsz4HBERa5sNFmuY6mD2thtXxMi3r8T3moO1ibeuu+MVi
- U6jaXZnOVX0H/PB3uxz6F/ox3SyXJj59T8oLtGejlZUhLgTBZIDcSzNpOlvY/zMMo/
- TqhJRCBZDvgrw+KNV19U4BzBABU96VedjFKxvadk=
-From: guoren@kernel.org
-To: palmerdabbelt@google.com, paul.walmsley@sifive.com, mhiramat@kernel.org,
- alankao@andestech.com, rostedt@goodmis.org
-Subject: [PATCH v4 9/9] riscv: Fixup lockdep_assert_held(&text_mutex) in
- patch_insn_write
-Date: Sat, 17 Oct 2020 07:06:17 +0000
-Message-Id: <1602918377-23573-10-git-send-email-guoren@kernel.org>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1602918377-23573-1-git-send-email-guoren@kernel.org>
-References: <1602918377-23573-1-git-send-email-guoren@kernel.org>
+ id 1kTqx1-0003PB-2e
+ for linux-riscv@lists.infradead.org; Sat, 17 Oct 2020 18:29:07 +0000
+Received: by mail-io1-xd41.google.com with SMTP id d20so8017062iop.10
+ for <linux-riscv@lists.infradead.org>; Sat, 17 Oct 2020 11:29:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=MPK73qqTZ8bhrzLLptM5yHUD7zjEZlg71+uh4SKHXVs=;
+ b=osrLlI5rxR8LLCheVZPP1PMgmnrNxxBrXmdipqLVOOUz75AC6OhJrW8s9c6YmsvQxB
+ CAWv6DVK4ENHFZXg/l8OS4A4aSAf1ftllQZmv0VS6zn4EVlXgxWPFR1N+1qgIxGG5cOg
+ 4GE9eYkRq3Z0D9/2N5jj/m/DSzfsiAPOmi4Mo8lswKqhGQeyreLAHuWRwlpQK6PCpOEs
+ CX/CGp1rEfFG4DE0wy0GatQaT8ziMZfoCz8yhbzQ+RHcDejN8QOWsnuSgzXSLYUmtZYn
+ 7tkfQ9nEu1E/9rbMcnHBJUilJZql+k0WzZwFRw3KBCWOkD959GlLj9ONn+pR4fAIO/OT
+ 5oPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=MPK73qqTZ8bhrzLLptM5yHUD7zjEZlg71+uh4SKHXVs=;
+ b=hcn0ELAE1Osg7Rb6rwuoQ0GkJ/52ZNDb0+9PVngIkY/L8tKYOA3MIc3cUum57VuMRB
+ AlDhyYNKHkjeSPgnta2tu6wv6T0KRMGIoSX50IvT7CEXyeT5kO049Mdy86bZ9AkqAsEu
+ uuU/nhXzPZruvrWi3EKTJmYLDQBsoF+RwGcIRFqirGl+RlNkReX+U+OYRe9wwMSpwEcS
+ W0nOMlXZoSctMO22J1YKAs2MBwgTGsdVZne/1hYEQUb4WtNNdHsaQ12p2ucTBXOVZK+W
+ L4BqAI2sE2aQ1klgdcBUJEe2dOY7fprypZO5/puxuBWaxBRAGW6KSoFTxQ4QdOE6tLd5
+ kWFA==
+X-Gm-Message-State: AOAM533kOaL/fsxjbK6sLJnslJyPC8SPN/0+ZVcoA7RzkdxZTU0puPwY
+ G/Rs9QR0Aye5bLtFlShgcJaN17ZaujWKalaO
+X-Google-Smtp-Source: ABdhPJyVsxzw8vH+NK9fUl0FRNYuVwDIIXaY+4PqtXtkVJn32PiFp5G+U8+LdpC9xPqUd4D3SFaCrA==
+X-Received: by 2002:a05:6602:2c41:: with SMTP id
+ x1mr6251233iov.58.1602959343574; 
+ Sat, 17 Oct 2020 11:29:03 -0700 (PDT)
+Received: from godwin.fios-router.home
+ (pool-108-51-35-162.washdc.fios.verizon.net. [108.51.35.162])
+ by smtp.gmail.com with ESMTPSA id e204sm5374395iof.16.2020.10.17.11.29.02
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sat, 17 Oct 2020 11:29:03 -0700 (PDT)
+From: Sean Anderson <seanga2@gmail.com>
+To: linux-riscv@lists.infradead.org
+Subject: [PATCH] riscv: Set text_offset correctly for M-Mode
+Date: Sat, 17 Oct 2020 14:28:48 -0400
+Message-Id: <20201017182848.125139-1-seanga2@gmail.com>
+X-Mailer: git-send-email 2.28.0
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201017_030742_924519_505569BF 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20201017_142907_217053_8AA075F7 
+X-CRM114-Status: GOOD (  10.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -76,75 +95,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: me@packi.ch, Guo Ren <guoren@linux.alibaba.com>, anup@brainfault.org,
- linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org, guoren@kernel.org,
- zong.li@sifive.com, greentime.hu@sifive.com, linux-riscv@lists.infradead.org
-MIME-Version: 1.0
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
+ Sean Anderson <seanga2@gmail.com>, Atish Patra <atish.patra@wdc.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
+M-Mode Linux is loaded at the start of RAM, not 2MB later. Perhaps this
+should be calculated based on PAGE_OFFSET somehow? Even better would be to
+deprecate text_offset and instead introduce something absolute.
 
-It will cause warning messages:
-echo function_graph > /sys/kernel/debug/tracing/current_tracer
-[   47.691397] ------------[ cut here ]------------
-[   47.692899] WARNING: CPU: 0 PID: 11 at arch/riscv/kernel/patch.c:63 patch_insn_write+0x182/0x19a
-[   47.694483] Modules linked in:
-[   47.695754] CPU: 0 PID: 11 Comm: migration/0 Not tainted 5.9.0-11367-g1054335 #132
-[   47.698228] epc: ffffffe000204530 ra : ffffffe00020452c sp : ffffffe0023ffc20 gp : ffffffe0013e1fe0 tp : ffffffe0023e4e00 t0 : 0000000000000000
-[   47.701872]  t1 : 000000000000000e t2 : 000000000000001b s0 : ffffffe0023ffc70 s1 : ffffffe000206850 a0 : 0000000000000000 a1 : ffffffffffffffff
-[   47.705550]  a2 : 0000000000000000 a3 : ffffffe03af7c5e8 a4 : 0000000000000000 a5 : 0000000000000000 a6 : 0000000000000000 a7 : 00000000150b02d8
-[   47.709159]  s2 : 0000000000000008 s3 : 0000000000000858 s4 : ffffffe0023ffc98 s5 : 0000000000000850 s6 : 0000000000000003 s7 : 0000000000000002
-[   47.714135]  s8 : 0000000000000004 s9 : 0000000000000001 s10: 0000000000000001 s11: 0000000000000003 t3 : ffffffffffffe000 t4 : 0000000000d86254
-[   47.716574]  t5 : 0000000000000005 t6 : 0000000000040000status: 0000000000000100 badaddr: 0000000000000000 cause: 0000000000000003
-[   47.720019] CPU: 0 PID: 11 Comm: migration/0 Not tainted 5.9.0-11367-g1054335 #132
-[   47.722074] Call Trace:
-[   47.722561] [<ffffffe000203c88>] walk_stackframe+0x0/0xc2
-[   47.724608] [<ffffffe000b2020a>] show_stack+0x46/0x52
-[   47.726246] [<ffffffe000b23c24>] dump_stack+0x90/0xb6
-[   47.727672] [<ffffffe00020c9c4>] __warn+0x98/0xfa
-[   47.729131] [<ffffffe0005f4be0>] report_bug+0xaa/0x11e
-[   47.730624] [<ffffffe000203b74>] do_trap_break+0x96/0xfe
-[   47.732448] [<ffffffe000201daa>] ret_from_exception+0x0/0x14
-[   47.734341] [<ffffffe00020452c>] patch_insn_write+0x17e/0x19a
-[   47.737235] irq event stamp: 39
-[   47.738521] hardirqs last  enabled at (39): [<ffffffe000201d0a>] _save_context+0xa2/0xe6
-[   47.741055] hardirqs last disabled at (38): [<ffffffe0002c2404>] multi_cpu_stop+0x130/0x166
-[   47.743551] softirqs last  enabled at (0): [<ffffffe00020a4d2>] copy_process+0x430/0x1316
-[   47.746031] softirqs last disabled at (0): [<0000000000000000>] 0x0
-[   47.748617] ---[ end trace 88a1054faa6524ef ]---
-
-Because the path of stop_machine(__ftrace_modify_code)->
-ftrace_modify_all_code->...->patch_insn_write has no pair of
-lock&unlock text_mutex, so we shouldn't put assert here.
-
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Sean Anderson <seanga2@gmail.com>
 ---
- arch/riscv/kernel/patch.c | 7 -------
- 1 file changed, 7 deletions(-)
 
-diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
-index 0b55287..2ee5063 100644
---- a/arch/riscv/kernel/patch.c
-+++ b/arch/riscv/kernel/patch.c
-@@ -55,13 +55,6 @@ static int patch_insn_write(void *addr, const void *insn, size_t len)
- 	bool across_pages = (((uintptr_t) addr & ~PAGE_MASK) + len) > PAGE_SIZE;
- 	int ret;
- 
--	/*
--	 * Before reaching here, it was expected to lock the text_mutex
--	 * already, so we don't need to give another lock here and could
--	 * ensure that it was safe between each cores.
--	 */
--	lockdep_assert_held(&text_mutex);
--
- 	if (across_pages)
- 		patch_map(addr + len, FIX_TEXT_POKE1);
- 
+ arch/riscv/kernel/head.S | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+index 0a4e81b8dc79..74679f338c65 100644
+--- a/arch/riscv/kernel/head.S
++++ b/arch/riscv/kernel/head.S
+@@ -27,12 +27,17 @@ ENTRY(_start)
+ 	/* reserved */
+ 	.word 0
+ 	.balign 8
++#ifdef CONFIG_RISCV_S_MODE
+ #if __riscv_xlen == 64
+ 	/* Image load offset(2MB) from start of RAM */
+ 	.dword 0x200000
+ #else
+ 	/* Image load offset(4MB) from start of RAM */
+ 	.dword 0x400000
++#endif
++#else
++	/* Image load offset (0MB) from start of RAM for M-mode */
++	.dword 0
+ #endif
+ 	/* Effective size of kernel image */
+ 	.dword _end - _start
 -- 
-2.7.4
+2.28.0
 
 
 _______________________________________________
