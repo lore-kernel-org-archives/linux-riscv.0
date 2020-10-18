@@ -1,89 +1,67 @@
-Return-Path: <SRS0=ZqiR=DY=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=5iMO=DZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.7 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,UNWANTED_LANGUAGE_BODY,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 71302C433E7
-	for <linux-riscv@archiver.kernel.org>; Sat, 17 Oct 2020 18:29:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A104AC433E7
+	for <linux-riscv@archiver.kernel.org>; Sun, 18 Oct 2020 12:39:52 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1A8CB2073A
-	for <linux-riscv@archiver.kernel.org>; Sat, 17 Oct 2020 18:29:26 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C28D0207FF
+	for <linux-riscv@archiver.kernel.org>; Sun, 18 Oct 2020 12:39:51 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="mmJY1gug";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="osrLlI5r"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1A8CB2073A
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="1hnaoyHk";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="Rlis1LI1"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C28D0207FF
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=T3Vhj4HX0twGvdBEEkhPHu7VlHsL/gBDzZBYLtbIiMc=; b=mmJY1gugxMG1iuVzMp3uPxdgdV
-	+LIFaJepcrhFwin1jx3yxSOHKLcA3vvlKdq3jAFUW/EcfG41dUWb1y9qcOJxtkRc7d8vV3/FuCilJ
-	ndbvVEBdkhm+RrDPDz6i3IV9vZxuEXWeRfP2eRJ2BHlEVt8uSp6YkqkKmNY1NTo87WO6ma9Bvip5U
-	DFKWZcdN3RUYShQYoKvO+E3MPiUIAstodzYwVqWaMisnwTDjdgcuxuykF7tyxeToIjcShsBo/JpDV
-	Ch3NRcEebBqpt/hXmjojX9gwHjG0NDltx5/P4mWJvFiVDZ6AjyezQqiR61kA5y/P40VcmA4K0Q5sP
-	e6GmqPxA==;
+	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ER5YUCQuSqrY1n0XxJ0Fhk0gJNlMLH2oBvZmhZ+jGVk=; b=1hnaoyHkC0zDejqbs6kLNLfCJi
+	fVLGjDsTRm8KyLj8Hcac0au3BPFjBnPlAiib51VV9U1JohgVzhE8ssHYdJOj5uNmvPtU/b2BcO0Tg
+	3V7WYIzn5N0Nt6ZF595e1DchfCtysPkgvU48m8UqJ5+pxAJmD6veQw0JW6XFgY2dAcqmiUh/QbgJg
+	YVmKvqL1qBr3L3FjXRSA2GIldTbeQK8ypy7xLfQzUoP5w8dqNTEkeD6dYQMo0f5D/SccZNkz/boEU
+	aK18TJcgHUFjKQ7i3TVeb5WbOiR6ea2/kxpa6afd3m9KSiz4WRHVBHuH9B+ysuxvNGdcUjAAM6GC+
+	m9go6BSg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kTqx4-0003Q4-1o; Sat, 17 Oct 2020 18:29:10 +0000
-Received: from mail-io1-xd41.google.com ([2607:f8b0:4864:20::d41])
+	id 1kU7y4-0001FZ-ME; Sun, 18 Oct 2020 12:39:20 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kTqx1-0003PB-2e
- for linux-riscv@lists.infradead.org; Sat, 17 Oct 2020 18:29:07 +0000
-Received: by mail-io1-xd41.google.com with SMTP id d20so8017062iop.10
- for <linux-riscv@lists.infradead.org>; Sat, 17 Oct 2020 11:29:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=MPK73qqTZ8bhrzLLptM5yHUD7zjEZlg71+uh4SKHXVs=;
- b=osrLlI5rxR8LLCheVZPP1PMgmnrNxxBrXmdipqLVOOUz75AC6OhJrW8s9c6YmsvQxB
- CAWv6DVK4ENHFZXg/l8OS4A4aSAf1ftllQZmv0VS6zn4EVlXgxWPFR1N+1qgIxGG5cOg
- 4GE9eYkRq3Z0D9/2N5jj/m/DSzfsiAPOmi4Mo8lswKqhGQeyreLAHuWRwlpQK6PCpOEs
- CX/CGp1rEfFG4DE0wy0GatQaT8ziMZfoCz8yhbzQ+RHcDejN8QOWsnuSgzXSLYUmtZYn
- 7tkfQ9nEu1E/9rbMcnHBJUilJZql+k0WzZwFRw3KBCWOkD959GlLj9ONn+pR4fAIO/OT
- 5oPQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=MPK73qqTZ8bhrzLLptM5yHUD7zjEZlg71+uh4SKHXVs=;
- b=hcn0ELAE1Osg7Rb6rwuoQ0GkJ/52ZNDb0+9PVngIkY/L8tKYOA3MIc3cUum57VuMRB
- AlDhyYNKHkjeSPgnta2tu6wv6T0KRMGIoSX50IvT7CEXyeT5kO049Mdy86bZ9AkqAsEu
- uuU/nhXzPZruvrWi3EKTJmYLDQBsoF+RwGcIRFqirGl+RlNkReX+U+OYRe9wwMSpwEcS
- W0nOMlXZoSctMO22J1YKAs2MBwgTGsdVZne/1hYEQUb4WtNNdHsaQ12p2ucTBXOVZK+W
- L4BqAI2sE2aQ1klgdcBUJEe2dOY7fprypZO5/puxuBWaxBRAGW6KSoFTxQ4QdOE6tLd5
- kWFA==
-X-Gm-Message-State: AOAM533kOaL/fsxjbK6sLJnslJyPC8SPN/0+ZVcoA7RzkdxZTU0puPwY
- G/Rs9QR0Aye5bLtFlShgcJaN17ZaujWKalaO
-X-Google-Smtp-Source: ABdhPJyVsxzw8vH+NK9fUl0FRNYuVwDIIXaY+4PqtXtkVJn32PiFp5G+U8+LdpC9xPqUd4D3SFaCrA==
-X-Received: by 2002:a05:6602:2c41:: with SMTP id
- x1mr6251233iov.58.1602959343574; 
- Sat, 17 Oct 2020 11:29:03 -0700 (PDT)
-Received: from godwin.fios-router.home
- (pool-108-51-35-162.washdc.fios.verizon.net. [108.51.35.162])
- by smtp.gmail.com with ESMTPSA id e204sm5374395iof.16.2020.10.17.11.29.02
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sat, 17 Oct 2020 11:29:03 -0700 (PDT)
-From: Sean Anderson <seanga2@gmail.com>
-To: linux-riscv@lists.infradead.org
-Subject: [PATCH] riscv: Set text_offset correctly for M-Mode
-Date: Sat, 17 Oct 2020 14:28:48 -0400
-Message-Id: <20201017182848.125139-1-seanga2@gmail.com>
-X-Mailer: git-send-email 2.28.0
-MIME-Version: 1.0
+ id 1kU7y0-0001F6-Fa
+ for linux-riscv@lists.infradead.org; Sun, 18 Oct 2020 12:39:17 +0000
+Received: from localhost.localdomain (unknown [42.120.72.92])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id C5340207FF;
+ Sun, 18 Oct 2020 12:39:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1603024754;
+ bh=JYU4tDKNHM5wMKuO+JK9gn5XRS3ZWKHepBLUwW9v38M=;
+ h=From:To:Cc:Subject:Date:From;
+ b=Rlis1LI1QBJmI4Ik2TiN08m4h054/NXyuhMJVeXnDz3yTyVHXwrX9Z1uBU3bqLjKq
+ OyJpVcbaom2o1/wyb1u/M/1vXOC0TKdgO9JgxYsic0PwP1gPBzkdMUyTP6DotU4fdm
+ T27hHQppV/9j4aqiGUhhw8AewRyafytxOTPe7284=
+From: guoren@kernel.org
+To: palmerdabbelt@google.com, paul.walmsley@sifive.com, anup@brainfault.org,
+ greentime.hu@sifive.com, zong.li@sifive.com, keescook@chromium.org,
+ bjorn.topel@gmail.com, atish.patra@wdc.com, cooper.qu@linux.alibaba.com
+Subject: [PATCH v4] riscv: Enable per-task stack canaries
+Date: Sun, 18 Oct 2020 12:38:17 +0000
+Message-Id: <1603024697-30080-1-git-send-email-guoren@kernel.org>
+X-Mailer: git-send-email 2.7.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201017_142907_217053_8AA075F7 
-X-CRM114-Status: GOOD (  10.25  )
+X-CRM114-CacheID: sfid-20201018_083916_720618_A6570CA5 
+X-CRM114-Status: GOOD (  17.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -95,48 +73,169 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
- Sean Anderson <seanga2@gmail.com>, Atish Patra <atish.patra@wdc.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>
+Cc: linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>,
+ guoren@kernel.org, linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-M-Mode Linux is loaded at the start of RAM, not 2MB later. Perhaps this
-should be calculated based on PAGE_OFFSET somehow? Even better would be to
-deprecate text_offset and instead introduce something absolute.
+From: Guo Ren <guoren@linux.alibaba.com>
 
-Signed-off-by: Sean Anderson <seanga2@gmail.com>
+This enables the use of per-task stack canary values if GCC has
+support for emitting the stack canary reference relative to the
+value of tp, which holds the task struct pointer in the riscv
+kernel.
+
+After compare arm64 and x86 implementations, seems arm64's is more
+flexible and readable. The key point is how gcc get the offset of
+stack_canary from gs/el0_sp.
+
+x86: Use a fix offset from gs, not flexible.
+
+struct fixed_percpu_data {
+	/*
+	 * GCC hardcodes the stack canary as %gs:40.  Since the
+	 * irq_stack is the object at %gs:0, we reserve the bottom
+	 * 48 bytes of the irq stack for the canary.
+	 */
+	char            gs_base[40]; // :(
+	unsigned long   stack_canary;
+};
+
+arm64: Use -mstack-protector-guard-offset & guard-reg
+	gcc options:
+	-mstack-protector-guard=sysreg
+	-mstack-protector-guard-reg=sp_el0
+	-mstack-protector-guard-offset=xxx
+
+riscv: Use -mstack-protector-guard-offset & guard-reg
+	gcc options:
+	-mstack-protector-guard=tls
+	-mstack-protector-guard-reg=tp
+	-mstack-protector-guard-offset=xxx
+
+ GCC's implementation has been merged:
+ commit c931e8d5a96463427040b0d11f9c4352ac22b2b0
+ Author: Cooper Qu <cooper.qu@linux.alibaba.com>
+ Date:   Mon Jul 13 16:15:08 2020 +0800
+
+     RISC-V: Add support for TLS stack protector canary access
+
+In the end, these codes are inserted by gcc before return:
+
+*  0xffffffe00020b396 <+120>:   ld      a5,1008(tp) # 0x3f0
+*  0xffffffe00020b39a <+124>:   xor     a5,a5,a4
+*  0xffffffe00020b39c <+126>:   mv      a0,s5
+*  0xffffffe00020b39e <+128>:   bnez    a5,0xffffffe00020b61c <_do_fork+766>
+   0xffffffe00020b3a2 <+132>:   ld      ra,136(sp)
+   0xffffffe00020b3a4 <+134>:   ld      s0,128(sp)
+   0xffffffe00020b3a6 <+136>:   ld      s1,120(sp)
+   0xffffffe00020b3a8 <+138>:   ld      s2,112(sp)
+   0xffffffe00020b3aa <+140>:   ld      s3,104(sp)
+   0xffffffe00020b3ac <+142>:   ld      s4,96(sp)
+   0xffffffe00020b3ae <+144>:   ld      s5,88(sp)
+   0xffffffe00020b3b0 <+146>:   ld      s6,80(sp)
+   0xffffffe00020b3b2 <+148>:   ld      s7,72(sp)
+   0xffffffe00020b3b4 <+150>:   addi    sp,sp,144
+   0xffffffe00020b3b6 <+152>:   ret
+   ...
+*  0xffffffe00020b61c <+766>:   auipc   ra,0x7f8
+*  0xffffffe00020b620 <+770>:   jalr    -1764(ra) # 0xffffffe000a02f38 <__stack_chk_fail>
+
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Cooper Qu <cooper.qu@linux.alibaba.com>
+Cc: Kees Cook <keescook@chromium.org>
 ---
+ arch/riscv/Kconfig                      |  7 +++++++
+ arch/riscv/Makefile                     | 10 ++++++++++
+ arch/riscv/include/asm/stackprotector.h |  3 ++-
+ arch/riscv/kernel/asm-offsets.c         |  3 +++
+ arch/riscv/kernel/process.c             |  2 +-
+ 5 files changed, 23 insertions(+), 2 deletions(-)
 
- arch/riscv/kernel/head.S | 5 +++++
- 1 file changed, 5 insertions(+)
-
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index 0a4e81b8dc79..74679f338c65 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -27,12 +27,17 @@ ENTRY(_start)
- 	/* reserved */
- 	.word 0
- 	.balign 8
-+#ifdef CONFIG_RISCV_S_MODE
- #if __riscv_xlen == 64
- 	/* Image load offset(2MB) from start of RAM */
- 	.dword 0x200000
- #else
- 	/* Image load offset(4MB) from start of RAM */
- 	.dword 0x400000
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index b7821ac..95a0608 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -388,6 +388,13 @@ config CMDLINE_FORCE
+ 
+ endchoice
+ 
++config CC_HAVE_STACKPROTECTOR_TLS
++	def_bool $(cc-option,-mstack-protector-guard=tls -mstack-protector-guard-reg=tp -mstack-protector-guard-offset=0)
++
++config STACKPROTECTOR_PER_TASK
++	def_bool y
++	depends on STACKPROTECTOR && CC_HAVE_STACKPROTECTOR_TLS
++
+ endmenu
+ 
+ config BUILTIN_DTB
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index fb6e37d..f5f8ee9 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -68,6 +68,16 @@ KBUILD_CFLAGS_MODULE += $(call cc-option,-mno-relax)
+ # architectures.  It's faster to have GCC emit only aligned accesses.
+ KBUILD_CFLAGS += $(call cc-option,-mstrict-align)
+ 
++ifeq ($(CONFIG_STACKPROTECTOR_PER_TASK),y)
++prepare: stack_protector_prepare
++stack_protector_prepare: prepare0
++	$(eval KBUILD_CFLAGS += -mstack-protector-guard=tls		  \
++				-mstack-protector-guard-reg=tp		  \
++				-mstack-protector-guard-offset=$(shell	  \
++			awk '{if ($$2 == "TSK_STACK_CANARY") print $$3;}' \
++					include/generated/asm-offsets.h))
++endif
++
+ # arch specific predefines for sparse
+ CHECKFLAGS += -D__riscv -D__riscv_xlen=$(BITS)
+ 
+diff --git a/arch/riscv/include/asm/stackprotector.h b/arch/riscv/include/asm/stackprotector.h
+index 5962f88..09093af 100644
+--- a/arch/riscv/include/asm/stackprotector.h
++++ b/arch/riscv/include/asm/stackprotector.h
+@@ -24,6 +24,7 @@ static __always_inline void boot_init_stack_canary(void)
+ 	canary &= CANARY_MASK;
+ 
+ 	current->stack_canary = canary;
+-	__stack_chk_guard = current->stack_canary;
++	if (!IS_ENABLED(CONFIG_STACKPROTECTOR_PER_TASK))
++		__stack_chk_guard = current->stack_canary;
+ }
+ #endif /* _ASM_RISCV_STACKPROTECTOR_H */
+diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
+index db20344..877ff65 100644
+--- a/arch/riscv/kernel/asm-offsets.c
++++ b/arch/riscv/kernel/asm-offsets.c
+@@ -66,6 +66,9 @@ void asm_offsets(void)
+ 	OFFSET(TASK_THREAD_F30, task_struct, thread.fstate.f[30]);
+ 	OFFSET(TASK_THREAD_F31, task_struct, thread.fstate.f[31]);
+ 	OFFSET(TASK_THREAD_FCSR, task_struct, thread.fstate.fcsr);
++#ifdef CONFIG_STACKPROTECTOR
++	OFFSET(TSK_STACK_CANARY, task_struct, stack_canary);
 +#endif
-+#else
-+	/* Image load offset (0MB) from start of RAM for M-mode */
-+	.dword 0
- #endif
- 	/* Effective size of kernel image */
- 	.dword _end - _start
+ 
+ 	DEFINE(PT_SIZE, sizeof(struct pt_regs));
+ 	OFFSET(PT_EPC, pt_regs, epc);
+diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+index 2b97c49..51ddc27 100644
+--- a/arch/riscv/kernel/process.c
++++ b/arch/riscv/kernel/process.c
+@@ -24,7 +24,7 @@
+ 
+ register unsigned long gp_in_global __asm__("gp");
+ 
+-#ifdef CONFIG_STACKPROTECTOR
++#if defined(CONFIG_STACKPROTECTOR) && !defined(CONFIG_STACKPROTECTOR_PER_TASK)
+ #include <linux/stackprotector.h>
+ unsigned long __stack_chk_guard __read_mostly;
+ EXPORT_SYMBOL(__stack_chk_guard);
 -- 
-2.28.0
+2.7.4
 
 
 _______________________________________________
