@@ -2,81 +2,85 @@ Return-Path: <SRS0=hknt=D2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PULL_REQUEST,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 802CFC433DF
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Oct 2020 18:54:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 55F70C433DF
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Oct 2020 19:08:37 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E450D223BF
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Oct 2020 18:54:55 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 9260C2224F
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Oct 2020 19:08:34 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="XUsRh/xZ";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="JlQ9cG/y"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E450D223BF
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="16qnhque";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="ECSpZCYe"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9260C2224F
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=nZ+ly8otNnHfQ7eDneJQxm6rDYROAF5X7kbbLSO4F8w=; b=XUsRh/xZ/ArffPJKePnvQqIK8
-	pJPL00FuBpAj2pyzZrRZK65sVdy+u0mINsdNVIdhFxYV2UYotz5TvrQ9WcrxmSAsH/JbeKD+7nCJR
-	RexWzYgHLKcSK9EqkaoKEat9Inse+OW7HMOyJjphjjqFbGyTgrSwUETMzN0GHRtNqrhNRAZJxy7bi
-	eEGsO86oZLcFvgajnsKHwpcP1wJJVYij9lgWa4NsHBUT+Ez/e3oStyBxVWrPnz19zytOggJkP8vkO
-	8tMqZW6kDDpHkR/QyIlGIQR3n75PIE7YUjYruOHUsTmARRB8dYUI1h5zIbB0T2GGl4X4mr3c5Qxfe
-	YJMgGIWWA==;
+	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Message-ID:To:From:Subject:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZCMQFuLxgBVzx1/LYXon3PZSgobYspe6Egz+vU4Sz1E=; b=16qnhqueBUYh5c3l24wmv3msTa
+	AgFG7aKKmRu5cs75mZ9Q5HkicoCF9LVf323qJKZPvNvHtrqlusPSD0cmgIyaJoVcqzFl0bGC8sz0G
+	reXy6l0iYvEDupTu/jYpzYdAoOGFX00HQscgPXZp7v7TIFRiWKON4ZV3qGnZ/mHh/axaxcdJfS61k
+	kYRcgI0wnWwCJ/1So1XCFuwU60M6/yYqOFL6tx25JfvJ269aLhFfCRlyNoG9GU4hffE8frGxVd1EF
+	OFKTqOol4mF0SPvMn6j3l5EXPvmKCtrhLOcr9Y54rmw6T/VmK0lbno9QjqeQJaTR7xipEi0gRY1Gf
+	ojTYlIzg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kUaIq-0004GN-JN; Mon, 19 Oct 2020 18:54:40 +0000
-Received: from mail-il1-x142.google.com ([2607:f8b0:4864:20::142])
+	id 1kUaW3-0005SJ-HT; Mon, 19 Oct 2020 19:08:19 +0000
+Received: from mail-pj1-x1041.google.com ([2607:f8b0:4864:20::1041])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kUaIm-0004Fg-VP
- for linux-riscv@lists.infradead.org; Mon, 19 Oct 2020 18:54:38 +0000
-Received: by mail-il1-x142.google.com with SMTP id k1so1301454ilc.10
- for <linux-riscv@lists.infradead.org>; Mon, 19 Oct 2020 11:54:36 -0700 (PDT)
+ id 1kUaW1-0005RV-1Y
+ for linux-riscv@lists.infradead.org; Mon, 19 Oct 2020 19:08:18 +0000
+Received: by mail-pj1-x1041.google.com with SMTP id gv6so312660pjb.4
+ for <linux-riscv@lists.infradead.org>; Mon, 19 Oct 2020 12:08:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=g2jWFfexdEDtBs2gfOXBbLGLdiOa+LTYwZ8t0Hf50aI=;
- b=JlQ9cG/yAPjE1oRino9Ot4VwHkBF+HDA8uJqkjp+tCCfIbq1LZBxFO3nmlTgDGiRgc
- O6lMduG3Rjn04ohMMV4Iaycqd4TlujJhVdHrZZYwQLkvi+lZzqsXGmty+VqzwaLg9n4J
- lYUwJZjZE4DAT71qHcQ85586gf8egO1rwVWCg=
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:cc:from:to:message-id;
+ bh=8tGLxiz79H94oyuXwt68AJpgGVw0fGCvyBhofOmupQY=;
+ b=ECSpZCYeKug6rF3RXrjlnGVA17/KBmL8gWPJxVJ9iHFOAYNw0E/EXoN+K3V9N/gpG9
+ XaDvH1UEbOPjzlAxxkgB9VhPHxNv4FLoR0clFwvIZ/zRpYVP6D502RlYbNVgRx5tsFFu
+ svyMw7RCaSBDp/lwXB88AC7zfYdOA71a+qlYXtKgwjJJ24WvzDISsA2jm1kTm5Ftz2nG
+ uD6S9SUSmQLHLlFpGzFX9ttzf7bnjjhdUnlnE1yqFdo5Hs6gEzoUUmXLv6D4EiC9Xa/q
+ Z69yczxxEYWL40lvrC5v6x0YVDO4T01sNf3vrs2fNuCXkDTvPKRFImtghj/soH7eJerU
+ IFig==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=g2jWFfexdEDtBs2gfOXBbLGLdiOa+LTYwZ8t0Hf50aI=;
- b=MZ5EjOMuhirNS89ybkKat3TDRIB0GWd+LEBBpa3y6P4Fd+T/G1NOGECD8vKJj3vppv
- CBSv9NO6yN9BaNMJMDZ0r/c3z9ZHqPtsNZz0IkEAV4Tn8k/6W6OG5Yv/Ks8JcwTIEhgw
- Ct6RT9TkLEz5GMNtdHy6ojshdIRPDU8W5FjboPLLresNEQgNNONm+qsXddCMJEzq90/N
- hJm6AYNxP5Ckw8/in7djQqt61Ijk7GQk2t6iL4F38TcN4pIDOdQucaBq+V5YyK+Ej/68
- KYmDp6c55SemMC35jFzSTSWvPqQ9mi57hzS2ChFNQxEFjl2oazhlNp9Ou6RlMi2YKEpb
- J+AA==
-X-Gm-Message-State: AOAM533icnanoz6rkBT9EgNa8zFLDwDKtnJfYdsziS/YwJfXJzc1BROi
- GrDsxtt9w+0fqd+JC5DbWyGXkQJGVxYchJu9+6gA
-X-Google-Smtp-Source: ABdhPJyb4PiVcwv1NkNj9aDJ/FpCHM6dnsTKUq/tHGd1tg2kp/35Pn9JvsV5zP5l+EX8LkrfBx7zhVJp6sbJMpGmIv8=
-X-Received: by 2002:a92:1801:: with SMTP id 1mr793536ily.219.1603133674949;
- Mon, 19 Oct 2020 11:54:34 -0700 (PDT)
-MIME-Version: 1.0
-References: <1602918377-23573-1-git-send-email-guoren@kernel.org>
- <1602918377-23573-10-git-send-email-guoren@kernel.org>
-In-Reply-To: <1602918377-23573-10-git-send-email-guoren@kernel.org>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Mon, 19 Oct 2020 11:54:24 -0700
-Message-ID: <CAOnJCU+oTRcJ2p8WQDX5P-EsOHmkn3kP9s54VQa+iw2wXDvzkg@mail.gmail.com>
-Subject: Re: [PATCH v4 9/9] riscv: Fixup lockdep_assert_held(&text_mutex) in
- patch_insn_write
-To: Guo Ren <guoren@kernel.org>, Zong Li <zong.li@sifive.com>
+ h=x-gm-message-state:date:subject:cc:from:to:message-id;
+ bh=8tGLxiz79H94oyuXwt68AJpgGVw0fGCvyBhofOmupQY=;
+ b=KH2e2s8aOeFQzMtt0ROkrwZN47YM3TEPJ0WA/zopCBwh86tWz/JxYspsUtRlOriYi/
+ KEPehkdxdrcVBv8Ueq5AZNxqVxT/xCnYteI76j1ZWwevwyTWRAHk7B1CoFA+W/mhRVkv
+ um9GwDuBZ6OYvhBjRo5mmiI55Zeucy0XEnpO8e1oLAmiGzxPE1VNm1fZ6Md3gChnGTIw
+ bRXWUGobjcP3sztYeblROnjE7fmvrH3KmvVdgXRl2XN+J/dr72zL6NjfRg3SOVOyJCAW
+ /FKFwELEcEEDV7iI1Ig8dj4YooHQrsUX43Q/bcqg6c49sPcnEBQk7p4Anac3PH/t5Gm6
+ wlIw==
+X-Gm-Message-State: AOAM531ohXSPeu5Ya32b52p+iU+fJ1lN1+71gvjI0u9ioZt8L80Dsom3
+ mHXKQhHM1w9aglLutTLpIspZrSvMOhfaBw==
+X-Google-Smtp-Source: ABdhPJwcw1vhs9ZMVodQtYhPHO2Io1vOOEv/d1ESaDJgS22DeSiudXW//nypi1km8L1k7TFCJa8p+w==
+X-Received: by 2002:a17:902:6bc4:b029:d5:ef85:1a63 with SMTP id
+ m4-20020a1709026bc4b02900d5ef851a63mr434565plt.73.1603134491603; 
+ Mon, 19 Oct 2020 12:08:11 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id p6sm261472pjd.1.2020.10.19.12.08.10
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 19 Oct 2020 12:08:11 -0700 (PDT)
+Date: Mon, 19 Oct 2020 12:08:11 -0700 (PDT)
+X-Google-Original-Date: Mon, 19 Oct 2020 12:08:06 PDT (-0700)
+Subject: [GIT PULL] RISC-V Patches for the 5.10 Merge Window, Part 1
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-a46615be-f4b5-4861-81b2-f370964a9583@palmerdabbelt-glaptop1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201019_145437_190680_A9F1F3AA 
-X-CRM114-Status: GOOD (  20.01  )
+X-CRM114-CacheID: sfid-20201019_150817_104367_EA638DD8 
+X-CRM114-Status: GOOD (  19.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -88,103 +92,156 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: me@packi.ch, Guo Ren <guoren@linux.alibaba.com>,
- Alan Kao <alankao@andestech.com>, Anup Patel <anup@brainfault.org>,
- Palmer Dabbelt <palmerdabbelt@google.com>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- rostedt@goodmis.org, linux-csky@vger.kernel.org, mhiramat@kernel.org,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Greentime Hu <greentime.hu@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 17, 2020 at 12:07 AM <guoren@kernel.org> wrote:
->
-> From: Guo Ren <guoren@linux.alibaba.com>
->
-> It will cause warning messages:
-> echo function_graph > /sys/kernel/debug/tracing/current_tracer
-> [   47.691397] ------------[ cut here ]------------
-> [   47.692899] WARNING: CPU: 0 PID: 11 at arch/riscv/kernel/patch.c:63 patch_insn_write+0x182/0x19a
-> [   47.694483] Modules linked in:
-> [   47.695754] CPU: 0 PID: 11 Comm: migration/0 Not tainted 5.9.0-11367-g1054335 #132
-> [   47.698228] epc: ffffffe000204530 ra : ffffffe00020452c sp : ffffffe0023ffc20 gp : ffffffe0013e1fe0 tp : ffffffe0023e4e00 t0 : 0000000000000000
-> [   47.701872]  t1 : 000000000000000e t2 : 000000000000001b s0 : ffffffe0023ffc70 s1 : ffffffe000206850 a0 : 0000000000000000 a1 : ffffffffffffffff
-> [   47.705550]  a2 : 0000000000000000 a3 : ffffffe03af7c5e8 a4 : 0000000000000000 a5 : 0000000000000000 a6 : 0000000000000000 a7 : 00000000150b02d8
-> [   47.709159]  s2 : 0000000000000008 s3 : 0000000000000858 s4 : ffffffe0023ffc98 s5 : 0000000000000850 s6 : 0000000000000003 s7 : 0000000000000002
-> [   47.714135]  s8 : 0000000000000004 s9 : 0000000000000001 s10: 0000000000000001 s11: 0000000000000003 t3 : ffffffffffffe000 t4 : 0000000000d86254
-> [   47.716574]  t5 : 0000000000000005 t6 : 0000000000040000status: 0000000000000100 badaddr: 0000000000000000 cause: 0000000000000003
-> [   47.720019] CPU: 0 PID: 11 Comm: migration/0 Not tainted 5.9.0-11367-g1054335 #132
-> [   47.722074] Call Trace:
-> [   47.722561] [<ffffffe000203c88>] walk_stackframe+0x0/0xc2
-> [   47.724608] [<ffffffe000b2020a>] show_stack+0x46/0x52
-> [   47.726246] [<ffffffe000b23c24>] dump_stack+0x90/0xb6
-> [   47.727672] [<ffffffe00020c9c4>] __warn+0x98/0xfa
-> [   47.729131] [<ffffffe0005f4be0>] report_bug+0xaa/0x11e
-> [   47.730624] [<ffffffe000203b74>] do_trap_break+0x96/0xfe
-> [   47.732448] [<ffffffe000201daa>] ret_from_exception+0x0/0x14
-> [   47.734341] [<ffffffe00020452c>] patch_insn_write+0x17e/0x19a
-> [   47.737235] irq event stamp: 39
-> [   47.738521] hardirqs last  enabled at (39): [<ffffffe000201d0a>] _save_context+0xa2/0xe6
-> [   47.741055] hardirqs last disabled at (38): [<ffffffe0002c2404>] multi_cpu_stop+0x130/0x166
-> [   47.743551] softirqs last  enabled at (0): [<ffffffe00020a4d2>] copy_process+0x430/0x1316
-> [   47.746031] softirqs last disabled at (0): [<0000000000000000>] 0x0
-> [   47.748617] ---[ end trace 88a1054faa6524ef ]---
->
-> Because the path of stop_machine(__ftrace_modify_code)->
-> ftrace_modify_all_code->...->patch_insn_write has no pair of
-> lock&unlock text_mutex, so we shouldn't put assert here.
->
+The following changes since commit d012a7190fc1fd72ed48911e77ca97ba4521bccd:
 
-What platform are you testing ? We are seeing a crash while enabling
-any of the tracers multiple times
-on Qemu/HiFive Unleashed.
+  Linux 5.9-rc2 (2020-08-23 14:08:43 -0700)
 
-http://lists.infradead.org/pipermail/linux-riscv/2020-October/002354.html
+are available in the Git repository at:
 
-As per the thread, Zong agreed to take a look into that.
-@Zong Li : Do you have any update regarding the ftrace issue.
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.10-mw0
 
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> ---
->  arch/riscv/kernel/patch.c | 7 -------
->  1 file changed, 7 deletions(-)
->
-> diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
-> index 0b55287..2ee5063 100644
-> --- a/arch/riscv/kernel/patch.c
-> +++ b/arch/riscv/kernel/patch.c
-> @@ -55,13 +55,6 @@ static int patch_insn_write(void *addr, const void *insn, size_t len)
->         bool across_pages = (((uintptr_t) addr & ~PAGE_MASK) + len) > PAGE_SIZE;
->         int ret;
->
-> -       /*
-> -        * Before reaching here, it was expected to lock the text_mutex
-> -        * already, so we don't need to give another lock here and could
-> -        * ensure that it was safe between each cores.
-> -        */
-> -       lockdep_assert_held(&text_mutex);
-> -
->         if (across_pages)
->                 patch_map(addr + len, FIX_TEXT_POKE1);
->
-> --
-> 2.7.4
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+for you to fetch changes up to de22d2107ced3cc5355cc9dbbd85e44183546bd5:
 
+  RISC-V: Add page table dump support for uefi (2020-10-02 14:31:33 -0700)
 
+----------------------------------------------------------------
+RISC-V Patches for the 5.10 Merge Window, Part 1
 
--- 
-Regards,
-Atish
+This contains a handful of cleanups and new features, including:
+
+* A handful of cleanups for our page fault handling.
+* Improvements to how we fill out cacheinfo.
+* Support for EFI-based systems.
+
+---
+
+This contains a merge from the EFI tree that was necessary as some of the EFI
+support landed over there.  It's my first time doing something like this,
+
+I haven't included the set_fs stuff because the base branch it depends on
+hasn't been merged yet.  I'll probably have another merge window PR, as
+there's more in flight (most notably the fix for new binutils I just sent out),
+but I figured there was no reason to delay this any longer.
+
+There is one merge conflict, which is between my fixes and for-next branches:
+
+    diff --cc arch/riscv/kernel/vmlinux.lds.S
+    index 67db80e12d1f,9795359cb9da..ffaa3da375c2
+    --- a/arch/riscv/kernel/vmlinux.lds.S
+    +++ b/arch/riscv/kernel/vmlinux.lds.S
+    @@@ -66,8 -71,11 +70,13 @@@ SECTION
+                    _etext = .;
+            }
+      
+     +      INIT_DATA_SECTION(16)
+     +
+    + #ifdef CONFIG_EFI
+    +       . = ALIGN(PECOFF_SECTION_ALIGNMENT);
+    +       __pecoff_text_end = .;
+    + #endif
+    + 
+            /* Start of data section */
+            _sdata = .;
+            RO_DATA(SECTION_ALIGN)
+
+----------------------------------------------------------------
+Anup Patel (1):
+      RISC-V: Move DT mapping outof fixmap
+
+Ard Biesheuvel (3):
+      efi/libstub: arm32: Base FDT and initrd placement on image address
+      efi/libstub: Export efi_low_alloc_above() to other units
+      efi/libstub: arm32: Use low allocation for the uncompressed kernel
+
+Atish Patra (8):
+      include: pe.h: Add RISC-V related PE definition
+      efi: Rename arm-init to efi-init common for all arch
+      RISC-V: Add early ioremap support
+      RISC-V: Implement late mapping page table allocation functions
+      RISC-V: Add PE/COFF header for EFI stub
+      RISC-V: Add EFI stub support.
+      RISC-V: Add EFI runtime services
+      RISC-V: Add page table dump support for uefi
+
+Palmer Dabbelt (1):
+      Merge tag 'efi-riscv-shared-for-v5.10' of ssh://gitolite.kernel.org/.../efi/efi into for-next
+
+Pekka Enberg (11):
+      riscv/mm: Simplify retry logic in do_page_fault()
+      riscv/mm/fault: Move no context handling to no_context()
+      riscv/mm/fault: Move bad area handling to bad_area()
+      riscv/mm/fault: Move vmalloc fault handling to vmalloc_fault()
+      riscv/mm/fault: Simplify fault error handling
+      riscv/mm/fault: Move fault error handling to mm_fault_error()
+      riscv/mm/fault: Simplify mm_fault_error()
+      riscv/mm/fault: Move FAULT_FLAG_WRITE handling in do_page_fault()
+      riscv/mm/fault: Move access error check to function
+      riscv/mm/fault: Fix inline placement in vmalloc_fault() declaration
+      riscv/mm/fault: Set FAULT_FLAG_INSTRUCTION flag in do_page_fault()
+
+Tian Tao (1):
+      RISC-V: Fix duplicate included thread_info.h
+
+Zong Li (3):
+      riscv: Set more data to cacheinfo
+      riscv: Define AT_VECTOR_SIZE_ARCH for ARCH_DLINFO
+      riscv: Add cache information in AUX vector
+
+ arch/arm/include/asm/efi.h                      |  23 +-
+ arch/arm64/include/asm/efi.h                    |   5 +-
+ arch/riscv/Kconfig                              |  25 ++
+ arch/riscv/Makefile                             |   1 +
+ arch/riscv/configs/defconfig                    |   1 +
+ arch/riscv/include/asm/Kbuild                   |   1 +
+ arch/riscv/include/asm/cacheinfo.h              |   5 +
+ arch/riscv/include/asm/efi.h                    |  55 ++++
+ arch/riscv/include/asm/elf.h                    |  13 +
+ arch/riscv/include/asm/fixmap.h                 |  16 +-
+ arch/riscv/include/asm/io.h                     |   1 +
+ arch/riscv/include/asm/mmu.h                    |   2 +
+ arch/riscv/include/asm/pgtable.h                |   5 +
+ arch/riscv/include/asm/sections.h               |  13 +
+ arch/riscv/include/uapi/asm/auxvec.h            |  24 ++
+ arch/riscv/kernel/Makefile                      |   2 +
+ arch/riscv/kernel/cacheinfo.c                   |  98 +++++--
+ arch/riscv/kernel/efi-header.S                  | 111 ++++++++
+ arch/riscv/kernel/efi.c                         |  96 +++++++
+ arch/riscv/kernel/head.S                        |  18 +-
+ arch/riscv/kernel/head.h                        |   2 -
+ arch/riscv/kernel/image-vars.h                  |  51 ++++
+ arch/riscv/kernel/setup.c                       |  18 +-
+ arch/riscv/kernel/vmlinux.lds.S                 |  23 +-
+ arch/riscv/mm/fault.c                           | 356 +++++++++++++-----------
+ arch/riscv/mm/init.c                            | 191 ++++++++++---
+ arch/riscv/mm/ptdump.c                          |  48 +++-
+ drivers/firmware/efi/Kconfig                    |   3 +-
+ drivers/firmware/efi/Makefile                   |   4 +-
+ drivers/firmware/efi/{arm-init.c => efi-init.c} |   0
+ drivers/firmware/efi/libstub/Makefile           |  10 +
+ drivers/firmware/efi/libstub/arm32-stub.c       | 178 +++---------
+ drivers/firmware/efi/libstub/arm64-stub.c       |   1 -
+ drivers/firmware/efi/libstub/efi-stub.c         |  59 +---
+ drivers/firmware/efi/libstub/efistub.h          |   7 +-
+ drivers/firmware/efi/libstub/relocate.c         |   4 +-
+ drivers/firmware/efi/libstub/riscv-stub.c       | 109 ++++++++
+ drivers/firmware/efi/riscv-runtime.c            | 143 ++++++++++
+ include/linux/pe.h                              |   3 +
+ 39 files changed, 1275 insertions(+), 450 deletions(-)
+ create mode 100644 arch/riscv/include/asm/efi.h
+ create mode 100644 arch/riscv/include/asm/sections.h
+ create mode 100644 arch/riscv/kernel/efi-header.S
+ create mode 100644 arch/riscv/kernel/efi.c
+ create mode 100644 arch/riscv/kernel/image-vars.h
+ rename drivers/firmware/efi/{arm-init.c => efi-init.c} (100%)
+ create mode 100644 drivers/firmware/efi/libstub/riscv-stub.c
+ create mode 100644 drivers/firmware/efi/riscv-runtime.c
 
 _______________________________________________
 linux-riscv mailing list
