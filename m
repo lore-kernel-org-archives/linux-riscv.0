@@ -2,23 +2,23 @@ Return-Path: <SRS0=/4kn=D3=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0617DC433E7
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Oct 2020 08:40:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 27EB5C433DF
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Oct 2020 11:14:58 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 70D7822240
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Oct 2020 08:40:16 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5A2442223C
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Oct 2020 11:14:57 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="IFB+CmYZ";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="V77vpMhw"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 70D7822240
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="T5+aAm1O";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="NeuLJ1+u"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5A2442223C
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -26,59 +26,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=P1mB86oHWFJL7Dk8OFepnUmQnDuPaxuxrP7hT5llEgc=; b=IFB+CmYZzbfIICbTv1rSLy2Go
-	KlnUGU1T7w0HmAIGFrJjQDVuO0KGLk7lhdvNyAWBQOQ+kkqLHWNcJ8RzBYuOLciWQE9tZtGxe4mtj
-	aXYdWf6s+nPaPlO23W7QXf0QcKbfIEjKhKMQkfLVdFtyuL3B0wC5+6M3WgASsmO3WojDK7pJUtq0e
-	i8mpmTrIWm+iaZlU7T4lvv0IjM9or4StOx3OKtqp2pbbmlkGw75s2mJl8GI3uVzFM6TObEzS6SEbO
-	/t0yd9427lexXyccx1y9kws0qe0Mou9nocE5fu1vgEvTNzyFXhtL+ixM8K0kx/XaE2PJG8lRVZEFA
-	K9TUW30wQ==;
+	 bh=evAZKg5WwpMB5zpxzZleEFecUmM94TyX//wzGucOjls=; b=T5+aAm1OWoxOrzC/jur7ieXNh
+	1emyrdQhLwL3iXOuY3QQYLF7RVSzOGQnLzcF37f6r2xz39LuDrPDm9+tuTPmAieiBcMYXDXX7fbVI
+	7T8ud5eiUgFfjGL9hT6Sz8rv0ONLpWVM2I5T55Rh5ii5piFSJbiwDNN4drSzeXTP+beQ97PVF/t8A
+	uQN29UQLv2CQnwU7vSvr/riV1gKkBv16EN+A7w4x8wqerSyoJ/GK6TN7Ev+cJ7n9LH4NKtmcZgiSK
+	VCTEO4p0rihCiupg1u7p5xQc1Wp+3hmnB5nmWhmd6WjPfEyvVHUM55ZRbFEGcQkqhio7GYcyeEzYV
+	aynnHuuxA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kUnBc-0000Kg-0R; Tue, 20 Oct 2020 08:40:04 +0000
-Received: from mail-wr1-x442.google.com ([2a00:1450:4864:20::442])
+	id 1kUpbI-0005Ce-F3; Tue, 20 Oct 2020 11:14:44 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kUnBZ-0000JW-5g
- for linux-riscv@lists.infradead.org; Tue, 20 Oct 2020 08:40:02 +0000
-Received: by mail-wr1-x442.google.com with SMTP id x7so1084371wrl.3
- for <linux-riscv@lists.infradead.org>; Tue, 20 Oct 2020 01:40:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=SUh/HgM+ua4NwVRYsXhIRglonIVZJrlor5QZYC9gpY4=;
- b=V77vpMhwIw+3HwH8CM2qAFK9RNuXrN0WlM5hHqoxwPYWYnGcsQZLYmrHXsTwC/b2tB
- sfBDlilU4lbEbEX0u1ypCLPJb9Y1vSL45IUIFn7+B2TZetoF/mN44NgeDciJrq+K7hmy
- 08M4MO7L0ZPiEaqz/cJbv+Wm8KnaO9sXrd1VXJ2nPkQuUVCDqE2hBMRokScAToTyxKDC
- xFKQSkiQ4RzVCFK2qnolRi0rcSNYvrWhV4/zej+NrE7pHpX3sH/iZ2DbVx1K/trt4sCk
- oY+qr4BwzBVx7M0SpACF/9PglsL8rUUtZt8amrflzFponix3FEhAa9dWoqZ/+eobe535
- Qebw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=SUh/HgM+ua4NwVRYsXhIRglonIVZJrlor5QZYC9gpY4=;
- b=Epn7KfWGerWKDfXQ9Xtk4HSRLxLEb6Jx6aP9/GLb1BhTKlrs5bkRtLvZLrNcU1rpsz
- V+MyDZtyKwu/DUMSKHHyghdN2h4ORxfjE36ZFUqTULrvrA9hBWzRn6A2bRsgGVU0u1V8
- eULb/2U0ilTeiXokyN4BXVcYfQ7K8YAy/IYs4ufACwa33WZva1o7BlXp8F17HqEhUONa
- E5VJUImwDbmploIs95du/3AZ+hn3S1kXPTCghfF8sx8+1/HfcVPAZsPz+9Sy7Hfdcp3I
- D6PpL1F1Uh6+Pi5g8I6Y4qRWPCJp7ZANnm0J9lN3X8FF7dVjFauO5FxzB3DK4GYq49nx
- AXqA==
-X-Gm-Message-State: AOAM531Zg/nAH7bE4cDdjYHAlpa4ZVK/dFUociqtFEV+JdfGy4+SzJvx
- jeWv/HtNiFwQp6VJZ3zrNUSccbIk6lSQT5w865DJzg==
-X-Google-Smtp-Source: ABdhPJy0EL3UjDDNNuZAniLHen9U7rto6vYZuH3dFUFv/RgLwXnsa/7SzTYVK7flT9RIxnMIfo0tzicZLcvmsBWzegA=
-X-Received: by 2002:adf:80cb:: with SMTP id 69mr2124137wrl.325.1603183199773; 
- Tue, 20 Oct 2020 01:39:59 -0700 (PDT)
+ id 1kUpbG-0005C8-5q
+ for linux-riscv@lists.infradead.org; Tue, 20 Oct 2020 11:14:43 +0000
+Received: from mail-lj1-f175.google.com (mail-lj1-f175.google.com
+ [209.85.208.175])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 6C9612224B
+ for <linux-riscv@lists.infradead.org>; Tue, 20 Oct 2020 11:14:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1603192479;
+ bh=z11io3P7B6JuJMW8LPvZUzVApkfxzAf5Pd0zkJNXPm4=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=NeuLJ1+u3tICUvhSuymNTyygLHeGgu+gfDRqoCl4cWaWgWDEFSp07ye5vUFY4fEZF
+ NFE2Ph9RvVxet2o43eJnVb3MJca8RQLG/kbQLCumGIlPb1ga0E90v4PQ6vt4RLWl8E
+ N/AYp0o9q/opsH0RZeFwOKhWhLdbQdl9q7RDCmoo=
+Received: by mail-lj1-f175.google.com with SMTP id d24so1545177ljg.10
+ for <linux-riscv@lists.infradead.org>; Tue, 20 Oct 2020 04:14:39 -0700 (PDT)
+X-Gm-Message-State: AOAM530apwSGFHTzmhOuReNIihIJzfgvZZNR0BfnBDpETtT1ApilpXxH
+ LJscUR0YY5eLKyNeogwu5EurrPu6yv/8r4t8e0I=
+X-Google-Smtp-Source: ABdhPJwfHfDYAYgcJnsow6xw2EtrhjTlsAw3IIZnRIe5/y/jT5DTMr4+kRCwdCWtpfhXfglP44iqo+joimsF48ObCF0=
+X-Received: by 2002:a2e:85c4:: with SMTP id h4mr855128ljj.250.1603192477556;
+ Tue, 20 Oct 2020 04:14:37 -0700 (PDT)
 MIME-Version: 1.0
-References: <20201020081532.2377-1-greentime.hu@sifive.com>
-In-Reply-To: <20201020081532.2377-1-greentime.hu@sifive.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Tue, 20 Oct 2020 14:09:48 +0530
-Message-ID: <CAAhSdy0kQBHvOirK1haPajEXS5X4e6KGE1kx2YwtoK2k+aVsLg@mail.gmail.com>
-Subject: Re: [PATCH] irqchip/sifive-plic: Fix broken irq_set_affinity()
- callback
-To: Greentime Hu <greentime.hu@sifive.com>
+References: <1602918377-23573-1-git-send-email-guoren@kernel.org>
+ <1602918377-23573-10-git-send-email-guoren@kernel.org>
+ <20201019173648.573d58c7fde864090bf0487a@kernel.org>
+In-Reply-To: <20201019173648.573d58c7fde864090bf0487a@kernel.org>
+From: Guo Ren <guoren@kernel.org>
+Date: Tue, 20 Oct 2020 19:14:26 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQwBY_FkzE1bi9-1xVMix8Vq6q1msyC9LAV79eNHjC8dQ@mail.gmail.com>
+Message-ID: <CAJF2gTQwBY_FkzE1bi9-1xVMix8Vq6q1msyC9LAV79eNHjC8dQ@mail.gmail.com>
+Subject: Re: [PATCH v4 9/9] riscv: Fixup lockdep_assert_held(&text_mutex) in
+ patch_insn_write
+To: Masami Hiramatsu <mhiramat@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201020_044001_235154_B9FC7703 
-X-CRM114-Status: GOOD (  18.55  )
+X-CRM114-CacheID: sfid-20201020_071442_365666_FA855346 
+X-CRM114-Status: GOOD (  27.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -90,72 +85,138 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Jason Cooper <jason@lakedaemon.net>, Marc Zyngier <maz@kernel.org>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Thomas Gleixner <tglx@linutronix.de>,
+Cc: =?UTF-8?Q?Patrick_St=C3=A4hlin?= <me@packi.ch>,
+ Guo Ren <guoren@linux.alibaba.com>, Alan Kao <alankao@andestech.com>,
+ Anup Patel <anup@brainfault.org>, Palmer Dabbelt <palmerdabbelt@google.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Steven Rostedt <rostedt@goodmis.org>, linux-csky@vger.kernel.org,
+ Zong Li <zong.li@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Greentime Hu <greentime.hu@sifive.com>,
  linux-riscv <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 20, 2020 at 1:45 PM Greentime Hu <greentime.hu@sifive.com> wrote:
+On Mon, Oct 19, 2020 at 4:36 PM Masami Hiramatsu <mhiramat@kernel.org> wrote:
 >
-> It will always enable the interrupt after calling plic_set_affinity()
-> however it should set to it previous setting. Staying disabled or enabled.
+> On Sat, 17 Oct 2020 07:06:17 +0000
+> guoren@kernel.org wrote:
 >
-> This patch can also fix this pwm hang issue in Unleashed board.
+> > From: Guo Ren <guoren@linux.alibaba.com>
+> >
+> > It will cause warning messages:
+> > echo function_graph > /sys/kernel/debug/tracing/current_tracer
+> > [   47.691397] ------------[ cut here ]------------
+> > [   47.692899] WARNING: CPU: 0 PID: 11 at arch/riscv/kernel/patch.c:63 patch_insn_write+0x182/0x19a
+> > [   47.694483] Modules linked in:
+> > [   47.695754] CPU: 0 PID: 11 Comm: migration/0 Not tainted 5.9.0-11367-g1054335 #132
+> > [   47.698228] epc: ffffffe000204530 ra : ffffffe00020452c sp : ffffffe0023ffc20 gp : ffffffe0013e1fe0 tp : ffffffe0023e4e00 t0 : 0000000000000000
+> > [   47.701872]  t1 : 000000000000000e t2 : 000000000000001b s0 : ffffffe0023ffc70 s1 : ffffffe000206850 a0 : 0000000000000000 a1 : ffffffffffffffff
+> > [   47.705550]  a2 : 0000000000000000 a3 : ffffffe03af7c5e8 a4 : 0000000000000000 a5 : 0000000000000000 a6 : 0000000000000000 a7 : 00000000150b02d8
+> > [   47.709159]  s2 : 0000000000000008 s3 : 0000000000000858 s4 : ffffffe0023ffc98 s5 : 0000000000000850 s6 : 0000000000000003 s7 : 0000000000000002
+> > [   47.714135]  s8 : 0000000000000004 s9 : 0000000000000001 s10: 0000000000000001 s11: 0000000000000003 t3 : ffffffffffffe000 t4 : 0000000000d86254
+> > [   47.716574]  t5 : 0000000000000005 t6 : 0000000000040000status: 0000000000000100 badaddr: 0000000000000000 cause: 0000000000000003
+> > [   47.720019] CPU: 0 PID: 11 Comm: migration/0 Not tainted 5.9.0-11367-g1054335 #132
+> > [   47.722074] Call Trace:
+> > [   47.722561] [<ffffffe000203c88>] walk_stackframe+0x0/0xc2
+> > [   47.724608] [<ffffffe000b2020a>] show_stack+0x46/0x52
+> > [   47.726246] [<ffffffe000b23c24>] dump_stack+0x90/0xb6
+> > [   47.727672] [<ffffffe00020c9c4>] __warn+0x98/0xfa
+> > [   47.729131] [<ffffffe0005f4be0>] report_bug+0xaa/0x11e
+> > [   47.730624] [<ffffffe000203b74>] do_trap_break+0x96/0xfe
+> > [   47.732448] [<ffffffe000201daa>] ret_from_exception+0x0/0x14
+> > [   47.734341] [<ffffffe00020452c>] patch_insn_write+0x17e/0x19a
+> > [   47.737235] irq event stamp: 39
+> > [   47.738521] hardirqs last  enabled at (39): [<ffffffe000201d0a>] _save_context+0xa2/0xe6
+> > [   47.741055] hardirqs last disabled at (38): [<ffffffe0002c2404>] multi_cpu_stop+0x130/0x166
+> > [   47.743551] softirqs last  enabled at (0): [<ffffffe00020a4d2>] copy_process+0x430/0x1316
+> > [   47.746031] softirqs last disabled at (0): [<0000000000000000>] 0x0
+> > [   47.748617] ---[ end trace 88a1054faa6524ef ]---
+> >
+> > Because the path of stop_machine(__ftrace_modify_code)->
+> > ftrace_modify_all_code->...->patch_insn_write has no pair of
+> > lock&unlock text_mutex, so we shouldn't put assert here.
 >
-> [  919.015783] rcu: INFO: rcu_sched detected stalls on CPUs/tasks:
-> [  919.020922] rcu:     0-...0: (0 ticks this GP)
-> idle=7d2/1/0x4000000000000002 softirq=1424/1424 fqs=105807
-> [  919.030295]  (detected by 1, t=225825 jiffies, g=1561, q=3496)
-> [  919.036109] Task dump for CPU 0:
-> [  919.039321] kworker/0:1     R  running task        0    30      2 0x00000008
-> [  919.046359] Workqueue: events set_brightness_delayed
-> [  919.051302] Call Trace:
-> [  919.053738] [<ffffffe000930d92>] __schedule+0x194/0x4de
-> [  982.035783] rcu: INFO: rcu_sched detected stalls on CPUs/tasks:
-> [  982.040923] rcu:     0-...0: (0 ticks this GP)
-> idle=7d2/1/0x4000000000000002 softirq=1424/1424 fqs=113325
-> [  982.050294]  (detected by 1, t=241580 jiffies, g=1561, q=3509)
-> [  982.056108] Task dump for CPU 0:
-> [  982.059321] kworker/0:1     R  running task        0    30      2 0x00000008
-> [  982.066359] Workqueue: events set_brightness_delayed
-> [  982.071302] Call Trace:
-> [  982.073739] [<ffffffe000930d92>] __schedule+0x194/0x4de
-> [..]
+> Hm, are there any chance to get the text_mutex in that path?
+> There are ftrace_arch_code_modify_prepare/post_process() in arch/riscv/kernel/ftrace.c,
+> aren't those used?
+I found ftrace_run_update_code:
+ - ftrace_arch_code_modify_prepare()-> mutex_lock(&text_mutex)
+ - stop_machine(__ftrace_modify_code, &command, NULL); - >
+__ftrace_modify_code -> patch_insn_write -> lockdep_assert_held ->
+lockdep_is_held
+ - ftrace_arch_code_modify_post_process()-> mutex_unlock(&text_mutex)
+
+Because of stop_machine, __ftrace_modify_code and
+ftrace_run_update_code are not the same task. This will cause
+lockdep_is_held return 0.
+
+ref to __lock_is_held:
+volatile int __lock_is_held(const struct lockdep_map *lock, int read)
+{
+        struct task_struct *curr = current; // current is from
+stop_machine, not ftrace_run_update_code. So never match!
+        int i;
+
+        for (i = 0; i < curr->lockdep_depth; i++) {
+                struct held_lock *hlock = curr->held_locks + i;
+
+                if (match_held_lock(hlock, lock)) {
+                        if (read == -1 || hlock->read == read)
+                                return 1;
+
+                        return 0;
+                }
+        }
+
+        return 0;
+}
+
+Does it seem a comm issue? I'm not so expert on lockdep mechanism.
+
 >
-> Fixes: bb0fed1c60cc ("irqchip/sifive-plic: Switch to fasteoi flow")
-> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-> ---
->  drivers/irqchip/irq-sifive-plic.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> Thank you,
 >
-> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-> index eaa3e9fe54e9..4048657ece0a 100644
-> --- a/drivers/irqchip/irq-sifive-plic.c
-> +++ b/drivers/irqchip/irq-sifive-plic.c
-> @@ -151,7 +151,7 @@ static int plic_set_affinity(struct irq_data *d,
->                 return -EINVAL;
+> >
+> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> > ---
+> >  arch/riscv/kernel/patch.c | 7 -------
+> >  1 file changed, 7 deletions(-)
+> >
+> > diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
+> > index 0b55287..2ee5063 100644
+> > --- a/arch/riscv/kernel/patch.c
+> > +++ b/arch/riscv/kernel/patch.c
+> > @@ -55,13 +55,6 @@ static int patch_insn_write(void *addr, const void *insn, size_t len)
+> >       bool across_pages = (((uintptr_t) addr & ~PAGE_MASK) + len) > PAGE_SIZE;
+> >       int ret;
+> >
+> > -     /*
+> > -      * Before reaching here, it was expected to lock the text_mutex
+> > -      * already, so we don't need to give another lock here and could
+> > -      * ensure that it was safe between each cores.
+> > -      */
+> > -     lockdep_assert_held(&text_mutex);
+> > -
+> >       if (across_pages)
+> >               patch_map(addr + len, FIX_TEXT_POKE1);
+> >
+> > --
+> > 2.7.4
+> >
 >
->         plic_irq_toggle(&priv->lmask, d, 0);
-> -       plic_irq_toggle(cpumask_of(cpu), d, 1);
-> +       plic_irq_toggle(cpumask_of(cpu), d, !irqd_irq_masked(d));
->
->         irq_data_update_effective_affinity(d, cpumask_of(cpu));
 >
 > --
-> 2.28.0
->
+> Masami Hiramatsu <mhiramat@kernel.org>
 
-Looks good to me.
 
-Reviewed-by: Anup Patel <anup@brainfault.org>
 
-Regards,
-Anup
+-- 
+Best Regards
+ Guo Ren
+
+ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
