@@ -5,19 +5,19 @@ X-Spam-Level:
 X-Spam-Status: No, score=-9.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D35E3C388F2
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2020 05:39:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 57548C56201
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2020 05:40:59 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0A92D223FB
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2020 05:39:05 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B7096223FB
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2020 05:40:58 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="BmpFji46";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="SltHHrVl"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0A92D223FB
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="mC7kR9p1";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="Cga0QxL4"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B7096223FB
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,60 +26,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=xDpbvMpy3FbameMD9bN0VHecojLwRYONHmiuHuVzVok=; b=BmpFji468czgzmlBSc8XvD/f1
-	pHQ1fJTcUaTzbWr4XWINbJpNzZ14fV/EY32moq8FH2M8+Ul3LhBAuSYM6R/58CGMBgtJa+VsSt10p
-	4Vs1my2xGUxcRwqnnfiOo1CBNCr1pYYE0LAvrCp2gHeER1tkK6lull50YDDG/fVoDtNPEc5lyRQZ6
-	tKTs9GRE6WeD3wUzX6+dQwYV1efkRs4bU62THa3tLTzeFi3ffdNzffk5Qz2srWIpk5R6vIBfZY54k
-	B6O8/exqsBBLkhYJSzYDuFUQ6beswTY5vkdnNYV5ScX4jLnasrL+1TDqH7TBfnSEEfr48J2b7OLE1
-	7qzg0rmyw==;
+	 bh=7HqfEQNZ9hlF1m3XzSQOwe7a4/au8EYBa3kTz/smOsE=; b=mC7kR9p14ghq7b/fFJQn0lPon
+	Lv/vCLgXP2xH/fHpDOIoKKvQd7luFM7+sGIG6jKESLczfvJVi3uc/nQKlUR0lsr8u5K7aamL7wHin
+	cxSR2Bn6flQUfHi41fzJQyTMmAnLOyjEsHMOwG5jLFTEvPR8c9YfSCeY6q/LDo8GXvHud1pQdcIuw
+	eaSYe//+i/0K+kAcHGN4uxON9E6WtpmWGsv9hR/LJWmeOOXY6QdkxUYHox6cCj9sUdZAXFcmnWIvT
+	hEaetFteTr6hkWNlxzOy6oKKKl2FruM6vJ7ibzwp7ur6NCNJqbp8t6WMPFWEltyaC4HuSzCzZadHD
+	dSl4S9rHQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kVTJQ-0003cM-2o; Thu, 22 Oct 2020 05:38:56 +0000
-Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
+	id 1kVTLE-0003tq-6j; Thu, 22 Oct 2020 05:40:48 +0000
+Received: from mail-wr1-x444.google.com ([2a00:1450:4864:20::444])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kVTJM-0003bO-Lx
- for linux-riscv@lists.infradead.org; Thu, 22 Oct 2020 05:38:53 +0000
-Received: by mail-wm1-x343.google.com with SMTP id c77so521920wmd.4
- for <linux-riscv@lists.infradead.org>; Wed, 21 Oct 2020 22:38:52 -0700 (PDT)
+ id 1kVTL8-0003sL-UW
+ for linux-riscv@lists.infradead.org; Thu, 22 Oct 2020 05:40:44 +0000
+Received: by mail-wr1-x444.google.com with SMTP id i1so561057wro.1
+ for <linux-riscv@lists.infradead.org>; Wed, 21 Oct 2020 22:40:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=73Kve3eCD9lFW3ilOeR8Q08ZRzYRtk6HhqwKqUbeckQ=;
- b=SltHHrVlBKjJCfSt8WOzpbmWAyyApuzoEfOWBWk7w1rI4ddOMh3Jq3VYGO6SDozaCi
- qbhKgg+BGotFSLTM3VTwCagdIHZtGQZ0qJfb8YTKuuAMgpSQTOKj52jRrdmipBKo10IT
- 7+IQukUEWnptNNCdytAifO1CErMOIHDbTXJXhjMOjlqbGSzttrbK689GXJYOm0n7wUPN
- 7n6M2HFMlorVQqLiU+y1EPf5WjXsACSieJ6qr3wGLpT7RaSZwdP9ITxTxW9sN/3RQF5B
- 9WwtjZBkREl4Z202ODJZ5nh5u9I1Vuq9TnHTOFjI2bl56AiCSh02aUn6m6OBM5pfFhVi
- C3KQ==
+ :cc; bh=57MKFsdWHuxy2mud/f3sRav90H6vR3X3bXB+aK2zwsM=;
+ b=Cga0QxL4oWgJW16fKnIb/E1PxyhOqCbXnjgtfqpdhhj0ffgmcTsXVUkR6C9z5kxeWw
+ cORHo/iZkjn5wKo7FZbw87BDXvzo4CujaHumqXPD5TQKq3zFL6UUjBCxp0OjZGjNj8pB
+ relmLSTginw62ENyCwqLiy8SB6SM7TXnFOovgG/o3o0LK+DCxyI66SgWse6dhNkJ+C6v
+ H8YEUMxFHpLGbJe4p3psTyWebQjqF818unNVH6nAkyrt/2yG5hEn0vh1HPeFNFcxPD8Y
+ P7G76i6A2rjEddM0PzCnFa4ikDxm+E50S12XDGPPAq3VXqTFKsdUK4lkpLvYBgPGF1SU
+ T5tQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=73Kve3eCD9lFW3ilOeR8Q08ZRzYRtk6HhqwKqUbeckQ=;
- b=GTjEWp22G/xj6c0FLkSOtAxFCm5gciSY3qSh5hqbu8omnvCN3ZH8jBc5Q4QJ6MzWvJ
- zG0mvfBZ7tdgJeX+Fk0WYj1ro1ruzfEuUSJ6UEes2fT4nhUcxy373XGTooJwlRnb0F/y
- 6S+VijdLtmTswUkH4ZcgemhKPKzVvfFLbX8zfKwg3Bb0ze4I3Qc3jwMz1u515o+rVZyp
- CEWtVdG2YaFJl0M8KXncWtDcjWXPXrqk5msgbKX6uO65sKvQdSHlA10BckecoERS88wK
- dt8I9Qp/ydy6pO3VEXOkKUnRLvzX1wJyLSsKjLGutLOzF3LUI60+bBBdv2qtyYyMCHge
- xcyg==
-X-Gm-Message-State: AOAM532VSM4eXJpZbpgThh4yH/90c2y5TOiqk5vbl3mmx+Uo0iUtV98h
- 24qdh0xwZxjVqonsxs4XWnHHxbi8r12acqv7Rk1kvA==
-X-Google-Smtp-Source: ABdhPJz1BooD6m8TpdqoamMg/85PKq4UWpiLSY1nMNpSndxeEm8puevlbLhaB83QxyD64aWlreMZigK0s/qSSC/3jVo=
-X-Received: by 2002:a7b:c92c:: with SMTP id h12mr834132wml.134.1603345131488; 
- Wed, 21 Oct 2020 22:38:51 -0700 (PDT)
+ bh=57MKFsdWHuxy2mud/f3sRav90H6vR3X3bXB+aK2zwsM=;
+ b=FVp/nMoj0rLG0YTM56qZalOxAjbi9DuKDgqlMIBrktn/9k9Q4qgp+BtM5jtuQDcDJl
+ qENJ0feBAIFlVk9kNLGzp/aMY0EbdCe4Vhyij8Mzh+D/xUhgiC5R2nMmb941zF8rse5P
+ gKE6qbUmDJM3vbB/WXXzMVti9adayp3PPPL5mjYHEdT9e+AhxX45BZ/F8oHyOhvCmD7V
+ C+7Bt4qKJF6kvP9nqpX1LpcQtIedJCKLpKyLSxIfpfDzfAwz7boqn1fbLQuImzG0Hrun
+ 6CC31QIrqNkudXmggFhllTH5qeqBS4Biije9BRgdeHhikRGxXywlo+skbpCR9+WWWSz2
+ 9kig==
+X-Gm-Message-State: AOAM533cgqJrPXCLI9JC6dmDAuhhjDHFI21UNtWS7CQTWLe2PqLMkdk7
+ mXcuHwuXZ7vBA6ySNOOF4moyqDsqfgGHOIflzGJ7Dg==
+X-Google-Smtp-Source: ABdhPJxYEqJskkiSHliaBgmXxUtWHmk6epcxfVz5x1u6SUxa3ULx/Oc+QHT5Ohu/ricNlRWAa5tFdiWartwo6vIGEC8=
+X-Received: by 2002:adf:e54b:: with SMTP id z11mr803140wrm.128.1603345241725; 
+ Wed, 21 Oct 2020 22:40:41 -0700 (PDT)
 MIME-Version: 1.0
 References: <20201006001752.248564-1-atish.patra@wdc.com>
- <20201006001752.248564-5-atish.patra@wdc.com>
-In-Reply-To: <20201006001752.248564-5-atish.patra@wdc.com>
+ <20201006001752.248564-6-atish.patra@wdc.com>
+In-Reply-To: <20201006001752.248564-6-atish.patra@wdc.com>
 From: Anup Patel <anup@brainfault.org>
-Date: Thu, 22 Oct 2020 11:08:39 +0530
-Message-ID: <CAAhSdy162QfyxGTn=UnEDnZ3OgKh-GN=bwgQ3jpWrp1ZMWKw8g@mail.gmail.com>
-Subject: Re: [PATCH v4 4/5] riscv: Add support pte_protnone and pmd_protnone
- if CONFIG_NUMA_BALANCING
+Date: Thu, 22 Oct 2020 11:10:29 +0530
+Message-ID: <CAAhSdy3f7oxMBh=39gULRbd-7saMwmAm1-dikV7ijE5BK2dhsw@mail.gmail.com>
+Subject: Re: [PATCH v4 5/5] riscv: Add numa support for riscv64 platform
 To: Atish Patra <atish.patra@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201022_013852_723754_01D818CF 
-X-CRM114-Status: GOOD (  19.31  )
+X-CRM114-CacheID: sfid-20201022_014043_112885_993D9022 
+X-CRM114-Status: GOOD (  34.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -114,54 +113,256 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 On Tue, Oct 6, 2020 at 5:48 AM Atish Patra <atish.patra@wdc.com> wrote:
 >
-> From: Greentime Hu <greentime.hu@sifive.com>
+> Use the generic numa implementation to add NUMA support for RISC-V.
+> This is based on Greentime's patch[1] but modified to use generic NUMA
+> implementation and few more fixes.
 >
-> These two functions are used to distinguish between PROT_NONENUMA
-> protections and hinting fault protections.
+> [1] https://lkml.org/lkml/2020/1/10/233
 >
+> Co-developed-by: Greentime Hu <greentime.hu@sifive.com>
 > Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+> Signed-off-by: Atish Patra <atish.patra@wdc.com>
 > ---
->  arch/riscv/include/asm/pgtable.h | 20 ++++++++++++++++++++
->  1 file changed, 20 insertions(+)
+>  arch/riscv/Kconfig              | 31 ++++++++++++++++++++++++++++++-
+>  arch/riscv/include/asm/mmzone.h | 13 +++++++++++++
+>  arch/riscv/include/asm/numa.h   |  8 ++++++++
+>  arch/riscv/include/asm/pci.h    | 14 ++++++++++++++
+>  arch/riscv/kernel/setup.c       | 10 ++++++++--
+>  arch/riscv/kernel/smpboot.c     | 12 +++++++++++-
+>  arch/riscv/mm/init.c            |  4 +++-
+>  7 files changed, 87 insertions(+), 5 deletions(-)
+>  create mode 100644 arch/riscv/include/asm/mmzone.h
+>  create mode 100644 arch/riscv/include/asm/numa.h
 >
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index 515b42f98d34..2751110675e6 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -183,6 +183,11 @@ static inline unsigned long pmd_page_vaddr(pmd_t pmd)
->         return (unsigned long)pfn_to_virt(pmd_val(pmd) >> _PAGE_PFN_SHIFT);
->  }
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index df18372861d8..7beb6ddb6eb1 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -137,7 +137,7 @@ config PAGE_OFFSET
+>         default 0xffffffe000000000 if 64BIT && MAXPHYSMEM_128GB
 >
-> +static inline pte_t pmd_pte(pmd_t pmd)
-> +{
-> +       return __pte(pmd_val(pmd));
-> +}
+>  config ARCH_FLATMEM_ENABLE
+> -       def_bool y
+> +       def_bool !NUMA
+>
+>  config ARCH_SPARSEMEM_ENABLE
+>         def_bool y
+> @@ -295,6 +295,35 @@ config TUNE_GENERIC
+>
+>  endchoice
+>
+> +# Common NUMA Features
+> +config NUMA
+> +       bool "NUMA Memory Allocation and Scheduler Support"
+> +       select GENERIC_ARCH_NUMA
+> +       select OF_NUMA
+> +       select ARCH_SUPPORTS_NUMA_BALANCING
+> +       help
+> +         Enable NUMA (Non-Uniform Memory Access) support.
 > +
->  /* Yields the page frame number (PFN) of a page table entry */
->  static inline unsigned long pte_pfn(pte_t pte)
->  {
-> @@ -286,6 +291,21 @@ static inline pte_t pte_mkhuge(pte_t pte)
->         return pte;
->  }
->
-> +#ifdef CONFIG_NUMA_BALANCING
-> +/*
-> + * See the comment in include/asm-generic/pgtable.h
-> + */
-> +static inline int pte_protnone(pte_t pte)
-> +{
-> +       return (pte_val(pte) & (_PAGE_PRESENT | _PAGE_PROT_NONE)) == _PAGE_PROT_NONE;
-> +}
+> +         The kernel will try to allocate memory used by a CPU on the
+> +         local memory of the CPU and add some more NUMA awareness to the kernel.
 > +
-> +static inline int pmd_protnone(pmd_t pmd)
+> +config NODES_SHIFT
+> +       int "Maximum NUMA Nodes (as a power of 2)"
+> +       range 1 10
+> +       default "2"
+> +       depends on NEED_MULTIPLE_NODES
+> +       help
+> +         Specify the maximum number of NUMA Nodes available on the target
+> +         system.  Increases memory reserved to accommodate various tables.
+> +
+> +config USE_PERCPU_NUMA_NODE_ID
+> +       def_bool y
+> +       depends on NUMA
+> +
+> +config NEED_PER_CPU_EMBED_FIRST_CHUNK
+> +       def_bool y
+> +       depends on NUMA
+> +
+>  config RISCV_ISA_C
+>         bool "Emit compressed instructions when building Linux"
+>         default y
+> diff --git a/arch/riscv/include/asm/mmzone.h b/arch/riscv/include/asm/mmzone.h
+> new file mode 100644
+> index 000000000000..fa17e01d9ab2
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/mmzone.h
+> @@ -0,0 +1,13 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef __ASM_MMZONE_H
+> +#define __ASM_MMZONE_H
+> +
+> +#ifdef CONFIG_NUMA
+> +
+> +#include <asm/numa.h>
+> +
+> +extern struct pglist_data *node_data[];
+> +#define NODE_DATA(nid)         (node_data[(nid)])
+> +
+> +#endif /* CONFIG_NUMA */
+> +#endif /* __ASM_MMZONE_H */
+> diff --git a/arch/riscv/include/asm/numa.h b/arch/riscv/include/asm/numa.h
+> new file mode 100644
+> index 000000000000..8c8cf4297cc3
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/numa.h
+> @@ -0,0 +1,8 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef __ASM_NUMA_H
+> +#define __ASM_NUMA_H
+> +
+> +#include <asm/topology.h>
+> +#include <asm-generic/numa.h>
+> +
+> +#endif /* __ASM_NUMA_H */
+> diff --git a/arch/riscv/include/asm/pci.h b/arch/riscv/include/asm/pci.h
+> index 1c473a1bd986..658e112c3ce7 100644
+> --- a/arch/riscv/include/asm/pci.h
+> +++ b/arch/riscv/include/asm/pci.h
+> @@ -32,6 +32,20 @@ static inline int pci_proc_domain(struct pci_bus *bus)
+>         /* always show the domain in /proc */
+>         return 1;
+>  }
+> +
+> +#ifdef CONFIG_NUMA
+> +
+> +static inline int pcibus_to_node(struct pci_bus *bus)
 > +{
-> +       return pte_protnone(pmd_pte(pmd));
+> +       return dev_to_node(&bus->dev);
 > +}
+> +#ifndef cpumask_of_pcibus
+> +#define cpumask_of_pcibus(bus) (pcibus_to_node(bus) == -1 ?            \
+> +                                cpu_all_mask :                         \
+> +                                cpumask_of_node(pcibus_to_node(bus)))
 > +#endif
+> +#endif /* CONFIG_NUMA */
 > +
->  /* Modify page protection bits */
->  static inline pte_t pte_modify(pte_t pte, pgprot_t newprot)
+>  #endif  /* CONFIG_PCI */
+>
+>  #endif  /* _ASM_RISCV_PCI_H */
+> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> index 07fa6d13367e..53a806a9cbaf 100644
+> --- a/arch/riscv/kernel/setup.c
+> +++ b/arch/riscv/kernel/setup.c
+> @@ -101,13 +101,19 @@ void __init setup_arch(char **cmdline_p)
+>
+>  static int __init topology_init(void)
 >  {
+> -       int i;
+> +       int i, ret;
+> +
+> +       for_each_online_node(i)
+> +               register_one_node(i);
+>
+>         for_each_possible_cpu(i) {
+>                 struct cpu *cpu = &per_cpu(cpu_devices, i);
+>
+>                 cpu->hotpluggable = cpu_has_hotplug(i);
+> -               register_cpu(cpu, i);
+> +               ret = register_cpu(cpu, i);
+> +               if (unlikely(ret))
+> +                       pr_warn("Warning: %s: register_cpu %d failed (%d)\n",
+> +                              __func__, i, ret);
+>         }
+>
+>         return 0;
+> diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+> index 96167d55ed98..5e276c25646f 100644
+> --- a/arch/riscv/kernel/smpboot.c
+> +++ b/arch/riscv/kernel/smpboot.c
+> @@ -27,6 +27,7 @@
+>  #include <asm/cpu_ops.h>
+>  #include <asm/irq.h>
+>  #include <asm/mmu_context.h>
+> +#include <asm/numa.h>
+>  #include <asm/tlbflush.h>
+>  #include <asm/sections.h>
+>  #include <asm/sbi.h>
+> @@ -45,13 +46,18 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
+>  {
+>         int cpuid;
+>         int ret;
+> +       unsigned int curr_cpuid;
+> +
+> +       curr_cpuid = smp_processor_id();
+> +       numa_store_cpu_info(curr_cpuid);
+> +       numa_add_cpu(curr_cpuid);
+>
+>         /* This covers non-smp usecase mandated by "nosmp" option */
+>         if (max_cpus == 0)
+>                 return;
+>
+>         for_each_possible_cpu(cpuid) {
+> -               if (cpuid == smp_processor_id())
+> +               if (cpuid == curr_cpuid)
+>                         continue;
+>                 if (cpu_ops[cpuid]->cpu_prepare) {
+>                         ret = cpu_ops[cpuid]->cpu_prepare(cpuid);
+> @@ -59,6 +65,7 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
+>                                 continue;
+>                 }
+>                 set_cpu_present(cpuid, true);
+> +               numa_store_cpu_info(cpuid);
+>         }
+>  }
+>
+> @@ -79,6 +86,7 @@ void __init setup_smp(void)
+>                 if (hart == cpuid_to_hartid_map(0)) {
+>                         BUG_ON(found_boot_cpu);
+>                         found_boot_cpu = 1;
+> +                       early_map_cpu_to_node(0, of_node_to_nid(dn));
+>                         continue;
+>                 }
+>                 if (cpuid >= NR_CPUS) {
+> @@ -88,6 +96,7 @@ void __init setup_smp(void)
+>                 }
+>
+>                 cpuid_to_hartid_map(cpuid) = hart;
+> +               early_map_cpu_to_node(cpuid, of_node_to_nid(dn));
+>                 cpuid++;
+>         }
+>
+> @@ -153,6 +162,7 @@ asmlinkage __visible void smp_callin(void)
+>         current->active_mm = mm;
+>
+>         notify_cpu_starting(curr_cpuid);
+> +       numa_add_cpu(curr_cpuid);
+>         update_siblings_masks(curr_cpuid);
+>         set_cpu_online(curr_cpuid, 1);
+>
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index 114c3966aadb..c4046e11d264 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -20,6 +20,7 @@
+>  #include <asm/soc.h>
+>  #include <asm/io.h>
+>  #include <asm/ptdump.h>
+> +#include <asm/numa.h>
+>
+>  #include "../kernel/head.h"
+>
+> @@ -185,7 +186,6 @@ void __init setup_bootmem(void)
+>
+>         early_init_fdt_scan_reserved_mem();
+>         memblock_allow_resize();
+> -       memblock_dump_all();
+>
+>         for_each_memblock(memory, reg) {
+>                 unsigned long start_pfn = memblock_region_memory_base_pfn(reg);
+> @@ -570,9 +570,11 @@ void __init paging_init(void)
+>
+>  void __init misc_mem_init(void)
+>  {
+> +       arch_numa_init();
+>         sparse_init();
+>         zone_sizes_init();
+>         resource_init();
+> +       memblock_dump_all();
+>  }
+>
+>  #ifdef CONFIG_SPARSEMEM_VMEMMAP
 > --
 > 2.25.1
 >
