@@ -2,22 +2,22 @@ Return-Path: <SRS0=FvZO=D5=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 57548C56201
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2020 05:40:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1EF1AC4363A
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2020 07:22:44 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B7096223FB
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2020 05:40:58 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 7C6E322248
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2020 07:22:43 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="mC7kR9p1";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="Cga0QxL4"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B7096223FB
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="mPml2jAH";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="l62viUli"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7C6E322248
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,59 +26,69 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=7HqfEQNZ9hlF1m3XzSQOwe7a4/au8EYBa3kTz/smOsE=; b=mC7kR9p14ghq7b/fFJQn0lPon
-	Lv/vCLgXP2xH/fHpDOIoKKvQd7luFM7+sGIG6jKESLczfvJVi3uc/nQKlUR0lsr8u5K7aamL7wHin
-	cxSR2Bn6flQUfHi41fzJQyTMmAnLOyjEsHMOwG5jLFTEvPR8c9YfSCeY6q/LDo8GXvHud1pQdcIuw
-	eaSYe//+i/0K+kAcHGN4uxON9E6WtpmWGsv9hR/LJWmeOOXY6QdkxUYHox6cCj9sUdZAXFcmnWIvT
-	hEaetFteTr6hkWNlxzOy6oKKKl2FruM6vJ7ibzwp7ur6NCNJqbp8t6WMPFWEltyaC4HuSzCzZadHD
-	dSl4S9rHQ==;
+	 bh=lHfGU7r8bigxb2821LsP7yr2KUo/vaJuBps2LwZLQ2s=; b=mPml2jAHr2GZPTMLaw79nery4
+	Okqqr8/v8kLkpFS/9xQ6k52Dwe1zJGHRaDKCf2agZaOmbJd6O05ocvJEyURhStxhdiUUefA8DlA2G
+	zCno3/9i0zzCDyfo+ZQ8a6poXidI1ex6pjWhK41dkYZmZKa82DagxbWM3o7kD1m3wWOFSzwtpQgWD
+	XQ9x6GfHScvgu9izxDxNgO3GEXgwJRVCIU9cFcp5/w+gt6ZAud0q85lkOTQiSS1UBrEnx6bFeaXvO
+	2GIm2wbfIJvQP94/TJjlSXhn7hXss2RPk3eYS1R0qHD1VIdlE+g9v1pYaa7QmnGhcUtTdNeUJmmke
+	zZc89+2uw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kVTLE-0003tq-6j; Thu, 22 Oct 2020 05:40:48 +0000
-Received: from mail-wr1-x444.google.com ([2a00:1450:4864:20::444])
+	id 1kVUva-0002MA-0N; Thu, 22 Oct 2020 07:22:26 +0000
+Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kVTL8-0003sL-UW
- for linux-riscv@lists.infradead.org; Thu, 22 Oct 2020 05:40:44 +0000
-Received: by mail-wr1-x444.google.com with SMTP id i1so561057wro.1
- for <linux-riscv@lists.infradead.org>; Wed, 21 Oct 2020 22:40:42 -0700 (PDT)
+ id 1kVUvW-0002Lc-8g
+ for linux-riscv@lists.infradead.org; Thu, 22 Oct 2020 07:22:23 +0000
+Received: by mail-wr1-x443.google.com with SMTP id n15so826533wrq.2
+ for <linux-riscv@lists.infradead.org>; Thu, 22 Oct 2020 00:22:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=57MKFsdWHuxy2mud/f3sRav90H6vR3X3bXB+aK2zwsM=;
- b=Cga0QxL4oWgJW16fKnIb/E1PxyhOqCbXnjgtfqpdhhj0ffgmcTsXVUkR6C9z5kxeWw
- cORHo/iZkjn5wKo7FZbw87BDXvzo4CujaHumqXPD5TQKq3zFL6UUjBCxp0OjZGjNj8pB
- relmLSTginw62ENyCwqLiy8SB6SM7TXnFOovgG/o3o0LK+DCxyI66SgWse6dhNkJ+C6v
- H8YEUMxFHpLGbJe4p3psTyWebQjqF818unNVH6nAkyrt/2yG5hEn0vh1HPeFNFcxPD8Y
- P7G76i6A2rjEddM0PzCnFa4ikDxm+E50S12XDGPPAq3VXqTFKsdUK4lkpLvYBgPGF1SU
- T5tQ==
+ :cc; bh=hRVfCPeG7fJQMh3P3wcjyEm79b9YVN2T5Zw+OTjxA+k=;
+ b=l62viUliYeV2coWEKzvRKIvzLclR5p/sgwtQlSs58R0Iodk+1JnwRelFAxeI6aPmAq
+ lKIVfwinX2TQvcOk3iE2GDL6emseub5jV5wh6IANyJazZBUTS0az32HZHUEJyTzbJJ3C
+ e3dSni8+8oq4f3kvuemNCmLiyWu0QBZSdboWYwQC1m75Bn2L2MoHA+jtbMPs5JZ7URHx
+ +SD7r1g+2KuD67TlTOdCH7NOWiCwtJNLAJq2ExkWSV/7Mjnj9k+SlBaoJWVZnKqAqSoQ
+ IK8gv4tmITNXMo9PXF0+ajI9CMNC/yvF9nQBVFtVAUzYJdt8vz9N0g1W6nlZRiRYQ3iR
+ 1c/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=57MKFsdWHuxy2mud/f3sRav90H6vR3X3bXB+aK2zwsM=;
- b=FVp/nMoj0rLG0YTM56qZalOxAjbi9DuKDgqlMIBrktn/9k9Q4qgp+BtM5jtuQDcDJl
- qENJ0feBAIFlVk9kNLGzp/aMY0EbdCe4Vhyij8Mzh+D/xUhgiC5R2nMmb941zF8rse5P
- gKE6qbUmDJM3vbB/WXXzMVti9adayp3PPPL5mjYHEdT9e+AhxX45BZ/F8oHyOhvCmD7V
- C+7Bt4qKJF6kvP9nqpX1LpcQtIedJCKLpKyLSxIfpfDzfAwz7boqn1fbLQuImzG0Hrun
- 6CC31QIrqNkudXmggFhllTH5qeqBS4Biije9BRgdeHhikRGxXywlo+skbpCR9+WWWSz2
- 9kig==
-X-Gm-Message-State: AOAM533cgqJrPXCLI9JC6dmDAuhhjDHFI21UNtWS7CQTWLe2PqLMkdk7
- mXcuHwuXZ7vBA6ySNOOF4moyqDsqfgGHOIflzGJ7Dg==
-X-Google-Smtp-Source: ABdhPJxYEqJskkiSHliaBgmXxUtWHmk6epcxfVz5x1u6SUxa3ULx/Oc+QHT5Ohu/ricNlRWAa5tFdiWartwo6vIGEC8=
-X-Received: by 2002:adf:e54b:: with SMTP id z11mr803140wrm.128.1603345241725; 
- Wed, 21 Oct 2020 22:40:41 -0700 (PDT)
+ bh=hRVfCPeG7fJQMh3P3wcjyEm79b9YVN2T5Zw+OTjxA+k=;
+ b=LFDIutJdSVrfyTWBJs3fAEphQoEt5Uv8hqLJu/HrKXBgnbi+RuXVjafoC0v5Q37kFa
+ 3GRWRLSbhaq/B6e16rGdEIwOzYzqfmKcbbzHbY1aPXo59LypM4ZwfzeqKwaWWO1oNTZY
+ 6R4AwEASkxWD7qzDvngfsQ2O2+xVyJCddKzZ4NMoBx3SBnEgFLu16yC5oPS+dI3goej9
+ mkgzdhA5G608zBEzc49llFTYkkE9PXiYcOB87AFqhPnOEpLMTOk1EOFNcNO3TJH8HBtD
+ 5qJ69oe2J9/wHf26QIQ6Vbyk0MWdxBa0TBhfcQSU4Ewlu2saQJRgl+1a+fnlfDkQ3O5z
+ PC6A==
+X-Gm-Message-State: AOAM530RlejMcuvVa1U3jzvI7bq0Dkhl7RquJW4QhsPNfQL/rR5PC0Tx
+ nd+c2GSdvL4RRwcXNVnMh8FFbmnc4brRWzKED82AQw==
+X-Google-Smtp-Source: ABdhPJy/9IhECSHnT3gWmNswOMOaCFB6ZzsrfjqxVAU7gTQC3iA/hTOBFXTYWFr83S2/WAsnW9QtEn6WX7L355xstqk=
+X-Received: by 2002:adf:80cb:: with SMTP id 69mr1097878wrl.325.1603351340703; 
+ Thu, 22 Oct 2020 00:22:20 -0700 (PDT)
 MIME-Version: 1.0
-References: <20201006001752.248564-1-atish.patra@wdc.com>
- <20201006001752.248564-6-atish.patra@wdc.com>
-In-Reply-To: <20201006001752.248564-6-atish.patra@wdc.com>
+References: <20201009211344.2358688-1-atish.patra@wdc.com>
+ <20201009211344.2358688-5-atish.patra@wdc.com>
+ <CAHCEehJvMv=CYD1+QXb0uB36Hv4pvO36BAKSLOcxTXvmADZFbA@mail.gmail.com>
+ <CAOnJCUKPjkm_=5eHn6=GjVGr67okZkVzqP7-ciphn986BQoc9w@mail.gmail.com>
+ <CAOnJCULZMRu+sHmnjoBwtvaB3BjmCiZLzYxNOeWZmoYLKG+wTw@mail.gmail.com>
+ <CAHCEehJJmLQ6W5AdH+hEZSJxpDC8HG0UN=EGt9M0Tp5NTfQnaw@mail.gmail.com>
+ <CAOnJCUJN-XMZ+N5w+RbVhJag9D_dey7DAopb0Q35GDfXptyMjA@mail.gmail.com>
+ <CAFyWVaYORWYZTXyXOWiY6xK-SFTvsUxDNDqKQnhVUwzc5N045Q@mail.gmail.com>
+ <CAOnJCU+3xFyFW4ATCdYAv5zVyBSLE0mTevrJLCXW7HDgy4D4EQ@mail.gmail.com>
+ <CAOnJCUJWf9Hu4frFOJGQLUZ2BQ8qHBd7mvspgvfM1k6e4z5CcA@mail.gmail.com>
+ <CAOnJCUJLKz8gUc7VPnUG4mULQhGD0g_ztxPGYYD7BO6HJBCqcg@mail.gmail.com>
+ <CAAhSdy33b_GhuvtNTcd+4qdomr1AAxuJJ-m6Z7qFQTA7MLF-NA@mail.gmail.com>
+In-Reply-To: <CAAhSdy33b_GhuvtNTcd+4qdomr1AAxuJJ-m6Z7qFQTA7MLF-NA@mail.gmail.com>
 From: Anup Patel <anup@brainfault.org>
-Date: Thu, 22 Oct 2020 11:10:29 +0530
-Message-ID: <CAAhSdy3f7oxMBh=39gULRbd-7saMwmAm1-dikV7ijE5BK2dhsw@mail.gmail.com>
-Subject: Re: [PATCH v4 5/5] riscv: Add numa support for riscv64 platform
-To: Atish Patra <atish.patra@wdc.com>
+Date: Thu, 22 Oct 2020 12:52:09 +0530
+Message-ID: <CAAhSdy2M+uWufbqtYOjyd8wUXg7a5jO6J5o5NC=duaTBsnyHsA@mail.gmail.com>
+Subject: Re: [PATCH 4/5] RISC-V: Protect .init.text & .init.data
+To: Atish Patra <atishp@atishpatra.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201022_014043_112885_993D9022 
-X-CRM114-Status: GOOD (  34.01  )
+X-CRM114-CacheID: sfid-20201022_032222_478000_E10E4928 
+X-CRM114-Status: GOOD (  45.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -90,286 +100,163 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Kefeng Wang <wangkefeng.wang@huawei.com>,
- David Hildenbrand <david@redhat.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Jonathan Cameron <Jonathan.Cameron@huawei.com>, Zong Li <zong.li@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>, Will Deacon <will@kernel.org>,
- linux-arch@vger.kernel.org, Jia He <justin.he@arm.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Steven Price <steven.price@arm.com>,
- Greentime Hu <greentime.hu@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Arnd Bergmann <arnd@arndb.de>, Anshuman Khandual <anshuman.khandual@arm.com>,
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>,
+ Ard Biesheuvel <ardb@kernel.org>, Kito Cheng <kito.cheng@gmail.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Atish Patra <atish.patra@wdc.com>, Guo Ren <guoren@linux.alibaba.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Zong Li <zong.li@sifive.com>,
  Paul Walmsley <paul.walmsley@sifive.com>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Mike Rapoport <rppt@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+ Greentime Hu <greentime.hu@sifive.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>, Borislav Petkov <bp@suse.de>,
+ Michel Lespinasse <walken@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Jim Wilson <jimw@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 6, 2020 at 5:48 AM Atish Patra <atish.patra@wdc.com> wrote:
+On Thu, Oct 22, 2020 at 10:33 AM Anup Patel <anup@brainfault.org> wrote:
 >
-> Use the generic numa implementation to add NUMA support for RISC-V.
-> This is based on Greentime's patch[1] but modified to use generic NUMA
-> implementation and few more fixes.
+> On Thu, Oct 22, 2020 at 7:01 AM Atish Patra <atishp@atishpatra.org> wrote:
+> >
+> > On Fri, Oct 16, 2020 at 11:24 AM Atish Patra <atishp@atishpatra.org> wrote:
+> > >
+> > > On Tue, Oct 13, 2020 at 10:24 PM Atish Patra <atishp@atishpatra.org> wrote:
+> > > >
+> > > > On Tue, Oct 13, 2020 at 6:21 PM Jim Wilson <jimw@sifive.com> wrote:
+> > > > >
+> > > > > On Tue, Oct 13, 2020 at 3:25 PM Atish Patra <atishp@atishpatra.org> wrote:
+> > > > > > This happens only when copy_from_user is called from function that is
+> > > > > > annotated with __init.
+> > > > > > Adding Kito & Jim for their input
+> > > > > >
+> > > > > > @kito, @Jim: Please let me know if I should create a issue in
+> > > > > > riscv-gnu-toolchain repo or somewhere else.
+> > > > >
+> > > > > I can't do anything useful without a testcase that I can use to
+> > > > > reproduce the problem.  The interactions here are complex, so pointing
+> > > > > at lines of code or kernel config options doesn't give me any useful
+> > > > > info.
+> > > > >
+> > > > > Relaxation can convert calls to a jal.  I don't know of any open bugs
+> > > > > in this area that can generate relocation errors.  if it is a
+> > > > > relaxation error then turning off relaxation should work around the
+> > > > > problem as you suggested.
+> > > > >
+> > > > > A kernel build problem is serious.  I think this is worth a bug
+> > > > > report.  FSF binutils or riscv-gnu-toolchain is fine.
+> > > > >
+> > > >
+> > > > I have created an issue with detailed descriptions and reproduction steps.
+> > > > Please let me know if you need anything else.
+> > > >
+> > >
+> > > It may be a toolchain issue. Here is the ongoing discussion in case
+> > > anybody else is interested.
+> > >
+> > > https://github.com/riscv/riscv-gnu-toolchain/issues/738
+> > >
+> > > > > Jim
+> > > >
+> > > >
+> > > >
+> > > > --
+> > > > Regards,
+> > > > Atish
+> > >
+> > >
+> > >
+> > > --
+> > > Regards,
+> > > Atish
+> >
+> > Thanks to Jim, we know the cause now. Jim has provided an excellent
+> > analysis of the issue in the github issue report.
+> > https://github.com/riscv/riscv-gnu-toolchain/issues/738
+> >
+> > To summarize, the linker relaxation code is not aware of the
+> > alignments between sections.
+> > That's why it relaxes the calls from .text to .init.text and  converts
+> > a auipc+jalr pair to jal even if the address can't be fit +/- 1MB.
+> >
+> > There are few ways we can solve this problem.
+> >
+> > 1. As per Jim's suggestion, linker relaxation code is aware of the
+> > section alignments. We can mark .init.text as a 2MB aligned section.
+> >    For calls within a section, section's alignment will be used in the
+> > calculation. For calls across sections, e.g. from .init.text to .text,
+> > the maximum
+> >    section alignment of every section will be used. Thus, all
+> > relaxation within .init.text and between any sections will be
+> > impacted.
+> >    Thus, it avoids the error but results in the following increase in
+> > size of various sections.
+> >      section           change in size (in bytes)
+> >      .head.text      +4
+> >      .text               +40
+> >      .init.text.        +6530
+> >      .exit.text        +84
+> >
+> > The only significant increase is .init.text but it is freed after
+> > boot. Thus, I don't see any significant performance degradation due to
+> > that.
+> >
+> > Here is the diff
+> > --- a/arch/riscv/kernel/vmlinux.lds.S
+> > +++ b/arch/riscv/kernel/vmlinux.lds.S
+> > @@ -51,7 +51,13 @@ SECTIONS
+> >         . = ALIGN(SECTION_ALIGN);
+> >         __init_begin = .;
+> >         __init_text_begin = .;
+> > -       INIT_TEXT_SECTION(PAGE_SIZE)
+> > +       . = ALIGN(PAGE_SIZE);                                   \
+> > +       .init.text : AT(ADDR(.init.text) - LOAD_OFFSET)
+> > ALIGN(SECTION_ALIGN) {  \
+> > +               _sinittext = .;                                         \
+> > +               INIT_TEXT                                               \
+> > +               _einittext = .;                                         \
+> > +       }
+> > +
+> >         . = ALIGN(8);
+> >         __soc_early_init_table : {
+> >                 __soc_early_init_table_start = .;
+> >
+> > 2. We will continue to keep head.txt & .init.text together before
+> > .text. However, we will map the pages that contain head & init.text at
+> > page
+> >     granularity so that .head.text and init.text can have different
+> > permissions. I have not measured the performance impact of this but it
+> > won't
+> >     too bad given that the combined size of sections .head.txt &
+> > .init.text is 200K. So we are talking about page level permission only
+> > for
+> >     ~50 pages during boot.
+> >
+> > 3. Keep head.text in a separate 2MB aligned section. .init.text will
+> > follow .head.text in its own section as well. This increases the
+> > kernel
+> >     size by 2MB for MMU kernels. For nommu case, it will only increase
+> > by 64 bytes due to smaller section alignment for nommu kernels.
+> >
+> > Both solutions 1 & 2 come at minimal performance on boot time while
+> > solution 3 comes at increased kernel size.
+> >
+> > Any preference ?
 >
-> [1] https://lkml.org/lkml/2020/1/10/233
+> I prefer solution#3 because:
+> 1. This will help us avoid special handling of static objects
+> 2.  This will make RISC-V linker script more aligned with other
+>      major architectures
 >
-> Co-developed-by: Greentime Hu <greentime.hu@sifive.com>
-> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-> Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> ---
->  arch/riscv/Kconfig              | 31 ++++++++++++++++++++++++++++++-
->  arch/riscv/include/asm/mmzone.h | 13 +++++++++++++
->  arch/riscv/include/asm/numa.h   |  8 ++++++++
->  arch/riscv/include/asm/pci.h    | 14 ++++++++++++++
->  arch/riscv/kernel/setup.c       | 10 ++++++++--
->  arch/riscv/kernel/smpboot.c     | 12 +++++++++++-
->  arch/riscv/mm/init.c            |  4 +++-
->  7 files changed, 87 insertions(+), 5 deletions(-)
->  create mode 100644 arch/riscv/include/asm/mmzone.h
->  create mode 100644 arch/riscv/include/asm/numa.h
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index df18372861d8..7beb6ddb6eb1 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -137,7 +137,7 @@ config PAGE_OFFSET
->         default 0xffffffe000000000 if 64BIT && MAXPHYSMEM_128GB
->
->  config ARCH_FLATMEM_ENABLE
-> -       def_bool y
-> +       def_bool !NUMA
->
->  config ARCH_SPARSEMEM_ENABLE
->         def_bool y
-> @@ -295,6 +295,35 @@ config TUNE_GENERIC
->
->  endchoice
->
-> +# Common NUMA Features
-> +config NUMA
-> +       bool "NUMA Memory Allocation and Scheduler Support"
-> +       select GENERIC_ARCH_NUMA
-> +       select OF_NUMA
-> +       select ARCH_SUPPORTS_NUMA_BALANCING
-> +       help
-> +         Enable NUMA (Non-Uniform Memory Access) support.
-> +
-> +         The kernel will try to allocate memory used by a CPU on the
-> +         local memory of the CPU and add some more NUMA awareness to the kernel.
-> +
-> +config NODES_SHIFT
-> +       int "Maximum NUMA Nodes (as a power of 2)"
-> +       range 1 10
-> +       default "2"
-> +       depends on NEED_MULTIPLE_NODES
-> +       help
-> +         Specify the maximum number of NUMA Nodes available on the target
-> +         system.  Increases memory reserved to accommodate various tables.
-> +
-> +config USE_PERCPU_NUMA_NODE_ID
-> +       def_bool y
-> +       depends on NUMA
-> +
-> +config NEED_PER_CPU_EMBED_FIRST_CHUNK
-> +       def_bool y
-> +       depends on NUMA
-> +
->  config RISCV_ISA_C
->         bool "Emit compressed instructions when building Linux"
->         default y
-> diff --git a/arch/riscv/include/asm/mmzone.h b/arch/riscv/include/asm/mmzone.h
-> new file mode 100644
-> index 000000000000..fa17e01d9ab2
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/mmzone.h
-> @@ -0,0 +1,13 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef __ASM_MMZONE_H
-> +#define __ASM_MMZONE_H
-> +
-> +#ifdef CONFIG_NUMA
-> +
-> +#include <asm/numa.h>
-> +
-> +extern struct pglist_data *node_data[];
-> +#define NODE_DATA(nid)         (node_data[(nid)])
-> +
-> +#endif /* CONFIG_NUMA */
-> +#endif /* __ASM_MMZONE_H */
-> diff --git a/arch/riscv/include/asm/numa.h b/arch/riscv/include/asm/numa.h
-> new file mode 100644
-> index 000000000000..8c8cf4297cc3
-> --- /dev/null
-> +++ b/arch/riscv/include/asm/numa.h
-> @@ -0,0 +1,8 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef __ASM_NUMA_H
-> +#define __ASM_NUMA_H
-> +
-> +#include <asm/topology.h>
-> +#include <asm-generic/numa.h>
-> +
-> +#endif /* __ASM_NUMA_H */
-> diff --git a/arch/riscv/include/asm/pci.h b/arch/riscv/include/asm/pci.h
-> index 1c473a1bd986..658e112c3ce7 100644
-> --- a/arch/riscv/include/asm/pci.h
-> +++ b/arch/riscv/include/asm/pci.h
-> @@ -32,6 +32,20 @@ static inline int pci_proc_domain(struct pci_bus *bus)
->         /* always show the domain in /proc */
->         return 1;
->  }
-> +
-> +#ifdef CONFIG_NUMA
-> +
-> +static inline int pcibus_to_node(struct pci_bus *bus)
-> +{
-> +       return dev_to_node(&bus->dev);
-> +}
-> +#ifndef cpumask_of_pcibus
-> +#define cpumask_of_pcibus(bus) (pcibus_to_node(bus) == -1 ?            \
-> +                                cpu_all_mask :                         \
-> +                                cpumask_of_node(pcibus_to_node(bus)))
-> +#endif
-> +#endif /* CONFIG_NUMA */
-> +
->  #endif  /* CONFIG_PCI */
->
->  #endif  /* _ASM_RISCV_PCI_H */
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index 07fa6d13367e..53a806a9cbaf 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -101,13 +101,19 @@ void __init setup_arch(char **cmdline_p)
->
->  static int __init topology_init(void)
->  {
-> -       int i;
-> +       int i, ret;
-> +
-> +       for_each_online_node(i)
-> +               register_one_node(i);
->
->         for_each_possible_cpu(i) {
->                 struct cpu *cpu = &per_cpu(cpu_devices, i);
->
->                 cpu->hotpluggable = cpu_has_hotplug(i);
-> -               register_cpu(cpu, i);
-> +               ret = register_cpu(cpu, i);
-> +               if (unlikely(ret))
-> +                       pr_warn("Warning: %s: register_cpu %d failed (%d)\n",
-> +                              __func__, i, ret);
->         }
->
->         return 0;
-> diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-> index 96167d55ed98..5e276c25646f 100644
-> --- a/arch/riscv/kernel/smpboot.c
-> +++ b/arch/riscv/kernel/smpboot.c
-> @@ -27,6 +27,7 @@
->  #include <asm/cpu_ops.h>
->  #include <asm/irq.h>
->  #include <asm/mmu_context.h>
-> +#include <asm/numa.h>
->  #include <asm/tlbflush.h>
->  #include <asm/sections.h>
->  #include <asm/sbi.h>
-> @@ -45,13 +46,18 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
->  {
->         int cpuid;
->         int ret;
-> +       unsigned int curr_cpuid;
-> +
-> +       curr_cpuid = smp_processor_id();
-> +       numa_store_cpu_info(curr_cpuid);
-> +       numa_add_cpu(curr_cpuid);
->
->         /* This covers non-smp usecase mandated by "nosmp" option */
->         if (max_cpus == 0)
->                 return;
->
->         for_each_possible_cpu(cpuid) {
-> -               if (cpuid == smp_processor_id())
-> +               if (cpuid == curr_cpuid)
->                         continue;
->                 if (cpu_ops[cpuid]->cpu_prepare) {
->                         ret = cpu_ops[cpuid]->cpu_prepare(cpuid);
-> @@ -59,6 +65,7 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
->                                 continue;
->                 }
->                 set_cpu_present(cpuid, true);
-> +               numa_store_cpu_info(cpuid);
->         }
->  }
->
-> @@ -79,6 +86,7 @@ void __init setup_smp(void)
->                 if (hart == cpuid_to_hartid_map(0)) {
->                         BUG_ON(found_boot_cpu);
->                         found_boot_cpu = 1;
-> +                       early_map_cpu_to_node(0, of_node_to_nid(dn));
->                         continue;
->                 }
->                 if (cpuid >= NR_CPUS) {
-> @@ -88,6 +96,7 @@ void __init setup_smp(void)
->                 }
->
->                 cpuid_to_hartid_map(cpuid) = hart;
-> +               early_map_cpu_to_node(cpuid, of_node_to_nid(dn));
->                 cpuid++;
->         }
->
-> @@ -153,6 +162,7 @@ asmlinkage __visible void smp_callin(void)
->         current->active_mm = mm;
->
->         notify_cpu_starting(curr_cpuid);
-> +       numa_add_cpu(curr_cpuid);
->         update_siblings_masks(curr_cpuid);
->         set_cpu_online(curr_cpuid, 1);
->
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 114c3966aadb..c4046e11d264 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -20,6 +20,7 @@
->  #include <asm/soc.h>
->  #include <asm/io.h>
->  #include <asm/ptdump.h>
-> +#include <asm/numa.h>
->
->  #include "../kernel/head.h"
->
-> @@ -185,7 +186,6 @@ void __init setup_bootmem(void)
->
->         early_init_fdt_scan_reserved_mem();
->         memblock_allow_resize();
-> -       memblock_dump_all();
->
->         for_each_memblock(memory, reg) {
->                 unsigned long start_pfn = memblock_region_memory_base_pfn(reg);
-> @@ -570,9 +570,11 @@ void __init paging_init(void)
->
->  void __init misc_mem_init(void)
->  {
-> +       arch_numa_init();
->         sparse_init();
->         zone_sizes_init();
->         resource_init();
-> +       memblock_dump_all();
->  }
->
->  #ifdef CONFIG_SPARSEMEM_VMEMMAP
-> --
-> 2.25.1
->
+> I don't think solution#3 will increase the size of the kernel by 2MB. We
+> can make head.text part of text section. There will be only one section
+> alignment between text section and init section but the existing section
+> alignment between init section and text section will be removed. In other
+> words, number of section alignments will remain same.
 
-Looks good to me.
-
-Reviewed-by: Anup Patel <anup@brainfault.org>
+I think we will need to incorporate Jim's suggestion irrespective of the
+solution we choose because without Jim's changes we can hit the
+linker relaxation issue in solution#2 as well.
 
 Regards,
 Anup
