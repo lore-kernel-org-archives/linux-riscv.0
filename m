@@ -5,19 +5,19 @@ X-Spam-Level:
 X-Spam-Status: No, score=-9.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 205BDC388F2
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2020 05:38:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D35E3C388F2
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2020 05:39:06 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3F111223FB
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2020 05:38:32 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 0A92D223FB
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 Oct 2020 05:39:05 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="v5VVRTmY";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="Y9Bl1j6Y"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3F111223FB
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="BmpFji46";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="SltHHrVl"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0A92D223FB
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,59 +26,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=oH0qy+IgN1tdo/F6wy7qXM1uBh+4NfsjfteUG9JdCCI=; b=v5VVRTmYap+5TDILRwVDW51LH
-	ZAKKdx/RhfofVxmW/q0WJH8D4cvxatVGkn0HNGb5QRAq4XGaZT9oraJpngmnobabCHPQMG99A3HWG
-	/VzFo1AYPmy4WwFmIjOzFpCkG4DNRcevxaLTQ/6NvhNWbUV7JT07DQGiJQCUQ90OQJVgKhONeZ67Q
-	VdDItk107Yfu+YNqiOR165T5tLzdQB8nXQ+kIDGQ13SxCiN4ypPzHiLa/SGSB3qIi1jAeYa6gESnY
-	MUD3IifHu6/Eqxl2pr5lUL7eeyvQiF+MhCfhbAsnuOCKzYUiqCbCAtHUeJieXVoj4X+JgwIrWEH4B
-	sjZxUzGfQ==;
+	 bh=xDpbvMpy3FbameMD9bN0VHecojLwRYONHmiuHuVzVok=; b=BmpFji468czgzmlBSc8XvD/f1
+	pHQ1fJTcUaTzbWr4XWINbJpNzZ14fV/EY32moq8FH2M8+Ul3LhBAuSYM6R/58CGMBgtJa+VsSt10p
+	4Vs1my2xGUxcRwqnnfiOo1CBNCr1pYYE0LAvrCp2gHeER1tkK6lull50YDDG/fVoDtNPEc5lyRQZ6
+	tKTs9GRE6WeD3wUzX6+dQwYV1efkRs4bU62THa3tLTzeFi3ffdNzffk5Qz2srWIpk5R6vIBfZY54k
+	B6O8/exqsBBLkhYJSzYDuFUQ6beswTY5vkdnNYV5ScX4jLnasrL+1TDqH7TBfnSEEfr48J2b7OLE1
+	7qzg0rmyw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kVTIk-0003Y0-I1; Thu, 22 Oct 2020 05:38:14 +0000
-Received: from mail-wr1-x444.google.com ([2a00:1450:4864:20::444])
+	id 1kVTJQ-0003cM-2o; Thu, 22 Oct 2020 05:38:56 +0000
+Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kVTIg-0003Wh-Az
- for linux-riscv@lists.infradead.org; Thu, 22 Oct 2020 05:38:11 +0000
-Received: by mail-wr1-x444.google.com with SMTP id i1so555013wro.1
- for <linux-riscv@lists.infradead.org>; Wed, 21 Oct 2020 22:38:09 -0700 (PDT)
+ id 1kVTJM-0003bO-Lx
+ for linux-riscv@lists.infradead.org; Thu, 22 Oct 2020 05:38:53 +0000
+Received: by mail-wm1-x343.google.com with SMTP id c77so521920wmd.4
+ for <linux-riscv@lists.infradead.org>; Wed, 21 Oct 2020 22:38:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=2FJ6bgUzNaVY5TwTxhI5fSUYbPLg9JNdup4mEtOxeyg=;
- b=Y9Bl1j6Yr57hSOSVPd/mu8/0LKB/sUaN+4OYq3aFF90Ul5QrtkCiVNH9L8jrUjSMo1
- BOKxsr/7fKRiQpN4kVGgEBqVtWszTvShe7lZdbiv6L+NLtOizZUgujXoZvT2TROyZNLx
- zJdukWtwTTaJzdJoCyxafO4cLJd0w6GUarS9y0hhBoEjh7EAz3ipVzS+BZeksfTcJ5aq
- wnHp4uFAiQq8uwfU3SZkrdpi1ZRZavZERN4yLWk7B//b8QjJsPq+nwqJOB5qXVbbWAae
- FQk9F0x2v9qjKeAsX4OYBfYNubscNVPxafc3jwllMwr2lKF5yAW2F+0L+RR0jcFJ2dTr
- c3Ng==
+ :cc; bh=73Kve3eCD9lFW3ilOeR8Q08ZRzYRtk6HhqwKqUbeckQ=;
+ b=SltHHrVlBKjJCfSt8WOzpbmWAyyApuzoEfOWBWk7w1rI4ddOMh3Jq3VYGO6SDozaCi
+ qbhKgg+BGotFSLTM3VTwCagdIHZtGQZ0qJfb8YTKuuAMgpSQTOKj52jRrdmipBKo10IT
+ 7+IQukUEWnptNNCdytAifO1CErMOIHDbTXJXhjMOjlqbGSzttrbK689GXJYOm0n7wUPN
+ 7n6M2HFMlorVQqLiU+y1EPf5WjXsACSieJ6qr3wGLpT7RaSZwdP9ITxTxW9sN/3RQF5B
+ 9WwtjZBkREl4Z202ODJZ5nh5u9I1Vuq9TnHTOFjI2bl56AiCSh02aUn6m6OBM5pfFhVi
+ C3KQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=2FJ6bgUzNaVY5TwTxhI5fSUYbPLg9JNdup4mEtOxeyg=;
- b=SL/q0t+KehkVO+gX2rajDnBpYPD1M/OANNSbh1fjNJyJgKuw2mICkiGlp2VJa0k5zr
- KoOHjsAefqvOVPfe7VGbVFtuUFD5scFts+K1DpsuWMvqUEnSQ4hwe4L1QQehNp9cLAj0
- FR5h5RBLq8E7UbvN7HevyWlQQqTKcORfjJWYFWqINlAbwdHJrWi/ifBZZUmSEHfIDcyf
- p3coJEd8C1pXbPd7rlMUUhhSd/QFT82jOJzVuvz9+fGHZMlIYt1OFdAmW7Omu8LtMydt
- tWBYV6vL3bfdBAvn7CmA+nXNZrMRPsuN+hVr71uzX42wuyw+y7IN4G+4tosfLToaWa8M
- IwfQ==
-X-Gm-Message-State: AOAM533mwOtqomA47UEzNfgxce4kB+yLKFndJP70SWU8PmQQhcd5Yf63
- BFE5s0500yA/KRfdrYSMG/Xkugx1eY2CVr7g/9nsgQ==
-X-Google-Smtp-Source: ABdhPJxk41O0FMwzCS0qOGAJ5pot2HsP0xEUlWx58Nz/Yw02Wcj0cAJSjVw5HNv+6enPy0INENlf+CnoqkGqrrxq84o=
-X-Received: by 2002:a5d:6681:: with SMTP id l1mr731145wru.356.1603345088654;
- Wed, 21 Oct 2020 22:38:08 -0700 (PDT)
+ bh=73Kve3eCD9lFW3ilOeR8Q08ZRzYRtk6HhqwKqUbeckQ=;
+ b=GTjEWp22G/xj6c0FLkSOtAxFCm5gciSY3qSh5hqbu8omnvCN3ZH8jBc5Q4QJ6MzWvJ
+ zG0mvfBZ7tdgJeX+Fk0WYj1ro1ruzfEuUSJ6UEes2fT4nhUcxy373XGTooJwlRnb0F/y
+ 6S+VijdLtmTswUkH4ZcgemhKPKzVvfFLbX8zfKwg3Bb0ze4I3Qc3jwMz1u515o+rVZyp
+ CEWtVdG2YaFJl0M8KXncWtDcjWXPXrqk5msgbKX6uO65sKvQdSHlA10BckecoERS88wK
+ dt8I9Qp/ydy6pO3VEXOkKUnRLvzX1wJyLSsKjLGutLOzF3LUI60+bBBdv2qtyYyMCHge
+ xcyg==
+X-Gm-Message-State: AOAM532VSM4eXJpZbpgThh4yH/90c2y5TOiqk5vbl3mmx+Uo0iUtV98h
+ 24qdh0xwZxjVqonsxs4XWnHHxbi8r12acqv7Rk1kvA==
+X-Google-Smtp-Source: ABdhPJz1BooD6m8TpdqoamMg/85PKq4UWpiLSY1nMNpSndxeEm8puevlbLhaB83QxyD64aWlreMZigK0s/qSSC/3jVo=
+X-Received: by 2002:a7b:c92c:: with SMTP id h12mr834132wml.134.1603345131488; 
+ Wed, 21 Oct 2020 22:38:51 -0700 (PDT)
 MIME-Version: 1.0
 References: <20201006001752.248564-1-atish.patra@wdc.com>
- <20201006001752.248564-4-atish.patra@wdc.com>
-In-Reply-To: <20201006001752.248564-4-atish.patra@wdc.com>
+ <20201006001752.248564-5-atish.patra@wdc.com>
+In-Reply-To: <20201006001752.248564-5-atish.patra@wdc.com>
 From: Anup Patel <anup@brainfault.org>
-Date: Thu, 22 Oct 2020 11:07:57 +0530
-Message-ID: <CAAhSdy2z=ae1Z92p1zJeiY8tVK3Q5t739ktH3_m_k+hBWNt+sg@mail.gmail.com>
-Subject: Re: [PATCH v4 3/5] riscv: Separate memory init from paging init
+Date: Thu, 22 Oct 2020 11:08:39 +0530
+Message-ID: <CAAhSdy162QfyxGTn=UnEDnZ3OgKh-GN=bwgQ3jpWrp1ZMWKw8g@mail.gmail.com>
+Subject: Re: [PATCH v4 4/5] riscv: Add support pte_protnone and pmd_protnone
+ if CONFIG_NUMA_BALANCING
 To: Atish Patra <atish.patra@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201022_013810_434151_62A8A8A4 
-X-CRM114-Status: GOOD (  20.06  )
+X-CRM114-CacheID: sfid-20201022_013852_723754_01D818CF 
+X-CRM114-Status: GOOD (  19.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -113,63 +114,54 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 On Tue, Oct 6, 2020 at 5:48 AM Atish Patra <atish.patra@wdc.com> wrote:
 >
-> Currently, we perform some memory init functions in paging init. But,
-> that will be an issue for NUMA support where DT needs to be flattened
-> before numa initialization and memblock_present can only be called
-> after numa initialization.
+> From: Greentime Hu <greentime.hu@sifive.com>
 >
-> Move memory initialization related functions to a separate function.
+> These two functions are used to distinguish between PROT_NONENUMA
+> protections and hinting fault protections.
 >
-> Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> Reviewed-by: Greentime Hu <greentime.hu@sifive.com>
+> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
 > ---
->  arch/riscv/include/asm/pgtable.h | 1 +
->  arch/riscv/kernel/setup.c        | 1 +
->  arch/riscv/mm/init.c             | 6 +++++-
->  3 files changed, 7 insertions(+), 1 deletion(-)
+>  arch/riscv/include/asm/pgtable.h | 20 ++++++++++++++++++++
+>  1 file changed, 20 insertions(+)
 >
 > diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index eaea1f717010..515b42f98d34 100644
+> index 515b42f98d34..2751110675e6 100644
 > --- a/arch/riscv/include/asm/pgtable.h
 > +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -466,6 +466,7 @@ static inline void __kernel_map_pages(struct page *page, int numpages, int enabl
->  extern void *dtb_early_va;
->  void setup_bootmem(void);
->  void paging_init(void);
-> +void misc_mem_init(void);
+> @@ -183,6 +183,11 @@ static inline unsigned long pmd_page_vaddr(pmd_t pmd)
+>         return (unsigned long)pfn_to_virt(pmd_val(pmd) >> _PAGE_PFN_SHIFT);
+>  }
 >
->  #define FIRST_USER_ADDRESS  0
->
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index 2c6dd329312b..07fa6d13367e 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -78,6 +78,7 @@ void __init setup_arch(char **cmdline_p)
->  #else
->         unflatten_device_tree();
->  #endif
-> +       misc_mem_init();
->
->  #ifdef CONFIG_SWIOTLB
->         swiotlb_init(1);
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index ed6e83871112..114c3966aadb 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -565,8 +565,12 @@ static void __init resource_init(void)
->  void __init paging_init(void)
->  {
->         setup_vm_final();
-> -       sparse_init();
->         setup_zero_page();
+> +static inline pte_t pmd_pte(pmd_t pmd)
+> +{
+> +       return __pte(pmd_val(pmd));
 > +}
 > +
-> +void __init misc_mem_init(void)
-> +{
-> +       sparse_init();
->         zone_sizes_init();
->         resource_init();
+>  /* Yields the page frame number (PFN) of a page table entry */
+>  static inline unsigned long pte_pfn(pte_t pte)
+>  {
+> @@ -286,6 +291,21 @@ static inline pte_t pte_mkhuge(pte_t pte)
+>         return pte;
 >  }
+>
+> +#ifdef CONFIG_NUMA_BALANCING
+> +/*
+> + * See the comment in include/asm-generic/pgtable.h
+> + */
+> +static inline int pte_protnone(pte_t pte)
+> +{
+> +       return (pte_val(pte) & (_PAGE_PRESENT | _PAGE_PROT_NONE)) == _PAGE_PROT_NONE;
+> +}
+> +
+> +static inline int pmd_protnone(pmd_t pmd)
+> +{
+> +       return pte_protnone(pmd_pte(pmd));
+> +}
+> +#endif
+> +
+>  /* Modify page protection bits */
+>  static inline pte_t pte_modify(pte_t pte, pgprot_t newprot)
+>  {
 > --
 > 2.25.1
 >
