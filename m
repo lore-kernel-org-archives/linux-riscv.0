@@ -2,22 +2,22 @@ Return-Path: <SRS0=wzy2=D6=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-14.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 26451C71156
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2020 12:23:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9AE40C4363A
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2020 12:31:46 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A3CF624248
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2020 12:23:02 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 30CA021D43
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2020 12:31:46 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="MQXRi/mJ";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="bLfzWbNT"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A3CF624248
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="obDwUCnB";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="VZpi6JBF"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 30CA021D43
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,60 +26,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=8LV+V3krllbe1Hu6SkQjt5t0cAZ2lFIV3sZibXdL9Wk=; b=MQXRi/mJeKghLWRUy0668swRc
-	EfRQSx7K95YgFbZrgCnNQZbXrzDy6TTH4eIW5mYFEHEiVIdvU6KXwG5NNPV/1yVbDNbHdk34Imflx
-	W67IAG+oYRSxe/6TaCndg9KsqPqOI+uoRFnRCo4XzLkM0AYwzqElXufbErB13yhjD1/u2gUwU7Nnu
-	7+oP6bd4orCw9xTztwuV5xuBkJUmcgTp40wXSx9ECXyHzk+M9qkVvPUCH4TWbZlNreiC6xO4zD121
-	/mD4/RoMql5wRemwm3dG53HHSXetH1kEglQbIhKAszw4/wX4rSsr3eWU2z35LZpyYqob8c8ZELAJQ
-	weLNyU3rg==;
+	 bh=EjKI8gPrmz2OJUQwCEmyxfvNkMraKF0RgsAK7khQ5Yw=; b=obDwUCnB7NaGPG4CUEFOmw+yO
+	D9qKywTwqk1p9W9hr4hfmQ8ADHL1vik1uexhfopxTSEebZg2Ue32r+hA2GxuzORoKkgaiU3iV5aBz
+	MzK860R76BBQ6jlYI8EWTr628YHc49+y3DxYw9f9DpI5BT67+iOB9VDlxAvLZ+ZlKzvXToqAXnF3M
+	wtopqg4fPZDSIRB3KFcOuZSj/gXUSPcZOt32PsverclCS7lKXVVoh7grCd0MhwHlLELVKV16TzOoc
+	030SD4BlErc/B3Xh7tlnBIlqwnESfeFzEU2fRyxLDafxEDBggZVQ12z+eVhURbXfdYbmTR3hDnbim
+	6k5tf5sog==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kVw5p-0007ln-In; Fri, 23 Oct 2020 12:22:49 +0000
-Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
+	id 1kVwEH-0003W2-Ab; Fri, 23 Oct 2020 12:31:33 +0000
+Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kVw5m-0007jn-MN
- for linux-riscv@lists.infradead.org; Fri, 23 Oct 2020 12:22:47 +0000
-Received: by mail-wm1-x343.google.com with SMTP id v5so1235798wmh.1
- for <linux-riscv@lists.infradead.org>; Fri, 23 Oct 2020 05:22:46 -0700 (PDT)
+ id 1kVwEC-0003Tu-QO
+ for linux-riscv@lists.infradead.org; Fri, 23 Oct 2020 12:31:31 +0000
+Received: by mail-wm1-x341.google.com with SMTP id c16so1331004wmd.2
+ for <linux-riscv@lists.infradead.org>; Fri, 23 Oct 2020 05:31:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=9PzWNp1gapi2QMM7K0A8RjxDrdVI4G9KGleb9XwWLYs=;
- b=bLfzWbNTGQTfmmImm9vWqjH4/GLqLxGMr30A9Y9BfMsJe6syrNASgumzYzosat8UP3
- 0iK12RgRxgfYnqqISklRgM/Qz+HDv+Roe8MTal30h71Lkb0g7PcPTOHP6cA//+NZ8cCE
- jtI1KMcnEvuPpcopNXrAssk7imrF45z2krQpbHpcpaJnQkZHWt5VWE2UesfYry8APnjl
- YHH7kWTanIlrp+CaMWs3JG/HOQy70+To+rXCC6Qy3YFcDmazmSnSxnXjpgrMJk8cPGh9
- LGMl+rZqihaZMxZP2j3H4dTL0+5ubh1uMHC+rNqDSgXgUYJxYKydyFyvzWUo5A2ZLMS/
- ilNw==
+ :cc; bh=OgsYaNT7si4aUmj94LUjpDJPk7YDycSfzUdAI52Aub4=;
+ b=VZpi6JBFejPcuHx/0xa8bObFcO7Gg481B13EEknIsI5tXtO9GC7/umRRZlu/BQ9Ron
+ 4ie4+8bOaIJpXzYB6uZ5FmseJDhSrW1dM+xFAy/aaVAT8a2NP4jJgOc1s7EF8khg1Ub0
+ vRYCsHLJOTnGLCQb+a/2hJUQP1HWJQWs8slKF0XJXtOBM06bxlOIXVMOXoKh+EQr491C
+ MrklP1atlg/A9GR7YdCYo76hDlqcOn0loczylzWCGgVVdR9vTCqIIJGtC+7NmlhtyG7y
+ vkzKeZdX+N1CA2Oe4Qa31RBkDGqoIhcJhZc2hNZUGJnV/+sf34LHT5Qs+WZ/+ww7/26+
+ MCdw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=9PzWNp1gapi2QMM7K0A8RjxDrdVI4G9KGleb9XwWLYs=;
- b=rmbq9VywmAweUQ+bZtR46R48A4M6VUiPeHg6DuFMeACWLjqYl8orMOkvKxYv75yBS4
- nw2GoS9Ax4fS/NH4moyV1o6wPID0xnCzeeWuKi5Kq+QASrZhbbr8A101kp85gEhXZ9uh
- vWDC4DMP5GC6tWbGyDI8DPfIoELLU/EvB4globMapU0CuRO18oybA+JnQir00HETK9M/
- y2qDLsWOi9R9CaRZXxFlfcPCwtkLyG5htCr6FDzyq4ynIU61RosBC8ys1muA4pGRsnVb
- yLjvRmDFnroudQBybjDYTP0/nmxqGKCNMMayOlSS3/uq3xS/dIBitmxNXCFCxKasA6N2
- WIOg==
-X-Gm-Message-State: AOAM5319WG5pyvCZcE6D8UxGJnBbFwR3OHJoo8KKrKX97Q4jYSDRsTOw
- 3tqqW4uj4ttp4pG2gfc+/wsefGaV5vH5okQRpu4P+A==
-X-Google-Smtp-Source: ABdhPJzZmJ/UymdTn7PKAA7QJE2WqXkpVPyGxZB8LmuUohWRLn0nbQ4JIga6IOwlIPnkUyZ3qClwKuJDeYtT3QyLphw=
-X-Received: by 2002:a1c:41d6:: with SMTP id o205mr2020662wma.152.1603455765620; 
- Fri, 23 Oct 2020 05:22:45 -0700 (PDT)
+ bh=OgsYaNT7si4aUmj94LUjpDJPk7YDycSfzUdAI52Aub4=;
+ b=jseWAFbMq6TVO+m4Ci9vmTwMsxSJdqGTQC9mQE6K7m/B0tyzoRKN2hi4ESM2tw0+hp
+ 4t99qrnlqFkncGtKtrH3PsudZUdoqb3YT0ykRaCQI9/g9v1rM68lh8eP0WaTbU7MFunp
+ IRfZERGRX5A4bSuPYh9M9MA7W+WxDpALvh4qy2TN9UdwIl2Wdumfwmg3QxNsdaAsQVps
+ 9sk+a3rgeiTQncxwzjeOYF0ChAl+/olqVwPToKdmWoisyPUOmK3ytXKq6jhlWlrxJabN
+ KnflyP23HLHx4n51nU5rIek9U3lTmN5Vc2V1r0lhyfEUb3Nf2cS2I5mCc/vIYW5XYbaE
+ ptvg==
+X-Gm-Message-State: AOAM533S88OZVHE2hdLSB8YDDusmYwdRZzdscX47emIuDm3ZXwxnDRtE
+ Gmq6OjJKA+7spHxt5q4HevudTvjlaJLlqcbbVegJLQ==
+X-Google-Smtp-Source: ABdhPJzCrKXMDdLXDXqAEB5GIUv0k5E7npGAomI+NZQd7jBeyb84zmgrGhWm2O4AlDjcnRLEraHrM13t0zQVeTLIw5Y=
+X-Received: by 2002:a1c:6743:: with SMTP id b64mr1986488wmc.157.1603456287911; 
+ Fri, 23 Oct 2020 05:31:27 -0700 (PDT)
 MIME-Version: 1.0
 References: <1603448245-79429-1-git-send-email-guoren@kernel.org>
- <1603448245-79429-3-git-send-email-guoren@kernel.org>
-In-Reply-To: <1603448245-79429-3-git-send-email-guoren@kernel.org>
+In-Reply-To: <1603448245-79429-1-git-send-email-guoren@kernel.org>
 From: Anup Patel <anup@brainfault.org>
-Date: Fri, 23 Oct 2020 17:03:26 +0530
-Message-ID: <CAAhSdy3aOmUSY7x=BVVKCb5JD39H+_zOhBCuwgUxgtJLKqTrDw@mail.gmail.com>
-Subject: Re: [PATCH 3/3] irqchip/irq-sifive-plic: Fixup set_affinity enable
- irq unexpected
+Date: Fri, 23 Oct 2020 17:12:09 +0530
+Message-ID: <CAAhSdy1rqZBt5LSgs9yQwewwKXvaS23ou5Ah7Xfu3n7S9sK6RA@mail.gmail.com>
+Subject: Re: [PATCH 1/3] irqchip/irq-sifive-plic: Fixup wrong size of
+ xxx_PER_HART and reg base
 To: Guo Ren <guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201023_082247_036892_F54A8052 
-X-CRM114-Status: GOOD (  24.15  )
+X-CRM114-CacheID: sfid-20201023_083129_046535_E458D8CA 
+X-CRM114-Status: GOOD (  22.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -109,103 +108,79 @@ On Fri, Oct 23, 2020 at 3:48 PM <guoren@kernel.org> wrote:
 >
 > From: Guo Ren <guoren@linux.alibaba.com>
 >
-> For PLIC, we only have enable registers to control per hart's irq
-> affinity and irq_set_affinity would call plic_irq_toggle to enable
-> the IRQ's routing. So we can't enable irq in irq_domain_map before
-> request_irq, it'll let uninitialized devices' irq exception.
+> ENABLE and CONTEXT registers contain M & S status for per-hart, so
+> ref to the specification the correct definition is double to the
+> current value.
 >
-> The solution is to check the irq has been enabled, just like what
-> irq-gic-v3 has done in gic_set_affinity.
+> The value of hart_base and enable_base should be calculated by real
+> physical hartid not software id. Sometimes the CPU node's <reg>
+> from dts is not equal to the sequence index.
 >
 > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 > ---
->  drivers/irqchip/irq-sifive-plic.c | 45 ++++++++++++++++++++++++++++++++++++---
->  1 file changed, 42 insertions(+), 3 deletions(-)
+>  drivers/irqchip/irq-sifive-plic.c | 12 ++++++------
+>  1 file changed, 6 insertions(+), 6 deletions(-)
 >
 > diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-> index 0003322..1a63859 100644
+> index eaa3e9f..2e56576 100644
 > --- a/drivers/irqchip/irq-sifive-plic.c
 > +++ b/drivers/irqchip/irq-sifive-plic.c
-> @@ -130,6 +130,36 @@ static void plic_irq_mask(struct irq_data *d)
->  }
+> @@ -44,16 +44,16 @@
+>   * Each hart context has a vector of interrupt enable bits associated with it.
+>   * There's one bit for each interrupt source.
+>   */
+> -#define ENABLE_BASE                    0x2000
+> -#define     ENABLE_PER_HART            0x80
+> +#define ENABLE_BASE                    0x2080
+> +#define     ENABLE_PER_HART            0x100
 >
->  #ifdef CONFIG_SMP
-> +static inline bool plic_toggle_is_enabled(struct plic_handler *handler,
-> +                                               int hwirq)
-> +{
-> +       u32 __iomem *reg = handler->enable_base + (hwirq / 32) * sizeof(u32);
-> +       u32 hwirq_mask = 1 << (hwirq % 32);
-> +
-> +       if (readl(reg) & hwirq_mask)
-> +               return true;
-> +       else
-> +               return false;
-> +}
-> +
-> +static inline bool plic_irq_is_enabled(const struct cpumask *mask,
-> +                                  struct irq_data *d)
-> +{
-> +       int cpu;
-> +
-> +       for_each_cpu(cpu, mask) {
-> +               struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
-> +
-> +               if (!handler->present)
-> +                       continue;
-> +
-> +               if (plic_toggle_is_enabled(handler, d->hwirq))
-> +                       return true;
-> +       }
-> +
-> +       return false;
-> +}
-> +
->  static int plic_set_affinity(struct irq_data *d,
->                              const struct cpumask *mask_val, bool force)
->  {
-> @@ -141,8 +171,10 @@ static int plic_set_affinity(struct irq_data *d,
+>  /*
+>   * Each hart context has a set of control registers associated with it.  Right
+>   * now there's only two: a source priority threshold over which the hart will
+>   * take an interrupt, and a register to claim interrupts.
+>   */
+> -#define CONTEXT_BASE                   0x200000
+> -#define     CONTEXT_PER_HART           0x1000
+> +#define CONTEXT_BASE                   0x201000
+> +#define     CONTEXT_PER_HART           0x2000
+>  #define     CONTEXT_THRESHOLD          0x00
+>  #define     CONTEXT_CLAIM              0x04
 >
->         irq_data_update_effective_affinity(d, &amask);
->
-> -       plic_irq_toggle(&priv->lmask, d, 0);
-> -       plic_irq_toggle(&amask, d, 1);
-> +       if (plic_irq_is_enabled(&priv->lmask, d)) {
-> +               plic_irq_toggle(&priv->lmask, d, 0);
-> +               plic_irq_toggle(&amask, d, 1);
-> +       }
->
->         return IRQ_SET_MASK_OK_DONE;
->  }
-> @@ -168,12 +200,19 @@ static struct irq_chip plic_chip = {
->  static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
->                               irq_hw_number_t hwirq)
->  {
-> +       unsigned int cpu;
->         struct plic_priv *priv = d->host_data;
->
->         irq_domain_set_info(d, irq, hwirq, &plic_chip, d->host_data,
->                             handle_fasteoi_irq, NULL, NULL);
->         irq_set_noprobe(irq);
-> -       irq_set_affinity(irq, &priv->lmask);
-> +
-> +       cpu = cpumask_any_and(&priv->lmask, cpu_online_mask);
-> +       if (WARN_ON_ONCE(cpu >= nr_cpu_ids))
-> +               return -EINVAL;
-> +
-> +       irq_set_affinity(irq, cpumask_of(cpu));
-> +
->         return 0;
->  }
->
+> @@ -358,10 +358,10 @@ static int __init plic_init(struct device_node *node,
+>                 cpumask_set_cpu(cpu, &priv->lmask);
+>                 handler->present = true;
+>                 handler->hart_base =
+> -                       priv->regs + CONTEXT_BASE + i * CONTEXT_PER_HART;
+> +                       priv->regs + CONTEXT_BASE + hartid * CONTEXT_PER_HART;
+>                 raw_spin_lock_init(&handler->enable_lock);
+>                 handler->enable_base =
+> -                       priv->regs + ENABLE_BASE + i * ENABLE_PER_HART;
+> +                       priv->regs + ENABLE_BASE + hartid * ENABLE_PER_HART;
+>                 handler->priv = priv;
+>  done:
+>                 for (hwirq = 1; hwirq <= nr_irqs; hwirq++)
 > --
 > 2.7.4
 >
 
-Greentime (SiFive) has already proposed a patch to fix this.
-Refer, https://lkml.org/lkml/2020/10/20/188
+There is no one-to-one mapping between PLIC context and HARTID. Instead,
+we have many-to-one mapping between PLIC contexts and HARTID. In other
+words, we have one PLIC context for each interrupt capable mode (i.e.
+M/S-mode) of each HART.
 
-Only the plic_irqdomain_map() change which sets the correct
-default affinity looks good to me.
+For example, on SiFive Unleashed we have 5 HARTs but HARTID=0 has
+only M-mode capable of taking interrupts so we have total (1 + 2x4) = 9
+PLIC contexts.
+
+I would also like to highlight that this patch is forcing PLIC driver to always
+use PLIC S-mode context for each HART which breaks the Linux RISC-V
+NoMMU kernel.
+
+There is no issue with the existing defines because these are aligned with
+above and latest PLIC spec.
+(Refer, https://github.com/riscv/riscv-plic-spec/blob/master/riscv-plic.adoc)
+
+NACK to this patch from my side.
 
 Regards,
 Anup
