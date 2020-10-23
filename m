@@ -2,117 +2,84 @@ Return-Path: <SRS0=wzy2=D6=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3A3D8C55178
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2020 11:56:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E8A31C4363A
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2020 12:17:23 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B14FC20857
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2020 11:56:06 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id EECB82072E
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2020 12:17:21 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="kt+EO3Wo";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=osportal.onmicrosoft.com header.i=@osportal.onmicrosoft.com header.b="ZLYqbKhk"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B14FC20857
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=openfive.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="DgZ1Dpv6";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="GPfFzo6w"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EECB82072E
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:Message-ID:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=WfW2XrHfAPdZcAXp5a/b1FWLy+y/9/Cotnxhphvu/Uk=; b=kt+EO3WoflTT445dA7vDFJSiO
-	r6ub9xnJsTCTAA6GKMpmLTgmC40IU2if/EJr0rUC8Yk5/ojRH+79uQTmjCW9/XrXJ9KO/QCx1i3vt
-	wKgvfI7xNcuoT40sy6+wk2FoVEGGtpAAN2bN2essuns2HomRfbu+8LFTreOUNZj0+Q3LWvuAE5jax
-	REplQQAkF/PlB7X3pIFjgguAlWa9vQQZ1I7HxBmBv5vp9M6IsnomYG8ckf4dHdDdlBhAOjc+p63EM
-	R6aNdiUPHN609AtR0d5A+UMDHRAicOqdqa3N7owqhrjnNdmUjfnDb5GoCrrc7hxsmcV99XAuO2UjS
-	9OReHyTeg==;
+	 bh=KmUiv5KWm03ztXg7TS6MAR4gfh8+dLt99CvgPIBh8Bs=; b=DgZ1Dpv62jGenIi3fc1MWgL7V
+	nhPV+Nc0MJG4Tf9ZoMErrYamxdxTEAQcDSHvFbSSzwXLENk1PDYNVz5IKgNQA6XLWPYPHCxWAVSJ5
+	rL0/n4hfzTMUiT9vy5cLoHZ7+RvO54xEezSI08i6KrRZyQ1/bs//JyERn/8pWMrI4mestQcbnL6O1
+	sUxARCPxmIkpSWLFzSQFaxFAuiTSOnup5Bh1g6rO5a+b4CsXeXgT7nZX4/iaBk1eQUC3V/++Qls7Z
+	WP300Ui4nwBdCoqotaqp2bnYWwTi31WhIyFbVVog1PhHl+iWBp4fNaNUTyLaMaqJzhhpqYX0BKGhQ
+	sV9HbyIew==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kVvfh-0005V6-D1; Fri, 23 Oct 2020 11:55:49 +0000
-Received: from mail-mw2nam12on2089.outbound.protection.outlook.com
- ([40.107.244.89] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1kVw0H-00078V-RI; Fri, 23 Oct 2020 12:17:05 +0000
+Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kVvff-0005UW-1H
- for linux-riscv@lists.infradead.org; Fri, 23 Oct 2020 11:55:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=dFoyXX0202XW39BtDs/nQyxlR8zt3ciwdUh/ry6nJf9zoxxsVdn8sIgS6bDEENIHZxvUjhceiWXyL0H9J/oPvoYy0qQXpA/SEDMWno1gxfGa0buDtlJrLE6dupZo2d4vN412cc/8iGK6k2+/Ag7HE8b29Hd6ffp6WWq0reuTPtHxXPEXr69HxNEw0cHKUOR3HvO/WpHMsMgv82D99jkq/bfYKYE1T2karMYVP4dsezzYMnDngRbA2bOLrGQxgpV3IKSheI/Kenrq8aYPRSBAXL9c46epzxuuzjOzxAAbkBEBulO0V85+7Wbdey+Ta/QB1ra8xolT0YkoJaSi6QXk3Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=u0euzpuP/yQw3OXNe0cGV0NjIlp8Yi4yW9tleski8gc=;
- b=SZ7q9b9GiQGXP4XNjyVyWG5TXwboocZbGMUtDZaqtuc6KXNHjuTB9t3JTs8trDQrhyG9DEUPlg877qEubYCtmJ8VxCLPiu0XNbINS0ukW3Efpmsm5hVDaHgphtceZHcf0dpHVRTEoNrqooBf7uAkhOUfu9KuM/nProvW+unNqKD39DfElrKT83sLnEKEPyxCFnDS/sQQE1wcmklbpcS4GCIEJRmk+Pwd4opWPMZxzJR03pTRFMuDdYY1h/6P93Uhf+2FY/Vq9GxAnydxdulBHCwoiUmPHMoylNso94IK+hn9NPklWRtEvwhyN+UNnL1ZQF+rjsPeZQlx8E9xDTkZ4A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=openfive.com; dmarc=pass action=none header.from=openfive.com;
- dkim=pass header.d=openfive.com; arc=none
+ id 1kVw0G-00077z-1L
+ for linux-riscv@lists.infradead.org; Fri, 23 Oct 2020 12:17:04 +0000
+Received: by mail-wr1-x443.google.com with SMTP id n6so1533300wrm.13
+ for <linux-riscv@lists.infradead.org>; Fri, 23 Oct 2020 05:17:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=osportal.onmicrosoft.com; s=selector2-osportal-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=u0euzpuP/yQw3OXNe0cGV0NjIlp8Yi4yW9tleski8gc=;
- b=ZLYqbKhkAKZUmqG2hprETe7JEhb3KVMVxnccWfl/7EUE5hhxj5iK1GC++lsfi2yJPwdjjvrklezIkxWiOIGs8Oi9GRpX9lJKL2kCIT1PAneMwO9nRzRVyMVtzZESd0H4tJyQufg0jeT/n1C6Gu4/3Xa4ceo5vTa8EI6ppZvn5gg=
-Received: from DM6PR13MB3451.namprd13.prod.outlook.com (2603:10b6:5:1c3::10)
- by DM5PR13MB1164.namprd13.prod.outlook.com (2603:10b6:3:6f::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3499.7; Fri, 23 Oct
- 2020 11:55:38 +0000
-Received: from DM6PR13MB3451.namprd13.prod.outlook.com
- ([fe80::f49f:d6d6:4c97:e5d5]) by DM6PR13MB3451.namprd13.prod.outlook.com
- ([fe80::f49f:d6d6:4c97:e5d5%7]) with mapi id 15.20.3499.017; Fri, 23 Oct 2020
- 11:55:38 +0000
-From: Sagar Kadam <sagar.kadam@openfive.com>
-To: Peter Korsgaard <peter@korsgaard.com>
-Subject: RE: [PATCH v4 1/1] i2c: ocores: fix polling mode workaround on
- FU540-C000 SoC
-Thread-Topic: [PATCH v4 1/1] i2c: ocores: fix polling mode workaround on
- FU540-C000 SoC
-Thread-Index: AQHWp7mCMMY56WVnp06VcwClNA/CpKmiM0MCgALidpA=
-Date: Fri, 23 Oct 2020 11:55:38 +0000
-Message-ID: <DM6PR13MB3451537F5778BCE2E1210D53971A0@DM6PR13MB3451.namprd13.prod.outlook.com>
-References: <1603291814-240377-1-git-send-email-sagar.kadam@sifive.com>
- <1603291814-240377-2-git-send-email-sagar.kadam@sifive.com>
- <87k0vjk2ek.fsf@dell.be.48ers.dk>
-In-Reply-To: <87k0vjk2ek.fsf@dell.be.48ers.dk>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: korsgaard.com; dkim=none (message not signed)
- header.d=none; korsgaard.com; dmarc=none action=none header.from=openfive.com; 
-x-originating-ip: [2402:8100:3003:ebdd:4046:b251:3bfd:6e4a]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 57899e2e-6604-46d0-39ed-08d8774a8ef3
-x-ms-traffictypediagnostic: DM5PR13MB1164:
-x-ld-processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
-x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <DM5PR13MB1164FCC2006A1FAD39B7718B971A0@DM5PR13MB1164.namprd13.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:765;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: KzFmsn70dTcEFrOc70bcQfKQxo3A0Lt8csoJCNjgKqKBYOs9f25LIzHgeFeVzDNmJ5vtPyF7uHTF54SWuOcOjPTMPtgYq8DSh3y3i8osJVdJOK19T4XWrM0ttFY/g9ZZfmvc7RCqHO+MDvpHg6vYpo2RwKeDTWT0adyMqvOWP4g6QJklxBIUDgsfw6UK0K7Cfs10KJrvyrI4lTFaczUp49H+lceSPQJ7Kbwi2YoXGLxWO8GyKRA27kP4ja9n10jWno1FxlCgIjKItulFc4EZBYGZp1A7t0yagWWgGyJ/unKLZw5b4Z5weuy/4txpBd2cju8gzVSlmEtBZ2oMtyru5g==
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:DM6PR13MB3451.namprd13.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(346002)(376002)(366004)(136003)(396003)(39840400004)(86362001)(44832011)(9686003)(2906002)(64756008)(71200400001)(5660300002)(66446008)(66556008)(66946007)(66476007)(33656002)(76116006)(52536014)(83380400001)(316002)(6916009)(8676002)(55016002)(478600001)(54906003)(6506007)(186003)(4326008)(7696005)(8936002)(53546011);
- DIR:OUT; SFP:1101; 
-x-ms-exchange-antispam-messagedata: r9agTzy7P2m1OlRymy7OOtG+sKJ/bkU72jNBAvrvc89+pkUzoAGXVh000xtUx/hokQ2MEqG9DiJgEai2bUHxseG889XxQUEG2GVamlFzOu+LGuUm9cjWUze8Z5NG8sBZ4/JN6VRuEOjjPV7ROdLrNi9R4GQ3WJYKIWwP4WkA9QWd/rSjED2QVz2/RW7a/h5I3LYM2/OT6rgkjhMuqOGUJNQ7BhseANhPisfPIKJEBsA2TimXA7OMjr7V1Jy2W/RAFYR5YhYeDakt50dg/G5VK0XAnzaA8l3ZbROj/hApFjjG4fptyzaJwtsNMsO21fi7kWNg8C5al6Ax6e/gF05WjaeTYJhgmerJ/H76xGvs+XVKzFoZqH8N5YEBVZVahP2I+nLKqSM8UvVmUTTwst5WhHuRtyeKIOf0yz+K/15/jMsRCf6DrKWhQXpM2dQ88A9LdjIOgsmWrtclO8812QyM1V27d8YVJrUVtvU2mSiVmNlVZs8C2CKDWFOla/bpNZG6PWfepue+w9o4DK5+5z6bTiOtR7FUasyMJ8ezwIUNbCwmq63mAyc+9DIL82OI9J9OsRJq5udyeXDHHu+FXQK5rgFWMxynkO1RHbGM0mfD1eM6B6PsRTZ+9MDyG2HS8fJdXzw0T5Sr3RbkRrUlhHvQCkREedlie/fO3JDTyEs5xxwI8Bew/iQ1qzn3cFP3CYml3pJdCfRFEgXSVZwvYpViqw==
+ d=brainfault-org.20150623.gappssmtp.com; s=20150623;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=7/Fm6XaJlnf+0GZcokzUQVnv0XVQ9vwBMmUnKtUMoVY=;
+ b=GPfFzo6wzNR5nULW/kco1+wYGucDFxTXnF/4x5Fhckacdc5uoFBSkDMSuf4m0I5zkp
+ HVI7LtmdOiU0OpBhxqw1chCau8Q4g9r8Ahft4HuJd1NPHaBFC6y+arE2iizxUmix5uYG
+ T7k8W1zPkCqJ7DwX7SPhfKYstXMV1s40rsq6jNYabfCT5hP0tReLgj4FjOdB3Ew5HyOv
+ wXR/Z5QsyGssiHTL/flxO/4d33gFqUGlglolQxG9zzKhZ64N4L/P4el7XjI0iJc4ANEp
+ O4+x+kXfpLTgZQXn116vT58EW16z5tWJN5GvwSZV70TOSyqPyYvIjVrN40j8tPoI37J2
+ MFVw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=7/Fm6XaJlnf+0GZcokzUQVnv0XVQ9vwBMmUnKtUMoVY=;
+ b=GHqWR0drLGbOiQXjX1/voFFHAwQBQFVsulTHfDDf3QLpkXBqCiV0S4nTIVIpl2kyLW
+ +aQmqocdli2dAavVELO1aidLK4o0u1PnriMi/hrrp0TR6apwS5AWNm5QZvx0UsMNRR0G
+ TP/S4fga4UlOpocDPQ1a85cLSbb7D/HmQkNo41+CpOlFe70ePmbBR6LC3LAinkTXaIaT
+ nf1ApdeONlo18Gbv5srqcTvoiND9/8g5azv5tFGX1JxmJDbvjf8CCIXCWIG5/lVQdUyN
+ NuRVSE1Ys8SifwOS4N/o6rghggzW6xcvGz/9S3nnlfnggrRrx3ftUZim+wXZHU1R0Iwj
+ Yfcw==
+X-Gm-Message-State: AOAM5300EpNQIwgNvEoPTMmUi12FUfPq41i1/59Yvm6LaRCaYaYpF5OO
+ zH53fBL33FOKpvElSu6MKPi3Y2aDhf8SY46FlY8fHQ==
+X-Google-Smtp-Source: ABdhPJzL5F1aOLgTEEtR6hKrRFXkK5t7ulAjkYe//QYMi/EC1tUVESIcHmYJcmmKVM69YJLF5YNLmhKj8ITc0YhyLFc=
+X-Received: by 2002:a5d:6681:: with SMTP id l1mr2348523wru.356.1603455421182; 
+ Fri, 23 Oct 2020 05:17:01 -0700 (PDT)
 MIME-Version: 1.0
-X-OriginatorOrg: openfive.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR13MB3451.namprd13.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 57899e2e-6604-46d0-39ed-08d8774a8ef3
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Oct 2020 11:55:38.1086 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: ogZ+FgWT+aRWqQVyMO78/VKsVeQ1+7man37YnxChJDVoIwo67BYct9Be9+Wl6Uj3t3U1AnoB0v+aFoKqohAPLQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM5PR13MB1164
+References: <1603448245-79429-1-git-send-email-guoren@kernel.org>
+ <1603448245-79429-2-git-send-email-guoren@kernel.org>
+In-Reply-To: <1603448245-79429-2-git-send-email-guoren@kernel.org>
+From: Anup Patel <anup@brainfault.org>
+Date: Fri, 23 Oct 2020 16:57:41 +0530
+Message-ID: <CAAhSdy120ZR4ZbkHo8Us+CugaeegSR6iFu9jgHPuyvDAQwnOhQ@mail.gmail.com>
+Subject: Re: [PATCH 2/3] irqchip/irq-sifive-plic: Fixup couldn't broadcast to
+ multi CPUs
+To: Guo Ren <guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201023_075547_195198_F35B6FAD 
-X-CRM114-Status: GOOD (  15.87  )
+X-CRM114-CacheID: sfid-20201023_081704_203610_264F951E 
+X-CRM114-Status: GOOD (  19.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -124,61 +91,100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "andrew@lunn.ch" <andrew@lunn.ch>,
- "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "palmer@dabbelt.com" <palmer@dabbelt.com>,
- "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
- "Paul Walmsley \( Sifive\)" <paul.walmsley@sifive.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Cc: Guo Ren <guoren@linux.alibaba.com>, Jason Cooper <jason@lakedaemon.net>,
+ wesley@sifive.com, Marc Zyngier <maz@kernel.org>,
+ Palmer Dabbelt <palmerdabbelt@google.com>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Atish Patra <atish.patra@wdc.com>, Yash Shah <yash.shah@sifive.com>,
+ Zong Li <zong.li@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Greentime Hu <greentime.hu@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Christoph Hellwig <hch@lst.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello Peter,
-
-> -----Original Message-----
-> From: Peter Korsgaard <jacmet@gmail.com> On Behalf Of Peter Korsgaard
-> Sent: Wednesday, October 21, 2020 9:16 PM
-> To: Sagar Kadam <sagar.kadam@openfive.com>
-> Cc: linux-kernel@vger.kernel.org; linux-riscv@lists.infradead.org; linux-
-> i2c@vger.kernel.org; andrew@lunn.ch; Paul Walmsley ( Sifive)
-> <paul.walmsley@sifive.com>; palmer@dabbelt.com;
-> aou@eecs.berkeley.edu
-> Subject: Re: [PATCH v4 1/1] i2c: ocores: fix polling mode workaround on
-> FU540-C000 SoC
-> 
-> [External Email] Do not click links or attachments unless you recognize the
-> sender and know the content is safe
-> 
-> >>>>> "Sagar" == Sagar Shrikant Kadam <sagar.kadam@sifive.com> writes:
-> 
->  > The FU540-C000 has a broken IRQ and support was added earlier
->  > so that it will operate in polling mode, but seems to work only
->  > in case interrupts property is missing from the i2c0 dt-node.
->  > This should not be the case and the driver should handle polling
->  > mode with the interrupt property present in i2c0 node of the
->  > device tree.
->  > So check if it's the FU540-C000 soc and enable polling mode master
->  > xfers, as the IRQ for this chip is broken.
-> 
->  > Fixes commit c45d4ba86731 ("i2c: ocores: add polling mode workaround
->  > for Sifive FU540-C000 SoC")
-> 
->  > Signed-off-by: Sagar Shrikant Kadam <sagar.kadam@sifive.com>
-> 
-> LGTM, thanks.
-> 
-> Acked-by: Peter Korsgaard <peter@korsgaard.com>
-> 
-
-Thank you for the review and "Acked-by"
-
-BR,
-Sagar
+On Fri, Oct 23, 2020 at 3:48 PM <guoren@kernel.org> wrote:
+>
+> From: Guo Ren <guoren@linux.alibaba.com>
+>
+> If "echo 3 > /proc/irq/1/smp_affinity", we want irq 1 could be
+> broadcast to CPU0 & CPU1 and one of them would pick up the irq
+> handler.
+>
+> But current implementation couldn't let multi CPUs process the
+> same IRQ concurrent.
+>
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> ---
+>  drivers/irqchip/irq-sifive-plic.c | 23 ++++++-----------------
+>  1 file changed, 6 insertions(+), 17 deletions(-)
+>
+> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+> index 2e56576..0003322 100644
+> --- a/drivers/irqchip/irq-sifive-plic.c
+> +++ b/drivers/irqchip/irq-sifive-plic.c
+> @@ -114,15 +114,12 @@ static inline void plic_irq_toggle(const struct cpumask *mask,
+>  static void plic_irq_unmask(struct irq_data *d)
+>  {
+>         struct cpumask amask;
+> -       unsigned int cpu;
+>         struct plic_priv *priv = irq_get_chip_data(d->irq);
+>
+>         cpumask_and(&amask, &priv->lmask, cpu_online_mask);
+> -       cpu = cpumask_any_and(irq_data_get_affinity_mask(d),
+> -                                          &amask);
+> -       if (WARN_ON_ONCE(cpu >= nr_cpu_ids))
+> -               return;
+> -       plic_irq_toggle(cpumask_of(cpu), d, 1);
+> +       cpumask_and(&amask, &amask, irq_data_get_affinity_mask(d));
+> +
+> +       plic_irq_toggle(&amask, d, 1);
+>  }
+>
+>  static void plic_irq_mask(struct irq_data *d)
+> @@ -136,24 +133,16 @@ static void plic_irq_mask(struct irq_data *d)
+>  static int plic_set_affinity(struct irq_data *d,
+>                              const struct cpumask *mask_val, bool force)
+>  {
+> -       unsigned int cpu;
+>         struct cpumask amask;
+>         struct plic_priv *priv = irq_get_chip_data(d->irq);
+>
+>         cpumask_and(&amask, &priv->lmask, mask_val);
+> +       cpumask_and(&amask, &amask, cpu_online_mask);
+>
+> -       if (force)
+> -               cpu = cpumask_first(&amask);
+> -       else
+> -               cpu = cpumask_any_and(&amask, cpu_online_mask);
+> -
+> -       if (cpu >= nr_cpu_ids)
+> -               return -EINVAL;
+> +       irq_data_update_effective_affinity(d, &amask);
+>
+>         plic_irq_toggle(&priv->lmask, d, 0);
+> -       plic_irq_toggle(cpumask_of(cpu), d, 1);
+> -
+> -       irq_data_update_effective_affinity(d, cpumask_of(cpu));
+> +       plic_irq_toggle(&amask, d, 1);
+>
+>         return IRQ_SET_MASK_OK_DONE;
+>  }
 > --
-> Bye, Peter Korsgaard
+> 2.7.4
+>
+
+In the past, a similar patch was proposed by Zong Li (SiFive). We
+have good reasons to not allow multiple CPUs handle the same IRQ.
+
+Refer, https://lkml.org/lkml/2020/4/26/201
+
+NACK from my side.
+
+Regards,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
