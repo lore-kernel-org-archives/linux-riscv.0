@@ -2,58 +2,68 @@ Return-Path: <SRS0=wzy2=D6=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no
+X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 135E5C388F9
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2020 06:50:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2CAD2C55179
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2020 10:18:33 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 909FD2223F
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2020 06:50:37 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A8A3F24631
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 Oct 2020 10:18:32 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="yTGMeb36"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 909FD2223F
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lst.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="nt9n7q1z";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="FXVNjYYN"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A8A3F24631
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=fKnPFlKV9ni1gXrqbIys/Lwum8qfOVQrgXNQOBioFHc=; b=yTGMeb369UvCYx1V/BXeu+B8w
-	ZZG8X2fEvrA44F6bX8oGBaxnC4cqDFSROLvV7f0eK+crrLYbbivgQeAo2ShPzn1k7Q0Uw6RRDTnNM
-	CCOJz/xp7om3QZZtCBTqjirpr87WtUzEJOizMX1L6Ftfpt/ubPBq5bEZ9i0QhQUdusw5BMcNuftrl
-	pVYLcKgLBJOWFyaAwMdIYljRiYcrZqJh0puDwVBi5d4xjEaq5S1FS/+ChSILBRsPEM6IN56rqobQL
-	6gdG318uKxBLeOLkG2Qrj3FuRoerseGBVZjqKkQd9R9XH5WaZ3MivK50t1eeIFgMEpxDUqzgjEu/E
-	ObqEcu7Ug==;
+	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KJrc09DfUrMklVU9zuNVYpnH5me6/LVyAdaNecmTEqY=; b=nt9n7q1zpMuP0hb+QpinQx95OB
+	/mRQh8aW/xhtTh5XyzJy1ujLSiQbGuZq9Gu1UFSDMT4XgdAdMqJ5zJE4ReRSlRBtLnfsT65yGhM+d
+	+VuQPMOJcmdwp1WSz9/ZQJIajkZ2bwnnRB9WdGlM/YlK9x3+w81pqWOQcGlCrOS7GN9v8v03RWMrz
+	e3keWwJgcSrq0+I+cZNmlyN98yhqU1r7b5hYg6xIVIgTPw3RtUBPscfkUVYQ11CozjU0pd2BwkD3v
+	53ONJ6GCBGVUTddEHrxSTTqQmFWJnMYclR0kBNnScWuBJL7/glmdOVLP1V7DsyK/FHfCS7RS236pA
+	RLa7vTxw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kVqtv-0007TR-71; Fri, 23 Oct 2020 06:50:11 +0000
-Received: from verein.lst.de ([213.95.11.211])
+	id 1kVu9N-0002YY-EF; Fri, 23 Oct 2020 10:18:21 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kVqtp-0007Rk-FB; Fri, 23 Oct 2020 06:50:06 +0000
-Received: by verein.lst.de (Postfix, from userid 2407)
- id B09E267373; Fri, 23 Oct 2020 08:49:58 +0200 (CEST)
-Date: Fri, 23 Oct 2020 08:49:58 +0200
-From: Christoph Hellwig <hch@lst.de>
-To: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
-Subject: Re: [PATCH v4 7/7] mm: Remove examples from enum zone_type comment
-Message-ID: <20201023064958.GA30209@lst.de>
-References: <20201021123437.21538-1-nsaenzjulienne@suse.de>
- <20201021123437.21538-8-nsaenzjulienne@suse.de>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20201021123437.21538-8-nsaenzjulienne@suse.de>
-User-Agent: Mutt/1.5.17 (2007-11-01)
+ id 1kVu9K-0002XU-R9
+ for linux-riscv@lists.infradead.org; Fri, 23 Oct 2020 10:18:19 +0000
+Received: from localhost.localdomain (unknown [42.120.72.66])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 708DE20936;
+ Fri, 23 Oct 2020 10:18:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1603448297;
+ bh=BV1tH2U1Lsosw+Ugkhs7glTIjtqVDoAJop9TuiKHT44=;
+ h=From:To:Cc:Subject:Date:From;
+ b=FXVNjYYNeEGZSvIhl4SuHitDKUsn6hlGW8Wg42BMzw7N0bBGFCQQcXhfA83VUXfh9
+ PWbmy5NXe2PNDWiHSzBy2/Ktf60A1UV7UDxoKHO6LjuY2r1O41pscRE2LB20gp4Wkb
+ MSAAeYE9mUg2sG/WR0ot+g2CIOxzKRiblzgHdqDM=
+From: guoren@kernel.org
+To: palmerdabbelt@google.com, paul.walmsley@sifive.com, anup@brainfault.org,
+ greentime.hu@sifive.com, zong.li@sifive.com, atish.patra@wdc.com,
+ tglx@linutronix.de, jason@lakedaemon.net, maz@kernel.org,
+ wesley@sifive.com, yash.shah@sifive.com, hch@lst.de
+Subject: [PATCH 1/3] irqchip/irq-sifive-plic: Fixup wrong size of xxx_PER_HART
+ and reg base
+Date: Fri, 23 Oct 2020 10:17:23 +0000
+Message-Id: <1603448245-79429-1-git-send-email-guoren@kernel.org>
+X-Mailer: git-send-email 2.7.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201023_025005_703556_1FF5DF1E 
-X-CRM114-Status: UNSURE (   6.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20201023_061819_022959_1302A770 
+X-CRM114-Status: GOOD (  11.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -65,22 +75,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- Albert Ou <aou@eecs.berkeley.edu>, will@kernel.org, catalin.marinas@arm.com,
- guohanjun@huawei.com, linux-kernel@vger.kernel.org, jeremy.linton@arm.com,
- ardb@kernel.org, linux-mm@kvack.org, iommu@lists.linux-foundation.org,
- robh+dt@kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-rpi-kernel@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>,
- lorenzo.pieralisi@arm.com, Andrew Morton <akpm@linux-foundation.org>,
- robin.murphy@arm.com, hch@lst.de, linux-arm-kernel@lists.infradead.org
+Cc: linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>,
+ guoren@kernel.org, linux-kernel@vger.kernel.org
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Looks good,
+From: Guo Ren <guoren@linux.alibaba.com>
 
-Reviewed-by: Christoph Hellwig <hch@lst.de>
+ENABLE and CONTEXT registers contain M & S status for per-hart, so
+ref to the specification the correct definition is double to the
+current value.
+
+The value of hart_base and enable_base should be calculated by real
+physical hartid not software id. Sometimes the CPU node's <reg>
+from dts is not equal to the sequence index.
+
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+---
+ drivers/irqchip/irq-sifive-plic.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+index eaa3e9f..2e56576 100644
+--- a/drivers/irqchip/irq-sifive-plic.c
++++ b/drivers/irqchip/irq-sifive-plic.c
+@@ -44,16 +44,16 @@
+  * Each hart context has a vector of interrupt enable bits associated with it.
+  * There's one bit for each interrupt source.
+  */
+-#define ENABLE_BASE			0x2000
+-#define     ENABLE_PER_HART		0x80
++#define ENABLE_BASE			0x2080
++#define     ENABLE_PER_HART		0x100
+ 
+ /*
+  * Each hart context has a set of control registers associated with it.  Right
+  * now there's only two: a source priority threshold over which the hart will
+  * take an interrupt, and a register to claim interrupts.
+  */
+-#define CONTEXT_BASE			0x200000
+-#define     CONTEXT_PER_HART		0x1000
++#define CONTEXT_BASE			0x201000
++#define     CONTEXT_PER_HART		0x2000
+ #define     CONTEXT_THRESHOLD		0x00
+ #define     CONTEXT_CLAIM		0x04
+ 
+@@ -358,10 +358,10 @@ static int __init plic_init(struct device_node *node,
+ 		cpumask_set_cpu(cpu, &priv->lmask);
+ 		handler->present = true;
+ 		handler->hart_base =
+-			priv->regs + CONTEXT_BASE + i * CONTEXT_PER_HART;
++			priv->regs + CONTEXT_BASE + hartid * CONTEXT_PER_HART;
+ 		raw_spin_lock_init(&handler->enable_lock);
+ 		handler->enable_base =
+-			priv->regs + ENABLE_BASE + i * ENABLE_PER_HART;
++			priv->regs + ENABLE_BASE + hartid * ENABLE_PER_HART;
+ 		handler->priv = priv;
+ done:
+ 		for (hwirq = 1; hwirq <= nr_irqs; hwirq++)
+-- 
+2.7.4
+
 
 _______________________________________________
 linux-riscv mailing list
