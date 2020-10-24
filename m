@@ -2,78 +2,87 @@ Return-Path: <SRS0=l2pG=D7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
+X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C138DC55179
-	for <linux-riscv@archiver.kernel.org>; Sat, 24 Oct 2020 03:39:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8F520C2D0A3
+	for <linux-riscv@archiver.kernel.org>; Sat, 24 Oct 2020 05:04:03 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E837321D43
-	for <linux-riscv@archiver.kernel.org>; Sat, 24 Oct 2020 03:39:19 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C981822254
+	for <linux-riscv@archiver.kernel.org>; Sat, 24 Oct 2020 05:04:02 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="lzkl1uIg";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="HnHE3LKN"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E837321D43
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ceqA4zkM";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.b="Ck8l79uK"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C981822254
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Zmi9jqf9mvtt528S6PBr1XhZN+/AY4klxhXXnGs2wl4=; b=lzkl1uIgmZGPK+A/fe6mCh+Jc
-	VwTd6VCXBGiDEJAov5q+bT1+iP2UkJwWN4QjhB9s4oDqPiy3JIjZKEfKdSSH+IMFDJQrUAxZ0dr4d
-	MBrSmpp/SAtTxgPpLxfA4ec6I+qjaUKC7n7dzKHL/Kh5jJbB2/2bf0eOTAMpA1FzJYRwmEOHC8MK/
-	vgHDGcflp4jVWnxpa6i/jYJnI7U5V5mhPw7ZIMRl3SUhwYvskctEavZE90aq5Ea9PlBMfW8i/amad
-	RhgrD9yqRxsB+o7yLFvYCjEHgv0ReYqfV4jaVk3jcJrstuIaTQ2CdkwCs5bqw0+26uCyXB8aasees
-	VFSDhlnGg==;
+	List-Unsubscribe:List-Id:To:From:MIME-Version:Message-Id:Date:Subject:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=34F2gi8a70bgQX6heHafUh301qd9H74ouPx0aDr1opk=; b=ceqA4zkMgYVLXx58fA3xtK5HZq
+	2pBTMmeC45Gan5Eacj4DUKlU3tiHI3lREcxkDyvn9t5Bbqe+sdbfUQwitRhN8L7VSIrPLgsB5yICZ
+	aaNjmpU/VIrJnXlirYP2aXgHsdmFb6ws3f1b9sahj1FiMkB/i//lj1tLZ3qKKcbcoGR7PHEv5dU4R
+	7ZJDGx51IhS87rBF71rYYGpIpu98OLndcvNS+FjIxYVxBFaP775GXs/vPUHa8kZEg9IY3omQLi7y0
+	gkmQLFmpXYYqsPXPKt3bAf9Blg9USYC44ruHLOG5ubb87/Nae8m3XZFvTbzzH8dg3H6/bNpB7pw+f
+	36iCh98Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kWAOR-00067W-Ng; Sat, 24 Oct 2020 03:38:59 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1kWBiO-0001Nq-S6; Sat, 24 Oct 2020 05:03:40 +0000
+Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kWAOM-00066r-N5
- for linux-riscv@lists.infradead.org; Sat, 24 Oct 2020 03:38:56 +0000
-Received: from mail-lj1-f175.google.com (mail-lj1-f175.google.com
- [209.85.208.175])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id F30052225E
- for <linux-riscv@lists.infradead.org>; Sat, 24 Oct 2020 03:38:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1603510733;
- bh=YMEvV6dcm7AXyyY8ChedIM35amwdXFyfa+CzZQS9MyQ=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=HnHE3LKNsDzMMu0iWImTJUna+X9HmmVJG1IjwvSTCLQj3XaPgwExLsX+glRnjcLQ9
- bV4YUPoQXKICOdHSjxa/TSx1Yp1c+gNz1+p4ZN1D4c/Aa8yyshyZFKC2cxqyfttWSX
- kKnXCTsYHRn7zUj27u0yw48XhIcC6bQfYGGCxSj4=
-Received: by mail-lj1-f175.google.com with SMTP id 23so3664722ljv.7
- for <linux-riscv@lists.infradead.org>; Fri, 23 Oct 2020 20:38:52 -0700 (PDT)
-X-Gm-Message-State: AOAM533kCVvms+9qf0THJoLhoerAbYEtU6ofKVY+vOAiIjCUscywf5vT
- 192qsPPeuVZ37coH9yvySxTcwcFsGX2PdffiwFo=
-X-Google-Smtp-Source: ABdhPJwS47a6FTAP5XSOgGk7uEC69QnjfNkTN8FFkuqc3/SlH47dOWNVpu0Wmnq2yDK280vAeWi7bAn77duFmXouOKo=
-X-Received: by 2002:a2e:85c4:: with SMTP id h4mr1842690ljj.250.1603510731255; 
- Fri, 23 Oct 2020 20:38:51 -0700 (PDT)
+ id 1kWBiN-0001NT-82
+ for linux-riscv@lists.infradead.org; Sat, 24 Oct 2020 05:03:40 +0000
+Received: by mail-pl1-x641.google.com with SMTP id j5so2095497plk.7
+ for <linux-riscv@lists.infradead.org>; Fri, 23 Oct 2020 22:03:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+ h=subject:date:message-id:mime-version:content-transfer-encoding:cc
+ :from:to; bh=fSG6cPQ/PyomxWc/r6YhnXh3q/R6HLUA/aYpEpKSBuo=;
+ b=Ck8l79uKHhH5d1R9eiDBXANxD5n+Z3S1QMYyjI/kWssbthf2tFadAq+YDK0ai8qzy6
+ 1mxjmBKDNNq6hex7mwrbHJVIPC7mWu1/vk5yBORbG+92kdAHXTex2w94HTEaohwfgR8d
+ uxgp6HsO+uLU5p+z65lCPXsFEBR/cmFIf7k6Was9dAqh/fv+KXHB8/fvg6ofP0AihiBk
+ 22HKjXeSzk+sGIy3GptSK02d2mVaY9UrKfexw6c9sfeCq779CJumtbs5gfFxsga/C/PQ
+ rDcxj3J1O3TloaU6ntgRuN9TEYxdODyVPbpnHaDj1pYe69MgLoUC4vUcjUHnK71cRE92
+ peew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:subject:date:message-id:mime-version
+ :content-transfer-encoding:cc:from:to;
+ bh=fSG6cPQ/PyomxWc/r6YhnXh3q/R6HLUA/aYpEpKSBuo=;
+ b=HAln7n9IVpwzzX646ROINKEYVIJmxoR5kqIyv6MPuQSzzsyhVP2XgnadlagbrJIGAx
+ rPKOKOSowSEXStrP2v90+M2/9SZGl93+PliOoUFKvYJEmpliGAaBEjdwvMBaYfSfQ5Yk
+ SdXwtdUgTzGdpGkPGTnsjxS4cnsM8O9uRJEpAWCC13h4qkcjKat626q6x/D9aCimC9qP
+ c+e88bpXraYdcoajNoKW4VuMDKEL2P5QH2QzNq2cciI5he86fSO9JkomWR/dE0JqK6+R
+ ZrMDKOzn6bjlr/e/5F6xN+Z27OPoeu1cHvKCPKR/5CfEaWamcxwb4hAoW9OkxfQXNSaD
+ PUjA==
+X-Gm-Message-State: AOAM533dG5Xpor81nSNQFjYzh5s41EbZiy4+DKGFn8915NJUxLuXqHnV
+ 2gf0a5UqZLmDdHKdsqJkNZ2dtg==
+X-Google-Smtp-Source: ABdhPJxzEW3qBE2dkwpqCq7TWlywllpMxDCNVcvmeC0gCKtBgUJQ54A7hsOy6xsSkJfdnTgOSoz/Yw==
+X-Received: by 2002:a17:90a:f187:: with SMTP id
+ bv7mr6886050pjb.198.1603515814166; 
+ Fri, 23 Oct 2020 22:03:34 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id w19sm3899261pfn.174.2020.10.23.22.03.33
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 23 Oct 2020 22:03:33 -0700 (PDT)
+Subject: [PATCH v3] RISC-V: Fix the VDSO symbol generaton for binutils-2.35+
+Date: Fri, 23 Oct 2020 21:50:47 -0700
+Message-Id: <20201024045046.3018271-1-palmerdabbelt@google.com>
+X-Mailer: git-send-email 2.29.0.rc1.297.gfa9743e501-goog
 MIME-Version: 1.0
-References: <1603448245-79429-1-git-send-email-guoren@kernel.org>
- <1603448245-79429-2-git-send-email-guoren@kernel.org>
- <CAAhSdy120ZR4ZbkHo8Us+CugaeegSR6iFu9jgHPuyvDAQwnOhQ@mail.gmail.com>
-In-Reply-To: <CAAhSdy120ZR4ZbkHo8Us+CugaeegSR6iFu9jgHPuyvDAQwnOhQ@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Sat, 24 Oct 2020 11:38:40 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRnDxrOBTLL+=Kk9BjftH-xE=NX1zpLaxv7Xsb4L5XgAA@mail.gmail.com>
-Message-ID: <CAJF2gTRnDxrOBTLL+=Kk9BjftH-xE=NX1zpLaxv7Xsb4L5XgAA@mail.gmail.com>
-Subject: Re: [PATCH 2/3] irqchip/irq-sifive-plic: Fixup couldn't broadcast to
- multi CPUs
-To: Anup Patel <anup@brainfault.org>
+From: Palmer Dabbelt <palmerdabbelt@google.com>
+To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201023_233855_067378_90726CF2 
-X-CRM114-Status: GOOD (  23.99  )
+X-CRM114-CacheID: sfid-20201024_010339_326341_5FC29FCE 
+X-CRM114-Status: GOOD (  18.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -85,113 +94,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Guo Ren <guoren@linux.alibaba.com>, Jason Cooper <jason@lakedaemon.net>,
- wesley@sifive.com, Marc Zyngier <maz@kernel.org>,
- Palmer Dabbelt <palmerdabbelt@google.com>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Atish Patra <atish.patra@wdc.com>, Yash Shah <yash.shah@sifive.com>,
- Zong Li <zong.li@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Greentime Hu <greentime.hu@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
- Christoph Hellwig <hch@lst.de>
+Cc: clang-built-linux@googlegroups.com,
+ Palmer Dabbelt <palmerdabbelt@google.com>, kernel-team@android.com,
+ stable@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 23, 2020 at 8:17 PM Anup Patel <anup@brainfault.org> wrote:
->
-> On Fri, Oct 23, 2020 at 3:48 PM <guoren@kernel.org> wrote:
-> >
-> > From: Guo Ren <guoren@linux.alibaba.com>
-> >
-> > If "echo 3 > /proc/irq/1/smp_affinity", we want irq 1 could be
-> > broadcast to CPU0 & CPU1 and one of them would pick up the irq
-> > handler.
-> >
-> > But current implementation couldn't let multi CPUs process the
-> > same IRQ concurrent.
-> >
-> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> > ---
-> >  drivers/irqchip/irq-sifive-plic.c | 23 ++++++-----------------
-> >  1 file changed, 6 insertions(+), 17 deletions(-)
-> >
-> > diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-> > index 2e56576..0003322 100644
-> > --- a/drivers/irqchip/irq-sifive-plic.c
-> > +++ b/drivers/irqchip/irq-sifive-plic.c
-> > @@ -114,15 +114,12 @@ static inline void plic_irq_toggle(const struct cpumask *mask,
-> >  static void plic_irq_unmask(struct irq_data *d)
-> >  {
-> >         struct cpumask amask;
-> > -       unsigned int cpu;
-> >         struct plic_priv *priv = irq_get_chip_data(d->irq);
-> >
-> >         cpumask_and(&amask, &priv->lmask, cpu_online_mask);
-> > -       cpu = cpumask_any_and(irq_data_get_affinity_mask(d),
-> > -                                          &amask);
-> > -       if (WARN_ON_ONCE(cpu >= nr_cpu_ids))
-> > -               return;
-> > -       plic_irq_toggle(cpumask_of(cpu), d, 1);
-> > +       cpumask_and(&amask, &amask, irq_data_get_affinity_mask(d));
-> > +
-> > +       plic_irq_toggle(&amask, d, 1);
-> >  }
-> >
-> >  static void plic_irq_mask(struct irq_data *d)
-> > @@ -136,24 +133,16 @@ static void plic_irq_mask(struct irq_data *d)
-> >  static int plic_set_affinity(struct irq_data *d,
-> >                              const struct cpumask *mask_val, bool force)
-> >  {
-> > -       unsigned int cpu;
-> >         struct cpumask amask;
-> >         struct plic_priv *priv = irq_get_chip_data(d->irq);
-> >
-> >         cpumask_and(&amask, &priv->lmask, mask_val);
-> > +       cpumask_and(&amask, &amask, cpu_online_mask);
-> >
-> > -       if (force)
-> > -               cpu = cpumask_first(&amask);
-> > -       else
-> > -               cpu = cpumask_any_and(&amask, cpu_online_mask);
-> > -
-> > -       if (cpu >= nr_cpu_ids)
-> > -               return -EINVAL;
-> > +       irq_data_update_effective_affinity(d, &amask);
-> >
-> >         plic_irq_toggle(&priv->lmask, d, 0);
-> > -       plic_irq_toggle(cpumask_of(cpu), d, 1);
-> > -
-> > -       irq_data_update_effective_affinity(d, cpumask_of(cpu));
-> > +       plic_irq_toggle(&amask, d, 1);
-> >
-> >         return IRQ_SET_MASK_OK_DONE;
-> >  }
-> > --
-> > 2.7.4
-> >
->
-> In the past, a similar patch was proposed by Zong Li (SiFive). We
-> have good reasons to not allow multiple CPUs handle the same IRQ.
->
-> Refer, https://lkml.org/lkml/2020/4/26/201
->
-> NACK from my side.
-Thx for sharing the information, I agree with Zong Li & Greentime's
-aspect: Don't limit the usage of PLIC! We could let (one hart -> one
-irq) as default.
+We were relying on GNU ld's ability to re-link executable files in order
+to extract our VDSO symbols.  This behavior was deemed a bug as of
+binutils-2.35 (specifically the binutils-gdb commit a87e1817a4 ("Have
+the linker fail if any attempt to link in an executable is made."), but as that
+has been backported to at least Debian's binutils-2.34 in may manifest in other
+places.
 
-I also agree that using irq broadcast indiscriminately can cause
-performance problems. (Anup and Mark Z's view)
+The previous version of this was a bit of a mess: we were linking a
+static executable version of the VDSO, containing only a subset of the
+input symbols, which we then linked into the kernel.  This worked, but
+certainly wasn't a supported path through the toolchain.  Instead this
+new version parses the textual output of nm to produce a symbol table.
+Both rely on near-zero addresses being linkable, but as we rely on weak
+undefined symbols being linkable elsewhere I don't view this as a major
+issue.
 
-I think you've discussed enough at that time and l won't persist the patch.
+Fixes: e2c0cdfba7f6 ("RISC-V: User-facing API")
+Cc: clang-built-linux@googlegroups.com
+Cc: stable@vger.kernel.org
+Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
 
+---
+
+Changes since v2 <20201019235630.762886-1-palmerdabbelt@google.com>:
+
+* Uses $(srctree)/$(src) to allow for out-of-tree builds.
+
+Changes since v1 <20201017002500.503011-1-palmerdabbelt@google.com>:
+
+* Uses $(NM) instead of $(CROSS_COMPILE)nm.  We use the $(CROSS_COMPILE) form
+  elsewhere in this file, but we'll fix that later.
+* Removed the unnecesary .map file creation.
+
+---
+ arch/riscv/kernel/vdso/.gitignore |  1 +
+ arch/riscv/kernel/vdso/Makefile   | 17 ++++++++---------
+ arch/riscv/kernel/vdso/so2s.sh    |  6 ++++++
+ 3 files changed, 15 insertions(+), 9 deletions(-)
+ create mode 100755 arch/riscv/kernel/vdso/so2s.sh
+
+diff --git a/arch/riscv/kernel/vdso/.gitignore b/arch/riscv/kernel/vdso/.gitignore
+index 11ebee9e4c1d..3a19def868ec 100644
+--- a/arch/riscv/kernel/vdso/.gitignore
++++ b/arch/riscv/kernel/vdso/.gitignore
+@@ -1,3 +1,4 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ vdso.lds
+ *.tmp
++vdso-syms.S
+diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+index 478e7338ddc1..a8ecf102e09b 100644
+--- a/arch/riscv/kernel/vdso/Makefile
++++ b/arch/riscv/kernel/vdso/Makefile
+@@ -43,19 +43,14 @@ $(obj)/vdso.o: $(obj)/vdso.so
+ SYSCFLAGS_vdso.so.dbg = $(c_flags)
+ $(obj)/vdso.so.dbg: $(src)/vdso.lds $(obj-vdso) FORCE
+ 	$(call if_changed,vdsold)
++SYSCFLAGS_vdso.so.dbg = -shared -s -Wl,-soname=linux-vdso.so.1 \
++	-Wl,--build-id -Wl,--hash-style=both
+ 
+ # We also create a special relocatable object that should mirror the symbol
+ # table and layout of the linked DSO. With ld --just-symbols we can then
+ # refer to these symbols in the kernel code rather than hand-coded addresses.
+-
+-SYSCFLAGS_vdso.so.dbg = -shared -s -Wl,-soname=linux-vdso.so.1 \
+-	-Wl,--build-id -Wl,--hash-style=both
+-$(obj)/vdso-dummy.o: $(src)/vdso.lds $(obj)/rt_sigreturn.o FORCE
+-	$(call if_changed,vdsold)
+-
+-LDFLAGS_vdso-syms.o := -r --just-symbols
+-$(obj)/vdso-syms.o: $(obj)/vdso-dummy.o FORCE
+-	$(call if_changed,ld)
++$(obj)/vdso-syms.S: $(obj)/vdso.so FORCE
++	$(call if_changed,so2s)
+ 
+ # strip rule for the .so file
+ $(obj)/%.so: OBJCOPYFLAGS := -S
+@@ -73,6 +68,10 @@ quiet_cmd_vdsold = VDSOLD  $@
+                            $(patsubst %, -G __vdso_%, $(vdso-syms)) $@.tmp $@ && \
+                    rm $@.tmp
+ 
++# Extracts
++quiet_cmd_so2s = SO2S    $@
++      cmd_so2s = $(NM) -D $< | $(srctree)/$(src)/so2s.sh > $@
++
+ # install commands for the unstripped file
+ quiet_cmd_vdso_install = INSTALL $@
+       cmd_vdso_install = cp $(obj)/$@.dbg $(MODLIB)/vdso/$@
+diff --git a/arch/riscv/kernel/vdso/so2s.sh b/arch/riscv/kernel/vdso/so2s.sh
+new file mode 100755
+index 000000000000..3c5b43207658
+--- /dev/null
++++ b/arch/riscv/kernel/vdso/so2s.sh
+@@ -0,0 +1,6 @@
++#!/bin/sh
++# SPDX-License-Identifier: GPL-2.0+
++# Copyright 2020 Palmer Dabbelt <palmerdabbelt@google.com>
++
++sed 's!\([0-9a-f]*\) T \([a-z0-9_]*\)@@LINUX_4.15!.global \2\n.set \2,0x\1!' \
++| grep '^\.'
 -- 
-Best Regards
- Guo Ren
+2.29.0.rc1.297.gfa9743e501-goog
 
-ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
