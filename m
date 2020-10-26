@@ -2,142 +2,82 @@ Return-Path: <SRS0=maVz=EB=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-9.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 96BE4C4363A
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Oct 2020 01:14:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0F0F4C388F7
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Oct 2020 02:56:49 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id F038522256
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Oct 2020 01:14:17 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id AE3242222C
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Oct 2020 02:56:48 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="t4BJN26e";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=intel.onmicrosoft.com header.i=@intel.onmicrosoft.com header.b="wRAtcj3s"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F038522256
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=intel.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="kOqN1J7+";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="EnW0FNHH"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AE3242222C
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=QUszh8FYAX+TqNltG+maM302YgpBEJP4U3y63TJSepA=; b=t4BJN26e/937jK3Jiy65foAKZ
-	TNvUqFnLlRTez7MRH62eRHgstZzttpuFjXiiv7Cu6385LSwJ4taqlshMKcAYgm9xQ8ObItVMLXfw6
-	zyrc1zwKHuW+igDuJvbGEI2Dv8xU9AJYn7pNsMkORm/rrz8nh3GZvSMWTy0T1jxaGThSmunEvPWRW
-	TWfzlQiZKPIrXaSoq0xLe56HUTPkBcOAOuSJwNVohC1rdBeEtt/H9neRJ/QZdqTISIuZsVOwiKKZm
-	po5X3cV1CG26t29vrFsAR6VVUvQqHV+AwzH+Mge8VdBLT0wMi/ogKyaV1ujnu+KjsXpCt+I4udrtt
-	8jPNp/U6g==;
+	 bh=V9Sr1j4D21OmaznVpMw22aHMG5K+WtfosejFD9le72A=; b=kOqN1J7+U/ztBtdEc1ZrDt11D
+	ep1+C8I12R6dwRfBI4KwlesX5EzbxvgPk0hsywLGQfLoR1BaNgdIfRWPQvGQgBSPFlNnmuNXaTSff
+	AP9IqtnQQDQ6wPnQoZhOvdM55MrhCDhMdgrJy37dc4O0PWSbcB9qhyz6cf3OjYnsIzwmfHC7RfWnt
+	9aJhQ1iumuIhKYeBpffrS/y9Fd/Z/ahDBtZXgsv+iIVS/hvau8ao4a1X3VUq6fzqX3EF3ffBBita/
+	+VQyzxoqwg2J4yf10W4l/m0MtU25NF+/E1d9yIto223qKJloVZ7i/KozqdtGfi2mItqivUPHEoK/Y
+	NHYbtP+EQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kWr5J-0002Pr-L2; Mon, 26 Oct 2020 01:14:05 +0000
-Received: from mga05.intel.com ([192.55.52.43])
+	id 1kWsgS-0000lN-20; Mon, 26 Oct 2020 02:56:32 +0000
+Received: from mail-ot1-x341.google.com ([2607:f8b0:4864:20::341])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kWr5H-0002Nz-8o; Mon, 26 Oct 2020 01:14:04 +0000
-IronPort-SDR: bj89QMjYpyU1Jvm3SeKigGfg1h8p/Wgbk+Kv/Kco1PlaqSZLDY6LaQNsGaGcn1ZANY8u2wrcol
- PE2ECL2KYNnQ==
-X-IronPort-AV: E=McAfee;i="6000,8403,9785"; a="252565671"
-X-IronPort-AV: E=Sophos;i="5.77,417,1596524400"; d="scan'208";a="252565671"
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from orsmga007.jf.intel.com ([10.7.209.58])
- by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 25 Oct 2020 18:13:59 -0700
-IronPort-SDR: hzP5rd6h1liHzJ1ArnZZckrdy6N3K8dKKOLAieV/L4158tR82BX7e1LJDkOfSGvTLfex9Xdkji
- zZbFr3k+vAnQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.77,417,1596524400"; d="scan'208";a="360833707"
-Received: from orsmsx603.amr.corp.intel.com ([10.22.229.16])
- by orsmga007.jf.intel.com with ESMTP; 25 Oct 2020 18:13:59 -0700
-Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
- ORSMSX603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.1713.5; Sun, 25 Oct 2020 18:13:59 -0700
-Received: from ORSEDG602.ED.cps.intel.com (10.7.248.7) by
- orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1713.5
- via Frontend Transport; Sun, 25 Oct 2020 18:13:59 -0700
-Received: from NAM02-BL2-obe.outbound.protection.outlook.com (104.47.38.51) by
- edgegateway.intel.com (134.134.137.103) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.1713.5; Sun, 25 Oct 2020 18:13:55 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=E+vFxiZRRV0bWM4jYv5POtHlru265Y3DPSxNqrIhDUCb+GzTKKUJ61tutXCrWEfQDHZQOPktXhb6MCna9hcQTFjhyNFo6WDVah6FDlJSmZRyNMWLpzHqYUyc/6pfxR493//oxKMidgDo2H9MbYieyClUqOLBw1QfOqwh69maAebAZMiFcdIMIMmt29B9/8Prsrp9VtgF5SS09rMwI0M26VvP5MyhonRi5iQcZhWGoKAMZQ3h09C6ybndWf6cXbC0ADwbOTI6rC9cAU5qzMkgrvFUZz6qD4FGZcKkGcH5L8TcLhAeD7MDBHyZBNecLdTy2y14dphaT31U1Sp/u9X4DQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GCdaGHTHtP8gtA6Z+FFbeq6bpqfZezEc0ccEOpAX4Es=;
- b=Yfh6uEdyv+jPo+OA2igO5GioyPMKCxAh2ylZZ+B44zaljjKGAMYaO//bRtV8t5uxTTiAdgKRn8NvXZTb42QlrtLtnZW13bcObagqEQg0IGBwb/9lfFk/dkr8TCO3iQVZajrLembZORVSP7YH5XvsHcFAW31QIXmN+hh58eO3AEvRyeYIimtf5ntS69Znf0SiRQzcNsoD4ixnKm5h6kM/VPOSaokJT3rmE6piy8fRbYT8j6Tyd86hu5svBy1/PzVZ++6uvqViCpjptgqAs4vI4WHfB7ovKShhXNtjDyRNs7BnRZMPXIXxLflL0kV4b3hMx8Z4uqv6uGnH15nCRbi8GA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.onmicrosoft.com; 
- s=selector2-intel-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GCdaGHTHtP8gtA6Z+FFbeq6bpqfZezEc0ccEOpAX4Es=;
- b=wRAtcj3sKYRJ5ymp7oUIK5o29NAVxQglEGvXMuvcl99D0fUGRZfhhEcycMPG1G5JM4QMLrnmoY64PR+Lb9yy17DI5n+g+y1GuapsyNA8MYoQeVWJn0UGEsbV7tgjpvQ3EDQD7xT+2OiJPLlOP4rhKPbqLiqUTnDmDSGcU2nEEDE=
-Received: from SN6PR11MB3184.namprd11.prod.outlook.com (2603:10b6:805:bd::17)
- by SA2PR11MB5098.namprd11.prod.outlook.com (2603:10b6:806:11c::23)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3477.27; Mon, 26 Oct
- 2020 01:13:52 +0000
-Received: from SN6PR11MB3184.namprd11.prod.outlook.com
- ([fe80::b901:8e07:4340:6704]) by SN6PR11MB3184.namprd11.prod.outlook.com
- ([fe80::b901:8e07:4340:6704%7]) with mapi id 15.20.3477.028; Mon, 26 Oct 2020
- 01:13:52 +0000
-From: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
-To: "rppt@kernel.org" <rppt@kernel.org>, "akpm@linux-foundation.org"
- <akpm@linux-foundation.org>
-Subject: Re: [PATCH 0/4] arch, mm: improve robustness of direct map
- manipulation
-Thread-Topic: [PATCH 0/4] arch, mm: improve robustness of direct map
- manipulation
-Thread-Index: AQHWqrf3SYgZeORHqEa1kMKSitw9UKmpFReA
-Date: Mon, 26 Oct 2020 01:13:52 +0000
-Message-ID: <ae82f905a0092adb7e0f0ac206335c1883b3170f.camel@intel.com>
-References: <20201025101555.3057-1-rppt@kernel.org>
-In-Reply-To: <20201025101555.3057-1-rppt@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.30.1 (3.30.1-1.fc29) 
-authentication-results: kernel.org; dkim=none (message not signed)
- header.d=none;kernel.org; dmarc=none action=none header.from=intel.com;
-x-originating-ip: [192.55.55.43]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: cc039678-a76b-496b-93bd-08d8794c6723
-x-ms-traffictypediagnostic: SA2PR11MB5098:
-x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <SA2PR11MB50985A3DAC48AC5E20C24F6AC9190@SA2PR11MB5098.namprd11.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:7691;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: DlgT42S+6Ct81Dm9PP4kfkEe/8Y/RjSpoRaeLZJ++8MLtIEIlars7vy2Nxa1GvGFJIE4G8LbnE9giiOyxBLLlGncblj8SQByYgMPKB/k70VDZQyo/LvvXdDzzIIuIAzytctc6tTCRgm2c9Th+wYPKujikSrPF1rC2GCwcLnTDsIE2ikyR24Olorsf1jQ1qpqLjl+/4LN9OVRBO5GLuMlbfGbYHWWL455mvXWrwT0I3zZzP3ml4Oqt9XkDRirpK/SMx9eHfH+S/sQcY/b8+SMB55B1SNuLKY+l71TIv40vFheD9PHS6iNXHyMD77MSMkQPrz6CFkuGC80OKHvyRT/6w==
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:SN6PR11MB3184.namprd11.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(39860400002)(396003)(346002)(376002)(136003)(366004)(2906002)(6506007)(8936002)(5660300002)(26005)(316002)(110136005)(86362001)(7416002)(83380400001)(4744005)(6486002)(4326008)(54906003)(4001150100001)(66446008)(66556008)(71200400001)(66946007)(66476007)(91956017)(8676002)(36756003)(186003)(2616005)(6512007)(7406005)(64756008)(76116006)(478600001);
- DIR:OUT; SFP:1102; 
-x-ms-exchange-antispam-messagedata: 3eyK9ztK9ty2x56AFldcQ9PmeiaKtSRGFMDt7eqzfD/tu6WByW+j8aKkQ0ct9biUj6MgDPsBg2orjrc81BJqdLawoba+H0EZIypdkWEIM4mYsDxncmgtLEnibHV/st1N6tgiHq/+aAphYvWm8LpmJRwMZJmzisOwWOA4qhDx2XciyEJswGCeuliStWHcr1OWg2CgEVDolti+hVaqzxEi67n7PkvDM/68WRX15jSgxZ95f3sijpTwZhF+gpqLrSTHP2l0C1Jmxp/zHcZmp8DNj2lCzuv7i2ZuQVQTPa0M+tsluKejArzMzVRyDA5+qZK4nRv6C/2Vb/91Ny9xlYxDZdCv2D2nbj8qKAlVCHyu5tqu3C9Zh7PzWRAAfeTKwpbCHCcVGOS6s7gpmGIDvwbBHqblftp3vE+3KaZK5jsRiXD69qd9W8ZT5kFVnMlmwhfAyjdTlqS7DCRggfCnzWVNfMzPPN+KGSXdJNr0UOox9BW2rmSHODe3iFQDzyaln+LD7WPU5vs+PeO/a4jeNjzan4iMt62odWQNPVF3U4a0aAOKpeaYodXX2ct63nKoZuCriKCGIIzk5exuDYTT3yyw1DyvGI+Rvnx4Rw0YLbvPph/iTMQ099tSNm9XxZNCdgHZYD5hICuR6HSKyIEvgNMgtw==
-Content-ID: <A4492F646F7F0A418B81F65A778FC5B5@namprd11.prod.outlook.com>
+ id 1kWsgO-0000kX-I4
+ for linux-riscv@lists.infradead.org; Mon, 26 Oct 2020 02:56:29 +0000
+Received: by mail-ot1-x341.google.com with SMTP id n15so6748197otl.8
+ for <linux-riscv@lists.infradead.org>; Sun, 25 Oct 2020 19:56:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=1A7KKpu8iHyelnMvFNOPHpastJBG2S7fqWEYdd55aZM=;
+ b=EnW0FNHH+r03d90oq8rGBpzPagH7cu9Dhhb2NyS7D5ueAdaKA+G/a+BfYWtrs5YUKI
+ dufXhw0/7KTydE5JUmyGswgoTGmB8XaG4O30hp4jc/2rQwTvrm5XWNQmsrasi0HpoKpa
+ BH3ru72/cbiMlxVPYb3B5OKyrNPmHYw6CVwADY2ni6uL7fvqNBm/iFbYciJxCa2EJzSK
+ h1rJ+Ap4SXrnFsrRCcXM2WdezQYC/+ZO1emUQB14SkcvvHa74n8Zy1Qy/tjEopEN0ZZ4
+ s3ioyy6Av14dWNGcUxYHTBvkkehVa01VTo2qD0Bxb4ZiHXokGxnzxdGn706NTcxuww/M
+ 6fxg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=1A7KKpu8iHyelnMvFNOPHpastJBG2S7fqWEYdd55aZM=;
+ b=Xj3F/cK4EVuMEhCNsyH88Dhuc3VAinznhN2fx1XbxS+5tpQwROBdGBE/p+nZjBSehC
+ AVqDRVYOuPuiqjG4P9gvdna6q1efJ+O+kw7WBaVO1Q4KcDKaN+bsKvIOzQ7w5rgSWIwV
+ Xjb+A7gvR+bMU2ZY1cYeXwsfB0V64N7wcTLfr68pn0OsjT7IEJusRbDtTtNSclO6Egy2
+ bfSxDeIBh+s5iyaaUe3Lm/bRwlgm7dm9TC+aLaZh6poO5KkaRp7dSnfi6aanYfmbLzoO
+ 7rOitAMHJfcwiucwegYz4VF4WRv+q86edR1nXBInpdYYNc8io7myslTLcw6Zl48qLaGW
+ X8IQ==
+X-Gm-Message-State: AOAM533GIK61euP8gYewPyZJt1KWg4nVWhWNzOBmRO+TfXZs1INV525j
+ TitaCmchKU3tM3LFxx8CAWixeYWKWNpDSjRp+qnZLw==
+X-Google-Smtp-Source: ABdhPJyLOUdems4JWzS/MRZn8GpPxi1lg+1JMAhEnm9vnRVUPvvsCtolJPvi2h6QcMszn37KmBclhtRFhGzGacKicbs=
+X-Received: by 2002:a9d:bb2:: with SMTP id 47mr5794824oth.160.1603680985321;
+ Sun, 25 Oct 2020 19:56:25 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SN6PR11MB3184.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cc039678-a76b-496b-93bd-08d8794c6723
-X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Oct 2020 01:13:52.6366 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: KKKnNFImuHLI+4Vw+Koea6r9Mx1bOYKiGLXlTj4J/aQ3X1WvWnoCnIe38BbeUKOcrdhpUX7RdEVXLskwj3AppXXez7mw8KYhdsWEkKT9los=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA2PR11MB5098
-X-OriginatorOrg: intel.com
+References: <20201021073839.43935-1-zong.li@sifive.com>
+ <50bdca78-0cbb-5c62-f241-ed50737131b2@canonical.com>
+In-Reply-To: <50bdca78-0cbb-5c62-f241-ed50737131b2@canonical.com>
+From: Zong Li <zong.li@sifive.com>
+Date: Mon, 26 Oct 2020 10:56:16 +0800
+Message-ID: <CANXhq0p5G0PwL+bnsjdEbPMtU1qveLXyshQWuab2pe3Pn9UXfg@mail.gmail.com>
+Subject: Re: [PATCH] stop_machine: Mark functions as notrace
+To: Colin Ian King <colin.king@canonical.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201025_211403_482987_407486F8 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20201025_225628_620887_46B9A400 
+X-CRM114-Status: GOOD (  22.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -149,53 +89,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "benh@kernel.crashing.org" <benh@kernel.crashing.org>,
- "david@redhat.com" <david@redhat.com>,
- "peterz@infradead.org" <peterz@infradead.org>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
- "linux-mm@kvack.org" <linux-mm@kvack.org>,
- "paulus@samba.org" <paulus@samba.org>, "pavel@ucw.cz" <pavel@ucw.cz>,
- "hpa@zytor.com" <hpa@zytor.com>,
- "sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>,
- "cl@linux.com" <cl@linux.com>, "will@kernel.org" <will@kernel.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
- "mpe@ellerman.id.au" <mpe@ellerman.id.au>, "x86@kernel.org" <x86@kernel.org>,
- "rppt@linux.ibm.com" <rppt@linux.ibm.com>,
- "borntraeger@de.ibm.com" <borntraeger@de.ibm.com>,
- "mingo@redhat.com" <mingo@redhat.com>,
- "rientjes@google.com" <rientjes@google.com>, "Brown,
- Len" <len.brown@intel.com>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
- "gor@linux.ibm.com" <gor@linux.ibm.com>,
- "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
- "hca@linux.ibm.com" <hca@linux.ibm.com>, "bp@alien8.de" <bp@alien8.de>,
- "luto@kernel.org" <luto@kernel.org>,
- "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
- "kirill@shutemov.name" <kirill@shutemov.name>,
- "tglx@linutronix.de" <tglx@linutronix.de>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
- "rjw@rjwysocki.net" <rjw@rjwysocki.net>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "penberg@kernel.org" <penberg@kernel.org>,
- "palmer@dabbelt.com" <palmer@dabbelt.com>,
- "iamjoonsoo.kim@lge.com" <iamjoonsoo.kim@lge.com>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
- "davem@davemloft.net" <davem@davemloft.net>
+Cc: rcu@vger.kernel.org, Palmer Dabbelt <palmerdabbelt@google.com>,
+ paulmck@kernel.org, vincent.whitchurch@axis.com, jiangshanlai@gmail.com,
+ josh@joshtriplett.org, Steven Rostedt <rostedt@goodmis.org>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Atish Patra <atishp@atishpatra.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>, mathieu.desnoyers@efficios.com,
+ Masami Hiramatsu <mhiramat@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, joel@joelfernandes.org,
+ Guo Ren <guoren@kernel.org>, tglx@linutronix.de,
+ Greentime Hu <greentime.hu@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 2020-10-25 at 12:15 +0200, Mike Rapoport wrote:
-> Indeed, for architectures that define CONFIG_ARCH_HAS_SET_DIRECT_MAP
-> it is
-> possible that __kernel_map_pages() would fail, but since this
-> function is
-> void, the failure will go unnoticed.
+On Sat, Oct 24, 2020 at 3:29 AM Colin Ian King <colin.king@canonical.com> wrote:
+>
+> On 21/10/2020 08:38, Zong Li wrote:
+> > Like the commit cb9d7fd51d9f ("watchdog: Mark watchdog touch functions
+> > as notrace"), some architectures assume that the stopped CPUs don't make
+> > function calls to traceable functions when they are in the stopped
+> > state. For example, it causes unexpected kernel crashed when switching
+> > tracer on RISC-V.
+> >
+> > The following patches added calls to these two functions, fix it by
+> > adding the notrace annotations.
+> >
+> > Fixes: 4ecf0a43e729 ("processor: get rid of cpu_relax_yield")
+> > Fixes: 366237e7b083 ("stop_machine: Provide RCU quiescent state in
+> > multi_cpu_stop()")
+> >
+> > Signed-off-by: Zong Li <zong.li@sifive.com>
+> > ---
+> >  kernel/rcu/tree.c     | 2 +-
+> >  kernel/stop_machine.c | 2 +-
+> >  2 files changed, 2 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/kernel/rcu/tree.c b/kernel/rcu/tree.c
+> > index 06895ef85d69..2a52f42f64b6 100644
+> > --- a/kernel/rcu/tree.c
+> > +++ b/kernel/rcu/tree.c
+> > @@ -409,7 +409,7 @@ bool rcu_eqs_special_set(int cpu)
+> >   *
+> >   * The caller must have disabled interrupts and must not be idle.
+> >   */
+> > -void rcu_momentary_dyntick_idle(void)
+> > +notrace void rcu_momentary_dyntick_idle(void)
+> >  {
+> >       int special;
+> >
+> > diff --git a/kernel/stop_machine.c b/kernel/stop_machine.c
+> > index 865bb0228ab6..890b79cf0e7c 100644
+> > --- a/kernel/stop_machine.c
+> > +++ b/kernel/stop_machine.c
+> > @@ -178,7 +178,7 @@ static void ack_state(struct multi_stop_data *msdata)
+> >               set_state(msdata, msdata->state + 1);
+> >  }
+> >
+> > -void __weak stop_machine_yield(const struct cpumask *cpumask)
+> > +notrace void __weak stop_machine_yield(const struct cpumask *cpumask)
+> >  {
+> >       cpu_relax();
+> >  }
+> >
+>
+> Apologies for taking so long to reply, I needed to test this on several
+> devices.
+>
+> This not only fixes the ftrace issue I see on RISC-V but also a ftrace
+> hang issue on ARM64 in 5.8 too.
+>
+> Tested-by: Colin Ian King <colin.king@canonical.com>
+>
+> Many thanks!
 
-Could you elaborate on how this could happen? Do you mean during
-runtime today or if something new was introduced?
+Many thanks all for reviewing and testing.
+
+Hi Palmer,
+As Steven suggested, could you help to pick up this patch in RISC-V tree?
 
 _______________________________________________
 linux-riscv mailing list
