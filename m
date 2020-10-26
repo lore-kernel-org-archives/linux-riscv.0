@@ -4,20 +4,20 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BD9CEC5DF9D
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Oct 2020 08:38:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5AE12C5DF9E
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Oct 2020 08:38:58 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6E6D8223B0
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Oct 2020 08:38:45 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D9632223FD
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Oct 2020 08:38:57 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="jt+HeADF";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="Gns74qxW"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6E6D8223B0
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="q9Iz0ACe";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="e1RL1x6N"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D9632223FD
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,42 +26,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=WaOhIoXc+zJHOAuelYFBKDTVXoLbbD1tjFZ2Vk+S6Do=; b=jt+HeADFYxJe27zlkWAMNXgK6
-	g7nZDmNOrJ70kPUHxDKNmbOsY2/XWHoUxbNqskC+I8ADmrrxEFEMwPcJO7T6bgBfU3DICmDgIoyjH
-	qbUWSqfhqFGlYUJWmd5DuT5vufiXL9xAI0bgCDpFh8gaPavbqyNr30tta0lC/KDutRK/ACyneCkZZ
-	6R86lVmcD+j0Nq8MJbEf3q/9gNM2mCNMKZ6J/jUyVd8xKy9LosDSYPAu3YGxG1kIgxUUtTxr5Toee
-	gmDdYs9swYDe/AiEn6aQk/69Lf9A4eu3fdJ9lbVlQxH8tlMSecerH26Yf8qIPlR7k9BYViz0wTqjM
-	yaCrC5fmA==;
+	 bh=5ZHNdn8GuL6kSlOaLQ4KTAp7X1jV6T32iGQUz8X4Bi0=; b=q9Iz0ACe/FFkzFru/JIIY+wfX
+	JywTvDHX0NwlhXk4OtCB39hevF7c5T6A7S7sq1WXZN472N81m8HTcvRPnF9Cz+8yRbOGZGoJgyvQ4
+	ycDlSSzSQ7Grtbpgr+fek4YIoAi5RVQCsB3/AYsA7IrpimJmZ/MBcEychQmwGbFjEismHzbGPef7d
+	8/D53XqulzPB8KIZ9iZQG9PXrOlNYXOJ/kAE1MbL0S/7OGe870KT6WpSLdU/2YF3mrrPI6PMU6eya
+	ZDILt3c9xA3GMjTYRkiCzdeVdg3tifRzG8RYqmU+OoS3ZKBEHs8CmPKPWj04k9oaYVvEewD8aMHk2
+	nDS8CSxvA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kWy1N-0000zC-Cm; Mon, 26 Oct 2020 08:38:29 +0000
+	id 1kWy1a-00014a-IU; Mon, 26 Oct 2020 08:38:42 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kWy1G-0000wH-Jl; Mon, 26 Oct 2020 08:38:23 +0000
+ id 1kWy1P-000104-VI; Mon, 26 Oct 2020 08:38:33 +0000
 Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id ABDD0223FD;
- Mon, 26 Oct 2020 08:38:12 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 437EB22409;
+ Mon, 26 Oct 2020 08:38:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1603701501;
- bh=nd5wpKeun6M6wuu4RJz+VoUbDg9dXJAjWiNAXiA41II=;
+ s=default; t=1603701511;
+ bh=6Unb/bgrma45bqFGeLstRI/KgoGYhWv2GwrnA2SWP34=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=Gns74qxW5xryqAJinfIwSYLR80CrazscO8JSxRgTJGuyWwsXjmQvWtRnztOGSH8Ul
- 4+3hUq7OB8gqu6f+zqk3s0Pyop5tEpSDF2RHMQJ7N09mjxkQvuKDZpIRJ/dHERyHYB
- MfWQfZpLPN4aR+cq9IB6HDOHFrkWHzElUjNkmwgw=
+ b=e1RL1x6NGZqKZJUzU4OhS1j9WKiVw40neaVAtRFcDgGFWqvE/GjjJJWn2l1zpIMCH
+ bEP1XnRxeZ9q/0TpTxi+wg9IG5jWyZe1TGHnIA6+6QAgYMldh6yYt73essz+mAls96
+ kOTmhPMtvK4jmqH3OjUj3q6fpS1ygyEQnz52eBo8=
 From: Mike Rapoport <rppt@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH v7 1/7] mm: add definition of PMD_PAGE_ORDER
-Date: Mon, 26 Oct 2020 10:37:46 +0200
-Message-Id: <20201026083752.13267-2-rppt@kernel.org>
+Subject: [PATCH v7 2/7] mmap: make mlock_future_check() global
+Date: Mon, 26 Oct 2020 10:37:47 +0200
+Message-Id: <20201026083752.13267-3-rppt@kernel.org>
 X-Mailer: git-send-email 2.28.0
 In-Reply-To: <20201026083752.13267-1-rppt@kernel.org>
 References: <20201026083752.13267-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201026_043822_882469_3488C631 
-X-CRM114-Status: GOOD (  20.41  )
+X-CRM114-CacheID: sfid-20201026_043832_122271_1C2959D1 
+X-CRM114-Status: GOOD (  16.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -101,84 +101,44 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Mike Rapoport <rppt@linux.ibm.com>
 
-The definition of PMD_PAGE_ORDER denoting the number of base pages in the
-second-level leaf page is already used by DAX and maybe handy in other
-cases as well.
-
-Several architectures already have definition of PMD_ORDER as the size of
-second level page table, so to avoid conflict with these definitions use
-PMD_PAGE_ORDER name and update DAX respectively.
+It will be used by the upcoming secret memory implementation.
 
 Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
 ---
- fs/dax.c                | 11 ++++-------
- include/linux/pgtable.h |  3 +++
- 2 files changed, 7 insertions(+), 7 deletions(-)
+ mm/internal.h | 3 +++
+ mm/mmap.c     | 5 ++---
+ 2 files changed, 5 insertions(+), 3 deletions(-)
 
-diff --git a/fs/dax.c b/fs/dax.c
-index 5b47834f2e1b..de3dbcaa849a 100644
---- a/fs/dax.c
-+++ b/fs/dax.c
-@@ -49,9 +49,6 @@ static inline unsigned int pe_order(enum page_entry_size pe_size)
- #define PG_PMD_COLOUR	((PMD_SIZE >> PAGE_SHIFT) - 1)
- #define PG_PMD_NR	(PMD_SIZE >> PAGE_SHIFT)
+diff --git a/mm/internal.h b/mm/internal.h
+index c43ccdddb0f6..ae146a260b14 100644
+--- a/mm/internal.h
++++ b/mm/internal.h
+@@ -348,6 +348,9 @@ static inline void munlock_vma_pages_all(struct vm_area_struct *vma)
+ extern void mlock_vma_page(struct page *page);
+ extern unsigned int munlock_vma_page(struct page *page);
  
--/* The order of a PMD entry */
--#define PMD_ORDER	(PMD_SHIFT - PAGE_SHIFT)
--
- static wait_queue_head_t wait_table[DAX_WAIT_TABLE_ENTRIES];
- 
- static int __init init_dax_wait_table(void)
-@@ -98,7 +95,7 @@ static bool dax_is_locked(void *entry)
- static unsigned int dax_entry_order(void *entry)
- {
- 	if (xa_to_value(entry) & DAX_PMD)
--		return PMD_ORDER;
-+		return PMD_PAGE_ORDER;
- 	return 0;
- }
- 
-@@ -1471,7 +1468,7 @@ static vm_fault_t dax_iomap_pmd_fault(struct vm_fault *vmf, pfn_t *pfnp,
- {
- 	struct vm_area_struct *vma = vmf->vma;
- 	struct address_space *mapping = vma->vm_file->f_mapping;
--	XA_STATE_ORDER(xas, &mapping->i_pages, vmf->pgoff, PMD_ORDER);
-+	XA_STATE_ORDER(xas, &mapping->i_pages, vmf->pgoff, PMD_PAGE_ORDER);
- 	unsigned long pmd_addr = vmf->address & PMD_MASK;
- 	bool write = vmf->flags & FAULT_FLAG_WRITE;
- 	bool sync;
-@@ -1530,7 +1527,7 @@ static vm_fault_t dax_iomap_pmd_fault(struct vm_fault *vmf, pfn_t *pfnp,
- 	 * entry is already in the array, for instance), it will return
- 	 * VM_FAULT_FALLBACK.
- 	 */
--	entry = grab_mapping_entry(&xas, mapping, PMD_ORDER);
-+	entry = grab_mapping_entry(&xas, mapping, PMD_PAGE_ORDER);
- 	if (xa_is_internal(entry)) {
- 		result = xa_to_internal(entry);
- 		goto fallback;
-@@ -1696,7 +1693,7 @@ dax_insert_pfn_mkwrite(struct vm_fault *vmf, pfn_t pfn, unsigned int order)
- 	if (order == 0)
- 		ret = vmf_insert_mixed_mkwrite(vmf->vma, vmf->address, pfn);
- #ifdef CONFIG_FS_DAX_PMD
--	else if (order == PMD_ORDER)
-+	else if (order == PMD_PAGE_ORDER)
- 		ret = vmf_insert_pfn_pmd(vmf, pfn, FAULT_FLAG_WRITE);
- #endif
- 	else
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index 38c33eabea89..bd0617fe066e 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -28,6 +28,9 @@
- #define USER_PGTABLES_CEILING	0UL
- #endif
- 
-+/* Number of base pages in a second level leaf page */
-+#define PMD_PAGE_ORDER	(PMD_SHIFT - PAGE_SHIFT)
++extern int mlock_future_check(struct mm_struct *mm, unsigned long flags,
++			      unsigned long len);
 +
  /*
-  * A page table page can be thought of an array like this: pXd_t[PTRS_PER_PxD]
-  *
+  * Clear the page's PageMlocked().  This can be useful in a situation where
+  * we want to unconditionally remove a page from the pagecache -- e.g.,
+diff --git a/mm/mmap.c b/mm/mmap.c
+index d91ecb00d38c..d166ad427882 100644
+--- a/mm/mmap.c
++++ b/mm/mmap.c
+@@ -1348,9 +1348,8 @@ static inline unsigned long round_hint_to_min(unsigned long hint)
+ 	return hint;
+ }
+ 
+-static inline int mlock_future_check(struct mm_struct *mm,
+-				     unsigned long flags,
+-				     unsigned long len)
++int mlock_future_check(struct mm_struct *mm, unsigned long flags,
++		       unsigned long len)
+ {
+ 	unsigned long locked, lock_limit;
+ 
 -- 
 2.28.0
 
