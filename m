@@ -2,79 +2,147 @@ Return-Path: <SRS0=maVz=EB=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1CF70C4363A
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Oct 2020 15:01:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4ADC5C4363A
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Oct 2020 18:06:00 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B47962076D
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 Oct 2020 15:01:39 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A95822222C
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 Oct 2020 18:05:59 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="s19u3mdU";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="lE2w7J5T"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B47962076D
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="SH9FBrbe";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=intel.onmicrosoft.com header.i=@intel.onmicrosoft.com header.b="UbYscDRF"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A95822222C
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=intel.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:References:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=i2XgtySIYG6IVQJz+llMYA84GAtiu6V9DHxs8KVqG/M=; b=s19u3mdUyxJ5Dc6txTKQoGPcS
-	HBs5MO2ORdMyftZlZZkyKwpjXIBiteNxAw2IIvpDcX462PSkZQ+ttvmDxzs94kiDijo3g7os01kZw
-	bPmuHZlzz0TRs4y3p6y95/u95+wf7DArHI+EW5FIBhXLZ0xc+E1CH25Civamy2gj3XubODBVwZfjF
-	4XS681N+q00smV4hY/2W7rB/kUe4OFlWFgAmHWdzFHO3mJsp1HwPhKv+vQvqxculSzREMcWTgXCrs
-	/wffCcHy95drzLOIbZFTNhfPB8n0kEzTfNh3/WEV8ygCToFkUjPJw3LF16epHPzpFcloVdQMtLmS1
-	KkH/bmxBg==;
+	 bh=uXZGArmwUNwRhmzDoX0AKurhqyu6D/bsWy9Ou2BWeB0=; b=SH9FBrbeg5y+k2ILD8XSoKH2+
+	Z3duIGLi6rj8o+9m6Gjhd/pUjRLWK/7KkY7MKL/7Hx6FEfToBaSRsyFl6YFG0TEmSSlVsOe2hGUi6
+	VEsaIUYTi2Z0oR7NSk1eGgDA4eVNd9yrUvksu1sGYrhuUXAKoCTeQrJ3I8WVVGhVEwiFDS5gEwp+L
+	U7thyn+WVWsZB5r4Zd4GTIOTNqCJDNYdVzFKnIbCT+5IpE2+nujd76yqZi4m/Z69nlgQBi3CNwRCX
+	23LneTijvSSOnVeuB90H6tjA6sVqqLtVif6rjga2J+hZts5QcBmfHxw4WwBVHuS6h+dD+XWyq4Y7W
+	mevECLVnQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kX3zv-0000Sp-DO; Mon, 26 Oct 2020 15:01:23 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1kX6sL-0004Sb-HH; Mon, 26 Oct 2020 18:05:45 +0000
+Received: from mga03.intel.com ([134.134.136.65])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kX3zr-0000Rt-Ir
- for linux-riscv@lists.infradead.org; Mon, 26 Oct 2020 15:01:20 +0000
-Received: from mail-lf1-f47.google.com (mail-lf1-f47.google.com
- [209.85.167.47])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id A460520773
- for <linux-riscv@lists.infradead.org>; Mon, 26 Oct 2020 15:01:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1603724478;
- bh=6xoA9tfWbHJnUNQ8CX/97sKNWmaFDpPvLKBxvu46ZqQ=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=lE2w7J5Tof2Ei1KRY8VmPbjjjTqsaN5vnCI9CU6PtLIM/ernzF97D/HZUBVwY/Fpj
- p0pQhbe1PUu9HJ5Op350ZxdgO2NR9oa+LbH7qtEBNeJG/gnA4s5wqUUBtmx+QjeJhF
- 9He8giTH94tVYpkLzTwOgxtlcgVDIGUm1P1cxiKQ=
-Received: by mail-lf1-f47.google.com with SMTP id b1so12471119lfp.11
- for <linux-riscv@lists.infradead.org>; Mon, 26 Oct 2020 08:01:17 -0700 (PDT)
-X-Gm-Message-State: AOAM531IzBNU7tslYVTDVTF8TqW/MWUEAVF3Jy6pNEPvLBvNulq6RG+B
- rkSGa3i/wQQWUHuWQzyQPsCUzYrAqEftNRpgnNo=
-X-Google-Smtp-Source: ABdhPJwIrELI+CVRR/mpIJiKYYfbRAy1fqUnkyYiE6Ud2MLHsDD94mPI0iDk5K04afEI//GJgJ6+u9MHpepYZT06qaQ=
-X-Received: by 2002:ac2:4888:: with SMTP id x8mr5049717lfc.248.1603724475766; 
- Mon, 26 Oct 2020 08:01:15 -0700 (PDT)
+ id 1kX6sE-0004Mz-QS; Mon, 26 Oct 2020 18:05:42 +0000
+IronPort-SDR: Nzpe9XJwNDbdOAt2eyxyROyRB3ayi3/frfeNb1krBtC7VXF2AsMckYsHvQT/vqWndS/GrBt2jM
+ YcVwAkplcmZw==
+X-IronPort-AV: E=McAfee;i="6000,8403,9786"; a="168066221"
+X-IronPort-AV: E=Sophos;i="5.77,420,1596524400"; d="scan'208";a="168066221"
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+ by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 26 Oct 2020 11:05:35 -0700
+IronPort-SDR: Uc8K+VFVZ93aVM/70+ctVCa853/stfzAFxIAPyYpUo5uk2WnhoTIb5snEL1Sv8PyU2Z6/3gbmM
+ Wks/iF1281vw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.77,420,1596524400"; d="scan'208";a="349992430"
+Received: from orsmsx602.amr.corp.intel.com ([10.22.229.15])
+ by orsmga008.jf.intel.com with ESMTP; 26 Oct 2020 11:05:35 -0700
+Received: from orsmsx612.amr.corp.intel.com (10.22.229.25) by
+ ORSMSX602.amr.corp.intel.com (10.22.229.15) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.1713.5; Mon, 26 Oct 2020 11:05:34 -0700
+Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
+ ORSMSX612.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.1713.5; Mon, 26 Oct 2020 11:05:34 -0700
+Received: from ORSEDG601.ED.cps.intel.com (10.7.248.6) by
+ orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1713.5
+ via Frontend Transport; Mon, 26 Oct 2020 11:05:34 -0700
+Received: from NAM10-DM6-obe.outbound.protection.outlook.com (104.47.58.109)
+ by edgegateway.intel.com (134.134.137.102) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.1713.5; Mon, 26 Oct 2020 11:05:33 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=dtvjJ1BfbAxGwy8/BIXUTBnOWEa+Sb1xd3bT23USlqbYSJnJ1fMoDe5JkmeRdafXD3l2l5a8nm/0hjCaz7bBZ/JVVtfso6sLMrN+PQCnz8c2kk0hFnBolhFdQoeHMTnYG9G1xsRNcExnlbymrJsiGg/hHJ/amBOpd00CM2dH7kxNeImzlXxGE5ieCUrHBS0m0sWyTQqXe0d2CQoZh+CPwu2vdNl8tX88Vdk6pOawDHP0l07YlrIeb2jE4vAx86JQF1FDxJCVFT0pti9Iy8CdIeQnYY9ljR75BkyRBw2MNQ9P40woBt4DYXIuxXPuQZPJ4j78q3SGOg90i7WOKge00Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pI9SKFxZvC9/fJMUywS0/LT7gv1p6aMQH877Grvd/0Q=;
+ b=LPwvjbIXl3L0TPRnC+uP5vycj8P2NKiNL3oZMQXhB6qQE7RYivjibIBkZ7l2Gf712OOr36PWob0nQSj1fs/PPyRQpULX4pZClkXBSl6GtuPst2TGgxqHPorjT40dXdqdoy0gczubGMNk9E6docx7YPzK93Pu0TxNmaZmAAG2RWLyiek4us8AyuxMh5+fnNHpsU4CynY/7DRoucWWHUB++W9rP1+2uXdwO6mbT1tZswm49oE3is3b8jhSyxAxGwl4+/wWFsJo/uYV1jr9Jjxh1TzVAIhTBNHcbLuK4sMlVuoP8Xlb7ZFHZB7ID1C3EbFdDlCDgrF6VHExq51wj6UMEw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.onmicrosoft.com; 
+ s=selector2-intel-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pI9SKFxZvC9/fJMUywS0/LT7gv1p6aMQH877Grvd/0Q=;
+ b=UbYscDRFf13GafA72jxAfFhbWgsANwlb6qLyXctmu4QYM8hqNQgaggPIpfbkYMj5FwmCr8RHlw+jfGkddvRbUVFVjguQayZJvU3n7jeCSbq0NLm6mXMbzwdK0jlwQI92L6phrSjZnqNf0imFLFxFQaAi9qXJUxb7hiCEgv59sMo=
+Received: from SN6PR11MB3184.namprd11.prod.outlook.com (2603:10b6:805:bd::17)
+ by SA2PR11MB4956.namprd11.prod.outlook.com (2603:10b6:806:112::20)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3455.29; Mon, 26 Oct
+ 2020 18:05:31 +0000
+Received: from SN6PR11MB3184.namprd11.prod.outlook.com
+ ([fe80::b901:8e07:4340:6704]) by SN6PR11MB3184.namprd11.prod.outlook.com
+ ([fe80::b901:8e07:4340:6704%7]) with mapi id 15.20.3477.028; Mon, 26 Oct 2020
+ 18:05:31 +0000
+From: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
+To: "rppt@kernel.org" <rppt@kernel.org>
+Subject: Re: [PATCH 0/4] arch, mm: improve robustness of direct map
+ manipulation
+Thread-Topic: [PATCH 0/4] arch, mm: improve robustness of direct map
+ manipulation
+Thread-Index: AQHWqrf3SYgZeORHqEa1kMKSitw9UKmpFReAgACDwgCAAJbiAA==
+Date: Mon, 26 Oct 2020 18:05:30 +0000
+Message-ID: <a0212b073b3b2f62c3dbf1bf398f03fa402997be.camel@intel.com>
+References: <20201025101555.3057-1-rppt@kernel.org>
+ <ae82f905a0092adb7e0f0ac206335c1883b3170f.camel@intel.com>
+ <20201026090526.GA1154158@kernel.org>
+In-Reply-To: <20201026090526.GA1154158@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Evolution 3.30.1 (3.30.1-1.fc29) 
+authentication-results: kernel.org; dkim=none (message not signed)
+ header.d=none;kernel.org; dmarc=none action=none header.from=intel.com;
+x-originating-ip: [134.134.137.79]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 757383ae-c314-4130-c79f-08d879d9ba6c
+x-ms-traffictypediagnostic: SA2PR11MB4956:
+x-ms-exchange-transport-forked: True
+x-microsoft-antispam-prvs: <SA2PR11MB4956DFBF6DC6124E41B60183C9190@SA2PR11MB4956.namprd11.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:9508;
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: 8gugbyRvXc1FrYJthS1/KT7bV9ujecCUln/j9Asi874O5De+jDJCp3Mg3Mqc08gZS0nrTjv/qATfmpl8zNTGEngCbaKVGgbQJ5ZhvZ2dUnKTxr9mVHf8eJoYvhK2CTtV9ymJtfnUdpePeecN0j1nn7fDuQ+HRo5CirpCXUlVplqx3HbimIxVrh3ha2TTweL0gsLxP4OGYdfut1gzM49h0aNEM/VJxflWtswXo3PgJcPxBU5SdD2J4NO1AYOtapw/sFmIJU6TzyYAavyvL/UsdLdTvvAJUWG3AaqUcOMohZY3liD3aZwdM6ook6jPtoDN4i41E6feO/szdnDABEkNRg==
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:SN6PR11MB3184.namprd11.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(4636009)(136003)(376002)(366004)(396003)(346002)(39860400002)(66476007)(66556008)(66946007)(186003)(83380400001)(91956017)(478600001)(316002)(66446008)(26005)(54906003)(2616005)(6486002)(6506007)(71200400001)(64756008)(36756003)(7416002)(6916009)(6512007)(4001150100001)(76116006)(4326008)(5660300002)(2906002)(8936002)(7406005)(86362001)(8676002);
+ DIR:OUT; SFP:1102; 
+x-ms-exchange-antispam-messagedata: u6Y97UyC5dfZkZY5bjEaYRgqOLONgvzb75mSLbCRug2w34dlOkPVpWXAFRiUyj5/JhyOA8CdqditoYx2UpExek/EwoHuyCHm6pXa11HyKW0Iwrvn4WTdcyjxTGPp0JydnYay1YuM4KeCWP4oZkLNdPAHdJEKyO+9AeF8O3aGJdwgWCdbVKxCkQH00EBITNQ0fkWjy5NXbv5aRBylNRwxAVQi8Y3jIIcgOaYOYCIavDG8yvxhhLKl8cGzGtMOaZ8jxTKx9P/V5yH/NAaTZZNsfyujOOleHpMqSCI8kbP5Ib0t/zA1GHBJLISsbQqFBNePoabJY+b2R3aIQVhtVCXCiuDwwAZ3aa4MuSVsj07gFxJFNAUn+F0UOLsWTnGgu1slyYv31/3hk8RaqpGavo4pYBhYGxFWLXjNY6QCN5j25D2BGir2uLsxcBgb3H5cmp75vK2S+ryQelvPVVB9oNBdTuEN4weAzsln+Wmb0MtxpllxgNX7SaYHqfrEjm3GnUj4HlYpmfN2gJMzNwgm6PRwZbEmVkasPdDl8by9Odj3WFSbc+t6jTBeztaPELdB9nPVArb1ymjAw8EzjQzPCHYBhPYiRvBsKclOdktUKtRYsiw1yZpib006Czp+Hz2eLCJteLsO7E/g1NgPdh4p8yGcIg==
+Content-ID: <D9F6DE933B80F84DA6EA9C88BA9B05F4@namprd11.prod.outlook.com>
 MIME-Version: 1.0
-References: <1603448245-79429-1-git-send-email-guoren@kernel.org>
- <CAAhSdy1rqZBt5LSgs9yQwewwKXvaS23ou5Ah7Xfu3n7S9sK6RA@mail.gmail.com>
- <CAJF2gTQtcKf0R-8nJK=Jb5BdQZ1giZTEuqHjZdHEU4Gks-i+Qw@mail.gmail.com>
- <CAAhSdy3sQuErgEXp-cc15d=wJpFh6THe0dCMCQy4W-MO8ud5KQ@mail.gmail.com>
-In-Reply-To: <CAAhSdy3sQuErgEXp-cc15d=wJpFh6THe0dCMCQy4W-MO8ud5KQ@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Mon, 26 Oct 2020 23:01:04 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRMFjc=kvR5gzGaWAVTojB-MWG7bFObECVukxUYGVzdWg@mail.gmail.com>
-Message-ID: <CAJF2gTRMFjc=kvR5gzGaWAVTojB-MWG7bFObECVukxUYGVzdWg@mail.gmail.com>
-Subject: Re: [PATCH 1/3] irqchip/irq-sifive-plic: Fixup wrong size of
- xxx_PER_HART and reg base
-To: Anup Patel <anup@brainfault.org>
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR11MB3184.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 757383ae-c314-4130-c79f-08d879d9ba6c
+X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Oct 2020 18:05:31.3661 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: xQ2kBQXNfq1dLhyfcQFZ9pWdMDNoCDpS79wzzMNDV7orkFmVpIWFnNkhKC/mogzdcrAO8ema/BYkJl5wo7vwxWaAVJI62zFOIC1a/BojB1E=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA2PR11MB4956
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201026_110119_757237_3196FA99 
-X-CRM114-Status: GOOD (  41.24  )
+X-CRM114-CacheID: sfid-20201026_140539_067453_FBC4234C 
+X-CRM114-Status: GOOD (  28.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -86,370 +154,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Guo Ren <guoren@linux.alibaba.com>, Jason Cooper <jason@lakedaemon.net>,
- wesley@sifive.com, Marc Zyngier <maz@kernel.org>,
- Palmer Dabbelt <palmerdabbelt@google.com>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Atish Patra <atish.patra@wdc.com>, Yash Shah <yash.shah@sifive.com>,
- Zong Li <zong.li@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Greentime Hu <greentime.hu@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
- Christoph Hellwig <hch@lst.de>
+Cc: "benh@kernel.crashing.org" <benh@kernel.crashing.org>,
+ "david@redhat.com" <david@redhat.com>,
+ "peterz@infradead.org" <peterz@infradead.org>,
+ "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+ "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+ "linux-mm@kvack.org" <linux-mm@kvack.org>,
+ "paulus@samba.org" <paulus@samba.org>, "pavel@ucw.cz" <pavel@ucw.cz>,
+ "hpa@zytor.com" <hpa@zytor.com>,
+ "sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>,
+ "cl@linux.com" <cl@linux.com>, "will@kernel.org" <will@kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
+ "mpe@ellerman.id.au" <mpe@ellerman.id.au>, "x86@kernel.org" <x86@kernel.org>,
+ "rppt@linux.ibm.com" <rppt@linux.ibm.com>,
+ "borntraeger@de.ibm.com" <borntraeger@de.ibm.com>,
+ "mingo@redhat.com" <mingo@redhat.com>,
+ "rientjes@google.com" <rientjes@google.com>, "Brown,
+ Len" <len.brown@intel.com>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+ "gor@linux.ibm.com" <gor@linux.ibm.com>,
+ "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+ "hca@linux.ibm.com" <hca@linux.ibm.com>, "bp@alien8.de" <bp@alien8.de>,
+ "luto@kernel.org" <luto@kernel.org>,
+ "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+ "kirill@shutemov.name" <kirill@shutemov.name>,
+ "tglx@linutronix.de" <tglx@linutronix.de>,
+ "iamjoonsoo.kim@lge.com" <iamjoonsoo.kim@lge.com>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+ "rjw@rjwysocki.net" <rjw@rjwysocki.net>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "penberg@kernel.org" <penberg@kernel.org>,
+ "palmer@dabbelt.com" <palmer@dabbelt.com>,
+ "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+ "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+ "davem@davemloft.net" <davem@davemloft.net>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Anup,
+On Mon, 2020-10-26 at 11:05 +0200, Mike Rapoport wrote:
+> On Mon, Oct 26, 2020 at 01:13:52AM +0000, Edgecombe, Rick P wrote:
+> > On Sun, 2020-10-25 at 12:15 +0200, Mike Rapoport wrote:
+> > > Indeed, for architectures that define
+> > > CONFIG_ARCH_HAS_SET_DIRECT_MAP
+> > > it is
+> > > possible that __kernel_map_pages() would fail, but since this
+> > > function is
+> > > void, the failure will go unnoticed.
+> > 
+> > Could you elaborate on how this could happen? Do you mean during
+> > runtime today or if something new was introduced?
+> 
+> A failure in__kernel_map_pages() may happen today. For instance, on
+> x86
+> if the kernel is built with DEBUG_PAGEALLOC.
+> 
+>         __kernel_map_pages(page, 1, 0);
+> 
+> will need to split, say, 2M page and during the split an allocation
+> of
+> page table could fail.
 
-On Sun, Oct 25, 2020 at 5:18 PM Anup Patel <anup@brainfault.org> wrote:
->
-> On Sat, Oct 24, 2020 at 8:40 AM Guo Ren <guoren@kernel.org> wrote:
-> >
-> > On Fri, Oct 23, 2020 at 8:31 PM Anup Patel <anup@brainfault.org> wrote:
-> > >
-> > > On Fri, Oct 23, 2020 at 3:48 PM <guoren@kernel.org> wrote:
-> > > >
-> > > > From: Guo Ren <guoren@linux.alibaba.com>
-> > > >
-> > > > ENABLE and CONTEXT registers contain M & S status for per-hart, so
-> > > > ref to the specification the correct definition is double to the
-> > > > current value.
-> > > >
-> > > > The value of hart_base and enable_base should be calculated by real
-> > > > physical hartid not software id. Sometimes the CPU node's <reg>
-> > > > from dts is not equal to the sequence index.
-> > > >
-> > > > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> > > > ---
-> > > >  drivers/irqchip/irq-sifive-plic.c | 12 ++++++------
-> > > >  1 file changed, 6 insertions(+), 6 deletions(-)
-> > > >
-> > > > diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-> > > > index eaa3e9f..2e56576 100644
-> > > > --- a/drivers/irqchip/irq-sifive-plic.c
-> > > > +++ b/drivers/irqchip/irq-sifive-plic.c
-> > > > @@ -44,16 +44,16 @@
-> > > >   * Each hart context has a vector of interrupt enable bits associated with it.
-> > > >   * There's one bit for each interrupt source.
-> > > >   */
-> > > > -#define ENABLE_BASE                    0x2000
-> > > > -#define     ENABLE_PER_HART            0x80
-> > > > +#define ENABLE_BASE                    0x2080
-> > > > +#define     ENABLE_PER_HART            0x100
-> > > >
-> > > >  /*
-> > > >   * Each hart context has a set of control registers associated with it.  Right
-> > > >   * now there's only two: a source priority threshold over which the hart will
-> > > >   * take an interrupt, and a register to claim interrupts.
-> > > >   */
-> > > > -#define CONTEXT_BASE                   0x200000
-> > > > -#define     CONTEXT_PER_HART           0x1000
-> > > > +#define CONTEXT_BASE                   0x201000
-> > > > +#define     CONTEXT_PER_HART           0x2000
-> > > >  #define     CONTEXT_THRESHOLD          0x00
-> > > >  #define     CONTEXT_CLAIM              0x04
-> > > >
-> > > > @@ -358,10 +358,10 @@ static int __init plic_init(struct device_node *node,
-> > > >                 cpumask_set_cpu(cpu, &priv->lmask);
-> > > >                 handler->present = true;
-> > > >                 handler->hart_base =
-> > > > -                       priv->regs + CONTEXT_BASE + i * CONTEXT_PER_HART;
-> > > > +                       priv->regs + CONTEXT_BASE + hartid * CONTEXT_PER_HART;
-> > > >                 raw_spin_lock_init(&handler->enable_lock);
-> > > >                 handler->enable_base =
-> > > > -                       priv->regs + ENABLE_BASE + i * ENABLE_PER_HART;
-> > > > +                       priv->regs + ENABLE_BASE + hartid * ENABLE_PER_HART;
-> > > >                 handler->priv = priv;
-> > > >  done:
-> > > >                 for (hwirq = 1; hwirq <= nr_irqs; hwirq++)
-> > > > --
-> > > > 2.7.4
-> > > >
-> > >
-> > > There is no one-to-one mapping between PLIC context and HARTID. Instead,
-> > > we have many-to-one mapping between PLIC contexts and HARTID. In other
-> > > words, we have one PLIC context for each interrupt capable mode (i.e.
-> > > M/S-mode) of each HART.
-> > >
-> > > For example, on SiFive Unleashed we have 5 HARTs but HARTID=0 has
-> > > only M-mode capable of taking interrupts so we have total (1 + 2x4) = 9
-> > > PLIC contexts.
-> > That's OK, but what the bug I want to point out is enable_base &
-> > context_base should be calculated by 'hartid' not 'i'.
->
-> There is no relation between PLIC context number and HART IDs. The
-> PLIC context to HART mapping is discovered from the "interrupts-extended"
-> DT property of PLIC DT node. The "i" in the loop is PLIC context number.
->
-> The PLIC spec does not mandate any ordering/pattern of PLIC context to
-> HART mappings. Also, the interrupts-extended DT property is generic
-> enough to represent any kind of PLIC context to HART mappings.
->
-> Your patch breaks SiFive Unleashed board and NoMMU kernel because
-> of incorrect assumptions about PLIC contexts to HART mappings.
->
-> >
-> > For example, how we deal with below dts configuration:
-> >         cpus {
-> >                 #address-cells = <1>;
-> >                 #size-cells = <0>;
-> >                 timebase-frequency = <3000000>;
-> >                 cpu@0 {
-> >                         device_type = "cpu";
-> >                         reg = <2>;  //********* different from index
-> >                         status = "okay";
-> >                         compatible = "riscv";
-> >                         riscv,isa = "rv64imafdcsu";
-> >                         mmu-type = "riscv,sv39";
-> >                         cpu0_intc: interrupt-controller {
-> >                                 #interrupt-cells = <1>;
-> >                                 compatible = "riscv,cpu-intc";
-> >                                 interrupt-controller;
-> >                         };
-> >                 };
-> >                 cpu@1 {
-> >                         device_type = "cpu";
-> >                         reg = <3>; //********* different from index
-> >                         status = "fail";
-> >                         compatible = "riscv";
-> >                         riscv,isa = "rv64imafdcsu";
-> >                         mmu-type = "riscv,sv39";
-> >                         cpu1_intc: interrupt-controller {
-> >                                 #interrupt-cells = <1>;
-> >                                 compatible = "riscv,cpu-intc";
-> >                                 interrupt-controller;
-> >                         };
-> >                 };
-> >       }
->
-> For above DTS configuration, we need a PLIC with just 4 contexts
-> (irrespective to the HART IDs).
->
-> The PLIC context to HART mapping can be described using the
-> interrupts-extended DT property of PLIC DT node as follows:
->     interrupts-extended = <&cpu0_intc 11 &cpu0_intc 9
->                                          &cpu1_intc 11 &cpu1_intc 9>;
->
-I have 4 harts (0, 1, 2, 3) and I want to run two Linux systems in the
-same soc with 0+1 & 2+3.
+On x86 at least, DEBUG_PAGEALLOC expects to never have to break a page
+on the direct map and even disables locking in cpa because it assumes
+this. If this is happening somehow anyway then we should probably fix
+that. Even if it's a debug feature, it will not be as useful if it is
+causing its own crashes.
 
-In this case CPU index of dts are different from hartid.
-First dts:
-cpu index 0 -> hartid 0
-cpu index 1 -> hartid 1
+I'm still wondering if there is something I'm missing here. It seems
+like you are saying there is a bug in some arch's, so let's add a WARN
+in cross-arch code to log it as it crashes. A warn and making things
+clearer seem like good ideas, but if there is a bug we should fix it.
+The code around the callers still functionally assume re-mapping can't
+fail.
 
-Second dts:
-cpu index 0 -> hartid 2
-cpu index 1 -> hartid 3
+> Currently, the only user of __kernel_map_pages() outside
+> DEBUG_PAGEALLOC
+> is hibernation, but I think it would be safer to entirely prevent
+> usage
+> of __kernel_map_pages() when DEBUG_PAGEALLOC=n.
 
-> >
-> > >
-> > > I would also like to highlight that this patch is forcing PLIC driver to always
-> > > use PLIC S-mode context for each HART which breaks the Linux RISC-V
-> > > NoMMU kernel.
-> > Yes, I forgot M-mode and I will correct it.
-> >
-> > >
-> > > There is no issue with the existing defines because these are aligned with
-> > > above and latest PLIC spec.
-> > > (Refer, https://github.com/riscv/riscv-plic-spec/blob/master/riscv-plic.adoc)
-> > >
-> > > NACK to this patch from my side.
-> >
-> > Here is my new patch which fixup m-mode linux:
-> >
-> > diff --git a/drivers/irqchip/irq-sifive-plic.c
-> > b/drivers/irqchip/irq-sifive-plic.c
-> > index 4048657..e34e1d9 100644
-> > --- a/drivers/irqchip/irq-sifive-plic.c
-> > +++ b/drivers/irqchip/irq-sifive-plic.c
-> > @@ -45,7 +45,13 @@
-> >   * There's one bit for each interrupt source.
-> >   */
-> >  #define ENABLE_BASE                    0x2000
-> > -#define     ENABLE_PER_HART            0x80
-> > +#define     ENABLE_PER_HART            0x100
-> > +#ifdef CONFIG_RISCV_M_MODE
-> > +#define     ENABLE_OFFSET              0
-> > +#else
-> > +#define     ENABLE_OFFSET              0x80
-> > +#endif
-> > +
-> >
-> >  /*
-> >   * Each hart context has a set of control registers associated with it.  Right
-> > @@ -53,9 +59,14 @@
-> >   * take an interrupt, and a register to claim interrupts.
-> >   */
-> >  #define CONTEXT_BASE                   0x200000
-> > -#define     CONTEXT_PER_HART           0x1000
-> > +#define     CONTEXT_PER_HART           0x2000
-> >  #define     CONTEXT_THRESHOLD          0x00
-> >  #define     CONTEXT_CLAIM              0x04
-> > +#ifdef CONFIG_RISCV_M_MODE
-> > +#define     CONTEXT_OFFSET             0
-> > +#else
-> > +#define     CONTEXT_OFFSET             0x1000
-> > +#endif
-> >
-> >  #define        PLIC_DISABLE_THRESHOLD          0x7
-> >  #define        PLIC_ENABLE_THRESHOLD           0
-> > @@ -358,10 +369,10 @@ static int __init plic_init(struct device_node *node,
-> >                 cpumask_set_cpu(cpu, &priv->lmask);
-> >                 handler->present = true;
-> >                 handler->hart_base =
-> > -                       priv->regs + CONTEXT_BASE + i * CONTEXT_PER_HART;
-> > +                       priv->regs + CONTEXT_BASE + hartid *
-> > CONTEXT_PER_HART + CONTEXT_OFFSET;
-> >                 raw_spin_lock_init(&handler->enable_lock);
-> >                 handler->enable_base =
-> > -                       priv->regs + ENABLE_BASE + i * ENABLE_PER_HART;
-> > +                       priv->regs + ENABLE_BASE + hartid *
-> > ENABLE_PER_HART + ENABLE_OFFSET;
-> >                 handler->priv = priv;
-> >  done:
-> >                 for (hwirq = 1; hwirq <= nr_irqs; hwirq++)
-> >
->
-> This modified patch still breaks SiFive Unleashed board because
-> it has following PLIC context to HART mappings:
-> PLIC_context_0 (offset 0x0000) => HART0_M_mode_irq
-> PLIC_context_1 (offset 0x1000) => HART1_M_mode_irq
-> PLIC_context_2 (offset 0x2000) => HART1_S_mode_irq
-> PLIC_context_3 (offset 0x3000) => HART2_M_mode_irq
-> PLIC_context_4 (offset 0x4000) => HART2_S_mode_irq
-> PLIC_context_5 (offset 0x5000) => HART3_M_mode_irq
-> PLIC_context_6 (offset 0x6000) => HART3_S_mode_irq
-> PLIC_context_7 (offset 0x7000) => HART4_M_mode_irq
-> PLIC_context_8 (offset 0x8000) => HART4_S_mode_irq
-Got it, thx, Our system:
-PLIC_context_0 (offset 0x0000) => HART0_M_mode_irq
-PLIC_context_1 (offset 0x1000) => HART0_S_mode_irq
-PLIC_context_2 (offset 0x2000) => HART1_M_mode_irq
-PLIC_context_3 (offset 0x3000) => HART1_S_mode_irq
-PLIC_context_4 (offset 0x0000) => HART2_M_mode_irq
-PLIC_context_5 (offset 0x1000) => HART2_S_mode_irq
-PLIC_context_6 (offset 0x2000) => HART3_M_mode_irq
-PLIC_context_7 (offset 0x3000) => HART3_S_mode_irq
+I totally agree it's error prone FWIW. On x86, my mental model of how
+it is supposed to work is: If a page is 4k and NP it cannot fail to be
+remapped. set_direct_map_invalid_noflush() should result in 4k NP
+pages, and DEBUG_PAGEALLOC should result in all 4k pages on the direct
+map. Are you seeing this violated or do I have wrong assumptions?
 
-If I didn't modify PLIC driver, you reconmand me write dts like this?
-        cpus {
-                #address-cells = <1>;
-                #size-cells = <0>;
-                timebase-frequency = <3000000>;
-                cpu@0 {
-                        device_type = "cpu";
-                        reg = <0>;
-                        status = "disabled"; // disabled ?
-                        compatible = "riscv";
-                        riscv,isa = "rv64imafdcsu";
-                        mmu-type = "riscv,sv39";
-                        cpu0_intc: interrupt-controller {
-                                #interrupt-cells = <1>;
-                                compatible = "riscv,cpu-intc";
-                                interrupt-controller;
-                        };
-                };
-                cpu@1 {
-                        device_type = "cpu";
-                        reg = <1>;
-                        status = "disabled"; // disabled ?
-                        compatible = "riscv";
-                        riscv,isa = "rv64imafdcsu";
-                        mmu-type = "riscv,sv39";
-                        cpu1_intc: interrupt-controller {
-                                #interrupt-cells = <1>;
-                                compatible = "riscv,cpu-intc";
-                                interrupt-controller;
-                        };
-                };
-                cpu@2 {
-                        device_type = "cpu";
-                        reg = <2>;
-                        status = "ok";
-                        compatible = "riscv";
-                        riscv,isa = "rv64imafdcsu";
-                        mmu-type = "riscv,sv39";
-                        cpu2_intc: interrupt-controller {
-                                #interrupt-cells = <1>;
-                                compatible = "riscv,cpu-intc";
-                                interrupt-controller;
-                        };
-                };
-                cpu@3 {
-                        device_type = "cpu";
-                        reg = <3>;
-                        status = "ok";
-                        compatible = "riscv";
-                        riscv,isa = "rv64imafdcsu";
-                        mmu-type = "riscv,sv39";
-                        cpu3_intc: interrupt-controller {
-                                #interrupt-cells = <1>;
-                                compatible = "riscv,cpu-intc";
-                                interrupt-controller;
-                        };
-                };
-      };
+Beyond whatever you are seeing, for the latter case of new things
+getting introduced to an interface with hidden dependencies... Another
+edge case could be a new caller to set_memory_np() could result in
+large NP pages. None of the callers today should cause this AFAICT, but
+it's not great to rely on the callers to know these details.
 
-                intc: interrupt-controller@3f0000000 {
-                        #interrupt-cells = <1>;
-                        compatible = "riscv,plic0";
-                        interrupt-controller;
-                        interrupts-extended = <
-                                &cpu0_intc  0xffffffff &cpu0_intc  0xffffffff
-                                &cpu1_intc  0xffffffff &cpu1_intc  0xffffffff
-                                &cpu2_intc  0xffffffff &cpu2_intc  9
-                                &cpu3_intc  0xffffffff &cpu3_intc  9
-                                >;
-                        reg = <0x3 0xf0000000 0x0 0x04000000>;
-                        reg-names = "control";
-                        riscv,max-priority = <7>;
-                        riscv,ndev = <80>;
-                };
-
-Still use index to address the reg base.
-
->
-> As-per your patch, the Linux S-mode kernel will use
-> PLIC_context_3 (offset 0x3000) for HART1 which is in-correct
-> because PLIC_context_3 maps to HART2 M-mode IRQ.
->
-> Further with your patch, the Linux M-mode kernel will use
-> PLIC_context_2 (offset 0x2000) for HART1 which is in-correct
-> because PLIC_context_2 maps to HART1 S-mode IRQ.
->
-> Clearly your modified patch breaks both Linux S-mode kernel
-> and Linux M-mode kernel on SiFive Unleashed board.
->
-> The current driver handles all above cases correctly by parsing
-> the PLIC context to HART mappings from the interrupts-extended
-> DT property. I don't see any bug here.
->
-        soc {
-                plic0: interrupt-controller@c000000 {
-                        #interrupt-cells = <1>;
-                        compatible = "sifive,plic-1.0.0";
-                        reg = <0x0 0xc000000 0x0 0x4000000>;
-                        riscv,ndev = <53>;
-                        interrupt-controller;
-                        interrupts-extended = <
-                                &cpu0_intc 0xffffffff
-                                &cpu1_intc 0xffffffff &cpu1_intc 9
-                                &cpu2_intc 0xffffffff &cpu2_intc 9
-                                &cpu3_intc 0xffffffff &cpu3_intc 9
-                                &cpu4_intc 0xffffffff &cpu4_intc 9>;
-                };
-
-Yes, my patch will break SiFive's u54. The cpu0 hasn't S-mode and it
-makes an interrupts-extended odd number. Sorry I haven't seen u54 dts
-before and I just think interrupts-extended should be even.
-
--- 
-Best Regards
- Guo Ren
-
-ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
