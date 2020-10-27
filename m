@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 51A23C4363A
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Oct 2020 00:01:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3570CC56201
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Oct 2020 00:18:23 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 08E3D20773
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Oct 2020 00:01:37 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A2BE020708
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Oct 2020 00:18:22 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="RiXX5TzH";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="Ru3mbC0s"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 08E3D20773
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="DGWGKUqb";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="Dj6Hn/1k"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A2BE020708
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,48 +26,48 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=EaM8M27qkG4vmzPv6lzm0sf2giB7deP4AfrgFkqocyA=; b=RiXX5TzHsKN0pn/LMGbBvYfyp
-	UaG9T80RZGqC3IvlXMyMQj099aCZeNmUqIcc5DdqJm2/Uch/+edsD6V5pTBkEDJdh5VYZ+5zG8J93
-	iHMW2u3xIqHfVF96RbsHdsz8qS6dbaBjes5VQMI1w6Nib6z/lC5ZAeRtX4/w4BNcmqmYG0hamsEbx
-	L4oRWerMK5b56b1Ss6obxOnUPU8GC+MJvdtokheocVrm7o1hOhAyFfnALgO3HlHVqsLzsz5EFJ+3y
-	2smc7lefchSjF0mtiNG97zwQooovGS/RsXr8LF695tdLciVDRgbvx4n/1yJ9INP1yxJxIB+YK/oyo
-	K1d2inavg==;
+	 bh=sXW7NlyccAcRUepWu651rpyU4ChOS/s4DzKBLHoWMw0=; b=DGWGKUqbdyvtx7o6eKNMnN0y6
+	D9zrZCOihw+Ka4vsCxDzZopJVJVy6f7gztuJ1h9CXO0O7RFJJMJ3nuTUlto/wD6x3Bwc/9B5BKz6A
+	NzA/lHRREC3lcKQfi3UsoA/CHI/yU+AWW3mVMtI8u93ZTeSYiVgqma7Q7vY17065HhGz7pr32u8kZ
+	wsqtRzkEjiI7ZDpoM3t2uG0IUIeE/pQDH1AilLJIjiTqg6mZ5OO+AE47rzuXtG8KnkkS8N+ycfOgr
+	QToB4BFDXmaaxfnXB9KvEiayUnRMOCp3Qi5sSuf4vJMi7s9mMRg544KRTY2aFZ1SRf7XIcdxMwQDm
+	llroPtxJw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kXCQT-0006R0-BG; Tue, 27 Oct 2020 00:01:21 +0000
+	id 1kXCgZ-0005bp-Pp; Tue, 27 Oct 2020 00:17:59 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kXCIo-0002Z6-K6
- for linux-riscv@lists.infradead.org; Mon, 26 Oct 2020 23:53:43 +0000
+ id 1kXCTs-0008FC-M3
+ for linux-riscv@lists.infradead.org; Tue, 27 Oct 2020 00:04:59 +0000
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net
  [73.47.72.35])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 8441021655;
- Mon, 26 Oct 2020 23:53:23 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 3BBD021707;
+ Tue, 27 Oct 2020 00:04:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1603756404;
- bh=FwGCC5je+qSALh6pUyJFCTlFd8RGLBo3/olgLlei+uQ=;
+ s=default; t=1603757089;
+ bh=zJP6FABmNY+7aHNngYzTeoWqZzqO+Ut9jn9IXW73IeQ=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=Ru3mbC0sTCgi13OaA04ZnI0AY7LDJCn8EiCc37sSFrYPwE26zSN27yMLqV4ANWKpf
- ziAtnKZP1RKrWqucVBbRmjRJ22pl7kuA5+Tn5Vnsb4Kgrt6Av27tv3jrtVlOADSznn
- iTAr99qC2WBHLSBUR14TWojsSTYFuswQtYcPuY1k=
+ b=Dj6Hn/1kAwpuLf7u0pwZt4gdsVIBbk1Cbq/Yzbwr1VMA/FYp7VD7bzk4KBQe2p521
+ eeCLj31bj84qqxw6UTKWKUV0cpQYWlYVqrNOkmKJTG+EDH/Ge6JDQxEAf4NKZPMEKZ
+ 4Tc4kju5bcOFp6qUnq0koRvq+0uIph67q8FT4UFU=
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Subject: [PATCH AUTOSEL 5.8 063/132] riscv: Define AT_VECTOR_SIZE_ARCH for
+Subject: [PATCH AUTOSEL 4.19 28/60] riscv: Define AT_VECTOR_SIZE_ARCH for
  ARCH_DLINFO
-Date: Mon, 26 Oct 2020 19:50:55 -0400
-Message-Id: <20201026235205.1023962-63-sashal@kernel.org>
+Date: Mon, 26 Oct 2020 20:03:43 -0400
+Message-Id: <20201027000415.1026364-28-sashal@kernel.org>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20201026235205.1023962-1-sashal@kernel.org>
-References: <20201026235205.1023962-1-sashal@kernel.org>
+In-Reply-To: <20201027000415.1026364-1-sashal@kernel.org>
+References: <20201027000415.1026364-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201026_195326_930936_6EB4F79E 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20201026_200453_646768_B2776668 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -106,10 +106,10 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 3 insertions(+)
 
 diff --git a/arch/riscv/include/uapi/asm/auxvec.h b/arch/riscv/include/uapi/asm/auxvec.h
-index d86cb17bbabe6..22e0ae8884061 100644
+index 1376515547cda..ed7bf7c7add5f 100644
 --- a/arch/riscv/include/uapi/asm/auxvec.h
 +++ b/arch/riscv/include/uapi/asm/auxvec.h
-@@ -10,4 +10,7 @@
+@@ -21,4 +21,7 @@
  /* vDSO location */
  #define AT_SYSINFO_EHDR 33
  
