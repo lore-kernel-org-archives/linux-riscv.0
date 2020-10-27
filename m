@@ -2,68 +2,89 @@ Return-Path: <SRS0=hxxf=EC=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-7.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2ED9AC55179
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Oct 2020 10:04:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E5EB9C4363A
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Oct 2020 10:35:28 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 81D9F21D24
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Oct 2020 10:04:50 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 58F3122263
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Oct 2020 10:35:28 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="PdTndXN7";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="V+9PUBR0"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 81D9F21D24
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="liyqIMk9";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=redhat.com header.i=@redhat.com header.b="VQH9747S"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 58F3122263
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=5tgbjGfFoOwakpExcv9Y8F7v9c3Wi/xaenpMRCrprpw=; b=PdTndXN7IQvbgDVEfAPJr0+8j
-	d/6epXTQlbvTUBSV7ugAUpM0EmBSo+ce0mN8ag5bxRg5G/ADmzjVOJx/4cK+MA/kmv30y5PLKwNFC
-	u1SYFmB3rY/nlqzwG7ezOc/aPlsm9D/fiomC37rLshLGgOv7al4oS5iTPk+BITTpEDGTu++ZbI+1a
-	W6T8lgfoy7SH1+HHmtcCY9Ug9MO6VqK6P0n55jxEDZIdcO7ckRCDFsqMvzy4cyu2Y1bVtUJKCP/ow
-	GNrHpXQM8WKixaiNjg6eobffO785Pa6Nqo2DGA8hCF7K7PCnPCIvO1nbs/zBaVL16jbtaaZFLT/b5
-	KkRac/+XQ==;
+	 bh=hMuiuYBGzvg+Mz+6nhlnzEKF6dKP2eY6JEH5R4TU0OE=; b=liyqIMk9oEejGIvg2qQUmIB7S
+	NVd2bXCZ/NJtbeMhVcFaZ+DTOK/xgBdDhZ45fcwo6mReSAJYgOI+xtCTOsQPvRz5IuKI9iqRGTkyX
+	a5ydA75jufX4pq9s35P9B9gUepFtyaU03wy2Nj67+zey4kJ3HfUEHRHS17iEU/ocS2bUw2wP+jWyi
+	kvhG8IZilR8WwPEa63hZ06l/DJSWMIDy3FTh8YJ8roO1Qnel2477wcdMgWIOs4wuFU51tO8Zt1MHK
+	hY/rph05A3Tp9CCnwLsD9l3fZnX32GEucLwZIG+0MjILrNxMEd09/YgP43F4za6ov1OWTDQ/NmniT
+	rIYxbS1fw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kXLqJ-0000vG-6k; Tue, 27 Oct 2020 10:04:39 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1kXMJw-0007B2-7n; Tue, 27 Oct 2020 10:35:16 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([63.128.21.124])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kXLqH-0000uj-AB
- for linux-riscv@lists.infradead.org; Tue, 27 Oct 2020 10:04:37 +0000
-Received: from kernel.org (unknown [87.70.96.83])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ id 1kXMJp-00077z-Nk
+ for linux-riscv@lists.infradead.org; Tue, 27 Oct 2020 10:35:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1603794909;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=mItxCBan+TvaBtPLdVv1EhvNXUYWm/o0gLWrN7AxXiw=;
+ b=VQH9747S6/pJHSg/n0+tD5Pi70phmyB+0/cWvkA3EyHfBMlmRx3LE8CAz1AhNWxikpM0uA
+ HCAmAhqxxjWQV3xU6DZKMW/sFZ9oMimyr/9jbuEPOZdXlBIIX9AfrGehObrM9vkUWIe9B1
+ aCZO++LAt1JytJ7va7NE+ySVW4UJ1sE=
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-374-_KBJoZ_2O0m-D6GuxbEDNA-1; Tue, 27 Oct 2020 06:35:04 -0400
+X-MC-Unique: _KBJoZ_2O0m-D6GuxbEDNA-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com
+ [10.5.11.16])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id C700F2225C;
- Tue, 27 Oct 2020 10:04:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1603793076;
- bh=9oqzRDZNe+FfdXtk0S3LxKVoMZpBJw1CaS0aw8Ns96E=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=V+9PUBR0MaYQIgZV2v2UQvZdY/l4W42pbJcmh3UytyQXuaZjA1zIbhbHw21jjfE+n
- KCCI5hK1v9Xh5pqwCBSqwaSxxgsPx4rQio5c8LpyZoGsdkeQQqniq/4z4vq87JpmRL
- Kf4oKAXoAmeAt430Ucr9Hy0qL+Oy5oVI9enLf5Nc=
-Date: Tue, 27 Oct 2020 12:04:27 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Atish Patra <atish.patra@wdc.com>
-Subject: Re: [PATCH v2 2/6] RISC-V: Initialize SBI early
-Message-ID: <20201027100427.GL1154158@kernel.org>
-References: <20201026230254.911912-1-atish.patra@wdc.com>
- <20201026230254.911912-3-atish.patra@wdc.com>
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id C24CF64093;
+ Tue, 27 Oct 2020 10:34:58 +0000 (UTC)
+Received: from [10.36.113.185] (ovpn-113-185.ams2.redhat.com [10.36.113.185])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id BBB1A5C1BD;
+ Tue, 27 Oct 2020 10:34:50 +0000 (UTC)
+Subject: Re: [PATCH 0/4] arch, mm: improve robustness of direct map
+ manipulation
+To: Mike Rapoport <rppt@kernel.org>
+References: <20201025101555.3057-1-rppt@kernel.org>
+ <ae82f905a0092adb7e0f0ac206335c1883b3170f.camel@intel.com>
+ <20201026090526.GA1154158@kernel.org>
+ <a0212b073b3b2f62c3dbf1bf398f03fa402997be.camel@intel.com>
+ <20201027083816.GG1154158@kernel.org>
+ <e5fc62b6-f644-4ed5-de5b-ffd8337861e4@redhat.com>
+ <20201027094714.GI1154158@kernel.org>
+From: David Hildenbrand <david@redhat.com>
+Organization: Red Hat GmbH
+Message-ID: <14aee5c8-09d5-7dc2-7d61-d2d44521c5e3@redhat.com>
+Date: Tue, 27 Oct 2020 11:34:49 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.6.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20201026230254.911912-3-atish.patra@wdc.com>
+In-Reply-To: <20201027094714.GI1154158@kernel.org>
+Content-Language: en-US
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201027_060437_463889_7C00EE59 
-X-CRM114-Status: GOOD (  16.55  )
+X-CRM114-CacheID: sfid-20201027_063510_008689_4A773F2D 
+X-CRM114-Status: GOOD (  40.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -75,67 +96,183 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>,
- Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- Zong Li <zong.li@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Greentime Hu <greentime.hu@sifive.com>,
- Andrew Morton <akpm@linux-foundation.org>, Borislav Petkov <bp@suse.de>,
- Michel Lespinasse <walken@google.com>, Ard Biesheuvel <ardb@kernel.org>
-Content-Type: text/plain; charset="us-ascii"
+Cc: "benh@kernel.crashing.org" <benh@kernel.crashing.org>,
+ "peterz@infradead.org" <peterz@infradead.org>,
+ "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+ "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+ "linux-mm@kvack.org" <linux-mm@kvack.org>,
+ "paulus@samba.org" <paulus@samba.org>, "pavel@ucw.cz" <pavel@ucw.cz>,
+ "hpa@zytor.com" <hpa@zytor.com>,
+ "sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>,
+ "cl@linux.com" <cl@linux.com>, "will@kernel.org" <will@kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
+ "mpe@ellerman.id.au" <mpe@ellerman.id.au>, "x86@kernel.org" <x86@kernel.org>,
+ "rppt@linux.ibm.com" <rppt@linux.ibm.com>,
+ "borntraeger@de.ibm.com" <borntraeger@de.ibm.com>,
+ "mingo@redhat.com" <mingo@redhat.com>,
+ "rientjes@google.com" <rientjes@google.com>, "Brown,
+ Len" <len.brown@intel.com>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+ "gor@linux.ibm.com" <gor@linux.ibm.com>,
+ "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+ "hca@linux.ibm.com" <hca@linux.ibm.com>, "bp@alien8.de" <bp@alien8.de>,
+ "luto@kernel.org" <luto@kernel.org>,
+ "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+ "kirill@shutemov.name" <kirill@shutemov.name>,
+ "tglx@linutronix.de" <tglx@linutronix.de>,
+ "iamjoonsoo.kim@lge.com" <iamjoonsoo.kim@lge.com>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+ "rjw@rjwysocki.net" <rjw@rjwysocki.net>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "penberg@kernel.org" <penberg@kernel.org>,
+ "palmer@dabbelt.com" <palmer@dabbelt.com>,
+ "akpm@linux-foundation.org" <akpm@linux-foundation.org>, "Edgecombe,
+ Rick P" <rick.p.edgecombe@intel.com>,
+ "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+ "davem@davemloft.net" <davem@davemloft.net>
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 26, 2020 at 04:02:50PM -0700, Atish Patra wrote:
-> Currently, SBI is initialized towards the end of arch setup. This prevents
-> the set memory operations to be invoked earlier as it requires a full tlb
-> flush.
+On 27.10.20 10:47, Mike Rapoport wrote:
+> On Tue, Oct 27, 2020 at 09:46:35AM +0100, David Hildenbrand wrote:
+>> On 27.10.20 09:38, Mike Rapoport wrote:
+>>> On Mon, Oct 26, 2020 at 06:05:30PM +0000, Edgecombe, Rick P wrote:
+>>>> On Mon, 2020-10-26 at 11:05 +0200, Mike Rapoport wrote:
+>>>>> On Mon, Oct 26, 2020 at 01:13:52AM +0000, Edgecombe, Rick P wrote:
+>>>>>> On Sun, 2020-10-25 at 12:15 +0200, Mike Rapoport wrote:
+>>>>>>> Indeed, for architectures that define
+>>>>>>> CONFIG_ARCH_HAS_SET_DIRECT_MAP
+>>>>>>> it is
+>>>>>>> possible that __kernel_map_pages() would fail, but since this
+>>>>>>> function is
+>>>>>>> void, the failure will go unnoticed.
+>>>>>>
+>>>>>> Could you elaborate on how this could happen? Do you mean during
+>>>>>> runtime today or if something new was introduced?
+>>>>>
+>>>>> A failure in__kernel_map_pages() may happen today. For instance, on
+>>>>> x86
+>>>>> if the kernel is built with DEBUG_PAGEALLOC.
+>>>>>
+>>>>>           __kernel_map_pages(page, 1, 0);
+>>>>>
+>>>>> will need to split, say, 2M page and during the split an allocation
+>>>>> of
+>>>>> page table could fail.
+>>>>
+>>>> On x86 at least, DEBUG_PAGEALLOC expects to never have to break a page
+>>>> on the direct map and even disables locking in cpa because it assumes
+>>>> this. If this is happening somehow anyway then we should probably fix
+>>>> that. Even if it's a debug feature, it will not be as useful if it is
+>>>> causing its own crashes.
+>>>>
+>>>> I'm still wondering if there is something I'm missing here. It seems
+>>>> like you are saying there is a bug in some arch's, so let's add a WARN
+>>>> in cross-arch code to log it as it crashes. A warn and making things
+>>>> clearer seem like good ideas, but if there is a bug we should fix it.
+>>>> The code around the callers still functionally assume re-mapping can't
+>>>> fail.
+>>>
+>>> Oh, I've meant x86 kernel *without* DEBUG_PAGEALLOC, and indeed the call
+>>> that unmaps pages back in safe_copy_page will just reset a 4K page to
+>>> NP because whatever made it NP at the first place already did the split.
+>>>
+>>> Still, on arm64 with DEBUG_PAGEALLOC=n there is a possibility of a race
+>>> between map/unmap dance in __vunmap() and safe_copy_page() that may
+>>> cause access to unmapped memory:
+>>>
+>>> __vunmap()
+>>>       vm_remove_mappings()
+>>>           set_direct_map_invalid()
+>>> 					safe_copy_page()	
+>>> 					    __kernel_map_pages()
+>>> 					    	return
+>>> 					    do_copy_page() -> fault
+>>> 					   	
+>>> This is a theoretical bug, but it is still not nice :) 							
+>>>
+>>>>> Currently, the only user of __kernel_map_pages() outside
+>>>>> DEBUG_PAGEALLOC
+>>>>> is hibernation, but I think it would be safer to entirely prevent
+>>>>> usage
+>>>>> of __kernel_map_pages() when DEBUG_PAGEALLOC=n.
+>>>>
+>>>> I totally agree it's error prone FWIW. On x86, my mental model of how
+>>>> it is supposed to work is: If a page is 4k and NP it cannot fail to be
+>>>> remapped. set_direct_map_invalid_noflush() should result in 4k NP
+>>>> pages, and DEBUG_PAGEALLOC should result in all 4k pages on the direct
+>>>> map. Are you seeing this violated or do I have wrong assumptions?
+>>>
+>>> You are right, there is a set of assumptions about the remapping of the
+>>> direct map pages that make it all work, at least on x86.
+>>> But this is very subtle and it's not easy to wrap one's head around
+>>> this.
+>>>
+>>> That's why putting __kernel_map_pages() out of "common" use and
+>>> keep it only for DEBUG_PAGEALLOC would make things clearer.
+>>>
+>>>> Beyond whatever you are seeing, for the latter case of new things
+>>>> getting introduced to an interface with hidden dependencies... Another
+>>>> edge case could be a new caller to set_memory_np() could result in
+>>>> large NP pages. None of the callers today should cause this AFAICT, but
+>>>> it's not great to rely on the callers to know these details.
+>>> A caller of set_memory_*() or set_direct_map_*() should expect a failure
+>>> and be ready for that. So adding a WARN to safe_copy_page() is the first
+>>> step in that direction :)
+>>>
+>>
+>> I am probably missing something important, but why are we saving/restoring
+>> the content of pages that were explicitly removed from the identity mapping
+>> such that nobody will access them?
+>>
+>> Pages that are not allocated should contain garbage or be zero
+>> (init_on_free). That should be easy to handle without ever reading the page
+>> content.
 > 
-> Initialize SBI as early as possible.
+> I'm not familiar with hibernation to say anything smart here, but the
+> help text of DEBUG_PAGEALLOC in Kconfig says:
 > 
-> Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> ---
->  arch/riscv/kernel/setup.c | 7 +++----
->  1 file changed, 3 insertions(+), 4 deletions(-)
+> 	... this option cannot be enabled in combination with
+> 	hibernation as that would result in incorrect warnings of memory
+> 	corruption after a resume because free pages are not saved to
+> 	the suspend image.
 > 
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index c424cc6dd833..7d6a04ae3929 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -89,6 +89,9 @@ void __init setup_arch(char **cmdline_p)
->  		pr_err("No DTB found in kernel mappings\n");
->  #endif
->  
-> +#if IS_ENABLED(CONFIG_RISCV_SBI)
+> Probably you are right and free pages need to be handled differently,
+> but it does not seem the case now.
+> 
+>> The other user seems to be vm_remove_mappings(), where we only *temporarily*
+>> remove the mapping - while hibernating, that code shouldn't be active
+>> anymore I guess - or we could protect it from happening.
+> 
+> Hmm, I _think_ vm_remove_mappings() shouldn't be active while
+> hibernating, but I'm not 100% sure.
+> 
+>> As I expressed in another mail, secretmem pages should rather not be saved
+>> when hibernating - hibernation should be rather be disabled.
+> 
+> Agree.
+> 
+>> What am I missing?
+> 
+> I think I miscommunicated the purpose of this set, which was to hide
+> __kernel_map_pages() under DEBUG_PAGEALLOC and make hibernation use
+> set_direct_map_*() explictly without major rework of free pages handling
+> during hibernation.
+> 
+> Does it help?
+> 
 
-Maybe
-	if (IS_ENABLED(CONFIG_RISCV_SBI))
-		sbi_init()
+Heh, as always, once you touch questionable code, people will beg for 
+proper cleanups instead :)
 
-> +	sbi_init();
-> +#endif
->  #ifdef CONFIG_SWIOTLB
->  	swiotlb_init(1);
->  #endif
-> @@ -97,10 +100,6 @@ void __init setup_arch(char **cmdline_p)
->  	kasan_init();
->  #endif
->  
-> -#if IS_ENABLED(CONFIG_RISCV_SBI)
-> -	sbi_init();
-> -#endif
-> -
->  #ifdef CONFIG_SMP
->  	setup_smp();
->  #endif
-> -- 
-> 2.25.1
-> 
 
 -- 
-Sincerely yours,
-Mike.
+Thanks,
+
+David / dhildenb
+
 
 _______________________________________________
 linux-riscv mailing list
