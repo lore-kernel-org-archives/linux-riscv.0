@@ -2,68 +2,60 @@ Return-Path: <SRS0=hxxf=EC=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
+X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2BD85C4363A
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Oct 2020 10:46:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6C42FC388F9
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Oct 2020 11:51:25 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9CBFE22263
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 Oct 2020 10:46:06 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id F32C622281
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 Oct 2020 11:51:24 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="aXUhRFrF";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="Wr5+aTzw"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9CBFE22263
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Ndq9y5iW"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F32C622281
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=HJAXpNyC6ThYQjWj8368YrH6CHzuNA9Ym7pFp7CQ82Q=; b=aXUhRFrFrY/Z30UxQhqWyZLrG
-	f+Ew0XXNGrRjMzP8sL94Wa29d2UV1Vs1u7ItXnMHSJl56FNUgiSwiYdqIXrkvp6MTyKlJnKPd+BBD
-	LHhnQMeQT7xqxgjaFwRsmxZgrdfR8ctLDG7/mYpgDtXGSa7y9ybjq39qIoSUpragOoi/SYUePgvn5
-	X56QEhn9gCnDkpwYYERO9VkirSt7UMDhA7oC5JmPnMsDmiGyGjgRY6ussvzO4eG5gITudUJRoIDUH
-	mNNTaVTEeVL6C8h7EZ72LKuRMcFY7LrsPOf0VWpDHDtPpGmkpTAmdOU8Q/ejyi7XBqYp9wUKwj01v
-	YHrE4pkmw==;
+	 bh=7SDkFY6QOCOtrbifnL+SCHquJnb8FADfbmDXHqgYQVM=; b=Ndq9y5iWdDMZmpIK83/8vrQSu
+	YvMchH7y86mTqeQ7sgNaA+gpkG7Vbk9ZOUb1L87EDp3OL/e80MmbD5slKbIomDT6K0egSIi+bnObj
+	uS+4N/wRjihrzXKj9SygQA2Uq8Tey2f16jwXj0rfvQIeXf5VC8yWFH5rxIZ7U99Gjy91DceAhuU6D
+	eMmi9O0wax5wLndSZC2XpZhNntmVENWDmeRvgfWXZa74rdspR01U59rnreMAUemmSCXyhbbrydqvj
+	x93zKNc66aaGgyNaEib82Z+Mx1IkISWf7CdHn+5Ze7ujazpmAGsyBIM1YZ0W4pA65apVRJ8/kj3Gk
+	hdRBnCMrg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kXMUH-00037d-Dr; Tue, 27 Oct 2020 10:45:57 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1kXNVP-0000zv-AJ; Tue, 27 Oct 2020 11:51:11 +0000
+Received: from mx2.suse.de ([195.135.220.15])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kXMUF-00036E-1E
- for linux-riscv@lists.infradead.org; Tue, 27 Oct 2020 10:45:56 +0000
-Received: from kernel.org (unknown [87.70.96.83])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 5720420878;
- Tue, 27 Oct 2020 10:45:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1603795553;
- bh=BWEogo4zan460Xro77zd5zdnFTbhvlZs3lArxt9EbMU=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=Wr5+aTzwxMIQo7avnuGP+/bdQzYn0kB+wmrSHlTAAGIjNgJIuP41vmOFMzcxLcovh
- KCbJ4RVls6C1pu0jvsh3B9qqXcWVtmGdXenwIXEItvxu37lLmgr2HCpaqYTphCpNcR
- fLs1WqZ0A6xplkWWPtpxQVX4+ZOFSUxZ4+ncVqS8=
-Date: Tue, 27 Oct 2020 12:45:45 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Atish Patra <atish.patra@wdc.com>
-Subject: Re: [PATCH v2 5/6] RISC-V: Protect .init.text & .init.data
-Message-ID: <20201027104545.GM1154158@kernel.org>
-References: <20201026230254.911912-1-atish.patra@wdc.com>
- <20201026230254.911912-6-atish.patra@wdc.com>
+ id 1kXNVI-0000xn-Jw; Tue, 27 Oct 2020 11:51:06 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.221.27])
+ by mx2.suse.de (Postfix) with ESMTP id 21D65AAB2;
+ Tue, 27 Oct 2020 11:51:02 +0000 (UTC)
+Message-ID: <d2b6693aefe6d2cad03432366c48e05cb5c8d3a3.camel@suse.de>
+Subject: Re: [PATCH v4 0/7] arm64: Default to 32-bit wide ZONE_DMA
+From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+To: Jeremy Linton <jeremy.linton@arm.com>, robh+dt@kernel.org, 
+ catalin.marinas@arm.com, hch@lst.de, ardb@kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Tue, 27 Oct 2020 12:50:53 +0100
+In-Reply-To: <9bccc5ef-9457-044b-7193-d002a395e461@arm.com>
+References: <20201021123437.21538-1-nsaenzjulienne@suse.de>
+ <9bccc5ef-9457-044b-7193-d002a395e461@arm.com>
+User-Agent: Evolution 3.36.5 
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20201026230254.911912-6-atish.patra@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201027_064555_301598_549AFC44 
-X-CRM114-Status: GOOD (  24.16  )
+X-CRM114-CacheID: sfid-20201027_075104_804184_5CF46A17 
+X-CRM114-Status: GOOD (  13.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -75,125 +67,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>,
- Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- Zong Li <zong.li@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Greentime Hu <greentime.hu@sifive.com>,
- Andrew Morton <akpm@linux-foundation.org>, Borislav Petkov <bp@suse.de>,
- Michel Lespinasse <walken@google.com>, Ard Biesheuvel <ardb@kernel.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: devicetree@vger.kernel.org, lorenzo.pieralisi@arm.com, linux-mm@kvack.org,
+ robin.murphy@arm.com, linux-acpi@vger.kernel.org,
+ iommu@lists.linux-foundation.org, linux-rpi-kernel@lists.infradead.org,
+ guohanjun@huawei.com, linux-riscv@lists.infradead.org, will@kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Content-Type: multipart/mixed; boundary="===============3607429048760178659=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 26, 2020 at 04:02:53PM -0700, Atish Patra wrote:
-> Currently, .init.text & .init.data are intermixed which makes it impossible
-> apply different permissions to them. .init.data shouldn't need exec
-> permissions while .init.text shouldn't have write permission.
-> 
-> Keep them in separate sections so that different permissions are applied to
-> each section. This improves the kernel protection under
-> CONFIG_STRICT_KERNEL_RWX. We also need to restore the permissions for the
-> entire _init section after it is freed so that those pages can be used for
-> other purpose.
-> 
-> Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> ---
->  arch/riscv/include/asm/sections.h   |  2 ++
->  arch/riscv/include/asm/set_memory.h |  2 ++
->  arch/riscv/kernel/setup.c           |  9 +++++
->  arch/riscv/kernel/vmlinux.lds.S     | 51 ++++++++++++++++-------------
->  arch/riscv/mm/init.c                |  8 ++++-
->  arch/riscv/mm/pageattr.c            |  6 ++++
->  6 files changed, 54 insertions(+), 24 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/sections.h b/arch/riscv/include/asm/sections.h
-> index 3a9971b1210f..1595c5b60cfd 100644
-> --- a/arch/riscv/include/asm/sections.h
-> +++ b/arch/riscv/include/asm/sections.h
-> @@ -9,5 +9,7 @@
->  
->  extern char _start[];
->  extern char _start_kernel[];
-> +extern char __init_data_begin[], __init_data_end[];
-> +extern char __init_text_begin[], __init_text_end[];
->  
->  #endif /* __ASM_SECTIONS_H */
-> diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
-> index 4cc3a4e2afd3..913429c9c1ae 100644
-> --- a/arch/riscv/include/asm/set_memory.h
-> +++ b/arch/riscv/include/asm/set_memory.h
-> @@ -15,6 +15,7 @@ int set_memory_ro(unsigned long addr, int numpages);
->  int set_memory_rw(unsigned long addr, int numpages);
->  int set_memory_x(unsigned long addr, int numpages);
->  int set_memory_nx(unsigned long addr, int numpages);
-> +int set_memory_default(unsigned long addr, int numpages);
->  void protect_kernel_text_data(void);
->  #else
->  static inline int set_memory_ro(unsigned long addr, int numpages) { return 0; }
-> @@ -22,6 +23,7 @@ static inline int set_memory_rw(unsigned long addr, int numpages) { return 0; }
->  static inline int set_memory_x(unsigned long addr, int numpages) { return 0; }
->  static inline int set_memory_nx(unsigned long addr, int numpages) { return 0; }
->  static inline void protect_kernel_text_data(void) {};
-> +static inline int set_memory_default(unsigned long addr, int numpages) { return 0; }
->  #endif
->  
->  int set_direct_map_invalid_noflush(struct page *page);
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index b722c5bf892c..abfbdc8cfef3 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -123,3 +123,12 @@ static int __init topology_init(void)
->  	return 0;
->  }
->  subsys_initcall(topology_init);
-> +
-> +void free_initmem(void)
-> +{
-> +	unsigned long init_begin = (unsigned long)__init_begin;
-> +	unsigned long init_end = (unsigned long)__init_end;
-> +
-> +	set_memory_default(init_begin, (init_end - init_begin) >> PAGE_SHIFT);
 
-And what does "default" imply?
-Maybe set_memory_rw() would better name ...
+--===============3607429048760178659==
+Content-Type: multipart/signed; micalg="pgp-sha256";
+	protocol="application/pgp-signature"; boundary="=-7KtHL8JmijrZUDdO/9dK"
 
-> +	free_initmem_default(POISON_FREE_INITMEM);
-> +}
 
-...
+--=-7KtHL8JmijrZUDdO/9dK
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-> diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
-> index 19fecb362d81..04f3fc16aa9c 100644
-> --- a/arch/riscv/mm/pageattr.c
-> +++ b/arch/riscv/mm/pageattr.c
-> @@ -128,6 +128,12 @@ static int __set_memory(unsigned long addr, int numpages, pgprot_t set_mask,
->  	return ret;
->  }
->  
-> +int set_memory_default(unsigned long addr, int numpages)
-> +{
-> +	return __set_memory(addr, numpages, __pgprot(_PAGE_KERNEL),
-> +			    __pgprot(_PAGE_EXEC));
+On Fri, 2020-10-23 at 14:05 -0500, Jeremy Linton wrote:
+> Hi,
+>=20
+> On 10/21/20 7:34 AM, Nicolas Saenz Julienne wrote:
+> > Using two distinct DMA zones turned out to be problematic. Here's an
+> > attempt go back to a saner default.
+> >=20
+> > I tested this on both a RPi4 and QEMU.
+>=20
+> I've tested this in ACPI mode on the rpi4 (4+8G with/without the 3G=20
+> limiter) as well, with Ard's IORT patch. Nothing seems to have regressed.
+>=20
+> Thanks,
+>=20
+> Tested-by: Jeremy Linton <jeremy.linton@arm.com>
 
-... because you'd need to find what _PAGE_KERNEL is, do bitwise ops and
-than find out that default is apparently RW :)
+Thanks!
 
-> +}
-> +
->  int set_memory_ro(unsigned long addr, int numpages)
->  {
->  	return __set_memory(addr, numpages, __pgprot(_PAGE_READ),
-> -- 
-> 2.25.1
-> 
 
--- 
-Sincerely yours,
-Mike.
+--=-7KtHL8JmijrZUDdO/9dK
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCAAdFiEErOkkGDHCg2EbPcGjlfZmHno8x/4FAl+YCZ0ACgkQlfZmHno8
+x/7nHAf+NsPBIeE87IsQQDXb+Yj9HG4BT9qoFjLz6YOJ82f2k6RHxorkNMBGv/Kn
+mh1U2wjHbKJvDKSHIM/qsvcbSI8ZKQyqQBLYXintA5koBEw88a1UA3OXCqbs35Eu
+5s4sHfoPVAAM8OE9b7+sKTNBFXBLngmBotO0Tt9dAXrTEPNLfPu9pXt22zGb2gCy
+34Sv2032HmUGXMX3Dd1eEKPsfqYqHDsBMXmYsh1GrV5/xIJ2ClpD3yM7xjQ/PNtI
+c2VffRjFikj/PUTf8I1HPDOeSwX101QkV3Uq9TatMWsLwQYv9Y5EM8Gz8XPPCDF3
+CDY5pxiYqZdowQMQ53hVr9yjOjogdQ==
+=XjDo
+-----END PGP SIGNATURE-----
+
+--=-7KtHL8JmijrZUDdO/9dK--
+
+
+
+--===============3607429048760178659==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3607429048760178659==--
+
+
