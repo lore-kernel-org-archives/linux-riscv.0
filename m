@@ -2,71 +2,89 @@ Return-Path: <SRS0=+vY3=ED=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-6.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CDDF5C4363A
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2020 11:10:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5ACF8C4363A
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2020 11:18:19 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 50B5C246AE
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2020 11:10:21 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D586C246BA
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2020 11:18:18 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="YoV71oVW";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="rSkA1LMT"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 50B5C246AE
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="P+Qesanm";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=redhat.com header.i=@redhat.com header.b="e8V3fuCv"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D586C246BA
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=bdGMow24gX5R7EXesnT4B/whRyrE1ffA9SQNn7ycQkk=; b=YoV71oVWDlbeFv9rwEH6XQtPn
-	cSMONpYRFqYUA/K+VnUsH4OPgp5dp3awikVA0AEr/qnnFDcV2SiF/3Mbs+vofiuL6E10Vwa7f7QM5
-	fcMAq6qjBPG6bN/WoeMJdgPmgUu9bQLwp/2ORTtRc7MVnSMVNO8Uq0KqbKCCM2JlL7W+PgifZh0JP
-	Y+EuFQhYZWv0/YwhM9KFv6KzV7gHp9026efRh5Nk7500nCXEe2YHzLS6yo/OPdlaG4bykHg9LoE3b
-	YtWX3sGQlmYyS1L7nX6X1lGPxIpZ3GyNGw9mfyoHcTQlOZ/Awq5eSpzyC9FsqZkJ3THInd2IRanBO
-	+CX6F4kPg==;
+	 bh=0PJagO0YAWiKyL51MG70kcq+fg07nlvWeq1XeVhkBIE=; b=P+Qesanm+qe86OMwoU+PIM4Du
+	ViRntdYYUpeOUdplIDwNk4yr77XTQa+wwEw0R0yjxvtToWhm/qgrheHkdBoNDc7C5gidKj8cg4EF8
+	rrhHihr3gYBQpiYMxAUMoab1Y1tijzCOzoGQxH94L16zNGo7rom9mVkGuau9JPt3cBXXhzjGRhtCa
+	jMXT5vZKwlGt10d8b9AIQp5jz5ba5YnrmeL2aM8MKmnMoZDnJh89jDc4YV+GUSBtbWbpiJmeIOusq
+	PFouOLjq+pswjFhhFfr6MmjlWtLzBTtL1mZqFLAT8rHAD4UMw9C6M4Bi9QgV2FY/IKoOpQIsJyN58
+	b4UMThgxQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kXjLH-0004dB-0X; Wed, 28 Oct 2020 11:10:11 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1kXjSu-0006GA-Ex; Wed, 28 Oct 2020 11:18:04 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([216.205.24.124])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kXjL9-0004Z3-LQ; Wed, 28 Oct 2020 11:10:07 +0000
-Received: from kernel.org (unknown [87.70.96.83])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ id 1kXjSl-0006Bi-JL
+ for linux-riscv@lists.infradead.org; Wed, 28 Oct 2020 11:17:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1603883873;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=3/QY+frjp1dnSTegbpUI0625UXdGYc+dVdsYJMjhKKw=;
+ b=e8V3fuCvUpaAekj+PDnRrlnPoICbs1UUA6QNPDEv2US1gwyl41Go/jQ5+Syrj8WqPhuEzH
+ cSqNnb4QYNNRGu3VVx4YwiK8OHrDVLf06s+3WQrTPoBQz4byzUAr1fBwrboml43WIywAQL
+ vD1JevjrkzoPqiyDAvV0mJgfTd/4pNo=
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-195-5Kg-MYA4O2aB4WCrNYOgXA-1; Wed, 28 Oct 2020 07:17:50 -0400
+X-MC-Unique: 5Kg-MYA4O2aB4WCrNYOgXA-1
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com
+ [10.5.11.13])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id E673E246A2;
- Wed, 28 Oct 2020 11:09:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1603883399;
- bh=eCXz+icsPBbUt7e5/gqYfjD87B/R7/XDnyNtNoyBXrk=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=rSkA1LMThGYa8UMoSh4pNOLlYk0Lxh/6LDfGk3lRhOIkmwmSNIL5gi4KdTIE8Tsxu
- qd8mkHa8sLSEDYsQV8mEhfTUE/HscCn3fQbHDAv2vipDt0prchwp0fFl1i7QNwuZ5Y
- aIHs1RviptzndqpoN78OxdW+Os4KYEQl9gh6FnDI=
-Date: Wed, 28 Oct 2020 13:09:45 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: David Hildenbrand <david@redhat.com>
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 90BEC809DE4;
+ Wed, 28 Oct 2020 11:17:44 +0000 (UTC)
+Received: from [10.36.114.138] (ovpn-114-138.ams2.redhat.com [10.36.114.138])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id 033EC6EF5E;
+ Wed, 28 Oct 2020 11:17:35 +0000 (UTC)
 Subject: Re: [PATCH 0/4] arch, mm: improve robustness of direct map
  manipulation
-Message-ID: <20201028110945.GE1428094@kernel.org>
+To: Mike Rapoport <rppt@kernel.org>
 References: <20201025101555.3057-1-rppt@kernel.org>
  <ae82f905a0092adb7e0f0ac206335c1883b3170f.camel@intel.com>
  <20201026090526.GA1154158@kernel.org>
  <a0212b073b3b2f62c3dbf1bf398f03fa402997be.camel@intel.com>
  <20201027083816.GG1154158@kernel.org>
  <e5fc62b6-f644-4ed5-de5b-ffd8337861e4@redhat.com>
+ <20201028110945.GE1428094@kernel.org>
+From: David Hildenbrand <david@redhat.com>
+Organization: Red Hat GmbH
+Message-ID: <5805fdd9-14e5-141c-773b-c46d2da57258@redhat.com>
+Date: Wed, 28 Oct 2020 12:17:35 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.6.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <e5fc62b6-f644-4ed5-de5b-ffd8337861e4@redhat.com>
+In-Reply-To: <20201028110945.GE1428094@kernel.org>
+Content-Language: en-US
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201028_071004_164863_DA49C36E 
-X-CRM114-Status: GOOD (  23.35  )
+X-CRM114-CacheID: sfid-20201028_071755_704453_A8DA3621 
+X-CRM114-Status: GOOD (  24.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -112,47 +130,58 @@ Cc: "benh@kernel.crashing.org" <benh@kernel.crashing.org>,
  Rick P" <rick.p.edgecombe@intel.com>,
  "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
  "davem@davemloft.net" <davem@davemloft.net>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 27, 2020 at 09:46:35AM +0100, David Hildenbrand wrote:
-> On 27.10.20 09:38, Mike Rapoport wrote:
-> > On Mon, Oct 26, 2020 at 06:05:30PM +0000, Edgecombe, Rick P wrote:
-> > 
-> > > Beyond whatever you are seeing, for the latter case of new things
-> > > getting introduced to an interface with hidden dependencies... Another
-> > > edge case could be a new caller to set_memory_np() could result in
-> > > large NP pages. None of the callers today should cause this AFAICT, but
-> > > it's not great to rely on the callers to know these details.
-
-> > A caller of set_memory_*() or set_direct_map_*() should expect a failure
-> > and be ready for that. So adding a WARN to safe_copy_page() is the first
-> > step in that direction :)
-> > 
+On 28.10.20 12:09, Mike Rapoport wrote:
+> On Tue, Oct 27, 2020 at 09:46:35AM +0100, David Hildenbrand wrote:
+>> On 27.10.20 09:38, Mike Rapoport wrote:
+>>> On Mon, Oct 26, 2020 at 06:05:30PM +0000, Edgecombe, Rick P wrote:
+>>>
+>>>> Beyond whatever you are seeing, for the latter case of new things
+>>>> getting introduced to an interface with hidden dependencies... Another
+>>>> edge case could be a new caller to set_memory_np() could result in
+>>>> large NP pages. None of the callers today should cause this AFAICT, but
+>>>> it's not great to rely on the callers to know these details.
 > 
-> I am probably missing something important, but why are we saving/restoring
-> the content of pages that were explicitly removed from the identity mapping
-> such that nobody will access them?
+>>> A caller of set_memory_*() or set_direct_map_*() should expect a failure
+>>> and be ready for that. So adding a WARN to safe_copy_page() is the first
+>>> step in that direction :)
+>>>
+>>
+>> I am probably missing something important, but why are we saving/restoring
+>> the content of pages that were explicitly removed from the identity mapping
+>> such that nobody will access them?
+> 
+> Actually, we should not be saving/restoring free pages during
+> hibernation as there are several calls to mark_free_pages() that should
+> exclude the free pages from the snapshot. I've tried to find why the fix
+> that maps/unmaps a page to save it was required at the first place, but
+> I could not find bug reports.
+> 
+> The closest I've got is an email from Rafael that asked to update
+> "hibernate: handle DEBUG_PAGEALLOC" patch:
+> 
+> https://lore.kernel.org/linux-pm/200802200133.44098.rjw@sisk.pl/
+> 
+> Could it be that safe_copy_page() tries to workaround a non-existent
+> problem?
+> 
 
-Actually, we should not be saving/restoring free pages during
-hibernation as there are several calls to mark_free_pages() that should
-exclude the free pages from the snapshot. I've tried to find why the fix
-that maps/unmaps a page to save it was required at the first place, but
-I could not find bug reports.
+Clould be! Also see
 
-The closest I've got is an email from Rafael that asked to update
-"hibernate: handle DEBUG_PAGEALLOC" patch:
+https://lkml.kernel.org/r/38de5bb0-5559-d069-0ce0-daec66ef2746@suse.cz
 
-https://lore.kernel.org/linux-pm/200802200133.44098.rjw@sisk.pl/
-
-Could it be that safe_copy_page() tries to workaround a non-existent
-problem?
+which restores free page content based on more kernel parameters, not 
+based on the original content.
 
 -- 
-Sincerely yours,
-Mike.
+Thanks,
+
+David / dhildenb
+
 
 _______________________________________________
 linux-riscv mailing list
