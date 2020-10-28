@@ -2,63 +2,76 @@ Return-Path: <SRS0=+vY3=ED=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-11.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,UNPARSEABLE_RELAY,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 481C9C388F7
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2020 04:23:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 569C7C4363A
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2020 08:01:54 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DA6AD207BC
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2020 04:23:26 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8A6AA24196
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 Oct 2020 08:01:53 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="EIIOH/nr"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DA6AD207BC
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="li4shjH5"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8A6AA24196
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=allwinnertech.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=i+281dfPICOe/D4OJ+Fh9QisgdE91PvG2Mtba5ZAl1Q=; b=EIIOH/nrry4t2/52UwDjbjjTVy
-	/5pFWOCItBlQkVC/Mq3ieXsE44jY1gfpJk1kVtFJEM04ZlolF0Nc/dH+p1HbymvOAk/aq4km0ExKG
-	/hCnK/PecpY03gXAg3RkAe2oQH8npe+JEc0SJlXSB73T788brb4GjwlummVSGUrCg/einpHYAqfUD
-	ry7k4imT/qgOfhBi+CyqrYpdmURekmItxnvz9AFFo6ALTbNMekQvQ9bsQuvEBfMg1ktNuA+KXsAPk
-	n6WlPtIowiMzCdzjHeIXfM/KLVZn+SZGrihA0W7TUafgk144+cqVP4ocosFlP0DEno9RW1fLv0cIN
-	Qau45t4g==;
+	Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe
+	:List-Id:In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9QXTszhhGp/ryzSlSgfenYsbCjaekga2MuPHHx78RxE=; b=li4shjH5qYbSa/Apu6I1XUGabP
+	M/r+L2sNNX2CQdn6Q8FBumq2vNe0Onj4oFN4y8xN0BLca5r2MvUIe3c4hiSPS8UQniyRfTVaO7qkE
+	85xJoxAQNwOlOSd9hhTryP9cE8W0HY3HFcLO5DtB3HBFviu3egF9VrfZbtDTlmC5bRv4+Fqo5SVmH
+	Ke5RxTf+MMrIq/Pc4TkdAq5hTgt9K8NETxzwnTRQ+g455rcTo97dlpRv9eoO/Tf/6s+CQpIBRSlMQ
+	VRbEG5Xzfii12mZ8rZJ7cNcahQMWTJ+nyT/ukZy1uWU3QpQBu5r5L3lv6P9R/+GT0/yWvmu8oP3La
+	rEQLtH3A==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kXczQ-00042H-3k; Wed, 28 Oct 2020 04:23:12 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1kXgOm-00060P-Hq; Wed, 28 Oct 2020 08:01:36 +0000
+Received: from smtp2207-205.mail.aliyun.com ([121.197.207.205])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kXczN-0003xC-KO
- for linux-riscv@lists.infradead.org; Wed, 28 Oct 2020 04:23:10 +0000
-Received: from DGGEMS405-HUB.china.huawei.com (unknown [172.30.72.59])
- by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4CLb5x0f0nzhc7v;
- Wed, 28 Oct 2020 12:23:01 +0800 (CST)
-Received: from localhost.localdomain.localdomain (10.175.113.25) by
- DGGEMS405-HUB.china.huawei.com (10.3.19.205) with Microsoft SMTP Server id
- 14.3.487.0; Wed, 28 Oct 2020 12:22:50 +0800
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet
- <corbet@lwn.net>, <linux-riscv@lists.infradead.org>
-Subject: [PATCH] riscv: Add HAVE_IRQ_TIME_ACCOUNTING
-Date: Wed, 28 Oct 2020 12:28:42 +0800
-Message-ID: <20201028042842.92619-1-wangkefeng.wang@huawei.com>
-X-Mailer: git-send-email 2.26.2
+ id 1kXgOg-0005zW-Ow
+ for linux-riscv@lists.infradead.org; Wed, 28 Oct 2020 08:01:34 +0000
+X-Alimail-AntiSpam: AC=CONTINUE; BC=0.06982759|-1; CH=green;
+ DM=|CONTINUE|false|;
+ DS=CONTINUE|ham_system_inform|0.0592398-0.00711041-0.93365;
+ FP=2159615626208367594|1|1|11|0|-1|-1|-1; HT=ay29a033018047199;
+ MF=fuyao@allwinnertech.com; NM=1; PH=DS; RN=11; RT=11; SR=0;
+ TI=SMTPD_---.IpTlbWf_1603872080; 
+Received: from localhost(mailfrom:fuyao@allwinnertech.com
+ fp:SMTPD_---.IpTlbWf_1603872080)
+ by smtp.aliyun-inc.com(10.147.41.138);
+ Wed, 28 Oct 2020 16:01:21 +0800
+Date: Wed, 28 Oct 2020 16:01:20 +0800
+From: fuyao <fuyao@allwinnertech.com>
+To: liush <liush@allwinnertech.com>, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, penberg@kernel.org,
+ akpm@linux-foundation.org, peterx@redhat.com, vbabka@suse.cz,
+ walken@google.com, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4] riscv: fix pfn_to_virt err in do_page_fault().
+Message-ID: <20201028080120.GM9517@g8Exdroid64>
+Mail-Followup-To: liush <liush@allwinnertech.com>, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, penberg@kernel.org,
+ akpm@linux-foundation.org, peterx@redhat.com, vbabka@suse.cz,
+ walken@google.com, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <1603716368-29896-1-git-send-email-liush@allwinnertech.com>
+ <20201027025952.GK9517@g8Exdroid64>
+ <20201028023137.GL9517@g8Exdroid64>
 MIME-Version: 1.0
-X-Originating-IP: [10.175.113.25]
-X-CFilter-Loop: Reflected
+Content-Disposition: inline
+In-Reply-To: <20201028023137.GL9517@g8Exdroid64>
+User-Agent: Mutt/1.12.1 (2019-06-15)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201028_002309_960678_5FF8E79D 
-X-CRM114-Status: UNSURE (   9.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20201028_040131_586252_51731BC5 
+X-CRM114-Status: GOOD (  18.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -70,49 +83,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Kefeng Wang <wangkefeng.wang@huawei.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RISCV_TIMER/CLINT_TIMER is required for RISC-V system, and it
-provides sched_clock, which allow us to enable IRQ_TIME_ACCOUNTING.
+Shaohua:
+	sorry, i read it wrong. this patch is right.
 
-Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
----
- Documentation/features/time/irq-time-acct/arch-support.txt | 2 +-
- arch/riscv/Kconfig                                         | 1 +
- 2 files changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/Documentation/features/time/irq-time-acct/arch-support.txt b/Documentation/features/time/irq-time-acct/arch-support.txt
-index d9082b91f10e..6fc03deb1c38 100644
---- a/Documentation/features/time/irq-time-acct/arch-support.txt
-+++ b/Documentation/features/time/irq-time-acct/arch-support.txt
-@@ -23,7 +23,7 @@
-     |    openrisc: | TODO |
-     |      parisc: |  ..  |
-     |     powerpc: |  ok  |
--    |       riscv: | TODO |
-+    |       riscv: |  ok  |
-     |        s390: |  ..  |
-     |          sh: | TODO |
-     |       sparc: |  ..  |
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 44377fd7860e..dfbc1351ee62 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -68,6 +68,7 @@ config RISCV
- 	select HAVE_FUTEX_CMPXCHG if FUTEX
- 	select HAVE_GCC_PLUGINS
- 	select HAVE_GENERIC_VDSO if MMU && 64BIT
-+	select HAVE_IRQ_TIME_ACCOUNTING
- 	select HAVE_PCI
- 	select HAVE_PERF_EVENTS
- 	select HAVE_PERF_REGS
--- 
-2.26.2
-
+On Tue, Oct 27, 2020 at 10:59:52AM +0800, fuyao wrote:
+> have you seen the main line?
+> 
+> it already corrected.
+> 
+> On Mon, Oct 26, 2020 at 08:46:08PM +0800, liush wrote:
+> > From: Shaohua Liu <liush@allwinnertech.com>
+> > 
+> > The argument to pfn_to_virt() should be pfn not the value of CSR_SATP.
+> > 
+> > Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
+> > Reviewed-by: Anup Patel <anup@brainfault.org>
+> > Signed-off-by: liush <liush@allwinnertech.com>
+> > ---
+> >  arch/riscv/mm/fault.c | 4 +++-
+> >  1 file changed, 3 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
+> > index 1359e21..3c8b9e4 100644
+> > --- a/arch/riscv/mm/fault.c
+> > +++ b/arch/riscv/mm/fault.c
+> > @@ -86,6 +86,7 @@ static inline void vmalloc_fault(struct pt_regs *regs, int code, unsigned long a
+> >  	pmd_t *pmd, *pmd_k;
+> >  	pte_t *pte_k;
+> >  	int index;
+> > +	unsigned long pfn;
+> >  
+> >  	/* User mode accesses just cause a SIGSEGV */
+> >  	if (user_mode(regs))
+> > @@ -100,7 +101,8 @@ static inline void vmalloc_fault(struct pt_regs *regs, int code, unsigned long a
+> >  	 * of a task switch.
+> >  	 */
+> >  	index = pgd_index(addr);
+> > -	pgd = (pgd_t *)pfn_to_virt(csr_read(CSR_SATP)) + index;
+> > +	pfn = csr_read(CSR_SATP) & SATP_PPN;
+> > +	pgd = (pgd_t *)pfn_to_virt(pfn) + index;
+> >  	pgd_k = init_mm.pgd + index;
+> >  
+> >  	if (!pgd_present(*pgd_k)) {
 
 _______________________________________________
 linux-riscv mailing list
