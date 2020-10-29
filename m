@@ -2,66 +2,89 @@ Return-Path: <SRS0=H9LG=EE=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-11.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9E9F9C2D0A3
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Oct 2020 16:21:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C533AC55179
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Oct 2020 16:21:23 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1C4B7206FB
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Oct 2020 16:21:15 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id ECC042076E
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Oct 2020 16:21:22 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="qSDgyHZe";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="X4hvKt8Q"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1C4B7206FB
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pJkhm1FZ";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel-dk.20150623.gappssmtp.com header.i=@kernel-dk.20150623.gappssmtp.com header.b="U+BDJtwp"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ECC042076E
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=kernel.dk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=TCu+b/7wX0hcZFQfQ4xtNZ1vnORJWtOKM7QWpGsVv/A=; b=qSDgyHZerPbsz5cpmW1vuq45K
-	Aw/oS6ZIdUFqBszyAW6eWmFNhIR/w/zsS0lDLKUW4R6UJhiNOUX9wDHV+pvbo3HHfYCiUQmHc7BuZ
-	RsPOKT3CQYZrUnyVxdCeP62RjQIWaw3lfK86ukwhijQ6PAg2wkrmNy247h55PgFLMYATDuT1BCMfx
-	zcu6tNumW64TN1PpyTy6R+uE+yY3jLjEHAqI/nvRrUOpyOAGGUGjpgkG1xr73Df7BCxxwr6uuwSvS
-	D3qmiUpjEx/WtS0rHntE0qL3Utc1vdiNy7yjpMoIFB4utUUQMNXU1s/yVeilkMEXUB9CMrV8KmCk1
-	H/SJvD7Bw==;
+	Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe
+	:List-Id:MIME-Version:Date:Message-ID:Subject:From:To:Reply-To:Cc:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YSiiSrAc0TetOTFIIODWQk4Kplc5/SH9TauW0Ns3sv0=; b=pJkhm1FZv8dumwLIafFliR4lRg
+	2zdL7vAKrd5+cRKgrZ6PTtD4RPmo5qw/ntvJwZko09jhlHpRzJfCWIxn+pY2+bonOKDcQEKU1iMfj
+	0q1UNt5Ks3djgLG94/f7fmxbNA8VX0xeKRdk3lqh5qkeWo5qTpl/K+GLiGj2lgY9JJriYsdpUdxT4
+	v6m9+LKr2vyJUVMq21XmY+7+ylNoirdQbg0kcubkWNXrPE667YhKT33BUCrf4qINcn1FWPBZ1yIAa
+	J2hZFawVREcwKHADpktJmw2uFBc4FGoWzkbV2moqQgsszaHpaOgwZl/vp+9VE4e4Hq0jCCEb2/vsz
+	gW72mlIg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kYAfc-0002qm-Cq; Thu, 29 Oct 2020 16:21:00 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1kYAfk-0002vN-QA; Thu, 29 Oct 2020 16:21:08 +0000
+Received: from mail-il1-x141.google.com ([2607:f8b0:4864:20::141])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kYAes-0002ZS-4B; Thu, 29 Oct 2020 16:20:20 +0000
-Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 68E20214DB;
- Thu, 29 Oct 2020 16:20:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1603988412;
- bh=Vg0yD9BtaVpEElcVKbOe2Bvglikqvddyf8H8xD1VMBA=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=X4hvKt8QAkQABI0XAx0mpjzWm82u6JR9o7yyFv1WWXyz7Ou/WOjRxq9xYLO1Zzggw
- 4hOYKvUVWDl1QLLAuw6aHCM7jGzE5qdL6Kygzzm3oIw2JLUCXToATDPCt9QQTIo7nB
- DlBE1o3qBycyjp/MHMZlhPMj/C+Wo5gZSVn1UdL8=
-From: Mike Rapoport <rppt@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH v2 4/4] arch, mm: make kernel_page_present() always available
-Date: Thu, 29 Oct 2020 18:19:02 +0200
-Message-Id: <20201029161902.19272-5-rppt@kernel.org>
-X-Mailer: git-send-email 2.28.0
-In-Reply-To: <20201029161902.19272-1-rppt@kernel.org>
-References: <20201029161902.19272-1-rppt@kernel.org>
+ id 1kYAf9-0002fi-Ou
+ for linux-riscv@lists.infradead.org; Thu, 29 Oct 2020 16:20:35 +0000
+Received: by mail-il1-x141.google.com with SMTP id k6so3647772ilq.2
+ for <linux-riscv@lists.infradead.org>; Thu, 29 Oct 2020 09:20:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=kernel-dk.20150623.gappssmtp.com; s=20150623;
+ h=to:from:subject:message-id:date:user-agent:mime-version
+ :content-language:content-transfer-encoding;
+ bh=JCMOTd+/9KlQN9DVLV1GOKkYV8ed2sYLLhUAQceIgbs=;
+ b=U+BDJtwpvDM/yYIwOrgVNv7kq6V/fWLgqyd6kZ6OvMNNSLcKulACWX2RdwCPftwmqs
+ u+a5JTyymeRehSq8MyRT2xkbSKN8zLEl8nxlzH2Mda6Z+P5ZIjxGxRgoE8L/r/xb9cwk
+ uzxtAeE8NmzhVp6XKLf4F3cPW3i7Sp5xm0roUL4M7iJ2C7D5m0DSdgCHp1BWWQTDMaLC
+ 8zVF9ibXcYD/HCi2Rv+O/kWg5PWX0qSyiXQ0AenxlkCkqP7KEysQ2pTokH1klswb0BsA
+ JtrnvonVUc2QHPRXOw3YSHob+Nu+fZjPJuEbc8EFdp/1ptl8AvXWmhjnbzY74JeUSNj9
+ F+ig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:to:from:subject:message-id:date:user-agent
+ :mime-version:content-language:content-transfer-encoding;
+ bh=JCMOTd+/9KlQN9DVLV1GOKkYV8ed2sYLLhUAQceIgbs=;
+ b=uQ6Din/ghRxHh9lKen/AoH0v12dy28TbSmwAkWJ1FtbC7M0js/M9Ay3cMqmTPu4CSG
+ ZYsm6757kjp8Mqthb+KNs70lznUQ7JwPVQq0S1uyRdqz6lkQuqmqLh4QT3guf9Nbozde
+ 2rvCZiYjiyG3xv99ai5EcjYNhGD9JbfTYlFpz4TXTYlCNZwRQyrS5rhvQUWBJ/IPS4oX
+ zGwYBeIm2mIxpfWMFEil3NgNd//JKK3w+duUs1HnaXNnf4BmBIWOhKY5M098Y0OyYekq
+ 8YXhqR+2ZtqmumOlnAI/xDxE1LDOslD4UWfEsiMxv/tSAqcj1SX9gYe3Vuy6QEcXjvI5
+ /5PQ==
+X-Gm-Message-State: AOAM531Y0qeYkpkqnWGvENz3AwsNMcadbCZSvWb9tqPaTHXrDujEtHaG
+ l2DYxABKZf0HW0SCSvibwfInadUXX9Jbsw==
+X-Google-Smtp-Source: ABdhPJz2naQVOIKrGaQjZtSJYZ9pw2eI1sfepzJW5Kf4GbzMizXY7KtpcnJbT/CWdSn+IzBYlBRixA==
+X-Received: by 2002:a92:8545:: with SMTP id f66mr3814488ilh.206.1603988429362; 
+ Thu, 29 Oct 2020 09:20:29 -0700 (PDT)
+Received: from [192.168.1.30] ([65.144.74.34])
+ by smtp.gmail.com with ESMTPSA id l65sm3139209ill.18.2020.10.29.09.20.28
+ for <linux-riscv@lists.infradead.org>
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Thu, 29 Oct 2020 09:20:28 -0700 (PDT)
+To: linux-riscv@lists.infradead.org
+From: Jens Axboe <axboe@kernel.dk>
+Subject: [PATCH] riscv: add support for TIF_NOTIFY_SIGNAL
+Message-ID: <71abc829-29df-06fb-a6d4-6e32b7042af8@kernel.dk>
+Date: Thu, 29 Oct 2020 10:20:28 -0600
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.10.0
 MIME-Version: 1.0
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201029_122015_302358_3C216F8B 
-X-CRM114-Status: GOOD (  21.41  )
+X-CRM114-CacheID: sfid-20201029_122032_035797_F9CECAC9 
+X-CRM114-Status: GOOD (  17.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -73,187 +96,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: David Hildenbrand <david@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
- Paul Mackerras <paulus@samba.org>, Pavel Machek <pavel@ucw.cz>,
- "H. Peter Anvin" <hpa@zytor.com>, sparclinux@vger.kernel.org,
- Christoph Lameter <cl@linux.com>, Will Deacon <will@kernel.org>,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- Michael Ellerman <mpe@ellerman.id.au>, x86@kernel.org,
- Mike Rapoport <rppt@linux.ibm.com>,
- Christian Borntraeger <borntraeger@de.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Len Brown <len.brown@intel.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Vasily Gorbik <gor@linux.ibm.com>,
- linux-pm@vger.kernel.org, Heiko Carstens <hca@linux.ibm.com>,
- David Rientjes <rientjes@google.com>, Borislav Petkov <bp@alien8.de>,
- Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org,
- "Rafael J. Wysocki" <rjw@rjwysocki.net>, linux-kernel@vger.kernel.org,
- Pekka Enberg <penberg@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Joonsoo Kim <iamjoonsoo.kim@lge.com>, "Edgecombe,
- Rick P" <rick.p.edgecombe@intel.com>, linuxppc-dev@lists.ozlabs.org,
- "David S. Miller" <davem@davemloft.net>, Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Mike Rapoport <rppt@linux.ibm.com>
+Wire up TIF_NOTIFY_SIGNAL handling for riscv.
 
-For architectures that enable ARCH_HAS_SET_MEMORY having the ability to
-verify that a page is mapped in the kernel direct map can be useful
-regardless of hibernation.
-
-Add RISC-V implementation of kernel_page_present(), update its forward
-declarations and stubs to be a part of set_memory API and remove ugly
-ifdefery in inlcude/linux/mm.h around current declarations of
-kernel_page_present().
-
-Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+Cc: linux-riscv@lists.infradead.org
+Signed-off-by: Jens Axboe <axboe@kernel.dk>
 ---
- arch/arm64/include/asm/cacheflush.h |  1 +
- arch/riscv/include/asm/set_memory.h |  1 +
- arch/riscv/mm/pageattr.c            | 29 +++++++++++++++++++++++++++++
- arch/x86/include/asm/set_memory.h   |  1 +
- arch/x86/mm/pat/set_memory.c        |  2 --
- include/linux/mm.h                  |  7 -------
- include/linux/set_memory.h          |  5 +++++
- 7 files changed, 37 insertions(+), 9 deletions(-)
 
-diff --git a/arch/arm64/include/asm/cacheflush.h b/arch/arm64/include/asm/cacheflush.h
-index 9384fd8fc13c..45217f21f1fe 100644
---- a/arch/arm64/include/asm/cacheflush.h
-+++ b/arch/arm64/include/asm/cacheflush.h
-@@ -140,6 +140,7 @@ int set_memory_valid(unsigned long addr, int numpages, int enable);
+5.11 has support queued up for TIF_NOTIFY_SIGNAL, see this posting
+for details:
+
+https://lore.kernel.org/io-uring/20201026203230.386348-1-axboe@kernel.dk/
+
+As part of that work, I'm adding TIF_NOTIFY_SIGNAL support to all archs,
+as that will enable a set of cleanups once all of them support it. I'm
+happy carrying this patch if need be, or it can be funelled through the
+arch tree. Let me know.
+
+ arch/riscv/include/asm/thread_info.h | 5 ++++-
+ arch/riscv/kernel/signal.c           | 2 +-
+ 2 files changed, 5 insertions(+), 2 deletions(-)
+
+diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
+index a390711129de..97bf5a1575d2 100644
+--- a/arch/riscv/include/asm/thread_info.h
++++ b/arch/riscv/include/asm/thread_info.h
+@@ -74,6 +74,7 @@ struct thread_info {
+ #define TIF_SYSCALL_TRACEPOINT  6       /* syscall tracepoint instrumentation */
+ #define TIF_SYSCALL_AUDIT	7	/* syscall auditing */
+ #define TIF_SECCOMP		8	/* syscall secure computing */
++#define TIF_NOTIFY_SIGNAL	9	/* signal notifications exist */
  
- int set_direct_map_invalid_noflush(struct page *page);
- int set_direct_map_default_noflush(struct page *page);
-+bool kernel_page_present(struct page *page);
+ #define _TIF_SYSCALL_TRACE	(1 << TIF_SYSCALL_TRACE)
+ #define _TIF_NOTIFY_RESUME	(1 << TIF_NOTIFY_RESUME)
+@@ -82,9 +83,11 @@ struct thread_info {
+ #define _TIF_SYSCALL_TRACEPOINT	(1 << TIF_SYSCALL_TRACEPOINT)
+ #define _TIF_SYSCALL_AUDIT	(1 << TIF_SYSCALL_AUDIT)
+ #define _TIF_SECCOMP		(1 << TIF_SECCOMP)
++#define _TIF_NOTIFY_SIGNAL	(1 << TIF_NOTIFY_SIGNAL)
  
- #include <asm-generic/cacheflush.h>
+ #define _TIF_WORK_MASK \
+-	(_TIF_NOTIFY_RESUME | _TIF_SIGPENDING | _TIF_NEED_RESCHED)
++	(_TIF_NOTIFY_RESUME | _TIF_SIGPENDING | _TIF_NEED_RESCHED | \
++	 _TIF_NOTIFY_SIGNAL)
  
-diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
-index 4c5bae7ca01c..d690b08dff2a 100644
---- a/arch/riscv/include/asm/set_memory.h
-+++ b/arch/riscv/include/asm/set_memory.h
-@@ -24,6 +24,7 @@ static inline int set_memory_nx(unsigned long addr, int numpages) { return 0; }
- 
- int set_direct_map_invalid_noflush(struct page *page);
- int set_direct_map_default_noflush(struct page *page);
-+bool kernel_page_present(struct page *page);
- 
- #endif /* __ASSEMBLY__ */
- 
-diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
-index 321b09d2e2ea..87ba5a68bbb8 100644
---- a/arch/riscv/mm/pageattr.c
-+++ b/arch/riscv/mm/pageattr.c
-@@ -198,3 +198,32 @@ void __kernel_map_pages(struct page *page, int numpages, int enable)
- 			     __pgprot(0), __pgprot(_PAGE_PRESENT));
- }
- #endif
-+
-+bool kernel_page_present(struct page *page)
-+{
-+	unsigned long addr = (unsigned long)page_address(page);
-+	pgd_t *pgd;
-+	pud_t *pud;
-+	p4d_t *p4d;
-+	pmd_t *pmd;
-+	pte_t *pte;
-+
-+	pgd = pgd_offset_k(addr);
-+	if (!pgd_present(*pgd))
-+		return false;
-+
-+	p4d = p4d_offset(pgd, addr);
-+	if (!p4d_present(*p4d))
-+		return false;
-+
-+	pud = pud_offset(p4d, addr);
-+	if (!pud_present(*pud))
-+		return false;
-+
-+	pmd = pmd_offset(pud, addr);
-+	if (!pmd_present(*pmd))
-+		return false;
-+
-+	pte = pte_offset_kernel(pmd, addr);
-+	return pte_present(*pte);
-+}
-diff --git a/arch/x86/include/asm/set_memory.h b/arch/x86/include/asm/set_memory.h
-index 5948218f35c5..4352f08bfbb5 100644
---- a/arch/x86/include/asm/set_memory.h
-+++ b/arch/x86/include/asm/set_memory.h
-@@ -82,6 +82,7 @@ int set_pages_rw(struct page *page, int numpages);
- 
- int set_direct_map_invalid_noflush(struct page *page);
- int set_direct_map_default_noflush(struct page *page);
-+bool kernel_page_present(struct page *page);
- 
- extern int kernel_set_to_readonly;
- 
-diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-index 7f248fc45317..16f878c26667 100644
---- a/arch/x86/mm/pat/set_memory.c
-+++ b/arch/x86/mm/pat/set_memory.c
-@@ -2228,7 +2228,6 @@ void __kernel_map_pages(struct page *page, int numpages, int enable)
- }
- #endif /* CONFIG_DEBUG_PAGEALLOC */
- 
--#ifdef CONFIG_HIBERNATION
- bool kernel_page_present(struct page *page)
+ #define _TIF_SYSCALL_WORK \
+ 	(_TIF_SYSCALL_TRACE | _TIF_SYSCALL_TRACEPOINT | _TIF_SYSCALL_AUDIT | \
+diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
+index bc6841867b51..469aef8ed922 100644
+--- a/arch/riscv/kernel/signal.c
++++ b/arch/riscv/kernel/signal.c
+@@ -310,7 +310,7 @@ asmlinkage __visible void do_notify_resume(struct pt_regs *regs,
+ 					   unsigned long thread_info_flags)
  {
- 	unsigned int level;
-@@ -2240,7 +2239,6 @@ bool kernel_page_present(struct page *page)
- 	pte = lookup_address((unsigned long)page_address(page), &level);
- 	return (pte_val(*pte) & _PAGE_PRESENT);
- }
--#endif /* CONFIG_HIBERNATION */
+ 	/* Handle pending signal delivery */
+-	if (thread_info_flags & _TIF_SIGPENDING)
++	if (thread_info_flags & (_TIF_SIGPENDING | _TIF_NOTIFY_SIGNAL))
+ 		do_signal(regs);
  
- int __init kernel_map_pages_in_pgd(pgd_t *pgd, u64 pfn, unsigned long address,
- 				   unsigned numpages, unsigned long page_flags)
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index ab0ef6bd351d..44b82f22e76a 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -2937,16 +2937,9 @@ static inline void debug_pagealloc_map_pages(struct page *page,
- 	if (debug_pagealloc_enabled_static())
- 		__kernel_map_pages(page, numpages, enable);
- }
--
--#ifdef CONFIG_HIBERNATION
--extern bool kernel_page_present(struct page *page);
--#endif	/* CONFIG_HIBERNATION */
- #else	/* CONFIG_DEBUG_PAGEALLOC */
- static inline void debug_pagealloc_map_pages(struct page *page,
- 					     int numpages, int enable) {}
--#ifdef CONFIG_HIBERNATION
--static inline bool kernel_page_present(struct page *page) { return true; }
--#endif	/* CONFIG_HIBERNATION */
- #endif	/* CONFIG_DEBUG_PAGEALLOC */
- 
- #ifdef __HAVE_ARCH_GATE_AREA
-diff --git a/include/linux/set_memory.h b/include/linux/set_memory.h
-index 860e0f843c12..fe1aa4e54680 100644
---- a/include/linux/set_memory.h
-+++ b/include/linux/set_memory.h
-@@ -23,6 +23,11 @@ static inline int set_direct_map_default_noflush(struct page *page)
- {
- 	return 0;
- }
-+
-+static inline bool kernel_page_present(struct page *page)
-+{
-+	return true;
-+}
- #endif
- 
- #ifndef set_mce_nospec
+ 	if (thread_info_flags & _TIF_NOTIFY_RESUME)
 -- 
-2.28.0
+2.29.0
+
+-- 
+Jens Axboe
 
 
 _______________________________________________
