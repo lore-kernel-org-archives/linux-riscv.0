@@ -2,23 +2,21 @@ Return-Path: <SRS0=H9LG=EE=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-11.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,NICE_REPLY_A,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 730D9C55178
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Oct 2020 08:16:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 99E6DC2D0A3
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Oct 2020 10:24:29 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id F2EB920720
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Oct 2020 08:16:28 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D999320790
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Oct 2020 10:24:28 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="tOtcHLPh";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=redhat.com header.i=@redhat.com header.b="ay06rFUM"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F2EB920720
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="yRj9D2xY"
+Authentication-Results: mail.kernel.org; dmarc=permerror header.from=codethink.co.uk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
@@ -26,59 +24,38 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
 	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=J48Az6EZ7V+QQuvysUmTgm92bn8GNxw8tiFs6ecWRpI=; b=tOtcHLPhGLExd8iD3dMFZSmJz
-	lgvH1W/EuMEZiQI1g36EKGhIS65ezVCR4KLeLW9WL3rM8p0foAMFnfYsPw1HOznGxtasEzvk1eRDj
-	PzmMqUIQYMBBjF5rcDvxSVrs8UKpHbeswUSPrjMWv+DtXX6zDl09BeFtYCwkgzSxbJtdS0nz1NGqK
-	ycXraoTZ1H6RUgQGjkUdy+pkfQhy/FQ5jNDigPrO7t3o3StUbJdruKUm8koNiSu5mz97WiHmeVRoy
-	8wEOUjwcXkIRBY/juPmP6SXBFxj8BR5i/o99O1BZ1F28Z7STKkwE0CsyBLC2fikbbkDsasqG6l79F
-	00b4Vb6Ow==;
+	 bh=lRsEYK3YYDlTYMCB7fF/3bmsev1Ux8cw/tRZRFNYJFI=; b=yRj9D2xYzBwpfJPF30hReRjOw
+	S0R4U1MEuk39Ml350AJ42J2ruDaA6qFoRr6goVMpDr6F5PMQHdoHzQfbpWr336ldp2RCP23ZVLGrs
+	0qlr1ZDdQvgMwyUYZcinv8BvfeywQGviu5SxMoFyVnJ/+9AHT+Hz5m+4vG3VUE6gs+4UoB0MjXy/T
+	EtVCKGEKirJ5YJHCPs2xZIFXGOKpgdBmocgfpb6AQTPlX2N0kh0d1ORrz2rDAniBhRTxPsbp1ZktB
+	dMna2R3GQNGxXv//DWz/MlyUw8vFdyXkmoNtg6z1c8XGqWzNuGwbZ3OrAW2ada0JkeYqKexOPdR5/
+	rEJWyAlgQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kY36X-0006Tc-68; Thu, 29 Oct 2020 08:16:17 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([216.205.24.124])
+	id 1kY56N-0000rR-Lg; Thu, 29 Oct 2020 10:24:15 +0000
+Received: from imap3.hz.codethink.co.uk ([176.9.8.87])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kY36O-0006QG-7z
- for linux-riscv@lists.infradead.org; Thu, 29 Oct 2020 08:16:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1603959367;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=2gRwEwp+09CxPY3cDDGs5AqZnz2L4R+qK1xrKBZP/ZQ=;
- b=ay06rFUMq495NziQvvXEmjfl27QqLzDhX+fa4jGpMV7iYUr5G+e63O1tBDFA9Ul5oLop5C
- a8/TWffcMSMt6xjNKzy/qVY40B4oOUr4YUDs597pgypjwNsoZinHd7ELIVZ9qacTMV1TPn
- dllYntmtt8eAzvq8drrXaCf8X0MpNOc=
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-521-GwWoSv2-OMqDqihE-45P3g-1; Thu, 29 Oct 2020 04:16:02 -0400
-X-MC-Unique: GwWoSv2-OMqDqihE-45P3g-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com
- [10.5.11.14])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 5ED20809DC9;
- Thu, 29 Oct 2020 08:15:57 +0000 (UTC)
-Received: from [10.36.112.181] (ovpn-112-181.ams2.redhat.com [10.36.112.181])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 3EBE05D9CC;
- Thu, 29 Oct 2020 08:15:48 +0000 (UTC)
-Subject: Re: [PATCH 0/4] arch, mm: improve robustness of direct map
- manipulation
-To: Mike Rapoport <rppt@kernel.org>, Andrew Morton <akpm@linux-foundation.org>
-References: <20201025101555.3057-1-rppt@kernel.org>
-From: David Hildenbrand <david@redhat.com>
-Organization: Red Hat GmbH
-Message-ID: <30075bb8-caed-c4de-c09e-e0f6fb964a8d@redhat.com>
-Date: Thu, 29 Oct 2020 09:15:47 +0100
+ id 1kY56K-0000qB-9D
+ for linux-riscv@lists.infradead.org; Thu, 29 Oct 2020 10:24:13 +0000
+Received: from [167.98.27.226] (helo=[172.16.101.102])
+ by imap3.hz.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
+ id 1kY56D-0007SZ-8N; Thu, 29 Oct 2020 10:24:05 +0000
+Subject: Re: [RFC PATCH 2/3] RISC-V: Initial DTS for Microchip ICICLE board
+To: Atish Patra <atish.patra@wdc.com>, linux-kernel@vger.kernel.org
+References: <20201028232759.1928479-1-atish.patra@wdc.com>
+ <20201028232759.1928479-3-atish.patra@wdc.com>
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+Organization: Codethink Limited.
+Message-ID: <41f1248b-78c6-bac1-410b-9e222368c5f6@codethink.co.uk>
+Date: Thu, 29 Oct 2020 10:24:03 +0000
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.6.0
+ Thunderbird/68.12.0
 MIME-Version: 1.0
-In-Reply-To: <20201025101555.3057-1-rppt@kernel.org>
-Content-Language: en-US
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
+In-Reply-To: <20201028232759.1928479-3-atish.patra@wdc.com>
+Content-Language: en-GB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201029_041608_345217_5DBA49FC 
-X-CRM114-Status: GOOD (  21.96  )
+X-CRM114-CacheID: sfid-20201029_062412_478516_0B8E6E6A 
+X-CRM114-Status: GOOD (  22.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -90,67 +67,401 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Peter Zijlstra <peterz@infradead.org>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
- Paul Mackerras <paulus@samba.org>, Pavel Machek <pavel@ucw.cz>,
- "H. Peter Anvin" <hpa@zytor.com>, sparclinux@vger.kernel.org,
- Christoph Lameter <cl@linux.com>, Will Deacon <will@kernel.org>,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- Michael Ellerman <mpe@ellerman.id.au>, x86@kernel.org,
- Mike Rapoport <rppt@linux.ibm.com>,
- Christian Borntraeger <borntraeger@de.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Len Brown <len.brown@intel.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Vasily Gorbik <gor@linux.ibm.com>,
- linux-pm@vger.kernel.org, Heiko Carstens <hca@linux.ibm.com>,
- David Rientjes <rientjes@google.com>, Borislav Petkov <bp@alien8.de>,
- Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org,
- "Rafael J. Wysocki" <rjw@rjwysocki.net>, linux-kernel@vger.kernel.org,
- Pekka Enberg <penberg@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Joonsoo Kim <iamjoonsoo.kim@lge.com>, "Edgecombe,
- Rick P" <rick.p.edgecombe@intel.com>, linuxppc-dev@lists.ozlabs.org,
- "David S. Miller" <davem@davemloft.net>
+Cc: devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
+ Cyril.Jean@microchip.com, Daire McNamara <daire.mcnamara@microchip.com>,
+ Anup Patel <anup.patel@wdc.com>, Rob Herring <robh+dt@kernel.org>,
+ Alistair Francis <alistair.francis@wdc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv@lists.infradead.org, padmarao.begari@microchip.com
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 25.10.20 11:15, Mike Rapoport wrote:
-> From: Mike Rapoport <rppt@linux.ibm.com>
+On 28/10/2020 23:27, Atish Patra wrote:
+> Add initial DTS for Microchip ICICLE board having only
+> essential devcies (clocks, sdhci, ethernet, serial, etc).
 > 
-> Hi,
+> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> ---
+>   arch/riscv/boot/dts/Makefile                  |   1 +
+>   arch/riscv/boot/dts/microchip/Makefile        |   2 +
+>   .../microchip/microchip-icicle-kit-a000.dts   | 313 ++++++++++++++++++
+>   3 files changed, 316 insertions(+)
+>   create mode 100644 arch/riscv/boot/dts/microchip/Makefile
+>   create mode 100644 arch/riscv/boot/dts/microchip/microchip-icicle-kit-a000.dts
 > 
-> During recent discussion about KVM protected memory, David raised a concern
-> about usage of __kernel_map_pages() outside of DEBUG_PAGEALLOC scope [1].
-> 
-> Indeed, for architectures that define CONFIG_ARCH_HAS_SET_DIRECT_MAP it is
-> possible that __kernel_map_pages() would fail, but since this function is
-> void, the failure will go unnoticed.
-> 
-> Moreover, there's lack of consistency of __kernel_map_pages() semantics
-> across architectures as some guard this function with
-> #ifdef DEBUG_PAGEALLOC, some refuse to update the direct map if page
-> allocation debugging is disabled at run time and some allow modifying the
-> direct map regardless of DEBUG_PAGEALLOC settings.
-> 
-> This set straightens this out by restoring dependency of
-> __kernel_map_pages() on DEBUG_PAGEALLOC and updating the call sites
-> accordingly.
+> diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
+> index ca1f8cbd78c0..3ea94ea0a18a 100644
+> --- a/arch/riscv/boot/dts/Makefile
+> +++ b/arch/riscv/boot/dts/Makefile
+> @@ -1,5 +1,6 @@
+>   # SPDX-License-Identifier: GPL-2.0
+>   subdir-y += sifive
+>   subdir-y += kendryte
+> +subdir-y += microchip
+>   
+>   obj-$(CONFIG_BUILTIN_DTB) := $(addsuffix /, $(subdir-y))
+> diff --git a/arch/riscv/boot/dts/microchip/Makefile b/arch/riscv/boot/dts/microchip/Makefile
+> new file mode 100644
+> index 000000000000..55ad77521304
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/microchip/Makefile
+> @@ -0,0 +1,2 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +dtb-$(CONFIG_SOC_MICROCHIP_POLARFIRE) += microchip-icicle-kit-a000.dtb
+> diff --git a/arch/riscv/boot/dts/microchip/microchip-icicle-kit-a000.dts b/arch/riscv/boot/dts/microchip/microchip-icicle-kit-a000.dts
+> new file mode 100644
+> index 000000000000..5848920af55c
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/microchip/microchip-icicle-kit-a000.dts
+> @@ -0,0 +1,313 @@
+> +// SPDX-License-Identifier: GPL-2.0+
+> +/* Copyright (c) 2020 Microchip Technology Inc */
+> +
+> +/dts-v1/;
+> +
+> +/* Clock frequency (in Hz) of the rtcclk */
+> +#define RTCCLK_FREQ		1000000
+> +
+> +/ {
+> +	#address-cells = <2>;
+> +	#size-cells = <2>;
+> +	model = "Microchip PolarFire-SoC";
+> +	compatible = "microchip,polarfire-soc";
+> +
+> +	chosen {
+> +		stdout-path = &serial0;
+> +	};
+> +
+> +	cpus {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +		timebase-frequency = <RTCCLK_FREQ>;
+> +
+> +		cpu@0 {
+> +			clock-frequency = <0>;
+> +			compatible = "sifive,rocket0", "riscv";
+> +			device_type = "cpu";
+> +			i-cache-block-size = <64>;
+> +			i-cache-sets = <128>;
+> +			i-cache-size = <16384>;
+> +			reg = <0>;
+> +			riscv,isa = "rv64imac";
+> +			status = "disabled";
+> +
+> +			cpu0_intc: interrupt-controller {
+> +				#interrupt-cells = <1>;
+> +				compatible = "riscv,cpu-intc";
+> +				interrupt-controller;
+> +			};
+> +		};
+> +
+> +		cpu@1 {
+> +			clock-frequency = <0>;
+> +			compatible = "sifive,rocket0", "riscv";
+> +			d-cache-block-size = <64>;
+> +			d-cache-sets = <64>;
+> +			d-cache-size = <32768>;
+> +			d-tlb-sets = <1>;
+> +			d-tlb-size = <32>;
+> +			device_type = "cpu";
+> +			i-cache-block-size = <64>;
+> +			i-cache-sets = <64>;
+> +			i-cache-size = <32768>;
+> +			i-tlb-sets = <1>;
+> +			i-tlb-size = <32>;
+> +			mmu-type = "riscv,sv39";
+> +			reg = <1>;
+> +			riscv,isa = "rv64imafdc";
+> +			tlb-split;
+> +			status = "okay";
+> +
+> +			cpu1_intc: interrupt-controller {
+> +				#interrupt-cells = <1>;
+> +				compatible = "riscv,cpu-intc";
+> +				interrupt-controller;
+> +			};
+> +		};
+> +
+> +		cpu@2 {
+> +			clock-frequency = <0>;
+> +			compatible = "sifive,rocket0", "riscv";
+> +			d-cache-block-size = <64>;
+> +			d-cache-sets = <64>;
+> +			d-cache-size = <32768>;
+> +			d-tlb-sets = <1>;
+> +			d-tlb-size = <32>;
+> +			device_type = "cpu";
+> +			i-cache-block-size = <64>;
+> +			i-cache-sets = <64>;
+> +			i-cache-size = <32768>;
+> +			i-tlb-sets = <1>;
+> +			i-tlb-size = <32>;
+> +			mmu-type = "riscv,sv39";
+> +			reg = <2>;
+> +			riscv,isa = "rv64imafdc";
+> +			tlb-split;
+> +			status = "okay";
+> +
+> +			cpu2_intc: interrupt-controller {
+> +				#interrupt-cells = <1>;
+> +				compatible = "riscv,cpu-intc";
+> +				interrupt-controller;
+> +			};
+> +		};
+> +
+> +		cpu@3 {
+> +			clock-frequency = <0>;
+> +			compatible = "sifive,rocket0", "riscv";
+> +			d-cache-block-size = <64>;
+> +			d-cache-sets = <64>;
+> +			d-cache-size = <32768>;
+> +			d-tlb-sets = <1>;
+> +			d-tlb-size = <32>;
+> +			device_type = "cpu";
+> +			i-cache-block-size = <64>;
+> +			i-cache-sets = <64>;
+> +			i-cache-size = <32768>;
+> +			i-tlb-sets = <1>;
+> +			i-tlb-size = <32>;
+> +			mmu-type = "riscv,sv39";
+> +			reg = <3>;
+> +			riscv,isa = "rv64imafdc";
+> +			tlb-split;
+> +			status = "okay";
+> +
+> +			cpu3_intc: interrupt-controller {
+> +				#interrupt-cells = <1>;
+> +				compatible = "riscv,cpu-intc";
+> +				interrupt-controller;
+> +			};
+> +		};
+> +
+> +		cpu@4 {
+> +			clock-frequency = <0>;
+> +			compatible = "sifive,rocket0", "riscv";
+> +			d-cache-block-size = <64>;
+> +			d-cache-sets = <64>;
+> +			d-cache-size = <32768>;
+> +			d-tlb-sets = <1>;
+> +			d-tlb-size = <32>;
+> +			device_type = "cpu";
+> +			i-cache-block-size = <64>;
+> +			i-cache-sets = <64>;
+> +			i-cache-size = <32768>;
+> +			i-tlb-sets = <1>;
+> +			i-tlb-size = <32>;
+> +			mmu-type = "riscv,sv39";
+> +			reg = <4>;
+> +			riscv,isa = "rv64imafdc";
+> +			tlb-split;
+> +			status = "okay";
+> +			cpu4_intc: interrupt-controller {
+> +				#interrupt-cells = <1>;
+> +				compatible = "riscv,cpu-intc";
+> +				interrupt-controller;
+> +			};
+> +		};
+> +	};
+> +
+> +	memory@80000000 {
+> +		device_type = "memory";
+> +		reg = <0x0 0x80000000 0x0 0x40000000>;
+> +		clocks = <&clkcfg 26>;
+> +	};
+
+U-boot doesn't seem to be updating this properly.
+
+The board should have 2GiB, confirmed by looking at the device's
+chip markings. We only see 1GiB memory. The 0x80000000 bus window
+is only capable of dealing with 1GiB memory. The higher 64-bit one
+can have 16GiB mapped.
+
+Do we need a second node for the second GiB of memory?
+
+> +
+> +	soc {
+> +		#address-cells = <2>;
+> +		#size-cells = <2>;
+> +		compatible = "simple-bus";
+> +		ranges;
+> +
+> +		cache-controller@2010000 {
+> +			compatible = "sifive,fu540-c000-ccache", "cache";
+> +			cache-block-size = <64>;
+> +			cache-level = <2>;
+> +			cache-sets = <1024>;
+> +			cache-size = <2097152>;
+> +			cache-unified;
+> +			interrupt-parent = <&plic>;
+> +			interrupts = <1 2 3>;
+> +			reg = <0x0 0x2010000 0x0 0x1000>;
+> +		};
+> +
+> +		clint@2000000 {
+> +			compatible = "riscv,clint0";
+> +			reg = <0x0 0x2000000 0x0 0xC000>;
+> +			interrupts-extended = <&cpu0_intc 3 &cpu0_intc 7
+> +						&cpu1_intc 3 &cpu1_intc 7
+> +						&cpu2_intc 3 &cpu2_intc 7
+> +						&cpu3_intc 3 &cpu3_intc 7
+> +						&cpu4_intc 3 &cpu4_intc 7>;
+> +		};
+> +
+> +		plic: interrupt-controller@c000000 {
+> +			#interrupt-cells = <1>;
+> +			compatible = "sifive,plic-1.0.0";
+> +			reg = <0x0 0xc000000 0x0 0x4000000>;
+> +			riscv,ndev = <53>;
+> +			interrupt-controller;
+> +			interrupts-extended = <&cpu0_intc 11
+> +					&cpu1_intc 11 &cpu1_intc 9
+> +					&cpu2_intc 11 &cpu2_intc 9
+> +					&cpu3_intc 11 &cpu3_intc 9
+> +					&cpu4_intc 11 &cpu4_intc 9>;
+> +		};
+> +
+> +		dma@3000000 {
+> +			compatible = "sifive,fu540-c000-pdma";
+> +			reg = <0x0 0x3000000 0x0 0x8000>;
+> +			interrupt-parent = <&plic>;
+> +			interrupts = <23 24 25 26 27 28 29 30>;
+> +			#dma-cells = <1>;
+> +		};
+> +
+> +		refclk: refclk {
+> +			compatible = "fixed-clock";
+> +			#clock-cells = <0>;
+> +			clock-frequency = <600000000>;
+> +			clock-output-names = "msspllclk";
+> +		};
+> +
+> +		clkcfg: clkcfg@20002000 {
+> +			compatible = "microchip,pfsoc-clkcfg";
+> +			reg = <0x0 0x20002000 0x0 0x1000>;
+> +			reg-names = "mss_sysreg";
+> +			clocks = <&refclk>;
+> +			#clock-cells = <1>;
+> +			clock-output-names = "cpuclk", "axiclk", "ahbclk", "ENVMclk", "MAC0clk", "MAC1clk", "MMCclk", "TIMERclk", "MMUART0clk", "MMUART1clk", "MMUART2clk", "MMUART3clk", "MMUART4clk", "SPI0clk", "SPI1clk", "I2C0clk", "I2C1clk", "CAN0clk", "CAN1clk", "USBclk", "RESERVED", "RTCclk", "QSPIclk", "GPIO0clk", "GPIO1clk", "GPIO2clk", "DDRCclk", "FIC0clk", "FIC1clk", "FIC2clk", "FIC3clk", "ATHENAclk", "CFMclk";
+
+Any chance of making this list multi-line, it is difficult to read as-is.
+
+> +		};
+> +
+> +		serial0: serial@20000000 {
+> +			compatible = "ns16550a";
+> +			reg = <0x0 0x20000000 0x0 0x400>;
+> +			reg-io-width = <4>;
+> +			reg-shift = <2>;
+> +			interrupt-parent = <&plic>;
+> +			interrupts = <90>;
+> +			current-speed = <115200>;
+> +			clocks = <&clkcfg 8>;
+> +			status = "okay";
+> +		};
+> +
+> +		serial1: serial@20100000 {
+> +			compatible = "ns16550a";
+> +			reg = <0x0 0x20100000 0x0 0x400>;
+> +			reg-io-width = <4>;
+> +			reg-shift = <2>;
+> +			interrupt-parent = <&plic>;
+> +			interrupts = <91>;
+> +			current-speed = <115200>;
+> +			clocks = <&clkcfg 9>;
+> +			status = "okay";
+> +		};
+> +
+> +		serial2: serial@20102000 {
+> +			compatible = "ns16550a";
+> +			reg = <0x0 0x20102000 0x0 0x400>;
+> +			reg-io-width = <4>;
+> +			reg-shift = <2>;
+> +			interrupt-parent = <&plic>;
+> +			interrupts = <92>;
+> +			current-speed = <115200>;
+> +			clocks = <&clkcfg 10>;
+> +			status = "okay";
+> +		};
+> +
+> +		serial3: serial@20104000 {
+> +			compatible = "ns16550a";
+> +			reg = <0x0 0x20104000 0x0 0x400>;
+> +			reg-io-width = <4>;
+> +			reg-shift = <2>;
+> +			interrupt-parent = <&plic>;
+> +			interrupts = <93>;
+> +			current-speed = <115200>;
+> +			clocks = <&clkcfg 11>;
+> +			status = "okay";
+> +		};
+> +
+> +		sdcard: sdhc@20008000 {
+> +			compatible = "cdns,sd4hc";
+> +			reg = <0x0 0x20008000 0x0 0x1000>;
+> +			interrupt-parent = <&plic>;
+> +			interrupts = <88>;
+> +			pinctrl-names = "default";
+> +			clocks = <&clkcfg 6>;
+> +			bus-width = <4>;
+> +			disable-wp;
+> +			no-1-8-v;
+> +			cap-mmc-highspeed;
+> +			cap-sd-highspeed;
+> +			card-detect-delay = <200>;
+> +			sd-uhs-sdr12;
+> +			sd-uhs-sdr25;
+> +			sd-uhs-sdr50;
+> +			sd-uhs-sdr104;
+> +			max-frequency = <200000000>;
+> +			status = "okay";
+> +		};
+
+Given eMMC is the default device, shouldn't that be default for the
+device tree too? Even if not, having the emmc node here would be a
+good thing as it is different to the SD node.
+
+> +
+> +		emac1: ethernet@20112000 {
+> +			compatible = "cdns,macb";
+> +			reg = <0x0 0x20112000 0x0 0x2000>;
+> +			interrupt-parent = <&plic>;
+> +			interrupts = <70 71 72 73>;
+> +			mac-address = [56 34 12 00 FC 00];
+> +			phy-mode = "sgmii";
+> +			clocks = <&clkcfg 5>, <&clkcfg 2>;
+> +			clock-names = "pclk", "hclk";
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			phy1: ethernet-phy@9 {
+> +				reg = <9>;
+> +				ti,fifo-depth = <0x01>;
+> +			};
+> +		};
+
+Aren't there two ethernet ports on the board?
+
+Also, at the moment u-boot is not filling the MAC address parameter
+in so we've got at two boards on the network with the same MAC until
+we override it in the device tree for the second.
+
+> +
+> +		uio_axi_lsram@2030000000 {
+> +			compatible = "generic-uio";
+> +			reg = <0x20 0x30000000 0 0x80000000 >;
+> +			status = "okay";
+> +		};
+> +	};
+> +};
 > 
 
-So, I was primarily wondering if we really have to touch direct mappings 
-in hibernation code, or if we can avoid doing that. I was wondering if 
-we cannot simply do something like kmap() when trying to access a 
-!mapped page. Similar to reading old-os memory after kexec when in 
-kdump. Just a thought.
 
 -- 
-Thanks,
+Ben Dooks				http://www.codethink.co.uk/
+Senior Engineer				Codethink - Providing Genius
 
-David / dhildenb
-
+https://www.codethink.co.uk/privacy.html
 
 _______________________________________________
 linux-riscv mailing list
