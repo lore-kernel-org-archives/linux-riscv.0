@@ -5,19 +5,19 @@ X-Spam-Level:
 X-Spam-Status: No, score=-9.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 483AEC4363A
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Oct 2020 19:22:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 02185C2D0A3
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Oct 2020 21:43:35 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7624A2076D
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Oct 2020 19:22:15 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6618620759
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 Oct 2020 21:43:34 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="xJL4w8oO";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="d7qWRfav"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7624A2076D
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="0TTSaSR2";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="p3MMIIlj"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6618620759
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,57 +26,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=AkT8ACETw51/I9kEive/8arbu0gtU4uNc1K5UENan2U=; b=xJL4w8oOUEh0rbBJVrq+rDSaj
-	+DcnQ/uyeDZIM7Q9MpeQ09LToluIjknDQGvSlc0/4MUdyBsjmQJQhRIgqioHNLuG3gLBdwS4jed/x
-	2VQKrKV/0QwcyPrHCffdxhdXJ5LAAU2X3gBE0jeEwL65qG6QcR5LHvnG54gqty7l2XZuICrdl6LBa
-	j+Sk1MadM9vcRK3YVu5hWDMGQj8ixsHvavdHyOC6Unjcbr16NXNxx6lS/WiBVCZ54CFI5qz56RjND
-	efNldMA+dHL8BBS3lMzM7yBfO4Akxk56Ta5XTiduWKafqFFdfZ8tMV7EuNzMks1nX0szqP2fV5xD+
-	PDT2Q7Dbw==;
+	 bh=ZvbpS1U1EX0OYRWeQqRHXAYUYKrNz4zVDpReU7CpOa0=; b=0TTSaSR2zTHy2P5W3Rg3HELop
+	UjYfVz2NVFFibki9TFRzJ4Bq+29roa1zGv6Lj8QPGr3we/5oDplYnkuPcTxuE9BlPIa4QHLv7LLzR
+	A4690LRjynMx0K9z9+AXmxHqFlnRer1xCZLow6RkdWRgf5Bewn3d86PmFA7mFfMwT+I7avccYUkt1
+	3BXzqskowAPXzv/KkmFtFe59mjBqbV52icjKDzE723YySRfHPmiN9wpKpM1yX2i9q7R2E+wymtHG+
+	ymdhB+ZjJ18tM6lHOLcMfjem0nmdtQYQ/QuLusByd9nHvfud8hlq9GTrRqht53rZOTiiWacuhvsP4
+	7RmfQig2Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kYDUj-00065C-3w; Thu, 29 Oct 2020 19:21:57 +0000
-Received: from mail-io1-xd42.google.com ([2607:f8b0:4864:20::d42])
+	id 1kYFhb-000841-3P; Thu, 29 Oct 2020 21:43:23 +0000
+Received: from mail-io1-xd44.google.com ([2607:f8b0:4864:20::d44])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kYDUg-00064W-W5
- for linux-riscv@lists.infradead.org; Thu, 29 Oct 2020 19:21:56 +0000
-Received: by mail-io1-xd42.google.com with SMTP id y20so4823478iod.5
- for <linux-riscv@lists.infradead.org>; Thu, 29 Oct 2020 12:21:54 -0700 (PDT)
+ id 1kYFhY-000837-Kd
+ for linux-riscv@lists.infradead.org; Thu, 29 Oct 2020 21:43:21 +0000
+Received: by mail-io1-xd44.google.com with SMTP id p15so5346576ioh.0
+ for <linux-riscv@lists.infradead.org>; Thu, 29 Oct 2020 14:43:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=atishpatra.org; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=1n9igp9JpMCDmw3Htn3sCe03aBa5FsuZyoo9UCr5mDU=;
- b=d7qWRfavXHhDBTFzOTbcUZUq4Q8dq84N0UzC8ppy7y0rAwWBn7lX8xv0IBh9WX2py7
- KrZtvPaH3gGTvrablaDZHX5PeJ0q3kS9dfnujqIMb/iQZ+CF99LKp42J6O9EEaLFInlR
- USTmDl0ZApG+pOA3Pkm+2iVS6w0Lgbs7NqcWw=
+ :cc; bh=mvaBge66Dm27tfh4je6+8HV2g9jlw8958RR2u8LBnKo=;
+ b=p3MMIIljid9b3s7h4Jd/AkJCiQzEE/kkfdsXZqFxsho+2ba5sK/py0739/tnPbqnT+
+ qK9Za7lqpIgwrP1L3FnxGqfBbRZDsf/pY/Dr/m6XMhmiZDwumYJSx7+KptWCbBQ1CFXW
+ AbJEh8KCvQWYrMMxI8pqGOICXCcoQDaqbZTks=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=1n9igp9JpMCDmw3Htn3sCe03aBa5FsuZyoo9UCr5mDU=;
- b=Q1nUu1gT4XcMxlMe1uMCqK0Sx4vqtjPnnLkf/J26JloeqN/8B8j9zzCyDotqzWcKEw
- L2+5I5oQU5PdvhWeFkrNezzRoGbzCAxeu9J5+9H4NkU+Uwzh8BVrlraPqtWxZJUoPE7m
- HjRITM2vnHUbwXKQMvJ0tjO47sk4Ht0u1M+DVRdT/gKP1DxYZNfuIQ6ipQeEDovOjm4Y
- JRue8sDIheD5lpnYUbHdURsVcn3QALcovxYvnwUAgI9ZJuGK+mB+moWTdxJiWnlFEc9M
- hW9p2LO6oQZbmSmROiqwmfGS71bwr7POPfQsYP/g/qjmiLo9vqGS4Fy6wD+5y2AsUAv9
- CcRw==
-X-Gm-Message-State: AOAM5336wRajBxNtK/mAJSdAGNOTWfaHMW6SHlScWwuaSowCOxUEom43
- 2Pd/07e2ZhfwVN4sWKsaD8cBzVzrfB5iU5VNCJ4s
-X-Google-Smtp-Source: ABdhPJx6hUnb5DnEU4YvyQmGLPOW0K/AhUF434QjGMrwGO1YKL0fIzc/eEgcyC4w6VBPUm79NqsH2cFYL2qYpGGcpzc=
-X-Received: by 2002:a02:a395:: with SMTP id y21mr5103677jak.58.1603999312750; 
- Thu, 29 Oct 2020 12:21:52 -0700 (PDT)
+ bh=mvaBge66Dm27tfh4je6+8HV2g9jlw8958RR2u8LBnKo=;
+ b=kZCYszWIQDH2HPxojG1mNV8ZOunL5ReDazgXfE3J4aQ1f+PlVTdO+dTq1NLQPNPVzk
+ 2eKzsjxzjsa9MwgUqdmnHWKk5boA/PMkGgRrR8D7vbbDS+OJU6pKq4NRsUSAtv4H0QGr
+ 917uatHsxjv5sVf13cwwGK7bAV11y1W/Xf0cUmqYRFHB4qoO6dgHqQSUwORk/e6Vk572
+ NhOJaOXiJ2X4sOsOMV83fKwyHfrVSfi+3FsMp2EBhZNp7/KCB5iEkKVSCi90gKDW3/2H
+ EOU1U/zMGiiX6WplSCcLiRMEZn3HjMDIvQ29tk9iIHYf1bijaULJXM/5TWcLQjAWf7N5
+ AXHg==
+X-Gm-Message-State: AOAM531KHokb85kKIevRkhQInqoi7OOi2jeXsQOwuaPOuPkWh1lgbeDV
+ XboIZOtTrOXxp/5r0OQI/3N8/WZlayPXGYOJBv2OS9jpeFZg
+X-Google-Smtp-Source: ABdhPJwexYQl5IVrjrdlx8bXgN57z9Dn82MszyfA6Fd2iBCexafp1H1ojiwr7/nIFqL9FpjFzSn3LQMSDkXS+txjl4k=
+X-Received: by 2002:a05:6638:2b3:: with SMTP id
+ d19mr5409699jaq.141.1604007798044; 
+ Thu, 29 Oct 2020 14:43:18 -0700 (PDT)
 MIME-Version: 1.0
-References: <20201026230254.911912-1-atish.patra@wdc.com>
- <20201026230254.911912-6-atish.patra@wdc.com>
- <20201027104545.GM1154158@kernel.org>
-In-Reply-To: <20201027104545.GM1154158@kernel.org>
+References: <20201029023738.127472-1-greentime.hu@sifive.com>
+In-Reply-To: <20201029023738.127472-1-greentime.hu@sifive.com>
 From: Atish Patra <atishp@atishpatra.org>
-Date: Thu, 29 Oct 2020 12:21:41 -0700
-Message-ID: <CAOnJCULsowob2sgs9qFyUDBRUcuci6e4HEMoE_JuucCX082LCA@mail.gmail.com>
-Subject: Re: [PATCH v2 5/6] RISC-V: Protect .init.text & .init.data
-To: Mike Rapoport <rppt@kernel.org>
+Date: Thu, 29 Oct 2020 14:43:07 -0700
+Message-ID: <CAOnJCUJhvF1Jz0NZi=Ox1Uf+mKqOnNx2w2dmyf-z=tFuAhFOLg@mail.gmail.com>
+Subject: Re: [RFC PATCH] irqchip/sifive-plic: Fix getting wrong chip_data when
+ interrupt is hierarchy
+To: Greentime Hu <greentime.hu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201029_152155_136867_BEE8666F 
-X-CRM114-Status: GOOD (  27.21  )
+X-CRM114-CacheID: sfid-20201029_174320_812197_D908861A 
+X-CRM114-Status: GOOD (  24.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -88,141 +88,134 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Kees Cook <keescook@chromium.org>,
- Anup Patel <anup@brainfault.org>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Ard Biesheuvel <ardb@kernel.org>, Atish Patra <atish.patra@wdc.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Zong Li <zong.li@sifive.com>,
+Cc: Jason Cooper <jason@lakedaemon.net>, Marc Zyngier <maz@kernel.org>,
  Paul Walmsley <paul.walmsley@sifive.com>,
- Greentime Hu <greentime.hu@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>, Borislav Petkov <bp@suse.de>,
- Michel Lespinasse <walken@google.com>,
- Andrew Morton <akpm@linux-foundation.org>
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Atish Patra <atish.patra@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Anup Patel <anup@brainfault.org>, Thomas Gleixner <tglx@linutronix.de>,
+ linux-riscv <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 27, 2020 at 3:46 AM Mike Rapoport <rppt@kernel.org> wrote:
+On Wed, Oct 28, 2020 at 7:37 PM Greentime Hu <greentime.hu@sifive.com> wrote:
 >
-> On Mon, Oct 26, 2020 at 04:02:53PM -0700, Atish Patra wrote:
-> > Currently, .init.text & .init.data are intermixed which makes it impossible
-> > apply different permissions to them. .init.data shouldn't need exec
-> > permissions while .init.text shouldn't have write permission.
-> >
-> > Keep them in separate sections so that different permissions are applied to
-> > each section. This improves the kernel protection under
-> > CONFIG_STRICT_KERNEL_RWX. We also need to restore the permissions for the
-> > entire _init section after it is freed so that those pages can be used for
-> > other purpose.
-> >
-> > Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> > ---
-> >  arch/riscv/include/asm/sections.h   |  2 ++
-> >  arch/riscv/include/asm/set_memory.h |  2 ++
-> >  arch/riscv/kernel/setup.c           |  9 +++++
-> >  arch/riscv/kernel/vmlinux.lds.S     | 51 ++++++++++++++++-------------
-> >  arch/riscv/mm/init.c                |  8 ++++-
-> >  arch/riscv/mm/pageattr.c            |  6 ++++
-> >  6 files changed, 54 insertions(+), 24 deletions(-)
-> >
-> > diff --git a/arch/riscv/include/asm/sections.h b/arch/riscv/include/asm/sections.h
-> > index 3a9971b1210f..1595c5b60cfd 100644
-> > --- a/arch/riscv/include/asm/sections.h
-> > +++ b/arch/riscv/include/asm/sections.h
-> > @@ -9,5 +9,7 @@
-> >
-> >  extern char _start[];
-> >  extern char _start_kernel[];
-> > +extern char __init_data_begin[], __init_data_end[];
-> > +extern char __init_text_begin[], __init_text_end[];
-> >
-> >  #endif /* __ASM_SECTIONS_H */
-> > diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
-> > index 4cc3a4e2afd3..913429c9c1ae 100644
-> > --- a/arch/riscv/include/asm/set_memory.h
-> > +++ b/arch/riscv/include/asm/set_memory.h
-> > @@ -15,6 +15,7 @@ int set_memory_ro(unsigned long addr, int numpages);
-> >  int set_memory_rw(unsigned long addr, int numpages);
-> >  int set_memory_x(unsigned long addr, int numpages);
-> >  int set_memory_nx(unsigned long addr, int numpages);
-> > +int set_memory_default(unsigned long addr, int numpages);
-> >  void protect_kernel_text_data(void);
-> >  #else
-> >  static inline int set_memory_ro(unsigned long addr, int numpages) { return 0; }
-> > @@ -22,6 +23,7 @@ static inline int set_memory_rw(unsigned long addr, int numpages) { return 0; }
-> >  static inline int set_memory_x(unsigned long addr, int numpages) { return 0; }
-> >  static inline int set_memory_nx(unsigned long addr, int numpages) { return 0; }
-> >  static inline void protect_kernel_text_data(void) {};
-> > +static inline int set_memory_default(unsigned long addr, int numpages) { return 0; }
-> >  #endif
-> >
-> >  int set_direct_map_invalid_noflush(struct page *page);
-> > diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> > index b722c5bf892c..abfbdc8cfef3 100644
-> > --- a/arch/riscv/kernel/setup.c
-> > +++ b/arch/riscv/kernel/setup.c
-> > @@ -123,3 +123,12 @@ static int __init topology_init(void)
-> >       return 0;
-> >  }
-> >  subsys_initcall(topology_init);
-> > +
-> > +void free_initmem(void)
-> > +{
-> > +     unsigned long init_begin = (unsigned long)__init_begin;
-> > +     unsigned long init_end = (unsigned long)__init_end;
-> > +
-> > +     set_memory_default(init_begin, (init_end - init_begin) >> PAGE_SHIFT);
+> This oops is caused by a wrong chip_data and it is because plic_irq_unmask
+> uses irq_get_chip_data(irq_data->irq) to get the chip_data. However it may
+> get another irq_data with the same irq_data->irq if it is hierarchy.
 >
-> And what does "default" imply?
-> Maybe set_memory_rw() would better name ...
+> In this case, it will get irq_data of sifive_gpio_irqchip instead of
+> plic_chip so that it will get a wrong chip_data and then the wrong lmask
+> of it to cause this oops.
 >
-> > +     free_initmem_default(POISON_FREE_INITMEM);
-> > +}
+> To fix this issue, we can use irq_data_get_irq_chip_data(irq_data) to get
+> the correct chip_data of plic_chip.
 >
-> ...
+> (gdb) p d
+> $11 = (struct irq_data *) 0xffffffe1f695f620
+> (gdb) p *d
+> $9 = {
+>   mask = 0,
+>   irq = 57,
+>   hwirq = 6,
+>   common = 0xffffffe1f695f600,
+>   chip = 0xffffffe0018b5630 <sifive_gpio_irqchip>,
+>   domain = 0xffffffe1f692c400,
+>   parent_data = 0xffffffe1f68482c0,
+>   chip_data = 0xffffffe1f564a820
+> }
 >
-> > diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
-> > index 19fecb362d81..04f3fc16aa9c 100644
-> > --- a/arch/riscv/mm/pageattr.c
-> > +++ b/arch/riscv/mm/pageattr.c
-> > @@ -128,6 +128,12 @@ static int __set_memory(unsigned long addr, int numpages, pgprot_t set_mask,
-> >       return ret;
-> >  }
-> >
-> > +int set_memory_default(unsigned long addr, int numpages)
-> > +{
-> > +     return __set_memory(addr, numpages, __pgprot(_PAGE_KERNEL),
-> > +                         __pgprot(_PAGE_EXEC));
+> (gdb) p d
+> $6 = (struct irq_data *) 0xffffffe1f68482c0
+> (gdb) p *d
+> $7 = {
+>   mask = 0,
+>   irq = 57,
+>   hwirq = 29,
+>   common = 0xffffffe1f695f600,
+>   chip = 0xffffffe0018b5070 <plic_chip>,
+>   domain = 0xffffffe1f6635e00,
+>   parent_data = 0x0,
+>   chip_data = 0xffffffe1f660f1a0
+> }
 >
-> ... because you'd need to find what _PAGE_KERNEL is, do bitwise ops and
-> than find out that default is apparently RW :)
+> [    3.030165] ------------[ cut here ]------------
+> [    3.034614] WARNING: CPU: 1 PID: 1 at drivers/irqchip/irq-sifive-plic.c:125 plic_irq_unmask+0xc4/0x114
+> [    3.043887] Modules linked in:
+> [    3.046932] CPU: 1 PID: 1 Comm: swapper/0 Not tainted 5.9.0 #1
+> [    3.052748] epc: ffffffe000588e90 ra : ffffffe000588e88 sp : ffffffe1f6753940
+> [    3.059869]  gp : ffffffe001978f48 tp : ffffffe1f6748000 t0 : ffffffe001995cb0
+> [    3.067080]  t1 : ffffffe001995be8 t2 : 73616d61202c343a s0 : ffffffe1f67539a0
+> [    3.074288]  s1 : ffffffe1f4968140 a0 : 00000000000000b2 a1 : 0000000000000000
+> [    3.081497]  a2 : 00000000000000c2 a3 : 0000000000000000 a4 : 381c5a89432fe900
+> [    3.088707]  a5 : 0000000000000004 a6 : 0000000000000000 a7 : 00000000000001aa
+> [    3.095916]  s2 : ffffffe1f5901020 s3 : ffffffe00197a0a8 s4 : ffffffe001978b0c
+> [    3.103125]  s5 : ffffffe00197a1f0 s6 : 0000000000000008 s7 : ffffffe1f4983c9c
+> [    3.110335]  s8 : ffffffe1f4983c68 s9 : ffffffe1f4983c00 s10: ffffffe00000117c
+> [    3.117544]  s11: 0000000000000000 t3 : 0000000000000007 t4 : 0000000000000000
+> [    3.124753]  t5 : 66666666663a6b73 t6 : ffffffe001988479
+> [    3.130052] status: 0000000200000100 badaddr: ffffffe001978b0c cause: 0000000000000003
+> [    3.137959] ---[ end trace dbc1129f842ecba3 ]---
 >
-
-Yeah. But We have explicitly disable the EXECUTE bit as these pages were marked
-with RWX earlier. set_memory_rw makes sure that RW bits are set but
-doesn't disable
-the X bit.
-
-> > +}
-> > +
-> >  int set_memory_ro(unsigned long addr, int numpages)
-> >  {
-> >       return __set_memory(addr, numpages, __pgprot(_PAGE_READ),
-> > --
-> > 2.25.1
-> >
+> Fixes: f1ad1133b18f ("irqchip/sifive-plic: Add support for multiple PLICs")
+> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+> ---
+>  drivers/irqchip/irq-sifive-plic.c | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
+>
+> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+> index 4048657ece0a..6f432d2a5ceb 100644
+> --- a/drivers/irqchip/irq-sifive-plic.c
+> +++ b/drivers/irqchip/irq-sifive-plic.c
+> @@ -99,7 +99,7 @@ static inline void plic_irq_toggle(const struct cpumask *mask,
+>                                    struct irq_data *d, int enable)
+>  {
+>         int cpu;
+> -       struct plic_priv *priv = irq_get_chip_data(d->irq);
+> +       struct plic_priv *priv = irq_data_get_irq_chip_data(d);
+>
+>         writel(enable, priv->regs + PRIORITY_BASE + d->hwirq * PRIORITY_PER_ID);
+>         for_each_cpu(cpu, mask) {
+> @@ -115,7 +115,7 @@ static void plic_irq_unmask(struct irq_data *d)
+>  {
+>         struct cpumask amask;
+>         unsigned int cpu;
+> -       struct plic_priv *priv = irq_get_chip_data(d->irq);
+> +       struct plic_priv *priv = irq_data_get_irq_chip_data(d);
+>
+>         cpumask_and(&amask, &priv->lmask, cpu_online_mask);
+>         cpu = cpumask_any_and(irq_data_get_affinity_mask(d),
+> @@ -127,7 +127,7 @@ static void plic_irq_unmask(struct irq_data *d)
+>
+>  static void plic_irq_mask(struct irq_data *d)
+>  {
+> -       struct plic_priv *priv = irq_get_chip_data(d->irq);
+> +       struct plic_priv *priv = irq_data_get_irq_chip_data(d);
+>
+>         plic_irq_toggle(&priv->lmask, d, 0);
+>  }
+> @@ -138,7 +138,7 @@ static int plic_set_affinity(struct irq_data *d,
+>  {
+>         unsigned int cpu;
+>         struct cpumask amask;
+> -       struct plic_priv *priv = irq_get_chip_data(d->irq);
+> +       struct plic_priv *priv = irq_data_get_irq_chip_data(d);
+>
+>         cpumask_and(&amask, &priv->lmask, mask_val);
 >
 > --
-> Sincerely yours,
-> Mike.
+> 2.28.0
+>
 >
 > _______________________________________________
 > linux-riscv mailing list
 > linux-riscv@lists.infradead.org
 > http://lists.infradead.org/mailman/listinfo/linux-riscv
 
+Thanks for the fix.
 
+Reviewed-by: Atish Patra <atish.patra@wdc.com>
 
 -- 
 Regards,
