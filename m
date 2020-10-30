@@ -1,150 +1,80 @@
-Return-Path: <SRS0=H9LG=EE=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=IYIb=EF=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-7.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1A8E6C2D0A3
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Oct 2020 23:20:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8B1CCC4363A
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Oct 2020 03:28:39 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7CEB02076E
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 Oct 2020 23:20:02 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E582020720
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 Oct 2020 03:28:38 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="AKe8sacI";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=intel.onmicrosoft.com header.i=@intel.onmicrosoft.com header.b="GkUuVOQ3"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7CEB02076E
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=intel.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="DlmD+hJ8";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="ImH+C2h6"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E582020720
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=bP//HpcrW2uTFQyhRCWhGQQplgjQbDjtMd3k8amO7w0=; b=AKe8sacIUbEyRM9LaQ8SddUiP
-	Bg+ne4u/cTnJ/J7BKDVcU/9DJC7Gd2x+1rQAPlgnXt+cpEO9bXBQSlbJBm46/0BH9Q4CWewjc17iL
-	121qZVnQ3tWqcL4VYwFj6nVZ0U1t2JQWyHlSUYfZPdAsBxCxBQqtMyeJsE7BccohwsgQ25tsrSoZq
-	7Tx0qygxX2thxwowB55sF4x7SxaR5IQFTuRJY5bTrNvqLvNc3Q8DFbzsBNzdOhLme5+LfPkF/mYK4
-	nr+lTzzQpNRaISbtfdwP3ERLR4bJxCb+o+YATBZBspbv4ycgTngbOb8Ab6aBqz+BQITYaOpX+6Kw0
-	XFXH3DBkA==;
+	 bh=r5HDZOAvKhe1hMud9WAlHVLB2wgEz+Hv7xbJXhJL2EE=; b=DlmD+hJ8eKthKp5RA3XnAGJdI
+	XgZX2YQ962QkvGq7P64oG1xYznfyjmYIJoBK/OQJolLU9xBHqbU7sdPu/mMEC0iGB05a3Wt2qeiVq
+	AiFRjpKtaoxF98JJCDEHVL0cob4i8cngAOClxOpq3BzxqitYNvfjdB93+FBazSZ+frvTliCDVpa4i
+	f6cvHtmUq+HLKpMUQrilceQKyXYQXv0lGa2BugD937ixBnvAEetJGI3R8MT30oc0L1nrz360tefbr
+	hDBngtrIOAKyVgUO+iEzQUdus/uHWBZBLc62G7DVu/7ltxL9OfXBA6NZL9A4x/rribdX/Hes42Qdc
+	NoRvhDw2A==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kYHCx-0005zO-CO; Thu, 29 Oct 2020 23:19:51 +0000
-Received: from mga04.intel.com ([192.55.52.120])
+	id 1kYL5P-0005D8-F8; Fri, 30 Oct 2020 03:28:19 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kYHCu-0005xd-TC; Thu, 29 Oct 2020 23:19:50 +0000
-IronPort-SDR: rDbm/VGU3BwcRDKQrro+9fWEW30zwp9hD0StKchtiWTCCIjhiwpWAU7uqUEiuPj+nnx2udv+iU
- gh4Oj2R/W7bg==
-X-IronPort-AV: E=McAfee;i="6000,8403,9789"; a="165943628"
-X-IronPort-AV: E=Sophos;i="5.77,431,1596524400"; d="scan'208";a="165943628"
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from fmsmga003.fm.intel.com ([10.253.24.29])
- by fmsmga104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 29 Oct 2020 16:19:47 -0700
-IronPort-SDR: D4G3AykV9+EjYWZ+eBTCelU68pXmX3Imr666vTOed1NPp2IoUNJN+Q54a0RrucK9LQ3UMwb+qA
- UQwp0UDCXxCg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.77,431,1596524400"; d="scan'208";a="361665330"
-Received: from fmsmsx606.amr.corp.intel.com ([10.18.126.86])
- by FMSMGA003.fm.intel.com with ESMTP; 29 Oct 2020 16:19:46 -0700
-Received: from fmsmsx603.amr.corp.intel.com (10.18.126.83) by
- fmsmsx606.amr.corp.intel.com (10.18.126.86) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.1713.5; Thu, 29 Oct 2020 16:19:46 -0700
-Received: from fmsedg601.ED.cps.intel.com (10.1.192.135) by
- fmsmsx603.amr.corp.intel.com (10.18.126.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1713.5
- via Frontend Transport; Thu, 29 Oct 2020 16:19:46 -0700
-Received: from NAM12-MW2-obe.outbound.protection.outlook.com (104.47.66.44) by
- edgegateway.intel.com (192.55.55.70) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.1713.5; Thu, 29 Oct 2020 16:19:46 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=P+gMr3M3X/7LaUKGHr9SoZfV0LvqAV6J/fkohpMyLWHk1M9f8PFB68EKla6YyhTTFTDqXOQsybOMjap5tpVZj2obHPUZt58Xge89S1rUhJj7ua260aSlcSN8iMlBgwmVkWL04VWMezAEhVZVp506NPhRBCrCcekACmkV2DcJlbsr9KWtW5CBXzs1AfI9gwWGQ7IMNwn4vG3vjqzQZ82Z+7TePEOKqq2S3P+6cTy3FLKsxc1Wlzc3KJHeJrlbWvLROYQhjq288BS4Z3yn+ulovTYksxNNArfKDFZy94P2S5anWkViIi/dw8DB42xA5mieZLy29wCx8F9niSjDoy5LXA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jO7AP/YWx4yE/ZTLqLUmiveJg6xTIWuAOwHJzfq/m4k=;
- b=SDvfwC4WYCuYWuD9QpSqfzopxd9XP5SonRMoUxpoZKRwPq/mqbjQrYif/gpGTa3MQkfjxW/Ks3jIJkTpJemnARgws7Mxh/6Awk1z8MZ5ZcDSuthHGeF7zdCeBFPNRYadsL7P0ddGGKOY7WAnVTZM9Xj5ymc1EisNDE3/MLVJc+rJgQ8Gnlqpp5Sis0SO7sjd5bf5I+vnXWldslFQLXoGPylQqBe11T/DD/uXqJd1cCjjSDRP53+wfYm3R1kCivgpzxUfCNaHzKN/JZYuizArgHJmL3E/FMbKgvFylMOnJ0kLeRTUH+w420BumK60mgpvCzIY+JjrDNyOsLZcp4Cvtg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.onmicrosoft.com; 
- s=selector2-intel-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jO7AP/YWx4yE/ZTLqLUmiveJg6xTIWuAOwHJzfq/m4k=;
- b=GkUuVOQ34PnV4LHx1XpHjKNV26OwBWeg/YYEp/L5DYWYkHkPrTCHwQDOq4VYTDWvBwLdWEGOzSlLmvO4A9txeCsCo5LBNe3FATNLa09P25I6MkejWL8xw5DZLvuJRN+FmG/tKYZCPrE8qBcV+qAHdij8yOARtY/iLhZkrwsQu4k=
-Received: from SN6PR11MB3184.namprd11.prod.outlook.com (2603:10b6:805:bd::17)
- by SA2PR11MB5082.namprd11.prod.outlook.com (2603:10b6:806:115::5)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3499.19; Thu, 29 Oct
- 2020 23:19:45 +0000
-Received: from SN6PR11MB3184.namprd11.prod.outlook.com
- ([fe80::b901:8e07:4340:6704]) by SN6PR11MB3184.namprd11.prod.outlook.com
- ([fe80::b901:8e07:4340:6704%7]) with mapi id 15.20.3477.028; Thu, 29 Oct 2020
- 23:19:45 +0000
-From: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
-To: "will@kernel.org" <will@kernel.org>, "rppt@kernel.org" <rppt@kernel.org>
-Subject: Re: [PATCH 0/4] arch, mm: improve robustness of direct map
- manipulation
-Thread-Topic: [PATCH 0/4] arch, mm: improve robustness of direct map
- manipulation
-Thread-Index: AQHWqrf3SYgZeORHqEa1kMKSitw9UKmpFReAgACDwgCAAJbiAIAA89wAgAG/kwCAAAMDgIAAn/WAgAC65YCAAP2BAA==
-Date: Thu, 29 Oct 2020 23:19:45 +0000
-Message-ID: <b519c0cec8ad8e67d7a43251e45e49d17d5cfbef.camel@intel.com>
-References: <20201025101555.3057-1-rppt@kernel.org>
- <ae82f905a0092adb7e0f0ac206335c1883b3170f.camel@intel.com>
- <20201026090526.GA1154158@kernel.org>
- <a0212b073b3b2f62c3dbf1bf398f03fa402997be.camel@intel.com>
- <20201027083816.GG1154158@kernel.org>
- <20201028112011.GB27927@willie-the-truck>
- <20201028113059.GG1428094@kernel.org>
- <9e77d0a939eda3029d6ae89bd14d7f1465b0559d.camel@intel.com>
- <20201029081225.GK1428094@kernel.org>
-In-Reply-To: <20201029081225.GK1428094@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.30.1 (3.30.1-1.fc29) 
-authentication-results: kernel.org; dkim=none (message not signed)
- header.d=none;kernel.org; dmarc=none action=none header.from=intel.com;
-x-originating-ip: [192.55.54.40]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 6f65f7f7-55f0-4d82-05d6-08d87c611f80
-x-ms-traffictypediagnostic: SA2PR11MB5082:
-x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <SA2PR11MB50829B8CB5C7FB54955A759CC9140@SA2PR11MB5082.namprd11.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:10000;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: qymfxompgOrWzlro/sMPTGY9YJVX1DwlGdD/d46SzbnToKutCQB8Eh+wpcTKgI5jqZnCFiFujFALoc3TsOGx6J6+TSTsmwZjVH+hdYNEavYMOiefPyFSpP3tmYgvUGmWWdEt+cS4pZflGu4Z3Yb4pnanhJAZchYgVEKgPsR1baMpxCOMglQOhh0esOlWs/Uhg4FJ2f4y52Nrk4V9stKWnqp1bhG04M4pwPKC0IlJlU0yi5U0algzd2zV6PuvgFXwvqDlI8ykLre5FV0h14pnneEhR6aXut60IQ0u1B/NupQqFmxqdhppKM3r7jdQsdRc72SDvc+Oa7cM21PSR1cCxg==
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:SN6PR11MB3184.namprd11.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(346002)(366004)(39860400002)(376002)(396003)(136003)(66556008)(66476007)(64756008)(4326008)(4001150100001)(36756003)(86362001)(2616005)(26005)(5660300002)(8676002)(316002)(66446008)(110136005)(76116006)(6506007)(91956017)(186003)(71200400001)(6486002)(478600001)(7416002)(4744005)(8936002)(7406005)(2906002)(66946007)(6512007)(54906003);
- DIR:OUT; SFP:1102; 
-x-ms-exchange-antispam-messagedata: p9rsUQY8foFuX6RZTf1VRl5EiYnCU2DJXadVx/RRJnVW+thy97FwnRc+6yOO4nqUTRfxjLVA5pHQ8hauiaReSs9W9VKiyQ30BDtc76+BdoB4xDeOscsVX3dpcVqdGhwWh7Q8cHnozmypfWXCPMNmOsneGGwFOsoA2Bywj+r/wniXdMPcWFkJqp4DJXBOxFtvcUb7FPrF7CDEOMEJONVcdcTC7EiiMW13+GgOaO63UNg3dXWBo7UvVKUhNI+kt9bv6kLlWkyvTFOAzuKVZZrvkwW4UI1Te7zthzFvTBaQGEaujKFprCZQ/uWKJK0yS2/YbmKnzEpH09Qyng5RuM2gOXN7FCO1dPLuXFmb40j8Y98wTzbE435TvG6T5N0PMWL3ExHnsQDIEttNjN24AijOtDI3yiM878zF47mT5zTzPc6FK5Jog+TFaBdZH6EjZsXx8p4f6rzHfulZaWD3z6BkNaYcPeBfsF+VLlRsj/IBs6epACMqJIQJGcQAagnuE2YhRM2N1H38lA6rfISji+E0M3V5wYgbpCinAth4+mFB5m27FhEe14I2hMdjDGnZS4TnShpKAp1ag+uueon/wLKk25jpHgCuA8uCfnrbmHYKqSjmSaEZZjloc3Ei2XP86Hf+m3WQ7DJAc4x5ToYGJkUdww==
-Content-ID: <A24A2063217BB643B1E13F94317ED6B9@namprd11.prod.outlook.com>
+ id 1kYL5M-0005CW-1e
+ for linux-riscv@lists.infradead.org; Fri, 30 Oct 2020 03:28:17 +0000
+Received: from mail-lj1-f177.google.com (mail-lj1-f177.google.com
+ [209.85.208.177])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 71EF22151B
+ for <linux-riscv@lists.infradead.org>; Fri, 30 Oct 2020 03:28:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1604028494;
+ bh=5bWbc+rk6iFjGM/ynMw2nwmBb0fImGIaV/wftktq57g=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=ImH+C2h6vvBgZxYYeXPtz3xhowPZh4CJNuPBb3tmmyrNnzBOWtxVMIHGREvPr3q9z
+ 0K6JvY0BBf/dsi8Z330a0B85AI05LSqm6+KO7zDufSlwYFItjLjylAt+vVFl+HOuo/
+ 1uinU4SFVPMNUB9ZcADQeKT9hPpweWbqsqSXiCw0=
+Received: by mail-lj1-f177.google.com with SMTP id y16so5455784ljk.1
+ for <linux-riscv@lists.infradead.org>; Thu, 29 Oct 2020 20:28:14 -0700 (PDT)
+X-Gm-Message-State: AOAM530FqrGTR7OG9GMIGMXlbNF5bFwXUeJywkMBF7xhDukNONoU9SXM
+ RhSXZkTG/gXcrOJE7mNlro4oXPjdQlDBAx49GDo=
+X-Google-Smtp-Source: ABdhPJymmsta1af3Be4tZIeK2tuuwY/zbAZDHIq5ay5bW/EzniyTMq7KysPhNarwv4UQVjr6ntyqlqus/G9USrnLhZ0=
+X-Received: by 2002:a2e:85c4:: with SMTP id h4mr136001ljj.250.1604028492494;
+ Thu, 29 Oct 2020 20:28:12 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SN6PR11MB3184.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6f65f7f7-55f0-4d82-05d6-08d87c611f80
-X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Oct 2020 23:19:45.4071 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: +RcybrvbdhfunvXnqzm9lKtFLhZ9fAWekAHNXbChfa/6Xd/oGhaT1uEOVEObC861XIEEZsuH/OpGoKidyGhe+V9iidyz2SzuQeVKEkgCaLg=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA2PR11MB5082
-X-OriginatorOrg: intel.com
+References: <20201021073839.43935-1-zong.li@sifive.com>
+ <CAJF2gTTnGSYAc3AZKCPvhNJsPm_TchPjPrtqc_WzaK7K5eNt+w@mail.gmail.com>
+ <CAOnJCULN8h0Jk3H-vskgbaXhgBTgTTAT5Dji0qHi6yHoXGePvg@mail.gmail.com>
+ <CANXhq0q_fOg7vsniVMtNd8VezW1yymf55FYRc61WMkXMOtZpgA@mail.gmail.com>
+ <CAJF2gTR-_=_vDLsST9BVxRFC0OTR4_TYV-2=nH_Gux_zWDOk3Q@mail.gmail.com>
+ <CAOnJCU+d5YQzKW2qs0NURJt1_5zrM6YXrkP4FzB_=zgbb-5DuA@mail.gmail.com>
+In-Reply-To: <CAOnJCU+d5YQzKW2qs0NURJt1_5zrM6YXrkP4FzB_=zgbb-5DuA@mail.gmail.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Fri, 30 Oct 2020 11:28:01 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTT9gZZftoUD4eMT0Th=oYOpsdYbrFdr=5kO2-N+ki51NA@mail.gmail.com>
+Message-ID: <CAJF2gTT9gZZftoUD4eMT0Th=oYOpsdYbrFdr=5kO2-N+ki51NA@mail.gmail.com>
+Subject: Re: [PATCH] stop_machine: Mark functions as notrace
+To: Atish Patra <atishp@atishpatra.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201029_191949_122850_BDAD030B 
-X-CRM114-Status: GOOD (  18.47  )
+X-CRM114-CacheID: sfid-20201029_232816_338466_A084645F 
+X-CRM114-Status: GOOD (  37.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -156,63 +86,187 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "benh@kernel.crashing.org" <benh@kernel.crashing.org>,
- "david@redhat.com" <david@redhat.com>,
- "peterz@infradead.org" <peterz@infradead.org>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
- "linux-mm@kvack.org" <linux-mm@kvack.org>,
- "paulus@samba.org" <paulus@samba.org>, "pavel@ucw.cz" <pavel@ucw.cz>,
- "hpa@zytor.com" <hpa@zytor.com>,
- "sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>,
- "cl@linux.com" <cl@linux.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
- "mpe@ellerman.id.au" <mpe@ellerman.id.au>, "x86@kernel.org" <x86@kernel.org>,
- "rppt@linux.ibm.com" <rppt@linux.ibm.com>,
- "borntraeger@de.ibm.com" <borntraeger@de.ibm.com>,
- "mingo@redhat.com" <mingo@redhat.com>,
- "rientjes@google.com" <rientjes@google.com>, "Brown,
- Len" <len.brown@intel.com>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
- "gor@linux.ibm.com" <gor@linux.ibm.com>,
- "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
- "hca@linux.ibm.com" <hca@linux.ibm.com>, "bp@alien8.de" <bp@alien8.de>,
- "luto@kernel.org" <luto@kernel.org>,
- "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
- "kirill@shutemov.name" <kirill@shutemov.name>,
- "tglx@linutronix.de" <tglx@linutronix.de>,
- "iamjoonsoo.kim@lge.com" <iamjoonsoo.kim@lge.com>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
- "rjw@rjwysocki.net" <rjw@rjwysocki.net>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "penberg@kernel.org" <penberg@kernel.org>,
- "palmer@dabbelt.com" <palmer@dabbelt.com>,
- "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
- "davem@davemloft.net" <davem@davemloft.net>
+Cc: Palmer Dabbelt <palmerdabbelt@google.com>,
+ Paul McKenney <paulmck@kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ vincent.whitchurch@axis.com, jiangshanlai@gmail.com, josh@joshtriplett.org,
+ Steven Rostedt <rostedt@goodmis.org>,
+ Colin Ian King <colin.king@canonical.com>, rcu@vger.kernel.org,
+ mathieu.desnoyers@efficios.com, Masami Hiramatsu <mhiramat@kernel.org>,
+ Zong Li <zong.li@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ joel@joelfernandes.org, Greentime Hu <greentime.hu@sifive.com>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ linux-riscv <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2020-10-29 at 10:12 +0200, Mike Rapoport wrote:
-> This series goal was primarily to separate dependincies and make it
-> clearer what DEBUG_PAGEALLOC and what SET_DIRECT_MAP are. As it
-> turned
-> out, there is also some lack of consistency between architectures
-> that
-> implement either of this so I tried to improve this as well.
-> 
-> Honestly, I don't know if a thread can be paused at the time
-> __vunmap()
-> left invalid pages, but it could, there is an issue on arm64 with
-> DEBUG_PAGEALLOC=n and this set fixes it.
+On Fri, Oct 30, 2020 at 2:46 AM Atish Patra <atishp@atishpatra.org> wrote:
+>
+> On Thu, Oct 29, 2020 at 9:06 AM Guo Ren <guoren@kernel.org> wrote:
+> >
+> > On Thu, Oct 29, 2020 at 10:34 AM Zong Li <zong.li@sifive.com> wrote:
+> > >
+> > > On Thu, Oct 29, 2020 at 8:23 AM Atish Patra <atishp@atishpatra.org> wrote:
+> > > >
+> > > > On Wed, Oct 28, 2020 at 8:44 AM Guo Ren <guoren@kernel.org> wrote:
+> > > > >
+> > > > > Hi Zong & Atish,
+> > > > >
+> > > > > In our 2 harts c910 chip, we found:
+> > > > >
+> > > > > echo function > /sys/kernel/debug/tracing/current_tracer
+> > > > > echo function_graph > /sys/kernel/debug/tracing/current_tracer
+> > > > > echo function > /sys/kernel/debug/tracing/current_tracer
+> > > > > echo function_graph > /sys/kernel/debug/tracing/current_tracer
+> > > > >
+> > > > > Then one core halted at stop_machine_yield:
+> > > > > arch_cpu_idle () at arch/riscv/kernel/process.c:39
+> > > > > 39              local_irq_enable();
+> > > > > (gdb) i th
+> > > > >   Id   Target Id         Frame
+> > > > > * 1    Thread 1 (CPU#0)  arch_cpu_idle () at arch/riscv/kernel/process.c:39
+> > > > >   2    Thread 2 (CPU#1)  stop_machine_yield
+> > > > > (cpumask=0xffffffe001371fa8 <__cpu_online_mask>) at
+> > > > > ./arch/riscv/include/asm/vdso/processor.h:12
+> > > > > (gdb) thread 2
+> > > > > [Switching to thread 2 (Thread 2)]
+> > > > > #0  stop_machine_yield (cpumask=0xffffffe001371fa8
+> > > > > <__cpu_online_mask>) at ./arch/riscv/include/asm/vdso/processor.h:12
+> > > > > 12              __asm__ __volatile__ ("div %0, %0, zero" : "=r" (dummy));
+> > > > >
+> > > > > With your patch, it's solved. For this patch, I'll give:
+> > > > > Tested by: Guo Ren <guoren@kernel.org>
+> > > > >
+> > > > > But that's not enough, we still need:
+> > > > >
+> > > > > diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+> > > > > index 226ccce..12b8808 100644
+> > > > > --- a/arch/riscv/kernel/sbi.c
+> > > > > +++ b/arch/riscv/kernel/sbi.c
+> > > > > @@ -376,7 +376,7 @@ EXPORT_SYMBOL(sbi_send_ipi);
+> > > > >   *
+> > > > >   * Return: None
+> > > > >   */
+> > > > > -void sbi_remote_fence_i(const unsigned long *hart_mask)
+> > > > > +void notrace sbi_remote_fence_i(const unsigned long *hart_mask)
+> > > > >  {
+> > > > >         __sbi_rfence(SBI_EXT_RFENCE_REMOTE_FENCE_I,
+> > > > >                      hart_mask, 0, 0, 0, 0);
+> > > > > diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
+> > > > > index 400b945d..9467d987 100644
+> > > > > --- a/arch/riscv/mm/cacheflush.c
+> > > > > +++ b/arch/riscv/mm/cacheflush.c
+> > > > > @@ -9,12 +9,12 @@
+> > > > >
+> > > > >  #include <asm/sbi.h>
+> > > > >
+> > > > > -static void ipi_remote_fence_i(void *info)
+> > > > > +static void notrace ipi_remote_fence_i(void *info)
+> > > > >  {
+> > > > >         return local_flush_icache_all();
+> > > > >  }
+> > > > >
+> > > > > -void flush_icache_all(void)
+> > > > > +void notrace flush_icache_all(void)
+> > > > >  {
+> > > > >         if (IS_ENABLED(CONFIG_RISCV_SBI))
+> > > > >                 sbi_remote_fence_i(NULL);
+> > > > >
+> > > >
+> > > > Did you see any issue if these functions are not marked as notrace ?
+> > > >
+> > > > As per Zong's explanation, the issue was that the other harts already
+> > > > fetched the next 2 nops and
+> > > > executed 1 while kernel patching replaced other with one of the auipc
+> > > > + jalr pair.
+> > > >
+> > > > @Zong can correct me if I am wrong.
+> > > >
+> > > > These functions are too far ahead. Can it cause such issues ? If yes,
+> > > > then we need to mark each and every function
+> > > > that can be invoked from patch_text_nosync and are not inlined.
+> > > >
+> > > > That includes copy_to_kernel_nofault, __sbi_rfence_v02,
+> > > > __sbi_rfence_v02_call, sbi_ecall.
+> > > >
+> > > > Few of these functions may be inlined by compiler. Can we depend on that ?
+> > > >
+> > > > > Because:
+> > > > > (gdb) bt
+> > > > > #0  flush_icache_all () at arch/riscv/mm/cacheflush.c:20
+> > > > > #1  0xffffffe00020473a in patch_text_nosync (addr=<optimized out>, insns=
+> > > > >     <optimized out>, len=<optimized out>) at arch/riscv/kernel/patch.c:96
+> > > > > #2  0xffffffe000206792 in ftrace_make_call (rec=<optimized out>,
+> > > > > addr=<optimized out>) at arch/riscv/kernel/ftrace.c:109
+> > > > > #3  0xffffffe0002c9be4 in __ftrace_replace_code (rec=0xffffffe01ae40020, e
+> > > > >     nable=true) at kernel/trace/ftrace.c:2503
+> > > > > #4  0xffffffe0002ca092 in ftrace_replace_code (mod_flags=<optimized
+> > > > >     out>) at kernel/trace/ftrace.c:2530
+> > > > > #5  0xffffffe0002ca24a in ftrace_modify_all_code (command=9) at kernel
+> > > > >    /trace/ftrace.c:2677
+> > > > > #6  0xffffffe0002ca2ee in __ftrace_modify_code (data=<optimized out>) at
+> > > > >    kernel/trace/ftrace.c:2703
+> > > > > #7  0xffffffe0002c1390 in multi_cpu_stop (data=0x0) at kernel/stop_machin
+> > > > >    e.c:224
+> > > > > #8  0xffffffe0002c0fbe in cpu_stopper_thread (cpu=<optimized out>) at kern
+> > > > >    el/stop_machine.c:491
+> > > > > #9  0xffffffe0002343be in smpboot_thread_fn (data=0x0) at kernel/smpboot.
+> > > > >    c:165
+> > > > > #10 0xffffffe00022f894 in kthread (_create=0xffffffe01af13040) at kern
+> > > > >    el/kthread.c:292
+> > > > > #11 0xffffffe000201fac in handle_exception () at arch/riscv/kernel/entry.S:236
+> > > > >
+> > >
+> > > It seems to me that the problem happens on the waiting threads, it
+> > No, that is the call trace to show ftrace_make_call ->
+> > flush_icache_all and we should give notrace on the whole path.
+> >
+>
+> Hmm. I am curious to understand how other architectures avoid this problem.
 
-Ah, ok. So from this and the other thread, this is about the logic in
-arm's cpa for when it will try the un/map operations. I think the logic
-actually works currently. And this series introduces a problem on ARM
-similar to the one you are saying preexists. I put the details in the
-other thread.
+for arm64
+static int ftrace_modify_code(unsigned long pc, u32 old, u32 new,
+                              bool validate)
+{
+        u32 replaced;
+...
+        if (aarch64_insn_patch_text_nosync((void *)pc, new))
+                return -EPERM;
+
+int __kprobes aarch64_insn_patch_text_nosync(void *addr, u32 insn)
+{
+        u32 *tp = addr;
+        int ret;
+
+        /* A64 instructions must be word aligned */
+        if ((uintptr_t)tp & 0x3)
+                return -EINVAL;
+
+        ret = aarch64_insn_write(tp, insn);
+        if (ret == 0)
+                __flush_icache_range((uintptr_t)tp,
+                                     (uintptr_t)tp + AARCH64_INSN_SIZE);
+
+Look at arm64, they __kprobes flag and I guess it would also prevent
+ftrace call site.
+
+__flush_icache_range is written in asm and no possible ftrace call site.
+
+> Is it a bigger issue in RISC-V because we have to switch privilege
+> mode to sync I/D cache ?
+We should sync I/D cache at s-mode because we need virtual address.
+For c910 we've added icache broadcast invalid instructions by physical
+address and virtual address.
+
+Current linux/arch/riscv I/D cache sync is so expensive.
+
+-- 
+Best Regards
+ Guo Ren
+
+ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
