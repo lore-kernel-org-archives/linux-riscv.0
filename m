@@ -2,88 +2,81 @@ Return-Path: <SRS0=HNWJ=EH=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BCDC2C2D0A3
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2020 12:10:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 146BFC2D0A3
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2020 16:52:22 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 24D532085B
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2020 12:10:58 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B3328206CA
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2020 16:52:21 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="FfDGeeXt";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="jM+hx5F+"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 24D532085B
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="arE8ie1N";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.b="rzDR+2zh";
+	dkim=permerror (0-bit key) header.d=linutronix.de header.i=@linutronix.de header.b="YXEIzcJm"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B3328206CA
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linutronix.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References:In-Reply-To:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=5o1H4B4cmdStvsGepdHl+zxhZGjOb5xBifrjSR8GA3I=; b=FfDGeeXtti2XSQWBXntyF/Fj2
-	u6+w3mxIHYdJ4XO3j7CVPdnYbnokRDEWlVUUWreP+SlRfvofpZJxC2BBTGqT4bfKVsu1rbG6njjjL
-	oSPkSNiAWO+Y8GJPuntaK4dImn8kEF/4yByec0fP2Fbpx2QQ6qrs+T2DXB2ZOVy9jHeiuU4cUt+h0
-	kLX7Y2bHnmnhDsbMjNqfFwxV2efkJPDGEfS0xGWvBXUb3o/FXxatEiNi2Kzuwjb0BiRXu5gtBuBsQ
-	I5vSO5Ci+kY5btFhrKPsH5RCmm9h7VNaQne1xrQmv6BYjwAl7TIAIXZ4LH0KT1d1Mj0j24F/LgmbB
-	hsop/2Egw==;
+	 bh=Bdipj16a9/aUpg5M/4oTUzeyn+XUxZcnFOYXJmZScoo=; b=arE8ie1NYDrklYiDCa4uvhxgw
+	Q00Nh8oaSzsICok1t4yyQ9xLIHtHFjUzoLNLaIn7Bu6gHKyDWDFsGNAU82rZyvNtnApfGs8hTj1UT
+	8OY395awERHLdhPmrdyd9Acps8L/xEF/P8dbQn9DvK/Ei0yVllpOykRSk56mCwuKvKRmti2jLO/5E
+	ck7lXslBwmdeJ05NHcfoDxuS4Ar5y/2xc4b0VNXjGmpbRhtVQ+iDVtzEvQPTBAEdAH5QBYP4WpsLh
+	5THaWnFIep/fWuQxE2HVgokccRj5NYCRnEzCjJH3vjE6q9VGo+R0EXZzgWXyr/0ohndqTNq81vms0
+	USOdt8ObQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kZCBy-0008Oc-ON; Sun, 01 Nov 2020 12:10:38 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1kZGaV-0000va-Ly; Sun, 01 Nov 2020 16:52:15 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kZCBw-0008Mi-F7
- for linux-riscv@lists.infradead.org; Sun, 01 Nov 2020 12:10:37 +0000
-Received: from disco-boy.misterjones.org (disco-boy.misterjones.org
- [51.254.78.96])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id E9CFD20870;
- Sun,  1 Nov 2020 12:10:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1604232635;
- bh=pdVWHPmd4uAe+FndPjmn2EeHjCnqsqezsPeF6IRcpHI=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=jM+hx5F+dACiPf+stY33/c4R1RbxfpiZmRLl5ETIcdhq1ck3IjqpE5ib5dnMpfVqv
- XuZbpSCpRzgqRSKmpME9SWKp+kSFiJ8iDLbdzuqN9N3peEyigtCi5HKbpKsYXnxt6B
- qrnnMDK0GSgyN73Uu3PDhetD/t+/ZTy/yNuqkGAI=
-Received: from 78.163-31-62.static.virginmediabusiness.co.uk ([62.31.163.78]
- helo=wait-a-minute.lan)
- by disco-boy.misterjones.org with esmtpsa (TLS1.3) tls
- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.94)
- (envelope-from <maz@kernel.org>)
- id 1kZCBt-006PeF-8R; Sun, 01 Nov 2020 12:10:33 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: Thomas Gleixner <tglx@linutronix.de>, Jason Cooper <jason@lakedaemon.net>,
+ id 1kZGaS-0000u6-Gn
+ for linux-riscv@lists.infradead.org; Sun, 01 Nov 2020 16:52:13 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+ s=2020; t=1604249527;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=aZtASmEsd/FB84mTk1oOXBBdXFIzwqjrsRZ2JdtHEOE=;
+ b=rzDR+2zh3P3kB8f1ohciGFUAFS+loOaeUt2q6n+LOzyF4K4yooUpVDBHzkjigj34c6vZLQ
+ vrvDKB5XdW0fIBBgZNY/URJ6cHHqkJQzt0FX0pSWkuU1FT4s9f81w9+dKe2AbWgzkNHliQ
+ WEWfqgjaz2BqPJ13NO1FiHuCIyQK/GWVyYCeUbeM3CIo0tGZyMMpedMm4yKqzCvWJd9XTs
+ vYaMLpMOdqNnCcwtRQ/En1fcjzz9KZvOEgEVUgMHKQWmj0omn6vTryH+f/LBbM9x152oa2
+ xR8nHmo2XoZ0fZuTZXFyedM5ftUQCJXpk2SjJpBYqzM84HNzfVzLvbTXEaFjXw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+ s=2020e; t=1604249527;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=aZtASmEsd/FB84mTk1oOXBBdXFIzwqjrsRZ2JdtHEOE=;
+ b=YXEIzcJmXyl4S9UEy4PEjHt1tgehLjQfzOBdlUK4WLqdODsHxp/XnNQqoIf76chRfQSQ40
+ ocMuF+0sU1IUJTCA==
+To: Marc Zyngier <maz@kernel.org>, Jason Cooper <jason@lakedaemon.net>,
  Geert Uytterhoeven <geert+renesas@glider.be>,
  Greentime Hu <greentime.hu@sifive.com>, palmer@dabbelt.com,
  linux-kernel@vger.kernel.org, atish.patra@wdc.com,
- linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- anup@brainfault.org
+ linux-riscv@lists.infradead.org, paul.walmsley@sifive.com, anup@brainfault.org
 Subject: Re: [RFC PATCH] irqchip/sifive-plic: Fix getting wrong chip_data when
  interrupt is hierarchy
-Date: Sun,  1 Nov 2020 12:10:27 +0000
-Message-Id: <160423261831.76459.6853837344029171039.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.28.0
-In-Reply-To: <20201029023738.127472-1-greentime.hu@sifive.com>
+In-Reply-To: <160423261831.76459.6853837344029171039.b4-ty@kernel.org>
 References: <20201029023738.127472-1-greentime.hu@sifive.com>
+ <160423261831.76459.6853837344029171039.b4-ty@kernel.org>
+Date: Sun, 01 Nov 2020 17:52:06 +0100
+Message-ID: <87y2jl81ft.fsf@nanos.tec.linutronix.de>
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 62.31.163.78
-X-SA-Exim-Rcpt-To: tglx@linutronix.de, jason@lakedaemon.net,
- geert+renesas@glider.be, greentime.hu@sifive.com, palmer@dabbelt.com,
- linux-kernel@vger.kernel.org, atish.patra@wdc.com,
- linux-riscv@lists.infradead.org, paul.walmsley@sifive.com, anup@brainfault.org,
- uli+renesas@fpond.eu, linux-renesas-soc@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org);
- SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201101_071036_617060_2EEDEB7B 
-X-CRM114-Status: GOOD (  12.29  )
+X-CRM114-CacheID: sfid-20201101_115212_738978_044534F1 
+X-CRM114-Status: UNSURE (   8.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -101,29 +94,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 29 Oct 2020 10:37:38 +0800, Greentime Hu wrote:
-> This oops is caused by a wrong chip_data and it is because plic_irq_unmask
-> uses irq_get_chip_data(irq_data->irq) to get the chip_data. However it may
-> get another irq_data with the same irq_data->irq if it is hierarchy.
-> 
-> In this case, it will get irq_data of sifive_gpio_irqchip instead of
-> plic_chip so that it will get a wrong chip_data and then the wrong lmask
-> of it to cause this oops.
-> 
-> [...]
+On Sun, Nov 01 2020 at 12:10, Marc Zyngier wrote:
 
-Applied to irq/irqchip-next, thanks!
+> On Thu, 29 Oct 2020 10:37:38 +0800, Greentime Hu wrote:
+>> This oops is caused by a wrong chip_data and it is because plic_irq_unmask
+>> uses irq_get_chip_data(irq_data->irq) to get the chip_data. However it may
+>> get another irq_data with the same irq_data->irq if it is hierarchy.
+>> 
+>> In this case, it will get irq_data of sifive_gpio_irqchip instead of
+>> plic_chip so that it will get a wrong chip_data and then the wrong lmask
+>> of it to cause this oops.
+>> 
+>> [...]
+>
+> Applied to irq/irqchip-next, thanks!
 
-[1/1] irqchip/sifive-plic: Fix chip_data access within a hierarchy
-      commit: f9ac7bbd6e4540dcc6df621b9c9b6eb2e26ded1d
+That should go into urgent, the offending commit is in Linus tree already
 
-Cheers,
+Thanks,
 
-	M.
--- 
-Without deviation from the norm, progress is not possible.
-
-
+        tglx
 
 _______________________________________________
 linux-riscv mailing list
