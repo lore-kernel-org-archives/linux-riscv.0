@@ -1,83 +1,73 @@
-Return-Path: <SRS0=buhn=EG=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=HNWJ=EH=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E3607C388F7
-	for <linux-riscv@archiver.kernel.org>; Sat, 31 Oct 2020 07:43:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D8124C2D0A3
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2020 11:10:39 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8918420709
-	for <linux-riscv@archiver.kernel.org>; Sat, 31 Oct 2020 07:43:10 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5F48520791
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 Nov 2020 11:10:39 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="d8Oa/+LR";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="LrWrz0Qa"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8918420709
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="eL25IpEx"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5F48520791
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=jauu.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=/gDrdXypenF+Ow2uhQdUnuzMjeefGuHMOHk/XhcdI9w=; b=d8Oa/+LRs5nWq5DEJOXl/aGu/
-	SVEs1V9lZ6xcpyurrdFY8eIRXuIec2eM/tmqJQ3U8+h+DhQ4ld2j2nFUUKXoiDEBYi6BkQWwMZ8un
-	I0Tw7Z9pdSpMxOwgApfJbsDpCLS3xwzbpwy+nSo0PLE5zMVLTATu52Y4wJGC0QmoZENFGjKlr/PPV
-	bRy4uHoZLUzhziq6Qijh8cVesXAPk4CNdmnHvShClCBtfuCptfTxlQ+Mroujwy+nz4TFIV4cYsCao
-	5Ui0powsIQLc/XPBv23e2jcXpWFvpSJWBTdSbISa04C8r/U9tBdGnlpEU2hBHbGk3xV+0uH/mlDOe
-	k9wKOkb3w==;
+	 bh=LNynkJIQt845avca+TmE7neybqMJkMGYEtZGhwHf2eU=; b=eL25IpExgxBZZUhSC3A8HrE6y
+	eYz2sy/YfZ3fE82bU+OON7ZD6uQGVER+N7ls82JjsaO1f25+tTwg+knbaeCMkL6mfQIR8rJJYPJHl
+	UlhOPqJXbdbLYzik634e3gHS4U1cgjYAORJlFtaTumDJhDHQU40KIX7gzlqNcuaMDtBPrfGE7pFyi
+	2zlDeG0DQX8eBAqC8SgpAlw7LwonfLshR4OAAOINVh0fT5I8Orv8xG/SpvWdFybUFkBzbQbs0Nycg
+	n10xTxM4stGNg+9Il1A/EhgWCrGq1Gma2H7HYVixL5lPMLIA9QA6Lq8vZPzeNmKBzlFHfLeUxM084
+	yBLjLVbBg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kYlXO-0006SB-EO; Sat, 31 Oct 2020 07:42:58 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1kZBFJ-0005ds-Pi; Sun, 01 Nov 2020 11:10:01 +0000
+Received: from mout-p-101.mailbox.org ([80.241.56.151])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kYlXB-0006LW-BH
- for linux-riscv@lists.infradead.org; Sat, 31 Oct 2020 07:42:55 +0000
-Received: from mail-lf1-f44.google.com (mail-lf1-f44.google.com
- [209.85.167.44])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id BCF6A20709
- for <linux-riscv@lists.infradead.org>; Sat, 31 Oct 2020 07:42:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1604130162;
- bh=oi5Erw8ptiShmFnsFP95vlnIhS9KpblRKlS7+BrH0hM=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=LrWrz0Qa8oElMhI8dyu2VN1FEgaPk/ZbZ6ymB1aaDktS+tZh7cXHdaYQF7WeLfGwM
- yqMeKe3C7i6pWMyxBZVMOOV7vLv/V4dKBKZRVRfbvAwFFAqu+DcFbXKfbR1fC/2NoN
- M1T/BwiwtpF9lN7Aq58nh4Js8SYqsbb9nrsoT1vw=
-Received: by mail-lf1-f44.google.com with SMTP id h6so10784707lfj.3
- for <linux-riscv@lists.infradead.org>; Sat, 31 Oct 2020 00:42:41 -0700 (PDT)
-X-Gm-Message-State: AOAM530/uQSrt2d1Y4TF1LQZFu1MydSsWEpj3xA4t4bnvjkANe4LXxi+
- 6W7/rRfdrB2OYR6iIIku7ZUD3IK1CuxFrKW3dH0=
-X-Google-Smtp-Source: ABdhPJzX8AI5qWnKvtMzn7QT46/Zv5KpxetvK2uNBsN76JSnc7tXgXt73ZVLx/5jzD1UGV1QJqAznSCvylGchOrXDRA=
-X-Received: by 2002:a19:6b10:: with SMTP id d16mr2205633lfa.121.1604130160109; 
- Sat, 31 Oct 2020 00:42:40 -0700 (PDT)
+ id 1kZBFE-0005cb-Vx; Sun, 01 Nov 2020 11:09:58 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org
+ [IPv6:2001:67c:2050:105:465:1:2:0])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange ECDHE (P-384) server-signature RSA-PSS (4096 bits) server-digest
+ SHA256) (No client certificate requested)
+ by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4CPCxT5LHFzQjy2;
+ Sun,  1 Nov 2020 12:09:49 +0100 (CET)
+X-Virus-Scanned: amavisd-new at heinlein-support.de
+Received: from smtp2.mailbox.org ([80.241.60.241])
+ by gerste.heinlein-support.de (gerste.heinlein-support.de [91.198.250.173])
+ (amavisd-new, port 10030)
+ with ESMTP id 0NqHY5bM4ywr; Sun,  1 Nov 2020 12:09:42 +0100 (CET)
+Date: Sun, 1 Nov 2020 12:09:35 +0100
+From: Hagen Paul Pfeifer <hagen@jauu.net>
+To: Mike Rapoport <rppt@kernel.org>
+Subject: Re: [PATCH v6 0/6] mm: introduce memfd_secret system call to create
+ "secret" memory areas
+Message-ID: <20201101110935.GA4105325@laniakea>
+References: <20200924132904.1391-1-rppt@kernel.org>
 MIME-Version: 1.0
-References: <20201021073839.43935-1-zong.li@sifive.com>
- <CAJF2gTTnGSYAc3AZKCPvhNJsPm_TchPjPrtqc_WzaK7K5eNt+w@mail.gmail.com>
- <CAOnJCULN8h0Jk3H-vskgbaXhgBTgTTAT5Dji0qHi6yHoXGePvg@mail.gmail.com>
- <CANXhq0q_fOg7vsniVMtNd8VezW1yymf55FYRc61WMkXMOtZpgA@mail.gmail.com>
- <CAJF2gTR-_=_vDLsST9BVxRFC0OTR4_TYV-2=nH_Gux_zWDOk3Q@mail.gmail.com>
- <CAOnJCU+d5YQzKW2qs0NURJt1_5zrM6YXrkP4FzB_=zgbb-5DuA@mail.gmail.com>
- <CAJF2gTT9gZZftoUD4eMT0Th=oYOpsdYbrFdr=5kO2-N+ki51NA@mail.gmail.com>
- <CAOnJCULO7TuRhBcx6KUVr6t_jqouN-0rao9QXC1RgrU5ehutkw@mail.gmail.com>
- <20201030202818.72070cbd@oasis.local.home>
-In-Reply-To: <20201030202818.72070cbd@oasis.local.home>
-From: Guo Ren <guoren@kernel.org>
-Date: Sat, 31 Oct 2020 15:42:28 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTSaSzvo2G7prqqtEOueGhERcrcM7VDjK=WeqtePhhZ+dg@mail.gmail.com>
-Message-ID: <CAJF2gTSaSzvo2G7prqqtEOueGhERcrcM7VDjK=WeqtePhhZ+dg@mail.gmail.com>
-Subject: Re: [PATCH] stop_machine: Mark functions as notrace
-To: Steven Rostedt <rostedt@goodmis.org>
+Content-Disposition: inline
+In-Reply-To: <20200924132904.1391-1-rppt@kernel.org>
+X-Key-Id: 98350C22
+X-Key-Fingerprint: 490F 557B 6C48 6D7E 5706 2EA2 4A22 8D45 9835 0C22
+X-GPG-Key: gpg --recv-keys --keyserver wwwkeys.eu.pgp.net 98350C22
+X-MBO-SPAM-Probability: *
+X-Rspamd-Score: 0.32 / 15.00 / 15.00
+X-Rspamd-Queue-Id: EBDB416FE
+X-Rspamd-UID: bd1d51
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201031_034245_630071_F666A413 
-X-CRM114-Status: GOOD (  15.75  )
+X-CRM114-CacheID: sfid-20201101_060957_168473_BB221C19 
+X-CRM114-Status: GOOD (  12.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -89,55 +79,109 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Palmer Dabbelt <palmerdabbelt@google.com>,
- Paul McKenney <paulmck@kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- vincent.whitchurch@axis.com, jiangshanlai@gmail.com, josh@joshtriplett.org,
- Paul Walmsley <paul.walmsley@sifive.com>, rcu@vger.kernel.org,
- Colin Ian King <colin.king@canonical.com>, mathieu.desnoyers@efficios.com,
- Masami Hiramatsu <mhiramat@kernel.org>, Zong Li <zong.li@sifive.com>,
- Atish Patra <atishp@atishpatra.org>, joel@joelfernandes.org,
- Greentime Hu <greentime.hu@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
- linux-riscv <linux-riscv@lists.infradead.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ Will Deacon <will@kernel.org>, linux-kselftest@vger.kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Christopher Lameter <cl@linux.com>,
+ Idan Yaniv <idan.yaniv@ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
+ Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
+ Shuah Khan <shuah@kernel.org>, x86@kernel.org,
+ Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
+ Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
+ Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-fsdevel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 31, 2020 at 8:28 AM Steven Rostedt <rostedt@goodmis.org> wrote:
->
-> On Fri, 30 Oct 2020 14:47:56 -0700
-> Atish Patra <atishp@atishpatra.org> wrote:
->
-> > > Look at arm64, they __kprobes flag and I guess it would also prevent
-> > > ftrace call site.
-> > >
-> >
-> > Are you sure about that ? __kprobes puts the code in .kprobes.text section
-> > which is under whitelist sections in recordmcount.pl & recordmcount.c.
->
-> Correct, ftrace can trace functions marked with __kprobes. That said,
-I guess wrong, thx for correct me.
+* Mike Rapoport | 2020-09-24 16:28:58 [+0300]:
 
-> the instruction you are looking at here, is in a file that is
-> blacklisted from recordmcount.
->
->   CFLAGS_REMOVE_insn.o = $(CC_FLAGS_FTRACE)
->
-> All ftrace flags are removed from the compiling of insn.c, and every
-> function in that file will not be traced.
-Yes, arm64 prevents the whole file from ftrace. My patch just use
-notrace flag setting on some functions.
+>This is an implementation of "secret" mappings backed by a file descriptor. 
+>I've dropped the boot time reservation patch for now as it is not strictly
+>required for the basic usage and can be easily added later either with or
+>without CMA.
 
-@Atish How do think:
-CFLAGS_REMOVE_cacheflush.o = $(CC_FLAGS_FTRACE)
-CFLAGS_REMOVE_sbi.o = $(CC_FLAGS_FTRACE)
+Isn't memfd_secret currently *unnecessarily* designed to be a "one task
+feature"? memfd_secret fulfills exactly two (generic) features:
 
--- 
-Best Regards
- Guo Ren
+- address space isolation from kernel (aka SECRET_EXCLUSIVE, not in kernel's
+  direct map) - hide from kernel, great
+- disabling processor's memory caches against speculative-execution vulnerabilities
+  (spectre and friends, aka SECRET_UNCACHED), also great
 
-ML: https://lore.kernel.org/linux-csky/
+But, what about the following use-case: implementing a hardened IPC mechanism
+where even the kernel is not aware of any data and optionally via SECRET_UNCACHED
+even the hardware caches are bypassed! With the patches we are so close to
+achieving this.
+
+How? Shared, SECRET_EXCLUSIVE and SECRET_UNCACHED mmaped pages for IPC
+involved tasks required to know this mapping (and memfd_secret fd). After IPC
+is done, tasks can copy sensitive data from IPC pages into memfd_secret()
+pages, un-sensitive data can be used/copied everywhere.
+
+One missing piece is still the secure zeroization of the page(s) if the
+mapping is closed by last process to guarantee a secure cleanup. This can
+probably done as an general mmap feature, not coupled to memfd_secret() and
+can be done independently ("reverse" MAP_UNINITIALIZED feature).
+
+PS: thank you Mike for your effort!
+
+See the following pseudo-code as an example:
+
+
+// simple assume file-descriptor and mapping is inherited
+// by child for simplicity, ptr is 
+int fd = memfd_secret(SECRETMEM_UNCACHED);
+ftruncate(fd, PAGE_SIZE);
+uint32_t *ptr = mmap(NULL, PAGE_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+
+pid_t pid_other;
+
+void signal_handler(int sig)
+{
+	// update IPC data on shared, uncachaed, exclusive mapped page
+	*ptr += 1;
+	// inform other
+	sleep(1);
+	kill(pid_other, SIGUSR1);
+}
+
+void ipc_loop(void)
+{
+	signal(SIGUSR1, signal_handler);
+	while (1) {
+		sleep(1);
+	}
+}
+
+int main(void)
+{
+	pid_t child_pid;
+
+	switch (child_pid = fork()) {
+	case 0:
+		pid_other = getppid();
+		break;
+	default:
+		pid_other = child_pid
+		break;
+	}
+	
+	ipc_loop();
+}
+
+
+Hagen
 
 _______________________________________________
 linux-riscv mailing list
