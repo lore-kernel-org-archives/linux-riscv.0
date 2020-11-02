@@ -2,67 +2,85 @@ Return-Path: <SRS0=qpiA=EI=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 63B43C388F9
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Nov 2020 17:43:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5F590C00A89
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Nov 2020 17:51:42 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EF03E21D91
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Nov 2020 17:43:41 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E2EB221534
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Nov 2020 17:51:41 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="qNBRyvXo";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="WaQHhcNI"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EF03E21D91
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="zQLGxRuz";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=redhat.com header.i=@redhat.com header.b="RLgcuAMK"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E2EB221534
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=iQ+/oLMjheeaQcY3vazGZnrcIFvxOdZuGOWYZl8HlP4=; b=qNBRyvXoDFwpbYZgO0CR46xwH
-	oBwkbHTaCVKID8NSXeqB6ofC5f5nYISULukPdefsYEYpMk2kYjOQBZJl2D+ZKS71cI4tF+/ZHOUrt
-	C0EjHfZEyplSmQUNOcs294+xGMT+gAMyf3eWi4cIJhZiVsgpz7RWHQUGIB5eBNbN0eKTRJ47ieuS6
-	ESiZhdVn59TVPCYFQ+LlHAuj9eAFuSBZFyE9zPZBYdDSTLyvTxqWJ8e3UZShfexfFWu2HcdiuO6wn
-	b7CKr0e9QCeG/IxYlt1st7bz0Zic77UkQ+lG04IDhqD01p2N/tku+iDg47AD22OEfYkktxs31ds5R
-	JybJoZHrQ==;
+	 bh=GLhecRXe6Pb4IdjJ6m0k28sGBYBHF89xB0eUykT09xE=; b=zQLGxRuzlv2DPReeV0wWYtbNO
+	aTzSWFrCY4blWfzR7PtiOYO9W4ozjmxVt/aeb29IHqXpWxGczRO0MIs+50LWP4G4rIKGfaiXUuYwJ
+	iNQaBNzQJj1EGOin98XL9V4OYExiSWVXL5jlNyZ8sYtoeFSC8w0iKNA5mIAFWHASKRZ3CQssrTr2r
+	xGuRhCKE4MElrMEgVyiDbZjFdt5pn4ybElNnLAHLWGIDMHjNRxIUPbXAXUWjVswsd8HQNBeyPU3Mm
+	t6FjOQt9bt6F/w7Yqgc3+wSfD3vluxqo5aaUxFSCc4o7xzDG4mur5+omz/Zc6sWalLJXmfLtxIzKF
+	KQtjMbpBw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kZdrd-00044Y-IK; Mon, 02 Nov 2020 17:43:29 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1kZdzM-00052A-RH; Mon, 02 Nov 2020 17:51:28 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([216.205.24.124])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kZdrY-00042M-Mi; Mon, 02 Nov 2020 17:43:26 +0000
-Received: from kernel.org (unknown [87.71.17.26])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ id 1kZdzJ-00050g-HI
+ for linux-riscv@lists.infradead.org; Mon, 02 Nov 2020 17:51:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1604339484;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=lp/prYQuMgVXccCGCiV61cLz4v5q5/mm6tHCPraHIqM=;
+ b=RLgcuAMKW+Q9jDC0wmsn6+vky/ozoUz7DCrDrpshiM6Kvl9ruZgFt/7B+fppAUA4vFvx0Y
+ vC/MHsjIRXysReoVskJc4UMIIyD78f8NiJpuVGXt5p/gQiFQwXT5S3tuFZx63nY7gKHhAz
+ 51T1Hl4tN53nxTAwhDoNVg+roeudrgQ=
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-593-JugxVAtvMxar3jfSZTXWbg-1; Mon, 02 Nov 2020 12:51:22 -0500
+X-MC-Unique: JugxVAtvMxar3jfSZTXWbg-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com
+ [10.5.11.11])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id F163621D91;
- Mon,  2 Nov 2020 17:43:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1604339002;
- bh=4lTOK6nJwjmoOAObnnRBOTKd0fl9eQpxyGZlvj7NIPU=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=WaQHhcNIPlO/3Y1BDKIiRptwVm/gNfTOsggLuTFWgEEfzGk4JpghqGJiTK1uJXPww
- xcrmfo2wowW6SunTYD97zxQcWOPYPEwCUuK+Opbf1HTskJ6CenmFJitmkrFyumA+RF
- 614VdGzOVlHHOfs2z6uhOZXESicNeUeTW56l5apA=
-Date: Mon, 2 Nov 2020 19:43:08 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: David Hildenbrand <david@redhat.com>
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 1873F879512;
+ Mon,  2 Nov 2020 17:51:18 +0000 (UTC)
+Received: from [10.36.113.163] (ovpn-113-163.ams2.redhat.com [10.36.113.163])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id EA9C15B4A9;
+ Mon,  2 Nov 2020 17:51:10 +0000 (UTC)
 Subject: Re: [PATCH v6 0/6] mm: introduce memfd_secret system call to create
  "secret" memory areas
-Message-ID: <20201102174308.GF4879@kernel.org>
+To: Mike Rapoport <rppt@kernel.org>
 References: <20200924132904.1391-1-rppt@kernel.org>
  <9c38ac3b-c677-6a87-ce82-ec53b69eaf71@redhat.com>
+ <20201102174308.GF4879@kernel.org>
+From: David Hildenbrand <david@redhat.com>
+Organization: Red Hat GmbH
+Message-ID: <d4cb2c87-4744-3929-cedd-2be78625a741@redhat.com>
+Date: Mon, 2 Nov 2020 18:51:09 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.6.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <9c38ac3b-c677-6a87-ce82-ec53b69eaf71@redhat.com>
+In-Reply-To: <20201102174308.GF4879@kernel.org>
+Content-Language: en-US
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201102_124325_007440_A70648C5 
-X-CRM114-Status: GOOD (  37.56  )
+X-CRM114-CacheID: sfid-20201102_125125_914652_C7821AF8 
+X-CRM114-Status: GOOD (  26.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -93,95 +111,66 @@ Cc: Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>,
  linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
  linux-fsdevel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 02, 2020 at 10:11:12AM +0100, David Hildenbrand wrote:
-> On 24.09.20 15:28, Mike Rapoport wrote:
-> > From: Mike Rapoport <rppt@linux.ibm.com>
-> > 
-> > Hi,
-> > 
-> > This is an implementation of "secret" mappings backed by a file descriptor.
-> > I've dropped the boot time reservation patch for now as it is not strictly
-> > required for the basic usage and can be easily added later either with or
-> > without CMA.
+>> Assume you have a system with quite some ZONE_MOVABLE memory (esp. in
+>> virtualized environments), eating up a significant amount of !ZONE_MOVABLE
+>> memory dynamically at runtime can lead to non-obvious issues. It looks like
+>> you have plenty of free memory, but the kernel might still OOM when trying
+>> to do kernel allocations e.g., for pagetables. With CMA we at least know
+>> what we're dealing with - it behaves like ZONE_MOVABLE except for the owner
+>> that can place unmovable pages there. We can use it to compute statically
+>> the amount of ZONE_MOVABLE memory we can have in the system without doing
+>> harm to the system.
 > 
-> Hi Mike,
+> Why would you say that secretmem allocates from !ZONE_MOVABLE?
+> If we put boot time reservations aside, the memory allocation for
+> secretmem follows the same rules as the memory allocations for any file
+> descriptor. That means we allocate memory with GFP_HIGHUSER_MOVABLE.
+
+Oh, okay - I missed that! I had the impression that pages are unmovable 
+and allocating from ZONE_MOVABLE would be a violation of that?
+
+> After the allocation the memory indeed becomes unmovable but it's not
+> like we are eating memory from other zones here.
+
+... and here you have your problem. That's a no-no. We only allow it in 
+very special cases where it can't be avoided - e.g., vfio having to pin 
+guest memory when passing through memory to VMs.
+
+Hotplug memory, online it to ZONE_MOVABLE. Allocate secretmem. Try to 
+unplug the memory again -> endless loop in offline_pages().
+
+Or have a CMA area that gets used with GFP_HIGHUSER_MOVABLE. Allocate 
+secretmem. The owner of the area tries to allocate memory - always 
+fails. Purpose of CMA destroyed.
+
 > 
-> I'd like to stress again that I'd prefer *any* secretmem allocations going
-> via CMA as long as these pages are unmovable. The user can allocate a
-> non-significant amount of unmovable allocations only fenced by the mlock
-> limit, which behave very different to mlocked pages - they are not movable
-> for page compaction/migration.
+>> Ideally, we would want to support page migration/compaction and allow for
+>> allocation from ZONE_MOVABLE as well. Would involve temporarily mapping,
+>> copying, unmapping. Sounds feasible, but not sure which roadblocks we would
+>> find on the way.
 > 
-> Assume you have a system with quite some ZONE_MOVABLE memory (esp. in
-> virtualized environments), eating up a significant amount of !ZONE_MOVABLE
-> memory dynamically at runtime can lead to non-obvious issues. It looks like
-> you have plenty of free memory, but the kernel might still OOM when trying
-> to do kernel allocations e.g., for pagetables. With CMA we at least know
-> what we're dealing with - it behaves like ZONE_MOVABLE except for the owner
-> that can place unmovable pages there. We can use it to compute statically
-> the amount of ZONE_MOVABLE memory we can have in the system without doing
-> harm to the system.
+> We can support migration/compaction with temporary mapping. The first
+> roadblock I've hit there was that migration allocates 4K destination
+> page and if we use it in secret map we are back to scrambling the direct
+> map into 4K pieces. It still sounds feasible but not as trivial :)
 
-Why would you say that secretmem allocates from !ZONE_MOVABLE?
-If we put boot time reservations aside, the memory allocation for
-secretmem follows the same rules as the memory allocations for any file
-descriptor. That means we allocate memory with GFP_HIGHUSER_MOVABLE.
-After the allocation the memory indeed becomes unmovable but it's not
-like we are eating memory from other zones here.
+That sounds like the proper way for me to do it then.
 
-Maybe I'm missing something, but it seems to me that using CMA for any
-secretmem allocation would needlessly complicate things.
-
-> Ideally, we would want to support page migration/compaction and allow for
-> allocation from ZONE_MOVABLE as well. Would involve temporarily mapping,
-> copying, unmapping. Sounds feasible, but not sure which roadblocks we would
-> find on the way.
-
-We can support migration/compaction with temporary mapping. The first
-roadblock I've hit there was that migration allocates 4K destination
-page and if we use it in secret map we are back to scrambling the direct
-map into 4K pieces. It still sounds feasible but not as trivial :)
-
-But again, there is nothing in the current form of secretmem that
-prevents allocation from ZONE_MOVABLE.
-
-> [...]
 > 
-> > I've hesitated whether to continue to use new flags to memfd_create() or to
-> > add a new system call and I've decided to use a new system call after I've
-> > started to look into man pages update. There would have been two completely
-> > independent descriptions and I think it would have been very confusing.
-> 
-> This was also raised on lwn.net by "dullfire" [1]. I do wonder if it would
-> be the right place as well.
+> But again, there is nothing in the current form of secretmem that
+> prevents allocation from ZONE_MOVABLE.
 
-I lean towards a dedicated syscall because, as I said, to me it would
-seem less confusing.
-
-> [1] https://lwn.net/Articles/835342/#Comments
-> 
-> > 
-> > Hiding secret memory mappings behind an anonymous file allows (ab)use of
-> > the page cache for tracking pages allocated for the "secret" mappings as
-> > well as using address_space_operations for e.g. page migration callbacks.
-> > 
-> > The anonymous file may be also used implicitly, like hugetlb files, to
-> > implement mmap(MAP_SECRET) and use the secret memory areas with "native" mm
-> > ABIs in the future.
-> > 
-> > As the fragmentation of the direct map was one of the major concerns raised
-> > during the previous postings, I've added an amortizing cache of PMD-size
-> > pages to each file descriptor that is used as an allocation pool for the
-> > secret memory areas.
+Oh, there is something: That the pages are not movable.
 
 -- 
-Sincerely yours,
-Mike.
+Thanks,
+
+David / dhildenb
 
 
 _______________________________________________
