@@ -2,69 +2,47 @@ Return-Path: <SRS0=g6PI=EJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+	MENTIONS_GIT_HOSTING,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 56F81C388F2
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 18:45:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 68DCCC2D0A3
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 18:46:26 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DEFBD20786
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 18:45:53 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E35C0206C0
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 18:46:25 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="I83SLKst";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="Oc8HAjuJ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DEFBD20786
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="gpboBkxO"
+Authentication-Results: mail.kernel.org; dmarc=permerror header.from=codethink.co.uk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=dGzKsf6ckHVKYrsVXWMsscb6WjUN5/RNxiphVwDBcx8=; b=I83SLKstpyiDMhliaLyAGTobb
-	7L3MLYqW1AfnotnzTmNag5eM6QOPl5jOxJpUh1j2znFV8FslME8h7nuOFGBZ95ucLiF3tfmsLLY1N
-	JO9eX3NCjaFqc5CmgSYY80uMJ1xisrBNSOPMZTP8JBE2MTJlQJqLeC3NzFsBzGLjRXGCUZ8AFAe8c
-	VfsvzVPITNTUkO0co+GxAhLKGJ2JN1zJ2ZcVZ5vNb4xEYjbbQHCjn56f1KGBC7Kuo5M5biOPJt/eM
-	V9aFOHjS/pQxpHgAwk4FkmoUlXQMlJbKTmuTxYtYkFEWzUjvmeQgVfZJ+5Gn447cg/+UYiLtl6xE6
-	Gcw11C4lA==;
+	 bh=1Idk860tVan0WHR+GUehbDk0vxxUQkxayFfWlIWf5do=; b=gpboBkxOWCIPD5M8eV+E4Usw7
+	eEaLxpSrW5suhzftilLKwVX3L+3l3QKAsyPwpDD6H/13/yh/PANO6NWwFbKdo5cEdFKWld8bWmIfy
+	Kvwa410H4DJdPN6Lg89n6e3/panlsH552bMcvVdLQzT6U7CLjk9u/hom+o5lyGjqqj4zhBz87tGgd
+	BUBFK1Q6cmFcJN55RkRnB8FXAqfTyPrRXd4nPwT1WN992/Df8ebwaO8ZvBGvcxY8BMJ/lXbEqxYCk
+	zSEBcdDKiv9dFsbPpOJmQWnSSvbZ6fp3QlClLZUs1qZn/pK+PPopXSvIjoympc014Bh8TG2GKmARp
+	2ihQiyzhw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ka1JP-0000lz-0O; Tue, 03 Nov 2020 18:45:43 +0000
-Received: from mail-io1-xd44.google.com ([2607:f8b0:4864:20::d44])
+	id 1ka1Jv-00013B-KV; Tue, 03 Nov 2020 18:46:15 +0000
+Received: from imap2.colo.codethink.co.uk ([78.40.148.184])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ka1JK-0000i3-0W
- for linux-riscv@lists.infradead.org; Tue, 03 Nov 2020 18:45:39 +0000
-Received: by mail-io1-xd44.google.com with SMTP id j12so4893411iow.0
- for <linux-riscv@lists.infradead.org>; Tue, 03 Nov 2020 10:45:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=OgVWTpOrMPjIuVeL2cgLMKQdzQLhuvarJci2SpLh/5A=;
- b=Oc8HAjuJZ68YBgtTDuQdDaeD/6Ez3BIuvplKaOikIXW6HcKAreBYOsB0tGpUmahmnu
- eflyjgP2lAVt36ZGob1IP6VB9qqWZRg3pA6ykiWdogLm2b0lk7Kv1sXA++RDvN9ueXc6
- 9mA2evAAtea8ROCk+mCHUp4aiwacb4zyghC0s=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=OgVWTpOrMPjIuVeL2cgLMKQdzQLhuvarJci2SpLh/5A=;
- b=gHGhnDInT9ixHsIuzH9zind9QMTVRjLc13KzG/g1dqhUb2jyqay92tWlh7v+86M+iC
- zayZF4rJtCuP8dHWaAzFANQ23U3uy3hICqqj6/qU74+iwPYYmRanFhezPhBPDJpwHCZV
- UDrjEv+LMQQFZSlnM1VXsol9JdPMnMcLuz7TgxUtIl7TEpU0u6WWuHFcMDUwpMTKLa9v
- H9HRpbbEs5Zmk98E7uLaDWB0oSbpreri9yrkXlKz/e8GZ6Z8NItNaOGf6+YjXgtkxDYy
- NuDzxktgkQX7DCkGkliZ1480Z+aXg4DfJnM0dIPk7b0mpa03TOiZ6krnN1QfDQfF5hdQ
- EImw==
-X-Gm-Message-State: AOAM532JTxcXNDQ1Q3M4g2SE0gFw2zTdlHQn5fPfTkI5rF0+rMKAlOFs
- 6N4hJ0nTQXW5/oDloZ+QW8ozrPxtAy2+aEJMh5jE
-X-Google-Smtp-Source: ABdhPJz1NA93CqwEifS/bxYYelWtdS7ZycUNmgghuVgW1N+oYS/M06/fanY+hPWy8svInJcHT9+EBcUwEevIx+iMc78=
-X-Received: by 2002:a5e:9244:: with SMTP id z4mr15350442iop.53.1604429136023; 
- Tue, 03 Nov 2020 10:45:36 -0800 (PST)
-MIME-Version: 1.0
+ id 1ka1Jp-000100-2n
+ for linux-riscv@lists.infradead.org; Tue, 03 Nov 2020 18:46:10 +0000
+Received: from cpc79921-stkp12-2-0-cust288.10-2.cable.virginm.net
+ ([86.16.139.33] helo=[192.168.0.10])
+ by imap2.colo.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
+ id 1ka1Jn-0001Zx-HT; Tue, 03 Nov 2020 18:46:07 +0000
+Subject: Re: [RFC PATCH 2/3] RISC-V: Initial DTS for Microchip ICICLE board
+To: Cyril.Jean@microchip.com, atishp@atishpatra.org
 References: <20201028232759.1928479-1-atish.patra@wdc.com>
  <20201028232759.1928479-3-atish.patra@wdc.com>
  <41f1248b-78c6-bac1-410b-9e222368c5f6@codethink.co.uk>
@@ -73,17 +51,19 @@ References: <20201028232759.1928479-1-atish.patra@wdc.com>
  <CAOnJCULejyF9xyLk5M0TXqW_=nn0KM5aE8nhK+1h0Xayd2pKUg@mail.gmail.com>
  <fbe404b5-3bb1-dd00-e558-e4a55960b767@microchip.com>
  <fe079b4a-5410-5cc8-3f5e-8a95b573078a@codethink.co.uk>
- <CAOnJCUKH77XDymG+jAUYHP+5TC2aabTR4f8jF6s6FqqQNR=_CQ@mail.gmail.com>
- <22800ecc-a91b-ee3c-4717-4ee8802f31a2@codethink.co.uk>
-In-Reply-To: <22800ecc-a91b-ee3c-4717-4ee8802f31a2@codethink.co.uk>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Tue, 3 Nov 2020 10:45:24 -0800
-Message-ID: <CAOnJCUJogU-dZTi1ycvC3g8HAq6-4vkULy3B9+A8srf1n0sTjQ@mail.gmail.com>
-Subject: Re: [RFC PATCH 2/3] RISC-V: Initial DTS for Microchip ICICLE board
-To: Ben Dooks <ben.dooks@codethink.co.uk>
+ <21ded848-5dcb-ccbb-acd5-391bff667a53@microchip.com>
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+Organization: Codethink Limited.
+Message-ID: <0eb43b3e-e5dc-4d97-895e-b872ac1fcf05@codethink.co.uk>
+Date: Tue, 3 Nov 2020 18:46:06 +0000
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.12.0
+MIME-Version: 1.0
+In-Reply-To: <21ded848-5dcb-ccbb-acd5-391bff667a53@microchip.com>
+Content-Language: en-GB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201103_134538_106984_BE691669 
-X-CRM114-Status: GOOD (  30.74  )
+X-CRM114-CacheID: sfid-20201103_134609_183997_A1573234 
+X-CRM114-Status: GOOD (  22.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -95,100 +75,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
- Cyril.Jean@microchip.com, Daire McNamara <Daire.McNamara@microchip.com>,
- Anup Patel <anup.patel@wdc.com>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Atish Patra <atish.patra@wdc.com>, Rob Herring <robh+dt@kernel.org>,
- Alistair Francis <alistair.francis@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Padmarao Begari <Padmarao.Begari@microchip.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: devicetree@vger.kernel.org, aou@eecs.berkeley.edu,
+ Daire.McNamara@microchip.com, anup.patel@wdc.com, linux-kernel@vger.kernel.org,
+ atish.patra@wdc.com, robh+dt@kernel.org, alistair.francis@wdc.com,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, linux-riscv@lists.infradead.org,
+ Padmarao.Begari@microchip.com
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 3, 2020 at 10:39 AM Ben Dooks <ben.dooks@codethink.co.uk> wrote:
->
-> On 03/11/2020 18:36, Atish Patra wrote:
-> > On Tue, Nov 3, 2020 at 10:28 AM Ben Dooks <ben.dooks@codethink.co.uk> wrote:
-> >>
-> >> On 03/11/2020 18:10, Cyril.Jean@microchip.com wrote:
-> >>> On 11/3/20 3:07 PM, Atish Patra wrote:
-> >>>> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> >>>>
-> >>>> On Fri, Oct 30, 2020 at 2:20 PM Ben Dooks <ben.dooks@codethink.co.uk> wrote:
-> >>
-> >> ,snip[
-> >>
-> >>>>>> @Cyril : Can we enable both eMMC & sdcard at the same time ?
-> >>>>> I would put /both/ in but only enable the one in use for the moment.
-> >>>>> Our boards are booting of eMMC as supplied, so this isn't going to work
-> >>>>> as well. The eMMC is 8bit wide, and thus is only delivering 11MB/sec
-> >>>>> instead of 22MB/sec. This performance is still not great, but losing
-> >>>>> half the data-rate is just not good.
-> >>>>>
-> >>>> I am not sure what should be enabled by default. Updating sdcard is much
-> >>>> easier than eMMC card and we use that approach.
-> >>>>
-> >>>> @Cyril: Is there a way that we can enable both ?
-> >>>>
-> >>> Yes, we can enable both but this requires a modification to the FPGA
-> >>> design. One of the guys prototyped this while I was away. We will move
-> >>> this along. This will require reprogramming the FPGA with a new design
-> >>> and HSS version.
-> >>>
-> >>> Regards,
-> >>>
-> >>> Cyril.
-> >>
-> >> I either missed or couldn't find a way of forcing the boot mode to be
-> >> from the SD slot. Have I missed something? At the moment we'd like to
-> >> have more storage available as the ~7G free on the eMMC is not enough.
-> >>
-> >
-> > I use tftpboot to load the kernel & DT from the network. SD card is
-> > enabled in this DT and Linux
-> > kernel uses SD slot instead of eMMC.
-> >
-> > To summarize, eMMC is used for HSS & U-Boot while SD card is used for
-> > Linux which makes
-> > more storage available to Linux.
-> >
-> > IMO, we should enable the sdcard for Linux DT until updated FPGA
-> > design & HSS is available.
->
-> Interesting as for me the default is for Linux to use the eMMC as
-> well. I can't see any way for forcing the selection lines in the
-> DT to say eMMC vs SD.
->
-
-because you are probably loading the DT passed by U-boot. I load the DTB
-built from the Linux source (the one present in this patch) by
-stopping the autoboot in U-Boot.
-
-The DT in U-Boot disables the SD card.
-
-
-> If there is a way of controlling the selection lines then it might
-> be possible to have both cards enabled with a bus selection MUX in
-> software.
->
->
-> --
-> Ben Dooks                               http://www.codethink.co.uk/
-> Senior Engineer                         Codethink - Providing Genius
->
-> https://www.codethink.co.uk/privacy.html
-
-
-
---
-Regards,
-Atish
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMDMvMTEvMjAyMCAxODo0MCwgQ3lyaWwuSmVhbkBtaWNyb2NoaXAuY29tIHdyb3RlOgo+IE9u
+IDExLzMvMjAgNjoyOCBQTSwgQmVuIERvb2tzIHdyb3RlOgo+PiBFWFRFUk5BTCBFTUFJTDogRG8g
+bm90IGNsaWNrIGxpbmtzIG9yIG9wZW4gYXR0YWNobWVudHMgdW5sZXNzIHlvdSBrbm93Cj4+IHRo
+ZSBjb250ZW50IGlzIHNhZmUKPj4KPj4gT24gMDMvMTEvMjAyMCAxODoxMCwgQ3lyaWwuSmVhbkBt
+aWNyb2NoaXAuY29tIHdyb3RlOgo+Pj4gT24gMTEvMy8yMCAzOjA3IFBNLCBBdGlzaCBQYXRyYSB3
+cm90ZToKPj4+PiBFWFRFUk5BTCBFTUFJTDogRG8gbm90IGNsaWNrIGxpbmtzIG9yIG9wZW4gYXR0
+YWNobWVudHMgdW5sZXNzIHlvdQo+Pj4+IGtub3cgdGhlIGNvbnRlbnQgaXMgc2FmZQo+Pj4+Cj4+
+Pj4gT24gRnJpLCBPY3QgMzAsIDIwMjAgYXQgMjoyMCBQTSBCZW4gRG9va3MKPj4+PiA8YmVuLmRv
+b2tzQGNvZGV0aGluay5jby51az4gd3JvdGU6Cj4+Cj4+ICxzbmlwWwo+Pgo+Pj4+Pj4gQEN5cmls
+IDogQ2FuIHdlIGVuYWJsZSBib3RoIGVNTUMgJiBzZGNhcmQgYXQgdGhlIHNhbWUgdGltZSA/Cj4+
+Pj4+IEkgd291bGQgcHV0IC9ib3RoLyBpbiBidXQgb25seSBlbmFibGUgdGhlIG9uZSBpbiB1c2Ug
+Zm9yIHRoZSBtb21lbnQuCj4+Pj4+IE91ciBib2FyZHMgYXJlIGJvb3Rpbmcgb2YgZU1NQyBhcyBz
+dXBwbGllZCwgc28gdGhpcyBpc24ndCBnb2luZyB0bwo+Pj4+PiB3b3JrCj4+Pj4+IGFzIHdlbGwu
+IFRoZSBlTU1DIGlzIDhiaXQgd2lkZSwgYW5kIHRodXMgaXMgb25seSBkZWxpdmVyaW5nIDExTUIv
+c2VjCj4+Pj4+IGluc3RlYWQgb2YgMjJNQi9zZWMuIFRoaXMgcGVyZm9ybWFuY2UgaXMgc3RpbGwg
+bm90IGdyZWF0LCBidXQgbG9zaW5nCj4+Pj4+IGhhbGYgdGhlIGRhdGEtcmF0ZSBpcyBqdXN0IG5v
+dCBnb29kLgo+Pj4+Pgo+Pj4+IEkgYW0gbm90IHN1cmUgd2hhdCBzaG91bGQgYmUgZW5hYmxlZCBi
+eSBkZWZhdWx0LiBVcGRhdGluZyBzZGNhcmQgaXMKPj4+PiBtdWNoCj4+Pj4gZWFzaWVyIHRoYW4g
+ZU1NQyBjYXJkIGFuZCB3ZSB1c2UgdGhhdCBhcHByb2FjaC4KPj4+Pgo+Pj4+IEBDeXJpbDogSXMg
+dGhlcmUgYSB3YXkgdGhhdCB3ZSBjYW4gZW5hYmxlIGJvdGggPwo+Pj4+Cj4+PiBZZXMsIHdlIGNh
+biBlbmFibGUgYm90aCBidXQgdGhpcyByZXF1aXJlcyBhIG1vZGlmaWNhdGlvbiB0byB0aGUgRlBH
+QQo+Pj4gZGVzaWduLiBPbmUgb2YgdGhlIGd1eXMgcHJvdG90eXBlZCB0aGlzIHdoaWxlIEkgd2Fz
+IGF3YXkuIFdlIHdpbGwgbW92ZQo+Pj4gdGhpcyBhbG9uZy4gVGhpcyB3aWxsIHJlcXVpcmUgcmVw
+cm9ncmFtbWluZyB0aGUgRlBHQSB3aXRoIGEgbmV3IGRlc2lnbgo+Pj4gYW5kIEhTUyB2ZXJzaW9u
+Lgo+Pj4KPj4+IFJlZ2FyZHMsCj4+Pgo+Pj4gQ3lyaWwuCj4+Cj4+IEkgZWl0aGVyIG1pc3NlZCBv
+ciBjb3VsZG4ndCBmaW5kIGEgd2F5IG9mIGZvcmNpbmcgdGhlIGJvb3QgbW9kZSB0byBiZQo+PiBm
+cm9tIHRoZSBTRCBzbG90LiBIYXZlIEkgbWlzc2VkIHNvbWV0aGluZz8gQXQgdGhlIG1vbWVudCB3
+ZSdkIGxpa2UgdG8KPj4gaGF2ZSBtb3JlIHN0b3JhZ2UgYXZhaWxhYmxlIGFzIHRoZSB+N0cgZnJl
+ZSBvbiB0aGUgZU1NQyBpcyBub3QgZW5vdWdoLgo+Pgo+IEN1cnJlbnRseSwgeW91IG5lZWQgdG8g
+cHJvZ3JhbSBhIGRpZmZlcmVudCBGUEdBIGJpdHN0cmVhbSBvbsKgIHRoZSBib2FyZAo+IHRvIGJv
+b3QgZnJvbSBTRC1jYXJkLiBUaGUgZGlmZmVyZW50IGJpdHN0cmVhbSBjb25maWd1cmVzIG11eGVz
+IG9uIHRoZQo+IGJvYXJkIHRvIGNvbm5lY3QgdGhlIFNEIHNsb3QgdG8gdGhlIEZQR0EgYW5kIHRo
+ZSBIU1MgaW5jbHVkZWQgaW4gdGhlIGJpdAo+IHN0cmVhbSBjb25maWd1cmVzIHRoZSBGUEdBIElP
+cyBjb3JyZWN0bHkuCj4gCj4gTGlua3MgdG8gdGhlIHByb2dyYW1taW5nIGZpbGVzIGFyZSBmb3Vu
+ZCBpbiB0aGlzIGRvY3VtZW50Ogo+IGh0dHBzOi8vZ2l0aHViLmNvbS9wb2xhcmZpcmUtc29jL3Bv
+bGFyZmlyZS1zb2MtZG9jdW1lbnRhdGlvbi9ibG9iL21hc3Rlci9ib2FyZHMvbXBmcy1pY2ljbGUt
+a2l0LWVzL3VwZGF0aW5nLWljaWNsZS1raXQvdXBkYXRpbmctaWNpY2xlLWtpdC1kZXNpZ24tYW5k
+LWxpbnV4Lm1kCgpUaGFua3MsIGJ1dCBpJ3ZlIG5vIHdheSBvZiByZW1vdGVseSByZS13cml0aW5n
+IHRoZSBiaXRzdHJlYW0Kb2YgdGhlIEZQR0Egc2luY2UgdGhlIHRvb2xzIGFyZSB4ODYgb25seSBh
+bmQgd2UncmUgdXNpbmcgYSBQaTMKdG8gY29ubmVjdCB0aGUgYm9hcmRzIHdlIGhhdmUgdG8gdGhl
+IG5ldHdvcmsuCgotLSAKQmVuIERvb2tzCQkJCWh0dHA6Ly93d3cuY29kZXRoaW5rLmNvLnVrLwpT
+ZW5pb3IgRW5naW5lZXIJCQkJQ29kZXRoaW5rIC0gUHJvdmlkaW5nIEdlbml1cwoKaHR0cHM6Ly93
+d3cuY29kZXRoaW5rLmNvLnVrL3ByaXZhY3kuaHRtbAoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgo=
