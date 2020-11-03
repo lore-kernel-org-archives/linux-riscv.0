@@ -2,84 +2,65 @@ Return-Path: <SRS0=g6PI=EJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9900EC2D0A3
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 15:09:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4431DC2D0A3
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 15:19:33 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1E342221FB
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 15:09:07 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B070620757
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 15:19:32 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="fTXUBNTA";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="GtodWBZg"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1E342221FB
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="IMkkhngM"
+Authentication-Results: mail.kernel.org; dmarc=permerror header.from=codethink.co.uk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=r7Wd9YYnzgSpk0bshl76dKipUom/m9xn0liZL8x7stg=; b=fTXUBNTAaqYHLfudxLuelahCs
-	HmOmwsll69xk/4fPg3qiAL2puhjspkI+nGuD7zyN5N8DJ6qOaAIy6yL30ytr41P2qcfB0BVkxHw9T
-	gzlyOD38XJyyxxTObms7NZDHaFRM2Yo0F+596CGZKHJdtQXGeFk/b1RBiOIFdiwdrsnNHgwy/HzvS
-	R51urfykn9u2TyS5uZXg0cJQMBpoOzEbVy2B1bb6WTQf+h8fZt/yvJhij3/Nb2HGf9RBnnopUdb7L
-	9TKNcyT+LGEKyRQjroIAkpB0RpZEU/XQLurUPWOLCkBOmIheQ0s1jzLzIH+t+4Jgf3rWv5iMWJYNm
-	4LVHA6QRw==;
+	 bh=M5fo/h0bZhO2ZCntVBb4Ljqnv4YmK4fR/FbIRrWxIHU=; b=IMkkhngMXH0GiX2/KZsIrJQVY
+	ykBLBQ1jAdODHl+nt38XB0fBrx+8+ByNx3WMF9QH+Q0nCLhlGr2uFuUuDq7ifmUkSBTEENtnlqrPc
+	vr3e6gFR5vrXVVhUDMNJEJF8TkPy7wZCGrsJAISujvIQBerV8vg2wUp/is5w0xnuZS1s6uDLWsSII
+	6C2Cc/3MD5lqsghDidhfBfdI/8PexgdAETdcwGb3BZXvdxsspiLL7xupTeTYdmS11XTUl8gQlsWNU
+	9j7+ergZX8+1Tt8W84WteufU53VlzG56zbbXvXpAqFzz9aBo4V+xUNqciKRr/CO1uojh765XlsinW
+	0dCLDTNlA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kZxvX-000522-LM; Tue, 03 Nov 2020 15:08:51 +0000
-Received: from mail-io1-xd44.google.com ([2607:f8b0:4864:20::d44])
+	id 1kZy5e-00083f-DS; Tue, 03 Nov 2020 15:19:18 +0000
+Received: from imap2.colo.codethink.co.uk ([78.40.148.184])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kZxvU-000504-5v
- for linux-riscv@lists.infradead.org; Tue, 03 Nov 2020 15:08:49 +0000
-Received: by mail-io1-xd44.google.com with SMTP id u19so18808765ion.3
- for <linux-riscv@lists.infradead.org>; Tue, 03 Nov 2020 07:08:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=XrYo9O0i05esQNevxBJRekZg/PnpDyjXAgTjbtO6ZbQ=;
- b=GtodWBZgnt/01Qr4mekcBNERbrUasrZM+mr1F5Oj4I84rSfafAepqUPCe69+3zNHWL
- 6OMmQS4yS7pmCZPqfhwLc4h/PwNCYu9kKXlij8tyXfcRNeHPuHeUZTzJB5+9InIe/jAh
- Q3MCWiRdtcU/MRKPI1InMspF8gb4SHb2QjHrw=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=XrYo9O0i05esQNevxBJRekZg/PnpDyjXAgTjbtO6ZbQ=;
- b=eqasxjzCqFWZVSsuSydtI35zOBRbIe528LvWf4PbeE1ywtzrZ3bgZmm23KECogSDdn
- SwMbipaNj8PgX6BMMclwmH82jG4eJxX3h75axNxdRs7XTeJUS7y9+lTEizGBMp1gaKNR
- vx3kKv9z9S2SkG2gruKhCHp73ag+2S4B1sm7wHGAmgJRLmYRhuk++3EHZ+7b08vnKjRI
- h48OKCC/AswmPwd3oYOqji7WD8nrqcbXAWrBfRIraBgt73URg1Ny4i0ye3kNrlg6P2s9
- 8RHk1FI0fqztMMkUQPqC1HeBL41UwMXz21pFCSEAMK0qN2yNTQ+WiZlF6SGlpm0jZ/Aq
- TQsw==
-X-Gm-Message-State: AOAM530LWfK8okRjijcf1mBsxQWq9+gvIjwVlOfcdIErMKr4ORghy9sy
- /oPNe3/XV0AiQdQLIuHLdRzKj8LwktJ7PYfzbSuV
-X-Google-Smtp-Source: ABdhPJzqzs/NB1K8HBkkw07rlFBru3y1mQ/Kj5vQRDvo9rz/SNNFqYuUqOQrko55mRHImrw86ttj+W7Cth3Cy/mXo2E=
-X-Received: by 2002:a02:65cf:: with SMTP id u198mr15912776jab.24.1604416126101; 
- Tue, 03 Nov 2020 07:08:46 -0800 (PST)
-MIME-Version: 1.0
+ id 1kZy5W-00082L-W0
+ for linux-riscv@lists.infradead.org; Tue, 03 Nov 2020 15:19:12 +0000
+Received: from cpc79921-stkp12-2-0-cust288.10-2.cable.virginm.net
+ ([86.16.139.33] helo=[192.168.0.10])
+ by imap2.colo.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
+ id 1kZy5T-0003Yi-Uc; Tue, 03 Nov 2020 15:19:07 +0000
+Subject: Re: [RFC PATCH 2/3] RISC-V: Initial DTS for Microchip ICICLE board
+To: Atish Patra <atishp@atishpatra.org>
 References: <20201028232759.1928479-1-atish.patra@wdc.com>
  <20201028232759.1928479-3-atish.patra@wdc.com>
- <CAAhSdy0pW8AFCDtFkEO_4zjg8Exp+XTb09AjhErdX9u-Jw3OuQ@mail.gmail.com>
- <CAOnJCUKCbkZVGX5Rjputs9QQAHCvH6Fikt7kVGsyCkNjbdMv=Q@mail.gmail.com>
- <734904fe-975a-5908-d08c-266a5049deac@codethink.co.uk>
-In-Reply-To: <734904fe-975a-5908-d08c-266a5049deac@codethink.co.uk>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Tue, 3 Nov 2020 07:08:33 -0800
-Message-ID: <CAOnJCU+Zj7JCHssg_+Vj3E1NhK_etXauDDbKK08v=C6o4gDv2g@mail.gmail.com>
-Subject: Re: [RFC PATCH 2/3] RISC-V: Initial DTS for Microchip ICICLE board
-To: Ben Dooks <ben.dooks@codethink.co.uk>
+ <41f1248b-78c6-bac1-410b-9e222368c5f6@codethink.co.uk>
+ <CAOnJCUJhQ=Zv0S4iCK4CDzQr_dfkw3J6ycdM=p6=5B2_sL1Ekg@mail.gmail.com>
+ <2d7cc829-5df6-6b94-4c8f-9bae6080444e@codethink.co.uk>
+ <CAOnJCULejyF9xyLk5M0TXqW_=nn0KM5aE8nhK+1h0Xayd2pKUg@mail.gmail.com>
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+Organization: Codethink Limited.
+Message-ID: <fc07251a-5339-781b-f12a-abfda5d5d2a2@codethink.co.uk>
+Date: Tue, 3 Nov 2020 15:19:06 +0000
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.12.0
+MIME-Version: 1.0
+In-Reply-To: <CAOnJCULejyF9xyLk5M0TXqW_=nn0KM5aE8nhK+1h0Xayd2pKUg@mail.gmail.com>
+Content-Language: en-GB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201103_100848_310662_AF50EEE6 
-X-CRM114-Status: GOOD (  18.01  )
+X-CRM114-CacheID: sfid-20201103_101911_089022_B1BB1162 
+X-CRM114-Status: GOOD (  15.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -93,319 +74,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
  Cyril.Jean@microchip.com, Daire McNamara <daire.mcnamara@microchip.com>,
- Anup Patel <anup@brainfault.org>, Anup Patel <anup.patel@wdc.com>,
+ Anup Patel <anup.patel@wdc.com>,
  "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
  Atish Patra <atish.patra@wdc.com>, Rob Herring <robh+dt@kernel.org>,
  Alistair Francis <alistair.francis@wdc.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
  linux-riscv <linux-riscv@lists.infradead.org>,
  Padmarao Begari <padmarao.begari@microchip.com>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 3, 2020 at 2:59 AM Ben Dooks <ben.dooks@codethink.co.uk> wrote:
->
-> On 30/10/2020 20:27, Atish Patra wrote:
-> > On Fri, Oct 30, 2020 at 2:05 AM Anup Patel <anup@brainfault.org> wrote:
-> >>
-> >> On Thu, Oct 29, 2020 at 4:58 AM Atish Patra <atish.patra@wdc.com> wrote:
-> >>>
-> >>> Add initial DTS for Microchip ICICLE board having only
-> >>> essential devcies (clocks, sdhci, ethernet, serial, etc).
-> >>>
-> >>> Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> >>> ---
-> >>>   arch/riscv/boot/dts/Makefile                  |   1 +
-> >>>   arch/riscv/boot/dts/microchip/Makefile        |   2 +
-> >>>   .../microchip/microchip-icicle-kit-a000.dts   | 313 ++++++++++++++++++
-> >>
-> >> I suggest we split this DTS into two parts:
-> >> 1. SOC (microchip-polarfire.dtsi)
-> >> 2. Board (microchip-icicle-kit-a000.dts)
-> >>
-> >> This will be much cleaner and aligned with what is done
-> >> on other architectures.
-> >>
-> >
-> > Sure. I will do that in v2.
-> >
-> >>>   3 files changed, 316 insertions(+)
-> >>>   create mode 100644 arch/riscv/boot/dts/microchip/Makefile
-> >>>   create mode 100644 arch/riscv/boot/dts/microchip/microchip-icicle-kit-a000.dts
-> >>>
-> >>> diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
-> >>> index ca1f8cbd78c0..3ea94ea0a18a 100644
-> >>> --- a/arch/riscv/boot/dts/Makefile
-> >>> +++ b/arch/riscv/boot/dts/Makefile
-> >>> @@ -1,5 +1,6 @@
-> >>>   # SPDX-License-Identifier: GPL-2.0
-> >>>   subdir-y += sifive
-> >>>   subdir-y += kendryte
-> >>> +subdir-y += microchip
-> >>>
-> >>>   obj-$(CONFIG_BUILTIN_DTB) := $(addsuffix /, $(subdir-y))
-> >>> diff --git a/arch/riscv/boot/dts/microchip/Makefile b/arch/riscv/boot/dts/microchip/Makefile
-> >>> new file mode 100644
-> >>> index 000000000000..55ad77521304
-> >>> --- /dev/null
-> >>> +++ b/arch/riscv/boot/dts/microchip/Makefile
-> >>> @@ -0,0 +1,2 @@
-> >>> +# SPDX-License-Identifier: GPL-2.0
-> >>> +dtb-$(CONFIG_SOC_MICROCHIP_POLARFIRE) += microchip-icicle-kit-a000.dtb
-> >>> diff --git a/arch/riscv/boot/dts/microchip/microchip-icicle-kit-a000.dts b/arch/riscv/boot/dts/microchip/microchip-icicle-kit-a000.dts
-> >>> new file mode 100644
-> >>> index 000000000000..5848920af55c
-> >>> --- /dev/null
-> >>> +++ b/arch/riscv/boot/dts/microchip/microchip-icicle-kit-a000.dts
-> >>> @@ -0,0 +1,313 @@
-> >>> +// SPDX-License-Identifier: GPL-2.0+
-> >>> +/* Copyright (c) 2020 Microchip Technology Inc */
-> >>> +
-> >>> +/dts-v1/;
-> >>> +
-> >>> +/* Clock frequency (in Hz) of the rtcclk */
-> >>> +#define RTCCLK_FREQ            1000000
-> >>> +
-> >>> +/ {
-> >>> +       #address-cells = <2>;
-> >>> +       #size-cells = <2>;
-> >>> +       model = "Microchip PolarFire-SoC";
-> >>> +       compatible = "microchip,polarfire-soc";
-> >>> +
-> >>> +       chosen {
-> >>> +               stdout-path = &serial0;
-> >>> +       };
-> >>> +
-> >>> +       cpus {
-> >>> +               #address-cells = <1>;
-> >>> +               #size-cells = <0>;
-> >>> +               timebase-frequency = <RTCCLK_FREQ>;
-> >>> +
-> >>> +               cpu@0 {
-> >>> +                       clock-frequency = <0>;
-> >>> +                       compatible = "sifive,rocket0", "riscv";
-> >>> +                       device_type = "cpu";
-> >>> +                       i-cache-block-size = <64>;
-> >>> +                       i-cache-sets = <128>;
-> >>> +                       i-cache-size = <16384>;
-> >>> +                       reg = <0>;
-> >>> +                       riscv,isa = "rv64imac";
-> >>> +                       status = "disabled";
-> >>> +
-> >>> +                       cpu0_intc: interrupt-controller {
-> >>> +                               #interrupt-cells = <1>;
-> >>> +                               compatible = "riscv,cpu-intc";
-> >>> +                               interrupt-controller;
-> >>> +                       };
-> >>> +               };
-> >>> +
-> >>> +               cpu@1 {
-> >>> +                       clock-frequency = <0>;
-> >>> +                       compatible = "sifive,rocket0", "riscv";
-> >>> +                       d-cache-block-size = <64>;
-> >>> +                       d-cache-sets = <64>;
-> >>> +                       d-cache-size = <32768>;
-> >>> +                       d-tlb-sets = <1>;
-> >>> +                       d-tlb-size = <32>;
-> >>> +                       device_type = "cpu";
-> >>> +                       i-cache-block-size = <64>;
-> >>> +                       i-cache-sets = <64>;
-> >>> +                       i-cache-size = <32768>;
-> >>> +                       i-tlb-sets = <1>;
-> >>> +                       i-tlb-size = <32>;
-> >>> +                       mmu-type = "riscv,sv39";
-> >>> +                       reg = <1>;
-> >>> +                       riscv,isa = "rv64imafdc";
-> >>> +                       tlb-split;
-> >>> +                       status = "okay";
-> >>> +
-> >>> +                       cpu1_intc: interrupt-controller {
-> >>> +                               #interrupt-cells = <1>;
-> >>> +                               compatible = "riscv,cpu-intc";
-> >>> +                               interrupt-controller;
-> >>> +                       };
-> >>> +               };
-> >>> +
-> >>> +               cpu@2 {
-> >>> +                       clock-frequency = <0>;
-> >>> +                       compatible = "sifive,rocket0", "riscv";
-> >>> +                       d-cache-block-size = <64>;
-> >>> +                       d-cache-sets = <64>;
-> >>> +                       d-cache-size = <32768>;
-> >>> +                       d-tlb-sets = <1>;
-> >>> +                       d-tlb-size = <32>;
-> >>> +                       device_type = "cpu";
-> >>> +                       i-cache-block-size = <64>;
-> >>> +                       i-cache-sets = <64>;
-> >>> +                       i-cache-size = <32768>;
-> >>> +                       i-tlb-sets = <1>;
-> >>> +                       i-tlb-size = <32>;
-> >>> +                       mmu-type = "riscv,sv39";
-> >>> +                       reg = <2>;
-> >>> +                       riscv,isa = "rv64imafdc";
-> >>> +                       tlb-split;
-> >>> +                       status = "okay";
-> >>> +
-> >>> +                       cpu2_intc: interrupt-controller {
-> >>> +                               #interrupt-cells = <1>;
-> >>> +                               compatible = "riscv,cpu-intc";
-> >>> +                               interrupt-controller;
-> >>> +                       };
-> >>> +               };
-> >>> +
-> >>> +               cpu@3 {
-> >>> +                       clock-frequency = <0>;
-> >>> +                       compatible = "sifive,rocket0", "riscv";
-> >>> +                       d-cache-block-size = <64>;
-> >>> +                       d-cache-sets = <64>;
-> >>> +                       d-cache-size = <32768>;
-> >>> +                       d-tlb-sets = <1>;
-> >>> +                       d-tlb-size = <32>;
-> >>> +                       device_type = "cpu";
-> >>> +                       i-cache-block-size = <64>;
-> >>> +                       i-cache-sets = <64>;
-> >>> +                       i-cache-size = <32768>;
-> >>> +                       i-tlb-sets = <1>;
-> >>> +                       i-tlb-size = <32>;
-> >>> +                       mmu-type = "riscv,sv39";
-> >>> +                       reg = <3>;
-> >>> +                       riscv,isa = "rv64imafdc";
-> >>> +                       tlb-split;
-> >>> +                       status = "okay";
-> >>> +
-> >>> +                       cpu3_intc: interrupt-controller {
-> >>> +                               #interrupt-cells = <1>;
-> >>> +                               compatible = "riscv,cpu-intc";
-> >>> +                               interrupt-controller;
-> >>> +                       };
-> >>> +               };
-> >>> +
-> >>> +               cpu@4 {
-> >>> +                       clock-frequency = <0>;
-> >>> +                       compatible = "sifive,rocket0", "riscv";
-> >>> +                       d-cache-block-size = <64>;
-> >>> +                       d-cache-sets = <64>;
-> >>> +                       d-cache-size = <32768>;
-> >>> +                       d-tlb-sets = <1>;
-> >>> +                       d-tlb-size = <32>;
-> >>> +                       device_type = "cpu";
-> >>> +                       i-cache-block-size = <64>;
-> >>> +                       i-cache-sets = <64>;
-> >>> +                       i-cache-size = <32768>;
-> >>> +                       i-tlb-sets = <1>;
-> >>> +                       i-tlb-size = <32>;
-> >>> +                       mmu-type = "riscv,sv39";
-> >>> +                       reg = <4>;
-> >>> +                       riscv,isa = "rv64imafdc";
-> >>> +                       tlb-split;
-> >>> +                       status = "okay";
-> >>> +                       cpu4_intc: interrupt-controller {
-> >>> +                               #interrupt-cells = <1>;
-> >>> +                               compatible = "riscv,cpu-intc";
-> >>> +                               interrupt-controller;
-> >>> +                       };
-> >>> +               };
-> >>> +       };
-> >>> +
-> >>> +       memory@80000000 {
-> >>> +               device_type = "memory";
-> >>> +               reg = <0x0 0x80000000 0x0 0x40000000>;
-> >>> +               clocks = <&clkcfg 26>;
-> >>> +       };
-> >>> +
-> >>> +       soc {
-> >>> +               #address-cells = <2>;
-> >>> +               #size-cells = <2>;
-> >>> +               compatible = "simple-bus";
-> >>> +               ranges;
-> >>> +
-> >>> +               cache-controller@2010000 {
-> >>> +                       compatible = "sifive,fu540-c000-ccache", "cache";
-> >>> +                       cache-block-size = <64>;
-> >>> +                       cache-level = <2>;
-> >>> +                       cache-sets = <1024>;
-> >>> +                       cache-size = <2097152>;
-> >>> +                       cache-unified;
-> >>> +                       interrupt-parent = <&plic>;
-> >>> +                       interrupts = <1 2 3>;
-> >>> +                       reg = <0x0 0x2010000 0x0 0x1000>;
-> >>> +               };
-> >>> +
-> >>> +               clint@2000000 {
-> >>> +                       compatible = "riscv,clint0";
-> >>> +                       reg = <0x0 0x2000000 0x0 0xC000>;
-> >>> +                       interrupts-extended = <&cpu0_intc 3 &cpu0_intc 7
-> >>> +                                               &cpu1_intc 3 &cpu1_intc 7
-> >>> +                                               &cpu2_intc 3 &cpu2_intc 7
-> >>> +                                               &cpu3_intc 3 &cpu3_intc 7
-> >>> +                                               &cpu4_intc 3 &cpu4_intc 7>;
-> >>> +               };
-> >>> +
-> >>> +               plic: interrupt-controller@c000000 {
-> >>> +                       #interrupt-cells = <1>;
-> >>> +                       compatible = "sifive,plic-1.0.0";
-> >>> +                       reg = <0x0 0xc000000 0x0 0x4000000>;
-> >>> +                       riscv,ndev = <53>;
-> >>> +                       interrupt-controller;
-> >>> +                       interrupts-extended = <&cpu0_intc 11
-> >>> +                                       &cpu1_intc 11 &cpu1_intc 9
-> >>> +                                       &cpu2_intc 11 &cpu2_intc 9
-> >>> +                                       &cpu3_intc 11 &cpu3_intc 9
-> >>> +                                       &cpu4_intc 11 &cpu4_intc 9>;
-> >>> +               };
-> >>> +
-> >>> +               dma@3000000 {
-> >>> +                       compatible = "sifive,fu540-c000-pdma";
-> >>> +                       reg = <0x0 0x3000000 0x0 0x8000>;
-> >>> +                       interrupt-parent = <&plic>;
-> >>> +                       interrupts = <23 24 25 26 27 28 29 30>;
-> >>> +                       #dma-cells = <1>;
-> >>> +               };
-> >>> +
-> >>> +               refclk: refclk {
-> >>> +                       compatible = "fixed-clock";
-> >>> +                       #clock-cells = <0>;
-> >>> +                       clock-frequency = <600000000>;
-> >>> +                       clock-output-names = "msspllclk";
-> >>> +               };
-> >>> +
-> >>> +               clkcfg: clkcfg@20002000 {
-> >>> +                       compatible = "microchip,pfsoc-clkcfg";
-> >>> +                       reg = <0x0 0x20002000 0x0 0x1000>;
-> >>> +                       reg-names = "mss_sysreg";
-> >>> +                       clocks = <&refclk>;
-> >>> +                       #clock-cells = <1>;
-> >>> +                       clock-output-names = "cpuclk", "axiclk", "ahbclk", "ENVMclk", "MAC0clk", "MAC1clk", "MMCclk", "TIMERclk", "MMUART0clk", "MMUART1clk", "MMUART2clk", "MMUART3clk", "MMUART4clk", "SPI0clk", "SPI1clk", "I2C0clk", "I2C1clk", "CAN0clk", "CAN1clk", "USBclk", "RESERVED", "RTCclk", "QSPIclk", "GPIO0clk", "GPIO1clk", "GPIO2clk", "DDRCclk", "FIC0clk", "FIC1clk", "FIC2clk", "FIC3clk", "ATHENAclk", "CFMclk";
-> >>> +               };
-> >>> +
->
-> H ow about doing something like
-> >               clock-output-names = "cpuclk", "axiclk", "ahbclk", "ENVMclk", "MAC0clk",        /* 0 -4 */
-> >                               "MAC1clk", "MMCclk", "TIMERclk", "MMUART0clk", "MMUART1clk", /* 5-9 */
->
-> this means we can easily work out what clocks are in which index
->
-> As per the previos email, I'd leave these all populated as coming back
-> and adding ones later is just going to be a pain with merge conflicts.
->
+On 03/11/2020 15:07, Atish Patra wrote:
+>>> We could just modify the reg size but to allow more memory. I tried
+>>> that for Linux but it didn't boot.
+>>> Probably, DDR init code in HSS only initialized 1GB of memory.
+>> Yes, it is only looking at the low window which is 1GiB max.
+>> If it used the upper window it would get the 16GiB.
+>>
+>> I don't know how no-one noticed this issue before shipping a board
+>> out with this. I have updated the firmware on my second board but
+>> this only seems to currently fix a reboot issue with the eMMC.
+>>
+> We can't update the DT for Linux until there is a public release of
+> the updated firmware
+> with 2GB enabled.
 
-Sounds good to me.
+Yeah, it is really annoying the boards turned up with a number of
+issues including the half memory.
 
->
->
-> --
-> Ben Dooks                               http://www.codethink.co.uk/
-> Senior Engineer                         Codethink - Providing Genius
->
-> https://www.codethink.co.uk/privacy.html
-
-
+I assume there will be a new release of HSS and U-boot which at
+worse can insert new memory nodes into the device tree.
 
 -- 
-Regards,
-Atish
+Ben Dooks				http://www.codethink.co.uk/
+Senior Engineer				Codethink - Providing Genius
+
+https://www.codethink.co.uk/privacy.html
 
 _______________________________________________
 linux-riscv mailing list
