@@ -2,66 +2,58 @@ Return-Path: <SRS0=g6PI=EJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E6E00C388F9
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 16:22:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 09251C2D0A3
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 17:00:58 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 79DDE20674
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 16:22:28 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 98F4D2080D
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 17:00:57 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Yu+zTyTd";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="iwxVWj+w"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 79DDE20674
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="zgfZGHAu"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 98F4D2080D
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Z7M1LUq2Z7lhFwENRti/iVgTtWabkcpYYE6lTLmApGI=; b=Yu+zTyTdvQ+QZ1nuJZqsslk+F
-	FuMCzbm2LwolJsi9yb/d2SkfVbTdwSX0ZwMkGz/knqSl3E3WqGSz6pSATttwozKfAb1dg792/0wpP
-	bEaMd45vrKB37jjklOu0sfC1fLAPYMWGUm6vLnaHYgT38JAayrxLLRvlPBbseXFLAGk/tt8ybxwWd
-	YjULVYSpYZdZkd2Py//3MyFTku70l6aZe2/fmD+zVbN6w/NbalAoAk1Fsou/jVfy6/UXG/GHv7OIT
-	zWOJzTdnfq+4GqKLdQtxLCr8XgQL7+8wK/xOHEJkIIyIhzy/iJH4ty+kUjVz38vNHyFeu9FaWcmwh
-	QhZ7irBrw==;
+	 bh=hQzYEBrB6+nRqWPxF7/+ZoBSc8PXB75gqLvUWmObKlk=; b=zgfZGHAuem1wHEplbCPUsD50M
+	PJWkwr0iQTL+jSVROQRwL1YxY8Yk9IWvShwbmsCduRSYph4STKPTja+ZeHG+S/63BB/fD0mEgdUtl
+	ADmfa5PXdzEVq32qTMC7ARvP4femp9dxm9oOA0cWk63XJr2RrS335ohxh4Ti4Y3RhaxN20WIqgKZh
+	HTdse8NIsIQxMmPDSexEIW5lcNDvVheuEaukM4QkPoAf13oRZlN4tuL/L+yB9FWlTMM6v+FeahuLs
+	niwHvMjwvlG6xTZLHN5teTtfbpnFlFILblENzxP5KZSB8lDmEdG2ba23qh/aO3UXBXyPoLu/vlVCK
+	Y2qdK0EwA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kZz4X-0007dB-QR; Tue, 03 Nov 2020 16:22:13 +0000
-Received: from mail.kernel.org ([198.145.29.99])
- by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kZz4F-0007UD-35; Tue, 03 Nov 2020 16:21:56 +0000
-Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 5F80620773;
- Tue,  3 Nov 2020 16:21:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1604420514;
- bh=P4TBJDMMKdwpxN9woYaXAimVI1SZncgu4Y8WTKRSfFw=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=iwxVWj+wXnsTRLH+K6L4omHY8hIHf3kX13IaXBilDiRmxfVQ/YhdnumOtO2O3UnFn
- aFBnqsHwhYo6wGaEEmbeL5E09/jp6hlPyZ7omaQZGOVIBvay/zjduZ5yQKFKV6lHci
- MjWBrVyMINzM0vTCVQlQ1pYuWZIpXNpmQ6e7SY3M=
-From: Mike Rapoport <rppt@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH v4 4/4] arch, mm: make kernel_page_present() always available
-Date: Tue,  3 Nov 2020 18:20:57 +0200
-Message-Id: <20201103162057.22916-5-rppt@kernel.org>
-X-Mailer: git-send-email 2.28.0
-In-Reply-To: <20201103162057.22916-1-rppt@kernel.org>
-References: <20201103162057.22916-1-rppt@kernel.org>
+	id 1kZzfo-0000MV-Hh; Tue, 03 Nov 2020 17:00:44 +0000
+Received: from mx2.suse.de ([195.135.220.15])
+ by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1kZzfh-0000FO-GR; Tue, 03 Nov 2020 17:00:38 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.221.27])
+ by mx2.suse.de (Postfix) with ESMTP id D9FF7AC97;
+ Tue,  3 Nov 2020 17:00:35 +0000 (UTC)
+Message-ID: <0fc240575aad6a538fdc282e419411a615ba93f3.camel@suse.de>
+Subject: Re: [PATCH v5 0/7] arm64: Default to 32-bit wide ZONE_DMA
+From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Date: Tue, 03 Nov 2020 18:00:33 +0100
+In-Reply-To: <20201030181134.GE23196@gaia>
+References: <20201029172550.3523-1-nsaenzjulienne@suse.de>
+ <20201030181134.GE23196@gaia>
+User-Agent: Evolution 3.36.5 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201103_112155_379724_FBBE4325 
-X-CRM114-Status: GOOD (  21.98  )
+X-CRM114-CacheID: sfid-20201103_120037_802073_4FE11383 
+X-CRM114-Status: GOOD (  32.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -73,216 +65,150 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: David Hildenbrand <david@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
- Paul Mackerras <paulus@samba.org>, Pavel Machek <pavel@ucw.cz>,
- "H. Peter Anvin" <hpa@zytor.com>, sparclinux@vger.kernel.org,
- Christoph Lameter <cl@linux.com>, Will Deacon <will@kernel.org>,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- Michael Ellerman <mpe@ellerman.id.au>, x86@kernel.org,
- Mike Rapoport <rppt@linux.ibm.com>,
- Christian Borntraeger <borntraeger@de.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Len Brown <len.brown@intel.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Vasily Gorbik <gor@linux.ibm.com>,
- linux-pm@vger.kernel.org, Heiko Carstens <hca@linux.ibm.com>,
- David Rientjes <rientjes@google.com>, Borislav Petkov <bp@alien8.de>,
- Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org,
- "Rafael J. Wysocki" <rjw@rjwysocki.net>, linux-kernel@vger.kernel.org,
- Pekka Enberg <penberg@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>,
- Joonsoo Kim <iamjoonsoo.kim@lge.com>, "Edgecombe,
- Rick P" <rick.p.edgecombe@intel.com>, linuxppc-dev@lists.ozlabs.org,
- "David S. Miller" <davem@davemloft.net>, Mike Rapoport <rppt@kernel.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: devicetree@vger.kernel.org, lorenzo.pieralisi@arm.com, linux-mm@kvack.org,
+ will@kernel.org, linux-kernel@vger.kernel.org, jeremy.linton@arm.com,
+ ardb@kernel.org, linux-acpi@vger.kernel.org, iommu@lists.linux-foundation.org,
+ robh+dt@kernel.org, linux-rpi-kernel@lists.infradead.org, guohanjun@huawei.com,
+ linux-riscv@lists.infradead.org, robin.murphy@arm.com, hch@lst.de,
+ linux-arm-kernel@lists.infradead.org
+Content-Type: multipart/mixed; boundary="===============0354818195387005478=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Mike Rapoport <rppt@linux.ibm.com>
 
-For architectures that enable ARCH_HAS_SET_MEMORY having the ability to
-verify that a page is mapped in the kernel direct map can be useful
-regardless of hibernation.
+--===============0354818195387005478==
+Content-Type: multipart/signed; micalg="pgp-sha256";
+	protocol="application/pgp-signature"; boundary="=-e4mvEaSQmsP7NUXAJ5iB"
 
-Add RISC-V implementation of kernel_page_present(), update its forward
-declarations and stubs to be a part of set_memory API and remove ugly
-ifdefery in inlcude/linux/mm.h around current declarations of
-kernel_page_present().
 
-Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
-Acked-by: Kirill A. Shutemov <kirill.shutemov@linux.intel.com>
----
- arch/arm64/include/asm/cacheflush.h |  1 +
- arch/arm64/mm/pageattr.c            |  4 +---
- arch/riscv/include/asm/set_memory.h |  1 +
- arch/riscv/mm/pageattr.c            | 29 +++++++++++++++++++++++++++++
- arch/x86/include/asm/set_memory.h   |  1 +
- arch/x86/mm/pat/set_memory.c        |  4 +---
- include/linux/mm.h                  |  7 -------
- include/linux/set_memory.h          |  5 +++++
- 8 files changed, 39 insertions(+), 13 deletions(-)
+--=-e4mvEaSQmsP7NUXAJ5iB
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/arch/arm64/include/asm/cacheflush.h b/arch/arm64/include/asm/cacheflush.h
-index 9384fd8fc13c..45217f21f1fe 100644
---- a/arch/arm64/include/asm/cacheflush.h
-+++ b/arch/arm64/include/asm/cacheflush.h
-@@ -140,6 +140,7 @@ int set_memory_valid(unsigned long addr, int numpages, int enable);
- 
- int set_direct_map_invalid_noflush(struct page *page);
- int set_direct_map_default_noflush(struct page *page);
-+bool kernel_page_present(struct page *page);
- 
- #include <asm-generic/cacheflush.h>
- 
-diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-index 439325532be1..92eccaf595c8 100644
---- a/arch/arm64/mm/pageattr.c
-+++ b/arch/arm64/mm/pageattr.c
-@@ -186,8 +186,8 @@ void __kernel_map_pages(struct page *page, int numpages, int enable)
- 
- 	set_memory_valid((unsigned long)page_address(page), numpages, enable);
- }
-+#endif /* CONFIG_DEBUG_PAGEALLOC */
- 
--#ifdef CONFIG_HIBERNATION
- /*
-  * This function is used to determine if a linear map page has been marked as
-  * not-valid. Walk the page table and check the PTE_VALID bit. This is based
-@@ -234,5 +234,3 @@ bool kernel_page_present(struct page *page)
- 	ptep = pte_offset_kernel(pmdp, addr);
- 	return pte_valid(READ_ONCE(*ptep));
- }
--#endif /* CONFIG_HIBERNATION */
--#endif /* CONFIG_DEBUG_PAGEALLOC */
-diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
-index 4c5bae7ca01c..d690b08dff2a 100644
---- a/arch/riscv/include/asm/set_memory.h
-+++ b/arch/riscv/include/asm/set_memory.h
-@@ -24,6 +24,7 @@ static inline int set_memory_nx(unsigned long addr, int numpages) { return 0; }
- 
- int set_direct_map_invalid_noflush(struct page *page);
- int set_direct_map_default_noflush(struct page *page);
-+bool kernel_page_present(struct page *page);
- 
- #endif /* __ASSEMBLY__ */
- 
-diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
-index 321b09d2e2ea..87ba5a68bbb8 100644
---- a/arch/riscv/mm/pageattr.c
-+++ b/arch/riscv/mm/pageattr.c
-@@ -198,3 +198,32 @@ void __kernel_map_pages(struct page *page, int numpages, int enable)
- 			     __pgprot(0), __pgprot(_PAGE_PRESENT));
- }
- #endif
-+
-+bool kernel_page_present(struct page *page)
-+{
-+	unsigned long addr = (unsigned long)page_address(page);
-+	pgd_t *pgd;
-+	pud_t *pud;
-+	p4d_t *p4d;
-+	pmd_t *pmd;
-+	pte_t *pte;
-+
-+	pgd = pgd_offset_k(addr);
-+	if (!pgd_present(*pgd))
-+		return false;
-+
-+	p4d = p4d_offset(pgd, addr);
-+	if (!p4d_present(*p4d))
-+		return false;
-+
-+	pud = pud_offset(p4d, addr);
-+	if (!pud_present(*pud))
-+		return false;
-+
-+	pmd = pmd_offset(pud, addr);
-+	if (!pmd_present(*pmd))
-+		return false;
-+
-+	pte = pte_offset_kernel(pmd, addr);
-+	return pte_present(*pte);
-+}
-diff --git a/arch/x86/include/asm/set_memory.h b/arch/x86/include/asm/set_memory.h
-index 5948218f35c5..4352f08bfbb5 100644
---- a/arch/x86/include/asm/set_memory.h
-+++ b/arch/x86/include/asm/set_memory.h
-@@ -82,6 +82,7 @@ int set_pages_rw(struct page *page, int numpages);
- 
- int set_direct_map_invalid_noflush(struct page *page);
- int set_direct_map_default_noflush(struct page *page);
-+bool kernel_page_present(struct page *page);
- 
- extern int kernel_set_to_readonly;
- 
-diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-index bc9be96b777f..16f878c26667 100644
---- a/arch/x86/mm/pat/set_memory.c
-+++ b/arch/x86/mm/pat/set_memory.c
-@@ -2226,8 +2226,8 @@ void __kernel_map_pages(struct page *page, int numpages, int enable)
- 
- 	arch_flush_lazy_mmu_mode();
- }
-+#endif /* CONFIG_DEBUG_PAGEALLOC */
- 
--#ifdef CONFIG_HIBERNATION
- bool kernel_page_present(struct page *page)
- {
- 	unsigned int level;
-@@ -2239,8 +2239,6 @@ bool kernel_page_present(struct page *page)
- 	pte = lookup_address((unsigned long)page_address(page), &level);
- 	return (pte_val(*pte) & _PAGE_PRESENT);
- }
--#endif /* CONFIG_HIBERNATION */
--#endif /* CONFIG_DEBUG_PAGEALLOC */
- 
- int __init kernel_map_pages_in_pgd(pgd_t *pgd, u64 pfn, unsigned long address,
- 				   unsigned numpages, unsigned long page_flags)
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index ab0ef6bd351d..44b82f22e76a 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -2937,16 +2937,9 @@ static inline void debug_pagealloc_map_pages(struct page *page,
- 	if (debug_pagealloc_enabled_static())
- 		__kernel_map_pages(page, numpages, enable);
- }
--
--#ifdef CONFIG_HIBERNATION
--extern bool kernel_page_present(struct page *page);
--#endif	/* CONFIG_HIBERNATION */
- #else	/* CONFIG_DEBUG_PAGEALLOC */
- static inline void debug_pagealloc_map_pages(struct page *page,
- 					     int numpages, int enable) {}
--#ifdef CONFIG_HIBERNATION
--static inline bool kernel_page_present(struct page *page) { return true; }
--#endif	/* CONFIG_HIBERNATION */
- #endif	/* CONFIG_DEBUG_PAGEALLOC */
- 
- #ifdef __HAVE_ARCH_GATE_AREA
-diff --git a/include/linux/set_memory.h b/include/linux/set_memory.h
-index 860e0f843c12..fe1aa4e54680 100644
---- a/include/linux/set_memory.h
-+++ b/include/linux/set_memory.h
-@@ -23,6 +23,11 @@ static inline int set_direct_map_default_noflush(struct page *page)
- {
- 	return 0;
- }
-+
-+static inline bool kernel_page_present(struct page *page)
-+{
-+	return true;
-+}
- #endif
- 
- #ifndef set_mce_nospec
--- 
-2.28.0
+On Fri, 2020-10-30 at 18:11 +0000, Catalin Marinas wrote:
+> On Thu, Oct 29, 2020 at 06:25:43PM +0100, Nicolas Saenz Julienne wrote:
+> > Ard Biesheuvel (1):
+> >   arm64: mm: Set ZONE_DMA size based on early IORT scan
+> >=20
+> > Nicolas Saenz Julienne (6):
+> >   arm64: mm: Move reserve_crashkernel() into mem_init()
+> >   arm64: mm: Move zone_dma_bits initialization into zone_sizes_init()
+> >   of/address: Introduce of_dma_get_max_cpu_address()
+> >   of: unittest: Add test for of_dma_get_max_cpu_address()
+> >   arm64: mm: Set ZONE_DMA size based on devicetree's dma-ranges
+> >   mm: Remove examples from enum zone_type comment
+>=20
+> Thanks for putting this together. I had a minor comment but the patches
+> look fine to me. We still need an ack from Rob on the DT patch and I can
+> queue the series for 5.11.
 
+I'm preparing a v6 unifying both functions as you suggested.
+
+> Could you please also test the patch below on top of this series? It's
+> the removal of the implied DMA offset in the max_zone_phys()
+> calculation.
+
+Yes, happily. Comments below.
+
+> --------------------------8<-----------------------------
+> From 3ae252d888be4984a612236124f5b099e804c745 Mon Sep 17 00:00:00 2001
+> From: Catalin Marinas <catalin.marinas@arm.com>
+> Date: Fri, 30 Oct 2020 18:07:34 +0000
+> Subject: [PATCH] arm64: Ignore any DMA offsets in the max_zone_phys()
+>  calculation
+>=20
+> Currently, the kernel assumes that if RAM starts above 32-bit (or
+> zone_bits), there is still a ZONE_DMA/DMA32 at the bottom of the RAM and
+> such constrained devices have a hardwired DMA offset. In practice, we
+> haven't noticed any such hardware so let's assume that we can expand
+> ZONE_DMA32 to the available memory if no RAM below 4GB. Similarly,
+> ZONE_DMA is expanded to the 4GB limit if no RAM addressable by
+> zone_bits.
+>=20
+> Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+> ---
+>  arch/arm64/mm/init.c | 17 ++++++++++++-----
+>  1 file changed, 12 insertions(+), 5 deletions(-)
+>=20
+> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+> index 095540667f0f..362160e16fb2 100644
+> --- a/arch/arm64/mm/init.c
+> +++ b/arch/arm64/mm/init.c
+> @@ -175,14 +175,21 @@ static void __init reserve_elfcorehdr(void)
+>  #endif /* CONFIG_CRASH_DUMP */
+> =20
+>  /*
+> - * Return the maximum physical address for a zone with a given address s=
+ize
+> - * limit. It currently assumes that for memory starting above 4G, 32-bit
+> - * devices will use a DMA offset.
+> + * Return the maximum physical address for a zone accessible by the give=
+n bits
+> + * limit. If the DRAM starts above 32-bit, expand the zone to the maximu=
+m
+> + * available memory, otherwise cap it at 32-bit.
+>   */
+>  static phys_addr_t __init max_zone_phys(unsigned int zone_bits)
+>  {
+> -	phys_addr_t offset =3D memblock_start_of_DRAM() & GENMASK_ULL(63, zone_=
+bits);
+> -	return min(offset + (1ULL << zone_bits), memblock_end_of_DRAM());
+> +	phys_addr_t zone_mask =3D (1ULL << zone_bits) - 1;
+
+Maybe use DMA_BIT_MASK(), instead of the manual calculation?
+
+> +	phys_addr_t phys_start =3D memblock_start_of_DRAM();
+> +
+> +	if (!(phys_start & U32_MAX))
+
+I'd suggest using 'bigger than' instead of masks. Just to cover ourselves
+against memory starting at odd locations. Also it'll behaves properly when
+phys_start is zero (this breaks things on RPi4).
+
+> +		zone_mask =3D PHYS_ADDR_MAX;
+> +	else if (!(phys_start & zone_mask))
+> +		zone_mask =3D U32_MAX;
+> +
+> +	return min(zone_mask + 1, memblock_end_of_DRAM());
+
+This + 1 isn't going to play well when zone_mask is PHYS_ADDR_MAX.
+
+Regards,
+Nicolas
+
+
+--=-e4mvEaSQmsP7NUXAJ5iB
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCAAdFiEErOkkGDHCg2EbPcGjlfZmHno8x/4FAl+hjLEACgkQlfZmHno8
+x/5wjggAjwdWMN+H9Cj7ukCCZxIw/mZ7tdk+jtxD8++ocqSv/BLWzfPJhliE31of
+ShuRaGhx2UpgX/fny9Ng9cEMWPdjYb6wpyI7EEm2As3R8aWDXwEFh1bu6PkdPyLu
+VBm0BkVSUY5Iu9fQYym1yA1KukGrzijxEW7+QFIUwrm1Bdralpg+67WLbOWUxmdI
+SGlntSKWlUcfRXCg+/XzLFfODu+htiXHSSBW1zMWx/OsNPHb6Mupfrtdogqv65UP
+aQpkzoqyZBlC9ueBXHtWUiDEv7EUdosKbia5mxa7i9apZ5ZPSy/OkGkY9mZq3evn
+XiCaUCaYMdiZx1RCUE2VRr9HqZnuEQ==
+=QpfN
+-----END PGP SIGNATURE-----
+
+--=-e4mvEaSQmsP7NUXAJ5iB--
+
+
+
+--===============0354818195387005478==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0354818195387005478==--
+
+
