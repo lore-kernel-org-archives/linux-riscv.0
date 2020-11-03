@@ -2,83 +2,68 @@ Return-Path: <SRS0=g6PI=EJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-5.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no
-	autolearn_force=no version=3.4.0
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D2F3BC2D0A3
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 18:38:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 13149C388F9
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 18:39:24 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 696162074B
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 18:38:53 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B22BB2074B
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 18:39:23 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="n5KCacf5";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="SPBvOimS"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 696162074B
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ppByBGWn"
+Authentication-Results: mail.kernel.org; dmarc=permerror header.from=codethink.co.uk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=F6hWceDsN57cDKIAse6uJBxtRkC8CMES0B6dF8ZKeNo=; b=n5KCacf5jBbPLBUnt4Jf4l2iz
-	7BQdeDG230H6kiKL1yEta/mmcuT36pGrOo2SR4wp+2LM9zIwyrKfXa0J5O0uuU8TMDO9rzx7zNbVW
-	VJiYs2/2SZ5X3l80c4HlbfsF2UtOx7NizFd6PMzOGG+QwPveNpVJFIZbs/AuEo1K4K9W5kRdh0GFe
-	KLzbuFFAvvHA4hD+E34U4SbLz0VJXFr4OybnZwjbzZp31KuWHvylU7RWcS0DkpI5nPp2apmPbIvHI
-	qsvw/75khv6RQMJoyADvVS6Rapqjoqm780ds7221v/fEsi6b5vAq79VknAbMs0lf1QUSAPsgVhU8n
-	n1nM0i6Ug==;
+	 bh=RPitGRBW7/veY8TZE9/bocR6JF03AOWauLjR6bDg4nM=; b=ppByBGWn34FGWiXlMDGu2gAEG
+	c5BefeaCVgOxua8GoSic4S6Pw10Pz0oqJw0gFcKHLOdwJ+eYySJdcNBhYnXIYY8GFNCFolkjIyANX
+	CZeRokGz3TjgOq8IykwicpFo8XyCsdwJ7Oi1yUuQ8ghkZLauq8RcW0uJ5CUEiT07q8uWskptJsS46
+	IRrtxjCTrKQbaJsA8P6ybea+csU0ZXxpyTO4ICW/IPR3buxaRazIYaPdLPE3QxcG9irrcHW354S+A
+	+pOHwt94Bbge9z3CNZJqaRpH6fnFMDXeCUAbJIIctHel3BPKmEJGDpizTJQZicDH+U346aOz5eQBg
+	sVSEt79qw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ka1Cc-0007Yi-C4; Tue, 03 Nov 2020 18:38:42 +0000
-Received: from mail-il1-x143.google.com ([2607:f8b0:4864:20::143])
+	id 1ka1D8-0007fK-6O; Tue, 03 Nov 2020 18:39:14 +0000
+Received: from imap2.colo.codethink.co.uk ([78.40.148.184])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ka1Ca-0007Vz-6g
- for linux-riscv@lists.infradead.org; Tue, 03 Nov 2020 18:38:41 +0000
-Received: by mail-il1-x143.google.com with SMTP id q1so17036668ilt.6
- for <linux-riscv@lists.infradead.org>; Tue, 03 Nov 2020 10:38:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=isZW9UVRWMUdUxodMEQrPHM1tf21oSlSUVW3kI8aBBo=;
- b=SPBvOimS59fQpOncR96IiIRDP3yFCHyir2PmoQOcNBv1nA0ac/tsGYlF9nSpHbLlY4
- RQxbetSpbbDR8g+jOMYH7C/ZhD0ijLXbY6j4+4jM2Qtu5BVjU2ARNX4PG7PTf6HY+W+5
- c5P8Dy7kQvIMcHlWiagl6v+fXAl5Dl8kGsVYI=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=isZW9UVRWMUdUxodMEQrPHM1tf21oSlSUVW3kI8aBBo=;
- b=HFN6iroldnVyhY9HSbioTZjaveel6lgQ4x/Ows33fflFs0AYcKM+L1THx82x9rgVjB
- bO+U/K0Y7xhJLiNyoybjNy9a1y2Kqt98DHXSu+cP/QJjCDAEJQVehclnUVIzD0nemt37
- VPr1dJ+qLRMsDURT/Z/Wp5GkXo1qSHVA5PmBZJue+1Kwb3HQnbfiM7DDZ3rwRVroHOBI
- NQJ+2+eQniEjPcL/Yf5k7A9+v63jpO7wnYDuvAwFeTbYfNzS+2c7p7Xv/h3lMUOg5bq1
- lRXWFEOZpGe2wdsRR54I7E8NVI7CbeqML+OA56Ir4XTPBUUg0GzMzbjoJnQWzpwxfpx9
- 9LYw==
-X-Gm-Message-State: AOAM5334wgHwYxT5rWDe69+PORbwtN6dpTbgvMQSTz0u/CXsbItxMp3F
- hkFhhshNmAF5ysNp2eVwCrijf+j0l9gMRjypYFdO
-X-Google-Smtp-Source: ABdhPJwP/4HvNurgeeX8oFZiCl1iSoi5erFepZ6/ponAvMH88+iqv0up8nMbyaDLWn5Niqr5+HH/Ks/yoC8t4gZnhD4=
-X-Received: by 2002:a92:512:: with SMTP id q18mr15048300ile.147.1604428715567; 
- Tue, 03 Nov 2020 10:38:35 -0800 (PST)
-MIME-Version: 1.0
+ id 1ka1D6-0007es-4d
+ for linux-riscv@lists.infradead.org; Tue, 03 Nov 2020 18:39:13 +0000
+Received: from cpc79921-stkp12-2-0-cust288.10-2.cable.virginm.net
+ ([86.16.139.33] helo=[192.168.0.10])
+ by imap2.colo.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
+ id 1ka1D4-0001Og-J3; Tue, 03 Nov 2020 18:39:10 +0000
+Subject: Re: [RFC PATCH 2/3] RISC-V: Initial DTS for Microchip ICICLE board
+To: Atish Patra <atishp@atishpatra.org>
 References: <20201028232759.1928479-1-atish.patra@wdc.com>
  <20201028232759.1928479-3-atish.patra@wdc.com>
- <CAAhSdy0pW8AFCDtFkEO_4zjg8Exp+XTb09AjhErdX9u-Jw3OuQ@mail.gmail.com>
- <CAEUhbmUm6EyP33FU1n4LhEk-xcBtR13-xS+Tpt76ug1HQv8CEg@mail.gmail.com>
- <e9bad05c-db34-ba2c-df5c-ff2f7f53e15b@microchip.com>
-In-Reply-To: <e9bad05c-db34-ba2c-df5c-ff2f7f53e15b@microchip.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Tue, 3 Nov 2020 10:38:23 -0800
-Message-ID: <CAOnJCULkC65FgOakjPgoACdpiQFWTiEPCox3ayMWWZwVa91fVA@mail.gmail.com>
-Subject: Re: [RFC PATCH 2/3] RISC-V: Initial DTS for Microchip ICICLE board
-To: Cyril.Jean@microchip.com
+ <41f1248b-78c6-bac1-410b-9e222368c5f6@codethink.co.uk>
+ <CAOnJCUJhQ=Zv0S4iCK4CDzQr_dfkw3J6ycdM=p6=5B2_sL1Ekg@mail.gmail.com>
+ <2d7cc829-5df6-6b94-4c8f-9bae6080444e@codethink.co.uk>
+ <CAOnJCULejyF9xyLk5M0TXqW_=nn0KM5aE8nhK+1h0Xayd2pKUg@mail.gmail.com>
+ <fbe404b5-3bb1-dd00-e558-e4a55960b767@microchip.com>
+ <fe079b4a-5410-5cc8-3f5e-8a95b573078a@codethink.co.uk>
+ <CAOnJCUKH77XDymG+jAUYHP+5TC2aabTR4f8jF6s6FqqQNR=_CQ@mail.gmail.com>
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+Organization: Codethink Limited.
+Message-ID: <22800ecc-a91b-ee3c-4717-4ee8802f31a2@codethink.co.uk>
+Date: Tue, 3 Nov 2020 18:39:09 +0000
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.12.0
+MIME-Version: 1.0
+In-Reply-To: <CAOnJCUKH77XDymG+jAUYHP+5TC2aabTR4f8jF6s6FqqQNR=_CQ@mail.gmail.com>
+Content-Language: en-GB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201103_133840_324918_6BDE1C07 
-X-CRM114-Status: GOOD (  16.66  )
+X-CRM114-CacheID: sfid-20201103_133912_217539_668AC53C 
+X-CRM114-Status: GOOD (  25.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -91,67 +76,81 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
- Daire McNamara <Daire.McNamara@microchip.com>,
- Anup Patel <anup@brainfault.org>, Anup Patel <anup.patel@wdc.com>,
+ Cyril.Jean@microchip.com, Daire McNamara <Daire.McNamara@microchip.com>,
+ Anup Patel <anup.patel@wdc.com>,
  "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
  Atish Patra <atish.patra@wdc.com>, Rob Herring <robh+dt@kernel.org>,
  Alistair Francis <alistair.francis@wdc.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv <linux-riscv@lists.infradead.org>, Bin Meng <bmeng.cn@gmail.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
  Padmarao Begari <Padmarao.Begari@microchip.com>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 3, 2020 at 10:19 AM <Cyril.Jean@microchip.com> wrote:
->
-> On 11/3/20 10:00 AM, Bin Meng wrote:
-> > EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> >
-> > On Fri, Oct 30, 2020 at 5:08 PM Anup Patel <anup@brainfault.org> wrote:
-> >> On Thu, Oct 29, 2020 at 4:58 AM Atish Patra <atish.patra@wdc.com> wrote:
-> >>> Add initial DTS for Microchip ICICLE board having only
-> >>> essential devcies (clocks, sdhci, ethernet, serial, etc).
-> >>>
-> >>> Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> >>> ---
-> >>>   arch/riscv/boot/dts/Makefile                  |   1 +
-> >>>   arch/riscv/boot/dts/microchip/Makefile        |   2 +
-> >>>   .../microchip/microchip-icicle-kit-a000.dts   | 313 ++++++++++++++++++
-> >> I suggest we split this DTS into two parts:
-> >> 1. SOC (microchip-polarfire.dtsi)
-> >> 2. Board (microchip-icicle-kit-a000.dts)
-> > I also doubt what is the correct board name. I suspect the -a000 comes
-> > from the SiFive board name convention, but does not apply to the
-> > Icicle Kit board.
-> >
-> > @Cyril, please confirm.
-> >
-> Correct. Sorry Padmarao, I missed that one.
->
+On 03/11/2020 18:36, Atish Patra wrote:
+> On Tue, Nov 3, 2020 at 10:28 AM Ben Dooks <ben.dooks@codethink.co.uk> wrote:
+>>
+>> On 03/11/2020 18:10, Cyril.Jean@microchip.com wrote:
+>>> On 11/3/20 3:07 PM, Atish Patra wrote:
+>>>> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+>>>>
+>>>> On Fri, Oct 30, 2020 at 2:20 PM Ben Dooks <ben.dooks@codethink.co.uk> wrote:
+>>
+>> ,snip[
+>>
+>>>>>> @Cyril : Can we enable both eMMC & sdcard at the same time ?
+>>>>> I would put /both/ in but only enable the one in use for the moment.
+>>>>> Our boards are booting of eMMC as supplied, so this isn't going to work
+>>>>> as well. The eMMC is 8bit wide, and thus is only delivering 11MB/sec
+>>>>> instead of 22MB/sec. This performance is still not great, but losing
+>>>>> half the data-rate is just not good.
+>>>>>
+>>>> I am not sure what should be enabled by default. Updating sdcard is much
+>>>> easier than eMMC card and we use that approach.
+>>>>
+>>>> @Cyril: Is there a way that we can enable both ?
+>>>>
+>>> Yes, we can enable both but this requires a modification to the FPGA
+>>> design. One of the guys prototyped this while I was away. We will move
+>>> this along. This will require reprogramming the FPGA with a new design
+>>> and HSS version.
+>>>
+>>> Regards,
+>>>
+>>> Cyril.
+>>
+>> I either missed or couldn't find a way of forcing the boot mode to be
+>> from the SD slot. Have I missed something? At the moment we'd like to
+>> have more storage available as the ~7G free on the eMMC is not enough.
+>>
+> 
+> I use tftpboot to load the kernel & DT from the network. SD card is
+> enabled in this DT and Linux
+> kernel uses SD slot instead of eMMC.
+> 
+> To summarize, eMMC is used for HSS & U-Boot while SD card is used for
+> Linux which makes
+> more storage available to Linux.
+> 
+> IMO, we should enable the sdcard for Linux DT until updated FPGA
+> design & HSS is available.
 
-Ok. I picked that one from U-Boot. What should be the correct board
-name in that case ?
+Interesting as for me the default is for Linux to use the eMMC as
+well. I can't see any way for forcing the selection lines in the
+DT to say eMMC vs SD.
 
-microchip-pfsoc-icicle-kit ?
-
->
-> Regards,
->
-> Cyril.
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
+If there is a way of controlling the selection lines then it might
+be possible to have both cards enabled with a bus selection MUX in
+software.
 
 
 -- 
-Regards,
-Atish
+Ben Dooks				http://www.codethink.co.uk/
+Senior Engineer				Codethink - Providing Genius
+
+https://www.codethink.co.uk/privacy.html
 
 _______________________________________________
 linux-riscv mailing list
