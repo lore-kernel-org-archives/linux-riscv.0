@@ -2,23 +2,22 @@ Return-Path: <SRS0=g6PI=EJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-11.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,NICE_REPLY_A,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A43BEC2D0A3
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 10:12:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C990EC388F7
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 11:00:11 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3A976206B5
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 10:12:42 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 59476223BD
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 11:00:11 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WbsHZXOt";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=redhat.com header.i=@redhat.com header.b="GNa/9Cyg"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3A976206B5
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="QgTKpUSQ"
+Authentication-Results: mail.kernel.org; dmarc=permerror header.from=codethink.co.uk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
@@ -26,63 +25,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
 	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=8e4UbF8jaVSRQ4or8vNBEcIwzBJZBXpR3BuUxGzAVR8=; b=WbsHZXOtXrMM3uASb5Fc57Eil
-	GZuWRaOOijDprtJ/TYmgNP1l1D53ZT6bHqeGWWkLpY/RRMtdx/Y6emlvqKa1Up6exkb30hyIU4ChY
-	hJ3shN1QrlvmKsy/+PkHx4oEojEoMEq9szaA7UDAqiNwZcf/ypvKxKawtjixAAMxQSjay4mgcM0PV
-	rZkQv1syCjSHLnyuEoNRClblXDITUGQawKf8HYcfh4xOS9suXIK+zGE4Vi1WxfsB+ch2v50+7Rrct
-	+/h4vNM598n/dIovs5tNmSwp2RhKsIVkDsDB0TzziJbwSnjJfJRLdlP1lm1fUSfVzyTB8rmTWdZbH
-	2+sMDMNVA==;
+	 bh=SEk53nP7dPo0cXEbOf3jT0B6Y0SaLSa1M4WSfxtrTaw=; b=QgTKpUSQBzdfWEigJdddeTE6d
+	2uS9E7c2lYwuA2c+ZgfzqaFsxl57e301KvRX7NtbPlS6QmBvhHCf+tiQIirJds0fcSpiLW8ZU3Zu/
+	AhYCrfWk6eL8IwDnlCy1Pv5rOphEVQQyAEfQqiNOpMRhBCZqTF7C20mpMXAwQLA8wyshezb0UkccT
+	KQjddF0bMGJNACUDyzn0C/OwDI32niPxbhCGmRbM3NC0RlUvhRSHkwMp+TicJatlwLicwribF+RYy
+	uIJVfiFI/VJV2fxcPehwibzq4sEROk1zxobYT3LKCc/f0SyZPMldm2NgleZ07zlXmVFiwe2LrNi89
+	h95I/9buA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kZtIe-0005CL-Sm; Tue, 03 Nov 2020 10:12:25 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([63.128.21.124])
+	id 1kZu2a-0001Xg-KR; Tue, 03 Nov 2020 10:59:52 +0000
+Received: from imap2.colo.codethink.co.uk ([78.40.148.184])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kZtIR-00055G-9S
- for linux-riscv@lists.infradead.org; Tue, 03 Nov 2020 10:12:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1604398329;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=OyipNVQSi+6EWMMakyEP0aw5V3oxIqNV8RP/zduqoUw=;
- b=GNa/9Cygvl4mUZcGn7V7OtWZ6w8d4PuD4m+FHGDrOVFBMKqurcOe9YTmT0AQ+yZNSJjHk3
- Vra/tNN+2dbcnohmTsjObAJiPL40+W45ireLES3gNXRyBu5KSfPCWAdaigxIEP5m5hQSWO
- lmbviLNsQlNizkBtTFZ/0RqbcYir2mY=
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-270-LbFmUSJyMSGOd-g7tICDgg-1; Tue, 03 Nov 2020 05:12:05 -0500
-X-MC-Unique: LbFmUSJyMSGOd-g7tICDgg-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com
- [10.5.11.14])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 5B23E186840C;
- Tue,  3 Nov 2020 10:12:00 +0000 (UTC)
-Received: from [10.36.115.7] (ovpn-115-7.ams2.redhat.com [10.36.115.7])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 771815D9CC;
- Tue,  3 Nov 2020 10:11:52 +0000 (UTC)
-Subject: Re: [PATCH v6 0/6] mm: introduce memfd_secret system call to create
- "secret" memory areas
-To: Mike Rapoport <rppt@kernel.org>
-References: <20200924132904.1391-1-rppt@kernel.org>
- <9c38ac3b-c677-6a87-ce82-ec53b69eaf71@redhat.com>
- <20201102174308.GF4879@kernel.org>
- <d4cb2c87-4744-3929-cedd-2be78625a741@redhat.com>
- <20201103095247.GH4879@kernel.org>
-From: David Hildenbrand <david@redhat.com>
-Organization: Red Hat GmbH
-Message-ID: <5709dadf-81c6-5b40-93d4-fbef94d5aad8@redhat.com>
-Date: Tue, 3 Nov 2020 11:11:51 +0100
+ id 1kZu2U-0001WE-3H
+ for linux-riscv@lists.infradead.org; Tue, 03 Nov 2020 10:59:47 +0000
+Received: from cpc79921-stkp12-2-0-cust288.10-2.cable.virginm.net
+ ([86.16.139.33] helo=[192.168.0.10])
+ by imap2.colo.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
+ id 1kZu2J-00035F-Ll; Tue, 03 Nov 2020 10:59:35 +0000
+Subject: Re: [RFC PATCH 2/3] RISC-V: Initial DTS for Microchip ICICLE board
+To: Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>
+References: <20201028232759.1928479-1-atish.patra@wdc.com>
+ <20201028232759.1928479-3-atish.patra@wdc.com>
+ <CAAhSdy0pW8AFCDtFkEO_4zjg8Exp+XTb09AjhErdX9u-Jw3OuQ@mail.gmail.com>
+ <CAOnJCUKCbkZVGX5Rjputs9QQAHCvH6Fikt7kVGsyCkNjbdMv=Q@mail.gmail.com>
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+Organization: Codethink Limited.
+Message-ID: <734904fe-975a-5908-d08c-266a5049deac@codethink.co.uk>
+Date: Tue, 3 Nov 2020 10:59:34 +0000
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.6.0
+ Thunderbird/68.12.0
 MIME-Version: 1.0
-In-Reply-To: <20201103095247.GH4879@kernel.org>
-Content-Language: en-US
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
+In-Reply-To: <CAOnJCUKCbkZVGX5Rjputs9QQAHCvH6Fikt7kVGsyCkNjbdMv=Q@mail.gmail.com>
+Content-Language: en-GB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201103_051211_598424_5B02AB28 
-X-CRM114-Status: GOOD (  24.30  )
+X-CRM114-CacheID: sfid-20201103_055946_386714_377E583A 
+X-CRM114-Status: GOOD (  16.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -94,90 +71,310 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
- Will Deacon <will@kernel.org>, linux-kselftest@vger.kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, Christopher Lameter <cl@linux.com>,
- Idan Yaniv <idan.yaniv@ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
- Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
- Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
- Shuah Khan <shuah@kernel.org>, x86@kernel.org,
- Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
- Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
- Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
- Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
- linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-fsdevel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>
+Cc: devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
+ Cyril.Jean@microchip.com, Daire McNamara <daire.mcnamara@microchip.com>,
+ Anup Patel <anup.patel@wdc.com>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Atish Patra <atish.patra@wdc.com>, Rob Herring <robh+dt@kernel.org>,
+ Alistair Francis <alistair.francis@wdc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Padmarao Begari <padmarao.begari@microchip.com>
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 03.11.20 10:52, Mike Rapoport wrote:
-> On Mon, Nov 02, 2020 at 06:51:09PM +0100, David Hildenbrand wrote:
->>>> Assume you have a system with quite some ZONE_MOVABLE memory (esp. in
->>>> virtualized environments), eating up a significant amount of !ZONE_MOVABLE
->>>> memory dynamically at runtime can lead to non-obvious issues. It looks like
->>>> you have plenty of free memory, but the kernel might still OOM when trying
->>>> to do kernel allocations e.g., for pagetables. With CMA we at least know
->>>> what we're dealing with - it behaves like ZONE_MOVABLE except for the owner
->>>> that can place unmovable pages there. We can use it to compute statically
->>>> the amount of ZONE_MOVABLE memory we can have in the system without doing
->>>> harm to the system.
+On 30/10/2020 20:27, Atish Patra wrote:
+> On Fri, Oct 30, 2020 at 2:05 AM Anup Patel <anup@brainfault.org> wrote:
+>>
+>> On Thu, Oct 29, 2020 at 4:58 AM Atish Patra <atish.patra@wdc.com> wrote:
 >>>
->>> Why would you say that secretmem allocates from !ZONE_MOVABLE?
->>> If we put boot time reservations aside, the memory allocation for
->>> secretmem follows the same rules as the memory allocations for any file
->>> descriptor. That means we allocate memory with GFP_HIGHUSER_MOVABLE.
->>
->> Oh, okay - I missed that! I had the impression that pages are unmovable and
->> allocating from ZONE_MOVABLE would be a violation of that?
->>
->>> After the allocation the memory indeed becomes unmovable but it's not
->>> like we are eating memory from other zones here.
->>
->> ... and here you have your problem. That's a no-no. We only allow it in very
->> special cases where it can't be avoided - e.g., vfio having to pin guest
->> memory when passing through memory to VMs.
->>
->> Hotplug memory, online it to ZONE_MOVABLE. Allocate secretmem. Try to unplug
->> the memory again -> endless loop in offline_pages().
->>
->> Or have a CMA area that gets used with GFP_HIGHUSER_MOVABLE. Allocate
->> secretmem. The owner of the area tries to allocate memory - always fails.
->> Purpose of CMA destroyed.
->>
+>>> Add initial DTS for Microchip ICICLE board having only
+>>> essential devcies (clocks, sdhci, ethernet, serial, etc).
 >>>
->>>> Ideally, we would want to support page migration/compaction and allow for
->>>> allocation from ZONE_MOVABLE as well. Would involve temporarily mapping,
->>>> copying, unmapping. Sounds feasible, but not sure which roadblocks we would
->>>> find on the way.
->>>
->>> We can support migration/compaction with temporary mapping. The first
->>> roadblock I've hit there was that migration allocates 4K destination
->>> page and if we use it in secret map we are back to scrambling the direct
->>> map into 4K pieces. It still sounds feasible but not as trivial :)
+>>> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+>>> ---
+>>>   arch/riscv/boot/dts/Makefile                  |   1 +
+>>>   arch/riscv/boot/dts/microchip/Makefile        |   2 +
+>>>   .../microchip/microchip-icicle-kit-a000.dts   | 313 ++++++++++++++++++
 >>
->> That sounds like the proper way for me to do it then.
->   
-> Although migration of secretmem pages sounds feasible now, there maybe
-> other issues I didn't see because I'm not very familiar with
-> migration/compaction code.
+>> I suggest we split this DTS into two parts:
+>> 1. SOC (microchip-polarfire.dtsi)
+>> 2. Board (microchip-icicle-kit-a000.dts)
+>>
+>> This will be much cleaner and aligned with what is done
+>> on other architectures.
+>>
+> 
+> Sure. I will do that in v2.
+> 
+>>>   3 files changed, 316 insertions(+)
+>>>   create mode 100644 arch/riscv/boot/dts/microchip/Makefile
+>>>   create mode 100644 arch/riscv/boot/dts/microchip/microchip-icicle-kit-a000.dts
+>>>
+>>> diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
+>>> index ca1f8cbd78c0..3ea94ea0a18a 100644
+>>> --- a/arch/riscv/boot/dts/Makefile
+>>> +++ b/arch/riscv/boot/dts/Makefile
+>>> @@ -1,5 +1,6 @@
+>>>   # SPDX-License-Identifier: GPL-2.0
+>>>   subdir-y += sifive
+>>>   subdir-y += kendryte
+>>> +subdir-y += microchip
+>>>
+>>>   obj-$(CONFIG_BUILTIN_DTB) := $(addsuffix /, $(subdir-y))
+>>> diff --git a/arch/riscv/boot/dts/microchip/Makefile b/arch/riscv/boot/dts/microchip/Makefile
+>>> new file mode 100644
+>>> index 000000000000..55ad77521304
+>>> --- /dev/null
+>>> +++ b/arch/riscv/boot/dts/microchip/Makefile
+>>> @@ -0,0 +1,2 @@
+>>> +# SPDX-License-Identifier: GPL-2.0
+>>> +dtb-$(CONFIG_SOC_MICROCHIP_POLARFIRE) += microchip-icicle-kit-a000.dtb
+>>> diff --git a/arch/riscv/boot/dts/microchip/microchip-icicle-kit-a000.dts b/arch/riscv/boot/dts/microchip/microchip-icicle-kit-a000.dts
+>>> new file mode 100644
+>>> index 000000000000..5848920af55c
+>>> --- /dev/null
+>>> +++ b/arch/riscv/boot/dts/microchip/microchip-icicle-kit-a000.dts
+>>> @@ -0,0 +1,313 @@
+>>> +// SPDX-License-Identifier: GPL-2.0+
+>>> +/* Copyright (c) 2020 Microchip Technology Inc */
+>>> +
+>>> +/dts-v1/;
+>>> +
+>>> +/* Clock frequency (in Hz) of the rtcclk */
+>>> +#define RTCCLK_FREQ            1000000
+>>> +
+>>> +/ {
+>>> +       #address-cells = <2>;
+>>> +       #size-cells = <2>;
+>>> +       model = "Microchip PolarFire-SoC";
+>>> +       compatible = "microchip,polarfire-soc";
+>>> +
+>>> +       chosen {
+>>> +               stdout-path = &serial0;
+>>> +       };
+>>> +
+>>> +       cpus {
+>>> +               #address-cells = <1>;
+>>> +               #size-cells = <0>;
+>>> +               timebase-frequency = <RTCCLK_FREQ>;
+>>> +
+>>> +               cpu@0 {
+>>> +                       clock-frequency = <0>;
+>>> +                       compatible = "sifive,rocket0", "riscv";
+>>> +                       device_type = "cpu";
+>>> +                       i-cache-block-size = <64>;
+>>> +                       i-cache-sets = <128>;
+>>> +                       i-cache-size = <16384>;
+>>> +                       reg = <0>;
+>>> +                       riscv,isa = "rv64imac";
+>>> +                       status = "disabled";
+>>> +
+>>> +                       cpu0_intc: interrupt-controller {
+>>> +                               #interrupt-cells = <1>;
+>>> +                               compatible = "riscv,cpu-intc";
+>>> +                               interrupt-controller;
+>>> +                       };
+>>> +               };
+>>> +
+>>> +               cpu@1 {
+>>> +                       clock-frequency = <0>;
+>>> +                       compatible = "sifive,rocket0", "riscv";
+>>> +                       d-cache-block-size = <64>;
+>>> +                       d-cache-sets = <64>;
+>>> +                       d-cache-size = <32768>;
+>>> +                       d-tlb-sets = <1>;
+>>> +                       d-tlb-size = <32>;
+>>> +                       device_type = "cpu";
+>>> +                       i-cache-block-size = <64>;
+>>> +                       i-cache-sets = <64>;
+>>> +                       i-cache-size = <32768>;
+>>> +                       i-tlb-sets = <1>;
+>>> +                       i-tlb-size = <32>;
+>>> +                       mmu-type = "riscv,sv39";
+>>> +                       reg = <1>;
+>>> +                       riscv,isa = "rv64imafdc";
+>>> +                       tlb-split;
+>>> +                       status = "okay";
+>>> +
+>>> +                       cpu1_intc: interrupt-controller {
+>>> +                               #interrupt-cells = <1>;
+>>> +                               compatible = "riscv,cpu-intc";
+>>> +                               interrupt-controller;
+>>> +                       };
+>>> +               };
+>>> +
+>>> +               cpu@2 {
+>>> +                       clock-frequency = <0>;
+>>> +                       compatible = "sifive,rocket0", "riscv";
+>>> +                       d-cache-block-size = <64>;
+>>> +                       d-cache-sets = <64>;
+>>> +                       d-cache-size = <32768>;
+>>> +                       d-tlb-sets = <1>;
+>>> +                       d-tlb-size = <32>;
+>>> +                       device_type = "cpu";
+>>> +                       i-cache-block-size = <64>;
+>>> +                       i-cache-sets = <64>;
+>>> +                       i-cache-size = <32768>;
+>>> +                       i-tlb-sets = <1>;
+>>> +                       i-tlb-size = <32>;
+>>> +                       mmu-type = "riscv,sv39";
+>>> +                       reg = <2>;
+>>> +                       riscv,isa = "rv64imafdc";
+>>> +                       tlb-split;
+>>> +                       status = "okay";
+>>> +
+>>> +                       cpu2_intc: interrupt-controller {
+>>> +                               #interrupt-cells = <1>;
+>>> +                               compatible = "riscv,cpu-intc";
+>>> +                               interrupt-controller;
+>>> +                       };
+>>> +               };
+>>> +
+>>> +               cpu@3 {
+>>> +                       clock-frequency = <0>;
+>>> +                       compatible = "sifive,rocket0", "riscv";
+>>> +                       d-cache-block-size = <64>;
+>>> +                       d-cache-sets = <64>;
+>>> +                       d-cache-size = <32768>;
+>>> +                       d-tlb-sets = <1>;
+>>> +                       d-tlb-size = <32>;
+>>> +                       device_type = "cpu";
+>>> +                       i-cache-block-size = <64>;
+>>> +                       i-cache-sets = <64>;
+>>> +                       i-cache-size = <32768>;
+>>> +                       i-tlb-sets = <1>;
+>>> +                       i-tlb-size = <32>;
+>>> +                       mmu-type = "riscv,sv39";
+>>> +                       reg = <3>;
+>>> +                       riscv,isa = "rv64imafdc";
+>>> +                       tlb-split;
+>>> +                       status = "okay";
+>>> +
+>>> +                       cpu3_intc: interrupt-controller {
+>>> +                               #interrupt-cells = <1>;
+>>> +                               compatible = "riscv,cpu-intc";
+>>> +                               interrupt-controller;
+>>> +                       };
+>>> +               };
+>>> +
+>>> +               cpu@4 {
+>>> +                       clock-frequency = <0>;
+>>> +                       compatible = "sifive,rocket0", "riscv";
+>>> +                       d-cache-block-size = <64>;
+>>> +                       d-cache-sets = <64>;
+>>> +                       d-cache-size = <32768>;
+>>> +                       d-tlb-sets = <1>;
+>>> +                       d-tlb-size = <32>;
+>>> +                       device_type = "cpu";
+>>> +                       i-cache-block-size = <64>;
+>>> +                       i-cache-sets = <64>;
+>>> +                       i-cache-size = <32768>;
+>>> +                       i-tlb-sets = <1>;
+>>> +                       i-tlb-size = <32>;
+>>> +                       mmu-type = "riscv,sv39";
+>>> +                       reg = <4>;
+>>> +                       riscv,isa = "rv64imafdc";
+>>> +                       tlb-split;
+>>> +                       status = "okay";
+>>> +                       cpu4_intc: interrupt-controller {
+>>> +                               #interrupt-cells = <1>;
+>>> +                               compatible = "riscv,cpu-intc";
+>>> +                               interrupt-controller;
+>>> +                       };
+>>> +               };
+>>> +       };
+>>> +
+>>> +       memory@80000000 {
+>>> +               device_type = "memory";
+>>> +               reg = <0x0 0x80000000 0x0 0x40000000>;
+>>> +               clocks = <&clkcfg 26>;
+>>> +       };
+>>> +
+>>> +       soc {
+>>> +               #address-cells = <2>;
+>>> +               #size-cells = <2>;
+>>> +               compatible = "simple-bus";
+>>> +               ranges;
+>>> +
+>>> +               cache-controller@2010000 {
+>>> +                       compatible = "sifive,fu540-c000-ccache", "cache";
+>>> +                       cache-block-size = <64>;
+>>> +                       cache-level = <2>;
+>>> +                       cache-sets = <1024>;
+>>> +                       cache-size = <2097152>;
+>>> +                       cache-unified;
+>>> +                       interrupt-parent = <&plic>;
+>>> +                       interrupts = <1 2 3>;
+>>> +                       reg = <0x0 0x2010000 0x0 0x1000>;
+>>> +               };
+>>> +
+>>> +               clint@2000000 {
+>>> +                       compatible = "riscv,clint0";
+>>> +                       reg = <0x0 0x2000000 0x0 0xC000>;
+>>> +                       interrupts-extended = <&cpu0_intc 3 &cpu0_intc 7
+>>> +                                               &cpu1_intc 3 &cpu1_intc 7
+>>> +                                               &cpu2_intc 3 &cpu2_intc 7
+>>> +                                               &cpu3_intc 3 &cpu3_intc 7
+>>> +                                               &cpu4_intc 3 &cpu4_intc 7>;
+>>> +               };
+>>> +
+>>> +               plic: interrupt-controller@c000000 {
+>>> +                       #interrupt-cells = <1>;
+>>> +                       compatible = "sifive,plic-1.0.0";
+>>> +                       reg = <0x0 0xc000000 0x0 0x4000000>;
+>>> +                       riscv,ndev = <53>;
+>>> +                       interrupt-controller;
+>>> +                       interrupts-extended = <&cpu0_intc 11
+>>> +                                       &cpu1_intc 11 &cpu1_intc 9
+>>> +                                       &cpu2_intc 11 &cpu2_intc 9
+>>> +                                       &cpu3_intc 11 &cpu3_intc 9
+>>> +                                       &cpu4_intc 11 &cpu4_intc 9>;
+>>> +               };
+>>> +
+>>> +               dma@3000000 {
+>>> +                       compatible = "sifive,fu540-c000-pdma";
+>>> +                       reg = <0x0 0x3000000 0x0 0x8000>;
+>>> +                       interrupt-parent = <&plic>;
+>>> +                       interrupts = <23 24 25 26 27 28 29 30>;
+>>> +                       #dma-cells = <1>;
+>>> +               };
+>>> +
+>>> +               refclk: refclk {
+>>> +                       compatible = "fixed-clock";
+>>> +                       #clock-cells = <0>;
+>>> +                       clock-frequency = <600000000>;
+>>> +                       clock-output-names = "msspllclk";
+>>> +               };
+>>> +
+>>> +               clkcfg: clkcfg@20002000 {
+>>> +                       compatible = "microchip,pfsoc-clkcfg";
+>>> +                       reg = <0x0 0x20002000 0x0 0x1000>;
+>>> +                       reg-names = "mss_sysreg";
+>>> +                       clocks = <&refclk>;
+>>> +                       #clock-cells = <1>;
+>>> +                       clock-output-names = "cpuclk", "axiclk", "ahbclk", "ENVMclk", "MAC0clk", "MAC1clk", "MMCclk", "TIMERclk", "MMUART0clk", "MMUART1clk", "MMUART2clk", "MMUART3clk", "MMUART4clk", "SPI0clk", "SPI1clk", "I2C0clk", "I2C1clk", "CAN0clk", "CAN1clk", "USBclk", "RESERVED", "RTCclk", "QSPIclk", "GPIO0clk", "GPIO1clk", "GPIO2clk", "DDRCclk", "FIC0clk", "FIC1clk", "FIC2clk", "FIC3clk", "ATHENAclk", "CFMclk";
+>>> +               };
+>>> +
 
-Migration of PMDs might also be feasible -  and it would be even 
-cleaner. But I agree that that might require more work and starting with 
-something simpler (!movable) is the right way to move forward.
+H ow about doing something like
+> 		clock-output-names = "cpuclk", "axiclk", "ahbclk", "ENVMclk", "MAC0clk", 	/* 0 -4 */
+> 				"MAC1clk", "MMCclk", "TIMERclk", "MMUART0clk", "MMUART1clk", /* 5-9 */
+
+this means we can easily work out what clocks are in which index
+
+As per the previos email, I'd leave these all populated as coming back 
+and adding ones later is just going to be a pain with merge conflicts.
+
+
 
 -- 
-Thanks,
+Ben Dooks				http://www.codethink.co.uk/
+Senior Engineer				Codethink - Providing Genius
 
-David / dhildenb
-
+https://www.codethink.co.uk/privacy.html
 
 _______________________________________________
 linux-riscv mailing list
