@@ -2,71 +2,94 @@ Return-Path: <SRS0=g6PI=EJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-6.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7D5CAC2D0A3
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 13:52:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A30A4C2D0A3
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 14:39:47 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0EFDC21D91
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 13:52:55 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 40A16223BF
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 14:39:47 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="QMRxIyS4"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0EFDC21D91
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=jauu.net
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="bmZrTcbT";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=shutemov-name.20150623.gappssmtp.com header.i=@shutemov-name.20150623.gappssmtp.com header.b="tYRtCsCJ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 40A16223BF
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=shutemov.name
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Subject:References:In-Reply-To:
-	Message-ID:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=GMRnJwwmmfDY6zE+8458lMlQMMQgzqM5IVTPlMBeLRs=; b=QMRxIyS47KW85tROBSw985PrL
-	ws4sbRHR7V5awnwNPRG7BVkROLTvbvgXO21/EgVvP/V3gPL/hEh3uZuK3D4vuJK7NNdQkSZ282KlX
-	tEgKhaczFtB03n5kT/fuVvvS0T/6GEhpzeIyhk+1tAZZ1CVrm7pVQNBKvzjQW8yJch+LJjFF8wDU9
-	xm+JDbvx4r7RlOBoy5RqA0ntB/qCeRhjlb/KE0Lg3QZOO2/vbOhqPSq1D47zbFonw8w4kJ2jNsQ2U
-	M09b9r0qjq/Mv+ixWVGi8Edl7AYl5jjfGtadLFs41Vgx9C5zvF2+MgkFgLm0R7VquhSWU8h2HgHKq
-	1gSIZwP+A==;
+	 bh=KGdYPzBnvLMEpivBILU5zAOFupq2rTwvqq2G3Q2aFvw=; b=bmZrTcbThXeIHWIVF/w1r+enN
+	rjY/HSHkls4Q/1j7114I1gBDHK1hIOjhRTnhfvuzU5xlmLJxfzjDgAPNQV9om+7ZftTfCGRw/bdaC
+	99frHA5SD+Yrk/1KhdXC1o6iiu8yEBDoasfx3aT0bWCCuWLIRmcCumZxV52e+u6yGaCVBHLfVohoZ
+	Rn+oJvpZwaSl9t6tR0KMonB3MOb5svljRg2dVUIFhaXFFLTzPdTPutVjfdpx3X0tzJCYypbX/fDOW
+	UHZA/rBV3ZhE3M0FAinfuJomAA8lGFUMq+jE8o/fWCRc5wu7IJMu3DmPRZYOFaafVEnE4UjFqmFhI
+	6w19ko58A==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kZwji-0000ES-00; Tue, 03 Nov 2020 13:52:34 +0000
-Received: from mout-p-202.mailbox.org ([80.241.56.172])
+	id 1kZxT7-000076-Sg; Tue, 03 Nov 2020 14:39:29 +0000
+Received: from mail-lj1-x243.google.com ([2a00:1450:4864:20::243])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kZwjb-0000BY-8L; Tue, 03 Nov 2020 13:52:28 +0000
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [80.241.60.241])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange ECDHE (P-384) server-signature RSA-PSS (4096 bits) server-digest
- SHA256) (No client certificate requested)
- by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4CQWS671PfzQkKw;
- Tue,  3 Nov 2020 14:52:22 +0100 (CET)
-X-Virus-Scanned: amavisd-new at heinlein-support.de
-Received: from smtp2.mailbox.org ([80.241.60.241])
- by spamfilter06.heinlein-hosting.de (spamfilter06.heinlein-hosting.de
- [80.241.56.125]) (amavisd-new, port 10030)
- with ESMTP id FlqcKCn97r9e; Tue,  3 Nov 2020 14:52:18 +0100 (CET)
-Date: Tue, 3 Nov 2020 14:52:14 +0100 (CET)
-From: Hagen Paul Pfeifer <hagen@jauu.net>
+ id 1kZxSw-0008W4-6M
+ for linux-riscv@lists.infradead.org; Tue, 03 Nov 2020 14:39:19 +0000
+Received: by mail-lj1-x243.google.com with SMTP id 2so19251295ljj.13
+ for <linux-riscv@lists.infradead.org>; Tue, 03 Nov 2020 06:39:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=shutemov-name.20150623.gappssmtp.com; s=20150623;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=M/CcLnAggfPJTPHCvJqAFAyQXrrFbGX8RqEWGTOIlRk=;
+ b=tYRtCsCJ97u7yAlrOFN203Mpt9jz/EvbuW4V+3hipSUNsR5M8ZDqWsq7efoMiN9R5c
+ nhVCnARjFr5alomHWUrG2S/QRxbOVwaEaiSQTgeF0uEgCJ7a2rbupEC/g2AUeshC9i6C
+ wIKR126viYncqhHiZROMnSmO9imaid0rNJepyxM6rr8Apn+RPbJ3qWs7P+ZnHrSgvOWA
+ QcXHZrEHzXM4SVCDzBK7zqXcUTu3T+G1dUvHRbLGUKs/I2DIfrL0bitkL+B4SCLYpFfX
+ lHpCGqsodauH4LxSQSOtDBLKGW1a7DHfcCp5nbfeol5ZCBBoivuqpYvLjRQisIJ68BoF
+ UMSA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=M/CcLnAggfPJTPHCvJqAFAyQXrrFbGX8RqEWGTOIlRk=;
+ b=qv2ZyKm1mr7ZOFMTRkxOhXxbYz/anL21DfTcPRe5WdJ6MaBEYQGuS97xKWccbtg3zb
+ vbYzcCdAaH3bhMAfwUPy4gcEL96y3NqQrCd1uEeb/OCzsppmhXw6An1wJeMsqVk+iWyK
+ fy7m4YJegG8AoIT6YNsVobKWcR/VCfIKKIyaj1lHhorsq/u6wxq3PBgHx7oVJBMT3TFl
+ 0p42eNncKTsVNZ8qc3tgMEE4AB1yo5HbDJnmooXjdGleSzraXhvEgLdHSk+ba1e724Sb
+ N0sNDnvRWOHDjl6QblRBu4GprdyfOovxiWZYNLo3Ux5FCcOF5yg2tW3bxGysY5RVaXV9
+ cBCw==
+X-Gm-Message-State: AOAM530LJywp9U84U9U9zc5vrFvY8CpovgDGV3Q+oH1RJA8IHqUXP896
+ 0fNRsh5itTwKN1apvqf1umfgBA==
+X-Google-Smtp-Source: ABdhPJz+L8qrHCJkzOuQS8/wvO1dQM/ksNE/UzgTA6Cx0Ac2GRFSZ5fX6eoakfcdH0CZnI4/h7s3ng==
+X-Received: by 2002:a2e:879a:: with SMTP id n26mr9115208lji.347.1604414356208; 
+ Tue, 03 Nov 2020 06:39:16 -0800 (PST)
+Received: from box.localdomain ([86.57.175.117])
+ by smtp.gmail.com with ESMTPSA id g27sm4334360ljl.91.2020.11.03.06.39.15
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 03 Nov 2020 06:39:15 -0800 (PST)
+Received: by box.localdomain (Postfix, from userid 1000)
+ id 65F1510231C; Tue,  3 Nov 2020 17:39:16 +0300 (+03)
+Date: Tue, 3 Nov 2020 17:39:16 +0300
+From: "Kirill A. Shutemov" <kirill@shutemov.name>
 To: Mike Rapoport <rppt@kernel.org>
-Message-ID: <1547601988.128687.1604411534845@office.mailbox.org>
-In-Reply-To: <20201102154028.GD4879@kernel.org>
-References: <20200924132904.1391-1-rppt@kernel.org>
- <20201101110935.GA4105325@laniakea> <20201102154028.GD4879@kernel.org>
-Subject: Re: [PATCH v6 0/6] mm: introduce memfd_secret system call to create
- "secret" memory areas
+Subject: Re: [PATCH v3 2/4] PM: hibernate: make direct map manipulations more
+ explicit
+Message-ID: <20201103143916.otz2o4h2dlmewn3h@box>
+References: <20201101170815.9795-1-rppt@kernel.org>
+ <20201101170815.9795-3-rppt@kernel.org>
+ <20201103110816.t6a3ebtgcm7mfogy@box>
+ <20201103121350.GI4879@kernel.org>
 MIME-Version: 1.0
-X-Priority: 3
-Importance: Normal
-X-MBO-SPAM-Probability: 
-X-Rspamd-Score: -0.65 / 15.00 / 15.00
-X-Rspamd-Queue-Id: D612C1723
-X-Rspamd-UID: 9101f0
+Content-Disposition: inline
+In-Reply-To: <20201103121350.GI4879@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201103_085227_575421_BB7EBFD3 
-X-CRM114-Status: GOOD (  18.78  )
+X-CRM114-CacheID: sfid-20201103_093918_470535_15CDE9B9 
+X-CRM114-Status: GOOD (  22.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -78,74 +101,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
- Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
+Cc: "Rafael J . Wysocki" <rafael.j.wysocki@intel.com>,
+ David Hildenbrand <david@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
  Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
- Will Deacon <will@kernel.org>, linux-kselftest@vger.kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, Christopher Lameter <cl@linux.com>,
- Idan Yaniv <idan.yaniv@ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
- Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
- Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
- Shuah Khan <shuah@kernel.org>, x86@kernel.org,
- Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
- Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
- Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
- Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Paul Mackerras <paulus@samba.org>, Pavel Machek <pavel@ucw.cz>,
+ "H. Peter Anvin" <hpa@zytor.com>, sparclinux@vger.kernel.org,
+ Christoph Lameter <cl@linux.com>, Will Deacon <will@kernel.org>,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ Michael Ellerman <mpe@ellerman.id.au>, x86@kernel.org,
+ Mike Rapoport <rppt@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@de.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Len Brown <len.brown@intel.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Vasily Gorbik <gor@linux.ibm.com>,
+ linux-pm@vger.kernel.org, Heiko Carstens <hca@linux.ibm.com>,
+ David Rientjes <rientjes@google.com>, Borislav Petkov <bp@alien8.de>,
  Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
- linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-fsdevel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>
+ Thomas Gleixner <tglx@linutronix.de>, Joonsoo Kim <iamjoonsoo.kim@lge.com>,
+ linux-arm-kernel@lists.infradead.org, "Rafael J. Wysocki" <rjw@rjwysocki.net>,
+ linux-kernel@vger.kernel.org, Pekka Enberg <penberg@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Andrew Morton <akpm@linux-foundation.org>,
+ "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>,
+ linuxppc-dev@lists.ozlabs.org, "David S. Miller" <davem@davemloft.net>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> On 11/02/2020 4:40 PM Mike Rapoport <rppt@kernel.org> wrote:
-
-> > Isn't memfd_secret currently *unnecessarily* designed to be a "one task
-> > feature"? memfd_secret fulfills exactly two (generic) features:
+On Tue, Nov 03, 2020 at 02:13:50PM +0200, Mike Rapoport wrote:
+> On Tue, Nov 03, 2020 at 02:08:16PM +0300, Kirill A. Shutemov wrote:
+> > On Sun, Nov 01, 2020 at 07:08:13PM +0200, Mike Rapoport wrote:
+> > > diff --git a/kernel/power/snapshot.c b/kernel/power/snapshot.c
+> > > index 46b1804c1ddf..054c8cce4236 100644
+> > > --- a/kernel/power/snapshot.c
+> > > +++ b/kernel/power/snapshot.c
+> > > @@ -76,6 +76,32 @@ static inline void hibernate_restore_protect_page(void *page_address) {}
+> > >  static inline void hibernate_restore_unprotect_page(void *page_address) {}
+> > >  #endif /* CONFIG_STRICT_KERNEL_RWX  && CONFIG_ARCH_HAS_SET_MEMORY */
+> > >  
+> > > +static inline void hibernate_map_page(struct page *page, int enable)
+> > > +{
+> > > +	if (IS_ENABLED(CONFIG_ARCH_HAS_SET_DIRECT_MAP)) {
+> > > +		unsigned long addr = (unsigned long)page_address(page);
+> > > +		int ret;
+> > > +
+> > > +		/*
+> > > +		 * This should not fail because remapping a page here means
+> > > +		 * that we only update protection bits in an existing PTE.
+> > > +		 * It is still worth to have WARN_ON() here if something
+> > > +		 * changes and this will no longer be the case.
+> > > +		 */
+> > > +		if (enable)
+> > > +			ret = set_direct_map_default_noflush(page);
+> > > +		else
+> > > +			ret = set_direct_map_invalid_noflush(page);
+> > > +
+> > > +		if (WARN_ON(ret))
 > > 
-> > - address space isolation from kernel (aka SECRET_EXCLUSIVE, not in kernel's
-> >   direct map) - hide from kernel, great
-> > - disabling processor's memory caches against speculative-execution vulnerabilities
-> >   (spectre and friends, aka SECRET_UNCACHED), also great
-> > 
-> > But, what about the following use-case: implementing a hardened IPC mechanism
-> > where even the kernel is not aware of any data and optionally via SECRET_UNCACHED
-> > even the hardware caches are bypassed! With the patches we are so close to
-> > achieving this.
-> > 
-> > How? Shared, SECRET_EXCLUSIVE and SECRET_UNCACHED mmaped pages for IPC
-> > involved tasks required to know this mapping (and memfd_secret fd). After IPC
-> > is done, tasks can copy sensitive data from IPC pages into memfd_secret()
-> > pages, un-sensitive data can be used/copied everywhere.
+> > _ONCE?
 > 
-> As long as the task share the file descriptor, they can share the
-> secretmem pages, pretty much like normal memfd.
+> I've changed it to pr_warn() after David said people enable panic on
+> warn in production kernels.
 
-Including process_vm_readv() and process_vm_writev()? Let's take a hypothetical
-"dbus-daemon-secure" service that receives data from process A and wants to
-copy/distribute it to data areas of N other processes. Much like dbus but without
-SOCK_DGRAM rather direct copy into secretmem/mmap pages (ring-buffer). Should be
-possible, right?
+pr_warn_once()? :P
 
-> > One missing piece is still the secure zeroization of the page(s) if the
-> > mapping is closed by last process to guarantee a secure cleanup. This can
-> > probably done as an general mmap feature, not coupled to memfd_secret() and
-> > can be done independently ("reverse" MAP_UNINITIALIZED feature).
-> 
-> There are "init_on_alloc" and "init_on_free" kernel parameters that
-> enable zeroing of the pages on alloc and on free globally.
-> Anyway, I'll add zeroing of the freed memory to secretmem.
-
-Great, this allows page-specific (thus runtime-performance-optimized) zeroing
-of secured pages. init_on_free lowers the performance to much and is not precice
-enough.
-
-Hagen
+-- 
+ Kirill A. Shutemov
 
 _______________________________________________
 linux-riscv mailing list
