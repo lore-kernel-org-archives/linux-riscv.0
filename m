@@ -8,17 +8,17 @@ X-Spam-Status: No, score=-12.5 required=3.0 tests=BAYES_00,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B501BC2D0A3
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 13:45:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 90193C2D0A3
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 13:45:45 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 39C4A22243
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 13:45:39 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 1C8E12224E
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 13:45:45 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="McKOTZTV";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="HUmeo8PK"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 39C4A22243
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="CsZpNIqO";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="WQlGQ9Jd"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1C8E12224E
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -27,65 +27,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=+jekvr7imq7i5DagEmyU4EmOCTF2TyM98MUzjuySQ0U=; b=McKOTZTVooVzjZ+GFJ7oZdnHy
-	6TEbCkC7VH+fr/TijDB2yfvUThOS0PBG/2s0tbPQ+8dfxDnddPurzjUpcA3HEJkp5zwqHyGSSZjtS
-	CCZ8+eneZGonNuSYXumNHfbrWp1NOzrlIltHhoWOpxN4cyfxsbv/DZXVBczRotmKEArpU5cVIJG6G
-	8gFiNCar9qUDlKMezX4OR7V4d3ERafTsJTWvMuwtnOXJG/MhvDnWFYBJjL7JwNENZDnW2n+TZZejp
-	XujMRlHaQ44p7j3z85nGk0tsy5v6lxc9vq4x0opts8aJLWqwAzY7fhfUoeLIWlyH6/g2Ht7Bj6EO4
-	FeGsR4Z1Q==;
+	 bh=O5STci+UU0ZGtHC4nrdkjEVMauQwQZ/C6OXOBnuLNAQ=; b=CsZpNIqOVlthVZakTXi8dwd8B
+	8OaW/AoBM0Z8xmIxWvvEvOqctKbz+1qTLQr6HFx7Lc5+34NCJUgFcB76S27YbKVeTFJpq98rTKL5j
+	kfaoAMFmPMliBsAkN0sKRjLz5vQvhI2VLQ8NIquHQiEtcJrris4vx9ix0B10MAe/E7ogi3aV3bBG7
+	vn4kXHWyhnNS+obEnMFpydH3FPSs3yLnPwZl5tnjNTarvD+hgv+7SvRX7lvxdhM6HN9yCZbI+sJZx
+	gRbU5RZNyvUnKRjHzY1yx4wQlgTX63UjYubULOZMCdMBY8efAS1R//k4J6PQnrzjk0cqlbK7w9Po9
+	MvbMZ7hTQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kZwce-0007SX-7p; Tue, 03 Nov 2020 13:45:16 +0000
+	id 1kZwco-0007YH-2U; Tue, 03 Nov 2020 13:45:26 +0000
 Received: from mail-qk1-x741.google.com ([2607:f8b0:4864:20::741])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kZwcX-0007Q3-Lx
- for linux-riscv@lists.infradead.org; Tue, 03 Nov 2020 13:45:12 +0000
-Received: by mail-qk1-x741.google.com with SMTP id l2so14654041qkf.0
- for <linux-riscv@lists.infradead.org>; Tue, 03 Nov 2020 05:45:09 -0800 (PST)
+ id 1kZwce-0007T1-UL
+ for linux-riscv@lists.infradead.org; Tue, 03 Nov 2020 13:45:18 +0000
+Received: by mail-qk1-x741.google.com with SMTP id a64so11234590qkc.5
+ for <linux-riscv@lists.infradead.org>; Tue, 03 Nov 2020 05:45:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=/wWgXpwOKfWu89zfH4z55YdVS4FoKgsyU3KjhUPw2Xk=;
- b=HUmeo8PKFkCINZljvfRc+P6j2X0+0GOhvVUFZGwDVi5RBcL6yCRRP7JuB0zv9c9+Po
- E3+9kj9NX57UzwwDZNGdD8iaYBGU9wXX967tHeoCgvkJm1CovDmhTO1emhffrLi5usDF
- 0oEzRtLhoIuA39ggcO6eQcTv/OGvRmPgCQX4sTZrzio50ODOqs0YICXq0MgBjQAfHPdz
- xl7tXTacq4qNhz9LC51MS1M++unu3TcfcbkGRzSQxWGdRezIwQbhQELfkQD+RH+S21A/
- sax7yhctLMgZTMGgygja3clLmsRRE7W8PkbbGI7EUIeZ8EaqV18ap7HIw7j/Z7WF3HJx
- 8pfg==
+ bh=+eMXBOnvKPM7N/Eu0cs4UA1I6FeurfdgB6uFLVTMPX8=;
+ b=WQlGQ9Jd6IJQey7nb9UMUDYsL+DEjmMTVkMHPOOrYSdV926tvA93ywvzKvPW9EdJzQ
+ xWYruju83XXsh1i6XxcvxRg6hDqU6tq8BaNfGIDHsg2pgJYtsAkvynEeGwGPRGe+ZPsx
+ biGcniO7POm0x08s1Iwq88HHNGiqadVQYcORh5b/WkN2ytRV8n2H7zXHbG9CyN36/TNs
+ CvFVpr4PvgANBbzTT2RtpSiuCEWpI/CT6RmO+Fk+zaNRO64hUzWUoNMlpPKDi4ZwlNos
+ 6rRlllg7BYoJdX53s9pkkLBvkmTEqozVXkK0+PARPMrbpsjLaiSLI/uef0UWqLlg9En5
+ LfmQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=/wWgXpwOKfWu89zfH4z55YdVS4FoKgsyU3KjhUPw2Xk=;
- b=D7kkjkptNFAGwm4sPWUO9LH0BEqwkSXT5ctVYW0AOeH+ToNdpAAxgDpyrFLj4G4qVT
- RaemOQgI38M0p+lZA1h/tflT/I/5J1LpKhHsGQXLWSypsMH0P8ZAofzbotrb/t1FUc2g
- 0iFKeKDtdcXYFH2oLf1vuWB/oEoa7qipwpiwsPjw2i/VI/qv7bWxEh8zX5iNX7UQiNTC
- Gtlqa0JYJfehsPUFbs/0nL2nDfqTtz+agDWghjWn1zG3nuIZmL3po2NoP5V/MJC6B7Wz
- 1ZXA5DZucIKRduoJ+dC8XjSSPsQgglRa0gcuuPj8zqE3ZGMHAO0qRnPYS0oxMC4XpZRK
- HDSg==
-X-Gm-Message-State: AOAM5307rLt0LHYeVDkrDQ4Y0JCOagnX1EZ6bi+WxkFGdyzfc/bxDbme
- W1F5/Ic3UVUYyaW4IiCMlpk=
-X-Google-Smtp-Source: ABdhPJyHAHCGbEEm09WION+/UIzzZ/lrqbH487CGEGOVROPc59579zIEupD9GaMmhFNRyF9+2N11RQ==
-X-Received: by 2002:ae9:dec5:: with SMTP id
- s188mr20227157qkf.250.1604411107951; 
- Tue, 03 Nov 2020 05:45:07 -0800 (PST)
+ bh=+eMXBOnvKPM7N/Eu0cs4UA1I6FeurfdgB6uFLVTMPX8=;
+ b=B2dXYzNcOFhiiQdWwADRj04TO9oJ2INVZTh4xXy197XjcJKuPqv0M9tOWJcXSahEdk
+ mDEuJwY5wdOgVuLhwsu85p3Aat9Vw9TYK2bQciYbjMXlySQsnb+Z6DcRgS963jj3lKXr
+ MV2T/EBMnahjBQ5eCyykZmulNneMXSoZgQ5rUIHv8m8KtuvzHzxc512QOBUQh5H1Fp3H
+ REENHqArnVOwrstaze7JiAKKs4oO4M4HirSnlnmbcV3+PD2sqacuKZ5G5w04KYrv/ReI
+ 6YEDn+ZNVaNF2ZsBJ4DvfkowfyDApuhfMfzM7LF9h73y0s6UgTC4KcwgDms06J4h1DfR
+ DmPQ==
+X-Gm-Message-State: AOAM532QzwcMkCd9b4wG2kErHEwYLjRodsmz73nAtOrhaCijFITSm3F1
+ zQwOL6ysEBrVMGhwb30FwFQ=
+X-Google-Smtp-Source: ABdhPJwPGCoGB0mzNqbRbE7eqaQrs2dVEZ+ysMN9iFWpphI5Jv582QKy4aIVAjZqImUIW48ZcJyckw==
+X-Received: by 2002:a37:6187:: with SMTP id v129mr8374191qkb.31.1604411115473; 
+ Tue, 03 Nov 2020 05:45:15 -0800 (PST)
 Received: from zhuyifei1999-ThinkPad-T480.gw.illinois.edu
  ([2620:0:e00:400f::31])
- by smtp.gmail.com with ESMTPSA id a206sm7356568qkb.64.2020.11.03.05.45.06
+ by smtp.gmail.com with ESMTPSA id a206sm7356568qkb.64.2020.11.03.05.45.14
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 03 Nov 2020 05:45:07 -0800 (PST)
+ Tue, 03 Nov 2020 05:45:14 -0800 (PST)
 From: YiFei Zhu <zhuyifei1999@gmail.com>
 To: containers@lists.linux-foundation.org
-Subject: [PATCH seccomp 1/8] csky: Enable seccomp architecture tracking
-Date: Tue,  3 Nov 2020 07:42:57 -0600
-Message-Id: <f9219026d4803b22f3e57e3768b4e42e004ef236.1604410035.git.yifeifz2@illinois.edu>
+Subject: [PATCH seccomp 5/8] s390: Enable seccomp architecture tracking
+Date: Tue,  3 Nov 2020 07:43:01 -0600
+Message-Id: <0fbe0c14d598e18effad3b648ab4808f9cd95eba.1604410035.git.yifeifz2@illinois.edu>
 X-Mailer: git-send-email 2.29.2
 In-Reply-To: <cover.1604410035.git.yifeifz2@illinois.edu>
 References: <cover.1604410035.git.yifeifz2@illinois.edu>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201103_084511_375299_C13A250D 
-X-CRM114-Status: GOOD (  13.55  )
+X-CRM114-CacheID: sfid-20201103_084517_074955_76C813FA 
+X-CRM114-Status: GOOD (  10.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -120,43 +119,31 @@ From: YiFei Zhu <yifeifz2@illinois.edu>
 
 To enable seccomp constant action bitmaps, we need to have a static
 mapping to the audit architecture and system call table size. Add these
-for csky.
+for s390.
 
 Signed-off-by: YiFei Zhu <yifeifz2@illinois.edu>
 ---
- arch/csky/include/asm/Kbuild    |  1 -
- arch/csky/include/asm/seccomp.h | 11 +++++++++++
- 2 files changed, 11 insertions(+), 1 deletion(-)
- create mode 100644 arch/csky/include/asm/seccomp.h
+ arch/s390/include/asm/seccomp.h | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/arch/csky/include/asm/Kbuild b/arch/csky/include/asm/Kbuild
-index 64876e59e2ef..93372255984d 100644
---- a/arch/csky/include/asm/Kbuild
-+++ b/arch/csky/include/asm/Kbuild
-@@ -4,6 +4,5 @@ generic-y += gpio.h
- generic-y += kvm_para.h
- generic-y += local64.h
- generic-y += qrwlock.h
--generic-y += seccomp.h
- generic-y += user.h
- generic-y += vmlinux.lds.h
-diff --git a/arch/csky/include/asm/seccomp.h b/arch/csky/include/asm/seccomp.h
-new file mode 100644
-index 000000000000..d33e758126fb
---- /dev/null
-+++ b/arch/csky/include/asm/seccomp.h
-@@ -0,0 +1,11 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+#ifndef _ASM_SECCOMP_H
-+#define _ASM_SECCOMP_H
-+
-+#include <asm-generic/seccomp.h>
-+
-+#define SECCOMP_ARCH_NATIVE		AUDIT_ARCH_CSKY
+diff --git a/arch/s390/include/asm/seccomp.h b/arch/s390/include/asm/seccomp.h
+index 795bbe0d7ca6..71d46f0ba97b 100644
+--- a/arch/s390/include/asm/seccomp.h
++++ b/arch/s390/include/asm/seccomp.h
+@@ -16,4 +16,13 @@
+ 
+ #include <asm-generic/seccomp.h>
+ 
++#define SECCOMP_ARCH_NATIVE		AUDIT_ARCH_S390X
 +#define SECCOMP_ARCH_NATIVE_NR		NR_syscalls
-+#define SECCOMP_ARCH_NATIVE_NAME	"csky"
++#define SECCOMP_ARCH_NATIVE_NAME	"s390x"
++#ifdef CONFIG_COMPAT
++# define SECCOMP_ARCH_COMPAT		AUDIT_ARCH_S390
++# define SECCOMP_ARCH_COMPAT_NR		NR_syscalls
++# define SECCOMP_ARCH_COMPAT_NAME	"s390"
++#endif
 +
-+#endif /* _ASM_SECCOMP_H */
+ #endif	/* _ASM_S390_SECCOMP_H */
 -- 
 2.29.2
 
