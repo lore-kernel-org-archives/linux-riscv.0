@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-6.5 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
 	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
 	SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 29938C2D0A3
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 10:01:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2C257C2D0A3
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 10:03:36 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 975DE22409
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 10:01:03 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 986C221D91
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Nov 2020 10:03:35 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="EKYRnO2Z";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="cs/xi2Ep"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 975DE22409
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="a0iCFvW7";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="I2X1Xc7p"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 986C221D91
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,60 +26,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=4QajGbcvO43n1gxgHcNNORW783CTVhwRdWuIg2MVMqI=; b=EKYRnO2ZsEcivyKOjxM2UE/tJ
-	uHzXfSXRCQAfAhjgEEIbAuA6SPcm7fvl2pm94u/C/8nmP6eK2vIHtWI+VhFgNp1Rxyh4vY8fdWprR
-	rgffUGNRgxbPSFjAw7vydAnJHbpRv0mFlKvn+pmo8wYsjMUyzhHsU0ADc1i0JlANGqQ+9BFR2mnol
-	uqeRPSB64w3jtI2fJ/a6wUyG5jhw2wZ3zPOAtEYNN8MJBSokf6kpjM0TnJtG67/sbH3rVu6KENlMW
-	Coc6852zbDPjKrGzOFmZjNncVVbwK5GlFV7KMiGSqXLHlwI/Jj9KAXVEe+8m7NM61v+ilZj+8rYTP
-	srMOD5fNQ==;
+	 bh=9o6drlThqjbkxxzFKCyhb9NrgMQxUcYZ2Lpchqr4kBs=; b=a0iCFvW76iKxNDRh6VwBZB8XV
+	nBmXA41NNEnHP2WKepS0KTXvDw3vE8mtoq0JG9/pixr1Q+UrhpWGwz4bpDoq1C/w7B/azFlgFQ3O/
+	Opke+0H9oJNTzf7G5RigM4fM5dPIGj5X0JHo1+IAlbkWXnn55EgPcb8nXXYnGZ4mKe0HK3FKSX6VU
+	VQNUskSZRYWOXdeBHkVc5vnw2Hytq49P4CSutG33nAd4vU45zeg1A7oIk6pJwfavBRAriXvYl32yG
+	bJ7SppL3M3rdvznTL1RAUuezCbzCEmV9IHQY7dN/rq2HZXrJOMGVIv2WBsEBSUgQZFbKWbv4V64ks
+	wNxTTrekA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kZt7K-0003Mm-Se; Tue, 03 Nov 2020 10:00:42 +0000
-Received: from mail-yb1-xb42.google.com ([2607:f8b0:4864:20::b42])
+	id 1kZt9s-0003Zy-NJ; Tue, 03 Nov 2020 10:03:20 +0000
+Received: from mail-yb1-xb44.google.com ([2607:f8b0:4864:20::b44])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kZt7G-0003LS-8D
- for linux-riscv@lists.infradead.org; Tue, 03 Nov 2020 10:00:40 +0000
-Received: by mail-yb1-xb42.google.com with SMTP id f6so14362623ybr.0
- for <linux-riscv@lists.infradead.org>; Tue, 03 Nov 2020 02:00:37 -0800 (PST)
+ id 1kZt9m-0003ZD-Jt
+ for linux-riscv@lists.infradead.org; Tue, 03 Nov 2020 10:03:15 +0000
+Received: by mail-yb1-xb44.google.com with SMTP id n142so14335250ybf.7
+ for <linux-riscv@lists.infradead.org>; Tue, 03 Nov 2020 02:03:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=0pYiU3lXK+jystxaKH+sxvcQtmhQVjgO3tVqUS8438E=;
- b=cs/xi2EpfFHUPI17/QF4ssFf7CdMQ4OqwJt9DLmIWEurK7jAB4a1+4HIfVRbNQlEDx
- II0yHB7R3QB0DVUtRX7CNSzyg5nzwbj5dcZxCLO2usYXGjLTqyD9DVZhrcfp1tfrgwT8
- UD7Zwp9jbSJpUsYsPWQX72aszEQKpr4kYNCf/TXcudNWJBYi3NnIA7sa9oxfjPRMSJzq
- vxsj5U0nVJnEfGBn4mLZZlDoyCTgxevzNuJq3Z1d0avJo681mrcjXuPMd2WXRbI4SI2a
- XQc2pC+TUMXeaSIdIXSs/9rZz5rfQbNOqM4HUFvav3vC2GvB/QZYSaAmjP15dmmMSs3K
- JGWA==
+ :cc; bh=3U1CRIpx/MWyOqmEpa48IE1TM02vyyoxh0TJr6+0Jaw=;
+ b=I2X1Xc7pOp9h2tU05SKde5aUeDYU9J+WbrRjOT8AmlQaQ+m+xqXnXP5sdZstRAOjSJ
+ /6A3Kgr3+MkpVDqFv3hzwkwlRFzuMhIxU2OZe9TXEYdWuTyvKxEtZadoRo4adY9wN6bQ
+ TJQ8eZBWZVoBd3MCktZT3K03SS5OYhoivEQLPJPd4DgPSiaUlE9ufgf4+yl0glz3tVdS
+ N/iRrJZ0h2IJP7bUWmVZV4+oeY6mFLGTAEYfJGEscYabLCoO0Bx24VeMb4TBEcc2UnEs
+ ubOJWUvBb9vpMjxMvRtJxEIAOkmoFp+24Z8fLCq3lptgBTNYP2h2K/YSWFcHASz2pYsn
+ 8l6Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=0pYiU3lXK+jystxaKH+sxvcQtmhQVjgO3tVqUS8438E=;
- b=MYjZTub1cBD5pouy+47O35geHzUOovuSrz18DD77MyW8TglLehLrf4/diWRC0mtDzM
- U8HFztys8kYneNcmSnylgFJsz24e3PdpaTAmuFXP/1F/cWPIngXZg/yoecQp3ta8G3p/
- JyNJHPIrtbjIKMjTbpuM/sHezwKpQLJN3gYnZpt4Nk/Xx5CE5fA7vGezk9+7RS0ie8sw
- BIdNHcbQz0sqheAp7hG7JlBoSjcVsDf9jXI1bIxcOsl7QD/hnKSLGY1AjHNCCBiTyScS
- 5AH9HwjPVVq5EUNf7TFYNJg29/D2+9uRGqQHkow7Lj5zCzwQnT9Z4G0I25z0Lv8KxqWv
- HIVQ==
-X-Gm-Message-State: AOAM533LnLg30sarpte4YdeDwqNPlx4vb+Sctt1+2TUJbme5Ru5Fz4EG
- H1gW1r7mNddVP6SWGpM98kVEVbILRrqMsvB5pBQ=
-X-Google-Smtp-Source: ABdhPJzwK5OJBwmkhIfZ55negrHImNV14+iO939LGyydy5v9JU4bBlOnmiVTVesZWmqDN25CD/mCHkqeh0E11CSDDhI=
-X-Received: by 2002:a25:328a:: with SMTP id
- y132mr25819789yby.306.1604397636640; 
- Tue, 03 Nov 2020 02:00:36 -0800 (PST)
+ bh=3U1CRIpx/MWyOqmEpa48IE1TM02vyyoxh0TJr6+0Jaw=;
+ b=SdSZN6JbF9YyZY+NJ4j6tGQc/hSQLt/+rvWQouke9XIwep0bteuqp8qB6+Ud5bvccT
+ tBE55U04nM3kilDa6/zEj0ErE3iacMZIEoYdrBKCF0+122Zk7WBsuF72UGMw4Ba+6SSL
+ P0K1mTkcpV+Lj2/q+kaIQGDn5i8bXMmW1GdRKfVizV08VJJIWmBkbHLW6lm5Yw9svEq9
+ fF0xIv8lNDr34Oz6t+JZuuGOLviR/miRtJrBkh732wo1M4Yfv9aPtiEDdvcbClVpQnO7
+ 05of/c718BO8yYy6xlVzjdgLRDuXDi9GzaATISdxlWB8gjGi4nXC/lN7xcOv6GOQfH+R
+ qu1Q==
+X-Gm-Message-State: AOAM530shECW4kC4C+M0ZCYOsaGuo4aDAe7RAAE93/tUupDteMFO+lm9
+ PUaxrImEOiULjLfWEaZeCY+otMqvSx+ynHaEKN9KdIZv0H8=
+X-Google-Smtp-Source: ABdhPJwFrA6yKwXiiNx0k7zymp/0xjInrlZ+6g5/M7+azUxS6iLhWvyJjYQGOed+fAcrzx4j3S4RAg1ZvSsBwsYR158=
+X-Received: by 2002:a25:f81e:: with SMTP id u30mr27624153ybd.332.1604397793010; 
+ Tue, 03 Nov 2020 02:03:13 -0800 (PST)
 MIME-Version: 1.0
 References: <20201028232759.1928479-1-atish.patra@wdc.com>
- <20201028232759.1928479-3-atish.patra@wdc.com>
- <CAAhSdy0pW8AFCDtFkEO_4zjg8Exp+XTb09AjhErdX9u-Jw3OuQ@mail.gmail.com>
-In-Reply-To: <CAAhSdy0pW8AFCDtFkEO_4zjg8Exp+XTb09AjhErdX9u-Jw3OuQ@mail.gmail.com>
+ <20201028232759.1928479-4-atish.patra@wdc.com>
+In-Reply-To: <20201028232759.1928479-4-atish.patra@wdc.com>
 From: Bin Meng <bmeng.cn@gmail.com>
-Date: Tue, 3 Nov 2020 18:00:25 +0800
-Message-ID: <CAEUhbmUm6EyP33FU1n4LhEk-xcBtR13-xS+Tpt76ug1HQv8CEg@mail.gmail.com>
-Subject: Re: [RFC PATCH 2/3] RISC-V: Initial DTS for Microchip ICICLE board
-To: Anup Patel <anup@brainfault.org>
+Date: Tue, 3 Nov 2020 18:03:01 +0800
+Message-ID: <CAEUhbmU5jUpSAzJS3oN2i6igHXOXMAq2KR5yWhbx1q2_qF-FHg@mail.gmail.com>
+Subject: Re: [RFC PATCH 3/3] RISC-V: Enable Microchip PolarFire ICICLE SoC
+To: Atish Patra <atish.patra@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201103_050039_739771_2FAD8A13 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20201103_050314_699413_9042DD85 
+X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -93,10 +92,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: devicetree <devicetree@vger.kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
  Cyril.Jean@microchip.com, Daire McNamara <daire.mcnamara@microchip.com>,
- Anup Patel <anup.patel@wdc.com>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Atish Patra <atish.patra@wdc.com>, Rob Herring <robh+dt@kernel.org>,
- Alistair Francis <alistair.francis@wdc.com>,
+ Anup Patel <anup.patel@wdc.com>, linux-kernel <linux-kernel@vger.kernel.org>,
+ Rob Herring <robh+dt@kernel.org>, Alistair Francis <alistair.francis@wdc.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
  linux-riscv <linux-riscv@lists.infradead.org>,
  Padmarao Begari <padmarao.begari@microchip.com>
@@ -105,40 +102,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 30, 2020 at 5:08 PM Anup Patel <anup@brainfault.org> wrote:
+On Thu, Oct 29, 2020 at 6:00 PM Atish Patra <atish.patra@wdc.com> wrote:
 >
-> On Thu, Oct 29, 2020 at 4:58 AM Atish Patra <atish.patra@wdc.com> wrote:
-> >
-> > Add initial DTS for Microchip ICICLE board having only
-> > essential devcies (clocks, sdhci, ethernet, serial, etc).
-> >
-> > Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> > ---
-> >  arch/riscv/boot/dts/Makefile                  |   1 +
-> >  arch/riscv/boot/dts/microchip/Makefile        |   2 +
-> >  .../microchip/microchip-icicle-kit-a000.dts   | 313 ++++++++++++++++++
+> Enable Microchip PolarFire ICICLE soc config in defconfig.
+> It allows the default upstream kernel to boot on PolarFire ICICLE board.
 >
-> I suggest we split this DTS into two parts:
-> 1. SOC (microchip-polarfire.dtsi)
-> 2. Board (microchip-icicle-kit-a000.dts)
-
-I also doubt what is the correct board name. I suspect the -a000 comes
-from the SiFive board name convention, but does not apply to the
-Icicle Kit board.
-
-@Cyril, please confirm.
-
+> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> ---
+>  arch/riscv/configs/defconfig | 4 ++++
+>  1 file changed, 4 insertions(+)
 >
-> This will be much cleaner and aligned with what is done
-> on other architectures.
->
-> >  3 files changed, 316 insertions(+)
-> >  create mode 100644 arch/riscv/boot/dts/microchip/Makefile
-> >  create mode 100644 arch/riscv/boot/dts/microchip/microchip-icicle-kit-a000.dts
-> >
 
-Regards,
-Bin
+Reviewed-by: Bin Meng <bin.meng@windriver.com>
 
 _______________________________________________
 linux-riscv mailing list
