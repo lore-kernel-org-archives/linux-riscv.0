@@ -2,86 +2,85 @@ Return-Path: <SRS0=Bqyv=EK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+X-Spam-Status: No, score=-9.5 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D11A4C2D0A3
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2020 00:12:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8BF6BC2D0A3
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2020 02:42:12 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6D01A223C7
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2020 00:12:04 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C958C2236F
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2020 02:42:11 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="YxHF/RkW";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=chromium.org header.i=@chromium.org header.b="mPTbV2Uh"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6D01A223C7
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=chromium.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="K0y9p587";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="tP2SPRV6"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C958C2236F
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=yU9zS2EltGwg0smR6IkUkqpLYq6oU4yIeOobu9PXDXI=; b=YxHF/RkW6mlWwTQlW/XUCtv97
-	nA/SKfe+hF68VarNfzOs5/s4HnQnNMQJzCVJod4ROK2h93rN+mkZZ20eOeNoWqmS7sH3tIEzBV9cA
-	59pB42P9GcMm0YRfjBs3p6QPlNOOB+GH+ZuDG0zvw5k5r6aJvpqP8yKbVaNhZ9MSGHa6b1+HGjxbO
-	GQE3KNng3y/BIk+R02ftpU/KOxprKD7n5dqzWsYqdTehXpESlEdLbsPPXH4DIibl5cVwbUsKxY22N
-	TdFpdgsO7c/IFrpnTFQ5sw24Gb/THds+xRp3LrDAvStaCxig+RbWkvuAqpsYrpGlUtiF1sW142AhE
-	KxXjPL7RQ==;
+	 bh=qkdtF2EZShYQZq2z1ZsSrdITQ/5rZ3FPXwA90cKNE3I=; b=K0y9p587SFzhr9sAHGcZ1G7Tm
+	p8reWIsa6i7g3BegI0IiI938qO6ohXQ6ROTGIhu63U0ClD8qd49pqr5YWoY9oCEPUKxy2P5plhkBe
+	+vaF/jAMG4hKKBuQ9uVHuW7EOOcijyiAx5sgeawYHkrw90zOHfi9mjsEGTR7wWZU2p8ZzaY+Afsmb
+	pBoHzW1fSXyPI+KA7hA5Wcq+Y0eG6xZbzMHnZAZg/LoaS8p9Lut++yaHKz2JUL8iJ+QZxntrWxXIh
+	zMaPbFDY09y+XfStZdppVk6p7sUn7OmwpZmC4RFAyXtAmriVbrnOd3iOIMkSvBh+fbMzn0fKPSvdl
+	gjhz2Ea2w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ka6Oy-0004wC-Th; Wed, 04 Nov 2020 00:11:49 +0000
-Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
+	id 1ka8k6-0005Bd-WB; Wed, 04 Nov 2020 02:41:47 +0000
+Received: from mail-yb1-xb44.google.com ([2607:f8b0:4864:20::b44])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ka6Ow-0004vZ-BZ
- for linux-riscv@lists.infradead.org; Wed, 04 Nov 2020 00:11:47 +0000
-Received: by mail-pg1-x541.google.com with SMTP id w4so4794948pgg.13
- for <linux-riscv@lists.infradead.org>; Tue, 03 Nov 2020 16:11:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=NFjsAF4kgpQCHVIlKmgYN6bEVL36r1XibqsUv152D08=;
- b=mPTbV2UhVfnJP2OoJL4D5QLosesGivMu0Yj5j7pkCrVtHA6dueaCzR1JSWWklnSxS2
- Wgzos2joCi+Wlp8KUeVXQhCOJbK/Z4g4eTF82BJYkvr8uaU2CIt3++/EZgLF7nCLiPmR
- RFfDgHAz/9hjV1ZrPMZTrZyKkXhcZM/AoX3+w=
+ id 1ka8k3-0005B2-2u
+ for linux-riscv@lists.infradead.org; Wed, 04 Nov 2020 02:41:45 +0000
+Received: by mail-yb1-xb44.google.com with SMTP id f6so16770390ybr.0
+ for <linux-riscv@lists.infradead.org>; Tue, 03 Nov 2020 18:41:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=cDwu8w0Ft1ZAZ8iiy474iPvNGaBgMcTsKWWIzgtdonw=;
+ b=tP2SPRV6r6Z6P1aAgoIFHSHqTdEKrW+Zyy1aM8B9azV83aQ6dTfLyBI+AYZXwFPK0Y
+ cx/jnW2Gx/FOjzYedTSb5f/NVEvBpYU58Uc1qO2mo0uLVESHT0pcGZbMfTXnqC0jvKf6
+ MzqDPH6dvrH3Yxi6oKgdV8S8bB77ByRpmkLtumtzqV/MRDVwZQdywVsYnetTMkyc97ND
+ /VI5Si/JxcGqVBEb7pppqk/cfMMw08OAdnjKj6Ol+EUlRfppThrJkkTRePpluEF1EPoa
+ b2xWfYR4xseFCC+zZRxBFztqLFJSJVPtDTJEkwSwFoZOh/Hav+qCYk/0qqFb7L4x/D5P
+ 8mdA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=NFjsAF4kgpQCHVIlKmgYN6bEVL36r1XibqsUv152D08=;
- b=XA7w69b1Q0C0D8SEwFhPbo1+zT2ioEAfQ7yRZhQSaxGboTnOUFfgSvb5FMI+xyR/sq
- hHngfPKfHmJG4/ij3G4X2iY2Z8QGKVTX/CYH+Do3oiiZeoPz26K+NCMfwAOenpsHhSp+
- Kcc1TZPJyKdTOpYsNSRg0MCsD3IH7ErR3Bs5S8CMNPpVJA5E+vJhbRS9nBV3sljI+JZ8
- guZFkqDonKBFdLcuFSTG/j9K9UDY+GDrOPU5/cpDitsxwgs0DXh0OsaF3JM4+k27JAqP
- x+8OIADdl6UuIxf+0joMdINUaHAd+gw+AoO44YnnmraFjSDNd5BsUP5ujQwLSWcwLyF8
- ZvZQ==
-X-Gm-Message-State: AOAM5330grNSpukcrQFRh/tZHAvKzzfuzvBUCMHMyDjgCwaYO+OYktie
- MBNOThvl/QBnRKgFE3k9M/cbIg==
-X-Google-Smtp-Source: ABdhPJybME+aS3qtjx8JuwpcYMqCGEp0y1Q8idII2QCmSunt2ifzlNcehSCk1E6c+iZLzWwdlgTh0g==
-X-Received: by 2002:a17:90a:5285:: with SMTP id
- w5mr1762165pjh.50.1604448702345; 
- Tue, 03 Nov 2020 16:11:42 -0800 (PST)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
- by smtp.gmail.com with ESMTPSA id j20sm118311pgl.40.2020.11.03.16.11.41
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 03 Nov 2020 16:11:41 -0800 (PST)
-Date: Tue, 3 Nov 2020 16:11:40 -0800
-From: Kees Cook <keescook@chromium.org>
-To: YiFei Zhu <zhuyifei1999@gmail.com>
-Subject: Re: [PATCH seccomp 0/8] seccomp: add bitmap cache support on
- remaining arches and report cache in procfs
-Message-ID: <202011031606.423EC9E@keescook>
-References: <cover.1604410035.git.yifeifz2@illinois.edu>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=cDwu8w0Ft1ZAZ8iiy474iPvNGaBgMcTsKWWIzgtdonw=;
+ b=dlHueZyLX2FAKLv8RJRz0EGjzzamG/0ICy5soVcwpxE+h6A4UTZa77HN87b255s99s
+ WWz+0bDSx8hkSlgRF7pRGbCkQG3XOEoqMEsdi6Pe1ZwuBH2AKCgChENZp8nBKaladxVy
+ qqUaxEro5C2DOc5lp/l1fCq2XAsphGSfS+VXwN70D8pvGCQc1/DB5KfoGojFHEOVDGvC
+ ulnhNL1tZS7WDQ1QehYnGSEFf1dOJxUqC3fIOWuh30X4kuTmsLHj2F6x9y+NhpJ1zZ87
+ rTZa07Zqa4W/8bXp3Iqif7ODwiLWYdchzITobdOFZbul+rMvQmACV5OlZopL3QdQa22k
+ bpKg==
+X-Gm-Message-State: AOAM5328OaGLsT7BK3jBopyycm/43DaWbweyU9O8wkObijL7QEc1rSPk
+ c/iBe6MKp3K5Fu6G+J/SYnAtV4Ph8exkEdyBzgM=
+X-Google-Smtp-Source: ABdhPJwVBSx33QM9yJLdfpQ/A7R2S4nNepUlDZUIfL/f1jPjtfJWoCDYg1JChaPwN6Ou8Lm/bl0c054U8he7+MXyD4k=
+X-Received: by 2002:a25:f81e:: with SMTP id u30mr33350036ybd.332.1604457700557; 
+ Tue, 03 Nov 2020 18:41:40 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <cover.1604410035.git.yifeifz2@illinois.edu>
+References: <20201028232759.1928479-1-atish.patra@wdc.com>
+ <20201028232759.1928479-3-atish.patra@wdc.com>
+ <41f1248b-78c6-bac1-410b-9e222368c5f6@codethink.co.uk>
+In-Reply-To: <41f1248b-78c6-bac1-410b-9e222368c5f6@codethink.co.uk>
+From: Bin Meng <bmeng.cn@gmail.com>
+Date: Wed, 4 Nov 2020 10:41:28 +0800
+Message-ID: <CAEUhbmV8b5p3wYEH9xcP1UC8GFmtb6SYnHJgGJMRNOeSUuwF2g@mail.gmail.com>
+Subject: Re: [RFC PATCH 2/3] RISC-V: Initial DTS for Microchip ICICLE board
+To: Ben Dooks <ben.dooks@codethink.co.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201103_191146_460067_87ABD1F6 
-X-CRM114-Status: GOOD (  21.65  )
+X-CRM114-CacheID: sfid-20201103_214143_439609_D022F03D 
+X-CRM114-Status: GOOD (  22.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -93,101 +92,404 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-sh@vger.kernel.org, Tobin Feldman-Fitzthum <tobin@ibm.com>,
- Hubertus Franke <frankeh@us.ibm.com>, Jack Chen <jianyan2@illinois.edu>,
- linux-riscv@lists.infradead.org, Andrea Arcangeli <aarcange@redhat.com>,
- linux-s390@vger.kernel.org, YiFei Zhu <yifeifz2@illinois.edu>,
- linux-csky@vger.kernel.org, Tianyin Xu <tyxu@illinois.edu>,
- linux-xtensa@linux-xtensa.org, Jann Horn <jannh@google.com>,
- Valentin Rothberg <vrothber@redhat.com>, Aleksa Sarai <cyphar@cyphar.com>,
- Josep Torrellas <torrella@illinois.edu>, Will Drewry <wad@chromium.org>,
- linux-parisc@vger.kernel.org, containers@lists.linux-foundation.org,
- linux-kernel@vger.kernel.org, Andy Lutomirski <luto@amacapital.net>,
- Dimitrios Skarlatos <dskarlat@cs.cmu.edu>,
- David Laight <David.Laight@aculab.com>,
- Giuseppe Scrivano <gscrivan@redhat.com>, linuxppc-dev@lists.ozlabs.org,
- Tycho Andersen <tycho@tycho.pizza>
+Cc: devicetree <devicetree@vger.kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
+ Cyril.Jean@microchip.com, Daire McNamara <daire.mcnamara@microchip.com>,
+ Anup Patel <anup.patel@wdc.com>, linux-kernel <linux-kernel@vger.kernel.org>,
+ Atish Patra <atish.patra@wdc.com>, Rob Herring <robh+dt@kernel.org>,
+ Alistair Francis <alistair.francis@wdc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Padmarao Begari <padmarao.begari@microchip.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 03, 2020 at 07:42:56AM -0600, YiFei Zhu wrote:
-> From: YiFei Zhu <yifeifz2@illinois.edu>
-> 
-> This patch series enables bitmap cache for the remaining arches with
-> SECCOMP_FILTER, other than MIPS.
-> 
-> I was unable to find any of the arches having subarch-specific NR_syscalls
-> macros, so generic NR_syscalls is used. SH's syscall_get_arch seems to
-> only have the 32-bit subarch implementation. I'm not sure if this is
-> expected.
-> 
-> This series has not been tested; I have not built all the cross compilers
-> necessary to build test, let alone run the kernel or benchmark the
-> performance, so help on making sure the bitmap cache works as expected
-> would be appreciated. The series applies on top of Kees's for-next/seccomp
-> branch.
+On Thu, Oct 29, 2020 at 6:42 PM Ben Dooks <ben.dooks@codethink.co.uk> wrote:
+>
+> On 28/10/2020 23:27, Atish Patra wrote:
+> > Add initial DTS for Microchip ICICLE board having only
+> > essential devcies (clocks, sdhci, ethernet, serial, etc).
+> >
+> > Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> > ---
+> >   arch/riscv/boot/dts/Makefile                  |   1 +
+> >   arch/riscv/boot/dts/microchip/Makefile        |   2 +
+> >   .../microchip/microchip-icicle-kit-a000.dts   | 313 ++++++++++++++++++
+> >   3 files changed, 316 insertions(+)
+> >   create mode 100644 arch/riscv/boot/dts/microchip/Makefile
+> >   create mode 100644 arch/riscv/boot/dts/microchip/microchip-icicle-kit-a000.dts
+> >
+> > diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
+> > index ca1f8cbd78c0..3ea94ea0a18a 100644
+> > --- a/arch/riscv/boot/dts/Makefile
+> > +++ b/arch/riscv/boot/dts/Makefile
+> > @@ -1,5 +1,6 @@
+> >   # SPDX-License-Identifier: GPL-2.0
+> >   subdir-y += sifive
+> >   subdir-y += kendryte
+> > +subdir-y += microchip
+> >
+> >   obj-$(CONFIG_BUILTIN_DTB) := $(addsuffix /, $(subdir-y))
+> > diff --git a/arch/riscv/boot/dts/microchip/Makefile b/arch/riscv/boot/dts/microchip/Makefile
+> > new file mode 100644
+> > index 000000000000..55ad77521304
+> > --- /dev/null
+> > +++ b/arch/riscv/boot/dts/microchip/Makefile
+> > @@ -0,0 +1,2 @@
+> > +# SPDX-License-Identifier: GPL-2.0
+> > +dtb-$(CONFIG_SOC_MICROCHIP_POLARFIRE) += microchip-icicle-kit-a000.dtb
+> > diff --git a/arch/riscv/boot/dts/microchip/microchip-icicle-kit-a000.dts b/arch/riscv/boot/dts/microchip/microchip-icicle-kit-a000.dts
+> > new file mode 100644
+> > index 000000000000..5848920af55c
+> > --- /dev/null
+> > +++ b/arch/riscv/boot/dts/microchip/microchip-icicle-kit-a000.dts
+> > @@ -0,0 +1,313 @@
+> > +// SPDX-License-Identifier: GPL-2.0+
+> > +/* Copyright (c) 2020 Microchip Technology Inc */
+> > +
+> > +/dts-v1/;
+> > +
+> > +/* Clock frequency (in Hz) of the rtcclk */
+> > +#define RTCCLK_FREQ          1000000
+> > +
+> > +/ {
+> > +     #address-cells = <2>;
+> > +     #size-cells = <2>;
+> > +     model = "Microchip PolarFire-SoC";
+> > +     compatible = "microchip,polarfire-soc";
+> > +
+> > +     chosen {
+> > +             stdout-path = &serial0;
+> > +     };
+> > +
+> > +     cpus {
+> > +             #address-cells = <1>;
+> > +             #size-cells = <0>;
+> > +             timebase-frequency = <RTCCLK_FREQ>;
+> > +
+> > +             cpu@0 {
+> > +                     clock-frequency = <0>;
+> > +                     compatible = "sifive,rocket0", "riscv";
+> > +                     device_type = "cpu";
+> > +                     i-cache-block-size = <64>;
+> > +                     i-cache-sets = <128>;
+> > +                     i-cache-size = <16384>;
+> > +                     reg = <0>;
+> > +                     riscv,isa = "rv64imac";
+> > +                     status = "disabled";
+> > +
+> > +                     cpu0_intc: interrupt-controller {
+> > +                             #interrupt-cells = <1>;
+> > +                             compatible = "riscv,cpu-intc";
+> > +                             interrupt-controller;
+> > +                     };
+> > +             };
+> > +
+> > +             cpu@1 {
+> > +                     clock-frequency = <0>;
+> > +                     compatible = "sifive,rocket0", "riscv";
+> > +                     d-cache-block-size = <64>;
+> > +                     d-cache-sets = <64>;
+> > +                     d-cache-size = <32768>;
+> > +                     d-tlb-sets = <1>;
+> > +                     d-tlb-size = <32>;
+> > +                     device_type = "cpu";
+> > +                     i-cache-block-size = <64>;
+> > +                     i-cache-sets = <64>;
+> > +                     i-cache-size = <32768>;
+> > +                     i-tlb-sets = <1>;
+> > +                     i-tlb-size = <32>;
+> > +                     mmu-type = "riscv,sv39";
+> > +                     reg = <1>;
+> > +                     riscv,isa = "rv64imafdc";
+> > +                     tlb-split;
+> > +                     status = "okay";
+> > +
+> > +                     cpu1_intc: interrupt-controller {
+> > +                             #interrupt-cells = <1>;
+> > +                             compatible = "riscv,cpu-intc";
+> > +                             interrupt-controller;
+> > +                     };
+> > +             };
+> > +
+> > +             cpu@2 {
+> > +                     clock-frequency = <0>;
+> > +                     compatible = "sifive,rocket0", "riscv";
+> > +                     d-cache-block-size = <64>;
+> > +                     d-cache-sets = <64>;
+> > +                     d-cache-size = <32768>;
+> > +                     d-tlb-sets = <1>;
+> > +                     d-tlb-size = <32>;
+> > +                     device_type = "cpu";
+> > +                     i-cache-block-size = <64>;
+> > +                     i-cache-sets = <64>;
+> > +                     i-cache-size = <32768>;
+> > +                     i-tlb-sets = <1>;
+> > +                     i-tlb-size = <32>;
+> > +                     mmu-type = "riscv,sv39";
+> > +                     reg = <2>;
+> > +                     riscv,isa = "rv64imafdc";
+> > +                     tlb-split;
+> > +                     status = "okay";
+> > +
+> > +                     cpu2_intc: interrupt-controller {
+> > +                             #interrupt-cells = <1>;
+> > +                             compatible = "riscv,cpu-intc";
+> > +                             interrupt-controller;
+> > +                     };
+> > +             };
+> > +
+> > +             cpu@3 {
+> > +                     clock-frequency = <0>;
+> > +                     compatible = "sifive,rocket0", "riscv";
+> > +                     d-cache-block-size = <64>;
+> > +                     d-cache-sets = <64>;
+> > +                     d-cache-size = <32768>;
+> > +                     d-tlb-sets = <1>;
+> > +                     d-tlb-size = <32>;
+> > +                     device_type = "cpu";
+> > +                     i-cache-block-size = <64>;
+> > +                     i-cache-sets = <64>;
+> > +                     i-cache-size = <32768>;
+> > +                     i-tlb-sets = <1>;
+> > +                     i-tlb-size = <32>;
+> > +                     mmu-type = "riscv,sv39";
+> > +                     reg = <3>;
+> > +                     riscv,isa = "rv64imafdc";
+> > +                     tlb-split;
+> > +                     status = "okay";
+> > +
+> > +                     cpu3_intc: interrupt-controller {
+> > +                             #interrupt-cells = <1>;
+> > +                             compatible = "riscv,cpu-intc";
+> > +                             interrupt-controller;
+> > +                     };
+> > +             };
+> > +
+> > +             cpu@4 {
+> > +                     clock-frequency = <0>;
+> > +                     compatible = "sifive,rocket0", "riscv";
+> > +                     d-cache-block-size = <64>;
+> > +                     d-cache-sets = <64>;
+> > +                     d-cache-size = <32768>;
+> > +                     d-tlb-sets = <1>;
+> > +                     d-tlb-size = <32>;
+> > +                     device_type = "cpu";
+> > +                     i-cache-block-size = <64>;
+> > +                     i-cache-sets = <64>;
+> > +                     i-cache-size = <32768>;
+> > +                     i-tlb-sets = <1>;
+> > +                     i-tlb-size = <32>;
+> > +                     mmu-type = "riscv,sv39";
+> > +                     reg = <4>;
+> > +                     riscv,isa = "rv64imafdc";
+> > +                     tlb-split;
+> > +                     status = "okay";
+> > +                     cpu4_intc: interrupt-controller {
+> > +                             #interrupt-cells = <1>;
+> > +                             compatible = "riscv,cpu-intc";
+> > +                             interrupt-controller;
+> > +                     };
+> > +             };
+> > +     };
+> > +
+> > +     memory@80000000 {
+> > +             device_type = "memory";
+> > +             reg = <0x0 0x80000000 0x0 0x40000000>;
+> > +             clocks = <&clkcfg 26>;
+> > +     };
+>
+> U-boot doesn't seem to be updating this properly.
+>
+> The board should have 2GiB, confirmed by looking at the device's
+> chip markings. We only see 1GiB memory. The 0x80000000 bus window
+> is only capable of dealing with 1GiB memory. The higher 64-bit one
+> can have 16GiB mapped.
+>
+> Do we need a second node for the second GiB of memory?
+>
+> > +
+> > +     soc {
+> > +             #address-cells = <2>;
+> > +             #size-cells = <2>;
+> > +             compatible = "simple-bus";
+> > +             ranges;
+> > +
+> > +             cache-controller@2010000 {
+> > +                     compatible = "sifive,fu540-c000-ccache", "cache";
+> > +                     cache-block-size = <64>;
+> > +                     cache-level = <2>;
+> > +                     cache-sets = <1024>;
+> > +                     cache-size = <2097152>;
+> > +                     cache-unified;
+> > +                     interrupt-parent = <&plic>;
+> > +                     interrupts = <1 2 3>;
+> > +                     reg = <0x0 0x2010000 0x0 0x1000>;
+> > +             };
+> > +
+> > +             clint@2000000 {
+> > +                     compatible = "riscv,clint0";
+> > +                     reg = <0x0 0x2000000 0x0 0xC000>;
+> > +                     interrupts-extended = <&cpu0_intc 3 &cpu0_intc 7
+> > +                                             &cpu1_intc 3 &cpu1_intc 7
+> > +                                             &cpu2_intc 3 &cpu2_intc 7
+> > +                                             &cpu3_intc 3 &cpu3_intc 7
+> > +                                             &cpu4_intc 3 &cpu4_intc 7>;
+> > +             };
+> > +
+> > +             plic: interrupt-controller@c000000 {
+> > +                     #interrupt-cells = <1>;
+> > +                     compatible = "sifive,plic-1.0.0";
+> > +                     reg = <0x0 0xc000000 0x0 0x4000000>;
+> > +                     riscv,ndev = <53>;
+> > +                     interrupt-controller;
+> > +                     interrupts-extended = <&cpu0_intc 11
+> > +                                     &cpu1_intc 11 &cpu1_intc 9
+> > +                                     &cpu2_intc 11 &cpu2_intc 9
+> > +                                     &cpu3_intc 11 &cpu3_intc 9
+> > +                                     &cpu4_intc 11 &cpu4_intc 9>;
+> > +             };
+> > +
+> > +             dma@3000000 {
+> > +                     compatible = "sifive,fu540-c000-pdma";
+> > +                     reg = <0x0 0x3000000 0x0 0x8000>;
+> > +                     interrupt-parent = <&plic>;
+> > +                     interrupts = <23 24 25 26 27 28 29 30>;
+> > +                     #dma-cells = <1>;
+> > +             };
+> > +
+> > +             refclk: refclk {
+> > +                     compatible = "fixed-clock";
+> > +                     #clock-cells = <0>;
+> > +                     clock-frequency = <600000000>;
+> > +                     clock-output-names = "msspllclk";
+> > +             };
+> > +
+> > +             clkcfg: clkcfg@20002000 {
+> > +                     compatible = "microchip,pfsoc-clkcfg";
+> > +                     reg = <0x0 0x20002000 0x0 0x1000>;
+> > +                     reg-names = "mss_sysreg";
+> > +                     clocks = <&refclk>;
+> > +                     #clock-cells = <1>;
+> > +                     clock-output-names = "cpuclk", "axiclk", "ahbclk", "ENVMclk", "MAC0clk", "MAC1clk", "MMCclk", "TIMERclk", "MMUART0clk", "MMUART1clk", "MMUART2clk", "MMUART3clk", "MMUART4clk", "SPI0clk", "SPI1clk", "I2C0clk", "I2C1clk", "CAN0clk", "CAN1clk", "USBclk", "RESERVED", "RTCclk", "QSPIclk", "GPIO0clk", "GPIO1clk", "GPIO2clk", "DDRCclk", "FIC0clk", "FIC1clk", "FIC2clk", "FIC3clk", "ATHENAclk", "CFMclk";
+>
+> Any chance of making this list multi-line, it is difficult to read as-is.
 
-Thank you! This looks good. I wonder if the different handling of little
-endian is worth solving -- I'm suspicious about powerpc's use of
-__LITTLE_ENDIAN__ vs a CONFIG, but I guess the compiler would match the
-target endian-ness. Regardless, it captures what the architectures are
-doing, and gets things standardized.
+Besides the multi-line issue, I believe the clock-output-names should
+all have lower case names.
 
-> 
-> YiFei Zhu (8):
->   csky: Enable seccomp architecture tracking
->   parisc: Enable seccomp architecture tracking
+>
+> > +             };
+> > +
+> > +             serial0: serial@20000000 {
+> > +                     compatible = "ns16550a";
+> > +                     reg = <0x0 0x20000000 0x0 0x400>;
+> > +                     reg-io-width = <4>;
+> > +                     reg-shift = <2>;
+> > +                     interrupt-parent = <&plic>;
+> > +                     interrupts = <90>;
+> > +                     current-speed = <115200>;
+> > +                     clocks = <&clkcfg 8>;
+> > +                     status = "okay";
+> > +             };
+> > +
+> > +             serial1: serial@20100000 {
+> > +                     compatible = "ns16550a";
+> > +                     reg = <0x0 0x20100000 0x0 0x400>;
+> > +                     reg-io-width = <4>;
+> > +                     reg-shift = <2>;
+> > +                     interrupt-parent = <&plic>;
+> > +                     interrupts = <91>;
+> > +                     current-speed = <115200>;
+> > +                     clocks = <&clkcfg 9>;
+> > +                     status = "okay";
+> > +             };
+> > +
+> > +             serial2: serial@20102000 {
+> > +                     compatible = "ns16550a";
+> > +                     reg = <0x0 0x20102000 0x0 0x400>;
+> > +                     reg-io-width = <4>;
+> > +                     reg-shift = <2>;
+> > +                     interrupt-parent = <&plic>;
+> > +                     interrupts = <92>;
+> > +                     current-speed = <115200>;
+> > +                     clocks = <&clkcfg 10>;
+> > +                     status = "okay";
+> > +             };
+> > +
+> > +             serial3: serial@20104000 {
+> > +                     compatible = "ns16550a";
+> > +                     reg = <0x0 0x20104000 0x0 0x400>;
+> > +                     reg-io-width = <4>;
+> > +                     reg-shift = <2>;
+> > +                     interrupt-parent = <&plic>;
+> > +                     interrupts = <93>;
+> > +                     current-speed = <115200>;
+> > +                     clocks = <&clkcfg 11>;
+> > +                     status = "okay";
+> > +             };
+> > +
+> > +             sdcard: sdhc@20008000 {
+> > +                     compatible = "cdns,sd4hc";
+> > +                     reg = <0x0 0x20008000 0x0 0x1000>;
+> > +                     interrupt-parent = <&plic>;
+> > +                     interrupts = <88>;
+> > +                     pinctrl-names = "default";
+> > +                     clocks = <&clkcfg 6>;
+> > +                     bus-width = <4>;
+> > +                     disable-wp;
+> > +                     no-1-8-v;
+> > +                     cap-mmc-highspeed;
+> > +                     cap-sd-highspeed;
+> > +                     card-detect-delay = <200>;
+> > +                     sd-uhs-sdr12;
+> > +                     sd-uhs-sdr25;
+> > +                     sd-uhs-sdr50;
+> > +                     sd-uhs-sdr104;
+> > +                     max-frequency = <200000000>;
+> > +                     status = "okay";
+> > +             };
+>
+> Given eMMC is the default device, shouldn't that be default for the
+> device tree too? Even if not, having the emmc node here would be a
+> good thing as it is different to the SD node.
+>
+> > +
+> > +             emac1: ethernet@20112000 {
+> > +                     compatible = "cdns,macb";
+> > +                     reg = <0x0 0x20112000 0x0 0x2000>;
+> > +                     interrupt-parent = <&plic>;
+> > +                     interrupts = <70 71 72 73>;
+> > +                     mac-address = [56 34 12 00 FC 00];
+> > +                     phy-mode = "sgmii";
+> > +                     clocks = <&clkcfg 5>, <&clkcfg 2>;
+> > +                     clock-names = "pclk", "hclk";
+> > +                     #address-cells = <1>;
+> > +                     #size-cells = <0>;
+> > +                     phy1: ethernet-phy@9 {
+> > +                             reg = <9>;
+> > +                             ti,fifo-depth = <0x01>;
+> > +                     };
+> > +             };
+>
+> Aren't there two ethernet ports on the board?
+>
+> Also, at the moment u-boot is not filling the MAC address parameter
+> in so we've got at two boards on the network with the same MAC until
+> we override it in the device tree for the second.
+>
+> > +
+> > +             uio_axi_lsram@2030000000 {
+> > +                     compatible = "generic-uio";
+> > +                     reg = <0x20 0x30000000 0 0x80000000 >;
+> > +                     status = "okay";
+> > +             };
+> > +     };
+> > +};
 
-I don't have compilers for these.
-
->   powerpc: Enable seccomp architecture tracking
->   riscv: Enable seccomp architecture tracking
->   s390: Enable seccomp architecture tracking
-
-These I can build-test immediately.
-
->   sh: Enable seccomp architecture tracking
->   xtensa: Enable seccomp architecture tracking
-
-These two are available in Ubuntu's cross compiler set, so I'll get them
-added to my cross-builders.
-
->   seccomp/cache: Report cache data through /proc/pid/seccomp_cache
-
-In the meantime, I'll wait a bit to see if we can get some Acks/Reviews
-from arch maintainers. :)
-
--Kees
-
-> 
->  arch/Kconfig                       | 15 ++++++++
->  arch/csky/include/asm/Kbuild       |  1 -
->  arch/csky/include/asm/seccomp.h    | 11 ++++++
->  arch/parisc/include/asm/Kbuild     |  1 -
->  arch/parisc/include/asm/seccomp.h  | 22 +++++++++++
->  arch/powerpc/include/asm/seccomp.h | 21 +++++++++++
->  arch/riscv/include/asm/seccomp.h   | 10 +++++
->  arch/s390/include/asm/seccomp.h    |  9 +++++
->  arch/sh/include/asm/seccomp.h      | 10 +++++
->  arch/xtensa/include/asm/Kbuild     |  1 -
->  arch/xtensa/include/asm/seccomp.h  | 11 ++++++
->  fs/proc/base.c                     |  6 +++
->  include/linux/seccomp.h            |  7 ++++
->  kernel/seccomp.c                   | 59 ++++++++++++++++++++++++++++++
->  14 files changed, 181 insertions(+), 3 deletions(-)
->  create mode 100644 arch/csky/include/asm/seccomp.h
->  create mode 100644 arch/parisc/include/asm/seccomp.h
->  create mode 100644 arch/xtensa/include/asm/seccomp.h
-> 
-> 
-> base-commit: 38c37e8fd3d2590c4234d8cfbc22158362f0eb04
-> --
-> 2.29.2
-
--- 
-Kees Cook
+Regards,
+Bin
 
 _______________________________________________
 linux-riscv mailing list
