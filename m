@@ -2,85 +2,66 @@ Return-Path: <SRS0=Bqyv=EK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.5 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-11.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,NICE_REPLY_A,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8BF6BC2D0A3
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2020 02:42:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9329FC2D0A3
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2020 03:16:37 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C958C2236F
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2020 02:42:11 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 3EDE32067C
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2020 03:16:37 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="K0y9p587";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="tP2SPRV6"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C958C2236F
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="v9wDJLph"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3EDE32067C
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=qkdtF2EZShYQZq2z1ZsSrdITQ/5rZ3FPXwA90cKNE3I=; b=K0y9p587SFzhr9sAHGcZ1G7Tm
-	p8reWIsa6i7g3BegI0IiI938qO6ohXQ6ROTGIhu63U0ClD8qd49pqr5YWoY9oCEPUKxy2P5plhkBe
-	+vaF/jAMG4hKKBuQ9uVHuW7EOOcijyiAx5sgeawYHkrw90zOHfi9mjsEGTR7wWZU2p8ZzaY+Afsmb
-	pBoHzW1fSXyPI+KA7hA5Wcq+Y0eG6xZbzMHnZAZg/LoaS8p9Lut++yaHKz2JUL8iJ+QZxntrWxXIh
-	zMaPbFDY09y+XfStZdppVk6p7sUn7OmwpZmC4RFAyXtAmriVbrnOd3iOIMkSvBh+fbMzn0fKPSvdl
-	gjhz2Ea2w==;
+	 bh=b2rljNynNDVOk4KHn92mcGAdcnMfT8L6sPfZ3Jeht9A=; b=v9wDJLph4y/K1O+Ow/UQmqHfh
+	tY2LWKodtpAfWYI7gpRNwbL9KHdlZ/TliNYo/C6Iql1DfQdB30WoZ0DG5JhpreQQfPdXGQSl+pW0u
+	PEVBnveELYg1xmuwYvzyUfFZ31FABWb1feYHj5FEA2qOwRTz8J+vat50JovAn1cBTiCwx+SELazdZ
+	cQjX6tnAPUG9aE3fokVjRlIpw17IwWqmlozwZDsX6BNei5pzuo7FjBRoUquPEkHfNxTgdyYXusqDz
+	8aHebMaP5JJ2rzFWeoH9lU+hPUD/QR3sp4KL0q+oBot6U1IDGAJarsZWur3uzEw4A+WXXFzu6Kwsx
+	UZ6oQ44pQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ka8k6-0005Bd-WB; Wed, 04 Nov 2020 02:41:47 +0000
-Received: from mail-yb1-xb44.google.com ([2607:f8b0:4864:20::b44])
+	id 1ka9Hd-0000gq-UG; Wed, 04 Nov 2020 03:16:26 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ka8k3-0005B2-2u
- for linux-riscv@lists.infradead.org; Wed, 04 Nov 2020 02:41:45 +0000
-Received: by mail-yb1-xb44.google.com with SMTP id f6so16770390ybr.0
- for <linux-riscv@lists.infradead.org>; Tue, 03 Nov 2020 18:41:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=cDwu8w0Ft1ZAZ8iiy474iPvNGaBgMcTsKWWIzgtdonw=;
- b=tP2SPRV6r6Z6P1aAgoIFHSHqTdEKrW+Zyy1aM8B9azV83aQ6dTfLyBI+AYZXwFPK0Y
- cx/jnW2Gx/FOjzYedTSb5f/NVEvBpYU58Uc1qO2mo0uLVESHT0pcGZbMfTXnqC0jvKf6
- MzqDPH6dvrH3Yxi6oKgdV8S8bB77ByRpmkLtumtzqV/MRDVwZQdywVsYnetTMkyc97ND
- /VI5Si/JxcGqVBEb7pppqk/cfMMw08OAdnjKj6Ol+EUlRfppThrJkkTRePpluEF1EPoa
- b2xWfYR4xseFCC+zZRxBFztqLFJSJVPtDTJEkwSwFoZOh/Hav+qCYk/0qqFb7L4x/D5P
- 8mdA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=cDwu8w0Ft1ZAZ8iiy474iPvNGaBgMcTsKWWIzgtdonw=;
- b=dlHueZyLX2FAKLv8RJRz0EGjzzamG/0ICy5soVcwpxE+h6A4UTZa77HN87b255s99s
- WWz+0bDSx8hkSlgRF7pRGbCkQG3XOEoqMEsdi6Pe1ZwuBH2AKCgChENZp8nBKaladxVy
- qqUaxEro5C2DOc5lp/l1fCq2XAsphGSfS+VXwN70D8pvGCQc1/DB5KfoGojFHEOVDGvC
- ulnhNL1tZS7WDQ1QehYnGSEFf1dOJxUqC3fIOWuh30X4kuTmsLHj2F6x9y+NhpJ1zZ87
- rTZa07Zqa4W/8bXp3Iqif7ODwiLWYdchzITobdOFZbul+rMvQmACV5OlZopL3QdQa22k
- bpKg==
-X-Gm-Message-State: AOAM5328OaGLsT7BK3jBopyycm/43DaWbweyU9O8wkObijL7QEc1rSPk
- c/iBe6MKp3K5Fu6G+J/SYnAtV4Ph8exkEdyBzgM=
-X-Google-Smtp-Source: ABdhPJwVBSx33QM9yJLdfpQ/A7R2S4nNepUlDZUIfL/f1jPjtfJWoCDYg1JChaPwN6Ou8Lm/bl0c054U8he7+MXyD4k=
-X-Received: by 2002:a25:f81e:: with SMTP id u30mr33350036ybd.332.1604457700557; 
- Tue, 03 Nov 2020 18:41:40 -0800 (PST)
+ id 1ka9Ha-0000el-Ec
+ for linux-riscv@lists.infradead.org; Wed, 04 Nov 2020 03:16:23 +0000
+Received: from DGGEMS412-HUB.china.huawei.com (unknown [172.30.72.59])
+ by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4CQsHT702Sz15QnY;
+ Wed,  4 Nov 2020 11:16:05 +0800 (CST)
+Received: from [10.174.177.244] (10.174.177.244) by
+ DGGEMS412-HUB.china.huawei.com (10.3.19.212) with Microsoft SMTP Server id
+ 14.3.487.0; Wed, 4 Nov 2020 11:16:05 +0800
+Subject: Re: [PATCH 2/3] riscv: cleaning up boot dir
+To: Atish Patra <atishp@atishpatra.org>
+References: <20201102040357.118400-1-wangkefeng.wang@huawei.com>
+ <20201102040357.118400-2-wangkefeng.wang@huawei.com>
+ <CAOnJCUJAOtdyhxWxThVuQD920VbfE-tpYyiE3+yhbhEO-0V6gQ@mail.gmail.com>
+From: Kefeng Wang <wangkefeng.wang@huawei.com>
+Message-ID: <0a24b95a-7cd1-43ad-433d-65ed36ae3611@huawei.com>
+Date: Wed, 4 Nov 2020 11:16:06 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
+ Thunderbird/60.7.0
 MIME-Version: 1.0
-References: <20201028232759.1928479-1-atish.patra@wdc.com>
- <20201028232759.1928479-3-atish.patra@wdc.com>
- <41f1248b-78c6-bac1-410b-9e222368c5f6@codethink.co.uk>
-In-Reply-To: <41f1248b-78c6-bac1-410b-9e222368c5f6@codethink.co.uk>
-From: Bin Meng <bmeng.cn@gmail.com>
-Date: Wed, 4 Nov 2020 10:41:28 +0800
-Message-ID: <CAEUhbmV8b5p3wYEH9xcP1UC8GFmtb6SYnHJgGJMRNOeSUuwF2g@mail.gmail.com>
-Subject: Re: [RFC PATCH 2/3] RISC-V: Initial DTS for Microchip ICICLE board
-To: Ben Dooks <ben.dooks@codethink.co.uk>
+In-Reply-To: <CAOnJCUJAOtdyhxWxThVuQD920VbfE-tpYyiE3+yhbhEO-0V6gQ@mail.gmail.com>
+Content-Language: en-US
+X-Originating-IP: [10.174.177.244]
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201103_214143_439609_D022F03D 
-X-CRM114-Status: GOOD (  22.13  )
+X-CRM114-CacheID: sfid-20201103_221622_824173_8F71577D 
+X-CRM114-Status: GOOD (  14.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -92,406 +73,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree <devicetree@vger.kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
- Cyril.Jean@microchip.com, Daire McNamara <daire.mcnamara@microchip.com>,
- Anup Patel <anup.patel@wdc.com>, linux-kernel <linux-kernel@vger.kernel.org>,
- Atish Patra <atish.patra@wdc.com>, Rob Herring <robh+dt@kernel.org>,
- Alistair Francis <alistair.francis@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Padmarao Begari <padmarao.begari@microchip.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: linux-riscv <linux-riscv@lists.infradead.org>,
+ Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 29, 2020 at 6:42 PM Ben Dooks <ben.dooks@codethink.co.uk> wrote:
->
-> On 28/10/2020 23:27, Atish Patra wrote:
-> > Add initial DTS for Microchip ICICLE board having only
-> > essential devcies (clocks, sdhci, ethernet, serial, etc).
-> >
-> > Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> > ---
-> >   arch/riscv/boot/dts/Makefile                  |   1 +
-> >   arch/riscv/boot/dts/microchip/Makefile        |   2 +
-> >   .../microchip/microchip-icicle-kit-a000.dts   | 313 ++++++++++++++++++
-> >   3 files changed, 316 insertions(+)
-> >   create mode 100644 arch/riscv/boot/dts/microchip/Makefile
-> >   create mode 100644 arch/riscv/boot/dts/microchip/microchip-icicle-kit-a000.dts
-> >
-> > diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
-> > index ca1f8cbd78c0..3ea94ea0a18a 100644
-> > --- a/arch/riscv/boot/dts/Makefile
-> > +++ b/arch/riscv/boot/dts/Makefile
-> > @@ -1,5 +1,6 @@
-> >   # SPDX-License-Identifier: GPL-2.0
-> >   subdir-y += sifive
-> >   subdir-y += kendryte
-> > +subdir-y += microchip
-> >
-> >   obj-$(CONFIG_BUILTIN_DTB) := $(addsuffix /, $(subdir-y))
-> > diff --git a/arch/riscv/boot/dts/microchip/Makefile b/arch/riscv/boot/dts/microchip/Makefile
-> > new file mode 100644
-> > index 000000000000..55ad77521304
-> > --- /dev/null
-> > +++ b/arch/riscv/boot/dts/microchip/Makefile
-> > @@ -0,0 +1,2 @@
-> > +# SPDX-License-Identifier: GPL-2.0
-> > +dtb-$(CONFIG_SOC_MICROCHIP_POLARFIRE) += microchip-icicle-kit-a000.dtb
-> > diff --git a/arch/riscv/boot/dts/microchip/microchip-icicle-kit-a000.dts b/arch/riscv/boot/dts/microchip/microchip-icicle-kit-a000.dts
-> > new file mode 100644
-> > index 000000000000..5848920af55c
-> > --- /dev/null
-> > +++ b/arch/riscv/boot/dts/microchip/microchip-icicle-kit-a000.dts
-> > @@ -0,0 +1,313 @@
-> > +// SPDX-License-Identifier: GPL-2.0+
-> > +/* Copyright (c) 2020 Microchip Technology Inc */
-> > +
-> > +/dts-v1/;
-> > +
-> > +/* Clock frequency (in Hz) of the rtcclk */
-> > +#define RTCCLK_FREQ          1000000
-> > +
-> > +/ {
-> > +     #address-cells = <2>;
-> > +     #size-cells = <2>;
-> > +     model = "Microchip PolarFire-SoC";
-> > +     compatible = "microchip,polarfire-soc";
-> > +
-> > +     chosen {
-> > +             stdout-path = &serial0;
-> > +     };
-> > +
-> > +     cpus {
-> > +             #address-cells = <1>;
-> > +             #size-cells = <0>;
-> > +             timebase-frequency = <RTCCLK_FREQ>;
-> > +
-> > +             cpu@0 {
-> > +                     clock-frequency = <0>;
-> > +                     compatible = "sifive,rocket0", "riscv";
-> > +                     device_type = "cpu";
-> > +                     i-cache-block-size = <64>;
-> > +                     i-cache-sets = <128>;
-> > +                     i-cache-size = <16384>;
-> > +                     reg = <0>;
-> > +                     riscv,isa = "rv64imac";
-> > +                     status = "disabled";
-> > +
-> > +                     cpu0_intc: interrupt-controller {
-> > +                             #interrupt-cells = <1>;
-> > +                             compatible = "riscv,cpu-intc";
-> > +                             interrupt-controller;
-> > +                     };
-> > +             };
-> > +
-> > +             cpu@1 {
-> > +                     clock-frequency = <0>;
-> > +                     compatible = "sifive,rocket0", "riscv";
-> > +                     d-cache-block-size = <64>;
-> > +                     d-cache-sets = <64>;
-> > +                     d-cache-size = <32768>;
-> > +                     d-tlb-sets = <1>;
-> > +                     d-tlb-size = <32>;
-> > +                     device_type = "cpu";
-> > +                     i-cache-block-size = <64>;
-> > +                     i-cache-sets = <64>;
-> > +                     i-cache-size = <32768>;
-> > +                     i-tlb-sets = <1>;
-> > +                     i-tlb-size = <32>;
-> > +                     mmu-type = "riscv,sv39";
-> > +                     reg = <1>;
-> > +                     riscv,isa = "rv64imafdc";
-> > +                     tlb-split;
-> > +                     status = "okay";
-> > +
-> > +                     cpu1_intc: interrupt-controller {
-> > +                             #interrupt-cells = <1>;
-> > +                             compatible = "riscv,cpu-intc";
-> > +                             interrupt-controller;
-> > +                     };
-> > +             };
-> > +
-> > +             cpu@2 {
-> > +                     clock-frequency = <0>;
-> > +                     compatible = "sifive,rocket0", "riscv";
-> > +                     d-cache-block-size = <64>;
-> > +                     d-cache-sets = <64>;
-> > +                     d-cache-size = <32768>;
-> > +                     d-tlb-sets = <1>;
-> > +                     d-tlb-size = <32>;
-> > +                     device_type = "cpu";
-> > +                     i-cache-block-size = <64>;
-> > +                     i-cache-sets = <64>;
-> > +                     i-cache-size = <32768>;
-> > +                     i-tlb-sets = <1>;
-> > +                     i-tlb-size = <32>;
-> > +                     mmu-type = "riscv,sv39";
-> > +                     reg = <2>;
-> > +                     riscv,isa = "rv64imafdc";
-> > +                     tlb-split;
-> > +                     status = "okay";
-> > +
-> > +                     cpu2_intc: interrupt-controller {
-> > +                             #interrupt-cells = <1>;
-> > +                             compatible = "riscv,cpu-intc";
-> > +                             interrupt-controller;
-> > +                     };
-> > +             };
-> > +
-> > +             cpu@3 {
-> > +                     clock-frequency = <0>;
-> > +                     compatible = "sifive,rocket0", "riscv";
-> > +                     d-cache-block-size = <64>;
-> > +                     d-cache-sets = <64>;
-> > +                     d-cache-size = <32768>;
-> > +                     d-tlb-sets = <1>;
-> > +                     d-tlb-size = <32>;
-> > +                     device_type = "cpu";
-> > +                     i-cache-block-size = <64>;
-> > +                     i-cache-sets = <64>;
-> > +                     i-cache-size = <32768>;
-> > +                     i-tlb-sets = <1>;
-> > +                     i-tlb-size = <32>;
-> > +                     mmu-type = "riscv,sv39";
-> > +                     reg = <3>;
-> > +                     riscv,isa = "rv64imafdc";
-> > +                     tlb-split;
-> > +                     status = "okay";
-> > +
-> > +                     cpu3_intc: interrupt-controller {
-> > +                             #interrupt-cells = <1>;
-> > +                             compatible = "riscv,cpu-intc";
-> > +                             interrupt-controller;
-> > +                     };
-> > +             };
-> > +
-> > +             cpu@4 {
-> > +                     clock-frequency = <0>;
-> > +                     compatible = "sifive,rocket0", "riscv";
-> > +                     d-cache-block-size = <64>;
-> > +                     d-cache-sets = <64>;
-> > +                     d-cache-size = <32768>;
-> > +                     d-tlb-sets = <1>;
-> > +                     d-tlb-size = <32>;
-> > +                     device_type = "cpu";
-> > +                     i-cache-block-size = <64>;
-> > +                     i-cache-sets = <64>;
-> > +                     i-cache-size = <32768>;
-> > +                     i-tlb-sets = <1>;
-> > +                     i-tlb-size = <32>;
-> > +                     mmu-type = "riscv,sv39";
-> > +                     reg = <4>;
-> > +                     riscv,isa = "rv64imafdc";
-> > +                     tlb-split;
-> > +                     status = "okay";
-> > +                     cpu4_intc: interrupt-controller {
-> > +                             #interrupt-cells = <1>;
-> > +                             compatible = "riscv,cpu-intc";
-> > +                             interrupt-controller;
-> > +                     };
-> > +             };
-> > +     };
-> > +
-> > +     memory@80000000 {
-> > +             device_type = "memory";
-> > +             reg = <0x0 0x80000000 0x0 0x40000000>;
-> > +             clocks = <&clkcfg 26>;
-> > +     };
->
-> U-boot doesn't seem to be updating this properly.
->
-> The board should have 2GiB, confirmed by looking at the device's
-> chip markings. We only see 1GiB memory. The 0x80000000 bus window
-> is only capable of dealing with 1GiB memory. The higher 64-bit one
-> can have 16GiB mapped.
->
-> Do we need a second node for the second GiB of memory?
->
-> > +
-> > +     soc {
-> > +             #address-cells = <2>;
-> > +             #size-cells = <2>;
-> > +             compatible = "simple-bus";
-> > +             ranges;
-> > +
-> > +             cache-controller@2010000 {
-> > +                     compatible = "sifive,fu540-c000-ccache", "cache";
-> > +                     cache-block-size = <64>;
-> > +                     cache-level = <2>;
-> > +                     cache-sets = <1024>;
-> > +                     cache-size = <2097152>;
-> > +                     cache-unified;
-> > +                     interrupt-parent = <&plic>;
-> > +                     interrupts = <1 2 3>;
-> > +                     reg = <0x0 0x2010000 0x0 0x1000>;
-> > +             };
-> > +
-> > +             clint@2000000 {
-> > +                     compatible = "riscv,clint0";
-> > +                     reg = <0x0 0x2000000 0x0 0xC000>;
-> > +                     interrupts-extended = <&cpu0_intc 3 &cpu0_intc 7
-> > +                                             &cpu1_intc 3 &cpu1_intc 7
-> > +                                             &cpu2_intc 3 &cpu2_intc 7
-> > +                                             &cpu3_intc 3 &cpu3_intc 7
-> > +                                             &cpu4_intc 3 &cpu4_intc 7>;
-> > +             };
-> > +
-> > +             plic: interrupt-controller@c000000 {
-> > +                     #interrupt-cells = <1>;
-> > +                     compatible = "sifive,plic-1.0.0";
-> > +                     reg = <0x0 0xc000000 0x0 0x4000000>;
-> > +                     riscv,ndev = <53>;
-> > +                     interrupt-controller;
-> > +                     interrupts-extended = <&cpu0_intc 11
-> > +                                     &cpu1_intc 11 &cpu1_intc 9
-> > +                                     &cpu2_intc 11 &cpu2_intc 9
-> > +                                     &cpu3_intc 11 &cpu3_intc 9
-> > +                                     &cpu4_intc 11 &cpu4_intc 9>;
-> > +             };
-> > +
-> > +             dma@3000000 {
-> > +                     compatible = "sifive,fu540-c000-pdma";
-> > +                     reg = <0x0 0x3000000 0x0 0x8000>;
-> > +                     interrupt-parent = <&plic>;
-> > +                     interrupts = <23 24 25 26 27 28 29 30>;
-> > +                     #dma-cells = <1>;
-> > +             };
-> > +
-> > +             refclk: refclk {
-> > +                     compatible = "fixed-clock";
-> > +                     #clock-cells = <0>;
-> > +                     clock-frequency = <600000000>;
-> > +                     clock-output-names = "msspllclk";
-> > +             };
-> > +
-> > +             clkcfg: clkcfg@20002000 {
-> > +                     compatible = "microchip,pfsoc-clkcfg";
-> > +                     reg = <0x0 0x20002000 0x0 0x1000>;
-> > +                     reg-names = "mss_sysreg";
-> > +                     clocks = <&refclk>;
-> > +                     #clock-cells = <1>;
-> > +                     clock-output-names = "cpuclk", "axiclk", "ahbclk", "ENVMclk", "MAC0clk", "MAC1clk", "MMCclk", "TIMERclk", "MMUART0clk", "MMUART1clk", "MMUART2clk", "MMUART3clk", "MMUART4clk", "SPI0clk", "SPI1clk", "I2C0clk", "I2C1clk", "CAN0clk", "CAN1clk", "USBclk", "RESERVED", "RTCclk", "QSPIclk", "GPIO0clk", "GPIO1clk", "GPIO2clk", "DDRCclk", "FIC0clk", "FIC1clk", "FIC2clk", "FIC3clk", "ATHENAclk", "CFMclk";
->
-> Any chance of making this list multi-line, it is difficult to read as-is.
-
-Besides the multi-line issue, I believe the clock-output-names should
-all have lower case names.
-
->
-> > +             };
-> > +
-> > +             serial0: serial@20000000 {
-> > +                     compatible = "ns16550a";
-> > +                     reg = <0x0 0x20000000 0x0 0x400>;
-> > +                     reg-io-width = <4>;
-> > +                     reg-shift = <2>;
-> > +                     interrupt-parent = <&plic>;
-> > +                     interrupts = <90>;
-> > +                     current-speed = <115200>;
-> > +                     clocks = <&clkcfg 8>;
-> > +                     status = "okay";
-> > +             };
-> > +
-> > +             serial1: serial@20100000 {
-> > +                     compatible = "ns16550a";
-> > +                     reg = <0x0 0x20100000 0x0 0x400>;
-> > +                     reg-io-width = <4>;
-> > +                     reg-shift = <2>;
-> > +                     interrupt-parent = <&plic>;
-> > +                     interrupts = <91>;
-> > +                     current-speed = <115200>;
-> > +                     clocks = <&clkcfg 9>;
-> > +                     status = "okay";
-> > +             };
-> > +
-> > +             serial2: serial@20102000 {
-> > +                     compatible = "ns16550a";
-> > +                     reg = <0x0 0x20102000 0x0 0x400>;
-> > +                     reg-io-width = <4>;
-> > +                     reg-shift = <2>;
-> > +                     interrupt-parent = <&plic>;
-> > +                     interrupts = <92>;
-> > +                     current-speed = <115200>;
-> > +                     clocks = <&clkcfg 10>;
-> > +                     status = "okay";
-> > +             };
-> > +
-> > +             serial3: serial@20104000 {
-> > +                     compatible = "ns16550a";
-> > +                     reg = <0x0 0x20104000 0x0 0x400>;
-> > +                     reg-io-width = <4>;
-> > +                     reg-shift = <2>;
-> > +                     interrupt-parent = <&plic>;
-> > +                     interrupts = <93>;
-> > +                     current-speed = <115200>;
-> > +                     clocks = <&clkcfg 11>;
-> > +                     status = "okay";
-> > +             };
-> > +
-> > +             sdcard: sdhc@20008000 {
-> > +                     compatible = "cdns,sd4hc";
-> > +                     reg = <0x0 0x20008000 0x0 0x1000>;
-> > +                     interrupt-parent = <&plic>;
-> > +                     interrupts = <88>;
-> > +                     pinctrl-names = "default";
-> > +                     clocks = <&clkcfg 6>;
-> > +                     bus-width = <4>;
-> > +                     disable-wp;
-> > +                     no-1-8-v;
-> > +                     cap-mmc-highspeed;
-> > +                     cap-sd-highspeed;
-> > +                     card-detect-delay = <200>;
-> > +                     sd-uhs-sdr12;
-> > +                     sd-uhs-sdr25;
-> > +                     sd-uhs-sdr50;
-> > +                     sd-uhs-sdr104;
-> > +                     max-frequency = <200000000>;
-> > +                     status = "okay";
-> > +             };
->
-> Given eMMC is the default device, shouldn't that be default for the
-> device tree too? Even if not, having the emmc node here would be a
-> good thing as it is different to the SD node.
->
-> > +
-> > +             emac1: ethernet@20112000 {
-> > +                     compatible = "cdns,macb";
-> > +                     reg = <0x0 0x20112000 0x0 0x2000>;
-> > +                     interrupt-parent = <&plic>;
-> > +                     interrupts = <70 71 72 73>;
-> > +                     mac-address = [56 34 12 00 FC 00];
-> > +                     phy-mode = "sgmii";
-> > +                     clocks = <&clkcfg 5>, <&clkcfg 2>;
-> > +                     clock-names = "pclk", "hclk";
-> > +                     #address-cells = <1>;
-> > +                     #size-cells = <0>;
-> > +                     phy1: ethernet-phy@9 {
-> > +                             reg = <9>;
-> > +                             ti,fifo-depth = <0x01>;
-> > +                     };
-> > +             };
->
-> Aren't there two ethernet ports on the board?
->
-> Also, at the moment u-boot is not filling the MAC address parameter
-> in so we've got at two boards on the network with the same MAC until
-> we override it in the device tree for the second.
->
-> > +
-> > +             uio_axi_lsram@2030000000 {
-> > +                     compatible = "generic-uio";
-> > +                     reg = <0x20 0x30000000 0 0x80000000 >;
-> > +                     status = "okay";
-> > +             };
-> > +     };
-> > +};
-
-Regards,
-Bin
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Ck9uIDIwMjAvMTEvMyAyMzo1MywgQXRpc2ggUGF0cmEgd3JvdGU6Cj4gT24gU3VuLCBOb3YgMSwg
+MjAyMCBhdCA3OjU4IFBNIEtlZmVuZyBXYW5nIDx3YW5na2VmZW5nLndhbmdAaHVhd2VpLmNvbT4g
+d3JvdGU6Cj4+IExldCdzIHJlbW92ZSBhbGwgZmlsZXMgdW5kZXIgcmlzY3YgYm9vdCBkaXIgYnkg
+dXNpbmcgYXJjaGNsZWFuIHJ1bGUuCj4+Cj4+IFNpZ25lZC1vZmYtYnk6IEtlZmVuZyBXYW5nIDx3
+YW5na2VmZW5nLndhbmdAaHVhd2VpLmNvbT4KPj4gLS0tCj4+ICAgYXJjaC9yaXNjdi9NYWtlZmls
+ZSAgICAgIHwgMyArKysKPj4gICBhcmNoL3Jpc2N2L2Jvb3QvTWFrZWZpbGUgfCAzICsrLQo+PiAg
+IDIgZmlsZXMgY2hhbmdlZCwgNSBpbnNlcnRpb25zKCspLCAxIGRlbGV0aW9uKC0pCj4+Cj4+IGRp
+ZmYgLS1naXQgYS9hcmNoL3Jpc2N2L01ha2VmaWxlIGIvYXJjaC9yaXNjdi9NYWtlZmlsZQo+PiBp
+bmRleCAwZDllY2I5NTk5NjIuLjhjMjllNTUzZWY3ZiAxMDA2NDQKPj4gLS0tIGEvYXJjaC9yaXNj
+di9NYWtlZmlsZQo+PiArKysgYi9hcmNoL3Jpc2N2L01ha2VmaWxlCj4+IEBAIC0xMDEsMyArMTAx
+LDYgQEAgSW1hZ2UuJTogSW1hZ2UKPj4KPj4gICB6aW5zdGFsbCBpbnN0YWxsOgo+PiAgICAgICAg
+ICAkKFEpJChNQUtFKSAkKGJ1aWxkKT0kKGJvb3QpICRACj4+ICsKPj4gK2FyY2hjbGVhbjoKPj4g
+KyAgICAgICAkKFEpJChNQUtFKSAkKGNsZWFuKT0kKGJvb3QpCj4+IGRpZmYgLS1naXQgYS9hcmNo
+L3Jpc2N2L2Jvb3QvTWFrZWZpbGUgYi9hcmNoL3Jpc2N2L2Jvb3QvTWFrZWZpbGUKPj4gaW5kZXgg
+YzU5ZmNhNjk1ZjlkLi42NjZmMDg2NjIxNzAgMTAwNjQ0Cj4+IC0tLSBhL2FyY2gvcmlzY3YvYm9v
+dC9NYWtlZmlsZQo+PiArKysgYi9hcmNoL3Jpc2N2L2Jvb3QvTWFrZWZpbGUKPj4gQEAgLTE4LDcg
+KzE4LDggQEAgS0NPVl9JTlNUUlVNRU5UIDo9IG4KPj4KPj4gICBPQkpDT1BZRkxBR1NfSW1hZ2Ug
+Oj0tTyBiaW5hcnkgLVIgLm5vdGUgLVIgLm5vdGUuZ251LmJ1aWxkLWlkIC1SIC5jb21tZW50IC1T
+Cj4+Cj4+IC10YXJnZXRzIDo9IEltYWdlIGxvYWRlcgo+PiArdGFyZ2V0cyA6PSBJbWFnZSBJbWFn
+ZS5iejIgSW1hZ2UuZ3ogSW1hZ2UubHo0IEltYWdlLmx6bWEgSW1hZ2UubHpvIFwKPj4gKyAgICAg
+ICAgICBsb2FkZXIgbG9hZGVyLm8gbG9hZGVyLmxkcyBsb2FkZXIuYmluCj4+Cj4gSW1hZ2UuKiBz
+aG91bGQgYmUgc3VmZmljaWVudCB0byBjbGVhbiBhbGwgY29tcHJlc3NlZCBpbWFnZXMuCgpXaWxs
+IGNoYW5nZSBhbmQgcmVzZW5k77yMIHRoYW5rcy4KCj4KPj4gICAkKG9iaikvSW1hZ2U6IHZtbGlu
+dXggRk9SQ0UKPj4gICAgICAgICAgJChjYWxsIGlmX2NoYW5nZWQsb2JqY29weSkKPj4gLS0KPj4g
+Mi4yNi4yCj4+Cj4+Cj4+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCj4+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+PiBsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCj4+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YKPiBPdGhlcndpc2UsCj4KPiBSZXZpZXdlZC1ieTogQXRpc2ggUGF0cmEg
+PGF0aXNoLnBhdHJhQHdkYy5jb20+Cj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
