@@ -2,73 +2,84 @@ Return-Path: <SRS0=Bqyv=EK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-3.5 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1ED73C4741F
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2020 11:39:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E49DDC388F7
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2020 11:48:49 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id ABDBC2236F
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2020 11:39:40 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 46B252071A
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Nov 2020 11:48:49 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="LJMeKidT"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ABDBC2236F
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=jauu.net
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="KSW6N3Su";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="ZdFcNNsE"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 46B252071A
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Subject:References:In-Reply-To:
-	Message-ID:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=aqW4Xc7qt9tpjjYVKz8DLrRAqrS4OWEp5S39LiZrBdE=; b=LJMeKidTq9jIl4Ujil83fMoTo
-	S6xop/Vv1+D3AzsB8QmztUEh4e8xDbmGCrqIzk4k6y0L4bR7ljuiJs4VaT1sq6EzAWEjVLESveaRa
-	PTBP2LFZ7uQZHt0f8G9tVfE5eCX4VU4JaS4sQEjj4MKUHJmICl382Gb0zKKmbM5TcauMdYYEz/S61
-	3SbDelS1ZJAFVLvRWP9VANBlXMAG8eVEY+KjgPpFJ5g4Za2x3gqDf2Leh1761xSsazuoNvfmz0eOh
-	8FRtICFDA2/R4bZtHHJ11DqXzoPSSb1z+g21O0NKpq4M+hc8Q9PC4vo+etoQUym7dnW7l7fTvJq/K
-	kw4/djrRA==;
+	 bh=5P+L8/w/UNcs40VKjj60Hn3a2kepqWDSVtx6RzbnrGY=; b=KSW6N3SukWdhszgyAUNMtYlyd
+	JCntWq005W9V+m76KWbE3GmaoJd1xPZO4k57ydd7EwQckg2BOz5+pqFAaXc6SY+/BC4oMvrfpECg+
+	r2DlXMzxxHu6/AasM/L5z1MS6zlg8zExKEYko0M0EPuWwkWtpDU8UQhcYacj8dag6wwx7iYxYyX27
+	fGAJoR8e7yi0+NdAz2NBzmxZ9RbEkcaF1LOe9vmpiCFU1RdpWsnQQO86/7ZHlfBtrF6GYSyfK/Fw7
+	QK/UFg6841aOD3cW5QYb4YYra0zLiyrcTqvy+y8oG3v3Dzxk/ablFlzVzOaJ/kN8sk85nbMm9wgW+
+	h8o8QtBdg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kaH8U-0000bv-RT; Wed, 04 Nov 2020 11:39:31 +0000
-Received: from mout-p-202.mailbox.org ([2001:67c:2050::465:202])
+	id 1kaHHL-0001vj-Ul; Wed, 04 Nov 2020 11:48:39 +0000
+Received: from mail-pl1-x642.google.com ([2607:f8b0:4864:20::642])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kaH8O-0000ZU-IF; Wed, 04 Nov 2020 11:39:25 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [80.241.60.240])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange ECDHE (P-384) server-signature RSA-PSS (4096 bits) server-digest
- SHA256) (No client certificate requested)
- by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4CR4SB2rQLzQlRc;
- Wed,  4 Nov 2020 12:39:22 +0100 (CET)
-X-Virus-Scanned: amavisd-new at heinlein-support.de
-Received: from smtp1.mailbox.org ([80.241.60.240])
- by spamfilter04.heinlein-hosting.de (spamfilter04.heinlein-hosting.de
- [80.241.56.122]) (amavisd-new, port 10030)
- with ESMTP id F5663DCtL8CE; Wed,  4 Nov 2020 12:39:18 +0100 (CET)
-Date: Wed, 4 Nov 2020 12:39:13 +0100 (CET)
-From: Hagen Paul Pfeifer <hagen@jauu.net>
-To: Mike Rapoport <rppt@kernel.org>
-Message-ID: <1988407921.138656.1604489953944@office.mailbox.org>
-In-Reply-To: <20201103163002.GK4879@kernel.org>
-References: <20200924132904.1391-1-rppt@kernel.org>
- <20201101110935.GA4105325@laniakea> <20201102154028.GD4879@kernel.org>
- <1547601988.128687.1604411534845@office.mailbox.org>
- <20201103163002.GK4879@kernel.org>
-Subject: Re: [PATCH v6 0/6] mm: introduce memfd_secret system call to create
- "secret" memory areas
+ id 1kaHHI-0001uy-Sv
+ for linux-riscv@lists.infradead.org; Wed, 04 Nov 2020 11:48:37 +0000
+Received: by mail-pl1-x642.google.com with SMTP id w11so10170901pll.8
+ for <linux-riscv@lists.infradead.org>; Wed, 04 Nov 2020 03:48:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=7IzbM9m4aaHXdrXJm05MLSazuYENXBo0KE7aGRSwMEM=;
+ b=ZdFcNNsEPd+MrYWXHoLvBaTyKHUZhwFwZu3J/PQqzp5Y/s91VRqgtwgRqnPdnsJFzV
+ u8ndi/4ac74yeUDpbQr7HXPlEJnbasb7cO8o7gJ5QfnXfnqvT0IrHsEaICKEwxEa70A2
+ YXFhqPLDhnbJkNUfiRkcSqJ8rcr7T7iBd7vGmo4WjMykCP58kLBQOzps+/fitCtmG7lx
+ rqQXdb82DTVqzyozftIz+18xHfX9wm2lvzWUKmKLYyJ3imRpyuFKCfkdabT8dbUsAWYG
+ nv0yauU0g8FHPsO317oAA4Yrr0jRGmrdqn85extqA7+6MeHG+mc31wlEfpFhQQxxW9Z6
+ hBNQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=7IzbM9m4aaHXdrXJm05MLSazuYENXBo0KE7aGRSwMEM=;
+ b=sWC7GtvEY20xVFXO1DqT0hFq7HzyPe9oTWWk5rBcgC9XW/iPWRpcJ7q0KFOjLubxRN
+ +emIW/bH6RCMdHlEh214Hb3BFiHNH5uL6NlgPHGwfHZwDRmOGsB9nxslch/kBMxMN1MO
+ R77kx0B9gw5xz6yUtd+j25FQYypLFyIS3JQ4Q6dDJ1Z+zbBs289bBKHqVRdmvBDEFem4
+ S32F7QcNitYsR9dW6HbMOgpmY4/QDDuvT5DoN/UlPz9e1zZ8FUZ38aDudk8tJvlM/yYw
+ Bg1ClMO5HVm6mCSi2tRzXZazSZjFs8HOLhXiYhKjrsFGINalqYGbQDHUJR2qBUM+0alS
+ 9XLA==
+X-Gm-Message-State: AOAM530KoBape7MncQemkiB4N+6CPSak4MTP2eR+a2eoEwsw3cTcSd7V
+ v6/IbT3G6L5V7tRKV2DOUJfp+IB+09e8MklU+eo=
+X-Google-Smtp-Source: ABdhPJwhKGHgOtsgYmsX8K8geLNyRT+0OoRlLf1+UEBmK6aJHTGU8p2K0A8JMelevcl7yJOdhQWuD2QnmsGaSXA3des=
+X-Received: by 2002:a17:902:d30c:b029:d6:8208:bb1 with SMTP id
+ b12-20020a170902d30cb02900d682080bb1mr29348288plc.44.1604490514732; Wed, 04
+ Nov 2020 03:48:34 -0800 (PST)
 MIME-Version: 1.0
-X-Priority: 3
-Importance: Normal
-X-MBO-SPAM-Probability: **
-X-Rspamd-Score: 1.58 / 15.00 / 15.00
-X-Rspamd-Queue-Id: B8AE3182D
-X-Rspamd-UID: 15b699
+References: <cover.1604410035.git.yifeifz2@illinois.edu>
+ <4ec2970fcc819eb4d5dac2bd35233ccdadfda845.1604410035.git.yifeifz2@illinois.edu>
+ <87wnz1to9n.fsf@mpe.ellerman.id.au>
+In-Reply-To: <87wnz1to9n.fsf@mpe.ellerman.id.au>
+From: YiFei Zhu <zhuyifei1999@gmail.com>
+Date: Wed, 4 Nov 2020 05:48:21 -0600
+Message-ID: <CABqSeAQ+3sjLXH7GVt_tZrFT_e0nNMm8QgT+FBNQYSOc8viM=A@mail.gmail.com>
+Subject: Re: [PATCH seccomp 3/8] powerpc: Enable seccomp architecture tracking
+To: Michael Ellerman <mpe@ellerman.id.au>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201104_063924_812726_1F0BE179 
-X-CRM114-Status: GOOD (  20.40  )
+X-CRM114-CacheID: sfid-20201104_064836_964871_937FD8C0 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -80,68 +91,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
- Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
- Will Deacon <will@kernel.org>, linux-kselftest@vger.kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, Christopher Lameter <cl@linux.com>,
- Idan Yaniv <idan.yaniv@ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
- Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
- Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
- Shuah Khan <shuah@kernel.org>, x86@kernel.org,
- Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
- Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
- Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
- Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
- linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-fsdevel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-sh@vger.kernel.org, Tobin Feldman-Fitzthum <tobin@ibm.com>,
+ Hubertus Franke <frankeh@us.ibm.com>, Jack Chen <jianyan2@illinois.edu>,
+ linux-riscv@lists.infradead.org, Andrea Arcangeli <aarcange@redhat.com>,
+ linux-s390@vger.kernel.org, YiFei Zhu <yifeifz2@illinois.edu>,
+ linux-csky@vger.kernel.org, Tianyin Xu <tyxu@illinois.edu>,
+ linux-xtensa@linux-xtensa.org, Kees Cook <keescook@chromium.org>,
+ Jann Horn <jannh@google.com>, Valentin Rothberg <vrothber@redhat.com>,
+ Aleksa Sarai <cyphar@cyphar.com>, Josep Torrellas <torrella@illinois.edu>,
+ Will Drewry <wad@chromium.org>, linux-parisc@vger.kernel.org,
+ Linux Containers <containers@lists.linux-foundation.org>,
+ kernel list <linux-kernel@vger.kernel.org>,
+ Andy Lutomirski <luto@amacapital.net>,
+ Dimitrios Skarlatos <dskarlat@cs.cmu.edu>,
+ David Laight <David.Laight@aculab.com>,
+ Giuseppe Scrivano <gscrivan@redhat.com>, linuxppc-dev@lists.ozlabs.org,
+ Tycho Andersen <tycho@tycho.pizza>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> On 11/03/2020 5:30 PM Mike Rapoport <rppt@kernel.org> wrote:
-> 
-> > > As long as the task share the file descriptor, they can share the
-> > > secretmem pages, pretty much like normal memfd.
-> > 
-> > Including process_vm_readv() and process_vm_writev()? Let's take a hypothetical
-> > "dbus-daemon-secure" service that receives data from process A and wants to
-> > copy/distribute it to data areas of N other processes. Much like dbus but without
-> > SOCK_DGRAM rather direct copy into secretmem/mmap pages (ring-buffer). Should be
-> > possible, right?
-> 
-> I'm not sure I follow you here.
-> For process_vm_readv() and process_vm_writev() secremem will be only
-> accessible on the local part, but not on the remote.
-> So copying data to secretmem pages using process_vm_writev wouldn't
-> work.
+On Wed, Nov 4, 2020 at 4:22 AM Michael Ellerman <mpe@ellerman.id.au> wrote:
+> > +#ifdef __LITTLE_ENDIAN__
+>
+> As Kees mentioned this should (must?!) match the configured endian.
+>
+> But I think it would still be better to use the CONFIG symbol, which is
+> CONFIG_CPU_LITTLE_ENDIAN.
 
-A hypothetical "dbus-daemon-secure" service will not be *process related* with communication
-peers. E.g. a password-input process (reading a password into secured-memory page) will
-transfer the password to dbus-daemon-secure and this service will hand-over the password to
-two additional applications: a IPsec process on CPU0 und CPU1 (which itself use a
-secured-memory page).
+My attempt here is to be consistent with asm/syscall.h
+syscall_get_arch [1]. Would it make sense to change that to
+CONFIG_CPU_LITTLE_ENDIAN then?
 
-So four applications IPC chain:
- password-input -> dbus-daemon-secure -> {IPsec0, IPsec1}
+[1] https://elixir.bootlin.com/linux/latest/source/arch/powerpc/include/asm/syscall.h#L116
 
-- password-input: uses a secured page to read/save the password locally after reading from TTY
-- dbus-daemon-secure: uses a secured page for IPC (legitimate user can write and read into the secured page)
-- IPSecN has secured page to save the password locally (and probably other data as well), IPC memory is memset'ed after copy
+> > +# define SECCOMP_ARCH_NATIVE         (AUDIT_ARCH_PPC64 | __SECCOMP_ARCH_LE)
+>
+> You use __SECCOMP_ARCH_LE there, but previously you only defined
+> __SECCOMP_ARCH_LE_BIT.
+>
+> Is there some magic somewhere that defines __SECCOMP_ARCH_LE based on
+> __SECCOMP_ARCH_LE_BIT ?
 
-Goal: the whole password is never saved/touched on non secured pages during IPC transfer.
+Oops, my bad here.
 
-Question: maybe a *file-descriptor passing* mechanism can do the trick? I.e. dbus-daemon-secure
-allocates via memfd_secret/mmap secure pages and permitted processes will get the descriptor/mmaped-page
-passed so they can use the pages directly?
+> > +# define SECCOMP_ARCH_NATIVE_NR              NR_syscalls
+> > +# define SECCOMP_ARCH_NATIVE_NAME    "ppc64"
+>
+> What's the name used for?
 
-Hagen
+This is used in the last patch in this series to report in procfs the
+name of each architecture tracked by the bitmap cache.
+
+> Usually we use "ppc64" for 64-bit big endian and "ppc64le" for 64-bit
+> little endian.
+>
+> And usually we use "ppc" for 32-bit.
+
+Ok.
+
+YiFei Zhu
 
 _______________________________________________
 linux-riscv mailing list
