@@ -2,95 +2,108 @@ Return-Path: <SRS0=pYMt=EL=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 057BCC00A89
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2020 05:13:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7D33DC00A89
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2020 05:25:33 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4AD832083B
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2020 05:13:56 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E1C6D2083B
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2020 05:25:32 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="iit/ENBt";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="hJB8RXwg";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="LVGPZfXn"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4AD832083B
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="siqmlcvn";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="Nb9JvPnL";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="ea8pBGS2"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E1C6D2083B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=WsPjsAzPcRUv3RmrFyoczbZ0WouVrA1ZOBlQ8TBg9OA=; b=iit/ENBtI7ayWDQ7vM0Q9mbFL
-	LiS7hwvFZxepQUprEcsfbiKZYpr+wDCPYb/Z0i1D6rPtUWAtBtYsIdNao4vH55P/qIkANEbOrtvMn
-	UvPEYNSK1L5Et727FgvT/YFTltlE36iMIGUS0atAJkzBtsonsLkhIbUIT62HHFKGGt2et//adm3QW
-	yL5hH/RuxGGlKZSdRkNuyWtwSCDJKm9zQZGpf0HYSR6CtA32cd6oK84lCP/dYZEN04vg5KZ4cdEW4
-	/uqocdDqtm1k+UqJqepgPU2LfH8hbK8+hweP2JuaPxYjSQWXdstVsAng8M0vpEYWk9rVyJUlxzRkO
-	JtKSW48Xw==;
+	 bh=JnWMh5YW+5z1KqRvUW27zSQzWIPFuJvIcCylO95JdJg=; b=siqmlcvnsVA5jgWpcP2ll/ebp
+	NmA3q0LDvniMBH4b3VqhLilPcsXZQdQCfBskR14BlF9Rj8ROmia+PzJ7MapzAt/zghi/WNlz8YrM2
+	NnJCye0QyyOCD1GnbKV3lyJ4s7J7CUlW4exT5djlAdaKExSt3+wLZ/tWwA3rYmP/ieKErbkyQjaQw
+	Js0WGykJJeaqcItKD0lNi4ytkVyI2s0+JiFpBF4Vwr0miUe6kxQ0jmBUlW+L8Qvphatn+bJj+wf2i
+	HI7f7xKLwXvMAiq73q6yA6t+z0bCE4QJN15uRdGDVLrqMYLoMFCOYTsbketu8ay/7dokT1t4Jelcn
+	4jXAXQdEQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kaXac-0008PZ-72; Thu, 05 Nov 2020 05:13:38 +0000
+	id 1kaXlp-0005OA-Fh; Thu, 05 Nov 2020 05:25:13 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kaW4a-000145-CF
- for linux-riscv@merlin.infradead.org; Thu, 05 Nov 2020 03:36:28 +0000
+ id 1kaW3i-00016k-Kf
+ for linux-riscv@merlin.infradead.org; Thu, 05 Nov 2020 03:35:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:Subject:Message-ID:
- Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=a0nZYDo+CB6TegF98IJWvC66Pi+L/HwyZcY9j3Daq1w=; b=hJB8RXwgoYeMBVR/DQ/9PR6C7A
- IdSs4WfTviT2/yO73gp8H0mbSCIiHfHu1VOG7WOw95UiNBOEOee5Lu8VfG4okuFSzuYyv3j3q3Bcr
- yrO4Xy/Ndrjv1xMU/GBSttQHrn3EZPA6p/dZMw97mQ4YA7yyzUDMGiu1VIMqstlrs11oqRMJeLnxs
- iT3XhycadtAN+01VoHApzSCYkD6xu5nQmLhy5E7boHgCvLs6o8wFspOd/ntaBz10+t+fCihns1J/J
- jJi8uvSUeFoaVujsvAj9Wyws9rJS6OW9o+l8TYA6OOtlPDE0xc9sfsORw+85nfncFOn7G6jAnOZ4a
- PwWFgeVA==;
-Received: from mail-io1-xd42.google.com ([2607:f8b0:4864:20::d42])
+ d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+ References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+ Content-Type:Content-ID:Content-Description;
+ bh=p6gF/ok1lCk6FsPcFlhNJsqY0/AwhvgWwOWKA6Oxdqs=; b=Nb9JvPnLiaJSMCu6YuBrPB2k3P
+ RDRVFvR2ODohj33xOgaqsifTXr41Igommr1zPxqJ4rZ3rBCuX59qWfjn9tzrcJ4QtLr9KBaL9Lu72
+ ExzuQLBff2qZk7OH6BBS60ZJbEpo9eieO80elKMB0hSTouh04al99bP5vpTEoY6Wtm0jBn/+mNXd6
+ GQocVmidcmbgxx+gmhqB/WoXS8J2LL9JZnCwu36+XHG7y7gzc+WByJCy+rLwgfHoRL3cYpYSTmYvx
+ NV6vlScHIahTNBIA3y4QNqst483HIJ7KD0wY1GAHTVv+SO4pJ262ksZ5EBQquqbWf5LezWB4fKzEY
+ ogofzb3w==;
+Received: from esa2.hgst.iphmx.com ([68.232.143.124])
  by casper.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kaSMg-0005xN-KQ
- for linux-riscv@lists.infradead.org; Wed, 04 Nov 2020 23:38:57 +0000
-Received: by mail-io1-xd42.google.com with SMTP id o11so317063ioo.11
- for <linux-riscv@lists.infradead.org>; Wed, 04 Nov 2020 15:38:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=a0nZYDo+CB6TegF98IJWvC66Pi+L/HwyZcY9j3Daq1w=;
- b=LVGPZfXnEEe0PxuGVdeEhrmM549qsPkmNywLDOHuGXHLa9ITAjuP0e0LQcdiN2qINs
- 8Wat9PYnLvO2P+CCIWwaewexubKRK04XKlsykS5EQ4lpNU4xFUvCJRp16Iaq0Uouh1/y
- bhL5ia+m/XYcqspf6hohb4I8QjY71vnEaUJ6c=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=a0nZYDo+CB6TegF98IJWvC66Pi+L/HwyZcY9j3Daq1w=;
- b=R5OZ8/VqugWKyCUxfXDT9vMokBigzhNTawzqkiW5Qm7f7wA/M6NviHmyJhxov5778d
- G05/xZgkqPOWM4e1NxeSfRqCkMvSyf8x0MoSmMcoEKygUAqc7MK3SsNLbSoXAIP7hjdj
- EPYH+4bQifX0EJrXouYiwgQ6xe9d7069ASH9/iYiPI7SVbWsNtPy2yK77Dw/IsytMOkm
- mRPRAvldcrHQ7r/GEOap9HHGxcxlwxXthA3slPtwTZ09K/Z7CWf0Flfp8N06zF7i4Ufa
- 0Z/QK//AP8tZL4w1fRmGuJRp3BJgopEiUFXND33YUPbBDQ9ejibp+3pG59CK7g52sATJ
- UXrA==
-X-Gm-Message-State: AOAM5317YXGdKe5HY8WfWOjNpMwP/ua6aLGacF6dNPHAwalvHpWdFpl3
- mtLA3E2PRCk0p8WKebp3tzsQMI9WGv4qfK6f+Rj1
-X-Google-Smtp-Source: ABdhPJxxfSuP85Z67d1ZPevhNWGC7WnEj5kO3osENOwbpcPDMXVGob2vWq1q34QpbmRT0XgpjcRbLjzTYs+C8MLzlGc=
-X-Received: by 2002:a05:6602:2d93:: with SMTP id
- k19mr312922iow.51.1604533068376; 
- Wed, 04 Nov 2020 15:37:48 -0800 (PST)
+ id 1kaSmu-00012o-4N
+ for linux-riscv@lists.infradead.org; Thu, 05 Nov 2020 00:06:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1604535659; x=1636071659;
+ h=from:to:cc:subject:date:message-id:in-reply-to:
+ references:mime-version:content-transfer-encoding;
+ bh=9LXIU6uBowXoagPOvdiTOz1DEXbfskoKX8F/DlcY3rg=;
+ b=ea8pBGS2+y9uiidXO6IYFrLxIkUnwF5z7sDjr4tBM5Ee9AeVDSGl1tkP
+ d3RDvlUdXGsik6aGbcnbDWFuzDHYM6ZnAfs1qseUeRAVuaKFu1SwE1Otp
+ +eICvWYN3Iiia5TSlyedjju7eusYlLLtBRUQB2BrbifaKzeAnx35sc+DK
+ QoIkME1C4lzxe1qHAjhK/GCNegthvQuX/gODCIkesBlrcNtCCARtmASXt
+ 1umIePWqUm5XtWwHpZuuPYxcOx7AnSTtF6ZBFIw0tk8dTqHp6XVIQ0ADk
+ juAh2Q9uEnmBTY26yriTUoG2TUb6Kj3zjkh2aWCoMIzZy4JKRyHPs7G+i w==;
+IronPort-SDR: rWkhE/DEmTkeyvwp53K7BmVvQHjTFGNgqgkhOAceUalkAgCZUb3OEvRNYYXVaSuc8PTMX0MlGB
+ oSn9eT1hEFroxaPbUruOCJF6f2Va7jwCahqgGNAnYW2hxYKfBlcKm/F1/atZBsmcvDXPvnoUgM
+ gyWtX4PiJlTlpcYgLC7EH4eH+KhciqT3jv2gRvbqr0hbdMUfpCBp523MkSG75Z7keorKepplIr
+ sulaZHcQpnAFgNZ5/ff/64z+6VYTVhOW5xzgtYwy2/CncYjpxJXDZ8Z4lebi8klegMRPNIKr3j
+ jzE=
+X-IronPort-AV: E=Sophos;i="5.77,451,1596470400"; d="scan'208";a="255394932"
+Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
+ ([199.255.45.14])
+ by ob1.hgst.iphmx.com with ESMTP; 05 Nov 2020 08:19:30 +0800
+IronPort-SDR: yuJEzyGUa8Ela8sU17+rteRc1fLddx/hTVBKRLhVzCRQzTYsip1OvqUf874HGFcE6hmwEa/waT
+ IJhG+P3Z2B6OwiOjF28oEz0fQveZJj3rUMINrKJM6+p9lUwc5uEH6fA1kMltvbKSYDtZ0oreLD
+ HOcQfatYnnRKvuGFdKFPKTOheSgrd5jcS2y3Kwusz+TZy1kIrJuZeAhpHl598DEbnCgVZ9BEAV
+ MVQrWjvtKIFpQwWnOQe5HW5tDYQ8y+apdiUPoC9na3Z8F1Zr405Mg7JO7ujqmQQUTj11YfLkwe
+ +AgvjFpHSu55jbMbl7C5eEI8
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+ by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 04 Nov 2020 15:51:08 -0800
+IronPort-SDR: VjqcOTAU4bApn5VGbAwSOp9Egjq3jCCKzrTI7gslDFhyCh8ji0NStWFx3qVPI68gSIzWqdSdPt
+ CyFFu6ha3fvoYjzvriYI7jfvPjfv3zudT2WrELfbn8rGFMDyem6FjXsM/kQ2fBVvD5EwYaEVFg
+ lkSU+ONvzotbz0drAN3a3+rGCRR2+WIwREzUrxIzabnfUiPLT2Dd7BuLIIxHOHEyGUJ/48ypsJ
+ VMVK5QSZZnjDj2Cg6PK4XEgDFOpkNZDcompELIWaRXWZ1WiSElX57TKsYhnG7xFFrvQ01FCxA/
+ 4Go=
+WDCIronportException: Internal
+Received: from 6hj08h2.ad.shared (HELO jedi-01.hgst.com) ([10.86.60.117])
+ by uls-op-cesaip02.wdc.com with ESMTP; 04 Nov 2020 16:05:01 -0800
+From: Atish Patra <atish.patra@wdc.com>
+To: linux-kernel@vger.kernel.org
+Subject: [PATCH v3 4/5] RISC-V: Protect all kernel sections including init
+ early
+Date: Wed,  4 Nov 2020 16:04:38 -0800
+Message-Id: <20201105000439.1491243-5-atish.patra@wdc.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20201105000439.1491243-1-atish.patra@wdc.com>
+References: <20201105000439.1491243-1-atish.patra@wdc.com>
 MIME-Version: 1.0
-References: <20201104063713.3039035-1-anup.patel@wdc.com>
-In-Reply-To: <20201104063713.3039035-1-anup.patel@wdc.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Wed, 4 Nov 2020 15:37:37 -0800
-Message-ID: <CAOnJCUL0-j+rvii65y67Vkp9Th1b_msz4P3eD4DR+qGn+yMdRQ@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: Use non-PGD mappings for early DTB access
-To: Anup Patel <anup.patel@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201104_233854_862457_D7080983 
-X-CRM114-Status: GOOD (  20.84  )
+X-CRM114-CacheID: sfid-20201105_000600_638006_D4DAF98E 
+X-CRM114-Status: GOOD (  15.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -102,95 +115,241 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
- Palmer Dabbelt <palmerdabbelt@google.com>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Atish Patra <atish.patra@wdc.com>, Alistair Francis <Alistair.Francis@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Zong Li <zong.li@sifive.com>,
+ Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org,
+ Atish Patra <atish.patra@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Guo Ren <ren_guo@c-sky.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Miguel Ojeda <ojeda@kernel.org>, Greentime Hu <greentime.hu@sifive.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Michel Lespinasse <walken@google.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 3, 2020 at 10:37 PM Anup Patel <anup.patel@wdc.com> wrote:
->
-> Currently, we use PGD mappings for early DTB mapping in early_pgd
-> but this breaks Linux kernel on SiFive Unleashed because on SiFive
-> Unleashed PMP checks don't work correctly for PGD mappings.
->
+Currently, .init.text & .init.data are intermixed which makes it impossible
+apply different permissions to them. .init.data shouldn't need exec
+permissions while .init.text shouldn't have write permission. Moreover,
+the strict permission are only enforced /init starts. This leaves the
+kernel vulnerable from possible buggy built-in modules.
 
-Not sure why this is an issue with Unleashed only. Microchip Polarfire
-SoC seems to work fine with early DTB pa as 0x88000000.
-However, unleashed fails to boot if the DTB is loaded any address
-below 0xC0000000 and it is mapped via PGD.
+Keep .init.text & .data in separate sections so that different permissions
+are applied to each section. Apply permissions to individual sections as
+early as possible. This improves the kernel protection under
+CONFIG_STRICT_KERNEL_RWX. We also need to restore the permissions for the
+entire _init section after it is freed so that those pages can be used
+for other purpose.
 
-> To fix early DTB mappings on SiFive Unleashed, we use non-PGD
-> mappings (i.e. PMD) for early DTB access.
->
-> Fixes: 8f3a2b4a96dc ("RISC-V: Move DT mapping outof fixmap")
-> Signed-off-by: Anup Patel <anup.patel@wdc.com>
-> ---
->  arch/riscv/mm/init.c | 14 ++++++++++++++
->  1 file changed, 14 insertions(+)
->
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index ea933b789a88..0d13d0c36a7d 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -297,6 +297,7 @@ pmd_t fixmap_pmd[PTRS_PER_PMD] __page_aligned_bss;
->  #define NUM_EARLY_PMDS         (1UL + MAX_EARLY_MAPPING_SIZE / PGDIR_SIZE)
->  #endif
->  pmd_t early_pmd[PTRS_PER_PMD * NUM_EARLY_PMDS] __initdata __aligned(PAGE_SIZE);
-> +pmd_t early_dtb_pmd[PTRS_PER_PMD] __initdata __aligned(PAGE_SIZE);
->
->  static pmd_t *__init get_pmd_virt_early(phys_addr_t pa)
->  {
-> @@ -494,6 +495,18 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
->                                    load_pa + (va - PAGE_OFFSET),
->                                    map_size, PAGE_KERNEL_EXEC);
->
-> +#ifndef __PAGETABLE_PMD_FOLDED
-> +       /* Setup early PMD for DTB */
-> +       create_pgd_mapping(early_pg_dir, DTB_EARLY_BASE_VA,
-> +                          (uintptr_t)early_dtb_pmd, PGDIR_SIZE, PAGE_TABLE);
-> +       /* Create two consecutive PMD mappings for FDT early scan */
-> +       pa = dtb_pa & ~(PMD_SIZE - 1);
-> +       create_pmd_mapping(early_dtb_pmd, DTB_EARLY_BASE_VA,
-> +                          pa, PMD_SIZE, PAGE_KERNEL);
-> +       create_pmd_mapping(early_dtb_pmd, DTB_EARLY_BASE_VA + PMD_SIZE,
-> +                          pa + PMD_SIZE, PMD_SIZE, PAGE_KERNEL);
-> +       dtb_early_va = (void *)DTB_EARLY_BASE_VA + (dtb_pa & (PMD_SIZE - 1));
-> +#else
->         /* Create two consecutive PGD mappings for FDT early scan */
->         pa = dtb_pa & ~(PGDIR_SIZE - 1);
->         create_pgd_mapping(early_pg_dir, DTB_EARLY_BASE_VA,
-> @@ -501,6 +514,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
->         create_pgd_mapping(early_pg_dir, DTB_EARLY_BASE_VA + PGDIR_SIZE,
->                            pa + PGDIR_SIZE, PGDIR_SIZE, PAGE_KERNEL);
->         dtb_early_va = (void *)DTB_EARLY_BASE_VA + (dtb_pa & (PGDIR_SIZE - 1));
-> +#endif
->         dtb_early_pa = dtb_pa;
->
->         /*
-> --
-> 2.25.1
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+Signed-off-by: Atish Patra <atish.patra@wdc.com>
+---
+ arch/riscv/include/asm/sections.h   |  2 ++
+ arch/riscv/include/asm/set_memory.h |  4 +++
+ arch/riscv/kernel/setup.c           | 12 +++++++
+ arch/riscv/kernel/vmlinux.lds.S     | 49 ++++++++++++++++-------------
+ arch/riscv/mm/init.c                | 21 ++++++++++---
+ arch/riscv/mm/pageattr.c            |  6 ++++
+ 6 files changed, 67 insertions(+), 27 deletions(-)
 
-FWIW: Tested on Unleashed & Polarfire SoC.
-Tested-by: Atish Patra <atish.patra@wdc.com>
-Reviewed-by: Atish Patra <atish.patra@wdc.com>
-
-@palmer: Can you consider this patch in next rcX PR ?
-
+diff --git a/arch/riscv/include/asm/sections.h b/arch/riscv/include/asm/sections.h
+index 3a9971b1210f..1595c5b60cfd 100644
+--- a/arch/riscv/include/asm/sections.h
++++ b/arch/riscv/include/asm/sections.h
+@@ -9,5 +9,7 @@
+ 
+ extern char _start[];
+ extern char _start_kernel[];
++extern char __init_data_begin[], __init_data_end[];
++extern char __init_text_begin[], __init_text_end[];
+ 
+ #endif /* __ASM_SECTIONS_H */
+diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
+index 4c5bae7ca01c..b21f4bea6434 100644
+--- a/arch/riscv/include/asm/set_memory.h
++++ b/arch/riscv/include/asm/set_memory.h
+@@ -15,11 +15,15 @@ int set_memory_ro(unsigned long addr, int numpages);
+ int set_memory_rw(unsigned long addr, int numpages);
+ int set_memory_x(unsigned long addr, int numpages);
+ int set_memory_nx(unsigned long addr, int numpages);
++int set_memory_rw_nx(unsigned long addr, int numpages);
++void protect_kernel_text_data(void);
+ #else
+ static inline int set_memory_ro(unsigned long addr, int numpages) { return 0; }
+ static inline int set_memory_rw(unsigned long addr, int numpages) { return 0; }
+ static inline int set_memory_x(unsigned long addr, int numpages) { return 0; }
+ static inline int set_memory_nx(unsigned long addr, int numpages) { return 0; }
++static inline void protect_kernel_text_data(void) {};
++static inline int set_memory_rw_nx(unsigned long addr, int numpages) { return 0; }
+ #endif
+ 
+ int set_direct_map_invalid_noflush(struct page *page);
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index b916f4a904c4..0cbbf62c7747 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -22,6 +22,7 @@
+ #include <asm/cpu_ops.h>
+ #include <asm/early_ioremap.h>
+ #include <asm/setup.h>
++#include <asm/set_memory.h>
+ #include <asm/sections.h>
+ #include <asm/sbi.h>
+ #include <asm/tlbflush.h>
+@@ -92,6 +93,8 @@ void __init setup_arch(char **cmdline_p)
+ 	if (IS_ENABLED(CONFIG_RISCV_SBI))
+ 		sbi_init();
+ 
++	if (IS_ENABLED(CONFIG_STRICT_KERNEL_RWX))
++		protect_kernel_text_data();
+ #ifdef CONFIG_SWIOTLB
+ 	swiotlb_init(1);
+ #endif
+@@ -121,3 +124,12 @@ static int __init topology_init(void)
+ 	return 0;
+ }
+ subsys_initcall(topology_init);
++
++void free_initmem(void)
++{
++	unsigned long init_begin = (unsigned long)__init_begin;
++	unsigned long init_end = (unsigned long)__init_end;
++
++	set_memory_rw_nx(init_begin, (init_end - init_begin) >> PAGE_SHIFT);
++	free_initmem_default(POISON_FREE_INITMEM);
++}
+diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
+index cacd7898ba7f..ca19ee5acd0a 100644
+--- a/arch/riscv/kernel/vmlinux.lds.S
++++ b/arch/riscv/kernel/vmlinux.lds.S
+@@ -29,6 +29,22 @@ SECTIONS
+ 	HEAD_TEXT_SECTION
+ 	. = ALIGN(PAGE_SIZE);
+ 
++	.text : {
++		_text = .;
++		_stext = .;
++		TEXT_TEXT
++		SCHED_TEXT
++		CPUIDLE_TEXT
++		LOCK_TEXT
++		KPROBES_TEXT
++		ENTRY_TEXT
++		IRQENTRY_TEXT
++		SOFTIRQENTRY_TEXT
++		*(.fixup)
++		_etext = .;
++	}
++
++	. = ALIGN(SECTION_ALIGN);
+ 	__init_begin = .;
+ 	__init_text_begin = .;
+ 	.init.text : AT(ADDR(.init.text) - LOAD_OFFSET) ALIGN(SECTION_ALIGN) { \
+@@ -53,35 +69,24 @@ SECTIONS
+ 	{
+ 		EXIT_TEXT
+ 	}
+-	.exit.data :
+-	{
+-		EXIT_DATA
+-	}
+-	PERCPU_SECTION(L1_CACHE_BYTES)
+-	__init_end = .;
+ 
++	__init_text_end = .;
+ 	. = ALIGN(SECTION_ALIGN);
+-	.text : {
+-		_text = .;
+-		_stext = .;
+-		TEXT_TEXT
+-		SCHED_TEXT
+-		CPUIDLE_TEXT
+-		LOCK_TEXT
+-		KPROBES_TEXT
+-		ENTRY_TEXT
+-		IRQENTRY_TEXT
+-		SOFTIRQENTRY_TEXT
+-		*(.fixup)
+-		_etext = .;
+-	}
+-
+ #ifdef CONFIG_EFI
+ 	. = ALIGN(PECOFF_SECTION_ALIGNMENT);
+ 	__pecoff_text_end = .;
+ #endif
+-
++	/* Start of init data section */
++	__init_data_begin = .;
+ 	INIT_DATA_SECTION(16)
++	.exit.data :
++	{
++		EXIT_DATA
++	}
++	PERCPU_SECTION(L1_CACHE_BYTES)
++
++	__init_data_end = .;
++	__init_end = .;
+ 
+ 	/* Start of data section */
+ 	_sdata = .;
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 0d13d0c36a7d..00793f3c837e 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -622,18 +622,29 @@ static inline void setup_vm_final(void)
+ #endif /* CONFIG_MMU */
+ 
+ #ifdef CONFIG_STRICT_KERNEL_RWX
+-void mark_rodata_ro(void)
++void protect_kernel_text_data(void)
+ {
+-	unsigned long text_start = (unsigned long)_text;
+-	unsigned long text_end = (unsigned long)_etext;
++	unsigned long text_start = (unsigned long)_start;
++	unsigned long init_text_start = (unsigned long)__init_text_begin;
++	unsigned long init_data_start = (unsigned long)__init_data_begin;
+ 	unsigned long rodata_start = (unsigned long)__start_rodata;
+ 	unsigned long data_start = (unsigned long)_data;
+ 	unsigned long max_low = (unsigned long)(__va(PFN_PHYS(max_low_pfn)));
+ 
+-	set_memory_ro(text_start, (text_end - text_start) >> PAGE_SHIFT);
+-	set_memory_ro(rodata_start, (data_start - rodata_start) >> PAGE_SHIFT);
++	set_memory_ro(text_start, (init_text_start - text_start) >> PAGE_SHIFT);
++	set_memory_ro(init_text_start, (init_data_start - init_text_start) >> PAGE_SHIFT);
++	set_memory_nx(init_data_start, (rodata_start - init_data_start) >> PAGE_SHIFT);
++	/* rodata section is marked readonly in mark_rodata_ro */
+ 	set_memory_nx(rodata_start, (data_start - rodata_start) >> PAGE_SHIFT);
+ 	set_memory_nx(data_start, (max_low - data_start) >> PAGE_SHIFT);
++}
++
++void mark_rodata_ro(void)
++{
++	unsigned long rodata_start = (unsigned long)__start_rodata;
++	unsigned long data_start = (unsigned long)_data;
++
++	set_memory_ro(rodata_start, (data_start - rodata_start) >> PAGE_SHIFT);
+ 
+ 	debug_checkwx();
+ }
+diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
+index 19fecb362d81..c64ec224fd0c 100644
+--- a/arch/riscv/mm/pageattr.c
++++ b/arch/riscv/mm/pageattr.c
+@@ -128,6 +128,12 @@ static int __set_memory(unsigned long addr, int numpages, pgprot_t set_mask,
+ 	return ret;
+ }
+ 
++int set_memory_rw_nx(unsigned long addr, int numpages)
++{
++	return __set_memory(addr, numpages, __pgprot(_PAGE_READ | _PAGE_WRITE),
++			    __pgprot(_PAGE_EXEC));
++}
++
+ int set_memory_ro(unsigned long addr, int numpages)
+ {
+ 	return __set_memory(addr, numpages, __pgprot(_PAGE_READ),
 -- 
-Regards,
-Atish
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
