@@ -2,69 +2,145 @@ Return-Path: <SRS0=pYMt=EL=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-11.0 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8BE4BC00A89
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2020 11:42:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 21EC6C00A89
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2020 13:15:10 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id ECF4E2071A
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2020 11:42:38 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 4737D206B5
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2020 13:15:09 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="woC5vS1f";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="HHJruZEG"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ECF4E2071A
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="y1cOU/M3";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=gmx.net header.i=@gmx.net header.b="jhdcsWVe"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4737D206B5
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=gmx.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=GikfdZiTzfOebwi4B6io/y3WkUKJCqKUmymOc1S0nMs=; b=woC5vS1frljSW0EZmgH0HQAyB
-	qza7Z+jDEDQ7BcePTLeld9yIqIBbJ9U7bhJKaWsbhVqTfj+NePE9U58Pyb8btnv1pW3hb/YraH/Aw
-	XjIki+3AblDWknfWVjO45W6LZY6I24O8WdLui+jTVzDMvuweaFCseqAweo3l1rp3NXOmIGFt5skyM
-	IrzwnVnYwifMVyMlZpWQdtErDT+47h1dKGHZUyuy6/bVqqMK1ZPuTxwNFfz54FX1znV8Pts3KBYDK
-	kxW2qAwrmC6zVwvCvnW+UAcZAfSN44PodJXz4a4GyklJj1hMIQusslCmGafhpX0siUPmuIkRVlloy
-	7KMb8Pq+w==;
+	 bh=5WqzgYSgdM0gEXX/NpT9WVfxKxZBKSHdbN/FOpIhcgY=; b=y1cOU/M3LEDn8uvWz8LaOytE2
+	ubPnzT/k+AUtJaTtYQM3qYRzYRVpF9364X26BFOzUjgcPaT6kPq5tLQ6Yt4UNj74IPcVthDIHSWi6
+	ji0hvx06sz3TqPP3VlH7jSfqAjS1KmHrPHfkkCPPi8dTejksQv411Oa1ktIaTNdup8Lhweko9HxJt
+	a5aekVVHAs6s6n8tr3RaYQD86H/WEEol2bjPQtiuOmy9+xDtsWeE5EQD66Gy32aY96ryPdQEgZ7aa
+	Wr+v4fDbNRNkAoAM8Hx9GuT5V/J+aCkE3L2c9hduBhjE2WlSU3Ffx82Ia9g5AonNnIUXqXfXlGgiy
+	OADUslnjg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kadew-0003eO-34; Thu, 05 Nov 2020 11:42:30 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1kaf6O-0008OE-Qb; Thu, 05 Nov 2020 13:14:56 +0000
+Received: from mout.gmx.net ([212.227.17.21])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kadeq-0003bZ-9g; Thu, 05 Nov 2020 11:42:25 +0000
-Received: from kernel.org (unknown [2.55.183.164])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 2AF252071A;
- Thu,  5 Nov 2020 11:42:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1604576542;
- bh=wBBJASevkpsRXZMXJL2OiMK6CtZhq8iWhEgufgr/S4E=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=HHJruZEGepbkqow1qhwuCKDkVoe/lpKxogvFghtL/5RowA6qyrxSq531Gliqcbzyu
- tDTgfPvrJ9vN7jvSKObEIq9kiRh1xeaKbxhp+zX6zw46ZOu6eW7fSqiBEMlywA8zjt
- Ph/W2QEvA7Z47iM8NgnnYxvGybdML21CtLacZNig=
-Date: Thu, 5 Nov 2020 13:42:00 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Vlastimil Babka <vbabka@suse.cz>
-Subject: Re: [PATCH v4 3/4] arch, mm: restore dependency of
- __kernel_map_pages() of DEBUG_PAGEALLOC
-Message-ID: <20201105114200.GZ4879@kernel.org>
-References: <20201103162057.22916-1-rppt@kernel.org>
- <20201103162057.22916-4-rppt@kernel.org>
- <f9c1dc66-fc60-db4d-9670-0271adb2ed07@suse.cz>
+ id 1kaf6L-0008NK-HV
+ for linux-riscv@lists.infradead.org; Thu, 05 Nov 2020 13:14:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
+ s=badeba3b8450; t=1604582062;
+ bh=hvl3a/DWoP3yKdUCuEnO965iNCdGwTGX9IdgK9GEq0c=;
+ h=X-UI-Sender-Class:Subject:To:Cc:References:From:Date:In-Reply-To;
+ b=jhdcsWVeG7mrfIXkpGSS9ZzerLWnZEoNFfundMNdRZv1Ln4NeaWBB1INcUjv0ed0p
+ KHGmWOs331ogm8AwG/7Ba6n5i5uCnbn/Gv2SfRhEzVXeH03nDh2d+XKUJh8tNQtcCn
+ prAh0zp7b6qRdpzdE+eko1E7CgeTdXR1DH75X2T8=
+X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
+Received: from [192.168.20.60] ([92.116.156.55]) by mail.gmx.com (mrgmx105
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1M5wLT-1kgPSP0uoV-007U0t; Thu, 05
+ Nov 2020 14:14:22 +0100
+Subject: Re: [PATCH seccomp 2/8] parisc: Enable seccomp architecture tracking
+To: YiFei Zhu <zhuyifei1999@gmail.com>, containers@lists.linux-foundation.org
+References: <cover.1604410035.git.yifeifz2@illinois.edu>
+ <9bb86c546eda753adf5270425e7353202dbce87c.1604410035.git.yifeifz2@illinois.edu>
+From: Helge Deller <deller@gmx.de>
+Autocrypt: addr=deller@gmx.de; keydata=
+ mQINBF3Ia3MBEAD3nmWzMgQByYAWnb9cNqspnkb2GLVKzhoH2QD4eRpyDLA/3smlClbeKkWT
+ HLnjgkbPFDmcmCz5V0Wv1mKYRClAHPCIBIJgyICqqUZo2qGmKstUx3pFAiztlXBANpRECgwJ
+ r+8w6mkccOM9GhoPU0vMaD/UVJcJQzvrxVHO8EHS36aUkjKd6cOpdVbCt3qx8cEhCmaFEO6u
+ CL+k5AZQoABbFQEBocZE1/lSYzaHkcHrjn4cQjc3CffXnUVYwlo8EYOtAHgMDC39s9a7S90L
+ 69l6G73lYBD/Br5lnDPlG6dKfGFZZpQ1h8/x+Qz366Ojfq9MuuRJg7ZQpe6foiOtqwKym/zV
+ dVvSdOOc5sHSpfwu5+BVAAyBd6hw4NddlAQUjHSRs3zJ9OfrEx2d3mIfXZ7+pMhZ7qX0Axlq
+ Lq+B5cfLpzkPAgKn11tfXFxP+hcPHIts0bnDz4EEp+HraW+oRCH2m57Y9zhcJTOJaLw4YpTY
+ GRUlF076vZ2Hz/xMEvIJddRGId7UXZgH9a32NDf+BUjWEZvFt1wFSW1r7zb7oGCwZMy2LI/G
+ aHQv/N0NeFMd28z+deyxd0k1CGefHJuJcOJDVtcE1rGQ43aDhWSpXvXKDj42vFD2We6uIo9D
+ 1VNre2+uAxFzqqf026H6cH8hin9Vnx7p3uq3Dka/Y/qmRFnKVQARAQABtBxIZWxnZSBEZWxs
+ ZXIgPGRlbGxlckBnbXguZGU+iQJRBBMBCAA7AhsDBQsJCAcCBhUKCQgLAgQWAgMBAh4BAheA
+ FiEERUSCKCzZENvvPSX4Pl89BKeiRgMFAl3J1zsCGQEACgkQPl89BKeiRgNK7xAAg6kJTPje
+ uBm9PJTUxXaoaLJFXbYdSPfXhqX/BI9Xi2VzhwC2nSmizdFbeobQBTtRIz5LPhjk95t11q0s
+ uP5htzNISPpwxiYZGKrNnXfcPlziI2bUtlz4ke34cLK6MIl1kbS0/kJBxhiXyvyTWk2JmkMi
+ REjR84lCMAoJd1OM9XGFOg94BT5aLlEKFcld9qj7B4UFpma8RbRUpUWdo0omAEgrnhaKJwV8
+ qt0ULaF/kyP5qbI8iA2PAvIjq73dA4LNKdMFPG7Rw8yITQ1Vi0DlDgDT2RLvKxEQC0o3C6O4
+ iQq7qamsThLK0JSDRdLDnq6Phv+Yahd7sDMYuk3gIdoyczRkXzncWAYq7XTWl7nZYBVXG1D8
+ gkdclsnHzEKpTQIzn/rGyZshsjL4pxVUIpw/vdfx8oNRLKj7iduf11g2kFP71e9v2PP94ik3
+ Xi9oszP+fP770J0B8QM8w745BrcQm41SsILjArK+5mMHrYhM4ZFN7aipK3UXDNs3vjN+t0zi
+ qErzlrxXtsX4J6nqjs/mF9frVkpv7OTAzj7pjFHv0Bu8pRm4AyW6Y5/H6jOup6nkJdP/AFDu
+ 5ImdlA0jhr3iLk9s9WnjBUHyMYu+HD7qR3yhX6uWxg2oB2FWVMRLXbPEt2hRGq09rVQS7DBy
+ dbZgPwou7pD8MTfQhGmDJFKm2ju5Ag0EXchrcwEQAOsDQjdtPeaRt8EP2pc8tG+g9eiiX9Sh
+ rX87SLSeKF6uHpEJ3VbhafIU6A7hy7RcIJnQz0hEUdXjH774B8YD3JKnAtfAyuIU2/rOGa/v
+ UN4BY6U6TVIOv9piVQByBthGQh4YHhePSKtPzK9Pv/6rd8H3IWnJK/dXiUDQllkedrENXrZp
+ eLUjhyp94ooo9XqRl44YqlsrSUh+BzW7wqwfmu26UjmAzIZYVCPCq5IjD96QrhLf6naY6En3
+ ++tqCAWPkqKvWfRdXPOz4GK08uhcBp3jZHTVkcbo5qahVpv8Y8mzOvSIAxnIjb+cklVxjyY9
+ dVlrhfKiK5L+zA2fWUreVBqLs1SjfHm5OGuQ2qqzVcMYJGH/uisJn22VXB1c48yYyGv2HUN5
+ lC1JHQUV9734I5cczA2Gfo27nTHy3zANj4hy+s/q1adzvn7hMokU7OehwKrNXafFfwWVK3OG
+ 1dSjWtgIv5KJi1XZk5TV6JlPZSqj4D8pUwIx3KSp0cD7xTEZATRfc47Yc+cyKcXG034tNEAc
+ xZNTR1kMi9njdxc1wzM9T6pspTtA0vuD3ee94Dg+nDrH1As24uwfFLguiILPzpl0kLaPYYgB
+ wumlL2nGcB6RVRRFMiAS5uOTEk+sJ/tRiQwO3K8vmaECaNJRfJC7weH+jww1Dzo0f1TP6rUa
+ fTBRABEBAAGJAjYEGAEIACAWIQRFRIIoLNkQ2+89Jfg+Xz0Ep6JGAwUCXchrcwIbDAAKCRA+
+ Xz0Ep6JGAxtdEAC54NQMBwjUNqBNCMsh6WrwQwbg9tkJw718QHPw43gKFSxFIYzdBzD/YMPH
+ l+2fFiefvmI4uNDjlyCITGSM+T6b8cA7YAKvZhzJyJSS7pRzsIKGjhk7zADL1+PJei9p9idy
+ RbmFKo0dAL+ac0t/EZULHGPuIiavWLgwYLVoUEBwz86ZtEtVmDmEsj8ryWw75ZIarNDhV74s
+ BdM2ffUJk3+vWe25BPcJiaZkTuFt+xt2CdbvpZv3IPrEkp9GAKof2hHdFCRKMtgxBo8Kao6p
+ Ws/Vv68FusAi94ySuZT3fp1xGWWf5+1jX4ylC//w0Rj85QihTpA2MylORUNFvH0MRJx4mlFk
+ XN6G+5jIIJhG46LUucQ28+VyEDNcGL3tarnkw8ngEhAbnvMJ2RTx8vGh7PssKaGzAUmNNZiG
+ MB4mPKqvDZ02j1wp7vthQcOEg08z1+XHXb8ZZKST7yTVa5P89JymGE8CBGdQaAXnqYK3/yWf
+ FwRDcGV6nxanxZGKEkSHHOm8jHwvQWvPP73pvuPBEPtKGLzbgd7OOcGZWtq2hNC6cRtsRdDx
+ 4TAGMCz4j238m+2mdbdhRh3iBnWT5yPFfnv/2IjFAk+sdix1Mrr+LIDF++kiekeq0yUpDdc4
+ ExBy2xf6dd+tuFFBp3/VDN4U0UfG4QJ2fg19zE5Z8dS4jGIbLrgzBF3IbakWCSsGAQQB2kcP
+ AQEHQNdEF2C6q5MwiI+3akqcRJWo5mN24V3vb3guRJHo8xbFiQKtBBgBCAAgFiEERUSCKCzZ
+ ENvvPSX4Pl89BKeiRgMFAl3IbakCGwIAgQkQPl89BKeiRgN2IAQZFggAHRYhBLzpEj4a0p8H
+ wEm73vcStRCiOg9fBQJdyG2pAAoJEPcStRCiOg9fto8A/3cti96iIyCLswnSntdzdYl72SjJ
+ HnsUYypLPeKEXwCqAQDB69QCjXHPmQ/340v6jONRMH6eLuGOdIBx8D+oBp8+BGLiD/9qu5H/
+ eGe0rrmE5lLFRlnm5QqKKi4gKt2WHMEdGi7fXggOTZbuKJA9+DzPxcf9ShuQMJRQDkgzv/VD
+ V1fvOdaIMlM1EjMxIS2fyyI+9KZD7WwFYK3VIOsC7PtjOLYHSr7o7vDHNqTle7JYGEPlxuE6
+ hjMU7Ew2Ni4SBio8PILVXE+dL/BELp5JzOcMPnOnVsQtNbllIYvXRyX0qkTD6XM2Jbh+xI9P
+ xajC+ojJ/cqPYBEALVfgdh6MbA8rx3EOCYj/n8cZ/xfo+wR/zSQ+m9wIhjxI4XfbNz8oGECm
+ xeg1uqcyxfHx+N/pdg5Rvw9g+rtlfmTCj8JhNksNr0NcsNXTkaOy++4Wb9lKDAUcRma7TgMk
+ Yq21O5RINec5Jo3xeEUfApVwbueBWCtq4bljeXG93iOWMk4cYqsRVsWsDxsplHQfh5xHk2Zf
+ GAUYbm/rX36cdDBbaX2+rgvcHDTx9fOXozugEqFQv9oNg3UnXDWyEeiDLTC/0Gei/Jd/YL1p
+ XzCscCr+pggvqX7kI33AQsxo1DT19sNYLU5dJ5Qxz1+zdNkB9kK9CcTVFXMYehKueBkk5MaU
+ ou0ZH9LCDjtnOKxPuUWstxTXWzsinSpLDIpkP//4fN6asmPo2cSXMXE0iA5WsWAXcK8uZ4jD
+ c2TFWAS8k6RLkk41ZUU8ENX8+qZx/Q==
+Message-ID: <8d86100a-a3d6-d3bd-856c-38d17f363864@gmx.de>
+Date: Thu, 5 Nov 2020 14:14:15 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.5.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <f9c1dc66-fc60-db4d-9670-0271adb2ed07@suse.cz>
+In-Reply-To: <9bb86c546eda753adf5270425e7353202dbce87c.1604410035.git.yifeifz2@illinois.edu>
+Content-Language: en-US
+X-Provags-ID: V03:K1:1QVEQuqTmgX7JJqdEkHcs098MrIPbhiET1stBdJlwnGaXA8bIuH
+ tW64Kumdb/ZadHYHAmwWlDtRvnkZLheeVmHw0n+SNEN6lO0J+uCOH9+wGGTIeuYOSc6tkD+
+ poAVk3TTqwiGNkfCAafeLOV5nxm9gzXgw5FNQM0x8N/zUaa4fR3cbkwefeor/CrqpGOfxfy
+ T4uZ6SGJcO+c06shUWGlA==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:Zm6k9jpZc6g=://srLO+3z3UASrT4Ku8wWY
+ p+UVgWkCiG2npqOmCd+TK5QLisIG3vnoU2YhFnLYIE71e1Q4IMptcfHTiGv85u1mTrMoY0kfZ
+ KTZLvJ7v8FqEhp2pVGf1KX9H4csbzYjrrkvc44kb6ey1Y3oXf8a9HihMRs9uUocF26PP0J8YD
+ q5qHXtcd9EqlblqcKcxPWkxu03qYhf2LRCeySqppq+qyX/DcOqjJIpCJ2cKGEk7QFDoaQXL8e
+ 0u/1fDLCFykbgC3GmWubqefKQC8JdSXl/gMXDo/iAaqTOR6g0rd97a8dQm48IviqbhtUBhaf8
+ PyzbqTbjTlenSI5sEKQIGCqtZOZTKJBv2U9IJlodWcEd0c3DXmpdgCn7uKwNFP8OncuJiucUL
+ cGXR3hq+P2rRZCB/0V8qa7krrc3eHVjq9DOHcX1dj7SRbnDCgBgwYludzkk6L8utwnyiC1Xjr
+ qR+s7JF9tOtkYd01gdSUPntspUMyMdRdebTHbleMyWGItnsFbL+PTamgIYoxUsfkwPcZhpeNp
+ 4CH64IYJP3g2l23FC+hImWEzv0jDAXc1pEQmSiWPABYQbY/pU0wvID33YJM82r6f1hlGW5uvK
+ wwOyIeJE2cYO48ufw3obHECg2+5RtrsOl7F/VREpnsiVWs/U9bR0QPyQ0m+bY+61jL7vkdbMH
+ 04GlOp/982qPBnN8KRa6tRQaxUiRbsnZAJu2VW1uMPStt8nJcMBhY2q5TTs67A/oBUmSJP/nm
+ XVpPohmauLQH5UhaenS4gWSGJoUbUbz+XaMDlt1r0pToJy7t6fu9S4AM/cNtXIIBkFXnF8teV
+ S2Wcc+gjGH/vA6WJTIuk0rdPbqRvytWlYR1X6pGzX5mhxES8Qx5WA35R9/Ulq9k0GNJho9zsv
+ T6nB6eRPQ2R6CfvK3qcA==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201105_064224_600799_FB07D103 
-X-CRM114-Status: GOOD (  30.79  )
+X-CRM114-CacheID: sfid-20201105_081453_937774_25978C8F 
+X-CRM114-Status: GOOD (  17.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -76,148 +152,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: David Hildenbrand <david@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
- Paul Mackerras <paulus@samba.org>, Pavel Machek <pavel@ucw.cz>,
- "H. Peter Anvin" <hpa@zytor.com>, sparclinux@vger.kernel.org,
- Christoph Lameter <cl@linux.com>, Will Deacon <will@kernel.org>,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- Michael Ellerman <mpe@ellerman.id.au>, x86@kernel.org,
- Mike Rapoport <rppt@linux.ibm.com>,
- Christian Borntraeger <borntraeger@de.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Len Brown <len.brown@intel.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Vasily Gorbik <gor@linux.ibm.com>,
- linux-pm@vger.kernel.org, Heiko Carstens <hca@linux.ibm.com>,
- David Rientjes <rientjes@google.com>, Borislav Petkov <bp@alien8.de>,
- Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Thomas Gleixner <tglx@linutronix.de>, Joonsoo Kim <iamjoonsoo.kim@lge.com>,
- linux-arm-kernel@lists.infradead.org, "Rafael J. Wysocki" <rjw@rjwysocki.net>,
- linux-kernel@vger.kernel.org, Pekka Enberg <penberg@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Andrew Morton <akpm@linux-foundation.org>,
- "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>,
- linuxppc-dev@lists.ozlabs.org, "David S. Miller" <davem@davemloft.net>,
- "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+Cc: linux-sh@vger.kernel.org, Tobin Feldman-Fitzthum <tobin@ibm.com>,
+ Hubertus Franke <frankeh@us.ibm.com>, Jack Chen <jianyan2@illinois.edu>,
+ linux-riscv@lists.infradead.org, Andrea Arcangeli <aarcange@redhat.com>,
+ linux-s390@vger.kernel.org, YiFei Zhu <yifeifz2@illinois.edu>,
+ linux-csky@vger.kernel.org, Tianyin Xu <tyxu@illinois.edu>,
+ linux-xtensa@linux-xtensa.org, Kees Cook <keescook@chromium.org>,
+ Jann Horn <jannh@google.com>, Valentin Rothberg <vrothber@redhat.com>,
+ Aleksa Sarai <cyphar@cyphar.com>, Josep Torrellas <torrella@illinois.edu>,
+ Will Drewry <wad@chromium.org>, linux-parisc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Andy Lutomirski <luto@amacapital.net>,
+ Dimitrios Skarlatos <dskarlat@cs.cmu.edu>,
+ David Laight <David.Laight@aculab.com>,
+ Giuseppe Scrivano <gscrivan@redhat.com>, linuxppc-dev@lists.ozlabs.org,
+ Tycho Andersen <tycho@tycho.pizza>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 04, 2020 at 07:02:20PM +0100, Vlastimil Babka wrote:
-> On 11/3/20 5:20 PM, Mike Rapoport wrote:
-> > From: Mike Rapoport <rppt@linux.ibm.com>
-> 
-> Subject should have "on DEBUG_PAGEALLOC" ?
-> 
-> > The design of DEBUG_PAGEALLOC presumes that __kernel_map_pages() must never
-> > fail. With this assumption is wouldn't be safe to allow general usage of
-> > this function.
-> > 
-> > Moreover, some architectures that implement __kernel_map_pages() have this
-> > function guarded by #ifdef DEBUG_PAGEALLOC and some refuse to map/unmap
-> > pages when page allocation debugging is disabled at runtime.
-> > 
-> > As all the users of __kernel_map_pages() were converted to use
-> > debug_pagealloc_map_pages() it is safe to make it available only when
-> > DEBUG_PAGEALLOC is set.
-> > 
-> > Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
-> > Acked-by: David Hildenbrand <david@redhat.com>
-> > Acked-by: Kirill A. Shutemov <kirill.shutemov@linux.intel.com>
-> > ---
-> >   arch/Kconfig                     |  3 +++
-> >   arch/arm64/Kconfig               |  4 +---
-> >   arch/arm64/mm/pageattr.c         |  8 ++++++--
-> >   arch/powerpc/Kconfig             |  5 +----
-> >   arch/riscv/Kconfig               |  4 +---
-> >   arch/riscv/include/asm/pgtable.h |  2 --
-> >   arch/riscv/mm/pageattr.c         |  2 ++
-> >   arch/s390/Kconfig                |  4 +---
-> >   arch/sparc/Kconfig               |  4 +---
-> >   arch/x86/Kconfig                 |  4 +---
-> >   arch/x86/mm/pat/set_memory.c     |  2 ++
-> >   include/linux/mm.h               | 10 +++++++---
-> >   12 files changed, 26 insertions(+), 26 deletions(-)
-> > 
-> > diff --git a/arch/Kconfig b/arch/Kconfig
-> > index 56b6ccc0e32d..56d4752b6db6 100644
-> > --- a/arch/Kconfig
-> > +++ b/arch/Kconfig
-> > @@ -1028,6 +1028,9 @@ config HAVE_STATIC_CALL_INLINE
-> >   	bool
-> >   	depends on HAVE_STATIC_CALL
-> > +config ARCH_SUPPORTS_DEBUG_PAGEALLOC
-> > +	bool
-> > +
-> >   source "kernel/gcov/Kconfig"
-> >   source "scripts/gcc-plugins/Kconfig"
-> > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> > index 1d466addb078..a932810cfd90 100644
-> > --- a/arch/arm64/Kconfig
-> > +++ b/arch/arm64/Kconfig
-> > @@ -71,6 +71,7 @@ config ARM64
-> >   	select ARCH_USE_QUEUED_RWLOCKS
-> >   	select ARCH_USE_QUEUED_SPINLOCKS
-> >   	select ARCH_USE_SYM_ANNOTATIONS
-> > +	select ARCH_SUPPORTS_DEBUG_PAGEALLOC
-> >   	select ARCH_SUPPORTS_MEMORY_FAILURE
-> >   	select ARCH_SUPPORTS_SHADOW_CALL_STACK if CC_HAVE_SHADOW_CALL_STACK
-> >   	select ARCH_SUPPORTS_ATOMIC_RMW
-> > @@ -1025,9 +1026,6 @@ config HOLES_IN_ZONE
-> >   source "kernel/Kconfig.hz"
-> > -config ARCH_SUPPORTS_DEBUG_PAGEALLOC
-> > -	def_bool y
-> > -
-> >   config ARCH_SPARSEMEM_ENABLE
-> >   	def_bool y
-> >   	select SPARSEMEM_VMEMMAP_ENABLE
-> > diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-> > index 1b94f5b82654..439325532be1 100644
-> > --- a/arch/arm64/mm/pageattr.c
-> > +++ b/arch/arm64/mm/pageattr.c
-> > @@ -155,7 +155,7 @@ int set_direct_map_invalid_noflush(struct page *page)
-> >   		.clear_mask = __pgprot(PTE_VALID),
-> >   	};
-> > -	if (!rodata_full)
-> > +	if (!debug_pagealloc_enabled() && !rodata_full)
-> >   		return 0;
-> >   	return apply_to_page_range(&init_mm,
-> > @@ -170,7 +170,7 @@ int set_direct_map_default_noflush(struct page *page)
-> >   		.clear_mask = __pgprot(PTE_RDONLY),
-> >   	};
-> > -	if (!rodata_full)
-> > +	if (!debug_pagealloc_enabled() && !rodata_full)
-> >   		return 0;
-> >   	return apply_to_page_range(&init_mm,
-> 
-> I don't understand these two hunks. Previous patch calls this for
-> hibernation when CONFIG_ARCH_HAS_SET_DIRECT_MAP, which is true for arm64.
-> Why suddenly this starts to depend on debug_pagealloc_enabled()?
+On 11/3/20 2:42 PM, YiFei Zhu wrote:
+> From: YiFei Zhu <yifeifz2@illinois.edu>
+>
+> To enable seccomp constant action bitmaps, we need to have a static
+> mapping to the audit architecture and system call table size. Add these
+> for parisc.
+> > Signed-off-by: YiFei Zhu <yifeifz2@illinois.edu>
 
-I was confused about this for quite a long :)
+I did compile- and boot-tested it, works on 32- and 64-bit parisc kernel.
+I don't know how to test it actually, but anyway:
 
-On arm64 the changes to direct^w linear map are allowed when 
+Acked-by: Helge Deller <deller@gmx.de>
 
-	debug_page_alloc() || rodata_full
+Thanks!
+Helge
 
-In hibernation we essentially have now
+> ---
+>  arch/parisc/include/asm/Kbuild    |  1 -
+>  arch/parisc/include/asm/seccomp.h | 22 ++++++++++++++++++++++
+>  2 files changed, 22 insertions(+), 1 deletion(-)
+>  create mode 100644 arch/parisc/include/asm/seccomp.h
+>
+> diff --git a/arch/parisc/include/asm/Kbuild b/arch/parisc/include/asm/Kbuild
+> index e3ee5c0bfe80..f16c4db80116 100644
+> --- a/arch/parisc/include/asm/Kbuild
+> +++ b/arch/parisc/include/asm/Kbuild
+> @@ -5,5 +5,4 @@ generated-y += syscall_table_c32.h
+>  generic-y += kvm_para.h
+>  generic-y += local64.h
+>  generic-y += mcs_spinlock.h
+> -generic-y += seccomp.h
+>  generic-y += user.h
+> diff --git a/arch/parisc/include/asm/seccomp.h b/arch/parisc/include/asm/seccomp.h
+> new file mode 100644
+> index 000000000000..b058b2220322
+> --- /dev/null
+> +++ b/arch/parisc/include/asm/seccomp.h
+> @@ -0,0 +1,22 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +#ifndef _ASM_SECCOMP_H
+> +#define _ASM_SECCOMP_H
+> +
+> +#include <asm-generic/seccomp.h>
+> +
+> +#ifdef CONFIG_64BIT
+> +# define SECCOMP_ARCH_NATIVE		AUDIT_ARCH_PARISC64
+> +# define SECCOMP_ARCH_NATIVE_NR		NR_syscalls
+> +# define SECCOMP_ARCH_NATIVE_NAME	"parisc64"
+> +# ifdef CONFIG_COMPAT
+> +#  define SECCOMP_ARCH_COMPAT		AUDIT_ARCH_PARISC
+> +#  define SECCOMP_ARCH_COMPAT_NR	NR_syscalls
+> +#  define SECCOMP_ARCH_COMPAT_NAME	"parisc"
+> +# endif
+> +#else /* !CONFIG_64BIT */
+> +# define SECCOMP_ARCH_NATIVE		AUDIT_ARCH_PARISC
+> +# define SECCOMP_ARCH_NATIVE_NR		NR_syscalls
+> +# define SECCOMP_ARCH_NATIVE_NAME	"parisc"
+> +#endif
+> +
+> +#endif /* _ASM_SECCOMP_H */
+>
 
-	if (1)
-		set_direct_map(something)
-	else
-		debug_page_alloc_map()
-
-With debug_pagealloc enabled but with rodata_full disabled arm64
-versions of set_direct_map_*() will become a nop, so a page that was
-unmapped by debug_pagealloc() will not be mapped back.
-
-I'm still puzzled how hibernation might ever need to save a free page,
-but that's another story.
-
--- 
-Sincerely yours,
-Mike.
 
 _______________________________________________
 linux-riscv mailing list
