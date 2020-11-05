@@ -7,18 +7,18 @@ X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D2DC3C00A89
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2020 03:58:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D05E2C00A89
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2020 04:40:06 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1D8ED20786
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2020 03:58:56 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 3778B2083B
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Nov 2020 04:40:06 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ASLsoWgG";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="R56Wfw3l";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="Z1yjpyzn"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1D8ED20786
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="XGFRkQ6R";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="ABLFXSo8";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="IH8Fh+0G"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3778B2083B
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -27,82 +27,82 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=wi7Sk0TC3uyIjxlPkZVRsnUTscl7Rgrx8fE6fNk8jA8=; b=ASLsoWgGpD4cUEGIDPSOg3DY8
-	8d5YIHL52mZQERNORuSK0B9x0OZJo/10qNPB0YDUKyNAkmIFmHheY2zUtNKIQlzLupCqWaKEpuf8D
-	b6Jff12UjOZ5mWomNts4p8w3sQPtBbJATp+SngXK/2/oqS8W2VJhYunzj+XluTxLZfTM5ri3qpfy5
-	R126ekUxYlUpbAbX8OP3B03frfh62xLtecwBeQqMZu3psGsHVA4tppwe6e/IV6bYjjHIbFRAVnhPV
-	4iOPmR/wCKbaQNfeZSJItOCkhfkKHbe7UBhr7RtTCt1T5CZWVUClsRQkJ4j8IT5xgViPa0QbrKlQy
-	wVIKMKv9g==;
+	 bh=14z8ql2cHaL0vBGUTdBbDDnOdNBo8/cimV9vJ5fPmuk=; b=XGFRkQ6RW1DXaHctnO5nF3Rus
+	LObV0TGqY6S1JX1j0aO2dDBiiSbEifXUGErzb+QTOJmpvw7uftLzkPYWrnXD6h4slAA3ISvTjrhKC
+	2HTcTjYDOrJsrqCqOS47/NFtm7eok1GkozNnuEHVs7Q3bsh+zv47tFA4StBcKUex1/0MWlnFNf2MP
+	LDf+3PEKx7AOT0kIGnMIOkNil9nW28u5IHE0D019GuhD6D8ylWybCrbwHi+Xzpsc3X67O6GorXWG/
+	QtlWRmiYGYqS8xQhzjFSlqrkBHu9Am5exu3tbjkc2LL73TOW77zVErKN2UXDU1irCtPkDgyVmiicg
+	FRI3+zIbA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kaWQ8-00019y-LG; Thu, 05 Nov 2020 03:58:44 +0000
+	id 1kaX3s-0004r6-Rn; Thu, 05 Nov 2020 04:39:48 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kaW3j-000145-GL
- for linux-riscv@merlin.infradead.org; Thu, 05 Nov 2020 03:35:35 +0000
+ id 1kaW3h-00016k-KF
+ for linux-riscv@merlin.infradead.org; Thu, 05 Nov 2020 03:35:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
  References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
  Content-Type:Content-ID:Content-Description;
- bh=lH2y92oqtZnppQRWSLWkTShvADPUOTeRp5I71/HZKts=; b=R56Wfw3lIBk5y/Sp0k9oIOB1FF
- CdMuHgZ6+Q5+kGGv8Xdwx/5cIOTYEnUdPqo6XjDkQXRvgBjWrEqGqI5hEGGyW075Acqg/VDlqwOlP
- 0jQ0O7WqbyqL3mDyuoACtAxT6rEwRwLcvhNiX26NHm99Tzc0rkHJ14HrlGeCfbkjUCLYzXqOgGfLa
- +Pn5i4tvMPZ1boeOXK2TXHgd05wCWVjLHdV7VHCvrl+QXyTMziQ7kSNZLsSWu1KlmLPgU3B+kynyr
- fpANr2/+C1+/MDW86ar++ON0F6FYVR0C9zI6q5UXvs9R6lUkFrdE1jEUyeJbE3vx2ET4mU3T6WOnq
- 8T42U1Pg==;
+ bh=Yix9Nxjh1Xub+F3SenFW1weuytdKPwDVZZ82eZsbV6w=; b=ABLFXSo8ZtRv/f1A8Ac5cU5eXU
+ 1WqhfBpp900kPIDrsxzE1VRR2AbCITrW3+tEZVw88TWwfUjTC72+fbjU2rlaU2lnrB2K3FPVogiDz
+ pmm9r8zwKgaqUDc+gwcVOc1bx5wWjrRY7A3cHC46aliYdTunWzuAnVRfWZb+qH1PFfEEEcgaC+DBC
+ CA7HyCal4JXEvCdVj9C4EDn9/J2OSUAZUyWs6GGxrbhnj2PjfLUeEx6EGUuPTSwg0u4BhPn+zPJCK
+ zKgTfOXuPLJ32zYzOA9tFi4QXkKYs47SzjAC6itryXilUAKlBb3/wrT7Copm6vNk0I8Da0aKu682E
+ fKqusisw==;
 Received: from esa2.hgst.iphmx.com ([68.232.143.124])
  by casper.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kaSmn-00012o-3r
- for linux-riscv@lists.infradead.org; Thu, 05 Nov 2020 00:05:56 +0000
+ id 1kaSmx-00012o-T4
+ for linux-riscv@lists.infradead.org; Thu, 05 Nov 2020 00:06:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1604535648; x=1636071648;
+ t=1604535664; x=1636071664;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=2o/pSqwZIsTAsEbERDtmvi4jQRx0V2hQUyDY+mRsz0s=;
- b=Z1yjpyzniAQDR2m2NYW1ZykQLgiFI/g40/zHe3PcJLAU4JjtK6JSgO/5
- Ovofon6zmAU5qnA8QjIdbT6YAPe3mb704rPmbqcMPNJEXI2KqzQJcCZh2
- YHCUk46Vau0pRWKQwr1qzYBjIOT7fGH1U+UsGI1qBByH2F+d/IDUVCzzR
- oVN7L6XTVIHib33Wvh1xnop52PdDAhWXnzfPwt2n+31H0hEO8C9xW1s4r
- CINSVeyF3s8Mk5bVexK2zwXPeDBg8a90w5AXFolYF2k/zOx7smZztTAhs
- AsLhE5g7/Sch6MSX7yFzhUKPz4xwTNuCOUf7lT3guwz41kYdG5fHBlWJc Q==;
-IronPort-SDR: /jVRjafvrUnu0Ued5xR918WwgdBK2zAPVzI37jEpmBTvkksT5RAlYjiCrRre+f7Wclo/WFaOxS
- N5QavusCQ67EbsxjWdN20Xz9P5vqKym+hHl2T5MpmHm7T708UPDbh58BsJQaUKmtPyosb+STYz
- OjLeo6IvSr8CqO2ShNzFUyjZzXmiDLBD6XzRgiCN4RMTCOc591hB86TkRmtZWkSx+KxaVIAQd8
- svYnbq2Sp9/wZ5ubZHuHgJbvWp+rT32+ODrFISaOzvYVlcwWUYDpLFgOWuxFfiZfuHaXv0M8Zu
- KjI=
-X-IronPort-AV: E=Sophos;i="5.77,451,1596470400"; d="scan'208";a="255394927"
+ bh=ttVV2l8xgC8cKeR325K+BCZa+k2eu3E+hvY1gbVjr5M=;
+ b=IH8Fh+0GDI/htX80Chfe5U3b+7jEFIL0hRZzfNL0uwllERLG3wtho4DD
+ wx3GLwNesDePhZPcJPucQJIOQZ7vmuJkEJb9q+nmD3kEzKgEggGzKCzI4
+ v3ozr41FdofMCbVaN/zeKUjMaQKbsIa8vjdibchCv+rPfnLa9zGSIjrjk
+ Nqf/CXheqwnIWY5RsHgnwgUNeSt17vuwP93DQTwp7u8+wB26CFlZcDcDu
+ K3jSVeAOjgpA1TQaZcFFOFBYaBUkEZPvW9XDP9+UMpVqXLcAos5NJ0Wlv
+ bNs++RkM8POsPL8IWZB7lB66UuQF0q0t/Nx3fXxXtoceZW7mhpsUGBBUh A==;
+IronPort-SDR: Ma+d1xmU7e3esK5vRcwrBfgJcphg2RO6sWd+nS9LZt3zISkNfgQF55C417pC5Il/OuaZxdYfA4
+ Z0si+hepnf1hofmhw9/9K6HIgQSmkFTWpT4iSH14nab/iGl5IbAkfn4G7Z8c5pRd58XRcmINtM
+ 6Uds1f5P+A+6xfNIcuYw/ljI6cAgfODuPRIIAjjFbyvHQPp6ntjh1bZiFcJuGOvC8XqJ/P3T9k
+ LRsM0+IPXaQWAdJMYEa0xdorcp7Zs1hP8TYY0b9YfGlgZ5KILP+8/DMFAuJAXpo908u5unJWEL
+ xwc=
+X-IronPort-AV: E=Sophos;i="5.77,451,1596470400"; d="scan'208";a="255394933"
 Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 05 Nov 2020 08:19:28 +0800
-IronPort-SDR: kY6Sb2CJrBSGn0yOCmRwYuUieOkgE6Mr+x3iAQMuTh2VCtxtJu1juaHKEjJ8wYJ2mMrxjdk+hG
- 6zGWn56otKrAeZ0q9WHeMpq94Km53QQIRiOLgEgC0wm4QK1UxXxymdH4r2jq/drHxjZfIdpJ/v
- Pd80DWxPlFgQ2msap2LaLPRGakZ7tNv+adyCIPL8Hv37uELg9J7s4mMvCIUXNMRtsbbw5bRK6P
- ZEqF4/3QosjvWlUX1qIAiAID36D/wCOwxxTrYtyRuE5UFj1Miy9VM+f5coOLyHqJz07ByAw7jK
- P2GMq+ZPLZFwZvT9JfjjEj5I
+ by ob1.hgst.iphmx.com with ESMTP; 05 Nov 2020 08:19:30 +0800
+IronPort-SDR: T2CsAqKIcvql7uX2XBuY7FmVEJF2p54PIP9pT7Jbf6/hZwL1h9fAzKK3OgUXykUFuH4vNC3Y8O
+ G+8ry5eUGKBYhzWK7i++rTg+Q/KYcfDYS/qc/3TSj4NJD8Pgiy6Eb1INWVqZpDOkCojXW42c0K
+ t0XTvHJme22Hh2UMBK9TLlygN+JWMENlxIWY/bS+P+/Lgg39WxLgiCorvbAyhVAOnlJLqH2qTo
+ lSR++j/HcqwUtpuxDaLLwG4bwjlIhm9rLTy0IHKdqT6f3hpNSYIkYA4MeBW1BOEkubCVhCKCx0
+ kdZxXscPA/p01ZrI6XoUEOb6
 Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 04 Nov 2020 15:51:07 -0800
-IronPort-SDR: CtPiSoKUeSrgYaq6D8avvUoNBth1SV31qkH08edSmw/qTywf6d2WcIna1XWhLHD8+R/7DaMQZ/
- ETOVXtFpxLKPetK+qushwOtnkHBtD+XkJUFZD8Ns+1hSSyfpKf05rbG7b4WR1JV61U1Wc7fn7h
- cfdTHuA1bzwDNReFgqgBlp7D1jb/ItXwtfyy25i5RJh6e1hI4wLnqggQc8QpdYVxIk4lcVJazD
- VyCuRnB4CN+6EJwnyLZoRgSiQ15DYdXaZRJVDbVX5ae86tlphk9bNEF5roGpH43z+FnpKhPSPj
- pto=
+ 04 Nov 2020 15:51:09 -0800
+IronPort-SDR: wyMNVYV728fyoW/gmDgVHH2wpGT4PFymlkeJ/1nIAqM/+kcHUw2irYtuuYStoMjWTgbPMT+1BC
+ c477GyP6me2NQe9sScODAfQyhkTMiNu6JDL4PmMHsiA2YjCxBQ9G3qLk84BOCP3HsYWweotSso
+ 7w06B4nZ5fynamnfg4mBDAY/8VhghC51TRZENylZDQW3lg72x1zVge0zEOwOCXnXtc+5EPB/SE
+ sPnQO/UaMgVggSj3CXZgfViJfvzvqvMjyAqA7zBP6K3x/LYavGbjhSZ/OD9cVcNlEM9aT7pD6x
+ ERk=
 WDCIronportException: Internal
 Received: from 6hj08h2.ad.shared (HELO jedi-01.hgst.com) ([10.86.60.117])
- by uls-op-cesaip02.wdc.com with ESMTP; 04 Nov 2020 16:05:00 -0800
+ by uls-op-cesaip02.wdc.com with ESMTP; 04 Nov 2020 16:05:02 -0800
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [PATCH v3 2/5] RISC-V: Initialize SBI early
-Date: Wed,  4 Nov 2020 16:04:36 -0800
-Message-Id: <20201105000439.1491243-3-atish.patra@wdc.com>
+Subject: [PATCH v3 5/5] RISC-V: Move dynamic relocation section under __init
+Date: Wed,  4 Nov 2020 16:04:39 -0800
+Message-Id: <20201105000439.1491243-6-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20201105000439.1491243-1-atish.patra@wdc.com>
 References: <20201105000439.1491243-1-atish.patra@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201105_000553_566592_28E955EB 
-X-CRM114-Status: UNSURE (   9.59  )
+X-CRM114-CacheID: sfid-20201105_000604_380108_DF93F420 
+X-CRM114-Status: UNSURE (   8.75  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -128,42 +128,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, SBI is initialized towards the end of arch setup. This prevents
-the set memory operations to be invoked earlier as it requires a full tlb
-flush.
-
-Initialize SBI as early as possible.
+Dynamic relocation section are only required during boot. Those sections
+can be freed after init. Thus, it can be moved to __init section.
 
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
 ---
- arch/riscv/kernel/setup.c | 7 +++----
- 1 file changed, 3 insertions(+), 4 deletions(-)
+ arch/riscv/kernel/vmlinux.lds.S | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index c424cc6dd833..b916f4a904c4 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -89,6 +89,9 @@ void __init setup_arch(char **cmdline_p)
- 		pr_err("No DTB found in kernel mappings\n");
- #endif
+diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
+index ca19ee5acd0a..de03cb22d0e9 100644
+--- a/arch/riscv/kernel/vmlinux.lds.S
++++ b/arch/riscv/kernel/vmlinux.lds.S
+@@ -85,6 +85,10 @@ SECTIONS
+ 	}
+ 	PERCPU_SECTION(L1_CACHE_BYTES)
  
-+	if (IS_ENABLED(CONFIG_RISCV_SBI))
-+		sbi_init();
++	.rel.dyn : {
++		*(.rel.dyn*)
++	}
 +
- #ifdef CONFIG_SWIOTLB
- 	swiotlb_init(1);
- #endif
-@@ -97,10 +100,6 @@ void __init setup_arch(char **cmdline_p)
- 	kasan_init();
- #endif
+ 	__init_data_end = .;
+ 	__init_end = .;
  
--#if IS_ENABLED(CONFIG_RISCV_SBI)
--	sbi_init();
--#endif
+@@ -116,10 +120,6 @@ SECTIONS
+ 
+ 	BSS_SECTION(PAGE_SIZE, PAGE_SIZE, 0)
+ 
+-	.rel.dyn : {
+-		*(.rel.dyn*)
+-	}
 -
- #ifdef CONFIG_SMP
- 	setup_smp();
- #endif
+ #ifdef CONFIG_EFI
+ 	. = ALIGN(PECOFF_SECTION_ALIGNMENT);
+ 	__pecoff_data_virt_size = ABSOLUTE(. - __pecoff_text_end);
 -- 
 2.25.1
 
