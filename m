@@ -2,80 +2,89 @@ Return-Path: <SRS0=64xR=EM=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-9.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6104CC2D0A3
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2020 07:38:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8A8F3C2D0A3
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2020 07:45:21 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CCD9B2071A
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2020 07:38:12 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id F0BCB2071A
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2020 07:45:20 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Y6i9fKVL";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=atishpatra.org header.i=@atishpatra.org header.b="RTsENuCe"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CCD9B2071A
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Eb0WAyzA";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="Tfr4vWWX"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F0BCB2071A
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=YhVc/qpFHQm7WIM7zIzdy0eztFKc8xh8J1M8tH8Zdd4=; b=Y6i9fKVLFSIj7gDvHOsma7+Tp
-	mhGr7yRWh0oMQoa+dG85i4e6y/XUu/20CUG8yOPjCjuo65MP0fvW5jbX2f1s3TWQAPpo/VryyuIKF
-	u2DhD3YJFd6FMjOBmLCGaokJCk9Nm9ZKGU+3NbqaFsfK5A6u9xWh6XiXW6SURzZ4nRuW5ypHXoVv/
-	mRAk6s3adzMDOXecx7kZQ364qFGi3e4ROqa1U2RPDuY4XI0o9wRaarTI0l4esUU0N70NL3OfMrVZr
-	ju9bgPQ9NvQImLOxegXWv2sDks1bhisbjMOTUja3Xw+nI2HNnODQ4OhFQpazT51vS5uz2j+WmYJ1k
-	st7TRxOZA==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=GRjxiHmugFDAmaQG/JUAzlRNmY5JoRyhVzNSxumw3rc=; b=Eb0WAyzAj+BejIFJ0m5TFgUXc
+	hTa4o7nLCYyWJQrNtM9byzt14lDWzfALDCXEyYTAkW9K4WMIyb0m6ghpL7OLozsliG+IOJXwp5wI/
+	poZb7vrMLbS0UIYaK9/+hFzDXi3telWVnwSv/87WPd5+Do76u8hzpJe5rnBriZI6rttwFx+2v9A9s
+	0MUXgJx6HXdHi+NtQsT9m1Iwbxi+8Hr5k+4iKANfV+Si4df42hy2Me4MYKHRaF0LtfleROf6tBqkD
+	0imIJY3hpm9QzQUiWD+TOutj1W04HrFU0J6eJlyzDSR1ki3aRvIyA4F1CUV4qcFn/f87Hbuf/DrkR
+	/4oOorFFw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kawJv-0005Qh-9p; Fri, 06 Nov 2020 07:38:03 +0000
-Received: from mail-il1-x142.google.com ([2607:f8b0:4864:20::142])
+	id 1kawQn-0005pF-PE; Fri, 06 Nov 2020 07:45:09 +0000
+Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kawJt-0005Px-79
- for linux-riscv@lists.infradead.org; Fri, 06 Nov 2020 07:38:02 +0000
-Received: by mail-il1-x142.google.com with SMTP id k1so272418ilc.10
- for <linux-riscv@lists.infradead.org>; Thu, 05 Nov 2020 23:37:59 -0800 (PST)
+ id 1kawQl-0005oj-6A
+ for linux-riscv@lists.infradead.org; Fri, 06 Nov 2020 07:45:08 +0000
+Received: by mail-pg1-x544.google.com with SMTP id h6so314336pgk.4
+ for <linux-riscv@lists.infradead.org>; Thu, 05 Nov 2020 23:45:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=aQB4ocSHoyHmpaIbRxFj/zt6XeUHDR7wBHeEyE4bZfQ=;
- b=RTsENuCeCOpH73nAqLoeSA8PnD2zhQpcop4R++RTXBfDDPYpcj5zxao2ls+it7Jbbc
- LpSMJBNT9K/5TF5LylVK2+P26EjNPL4ZjGOH4ngNffiea15xSmo/RgBDj1zwhxQehnE7
- bAeKKD0dDcHV0XQg0465baqRrt8CeFC9dpK3Q=
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=K54S4tmdbHgMW+MVK8p9l4H5bicSeAudRQfjdTGyLmc=;
+ b=Tfr4vWWXNyo+W8LEk1g+3587ILfmUu3wbnu/yPBAXpP7i5mJoiIn6WZ6n89yu2Zc3F
+ +QpGeeNJwUae2BH9aDxV7GfuIj2Mq3LkJuhyUh1gceU6Zc9s5N+gVJd+HA0qOqFqthr6
+ Gn8N7u8dMKrFEUOzR/Z5OA0NUXkxFKEBHXrIsMffgTp/haZlZl9NBYbpzQk+E8GR7Z5/
+ c0/xfYc69dXrfWOfxSHLpbnqf+bSUWmirnk6G3zGybE7JsrYKjIZeitxKwDXNUC+eBo/
+ G1M3oWVtS3VWJZ0F8GNHYTZvJSY8JYAv+QDNAVeQYSD/SYTrN2w1ev25G+zjpg9HjxSk
+ nrIQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=aQB4ocSHoyHmpaIbRxFj/zt6XeUHDR7wBHeEyE4bZfQ=;
- b=D//IgjZMCjc4zrqFVPRtwIor934i5J0A+66VaidtLIUp7PtdC+QZ74fl6KGOVsQsCv
- QknYkRJOKurfATuK/M10F28OJEUVjB1eij3r7X/aqbgf7rILqIt2akg1NsGg27/7M1e0
- HQCqs/3rrsQxBvRLVhbXVdxUkBeAjfSd3e5cIqpmNf3gOcSi5x6Ffy6Ck3/E3Vtjh3Fb
- MDpXFUJL9dh+82Bs0wQM+Mhbl+I6cc6w94jcHIezosSSIHbQrJASMdsABMoURyiyGNDw
- alez50wbKQgETvsbZ+5bZDE3YJbSTCFEzwMCu1vaGJDcxWFFMTeX0kstkoLUjUFbELh5
- /56g==
-X-Gm-Message-State: AOAM531SmR1Yc0UCotEN5xsTHpkv8JzlctkWckcj6o6a2EMEtHZ0KpUO
- 491IOtcVh7+CS3j3hLXgA+AN0bi4IMAz/WMnVt5O
-X-Google-Smtp-Source: ABdhPJzim1SBWXT2HkwUxRQYC66JPOOSOS7b965ESES+ZyL8w7EM2XoU657RReCH3oyTptlRc3S7dz8Y3knO6Kjv4LA=
-X-Received: by 2002:a92:6410:: with SMTP id y16mr510995ilb.126.1604648278164; 
- Thu, 05 Nov 2020 23:37:58 -0800 (PST)
-MIME-Version: 1.0
-References: <20201028232759.1928479-1-atish.patra@wdc.com>
- <mhng-3a4619db-fe42-4ae0-a521-4032f23591ee@palmerdabbelt-glaptop1>
-In-Reply-To: <mhng-3a4619db-fe42-4ae0-a521-4032f23591ee@palmerdabbelt-glaptop1>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Thu, 5 Nov 2020 23:37:45 -0800
-Message-ID: <CAOnJCUJUmzVon3BWH6Du08mpgLu_rHJEhdOkCXUK4N+ZftkCRw@mail.gmail.com>
-Subject: Re: [RFC PATCH 0/3] Add Microchip PolarFire Soc Support
-To: Palmer Dabbelt <palmer@dabbelt.com>
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=K54S4tmdbHgMW+MVK8p9l4H5bicSeAudRQfjdTGyLmc=;
+ b=B6lhHhNWRjzo4Slnz4qRfS43ulDqYNQY5eTDpvh3zPSz3b3na+Sb0sVu6yTD86sUEW
+ RLSAX4GOSE49zewmaBfTLiPpqQXR1gHu72iBsk5VQ5utTSVtnCSb43HnQ0yrKv0Yj99f
+ mgeoFE83WRbmAvdER72ZaISh6vh5Xp5g0LRCv6fQokDdMVDsoy4fm5Heao71J2gEFIml
+ LBqWx3Kh4Km1iQZJEuItVL8KudHCMa0V1LXgAxKkYSXoZjSEZrsaqoB1JoT2TZ7qhi1T
+ +CWOO6feYndv9Nm2te51sjffLNvKD1dnk3PEt6jwPu/CGONDBtpERW4WGX/AGic+XHRa
+ k+4Q==
+X-Gm-Message-State: AOAM531z33sP9dy7Pj8ZQdfSh0XLNGrt2L92ASW8R8RANoCorajvMuPg
+ 6MHQ6xuJTS4z0jckRro/gBTKeA==
+X-Google-Smtp-Source: ABdhPJynR1+zk4zYU4UhoL7YmxIbYRJ1mpvelbP8x/YimozLjQ+nfno7quluYOXj+rrg2uLvyysNFQ==
+X-Received: by 2002:a17:90a:ca91:: with SMTP id
+ y17mr1022137pjt.205.1604648704549; 
+ Thu, 05 Nov 2020 23:45:04 -0800 (PST)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id s17sm1088651pjr.56.2020.11.05.23.45.03
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 05 Nov 2020 23:45:03 -0800 (PST)
+Date: Thu, 05 Nov 2020 23:45:03 -0800 (PST)
+X-Google-Original-Date: Thu, 05 Nov 2020 23:39:34 PST (-0800)
+Subject: Re: [PATCH] riscv: uaccess: fix __put_kernel_nofault()
+In-Reply-To: <20201102073052.199638-1-changbin.du@gmail.com>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: changbin.du@gmail.com
+Message-ID: <mhng-21386a65-a083-4346-89a7-0b8ac583b9c4@palmerdabbelt-glaptop1>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201106_023801_277344_33DF4540 
-X-CRM114-Status: GOOD (  30.61  )
+X-CRM114-CacheID: sfid-20201106_024507_309064_B1192345 
+X-CRM114-Status: GOOD (  19.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -87,91 +96,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
- Cyril.Jean@microchip.com, Daire McNamara <daire.mcnamara@microchip.com>,
- Anup Patel <Anup.Patel@wdc.com>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Atish Patra <Atish.Patra@wdc.com>, Rob Herring <robh+dt@kernel.org>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Padmarao Begari <padmarao.begari@microchip.com>
-Content-Type: text/plain; charset="us-ascii"
+Cc: aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org,
+ Christoph Hellwig <hch@lst.de>, Paul Walmsley <paul.walmsley@sifive.com>,
+ akpm@linux-foundation.org, linux-riscv@lists.infradead.org,
+ changbin.du@gmail.com
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 5, 2020 at 11:14 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+On Sun, 01 Nov 2020 23:30:52 PST (-0800), changbin.du@gmail.com wrote:
+> The copy_from_kernel_nofault() is broken on riscv because the 'dst' and
+> 'src' are mistakenly reversed in __put_kernel_nofault() macro.
 >
-> On Wed, 28 Oct 2020 16:27:56 PDT (-0700), Atish Patra wrote:
-> > This series adds minimal support for Microchip Polar Fire Soc Icicle kit.
-> > It is rebased on v5.10-rc1 and depends on clock support.
-> > Only MMC and ethernet drivers are enabled via this series.
-> > The idea here is to add the foundational patches so that other drivers
-> > can be added to on top of this.
-> >
-> > This series has been tested on Qemu and Polar Fire Soc Icicle kit.
-> > The following qemu series is necessary to test it on Qemu.
-> >
-> > The series can also be found at the following github repo.
-> >
-> > I noticed the latest version of mmc driver[2] hangs on the board with
-> > the latest clock driver. That's why, I have tested with the old clock
-> > driver available in the above github repo.
+> copy_to_kernel_nofault:
+> ...
+> 0xffffffe0003159b8 <+30>:    sd      a4,0(a1) # a1 aka 'src'
 >
-> OK, I guess that's why it's an RFC?
+> Fixes: d464118cdc ("riscv: implement __get_kernel_nofault and __put_user_nofault")
+> Signed-off-by: Changbin Du <changbin.du@gmail.com>
+> Cc: Christoph Hellwig <hch@lst.de>
+> ---
+>  arch/riscv/include/asm/uaccess.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >
+> diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
+> index c47e6b35c551..824b2c9da75b 100644
+> --- a/arch/riscv/include/asm/uaccess.h
+> +++ b/arch/riscv/include/asm/uaccess.h
+> @@ -476,7 +476,7 @@ do {									\
+>  do {									\
+>  	long __kr_err;							\
+>  									\
+> -	__put_user_nocheck(*((type *)(dst)), (type *)(src), __kr_err);	\
+> +	__put_user_nocheck(*((type *)(src)), (type *)(dst), __kr_err);	\
+>  	if (unlikely(__kr_err))						\
+>  		goto err_label;						\
+>  } while (0)
 
-Yes. The latest clock/pcie driver did not work for me. I might have
-missed something in DT.
-The idea for RFC is so that anybody who wants to try the latest kernel
-on a polarfire board
-has a meaningful way to test it.
-
-> > [1] https://lists.nongnu.org/archive/html/qemu-devel/2020-10/msg08582.html
-> > [2] https://www.spinics.net/lists/devicetree/msg383626.html
->
-> Looks like this one hasn't been merged yet.  IDK if something is broken with my
-> mail client but I'm not seeing any github repos.  If this depends on
-> not-yet-merged drivers then it's certainly RFC material, but aside from the DT
-> stuff (which should be straight-forward) it seems fine to me.
->
-
-I think it makes sense to take this series once the clock driver is
-merged at least.
-
-> Since you posted this an an RFC I'm going to assume you're going to re-spin it.
->
-
-Yes. There are some feedbacks on DT which I will fix in v2.
-
-> Thanks!
->
-> >
-> > Atish Patra (3):
-> > RISC-V: Add Microchip PolarFire SoC kconfig option
-> > RISC-V: Initial DTS for Microchip ICICLE board
-> > RISC-V: Enable Microchip PolarFire ICICLE SoC
-> >
-> > arch/riscv/Kconfig.socs                       |   7 +
-> > arch/riscv/boot/dts/Makefile                  |   1 +
-> > arch/riscv/boot/dts/microchip/Makefile        |   2 +
-> > .../microchip/microchip-icicle-kit-a000.dts   | 313 ++++++++++++++++++
-> > arch/riscv/configs/defconfig                  |   4 +
-> > 5 files changed, 327 insertions(+)
-> > create mode 100644 arch/riscv/boot/dts/microchip/Makefile
-> > create mode 100644 arch/riscv/boot/dts/microchip/microchip-icicle-kit-a000.dts
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-
-
--- 
-Regards,
-Atish
+Thanks, this is on fixes.
 
 _______________________________________________
 linux-riscv mailing list
