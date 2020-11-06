@@ -2,75 +2,91 @@ Return-Path: <SRS0=64xR=EM=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EDB95C388F7
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2020 02:57:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EDEB8C388F7
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2020 02:59:16 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6D5DE2068E
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2020 02:57:24 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 765CD2068E
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2020 02:59:16 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Jo2oSxCy";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="TF7x00Zg"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6D5DE2068E
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Ho/eVgqK";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="T52XGD4j"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 765CD2068E
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=d8mxc0m8umY80EzFTeFhNLbaDotd2plm/R05xpMFAos=; b=Jo2oSxCy6He1jo/td1XqGYtWk
-	ZhFNenFnJNyazMesx80Ro4w8/CyPFkjdFlJXHzXwRv7ownp7Ae3/NrJ+XbMgyxkY6+2h8F2kqx9+X
-	c2fmmLhXv66EaVvKLZ6i9eTFskhHFFr8BqIluIyzZ57lXyypW9wsnWq1IwESBFd9wPn/ukCC7Yls4
-	pRo2cTF1AjnZ3+y03SRk9HcFYoRuXxp7KT+7TZ2Ao2P8o5P5L+Dm3BIHqFWwbkF1Io8Kd8gVStyVD
-	LjEq86iVxner2f6VLciaAEMBFAgge+gHSA0Rl9rh5Lz3xoll7arOBDaJbeD4nVMwe52q8WPqn4boX
-	0nvOMES0g==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CksupjZ2mifFFGU6nnot/MMotnB0hj9wAIHEjXMWWWk=; b=Ho/eVgqK9jjvZI+IifCL9HloKN
+	5SJJPyJf+n7XZJhQpTZYzYNCtWiKQ+qdjHwQE3dbcVwL09lYYjdSCBGkfhSUYAqC4HKMXiISvgKQX
+	cOd6c9TghmS5aSfhtLtQn5PpMZzkGa2iNBlKhdHQ8SVCgmI8Rjlw790M5lKMevLvCwcIwHj+cRyh/
+	CHDSUs7pCymu5K09G/Ghy2zT8GVJ0yFanYnFKGfX4zGkGYW82B3jVHmYvZ/W/wpMLYnWFpQO3khD0
+	5kpAvyT5rOUrYdi8NyQFSu7olseSowyd/9szuGB+qQqUNZoKcFSbz6n6gCxTtVs+XJM0J0AV3pRG1
+	ZDNQykRw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1karw8-0004Ws-5S; Fri, 06 Nov 2020 02:57:12 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1karxs-0004nx-54; Fri, 06 Nov 2020 02:59:00 +0000
+Received: from mail-pl1-x644.google.com ([2607:f8b0:4864:20::644])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1karw5-0004Vt-63
- for linux-riscv@lists.infradead.org; Fri, 06 Nov 2020 02:57:10 +0000
-Received: from mail-lj1-f170.google.com (mail-lj1-f170.google.com
- [209.85.208.170])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id C842720B80
- for <linux-riscv@lists.infradead.org>; Fri,  6 Nov 2020 02:57:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1604631428;
- bh=9rQRIBsHfZeDxfMqnHjDf3pUoaqjw7mhb/AQ10vMDoY=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=TF7x00ZgQVa4HaGnSQPmDiTyB8y+VIQoCzJV3YdhsaaRLyFkTM9ISom0fByffhcI1
- pBZBzMw9pSGGggy6eUaKobaD6IWzYqTcZEfnah5VBBFPN+U/8aODKos2zvTkGnE6/X
- iTrY+Q7WCTabdB4kIhBAdrrlNJU9vVaKgMtfmRRU=
-Received: by mail-lj1-f170.google.com with SMTP id v19so3779838lji.5
- for <linux-riscv@lists.infradead.org>; Thu, 05 Nov 2020 18:57:07 -0800 (PST)
-X-Gm-Message-State: AOAM533ECvxjufRHzwINLUQKMiJnxU3qXHjdIRQNulakP0f6TsWNWaOA
- /guzq3pRDkdMd5+gS/rWBmDopdZUVV7+xgcRBm0=
-X-Google-Smtp-Source: ABdhPJyS549mSsbY71592hwkiYhz+BcFJErkk2ka5vmMUXvgndKh9GeAWhQ5JZMC4w2XtW9dc3WPYMqmypHc7huC/0s=
-X-Received: by 2002:a2e:8816:: with SMTP id x22mr1814521ljh.377.1604631425962; 
- Thu, 05 Nov 2020 18:57:05 -0800 (PST)
+ id 1karxp-0004n7-QX
+ for linux-riscv@lists.infradead.org; Fri, 06 Nov 2020 02:58:58 +0000
+Received: by mail-pl1-x644.google.com with SMTP id 1so1662ple.2
+ for <linux-riscv@lists.infradead.org>; Thu, 05 Nov 2020 18:58:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=j/IwG69As01vkurELrZjlxWULg4rCN71pSp13igOTSw=;
+ b=T52XGD4jcHFlhP+uETcaw0rLP1WvsLZjzmde/uvRYkqmrtH3+csM7TI0/Rc41bCfZk
+ meaef3wIrDALcLoMbLyoDDRoHcpOnCEqCBtbzewQw/BEJ0uKOOSmOGm4gfHQhT+Z8UgM
+ C5O6MjYFqkO0ce3BrmsaeiMcDlozTpp+O88gqTdt9VuUlcJe5v5XvcmiaTmtzw8/Szii
+ XfVIjf0M4P6+pc6Q8hi1GzixCmx/4tqYEUVyyQGwt+2FH93WEJo8wPhDpF0HaXTS/lvi
+ V8NJlAxSwzWMmDCdIi/BdqMsSCXBw0q/L8jiIyP/a9LU31muy94+r4Wftca/gCHuZoNr
+ aEmg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=j/IwG69As01vkurELrZjlxWULg4rCN71pSp13igOTSw=;
+ b=t9oBHVJ/+fHZVOFwZ6akJ8NxW2m39MybJoIKjDDHjnSCwM//Ph+e2XaWwe8KGP7rNH
+ +6iwARmmvZRG2rciDbdpi3S2XeOMThQvaxlRmk/nPc5pvw8V11MZ9pxBzqZMKZIdgDMw
+ QD3K1eFle3DtMRFYx+Fc9453Qq8lk6qEGEOnUcpqEomN4N/9F2/xwTtIchYmT+fO239G
+ Xnd31GN286/oK6AcXYV6BUkvZMVF2i0FtKJS/QixAutS3RZAM8xw0FKk0slAOtZkGWFk
+ H2XD/quHnEYkDooACXSnKM67VQXCVIv9fMe0euWnTigRlkVfzQHC/vT7K/80WPe+jd4B
+ ws8A==
+X-Gm-Message-State: AOAM532xKgP+anvUX1kYXITsjNMteHySvd1/2BtbKnVQykeXlSXT4A5I
+ JsIPMXVQnLBaq9/XZjQxfMmBdw==
+X-Google-Smtp-Source: ABdhPJyoYAkt/8qlfuBZLghCFj4//jXpw3xyNocSLEbNZeaxlBGfZhaYfNSnJsqDrZIyrPaxxlWHIQ==
+X-Received: by 2002:a17:902:b203:b029:d2:1fde:d452 with SMTP id
+ t3-20020a170902b203b02900d21fded452mr5110470plr.36.1604631534085; 
+ Thu, 05 Nov 2020 18:58:54 -0800 (PST)
+Received: from hsinchu02.internal.sifive.com
+ (114-34-229-221.HINET-IP.hinet.net. [114.34.229.221])
+ by smtp.gmail.com with ESMTPSA id c11sm3822572pgl.20.2020.11.05.18.58.52
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 05 Nov 2020 18:58:53 -0800 (PST)
+From: Greentime Hu <greentime.hu@sifive.com>
+To: greentime.hu@sifive.com, linux-kernel@vger.kernel.org,
+ linus.walleij@linaro.org, bgolaszewski@baylibre.com,
+ linux-gpio@vger.kernel.org, linux-riscv@lists.infradead.org,
+ palmer@dabbelt.com, paul.walmsley@sifive.com
+Subject: [RFC PATCH 1/1] gpio: sifive: To get gpio irq offset from device tree
+ data
+Date: Fri,  6 Nov 2020 10:58:49 +0800
+Message-Id: <802c8865b70c3bdf70e44d37f14e7767b6495e88.1604631371.git.greentime.hu@sifive.com>
+X-Mailer: git-send-email 2.29.2
 MIME-Version: 1.0
-References: <1602918377-23573-6-git-send-email-guoren@kernel.org>
- <mhng-7d7afc22-b857-4f64-868e-0c7aad7f8f6a@palmerdabbelt-glaptop1>
-In-Reply-To: <mhng-7d7afc22-b857-4f64-868e-0c7aad7f8f6a@palmerdabbelt-glaptop1>
-From: Guo Ren <guoren@kernel.org>
-Date: Fri, 6 Nov 2020 10:56:54 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTSWubMT3hk4pMg5my9=6G+U+8+Wx_Hzud+rxLgn6Ah6kw@mail.gmail.com>
-Message-ID: <CAJF2gTSWubMT3hk4pMg5my9=6G+U+8+Wx_Hzud+rxLgn6Ah6kw@mail.gmail.com>
-Subject: Re: [PATCH v4 5/9] riscv: Add kprobes supported
-To: Palmer Dabbelt <palmerdabbelt@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201105_215709_411019_5F15C6AD 
-X-CRM114-Status: GOOD (  21.73  )
+X-CRM114-CacheID: sfid-20201105_215857_890820_ECF5771B 
+X-CRM114-Status: GOOD (  13.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -82,60 +98,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: =?UTF-8?Q?Patrick_St=C3=A4hlin?= <me@packi.ch>,
- Guo Ren <guoren@linux.alibaba.com>, Alan Kao <alankao@andestech.com>,
- Anup Patel <anup@brainfault.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Steven Rostedt <rostedt@goodmis.org>, linux-csky@vger.kernel.org,
- Masami Hiramatsu <mhiramat@kernel.org>, Zong Li <zong.li@sifive.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Greentime Hu <greentime.hu@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Bjorn Topel <bjorn.topel@gmail.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Yash Shah <yash.shah@sifive.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBOb3YgNiwgMjAyMCBhdCA5OjAyIEFNIFBhbG1lciBEYWJiZWx0IDxwYWxtZXJkYWJi
-ZWx0QGdvb2dsZS5jb20+IHdyb3RlOgo+Cj4gT24gU2F0LCAxNyBPY3QgMjAyMCAwMDowNjoxMyBQ
-RFQgKC0wNzAwKSwgZ3VvcmVuQGtlcm5lbC5vcmcgd3JvdGU6Cj4gPiBGcm9tOiBHdW8gUmVuIDxn
-dW9yZW5AbGludXguYWxpYmFiYS5jb20+Cj4gPgo+ID4gVGhpcyBwYXRjaCBlbmFibGVzICJrcHJv
-YmUgJiBrcmV0cHJvYmUiIHRvIHdvcmsgd2l0aCBmdHJhY2UKPiA+IGludGVyZmFjZS4gSXQgdXRp
-bGl6ZWQgc29mdHdhcmUgYnJlYWtwb2ludCBhcyBzaW5nbGUtc3RlcAo+ID4gbWVjaGFuaXNtLgo+
-ID4KPiA+IFNvbWUgaW5zdHJ1Y3Rpb25zIHdoaWNoIGNhbid0IGJlIHNpbmdsZS1zdGVwIGV4ZWN1
-dGVkIG11c3QgYmUKPiA+IHNpbXVsYXRlZCBpbiBrZXJuZWwgZXhlY3V0aW9uIHNsb3QsIHN1Y2gg
-YXM6IGJyYW5jaCwgamFsLCBhdWlwYywKPiA+IGxhIC4uLgo+ID4KPiA+IFNvbWUgaW5zdHJ1Y3Rp
-b25zIHNob3VsZCBiZSByZWplY3RlZCBmb3IgcHJvYmluZyBhbmQgd2UgdXNlIGEKPiA+IGJsYWNr
-bGlzdCB0byBmaWx0ZXIsIHN1Y2ggYXM6IGVjYWxsLCBlYnJlYWssIC4uLgo+ID4KPiA+IFdlIHVz
-ZSBlYnJlYWsgJiBjLmVicmVhayB0byByZXBsYWNlIG9yaWdpbiBpbnN0cnVjdGlvbiBhbmQgdGhl
-Cj4gPiBrcHJvYmUgaGFuZGxlciBwcmVwYXJlcyBhbiBleGVjdXRhYmxlIG1lbW9yeSBzbG90IGZv
-ciBvdXQtb2YtbGluZQo+ID4gZXhlY3V0aW9uIHdpdGggYSBjb3B5IG9mIHRoZSBvcmlnaW5hbCBp
-bnN0cnVjdGlvbiBiZWluZyBwcm9iZWQuCj4gPiBJbiBleGVjdXRpb24gc2xvdCB3ZSBhZGQgZWJy
-ZWFrIGJlaGluZCBvcmlnaW5hbCBpbnN0cnVjdGlvbiB0bwo+ID4gc2ltdWxhdGUgYSBzaW5nbGUt
-c2V0cCBtZWNoYW5pc20uCj4gPgo+ID4gVGhlIHBhdGNoIGlzIGJhc2VkIG9uIHBhY2tpJ3Mgd29y
-ayBbMV0gYW5kIGNza3kncyB3b3JrIFsyXS4KPiA+ICAtIFRoZSBrcHJvYmVzX3RyYW1wb2xpbmUu
-UyBpcyBhbGwgZnJvbSBwYWNraSdzIHBhdGNoCj4gPiAgLSBUaGUgc2luZ2xlLXN0ZXAgbWVjaGFu
-aXNtIGlzIG5ldyBkZXNpZ25lZCBmb3IgcmlzY3Ygd2l0aG91dCBodwo+ID4gICAgc2luZ2xlLXN0
-ZXAgdHJhcAo+ID4gIC0gVGhlIHNpbXVsYXRpb24gY29kZXMgYXJlIGZyb20gY3NreQo+ID4gIC0g
-RnJhbmtseSwgYWxsIGNvZGVzIHJlZmVyIHRvIG90aGVyIGFyY2hzJyBpbXBsZW1lbnRhdGlvbgo+
-ID4KPiA+ICBbMV0gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvMjAxODExMTMx
-OTU4MDQuMjI4MjUtMS1tZUBwYWNraS5jaC8KPiA+ICBbMl0gaHR0cHM6Ly9sb3JlLmtlcm5lbC5v
-cmcvbGludXgtY3NreS8yMDIwMDQwMzA0NDE1MC4yMDU2Mi05LWd1b3JlbkBrZXJuZWwub3JnLwo+
-ID4KPiA+IFNpZ25lZC1vZmYtYnk6IEd1byBSZW4gPGd1b3JlbkBsaW51eC5hbGliYWJhLmNvbT4K
-PiA+IENvLURldmVsb3BlZC1ieTogUGF0cmljayBTdMOkaGxpbiA8bWVAcGFja2kuY2g+Cj4KPiBD
-aGVja3BhdGNoIHNheXMKPgo+ICAgICBXQVJOSU5HOiAnQ28tZGV2ZWxvcGVkLWJ5OicgaXMgdGhl
-IHByZWZlcnJlZCBzaWduYXR1cmUgZm9ybQo+ICAgICAjMTA4Ogo+ICAgICBDby1EZXZlbG9wZWQt
-Ynk6IFBhdHJpY2sgU3TDpGhsaW4gPG1lQHBhY2tpLmNoPgo+Cj4gICAgIFdBUk5JTkc6IENvLWRl
-dmVsb3BlZC1ieTogbXVzdCBiZSBpbW1lZGlhdGVseSBmb2xsb3dlZCBieSBTaWduZWQtb2ZmLWJ5
-Ogo+ICAgICAjMTA4Ogo+ICAgICBDby1EZXZlbG9wZWQtYnk6IFBhdHJpY2sgU3TDpGhsaW4gPG1l
-QHBhY2tpLmNoPgo+ICAgICBBY2tlZC1ieTogTWFzYW1pIEhpcmFtYXRzdSA8bWhpcmFtYXRAa2Vy
-bmVsLm9yZz4KPgo+IFRoZXJlJ3Mgc29tZSBvdGhlciBjaGVja3BhdGNoIHdhcm5pbmdzIHRocm91
-Z2hvdXQgdGhlIHBhdGNoIHNldCwgYnV0IHRoaXMgaXMKPiBvbmUgSSdtIG5vdCBzdXBwb3NlZCB0
-byBmaXggdXAuICBDYW4gb25lIG9mIHlvdSByZS1wb3N0IHRoZSBwYXRjaGVzIHdpdGggdGhlCj4g
-Y29ycmVjdCBEQ08/Ck9rLCBJJ2xsIGZpeCBpdCB1cCBpbiBWNSBhbmQgcmViYXNlIDUuMTAtcmMy
-CgotLSAKQmVzdCBSZWdhcmRzCiBHdW8gUmVuCgpNTDogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcv
-bGludXgtY3NreS8KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+We can get hwirq number of the gpio by its irq_data->hwirq so that we don't
+need to add more macros for different platforms. This patch is tested in
+SiFive Unleashed board and SiFive Unmatched board.
+
+Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+Reviewed-by: Yash Shah <yash.shah@sifive.com>
+---
+ drivers/gpio/gpio-sifive.c | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/gpio/gpio-sifive.c b/drivers/gpio/gpio-sifive.c
+index c54dd08f2cbf..e8cd8741dbae 100644
+--- a/drivers/gpio/gpio-sifive.c
++++ b/drivers/gpio/gpio-sifive.c
+@@ -29,7 +29,6 @@
+ #define SIFIVE_GPIO_OUTPUT_XOR	0x40
+ 
+ #define SIFIVE_GPIO_MAX		32
+-#define SIFIVE_GPIO_IRQ_OFFSET	7
+ 
+ struct sifive_gpio {
+ 	void __iomem		*base;
+@@ -37,7 +36,7 @@ struct sifive_gpio {
+ 	struct regmap		*regs;
+ 	unsigned long		irq_state;
+ 	unsigned int		trigger[SIFIVE_GPIO_MAX];
+-	unsigned int		irq_parent[SIFIVE_GPIO_MAX];
++	unsigned int		irq_number[SIFIVE_GPIO_MAX];
+ };
+ 
+ static void sifive_gpio_set_ie(struct sifive_gpio *chip, unsigned int offset)
+@@ -144,8 +143,10 @@ static int sifive_gpio_child_to_parent_hwirq(struct gpio_chip *gc,
+ 					     unsigned int *parent,
+ 					     unsigned int *parent_type)
+ {
++	struct sifive_gpio *chip = gpiochip_get_data(gc);
++	struct irq_data *d = irq_get_irq_data(chip->irq_number[child]);
++	*parent = d->hwirq;
+ 	*parent_type = IRQ_TYPE_NONE;
+-	*parent = child + SIFIVE_GPIO_IRQ_OFFSET;
+ 	return 0;
+ }
+ 
+@@ -165,7 +166,7 @@ static int sifive_gpio_probe(struct platform_device *pdev)
+ 	struct irq_domain *parent;
+ 	struct gpio_irq_chip *girq;
+ 	struct sifive_gpio *chip;
+-	int ret, ngpio;
++	int ret, ngpio, i;
+ 
+ 	chip = devm_kzalloc(dev, sizeof(*chip), GFP_KERNEL);
+ 	if (!chip)
+@@ -200,6 +201,9 @@ static int sifive_gpio_probe(struct platform_device *pdev)
+ 		return -ENODEV;
+ 	}
+ 
++	for (i = 0; i < ngpio; i++)
++		chip->irq_number[i] = irq_of_parse_and_map(node, i);
++
+ 	ret = bgpio_init(&chip->gc, dev, 4,
+ 			 chip->base + SIFIVE_GPIO_INPUT_VAL,
+ 			 chip->base + SIFIVE_GPIO_OUTPUT_VAL,
+-- 
+2.29.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
