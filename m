@@ -7,78 +7,84 @@ X-Spam-Status: No, score=-9.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 56142C2D0A3
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2020 06:52:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6B456C4741F
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2020 07:14:47 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BB3E3208FE
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2020 06:52:23 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D9B3920825
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2020 07:14:46 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="N8+zvi8J";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="crgTZXSk"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BB3E3208FE
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pgnb2oZb";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="aIFAyjg+"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D9B3920825
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=oyQyGm0NNaeDYwOu20um20Pwk3GLa01TcoU0LVNaUa0=; b=N8+zvi8JFVzdZgfsZ3Zs8+QwS
-	ymM0DU+lva7LN7jtdjY7clB0F8l1AxyjSUyoHM5ud+untuGv9SIxc3hO/wd2eM4lbkFxr4lfKrWST
-	hQ/PxcDp45l0TuXmE++0oyJ6IFys9RXxUVQofFdnM5UVrSlzwpRqEMm6P0qHOhHY01AlrLDPm+X6q
-	1kYnCNAX8wCp0hh5KYT9lJpcZAGefqfRTE0vdUPfCAwNr05w1hE3R9YQ6QXrG/kuVkxUK93FWIx3W
-	KQRYDWXPXRtfWTcq2V2l7/ivrw2hncr2Q++eVCuLBdF+TpRa8D5gaM6orXweC95qWYO9YznTLzU5p
-	rNae74Jiw==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=2LgtJIsWonm2uPi1+IV7YWU+UNCJQcpQQvsYRBuupIM=; b=pgnb2oZbxWYhPjutBRgInADIp
+	86YaA95CPHSRHsJMP4fsjTh/MGFAEj1VWb7tQ0sQOwz6IyP6eQq+/M3bROgxp0xO54I5kQRoFysx1
+	E6o0AwQ/is6z9QN89udBzHsLkEMYcu69UVhCS34Qhl83Z03ybf567o2r6oMJE5MlMmx0d5oXZqbmP
+	feb+DKiQwtpMqReUD8CC9NsyDIn/pkBVsmyWBhtD8XbUq6wTy1oZffJg/upd5rXhAtuKxYHe0p5xy
+	De7ZHfSPvao7OtX7/Iq7qVJo1VHmj7rOo4hA6ww1mtEZu0LPtxsr5sOwlQmnUFGdwipiKpvn4iZZC
+	jhE5idhDA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kavbX-00005Q-LE; Fri, 06 Nov 2020 06:52:11 +0000
-Received: from mail-wr1-x442.google.com ([2a00:1450:4864:20::442])
+	id 1kavxE-0002tv-K4; Fri, 06 Nov 2020 07:14:36 +0000
+Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kavbV-0008WS-CD
- for linux-riscv@lists.infradead.org; Fri, 06 Nov 2020 06:52:10 +0000
-Received: by mail-wr1-x442.google.com with SMTP id c17so131666wrc.11
- for <linux-riscv@lists.infradead.org>; Thu, 05 Nov 2020 22:52:07 -0800 (PST)
+ id 1kavxC-0002sb-OL
+ for linux-riscv@lists.infradead.org; Fri, 06 Nov 2020 07:14:35 +0000
+Received: by mail-pg1-x542.google.com with SMTP id x13so244583pgp.7
+ for <linux-riscv@lists.infradead.org>; Thu, 05 Nov 2020 23:14:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=Q3f9Pa023kq6nDLJQQNpO49x4systkFNrJf/4ta2NQU=;
- b=crgTZXSkON6Ldq2Mi5vOY6+SDVkFbigcyoKW4Ko57LfLXxyRjoSGqaaw+inQCog26J
- HP3nKhTooJi1kTgDi0DdvoP1dVBtblDXupJL7iSdPendjz5YX+XUyv2Ol9GN3E+Ohcw7
- +wzDrDJa3efME21bmHeecMbrtdtrO8PNAdHNVD6624MT6DbEI46z2TB9oRLxMWnFqZil
- xX+jEFO8zJMrU6Q8K05a8NydPTyNhXjRSRelkuShFDeCoNfUILw4UjJg2yOOlMhHsl89
- N3acSXvwZS9OwWEXr1pOtyOBxI1Le2G7IPPLMnz0W+Fmv9tdVtgl9t5noVAf+Pi6GdDD
- GH/A==
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=s6YH0eSX/RwKBuEX1w8IFmHtUiOjP/eJyOwuklXDjTY=;
+ b=aIFAyjg+EyzWOA841bpmazYcgV0AEulGrJoP7hNS4+EvMG+RSK1jTROG3a5pH/GI+K
+ DkTA6VDl4j7/iESdcTK0dpUFAWWF9yaZ/LSzXIYSivrxbEuxmhmF8kMrG0eDpUWYt0Yr
+ WwChrkAa/SYesmZ96R97diB/kOp3JEj8SR1QQI+4iBl4eOMdMlGzaIWfdIIwA/sHwpmN
+ gTuSeVR4J5gm6xa1nT5gg6/Q7KX3v8BS3wBOiS3Zun/d6+JTj2YlJ/VRV3GJicCjOzwx
+ LwluV5esuaGx+mc228szbCmDrUNatBJ9QnvWfAEOIkEvPWA5b6OAicG+lUmBdYsfdnhx
+ fL5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=Q3f9Pa023kq6nDLJQQNpO49x4systkFNrJf/4ta2NQU=;
- b=HgCR30LL0BuPEKNJqxRabbNXYpETg0KeITguDvUXm/fQku+77vNgY/zRwY4p0uXXHB
- 0WtNhxVKpOJBaAL3wsRaEsTq58OhEnYDPCgPDNbCzbGaiFFrmZnnLHs+7iHslXQBxWep
- QId2NHhbpV8Gp+4L4A2vYpM60LasvCT3/sHjGd+SpIuHKMwXTx2Cs2q+NII3MSdrxQnc
- MwkV1SAcsW/dzUCYgslZIYJsoDOD0kvyG5LmmUCv+rVAQSxj7EHAFm5ZSvUXTG5+F8js
- g++W8DuVEVaB21OM/XJQbJsV9kAPCQ9c3UfmakB/bqw7ecarUYIJyw+PKPe9D0bxxu+3
- zNEQ==
-X-Gm-Message-State: AOAM53186wPl5n4z1FzK4fsC6BMJj1fz70IA3Sh1aTZyugXNvVtd5efr
- 7isYuy/kdJuwmuPu7wmOUKzhzyRsCMPn2L24f4V70w==
-X-Google-Smtp-Source: ABdhPJzZm4YL9DpLTGxAwJRmfLGYPkjw0QWgiOEd+3cjNtmIWWOXF/NBBhiUrWGaVMGF06WfCBZpebumPfBq1YS4BuE=
-X-Received: by 2002:adf:eec2:: with SMTP id a2mr969252wrp.128.1604645526458;
- Thu, 05 Nov 2020 22:52:06 -0800 (PST)
-MIME-Version: 1.0
-References: <20201102073052.199638-1-changbin.du@gmail.com>
-In-Reply-To: <20201102073052.199638-1-changbin.du@gmail.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 6 Nov 2020 12:21:52 +0530
-Message-ID: <CAAhSdy12JRy5uF5t-e=bw=K1Gk5PKuTErg0kmKOxBKBn4MnhJw@mail.gmail.com>
-Subject: Re: [PATCH] riscv: uaccess: fix __put_kernel_nofault()
-To: Changbin Du <changbin.du@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Palmer Dabbelt <palmerdabbelt@google.com>
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=s6YH0eSX/RwKBuEX1w8IFmHtUiOjP/eJyOwuklXDjTY=;
+ b=lUtwRofDcsWJnm/LSfcC+Ful1WtWVpPcJzmu5Y6c2Dv7b/56eafA+HfmSfRniGuHFp
+ bUfqfbvgJUn/dPf8IP7gUljZYKemeax+oSpG0DQspRSzgRMcdcyCZWEbWA99/ooBwTrY
+ KJUAy4oImAGAjUJdJvoAtqGo+PFjRHDGcGfrI7h3EKNwtxaA4zED2Lwu9tTs+ju9pOqj
+ uI+EZg6TosY/UUNM5XEWJuZu9FUwa8KgghBjPDpimoOKgIqocv8z5pgn1rl707OYba91
+ 2h7SfmTaJcTZyZa1oaLpsOaa0KZFlGDrxGmKgLyWVtmi4VbP3qP7FX3BWwa3GKapcuJh
+ tw1A==
+X-Gm-Message-State: AOAM531zbXPMtWye6t8Sc6olBtmMnf+rQAVjYT4X/4xin2UHOPbn+kKD
+ ox7w5q5h5Vl/ZH/1XD2GuDviqQ==
+X-Google-Smtp-Source: ABdhPJwO5bd7mi+tpUBxCMN/fsu4RTpUPPzVVz7lSqd3QdBGhSN0bUat6hJsfWe7wtQ9bgwt6mCPPw==
+X-Received: by 2002:a17:90b:707:: with SMTP id
+ s7mr1034437pjz.104.1604646872545; 
+ Thu, 05 Nov 2020 23:14:32 -0800 (PST)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id s18sm632539pgh.60.2020.11.05.23.14.31
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 05 Nov 2020 23:14:32 -0800 (PST)
+Date: Thu, 05 Nov 2020 23:14:32 -0800 (PST)
+X-Google-Original-Date: Thu, 05 Nov 2020 22:54:57 PST (-0800)
+Subject: Re: [RFC PATCH 1/3] RISC-V: Add Microchip PolarFire SoC kconfig option
+In-Reply-To: <20201028232759.1928479-2-atish.patra@wdc.com>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Atish Patra <Atish.Patra@wdc.com>
+Message-ID: <mhng-849d17e7-0bff-4d49-b7d9-28909d199dfb@palmerdabbelt-glaptop1>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201106_015209_572806_AB40CBCC 
-X-CRM114-Status: GOOD (  17.05  )
+X-CRM114-CacheID: sfid-20201106_021434_828018_9AC09039 
+X-CRM114-Status: GOOD (  17.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -90,61 +96,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Andrew Morton <akpm@linux-foundation.org>, Christoph Hellwig <hch@lst.de>
-Content-Type: text/plain; charset="us-ascii"
+Cc: devicetree@vger.kernel.org, aou@eecs.berkeley.edu, Cyril.Jean@microchip.com,
+ daire.mcnamara@microchip.com, Anup Patel <Anup.Patel@wdc.com>,
+ linux-kernel@vger.kernel.org, Atish Patra <Atish.Patra@wdc.com>,
+ robh+dt@kernel.org, Alistair Francis <Alistair.Francis@wdc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
+ padmarao.begari@microchip.com
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 2, 2020 at 1:01 PM Changbin Du <changbin.du@gmail.com> wrote:
+On Wed, 28 Oct 2020 16:27:57 PDT (-0700), Atish Patra wrote:
+> Add Microchip PolarFire kconfig option which selects SoC specific
+> and common drivers that is required for this SoC.
 >
-> The copy_from_kernel_nofault() is broken on riscv because the 'dst' and
-> 'src' are mistakenly reversed in __put_kernel_nofault() macro.
->
-> copy_to_kernel_nofault:
-> ...
-> 0xffffffe0003159b8 <+30>:    sd      a4,0(a1) # a1 aka 'src'
->
-> Fixes: d464118cdc ("riscv: implement __get_kernel_nofault and __put_user_nofault")
-> Signed-off-by: Changbin Du <changbin.du@gmail.com>
-> Cc: Christoph Hellwig <hch@lst.de>
+> Signed-off-by: Atish Patra <atish.patra@wdc.com>
 > ---
->  arch/riscv/include/asm/uaccess.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  arch/riscv/Kconfig.socs | 7 +++++++
+>  1 file changed, 7 insertions(+)
 >
-> diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
-> index c47e6b35c551..824b2c9da75b 100644
-> --- a/arch/riscv/include/asm/uaccess.h
-> +++ b/arch/riscv/include/asm/uaccess.h
-> @@ -476,7 +476,7 @@ do {                                                                        \
->  do {                                                                   \
->         long __kr_err;                                                  \
->                                                                         \
-> -       __put_user_nocheck(*((type *)(dst)), (type *)(src), __kr_err);  \
-> +       __put_user_nocheck(*((type *)(src)), (type *)(dst), __kr_err);  \
->         if (unlikely(__kr_err))                                         \
->                 goto err_label;                                         \
->  } while (0)
-> --
-> 2.17.1
+> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+> index 8a55f6156661..74d07250ecc5 100644
+> --- a/arch/riscv/Kconfig.socs
+> +++ b/arch/riscv/Kconfig.socs
+> @@ -22,6 +22,13 @@ config SOC_VIRT
+>  	help
+>  	  This enables support for QEMU Virt Machine.
 >
->
+> +config SOC_MICROCHIP_POLARFIRE
+> +	bool "Microchip PolarFire SoCs"
+> +	select MCHP_CLK_PFSOC
+> +	select SIFIVE_PLIC
+> +	help
+> +	  This enables support for Microchip PolarFire SoC platforms.
+> +
+>  config SOC_KENDRYTE
+>  	bool "Kendryte K210 SoC"
+>  	depends on !MMU
 
-Looks good to me.
-
-Tested-by: Anup Patel <anup@brainfault.org>
-Reviewed-by: Anup Patel <anup@brainfault.org>
-
-@Palmer Dabbelt , This patch fixes jump label implementation in
-Linux-5.10-rc2. In general, this patch fixes all kernel instruction
-patching related features. Can you take this for Linux-5.10-rcX ??
-
-Regards,
-Anup
+Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
 
 _______________________________________________
 linux-riscv mailing list
