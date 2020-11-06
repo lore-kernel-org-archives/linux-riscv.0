@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-9.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6B456C4741F
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2020 07:14:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 51C85C56201
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2020 07:14:49 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D9B3920825
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2020 07:14:46 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C6A0E20825
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2020 07:14:48 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pgnb2oZb";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="aIFAyjg+"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D9B3920825
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ptMSGF3P";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="fsVJL39F"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C6A0E20825
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,65 +26,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=2LgtJIsWonm2uPi1+IV7YWU+UNCJQcpQQvsYRBuupIM=; b=pgnb2oZbxWYhPjutBRgInADIp
-	86YaA95CPHSRHsJMP4fsjTh/MGFAEj1VWb7tQ0sQOwz6IyP6eQq+/M3bROgxp0xO54I5kQRoFysx1
-	E6o0AwQ/is6z9QN89udBzHsLkEMYcu69UVhCS34Qhl83Z03ybf567o2r6oMJE5MlMmx0d5oXZqbmP
-	feb+DKiQwtpMqReUD8CC9NsyDIn/pkBVsmyWBhtD8XbUq6wTy1oZffJg/upd5rXhAtuKxYHe0p5xy
-	De7ZHfSPvao7OtX7/Iq7qVJo1VHmj7rOo4hA6ww1mtEZu0LPtxsr5sOwlQmnUFGdwipiKpvn4iZZC
-	jhE5idhDA==;
+	 bh=Y0qJxKWDPGOb2RRmuJw1xRvqjqxjLijhec728cxBvWQ=; b=ptMSGF3P380TEHF4VpjolZPir
+	aYwVUvVSHrIRY/qLxcmMZmqwmSDzvpAluT4c2r37cOu4YrAm/O6k/hHLKft1MRu5GpOHObp96DcXz
+	uga2nzP+TSlmBKYWOlKOzT2oTB6W43hMUp1vNb52kndb9j41gfRjc9jfjGrZw4M9Avd3Au5/XsHHL
+	iUdA59h6yzOVTaynXbeKk+Gt0vdqGCzgQ1s/oR/2bZFAuJH+LmURVmRfs9ONawewGlse7pglMvyI9
+	pxneAZeup1/8l0h8MDxfw/Y4jm5EBySQoYiwK1Cudx3mUqSSIliwvdPCBQ4bvkO9BMPQXRFMqQr0k
+	PVJ8v3E2g==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kavxE-0002tv-K4; Fri, 06 Nov 2020 07:14:36 +0000
+	id 1kavxG-0002uY-K7; Fri, 06 Nov 2020 07:14:38 +0000
 Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kavxC-0002sb-OL
- for linux-riscv@lists.infradead.org; Fri, 06 Nov 2020 07:14:35 +0000
-Received: by mail-pg1-x542.google.com with SMTP id x13so244583pgp.7
- for <linux-riscv@lists.infradead.org>; Thu, 05 Nov 2020 23:14:34 -0800 (PST)
+ id 1kavxD-0002su-LV
+ for linux-riscv@lists.infradead.org; Fri, 06 Nov 2020 07:14:36 +0000
+Received: by mail-pg1-x542.google.com with SMTP id g12so241461pgm.8
+ for <linux-riscv@lists.infradead.org>; Thu, 05 Nov 2020 23:14:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=s6YH0eSX/RwKBuEX1w8IFmHtUiOjP/eJyOwuklXDjTY=;
- b=aIFAyjg+EyzWOA841bpmazYcgV0AEulGrJoP7hNS4+EvMG+RSK1jTROG3a5pH/GI+K
- DkTA6VDl4j7/iESdcTK0dpUFAWWF9yaZ/LSzXIYSivrxbEuxmhmF8kMrG0eDpUWYt0Yr
- WwChrkAa/SYesmZ96R97diB/kOp3JEj8SR1QQI+4iBl4eOMdMlGzaIWfdIIwA/sHwpmN
- gTuSeVR4J5gm6xa1nT5gg6/Q7KX3v8BS3wBOiS3Zun/d6+JTj2YlJ/VRV3GJicCjOzwx
- LwluV5esuaGx+mc228szbCmDrUNatBJ9QnvWfAEOIkEvPWA5b6OAicG+lUmBdYsfdnhx
- fL5A==
+ bh=6hIImNRnU9cgbmxIIbosNrDfQ1fw4BJiExYh05cGrVo=;
+ b=fsVJL39F/dBNGipzDNkM1dCZnsNJ3fBUnu630YD3xO8ImShiYeWPgje2vKSGCrF+ly
+ 30tNA9MYJhgYNpA2MAz9uaV9WM46yLRiYPgc1N4h7aEJgmfG9S9ncmuuvlOu8cinFXSG
+ igmaPoQsEfuJM+92m7fQRwvv4dc716gcLunk8HGT/JU8+U9eCksmUfXQC/032Cfvu0g0
+ o2PdMp0EIQg03jSYMwZEZGyPhb1NvKsIcCxSAtAiXRnVOLdH/64aQFxz41W2DwPRVud/
+ MeuwdWD2nHJAPxjqZBUhpRfcYJSm/lA6ACxLu4A77zeqVkVN0bj/StGWFEktnQqHmse5
+ ew0Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=s6YH0eSX/RwKBuEX1w8IFmHtUiOjP/eJyOwuklXDjTY=;
- b=lUtwRofDcsWJnm/LSfcC+Ful1WtWVpPcJzmu5Y6c2Dv7b/56eafA+HfmSfRniGuHFp
- bUfqfbvgJUn/dPf8IP7gUljZYKemeax+oSpG0DQspRSzgRMcdcyCZWEbWA99/ooBwTrY
- KJUAy4oImAGAjUJdJvoAtqGo+PFjRHDGcGfrI7h3EKNwtxaA4zED2Lwu9tTs+ju9pOqj
- uI+EZg6TosY/UUNM5XEWJuZu9FUwa8KgghBjPDpimoOKgIqocv8z5pgn1rl707OYba91
- 2h7SfmTaJcTZyZa1oaLpsOaa0KZFlGDrxGmKgLyWVtmi4VbP3qP7FX3BWwa3GKapcuJh
- tw1A==
-X-Gm-Message-State: AOAM531zbXPMtWye6t8Sc6olBtmMnf+rQAVjYT4X/4xin2UHOPbn+kKD
- ox7w5q5h5Vl/ZH/1XD2GuDviqQ==
-X-Google-Smtp-Source: ABdhPJwO5bd7mi+tpUBxCMN/fsu4RTpUPPzVVz7lSqd3QdBGhSN0bUat6hJsfWe7wtQ9bgwt6mCPPw==
-X-Received: by 2002:a17:90b:707:: with SMTP id
- s7mr1034437pjz.104.1604646872545; 
- Thu, 05 Nov 2020 23:14:32 -0800 (PST)
+ bh=6hIImNRnU9cgbmxIIbosNrDfQ1fw4BJiExYh05cGrVo=;
+ b=W5djEQSze7TTJSAi+s7RWfJ4imgoreIIaDteNz+fBCj8Gd4MsTMBVrtKbPxNKlHqq9
+ CU2rmBiOLjG0JAMmy54EkYionZpLCdFdNZ2sk3KepZC4LAn6QFZjQvoc1v1+OrLgoft8
+ sRVOHrwGc5CFI91a+4+fST+L+4HwisAWyoP7lgsDXlqY+U7iQNc3434+F1wcgIrFPfVo
+ ymBUAA8HvX8+KomD0drfUcajBxtY/yBiuJ9wfvyplJpXzt9T1VnoWqsSE57r3zIp0iuh
+ UVUeJVCVdRKhuduiofoExVpM6HsAYYNIVuOvPmlH7TqT5cg2gxspedgpoPevgFEZsWMf
+ ozMQ==
+X-Gm-Message-State: AOAM531LvBhtDXkUH4+ky+0r1bjiom914eVykPQYAwlrx5DvbAzo7GdV
+ eWjiMHUDCfome+QyjXaaw7e/NQ==
+X-Google-Smtp-Source: ABdhPJz5XPcq4MAZ3pYcr4Ajim+EB6OVrNRi6M08jrMIudLSVO+kKYyr1tGKQKg886UJtHZVpijMeQ==
+X-Received: by 2002:a17:90a:474b:: with SMTP id
+ y11mr998795pjg.114.1604646873941; 
+ Thu, 05 Nov 2020 23:14:33 -0800 (PST)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id s18sm632539pgh.60.2020.11.05.23.14.31
+ by smtp.gmail.com with ESMTPSA id f19sm782687pfa.82.2020.11.05.23.14.33
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 05 Nov 2020 23:14:32 -0800 (PST)
-Date: Thu, 05 Nov 2020 23:14:32 -0800 (PST)
-X-Google-Original-Date: Thu, 05 Nov 2020 22:54:57 PST (-0800)
-Subject: Re: [RFC PATCH 1/3] RISC-V: Add Microchip PolarFire SoC kconfig option
-In-Reply-To: <20201028232759.1928479-2-atish.patra@wdc.com>
+ Thu, 05 Nov 2020 23:14:33 -0800 (PST)
+Date: Thu, 05 Nov 2020 23:14:33 -0800 (PST)
+X-Google-Original-Date: Thu, 05 Nov 2020 22:59:38 PST (-0800)
+Subject: Re: [RFC PATCH 3/3] RISC-V: Enable Microchip PolarFire ICICLE SoC
+In-Reply-To: <20201028232759.1928479-4-atish.patra@wdc.com>
 From: Palmer Dabbelt <palmer@dabbelt.com>
 To: Atish Patra <Atish.Patra@wdc.com>
-Message-ID: <mhng-849d17e7-0bff-4d49-b7d9-28909d199dfb@palmerdabbelt-glaptop1>
+Message-ID: <mhng-b5dd0def-a774-43e9-ae39-026f5b2411b9@palmerdabbelt-glaptop1>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201106_021434_828018_9AC09039 
-X-CRM114-Status: GOOD (  17.40  )
+X-CRM114-CacheID: sfid-20201106_021435_820287_CAB25F4E 
+X-CRM114-Status: GOOD (  20.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -107,33 +107,49 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 28 Oct 2020 16:27:57 PDT (-0700), Atish Patra wrote:
-> Add Microchip PolarFire kconfig option which selects SoC specific
-> and common drivers that is required for this SoC.
+On Wed, 28 Oct 2020 16:27:59 PDT (-0700), Atish Patra wrote:
+> Enable Microchip PolarFire ICICLE soc config in defconfig.
+> It allows the default upstream kernel to boot on PolarFire ICICLE board.
+
+I don't actually have one of these to test on yet.  That said, if it boots for
+you then I don't really see any reason to delay this -- maybe there's some
+issues floating around, but I don't really see any reason to delay putting this
+on for-next.  I'd even go so far as to say we should take it during the RCs, as
+so far it's just build/DT stuff.
+
+Given that this is currently the only production RISC-V Linux board I don't
+really any reason not to add it to the defconfigs.
+
+Is there a reason this is an RFC?
+
 >
 > Signed-off-by: Atish Patra <atish.patra@wdc.com>
 > ---
->  arch/riscv/Kconfig.socs | 7 +++++++
->  1 file changed, 7 insertions(+)
+>  arch/riscv/configs/defconfig | 4 ++++
+>  1 file changed, 4 insertions(+)
 >
-> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-> index 8a55f6156661..74d07250ecc5 100644
-> --- a/arch/riscv/Kconfig.socs
-> +++ b/arch/riscv/Kconfig.socs
-> @@ -22,6 +22,13 @@ config SOC_VIRT
->  	help
->  	  This enables support for QEMU Virt Machine.
->
-> +config SOC_MICROCHIP_POLARFIRE
-> +	bool "Microchip PolarFire SoCs"
-> +	select MCHP_CLK_PFSOC
-> +	select SIFIVE_PLIC
-> +	help
-> +	  This enables support for Microchip PolarFire SoC platforms.
-> +
->  config SOC_KENDRYTE
->  	bool "Kendryte K210 SoC"
->  	depends on !MMU
+> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+> index d222d353d86d..2660fa05451e 100644
+> --- a/arch/riscv/configs/defconfig
+> +++ b/arch/riscv/configs/defconfig
+> @@ -16,6 +16,7 @@ CONFIG_EXPERT=y
+>  CONFIG_BPF_SYSCALL=y
+>  CONFIG_SOC_SIFIVE=y
+>  CONFIG_SOC_VIRT=y
+> +CONFIG_SOC_MICROCHIP_POLARFIRE=y
+>  CONFIG_SMP=y
+>  CONFIG_JUMP_LABEL=y
+>  CONFIG_MODULES=y
+> @@ -79,6 +80,9 @@ CONFIG_USB_OHCI_HCD=y
+>  CONFIG_USB_OHCI_HCD_PLATFORM=y
+>  CONFIG_USB_STORAGE=y
+>  CONFIG_USB_UAS=y
+> +CONFIG_SDHCI=y
+> +CONFIG_MMC_SDHCI_PLTFM=y
+> +CONFIG_MMC_SDHCI_CADENCE=y
+>  CONFIG_MMC=y
+>  CONFIG_MMC_SPI=y
+>  CONFIG_RTC_CLASS=y
 
 Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
 
