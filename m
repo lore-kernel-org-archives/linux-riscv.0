@@ -2,139 +2,87 @@ Return-Path: <SRS0=64xR=EM=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 64EBFC2D0A3
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2020 07:54:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0A502C2D0A3
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2020 08:01:10 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B89A220678
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2020 07:54:41 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 85460206D4
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2020 08:01:09 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="0PO3zi5S";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="rN/zXB7g";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="X3s50Cm4"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B89A220678
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="yR+/KSKr";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.b="u0xJczYU"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 85460206D4
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BrdZ71W/WOi4a5L87CJCh9a+M+ziNpyE3lNkOr0DBc8=; b=0PO3zi5SSU2jxQ1lVIRPAGHcu1
-	ZearBHjDRsTgWP0CNrSGtnHbkliNeCYG24Rc0/HMAF37NCpKGypRjbxcCq07C01kvhw+Bc0/QM4m1
-	JUUUpYob7D/ZAIclE86G3ObPa1xBip5GxwYuPC+IGLQ25pj3WIuUfEtuuDystRp7NtUg7Q6Jmit08
-	PNk8Lq6oswTVEdISo56OdnMKOz7P5D2oUvtVKUXwkggseJVVkWgC1R7I+S0Nb9lcVozeBy4nghbBx
-	tOPYfMSb5QLwSjXSZmDjzhchqc8c9EN0nI53QHm1Ws+D4Iu84N5PCZSt5B7lQkQ66NQ1YWB080M3W
-	fabY7u5g==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=PVvlUE8RkICJD9Mq3hoaJ5OND1Hm3r08bhIx2Ovs+bU=; b=yR+/KSKrJ4wY0q4IjmuqY57fH
+	mH42j5AaHBYl4F7VcZHkyhL1rAy4DXVFdFekOGJWVloZr59p79J7S5GSdbpFKPulZ6LCrix2Szr/E
+	r98jhR2YrBXxQIJcJrE9i0W2qQxx+fYVAmzvLsGrgD0Q3cEjIoJKmi4NCHmPYGhKr8M3jqnMTRtrE
+	L4Mu5MqID1lrRgFpDar8bmP51q74KeFeHUvVMDtxwZBzFjONOCc2iFPkWHt/4Bd98FPMoZlz9AEG/
+	ShoRfMyw1dEAz6hxvJfB6qfdV6bJxucvjBKBmw3mCBvi19jgi+87pip8jjFeUqQg4clx7RAw1uVa5
+	R/mwzx+zA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kawZr-0006fi-M3; Fri, 06 Nov 2020 07:54:31 +0000
-Received: from esa5.hgst.iphmx.com ([216.71.153.144])
+	id 1kawg7-0006yW-1W; Fri, 06 Nov 2020 08:00:59 +0000
+Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kawZp-0006f7-HI
- for linux-riscv@lists.infradead.org; Fri, 06 Nov 2020 07:54:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1604649269; x=1636185269;
- h=from:to:cc:subject:date:message-id:
- content-transfer-encoding:mime-version;
- bh=+MOkP8J8/wRehLFzT93PZC7fjDf6InpvzJAS3fvbkJA=;
- b=rN/zXB7gRadDpLLf3tM+YglcaMVHkozLZN6y1mBauBoZ75Fj9HDYZOaw
- OCcAwPyM/d7SZACS82qSaBP+0nlQThPIF7+fObcm4VcslPENRLTPcBi+B
- vJkhHxidnK7QBr1NAi5T4iLgSaY04iAB5RqNxxiJXhUsyd7OYyBxFlTIs
- 97V/jLjef45LipdFdrtoQR93w2LT1YUcTfxp1/KYEa4n1ntSXO34dwm9e
- V5KlV+PHs97rkZEnZfnTuDoXIdoAYbPxiBZb8My83GezQ27nP/lFUIhrD
- GccnYjQ5qGlqp/K9/R5gF61qLlllcfTwdwUFUYTqsn6pIHxY1zpO/air9 Q==;
-IronPort-SDR: FVfG/wPz1tazxKcRHVcN1fdjCu3oTGpKWMOh5mmnUDTQSIc04xlrW3bIHrWu93RDh/SP34t92q
- jCk7Fj5Dxf2dD72r6TlO/1m4NjfBPvTbIkuM2luIL8Q/yG+7sEsQrw/7TcPgdba3IxFyEIXe1h
- sP+zVC5oECVd1DqgDAe6dsiuZTplkA8hFJgegjBrQVJnUNe+ZPsDYKp1H9GUjyyHf4lZUhiHvU
- rRC8hE2D7clgomI+IGUtNDI0iBRixh/dikBIcJ4JR0k6gbK3wQc1bh+ArzrBOo3QRpBFJGLgn6
- w2o=
-X-IronPort-AV: E=Sophos;i="5.77,455,1596470400"; d="scan'208";a="152117309"
-Received: from mail-mw2nam10lp2102.outbound.protection.outlook.com (HELO
- NAM10-MW2-obe.outbound.protection.outlook.com) ([104.47.55.102])
- by ob1.hgst.iphmx.com with ESMTP; 06 Nov 2020 15:54:26 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=lyjk1lf7Dr/SuTWq+/5YNIQg597i2u3wsYUrip8352nnY5rNRBWAS7aZ1lVZaGPjZ7p3Qab9eZIdClByhy171scb/D2i7NlOpZIqtTAcAj4fr/NhYw4bHvFZZl/SBfhl5aF4AE6YXwJ6YLiRCmNftMJtgTZMxiMwZsnz2MjPTKA8DrFQVmYmi5n4ETjXPnYNEQ2QVcEuWS3pkX8yBg7sP4zHQF+Af0EnuwdF8i+Lk3x0Zsrp4ptrYuPcbiDF/lJJnNauwKWoY9dXQnOmzfYR9UM+Y/Oh8dw7ajHi27RWi848iv+cLYa7RoHgBpY3QbRBJ93vsqO7tL8ChyXFn//2WA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=teBxnOcg9xFezrnVu2XPb7iVQc+j1UfNi2JGgoQqDO8=;
- b=ihunovyU1Ndw6PUxfIy5SSFtYmV07MprvOciG/R44BoRRK8cjAjwKCiK8H+/ywSePZo6OvsEGQ+t2DDtNTYmtUS+lZLCoaOBVqK91xOOA7j/ZHKIjd2ivtaOnvVkkki55EkoJFqY2Q36G4R9zBz0eFQLhK7/fxfNqGmCO0iPLWRsNlTdiWHDc5EL/Cb/oE0iNWaYbGzvbiavcDS5WbXh8lhIXYgwrdUHvV8+9Hq2n4ZtK7eJrN1BY9GwdF8hA0DGhXxD7X/91FczdqVJDx6b1VJ5G8fVGFl0hOK/qCrTm023UGezySrQCWMAiGUMq/w4agyFqDba1vzMCm+wh5f4mw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
- header.d=wdc.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=teBxnOcg9xFezrnVu2XPb7iVQc+j1UfNi2JGgoQqDO8=;
- b=X3s50Cm4eibrg/QaLflGIVllamYtMpxrJ4cphZkRHBFN/SYpkKmAsEPz23USJMoT4JHXNm4WKNKLVbf03RdYYIEutUdLZobF1vpxeH78Kex8x+QVM6XK9ihvS07uRFAzHT9E9Rp2Ls2u2NhommCkNU/qY3yCJNw9o8Ts2//LeW8=
-Authentication-Results: dabbelt.com; dkim=none (message not signed)
- header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
-Received: from DM6PR04MB6201.namprd04.prod.outlook.com (2603:10b6:5:127::32)
- by DM6PR04MB4524.namprd04.prod.outlook.com (2603:10b6:5:21::31) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3499.18; Fri, 6 Nov
- 2020 07:54:25 +0000
-Received: from DM6PR04MB6201.namprd04.prod.outlook.com
- ([fe80::d035:e2c6:c11:51dd]) by DM6PR04MB6201.namprd04.prod.outlook.com
- ([fe80::d035:e2c6:c11:51dd%6]) with mapi id 15.20.3541.021; Fri, 6 Nov 2020
- 07:54:25 +0000
-From: Anup Patel <anup.patel@wdc.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
-Subject: [PATCH] RISC-V: Add missing jump label initialization
-Date: Fri,  6 Nov 2020 13:23:59 +0530
-Message-Id: <20201106075359.3401471-1-anup.patel@wdc.com>
-X-Mailer: git-send-email 2.25.1
-X-Originating-IP: [122.167.36.171]
-X-ClientProxiedBy: MAXPR0101CA0010.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a00:c::20) To DM6PR04MB6201.namprd04.prod.outlook.com
- (2603:10b6:5:127::32)
-MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-Received: from wdc.com (122.167.36.171) by
- MAXPR0101CA0010.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:c::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3541.21 via Frontend
- Transport; Fri, 6 Nov 2020 07:54:21 +0000
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-HT: Tenant
-X-MS-Office365-Filtering-Correlation-Id: 575ef81d-3e33-4875-df98-08d882292e20
-X-MS-TrafficTypeDiagnostic: DM6PR04MB4524:
-X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <DM6PR04MB4524764B7079F6EA990A51F88DED0@DM6PR04MB4524.namprd04.prod.outlook.com>
-WDCIPOUTBOUND: EOP-TRUE
-X-MS-Oob-TLC-OOBClassifiers: OLM:2582;
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: KjgVoxyKDN/fUEB562Jwoxz7HrOSnqJYQqtOW0+MQH7ArZvBN/kWybY4Gbnmz5K7R8yXpm60W+b/s9UaJGVnK/LPM3teVZa073pkj01Vzcg5M29dGT1f8qkzGkn6axqPKyY7Fy6/cYaxlFl1zq096oCHOX67l0Li8Vk4YNTpeHMDoUP64A0R2T+TgZAZ+d5A2SgLuMvJE13e5hH0kyBHqESUmwve8ZheAc+gpkvVaqtXPIdrWNmCWwE+jmWeIp7IyiweGRdZBBmTfHRyRBpbKrF3xqzU3l+iFdJuVJEakGcmsMwuQvpX8lzKL8K8trq2RjLOiupvwaSLynY8OyvYlw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:DM6PR04MB6201.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(376002)(39860400002)(396003)(136003)(366004)(346002)(8886007)(66476007)(2616005)(52116002)(5660300002)(1076003)(478600001)(4326008)(4744005)(66556008)(956004)(8936002)(55016002)(26005)(66946007)(8676002)(86362001)(16526019)(7696005)(54906003)(44832011)(316002)(36756003)(186003)(110136005)(2906002)(6666004);
- DIR:OUT; SFP:1102; 
-X-MS-Exchange-AntiSpam-MessageData: E0v3nfr5srNUbNxYfgTmAzk/1OkY9t8OzCVsSv+3XAntXf7Lye2aizWZEbX90EPGOpkZEKP58b5gxpw/7KZux6X75UEU1W+2uiYaPUjQ+4JGqapXtQxiogbSqLKZm+M7chG939x0ox5rB3mCRG30/RyqKEfsgHkBxwiCSGv60b9oiBkD58HPBOx3LJIY3i/ogAZklTN8vbjkYxe1vbfODbLIA3GGh8YRJ52KQWODZMvVOlxm08CL2aoRU22lYhVgwh1NPb25ufaykyPXKpdwtUfSSl9HhKJgTbeVYV15q0c0zYA6Ki/c9h/kdaKvd+bBDgXv7kYppKXJOamWmpsDuXZvS4+63ZEjUb0zPjaZhLPJBtPVwG4BrN4iJMig7ftshGemrWIFJGFlU7zjUuMuyKu6oL2/kWuv1aCQeVzq3HG4UKTBgKBSyJrhZcUsJCpyIm18cGS7w2iGJZxpdS3fRzmMCPuPHDOao3S5O6keIx2waObDR6392f29N+Rp5jGiD4L2vWz5So3X2cwNOLrhezrL6yhhgq+B/CvaKWxaOTgmJ8gqAPH5mkwxVSjQYaDM0U0OSKxxhAMOrXoYDBDECvdI3/wm8V+eR2Qu46tEi22UOUaGWP2lal7jvg4SE56NIfLwrNQBOkocOdm4eZdjYQ==
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 575ef81d-3e33-4875-df98-08d882292e20
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR04MB6201.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Nov 2020 07:54:25.6668 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /dgjLx+inBrFPbSgf76udPsPdzxqGuKudk2g7bRuj4GEt82qrz6SwBAM/9ladxHxNPIJPubbSIGcYiwtnuoV7w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR04MB4524
+ id 1kawg3-0006xm-UT
+ for linux-riscv@lists.infradead.org; Fri, 06 Nov 2020 08:00:56 +0000
+Received: by mail-pf1-x443.google.com with SMTP id g7so596632pfc.2
+ for <linux-riscv@lists.infradead.org>; Fri, 06 Nov 2020 00:00:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=mXeLUnql0ZAHlwxfedR6V6JITpiJkpyK91YsFFWk1zo=;
+ b=u0xJczYU1FnZOue8y5WE6Fjzr1YBmmSh08FLHnknlmv6Hh9VdFUkRJFtHJdeFvWGht
+ iOqHOdhuxM/9pC2wVoIykUFsasxA89vUF/WomsFeS6qCNaZxdYg6CFEaw9/KlXheuCeV
+ IIUNVH9ThhU+FUN3mIzVp452Kq1DAOFjrThC2ilEj6ihU4s9uQXniz5sTkub1G+AegOi
+ XgnqD3QQ0Co9R1z0iw2cthC/7HXvYKr6TMvPrPCsNoDLph1PW4Gh8NuieatPHqGrOkF4
+ Ck336IUEHVPFibsKqmge/qkuDjGDKxjy74WSItMld7+HbuwjjJK+Sz56EDLRN0Ye30WA
+ ic7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=mXeLUnql0ZAHlwxfedR6V6JITpiJkpyK91YsFFWk1zo=;
+ b=Y59dfFJBQ5YXEQCUYkeuEGuclYRQXBIUWmrcmuMJbDS2IgOuHDRBAEYg7e+s8+Xc6s
+ vJj70GmfyQaFl+l2rsycJUmeFyjMHkZJHgcae/pClYiAUL2qHP3T5GfuPjLId27dZTvs
+ FI0tW1i+0yREoA94b40mPE/HSBGAN8bIojp22nb5vNPUZLCxsvCQmvSL7zkxUgo1Aaex
+ kGYH500Yhi1mCXyqLw986S3fsmfdWs0wKQufZz0q3lLt26VVmsPCD+UPYYNQ5w0Ny/KY
+ +vjyzyRx5NtCYtdT8QCekRVczV0xphRppSKjHTfCGA64sVZ1g6kdeES1RZrOsbxx6Xfz
+ /mKg==
+X-Gm-Message-State: AOAM531uD/JptvSbQH8oTu824Ji2/pSYFL8yY8Is4cM7kGQvbs9dKsp8
+ gE93iJLfZoBQ2VV8D2mgCTvCqg==
+X-Google-Smtp-Source: ABdhPJw2jK5zQpZpSMduu0uslivHEYxwN4qwvLP8XRn/fbP7T1NuycqzFnrGc5htmCqhn0HKR7cdMg==
+X-Received: by 2002:a63:e208:: with SMTP id q8mr749210pgh.181.1604649653735;
+ Fri, 06 Nov 2020 00:00:53 -0800 (PST)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id y8sm782655pge.22.2020.11.06.00.00.51
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 06 Nov 2020 00:00:52 -0800 (PST)
+Date: Fri, 06 Nov 2020 00:00:52 -0800 (PST)
+X-Google-Original-Date: Fri, 06 Nov 2020 00:00:50 PST (-0800)
+Subject: Re: [PATCH] RISC-V: Use non-PGD mappings for early DTB access
+In-Reply-To: <20201104063713.3039035-1-anup.patel@wdc.com>
+From: Palmer Dabbelt <palmerdabbelt@google.com>
+To: Anup Patel <Anup.Patel@wdc.com>
+Message-ID: <mhng-78d4f2c3-0a0a-4264-9578-72ed0babbf1b@palmerdabbelt-glaptop1>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201106_025429_931036_9F1AB0F2 
-X-CRM114-Status: GOOD (  13.28  )
+X-CRM114-CacheID: sfid-20201106_030056_008478_97FF09B6 
+X-CRM114-Status: GOOD (  23.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -146,40 +94,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <anup@brainfault.org>, Anup Patel <anup.patel@wdc.com>,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org,
- Atish Patra <atish.patra@wdc.com>, Alistair Francis <Alistair.Francis@wdc.com>,
- linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
+Cc: aou@eecs.berkeley.edu, anup@brainfault.org, Anup Patel <Anup.Patel@wdc.com>,
+ linux-kernel@vger.kernel.org, Atish Patra <Atish.Patra@wdc.com>,
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The jump_label_init() should be called from setup_arch() very
-early for proper functioning of jump label support.
+On Tue, 03 Nov 2020 22:37:13 PST (-0800), Anup Patel wrote:
+> Currently, we use PGD mappings for early DTB mapping in early_pgd
+> but this breaks Linux kernel on SiFive Unleashed because on SiFive
+> Unleashed PMP checks don't work correctly for PGD mappings.
+>
+> To fix early DTB mappings on SiFive Unleashed, we use non-PGD
+> mappings (i.e. PMD) for early DTB access.
+>
+> Fixes: 8f3a2b4a96dc ("RISC-V: Move DT mapping outof fixmap")
+> Signed-off-by: Anup Patel <anup.patel@wdc.com>
+> ---
+>  arch/riscv/mm/init.c | 14 ++++++++++++++
+>  1 file changed, 14 insertions(+)
+>
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index ea933b789a88..0d13d0c36a7d 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -297,6 +297,7 @@ pmd_t fixmap_pmd[PTRS_PER_PMD] __page_aligned_bss;
+>  #define NUM_EARLY_PMDS		(1UL + MAX_EARLY_MAPPING_SIZE / PGDIR_SIZE)
+>  #endif
+>  pmd_t early_pmd[PTRS_PER_PMD * NUM_EARLY_PMDS] __initdata __aligned(PAGE_SIZE);
+> +pmd_t early_dtb_pmd[PTRS_PER_PMD] __initdata __aligned(PAGE_SIZE);
+>
+>  static pmd_t *__init get_pmd_virt_early(phys_addr_t pa)
+>  {
+> @@ -494,6 +495,18 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+>  				   load_pa + (va - PAGE_OFFSET),
+>  				   map_size, PAGE_KERNEL_EXEC);
+>
+> +#ifndef __PAGETABLE_PMD_FOLDED
+> +	/* Setup early PMD for DTB */
+> +	create_pgd_mapping(early_pg_dir, DTB_EARLY_BASE_VA,
+> +			   (uintptr_t)early_dtb_pmd, PGDIR_SIZE, PAGE_TABLE);
+> +	/* Create two consecutive PMD mappings for FDT early scan */
+> +	pa = dtb_pa & ~(PMD_SIZE - 1);
+> +	create_pmd_mapping(early_dtb_pmd, DTB_EARLY_BASE_VA,
+> +			   pa, PMD_SIZE, PAGE_KERNEL);
+> +	create_pmd_mapping(early_dtb_pmd, DTB_EARLY_BASE_VA + PMD_SIZE,
+> +			   pa + PMD_SIZE, PMD_SIZE, PAGE_KERNEL);
+> +	dtb_early_va = (void *)DTB_EARLY_BASE_VA + (dtb_pa & (PMD_SIZE - 1));
+> +#else
+>  	/* Create two consecutive PGD mappings for FDT early scan */
+>  	pa = dtb_pa & ~(PGDIR_SIZE - 1);
+>  	create_pgd_mapping(early_pg_dir, DTB_EARLY_BASE_VA,
+> @@ -501,6 +514,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+>  	create_pgd_mapping(early_pg_dir, DTB_EARLY_BASE_VA + PGDIR_SIZE,
+>  			   pa + PGDIR_SIZE, PGDIR_SIZE, PAGE_KERNEL);
+>  	dtb_early_va = (void *)DTB_EARLY_BASE_VA + (dtb_pa & (PGDIR_SIZE - 1));
+> +#endif
+>  	dtb_early_pa = dtb_pa;
+>
+>  	/*
 
-Fixes: ebc00dde8a97 ("riscv: Add jump-label implementation")
-Cc: stable@vger.kernel.org
-Signed-off-by: Anup Patel <anup.patel@wdc.com>
----
- arch/riscv/kernel/setup.c | 1 +
- 1 file changed, 1 insertion(+)
+We're starting to build up a handful of workarounds for these sorts of things.
+The PMP trap vs WARL one was the last I could remember, but that's a bit
+different as both of those behaviors were allowed by specifications at some
+point.  IIRC there were also some TLB shootdown issues floating
 
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index c424cc6dd833..117f3212a8e4 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -75,6 +75,7 @@ void __init setup_arch(char **cmdline_p)
- 	*cmdline_p = boot_command_line;
- 
- 	early_ioremap_setup();
-+	jump_label_init();
- 	parse_early_param();
- 
- 	efi_init();
--- 
-2.25.1
+The best I can come up with is to add both some sort of "minimum support
+specification version" Kconfig entry and an "quirks" set of Kconfig entries.
+That would allow us to gradually jettison old ISAs as well as more cleanly add
+support for broken hardware like this.
 
+Do you have a pointer to some datasheet type document that describes the issue?
+That'd probably be the line I'd like to draw for adding workarounds like this,
+as otherwise we can't really be sure something is a hardware issue.
+
+That said, it's better to have the fix so this is on fixes.  I'll try to
+remember it for the list of workarounds.
+
+Thanks!
 
 _______________________________________________
 linux-riscv mailing list
