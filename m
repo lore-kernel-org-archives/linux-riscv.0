@@ -2,84 +2,61 @@ Return-Path: <SRS0=64xR=EM=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.5 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+X-Spam-Status: No, score=-8.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
 	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9DF4EC2D0A3
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2020 12:08:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C0ACFC2D0A3
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2020 17:14:28 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B86BD20724
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2020 12:08:58 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 17B7A22227
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2020 17:14:27 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="yHJuKLkR";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="W39lchB7"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B86BD20724
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="IyFidHsr"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 17B7A22227
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=arm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=cl6G7CNAvL358VGwvivnrX8rPyoDdeI3ZLK8nxEO1Cg=; b=yHJuKLkRPWpKfm5RpVgYOkxwO
-	cb7+Q3Hju5eMaRWJDmEsgcdL+sGda/hQ72xiQXedgTnrCYkgqSHnzbJeLYM6ph6jyitC/7JN9Jz7f
-	NYnBzviObJquGEaOGvp+4jSaMD69A8L18lcWRscDUT6n/bzFlXJsBAsO4mLBNUgcuKIk2UgXwBXen
-	nuTDqriCRCOfz7XJ9DBlSP+V6ugAjzKsOJ5x+0KOCEj2S2zTCg99FkyNX7PN9IHTEE1ZzM0LJYEbw
-	jV0Brv9Vhy1Z0Gd588yMzMKmwUWXaxnAirctiSmbeFWZ6XAsKy8Z1ypttmTDsDG0dYFPzc8Uc+SIB
-	gWjgwqw1w==;
+	 bh=fbMGfOzeBEzodgG242QqnBxf7uAcr/sozPPWuHkkSm4=; b=IyFidHsrj7lQNh56nM/LG+w2v
+	IqZS95srRGnXeDUUTjVhhB7aa33INAxE60PW2p1QN5JBjYzPJhMERkldlHJ9y/MY+yZQVPzeCg7du
+	OF7cNcXtiXGW93jJh+m+Mmk5qkFG35S6wcioeNvpAFHX0w9jBEI2TtKqlRsx0S2hg7FE/M5nbkgqJ
+	vctZ5KbbBP96MrqVg6QQrw76y9Yen8vsz5DsVwB7FUK261x7F+PLJvRqXkptb6qZskeBYLIbl2sbt
+	bFfBvN+YyCdLi6bxetrpuBFX6EPtC37/hNHr3YDhp7eE3K1/kEq9R+nffoVV0THa0udz557WsKSKp
+	1d2zHlH/A==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kb0Xv-0007ot-Po; Fri, 06 Nov 2020 12:08:47 +0000
-Received: from mail-yb1-xb44.google.com ([2607:f8b0:4864:20::b44])
+	id 1kb5JY-00065D-Tn; Fri, 06 Nov 2020 17:14:17 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kb0Xs-0007ne-B1
- for linux-riscv@lists.infradead.org; Fri, 06 Nov 2020 12:08:45 +0000
-Received: by mail-yb1-xb44.google.com with SMTP id f6so955790ybr.0
- for <linux-riscv@lists.infradead.org>; Fri, 06 Nov 2020 04:08:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=r1L3r2RzlBzHKsTDF0OeXHNQaTpvxkyyv5MNmEuctLA=;
- b=W39lchB7KaskjvlWPuz2Z2/2Qm81h5G56Ka6fkFGkRCfaVxQLXijhZYB8rn3yUUii6
- ri1bDJ4HY+hDpJ6ZVwORHMkIcfUYLrcB8OcMmPImYDYJouNgXhZXVRnlAnN9gc/Pnc97
- L3LSNoqhHqhVxbMrkc+vAjSmnz4sClZ0wlbtdyvRxVXtESppmJGkIEVBY+ON0OPHx0Y5
- M86Kqn3VM3K48rxGTLZJlZFoANfWjB8jYD2kSEwwL+7Rr9KXY20CDf58LITDSjTfErfo
- zYQEas0x4MOKvTnx5TrpwYsVyJBN37nqF3AeA3oFS5ygqSotKVEjR6i1W/L8vX6ikUc3
- Yo3g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=r1L3r2RzlBzHKsTDF0OeXHNQaTpvxkyyv5MNmEuctLA=;
- b=a6sHWhgyTq1D9xpfBJBo5chIUKRY5YQn3zIUyJx+4m3vPH4sDTcGo7XIGDN8gZ0ULx
- ur/FvGSgskaIoO5AsQPW3CMZGCt1Z1XUbSaI7lRi5OoGucndM6Lky04ZtOJaI9Thhrwe
- UO2Sq9H2OWdcnFDwvz5WcPv0+lEBcCzid/ue12zuHUQqlCMvYkF0Av1HNt6sGLMQ553a
- iz83qqqrq0kUftfP9npexPe6JX5VBpA/0W95DyJjFU5GGWhlZas7+NLTiu/nFndITbTu
- ryzizbh+eLCXkJXTgpgaiYff0sO2y8hXlz1Y5wjgTr13XElF3r2cib+rKg0EO2PHyBwY
- ot8w==
-X-Gm-Message-State: AOAM532UKDBolvo9LXhCY/3JLYwzZsrDdhoddCYX3b48dPFZxprpboXL
- iqLpbBO7SCtOgju7wEym0jw4d9mBvdrmAJtmSvs=
-X-Google-Smtp-Source: ABdhPJwZy4f8gEDVDbX+sRxJ7kIPXekWsFS7OZHG7TzIBRrgcqiLbHCoAeDglqbUHNUqniLRaj2jOAl/x5cOz/40NIU=
-X-Received: by 2002:a25:9c87:: with SMTP id y7mr2316878ybo.314.1604664517927; 
- Fri, 06 Nov 2020 04:08:37 -0800 (PST)
+ id 1kb5JU-000646-IU; Fri, 06 Nov 2020 17:14:13 +0000
+Received: from gaia (unknown [2.26.170.190])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 5940722202;
+ Fri,  6 Nov 2020 17:14:07 +0000 (UTC)
+Date: Fri, 6 Nov 2020 17:14:04 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Atish Patra <atish.patra@wdc.com>
+Subject: Re: [PATCH v4 2/5] arm64, numa: Change the numa init functions name
+ to be generic
+Message-ID: <20201106171403.GK29329@gaia>
+References: <20201006001752.248564-1-atish.patra@wdc.com>
+ <20201006001752.248564-3-atish.patra@wdc.com>
 MIME-Version: 1.0
-References: <20201104063713.3039035-1-anup.patel@wdc.com>
- <mhng-78d4f2c3-0a0a-4264-9578-72ed0babbf1b@palmerdabbelt-glaptop1>
- <CAAhSdy3k-uhaE_tFQbd6UXpY-DaujG1jrmLjs0QmzdNQ7EoQuw@mail.gmail.com>
-In-Reply-To: <CAAhSdy3k-uhaE_tFQbd6UXpY-DaujG1jrmLjs0QmzdNQ7EoQuw@mail.gmail.com>
-From: Bin Meng <bmeng.cn@gmail.com>
-Date: Fri, 6 Nov 2020 20:08:26 +0800
-Message-ID: <CAEUhbmUQdsACKrT=smGO3H3vh_hkA-O3UWd5dOFWTWWkZBpWKg@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: Use non-PGD mappings for early DTB access
-To: Anup Patel <anup@brainfault.org>
+Content-Disposition: inline
+In-Reply-To: <20201006001752.248564-3-atish.patra@wdc.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201106_070844_412243_1F6868B4 
-X-CRM114-Status: GOOD (  34.22  )
+X-CRM114-CacheID: sfid-20201106_121412_788753_6C349E0E 
+X-CRM114-Status: GOOD (  22.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -91,140 +68,110 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Palmer Dabbelt <palmerdabbelt@google.com>,
- Bin Meng <bin.meng@windriver.com>, Anup Patel <Anup.Patel@wdc.com>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Atish Patra <Atish.Patra@wdc.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
+Cc: Kefeng Wang <wangkefeng.wang@huawei.com>,
+ David Hildenbrand <david@redhat.com>,
+ Jonathan Cameron <Jonathan.Cameron@huawei.com>, Zong Li <zong.li@sifive.com>,
+ linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>,
+ linux-arch@vger.kernel.org, Lorenzo Pieralisi <Lorenzo.Pieralisi@arm.com>,
+ Jia He <justin.he@arm.com>, Anup Patel <anup@brainfault.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Steven Price <steven.price@arm.com>,
+ Greentime Hu <greentime.hu@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Arnd Bergmann <arnd@arndb.de>, Anshuman Khandual <anshuman.khandual@arm.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-arm-kernel@lists.infradead.org,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
+ Palmer Dabbelt <palmer@dabbelt.com>, Mike Rapoport <rppt@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 6, 2020 at 4:52 PM Anup Patel <anup@brainfault.org> wrote:
->
-> On Fri, Nov 6, 2020 at 1:30 PM Palmer Dabbelt <palmerdabbelt@google.com> wrote:
-> >
-> > On Tue, 03 Nov 2020 22:37:13 PST (-0800), Anup Patel wrote:
-> > > Currently, we use PGD mappings for early DTB mapping in early_pgd
-> > > but this breaks Linux kernel on SiFive Unleashed because on SiFive
-> > > Unleashed PMP checks don't work correctly for PGD mappings.
-> > >
-> > > To fix early DTB mappings on SiFive Unleashed, we use non-PGD
-> > > mappings (i.e. PMD) for early DTB access.
-> > >
-> > > Fixes: 8f3a2b4a96dc ("RISC-V: Move DT mapping outof fixmap")
-> > > Signed-off-by: Anup Patel <anup.patel@wdc.com>
-> > > ---
-> > >  arch/riscv/mm/init.c | 14 ++++++++++++++
-> > >  1 file changed, 14 insertions(+)
-> > >
-> > > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> > > index ea933b789a88..0d13d0c36a7d 100644
-> > > --- a/arch/riscv/mm/init.c
-> > > +++ b/arch/riscv/mm/init.c
-> > > @@ -297,6 +297,7 @@ pmd_t fixmap_pmd[PTRS_PER_PMD] __page_aligned_bss;
-> > >  #define NUM_EARLY_PMDS               (1UL + MAX_EARLY_MAPPING_SIZE / PGDIR_SIZE)
-> > >  #endif
-> > >  pmd_t early_pmd[PTRS_PER_PMD * NUM_EARLY_PMDS] __initdata __aligned(PAGE_SIZE);
-> > > +pmd_t early_dtb_pmd[PTRS_PER_PMD] __initdata __aligned(PAGE_SIZE);
-> > >
-> > >  static pmd_t *__init get_pmd_virt_early(phys_addr_t pa)
-> > >  {
-> > > @@ -494,6 +495,18 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
-> > >                                  load_pa + (va - PAGE_OFFSET),
-> > >                                  map_size, PAGE_KERNEL_EXEC);
-> > >
-> > > +#ifndef __PAGETABLE_PMD_FOLDED
-> > > +     /* Setup early PMD for DTB */
-> > > +     create_pgd_mapping(early_pg_dir, DTB_EARLY_BASE_VA,
-> > > +                        (uintptr_t)early_dtb_pmd, PGDIR_SIZE, PAGE_TABLE);
-> > > +     /* Create two consecutive PMD mappings for FDT early scan */
-> > > +     pa = dtb_pa & ~(PMD_SIZE - 1);
-> > > +     create_pmd_mapping(early_dtb_pmd, DTB_EARLY_BASE_VA,
-> > > +                        pa, PMD_SIZE, PAGE_KERNEL);
-> > > +     create_pmd_mapping(early_dtb_pmd, DTB_EARLY_BASE_VA + PMD_SIZE,
-> > > +                        pa + PMD_SIZE, PMD_SIZE, PAGE_KERNEL);
-> > > +     dtb_early_va = (void *)DTB_EARLY_BASE_VA + (dtb_pa & (PMD_SIZE - 1));
-> > > +#else
-> > >       /* Create two consecutive PGD mappings for FDT early scan */
-> > >       pa = dtb_pa & ~(PGDIR_SIZE - 1);
-> > >       create_pgd_mapping(early_pg_dir, DTB_EARLY_BASE_VA,
-> > > @@ -501,6 +514,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
-> > >       create_pgd_mapping(early_pg_dir, DTB_EARLY_BASE_VA + PGDIR_SIZE,
-> > >                          pa + PGDIR_SIZE, PGDIR_SIZE, PAGE_KERNEL);
-> > >       dtb_early_va = (void *)DTB_EARLY_BASE_VA + (dtb_pa & (PGDIR_SIZE - 1));
-> > > +#endif
-> > >       dtb_early_pa = dtb_pa;
-> > >
-> > >       /*
-> >
-> > We're starting to build up a handful of workarounds for these sorts of things.
-> > The PMP trap vs WARL one was the last I could remember, but that's a bit
-> > different as both of those behaviors were allowed by specifications at some
-> > point.  IIRC there were also some TLB shootdown issues floating
-> >
-> > The best I can come up with is to add both some sort of "minimum support
-> > specification version" Kconfig entry and an "quirks" set of Kconfig entries.
-> > That would allow us to gradually jettison old ISAs as well as more cleanly add
-> > support for broken hardware like this.
-> >
-> > Do you have a pointer to some datasheet type document that describes the issue?
->
-> Unfortunately, we still don't know where all SiFive erratums are documented.
-> Maybe you know the right person who can publish this ??
+On Mon, Oct 05, 2020 at 05:17:49PM -0700, Atish Patra wrote:
+> diff --git a/arch/arm64/kernel/acpi_numa.c b/arch/arm64/kernel/acpi_numa.c
+> index 7ff800045434..96502ff92af5 100644
+> --- a/arch/arm64/kernel/acpi_numa.c
+> +++ b/arch/arm64/kernel/acpi_numa.c
+> @@ -117,16 +117,3 @@ void __init acpi_numa_gicc_affinity_init(struct acpi_srat_gicc_affinity *pa)
+>  
+>  	node_set(node, numa_nodes_parsed);
+>  }
+> -
+> -int __init arm64_acpi_numa_init(void)
+> -{
+> -	int ret;
+> -
+> -	ret = acpi_numa_init();
+> -	if (ret) {
+> -		pr_info("Failed to initialise from firmware\n");
+> -		return ret;
+> -	}
+> -
+> -	return srat_disabled() ? -EINVAL : 0;
+> -}
 
-Last time Andrew said this erratum would be published but did not give
-a name of whom from SiFive in charge ..
+I think it's better if arm64_acpi_numa_init() and arm64_numa_init()
+remained in the arm64 code. It's not really much code to be shared.
 
->
-> The PMP checks not working correctly for PGD-mappings was discovered
-> independently by Bin Meng on some other OS (almost 1.5 years back). Few
+> diff --git a/drivers/base/arch_numa.c b/drivers/base/arch_numa.c
+> index 73f8b49d485c..74b4f2ddad70 100644
+> --- a/drivers/base/arch_numa.c
+> +++ b/drivers/base/arch_numa.c
+> @@ -13,7 +13,6 @@
+>  #include <linux/module.h>
+>  #include <linux/of.h>
+>  
+> -#include <asm/acpi.h>
+>  #include <asm/sections.h>
+>  
+>  struct pglist_data *node_data[MAX_NUMNODES] __read_mostly;
+> @@ -444,16 +443,37 @@ static int __init dummy_numa_init(void)
+>  	return 0;
+>  }
+>  
+> +#ifdef CONFIG_ACPI_NUMA
+> +static int __init arch_acpi_numa_init(void)
+> +{
+> +	int ret;
+> +
+> +	ret = acpi_numa_init();
+> +	if (ret) {
+> +		pr_info("Failed to initialise from firmware\n");
+> +		return ret;
+> +	}
+> +
+> +	return srat_disabled() ? -EINVAL : 0;
+> +}
+> +#else
+> +static int __init arch_acpi_numa_init(void)
+> +{
+> +	return -EOPNOTSUPP;
+> +}
+> +
+> +#endif
+> +
+>  /**
+> - * arm64_numa_init() - Initialize NUMA
+> + * arch_numa_init() - Initialize NUMA
+>   *
+>   * Try each configured NUMA initialization method until one succeeds. The
+> - * last fallback is dummy single node config encomapssing whole memory.
+> + * last fallback is dummy single node config encompassing whole memory.
+>   */
+> -void __init arm64_numa_init(void)
+> +void __init arch_numa_init(void)
+>  {
+>  	if (!numa_off) {
+> -		if (!acpi_disabled && !numa_init(arm64_acpi_numa_init))
+> +		if (!acpi_disabled && !numa_init(arch_acpi_numa_init))
+>  			return;
+>  		if (acpi_disabled && !numa_init(of_numa_init))
+>  			return;
 
-Yep, this undocumented erratum was initially discovered during our
-VxWorks RISC-V port.
+Does riscv even have an acpi_disabled variable?
 
-> discussions about this erratum have happened on OpenSBI mailing list as well
-> although in a very different context. In fact, Andrew had confirmed about this
-> erratum in sw-dev google groups.
-> (Refer, https://groups.google.com/a/groups.riscv.org/g/sw-dev/c/CfyT5Los5uA/m/yY0ES0dZBAAJ?pli=1)
-> (Refer, https://github.com/riscv/opensbi/issues/103)
-
-The issue is not just about gigapages. Using megapages also could
-trigger this issue.
-
-To me this erratum seems like: if any PTEs are set up to overlap with
-PMP protected memory, FU540 will trigger an instruction access
-exception as soon as SATP is written.
-
->
-> Till now we have encountered two erratums for SiFive U54 cores:
-> 1. SFENCE.VMA not working with "virtual address" parameter
-> 2. PMP checks not working for PGD mappings
->
-> The Microchip ICICLE kit has U54 cores but the PMP checks issue
-> is only seen on SiFive Unleashed so I guess this issue is fixed
-> in-between but we can't be sure without detailed documentation.
-
-I believe Microchip PolarFire SoC suffers this same erratum but I did
-not verify that. Currently PMP is configured to protect the eNVM range
-on PolarFire, and this range is not mapped by any PTE yet in S-mode.
-
->
-> > That'd probably be the line I'd like to draw for adding workarounds like this,
-> > as otherwise we can't really be sure something is a hardware issue.
-> >
-> > That said, it's better to have the fix so this is on fixes.  I'll try to
-> > remember it for the list of workarounds.
->
-> I agree. At the moment, 5.10-rc2 does not boot on SiFive Unleashed
-> but it boots on Microchip icicle kit and everywhere else because of
-> the PMP checks issue.
-
-Regards,
-Bin
+-- 
+Catalin
 
 _______________________________________________
 linux-riscv mailing list
