@@ -2,90 +2,85 @@ Return-Path: <SRS0=64xR=EM=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.5 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-6.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 86A36C388F2
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2020 10:01:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2400CC2D0A3
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2020 11:00:36 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D9495206C1
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2020 10:01:33 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 74A7721707
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Nov 2020 11:00:35 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="W0ouqrXL";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="rVE9K281"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D9495206C1
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="aS35SZvs";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="K3GEevu5"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 74A7721707
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=snXgrQA6i/k/owNsYxr/ITy3v1zZXG5yzE1pFpJ1F2k=; b=W0ouqrXLCcpIalIxJGypCmf6e
-	xWj/gER9g3CoyeKAyOHNdVS6cA98nwS5xQc0W0z0YR5FWCth5HYH90BVJfJq7+VlL4G28wXamOcFN
-	H0fu59Bh3VnKteIHOD3ziI6Ijxxugzg30/CKGJ0Vg5pn2GjF/eP65c8BcbJVtwYOsmsUn6MoxV/FZ
-	3wUvZ687p6MfElLWPUX9QPDKzyGowzaP4ashOtVPCxDXKqbgXDqYgXM6JiYq9RmH0wC8H0Kay5VVj
-	Zg7giNkpbjdgnswgJkClFmmSFB7uC8+T7U2DTsRbTTU0HhxHyaF1E7KYAMkZ9vLSoYgH+iR2v2PgM
-	zbfXM8OyQ==;
+	 bh=1z2aUgyoAC5cvG2rm5Y6Vs0FjADm/xSfjplXnVgj8gk=; b=aS35SZvsC4NYn2EDDx0/zQ26J
+	1Rn39TVDerAMo4xOf8gib/bCl5uTDVqSSV7sZjO9//9LG5nimXg1hhTHo67aF5yqWzAXB+ncKTZtN
+	hoX4d2ms/D930U/aTYO31N8T/ypJKe9gf7u7QJcdUmEK/GPypBc4fzXL1ACXK8k8oagvuOAp+SPLl
+	+Jw4NIqSMvFE7SfO7T+aXiY/Br0hwE8f48NnYLZRNH+GZ7Q0pYeHdhqq7vLB6o2sz+qV3Tf1nepCW
+	y8JXljuS5aDaenwau2VhBm2VMQZ/DG5rydFKYCaw+FXLjLBvCCEFBfujEX/Njub25WCgD2gUeiNpT
+	67IG0Yi7w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kayYX-0004Aj-Pp; Fri, 06 Nov 2020 10:01:17 +0000
-Received: from mail-io1-xd44.google.com ([2607:f8b0:4864:20::d44])
+	id 1kazTc-0007XB-Ns; Fri, 06 Nov 2020 11:00:16 +0000
+Received: from mail-qk1-x743.google.com ([2607:f8b0:4864:20::743])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kayYT-00048R-Q7
- for linux-riscv@lists.infradead.org; Fri, 06 Nov 2020 10:01:16 +0000
-Received: by mail-io1-xd44.google.com with SMTP id o11so853336ioo.11
- for <linux-riscv@lists.infradead.org>; Fri, 06 Nov 2020 02:01:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=5A2u4CO44p7qRa+3N4k+11sSwOpF76zVgF+ilbeOAmY=;
- b=rVE9K281n7cVgMX3DP5BV9ICaDURvczPbV0jru6Qt5DoK/afFqSZNVPIPCncQEyvh5
- qj4FKT/DuHvpe8KKFzVq66ISVOJrT7I1TIA4NwAMXi2D+HKYaOnzIVMOhXyhl/V+O9ye
- MILAkHAMJP0crojkzn54NYKP+MVwXgWie7VFoJvnrwg3PhQ36L+GWGH6E1Rmy9LfDeJ/
- jr7IC9Oou5PVLglyxM5JEmPCsQ9FquhqX/2u9TcH1UzR6wnQMlGl0sZ78YEfn5/EpP/1
- TYokbfxlv0eDaV/Cj0TMFFsSeGjLBaT9SURkjB9w1jl+xmilS04q9mpZTwMuOWzOAFni
- pAxA==
+ id 1kazTZ-0007WG-Te
+ for linux-riscv@lists.infradead.org; Fri, 06 Nov 2020 11:00:15 +0000
+Received: by mail-qk1-x743.google.com with SMTP id y197so643455qkb.7
+ for <linux-riscv@lists.infradead.org>; Fri, 06 Nov 2020 03:00:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=5scwP+FH/3TvdU9cRBPIGfL9OLQBWnAyRxebsQvYQJw=;
+ b=K3GEevu5XTiJFobdS3WdtKWhU/wb279WC0tnyvUS0zrqS+1hRZU39kLzr6Rs2Rs4Ct
+ RnA0QI/duInuNOTC8svzJEUEgB+Zy/BsCor7akvZoBtUE5sACyi9u5NFoHdi30UnIM7q
+ zaZ0izVo/c09fKHF4D/7D6TWLdSZ3YT99RFC5TF0OVrbzY8mNmAYKhmnbDOc9Wm+JITd
+ TKUC8zR9IakSoFyRx8uXTFhEOT4hyPv7p7IbpwDVvLZ0O31a4BDmyGxXLApCEI0fA4Tc
+ cRkT8DhvvKS6XCVkl15e2vE37m6na9YhMXtGgvYchipGxSTryUijvuK32I7bIg1y26g5
+ EUIw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=5A2u4CO44p7qRa+3N4k+11sSwOpF76zVgF+ilbeOAmY=;
- b=MfsZKAydN7K2fu6kL3FWTL8QLAnlctiAnuNPyQiYhjERImzN6Nh+JYEWlfBb2/qGxa
- EeS9x00Aii/0TCRM8dgHboa/FDOXiqkfB8TUw66XcWMnLFZfp3WumSFC8JlU7zkoP/Jz
- xEySb3jH75FAa5qML/wMfMR3lje8RHflJ8eaUzsVF39A6amwprw1mIEMHAzusu1wxT0m
- 9zVRtB+dt3vmFrtxDgbCviQw3Y+27WO0oM9Q5NWXzK0Tcz459z2G2eYiCyHayRUV25yJ
- 7gEDZk0NmZFgOaL5V5YYjgtxDD4V8jWE0jkXZLRn1QJpOYdbdoRBf9Ek7CF3uegmcEFA
- MVsA==
-X-Gm-Message-State: AOAM533givnc7Wu6z2D7i5HvpmS6n6SddLEflF6L9PRls7alI9+auxNM
- QHAaE/rkATtJQsTSdu7SjNs=
-X-Google-Smtp-Source: ABdhPJwPOzmrdLefOQww7n3bSORHaiC3xoqS0+6krtATOKoCsG1qpiLUC7el88BU5gW1LvwEUNvVqw==
-X-Received: by 2002:a6b:8b0d:: with SMTP id n13mr867950iod.111.1604656871705; 
- Fri, 06 Nov 2020 02:01:11 -0800 (PST)
-Received: from ubuntu-m3-large-x86 ([2604:1380:45f1:1d00::1])
- by smtp.gmail.com with ESMTPSA id u18sm544150iob.53.2020.11.06.02.01.10
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 06 Nov 2020 02:01:10 -0800 (PST)
-Date: Fri, 6 Nov 2020 03:01:09 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Palmer Dabbelt <palmerdabbelt@google.com>
-Subject: Re: [PATCH v3] RISC-V: Fix the VDSO symbol generaton for
- binutils-2.35+
-Message-ID: <20201106100109.GA3811063@ubuntu-m3-large-x86>
-References: <20201106045902.GA2585953@ubuntu-m3-large-x86>
- <mhng-e82ecf40-679a-41ed-b2b1-69c64a78f0b2@palmerdabbelt-glaptop1>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=5scwP+FH/3TvdU9cRBPIGfL9OLQBWnAyRxebsQvYQJw=;
+ b=oWF/9cp9nwxZqJQdnwCO2itgroDbfycBHUZYhPJDQoXMn63kNaCjpMR/2tJRrBmBZA
+ t7WDyaxkasuA2/woS/iBcJfiMZLHbRba/n7rCnj8lz0I5F30ySUQDxOG+ZUy7xsxxYUD
+ 4Qb4rwq04LWiXNwKJ3cRsZNgTtA1eJMURMS94GZ5R9eHOH0H9BRsHeEo2/J0J0igzdVp
+ Y/MqpZgJnk8YqwTYdpLGqPFcxwjRsV+CylPz48tZsX2zX4d4yvsVg5Wf54GyZwv1ORNb
+ hPIZaNAejt8+IvbCeQkAOnDi32vxHdEQDXnc0DvJKdKREcahSBcqe6dXH+ilLOvMqGZ4
+ 5X1g==
+X-Gm-Message-State: AOAM532VDJQj91SIDdgV19Auec7vttvNTZPflmBr4yX2f6hFznztswRB
+ IjjlreCJtedlWAERLxevEUIzJTQTt92rYQA4H4uY6g==
+X-Google-Smtp-Source: ABdhPJxmBJPFRCR+nFRfwqYH/BeX2Cb8nVliVSyYYIlw2cTORTY+RQImlwv64qv/wrg8lt7wtPkrBioMM43NnhfAjSI=
+X-Received: by 2002:a05:620a:697:: with SMTP id
+ f23mr831545qkh.374.1604660411776; 
+ Fri, 06 Nov 2020 03:00:11 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <mhng-e82ecf40-679a-41ed-b2b1-69c64a78f0b2@palmerdabbelt-glaptop1>
+References: <802c8865b70c3bdf70e44d37f14e7767b6495e88.1604631371.git.greentime.hu@sifive.com>
+ <CAHp75VdHuZc43Oe8vp-Xtb2+vsEoV2FY-W_dAifuh4Un0BveSA@mail.gmail.com>
+In-Reply-To: <CAHp75VdHuZc43Oe8vp-Xtb2+vsEoV2FY-W_dAifuh4Un0BveSA@mail.gmail.com>
+From: Greentime Hu <greentime.hu@sifive.com>
+Date: Fri, 6 Nov 2020 19:00:00 +0800
+Message-ID: <CAHCEehKfnUtuzoHQ=XSAzm5n0JqUHmYmjMCyLo2uRvYXc=GwYA@mail.gmail.com>
+Subject: Re: [RFC PATCH 1/1] gpio: sifive: To get gpio irq offset from device
+ tree data
+To: Andy Shevchenko <andy.shevchenko@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201106_050113_917398_B9BF81CA 
-X-CRM114-Status: GOOD (  38.53  )
+X-CRM114-CacheID: sfid-20201106_060014_274467_0D36BAA4 
+X-CRM114-Status: GOOD (  16.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -97,188 +92,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: kernel-team@android.com, linux-riscv@lists.infradead.org,
- Nick Desaulniers <ndesaulniers@google.com>, stable@vger.kernel.org,
- clang-built-linux@googlegroups.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Bartosz Golaszewski <bgolaszewski@baylibre.com>,
+ Yash Shah <yash.shah@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 05, 2020 at 09:12:25PM -0800, Palmer Dabbelt wrote:
-> On Thu, 05 Nov 2020 20:59:02 PST (-0800), natechancellor@gmail.com wrote:
-> > On Thu, Nov 05, 2020 at 08:42:22PM -0800, 'Palmer Dabbelt' via Clang Built Linux wrote:
-> > > On Mon, 26 Oct 2020 12:48:08 PDT (-0700), Nick Desaulniers wrote:
-> > > > On Fri, Oct 23, 2020 at 10:03 PM 'Palmer Dabbelt' via Clang Built
-> > > > Linux <clang-built-linux@googlegroups.com> wrote:
-> > > > >
-> > > > > We were relying on GNU ld's ability to re-link executable files in order
-> > > > > to extract our VDSO symbols.  This behavior was deemed a bug as of
-> > > > > binutils-2.35 (specifically the binutils-gdb commit a87e1817a4 ("Have
-> > > > > the linker fail if any attempt to link in an executable is made."), but as that
-> > > > > has been backported to at least Debian's binutils-2.34 in may manifest in other
-> > > > > places.
-> > > > >
-> > > > > The previous version of this was a bit of a mess: we were linking a
-> > > > > static executable version of the VDSO, containing only a subset of the
-> > > > > input symbols, which we then linked into the kernel.  This worked, but
-> > > > > certainly wasn't a supported path through the toolchain.  Instead this
-> > > > > new version parses the textual output of nm to produce a symbol table.
-> > > > > Both rely on near-zero addresses being linkable, but as we rely on weak
-> > > > > undefined symbols being linkable elsewhere I don't view this as a major
-> > > > > issue.
-> > > > >
-> > > > > Fixes: e2c0cdfba7f6 ("RISC-V: User-facing API")
-> > > > > Cc: clang-built-linux@googlegroups.com
-> > > > > Cc: stable@vger.kernel.org
-> > > > > Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
-> > > >
-> > > > Any way to improve the error message if/when this fails?
-> > > > https://travis-ci.com/github/ClangBuiltLinux/continuous-integration/jobs/407165683
-> > > 
-> > > Probably, but I can't get that command to actually run this stuff.  I tried
-> > > pulling the commands, but I'm getting some weirdness
-> > > 
-> > > $ rm -f arch/riscv/kernel/vdso/vdso-syms.S
-> > > $ make ARCH=riscv defconfig
-> > > $ make -j2 AR=llvm-ar 'CC=clang' 'HOSTCC=clang' HOSTLD=ld KCFLAGS=-Wno-implicit-fallthrough LD=riscv64-linux-gnu-ld LLVM_IAS=1 NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump OBJSIZE=llvm-size READELF=llvm-readelf STRIP=llvm-strip ARCH=riscv Image
-> > 
-> > This command is simpler and reproduces it for me locally on next-20201105.
-> > 
-> > $ make -skj"$(nproc)" ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu- LD=riscv64-linux-gnu-ld LLVM=1 distclean defconfig Image
-> > clang-12: warning: argument unused during compilation: '-no-pie' [-Wunused-command-line-argument]
-> > make[4]: *** [arch/riscv/kernel/vdso/Makefile:53: arch/riscv/kernel/vdso/vdso-syms.S] Error 1
-> > make[4]: *** Deleting file 'arch/riscv/kernel/vdso/vdso-syms.S'
-> > make[4]: Target '__build' not remade because of errors.
-> > make[3]: *** [scripts/Makefile.build:500: arch/riscv/kernel/vdso] Error 2
-> > make[3]: Target '__build' not remade because of errors.
-> > make[2]: *** [scripts/Makefile.build:500: arch/riscv/kernel] Error 2
-> > make[2]: Target '__build' not remade because of errors.
-> > make[1]: *** [Makefile:1797: arch/riscv] Error 2
-> > make[1]: Target 'Image' not remade because of errors.
-> > make: *** [Makefile:335: __build_one_by_one] Error 2
-> > make: Target 'distclean' not remade because of errors.
-> > make: Target 'defconfig' not remade because of errors.
-> > make: Target 'Image' not remade because of errors.
-> > 
-> > <snip>
-> > 
-> > > diff --git a/arch/riscv/kernel/vdso/.gitignore b/arch/riscv/kernel/vdso/.gitignore
-> > > index 3a19def868ec..88206dd8b472 100644
-> > > --- a/arch/riscv/kernel/vdso/.gitignore
-> > > +++ b/arch/riscv/kernel/vdso/.gitignore
-> > > @@ -2,3 +2,4 @@
-> > > vdso.lds
-> > > *.tmp
-> > > vdso-syms.S
-> > > +vdso-syms.nm
-> > > diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
-> > > index a8ecf102e09b..fe5c969a6bf4 100644
-> > > --- a/arch/riscv/kernel/vdso/Makefile
-> > > +++ b/arch/riscv/kernel/vdso/Makefile
-> > > @@ -49,8 +49,11 @@ SYSCFLAGS_vdso.so.dbg = -shared -s -Wl,-soname=linux-vdso.so.1 \
-> > > # We also create a special relocatable object that should mirror the symbol
-> > > # table and layout of the linked DSO. With ld --just-symbols we can then
-> > > # refer to these symbols in the kernel code rather than hand-coded addresses.
-> > > -$(obj)/vdso-syms.S: $(obj)/vdso.so FORCE
-> > > -	$(call if_changed,so2s)
-> > > +$(obj)/vdso-syms.nm: $(obj)/vdso.so
-> > > +	$(call if_changed,nm_d)
-> > > +
-> > > +$(obj)/vdso-syms.S: $(obj)/vdso-syms.nm
-> > > +	$(call if_changed,nm2s)
-> > > 
-> > > # strip rule for the .so file
-> > > $(obj)/%.so: OBJCOPYFLAGS := -S
-> > > @@ -68,9 +71,13 @@ quiet_cmd_vdsold = VDSOLD  $@
-> > >                            $(patsubst %, -G __vdso_%, $(vdso-syms)) $@.tmp $@ && \
-> > >                    rm $@.tmp
-> > > 
-> > > -# Extracts
-> > > -quiet_cmd_so2s = SO2S    $@
-> > > -      cmd_so2s = $(NM) -D $< | $(srctree)/$(src)/so2s.sh > $@
-> > > +# Extracts symbol offsets from the VDSO, converting them into an assembly file
-> > > +# that contains the same symbols at the same offsets.
-> > > +quiet_cmd_nm_d = NM -D   $@
-> > > +      cmd_nm_d = $(NM) -D $< > $@
-> > > +
-> > > +quiet_cmd_nm2s = SYMS2S  $@
-> > > +      cmd_nm2s = cat $< | $(srctree)/$(src)/so2s.sh > $@
-> > > 
-> > > # install commands for the unstripped file
-> > > quiet_cmd_vdso_install = INSTALL $@
-> > > 
-> > > For reference, here's the output of nmo for me:
-> > > 
-> > > $ cat arch/riscv/kernel/vdso/vdso-syms.nm 0000000000000000 A LINUX_4.15
-> > > 00000000000009e0 T __vdso_clock_getres@@LINUX_4.15
-> > > 000000000000080a T __vdso_clock_gettime@@LINUX_4.15
-> > > 0000000000000a48 T __vdso_flush_icache@@LINUX_4.15
-> > > 0000000000000a3c T __vdso_getcpu@@LINUX_4.15
-> > > 0000000000000916 T __vdso_gettimeofday@@LINUX_4.15
-> > > 0000000000000800 T __vdso_rt_sigreturn@@LINUX_4.15
-> > 
-> > This diff does not solve the issue for me with the above command.
-> 
-> It wasn't really meant to solve anything, just split the commands up a touch
-> more so we could see what's going on.
-> 
-> I just installed Debian's toolchain, which is LLVM 9.  IIRC that's pretty
-> ancient WRT RISC-V, so my guess is that it's just a long way from building
-> Linux.  Looks like llvm-nm on my system doesn't put the @@LINUX_4.15 after the
-> symbol names, I think this should do it?
-> 
-> diff --git a/arch/riscv/kernel/vdso/so2s.sh b/arch/riscv/kernel/vdso/so2s.sh
-> index 3c5b43207658..e64cb6d9440e 100755
-> --- a/arch/riscv/kernel/vdso/so2s.sh
-> +++ b/arch/riscv/kernel/vdso/so2s.sh
-> @@ -2,5 +2,5 @@
-> # SPDX-License-Identifier: GPL-2.0+
-> # Copyright 2020 Palmer Dabbelt <palmerdabbelt@google.com>
-> 
-> -sed 's!\([0-9a-f]*\) T \([a-z0-9_]*\)@@LINUX_4.15!.global \2\n.set \2,0x\1!' \
-> +sed 's!\([0-9a-f]*\) T \([a-z0-9_]*\)\(@@LINUX_4.15\)*!.global \2\n.set \2,0x\1!' \
-> | grep '^\.'
-> 
-> It works for me, at least for this specific problem.
-
-Same here. defconfig minus CONFIG_EFI builds and boots in QEMU with that
-diff (plus LLVM_IAS=1 in the make command, I forgot that earlier).
-
-Tested-by: Nathan Chancellor <natechancellor@gmail.com>
-
-> $ llvm-nm-9 -D arch/riscv/kernel/vdso/vdso.so |
-> ./arch/riscv/kernel/vdso/so2s.sh .global __vdso_clock_getres
-> .set __vdso_clock_getres,0x00000000000009e0
-> .global __vdso_clock_gettime
-> .set __vdso_clock_gettime,0x000000000000080a
-> .global __vdso_flush_icache
-> .set __vdso_flush_icache,0x0000000000000a48
-> .global __vdso_getcpu
-> .set __vdso_getcpu,0x0000000000000a3c
-> .global __vdso_gettimeofday
-> .set __vdso_gettimeofday,0x0000000000000916
-> .global __vdso_rt_sigreturn
-> .set __vdso_rt_sigreturn,0x0000000000000800
-> $ nm -D arch/riscv/kernel/vdso/vdso.so | ./arch/riscv/kernel/vdso/so2s.sh
-> .global __vdso_clock_getres
-> .set __vdso_clock_getres,0x00000000000009e0
-> .global __vdso_clock_gettime
-> .set __vdso_clock_gettime,0x000000000000080a
-> .global __vdso_flush_icache
-> .set __vdso_flush_icache,0x0000000000000a48
-> .global __vdso_getcpu
-> .set __vdso_getcpu,0x0000000000000a3c
-> .global __vdso_gettimeofday
-> .set __vdso_gettimeofday,0x0000000000000916
-> .global __vdso_rt_sigreturn
-> .set __vdso_rt_sigreturn,0x0000000000000800
-> 
-> > 
-> > Cheers,
-> > Nathan
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+QW5keSBTaGV2Y2hlbmtvIDxhbmR5LnNoZXZjaGVua29AZ21haWwuY29tPiDmlrwgMjAyMOW5tDEx
+5pyINuaXpSDpgLHkupQg5LiL5Y2INToyNeWvq+mBk++8mgo+Cj4gT24gRnJpLCBOb3YgNiwgMjAy
+MCBhdCA0OjU5IEFNIEdyZWVudGltZSBIdSA8Z3JlZW50aW1lLmh1QHNpZml2ZS5jb20+IHdyb3Rl
+Ogo+ID4KPiA+IFdlIGNhbiBnZXQgaHdpcnEgbnVtYmVyIG9mIHRoZSBncGlvIGJ5IGl0cyBpcnFf
+ZGF0YS0+aHdpcnEgc28gdGhhdCB3ZSBkb24ndAo+ID4gbmVlZCB0byBhZGQgbW9yZSBtYWNyb3Mg
+Zm9yIGRpZmZlcmVudCBwbGF0Zm9ybXMuIFRoaXMgcGF0Y2ggaXMgdGVzdGVkIGluCj4gPiBTaUZp
+dmUgVW5sZWFzaGVkIGJvYXJkIGFuZCBTaUZpdmUgVW5tYXRjaGVkIGJvYXJkLgo+Cj4gLi4uCj4K
+PiA+ICsgICAgICAgc3RydWN0IHNpZml2ZV9ncGlvICpjaGlwID0gZ3Bpb2NoaXBfZ2V0X2RhdGEo
+Z2MpOwo+ID4gKyAgICAgICBzdHJ1Y3QgaXJxX2RhdGEgKmQgPSBpcnFfZ2V0X2lycV9kYXRhKGNo
+aXAtPmlycV9udW1iZXJbY2hpbGRdKTsKPgo+ID4gKyAgICAgICAqcGFyZW50ID0gZC0+aHdpcnE7
+Cj4KPiBUaGVyZSBpcyBhbiBBUEkgdG8gZ2V0IGh3aXJxLgo+Cj4gLi4uCj4KPiA+ICsgICAgICAg
+Zm9yIChpID0gMDsgaSA8IG5ncGlvOyBpKyspCj4gPiArICAgICAgICAgICAgICAgY2hpcC0+aXJx
+X251bWJlcltpXSA9IGlycV9vZl9wYXJzZV9hbmRfbWFwKG5vZGUsIGkpOwo+Cj4gQ2FuJ3QgeW91
+IHVzZSBwbGF0Zm9ybV9nZXRfaXJxX29wdGlvbmFsKCk/Cj4KClRoYW5rIHlvdSBmb3IgcmV2aWV3
+aW5nLgpJIHdvdWxkIGNoYW5nZSBpdCBsaWtlIHRoaXMuCgpkaWZmIC0tZ2l0IGEvZHJpdmVycy9n
+cGlvL2dwaW8tc2lmaXZlLmMgYi9kcml2ZXJzL2dwaW8vZ3Bpby1zaWZpdmUuYwppbmRleCBlOGNk
+ODc0MWRiYWUuLmJmYjkxNWJmNWQ3OCAxMDA2NDQKLS0tIGEvZHJpdmVycy9ncGlvL2dwaW8tc2lm
+aXZlLmMKKysrIGIvZHJpdmVycy9ncGlvL2dwaW8tc2lmaXZlLmMKQEAgLTE0NSw3ICsxNDUsNyBA
+QCBzdGF0aWMgaW50CnNpZml2ZV9ncGlvX2NoaWxkX3RvX3BhcmVudF9od2lycShzdHJ1Y3QgZ3Bp
+b19jaGlwICpnYywKIHsKICAgICAgICBzdHJ1Y3Qgc2lmaXZlX2dwaW8gKmNoaXAgPSBncGlvY2hp
+cF9nZXRfZGF0YShnYyk7CiAgICAgICAgc3RydWN0IGlycV9kYXRhICpkID0gaXJxX2dldF9pcnFf
+ZGF0YShjaGlwLT5pcnFfbnVtYmVyW2NoaWxkXSk7Ci0gICAgICAgKnBhcmVudCA9IGQtPmh3aXJx
+OworICAgICAgICpwYXJlbnQgPSBpcnFkX3RvX2h3aXJxKGQpOwogICAgICAgICpwYXJlbnRfdHlw
+ZSA9IElSUV9UWVBFX05PTkU7CiAgICAgICAgcmV0dXJuIDA7CiB9CkBAIC0yMDIsNyArMjAyLDcg
+QEAgc3RhdGljIGludCBzaWZpdmVfZ3Bpb19wcm9iZShzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNlICpw
+ZGV2KQogICAgICAgIH0KCiAgICAgICAgZm9yIChpID0gMDsgaSA8IG5ncGlvOyBpKyspCi0gICAg
+ICAgICAgICAgICBjaGlwLT5pcnFfbnVtYmVyW2ldID0gaXJxX29mX3BhcnNlX2FuZF9tYXAobm9k
+ZSwgaSk7CisgICAgICAgICAgICAgICBjaGlwLT5pcnFfbnVtYmVyW2ldID0gcGxhdGZvcm1fZ2V0
+X2lycShwZGV2LCBpKTsKCiAgICAgICAgcmV0ID0gYmdwaW9faW5pdCgmY2hpcC0+Z2MsIGRldiwg
+NCwKICAgICAgICAgICAgICAgICAgICAgICAgIGNoaXAtPmJhc2UgKyBTSUZJVkVfR1BJT19JTlBV
+VF9WQUwsCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
+aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
+dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
