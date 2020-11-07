@@ -5,19 +5,19 @@ X-Spam-Level:
 X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
 	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B1140C4741F
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 08:15:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5595EC55ABD
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 08:15:43 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6ABB020704
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 08:15:41 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id DFAC820704
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 08:15:42 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="JrzhqM9E";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="JO9AsQT4"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6ABB020704
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="rDcI2F4I";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="Nk9na0o/"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DFAC820704
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,57 +26,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=18krNqE1V4kFLfdRFCyjH7rHeIZ0z2u+73OjjnlKTcc=; b=JrzhqM9ELCtb9/vkxXN+23mjX
-	jDWJr7KPsSwBRYOgdHaRO1aa+y77FdxsrgOP+XEYYcrc9OKPzwE4DRM1duJJfs4j5Kxo9buRZ/X7F
-	stLFIINa8doXO9fdkukZIoPM5ftVnq+622EYGm+VSeijnprM4G8Wh20gr8TtxopPlIpiCbbykMXV6
-	GqohuszjMCKIuAeNh7MNzzW71bDloyuI2+9n4BoQPKeNxm43XETdgSbR9dpEeQaedEM+6XV2fvMcc
-	2U0wI+AdfV2JG3wNrnFgtJ2h3WxmTlEp7JLyKjMWmnAX2m2Cg6+L7Oj/LYpjbBg1n01/EYQsoufA5
-	CcDokny9A==;
+	 bh=2w3rg1URsBykYHfRrYwKsHZqWLa0ziCc8gRHtXCo8pg=; b=rDcI2F4I2lsZr5A8a7YHbVSXv
+	MW7/ce+OniriO1Gk99KBzKxQQkvusCF6RfNZQW+INfF7VlnbW9w8eDu7Mr7NLqjvFvbPJdpQHXuIM
+	pL++jbca5Q7XhN3YGgMUEGwCLg6qQGf1wghTTGyWX0NkNk6yxtaf5i0x4LMZIcYLFb6IhKVrq86FZ
+	XhraGJt0ZPF18YRNBZNfImcR5vocZPT8tB+fXpMBUfDFnPW6vLaLWyLJWNblaA6zJJLQgklz4wMKL
+	x+7ZzHNsR8BKOfsjDVKgP7wbLqgxt7eHDtrVcEZruCDxT6rXBpNqaObeU5cS9/uYRLhnREYmF+KyQ
+	b2TDJ4nqA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kbJNg-0000yd-5E; Sat, 07 Nov 2020 08:15:28 +0000
+	id 1kbJNV-0000sU-Mh; Sat, 07 Nov 2020 08:15:17 +0000
 Received: from esa1.hgst.iphmx.com ([68.232.141.245])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kbJNU-0000r6-13
- for linux-riscv@lists.infradead.org; Sat, 07 Nov 2020 08:15:20 +0000
+ id 1kbJNN-0000PH-HT
+ for linux-riscv@lists.infradead.org; Sat, 07 Nov 2020 08:15:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1604736915; x=1636272915;
+ t=1604736909; x=1636272909;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=SUp3hrIaYTtH1qT6cOT38t7FswfwYA+WqgQCJBqAiMI=;
- b=JO9AsQT4MIW4Cy/VFL7pt6TAG8zW9p5w4m2o/FLTbRHA5y1NjXs0irNG
- LnzVrTbekO5Ew3UUExWbxB1CT5QwXMEM35uV0Ac+lRbPE3omnrG6D479F
- tz3KPvdGY919yvbMD7MvYRhsTqHUyto7zSiKdqhmCZGvt+Gj6faTwN5BF
- +wMDSqvRPFpfJhlM4oAzXXBqOikeAILT4SxjddGHg0rzWsHjU6qFJA+jR
- M8ckZF1hRwOI1pjYRzIHNe2WW7QxjySnm7hNYJ3PV8WdpX0Ngm/UIR191
- Rt325BuwxamkuB9R3CTzNqSHwZW59XLXqkGNnYztAQkTAkv6DIFz4jwFp g==;
-IronPort-SDR: q3zUh9oRWapQNtCUA3bSGzJ0ukRdxuOJZdL/tYC9FpWFMwaakGlJu/3S7p0lapbBsRQbCBgEvu
- DglbpQeZzHE0mTT77nzVuFXZi2UFB6HwQamN0w8EA73z68MxjCQITz3oisQuYXlY+KvNssm0zP
- lova39WlUs3SPcx62DkIDjtgn5mdfGLpufvLFDrYe6Qp5n28ET5FTMGTKWMgqtZ2V70xVUC5wT
- ERuSIlMDJdIG4Gc29sdEWSnH7e/B3dh+OwIzmR0EZXDQGSONyLk+BsaCb0QpiD8YBM8lCLoK5p
- rNY=
-X-IronPort-AV: E=Sophos;i="5.77,459,1596470400"; d="scan'208";a="262079321"
+ bh=i3cWoJkR7yUZQNOde09o7Nwh6wMCqp2Qd3Q1TOs0x7M=;
+ b=Nk9na0o/VIwbQ7dtDUh/XNdYPogWEBZt1AHAMfnpi8q1J2NpvmV9mtDZ
+ s64mkDxxRfoA1RFd7NmGP4X1I0jSLd4CDhvEYusd488BBLey7i3oN5POb
+ F37V3z5Mzxv/L+8Xgmvsxei4hRAYVCu/yBTugVP/tMmzK7fj88pbDpY82
+ DtNvFbJDYxP/nLL0uHBKP3KNv4WCswmccy4c0KLp+qHKIAaCJ2B9jCV83
+ e4qJr03gzaeMJc+cV80YZY2cU8eOCS8xF8eC/NNoW6oLyZIn+5gYRrwbm
+ DS9BM1zqkaJlB4IXLLoTxlQRiLdprOMP4qcnJAyb8pAE7T/yStk3cO8RP g==;
+IronPort-SDR: 1hK8zQul0FZfd8rNtAbK59s2ZzQHnTTfUk3YfCWjiaG++5cbMlineST9A8QultMUm3o8GvqVSo
+ KjWwZeq8AoDLkzQhe2RZ5V3eMB98BMYVTUoBvSs0GfkbhVse6A+WXV2J2ntPLIEC2cuxpQcGWP
+ RtEXOie70ejn7M/DhXF1sBLY7tWiEoWrFa62FiL9T5a/qUq7tbsGUjv284z0pia9GINF1TBoBO
+ YlyRUlCZomvCjcMSOUPbRT60y97nQpFsjXi5lnEqYZta7UH8fo9crYy7ZHHdg3kpIotTZ+4USa
+ 92Y=
+X-IronPort-AV: E=Sophos;i="5.77,459,1596470400"; d="scan'208";a="262079311"
 Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 07 Nov 2020 16:15:14 +0800
-IronPort-SDR: vcwRgorKckfu1Vpfqy0FRzgha5mpaU9XGO8Qd98ZMAU6Tn53nv8bcZXETEBCPfFVVgzkMKjGAk
- CAO1+C6dMgIxoJBg5NRZJAADsGXQIDZLfP4Hy2PO5AHuhchIGIEHhlnfhi9iKlrQeCavXvlBUG
- Mh3D5n0uyKUG7qDXP7b3oTvn5GoaaxXS8X9Tg6qeUw0hhIuW8XAZI7K449YHWAuAZ7uV9vBztL
- YsEZ7efoYSBAqYChDhTy0yeG5yMQ01gMYBr3ju8VKeDlxWsaYZSWID0KomsWg/MInri/IY+6BQ
- euzBk65KgaCKnhUbksamS81O
+ by ob1.hgst.iphmx.com with ESMTP; 07 Nov 2020 16:15:09 +0800
+IronPort-SDR: cI9wlqfsBDJ/x8c/GC0l+28U2xabQfdodw6dwfYtr7imyZP9Q5Z2u1uT6siblsKn8QJ7gwv8Cv
+ zGmL/e/sSqlNeEvtVr2Fv7MJ+HbvzSWGf5zhxV4bNJFQeBau4t+BXvID8SudPjnNffkz8uJ9ok
+ A81+szAtspY2dnEM32IeNzZz32nnHL1HZID8Et2Yyo7LE0U3mMyMl0qqF+7wWrh0S1XIR/idfE
+ 58Ihyi9I/in0mrvW2aw0iQ0uYWxjk15RBqG9QnvFFLMFdL4EZykZ7kqfrZWwnUpldb1jJlrOSo
+ vcuSaGzm4kBmzkrt21GEo3eW
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 07 Nov 2020 00:01:19 -0800
-IronPort-SDR: cq//chzutH4wXylm4H8jmtnMe1aNpH0Uu4Whn6FkmWJy6febas7+Y3rO0Zc90N9BsNIrZx3kH+
- v0gyxR4aAqacsoAftph7QwdLBEw5g7puc3sMfZIwrUqLoOxw+FCfCHSfQn1Y6ZoX5QEeuT0frw
- OqacY0epJSaqMfB0cOwlkjduc04QBxwAUoNYVXLY1GFPqLeBMqRMMO7gLHiiaCKFC0KhcF27cg
- 5JWPtHYiThqG/mY+GP6D55fS00eOvc5QNPI5tFFF7HbsnDjggeQvLLge1PS0lf+dd3/VF5MbSA
- e5k=
+ 07 Nov 2020 00:01:13 -0800
+IronPort-SDR: y1qTH6RGguGSyluxLK/fBd4YoKIYIBAHDBFAdJDQnfLjUxogD/HMVQV51PGP4PWDtiHU7L5lXh
+ Ks0iRlB+NUDic6UsOlYiPQeN7Sa7eXGftVRNUnS53IRichEDB5BqeldCwo72sfTn2QQDblZvWX
+ RisdudAF1jcncJw0uUSGiwjWt+bVWimOOgsvFBdNd4+YimsR0TBA//fGYaan2doQ2vHP1rTsfh
+ oQrdxVYyDy+UDB00awl1jR/S0/pdo6CeH33MIgTe/wg/bW5ZNjUhktJ78wfuahcIGR5Ym1N2ub
+ JZA=
 WDCIronportException: Internal
 Received: from hdrdzf2.ad.shared (HELO twashi.fujisawa.hgst.com)
  ([10.84.71.85])
- by uls-op-cesaip01.wdc.com with ESMTP; 07 Nov 2020 00:15:12 -0800
+ by uls-op-cesaip01.wdc.com with ESMTP; 07 Nov 2020 00:15:07 -0800
 From: Damien Le Moal <damien.lemoal@wdc.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
  Rob Herring <robh+dt@kernel.org>, Frank Rowand <frowand.list@gmail.com>,
@@ -85,16 +85,16 @@ To: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
  Stephen Boyd <sboyd@kernel.org>, linux-clk@vger.kernel.org,
  Linus Walleij <linus.walleij@linaro.org>, linux-gpio@vger.kernel.org,
  Philipp Zabel <p.zabel@pengutronix.de>
-Subject: [PATCH 19/32] riscv: Add Kendryte K210 SoC reset controller
-Date: Sat,  7 Nov 2020 17:14:07 +0900
-Message-Id: <20201107081420.60325-20-damien.lemoal@wdc.com>
+Subject: [PATCH 17/32] dt-bindings: Define Kendryte K210 reset signals
+Date: Sat,  7 Nov 2020 17:14:05 +0900
+Message-Id: <20201107081420.60325-18-damien.lemoal@wdc.com>
 X-Mailer: git-send-email 2.28.0
 In-Reply-To: <20201107081420.60325-1-damien.lemoal@wdc.com>
 References: <20201107081420.60325-1-damien.lemoal@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201107_031516_288980_93405746 
-X-CRM114-Status: GOOD (  24.01  )
+X-CRM114-CacheID: sfid-20201107_031509_794526_33231AA5 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -112,256 +112,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a reset controller driver for the Kendryte K210 SoC. This driver
-relies on its syscon compatible parent node for its register mapping.
-Automatically select this driver for compilation when the SOC_KENDRYTE
-option is selected.
+Introduce the dt-bindings file include/dt-bindings/reset/k210_sysctl.h
+to define IDs for all 30 reset signals available on the Kendryte K210
+RISC-V SoC.
 
 Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
 ---
- arch/riscv/Kconfig.socs    |   3 +
- drivers/reset/Kconfig      |   9 ++
- drivers/reset/Makefile     |   1 +
- drivers/reset/reset-k210.c | 186 +++++++++++++++++++++++++++++++++++++
- 4 files changed, 199 insertions(+)
- create mode 100644 drivers/reset/reset-k210.c
+ include/dt-bindings/reset/k210-rst.h | 42 ++++++++++++++++++++++++++++
+ 1 file changed, 42 insertions(+)
+ create mode 100644 include/dt-bindings/reset/k210-rst.h
 
-diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-index a4c851ffc6b0..4d8e66d0556a 100644
---- a/arch/riscv/Kconfig.socs
-+++ b/arch/riscv/Kconfig.socs
-@@ -31,6 +31,9 @@ config SOC_KENDRYTE
- 	select SIFIVE_PLIC
- 	select SOC_K210
- 	select CLK_K210
-+	select ARCH_HAS_RESET_CONTROLLER
-+	select RESET_CONTROLLER
-+	select RESET_K210
- 	help
- 	  This enables support for Kendryte K210 SoC platform hardware.
- 
-diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
-index 07d162b179fc..c943051b5fc8 100644
---- a/drivers/reset/Kconfig
-+++ b/drivers/reset/Kconfig
-@@ -245,6 +245,15 @@ config RESET_ZYNQ
- 	help
- 	  This enables the reset controller driver for Xilinx Zynq SoCs.
- 
-+config RESET_K210
-+	bool "Reset controller driver for Kendryte K210 SoC"
-+	depends on RISCV && SOC_KENDRYTE
-+	depends on OF && MFD_SYSCON
-+	help
-+	  Support for the Kendryte K210 RISC-V SoC reset controller. If
-+          Say Y if you want to control reset signals provided by this
-+	  controller.
-+
- source "drivers/reset/sti/Kconfig"
- source "drivers/reset/hisilicon/Kconfig"
- source "drivers/reset/tegra/Kconfig"
-diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
-index 16947610cc3b..1730a31e6871 100644
---- a/drivers/reset/Makefile
-+++ b/drivers/reset/Makefile
-@@ -33,4 +33,5 @@ obj-$(CONFIG_RESET_UNIPHIER) += reset-uniphier.o
- obj-$(CONFIG_RESET_UNIPHIER_GLUE) += reset-uniphier-glue.o
- obj-$(CONFIG_RESET_ZYNQ) += reset-zynq.o
- obj-$(CONFIG_ARCH_ZYNQMP) += reset-zynqmp.o
-+obj-$(CONFIG_RESET_K210) += reset-k210.o
- 
-diff --git a/drivers/reset/reset-k210.c b/drivers/reset/reset-k210.c
+diff --git a/include/dt-bindings/reset/k210-rst.h b/include/dt-bindings/reset/k210-rst.h
 new file mode 100644
-index 000000000000..b6401aef2923
+index 000000000000..883c1aed50e8
 --- /dev/null
-+++ b/drivers/reset/reset-k210.c
-@@ -0,0 +1,186 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
++++ b/include/dt-bindings/reset/k210-rst.h
+@@ -0,0 +1,42 @@
++/* SPDX-License-Identifier: GPL-2.0+ */
 +/*
++ * Copyright (C) 2019 Sean Anderson <seanga2@gmail.com>
 + * Copyright (c) 2020 Western Digital Corporation or its affiliates.
 + */
-+#include <linux/of.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
-+#include <linux/reset-controller.h>
-+#include <linux/delay.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/regmap.h>
-+
-+#include <dt-bindings/mfd/k210-sysctl.h>
-+#include <dt-bindings/reset/k210-rst.h>
-+
-+struct k210_rst {
-+	struct regmap *map;
-+	u32 offset;
-+	u32 mask;
-+	u32 assert_high;
-+	struct reset_controller_dev rcdev;
-+};
-+
-+static inline struct k210_rst *
-+to_k210_rst(struct reset_controller_dev *rcdev)
-+{
-+	return container_of(rcdev, struct k210_rst, rcdev);
-+}
-+
-+static inline int k210_rst_assert(struct reset_controller_dev *rcdev,
-+				  unsigned long id)
-+{
-+	struct k210_rst *ksr = to_k210_rst(rcdev);
-+	u32 bit = BIT(id);
-+
-+	if (!(bit & ksr->mask)) {
-+		dev_err(rcdev->dev, "Invalid assert id %lu\n", id);
-+		return -EINVAL;
-+	}
-+
-+	dev_dbg(rcdev->dev, "assert %s %lu\n",
-+		ksr->assert_high ? "high" : "low", id);
-+
-+	regmap_update_bits(ksr->map, ksr->offset, bit,
-+			   ksr->assert_high ? bit : 0);
-+
-+	return 0;
-+}
-+
-+static inline int k210_rst_deassert(struct reset_controller_dev *rcdev,
-+				    unsigned long id)
-+{
-+	struct k210_rst *ksr = to_k210_rst(rcdev);
-+	u32 bit = BIT(id);
-+
-+	if (!(bit & ksr->mask)) {
-+		dev_err(rcdev->dev, "Invalid deassert id %lu\n", id);
-+		return -EINVAL;
-+	}
-+
-+	dev_dbg(rcdev->dev, "deassert %s %lu\n",
-+		ksr->assert_high ? "high" : "low", id);
-+
-+	regmap_update_bits(ksr->map, ksr->offset, bit,
-+			   ksr->assert_high ? 0 : bit);
-+
-+	return 0;
-+}
-+
-+static int k210_rst_reset(struct reset_controller_dev *rcdev,
-+			  unsigned long id)
-+{
-+	struct k210_rst *ksr = to_k210_rst(rcdev);
-+	int ret;
-+
-+	dev_dbg(rcdev->dev, "reset %s %lu\n",
-+		ksr->assert_high ? "high" : "low", id);
-+
-+	ret = k210_rst_assert(rcdev, id);
-+	if (ret == 0) {
-+		udelay(10);
-+		ret = k210_rst_deassert(rcdev, id);
-+	}
-+
-+	return ret;
-+}
-+
-+static int k210_rst_status(struct reset_controller_dev *rcdev,
-+			   unsigned long id)
-+{
-+	struct k210_rst *ksr = to_k210_rst(rcdev);
-+	u32 reg, bit = BIT(id);
-+	int ret;
-+
-+	if (!(bit & ksr->mask)) {
-+		dev_err(rcdev->dev, "Invalid reset %lx\n", id);
-+		return -EINVAL;
-+	}
-+
-+	ret = regmap_read(ksr->map, ksr->offset, &reg);
-+	if (ret)
-+		return ret;
-+
-+	if (ksr->assert_high)
-+		return ret & bit;
-+
-+	return !(ret & bit);
-+}
-+
-+static const struct reset_control_ops k210_rst_ops = {
-+	.assert		= k210_rst_assert,
-+	.deassert	= k210_rst_deassert,
-+	.reset		= k210_rst_reset,
-+	.status		= k210_rst_status,
-+};
-+
-+static int __init k210_rst_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct k210_rst *ksr;
-+	int ret, nr_resets;
-+
-+	dev_info(dev, "K210 reset controller\n");
-+
-+	ksr = devm_kzalloc(dev, sizeof(*ksr), GFP_KERNEL);
-+	if (!ksr)
-+		return -ENOMEM;
-+
-+	ksr->map = syscon_regmap_lookup_by_phandle(dev->of_node, "regmap");
-+	if (IS_ERR(ksr->map)) {
-+		ksr->map = syscon_node_to_regmap(dev->parent->of_node);
-+		if (IS_ERR(ksr->map)) {
-+			dev_err(dev, "get register map failed\n");
-+			return PTR_ERR(ksr->map);
-+		}
-+	}
-+
-+	ret = of_property_read_u32(dev->of_node, "offset", &ksr->offset);
-+	ret = of_property_read_u32(dev->of_node, "assert-high",
-+				   &ksr->assert_high);
-+	if (ret) {
-+		dev_err(dev, "unable to read 'offset' and 'assert-high'\n");
-+		return -EINVAL;
-+	}
-+
-+	ret = of_property_read_u32(dev->of_node, "mask", &ksr->mask);
-+	if (ret) {
-+		/* Use default mask */
-+		ksr->mask = 0x27FFFFFF;
-+	}
-+	nr_resets = fls(ksr->mask);
-+	if (!nr_resets) {
-+		dev_err(dev, "Invalid mask 0x%08x\n", ksr->mask);
-+		return -EINVAL;
-+	}
-+
-+	ksr->rcdev.owner = THIS_MODULE;
-+	ksr->rcdev.dev = dev;
-+	ksr->rcdev.of_node = dev->of_node;
-+	ksr->rcdev.nr_resets = nr_resets;
-+	ksr->rcdev.ops = &k210_rst_ops;
-+
-+	return devm_reset_controller_register(dev, &ksr->rcdev);
-+}
-+
-+static const struct of_device_id k210_rst_dt_ids[] = {
-+	{ .compatible = "kendryte,k210-rst" },
-+};
-+
-+static struct platform_driver k210_rst_driver = {
-+	.probe	= k210_rst_probe,
-+	.driver = {
-+		.name		= "k210-rst",
-+		.of_match_table	= k210_rst_dt_ids,
-+	},
-+};
++#ifndef RESET_K210_SYSCTL_H
++#define RESET_K210_SYSCTL_H
 +
 +/*
-+ * Most devices on the K210 SoC need reset as part of their initialization.
-+ * So initialize this driver early as part of the post core initialization.
++ * Kendryte K210 SoC system controller K210_SYSCTL_SOFT_RESET register bits.
++ * Taken from Kendryte SDK (kendryte-standalone-sdk).
 + */
-+static int __init k210_rst_init(void)
-+{
-+	return platform_driver_register(&k210_rst_driver);
-+}
-+postcore_initcall(k210_rst_init);
++#define K210_RST_ROM	0
++#define K210_RST_DMA	1
++#define K210_RST_AI	2
++#define K210_RST_DVP	3
++#define K210_RST_FFT	4
++#define K210_RST_GPIO	5
++#define K210_RST_SPI0	6
++#define K210_RST_SPI1	7
++#define K210_RST_SPI2	8
++#define K210_RST_SPI3	9
++#define K210_RST_I2S0	10
++#define K210_RST_I2S1	11
++#define K210_RST_I2S2	12
++#define K210_RST_I2C0	13
++#define K210_RST_I2C1	14
++#define K210_RST_I2C2	15
++#define K210_RST_UART1	16
++#define K210_RST_UART2	17
++#define K210_RST_UART3	18
++#define K210_RST_AES	19
++#define K210_RST_FPIOA	20
++#define K210_RST_TIMER0	21
++#define K210_RST_TIMER1	22
++#define K210_RST_TIMER2	23
++#define K210_RST_WDT0	24
++#define K210_RST_WDT1	25
++#define K210_RST_SHA	26
++#define K210_RST_RTC	29
++
++#endif /* RESET_K210_SYSCTL_H */
 -- 
 2.28.0
 
