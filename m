@@ -2,114 +2,144 @@ Return-Path: <SRS0=cxKJ=EN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-11.0 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 75E3DC388F9
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 13:39:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 402A3C388F9
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 13:43:14 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1FC36206ED
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 13:39:15 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D4D31206ED
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 13:43:13 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="0u7hze//";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="L6tkULQ8"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1FC36206ED
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="rWKK8Opr";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="rrwYeL2Y";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="ga/zI5ld"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D4D31206ED
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe
-	:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:Subject:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MGO3AKLWBv966dQ7FIYtSU9ogMY6rzc+wMPKYrnh9tE=; b=0u7hze//wbh3QlQAa/1jchcKGc
-	0hQ1pIb6Kl3+lkUvXJi/JlGQaKwKAPneAqcM/avlPHZOaz6W5sytG96mL4KOH2is5JYWRykZUVWBL
-	iIuxZJ/uwkhBpjjGpkJ8LzprnvVsGqF0CoYiF6DQny2stqlDj6trfPJRsxXLylz21u3uTGxgDTQAh
-	zhAyGuze2zwzX2smyTL+ACL2SuFoU6qmTNGaH0T/BbFggFR4VwrM0WcXskm0lFheT+zUluedQovBD
-	47YrXWRN6zy0e7tEUDJ+EGG5eNH65OiiJwEEZpB53ByD6CpcbfWUjC1tbdSJ3QWOvsUAXXbC950sZ
-	XJzh4Jbw==;
+	:List-Id:MIME-Version:References:Message-ID:Date:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=aMGuN4DBA11stjxWVMFYvJdawFpf0MWYI3u0RnbhR5A=; b=rWKK8Opr/fnCYDNraJxaJSk1rD
+	IpdhCV0FjA7ZmE3T+zdtXTQob3o73yLBIJJHXekWHbz1EX0HEvzbuk4E698xfjfQUo44T2Lebiv7O
+	zJtkSl/QTXLsLynN1IIvnlt1qeSpquHUEEj9xllOtqH6P9c5id4U1kP3J6vRoflj+bBZTieMWxVrf
+	ILLUH2jq1WQvE0SMfAn7hC93IWOrk6AeXarM0t8AT5G76hn3PCbdScsLDCjU/Qhjii/LLHMEiEiD3
+	kBfUmnApFXy8k19Bvyd4kro0ZaTr0H0UciIivy8aVsG7Qv3jYKZtPBczbPFgtEArLoGUxXiG0+mT9
+	E/jpNPPw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kbOQn-000482-RP; Sat, 07 Nov 2020 13:39:01 +0000
-Received: from mail-qt1-x844.google.com ([2607:f8b0:4864:20::844])
+	id 1kbOUY-0004Zx-9s; Sat, 07 Nov 2020 13:42:54 +0000
+Received: from esa5.hgst.iphmx.com ([216.71.153.144])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kbOQm-00047Y-8z
- for linux-riscv@lists.infradead.org; Sat, 07 Nov 2020 13:39:00 +0000
-Received: by mail-qt1-x844.google.com with SMTP id h12so2824488qtc.9
- for <linux-riscv@lists.infradead.org>; Sat, 07 Nov 2020 05:38:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=subject:to:references:from:autocrypt:message-id:date:user-agent
- :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=mN57aF3uFwRKik5ZN1WZ9zgD6+iSPvQKkG2jBob0/z0=;
- b=L6tkULQ8G3ScoNOjbnTPIfkea8pDu9nEYT1Kc0JSpO/Ed9ioWMrlKrjdAwGpxsecMK
- mAQW80EpW6fU69D0iWnhUcesxXkgpfjvT4KfoIlsqb2W0XN24YMuAgRVfZUJMru3tqhR
- KX94LACPelo2ZX43b+A/AkapJ+rovZTsuDxz+zXsKzy+1i/bbXiTkMhOuiuhT9KyKTbT
- JBfytyG0zkaGupBpq81koZYCW6hNbmwf7shja3uUeCpQD7dft6WKVKanovpmmBRGXqvs
- AJi/NJLwXhItUj/icGDCffOcocLxgwrCnnRi+pdaC6uaT5ndfzVQ9SZdSMX8/8abE5mW
- hq7w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:to:references:from:autocrypt:message-id
- :date:user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=mN57aF3uFwRKik5ZN1WZ9zgD6+iSPvQKkG2jBob0/z0=;
- b=g+eEnTJZzpKq1qZ8WMwNT1hO1wEbJ+ZXz1jqvYBvbcQDwCtaG3Eg8VP5DhZt6AqG9q
- 4UaKMJ+MZUF4uxIyMnx6b5zodqDe57sNdVtWF4zLri/lIgmlM3KP+mu2doQQlpG/TOX9
- PHjkJIameGEqoRYT6MolfSYl4ioOPwvFWNEZFm/UkMANSn7OvWR2JR30cS/WjqJSixyh
- CkU9fzjk6IQZ9jcdjJdOXkEjnu1L23vqYF4HuBU1EQNpS7OBs1C4rDYMUSZMWoXtkyj0
- Ktmk4G04ZlCao7NeVhzcWc2gWd65kGqmvzWEN2HMDw4U+rIhmKvvpHfwaNKm8zngY1R5
- e0ag==
-X-Gm-Message-State: AOAM533sZAdPprDqFkIP48rcel0uJ9y9jkJIXfPGpHnpVvyGCo/IMqrs
- kFwlZmY6Sx+FMwLE/MpQUWk=
-X-Google-Smtp-Source: ABdhPJyIp/972JuRNtCAX5kxeFqzif/DydCJUgMtgNi+VPFMt5+yf/OzzVRlPd5tDeGRlxNvkxENJQ==
-X-Received: by 2002:ac8:6b06:: with SMTP id w6mr5912684qts.6.1604756338588;
- Sat, 07 Nov 2020 05:38:58 -0800 (PST)
-Received: from [192.168.1.201] (pool-108-51-35-162.washdc.fios.verizon.net.
- [108.51.35.162])
- by smtp.googlemail.com with ESMTPSA id o19sm2566333qko.3.2020.11.07.05.38.57
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Sat, 07 Nov 2020 05:38:58 -0800 (PST)
-Subject: Re: [PATCH 17/32] dt-bindings: Define Kendryte K210 reset signals
-To: Damien Le Moal <damien.lemoal@wdc.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
- Rob Herring <robh+dt@kernel.org>, Frank Rowand <frowand.list@gmail.com>,
- devicetree@vger.kernel.org, Serge Semin <fancer.lancer@gmail.com>,
- Mark Brown <broonie@kernel.org>, linux-spi@vger.kernel.org,
- Stephen Boyd <sboyd@kernel.org>, linux-clk@vger.kernel.org,
- Linus Walleij <linus.walleij@linaro.org>, linux-gpio@vger.kernel.org,
- Philipp Zabel <p.zabel@pengutronix.de>
+ id 1kbOUV-0004ZN-Sv
+ for linux-riscv@lists.infradead.org; Sat, 07 Nov 2020 13:42:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1604756571; x=1636292571;
+ h=from:to:subject:date:message-id:references:
+ content-transfer-encoding:mime-version;
+ bh=EyfDn3dO+o9gop8SiRYLxECvpV04e7ByOl3C1JNEBLU=;
+ b=rrwYeL2Y7KvqZ43ToVKsAnU0YYf3II8aqDOXnustU7B3trarYWSr7aH0
+ XY+HdsMofsvXTXZGjT1o0VCxd6h2WsG/o+BdHQNZOdxp8SuDBe43Vpn58
+ aqwlhIKKTiRh4bhqm+kmgteI0JAkV0lmJNev4PKRdJqKX3hPQbFKHeHGv
+ XM/1OzycrA9Dfr1hwfB4G7NrMf7Atxpkr/xI+yfsJ0+nSEUPFD0qSplGH
+ Iudkp3ZJggHJsjeEz/GCaWaggqPsjAuAHJAVZ50LtJ8RuTIzlDkelgbTm
+ Hak+ggEDwO6hAILvJt5R0bewvD1126+eslItBm/Nf6XEPeCG5m/L8Yj8Z Q==;
+IronPort-SDR: A4aSZLLGl5EZdIWY+N3M5ViKR9/FkWKOrbpw737WhmXKais1PiW/YKilou8cKT2Pboc4sx4iYB
+ ScHK1Ra7OdDmugGfpOwKpnoIqwYKzWOpWq6uLCyOLTBSM34O0RmrIDNKyE7BSgW5njw+1nYD6K
+ Xseh8244sCRThdkjd9AH9Hpc1++oY8x1UUveVLFTT0h7tfnsXetzN+3Nzf8JdLXyJHL6L/zX7U
+ EWo9cF3Y5kDlMtqWdxYENkf3WUZaTXaBEgFMZe+cFPtWfJbs8lDVlvvTxAR8NPQsr1OBOZuOxt
+ Co0=
+X-IronPort-AV: E=Sophos;i="5.77,459,1596470400"; d="scan'208";a="152196681"
+Received: from mail-co1nam11lp2173.outbound.protection.outlook.com (HELO
+ NAM11-CO1-obe.outbound.protection.outlook.com) ([104.47.56.173])
+ by ob1.hgst.iphmx.com with ESMTP; 07 Nov 2020 21:42:48 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=XgrMqyu3BXfLLeVII3s15cDpi/VeryTVfYBsHKbG0zkr3s2374ba++HMdhn8JfNvUpjAhTY04RKZRlaepRETOUvlpbfj70e4yvxnLSiU+z3z22gh2DBqWru6IZW2Py/Y650NL3KyeE2+soVXiSv6r1cZXqCixgAY0jvcOjHrnt6zW7bx8/0iqGQGBaOaJVOTZcr190lmkTFlvMs9oo38Qadvs5t9vkDzv151WjobWW4HRakETAtFR8PjLVR/aM3jmXfwtTYGvuJ4UjFP5fpLY7TOkmSrro5cMeAZOSdAMOHhaKP96Ys0eDQ6XUFvS3DbSyHkpLb3x7L8wHWycyTjTQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uoj03cmZVHA5K9Oe2WO9gJdqZWY0+mU+e1gQBlpTDtk=;
+ b=eHzXg7hYsnEX4PMz7PoA7GHxUttW1V3dNiwIPC3FAC76Sz4OhZIgCUnrTWw7Z3tYyPYRi6+l8ZjyUZCTKIBD2jwJO+xatGDWHJFFvz6dfDmKb3lvozF0BsJbzaDLoi4eV1ohtRfk6Sr2jmS0jRXV5xWVbhXeoa2gQ85JdttXa0seADm5oyHdxMPcX9Glp5JIvh7Gz2uGejQWXZpWACNsqOnBP7x76yKHijb6/WD8VaEUtlg+qEp9+nOAXeiJuscV8eer15bx8b9Is4Y4pknah2UJajTCnw/XjvWwWN0HARxjJ5r7g6bae3zViIqu8C1qjEW5X3R5TA+o5B8tzbRMxA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
+ header.d=wdc.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uoj03cmZVHA5K9Oe2WO9gJdqZWY0+mU+e1gQBlpTDtk=;
+ b=ga/zI5ldKZZSKOnh57LivrK4A++HNjocv5vQxn5F11qGKy45jT1yfKhF403mDchxfUqZdSe92S+isIcE+h4lW1CtcT1NGk7L6VPgSj8Yf49iHloPOzJInjpGFL3Mw4pXFH32wLlzKnj3ZAud6ShTajnVM7CDSDWaQ0jwa8rmQ2M=
+Received: from BL0PR04MB6514.namprd04.prod.outlook.com (2603:10b6:208:1ca::23)
+ by BL0PR04MB4980.namprd04.prod.outlook.com (2603:10b6:208:53::14)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3541.21; Sat, 7 Nov
+ 2020 13:42:46 +0000
+Received: from BL0PR04MB6514.namprd04.prod.outlook.com
+ ([fe80::4c3e:2b29:1dc5:1a85]) by BL0PR04MB6514.namprd04.prod.outlook.com
+ ([fe80::4c3e:2b29:1dc5:1a85%7]) with mapi id 15.20.3499.032; Sat, 7 Nov 2020
+ 13:42:46 +0000
+From: Damien Le Moal <Damien.LeMoal@wdc.com>
+To: Sean Anderson <seanga2@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, Rob
+ Herring <robh+dt@kernel.org>, Frank Rowand <frowand.list@gmail.com>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, Serge Semin
+ <fancer.lancer@gmail.com>, Mark Brown <broonie@kernel.org>,
+ "linux-spi@vger.kernel.org" <linux-spi@vger.kernel.org>, Stephen Boyd
+ <sboyd@kernel.org>, "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>, "linux-gpio@vger.kernel.org"
+ <linux-gpio@vger.kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>
+Subject: Re: [PATCH 06/32] spi: dw: Add support for the Kendryte K210 SoC
+Thread-Topic: [PATCH 06/32] spi: dw: Add support for the Kendryte K210 SoC
+Thread-Index: AQHWtN4N0wumwRzXdUGPL6nbxUOPpw==
+Date: Sat, 7 Nov 2020 13:42:45 +0000
+Message-ID: <BL0PR04MB65145CB4FC66106B62E179CEE7EC0@BL0PR04MB6514.namprd04.prod.outlook.com>
 References: <20201107081420.60325-1-damien.lemoal@wdc.com>
- <20201107081420.60325-18-damien.lemoal@wdc.com>
-From: Sean Anderson <seanga2@gmail.com>
-Autocrypt: addr=seanga2@gmail.com; prefer-encrypt=mutual; keydata=
- mQENBFe74PkBCACoLC5Zq2gwrDcCkr+EPGsT14bsxrW07GiYzQhLCgwnPdEpgU95pXltbFhw
- 46GfyffABWxHKO2x+3L1S6ZxC5AiKbYXo7lpnTBYjamPWYouz+VJEVjUx9aaSEByBah5kX6a
- lKFZWNbXLAJh+dE1HFaMi3TQXXaInaREc+aO1F7fCa2zNE75ja+6ah8L4TPRFZ2HKQzve0/Y
- GXtoRw97qmnm3U36vKWT/m2AiLF619F4T1mHvlfjyd9hrVwjH5h/2rFyroXVXBZHGA9Aj8eN
- F2si35dWSZlIwXkNu9bXp0/pIu6FD0bI+BEkD5S7aH1G1iAcMFi5Qq2RNa041DfQSDDHABEB
- AAG0K1NlYW4gR2FsbGFnaGVyIEFuZGVyc29uIDxzZWFuZ2EyQGdtYWlsLmNvbT6JAVcEEwEK
- AEECGwMFCwkIBwIGFQgJCgsCBBYCAwECHgECF4ACGQEWIQSQYR1bzo1I0gPoYCg+6I/stKEQ
- bgUCXT+S2AUJB2TlXwAKCRA+6I/stKEQbhNOB/9ooea0hU9Sgh7PBloU6CgaC5mlqPLB7NTp
- +JkB+nh3Fqhk+qLZwzEynnuDLl6ESpVHIc0Ym1lyF4gT3DsrlGT1h0Gzw7vUwd1+ZfN0CuIx
- Rn861U/dAUjvbtN5kMBqOI4/5ea+0r7MACcIVnKF/wMXBD8eypHsorT2sJTzwZ6DRCNP70C5
- N1ahpqqNmXe0uLdP0pu55JCqhrGw2SinkRMdWyhSxT56uNwIVHGhLTqH7Q4t1N6G1EH626qa
- SvIJsWlNpll6Y3AYLDw2/Spw/hqieS2PQ/Ky3rPZnvJt7/aSNYsKoFGX0yjkH67Uq8Lx0k1L
- w8jpXnbEPQN3A2ZJCbeM
-Message-ID: <c1d4e336-2f18-1c06-bfe8-feac9838532e@gmail.com>
-Date: Sat, 7 Nov 2020 08:38:57 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.12.0
-MIME-Version: 1.0
-In-Reply-To: <20201107081420.60325-18-damien.lemoal@wdc.com>
+ <20201107081420.60325-7-damien.lemoal@wdc.com>
+ <53859725-ca0b-5f57-9147-10346707b3cb@gmail.com>
+Accept-Language: en-US
 Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: gmail.com; dkim=none (message not signed)
+ header.d=none;gmail.com; dmarc=none action=none header.from=wdc.com;
+x-originating-ip: [2400:2411:43c0:6000:89bb:1cde:d92a:2dcb]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-ht: Tenant
+x-ms-office365-filtering-correlation-id: ca959040-81cd-49a0-2926-08d883230271
+x-ms-traffictypediagnostic: BL0PR04MB4980:
+x-microsoft-antispam-prvs: <BL0PR04MB498007F07A1BF1A2B9CEBBCCE7EC0@BL0PR04MB4980.namprd04.prod.outlook.com>
+wdcipoutbound: EOP-TRUE
+x-ms-oob-tlc-oobclassifiers: OLM:4941;
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: L85EEZvlO8jJ10iCG8ML4IcBic53nTUiRuSNr4hTI1+4xXytMFNgDK0vUMrxsL58Mm2sYd6WJeQZf4mgAYq8DiqJFsYRpJFHINXZoHojnczZg/t7mHoxnX1XrrDIZCrI2Uf0YyY1W0wGmqIFE9tH9t0sjgFhZx8QppRHWY7wcs2epM3cI9+KPTfqpKPHVzUCm3Yd93mUPiV3NUSg9GLcMGaNFX+SkNqhJFXJzLjFBQXEV3SWI+n4GAU0YMu0ODXui6TazGFpKWimAyy75NU5zU9b6Obnwls4B4h+R+QMIonjq/n9DgViaY/jjI44XT1GeMvir4mHHcqW2vFpDyr0FlYmjr2OD1o13xy/0CdVfkdfls2jwMtlw6j4hbVQ9STN
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:BL0PR04MB6514.namprd04.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(4636009)(136003)(376002)(346002)(39860400002)(366004)(396003)(316002)(66556008)(8676002)(66476007)(110136005)(83380400001)(76116006)(64756008)(2906002)(478600001)(53546011)(6506007)(66946007)(86362001)(71200400001)(186003)(91956017)(8936002)(33656002)(5660300002)(66446008)(52536014)(7696005)(9686003)(7416002)(55016002)(921003);
+ DIR:OUT; SFP:1102; 
+x-ms-exchange-antispam-messagedata: SKTT4yQ3lnNEUyl96rxsgHx23YoMxEbP7jv/QTF5GYSR1thvZZvU2/TWqkybvgHworDAO6h43nFcU2/Q2tAm2+Hdd83hwieCZorQ7rIDjAE2XP5pWchzFV+/J3qHGpKJ9j8ekL68uldwW+NHvI5WRwUyeNsekIglpXz2t+xhUB1RBtboOPJZkfZAYlNqV/SIE247IPEwY7UgPOGcECd0bZSt+SLGZsjydRjJ6KmDSNQVVYfdVn2Zz1UYMQhMDBab7H4hjElAx/nOpifhsQDWwxoeoj1cdxvGi8deJZ2JxbYDe3pWVU16Ka8h/1g9u/ihbyAu8bE0A0yHa0AbJY9ySgNApoENLyfwzMXwsemVHjqRMDx906DPeRg5ejndKjQxwl+0KBd7fEcZ6sFIxnAK/pUgQuwQGhmLoJdpoTKGIxFgp4vBfy7wbdJlBgSMlzRYy2D2p1JHh3Va2S+HTlHUYtJW/h+0m/cjLoHMmmk3a5Aq2bqZGB0NdtRF+9Q/83KiX5D4m6SMTW+VsoPwrGkOq8J30+H23DS9VMXEt7zwaLoTGihPrUkH2ByhoAq0BWCLjtLxkg3+gH+/iCwuUP8ExR/voqR9b/nMDElBxqQZniLw7bMG6mBMG+OBrGvo0/MqKzdKEZdk/HWM351T4nFcyd5jNNreVPgkaOXOpjn6jJ60IGehBCHyPEuCCUhBaKAQe60bvNcsxfpdU39h/RAz6Q==
+x-ms-exchange-transport-forked: True
+MIME-Version: 1.0
+X-OriginatorOrg: wdc.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BL0PR04MB6514.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ca959040-81cd-49a0-2926-08d883230271
+X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Nov 2020 13:42:45.9212 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: VxyyQcW7rDF6cW5ejfAL2+MEoVXacszDH0foUjf/1UNIlQKAc+ioJy8VJcIIFVffuJ4chrLSEB0Cba6EmNz4Cg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL0PR04MB4980
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201107_083900_345039_0D437B52 
-X-CRM114-Status: GOOD (  17.81  )
+X-CRM114-CacheID: sfid-20201107_084252_218738_952B25B3 
+X-CRM114-Status: GOOD (  15.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -126,68 +156,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/7/20 3:14 AM, Damien Le Moal wrote:
-> Introduce the dt-bindings file include/dt-bindings/reset/k210_sysctl.h
-> to define IDs for all 30 reset signals available on the Kendryte K210
-> RISC-V SoC.
+On 2020/11/07 22:31, Sean Anderson wrote:
+> On 11/7/20 3:13 AM, Damien Le Moal wrote:
+>> The DW SPI master of the Kendryte K210 RISC-V SoC uses the 32-bits
+>> ctrlr0 register format. This SoC is also quite slow and gets significant
+>> SD card performance improvements from using no-delay polled transfers.
+>> Add the dw_spi_k210_init() function tied to the
+>> "canaan,kendryte-k210-spi" compatible string to set the
+>> DW_SPI_CAP_DFS_32 and DW_SPI_CAP_POLL_NODELAY DW SPI capability fields
+>> for this SoC.
+>>
+>> Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
+>> ---
+>>  drivers/spi/spi-dw-mmio.c | 9 +++++++++
+>>  1 file changed, 9 insertions(+)
+>>
+>> diff --git a/drivers/spi/spi-dw-mmio.c b/drivers/spi/spi-dw-mmio.c
+>> index 3f1bc384cb45..a00def6c5b39 100644
+>> --- a/drivers/spi/spi-dw-mmio.c
+>> +++ b/drivers/spi/spi-dw-mmio.c
+>> @@ -223,6 +223,14 @@ static int dw_spi_keembay_init(struct platform_device *pdev,
+>>  	return 0;
+>>  }
+>>  
+>> +static int dw_spi_k210_init(struct platform_device *pdev,
+>> +			    struct dw_spi_mmio *dwsmmio)
+>> +{
+>> +	dwsmmio->dws.caps = DW_SPI_CAP_DFS_32 | DW_SPI_CAP_POLL_NODELAY;
 > 
-> Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
-> ---
->  include/dt-bindings/reset/k210-rst.h | 42 ++++++++++++++++++++++++++++
->  1 file changed, 42 insertions(+)
->  create mode 100644 include/dt-bindings/reset/k210-rst.h
+> Can't you do runtime detection of DFS_32 in probe?
+
+I think it is possible, but it was much easier this way given that it seems that
+only the K210 uses the DFS_32.
+
 > 
-> diff --git a/include/dt-bindings/reset/k210-rst.h b/include/dt-bindings/reset/k210-rst.h
-> new file mode 100644
-> index 000000000000..883c1aed50e8
-> --- /dev/null
-> +++ b/include/dt-bindings/reset/k210-rst.h
-> @@ -0,0 +1,42 @@
-> +/* SPDX-License-Identifier: GPL-2.0+ */
-> +/*
-> + * Copyright (C) 2019 Sean Anderson <seanga2@gmail.com>
-> + * Copyright (c) 2020 Western Digital Corporation or its affiliates.
-> + */
-> +#ifndef RESET_K210_SYSCTL_H
-> +#define RESET_K210_SYSCTL_H
-> +
-> +/*
-> + * Kendryte K210 SoC system controller K210_SYSCTL_SOFT_RESET register bits.
-> + * Taken from Kendryte SDK (kendryte-standalone-sdk).
-> + */
-> +#define K210_RST_ROM	0
-> +#define K210_RST_DMA	1
-> +#define K210_RST_AI	2
-> +#define K210_RST_DVP	3
-> +#define K210_RST_FFT	4
-> +#define K210_RST_GPIO	5
-> +#define K210_RST_SPI0	6
-> +#define K210_RST_SPI1	7
-> +#define K210_RST_SPI2	8
-> +#define K210_RST_SPI3	9
-> +#define K210_RST_I2S0	10
-> +#define K210_RST_I2S1	11
-> +#define K210_RST_I2S2	12
-> +#define K210_RST_I2C0	13
-> +#define K210_RST_I2C1	14
-> +#define K210_RST_I2C2	15
-> +#define K210_RST_UART1	16
-> +#define K210_RST_UART2	17
-> +#define K210_RST_UART3	18
-> +#define K210_RST_AES	19
-> +#define K210_RST_FPIOA	20
-> +#define K210_RST_TIMER0	21
-> +#define K210_RST_TIMER1	22
-> +#define K210_RST_TIMER2	23
-> +#define K210_RST_WDT0	24
-> +#define K210_RST_WDT1	25
-> +#define K210_RST_SHA	26
-> +#define K210_RST_RTC	29
-> +
-> +#endif /* RESET_K210_SYSCTL_H */
+> --Sean
+> 
+>> +
+>> +	return 0;
+>> +}
+>> +
+>>  static int dw_spi_mmio_probe(struct platform_device *pdev)
+>>  {
+>>  	int (*init_func)(struct platform_device *pdev,
+>> @@ -340,6 +348,7 @@ static const struct of_device_id dw_spi_mmio_of_match[] = {
+>>  	{ .compatible = "snps,dwc-ssi-1.01a", .data = dw_spi_dwc_ssi_init},
+>>  	{ .compatible = "intel,keembay-ssi", .data = dw_spi_keembay_init},
+>>  	{ .compatible = "microchip,sparx5-spi", dw_spi_mscc_sparx5_init},
+>> +	{ .compatible = "canaan,kendryte-k210-spi", .data = dw_spi_k210_init},
+>>  	{ /* end of table */}
+>>  };
+>>  MODULE_DEVICE_TABLE(of, dw_spi_mmio_of_match);
+>>
+> 
 > 
 
-Reviewed-by: Sean Anderson <seanga2@gmail.com>
+
+-- 
+Damien Le Moal
+Western Digital Research
 
 _______________________________________________
 linux-riscv mailing list
