@@ -2,23 +2,23 @@ Return-Path: <SRS0=cxKJ=EN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.2 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,UNWANTED_LANGUAGE_BODY,URIBL_BLOCKED,
+X-Spam-Status: No, score=-11.0 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	NICE_REPLY_A,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AC9AEC388F7
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 14:14:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7741CC388F9
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 14:14:23 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 59526206ED
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 14:14:16 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id EB471206ED
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 14:14:22 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="boVYzGCu";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="Bma4JUnI"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 59526206ED
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="eQBFV2hr";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="W+TUXzn4"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EB471206ED
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -27,54 +27,55 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:Subject:
 	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lT4C5B03anTxEHQSbhq4KUBbSS7hM/hbAC51IhiwPK4=; b=boVYzGCuza2LeY2VEtZ36fICVy
-	U6+61qqIfZS6kzUwIAAPCsfL11HLyJrqQmwGnqVxcDh3++IRVdnm4C3Yb2aLGR3R8DBc17VmrqnlR
-	JLDST/cgwleoMeL9h1qfb55v/5qH8WjFrw+U0clp+6kM6b7NpT8LjfXJ2CZhfQ0ArIqJcb0d8+szT
-	gO5ouYtv8cwjp3JJbQib7QAv1xBeGit5AvbmKFusJlF6ynpiXt3CbElI6Q8t2G0eFh8Nzm9B5Ej4P
-	nYLNFmdhrAWRvogCQQXUlrmOvqgNPMED4Hmfd6UV69HZTeK+O3VTTuPcYm6I0ECT19xiJVIO6V7aH
-	Xg32eiTw==;
+	bh=gftaA8gLjgL5Wb5udmav3NRsRl2x2CMyndJs3r6y04U=; b=eQBFV2hrkvJ4HF1oQtSowwUf32
+	jqw+yeYdtmqBXWE9aMKQLvhieM6dVciK7W7jaODTnj1miaGvnHYno3smgUxpV8wzwQasRKPv5cJNk
+	L2Iu1y6rozvXM6yNhLw0SUOaiQ0Va+ezhiz2FTx2wdchAuZT1cIi2dFAwB3XZLRh1Jf287iiW7sRg
+	CIBDehhJpEu+SEHzsnI2CMhK9pclmfKvG6KcIT12blqIO72Cdb0A1Zle6YMlq47k40JyyLTlN1Ob5
+	GDkJu6UznF/VlojFQ+wNpsXz2oTBZqTMzZ2dQe20ikalw1hZzGHGGjnHmmFmxWCeUXvo67r3yaAGi
+	mFJTIyFw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kbOyg-0007hq-1B; Sat, 07 Nov 2020 14:14:02 +0000
-Received: from mail-qk1-x741.google.com ([2607:f8b0:4864:20::741])
+	id 1kbOys-0007j4-Ht; Sat, 07 Nov 2020 14:14:14 +0000
+Received: from mail-qk1-x744.google.com ([2607:f8b0:4864:20::744])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kbOyd-0007hS-OQ
- for linux-riscv@lists.infradead.org; Sat, 07 Nov 2020 14:14:00 +0000
-Received: by mail-qk1-x741.google.com with SMTP id y197so3828359qkb.7
- for <linux-riscv@lists.infradead.org>; Sat, 07 Nov 2020 06:13:59 -0800 (PST)
+ id 1kbOyq-0007iZ-NT
+ for linux-riscv@lists.infradead.org; Sat, 07 Nov 2020 14:14:13 +0000
+Received: by mail-qk1-x744.google.com with SMTP id l2so3847176qkf.0
+ for <linux-riscv@lists.infradead.org>; Sat, 07 Nov 2020 06:14:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=subject:to:references:from:autocrypt:message-id:date:user-agent
  :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=NzYy1LtL05J+f3k4sc0Q/1hCUu7hluh0CcBU+0F4FaY=;
- b=Bma4JUnI3BnPsW2CBKW85yW9qxBF8unj29jVGCE6ADKEf4l4VmlY+n2MIxMbjstSDL
- UG8NOWbebGHK3LLKEjLFa1bXOqIshF0Yz4PfsM/zbMfy/JDXmyynRh9RR/rLF0j3CtQt
- XDE3Q3jHtdhyMOrU8Mh4VPfLj5dB7OuxAj9KWxfwH3iSqG0NMLZgJlmi+HJt0eMKy4kq
- P+F/zuhKNKNS+RW4BHLXPwpLf+YzgLGfYsTUt4IMeEx6H0IuPYn+Nxel719SQiOSOq22
- FI8BFPR/CGb7y5MQBRak/igTYmFvFUfzDPCR3xTVWHOZ/GvnYlkvpimE/jGSLD81u2Dl
- ejgg==
+ bh=huy21V7MYL1h8mNTjVglNCLXacqiA2jDdOlpzET7SZY=;
+ b=W+TUXzn4JFZ7SjhA3VmehlJys/1N9Q4Fl0oWDGPKVGGyqbkZRcMhUjAffBWUoVsJDr
+ y21lewDg9V+RLt8d7PdbW7UYSfN/4R7oaZ78DyI0qpkL1UJD5PL3rShuHqfTWTfLvbpv
+ D2L8Kq2b+uzFWlSPQcLp6pt4GqPUl0gKooaiu1F18d7/z5Qs7yAn3sEKMwrvcOjfNKYX
+ bmkY8Yb/DwMh1pG3INWBbjbfI9p+6Jveu8MWPnweQizKKH/2KPX4Og49n4AWda4tLqtY
+ uf+z4lTRhNdQyW4nRBOcSUMP0zPFT1K3MBcNILr3xzml4zqdVPMhBPX92zyoq+l3Rluz
+ QChg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:subject:to:references:from:autocrypt:message-id
  :date:user-agent:mime-version:in-reply-to:content-language
  :content-transfer-encoding;
- bh=NzYy1LtL05J+f3k4sc0Q/1hCUu7hluh0CcBU+0F4FaY=;
- b=PHgXwA3QeRZ1IRt4VF8o31MiPRFakp6W4aadyRaqkydLbKWJloJA+brfKeGjkIzzT9
- MhncZJVK5WYaGAQ2koFoRv6PbuSbdnsSAQpscCFDopljjYQnC/mesQuGUo1M7sfae/C6
- vn7PN1ltMce0B0nXIUszFO1mMBpmS52Tdo/BgHiSd+LpXyUSOirGzKm2tAEdB7kPmkw4
- ddoCswcH7od14BMH6z781jdl+pDN3dcffHm1FvT9SKDJBYljdFmAngMVEMSlsyS0Emid
- 5kCdedpej4BrBJtu/udJQyFIDdQ9jsKB7NFX7Y9tNiRMcNTWZyEsW9PUM/L+QAdOBwIZ
- MNmQ==
-X-Gm-Message-State: AOAM531EgmDeu8R5ItAJhf08+tCQg2RteUihA61PtUi7Ikt3mleeNuvf
- yJgF3gxljyKgGaVoxyN4BSA=
-X-Google-Smtp-Source: ABdhPJz+AedJ/98xlqSZ/v9w1xXSwYQXbW9OPgE1XUqILz6+TSYlOxij0s13ylUHsqUbhO+RJq4woA==
-X-Received: by 2002:a37:4692:: with SMTP id t140mr6363203qka.275.1604758438054; 
- Sat, 07 Nov 2020 06:13:58 -0800 (PST)
+ bh=huy21V7MYL1h8mNTjVglNCLXacqiA2jDdOlpzET7SZY=;
+ b=BDSiMmWCdry9t9GCcVxW02gPORGR6+jPRxjjEh9aq4uSSTUXFEtV1goxXYwq/P9d4A
+ TI3EGvy4AxQsaZAsg1S5BMkwY/j/fjk6pGqu/4dgrgaJmrIkrE/dhTiRGRfx/3UeKiyh
+ hD3ntm7+2lIWPUKdpPcFHWwC1nC/0wcIEP3OI+5Ysamt2/z1TYbF5pVTrXHcFwUgBrGN
+ D6cv4W81h+vpfJgiQKJDXmLQdARS0cUMW1aQ9N3MpRW56ORlynhPBFciKYB2hhWK3Vh0
+ jYBi18eFyAV2cvfqool1L3smpAyDR3g/PX56yHxWeMSGAleLcomRJpgzgIZALNu5qTEB
+ opYw==
+X-Gm-Message-State: AOAM531zAfdTNwrIdRdmvpVAkSPPqw4nHcbbz+Cw52ODqZACOVwl5LMq
+ 3nmf2VWxPLLsj/HFom0ih9s=
+X-Google-Smtp-Source: ABdhPJwgK8g0wFdIvBebNrysLwGx61Er8VYIwm4JMXIHy7i+mWrMKwPz3RPR9WS6/kMQFXxYpBQ4pg==
+X-Received: by 2002:a05:620a:14a5:: with SMTP id
+ x5mr5748542qkj.263.1604758451151; 
+ Sat, 07 Nov 2020 06:14:11 -0800 (PST)
 Received: from [192.168.1.201] (pool-108-51-35-162.washdc.fios.verizon.net.
  [108.51.35.162])
- by smtp.googlemail.com with ESMTPSA id x4sm2527358qtm.48.2020.11.07.06.13.57
+ by smtp.googlemail.com with ESMTPSA id n81sm2669280qke.99.2020.11.07.06.14.10
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Sat, 07 Nov 2020 06:13:57 -0800 (PST)
-Subject: Re: [PATCH 27/32] riscv: Add SiPeed MAIX BiT board device tree
+ Sat, 07 Nov 2020 06:14:10 -0800 (PST)
+Subject: Re: [PATCH 30/32] riscv: Add SiPeed MAIXDUINO board device tree
 To: Damien Le Moal <damien.lemoal@wdc.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
  Rob Herring <robh+dt@kernel.org>, Frank Rowand <frowand.list@gmail.com>,
@@ -84,7 +85,7 @@ To: Damien Le Moal <damien.lemoal@wdc.com>,
  Linus Walleij <linus.walleij@linaro.org>, linux-gpio@vger.kernel.org,
  Philipp Zabel <p.zabel@pengutronix.de>
 References: <20201107081420.60325-1-damien.lemoal@wdc.com>
- <20201107081420.60325-28-damien.lemoal@wdc.com>
+ <20201107081420.60325-31-damien.lemoal@wdc.com>
 From: Sean Anderson <seanga2@gmail.com>
 Autocrypt: addr=seanga2@gmail.com; prefer-encrypt=mutual; keydata=
  mQENBFe74PkBCACoLC5Zq2gwrDcCkr+EPGsT14bsxrW07GiYzQhLCgwnPdEpgU95pXltbFhw
@@ -100,16 +101,16 @@ Autocrypt: addr=seanga2@gmail.com; prefer-encrypt=mutual; keydata=
  N1ahpqqNmXe0uLdP0pu55JCqhrGw2SinkRMdWyhSxT56uNwIVHGhLTqH7Q4t1N6G1EH626qa
  SvIJsWlNpll6Y3AYLDw2/Spw/hqieS2PQ/Ky3rPZnvJt7/aSNYsKoFGX0yjkH67Uq8Lx0k1L
  w8jpXnbEPQN3A2ZJCbeM
-Message-ID: <a516b391-9cb9-8ab9-7735-d39faa94882f@gmail.com>
-Date: Sat, 7 Nov 2020 09:13:56 -0500
+Message-ID: <5043fecc-1723-7382-ac42-28aa8a7b3f18@gmail.com>
+Date: Sat, 7 Nov 2020 09:14:09 -0500
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
  Thunderbird/68.12.0
 MIME-Version: 1.0
-In-Reply-To: <20201107081420.60325-28-damien.lemoal@wdc.com>
+In-Reply-To: <20201107081420.60325-31-damien.lemoal@wdc.com>
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201107_091359_868711_3841C4AD 
-X-CRM114-Status: GOOD (  18.75  )
+X-CRM114-CacheID: sfid-20201107_091412_801548_DD86E70F 
+X-CRM114-Status: GOOD (  19.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -127,21 +128,23 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 11/7/20 3:14 AM, Damien Le Moal wrote:
-> Add a device tree for the SiPeed MAIX BiT and MAIX BiTm boards. This
-> device tree enables LEDs, gpio, i2c and spi/mmc SD card devices.
+> Add a device tree for the SiPeed MAIXDUINO board. This device tree
+> enables LEDs and spi/mmc SD card device. Additionally, gpios and i2c
+> are also enabled and mapped to the board header pins as indicated on
+> the board itself.
 > 
 > Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
 > ---
->  .../riscv/boot/dts/kendryte/k210_maix_bit.dts | 226 ++++++++++++++++++
->  1 file changed, 226 insertions(+)
->  create mode 100644 arch/riscv/boot/dts/kendryte/k210_maix_bit.dts
+>  .../boot/dts/kendryte/k210_maixduino.dts      | 203 ++++++++++++++++++
+>  1 file changed, 203 insertions(+)
+>  create mode 100644 arch/riscv/boot/dts/kendryte/k210_maixduino.dts
 > 
-> diff --git a/arch/riscv/boot/dts/kendryte/k210_maix_bit.dts b/arch/riscv/boot/dts/kendryte/k210_maix_bit.dts
+> diff --git a/arch/riscv/boot/dts/kendryte/k210_maixduino.dts b/arch/riscv/boot/dts/kendryte/k210_maixduino.dts
 > new file mode 100644
-> index 000000000000..fc814f7c1173
+> index 000000000000..78a37cf9df97
 > --- /dev/null
-> +++ b/arch/riscv/boot/dts/kendryte/k210_maix_bit.dts
-> @@ -0,0 +1,226 @@
+> +++ b/arch/riscv/boot/dts/kendryte/k210_maixduino.dts
+> @@ -0,0 +1,203 @@
 > +// SPDX-License-Identifier: GPL-2.0+
 > +/*
 > + * Copyright (C) 2019-20 Sean Anderson <seanga2@gmail.com>
@@ -156,29 +159,12 @@ On 11/7/20 3:14 AM, Damien Le Moal wrote:
 > +#include <dt-bindings/input/input.h>
 > +
 > +/ {
-> +	model = "SiPeed MAIX BiT";
-> +	compatible = "sipeed,maix-bitm", "sipeed,maix-bit",
-> +		     "kendryte,k210";
+> +	model = "SiPeed MAIXDUINO";
+> +	compatible = "sipeed,maixduino", "kendryte,k210";
 > +
 > +	chosen {
 > +		bootargs = "earlycon console=ttySIF0";
 > +		stdout-path = "serial0:115200n8";
-> +	};
-> +
-> +	gpio-leds {
-> +		compatible = "gpio-leds";
-> +
-> +		green {
-> +			gpios = <&gpio1_0 4 GPIO_ACTIVE_LOW>;
-> +		};
-> +
-> +		red {
-> +			gpios = <&gpio1_0 5 GPIO_ACTIVE_LOW>;
-> +		};
-> +
-> +		blue {
-> +			gpios = <&gpio1_0 6 GPIO_ACTIVE_LOW>;
-> +		};
 > +	};
 > +
 > +	gpio-keys {
@@ -213,51 +199,65 @@ On 11/7/20 3:14 AM, Damien Le Moal wrote:
 > +};
 > +
 > +&fpioa {
-> +	pinctrl-0 = <&fpioa_jtag>;
-> +	pinctrl-names = "default";
 > +	status = "okay";
 > +
-> +	fpioa_jtag: jtag {
-> +		pinmux = <K210_FPIOA(0, K210_PCF_JTAG_TCLK)>,
-> +			 <K210_FPIOA(1, K210_PCF_JTAG_TDI)>,
-> +			 <K210_FPIOA(2, K210_PCF_JTAG_TMS)>,
-> +			 <K210_FPIOA(3, K210_PCF_JTAG_TDO)>;
-> +	};
-> +
 > +	fpioa_uarths: uarths {
-> +		pinmux = <K210_FPIOA(4, K210_PCF_UARTHS_RX)>,
-> +			 <K210_FPIOA(5, K210_PCF_UARTHS_TX)>;
+> +		pinmux = <K210_FPIOA(4, K210_PCF_UARTHS_RX)>, /* Header "0" */
+> +			 <K210_FPIOA(5, K210_PCF_UARTHS_TX)>; /* Header "1" */
 > +	};
 > +
 > +	fpioa_gpio: gpio {
 > +		pinmux = <K210_FPIOA(8, K210_PCF_GPIO0)>,
-> +			 <K210_FPIOA(9, K210_PCF_GPIO1)>,
-> +			 <K210_FPIOA(10, K210_PCF_GPIO2)>,
-> +			 <K210_FPIOA(11, K210_PCF_GPIO3)>,
-> +			 <K210_FPIOA(12, K210_PCF_GPIO4)>,
-> +			 <K210_FPIOA(13, K210_PCF_GPIO5)>,
-> +			 <K210_FPIOA(14, K210_PCF_GPIO6)>,
-> +			 <K210_FPIOA(15, K210_PCF_GPIO7)>;
+> +			 <K210_FPIOA(9, K210_PCF_GPIO1)>;
 > +	};
 > +
 > +	fpioa_gpiohs: gpiohs {
-> +		pinmux = <K210_FPIOA(16, K210_PCF_GPIOHS0)>,
+> +		pinmux = <K210_FPIOA(16, K210_PCF_GPIOHS0)>,  /* BOOT */
 > +			 <K210_FPIOA(17, K210_PCF_GPIOHS1)>,
-> +			 <K210_FPIOA(21, K210_PCF_GPIOHS5)>,
-> +			 <K210_FPIOA(22, K210_PCF_GPIOHS6)>,
-> +			 <K210_FPIOA(23, K210_PCF_GPIOHS7)>,
-> +			 <K210_FPIOA(24, K210_PCF_GPIOHS8)>,
-> +			 <K210_FPIOA(25, K210_PCF_GPIOHS9)>,
-> +			 <K210_FPIOA(32, K210_PCF_GPIOHS16)>,
-> +			 <K210_FPIOA(33, K210_PCF_GPIOHS17)>,
-> +			 <K210_FPIOA(34, K210_PCF_GPIOHS18)>,
-> +			 <K210_FPIOA(35, K210_PCF_GPIOHS19)>;
+> +			 <K210_FPIOA(21, K210_PCF_GPIOHS2)>,  /* Header "2" */
+> +			 <K210_FPIOA(22, K210_PCF_GPIOHS3)>,  /* Header "3" */
+> +			 <K210_FPIOA(23, K210_PCF_GPIOHS4)>,  /* Header "4" */
+> +			 <K210_FPIOA(24, K210_PCF_GPIOHS5)>,  /* Header "5" */
+> +			 <K210_FPIOA(32, K210_PCF_GPIOHS6)>,  /* Header "6" */
+> +			 <K210_FPIOA(15, K210_PCF_GPIOHS7)>,  /* Header "7" */
+> +			 <K210_FPIOA(14, K210_PCF_GPIOHS8)>,  /* Header "8" */
+> +			 <K210_FPIOA(13, K210_PCF_GPIOHS9)>,  /* Header "9" */
+> +			 <K210_FPIOA(12, K210_PCF_GPIOHS10)>, /* Header "10" */
+> +			 <K210_FPIOA(11, K210_PCF_GPIOHS11)>, /* Header "11" */
+> +			 <K210_FPIOA(10, K210_PCF_GPIOHS12)>, /* Header "12" */
+> +			 <K210_FPIOA(3,  K210_PCF_GPIOHS13)>, /* Header "13" */
+> +			 <K210_FPIOA(25, K210_PCF_GPIOHS14)>;
 > +	};
 > +
 > +	fpioa_i2s0: i2s0 {
 > +		pinmux = <K210_FPIOA(18, K210_PCF_I2S0_SCLK)>,
 > +			 <K210_FPIOA(19, K210_PCF_I2S0_WS)>,
 > +			 <K210_FPIOA(20, K210_PCF_I2S0_IN_D0)>;
+> +	};
+> +
+> +	fpioa_spi1: spi1 {
+> +		pinmux = <K210_FPIOA(26, K210_PCF_SPI1_D1)>,
+> +			 <K210_FPIOA(27, K210_PCF_SPI1_SCLK)>,
+> +			 <K210_FPIOA(28, K210_PCF_SPI1_D0)>,
+> +			 <K210_FPIOA(29, K210_PCF_SPI1_SS0)>; /* cs */
+> +	};
+> +
+> +	fpioa_i2c1: i2c1 {
+> +		pinmux = <K210_FPIOA(30, K210_PCF_I2C1_SCLK)>, /* Header "scl" */
+> +			 <K210_FPIOA(31, K210_PCF_I2C1_SDA)>;  /* Header "sda" */
+> +	};
+> +
+> +	fpioa_i2s1: i2s1 {
+> +		pinmux = <K210_FPIOA(33, K210_PCF_I2S1_WS)>,
+> +			 <K210_FPIOA(34, K210_PCF_I2S1_IN_D0)>,
+> +			 <K210_FPIOA(35, K210_PCF_I2S1_SCLK)>;
+> +	};
+> +
+> +	fpioa_spi0: spi0 {
+> +		pinmux = <K210_FPIOA(36, K210_PCF_GPIOHS20)>,  /* cs */
+> +			 <K210_FPIOA(37, K210_PCF_GPIOHS21)>,  /* rst */
+> +			 <K210_FPIOA(38, K210_PCF_GPIOHS22)>,  /* dc */
+> +			 <K210_FPIOA(39, K210_PCF_SPI0_SCLK)>; /* wr */
 > +	};
 > +
 > +	fpioa_dvp: dvp {
@@ -269,25 +269,6 @@ On 11/7/20 3:14 AM, Damien Le Moal wrote:
 > +			 <K210_FPIOA(45, K210_PCF_DVP_HSYNC)>,
 > +			 <K210_FPIOA(46, K210_PCF_DVP_XCLK)>,
 > +			 <K210_FPIOA(47, K210_PCF_DVP_PCLK)>;
-> +	};
-> +
-> +	fpioa_spi0: spi0 {
-> +		pinmux = <K210_FPIOA(36, K210_PCF_GPIOHS20)>,  /* cs */
-> +			 <K210_FPIOA(37, K210_PCF_GPIOHS21)>,  /* rst */
-> +			 <K210_FPIOA(38, K210_PCF_GPIOHS22)>,  /* dc */
-> +			 <K210_FPIOA(39, K210_PCF_SPI0_SCLK)>; /* wr */
-> +	};
-> +
-> +	fpioa_spi1: spi1 {
-> +		pinmux = <K210_FPIOA(26, K210_PCF_SPI1_D1)>,
-> +			 <K210_FPIOA(27, K210_PCF_SPI1_SCLK)>,
-> +			 <K210_FPIOA(28, K210_PCF_SPI1_D0)>,
-> +			 <K210_FPIOA(29, K210_PCF_SPI1_SS0)>; /* cs */
-> +	};
-> +
-> +	fpioa_i2c1: i2c1 {
-> +		pinmux = <K210_FPIOA(30, K210_PCF_I2C1_SCLK)>,
-> +			 <K210_FPIOA(31, K210_PCF_I2C1_SDA)>;
 > +	};
 > +};
 > +
@@ -339,7 +320,6 @@ On 11/7/20 3:14 AM, Damien Le Moal wrote:
 > +		reset-gpios = <&gpio0 21 GPIO_ACTIVE_LOW>;
 > +		dc-gpios = <&gpio0 22 0>;
 > +		spi-max-frequency = <15000000>;
-> +		status = "disabled";
 > +	};
 > +};
 > +
