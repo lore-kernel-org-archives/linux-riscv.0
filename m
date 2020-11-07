@@ -8,17 +8,17 @@ X-Spam-Status: No, score=-11.0 required=3.0 tests=BAYES_00,
 	NICE_REPLY_A,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 84C56C388F7
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 13:34:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B9715C388F7
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 13:34:37 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 36B78206ED
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 13:34:19 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6F351206ED
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 13:34:37 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="je17/fff";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="P4ZZvfCj"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 36B78206ED
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="NgExj76n";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="OmorHa1p"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6F351206ED
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -27,55 +27,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:Subject:
 	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z94xOnt7UDjV3vjXcKQfI2sMxTqjHldoaa4EFhMA/to=; b=je17/fff2AbFVT9OiELrJ86Da6
-	iJc5UT51cELD8MeCC77jMQAXuB5jY3F+IPTarrF7JJ16xaTBFwKj6ZDn4lAPaGQ0rPHOSe88LXG/Q
-	V7eT7X9kqjvvmZRvW5s3fOmj3fdPMv00VqmoL8TBN1Necoai8wC2QNfpXLHS4lknv8pHIY/AEX2BI
-	kPRoDmUvlaz4v8oqLUpiCnPMDR7T5gWpPf4cFECWFZnhDxWWRk2N2aevugFfe/QAVnpXdpMdbgYaX
-	ugzlexLMSGxRxQvgCro7KO4a13S3fNpK+7CSD/vdIR9UQ5CfY+/s+LYsMGrRikZmwlb0EBouwrkc2
-	PIcGoGqA==;
+	bh=vIpdbMXTOalO57LUhSo+mJ3iGDY4CnyWYybTDM/N3Qg=; b=NgExj76nH5SZLkIUAU3dIrC7bo
+	eGe3fLLC/SMCsP9mvzS6uLNGnLGBnwjuI1NlpsOWjFEfDpaUAMjwmuSYwh+PD+5S1p9SThHIzOMTL
+	Ihu1hqfyFWcyCxLnaGEe1ULo5WFCHUpt8xfMT9pK1OItWROeBH67WLSBKNKPvJuZqA36CcvlFcNch
+	WcRng2vnNqikqOBTo1YN7+gW9Yp+iZsHgLSf2dlC7TWQAwQn02SvlvkoG1Tb62oqbVFxmNHMHI2zZ
+	JaT92WsR6SGro9huOLLrYi851/l6BBrFCdKUYWdqx7ElX1ba3cYuCWjtB04mjENekM263xQhqWtvd
+	NkQ7Od4w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kbOM1-0003pp-PX; Sat, 07 Nov 2020 13:34:05 +0000
-Received: from mail-qk1-x744.google.com ([2607:f8b0:4864:20::744])
+	id 1kbOMJ-0003sN-7W; Sat, 07 Nov 2020 13:34:23 +0000
+Received: from mail-qv1-xf43.google.com ([2607:f8b0:4864:20::f43])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kbOLy-0003pI-LT
- for linux-riscv@lists.infradead.org; Sat, 07 Nov 2020 13:34:03 +0000
-Received: by mail-qk1-x744.google.com with SMTP id h15so3739187qkl.13
- for <linux-riscv@lists.infradead.org>; Sat, 07 Nov 2020 05:34:02 -0800 (PST)
+ id 1kbOMG-0003rW-PU
+ for linux-riscv@lists.infradead.org; Sat, 07 Nov 2020 13:34:21 +0000
+Received: by mail-qv1-xf43.google.com with SMTP id 13so1819423qvr.5
+ for <linux-riscv@lists.infradead.org>; Sat, 07 Nov 2020 05:34:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=subject:to:references:from:autocrypt:message-id:date:user-agent
  :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=cgygmZxcrPCaXUcxy5sWPsLyE59i3yYRAYjJcbg36cg=;
- b=P4ZZvfCj5FfPAh6P+CzmqyCBwg6kbvlcDf/0KQYIUFmcCoH96dUrKTT9dgPaa8nXr+
- QZuqlPuK6WemrdAczvusuEXIsqEROhVM2y10wIvvXxt1Rp+l1qjM/ASmi2AvNlByOXsW
- X1KY945fhjFilMlibsrAaEPpVwf4P3p4fQOR8yBeM6J2+oNZxdiuqrctY87LpW+8H98I
- wdoh5hu1AmpOIG0jv91TVqL01JvePdyuSoC1MI0LWKtsWN33orcp41VG0LpmCOibjAKF
- laErLeWQQ3UNyVHA5bEteRFTTWpm0CKnAoY3cZ+iHfvtYBz7pA0rKtGuTIc7YARaT2uT
- HpLg==
+ bh=44ZrDKfH3x7ZWkU/9cqJtBpMieXFvYfttGTFzMae91Y=;
+ b=OmorHa1pXiHiyQxGplOwQtnzxGiWgKgTCwHvH5vfY0F7IuYfik5JlUEyg4Zp+NGMBM
+ sk68SwanQsEpg2n2OXw2114orITDj2nJ2JCf/LmRs6BydxxIuTFZCveOYG5Z39N96sL/
+ at+bD+9lSBUQtl7/Czl6HTbh5X6T4LmvG7TCj+91U6m7PV4Lf7iNS6jzil/HPxJtHE9d
+ UrpR/IuJPXZ4MowAP2QuFhpSnmIi2s76g355owIAd1pQ9pDdSDUL6c4DXBZYs7BC7ybI
+ 5X3cweZXxpwy3Xt/22LZJoboEsGnoDoVZ8gZEiSyyb8X86YcSqFK/cGqgr6WcXugPyDL
+ khkA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:subject:to:references:from:autocrypt:message-id
  :date:user-agent:mime-version:in-reply-to:content-language
  :content-transfer-encoding;
- bh=cgygmZxcrPCaXUcxy5sWPsLyE59i3yYRAYjJcbg36cg=;
- b=lECGjT9pfQbpZ6mqadKcLmm+jS8E29n+TY8RGVBc1ATyeGWgU0xNQLbjCjZS/olReH
- xQNrlU8BZeU2+GKyMNmQNP4h42Iqg2XsUrMuf8gpoBJn3dv9BAYsVeVkFgm2kPrYHjlU
- pxm0Ak6jyOj1j/1l3nX6FGjwjJzjmylh9dsCRSSNZFYJhjd6HkroLvniB19rSTJSBuWY
- /11HUmoGHKT/IeqnwwFV0JG23emZq66aD7XgOHY5u48oK+aZxD+BJcW6g22JksoxlYlm
- wyPUz1WQ40FUJVTIptgKU9XZ4iAoRoT6+pyvlP1A7wiEPq17V3CfNaC3qmRZmbD1mnw9
- ITYQ==
-X-Gm-Message-State: AOAM533kz51WI+Hw294YkMRTxazLyayIMGWkmU2SDDLvkEsvx+C4jIqD
- eYwuHCyfvIHM2WRdd8ncESc=
-X-Google-Smtp-Source: ABdhPJwWwStW9USc+7zEAiO3Ay8nV6LTJWVF1ojxBwaVaHGmQZV7m9sY6fFc75YFBHI4sY/TBgF16w==
-X-Received: by 2002:a05:620a:1276:: with SMTP id
- b22mr552113qkl.256.1604756041288; 
- Sat, 07 Nov 2020 05:34:01 -0800 (PST)
+ bh=44ZrDKfH3x7ZWkU/9cqJtBpMieXFvYfttGTFzMae91Y=;
+ b=V1T99hSjxkkAw42r8kCTqrTdeOlkXaoWziCIPsC58bzdawsEaN0RdRan5beo3ZTw7e
+ 4noLVye8v5kMKlLQZY1qqQqX5o5YegzBnuS3FnQgodCOkx1tp+bW/oSa9D5E/dMEdc59
+ 9KbJPMV5RaqRSyXJwdW8eR0FzUkqHXeRXJu7Cw9ZtD7dBR4Ug7q8nn45iXuaUuUk4Q2a
+ NP1apsKG14oYO6n/+0WKqYB8YAiFoV9muh0TbQsFkjCEbC7lPRrzNPEsffy9SIpoEc7z
+ nwTaP8UgAKuugO1un7bsL4uX2E/nklx2PTxmWhoiTitkzZ9Hhuay5GD+04pAnLsO02WS
+ VciA==
+X-Gm-Message-State: AOAM530dukKgnQnJKyuSgPxCtGsbZfPNDGcEnMLeNBMliHERXIDOpDS8
+ zArpcM1vI02D5sfv+oUEhcc=
+X-Google-Smtp-Source: ABdhPJx4/Iu1kjdK7aNO5xPmFgJDKkeSY6ycB+bhid2xfRsbEvur41S7FP9EbPhN2X1JGHjYDjv9EQ==
+X-Received: by 2002:a0c:fa50:: with SMTP id k16mr6129700qvo.41.1604756059104; 
+ Sat, 07 Nov 2020 05:34:19 -0800 (PST)
 Received: from [192.168.1.201] (pool-108-51-35-162.washdc.fios.verizon.net.
  [108.51.35.162])
- by smtp.googlemail.com with ESMTPSA id k11sm2480644qtu.45.2020.11.07.05.34.00
+ by smtp.googlemail.com with ESMTPSA id z2sm2588780qkg.76.2020.11.07.05.34.18
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Sat, 07 Nov 2020 05:34:00 -0800 (PST)
-Subject: Re: [PATCH 14/32] dt-bindings: Define all Kendryte K210 clock IDs
+ Sat, 07 Nov 2020 05:34:18 -0800 (PST)
+Subject: Re: [PATCH 15/32] dt-bindings: Define Kendryte K210 sysctl registers
 To: Damien Le Moal <damien.lemoal@wdc.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
  Rob Herring <robh+dt@kernel.org>, Frank Rowand <frowand.list@gmail.com>,
@@ -85,7 +84,7 @@ To: Damien Le Moal <damien.lemoal@wdc.com>,
  Linus Walleij <linus.walleij@linaro.org>, linux-gpio@vger.kernel.org,
  Philipp Zabel <p.zabel@pengutronix.de>
 References: <20201107081420.60325-1-damien.lemoal@wdc.com>
- <20201107081420.60325-15-damien.lemoal@wdc.com>
+ <20201107081420.60325-16-damien.lemoal@wdc.com>
 From: Sean Anderson <seanga2@gmail.com>
 Autocrypt: addr=seanga2@gmail.com; prefer-encrypt=mutual; keydata=
  mQENBFe74PkBCACoLC5Zq2gwrDcCkr+EPGsT14bsxrW07GiYzQhLCgwnPdEpgU95pXltbFhw
@@ -101,16 +100,16 @@ Autocrypt: addr=seanga2@gmail.com; prefer-encrypt=mutual; keydata=
  N1ahpqqNmXe0uLdP0pu55JCqhrGw2SinkRMdWyhSxT56uNwIVHGhLTqH7Q4t1N6G1EH626qa
  SvIJsWlNpll6Y3AYLDw2/Spw/hqieS2PQ/Ky3rPZnvJt7/aSNYsKoFGX0yjkH67Uq8Lx0k1L
  w8jpXnbEPQN3A2ZJCbeM
-Message-ID: <af85a79d-547f-b948-440c-756456576706@gmail.com>
-Date: Sat, 7 Nov 2020 08:33:59 -0500
+Message-ID: <7d8a869c-df9e-7a26-4049-8de543dabe33@gmail.com>
+Date: Sat, 7 Nov 2020 08:34:17 -0500
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
  Thunderbird/68.12.0
 MIME-Version: 1.0
-In-Reply-To: <20201107081420.60325-15-damien.lemoal@wdc.com>
+In-Reply-To: <20201107081420.60325-16-damien.lemoal@wdc.com>
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201107_083402_762324_BC918686 
-X-CRM114-Status: GOOD (  17.69  )
+X-CRM114-CacheID: sfid-20201107_083420_863328_9DCE0630 
+X-CRM114-Status: GOOD (  19.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -128,87 +127,62 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 11/7/20 3:14 AM, Damien Le Moal wrote:
-> Define unique arbitrary IDs for all 44 clocks available on the Kendryte
-> K210 RISC-V SoC in the header file include/dt-bindings/clock/k210-clk.h.
+> Introduce the dt-bindings file include/dt-bindings/mfd/k210_sysctl.h to
+> define the offset of all registers of the K210 system controller.
 > 
 > Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
 > ---
->  include/dt-bindings/clock/k210-clk.h | 61 +++++++++++++++++++++++-----
->  1 file changed, 50 insertions(+), 11 deletions(-)
+>  include/dt-bindings/mfd/k210-sysctl.h | 41 +++++++++++++++++++++++++++
+>  1 file changed, 41 insertions(+)
+>  create mode 100644 include/dt-bindings/mfd/k210-sysctl.h
 > 
-> diff --git a/include/dt-bindings/clock/k210-clk.h b/include/dt-bindings/clock/k210-clk.h
-> index 5a2fd64d1a49..8d7ab2f0737c 100644
-> --- a/include/dt-bindings/clock/k210-clk.h
-> +++ b/include/dt-bindings/clock/k210-clk.h
-> @@ -3,18 +3,57 @@
->   * Copyright (C) 2019-20 Sean Anderson <seanga2@gmail.com>
->   * Copyright (c) 2020 Western Digital Corporation or its affiliates.
->   */
-> -#ifndef K210_CLK_H
-> -#define K210_CLK_H
-> +#ifndef CLOCK_K210_CLK_H
-> +#define CLOCK_K210_CLK_H
->  
->  /*
-> - * Arbitrary identifiers for clocks.
-> - * The structure is: in0 -> pll0 -> aclk -> cpu
-> - *
-> - * Since we use the hardware defaults for now, set all these to the same clock.
-> + * Kendryte K210 SoC clock identifiers (arbitrary values).
->   */
-> -#define K210_CLK_PLL0   0
-> -#define K210_CLK_PLL1   0
-> -#define K210_CLK_ACLK   0
-> -#define K210_CLK_CPU    0
-> +#define K210_CLK_IN0	0
-> +#define K210_CLK_PLL0	1
-> +#define K210_CLK_PLL1	2
-> +#define K210_CLK_PLL2	3
-> +#define K210_CLK_ACLK	4
-> +#define K210_CLK_CPU	5
-> +#define K210_CLK_CLINT	6
-> +#define K210_CLK_DMA	7
-> +#define K210_CLK_FFT	8
-> +#define K210_CLK_SRAM0	9
-> +#define K210_CLK_SRAM1	10
-> +#define K210_CLK_ROM	11
-> +#define K210_CLK_DVP	12
-> +#define K210_CLK_APB0	13
-> +#define K210_CLK_APB1	14
-> +#define K210_CLK_APB2	15
-> +#define K210_CLK_AI	16
-> +#define K210_CLK_I2S0	17
-> +#define K210_CLK_I2S1	18
-> +#define K210_CLK_I2S2	19
-> +#define K210_CLK_I2S0_M	20
-> +#define K210_CLK_I2S1_M	21
-> +#define K210_CLK_I2S2_M	22
-> +#define K210_CLK_WDT0	23
-> +#define K210_CLK_WDT1	24
-> +#define K210_CLK_SPI0	25
-> +#define K210_CLK_SPI1	26
-> +#define K210_CLK_SPI2	27
-> +#define K210_CLK_I2C0	28
-> +#define K210_CLK_I2C1	29
-> +#define K210_CLK_I2C2	30
-> +#define K210_CLK_SPI3	31
-> +#define K210_CLK_TIMER0	32
-> +#define K210_CLK_TIMER1	33
-> +#define K210_CLK_TIMER2	34
-> +#define K210_CLK_GPIO	35
-> +#define K210_CLK_UART1	36
-> +#define K210_CLK_UART2	37
-> +#define K210_CLK_UART3	38
-> +#define K210_CLK_FPIOA	39
-> +#define K210_CLK_SHA	40
-> +#define K210_CLK_AES	41
-> +#define K210_CLK_OTP	42
-> +#define K210_CLK_RTC	43
->  
-> -#endif /* K210_CLK_H */
-> +#define K210_NUM_CLKS	44
+> diff --git a/include/dt-bindings/mfd/k210-sysctl.h b/include/dt-bindings/mfd/k210-sysctl.h
+> new file mode 100644
+> index 000000000000..5cc386d3c9ca
+> --- /dev/null
+> +++ b/include/dt-bindings/mfd/k210-sysctl.h
+> @@ -0,0 +1,41 @@
+> +/* SPDX-License-Identifier: GPL-2.0+ */
+> +/*
+> + * Copyright (C) 2020 Sean Anderson <seanga2@gmail.com>
+> + * Copyright (c) 2020 Western Digital Corporation or its affiliates.
+> + */
+> +#ifndef MFD_K210_SYSCTL_H
+> +#define MFD_K210_SYSCTL_H
 > +
-> +#endif /* CLOCK_K210_CLK_H */
+> +/*
+> + * Kendryte K210 SoC system controller registers offsets.
+> + * Taken from Kendryte SDK (kendryte-standalone-sdk).
+> + */
+> +#define K210_SYSCTL_GIT_ID	0x00 /* Git short commit id */
+> +#define K210_SYSCTL_UART_BAUD	0x04 /* Default UARTHS baud rate */
+> +#define K210_SYSCTL_PLL0	0x08 /* PLL0 controller */
+> +#define K210_SYSCTL_PLL1	0x0C /* PLL1 controller */
+> +#define K210_SYSCTL_PLL2	0x10 /* PLL2 controller */
+> +#define K210_SYSCTL_PLL_LOCK	0x18 /* PLL lock tester */
+> +#define K210_SYSCTL_ROM_ERROR	0x1C /* AXI ROM detector */
+> +#define K210_SYSCTL_SEL0	0x20 /* Clock select controller 0 */
+> +#define K210_SYSCTL_SEL1	0x24 /* Clock select controller 1 */
+> +#define K210_SYSCTL_EN_CENT	0x28 /* Central clock enable */
+> +#define K210_SYSCTL_EN_PERI	0x2C /* Peripheral clock enable */
+> +#define K210_SYSCTL_SOFT_RESET	0x30 /* Soft reset ctrl */
+> +#define K210_SYSCTL_PERI_RESET	0x34 /* Peripheral reset controller */
+> +#define K210_SYSCTL_THR0	0x38 /* Clock threshold controller 0 */
+> +#define K210_SYSCTL_THR1	0x3C /* Clock threshold controller 1 */
+> +#define K210_SYSCTL_THR2	0x40 /* Clock threshold controller 2 */
+> +#define K210_SYSCTL_THR3	0x44 /* Clock threshold controller 3 */
+> +#define K210_SYSCTL_THR4	0x48 /* Clock threshold controller 4 */
+> +#define K210_SYSCTL_THR5	0x4C /* Clock threshold controller 5 */
+> +#define K210_SYSCTL_THR6	0x50 /* Clock threshold controller 6 */
+> +#define K210_SYSCTL_MISC	0x54 /* Miscellaneous controller */
+> +#define K210_SYSCTL_PERI	0x58 /* Peripheral controller */
+> +#define K210_SYSCTL_SPI_SLEEP	0x5C /* SPI sleep controller */
+> +#define K210_SYSCTL_RESET_STAT	0x60 /* Reset source status */
+> +#define K210_SYSCTL_DMA_SEL0	0x64 /* DMA handshake selector 0 */
+> +#define K210_SYSCTL_DMA_SEL1	0x68 /* DMA handshake selector 1 */
+> +#define K210_SYSCTL_POWER_SEL	0x6C /* IO Power Mode Select controller */
+> +
+> +#endif /* MFD_K210_SYSCTL_H */
 > 
 
 Reviewed-by: Sean Anderson <seanga2@gmail.com>
