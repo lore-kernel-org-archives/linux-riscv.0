@@ -8,17 +8,17 @@ X-Spam-Status: No, score=-11.0 required=3.0 tests=BAYES_00,
 	NICE_REPLY_A,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B1E8AC388F7
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 14:07:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3540DC388F7
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 14:08:41 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 64807206ED
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 14:07:20 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C4C7B206ED
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 14:08:40 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="I6GiwVqR";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="GvbE4rS6"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 64807206ED
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ns/NZAxd";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="Fe6bdBnh"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C4C7B206ED
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -27,55 +27,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:Subject:
 	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K93Hd47CAWHyTCnn2fOypiHscK4A9h3ev6XrZvSzASA=; b=I6GiwVqReiDFLXgfjdofTBsdrJ
-	/FN1kKdnyEQvmmytpwULDeAzTs1X7y7CkenxbdwONG20Rwy34HgefnPvb3suX9zsYtLcYMSe2e+KG
-	vw5STEW1Xx2qT44Ix/HJP1JlL/8Z6LN1UqLrwpqa5L74j3Lb46XDYhz5K1q3U+73R5o5zDskyHCQG
-	fq3CG2a17NyXmuWWO1q8bPHk7K+BiROej5EFSkrz1HM+VSmjnZ/hUtSyz+GWjH7zeBwvi+mZsK4jh
-	nTSkMFC/3duOK05JKmOOAhWfqAEyxHkdknE9we86wBq6zwft79UzKlUKZ2EVmXzq7ULZmBcHZxjH/
-	Kzr//V7A==;
+	bh=DlPTqgVgG0nLYM//5sdJPWnlgzZiVScUeQjKAKVLqGQ=; b=ns/NZAxdW6p9/ZocM45NeK+8OR
+	gvEaqQTDHYsJlj0/VimBnyfhc69RehIeOW6OEoUDO7i83fM0+0deBAp0RC+7DdE8MSvQC1MUhaBeg
+	MwjeNaOuS5Tj86XRlfVv/thWCY17DG3DwqdvsQuPImbTTpaspbzH7YXP6f5jnmDPdaFi1MpvUII0K
+	P3PIEphCI0Xiv27C8jEKquRNhIzQ7sBk8iI3YwYLcchlxf0OvgznQ0qDNHIzMN7hofdX9Flcrs/AE
+	gzzzRgc6/KoDolS+NATYecQaukrTbBBUAruIRXf0OHPcYP+eW0gIi0bA0l1RtjbhswmTslhjtw1wb
+	/Ux2vq5Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kbOs3-00078l-4j; Sat, 07 Nov 2020 14:07:11 +0000
-Received: from mail-qv1-xf41.google.com ([2607:f8b0:4864:20::f41])
+	id 1kbOtK-0007Ii-73; Sat, 07 Nov 2020 14:08:30 +0000
+Received: from mail-qk1-x744.google.com ([2607:f8b0:4864:20::744])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kbOs0-00077S-K9
- for linux-riscv@lists.infradead.org; Sat, 07 Nov 2020 14:07:09 +0000
-Received: by mail-qv1-xf41.google.com with SMTP id r12so1836749qvq.13
- for <linux-riscv@lists.infradead.org>; Sat, 07 Nov 2020 06:07:08 -0800 (PST)
+ id 1kbOtH-0007IJ-24
+ for linux-riscv@lists.infradead.org; Sat, 07 Nov 2020 14:08:28 +0000
+Received: by mail-qk1-x744.google.com with SMTP id 140so3829883qko.2
+ for <linux-riscv@lists.infradead.org>; Sat, 07 Nov 2020 06:08:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=subject:to:references:from:autocrypt:message-id:date:user-agent
  :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=zKB3lPGWxBL2tP2yoSCPfZH1/fL4oEaD+x4JT1cAitc=;
- b=GvbE4rS6hdLnccBvenC6mkNNZyeG9nPJPltPAGuQiVCBNDeAoTxt6nnVHK/NRq6+f2
- 2Zi422zgUgcHnk8gchYtUyY4qdfyKB76d0jbmCMTiAIksEreGl4iJbne2D+NQk5RNW0r
- 7MZxLiHYSyYowe/QEApVF6qxwm43arfPX/Ici/jEWfrRjIrADSgqyRgq77WUojUdSziT
- FzFyYII5XBKrpSi9TlulQPPJJp97mxSGhIuH3nWrwvKvvzQzAETyTy0Sll3T/1kFB0eo
- dTrCSJEiJchZsmPkCOcNNAeFegu51eSuYxOc+plhvysGgfLsG4jumomc818tszgAi6/z
- a3Kw==
+ bh=WG+muzJbP0N3XdTsrETDIu8IGQMsG1gmly9lOsm4JcM=;
+ b=Fe6bdBnho3sAJwQ1/aQ6Wl9wQko9fu74RTpBMfft71Ar+EinPf1Up7ubiOloQs21HF
+ u3CRlaDFYoJ6PIQUALKlEoMGduxEi8w731zUX5mJnzbiuqjAib835m78F++HUtrvd6Yk
+ iv3vSD1ZumoWRy0Jqn5n6UXZpDmRi3jR9oWBkGXEuX9agfUyhpI0AHk8b4C6UjCxGCZi
+ WaIHtC/F+JlCRGqn54URVi3/msLzTw35XWPaxx3vbbHXtcE109LqIt0STDlO7JWdyewv
+ KIhX0Ez+foHspsr0bLm/a7tBkMiJ+4u/yb/EAUKzdJuCFe+x+LaygY8/LC5aSlzYb+2X
+ Rb8g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:subject:to:references:from:autocrypt:message-id
  :date:user-agent:mime-version:in-reply-to:content-language
  :content-transfer-encoding;
- bh=zKB3lPGWxBL2tP2yoSCPfZH1/fL4oEaD+x4JT1cAitc=;
- b=m5kJP5vZXqsJ9dqGjJ/L6kAB8IholFZ56i9TfPJoi2DjtzH7+NUtRCdq0NIRRkfTmc
- lVeZOM36tBeimeIYMlny17W02qGRViAxYdX135Xjp9Kfs1jKqVnSc2EmPKbbG2/zXTVA
- NcbK6uw92WGHy6QpeWIoAZC3tzY4KwCqzKPEKwGEapigtzkyaRfQUJzsQNaNJnz9X7cd
- VWNfT8oIZb2FZm+1Z7/0/GbDOZHSGzlrAAfnLlqENvuFRedGzFzxZi7bQMLT35L0RBK9
- IEYjpRjStCj5LdIZoKOoN8RQTCHcrb/e9k6EhaZtM55oNTd38kd5KSaGLiyH6lDfN8WN
- eh7Q==
-X-Gm-Message-State: AOAM532tRHO4p83ND0T8fb9c9+zn8oy9CZFKIMOt5bQ7cI1Kmw5z6+of
- dkipEhO1zDZNLZXfySw0cVg=
-X-Google-Smtp-Source: ABdhPJx4ic66oyZsOa3eGQaRgTAbe1052WlMHm2rDsfiwbC/4I2NWKXpxlJXNQQtpT9yE9uEzU4Xpw==
-X-Received: by 2002:a05:6214:174f:: with SMTP id
- dc15mr6062408qvb.26.1604758027246; 
- Sat, 07 Nov 2020 06:07:07 -0800 (PST)
+ bh=WG+muzJbP0N3XdTsrETDIu8IGQMsG1gmly9lOsm4JcM=;
+ b=pWNb7sYwhv2r3hItlNXHsnPdh5mFM471FRkm41WCQXnP9f3c+Chj7+Awuv9jDef/1y
+ 92WcY9ienTESbpQbbtwApyjMuqQJTXeXxyAQI/fqryFfQi3OSARrF6xEn1wQcP8RR2sH
+ /UubDdX8X65Dnidov0zad/Fu35KQwOavjqu8YBFAiUrV2NYSEgnmDOUMdddnVp0BQH4H
+ lGHOXQOUqlotnAikq6h7flMf9ABFcK89cCjFfts8xB0KwJpQ/dil3ghG0uQB4WWZ23Nf
+ S5mZmtTvfC6M7T5Pyn3RNSErJdjWeeBhkk4XrtYo5mHYpa6OBNjuuDUsbCCF89J5O9Kc
+ 0erg==
+X-Gm-Message-State: AOAM531sQtIl/GssdLC2aV0rvOIjMWu0hfPD5sZSKzKQ4zZWs5ahNLw5
+ viv3ooDisG/20bgJzPQHbG0=
+X-Google-Smtp-Source: ABdhPJxvHFzVYMpguyUGnvBMXkdnWolU7hkJFGBGvKT5i2+Lc7ODWE0zo2x803GjynPJRrzixk6NCA==
+X-Received: by 2002:a37:a5d5:: with SMTP id o204mr4425474qke.112.1604758105298; 
+ Sat, 07 Nov 2020 06:08:25 -0800 (PST)
 Received: from [192.168.1.201] (pool-108-51-35-162.washdc.fios.verizon.net.
  [108.51.35.162])
- by smtp.googlemail.com with ESMTPSA id 8sm2669070qkb.98.2020.11.07.06.07.06
+ by smtp.googlemail.com with ESMTPSA id s17sm2548147qkg.67.2020.11.07.06.08.24
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Sat, 07 Nov 2020 06:07:06 -0800 (PST)
-Subject: Re: [PATCH 25/32] dt-bindings: Document kendryte,k210-rst bindings
+ Sat, 07 Nov 2020 06:08:24 -0800 (PST)
+Subject: Re: [PATCH 26/32] riscv: Update Kendryte K210 device tree
 To: Damien Le Moal <damien.lemoal@wdc.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
  Rob Herring <robh+dt@kernel.org>, Frank Rowand <frowand.list@gmail.com>,
@@ -85,7 +84,7 @@ To: Damien Le Moal <damien.lemoal@wdc.com>,
  Linus Walleij <linus.walleij@linaro.org>, linux-gpio@vger.kernel.org,
  Philipp Zabel <p.zabel@pengutronix.de>
 References: <20201107081420.60325-1-damien.lemoal@wdc.com>
- <20201107081420.60325-26-damien.lemoal@wdc.com>
+ <20201107081420.60325-27-damien.lemoal@wdc.com>
 From: Sean Anderson <seanga2@gmail.com>
 Autocrypt: addr=seanga2@gmail.com; prefer-encrypt=mutual; keydata=
  mQENBFe74PkBCACoLC5Zq2gwrDcCkr+EPGsT14bsxrW07GiYzQhLCgwnPdEpgU95pXltbFhw
@@ -101,16 +100,16 @@ Autocrypt: addr=seanga2@gmail.com; prefer-encrypt=mutual; keydata=
  N1ahpqqNmXe0uLdP0pu55JCqhrGw2SinkRMdWyhSxT56uNwIVHGhLTqH7Q4t1N6G1EH626qa
  SvIJsWlNpll6Y3AYLDw2/Spw/hqieS2PQ/Ky3rPZnvJt7/aSNYsKoFGX0yjkH67Uq8Lx0k1L
  w8jpXnbEPQN3A2ZJCbeM
-Message-ID: <b37c9b72-dc96-6ae9-a94e-457a96a1809c@gmail.com>
-Date: Sat, 7 Nov 2020 09:07:06 -0500
+Message-ID: <7563c77e-a7ab-521c-009b-bdd45a0d6207@gmail.com>
+Date: Sat, 7 Nov 2020 09:08:23 -0500
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
  Thunderbird/68.12.0
 MIME-Version: 1.0
-In-Reply-To: <20201107081420.60325-26-damien.lemoal@wdc.com>
+In-Reply-To: <20201107081420.60325-27-damien.lemoal@wdc.com>
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201107_090708_699853_FB105A9F 
-X-CRM114-Status: GOOD (  19.16  )
+X-CRM114-CacheID: sfid-20201107_090827_171501_89C7A00F 
+X-CRM114-Status: GOOD (  25.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -128,100 +127,765 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 11/7/20 3:14 AM, Damien Le Moal wrote:
-> Document the device tree bindings for the Kendryte K210 SoC reset
-> controller driver in
-> Documentation/devicetree/bindings/reset/kendryte,k210-rst.yaml.
+> Update the Kendryte K210 base device tree k210.dtsi to define all
+> peripherals of the SoC, their clocks and reset lines. The device tree
+> file k210.dts is renamed to k210_generic.dts and becomes the default
+> dwivalue selection of the SOC_KENDRYTE_K210_DTB_BUILTIN_SOURCE
+> configuration option. No device beside the serial console is defined by
+> this device tree. This makes it suitable for all known K210 boards using
+> a builtin initramfs.
+> 
+> Most updates to the k210.dtsi file come from Sean Anderson's work on
+> U-Boot support for the Kendryte K210.
 > 
 > Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
 > ---
->  .../bindings/reset/kendryte,k210-rst.yaml     | 78 +++++++++++++++++++
->  1 file changed, 78 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/reset/kendryte,k210-rst.yaml
+>  arch/riscv/Kconfig.socs                       |   2 +-
+>  arch/riscv/boot/dts/kendryte/k210.dts         |  23 -
+>  arch/riscv/boot/dts/kendryte/k210.dtsi        | 564 +++++++++++++++++-
+>  arch/riscv/boot/dts/kendryte/k210_generic.dts |  46 ++
+>  4 files changed, 583 insertions(+), 52 deletions(-)
+>  delete mode 100644 arch/riscv/boot/dts/kendryte/k210.dts
+>  create mode 100644 arch/riscv/boot/dts/kendryte/k210_generic.dts
 > 
-> diff --git a/Documentation/devicetree/bindings/reset/kendryte,k210-rst.yaml b/Documentation/devicetree/bindings/reset/kendryte,k210-rst.yaml
+> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+> index 56ba82a64e18..9230af7fb763 100644
+> --- a/arch/riscv/Kconfig.socs
+> +++ b/arch/riscv/Kconfig.socs
+> @@ -59,7 +59,7 @@ config SOC_KENDRYTE_K210_DTB_SOURCE
+>  	string "Source file for the Kendryte K210 builtin DTB"
+>  	depends on SOC_KENDRYTE
+>  	depends on SOC_KENDRYTE_K210_DTB_BUILTIN
+> -	default "k210"
+> +	default "k210_generic"
+>  	help
+>  	  Base name (without suffix, relative to arch/riscv/boot/dts/kendryte)
+>  	  for the DTS file that will be used to produce the DTB linked into the
+> diff --git a/arch/riscv/boot/dts/kendryte/k210.dts b/arch/riscv/boot/dts/kendryte/k210.dts
+> deleted file mode 100644
+> index 0d1f28fce6b2..000000000000
+> --- a/arch/riscv/boot/dts/kendryte/k210.dts
+> +++ /dev/null
+> @@ -1,23 +0,0 @@
+> -// SPDX-License-Identifier: GPL-2.0+
+> -/*
+> - * Copyright (C) 2020 Western Digital Corporation or its affiliates.
+> - */
+> -
+> -/dts-v1/;
+> -
+> -#include "k210.dtsi"
+> -
+> -/ {
+> -	model = "Kendryte K210 generic";
+> -	compatible = "kendryte,k210";
+> -
+> -	chosen {
+> -		bootargs = "earlycon console=ttySIF0";
+> -		stdout-path = "serial0";
+> -	};
+> -};
+> -
+> -&uarths0 {
+> -	status = "okay";
+> -};
+> -
+> diff --git a/arch/riscv/boot/dts/kendryte/k210.dtsi b/arch/riscv/boot/dts/kendryte/k210.dtsi
+> index d2d0ff645632..b8706fe78b21 100644
+> --- a/arch/riscv/boot/dts/kendryte/k210.dtsi
+> +++ b/arch/riscv/boot/dts/kendryte/k210.dtsi
+> @@ -1,9 +1,12 @@
+>  // SPDX-License-Identifier: GPL-2.0+
+>  /*
+> - * Copyright (C) 2019 Sean Anderson <seanga2@gmail.com>
+> + * Copyright (C) 2019-20 Sean Anderson <seanga2@gmail.com>
+>   * Copyright (C) 2020 Western Digital Corporation or its affiliates.
+>   */
+>  #include <dt-bindings/clock/k210-clk.h>
+> +#include <dt-bindings/mfd/k210-sysctl.h>
+> +#include <dt-bindings/pinctrl/k210-pinctrl.h>
+> +#include <dt-bindings/reset/k210-rst.h>
+>  
+>  / {
+>  	/*
+> @@ -15,7 +18,26 @@ / {
+>  	compatible = "kendryte,k210";
+>  
+>  	aliases {
+> +		cpu0 = &cpu0;
+> +		cpu1 = &cpu1;
+> +		dma0 = &dmac0;
+> +		gpio0 = &gpio0;
+> +		gpio1 = &gpio1_0;
+> +		i2c0 = &i2c0;
+> +		i2c1 = &i2c1;
+> +		i2c2 = &i2c2;
+> +		pinctrl0 = &fpioa;
+>  		serial0 = &uarths0;
+> +		serial1 = &uart1;
+> +		serial2 = &uart2;
+> +		serial3 = &uart3;
+> +		spi0 = &spi0;
+> +		spi1 = &spi1;
+> +		spi2 = &spi2;
+> +		spi3 = &spi3;
+> +		timer0 = &timer0;
+> +		timer1 = &timer1;
+> +		timer2 = &timer2;
+>  	};
+>  
+>  	/*
+> @@ -30,16 +52,15 @@ cpus {
+>  		timebase-frequency = <7800000>;
+>  		cpu0: cpu@0 {
+>  			device_type = "cpu";
+> -			reg = <0>;
+>  			compatible = "kendryte,k210", "sifive,rocket0", "riscv";
+> -			riscv,isa = "rv64imafdc";
+> +			reg = <0>;
+> +			riscv,isa = "rv64imafdgc";
+>  			mmu-type = "none";
+> -			i-cache-size = <0x8000>;
+>  			i-cache-block-size = <64>;
+> -			d-cache-size = <0x8000>;
+> +			i-cache-size = <0x8000>;
+>  			d-cache-block-size = <64>;
+> -			clocks = <&sysctl K210_CLK_CPU>;
+> -			clock-frequency = <390000000>;
+> +			d-cache-size = <0x8000>;
+> +			clocks = <&sysclk K210_CLK_CPU>;
+>  			cpu0_intc: interrupt-controller {
+>  				#interrupt-cells = <1>;
+>  				interrupt-controller;
+> @@ -48,16 +69,15 @@ cpu0_intc: interrupt-controller {
+>  		};
+>  		cpu1: cpu@1 {
+>  			device_type = "cpu";
+> -			reg = <1>;
+>  			compatible = "kendryte,k210", "sifive,rocket0", "riscv";
+> -			riscv,isa = "rv64imafdc";
+> +			reg = <1>;
+> +			riscv,isa = "rv64imafdgc";
+>  			mmu-type = "none";
+> -			i-cache-size = <0x8000>;
+>  			i-cache-block-size = <64>;
+> -			d-cache-size = <0x8000>;
+> +			i-cache-size = <0x8000>;
+>  			d-cache-block-size = <64>;
+> -			clocks = <&sysctl K210_CLK_CPU>;
+> -			clock-frequency = <390000000>;
+> +			d-cache-size = <0x8000>;
+> +			clocks = <&sysclk K210_CLK_CPU>;
+>  			cpu1_intc: interrupt-controller {
+>  				#interrupt-cells = <1>;
+>  				interrupt-controller;
+> @@ -68,14 +88,19 @@ cpu1_intc: interrupt-controller {
+>  
+>  	sram: memory@80000000 {
+>  		device_type = "memory";
+> +		compatible = "kendryte,k210-sram";
+>  		reg = <0x80000000 0x400000>,
+>  		      <0x80400000 0x200000>,
+>  		      <0x80600000 0x200000>;
+>  		reg-names = "sram0", "sram1", "aisram";
+> +		clocks = <&sysclk K210_CLK_SRAM0>,
+> +			 <&sysclk K210_CLK_SRAM1>,
+> +			 <&sysclk K210_CLK_AI>;
+> +		clock-names = "sram0", "sram1", "aisram";
+>  	};
+>  
+>  	clocks {
+> -		in0: oscillator {
+> +		in0: osc {
+>  			compatible = "fixed-clock";
+>  			#clock-cells = <0>;
+>  			clock-frequency = <26000000>;
+> @@ -89,28 +114,34 @@ soc {
+>  		ranges;
+>  		interrupt-parent = <&plic0>;
+>  
+> -		sysctl: sysctl@50440000 {
+> -			compatible = "kendryte,k210-sysctl", "simple-mfd";
+> -			reg = <0x50440000 0x1000>;
+> -			#clock-cells = <1>;
+> +		debug0: debug@0 {
+> +			compatible = "kendryte,k210-debug", "riscv,debug";
+> +			reg = <0x0 0x1000>;
+> +			status = "disabled";
+> +		};
+> +
+> +		rom0: nvmem@1000 {
+> +			reg = <0x1000 0x1000>;
+> +			read-only;
+> +			status = "disabled";
+>  		};
+>  
+>  		clint0: clint@2000000 {
+>  			#interrupt-cells = <1>;
+> -			compatible = "riscv,clint0";
+> +			compatible = "kendryte,k210-clint", "riscv,clint0";
+>  			reg = <0x2000000 0xC000>;
+> -			interrupts-extended =  <&cpu0_intc 3 &cpu0_intc 7
+> -						&cpu1_intc 3 &cpu1_intc 7>;
+> -			clocks = <&sysctl K210_CLK_ACLK>;
+> +			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>,
+> +					      <&cpu1_intc 3>, <&cpu1_intc 7>;
+> +			clocks = <&sysclk K210_CLK_CLINT>;
+>  		};
+>  
+> -		plic0: interrupt-controller@c000000 {
+> +		plic0: interrupt-controller@C000000 {
+>  			#interrupt-cells = <1>;
+> -			interrupt-controller;
+> -			compatible = "kendryte,k210-plic0", "riscv,plic0";
+> +			compatible = "kendryte,k210-plic", "riscv,plic0";
+>  			reg = <0xC000000 0x4000000>;
+> -			interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 0xffffffff>,
+> -					      <&cpu1_intc 11>, <&cpu1_intc 0xffffffff>;
+> +			interrupt-controller;
+> +			interrupts-extended = <&cpu0_intc 11>,
+> +					      <&cpu1_intc 11>;
+>  			riscv,ndev = <65>;
+>  			riscv,max-priority = <7>;
+>  		};
+> @@ -119,7 +150,484 @@ uarths0: serial@38000000 {
+>  			compatible = "kendryte,k210-uarths", "sifive,uart0";
+>  			reg = <0x38000000 0x1000>;
+>  			interrupts = <33>;
+> -			clocks = <&sysctl K210_CLK_CPU>;
+> +			clocks = <&sysclk K210_CLK_CPU>;
+> +			status = "disabled";
+> +		};
+> +
+> +		gpio0: gpio-controller@38001000 {
+> +			#interrupt-cells = <2>;
+> +			#gpio-cells = <2>;
+> +			compatible = "kendryte,k210-gpiohs", "sifive,gpio0";
+> +			reg = <0x38001000 0x1000>;
+> +			interrupt-controller;
+> +			interrupts = <34 35 36 37 38 39 40 41
+> +				      42 43 44 45 46 47 48 49
+> +				      50 51 52 53 54 55 56 57
+> +				      58 59 60 61 62 63 64 65>;
+> +			gpio-controller;
+> +			ngpios = <32>;
+> +			status = "disabled";
+> +		};
+> +
+> +		kpu0: kpu@40800000 {
+> +			compatible = "kendryte,k210-kpu";
+> +			reg = <0x40800000 0xc00000>;
+> +			interrupts = <25>;
+> +			clocks = <&sysclk K210_CLK_AI>;
+> +			status = "disabled";
+> +		};
+> +
+> +		fft0: fft@42000000 {
+> +			compatible = "kendryte,k210-fft";
+> +			reg = <0x42000000 0x400000>;
+> +			interrupts = <26>;
+> +			clocks = <&sysclk K210_CLK_FFT>;
+> +			resets = <&sysrst K210_RST_FFT>;
+> +			status = "disabled";
+> +		};
+> +
+> +		dmac0: dma-controller@50000000 {
+> +			compatible = "kendryte,k210-dmac", "snps,axi-dma-1.01a";
+> +			reg = <0x50000000 0x1000>;
+> +			interrupts = <27 28 29 30 31 32>;
+> +			clocks = <&sysclk K210_CLK_DMA>, <&sysclk K210_CLK_DMA>;
+> +			clock-names = "core-clk", "cfgr-clk";
+> +			resets = <&sysrst K210_RST_DMA>;
+> +			dma-channels = <6>;
+> +			snps,dma-masters = <2>;
+> +			snps,priority = <0 1 2 3 4 5>;
+> +			snps,data-width = <5>;
+> +			snps,block-size = <0x200000 0x200000 0x200000
+> +					   0x200000 0x200000 0x200000>;
+> +			snps,axi-max-burst-len = <256>;
+> +			status = "disabled";
+> +		};
+> +
+> +		apb0: bus@50200000 {
+> +			#address-cells = <1>;
+> +			#size-cells = <1>;
+> +			compatible = "kendryte,k210-apb", "simple-pm-bus";
+> +			ranges;
+> +			clocks = <&sysclk K210_CLK_APB0>;
+> +
+> +			gpio1: gpio-controller@50200000 {
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +				compatible = "kendryte,k210-gpio",
+> +					     "snps,dw-apb-gpio";
+> +				reg = <0x50200000 0x80>;
+> +				clocks = <&sysclk K210_CLK_APB0>,
+> +					 <&sysclk K210_CLK_GPIO>;
+> +				clock-names = "bus", "db";
+> +				resets = <&sysrst K210_RST_GPIO>;
+> +				status = "disabled";
+> +
+> +				gpio1_0: gpio1@0 {
+> +					#gpio-cells = <2>;
+> +					#interrupt-cells = <2>;
+> +					compatible = "snps,dw-apb-gpio-port";
+> +					reg = <0>;
+> +					interrupt-controller;
+> +					interrupts = <23>;
+> +					gpio-controller;
+> +					snps,nr-gpios = <8>;
+> +				};
+> +			};
+> +
+> +			uart1: serial@50210000 {
+> +				compatible = "kendryte,k210-uart",
+> +					     "snps,dw-apb-uart";
+> +				reg = <0x50210000 0x100>;
+> +				interrupts = <11>;
+> +				clocks = <&sysclk K210_CLK_UART1>,
+> +					 <&sysclk K210_CLK_APB0>;
+> +				clock-names = "baudclk", "apb_pclk";
+> +				resets = <&sysrst K210_RST_UART1>;
+> +				reg-io-width = <4>;
+> +				reg-shift = <2>;
+> +				dcd-override;
+> +				dsr-override;
+> +				cts-override;
+> +				ri-override;
+> +				status = "disabled";
+> +			};
+> +
+> +			uart2: serial@50220000 {
+> +				compatible = "kendryte,k210-uart",
+> +					     "snps,dw-apb-uart";
+> +				reg = <0x50220000 0x100>;
+> +				interrupts = <12>;
+> +				clocks = <&sysclk K210_CLK_UART2>,
+> +					 <&sysclk K210_CLK_APB0>;
+> +				clock-names = "baudclk", "apb_pclk";
+> +				resets = <&sysrst K210_RST_UART2>;
+> +				reg-io-width = <4>;
+> +				reg-shift = <2>;
+> +				dcd-override;
+> +				dsr-override;
+> +				cts-override;
+> +				ri-override;
+> +				status = "disabled";
+> +			};
+> +
+> +			uart3: serial@50230000 {
+> +				compatible = "kendryte,k210-uart",
+> +					     "snps,dw-apb-uart";
+> +				reg = <0x50230000 0x100>;
+> +				interrupts = <13>;
+> +				clocks = <&sysclk K210_CLK_UART3>,
+> +					 <&sysclk K210_CLK_APB0>;
+> +				clock-names = "baudclk", "apb_pclk";
+> +				resets = <&sysrst K210_RST_UART3>;
+> +				reg-io-width = <4>;
+> +				reg-shift = <2>;
+> +				dcd-override;
+> +				dsr-override;
+> +				cts-override;
+> +				ri-override;
+> +				status = "disabled";
+> +			};
+> +
+> +			spi2: spi@50240000 {
+> +				compatible = "canaan,kendryte-k210-spi",
+> +					     "snps,dw-apb-ssi-4.01",
+> +					     "snps,dw-apb-ssi";
+> +				spi-slave;
+> +				reg = <0x50240000 0x100>;
+> +				interrupts = <3>;
+> +				clocks = <&sysclk K210_CLK_SPI2>,
+> +					 <&sysclk K210_CLK_APB0>;
+> +				clock-names = "ssi_clk", "pclk";
+> +				resets = <&sysrst K210_RST_SPI2>;
+> +				spi-max-frequency = <25000000>;
+> +				status = "disabled";
+> +			};
+> +
+> +			i2s0: i2s@50250000 {
+> +				compatible = "kendryte,k210-i2s",
+> +					     "snps,designware-i2s";
+> +				reg = <0x50250000 0x200>;
+> +				interrupts = <5>;
+> +				clocks = <&sysclk K210_CLK_I2S0>;
+> +				clock-names = "i2sclk";
+> +				resets = <&sysrst K210_RST_I2S0>;
+> +				status = "disabled";
+> +			};
+> +
+> +			apu0: sound@520250200 {
+> +				compatible = "kendryte,k210-apu";
+> +				reg = <0x50250200 0x200>;
+> +				status = "disabled";
+> +			};
+> +
+> +			i2s1: i2s@50260000 {
+> +				compatible = "kendryte,k210-i2s",
+> +					     "snps,designware-i2s";
+> +				reg = <0x50260000 0x200>;
+> +				interrupts = <6>;
+> +				clocks = <&sysclk K210_CLK_I2S1>;
+> +				clock-names = "i2sclk";
+> +				resets = <&sysrst K210_RST_I2S1>;
+> +				status = "disabled";
+> +			};
+> +
+> +			i2s2: i2s@50270000 {
+> +				compatible = "kendryte,k210-i2s",
+> +					     "snps,designware-i2s";
+> +				reg = <0x50270000 0x200>;
+> +				interrupts = <7>;
+> +				clocks = <&sysclk K210_CLK_I2S2>;
+> +				clock-names = "i2sclk";
+> +				resets = <&sysrst K210_RST_I2S2>;
+> +				status = "disabled";
+> +			};
+> +
+> +			i2c0: i2c@50280000 {
+> +				compatible = "kendryte,k210-i2c",
+> +					     "snps,designware-i2c";
+> +				reg = <0x50280000 0x100>;
+> +				interrupts = <8>;
+> +				clocks = <&sysclk K210_CLK_I2C0>,
+> +					 <&sysclk K210_CLK_APB0>;
+> +				clock-names = "ref", "pclk";
+> +				resets = <&sysrst K210_RST_I2C0>;
+> +				status = "disabled";
+> +			};
+> +
+> +			i2c1: i2c@50290000 {
+> +				compatible = "kendryte,k210-i2c",
+> +					     "snps,designware-i2c";
+> +				reg = <0x50290000 0x100>;
+> +				interrupts = <9>;
+> +				clocks = <&sysclk K210_CLK_I2C1>,
+> +					 <&sysclk K210_CLK_APB0>;
+> +				clock-names = "ref", "pclk";
+> +				resets = <&sysrst K210_RST_I2C1>;
+> +				status = "disabled";
+> +			};
+> +
+> +			i2c2: i2c@502A0000 {
+> +				compatible = "kendryte,k210-i2c",
+> +					     "snps,designware-i2c";
+> +				reg = <0x502A0000 0x100>;
+> +				interrupts = <10>;
+> +				clocks = <&sysclk K210_CLK_I2C2>,
+> +					 <&sysclk K210_CLK_APB0>;
+> +				clock-names = "ref", "pclk";
+> +				resets = <&sysrst K210_RST_I2C2>;
+> +				status = "disabled";
+> +			};
+> +
+> +			fpioa: pinmux@502B0000 {
+> +				compatible = "kendryte,k210-fpioa";
+> +				reg = <0x502B0000 0x100>;
+> +				clocks = <&sysclk K210_CLK_FPIOA>,
+> +					 <&sysclk K210_CLK_APB0>;
+> +				clock-names = "ref", "pclk";
+> +				resets = <&sysrst K210_RST_FPIOA>;
+> +				kendryte,sysctl = <&sysctl>;
+> +				kendryte,power-offset = <K210_SYSCTL_POWER_SEL>;
+> +				status = "disabled";
+> +			};
+> +
+> +			sha256: sha256@502C0000 {
+> +				compatible = "kendryte,k210-sha256";
+> +				reg = <0x502C0000 0x100>;
+> +				clocks = <&sysclk K210_CLK_SHA>;
+> +				resets = <&sysrst K210_RST_SHA>;
+> +				status = "disabled";
+> +			};
+> +
+> +			timer0: timer@502D0000 {
+> +				compatible = "kendryte,k210-timer",
+> +					     "snps,dw-apb-timer";
+> +				reg = <0x502D0000 0x100>;
+> +				interrupts = <14 15>;
+> +				clocks = <&sysclk K210_CLK_TIMER0>,
+> +					 <&sysclk K210_CLK_APB0>;
+> +				clock-names = "timer", "pclk";
+> +				resets = <&sysrst K210_RST_TIMER0>;
+> +				status = "disabled";
+> +			};
+> +
+> +			timer1: timer@502E0000 {
+> +				compatible = "kendryte,k210-timer",
+> +					     "snps,dw-apb-timer";
+> +				reg = <0x502E0000 0x100>;
+> +				interrupts = <16 17>;
+> +				clocks = <&sysclk K210_CLK_TIMER1>,
+> +					 <&sysclk K210_CLK_APB0>;
+> +				clock-names = "timer", "pclk";
+> +				resets = <&sysrst K210_RST_TIMER1>;
+> +				status = "disabled";
+> +			};
+> +
+> +			timer2: timer@502F0000 {
+> +				compatible = "kendryte,k210-timer",
+> +					     "snps,dw-apb-timer";
+> +				reg = <0x502F0000 0x100>;
+> +				interrupts = <18 19>;
+> +				clocks = <&sysclk K210_CLK_TIMER2>,
+> +					 <&sysclk K210_CLK_APB0>;
+> +				clock-names = "timer", "pclk";
+> +				resets = <&sysrst K210_RST_TIMER2>;
+> +				status = "disabled";
+> +			};
+> +		};
+> +
+> +		apb1: bus@50400000 {
+> +			#address-cells = <1>;
+> +			#size-cells = <1>;
+> +			compatible = "kendryte,k210-apb", "simple-pm-bus";
+> +			ranges;
+> +			clocks = <&sysclk K210_CLK_APB1>;
+> +
+> +			wdt0: watchdog@50400000 {
+> +				compatible = "kendryte,k210-wdt", "snps,dw-wdt";
+> +				reg = <0x50400000 0x100>;
+> +				interrupts = <21>;
+> +				clocks = <&sysclk K210_CLK_WDT0>,
+> +					 <&sysclk K210_CLK_APB1>;
+> +				clock-names = "tclk", "pclk";
+> +				resets = <&sysrst K210_RST_WDT0>;
+> +				status = "disabled";
+> +			};
+> +
+> +			wdt1: watchdog@50410000 {
+> +				compatible = "kendryte,k210-wdt", "snps,dw-wdt";
+> +				reg = <0x50410000 0x100>;
+> +				interrupts = <22>;
+> +				clocks = <&sysclk K210_CLK_WDT1>,
+> +					 <&sysclk K210_CLK_APB1>;
+> +				clock-names = "tclk", "pclk";
+> +				resets = <&sysrst K210_RST_WDT1>;
+> +				status = "disabled";
+> +			};
+> +
+> +			otp0: nvmem@50420000 {
+> +				#address-cells = <1>;
+> +				#size-cells = <1>;
+> +				compatible = "kendryte,k210-otp";
+> +				reg = <0x50420000 0x100>,
+> +				      <0x88000000 0x20000>;
+> +				reg-names = "reg", "mem";
+> +				clocks = <&sysclk K210_CLK_ROM>;
+> +				resets = <&sysrst K210_RST_ROM>;
+> +				read-only;
+> +				status = "disabled";
+> +
+> +				/* Bootloader */
+> +				firmware@00000 {
+> +					reg = <0x00000 0xC200>;
+> +				};
+> +
+> +				/*
+> +				 * config string as described in RISC-V
+> +				 * privileged spec 1.9
+> +				 */
+> +				config-1-9@1c000 {
+> +					reg = <0x1C000 0x1000>;
+> +				};
+> +
+> +				/*
+> +				 * Device tree containing only registers,
+> +				 * interrupts, and cpus
+> +				 */
+> +				fdt@1d000 {
+> +					reg = <0x1D000 0x2000>;
+> +				};
+> +
+> +				/* CPU/ROM credits */
+> +				credits@1f000 {
+> +					reg = <0x1F000 0x1000>;
+> +				};
+> +			};
+> +
+> +			dvp0: camera@50430000 {
+> +				compatible = "kendryte,k210-dvp";
+> +				reg = <0x50430000 0x100>;
+> +				interrupts = <24>;
+> +				clocks = <&sysclk K210_CLK_DVP>;
+> +				resets = <&sysrst K210_RST_DVP>;
+> +				kendryte,sysctl = <&sysctl>;
+> +				kendryte,misc-offset = <K210_SYSCTL_MISC>;
+> +				status = "disabled";
+> +			};
+> +
+> +			sysctl: syscon@50440000 {
+> +				compatible = "kendryte,k210-sysctl",
+> +					     "syscon", "simple-mfd";
+> +				reg = <0x50440000 0x100>;
+> +				reg-io-width = <4>;
+> +				clocks = <&sysclk K210_CLK_APB1>;
+> +				clock-names = "pclk";
+> +
+> +				sysclk: clock-controller {
+> +					#clock-cells = <1>;
+> +					compatible = "kendryte,k210-clk";
+> +					clocks = <&in0>;
+> +				};
+> +
+> +				sysrst: reset-controller {
+> +					compatible = "kendryte,k210-rst",
+> +						     "syscon-reset";
+> +					#reset-cells = <1>;
+> +					regmap = <&sysctl>;
+> +					offset = <K210_SYSCTL_PERI_RESET>;
+> +					mask = <0x27FFFFFF>;
+> +					assert-high = <1>;
+> +				};
+> +
+> +				reboot {
+> +					compatible = "syscon-reboot";
+> +					regmap = <&sysctl>;
+> +					offset = <K210_SYSCTL_SOFT_RESET>;
+> +					mask = <1>;
+> +					value = <1>;
+> +				};
+> +			};
+> +
+> +			aes0: aes@50450000 {
+> +				compatible = "kendryte,k210-aes";
+> +				reg = <0x50450000 0x100>;
+> +				clocks = <&sysclk K210_CLK_AES>;
+> +				resets = <&sysrst K210_RST_AES>;
+> +				status = "disabled";
+> +			};
+> +
+> +			rtc: rtc@50460000 {
+> +				compatible = "kendryte,k210-rtc";
+> +				reg = <0x50460000 0x100>;
+> +				clocks = <&in0>;
+> +				resets = <&sysrst K210_RST_RTC>;
+> +				interrupts = <20>;
+> +				status = "disabled";
+> +			};
+> +		};
+> +
+> +		apb2: bus@52000000 {
+> +			#address-cells = <1>;
+> +			#size-cells = <1>;
+> +			compatible = "kendryte,k210-apb", "simple-pm-bus";
+> +			ranges;
+> +			clocks = <&sysclk K210_CLK_APB2>;
+> +
+> +			spi0: spi@52000000 {
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +				compatible = "canaan,kendryte-k210-spi",
+> +					     "snps,dw-apb-ssi-4.01",
+> +					     "snps,dw-apb-ssi";
+> +				reg = <0x52000000 0x100>;
+> +				interrupts = <1>;
+> +				clocks = <&sysclk K210_CLK_SPI0>,
+> +					 <&sysclk K210_CLK_APB2>;
+> +				clock-names = "ssi_clk", "pclk";
+> +				resets = <&sysrst K210_RST_SPI0>;
+> +				reset-names = "spi";
+> +				spi-max-frequency = <25000000>;
+> +				num-cs = <4>;
+> +				reg-io-width = <4>;
+> +				status = "disabled";
+> +			};
+> +
+> +			spi1: spi@53000000 {
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +				compatible = "canaan,kendryte-k210-spi",
+> +					     "snps,dw-apb-ssi-4.01",
+> +					     "snps,dw-apb-ssi";
+> +				reg = <0x53000000 0x100>;
+> +				interrupts = <2>;
+> +				clocks = <&sysclk K210_CLK_SPI1>,
+> +					 <&sysclk K210_CLK_APB2>;
+> +				clock-names = "ssi_clk", "pclk";
+> +				resets = <&sysrst K210_RST_SPI1>;
+> +				reset-names = "spi";
+> +				spi-max-frequency = <25000000>;
+> +				num-cs = <4>;
+> +				reg-io-width = <4>;
+> +				status = "disabled";
+> +			};
+> +
+> +			spi3: spi@54000000 {
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +				compatible = "canaan,kendryte-k210-ssi",
+> +					     "snps,dwc-ssi-1.01a";
+> +				reg = <0x54000000 0x200>;
+> +				interrupts = <4>;
+> +				clocks = <&sysclk K210_CLK_SPI3>,
+> +					 <&sysclk K210_CLK_APB2>;
+> +				clock-names = "ssi_clk", "pclk";
+> +				resets = <&sysrst K210_RST_SPI3>;
+> +				reset-names = "spi";
+> +				/* Could possibly go up to 200 MHz */
+> +				spi-max-frequency = <100000000>;
+> +				num-cs = <4>;
+> +				reg-io-width = <4>;
+> +				status = "disabled";
+> +			};
+>  		};
+>  	};
+>  };
+> diff --git a/arch/riscv/boot/dts/kendryte/k210_generic.dts b/arch/riscv/boot/dts/kendryte/k210_generic.dts
 > new file mode 100644
-> index 000000000000..bdd0bf37bdfb
+> index 000000000000..f336f60dc15d
 > --- /dev/null
-> +++ b/Documentation/devicetree/bindings/reset/kendryte,k210-rst.yaml
-> @@ -0,0 +1,78 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/reset/kendryte,k210-rst.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +++ b/arch/riscv/boot/dts/kendryte/k210_generic.dts
+> @@ -0,0 +1,46 @@
+> +// SPDX-License-Identifier: GPL-2.0+
+> +/*
+> + * Copyright (C) 2019-20 Sean Anderson <seanga2@gmail.com>
+> + * Copyright (C) 2020 Western Digital Corporation or its affiliates.
+> + */
 > +
-> +title: Kendryte K210 Reset Controller Device Tree Bindings
+> +/dts-v1/;
 > +
-> +maintainers:
-> +  - Damien Le Moal <damien.lemoal@wdc.com>
+> +#include "k210.dtsi"
 > +
-> +description: |
-> +  Kendryte K210 reset controller driver which support the system controller
-> +  subsystem supplied reset registers for the various peripherals within
-> +  the SoC.
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/input/input.h>
 > +
-> +  See also:
-> +  - dt-bindings/reset/k210-rst.h
+> +/ {
+> +	model = "Kendryte K210 generic";
+> +	compatible = "kendryte,k210";
 > +
-> +properties:
-> +  compatible:
-> +    allOf:
-> +      - items:
-> +        - const: kendryte,k210-rst
-> +        - const: syscon-reset
+> +	chosen {
+> +		bootargs = "earlycon console=ttySIF0";
+> +		stdout-path = "serial0:115200n8";
+> +	};
+> +};
 > +
-> +  regmap:
-> +    maxItems: 1
-> +    description: phandle of the system controller (sysctl) node
+> +&fpioa {
+> +	pinctrl-0 = <&fpioa_jtag>;
+> +	pinctrl-names = "default";
+> +	status = "okay";
 > +
-> +  offset:
-> +    maxItems: 1
-> +    description: peripheral reset register offset in the system controller
-> +      controller register map
+> +	fpioa_jtag: jtag {
+> +		pinmux = <K210_FPIOA(0, K210_PCF_JTAG_TCLK)>,
+> +			 <K210_FPIOA(1, K210_PCF_JTAG_TDI)>,
+> +			 <K210_FPIOA(2, K210_PCF_JTAG_TMS)>,
+> +			 <K210_FPIOA(3, K210_PCF_JTAG_TDO)>;
+> +	};
 > +
-> +  mask:
-> +    maxItems: 1
-> +    description: bit-mask indicating valid reset bits in the reset register
+> +	fpioa_uarths: uarths {
+> +		pinmux = <K210_FPIOA(4, K210_PCF_UARTHS_RX)>,
+> +			 <K210_FPIOA(5, K210_PCF_UARTHS_TX)>;
+> +	};
+> +};
 > +
-> +  assert-high:
-> +    maxItems: 1
-> +    description: bit value to write when asserting a reset
-> +
-> +  '#reset-cells':
-> +    const: 1
-> +
-> +required:
-> +  - '#reset-cells'
-> +  - compatible
-> +  - regmap
-> +  - offset
-> +  - mask
-> +  - assert-high
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/mfd/k210-sysctl.h>
-> +    #include <dt-bindings/reset/k210-rst.h>
-> +
-> +    sysctl: system-controller@50440000 {
-> +      #address-cells = <1>;
-> +      #size-cells = <1>;
-> +      compatible = "kendryte,k210-sysctl",
-> +                   "syscon", "simple-mfd";
-> +      reg = <0x50440000 0x1000>;
-> +      /* ... */
-> +      sysrst: reset-controller {
-> +        compatible = "kendryte,k210-rst",
-> +                      "syscon-reset";
-> +        #reset-cells = <1>;
-> +        regmap = <&sysctl>;
-> +        offset = <K210_SYSCTL_PERI_RESET>;
-> +        mask = <0x27FFFFFF>;
-> +        assert-high = <1>;
-> +      };
-> +    };
+> +&uarths0 {
+> +	pinctrl-0 = <&fpioa_uarths>;
+> +	pinctrl-names = "default";
+> +	status = "okay";
+> +};
 > 
 
 Reviewed-by: Sean Anderson <seanga2@gmail.com>
