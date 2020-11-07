@@ -6,19 +6,19 @@ X-Spam-Status: No, score=-11.0 required=3.0 tests=BAYES_00,
 	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
 	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
 	NICE_REPLY_A,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+	USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 05A0CC388F9
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 14:03:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9FC7FC388F7
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 14:05:22 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B512A206ED
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 14:03:23 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 50DF1206ED
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 14:05:22 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="LBAVvs3t";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="WfTKL2HN"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B512A206ED
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Ffr5w2hb";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="qiToNamL"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 50DF1206ED
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -27,54 +27,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:Subject:
 	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JnaJFj7T+nVX+PYoamPLn8rzNbpntP+IKk702Ue+uzY=; b=LBAVvs3t46sD8ih2UkWl6dP75I
-	oTwddaarY08mvUjFyXnWSX93IOcx/D9y6EoLDGjCv9fMz7V78U8miOb4UEpQEyILEObC01Su6veZl
-	VYL8vHCgJb7mfWXLeDxBGyNrhISU77PrgikhIq4SN06Lhfel49JSFTiKs4ymS3zxUBA/wGs6cJujj
-	pf36b/65FcHXoPOXKCZn3xJIakdynw18W7IMNTyM0UuWwQW/Da5Yk7+mfd08omWyBKdijy+wPpDm0
-	cFh17hBW8ZWl9Kyjpji+44CdyJ3fSFvOdAZ2vSICIO5UCANNusgAh3cP+nFgL+bGU8fzpm5nAx2t1
-	/ZC1+GiA==;
+	bh=SYsmfw34rNY+U5YOAQJL0IVYdClLkF4iq5PvKVb8bWI=; b=Ffr5w2hbN5x5HaHcNWOzCjfUMN
+	vo9aBTOI/E3NYVygW8HSFoxZYQkrer+CRLOjBrpQkWQCqPZkwz40PVjAoeVz6uAC2kaNuQ+lC/iAK
+	iQy/WyScLJGnpZ2AnVdtj46q4Srl/qwqZ6n7a4NflMpdixYRZ/vTEW3pixX7DqCRTtvg1u3Byt/Mp
+	VXczNxPvZOaJ7kkvErvdiHvZQWTa+QyBMHsHn+lNXwvHiunsxTA3DDidbkLZgItOt6BGZYT/8AjAl
+	KWtc4+9BXXi0aaxN0+wpZg2C+0Lv/B/r0Tukox0wXnkIZElASvts60tAUryHdviuXwiDQRNj5zB6F
+	0Z9fWTYg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kbOoD-0006M6-0b; Sat, 07 Nov 2020 14:03:13 +0000
-Received: from mail-qv1-xf44.google.com ([2607:f8b0:4864:20::f44])
+	id 1kbOq7-0006g0-Qm; Sat, 07 Nov 2020 14:05:11 +0000
+Received: from mail-qk1-x743.google.com ([2607:f8b0:4864:20::743])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kbOo9-0006Kr-Va
- for linux-riscv@lists.infradead.org; Sat, 07 Nov 2020 14:03:10 +0000
-Received: by mail-qv1-xf44.google.com with SMTP id ed14so1845060qvb.4
- for <linux-riscv@lists.infradead.org>; Sat, 07 Nov 2020 06:03:09 -0800 (PST)
+ id 1kbOq4-0006eR-3q
+ for linux-riscv@lists.infradead.org; Sat, 07 Nov 2020 14:05:09 +0000
+Received: by mail-qk1-x743.google.com with SMTP id 140so3824212qko.2
+ for <linux-riscv@lists.infradead.org>; Sat, 07 Nov 2020 06:05:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=subject:to:references:from:autocrypt:message-id:date:user-agent
  :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=8E0Y2gz0Cx03JNF6tn6/f94ykdO43Amm9xSOcaF5JQs=;
- b=WfTKL2HNtkzosF+Kk0Qh7Ek/HWatLw9vB4ZtcCu/W/cxFHFaHbJO/MUudBw4HE1AbL
- GHZT//XL7c8R/tAB+q9dpfsx5ykoyYcx9IV6PxOGpVKBkMYfgrWBP2jffurCtiucHpJo
- egFR9RWMcaBUgd5MKglRpd+nc4WfmGPv+Kypi2A6ypxydMV52jzH3kAtyEPuwqCdvACf
- is1itg5mhf0Q/ds+sJfL/zHwqIgpJkgnVwHJkZKoJ/EbsxLScyJk7qDxwuGamXt2K14Q
- 4AUJ0TmbS1mBGOs6FYgEKrDzV7bRgLtz6TFdqZo3ATLJ9E70FPSnusPxNcp4OureBRzZ
- XPog==
+ bh=CnitLoeMqyrA8E81YF2krwIxxHfJVb8lU/Wo+vPHi74=;
+ b=qiToNamLXeSFmnaeLgat/1P0z2PJ1Kvlr4cDM10kLizi1Jm2L9ckOtf5tyy6128fge
+ Tgq2uoCIgkj/ZPFLfu0vA4AZKcas4I/PU/nSytjDXnarZJYJ181x2472PreD48SJXXkm
+ eMt3kMA/Wf27Pzow08AnWNs+cdneT6PWOHhsSACGtYTYDRDlNgmcO2aRZnjWLWjAvUzh
+ eJPFjBQFOJP9pqC74YhNjkVXfhsYZ4pGREHyNNMaR6hDh7AphLfEiiDIiLOuoFc/ZIR2
+ AmjbClzMUrCN54sjSERnW52vesYSmbvfZGKq//Vwo73ryEGGtM/m4nVhC+XXSGHzoCfJ
+ YzzQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:subject:to:references:from:autocrypt:message-id
  :date:user-agent:mime-version:in-reply-to:content-language
  :content-transfer-encoding;
- bh=8E0Y2gz0Cx03JNF6tn6/f94ykdO43Amm9xSOcaF5JQs=;
- b=hETJTxycBO4f/aIrX/d4YMSZlx8x+sofNLi0JaWzewDw8W+QpcW0eDcQSIjUGJHFRz
- NuxhTFU9Iq4QEOQdiNiwso8gfaF/lONZ0f35lqJQ05TVmYmN2IgmsXRr1kSslNaE2M6E
- KfhUZDcE3KyZ7kC7vKfwOdZftlC1YCPHVLJFNnehb/cO9PQ1HaGUVbknEqrB8Nku+1tt
- lFgT9lLgqiqKVZzTM2D1Jb3HRNuiGPonzbVdqf4miyAMo+sAlHSgfiIlBbr8yJY5pavo
- TyltxK3ABQwm34SZvJP/hH+dC0/lHWwe3b82vn3dbvKl+7KBOh4U+/O1jScTIKEINkbd
- GKNA==
-X-Gm-Message-State: AOAM531NKQJ0/k2pi4wtMBpkxCG6AzsCq0/mLS51OCv5wstaiA96H0NH
- R8+jlftKum9f30/14+sed6o=
-X-Google-Smtp-Source: ABdhPJwbqcHjLXg5tx4/MH3uPMpVg2VJ5PVO3qVyhchEoYN+MIOaW4mW1lbhofasTce1kPelAKETDw==
-X-Received: by 2002:ad4:45d2:: with SMTP id v18mr6056079qvt.45.1604757788415; 
- Sat, 07 Nov 2020 06:03:08 -0800 (PST)
+ bh=CnitLoeMqyrA8E81YF2krwIxxHfJVb8lU/Wo+vPHi74=;
+ b=PWaVXcWcF+46psnsaO45AJ2RKQpw7rRwvLCbE+Pgh0AIUuaXCV/keduMbdHcK98mZw
+ FxCYB0+bNWJYu0mw2i3yfYjnTD5WzSv9pZ3CcEbZmvRe1CmnFusQZiqyjAQBGBS3tIUC
+ /XhMaWiJCHXSX61ddhpWHnMPEp0WAY8rVaeIjGuzlIAjMU9CcyJGwAm9U8rrWv7LwkEF
+ UGF6NwdLQh2BDwGyWB+jK3wz0F7nNgLF5eqhE2Gsx6AhkFQ1K0WJUIKnegJRWIvRMZfH
+ DXh2oSuAFivLM6xYUP9ibT/QGS0yiUW2DzB5Kuvbg9Zvx4YnGCyi9ePdSAPwPc5okod9
+ pdgw==
+X-Gm-Message-State: AOAM530nDjZ0WyGPbCxCSWgv94Zq4sA+sv7PsBynxChuXqEpZijcLiP3
+ Z27Bcv7VQ683REwnL3mcBvA=
+X-Google-Smtp-Source: ABdhPJx/D0D439YZskPQ/Fb4kPHVFAE7Fs0zHkU1kTMKvkOs8RZgqIXlPyC4d5Nq5lEJV5LBxQ1ULw==
+X-Received: by 2002:a37:78c:: with SMTP id 134mr6297005qkh.359.1604757906475; 
+ Sat, 07 Nov 2020 06:05:06 -0800 (PST)
 Received: from [192.168.1.201] (pool-108-51-35-162.washdc.fios.verizon.net.
  [108.51.35.162])
- by smtp.googlemail.com with ESMTPSA id z125sm2590613qke.54.2020.11.07.06.03.07
+ by smtp.googlemail.com with ESMTPSA id z20sm2522633qtb.31.2020.11.07.06.05.05
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Sat, 07 Nov 2020 06:03:07 -0800 (PST)
-Subject: Re: [PATCH 21/32] dt-bindings: Add Kendryte and Canaan vendor prefix
+ Sat, 07 Nov 2020 06:05:05 -0800 (PST)
+Subject: Re: [PATCH 22/32] dt-binding: Document kendryte,k210-sysctl bindings
 To: Damien Le Moal <damien.lemoal@wdc.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
  Rob Herring <robh+dt@kernel.org>, Frank Rowand <frowand.list@gmail.com>,
@@ -84,7 +84,7 @@ To: Damien Le Moal <damien.lemoal@wdc.com>,
  Linus Walleij <linus.walleij@linaro.org>, linux-gpio@vger.kernel.org,
  Philipp Zabel <p.zabel@pengutronix.de>
 References: <20201107081420.60325-1-damien.lemoal@wdc.com>
- <20201107081420.60325-22-damien.lemoal@wdc.com>
+ <20201107081420.60325-23-damien.lemoal@wdc.com>
 From: Sean Anderson <seanga2@gmail.com>
 Autocrypt: addr=seanga2@gmail.com; prefer-encrypt=mutual; keydata=
  mQENBFe74PkBCACoLC5Zq2gwrDcCkr+EPGsT14bsxrW07GiYzQhLCgwnPdEpgU95pXltbFhw
@@ -100,16 +100,16 @@ Autocrypt: addr=seanga2@gmail.com; prefer-encrypt=mutual; keydata=
  N1ahpqqNmXe0uLdP0pu55JCqhrGw2SinkRMdWyhSxT56uNwIVHGhLTqH7Q4t1N6G1EH626qa
  SvIJsWlNpll6Y3AYLDw2/Spw/hqieS2PQ/Ky3rPZnvJt7/aSNYsKoFGX0yjkH67Uq8Lx0k1L
  w8jpXnbEPQN3A2ZJCbeM
-Message-ID: <6fcfabd4-210a-c947-6151-4f8f3b3a9e25@gmail.com>
-Date: Sat, 7 Nov 2020 09:03:06 -0500
+Message-ID: <a994bd33-22cb-d689-8f41-b8b3643be698@gmail.com>
+Date: Sat, 7 Nov 2020 09:05:05 -0500
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
  Thunderbird/68.12.0
 MIME-Version: 1.0
-In-Reply-To: <20201107081420.60325-22-damien.lemoal@wdc.com>
+In-Reply-To: <20201107081420.60325-23-damien.lemoal@wdc.com>
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201107_090310_131805_6DC9EBB4 
-X-CRM114-Status: GOOD (  15.77  )
+X-CRM114-CacheID: sfid-20201107_090508_279468_01E1C48E 
+X-CRM114-Status: GOOD (  19.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -126,47 +126,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
 On 11/7/20 3:14 AM, Damien Le Moal wrote:
-> Update Documentation/devicetree/bindings/vendor-prefixes.yaml to include
-> "Kendryte" and "canaan" as a vendor prefix for "Canaan Inc."
+> Document the device tree bindings of the Kendryte K210 SoC system
+> controller driver in
+> Documentation/devicetree/bindings/mfd/kendryte,k210-sysctl.yaml.
 > 
 > Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
 > ---
->  Documentation/devicetree/bindings/vendor-prefixes.yaml | 4 ++++
->  1 file changed, 4 insertions(+)
+>  .../bindings/mfd/kendryte,k210-sysctl.yaml    | 65 +++++++++++++++++++
+>  1 file changed, 65 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/mfd/kendryte,k210-sysctl.yaml
 > 
-> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> index 2735be1a8470..f53d4d8e7f2a 100644
-> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> @@ -179,6 +179,8 @@ patternProperties:
->      description: CALAO Systems SAS
->    "^calxeda,.*":
->      description: Calxeda
-> +  "^canaan,.*":
-> +    description: Canaan, Inc.
->    "^caninos,.*":
->      description: Caninos Loucos Program
->    "^capella,.*":
-> @@ -537,6 +539,8 @@ patternProperties:
->      description: Ka-Ro electronics GmbH
->    "^keithkoep,.*":
->      description: Keith & Koep GmbH
-> +  "^kendryte,.*":
-> +    description: Canaan, Inc.
->    "^keymile,.*":
->      description: Keymile GmbH
->    "^khadas,.*":
+> diff --git a/Documentation/devicetree/bindings/mfd/kendryte,k210-sysctl.yaml b/Documentation/devicetree/bindings/mfd/kendryte,k210-sysctl.yaml
+> new file mode 100644
+> index 000000000000..8c002d2078f4
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/mfd/kendryte,k210-sysctl.yaml
+> @@ -0,0 +1,65 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/mfd/kendryte,k210-sysctl.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Kendryte K210 System Controller Device Tree Bindings
+> +
+> +maintainers:
+> +  - Damien Le Moal <damien.lemoal@wdc.com>
+> +
+> +description: |
+> +  Kendryte K210 system controller driver which provides a register map for
+> +  clocks and peripherals within the SoC.
+> +
+> +  See also:
+> +  - dt-bindings/mfd/kendryte,k210-sysctl.h
+> +
+> +properties:
+> +  compatible:
+> +    allOf:
+> +      - items:
+> +        - const: kendryte,k210-sysctl
+> +        - const: syscon
+> +        - const: simple-mfd
+> +
+> +  clocks:
+> +    minItems: 1
+> +    maxItems: 1
+> +    items:
+> +      - description: APB interface clock source
+> +
+> +  clock-names:
+> +    minItems: 1
+> +    items:
+> +      - const: pclk
+> +
+> +  reg:
+> +    items:
+> +      - description: system controller register space base address and size
+> +
+> +  reg-io-width:
+> +    const: 4
+> +
+> +required:
+> +  - compatible
+> +  - clocks
+> +  - reg
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/mfd/k210-sysctl.h>
+> +
+> +    sysctl: system-controller@50440000 {
+> +      #address-cells = <1>;
+> +      #size-cells = <1>;
+> +      compatible = "kendryte,k210-sysctl",
+> +                   "syscon", "simple-mfd";
+> +      reg = <0x50440000 0x1000>;
+> +      reg-io-width = <4>;
+> +      /* ... */
+> +    };
+> +
 > 
 
-So AFAIK Canaan is the company, and Kendryte is the brand. However, I
-was unaware of this when I did my initial porting work. So all the
-compatible strings like "kendryte,k210-foo" should really be
-"canaan,kendryte-k210-foo". These _should_ all get fixed in the device
-tree, but no one has done it yet.
-
---Sean
+Reviewed-by: Sean Anderson <seanga2@gmail.com>
 
 _______________________________________________
 linux-riscv mailing list
