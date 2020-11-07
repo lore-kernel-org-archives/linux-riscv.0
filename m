@@ -8,17 +8,17 @@ X-Spam-Status: No, score=-11.0 required=3.0 tests=BAYES_00,
 	NICE_REPLY_A,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CEDD5C388F7
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 14:07:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B1E8AC388F7
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 14:07:20 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 76764206ED
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 14:07:07 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 64807206ED
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 14:07:20 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="1z9vpYSn";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="DPtMBh5U"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 76764206ED
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="I6GiwVqR";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="GvbE4rS6"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 64807206ED
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -27,54 +27,55 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:Subject:
 	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PTLS3i9W3sBdZ7wNfMIgFQF6mCXhYGtWxgrMSurmMpo=; b=1z9vpYSnvzBIywb7AsQW5fRZrE
-	8PbBqqIvaDvxoevQgGMe+ha1yi5ldXzyUeqYk23sq1nGQELs48TF5eJ7GV4h78ShkTZPjM+Gt11Hk
-	b18vcjdA30hGsJU6JBforo6Lx9CYN2y4ebqScV1v19MZ+/sOSolWtWGtsvOC4YCGJOZm/YMso4ds+
-	+8QciapB4jO+QlR2imso11VLiYWVjucLv6CuIs4AMcvLWIgYxyCBm1sGW6tobu0BbcdEFuLywPCMO
-	JcdCq1cSW63yhTUgBoFvy3FJWDQ+Z4xpV0cKbkrxhZTSNi6ytdIW6aXsHD2kEzUEumeTstR3IlG4a
-	Yce5VfLQ==;
+	bh=K93Hd47CAWHyTCnn2fOypiHscK4A9h3ev6XrZvSzASA=; b=I6GiwVqReiDFLXgfjdofTBsdrJ
+	/FN1kKdnyEQvmmytpwULDeAzTs1X7y7CkenxbdwONG20Rwy34HgefnPvb3suX9zsYtLcYMSe2e+KG
+	vw5STEW1Xx2qT44Ix/HJP1JlL/8Z6LN1UqLrwpqa5L74j3Lb46XDYhz5K1q3U+73R5o5zDskyHCQG
+	fq3CG2a17NyXmuWWO1q8bPHk7K+BiROej5EFSkrz1HM+VSmjnZ/hUtSyz+GWjH7zeBwvi+mZsK4jh
+	nTSkMFC/3duOK05JKmOOAhWfqAEyxHkdknE9we86wBq6zwft79UzKlUKZ2EVmXzq7ULZmBcHZxjH/
+	Kzr//V7A==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kbOrr-00075l-Bi; Sat, 07 Nov 2020 14:06:59 +0000
+	id 1kbOs3-00078l-4j; Sat, 07 Nov 2020 14:07:11 +0000
 Received: from mail-qv1-xf41.google.com ([2607:f8b0:4864:20::f41])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kbOrp-00074W-If
- for linux-riscv@lists.infradead.org; Sat, 07 Nov 2020 14:06:58 +0000
-Received: by mail-qv1-xf41.google.com with SMTP id r12so1836556qvq.13
- for <linux-riscv@lists.infradead.org>; Sat, 07 Nov 2020 06:06:53 -0800 (PST)
+ id 1kbOs0-00077S-K9
+ for linux-riscv@lists.infradead.org; Sat, 07 Nov 2020 14:07:09 +0000
+Received: by mail-qv1-xf41.google.com with SMTP id r12so1836749qvq.13
+ for <linux-riscv@lists.infradead.org>; Sat, 07 Nov 2020 06:07:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=subject:to:references:from:autocrypt:message-id:date:user-agent
  :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=Y91JaQF/1kETwdGUyyWD+92BX5/w6nl9g0qOOaKrv4o=;
- b=DPtMBh5USsAkdJ4UT0WA8B7dgWYV3Eb0+NQ83SkAv18daezc9BGw1kjFy0gYppbjOw
- mkFAEDjgsE3Zn+dc/YRxdDlSR8WbbbnUxFYV0uEN7Euvat23gLBBV3K/EZzjARXqCMeW
- 9M4NUPDSK/U++GdfprZVEsON23XD05DQzqCLNIZmwKJLXYZwCgKAnf3UKsvhu5gWHFt5
- wXAJsnRvHnyosA7urqf77G7wPHJxh3RsizFNUJIimUpb0Xfs2WXvburmVLF7mKCd/pWB
- ycRSMX/mcDVzE9236k00UQ5Yzy+y5aJIUFptBidCndPLWnJRF3rXer+mwWqxUB0B7Sdq
- Ol0w==
+ bh=zKB3lPGWxBL2tP2yoSCPfZH1/fL4oEaD+x4JT1cAitc=;
+ b=GvbE4rS6hdLnccBvenC6mkNNZyeG9nPJPltPAGuQiVCBNDeAoTxt6nnVHK/NRq6+f2
+ 2Zi422zgUgcHnk8gchYtUyY4qdfyKB76d0jbmCMTiAIksEreGl4iJbne2D+NQk5RNW0r
+ 7MZxLiHYSyYowe/QEApVF6qxwm43arfPX/Ici/jEWfrRjIrADSgqyRgq77WUojUdSziT
+ FzFyYII5XBKrpSi9TlulQPPJJp97mxSGhIuH3nWrwvKvvzQzAETyTy0Sll3T/1kFB0eo
+ dTrCSJEiJchZsmPkCOcNNAeFegu51eSuYxOc+plhvysGgfLsG4jumomc818tszgAi6/z
+ a3Kw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:subject:to:references:from:autocrypt:message-id
  :date:user-agent:mime-version:in-reply-to:content-language
  :content-transfer-encoding;
- bh=Y91JaQF/1kETwdGUyyWD+92BX5/w6nl9g0qOOaKrv4o=;
- b=HAuNxPbje4CgjKMR1SUEoUylxob+RAOaFoBOb+uKY3Mu7fbV+iUzcKwgkhrCOrzM03
- MBGWzJaPCSt9ZbDYIvH8Y4RCrR4q8gvV/c5Ujwfo+aXT6GjajOKcqhy3P50z1zcIepKv
- rC5NRmLQllW0dIJ+XTAHDPKqoxq3uGxnUh1XTOJA0bA0XtcrvaGCUKywxGnNA5fYhkrv
- RPyWd8zhG6JXVAEx7AL1i+ZzDJvSQwNQ9D5raUkqJGo1Zyc9swvC4kpAQaO9YJQ6ipaH
- 0wCkTBJZO1YK0RmEcgPAZeELyYmOIVY0L1aa2le/vETjIOe32ojDjlDwnk5smvDytAsu
- 7NuQ==
-X-Gm-Message-State: AOAM530V2LxK1taGKlNLBbK2BKwOFCECV9xa2gN35DxLaCC9oKSYVajp
- qV4py1EW4HmtaOmzJSc5FPQ=
-X-Google-Smtp-Source: ABdhPJy/8LlBNEyFw668t0iz4qhwviq1iivffqIkYwBoBD1i0JdYLjzPcsMhxiBb07qf/7gcsvmVZw==
-X-Received: by 2002:a0c:d6cb:: with SMTP id l11mr6191774qvi.9.1604758012724;
- Sat, 07 Nov 2020 06:06:52 -0800 (PST)
+ bh=zKB3lPGWxBL2tP2yoSCPfZH1/fL4oEaD+x4JT1cAitc=;
+ b=m5kJP5vZXqsJ9dqGjJ/L6kAB8IholFZ56i9TfPJoi2DjtzH7+NUtRCdq0NIRRkfTmc
+ lVeZOM36tBeimeIYMlny17W02qGRViAxYdX135Xjp9Kfs1jKqVnSc2EmPKbbG2/zXTVA
+ NcbK6uw92WGHy6QpeWIoAZC3tzY4KwCqzKPEKwGEapigtzkyaRfQUJzsQNaNJnz9X7cd
+ VWNfT8oIZb2FZm+1Z7/0/GbDOZHSGzlrAAfnLlqENvuFRedGzFzxZi7bQMLT35L0RBK9
+ IEYjpRjStCj5LdIZoKOoN8RQTCHcrb/e9k6EhaZtM55oNTd38kd5KSaGLiyH6lDfN8WN
+ eh7Q==
+X-Gm-Message-State: AOAM532tRHO4p83ND0T8fb9c9+zn8oy9CZFKIMOt5bQ7cI1Kmw5z6+of
+ dkipEhO1zDZNLZXfySw0cVg=
+X-Google-Smtp-Source: ABdhPJx4ic66oyZsOa3eGQaRgTAbe1052WlMHm2rDsfiwbC/4I2NWKXpxlJXNQQtpT9yE9uEzU4Xpw==
+X-Received: by 2002:a05:6214:174f:: with SMTP id
+ dc15mr6062408qvb.26.1604758027246; 
+ Sat, 07 Nov 2020 06:07:07 -0800 (PST)
 Received: from [192.168.1.201] (pool-108-51-35-162.washdc.fios.verizon.net.
  [108.51.35.162])
- by smtp.googlemail.com with ESMTPSA id t184sm2559968qka.19.2020.11.07.06.06.51
+ by smtp.googlemail.com with ESMTPSA id 8sm2669070qkb.98.2020.11.07.06.07.06
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Sat, 07 Nov 2020 06:06:52 -0800 (PST)
-Subject: Re: [PATCH 24/32] dt-bindings: Document kendryte,k210-fpioa bindings
+ Sat, 07 Nov 2020 06:07:06 -0800 (PST)
+Subject: Re: [PATCH 25/32] dt-bindings: Document kendryte,k210-rst bindings
 To: Damien Le Moal <damien.lemoal@wdc.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
  Rob Herring <robh+dt@kernel.org>, Frank Rowand <frowand.list@gmail.com>,
@@ -84,7 +85,7 @@ To: Damien Le Moal <damien.lemoal@wdc.com>,
  Linus Walleij <linus.walleij@linaro.org>, linux-gpio@vger.kernel.org,
  Philipp Zabel <p.zabel@pengutronix.de>
 References: <20201107081420.60325-1-damien.lemoal@wdc.com>
- <20201107081420.60325-25-damien.lemoal@wdc.com>
+ <20201107081420.60325-26-damien.lemoal@wdc.com>
 From: Sean Anderson <seanga2@gmail.com>
 Autocrypt: addr=seanga2@gmail.com; prefer-encrypt=mutual; keydata=
  mQENBFe74PkBCACoLC5Zq2gwrDcCkr+EPGsT14bsxrW07GiYzQhLCgwnPdEpgU95pXltbFhw
@@ -100,16 +101,16 @@ Autocrypt: addr=seanga2@gmail.com; prefer-encrypt=mutual; keydata=
  N1ahpqqNmXe0uLdP0pu55JCqhrGw2SinkRMdWyhSxT56uNwIVHGhLTqH7Q4t1N6G1EH626qa
  SvIJsWlNpll6Y3AYLDw2/Spw/hqieS2PQ/Ky3rPZnvJt7/aSNYsKoFGX0yjkH67Uq8Lx0k1L
  w8jpXnbEPQN3A2ZJCbeM
-Message-ID: <62d01a24-4395-ce58-dea9-2241180c17ce@gmail.com>
-Date: Sat, 7 Nov 2020 09:06:51 -0500
+Message-ID: <b37c9b72-dc96-6ae9-a94e-457a96a1809c@gmail.com>
+Date: Sat, 7 Nov 2020 09:07:06 -0500
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
  Thunderbird/68.12.0
 MIME-Version: 1.0
-In-Reply-To: <20201107081420.60325-25-damien.lemoal@wdc.com>
+In-Reply-To: <20201107081420.60325-26-damien.lemoal@wdc.com>
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201107_090657_658182_6FE2344B 
-X-CRM114-Status: GOOD (  22.95  )
+X-CRM114-CacheID: sfid-20201107_090708_699853_FB105A9F 
+X-CRM114-Status: GOOD (  19.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -127,126 +128,98 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 11/7/20 3:14 AM, Damien Le Moal wrote:
-> Document the device tree bindings for the Kendryte K210 SoC Fully
-> Programmable IO Array (FPIOA) pinctrl driver in
-> Documentation/devicetree/bindings/pinctrl/kendryte,k210-fpioa.yaml
+> Document the device tree bindings for the Kendryte K210 SoC reset
+> controller driver in
+> Documentation/devicetree/bindings/reset/kendryte,k210-rst.yaml.
 > 
 > Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
 > ---
->  .../bindings/pinctrl/kendryte,k210-fpioa.yaml | 106 ++++++++++++++++++
->  1 file changed, 106 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pinctrl/kendryte,k210-fpioa.yaml
+>  .../bindings/reset/kendryte,k210-rst.yaml     | 78 +++++++++++++++++++
+>  1 file changed, 78 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/reset/kendryte,k210-rst.yaml
 > 
-> diff --git a/Documentation/devicetree/bindings/pinctrl/kendryte,k210-fpioa.yaml b/Documentation/devicetree/bindings/pinctrl/kendryte,k210-fpioa.yaml
+> diff --git a/Documentation/devicetree/bindings/reset/kendryte,k210-rst.yaml b/Documentation/devicetree/bindings/reset/kendryte,k210-rst.yaml
 > new file mode 100644
-> index 000000000000..8730add88ee0
+> index 000000000000..bdd0bf37bdfb
 > --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pinctrl/kendryte,k210-fpioa.yaml
-> @@ -0,0 +1,106 @@
+> +++ b/Documentation/devicetree/bindings/reset/kendryte,k210-rst.yaml
+> @@ -0,0 +1,78 @@
 > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 > +%YAML 1.2
 > +---
-> +$id: http://devicetree.org/schemas/pinctrl/kendryte,k210-fpioa.yaml#
+> +$id: http://devicetree.org/schemas/reset/kendryte,k210-rst.yaml#
 > +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +title: Kendryte K210 FPIOA (Fully Programmable IO Array) Device Tree Bindings
+> +title: Kendryte K210 Reset Controller Device Tree Bindings
 > +
 > +maintainers:
 > +  - Damien Le Moal <damien.lemoal@wdc.com>
 > +
-> +description:
-> +  The Kendryte K210 SoC Fully Programmable IO Array controller allows assiging
-> +  any of 256 possible functions to any of 48 IO pins. Pin function configuration
-> +  is performed on a per-pin basis.
+> +description: |
+> +  Kendryte K210 reset controller driver which support the system controller
+> +  subsystem supplied reset registers for the various peripherals within
+> +  the SoC.
+> +
+> +  See also:
+> +  - dt-bindings/reset/k210-rst.h
 > +
 > +properties:
 > +  compatible:
-> +    const: kendryte,k210-fpioa
+> +    allOf:
+> +      - items:
+> +        - const: kendryte,k210-rst
+> +        - const: syscon-reset
 > +
-> +  reg:
-> +    description: FPIOA controller register space base address and size
-> +
-> +  clocks:
-> +    minItems: 2
-> +    maxItems: 2
-> +    items:
-> +      - description: Controller reference clock source
-> +      - description: APB interface clock source
-> +
-> +  clock-names:
-> +    minItems: 2
-> +    maxItems: 2
-> +    items:
-> +      - const: ref
-> +      - const: pclk
-> +
-> +  resets:
+> +  regmap:
 > +    maxItems: 1
+> +    description: phandle of the system controller (sysctl) node
 > +
-> +  kendryte,sysctl:
-> +    minItems: 1
+> +  offset:
 > +    maxItems: 1
-> +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> +    description: |
-> +      phandle to the system controller node
+> +    description: peripheral reset register offset in the system controller
+> +      controller register map
 > +
-> +  kendryte,power-offset:
-> +    minItems: 1
+> +  mask:
 > +    maxItems: 1
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description: |
-> +      Offset of the power domain control register of the system controller.
-> +      The value should be the macro K210_SYSCTL_POWER_SEL defined in
-> +      dt-bindings/mfd/k210-sysctl.h.
+> +    description: bit-mask indicating valid reset bits in the reset register
 > +
-> +patternProperties:
-> +  '^.*$':
-> +    if:
-> +      type: object
-> +    then:
-> +      patternProperties:
-> +        "^pinmux$":
-> +          $ref: /schemas/pinctrl/pincfg-node.yaml
-> +          description:
-> +            An array of IO pins alternate functions. The values for each
-> +            IO pin is a combination of an IO pin number (0 to 47) with the
-> +            desired function for the IO pin. Functions are defined as macros in
-> +            dt-bindings/pinctrl/k210-pinctrl.h. The K210_FPIOA(IO pin, function)
-> +            is provided to facilitate the combination of IO pin numbers and
-> +            functions.
+> +  assert-high:
+> +    maxItems: 1
+> +    description: bit value to write when asserting a reset
+> +
+> +  '#reset-cells':
+> +    const: 1
 > +
 > +required:
+> +  - '#reset-cells'
 > +  - compatible
-> +  - reg
-> +  - clocks
-> +  - resets
-> +  - kendryte,sysctl
-> +  - kendryte,power-offset
+> +  - regmap
+> +  - offset
+> +  - mask
+> +  - assert-high
 > +
 > +additionalProperties: false
 > +
 > +examples:
 > +  - |
-> +    #include <dt-bindings/pinctrl/k210-pinctrl.h>
 > +    #include <dt-bindings/mfd/k210-sysctl.h>
-> +    #include <dt-bindings/clock/k210-sysctl.h>
-> +    #include <dt-bindings/reset/k210-sysctl.h>
+> +    #include <dt-bindings/reset/k210-rst.h>
 > +
-> +    fpioa: pinmux@502B0000 {
-> +      compatible = "kendryte,k210-fpioa";
-> +      reg = <0x502B0000 0x100>;
-> +      clocks = <&sysclk K210_CLK_FPIOA>;
-> +      resets = <&sysrst K210_RST_FPIOA>;
-> +      kendryte,sysctl = <&sysctl>;
-> +      kendryte,power-offset = <K210_SYSCTL_POWER_SEL>;
-> +      pinctrl-0 = <&fpioa_jtag>;
-> +      pinctrl-names = "default";
-> +
-> +      fpioa_jtag: jtag {
-> +        pinmux = <K210_FPIOA(0, K210_PCF_JTAG_TCLK)>,
-> +                 <K210_FPIOA(1, K210_PCF_JTAG_TDI)>,
-> +                 <K210_FPIOA(2, K210_PCF_JTAG_TMS)>,
-> +                 <K210_FPIOA(3, K210_PCF_JTAG_TDO)>;
+> +    sysctl: system-controller@50440000 {
+> +      #address-cells = <1>;
+> +      #size-cells = <1>;
+> +      compatible = "kendryte,k210-sysctl",
+> +                   "syscon", "simple-mfd";
+> +      reg = <0x50440000 0x1000>;
+> +      /* ... */
+> +      sysrst: reset-controller {
+> +        compatible = "kendryte,k210-rst",
+> +                      "syscon-reset";
+> +        #reset-cells = <1>;
+> +        regmap = <&sysctl>;
+> +        offset = <K210_SYSCTL_PERI_RESET>;
+> +        mask = <0x27FFFFFF>;
+> +        assert-high = <1>;
 > +      };
 > +    };
 > 
