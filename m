@@ -2,85 +2,99 @@ Return-Path: <SRS0=cxKJ=EN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PULL_REQUEST,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B4B87C388F7
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 07:41:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A24A9C63699
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 08:14:44 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2A3EB206A1
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 07:41:35 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5529F20704
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 08:14:44 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pG8RtFrb";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="AJYIQmr+"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2A3EB206A1
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="UZJXdXJL";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="YK3FRLza"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5529F20704
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Message-ID:To:From:Subject:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9Dm81wrRVuAsnCqJvyHLxdqDsCrOPN9ipu4fgIWShkQ=; b=pG8RtFrbmkU+rTysYXY5f5z8kq
-	kc2x70veHs0IBIrKuZOTCOfm/oCdbkyslZyEXHCf0raX1CfTDO4IImnzlAP274LMk0ASUluHAm7s7
-	CmFNzbmPL/g5mnLpM7NvPk2EVg49Y3owEHKwKk2UsFzhJf1MW3LrCKEtmIaX4v59pn+IrM6Kda5vo
-	jmBJefGvRofXx0JkhqahxYy/U4oVeFaGH04ZJvs+LFrB4BtuUf12icjFzDHIdY9n6U+shPkgpsdJn
-	hELBXNwfnfr2NsPT46fib5iW8o6e6hMP5RLliBxUHOzrbloo5rPUDwqQxkv0/xFTdRc9x1Ue1lPhw
-	Kv7i5pcw==;
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=89aJprTaL8ZKe20aA0llcFRlovan6QY10FimnDkaMJ0=; b=UZJXdXJLM3qQk6sAgCN9MV+T1
+	O2t3uq5NV4UoGK8QgvpfcnMF1YuskqQ7hNvcewTjXAsg7OA68/ubGjT8yE+GztPYUnGG4f5l5cDGs
+	x/dzTNLn/scC0Y2cDSU3jnhzzbwArufO5RInvNPhAenbH3CotgFh3pWEknxC/6W33LBuQgqDifM5P
+	MA6DCpVn1etmB7CjXFD9ajkMSsId5lSsYcTY2Gw5h/GPxT1tiGZzfQKse8WThcrXE61QvVDbMCLkU
+	QyFhURmhhj0J7nSjxeLUeKsU2VdECzkeJggej0HYKZ2ZgiJEGPj0bTFtAkNHIlDKCdYg3XHhayVwL
+	DSLjQHPCg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kbIqa-0006eP-2s; Sat, 07 Nov 2020 07:41:16 +0000
-Received: from mail-pj1-x1043.google.com ([2607:f8b0:4864:20::1043])
+	id 1kbJMo-0000Qk-4U; Sat, 07 Nov 2020 08:14:34 +0000
+Received: from esa1.hgst.iphmx.com ([68.232.141.245])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kbIqX-0006dp-Jm
- for linux-riscv@lists.infradead.org; Sat, 07 Nov 2020 07:41:14 +0000
-Received: by mail-pj1-x1043.google.com with SMTP id w7so572651pjy.1
- for <linux-riscv@lists.infradead.org>; Fri, 06 Nov 2020 23:41:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:cc:from:to:message-id;
- bh=Aj52fNi+6qkhS7kowQN13Bo7Tv7SK9o+ZxNTLM9lCXM=;
- b=AJYIQmr+DjHlfx85x8SwEqe9jZibSh8Q4nTZ2gU2RisyBQzJCtfaUCSEGrsE6YXF+T
- Li1apuSs+Pyg+Y8pjyNCvUgUTXckI9QjmiCnrhc0Lkk4EKQ08FufNLRecan+nUBsuLpO
- AapxciKiwfPXBUnW7kirqen7sm5S8LR2aaSjn+wc0Febdg2iI9kuO3R78r8Y9udvB9f/
- +ahCAyQiE5R2MkGAyE9fT+BxbTh9kPAxuMwq2HnSK2ZpmvQ/81ogWpjahCxs9g0IkxOK
- +HxOTqaWS+GXHalZp8en/BiOtueK5WTU5E2qxwe/M+jBDKcnOwBZ3WKEZLnQ80cBmbT+
- RLQw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:cc:from:to:message-id;
- bh=Aj52fNi+6qkhS7kowQN13Bo7Tv7SK9o+ZxNTLM9lCXM=;
- b=eLMFXmUY7+BZP7+iMLyQCu86PgZ1+az4zHp/jA1yUJf/V7wHG75BTl1RvijrVo836E
- x3/w6ZziSIdiRiS5So3rtgDbpvT3bJmryIOLJ7YLM1vehfpwCl2aY57iGTASgAYW8wYe
- dpu0t3B/M3vOXiCXj6xHqAsw0Nv2aita6gqtCZEpMHHCUOe++I0yFqorj/9y93jjOrsV
- g9wpHNBlO1QTGXdgGljFOkFszN0lIPbbEcyr2+SOzOg183k2H3+KGu8yOgUE+JQTL+Ny
- X4gsEPDCjyz2hIYpLdFyHaK97A806luXYagmj0g4c1NtfCGQokWk7hwIYUIZ9pF2u7k1
- g9OQ==
-X-Gm-Message-State: AOAM53070PFYvwjIPYR7koWtkFfrxe5sDnNcaS6nBcFD58trLM8r9o+m
- np1cAcV3zsgfOn/J9RlEeaR/YjIVFVCsDg==
-X-Google-Smtp-Source: ABdhPJyO7FhNpvfOl8UtSFGhcRQbIwhjpnT16iiwvxMvOsq87oRipgIWzN6N8NJlf41nOC4LHNbVXQ==
-X-Received: by 2002:a17:90a:ca91:: with SMTP id
- y17mr3154280pjt.205.1604734869258; 
- Fri, 06 Nov 2020 23:41:09 -0800 (PST)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id v24sm4739929pjh.19.2020.11.06.23.41.07
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 06 Nov 2020 23:41:08 -0800 (PST)
-Date: Fri, 06 Nov 2020 23:41:08 -0800 (PST)
-X-Google-Original-Date: Fri, 06 Nov 2020 23:41:04 PST (-0800)
-Subject: [GIT PULL] RISC-V Fixes for 5.10-rc3
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <mhng-3492671f-a069-445d-a6d8-89363714a1fb@palmerdabbelt-glaptop1>
+ id 1kbJMm-0000PH-54
+ for linux-riscv@lists.infradead.org; Sat, 07 Nov 2020 08:14:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1604736872; x=1636272872;
+ h=from:to:cc:subject:date:message-id:in-reply-to:
+ references:mime-version:content-transfer-encoding;
+ bh=zXOUn4luDWiHlH2xEcGo8nQgZxG+Qoj008WbUn42J5Y=;
+ b=YK3FRLza2B1oaXtVJkh5m4l5pQ/dnIQAv9U9i1ADEQbPADJKuTvDsi2H
+ RUHnBzIsM8vyfkFhYfVk61th3k1iWA+JxcbQMUrtoK3ZnIaQe+X8kG+wo
+ fTpMOWBvefy8GDpA60BQznzkcT7pnOel23tmI1OSkdHRx5vZ0LUogs4n4
+ Bp2D74gr4FoSyxAGmffWKTiNcwB2LzqTBidP6eecwcYLeP96ihINaLS/f
+ EwZ1oE7dSpK8hEzsipqntdiAWy/TD4a2uoRiRwzYU9n8U8OohhZ61QHJk
+ h5qA4CC96Wm0v9O/LZkAN+sIvhToAKqtZBOiQXQ96uACorqGe/NxxLrZC A==;
+IronPort-SDR: NfCZk39rwjvKisptECAbLCvodxoC3KF6tfHIySVgVDg1z2rnvMQMPmnEHj/v7th1ga7vYo9WhZ
+ rYx9vZgstJRKvA/iqnb0W1wlbWAD0CmKmvSioPDkP9uxgzM5fB+oxWWmpz0OaSFez6nkOqI37D
+ icCVEQlsL+2Hw/bXHNvHHPOlU0DSwTxkF5SCm1bc2z5Br/1MKCkR/Cgqpg+iyA+TOO91gh2YSy
+ GYRF0m+VN04dJtG78sokXvvYZBkMmdlR6FQyLb/VOWjl1R7SreHWGw2vBZKxr4a3SmMczDHrQT
+ 5WY=
+X-IronPort-AV: E=Sophos;i="5.77,459,1596470400"; d="scan'208";a="262079260"
+Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
+ ([199.255.45.14])
+ by ob1.hgst.iphmx.com with ESMTP; 07 Nov 2020 16:14:31 +0800
+IronPort-SDR: ek3a1g/ff1AXmnnSc60PJbWdOWqsCID25JOkIei9/rPSnhiUT9SnVLMGAXRa2HhnPVa9Pog59H
+ TBg8wvXxSqBSh1ZVqsvb1dj4IIbeiOo57u3pE2pF72apWnkgKvmWzHrDBGV6DKBtIWMXz9juea
+ YRGkCqYt7RAdsjpvmtZwNdSwZHEtkLc3Ag4eSjVIfnU9cfziTsce35YjP95KldZT6gecLEoEtl
+ rWgZUz/hs5yl2HZNzzzJuSLDQ4NZGdkrkACfj/92FhusmxrzKZVI1IVQv++gLKqnzsXs2Vw9s7
+ hXZaiWtD8LkG3L+JlLu6+YA2
+Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
+ by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 07 Nov 2020 00:00:36 -0800
+IronPort-SDR: 5bMS7b8/oLSlphvaD4IRhBm6Eo/58VNOp/fpJO2woBA813YdnNsPHPyJK/Z/P5Qjuvf5fIKXww
+ +hPXtu1SxJzByuUOQ/9GIaSKjctTWWsy2g3FaIZMcFDPX5XqJTMQTKHQldpOI/+AQzkPQddNjN
+ nM8wKRoWn59ma3g0/DCaPbkXtaaxsTWHTXKmGM3YPZk/xAfSVJAhfiTaHkKcAoxX0QD5ShtmUR
+ 9+mCVSuTOeM6wmBgCiaK4xvFT9GmfT2ZkxTHkPv9DxFfMkqn+T3ghAnlBxLxwx/ArefX6JBG8s
+ NPA=
+WDCIronportException: Internal
+Received: from hdrdzf2.ad.shared (HELO twashi.fujisawa.hgst.com)
+ ([10.84.71.85])
+ by uls-op-cesaip01.wdc.com with ESMTP; 07 Nov 2020 00:14:30 -0800
+From: Damien Le Moal <damien.lemoal@wdc.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
+ Rob Herring <robh+dt@kernel.org>, Frank Rowand <frowand.list@gmail.com>,
+ devicetree@vger.kernel.org, Serge Semin <fancer.lancer@gmail.com>,
+ Mark Brown <broonie@kernel.org>, linux-spi@vger.kernel.org,
+ Stephen Boyd <sboyd@kernel.org>, linux-clk@vger.kernel.org,
+ Linus Walleij <linus.walleij@linaro.org>, linux-gpio@vger.kernel.org,
+ Philipp Zabel <p.zabel@pengutronix.de>
+Subject: [PATCH 03/32] spi: dw: Fix driving MOSI low while recieving
+Date: Sat,  7 Nov 2020 17:13:51 +0900
+Message-Id: <20201107081420.60325-4-damien.lemoal@wdc.com>
+X-Mailer: git-send-email 2.28.0
+In-Reply-To: <20201107081420.60325-1-damien.lemoal@wdc.com>
+References: <20201107081420.60325-1-damien.lemoal@wdc.com>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201107_024113_785126_9688DCE7 
-X-CRM114-Status: GOOD (  13.85  )
+X-CRM114-CacheID: sfid-20201107_031432_472873_8717037C 
+X-CRM114-Status: GOOD (  15.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -92,72 +106,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-MIME-Version: 1.0
+Cc: Sean Anderson <seanga2@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 3650b228f83adda7e5ee532e2b90429c03f7b9ec:
+Fix for the Synopsis DesignWare SPI mmio driver taken from the work
+by Sean Anderson for the U-Boot project. Sean comments:
 
-  Linux 5.10-rc1 (2020-10-25 15:14:11 -0700)
+The resting state of MOSI is high when nothing is driving it. If we
+drive it low while recieving, it looks like we are transmitting 0x00
+instead of transmitting nothing. This can confuse slaves (like SD cards)
+which allow new commands to be sent over MOSI while they are returning
+data over MISO. The return of MOSI from 0 to 1 at the end of recieving
+a byte can look like a start bit and a transmission bit to an SD card.
+This will cause the card to become out-of-sync with the SPI device, as
+it thinks the device has already started transmitting two bytes of a new
+command. The mmc-spi driver will not detect the R1 response from the SD
+card, since it is sent too early, and offset by two bits. This patch
+fixes transfer errors when using SD cards with dw spi.
 
-are available in the Git repository at:
+Signed-off-by: Sean Anderson <seanga2@gmail.com>
+Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
+---
+ drivers/spi/spi-dw-core.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.10-rc3
+diff --git a/drivers/spi/spi-dw-core.c b/drivers/spi/spi-dw-core.c
+index 841c85247f01..c2ef1d8d46d5 100644
+--- a/drivers/spi/spi-dw-core.c
++++ b/drivers/spi/spi-dw-core.c
+@@ -137,7 +137,7 @@ static inline u32 rx_max(struct dw_spi *dws)
+ static void dw_writer(struct dw_spi *dws)
+ {
+ 	u32 max = tx_max(dws);
+-	u16 txw = 0;
++	u16 txw = 0xffff;
+ 
+ 	while (max--) {
+ 		if (dws->tx) {
+-- 
+2.28.0
 
-for you to fetch changes up to c2c81bb2f69138f902e1a58d3bef6ad97fb8a92c:
-
-  RISC-V: Fix the VDSO symbol generaton for binutils-2.35+ (2020-11-06 00:03:48 -0800)
-
-----------------------------------------------------------------
-RISC-V Fixes for 5.10-rc3
-
-* An SPDX comment style fix.
-* A fix to ignore memory that is unusable.
-* A fix to avoid setting a kernel text offset for the !MMU kernels, where
-  skipping the first page of memory is both unnecessary and costly.
-* A fix to avoid passing the flag bits in satp to pfn_to_virt().
-* A fix to __put_kernel_nofault, where we had the arguments to
-  __put_user_nocheck reversed.
-* A workaround for a bug in the FU540 to avoid triggering PMP issues during
-  early boot.
-* A change to how we pull symbols out of the vDSO.  The old mechanism was
-  removed from binutils-2.35 (and has been backported to Debian's 2.34).
-
-----------------------------------------------------------------
-Anup Patel (1):
-      RISC-V: Use non-PGD mappings for early DTB access
-
-Atish Patra (1):
-      RISC-V: Remove any memblock representing unusable memory area
-
-Changbin Du (1):
-      riscv: uaccess: fix __put_kernel_nofault()
-
-Liu Shaohua (1):
-      riscv: fix pfn_to_virt err in do_page_fault().
-
-Palmer Dabbelt (1):
-      RISC-V: Fix the VDSO symbol generaton for binutils-2.35+
-
-Ryan Kosta (1):
-      risc-v: kernel: ftrace: Fixes improper SPDX comment style
-
-Sean Anderson (1):
-      riscv: Set text_offset correctly for M-Mode
-
- arch/riscv/include/asm/uaccess.h  |  2 +-
- arch/riscv/kernel/ftrace.c        |  2 +-
- arch/riscv/kernel/head.S          |  5 +++++
- arch/riscv/kernel/vdso/.gitignore |  1 +
- arch/riscv/kernel/vdso/Makefile   | 18 +++++++++---------
- arch/riscv/kernel/vdso/so2s.sh    |  6 ++++++
- arch/riscv/mm/fault.c             |  4 +++-
- arch/riscv/mm/init.c              | 32 +++++++++++++++++++++-----------
- 8 files changed, 47 insertions(+), 23 deletions(-)
- create mode 100755 arch/riscv/kernel/vdso/so2s.sh
 
 _______________________________________________
 linux-riscv mailing list
