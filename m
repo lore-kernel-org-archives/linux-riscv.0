@@ -1,69 +1,64 @@
-Return-Path: <SRS0=cxKJ=EN=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=tI+f=EO=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-7.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_GIT autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 52125C388F7
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 19:43:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 54DDAC388F2
+	for <linux-riscv@archiver.kernel.org>; Sun,  8 Nov 2020 06:58:58 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EE62F2087E
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Nov 2020 19:43:53 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id ECAF3217A0
+	for <linux-riscv@archiver.kernel.org>; Sun,  8 Nov 2020 06:58:57 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="2sUcNtI5";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="j4Na6VMS"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EE62F2087E
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="SnX2HV/z";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="vEcjSbJx"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ECAF3217A0
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Date:Message-Id:References:In-Reply-To:From:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kt1DtVE8mW6u3Lp8KaP7mNBvpZ60zWJEmM7Ps+QUq8s=; b=2sUcNtI5RjK9u+NQK9uJMLE3S3
-	4aY/+mobWZLWckCtB4RGZvvKfZ0px+A4K7OJBNUnCCET0BFRrN0eeZYXpbtMg9NWBeWW1mh4UIWtb
-	oNJV3eKi0jOf8Uz8BbZSAGoMW3deXwzsNC+lyEGncCsXAu7IOcN6SsM2YmOZ5qOYJCzK+wCp4wj3n
-	0k1ZSGxhtuyfacqMCTThBTxUf+EpTVMPbx1FUfYD4+pnNu5+osYelsuJO0NUdrVTCFSC1HW4uyWbG
-	BgAsv+r9lfBZSn2ja0NYX721zhdXMdmJZWy3ydyHzHzPlNmYuGtofkaV3QU70AzWKHCFBxV8SMv2c
-	S8CNOBzQ==;
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Fz3D0OhPdsUiwkuZaq1AD1Gp98IWeymBpfUxvHLHbC4=; b=SnX2HV/zOvWk4BdsUPFQGkj/3x
+	+1jqKcnmwGwyYU0CId6FzYaQTKr0X3/lTrJhsJ53VvpBeDVUWydWMTs+hyL7U7JqMPJgDv+5t+v9r
+	2C9NY1bn6RFIuNYNxfHoDrwjVrcf4ITD5ZKtjAfGRcUmNIrLhwv7FkgZJ0y8QkuOcFW86TkIf2bKW
+	UNeYBD6tC6TE0rwtrRxq1zA11tWDC4M5LjLdMBo8xDWcDoXNVGfW+lAMD1k/iym2/EG9VHO8aznQo
+	aGpuIJD5mmEBWlKIDhw8xpwNUIZwGRwT5feIOnGbU/7jY0BzPerCmigjx6I+KLrDRjpRj1OtNGx77
+	E1ZOQK4Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kbU7a-00020g-3v; Sat, 07 Nov 2020 19:43:34 +0000
+	id 1kbeeb-0004qm-Pe; Sun, 08 Nov 2020 06:58:21 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kbU7W-00020A-Ir
- for linux-riscv@lists.infradead.org; Sat, 07 Nov 2020 19:43:31 +0000
-Subject: Re: [GIT PULL] RISC-V Fixes for 5.10-rc3
+ id 1kbeeU-0004ob-E6; Sun, 08 Nov 2020 06:58:15 +0000
+Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 9FA2C20719;
+ Sun,  8 Nov 2020 06:58:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1604778209;
- bh=RBvFnZEJ5sR/qnXqblElAitROl9YLY1Y8CJ/7Uax/Qo=;
- h=From:In-Reply-To:References:Date:To:Cc:From;
- b=j4Na6VMSKFQPq6olMjiZntb/zVJaO4er9KYyiMa2Psj0k1HMK5FCYpxAWRYpCsCwK
- 0DfJl2rDXmXlWMiF5KesFXVdt3rSEpPiWvVkFGXu7NKwV6+A0heGpFXh08Ao/btSnC
- HUcpVXJpmuoqtSJrnBrDrZvIas/o7dHRK7rAF28U=
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <mhng-3492671f-a069-445d-a6d8-89363714a1fb@palmerdabbelt-glaptop1>
-References: <mhng-3492671f-a069-445d-a6d8-89363714a1fb@palmerdabbelt-glaptop1>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <mhng-3492671f-a069-445d-a6d8-89363714a1fb@palmerdabbelt-glaptop1>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
- tags/riscv-for-linus-5.10-rc3
-X-PR-Tracked-Commit-Id: c2c81bb2f69138f902e1a58d3bef6ad97fb8a92c
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 4b1d362db99d9233406cb7cfe35fc698ef92be25
-Message-Id: <160477820907.15421.11445199450215268776.pr-tracker-bot@kernel.org>
-Date: Sat, 07 Nov 2020 19:43:29 +0000
-To: Palmer Dabbelt <palmer@dabbelt.com>
+ s=default; t=1604818692;
+ bh=wFNXZxJs2g5BcW3aCm2TF4VcMb1iBggKCmWf8Xc7OXQ=;
+ h=From:To:Cc:Subject:Date:From;
+ b=vEcjSbJxV1osIHprGn0uUivu2ID8+CzSj4Gez7BD1cn8ZWSCusNjvXx7R84zomGgH
+ TCfOcB3essBAWR2sfg4dWEIKILFOIgLaYZaPcH8bFTlWeVokIFRf7C18MtlyF9fZa7
+ wnZ5i133kJilecrWVEAX6ixDBBd41cTdQGyorHrk=
+From: Mike Rapoport <rppt@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>
+Subject: [PATCH v5 0/5] arch, mm: improve robustness of direct map manipulation
+Date: Sun,  8 Nov 2020 08:57:53 +0200
+Message-Id: <20201108065758.1815-1-rppt@kernel.org>
+X-Mailer: git-send-email 2.28.0
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201107_144330_701533_9B018906 
-X-CRM114-Status: UNSURE (   2.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20201108_015814_642232_8BC083B1 
+X-CRM114-Status: GOOD (  16.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -75,26 +70,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org,
- Linus Torvalds <torvalds@linux-foundation.org>, linux-kernel@vger.kernel.org
-MIME-Version: 1.0
+Cc: David Hildenbrand <david@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ Paul Mackerras <paulus@samba.org>, Pavel Machek <pavel@ucw.cz>,
+ "H. Peter Anvin" <hpa@zytor.com>, sparclinux@vger.kernel.org,
+ Christoph Lameter <cl@linux.com>, Will Deacon <will@kernel.org>,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ Michael Ellerman <mpe@ellerman.id.au>, x86@kernel.org,
+ Mike Rapoport <rppt@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@de.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+ linux-arm-kernel@lists.infradead.org,
+ Catalin Marinas <catalin.marinas@arm.com>, Len Brown <len.brown@intel.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Vasily Gorbik <gor@linux.ibm.com>,
+ linux-pm@vger.kernel.org, Heiko Carstens <hca@linux.ibm.com>,
+ David Rientjes <rientjes@google.com>, Borislav Petkov <bp@alien8.de>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Thomas Gleixner <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
+ "Rafael J. Wysocki" <rjw@rjwysocki.net>, linux-kernel@vger.kernel.org,
+ Pekka Enberg <penberg@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>,
+ Joonsoo Kim <iamjoonsoo.kim@lge.com>, "Edgecombe,
+ Rick P" <rick.p.edgecombe@intel.com>, linuxppc-dev@lists.ozlabs.org,
+ "David S. Miller" <davem@davemloft.net>, Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Fri, 06 Nov 2020 23:41:08 -0800 (PST):
+From: Mike Rapoport <rppt@linux.ibm.com>
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.10-rc3
+Hi,
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/4b1d362db99d9233406cb7cfe35fc698ef92be25
+During recent discussion about KVM protected memory, David raised a concern
+about usage of __kernel_map_pages() outside of DEBUG_PAGEALLOC scope [1].
 
-Thank you!
+Indeed, for architectures that define CONFIG_ARCH_HAS_SET_DIRECT_MAP it is
+possible that __kernel_map_pages() would fail, but since this function is
+void, the failure will go unnoticed.
+
+Moreover, there's lack of consistency of __kernel_map_pages() semantics
+across architectures as some guard this function with
+#ifdef DEBUG_PAGEALLOC, some refuse to update the direct map if page
+allocation debugging is disabled at run time and some allow modifying the
+direct map regardless of DEBUG_PAGEALLOC settings.
+
+This set straightens this out by restoring dependency of
+__kernel_map_pages() on DEBUG_PAGEALLOC and updating the call sites
+accordingly. 
+
+Since currently the only user of __kernel_map_pages() outside
+DEBUG_PAGEALLOC is hibernation, it is updated to make direct map accesses
+there more explicit.
+
+[1] https://lore.kernel.org/lkml/2759b4bf-e1e3-d006-7d86-78a40348269d@redhat.com
+
+v5 changes:
+* use pairs of _map()/_unmap() functions instead of _map(..., int enable) as
+  Vlastimil suggested
+
+v4 changes:
+* s/WARN_ON/pr_warn_once/ per David and Kirill
+* rebase on v5.10-rc2
+* add Acked/Reviewed tags
+https://lore.kernel.org/lkml/20201103162057.22916-1-rppt@kernel.org
+
+v3 changes:
+* update arm64 changes to avoid regression, per Rick's comments
+* fix bisectability
+https://lore.kernel.org/lkml/20201101170815.9795-1-rppt@kernel.org
+
+v2 changes:
+* Rephrase patch 2 changelog to better describe the change intentions and
+implications
+* Move removal of kernel_map_pages() from patch 1 to patch 2, per David
+https://lore.kernel.org/lkml/20201029161902.19272-1-rppt@kernel.org
+
+v1:
+https://lore.kernel.org/lkml/20201025101555.3057-1-rppt@kernel.org
+
+Mike Rapoport (5):
+  mm: introduce debug_pagealloc_{map,unmap}_pages() helpers
+  slab: debug: split slab_kernel_map() to map and unmap variants
+  PM: hibernate: make direct map manipulations more explicit
+  arch, mm: restore dependency of __kernel_map_pages() on DEBUG_PAGEALLOC
+  arch, mm: make kernel_page_present() always available
+
+ arch/Kconfig                        |  3 +++
+ arch/arm64/Kconfig                  |  4 +--
+ arch/arm64/include/asm/cacheflush.h |  1 +
+ arch/arm64/mm/pageattr.c            |  6 +++--
+ arch/powerpc/Kconfig                |  5 +---
+ arch/riscv/Kconfig                  |  4 +--
+ arch/riscv/include/asm/pgtable.h    |  2 --
+ arch/riscv/include/asm/set_memory.h |  1 +
+ arch/riscv/mm/pageattr.c            | 31 ++++++++++++++++++++++
+ arch/s390/Kconfig                   |  4 +--
+ arch/sparc/Kconfig                  |  4 +--
+ arch/x86/Kconfig                    |  4 +--
+ arch/x86/include/asm/set_memory.h   |  1 +
+ arch/x86/mm/pat/set_memory.c        |  4 +--
+ include/linux/mm.h                  | 40 ++++++++++++++---------------
+ include/linux/set_memory.h          |  5 ++++
+ kernel/power/snapshot.c             | 38 +++++++++++++++++++++++++--
+ mm/memory_hotplug.c                 |  3 +--
+ mm/page_alloc.c                     |  6 ++---
+ mm/slab.c                           | 26 ++++++++++---------
+ 20 files changed, 127 insertions(+), 65 deletions(-)
 
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+2.28.0
+
 
 _______________________________________________
 linux-riscv mailing list
