@@ -2,66 +2,89 @@ Return-Path: <SRS0=tI+f=EO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
+X-Spam-Status: No, score=-12.5 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E86B2C388F2
-	for <linux-riscv@archiver.kernel.org>; Sun,  8 Nov 2020 06:59:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 06823C388F9
+	for <linux-riscv@archiver.kernel.org>; Sun,  8 Nov 2020 20:38:15 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9BBF820719
-	for <linux-riscv@archiver.kernel.org>; Sun,  8 Nov 2020 06:59:39 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 7FB91206CB
+	for <linux-riscv@archiver.kernel.org>; Sun,  8 Nov 2020 20:38:14 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="NCg72y8D";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="uZQotty/"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9BBF820719
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="XBa+//be";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="b74gdFy3"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7FB91206CB
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=yr5uSXaVqXao9U2DUtGWVH1JP9JrSOlJbmcQizr2ic8=; b=NCg72y8DQKxA2VSdlLiGqULKK
-	CJmGe6CsYjo5oqojfW6KTZU90Rtys6ORLSinl+2c35yjtrKXDsMZGaE0L0cM6m/LNQ6F41WKrTHXM
-	AafNIKJ3WuPrVSsj3XkrK7ThCC1j5quYBWbthGltr1p2r8t82VXPaUWaXyjiwT9X+i7SbNkuiw9yU
-	2uskdvHH2qVq35dmhU1LMVkfd+wsT4Hk5JpOP1XxbA8cXiEALoCHCIDtBVtDMExwa+uOC4Zhoq4oZ
-	kTJ5VBV9dpXCgiuvUp3ipTBY5wL9A6xlT2FKpeBY4eUZVfsV3IkMWFWrLuhMYZu0dKHT0v1X91wpy
-	Dy9tuhVrw==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VaF9+LY9zflkPzT0Bej9blHhu4QXVV6XG9Xi8ReZE24=; b=XBa+//beH5T8cPm7QEuNgC9XFQ
+	nKyXjBvw4gURHnT3SEdJ7fDbZoWwvgwQVE5plxaHpZzd9odfq22pOVa4i5d1kTP/qis5R49ixaSii
+	eHJkzg0Ss5TZcX/2VBmEGLHNJ18XzHrQhApgpbCQWf3mteuAVd6XTtLOVr2MivG+hpWn6ThQwGFBb
+	SQf0OWliRcvfJ31gbEXgyceHxEAIjKiKb4P/0T5wqwsx+pbz4UFP8nUSfov0nuMYOPWpxTJP/qcU+
+	g5EVxDTEeOrcr3Pdu4/yHRilFhW6vikKzNk0R1GgMZr3QRWv9FtA0G37Xiv0VcinEK1KpSk0W21DV
+	iLc0iedQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kbefX-0005FG-G9; Sun, 08 Nov 2020 06:59:19 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1kbrRh-0003OQ-39; Sun, 08 Nov 2020 20:37:53 +0000
+Received: from mail-qk1-x741.google.com ([2607:f8b0:4864:20::741])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kbefL-00058Q-SJ; Sun, 08 Nov 2020 06:59:11 +0000
-Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id C2107221FE;
- Sun,  8 Nov 2020 06:58:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1604818747;
- bh=zY00vAD1luWw8Wz9ntfdosu1D6lwJ6iTAdVQg6SgGXI=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=uZQotty/fCgSAotIoYPPjcleeGFQedZ2bXn1MRORp/bIAqmn6GCWAIBmKHllxFrNq
- tYDNPq2tKZV1KfkQLXAqFbMI7lSkhDmdOOnBLTD8vmdi4Kxgu9YUr/5kgD2A6CtDp6
- oVY7PS5zQhpEg7nfD0kucNDwH5IiyQ87oPOjfrKg=
-From: Mike Rapoport <rppt@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH v5 5/5] arch, mm: make kernel_page_present() always available
-Date: Sun,  8 Nov 2020 08:57:58 +0200
-Message-Id: <20201108065758.1815-6-rppt@kernel.org>
-X-Mailer: git-send-email 2.28.0
-In-Reply-To: <20201108065758.1815-1-rppt@kernel.org>
-References: <20201108065758.1815-1-rppt@kernel.org>
+ id 1kbrRe-0003O2-FO
+ for linux-riscv@lists.infradead.org; Sun, 08 Nov 2020 20:37:51 +0000
+Received: by mail-qk1-x741.google.com with SMTP id 11so6208609qkd.5
+ for <linux-riscv@lists.infradead.org>; Sun, 08 Nov 2020 12:37:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=RWSW4z4tc076kKwNGtL/so7sEYIZnv1CKrVVWPooetI=;
+ b=b74gdFy3pCe9zaPemkbiKhO3SwxwW0a3dLIX5XlpuDCn4Wo1SaMTTHVcGYBouJ1+Zj
+ FiWq0xudKzDqpK+O0l+0zn7PZNSwZKNyGy7Z8Iaia4d9rqoWaA0IcG7cHFSxmdSMnSoU
+ XaweMDexvhdhtXztS2WS5vMjDwHxsyKphb4Z/L29ixLXe/3e+ubCgkgBRl9wan1ROC/D
+ kzDVu/Z2IhFcyN3CMlQ8NqEjkfRHo8xcf58iuxQH0oDVbxToT/qQOUNp+peoDb0g+41h
+ EM9M+feP9dFB0CBScDGBdmsvxVGR0RkXZxBtivZtCA+fshPrSCAu4NGEckQ1LxyopaVT
+ NKdQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=RWSW4z4tc076kKwNGtL/so7sEYIZnv1CKrVVWPooetI=;
+ b=SK7KkXksK5c6HSsmPLfWFsvx2tFBdn3eDZkXxOXJDcNjheczl77NBU2fxrPTdfwV2b
+ gdr7mNhAGldgbz2+lb4+m5/XMJ3KzHWR148pVPt1h4SlrKGl5kzGQMyPfC5uD03O6xpz
+ Gsw4HqYAUmmr92d90zyZ2E0kIGVNwoAD8vuG0SJ6MIBGhMBLVGRMXirFGRAF6IrZfS1d
+ 8iRWsyiVRpnPBHs/tQylBmmIrR/M6x8kTjr7KephWWSIxBo2x+PyqlP6Uw24G9+aEEIA
+ 2YQJgu6kAG2xMRRwRnG39m3DhxPFBLF4mpNLpdVGWsgpcpC/FbeM/YG4RDMAlRKYdrHw
+ qBlQ==
+X-Gm-Message-State: AOAM530c4hZ7uEKwIrE22Ezum5cqohhtN+JKTlHASVU0kkCtO8K8GEwy
+ /2l3qOBp981wQjQjBEh1hPU=
+X-Google-Smtp-Source: ABdhPJyvfPVuTOdD+abYtY71MC+HK3WvITafyZ6+mJl5HWJMJv7ef5YsIyK62UMmNyzmiYg2QbJItA==
+X-Received: by 2002:a05:620a:5a5:: with SMTP id
+ q5mr2937252qkq.199.1604867864596; 
+ Sun, 08 Nov 2020 12:37:44 -0800 (PST)
+Received: from localhost.localdomain ([2604:1380:45f1:1d00::1])
+ by smtp.gmail.com with ESMTPSA id n6sm4849150qkk.6.2020.11.08.12.37.43
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sun, 08 Nov 2020 12:37:43 -0800 (PST)
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: Palmer Dabbelt <palmerdabbelt@google.com>
+Subject: [PATCH] riscv: Explicitly specify the build id style in vDSO Makefile
+ again
+Date: Sun,  8 Nov 2020 13:37:37 -0700
+Message-Id: <20201108203737.94270-1-natechancellor@gmail.com>
+X-Mailer: git-send-email 2.29.2
 MIME-Version: 1.0
+X-Patchwork-Bot: notify
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201108_015908_120178_13C0F006 
-X-CRM114-Status: GOOD (  22.86  )
+X-CRM114-CacheID: sfid-20201108_153750_572694_730A60E4 
+X-CRM114-Status: GOOD (  11.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -73,214 +96,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: David Hildenbrand <david@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
- Paul Mackerras <paulus@samba.org>, Pavel Machek <pavel@ucw.cz>,
- "H. Peter Anvin" <hpa@zytor.com>, sparclinux@vger.kernel.org,
- Christoph Lameter <cl@linux.com>, Will Deacon <will@kernel.org>,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- Michael Ellerman <mpe@ellerman.id.au>, x86@kernel.org,
- Mike Rapoport <rppt@linux.ibm.com>,
- Christian Borntraeger <borntraeger@de.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>, Len Brown <len.brown@intel.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Vasily Gorbik <gor@linux.ibm.com>,
- linux-pm@vger.kernel.org, Heiko Carstens <hca@linux.ibm.com>,
- David Rientjes <rientjes@google.com>, Borislav Petkov <bp@alien8.de>,
- Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Thomas Gleixner <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
- "Rafael J. Wysocki" <rjw@rjwysocki.net>, linux-kernel@vger.kernel.org,
- Pekka Enberg <penberg@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>,
- Joonsoo Kim <iamjoonsoo.kim@lge.com>, "Edgecombe,
- Rick P" <rick.p.edgecombe@intel.com>, linuxppc-dev@lists.ozlabs.org,
- "David S. Miller" <davem@davemloft.net>, Mike Rapoport <rppt@kernel.org>
+Cc: Nathan Chancellor <natechancellor@gmail.com>,
+ clang-built-linux@googlegroups.com, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Mike Rapoport <rppt@linux.ibm.com>
+Commit a96843372331 ("kbuild: explicitly specify the build id style")
+explicitly set the build ID style to SHA1. Commit c2c81bb2f691 ("RISC-V:
+Fix the VDSO symbol generaton for binutils-2.35+") undid this change,
+likely unintentionally.
 
-For architectures that enable ARCH_HAS_SET_MEMORY having the ability to
-verify that a page is mapped in the kernel direct map can be useful
-regardless of hibernation.
+Restore it so that the build ID style stays consistent across the tree
+regardless of linker.
 
-Add RISC-V implementation of kernel_page_present(), update its forward
-declarations and stubs to be a part of set_memory API and remove ugly
-ifdefery in inlcude/linux/mm.h around current declarations of
-kernel_page_present().
-
-Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
-Acked-by: Kirill A. Shutemov <kirill.shutemov@linux.intel.com>
+Fixes: c2c81bb2f691 ("RISC-V: Fix the VDSO symbol generaton for binutils-2.35+")
+Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
 ---
- arch/arm64/include/asm/cacheflush.h |  1 +
- arch/arm64/mm/pageattr.c            |  4 +---
- arch/riscv/include/asm/set_memory.h |  1 +
- arch/riscv/mm/pageattr.c            | 29 +++++++++++++++++++++++++++++
- arch/x86/include/asm/set_memory.h   |  1 +
- arch/x86/mm/pat/set_memory.c        |  4 +---
- include/linux/mm.h                  |  7 -------
- include/linux/set_memory.h          |  5 +++++
- 8 files changed, 39 insertions(+), 13 deletions(-)
+ arch/riscv/kernel/vdso/Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/cacheflush.h b/arch/arm64/include/asm/cacheflush.h
-index 9384fd8fc13c..45217f21f1fe 100644
---- a/arch/arm64/include/asm/cacheflush.h
-+++ b/arch/arm64/include/asm/cacheflush.h
-@@ -140,6 +140,7 @@ int set_memory_valid(unsigned long addr, int numpages, int enable);
+diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+index cb8f9e4cfcbf..0cfd6da784f8 100644
+--- a/arch/riscv/kernel/vdso/Makefile
++++ b/arch/riscv/kernel/vdso/Makefile
+@@ -44,7 +44,7 @@ SYSCFLAGS_vdso.so.dbg = $(c_flags)
+ $(obj)/vdso.so.dbg: $(src)/vdso.lds $(obj-vdso) FORCE
+ 	$(call if_changed,vdsold)
+ SYSCFLAGS_vdso.so.dbg = -shared -s -Wl,-soname=linux-vdso.so.1 \
+-	-Wl,--build-id -Wl,--hash-style=both
++	-Wl,--build-id=sha1 -Wl,--hash-style=both
  
- int set_direct_map_invalid_noflush(struct page *page);
- int set_direct_map_default_noflush(struct page *page);
-+bool kernel_page_present(struct page *page);
- 
- #include <asm-generic/cacheflush.h>
- 
-diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-index 439325532be1..92eccaf595c8 100644
---- a/arch/arm64/mm/pageattr.c
-+++ b/arch/arm64/mm/pageattr.c
-@@ -186,8 +186,8 @@ void __kernel_map_pages(struct page *page, int numpages, int enable)
- 
- 	set_memory_valid((unsigned long)page_address(page), numpages, enable);
- }
-+#endif /* CONFIG_DEBUG_PAGEALLOC */
- 
--#ifdef CONFIG_HIBERNATION
- /*
-  * This function is used to determine if a linear map page has been marked as
-  * not-valid. Walk the page table and check the PTE_VALID bit. This is based
-@@ -234,5 +234,3 @@ bool kernel_page_present(struct page *page)
- 	ptep = pte_offset_kernel(pmdp, addr);
- 	return pte_valid(READ_ONCE(*ptep));
- }
--#endif /* CONFIG_HIBERNATION */
--#endif /* CONFIG_DEBUG_PAGEALLOC */
-diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
-index 4c5bae7ca01c..d690b08dff2a 100644
---- a/arch/riscv/include/asm/set_memory.h
-+++ b/arch/riscv/include/asm/set_memory.h
-@@ -24,6 +24,7 @@ static inline int set_memory_nx(unsigned long addr, int numpages) { return 0; }
- 
- int set_direct_map_invalid_noflush(struct page *page);
- int set_direct_map_default_noflush(struct page *page);
-+bool kernel_page_present(struct page *page);
- 
- #endif /* __ASSEMBLY__ */
- 
-diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
-index 321b09d2e2ea..87ba5a68bbb8 100644
---- a/arch/riscv/mm/pageattr.c
-+++ b/arch/riscv/mm/pageattr.c
-@@ -198,3 +198,32 @@ void __kernel_map_pages(struct page *page, int numpages, int enable)
- 			     __pgprot(0), __pgprot(_PAGE_PRESENT));
- }
- #endif
-+
-+bool kernel_page_present(struct page *page)
-+{
-+	unsigned long addr = (unsigned long)page_address(page);
-+	pgd_t *pgd;
-+	pud_t *pud;
-+	p4d_t *p4d;
-+	pmd_t *pmd;
-+	pte_t *pte;
-+
-+	pgd = pgd_offset_k(addr);
-+	if (!pgd_present(*pgd))
-+		return false;
-+
-+	p4d = p4d_offset(pgd, addr);
-+	if (!p4d_present(*p4d))
-+		return false;
-+
-+	pud = pud_offset(p4d, addr);
-+	if (!pud_present(*pud))
-+		return false;
-+
-+	pmd = pmd_offset(pud, addr);
-+	if (!pmd_present(*pmd))
-+		return false;
-+
-+	pte = pte_offset_kernel(pmd, addr);
-+	return pte_present(*pte);
-+}
-diff --git a/arch/x86/include/asm/set_memory.h b/arch/x86/include/asm/set_memory.h
-index 5948218f35c5..4352f08bfbb5 100644
---- a/arch/x86/include/asm/set_memory.h
-+++ b/arch/x86/include/asm/set_memory.h
-@@ -82,6 +82,7 @@ int set_pages_rw(struct page *page, int numpages);
- 
- int set_direct_map_invalid_noflush(struct page *page);
- int set_direct_map_default_noflush(struct page *page);
-+bool kernel_page_present(struct page *page);
- 
- extern int kernel_set_to_readonly;
- 
-diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-index bc9be96b777f..16f878c26667 100644
---- a/arch/x86/mm/pat/set_memory.c
-+++ b/arch/x86/mm/pat/set_memory.c
-@@ -2226,8 +2226,8 @@ void __kernel_map_pages(struct page *page, int numpages, int enable)
- 
- 	arch_flush_lazy_mmu_mode();
- }
-+#endif /* CONFIG_DEBUG_PAGEALLOC */
- 
--#ifdef CONFIG_HIBERNATION
- bool kernel_page_present(struct page *page)
- {
- 	unsigned int level;
-@@ -2239,8 +2239,6 @@ bool kernel_page_present(struct page *page)
- 	pte = lookup_address((unsigned long)page_address(page), &level);
- 	return (pte_val(*pte) & _PAGE_PRESENT);
- }
--#endif /* CONFIG_HIBERNATION */
--#endif /* CONFIG_DEBUG_PAGEALLOC */
- 
- int __init kernel_map_pages_in_pgd(pgd_t *pgd, u64 pfn, unsigned long address,
- 				   unsigned numpages, unsigned long page_flags)
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 260113ba660a..fe9a8d35a6eb 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -2942,16 +2942,9 @@ static inline void debug_pagealloc_unmap_pages(struct page *page, int numpages)
- 	if (debug_pagealloc_enabled_static())
- 		__kernel_map_pages(page, numpages, 0);
- }
--
--#ifdef CONFIG_HIBERNATION
--extern bool kernel_page_present(struct page *page);
--#endif	/* CONFIG_HIBERNATION */
- #else	/* CONFIG_DEBUG_PAGEALLOC */
- static inline void debug_pagealloc_map_pages(struct page *page, int numpages) {}
- static inline void debug_pagealloc_unmap_pages(struct page *page, int numpages) {}
--#ifdef CONFIG_HIBERNATION
--static inline bool kernel_page_present(struct page *page) { return true; }
--#endif	/* CONFIG_HIBERNATION */
- #endif	/* CONFIG_DEBUG_PAGEALLOC */
- 
- #ifdef __HAVE_ARCH_GATE_AREA
-diff --git a/include/linux/set_memory.h b/include/linux/set_memory.h
-index 860e0f843c12..fe1aa4e54680 100644
---- a/include/linux/set_memory.h
-+++ b/include/linux/set_memory.h
-@@ -23,6 +23,11 @@ static inline int set_direct_map_default_noflush(struct page *page)
- {
- 	return 0;
- }
-+
-+static inline bool kernel_page_present(struct page *page)
-+{
-+	return true;
-+}
- #endif
- 
- #ifndef set_mce_nospec
+ # We also create a special relocatable object that should mirror the symbol
+ # table and layout of the linked DSO. With ld --just-symbols we can then
+
+base-commit: c2c81bb2f69138f902e1a58d3bef6ad97fb8a92c
 -- 
-2.28.0
+2.29.2
 
 
 _______________________________________________
