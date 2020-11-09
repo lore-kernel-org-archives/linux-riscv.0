@@ -2,61 +2,141 @@ Return-Path: <SRS0=l+yF=EP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SIGNED_OFF_BY,SPF_HELO_NONE,
+	URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0390DC4741F
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 12:46:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A16F7C2D0A3
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 12:46:27 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7FEF7206A4
+	by mail.kernel.org (Postfix) with ESMTPS id 1897720659
 	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 12:46:27 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="O+eJPuKA"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7FEF7206A4
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="OQPIwnx4";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="Ycwxyr0r";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="rVEu6i77"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1897720659
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=w7LpcRRukJdCBsKozSqyz3+CpMyLYKS/lF9L785S5JU=; b=O+eJPuKAlfK3Ia7EvTmzfMvJD
-	rWmaSJo7XTLhD59KOU+gQXUIag+WLi8aUNIt59EKZ7/eAqtTvzf0Tzpa7pp7zQSQcOts7c0+e5I2W
-	BNYJiDzxyPJpS0imIZLsokf8mPovtRqGoB5xQV3KaQ4kCoEWcwffkVUfG338SGbR/R84jaRnHIkyG
-	q5E+ZXe9Vcybp3OIKWe1ATeaHjwxHDK86dqXVSPYn9kg4TG1I0hQ95vgob2yNu8jgM0bfptw7aQPn
-	oAyAsK3KWlPfNFC5GaRk570nxpkVpvlPc1SF/XbrPVxrSuiO10KaboyTQWaco96S3XzSyrxTsv1vM
-	0E2uXhK9w==;
+	 bh=dgVMxiwQBzRFdPq0sJBD7bYfHMm4f4D0+2TMdyGsJmU=; b=OQPIwnx4r1eOkzABf6gUax/Tq
+	QG7SJJIgQ6ku3v1C0f2iOef5a//eMMq1mefgnMNnql9Bu4Rvwl+UmMLbj3djwPSZwVbVIQcX67tPY
+	aRPTFgssaAL9NVpHJ+QLBWlS++GDGeHAPFvjS8vFNd/AZCbDV7FMOM+cSqNV3faEtKYlEuv5QBdhe
+	b57LSgki7QDQmBGyZbH5tmYZnvoJfwENZJ1jU6JNaU5LTHe5WAC+VYt4lLspvSYMMm0baKCIAblII
+	cecnRW34s9LDIhsQN+iopCuj+uy9dMpRsnhdeMeGkuRAKtM9xPFKGjSLmZfeqp8m4RUYWbrTRuur8
+	s0cVomkQA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kc6Yk-0005hX-99; Mon, 09 Nov 2020 12:46:10 +0000
-Received: from mx2.suse.de ([195.135.220.15])
+	id 1kc6Ym-0005ii-KG; Mon, 09 Nov 2020 12:46:12 +0000
+Received: from esa4.hgst.iphmx.com ([216.71.154.42])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kc5Qp-0004jp-PP; Mon, 09 Nov 2020 11:33:58 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.221.27])
- by mx2.suse.de (Postfix) with ESMTP id 2BA62ABF4;
- Mon,  9 Nov 2020 11:33:51 +0000 (UTC)
-Subject: Re: [PATCH v5 1/5] mm: introduce debug_pagealloc_{map, unmap}_pages()
- helpers
-To: Mike Rapoport <rppt@kernel.org>, Andrew Morton <akpm@linux-foundation.org>
-References: <20201108065758.1815-1-rppt@kernel.org>
- <20201108065758.1815-2-rppt@kernel.org>
-From: Vlastimil Babka <vbabka@suse.cz>
-Message-ID: <4bd5ae2b-4fc6-73dc-b83b-e71826990946@suse.cz>
-Date: Mon, 9 Nov 2020 12:33:46 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.4.0
+ id 1kc5Ri-00053U-Uu; Mon, 09 Nov 2020 11:34:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1604921690; x=1636457690;
+ h=from:to:cc:subject:date:message-id:in-reply-to:
+ references:content-transfer-encoding:mime-version;
+ bh=ITuf3wwHM/CXT4oP9cBEYuIdGte2E+s7VMURQgRESwo=;
+ b=Ycwxyr0rkfaCdrYjyTfeTboCRr4jTmkvMoc/DMoYN98h/CDyONK3xrXj
+ b686d9BZemFQvLlGelsVxFa/mfM9loHCBQhyL9lrRi7sxlv7Wpqu8aMtK
+ 093ScW09obvfY5VcG6qyKOnipqQZ6t+ctI87fzs6i89t4PVrQgW/VMMac
+ XztoBi7EtHAsjdmb7cPxGCbRv/6x+IOJxnkS8EVteYPzlTEliYIcYG224
+ e4DoL+xOFtOw9qZVwpaP/Ez0AUmJYLJWk9t0LjF/QUmj4+VeIW4mhNd1w
+ zMhdiWEQDp7huoAiA0HLfx+70R5hmWIImT+MHhn1emTll8Ss9Ks5JiS4l Q==;
+IronPort-SDR: rUqXbe3ti4Tj6dfPVQqcr4Xmfa9VtD4nCGCZ6ZHGmC8+4kz2WTFYvxY2qlKx+nq5oSkYeuYf0u
+ PlRWUa3umVumHCIGdEviDNwViWgrHV5K0cXdYhT3OT2ZHS+CF0pFuaW6XxW1Qm9VREtTCYR621
+ rTPLhY2vHPe9Bhqf2tbFNBoPhg1U7jSfBuG6JdpdV0spkdGKQYxCoXTxRnZxcNE3+giVw1AUcj
+ IKDrgl6pPoXFmZbpSDpW2ILJxsGCz78KA4utjR8ZbbFb+xdTYMw9tJRj5YnVGI6R4X6Z+Em2iT
+ rQI=
+X-IronPort-AV: E=Sophos;i="5.77,463,1596470400"; d="scan'208";a="152081064"
+Received: from mail-bn8nam08lp2047.outbound.protection.outlook.com (HELO
+ NAM04-BN8-obe.outbound.protection.outlook.com) ([104.47.74.47])
+ by ob1.hgst.iphmx.com with ESMTP; 09 Nov 2020 19:34:49 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=h5mekuANleqHiSAwFvbCcPNQAmrpNUWigEYePGF2kUfJMm93GH4Rj/jDRfQwmTAsnDFIJXfK3uI7NMuSmC/d3A/zvNDfGJbKNGCfrXs0c6iNR+Ud9JtYkFy3Npe4S8eYMsxORY9/ouiGjDw5Zy93KkzN54Tu3dKUhsZRrXF1i2CZXFWRS1vzh48nP5nTZFBRYi4U97uSoG3Nn8lXmzFNuynjn6wpIBmJlcPJRlexwX2vwzseAQR6hmCbW8oAP2qK/rcbR6h5qYBeKXv1Fo8VyUZ9ICerAawTb18ud4GDrOXcYM5Pil1CBVB+Ezpa+kSb3m8pOs7f0y/99+jrQkzW5A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=E3W1c600iuanmqjOQAp5rYAwshlXBKa3kadHE8eXtR8=;
+ b=OMXbSL/bht0EtsKm8EjMOOkc9QHNIFsI7ymANdM6oLM60CNO0GLx/8e7UC46E3ilNk5j5v3bevMDhZNdQ6TDPKW7vBdOB2P9QUWFtwtR/1VPnv9wLGNa6eR2laRyR3N+S1j+elyKvOrKXgCog98DrmIHKwF64+HEL3VLy2TEnEUOLwGlgKqUaglJ7kC9FpSsdsQaBZqWFNjPNK16jzfOk1S4jxveUTyWIC/LCH2WfiphL0zK+GM9qcfUMtyUKvBjIskFWsAiqu9KaBNPLSrOqaX1ZGJmro98L3PK18E49W1fTX5SjD6Hokqk0R3k2sQXeg23LhDa6R2E+3xLO2UqFw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
+ header.d=wdc.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=E3W1c600iuanmqjOQAp5rYAwshlXBKa3kadHE8eXtR8=;
+ b=rVEu6i77+ZSgs1KudNQvMqq398rt+lWHUs/pmVinQlsC6x1wIViu8WmHw1FoAO7L9pt7UQbyHt9/oxnewo4gYAKOh2GWTiVZh71Wy5W0U3EKQBKAsaQom7z/2bWDku9aM1yrvPjloUKzy9ie9dumLexe7/E1a3l4lfOEYbSUVSQ=
+Authentication-Results: dabbelt.com; dkim=none (message not signed)
+ header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
+Received: from DM6PR04MB6201.namprd04.prod.outlook.com (2603:10b6:5:127::32)
+ by DM6PR04MB3866.namprd04.prod.outlook.com (2603:10b6:5:ad::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3541.21; Mon, 9 Nov
+ 2020 11:34:48 +0000
+Received: from DM6PR04MB6201.namprd04.prod.outlook.com
+ ([fe80::d035:e2c6:c11:51dd]) by DM6PR04MB6201.namprd04.prod.outlook.com
+ ([fe80::d035:e2c6:c11:51dd%6]) with mapi id 15.20.3541.025; Mon, 9 Nov 2020
+ 11:34:48 +0000
+From: Anup Patel <anup.patel@wdc.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Paolo Bonzini <pbonzini@redhat.com>
+Subject: [PATCH v15 15/17] RISC-V: KVM: Add SBI v0.1 support
+Date: Mon,  9 Nov 2020 17:02:38 +0530
+Message-Id: <20201109113240.3733496-16-anup.patel@wdc.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20201109113240.3733496-1-anup.patel@wdc.com>
+References: <20201109113240.3733496-1-anup.patel@wdc.com>
+X-Originating-IP: [122.171.188.68]
+X-ClientProxiedBy: MAXPR01CA0099.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a00:5d::17) To DM6PR04MB6201.namprd04.prod.outlook.com
+ (2603:10b6:5:127::32)
 MIME-Version: 1.0
-In-Reply-To: <20201108065758.1815-2-rppt@kernel.org>
-Content-Language: en-US
+X-MS-Exchange-MessageSentRepresentingType: 1
+Received: from wdc.com (122.171.188.68) by
+ MAXPR01CA0099.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:5d::17) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.3541.21 via Frontend Transport; Mon, 9 Nov 2020 11:34:43 +0000
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-HT: Tenant
+X-MS-Office365-Filtering-Correlation-Id: d91dc7d6-6030-4291-d82d-08d884a37693
+X-MS-TrafficTypeDiagnostic: DM6PR04MB3866:
+X-MS-Exchange-Transport-Forked: True
+X-Microsoft-Antispam-PRVS: <DM6PR04MB3866CF5EAA903652F620D1BB8DEA0@DM6PR04MB3866.namprd04.prod.outlook.com>
+WDCIPOUTBOUND: EOP-TRUE
+X-MS-Oob-TLC-OOBClassifiers: OLM:7691;
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 4241V2qjdmYpDc55Kj3ds7FN44pF7s+TD1AChb9awFotuhHid3WOUavT/rnp2kBBoW/fVmK2Mut07ZF1WFHXHuxjvCFjhzJg2r14eHe5ffiq15sGkA1wKTaktN+fi79jWD0B4U1fosiEQn/iUXsImKWD+J+PjD8EB915ykSrxTTPN8Hc+pyX8G9uN5QHImKn5Ifu+HFcm0qhpe2CbRxKLjGkQTGvOSr7gNtk617RZjOigNFkV+QAKl6T3uXWyWOPuSPaT1ibgfYPYHr/l6NpsIV32SIPb61yTXGlBCqVT7yn7y97LVV4TPRW3iYJZowmDjdyBums3vLemqvUhGLHLg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:DM6PR04MB6201.namprd04.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(4636009)(366004)(346002)(396003)(136003)(39860400002)(376002)(55016002)(7416002)(83380400001)(1076003)(44832011)(16526019)(186003)(316002)(26005)(8676002)(110136005)(54906003)(5660300002)(52116002)(7696005)(956004)(2616005)(478600001)(66476007)(66556008)(4326008)(66946007)(6666004)(2906002)(36756003)(86362001)(8886007)(8936002);
+ DIR:OUT; SFP:1102; 
+X-MS-Exchange-AntiSpam-MessageData: OLokFJzBV6pN+TTkQcoizOpjMZm9s4kvDE4Dxabe5AF3AkXJb3x+RANQtkA624QYWYRH7kQ2Mb5jSGW0vXBm/md+S1OdHaREErPRq5yPq0tSK4XVgaqKQ5JRXkU+zEsK8ZKj0UiTPgvAlSq0dDpr9LLikRGNJHEeHkKeMstlpmstK5EIoAiqfer52FxQrMwA5BE32oI6WSn/Su9vLqzJ01fS8H1EO2QDOjJnYN7+hh7PEASvJkHgeePK03kZypSzp6EtGBqDgf21W64bpVHxH49ih8HKIfMBxgAvNwqyYdgYc7sukrVoLpWtv2gZCwFNQNA4qYWINPDKED5XGktjIofWT4gNE69uVm3s+yMvhMpfA7YH6tuCrBpi/nfLfLCMOd5A7DkHT3nQkQquIOEZ7Mn8T0lE2XPGNbU4FZ8HcXBJ2f6Do+b+g9rS+jcxdK2nlR28d570wYKIbOaW8S6ya/poLo0JlStSpmy47Nibb+dADZOTyYDAWHXTZsYgzuHZeb3y1kXOckfXeJSUUVzSPyzPBwjedrjpB/mRVNCXYO8aXAj6RdFM+zhc2Eqs9oBm6rh5OvDQWgNdyFOuUCDMttFQOQm+R5cRHBcdkWuck/lfAy7Fr+ZeVdeMiPymKqckzIQZlP1a/qLAO6u1oju4gQ==
+X-OriginatorOrg: wdc.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d91dc7d6-6030-4291-d82d-08d884a37693
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR04MB6201.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Nov 2020 11:34:47.8670 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: qBjetxfTTNjaYxPjEsA1344cpZ+j4UHXFgARkw/6qXM3qdBGxj9rMup9yFx/WS9JopY6Oj9qt5scOPrIoYHqlA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR04MB3866
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201109_063356_201232_FB353B5E 
-X-CRM114-Status: GOOD (  23.13  )
+X-CRM114-CacheID: sfid-20201109_063451_425359_F2DC51C5 
+X-CRM114-Status: GOOD (  29.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -68,82 +148,329 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: David Hildenbrand <david@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
- Paul Mackerras <paulus@samba.org>, Pavel Machek <pavel@ucw.cz>,
- "H. Peter Anvin" <hpa@zytor.com>, sparclinux@vger.kernel.org,
- Christoph Lameter <cl@linux.com>, Will Deacon <will@kernel.org>,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- Michael Ellerman <mpe@ellerman.id.au>, x86@kernel.org,
- Mike Rapoport <rppt@linux.ibm.com>,
- Christian Borntraeger <borntraeger@de.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Len Brown <len.brown@intel.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Vasily Gorbik <gor@linux.ibm.com>,
- linux-pm@vger.kernel.org, Heiko Carstens <hca@linux.ibm.com>,
- David Rientjes <rientjes@google.com>, Borislav Petkov <bp@alien8.de>,
- Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Thomas Gleixner <tglx@linutronix.de>, linux-arm-kernel@lists.infradead.org,
- "Rafael J. Wysocki" <rjw@rjwysocki.net>, linux-kernel@vger.kernel.org,
- Pekka Enberg <penberg@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Joonsoo Kim <iamjoonsoo.kim@lge.com>, "Edgecombe,
- Rick P" <rick.p.edgecombe@intel.com>, linuxppc-dev@lists.ozlabs.org,
- "David S. Miller" <davem@davemloft.net>,
- "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
+Cc: Damien Le Moal <damien.lemoal@wdc.com>, kvm@vger.kernel.org,
+ Anup Patel <anup@brainfault.org>, Anup Patel <anup.patel@wdc.com>,
+ linux-kernel@vger.kernel.org, Atish Patra <atish.patra@wdc.com>,
+ Alistair Francis <Alistair.Francis@wdc.com>, kvm-riscv@lists.infradead.org,
+ Alexander Graf <graf@amazon.com>, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/8/20 7:57 AM, Mike Rapoport wrote:
-> --- a/mm/slab.c
-> +++ b/mm/slab.c
-> @@ -1428,21 +1428,19 @@ static bool is_debug_pagealloc_cache(struct kmem_cache *cachep)
->   	return false;
->   }
->   
-> -#ifdef CONFIG_DEBUG_PAGEALLOC
->   static void slab_kernel_map(struct kmem_cache *cachep, void *objp, int map)
->   {
->   	if (!is_debug_pagealloc_cache(cachep))
->   		return;
+From: Atish Patra <atish.patra@wdc.com>
 
-Hmm, I didn't notice earlier, sorry.
-The is_debug_pagealloc_cache() above includes a debug_pagealloc_enabled_static() 
-check, so it should be fine to use
-__kernel_map_pages() directly below. Otherwise we generate two static key checks 
-for the same key needlessly.
+The KVM host kernel is running in HS-mode needs so we need to handle
+the SBI calls coming from guest kernel running in VS-mode.
 
->   
-> -	kernel_map_pages(virt_to_page(objp), cachep->size / PAGE_SIZE, map);
-> +	if (map)
-> +		debug_pagealloc_map_pages(virt_to_page(objp),
-> +					  cachep->size / PAGE_SIZE);
-> +	else
-> +		debug_pagealloc_unmap_pages(virt_to_page(objp),
-> +					    cachep->size / PAGE_SIZE);
->   }
->   
-> -#else
-> -static inline void slab_kernel_map(struct kmem_cache *cachep, void *objp,
-> -				int map) {}
-> -
-> -#endif
-> -
->   static void poison_obj(struct kmem_cache *cachep, void *addr, unsigned char val)
->   {
->   	int size = cachep->object_size;
-> @@ -2062,7 +2060,7 @@ int __kmem_cache_create(struct kmem_cache *cachep, slab_flags_t flags)
->   
->   #if DEBUG
->   	/*
-> -	 * If we're going to use the generic kernel_map_pages()
-> +	 * If we're going to use the generic debug_pagealloc_map_pages()
->   	 * poisoning, then it's going to smash the contents of
->   	 * the redzone and userword anyhow, so switch them off.
->   	 */
-> 
+This patch adds SBI v0.1 support in KVM RISC-V. Almost all SBI v0.1
+calls are implemented in KVM kernel module except GETCHAR and PUTCHART
+calls which are forwarded to user space because these calls cannot be
+implemented in kernel space. In future, when we implement SBI v0.2 for
+Guest, we will forward SBI v0.2 experimental and vendor extension calls
+to user space.
+
+Signed-off-by: Atish Patra <atish.patra@wdc.com>
+Signed-off-by: Anup Patel <anup.patel@wdc.com>
+Acked-by: Paolo Bonzini <pbonzini@redhat.com>
+Reviewed-by: Paolo Bonzini <pbonzini@redhat.com>
+---
+ arch/riscv/include/asm/kvm_host.h |  10 ++
+ arch/riscv/kvm/Makefile           |   2 +-
+ arch/riscv/kvm/vcpu.c             |   9 ++
+ arch/riscv/kvm/vcpu_exit.c        |   4 +
+ arch/riscv/kvm/vcpu_sbi.c         | 173 ++++++++++++++++++++++++++++++
+ include/uapi/linux/kvm.h          |   8 ++
+ 6 files changed, 205 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/kvm/vcpu_sbi.c
+
+diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
+index 6c22981577ab..241030956d47 100644
+--- a/arch/riscv/include/asm/kvm_host.h
++++ b/arch/riscv/include/asm/kvm_host.h
+@@ -80,6 +80,10 @@ struct kvm_mmio_decode {
+ 	int return_handled;
+ };
+ 
++struct kvm_sbi_context {
++	int return_handled;
++};
++
+ #define KVM_MMU_PAGE_CACHE_NR_OBJS	32
+ 
+ struct kvm_mmu_page_cache {
+@@ -192,6 +196,9 @@ struct kvm_vcpu_arch {
+ 	/* MMIO instruction details */
+ 	struct kvm_mmio_decode mmio_decode;
+ 
++	/* SBI context */
++	struct kvm_sbi_context sbi_context;
++
+ 	/* Cache pages needed to program page tables with spinlock held */
+ 	struct kvm_mmu_page_cache mmu_page_cache;
+ 
+@@ -266,4 +273,7 @@ bool kvm_riscv_vcpu_has_interrupts(struct kvm_vcpu *vcpu, unsigned long mask);
+ void kvm_riscv_vcpu_power_off(struct kvm_vcpu *vcpu);
+ void kvm_riscv_vcpu_power_on(struct kvm_vcpu *vcpu);
+ 
++int kvm_riscv_vcpu_sbi_return(struct kvm_vcpu *vcpu, struct kvm_run *run);
++int kvm_riscv_vcpu_sbi_ecall(struct kvm_vcpu *vcpu, struct kvm_run *run);
++
+ #endif /* __RISCV_KVM_HOST_H__ */
+diff --git a/arch/riscv/kvm/Makefile b/arch/riscv/kvm/Makefile
+index a034826f9a3f..7cf0015d9142 100644
+--- a/arch/riscv/kvm/Makefile
++++ b/arch/riscv/kvm/Makefile
+@@ -10,6 +10,6 @@ ccflags-y := -Ivirt/kvm -Iarch/riscv/kvm
+ kvm-objs := $(common-objs-y)
+ 
+ kvm-objs += main.o vm.o vmid.o tlb.o mmu.o
+-kvm-objs += vcpu.o vcpu_exit.o vcpu_switch.o vcpu_timer.o
++kvm-objs += vcpu.o vcpu_exit.o vcpu_switch.o vcpu_timer.o vcpu_sbi.o
+ 
+ obj-$(CONFIG_KVM)	+= kvm.o
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index 2d8bab65dec9..bcc4af9d2fa9 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -882,6 +882,15 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+ 		}
+ 	}
+ 
++	/* Process SBI value returned from user-space */
++	if (run->exit_reason == KVM_EXIT_RISCV_SBI) {
++		ret = kvm_riscv_vcpu_sbi_return(vcpu, vcpu->run);
++		if (ret) {
++			srcu_read_unlock(&vcpu->kvm->srcu, vcpu->arch.srcu_idx);
++			return ret;
++		}
++	}
++
+ 	if (run->immediate_exit) {
+ 		srcu_read_unlock(&vcpu->kvm->srcu, vcpu->arch.srcu_idx);
+ 		return -EINTR;
+diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
+index 5b41a12ee5b0..f054406792a6 100644
+--- a/arch/riscv/kvm/vcpu_exit.c
++++ b/arch/riscv/kvm/vcpu_exit.c
+@@ -678,6 +678,10 @@ int kvm_riscv_vcpu_exit(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 		if (vcpu->arch.guest_context.hstatus & HSTATUS_SPV)
+ 			ret = stage2_page_fault(vcpu, run, trap);
+ 		break;
++	case EXC_SUPERVISOR_SYSCALL:
++		if (vcpu->arch.guest_context.hstatus & HSTATUS_SPV)
++			ret = kvm_riscv_vcpu_sbi_ecall(vcpu, run);
++		break;
+ 	default:
+ 		break;
+ 	};
+diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
+new file mode 100644
+index 000000000000..9d1d25cf217f
+--- /dev/null
++++ b/arch/riscv/kvm/vcpu_sbi.c
+@@ -0,0 +1,173 @@
++// SPDX-License-Identifier: GPL-2.0
++/**
++ * Copyright (c) 2019 Western Digital Corporation or its affiliates.
++ *
++ * Authors:
++ *     Atish Patra <atish.patra@wdc.com>
++ */
++
++#include <linux/errno.h>
++#include <linux/err.h>
++#include <linux/kvm_host.h>
++#include <asm/csr.h>
++#include <asm/sbi.h>
++#include <asm/kvm_vcpu_timer.h>
++
++#define SBI_VERSION_MAJOR			0
++#define SBI_VERSION_MINOR			1
++
++static void kvm_sbi_system_shutdown(struct kvm_vcpu *vcpu,
++				    struct kvm_run *run, u32 type)
++{
++	int i;
++	struct kvm_vcpu *tmp;
++
++	kvm_for_each_vcpu(i, tmp, vcpu->kvm)
++		tmp->arch.power_off = true;
++	kvm_make_all_cpus_request(vcpu->kvm, KVM_REQ_SLEEP);
++
++	memset(&run->system_event, 0, sizeof(run->system_event));
++	run->system_event.type = type;
++	run->exit_reason = KVM_EXIT_SYSTEM_EVENT;
++}
++
++static void kvm_riscv_vcpu_sbi_forward(struct kvm_vcpu *vcpu,
++				       struct kvm_run *run)
++{
++	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
++
++	vcpu->arch.sbi_context.return_handled = 0;
++	vcpu->stat.ecall_exit_stat++;
++	run->exit_reason = KVM_EXIT_RISCV_SBI;
++	run->riscv_sbi.extension_id = cp->a7;
++	run->riscv_sbi.function_id = cp->a6;
++	run->riscv_sbi.args[0] = cp->a0;
++	run->riscv_sbi.args[1] = cp->a1;
++	run->riscv_sbi.args[2] = cp->a2;
++	run->riscv_sbi.args[3] = cp->a3;
++	run->riscv_sbi.args[4] = cp->a4;
++	run->riscv_sbi.args[5] = cp->a5;
++	run->riscv_sbi.ret[0] = cp->a0;
++	run->riscv_sbi.ret[1] = cp->a1;
++}
++
++int kvm_riscv_vcpu_sbi_return(struct kvm_vcpu *vcpu, struct kvm_run *run)
++{
++	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
++
++	/* Handle SBI return only once */
++	if (vcpu->arch.sbi_context.return_handled)
++		return 0;
++	vcpu->arch.sbi_context.return_handled = 1;
++
++	/* Update return values */
++	cp->a0 = run->riscv_sbi.ret[0];
++	cp->a1 = run->riscv_sbi.ret[1];
++
++	/* Move to next instruction */
++	vcpu->arch.guest_context.sepc += 4;
++
++	return 0;
++}
++
++int kvm_riscv_vcpu_sbi_ecall(struct kvm_vcpu *vcpu, struct kvm_run *run)
++{
++	ulong hmask;
++	int i, ret = 1;
++	u64 next_cycle;
++	struct kvm_vcpu *rvcpu;
++	bool next_sepc = true;
++	struct cpumask cm, hm;
++	struct kvm *kvm = vcpu->kvm;
++	struct kvm_cpu_trap utrap = { 0 };
++	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
++
++	if (!cp)
++		return -EINVAL;
++
++	switch (cp->a7) {
++	case SBI_EXT_0_1_CONSOLE_GETCHAR:
++	case SBI_EXT_0_1_CONSOLE_PUTCHAR:
++		/*
++		 * The CONSOLE_GETCHAR/CONSOLE_PUTCHAR SBI calls cannot be
++		 * handled in kernel so we forward these to user-space
++		 */
++		kvm_riscv_vcpu_sbi_forward(vcpu, run);
++		next_sepc = false;
++		ret = 0;
++		break;
++	case SBI_EXT_0_1_SET_TIMER:
++#if __riscv_xlen == 32
++		next_cycle = ((u64)cp->a1 << 32) | (u64)cp->a0;
++#else
++		next_cycle = (u64)cp->a0;
++#endif
++		kvm_riscv_vcpu_timer_next_event(vcpu, next_cycle);
++		break;
++	case SBI_EXT_0_1_CLEAR_IPI:
++		kvm_riscv_vcpu_unset_interrupt(vcpu, IRQ_VS_SOFT);
++		break;
++	case SBI_EXT_0_1_SEND_IPI:
++		if (cp->a0)
++			hmask = kvm_riscv_vcpu_unpriv_read(vcpu, false, cp->a0,
++							   &utrap);
++		else
++			hmask = (1UL << atomic_read(&kvm->online_vcpus)) - 1;
++		if (utrap.scause) {
++			utrap.sepc = cp->sepc;
++			kvm_riscv_vcpu_trap_redirect(vcpu, &utrap);
++			next_sepc = false;
++			break;
++		}
++		for_each_set_bit(i, &hmask, BITS_PER_LONG) {
++			rvcpu = kvm_get_vcpu_by_id(vcpu->kvm, i);
++			kvm_riscv_vcpu_set_interrupt(rvcpu, IRQ_VS_SOFT);
++		}
++		break;
++	case SBI_EXT_0_1_SHUTDOWN:
++		kvm_sbi_system_shutdown(vcpu, run, KVM_SYSTEM_EVENT_SHUTDOWN);
++		next_sepc = false;
++		ret = 0;
++		break;
++	case SBI_EXT_0_1_REMOTE_FENCE_I:
++	case SBI_EXT_0_1_REMOTE_SFENCE_VMA:
++	case SBI_EXT_0_1_REMOTE_SFENCE_VMA_ASID:
++		if (cp->a0)
++			hmask = kvm_riscv_vcpu_unpriv_read(vcpu, false, cp->a0,
++							   &utrap);
++		else
++			hmask = (1UL << atomic_read(&kvm->online_vcpus)) - 1;
++		if (utrap.scause) {
++			utrap.sepc = cp->sepc;
++			kvm_riscv_vcpu_trap_redirect(vcpu, &utrap);
++			next_sepc = false;
++			break;
++		}
++		cpumask_clear(&cm);
++		for_each_set_bit(i, &hmask, BITS_PER_LONG) {
++			rvcpu = kvm_get_vcpu_by_id(vcpu->kvm, i);
++			if (rvcpu->cpu < 0)
++				continue;
++			cpumask_set_cpu(rvcpu->cpu, &cm);
++		}
++		riscv_cpuid_to_hartid_mask(&cm, &hm);
++		if (cp->a7 == SBI_EXT_0_1_REMOTE_FENCE_I)
++			sbi_remote_fence_i(cpumask_bits(&hm));
++		else if (cp->a7 == SBI_EXT_0_1_REMOTE_SFENCE_VMA)
++			sbi_remote_hfence_vvma(cpumask_bits(&hm),
++						cp->a1, cp->a2);
++		else
++			sbi_remote_hfence_vvma_asid(cpumask_bits(&hm),
++						cp->a1, cp->a2, cp->a3);
++		break;
++	default:
++		/* Return error for unsupported SBI calls */
++		cp->a0 = SBI_ERR_NOT_SUPPORTED;
++		break;
++	};
++
++	if (next_sepc)
++		cp->sepc += 4;
++
++	return ret;
++}
+diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+index ca41220b40b8..a5221526ccee 100644
+--- a/include/uapi/linux/kvm.h
++++ b/include/uapi/linux/kvm.h
+@@ -250,6 +250,7 @@ struct kvm_hyperv_exit {
+ #define KVM_EXIT_ARM_NISV         28
+ #define KVM_EXIT_X86_RDMSR        29
+ #define KVM_EXIT_X86_WRMSR        30
++#define KVM_EXIT_RISCV_SBI        31
+ 
+ /* For KVM_EXIT_INTERNAL_ERROR */
+ /* Emulate instruction failed. */
+@@ -426,6 +427,13 @@ struct kvm_run {
+ 			__u32 index; /* kernel -> user */
+ 			__u64 data; /* kernel <-> user */
+ 		} msr;
++		/* KVM_EXIT_RISCV_SBI */
++		struct {
++			unsigned long extension_id;
++			unsigned long function_id;
++			unsigned long args[6];
++			unsigned long ret[2];
++		} riscv_sbi;
+ 		/* Fix the size of the union. */
+ 		char padding[256];
+ 	};
+-- 
+2.25.1
 
 
 _______________________________________________
