@@ -2,89 +2,77 @@ Return-Path: <SRS0=l+yF=EP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.5 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CBB37C2D0A3
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 20:45:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0DCF7C2D0A3
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 20:52:56 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4DC482068D
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 20:45:26 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id A42562068D
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 20:52:55 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="1DbtLOtX";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="BtJOr3n+"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4DC482068D
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="hxgjvM6O";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="zZSrg3tv"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A42562068D
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=LAFX4aFKHrIMSsiYSIftMSpxfE+q2dtgK/WypL12t3Q=; b=1DbtLOtX64JDMQ/UuxFAaMsu0
-	cplmgtei7enYWv9smU4WCHDwTxiiya8ChD+Z+b0BjqBlKQo4I3ImwTwjbci/GLN32PeH4yP498Ur8
-	gZk1cNNn31bpUhqteK9qMGKtYp/JTDTjOjWSOsdgdy5xP/JPYYthLRtWJKiI6DIcTExnDJxL8DMQq
-	2gNTahUcWDYRF74NqKo90qwB3zZlvhWeZyeapEQQ4AgmeCIA8FJioB2fu3rtozuUP1ceT7+SIRRTj
-	vRiaf2S9aarMfNFCkRgSaNJYGC+rBYsc1RSo8ctGouRq+QM99aQw6wX1gorf14XdjyD/9+uRtb+Jm
-	1wx6jIXuA==;
+	 bh=QgC0B7D1S+bUM+m5K/4sYbVHr6iczD72YgPJAfRQmJc=; b=hxgjvM6O+qQfFKTJ6bf8nYDGM
+	6NZEux1UfRSbn9XUF5YW9hhxHgZIM7ArNUzhIL5U/eWfY5EAUtM/9c1LrhdGfXV3yvG8TtfH86ytg
+	9z+DQUYxccnHziJf3Z+5kD90D8m6dtMlXtHmqKmGqcp7DO53/WTN89wYIdhB8InKchUVQkcwiz8Em
+	iYS5P1YyEHGmCsb/yZCG8CS8OnTpm/+Lu2KqVsyno2LsDi72ZXUB1O5iBBqzqNnRoCevCX+5SMj1X
+	x5O4d/hLPXvglRRXxCz0BrrPQn22GfQRxm6+iPpQ7RC+yZvWD3xYRVPVQL2nj4Xu/OLHC9SHw9B8K
+	2VwfgZgzg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kcE2J-0004VW-Rw; Mon, 09 Nov 2020 20:45:11 +0000
-Received: from mail-lj1-x242.google.com ([2a00:1450:4864:20::242])
+	id 1kcE9d-0005UF-GB; Mon, 09 Nov 2020 20:52:45 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kcE2G-0004Uu-OH
- for linux-riscv@lists.infradead.org; Mon, 09 Nov 2020 20:45:09 +0000
-Received: by mail-lj1-x242.google.com with SMTP id s9so10323353ljo.11
- for <linux-riscv@lists.infradead.org>; Mon, 09 Nov 2020 12:45:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=xleOeNICgG0vwSm5hJnysiXKM3yQ5B3QY8UUY+zBMgU=;
- b=BtJOr3n+oEvi29MidTbCXT7DDDOg8dn1y7D7gereDVMHC0EljuUpu8DAvhNHjMQGyZ
- zIjF8HCv+xW8ZAUP8dVlP/fJeHcnM34A0S2ZBY9pDiQsQUdGeQPr6ADaATbSQ228YWz+
- XXXayw7srrvzjZyicsNXxFgY/ODh9gsl9QeLuSzRyVD5jNxWdFrVoH0SctAS/fPhJUUl
- gtr2mqPgWcbj6XsYK2QKg3PK0D916/M5ZX63w6Lp62o5kJ7HHOzW3z8wp2D7xyQqXO31
- AYmznFJbrt15o3POcJzyYrcONEHVFRqEvCFGctEmOTbU/elIWynnQy4IpnmB0qo6RuVX
- Ci4w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=xleOeNICgG0vwSm5hJnysiXKM3yQ5B3QY8UUY+zBMgU=;
- b=oIeLbGUHAIUr+mL6YeHwJC1FKS0VLC05Pm35YdWDiO8E9fFNgiVfa6AOkbQAZ6fBMl
- BbetIjp2gE8v3JHeRHNXqEQMyQsRG3xJ0Kt0iGcETqtz6sTtwkGI0j7AWErdG4coSNkS
- OF4g6A5J436LyIlHWN2mtfgxnilQkqu4Lje+l0tIJprRxlOHHmUpPDvRwum1sDOrzN2C
- JQ8zSpZ9CEV+kWTFTYxY6gdhFvA89ItTazBwdLHLoa7ai+uWa6tux2myAqmOCzO5uCSe
- kmSb4qKeMNE9Txe9dOj6dIi/plLCHjjfinAWmWO0fmWLbmWKKSFHGqfiYvspnj0lrzFj
- I6rg==
-X-Gm-Message-State: AOAM533OL3YGKqD19s212Sz+co5eQ/VH8Hq+ytsfmVT6sDQKvmLu8UKk
- l0n4eEqL5RNNDHFtydmCvD0=
-X-Google-Smtp-Source: ABdhPJwPfo9KB6YtEoJkeHK76OC4rgJuIhLlDo2MBXl0lJDnZj3HCkxJEr0CD312vs0esIJMUMVsEA==
-X-Received: by 2002:a2e:85c4:: with SMTP id h4mr6453285ljj.250.1604954707454; 
- Mon, 09 Nov 2020 12:45:07 -0800 (PST)
-Received: from mobilestation ([95.79.141.114])
- by smtp.gmail.com with ESMTPSA id v22sm251076ljd.9.2020.11.09.12.45.06
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 09 Nov 2020 12:45:06 -0800 (PST)
-Date: Mon, 9 Nov 2020 23:45:04 +0300
-From: Serge Semin <fancer.lancer@gmail.com>
-To: Damien Le Moal <damien.lemoal@wdc.com>
-Subject: Re: [PATCH 05/32] spi: dw: Introduce DW_SPI_CAP_POLL_NODELAY
-Message-ID: <20201109204504.npjdxnxgzkngif3s@mobilestation>
-References: <20201107081420.60325-1-damien.lemoal@wdc.com>
- <20201107081420.60325-6-damien.lemoal@wdc.com>
+ id 1kcE9a-0005TH-LO
+ for linux-riscv@lists.infradead.org; Mon, 09 Nov 2020 20:52:43 +0000
+Received: from mail-ot1-f45.google.com (mail-ot1-f45.google.com
+ [209.85.210.45])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 8D50B221FF
+ for <linux-riscv@lists.infradead.org>; Mon,  9 Nov 2020 20:52:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1604955161;
+ bh=D2C0dwhvGc/byaIhEDmOPOOvSRn49LYfvX5fua57lQU=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=zZSrg3tvNee2ietU2BpJkGBKg/kzb2mddFoYf98vEp4qdGqMDk//tKMvlLoVGSLOC
+ jyajCyn85Hvzt+jWYbMNDEm7FsGVuDKSf4enMv4N166pyV7R554+HlcgaiYUbVbDdb
+ wRPyA6Kdam7lkVaDQsa/y8BFBXXw0QAmETjyz+6k=
+Received: by mail-ot1-f45.google.com with SMTP id y22so10333973oti.10
+ for <linux-riscv@lists.infradead.org>; Mon, 09 Nov 2020 12:52:41 -0800 (PST)
+X-Gm-Message-State: AOAM531wC92/iVLvhFcsSXqm9TK05nf0ZP1+6/mdEtzifwG92L8nshy/
+ s5dFQK24CIVkHpJjKDIELH8QNP/h6B9ZV+TZNA==
+X-Google-Smtp-Source: ABdhPJxOhi7q2TyR1cU1bUXAG1nazgiWne5zeC8nU0nRaw0X6g9uRWTSp5SOeyBKdMyk9NnV3n4OJCWoPencr/BRt0Q=
+X-Received: by 2002:a9d:5e14:: with SMTP id d20mr10925302oti.107.1604955160785; 
+ Mon, 09 Nov 2020 12:52:40 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20201107081420.60325-6-damien.lemoal@wdc.com>
+References: <20201107081420.60325-1-damien.lemoal@wdc.com>
+ <20201107081420.60325-2-damien.lemoal@wdc.com>
+ <CAHp75VfvUZ6h+JGCUQ65i7qFsugvbd3n=aCprgvp=geRSpQEhQ@mail.gmail.com>
+ <20201109174450.myombn5skpj5wcxh@mobilestation>
+In-Reply-To: <20201109174450.myombn5skpj5wcxh@mobilestation>
+From: Rob Herring <robh+dt@kernel.org>
+Date: Mon, 9 Nov 2020 14:52:29 -0600
+X-Gmail-Original-Message-ID: <CAL_Jsq+sz09YWxpyM_tBbvJzidbARUVF2fvxMe-SS666WvNRBQ@mail.gmail.com>
+Message-ID: <CAL_Jsq+sz09YWxpyM_tBbvJzidbARUVF2fvxMe-SS666WvNRBQ@mail.gmail.com>
+Subject: Re: [PATCH 01/32] of: Fix property supplier parsing
+To: Serge Semin <fancer.lancer@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201109_154508_830977_A1A301E0 
-X-CRM114-Status: GOOD (  24.26  )
+X-CRM114-CacheID: sfid-20201109_155242_919696_EA6DB267 
+X-CRM114-Status: GOOD (  25.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -96,99 +84,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>,
- Stephen Boyd <sboyd@kernel.org>, Mark Brown <broonie@kernel.org>,
- linux-spi@vger.kernel.org, linux-gpio@vger.kernel.org,
- Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, linux-riscv@lists.infradead.org,
+Cc: devicetree <devicetree@vger.kernel.org>,
+ Damien Le Moal <damien.lemoal@wdc.com>, Stephen Boyd <sboyd@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ linux-spi <linux-spi@vger.kernel.org>,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ Andy Shevchenko <andy.shevchenko@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
  Sean Anderson <seanga2@gmail.com>, Frank Rowand <frowand.list@gmail.com>,
- linux-clk@vger.kernel.org
+ linux-clk <linux-clk@vger.kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 07, 2020 at 05:13:53PM +0900, Damien Le Moal wrote:
-> On slow systems, i.e. systems with a slow CPU resulting in slow context
-> switches, calling spi_delay_exec() when executing polled transfers
-> using dw_spi_poll_transfer() can lead to RX FIFO overflows. Allow
-> platforms to opt out of delayed polling by introducing the
-> DW_SPI_CAP_POLL_NODELAY DW SPI capability flag to disable
-> the execution of spi_delay_exec() in dw_spi_poll_transfer().
+On Mon, Nov 9, 2020 at 11:45 AM Serge Semin <fancer.lancer@gmail.com> wrote:
+>
+> Hello Andy,
+>
+> On Mon, Nov 09, 2020 at 05:14:21PM +0200, Andy Shevchenko wrote:
+> > On Sat, Nov 7, 2020 at 10:14 AM Damien Le Moal <damien.lemoal@wdc.com> wrote:
+> >
+> > > @@ -1308,7 +1308,6 @@ DEFINE_SIMPLE_PROP(pinctrl7, "pinctrl-7", NULL)
+> > >  DEFINE_SIMPLE_PROP(pinctrl8, "pinctrl-8", NULL)
+> > >  DEFINE_SUFFIX_PROP(regulators, "-supply", NULL)
+> > >  DEFINE_SUFFIX_PROP(gpio, "-gpio", "#gpio-cells")
+> > > -DEFINE_SUFFIX_PROP(gpios, "-gpios", "#gpio-cells")
+> >
+> > Sorry, but the above doesn't sound right to me.
+> > It's a generic code and you may imagine how many systems you broke by
+> > this change.
+>
+> Damien replaced the macro above with the code below (your removed it from your
+> message):
+>
+> +static struct device_node *parse_gpios(struct device_node *np,
+> +                                      const char *prop_name, int index)
+> +{
+> +       /*
+> +        * Quirck for the DesignWare gpio-dwapb GPIO driver which defines
+> +        * the "snps,nr-gpios" property to indicate the total number of GPIOs
+> +        * available. As this conflict with "xx-gpios" reference properties,
+> +        * ignore it.
+> +        */
+> +       if (strcmp(prop_name, "snps,nr-gpios") == 0)
+> +               return NULL;
+> +
+> +       return parse_suffix_prop_cells(np, prop_name, index,
+> +                                      "-gpios", "#gpio-cells");
+> +}
+>
+> So AFAICS removing the macro shouldn't cause any problem.
+>
+> My concern was whether the quirk has been really needed. As I said the
+> "snps,nr-gpios" property has been marked as deprecated in favor of the standard
+> "ngpios" one. Due to the problem noted by Damien any deprecated property
+> utilization will cause the DW APB SSI DT-nodes probe malfunction. That
+> though implicitly but is supposed to encourage people to provide fixes for
+> the dts-files with the deprecated property replaced with "ngpios".
 
-Please, have a more thorough problem review. Rx FIFO shouldn't
-overflow even for the CPUs with slow context switch. If it does, then
-most likely there is a bug in the code. So it's not a good idea to
-work it around by introducing a dts-property in any case.
+May be deprecated, but we've still got 53 cases in upstream dts files.
+Plus changing doesn't work well for new DT with old kernels unless we
+backport 'ngpios' support.
 
-Just to note in case of our hardware no matter what CPU frequency I
-specified (it can be varied from 200MHz to 1500MHz), there have never
-been seen the Rx FIFO overflow error even with heavy background tasks
-executed. I am really puzzled why some context switch causes the error
-in your case...
+> On the other hand an encouragement based on breaking the kernel doesn't seem a
+> good solution. So as I see it either we should accept the solution provided by
+> Damien, or replace it with a series of fixes for all dts-es with DW APB SSI
+> DT-node defined. I suggest to hear the OF-subsystem maintainers out what
+> solution would they prefer.
 
-As I said in another thread, some logical MMC-SPI drivers errors may
-happen if the native CS is utilized...
+I'd suggest making failing to parse a warning rather than an error.
+The devlink stuff is off by default anyways and is still changing.
 
-On the other hand, if you have a DMA-engine utilized together with
-your controller and the Tx DMA-channel is tuned to work faster than
-the Rx DMA-channel, then the Rx FIFO overflow will eventually happen.
-So replacing the DMA-based transfers with the poll- or IRQ-based ones
-shall indeed solve the problem. But the better solution would be to
-balance the DMA-channels priority if your DMA-controller is capable of
-doing that.
-
--Sergey
-
-> 
-> Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
-> ---
->  drivers/spi/spi-dw-core.c | 12 ++++++++----
->  drivers/spi/spi-dw.h      |  1 +
->  2 files changed, 9 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/spi/spi-dw-core.c b/drivers/spi/spi-dw-core.c
-> index c2ef1d8d46d5..16a6fd569145 100644
-> --- a/drivers/spi/spi-dw-core.c
-> +++ b/drivers/spi/spi-dw-core.c
-> @@ -385,14 +385,18 @@ static int dw_spi_poll_transfer(struct dw_spi *dws,
->  	u16 nbits;
->  	int ret;
->  
-> -	delay.unit = SPI_DELAY_UNIT_SCK;
-> -	nbits = dws->n_bytes * BITS_PER_BYTE;
-> +	if (!(dws->caps & DW_SPI_CAP_POLL_NODELAY)) {
-> +		delay.unit = SPI_DELAY_UNIT_SCK;
-> +		nbits = dws->n_bytes * BITS_PER_BYTE;
-> +	}
->  
->  	do {
->  		dw_writer(dws);
->  
-> -		delay.value = nbits * (dws->rx_len - dws->tx_len);
-> -		spi_delay_exec(&delay, transfer);
-> +		if (!(dws->caps & DW_SPI_CAP_POLL_NODELAY)) {
-> +			delay.value = nbits * (dws->rx_len - dws->tx_len);
-> +			spi_delay_exec(&delay, transfer);
-> +		}
->  
->  		dw_reader(dws);
->  
-> diff --git a/drivers/spi/spi-dw.h b/drivers/spi/spi-dw.h
-> index 48a11a51a407..25f6372b993a 100644
-> --- a/drivers/spi/spi-dw.h
-> +++ b/drivers/spi/spi-dw.h
-> @@ -130,6 +130,7 @@ enum dw_ssi_type {
->  #define DW_SPI_CAP_KEEMBAY_MST		BIT(1)
->  #define DW_SPI_CAP_DWC_SSI		BIT(2)
->  #define DW_SPI_CAP_DFS_32		BIT(3)
-> +#define DW_SPI_CAP_POLL_NODELAY		BIT(4)
->  
->  /* Slave spi_transfer/spi_mem_op related */
->  struct dw_spi_cfg {
-> -- 
-> 2.28.0
-> 
+Rob
 
 _______________________________________________
 linux-riscv mailing list
