@@ -8,18 +8,18 @@ X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E2BE0C56201
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5F7A0C56202
 	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 12:46:31 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5A46120659
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 12:46:31 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C9741206D8
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 12:46:30 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="oAjkUXWd";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="bBcfwVC6";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="EwhnWSA3"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5A46120659
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="CvwAsdKZ";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="HbJ/ysa0";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="SS5PTxLt"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C9741206D8
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -28,74 +28,73 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=zDeeD8isQ9ZnTh3/FmN3LDJ++nw3dgpgkTb/cSFlKa8=; b=oAjkUXWd7WROamIuxgO63B3PF
-	rPwV2KV8f2jPEJB9kmp1B2tjzZyhGQqlNfzsoxIRBn8AbFnk8afdNnQgA2M4w1hYBez92w5uhndN/
-	QjkhA8cWoVSOmypIhEyZQJCcZ6HE70xjopWrB+n/7YPR6KA9lKIqlIrsib+QrY5WdpeJYgPML76NZ
-	5c6VUDShwkvq/N/u6PFNf6qasmgEA7j316znmi+S8ob5qRrNzfWT0LLM3qm5QO8KhyJpimbnD+VZu
-	/s6vFv6SmKox6SwgRJNfYL3jCOaWkCYoSxGUb5+L+sfqsZWPdNnpcD7Yv7e8EpuopZO+7jrL2g+5U
-	V+A9omeEg==;
+	 bh=+zH1dIWEdzZCsJZV58zyfsYTjieZWa3+kcn3t1fRKNE=; b=CvwAsdKZXtpbALeZm1xfhJDhw
+	J4nri2caPhc4M8Ng01WEX+vL8fd+3bJHE7fJzDKgQL7K5mL17vwFK11BPixXv5TPw2DEi+ioxqFee
+	Yzcb5I42j5Lvq3FAVxyNK5kADjvl06qxZPos77qv+Jngh6g+0rAS5BTxvBxZXaZYuETyypA9CF/Mo
+	9u49VqP4PFA+sqIDRq5mR69Op7/yYfkZl8pyPL2tZUWc3InRMFXZG7h1oboB7VYVdTV140G6PpeDx
+	+kLU7IiwB1M7uasRusCSigyXoYWI/QyAaQ7DJTwEmxyjz4+BhvmT63n+P77ZY7SqjGnqoYcqwy1tF
+	d7yFbengA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kc6Yi-0005gn-G5; Mon, 09 Nov 2020 12:46:08 +0000
+	id 1kc6Yj-0005hL-Qq; Mon, 09 Nov 2020 12:46:09 +0000
 Received: from esa5.hgst.iphmx.com ([216.71.153.144])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kc5Qq-0004kP-W1; Mon, 09 Nov 2020 11:34:06 +0000
+ id 1kc5Qz-0004n4-4s; Mon, 09 Nov 2020 11:34:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1604921636; x=1636457636;
+ t=1604921644; x=1636457644;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:content-transfer-encoding:mime-version;
- bh=cLNORs4VrSfT1WFyVmW0i3WYt/PjIBEmw4+g9G2Hipg=;
- b=bBcfwVC6Fd55TgZCVj1EjyKh8M4rAsjEqPcDKhpFH03zG8xac6Vawb4b
- bJ5m+aheH0PgjS/oTF/Zn+EaIqexyiu2xb3TuI+6B2gpTt1fMzeZakLTV
- 1PBSXhMzMbwoVc1fDMH3toUV/Fv2kncbIN1i/7jvDJDL1BGTu1zGfG4Mu
- v/rGjUjqO6hjTYEXFHxX/uLCyodFixKfTH8pBUwPkAYR0ikCEK2Px/5bu
- scgYtFvgCEPcfGPTJvep5Lq5oUVO1ZDmoA5m3dcC1zGCLIwrvFfAxVq4V
- Fiamw+cVvqyk6ZAq6JIB20ENCnxetFIjzA6TV/ShEKM9Hq+V4OufNPmcH g==;
-IronPort-SDR: o31myaqeNpE1X4z0MwmedYmBjrUExIR+cwS8xY5FzM2WUzbgi6CkYSYsbiI1oOFbAoA5rPK3+o
- 8Yur2QF+qm7XgM2cWalLXvYrgNjzJy7KfEFQaRnGLn+yjbgv5/kZnfDKBpJMlJFPuOt1R0ONJi
- uZk7X3H/AnFoKiDfmgmegBVLmRY08NjEGD/vlscm7TwUdcs/ZPZFvs6m2Z+hCLg1aUz04+3Hxq
- gALXm/TNx3EEV6kaWFVg45sV0dwpRIvSiiFblGoOzD/hkE6mqZ0w0TJXt3fUyxfXkvr89U20sU
- HZM=
-X-IronPort-AV: E=Sophos;i="5.77,463,1596470400"; d="scan'208";a="152286357"
+ bh=yrAiTXBm0yX+I4wim9zJ1EqhZZPxP9gTtngTuqTywEw=;
+ b=HbJ/ysa0YLwrBB9BYptQKkXvlMQoVaWxCjA+W2gJl8qsnLKc4oAoFY50
+ 0QTqpuk2yKr+YoIcDDtWfaCEZrhVAoD/bPAgU4BnD4AAb7CXtzSK2L22y
+ gZ9F5tpXvbMxp681MKNED4RUdzxsIoNs1MzZ3Zd+HgVV3CdnNZ8ZnJfUu
+ U7/i837pkyhDQTwl8GsPF7Rdq4o4vn2J8xHBjZ3aM2CuHRp5k49vqYZub
+ hziTQggW+d76yih7BhjnUpEXFXBHMoC0A0I2tGwEAtP1IxsGw2TM/5yKh
+ gD98voT1Y4JCDjgpYAbXif6n56skB65aH9iTPbztgPk+3n1Ox+p/cn10g A==;
+IronPort-SDR: FHkGHogfWqGEIR32xJJAmewg2A2S8EV3id+fWm3vHJHWKE5XzDSZtcekVnrNqt53kbSbjtsPbV
+ ICRfoYLKv7clk8Wnni7RQ2wfiIVOkhE0hiJgYCw0gGY78lJ14N2hl2ANd2Y68nST9Ibx8O3oEi
+ QnRuVRZX7k4MQtYAJ5WXsm+NvZS8W9cMBv+FqWXTbxuwbaQ9i4+WCTGn7Wvt27UJ41ebb5IO8w
+ pBwvcS0lXxhIGKpQIE+0q8ZwNMkjE+5FQ86Uvt+FlqWdb3XxV6k41ZQajiPEesnqVsFDYL1eXN
+ Oqo=
+X-IronPort-AV: E=Sophos;i="5.77,463,1596470400"; d="scan'208";a="152286365"
 Received: from mail-bn8nam11lp2170.outbound.protection.outlook.com (HELO
  NAM11-BN8-obe.outbound.protection.outlook.com) ([104.47.58.170])
- by ob1.hgst.iphmx.com with ESMTP; 09 Nov 2020 19:33:52 +0800
+ by ob1.hgst.iphmx.com with ESMTP; 09 Nov 2020 19:34:02 +0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Hb3KWgUzaIvRkT2R5XTr+sSQjXJA4Y1VL69oLkae5ep1h2Ash0ZV2tF9PrEmel9rQakVEJEtyTkxPWTCSu/psvNYOzcWLaizzSZmdO0fqrloiutG2UQ2cBgqMPpCXpQaDS8GsLMrioBAOARjt9aD60zzPFIkWU8CG2Kq0HuhywArhsEFXXVzLzt1dHcWFlDeILgL1i3+JykR2DZ1JwEl84YA6KnTmP8di23abQb0SrmotXlCn8G4/5Mgg+fw+OV4rY9GWN5X4cKLfDFUYuRSSBkM6kTwG0PZsNJtwyUPITn38pFHo3b5ah3yUMXlMOiPJrssXZiq493vXMlsYFTB4A==
+ b=fIZqNEt67owQuNBkI8lDThbjJaPvBZmpLGCmpr6D3wz6Z5s4M1N5uW2izlDDRK1EIjDXMHIUj/hwY8Va53+PFDXVrLz2P7Z0QXiYoaJkpiZZW88n+yfQ1fMpTxbNwXQNfmk673MxyHnjp1B5uLMj6lMTE/YA4qKNM2mI8Z4cL2y8YQFwhoAhnLSxxpf4hLuB6dngQr4LRzMC1MoHY94UKTUKZfGCl5tT1otRZlgFSoyJQMYzHa/MYfjiS8ViDFzpLzU+Ne8H3IhahM4CKefpZyKVdVTr/xyo3BTx8iiudhAkkStvuhDxGlFqiCDQ2WEvxcflfKIPmsYnKeXwMh/LxQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=O++J6HONI/ml1r5F6UkME5uIgzWd8QoktrozR3g/8Ww=;
- b=lCyoQBXevrh1BXAyJu61DjHSUf3rowQESQK3qxFAmcfX7ufR6nMb5UqfNBh1t9ZXlfaMZr5lfDXVSyIk5A6wsiUEjluwHtoAEpn0F+wcsM6Qo4JaZas6zf+KP8+zl/gN9BUe0ERtLXW56eNlz+tDR+KhqwOMsfsOdJYgXXDES+HPSWmn3xeGliOop4GGyIKOY+TUZ+XMvZEiUjIL2WSSg87IeaKs8D+/KoUgCOiBAcii5Dv88EefDJdSCUNi6K/RlT1kCEdLjLSNYNi7t72yytRUNcB4HUaCFZMshhui3ugGAXc4w3ccrxXDjC3mrfnT0pAhNTzx4qhZVMDO6ITwqA==
+ bh=qsNEFrlhdM0P+GxTagvhNugZJ+qLn/xtCZf5nFxwEeE=;
+ b=kyG4OYPryYcHeskmaAYk+0rcp1lXWrLV1Nq93spXr9SEyEn3Zb2G3qu+wxeUujy7+LIs/djMvkcWrCxYvCulOVPAuie4mIlCspOob/l9uQ9J6nlniHSIhvsriLVKsb4dGMR0cdxaDRcWt46JY6mX441DMjoSUXI2RJjAdnC1oVFjDTnUZhNDbJM1vi4/AYfbxrFzRtITKkVghSzpuGXYWVjcKNGiSz3MDn9/j6jz9VfHl1BHGJx3+d2VnPvqCpj5jObjlZFewWyK+rosLOfH2Rvi2RmVdwwh8FWfNWzLaact4wo6rw1gOLjH8vY+zbovtT+X4XKSzrVQNJ/7C3lq9g==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
  header.d=wdc.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=O++J6HONI/ml1r5F6UkME5uIgzWd8QoktrozR3g/8Ww=;
- b=EwhnWSA3HcIAjcpqaGbJBZwsEBFmTcK1x8A7Vfa7NVgWcKTbhwUBd6VedcQfpgDZvDbjAi3TO6aTukwDIE/89M+ttIYMdBgF4PKTD/iHorpYPvBsOlgpvhShNH4KEfBhS5K2w31kGoEWUlctTm57mCDrBK6HRggUx21FaOcksaU=
+ bh=qsNEFrlhdM0P+GxTagvhNugZJ+qLn/xtCZf5nFxwEeE=;
+ b=SS5PTxLtoFsGJCQlInCWQqucdvQc1DeCW0yrIGJoXnyu2BlkKzgeKYqqfRJz7xYwQ5n6e/KqsUN0VwKIxP3BGVZlysDkwYcE98tgDSxDcvBtOpxTEFxLXA2RmbzkKZGCjN8YzQKU7Y7T4/HS+/ZDoqETpNFYL71mTjBuHTzHaEI=
 Authentication-Results: dabbelt.com; dkim=none (message not signed)
  header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
 Received: from DM6PR04MB6201.namprd04.prod.outlook.com (2603:10b6:5:127::32)
  by DM6PR04MB3866.namprd04.prod.outlook.com (2603:10b6:5:ad::19) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3541.21; Mon, 9 Nov
- 2020 11:33:51 +0000
+ 2020 11:34:01 +0000
 Received: from DM6PR04MB6201.namprd04.prod.outlook.com
  ([fe80::d035:e2c6:c11:51dd]) by DM6PR04MB6201.namprd04.prod.outlook.com
  ([fe80::d035:e2c6:c11:51dd%6]) with mapi id 15.20.3541.025; Mon, 9 Nov 2020
- 11:33:51 +0000
+ 11:34:01 +0000
 From: Anup Patel <anup.patel@wdc.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
  Palmer Dabbelt <palmerdabbelt@google.com>,
  Paul Walmsley <paul.walmsley@sifive.com>,
  Albert Ou <aou@eecs.berkeley.edu>, Paolo Bonzini <pbonzini@redhat.com>
-Subject: [PATCH v15 04/17] RISC-V: KVM: Implement VCPU interrupts and requests
- handling
-Date: Mon,  9 Nov 2020 17:02:27 +0530
-Message-Id: <20201109113240.3733496-5-anup.patel@wdc.com>
+Subject: [PATCH v15 06/17] RISC-V: KVM: Implement VCPU world-switch
+Date: Mon,  9 Nov 2020 17:02:29 +0530
+Message-Id: <20201109113240.3733496-7-anup.patel@wdc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20201109113240.3733496-1-anup.patel@wdc.com>
 References: <20201109113240.3733496-1-anup.patel@wdc.com>
@@ -108,36 +107,36 @@ X-MS-Exchange-MessageSentRepresentingType: 1
 Received: from wdc.com (122.171.188.68) by
  MAXPR01CA0099.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:5d::17) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.3541.21 via Frontend Transport; Mon, 9 Nov 2020 11:33:47 +0000
+ 15.20.3541.21 via Frontend Transport; Mon, 9 Nov 2020 11:33:57 +0000
 X-MS-PublicTrafficType: Email
 X-MS-Office365-Filtering-HT: Tenant
-X-MS-Office365-Filtering-Correlation-Id: 7a98e641-f22c-4a3e-c27f-08d884a35529
+X-MS-Office365-Filtering-Correlation-Id: 9cc17004-e795-4597-9421-08d884a35b16
 X-MS-TrafficTypeDiagnostic: DM6PR04MB3866:
 X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <DM6PR04MB38664F2452200151B031A37B8DEA0@DM6PR04MB3866.namprd04.prod.outlook.com>
+X-Microsoft-Antispam-PRVS: <DM6PR04MB386668B11757307083756AB88DEA0@DM6PR04MB3866.namprd04.prod.outlook.com>
 WDCIPOUTBOUND: EOP-TRUE
-X-MS-Oob-TLC-OOBClassifiers: OLM:3513;
+X-MS-Oob-TLC-OOBClassifiers: OLM:7219;
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: +T2yVL2HF7wKd7ngB92m+cfVbawBxpeJO4sCQy+OflObuclGDyXG2DqQ0jHZRpc4zjyjdmM1LNFDJAEYnLw7JDewUGt6EgGAvp3Tx1t4KXKNNCvCWpzZCgPMkNfLoXYX3YkUhPJk84ddcMu0WLp6wcZwE+BRuMGcIvunLEbeIfq1pO7Fnk3xLWqElIOrt4Cv2QR00eXEdKDaGrWBjCVEuGA2N48eenN/vp0w/T1npx/Y29hckBul+phxmCFgjVyVBs6EkXIdYwZHiCE2YTf6ssVqznxd0i2tSA7IcRVz43CENLiTmS5NtsG8rqh+UQDS
+X-Microsoft-Antispam-Message-Info: NNgT7slvKfmCN5xrKE29UxhIO7+1r2nER/r43pMn/j31rl/yG0x5yOW66k4yzgAPaUYjvyP3BeDWXYK8jKIzAEFBJ+o2eRY+HfhbpNeUjc6yAI7AFL5PXh3LyNHpI+SylUAJGcPbPLEf0smUvB2iY0g+SF8jBSQeTCtwKFpb6W1QQ6GD5R5eBeGw34yf3CBTHIXk4J1+JQ7XXKhqnOsikG0H1th3dk2yyrfnTJ9HSl0g9yTmNP4vvkOiGeLvTneepvQlED/KXceyKWV0h6IRrN/hpMOxAck0XdbiCpmuZYD8dIz5cUz9RuGU/nN6ZNgb
 X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
  IPV:NLI; SFV:NSPM; H:DM6PR04MB6201.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(366004)(346002)(396003)(136003)(39860400002)(376002)(55016002)(7416002)(83380400001)(1076003)(44832011)(16526019)(186003)(316002)(26005)(8676002)(110136005)(54906003)(5660300002)(52116002)(7696005)(956004)(2616005)(478600001)(66476007)(66556008)(4326008)(66946007)(6666004)(2906002)(36756003)(86362001)(8886007)(8936002);
+ SFS:(4636009)(366004)(346002)(396003)(136003)(39860400002)(376002)(55016002)(7416002)(83380400001)(1076003)(44832011)(16526019)(186003)(316002)(26005)(8676002)(110136005)(54906003)(5660300002)(52116002)(7696005)(956004)(30864003)(2616005)(478600001)(66476007)(66556008)(4326008)(66946007)(6666004)(2906002)(36756003)(86362001)(8886007)(8936002);
  DIR:OUT; SFP:1102; 
-X-MS-Exchange-AntiSpam-MessageData: zcnlGegaGixNvrIxhEktB266drbwObOXk3cre0NVEqqZfdIlb/d3INb7RMy6u1yEu8wPRL2a0NKSYxGv3buJ23dXNU1Xl61eij9e1rQRb9xhK8gOFA9vgVKN2yCrRuRN9uj2nMbnVR2xGZqndJuCxIGDhANR55DjAIJOLikpRKk3A0cnM8FNVtQST+tk5mZPB4nGT61PTCymPw7qFiZgBySUE5HkXjkd9bw6U33q1ipP4/AfFl8cnXN9RNU2fHx7oPhFXIgwhJgMa7mjvLowFqYJ0I7cNGdLdgzZuS0O+NaF6QH0gT92bzV/fYFJ/2pS/9isXO8GHGlr0a7+xEY0zDGrnEwWNvnrbgBc06ZGCxtu5MyXZdCKhcW3Jp74j95gRMfwZeUxp3qLK+OX7TQQokex/4pbi1ZXC+OhIGjszWDzjmVPsuo5dapkXbhab907/llnW6Enr/vsVT5O0mPyLEEFMlj34p0SFFF6oFDPRFWJaRYvF+n5UMPKJC0lIXmX6wLfAfqYvoIwo11AO4y4h7M96PLA7p61zpG9dRxfVLUm+MHbeXwTdhznZztPyLwQZTMiaSvczb3wHbe2nE2PeMGUZisyGWFQtemwmj8IfG848lDr79GxS6BWCeUH8RyvLoUG0HQ6QowI0IPthjv81w==
+X-MS-Exchange-AntiSpam-MessageData: 8HiXiGjrxeIn/nsrSxSDUOA/DWYdJeUDWIC6iDGJXTQKRt+pP4yQUAXCsRYBpbQ1XrT0mO26GSP0j0sTkQnzyu/XrtMLcGPKIX2/t3Qc3NBUx/rppxHJJy8EyYl4vYsIjXwfNEzsXk8mmtqOFqNPyiSPNWX5YG+aU4sGYcy87wCzieCakm2Xx2Hec9M9pVdozco+By0/8U0BbwHPQ25VQE/hZUd8MXBZ4T48Sk5aepnSdvCfqpCjiPjUmAtmF5N6ks1fyzQKuBnfFBN9GEr5T2CKgiZWYo/3gA4y14uW61CXdZMjRZjZDPEWoWNhm+q21hPyHWAAEasPkPV195g5THqwN5wjYJtGhIYhurcjS8P0IWYEcWwfm2vOCQcErfxNuS3DG+xqODI7Ivsh5izeyxoWXeMhbpGRXaCJwEOgwzpOQWYCCmQSApqexboBOtAl+m6njZyjuWxOfcndbOpbKAAx1g/EHwee3C7m+ulkcm/oKISsF8BuRsSLmE0wsYDmeuHas+S3kt7bMppFi9Yx7JQmQg5C9fTm57LUrfGoRuO2jogWhKFmKO+XE1nuyQ/mlgB98uTKNzyBmAn2KlaZtRdZUvZFeD0Qe19JDE2AJR9tgVF4ORX8jArEHDb+PdhZkwZtfrm0MNfC3ZgOoozurA==
 X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7a98e641-f22c-4a3e-c27f-08d884a35529
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9cc17004-e795-4597-9421-08d884a35b16
 X-MS-Exchange-CrossTenant-AuthSource: DM6PR04MB6201.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Nov 2020 11:33:51.8039 (UTC)
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Nov 2020 11:34:01.7286 (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: s7C0HjJGaDxR8mMP1uGBFraVedHbw4ZnXadERY6A7SqSeD8XSlzXCLmiS5OWNPmAoxRSvd0d5JUTvwNlrs9JOQ==
+X-MS-Exchange-CrossTenant-UserPrincipalName: SaFKKIzHl8PudiWwgnzl0oi0yb0RHGJeWkfoAKTKmCLWMWkbLqigOL1MKBBExct402qVvE/bfWwBcMg8Ugz1UQ==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR04MB3866
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201109_063357_491263_95E9CC4E 
-X-CRM114-Status: GOOD (  27.11  )
+X-CRM114-CacheID: sfid-20201109_063405_720360_5620A237 
+X-CRM114-Status: GOOD (  17.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -159,354 +158,420 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch implements VCPU interrupts and requests which are both
-asynchronous events.
+This patch implements the VCPU world-switch for KVM RISC-V.
 
-The VCPU interrupts can be set/unset using KVM_INTERRUPT ioctl from
-user-space. In future, the in-kernel IRQCHIP emulation will use
-kvm_riscv_vcpu_set_interrupt() and kvm_riscv_vcpu_unset_interrupt()
-functions to set/unset VCPU interrupts.
-
-Important VCPU requests implemented by this patch are:
-KVM_REQ_SLEEP       - set whenever VCPU itself goes to sleep state
-KVM_REQ_VCPU_RESET  - set whenever VCPU reset is requested
-
-The WFI trap-n-emulate (added later) will use KVM_REQ_SLEEP request
-and kvm_riscv_vcpu_has_interrupt() function.
-
-The KVM_REQ_VCPU_RESET request will be used by SBI emulation (added
-later) to power-up a VCPU in power-off state. The user-space can use
-the GET_MPSTATE/SET_MPSTATE ioctls to get/set power state of a VCPU.
+The KVM RISC-V world-switch (i.e. __kvm_riscv_switch_to()) mostly
+switches general purpose registers, SSTATUS, STVEC, SSCRATCH and
+HSTATUS CSRs. Other CSRs are switched via vcpu_load() and vcpu_put()
+interface in kvm_arch_vcpu_load() and kvm_arch_vcpu_put() functions
+respectively.
 
 Signed-off-by: Anup Patel <anup.patel@wdc.com>
 Acked-by: Paolo Bonzini <pbonzini@redhat.com>
 Reviewed-by: Paolo Bonzini <pbonzini@redhat.com>
 Reviewed-by: Alexander Graf <graf@amazon.com>
 ---
- arch/riscv/include/asm/kvm_host.h |  23 ++++
- arch/riscv/include/uapi/asm/kvm.h |   3 +
- arch/riscv/kvm/vcpu.c             | 182 +++++++++++++++++++++++++++---
- 3 files changed, 195 insertions(+), 13 deletions(-)
+ arch/riscv/include/asm/kvm_host.h |  10 +-
+ arch/riscv/kernel/asm-offsets.c   |  78 ++++++++++++
+ arch/riscv/kvm/Makefile           |   2 +-
+ arch/riscv/kvm/vcpu.c             |  30 ++++-
+ arch/riscv/kvm/vcpu_switch.S      | 203 ++++++++++++++++++++++++++++++
+ 5 files changed, 319 insertions(+), 4 deletions(-)
+ create mode 100644 arch/riscv/kvm/vcpu_switch.S
 
 diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-index 43e85523a07e..8829bed4517f 100644
+index 8829bed4517f..e2f5523e26de 100644
 --- a/arch/riscv/include/asm/kvm_host.h
 +++ b/arch/riscv/include/asm/kvm_host.h
-@@ -133,6 +133,21 @@ struct kvm_vcpu_arch {
- 	/* CPU CSR context upon Guest VCPU reset */
- 	struct kvm_vcpu_csr guest_reset_csr;
+@@ -121,6 +121,14 @@ struct kvm_vcpu_arch {
+ 	/* ISA feature bits (similar to MISA) */
+ 	unsigned long isa;
  
-+	/*
-+	 * VCPU interrupts
-+	 *
-+	 * We have a lockless approach for tracking pending VCPU interrupts
-+	 * implemented using atomic bitops. The irqs_pending bitmap represent
-+	 * pending interrupts whereas irqs_pending_mask represent bits changed
-+	 * in irqs_pending. Our approach is modeled around multiple producer
-+	 * and single consumer problem where the consumer is the VCPU itself.
-+	 */
-+	unsigned long irqs_pending;
-+	unsigned long irqs_pending_mask;
++	/* SSCRATCH, STVEC, and SCOUNTEREN of Host */
++	unsigned long host_sscratch;
++	unsigned long host_stvec;
++	unsigned long host_scounteren;
 +
-+	/* VCPU power-off state */
-+	bool power_off;
++	/* CPU context of Host */
++	struct kvm_cpu_context host_context;
 +
- 	/* Don't run the VCPU (blocked) */
- 	bool pause;
+ 	/* CPU context of Guest VCPU */
+ 	struct kvm_cpu_context guest_context;
  
-@@ -157,4 +172,12 @@ int kvm_riscv_vcpu_exit(struct kvm_vcpu *vcpu, struct kvm_run *run,
+@@ -170,7 +178,7 @@ int kvm_riscv_vcpu_mmio_return(struct kvm_vcpu *vcpu, struct kvm_run *run);
+ int kvm_riscv_vcpu_exit(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 			struct kvm_cpu_trap *trap);
  
- static inline void __kvm_riscv_switch_to(struct kvm_vcpu_arch *vcpu_arch) {}
+-static inline void __kvm_riscv_switch_to(struct kvm_vcpu_arch *vcpu_arch) {}
++void __kvm_riscv_switch_to(struct kvm_vcpu_arch *vcpu_arch);
  
-+int kvm_riscv_vcpu_set_interrupt(struct kvm_vcpu *vcpu, unsigned int irq);
-+int kvm_riscv_vcpu_unset_interrupt(struct kvm_vcpu *vcpu, unsigned int irq);
-+void kvm_riscv_vcpu_flush_interrupts(struct kvm_vcpu *vcpu);
-+void kvm_riscv_vcpu_sync_interrupts(struct kvm_vcpu *vcpu);
-+bool kvm_riscv_vcpu_has_interrupts(struct kvm_vcpu *vcpu, unsigned long mask);
-+void kvm_riscv_vcpu_power_off(struct kvm_vcpu *vcpu);
-+void kvm_riscv_vcpu_power_on(struct kvm_vcpu *vcpu);
+ int kvm_riscv_vcpu_set_interrupt(struct kvm_vcpu *vcpu, unsigned int irq);
+ int kvm_riscv_vcpu_unset_interrupt(struct kvm_vcpu *vcpu, unsigned int irq);
+diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
+index db203442c08f..83425ce20804 100644
+--- a/arch/riscv/kernel/asm-offsets.c
++++ b/arch/riscv/kernel/asm-offsets.c
+@@ -7,7 +7,9 @@
+ #define GENERATING_ASM_OFFSETS
+ 
+ #include <linux/kbuild.h>
++#include <linux/mm.h>
+ #include <linux/sched.h>
++#include <asm/kvm_host.h>
+ #include <asm/thread_info.h>
+ #include <asm/ptrace.h>
+ 
+@@ -106,6 +108,82 @@ void asm_offsets(void)
+ 	OFFSET(PT_BADADDR, pt_regs, badaddr);
+ 	OFFSET(PT_CAUSE, pt_regs, cause);
+ 
++	OFFSET(KVM_ARCH_GUEST_ZERO, kvm_vcpu_arch, guest_context.zero);
++	OFFSET(KVM_ARCH_GUEST_RA, kvm_vcpu_arch, guest_context.ra);
++	OFFSET(KVM_ARCH_GUEST_SP, kvm_vcpu_arch, guest_context.sp);
++	OFFSET(KVM_ARCH_GUEST_GP, kvm_vcpu_arch, guest_context.gp);
++	OFFSET(KVM_ARCH_GUEST_TP, kvm_vcpu_arch, guest_context.tp);
++	OFFSET(KVM_ARCH_GUEST_T0, kvm_vcpu_arch, guest_context.t0);
++	OFFSET(KVM_ARCH_GUEST_T1, kvm_vcpu_arch, guest_context.t1);
++	OFFSET(KVM_ARCH_GUEST_T2, kvm_vcpu_arch, guest_context.t2);
++	OFFSET(KVM_ARCH_GUEST_S0, kvm_vcpu_arch, guest_context.s0);
++	OFFSET(KVM_ARCH_GUEST_S1, kvm_vcpu_arch, guest_context.s1);
++	OFFSET(KVM_ARCH_GUEST_A0, kvm_vcpu_arch, guest_context.a0);
++	OFFSET(KVM_ARCH_GUEST_A1, kvm_vcpu_arch, guest_context.a1);
++	OFFSET(KVM_ARCH_GUEST_A2, kvm_vcpu_arch, guest_context.a2);
++	OFFSET(KVM_ARCH_GUEST_A3, kvm_vcpu_arch, guest_context.a3);
++	OFFSET(KVM_ARCH_GUEST_A4, kvm_vcpu_arch, guest_context.a4);
++	OFFSET(KVM_ARCH_GUEST_A5, kvm_vcpu_arch, guest_context.a5);
++	OFFSET(KVM_ARCH_GUEST_A6, kvm_vcpu_arch, guest_context.a6);
++	OFFSET(KVM_ARCH_GUEST_A7, kvm_vcpu_arch, guest_context.a7);
++	OFFSET(KVM_ARCH_GUEST_S2, kvm_vcpu_arch, guest_context.s2);
++	OFFSET(KVM_ARCH_GUEST_S3, kvm_vcpu_arch, guest_context.s3);
++	OFFSET(KVM_ARCH_GUEST_S4, kvm_vcpu_arch, guest_context.s4);
++	OFFSET(KVM_ARCH_GUEST_S5, kvm_vcpu_arch, guest_context.s5);
++	OFFSET(KVM_ARCH_GUEST_S6, kvm_vcpu_arch, guest_context.s6);
++	OFFSET(KVM_ARCH_GUEST_S7, kvm_vcpu_arch, guest_context.s7);
++	OFFSET(KVM_ARCH_GUEST_S8, kvm_vcpu_arch, guest_context.s8);
++	OFFSET(KVM_ARCH_GUEST_S9, kvm_vcpu_arch, guest_context.s9);
++	OFFSET(KVM_ARCH_GUEST_S10, kvm_vcpu_arch, guest_context.s10);
++	OFFSET(KVM_ARCH_GUEST_S11, kvm_vcpu_arch, guest_context.s11);
++	OFFSET(KVM_ARCH_GUEST_T3, kvm_vcpu_arch, guest_context.t3);
++	OFFSET(KVM_ARCH_GUEST_T4, kvm_vcpu_arch, guest_context.t4);
++	OFFSET(KVM_ARCH_GUEST_T5, kvm_vcpu_arch, guest_context.t5);
++	OFFSET(KVM_ARCH_GUEST_T6, kvm_vcpu_arch, guest_context.t6);
++	OFFSET(KVM_ARCH_GUEST_SEPC, kvm_vcpu_arch, guest_context.sepc);
++	OFFSET(KVM_ARCH_GUEST_SSTATUS, kvm_vcpu_arch, guest_context.sstatus);
++	OFFSET(KVM_ARCH_GUEST_HSTATUS, kvm_vcpu_arch, guest_context.hstatus);
++	OFFSET(KVM_ARCH_GUEST_SCOUNTEREN, kvm_vcpu_arch, guest_csr.scounteren);
 +
- #endif /* __RISCV_KVM_HOST_H__ */
-diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-index 984d041a3e3b..3d3d703713c6 100644
---- a/arch/riscv/include/uapi/asm/kvm.h
-+++ b/arch/riscv/include/uapi/asm/kvm.h
-@@ -18,6 +18,9 @@
- 
- #define KVM_COALESCED_MMIO_PAGE_OFFSET 1
- 
-+#define KVM_INTERRUPT_SET	-1U
-+#define KVM_INTERRUPT_UNSET	-2U
++	OFFSET(KVM_ARCH_HOST_ZERO, kvm_vcpu_arch, host_context.zero);
++	OFFSET(KVM_ARCH_HOST_RA, kvm_vcpu_arch, host_context.ra);
++	OFFSET(KVM_ARCH_HOST_SP, kvm_vcpu_arch, host_context.sp);
++	OFFSET(KVM_ARCH_HOST_GP, kvm_vcpu_arch, host_context.gp);
++	OFFSET(KVM_ARCH_HOST_TP, kvm_vcpu_arch, host_context.tp);
++	OFFSET(KVM_ARCH_HOST_T0, kvm_vcpu_arch, host_context.t0);
++	OFFSET(KVM_ARCH_HOST_T1, kvm_vcpu_arch, host_context.t1);
++	OFFSET(KVM_ARCH_HOST_T2, kvm_vcpu_arch, host_context.t2);
++	OFFSET(KVM_ARCH_HOST_S0, kvm_vcpu_arch, host_context.s0);
++	OFFSET(KVM_ARCH_HOST_S1, kvm_vcpu_arch, host_context.s1);
++	OFFSET(KVM_ARCH_HOST_A0, kvm_vcpu_arch, host_context.a0);
++	OFFSET(KVM_ARCH_HOST_A1, kvm_vcpu_arch, host_context.a1);
++	OFFSET(KVM_ARCH_HOST_A2, kvm_vcpu_arch, host_context.a2);
++	OFFSET(KVM_ARCH_HOST_A3, kvm_vcpu_arch, host_context.a3);
++	OFFSET(KVM_ARCH_HOST_A4, kvm_vcpu_arch, host_context.a4);
++	OFFSET(KVM_ARCH_HOST_A5, kvm_vcpu_arch, host_context.a5);
++	OFFSET(KVM_ARCH_HOST_A6, kvm_vcpu_arch, host_context.a6);
++	OFFSET(KVM_ARCH_HOST_A7, kvm_vcpu_arch, host_context.a7);
++	OFFSET(KVM_ARCH_HOST_S2, kvm_vcpu_arch, host_context.s2);
++	OFFSET(KVM_ARCH_HOST_S3, kvm_vcpu_arch, host_context.s3);
++	OFFSET(KVM_ARCH_HOST_S4, kvm_vcpu_arch, host_context.s4);
++	OFFSET(KVM_ARCH_HOST_S5, kvm_vcpu_arch, host_context.s5);
++	OFFSET(KVM_ARCH_HOST_S6, kvm_vcpu_arch, host_context.s6);
++	OFFSET(KVM_ARCH_HOST_S7, kvm_vcpu_arch, host_context.s7);
++	OFFSET(KVM_ARCH_HOST_S8, kvm_vcpu_arch, host_context.s8);
++	OFFSET(KVM_ARCH_HOST_S9, kvm_vcpu_arch, host_context.s9);
++	OFFSET(KVM_ARCH_HOST_S10, kvm_vcpu_arch, host_context.s10);
++	OFFSET(KVM_ARCH_HOST_S11, kvm_vcpu_arch, host_context.s11);
++	OFFSET(KVM_ARCH_HOST_T3, kvm_vcpu_arch, host_context.t3);
++	OFFSET(KVM_ARCH_HOST_T4, kvm_vcpu_arch, host_context.t4);
++	OFFSET(KVM_ARCH_HOST_T5, kvm_vcpu_arch, host_context.t5);
++	OFFSET(KVM_ARCH_HOST_T6, kvm_vcpu_arch, host_context.t6);
++	OFFSET(KVM_ARCH_HOST_SEPC, kvm_vcpu_arch, host_context.sepc);
++	OFFSET(KVM_ARCH_HOST_SSTATUS, kvm_vcpu_arch, host_context.sstatus);
++	OFFSET(KVM_ARCH_HOST_HSTATUS, kvm_vcpu_arch, host_context.hstatus);
++	OFFSET(KVM_ARCH_HOST_SSCRATCH, kvm_vcpu_arch, host_sscratch);
++	OFFSET(KVM_ARCH_HOST_STVEC, kvm_vcpu_arch, host_stvec);
++	OFFSET(KVM_ARCH_HOST_SCOUNTEREN, kvm_vcpu_arch, host_scounteren);
 +
- /* for KVM_GET_REGS and KVM_SET_REGS */
- struct kvm_regs {
- };
+ 	/*
+ 	 * THREAD_{F,X}* might be larger than a S-type offset can handle, but
+ 	 * these are used in performance-sensitive assembly so we can't resort
+diff --git a/arch/riscv/kvm/Makefile b/arch/riscv/kvm/Makefile
+index 37b5a59d4f4f..845579273727 100644
+--- a/arch/riscv/kvm/Makefile
++++ b/arch/riscv/kvm/Makefile
+@@ -8,6 +8,6 @@ ccflags-y := -Ivirt/kvm -Iarch/riscv/kvm
+ 
+ kvm-objs := $(common-objs-y)
+ 
+-kvm-objs += main.o vm.o mmu.o vcpu.o vcpu_exit.o
++kvm-objs += main.o vm.o mmu.o vcpu.o vcpu_exit.o vcpu_switch.o
+ 
+ obj-$(CONFIG_KVM)	+= kvm.o
 diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index 84deeddbffbe..7acb2e622597 100644
+index e38eedc784a7..43962a25fa55 100644
 --- a/arch/riscv/kvm/vcpu.c
 +++ b/arch/riscv/kvm/vcpu.c
-@@ -11,6 +11,7 @@
- #include <linux/err.h>
- #include <linux/kdebug.h>
- #include <linux/module.h>
-+#include <linux/percpu.h>
- #include <linux/uaccess.h>
- #include <linux/vmalloc.h>
- #include <linux/sched/signal.h>
-@@ -54,6 +55,9 @@ static void kvm_riscv_reset_vcpu(struct kvm_vcpu *vcpu)
- 	memcpy(csr, reset_csr, sizeof(*csr));
+@@ -580,14 +580,40 @@ int kvm_arch_vcpu_ioctl_set_guest_debug(struct kvm_vcpu *vcpu,
  
- 	memcpy(cntx, reset_cntx, sizeof(*cntx));
-+
-+	WRITE_ONCE(vcpu->arch.irqs_pending, 0);
-+	WRITE_ONCE(vcpu->arch.irqs_pending_mask, 0);
- }
- 
- int kvm_arch_vcpu_precreate(struct kvm *kvm, unsigned int id)
-@@ -102,8 +106,7 @@ void kvm_arch_vcpu_destroy(struct kvm_vcpu *vcpu)
- 
- int kvm_cpu_has_pending_timer(struct kvm_vcpu *vcpu)
+ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
  {
 -	/* TODO: */
--	return 0;
-+	return kvm_riscv_vcpu_has_interrupts(vcpu, 1UL << IRQ_VS_TIMER);
- }
- 
- void kvm_arch_vcpu_blocking(struct kvm_vcpu *vcpu)
-@@ -116,20 +119,18 @@ void kvm_arch_vcpu_unblocking(struct kvm_vcpu *vcpu)
- 
- int kvm_arch_vcpu_runnable(struct kvm_vcpu *vcpu)
- {
--	/* TODO: */
--	return 0;
-+	return (kvm_riscv_vcpu_has_interrupts(vcpu, -1UL) &&
-+		!vcpu->arch.power_off && !vcpu->arch.pause);
- }
- 
- int kvm_arch_vcpu_should_kick(struct kvm_vcpu *vcpu)
- {
--	/* TODO: */
--	return 0;
-+	return kvm_vcpu_exiting_guest_mode(vcpu) == IN_GUEST_MODE;
- }
- 
- bool kvm_arch_vcpu_in_kernel(struct kvm_vcpu *vcpu)
- {
--	/* TODO: */
--	return false;
-+	return (vcpu->arch.guest_context.sstatus & SR_SPP) ? true : false;
- }
- 
- bool kvm_arch_has_vcpu_debugfs(void)
-@@ -150,7 +151,21 @@ vm_fault_t kvm_arch_vcpu_fault(struct kvm_vcpu *vcpu, struct vm_fault *vmf)
- long kvm_arch_vcpu_async_ioctl(struct file *filp,
- 			       unsigned int ioctl, unsigned long arg)
- {
--	/* TODO; */
-+	struct kvm_vcpu *vcpu = filp->private_data;
-+	void __user *argp = (void __user *)arg;
-+
-+	if (ioctl == KVM_INTERRUPT) {
-+		struct kvm_interrupt irq;
-+
-+		if (copy_from_user(&irq, argp, sizeof(irq)))
-+			return -EFAULT;
-+
-+		if (irq.irq == KVM_INTERRUPT_SET)
-+			return kvm_riscv_vcpu_set_interrupt(vcpu, IRQ_VS_EXT);
-+		else
-+			return kvm_riscv_vcpu_unset_interrupt(vcpu, IRQ_VS_EXT);
-+	}
-+
- 	return -ENOIOCTLCMD;
- }
- 
-@@ -199,18 +214,121 @@ int kvm_arch_vcpu_ioctl_set_regs(struct kvm_vcpu *vcpu, struct kvm_regs *regs)
- 	return -EINVAL;
- }
- 
-+void kvm_riscv_vcpu_flush_interrupts(struct kvm_vcpu *vcpu)
-+{
-+	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
-+	unsigned long mask, val;
-+
-+	if (READ_ONCE(vcpu->arch.irqs_pending_mask)) {
-+		mask = xchg_acquire(&vcpu->arch.irqs_pending_mask, 0);
-+		val = READ_ONCE(vcpu->arch.irqs_pending) & mask;
-+
-+		csr->hvip &= ~mask;
-+		csr->hvip |= val;
-+	}
-+}
-+
-+void kvm_riscv_vcpu_sync_interrupts(struct kvm_vcpu *vcpu)
-+{
-+	unsigned long hvip;
-+	struct kvm_vcpu_arch *v = &vcpu->arch;
 +	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
 +
-+	/* Read current HVIP and HIE CSRs */
-+	hvip = csr_read(CSR_HVIP);
++	csr_write(CSR_VSSTATUS, csr->vsstatus);
++	csr_write(CSR_HIE, csr->hie);
++	csr_write(CSR_VSTVEC, csr->vstvec);
++	csr_write(CSR_VSSCRATCH, csr->vsscratch);
++	csr_write(CSR_VSEPC, csr->vsepc);
++	csr_write(CSR_VSCAUSE, csr->vscause);
++	csr_write(CSR_VSTVAL, csr->vstval);
++	csr_write(CSR_HVIP, csr->hvip);
++	csr_write(CSR_VSATP, csr->vsatp);
+ 
+ 	kvm_riscv_stage2_update_hgatp(vcpu);
++
++	vcpu->cpu = cpu;
+ }
+ 
+ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+ {
+-	/* TODO: */
++	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
++
++	vcpu->cpu = -1;
++
++	csr_write(CSR_HGATP, 0);
++
++	csr->vsstatus = csr_read(CSR_VSSTATUS);
 +	csr->hie = csr_read(CSR_HIE);
-+
-+	/* Sync-up HVIP.VSSIP bit changes does by Guest */
-+	if ((csr->hvip ^ hvip) & (1UL << IRQ_VS_SOFT)) {
-+		if (hvip & (1UL << IRQ_VS_SOFT)) {
-+			if (!test_and_set_bit(IRQ_VS_SOFT,
-+					      &v->irqs_pending_mask))
-+				set_bit(IRQ_VS_SOFT, &v->irqs_pending);
-+		} else {
-+			if (!test_and_set_bit(IRQ_VS_SOFT,
-+					      &v->irqs_pending_mask))
-+				clear_bit(IRQ_VS_SOFT, &v->irqs_pending);
-+		}
-+	}
-+}
-+
-+int kvm_riscv_vcpu_set_interrupt(struct kvm_vcpu *vcpu, unsigned int irq)
-+{
-+	if (irq != IRQ_VS_SOFT &&
-+	    irq != IRQ_VS_TIMER &&
-+	    irq != IRQ_VS_EXT)
-+		return -EINVAL;
-+
-+	set_bit(irq, &vcpu->arch.irqs_pending);
-+	smp_mb__before_atomic();
-+	set_bit(irq, &vcpu->arch.irqs_pending_mask);
-+
-+	kvm_vcpu_kick(vcpu);
-+
-+	return 0;
-+}
-+
-+int kvm_riscv_vcpu_unset_interrupt(struct kvm_vcpu *vcpu, unsigned int irq)
-+{
-+	if (irq != IRQ_VS_SOFT &&
-+	    irq != IRQ_VS_TIMER &&
-+	    irq != IRQ_VS_EXT)
-+		return -EINVAL;
-+
-+	clear_bit(irq, &vcpu->arch.irqs_pending);
-+	smp_mb__before_atomic();
-+	set_bit(irq, &vcpu->arch.irqs_pending_mask);
-+
-+	return 0;
-+}
-+
-+bool kvm_riscv_vcpu_has_interrupts(struct kvm_vcpu *vcpu, unsigned long mask)
-+{
-+	return (READ_ONCE(vcpu->arch.irqs_pending) &
-+		vcpu->arch.guest_csr.hie & mask) ? true : false;
-+}
-+
-+void kvm_riscv_vcpu_power_off(struct kvm_vcpu *vcpu)
-+{
-+	vcpu->arch.power_off = true;
-+	kvm_make_request(KVM_REQ_SLEEP, vcpu);
-+	kvm_vcpu_kick(vcpu);
-+}
-+
-+void kvm_riscv_vcpu_power_on(struct kvm_vcpu *vcpu)
-+{
-+	vcpu->arch.power_off = false;
-+	kvm_vcpu_wake_up(vcpu);
-+}
-+
- int kvm_arch_vcpu_ioctl_get_mpstate(struct kvm_vcpu *vcpu,
- 				    struct kvm_mp_state *mp_state)
- {
--	/* TODO: */
-+	if (vcpu->arch.power_off)
-+		mp_state->mp_state = KVM_MP_STATE_STOPPED;
-+	else
-+		mp_state->mp_state = KVM_MP_STATE_RUNNABLE;
-+
- 	return 0;
++	csr->vstvec = csr_read(CSR_VSTVEC);
++	csr->vsscratch = csr_read(CSR_VSSCRATCH);
++	csr->vsepc = csr_read(CSR_VSEPC);
++	csr->vscause = csr_read(CSR_VSCAUSE);
++	csr->vstval = csr_read(CSR_VSTVAL);
++	csr->hvip = csr_read(CSR_HVIP);
++	csr->vsatp = csr_read(CSR_VSATP);
  }
- 
- int kvm_arch_vcpu_ioctl_set_mpstate(struct kvm_vcpu *vcpu,
- 				    struct kvm_mp_state *mp_state)
- {
--	/* TODO: */
--	return 0;
-+	int ret = 0;
-+
-+	switch (mp_state->mp_state) {
-+	case KVM_MP_STATE_RUNNABLE:
-+		vcpu->arch.power_off = false;
-+		break;
-+	case KVM_MP_STATE_STOPPED:
-+		kvm_riscv_vcpu_power_off(vcpu);
-+		break;
-+	default:
-+		ret = -EINVAL;
-+	}
-+
-+	return ret;
- }
- 
- int kvm_arch_vcpu_ioctl_set_guest_debug(struct kvm_vcpu *vcpu,
-@@ -234,7 +352,33 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
  
  static void kvm_riscv_check_vcpu_requests(struct kvm_vcpu *vcpu)
- {
--	/* TODO: */
-+	struct rcuwait *wait = kvm_arch_vcpu_get_wait(vcpu);
+diff --git a/arch/riscv/kvm/vcpu_switch.S b/arch/riscv/kvm/vcpu_switch.S
+new file mode 100644
+index 000000000000..5174b025ff4e
+--- /dev/null
++++ b/arch/riscv/kvm/vcpu_switch.S
+@@ -0,0 +1,203 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2019 Western Digital Corporation or its affiliates.
++ *
++ * Authors:
++ *     Anup Patel <anup.patel@wdc.com>
++ */
 +
-+	if (kvm_request_pending(vcpu)) {
-+		if (kvm_check_request(KVM_REQ_SLEEP, vcpu)) {
-+			rcuwait_wait_event(wait,
-+				(!vcpu->arch.power_off) && (!vcpu->arch.pause),
-+				TASK_INTERRUPTIBLE);
++#include <linux/linkage.h>
++#include <asm/asm.h>
++#include <asm/asm-offsets.h>
++#include <asm/csr.h>
 +
-+			if (vcpu->arch.power_off || vcpu->arch.pause) {
-+				/*
-+				 * Awaken to handle a signal, request to
-+				 * sleep again later.
-+				 */
-+				kvm_make_request(KVM_REQ_SLEEP, vcpu);
-+			}
-+		}
++	.text
++	.altmacro
++	.option norelax
 +
-+		if (kvm_check_request(KVM_REQ_VCPU_RESET, vcpu))
-+			kvm_riscv_reset_vcpu(vcpu);
-+	}
-+}
++ENTRY(__kvm_riscv_switch_to)
++	/* Save Host GPRs (except A0 and T0-T6) */
++	REG_S	ra, (KVM_ARCH_HOST_RA)(a0)
++	REG_S	sp, (KVM_ARCH_HOST_SP)(a0)
++	REG_S	gp, (KVM_ARCH_HOST_GP)(a0)
++	REG_S	tp, (KVM_ARCH_HOST_TP)(a0)
++	REG_S	s0, (KVM_ARCH_HOST_S0)(a0)
++	REG_S	s1, (KVM_ARCH_HOST_S1)(a0)
++	REG_S	a1, (KVM_ARCH_HOST_A1)(a0)
++	REG_S	a2, (KVM_ARCH_HOST_A2)(a0)
++	REG_S	a3, (KVM_ARCH_HOST_A3)(a0)
++	REG_S	a4, (KVM_ARCH_HOST_A4)(a0)
++	REG_S	a5, (KVM_ARCH_HOST_A5)(a0)
++	REG_S	a6, (KVM_ARCH_HOST_A6)(a0)
++	REG_S	a7, (KVM_ARCH_HOST_A7)(a0)
++	REG_S	s2, (KVM_ARCH_HOST_S2)(a0)
++	REG_S	s3, (KVM_ARCH_HOST_S3)(a0)
++	REG_S	s4, (KVM_ARCH_HOST_S4)(a0)
++	REG_S	s5, (KVM_ARCH_HOST_S5)(a0)
++	REG_S	s6, (KVM_ARCH_HOST_S6)(a0)
++	REG_S	s7, (KVM_ARCH_HOST_S7)(a0)
++	REG_S	s8, (KVM_ARCH_HOST_S8)(a0)
++	REG_S	s9, (KVM_ARCH_HOST_S9)(a0)
++	REG_S	s10, (KVM_ARCH_HOST_S10)(a0)
++	REG_S	s11, (KVM_ARCH_HOST_S11)(a0)
 +
-+static void kvm_riscv_update_hvip(struct kvm_vcpu *vcpu)
-+{
-+	struct kvm_vcpu_csr *csr = &vcpu->arch.guest_csr;
++	/* Save Host and Restore Guest SSTATUS */
++	REG_L	t0, (KVM_ARCH_GUEST_SSTATUS)(a0)
++	csrrw	t0, CSR_SSTATUS, t0
++	REG_S	t0, (KVM_ARCH_HOST_SSTATUS)(a0)
 +
-+	csr_write(CSR_HVIP, csr->hvip);
- }
- 
- int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
-@@ -298,6 +442,15 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
- 		srcu_read_unlock(&vcpu->kvm->srcu, vcpu->arch.srcu_idx);
- 		smp_mb__after_srcu_read_unlock();
- 
-+		/*
-+		 * We might have got VCPU interrupts updated asynchronously
-+		 * so update it in HW.
-+		 */
-+		kvm_riscv_vcpu_flush_interrupts(vcpu);
++	/* Save Host and Restore Guest HSTATUS */
++	REG_L	t1, (KVM_ARCH_GUEST_HSTATUS)(a0)
++	csrrw	t1, CSR_HSTATUS, t1
++	REG_S	t1, (KVM_ARCH_HOST_HSTATUS)(a0)
 +
-+		/* Update HVIP CSR for current CPU */
-+		kvm_riscv_update_hvip(vcpu);
++	/* Save Host and Restore Guest SCOUNTEREN */
++	REG_L	t2, (KVM_ARCH_GUEST_SCOUNTEREN)(a0)
++	csrrw	t2, CSR_SCOUNTEREN, t2
++	REG_S	t2, (KVM_ARCH_HOST_SCOUNTEREN)(a0)
 +
- 		if (ret <= 0 ||
- 		    kvm_request_pending(vcpu)) {
- 			vcpu->mode = OUTSIDE_GUEST_MODE;
-@@ -325,6 +478,9 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
- 		trap.htval = csr_read(CSR_HTVAL);
- 		trap.htinst = csr_read(CSR_HTINST);
- 
-+		/* Syncup interrupts state with HW */
-+		kvm_riscv_vcpu_sync_interrupts(vcpu);
++	/* Save Host SSCRATCH and change it to struct kvm_vcpu_arch pointer */
++	csrrw	t3, CSR_SSCRATCH, a0
++	REG_S	t3, (KVM_ARCH_HOST_SSCRATCH)(a0)
 +
- 		/*
- 		 * We may have taken a host interrupt in VS/VU-mode (i.e.
- 		 * while executing the guest). This interrupt is still
++	/* Save Host STVEC and change it to return path */
++	la	t4, __kvm_switch_return
++	csrrw	t4, CSR_STVEC, t4
++	REG_S	t4, (KVM_ARCH_HOST_STVEC)(a0)
++
++	/* Restore Guest SEPC */
++	REG_L	t0, (KVM_ARCH_GUEST_SEPC)(a0)
++	csrw	CSR_SEPC, t0
++
++	/* Restore Guest GPRs (except A0) */
++	REG_L	ra, (KVM_ARCH_GUEST_RA)(a0)
++	REG_L	sp, (KVM_ARCH_GUEST_SP)(a0)
++	REG_L	gp, (KVM_ARCH_GUEST_GP)(a0)
++	REG_L	tp, (KVM_ARCH_GUEST_TP)(a0)
++	REG_L	t0, (KVM_ARCH_GUEST_T0)(a0)
++	REG_L	t1, (KVM_ARCH_GUEST_T1)(a0)
++	REG_L	t2, (KVM_ARCH_GUEST_T2)(a0)
++	REG_L	s0, (KVM_ARCH_GUEST_S0)(a0)
++	REG_L	s1, (KVM_ARCH_GUEST_S1)(a0)
++	REG_L	a1, (KVM_ARCH_GUEST_A1)(a0)
++	REG_L	a2, (KVM_ARCH_GUEST_A2)(a0)
++	REG_L	a3, (KVM_ARCH_GUEST_A3)(a0)
++	REG_L	a4, (KVM_ARCH_GUEST_A4)(a0)
++	REG_L	a5, (KVM_ARCH_GUEST_A5)(a0)
++	REG_L	a6, (KVM_ARCH_GUEST_A6)(a0)
++	REG_L	a7, (KVM_ARCH_GUEST_A7)(a0)
++	REG_L	s2, (KVM_ARCH_GUEST_S2)(a0)
++	REG_L	s3, (KVM_ARCH_GUEST_S3)(a0)
++	REG_L	s4, (KVM_ARCH_GUEST_S4)(a0)
++	REG_L	s5, (KVM_ARCH_GUEST_S5)(a0)
++	REG_L	s6, (KVM_ARCH_GUEST_S6)(a0)
++	REG_L	s7, (KVM_ARCH_GUEST_S7)(a0)
++	REG_L	s8, (KVM_ARCH_GUEST_S8)(a0)
++	REG_L	s9, (KVM_ARCH_GUEST_S9)(a0)
++	REG_L	s10, (KVM_ARCH_GUEST_S10)(a0)
++	REG_L	s11, (KVM_ARCH_GUEST_S11)(a0)
++	REG_L	t3, (KVM_ARCH_GUEST_T3)(a0)
++	REG_L	t4, (KVM_ARCH_GUEST_T4)(a0)
++	REG_L	t5, (KVM_ARCH_GUEST_T5)(a0)
++	REG_L	t6, (KVM_ARCH_GUEST_T6)(a0)
++
++	/* Restore Guest A0 */
++	REG_L	a0, (KVM_ARCH_GUEST_A0)(a0)
++
++	/* Resume Guest */
++	sret
++
++	/* Back to Host */
++	.align 2
++__kvm_switch_return:
++	/* Swap Guest A0 with SSCRATCH */
++	csrrw	a0, CSR_SSCRATCH, a0
++
++	/* Save Guest GPRs (except A0) */
++	REG_S	ra, (KVM_ARCH_GUEST_RA)(a0)
++	REG_S	sp, (KVM_ARCH_GUEST_SP)(a0)
++	REG_S	gp, (KVM_ARCH_GUEST_GP)(a0)
++	REG_S	tp, (KVM_ARCH_GUEST_TP)(a0)
++	REG_S	t0, (KVM_ARCH_GUEST_T0)(a0)
++	REG_S	t1, (KVM_ARCH_GUEST_T1)(a0)
++	REG_S	t2, (KVM_ARCH_GUEST_T2)(a0)
++	REG_S	s0, (KVM_ARCH_GUEST_S0)(a0)
++	REG_S	s1, (KVM_ARCH_GUEST_S1)(a0)
++	REG_S	a1, (KVM_ARCH_GUEST_A1)(a0)
++	REG_S	a2, (KVM_ARCH_GUEST_A2)(a0)
++	REG_S	a3, (KVM_ARCH_GUEST_A3)(a0)
++	REG_S	a4, (KVM_ARCH_GUEST_A4)(a0)
++	REG_S	a5, (KVM_ARCH_GUEST_A5)(a0)
++	REG_S	a6, (KVM_ARCH_GUEST_A6)(a0)
++	REG_S	a7, (KVM_ARCH_GUEST_A7)(a0)
++	REG_S	s2, (KVM_ARCH_GUEST_S2)(a0)
++	REG_S	s3, (KVM_ARCH_GUEST_S3)(a0)
++	REG_S	s4, (KVM_ARCH_GUEST_S4)(a0)
++	REG_S	s5, (KVM_ARCH_GUEST_S5)(a0)
++	REG_S	s6, (KVM_ARCH_GUEST_S6)(a0)
++	REG_S	s7, (KVM_ARCH_GUEST_S7)(a0)
++	REG_S	s8, (KVM_ARCH_GUEST_S8)(a0)
++	REG_S	s9, (KVM_ARCH_GUEST_S9)(a0)
++	REG_S	s10, (KVM_ARCH_GUEST_S10)(a0)
++	REG_S	s11, (KVM_ARCH_GUEST_S11)(a0)
++	REG_S	t3, (KVM_ARCH_GUEST_T3)(a0)
++	REG_S	t4, (KVM_ARCH_GUEST_T4)(a0)
++	REG_S	t5, (KVM_ARCH_GUEST_T5)(a0)
++	REG_S	t6, (KVM_ARCH_GUEST_T6)(a0)
++
++	/* Save Guest SEPC */
++	csrr	t0, CSR_SEPC
++	REG_S	t0, (KVM_ARCH_GUEST_SEPC)(a0)
++
++	/* Restore Host STVEC */
++	REG_L	t1, (KVM_ARCH_HOST_STVEC)(a0)
++	csrw	CSR_STVEC, t1
++
++	/* Save Guest A0 and Restore Host SSCRATCH */
++	REG_L	t2, (KVM_ARCH_HOST_SSCRATCH)(a0)
++	csrrw	t2, CSR_SSCRATCH, t2
++	REG_S	t2, (KVM_ARCH_GUEST_A0)(a0)
++
++	/* Save Guest and Restore Host SCOUNTEREN */
++	REG_L	t3, (KVM_ARCH_HOST_SCOUNTEREN)(a0)
++	csrrw	t3, CSR_SCOUNTEREN, t3
++	REG_S	t3, (KVM_ARCH_GUEST_SCOUNTEREN)(a0)
++
++	/* Save Guest and Restore Host HSTATUS */
++	REG_L	t4, (KVM_ARCH_HOST_HSTATUS)(a0)
++	csrrw	t4, CSR_HSTATUS, t4
++	REG_S	t4, (KVM_ARCH_GUEST_HSTATUS)(a0)
++
++	/* Save Guest and Restore Host SSTATUS */
++	REG_L	t5, (KVM_ARCH_HOST_SSTATUS)(a0)
++	csrrw	t5, CSR_SSTATUS, t5
++	REG_S	t5, (KVM_ARCH_GUEST_SSTATUS)(a0)
++
++	/* Restore Host GPRs (except A0 and T0-T6) */
++	REG_L	ra, (KVM_ARCH_HOST_RA)(a0)
++	REG_L	sp, (KVM_ARCH_HOST_SP)(a0)
++	REG_L	gp, (KVM_ARCH_HOST_GP)(a0)
++	REG_L	tp, (KVM_ARCH_HOST_TP)(a0)
++	REG_L	s0, (KVM_ARCH_HOST_S0)(a0)
++	REG_L	s1, (KVM_ARCH_HOST_S1)(a0)
++	REG_L	a1, (KVM_ARCH_HOST_A1)(a0)
++	REG_L	a2, (KVM_ARCH_HOST_A2)(a0)
++	REG_L	a3, (KVM_ARCH_HOST_A3)(a0)
++	REG_L	a4, (KVM_ARCH_HOST_A4)(a0)
++	REG_L	a5, (KVM_ARCH_HOST_A5)(a0)
++	REG_L	a6, (KVM_ARCH_HOST_A6)(a0)
++	REG_L	a7, (KVM_ARCH_HOST_A7)(a0)
++	REG_L	s2, (KVM_ARCH_HOST_S2)(a0)
++	REG_L	s3, (KVM_ARCH_HOST_S3)(a0)
++	REG_L	s4, (KVM_ARCH_HOST_S4)(a0)
++	REG_L	s5, (KVM_ARCH_HOST_S5)(a0)
++	REG_L	s6, (KVM_ARCH_HOST_S6)(a0)
++	REG_L	s7, (KVM_ARCH_HOST_S7)(a0)
++	REG_L	s8, (KVM_ARCH_HOST_S8)(a0)
++	REG_L	s9, (KVM_ARCH_HOST_S9)(a0)
++	REG_L	s10, (KVM_ARCH_HOST_S10)(a0)
++	REG_L	s11, (KVM_ARCH_HOST_S11)(a0)
++
++	/* Return to C code */
++	ret
++ENDPROC(__kvm_riscv_switch_to)
 -- 
 2.25.1
 
