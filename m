@@ -2,136 +2,109 @@ Return-Path: <SRS0=l+yF=EP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-11.0 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	NICE_REPLY_A,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E4245C2D0A3
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 22:04:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E2101C2D0A3
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 22:10:39 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6877D206D8
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 22:04:49 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 66FB92068D
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 22:10:39 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="AQ7Qo/4c";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="mqjOrpYi";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="khPdQbFN"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6877D206D8
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="g1nAopg4";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="un3OsxyT"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 66FB92068D
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:Date:Subject:To:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	 bh=uCO6VoiXldRh7B4awaK8QJkbIu9HGjbpmKDT745BDzU=; b=AQ7Qo/4cudgemktLQ4YyhTWqK
-	Zyo9cmC4YdW+Lw1XuLtMtPH6M1CI9W7Vm9AKXBIqia76QpVmZQaZoT6kzCPgfSyK1WvJLVrmAoW95
-	jGAYR00LnpqTbRQy2OHAiYVm+vwNdEmiSoeX48ivRe0a5JrLluFbFj+4Oy6s4k8eKrwdkAgGeVJoT
-	9/WRBwFgT18sTGiGqzannJKHLHJ9ipBew83wX6/iyUjQ6JsQScJaaGjnNdDBu68Ug7lqbHZM8nCxn
-	vkAlUcueqODOJKK78BK5KaqzipbvvwnMCaMMs7lXJuFCg00fv4B12Z3VP4J3Vjx1g8fNC9XfRWp2q
-	0bHCGDqVw==;
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=2sXo/TXJJPFk0A8JNqiAmRCqj93tKvPpDTO7O+6ofxY=; b=g1nAopg4SDxLff1Wmn9udYwr/
+	uc2/zb1fQ8tw/OYPHIckbW6o8BxCUyBzG+c9uHrA73dikFYBQgg8WfDcMapNq0zg6/xNArs6HTdi8
+	pJ4M0Lmt5n+zaKQibFE0GJxrT4C7O1sLqHZEBwXz5G7a+DSJ3ZtG6igpSdxrv6TVJzMtEwhkuks3W
+	BvrCB63JP6fiqpDIyqbV5aBi5bgvIEorLnrUkdCIlrKr4Ure8BoF1rPvDAM2JptMsa0owC4WNDIQ7
+	Hxzc44w8CNDgrXIAGhGSZ6zyiSoafbQVA46cybOKfBYqaDJcnbUJ2Y9X1tz/D2C2tIzmzq2FJ/7Mr
+	Gh6a6tXgQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kcFHC-0005sN-Uv; Mon, 09 Nov 2020 22:04:38 +0000
-Received: from esa3.hgst.iphmx.com ([216.71.153.141])
+	id 1kcFMn-0006p5-O6; Mon, 09 Nov 2020 22:10:25 +0000
+Received: from mail-qk1-x743.google.com ([2607:f8b0:4864:20::743])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kcFHA-0005rQ-A0
- for linux-riscv@lists.infradead.org; Mon, 09 Nov 2020 22:04:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1604959476; x=1636495476;
- h=from:to:cc:subject:date:message-id:references:
- content-transfer-encoding:mime-version;
- bh=VD/3TgT92z0Mvdo0ohstObVh1V+uxd8S0unKwOwngf4=;
- b=mqjOrpYisHIS0drpXpsyEVcnrFSo1d5rpaoZlienMqulTMbTsr1zsYlu
- uIjuyJFglHjXZg5SCvG7ti7H85So8DPtrH2x9eYcO4rbWyKBu/hvfAOhP
- /zM9ygbr9lUE0B8yi0VnneYcBVaXqaxqiuvW2sn44Kf5X+N0/G9NjDpJZ
- jDaAK96FWWXd+FRgVlMfkvZHeoyhf8pKSgFCY8gjvEmPWpTG/IaKT4vDW
- o3EBk7ppUBtJiDxpdGGMppmxe/pYdYDuBaL6VVbEYO17JuqsJBKELkibz
- hBLeuRlrZKniboErBjtdSAqkAeCEWUI2qwe6i+FBztPwfmihnU6OpZZPY w==;
-IronPort-SDR: dJdJ66HiJZ24XfwUTFTY0MtpyWncoCQUX6os58dRroDpTA3+/mPu8N/VHGbGBnhCTeq3pZXm2y
- +gYdZ4spwl4eiD4RNuAYzb5PB/5wN/2+9vUYlQPIlcGh9OYv26sF8pkLsLP5iQ4YPC5YgcVMcp
- fSOQKl3EHlnrFbxhjk7f3WTs/9XqcBBFivkIR77NbIdrko2AI1eujPdl0SxHwcGfkr5W0Bp82/
- lw5QaarXWt3+hqAUjtBn4Nwe6PawGfbRI5xiv1lvQtDbFRpn0r89yhZDM3/Ppmnb0wyzFbmqmc
- jpc=
-X-IronPort-AV: E=Sophos;i="5.77,464,1596470400"; d="scan'208";a="156702746"
-Received: from mail-dm6nam10lp2109.outbound.protection.outlook.com (HELO
- NAM10-DM6-obe.outbound.protection.outlook.com) ([104.47.58.109])
- by ob1.hgst.iphmx.com with ESMTP; 10 Nov 2020 06:04:33 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=E7QJTV/LdhLAkKKFmn3WEhWtz5IeQQtRRK/r2ZCNHwaukTkt3Q+cN4C/sIS3Pn0Oia2trV2c9px5dq4Prd36vhg9SNA7sBE9hpXNzA1qNnbQQ+YJf7W1ukdtNuyjbKmkOhAKgkWxCPamDQVEB3hRyw1107cOkPqlpioX2dPtsDGgCADRQEOb+dneVKgNGefWvJb69A/7wrp4oak45vYy5cxxQC/4+DSlX9psv/v2/YNq7B34jQyLLkzZTBB17bmNgC2unbpUph/pWjikxx9r2sTtaGjA4h5o2GkatF3hE9vh2G+JlnHeTGv5FB+kuiP9dtc4MmygSCSyW7E5BSFK3A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BxzEQ8DxEaDw9PIEtTYQYlKYoyp6eCRaBuMdgiDIEQc=;
- b=YUR4vfJLioYEVh0xiG/66aCufZCklbTAZjbpKKS8rzaLsIgAkOuUzyfBAeCJ7OrtbkPcpXr1sHOwMxK6ma5M+5Y2eEEJRxCjR/wYhGyX3C0Cu+IXt4+NZJT4MSctgIexHFPS4AlgfWgpfVsJc9R+3B6fk2qOyUHoXkkeKqAENoguGdqgk+EbCzrTWtwCdtl3ztPEytHLKumsUZ3k5zLdVzueyOTL7JSKBjEyKxeeuecWk2WpuLCtEV0hGWfhBvHvicD0oi6ZH6CPcFl4L6VqVVwhnmqpcnn0ecL59wgYXbFuIH+Et72kbH+ifSKNinFk6sKuQakOkY9I6orK0TLlFA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
- header.d=wdc.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BxzEQ8DxEaDw9PIEtTYQYlKYoyp6eCRaBuMdgiDIEQc=;
- b=khPdQbFNMHRGskrDkOn0tv8uNpub1tSPLmHI4AmAqTNHnvaQuadJwBoGxg0dD6j1XLwtW/LBG2YRKUCiL13n8IiWb8vyrOv4pgDX8ETqJeibO+NbH4lCDQe72Q8z5jyj2lXPiJ51r26Ng6+y+5WIk75a0W6C8//PEdQUQNAAiUI=
-Received: from BL0PR04MB6514.namprd04.prod.outlook.com (2603:10b6:208:1ca::23)
- by MN2PR04MB7071.namprd04.prod.outlook.com (2603:10b6:208:1ec::14)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3541.22; Mon, 9 Nov
- 2020 22:04:31 +0000
-Received: from BL0PR04MB6514.namprd04.prod.outlook.com
- ([fe80::4c3e:2b29:1dc5:1a85]) by BL0PR04MB6514.namprd04.prod.outlook.com
- ([fe80::4c3e:2b29:1dc5:1a85%7]) with mapi id 15.20.3499.032; Mon, 9 Nov 2020
- 22:04:31 +0000
-From: Damien Le Moal <Damien.LeMoal@wdc.com>
-To: Rob Herring <robh@kernel.org>
-Subject: Re: [PATCH 21/32] dt-bindings: Add Kendryte and Canaan vendor prefix
-Thread-Topic: [PATCH 21/32] dt-bindings: Add Kendryte and Canaan vendor prefix
-Thread-Index: AQHWtN4mKRuAhov4sUaXWKhVt6lq6g==
-Date: Mon, 9 Nov 2020 22:04:31 +0000
-Message-ID: <BL0PR04MB65141C58E049C324FF0BB27CE7EA0@BL0PR04MB6514.namprd04.prod.outlook.com>
+ id 1kcFMl-0006oZ-3F
+ for linux-riscv@lists.infradead.org; Mon, 09 Nov 2020 22:10:23 +0000
+Received: by mail-qk1-x743.google.com with SMTP id y197so9576793qkb.7
+ for <linux-riscv@lists.infradead.org>; Mon, 09 Nov 2020 14:10:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=subject:to:cc:references:from:autocrypt:message-id:date:user-agent
+ :mime-version:in-reply-to:content-language:content-transfer-encoding;
+ bh=H0PQ6nyLYrfffzbRL92Wcmyqh/B5owqtAHhzB8+J5mM=;
+ b=un3OsxyTQew89BMnf5RxUUNkXvjQYFjMyu9i99n7lkmO2jC+R88urYmD/z7geCeVB4
+ LGQrOyhf3zQcDcCnJRPlW/CSiUI/ESp00a3OOGZN0IjMX1RNWdxO/CnxmfRPfoHARPg2
+ MKQ6q7NqZ5XAeRsgLXzK413k8Ru0QWs8p8ZRja+IvQz7TMe1FSipb0ZHZqt54uMJ25H1
+ pJfrnAmIsB/6hBqJkDU11Th2Qsxzjwh4CAZaPC+6dD54pUN1EqI1y98dNlWUtHIj3h/4
+ Splsf3IXqlcizsoo+REF5NJSW85edH0/M3bA/qHP7mfxijxAtDoowdEJipI1hi0Nb75n
+ Ng/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:subject:to:cc:references:from:autocrypt
+ :message-id:date:user-agent:mime-version:in-reply-to
+ :content-language:content-transfer-encoding;
+ bh=H0PQ6nyLYrfffzbRL92Wcmyqh/B5owqtAHhzB8+J5mM=;
+ b=uJVaGfLhjTYfCJ6TBgUO17oI+xJd2VcmlEYDS1IXMyMOKuwSoTI+wBT6WgvhDbg3bB
+ OfkQhOVFSG8YBwhc8eazFSlMwDdULcStSLNlBIJFT91j7uukPV+aK4mnkyth3MDUf9bP
+ fKRLGkPdWP71hUToiLW0d62j0qJoqoG4qHWIeFPPKbWhBAO5uGFDnYw+Zd7J1/OLHHe4
+ iZxwr4tNJAoG8olaDUjJS2T1nOTRpZJuOy2X13u/6AFr6JUMINAioynWjWwbmhFZ2X2Y
+ XlfWEbJQakbHgZ1QK1CjMpAHG/9cGq8Kxr90DI9DyDwDf+L+lc+z6fxQqJstGGcExbal
+ x3mw==
+X-Gm-Message-State: AOAM53171jommIsxahGx/5vgDN4iBkajQ19HR4j1TsDrrabb0aeOKdlR
+ tv4DzoeIQqomSlpGwujeJjY=
+X-Google-Smtp-Source: ABdhPJyrw67HyLeeROH8ErKI8NEgL0YMxtjGYRNFy5TuUE5m/WkUtUwyhFHei5Fji+8zhX1Cn0ivgQ==
+X-Received: by 2002:a05:620a:b13:: with SMTP id
+ t19mr15341378qkg.3.1604959821374; 
+ Mon, 09 Nov 2020 14:10:21 -0800 (PST)
+Received: from [192.168.1.201] (pool-108-51-35-162.washdc.fios.verizon.net.
+ [108.51.35.162])
+ by smtp.googlemail.com with ESMTPSA id o4sm6593550qti.97.2020.11.09.14.10.20
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Mon, 09 Nov 2020 14:10:20 -0800 (PST)
+Subject: Re: [PATCH 15/32] dt-bindings: Define Kendryte K210 sysctl registers
+To: Rob Herring <robh@kernel.org>, Damien Le Moal <damien.lemoal@wdc.com>
 References: <20201107081420.60325-1-damien.lemoal@wdc.com>
- <20201107081420.60325-22-damien.lemoal@wdc.com>
- <20201109220105.GA1830760@bogus>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: kernel.org; dkim=none (message not signed)
- header.d=none;kernel.org; dmarc=none action=none header.from=wdc.com;
-x-originating-ip: [2400:2411:43c0:6000:89bb:1cde:d92a:2dcb]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-ht: Tenant
-x-ms-office365-filtering-correlation-id: 75e85513-bcd8-49e9-e27f-08d884fb6f4d
-x-ms-traffictypediagnostic: MN2PR04MB7071:
-x-microsoft-antispam-prvs: <MN2PR04MB707179A3222B5CE28C07E34FE7EA0@MN2PR04MB7071.namprd04.prod.outlook.com>
-wdcipoutbound: EOP-TRUE
-x-ms-oob-tlc-oobclassifiers: OLM:8273;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: LuJh8fn1HbQ1A1M98y7CJPYMu+Z5HfCzYvc6Tk6EZh/otTzXoVOJ+hUyXjOkmze0P+0D3ROHSRCc2x+2JVLWJ+49/kMY5YQwlyklA5Ft6gUeQ3ZrNQTikASJIMV6eSNcf8rKnAhG9ey4QiHzNam7JrgkAxlJudVTASlzkmEMKqRYvfFXgBmkrDYmyGsdiQ2189U1zZXzTtBq2wy2XEY5AHlRaCVz73ezmkZHVi2p6Lx5JqX1iewO4yfTBkecEhAQwnnwmsLPhT97TgLcT/v+nlwEfMdmzd8z4ijJve0W8BRFZkmADkTaEO8CY7i2Wfxpc1RinFilFe++s+opUkL6xg==
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:BL0PR04MB6514.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(136003)(366004)(39860400002)(396003)(376002)(346002)(6916009)(8676002)(91956017)(6506007)(8936002)(66446008)(4326008)(7696005)(186003)(53546011)(66556008)(66946007)(76116006)(86362001)(478600001)(64756008)(33656002)(71200400001)(54906003)(316002)(66476007)(7416002)(9686003)(55016002)(83380400001)(2906002)(5660300002)(52536014);
- DIR:OUT; SFP:1102; 
-x-ms-exchange-antispam-messagedata: dgU7Y/o610oW6asaB45MjbUvomEFFSLobxf3GMdTjLNdncv4e5k+NWBE+rHI89saf5+coUkDKbd2hGXrJG4cZLU0hpj1YC7cVr0S/PmqhaDIVSLIjtl/gWt+EZ+vRuA95834nDazXeuCAL/lBc05aj77nKmn1RIH9uizXZA3XcYI3lQGMtlYmMsDywqGZyRaHEHI/ed/QzbrUuzPJvBqdcS5UdidZdTTmOIZ+tURu2CB4Bdr6Oz9qxD9rzKW+b2lIK6lVVWNRirasFWUVkRkRyqjaGbpIxl8ZyWJWCkLe+aLReb9ueydALT44BCitrhgMCWTq3yk76PujT8gSUCfDvdmCmW+qzvqKRBGSd0r2luQlWZImvD8FGR9QiqHn1zqdl0TLkYehX2LG9rMYfvqhFlobCeqI145Xwr3zUpgmGM+9wG2d63wBMn1vV16hng7CPdLJwwVzDTjvW7wYvbH+nGHiPqD0Uew2UaeNVV+7mtpjkfyu7jkE7LQelPULyOzZMc9Zo07zt0mTHbAYaFJJUc4803U+Y2g4oJeQ5JAxuGIsvDI7tPXv5UrRwexBuAgDQ0Pv9SWTQrP85mP8O3izfmSJCqxgNTv+O0uIO4WGaxb3dH5KweOIt4NuZ5jq0d4/dsgz9WIvFGyVbT9j3BbcL1KatiaB9xlAkKYAVm3X8x81tW8Di7vgdpPGb5ASdcLJULQIrZ4BG6RwqjBzyK+pQ==
-x-ms-exchange-transport-forked: True
+ <20201107081420.60325-16-damien.lemoal@wdc.com>
+ <20201109215913.GA1828781@bogus>
+From: Sean Anderson <seanga2@gmail.com>
+Autocrypt: addr=seanga2@gmail.com; prefer-encrypt=mutual; keydata=
+ mQENBFe74PkBCACoLC5Zq2gwrDcCkr+EPGsT14bsxrW07GiYzQhLCgwnPdEpgU95pXltbFhw
+ 46GfyffABWxHKO2x+3L1S6ZxC5AiKbYXo7lpnTBYjamPWYouz+VJEVjUx9aaSEByBah5kX6a
+ lKFZWNbXLAJh+dE1HFaMi3TQXXaInaREc+aO1F7fCa2zNE75ja+6ah8L4TPRFZ2HKQzve0/Y
+ GXtoRw97qmnm3U36vKWT/m2AiLF619F4T1mHvlfjyd9hrVwjH5h/2rFyroXVXBZHGA9Aj8eN
+ F2si35dWSZlIwXkNu9bXp0/pIu6FD0bI+BEkD5S7aH1G1iAcMFi5Qq2RNa041DfQSDDHABEB
+ AAG0K1NlYW4gR2FsbGFnaGVyIEFuZGVyc29uIDxzZWFuZ2EyQGdtYWlsLmNvbT6JAVcEEwEK
+ AEECGwMFCwkIBwIGFQgJCgsCBBYCAwECHgECF4ACGQEWIQSQYR1bzo1I0gPoYCg+6I/stKEQ
+ bgUCXT+S2AUJB2TlXwAKCRA+6I/stKEQbhNOB/9ooea0hU9Sgh7PBloU6CgaC5mlqPLB7NTp
+ +JkB+nh3Fqhk+qLZwzEynnuDLl6ESpVHIc0Ym1lyF4gT3DsrlGT1h0Gzw7vUwd1+ZfN0CuIx
+ Rn861U/dAUjvbtN5kMBqOI4/5ea+0r7MACcIVnKF/wMXBD8eypHsorT2sJTzwZ6DRCNP70C5
+ N1ahpqqNmXe0uLdP0pu55JCqhrGw2SinkRMdWyhSxT56uNwIVHGhLTqH7Q4t1N6G1EH626qa
+ SvIJsWlNpll6Y3AYLDw2/Spw/hqieS2PQ/Ky3rPZnvJt7/aSNYsKoFGX0yjkH67Uq8Lx0k1L
+ w8jpXnbEPQN3A2ZJCbeM
+Message-ID: <9e0bf865-99ff-3ca4-c693-34fb3d155c80@gmail.com>
+Date: Mon, 9 Nov 2020 17:10:19 -0500
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.12.0
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BL0PR04MB6514.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 75e85513-bcd8-49e9-e27f-08d884fb6f4d
-X-MS-Exchange-CrossTenant-originalarrivaltime: 09 Nov 2020 22:04:31.0663 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: a/sno/pW07BMfhstrdbgAK7m3rfxmgYwYQusavzILMPUCUHHbGYoy6dzMgKTrtxGfN60aJemd05r8zgtzTpkWQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR04MB7071
+In-Reply-To: <20201109215913.GA1828781@bogus>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201109_170436_513726_F6E8A45C 
-X-CRM114-Status: GOOD (  13.57  )
+X-CRM114-CacheID: sfid-20201109_171023_158452_1B720A91 
+X-CRM114-Status: GOOD (  17.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -143,72 +116,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- Stephen Boyd <sboyd@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
- Serge Semin <fancer.lancer@gmail.com>,
- "linux-spi@vger.kernel.org" <linux-spi@vger.kernel.org>,
- "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
- Mark Brown <broonie@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- Sean Anderson <seanga2@gmail.com>, Frank Rowand <frowand.list@gmail.com>,
- "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>
+Cc: devicetree@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Serge Semin <fancer.lancer@gmail.com>, linux-spi@vger.kernel.org,
+ linux-gpio@vger.kernel.org, Mark Brown <broonie@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ linux-riscv@lists.infradead.org, Frank Rowand <frowand.list@gmail.com>,
+ linux-clk@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2020/11/10 7:01, Rob Herring wrote:
-> On Sat, Nov 07, 2020 at 05:14:09PM +0900, Damien Le Moal wrote:
->> Update Documentation/devicetree/bindings/vendor-prefixes.yaml to include
->> "Kendryte" and "canaan" as a vendor prefix for "Canaan Inc."
+On 11/9/20 4:59 PM, Rob Herring wrote:
+> On Sat, Nov 07, 2020 at 05:14:03PM +0900, Damien Le Moal wrote:
+>> Introduce the dt-bindings file include/dt-bindings/mfd/k210_sysctl.h to
+>> define the offset of all registers of the K210 system controller.
+> 
+> We generally don't have defines for registers in DT.
+
+At least K210_SYSCTL_SOFT_RESET is necessary for the syscon-reboot driver.
+
+--Sean
+
+> 
 >>
 >> Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
 >> ---
->>  Documentation/devicetree/bindings/vendor-prefixes.yaml | 4 ++++
->>  1 file changed, 4 insertions(+)
+>>  include/dt-bindings/mfd/k210-sysctl.h | 41 +++++++++++++++++++++++++++
+>>  1 file changed, 41 insertions(+)
+>>  create mode 100644 include/dt-bindings/mfd/k210-sysctl.h
 >>
->> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
->> index 2735be1a8470..f53d4d8e7f2a 100644
->> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
->> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
->> @@ -179,6 +179,8 @@ patternProperties:
->>      description: CALAO Systems SAS
->>    "^calxeda,.*":
->>      description: Calxeda
->> +  "^canaan,.*":
->> +    description: Canaan, Inc.
->>    "^caninos,.*":
->>      description: Caninos Loucos Program
->>    "^capella,.*":
->> @@ -537,6 +539,8 @@ patternProperties:
->>      description: Ka-Ro electronics GmbH
->>    "^keithkoep,.*":
->>      description: Keith & Koep GmbH
->> +  "^kendryte,.*":
-> 
-> AFAICT, this is a marketing name for a series of SoCs? That's not a 
-> vendor.
-
-Correct. Sean pointed this out to me already. The vendor is "Canaan".
-I will change in V2 all compatible strings to have the proper format starting
-with the vendor, e.g. "canaan,kendryte-k210-..." or may be more simply "canaan,
-k210-...".
-
-> 
->> +    description: Canaan, Inc.
->>    "^keymile,.*":
->>      description: Keymile GmbH
->>    "^khadas,.*":
+>> diff --git a/include/dt-bindings/mfd/k210-sysctl.h b/include/dt-bindings/mfd/k210-sysctl.h
+>> new file mode 100644
+>> index 000000000000..5cc386d3c9ca
+>> --- /dev/null
+>> +++ b/include/dt-bindings/mfd/k210-sysctl.h
+>> @@ -0,0 +1,41 @@
+>> +/* SPDX-License-Identifier: GPL-2.0+ */
+>> +/*
+>> + * Copyright (C) 2020 Sean Anderson <seanga2@gmail.com>
+>> + * Copyright (c) 2020 Western Digital Corporation or its affiliates.
+>> + */
+>> +#ifndef MFD_K210_SYSCTL_H
+>> +#define MFD_K210_SYSCTL_H
+>> +
+>> +/*
+>> + * Kendryte K210 SoC system controller registers offsets.
+>> + * Taken from Kendryte SDK (kendryte-standalone-sdk).
+>> + */
+>> +#define K210_SYSCTL_GIT_ID	0x00 /* Git short commit id */
+>> +#define K210_SYSCTL_UART_BAUD	0x04 /* Default UARTHS baud rate */
+>> +#define K210_SYSCTL_PLL0	0x08 /* PLL0 controller */
+>> +#define K210_SYSCTL_PLL1	0x0C /* PLL1 controller */
+>> +#define K210_SYSCTL_PLL2	0x10 /* PLL2 controller */
+>> +#define K210_SYSCTL_PLL_LOCK	0x18 /* PLL lock tester */
+>> +#define K210_SYSCTL_ROM_ERROR	0x1C /* AXI ROM detector */
+>> +#define K210_SYSCTL_SEL0	0x20 /* Clock select controller 0 */
+>> +#define K210_SYSCTL_SEL1	0x24 /* Clock select controller 1 */
+>> +#define K210_SYSCTL_EN_CENT	0x28 /* Central clock enable */
+>> +#define K210_SYSCTL_EN_PERI	0x2C /* Peripheral clock enable */
+>> +#define K210_SYSCTL_SOFT_RESET	0x30 /* Soft reset ctrl */
+>> +#define K210_SYSCTL_PERI_RESET	0x34 /* Peripheral reset controller */
+>> +#define K210_SYSCTL_THR0	0x38 /* Clock threshold controller 0 */
+>> +#define K210_SYSCTL_THR1	0x3C /* Clock threshold controller 1 */
+>> +#define K210_SYSCTL_THR2	0x40 /* Clock threshold controller 2 */
+>> +#define K210_SYSCTL_THR3	0x44 /* Clock threshold controller 3 */
+>> +#define K210_SYSCTL_THR4	0x48 /* Clock threshold controller 4 */
+>> +#define K210_SYSCTL_THR5	0x4C /* Clock threshold controller 5 */
+>> +#define K210_SYSCTL_THR6	0x50 /* Clock threshold controller 6 */
+>> +#define K210_SYSCTL_MISC	0x54 /* Miscellaneous controller */
+>> +#define K210_SYSCTL_PERI	0x58 /* Peripheral controller */
+>> +#define K210_SYSCTL_SPI_SLEEP	0x5C /* SPI sleep controller */
+>> +#define K210_SYSCTL_RESET_STAT	0x60 /* Reset source status */
+>> +#define K210_SYSCTL_DMA_SEL0	0x64 /* DMA handshake selector 0 */
+>> +#define K210_SYSCTL_DMA_SEL1	0x68 /* DMA handshake selector 1 */
+>> +#define K210_SYSCTL_POWER_SEL	0x6C /* IO Power Mode Select controller */
+>> +
+>> +#endif /* MFD_K210_SYSCTL_H */
 >> -- 
 >> 2.28.0
 >>
-> 
 
-
--- 
-Damien Le Moal
-Western Digital Research
 
 _______________________________________________
 linux-riscv mailing list
