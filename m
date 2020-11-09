@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-3.5 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
 	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
 	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 92D10C2D0A3
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 14:39:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 131B1C388F7
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 14:40:55 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 262AC206D8
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 14:39:33 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 99BAF206D8
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 14:40:54 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="j6Bh/nSA";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="PdsNeHrU"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 262AC206D8
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="E7Blt7Xv";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="ip3BVgMK"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 99BAF206D8
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,61 +26,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=pbo8mzZeAXtcfLd8JoCkI5idEwkVZORUUPARkB4Z7lY=; b=j6Bh/nSArA1xbFNh4EAR07q4H
-	3Wdbei+ss2YOsrySSQ2Kdu8G/3q3nvxBouPoFYuKTpg6StjwuKRH9oX7XvMpfGnhto0rP7tt1Ap1e
-	5avGzMoZk0t7GK9hy0ImA5WQ8+p8Beg/nnoO9pt2lVUQGR84r6N32n0e6U5pk9sJvgY31tpFO6D7g
-	rnJg3lFTXc+fIMuZ9bQFH50KhXHTAyLRjhCX8U3Dkupf+kFOZi+2cxg7x5aUzEzmi/uMgj9+ILOF9
-	lNneYLtbWBMcakb5QwCs0NJitgPi90DTvt5c7pBLB/457BKRdPGDqhE25i06lBXtJv3YgvicsGav1
-	RmRA1BW/g==;
+	 bh=+w/fgjD1Aui3Wq1X7RlJGY9mfbPkVP2ZRauHh0To8ok=; b=E7Blt7XvjtnB0VeZ+h/lBEh4k
+	eqBFcG5/nM9lGP0e2NTgiB2+nMwWvKYHzm+GcBfNzm5BhdwRZbXe4XDUGiDSDdNMn6i5/1Ns9NJlk
+	no590YeQ8E1X2Syqafnm1cSIzxKawl7UNprzRo0kd45/752qF48Sqq2BuUWFPzftPDvyFf0PMaJKH
+	mLow0X8HAL1kKD1cq+UEw4GPU9GvxjFCKIHPVoBrg5txzaLRk6ctO1bBoeD36XY6P8pcO2YgOp2rl
+	O6kBLxUc19hPlPncg82Df+QPLjrbu2sA3hxfZmd1j0W1L62SRAEfk/5GuIZ4RRapYqXfJqeeU12ej
+	FQ2mkg0fQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kc8KG-00062T-JX; Mon, 09 Nov 2020 14:39:20 +0000
-Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
+	id 1kc8Lb-0006FS-Qe; Mon, 09 Nov 2020 14:40:43 +0000
+Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kc8KF-00061h-2F
- for linux-riscv@lists.infradead.org; Mon, 09 Nov 2020 14:39:20 +0000
-Received: by mail-pg1-x542.google.com with SMTP id r10so7301501pgb.10
- for <linux-riscv@lists.infradead.org>; Mon, 09 Nov 2020 06:39:17 -0800 (PST)
+ id 1kc8LZ-0006Ek-D7
+ for linux-riscv@lists.infradead.org; Mon, 09 Nov 2020 14:40:42 +0000
+Received: by mail-pg1-x541.google.com with SMTP id 62so7291487pgg.12
+ for <linux-riscv@lists.infradead.org>; Mon, 09 Nov 2020 06:40:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=ffm6KC46cKGPhajXyegh9kwdKAZi/LxDhZRupkk2+WY=;
- b=PdsNeHrU36CbnidyPH8nvMrCkCSnvDbNdbChvGCp+msYDwsHcoUJGPstS2hIVBQDa9
- YIjzAfq1oqLdyBzuuGaQHjFM8qGqbhOZWKBHma84Q1uya0ewxyFniachwstu5CaDMnaf
- e0FTzvQXJbNuEyoAqqGbziv8jJoQPEu0PxOiWiI+2vRse/OHFGGC4X6Z+K/injdbIVPI
- n9bvHahef0K69VyBY4Wu9KkQxZDoURTu0TkyMp+HjTJmVZxzuQXAz3HS4WVfsPLR9hrU
- LO3ey6mxgLr9apMEegIyRzrJT9j4cW0Dqc5sqAsvkw+gO0Jz2HguGIvGvz+EGeRaT9aV
- wS7A==
+ :cc; bh=D35EDlDK16EWIltc01Yrg7/CsfVYBQcvvB8Ix+TT1us=;
+ b=ip3BVgMKiauzd4a5fsf1ODx3qhmqLy8nttnSg5raPkaWQx8GjNJL+QhxhnUhWds9us
+ OZStQB/ulbYJ3bslooxV9GsmwOwtAa6iavQrUWVkWhsZEC5ZcnchA9U7avBEJia20ymF
+ /q+3MKFL4RH4/SRzyLE2dFSPINGxmc59RlVXmaKM5XE/YSS8k9oEDn8+81AVro5zT3og
+ KHO7qAQm0GlxcFcFCD+QGCRXBUuXLbbk/fUHuCWkUe8zwbjlY3XQXcam+yzU3AdHSdnJ
+ dVENfBn4851dtJ3MzTRVjuHOcr2mLKNMKs2dwuLSVJ4/XpyQkgcb/PffPSJV/wqpabv2
+ flGQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=ffm6KC46cKGPhajXyegh9kwdKAZi/LxDhZRupkk2+WY=;
- b=HiRWOyX9WCEXMDPbtFwlcPhDU2Cdg3s9MvokKIOBGXocIUYFmr7yXy66KN9B/pwu1x
- 80Q3p4HzFeJ2LaGYTx6NV2SjKUrL3k7bKWOFJFDXL5qC15psxe5qTHUoVH1kFBUFKTcz
- abl/IsTJ0h5kzcpYRVyY4UuLIyY4kylf8TrHXpi9bTLOs5WsxH7YBNqrJuyF6Mg2m4pH
- B0Po2VOKeOOIq0iD99y9rfEYtA+z8PufaadgyUHV/KJBTDBmCjplA7UnoZ5MrplprhRx
- ZeR2O4ikf83HGIxkmiTcPY3uj6Fsu+CMKJmSziaz5nc7Qs3CUAtkLHOzr+fKA6T503BP
- lAdg==
-X-Gm-Message-State: AOAM533YwlyGKXDB4hdZz8WmInfX8IZfRXWmPjrUEjfRKIgkqFFF0Q2f
- rg8u6acXJhtvGiYAqMBDkqhCR9uBGyD6qmAircM=
-X-Google-Smtp-Source: ABdhPJyJOrsPckCzGNxst/26rQDteMKaKBS2MMunYNWtaF3z18NtyEmQgctYOprlHcSmFeVQ0WNOf3A38nQUhfWYJV8=
+ bh=D35EDlDK16EWIltc01Yrg7/CsfVYBQcvvB8Ix+TT1us=;
+ b=oMBnmoVK2Jrm8nvSqpbtfNqw7EIEXyhhZEP0RqLzC5kS6Gx9gWpwJl7Uy8NM4zgvO5
+ JjnQ9CA5c5vKmQzX5Jsdvi1pntZOBWv7xnIbEilzz08i6VaI4Ow/c/ekqtiZBmMAzYDj
+ DpYoCcOkRqi81fWZy7y9c6li8mRE+ZDsy/EjB/wMwEf1eJwKuKiO7V9tXGTYRXtDlB3/
+ FlcFj53b/+DC9Af1Rk9RYIea8/Hjricv2lQ3RupfzsxE73JtTU9EmmcQJ57lr5EpsXuP
+ R9mx0H376dYoOBDnG3nhYVBEJ5MmX3WBVgfeNq8saVQujlpjuB+TB8AlFY+bmJFtfJBd
+ 9R4g==
+X-Gm-Message-State: AOAM532vs2ZnxkHmZKugxyohdeTqOeusuzXi5+bwm1CcBq1hfLy+d9fb
+ gvgVTbecQAPY3jsPDmC+QPgOkgxHTZCTclhCFyo=
+X-Google-Smtp-Source: ABdhPJxYLSKMi85uilQdG9UgvG5aiuKo/w+WnpjA83tGtKFNeV1eTUaT5WzTkYcsgycY2IhuNNcZK/y5O7B7qM4p5C8=
 X-Received: by 2002:aa7:8c4f:0:b029:18b:f361:4aa3 with SMTP id
- e15-20020aa78c4f0000b029018bf3614aa3mr7819210pfd.73.1604932755994; Mon, 09
- Nov 2020 06:39:15 -0800 (PST)
+ e15-20020aa78c4f0000b029018bf3614aa3mr7824997pfd.73.1604932839518; Mon, 09
+ Nov 2020 06:40:39 -0800 (PST)
 MIME-Version: 1.0
 References: <20201107081420.60325-1-damien.lemoal@wdc.com>
  <20201107081420.60325-3-damien.lemoal@wdc.com>
  <20201109142529.tt5ojjyn36vd3ohe@mobilestation>
  <6dc6d52e-a39d-c351-5280-71b9e8eafe37@gmail.com>
-In-Reply-To: <6dc6d52e-a39d-c351-5280-71b9e8eafe37@gmail.com>
+ <CAHp75VejtoTRAM1JmGib3OaJwzuw9Bb-qb08+XhdZUOuzTGUKw@mail.gmail.com>
+In-Reply-To: <CAHp75VejtoTRAM1JmGib3OaJwzuw9Bb-qb08+XhdZUOuzTGUKw@mail.gmail.com>
 From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Mon, 9 Nov 2020 16:40:04 +0200
-Message-ID: <CAHp75VejtoTRAM1JmGib3OaJwzuw9Bb-qb08+XhdZUOuzTGUKw@mail.gmail.com>
+Date: Mon, 9 Nov 2020 16:41:28 +0200
+Message-ID: <CAHp75Vc+h5PCqBUnyFshw8RE4zWusE+zdvKKSxBxfFw1_5k0vQ@mail.gmail.com>
 Subject: Re: [PATCH 02/32] spi: dw: Add support for 32-bits ctrlr0 layout
 To: Sean Anderson <seanga2@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201109_093919_139200_E469A84D 
-X-CRM114-Status: GOOD (  17.97  )
+X-CRM114-CacheID: sfid-20201109_094041_510200_45EEA3DA 
+X-CRM114-Status: GOOD (  20.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -106,29 +107,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 9, 2020 at 4:34 PM Sean Anderson <seanga2@gmail.com> wrote:
-> On 11/9/20 9:25 AM, Serge Semin wrote:
-> > On Sat, Nov 07, 2020 at 05:13:50PM +0900, Damien Le Moal wrote:
-
-...
-
-> > Are you sure they have been moved from [0, 3] to [16, 20]? I don't have the
-> > manual for the 4.0x version of the core, but according to this patch:
-> > https://patchwork.kernel.org/project/spi-devel-general/patch/1575907443-26377-7-git-send-email-wan.ahmad.zainie.wan.mohamad@intel.com/
-> > it has been ok to use the lowest four bits for DFS setting. Is the commit
-> > message misleading there?
+On Mon, Nov 9, 2020 at 4:40 PM Andy Shevchenko
+<andy.shevchenko@gmail.com> wrote:
 >
-> This commit message is a truncated version of [1].
-
-I don't see how they are related.
-
-> Importantly, DFS is
-> valid when SSI_MAX_XFER_SIZE=16. When it =32, then DFS_32 must be used
-> (since DFS is constant 0xF). Since SSI_MAX_XFER_SIZE is a synthesis
-> parameter, there exist devices where DFS must be used, and also where
-> DFS_32 must be used.
+> On Mon, Nov 9, 2020 at 4:34 PM Sean Anderson <seanga2@gmail.com> wrote:
+> > On 11/9/20 9:25 AM, Serge Semin wrote:
+> > > On Sat, Nov 07, 2020 at 05:13:50PM +0900, Damien Le Moal wrote:
 >
-> [1] https://patchwork.ozlabs.org/project/uboot/patch/20201016225755.302659-10-seanga2@gmail.com/
+> ...
+>
+> > > Are you sure they have been moved from [0, 3] to [16, 20]? I don't have the
+> > > manual for the 4.0x version of the core, but according to this patch:
+> > > https://patchwork.kernel.org/project/spi-devel-general/patch/1575907443-26377-7-git-send-email-wan.ahmad.zainie.wan.mohamad@intel.com/
+> > > it has been ok to use the lowest four bits for DFS setting. Is the commit
+> > > message misleading there?
+> >
+> > This commit message is a truncated version of [1].
+>
+> I don't see how they are related.
+
+For DW_ssi v1.x DFS is always for transfers up to 32-bit.
+
+> > Importantly, DFS is
+> > valid when SSI_MAX_XFER_SIZE=16. When it =32, then DFS_32 must be used
+> > (since DFS is constant 0xF). Since SSI_MAX_XFER_SIZE is a synthesis
+> > parameter, there exist devices where DFS must be used, and also where
+> > DFS_32 must be used.
+> >
+> > [1] https://patchwork.ozlabs.org/project/uboot/patch/20201016225755.302659-10-seanga2@gmail.com/
+
 
 
 -- 
