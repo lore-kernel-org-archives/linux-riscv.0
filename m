@@ -2,111 +2,90 @@ Return-Path: <SRS0=l+yF=EP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.0 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+X-Spam-Status: No, score=-9.5 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
 	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B5045C55ABD
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 19:40:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AF94EC2D0A3
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 19:59:36 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3244A206A1
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 19:40:21 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 39914206F1
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 19:59:36 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="NRuA3oJV";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="IhhoxcZP"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3244A206A1
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Lamat3IC";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="Yscmii5O"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 39914206F1
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Mq6VeitSKBn8iaxolvADCdEWypVuLrqK1IXCPoqtmbE=; b=NRuA3oJVKsugTlvBDkb3G5BJu
-	huLRZ0f7kwfzRKoY3pR0YAZ7MDk/7rp+bdQXxSVnMC2cAqRFk7RL1DWqZ4n8Prs/JEZUlL+yjgHip
-	mggCrPts0Zo1vTkM/mdV6h2OEd5TgliQYIF7iihg59B+ZBoHS/51AZKBO0bl0YwrHIkWR9VK/z6uf
-	O8olAGvQ2jGpRH2Lgam4KDbWIdik6cdN9qfLZMwQiJilQbgM+pBNCHpgejoN3mpQyyvYMVuQrDrNq
-	qNJED/iWzSwRKeHy2V36rWeS4dvI7rWt8cKH0iEY3iDHSo+3SlDyN/b2iR5Igrv1gbO1lm+of71T/
-	phMN+ikOQ==;
+	 bh=kYyJCs2FBVe/2Z8U9Sn7V2yALZ6emENLM9SCovX/Pck=; b=Lamat3ICXCKmIIDPB70oekULe
+	nQ08pEbreIhqN51HAxsPvugiaSc5fPLYSfSutpOVt61eSaYWu0y9J5PkilKCl1fvqsG2+DqJ8dYaf
+	c9Aox69NGctKivzCfBgRjmR+RMxksCPJ2WqIt5O0kzKXf8ihYAKCMazgUv2pQ09srgyaOUMuUFv7f
+	XzZvS0PfFEa8RDm0pD9UThqlN2ZJsFrldS30mZ5F+xUuuOSZU36tfMm+X0aM0uvSFjpq5ClR2PQKl
+	Qp1skaAZbgnzutGltRPUkHYbQQ+IEMaer6Ff/fqGggiyxouLA75Kxj02bGJtLhWZudTgEb1rSQVDq
+	VHFEmYr3Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kcD1L-0006Eg-2f; Mon, 09 Nov 2020 19:40:07 +0000
-Received: from mail-qk1-x743.google.com ([2607:f8b0:4864:20::743])
+	id 1kcDJv-0000e4-US; Mon, 09 Nov 2020 19:59:19 +0000
+Received: from mail-lj1-x242.google.com ([2a00:1450:4864:20::242])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kcD1I-0006Dw-OI
- for linux-riscv@lists.infradead.org; Mon, 09 Nov 2020 19:40:05 +0000
-Received: by mail-qk1-x743.google.com with SMTP id h15so9082548qkl.13
- for <linux-riscv@lists.infradead.org>; Mon, 09 Nov 2020 11:40:04 -0800 (PST)
+ id 1kcDJt-0000dM-Tp
+ for linux-riscv@lists.infradead.org; Mon, 09 Nov 2020 19:59:18 +0000
+Received: by mail-lj1-x242.google.com with SMTP id y25so10997937lja.9
+ for <linux-riscv@lists.infradead.org>; Mon, 09 Nov 2020 11:59:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=subject:to:cc:references:from:autocrypt:message-id:date:user-agent
- :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=IvG3Qlw3Sims/I+Pl3z2VFRo151O+rq5wXrIzz+k3p4=;
- b=IhhoxcZPpMSQSlFHJ2lui4ElDlkAAlvkD3NsdSNLxFv0zEpS5E2+KeizKUEsdWOH4F
- hENjo3zqokFRnJxQ8jTlg/tK+177ihjSsTmGWZCR/NvZ+zI/XX++kfXtOHUQdYPNPJtn
- ZEvHSP+fB0zPHY10uwELnTISnvff+v6o9nGZojeLjPuCMOyoN8q2raiw6xBPQuheJcUr
- AmJBfgpYCLVi9nnVZVvx5R6fr4WsGq6zNtb9lhQaIFtgJKS/bXuGAJ13rUSTZi4te7M2
- wlAMrpdeG4B7YAJ3A/EEgs8SHeG4nMdNYrFqNn3lbL8V1kNXtqez2NLNvxsg96FWKVq5
- qBMw==
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=S3iazPmtjzMdjRarndPr8r8baCDNuFU5wUTeFbgI2sQ=;
+ b=Yscmii5OjIHoiyc3HGuG5+5bgq5BO8r2948cOAd1ItbG8PA768drEKR4S4fxiFL/lO
+ n/mZ3WkP2bIUbzP+SFYrbD3JGSvYsdPJ6p+bmqxyrvmhehvAoAMmGWYc131Z4TUucC7I
+ hgsWBGO0FipMkNLE6Ve5dKGMtQw8+rmzjCze5mF/vMPiEyswKoD14EpvBWf0geyIVXuZ
+ 0F6yzZrmpj/ivx9+A0OaILCkNutDwKVbKsPsnpgDtozA5I8UDqho79YIeoEtuFI52XPh
+ 0HrRE/LGTRrWqOVRYaynUp8n9uftu7Ro2FWWNDqrPdfZ5Jr1k7cCQOs7SuK7GK9W9p1i
+ M5QA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:to:cc:references:from:autocrypt
- :message-id:date:user-agent:mime-version:in-reply-to
- :content-language:content-transfer-encoding;
- bh=IvG3Qlw3Sims/I+Pl3z2VFRo151O+rq5wXrIzz+k3p4=;
- b=hC8q6FN2eujX4dqnkeP0athya13wQO9Tpi9BV2mkJyRTvaQTDHh7BsWgqgUJxsi3k0
- G4UO9JTvxM7vvv02iHy7fmPub7hY9j3jMmj6+rLrOMqNowgyuaPlyQ95SWcXZeHhOvHS
- HpNmVJRenvCsbI0Vv9qvusVXk+9dZZzelldjYoOfvU4QvNIuFEnVgwHgWWJ26lb8R/eR
- kiK9xMagLq+pBzuWtISQnR356o2QRNSlzVhecuhM8IEl16yfysaQ9X+srKp0AwI+kbjm
- fKSub8UgBA5t8QgJYkTqWuYqJfe1V9tiKtISujrLPr+0yGfO5obE9ogEDFWngrmFzErr
- 8Pyg==
-X-Gm-Message-State: AOAM533qInD3qn8ZCs6DbAQ5fF3Y0TwT6uOjhhSvcrofCk+3ejEsnE/z
- ZcHwXgJ4l2i8qgSaQd17g+U=
-X-Google-Smtp-Source: ABdhPJztog9f7rPeKsxFXpcxutk1IpQlx7WHd8tOV+vS7hj0AIRLT2P8fBGg5wxVZnwwdTIbbETs3w==
-X-Received: by 2002:a37:a14a:: with SMTP id k71mr15779388qke.33.1604950802988; 
- Mon, 09 Nov 2020 11:40:02 -0800 (PST)
-Received: from [192.168.1.201] (pool-108-51-35-162.washdc.fios.verizon.net.
- [108.51.35.162])
- by smtp.googlemail.com with ESMTPSA id j50sm6783377qtc.5.2020.11.09.11.40.01
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Mon, 09 Nov 2020 11:40:02 -0800 (PST)
-Subject: Re: [PATCH 03/32] spi: dw: Fix driving MOSI low while recieving
-To: Serge Semin <fancer.lancer@gmail.com>, Mark Brown <broonie@kernel.org>
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=S3iazPmtjzMdjRarndPr8r8baCDNuFU5wUTeFbgI2sQ=;
+ b=HEBOWJw0gwgj0hQoQGRdXx0hpcta3qN2UcOuiqahhflN5gIIegOLbSqQHuH0C4Sl30
+ Vx3Ore+uBbQCZ+7qHg87L1kCQvxjSSiDsVuMeJ3+8HYFUJz3ehhffkD9SPlUkg7sipLf
+ izbaxpBV9vuO94l+Xz7WuItnRa+5XCxXbOX+TtqYTY1i82FvL1d+XXz8/KbbLNcSomAa
+ RzSBBrT8OrPwafpiAiOy57MDy7Z8xr7y1dcNex6I+q3bLNXaa1V6FjxjVZ44Wb+Ak53O
+ BB7ysr1tnt4WUe8gS5IEeYYgcpHKh2SiF1/6a1zE3IYXgpIp1HUehwElK6874ZX+kb/A
+ obZQ==
+X-Gm-Message-State: AOAM531rWTIDGxEUhQVIFDEw3rxDKE4FuIu0ZhIup/OUHj7lZUVJ09s9
+ zQVUfLS9qJIOIc93WScjXaCV3KYfQVGUhwGT
+X-Google-Smtp-Source: ABdhPJzZmgrWnRvtkYdvSKe5iYqnKYNSn92AAZUaNbioHnovUHyViefzfa6TyUqom+q15qRa/ht1nw==
+X-Received: by 2002:a05:651c:1256:: with SMTP id
+ h22mr7331152ljh.263.1604951956194; 
+ Mon, 09 Nov 2020 11:59:16 -0800 (PST)
+Received: from mobilestation ([95.79.141.114])
+ by smtp.gmail.com with ESMTPSA id p25sm783725lfc.125.2020.11.09.11.59.14
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 09 Nov 2020 11:59:15 -0800 (PST)
+Date: Mon, 9 Nov 2020 22:59:13 +0300
+From: Serge Semin <fancer.lancer@gmail.com>
+To: Damien Le Moal <damien.lemoal@wdc.com>
+Subject: Re: [PATCH 04/32] spi: dw: Introduce polling device tree property
+Message-ID: <20201109195913.itgfj2ga5y7sr6zx@mobilestation>
 References: <20201107081420.60325-1-damien.lemoal@wdc.com>
- <20201107081420.60325-4-damien.lemoal@wdc.com>
- <20201109132935.GB6380@sirena.org.uk>
- <c37ca9be-ea92-b07a-b600-d68de4f7bde5@gmail.com>
- <20201109141422.GD6380@sirena.org.uk>
- <20201109191909.wfuwpddng4rdn4ca@mobilestation>
-From: Sean Anderson <seanga2@gmail.com>
-Autocrypt: addr=seanga2@gmail.com; prefer-encrypt=mutual; keydata=
- mQENBFe74PkBCACoLC5Zq2gwrDcCkr+EPGsT14bsxrW07GiYzQhLCgwnPdEpgU95pXltbFhw
- 46GfyffABWxHKO2x+3L1S6ZxC5AiKbYXo7lpnTBYjamPWYouz+VJEVjUx9aaSEByBah5kX6a
- lKFZWNbXLAJh+dE1HFaMi3TQXXaInaREc+aO1F7fCa2zNE75ja+6ah8L4TPRFZ2HKQzve0/Y
- GXtoRw97qmnm3U36vKWT/m2AiLF619F4T1mHvlfjyd9hrVwjH5h/2rFyroXVXBZHGA9Aj8eN
- F2si35dWSZlIwXkNu9bXp0/pIu6FD0bI+BEkD5S7aH1G1iAcMFi5Qq2RNa041DfQSDDHABEB
- AAG0K1NlYW4gR2FsbGFnaGVyIEFuZGVyc29uIDxzZWFuZ2EyQGdtYWlsLmNvbT6JAVcEEwEK
- AEECGwMFCwkIBwIGFQgJCgsCBBYCAwECHgECF4ACGQEWIQSQYR1bzo1I0gPoYCg+6I/stKEQ
- bgUCXT+S2AUJB2TlXwAKCRA+6I/stKEQbhNOB/9ooea0hU9Sgh7PBloU6CgaC5mlqPLB7NTp
- +JkB+nh3Fqhk+qLZwzEynnuDLl6ESpVHIc0Ym1lyF4gT3DsrlGT1h0Gzw7vUwd1+ZfN0CuIx
- Rn861U/dAUjvbtN5kMBqOI4/5ea+0r7MACcIVnKF/wMXBD8eypHsorT2sJTzwZ6DRCNP70C5
- N1ahpqqNmXe0uLdP0pu55JCqhrGw2SinkRMdWyhSxT56uNwIVHGhLTqH7Q4t1N6G1EH626qa
- SvIJsWlNpll6Y3AYLDw2/Spw/hqieS2PQ/Ky3rPZnvJt7/aSNYsKoFGX0yjkH67Uq8Lx0k1L
- w8jpXnbEPQN3A2ZJCbeM
-Message-ID: <5808c9b9-5955-4733-2c56-b93c627cb556@gmail.com>
-Date: Mon, 9 Nov 2020 14:40:01 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.12.0
+ <20201107081420.60325-5-damien.lemoal@wdc.com>
 MIME-Version: 1.0
-In-Reply-To: <20201109191909.wfuwpddng4rdn4ca@mobilestation>
-Content-Language: en-US
+Content-Disposition: inline
+In-Reply-To: <20201107081420.60325-5-damien.lemoal@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201109_144004_813374_57C9F7A7 
-X-CRM114-Status: GOOD (  43.88  )
+X-CRM114-CacheID: sfid-20201109_145917_984189_85005D29 
+X-CRM114-Status: GOOD (  25.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -118,129 +97,129 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Damien Le Moal <damien.lemoal@wdc.com>,
- Stephen Boyd <sboyd@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
+Cc: devicetree@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>,
+ Stephen Boyd <sboyd@kernel.org>, Mark Brown <broonie@kernel.org>,
  linux-spi@vger.kernel.org, linux-gpio@vger.kernel.org,
  Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
  Philipp Zabel <p.zabel@pengutronix.de>, linux-riscv@lists.infradead.org,
- Frank Rowand <frowand.list@gmail.com>, linux-clk@vger.kernel.org
+ Sean Anderson <seanga2@gmail.com>, Frank Rowand <frowand.list@gmail.com>,
+ linux-clk@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/9/20 2:19 PM, Serge Semin wrote:
-> On Mon, Nov 09, 2020 at 02:14:22PM +0000, Mark Brown wrote:
->> On Mon, Nov 09, 2020 at 08:47:10AM -0500, Sean Anderson wrote:
->>> On 11/9/20 8:29 AM, Mark Brown wrote:
->>>> On Sat, Nov 07, 2020 at 05:13:51PM +0900, Damien Le Moal wrote:
->>>>
-> 
->>>>> The resting state of MOSI is high when nothing is driving it. If we
->>>>> drive it low while recieving, it looks like we are transmitting 0x00
->>>>> instead of transmitting nothing. This can confuse slaves (like SD cards)
->>>>> which allow new commands to be sent over MOSI while they are returning
->>>>> data over MISO. The return of MOSI from 0 to 1 at the end of recieving
->>>>> a byte can look like a start bit and a transmission bit to an SD card.
-> 
-> Yeah, that's what we've also experienced on our systems. We've worked
-> around the problem in exactly the same way as you have. But we haven't
-> dared to send it out as the solution seemed a bit hackish.
+On Sat, Nov 07, 2020 at 05:13:52PM +0900, Damien Le Moal wrote:
+> With boards that have slow interrupts context switch, and a fast device
+> connected to a spi master, e.g. an SD card through mmc-spi,
 
-Well, the way it is now is equally wrong, since it is driving the line
-low.
+> using
+> dw_spi_poll_transfer() intead of the regular interrupt based
+> dw_spi_transfer_handler() function is more efficient and
 
->>>>
->>>> If client devices are interpreting the transmitted data then I would
->>>> expect the drivers for that hardware to be ensuring that whatever we
->>>> transmit matches what the device is expecting.  We shouldn't be putting
->>>> a hack in a particular controller driver to paper over things, that will
->>>> mean that the device will break when used with other controllers and if
->>>> different devices have different requirements then obviously we can't
->>>> satisfy them.  There is not meaningfully a general specification for SPI
->>>> which says what happens when signals are idle, it's all specific to the
->>>> client device.
->>>>
->>>> In this case it also looks like the controller hardware requires
->>>> transmit data and therefore should be setting SPI_MUST_TX and just
->>>> removing the in driver default anyway, though that will have no effect
->>>> one way or anther on the issue you're seeing.
->>
-> 
->>> There is a recieve-only mode, but it is not used by this driver. Perhaps
->>> it should be.
->>
->> I'd expect it'd perform better, especially on systems that are
->> apparently struggling for CPU bandwidth like yours seems to.
-> 
-> CPU-wise. RO-mode won't help in that case. Moreover it will be even
-> more errors-prone for the systems with small CPU bandwidth. As I said
-> the Receive-only mode will make the SPI controller automatically
-> receiving data from the SPI bus and putting it into the Rx FIFO. If
-> CPU is either busy with something else or too slow in fetching the
-> data from the Rx FIFO, the FIFO will be eventually overflown with
-> data, which we need to avoid at all cost.
-> 
-> As I see it the Receive-only mode is only acceptable in the next two
-> situations:
-> 
-> 1) Rx-only DMA. But only if the DMA-engine and system bus are fast
-> enough to fetch the incoming data on time. (Note for example in our
-> system some DWC DMA-engine channels don't work well with the DW APB
-> SSI working with full-speed, so we had to set constraints on the DWC
-> DMA channels being used in conjunction with the DW APB SSI
-> controller.)
-> 
-> 2) Rx-only with atomic CPU utilization. In order to make sure that the
-> CPU keeps up with fetching the data from the Rx FIFO, we have to
-> disable the local CPU IRQs while performing the Rx-only transfers, so
-> to prevent the Rx FIFO overflow while the CPU is doing something else.
-> Needless to say that such approach should be utilized only as a last
-> resort, if we have no choice but to run the Receive-only transfers.
-> Because locking the CPU for God knows how much time may cause the
-> system interactivity degradation. For instance, a possible use-case of
-> that design is when the controller is communicating with the
-> SPI-devices with native DW APB SSI chip-select attached. BTW You can
-> also find that design implemented in the kernel 5.10 spi-dw-core.c
-> driver in context of the SPI-memory operations (with my last patches
-> merged in). In particular I had to use it to handle the CPU-based
-> EEPROM-read mode.
-> 
-> So in all other cases for normal CPU-based SPI-transfers when
-> GPIO-based chip-select is available the safest solution would be to
-> use a normal Push-Pull mode. In this case we have no risk in getting
-> the Rx FIFO overflow unless there is a bug in the code, which is
-> fixable anyway.
-> 
-> Getting back to the patch. In fact I don't really see how the
-> Receive-only mode will help us with solving the problem noted in the
-> patch log.
+I can believe in that. But the next part seems questionable:
 
-Shouldn't it put MOSI into High-Z like when the device is idle? The
-issue is mainly that the idle state and RX state are different.
+> can avoid a lot
+> of RX FIFO overflow errors while keeping the device SPI frequency
+> reasonnably high (for speed).
 
-> As Mark said the problem with the Tx data on Rx-only
-> transfers should be fixed on the client side. If an subordinate
-> SPI-device needs a specific value to be received in that case, then
-> that value should be somehow provided to the SPI-controller anyway.
-> So the native Rx-only mode of the DW APB SSI controller won't help.
-> Currently it's possible to be done only by executing a Full-duplex
-> SPI-transfer with the Tx-buffer being pre-initialized with that
-> value.
+No matter whether it's an IRQ-based or poll-based transfer, as long as a
+client SPI-device is connected with a GPIO-based chip-select (or the
+DW APB SSI-controller feature of the automatic chip-select toggling is
+fixed), the Rx FIFO should never overrun. It's ensured by the transfer
+algorithm design by calculating the rxtx_gap in the dw_writer()
+method. If the error still happens then there must be some bug in
+the code.
+
+It's also strange to hear that the polling-based transfer helps
+to avoid the Rx FIFO overflow errors, while the IRQ-based transfer
+causes them. Both of those methods are based on the same dw_writer()
+and dw_reader() methods. So basically they both should either work
+well or cause the errors at same time.
+
+So to speak could you more through debug your case?
+
+On the other hand the errors (but not the Rx FIFO overflow) might be
+caused by the DW APB SSI nasty feature of the native chip-select
+automatic assertion/de-assertion. So if your MMC-spi port is handled
+by the native DW APB SSI CS lane, then it won't work well for sure.
+No matter whether you use the poll- or IRQ-based transfers.
+
+-Sergey
+
+
+> Introduce the "polling" device tree
+> property to allow requesting polled processing of transfer depending on
+> the connected device while keeping the spi master interrupts property
+> unschanged. E.g. device trees such as:
 > 
-> Another possible solution for the problem would be to fix the SPI core
-> so aside with tx_buf being set to the NULL-pointer, a client driver
-> would provide a default level or some specific value being put to the
-> SPI bus on Rx-only transfers. If an SPI-controller is capable of
-> satisfying the request, then it will accept the transfer. If it's not,
-> then the SPI core may try to convert the Rx-only transfer into the
-> Full-duplex transfer with the Tx-buffer being initialized with the
-> requested level.
-
-This is probably the most general solution; is there an existing way to
-specify this sort of thing?
-
---Sean
+> Generic soc.dtsi dts:
+> 
+> spi0: spi@53000000 {
+> 	#address-cells = <1>;
+> 	#size-cells = <0>;
+> 	compatible = "snps,dw-apb-ssi";
+> 	reg = <0x53000000 0x100>;
+> 	interrupts = <2>;
+> 	...
+> }
+> 
+> Board specific dts:
+> 
+> ...
+> &spi0 {
+> 	polling;
+> 	status = "okay";
+> 
+> 	slot@0 {
+> 		compatible = "mmc-spi-slot";
+> 		reg = <0>;
+> 		voltage-ranges = <3300 3300>;
+> 		spi-max-frequency = <4000000>;
+> 	};
+> }
+> 
+> will result in using polled transfers for the SD card while other boards
+> using spi0 for different peripherals can use interrupt based transfers
+> without needing to change the generic base soc dts.
+> 
+> Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
+> ---
+>  drivers/spi/spi-dw-mmio.c | 11 ++++++++---
+>  1 file changed, 8 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/spi/spi-dw-mmio.c b/drivers/spi/spi-dw-mmio.c
+> index d0cc5bf4fa4e..3f1bc384cb45 100644
+> --- a/drivers/spi/spi-dw-mmio.c
+> +++ b/drivers/spi/spi-dw-mmio.c
+> @@ -20,6 +20,7 @@
+>  #include <linux/property.h>
+>  #include <linux/regmap.h>
+>  #include <linux/reset.h>
+> +#include <linux/interrupt.h>
+>  
+>  #include "spi-dw.h"
+>  
+> @@ -246,9 +247,13 @@ static int dw_spi_mmio_probe(struct platform_device *pdev)
+>  
+>  	dws->paddr = mem->start;
+>  
+> -	dws->irq = platform_get_irq(pdev, 0);
+> -	if (dws->irq < 0)
+> -		return dws->irq; /* -ENXIO */
+> +	if (device_property_read_bool(&pdev->dev, "polling")) {
+> +		dws->irq = IRQ_NOTCONNECTED;
+> +	} else {
+> +		dws->irq = platform_get_irq(pdev, 0);
+> +		if (dws->irq < 0)
+> +			return dws->irq; /* -ENXIO */
+> +	}
+>  
+>  	dwsmmio->clk = devm_clk_get(&pdev->dev, NULL);
+>  	if (IS_ERR(dwsmmio->clk))
+> -- 
+> 2.28.0
+> 
 
 _______________________________________________
 linux-riscv mailing list
