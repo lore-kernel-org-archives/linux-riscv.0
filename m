@@ -2,86 +2,68 @@ Return-Path: <SRS0=l+yF=EP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.5 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
 	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 131B1C388F7
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 14:40:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2AF3BC2D0A3
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 14:42:19 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 99BAF206D8
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 14:40:54 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id BC372206E3
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 14:42:18 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="E7Blt7Xv";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="ip3BVgMK"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 99BAF206D8
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZNsPcKxJ";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="AACidaKd"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BC372206E3
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=+w/fgjD1Aui3Wq1X7RlJGY9mfbPkVP2ZRauHh0To8ok=; b=E7Blt7XvjtnB0VeZ+h/lBEh4k
-	eqBFcG5/nM9lGP0e2NTgiB2+nMwWvKYHzm+GcBfNzm5BhdwRZbXe4XDUGiDSDdNMn6i5/1Ns9NJlk
-	no590YeQ8E1X2Syqafnm1cSIzxKawl7UNprzRo0kd45/752qF48Sqq2BuUWFPzftPDvyFf0PMaJKH
-	mLow0X8HAL1kKD1cq+UEw4GPU9GvxjFCKIHPVoBrg5txzaLRk6ctO1bBoeD36XY6P8pcO2YgOp2rl
-	O6kBLxUc19hPlPncg82Df+QPLjrbu2sA3hxfZmd1j0W1L62SRAEfk/5GuIZ4RRapYqXfJqeeU12ej
-	FQ2mkg0fQ==;
+	 bh=+iFkYiAbFXzXqd5BRMoUZfI3QNC9PZ9tnk5HomtM+uM=; b=ZNsPcKxJ14S5SEECAUaOctp61
+	/idP+E+R79sWPl/FBPHL9RtWm/sHm7UuPSYzZymQSSBGPwn4XGS8+BSBztwKf1lBnjT+cGMcYTf0D
+	QDZhIV4mFOCtmXjUSmLqv6/AkFIWJPJReD1RPmcasJDj/C/1JJGEAwgqxdAEw/XvmlhMvkqLGb7ZA
+	MevI8UqaXUffwCC0dN247fvRpKh0AVXth0mhlCsfL9As3cL9B9SKL8e3P/FKxg/hilpJAvqFk9lyM
+	b6+OnW3HDftEU/B2ooXYX1INAFGXp4baJHahQZbbm16af6xHUAcSGxLXhq7TlDzN0PHG9NPih0d6H
+	AaW0o5WqQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kc8Lb-0006FS-Qe; Mon, 09 Nov 2020 14:40:43 +0000
-Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
+	id 1kc8My-0006TB-Tu; Mon, 09 Nov 2020 14:42:09 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kc8LZ-0006Ek-D7
- for linux-riscv@lists.infradead.org; Mon, 09 Nov 2020 14:40:42 +0000
-Received: by mail-pg1-x541.google.com with SMTP id 62so7291487pgg.12
- for <linux-riscv@lists.infradead.org>; Mon, 09 Nov 2020 06:40:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=D35EDlDK16EWIltc01Yrg7/CsfVYBQcvvB8Ix+TT1us=;
- b=ip3BVgMKiauzd4a5fsf1ODx3qhmqLy8nttnSg5raPkaWQx8GjNJL+QhxhnUhWds9us
- OZStQB/ulbYJ3bslooxV9GsmwOwtAa6iavQrUWVkWhsZEC5ZcnchA9U7avBEJia20ymF
- /q+3MKFL4RH4/SRzyLE2dFSPINGxmc59RlVXmaKM5XE/YSS8k9oEDn8+81AVro5zT3og
- KHO7qAQm0GlxcFcFCD+QGCRXBUuXLbbk/fUHuCWkUe8zwbjlY3XQXcam+yzU3AdHSdnJ
- dVENfBn4851dtJ3MzTRVjuHOcr2mLKNMKs2dwuLSVJ4/XpyQkgcb/PffPSJV/wqpabv2
- flGQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=D35EDlDK16EWIltc01Yrg7/CsfVYBQcvvB8Ix+TT1us=;
- b=oMBnmoVK2Jrm8nvSqpbtfNqw7EIEXyhhZEP0RqLzC5kS6Gx9gWpwJl7Uy8NM4zgvO5
- JjnQ9CA5c5vKmQzX5Jsdvi1pntZOBWv7xnIbEilzz08i6VaI4Ow/c/ekqtiZBmMAzYDj
- DpYoCcOkRqi81fWZy7y9c6li8mRE+ZDsy/EjB/wMwEf1eJwKuKiO7V9tXGTYRXtDlB3/
- FlcFj53b/+DC9Af1Rk9RYIea8/Hjricv2lQ3RupfzsxE73JtTU9EmmcQJ57lr5EpsXuP
- R9mx0H376dYoOBDnG3nhYVBEJ5MmX3WBVgfeNq8saVQujlpjuB+TB8AlFY+bmJFtfJBd
- 9R4g==
-X-Gm-Message-State: AOAM532vs2ZnxkHmZKugxyohdeTqOeusuzXi5+bwm1CcBq1hfLy+d9fb
- gvgVTbecQAPY3jsPDmC+QPgOkgxHTZCTclhCFyo=
-X-Google-Smtp-Source: ABdhPJxYLSKMi85uilQdG9UgvG5aiuKo/w+WnpjA83tGtKFNeV1eTUaT5WzTkYcsgycY2IhuNNcZK/y5O7B7qM4p5C8=
-X-Received: by 2002:aa7:8c4f:0:b029:18b:f361:4aa3 with SMTP id
- e15-20020aa78c4f0000b029018bf3614aa3mr7824997pfd.73.1604932839518; Mon, 09
- Nov 2020 06:40:39 -0800 (PST)
+ id 1kc8Mt-0006R2-Ri; Mon, 09 Nov 2020 14:42:04 +0000
+Received: from kernel.org (unknown [77.125.7.142])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 6D215206E3;
+ Mon,  9 Nov 2020 14:41:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1604932922;
+ bh=XyH/OGSoZtwKFi7Dr6r4PbxrZ95WCPZt6ITMBGRDbT8=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=AACidaKdvM9fjww+sp/aLxSmuCgmX5y5VInfhx0TIj5OjJteJpSMpOU9k+cy2ANao
+ bPCbw8OTl+tQ2hkhXviYnObTrxDMTytkrEn70tTATzIjRMFL7twkjoJg60mbELrRtH
+ jrhu4hO9i4CTCZoHNJYPLc9KZT9JgGfbJFGI+3OU=
+Date: Mon, 9 Nov 2020 16:41:48 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Vlastimil Babka <vbabka@suse.cz>
+Subject: Re: [PATCH v5 1/5] mm: introduce debug_pagealloc_{map, unmap}_pages()
+ helpers
+Message-ID: <20201109144148.GE301837@kernel.org>
+References: <20201108065758.1815-1-rppt@kernel.org>
+ <20201108065758.1815-2-rppt@kernel.org>
+ <4bd5ae2b-4fc6-73dc-b83b-e71826990946@suse.cz>
 MIME-Version: 1.0
-References: <20201107081420.60325-1-damien.lemoal@wdc.com>
- <20201107081420.60325-3-damien.lemoal@wdc.com>
- <20201109142529.tt5ojjyn36vd3ohe@mobilestation>
- <6dc6d52e-a39d-c351-5280-71b9e8eafe37@gmail.com>
- <CAHp75VejtoTRAM1JmGib3OaJwzuw9Bb-qb08+XhdZUOuzTGUKw@mail.gmail.com>
-In-Reply-To: <CAHp75VejtoTRAM1JmGib3OaJwzuw9Bb-qb08+XhdZUOuzTGUKw@mail.gmail.com>
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Mon, 9 Nov 2020 16:41:28 +0200
-Message-ID: <CAHp75Vc+h5PCqBUnyFshw8RE4zWusE+zdvKKSxBxfFw1_5k0vQ@mail.gmail.com>
-Subject: Re: [PATCH 02/32] spi: dw: Add support for 32-bits ctrlr0 layout
-To: Sean Anderson <seanga2@gmail.com>
+Content-Disposition: inline
+In-Reply-To: <4bd5ae2b-4fc6-73dc-b83b-e71826990946@suse.cz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201109_094041_510200_45EEA3DA 
-X-CRM114-Status: GOOD (  20.80  )
+X-CRM114-CacheID: sfid-20201109_094204_055720_B4E4C25F 
+X-CRM114-Status: GOOD (  22.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -93,54 +75,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree <devicetree@vger.kernel.org>,
- Damien Le Moal <damien.lemoal@wdc.com>, Stephen Boyd <sboyd@kernel.org>,
- Mark Brown <broonie@kernel.org>, Serge Semin <fancer.lancer@gmail.com>,
- linux-spi <linux-spi@vger.kernel.org>,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
- Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, linux-riscv@lists.infradead.org,
- Frank Rowand <frowand.list@gmail.com>, linux-clk <linux-clk@vger.kernel.org>,
- Linus Walleij <linus.walleij@linaro.org>
+Cc: David Hildenbrand <david@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ Paul Mackerras <paulus@samba.org>, Pavel Machek <pavel@ucw.cz>,
+ "H. Peter Anvin" <hpa@zytor.com>, sparclinux@vger.kernel.org,
+ Christoph Lameter <cl@linux.com>, Will Deacon <will@kernel.org>,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ Michael Ellerman <mpe@ellerman.id.au>, x86@kernel.org,
+ Mike Rapoport <rppt@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@de.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Len Brown <len.brown@intel.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Vasily Gorbik <gor@linux.ibm.com>,
+ linux-pm@vger.kernel.org, Heiko Carstens <hca@linux.ibm.com>,
+ David Rientjes <rientjes@google.com>, Borislav Petkov <bp@alien8.de>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Thomas Gleixner <tglx@linutronix.de>, Joonsoo Kim <iamjoonsoo.kim@lge.com>,
+ linux-arm-kernel@lists.infradead.org, "Rafael J. Wysocki" <rjw@rjwysocki.net>,
+ linux-kernel@vger.kernel.org, Pekka Enberg <penberg@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Andrew Morton <akpm@linux-foundation.org>,
+ "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>,
+ linuxppc-dev@lists.ozlabs.org, "David S. Miller" <davem@davemloft.net>,
+ "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 9, 2020 at 4:40 PM Andy Shevchenko
-<andy.shevchenko@gmail.com> wrote:
->
-> On Mon, Nov 9, 2020 at 4:34 PM Sean Anderson <seanga2@gmail.com> wrote:
-> > On 11/9/20 9:25 AM, Serge Semin wrote:
-> > > On Sat, Nov 07, 2020 at 05:13:50PM +0900, Damien Le Moal wrote:
->
-> ...
->
-> > > Are you sure they have been moved from [0, 3] to [16, 20]? I don't have the
-> > > manual for the 4.0x version of the core, but according to this patch:
-> > > https://patchwork.kernel.org/project/spi-devel-general/patch/1575907443-26377-7-git-send-email-wan.ahmad.zainie.wan.mohamad@intel.com/
-> > > it has been ok to use the lowest four bits for DFS setting. Is the commit
-> > > message misleading there?
-> >
-> > This commit message is a truncated version of [1].
->
-> I don't see how they are related.
+On Mon, Nov 09, 2020 at 12:33:46PM +0100, Vlastimil Babka wrote:
+> On 11/8/20 7:57 AM, Mike Rapoport wrote:
+> > --- a/mm/slab.c
+> > +++ b/mm/slab.c
+> > @@ -1428,21 +1428,19 @@ static bool is_debug_pagealloc_cache(struct kmem_cache *cachep)
+> >   	return false;
+> >   }
+> > -#ifdef CONFIG_DEBUG_PAGEALLOC
+> >   static void slab_kernel_map(struct kmem_cache *cachep, void *objp, int map)
+> >   {
+> >   	if (!is_debug_pagealloc_cache(cachep))
+> >   		return;
+> 
+> Hmm, I didn't notice earlier, sorry.
+> The is_debug_pagealloc_cache() above includes a
+> debug_pagealloc_enabled_static() check, so it should be fine to use
+> __kernel_map_pages() directly below. Otherwise we generate two static key
+> checks for the same key needlessly.
 
-For DW_ssi v1.x DFS is always for transfers up to 32-bit.
+Ok, I'll revert slab changes.
 
-> > Importantly, DFS is
-> > valid when SSI_MAX_XFER_SIZE=16. When it =32, then DFS_32 must be used
-> > (since DFS is constant 0xF). Since SSI_MAX_XFER_SIZE is a synthesis
-> > parameter, there exist devices where DFS must be used, and also where
-> > DFS_32 must be used.
-> >
-> > [1] https://patchwork.ozlabs.org/project/uboot/patch/20201016225755.302659-10-seanga2@gmail.com/
-
-
+> > -	kernel_map_pages(virt_to_page(objp), cachep->size / PAGE_SIZE, map);
+> > +	if (map)
+> > +		debug_pagealloc_map_pages(virt_to_page(objp),
+> > +					  cachep->size / PAGE_SIZE);
+> > +	else
+> > +		debug_pagealloc_unmap_pages(virt_to_page(objp),
+> > +					    cachep->size / PAGE_SIZE);
+> >   }
+> > -#else
+> > -static inline void slab_kernel_map(struct kmem_cache *cachep, void *objp,
+> > -				int map) {}
+> > -
+> > -#endif
+> > -
+> >   static void poison_obj(struct kmem_cache *cachep, void *addr, unsigned char val)
+> >   {
+> >   	int size = cachep->object_size;
+> > @@ -2062,7 +2060,7 @@ int __kmem_cache_create(struct kmem_cache *cachep, slab_flags_t flags)
+> >   #if DEBUG
+> >   	/*
+> > -	 * If we're going to use the generic kernel_map_pages()
+> > +	 * If we're going to use the generic debug_pagealloc_map_pages()
+> >   	 * poisoning, then it's going to smash the contents of
+> >   	 * the redzone and userword anyhow, so switch them off.
+> >   	 */
+> > 
+> 
 
 -- 
-With Best Regards,
-Andy Shevchenko
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
