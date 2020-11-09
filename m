@@ -2,83 +2,91 @@ Return-Path: <SRS0=l+yF=EP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.5 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E8FA2C388F7
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 18:49:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CD375C388F7
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 19:19:30 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 73CAB206D8
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 18:49:26 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 30738206D8
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 19:19:30 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WOpNauj2"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 73CAB206D8
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=intel.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pQvWczjf";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="OZtplO94"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 30738206D8
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=euaA85j+dgr3W8qABsW95PDbdgRktjFoA+VKjHuaY+A=; b=WOpNauj2NrFGOeaSU8ImcBLAR
-	jzRmywDwb/wa/81KJfPSHDt1m1bXX3ugbimXQGDA2cKRE4pnkCSdyLXACTxBTcW+15mTdpG8784u7
-	7I1Iw4Hox1IbRjcgwbSXdfa2Lg539BaNn824R4/V65WUG4WOaY8ukFT2/yLf+4Jgi1VRcePG+pyVC
-	fES6QasUmIhUWpjGw+27DcstZuVJO43548bI5yX/WwL8ZnbvE1FW13jwldrmRLqzQd4RjjEK4IsKj
-	BN68w315WMwaV7Y6f8eFE68+eScoaCGOdtzh7gAfGLCupgh+0idHoWdB0qfMc4XAYg9Wx5LA0j582
-	eRBNK93Qg==;
+	 bh=ml409i48FoWBa4JwyvmMQtt9YGO/4zFtzEm8/8M0YF4=; b=pQvWczjfLP0fgjVTCrVdmXypo
+	vp8lfWzm+laywMJRJGXUYXslDX89d+5EqBkGHCxLLmJhtCWBGQBGsi/GACyTG2mZ3X92T3iLFOUDR
+	e0B+7gS0d7+iSUP9PmjJ6r2Ur2LFUtnZQ/8hoTM0Y9JBemOrcJ6nhpBVINs8Mmu7wgHHK6x6hzM/+
+	daih7TjBzKBmw8IRrV2l/vSGrF7Jw6c4Gdi/b9gGYqaOOqzsud7Sl7ZnpWyLAdr8PCTt+KqO1trwS
+	0UdWnERj8bmeQNid5fMgj5BUq5X79TlUcTMLuf8bMHou70k1buFMrePQiXtOQliw74IPTSF5O4FL0
+	XKEhD3S/g==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kcCDz-00089f-VK; Mon, 09 Nov 2020 18:49:08 +0000
-Received: from mga11.intel.com ([192.55.52.93])
+	id 1kcChA-0003gr-DF; Mon, 09 Nov 2020 19:19:16 +0000
+Received: from mail-lj1-x243.google.com ([2a00:1450:4864:20::243])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kcCDx-00087Y-6U
- for linux-riscv@lists.infradead.org; Mon, 09 Nov 2020 18:49:06 +0000
-IronPort-SDR: kk9nx/t75QsFzuY7ncgZHpLxS7DR1k7tDHN8PZc5C6lhZPt5olA3/xzGkNIAALTbSL7XMcbgLk
- 3E4VKy2+NeJw==
-X-IronPort-AV: E=McAfee;i="6000,8403,9800"; a="166342955"
-X-IronPort-AV: E=Sophos;i="5.77,464,1596524400"; 
- d="gz'50?scan'50,208,50";a="166342955"
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-X-Amp-File-Uploaded: False
-Received: from fmsmga002.fm.intel.com ([10.253.24.26])
- by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 09 Nov 2020 10:49:00 -0800
-IronPort-SDR: C9J1S52jpeWEFPQCxFzG1U7UQiTQ/J7O+iLlMFkMI4C/bSkR4CerjZ+wKGYwsrHJgzXEUhMcLC
- Hi540Lgsymaw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.77,464,1596524400"; 
- d="gz'50?scan'50,208,50";a="359797972"
-Received: from lkp-server01.sh.intel.com (HELO d0be80f1a028) ([10.239.97.150])
- by fmsmga002.fm.intel.com with ESMTP; 09 Nov 2020 10:48:56 -0800
-Received: from kbuild by d0be80f1a028 with local (Exim 4.92)
- (envelope-from <lkp@intel.com>)
- id 1kcCDo-0000MK-5q; Mon, 09 Nov 2020 18:48:56 +0000
-Date: Tue, 10 Nov 2020 02:48:06 +0800
-From: kernel test robot <lkp@intel.com>
-To: Damien Le Moal <damien.lemoal@wdc.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv@lists.infradead.org, Rob Herring <robh+dt@kernel.org>,
- Frank Rowand <frowand.list@gmail.com>, devicetree@vger.kernel.org,
- Serge Semin <fancer.lancer@gmail.com>,
- Mark Brown <broonie@kernel.org>, linux-spi@vger.kernel.org,
- Stephen Boyd <sboyd@kernel.org>, linux-clk@vger.kernel.org
-Subject: Re: [PATCH 20/32] riscv: Add Kendryte K210 FPIOA pinctrl driver
-Message-ID: <202011100255.mohMwlkQ-lkp@intel.com>
-References: <20201107081420.60325-21-damien.lemoal@wdc.com>
+ id 1kcCh7-0003gU-Ia
+ for linux-riscv@lists.infradead.org; Mon, 09 Nov 2020 19:19:14 +0000
+Received: by mail-lj1-x243.google.com with SMTP id q19so10035149ljc.10
+ for <linux-riscv@lists.infradead.org>; Mon, 09 Nov 2020 11:19:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=r9d7dXS9UxJQZPpIorblG/IcIk0uXkJw79U3kSgMOhk=;
+ b=OZtplO94Wt9ecWyv8oYMp5JKwvjXA+daO5t+WaReAkLrGlHgLq+RM7QH6jQ95okGVO
+ 4kXLHt3IjiYkImJt6KMd72nQOioIhyKvP+QKi+GQ8Ewmpwx4ceWLPuP9pKd7oq0PbSoM
+ rHgNtSEtk+b0GznCh4vGTUbCtrloZrnT79gmFpmx5krNBmwgBUPggTSWH/JDQSfd5sUu
+ CmzLWXPVjf2Pe844CBkTqgluv3YqES6vdmdzlyARc/slgVO7iiT1C3Iv9xb5LTQf/UTZ
+ hvynAxc/37Xvc/g3MP/nvTgfbZSNaeQwfk53tLRmP01mePGCNuUmNU9EW6pBXEZRUnu2
+ ycPw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=r9d7dXS9UxJQZPpIorblG/IcIk0uXkJw79U3kSgMOhk=;
+ b=HnT4OPEVFmbfiV+1Mt7qjNdu1RIpEBXluxbFsrYxJOLiqdj1bEemwd5uxRjzXQETZU
+ NuJNdnCcPyW9tsjd6bvMpqO6rZ5J/PjmBCquKHPGpYy40yfk1/nSv0RPekF+Zp9ngB2o
+ n4FbG7NpsMGQivxi7pcDfCWySynS4h9ZYcIsW2XAUyNd1xgL1pTLIGMrQfQA+i5Xu4K8
+ W6PHTXSdDyxA7fk2FG8eE/K6ePseArK7zPfZjlkJHeleTuxx7cNC9V/5IiPYsOi5ZcEu
+ lFdEiFUFAc1JIG87jbFrp3s/0x0CrQHA6nzdEGpPdqYUaKpQJUMj7Vax/TRgdDTOROHm
+ Bw9g==
+X-Gm-Message-State: AOAM533lbij/5i8lmgxUwq3MClHXHEo23GfZwZlpvZdgrqVZyFFOWGBJ
+ dWG6uzTAxwFMzFPY4YIcVpY=
+X-Google-Smtp-Source: ABdhPJysV4HArNxJWnmNnrRZDrlhi2BXsPTRITKipRHlzWi9l4KAqb+DSLRqHJPmUN4GB2gASmc2ZQ==
+X-Received: by 2002:a2e:a54c:: with SMTP id e12mr2948208ljn.220.1604949551996; 
+ Mon, 09 Nov 2020 11:19:11 -0800 (PST)
+Received: from mobilestation ([95.79.141.114])
+ by smtp.gmail.com with ESMTPSA id f1sm31595lfm.184.2020.11.09.11.19.10
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 09 Nov 2020 11:19:11 -0800 (PST)
+Date: Mon, 9 Nov 2020 22:19:09 +0300
+From: Serge Semin <fancer.lancer@gmail.com>
+To: Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH 03/32] spi: dw: Fix driving MOSI low while recieving
+Message-ID: <20201109191909.wfuwpddng4rdn4ca@mobilestation>
+References: <20201107081420.60325-1-damien.lemoal@wdc.com>
+ <20201107081420.60325-4-damien.lemoal@wdc.com>
+ <20201109132935.GB6380@sirena.org.uk>
+ <c37ca9be-ea92-b07a-b600-d68de4f7bde5@gmail.com>
+ <20201109141422.GD6380@sirena.org.uk>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="lrZ03NoBR/3+SXJZ"
 Content-Disposition: inline
-In-Reply-To: <20201107081420.60325-21-damien.lemoal@wdc.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <20201109141422.GD6380@sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201109_134905_537165_22843744 
-X-CRM114-Status: GOOD (  27.02  )
+X-CRM114-CacheID: sfid-20201109_141913_669044_D25DD69B 
+X-CRM114-Status: GOOD (  39.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -90,271 +98,120 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: kbuild-all@lists.01.org
+Cc: devicetree@vger.kernel.org, Damien Le Moal <damien.lemoal@wdc.com>,
+ Stephen Boyd <sboyd@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
+ Sean Anderson <seanga2@gmail.com>, linux-gpio@vger.kernel.org,
+ Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, linux-riscv@lists.infradead.org,
+ linux-spi@vger.kernel.org, Frank Rowand <frowand.list@gmail.com>,
+ linux-clk@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, Nov 09, 2020 at 02:14:22PM +0000, Mark Brown wrote:
+> On Mon, Nov 09, 2020 at 08:47:10AM -0500, Sean Anderson wrote:
+> > On 11/9/20 8:29 AM, Mark Brown wrote:
+> > > On Sat, Nov 07, 2020 at 05:13:51PM +0900, Damien Le Moal wrote:
+> > > 
 
---lrZ03NoBR/3+SXJZ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+> > >> The resting state of MOSI is high when nothing is driving it. If we
+> > >> drive it low while recieving, it looks like we are transmitting 0x00
+> > >> instead of transmitting nothing. This can confuse slaves (like SD cards)
+> > >> which allow new commands to be sent over MOSI while they are returning
+> > >> data over MISO. The return of MOSI from 0 to 1 at the end of recieving
+> > >> a byte can look like a start bit and a transmission bit to an SD card.
 
-Hi Damien,
+Yeah, that's what we've also experienced on our systems. We've worked
+around the problem in exactly the same way as you have. But we haven't
+dared to send it out as the solution seemed a bit hackish.
 
-I love your patch! Perhaps something to improve:
+> > > 
+> > > If client devices are interpreting the transmitted data then I would
+> > > expect the drivers for that hardware to be ensuring that whatever we
+> > > transmit matches what the device is expecting.  We shouldn't be putting
+> > > a hack in a particular controller driver to paper over things, that will
+> > > mean that the device will break when used with other controllers and if
+> > > different devices have different requirements then obviously we can't
+> > > satisfy them.  There is not meaningfully a general specification for SPI
+> > > which says what happens when signals are idle, it's all specific to the
+> > > client device.
+> > > 
+> > > In this case it also looks like the controller hardware requires
+> > > transmit data and therefore should be setting SPI_MUST_TX and just
+> > > removing the in driver default anyway, though that will have no effect
+> > > one way or anther on the issue you're seeing.
+> 
 
-[auto build test WARNING on robh/for-next]
-[also build test WARNING on spi/for-next pza/reset/next linus/master v5.10-rc3 next-20201109]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch]
+> > There is a recieve-only mode, but it is not used by this driver. Perhaps
+> > it should be.
+> 
+> I'd expect it'd perform better, especially on systems that are
+> apparently struggling for CPU bandwidth like yours seems to.
 
-url:    https://github.com/0day-ci/linux/commits/Damien-Le-Moal/RISC-V-Kendryte-K210-support-improvments/20201109-095540
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
-config: riscv-nommu_k210_defconfig (attached as .config)
-compiler: riscv64-linux-gcc (GCC) 9.3.0
-reproduce (this is a W=1 build):
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-        chmod +x ~/bin/make.cross
-        # https://github.com/0day-ci/linux/commit/b53c7c4d3b5b4658b4951955fd69c0ceb4bfac4d
-        git remote add linux-review https://github.com/0day-ci/linux
-        git fetch --no-tags linux-review Damien-Le-Moal/RISC-V-Kendryte-K210-support-improvments/20201109-095540
-        git checkout b53c7c4d3b5b4658b4951955fd69c0ceb4bfac4d
-        # save the attached .config to linux build tree
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-9.3.0 make.cross ARCH=riscv 
+CPU-wise. RO-mode won't help in that case. Moreover it will be even
+more errors-prone for the systems with small CPU bandwidth. As I said
+the Receive-only mode will make the SPI controller automatically
+receiving data from the SPI bus and putting it into the Rx FIFO. If
+CPU is either busy with something else or too slow in fetching the
+data from the Rx FIFO, the FIFO will be eventually overflown with
+data, which we need to avoid at all cost.
 
-If you fix the issue, kindly add following tag as appropriate
-Reported-by: kernel test robot <lkp@intel.com>
+As I see it the Receive-only mode is only acceptable in the next two
+situations:
 
-All warnings (new ones prefixed by >>):
+1) Rx-only DMA. But only if the DMA-engine and system bus are fast
+enough to fetch the incoming data on time. (Note for example in our
+system some DWC DMA-engine channels don't work well with the DW APB
+SSI working with full-speed, so we had to set constraints on the DWC
+DMA channels being used in conjunction with the DW APB SSI
+controller.)
 
->> drivers/pinctrl/pinctrl-k210.c:848:5: warning: no previous prototype for 'k210_pinctrl_dt_node_to_map' [-Wmissing-prototypes]
-     848 | int k210_pinctrl_dt_node_to_map(struct pinctrl_dev *pctldev,
-         |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+2) Rx-only with atomic CPU utilization. In order to make sure that the
+CPU keeps up with fetching the data from the Rx FIFO, we have to
+disable the local CPU IRQs while performing the Rx-only transfers, so
+to prevent the Rx FIFO overflow while the CPU is doing something else.
+Needless to say that such approach should be utilized only as a last
+resort, if we have no choice but to run the Receive-only transfers.
+Because locking the CPU for God knows how much time may cause the
+system interactivity degradation. For instance, a possible use-case of
+that design is when the controller is communicating with the
+SPI-devices with native DW APB SSI chip-select attached. BTW You can
+also find that design implemented in the kernel 5.10 spi-dw-core.c
+driver in context of the SPI-memory operations (with my last patches
+merged in). In particular I had to use it to handle the CPU-based
+EEPROM-read mode.
 
-vim +/k210_pinctrl_dt_node_to_map +848 drivers/pinctrl/pinctrl-k210.c
+So in all other cases for normal CPU-based SPI-transfers when
+GPIO-based chip-select is available the safest solution would be to
+use a normal Push-Pull mode. In this case we have no risk in getting
+the Rx FIFO overflow unless there is a bug in the code, which is
+fixable anyway.
 
-   847	
- > 848	int k210_pinctrl_dt_node_to_map(struct pinctrl_dev *pctldev,
-   849				struct device_node *np_config,
-   850				struct pinctrl_map **map, unsigned int *num_maps)
-   851	{
-   852		unsigned int reserved_maps;
-   853		struct device_node *np;
-   854		int ret;
-   855	
-   856		reserved_maps = 0;
-   857		*map = NULL;
-   858		*num_maps = 0;
-   859	
-   860		ret = k210_pinctrl_dt_subnode_to_map(pctldev, np_config, map,
-   861						     &reserved_maps, num_maps);
-   862		if (ret < 0)
-   863			goto err;
-   864	
-   865		for_each_available_child_of_node(np_config, np) {
-   866			ret = k210_pinctrl_dt_subnode_to_map(pctldev, np, map,
-   867							     &reserved_maps, num_maps);
-   868			if (ret < 0)
-   869				goto err;
-   870		}
-   871		return 0;
-   872	
-   873	err:
-   874		pinctrl_utils_free_map(pctldev, *map, *num_maps);
-   875		return ret;
-   876	}
-   877	
+Getting back to the patch. In fact I don't really see how the
+Receive-only mode will help us with solving the problem noted in the
+patch log. As Mark said the problem with the Tx data on Rx-only
+transfers should be fixed on the client side. If an subordinate
+SPI-device needs a specific value to be received in that case, then
+that value should be somehow provided to the SPI-controller anyway.
+So the native Rx-only mode of the DW APB SSI controller won't help.
+Currently it's possible to be done only by executing a Full-duplex
+SPI-transfer with the Tx-buffer being pre-initialized with that
+value.
 
----
-0-DAY CI Kernel Test Service, Intel Corporation
-https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+Another possible solution for the problem would be to fix the SPI core
+so aside with tx_buf being set to the NULL-pointer, a client driver
+would provide a default level or some specific value being put to the
+SPI bus on Rx-only transfers. If an SPI-controller is capable of
+satisfying the request, then it will accept the transfer. If it's not,
+then the SPI core may try to convert the Rx-only transfer into the
+Full-duplex transfer with the Tx-buffer being initialized with the
+requested level.
 
---lrZ03NoBR/3+SXJZ
-Content-Type: application/gzip
-Content-Disposition: attachment; filename=".config.gz"
-Content-Transfer-Encoding: base64
-
-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
-
---lrZ03NoBR/3+SXJZ
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-Sergey
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---lrZ03NoBR/3+SXJZ--
-
