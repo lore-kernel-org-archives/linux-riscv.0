@@ -2,108 +2,68 @@ Return-Path: <SRS0=l+yF=EP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.0 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-5.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CB75CC4741F
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 13:47:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C6A1DC2D0A3
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 14:04:03 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5A4DA206B2
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 13:47:36 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6A36620867
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Nov 2020 14:04:03 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="bFczSrN0";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="CnkNa2H+"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5A4DA206B2
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="CmOs/ejz";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="wRs15LHi"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6A36620867
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=UpNWOea4GrlS4bx3iXqVx6WXkKM0MvXDOiAi9EXTMNw=; b=bFczSrN0SkRa4UQvznK7babCm
-	sGHCt/2wxkVQw16Y2f4k/sYa5CtgKMuMgzkpG2Xm7I7Bm84Cu/vXEcyhB/XA1QisLik0XsRCcHrJv
-	wlXTSKaZrvayLqqwigk2x9QaU7jKfhCjuU75/skCxaNl624o/WvtPxi72C3abK8s1oTEy8DwCRpb7
-	o4e4IhhKnuWjmre9mi7gHZiCwGBE/lSORXI08EhV1dPkHnrqBc6obsq0HlfjSRCnICchW8UTtEy6M
-	lQsY7pNYAyRi4D+jhzcN26exHLChcAMYc1RlryvM7MqArlMqWvB8vjE3yx5R/hWt9O8mr81k/gg0U
-	nw2X+ZrXQ==;
+	 bh=FK4T7kUmZXq8GaBHnSvLpuwJ0pndcZbXO6TFS46IIL8=; b=CmOs/ejzaworhNrbqs4+f2FsF
+	Bg4dZTNMFjmkoy0oETB5LsX4R9qwXItS5b+wxXgYYjQUcKBoHvGresZa/kqyFi1eFKw02nfe/uRjk
+	yQ6K8OsciGoK3YFpneTaNqSIS1bNm0BkyqY5rkJNgUUZNXsoeJS2d1vTx5nxS8QvSa97mr5WAOpvT
+	W2nypIiuKQHPt5fPUCo3ZToysIK7PqBXTK8bJ6GnUbx5PxJOn88zaMFPUQURCVhasEtUGHQHT+vi7
+	R4ir0dz5sCifSF1cVxt30W0/uYkyxY1hlANiSmIDHEV7Gc0nWr4jMm9dR//ybcwcHS2Y+jIy/iCSc
+	y/F7b8/+Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kc7Vu-0005sY-1s; Mon, 09 Nov 2020 13:47:18 +0000
-Received: from mail-qv1-xf42.google.com ([2607:f8b0:4864:20::f42])
+	id 1kc7lw-0001XB-SU; Mon, 09 Nov 2020 14:03:52 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kc7Vr-0005qv-PC
- for linux-riscv@lists.infradead.org; Mon, 09 Nov 2020 13:47:16 +0000
-Received: by mail-qv1-xf42.google.com with SMTP id g19so4021292qvy.2
- for <linux-riscv@lists.infradead.org>; Mon, 09 Nov 2020 05:47:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=subject:to:cc:references:from:autocrypt:message-id:date:user-agent
- :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=3P4Xy4X3O8T4Nf4PgfEYUgS4xFf3jYJhHCyEVrGcPOA=;
- b=CnkNa2H+6dHsGG7oCncPC1SvCVCwADCa9oL2vYqCUUL6ad1Mh28I2FOsrm9mgoH5WX
- g55LdA13TrGDSXZ055BjdxAzQ0M9jIyGi3wzjqndyaXTv0IBwgw7Pc8MVJ5RDDjAgcIt
- 9ZR/1NXyTe7eLwblNB2plK5rsEMXcvcwrdKR3H2HTUllWkHNWUDrjyXm4oW2D0s72FOC
- zbg5CnVzs0TFt18VD/0akL0kKhkS2osuOx3UfPkM7UXHtE50ZJcrVUQ4wuc+5WMA1Cms
- hxWduHV+ffDJv0vlyOKvQsrU7c6OZuTvDYzNHKaSkBYFVxPVQkjnbZeHw7JJz4xD8F2Q
- e34g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:to:cc:references:from:autocrypt
- :message-id:date:user-agent:mime-version:in-reply-to
- :content-language:content-transfer-encoding;
- bh=3P4Xy4X3O8T4Nf4PgfEYUgS4xFf3jYJhHCyEVrGcPOA=;
- b=O/WezJHg9fWNg27ftVvNIPBNe5ux+epVLXHpsUsahnXGADkVqkL9z5433urCb3Z9Is
- sevPybXVSAe9c0a7qvx+YIQ36OF9ZivqHIZs4DfYiet1mZzRGVVOd4YCAjIJwMsMLsob
- 35X+w5Y+wc75LTSF6g3qb2CsuTjTOAq/tlSXBnTvR0NlCoyh48ijE39QGf9PiJyYM4nj
- uY4Ymltp6YylJjrpbHNGiuRrrekEDGUc5+nNjZpYTCoit/aUz6lJEMl8YuykeG59FKEc
- rFEtWGQ78WcL0m9ES+CkX/eU1uBg6iZEB9H2pCab8q/xidFaSnn6tBBRuEFAgCp3KOFF
- ufLg==
-X-Gm-Message-State: AOAM531lD59bB1mict2tMjX9N9TqkxRMAV+qkwDCfzDRmXfg1fwQpzvs
- mlJqeh6g8NwINyL1lUe07Tw=
-X-Google-Smtp-Source: ABdhPJzU05Fw0kzNgO7z+uoXZtYaKr3IfKDrqYuQ/4WUNUe6l+9tEW5JmP/HvpwEVZFqdcj9iMWp3Q==
-X-Received: by 2002:ad4:4e2f:: with SMTP id dm15mr1130200qvb.7.1604929632527; 
- Mon, 09 Nov 2020 05:47:12 -0800 (PST)
-Received: from [192.168.1.201] (pool-108-51-35-162.washdc.fios.verizon.net.
- [108.51.35.162])
- by smtp.googlemail.com with ESMTPSA id j50sm6081221qtc.5.2020.11.09.05.47.11
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Mon, 09 Nov 2020 05:47:11 -0800 (PST)
-Subject: Re: [PATCH 03/32] spi: dw: Fix driving MOSI low while recieving
-To: Mark Brown <broonie@kernel.org>, Damien Le Moal <damien.lemoal@wdc.com>
+ id 1kc7lu-0001WG-Q5
+ for linux-riscv@lists.infradead.org; Mon, 09 Nov 2020 14:03:51 +0000
+Received: from localhost (fw-tnat.cambridge.arm.com [217.140.96.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 0A05920867;
+ Mon,  9 Nov 2020 14:03:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1604930629;
+ bh=0qWoR1msH12ErNOfjXIHiUCH+yFjvnvefxpiB9RfPxg=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=wRs15LHircWzvXOo5eAGcE1LTAtxbL4/0ZY88LI86gw7Ho0CwqdiuVsSEAQIGcUv1
+ 9I95eKzIRan+x1t7Duk9Jp1J5q71sIvNo0ijBwWxGhLnAcqvNWBnm09ukjE8xqjK7x
+ RUnP9miyPzSp53rkkKslalwQownd4flZ5FKmtZ60=
+Date: Mon, 9 Nov 2020 14:03:35 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Damien Le Moal <damien.lemoal@wdc.com>
+Subject: Re: [PATCH 05/32] spi: dw: Introduce DW_SPI_CAP_POLL_NODELAY
+Message-ID: <20201109140335.GC6380@sirena.org.uk>
 References: <20201107081420.60325-1-damien.lemoal@wdc.com>
- <20201107081420.60325-4-damien.lemoal@wdc.com>
- <20201109132935.GB6380@sirena.org.uk>
-From: Sean Anderson <seanga2@gmail.com>
-Autocrypt: addr=seanga2@gmail.com; prefer-encrypt=mutual; keydata=
- mQENBFe74PkBCACoLC5Zq2gwrDcCkr+EPGsT14bsxrW07GiYzQhLCgwnPdEpgU95pXltbFhw
- 46GfyffABWxHKO2x+3L1S6ZxC5AiKbYXo7lpnTBYjamPWYouz+VJEVjUx9aaSEByBah5kX6a
- lKFZWNbXLAJh+dE1HFaMi3TQXXaInaREc+aO1F7fCa2zNE75ja+6ah8L4TPRFZ2HKQzve0/Y
- GXtoRw97qmnm3U36vKWT/m2AiLF619F4T1mHvlfjyd9hrVwjH5h/2rFyroXVXBZHGA9Aj8eN
- F2si35dWSZlIwXkNu9bXp0/pIu6FD0bI+BEkD5S7aH1G1iAcMFi5Qq2RNa041DfQSDDHABEB
- AAG0K1NlYW4gR2FsbGFnaGVyIEFuZGVyc29uIDxzZWFuZ2EyQGdtYWlsLmNvbT6JAVcEEwEK
- AEECGwMFCwkIBwIGFQgJCgsCBBYCAwECHgECF4ACGQEWIQSQYR1bzo1I0gPoYCg+6I/stKEQ
- bgUCXT+S2AUJB2TlXwAKCRA+6I/stKEQbhNOB/9ooea0hU9Sgh7PBloU6CgaC5mlqPLB7NTp
- +JkB+nh3Fqhk+qLZwzEynnuDLl6ESpVHIc0Ym1lyF4gT3DsrlGT1h0Gzw7vUwd1+ZfN0CuIx
- Rn861U/dAUjvbtN5kMBqOI4/5ea+0r7MACcIVnKF/wMXBD8eypHsorT2sJTzwZ6DRCNP70C5
- N1ahpqqNmXe0uLdP0pu55JCqhrGw2SinkRMdWyhSxT56uNwIVHGhLTqH7Q4t1N6G1EH626qa
- SvIJsWlNpll6Y3AYLDw2/Spw/hqieS2PQ/Ky3rPZnvJt7/aSNYsKoFGX0yjkH67Uq8Lx0k1L
- w8jpXnbEPQN3A2ZJCbeM
-Message-ID: <c37ca9be-ea92-b07a-b600-d68de4f7bde5@gmail.com>
-Date: Mon, 9 Nov 2020 08:47:10 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.12.0
+ <20201107081420.60325-6-damien.lemoal@wdc.com>
 MIME-Version: 1.0
-In-Reply-To: <20201109132935.GB6380@sirena.org.uk>
-Content-Language: en-US
+In-Reply-To: <20201107081420.60325-6-damien.lemoal@wdc.com>
+X-Cookie: This fortune is false.
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201109_084715_861353_A9DFBBE0 
-X-CRM114-Status: GOOD (  23.05  )
+X-CRM114-CacheID: sfid-20201109_090350_962738_288330E8 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -120,51 +80,63 @@ Cc: devicetree@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>,
  Serge Semin <fancer.lancer@gmail.com>, linux-spi@vger.kernel.org,
  linux-gpio@vger.kernel.org, Rob Herring <robh+dt@kernel.org>,
  Palmer Dabbelt <palmer@dabbelt.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- linux-riscv@lists.infradead.org, Frank Rowand <frowand.list@gmail.com>,
- linux-clk@vger.kernel.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+ linux-riscv@lists.infradead.org, Sean Anderson <seanga2@gmail.com>,
+ Frank Rowand <frowand.list@gmail.com>, linux-clk@vger.kernel.org
+Content-Type: multipart/mixed; boundary="===============7897083048154078833=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/9/20 8:29 AM, Mark Brown wrote:
-> On Sat, Nov 07, 2020 at 05:13:51PM +0900, Damien Le Moal wrote:
-> 
->> The resting state of MOSI is high when nothing is driving it. If we
->> drive it low while recieving, it looks like we are transmitting 0x00
->> instead of transmitting nothing. This can confuse slaves (like SD cards)
->> which allow new commands to be sent over MOSI while they are returning
->> data over MISO. The return of MOSI from 0 to 1 at the end of recieving
->> a byte can look like a start bit and a transmission bit to an SD card.
-> 
-> If client devices are interpreting the transmitted data then I would
-> expect the drivers for that hardware to be ensuring that whatever we
-> transmit matches what the device is expecting.  We shouldn't be putting
-> a hack in a particular controller driver to paper over things, that will
-> mean that the device will break when used with other controllers and if
-> different devices have different requirements then obviously we can't
-> satisfy them.  There is not meaningfully a general specification for SPI
-> which says what happens when signals are idle, it's all specific to the
-> client device.
->
-> In this case it also looks like the controller hardware requires
-> transmit data and therefore should be setting SPI_MUST_TX and just
-> removing the in driver default anyway, though that will have no effect
-> one way or anther on the issue you're seeing.
 
-There is a recieve-only mode, but it is not used by this driver. Perhaps
-it should be.
+--===============7897083048154078833==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ZmUaFz6apKcXQszQ"
+Content-Disposition: inline
 
-> Please also try to avoid the use of master/slave terminology where
-> reasonable, controller and device tend to work for SPI (though MOSI/MISO
-> are going to be harder to shift).
 
-Here I use it to draw distinction between the SPI master and the SPI
-slave, which are both devices in different contexts. 
+--ZmUaFz6apKcXQszQ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
---Sean
+On Sat, Nov 07, 2020 at 05:13:53PM +0900, Damien Le Moal wrote:
+> On slow systems, i.e. systems with a slow CPU resulting in slow context
+> switches, calling spi_delay_exec() when executing polled transfers
+> using dw_spi_poll_transfer() can lead to RX FIFO overflows. Allow
+> platforms to opt out of delayed polling by introducing the
+> DW_SPI_CAP_POLL_NODELAY DW SPI capability flag to disable
+> the execution of spi_delay_exec() in dw_spi_poll_transfer().
+
+This feels like it should be done based on something like a cutoff for
+sufficiently small delays rather than with a capability - it's tuning,
+not a property of the system.
+
+--ZmUaFz6apKcXQszQ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAl+pTDcACgkQJNaLcl1U
+h9ANcwf/YmBAqrHq0UScXKCySZxkuvWStVH14/YdQZtvZPP/q+momYYX4pc3kd/c
+TBpsNlmcayA1zutuPZnLrGDvbvZveMzTmNelO1tPR3Of2cCvVzxsg7ll9McnW0tO
+lQH/+nQTFzmRa2VmkMwf4qOSjkmBmtTZxn7tEJeuXLHNzNXWuChhNxTaDe8nVW16
+YgDEFpyJP4apsxGFPAbFEgvPmbdz38L0VIlKE7779QjJ+s2l2npzVFpB9kVAPYX0
+InWN9ZugvH0NFUo1vP2s6Ap57nSDtx2uNiY8YC+Q2O9tJYEp8ayKAFvh2pMQaq1k
+s9tHGmXcudhAm0qR5VH22WaH1cXUTw==
+=zXja
+-----END PGP SIGNATURE-----
+
+--ZmUaFz6apKcXQszQ--
+
+
+--===============7897083048154078833==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7897083048154078833==--
+
