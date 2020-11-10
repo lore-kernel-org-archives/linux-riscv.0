@@ -8,17 +8,17 @@ X-Spam-Status: No, score=-17.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 90868C5517A
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Nov 2020 16:47:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 42237C55ABD
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Nov 2020 16:47:03 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B9529206FB
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Nov 2020 16:47:01 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 72C5E2072C
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Nov 2020 16:47:02 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="OM+JFRlt";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="WligyonL"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B9529206FB
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="MNIk5lh4";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="mMVlyGqK"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 72C5E2072C
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -27,68 +27,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=y7aSdSiGz2xu74Jh3kr6JiXbYXKguHezbYhVTfleqZY=; b=OM+JFRltfuyUWMxV4xFHMFXT6
-	x+Nyale//Nh8wmwg7A2s83P2FNTiXkiFi1oQoHxWHof5PX751dbNW5NDfvOGlRAVIlQLVm+I4owMB
-	LTpnBD6BFcZFOlnY1BuvRVbvChn58sWjE0tL5/6P8JnOEz+FWlnJMBwlzX5adLYSwc+dCwmqgJCoK
-	a8qw5bqPoA/B1fm90iUd7YC2ptYc/HU21s/scBBlvfdUlVmMCcmRrULvVAr+ICKvSUFXLF1HSDrI9
-	peznJrStWz9zjR3s79f6N7OfoTswlhkJIbUQwajG+Hr87assev6nSFcyu7zWqkchwjPKq4dYGEDDH
-	J8S/FO1jQ==;
+	 bh=y7aSdSiGz2xu74Jh3kr6JiXbYXKguHezbYhVTfleqZY=; b=MNIk5lh4i3jtoy+gJxBaZ5Fxw
+	mRSLYlYm2+IR3EEJsRahf7ERgBURUVglAv+h9GQj+CAs5uzoSPDRlLfSU+NBS6CDLd/MnzDAu5g7u
+	PcdvTy8MR+vKbwzeDUzUX3FH/0uyGNXJb2Piin0oRu4eB1aQY0512kR0M64Adxp8hmlq6nUNCOVqA
+	3kGn20ZM1lCyd1Uo6TJpzeJl4GdHhWzo66R5EIvmy7QXK1H/sngakQ+n89w9KyNjhOTa+JzRlrOPQ
+	FWBTLRFsB5rRPKSQcyUNgU8mGSX2aF2FbBDhgs2Qw9fzb/GqTzqtyDm8cs0Wjf9TUbBRrqnXwnEYm
+	QLQTk9AtA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kctGo-0000CB-9y; Wed, 11 Nov 2020 16:46:54 +0000
-Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
+	id 1kctGn-0000Bz-O7; Wed, 11 Nov 2020 16:46:53 +0000
+Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kcmXF-0005kW-Ov
- for linux-riscv@lists.infradead.org; Wed, 11 Nov 2020 09:35:30 +0000
-Received: by mail-pf1-x443.google.com with SMTP id w6so1296396pfu.1
- for <linux-riscv@lists.infradead.org>; Wed, 11 Nov 2020 01:35:24 -0800 (PST)
+ id 1kcO4Z-0006qd-MV
+ for linux-riscv@lists.infradead.org; Tue, 10 Nov 2020 07:28:14 +0000
+Received: by mail-pf1-x442.google.com with SMTP id c20so10607241pfr.8
+ for <linux-riscv@lists.infradead.org>; Mon, 09 Nov 2020 23:28:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
  bh=Bm6mxQjFfJiYlsfXHf1oh+P29rXxZL39ZdkbEkswDWY=;
- b=WligyonL/N65V5BlSdBLsnioD6JpoUFJKKozYNBml3p8eOfR6XvfQZFFJj5SJHnmK3
- 6wioU2ZYGs+LHnI3CfWuiYtnLr8lDNOxLJO3iGFkhekeYsbwuTOkW3B4lhqdw/SfHUVX
- OCDQoIPBT0w15mCXwtvrOkVmOztWKO66oJ2i1avEzdRTlzJSkxSA4Ff4ToLIc/JohODI
- qneMLIq+ELqXG7gJigq/XCjZ7KYxA4oK7/p535mkogiOCCXfT8xNjl6N+0PrwoHbFbaV
- ACNya3VLBckWK7XI5PUzdAdRKVEtU9+l+lOqlxWcgh4uEJcqZKQUUpV/6KRYP6lYZHIM
- 3Bvg==
+ b=mMVlyGqKuldFInig1SPHqhTmO6RrwZ/T6XKEZa5iZu9N/j6t73UaRXAuY0eG59TCJg
+ Thee6gxjGsm8/o1ev5VxilYqvHe9+JZZsJEjKt4pj1/qWOwek1je3t4n5MvcUgHtgGlZ
+ twN1dzo4DkA1AH3tWWCcXQ0P4htc5hEidEH1VYlBo3bmfjd+sP8S7wR2k59C91o9F9gy
+ hqNjORza0Oa4Qmrx8G2SleBtP9StZpEIHzItfaBZaNqYUH3WHisY84H4vM+R6GvxA/D5
+ o3z1C1rlSpklMNPjP1s7J74jXVTwdcuqu3JG0Zkp7A4cqDsafH/FjlMoInseWSmt4O2S
+ GOGw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
  bh=Bm6mxQjFfJiYlsfXHf1oh+P29rXxZL39ZdkbEkswDWY=;
- b=faE0fEk+CeljWXm8Nn/AwpmX+MZrd1HzYJ7uGH54x7oZCKDwETuPp4BgSirJbWn9FP
- pwoa//Z2CgfJX0vm50cOf3V/gqfuLqFthqjjuHXwxdbj64P2mI76MWNvu9u5tNYAZH47
- 4ydQeoGpocX4fjGtShRyTUfwxiZ19URDV+6K3ASBQwU4trSCKMNhcPudnjNGQO2/qq7h
- 4/5kD1blEH0/SUSODRRjIz2Z2B1riT0ByCIayivMRHIpZKaJ2ARFGMx2dIG6K7HuCq1h
- pEm8yGUFDkef5xw1jnQNHR9x0gz/mCkg6bmAou+6VUFQYC7+BeOJwY2X5QDBGC+4ztKE
- I6Wg==
-X-Gm-Message-State: AOAM531PdfMukTYQe5cd304o6rY/ldQZlPnT49kY0Kn61rpC+gZhbDEX
- 8bFTE/3VdCIFwdv5aHhJlqRt/A==
-X-Google-Smtp-Source: ABdhPJzZMcWNRNIsPCCuPk9FZJ/KVfR7iIOq1m9jYn+FAIX5jFYRMw1+efXJU1pK4UdkfuROU7N3Zw==
-X-Received: by 2002:a63:4f26:: with SMTP id d38mr21798036pgb.220.1605087322335; 
- Wed, 11 Nov 2020 01:35:22 -0800 (PST)
+ b=PdbUNz2RP7viLRq5VulvWxaCRQC1xgn2LkEs9CHIFH/Gu4RnxLhP5DD8wxwEPIEDn8
+ uCucQVOYLbgFg4GZWwf8Ti9HnhCY5IeVXpBvTQ1hbEfmBDUxN5Q42TwhpAwFWQl5DbAz
+ EXGOIUXHVao2+fHWxmCecf+W1fA94ZpzQL9mtjINrdozlRPmxj3cFO+DBlBceHom9GCM
+ 2PAAO+HAL/G7I7AsJRG61FOflNB/5k33iHahOeh9IXhSer4oFg1/LsS8ubDjnHPCIMnf
+ WuwtqL5/sqYV7UPCb8IAc9JllbWTPHMx9LSpupkegDplkYmlG1UxBpJMNza5V/EF56Q1
+ ep0Q==
+X-Gm-Message-State: AOAM530rsdc3/YpXgJNrbg/pty/8tOXQL8TKRgh/sfBnCbm0fq3GSmGR
+ Oc5Cscd6D/luQMrkhheBbrIl6w==
+X-Google-Smtp-Source: ABdhPJzkcZkB0Bmf0sEggbnumEL0vgN89Wk3sSrGuRZjjTsCzokpJjVjEdm2I9tWN8ZJc+5Vl9vjTw==
+X-Received: by 2002:a17:90b:1098:: with SMTP id
+ gj24mr3746901pjb.140.1604993289611; 
+ Mon, 09 Nov 2020 23:28:09 -0800 (PST)
 Received: from hsinchu02.internal.sifive.com
  (114-34-229-221.HINET-IP.hinet.net. [114.34.229.221])
- by smtp.gmail.com with ESMTPSA id m6sm1862424pfa.61.2020.11.11.01.35.19
+ by smtp.gmail.com with ESMTPSA id w22sm12233191pge.25.2020.11.09.23.28.06
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 11 Nov 2020 01:35:21 -0800 (PST)
+ Mon, 09 Nov 2020 23:28:08 -0800 (PST)
 From: Zong Li <zong.li@sifive.com>
 To: paul.walmsley@sifive.com, palmer@dabbelt.com, sboyd@kernel.org,
- schwab@linux-m68k.org, pragnesh.patel@openfive.com, aou@eecs.berkeley.edu,
- mturquette@baylibre.com, yash.shah@sifive.com,
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Subject: [PATCH v3 1/3] clk: sifive: Extract prci core to common base
-Date: Wed, 11 Nov 2020 17:35:12 +0800
-Message-Id: <20201111093514.103155-2-zong.li@sifive.com>
+ schwab@linux-m68k.org, aou@eecs.berkeley.edu, mturquette@baylibre.com,
+ yash.shah@sifive.com, linux-kernel@vger.kernel.org,
+ linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: [PATCH v2 1/3] clk: sifive: Extract prci core to common base
+Date: Tue, 10 Nov 2020 15:27:46 +0800
+Message-Id: <20201110072748.46705-2-zong.li@sifive.com>
 X-Mailer: git-send-email 2.29.2
-In-Reply-To: <20201111093514.103155-1-zong.li@sifive.com>
-References: <20201111093514.103155-1-zong.li@sifive.com>
+In-Reply-To: <20201110072748.46705-1-zong.li@sifive.com>
+References: <20201110072748.46705-1-zong.li@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201111_043525_977274_2D1F4A93 
-X-CRM114-Status: GOOD (  28.15  )
+X-CRM114-CacheID: sfid-20201110_022812_211376_F660323D 
+X-CRM114-Status: GOOD (  28.23  )
 X-Mailman-Approved-At: Wed, 11 Nov 2020 11:46:52 -0500
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
