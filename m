@@ -8,17 +8,17 @@ X-Spam-Status: No, score=-12.5 required=3.0 tests=BAYES_00,
 	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1A43DC388F9
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Nov 2020 13:34:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CB3A1C5517A
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Nov 2020 13:35:00 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6FBBD206D9
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Nov 2020 13:34:55 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 3E703206D9
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Nov 2020 13:35:00 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="F3ltlxyl";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="AiHrWEt1"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6FBBD206D9
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="1Gmlh+RY";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="F8D/Y+HZ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3E703206D9
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -27,64 +27,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=62z+sDdnbsmK6PsuKPE5f5GX6zgUdIGpIqURufJPF00=; b=F3ltlxyl9BoVhLumqqhYWoc8P
-	vv7BylPkjnXgeR0OolX62DAX6VlX7p7QWkX9+Dt+zT73sApClifiRh2AfdwjiJe9zoczTCPadl5Tt
-	5DlJwEc/sy8sB+pX+ykBYZcBXAXkz8gf/jbHyKuPkMCy0S2qe4lVphbT5oEaMEcmFAvwuEWKbWg53
-	iZ5SU7iVyFREkn51mYKrirYFAJrseHO0+DMETUAA9/tzfZ4+sKpqn+bJXkpvOdngioOTsp/JHNyLj
-	LMtQc95N13HC8IU4QydVIbZASQDOeaaCBBxa0XbIxBsdN5YP+B/LVW4iLZWlLOEu7fvDr2P0nSZMc
-	z8Q2qxYkQ==;
+	 bh=e/RVWutMdYiJg8k2vhpN6A+KxEnz3WmPh6DVvNYagew=; b=1Gmlh+RYtwoJtdJS4vydgFSog
+	su3znJCkBcuMW+JYbsyXqCpQIGTNcTanxUTOzu+4Xms2Hb7rSXaLjBVtmZCEgkLWYJB8j863uTUnj
+	WT0/vNM5hXb9DAuoAwSt1g6bxUcU6ym89K4F9dGBJbVlMJKoEtdYol3dWrABAMISlQm/VPzgsLlbo
+	CR7okRHGZh7+ca1e30fpoQSp0sixI/yS9irkVCzut3LEfQrUlxEDP7TPApBsHb7vypZE6czVASM8I
+	8wM2a15UCUpjnxbUJIa3AACoROh0wIFP8bGnderlACnIYSgb14dF+zQQ4X0cWi93DiLBjCFzPL6tM
+	U3FYu4TSQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kcqGu-0007Af-IY; Wed, 11 Nov 2020 13:34:48 +0000
-Received: from mail-qt1-x844.google.com ([2607:f8b0:4864:20::844])
+	id 1kcqGz-0007DQ-8i; Wed, 11 Nov 2020 13:34:53 +0000
+Received: from mail-qk1-x744.google.com ([2607:f8b0:4864:20::744])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kcqGr-00076e-1p
- for linux-riscv@lists.infradead.org; Wed, 11 Nov 2020 13:34:46 +0000
-Received: by mail-qt1-x844.google.com with SMTP id g17so1244796qts.5
- for <linux-riscv@lists.infradead.org>; Wed, 11 Nov 2020 05:34:43 -0800 (PST)
+ id 1kcqGr-00077Z-0x
+ for linux-riscv@lists.infradead.org; Wed, 11 Nov 2020 13:34:48 +0000
+Received: by mail-qk1-x744.google.com with SMTP id d9so1593339qke.8
+ for <linux-riscv@lists.infradead.org>; Wed, 11 Nov 2020 05:34:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=Z8BEo0x7DBxygVu3ezyut+Q+/5lHQFyLMFsea6yH4dY=;
- b=AiHrWEt19R14SjvDJPKLr7v7i72FmAs7tKIcKGMSWFQwQ/DIoBrkASCkncBIALbImW
- ovXjCz0vPL0IwyG05D0ScobV3buaYwTntzRWG4DvErPgobGS3lP6aF57Y5z/ROppbM15
- U5alV4hGDTuqamCbUCRSnEElgLlyHQqyfApA9IFdiByMiEgJ9T5aChZZ8FuOLffq7taE
- 8RCryXNGD6+QzxN4QWCFwCmheQXdMAr5LaXXLZuZJoit1BPXhkYBBltSg8ODItIgxHp4
- ULkURkvuGrMOziExOLhaMa/N/5bMiNtXHKjvWx5fTW5xKcw7pTxjO4xz/fvpWPD8dS5Q
- jWQg==
+ bh=KyUFBIsp7WG/ZlJY7JJxE8NR9eUIpLAxO9Zr6R0PBAI=;
+ b=F8D/Y+HZfrpZoxY1WSpU1XD08FGxbbmSRvBeCuS4pVYlmDmDfHK+86TEUz2GSieEB6
+ /G826gCZaufPpqw9yqU3gNUSRCTgM9O12K4UhmNyeNdIkVTjqwPtJI9Lf+tvkb9Fg8+c
+ qRpmL5clJ5CA1S+ea2Ab7oCBQhLxWEhivtggHkttRUxU6H+6bwKCbKQw40vyQeowP2ps
+ XMXoUoPJxCmgod7Htt5aWIQRnBxAeBFeM00worN++PmF2dIyJGX4tB4Z/JpSdxEQSkmp
+ 0SlWBQ6C7R2fx7uyThUkfX85xTr/0pRg1d8IYFbC/KQ5PAYWXyryWS92ixdQ2PxoggBD
+ zMoA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=Z8BEo0x7DBxygVu3ezyut+Q+/5lHQFyLMFsea6yH4dY=;
- b=bbNSgn5lkJ/KIhH3XcNAcnVtf2qFmXpsw+lmjUO9sT69xgdsR5hP5EvAicEKqxa4uG
- TDhcZXnj53jFfzNeYu8meKsfskaiUQgjYAgN511sJ3ISe/lIpC1wePYkC327D74/Fsl9
- lauGtgnCxfCXrtkvPhfdNTsVs28/ZozdeV6h2fXu2Rr2nLvL50Gd5CTXgGzqm6OI1lai
- 6vs/MNAfbmGlxCJ69hjen/r5NzfKjv4aPaqbiDCzoDBq4FHuXiqN1s0KIhzLdlOj4yJx
- 7MDjkQeAnXlbdC/jMDb+sgF8y74LUZOAP03IiGW7gRqmVBEnaFF2C2XS/FMexrQBdJrS
- 7F9Q==
-X-Gm-Message-State: AOAM532dcLO3vuIsXzz/zLH/Js+nbF1xS6rRCTIk5jo/DBVBCSCnkfje
- rKE2RXlYhcYaGomC55aICzI=
-X-Google-Smtp-Source: ABdhPJyZWAhNIXxg3LfT4oElO/X43US70dnQmIy4NoyGeM0Dg949Sb1UtyuDuo3lMLZdX0WTBziFrQ==
-X-Received: by 2002:aed:2744:: with SMTP id n62mr24170273qtd.67.1605101681720; 
- Wed, 11 Nov 2020 05:34:41 -0800 (PST)
+ bh=KyUFBIsp7WG/ZlJY7JJxE8NR9eUIpLAxO9Zr6R0PBAI=;
+ b=eicWBzlDjmlnT8eDY1Br2eM1/KKayvQT9w3GGI1TEzfNLAjGzhRllaEgVjZpiB0pFk
+ FnkrFerDLhtKeW+eJMZfo99H5ZtmJ1YD+nkvcSUu++lyMjJkT39Xz3Gc6ATTKAb/1g+z
+ Z9Izefz41fdpRV0OS0wDcSmENRiFkFd9BZ2/6p4Z0fEDsdSRK1FBxgsNElygSNWdxLVS
+ L3YS6/Us6yTI323wHqPvm5+R3tUhrempzG5LlMyMFxBhVfnm5Pc85ZzfMGvImLrywU+Z
+ OnprhaeaTmuNQzwhUDNKAmyBCAlSnNSpBrbeUp9Ugp6ql7R7JcKXjrmcx5WcZ5KHI7Qj
+ fMoA==
+X-Gm-Message-State: AOAM532MSkJAe+JHrm6QHPcvlafh+Rhi49CXvU+9rA7hOHRVjPcBTo+y
+ skDOaGKLGsD1P5F2zQlGHeQ=
+X-Google-Smtp-Source: ABdhPJz84XkbzmcCHTc2+SdZFUqORQfeEggNtVRT4ylMevKQ8zIMjt4i44s0v7vCLpX1u6c6tS/Tlw==
+X-Received: by 2002:a37:4145:: with SMTP id o66mr19607495qka.426.1605101683404; 
+ Wed, 11 Nov 2020 05:34:43 -0800 (PST)
 Received: from localhost.localdomain
  (host-173-230-99-154.tnkngak.clients.pavlovmedia.com. [173.230.99.154])
- by smtp.gmail.com with ESMTPSA id r190sm1997814qkf.101.2020.11.11.05.34.40
+ by smtp.gmail.com with ESMTPSA id r190sm1997814qkf.101.2020.11.11.05.34.41
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 11 Nov 2020 05:34:41 -0800 (PST)
+ Wed, 11 Nov 2020 05:34:42 -0800 (PST)
 From: YiFei Zhu <zhuyifei1999@gmail.com>
 To: containers@lists.linux-foundation.org
-Subject: [PATCH seccomp v2 6/8] sh: Enable seccomp architecture tracking
-Date: Wed, 11 Nov 2020 07:33:52 -0600
-Message-Id: <61ae084cd4783b9b50860d9dedb4a348cf1b7b6f.1605101222.git.yifeifz2@illinois.edu>
+Subject: [PATCH seccomp v2 7/8] xtensa: Enable seccomp architecture tracking
+Date: Wed, 11 Nov 2020 07:33:53 -0600
+Message-Id: <79669648ba167d668ea6ffb4884250abcd5ed254.1605101222.git.yifeifz2@illinois.edu>
 X-Mailer: git-send-email 2.29.2
 In-Reply-To: <cover.1605101222.git.yifeifz2@illinois.edu>
 References: <cover.1605101222.git.yifeifz2@illinois.edu>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201111_083445_291547_07351C26 
-X-CRM114-Status: GOOD (  10.74  )
+X-CRM114-CacheID: sfid-20201111_083445_310573_945744C6 
+X-CRM114-Status: GOOD (  14.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -119,32 +119,42 @@ From: YiFei Zhu <yifeifz2@illinois.edu>
 
 To enable seccomp constant action bitmaps, we need to have a static
 mapping to the audit architecture and system call table size. Add these
-for sh.
+for xtensa.
 
 Signed-off-by: YiFei Zhu <yifeifz2@illinois.edu>
 ---
- arch/sh/include/asm/seccomp.h | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ arch/xtensa/include/asm/Kbuild    |  1 -
+ arch/xtensa/include/asm/seccomp.h | 11 +++++++++++
+ 2 files changed, 11 insertions(+), 1 deletion(-)
+ create mode 100644 arch/xtensa/include/asm/seccomp.h
 
-diff --git a/arch/sh/include/asm/seccomp.h b/arch/sh/include/asm/seccomp.h
-index 54111e4d32b8..d4578395fd66 100644
---- a/arch/sh/include/asm/seccomp.h
-+++ b/arch/sh/include/asm/seccomp.h
-@@ -8,4 +8,14 @@
- #define __NR_seccomp_exit __NR_exit
- #define __NR_seccomp_sigreturn __NR_rt_sigreturn
- 
-+#ifdef CONFIG_CPU_LITTLE_ENDIAN
-+#define __SECCOMP_ARCH_LE		__AUDIT_ARCH_LE
-+#else
-+#define __SECCOMP_ARCH_LE		0
-+#endif
+diff --git a/arch/xtensa/include/asm/Kbuild b/arch/xtensa/include/asm/Kbuild
+index c59c42a1221a..9718e9593564 100644
+--- a/arch/xtensa/include/asm/Kbuild
++++ b/arch/xtensa/include/asm/Kbuild
+@@ -7,5 +7,4 @@ generic-y += mcs_spinlock.h
+ generic-y += param.h
+ generic-y += qrwlock.h
+ generic-y += qspinlock.h
+-generic-y += seccomp.h
+ generic-y += user.h
+diff --git a/arch/xtensa/include/asm/seccomp.h b/arch/xtensa/include/asm/seccomp.h
+new file mode 100644
+index 000000000000..f1cb6b0a9e1f
+--- /dev/null
++++ b/arch/xtensa/include/asm/seccomp.h
+@@ -0,0 +1,11 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef _ASM_SECCOMP_H
++#define _ASM_SECCOMP_H
 +
-+#define SECCOMP_ARCH_NATIVE		(AUDIT_ARCH_SH | __SECCOMP_ARCH_LE)
++#include <asm-generic/seccomp.h>
++
++#define SECCOMP_ARCH_NATIVE		AUDIT_ARCH_XTENSA
 +#define SECCOMP_ARCH_NATIVE_NR		NR_syscalls
-+#define SECCOMP_ARCH_NATIVE_NAME	"sh"
++#define SECCOMP_ARCH_NATIVE_NAME	"xtensa"
 +
- #endif /* __ASM_SECCOMP_H */
++#endif /* _ASM_SECCOMP_H */
 -- 
 2.29.2
 
