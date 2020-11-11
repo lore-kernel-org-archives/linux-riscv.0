@@ -2,87 +2,90 @@ Return-Path: <SRS0=0ydX=ER=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.5 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_GIT autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-12.5 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B0471C5517A
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Nov 2020 13:34:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 80902C55ABD
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Nov 2020 13:34:47 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2C115206D9
+	by mail.kernel.org (Postfix) with ESMTPS id 05D2B206D9
 	for <linux-riscv@archiver.kernel.org>; Wed, 11 Nov 2020 13:34:46 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="QXjwKPNC";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="YJSxGfIb"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2C115206D9
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="w5eWQZNq";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="dNk+mHcn"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 05D2B206D9
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iiZHLJ3KXW3pQf+QIvqnw0oSp94KP4J8a5a3Vx3Ctbk=; b=QXjwKPNCQWVJlX2P71b0YLRdsA
-	WWIke6t7iLfBibw7W2kQQ+CphoRvA/ZQD/7UtTm6aqX3ZRdfiMDL67cddQuKFdi2KgqN2cZ3AIF1x
-	GRV7YoPs9rYFKmFywx4NhBp97hHPXymNs8MibJpXe3wK/fuvPZ2cYdpjBeNZc4eZkMuXXt68oTofz
-	de0+wNLNL44aBL/qTD95nSArgUT/utjrc3dmRzfbgeD7IuOCL9hR58Oy/cErJvrPgqkD8sqOc59de
-	gO95iqMysnN9B40P4FogKfToeV1AZGo+MHHpcQ1D8paockNn/5HG7aqFULPuiL0sIbcpDRNWYAmcu
-	wpKQ2+Aw==;
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=Qrcl1QoOj6O3bqjdQdHm2GGnWsbRTCvcPoiDUFqeEkY=; b=w5eWQZNqLWrfFovay+RLFdyc/
+	NoE37UhcoVSVssZ0RMMMv/qEz6gLGPhWsestWVh8IHC9OZhkd5HE/8w2SNi2RDZrzOrKu4fWREpkr
+	ids5X30Ov0GIM04z2YvrAoiWJ75sz7I849tY2BK6CDZn5Yf47ZTeUalLGH3j9qfoh74TkLsyW9fQs
+	BDi6oAbovC/A7CZczmMKbjKO49Aizs+r/uMfpr0EFx1zWQ95cJc5zG3l3Fb5YFjA9SKjzO3eciH1r
+	fKC+mWeB6IevuH/0dCW6P5Q9NgPeqSDfDKNpL67lZ0omDPUe2zEf8zYgooesOhAxUS/7KyzVCCvWW
+	dHYUdivWQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kcqGh-00072x-Hz; Wed, 11 Nov 2020 13:34:35 +0000
-Received: from mail-qt1-x843.google.com ([2607:f8b0:4864:20::843])
+	id 1kcqGl-00074s-LD; Wed, 11 Nov 2020 13:34:39 +0000
+Received: from mail-qk1-x742.google.com ([2607:f8b0:4864:20::742])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kcqGe-000728-Ms
- for linux-riscv@lists.infradead.org; Wed, 11 Nov 2020 13:34:33 +0000
-Received: by mail-qt1-x843.google.com with SMTP id f93so1219874qtb.10
- for <linux-riscv@lists.infradead.org>; Wed, 11 Nov 2020 05:34:30 -0800 (PST)
+ id 1kcqGi-00073F-Nd
+ for linux-riscv@lists.infradead.org; Wed, 11 Nov 2020 13:34:37 +0000
+Received: by mail-qk1-x742.google.com with SMTP id n132so1624654qke.1
+ for <linux-riscv@lists.infradead.org>; Wed, 11 Nov 2020 05:34:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=ADY2JmYxE9Xly9S24Z1LRnTUA3RyY71p6BFzajWHuao=;
- b=YJSxGfIbb1UUIY/29x8l4T1Jgc/yvQs31iNrz+gq8lShwrVPuHybhNR6GJR2b7ujTh
- QXkNda2M3eSKkjAcLLD3C+040OUac/TeqxIQ4kKWh1L61WubktOhPd4WOSZc7To8b+sR
- jcvHPDdLofNDeZQFZI6zTyzwiTZI58E4j7EHZSBLV1AVXppIZtxsLNOxs1YSHzxtaIyi
- /8HpFYA+y+MUg78ZtzBB1bfvaT8TL/NlfNctAizFSHUGW5eGeI6PDGrklFXYAAJQKgEB
- E8onifEyVUdSHl7UZUr5Lsm3j3fv9Fv5friHKntdo5FtOXwpCVL7DFWbsNCOMCfZLyYf
- O7Sg==
+ h=from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=LIHaRbcW33holGtLxAdu7MnC0XA7v48flZenL4Xa8vU=;
+ b=dNk+mHcnxtrEMnoth+9YuSZp+YnaTGFIRKqb6ReOwm4fVp8t0mkh3bSdlUABRoAUlx
+ tqquHCE17akyy8N/Nvpjg7Qp3AoZ+ubiA4cXGcr+8ulSr6YMzogVfYe8HW84FHb0lUm/
+ /WtN9ZpC8VKXLz1L5tvxxFBda/OJbmO8xfmRMZm9yZjClDUw3ZscP+K5NBtyp4h7niez
+ LHJ/nuWNzhr4vfD1yroJHXynte84EkEErCMxO2wU7yBLkN2zhT/krvfPoB2KZrvmREHc
+ mmIHwwl9ZlD8hTh+jTTrb+HdoDQ4CsYqasWnyeceqpG0wekPMdPvQ3VXOB/H33Sm4FEB
+ Rwzw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=ADY2JmYxE9Xly9S24Z1LRnTUA3RyY71p6BFzajWHuao=;
- b=TXVFz7ybxo+9XN4Q+x2iRgL3lKNdoV85b949iH9eHvBbsGSICIcbT4OxKvssVy2wut
- eDqVuiIf392e5ltU64uZGBu3/yR/snT9TJ5aRBSyorY0yMjqLYQPK5cSG5So8A6VdRrO
- Tvd3mjMey2D0/RuwTBufEn3jgXLBk7ukhQHSDA3mZGqndlPGs3/6nYSo4tMFNej7vsiN
- gJ1q7f4WsEjLbkv1tHpHWNXvc9Okq0WoaCrFHaq0zWLNdgydcmToVokEfhHmhQLgSufn
- BhBbLDTTBG/PKL9eg1SI8C9o4GAc9g9qj2Cs+gCFCvYwWvuetuOQ7xIsqft7ngcUxr3D
- Radw==
-X-Gm-Message-State: AOAM531os5xSuaoS/JRh+xj8UPBD1wKVoO8PS67W7wMaadCm3/EL7YmC
- 5RU6h3H6Zpo6CLWAFO9KE3k=
-X-Google-Smtp-Source: ABdhPJzHUfo2j/Nsf18vB+1vJm4vfXG7t/Ethu+Cj5/ykTWucn6CwriV6xUlfxlPz1n756bgw31C9g==
-X-Received: by 2002:ac8:130d:: with SMTP id e13mr23000296qtj.3.1605101669342; 
- Wed, 11 Nov 2020 05:34:29 -0800 (PST)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=LIHaRbcW33holGtLxAdu7MnC0XA7v48flZenL4Xa8vU=;
+ b=ba/FZhrozshpslU1wl+yTedXCctqdGNJJs1pjadtX3wLtiqIIrzrBY0fGvRaBwPFoi
+ UUZG2ZyciuUMN+PZYUFUOGj++m/EztlSkq0bfKTz0KmsDJ56mOCYgRFcRWq05w+/tyVv
+ MBIA5V/JJyC1sx6mkOT7VTizOtT0wNVZmuHbUUFeDcwTXUb0rtVEgO3wBm1aohMR7lcA
+ EOOHEf3goGWJGYLRmfJHsqi9AfSep9sPBgWiZ+ZY7/b2lMQw6Xa0ToKGSSndYzDhNq0E
+ xrH1mFzoFXm8wVaEbOZ2UxbipTeLVRyHg9EwsaqDVKHbrKg0AE4RJMDxbkmV8bH3wJIo
+ 6zug==
+X-Gm-Message-State: AOAM5328dcUxcFNTfaljM1t0QvzpBt6kNyIfV5px6bUDW17LtydW5Bqi
+ 59nET76nMCsAQNE4X6VSuZY=
+X-Google-Smtp-Source: ABdhPJwWi7mIj07jdzREPXg7rZ5J8YjabnB76CW+3UwHPeuu2d0EaLhFYKhjOvqP7+1Mxz1/dz90Iw==
+X-Received: by 2002:a05:620a:142e:: with SMTP id
+ k14mr24946158qkj.483.1605101675195; 
+ Wed, 11 Nov 2020 05:34:35 -0800 (PST)
 Received: from localhost.localdomain
  (host-173-230-99-154.tnkngak.clients.pavlovmedia.com. [173.230.99.154])
- by smtp.gmail.com with ESMTPSA id r190sm1997814qkf.101.2020.11.11.05.34.27
+ by smtp.gmail.com with ESMTPSA id r190sm1997814qkf.101.2020.11.11.05.34.33
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 11 Nov 2020 05:34:28 -0800 (PST)
+ Wed, 11 Nov 2020 05:34:34 -0800 (PST)
 From: YiFei Zhu <zhuyifei1999@gmail.com>
 To: containers@lists.linux-foundation.org
-Subject: [PATCH seccomp v2 0/8] seccomp: add bitmap cache support on remaining
- arches and report cache in procfs
-Date: Wed, 11 Nov 2020 07:33:46 -0600
-Message-Id: <cover.1605101222.git.yifeifz2@illinois.edu>
+Subject: [PATCH seccomp v2 2/8] parisc: Enable seccomp architecture tracking
+Date: Wed, 11 Nov 2020 07:33:48 -0600
+Message-Id: <9bb86c546eda753adf5270425e7353202dbce87c.1605101222.git.yifeifz2@illinois.edu>
 X-Mailer: git-send-email 2.29.2
+In-Reply-To: <cover.1605101222.git.yifeifz2@illinois.edu>
+References: <cover.1605101222.git.yifeifz2@illinois.edu>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201111_083432_805070_1C728508 
-X-CRM114-Status: GOOD (  13.49  )
+X-CRM114-CacheID: sfid-20201111_083436_828091_BAEB7619 
+X-CRM114-Status: GOOD (  14.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -115,58 +118,58 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: YiFei Zhu <yifeifz2@illinois.edu>
 
-This patch series enables bitmap cache for the remaining arches with
-SECCOMP_FILTER, other than MIPS.
+To enable seccomp constant action bitmaps, we need to have a static
+mapping to the audit architecture and system call table size. Add these
+for parisc.
 
-I was unable to find any of the arches having subarch-specific NR_syscalls
-macros, so generic NR_syscalls is used. SH's syscall_get_arch seems to
-only have the 32-bit subarch implementation. I'm not sure if this is
-expected.
-
-This series has not been tested; I have not built all the cross compilers
-necessary to build test, let alone run the kernel or benchmark the
-performance, so help on making sure the bitmap cache works as expected
-(selftests/seccomp/{seccomp_benchmark,seccomp_bpf}) would be appreciated.
-The series applies on top of Kees's for-next/seccomp branch.
-
-v1 -> v2:
-* ppc, sh: s/__SECCOMP_ARCH_LE_BIT/__SECCOMP_ARCH_LE/
-* ppc: add "le" suffix to arch name when the arch is little endian.
-* ppc: add explanation of why __LITTLE_ENDIAN__ is used to commit message.
-
-YiFei Zhu (8):
-  csky: Enable seccomp architecture tracking
-  parisc: Enable seccomp architecture tracking
-  powerpc: Enable seccomp architecture tracking
-  riscv: Enable seccomp architecture tracking
-  s390: Enable seccomp architecture tracking
-  sh: Enable seccomp architecture tracking
-  xtensa: Enable seccomp architecture tracking
-  seccomp/cache: Report cache data through /proc/pid/seccomp_cache
-
- arch/Kconfig                       | 15 ++++++++
- arch/csky/include/asm/Kbuild       |  1 -
- arch/csky/include/asm/seccomp.h    | 11 ++++++
- arch/parisc/include/asm/Kbuild     |  1 -
- arch/parisc/include/asm/seccomp.h  | 22 +++++++++++
- arch/powerpc/include/asm/seccomp.h | 23 ++++++++++++
- arch/riscv/include/asm/seccomp.h   | 10 +++++
- arch/s390/include/asm/seccomp.h    |  9 +++++
- arch/sh/include/asm/seccomp.h      | 10 +++++
- arch/xtensa/include/asm/Kbuild     |  1 -
- arch/xtensa/include/asm/seccomp.h  | 11 ++++++
- fs/proc/base.c                     |  6 +++
- include/linux/seccomp.h            |  7 ++++
- kernel/seccomp.c                   | 59 ++++++++++++++++++++++++++++++
- 14 files changed, 183 insertions(+), 3 deletions(-)
- create mode 100644 arch/csky/include/asm/seccomp.h
+Signed-off-by: YiFei Zhu <yifeifz2@illinois.edu>
+---
+ arch/parisc/include/asm/Kbuild    |  1 -
+ arch/parisc/include/asm/seccomp.h | 22 ++++++++++++++++++++++
+ 2 files changed, 22 insertions(+), 1 deletion(-)
  create mode 100644 arch/parisc/include/asm/seccomp.h
- create mode 100644 arch/xtensa/include/asm/seccomp.h
 
-
-base-commit: 38c37e8fd3d2590c4234d8cfbc22158362f0eb04
---
+diff --git a/arch/parisc/include/asm/Kbuild b/arch/parisc/include/asm/Kbuild
+index e3ee5c0bfe80..f16c4db80116 100644
+--- a/arch/parisc/include/asm/Kbuild
++++ b/arch/parisc/include/asm/Kbuild
+@@ -5,5 +5,4 @@ generated-y += syscall_table_c32.h
+ generic-y += kvm_para.h
+ generic-y += local64.h
+ generic-y += mcs_spinlock.h
+-generic-y += seccomp.h
+ generic-y += user.h
+diff --git a/arch/parisc/include/asm/seccomp.h b/arch/parisc/include/asm/seccomp.h
+new file mode 100644
+index 000000000000..b058b2220322
+--- /dev/null
++++ b/arch/parisc/include/asm/seccomp.h
+@@ -0,0 +1,22 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef _ASM_SECCOMP_H
++#define _ASM_SECCOMP_H
++
++#include <asm-generic/seccomp.h>
++
++#ifdef CONFIG_64BIT
++# define SECCOMP_ARCH_NATIVE		AUDIT_ARCH_PARISC64
++# define SECCOMP_ARCH_NATIVE_NR		NR_syscalls
++# define SECCOMP_ARCH_NATIVE_NAME	"parisc64"
++# ifdef CONFIG_COMPAT
++#  define SECCOMP_ARCH_COMPAT		AUDIT_ARCH_PARISC
++#  define SECCOMP_ARCH_COMPAT_NR	NR_syscalls
++#  define SECCOMP_ARCH_COMPAT_NAME	"parisc"
++# endif
++#else /* !CONFIG_64BIT */
++# define SECCOMP_ARCH_NATIVE		AUDIT_ARCH_PARISC
++# define SECCOMP_ARCH_NATIVE_NR		NR_syscalls
++# define SECCOMP_ARCH_NATIVE_NAME	"parisc"
++#endif
++
++#endif /* _ASM_SECCOMP_H */
+-- 
 2.29.2
+
 
 _______________________________________________
 linux-riscv mailing list
