@@ -7,80 +7,133 @@ X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B35F3C4742C
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Nov 2020 08:54:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E9E1EC388F9
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Nov 2020 08:56:38 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1D0A320678
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Nov 2020 08:54:46 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5E9C12065C
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Nov 2020 08:56:38 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="0zsz1QHt";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=linaro.org header.i=@linaro.org header.b="s7+nX1K/"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1D0A320678
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="So2e8gb9";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="DzMcikkS";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="ZVt9VssY"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5E9C12065C
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Pp3SYAjKtWgnZXNBMH+pbMOJ/cxO/T3hwN7I4bNbLmA=; b=0zsz1QHte8AjacuXs4C5lySeE
-	68QC8Pi88Ot/9aIEfLHK2yp9MsCK/g1XTHTfZnEeJkgxh9pjiSqWh9lTqDgL9KfTUMBPd59ZlENkh
-	Agy0vxl6KYus9bUm/FJ/wwh2Gazz2e7a2/JeL8FNgBR1wwdkkNUMmdY333gMSzEclIN1E4YiTT6A3
-	1SKtA/sWa3JoT3Pxzo0Lx/r7mOdnLBdqjjom9OynmbD6GYKEY/fzXtGv4ue8x814BJt9eiwGQp+aj
-	PwSqI5rLTykCYOj3VHqWQeGYljx/jyjtuc0aqBVgW+av+3//Dc6+lpVkcuctEKYKZRMGu2IXVMgnd
-	76XIacTyQ==;
+	List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:Date:Subject:To:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	 bh=qGBUSWjKdDyjjeBh3zTP0uThju1uOTT0TcEnHPZLpX4=; b=So2e8gb9UeTiwEfMEFYmP8lz/
+	DCjIXQydY4xT4ezg3GhDdOM4CjeIiq/ySFZApzm+2rF1Uf0051OCaoDZtIA/49JfosW+zZaouNIJd
+	cfu7jpFq5DGxxgPclzXgmrl9dSW+wxpFpLGm4qO5RATCypt9Gs9l8kixL8nIb5QARqr/ETdagUq9e
+	xxHQVhdYCjxaJ8C0Yqgxs9gQBi2CMwkKFqRvnCqVvc/mNVpaa0z9wgIzBF79XMwDlXTbmrnsa8LoC
+	Yg10JbEF5P8gCdrLiWrLkw6wDYNfqBnTF+cvltqJ7KCW1ttUPYo+NvrFiLiqqCegYLjuoYL688UGN
+	EOie/tmBA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kcltm-0002Mv-9T; Wed, 11 Nov 2020 08:54:38 +0000
-Received: from mail-lf1-x143.google.com ([2a00:1450:4864:20::143])
+	id 1kclvc-0002d7-4y; Wed, 11 Nov 2020 08:56:32 +0000
+Received: from esa6.hgst.iphmx.com ([216.71.154.45])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kcltk-0002M8-M7
- for linux-riscv@lists.infradead.org; Wed, 11 Nov 2020 08:54:37 +0000
-Received: by mail-lf1-x143.google.com with SMTP id u18so2098294lfd.9
- for <linux-riscv@lists.infradead.org>; Wed, 11 Nov 2020 00:54:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=aD1AfCvZlvWjOPfJpMntzLU6+ypH7NUl69bOZ/Wxqbk=;
- b=s7+nX1K/OJHLO11XMmTdSdA+MQE8moSXpnO9nib5IGF4ObtIqIj+bDP24RgiPQg4zJ
- JSQklC9ZLIebDipupC4wVcr2Yre2xhgXhqJac3EBaQriJsnVTL8tTgmeYoZC6nw0/Nhr
- zTqs6KiSghzwpBXM9YKFkoCS6qJig92khJ7x7Pu/b8mHtmo+vtltnKlu1A4yKz24bB5B
- dRpwSo+LJbckjfCkE7UcbCrJgXgRV4cdSOnOgXDfm5OEVWtTpylqGvYdn/7/kOd+GHL6
- Wg0w6Xf3EA4L6m3Ph7pSvpK2WtcbsGIiSD/0iovJlVvKqHh2diltJIxmGkJ6YEjNds4B
- Dj1Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=aD1AfCvZlvWjOPfJpMntzLU6+ypH7NUl69bOZ/Wxqbk=;
- b=KS3hqQHGCXs0JZyGH/uYg1bJ9V2wCXcz2ibFV/C7LaBf6Pf4n0+VVt3AQZL+DjcsF5
- KkBBRcAL5I8f173vysUEh9e21xTodpmyM4ltbsWzz00jgEiA+dhH2tvmetEh1X7xsayY
- HQeLx020Z6jOa00EwTzWMcYtWfies0ZNj+LoaCcSepfNLO/oSMyzM06NtYw1M+fZaXJh
- lctg/n/vuX24Fx9mmi7O1ZOmrz5+SYM8tpZceDNuO9Kx9jLndhf1chgKdS/hds4IEymh
- FQnLgXh3Rd3k0pjPqCtiYSCI5rGcjOtXCqIojSxI5rbWLiH5G2bKsBl1zuyaFoOulVb1
- c/aw==
-X-Gm-Message-State: AOAM530QFMmECr7DXwPOJz4l7F/0UCINKDQwANU6G16+m92kf+Mg6NTj
- CvVLlDLHd6gq9muQ9m7DE/b4/CVrdnByoSRssWTCl76WE1AIXg==
-X-Google-Smtp-Source: ABdhPJzSBoQWp9WPLNXo2qnhAfYTqUxCkYyYqcrkPjDDVovOHwT986yuSnhjzGjEskWE8hTdRWErEe1Kl+s2OHZEKwk=
-X-Received: by 2002:ac2:50c1:: with SMTP id h1mr8747179lfm.333.1605084874837; 
- Wed, 11 Nov 2020 00:54:34 -0800 (PST)
-MIME-Version: 1.0
+ id 1kclvZ-0002cD-5F
+ for linux-riscv@lists.infradead.org; Wed, 11 Nov 2020 08:56:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1605084990; x=1636620990;
+ h=from:to:cc:subject:date:message-id:references:
+ content-transfer-encoding:mime-version;
+ bh=0Fl5dEctfRggBSnpE37XnUdwz+aa19lYrYYi310PNhI=;
+ b=DzMcikkS/XrXDw3uCVhSEOTNd3m4/TRIYUh0TpX5pJw80kxXnGD1uhfc
+ Amvaveiw5Lp43iKqIl0Lbn4osU0lVPFOCHyHQsCVe9uZJhDnFnMiZDrNV
+ mmy1AiOnPJI9k+ExIaILSnIFyo+AmbEK+bL/IlBsx1ZpQRo0Mhi4YujjI
+ iKCISBF5OfqSEcPaY6EX3JAzQEwRNr33PM7WVPQFHB57z/6wPjTNXoF3h
+ M34wCJuoN0qArFp6S/FtJLPrZWJEAVPDAga8J8Bo8/kMICd15rH7bMtpU
+ GrAQHNR4sgN8zqs53Idh3mRRWcHeXubd21vajJiDaknGNMaQGGLKikReY Q==;
+IronPort-SDR: CuYPHbNyQY9bT/Q/XA4uFGxopAF+3zXNDG2LDouqegLOd4DOlm9Qb5EoeaF5VnVdse/i6UgJ1+
+ DNRxrgKvBHEvHYn8XQFzDfHzxwRmtyN0cPZFZc0bqOLGrpiRsFy75G1M+q7+o0/vO9AXBTTS4F
+ Pvt3t34JXQYTLaC1uwWTLyULjNlN+2yZS1RAXNxe45v8kJzH6JyFtyeMCkpZSir8hd5YTtstd1
+ Q3SWJL3HjbB1hcYGcofR0hmNKtiunuAFjFCH4/OdiKhKIZV7ruWybuJIcb18/eZBXm8+37Eja+
+ +BE=
+X-IronPort-AV: E=Sophos;i="5.77,469,1596470400"; d="scan'208";a="153566284"
+Received: from mail-co1nam11lp2170.outbound.protection.outlook.com (HELO
+ NAM11-CO1-obe.outbound.protection.outlook.com) ([104.47.56.170])
+ by ob1.hgst.iphmx.com with ESMTP; 11 Nov 2020 16:56:22 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=ZSykPv44KB9BZ7cjD6xh9GyrPOZ+43fndaoIaUvFk45gq4M6/NByrS/0RbetM5FGF7kD/AP9HdNNcWJUfnGKZMiqUevDLCU/eXbI7kZSD/BYsUZrcoVGy7NvCDuTZCy6jwKpd8j81+nYctzl97ij35igs4E0RGjBB1clT3L65c0P7q3IF+qH9nM2SZxXMAVmilBIdwwRgZqLgAC8nOsV0V7VNZeBGLiYGhBZIg1jYQ94eDMEKni9SqIb9ei/y+BApwqVCEeVIjVEWuPdYsmIzK6YAtheFtD/XMJsJSchdSOsV/Y+pa9gTTWh8OLwoFrv72+wYbkFNzcudYpIbC3cXA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0Fl5dEctfRggBSnpE37XnUdwz+aa19lYrYYi310PNhI=;
+ b=IGMojWnivkObti94PUr++82O12totfl7DKmLgVuvHLTQvIo6NIbWA2IK8i1XRfnUl2jZ/Cip3N35rczegk+ISp2/dfzL8/gutmSh4oiIUMjBYMUpAan6a5RYVxFm3R2G2msmLrxV+oQMvBWackG4kqpGhs+5MxznftrzM49MXGsWaiDBnlDvJFLDoE4b5PQBakr7WRz0WWqYuhC50VzShFAHdtJ5v6QU3KmztPEHYGKDpkwELY/wMBKZ9zBcU8GNbbsrFm+R7JHCW636EDKGfs0G1bsKBz0BQJxokkbXav3U7pRK674gnDs3BwslA1hSUUh+5JOLAWsDSSu0tK2/zQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
+ header.d=wdc.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0Fl5dEctfRggBSnpE37XnUdwz+aa19lYrYYi310PNhI=;
+ b=ZVt9VssYZ83XYqIcumXwaElfCR0oAnq1Iqh0RDf1Rhf+c3V69nV/nm1AFOrnfmH/lx/LcwjS6+hwkC8OzJSi0ti/02cakaosvov/O26rfXUBmDOp0fH46w0cky4S90S7ld7SB4GSN28KwZCgKpVdkeEuuaJjo8lO1r2H+DppbR8=
+Received: from BL0PR04MB6514.namprd04.prod.outlook.com (2603:10b6:208:1ca::23)
+ by BL0PR04MB4849.namprd04.prod.outlook.com (2603:10b6:208:5d::26)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3541.22; Wed, 11 Nov
+ 2020 08:56:20 +0000
+Received: from BL0PR04MB6514.namprd04.prod.outlook.com
+ ([fe80::4c3e:2b29:1dc5:1a85]) by BL0PR04MB6514.namprd04.prod.outlook.com
+ ([fe80::4c3e:2b29:1dc5:1a85%7]) with mapi id 15.20.3499.032; Wed, 11 Nov 2020
+ 08:56:20 +0000
+From: Damien Le Moal <Damien.LeMoal@wdc.com>
+To: Linus Walleij <linus.walleij@linaro.org>
+Subject: Re: [PATCH 09/32] riscv: Fix SiFive gpio probe
+Thread-Topic: [PATCH 09/32] riscv: Fix SiFive gpio probe
+Thread-Index: AQHWtN4SvWrZLi+A80GAPGjcz+Y8EA==
+Date: Wed, 11 Nov 2020 08:56:20 +0000
+Message-ID: <BL0PR04MB65144640514294B91C07A9E0E7E80@BL0PR04MB6514.namprd04.prod.outlook.com>
 References: <20201107081420.60325-1-damien.lemoal@wdc.com>
  <20201107081420.60325-10-damien.lemoal@wdc.com>
  <CACRpkda1Pd3hTiEHWDOAz3zCMA6WK4VmvjkNv0O_ckFaWQ-zSw@mail.gmail.com>
  <0fdee1f9986af095a3f7d329f8907cfbe49dd7c0.camel@wdc.com>
-In-Reply-To: <0fdee1f9986af095a3f7d329f8907cfbe49dd7c0.camel@wdc.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 11 Nov 2020 09:54:24 +0100
-Message-ID: <CACRpkdY1sgkhPfb+ci8oXqw0N7Gr+Pr_=3Auh-mH-8yWcOUR=Q@mail.gmail.com>
-Subject: Re: [PATCH 09/32] riscv: Fix SiFive gpio probe
-To: Damien Le Moal <Damien.LeMoal@wdc.com>
+ <CACRpkdY1sgkhPfb+ci8oXqw0N7Gr+Pr_=3Auh-mH-8yWcOUR=Q@mail.gmail.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: linaro.org; dkim=none (message not signed)
+ header.d=none;linaro.org; dmarc=none action=none header.from=wdc.com;
+x-originating-ip: [2400:2411:43c0:6000:c005:87c5:ced7:ce31]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-ht: Tenant
+x-ms-office365-filtering-correlation-id: e3f008cc-96ad-4ba5-c0cc-08d8861fa8d4
+x-ms-traffictypediagnostic: BL0PR04MB4849:
+x-microsoft-antispam-prvs: <BL0PR04MB48493FADB9B654B5CF877880E7E80@BL0PR04MB4849.namprd04.prod.outlook.com>
+wdcipoutbound: EOP-TRUE
+x-ms-oob-tlc-oobclassifiers: OLM:3826;
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: m3TV7oEj/QVqiDTDl6j532yWXz7iuW8qOXrcVecp2Qem+ooravlEdhZYtXO6IKU4yEkxDk5C28bR6XveCZY0j/rzFsr9DOX9nu/ih6QkFyuEAhk0JQRG7nlyBei1IfKrr5WCDViTtuhBWEcNRx5OZUeTf/3rX30NwQHSpU6651+rDuIXY5krxTxiKZjITTc6Lc0daFWKo2YVbwEuMHbb5JGX1F6DjPp5uZHQ23GoDsDhgiR630HR7e+4y/Fqh/pwPIGVd6RqChQFRc6vTf0pra+ooKrRAs6uR4MVG1eUoBw7Kkr7c7IGmIVM8cPIGjU+NoIMxtGdqOdZ30XBXxU0/A==
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:BL0PR04MB6514.namprd04.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(6029001)(4636009)(136003)(346002)(366004)(376002)(39860400002)(396003)(4326008)(71200400001)(2906002)(52536014)(86362001)(8936002)(186003)(54906003)(76116006)(6506007)(6916009)(66556008)(33656002)(53546011)(478600001)(8676002)(9686003)(66946007)(4744005)(64756008)(316002)(91956017)(66476007)(7696005)(55016002)(5660300002)(66446008);
+ DIR:OUT; SFP:1102; 
+x-ms-exchange-antispam-messagedata: Mx4O9PvqqSORDDdBJvPqlMWFU8zqbM5uzi6udgSTvcM/FHyQmWgg8h6Uv9N+EUMxv+loIK+wsASfY99/QrYJ8zXGeLutqTdr1oAIuq4g5coG0nKsCzaHuK11BvSNodTGxPIOIfzUFooNO7EBSkMJpAfojD5i/Bjxhjory/XEobmYDHcZ64t6hFzHZord7w6s0cTpGnimLVhr6oHGY+VlYdy17TSUTEXvU87K5/UPjddPCwSxzutGz3mV1OPCgv37xPXP9F0HSqzvNofOwdGrtpuyHmzPDUE1rsZkH5GpsZjDYT++kGKcrX/BNl3Q8tO9l7GrSgc6MZhXyA2y6KJjGtmaPgxg/ifNlNYS5J6GFRkbQCHEcRrxpPhVyOijjWagoZAIviltFvLywl0/1TObYqYLQrmSbrs30Fqac3ImwVlk/vIjgw+g7fzaY/ybBP9ke1U+Jh0s96hEWevsQBkxvTCFQJQfjeNOtQWwfTwuCnptEzzkVqyUNXWXmwY34e6EVvLIMBuIwkATsC7LLTnyEOTaomtVhoPJwSaXr2YCE+lnoUewQWG7WY3mMsN4EQL5m9z8hivjP05zDwELSsUWiCtoYuJSKpTBAtj0CMlLzlprrk1NTjrXPZPm+yI+HtXRhNYOI8cxLAthJkZiWtLboWToumPjZw5KjqV6PWjvFQRWSYsihLt4uJyRMm5xZf2sV61FP0UrimrqiNAMWKw6iA==
+x-ms-exchange-transport-forked: True
+MIME-Version: 1.0
+X-OriginatorOrg: wdc.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BL0PR04MB6514.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e3f008cc-96ad-4ba5-c0cc-08d8861fa8d4
+X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Nov 2020 08:56:20.6045 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: BRCfsPxro3fxlbADjGUzcXEZ65VE+3kjYICFMiF+DEjHEOfb/q9RJvp76xdUu6Ntj6likFQBWIQFxathmqfXOg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL0PR04MB4849
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201111_035436_733165_286808FA 
-X-CRM114-Status: UNSURE (   9.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20201111_035629_446898_91B2B47C 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -100,20 +153,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 11, 2020 at 8:00 AM Damien Le Moal <Damien.LeMoal@wdc.com> wrote:
+On 2020/11/11 17:54, Linus Walleij wrote:
+> On Wed, Nov 11, 2020 at 8:00 AM Damien Le Moal <Damien.LeMoal@wdc.com> wrote:
+> 
+>> I just realized that I forgot to add a Fixes and CC stable tags. The patch
+>> should have:
+>>
+>> Fixes: 96868dce644d ("gpio/sifive: Add GPIO driver for SiFive SoCs")
+>> Cc: stable@vger.kernel.org
+>>
+>> Do you want me to resend the patch with the added tags ?
+> 
+> No I just moved the path to the fixes branch and added the tags.
+> 
+> Yours,
+> Linus Walleij
+> 
 
-> I just realized that I forgot to add a Fixes and CC stable tags. The patch
-> should have:
->
-> Fixes: 96868dce644d ("gpio/sifive: Add GPIO driver for SiFive SoCs")
-> Cc: stable@vger.kernel.org
->
-> Do you want me to resend the patch with the added tags ?
+Thanks !
 
-No I just moved the path to the fixes branch and added the tags.
-
-Yours,
-Linus Walleij
+-- 
+Damien Le Moal
+Western Digital Research
 
 _______________________________________________
 linux-riscv mailing list
