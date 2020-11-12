@@ -5,79 +5,76 @@ X-Spam-Level:
 X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
 	MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
-	version=3.4.0
+	URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B2E98C55ABD
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2020 09:12:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 11E89C55ABD
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2020 09:12:32 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0164421534
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2020 09:12:28 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 7F2B421534
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2020 09:12:31 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="tfT5mKGc";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sifive.com header.i=@sifive.com header.b="BFu+euti"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0164421534
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="CtuWQqad";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sifive.com header.i=@sifive.com header.b="lz89PEgH"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7F2B421534
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=hoJlD3yg8ISIXEc7/wI+ClrdW3qDREQr0idoRekV7Q0=; b=tfT5mKGccp4oDR0wgoN4dMvPW
-	Z1UkKoRRO82tXkWRpo3jy4CzEb+xS2DI+BuB6MgDxEhaigTmGNNYovdRK6ARKDUS5bPPn0bUAaqkA
-	cO8r0WenLjkDOqwJRgvvJEUQVhIu22Uf6zp+yDEtl9o8eoBujCL8HWUo7pMJMoycRALH6io2ZkawM
-	/dCcjnBSZQhIG2N+gLIXbaw1JzpfGdSQMt9YutSt2YxZ2YdK9yxriaZOSdRNkIkpB3ZnA9URM3c/N
-	dYTlH9lyxSRbHRYlp5oU1DeWJJdLtxv6dvJ//UpAblu/0etdc9UiQgADLJjaK5cQDb9DYu4bnmSjc
-	aU06MA63w==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=s9spL842zhFtyRSaIoa2XATk7f+Z5jeFNjx4O3UJnaE=; b=CtuWQqad1rsmilVx0K6tD0fQB3
+	GLq9h4ENFzjF5eB+j6gER1uogCwMfVaSJ0d5qwTpDyjLQDrtfYAaCUxxRDWS+so2mghjP6GJ2dAn2
+	K02WyeJeZ8wn9BT2gEt7yP1y0Aq/5e7bQPdrO0wqUeke6D0TY54CqIWEzzEOZxt9e/XfbduKxaxx4
+	nyEwgZsqkiuRiN4thjZSUCgBYorT1RNuHC83LZTpbPwQMhrfAhKodk0r8nqaMHcomWAjRP5hgt+po
+	wLoYIVjp6YD9inBdJi1Ts78rux12dE/A0PHVlA8banJtuac3oPbliE6Pos2EKftGXNDAYmeZ3D7Cw
+	+FWFS9zw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kd8eS-0002N9-Mw; Thu, 12 Nov 2020 09:12:20 +0000
+	id 1kd8eV-0002Na-3E; Thu, 12 Nov 2020 09:12:24 +0000
 Received: from mail-mw2nam12on2077.outbound.protection.outlook.com
  ([40.107.244.77] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kd8eP-0002M7-EQ
- for linux-riscv@lists.infradead.org; Thu, 12 Nov 2020 09:12:18 +0000
+ id 1kd8eQ-0002M7-VZ
+ for linux-riscv@lists.infradead.org; Thu, 12 Nov 2020 09:12:20 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=OOmqvkcF8x8tmMnK9w0mqZyoUi+/1pJm8ACjjQbmOQ8Sj4dmISpVO29YxTKMSGXLvZmrUEX7fX4kSZcO/8m+E6nt76p/bRywAdryaUIiyuXENhKsNvU5cV1cb3uwUA4Cr1TNp5Dxdcla/xWB6R9bsE8ztwTx0WgTagR0gbmxwQTDfc4wgUKgIGl+iW+Or3FxlFDuwxXaaXlUOrrh4QHV9S5yrqaff3tkst4YF1vnEmgTbp9ne2FyR4cDHworAmsnhIk4Nq1uMsDOGmyOyY2SpCxYCk/9N3po21IqqbCYjjrvySdPOe7Qpj6VtnE7I7Pmp9v6D6m2NAouUOMI/y3a7A==
+ b=EWaFTkVT+W6scdBp9ggDEp+ewi7eYuSKojPZmHptanx0ITSR9Bs5wsdtKd41Uw1K6TjRv65RAlDlTAzBNakT9PdAH9v+lbL8v1TpFJZXk2Sl4lak2BZXteIdMifr2s7xFerp0MXzamfVrM5y23YlyEnuEzEX/mUikZNhzT4u/1h16oWPO7msAKHi2Av3D6PqreSCJtlmLLRjcAlxIfmHpRVGlQ+0kc08u6uypPG8+xQmx+enz2cNQcM0/Oqdc8O14fD8i7EsoQ2uyJFhSarNAfJC3HY+puHp2sy+v/Dv6IX17qkV1v3lcB+2dPPyybItAhSwUgsO7bf7OswYAC85Vw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=b046VNj3IhwS0BCHOptnTZEAzIOXOM9b2618hByBYNA=;
- b=Z/5WmXy3lhga6aGS/nGPp6A8DC8K5DaAhGctOrP+8iWiwzLdbny/YfUIU5HT7SjHQ0jaUTAkohQBNDFW/JGphE0AMrvMgQjUVESltdm0yLLiv6FHbIZAxqgq5MgvOyYnTVJsbNxGuu2/XIqqxAW7rEtZFqNB4Tizik1Hoz4vFeGtqMluLA1EIj7FdodSS7Ba9q0ssVLUEcL0+9UmNftGz7OoiJ7wooFczU267YJSUTHVj2CtWQ0xNjJcqdyQDWXbl91z+R6xXvD4p4xgdpS1lDHOfX8foXwFypppktQn8aKeDWQGL+a5LvvFZLLNo04G5KzivxO4UmuUfL4qx0cfcw==
+ bh=mXsSrjeqxcYSvcr4n+QpYklVAMccsYdU96hAQy9szrY=;
+ b=UqI4ZTIx7dAkDLqR4SlTxcgs1tee/TpMAJWqm2lVosK7ZJq1S+ZhDp8SYn6LEDgjtBIDUCjon5aOYOagnKc3Vhlj8jXsk3efLyW68PhMFW3su0RZp7k5VIocRkupuAsCzH/6fogi1wzlEfXCG9I07uuLrJ9ZUs+TtrmQvu0vI6a5ct1+p/AgvcsHvfZ1CJ7CXNoV7APtaeUNJHq8M2DbbNPbnoD9iEKMgJwRc1Ma65aiU+zMjjwlIeamEXUjYvO39SZrbFdl0Y3Zya+WxzLg7nBjMHaNBeWK94J701PbR3Ex7xcNteAgXZNnKhJZsRRHkKO6kmmiIhlTKjn/pDn6Gg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=openfive.com; dmarc=pass action=none header.from=sifive.com;
  dkim=pass header.d=sifive.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=b046VNj3IhwS0BCHOptnTZEAzIOXOM9b2618hByBYNA=;
- b=BFu+eutiJNYnfRkV7qijgKfcM9Quydsjl7dIZG7Xb+QYSYrETn+OihOQPVXzwkkXM88VQhRAFO36WQF0yYEOAAiOjqNR7C66BivLAp/BQD9ElUTilh9f5Kma1uY0EwiyGt+8RalIIFkP1jTVpZwBU7ELEBSgFBYexQtLeD0noNo=
+ bh=mXsSrjeqxcYSvcr4n+QpYklVAMccsYdU96hAQy9szrY=;
+ b=lz89PEgHSyO1If8hJ8OUbknP1iDQQ+iNmzZSX3EWTNW0iK+cleJRvbP48LWwU8aLt/yzuvHmvfdgDoMhhRmaCiz23N5uZSTMamfvoTSsvysomPvJ2XdrKVwZ975UqTaMgG8sQWMxvGx7GvbYvTB7HAub52HDl6j4EaoumvIqF48=
 Authentication-Results: kernel.org; dkim=none (message not signed)
  header.d=none;kernel.org; dmarc=none action=none header.from=sifive.com;
 Received: from BY5PR13MB4453.namprd13.prod.outlook.com (2603:10b6:a03:1d1::19)
  by BY5PR13MB3617.namprd13.prod.outlook.com (2603:10b6:a03:21b::10)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3564.21; Thu, 12 Nov
- 2020 09:12:14 +0000
+ 2020 09:12:13 +0000
 Received: from BY5PR13MB4453.namprd13.prod.outlook.com
  ([fe80::2c46:9095:ba12:6513]) by BY5PR13MB4453.namprd13.prod.outlook.com
  ([fe80::2c46:9095:ba12:6513%8]) with mapi id 15.20.3564.021; Thu, 12 Nov 2020
- 09:12:14 +0000
+ 09:12:13 +0000
 From: Yash Shah <yash.shah@sifive.com>
 To: robh+dt@kernel.org,
 	paul.walmsley@sifive.com,
 	palmer@dabbelt.com
-Subject: [PATCH 2/2] RISC-V: sifive_l2_cache: Update L2 cache driver to
- support SiFive FU740
-Date: Thu, 12 Nov 2020 14:41:14 +0530
-Message-Id: <1605172274-44916-2-git-send-email-yash.shah@sifive.com>
+Subject: [PATCH 1/2] RISC-V: Update l2 cache DT documentation to add support
+ for SiFive FU740
+Date: Thu, 12 Nov 2020 14:41:13 +0530
+Message-Id: <1605172274-44916-1-git-send-email-yash.shah@sifive.com>
 X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1605172274-44916-1-git-send-email-yash.shah@sifive.com>
-References: <1605172274-44916-1-git-send-email-yash.shah@sifive.com>
 X-Originating-IP: [159.117.144.156]
 X-ClientProxiedBy: BMXPR01CA0007.INDPRD01.PROD.OUTLOOK.COM
  (2603:1096:b00:d::17) To BY5PR13MB4453.namprd13.prod.outlook.com
@@ -87,35 +84,35 @@ X-MS-Exchange-MessageSentRepresentingType: 1
 Received: from osubuntu003.open-silicon.com (159.117.144.156) by
  BMXPR01CA0007.INDPRD01.PROD.OUTLOOK.COM (2603:1096:b00:d::17) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.3541.21 via Frontend Transport; Thu, 12 Nov 2020 09:11:44 +0000
+ 15.20.3541.21 via Frontend Transport; Thu, 12 Nov 2020 09:11:39 +0000
 X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 543f3f1c-2822-4bb4-c010-08d886eafcdb
+X-MS-Office365-Filtering-Correlation-Id: 3fb37b69-d609-479d-e071-08d886eaf98b
 X-MS-TrafficTypeDiagnostic: BY5PR13MB3617:
 X-LD-Processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
 X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <BY5PR13MB3617FA5ADEC38B8CC61F06DF82E70@BY5PR13MB3617.namprd13.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:6108;
+X-Microsoft-Antispam-PRVS: <BY5PR13MB361703E5690BAA82032DD3F482E70@BY5PR13MB3617.namprd13.prod.outlook.com>
+X-MS-Oob-TLC-OOBClassifiers: OLM:6430;
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: d3paQAoMy0cS0835+P1iFiJPui5XPCFCbKcu/AQEVVGK8pDf2zKlGUxtvad1QUfujGIZNDnydedKs0K+kiiQenvKmjdZSJyrjn9k7dgtRh36kLABL77N+Y5EHWhp+uprOGjHuSMzAtfwmglswF1qbZvl7QG3pNPX9MgrPdvEk1TJxkczqCPcr2b5KmxXt/bRCaLc9uhsIFlxnHucBL1y1E2DL+S2qR/owp59FVMZEFKMgX81XNpbPC4iH+dSg/lsb9fWIo/wCl//+TvMY3p+CMqfIKBTQmdQ6ibVbnxmet9WE0w0y0joHYyieicYp/7d
+X-Microsoft-Antispam-Message-Info: j6vkFWcyXEdPicz1aSHtW0H3+XZC8T7FXMoDyLYROIHNfouuwiwbIWTLNYlEjtNICPKtjv220tVXHzMtWSaG3HMU2ZCdJ03Ucclcd3pyv+GLZVd/OJZPOTrLSiBdDK2fM7zNxeLnp+AaXaq0rgq3CC5xh5X6OyIJgRZmPLXP6fepi3y7WqIGqNn02PF564OPizcdGfxw+CzTfVR/a9l49qw3zk2FVI4psChEX2xyLWq2kJ6AvDLum7ZtgAQUXP7/ZYhS/5GPIvuZKqBG9TuR1N6bJhz+vAGyG4R+OukM9mtCr5OqU+UJvNMkqy0sf4SXB3wL1bGHL8U3GAMN5tqeaw==
 X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
  IPV:NLI; SFV:NSPM; H:BY5PR13MB4453.namprd13.prod.outlook.com; PTR:; CAT:NONE;
  SFS:(6029001)(366004)(376002)(346002)(39850400004)(396003)(136003)(7416002)(8676002)(44832011)(52116002)(83380400001)(6486002)(478600001)(6512007)(8936002)(5660300002)(6666004)(36756003)(26005)(316002)(66476007)(6506007)(186003)(16526019)(15650500001)(2616005)(42882007)(956004)(83170400001)(4326008)(2906002)(66946007)(66556008)(107886003);
  DIR:OUT; SFP:1101; 
-X-MS-Exchange-AntiSpam-MessageData: d1sEr2+dhgJxAPXt/qFDYi/mA1MOqwhQFva4LAH/u4yEaOwH7E0wNix2fJw3j+Qq1jmqEB+EY412IBLlTy9u2ci9YkOS9z32Ezi/B7wh2zd3E+DvpRV3lgdZFO46YS1itXbxnZPPRiz3ke7vnQDLI5/MrQyg1bqrn+eJ7BRgO20jGARYXR6xyentT6qLYaqewWrb8HrioUHgCEKK+/Go8bgyWPjgmOMJ/bddtsCKDs/DFpGkrML6oT/akVnMluV37BMdjoeHnSMqgyxldFcQJ4hlIDcQv3N8ZvnaZqkzk0bqlznf0m/JKRrU+Us4F1qcc1HnIpLpx5yyoS/ATl7Q0SCVDVLAzpZAxCjn2rVcRUjwlc8C2c8Hpu/6/RSI0uu1CYwL4vWWLG6C8AYcVwa1Zy6YsEGj1e9Q2W5xmEnhLTJCgkBzoN/wc4j0Khq+vEL0tIhieKnX4S0vBcoV2ztqW/orIpacuXmmu/CFdO3bB/Mf6nZWbcdjsVteqlb9uxA9tQTNgjqVxo3Ppi23GdAXhcF4mJBvq1QMbn19xHVcfHlt5dlZlKQpwoeqIHF8LQgtbDJEhu/xw8HPNnRP7Esei+fWk2yfM0XL5nYpyziMEfNQKI7vzFPRUtfxxy+X9XYsFaGG702r1Tlj1W184YUDfUL3PinomL3uwaqPQzE43AW+Ds/oRxP7hpCdlErbszAG/LKCRb0Y5uQLNAS0bU7nXQ0uOYOIfSqXWFQwXSVqgvXPJ8DO3w3e32aU7RQkGA1HtqTaH0Y6EAabx6RcmIKKQHeXgGQJ77sPDRyjMaphMNlxWzOzmAQgvrdBMiCLWLIiYX3ktjt2oiqJO8j4IBOR6RhgNn1X+XM6a7Vyi2sW8Q/x6uLJmriOusw2cBwfsYUL0xI7M5xV3NSyBAoQw0PDEA==
+X-MS-Exchange-AntiSpam-MessageData: gXmTCI/vGvVf+pZ3K8ance/wKL5ccunuyDCyGQWjZr+ZnHkl9YqJ+EeI6g3fdqPQUrCehMtFXHK//EWa8Qi128gH29pLw8z2FdM3yxKclBS131a/UfDX0yE4Ymb0+l6ueYHU0iqB862ySHRZ9THiTRqIfmOhleC2R+4lDP6ztCg1UiFpWxVUbJUZCqWme4+y0a8wpZqX3+cVHxBTjt08pgx2OC6Q0Ger/o8S4dyMmnfYSUkKmYAEAY+CMlROiLSNL1QyVWI1j5XEzzHMYAC2myHTErGouZkKO8SYVSa/ViiEamZMdaJd+D2CXd42hayoujET3mcZB0IBThSyGTPA+UvmmxdtK2tijRvV0BGNlr2//iXTT4iNhAsMGmBe/tlzD/QsLE60NVx/sDj9RZLgY0YDMgbqpJ+cEBrDp8xyX185FeOHQNIoC4SsVXsH/l3nCIrTAlOSJwpvZ5+mP/TeNCPYepbTiuGKHIn4kWTScvgpyv4qaegAD0P2/6y7ELie2fw0+GnTQQ+IPu+eVZzoOuVRakU8V7GLCaYDKpEg5WjD8CWqeQg1Fw4yCFlLqaZAXwO3xZ5G151GbkxgMmTv8VXw0ehEtVfBXEwfsLW3M+g2zLp1df2bp9znopiFi8Xv4U7Wl+LphkvAVmMW8mIbdoTLJ6PxbQ3S+MIpaDFZABWPw/A3tIcZb+SFNYjwQkx8s1DOEjDG6VPqrLDo3QK5mPrrBJ/Th5oKS/bI0mnVkeuS1rjpZBy/iPbbj8FdMmL3CepMjxkFCgXAK3QJrhCo404oyghDUNRFpDTl/361pOTW99p8lvnU79m5pXv8auNgQij+ZkOkYhSzdFTMVnq0FGVEmdn5618lvO8VuAjQWBUchzEueT16wD0Bi8Qaw4ycVQiKvlN2IEWLspdcuYgxYw==
 X-OriginatorOrg: sifive.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 543f3f1c-2822-4bb4-c010-08d886eafcdb
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3fb37b69-d609-479d-e071-08d886eaf98b
 X-MS-Exchange-CrossTenant-AuthSource: BY5PR13MB4453.namprd13.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2020 09:11:49.8143 (UTC)
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2020 09:11:44.2925 (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: YBEYG7+L8yx5mFsxQ26sEZWL18psOvXPp2e1MHvVDLLxmD5+eGB+rwqsjaihWTkwp/0o/qTyn8lyq8BO/dnP3A==
+X-MS-Exchange-CrossTenant-UserPrincipalName: BRbJroKoWCER/QPtH2my8ti1ceIGsyIeWmbjq7LuVmyyhWgI4FQ2ULGoMwUl8KgnycgrnYGPo0rIIUNDkDdhGQ==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR13MB3617
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201112_041217_752637_A15A42BD 
-X-CRM114-Status: GOOD (  18.29  )
+X-CRM114-CacheID: sfid-20201112_041219_213098_FAAC1D9B 
+X-CRM114-Status: GOOD (  10.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -137,120 +134,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SiFive FU740 has 4 ECC interrupt sources as compared to 3 in FU540.
-Update the L2 cache controller driver to support this additional
-interrupt in case of FU740-C000 chip.
+The L2 cache controller in SiFive FU740 has 4 ECC interrupt sources as
+compared to 3 in FU540. Update the DT documentation accordingly with
+"compatible" and "interrupt" property changes.
 
 Signed-off-by: Yash Shah <yash.shah@sifive.com>
 ---
- drivers/soc/sifive/sifive_l2_cache.c | 49 +++++++++++++++++++++++++++++++-----
- 1 file changed, 43 insertions(+), 6 deletions(-)
+ .../devicetree/bindings/riscv/sifive-l2-cache.yaml | 33 +++++++++++++++++-----
+ 1 file changed, 26 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/soc/sifive/sifive_l2_cache.c b/drivers/soc/sifive/sifive_l2_cache.c
-index 44d7e19..4e5e841 100644
---- a/drivers/soc/sifive/sifive_l2_cache.c
-+++ b/drivers/soc/sifive/sifive_l2_cache.c
-@@ -17,6 +17,10 @@
- #define SIFIVE_L2_DIRECCFIX_HIGH 0x104
- #define SIFIVE_L2_DIRECCFIX_COUNT 0x108
+diff --git a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml b/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+index efc0198..4873d5c 100644
+--- a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
++++ b/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+@@ -27,6 +27,7 @@ select:
+       items:
+         - enum:
+             - sifive,fu540-c000-ccache
++            - sifive,fu740-c000-ccache
  
-+#define SIFIVE_L2_DIRECCFAIL_LOW 0x120
-+#define SIFIVE_L2_DIRECCFAIL_HIGH 0x124
-+#define SIFIVE_L2_DIRECCFAIL_COUNT 0x128
+   required:
+     - compatible
+@@ -34,7 +35,9 @@ select:
+ properties:
+   compatible:
+     items:
+-      - const: sifive,fu540-c000-ccache
++      - enum:
++          - sifive,fu540-c000-ccache
++          - sifive,fu740-c000-ccache
+       - const: cache
+ 
+   cache-block-size:
+@@ -51,12 +54,6 @@ properties:
+ 
+   cache-unified: true
+ 
+-  interrupts:
+-    description: |
+-      Must contain entries for DirError, DataError and DataFail signals.
+-    minItems: 3
+-    maxItems: 3
+-
+   reg:
+     maxItems: 1
+ 
+@@ -67,6 +64,28 @@ properties:
+       The reference to the reserved-memory for the L2 Loosely Integrated Memory region.
+       The reserved memory node should be defined as per the bindings in reserved-memory.txt.
+ 
++if:
++  properties:
++    compatible:
++      contains:
++        const: sifive,fu540-c000-ccache
 +
- #define SIFIVE_L2_DATECCFIX_LOW 0x140
- #define SIFIVE_L2_DATECCFIX_HIGH 0x144
- #define SIFIVE_L2_DATECCFIX_COUNT 0x148
-@@ -29,7 +33,7 @@
- #define SIFIVE_L2_WAYENABLE 0x08
- #define SIFIVE_L2_ECCINJECTERR 0x40
- 
--#define SIFIVE_L2_MAX_ECCINTR 3
-+#define SIFIVE_L2_MAX_ECCINTR 4
- 
- static void __iomem *l2_base;
- static int g_irq[SIFIVE_L2_MAX_ECCINTR];
-@@ -37,6 +41,7 @@ static struct riscv_cacheinfo_ops l2_cache_ops;
- 
- enum {
- 	DIR_CORR = 0,
-+	DIR_UNCORR,
- 	DATA_CORR,
- 	DATA_UNCORR,
- };
-@@ -93,6 +98,7 @@ static void l2_config_read(void)
- 
- static const struct of_device_id sifive_l2_ids[] = {
- 	{ .compatible = "sifive,fu540-c000-ccache" },
-+	{ .compatible = "sifive,fu740-c000-ccache" },
- 	{ /* end of table */ },
- };
- 
-@@ -155,6 +161,15 @@ static irqreturn_t l2_int_handler(int irq, void *device)
- 		atomic_notifier_call_chain(&l2_err_chain, SIFIVE_L2_ERR_TYPE_CE,
- 					   "DirECCFix");
- 	}
-+	if (irq == g_irq[DIR_UNCORR]) {
-+		add_h = readl(l2_base + SIFIVE_L2_DIRECCFAIL_HIGH);
-+		add_l = readl(l2_base + SIFIVE_L2_DIRECCFAIL_LOW);
-+		/* Reading this register clears the DirFail interrupt sig */
-+		readl(l2_base + SIFIVE_L2_DIRECCFAIL_COUNT);
-+		atomic_notifier_call_chain(&l2_err_chain, SIFIVE_L2_ERR_TYPE_UE,
-+					   "DirECCFail");
-+		panic("L2CACHE: DirFail @ 0x%08X.%08X\n", add_h, add_l);
-+	}
- 	if (irq == g_irq[DATA_CORR]) {
- 		add_h = readl(l2_base + SIFIVE_L2_DATECCFIX_HIGH);
- 		add_l = readl(l2_base + SIFIVE_L2_DATECCFIX_LOW);
-@@ -179,9 +194,9 @@ static irqreturn_t l2_int_handler(int irq, void *device)
- 
- static int __init sifive_l2_init(void)
- {
-+	int i, k, rc, intr_num, offset = 0;
- 	struct device_node *np;
- 	struct resource res;
--	int i, rc;
- 
- 	np = of_find_matching_node(NULL, sifive_l2_ids);
- 	if (!np)
-@@ -194,11 +209,33 @@ static int __init sifive_l2_init(void)
- 	if (!l2_base)
- 		return -ENOMEM;
- 
--	for (i = 0; i < SIFIVE_L2_MAX_ECCINTR; i++) {
--		g_irq[i] = irq_of_parse_and_map(np, i);
--		rc = request_irq(g_irq[i], l2_int_handler, 0, "l2_ecc", NULL);
-+	intr_num = of_property_count_u32_elems(np, "interrupts");
-+	if (!intr_num) {
-+		pr_err("L2CACHE: no interrupts property\n");
-+		return -ENODEV;
-+	}
++then:
++  properties:
++    interrupts:
++      description: |
++        Must contain entries for DirError, DataError and DataFail signals.
++      minItems: 3
++      maxItems: 3
 +
-+	/*
-+	 * Only FU540 have 3 interrupts. Rest all other variants have
-+	 * 4 interrupts (+dirfail). Therefore offset is required to skip
-+	 * 'dirfail' interrupt entry in case of FU540
-+	 */
-+	if (of_device_is_compatible(np, "sifive,fu540-c000-ccache"))
-+		offset = 1;
++else:
++  properties:
++    interrupts:
++      description: |
++        Must contain entries for DirError, DirFail, DataError, DataFail signals.
++      minItems: 4
++      maxItems: 4
 +
-+	g_irq[0] = irq_of_parse_and_map(np, 0);
-+	rc = request_irq(g_irq[0], l2_int_handler, 0, "l2_ecc", NULL);
-+	if (rc) {
-+		pr_err("L2CACHE: Could not request IRQ %d\n", g_irq[0]);
-+		return rc;
-+	}
-+
-+	for (i = 1; i < intr_num; i++) {
-+		k = i + offset;
-+		g_irq[k] = irq_of_parse_and_map(np, i);
-+		rc = request_irq(g_irq[k], l2_int_handler, 0, "l2_ecc", NULL);
- 		if (rc) {
--			pr_err("L2CACHE: Could not request IRQ %d\n", g_irq[i]);
-+			pr_err("L2CACHE: Could not request IRQ %d\n", g_irq[k]);
- 			return rc;
- 		}
- 	}
+ additionalProperties: false
+ 
+ required:
 -- 
 2.7.4
 
