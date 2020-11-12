@@ -2,70 +2,75 @@ Return-Path: <SRS0=fdZL=ES=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-10.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 43E24C2D0E4
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2020 19:08:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8F05EC388F7
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2020 20:04:10 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C075520B80
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2020 19:08:57 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 1BEEA207DE
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2020 20:04:10 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="IJqpl5/W";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="AJ2VewNY"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C075520B80
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="e+afHO0S"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1BEEA207DE
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=intel.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=wkULhrTPi0Zqt+3+t1KNav2wPspgVTp9WR3aN9y7eMc=; b=IJqpl5/WJ/dIptIzWF3S7ZBjL
-	7e7BeMRUmng9JFy2r013wyLR1I/KyuneWQAz2QrCrR30wGZW3p5tvpr6ajBfCDWeOf/HX8EqV4c+3
-	Q3YmDIjqx+dvMxdXgtzOqCAn8/LvwpisrD4Hz8oHrpbjdUi5K3tVJ6+edUjrDWsYQ7UuqGZTDKz2F
-	a6rD9jXz+adMNf8H5pM519bAvamzXzSLC83G/lAW0VDFQZGcOsVCPeavF2oCjX4Ip6GWpCXE1dR4Z
-	OmrCK7MqOxmxv/BalXZW3UU74BWTiBsEYjvoiuhytmyczd3uo3nc5tEsD1HRntSjoJvy1Db00xEHD
-	3RRVXlimw==;
+	 bh=LZpt/15pr9v3gBuIkOl/B+I4ne8ynDUfFjqKngngfUI=; b=e+afHO0SQFcid9YGjI/FI6Xsm
+	nFP9z3rzFLQXbIPbeWEniHvb0R9sn9LoyICQ+kB1jFttd11qbrdi56k/gTzDAk+hEwxbXvua6Rzs3
+	y1Jre0U65ZdG93Mjbj3rpqXvHVDPBKXeNy9gllVEt2aVnTyh3Ci+Sa/pOkdKcI+k/I1KazFw3bK6z
+	0HQln7klddlvkOVNVU4lzrudT/0kd/zAT9vLhxPZaq5L69JzR7nP9WfSxVQvOi7bUXmAT5NniV4ck
+	wz9OLVcWpjGEbudhhQEQr3yBz2eB43cPJezWOlfb1jbJg9q1kL63xdMoqIsC7p8cknKBA4ntlyei3
+	40Ho3G37A==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kdHxj-0007Ac-3u; Thu, 12 Nov 2020 19:08:51 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1kdIp9-00059A-Cu; Thu, 12 Nov 2020 20:04:03 +0000
+Received: from mga12.intel.com ([192.55.52.136])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kdHxc-00077p-F6; Thu, 12 Nov 2020 19:08:45 +0000
-Received: from kernel.org (unknown [77.125.7.142])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id A8D5220B80;
- Thu, 12 Nov 2020 19:08:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1605208123;
- bh=xV//yxXQnSWrF+/xUfBz0sg6IFqo/YMvvh+jTSmycog=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=AJ2VewNYER4w3booQ/KucmJAPZK4Nm1reG5FJeJdC37e1oDo0gYmUR751y+nFk/Fk
- KTZnkXVxvIaPUC+PE+K9dv1EbVW82mMGVB67vT5tdx3BmBSmhgCrAaqtZp5v8kMCfS
- p3TcAbQ8jXyADENOO6QdpyUsgBOodjaN9MdE79nU=
-Date: Thu, 12 Nov 2020 21:08:27 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: David Hildenbrand <david@redhat.com>
-Subject: Re: [PATCH v8 2/9] mmap: make mlock_future_check() global
-Message-ID: <20201112190827.GP4758@kernel.org>
-References: <20201110151444.20662-1-rppt@kernel.org>
- <20201110151444.20662-3-rppt@kernel.org>
- <9e2fafd7-abb0-aa79-fa66-cd8662307446@redhat.com>
- <20201110180648.GB4758@kernel.org>
- <3194b507-a85f-965a-e0eb-512a79ede6a9@redhat.com>
+ id 1kdIp6-000580-Cn
+ for linux-riscv@lists.infradead.org; Thu, 12 Nov 2020 20:04:01 +0000
+IronPort-SDR: 61ybTCkUT74gBfV/DhciFkz0x74mXsWCVPjETS4lQwW3GBEAF8tFXZxpbZC9QTH2p6y1M0Xa5U
+ 3shxdnLsOpUg==
+X-IronPort-AV: E=McAfee;i="6000,8403,9803"; a="149642861"
+X-IronPort-AV: E=Sophos;i="5.77,472,1596524400"; d="scan'208";a="149642861"
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from orsmga005.jf.intel.com ([10.7.209.41])
+ by fmsmga106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 12 Nov 2020 12:03:51 -0800
+IronPort-SDR: oOuoTu/7vhOTPZURxBJfR+3O5Vhizlr+P/M/kjNMij7Y+CaMuXLS6Ut1s+uZjAItUlxJKeDDZ5
+ E3U5Oy2Ukmlg==
+X-IronPort-AV: E=Sophos;i="5.77,472,1596524400"; d="scan'208";a="542384739"
+Received: from geigerri-mobl.ger.corp.intel.com (HELO
+ btopel-mobl.ger.intel.com) ([10.252.34.175])
+ by orsmga005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 12 Nov 2020 12:03:49 -0800
+Subject: Re: Status for RISC-V Summit
+To: Drew Fustini <pdp7pdp7@gmail.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ David Abdurachmanov <david.abdurachmanov@gmail.com>,
+ Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>
+References: <CAEf4M_AUtGb3NXb+hh6CuY0_y26VF+bkVeZHbcBCbrA+HKRj_Q@mail.gmail.com>
+From: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@intel.com>
+Message-ID: <79e3fe40-fff7-341e-420c-50b27d63803e@intel.com>
+Date: Thu, 12 Nov 2020 21:03:43 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.3.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <3194b507-a85f-965a-e0eb-512a79ede6a9@redhat.com>
+In-Reply-To: <CAEf4M_AUtGb3NXb+hh6CuY0_y26VF+bkVeZHbcBCbrA+HKRj_Q@mail.gmail.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201112_140844_776284_C3621092 
-X-CRM114-Status: GOOD (  34.82  )
+X-CRM114-CacheID: sfid-20201112_150400_594137_646F161C 
+X-CRM114-Status: GOOD (  17.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -77,118 +82,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
- linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>,
- Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
- Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
- Will Deacon <will@kernel.org>, x86@kernel.org,
- Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
- Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
- Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
- Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
- linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-fsdevel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 12, 2020 at 05:22:00PM +0100, David Hildenbrand wrote:
-> On 10.11.20 19:06, Mike Rapoport wrote:
-> > On Tue, Nov 10, 2020 at 06:17:26PM +0100, David Hildenbrand wrote:
-> > > On 10.11.20 16:14, Mike Rapoport wrote:
-> > > > From: Mike Rapoport <rppt@linux.ibm.com>
-> > > > 
-> > > > It will be used by the upcoming secret memory implementation.
-> > > > 
-> > > > Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
-> > > > ---
-> > > >    mm/internal.h | 3 +++
-> > > >    mm/mmap.c     | 5 ++---
-> > > >    2 files changed, 5 insertions(+), 3 deletions(-)
-> > > > 
-> > > > diff --git a/mm/internal.h b/mm/internal.h
-> > > > index c43ccdddb0f6..ae146a260b14 100644
-> > > > --- a/mm/internal.h
-> > > > +++ b/mm/internal.h
-> > > > @@ -348,6 +348,9 @@ static inline void munlock_vma_pages_all(struct vm_area_struct *vma)
-> > > >    extern void mlock_vma_page(struct page *page);
-> > > >    extern unsigned int munlock_vma_page(struct page *page);
-> > > > +extern int mlock_future_check(struct mm_struct *mm, unsigned long flags,
-> > > > +			      unsigned long len);
-> > > > +
-> > > >    /*
-> > > >     * Clear the page's PageMlocked().  This can be useful in a situation where
-> > > >     * we want to unconditionally remove a page from the pagecache -- e.g.,
-> > > > diff --git a/mm/mmap.c b/mm/mmap.c
-> > > > index 61f72b09d990..c481f088bd50 100644
-> > > > --- a/mm/mmap.c
-> > > > +++ b/mm/mmap.c
-> > > > @@ -1348,9 +1348,8 @@ static inline unsigned long round_hint_to_min(unsigned long hint)
-> > > >    	return hint;
-> > > >    }
-> > > > -static inline int mlock_future_check(struct mm_struct *mm,
-> > > > -				     unsigned long flags,
-> > > > -				     unsigned long len)
-> > > > +int mlock_future_check(struct mm_struct *mm, unsigned long flags,
-> > > > +		       unsigned long len)
-> > > >    {
-> > > >    	unsigned long locked, lock_limit;
-> > > > 
-> > > 
-> > > So, an interesting question is if you actually want to charge secretmem
-> > > pages against mlock now, or if you want a dedicated secretmem cgroup
-> > > controller instead?
-> > 
-> > Well, with the current implementation there are three limits an
-> > administrator can use to control secretmem limits: mlock, memcg and
-> > kernel parameter.
-> > 
-> > The kernel parameter puts a global upper limit for secretmem usage,
-> > memcg accounts all secretmem allocations, including the unused memory in
-> > large pages caching and mlock allows per task limit for secretmem
-> > mappings, well, like mlock does.
-> > 
-> > I didn't consider a dedicated cgroup, as it seems we already have enough
-> > existing knobs and a new one would be unnecessary.
-> 
-> To me it feels like the mlock() limit is a wrong fit for secretmem. But
-> maybe there are other cases of using the mlock() limit without actually
-> doing mlock() that I am not aware of (most probably :) )?
-
-Secretmem does not explicitly calls to mlock() but it does what mlock()
-does and a bit more. Citing mlock(2):
-
-  mlock(),  mlock2(),  and  mlockall()  lock  part  or all of the calling
-  process's virtual address space into RAM, preventing that  memory  from
-  being paged to the swap area.
-
-So, based on that secretmem pages are not swappable, I think that
-RLIMIT_MEMLOCK is appropriate here.
-
-> I mean, my concern is not earth shattering, this can be reworked later. As I
-> said, it just feels wrong.
-> 
-> -- 
-> Thanks,
-> 
-> David / dhildenb
-> 
-
--- 
-Sincerely yours,
-Mike.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMjAyMC0xMS0xMiAxMzo0OCwgRHJldyBGdXN0aW5pIHdyb3RlOgo+IEhlbGxvLCBJIGFtIHVw
+ZGF0aW5nIG15IEVtYmVkZGVkIExpbnV4IENvbmZlcmVuY2UgdGFsayBhYm91dCBMaW51eCBvbgo+
+IFJJU0MtViBmb3IgdGhlIFJJU0MtViBTdW1taXQgaW4gRGVjZW1iZXIgWzFdLiAgSSB3YW50IHRv
+IGhhdmUgYSBzbGlkZQo+IG9yIHR3byB0aGF0IGNhcHR1cmVzIHRoZSByZWNlbnQgYWNjb21wbGlz
+aG1lbnRzIGZvciBSSVNDLVYgTGludXgKPiBzdXBwb3J0IGFuZCB3aGF0IGlzIG9uIHRoZSBob3Jp
+em9uLgo+IAo+IEkgY3VycmVudCBoYXZlIGxpc3RlZCBhcyByZWNlbnQgYW5kIG9uZ29pbmcgd29y
+azoKPiAKPiAtIEtWTSAoQW51cCBQYXRlbC9BdGlzaCBQYXRyYSkKPiAgICBbd2FpdGluZyBvbiBy
+YXRpZmljYXRpb24gb2YgSHlwZXJ2aXNvciBzcGVjXQo+IC0gZUJQRiBKSVQgKEJqw7ZybiBUw7Zw
+ZWwpCj4gLSAgS0dEQiBzdXBwb3J0IChWaW5jZW50IENoZW4pCj4gLSAga2V4ZWMva2R1bXAgc3Vw
+cG9ydCAoTmljayBLb3NzaWZpZGlzKQo+IC0ga3Byb2Jlcy9rcmV0cHJvYmVzIChHdW8gUmVuKQo+
+IC0gZ2VuZXJpYyB2RFNPIHN1cHBvcnQKPiAtIHN5c3pjYWxsZXIgc3VwcG9ydAo+IC0gYnVpbGQg
+d2l0aCBMTFZNL2NsYW5nCj4gCj4gSSB3b3VsZCByZWFsbHkgYXBwcmVjaWF0ZSBhbnkgZmVlZGJh
+Y2sgb24gd2hhdCBJIHNob3VsZCBhZGQsIG1vZGlmeSBvciByZW1vdmUuCj4KCldoYXQgYSBuaWNl
+IHNsaWRlIGRlY2ssIERyZXchIExvb2tpbmcgZm9yd2FyZCB0byB0aGUgc3VtbWl0IHByZXNlbnRh
+dGlvbi4KCk9uIHRoZSBlQlBGIHNpZGUgb2YgdGhpbmdzLCB3ZSd2ZSBnYWluZWQgUlZDIHN1cHBv
+cnQuIEFzIHlvdSBrbm93IEJQRgpyZWFsbHkgc2hpbmVzIGluIHRoZSB0cmFjaW5nIHNpZGUsIHNv
+IEknbSBwZXJzb25hbGx5IHZlcnkgZXhjaXRlZCB0aGF0ClJlbiBpcyBzdGlsbCB3b3JraW5nIG9u
+IGtwcm9iZXMgLS0gaG9wZWZ1bGx5IGl0J2xsIGJlIG1lcmdlZCB0aGUgbmV4dAp3aW5kb3cuIFdo
+ZW4ga3Byb2JlcyBsYW5kIHdlIGNhbiB1c2UgYnBmdHJhY2UgWzJdIG9uIFJJU0MtVi4gSXQnbGwg
+bWFrZQpwZXJmIGEgd2hvbGUgbG90IG1vcmUgdXNhYmxlIGFzIHdlbGwuCgpFbWlsIFJlbm5lciBC
+ZXJ0aGluZyBhZGRlZCBqdW1wLWxhYmVsIHN1cHBvcnQuCgouLi5idXQgdGhhdCdzIHByb2JhYmx5
+IHRvbyBtdWNoIGRldGFpbCBmb3IgdGhlIGRlY2suIDotUAoKCkknbGwgdGFrZSBhIG1vcmUgZGV0
+YWlsZWQgbG9vaywgYW5kIGdldCBiYWNrIGlmIEkgaGF2ZSBhbnkgZmVlZGJhY2suCgoKQ2hlZXJz
+LApCasO2cm4KClsyXSBodHRwczovL2dpdGh1Yi5jb20vaW92aXNvci9icGZ0cmFjZQoKPiBUaGFu
+ayB5b3UsCj4gRHJldwo+IAo+IFsxXSBodHRwczovL2RvY3MuZ29vZ2xlLmNvbS9wcmVzZW50YXRp
+b24vZC8xbUQteVBkLXpCLUROWFZUVE5XR2QyMkVadVNpOV80aGNKR0hZenJEUUxqVS9lZGl0P3Vz
+cD1zaGFyaW5nCj4gCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
+Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
+c2N2Cg==
