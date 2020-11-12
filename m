@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
 	URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DC346C388F7
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EC98FC61DD8
 	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2020 12:01:49 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 66F0E20872
+	by mail.kernel.org (Postfix) with ESMTPS id 5679F2085B
 	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2020 12:01:49 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="l9sh/HSs";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sifive.com header.i=@sifive.com header.b="gsBsi+Lz"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 66F0E20872
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Xc7LaD9e";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sifive.com header.i=@sifive.com header.b="KF9Tkw1V"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5679F2085B
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,54 +26,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=0xr77AzR5M0CqKZ/sD5Gphvk50Lk01MxjQYUsbUZOwc=; b=l9sh/HSsSxg+0XpXxIVr37wZM
-	RVHGeYfNfYGxTqbL+cCyL/paLHxMvge1BnNkrgvbgLYaLy+RYY6K8PiqyUtAsMJXvsu/vOrmxJAKc
-	isPfgv6R4IC8IhfN3NpVxECNnHBNPNuhd4RKoo0wZNJiAVtLYpnNPOzTknvJpu5y7V5UtlVXy11Bm
-	GThWjdOghdLCxnWVlU5N3Z74gZwwHK+roJzIOT0cRj0Ms0ExJuYPad5i/aMgizYsZz/yprBy69h7o
-	vrYiRa06oLKj8H7kwMsYMomQsE8xk1bAOoMyX0YP03NXeA5AEZ5ul6StoICqA6LAkPQgGVcTUEYYb
-	L8z0qPPiQ==;
+	 bh=6L6oV+JqRIhnwWqxRumOnhVUwT+J5YT/2zHxxKaTrRQ=; b=Xc7LaD9eqBPjm/VU/RMgAmFlh
+	RUH4tROHFRFzNzWr0Ex3GpvfxTJebfPzg0ii5gleND8pcw2r8zmD1goqYM0VxTDJST2WgNp6LCIUm
+	k2AiIja0XnFS7JcrbPhVspW5awB6/U2ZY8pcC/ORN1llzGkxm5yU80UOkl4P0BSD2WLyKexV9qAGe
+	Ajb4u/7PPe8EJdB34LAVF3+e4vUNXEYONj/OIoV7jtobjgTt6o6YwJcf5dN/1Nz1oW1/KFom2/mxv
+	XyB6VYY5JFJ+ImFgTMYb53YUMpzFVV7Wooaw8W62tChS9P92oCtpWdZw6qBJdAGlZKsGbzC7WDs2s
+	aPLSqHXGQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kdBIJ-0001IE-5g; Thu, 12 Nov 2020 12:01:39 +0000
+	id 1kdBII-0001Ht-CE; Thu, 12 Nov 2020 12:01:38 +0000
 Received: from mail-bn8nam11on2040.outbound.protection.outlook.com
  ([40.107.236.40] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kdBIF-0001FR-2G
- for linux-riscv@lists.infradead.org; Thu, 12 Nov 2020 12:01:36 +0000
+ id 1kdBIC-0001FR-Ee
+ for linux-riscv@lists.infradead.org; Thu, 12 Nov 2020 12:01:34 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Hazzx9HYIbfxUSFabvSsaTrufBIdxGH4/BIE+haFXu9N/wDbSdmxu3SskdVMqy8Gg2iOGYK+ijBP2aZNFykB8lS82rXArERJHPuDDn8UfyQpWRE1ybAKZiVmJrWujoc52XIRSuDIdooHmmCOFoW6F1IipWE8DUJMXbCibzqZnIBEXWU/pIf21JZvHQ1asa5yFTsKpbY7sDEOG4DdtDQ5XAPixWD/CGn/dsEUVyij2+QWmgnMCcyOXTVo9A2gSNf132uveD/N1YAfTgFClPwLu1nASq1GyThMiEMt2QsNm7cBYL4CKOOlUg06+/cLrf0xxgZfVr/SmsbBbjPCq5IJPg==
+ b=CImiXrdV1zE/TBnDXH9bPxZPJAvk3tE6y1p02BgyLgMdr82qIYc5fBW2ZNhb0Qme2JXt+1hmSkjFURBJPZTWmk7SocDG3bivdLG7n6/BlbCEEZHNF0I5Czo4KC0usEU4bG93aixKZJFDSW/oIQAunJE3yYOUB+LRbjewgoGfHNPbcRvYsYa4AzmHAz+f1OKz9C9ToomG3l+RsgiB+kcD11hpgFRxTgYaQEgNd3g8EKC2MqXyiUKe8dzIe56DcIW0T2Gudy8RqDg/GJATUjrHfKogQINF2EodurOX4vr5aWd5CtpRYQJsyu9ZWLTLVgVzj0XnJpU3AMRYDNtefTVlVw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jk35HmHaCh8T/ew9e7fqwsiYaRqeL7aGgmL8crUZzWM=;
- b=Yolqj4hGvRY900W0G4cJJbvyXzycQFxWJrEoT4Jq/mHQ9i19+/WZ0K2q81+w3tgZ1Gl4RI8NJ4I1IRxzXZJdMKb3xOSMtmZT/7LpWP/DYIL4/M4B/aX0MkeBqdsMQtOtJW9sv0CTJI1qr751953lZ4lIgumaGkpAQ6OiRszLTwS8EInIbjAfSxciwysVjE8IfGqRRzXV/XBGx3yYdWJDW7x0Iuhtng8y2bK1qHiYj8/53N7bdb7PCcJNj97R4eOxtNgCIXuSNOjKTqSuHj+Aq3Q/x+HGpImhtVNyEW9nCHhfPy1+ImpsdeAU7TZS19pocLQ6j5YQL9B4RmYj5Ox8hA==
+ bh=BMMYti2sAncxNQC++YVn/6QrK6d5QOx7DpOdAZRI5/g=;
+ b=i/jfW5qSDPxCdF1v7B3w9VcMQLpusJFm98X2ZOnj8Rdb2CIBn0Idr8eAGTRa68DZxZhGuiLj+YbSUv5ILIwF2POSS1yNkrfI6R/GMO/HY/iiqTmld6oTTqf/2vkhKqmy7tYwLEte/JhSiEjbQUZu7HbJHiAceS3NT3EANJxvp5n4VMLRlsvMYAHoif+uA4ff4kdQ2yfv9o0IL5GmX8a0dKSwyy9AC9C+tu/dbCHXQvnkQgvlj+t5FcJbzxz0Zfj/ifvGDEyIlqxtkdX0RI3MaO/lhPQ6YIGRxL4ES5jKAnVYj6yoeyhn2iN1Aa9Zm2yBkcJgOZ4aCSpt/guVfFQojg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=openfive.com; dmarc=pass action=none header.from=sifive.com;
  dkim=pass header.d=sifive.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jk35HmHaCh8T/ew9e7fqwsiYaRqeL7aGgmL8crUZzWM=;
- b=gsBsi+LzaWb1ThqugqO2Y1y5ieYXILND9kLN96UOhavDtbdprmg8e2o73RRGltRkc6j1KEh6NHI23YnAQ4uD024z8272iCBnyxulqO2CMRwSWO7MXPItxUsw0yWlk9lX9XQjoCNPxBKFikB4srkXYteNB3aa19hQtJD+i0O2Fq0=
+ bh=BMMYti2sAncxNQC++YVn/6QrK6d5QOx7DpOdAZRI5/g=;
+ b=KF9Tkw1VyIee6aa32YHkpMjFNXFEyL5IQ5wEpFoj7vvvxh3kGRIPuEhY33VziWCe5qx0DO4AYqT7hSBQ3G+ESFyJ7RDJOdkPRQ/A8vjM9LWnBxzpwDSGEszKCAy8SmRfY3ufBhO2b7PYDd2VZWNs6H0FKBc1BYYliM4xo4YNTrE=
 Authentication-Results: kernel.org; dkim=none (message not signed)
  header.d=none;kernel.org; dmarc=none action=none header.from=sifive.com;
 Received: from BY5PR13MB4453.namprd13.prod.outlook.com (2603:10b6:a03:1d1::19)
  by BYAPR13MB2392.namprd13.prod.outlook.com (2603:10b6:a02:c5::12)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3541.10; Thu, 12 Nov
- 2020 12:01:34 +0000
+ 2020 12:01:29 +0000
 Received: from BY5PR13MB4453.namprd13.prod.outlook.com
  ([fe80::2c46:9095:ba12:6513]) by BY5PR13MB4453.namprd13.prod.outlook.com
  ([fe80::2c46:9095:ba12:6513%8]) with mapi id 15.20.3564.021; Thu, 12 Nov 2020
- 12:01:34 +0000
+ 12:01:29 +0000
 From: Yash Shah <yash.shah@sifive.com>
 To: robh+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
  bp@alien8.de, mchehab@kernel.org, tony.luck@intel.com, james.morse@arm.com,
  rric@kernel.org
-Subject: [PATCH 3/3] EDAC/sifive: Add support for SiFive BEU in SiFive
- platform EDAC
-Date: Thu, 12 Nov 2020 17:30:57 +0530
-Message-Id: <1605182457-86046-3-git-send-email-yash.shah@sifive.com>
+Subject: [PATCH 2/3] soc: sifive: beu: Add support for SiFive Bus Error Unit
+Date: Thu, 12 Nov 2020 17:30:56 +0530
+Message-Id: <1605182457-86046-2-git-send-email-yash.shah@sifive.com>
 X-Mailer: git-send-email 2.7.4
 In-Reply-To: <1605182457-86046-1-git-send-email-yash.shah@sifive.com>
 References: <1605182457-86046-1-git-send-email-yash.shah@sifive.com>
@@ -86,35 +85,35 @@ X-MS-Exchange-MessageSentRepresentingType: 1
 Received: from osubuntu003.open-silicon.com (159.117.144.156) by
  BMXPR01CA0024.INDPRD01.PROD.OUTLOOK.COM (2603:1096:b00:d::34) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.3541.21 via Frontend Transport; Thu, 12 Nov 2020 12:01:29 +0000
+ 15.20.3541.21 via Frontend Transport; Thu, 12 Nov 2020 12:01:24 +0000
 X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: df0bbe6f-793c-4a44-6e5d-08d88702b33b
+X-MS-Office365-Filtering-Correlation-Id: 268ed3b7-d3c1-4cab-e73a-08d88702b055
 X-MS-TrafficTypeDiagnostic: BYAPR13MB2392:
 X-LD-Processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
 X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <BYAPR13MB2392CFD8BA443A551021D53F82E70@BYAPR13MB2392.namprd13.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:849;
+X-Microsoft-Antispam-PRVS: <BYAPR13MB2392B95BBD0387CD4D22A27382E70@BYAPR13MB2392.namprd13.prod.outlook.com>
+X-MS-Oob-TLC-OOBClassifiers: OLM:4125;
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: X0EQxBPUztdy6vmIwKz8JNyZtOmmckF2KJ7zznoosPWk3e1KZH7tR0u6FqjtXfa1k7m3pUw4PGDTbDvfTv9T9hk7UOiztzGh+/jLSOn0cVAvtTeVS8YUi1z9uONBP2t1yyY5bA77TKo/fZoxvsuR9PTqBZbBkAzqi0q6+k+8zPOjGNB7dB65dOyjYfh9N4r7Iuqyl70VHsVdT8g0Jty2ZNwqgBioawVpygKxtcTcUSasb4IdCqiZxTRqs6TzHtRQq2F49XTdQf6qDJXzUc5VoEY32Mk2o9srreeQ1c68uU7BdA0C7Jv9VmqKZx5T2sUJmQyueke/VVuVaJ0jyWEjug==
+X-Microsoft-Antispam-Message-Info: Qqcqc/Oz1j9ZiiNdG8CkAYtIWwzqJsw16vYhzR4JopG0vadARe/WKDOLT5u5DmsRV+skoLIBaozR4XAjpqxelo5XpFLZoXhE2wlTaMTfbNbiE/s+WZAMzJKXq3on1kmqmWlA0J6zoB/I5yzMGZN6H7yAKS+SW/TY5x9Hh2qXNgInLVnfOHi17mRkVLrHVeP8uCQ3I7n62b3XLOsAI/tKSbkeQa9qKslrm81Di5UQ0Rk/PvtFd2bH6d9XLKd6XsrVrNKgzEYaJodK1E64o5chBCVHv8Bseltsaw9vmwpYo0UpL2SF1bFqhnqztLUcmNAhZaTwzLJLyGL2R3dPXxKxGQ==
 X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
  IPV:NLI; SFV:NSPM; H:BY5PR13MB4453.namprd13.prod.outlook.com; PTR:; CAT:NONE;
  SFS:(6029001)(346002)(376002)(396003)(39850400004)(136003)(366004)(8936002)(42882007)(478600001)(5660300002)(66556008)(66476007)(6666004)(6506007)(316002)(36756003)(66946007)(6512007)(44832011)(26005)(16526019)(52116002)(107886003)(2906002)(6486002)(7416002)(83170400001)(83380400001)(8676002)(4326008)(956004)(186003)(2616005);
  DIR:OUT; SFP:1101; 
-X-MS-Exchange-AntiSpam-MessageData: 4AY3H0yKNECUdtIdaU4LfaGPFjtueYoIOL5wogc6UN3WXsHvacFAl1qkXOep6/qHWatLTk0Lcty4v/3EEWL9OTsKY08cP7l8FkgScyjrnN6fsoQozH7ochm0nGQqSypZYqupwU1wZOovW0jkE51R+BMqtm9JQm1+BM2cHp02kfcXPtm72Z5jvCWWHFDOfgQSiwYab/FpXO1B5A5W7IAm0UZD22dplUbEuTEZXfuklAD649xTqTTR2muSfccpnEdtHxNqIy2HFm8l7JaTp/NLM/mh9n+lq7yOD/AGfTrLtw4FAW/E++iHBEDGu8l0EkpT1DdFUQ5JQhw+/of+vFHi6f0hh06ih+MTA1SeVmvdOQ8MGoadpz3OoYp/ixjFGyODjBFKCiPPAJvjLKIEMEBj2U2/Zz3IaizI1RVm9qEyPVND4Zjp0RQqFgZpwTwSxfL3pvazPJ7Lu4piQC6ldSR2WLgpc8O76BVbArWazOGm8DGUHKSe3yaGqSbIjqeQt4HJ9I4HywpeoJ1S6V+MZpZecJpHMKSJCG3QcuarsTa5ifkbwA7akFFXJKjBJoNsSk1+uZkeqcSw6hQLCb8kqVsSp9n9i8wnBi9r+asaSgklVLVvHdwvzt7TlnhdGtvIaPEXwvuaP7W0+JrIA1IJVsMmm93Y5O2s29UbOi1x2vSTuSEIUICIM7/TUwDUaBTjo+EM4d7WDuAEBZkOwYH2fvk8aba765rRVWQ4mPXQmAHnbPIRolHCz7+st8r67sNCTKG7LLpoMAv+x9ClO9900SiZ35TYuu4WahzOVptyFNFlQTpNi3X4dJQT68y2LNtFJy/KaV1h5HQxWKNpDzyTuGywUevaDKHSEVgVw+JaV1Llma6yijmwI+2ETGsJRud7cpIQVPR8XukSqnPMc8bNk+ScAw==
+X-MS-Exchange-AntiSpam-MessageData: dsObYNF+44XeHXK222xv4JzGqVq76A9QDZIFs+0AENd0fvsm0XxLcnnzyegjeFoGOeyn4M42YyNK7HIt5FX8UgWb84T3fMueB5xBQ5fUydrnj+n+9KqUXUqe0NOKmMXxySCBAkeL1rOyEAzxMePLbsiapN2XrzZucUep0hPVIQcOdzFM3UhudJNttDkLHkPCBQ5jU8EVHDEKxeVOa3mT59TOH0UiChq+KcDFjRcRvU7JsK1RwRV8LBvFWpQwyJmEK/xeg7Rpuw1zMr+iq52u6+7n9q+OSXo1+vQpXB/2rWHtEbZcIwByTFQedQV/OsgziD+CfUUzXYex3mcyGXYdRBoHIZ8SRui9EQ/BMBS4yIkvfnSWMyLikQIEX9qFjmhsLns2JZ5ZPbBc4aV+AllYm0QiYcXuajB7vdNHKRCHIYAdilNepu2/Kfe6Vgns2zoe76WTTl7fh61u5tQfeg4E3GBTFuLfl10pEPBK28z3e5cuN1poztiOw95DqA0lIR8k+xPFRO70ClUO2sBiZqLpdKxcEEN98PW0KJunDWNZOmhKRMIt4hLZJvsaWfWpCEiKj3T9UAESaCR2CyuQ7bq0VVBpko9zInxI1CxkU67Y2o3pm/TsBN2r3BXb8twKON01SmtsKwPLiGHSakYCWnu3PbAWfbqkLX0OwI5HUOARc4eWZJrKMr9wrbQLPRQrS3pDRZpLFpl0R93ObGHEwp2UK0k7Jamy40Syde34gP0UugQMGtYtRrtdboe0SV6us/dtYQbXxPHJUw614wKsImtCFdZIx+s89grLlLGSjfHpPIpwthHCFzvV93KbtaJvjLVEU1xz4cWdH1CUj9iEtLMnSZNlVN/Vrv7NQVzSkvJalhpwSO4gUsuamg2htQKodqRWpd2rsfAOFd2xK9bdDc9kOg==
 X-OriginatorOrg: sifive.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: df0bbe6f-793c-4a44-6e5d-08d88702b33b
+X-MS-Exchange-CrossTenant-Network-Message-Id: 268ed3b7-d3c1-4cab-e73a-08d88702b055
 X-MS-Exchange-CrossTenant-AuthSource: BY5PR13MB4453.namprd13.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2020 12:01:34.1547 (UTC)
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2020 12:01:29.2761 (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 9BjAPE/qG72erWR7tarrc7ehZYzcDFpW1ZglEZG52vUqJjP82I6Ko3snciy/6uVDE9cGEXLXzjteL9JSz9Xg3A==
+X-MS-Exchange-CrossTenant-UserPrincipalName: vOmMBYmT/HP0HmIvP/qvvSrDVBfXNVuEsoDpoVDV4Kaj1GR+ORTjWWr5HS/Y+e+LfDB4YmCw4UPmoNuXk30LmQ==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR13MB2392
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201112_070135_203496_1E9AC04E 
-X-CRM114-Status: GOOD (  13.93  )
+X-CRM114-CacheID: sfid-20201112_070132_567014_44A6ECE6 
+X-CRM114-Status: GOOD (  25.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -135,66 +134,269 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Register for ECC error events from SiFive BEU in SiFive platform EDAC
-driver.
+Add driver support for Bus Error Unit present in SiFive's FU740 chip.
+Currently the driver reports erroneous events only using Platform-level
+interrupts. The support for reporting events using hart-local interrupts
+can be added in future.
 
 Signed-off-by: Yash Shah <yash.shah@sifive.com>
 ---
- drivers/edac/Kconfig       |  2 +-
- drivers/edac/sifive_edac.c | 13 +++++++++++--
- 2 files changed, 12 insertions(+), 3 deletions(-)
+ drivers/soc/sifive/Kconfig      |   5 +
+ drivers/soc/sifive/Makefile     |   1 +
+ drivers/soc/sifive/sifive_beu.c | 197 ++++++++++++++++++++++++++++++++++++++++
+ include/soc/sifive/sifive_beu.h |  16 ++++
+ 4 files changed, 219 insertions(+)
+ create mode 100644 drivers/soc/sifive/sifive_beu.c
+ create mode 100644 include/soc/sifive/sifive_beu.h
 
-diff --git a/drivers/edac/Kconfig b/drivers/edac/Kconfig
-index 7a47680..8f662ff 100644
---- a/drivers/edac/Kconfig
-+++ b/drivers/edac/Kconfig
-@@ -469,7 +469,7 @@ config EDAC_ALTERA_SDMMC
- 
- config EDAC_SIFIVE
- 	bool "Sifive platform EDAC driver"
--	depends on EDAC=y && SIFIVE_L2
-+	depends on EDAC=y && (SIFIVE_L2 || SIFIVE_BEU)
+diff --git a/drivers/soc/sifive/Kconfig b/drivers/soc/sifive/Kconfig
+index 58cf8c4..d575fc1 100644
+--- a/drivers/soc/sifive/Kconfig
++++ b/drivers/soc/sifive/Kconfig
+@@ -7,4 +7,9 @@ config SIFIVE_L2
  	help
- 	  Support for error detection and correction on the SiFive SoCs.
+ 	  Support for the L2 cache controller on SiFive platforms.
  
-diff --git a/drivers/edac/sifive_edac.c b/drivers/edac/sifive_edac.c
-index 3a3dcb1..0f6d457 100644
---- a/drivers/edac/sifive_edac.c
-+++ b/drivers/edac/sifive_edac.c
-@@ -11,6 +11,7 @@
- #include <linux/platform_device.h>
- #include "edac_module.h"
- #include <soc/sifive/sifive_l2_cache.h>
++config SIFIVE_BEU
++	bool "Sifive Bus Error Unit"
++	help
++	  Support for the Bus Error Unit on SiFive platforms.
++
+ endif
+diff --git a/drivers/soc/sifive/Makefile b/drivers/soc/sifive/Makefile
+index b5caff7..1b43ecd 100644
+--- a/drivers/soc/sifive/Makefile
++++ b/drivers/soc/sifive/Makefile
+@@ -1,3 +1,4 @@
+ # SPDX-License-Identifier: GPL-2.0
+ 
+ obj-$(CONFIG_SIFIVE_L2)	+= sifive_l2_cache.o
++obj-$(CONFIG_SIFIVE_BEU)	+= sifive_beu.o
+diff --git a/drivers/soc/sifive/sifive_beu.c b/drivers/soc/sifive/sifive_beu.c
+new file mode 100644
+index 0000000..87b69ba
+--- /dev/null
++++ b/drivers/soc/sifive/sifive_beu.c
+@@ -0,0 +1,197 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * SiFive Bus Error Unit driver
++ * Copyright (C) 2020 SiFive
++ * Author: Yash Shah <yash.shah@sifive.com>
++ *
++ */
++
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/of_platform.h>
++#include <linux/interrupt.h>
++#include <linux/io.h>
 +#include <soc/sifive/sifive_beu.h>
- 
- #define DRVNAME "sifive_edac"
- 
-@@ -67,7 +68,11 @@ static int ecc_register(struct platform_device *pdev)
- 		goto err;
- 	}
- 
--	register_sifive_l2_error_notifier(&p->notifier);
-+	if (IS_ENABLED(CONFIG_SIFIVE_L2))
-+		register_sifive_l2_error_notifier(&p->notifier);
 +
-+	if (IS_ENABLED(CONFIG_SIFIVE_BEU))
-+		register_sifive_beu_error_notifier(&p->notifier);
- 
- 	return 0;
- 
-@@ -81,7 +86,11 @@ static int ecc_unregister(struct platform_device *pdev)
- {
- 	struct sifive_edac_priv *p = platform_get_drvdata(pdev);
- 
--	unregister_sifive_l2_error_notifier(&p->notifier);
-+	if (IS_ENABLED(CONFIG_SIFIVE_L2))
-+		unregister_sifive_l2_error_notifier(&p->notifier);
-+	if (IS_ENABLED(CONFIG_SIFIVE_BEU))
-+		unregister_sifive_beu_error_notifier(&p->notifier);
++#define SIFIVE_BEU_CAUSE	0x00
++#define SIFIVE_BEU_VALUE	0x08
++#define SIFIVE_BEU_ENABLE	0x10
++#define SIFIVE_BEU_PLIC_INTR	0x18
++#define SIFIVE_BEU_ACCRUED	0x20
++#define SIFIVE_BEU_LOCAL_INTR	0x28
 +
- 	edac_device_del_device(&pdev->dev);
- 	edac_device_free_ctl_info(p->dci);
- 
++#define LOCAL_INTERRUPT	0
++#define PLIC_INTERRUPT	1
++#define MAX_ERR_EVENTS	5
++
++enum beu_err_events {
++	RESERVED = -1,
++	NO_ERR,
++	ITIM_CORR_ECC = 2,
++	ITIM_UNCORR_ECC,
++	TILINKBUS_ERR = 5,
++	DCACHE_CORR_ECC,
++	DCACHE_UNCORR_ECC
++};
++
++static
++int err_events[MAX_ERR_EVENTS] = {ITIM_CORR_ECC, ITIM_UNCORR_ECC, TILINKBUS_ERR,
++				  DCACHE_CORR_ECC, DCACHE_UNCORR_ECC};
++
++struct beu_sifive_ddata {
++	void __iomem *regs;
++	int irq;
++};
++
++static int beu_enable_event(struct beu_sifive_ddata *ddata,
++			    int event, int intr_type)
++{
++	unsigned char event_mask = BIT(event), val;
++
++	val = readb(ddata->regs + SIFIVE_BEU_ENABLE);
++	val |= event_mask;
++	writeb(val, ddata->regs + SIFIVE_BEU_ENABLE);
++
++	if (intr_type == PLIC_INTERRUPT) {
++		val = readb(ddata->regs + SIFIVE_BEU_PLIC_INTR);
++		val |= event_mask;
++		writeb(val, ddata->regs + SIFIVE_BEU_PLIC_INTR);
++	} else if (intr_type == LOCAL_INTERRUPT) {
++		val = readb(ddata->regs + SIFIVE_BEU_LOCAL_INTR);
++		val |= event_mask;
++		writeb(event_mask, ddata->regs + SIFIVE_BEU_LOCAL_INTR);
++	}
++
++	return 0;
++}
++
++static ATOMIC_NOTIFIER_HEAD(beu_chain);
++
++int register_sifive_beu_error_notifier(struct notifier_block *nb)
++{
++	return atomic_notifier_chain_register(&beu_chain, nb);
++}
++
++int unregister_sifive_beu_error_notifier(struct notifier_block *nb)
++{
++	return atomic_notifier_chain_unregister(&beu_chain, nb);
++}
++
++static irqreturn_t beu_sifive_irq(int irq, void *data)
++{
++	struct beu_sifive_ddata *ddata = data;
++	unsigned char cause, addr;
++
++	addr = readb(ddata->regs + SIFIVE_BEU_VALUE);
++	cause = readb(ddata->regs + SIFIVE_BEU_CAUSE);
++	switch (cause) {
++	case NO_ERR:
++		break;
++	case ITIM_CORR_ECC:
++		pr_err("BEU: ITIM ECCFIX @ %d\n", addr);
++		atomic_notifier_call_chain(&beu_chain, SIFIVE_BEU_ERR_TYPE_CE,
++					   "ITIM ECCFIX");
++		break;
++	case ITIM_UNCORR_ECC:
++		pr_err("BEU: ITIM ECCFAIL @ %d\n", addr);
++		atomic_notifier_call_chain(&beu_chain, SIFIVE_BEU_ERR_TYPE_UE,
++					   "ITIM ECCFAIL");
++		break;
++	case TILINKBUS_ERR:
++		pr_err("BEU: Load or Store TILINK BUS ERR occurred\n");
++		break;
++	case DCACHE_CORR_ECC:
++		pr_err("BEU: DATACACHE ECCFIX @ %d\n", addr);
++		atomic_notifier_call_chain(&beu_chain, SIFIVE_BEU_ERR_TYPE_CE,
++					   "DCACHE ECCFIX");
++		break;
++	case DCACHE_UNCORR_ECC:
++		pr_err("BEU: DATACACHE ECCFAIL @ %d\n", addr);
++		atomic_notifier_call_chain(&beu_chain, SIFIVE_BEU_ERR_TYPE_UE,
++					   "DCACHE ECCFAIL");
++		break;
++	default:
++		pr_err("BEU: Unidentified cause\n");
++		break;
++	}
++	writeb(0, ddata->regs + SIFIVE_BEU_CAUSE);
++	writeb(0, ddata->regs + SIFIVE_BEU_ACCRUED);
++
++	return IRQ_HANDLED;
++}
++
++static int beu_sifive_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct beu_sifive_ddata *ddata;
++	struct resource *res;
++	int ret, i;
++
++	ddata = devm_kzalloc(dev, sizeof(*ddata), GFP_KERNEL);
++	if (!ddata)
++		return -ENOMEM;
++
++	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
++	ddata->regs = devm_ioremap_resource(dev, res);
++	if (IS_ERR(ddata->regs)) {
++		dev_err(dev, "Unable to map IO resources\n");
++		return PTR_ERR(ddata->regs);
++	}
++
++	ddata->irq = platform_get_irq(pdev, 0);
++	if (ddata->irq < 0) {
++		dev_err(dev, "Unable to find interrupt\n");
++		ret = ddata->irq;
++		return ret;
++	}
++
++	ret = devm_request_irq(dev, ddata->irq, beu_sifive_irq, 0,
++			       dev_name(dev), ddata);
++	if (ret) {
++		dev_err(dev, "Unable to request IRQ\n");
++		return ret;
++	}
++
++	for (i = 0; i < MAX_ERR_EVENTS; i++) {
++		ret = beu_enable_event(ddata, err_events[i], PLIC_INTERRUPT);
++		if (ret) {
++			dev_err(dev, "Unable to register PLIC interrupt\n");
++			return ret;
++		}
++	}
++
++	platform_set_drvdata(pdev, ddata);
++
++	return 0;
++}
++
++static int beu_sifive_remove(struct platform_device *pdev)
++{
++	struct beu_sifive_ddata *ddata = platform_get_drvdata(pdev);
++
++	/* Mask all error events */
++	writeb(0, ddata->regs + SIFIVE_BEU_ENABLE);
++	writeb(0, ddata->regs + SIFIVE_BEU_PLIC_INTR);
++	writeb(0, ddata->regs + SIFIVE_BEU_LOCAL_INTR);
++
++	return 0;
++}
++
++static const struct of_device_id beu_sifive_of_match[] = {
++	{ .compatible = "sifive,beu0" },
++	{},
++};
++MODULE_DEVICE_TABLE(of, beu_sifive_of_match);
++
++static struct platform_driver beu_sifive_driver = {
++	.probe = beu_sifive_probe,
++	.remove = beu_sifive_remove,
++	.driver = {
++		.name = "beu-sifive",
++		.of_match_table = beu_sifive_of_match,
++	},
++};
++module_platform_driver(beu_sifive_driver);
++
++MODULE_DESCRIPTION("SiFive BEU driver");
++MODULE_LICENSE("GPL v2");
+diff --git a/include/soc/sifive/sifive_beu.h b/include/soc/sifive/sifive_beu.h
+new file mode 100644
+index 0000000..c2ab688
+--- /dev/null
++++ b/include/soc/sifive/sifive_beu.h
+@@ -0,0 +1,16 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * SiFive Bus Error unit header file
++ *
++ */
++
++#ifndef __SOC_SIFIVE_BEU_H
++#define __SOC_SIFIVE_BEU_H
++
++extern int register_sifive_beu_error_notifier(struct notifier_block *nb);
++extern int unregister_sifive_beu_error_notifier(struct notifier_block *nb);
++
++#define SIFIVE_BEU_ERR_TYPE_CE 0
++#define SIFIVE_BEU_ERR_TYPE_UE 1
++
++#endif /* __SOC_SIFIVE_BEU_H */
 -- 
 2.7.4
 
