@@ -2,66 +2,120 @@ Return-Path: <SRS0=fdZL=ES=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-11.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,NICE_REPLY_A,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+	MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E39BAC2D0A3
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2020 08:56:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B2E98C55ABD
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2020 09:12:29 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3D7B5206CA
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2020 08:56:31 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 0164421534
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2020 09:12:28 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="f5piOE2V"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3D7B5206CA
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="tfT5mKGc";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sifive.com header.i=@sifive.com header.b="BFu+euti"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0164421534
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=FhDqaTBKLLoiejE482eORaPag0azfndDymjUYXiVie4=; b=f5piOE2VE3cH7TppgXOIi4m7z
-	zFmgdSGHgV8ANKoGW+eSQEpJxxC/4iiDFGxl7eL3RziDjwOEyVTQRlWOw4t2pNgOyqHOQIGDFFQAb
-	eDEtOF46xNC+pz+nplKxGDSOGSLp/W8XvlyAoao89BG9xQy7OpYS9XKT+Xyl636NI1lOjqJTv0T6U
-	ST+zZP5InseE7t6JDYHs960PXlfHSafh4irb6W/LRt4KOO2ffJ1ZqK4CVTNM2yYXFqb6JKXt/lOtv
-	iPOdWKKknV3pnMNorW9ofTz8l9c1unN81YIDFN8hjQD0wNpqjObI+FCZ+X0v5EDw9vJ3x1wUOHw6C
-	XVeEYAScg==;
+	 bh=hoJlD3yg8ISIXEc7/wI+ClrdW3qDREQr0idoRekV7Q0=; b=tfT5mKGccp4oDR0wgoN4dMvPW
+	Z1UkKoRRO82tXkWRpo3jy4CzEb+xS2DI+BuB6MgDxEhaigTmGNNYovdRK6ARKDUS5bPPn0bUAaqkA
+	cO8r0WenLjkDOqwJRgvvJEUQVhIu22Uf6zp+yDEtl9o8eoBujCL8HWUo7pMJMoycRALH6io2ZkawM
+	/dCcjnBSZQhIG2N+gLIXbaw1JzpfGdSQMt9YutSt2YxZ2YdK9yxriaZOSdRNkIkpB3ZnA9URM3c/N
+	dYTlH9lyxSRbHRYlp5oU1DeWJJdLtxv6dvJ//UpAblu/0etdc9UiQgADLJjaK5cQDb9DYu4bnmSjc
+	aU06MA63w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kd8P2-0000bK-Ti; Thu, 12 Nov 2020 08:56:25 +0000
-Received: from szxga07-in.huawei.com ([45.249.212.35])
+	id 1kd8eS-0002N9-Mw; Thu, 12 Nov 2020 09:12:20 +0000
+Received: from mail-mw2nam12on2077.outbound.protection.outlook.com
+ ([40.107.244.77] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kd8P0-0000Zw-CJ
- for linux-riscv@lists.infradead.org; Thu, 12 Nov 2020 08:56:23 +0000
-Received: from DGGEMS401-HUB.china.huawei.com (unknown [172.30.72.59])
- by szxga07-in.huawei.com (SkyGuard) with ESMTP id 4CWwS848YSz7311;
- Thu, 12 Nov 2020 16:56:08 +0800 (CST)
-Received: from [10.174.177.244] (10.174.177.244) by
- DGGEMS401-HUB.china.huawei.com (10.3.19.201) with Microsoft SMTP Server id
- 14.3.487.0; Thu, 12 Nov 2020 16:56:13 +0800
-Subject: Re: [PATCH] riscv: Add HAVE_IRQ_TIME_ACCOUNTING
-To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet
- <corbet@lwn.net>, <linux-riscv@lists.infradead.org>
-References: <20201028042842.92619-1-wangkefeng.wang@huawei.com>
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
-Message-ID: <454abd65-915b-d8cc-f375-34ebfb2ca9b7@huawei.com>
-Date: Thu, 12 Nov 2020 16:56:13 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
- Thunderbird/60.7.0
+ id 1kd8eP-0002M7-EQ
+ for linux-riscv@lists.infradead.org; Thu, 12 Nov 2020 09:12:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=OOmqvkcF8x8tmMnK9w0mqZyoUi+/1pJm8ACjjQbmOQ8Sj4dmISpVO29YxTKMSGXLvZmrUEX7fX4kSZcO/8m+E6nt76p/bRywAdryaUIiyuXENhKsNvU5cV1cb3uwUA4Cr1TNp5Dxdcla/xWB6R9bsE8ztwTx0WgTagR0gbmxwQTDfc4wgUKgIGl+iW+Or3FxlFDuwxXaaXlUOrrh4QHV9S5yrqaff3tkst4YF1vnEmgTbp9ne2FyR4cDHworAmsnhIk4Nq1uMsDOGmyOyY2SpCxYCk/9N3po21IqqbCYjjrvySdPOe7Qpj6VtnE7I7Pmp9v6D6m2NAouUOMI/y3a7A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=b046VNj3IhwS0BCHOptnTZEAzIOXOM9b2618hByBYNA=;
+ b=Z/5WmXy3lhga6aGS/nGPp6A8DC8K5DaAhGctOrP+8iWiwzLdbny/YfUIU5HT7SjHQ0jaUTAkohQBNDFW/JGphE0AMrvMgQjUVESltdm0yLLiv6FHbIZAxqgq5MgvOyYnTVJsbNxGuu2/XIqqxAW7rEtZFqNB4Tizik1Hoz4vFeGtqMluLA1EIj7FdodSS7Ba9q0ssVLUEcL0+9UmNftGz7OoiJ7wooFczU267YJSUTHVj2CtWQ0xNjJcqdyQDWXbl91z+R6xXvD4p4xgdpS1lDHOfX8foXwFypppktQn8aKeDWQGL+a5LvvFZLLNo04G5KzivxO4UmuUfL4qx0cfcw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=openfive.com; dmarc=pass action=none header.from=sifive.com;
+ dkim=pass header.d=sifive.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=b046VNj3IhwS0BCHOptnTZEAzIOXOM9b2618hByBYNA=;
+ b=BFu+eutiJNYnfRkV7qijgKfcM9Quydsjl7dIZG7Xb+QYSYrETn+OihOQPVXzwkkXM88VQhRAFO36WQF0yYEOAAiOjqNR7C66BivLAp/BQD9ElUTilh9f5Kma1uY0EwiyGt+8RalIIFkP1jTVpZwBU7ELEBSgFBYexQtLeD0noNo=
+Authentication-Results: kernel.org; dkim=none (message not signed)
+ header.d=none;kernel.org; dmarc=none action=none header.from=sifive.com;
+Received: from BY5PR13MB4453.namprd13.prod.outlook.com (2603:10b6:a03:1d1::19)
+ by BY5PR13MB3617.namprd13.prod.outlook.com (2603:10b6:a03:21b::10)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3564.21; Thu, 12 Nov
+ 2020 09:12:14 +0000
+Received: from BY5PR13MB4453.namprd13.prod.outlook.com
+ ([fe80::2c46:9095:ba12:6513]) by BY5PR13MB4453.namprd13.prod.outlook.com
+ ([fe80::2c46:9095:ba12:6513%8]) with mapi id 15.20.3564.021; Thu, 12 Nov 2020
+ 09:12:14 +0000
+From: Yash Shah <yash.shah@sifive.com>
+To: robh+dt@kernel.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com
+Subject: [PATCH 2/2] RISC-V: sifive_l2_cache: Update L2 cache driver to
+ support SiFive FU740
+Date: Thu, 12 Nov 2020 14:41:14 +0530
+Message-Id: <1605172274-44916-2-git-send-email-yash.shah@sifive.com>
+X-Mailer: git-send-email 2.7.4
+In-Reply-To: <1605172274-44916-1-git-send-email-yash.shah@sifive.com>
+References: <1605172274-44916-1-git-send-email-yash.shah@sifive.com>
+X-Originating-IP: [159.117.144.156]
+X-ClientProxiedBy: BMXPR01CA0007.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:b00:d::17) To BY5PR13MB4453.namprd13.prod.outlook.com
+ (2603:10b6:a03:1d1::19)
 MIME-Version: 1.0
-In-Reply-To: <20201028042842.92619-1-wangkefeng.wang@huawei.com>
-Content-Language: en-US
-X-Originating-IP: [10.174.177.244]
-X-CFilter-Loop: Reflected
+X-MS-Exchange-MessageSentRepresentingType: 1
+Received: from osubuntu003.open-silicon.com (159.117.144.156) by
+ BMXPR01CA0007.INDPRD01.PROD.OUTLOOK.COM (2603:1096:b00:d::17) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.3541.21 via Frontend Transport; Thu, 12 Nov 2020 09:11:44 +0000
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 543f3f1c-2822-4bb4-c010-08d886eafcdb
+X-MS-TrafficTypeDiagnostic: BY5PR13MB3617:
+X-LD-Processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
+X-MS-Exchange-Transport-Forked: True
+X-Microsoft-Antispam-PRVS: <BY5PR13MB3617FA5ADEC38B8CC61F06DF82E70@BY5PR13MB3617.namprd13.prod.outlook.com>
+X-MS-Oob-TLC-OOBClassifiers: OLM:6108;
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: d3paQAoMy0cS0835+P1iFiJPui5XPCFCbKcu/AQEVVGK8pDf2zKlGUxtvad1QUfujGIZNDnydedKs0K+kiiQenvKmjdZSJyrjn9k7dgtRh36kLABL77N+Y5EHWhp+uprOGjHuSMzAtfwmglswF1qbZvl7QG3pNPX9MgrPdvEk1TJxkczqCPcr2b5KmxXt/bRCaLc9uhsIFlxnHucBL1y1E2DL+S2qR/owp59FVMZEFKMgX81XNpbPC4iH+dSg/lsb9fWIo/wCl//+TvMY3p+CMqfIKBTQmdQ6ibVbnxmet9WE0w0y0joHYyieicYp/7d
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:BY5PR13MB4453.namprd13.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(6029001)(366004)(376002)(346002)(39850400004)(396003)(136003)(7416002)(8676002)(44832011)(52116002)(83380400001)(6486002)(478600001)(6512007)(8936002)(5660300002)(6666004)(36756003)(26005)(316002)(66476007)(6506007)(186003)(16526019)(15650500001)(2616005)(42882007)(956004)(83170400001)(4326008)(2906002)(66946007)(66556008)(107886003);
+ DIR:OUT; SFP:1101; 
+X-MS-Exchange-AntiSpam-MessageData: d1sEr2+dhgJxAPXt/qFDYi/mA1MOqwhQFva4LAH/u4yEaOwH7E0wNix2fJw3j+Qq1jmqEB+EY412IBLlTy9u2ci9YkOS9z32Ezi/B7wh2zd3E+DvpRV3lgdZFO46YS1itXbxnZPPRiz3ke7vnQDLI5/MrQyg1bqrn+eJ7BRgO20jGARYXR6xyentT6qLYaqewWrb8HrioUHgCEKK+/Go8bgyWPjgmOMJ/bddtsCKDs/DFpGkrML6oT/akVnMluV37BMdjoeHnSMqgyxldFcQJ4hlIDcQv3N8ZvnaZqkzk0bqlznf0m/JKRrU+Us4F1qcc1HnIpLpx5yyoS/ATl7Q0SCVDVLAzpZAxCjn2rVcRUjwlc8C2c8Hpu/6/RSI0uu1CYwL4vWWLG6C8AYcVwa1Zy6YsEGj1e9Q2W5xmEnhLTJCgkBzoN/wc4j0Khq+vEL0tIhieKnX4S0vBcoV2ztqW/orIpacuXmmu/CFdO3bB/Mf6nZWbcdjsVteqlb9uxA9tQTNgjqVxo3Ppi23GdAXhcF4mJBvq1QMbn19xHVcfHlt5dlZlKQpwoeqIHF8LQgtbDJEhu/xw8HPNnRP7Esei+fWk2yfM0XL5nYpyziMEfNQKI7vzFPRUtfxxy+X9XYsFaGG702r1Tlj1W184YUDfUL3PinomL3uwaqPQzE43AW+Ds/oRxP7hpCdlErbszAG/LKCRb0Y5uQLNAS0bU7nXQ0uOYOIfSqXWFQwXSVqgvXPJ8DO3w3e32aU7RQkGA1HtqTaH0Y6EAabx6RcmIKKQHeXgGQJ77sPDRyjMaphMNlxWzOzmAQgvrdBMiCLWLIiYX3ktjt2oiqJO8j4IBOR6RhgNn1X+XM6a7Vyi2sW8Q/x6uLJmriOusw2cBwfsYUL0xI7M5xV3NSyBAoQw0PDEA==
+X-OriginatorOrg: sifive.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 543f3f1c-2822-4bb4-c010-08d886eafcdb
+X-MS-Exchange-CrossTenant-AuthSource: BY5PR13MB4453.namprd13.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Nov 2020 09:11:49.8143 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: YBEYG7+L8yx5mFsxQ26sEZWL18psOvXPp2e1MHvVDLLxmD5+eGB+rwqsjaihWTkwp/0o/qTyn8lyq8BO/dnP3A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR13MB3617
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201112_035622_700345_27C40BC9 
-X-CRM114-Status: GOOD (  13.33  )
+X-CRM114-CacheID: sfid-20201112_041217_752637_A15A42BD 
+X-CRM114-Status: GOOD (  18.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -73,48 +127,133 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, aou@eecs.berkeley.edu, anup@brainfault.org,
+ linux-kernel@vger.kernel.org, wsa@kernel.org, sachin.ghadi@sifive.com,
+ Yash Shah <yash.shah@sifive.com>, sagar.kadam@sifive.com,
+ Jonathan.Cameron@huawei.com, linux-riscv@lists.infradead.org, bp@suse.de,
+ sam@ravnborg.org
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Any comments, kindly ping...
+SiFive FU740 has 4 ECC interrupt sources as compared to 3 in FU540.
+Update the L2 cache controller driver to support this additional
+interrupt in case of FU740-C000 chip.
 
-On 2020/10/28 12:28, Kefeng Wang wrote:
-> RISCV_TIMER/CLINT_TIMER is required for RISC-V system, and it
-> provides sched_clock, which allow us to enable IRQ_TIME_ACCOUNTING.
->
-> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
-> ---
->   Documentation/features/time/irq-time-acct/arch-support.txt | 2 +-
->   arch/riscv/Kconfig                                         | 1 +
->   2 files changed, 2 insertions(+), 1 deletion(-)
->
-> diff --git a/Documentation/features/time/irq-time-acct/arch-support.txt b/Documentation/features/time/irq-time-acct/arch-support.txt
-> index d9082b91f10e..6fc03deb1c38 100644
-> --- a/Documentation/features/time/irq-time-acct/arch-support.txt
-> +++ b/Documentation/features/time/irq-time-acct/arch-support.txt
-> @@ -23,7 +23,7 @@
->       |    openrisc: | TODO |
->       |      parisc: |  ..  |
->       |     powerpc: |  ok  |
-> -    |       riscv: | TODO |
-> +    |       riscv: |  ok  |
->       |        s390: |  ..  |
->       |          sh: | TODO |
->       |       sparc: |  ..  |
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 44377fd7860e..dfbc1351ee62 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -68,6 +68,7 @@ config RISCV
->   	select HAVE_FUTEX_CMPXCHG if FUTEX
->   	select HAVE_GCC_PLUGINS
->   	select HAVE_GENERIC_VDSO if MMU && 64BIT
-> +	select HAVE_IRQ_TIME_ACCOUNTING
->   	select HAVE_PCI
->   	select HAVE_PERF_EVENTS
->   	select HAVE_PERF_REGS
+Signed-off-by: Yash Shah <yash.shah@sifive.com>
+---
+ drivers/soc/sifive/sifive_l2_cache.c | 49 +++++++++++++++++++++++++++++++-----
+ 1 file changed, 43 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/soc/sifive/sifive_l2_cache.c b/drivers/soc/sifive/sifive_l2_cache.c
+index 44d7e19..4e5e841 100644
+--- a/drivers/soc/sifive/sifive_l2_cache.c
++++ b/drivers/soc/sifive/sifive_l2_cache.c
+@@ -17,6 +17,10 @@
+ #define SIFIVE_L2_DIRECCFIX_HIGH 0x104
+ #define SIFIVE_L2_DIRECCFIX_COUNT 0x108
+ 
++#define SIFIVE_L2_DIRECCFAIL_LOW 0x120
++#define SIFIVE_L2_DIRECCFAIL_HIGH 0x124
++#define SIFIVE_L2_DIRECCFAIL_COUNT 0x128
++
+ #define SIFIVE_L2_DATECCFIX_LOW 0x140
+ #define SIFIVE_L2_DATECCFIX_HIGH 0x144
+ #define SIFIVE_L2_DATECCFIX_COUNT 0x148
+@@ -29,7 +33,7 @@
+ #define SIFIVE_L2_WAYENABLE 0x08
+ #define SIFIVE_L2_ECCINJECTERR 0x40
+ 
+-#define SIFIVE_L2_MAX_ECCINTR 3
++#define SIFIVE_L2_MAX_ECCINTR 4
+ 
+ static void __iomem *l2_base;
+ static int g_irq[SIFIVE_L2_MAX_ECCINTR];
+@@ -37,6 +41,7 @@ static struct riscv_cacheinfo_ops l2_cache_ops;
+ 
+ enum {
+ 	DIR_CORR = 0,
++	DIR_UNCORR,
+ 	DATA_CORR,
+ 	DATA_UNCORR,
+ };
+@@ -93,6 +98,7 @@ static void l2_config_read(void)
+ 
+ static const struct of_device_id sifive_l2_ids[] = {
+ 	{ .compatible = "sifive,fu540-c000-ccache" },
++	{ .compatible = "sifive,fu740-c000-ccache" },
+ 	{ /* end of table */ },
+ };
+ 
+@@ -155,6 +161,15 @@ static irqreturn_t l2_int_handler(int irq, void *device)
+ 		atomic_notifier_call_chain(&l2_err_chain, SIFIVE_L2_ERR_TYPE_CE,
+ 					   "DirECCFix");
+ 	}
++	if (irq == g_irq[DIR_UNCORR]) {
++		add_h = readl(l2_base + SIFIVE_L2_DIRECCFAIL_HIGH);
++		add_l = readl(l2_base + SIFIVE_L2_DIRECCFAIL_LOW);
++		/* Reading this register clears the DirFail interrupt sig */
++		readl(l2_base + SIFIVE_L2_DIRECCFAIL_COUNT);
++		atomic_notifier_call_chain(&l2_err_chain, SIFIVE_L2_ERR_TYPE_UE,
++					   "DirECCFail");
++		panic("L2CACHE: DirFail @ 0x%08X.%08X\n", add_h, add_l);
++	}
+ 	if (irq == g_irq[DATA_CORR]) {
+ 		add_h = readl(l2_base + SIFIVE_L2_DATECCFIX_HIGH);
+ 		add_l = readl(l2_base + SIFIVE_L2_DATECCFIX_LOW);
+@@ -179,9 +194,9 @@ static irqreturn_t l2_int_handler(int irq, void *device)
+ 
+ static int __init sifive_l2_init(void)
+ {
++	int i, k, rc, intr_num, offset = 0;
+ 	struct device_node *np;
+ 	struct resource res;
+-	int i, rc;
+ 
+ 	np = of_find_matching_node(NULL, sifive_l2_ids);
+ 	if (!np)
+@@ -194,11 +209,33 @@ static int __init sifive_l2_init(void)
+ 	if (!l2_base)
+ 		return -ENOMEM;
+ 
+-	for (i = 0; i < SIFIVE_L2_MAX_ECCINTR; i++) {
+-		g_irq[i] = irq_of_parse_and_map(np, i);
+-		rc = request_irq(g_irq[i], l2_int_handler, 0, "l2_ecc", NULL);
++	intr_num = of_property_count_u32_elems(np, "interrupts");
++	if (!intr_num) {
++		pr_err("L2CACHE: no interrupts property\n");
++		return -ENODEV;
++	}
++
++	/*
++	 * Only FU540 have 3 interrupts. Rest all other variants have
++	 * 4 interrupts (+dirfail). Therefore offset is required to skip
++	 * 'dirfail' interrupt entry in case of FU540
++	 */
++	if (of_device_is_compatible(np, "sifive,fu540-c000-ccache"))
++		offset = 1;
++
++	g_irq[0] = irq_of_parse_and_map(np, 0);
++	rc = request_irq(g_irq[0], l2_int_handler, 0, "l2_ecc", NULL);
++	if (rc) {
++		pr_err("L2CACHE: Could not request IRQ %d\n", g_irq[0]);
++		return rc;
++	}
++
++	for (i = 1; i < intr_num; i++) {
++		k = i + offset;
++		g_irq[k] = irq_of_parse_and_map(np, i);
++		rc = request_irq(g_irq[k], l2_int_handler, 0, "l2_ecc", NULL);
+ 		if (rc) {
+-			pr_err("L2CACHE: Could not request IRQ %d\n", g_irq[i]);
++			pr_err("L2CACHE: Could not request IRQ %d\n", g_irq[k]);
+ 			return rc;
+ 		}
+ 	}
+-- 
+2.7.4
+
 
 _______________________________________________
 linux-riscv mailing list
