@@ -7,16 +7,16 @@ X-Spam-Status: No, score=-11.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	MAILING_LIST_MULTI,NICE_REPLY_A,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
 	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BF80AC2D0A3
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2020 08:55:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E39BAC2D0A3
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2020 08:56:31 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 294032100A
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2020 08:55:51 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 3D7B5206CA
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Nov 2020 08:56:31 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="OKyou/MR"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 294032100A
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="f5piOE2V"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3D7B5206CA
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,43 +25,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
 	References:To:Subject:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=7P6ng5CEQbMfoeQg1kiRE1rqv9/UkGGIKHVw0gjX5K8=; b=OKyou/MRmXswGvArGyBMUXeFQ
-	H/GXG+bfg8mihnR3+/T/sZXs6niAxl71vw/8h4bv+yaYwCBlEoOY1Ui7qo7ysj0H6cBdYQzTWfXzP
-	zT4yCirMZO3bngDlt1Owm//SWDuWmTi4CoF9VndN6x9dWEbBeRoBd5EFpqhtMDKkdfqMZ+mDc82KK
-	QxGuzJY+Nu/QEQ32u2md+k5XriOWUKeaj79Yww+CvczGeXc/titSfcXDrBEADo1BS8l9oZq2T9UT6
-	4y5qWfvvSz6aKfcPcOTDQRPaJnpkPPJ2o71ydELzZJLfEiewl/aSlGLamcTn5evR7arKbA4kThr2a
-	9Vd8tRiDQ==;
+	 bh=FhDqaTBKLLoiejE482eORaPag0azfndDymjUYXiVie4=; b=f5piOE2VE3cH7TppgXOIi4m7z
+	zFmgdSGHgV8ANKoGW+eSQEpJxxC/4iiDFGxl7eL3RziDjwOEyVTQRlWOw4t2pNgOyqHOQIGDFFQAb
+	eDEtOF46xNC+pz+nplKxGDSOGSLp/W8XvlyAoao89BG9xQy7OpYS9XKT+Xyl636NI1lOjqJTv0T6U
+	ST+zZP5InseE7t6JDYHs960PXlfHSafh4irb6W/LRt4KOO2ffJ1ZqK4CVTNM2yYXFqb6JKXt/lOtv
+	iPOdWKKknV3pnMNorW9ofTz8l9c1unN81YIDFN8hjQD0wNpqjObI+FCZ+X0v5EDw9vJ3x1wUOHw6C
+	XVeEYAScg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kd8OM-0000T4-7A; Thu, 12 Nov 2020 08:55:42 +0000
+	id 1kd8P2-0000bK-Ti; Thu, 12 Nov 2020 08:56:25 +0000
 Received: from szxga07-in.huawei.com ([45.249.212.35])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kd8OI-0000SC-UN
- for linux-riscv@lists.infradead.org; Thu, 12 Nov 2020 08:55:40 +0000
-Received: from DGGEMS406-HUB.china.huawei.com (unknown [172.30.72.58])
- by szxga07-in.huawei.com (SkyGuard) with ESMTP id 4CWwRG10cgz753R;
- Thu, 12 Nov 2020 16:55:22 +0800 (CST)
+ id 1kd8P0-0000Zw-CJ
+ for linux-riscv@lists.infradead.org; Thu, 12 Nov 2020 08:56:23 +0000
+Received: from DGGEMS401-HUB.china.huawei.com (unknown [172.30.72.59])
+ by szxga07-in.huawei.com (SkyGuard) with ESMTP id 4CWwS848YSz7311;
+ Thu, 12 Nov 2020 16:56:08 +0800 (CST)
 Received: from [10.174.177.244] (10.174.177.244) by
- DGGEMS406-HUB.china.huawei.com (10.3.19.206) with Microsoft SMTP Server id
- 14.3.487.0; Thu, 12 Nov 2020 16:55:30 +0800
-Subject: Re: [PATCH] riscv: Enable CMA support
+ DGGEMS401-HUB.china.huawei.com (10.3.19.201) with Microsoft SMTP Server id
+ 14.3.487.0; Thu, 12 Nov 2020 16:56:13 +0800
+Subject: Re: [PATCH] riscv: Add HAVE_IRQ_TIME_ACCOUNTING
 To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- <linux-riscv@lists.infradead.org>
-References: <20201031060112.151854-1-wangkefeng.wang@huawei.com>
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Jonathan Corbet
+ <corbet@lwn.net>, <linux-riscv@lists.infradead.org>
+References: <20201028042842.92619-1-wangkefeng.wang@huawei.com>
 From: Kefeng Wang <wangkefeng.wang@huawei.com>
-Message-ID: <dfaee222-59a6-7a47-f174-046ff2c13e95@huawei.com>
-Date: Thu, 12 Nov 2020 16:55:30 +0800
+Message-ID: <454abd65-915b-d8cc-f375-34ebfb2ca9b7@huawei.com>
+Date: Thu, 12 Nov 2020 16:56:13 +0800
 User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
  Thunderbird/60.7.0
 MIME-Version: 1.0
-In-Reply-To: <20201031060112.151854-1-wangkefeng.wang@huawei.com>
+In-Reply-To: <20201028042842.92619-1-wangkefeng.wang@huawei.com>
 Content-Language: en-US
 X-Originating-IP: [10.174.177.244]
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201112_035539_287269_8BF19FBE 
-X-CRM114-Status: GOOD (  14.56  )
+X-CRM114-CacheID: sfid-20201112_035622_700345_27C40BC9 
+X-CRM114-Status: GOOD (  13.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -80,60 +80,41 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Any comments, kindly ping...
 
-On 2020/10/31 14:01, Kefeng Wang wrote:
-> riscv has selected HAVE_DMA_CONTIGUOUS, but don't call
-> dma_contiguous_reserve(). let's enable CMA as expect.
+On 2020/10/28 12:28, Kefeng Wang wrote:
+> RISCV_TIMER/CLINT_TIMER is required for RISC-V system, and it
+> provides sched_clock, which allow us to enable IRQ_TIME_ACCOUNTING.
 >
 > Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
 > ---
->   arch/riscv/mm/init.c | 8 ++++++--
->   1 file changed, 6 insertions(+), 2 deletions(-)
+>   Documentation/features/time/irq-time-acct/arch-support.txt | 2 +-
+>   arch/riscv/Kconfig                                         | 1 +
+>   2 files changed, 2 insertions(+), 1 deletion(-)
 >
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index ea933b789a88..87ae4b99442a 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -13,6 +13,7 @@
->   #include <linux/of_fdt.h>
->   #include <linux/libfdt.h>
->   #include <linux/set_memory.h>
-> +#include <linux/dma-map-ops.h>
->   
->   #include <asm/fixmap.h>
->   #include <asm/tlbflush.h>
-> @@ -41,13 +42,14 @@ struct pt_alloc_ops {
->   #endif
->   };
->   
-> +static phys_addr_t dma32_phys_limit __ro_after_init;
-> +
->   static void __init zone_sizes_init(void)
->   {
->   	unsigned long max_zone_pfns[MAX_NR_ZONES] = { 0, };
->   
->   #ifdef CONFIG_ZONE_DMA32
-> -	max_zone_pfns[ZONE_DMA32] = PFN_DOWN(min(4UL * SZ_1G,
-> -			(unsigned long) PFN_PHYS(max_low_pfn)));
-> +	max_zone_pfns[ZONE_DMA32] = PFN_DOWN(dma32_phys_limit);
->   #endif
->   	max_zone_pfns[ZONE_NORMAL] = max_low_pfn;
->   
-> @@ -185,6 +187,7 @@ void __init setup_bootmem(void)
->   
->   	max_pfn = PFN_DOWN(memblock_end_of_DRAM());
->   	max_low_pfn = max_pfn;
-> +	dma32_phys_limit = min(4UL * SZ_1G, (unsigned long)PFN_PHYS(max_low_pfn));
->   	set_max_mapnr(max_low_pfn);
->   
->   #ifdef CONFIG_BLK_DEV_INITRD
-> @@ -198,6 +201,7 @@ void __init setup_bootmem(void)
->   	memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
->   
->   	early_init_fdt_scan_reserved_mem();
-> +	dma_contiguous_reserve(dma32_phys_limit);
->   	memblock_allow_resize();
->   	memblock_dump_all();
->   }
+> diff --git a/Documentation/features/time/irq-time-acct/arch-support.txt b/Documentation/features/time/irq-time-acct/arch-support.txt
+> index d9082b91f10e..6fc03deb1c38 100644
+> --- a/Documentation/features/time/irq-time-acct/arch-support.txt
+> +++ b/Documentation/features/time/irq-time-acct/arch-support.txt
+> @@ -23,7 +23,7 @@
+>       |    openrisc: | TODO |
+>       |      parisc: |  ..  |
+>       |     powerpc: |  ok  |
+> -    |       riscv: | TODO |
+> +    |       riscv: |  ok  |
+>       |        s390: |  ..  |
+>       |          sh: | TODO |
+>       |       sparc: |  ..  |
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 44377fd7860e..dfbc1351ee62 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -68,6 +68,7 @@ config RISCV
+>   	select HAVE_FUTEX_CMPXCHG if FUTEX
+>   	select HAVE_GCC_PLUGINS
+>   	select HAVE_GENERIC_VDSO if MMU && 64BIT
+> +	select HAVE_IRQ_TIME_ACCOUNTING
+>   	select HAVE_PCI
+>   	select HAVE_PERF_EVENTS
+>   	select HAVE_PERF_REGS
 
 _______________________________________________
 linux-riscv mailing list
