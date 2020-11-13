@@ -2,72 +2,82 @@ Return-Path: <SRS0=nj+O=ET=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+X-Spam-Status: No, score=-8.5 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6727CC56202
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 09:36:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4564EC4742C
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 10:36:32 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C393022244
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 09:36:05 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id C15A522245
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 10:36:31 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="zFB+fa8H"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C393022244
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="OV9n0KpK";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="VsggdTMH"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C15A522245
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=c/YkS2pDsEdJrTSObrzsF+2UqThPONXRdy+Jzx842dQ=; b=zFB+fa8HBbKZv05hPg4WmbSRk
-	czV/zXVoQEy54OuM9nppRfj2fxtVnVOt21pdxEouefNC+a5ypOcv3W/b0pWHglA5htpAuqLAJ/Z/1
-	4DmB1IGDbe4zcoyMGQIK5/iHliKzMVTZY3dW7mCzCoh1DzCJeYZJTkPSas309IGsRtStwqlCUVoUS
-	XvB1uF/vOVOuy15t9by04N/+HSfqh1mQ3OMviZhfNKcEtMkJkVV/8QQl84zF9bs1WeEfH4XPOMQQn
-	sOeWHLqjN36ntKiSC2gmbnHNTZSp+TwdbbcpjrYq9t6f9bTA7HoI22kkx4oEcyiA82QL5qrzakpfa
-	ECqbc/Syw==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:MIME-Version:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KsvfdHR7UUAzHz2RLoAkfvW5vfdBIH0tNQSmba8Ck0c=; b=OV9n0KpK2thLMAle0MCbgioFaj
+	Vcy0/SWWFjR4KZiMOc3Gq/y9JmiEcqxGKXCFt8YlneHrQ8eezXATlevcDdWxvRfpCrAjuG7KEw8hB
+	jfRVS3Pb1lIYJ7nfGmiLHHkpz89gidWwHyrnjb05MPoA9Kx/HwsXXp9du08I8DIob0EQ9mu8czx7W
+	DWAkSqjq4RWbgrRr8lP+kdIRpGviB209E22EESLB/2uuenWKA72N4mXud82LozhyGKlcwJgqmh3jt
+	lLhA84uvwPh9WgnSFu0WIsdYWXab7b24JVoBRLHdaF36MlekxIlBR8o2v0DbOO56apWhpZ8PkD8c2
+	vsGXddlg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kdVUq-0001r2-OI; Fri, 13 Nov 2020 09:35:56 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1kdWRN-0002wx-3o; Fri, 13 Nov 2020 10:36:25 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kdVUk-0001po-SF
- for linux-riscv@lists.infradead.org; Fri, 13 Nov 2020 09:35:54 +0000
-Received: from pty.hi.pengutronix.de ([2001:67c:670:100:1d::c5])
- by metis.ext.pengutronix.de with esmtps
- (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
- (envelope-from <ukl@pengutronix.de>)
- id 1kdVUU-0003xq-0z; Fri, 13 Nov 2020 10:35:34 +0100
-Received: from ukl by pty.hi.pengutronix.de with local (Exim 4.89)
- (envelope-from <ukl@pengutronix.de>)
- id 1kdVUR-00027t-Jr; Fri, 13 Nov 2020 10:35:31 +0100
-Date: Fri, 13 Nov 2020 10:35:29 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Bartosz Golaszewski <bgolaszewski@baylibre.com>
-Subject: Re: About devm_platform_ioremap_resource [Was: Re: [PATCH 01/32]
- pwm: sun4i: convert to devm_platform_ioremap_resource]
-Message-ID: <20201113093529.xy63ncisl4wuesig@pengutronix.de>
-References: <20191229080610.7597-1-tiny.windzz@gmail.com>
- <20201112161346.gp5nenuagx5wmwl2@pengutronix.de>
- <20201112190649.GA908613@ulmo>
- <20201112211429.kfyqzkmmchjo6pll@pengutronix.de>
- <20201113070343.lhcsbyvi5baxn3lq@pengutronix.de>
- <CAMpxmJXWqKwhNxgY7CKG6ZvszWLxrVo-JCy4riWoXN8y+bCLUA@mail.gmail.com>
+ id 1kdWRK-0002v8-Lv
+ for linux-riscv@lists.infradead.org; Fri, 13 Nov 2020 10:36:23 +0000
+Received: by mail-wr1-x429.google.com with SMTP id l1so9212717wrb.9
+ for <linux-riscv@lists.infradead.org>; Fri, 13 Nov 2020 02:36:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:from:date:message-id:subject:to:cc
+ :content-transfer-encoding;
+ bh=jUDWeF9PyT6cRrnNxcegWdDvCpaCTEIRoEvsbbvT65I=;
+ b=VsggdTMH87/nqf/cZSQ8mjFNtepxPWyhxQsW6DQyJrdtXRQg3xsJCg0wM7FM4W5DgS
+ V0ybfz1ZyEM/S36HZh3MEjbQHsuoi/TSBjXH5MqKxq93Io1IyrJ7/RoAIN4cLredmxOO
+ EAO2ujv/a/af75qsrozRY6ovazh6BPcP9piCa6VU0jokaPvVIg1EH+eDQcLw659ehsBd
+ hjxgWtf9S7ArqSexscl2pvNzb8qche6Ne3MjcLNgMJOi9wtqwEBUrx59Kof8BaoOlv0a
+ oARXAz9nmGOktXzXRY79lI8msgrDyiGE3UvGbBaJvxATsSnvF4kBcR0NwU7pIHL0e5Ho
+ l4fQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:from:date:message-id:subject:to:cc
+ :content-transfer-encoding;
+ bh=jUDWeF9PyT6cRrnNxcegWdDvCpaCTEIRoEvsbbvT65I=;
+ b=Q3MHWaKw0eRDdd/+HcKeGLglblgOeu0gVGPoM+7J4rh6de0UAyKqPNgjIzDr89mQHn
+ 16xqCoLKmURKIJg5Tzstj9Br7umQFMEx0v+opb58lvC99qwYvVwtJn/asbEfo6kotMv6
+ aemkP4f8srJvepYOAmmBnkMcv/7hducO2EcKAELafWI3Y13CLN6P6WbPVFblpwnTV/y+
+ 2BG63OE3KBuY4ZYxfG8sPmB8Pim/XEML5ukFkiClFe56P4HXMOh+KRvsnzzbLcTWffHy
+ UE7O1e1fHqcUuUZkH1RHoVa2bsvWfE2IHliw+7lluO6jBgVWq600/WICQ8H9YdAe/nSC
+ 08MQ==
+X-Gm-Message-State: AOAM530S52z01WutTUhdT9GkGKlaoT4cPqDS4fiY0xoMIiG3sN9XS3Nn
+ gT86UM/AALDtgNAVe111hCX8dhKUzIhspI0zE2U=
+X-Google-Smtp-Source: ABdhPJyNMtAuROf+KI61o6PimzM1V5kMK2hQvfSbOHiBVVgdPxKgWgl9QVf0tZGgLDU5KHPyJqwTpJJ7m5ofnbmPK4A=
+X-Received: by 2002:adf:ed04:: with SMTP id a4mr2754898wro.172.1605263779633; 
+ Fri, 13 Nov 2020 02:36:19 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <CAMpxmJXWqKwhNxgY7CKG6ZvszWLxrVo-JCy4riWoXN8y+bCLUA@mail.gmail.com>
-X-SA-Exim-Connect-IP: 2001:67c:670:100:1d::c5
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
- SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+From: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@gmail.com>
+Date: Fri, 13 Nov 2020 11:36:08 +0100
+Message-ID: <CAJ+HfNiQbOcqCLxFUP2FMm5QrLXUUaj852Fxe3hn_2JNiucn6g@mail.gmail.com>
+Subject: csum_partial() on different archs (selftest/bpf)
+To: Netdev <netdev@vger.kernel.org>, bpf <bpf@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201113_043550_956297_6CE9DB7C 
-X-CRM114-Status: GOOD (  28.99  )
+X-CRM114-CacheID: sfid-20201113_053622_770621_5DFDE8C4 
+X-CRM114-Status: UNSURE (   6.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -79,142 +89,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>,
- Yangtao Li <tiny.windzz@gmail.com>, Linus Walleij <linus.walleij@linaro.org>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- Thierry Reding <thierry.reding@gmail.com>, linux-riscv@lists.infradead.org,
- Fabio Estevam <festevam@gmail.com>, Florian Fainelli <f.fainelli@gmail.com>,
- shc_work@mail.ru, Kevin Hilman <khilman@baylibre.com>,
- Ludovic Desroches <ludovic.desroches@microchip.com>,
- Jonathan Hunter <jonathanh@nvidia.com>, linux-rockchip@lists.infradead.org,
- Chen-Yu Tsai <wens@csie.org>, bcm-kernel-feedback-list@broadcom.com,
- dl-linux-imx <linux-imx@nxp.com>, Sylvain Lemieux <slemieux.tyco@gmail.com>,
- linux-pwm@vger.kernel.org, Ray Jui <rjui@broadcom.com>,
- Sascha Hauer <s.hauer@pengutronix.de>, Maxime Ripard <mripard@kernel.org>,
- Vladimir Zapolskiy <vz@mleia.com>,
- "moderated list:ARM/Mediatek SoC..." <linux-mediatek@lists.infradead.org>,
- linux-rpi-kernel@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-tegra@vger.kernel.org, linux-amlogic@lists.infradead.org,
- Lee Jones <lee.jones@linaro.org>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- arm-soc <linux-arm-kernel@lists.infradead.org>,
- Scott Branden <sbranden@broadcom.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- LKML <linux-kernel@vger.kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Sascha Hauer <kernel@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
- claudiu.beznea@microchip.com, Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
-Content-Type: multipart/mixed; boundary="===============0070450060988889744=="
+Cc: Tom Herbert <tom@herbertland.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Anders Roxell <anders.roxell@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============0070450060988889744==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="mk2yqeuqnozfxyjy"
-Content-Disposition: inline
-
-
---mk2yqeuqnozfxyjy
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Nov 13, 2020 at 10:12:46AM +0100, Bartosz Golaszewski wrote:
-> On Fri, Nov 13, 2020 at 8:04 AM Uwe Kleine-K=F6nig
-> <u.kleine-koenig@pengutronix.de> wrote:
-> >
-> > Hello,
-> >
-> > [Added lkml and the people involved in commit 7945f929f1a7
-> > ("drivers: provide devm_platform_ioremap_resource()") to Cc:. For the
-> > new readers: This is about patches making use of
-> > devm_platform_ioremap_resource() instead of open coding it. Full context
-> > at https://lore.kernel.org/r/20201112190649.GA908613@ulmo]
-> >
-> > On Thu, Nov 12, 2020 at 10:14:29PM +0100, Uwe Kleine-K=F6nig wrote:
-> > > On Thu, Nov 12, 2020 at 08:06:49PM +0100, Thierry Reding wrote:
-> > > > I also think that it's overly narrow is scope, so you can't actually
-> > > > "blindly" use this helper and I've seen quite a few cases where thi=
-s was
-> > > > unknowingly used for cases where it shouldn't have been used and th=
-en
-> > > > broke things (because some drivers must not do the request_mem_regi=
-on()
-> > > > for example).
-> > >
-> > > You have a link to such an accident?
-> >
-> > I got a hint in private here: https://lore.kernel.org/r/1555670144-2422=
-0-1-git-send-email-aisheng.dong@nxp.com
-> >
-> > devm_platform_ioremap_resource() is platform_get_resource() +
-> > devm_ioremap_resource() and here it was used to replace
-> > platform_get_resource() + devm_ioremap().
-> >
-> > IMHO the unlucky thing in this situation is that devm_ioremap_resource()
-> > and devm_ioremap() are different by more than just how they get the area
-> > to remap. (i.e. devm_ioremap_resource() also does
-> > devm_request_mem_region().)
-> >
-> > So the problem is not the added wrapper, but unclear semantics in the
-> > functions it uses. In my eyes devm_ioremap() and
-> > devm_platform_ioremap_resource() should better be named
-> > devm_request_ioremap() and devm_platform_request_ioremap_resource()
-> > respectively. Is it worth to rename these for clearity?
->=20
-> But devm_ioremap() doesn't request the region. Did you mean
-> devm_ioremap_resource() should become devm_request_ioremap_resource()?
-
-Yes indeed. The last paragraph should be:
-
-So the problem is not the added wrapper, but unclear semantics in the
-functions it uses. In my eyes devm_ioremap_resource() and
-devm_platform_ioremap_resource() should better be named
-devm_request_ioremap_resource() and
-devm_platform_request_ioremap_resource().
-
-(Note that I created a patch series that implements this suggestion, but
-you were not on Cc: as I extensively trimmed the recipents assuming most
-people are not interested. See https://lore.kernel.org/r/20201113085327.125=
-041-1-u.kleine-koenig@pengutronix.de)
-
-Best regards
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---mk2yqeuqnozfxyjy
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAl+uU14ACgkQwfwUeK3K
-7AlU7QgAoZhawnyVQOW4iLHTE9/NQxowSwJSANvLVm53S0/6e+o77Hwa0KM5cta2
-t3wyndXM7qElPrW4Bx2J23P/m4jGyoSN4Nb/f1dH8T/pmXy7tPOqqnO+slxOTs4Y
-nNoFSVWSUiDCp5dgRH11sKOCp5P7hxZZ/05DhqyLYsdwUmaTzXoc28xnvmFjydxP
-acgIc0UGMEYWNMUOSuF+rQros8xH2r2IQZDhG58L7fD2RAMCzj+UV72056PIqrmB
-AVlebjEzBpYtxjhOaosAA7DY53/wHpwVTBzmFxZUXf8JlM8j8A9fVM7uwPE0xWZ+
-kmF704/YfebQRL8T1P/z6v9SjuT/Vw==
-=fO+P
------END PGP SIGNATURE-----
-
---mk2yqeuqnozfxyjy--
-
-
---===============0070450060988889744==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0070450060988889744==--
-
+SSB3YXMgcnVubmluZyB0aGUgc2VsZnRlc3QvYnBmIG9uIHJpc2N2LCBhbmQgaGFkIGEgY2xvc2Vy
+IGxvb2sgYXQgb25lCm9mIHRoZSBmYWlsaW5nIGNhc2VzOgoKICAjMTQvcCB2YWxpZCByZWFkIG1h
+cCBhY2Nlc3MgaW50byBhIHJlYWQtb25seSBhcnJheSAyIEZBSUwgcmV0dmFsCjY1NTA3ICE9IC0y
+OSAocnVuIDEvMSkKClRoZSB0ZXN0IGRvZXMgYSBjc3VtX3BhcnRpYWwoKSBjYWxsIHZpYSBhIEJQ
+RiBoZWxwZXIuIHJpc2N2IHVzZXMgdGhlCmdlbmVyaWMgaW1wbGVtZW50YXRpb24uIGFybTY0IHVz
+ZXMgdGhlIGdlbmVyaWMgY3N1bV9wYXJ0aWFsKCkgYW5kIGZhaWwKaW4gdGhlIHNhbWUgd2F5IFsx
+XS4gYXJtICgzMi1iaXQpIGhhcyBhIGFyY2ggc3BlY2ZpYyBpbXBsZW1lbnRhdGlvbiwKYW5kIGZh
+aWwgaW4gYW5vdGhlciB3YXkgKEZBSUwgcmV0dmFsIDEzMTA0MiAhPSAtMjkpIFsyXS4KCkkgbWlt
+aWNrZWQgdGhlIHRlc3QgY2FzZSBpbiBhIHVzZXJsYW5kIHByb2dyYW0sIGNvbXBhcmluZyB0aGUg
+Z2VuZXJpYwpjc3VtX3BhcnRpYWwoKSB0byB0aGUgeDg2IGltcGxlbWVudGF0aW9uIFszXSwgYW5k
+IHRoZSBnZW5lcmljIGFuZCB4ODYKaW1wbGVtZW50YXRpb24gZG9lcyB5aWVsZCBhIGRpZmZlcmVu
+dCByZXN1bHQuCgp4ODYgICAgIDogICAgLTI5IDogMHhmZmZmZmZlMwpnZW5lcmljIDogIDY1NTA3
+IDogMHgwMDAwZmZlMwphcm0gICAgIDogMTMxMDQyIDogMHgwMDAxZmZlMgoKV2hvIGlzIGNvcnJl
+Y3Q/IDotKSBJdCB3b3VsZCBiZSBuaWNlIHRvIGdldCByaWQgb2YgdGhpcyBmYWlsZWQgY2FzZS4u
+LgoKClRoYW5rcywKQmrDtnJuCgoKWzFdIGh0dHBzOi8vcWEtcmVwb3J0cy5saW5hcm8ub3JnL2xr
+ZnQvbGludXgtbmV4dC1tYXN0ZXIvYnVpbGQvbmV4dC0yMDIwMTExMi90ZXN0cnVuLzM0MzA0MDEv
+c3VpdGUva3NlbGZ0ZXN0L3Rlc3QvYnBmLnRlc3RfdmVyaWZpZXIvbG9nClsyXSBodHRwczovL3Fh
+LXJlcG9ydHMubGluYXJvLm9yZy9sa2Z0L2xpbnV4LW1haW5saW5lLW1hc3Rlci9idWlsZC92NS4x
+MC1yYzMtMjA3LWc1ODVlNWIxN2I5MmQvdGVzdHJ1bi8zNDMyMzYxL3N1aXRlL2tzZWxmdGVzdC90
+ZXN0L2JwZi50ZXN0X3ZlcmlmaWVyL2xvZwpbM10gaHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vYmpv
+dG8vZGMyMmQ1OTNhYTNhYzYzYzJjOTA2MzJkZTVlZDgyZTAKCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
+eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
+aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
