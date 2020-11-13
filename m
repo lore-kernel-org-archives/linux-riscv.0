@@ -2,69 +2,65 @@ Return-Path: <SRS0=nj+O=ET=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-13.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C02F6C4742C
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 14:32:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7E174C388F7
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 15:00:24 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0E89B2078B
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 14:32:58 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 083CA21D79
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 15:00:23 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="r4wmc35S"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0E89B2078B
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=iogearbox.net
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Ankoz/iN";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="uWGvxdNa"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 083CA21D79
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=QcFCO+lCS/vVMkb36WBFtqRkjXIvKpdC2MFVilhzqd8=; b=r4wmc35S9YgwsvOcWuNqdu/Yg
-	NfX1qtRYJSnoCemmm158bOToWC+kjS9kPl+GfGwrlGeylWtjRo4hk5GuX80XD6tEhOUOtbYF1ZUzM
-	a6JqLJsVekLKvuYFKxPz8hXq6nvosAfDlxu2dtpDSjcoDChW6ElUmig5Pt79YS5d/k0zEIp2OtOX2
-	MgTkobRIV/RDSjRWgabAmU1Egt5eTlI/u11MQx5dXpOFlVwRYeoeIXaeC9PX6ZK5g+/GqJfC6hoP8
-	cLi0KvH+bhv0WqXa5zueBmoxh92oRmJR8VZZuzKnuXeZMu/I+wWTLvFGKW8RK5UIk0hx9gsNDne8A
-	gfQ1pZqTA==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=D+M0ZXTz7rEjCpvyan4tRFocwL7VneMd8mo/FDMk6kk=; b=Ankoz/iNRSPDuFU8Hcg3koPAnq
+	LsKatlyB3IkP/0amdpi8cUSWBIk5Sfq2pj17vNwTbOC4+e9gEYZIbNbrl8ZJX5/x++223yYTQ798I
+	lQ+9SGdy9S0kDG5FVReUbmPc429OAgSwAhnNLLzKPPIIYM6vhYxisc8I1ihRklleSZF2WIAeFB2KJ
+	NHwF3aMllr5Z1/1VTFbkHm2qk0wwPetsiN94N0IkljPkV6/Bz9GVZdC3o25JKiX4ZiAUXTfMbWvPJ
+	Yt6juCprU7b9FLqatWMx7CEn0ROrk1b4zbr04k6nJdouWg5tBOJyJUxn9RBhi0ndJnCjf71m1WVvO
+	rpFIN8wA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kda87-0002Hf-Bw; Fri, 13 Nov 2020 14:32:47 +0000
-Received: from www62.your-server.de ([213.133.104.62])
+	id 1kdaYh-0006LQ-AW; Fri, 13 Nov 2020 15:00:15 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kda7t-00028v-Ag; Fri, 13 Nov 2020 14:32:44 +0000
-Received: from sslproxy05.your-server.de ([78.46.172.2])
- by www62.your-server.de with esmtpsa (TLSv1.3:TLS_AES_256_GCM_SHA384:256)
- (Exim 4.92.3) (envelope-from <daniel@iogearbox.net>)
- id 1kda7j-0002Xg-Ge; Fri, 13 Nov 2020 15:32:23 +0100
-Received: from [85.7.101.30] (helo=pc-9.home)
- by sslproxy05.your-server.de with esmtpsa (TLSv1.3:TLS_AES_256_GCM_SHA384:256)
- (Exim 4.92) (envelope-from <daniel@iogearbox.net>)
- id 1kda7j-0008Cr-9w; Fri, 13 Nov 2020 15:32:23 +0100
-Subject: Re: csum_partial() on different archs (selftest/bpf)
-To: Al Viro <viro@zeniv.linux.org.uk>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn.topel@gmail.com>
-References: <CAJ+HfNiQbOcqCLxFUP2FMm5QrLXUUaj852Fxe3hn_2JNiucn6g@mail.gmail.com>
- <20201113122440.GA2164@myrica>
- <CAJ+HfNiE5Oa25QgdAdKzfk-=X45hXLKk_t+ZCiSaeFVTzgzsrw@mail.gmail.com>
- <20201113141542.GJ3576660@ZenIV.linux.org.uk>
-From: Daniel Borkmann <daniel@iogearbox.net>
-Message-ID: <f634b437-aa51-736b-e2f3-f6210fc6a711@iogearbox.net>
-Date: Fri, 13 Nov 2020 15:32:22 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.7.2
+ id 1kdaYa-0006JU-CK; Fri, 13 Nov 2020 15:00:10 +0000
+Received: from localhost.localdomain
+ (HSI-KBW-46-223-126-90.hsi.kabel-badenwuerttemberg.de [46.223.126.90])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id CA61921D79;
+ Fri, 13 Nov 2020 15:00:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1605279607;
+ bh=55BckvOEujfl1XMFu6uO29jq/GdivVi+CaX6Bmf/8PY=;
+ h=From:To:Cc:Subject:Date:From;
+ b=uWGvxdNaEYlri5X3tN4k5SoawfpoeuTRAylRrEmRxgIq2WenVhheXivzWwl2Wo+oI
+ 2FnuGA1M7v8UrRURfVpj0ifxKiOUv+poNTKZ0KCkJ3Zic3OfIxvolh/9s92t7v61Ur
+ eOi4xjrWV2ODcgF7NfMnH6GibnOUFp5OllRV0f14=
+From: Arnd Bergmann <arnd@kernel.org>
+To: linux-mm@kvack.org
+Subject: [PATCH] arch: pgtable: define MAX_POSSIBLE_PHYSMEM_BITS where needed
+Date: Fri, 13 Nov 2020 15:59:32 +0100
+Message-Id: <20201113145932.10994-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.27.0
 MIME-Version: 1.0
-In-Reply-To: <20201113141542.GJ3576660@ZenIV.linux.org.uk>
-Content-Language: en-US
-X-Authenticated-Sender: daniel@iogearbox.net
-X-Virus-Scanned: Clear (ClamAV 0.102.4/25987/Fri Nov 13 14:19:33 2020)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201113_093233_490134_285AD87E 
-X-CRM114-Status: GOOD (  21.53  )
+X-CRM114-CacheID: sfid-20201113_100008_923196_B47EEB66 
+X-CRM114-Status: GOOD (  28.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -76,56 +72,257 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>,
- Tom Herbert <tom@herbertland.com>, Anders Roxell <anders.roxell@gmail.com>,
- Netdev <netdev@vger.kernel.org>, bpf <bpf@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
+Cc: linux-arch@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Arnd Bergmann <arnd@arndb.de>, Vineet Gupta <vgupta@synopsys.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Russell King <linux@armlinux.org.uk>, Stefan Agner <stefan@agner.ch>,
+ linux-mips@vger.kernel.org, Minchan Kim <minchan@kernel.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Paul Mackerras <paulus@samba.org>,
+ "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv@lists.infradead.org, Nitin Gupta <ngupta@vflare.org>,
+ linuxppc-dev@lists.ozlabs.org, Mike Rapoport <rppt@kernel.org>,
  linux-arm-kernel@lists.infradead.org
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMTEvMTMvMjAgMzoxNSBQTSwgQWwgVmlybyB3cm90ZToKPiBPbiBGcmksIE5vdiAxMywgMjAy
-MCBhdCAwMjoyMjoxNlBNICswMTAwLCBCasO2cm4gVMO2cGVsIHdyb3RlOgo+IAo+PiBGb2xkaW5n
-IEFsJ3MgaW5wdXQgdG8gdGhpcyByZXBseS4KPj4KPj4gSSB0aGluayB0aGUgYnBmX2NzdW1fZGlm
-ZigpIGlzIHN1cHBvc2VkIHRvIGJlIHVzZWQgaW4gY29tYmluYXRpb24gd2l0aAo+PiBhbm90aGVy
-IGhlbHBlcihzKSAoZS5nLiBicGZfbDRfY3N1bV9yZXBsYWNlKSBzbyBJJ2QgZ3Vlc3MgdGhlIHJl
-dHVybmVkCj4+IF9fd3N1bSBzaG91bGQgYmUgc2VlbiBhcyBhbiBvcGFxdWUgdmFsdWUsIG5vdCBz
-b21ldGhpbmcgQlBGIHVzZXJsYW5kCj4+IGNhbiByZWx5IG9uLgo+IAo+IFdoeSBub3QgcmVkdWNl
-IHRoZSBzdWNrZXIgbW9kdWxvIDB4ZmZmZiBiZWZvcmUgcmV0dXJuaW5nIGl0PyAgSW5jaWRlbnRh
-bGx5LAo+IGltcGxlbWVudGF0aW9uIGlzIGJsb29keSBhd2Z1bDoKPiAKPiAgICAgICAgICAvKiBU
-aGlzIGlzIHF1aXRlIGZsZXhpYmxlLCBzb21lIGV4YW1wbGVzOgo+ICAgICAgICAgICAqCj4gICAg
-ICAgICAgICogZnJvbV9zaXplID09IDAsIHRvX3NpemUgPiAwLCAgc2VlZCA6PSBjc3VtIC0tPiBw
-dXNoaW5nIGRhdGEKPiAgICAgICAgICAgKiBmcm9tX3NpemUgPiAwLCAgdG9fc2l6ZSA9PSAwLCBz
-ZWVkIDo9IGNzdW0gLS0+IHB1bGxpbmcgZGF0YQo+ICAgICAgICAgICAqIGZyb21fc2l6ZSA+IDAs
-ICB0b19zaXplID4gMCwgIHNlZWQgOj0gMCAgICAtLT4gZGlmZmluZyBkYXRhCj4gICAgICAgICAg
-ICoKPiAgICAgICAgICAgKiBFdmVuIGZvciBkaWZmaW5nLCBmcm9tX3NpemUgYW5kIHRvX3NpemUg
-ZG9uJ3QgbmVlZCB0byBiZSBlcXVhbC4KPiAgICAgICAgICAgKi8KPiAgICAgICAgICBpZiAodW5s
-aWtlbHkoKChmcm9tX3NpemUgfCB0b19zaXplKSAmIChzaXplb2YoX19iZTMyKSAtIDEpKSB8fAo+
-ICAgICAgICAgICAgICAgICAgICAgICBkaWZmX3NpemUgPiBzaXplb2Yoc3AtPmRpZmYpKSkKPiAg
-ICAgICAgICAgICAgICAgIHJldHVybiAtRUlOVkFMOwo+IAo+ICAgICAgICAgIGZvciAoaSA9IDA7
-IGkgPCBmcm9tX3NpemUgLyBzaXplb2YoX19iZTMyKTsgaSsrLCBqKyspCj4gICAgICAgICAgICAg
-ICAgICBzcC0+ZGlmZltqXSA9IH5mcm9tW2ldOwo+ICAgICAgICAgIGZvciAoaSA9IDA7IGkgPCAg
-IHRvX3NpemUgLyBzaXplb2YoX19iZTMyKTsgaSsrLCBqKyspCj4gICAgICAgICAgICAgICAgICBz
-cC0+ZGlmZltqXSA9IHRvW2ldOwo+IAo+ICAgICAgICAgIHJldHVybiBjc3VtX3BhcnRpYWwoc3At
-PmRpZmYsIGRpZmZfc2l6ZSwgc2VlZCk7Cj4gCj4gV2hhdCB0aGUgaGVsbCBpcyB0aGlzIChjb3B5
-aW5nLCBzY3JhdGNocGFkLCBldGMuKSBmb3I/ICBGaXJzdCBvZiBhbGwsCj4gX2lmXyB5b3Ugd2Fu
-dCB0byB1c2UgY3N1bV9wYXJ0aWFsKCkgYXQgYWxsIChhbmQgSSdtIG5vdCBhdCBhbGwgc3VyZQo+
-IHRoYXQgaXQgd29uJ3QgYmUgY2hlYXBlciB0byBqdXN0IGdvIG92ZXIgdHdvIGFycmF5cywgZG9p
-bmcgY3N1bV9hZGQoKQo+IGFuZCBjc3VtX3N1YigpIHJlc3AuIC0gZGVwZW5kcyB1cG9uIHRoZSBy
-ZWFsaXN0aWMgc2l6ZXMpLCB5b3UgZG9uJ3QKPiBuZWVkIHRvIGNvcHkgYW55dGhpbmcuICBGaW5k
-IHRoZSBzdW0gb2YgZnJvbSwgZmluZCB0aGUgc3VtIG9mIHRvIGFuZAo+IHRoZW4gc3VidHJhY3Qg
-KGNzdW1fc3ViKCkpIHRoZSBvbGQgc3VtIGZyb20gdGhlIHNlZWQgYW5kIGFuZCBhZGQgdGhlCj4g
-bmV3IG9uZS4uLgo+IAo+IEFuZCBJIHdvdWxkIHN0cm9uZ2x5IHJlY29tbWVuZCB0byBjaGFuZ2Ug
-dGhlIGNhbGxpbmcgY29udmVudGlvbnMgb2YgdGhhdAo+IHRoaW5nIC0gbWFrZSBpdCByZXR1cm4g
-X19zdW0xNi4gIEFuZCB0YWtlIF9fc3VtMTYgYXMgd2VsbC4uLgo+IAo+IEFnYWluLCBleHBvc2lu
-ZyBfX3dzdW0gdG8gYW55dGhpbmcgdGhhdCBsb29rcyBsaWtlIGEgc3RhYmxlIEFCSSBpcwo+IGEg
-bWlzdGFrZSAtIGl0J3MgYW4gaW50ZXJuYWwgZGV0YWlsIHRoYXQgY2FuIGJlIGVhc2lseSBhYnVz
-ZWQsCj4gY2F1c2luZyB1bnBsZWFzYW50IGNvbXBhdCBwcm9ibGVtcy4KCkknbGwgdGFrZSBhIGxv
-b2sgYXQgYm90aCwgcmVtb3ZpbmcgdGhlIGNvcHlpbmcgYW5kIGFsc28gd3J0IG5vdCBicmVha2lu
-ZwpleGlzdGluZyB1c2VycyBmb3IgY2FzY2FkaW5nIHRoZSBoZWxwZXIgd2hlbiBmaXhpbmcuCgpU
-aGFua3MsCkRhbmllbAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+From: Arnd Bergmann <arnd@arndb.de>
+
+Stefan Agner reported a bug when using zsram on 32-bit Arm machines
+with RAM above the 4GB address boundary:
+
+  Unable to handle kernel NULL pointer dereference at virtual address 00000000
+  pgd = a27bd01c
+  [00000000] *pgd=236a0003, *pmd=1ffa64003
+  Internal error: Oops: 207 [#1] SMP ARM
+  Modules linked in: mdio_bcm_unimac(+) brcmfmac cfg80211 brcmutil raspberrypi_hwmon hci_uart crc32_arm_ce bcm2711_thermal phy_generic genet
+  CPU: 0 PID: 123 Comm: mkfs.ext4 Not tainted 5.9.6 #1
+  Hardware name: BCM2711
+  PC is at zs_map_object+0x94/0x338
+  LR is at zram_bvec_rw.constprop.0+0x330/0xa64
+  pc : [<c0602b38>]    lr : [<c0bda6a0>]    psr: 60000013
+  sp : e376bbe0  ip : 00000000  fp : c1e2921c
+  r10: 00000002  r9 : c1dda730  r8 : 00000000
+  r7 : e8ff7a00  r6 : 00000000  r5 : 02f9ffa0  r4 : e3710000
+  r3 : 000fdffe  r2 : c1e0ce80  r1 : ebf979a0  r0 : 00000000
+  Flags: nZCv  IRQs on  FIQs on  Mode SVC_32  ISA ARM  Segment user
+  Control: 30c5383d  Table: 235c2a80  DAC: fffffffd
+  Process mkfs.ext4 (pid: 123, stack limit = 0x495a22e6)
+  Stack: (0xe376bbe0 to 0xe376c000)
+
+As it turns out, zsram needs to know the maximum memory size, which
+is defined in MAX_PHYSMEM_BITS when CONFIG_SPARSEMEM is set, or in
+MAX_POSSIBLE_PHYSMEM_BITS on the x86 architecture.
+
+The same problem will be hit on all 32-bit architectures that have a
+physical address space larger than 4GB and happen to not enable sparsemem
+and include asm/sparsemem.h from asm/pgtable.h.
+
+After the initial discussion, I suggested just always defining
+MAX_POSSIBLE_PHYSMEM_BITS whenever CONFIG_PHYS_ADDR_T_64BIT is
+set, or provoking a build error otherwise. This addresses all
+configurations that can currently have this runtime bug, but
+leaves all other configurations unchanged.
+
+I looked up the possible number of bits in source code and
+datasheets, here is what I found:
+
+ - on ARC, CONFIG_ARC_HAS_PAE40 controls whether 32 or 40 bits are used
+ - on ARM, CONFIG_LPAE enables 40 bit addressing, without it we never
+   support more than 32 bits, even though supersections in theory allow
+   up to 40 bits as well.
+ - on MIPS, some MIPS32r1 or later chips support 36 bits, and MIPS32r5
+   XPA supports up to 60 bits in theory, but 40 bits are more than
+   anyone will ever ship
+ - On PowerPC, there are three different implementations of 36 bit
+   addressing, but 32-bit is used without CONFIG_PTE_64BIT
+ - On RISC-V, the normal page table format can support 34 bit
+   addressing. There is no highmem support on RISC-V, so anything
+   above 2GB is unused, but it might be useful to eventually support
+   CONFIG_ZRAM for high pages.
+
+Fixes: 61989a80fb3a ("staging: zsmalloc: zsmalloc memory allocation library")
+Fixes: 02390b87a945 ("mm/zsmalloc: Prepare to variable MAX_PHYSMEM_BITS")
+Cc: Stefan Agner <stefan@agner.ch>
+Cc: Mike Rapoport <rppt@kernel.org>
+Cc: Kirill A. Shutemov <kirill.shutemov@linux.intel.com>
+Cc: Nitin Gupta <ngupta@vflare.org>
+Cc: Minchan Kim <minchan@kernel.org>
+Cc: Vineet Gupta <vgupta@synopsys.com>
+Cc: linux-snps-arc@lists.infradead.org
+Cc: Russell King <linux@armlinux.org.uk>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+Cc: linux-mips@vger.kernel.org
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>
+Cc: Paul Mackerras <paulus@samba.org>
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org
+Link: https://lore.kernel.org/linux-mm/bdfa44bf1c570b05d6c70898e2bbb0acf234ecdf.1604762181.git.stefan@agner.ch/
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+If everyone is happy with this version, I would suggest merging this as
+a bugfix through my asm-generic tree for linux-5.10. I originally
+said I'd send individual patches for each architecture tree, but
+I now think this is easier and better documents what is going on.
+---
+ arch/arc/include/asm/pgtable.h               |  2 ++
+ arch/arm/include/asm/pgtable-2level.h        |  2 ++
+ arch/arm/include/asm/pgtable-3level.h        |  2 ++
+ arch/mips/include/asm/pgtable-32.h           |  3 +++
+ arch/powerpc/include/asm/book3s/32/pgtable.h |  2 ++
+ arch/powerpc/include/asm/nohash/32/pgtable.h |  2 ++
+ arch/riscv/include/asm/pgtable-32.h          |  2 ++
+ include/linux/pgtable.h                      | 13 +++++++++++++
+ 8 files changed, 28 insertions(+)
+
+diff --git a/arch/arc/include/asm/pgtable.h b/arch/arc/include/asm/pgtable.h
+index f1ed17edb085..163641726a2b 100644
+--- a/arch/arc/include/asm/pgtable.h
++++ b/arch/arc/include/asm/pgtable.h
+@@ -134,8 +134,10 @@
+ 
+ #ifdef CONFIG_ARC_HAS_PAE40
+ #define PTE_BITS_NON_RWX_IN_PD1	(0xff00000000 | PAGE_MASK | _PAGE_CACHEABLE)
++#define MAX_POSSIBLE_PHYSMEM_BITS 40
+ #else
+ #define PTE_BITS_NON_RWX_IN_PD1	(PAGE_MASK | _PAGE_CACHEABLE)
++#define MAX_POSSIBLE_PHYSMEM_BITS 32
+ #endif
+ 
+ /**************************************************************************
+diff --git a/arch/arm/include/asm/pgtable-2level.h b/arch/arm/include/asm/pgtable-2level.h
+index 3502c2f746ca..baf7d0204eb5 100644
+--- a/arch/arm/include/asm/pgtable-2level.h
++++ b/arch/arm/include/asm/pgtable-2level.h
+@@ -75,6 +75,8 @@
+ #define PTE_HWTABLE_OFF		(PTE_HWTABLE_PTRS * sizeof(pte_t))
+ #define PTE_HWTABLE_SIZE	(PTRS_PER_PTE * sizeof(u32))
+ 
++#define MAX_POSSIBLE_PHYSMEM_BITS	32
++
+ /*
+  * PMD_SHIFT determines the size of the area a second-level page table can map
+  * PGDIR_SHIFT determines what a third-level page table entry can map
+diff --git a/arch/arm/include/asm/pgtable-3level.h b/arch/arm/include/asm/pgtable-3level.h
+index fbb6693c3352..2b85d175e999 100644
+--- a/arch/arm/include/asm/pgtable-3level.h
++++ b/arch/arm/include/asm/pgtable-3level.h
+@@ -25,6 +25,8 @@
+ #define PTE_HWTABLE_OFF		(0)
+ #define PTE_HWTABLE_SIZE	(PTRS_PER_PTE * sizeof(u64))
+ 
++#define MAX_POSSIBLE_PHYSMEM_BITS 40
++
+ /*
+  * PGDIR_SHIFT determines the size a top-level page table entry can map.
+  */
+diff --git a/arch/mips/include/asm/pgtable-32.h b/arch/mips/include/asm/pgtable-32.h
+index a950fc1ddb4d..6c0532d7b211 100644
+--- a/arch/mips/include/asm/pgtable-32.h
++++ b/arch/mips/include/asm/pgtable-32.h
+@@ -154,6 +154,7 @@ static inline void pmd_clear(pmd_t *pmdp)
+ 
+ #if defined(CONFIG_XPA)
+ 
++#define MAX_POSSIBLE_PHYSMEM_BITS 40
+ #define pte_pfn(x)		(((unsigned long)((x).pte_high >> _PFN_SHIFT)) | (unsigned long)((x).pte_low << _PAGE_PRESENT_SHIFT))
+ static inline pte_t
+ pfn_pte(unsigned long pfn, pgprot_t prot)
+@@ -169,6 +170,7 @@ pfn_pte(unsigned long pfn, pgprot_t prot)
+ 
+ #elif defined(CONFIG_PHYS_ADDR_T_64BIT) && defined(CONFIG_CPU_MIPS32)
+ 
++#define MAX_POSSIBLE_PHYSMEM_BITS 36
+ #define pte_pfn(x)		((unsigned long)((x).pte_high >> 6))
+ 
+ static inline pte_t pfn_pte(unsigned long pfn, pgprot_t prot)
+@@ -183,6 +185,7 @@ static inline pte_t pfn_pte(unsigned long pfn, pgprot_t prot)
+ 
+ #else
+ 
++#define MAX_POSSIBLE_PHYSMEM_BITS 32
+ #ifdef CONFIG_CPU_VR41XX
+ #define pte_pfn(x)		((unsigned long)((x).pte >> (PAGE_SHIFT + 2)))
+ #define pfn_pte(pfn, prot)	__pte(((pfn) << (PAGE_SHIFT + 2)) | pgprot_val(prot))
+diff --git a/arch/powerpc/include/asm/book3s/32/pgtable.h b/arch/powerpc/include/asm/book3s/32/pgtable.h
+index 36443cda8dcf..1376be95e975 100644
+--- a/arch/powerpc/include/asm/book3s/32/pgtable.h
++++ b/arch/powerpc/include/asm/book3s/32/pgtable.h
+@@ -36,8 +36,10 @@ static inline bool pte_user(pte_t pte)
+  */
+ #ifdef CONFIG_PTE_64BIT
+ #define PTE_RPN_MASK	(~((1ULL << PTE_RPN_SHIFT) - 1))
++#define MAX_POSSIBLE_PHYSMEM_BITS 36
+ #else
+ #define PTE_RPN_MASK	(~((1UL << PTE_RPN_SHIFT) - 1))
++#define MAX_POSSIBLE_PHYSMEM_BITS 32
+ #endif
+ 
+ /*
+diff --git a/arch/powerpc/include/asm/nohash/32/pgtable.h b/arch/powerpc/include/asm/nohash/32/pgtable.h
+index ee2243ba96cf..96522f7f0618 100644
+--- a/arch/powerpc/include/asm/nohash/32/pgtable.h
++++ b/arch/powerpc/include/asm/nohash/32/pgtable.h
+@@ -153,8 +153,10 @@ int map_kernel_page(unsigned long va, phys_addr_t pa, pgprot_t prot);
+  */
+ #if defined(CONFIG_PPC32) && defined(CONFIG_PTE_64BIT)
+ #define PTE_RPN_MASK	(~((1ULL << PTE_RPN_SHIFT) - 1))
++#define MAX_POSSIBLE_PHYSMEM_BITS 36
+ #else
+ #define PTE_RPN_MASK	(~((1UL << PTE_RPN_SHIFT) - 1))
++#define MAX_POSSIBLE_PHYSMEM_BITS 32
+ #endif
+ 
+ /*
+diff --git a/arch/riscv/include/asm/pgtable-32.h b/arch/riscv/include/asm/pgtable-32.h
+index b0ab66e5fdb1..5b2e79e5bfa5 100644
+--- a/arch/riscv/include/asm/pgtable-32.h
++++ b/arch/riscv/include/asm/pgtable-32.h
+@@ -14,4 +14,6 @@
+ #define PGDIR_SIZE      (_AC(1, UL) << PGDIR_SHIFT)
+ #define PGDIR_MASK      (~(PGDIR_SIZE - 1))
+ 
++#define MAX_POSSIBLE_PHYSMEM_BITS 34
++
+ #endif /* _ASM_RISCV_PGTABLE_32_H */
+diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+index 71125a4676c4..e237004d498d 100644
+--- a/include/linux/pgtable.h
++++ b/include/linux/pgtable.h
+@@ -1427,6 +1427,19 @@ typedef unsigned int pgtbl_mod_mask;
+ 
+ #endif /* !__ASSEMBLY__ */
+ 
++#if !defined(MAX_POSSIBLE_PHYSMEM_BITS) && !defined(CONFIG_64BIT)
++#ifdef CONFIG_PHYS_ADDR_T_64BIT
++/*
++ * ZSMALLOC needs to know the highest PFN on 32-bit architectures
++ * with physical address space extension, but falls back to
++ * BITS_PER_LONG otherwise.
++ */
++#error Missing MAX_POSSIBLE_PHYSMEM_BITS definition
++#else
++#define MAX_POSSIBLE_PHYSMEM_BITS 32
++#endif
++#endif
++
+ #ifndef has_transparent_hugepage
+ #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+ #define has_transparent_hugepage() 1
+-- 
+2.27.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
