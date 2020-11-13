@@ -2,22 +2,22 @@ Return-Path: <SRS0=nj+O=ET=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=ham autolearn_force=no version=3.4.0
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A6EDEC388F7
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 12:27:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7AB55C388F7
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 12:42:31 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4D1CE20797
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 12:27:28 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id F41EF2078D
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 12:42:30 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Xf2qTQOv"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4D1CE20797
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=arm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="QwlDHx/l"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F41EF2078D
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=zeniv.linux.org.uk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -25,38 +25,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=00z0ATwoWcrzEi9+ukG08XFlu/B8viLvJPEnk0IuRA0=; b=Xf2qTQOvSoUUH4CE8m167HHwj
-	3obQrIhJheEIcHQg0HRVYzcdFpGy8xHf3kHBjTqeMLm8rWTdk4XhjB2BfBu8cHf1P27ANFnYHLeRo
-	7lUlaglTFO4g2u0TtZX5L6Q2Xao0MGNBxSXtOfRalXclLlxrm84phJsYqogdO2A9ZhLp/zZ8THlcO
-	Vf3Kx6ta6n82tZpwfpnQe6NyGt7Yizg+t9NGqvIVpH4tZN3pL/u81XIXdxB+fleGDY9wAH8tLaBSz
-	zdv/urkbAiHelKx43yDgGsN9R1DjsW03ozekdaKh1+eLvBQOhjvdeGasHckz3IiKtJMRxM/QmtVOA
-	2tkJcQTSw==;
+	 bh=NNoJ7t9phN4mbvl+nYQG4MTv4NGEA3RckR9PV1RX3Ac=; b=QwlDHx/lkTjpbagExZ2W4BB5C
+	sdnvfgfWSkZfkCQvMeEKI7u9sHHgvC1J/9gy2zjOJ4mtGkxmIURZP6yQkBBpsad7CctM5cstBPF0j
+	+Iwr6/rgyPpnqj6kQutIopceIBCeNUGgiCVpZN4x6rb+GRtzEZN//y/cO7d43zmNEfLa2kVVEen3K
+	6yuxR40i5scyTUQpgnQZrb4wi2BEQfTL6Yat4qSI5c6Duj8zecYf91XzR7cb+RiFoLOf2Y9b/+dJd
+	meNAMw0TRV6ghGDu9tKYdyrGjoTsK2oRN3UElu2NDo+V0X2JKhzjFOp993F37fTM/Ed1optIjbpmc
+	XJyWeVF9g==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kdYAh-0006V4-Ki; Fri, 13 Nov 2020 12:27:20 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1kdYPC-0003IE-BI; Fri, 13 Nov 2020 12:42:18 +0000
+Received: from [2002:c35c:fd02::1] (helo=ZenIV.linux.org.uk)
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kdYAY-0006Rb-3d; Fri, 13 Nov 2020 12:27:12 +0000
-Received: from gaia (unknown [2.26.170.190])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 2B6BD20797;
- Fri, 13 Nov 2020 12:27:02 +0000 (UTC)
-Date: Fri, 13 Nov 2020 12:26:59 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Mike Rapoport <rppt@kernel.org>
-Subject: Re: [PATCH v8 3/9] set_memory: allow set_direct_map_*_noflush() for
- multiple pages
-Message-ID: <20201113122659.GD3212@gaia>
-References: <20201110151444.20662-1-rppt@kernel.org>
- <20201110151444.20662-4-rppt@kernel.org>
+ id 1kdYP5-0003DC-WE
+ for linux-riscv@lists.infradead.org; Fri, 13 Nov 2020 12:42:13 +0000
+Received: from viro by ZenIV.linux.org.uk with local (Exim 4.92.3 #3 (Red Hat
+ Linux)) id 1kdYOy-0055Pi-RC; Fri, 13 Nov 2020 12:42:04 +0000
+Date: Fri, 13 Nov 2020 12:42:04 +0000
+From: Al Viro <viro@zeniv.linux.org.uk>
+To: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn.topel@gmail.com>
+Subject: Re: csum_partial() on different archs (selftest/bpf)
+Message-ID: <20201113124204.GI3576660@ZenIV.linux.org.uk>
+References: <CAJ+HfNiQbOcqCLxFUP2FMm5QrLXUUaj852Fxe3hn_2JNiucn6g@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20201110151444.20662-4-rppt@kernel.org>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <CAJ+HfNiQbOcqCLxFUP2FMm5QrLXUUaj852Fxe3hn_2JNiucn6g@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201113_072710_471718_C09669A1 
-X-CRM114-Status: GOOD (  15.18  )
+X-CRM114-CacheID: sfid-20201113_074212_080817_1CC359FB 
+X-CRM114-Status: GOOD (  12.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -68,49 +63,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
- Peter Zijlstra <peterz@infradead.org>,
- Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
- linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>,
- Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
- Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
- Will Deacon <will@kernel.org>, x86@kernel.org,
- Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
- Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
- Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
- Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
- linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-fsdevel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Netdev <netdev@vger.kernel.org>, bpf <bpf@vger.kernel.org>,
+ Anders Roxell <anders.roxell@gmail.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Tom Herbert <tom@herbertland.com>
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 10, 2020 at 05:14:38PM +0200, Mike Rapoport wrote:
-> From: Mike Rapoport <rppt@linux.ibm.com>
-> 
-> The underlying implementations of set_direct_map_invalid_noflush() and
-> set_direct_map_default_noflush() allow updating multiple contiguous pages
-> at once.
-> 
-> Add numpages parameter to set_direct_map_*_noflush() to expose this ability
-> with these APIs.
-> 
-> Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
-> ---
->  arch/arm64/include/asm/cacheflush.h |  4 ++--
->  arch/arm64/mm/pageattr.c            | 10 ++++++----
+On Fri, Nov 13, 2020 at 11:36:08AM +0100, Bj=F6rn T=F6pel wrote:
+> I was running the selftest/bpf on riscv, and had a closer look at one
+> of the failing cases:
+> =
 
-For arm64:
+>   #14/p valid read map access into a read-only array 2 FAIL retval
+> 65507 !=3D -29 (run 1/1)
+> =
 
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+> The test does a csum_partial() call via a BPF helper. riscv uses the
+> generic implementation. arm64 uses the generic csum_partial() and fail
+> in the same way [1]. arm (32-bit) has a arch specfic implementation,
+> and fail in another way (FAIL retval 131042 !=3D -29) [2].
+> =
+
+> I mimicked the test case in a userland program, comparing the generic
+> csum_partial() to the x86 implementation [3], and the generic and x86
+> implementation does yield a different result.
+> =
+
+> x86     :    -29 : 0xffffffe3
+> generic :  65507 : 0x0000ffe3
+> arm     : 131042 : 0x0001ffe2
+> =
+
+> Who is correct? :-) It would be nice to get rid of this failed case...
+
+Don't expose unfolded csums to *anything* that might care about the
+specific bit pattern.   All you are guaranteed is the value mod 0xffff.
+Full 32bit value is not just arch-specific - it can change from moving
+the area you are giving it by two bytes.  Yes, really.
+
+It's *NOT* suitable for passig to userland.  Or for sending over the
+wire.  Or for storing in filesystem metadata (as reiserfs xattrs have
+done).
+
+__wsum is purely internal thing; BPF has no business sticking its
+fingers there, let alone exposing it as part of any kind of stable ABI.  =
+
 
 _______________________________________________
 linux-riscv mailing list
