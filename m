@@ -2,22 +2,22 @@ Return-Path: <SRS0=nj+O=ET=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no
-	autolearn_force=no version=3.4.0
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 98CEAC388F7
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 09:00:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5A94BC56202
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 09:13:15 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CCAC02076E
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 09:00:49 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D1BFE2078D
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 09:13:14 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ny39nn6K";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=baylibre-com.20150623.gappssmtp.com header.i=@baylibre-com.20150623.gappssmtp.com header.b="yg7i0U8I"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CCAC02076E
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="CDWTBWaX";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=baylibre-com.20150623.gappssmtp.com header.i=@baylibre-com.20150623.gappssmtp.com header.b="f1bUvjmh"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D1BFE2078D
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=baylibre.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,60 +26,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=nTma5kUXZIwYdgupBswfUtTlnsQjPqcTtpas0sOOpKU=; b=ny39nn6K9bQD9tmFbgEaDql/2
-	pyFPfiSt8E3M/ej6jOPuxcBwH9uVwoaZRF00R6rQhBCFnvTRXB3MsKwvUMEr9Fp8o0F4L9T2PC7UY
-	z8gjFHKrOb4Q1zPJ6mcCrwzwXrY0jtcPUK0wjORLKrYk9324saur2B4HJNi7RBZvU9/6BiJ2TBzIu
-	F7Bus8ojPaijXhd6r845ug/wdQcYhpWuPct1K7cfa83uhuXyYHSVyS2MfUc6GFdlO/Hqgj48B1Ocn
-	pATv0TRU59hy+MgeyodJEucLtorpDDjl71zWb1PlqcXEyeevT7KZ1e5a5a7pNuMVKhlSsgFXuXiS6
-	1WEaDPaJg==;
+	 bh=7mYYL75BxnmP7AO7TqzUFlkVX/CYAPw0C7RI33i7Q68=; b=CDWTBWaXosnKVdq7ELohXWlby
+	wan7MP1GSq3/yYjxeJnBKNShmMg/7vmyUaLx61phmHRvxG1ckYdki7eVjMuUoynvWCoVw7W0e1GK/
+	CuiF2MnX2Dq5eH/NX/Y4eAfz+5QCB/sqZaav9yzjhm5KRj4vBS2truWanNYAo7NEE31BtRBlBh+q6
+	oSxX3n8fs1xcBv0wmm3YqEd35JdwispnDC312pKnGYoiXoEQX0TQ6lrW6b4FuVz2azKtqYxez/kWc
+	1Igy7KHcIopD5DDpVQS3zB5WGvg6Np+Qc7o4kcE5p3nuBUC/d768kT24/4HlQlZzmaHRmkTM+cMCB
+	x7TSBD78Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kdUwj-0006qr-W8; Fri, 13 Nov 2020 09:00:42 +0000
+	id 1kdV8n-0007vY-6I; Fri, 13 Nov 2020 09:13:09 +0000
 Received: from mail-ej1-x644.google.com ([2a00:1450:4864:20::644])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kdUwh-0006qG-Ly
- for linux-riscv@lists.infradead.org; Fri, 13 Nov 2020 09:00:40 +0000
-Received: by mail-ej1-x644.google.com with SMTP id y17so6600650ejh.11
- for <linux-riscv@lists.infradead.org>; Fri, 13 Nov 2020 01:00:39 -0800 (PST)
+ id 1kdV8c-0007qn-9D
+ for linux-riscv@lists.infradead.org; Fri, 13 Nov 2020 09:13:03 +0000
+Received: by mail-ej1-x644.google.com with SMTP id o21so12326944ejb.3
+ for <linux-riscv@lists.infradead.org>; Fri, 13 Nov 2020 01:12:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=baylibre-com.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=excD4cp3O4ACeckeKCo0xXDfnsFfAYE0sjV9B/u/mho=;
- b=yg7i0U8I0QbLXjYORw9rlpXwOpm5e9gz9XZZrRF4p45pBrnpsZVb57vvYOdXWQnsE/
- qtckK2EG+JqNE/NNddiMoskNTzDmb39a7UA3db8PoMVqGqJe3PzlreMzHYQwilhjJ2eD
- UVCvGZcvLczczyfRrAAeeyad4UW06nMtze1W/kRolre/cNJy3bEv0vkSBFqF9A9gEfV8
- iz3wNZRD7jMKW74gaLDLFGr4kNjzo4fr0a4Umw8UU6n3mlHcqPJa9uR6c3IQHCYSczUK
- x/gO5wqG3zw6HUWzVEQxSHQYQeHAPUwVQLs0QtacIc1bSSq70iPQlriH+qSixA+oXbmk
- hCVg==
+ :cc:content-transfer-encoding;
+ bh=ZEmt/VsFl2qImvUHyYQ40Mn9lV8wv5XsZxCOGudpurw=;
+ b=f1bUvjmhfWE+ct5QqgGMY6/gkTD5psyD2wc7dPODO9KgsCqB0ixK2JPE4ApZME0L+f
+ o+j/KQpgc+LGI+sy9NKih2qxrYPBpaQK80/YlKEIfiam5j6/jox/xl7S67zEJBgHRhL8
+ cC2JAk2kdxb8hl2qPEL8s8diqprVyEXWPho7OWj77Yhoa/sErE0JYFAGOOaQ5cATUGKY
+ F5Cjaa+3H9MMjuJX7ZjrIP+4lHKh1L9GJKuN6KYWlOjulGQ+fl9kGjcaX+U5ulY6njT2
+ GONrmz7QkZvDGLaoc1q1EP8N6ae56fXmTlM6BM1RdxoaTw2tDzKkqRm1xqynDenDFr/+
+ WHIg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=excD4cp3O4ACeckeKCo0xXDfnsFfAYE0sjV9B/u/mho=;
- b=K9DumfjDrv9uoKVjr6jedbDPqNUMuc0bb4QHC+sy/UVFodCgx+B8+7Edmb3fx4OOJw
- 0mRiCQ+aFI4J/5+dRty1s4yEmkodZkRWYb4ZvgON2yY6QO8Iu5wLkzroa9/azNdEoCRI
- zSis3ljgZW2FaGb/JBdqWwm53kDekhPCnw4J/8Iz+jhaMJgS0LjE/EvO9WIjj8NugtGj
- +N0oKOyRjaGjbmAzsQBxzgSLKxc1dvk+7Lxgg8nqtkvph9YTUuSaQ8s4yMrMffzChB1s
- jNwjFtMO46jA/f6XmVeOafzFu5ha+IW5FSeGKJ10NWjDU4dh8zEW80PypDJkc9sIibHT
- 0ieg==
-X-Gm-Message-State: AOAM533+g7ngBqqW4bFl45zqkYbCpMbbzPApwBivkIGwmkOp6ofs4f7I
- G5+U14BsNvdu9R+LJIaiM84degoVfQmdOh105NOZtA==
-X-Google-Smtp-Source: ABdhPJzLjkClTJB/MB9vkSlquLDXsB1sQDBPgaHx9ehM6qKyouTSRmGGqwJfA19Yb5DirukswltpZ+iD+NjKGC8Oi8s=
-X-Received: by 2002:a17:907:420d:: with SMTP id
- oh21mr966361ejb.429.1605258038318; 
- Fri, 13 Nov 2020 01:00:38 -0800 (PST)
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=ZEmt/VsFl2qImvUHyYQ40Mn9lV8wv5XsZxCOGudpurw=;
+ b=kACo7cvVoVR3N7dfVcQcmyFBw8YXpkaLWtHat1Ys+EAm6RBiko0b9cDvf6CYmSyCgA
+ ugUlscCQ3gO7dWCldXGAxcsvra54tJOBNwdtICSmg0pXcxfklk69YaXZyBgjPtk6fm4F
+ pN+6qyZo/q5CqEnJVjK3gb5E1xbct8BQlSRHkE/H8b/NDsG/ywOGZq1ua0ToxvYevlr0
+ wsO4J4Slo8+ZXEIc2e0fksxjeLCeh/HEE+a+FbCBcfWOT6GXRvE8FhKiPqHn5oAGtmdB
+ dfSvMkGLOmm73E0Ln6dvVCDXfYqlVOrS9vseqUMlsGbaKLClarS3QnkSrvSEYo97pGMs
+ 704w==
+X-Gm-Message-State: AOAM533gdddpvykuJwDk6jFQebICoVLxuYdoDLDkmcErV9lNqs227ZtU
+ Bkn5/aLnNiGEAeAHKjlAwf/3ewN146c+Na9upITQjw==
+X-Google-Smtp-Source: ABdhPJxtT1qVgA2FoQk7OAdlmJdj+DkZw+qwoVg8AzHfWl781Sx239Ic//jhdSO4tEd0RKQpUy7u9kHYLDSFOZst3ZE=
+X-Received: by 2002:a17:906:1c83:: with SMTP id
+ g3mr989338ejh.168.1605258777288; 
+ Fri, 13 Nov 2020 01:12:57 -0800 (PST)
 MIME-Version: 1.0
-References: <20201113023355.43406-1-greentime.hu@sifive.com>
-In-Reply-To: <20201113023355.43406-1-greentime.hu@sifive.com>
+References: <20191229080610.7597-1-tiny.windzz@gmail.com>
+ <20201112161346.gp5nenuagx5wmwl2@pengutronix.de>
+ <20201112190649.GA908613@ulmo>
+ <20201112211429.kfyqzkmmchjo6pll@pengutronix.de>
+ <20201113070343.lhcsbyvi5baxn3lq@pengutronix.de>
+In-Reply-To: <20201113070343.lhcsbyvi5baxn3lq@pengutronix.de>
 From: Bartosz Golaszewski <bgolaszewski@baylibre.com>
-Date: Fri, 13 Nov 2020 10:00:27 +0100
-Message-ID: <CAMpxmJVZ8OHnGrkC_5TZdZUg004p1=90KqOxpOTgi4036BGWfQ@mail.gmail.com>
-Subject: Re: [PATCH v3] gpio: sifive: To get gpio irq offset from device tree
- data
-To: Greentime Hu <greentime.hu@sifive.com>
+Date: Fri, 13 Nov 2020 10:12:46 +0100
+Message-ID: <CAMpxmJXWqKwhNxgY7CKG6ZvszWLxrVo-JCy4riWoXN8y+bCLUA@mail.gmail.com>
+Subject: Re: About devm_platform_ioremap_resource [Was: Re: [PATCH 01/32] pwm:
+ sun4i: convert to devm_platform_ioremap_resource]
+To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201113_040039_864574_924A2A84 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20201113_041258_580396_A4C2AE59 
+X-CRM114-Status: GOOD (  22.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -91,30 +96,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
- LKML <linux-kernel@vger.kernel.org>, linux-gpio <linux-gpio@vger.kernel.org>,
- Andy Shevchenko <andy.shevchenko@gmail.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Yash Shah <yash.shah@sifive.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ Yangtao Li <tiny.windzz@gmail.com>, Linus Walleij <linus.walleij@linaro.org>,
+ LKML <linux-kernel@vger.kernel.org>, linux-tegra@vger.kernel.org,
+ Thierry Reding <thierry.reding@gmail.com>, linux-riscv@lists.infradead.org,
+ Fabio Estevam <festevam@gmail.com>, Florian Fainelli <f.fainelli@gmail.com>,
+ shc_work@mail.ru, Kevin Hilman <khilman@baylibre.com>,
+ Chen-Yu Tsai <wens@csie.org>, Jonathan Hunter <jonathanh@nvidia.com>,
+ linux-rockchip@lists.infradead.org,
+ Ludovic Desroches <ludovic.desroches@microchip.com>,
+ bcm-kernel-feedback-list@broadcom.com, dl-linux-imx <linux-imx@nxp.com>,
+ Sylvain Lemieux <slemieux.tyco@gmail.com>, linux-pwm@vger.kernel.org,
+ Ray Jui <rjui@broadcom.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Maxime Ripard <mripard@kernel.org>, Vladimir Zapolskiy <vz@mleia.com>,
+ "moderated list:ARM/Mediatek SoC..." <linux-mediatek@lists.infradead.org>,
+ linux-rpi-kernel@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>, linux-amlogic@lists.infradead.org,
+ Lee Jones <lee.jones@linaro.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ arm-soc <linux-arm-kernel@lists.infradead.org>,
+ Scott Branden <sbranden@broadcom.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Sascha Hauer <kernel@pengutronix.de>,
+ Shawn Guo <shawnguo@kernel.org>, claudiu.beznea@microchip.com,
+ Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 13, 2020 at 3:34 AM Greentime Hu <greentime.hu@sifive.com> wrote:
->
-> We can get hwirq number of the gpio by its irq_data->hwirq so that we don't
-> need to add more macros for different platforms. This patch is tested in
-> SiFive Unleashed board and SiFive Unmatched board.
->
-> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-> ---
-
-Please list the changes between versions of patches. What has changed since v2?
-
-Bartosz
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBOb3YgMTMsIDIwMjAgYXQgODowNCBBTSBVd2UgS2xlaW5lLUvDtm5pZwo8dS5rbGVp
+bmUta29lbmlnQHBlbmd1dHJvbml4LmRlPiB3cm90ZToKPgo+IEhlbGxvLAo+Cj4gW0FkZGVkIGxr
+bWwgYW5kIHRoZSBwZW9wbGUgaW52b2x2ZWQgaW4gY29tbWl0IDc5NDVmOTI5ZjFhNwo+ICgiZHJp
+dmVyczogcHJvdmlkZSBkZXZtX3BsYXRmb3JtX2lvcmVtYXBfcmVzb3VyY2UoKSIpIHRvIENjOi4g
+Rm9yIHRoZQo+IG5ldyByZWFkZXJzOiBUaGlzIGlzIGFib3V0IHBhdGNoZXMgbWFraW5nIHVzZSBv
+Zgo+IGRldm1fcGxhdGZvcm1faW9yZW1hcF9yZXNvdXJjZSgpIGluc3RlYWQgb2Ygb3BlbiBjb2Rp
+bmcgaXQuIEZ1bGwgY29udGV4dAo+IGF0IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3IvMjAyMDEx
+MTIxOTA2NDkuR0E5MDg2MTNAdWxtb10KPgo+IE9uIFRodSwgTm92IDEyLCAyMDIwIGF0IDEwOjE0
+OjI5UE0gKzAxMDAsIFV3ZSBLbGVpbmUtS8O2bmlnIHdyb3RlOgo+ID4gT24gVGh1LCBOb3YgMTIs
+IDIwMjAgYXQgMDg6MDY6NDlQTSArMDEwMCwgVGhpZXJyeSBSZWRpbmcgd3JvdGU6Cj4gPiA+IEkg
+YWxzbyB0aGluayB0aGF0IGl0J3Mgb3Zlcmx5IG5hcnJvdyBpcyBzY29wZSwgc28geW91IGNhbid0
+IGFjdHVhbGx5Cj4gPiA+ICJibGluZGx5IiB1c2UgdGhpcyBoZWxwZXIgYW5kIEkndmUgc2VlbiBx
+dWl0ZSBhIGZldyBjYXNlcyB3aGVyZSB0aGlzIHdhcwo+ID4gPiB1bmtub3dpbmdseSB1c2VkIGZv
+ciBjYXNlcyB3aGVyZSBpdCBzaG91bGRuJ3QgaGF2ZSBiZWVuIHVzZWQgYW5kIHRoZW4KPiA+ID4g
+YnJva2UgdGhpbmdzIChiZWNhdXNlIHNvbWUgZHJpdmVycyBtdXN0IG5vdCBkbyB0aGUgcmVxdWVz
+dF9tZW1fcmVnaW9uKCkKPiA+ID4gZm9yIGV4YW1wbGUpLgo+ID4KPiA+IFlvdSBoYXZlIGEgbGlu
+ayB0byBzdWNoIGFuIGFjY2lkZW50Pwo+Cj4gSSBnb3QgYSBoaW50IGluIHByaXZhdGUgaGVyZTog
+aHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvci8xNTU1NjcwMTQ0LTI0MjIwLTEtZ2l0LXNlbmQtZW1h
+aWwtYWlzaGVuZy5kb25nQG54cC5jb20KPgo+IGRldm1fcGxhdGZvcm1faW9yZW1hcF9yZXNvdXJj
+ZSgpIGlzIHBsYXRmb3JtX2dldF9yZXNvdXJjZSgpICsKPiBkZXZtX2lvcmVtYXBfcmVzb3VyY2Uo
+KSBhbmQgaGVyZSBpdCB3YXMgdXNlZCB0byByZXBsYWNlCj4gcGxhdGZvcm1fZ2V0X3Jlc291cmNl
+KCkgKyBkZXZtX2lvcmVtYXAoKS4KPgo+IElNSE8gdGhlIHVubHVja3kgdGhpbmcgaW4gdGhpcyBz
+aXR1YXRpb24gaXMgdGhhdCBkZXZtX2lvcmVtYXBfcmVzb3VyY2UoKQo+IGFuZCBkZXZtX2lvcmVt
+YXAoKSBhcmUgZGlmZmVyZW50IGJ5IG1vcmUgdGhhbiBqdXN0IGhvdyB0aGV5IGdldCB0aGUgYXJl
+YQo+IHRvIHJlbWFwLiAoaS5lLiBkZXZtX2lvcmVtYXBfcmVzb3VyY2UoKSBhbHNvIGRvZXMKPiBk
+ZXZtX3JlcXVlc3RfbWVtX3JlZ2lvbigpLikKPgo+IFNvIHRoZSBwcm9ibGVtIGlzIG5vdCB0aGUg
+YWRkZWQgd3JhcHBlciwgYnV0IHVuY2xlYXIgc2VtYW50aWNzIGluIHRoZQo+IGZ1bmN0aW9ucyBp
+dCB1c2VzLiBJbiBteSBleWVzIGRldm1faW9yZW1hcCgpIGFuZAo+IGRldm1fcGxhdGZvcm1faW9y
+ZW1hcF9yZXNvdXJjZSgpIHNob3VsZCBiZXR0ZXIgYmUgbmFtZWQKPiBkZXZtX3JlcXVlc3RfaW9y
+ZW1hcCgpIGFuZCBkZXZtX3BsYXRmb3JtX3JlcXVlc3RfaW9yZW1hcF9yZXNvdXJjZSgpCj4gcmVz
+cGVjdGl2ZWx5LiBJcyBpdCB3b3J0aCB0byByZW5hbWUgdGhlc2UgZm9yIGNsZWFyaXR5PwoKQnV0
+IGRldm1faW9yZW1hcCgpIGRvZXNuJ3QgcmVxdWVzdCB0aGUgcmVnaW9uLiBEaWQgeW91IG1lYW4K
+ZGV2bV9pb3JlbWFwX3Jlc291cmNlKCkgc2hvdWxkIGJlY29tZSBkZXZtX3JlcXVlc3RfaW9yZW1h
+cF9yZXNvdXJjZSgpPwoKQmFydG9zegoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
+LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
+by9saW51eC1yaXNjdgo=
