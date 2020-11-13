@@ -5,19 +5,19 @@ X-Spam-Level:
 X-Spam-Status: No, score=-9.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+	URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B4E27C5519F
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 00:53:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BFD4DC2D0E4
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 01:03:47 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3FF3720B80
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 00:53:40 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 31BFD208D5
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 01:03:47 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="R/qO3YAb";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.b="CCoUOKAE"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3FF3720B80
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="A0QQF/9g";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.b="ZFi5IgqO"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 31BFD208D5
 Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,59 +26,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=4/yFRgGqMmMVYlS3MfvvPybxGXckMZ/fe0sKexBtSJY=; b=R/qO3YAb16ite9BgFpIHg5M8T
-	OOvs6KPPObDdQdY1slWO6ZXal5qFAdnpIfbam5ZaXw3nO90CF05yI4iIZQG/gKDBcxgLh5T351cDP
-	53AE1EMv3bsXLrg9ubzZ/TWXeagmnKCl+1rVUcOFqS0IzrDP4nSBf8PXrN1w7wgHusbrz+tX8L6zt
-	F1NwKLqw5QWOUDRPgEkYffV2mfQV5vHF9Mpio9FEzfPsm3mCKw316MTk8mAbiILIheR1Ma6b4t3eR
-	mwnBg/QfhQBq4n1JhGMt99/mznWZM1ptt3H6aqut2d0iVCnD8OazG4cf5RwoSYX5W4ZKjAAfrPLI2
-	QsDS0L6xg==;
+	 bh=7D/Zl4J9KdzDeNNgG541DbYc50lzr9wpQwdjZQlZ+e4=; b=A0QQF/9gbjHEf2eRBcWG349Ao
+	PTE/s4RuryVAKVAzQ7rLqemXHaWPqgr9ygDrHangrE28/TMOGgbkYx0eVhlMuRDuaJdDIOyvFzfjh
+	metnzX1SIxwY3fROHQJohOaoKWA3Y8Xn4jCH67B+JSukt0+Zzqr4wau6LJeNzn0tjygriM026pqRL
+	KnhmtrMcBtRUZRFuz9W7KffAOCytcWOpDiDjyXAlsFqRjFRUNaT3U+fWyP/sHflBTRueqhqwHqeR9
+	Tp7lYBIe1/2HFQo9+hTIhhmZjU93IYIV7Iq0lxtOt3xhKRF0t29f8GYAoodfCqGhruI/kAvTo4WVZ
+	1THxWb4xw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kdNLG-0004vU-Cm; Fri, 13 Nov 2020 00:53:30 +0000
-Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
+	id 1kdNV6-0005X1-2X; Fri, 13 Nov 2020 01:03:40 +0000
+Received: from mail-ed1-x544.google.com ([2a00:1450:4864:20::544])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kdNLD-0004uw-Uy
- for linux-riscv@lists.infradead.org; Fri, 13 Nov 2020 00:53:28 +0000
-Received: by mail-pg1-x542.google.com with SMTP id w4so5669055pgg.13
- for <linux-riscv@lists.infradead.org>; Thu, 12 Nov 2020 16:53:27 -0800 (PST)
+ id 1kdNV3-0005WV-9o
+ for linux-riscv@lists.infradead.org; Fri, 13 Nov 2020 01:03:38 +0000
+Received: by mail-ed1-x544.google.com with SMTP id y4so2877631edy.5
+ for <linux-riscv@lists.infradead.org>; Thu, 12 Nov 2020 17:03:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=kpvnKSrVoabXQhGOD0rhoXlbZEbSnpbz56+dy5+JM3c=;
- b=CCoUOKAEuP3dgQeDYy5FUfj2zEbtK8AtB9vlZlMHZ3QyqTAvhQOLQ6DTjHAbwciNKm
- b8KAhm0DIozDlTZ1ph4G9pklcyTMZOIDQBlz+cUogtjeetIlz5UoNRJiTEHqrmS+uDVh
- Cv5PjEmZmR4PjA/vyFg4r2zYvt9lJqDBD2GhuunxqgIGS/ZyzQkEYlZUZAZ6ihH2zVS8
- 1BBn0/VKet6kSgLWrPYwfaRTa1hlr5LsDiI5es005tOYGmPE7jrBhrY4Ge5R/5FFzV8F
- 4SNy6Xlv7Qdhg6qtQCDvdR7zhcSe12BiW4X+7sPYF/LqEem4bCoEROdRYJyP5Y1BAHc7
- tRHQ==
+ :cc; bh=4rHcsSn4tvPHdEd3aSA+VI5udp3Ct0q3o9hwij9UMEQ=;
+ b=ZFi5IgqOb9K+M2xVzFZ1Dj4wIiazGAiIKRobu7yknmcbmQ6bQvP0kH99tQFLNAOPlB
+ 0v99P4TViqiGe1DeMXs/6Vcv0hKoYpmnjugEwpflxekpA8YYEhn0krqLedZpWiC72ZQU
+ k8o/k1XZd2BJEnheNsLiTSEQKS7vo/2X7KxBIKfrUXng4pGTPSdYRyv+wxl7kddmJjBh
+ b+WIGyhV2hufXGRSLOSvsjfdqE/Oa8DFNXC2F/lYLtrbaYwspxeFIPDqKXcOITKqaOBk
+ xsErUSJBxlbodtdR2iX+6AVPlfAehuEW7umj43T6Gs2I52CEcdbft5Z0xW5x9thRZgNx
+ AUIw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=kpvnKSrVoabXQhGOD0rhoXlbZEbSnpbz56+dy5+JM3c=;
- b=OG9Kt6WP0PbkqvSskW/ZmYde1bIdj3odLpTnKojQeqZPJ7NeFlTj4Mb4ZTYv/OCOfB
- SMvza5p8bMK80EiGMQTwbOUkltcMLbt3iW6RFAUW5N3VU/XXG6om6KfKJODkDEflIKUa
- 8Gda5w9urWfgR3t6Pz2c6FY757PJGA2BTOGTAo4nANHhkVLKeW+26lCp1Pb9Xjuqicxd
- 6kN3gaOQ5UMuqTGW5jZVthw1a5u4/WP1dBhSmw5QJnWFV1NWk0edHiIkGayEnMTXQdDL
- cJggA8ovfK2lBvhtDV7rVqMsZVL63qb7SzNrFMOUf9AkfulidargRVxhWTHtp6feNbZ6
- yf5A==
-X-Gm-Message-State: AOAM530KUT2+QUTRkLhbwDQQ5sCXqp/+Cq1Sht/BuD0T/EFw71aS43wW
- RMJDlH8CztKZJwZ0vq5V/4HfKujtjgGjNAEfS73YxX/9t2JpEg==
-X-Google-Smtp-Source: ABdhPJxTBlrZxQlw0dn4qABCTcVsaWoJtRrne8IIUHKppzrewlebxbyEvHPJcP8m5PzSvUKZ8s8PbXlR3tasMKpvzvQ=
-X-Received: by 2002:a17:90b:110b:: with SMTP id
- gi11mr491437pjb.25.1605228805456; 
- Thu, 12 Nov 2020 16:53:25 -0800 (PST)
+ bh=4rHcsSn4tvPHdEd3aSA+VI5udp3Ct0q3o9hwij9UMEQ=;
+ b=I3h3z9QMa0cz/YktQFgzjrTnFul6xUJakh/bBdg7qgkcu9TxEH7YkBYTxgyJDDL6eB
+ 7R77X8zBaTfnh918FU0g7xEghgTS9WcQp8vn6/J5MvIEjZ1ybeKU5x2aXD0LkxTT10Ym
+ o+FggilFsixPSBbQwVKN1dDqRIMsaDb7GE5QSgMrEEFdqu1LC9BharsqQiddqvxZfIPx
+ be/wDSa1U4/QNkKnOEbMic6IRP83jr57gnxBxPHLbSanXIQB96aopT8I4nyuvd7KsVKY
+ amhPdFJE9Cw7SHuMXgToC5YUl34KpBiuazfRVVgXDtsDsYOMoK7cfo3/KCVmlIQQ9JzK
+ z7yw==
+X-Gm-Message-State: AOAM533DKc+T1e2vT0+LwU2bu1s/up6/wa4j0ahSmvTjUSh5glUCd35X
+ Z3feYXSlJRO8sLxK2dJFnsD9xefBZGHr0pv7+gy2
+X-Google-Smtp-Source: ABdhPJxgk9h7tG5lIlfb8RpVXqIs4njVIRR6YGvJXee5knc0Tq/r5hVZFfeh358uA/QWm7hROYzzQ/iT/MMxBhhd7DQ=
+X-Received: by 2002:a50:99d6:: with SMTP id n22mr19914edb.261.1605229413879;
+ Thu, 12 Nov 2020 17:03:33 -0800 (PST)
 MIME-Version: 1.0
 References: <20201108203737.94270-1-natechancellor@gmail.com>
-In-Reply-To: <20201108203737.94270-1-natechancellor@gmail.com>
-From: Nick Desaulniers <ndesaulniers@google.com>
-Date: Thu, 12 Nov 2020 16:53:14 -0800
-Message-ID: <CAKwvOd=P2yFxkAXh9TUpJ=D5=jNnxnx7O5Nr3iTDeqV40UA19A@mail.gmail.com>
+ <CAKwvOd=P2yFxkAXh9TUpJ=D5=jNnxnx7O5Nr3iTDeqV40UA19A@mail.gmail.com>
+In-Reply-To: <CAKwvOd=P2yFxkAXh9TUpJ=D5=jNnxnx7O5Nr3iTDeqV40UA19A@mail.gmail.com>
+From: Bill Wendling <morbo@google.com>
+Date: Thu, 12 Nov 2020 17:03:22 -0800
+Message-ID: <CAGG=3QVQTQsHhsb5cSEejZ=D4Gq60cz7kMfD8moXWeVU1odTdQ@mail.gmail.com>
 Subject: Re: [PATCH] riscv: Explicitly specify the build id style in vDSO
  Makefile again
-To: Nathan Chancellor <natechancellor@gmail.com>
+To: Nick Desaulniers <ndesaulniers@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201112_195328_008165_9874D11A 
-X-CRM114-Status: GOOD (  20.57  )
+X-CRM114-CacheID: sfid-20201112_200337_366279_9603E1FC 
+X-CRM114-Status: GOOD (  26.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -93,65 +93,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Cc: Masahiro Yamada <masahiroy@kernel.org>,
  Palmer Dabbelt <palmerdabbelt@google.com>, LKML <linux-kernel@vger.kernel.org>,
  clang-built-linux <clang-built-linux@googlegroups.com>,
- Bill Wendling <morbo@google.com>, linux-riscv@lists.infradead.org
+ Nathan Chancellor <natechancellor@gmail.com>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 8, 2020 at 12:37 PM Nathan Chancellor
-<natechancellor@gmail.com> wrote:
+On Thu, Nov 12, 2020 at 4:53 PM Nick Desaulniers
+<ndesaulniers@google.com> wrote:
 >
-> Commit a96843372331 ("kbuild: explicitly specify the build id style")
-> explicitly set the build ID style to SHA1. Commit c2c81bb2f691 ("RISC-V:
-> Fix the VDSO symbol generaton for binutils-2.35+") undid this change,
-> likely unintentionally.
+> On Sun, Nov 8, 2020 at 12:37 PM Nathan Chancellor
+> <natechancellor@gmail.com> wrote:
+> >
+> > Commit a96843372331 ("kbuild: explicitly specify the build id style")
+> > explicitly set the build ID style to SHA1. Commit c2c81bb2f691 ("RISC-V:
+> > Fix the VDSO symbol generaton for binutils-2.35+") undid this change,
+> > likely unintentionally.
+> >
+> > Restore it so that the build ID style stays consistent across the tree
+> > regardless of linker.
+> >
+> > Fixes: c2c81bb2f691 ("RISC-V: Fix the VDSO symbol generaton for binutils-2.35+")
+> > Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
 >
-> Restore it so that the build ID style stays consistent across the tree
-> regardless of linker.
+> Thanks for the fixup!
 >
-> Fixes: c2c81bb2f691 ("RISC-V: Fix the VDSO symbol generaton for binutils-2.35+")
-> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+> Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+>
+> (I'm curious what --build-id linker flag does, and what kind of spooky
+> bugs that led to a96843372331?)
+>
+--build-id generates a unique "build id" for the build. It can use
+several different algorithms to do this. The BFD linker uses sha1 by
+default while LLD uses a "fast" algorithm. The difference is that the
+fast algorithm generates a shorter build id. This shouldn't matter in
+general, but there are some tools out there that expect the build id
+to be of a certain length, i.e. the BFD style's length, because BFD is
+more prevalent. The obvious response "well, why don't they just change
+the expected length?" is difficult in all situations. (Once an
+assumption is made, it's hard to backtrack.)
 
-Thanks for the fixup!
+You can add this if you like:
 
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+Reviewed-by: Bill Wendling <morbo@google.com>
 
-(I'm curious what --build-id linker flag does, and what kind of spooky
-bugs that led to a96843372331?)
-
-> ---
->  arch/riscv/kernel/vdso/Makefile | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> > ---
+> >  arch/riscv/kernel/vdso/Makefile | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+> > index cb8f9e4cfcbf..0cfd6da784f8 100644
+> > --- a/arch/riscv/kernel/vdso/Makefile
+> > +++ b/arch/riscv/kernel/vdso/Makefile
+> > @@ -44,7 +44,7 @@ SYSCFLAGS_vdso.so.dbg = $(c_flags)
+> >  $(obj)/vdso.so.dbg: $(src)/vdso.lds $(obj-vdso) FORCE
+> >         $(call if_changed,vdsold)
+> >  SYSCFLAGS_vdso.so.dbg = -shared -s -Wl,-soname=linux-vdso.so.1 \
+> > -       -Wl,--build-id -Wl,--hash-style=both
+> > +       -Wl,--build-id=sha1 -Wl,--hash-style=both
+> >
+> >  # We also create a special relocatable object that should mirror the symbol
+> >  # table and layout of the linked DSO. With ld --just-symbols we can then
+> >
+> > base-commit: c2c81bb2f69138f902e1a58d3bef6ad97fb8a92c
+> > --
+> > 2.29.2
+> >
+> > --
+> > You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> > To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> > To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201108203737.94270-1-natechancellor%40gmail.com.
 >
-> diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
-> index cb8f9e4cfcbf..0cfd6da784f8 100644
-> --- a/arch/riscv/kernel/vdso/Makefile
-> +++ b/arch/riscv/kernel/vdso/Makefile
-> @@ -44,7 +44,7 @@ SYSCFLAGS_vdso.so.dbg = $(c_flags)
->  $(obj)/vdso.so.dbg: $(src)/vdso.lds $(obj-vdso) FORCE
->         $(call if_changed,vdsold)
->  SYSCFLAGS_vdso.so.dbg = -shared -s -Wl,-soname=linux-vdso.so.1 \
-> -       -Wl,--build-id -Wl,--hash-style=both
-> +       -Wl,--build-id=sha1 -Wl,--hash-style=both
 >
->  # We also create a special relocatable object that should mirror the symbol
->  # table and layout of the linked DSO. With ld --just-symbols we can then
 >
-> base-commit: c2c81bb2f69138f902e1a58d3bef6ad97fb8a92c
 > --
-> 2.29.2
->
-> --
-> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201108203737.94270-1-natechancellor%40gmail.com.
-
-
-
--- 
-Thanks,
-~Nick Desaulniers
+> Thanks,
+> ~Nick Desaulniers
 
 _______________________________________________
 linux-riscv mailing list
