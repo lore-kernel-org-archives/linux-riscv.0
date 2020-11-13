@@ -2,59 +2,68 @@ Return-Path: <SRS0=nj+O=ET=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A2711C388F7
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 17:28:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 780EAC388F7
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 17:41:12 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DA3B720A8B
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 17:28:46 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 095E220791
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 17:41:11 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="gzJ0lzkl"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DA3B720A8B
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=zeniv.linux.org.uk
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="amj14bUQ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 095E220791
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=arm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=ZM6IKrcevZKFPQvWyhGXm9f+vgMuY8DPReqLk3zipp4=; b=gzJ0lzklWlaOO38l79Rj8Agro
-	Dwh7L/ASxnI8q7c8pWX4QEtio6liTGOiTHJPFaYmwwnc22/E5YDH6aMqKIVAkq/87YTfxT5p0bB2F
-	0i9OJAs7aqiXStORtAecCRksLOiFl2e0EYuuQFe7vtDGTKy0uoJnfehURbYtca0Xj19+pTqMq1qUr
-	DmZZllAIflBfRxINaVWKVap2PiuXyODefISF5rnHNaFpHhNh/mFcvDFpUdrsvzrJSJv6tXSEIZMko
-	w7vOH43i2LqWhZg2bwiw/YoiXWDN5ZpHKiFTPADcqlJyoRGlP/nxWKtjusRZn1wwjLV0HM2C00S60
-	1nge6P1pw==;
+	 bh=X8FVPnJD8qvRu4Yj/J+Td0/nm2CHrkQ99xWpXZ7has8=; b=amj14bUQaB2HgQzIB4dTqjmOf
+	KL3cVxsjnZvRGGSej54rvwnBDqAY3ZLm96WwklTVHIe1H92AggY1r87IfeFeUnC5tPJGXn53Jrjuk
+	repcNxMZwZd5TAvAZb+rhXl7PTbHRvPZUH6nlhp5WDz9tyn9JFOcPaISbMgXiCdg40UE4bpKMDrx1
+	OiYJ15xnVno2pWbAPo8Me/xfzvwCAbrG1u2zPfQuNgs6YtCb4NFjbvcM4ORCFiVJbtY0Y4Rxh6+o4
+	JEyOCeAxWfcD26Ca3DsA5moDq8ir+FYi2Bl+h3El9oF76viIep9pz8hn4bLlYmd1POSH/92x6IJtb
+	jJPf7e6fw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kdcsJ-0004bN-OS; Fri, 13 Nov 2020 17:28:39 +0000
-Received: from [2002:c35c:fd02::1] (helo=ZenIV.linux.org.uk)
- by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kdcsH-0004a1-2l; Fri, 13 Nov 2020 17:28:38 +0000
-Received: from viro by ZenIV.linux.org.uk with local (Exim 4.92.3 #3 (Red Hat
- Linux)) id 1kdcs8-005FWW-C7; Fri, 13 Nov 2020 17:28:28 +0000
-Date: Fri, 13 Nov 2020 17:28:28 +0000
-From: Al Viro <viro@zeniv.linux.org.uk>
-To: Daniel Borkmann <daniel@iogearbox.net>
-Subject: Re: csum_partial() on different archs (selftest/bpf)
-Message-ID: <20201113172828.GK3576660@ZenIV.linux.org.uk>
-References: <CAJ+HfNiQbOcqCLxFUP2FMm5QrLXUUaj852Fxe3hn_2JNiucn6g@mail.gmail.com>
- <20201113122440.GA2164@myrica>
- <CAJ+HfNiE5Oa25QgdAdKzfk-=X45hXLKk_t+ZCiSaeFVTzgzsrw@mail.gmail.com>
- <20201113141542.GJ3576660@ZenIV.linux.org.uk>
- <f634b437-aa51-736b-e2f3-f6210fc6a711@iogearbox.net>
+	id 1kdd4H-0006dh-CI; Fri, 13 Nov 2020 17:41:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+ by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1kdd4A-0006bX-IW; Fri, 13 Nov 2020 17:40:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6D6711042;
+ Fri, 13 Nov 2020 09:40:51 -0800 (PST)
+Received: from [10.57.53.43] (unknown [10.57.53.43])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C6B8C3F718;
+ Fri, 13 Nov 2020 09:40:42 -0800 (PST)
+Subject: Re: About devm_platform_ioremap_resource [Was: Re: [PATCH 01/32] pwm:
+ sun4i: convert to devm_platform_ioremap_resource]
+To: Thierry Reding <thierry.reding@gmail.com>,
+ =?UTF-8?Q?Uwe_Kleine-K=c3=b6nig?= <u.kleine-koenig@pengutronix.de>
+References: <20191229080610.7597-1-tiny.windzz@gmail.com>
+ <20201112161346.gp5nenuagx5wmwl2@pengutronix.de>
+ <20201112190649.GA908613@ulmo>
+ <20201112211429.kfyqzkmmchjo6pll@pengutronix.de>
+ <20201113070343.lhcsbyvi5baxn3lq@pengutronix.de>
+ <20201113161153.GB1408970@ulmo>
+From: Robin Murphy <robin.murphy@arm.com>
+Message-ID: <6cddd32c-50eb-4399-02bc-d4377237134c@arm.com>
+Date: Fri, 13 Nov 2020 17:40:41 +0000
+User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:78.0) Gecko/20100101
+ Thunderbird/78.4.3
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <f634b437-aa51-736b-e2f3-f6210fc6a711@iogearbox.net>
+In-Reply-To: <20201113161153.GB1408970@ulmo>
+Content-Language: en-GB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201113_122837_918398_00A5A2C5 
-X-CRM114-Status: GOOD (  19.54  )
+X-CRM114-CacheID: sfid-20201113_124054_715687_67EC4228 
+X-CRM114-Status: GOOD (  30.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -66,104 +75,131 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>,
- Tom Herbert <tom@herbertland.com>,
- =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn.topel@gmail.com>,
- Anders Roxell <anders.roxell@gmail.com>, Netdev <netdev@vger.kernel.org>,
- bpf <bpf@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>,
- linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: alexandre.belloni@bootlin.com, heiko@sntech.de,
+ Yangtao Li <tiny.windzz@gmail.com>, Linus Walleij <linus.walleij@linaro.org>,
+ nicolas.ferre@microchip.com, matthias.bgg@gmail.com,
+ linux-riscv@lists.infradead.org, festevam@gmail.com, f.fainelli@gmail.com,
+ shc_work@mail.ru, Bartosz Golaszewski <bgolaszewski@baylibre.com>,
+ khilman@baylibre.com, ludovic.desroches@microchip.com, jonathanh@nvidia.com,
+ linux-rockchip@lists.infradead.org, wens@csie.org,
+ bcm-kernel-feedback-list@broadcom.com, linux-imx@nxp.com,
+ slemieux.tyco@gmail.com, linux-pwm@vger.kernel.org, rjui@broadcom.com,
+ s.hauer@pengutronix.de, mripard@kernel.org, vz@mleia.com,
+ linux-mediatek@lists.infradead.org, linux-rpi-kernel@lists.infradead.org,
+ paul.walmsley@sifive.com, linux-tegra@vger.kernel.org,
+ linux-amlogic@lists.infradead.org, Lee Jones <lee.jones@linaro.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ linux-arm-kernel@lists.infradead.org, sbranden@broadcom.com,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
+ palmer@dabbelt.com, kernel@pengutronix.de, shawnguo@kernel.org,
+ claudiu.beznea@microchip.com, nsaenzjulienne@suse.de
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="windows-1252"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 13, 2020 at 03:32:22PM +0100, Daniel Borkmann wrote:
+On 2020-11-13 16:11, Thierry Reding wrote:
+> On Fri, Nov 13, 2020 at 08:03:43AM +0100, Uwe Kleine-K=F6nig wrote:
+>> Hello,
+>>
+>> [Added lkml and the people involved in commit 7945f929f1a7
+>> ("drivers: provide devm_platform_ioremap_resource()") to Cc:. For the
+>> new readers: This is about patches making use of
+>> devm_platform_ioremap_resource() instead of open coding it. Full context
+>> at https://lore.kernel.org/r/20201112190649.GA908613@ulmo]
+>>
+>> On Thu, Nov 12, 2020 at 10:14:29PM +0100, Uwe Kleine-K=F6nig wrote:
+>>> On Thu, Nov 12, 2020 at 08:06:49PM +0100, Thierry Reding wrote:
+>>>> I also think that it's overly narrow is scope, so you can't actually
+>>>> "blindly" use this helper and I've seen quite a few cases where this w=
+as
+>>>> unknowingly used for cases where it shouldn't have been used and then
+>>>> broke things (because some drivers must not do the request_mem_region()
+>>>> for example).
+>>>
+>>> You have a link to such an accident?
+>>
+>> I got a hint in private here: https://lore.kernel.org/r/1555670144-24220=
+-1-git-send-email-aisheng.dong@nxp.com
+>>
+>> devm_platform_ioremap_resource() is platform_get_resource() +
+>> devm_ioremap_resource() and here it was used to replace
+>> platform_get_resource() + devm_ioremap().
+>>
+>> IMHO the unlucky thing in this situation is that devm_ioremap_resource()
+>> and devm_ioremap() are different by more than just how they get the area
+>> to remap. (i.e. devm_ioremap_resource() also does
+>> devm_request_mem_region().)
+>>
+>> So the problem is not the added wrapper, but unclear semantics in the
+>> functions it uses.
+> =
 
-> > And I would strongly recommend to change the calling conventions of that
-> > thing - make it return __sum16.  And take __sum16 as well...
-> > 
-> > Again, exposing __wsum to anything that looks like a stable ABI is
-> > a mistake - it's an internal detail that can be easily abused,
-> > causing unpleasant compat problems.
-> 
-> I'll take a look at both, removing the copying and also wrt not breaking
-> existing users for cascading the helper when fixing.
+> The semantics aren't unclear. It's just that the symbol name doesn't
+> spell out every detail that the function implements, which, frankly, no
+> function name ever does, at least not for anything beyond simple
+> instructional examples. That's what we have documentation for and why
+> people should read the documentation before they use a function and make
+> (potentially wrong) assumption about what it does.
+> =
 
-FWIW, see below the patch that sits in the leftovers queue (didn't make it into
-work.csum_and_copy, missed the window, didn't get around to dealing with that
-for -next this cycle yet); it does not fold the result, but deals with the rest
-of that fun.  I would still suggest at least folding the result; something like
-	return csum_fold(csum_sub(csum_partial(from, from_size, 0),
-			          csum_partial(to, to_size, seed)),
-instead of what this patch does, to guarantee a normalized return value.
-Note that the order of csum_sub() arguments here is inverted compared to the
-patch below  - csum_fold() returns reduced *complement* of its argument, so we
-want to give it SUM(from) - SUM(to) - seed, not seed - SUM(from) + SUM(to).
-And it's probably a separate followup (adding normalization, that is).
+>>                     In my eyes devm_ioremap() and
+>> devm_platform_ioremap_resource() should better be named
+>> devm_request_ioremap() and devm_platform_request_ioremap_resource()
+>> respectively. Is it worth to rename these for clearity?
+> =
 
-commit 1dd99d9664ec36e9068afb3ca0017c0a43ee420f
-Author: Al Viro <viro@zeniv.linux.org.uk>
-Date:   Wed Jul 8 00:07:11 2020 -0400
+> I think function names are always a compromise between giving you the
+> gist of what the implementation does and being short enough so it
+> doesn't become difficult to read or use.
+> =
 
-    bpf_csum_diff(): don't bother with scratchpads
-    
-    Just use call csum_partial() on to and from and use csum_sub().
-    No need to bother with copying, inverting, percpu scratchpads,
-    etc.
-    
-    Signed-off-by: Al Viro <viro@zeniv.linux.org.uk>
+> One of the reasons why I dislike the addition of helpers for every
+> common special case (like devm_platform_ioremap_resource()) is because
+> it doesn't (always) actually make things easier for developers and/or
+> maintainers. Replacing three lines of code with one is a minor
+> improvement, even though there may be many callsites and therefore in
+> the sum this being a fairly sizeable reduction. The flip side is that
+> now we've got an extra symbol with an unwieldy name that people need
+> to become familiar with, and then, like the link above shows, it doesn't
+> work in all cases, so you either need to fall back to the open-coded
+> version or you keep adding helpers until you've covered all cases. And
+> then we end up with a bunch of helpers that you actually have to go and
+> read the documentation for in order to find out which one exactly fits
+> your use-case.
+> =
 
-diff --git a/net/core/filter.c b/net/core/filter.c
-index 7124f0fe6974..3e21327b9964 100644
---- a/net/core/filter.c
-+++ b/net/core/filter.c
-@@ -1635,15 +1635,6 @@ void sk_reuseport_prog_free(struct bpf_prog *prog)
- 		bpf_prog_destroy(prog);
- }
- 
--struct bpf_scratchpad {
--	union {
--		__be32 diff[MAX_BPF_STACK / sizeof(__be32)];
--		u8     buff[MAX_BPF_STACK];
--	};
--};
--
--static DEFINE_PER_CPU(struct bpf_scratchpad, bpf_sp);
--
- static inline int __bpf_try_make_writable(struct sk_buff *skb,
- 					  unsigned int write_len)
- {
-@@ -1987,10 +1978,6 @@ static const struct bpf_func_proto bpf_l4_csum_replace_proto = {
- BPF_CALL_5(bpf_csum_diff, __be32 *, from, u32, from_size,
- 	   __be32 *, to, u32, to_size, __wsum, seed)
- {
--	struct bpf_scratchpad *sp = this_cpu_ptr(&bpf_sp);
--	u32 diff_size = from_size + to_size;
--	int i, j = 0;
--
- 	/* This is quite flexible, some examples:
- 	 *
- 	 * from_size == 0, to_size > 0,  seed := csum --> pushing data
-@@ -1999,16 +1986,11 @@ BPF_CALL_5(bpf_csum_diff, __be32 *, from, u32, from_size,
- 	 *
- 	 * Even for diffing, from_size and to_size don't need to be equal.
- 	 */
--	if (unlikely(((from_size | to_size) & (sizeof(__be32) - 1)) ||
--		     diff_size > sizeof(sp->diff)))
-+	if (unlikely((from_size | to_size) & (sizeof(__be32) - 1)))
- 		return -EINVAL;
- 
--	for (i = 0; i < from_size / sizeof(__be32); i++, j++)
--		sp->diff[j] = ~from[i];
--	for (i = 0; i <   to_size / sizeof(__be32); i++, j++)
--		sp->diff[j] = to[i];
--
--	return csum_partial(sp->diff, diff_size, seed);
-+	return csum_sub(csum_partial(to, to_size, seed),
-+			csum_partial(from, from_size, 0));
- }
- 
- static const struct bpf_func_proto bpf_csum_diff_proto = {
+> Without the helpers it's pretty simple to write, even if a little
+> repetitive:
+> =
+
+>    1) get the resource you want to map
+>    2) request the resource
+>    3) map the resource
+> =
+
+> 2) & 3) are very commonly done together, so it makes sense to have a
+> generic helper for them. If you look at the implementation, the
+> devm_ioremap_request() implementation does quite a bit of things in
+> addition to just requesting and remapping, and that's the reason why
+> that helper makes sense.
+> =
+
+> For me personally, devm_platform_ioremap_resource() is just not adding
+> enough value to justify its existence. And then we get all these other
+> variants that operate on the resource name (_byname) and those which
+> remap write-combined (_wc). But don't we also need a _byname_wc()
+> variant for the combination? Where does it stop?
+
+Arguably the worst thing about devm_platform_ioremap_resource() is that =
+
+it was apparently the gateway drug to a belief that =
+
+devm_platform_get_and_ioremap_resource() is anything other than a =
+
+hideous way to obfuscate an assignment...
+
+Robin.
 
 _______________________________________________
 linux-riscv mailing list
