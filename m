@@ -2,84 +2,68 @@ Return-Path: <SRS0=nj+O=ET=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-6.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	NICE_REPLY_A,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E1609C2D0E4
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 01:05:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0762FC56202
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 01:35:22 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5115820B80
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 01:05:32 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5F146216C4
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 01:35:21 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="cZ23Jdxl";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.b="LIWg6Jh7"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5115820B80
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="IkDIgt7n";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="p0qhu8Fl"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5F146216C4
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:Message-Id:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=cnoBkt4F1VBQV7hAXuh5Sw9N1QTyY+EbrxJ8nmI+/Vc=; b=cZ23JdxlWNpb4gVZazdGQlNZY
-	3eGRRXn+U4EBT0eG5LEZ4Raf/IhJ9UDMvnQVJn1J1CS9OHfQ57IqCnYzJKT8O0fRVDsizlz/jMlnx
-	sU+3yIFJo8fhDZbEEIbjSV7wS4OgTiRnnXOGzgDHEMnhLEb579n74G6czVjWsyc583CgNLX0/VWSf
-	d0Q5Jc4v+jzojR7TJBNzXnWpi7WpX8czUzFvTqvrkpuGSKTuB4yMTN/1Mr4pi5Vj0ivHV3Kjql75+
-	FTgNBjo16VVa9GgBO8htMIwamg1gIw/5Wz/d9MyzS3OYohiwEVNCryLC5lsENLoS7jEF66B6UjhVK
-	ZE7h23zfw==;
+	 bh=o+S7ExY9EDWnWZVHsG4iCxpVNNcHD3H4XDOSxLXXBUM=; b=IkDIgt7nQQeQtarMPAF0mkFor
+	TggknJMHpafwGgGql5A2nEOGlurIojL6rCHzAMR+6+UXJnPCBDgoCSmvJU/fGch6cVym9NgpdIctW
+	9lioGWA7Pvgf2FOqwDCkgBq2lDp7NNFEUrG4sQYHL+bIdjLCRPzFAcecJPBvr+w20PYpoBYLodVPY
+	gL6ATS7dzN2eOrHNsHLtJNHcwh3SSCrXfeJKuirEshhS6AWT1/mXMyOHvVlWqi0t+/KbFDX4xZIHS
+	8k7DgHQsOv0kXaONTOgsCm19LLY6yHdUJOefI6KUllaPdw5Q/3Ljane4HcWVEYJ3AEIB65cSP7njN
+	29h0rZ6Fw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kdNWo-0005as-VV; Fri, 13 Nov 2020 01:05:27 +0000
-Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
+	id 1kdNzb-00078Y-Li; Fri, 13 Nov 2020 01:35:11 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kdNWm-0005aV-M8
- for linux-riscv@lists.infradead.org; Fri, 13 Nov 2020 01:05:25 +0000
-Received: by mail-pg1-x542.google.com with SMTP id z24so5735922pgk.3
- for <linux-riscv@lists.infradead.org>; Thu, 12 Nov 2020 17:05:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=KIfDUcpgQLukCTUlGGpYpdoSftsRK2kFhecxA1sd1hE=;
- b=LIWg6Jh7ZjykDtBtTJRkWvN1BdZ7x+5a3bx6T2Zw/HSDC/Dj37410kaYS0/y0BdOkz
- NxfuKMbOrRtptDZ3gqqOpS9BNqTJwaTBCq7p1pOHH6XApsS6ccLN+EuNyGvc5tWB5t1y
- rDLz2Pn+3jAXvdZWPA5bcydT6qwVW+XLhKoAavSO9ggmmYf/+codktPVehDN2fEMW7xf
- GDYzT/HCZHaD3FlXHxnu1yFS6aJ2wBnnOHu6X5aViu/u0AtyBBTN4zPcJD5PCfY35cG0
- 29sNCvqDoqT/aSqVYDVSU44awQ/EjDCiPAXPu98K/eCQKESmgW4GbZYpYxy8cNBe2maI
- cUBg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=KIfDUcpgQLukCTUlGGpYpdoSftsRK2kFhecxA1sd1hE=;
- b=dTkD1EFijOHoyvgF+LkVW67gqn9jAZDSLL3wseobvXMTILUzXGfJU5gFsf0KT/IFBk
- 2uyM6dDJj0t3XofqnzzA6LVptx+Mol5vqm42mpFbfB81MhgHP0DSK76VlZRmDH9ftTE6
- 9nGpPDO2I1YQ9Joavq64x9Nw5/uRFdoWfBpK0Szl6wk3rpKc8mOvJ1dTAaNEPlYFtpuc
- OM+lJI6+WuhjkVxv/eWi4RTl3nEKlIKnPa0Wqqa7oqDHz4j3S/v3Ux+rFlzjauKRaJm3
- 7OrltT0DuXw78IacVKrXAq6XeJTfzkXS6YlsgrJG1ocgKYRIMgFsxtbSN+nzJva0mAPL
- 8J7w==
-X-Gm-Message-State: AOAM531Xq6vs7nrzRpz3cfJbCW3YOFs/EmKvobftYFZdHkfgiL5Rbqo6
- 1ICY6DnKUvpNerQ2W9xvl4dSkqvpnbtunOtOw143fg==
-X-Google-Smtp-Source: ABdhPJxM1CSF3iJAHsWSDZIUBVZD+m+amh+kNvHu5KEupiMMVlCxSbhfwFwIwYj6pQj7E9R6vWpTpqpMkRm0SY2C+cI=
-X-Received: by 2002:a63:b55e:: with SMTP id u30mr17459pgo.381.1605229520588;
- Thu, 12 Nov 2020 17:05:20 -0800 (PST)
-MIME-Version: 1.0
-References: <20201108203737.94270-1-natechancellor@gmail.com>
- <CAKwvOd=P2yFxkAXh9TUpJ=D5=jNnxnx7O5Nr3iTDeqV40UA19A@mail.gmail.com>
- <CAGG=3QVQTQsHhsb5cSEejZ=D4Gq60cz7kMfD8moXWeVU1odTdQ@mail.gmail.com>
-In-Reply-To: <CAGG=3QVQTQsHhsb5cSEejZ=D4Gq60cz7kMfD8moXWeVU1odTdQ@mail.gmail.com>
-From: Nick Desaulniers <ndesaulniers@google.com>
-Date: Thu, 12 Nov 2020 17:05:09 -0800
-Message-ID: <CAKwvOdm-weMaWyAK-O80aC+Y21TTeKKvgXe4kLoD2Fq1forYcQ@mail.gmail.com>
-Subject: Re: [PATCH] riscv: Explicitly specify the build id style in vDSO
- Makefile again
-To: Bill Wendling <morbo@google.com>
+ id 1kdNzV-00076I-BE; Fri, 13 Nov 2020 01:35:07 +0000
+Received: from localhost.localdomain (c-73-231-172-41.hsd1.ca.comcast.net
+ [73.231.172.41])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 6C4A3216C4;
+ Fri, 13 Nov 2020 01:35:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1605231303;
+ bh=7IlWDoYFw6qKRjH3BOF82R+49xhuW2KtSCCfIWH1mkI=;
+ h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+ b=p0qhu8FlLRBehX3rgLy1uFImTw0miiTwEZpreJOS2JwqBOK7aypH/FXHF7H7cSQaJ
+ 99y8LK9p6OmIEjarwU8D+b4yDZG1JvcRwCGKSU23kxdHuvZhv3MoS/AuK35nuazPZd
+ cG0gF1kwLqiFd64IeHBis7a9eoZv0ffsedBM0C8A=
+Date: Thu, 12 Nov 2020 17:35:00 -0800
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Mike Rapoport <rppt@kernel.org>
+Subject: Re: [PATCH v8 6/9] secretmem: add memcg accounting
+Message-Id: <20201112173500.2556342ceefdbe0d66347ecd@linux-foundation.org>
+In-Reply-To: <20201110151444.20662-7-rppt@kernel.org>
+References: <20201110151444.20662-1-rppt@kernel.org>
+ <20201110151444.20662-7-rppt@kernel.org>
+X-Mailer: Sylpheed 3.5.1 (GTK+ 2.24.31; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201112_200524_766875_BCFC0C72 
-X-CRM114-Status: GOOD (  30.45  )
+X-CRM114-CacheID: sfid-20201112_203505_592621_A2245525 
+X-CRM114-Status: GOOD (  17.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -91,96 +75,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Masahiro Yamada <masahiroy@kernel.org>,
- Palmer Dabbelt <palmerdabbelt@google.com>, LKML <linux-kernel@vger.kernel.org>,
- clang-built-linux <clang-built-linux@googlegroups.com>,
- Nathan Chancellor <natechancellor@gmail.com>, linux-riscv@lists.infradead.org
+Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
+ Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
+ Will Deacon <will@kernel.org>, x86@kernel.org,
+ Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
+ Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
+ Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-fsdevel@vger.kernel.org, Rick Edgecombe <rick.p.edgecombe@intel.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 12, 2020 at 5:03 PM Bill Wendling <morbo@google.com> wrote:
->
-> On Thu, Nov 12, 2020 at 4:53 PM Nick Desaulniers
-> <ndesaulniers@google.com> wrote:
-> >
-> > On Sun, Nov 8, 2020 at 12:37 PM Nathan Chancellor
-> > <natechancellor@gmail.com> wrote:
-> > >
-> > > Commit a96843372331 ("kbuild: explicitly specify the build id style")
-> > > explicitly set the build ID style to SHA1. Commit c2c81bb2f691 ("RISC-V:
-> > > Fix the VDSO symbol generaton for binutils-2.35+") undid this change,
-> > > likely unintentionally.
-> > >
-> > > Restore it so that the build ID style stays consistent across the tree
-> > > regardless of linker.
-> > >
-> > > Fixes: c2c81bb2f691 ("RISC-V: Fix the VDSO symbol generaton for binutils-2.35+")
-> > > Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-> >
-> > Thanks for the fixup!
-> >
-> > Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-> >
-> > (I'm curious what --build-id linker flag does, and what kind of spooky
-> > bugs that led to a96843372331?)
-> >
-> --build-id generates a unique "build id" for the build. It can use
-> several different algorithms to do this. The BFD linker uses sha1 by
-> default while LLD uses a "fast" algorithm. The difference is that the
-> fast algorithm generates a shorter build id. This shouldn't matter in
-> general, but there are some tools out there that expect the build id
-> to be of a certain length, i.e. the BFD style's length, because BFD is
-> more prevalent. The obvious response "well, why don't they just change
-> the expected length?" is difficult in all situations. (Once an
-> assumption is made, it's hard to backtrack.)
->
-> You can add this if you like:
->
-> Reviewed-by: Bill Wendling <morbo@google.com>
+On Tue, 10 Nov 2020 17:14:41 +0200 Mike Rapoport <rppt@kernel.org> wrote:
 
-Cool, thanks for the context, and the review!
+> Account memory consumed by secretmem to memcg. The accounting is updated
+> when the memory is actually allocated and freed.
 
->
-> > > ---
-> > >  arch/riscv/kernel/vdso/Makefile | 2 +-
-> > >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > >
-> > > diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
-> > > index cb8f9e4cfcbf..0cfd6da784f8 100644
-> > > --- a/arch/riscv/kernel/vdso/Makefile
-> > > +++ b/arch/riscv/kernel/vdso/Makefile
-> > > @@ -44,7 +44,7 @@ SYSCFLAGS_vdso.so.dbg = $(c_flags)
-> > >  $(obj)/vdso.so.dbg: $(src)/vdso.lds $(obj-vdso) FORCE
-> > >         $(call if_changed,vdsold)
-> > >  SYSCFLAGS_vdso.so.dbg = -shared -s -Wl,-soname=linux-vdso.so.1 \
-> > > -       -Wl,--build-id -Wl,--hash-style=both
-> > > +       -Wl,--build-id=sha1 -Wl,--hash-style=both
-> > >
-> > >  # We also create a special relocatable object that should mirror the symbol
-> > >  # table and layout of the linked DSO. With ld --just-symbols we can then
-> > >
-> > > base-commit: c2c81bb2f69138f902e1a58d3bef6ad97fb8a92c
-> > > --
-> > > 2.29.2
-> > >
-> > > --
-> > > You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> > > To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> > > To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20201108203737.94270-1-natechancellor%40gmail.com.
-> >
-> >
-> >
-> > --
-> > Thanks,
-> > ~Nick Desaulniers
+From: Andrew Morton <akpm@linux-foundation.org>
+Subject: secretmem-add-memcg-accounting-fix
 
+fix CONFIG_MEMCG=n build
 
+Cc: Mike Rapoport <rppt@linux.ibm.com>
+Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+---
 
--- 
-Thanks,
-~Nick Desaulniers
+ mm/filemap.c |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+--- a/mm/filemap.c~secretmem-add-memcg-accounting-fix
++++ a/mm/filemap.c
+@@ -844,7 +844,7 @@ static noinline int __add_to_page_cache_
+ 	page->mapping = mapping;
+ 	page->index = offset;
+ 
+-	if (!huge && !page->memcg_data) {
++	if (!huge && !page_memcg(page)) {
+ 		error = mem_cgroup_charge(page, current->mm, gfp);
+ 		if (error)
+ 			goto error;
+_
+
 
 _______________________________________________
 linux-riscv mailing list
