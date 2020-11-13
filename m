@@ -2,68 +2,93 @@ Return-Path: <SRS0=nj+O=ET=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-12.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 780EAC388F7
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 17:41:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0A05FC63699
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 20:26:33 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 095E220791
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 17:41:11 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8F1372078B
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 20:26:32 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="amj14bUQ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 095E220791
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=arm.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="wVeMlAku";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="AiQoPilH"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8F1372078B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=X8FVPnJD8qvRu4Yj/J+Td0/nm2CHrkQ99xWpXZ7has8=; b=amj14bUQaB2HgQzIB4dTqjmOf
-	KL3cVxsjnZvRGGSej54rvwnBDqAY3ZLm96WwklTVHIe1H92AggY1r87IfeFeUnC5tPJGXn53Jrjuk
-	repcNxMZwZd5TAvAZb+rhXl7PTbHRvPZUH6nlhp5WDz9tyn9JFOcPaISbMgXiCdg40UE4bpKMDrx1
-	OiYJ15xnVno2pWbAPo8Me/xfzvwCAbrG1u2zPfQuNgs6YtCb4NFjbvcM4ORCFiVJbtY0Y4Rxh6+o4
-	JEyOCeAxWfcD26Ca3DsA5moDq8ir+FYi2Bl+h3El9oF76viIep9pz8hn4bLlYmd1POSH/92x6IJtb
-	jJPf7e6fw==;
+	 bh=cN76LO7AW40EtgVeydIrtYj+kl23bEijK5wjC55XjVo=; b=wVeMlAkuFtWU/2D1rJ9k0xI7R
+	NrcOnmjvj1m7YNuFvE9uIQEZIkGZ3Ewli42TTHRFH1FERd279Lz/slIzNUVTShd8FUXFvxhRwIGzB
+	uaiNG/snkg02BJOvcRiNQhaoiR2OpCH+QDPD/6bg9l7qCLdUb0bezNBcUKoy48OkTTi0OtRDnQkFE
+	V08ukk14bBehP5J0vCjHSWN3sgd11G0w8tqqa8J/mmTer8GCOvBMaVBcGw+Omu08bWoY/XN/0y4U/
+	PuD53KjTr0rbLr/fUuWCVIV147ogeKfe2W4GoVr6cE1J9rBUWUACk05u9TD1VUYWDnuvv5vL/KjmT
+	4f2myQSVg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kdd4H-0006dh-CI; Fri, 13 Nov 2020 17:41:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
- by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kdd4A-0006bX-IW; Fri, 13 Nov 2020 17:40:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6D6711042;
- Fri, 13 Nov 2020 09:40:51 -0800 (PST)
-Received: from [10.57.53.43] (unknown [10.57.53.43])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C6B8C3F718;
- Fri, 13 Nov 2020 09:40:42 -0800 (PST)
-Subject: Re: About devm_platform_ioremap_resource [Was: Re: [PATCH 01/32] pwm:
- sun4i: convert to devm_platform_ioremap_resource]
-To: Thierry Reding <thierry.reding@gmail.com>,
- =?UTF-8?Q?Uwe_Kleine-K=c3=b6nig?= <u.kleine-koenig@pengutronix.de>
-References: <20191229080610.7597-1-tiny.windzz@gmail.com>
- <20201112161346.gp5nenuagx5wmwl2@pengutronix.de>
- <20201112190649.GA908613@ulmo>
- <20201112211429.kfyqzkmmchjo6pll@pengutronix.de>
- <20201113070343.lhcsbyvi5baxn3lq@pengutronix.de>
- <20201113161153.GB1408970@ulmo>
-From: Robin Murphy <robin.murphy@arm.com>
-Message-ID: <6cddd32c-50eb-4399-02bc-d4377237134c@arm.com>
-Date: Fri, 13 Nov 2020 17:40:41 +0000
-User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:78.0) Gecko/20100101
- Thunderbird/78.4.3
+	id 1kdfeL-0004tv-Tt; Fri, 13 Nov 2020 20:26:26 +0000
+Received: from esa4.hgst.iphmx.com ([216.71.154.42])
+ by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1kdfeB-0004qa-WD
+ for linux-riscv@lists.infradead.org; Fri, 13 Nov 2020 20:26:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1605299175; x=1636835175;
+ h=from:to:cc:subject:date:message-id:in-reply-to:
+ references:mime-version:content-transfer-encoding;
+ bh=hd8ZmjId7vBbXQM1jz5+4Nu+51CF6i4iXNW7aRPTEWM=;
+ b=AiQoPilHu8dSlj0WwrhdQDeTsO/Mi3eK8Odl2wtofPNjWRS8EpJemcaj
+ 2qVzjcNHWMMYVHoaxfmsYl2KMSUNtE8ungO0+kLt6S0ko6WZuFe7HyW/q
+ sPifVRV5Q9o+S0EztKL6+25UFDAd8KNdF3rfVTcix58l3MalBC21g1vfK
+ KRJmfaC4aAjryj70noUEnJP6QsyXaiCNHtB0sTUrB0drB9DYFwmliB0Hr
+ QMJ3om/MLCzuDVMxy3rD+mUuT9XnOQIFVIO3RTXOHw7eu+xSm9ir2jBNR
+ IYgQ3AiAQQ1qLh50EDgdrttpr30QTFwsnMq/cPkQCt+BNpCDiPEaYXrS/ Q==;
+IronPort-SDR: fAjp49l5HBBhQfqwb8Qz1GtKcWmgjXTo99HHm0/Gih4f588LeBGkQqu7T6poFTiV8YoX4I2QnM
+ tb1k4/uxoKjSAi8bFna3s6nkhDkTVo36Trwt+6Ui+cXDfbJsC4Uqfs3655OZWP8ICvHbXRSbJV
+ Bwb4YdRqAh4o2cFri2rGe6pFxphpjIGlkxHtO13d6VWlRHhB4WRAz8kI53NUHjfkcz3h6UHVEG
+ rKbd2GF/wOLjdp/lCyGANhKCeNLk634wZj5913w4YfpEJXJI8vHtg0FW4W5Y18he/MRVIbbyLD
+ Ij8=
+X-IronPort-AV: E=Sophos;i="5.77,476,1596470400"; d="scan'208";a="152497373"
+Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
+ ([199.255.45.14])
+ by ob1.hgst.iphmx.com with ESMTP; 14 Nov 2020 04:26:12 +0800
+IronPort-SDR: hu4FGNttID/xJfL75uvb//tNvW+RGLvz0IlGv8peoi1NChaoV+SL4/v46me/rSKb7yRcTPJ9nU
+ F4XjeUhGqt+qBeIOOjh7Au4p4TkA4El44r9ofNCwCnlPXAhx5oLjQjnzKu4T7/qNNtmb/q/bT0
+ 777Eg9rwKow364+9/fAadiB6qQu0zA7SmxDkppidmP/qm6awJXxLzLA8zFtyFMR/hLpLTvYSH/
+ /lih8ki4YFk/XxDle9yP11lMnbCHoCME/Wa/ufbkOctoMpzvSRQGWIg96IR8xGbxk7dBVfSCGN
+ wqhtq9aTVr+w32LzysM6eHC8
+Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
+ by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 13 Nov 2020 12:12:09 -0800
+IronPort-SDR: GudsojcbCJuJ151ef4pw2kB59L4vcuQhce5JpZv1kOCLeSlZOY3DxuQWl8sRQSNPEaiP4Y58V9
+ ctH2csmrRUyzpU9vVIEmxl5jWe2cWVSzwMRr/OwmrSXGj2vofyzy6bpP6ZKU5/lkXkagF+2YFj
+ pqQVV3+lXQjixM/jYZ7gfbiNN5q2GcqBoAwA+bEMOgOYI7gq1I7SpXX5y5WNy10K3B19Bh2AL4
+ phSt7zYMHfqjeki68OTkkS34HdI1XX+L4lubt1W88yRRncydlw+azuCOF0smVTvmKs9Wz0SzDb
+ Dbw=
+WDCIronportException: Internal
+Received: from usa003372.ad.shared (HELO jedi-01.hgst.com) ([10.86.61.22])
+ by uls-op-cesaip01.wdc.com with ESMTP; 13 Nov 2020 12:26:12 -0800
+From: Atish Patra <atish.patra@wdc.com>
+To: linux-kernel@vger.kernel.org
+Subject: [RFC PATCH v2 1/4] RISC-V: Add Microchip PolarFire SoC kconfig option
+Date: Fri, 13 Nov 2020 12:25:47 -0800
+Message-Id: <20201113202550.3693323-2-atish.patra@wdc.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20201113202550.3693323-1-atish.patra@wdc.com>
+References: <20201113202550.3693323-1-atish.patra@wdc.com>
 MIME-Version: 1.0
-In-Reply-To: <20201113161153.GB1408970@ulmo>
-Content-Language: en-GB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201113_124054_715687_67EC4228 
-X-CRM114-Status: GOOD (  30.25  )
+X-CRM114-CacheID: sfid-20201113_152616_784118_87A563FC 
+X-CRM114-Status: UNSURE (   9.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -75,131 +100,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: alexandre.belloni@bootlin.com, heiko@sntech.de,
- Yangtao Li <tiny.windzz@gmail.com>, Linus Walleij <linus.walleij@linaro.org>,
- nicolas.ferre@microchip.com, matthias.bgg@gmail.com,
- linux-riscv@lists.infradead.org, festevam@gmail.com, f.fainelli@gmail.com,
- shc_work@mail.ru, Bartosz Golaszewski <bgolaszewski@baylibre.com>,
- khilman@baylibre.com, ludovic.desroches@microchip.com, jonathanh@nvidia.com,
- linux-rockchip@lists.infradead.org, wens@csie.org,
- bcm-kernel-feedback-list@broadcom.com, linux-imx@nxp.com,
- slemieux.tyco@gmail.com, linux-pwm@vger.kernel.org, rjui@broadcom.com,
- s.hauer@pengutronix.de, mripard@kernel.org, vz@mleia.com,
- linux-mediatek@lists.infradead.org, linux-rpi-kernel@lists.infradead.org,
- paul.walmsley@sifive.com, linux-tegra@vger.kernel.org,
- linux-amlogic@lists.infradead.org, Lee Jones <lee.jones@linaro.org>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- linux-arm-kernel@lists.infradead.org, sbranden@broadcom.com,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org,
- palmer@dabbelt.com, kernel@pengutronix.de, shawnguo@kernel.org,
- claudiu.beznea@microchip.com, nsaenzjulienne@suse.de
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="windows-1252"; Format="flowed"
+Cc: devicetree@vger.kernel.org, Bin Meng <bin.meng@windriver.com>,
+ Cyril.Jean@microchip.com, Daire McNamara <daire.mcnamara@microchip.com>,
+ Anup Patel <anup@brainfault.org>, Anup Patel <anup.patel@wdc.com>,
+ Conor.Dooley@microchip.com, Rob Herring <robh+dt@kernel.org>,
+ Atish Patra <atish.patra@wdc.com>, Ivan.Griffin@microchip.com,
+ Albert Ou <aou@eecs.berkeley.edu>, Alistair Francis <alistair.francis@wdc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2020-11-13 16:11, Thierry Reding wrote:
-> On Fri, Nov 13, 2020 at 08:03:43AM +0100, Uwe Kleine-K=F6nig wrote:
->> Hello,
->>
->> [Added lkml and the people involved in commit 7945f929f1a7
->> ("drivers: provide devm_platform_ioremap_resource()") to Cc:. For the
->> new readers: This is about patches making use of
->> devm_platform_ioremap_resource() instead of open coding it. Full context
->> at https://lore.kernel.org/r/20201112190649.GA908613@ulmo]
->>
->> On Thu, Nov 12, 2020 at 10:14:29PM +0100, Uwe Kleine-K=F6nig wrote:
->>> On Thu, Nov 12, 2020 at 08:06:49PM +0100, Thierry Reding wrote:
->>>> I also think that it's overly narrow is scope, so you can't actually
->>>> "blindly" use this helper and I've seen quite a few cases where this w=
-as
->>>> unknowingly used for cases where it shouldn't have been used and then
->>>> broke things (because some drivers must not do the request_mem_region()
->>>> for example).
->>>
->>> You have a link to such an accident?
->>
->> I got a hint in private here: https://lore.kernel.org/r/1555670144-24220=
--1-git-send-email-aisheng.dong@nxp.com
->>
->> devm_platform_ioremap_resource() is platform_get_resource() +
->> devm_ioremap_resource() and here it was used to replace
->> platform_get_resource() + devm_ioremap().
->>
->> IMHO the unlucky thing in this situation is that devm_ioremap_resource()
->> and devm_ioremap() are different by more than just how they get the area
->> to remap. (i.e. devm_ioremap_resource() also does
->> devm_request_mem_region().)
->>
->> So the problem is not the added wrapper, but unclear semantics in the
->> functions it uses.
-> =
+Add Microchip PolarFire kconfig option which selects SoC specific
+and common drivers that is required for this SoC.
 
-> The semantics aren't unclear. It's just that the symbol name doesn't
-> spell out every detail that the function implements, which, frankly, no
-> function name ever does, at least not for anything beyond simple
-> instructional examples. That's what we have documentation for and why
-> people should read the documentation before they use a function and make
-> (potentially wrong) assumption about what it does.
-> =
+Signed-off-by: Atish Patra <atish.patra@wdc.com>
+Reviewed-by: Bin Meng <bin.meng@windriver.com>
+Reviewed-by: Anup Patel <anup@brainfault.org>
+---
+ arch/riscv/Kconfig.socs | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
->>                     In my eyes devm_ioremap() and
->> devm_platform_ioremap_resource() should better be named
->> devm_request_ioremap() and devm_platform_request_ioremap_resource()
->> respectively. Is it worth to rename these for clearity?
-> =
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index 8a55f6156661..148ab095966b 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -1,5 +1,12 @@
+ menu "SoC selection"
+ 
++config SOC_MICROCHIP_POLARFIRE
++	bool "Microchip PolarFire SoCs"
++	select MCHP_CLK_PFSOC
++	select SIFIVE_PLIC
++	help
++	  This enables support for Microchip PolarFire SoC platforms.
++
+ config SOC_SIFIVE
+ 	bool "SiFive SoCs"
+ 	select SERIAL_SIFIVE if TTY
+-- 
+2.25.1
 
-> I think function names are always a compromise between giving you the
-> gist of what the implementation does and being short enough so it
-> doesn't become difficult to read or use.
-> =
-
-> One of the reasons why I dislike the addition of helpers for every
-> common special case (like devm_platform_ioremap_resource()) is because
-> it doesn't (always) actually make things easier for developers and/or
-> maintainers. Replacing three lines of code with one is a minor
-> improvement, even though there may be many callsites and therefore in
-> the sum this being a fairly sizeable reduction. The flip side is that
-> now we've got an extra symbol with an unwieldy name that people need
-> to become familiar with, and then, like the link above shows, it doesn't
-> work in all cases, so you either need to fall back to the open-coded
-> version or you keep adding helpers until you've covered all cases. And
-> then we end up with a bunch of helpers that you actually have to go and
-> read the documentation for in order to find out which one exactly fits
-> your use-case.
-> =
-
-> Without the helpers it's pretty simple to write, even if a little
-> repetitive:
-> =
-
->    1) get the resource you want to map
->    2) request the resource
->    3) map the resource
-> =
-
-> 2) & 3) are very commonly done together, so it makes sense to have a
-> generic helper for them. If you look at the implementation, the
-> devm_ioremap_request() implementation does quite a bit of things in
-> addition to just requesting and remapping, and that's the reason why
-> that helper makes sense.
-> =
-
-> For me personally, devm_platform_ioremap_resource() is just not adding
-> enough value to justify its existence. And then we get all these other
-> variants that operate on the resource name (_byname) and those which
-> remap write-combined (_wc). But don't we also need a _byname_wc()
-> variant for the combination? Where does it stop?
-
-Arguably the worst thing about devm_platform_ioremap_resource() is that =
-
-it was apparently the gateway drug to a belief that =
-
-devm_platform_get_and_ioremap_resource() is anything other than a =
-
-hideous way to obfuscate an assignment...
-
-Robin.
 
 _______________________________________________
 linux-riscv mailing list
