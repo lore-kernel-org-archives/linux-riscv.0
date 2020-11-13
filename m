@@ -2,60 +2,91 @@ Return-Path: <SRS0=nj+O=ET=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.0 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3F2A0C55ABD
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 15:54:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id ABFEAC388F7
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 16:12:13 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B0A6C2074B
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 15:54:00 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 57EF721D1A
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 16:12:13 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Gr4Ic7mu"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B0A6C2074B
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=alpha.franken.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="wl904knN";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="KLSMDgSs"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 57EF721D1A
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=8IaqKGuFMpi9jKs/Sbhf3M0KF1xRh8dTzDzco35g1BM=; b=Gr4Ic7muKtHxYElLSt6EozU6v
-	nx4U6+tiBuaEHHjhC8gC34tNVneDhQZ2bUMEbXjVSgHhtm8B7cK3qp0qlAMYdFCbJElNd7FPc3xef
-	010J6W8hJpJlcbXsjRScpZ/FE+Qj2c/p8fQD9nhQIb1JiFzd4uwkf4yxRHonDVF/d+dZ3GVvghMEB
-	ZEG/s8oKrqMYxKX3D9SAo9kYFGLfKVTXfrSuJMZCk49g08OfYsBIPhESGhXk00TKU6nAqcXFGbBER
-	x7sS35WamOcyIUVNjsPSjxt99dgUm1qzX6rGWnzFN3pCLpu3uOSY0W4pF4NkgNA7tN2+9kabpEX0x
-	mD2f9LAKw==;
+	 bh=eekbqp/qkpO0QNhXfUHNN+/8VCmAZs9X4BYYkaMmFzw=; b=wl904knNR0SLO/wYbEUJrgFSn
+	C8pO9eAZPBauMGBdh1HNnPNpdaMWLpC+7zRn5y8ArF+4Pn/W6N/w0E9exujvoYjThQcIV9cXj88P1
+	JQY1I+KjiAh6RhlWx9GZKy38oiCCOv+jlBck+2oN3mtkjHaParU0fhgmK3/dbvRCEWw21m9glpZW/
+	eKPGGCbNRXZR/dh44GGQhTBIQKdGgzMo3Ah94abUou7oq/z8qkIyB6D5sHj30pLvvYbq+PrNYOWVC
+	ScP2SO0uSLArDqpIHX/8Ys0txp9tru+CoWE6ZGHGpE7eQuHb74yoEDAhOevk3RTra8AvtaQPHl/Qo
+	t0FB0h83w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kdbOX-0000Nj-Il; Fri, 13 Nov 2020 15:53:49 +0000
-Received: from elvis.franken.de ([193.175.24.41])
- by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kdbOU-0000MM-2V; Fri, 13 Nov 2020 15:53:48 +0000
-Received: from uucp (helo=alpha)
- by elvis.franken.de with local-bsmtp (Exim 3.36 #1)
- id 1kdbOK-0007uw-00; Fri, 13 Nov 2020 16:53:36 +0100
-Received: by alpha.franken.de (Postfix, from userid 1000)
- id A43B8C4DE3; Fri, 13 Nov 2020 16:53:09 +0100 (CET)
-Date: Fri, 13 Nov 2020 16:53:09 +0100
-From: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-To: Arnd Bergmann <arnd@kernel.org>
-Subject: Re: [PATCH] arch: pgtable: define MAX_POSSIBLE_PHYSMEM_BITS where
- needed
-Message-ID: <20201113155309.GA12146@alpha.franken.de>
-References: <20201113145932.10994-1-arnd@kernel.org>
+	id 1kdbgD-0002aw-LQ; Fri, 13 Nov 2020 16:12:05 +0000
+Received: from mail-wr1-x442.google.com ([2a00:1450:4864:20::442])
+ by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1kdbgA-0002Zz-UB; Fri, 13 Nov 2020 16:12:04 +0000
+Received: by mail-wr1-x442.google.com with SMTP id j7so10502034wrp.3;
+ Fri, 13 Nov 2020 08:12:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to:user-agent;
+ bh=3FLVqg7Zj+etllIuTUwpk3wN8gzR1GG1JAXGgCW62YM=;
+ b=KLSMDgSs24tLWq2oBa9lxL4UOPCQfi8IzwqLz9wCCdATjc/+7YqTriWIaPJq6vKQy3
+ Ue+p/6X97goyDINuu41tnxndnBzZ9WoudzODChhyRcLXDtk/VukX5fbVPHNHa1Bsn9me
+ ooKZLy9b47OkiiMRf6s4ZUuPL+Y+OfbN6HqZJC+LQ/lVMtoLjX+h+XbGE4N9QNpTisbd
+ Xjik04MsHH7rpUbDKkaHF2boQ5k8rmJV0pjzhSk7Ql3IqxtHwW5gHzaMU6+5qrOBCmIu
+ UEe1VJQ874Q7/HiejGSEP5rfjaWQRx2SXqq0ELlj9ONZizAnAU7ho3rNqYW0oPwSZf8K
+ 8mwQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=3FLVqg7Zj+etllIuTUwpk3wN8gzR1GG1JAXGgCW62YM=;
+ b=I7uWduFfTtahNNXRwZvJ2a5WBlJUjYaFZsnPhpyXQpfMsuZIqOVigPJpdJbgmg7VOq
+ sVcIvDupb3xpvpxmew7zLe2msRyA0+vQ/2q+6qoqmg36ro398aGe/GSJcexb3Z4TXUDJ
+ wwp+tWIFeiALZvCp/N+ZZ10S96IIprF1K4tz/y9RwiOjGuuqJ9C4IN+xeKZ9wvmsy79g
+ TVo22A6Py/1vzJZ+fTK1BEonFk+yxMSrYssahDTAq+hRG3ikKgKL4xQReGuGjh3aaBQ7
+ P6rUZZKv+6MjjhVYyaAATXWjSmu3d2q++gSmyZlATu0QxWdhZ+btgiRC+XJF+3H+xp30
+ bNug==
+X-Gm-Message-State: AOAM53195Ankmpml1RU/jYxK/+V97AcRLyY5D05V4hErqDmu+9XNFHkS
+ oSsuutlQDccbCtTDhj0Jd9s=
+X-Google-Smtp-Source: ABdhPJzwUfRGIpbGH13q8UhwZV3215Ve37PGtZ30CipsukJkmAmiutpAQfbiGlD7j+D+EQ9xKao9tw==
+X-Received: by 2002:adf:e350:: with SMTP id n16mr4550061wrj.419.1605283916855; 
+ Fri, 13 Nov 2020 08:11:56 -0800 (PST)
+Received: from localhost ([217.111.27.204])
+ by smtp.gmail.com with ESMTPSA id t7sm11297890wrx.42.2020.11.13.08.11.55
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 13 Nov 2020 08:11:55 -0800 (PST)
+Date: Fri, 13 Nov 2020 17:11:53 +0100
+From: Thierry Reding <thierry.reding@gmail.com>
+To: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+Subject: Re: About devm_platform_ioremap_resource [Was: Re: [PATCH 01/32]
+ pwm: sun4i: convert to devm_platform_ioremap_resource]
+Message-ID: <20201113161153.GB1408970@ulmo>
+References: <20191229080610.7597-1-tiny.windzz@gmail.com>
+ <20201112161346.gp5nenuagx5wmwl2@pengutronix.de>
+ <20201112190649.GA908613@ulmo>
+ <20201112211429.kfyqzkmmchjo6pll@pengutronix.de>
+ <20201113070343.lhcsbyvi5baxn3lq@pengutronix.de>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20201113145932.10994-1-arnd@kernel.org>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <20201113070343.lhcsbyvi5baxn3lq@pengutronix.de>
+User-Agent: Mutt/1.14.7 (2020-08-29)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201113_105346_367288_9C44607C 
-X-CRM114-Status: GOOD (  31.07  )
+X-CRM114-CacheID: sfid-20201113_111203_040906_D18FA9DB 
+X-CRM114-Status: GOOD (  27.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -67,119 +98,160 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-arch@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Arnd Bergmann <arnd@arndb.de>, Minchan Kim <minchan@kernel.org>,
- Vineet Gupta <vgupta@synopsys.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Russell King <linux@armlinux.org.uk>, Stefan Agner <stefan@agner.ch>,
- linux-mips@vger.kernel.org, linux-mm@kvack.org,
- Albert Ou <aou@eecs.berkeley.edu>, Paul Mackerras <paulus@samba.org>,
- "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv@lists.infradead.org, Nitin Gupta <ngupta@vflare.org>,
- linuxppc-dev@lists.ozlabs.org, Mike Rapoport <rppt@kernel.org>,
- linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: alexandre.belloni@bootlin.com, heiko@sntech.de,
+ Yangtao Li <tiny.windzz@gmail.com>, Linus Walleij <linus.walleij@linaro.org>,
+ linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
+ linux-riscv@lists.infradead.org, festevam@gmail.com, f.fainelli@gmail.com,
+ shc_work@mail.ru, Bartosz Golaszewski <bgolaszewski@baylibre.com>,
+ khilman@baylibre.com, wens@csie.org, jonathanh@nvidia.com,
+ linux-rockchip@lists.infradead.org, ludovic.desroches@microchip.com,
+ bcm-kernel-feedback-list@broadcom.com, linux-imx@nxp.com,
+ slemieux.tyco@gmail.com, linux-pwm@vger.kernel.org, rjui@broadcom.com,
+ s.hauer@pengutronix.de, mripard@kernel.org, vz@mleia.com,
+ linux-mediatek@lists.infradead.org, linux-rpi-kernel@lists.infradead.org,
+ paul.walmsley@sifive.com, matthias.bgg@gmail.com,
+ linux-amlogic@lists.infradead.org, Lee Jones <lee.jones@linaro.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ linux-arm-kernel@lists.infradead.org, sbranden@broadcom.com,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, nicolas.ferre@microchip.com,
+ palmer@dabbelt.com, kernel@pengutronix.de, shawnguo@kernel.org,
+ claudiu.beznea@microchip.com, nsaenzjulienne@suse.de
+Content-Type: multipart/mixed; boundary="===============3347070899734919931=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 13, 2020 at 03:59:32PM +0100, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> Stefan Agner reported a bug when using zsram on 32-bit Arm machines
-> with RAM above the 4GB address boundary:
-> 
->   Unable to handle kernel NULL pointer dereference at virtual address 00000000
->   pgd = a27bd01c
->   [00000000] *pgd=236a0003, *pmd=1ffa64003
->   Internal error: Oops: 207 [#1] SMP ARM
->   Modules linked in: mdio_bcm_unimac(+) brcmfmac cfg80211 brcmutil raspberrypi_hwmon hci_uart crc32_arm_ce bcm2711_thermal phy_generic genet
->   CPU: 0 PID: 123 Comm: mkfs.ext4 Not tainted 5.9.6 #1
->   Hardware name: BCM2711
->   PC is at zs_map_object+0x94/0x338
->   LR is at zram_bvec_rw.constprop.0+0x330/0xa64
->   pc : [<c0602b38>]    lr : [<c0bda6a0>]    psr: 60000013
->   sp : e376bbe0  ip : 00000000  fp : c1e2921c
->   r10: 00000002  r9 : c1dda730  r8 : 00000000
->   r7 : e8ff7a00  r6 : 00000000  r5 : 02f9ffa0  r4 : e3710000
->   r3 : 000fdffe  r2 : c1e0ce80  r1 : ebf979a0  r0 : 00000000
->   Flags: nZCv  IRQs on  FIQs on  Mode SVC_32  ISA ARM  Segment user
->   Control: 30c5383d  Table: 235c2a80  DAC: fffffffd
->   Process mkfs.ext4 (pid: 123, stack limit = 0x495a22e6)
->   Stack: (0xe376bbe0 to 0xe376c000)
-> 
-> As it turns out, zsram needs to know the maximum memory size, which
-> is defined in MAX_PHYSMEM_BITS when CONFIG_SPARSEMEM is set, or in
-> MAX_POSSIBLE_PHYSMEM_BITS on the x86 architecture.
-> 
-> The same problem will be hit on all 32-bit architectures that have a
-> physical address space larger than 4GB and happen to not enable sparsemem
-> and include asm/sparsemem.h from asm/pgtable.h.
-> 
-> After the initial discussion, I suggested just always defining
-> MAX_POSSIBLE_PHYSMEM_BITS whenever CONFIG_PHYS_ADDR_T_64BIT is
-> set, or provoking a build error otherwise. This addresses all
-> configurations that can currently have this runtime bug, but
-> leaves all other configurations unchanged.
-> 
-> I looked up the possible number of bits in source code and
-> datasheets, here is what I found:
-> 
->  - on ARC, CONFIG_ARC_HAS_PAE40 controls whether 32 or 40 bits are used
->  - on ARM, CONFIG_LPAE enables 40 bit addressing, without it we never
->    support more than 32 bits, even though supersections in theory allow
->    up to 40 bits as well.
->  - on MIPS, some MIPS32r1 or later chips support 36 bits, and MIPS32r5
->    XPA supports up to 60 bits in theory, but 40 bits are more than
->    anyone will ever ship
->  - On PowerPC, there are three different implementations of 36 bit
->    addressing, but 32-bit is used without CONFIG_PTE_64BIT
->  - On RISC-V, the normal page table format can support 34 bit
->    addressing. There is no highmem support on RISC-V, so anything
->    above 2GB is unused, but it might be useful to eventually support
->    CONFIG_ZRAM for high pages.
-> 
-> Fixes: 61989a80fb3a ("staging: zsmalloc: zsmalloc memory allocation library")
-> Fixes: 02390b87a945 ("mm/zsmalloc: Prepare to variable MAX_PHYSMEM_BITS")
-> Cc: Stefan Agner <stefan@agner.ch>
-> Cc: Mike Rapoport <rppt@kernel.org>
-> Cc: Kirill A. Shutemov <kirill.shutemov@linux.intel.com>
-> Cc: Nitin Gupta <ngupta@vflare.org>
-> Cc: Minchan Kim <minchan@kernel.org>
-> Cc: Vineet Gupta <vgupta@synopsys.com>
-> Cc: linux-snps-arc@lists.infradead.org
-> Cc: Russell King <linux@armlinux.org.uk>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-> Cc: linux-mips@vger.kernel.org
-> Cc: Michael Ellerman <mpe@ellerman.id.au>
-> Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>
-> Cc: Paul Mackerras <paulus@samba.org>
-> Cc: linuxppc-dev@lists.ozlabs.org
-> Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Albert Ou <aou@eecs.berkeley.edu>
-> Cc: linux-riscv@lists.infradead.org
-> Link: https://lore.kernel.org/linux-mm/bdfa44bf1c570b05d6c70898e2bbb0acf234ecdf.1604762181.git.stefan@agner.ch/
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
-> If everyone is happy with this version, I would suggest merging this as
-> a bugfix through my asm-generic tree for linux-5.10. I originally
-> said I'd send individual patches for each architecture tree, but
-> I now think this is easier and better documents what is going on.
-> ---
->  arch/mips/include/asm/pgtable-32.h           |  3 +++
 
-Acked-by: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+--===============3347070899734919931==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="DBIVS5p969aUjpLe"
+Content-Disposition: inline
 
-Thomas.
 
--- 
-Crap can work. Given enough thrust pigs will fly, but it's not necessarily a
-good idea.                                                [ RFC1925, 2.3 ]
+--DBIVS5p969aUjpLe
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Nov 13, 2020 at 08:03:43AM +0100, Uwe Kleine-K=C3=B6nig wrote:
+> Hello,
+>=20
+> [Added lkml and the people involved in commit 7945f929f1a7
+> ("drivers: provide devm_platform_ioremap_resource()") to Cc:. For the
+> new readers: This is about patches making use of
+> devm_platform_ioremap_resource() instead of open coding it. Full context
+> at https://lore.kernel.org/r/20201112190649.GA908613@ulmo]
+>=20
+> On Thu, Nov 12, 2020 at 10:14:29PM +0100, Uwe Kleine-K=C3=B6nig wrote:
+> > On Thu, Nov 12, 2020 at 08:06:49PM +0100, Thierry Reding wrote:
+> > > I also think that it's overly narrow is scope, so you can't actually
+> > > "blindly" use this helper and I've seen quite a few cases where this =
+was
+> > > unknowingly used for cases where it shouldn't have been used and then
+> > > broke things (because some drivers must not do the request_mem_region=
+()
+> > > for example).
+> >=20
+> > You have a link to such an accident?
+>=20
+> I got a hint in private here: https://lore.kernel.org/r/1555670144-24220-=
+1-git-send-email-aisheng.dong@nxp.com
+>=20
+> devm_platform_ioremap_resource() is platform_get_resource() +
+> devm_ioremap_resource() and here it was used to replace
+> platform_get_resource() + devm_ioremap().
+>=20
+> IMHO the unlucky thing in this situation is that devm_ioremap_resource()
+> and devm_ioremap() are different by more than just how they get the area
+> to remap. (i.e. devm_ioremap_resource() also does
+> devm_request_mem_region().)
+>=20
+> So the problem is not the added wrapper, but unclear semantics in the
+> functions it uses.
+
+The semantics aren't unclear. It's just that the symbol name doesn't
+spell out every detail that the function implements, which, frankly, no
+function name ever does, at least not for anything beyond simple
+instructional examples. That's what we have documentation for and why
+people should read the documentation before they use a function and make
+(potentially wrong) assumption about what it does.
+
+>                    In my eyes devm_ioremap() and
+> devm_platform_ioremap_resource() should better be named
+> devm_request_ioremap() and devm_platform_request_ioremap_resource()
+> respectively. Is it worth to rename these for clearity?
+
+I think function names are always a compromise between giving you the
+gist of what the implementation does and being short enough so it
+doesn't become difficult to read or use.
+
+One of the reasons why I dislike the addition of helpers for every
+common special case (like devm_platform_ioremap_resource()) is because
+it doesn't (always) actually make things easier for developers and/or
+maintainers. Replacing three lines of code with one is a minor
+improvement, even though there may be many callsites and therefore in
+the sum this being a fairly sizeable reduction. The flip side is that
+now we've got an extra symbol with an unwieldy name that people need
+to become familiar with, and then, like the link above shows, it doesn't
+work in all cases, so you either need to fall back to the open-coded
+version or you keep adding helpers until you've covered all cases. And
+then we end up with a bunch of helpers that you actually have to go and
+read the documentation for in order to find out which one exactly fits
+your use-case.
+
+Without the helpers it's pretty simple to write, even if a little
+repetitive:
+
+  1) get the resource you want to map
+  2) request the resource
+  3) map the resource
+
+2) & 3) are very commonly done together, so it makes sense to have a
+generic helper for them. If you look at the implementation, the
+devm_ioremap_request() implementation does quite a bit of things in
+addition to just requesting and remapping, and that's the reason why
+that helper makes sense.
+
+For me personally, devm_platform_ioremap_resource() is just not adding
+enough value to justify its existence. And then we get all these other
+variants that operate on the resource name (_byname) and those which
+remap write-combined (_wc). But don't we also need a _byname_wc()
+variant for the combination? Where does it stop?
+
+Thierry
+
+--DBIVS5p969aUjpLe
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAl+usEcACgkQ3SOs138+
+s6Fx2A//aBWRQVzPwSHDhbF/lNl90e5vvJJvXbrcYeiJEuYYaiFkgBrnXzYQgULo
+LI8hLEtAl9F5Ghps7wMBsngqqm8+gaPBOPhYDUkS6VxdK78mByEjyyz136HJkjKr
+Hw2q7063Urljk3V25DAwrGzqhv8ngWNY1fIGmB3Khjvm8TnsTWgEh3fkCao2qjpS
+hGTaRPAmBcA/riB67DykA1Zgce/KkEA5oe/II7sokZ35jVgZLcMtw2xACMxCJ/rJ
+WKX98AL5jAI6wVtgWwbetccy+YWHvrj2Xns1T5mzkas2HUnCYeWFeiL6VJBEYnQL
+DnNylpoUbUV6h/DDiIeQ+yW4j4bzYrtanTzXPJ+VNHopW5sePwR/jL8yH+rQVHRT
+pGLB0EPfy3aqi7BXzhJwJY4s8HvC1uMRiNk5V3Zk2mJPsRaFud3gkCGWGtgX46Ma
+QknbKULKt+bYrXDXvcm4qRb4Kvt223Pdqlxp9eppHAdZFWnD3EUymSpNN8Rej0gY
+6ulcjvxwBvYwWUZp8IN7gnq4fbpy8uT3GxkitmvIgznwRmk3bse/2V8FfhSob/XC
+Yb+KLXKpP5s09mSindpzh+c4iw+Duy5PBzPTbtu56RTAbfNWJmKNmq54fNTswD/j
+vHFSImUb4jcngBJzaTZGVtV1PA2tagKtkkIp82uLtCIfvvjrPbQ=
+=E6ps
+-----END PGP SIGNATURE-----
+
+--DBIVS5p969aUjpLe--
+
+
+--===============3347070899734919931==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3347070899734919931==--
+
