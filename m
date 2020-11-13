@@ -2,70 +2,74 @@ Return-Path: <SRS0=nj+O=ET=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0ADE1C55ABD
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 07:04:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3F27CC388F7
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 07:31:56 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 728BB2137B
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 07:04:25 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D880B208D5
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Nov 2020 07:31:55 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="jZCEoRkl"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 728BB2137B
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="YqE/ftYX";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="a07F7osU"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D880B208D5
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Message-ID:Date:To:From:Subject:References:
+	In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=swAtYGLZo7pkc7lSklyAwSzN6gnAFu1SOxgwy00B4kA=; b=jZCEoRklHz9VCHBnzVXb2+HXg
-	sBDPzkFPJt0Bu51iY5MSiRcC/6NhWD/SJtYzijdW3ZQ741byLJOqYWXYkH7/rmnjKBj2qN3GHVfRC
-	kBavpjgIYiiRtfPKdQWY5RWqkYQZP4OBnaXm32Sme+1z51jXc57iAF+x4VbF9zVJHa9w59K2j/5Jm
-	VxHgrglqENYx6O7gZ4JGa4aqndzS0L11Z203FEPm3pgknh42S3UhogdzjdFcgKK6MVNX0thaU3l2M
-	iPwoYvhhJqD/jv83+NBp7QfpareoEp1xX4LD9WQ1qT9bhoROLlXzU0NfsRdLLYKVXReFfZJP5ZjMU
-	+PWOIsyiA==;
+	 bh=z7cvYzxeMoo+FoMqEwl4pUkBlUOgwHfeGIl04LPk0k4=; b=YqE/ftYXt37wuWexjU/DMnEFY
+	JQ79iy3+Tvop2PN6wMWaldrn4waYBugnODBJSg0sxoQG30tAAzpcypKgSYvq7rGYj/ASRguVE1Rr0
+	3U4Wz3nkVRpo3krlI+wR73jMpOxRKK6MEaQ2B/UA/cPJrttjCvTatiYJ47fF0LpMWc9xOmGp95TeR
+	TwfRz5jhjXl9CcrV3mp3r+IIA1E1VY4QepjxPgMi3FwYqv7WQqXrouwKplhpTI871FodAqwpgb6hG
+	43lqQuRJDg8atY63wdBrCoGqWEh79UucFA7tGwX4sbB63+6dbICmeWoWuh3qBuazxqrJFn/BWzC4J
+	yumsMEyXw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kdT81-0002dt-5Z; Fri, 13 Nov 2020 07:04:13 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1kdTYh-0005fB-5b; Fri, 13 Nov 2020 07:31:47 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kdT7s-0002Yr-F3
- for linux-riscv@lists.infradead.org; Fri, 13 Nov 2020 07:04:06 +0000
-Received: from pty.hi.pengutronix.de ([2001:67c:670:100:1d::c5])
- by metis.ext.pengutronix.de with esmtps
- (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
- (envelope-from <ukl@pengutronix.de>)
- id 1kdT7e-0002r8-3x; Fri, 13 Nov 2020 08:03:50 +0100
-Received: from ukl by pty.hi.pengutronix.de with local (Exim 4.89)
- (envelope-from <ukl@pengutronix.de>)
- id 1kdT7Z-0004f0-FQ; Fri, 13 Nov 2020 08:03:45 +0100
-Date: Fri, 13 Nov 2020 08:03:43 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Thierry Reding <thierry.reding@gmail.com>
-Subject: About devm_platform_ioremap_resource [Was: Re: [PATCH 01/32] pwm:
- sun4i: convert to devm_platform_ioremap_resource]
-Message-ID: <20201113070343.lhcsbyvi5baxn3lq@pengutronix.de>
-References: <20191229080610.7597-1-tiny.windzz@gmail.com>
- <20201112161346.gp5nenuagx5wmwl2@pengutronix.de>
- <20201112190649.GA908613@ulmo>
- <20201112211429.kfyqzkmmchjo6pll@pengutronix.de>
+ id 1kdTYf-0005el-Dy
+ for linux-riscv@lists.infradead.org; Fri, 13 Nov 2020 07:31:46 +0000
+Received: from kernel.org (unknown [104.132.1.79])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id DAD6B2085B;
+ Fri, 13 Nov 2020 07:31:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1605252704;
+ bh=IxHFr+O2Qeh2nbz9XeXyx6Xdc9c/exv2Y07r+qrDnTE=;
+ h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+ b=a07F7osUltHrv80bza86dFbbwqa8o6pChOyptgMVnw1icH731bI5MQBphl5ha1WaP
+ iNYgD3I7OohPhTAa1j0APFrCMDttT1nZ4bNLswvIkB3LYLTmKp7o97u370vJthEpkn
+ u+DwZUMidzSuJMvo1haBpal+J1XvNDWH1ER1uLUk=
 MIME-Version: 1.0
-In-Reply-To: <20201112211429.kfyqzkmmchjo6pll@pengutronix.de>
-X-SA-Exim-Connect-IP: 2001:67c:670:100:1d::c5
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
- SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+In-Reply-To: <20201107081420.60325-9-damien.lemoal@wdc.com>
+References: <20201107081420.60325-1-damien.lemoal@wdc.com>
+ <20201107081420.60325-9-damien.lemoal@wdc.com>
+Subject: Re: [PATCH 08/32] riscv: Fix kernel time_init()
+From: Stephen Boyd <sboyd@kernel.org>
+To: Damien Le Moal <damien.lemoal@wdc.com>,
+ Frank Rowand <frowand.list@gmail.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Mark Brown <broonie@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Rob Herring <robh+dt@kernel.org>, Serge Semin <fancer.lancer@gmail.com>,
+ devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-spi@vger.kernel.org
+Date: Thu, 12 Nov 2020 23:31:42 -0800
+Message-ID: <160525270249.60232.12874105352298232293@swboyd.mtv.corp.google.com>
+User-Agent: alot/0.9.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201113_020404_565925_3AC3A9A5 
-X-CRM114-Status: GOOD (  18.74  )
+X-CRM114-CacheID: sfid-20201113_023145_571524_F7C47BB0 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -77,111 +81,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: alexandre.belloni@bootlin.com, heiko@sntech.de,
- Yangtao Li <tiny.windzz@gmail.com>, Linus Walleij <linus.walleij@linaro.org>,
- linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
- linux-riscv@lists.infradead.org, festevam@gmail.com, f.fainelli@gmail.com,
- shc_work@mail.ru, Bartosz Golaszewski <bgolaszewski@baylibre.com>,
- khilman@baylibre.com, wens@csie.org, jonathanh@nvidia.com,
- linux-rockchip@lists.infradead.org, ludovic.desroches@microchip.com,
- bcm-kernel-feedback-list@broadcom.com, linux-imx@nxp.com,
- slemieux.tyco@gmail.com, linux-pwm@vger.kernel.org, rjui@broadcom.com,
- s.hauer@pengutronix.de, mripard@kernel.org, vz@mleia.com,
- linux-mediatek@lists.infradead.org, linux-rpi-kernel@lists.infradead.org,
- paul.walmsley@sifive.com, matthias.bgg@gmail.com,
- linux-amlogic@lists.infradead.org, Lee Jones <lee.jones@linaro.org>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- linux-arm-kernel@lists.infradead.org, sbranden@broadcom.com,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, nicolas.ferre@microchip.com,
- palmer@dabbelt.com, kernel@pengutronix.de, shawnguo@kernel.org,
- claudiu.beznea@microchip.com, nsaenzjulienne@suse.de
-Content-Type: multipart/mixed; boundary="===============3513031770631625769=="
+Cc: Sean Anderson <seanga2@gmail.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Quoting Damien Le Moal (2020-11-07 00:13:56)
+> If of_clk_init() is not called in time_init(), clock providers defined
+> in the system device tree are not initialized, resulting in failures for
+> other devices to initialize due to missing clocks.
+> Similarly to other architectures and to the default kernel time_init()
+> implementation, call of_clk_init() before executing timer_probe() in
+> time_init().
 
---===============3513031770631625769==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="bfm7upvbg2x7q3rm"
-Content-Disposition: inline
-
-
---bfm7upvbg2x7q3rm
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hello,
-
-[Added lkml and the people involved in commit 7945f929f1a7
-("drivers: provide devm_platform_ioremap_resource()") to Cc:. For the
-new readers: This is about patches making use of
-devm_platform_ioremap_resource() instead of open coding it. Full context
-at https://lore.kernel.org/r/20201112190649.GA908613@ulmo]
-
-On Thu, Nov 12, 2020 at 10:14:29PM +0100, Uwe Kleine-K=F6nig wrote:
-> On Thu, Nov 12, 2020 at 08:06:49PM +0100, Thierry Reding wrote:
-> > I also think that it's overly narrow is scope, so you can't actually
-> > "blindly" use this helper and I've seen quite a few cases where this was
-> > unknowingly used for cases where it shouldn't have been used and then
-> > broke things (because some drivers must not do the request_mem_region()
-> > for example).
->=20
-> You have a link to such an accident?
-
-I got a hint in private here: https://lore.kernel.org/r/1555670144-24220-1-=
-git-send-email-aisheng.dong@nxp.com
-
-devm_platform_ioremap_resource() is platform_get_resource() +
-devm_ioremap_resource() and here it was used to replace
-platform_get_resource() + devm_ioremap().
-
-IMHO the unlucky thing in this situation is that devm_ioremap_resource()
-and devm_ioremap() are different by more than just how they get the area
-to remap. (i.e. devm_ioremap_resource() also does
-devm_request_mem_region().)
-
-So the problem is not the added wrapper, but unclear semantics in the
-functions it uses. In my eyes devm_ioremap() and
-devm_platform_ioremap_resource() should better be named
-devm_request_ioremap() and devm_platform_request_ioremap_resource()
-respectively. Is it worth to rename these for clearity?
-
-Best regards
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---bfm7upvbg2x7q3rm
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAl+uL8wACgkQwfwUeK3K
-7AmhFQf/UMY3Z/O4ajFXsCh5aeqAW1EKy0wv+YtVLmLASYlkvBQ5OpoaFH6U7oZY
-a1BVjZ2I3q3pi1zMs+2dPAkylNi0VEIERvwncqHOfYN4FjdNsI85rKbxu4DNsWHJ
-wlaQxLwmUmDXDESpJ4RN8JqF/V/nPZfj/4V52ANK31PZ+i4fYnIlW6TU0cJwoJ9s
-aGSM2QwTb27uaRg5hqZqfOyIkt3wwkDJIF65H/vi64r0Gtm3c+0iKbEmlXr2XZCh
-APhFgQQDGFOMXdSBZeFxTtuLCzuG/RA3Fxb+7okleZUL6GrSwq7xWHJGorO136kq
-mo88jw2ceYf/qJA9E4atasOfbQUtlg==
-=gJ1m
------END PGP SIGNATURE-----
-
---bfm7upvbg2x7q3rm--
-
-
---===============3513031770631625769==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Do you have timers that need clks to be running or queryable this early?
+This of_clk_init() call is made here when architectures need to call
+things like clk_get_rate() to figure out some clk frequency for their
+clockevent or clocksource. It is OK to have this call here, I'm just
+curious if this is actually necessary vs. delaying it to later.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3513031770631625769==--
-
