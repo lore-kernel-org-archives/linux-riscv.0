@@ -2,22 +2,23 @@ Return-Path: <SRS0=pUzR=EV=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SIGNED_OFF_BY,
-	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.5 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4044DC55ABD
-	for <linux-riscv@archiver.kernel.org>; Sun, 15 Nov 2020 09:17:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7F810C56202
+	for <linux-riscv@archiver.kernel.org>; Sun, 15 Nov 2020 16:02:06 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EBA6322450
-	for <linux-riscv@archiver.kernel.org>; Sun, 15 Nov 2020 09:17:31 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id BD2D722409
+	for <linux-riscv@archiver.kernel.org>; Sun, 15 Nov 2020 16:02:05 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="0NwC1jAE";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="q0I4G8XB"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EBA6322450
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="smR6urpM";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="qTDbJKqp"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BD2D722409
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -25,44 +26,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=xMKWnt4umUA0Oz4NkiQK987L7kVyK15xA/I5/Qn7JdU=; b=0NwC1jAErBRjcm1fT2Vns6mZT
-	MNCsblCxiVu7gRNOb4PEr4p54uIet1ErLZMAGkxDp5pH2cn/NrGAGXV9MkNac773uLsv7hqwU4xUJ
-	kPY7zKzY6T6igM40CirFZiOY9r3Vo8KeAzL85IDD+Im1FyCP6gDUyTN4oUc+2/oNKvgg9iAK/WZFl
-	85mnuHXUZPGYKJzEYOM3hiAX2hCr1KITkxHD4Lo8kFS7m7S7m1wGV8tmHDIs9jFmMqQfutvOg7qFW
-	3xQzwDbtglsSdQQn5fF8SPXGn8CxRkwU0eytra7TpS8ZKQJLKeBonYVtwxLcOEGmTZFmGOpP5MZBt
-	930dd/tAA==;
+	 bh=IaiOhROeeg7rk7cfyKUL70aCF5gv6fqL0z+F9OzDK1w=; b=smR6urpMlwWkL+2C1Rxim7gI5
+	LoLqUp3C0xOrTKD/xfRjUOzzAgXUPw9dp1YbcIjz44jjInfqoqroTzAyofZ8aBkwFEjkauMkfClgR
+	t+vVRISrFvOYU/+MpuTEtVGu62J5Va3sVeSoBvofWlU5g8kE/Ey1sE+GMPUZWpY1TjUUsJXcvZWl1
+	EIGdYBsmii9E6tTNrqooBdcFbiPChBNvkPsRwoeTzE2varK50uT+Gj9YzMyPensbY7IZZ+mu/5qeT
+	YSxoHd0CvzOaxpGakdVmPffvHv9hpcos5K/jAcDT4yai1lRqhFweLgbVaSDxGF7Xl9qMNNJn2rvTE
+	N8Sy2rBnA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1keE9x-0002tW-Sg; Sun, 15 Nov 2020 09:17:21 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1keKTS-00040m-Mq; Sun, 15 Nov 2020 16:01:54 +0000
+Received: from mail-lf1-x144.google.com ([2a00:1450:4864:20::144])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1keE9s-0002s4-Tn; Sun, 15 Nov 2020 09:17:18 +0000
-Received: from kernel.org (unknown [77.125.7.142])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 01B8422450;
- Sun, 15 Nov 2020 09:17:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1605431835;
- bh=XrsLu3AgfKf/yhCqreqSLPfO0QbxjM5u1nh2OTK+i7M=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=q0I4G8XBAWR7g47zvvLF17b4q7dpa65b9wkXecvSGjBwSxVcsrFJ8ESXu8JFAv6n6
- sdRm52xntWf8ZCcumTh9FSor5j2JPuQESup2yC2R21JKmZx1500hzTDazlR+vjkiGB
- IVdV6hSWm3dBik27GJTFfn5JfaFip6aaLkmt9qWY=
-Date: Sun, 15 Nov 2020 11:17:00 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Roman Gushchin <guroan@gmail.com>
-Subject: Re: [PATCH v8 6/9] secretmem: add memcg accounting
-Message-ID: <20201115091700.GY4758@kernel.org>
-References: <20201110151444.20662-1-rppt@kernel.org>
- <20201110151444.20662-7-rppt@kernel.org>
- <CALo0P13aq3GsONnZrksZNU9RtfhMsZXGWhK1n=xYJWQizCd4Zw@mail.gmail.com>
+ id 1keKTQ-00040P-Ay
+ for linux-riscv@lists.infradead.org; Sun, 15 Nov 2020 16:01:53 +0000
+Received: by mail-lf1-x144.google.com with SMTP id e139so1802313lfd.1
+ for <linux-riscv@lists.infradead.org>; Sun, 15 Nov 2020 08:01:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=Z/o5dHQdupSX0LEpFJUfukdhv88jcnp6r8cNQQCHst4=;
+ b=qTDbJKqporXAV7pI8syzKGLsGqEV6rOprWwaKQBz6n/nOoWeURU+hOyyOhVUHjktCR
+ 4MSaFijqG7s6V5amzrZH/HasaHIUw7fy67VScu6d+FHsVDXzkk/Kpb62fhgVj6K4D49q
+ /Z4Jt14wxJXcggRcemd3o/eYKvXp2m/xqs0RJErcVvvIA7SxEA6QJiM3Wxb9Tk0KUibF
+ CauFSkp78slSsNr76DHnyy97PsjDZL4g9ErCjWEvAuruQXC9eLl4r1I5R9UhB0A3hQP5
+ W577j5NOpeDCg2N2ka/o1bIPSp0rADllV0cnqBFdu13PkxJMfILiIB1nrwLbxxdZDQ7A
+ WONg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=Z/o5dHQdupSX0LEpFJUfukdhv88jcnp6r8cNQQCHst4=;
+ b=a91UyyA7bZ0yFmmm5ovbj8Kl0nCfvJeskWn5bD045GvOWf8ADIvNQ1//Sdi17K8396
+ O4CHDKinUlzRyjWF/Vyw8cWKbxMa6sXIPXFfwonKK3YzRblRP1VRFDpTzyaemNqTN7IV
+ oTwPZhfjDjKfi9hhkmX+SmKTq3YOFEfQPZ5jC1K9M2R190HMtLkQ34KZLurE5Wm9SAGt
+ 7TH23EjwatvypLZA64OYHmWD2ZYxRgdBeSF/38ssVNU21YmJjxwK5KO1dfNEUDJmbe7t
+ NOTXveWxwsBcVfwQjT7PVSly3L/BtG/u8RduAVlohgJ1r5b9TWXyOdL94bpkzKX4MN8r
+ O7CQ==
+X-Gm-Message-State: AOAM53391sMghB0zhsUKc5uPWaMg6TJrjqWcEu23EvQTtCFsTz19wXZ4
+ w5z0zddWxJKr6CTu5BOGVO4=
+X-Google-Smtp-Source: ABdhPJwGzRPIrF+sBIOG5+BoQZRv3Bz6c14nq7V/gFYoEqGUPcozBm13x+jsjMQqI/lQzXoTRIaKvw==
+X-Received: by 2002:ac2:5195:: with SMTP id u21mr4260598lfi.393.1605456109201; 
+ Sun, 15 Nov 2020 08:01:49 -0800 (PST)
+Received: from mobilestation ([95.79.141.114])
+ by smtp.gmail.com with ESMTPSA id b19sm2354172lfp.254.2020.11.15.08.01.48
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sun, 15 Nov 2020 08:01:48 -0800 (PST)
+Date: Sun, 15 Nov 2020 19:01:46 +0300
+From: Serge Semin <fancer.lancer@gmail.com>
+To: Damien Le Moal <Damien.LeMoal@wdc.com>
+Subject: Re: [PATCH 04/32] spi: dw: Introduce polling device tree property
+Message-ID: <20201115160146.efxcdjhm7f2nmivo@mobilestation>
+References: <20201107081420.60325-1-damien.lemoal@wdc.com>
+ <20201107081420.60325-5-damien.lemoal@wdc.com>
+ <20201109195913.itgfj2ga5y7sr6zx@mobilestation>
+ <58943f7988706497040cac6f6108336286e9d15f.camel@wdc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CALo0P13aq3GsONnZrksZNU9RtfhMsZXGWhK1n=xYJWQizCd4Zw@mail.gmail.com>
+In-Reply-To: <58943f7988706497040cac6f6108336286e9d15f.camel@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201115_041717_157474_BD5B99B0 
-X-CRM114-Status: GOOD (  32.36  )
+X-CRM114-CacheID: sfid-20201115_110152_416062_777C0051 
+X-CRM114-Status: GOOD (  46.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -74,121 +97,191 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
- Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
- linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>,
- Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
- Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
- Will Deacon <will@kernel.org>, x86@kernel.org,
- Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
- Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
- Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
- Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
- linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-fsdevel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "broonie@kernel.org" <broonie@kernel.org>,
+ "palmer@dabbelt.com" <palmer@dabbelt.com>,
+ "seanga2@gmail.com" <seanga2@gmail.com>,
+ "linux-spi@vger.kernel.org" <linux-spi@vger.kernel.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBOb3YgMTMsIDIwMjAgYXQgMDM6NDI6MjVQTSAtMDgwMCwgUm9tYW4gR3VzaGNoaW4g
-d3JvdGU6Cj4g0LLRgiwgMTAg0L3QvtGP0LEuIDIwMjAg0LMuINCyIDA3OjE2LCBNaWtlIFJhcG9w
-b3J0IDxycHB0QGtlcm5lbC5vcmc+Ogo+ID4KPiA+IEZyb206IE1pa2UgUmFwb3BvcnQgPHJwcHRA
-bGludXguaWJtLmNvbT4KPiA+Cj4gPiBBY2NvdW50IG1lbW9yeSBjb25zdW1lZCBieSBzZWNyZXRt
-ZW0gdG8gbWVtY2cuIFRoZSBhY2NvdW50aW5nIGlzIHVwZGF0ZWQKPiA+IHdoZW4gdGhlIG1lbW9y
-eSBpcyBhY3R1YWxseSBhbGxvY2F0ZWQgYW5kIGZyZWVkLgo+ID4KPiA+IFNpZ25lZC1vZmYtYnk6
-IE1pa2UgUmFwb3BvcnQgPHJwcHRAbGludXguaWJtLmNvbT4KPiA+IC0tLQo+ID4gIG1tL2ZpbGVt
-YXAuYyAgIHwgIDIgKy0KPiA+ICBtbS9zZWNyZXRtZW0uYyB8IDQyICsrKysrKysrKysrKysrKysr
-KysrKysrKysrKysrKysrKysrKysrKysrLQo+ID4gIDIgZmlsZXMgY2hhbmdlZCwgNDIgaW5zZXJ0
-aW9ucygrKSwgMiBkZWxldGlvbnMoLSkKPiA+Cj4gPiBkaWZmIC0tZ2l0IGEvbW0vZmlsZW1hcC5j
-IGIvbW0vZmlsZW1hcC5jCj4gPiBpbmRleCAyNDljZjQ4OWY1ZGYuLjExMzg3YTA3NzM3MyAxMDA2
-NDQKPiA+IC0tLSBhL21tL2ZpbGVtYXAuYwo+ID4gKysrIGIvbW0vZmlsZW1hcC5jCj4gPiBAQCAt
-ODQ0LDcgKzg0NCw3IEBAIHN0YXRpYyBub2lubGluZSBpbnQgX19hZGRfdG9fcGFnZV9jYWNoZV9s
-b2NrZWQoc3RydWN0IHBhZ2UgKnBhZ2UsCj4gPiAgICAgICAgIHBhZ2UtPm1hcHBpbmcgPSBtYXBw
-aW5nOwo+ID4gICAgICAgICBwYWdlLT5pbmRleCA9IG9mZnNldDsKPiA+Cj4gPiAtICAgICAgIGlm
-ICghaHVnZSkgewo+ID4gKyAgICAgICBpZiAoIWh1Z2UgJiYgIXBhZ2UtPm1lbWNnX2RhdGEpIHsK
-PiA+ICAgICAgICAgICAgICAgICBlcnJvciA9IG1lbV9jZ3JvdXBfY2hhcmdlKHBhZ2UsIGN1cnJl
-bnQtPm1tLCBnZnApOwo+ID4gICAgICAgICAgICAgICAgIGlmIChlcnJvcikKPiA+ICAgICAgICAg
-ICAgICAgICAgICAgICAgIGdvdG8gZXJyb3I7Cj4gPiBkaWZmIC0tZ2l0IGEvbW0vc2VjcmV0bWVt
-LmMgYi9tbS9zZWNyZXRtZW0uYwo+ID4gaW5kZXggMWFhMmI3Y2ZmZTBkLi4xZWI3NjY3MDE2ZmEg
-MTAwNjQ0Cj4gPiAtLS0gYS9tbS9zZWNyZXRtZW0uYwo+ID4gKysrIGIvbW0vc2VjcmV0bWVtLmMK
-PiA+IEBAIC0xNyw2ICsxNyw3IEBACj4gPiAgI2luY2x1ZGUgPGxpbnV4L3N5c2NhbGxzLmg+Cj4g
-PiAgI2luY2x1ZGUgPGxpbnV4L21lbWJsb2NrLmg+Cj4gPiAgI2luY2x1ZGUgPGxpbnV4L3BzZXVk
-b19mcy5oPgo+ID4gKyNpbmNsdWRlIDxsaW51eC9tZW1jb250cm9sLmg+Cj4gPiAgI2luY2x1ZGUg
-PGxpbnV4L3NldF9tZW1vcnkuaD4KPiA+ICAjaW5jbHVkZSA8bGludXgvc2NoZWQvc2lnbmFsLmg+
-Cj4gPgo+ID4gQEAgLTQ5LDYgKzUwLDM4IEBAIHN0cnVjdCBzZWNyZXRtZW1fY3R4IHsKPiA+Cj4g
-PiAgc3RhdGljIHN0cnVjdCBjbWEgKnNlY3JldG1lbV9jbWE7Cj4gPgo+IAo+IEhpIE1pa2UhCj4g
-Cj4gPiArc3RhdGljIGludCBzZWNyZXRtZW1fbWVtY2dfY2hhcmdlKHN0cnVjdCBwYWdlICpwYWdl
-LCBnZnBfdCBnZnAsIGludCBvcmRlcikKPiA+ICt7Cj4gPiArICAgICAgIHVuc2lnbmVkIGxvbmcg
-bnJfcGFnZXMgPSAoMSA8PCBvcmRlcik7Cj4gPiArICAgICAgIGludCBpLCBlcnI7Cj4gPiArCj4g
-PiArICAgICAgIGVyciA9IG1lbWNnX2ttZW1fY2hhcmdlX3BhZ2UocGFnZSwgZ2ZwLCBvcmRlcik7
-Cj4gPiArICAgICAgIGlmIChlcnIpCj4gPiArICAgICAgICAgICAgICAgcmV0dXJuIGVycjsKPiA+
-ICsKPiA+ICsgICAgICAgZm9yIChpID0gMTsgaSA8IG5yX3BhZ2VzOyBpKyspIHsKPiA+ICsgICAg
-ICAgICAgICAgICBzdHJ1Y3QgcGFnZSAqcCA9IHBhZ2UgKyBpOwo+ID4gKwo+ID4gKyAgICAgICAg
-ICAgICAgIHAtPm1lbWNnX2RhdGEgPSBwYWdlLT5tZW1jZ19kYXRhOwo+ID4gKyAgICAgICB9Cj4g
-Cj4gSG0sIGl0IGxvb2tzIHZlcnkgc3RyYW5nZSB0byBtZS4gV2h5IGRvIHdlIG5lZWQgdG8gY29w
-eSBtZW1jZ19kYXRhPwo+IFdoYXQgYWJvdXQgY3NzIHJlZmVyZW5jZSBjb3VudGluZz8KCkkgbmVl
-ZCB0byBjb3B5IG1lbWNnX2RhdGEgdG8gbWFyayBhIHBhZ2UgYXMgYmVpbmcgYWNjb3VudGVkIHNv
-IGl0IHdvbid0CmJlIGNoYXJnZWQgYWdhaW4gd2hlbiBpdCBpcyBhZGRlZCB0byBwYWdlIGNhY2hl
-LgoKV2hhdCBoYXBwZW5zIGhlcmUgaXMgdGhhdCBJIGFsbG9jYXRlIGEgbGFyZ2UgcGFnZSBhbmQg
-dGhlbiB1c2UgaXQgYXMgYQpsb2NhbCBjYWNoZSBmb3IgYWxsb2NhdGlvbnMgaW4gc2VjcmV0bWVt
-X2ZhdWx0KCkuIEkgY2hhcmdlIHRoZSBsYXJnZQpwYWdlIGFzIGttZW0uIAoKRHVyaW5nIHNlY3Jl
-dG1lbV9mYXVsdCgpIGEgc21hbGwgc3ViLXBhZ2UgZnJvbSB0aGF0IGxhcmdlIHBhZ2UgZ29lcyBp
-bnRvCnBhZ2UgY2FjaGUgYW5kIHRoZXJlIEkgc2tpcCBpdHMgbWVtY2cgYWNjb3VudGluZy4KCklu
-IHRoZSBlbmQsIHdoZW4gdGhlIGxhcmdlIHBhZ2UgaXMgZnJlZWQsIHRoZSBtZW1jZ19kYXRhIGZv
-ciBhbGwgaXRzCnN1Yi1wYWdlcyBpcyBjbGVhcmVkIGFuZCBJIHVuY2hhcmdlIG1lbWNnIHdpdGgg
-dGhlIG9yZGVyIG9mIGxhcmdlIHBhZ2UuCgpBbiBhbHRlcm5hdGl2ZSB3b3VsZCBiZSB0byB1bmNo
-YXJnZSBhIHNtYWxsIHBhZ2UgZnJvbSBrbWVtIGluCnNlY3JldG1lbV9mYXVsdCgpIGFuZCBtYWtl
-IHRoaXMgcGFnZSBjaGFyZ2VkIGluIGFkZF90b19wYWdlX2NhY2hlKCksIGJ1dAp0aGF0IHdvdWxk
-IGNvbXBsaWNhdGUgdGhlIHJlbGVhc2UgcGF0aCBhcyBJIHdvdWxkIG5lZWQgdG8gcmUtY2hhcmdl
-IHRoZQpzbWFsbCBwYWdlIGJhY2sgdG8ga21lbSBhdCBzZWNyZXRtZW1fZnJlZXBhZ2UoKSBhbmQg
-dHJhY2sgYWxsIHRoZQpwYXJ0aWNpcGF0aW5nIG1lbWNncyB0aWxsIHRoZSBsYXJnZSBwYWdlIGlz
-IGZyZWVkLgoKPiBBbmQgd2hhdCBhYm91dCBzdGF0aXN0aWNzPwoKSG1tLCB0aGF0J3MgcHJvYmFi
-bHkgd29uJ3QgYmUgYWNjdXJhdGUgOi0vCgo+IEknbSBzb3JyeSBmb3IgYmVpbmcgbGF0ZS4KPiAK
-PiBUaGFuayB5b3UhCj4gCj4gPiArCj4gPiArICAgICAgIHJldHVybiAwOwo+ID4gK30KPiA+ICsK
-PiA+ICtzdGF0aWMgdm9pZCBzZWNyZXRtZW1fbWVtY2dfdW5jaGFyZ2Uoc3RydWN0IHBhZ2UgKnBh
-Z2UsIGludCBvcmRlcikKPiA+ICt7Cj4gPiArICAgICAgIHVuc2lnbmVkIGxvbmcgbnJfcGFnZXMg
-PSAoMSA8PCBvcmRlcik7Cj4gPiArICAgICAgIGludCBpOwo+ID4gKwo+ID4gKyAgICAgICBmb3Ig
-KGkgPSAxOyBpIDwgbnJfcGFnZXM7IGkrKykgewo+ID4gKyAgICAgICAgICAgICAgIHN0cnVjdCBw
-YWdlICpwID0gcGFnZSArIGk7Cj4gPiArCj4gPiArICAgICAgICAgICAgICAgcC0+bWVtY2dfZGF0
-YSA9IDA7Cj4gPiArICAgICAgIH0KPiA+ICsKPiA+ICsgICAgICAgbWVtY2dfa21lbV91bmNoYXJn
-ZV9wYWdlKHBhZ2UsIFBNRF9QQUdFX09SREVSKTsKPiA+ICt9Cj4gPiArCj4gPiAgc3RhdGljIGlu
-dCBzZWNyZXRtZW1fcG9vbF9pbmNyZWFzZShzdHJ1Y3Qgc2VjcmV0bWVtX2N0eCAqY3R4LCBnZnBf
-dCBnZnApCj4gPiAgewo+ID4gICAgICAgICB1bnNpZ25lZCBsb25nIG5yX3BhZ2VzID0gKDEgPDwg
-UE1EX1BBR0VfT1JERVIpOwo+ID4gQEAgLTYxLDEwICs5NCwxNCBAQCBzdGF0aWMgaW50IHNlY3Jl
-dG1lbV9wb29sX2luY3JlYXNlKHN0cnVjdCBzZWNyZXRtZW1fY3R4ICpjdHgsIGdmcF90IGdmcCkK
-PiA+ICAgICAgICAgaWYgKCFwYWdlKQo+ID4gICAgICAgICAgICAgICAgIHJldHVybiAtRU5PTUVN
-Owo+ID4KPiA+IC0gICAgICAgZXJyID0gc2V0X2RpcmVjdF9tYXBfaW52YWxpZF9ub2ZsdXNoKHBh
-Z2UsIG5yX3BhZ2VzKTsKPiA+ICsgICAgICAgZXJyID0gc2VjcmV0bWVtX21lbWNnX2NoYXJnZShw
-YWdlLCBnZnAsIFBNRF9QQUdFX09SREVSKTsKPiA+ICAgICAgICAgaWYgKGVycikKPiA+ICAgICAg
-ICAgICAgICAgICBnb3RvIGVycl9jbWFfcmVsZWFzZTsKPiA+Cj4gPiArICAgICAgIGVyciA9IHNl
-dF9kaXJlY3RfbWFwX2ludmFsaWRfbm9mbHVzaChwYWdlLCBucl9wYWdlcyk7Cj4gPiArICAgICAg
-IGlmIChlcnIpCj4gPiArICAgICAgICAgICAgICAgZ290byBlcnJfbWVtY2dfdW5jaGFyZ2U7Cj4g
-PiArCj4gPiAgICAgICAgIGFkZHIgPSAodW5zaWduZWQgbG9uZylwYWdlX2FkZHJlc3MocGFnZSk7
-Cj4gPiAgICAgICAgIGVyciA9IGdlbl9wb29sX2FkZChwb29sLCBhZGRyLCBQTURfU0laRSwgTlVN
-QV9OT19OT0RFKTsKPiA+ICAgICAgICAgaWYgKGVycikKPiA+IEBAIC04MSw2ICsxMTgsOCBAQCBz
-dGF0aWMgaW50IHNlY3JldG1lbV9wb29sX2luY3JlYXNlKHN0cnVjdCBzZWNyZXRtZW1fY3R4ICpj
-dHgsIGdmcF90IGdmcCkKPiA+ICAgICAgICAgICogd29uJ3QgZmFpbAo+ID4gICAgICAgICAgKi8K
-PiA+ICAgICAgICAgc2V0X2RpcmVjdF9tYXBfZGVmYXVsdF9ub2ZsdXNoKHBhZ2UsIG5yX3BhZ2Vz
-KTsKPiA+ICtlcnJfbWVtY2dfdW5jaGFyZ2U6Cj4gPiArICAgICAgIHNlY3JldG1lbV9tZW1jZ191
-bmNoYXJnZShwYWdlLCBQTURfUEFHRV9PUkRFUik7Cj4gPiAgZXJyX2NtYV9yZWxlYXNlOgo+ID4g
-ICAgICAgICBjbWFfcmVsZWFzZShzZWNyZXRtZW1fY21hLCBwYWdlLCBucl9wYWdlcyk7Cj4gPiAg
-ICAgICAgIHJldHVybiBlcnI7Cj4gPiBAQCAtMzEwLDYgKzM0OSw3IEBAIHN0YXRpYyB2b2lkIHNl
-Y3JldG1lbV9jbGVhbnVwX2NodW5rKHN0cnVjdCBnZW5fcG9vbCAqcG9vbCwKPiA+ICAgICAgICAg
-aW50IGk7Cj4gPgo+ID4gICAgICAgICBzZXRfZGlyZWN0X21hcF9kZWZhdWx0X25vZmx1c2gocGFn
-ZSwgbnJfcGFnZXMpOwo+ID4gKyAgICAgICBzZWNyZXRtZW1fbWVtY2dfdW5jaGFyZ2UocGFnZSwg
-UE1EX1BBR0VfT1JERVIpOwo+ID4KPiA+ICAgICAgICAgZm9yIChpID0gMDsgaSA8IG5yX3BhZ2Vz
-OyBpKyspCj4gPiAgICAgICAgICAgICAgICAgY2xlYXJfaGlnaHBhZ2UocGFnZSArIGkpOwo+ID4g
-LS0KPiA+IDIuMjguMAo+ID4KPiA+CgotLSAKU2luY2VyZWx5IHlvdXJzLApNaWtlLgoKX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
-bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
-ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Fri, Nov 13, 2020 at 09:22:54AM +0000, Damien Le Moal wrote:
+> On Mon, 2020-11-09 at 22:59 +0300, Serge Semin wrote:
+> > On Sat, Nov 07, 2020 at 05:13:52PM +0900, Damien Le Moal wrote:
+> > > With boards that have slow interrupts context switch, and a fast device
+> > > connected to a spi master, e.g. an SD card through mmc-spi,
+> > 
+> > > using
+> > > dw_spi_poll_transfer() intead of the regular interrupt based
+> > > dw_spi_transfer_handler() function is more efficient and
+> > 
+> > I can believe in that. But the next part seems questionable:
+> > 
+> > > can avoid a lot
+> > > of RX FIFO overflow errors while keeping the device SPI frequency
+> > > reasonnably high (for speed).
+> > 
+> > No matter whether it's an IRQ-based or poll-based transfer, as long as a
+> > client SPI-device is connected with a GPIO-based chip-select (or the
+> > DW APB SSI-controller feature of the automatic chip-select toggling is
+> > fixed), the Rx FIFO should never overrun. It's ensured by the transfer
+> > algorithm design by calculating the rxtx_gap in the dw_writer()
+> > method. If the error still happens then there must be some bug in
+> > the code.
+> > 
+> > It's also strange to hear that the polling-based transfer helps
+> > to avoid the Rx FIFO overflow errors, while the IRQ-based transfer
+> > causes them. Both of those methods are based on the same dw_writer()
+> > and dw_reader() methods. So basically they both should either work
+> > well or cause the errors at same time.
+> > 
+> > So to speak could you more through debug your case?
+> 
+> I did. And I have much better results now. Let me explain:
+
+> 1) The device tree was setting up the SPI controller using the controller
+> internal chip select, not a GPIO-based chip select. Until now, I could never
+> get the GPIO-based chip select to work. I finally found out why: I simply
+> needed to add the "spi-cs-high" property to the mmc-slot node. With that, the
+> CS gpio is correctly driven active-high instead of the default active-low and
+> the SD card works.
+
+Yeap, that's the main problem of the standard DW APB SSI controller
+released by Synopsys. Currently SPI-flash'es are the only SPI
+peripheral devices which are capable to work with native DW APB SSI
+chip-selects. I've fixed that for flashes recently by atomizing the
+SPI memory operations (executing them with the local IRQs disabled)
+and performing them on the poll-based basis. Alas the normal
+SPI-transfers still can't be properly executed with native
+chip-selects.
+
+> 2) With this change using the GPIO-based CS, the patch "spi: dw: Fix driving
+> MOSI low while receiving" became completely unnecessary. The SD card works
+> without it.
+
+Hm, that's weird. MOSI level has nothing todo with the chip-selects.
+Are you sure the original problem has been connected with the Tx lane
+level? On the other hand are you sure the problem has gone away after
+all?
+
+Moreover I've just taken alook at the MMC SPI driver. Turns out it
+has already been fixed to send ones to the MMC port when it's
+required. So If you still experience the MOSI-level problem
+then that fix might have been done incorrect at some extent...
+
+> 
+> Now for testing, I also removed this polling change. Results are these:
+> 1) With the same SPI frequency as before (4MHz), I can run the SD card at about
+> 300 KB/s (read) but I am still seeing some RX FIFO overflow errors. Not a lot,
+> but enough to be annoying, especially on boot as the partition scan sometimes
+> fails because of these errors. In most cases, the block layer retry of failed
+> read/writes cover and no bad errors happen, but the RX FIFO overflow error
+> messages still pop up.
+> 2) Looking into the code further, I realized that RXFLTR is set to half the
+> fifo size minus 1. That sound reasonable, but as that delays interrupt
+> generation until the RX fifo is almost full, I decided to try a value of 0 to
+> get the interrupt as soon as data is available rather than waiting for a chunk.
+> With that, all RX FIFO overflow errors go away, and I could even double the SPI
+> frequency to 8MHz, getting a solid 650KB/s from the SD card without any error
+> at all.
+> 
+
+Please, see my last comment...
+
+> My take:
+> * This controller internal CS seems to be totally broken.
+
+Native CS aren't broken, they just have been designed so it isn't that
+easy to use them in the linux kernel. Linux kernel SPI-core expects
+the chip-select being driven the way it needs at the certain moments,
+while DW APB SSI toggles them automatically at the moment of the data
+pushing/popping to/from the SPI bus. Some hardware vendors that bought
+the DW APB SSI IP-core have fixed that by providing a way of direct
+CS lane control (see spi-dw-mmio.c: Microsemi, Sparx5, Alpine
+platforms).
+
+> * This SoC has really slow interrupts, so generating these earlier rather than
+> later gives time to the IRQ handler to kick in before the FIFO overflows.
+
+I am pretty sure that's not the reason. See my next comment.
+
+> 
+> In the V2 series for SPI DW, I added a DW_SPI_CAP_RXFLTR_CLEAR capability flag
+> to set RXFLTR to 0, always. That works well, but this is may be still similar
+> to the "polling" hack in the sense that it is tuning for this SoC rather than a
+> property of the controller. But I do not see any other simple way of removing
+> these annoying RX FIFO overflow errors.
+
+Alas no, RX-FIFO level value shouldn't affect the SPI-transfers
+execution results. I'll try to explain it one more time. DW APB SSI
+provides three modes of transfers (TMOD-es, see the chip manual for
+details). One of them is TMOD=0x0 - Transmit and Receive. Simply
+speaking the mode essence is if you push a byte of data to the Tx
+FIFO you'll synchronously get a byte of data back in the Rx FIFO a bit
+later from the internal shift register. The IRQ-based transfers have
+been developed full based on that mode. So it's absolutely possible to
+implement a stable algorithm, which would work without a risk of
+getting the Rx FIFO overflow or the Tx FIFO overrun. Such algorithm
+should just preserve a balance of sent data so the received data
+wouldn't cause the Rx FIFO overrun. As you understand such algorithm
+doesn't depend on the IRQes performance. No matter how slow the IRQs
+handler is execute, as long as it's executed, the SPI transfers
+procedure shall go on with no errors including the Rx FIFO overflows.
+At least that's what the original DW APB SSI driver developer
+implied when created the code and what I was trying to preserve in my
+patches. If you still get the errors (you sure it's Rx FIFO overflows,
+aren't you?), then something went wrong and either me or the original
+author or someone else has broken the code.
+
+What we currently need is to carefully analyze at what moment you get
+the overflows, what really caused them and fix the problem in the
+code. The capabilities flag isn't an option in this case. I've tried
+to reproduce the errors by slowing the system down, executing the
+SPI-transfers of various length, but with no lick. So it's only you
+for now who observes and can try to debug the problem.
+
+Anyway after we get to fix it, you'll be able to run the MMC port with
+speed as fast as it's possible.
+
+---
+One more thing about MMC SPI. Please note, that using MMC SPI and
+DMA-based DW APB SSI transfers might not work well. The thing is that
+the DMA-part of the MMC SPI driver relies on the legacy
+spi_message->is_dma_mapped interface. It performs some specific
+DEV-to-MEM and MEM-to-DEV DMA-buffers splitting and synchronizations.
+In its turn the DMA-part of the DW APB SSI driver uses the generic
+SPI-core and the DMA-engine interface to execute the SPI-transfers.
+Since the SPI-core performs the DMA buffers synchronizations
+internally at the moment of the buffers mapping, in case if the DMA
+accesses aren't coherent on your platform, the data buffers might get
+synchronized/flushed with/by caches incorrectly corrupting a part of
+actual data. At least that's what we observed in kernel 4.9... So for
+now I'd suggest to use either the poll- or the IRQ-based DW APB SSI
+transfers.
+
+-Sergey
+
+> 
+> > On the other hand the errors (but not the Rx FIFO overflow) might be
+> > caused by the DW APB SSI nasty feature of the native chip-select
+> > automatic assertion/de-assertion. So if your MMC-spi port is handled
+> > by the native DW APB SSI CS lane, then it won't work well for sure.
+> > No matter whether you use the poll- or IRQ-based transfers.
+> 
+> Indeed. The GPIO-based CS does behave much more nicely, and it does not require
+> that "drive MOSI line high" hack. But for reasons that I still do not clearly
+> understand, occasional RX FIFO overflow errors still show up.
+> 
+> 
+> Thanks for all the useful comments !
+> 
+> -- 
+> Damien Le Moal
+> Western Digital
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
