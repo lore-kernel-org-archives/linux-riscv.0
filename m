@@ -2,89 +2,79 @@ Return-Path: <SRS0=N5Fz=EW=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-12.5 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SIGNED_OFF_BY,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1171BC3E8C5
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Nov 2020 21:03:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5DDC9C3E8C5
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Nov 2020 21:08:08 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 661C22224F
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Nov 2020 21:03:21 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id BF8A920888
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Nov 2020 21:08:07 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="a9p7zJ5a";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="TKwV9k+F"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 661C22224F
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="g++DiQem"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BF8A920888
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:Date:References:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=dnxQT7SavUmtviahZ4Mgt01YeuU8HUAK0PgdLG9MMCM=; b=a9p7zJ5aV07mn2xuPCp4bUSNr
-	1VdrolzObFyMK0iWTTazFaJYwSunjvrocgTHXtTsJyksS3CckFIAg5qwkewwUXVjv1IMYipJDOV+7
-	Jyw+ERjVg/v1EPhzosa4bBGSaQ1samlKtu8yOIt1djLullkzFrBJEmDhbEiI8egHPq6k4fL7y/nTi
-	+AsMER1ZgvzSF9111DaCiY8tej7Wjf6mhgZArDJlydEKDK4Pv34wQZTDqSOMz/4Sorldfur3IbFOd
-	hKbOhjsUHDqF55DdpmIln5RaMmJbpAOg+NYP8Y36pfrzYomvKr39t1uxDqivWV8rPKSLAHNG9UXHQ
-	1+vxEFsrw==;
+	 bh=CgSEkYyA5sBdigaBD2Vj8QZFTmAbygKxx0lLKatfytE=; b=g++DiQemycql2QUi+ElCjYC3Q
+	4vq3TGEciRoVfK77fJgaTAobRIRh2ckfRIKdrbu1AlHv1TUz+TFIsP5ddRO3rq6Is/E1Nh1mvFAgS
+	0OaiOyh+doGusQi3V/pQxJQJWd1R+OWUSOgVbTcBvptSsP8/6Vc2o8mlSu3sLKuy/Dvst8LzCbVj+
+	u+h1Pj+nlnKpm9qXciBsScF6QE2sogUnT7cTTLQOS/YdrivSWzKa+ieD5BIKYfgNavDgXWrIOPFIb
+	fLenOML7rFK7M62E5j2LpJku5rnhgNDKo87C7tTJRb5oTM/Q0UdLp5UqMWkAeUHDowKa0jCW/LnBC
+	ENlz9JfSA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1keleZ-00016j-CZ; Mon, 16 Nov 2020 21:03:11 +0000
-Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
+	id 1keljE-0001ep-Hr; Mon, 16 Nov 2020 21:08:00 +0000
+Received: from mail-out.m-online.net ([212.18.0.10])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1keleV-00015d-3w; Mon, 16 Nov 2020 21:03:08 +0000
-Received: by mail-wm1-x341.google.com with SMTP id p22so652230wmg.3;
- Mon, 16 Nov 2020 13:03:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=kIBok6LhmX2oON2re8xwKd0vvOgtGJnjM3IpLHusadw=;
- b=TKwV9k+FZKUd2LAwXA+k72FWcs+EPrCRoALmGFbD1zvuHvxTQ+SSqk553M+WEdyPNp
- UmdIZ88Rz6NEybpakhEMzRK+Ex8y/oxuPDgYrUWPK8ORLJ4vfIj5IMSnSW1s/xpgxPhu
- l/9tL8fSIFraFFAnx1wLnxtKybQO2iFuutx+KxjMJJBHWrHfivKaN7s/aBUVJ5dCQo5a
- XpeLRtYnvT99t9llbCTi70/dwIH2b0v8T76uTZLzqhr1a/fXg20tXBKmLtyGtfyq9TAO
- ZlYZGmGgiO/ido1nqu2l+9NLu7Tpe8zdX+RBqaX6CjR6AzsxcijUPQQdvL1Hcr5GFp7O
- iNOA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=kIBok6LhmX2oON2re8xwKd0vvOgtGJnjM3IpLHusadw=;
- b=PjyEw2zrS87wschV4rO8yWAqJn0SA68A7/2/9OCWtRN/Jg0ixDgPRS3sb9SBXnh1xD
- AOcP5oPJXNSlv7DjDfucH+1qwiJtS1mCWsqsm9Jv+gWJEJ0gs5kr24PzSt/L3KU/fj/e
- 9fEfmmxhgRdtWHvdga2a+T+KQSVNDrnopG52Nwls2XXjgnL8Iqcz+f/WL8UF6iIwmXEH
- SBURd2LIpjqu8pEP3TshnDP/UdTCJ5ny3rXNkIt9b1OG9Kl4zb1VvT0Oivd3NXsCk8VM
- 1vmy/v+iCcV62AnWJYU6CUAK+dI/PgkybqxiUXewbrO5J36nRvfjxdRFB1JTkVZfEkWx
- VzTg==
-X-Gm-Message-State: AOAM533jsDPiLAcPCwkqsRhI9qRcmKLPcwiBJkJb807GCaGwXsq0tr2W
- 7x1zzR5faLCs8mFJODVuIL8=
-X-Google-Smtp-Source: ABdhPJzOHhNlIpkSPa99BnwvG5LvoWEVPEOt0VC2sDFCF+lKYb8sZV+/i98RGOfuFhg4vt+8hd5CTg==
-X-Received: by 2002:a1c:c2c3:: with SMTP id s186mr813200wmf.160.1605560585749; 
- Mon, 16 Nov 2020 13:03:05 -0800 (PST)
-Received: from localhost.localdomain ([170.253.51.130])
- by smtp.gmail.com with ESMTPSA id p4sm24660325wrm.51.2020.11.16.13.03.03
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 16 Nov 2020 13:03:05 -0800 (PST)
-From: Alejandro Colomar <alx.manpages@gmail.com>
-To: rppt@kernel.org,
-	mtk.manpages@gmail.com
-Subject: [PATCH v2] memfd_secret.2: New page describing memfd_secret() system
- call
-Date: Mon, 16 Nov 2020 22:01:37 +0100
-Message-Id: <20201116210136.12390-1-alx.manpages@gmail.com>
-X-Mailer: git-send-email 2.29.2
-In-Reply-To: <20201005073242.GA4251@kernel.org>
-References: <20201005073242.GA4251@kernel.org>
+ id 1keljB-0001e6-HX
+ for linux-riscv@lists.infradead.org; Mon, 16 Nov 2020 21:07:58 +0000
+Received: from frontend01.mail.m-online.net (unknown [192.168.8.182])
+ by mail-out.m-online.net (Postfix) with ESMTP id 4CZhVg2kqdz1rvxr;
+ Mon, 16 Nov 2020 22:07:55 +0100 (CET)
+Received: from localhost (dynscan1.mnet-online.de [192.168.6.70])
+ by mail.m-online.net (Postfix) with ESMTP id 4CZhVg02dwz1rYF0;
+ Mon, 16 Nov 2020 22:07:54 +0100 (CET)
+X-Virus-Scanned: amavisd-new at mnet-online.de
+Received: from mail.mnet-online.de ([192.168.8.182])
+ by localhost (dynscan1.mail.m-online.net [192.168.6.70]) (amavisd-new,
+ port 10024)
+ with ESMTP id fzVamNsoxLEg; Mon, 16 Nov 2020 22:07:54 +0100 (CET)
+X-Auth-Info: bp8e+kdtVtL91h44qqgpo7kA0xjy59gIX7r7DJ3PFXaeWTdW1mGEu1e00FV8Ua+m
+Received: from igel.home (ppp-46-244-169-244.dynamic.mnet-online.de
+ [46.244.169.244])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.mnet-online.de (Postfix) with ESMTPSA;
+ Mon, 16 Nov 2020 22:07:54 +0100 (CET)
+Received: by igel.home (Postfix, from userid 1000)
+ id 8F47B2C3398; Mon, 16 Nov 2020 22:07:53 +0100 (CET)
+From: Andreas Schwab <schwab@linux-m68k.org>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Subject: Re: [PATCH] compiler.h: Fix barrier_data() on clang
+References: <20201014212631.207844-1-nivedita@alum.mit.edu>
+ <87sg999ot0.fsf@igel.home>
+ <CAKwvOdn8aOr0=22idJ_KetgJ_rhk5-7i29VvxofoLrRo138f_g@mail.gmail.com>
+X-Yow: I smell like a wet reducing clinic on Columbus Day!
+Date: Mon, 16 Nov 2020 22:07:53 +0100
+In-Reply-To: <CAKwvOdn8aOr0=22idJ_KetgJ_rhk5-7i29VvxofoLrRo138f_g@mail.gmail.com>
+ (Nick Desaulniers's message of "Mon, 16 Nov 2020 11:31:13 -0800")
+Message-ID: <87d00d9fiu.fsf@igel.home>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/27.1 (gnu/linux)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201116_160307_198924_00066D96 
-X-CRM114-Status: GOOD (  24.79  )
+X-CRM114-CacheID: sfid-20201116_160757_718232_2CE96512 
+X-CRM114-Status: UNSURE (   9.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -96,234 +86,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, linux-man@vger.kernel.org, tglx@linutronix.de,
- david@redhat.com, peterz@infradead.org, catalin.marinas@arm.com,
- Alejandro Colomar <alx.manpages@gmail.com>, dave.hansen@linux.intel.com,
- linux-mm@kvack.org, will@kernel.org, linux-kselftest@vger.kernel.org,
- hpa@zytor.com, cl@linux.com, idan.yaniv@ibm.com,
- linux-riscv@lists.infradead.org, elena.reshetova@intel.com,
- linux-arch@vger.kernel.org, tycho@tycho.ws, linux-nvdimm@lists.01.org,
- colomar.6.4.3@gmail.com, shuah@kernel.org, x86@kernel.org, willy@infradead.org,
- Mike Rapoport <rppt@linux.ibm.com>, mingo@redhat.com, arnd@arndb.de,
- jejb@linux.ibm.com, bp@alien8.de, viro@zeniv.linux.org.uk, luto@kernel.org,
- paul.walmsley@sifive.com, kirill@shutemov.name, dan.j.williams@intel.com,
- linux-arm-kernel@lists.infradead.org, linux-api@vger.kernel.org,
- linux-kernel@vger.kernel.org, palmer@dabbelt.com,
- linux-fsdevel@vger.kernel.org, akpm@linux-foundation.org
+Cc: Palmer Dabbelt <palmerdabbelt@google.com>,
+ LKML <linux-kernel@vger.kernel.org>,
+ clang-built-linux <clang-built-linux@googlegroups.com>,
+ Arvind Sankar <nivedita@alum.mit.edu>,
+ Nathan Chancellor <natechancellor@gmail.com>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Mike Rapoport <rppt@linux.ibm.com>
+On Nov 16 2020, Nick Desaulniers wrote:
 
-Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
-Cowritten-by: Alejandro Colomar <alx.manpages@gmail.com>
-Acked-by: Alejandro Colomar <alx.manpages@gmail.com>
-Signed-off-by: Alejandro Colomar <alx.manpages@gmail.com>
----
+> A lot of VDSO's reset KBUILD_CFLAGS or use a new variable for their
+> compiler flags.  As such, they're missing `-include` command line flag
+> that injects include/linux/compiler_types.h,
 
-Hi Mike,
+It's not missing here.
 
-I added that note about not having a wrapper,
-fixed a few minor formatting and wording issues,
-and sorted ERRORS alphabetically.
+Andreas.
 
-Cheers,
-
-Alex
-
- man2/memfd_secret.2 | 178 ++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 178 insertions(+)
- create mode 100644 man2/memfd_secret.2
-
-diff --git a/man2/memfd_secret.2 b/man2/memfd_secret.2
-new file mode 100644
-index 000000000..4e617aa0e
---- /dev/null
-+++ b/man2/memfd_secret.2
-@@ -0,0 +1,178 @@
-+.\" Copyright (c) 2020, IBM Corporation.
-+.\" Written by Mike Rapoport <rppt@linux.ibm.com>
-+.\"
-+.\" Based on memfd_create(2) man page
-+.\" Copyright (C) 2014 Michael Kerrisk <mtk.manpages@gmail.com>
-+.\" and Copyright (C) 2014 David Herrmann <dh.herrmann@gmail.com>
-+.\"
-+.\" %%%LICENSE_START(GPLv2+)
-+.\"
-+.\" This program is free software; you can redistribute it and/or modify
-+.\" it under the terms of the GNU General Public License as published by
-+.\" the Free Software Foundation; either version 2 of the License, or
-+.\" (at your option) any later version.
-+.\"
-+.\" This program is distributed in the hope that it will be useful,
-+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
-+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-+.\" GNU General Public License for more details.
-+.\"
-+.\" You should have received a copy of the GNU General Public
-+.\" License along with this manual; if not, see
-+.\" <http://www.gnu.org/licenses/>.
-+.\" %%%LICENSE_END
-+.\"
-+.TH MEMFD_SECRET 2 2020-08-02 Linux "Linux Programmer's Manual"
-+.SH NAME
-+memfd_secret \- create an anonymous file to map secret memory regions
-+.SH SYNOPSIS
-+.nf
-+.B #include <linux/secretmem.h>
-+.PP
-+.BI "int memfd_secret(unsigned long " flags ");"
-+.fi
-+.PP
-+.IR Note :
-+There is no glibc wrapper for this system call; see NOTES.
-+.SH DESCRIPTION
-+.BR memfd_secret ()
-+creates an anonymous file and returns a file descriptor that refers to it.
-+The file can only be memory-mapped;
-+the memory in such mapping
-+will have stronger protection than usual memory mapped files,
-+and so it can be used to store application secrets.
-+Unlike a regular file, a file created with
-+.BR memfd_secret ()
-+lives in RAM and has a volatile backing storage.
-+Once all references to the file are dropped, it is automatically released.
-+The initial size of the file is set to 0.
-+Following the call, the file size should be set using
-+.BR ftruncate (2).
-+.PP
-+The memory areas obtained with
-+.BR mmap (2)
-+from the file descriptor are exclusive to the owning context.
-+These areas are removed from the kernel page tables
-+and only the page table of the process holding the file descriptor
-+maps the corresponding physical memory.
-+.PP
-+The following values may be bitwise ORed in
-+.IR flags
-+to control the behavior of
-+.BR memfd_secret (2):
-+.TP
-+.BR FD_CLOEXEC
-+Set the close-on-exec flag on the new file descriptor.
-+See the description of the
-+.B O_CLOEXEC
-+flag in
-+.BR open (2)
-+for reasons why this may be useful.
-+.PP
-+.TP
-+.BR SECRETMEM_UNCACHED
-+In addition to excluding memory areas from the kernel page tables,
-+mark the memory mappings uncached in the page table of the owning process.
-+Such mappings can be used to prevent speculative loads
-+and cache-based side channels.
-+This mode of
-+.BR memfd_secret ()
-+is not supported on all architectures.
-+.PP
-+See also NOTES below.
-+.PP
-+As its return value,
-+.BR memfd_secret ()
-+returns a new file descriptor that can be used to refer to an anonymous file.
-+This file descriptor is opened for both reading and writing
-+.RB ( O_RDWR )
-+and
-+.B O_LARGEFILE
-+is set for the file descriptor.
-+.PP
-+With respect to
-+.BR fork (2)
-+and
-+.BR execve (2),
-+the usual semantics apply for the file descriptor created by
-+.BR memfd_secret ().
-+A copy of the file descriptor is inherited by the child produced by
-+.BR fork (2)
-+and refers to the same file.
-+The file descriptor is preserved across
-+.BR execve (2),
-+unless the close-on-exec flag has been set.
-+.PP
-+The memory regions backed with
-+.BR memfd_secret ()
-+are locked in the same way as
-+.BR mlock (2),
-+however the implementation will not try to
-+populate the whole range during the
-+.BR mmap ()
-+call.
-+The amount of memory allowed for memory mappings
-+of the file descriptor obeys the same rules as
-+.BR mlock (2)
-+and cannot exceed
-+.BR RLIMIT_MEMLOCK .
-+.SH RETURN VALUE
-+On success,
-+.BR memfd_secret ()
-+returns a new file descriptor.
-+On error, \-1 is returned and
-+.I errno
-+is set to indicate the error.
-+.SH ERRORS
-+.TP
-+.B EINVAL
-+.I flags
-+included unknown bits.
-+.TP
-+.B EMFILE
-+The per-process limit on the number of open file descriptors has been reached.
-+.TP
-+.B EMFILE
-+The system-wide limit on the total number of open files has been reached.
-+.TP
-+.B ENOMEM
-+There was insufficient memory to create a new anonymous file.
-+.TP
-+.B ENOSYS
-+.BR memfd_secret ()
-+is not implemented on this architecture.
-+.SH VERSIONS
-+The
-+.BR memfd_secret (2)
-+system call first appeared in Linux 5.X;
-+.SH CONFORMING TO
-+The
-+.BR memfd_secret (2)
-+system call is Linux-specific.
-+.SH NOTES
-+The
-+.BR memfd_secret (2)
-+system call provides an ability to hide information
-+from the operating system.
-+Normally Linux userspace mappings are protected from other users,
-+but they are visible to privileged code.
-+The mappings created using
-+.BR memfd_secret ()
-+are hidden from the kernel as well.
-+.PP
-+If an architecture supports
-+.BR SECRETMEM_UNCACHED ,
-+the mappings also have protection from speculative execution vulnerabilties,
-+at the expense of increased memory access latency.
-+Care should be taken when using
-+.B SECRETMEM_UNCACHED
-+to avoid degrading application performance.
-+.PP
-+Glibc does not provide a wrapper for this system call; call it using
-+.BR syscall (2).
-+.SH SEE ALSO
-+.BR fcntl (2),
-+.BR ftruncate (2),
-+.BR mlock (2),
-+.BR mmap (2),
-+.BR setrlimit (2)
 -- 
-2.29.2
-
+Andreas Schwab, schwab@linux-m68k.org
+GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
