@@ -2,92 +2,71 @@ Return-Path: <SRS0=N5Fz=EW=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.5 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E2C31C388F9
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Nov 2020 22:06:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F10DAC63697
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Nov 2020 22:20:09 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5F48B223BF
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Nov 2020 22:06:54 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 097B5223BF
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Nov 2020 22:20:09 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="AXuyAsR1";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="Dzbvq7je"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5F48B223BF
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="i3LvNeE4";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="uMUcuSmE"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 097B5223BF
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:References:
+	To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=LTKvGywGCUveLN94ndVGOTL0lqYSCf6klGyGsnwNknI=; b=AXuyAsR16Y5bsG8iVCTcIML47
-	IZ5KwGD6V2t/tt1VJyP+UpUkfXaRDm8X+aD6pdrzJtEbTcerMEBQNC+8EMfQASdRAArkVbXQeOdPK
-	uym/AelQGYGGbpWdPC9H38tr6PbuB6c9QNnrSuD+6pWa9kbk6u6M+ARsRA56R+kFHnT+ugbwShHHK
-	2UoGppob3uYUa7Ae/TkYhix0Z6I9Ks8TWT/Shzqz/f7pNk8i6pBuXN7F7wNsHKH8YqRTD9eAECHz7
-	qhxjuTSgb1hHwcSNOI5iUMmKjROSzX5KRtgBuEVFoHYX7CHT5iE9qWzqhC3etueN/uybQUzraf8K/
-	YsY76GRTQ==;
+	 bh=ZVgVTjUSobjSoo5GiUYRHYDO+anhvJVdognYvYXAokE=; b=i3LvNeE4w9nNNFu1t3CfDnh5z
+	fV8GXEdC43GT0H/ONcSkj9w9gE2yWQ0HEfx0mktyqXRaShWs9+ppXJxN73L9ZkJHBL7KRqKWBPwxY
+	C9XEwY4azO4GyxKE1D+DT4CvVfmNPI2D34kRIav2NaYwEmEK0n6k8r1kcUyIvqMHOlE6Dz1bXuf2D
+	FfBKgICPNrvm0C8Vd1yYA8ppN+Qfyu8jSMQdOA9LwlY9xPFjDBODoIVzL15en5w7n0u0ZHUb4FQwD
+	+/V4Hq08vzp/nrVLdmLbStXfRKzb4ZMEVn8xSbvkZB14OJ1ldSQ01ZP4IgeJti4x8W+1FIK9Ewqw+
+	cvT0nGViw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1keme5-0006Tk-C3; Mon, 16 Nov 2020 22:06:45 +0000
-Received: from mail-lj1-x243.google.com ([2a00:1450:4864:20::243])
+	id 1kemqw-00080q-KS; Mon, 16 Nov 2020 22:20:02 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1keme2-0006TL-Cc
- for linux-riscv@lists.infradead.org; Mon, 16 Nov 2020 22:06:43 +0000
-Received: by mail-lj1-x243.google.com with SMTP id o24so21894899ljj.6
- for <linux-riscv@lists.infradead.org>; Mon, 16 Nov 2020 14:06:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=BJxsU8gN59tvuGgU7PNdMo5fT7THwls7sknlrTbR/LI=;
- b=Dzbvq7jedO3PcJom1SrUcQvsxJ8jFOdFumGcK2rmcwJwZGsmVTyjrYF/OMRmTFJub9
- tVspSg+BzS5AvYB2h4VhuaIDU9XJc9IrheSXoEBnY2LNc6qODA7O7CkwpNS1iAwbjnHw
- oiVvCY3oynumTov2j3ns3vDvoCX2nMB8KElSOu/TiY5VVAxnmK6zhPtxK9+H+QDAp60w
- 2Wrd/QzGEU+eLLmGTx4aXT7Lj52dv2gSYX59IntvyTZDa2dYIkoaieufTHpjTNon4ix4
- pifwxW/tMNxIqIbNkp1X3OxDtH0r0FrNaAayMAck1wFjMMe7GPVof9aMYcrnT51TfTIp
- jIKQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=BJxsU8gN59tvuGgU7PNdMo5fT7THwls7sknlrTbR/LI=;
- b=WkwmgzSd+Wf0UJ8JXYZnLsJfNHlcQC25BLTJXyNNpFU+L9SzXiav0esntUT+FcZTVJ
- 2+gPmC3TZvj3t3ow5SQYNtMeKCQ3SSCqeFJ+6cYFTmRnX+Cr3sqaJDF0ZURjEPtQbEMI
- Xqy2o/X3SzbZVPbFHM1oOwHxVIZb015lg5VPCEA0QAl5twXV6oOmr4iCqFLbui0maIRO
- eNq5uPAYMBzhdjmz2XHNwfDSdSvWSUZSZV7jY5N4wEzGxSlUxQ9ZZdN5scURx3Vtz9qR
- ExtxYrKhcS1BG4R6A6JwWjPNmz76d6cmnRQGiLW2r/i5n+1Ssjy2iWHbjWrbrM8lXDwS
- UoNg==
-X-Gm-Message-State: AOAM531zMDlYpyEq1lG3k4y4FQSkZaQP75wheN40ONN/h+/CE+2B0AAP
- GK9+o4Zyms1yrsX960hhGGk=
-X-Google-Smtp-Source: ABdhPJyf4bQRr3U3N2oJ43oLqlb4UWVX9zldVIP1uKyiEN1cpLv1Kt1MOolmlKctMFvj+U1UU5b7xg==
-X-Received: by 2002:a05:651c:207:: with SMTP id
- y7mr600414ljn.428.1605564400898; 
- Mon, 16 Nov 2020 14:06:40 -0800 (PST)
-Received: from mobilestation ([95.79.141.114])
- by smtp.gmail.com with ESMTPSA id i7sm2756834lfi.269.2020.11.16.14.06.39
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 16 Nov 2020 14:06:40 -0800 (PST)
-Date: Tue, 17 Nov 2020 01:06:38 +0300
-From: Serge Semin <fancer.lancer@gmail.com>
-To: Damien Le Moal <Damien.LeMoal@wdc.com>
-Subject: Re: [PATCH 01/32] of: Fix property supplier parsing
-Message-ID: <20201116220638.ljrj6zgvgmvyib3k@mobilestation>
-References: <20201107081420.60325-1-damien.lemoal@wdc.com>
- <20201107081420.60325-2-damien.lemoal@wdc.com>
- <CAHp75VfvUZ6h+JGCUQ65i7qFsugvbd3n=aCprgvp=geRSpQEhQ@mail.gmail.com>
- <20201109174450.myombn5skpj5wcxh@mobilestation>
- <BL0PR04MB6514880A6977E605D38D68BEE7E30@BL0PR04MB6514.namprd04.prod.outlook.com>
+ id 1kemqv-000803-7S
+ for linux-riscv@merlin.infradead.org; Mon, 16 Nov 2020 22:20:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
+ In-Reply-To:MIME-Version:Date:Message-ID:References:Cc:To:From:Subject:Sender
+ :Reply-To:Content-ID:Content-Description;
+ bh=rmbEOUuFUDWT2r+1h2dWrIdCOj079NG2OKQi9QhFvjo=; b=uMUcuSmEOxdvWusgeKZNV0Z0f9
+ SgXsrlfEMxCC2e6ojKy55SnEgSh+KeEe2wKJYWK/txvvRyur0+leAhE61oRPiAv8tMtf9RZNr4kCK
+ DSSEZACpbdMCNOUb/oyxPPec/Ftlc/NDcJPkqhcjxeswUXTplEo7HbObtI9fJse3Gt8LnSQ/qj4uq
+ dVxBmL6vfXDhYEAMSmR9Gk5mX9QkiKZorkd7vwX1TrKa9iqN3yGFBHD720f46rNKcpxjJSGH34B4n
+ pH3t+rgYArYo8gHcuVGozyscG9Wdik22z1OyfIbOxvJA6vMYA2Fm5O2MgmryMR8Y9msnjcpl/XFse
+ VIXva19Q==;
+Received: from [2601:1c0:6280:3f0::f32]
+ by casper.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1kemqs-0002AK-0r; Mon, 16 Nov 2020 22:19:58 +0000
+Subject: Re: [PATCH] compiler.h: Fix barrier_data() on clang
+From: Randy Dunlap <rdunlap@infradead.org>
+To: Andreas Schwab <schwab@linux-m68k.org>
+References: <20201014212631.207844-1-nivedita@alum.mit.edu>
+ <87sg999ot0.fsf@igel.home>
+ <0dbaca2d-9ad0-8c1a-a280-97be01cac2bd@infradead.org>
+ <87k0ul9msr.fsf@igel.home>
+ <3fff1eb9-83c0-1c29-6f57-fa50f1ec6ee7@infradead.org>
+Message-ID: <3c0a8d26-a95f-a7ca-60ee-203b67d07875@infradead.org>
+Date: Mon, 16 Nov 2020 14:19:55 -0800
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.12.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <BL0PR04MB6514880A6977E605D38D68BEE7E30@BL0PR04MB6514.namprd04.prod.outlook.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201116_170642_468216_35F7E622 
-X-CRM114-Status: GOOD (  32.59  )
+In-Reply-To: <3fff1eb9-83c0-1c29-6f57-fa50f1ec6ee7@infradead.org>
+Content-Language: en-US
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -99,108 +78,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree <devicetree@vger.kernel.org>,
- Linus Walleij <linus.walleij@linaro.org>, Sean Anderson <seanga2@gmail.com>,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
- Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Nick Desaulniers <ndesaulniers@google.com>, linux-kernel@vger.kernel.org,
+ clang-built-linux@googlegroups.com, Arvind Sankar <nivedita@alum.mit.edu>,
+ Nathan Chancellor <natechancellor@gmail.com>, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 16, 2020 at 07:30:15AM +0000, Damien Le Moal wrote:
-> On 2020/11/10 2:45, Serge Semin wrote:
-> > Hello Andy,
-> > 
-> > On Mon, Nov 09, 2020 at 05:14:21PM +0200, Andy Shevchenko wrote:
-> >> On Sat, Nov 7, 2020 at 10:14 AM Damien Le Moal <damien.lemoal@wdc.com> wrote:
-> >>
-> >>> @@ -1308,7 +1308,6 @@ DEFINE_SIMPLE_PROP(pinctrl7, "pinctrl-7", NULL)
-> >>>  DEFINE_SIMPLE_PROP(pinctrl8, "pinctrl-8", NULL)
-> >>>  DEFINE_SUFFIX_PROP(regulators, "-supply", NULL)
-> >>>  DEFINE_SUFFIX_PROP(gpio, "-gpio", "#gpio-cells")
-> >>> -DEFINE_SUFFIX_PROP(gpios, "-gpios", "#gpio-cells")
-> >>
-> >> Sorry, but the above doesn't sound right to me.
-> >> It's a generic code and you may imagine how many systems you broke by
-> >> this change.
-> > 
-> > Damien replaced the macro above with the code below (your removed it from your
-> > message):
-> > 
-> > +static struct device_node *parse_gpios(struct device_node *np,
-> > +                                      const char *prop_name, int index)
-> > +{
-> > +       /*
-> > +        * Quirck for the DesignWare gpio-dwapb GPIO driver which defines
-> > +        * the "snps,nr-gpios" property to indicate the total number of GPIOs
-> > +        * available. As this conflict with "xx-gpios" reference properties,
-> > +        * ignore it.
-> > +        */
-> > +       if (strcmp(prop_name, "snps,nr-gpios") == 0)
-> > +               return NULL;
-> > +
-> > +       return parse_suffix_prop_cells(np, prop_name, index,
-> > +                                      "-gpios", "#gpio-cells");
-> > +}
-> > 
-> > So AFAICS removing the macro shouldn't cause any problem.
-> > 
-> > My concern was whether the quirk has been really needed. As I said the
-> > "snps,nr-gpios" property has been marked as deprecated in favor of the standard
-> > "ngpios" one. Due to the problem noted by Damien any deprecated property
-> > utilization will cause the DW APB SSI DT-nodes probe malfunction. That
-> > though implicitly but is supposed to encourage people to provide fixes for
-> > the dts-files with the deprecated property replaced with "ngpios".
-> > 
-> > On the other hand an encouragement based on breaking the kernel doesn't seem a
-> > good solution. So as I see it either we should accept the solution provided by
-> > Damien, or replace it with a series of fixes for all dts-es with DW APB SSI
-> > DT-node defined. I suggest to hear the OF-subsystem maintainers out what
-> > solution would they prefer.
-> 
-
-> As Rob mentioned, there are still a lot of DTS out there using "snps,nr-gpios",
-> so I think the fix is needed,
-
-Yes.
-
-> albeit with an added warning as Rob suggested so
-> that board maintainers can notice and update their DT.
-
-Yes.
-
-> And I can send a patch
-> for the DW gpio apb driver to first try the default "ngpios" property, and if it
-> is not defined, fallback to the legacy "snps,nr-gpios". With that, these new
-> RISC-V boards will not add another use case of the deprecated "snsps,nr-gpios".
-> Does that sound like a good plan ?
-
-It has already been added in 5.10:
-https://elixir.bootlin.com/linux/v5.10-rc4/source/drivers/gpio/gpio-dwapb.c#L585
-so there is no need in sending a patch for the gpio-dwapb.c driver.
-
--Sergey
-
-> 
-> 
-> > 
-> > -Sergey
-> > 
-> >>
-> >> -- 
-> >> With Best Regards,
-> >> Andy Shevchenko
-> > 
-> 
-> 
-> -- 
-> Damien Le Moal
-> Western Digital Research
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMTEvMTYvMjAgMTE6MjggQU0sIFJhbmR5IER1bmxhcCB3cm90ZToKPiBPbiAxMS8xNi8yMCAx
+MDozMCBBTSwgQW5kcmVhcyBTY2h3YWIgd3JvdGU6Cj4+IE9uIE5vdiAxNiAyMDIwLCBSYW5keSBE
+dW5sYXAgd3JvdGU6Cj4+Cj4+PiBXaGF0IGtlcm5lbCB2ZXJzaW9uIGFyZSB5b3UgYnVpbGRpbmc/
+Cj4+Cj4+IDUuMTAtcmM0Cj4+Cj4+IEFuZHJlYXMuCj4gCj4gT0ssIHRoYW5rcy4KPiAKPiBNeSBi
+dWlsZCBtYWNoaW5lIGlzIHNsb3csIGJ1dCBJIGhhdmUgYSBwYXRjaCB0aGF0IEkgYW0gdGVzdGlu
+ZzoKPiAKPiAtLS0KPiBGcm9tOiBSYW5keSBEdW5sYXAgPHJkdW5sYXBAaW5mcmFkZWFkLm9yZz4K
+PiAKPiByaXNjdidzIDx2ZHNvL3Byb2Nlc3Nvci5oPiB1c2VzIGJhcnJpZXIoKSBzbyBpdCBzaG91
+bGQKPiAjaW5jbHVkZSA8YXNtL2JhcnJpZXIuaD4gdG8gcHJldmVudCBidWlsZCBlcnJvcnMuCj4g
+Cj4gUmVwb3J0ZWQtYnk6IEFuZHJlYXMgU2Nod2FiIDxzY2h3YWJAbGludXgtbTY4ay5vcmc+Cj4g
+LS0tCj4gwqBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Zkc28vcHJvY2Vzc29yLmggfMKgwqDCoCAy
+ICsrCj4gwqAxIGZpbGUgY2hhbmdlZCwgMiBpbnNlcnRpb25zKCspCj4gCj4gLS0tIGxueC01MTAt
+cmM0Lm9yaWcvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS92ZHNvL3Byb2Nlc3Nvci5oCj4gKysrIGxu
+eC01MTAtcmM0L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdmRzby9wcm9jZXNzb3IuaAo+IEBAIC00
+LDYgKzQsOCBAQAo+IAo+IMKgI2lmbmRlZiBfX0FTU0VNQkxZX18KPiAKPiArI2luY2x1ZGUgPGFz
+bS9iYXJyaWVyLmg+Cj4gKwo+IMKgc3RhdGljIGlubGluZSB2b2lkIGNwdV9yZWxheCh2b2lkKQo+
+IMKgewo+IMKgI2lmZGVmIF9fcmlzY3ZfbXVsZGl2CgoKVGhpcyBmaXhlcyB0aGUgZW11bGV4L2Jl
+bmV0LyBkcml2ZXIgYnVpbGQuCkknbSBzdGlsbCBidWlsZGluZyBhbGxtb2Rjb25maWcgdG8gc2Vl
+IGlmIHRoZXJlIGFyZSBhbnkKb3RoZXIgaXNzdWVzLgoKLS0gCn5SYW5keQoKCl9fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
+bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
+YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
