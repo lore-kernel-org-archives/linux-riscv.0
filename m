@@ -2,90 +2,145 @@ Return-Path: <SRS0=V/Dh=EX=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,
+	SPF_PASS,UNWANTED_LANGUAGE_BODY,URIBL_BLOCKED autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 44FBCC63697
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2020 19:32:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EB2F1C2D0E4
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2020 19:38:13 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9BA69221FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2020 19:32:17 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 5D1722463D
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2020 19:38:13 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="jjmngZwL";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="QCHl1LKv"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9BA69221FE
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=alum.mit.edu
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="0L3AFpPT";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=fb.com header.i=@fb.com header.b="JRY0ZN05";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=fb.onmicrosoft.com header.i=@fb.onmicrosoft.com header.b="bkPZrEqD"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5D1722463D
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=fb.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=CeT+xMqyc6jLKJzMPU9Z4XYohzB3IKvwnZwxP6Ihkn4=; b=jjmngZwLnW3zshxns8ommCfgV
-	TjYd2+kCm4hdy2d/7lwFJXstEB2WuOnTeSnwneCrr66moVzY8BQRYEe1RuzWFjDf+GwbsjDIpPZFp
-	p/HCp1odtVzVYqj/wFFyDdf1HyVwWpCW6nqnX+vBcryyT7t6keJBRRxKlGjHg3EPjz9wvZkzpK2Mm
-	QXawRMFvKZuIti9CrEkYTjMyZP8kUKhbWukYHYYrvNyMcotr4Qh9IgPKY3bTvH9QP6ivQ/X1Akqum
-	Q41vCWZHClohieL+0B4EQoxFyZAfv8qZColhL8BD4eK/fxtXmpCBey/aQ7KKekmTtCIfKQpdFwUQu
-	pFl9hDGZw==;
+	 bh=ZB2zOjVhfpTPuQ9rjJl2w7fqNyCHPZD2eRawG3LneDE=; b=0L3AFpPToQfUFRvoB1MS2DqD4
+	aMrxhyagJX850GfhA9DiEcWPDo3+1AwPZp6OsrtHXCGo+dVSgUlfJALV7NSpCbg+V1QCMKZBaHA6k
+	cSJZlJRgGUmBeXeaBRehoc8dBlNw2c1ID83TCdLhcns91LESuYxQMHyekWPNi8pUsmAIBvqalpFZd
+	Ykvaz4MBC9xzR4k9YTQsUL9VwwsqYCaQnQhBbipoV0XlDT8dZLEftWXbi1d6zrqoq/7EnZdvipbIn
+	MKrho7XRo7P7K4fnZEOADURZBpbcVUVPKHvXm9u3RB9Jb3KkzUPWF6C0mOQ4TIAme9hk3y52oRQYv
+	Ancyfz+xw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kf6i3-0000aG-Qs; Tue, 17 Nov 2020 19:32:11 +0000
-Received: from mail-qv1-xf42.google.com ([2607:f8b0:4864:20::f42])
+	id 1kf6nl-0001SW-1G; Tue, 17 Nov 2020 19:38:05 +0000
+Received: from mx0b-00082601.pphosted.com ([67.231.153.30])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kf6i0-0000ZP-Ex
- for linux-riscv@lists.infradead.org; Tue, 17 Nov 2020 19:32:09 +0000
-Received: by mail-qv1-xf42.google.com with SMTP id 63so11326480qva.7
- for <linux-riscv@lists.infradead.org>; Tue, 17 Nov 2020 11:32:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=sender:from:date:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=C1IZO3TidBvZYKM3gtAuU0FLpKg60Lkm/guLU1OMCbw=;
- b=QCHl1LKvfGy4FkAwk+R/lEUdBtWSxkaux81SECaGzBdYki5KH+SA+rb85yGzSpmUBA
- 0HRjDNhu16Z2qmwSKghP58Zh47L4YUUy4unwvXWG9exPqDckLJDFBcKg5d3ggyLaxp6a
- od2Rc83bOm/bjVsTo4g6FHdh1j9PMiCmL9oWc+bP8KugXfsXeP1U/BSy/SrUbcIkEJA1
- yV4qrJGC9yVzPCGvaeCmbrEzlXuYla0AcwASkWxXeo4SEBGaZpRmz2lyK+jxJdszBkgn
- pHt9EsQg1LUPAO46EHV1FHzvQBh6sfynK7kESm43yYW+usR73dfYjfkOPIx1NzVrBun5
- 7d4g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:sender:from:date:to:cc:subject:message-id
- :references:mime-version:content-disposition:in-reply-to;
- bh=C1IZO3TidBvZYKM3gtAuU0FLpKg60Lkm/guLU1OMCbw=;
- b=HClNESQ0kGcNMeJPb1GP06VY54JaPZUX8v26HastmKNOyXXWb3AwmiGNFkZ2+E5uLd
- tElz/nxSZABIp9mTbtJJDnLuByrGdnYAfY65Rbi68mqwIxrE4Yd8FnyQlM3elF/GGdDV
- og+12c5g7eXJ+K+eHmFXChTDuf9DrfCgA50qE+GdyIewfX21bU4tUcvfX0mszPRLbSxu
- 0Cy1wWPJcIXv4zChFDHQncRDcDOXK1/bjBqHDVzyzocrgYdY1ODff5xWtb5aIstSEWLY
- QVYYhvbRWf8H/yiJ6Oc/7my+MVPz5fgwiQHtfBjrgpAi6PsxOtcUfnK4u5IKNAHkKpp6
- GroA==
-X-Gm-Message-State: AOAM531l2VP9AMWWren2Gz4ORO9UFS5HJsESw3lDl7YKxwC+jRowWkDj
- yPHnK8PwAyWfFUO6oIUr/WE=
-X-Google-Smtp-Source: ABdhPJx9tYxhlmXMpJyarY0CXNXEJ0RSKALOdBnT1znfnNz6t8O1TPQ2VPiUMIPctVdX5+kC7vPnew==
-X-Received: by 2002:ad4:5b82:: with SMTP id 2mr925675qvp.28.1605641524963;
- Tue, 17 Nov 2020 11:32:04 -0800 (PST)
-Received: from rani.riverdale.lan ([2001:470:1f07:5f3::b55f])
- by smtp.gmail.com with ESMTPSA id i4sm3331627qti.78.2020.11.17.11.32.03
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 17 Nov 2020 11:32:03 -0800 (PST)
-From: Arvind Sankar <nivedita@alum.mit.edu>
-X-Google-Original-From: Arvind Sankar <arvind@rani.riverdale.lan>
-Date: Tue, 17 Nov 2020 14:32:02 -0500
-To: Randy Dunlap <rdunlap@infradead.org>
-Subject: Re: [PATCH] RISC-V: fix barrier() use in <vdso/processor.h>
-Message-ID: <20201117193202.GA1574448@rani.riverdale.lan>
-References: <20201117013951.7827-1-rdunlap@infradead.org>
- <CAKwvOdmESwnF14TLjRfzJg8Dau8XW0LgoDvXtdPjPOqdf211SQ@mail.gmail.com>
- <9ab43756-6c48-c5e8-3a5d-e44bba070a97@infradead.org>
-MIME-Version: 1.0
+ id 1kf6nf-0001R0-TR; Tue, 17 Nov 2020 19:38:00 +0000
+Received: from pps.filterd (m0109331.ppops.net [127.0.0.1])
+ by mx0a-00082601.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id
+ 0AHJXeBY024599; Tue, 17 Nov 2020 11:34:17 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fb.com;
+ h=date : from : to : cc :
+ subject : message-id : references : content-type : in-reply-to :
+ mime-version; s=facebook; bh=uatSQMSi5cWdaUPa4qWJsPwJT50JMEV62M/bUPP1wEI=;
+ b=JRY0ZN05WZf7mPMAdeYXCjPTTcOTl8tzvwFFkLmY+mEcuUIohSNEKrmZTyZkuWt3XI0C
+ HP8oqTmFi9fOBHcHZ0QZk0/L60UK1I72vJ9dgh4xqEV7wDn58suQCAFpac16sRO7Ah0W
+ knASkwHELitiook6Px+LN9HOVH/duyNqtXs= 
+Received: from maileast.thefacebook.com ([163.114.130.16])
+ by mx0a-00082601.pphosted.com with ESMTP id 34uwyg762e-15
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+ Tue, 17 Nov 2020 11:34:17 -0800
+Received: from NAM10-MW2-obe.outbound.protection.outlook.com (100.104.31.183)
+ by o365-in.thefacebook.com (100.104.35.173) with Microsoft SMTP
+ Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.1979.3; Tue, 17 Nov 2020 11:34:09 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=SSz5h9ONphWKXIm+CNVcATKGcFegHyvoXYOI6mSNJ8OzBFvCVHOp2hEtfBWr0CuGcnrlUxXxICw+wucuipaQvNyeI/C0fR4prpwWkMH+4YN5F9oIY1m5GrZmWxLTzgVeJkaG5W7INlZvlGV1TFiiz+i+K0WplBUny/oYFVUHd4gi4WLAgxEJNkxgGs434/3JW+lePnWooSAraGdIm31wcrwKKIxGmVh97MJ2insX4E1vD9blrbfT5ir/d2yOYZYqDPC3elyPN4k/wpGE992vMnGLWGpLmtC8gX+tk4x9+SHSK7o+xbc87xiYGjtKgVENLbEd7NQQwYb53yImmeG8lQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uatSQMSi5cWdaUPa4qWJsPwJT50JMEV62M/bUPP1wEI=;
+ b=cy/QBWnYIWJfw/p/1Ypq8LHzWQstqYVpnOblz5TpoOPAmr6gKxeU7sK/yxgXVzPX3wXa14AXpgOE9F3XRqtZ2bxCtIhGufZh67yzdejt9nmt0C6M+nS6WtakHVBeq4vsfgAdsKk3tzckYNTZEQnj4pIqEc5imfAj2Hv3MWCtBzx4TmVOSPTGL882CImQ69PvQJJUpMhKsIYRh0GGKFen5u8p7DLW5r0WHHZolvxi2a8y0KO8xqQ91aEC+i9+QCJfMriiAbYWxm40LtHgEGCWC4VeIZgXHlVsMpqaZlu/mfLP8cHQdpyx2fviUSi/iFAvDbxZWry1/mkCarG5m+q2rg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=fb.com; dmarc=pass action=none header.from=fb.com; dkim=pass
+ header.d=fb.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fb.onmicrosoft.com;
+ s=selector2-fb-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uatSQMSi5cWdaUPa4qWJsPwJT50JMEV62M/bUPP1wEI=;
+ b=bkPZrEqDH9pvV0Urx/h9aKjdbBXG7iTHNShqjEM8kOobrYc61Vw8Akp9ie/bzOWqcnRzxZBco7VQcYHtNoNRKFg4LvCGW13bFuQLnBx78db1FBttZnWtYZM9PVw9QYtpEdJUyWAJ4eloPGHk8XDBl1jeeUrOF04fOyhfMY90ADM=
+Authentication-Results: kernel.org; dkim=none (message not signed)
+ header.d=none;kernel.org; dmarc=none action=none header.from=fb.com;
+Received: from BYAPR15MB4136.namprd15.prod.outlook.com (2603:10b6:a03:96::24)
+ by BYAPR15MB2213.namprd15.prod.outlook.com (2603:10b6:a02:85::22)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3541.24; Tue, 17 Nov
+ 2020 19:34:05 +0000
+Received: from BYAPR15MB4136.namprd15.prod.outlook.com
+ ([fe80::3925:e1f9:4c6a:9396]) by BYAPR15MB4136.namprd15.prod.outlook.com
+ ([fe80::3925:e1f9:4c6a:9396%6]) with mapi id 15.20.3564.031; Tue, 17 Nov 2020
+ 19:34:05 +0000
+Date: Tue, 17 Nov 2020 11:33:58 -0800
+From: Roman Gushchin <guro@fb.com>
+To: Mike Rapoport <rppt@kernel.org>
+Subject: Re: [PATCH v9 6/9] secretmem: add memcg accounting
+Message-ID: <20201117193358.GB109785@carbon.dhcp.thefacebook.com>
+References: <20201117162932.13649-1-rppt@kernel.org>
+ <20201117162932.13649-7-rppt@kernel.org>
 Content-Disposition: inline
-In-Reply-To: <9ab43756-6c48-c5e8-3a5d-e44bba070a97@infradead.org>
+In-Reply-To: <20201117162932.13649-7-rppt@kernel.org>
+X-Originating-IP: [2620:10d:c090:400::5:4f92]
+X-ClientProxiedBy: CO2PR06CA0066.namprd06.prod.outlook.com
+ (2603:10b6:104:3::24) To BYAPR15MB4136.namprd15.prod.outlook.com
+ (2603:10b6:a03:96::24)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+Received: from carbon.dhcp.thefacebook.com (2620:10d:c090:400::5:4f92) by
+ CO2PR06CA0066.namprd06.prod.outlook.com (2603:10b6:104:3::24) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.3589.20 via Frontend Transport; Tue, 17 Nov 2020 19:34:02 +0000
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: a313af32-277e-40f9-8483-08d88b2fbeb5
+X-MS-TrafficTypeDiagnostic: BYAPR15MB2213:
+X-Microsoft-Antispam-PRVS: <BYAPR15MB2213B05A94882FB7EF6EB694BEE20@BYAPR15MB2213.namprd15.prod.outlook.com>
+X-FB-Source: Internal
+X-MS-Oob-TLC-OOBClassifiers: OLM:8882;
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: fzeG4mE9RNRRLfeOVH5Wnhj3Ffgt12GeAyAxOgUN4tgPX6YvLI1o9+XVQx18jmaOXpcP+N9PfdekP1et6rQB64rCWbBvkzF6lSB7L5GhjD7ZgnW8cBZB1X866bM3mYvr64RXBAccwymQ4hke6QYValF3yyKvNlbD7iEzdo21BSR8FVznZYNebtKURhk7b/Syoz4evuMcJR9fruuUoLV2WzrkkBjNl9Q1QO4pJnTEFmGWMuMwSnHqrWjnxuqw2/vAT/T/xJ9dj++RuaLmCyjWchh3trU5qFr8MB3wM6z2nbNf/QRioMt/ALgODTYANEDerz/voegKibR5/nbpV0nM1g==
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:BYAPR15MB4136.namprd15.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(39860400002)(396003)(136003)(366004)(346002)(376002)(9686003)(4326008)(52116002)(2906002)(66476007)(6506007)(478600001)(16526019)(66556008)(8936002)(1076003)(6916009)(33656002)(66946007)(55016002)(5660300002)(186003)(7696005)(83380400001)(15650500001)(316002)(86362001)(7416002)(6666004)(7406005)(54906003)(8676002);
+ DIR:OUT; SFP:1102; 
+X-MS-Exchange-AntiSpam-MessageData: w300MdiX2CI1saMYk2y1yHiHExycD1PAAW4IiMn4+M3ks9jfGhqdtnTPETfVBJmZ8Wn1kPx2GnWE7D3eHtHGNEy2SMsEzoFzU2JVl538Rl474+gV3dS/h1m6LCSNkx87x/ucMTHq6rc9YUbTNUiI4y+WavPVSESCBfUFOf6gY61bYpUrzR9FRAV5X0rHiLqcji4UCAgbXMpIRd1kntd5sIrCIJCUnV0gNHxTKmBiRUEAeYTtGeu1y8laHgkIUeyGjLE9SRYKmYeEoft2mL1J/TWGUlFeHkNMnyCOsx+Lv3tuekpYOA74leN9cC79TR9v98bWHmyto8JFAE5Laf9vrpC48i5aCVzhHTIIrxnyXWLpzZ16qlUY+hO4X40T7p6TnJNCQevMB+HVxaf7WfzmWJcLBS9sMPZ4+Wx8LVKwrl2xoYXLZB60Y+FKSYADh7cuusb3s6altzTOs1zg5VLAz6iNnx9K1Q8LoKMkkd6bvbfXYCAJ41wGpBZLUr76/UNR22UEhg56i3aS7nB3nU5qEjzpLZIBxGSUv/TT8M/8hpDSSODjeMHH/sZCu36EWHXN+I8jgOWLKnT5iY/iVLoYgYnJ7VEQ8BijoZOKAU1RW+2wU4LDC1uoKuXzc0Mz1YFDTYzNs49df3+rcvEV2IaVVhrSIj+BqF2rfqJlN2u4I3Y=
+X-MS-Exchange-CrossTenant-Network-Message-Id: a313af32-277e-40f9-8483-08d88b2fbeb5
+X-MS-Exchange-CrossTenant-AuthSource: BYAPR15MB4136.namprd15.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2020 19:34:05.6913 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8ae927fe-1255-47a7-a2af-5f3a069daaa2
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: y16jFNs0M57UPhcL7ZDqDQP9trzkVNPtdJOT+i1ZcssbS7BH8+uTKfSl4Loktiok
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR15MB2213
+X-OriginatorOrg: fb.com
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.312, 18.0.737
+ definitions=2020-11-17_07:2020-11-17,
+ 2020-11-17 signatures=0
+X-Proofpoint-Spam-Details: rule=fb_default_notspam policy=fb_default score=0
+ bulkscore=0
+ mlxlogscore=999 priorityscore=1501 clxscore=1011 mlxscore=0
+ impostorscore=0 malwarescore=0 adultscore=0 lowpriorityscore=0 spamscore=0
+ phishscore=0 suspectscore=1 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.12.0-2009150000 definitions=main-2011170142
+X-FB-Internal: deliver
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201117_143208_517442_BA659E5F 
-X-CRM114-Status: GOOD (  22.16  )
+X-CRM114-CacheID: sfid-20201117_143800_049732_4F0BE18C 
+X-CRM114-Status: GOOD (  29.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -97,68 +152,158 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Stephen Rothwell <sfr@canb.auug.org.au>, Albert Ou <aou@eecs.berkeley.edu>,
- Nick Desaulniers <ndesaulniers@google.com>,
- LKML <linux-kernel@vger.kernel.org>,
- Nathan Chancellor <natechancellor@gmail.com>,
- clang-built-linux <clang-built-linux@googlegroups.com>,
- Arvind Sankar <nivedita@alum.mit.edu>, Andreas Schwab <schwab@linux-m68k.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Andrew Morton <akpm@linux-foundation.org>, linux-riscv@lists.infradead.org
+Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
+ Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
+ Will Deacon <will@kernel.org>, x86@kernel.org,
+ Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
+ Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
+ Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-fsdevel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 17, 2020 at 11:22:39AM -0800, Randy Dunlap wrote:
-> On 11/17/20 11:00 AM, Nick Desaulniers wrote:
-> > On Mon, Nov 16, 2020 at 5:40 PM Randy Dunlap <rdunlap@infradead.org> wrote:
-> >>
-> >> riscv's <vdso/processor.h> uses barrier() so it should
-> >> #include <asm/barrier.h> to prevent build errors.
-> >>
-> >> Fixes this build error:
-> >>   CC [M]  drivers/net/ethernet/emulex/benet/be_main.o
-> >> In file included from ./include/vdso/processor.h:10,
-> >>                  from ./arch/riscv/include/asm/processor.h:11,
-> >>                  from ./include/linux/prefetch.h:15,
-> >>                  from drivers/net/ethernet/emulex/benet/be_main.c:14:
-> >> ./arch/riscv/include/asm/vdso/processor.h: In function 'cpu_relax':
-> >> ./arch/riscv/include/asm/vdso/processor.h:14:2: error: implicit declaration of function 'barrier' [-Werror=implicit-function-declaration]
-> >>    14 |  barrier();
-> >>
-> >> This happens with a total of 5 networking drivers -- they all use
-> >> <linux/prefetch.h>.
-> >>
-> >> rv64 allmodconfig now builds cleanly after this patch.
-> >>
-> >> Fixes fallout from:
-> >> 815f0ddb346c ("include/linux/compiler*.h: make compiler-*.h mutually exclusive")
-> >>
-> >> Fixes: ad5d1122b82f ("riscv: use vDSO common flow to reduce the latency of the time-related functions")
-> > 
-> > Hi Randy,
-> > Thanks for the patch, it looks good to me.  I only had a question on
-> > the commit message.
-> > 
-> > Is this also related to:
-> > commit 3347acc6fcd4 ("compiler.h: fix barrier_data() on clang")
+On Tue, Nov 17, 2020 at 06:29:29PM +0200, Mike Rapoport wrote:
+> From: Mike Rapoport <rppt@linux.ibm.com>
 > 
-> Hi Nick,
-> Yes, it looks like I tagged the wrong commit in Fixes:
-> Thanks for noticing that.
+> Account memory consumed by secretmem to memcg. The accounting is updated
+> when the memory is actually allocated and freed.
 > 
+> Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
 
-Thanks for the patch!
+Hi Mike!
 
-Acked-by: Arvind Sankar <nivedita@alum.mit.edu>
+I like this version so much more, thank you for fixing it.
+Please, feel free to add
+Acked-by: Roman Gushchin <guro@fb.com> .
 
-Generally speaking, should compiler_types.h be considered "internal"?
-i.e. everyone should include compiler.h, not compiler_types.h directly?
+Thanks!
 
-Eg for another potential case that might bite is that RELOC_HIDE is
-defined in compiler_types.h, except for clang, which will only have a
-definition if compiler.h is included.
+> ---
+>  mm/filemap.c   |  3 ++-
+>  mm/secretmem.c | 36 +++++++++++++++++++++++++++++++++++-
+>  2 files changed, 37 insertions(+), 2 deletions(-)
+> 
+> diff --git a/mm/filemap.c b/mm/filemap.c
+> index 249cf489f5df..cf7f1dc9f4b8 100644
+> --- a/mm/filemap.c
+> +++ b/mm/filemap.c
+> @@ -42,6 +42,7 @@
+>  #include <linux/psi.h>
+>  #include <linux/ramfs.h>
+>  #include <linux/page_idle.h>
+> +#include <linux/secretmem.h>
+>  #include "internal.h"
+>  
+>  #define CREATE_TRACE_POINTS
+> @@ -844,7 +845,7 @@ static noinline int __add_to_page_cache_locked(struct page *page,
+>  	page->mapping = mapping;
+>  	page->index = offset;
+>  
+> -	if (!huge) {
+> +	if (!huge && !page_is_secretmem(page)) {
+>  		error = mem_cgroup_charge(page, current->mm, gfp);
+>  		if (error)
+>  			goto error;
+> diff --git a/mm/secretmem.c b/mm/secretmem.c
+> index d4c44fc568a4..abf6ecdf70cb 100644
+> --- a/mm/secretmem.c
+> +++ b/mm/secretmem.c
+> @@ -18,6 +18,7 @@
+>  #include <linux/memblock.h>
+>  #include <linux/pseudo_fs.h>
+>  #include <linux/secretmem.h>
+> +#include <linux/memcontrol.h>
+>  #include <linux/set_memory.h>
+>  #include <linux/sched/signal.h>
+>  
+> @@ -50,6 +51,32 @@ struct secretmem_ctx {
+>  
+>  static struct cma *secretmem_cma;
+>  
+> +static int secretmem_account_pages(struct page *page, gfp_t gfp, int order)
+> +{
+> +	int err;
+> +
+> +	err = memcg_kmem_charge_page(page, gfp, order);
+> +	if (err)
+> +		return err;
+> +
+> +	/*
+> +	 * seceremem caches are unreclaimable kernel allocations, so treat
+           ^^^^^^^^^
+	   secretmem?
+
+> +	 * them as unreclaimable slab memory for VM statistics purposes
+> +	 */
+> +	mod_node_page_state(page_pgdat(page), NR_SLAB_UNRECLAIMABLE_B,
+> +			    PAGE_SIZE << order);
+> +
+> +	return 0;
+> +}
+> +
+> +static void secretmem_unaccount_pages(struct page *page, int order)
+> +{
+> +
+> +	mod_node_page_state(page_pgdat(page), NR_SLAB_UNRECLAIMABLE_B,
+> +			    -PAGE_SIZE << order);
+> +	memcg_kmem_uncharge_page(page, order);
+> +}
+> +
+>  static int secretmem_pool_increase(struct secretmem_ctx *ctx, gfp_t gfp)
+>  {
+>  	unsigned long nr_pages = (1 << PMD_PAGE_ORDER);
+> @@ -62,10 +89,14 @@ static int secretmem_pool_increase(struct secretmem_ctx *ctx, gfp_t gfp)
+>  	if (!page)
+>  		return -ENOMEM;
+>  
+> -	err = set_direct_map_invalid_noflush(page, nr_pages);
+> +	err = secretmem_account_pages(page, gfp, PMD_PAGE_ORDER);
+>  	if (err)
+>  		goto err_cma_release;
+>  
+> +	err = set_direct_map_invalid_noflush(page, nr_pages);
+> +	if (err)
+> +		goto err_memcg_uncharge;
+> +
+>  	addr = (unsigned long)page_address(page);
+>  	err = gen_pool_add(pool, addr, PMD_SIZE, NUMA_NO_NODE);
+>  	if (err)
+> @@ -82,6 +113,8 @@ static int secretmem_pool_increase(struct secretmem_ctx *ctx, gfp_t gfp)
+>  	 * won't fail
+>  	 */
+>  	set_direct_map_default_noflush(page, nr_pages);
+> +err_memcg_uncharge:
+> +	secretmem_unaccount_pages(page, PMD_PAGE_ORDER);
+>  err_cma_release:
+>  	cma_release(secretmem_cma, page, nr_pages);
+>  	return err;
+> @@ -312,6 +345,7 @@ static void secretmem_cleanup_chunk(struct gen_pool *pool,
+>  	int i;
+>  
+>  	set_direct_map_default_noflush(page, nr_pages);
+> +	secretmem_unaccount_pages(page, PMD_PAGE_ORDER);
+>  
+>  	for (i = 0; i < nr_pages; i++)
+>  		clear_highpage(page + i);
+> -- 
+> 2.28.0
+> 
 
 _______________________________________________
 linux-riscv mailing list
