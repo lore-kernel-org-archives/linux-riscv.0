@@ -2,23 +2,22 @@ Return-Path: <SRS0=V/Dh=EX=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-18.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
-	version=3.4.0
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 450E4C63777
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2020 19:48:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 230CDC63697
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2020 20:02:29 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5396620674
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2020 19:48:01 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 94C7B20773
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2020 20:02:28 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="h/P1YDKW";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.b="RWwNYKUJ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5396620674
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="NTbJO2FA";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.b="U5ZlwbFb"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 94C7B20773
 Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -27,57 +26,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=4dJP9RY1Yn6BlrNEmZ9LyUGhhoe66S7GiEv4UHJda9I=; b=h/P1YDKWzcpWIqrVt5Sq2Fv+a
-	GQSWoQEgjplIRs5+mxRsBQHGxa4SgVA7tY6BqE5Oa8UH39ssy27H5EU7WsDPR1OtIDB5Si5w0xHQ9
-	GF3Yx4rKf/rNb26Q7iZ4FrJmXh9tLDn3AbReA+v8whLhIol4p6+8QFS2eX0OHZDT7ZB9oeYFhmtLM
-	7di4jeAR4xA67G7jyzV1jMTp/PTADcjgHoXMFstMea+oVgy4gh9zWF0vCAlzkKBY91YMprysXo871
-	66GyuiaSLCTzInCWezxZyP2rihZALrxJEiSXpr4jLfKQWiyz+1JT4fDNrUFN7r1ag62pohuelwXDD
-	+N0fa/wWA==;
+	 bh=8uLoIpJpYN1XnOIjjgrulA5cOV7XrEaY5BVUYdm3Y4k=; b=NTbJO2FA8orQB/F/iOuYX1Cwj
+	PRDU2SrxOsnRskaRZU6Tm2O+3OLmzfA7n36HPHV8JUVsF2VIkEGht8SjOfyqjLNks17lg3Bd/kwT8
+	OCMNP4SIOJcZ4HX0Z37ShOg+KFT6XlrO8kABY2Ri2LFv5O620v+i9OKIUOcDVUNSavjo/Z1OO1Glz
+	c/brhKgEi0yoV2GEN7Fx6s8Avm/WO45SsNXfAqrNkuN4//GFSBUzIAuTwNgyx+pKE5WD2nGW0WT65
+	6fB8+g3WVq926jQ3Gs1k/BS50We7CKgynF8YmdB9OR/jiwBswwI0t1LJ2bpEYHxP3vHUOyGUoHHbu
+	kTR0i3/QQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kf6x8-00044m-3w; Tue, 17 Nov 2020 19:47:46 +0000
-Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
+	id 1kf7BG-0007w6-1Q; Tue, 17 Nov 2020 20:02:22 +0000
+Received: from mail-lj1-x242.google.com ([2a00:1450:4864:20::242])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kf6vv-0003JN-Cd
- for linux-riscv@lists.infradead.org; Tue, 17 Nov 2020 19:46:33 +0000
-Received: by mail-pg1-x544.google.com with SMTP id t21so10405350pgl.3
- for <linux-riscv@lists.infradead.org>; Tue, 17 Nov 2020 11:46:30 -0800 (PST)
+ id 1kf7BA-0007sy-DT
+ for linux-riscv@lists.infradead.org; Tue, 17 Nov 2020 20:02:18 +0000
+Received: by mail-lj1-x242.google.com with SMTP id s9so25664577ljo.11
+ for <linux-riscv@lists.infradead.org>; Tue, 17 Nov 2020 12:02:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=nWLn5FutqVhu6C2envdImtz3KsoVlAIGjTIx4c1QXNg=;
- b=RWwNYKUJ8FHrbEAF2X7STaEV0pLcso44r/P15V8Qw9UoO+Uu5XaR3xyuYg8SMZY5MB
- 6O0nhled1fN8K81Rsb0gHRvoW8w1YJvmAgRq1KlsgbdLIb7bLbmqofZ+Q115kxkSDVuc
- poX1jX5OMLYnvAWbT+R6Eyu4Pxy4nXfwsOaYFx9UiUrFm1tUwogK7jzvRzF4AgxvDGrf
- iBjOqLPLynUKCIftZocEKRrDWH92FloVkxHYgPM75KjV05sudUTl82bXfrSY119Bzcgx
- MXOrrCiejU0KKMfmLTPOTt9vpO6s8wvQoux4Ud47/mOc2lGTa9pGLz1PqijS2/Q77Ygw
- K/ZQ==
+ :cc; bh=GSCHMMM0D0q85Saw3BGZ1mrSdRqytsRtsFlwlLFUG1Q=;
+ b=U5ZlwbFbW6wzZ9SjWFK+Je9NtJURJfuA+CBtm8mpTtA3OAFV31Gt7/PVFooFI3hJSJ
+ FPe5GnyQ9vo+K8E4DGvg2CmIfBjU80aj+PwOMi9JxkBrfyCFhmQwE8yG25tVzzpwHM/G
+ +SLjkMHpsWn0eetojTcyUPdUG+YBEUlN6bkAREdia0RwgRe5Az5vSyoEcUpsdqwdqQS2
+ wQsiqbs+NFvyybKCLcEoNJlXX+Q79meG+WhN0TKvoL+R5ZHI5kwQtcSrRMvmI503HpW4
+ iQFfKDV7kGEefpCno1fqlRK8X77oqYAJVuKjI7LR9wx0wgLXu6vuCzgHwKA6G32zuy1F
+ Z/Mg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=nWLn5FutqVhu6C2envdImtz3KsoVlAIGjTIx4c1QXNg=;
- b=ZGuQYaU18yZYCv+Kj1e+d0uzU2moBYS5UnWsID5wdc7+9A4LzeFG+GljzCTFOTUilx
- C88ustTcU7a4Kue0nDVFEy/7Ej6fYhBWJDWx3VWM5W1AiqhrB4fVPugLrGgsAvtd569o
- tEJD053vUQlI5jWY1DnK0K13bUJezzgtyrLGQXNxHTYSFIx4Nee1PbOkO40W7+X7QNb1
- lGzazdpgX0QhjJ1I6WlBrOelaMx+W9WpCgSJwpN2ffm5LsWgmefPMLqNMYZDKxExwBUf
- w9fPROdIsopLdscd6SbRkDsK8Ped/LzIwx7nSj3bfl1kU92U9iZLUyfWaQ8JRwE0EkTb
- Ln8Q==
-X-Gm-Message-State: AOAM531bfH9vZSBa4AOQnmAsZhktmft7NjPch82/kOUSzdQ8TJQpN6WL
- myKWmn6euzhADfXfhKvTh3DjOjqxO0RNzPA1mTwbew==
-X-Google-Smtp-Source: ABdhPJyDrcELE42tedArMs204mY5PQM+V4W1fuc8fBPXx/V/yrIUb8NjyaPqo5jxCNkKPfw2LRZFqLy1QtS2JF7B58Q=
-X-Received: by 2002:a65:4485:: with SMTP id l5mr4795692pgq.10.1605642388738;
- Tue, 17 Nov 2020 11:46:28 -0800 (PST)
+ bh=GSCHMMM0D0q85Saw3BGZ1mrSdRqytsRtsFlwlLFUG1Q=;
+ b=HlLwHQNgvXgaR22JEGSa3/vNQpcBtX+IFKiItRCkc5zc5SkAQGoRQ78c1/ceE0NYvC
+ paO/tzfJmyOivt/i4Zf6aVeDiJ6uVDJavuqhFTOPxV+8aX3FRVsiMsrIH72X10d/WY/q
+ PH721F67tdW07NyUoif81dG0Y1bTOAewhifxxjYSzZ7g6A0mT/FqXEh1LMsQbndoOR7+
+ +wYrN4jNwriXoGBMyR0pkUMlZO+ZbCHNWaZ0SXckj+FU+3EKHxCy/gVzJyzMNafK93vb
+ NI+7NTQnioyBUaRqSA5+5GshhClUfTkIiBxaNFLZzKySFye2Uv6+wzGiAqf5bYzHdijy
+ QhRA==
+X-Gm-Message-State: AOAM532x+YdKF2QOCuGF0voZg001gv4dMRcas+xF3kKDQPMVgygxeFgp
+ E4fNaOa0YZgIW06lL9WBccND+Iyp0KuCAw4vhDuH4w==
+X-Google-Smtp-Source: ABdhPJzrteo1SoLGHTARp2PUs3U3i4VQkUG29Mj40M+A73s5OoqlPLDhJ7M0v+3kzosqo9RIkW4zU8tz5/C7FbMtdpI=
+X-Received: by 2002:a05:651c:204c:: with SMTP id
+ t12mr2581977ljo.347.1605643332643; 
+ Tue, 17 Nov 2020 12:02:12 -0800 (PST)
 MIME-Version: 1.0
-References: <20201117193053.18990-1-rdunlap@infradead.org>
-In-Reply-To: <20201117193053.18990-1-rdunlap@infradead.org>
-From: Nick Desaulniers <ndesaulniers@google.com>
-Date: Tue, 17 Nov 2020 11:46:18 -0800
-Message-ID: <CAKwvOdnAHqNkN2yRPnSSbe=C6Uc0MJXH=VU2KFRyE3AtHpcXXg@mail.gmail.com>
-Subject: Re: [PATCH v2] RISC-V: fix barrier() use in <vdso/processor.h>
-To: Randy Dunlap <rdunlap@infradead.org>
+References: <20201117162932.13649-1-rppt@kernel.org>
+ <20201117162932.13649-7-rppt@kernel.org>
+ <20201117193358.GB109785@carbon.dhcp.thefacebook.com>
+In-Reply-To: <20201117193358.GB109785@carbon.dhcp.thefacebook.com>
+From: Shakeel Butt <shakeelb@google.com>
+Date: Tue, 17 Nov 2020 12:02:01 -0800
+Message-ID: <CALvZod5mJnR2DXoYTbp9RX4uR7zVyqAPfD+XKpqXKgxaNyJ1VA@mail.gmail.com>
+Subject: Re: [PATCH v9 6/9] secretmem: add memcg accounting
+To: Roman Gushchin <guro@fb.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201117_144632_281313_0F6E93C6 
-X-CRM114-Status: GOOD (  18.28  )
+X-CRM114-CacheID: sfid-20201117_150216_512051_66993B29 
+X-CRM114-Status: GOOD (  15.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -89,80 +91,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Stephen Rothwell <sfr@canb.auug.org.au>, Albert Ou <aou@eecs.berkeley.edu>,
- LKML <linux-kernel@vger.kernel.org>,
- Nathan Chancellor <natechancellor@gmail.com>,
- clang-built-linux <clang-built-linux@googlegroups.com>,
- Arvind Sankar <nivedita@alum.mit.edu>, Andreas Schwab <schwab@linux-m68k.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Andrew Morton <akpm@linux-foundation.org>, linux-riscv@lists.infradead.org
+Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, Linux MM <linux-mm@kvack.org>,
+ linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
+ Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
+ Will Deacon <will@kernel.org>, x86@kernel.org,
+ Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
+ Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
+ Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ linux-api@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-fsdevel <linux-fsdevel@vger.kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>, Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 17, 2020 at 11:31 AM Randy Dunlap <rdunlap@infradead.org> wrote:
+On Tue, Nov 17, 2020 at 11:49 AM Roman Gushchin <guro@fb.com> wrote:
 >
-> riscv's <vdso/processor.h> uses barrier() so it should
-> #include <asm/barrier.h> to prevent build errors.
->
-> Fixes this build error:
->   CC [M]  drivers/net/ethernet/emulex/benet/be_main.o
-> In file included from ./include/vdso/processor.h:10,
->                  from ./arch/riscv/include/asm/processor.h:11,
->                  from ./include/linux/prefetch.h:15,
->                  from drivers/net/ethernet/emulex/benet/be_main.c:14:
-> ./arch/riscv/include/asm/vdso/processor.h: In function 'cpu_relax':
-> ./arch/riscv/include/asm/vdso/processor.h:14:2: error: implicit declaration of function 'barrier' [-Werror=implicit-function-declaration]
->    14 |  barrier();
->
-> This happens with a total of 5 networking drivers -- they all use
-> <linux/prefetch.h>.
->
-> rv64 and rv32 allmodconfig now build cleanly after this patch.
->
-> Fixes: 3347acc6fcd4 ("compiler.h: fix barrier_data() on clang")
-> Fixes: ad5d1122b82f ("riscv: use vDSO common flow to reduce the latency of the time-related functions")
-> Reported-by: Andreas Schwab <schwab@linux-m68k.org>
-> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: Stephen Rothwell <sfr@canb.auug.org.au>
-> Cc: Arvind Sankar <nivedita@alum.mit.edu>
-> Cc: linux-riscv@lists.infradead.org
-> Cc: clang-built-linux@googlegroups.com
-> Cc: Nick Desaulniers <ndesaulniers@google.com>
-> Cc: Nathan Chancellor <natechancellor@gmail.com>
-> Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Albert Ou <aou@eecs.berkeley.edu>
+> On Tue, Nov 17, 2020 at 06:29:29PM +0200, Mike Rapoport wrote:
+> > From: Mike Rapoport <rppt@linux.ibm.com>
+> >
+> > Account memory consumed by secretmem to memcg. The accounting is updated
+> > when the memory is actually allocated and freed.
+> >
+> > Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+[snip]
+> >
+> > +static int secretmem_account_pages(struct page *page, gfp_t gfp, int order)
+> > +{
+> > +     int err;
+> > +
+> > +     err = memcg_kmem_charge_page(page, gfp, order);
 
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-Link: https://github.com/ClangBuiltLinux/linux/issues/1202
-
-> ---
-> v2: update Fixes: tags (Nick);
->     also built allmodconfig cleanly on rv32;
->
->  arch/riscv/include/asm/vdso/processor.h |    2 ++
->  1 file changed, 2 insertions(+)
->
-> --- lnx-510-rc4.orig/arch/riscv/include/asm/vdso/processor.h
-> +++ lnx-510-rc4/arch/riscv/include/asm/vdso/processor.h
-> @@ -4,6 +4,8 @@
->
->  #ifndef __ASSEMBLY__
->
-> +#include <asm/barrier.h>
-> +
->  static inline void cpu_relax(void)
->  {
->  #ifdef __riscv_muldiv
-
-
-
--- 
-Thanks,
-~Nick Desaulniers
+I haven't looked at the whole series but it seems like these pages
+will be mapped into the userspace, so this patch has dependency on
+Roman's "mm: allow mapping
+accounted kernel pages to userspace" patch series.
 
 _______________________________________________
 linux-riscv mailing list
