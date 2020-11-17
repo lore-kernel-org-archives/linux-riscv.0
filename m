@@ -2,65 +2,68 @@ Return-Path: <SRS0=V/Dh=EX=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CBD4DC2D0E4
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2020 15:49:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8E2F1C2D0E4
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2020 15:58:54 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 272B0238E6
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2020 15:49:36 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 1BC43238E6
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2020 15:58:54 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="myjBGLbQ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 272B0238E6
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=metux.net
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="rRwzp9tc";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="p8sWlliy"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1BC43238E6
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ifvlFy5FnrmlJbFZsIjDMZC6n6I55oqLLclxOQq5ZcI=; b=myjBGLbQZBlhTm98yDsLPXThFH
-	7rBWGyd4ayFkVjKmQ+l/JKkgKcf7nZymnrleLoy0JliHueaa+dpkLYTFFYDbBXqJRMp4ZbONokZFD
-	mTfc96usZc1Ad1J2Y+Xhy4EqI0/ZoupdHQgLILonCykCD+m3FLqMLijygdeIFGwdudz7zJxySPU1F
-	RSIctqmNwEjLWbTiXwJgFnfsQdTsm5npn2z8cmODodUubSblzsw1uz1QvtEvMtgYSXdiqVDrqcwJo
-	QzJcrBk4BwpA0crUrOzSv8rl+m+WZs41l9hJJJwHjmcN3E+vMQI+Ev9Z5QO1tNqJfDgJSpYYpYrzP
-	Jbbxx+RQ==;
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=Tb1cwRCFE3AFHVxjEQuj6oMYgw66uGYJyalZlXcSSI0=; b=rRwzp9tcDLImdtqzzokpg6R1B
+	4/XvVljT/d6zpVgrdiHKLYyhProLzsJuzxqOBYKUu2n7fV2AXhEEe8HEyDdOKl5i9ejt/kClTQGjW
+	RPgkRmk95IoADPtK9iackc0+s+YbVPMn1o1iVBW7zYsQ0wgxkpuTk1+XZ/IIsNoWXrxMQzRHAkWA4
+	QsdeJHH26jijTBfg/n6x5llM9fP+CmXItYTXOupKY8hvAySY3uAz7OQ9bcGYOt/IdmBxSoK3F2YCO
+	bFf6HtBX2U+jbw5Xjj05gz2Xr/T9jofAluJjkI2oIDEmwTw+t+aOQ6xncFkZQakUBkrLPUuzfUGcs
+	2Yft8qKEA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kf3EU-0004wQ-CJ; Tue, 17 Nov 2020 15:49:26 +0000
-Received: from mout.kundenserver.de ([212.227.126.133])
+	id 1kf3NX-0006ND-R2; Tue, 17 Nov 2020 15:58:47 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kf3ES-0004v1-33
- for linux-riscv@lists.infradead.org; Tue, 17 Nov 2020 15:49:25 +0000
-Received: from orion.localdomain ([95.118.38.12]) by mrelayeu.kundenserver.de
- (mreue012 [212.227.15.167]) with ESMTPSA (Nemesis) id
- 1MDeAZ-1kWV2Z1QJj-00AjEx; Tue, 17 Nov 2020 16:49:16 +0100
-From: "Enrico Weigelt, metux IT consult" <info@metux.net>
-To: linux-kernel@vger.kernel.org
-Subject: [PATCH] drivers: clk: make gpio-gated clock support optional
-Date: Tue, 17 Nov 2020 16:49:15 +0100
-Message-Id: <20201117154915.19951-1-info@metux.net>
-X-Mailer: git-send-email 2.11.0
-X-Provags-ID: V03:K1:PbXwhxgZEHmBSuv2/cxNCEqWXKG8HNRUpU5VDyHQtaeNY2Q3q53
- emv4MJ03ToWKfXlnHO0lBgf6YnxAqhGMwat2O2xWssDus2zJwPXISE3s/90UsQJTo/hX82M
- 7I82cTnzgeupAnPOCvoXgXjuWiZu5r1X3FN5f34r7KEmL3LqANbe18yOIFsTb2AGUOCm//r
- c0oemH+sYEj7AD7oAab5A==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:0R1qHjUzETc=:SjUN+Br12J7imWezXdxNi7
- 5d1wBxcHv134q1wVsopfeUPHxvbWDv7torQVGiB9OiZBd5+RPP3t7UpXxkA6GeeFP65wPjpiA
- jvAwRo6LS/HHCYdmCN2K+cBAqYt1oXXCerAqrIUMfby9kDVUr1FnJYWCP67m+lrvre9osu2QC
- PAsimuwCNtFXfjzCteljXYI8JsuElSxdSCyNztzLEw2yjW52N8e1xeesd1pcgdWPk9M8MFevQ
- 3ijmUaiYROZsA5ZomixqGQsUN67EFYZYllZ8wz+ITGQxAKGKufUKhVFFatG0h8Q7Yesj7m5Gq
- 6YGw6RVx7dO7fSiyBz+K9VVJEEYlAetdzi4upwW2T1GHStJQi9lCqGvFWIhj7aIXx/R2+CUlx
- Xw2YuTTjcaon8TelJTYWNcwLXqpJWjgt3MPlBMLEk067chgNIF3qz8AoYETZN
+ id 1kf3NS-0006LF-Nj; Tue, 17 Nov 2020 15:58:44 +0000
+Received: from kernel.org (unknown [77.125.7.142])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id D3B60238E6;
+ Tue, 17 Nov 2020 15:58:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1605628721;
+ bh=9is+MjALfTGepw57FVx0JouySPxlzfHt3CDVLQ4Unmk=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=p8sWlliyDkUNYoXZjFWSoiuQvdgEZNX+2SxP4AeRu3E6J1nQ7q1oTfz+6Ip2yE0wn
+ cmwAFaK1S/AmhU4S6q0bHx0jhCupiexg9VCuzKWD3rTOMD16YOJ0wT4exivwNxppfK
+ VG9oFzcdjadQK9Y3xyHqBPePYLUqwIL58wy/neZo=
+Date: Tue, 17 Nov 2020 17:58:29 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: David Hildenbrand <david@redhat.com>
+Subject: Re: [PATCH v8 2/9] mmap: make mlock_future_check() global
+Message-ID: <20201117155829.GJ370813@kernel.org>
+References: <20201112190827.GP4758@kernel.org>
+ <7A16CA44-782D-4ABA-8D93-76BDD0A90F94@redhat.com>
+ <20201115082625.GT4758@kernel.org>
+ <d47fdd2e-a8fa-6792-ca8f-e529be76340c@redhat.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <d47fdd2e-a8fa-6792-ca8f-e529be76340c@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201117_104924_406936_C8386624 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20201117_105843_032567_278F5DB9 
+X-CRM114-Status: GOOD (  25.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -72,62 +75,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: sboyd@kernel.org, matthias.bgg@gmail.com, mturquette@baylibre.com,
- linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
+ Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
+ Will Deacon <will@kernel.org>, x86@kernel.org,
+ Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
+ Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
+ Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-fsdevel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The gpio-gate-clock / gpio-mux-clock driver isn't used much,
-just by a few ARM SoCs, so there's no need to always include
-it unconditionally.
-
-Thus make it optional, but keep it enabled by default.
-
-Signed-off-by: Enrico Weigelt, metux IT consult <info@metux.net>
----
- drivers/clk/Kconfig  | 7 +++++++
- drivers/clk/Makefile | 2 +-
- 2 files changed, 8 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
-index c715d4681a0b..ec5b3a75bcf4 100644
---- a/drivers/clk/Kconfig
-+++ b/drivers/clk/Kconfig
-@@ -38,6 +38,13 @@ menuconfig COMMON_CLK
- 
- if COMMON_CLK
- 
-+config COMMON_CLK_GPIO
-+	tristate "GPIO gated clock support"
-+	default y
-+	help
-+	  Supports gpio gated clocks, which can be enabled/disabled via
-+	  gpio output.
-+
- config COMMON_CLK_WM831X
- 	tristate "Clock driver for WM831x/2x PMICs"
- 	depends on MFD_WM831X
-diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
-index da8fcf147eb1..0692ab5abc6d 100644
---- a/drivers/clk/Makefile
-+++ b/drivers/clk/Makefile
-@@ -11,7 +11,7 @@ obj-$(CONFIG_COMMON_CLK)	+= clk-multiplier.o
- obj-$(CONFIG_COMMON_CLK)	+= clk-mux.o
- obj-$(CONFIG_COMMON_CLK)	+= clk-composite.o
- obj-$(CONFIG_COMMON_CLK)	+= clk-fractional-divider.o
--obj-$(CONFIG_COMMON_CLK)	+= clk-gpio.o
-+obj-$(CONFIG_COMMON_CLK_GPIO)	+= clk-gpio.o
- ifeq ($(CONFIG_OF), y)
- obj-$(CONFIG_COMMON_CLK)	+= clk-conf.o
- endif
--- 
-2.11.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBOb3YgMTcsIDIwMjAgYXQgMDQ6MDk6MzlQTSArMDEwMCwgRGF2aWQgSGlsZGVuYnJh
+bmQgd3JvdGU6Cj4gT24gMTUuMTEuMjAgMDk6MjYsIE1pa2UgUmFwb3BvcnQgd3JvdGU6Cj4gPiBP
+biBUaHUsIE5vdiAxMiwgMjAyMCBhdCAwOToxNToxOFBNICswMTAwLCBEYXZpZCBIaWxkZW5icmFu
+ZCB3cm90ZToKCi4uLgoKPiA+IE15IHRoaW5raW5nIHdhcyB0aGF0IHNpbmNlIHNlY3JldG1lbSBk
+b2VzIHdoYXQgbWxvY2soKSBkb2VzIHdydAo+ID4gc3dhcGFiaWxpdHksIGl0IHNob3VsZCBhdCBs
+ZWFzdCBvYmV5IHRoZSBzYW1lIGxpbWl0LCBpLmUuCj4gPiBSTElNSVRfTUVNTE9DSy4KPiAKPiBS
+aWdodCwgYnV0IGF0IGxlYXN0IGN1cnJlbnRseSwgaXQgYmVoYXZlcyBsaWtlIGFueSBvdGhlciBD
+TUEgYWxsb2NhdGlvbgo+IChJSVJDIHRoZXkgYXJlIGFsbCB1bm1vdmFibGUgYW5kLCB0aGVyZWZv
+cmUsIG5vdCBzd2FwcGFibGUpLiBJbiB0aGUgZnV0dXJlLAo+IGlmIHBhZ2VzIHdvdWxkIGJlIG1v
+dmFibGUgKGJ1dCBub3Qgc3dhcHBhYmxlKSwgSSBndWVzcyBpdCBtaWdodCBtYWtlcyBtb3JlCj4g
+c2Vuc2UuIEkgYXNzdW1lIHdlIG5ldmVyIGV2ZXIgd2FudCB0byBzd2FwIHNlY3JldG1lbS4KPiAK
+PiAibWFuIGdldHJsaW1pdCIgc3RhdGVzIGZvciBSTElNSVRfTUVNTE9DSzoKPiAKPiAiVGhpcyBp
+cyB0aGUgbWF4aW11bSBudW1iZXIgb2YgYnl0ZXMgb2YgbWVtb3J5IHRoYXQgbWF5IGJlCj4gIGxv
+Y2tlZCBpbnRvIFJBTS4gIFsuLi5dIFRoaXMgbGltaXQgYWZmZWN0cwo+ICBtbG9jaygyKSwgbWxv
+Y2thbGwoMiksIGFuZCB0aGUgbW1hcCgyKSBNQVBfTE9DS0VEIG9wZXJhdGlvbi4KPiAgU2luY2Ug
+TGludXggMi42LjksIGl0IGFsc28gYWZmZWN0cyB0aGUgc2htY3RsKDIpIFNITV9MT0NLIG9w4oCQ
+Cj4gIGVyYXRpb24gWy4uLl0iCj4gCj4gU28gdGhhdCBwbGFjZSBoYXMgdG8gYmUgdXBkYXRlZCBh
+cyB3ZWxsIEkgZ3Vlc3M/IE90aGVyd2lzZSB0aGlzIG1pZ2h0IGNvbWUKPiBhcyBhIHN1cnByaXNl
+IGZvciB1c2Vycy4KClN1cmUuCgo+ID4gCj4gPiA+IEUuZy4sIHdlIGFsc28gZG9u4oCYdAo+ID4g
+PiBhY2NvdW50IGZvciBnaWdhbnRpYyBwYWdlcyAtIHdoaWNoIG1pZ2h0IGJlIGFsbG9jYXRlZCBm
+cm9tIENNQSBhbmQgYXJlCj4gPiA+IG5vdCBzd2FwcGFibGUuCj4gPiBEbyB5b3UgbWVhbiBnaWdh
+bnRpYyBwYWdlcyBpbiBodWdldGxiZnM/Cj4gCj4gWWVzCj4gCj4gPiBJdCBzZWVtcyB0byBtZSB0
+aGF0IGh1Z2V0bGJmcyBhY2NvdW50aW5nIGlzIGEgY29tcGxldGVseSBkaWZmZXJlbnQKPiA+IHN0
+b3J5Lgo+IAo+IEknZCBzYXkgaXQgaXMgcmlnaHQgbm93IGNvbXBhcmFibGUgdG8gc2VjcmV0bWVt
+IC0gd2hpY2ggaXMgd2h5IEkgdGhvdWdoCj4gc2ltaWxhciBhY2NvdW50aW5nIHdvdWxkIG1ha2Ug
+c2Vuc2UuCgpJTUhPLCB1c2luZyBSTElNSVRfTUVNTE9DSyBhbmQgbWVtY2cgaXMgYSBtb3JlIHN0
+cmFpZ2h0Zm9yd2FyZCB3YXkgdGhhbgphIGN1c3RvbSBjZ3JvdXAuCgpBbmQgaWYgd2UnbGwgc2Vl
+IGEgbmVlZCBmb3IgYWRkaXRpb25hbCBtZWNoYW5pc20sIHdlIGNhbiBhbHdheXMgYWRkIGl0Lgog
+Cj4gLS0gCj4gVGhhbmtzLAo+IAo+IERhdmlkIC8gZGhpbGRlbmIKPiAKPiAKCi0tIApTaW5jZXJl
+bHkgeW91cnMsCk1pa2UuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
+ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LXJpc2N2Cg==
