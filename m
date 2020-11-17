@@ -2,69 +2,62 @@ Return-Path: <SRS0=V/Dh=EX=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 055EEC5519F
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2020 19:27:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 00A25C2D0E4
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2020 19:31:10 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6F6FD221FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2020 19:27:42 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id DBC54221FE
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 Nov 2020 19:31:09 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="PKYLrrnZ";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="mal+kPD2"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6F6FD221FE
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="dmAnQX34";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="LAH0bwix"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DBC54221FE
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:References:
-	To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=DnMm6LgIgz56s7bLxjhI6Yir2zvrQ+U4cajKLHEcNik=; b=PKYLrrnZmJPmLBB3dq78emLO3
-	kpv/5efeJQ2HOGbS845HhkJiPKM0SGPa98onIbPMyrTEtNItzbDSc4u72ujfQmpXsW2YxgJxXYLK7
-	z9fmYaxOwCzIjflK5kIV25Ualoslc5zI75ZPZTBqrScJznglBkpiYVwyaWfLwh4KJjF24zVlY5R+R
-	WueOle0JZO45KewxhiX/8OOS1lVPy0RMP6onPWZg/R4aQhcsZYhtUG3hRImoLRAzBGVVOlli+J1QK
-	IzcvGihRJIlm2jENOvTe5+vv0lEiqdshEl+FUWxQiYOw6R5I3kTRJhv1wbM6+kjU46fAqJuKKBBu2
-	6XVviOSKw==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=U0/cjrdhrjL0VXkUE/Zk4beH+seL2poBQuWY0xeOKHY=; b=dmAnQX34WNtqjJYWAufeWeOpgN
+	vgV8AXSIgYnY2iX7ea1JPEUGXBubWoy9yU+hNXaL63yNz6ZctbwIadcUgW03e9Qi95v9thRsZbPCL
+	ZBfygitAQV3qQvGZ1bDfgSniJE9+cR7SHK2DI6JzePeEkRVKGgPc3x3NJ6ZqMsplTMhVSepJ2sUnO
+	1coBA8P+arR+KJAY+w+WK9cM+X1frzbnbl2c1k6Q/TsvUhh+ndqrunpB2MXoZWU9BdFh4gV56Sc/+
+	cHI0/ZbRYLoHQo0nwA+imSmpwfJAWNiK39BJIdJjQEIlXRt4Z/YZdxRPZoawNTlUzd+Sq9PJKlspA
+	1LkVIERA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kf6dc-0008TN-R6; Tue, 17 Nov 2020 19:27:36 +0000
+	id 1kf6gu-0000SZ-9X; Tue, 17 Nov 2020 19:31:00 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kf6db-0008Sz-AF
- for linux-riscv@merlin.infradead.org; Tue, 17 Nov 2020 19:27:35 +0000
+ id 1kf6gt-0000SM-LA; Tue, 17 Nov 2020 19:30:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
- In-Reply-To:MIME-Version:Date:Message-ID:References:Cc:To:From:Subject:Sender
- :Reply-To:Content-ID:Content-Description;
- bh=68h4/CMO0Xb/f6x4VOJA0yG7fXJsrNZzip6hN7Yjkww=; b=mal+kPD2tLwLCrmU89SxDTWHKr
- WgjLsbokjB/Ta3AhdyDKMgVMLrKADxz5QsVU2VnVZ7Y59udY9qVXCa6FI5f4mJ+KsX1K1YjwvP16h
- 520UTX4JvdZEkllui4tRjGEBe/wclezTZ+XxaLADDkNi4crhea00/ZiYXTG8l1x9oclm4/PJvZ3r4
- y0rbvzy8AqE0UhJJEwEEcxbf/IUrZ37yNpJTCRaA6VjDkHnLpB3l4UXQy7z5cnGd92d+n/GQacurS
- H8+VdN0miuNELGEUUyo10iN75dnKg5Tct6Sx+li3kRmqfrmE5iEQHaeB37U1jaVkNjfTATb8Cybg+
- aGnO/Nnw==;
-Received: from [2601:1c0:6280:3f0::bcc4]
+ d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+ Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+ Content-Description:In-Reply-To:References;
+ bh=0w7Ozk28Ycs+oUmhikFWAD+C3GsZMaJDoL2VuQ4QW/c=; b=LAH0bwixan6uK8YQ8JD4EflJE3
+ siRCA/CVKgxv1pPzkVhV3r53qtSX0jAGKOmXRhI+LU2Y3fPWsGmHslJwRKOucTjTb/qbojQ0PrxUz
+ 8t5ifqatu4bANn5H4jxLXkvf9D4z0cV/ZYow0UETIVvvk3P3QQVtJzbSb+stcLranSMEhiPXO/Vf9
+ AgVOmgh1dhBpF3pbnpnGz2yH1P/ZJl+0D//6o+OUQQuv3LAnGfBIHsdb12H3iCqv39MMxoeJRgkka
+ XYD5nhx2qd+nwf0aM/7woXZdL1rQFsv2trE/B8bTzBDcvU0fZ2Z6MAyUlCJTwJiu/8QmrZpKdsakY
+ uBxyGYyg==;
+Received: from [2601:1c0:6280:3f0::bcc4] (helo=smtpauth.infradead.org)
  by casper.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kf6dY-0005Zb-Re; Tue, 17 Nov 2020 19:27:33 +0000
-Subject: Re: [PATCH] RISC-V: fix barrier() use in <vdso/processor.h>
+ id 1kf6gr-0005l4-Gg; Tue, 17 Nov 2020 19:30:57 +0000
 From: Randy Dunlap <rdunlap@infradead.org>
-To: Nick Desaulniers <ndesaulniers@google.com>
-References: <20201117013951.7827-1-rdunlap@infradead.org>
- <CAKwvOdmESwnF14TLjRfzJg8Dau8XW0LgoDvXtdPjPOqdf211SQ@mail.gmail.com>
- <9ab43756-6c48-c5e8-3a5d-e44bba070a97@infradead.org>
-Message-ID: <fe040988-c076-8dec-8268-3fbaa8b39c0f@infradead.org>
-Date: Tue, 17 Nov 2020 11:27:28 -0800
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.12.0
+To: linux-kernel@vger.kernel.org
+Subject: [PATCH v2] RISC-V: fix barrier() use in <vdso/processor.h>
+Date: Tue, 17 Nov 2020 11:30:53 -0800
+Message-Id: <20201117193053.18990-1-rdunlap@infradead.org>
+X-Mailer: git-send-email 2.26.2
 MIME-Version: 1.0
-In-Reply-To: <9ab43756-6c48-c5e8-3a5d-e44bba070a97@infradead.org>
-Content-Language: en-US
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -77,10 +70,11 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: Stephen Rothwell <sfr@canb.auug.org.au>, Albert Ou <aou@eecs.berkeley.edu>,
- LKML <linux-kernel@vger.kernel.org>,
+ Randy Dunlap <rdunlap@infradead.org>,
+ Nick Desaulniers <ndesaulniers@google.com>,
  Nathan Chancellor <natechancellor@gmail.com>,
- clang-built-linux <clang-built-linux@googlegroups.com>,
- Arvind Sankar <nivedita@alum.mit.edu>, Andreas Schwab <schwab@linux-m68k.org>,
+ clang-built-linux@googlegroups.com, Arvind Sankar <nivedita@alum.mit.edu>,
+ Andreas Schwab <schwab@linux-m68k.org>,
  Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
  Andrew Morton <akpm@linux-foundation.org>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
@@ -88,85 +82,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/17/20 11:22 AM, Randy Dunlap wrote:
-> On 11/17/20 11:00 AM, Nick Desaulniers wrote:
->> On Mon, Nov 16, 2020 at 5:40 PM Randy Dunlap <rdunlap@infradead.org> wrote:
->>>
->>> riscv's <vdso/processor.h> uses barrier() so it should
->>> #include <asm/barrier.h> to prevent build errors.
->>>
->>> Fixes this build error:
->>>   CC [M]  drivers/net/ethernet/emulex/benet/be_main.o
->>> In file included from ./include/vdso/processor.h:10,
->>>                  from ./arch/riscv/include/asm/processor.h:11,
->>>                  from ./include/linux/prefetch.h:15,
->>>                  from drivers/net/ethernet/emulex/benet/be_main.c:14:
->>> ./arch/riscv/include/asm/vdso/processor.h: In function 'cpu_relax':
->>> ./arch/riscv/include/asm/vdso/processor.h:14:2: error: implicit declaration of function 'barrier' [-Werror=implicit-function-declaration]
->>>    14 |  barrier();
->>>
->>> This happens with a total of 5 networking drivers -- they all use
->>> <linux/prefetch.h>.
->>>
->>> rv64 allmodconfig now builds cleanly after this patch.
->>>
->>> Fixes fallout from:
->>> 815f0ddb346c ("include/linux/compiler*.h: make compiler-*.h mutually exclusive")
->>>
->>> Fixes: ad5d1122b82f ("riscv: use vDSO common flow to reduce the latency of the time-related functions")
->>
->> Hi Randy,
->> Thanks for the patch, it looks good to me.  I only had a question on
->> the commit message.
->>
->> Is this also related to:
->> commit 3347acc6fcd4 ("compiler.h: fix barrier_data() on clang")
-> 
-> Hi Nick,
-> Yes, it looks like I tagged the wrong commit in Fixes:
-> Thanks for noticing that.
-> 
+riscv's <vdso/processor.h> uses barrier() so it should
+#include <asm/barrier.h> to prevent build errors.
 
-I'll send a v2 with corrections.
+Fixes this build error:
+  CC [M]  drivers/net/ethernet/emulex/benet/be_main.o
+In file included from ./include/vdso/processor.h:10,
+                 from ./arch/riscv/include/asm/processor.h:11,
+                 from ./include/linux/prefetch.h:15,
+                 from drivers/net/ethernet/emulex/benet/be_main.c:14:
+./arch/riscv/include/asm/vdso/processor.h: In function 'cpu_relax':
+./arch/riscv/include/asm/vdso/processor.h:14:2: error: implicit declaration of function 'barrier' [-Werror=implicit-function-declaration]
+   14 |  barrier();
 
-> 
->> I plan to backport 3347acc6fcd4, so it would be good if all of the
->> follow ups are all tagged accordingly with fixes tags, so that I don't
->> break anything backporting 3347acc6fcd4 because I forgot or missed any
->> follow ups that also needed to be backported.
->>
->>> Reported-by: Andreas Schwab <schwab@linux-m68k.org>
->>> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
->>> Cc: Andrew Morton <akpm@linux-foundation.org>
->>> Cc: Stephen Rothwell <sfr@canb.auug.org.au>
->>> Cc: Arvind Sankar <nivedita@alum.mit.edu>
->>> Cc: linux-riscv@lists.infradead.org
->>> Cc: clang-built-linux@googlegroups.com
->>> Cc: Nick Desaulniers <ndesaulniers@google.com>
->>> Cc: Nathan Chancellor <natechancellor@gmail.com>
->>> Cc: Paul Walmsley <paul.walmsley@sifive.com>
->>> Cc: Palmer Dabbelt <palmer@dabbelt.com>
->>> Cc: Albert Ou <aou@eecs.berkeley.edu>
->>> ---
->>>  arch/riscv/include/asm/vdso/processor.h |    2 ++
->>>  1 file changed, 2 insertions(+)
->>>
->>> --- lnx-510-rc4.orig/arch/riscv/include/asm/vdso/processor.h
->>> +++ lnx-510-rc4/arch/riscv/include/asm/vdso/processor.h
->>> @@ -4,6 +4,8 @@
->>>
->>>  #ifndef __ASSEMBLY__
->>>
->>> +#include <asm/barrier.h>
->>> +
->>>  static inline void cpu_relax(void)
->>>  {
->>>  #ifdef __riscv_muldiv
+This happens with a total of 5 networking drivers -- they all use
+<linux/prefetch.h>.
 
+rv64 and rv32 allmodconfig now build cleanly after this patch.
 
--- 
-~Randy
+Fixes: 3347acc6fcd4 ("compiler.h: fix barrier_data() on clang")
+Fixes: ad5d1122b82f ("riscv: use vDSO common flow to reduce the latency of the time-related functions")
+Reported-by: Andreas Schwab <schwab@linux-m68k.org>
+Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Stephen Rothwell <sfr@canb.auug.org.au>
+Cc: Arvind Sankar <nivedita@alum.mit.edu>
+Cc: linux-riscv@lists.infradead.org
+Cc: clang-built-linux@googlegroups.com
+Cc: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Nathan Chancellor <natechancellor@gmail.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+---
+v2: update Fixes: tags (Nick);
+    also built allmodconfig cleanly on rv32;
 
+ arch/riscv/include/asm/vdso/processor.h |    2 ++
+ 1 file changed, 2 insertions(+)
+
+--- lnx-510-rc4.orig/arch/riscv/include/asm/vdso/processor.h
++++ lnx-510-rc4/arch/riscv/include/asm/vdso/processor.h
+@@ -4,6 +4,8 @@
+ 
+ #ifndef __ASSEMBLY__
+ 
++#include <asm/barrier.h>
++
+ static inline void cpu_relax(void)
+ {
+ #ifdef __riscv_muldiv
 
 _______________________________________________
 linux-riscv mailing list
