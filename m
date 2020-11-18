@@ -2,21 +2,22 @@ Return-Path: <SRS0=F/sc=EY=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B03DFC56202
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2020 06:55:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8C8DEC56202
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2020 06:57:33 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E1D4224654
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2020 06:55:40 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 196F024654
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Nov 2020 06:57:33 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="aF5sLtfH";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="oiKSsv9R"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E1D4224654
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="cJBjVjoN";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="U45SNSKJ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 196F024654
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -25,45 +26,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=0wVY8CdSKDvUkeEg3g37jlYDiFRuAKpj6etDHD3sg5M=; b=aF5sLtfHw7N3PwAT3O+z65uST
-	pslBfo9p+FfPosmcVKsqrhOELlhsH/EYM5WPxx6KZQ/zUQxyx3hlB2HVyWDlcmSDdd+fflun14xkc
-	U/aUQSwIoTyXVj4Tiz0Y9Kf3VcqYWZdFOTLIhlSaUTTnv0txvzdzwoQqteTKFk29wuPEfr3O2IB+b
-	yW8v81Fx1+M4X/SgZ31cUtFxzg7enUw3WNN4GfpsiFT3afi5HFP3z15zKqJdB0VNqVBkggKmcTobM
-	AIg0u/Nvu2D3ve4vRu9uMeMMtEzeuERTz3xgH+B6ZJzspt5MyewEz0sgubMEE9g2jDA5zRLij1h3M
-	+4YMaXzDw==;
+	 bh=o/Oqr7NiN8/5fEvvpB/4DIecgMcn80Q5KiPgSYVkyqQ=; b=cJBjVjoNIh7dBn8xzL869kEwN
+	X4tarHhFf05I/jHLVo6llGio2RUIEdhoNwsK4I+x3G5ZBMwKT+rEavosiSolTE9j05ZPHMI7Y+sQA
+	P5qF3mh7f1S7L6eBoMH+TGdKqzoAQm8NsBrhuJIr3QwQYdEG+e6saNfyR63CsE1OjEfIOnJjL3G8Q
+	XwhUZcDj3nqB19oWjU1P0i8ut9Rd6XolnGlznUST4YH1RzkSzZ2MllnFF14i3j3g6VZDA111wnft6
+	puxq8UCP+mSafcFmun2Wdj4AHzpitNJzy664P1Z7ygiqEXsRqf2ZzunYd9G6EyP6kyaD1lsiuB+d1
+	n/N97V70Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kfHNL-00047b-M6; Wed, 18 Nov 2020 06:55:31 +0000
+	id 1kfHPD-0004LL-OW; Wed, 18 Nov 2020 06:57:27 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kfHNH-00045v-7z; Wed, 18 Nov 2020 06:55:28 +0000
+ id 1kfHP8-0004J9-EO; Wed, 18 Nov 2020 06:57:23 +0000
 Received: from kernel.org (unknown [77.125.7.142])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 6554424655;
- Wed, 18 Nov 2020 06:55:14 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id C5BB624654;
+ Wed, 18 Nov 2020 06:57:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1605682525;
- bh=ijXF7PUCZPM+SCn0c+6woTjKwc8l6BuK+EQkKzOZoH8=;
+ s=default; t=1605682641;
+ bh=p9re6A1RRg6oU6SsuX3QRE0t8ggbYYLXloFK2ojmgAo=;
  h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=oiKSsv9RDCQm1S/HmggqtrPvdJmgXqMRBK6MAHqh9Yd/MlSYNip+OwN+JVDWvyw4j
- PaowVWNf6v5Qw5aC1zUcALKjA0MeiiAKYuhFd5N18H92PtIsqdOsAxh4AC1cLHAVVu
- 7NvCS9CGGb6cKrHrwQ+X3wdidxAmVeF4uLboBzI8=
-Date: Wed, 18 Nov 2020 08:55:09 +0200
+ b=U45SNSKJGotiPIakEwaAseiV27AsVkyTNt66bCAHLcpiM1G9GhxPaQQlROUaXdH9c
+ rZ2SGl1DirjI0HjrC5eRlRQ7rEdibP7yq1sGHKXfUjmBvTCB1ZAiMR3V9ZcpXtRamU
+ 6btiE8gvCG8QTrNMjF7yXVOnKyB3lsNIE30mk1FQ=
+Date: Wed, 18 Nov 2020 08:57:06 +0200
 From: Mike Rapoport <rppt@kernel.org>
-To: Shakeel Butt <shakeelb@google.com>
-Subject: Re: [PATCH v9 6/9] secretmem: add memcg accounting
-Message-ID: <20201118065509.GK370813@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: [PATCH v9 8/9] arch, mm: wire up memfd_secret system call were
+ relevant
+Message-ID: <20201118065706.GL370813@kernel.org>
 References: <20201117162932.13649-1-rppt@kernel.org>
- <20201117162932.13649-7-rppt@kernel.org>
- <20201117193358.GB109785@carbon.dhcp.thefacebook.com>
- <CALvZod5mJnR2DXoYTbp9RX4uR7zVyqAPfD+XKpqXKgxaNyJ1VA@mail.gmail.com>
+ <20201117162932.13649-9-rppt@kernel.org> <X7QFMhQlyBMI1wXE@trantor>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CALvZod5mJnR2DXoYTbp9RX4uR7zVyqAPfD+XKpqXKgxaNyJ1VA@mail.gmail.com>
+In-Reply-To: <X7QFMhQlyBMI1wXE@trantor>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201118_015527_448078_4F45DA6D 
-X-CRM114-Status: GOOD (  19.90  )
+X-CRM114-CacheID: sfid-20201118_015722_691049_4594D488 
+X-CRM114-Status: GOOD (  24.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -77,8 +77,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
  Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, Linux MM <linux-mm@kvack.org>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
  linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
  Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
  Thomas Gleixner <tglx@linutronix.de>,
@@ -87,45 +86,78 @@ Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
  Will Deacon <will@kernel.org>, x86@kernel.org,
  Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
  Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
- Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
- Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>, Arnd Bergmann <arnd@arndb.de>,
+ James Bottomley <jejb@linux.ibm.com>, Borislav Petkov <bp@alien8.de>,
+ Alexander Viro <viro@zeniv.linux.org.uk>, Andy Lutomirski <luto@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
  "Kirill A. Shutemov" <kirill@shutemov.name>,
  Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
- linux-api@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>,
+ linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-fsdevel <linux-fsdevel@vger.kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
+ linux-fsdevel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
  Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 17, 2020 at 12:02:01PM -0800, Shakeel Butt wrote:
-> On Tue, Nov 17, 2020 at 11:49 AM Roman Gushchin <guro@fb.com> wrote:
-> >
-> > On Tue, Nov 17, 2020 at 06:29:29PM +0200, Mike Rapoport wrote:
-> > > From: Mike Rapoport <rppt@linux.ibm.com>
-> > >
-> > > Account memory consumed by secretmem to memcg. The accounting is updated
-> > > when the memory is actually allocated and freed.
-> > >
-> > > Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
-> [snip]
-> > >
-> > > +static int secretmem_account_pages(struct page *page, gfp_t gfp, int order)
-> > > +{
-> > > +     int err;
-> > > +
-> > > +     err = memcg_kmem_charge_page(page, gfp, order);
+On Tue, Nov 17, 2020 at 05:15:30PM +0000, Catalin Marinas wrote:
+> On Tue, Nov 17, 2020 at 06:29:31PM +0200, Mike Rapoport wrote:
+> > From: Mike Rapoport <rppt@linux.ibm.com>
+> > 
+> > Wire up memfd_secret system call on architectures that define
+> > ARCH_HAS_SET_DIRECT_MAP, namely arm64, risc-v and x86.
+> > 
+> > Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+> > Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
+> > Acked-by: Arnd Bergmann <arnd@arndb.de>
+> > ---
+> >  arch/arm64/include/asm/unistd.h        | 2 +-
+> >  arch/arm64/include/asm/unistd32.h      | 2 ++
+> >  arch/arm64/include/uapi/asm/unistd.h   | 1 +
+> >  arch/riscv/include/asm/unistd.h        | 1 +
+> >  arch/x86/entry/syscalls/syscall_32.tbl | 1 +
+> >  arch/x86/entry/syscalls/syscall_64.tbl | 1 +
+> >  include/linux/syscalls.h               | 1 +
+> >  include/uapi/asm-generic/unistd.h      | 6 +++++-
+> >  scripts/checksyscalls.sh               | 4 ++++
+> >  9 files changed, 17 insertions(+), 2 deletions(-)
+> > 
+> > diff --git a/arch/arm64/include/asm/unistd.h b/arch/arm64/include/asm/unistd.h
+> > index 86a9d7b3eabe..949788f5ba40 100644
+> > --- a/arch/arm64/include/asm/unistd.h
+> > +++ b/arch/arm64/include/asm/unistd.h
+> > @@ -38,7 +38,7 @@
+> >  #define __ARM_NR_compat_set_tls		(__ARM_NR_COMPAT_BASE + 5)
+> >  #define __ARM_NR_COMPAT_END		(__ARM_NR_COMPAT_BASE + 0x800)
+> >  
+> > -#define __NR_compat_syscalls		442
+> > +#define __NR_compat_syscalls		443
+> >  #endif
+> >  
+> >  #define __ARCH_WANT_SYS_CLONE
+> > diff --git a/arch/arm64/include/asm/unistd32.h b/arch/arm64/include/asm/unistd32.h
+> > index 6c1dcca067e0..5279481ec95b 100644
+> > --- a/arch/arm64/include/asm/unistd32.h
+> > +++ b/arch/arm64/include/asm/unistd32.h
+> > @@ -891,6 +891,8 @@ __SYSCALL(__NR_faccessat2, sys_faccessat2)
+> >  __SYSCALL(__NR_process_madvise, sys_process_madvise)
+> >  #define __NR_watch_mount 441
+> >  __SYSCALL(__NR_watch_mount, sys_watch_mount)
+> > +/* 442 is memfd_secret, it is not implemented for 32-bit */
+> > +__SYSCALL(442, sys_ni_syscall)
 > 
-> I haven't looked at the whole series but it seems like these pages
-> will be mapped into the userspace, so this patch has dependency on
-> Roman's "mm: allow mapping
-> accounted kernel pages to userspace" patch series.
+> It now behaves correctly for compat but I don't think we need to
+> increment __NR_compat_syscalls. The compat syscall handler already calls
+> sys_ni_syscall() if out of range.
 
-Yes, that's why I rebased the patches on top of mmotm.
+Ok, let's drop this change as well :)
+
+> So the only arm64 change needed is defining __ARCH_WANT_MEMFD_SECRET
+> (well, we don't have a use for it yet ;)).
+> 
+> -- 
+> Catalin
 
 -- 
 Sincerely yours,
