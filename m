@@ -2,91 +2,53 @@ Return-Path: <SRS0=5I1x=EZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CD503C63697
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Nov 2020 00:39:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DBB40C5519F
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Nov 2020 01:12:52 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4575D238E6
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Nov 2020 00:39:41 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 41F9B22260
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Nov 2020 01:12:52 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="cI/TiWuQ";
-	dkim=permerror (0-bit key) header.d=wdc.com header.i=@wdc.com header.b="WS1k0+Cq"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4575D238E6
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="ZQtjfNLQ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 41F9B22260
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=vketmuDR+/R+gXKiRy/Nmsv/RuOHwGKXWdoglRr5nM0=; b=cI/TiWuQ2oi1sNEEgaMadT1Fv
-	D8eFhzdHp7LpCVDPZxaV0pwj9xFYrxx+uvfh+k9M5MU7gUPKJzwnVR6La53HDn9itWHMuOvzFrnxo
-	N57BQrCclRAb19ePFHow5Rwka3Q0eLZ/r/5oEID0WDuqqcoL4v6oCBzN5RbfVYubSzp4ETpOA/JH8
-	R2JZImTqLqijFOK+cm6/yimW+KGECwvnzUd5MJoojOyuJ/aVIMOJ5mcmSroyZyIS+i+/ATwjqvw0n
-	KF3B7qklsL2bs1Pn33s4BRfP5YcLK63QLQ9Qa82TlDK4qGxUefhv4iQt4T1WUhChLTAUBNXw9ehKV
-	DS9nEyACQ==;
+	 bh=WdFg/WXR4oe5DuZi4NjvqIigl6f5IwhU4HFMwOR6aFI=; b=ZQtjfNLQmxu6gCyNqJjYOd9Vt
+	sqj8Ak8tV1gXrKrTqrdALnCAnKJCjtZv3EQnZVKtCk+shhGivb0L8QO9JvpQUdRivThXLXLwNVW1K
+	zdJm0NaCeHppos0LKF7fvendBX0QFP3WNsFaC3wfbpyTIRZ2cYqsKaC8ALzV+YhLHtPrDYfhkGRRP
+	GTv8BZeoveDVCuZ//Ck1rKKgpcJENFtOLc7noSS3v0Tfcf6hOupXglVoQY8r/4GMz+c6wdi2eAOMy
+	pdyS2AepUcorsnGlwhz+7oWaXmfOhMIA1y7cDwkCXRiaQll76XxF6YTtorm7ws4wpoVZlP8s8LL9W
+	sqb0imSxg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kfXz2-0006Mt-Gm; Thu, 19 Nov 2020 00:39:32 +0000
-Received: from esa2.hgst.iphmx.com ([68.232.143.124])
- by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kfXyI-0006CJ-7g; Thu, 19 Nov 2020 00:38:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1605746728; x=1637282728;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=Qp8TCYaXaopaPTPsiJ0rVCynZ7BwUesX2w2H35SSgiU=;
- b=WS1k0+CqxSqEgUg0q9cCnNB9FPXgKsiV1jI+TqzcnucW2Wzbqp9S9Xdc
- RuULUm0EBYEr2cj692jkT3KibDXIwZGP908sCb90PEisDi+OSuPSHg5u1
- Kk0OiKj/nu0k/sG8ExPaTcEF7mVjtJ6CRr+MHk0OQ3cbeBakG5roBphW9
- kKgtzkKqDBydylSjTwzkDUCd8+vMWN5Mn2g7k9NvIATOJs+z8F7y5Pdc+
- srdsXigcHD8Wcwv+QN9l11fpJcFgf3bbHfM2gbVBFj5XLPbgpMcCefx8k
- UVWA68x2t9UH708Jg8rRC2DvktQ0mJmqokxTnqbOuTk8gKYoLWXHyZy1s A==;
-IronPort-SDR: kk9thpO9hbp795itJuwsgKqX45PjupRuhL7GKuc37ydf4SX3ab4ZiT/iWLneN4yd8Qdac/1s/c
- nZQ6OCW3P5XH/ZeEvXQON+9x0fZzE0B3GBDDY4QvLGmLUzTkIcLfCikDoguG7Wdx1oa4qeQX4m
- BXdsAXxiRayKehlm8O780cUH6xXsJmiFnjdmNLvxe6SPdmUB0i7bCXU5C2xx4GP0bA5mxRjNXs
- SpLMlT8cg2R0U4vlLleRjtmm7K4zRHO0hFOuKwXyZ0MFDCEFWx0Plszu2knDlD32UwyWoJIqGU
- vK8=
-X-IronPort-AV: E=Sophos;i="5.77,488,1596470400"; d="scan'208";a="256529119"
-Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
- ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 19 Nov 2020 08:45:19 +0800
-IronPort-SDR: k3hXGbQdxzAGgp6/PkGmJB8NioVt+5+PLEDNYCfe5DYH50RPTQyfZPwKD32aT7y18dfx2+uJN5
- sJpVG20TIFITf9mp0hNfCVPPP0bpA0L3MeoYj5Ux6pSZtFNTQZSSdRDIzwkiMKvt3Z4upu83hL
- e4q5V4GhzfCST39B1Me8t3HoQc9FORzs1IjyKuhVFPQOtU0hMzd48VnvKlqbmjoc4pzbwOne/T
- 4wjGnayPW0pRwbkjh+ro6xXo+br7/YzEDbZe+ebqw5UzjQmQmRKgS3wDLyoC4WDLEPoVUWyM5O
- vpyKzmdY1IxuhmMkv3Oh37XI
-Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
- by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 18 Nov 2020 16:23:11 -0800
-IronPort-SDR: C+KfU0ZzZTBZrm2AmqLQM5wYz0+PjH6Uyaoyh3h1sRHUnq5S+CrHLYeP+KZOv0FTAYZlFbS6Gx
- XUPxV2+47BTMh/xIE32rhmMAT6tNBjdOtULktkr8UZiq2X6ySqp4N0eJrFTOHe6j7WDx8qxJ2T
- lgeBbnGhxi4WUqaTZUHQJrFbPkzWvc3N+hcJYk9o09uzisYvpeMUK79RiCXKSikb+z7E87EaaR
- jq3b36br6G8nQx02W1jb5qN0xBMtJ9dZZ10v83qdsHUbiidSDkqKEv5V2F4LaHK1SRhJAYqNdG
- +PA=
-WDCIronportException: Internal
-Received: from 6hj08h2.ad.shared (HELO jedi-01.hgst.com) ([10.86.61.71])
- by uls-op-cesaip02.wdc.com with ESMTP; 18 Nov 2020 16:38:38 -0800
-From: Atish Patra <atish.patra@wdc.com>
-To: linux-kernel@vger.kernel.org
-Subject: [PATCH v5 5/5] riscv: Add numa support for riscv64 platform
-Date: Wed, 18 Nov 2020 16:38:29 -0800
-Message-Id: <20201119003829.1282810-6-atish.patra@wdc.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20201119003829.1282810-1-atish.patra@wdc.com>
+	id 1kfYVA-0001UM-D0; Thu, 19 Nov 2020 01:12:44 +0000
+Received: from [2601:1c0:6280:3f0::bcc4]
+ by merlin.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1kfYUv-0001Q0-1T; Thu, 19 Nov 2020 01:12:29 +0000
+Subject: Re: [PATCH v5 2/5] numa: Move numa implementation to common code
+To: Atish Patra <atish.patra@wdc.com>, linux-kernel@vger.kernel.org
 References: <20201119003829.1282810-1-atish.patra@wdc.com>
+ <20201119003829.1282810-3-atish.patra@wdc.com>
+From: Randy Dunlap <rdunlap@infradead.org>
+Message-ID: <c650ecd7-7cd3-fd8e-7d4b-ed32ca91ca70@infradead.org>
+Date: Wed, 18 Nov 2020 17:12:20 -0800
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.12.0
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201118_193846_591570_CF28AFCD 
-X-CRM114-Status: GOOD (  29.30  )
+In-Reply-To: <20201119003829.1282810-3-atish.patra@wdc.com>
+Content-Language: en-US
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -100,278 +62,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
  Catalin Marinas <catalin.marinas@arm.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>, Atish Patra <atish.patra@wdc.com>,
- linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>,
- Ard Biesheuvel <ardb@kernel.org>, linux-arch@vger.kernel.org,
- Zhengyuan Liu <liuzhengyuan@tj.kylinos.cn>, Baoquan He <bhe@redhat.com>,
- Anup Patel <anup@brainfault.org>, Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
+ Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+ linux-arch@vger.kernel.org, Zhengyuan Liu <liuzhengyuan@tj.kylinos.cn>,
+ Baoquan He <bhe@redhat.com>, Anup Patel <anup@brainfault.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
  Steven Price <steven.price@arm.com>, Greentime Hu <greentime.hu@sifive.com>,
  Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
  Anshuman Khandual <anshuman.khandual@arm.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-arm-kernel@lists.infradead.org,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
  Jonathan Cameron <Jonathan.Cameron@huawei.com>,
- Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>
+ linux-arm-kernel@lists.infradead.org,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Andrew Morton <akpm@linux-foundation.org>,
+ Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use the generic numa implementation to add NUMA support for RISC-V.
-This is based on Greentime's patch[1] but modified to use generic NUMA
-implementation and few more fixes.
+On 11/18/20 4:38 PM, Atish Patra wrote:
+> diff --git a/drivers/base/Kconfig b/drivers/base/Kconfig
+> index 8d7001712062..c5956c8845cc 100644
+> --- a/drivers/base/Kconfig
+> +++ b/drivers/base/Kconfig
+> @@ -210,4 +210,10 @@ config GENERIC_ARCH_TOPOLOGY
+>  	  appropriate scaling, sysfs interface for reading capacity values at
+>  	  runtime.
+>  
+> +config GENERIC_ARCH_NUMA
+> +	bool
+> +	help
+> +	  Enable support for generic NUMA implementation. Currently, RISC-V
+> +	  and ARM64 uses it.
 
-[1] https://lkml.org/lkml/2020/1/10/233
+	            use it.
 
-Co-developed-by: Greentime Hu <greentime.hu@sifive.com>
-Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
-Reviewed-by: Anup Patel <anup@brainfault.org>
-Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
----
- arch/riscv/Kconfig              | 31 ++++++++++++++++++++++++++++++-
- arch/riscv/include/asm/mmzone.h | 13 +++++++++++++
- arch/riscv/include/asm/numa.h   |  8 ++++++++
- arch/riscv/include/asm/pci.h    | 14 ++++++++++++++
- arch/riscv/kernel/setup.c       | 10 ++++++++--
- arch/riscv/kernel/smpboot.c     | 12 +++++++++++-
- arch/riscv/mm/init.c            |  4 +++-
- 7 files changed, 87 insertions(+), 5 deletions(-)
- create mode 100644 arch/riscv/include/asm/mmzone.h
- create mode 100644 arch/riscv/include/asm/numa.h
+> +
+>  endmenu
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 44377fd7860e..5414fe747f64 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -140,7 +140,7 @@ config PAGE_OFFSET
- 	default 0xffffffe000000000 if 64BIT && MAXPHYSMEM_128GB
- 
- config ARCH_FLATMEM_ENABLE
--	def_bool y
-+	def_bool !NUMA
- 
- config ARCH_SPARSEMEM_ENABLE
- 	def_bool y
-@@ -298,6 +298,35 @@ config TUNE_GENERIC
- 
- endchoice
- 
-+# Common NUMA Features
-+config NUMA
-+	bool "NUMA Memory Allocation and Scheduler Support"
-+	select GENERIC_ARCH_NUMA
-+	select OF_NUMA
-+	select ARCH_SUPPORTS_NUMA_BALANCING
-+	help
-+	  Enable NUMA (Non-Uniform Memory Access) support.
-+
-+	  The kernel will try to allocate memory used by a CPU on the
-+	  local memory of the CPU and add some more NUMA awareness to the kernel.
-+
-+config NODES_SHIFT
-+	int "Maximum NUMA Nodes (as a power of 2)"
-+	range 1 10
-+	default "2"
-+	depends on NEED_MULTIPLE_NODES
-+	help
-+	  Specify the maximum number of NUMA Nodes available on the target
-+	  system.  Increases memory reserved to accommodate various tables.
-+
-+config USE_PERCPU_NUMA_NODE_ID
-+	def_bool y
-+	depends on NUMA
-+
-+config NEED_PER_CPU_EMBED_FIRST_CHUNK
-+	def_bool y
-+	depends on NUMA
-+
- config RISCV_ISA_C
- 	bool "Emit compressed instructions when building Linux"
- 	default y
-diff --git a/arch/riscv/include/asm/mmzone.h b/arch/riscv/include/asm/mmzone.h
-new file mode 100644
-index 000000000000..fa17e01d9ab2
---- /dev/null
-+++ b/arch/riscv/include/asm/mmzone.h
-@@ -0,0 +1,13 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __ASM_MMZONE_H
-+#define __ASM_MMZONE_H
-+
-+#ifdef CONFIG_NUMA
-+
-+#include <asm/numa.h>
-+
-+extern struct pglist_data *node_data[];
-+#define NODE_DATA(nid)		(node_data[(nid)])
-+
-+#endif /* CONFIG_NUMA */
-+#endif /* __ASM_MMZONE_H */
-diff --git a/arch/riscv/include/asm/numa.h b/arch/riscv/include/asm/numa.h
-new file mode 100644
-index 000000000000..8c8cf4297cc3
---- /dev/null
-+++ b/arch/riscv/include/asm/numa.h
-@@ -0,0 +1,8 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __ASM_NUMA_H
-+#define __ASM_NUMA_H
-+
-+#include <asm/topology.h>
-+#include <asm-generic/numa.h>
-+
-+#endif	/* __ASM_NUMA_H */
-diff --git a/arch/riscv/include/asm/pci.h b/arch/riscv/include/asm/pci.h
-index 1c473a1bd986..658e112c3ce7 100644
---- a/arch/riscv/include/asm/pci.h
-+++ b/arch/riscv/include/asm/pci.h
-@@ -32,6 +32,20 @@ static inline int pci_proc_domain(struct pci_bus *bus)
- 	/* always show the domain in /proc */
- 	return 1;
- }
-+
-+#ifdef	CONFIG_NUMA
-+
-+static inline int pcibus_to_node(struct pci_bus *bus)
-+{
-+	return dev_to_node(&bus->dev);
-+}
-+#ifndef cpumask_of_pcibus
-+#define cpumask_of_pcibus(bus)	(pcibus_to_node(bus) == -1 ?		\
-+				 cpu_all_mask :				\
-+				 cpumask_of_node(pcibus_to_node(bus)))
-+#endif
-+#endif	/* CONFIG_NUMA */
-+
- #endif  /* CONFIG_PCI */
- 
- #endif  /* _ASM_RISCV_PCI_H */
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index eb1cbdc29ea7..26712745c5df 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -111,13 +111,19 @@ void __init setup_arch(char **cmdline_p)
- 
- static int __init topology_init(void)
- {
--	int i;
-+	int i, ret;
-+
-+	for_each_online_node(i)
-+		register_one_node(i);
- 
- 	for_each_possible_cpu(i) {
- 		struct cpu *cpu = &per_cpu(cpu_devices, i);
- 
- 		cpu->hotpluggable = cpu_has_hotplug(i);
--		register_cpu(cpu, i);
-+		ret = register_cpu(cpu, i);
-+		if (unlikely(ret))
-+			pr_warn("Warning: %s: register_cpu %d failed (%d)\n",
-+			       __func__, i, ret);
- 	}
- 
- 	return 0;
-diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index 96167d55ed98..5e276c25646f 100644
---- a/arch/riscv/kernel/smpboot.c
-+++ b/arch/riscv/kernel/smpboot.c
-@@ -27,6 +27,7 @@
- #include <asm/cpu_ops.h>
- #include <asm/irq.h>
- #include <asm/mmu_context.h>
-+#include <asm/numa.h>
- #include <asm/tlbflush.h>
- #include <asm/sections.h>
- #include <asm/sbi.h>
-@@ -45,13 +46,18 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
- {
- 	int cpuid;
- 	int ret;
-+	unsigned int curr_cpuid;
-+
-+	curr_cpuid = smp_processor_id();
-+	numa_store_cpu_info(curr_cpuid);
-+	numa_add_cpu(curr_cpuid);
- 
- 	/* This covers non-smp usecase mandated by "nosmp" option */
- 	if (max_cpus == 0)
- 		return;
- 
- 	for_each_possible_cpu(cpuid) {
--		if (cpuid == smp_processor_id())
-+		if (cpuid == curr_cpuid)
- 			continue;
- 		if (cpu_ops[cpuid]->cpu_prepare) {
- 			ret = cpu_ops[cpuid]->cpu_prepare(cpuid);
-@@ -59,6 +65,7 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
- 				continue;
- 		}
- 		set_cpu_present(cpuid, true);
-+		numa_store_cpu_info(cpuid);
- 	}
- }
- 
-@@ -79,6 +86,7 @@ void __init setup_smp(void)
- 		if (hart == cpuid_to_hartid_map(0)) {
- 			BUG_ON(found_boot_cpu);
- 			found_boot_cpu = 1;
-+			early_map_cpu_to_node(0, of_node_to_nid(dn));
- 			continue;
- 		}
- 		if (cpuid >= NR_CPUS) {
-@@ -88,6 +96,7 @@ void __init setup_smp(void)
- 		}
- 
- 		cpuid_to_hartid_map(cpuid) = hart;
-+		early_map_cpu_to_node(cpuid, of_node_to_nid(dn));
- 		cpuid++;
- 	}
- 
-@@ -153,6 +162,7 @@ asmlinkage __visible void smp_callin(void)
- 	current->active_mm = mm;
- 
- 	notify_cpu_starting(curr_cpuid);
-+	numa_add_cpu(curr_cpuid);
- 	update_siblings_masks(curr_cpuid);
- 	set_cpu_online(curr_cpuid, 1);
- 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 826e7de73f45..e1f1b149dfba 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -20,6 +20,7 @@
- #include <asm/soc.h>
- #include <asm/io.h>
- #include <asm/ptdump.h>
-+#include <asm/numa.h>
- 
- #include "../kernel/head.h"
- 
-@@ -195,7 +196,6 @@ void __init setup_bootmem(void)
- 
- 	early_init_fdt_scan_reserved_mem();
- 	memblock_allow_resize();
--	memblock_dump_all();
- }
- 
- #ifdef CONFIG_MMU
-@@ -669,9 +669,11 @@ void __init paging_init(void)
- 
- void __init misc_mem_init(void)
- {
-+	arch_numa_init();
- 	sparse_init();
- 	zone_sizes_init();
- 	resource_init();
-+	memblock_dump_all();
- }
- 
- #ifdef CONFIG_SPARSEMEM_VMEMMAP
+
 -- 
-2.25.1
+~Randy
 
 
 _______________________________________________
