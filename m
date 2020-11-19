@@ -2,90 +2,92 @@ Return-Path: <SRS0=5I1x=EZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-21.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
-	version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8E696C64E7D
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Nov 2020 00:39:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2D86EC63697
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Nov 2020 00:39:08 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E08D9246A7
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Nov 2020 00:38:59 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 807F222266
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Nov 2020 00:39:07 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="JvJM+tkc";
-	dkim=permerror (0-bit key) header.d=wdc.com header.i=@wdc.com header.b="jkHh6aOk"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E08D9246A7
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="P4wp9tsD";
+	dkim=permerror (0-bit key) header.d=wdc.com header.i=@wdc.com header.b="mlvuIpG5"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 807F222266
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=at0E00dc7xJMBVuvq+sCmYv2iK3n218YOfNB7C5ADvE=; b=JvJM+tkcuZVDDWdBtFb4Kh4dhc
-	5J/GprIFHbMI41LiRsfqktU1V+P2Dn6rLvnnss/9cI01KUboGoJf4qg9l7lE8GCS7dtgxLW8VlwKx
-	QoWi3W6cj4rbpBmAUHjrD9giCFPs0FxcVcpWuDybTePUmcmVRQ/5nBu36FB+/Wg8Oqq/bKavlXpby
-	qjX94C8EGyo+zSA+7Ff5GCjEsehFTulEjcdb8xhytXaGnYg1a2vy+4bAT+06y+WZrD8VnDwOkH0IH
-	6loa6/VJd18Eo7nkA7oVXvdhdQCSe9mHiN4AN/zcpk3DmdBIA5v77UBdFSEtwqc9xR87FE+suVB27
-	XVIynvpQ==;
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=3kFVN7AoXODPQpmDeIOcPj8rkl8vpgbUAjzpt6KI0hc=; b=P4wp9tsD5qnmKjgZN9pAq0Cgh
+	FSXUhq4JveCvEe92K9tA6WsUUwbY6DCaCT7EqLoA5lan9yoUp2MBkl9ZGKPypS/x7FvQOEVeVyVhx
+	TGsAlBD7rkZDuY+QKpi6C1cDbNMsZKMs+4FhPh+dsUzueGR1QvWtFTyPcJowNtmIrFyISxwJ/Aske
+	2uUUvTN3OZ3Wghvd6bw7SQqCv9f4N9CGttqDBZbu7MQ7UxN3FFW88P3vgdYWpU7dAMQPW4WHPJRlT
+	zAPbESDlOKuIe5XET4FYDZK1C+SubGKy174AG/s6sTFv2KkaLgCOYjjVMyZ93CyDH4WFscfwJB/oe
+	bmvo6nbOQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kfXyI-0006Dd-JK; Thu, 19 Nov 2020 00:38:46 +0000
+	id 1kfXyK-0006ER-Sq; Thu, 19 Nov 2020 00:38:49 +0000
 Received: from esa2.hgst.iphmx.com ([68.232.143.124])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kfXyB-0006C3-DH; Thu, 19 Nov 2020 00:38:40 +0000
+ id 1kfXyB-0006CB-Vi; Thu, 19 Nov 2020 00:38:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1605746718; x=1637282718;
- h=from:to:cc:subject:date:message-id:mime-version:
- content-transfer-encoding;
- bh=ff0Sftjg7u8VcDfJoP3445LCpQ0dbvEgLQGePuE2VOU=;
- b=jkHh6aOkz3dLJ8T5wkzegNsPinpzLFYDuom2w4KjlBgHqyMnPxutODsh
- rPSLoXbKS+wGqHqD8S2HMn6TuFPTKoGZsyYtXTG0Rrm3j14WAbDU+Roja
- KWEYSyeYbnUVbtMBCxkpPRvPTtSvD3+TyfOQYadHR5AOP7c5wHh+0SxOU
- 2CUQ0k22qySV3PpUEqqCDl3wtGWjmW+1gJ9Giry0ts93gmSdKjEAX2KdW
- kZE3/xUy468oPqREJTHqA2AOOwV+FVsofx5lWd33dGLk4mHHKmuxTsn6t
- Sysun1ft2vNQXZ4w41KNEpw3uCln6uwzXSU03S5FW8XQXAcgjl253S9ao A==;
-IronPort-SDR: r6E+Jj6HvmKl/sR8ugY5DG/KKGBGbVIigNFs+g4RwjuEZNjB3K8zhQHfO0myQH1OyB0P+tHKE7
- WKKneR6AuA/EAOdIM1GfjeL71jA4x7XyUADWEa9R7ROagfOw1hDCyKxH3vu4nffgzqTUqRYjko
- db0cd3CTkQyGAzWlOq1dM9WoGioVmLgj0iallfveRj8RWEBNezUUrKuVbKf/0lnApLGGGbbf/b
- SLE6tx/3ffhqcPHPDtOVzHO3QuvZa79teEk7ce7GcG7ZnIPae8PT9LV+VddS3sGZskz9FQ7SxZ
- lWI=
-X-IronPort-AV: E=Sophos;i="5.77,488,1596470400"; d="scan'208";a="256529092"
+ t=1605746719; x=1637282719;
+ h=from:to:cc:subject:date:message-id:in-reply-to:
+ references:mime-version:content-transfer-encoding;
+ bh=d3s03R5W/P58NhdkaX/eI00Uo7wjk8iETPnJwkMJkhA=;
+ b=mlvuIpG5Csi2S9jMEBrK5H0Pqv3QfKOZ2RoILWSXuP4cgGn17aFyEgob
+ kXXCkPNqJa3KUeBdB9YyS93TIC4E2Xv9rtvQDzJMCKvV/1A0n2o5H1Q8N
+ YSGjVlz4a8MWLTNex3Nfu/GpyPHU4/sCk0IBmilXHnhfC3mWU6tg6/up1
+ 0gXDpt49aJH+cT/Thg+g7dUSprI521fdn8dMJiyLkGcouxvb4O0ho9WRw
+ ccmm/5FTCNctQa/fDab+2WKa+5XjIQFBQrne72u99/CrkiCgx0I44w7LE
+ ZHOYswPM6pPFeE2tsYq/EQry+1ExNU3aVZ5aEaKLou4w+3FhD6CFY5lOX A==;
+IronPort-SDR: 2TsehCXqcKhhak48LykbdNEd2oFRzboeDnCV8t62Ts5wK7DYkTIy0Vt7ah5yT/j38Pdzb4BcEB
+ qxgX9NK8mg9jwmCtzFCYjL+9quHuaz1prp4oE7HgyEFbmtOQVzF2bCvOqG0J4shETOHH9MeQ+F
+ PsE6W3bwrmpY+BzvUdLQLlyABTG54rwFXLX2q3RWGtFczDQGs9r7RLoaBR7oPvkzSqojevmCAT
+ PoWC3oRQiO5qN3S+Ho3vRik1u5efjXVcvE2EY4oV2LMHeOmCzfBVr/Q/hE1S8Mi73XCLyenLXS
+ bW8=
+X-IronPort-AV: E=Sophos;i="5.77,488,1596470400"; d="scan'208";a="256529096"
 Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
  ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 19 Nov 2020 08:45:13 +0800
-IronPort-SDR: XKo4XIXHeZsf8bW8eh/5aUAb5QPtbdJAkCD4P0dwqxQLmWsO/ONnhD8Xo5p/xvCFpCghYOITWk
- D8i2rq0+A31i0vf5NhszoLcxQTS6Mwit6ceNXcl/TXzvvvK3j4Hu/u/OO8pQU/TtaB8ISbBQFq
- s+k9NdFH2xT2uWm7ZM4ceXfrLYDfrbu6Rk3PvebIl6lREXbq+GPOOqNigQrLlbboCt8eDyN4Cn
- HnfdHSDuffw86FnX49HGAh7Tq+H4SP5KvygNhAqch/a+nEQ2AeOayi0Z1tWOMTFQKDtvpeY+Jg
- Rvx8ih7aQZ9XMyBkjAnS6qp6
+ by ob1.hgst.iphmx.com with ESMTP; 19 Nov 2020 08:45:14 +0800
+IronPort-SDR: tzQG3hhWzNf5fe9ifx4rVj5Dk9pCN3OxgVwygxOsU9hd0DKIBT9o1T32ZSySdUTg5rE0dmr0cB
+ ktKT5MMClCXLW2UfwIyZ6X9KiAx5Sc+w/r7yphghgOOaoUaq2u5Mi0i7oTkwBKETs5zbYG0kdK
+ sPBiiarv6JnyGPJR8Me1Y7SaDDHLLjJnf8FXpMcM0f15p/9tMFyvw+/W4lyIwbd1FmdpAGzfYp
+ 0cXtelQjcmGbTye7fmHgvcrBSHQteQgotEhVO6l2qMsOciAqkfQ3/AKNMnN4Oco3ttGaQHPe5F
+ f8QLJ4ZY57ewuZ9SS5x9MeCh
 Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
  by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 18 Nov 2020 16:23:06 -0800
-IronPort-SDR: t17QL4+3OacEm2ugsmhqCxFoCnuFeTaxOirT7uSgyxkksAzXqLXJiw2XBchqbwxpvy63lYrxEH
- XY82WWOGufFiCJDIX6Fh0sx8yrBdd2xfE7DZwY4g4Br/78QxYopWm5SEaleC+hO/OdOllBuBgf
- p+b3TUI3ygnlI6D0wHHh+enTpXPfkAkvHrrMg7y/SoJyvCJ9w9S0ZrC09PC3+DW8spf9HqSRaB
- 1fX0vR3tpzf/LZR1/oDv+7wzztovDBUzxjShYlBwMLakAwjrO1mmkl0wJXre6XDVD8nwgdnQCM
- GKs=
+ 18 Nov 2020 16:23:07 -0800
+IronPort-SDR: kMFG0KK2onH84n/YkSW2DPfPkfqV7JvYk2Z5etWmTh2d7R7KjInZRcMAwOWbZEHwAnEqzVFKdd
+ iNJwUDMIK5wbHtmnRSrxLxDjZOzwXabgibkBvwrE5wJ98CmTuT0t65rebDoe02B5oBWeZHTFUr
+ rm+nRsbJP4SoOzmt0cA/8+n3bpEigbujo3ntO2GXoQJ46min3JyoPejqh2QhYWDdAKfNKQnN6+
+ krptl40k7Z7xvMRsTcDFH03NeFKiLVYT1XfzKdyJRXCEdINMe6psaBaq7FbEK1Gx6WwkGGxtzv
+ pao=
 WDCIronportException: Internal
 Received: from 6hj08h2.ad.shared (HELO jedi-01.hgst.com) ([10.86.61.71])
- by uls-op-cesaip02.wdc.com with ESMTP; 18 Nov 2020 16:38:34 -0800
+ by uls-op-cesaip02.wdc.com with ESMTP; 18 Nov 2020 16:38:35 -0800
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [PATCH v5 0/5] Unify NUMA implementation between ARM64 & RISC-V
-Date: Wed, 18 Nov 2020 16:38:24 -0800
-Message-Id: <20201119003829.1282810-1-atish.patra@wdc.com>
+Subject: [PATCH v5 1/5] arm64,
+ numa: Change the numa init functions name to be generic
+Date: Wed, 18 Nov 2020 16:38:25 -0800
+Message-Id: <20201119003829.1282810-2-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20201119003829.1282810-1-atish.patra@wdc.com>
+References: <20201119003829.1282810-1-atish.patra@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201118_193839_606901_94B89FBD 
-X-CRM114-Status: GOOD (  20.05  )
+X-CRM114-CacheID: sfid-20201118_193840_227584_BBE3EC5F 
+X-CRM114-Status: GOOD (  19.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -117,108 +119,131 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series attempts to move the ARM64 numa implementation to common
-code so that RISC-V can leverage that as well instead of reimplementing
-it again.
+This is a preparatory patch for unifying numa implementation between
+ARM64 & RISC-V. As the numa implementation will be moved to generic
+code, rename the arm64 related functions to a generic one.
 
-RISC-V specific bits are based on initial work done by Greentime Hu [1] but
-modified to reuse the common implementation to avoid duplication.
+Signed-off-by: Atish Patra <atish.patra@wdc.com>
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+---
+ arch/arm64/include/asm/numa.h |  4 ++--
+ arch/arm64/kernel/acpi_numa.c | 12 ------------
+ arch/arm64/mm/init.c          |  4 ++--
+ arch/arm64/mm/numa.c          | 27 +++++++++++++++++++++++----
+ 4 files changed, 27 insertions(+), 20 deletions(-)
 
-[1] https://lkml.org/lkml/2020/1/10/233
-
-This series has been tested on qemu with numa enabled for both RISC-V & ARM64.
-It would be great if somebody can test it on numa capable ARM64 hardware platforms.
-This patch series doesn't modify the maintainers list for the common code (arch_numa)
-as I am not sure if somebody from ARM64 community or Greg should take up the
-maintainership. Ganapatrao was the original author of the arm64 version.
-I would be happy to update that in the next revision once it is decided.
-
-# numactl --hardware
-available: 2 nodes (0-1)
-node 0 cpus: 0 1 2 3
-node 0 size: 486 MB
-node 0 free: 470 MB
-node 1 cpus: 4 5 6 7
-node 1 size: 424 MB
-node 1 free: 408 MB
-node distances:
-node   0   1 
-  0:  10  20 
-  1:  20  10 
-# numactl -show
-policy: default
-preferred node: current
-physcpubind: 0 1 2 3 4 5 6 7 
-cpubind: 0 1 
-nodebind: 0 1 
-membind: 0 1 
-
-The patches are also available at
-https://github.com/atishp04/linux/tree/5.11_numa_unified_v5
-
-For RISC-V, the following qemu series is a pre-requisite(already available in upstream)
-https://patchwork.kernel.org/project/qemu-devel/list/?series=303313
-
-Testing:
-RISC-V:
-Tested in Qemu and 2 socket OmniXtend FPGA.
-
-ARM64:
-2 socket kunpeng920 (4 nodes around 250G a node)
-Tested-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-
-Changes from v4->v5:
-1. Added by Acked-by & Reviewed-by tags.
-2. Swapped patch 1 & 2 in v4 version.
-
-Changes from v3->v4:
-1. Removed redundant duplicate header.
-2. Added Reviewed-by tags.
-
-Changes from v2->v3:
-1. Added Acked-by/Reviewed-by tags.
-2. Replaced asm/acpi.h with linux/acpi.h
-3. Defined arch_acpi_numa_init as static.
-
-Changes from v1->v2:
-1. Replaced ARM64 specific compile time protection with ACPI specific ones.
-2. Dropped common pcibus_to_node changes. Added required changes in RISC-V. 
-3. Fixed few typos.
-
-Atish Patra (4):
-arm64, numa: Change the numa init functions name to be generic
-numa: Move numa implementation to common code
-riscv: Separate memory init from paging init
-riscv: Add numa support for riscv64 platform
-
-Greentime Hu (1):
-riscv: Add support pte_protnone and pmd_protnone if
-CONFIG_NUMA_BALANCING
-
-arch/arm64/Kconfig                            |  1 +
-arch/arm64/include/asm/numa.h                 | 48 +----------------
-arch/arm64/kernel/acpi_numa.c                 | 12 -----
-arch/arm64/mm/Makefile                        |  1 -
-arch/arm64/mm/init.c                          |  4 +-
-arch/riscv/Kconfig                            | 31 ++++++++++-
-arch/riscv/include/asm/mmzone.h               | 13 +++++
-arch/riscv/include/asm/numa.h                 |  8 +++
-arch/riscv/include/asm/pci.h                  | 14 +++++
-arch/riscv/include/asm/pgtable.h              | 21 ++++++++
-arch/riscv/kernel/setup.c                     | 11 +++-
-arch/riscv/kernel/smpboot.c                   | 12 ++++-
-arch/riscv/mm/init.c                          | 10 +++-
-drivers/base/Kconfig                          |  6 +++
-drivers/base/Makefile                         |  1 +
-.../mm/numa.c => drivers/base/arch_numa.c     | 27 ++++++++--
-include/asm-generic/numa.h                    | 52 +++++++++++++++++++
-17 files changed, 200 insertions(+), 72 deletions(-)
-create mode 100644 arch/riscv/include/asm/mmzone.h
-create mode 100644 arch/riscv/include/asm/numa.h
-rename arch/arm64/mm/numa.c => drivers/base/arch_numa.c (96%)
-create mode 100644 include/asm-generic/numa.h
-
---
+diff --git a/arch/arm64/include/asm/numa.h b/arch/arm64/include/asm/numa.h
+index dd870390d639..ffc1dcdf1871 100644
+--- a/arch/arm64/include/asm/numa.h
++++ b/arch/arm64/include/asm/numa.h
+@@ -32,7 +32,7 @@ static inline const struct cpumask *cpumask_of_node(int node)
+ }
+ #endif
+ 
+-void __init arm64_numa_init(void);
++void __init arch_numa_init(void);
+ int __init numa_add_memblk(int nodeid, u64 start, u64 end);
+ void __init numa_set_distance(int from, int to, int distance);
+ void __init numa_free_distance(void);
+@@ -46,7 +46,7 @@ void numa_remove_cpu(unsigned int cpu);
+ static inline void numa_store_cpu_info(unsigned int cpu) { }
+ static inline void numa_add_cpu(unsigned int cpu) { }
+ static inline void numa_remove_cpu(unsigned int cpu) { }
+-static inline void arm64_numa_init(void) { }
++static inline void arch_numa_init(void) { }
+ static inline void early_map_cpu_to_node(unsigned int cpu, int nid) { }
+ 
+ #endif	/* CONFIG_NUMA */
+diff --git a/arch/arm64/kernel/acpi_numa.c b/arch/arm64/kernel/acpi_numa.c
+index 7ff800045434..fdfecf0991ce 100644
+--- a/arch/arm64/kernel/acpi_numa.c
++++ b/arch/arm64/kernel/acpi_numa.c
+@@ -118,15 +118,3 @@ void __init acpi_numa_gicc_affinity_init(struct acpi_srat_gicc_affinity *pa)
+ 	node_set(node, numa_nodes_parsed);
+ }
+ 
+-int __init arm64_acpi_numa_init(void)
+-{
+-	int ret;
+-
+-	ret = acpi_numa_init();
+-	if (ret) {
+-		pr_info("Failed to initialise from firmware\n");
+-		return ret;
+-	}
+-
+-	return srat_disabled() ? -EINVAL : 0;
+-}
+diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+index 095540667f0f..977b47f6815a 100644
+--- a/arch/arm64/mm/init.c
++++ b/arch/arm64/mm/init.c
+@@ -407,10 +407,10 @@ void __init bootmem_init(void)
+ 	max_pfn = max_low_pfn = max;
+ 	min_low_pfn = min;
+ 
+-	arm64_numa_init();
++	arch_numa_init();
+ 
+ 	/*
+-	 * must be done after arm64_numa_init() which calls numa_init() to
++	 * must be done after arch_numa_init() which calls numa_init() to
+ 	 * initialize node_online_map that gets used in hugetlb_cma_reserve()
+ 	 * while allocating required CMA size across online nodes.
+ 	 */
+diff --git a/arch/arm64/mm/numa.c b/arch/arm64/mm/numa.c
+index a8303bc6b62a..0dae54ce7d43 100644
+--- a/arch/arm64/mm/numa.c
++++ b/arch/arm64/mm/numa.c
+@@ -13,7 +13,6 @@
+ #include <linux/module.h>
+ #include <linux/of.h>
+ 
+-#include <asm/acpi.h>
+ #include <asm/sections.h>
+ 
+ struct pglist_data *node_data[MAX_NUMNODES] __read_mostly;
+@@ -445,16 +444,36 @@ static int __init dummy_numa_init(void)
+ 	return 0;
+ }
+ 
++#ifdef CONFIG_ACPI_NUMA
++static int __init arch_acpi_numa_init(void)
++{
++	int ret;
++
++	ret = acpi_numa_init();
++	if (ret) {
++		pr_info("Failed to initialise from firmware\n");
++		return ret;
++	}
++
++	return srat_disabled() ? -EINVAL : 0;
++}
++#else
++static int __init arch_acpi_numa_init(void)
++{
++	return -EOPNOTSUPP;
++}
++#endif
++
+ /**
+- * arm64_numa_init() - Initialize NUMA
++ * arch_numa_init() - Initialize NUMA
+  *
+  * Try each configured NUMA initialization method until one succeeds. The
+  * last fallback is dummy single node config encompassing whole memory.
+  */
+-void __init arm64_numa_init(void)
++void __init arch_numa_init(void)
+ {
+ 	if (!numa_off) {
+-		if (!acpi_disabled && !numa_init(arm64_acpi_numa_init))
++		if (!acpi_disabled && !numa_init(arch_acpi_numa_init))
+ 			return;
+ 		if (acpi_disabled && !numa_init(of_numa_init))
+ 			return;
+-- 
 2.25.1
 
 
