@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
 	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1DB2DC56202
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0ACAAC2D0E4
 	for <linux-riscv@archiver.kernel.org>; Sat, 21 Nov 2020 00:14:26 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B642024101
+	by mail.kernel.org (Postfix) with ESMTPS id AF76B23A65
 	for <linux-riscv@archiver.kernel.org>; Sat, 21 Nov 2020 00:14:25 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="eYsJdLjb";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.b="lFf95V8U"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B642024101
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="skHkzT8K";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=google.com header.i=@google.com header.b="MGiQ7+/4"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AF76B23A65
 Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,64 +26,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=o1uIW1pZBAYZFibyWflbEZQkq5Mk7fGypelc0DKze8E=; b=eYsJdLjbDP1AwY5LjDHoj1ejR
-	64XTdIl9iTVliYYsizxRO9OaH/cmG0w6+tdZbdbsb84Xs8Do07JcFQLgMzVV6qbhBjklukpQdDIxv
-	44IEoPYlpTkTL//PETWX7KSp03Ti+pjOlWe9WpC2gF7rK/RkQWOaT1TVkID87Es0OzhUJXtLAhfkn
-	6yTVOCc9HrmltrkN3WojXV4AGJOsxMoZLKLfLVTzvyt6ebffaYvZdORw7VxujPD6J9Y5/yDpU7oDA
-	yMqajXJy0nvLr45pN9xc+tAJP9tx7RVxt6avX/8l3bz9zVou527FfuUr+hNQovC0RT02jaNMC01Un
-	ObqWxInjg==;
+	 bh=eglGB2Tax+cq2keXuqjYtY28FNUCKP/AhOrlwesv04E=; b=skHkzT8KlhmCHLGrlreK8K2U8
+	4DU51Lg8UiE5XGtfUMwlU5jnQMBArpiiryI/s6id7vwc2ld+6qSMkehadHx2aUMmmpHIZVeYr3DJ6
+	qDpLpSxtKEhIkiF2nrzhRlmN/+JjUlMIQnEFQ0bEJclACooGHt4wmNrfMl4/YxQZ2F0OjB/5Bo/G0
+	Q9MkLLD8nU9qZVntw1Gwx0K0BcWtoXiRa5qCcGNEHfY4lBr+bF8s51+ysYO5AT/QzkoObOVHUq2ex
+	7QJ/Iu9LyJTiUFLwJ9eEDwA2vLCPBxNSJItNRYJu6YsoKFmbC6V9QN4WIYd0vGxOFMYspcmePSWIs
+	nBBaxeVFA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kgGXh-0001I8-Ne; Sat, 21 Nov 2020 00:14:17 +0000
-Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
+	id 1kgGXi-0001IH-Oe; Sat, 21 Nov 2020 00:14:18 +0000
+Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kgGXe-0001HL-Gl
- for linux-riscv@lists.infradead.org; Sat, 21 Nov 2020 00:14:15 +0000
-Received: by mail-pf1-x444.google.com with SMTP id b63so9422980pfg.12
- for <linux-riscv@lists.infradead.org>; Fri, 20 Nov 2020 16:14:12 -0800 (PST)
+ id 1kgGXf-0001HP-Hr
+ for linux-riscv@lists.infradead.org; Sat, 21 Nov 2020 00:14:16 +0000
+Received: by mail-pf1-x442.google.com with SMTP id 10so9455251pfp.5
+ for <linux-riscv@lists.infradead.org>; Fri, 20 Nov 2020 16:14:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=U5bxGcfchBQVmEBBbdQ2iExVkYUOiZ88oTXx0NbjtJo=;
- b=lFf95V8UJCgnIR3tVTNzhQbMvHSGH4PFeD3IW3zbQXYRLFulE0tlnHgaGHzjcWqYCu
- M8hHkR/53SfKqioD8PcoDSfRujcXhIfaQV/4wscMe5p1veyQgpfnkiGNMlG/iFFlELI2
- R+jnrlb1lcIbvdAaHM80Q1jzKSH1tQNe0fSdBqV+D0J2l6PK0FnBuYUGjD0oRfCtkbWb
- yBRMmO0oU2eAqpZ68t1sLuhcE1Me2ig6IovdpGz7YsZAS6IFKYitGTBaRwTawdo2ydOr
- 1RqKRPvktkKjlrAcwx+nFGdl7vDUwEmNz5ozQf5b7IvvVimu2MbKVYNGjiltrDPohpN2
- XzsQ==
+ bh=uKqWBXY7mffdyrXuPqWycdmx7WjMxlzQo4Hepbp5MLA=;
+ b=MGiQ7+/4djIxMNoiGQ2HQ5FgX0BiX7MECdXbKPZQNck9BCSf+vD2+mluHPNMzxP+cG
+ RI0JpcoQox5J9JpacWYIlNvbSs1OrmSiauOJ68nqJB8tYnVuKuPBYc8FcY1jjqvArHkA
+ I6HVsM1vDIu+1mfN0Wl7aQWjh2gsxwta3wtgwqJ9oZ+fcL+3/zZ0LOLgvGnvXFaqMwCj
+ hL03GrfM7phnxuW/StGxVHtcBP2ondXPfL4j3l6zj5t+qWg1haT1vASUsL4Qti5hi+nw
+ 5coIoF1phUpLhxGUIGQtFXzot8Pa+T381k+CAFNX/BgZfUyxMNe2Zr9rrHM2tF0Z1vRx
+ MYlw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=U5bxGcfchBQVmEBBbdQ2iExVkYUOiZ88oTXx0NbjtJo=;
- b=B5M058ORYzw16if1IdoK1zBBBLkGW9WOEFoBNPqQRSpaToGPdZhFaOtZoeBUtKzc1S
- 0kFjzXxyfXXtT4GOgXbDpwmh8RHV41GBZO98CkMbmlvZHxT02JDvcxjaJNSR/gIk1k6z
- p+HaKujQ+2cwnNXa2hsY1fGOVHsNEuyc+PY458mRvb+W3Ok8ZW5Agm9nsr0ggEtsv21q
- beNsKU/JUhyk0U2xuhTnW3WJMx03xC8xSk1f8GarACB8Nnmpn8ekIcTRtqG3Ml976c3o
- lpCdMG9vxj9b3FS1rhUd96C124mHgQk3wrdxHYPLHNAv7gDIqglsyL1YIx2tdU8Lv/M1
- T5mQ==
-X-Gm-Message-State: AOAM533kjzLGiiAXZStDif0s2S41tkTjSm9k6Wka8KTlNjrH0BRbTpv1
- ZGh8IU3VhbyhveFRvUTprj7GzWqzdX8KXwyG
-X-Google-Smtp-Source: ABdhPJykWdoCK3edkgyoG1Ve3dUjBWdlHpE0EPxnlt+Lx3ZCannMjWZK+ue4hlwPPCKu2iPp9+fvsw==
-X-Received: by 2002:a65:684d:: with SMTP id q13mr19480014pgt.372.1605917650458; 
- Fri, 20 Nov 2020 16:14:10 -0800 (PST)
+ bh=uKqWBXY7mffdyrXuPqWycdmx7WjMxlzQo4Hepbp5MLA=;
+ b=Js5pB8KJFVhRMP3mEZ5GSTsKVCZXzKZ1GKR4YGuJwf+kB7VbYu1PddXMV8/0ytOcp/
+ 1cWQtJPQEhEPYHdbDjOPyhgJWUT6EmpM+KXWD9MUQqOGyzlmbqr1Hhh6tCjdv5QnT8CZ
+ Dw4aFaKYgQYX4qNj0+cyZbfVWaTf7smOJlpUH1ojoxuBbk826/vUG7ilcQp1WbleCosq
+ nFIVpF/CKGOZx1XDbohOf/8GWwxDNMRGxnO1RW/kHMVkX4ei2TJDREJAmUttfVgckpa3
+ nNvlIsTGuqEFspRMfhs5/cGF3pT0jAXQxrDeGnUyqdNluralF+A33YAf40jJbTLe9C1/
+ AF4g==
+X-Gm-Message-State: AOAM533DRt6Eg2l0Er7EYN3lj59GEddh44j6CLo+H3CUGwaK0DYgaSDx
+ GzPc2sv18oEork4PdRWI9Z1FqQ==
+X-Google-Smtp-Source: ABdhPJwimHlEuo6JCbvv0hg1vOC1+1xFeCDf/huX/AovS5V1x99g1hDelggACAaCxCijehAiqasUPg==
+X-Received: by 2002:a05:6a00:1684:b029:18b:665e:5211 with SMTP id
+ k4-20020a056a001684b029018b665e5211mr15948880pfc.20.1605917652295; 
+ Fri, 20 Nov 2020 16:14:12 -0800 (PST)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id k8sm5080220pfh.6.2020.11.20.16.14.09
+ by smtp.gmail.com with ESMTPSA id s4sm5432591pjr.44.2020.11.20.16.14.11
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 20 Nov 2020 16:14:09 -0800 (PST)
-Date: Fri, 20 Nov 2020 16:14:09 -0800 (PST)
-X-Google-Original-Date: Fri, 20 Nov 2020 16:13:38 PST (-0800)
-Subject: Re: [PATCH] riscv: Explicitly specify the build id style in vDSO
- Makefile again
-In-Reply-To: <20201108203737.94270-1-natechancellor@gmail.com>
+ Fri, 20 Nov 2020 16:14:11 -0800 (PST)
+Date: Fri, 20 Nov 2020 16:14:11 -0800 (PST)
+X-Google-Original-Date: Fri, 20 Nov 2020 16:14:07 PST (-0800)
+Subject: Re: [PATCH] RISC-V: Add missing jump label initialization
+In-Reply-To: <20201106075359.3401471-1-anup.patel@wdc.com>
 From: Palmer Dabbelt <palmerdabbelt@google.com>
-To: natechancellor@gmail.com
-Message-ID: <mhng-f056461a-d53c-4405-b514-1d01dba13cc1@palmerdabbelt-glaptop1>
+To: Anup Patel <Anup.Patel@wdc.com>
+Message-ID: <mhng-f4c607c8-ecf6-4eda-88de-4011214fcb33@palmerdabbelt-glaptop1>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201120_191414_595168_AA47C509 
-X-CRM114-Status: GOOD (  17.85  )
+X-CRM114-CacheID: sfid-20201120_191415_606276_0D52A5B3 
+X-CRM114-Status: GOOD (  16.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -95,45 +95,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: natechancellor@gmail.com, clang-built-linux@googlegroups.com,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: aou@eecs.berkeley.edu, anup@brainfault.org, Anup Patel <Anup.Patel@wdc.com>,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+ Atish Patra <Atish.Patra@wdc.com>, Alistair Francis <Alistair.Francis@wdc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 08 Nov 2020 12:37:37 PST (-0800), natechancellor@gmail.com wrote:
-> Commit a96843372331 ("kbuild: explicitly specify the build id style")
-> explicitly set the build ID style to SHA1. Commit c2c81bb2f691 ("RISC-V:
-> Fix the VDSO symbol generaton for binutils-2.35+") undid this change,
-> likely unintentionally.
+On Thu, 05 Nov 2020 23:53:59 PST (-0800), Anup Patel wrote:
+> The jump_label_init() should be called from setup_arch() very
+> early for proper functioning of jump label support.
 >
-> Restore it so that the build ID style stays consistent across the tree
-> regardless of linker.
->
-> Fixes: c2c81bb2f691 ("RISC-V: Fix the VDSO symbol generaton for binutils-2.35+")
-> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+> Fixes: ebc00dde8a97 ("riscv: Add jump-label implementation")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Anup Patel <anup.patel@wdc.com>
 > ---
->  arch/riscv/kernel/vdso/Makefile | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  arch/riscv/kernel/setup.c | 1 +
+>  1 file changed, 1 insertion(+)
 >
-> diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
-> index cb8f9e4cfcbf..0cfd6da784f8 100644
-> --- a/arch/riscv/kernel/vdso/Makefile
-> +++ b/arch/riscv/kernel/vdso/Makefile
-> @@ -44,7 +44,7 @@ SYSCFLAGS_vdso.so.dbg = $(c_flags)
->  $(obj)/vdso.so.dbg: $(src)/vdso.lds $(obj-vdso) FORCE
->  	$(call if_changed,vdsold)
->  SYSCFLAGS_vdso.so.dbg = -shared -s -Wl,-soname=linux-vdso.so.1 \
-> -	-Wl,--build-id -Wl,--hash-style=both
-> +	-Wl,--build-id=sha1 -Wl,--hash-style=both
+> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> index c424cc6dd833..117f3212a8e4 100644
+> --- a/arch/riscv/kernel/setup.c
+> +++ b/arch/riscv/kernel/setup.c
+> @@ -75,6 +75,7 @@ void __init setup_arch(char **cmdline_p)
+>  	*cmdline_p = boot_command_line;
 >
->  # We also create a special relocatable object that should mirror the symbol
->  # table and layout of the linked DSO. With ld --just-symbols we can then
+>  	early_ioremap_setup();
+> +	jump_label_init();
+>  	parse_early_param();
 >
-> base-commit: c2c81bb2f69138f902e1a58d3bef6ad97fb8a92c
+>  	efi_init();
 
-Sorry about that.  This is on fixes.
+Thanks, this is on fixes.
 
 _______________________________________________
 linux-riscv mailing list
