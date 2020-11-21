@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 95598C63798
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 131C6C56201
 	for <linux-riscv@archiver.kernel.org>; Sat, 21 Nov 2020 02:03:25 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3ECE922202
+	by mail.kernel.org (Postfix) with ESMTPS id 691B724124
 	for <linux-riscv@archiver.kernel.org>; Sat, 21 Nov 2020 02:03:24 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pVqDDi6x";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="sU0r9VvK"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3ECE922202
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="mLbFz0ZO";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="10KXWheb"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 691B724124
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,64 +26,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=8UZ5vyHJv9BjPoDzSTMtnjR0X8ouOwWC+Ec8WTliMb0=; b=pVqDDi6xutZ3z6rRQrxn6gOqH
-	XdQT3xXOSHXhBslDazQ/fSm7boPkeVLieLTgA5TMiP7Bt3dFHi4s1/HTRyL6HtRbGMWOxWPNUJGBo
-	Q5txwmbGKOttmnTn1/7aY9faqbScVGE7kE34fRZsPOfhqO0zRv4P/KdOiQOc1L6SKxHrXAr4Z7oRz
-	Do8pbkeNTd7a7x3u6QG82ebeLSXM3IBR+5KEB0Qw5eI+GAusukxemXCQI7/pCdjanDlkqScql/jiw
-	zQLWWu9jeWW1imV9fThSR++nvEz+of4LcVmmBF2b58BIG/rZV9TFnp1ZZmoC0FV7os0+D2UULvMkr
-	LPInGpxog==;
+	 bh=qNasxM+0wpyY2UMC6rNUv1Ag74UA+tsnRbBEdSLh3E0=; b=mLbFz0ZOTl5mnImMUnHpVaShf
+	242ZEFIdACHsCDkb64utiaAoYzQDGlKrLA+3MflWE/dukfqSXC8aC+M9v9GZbdjWrA3ddL8A9qzRb
+	bMwmEFDPv3DrBfBWrRtwGrxJU3nvHLaf6WkcMweYc5XI+WYf59+uba+QS5oQ/mhGj8DuTqq7CmevH
+	pyPOC4PJNmCyaT8jS4M0uaJDUGOi3qEseoX4eJ1ejrJrw/FK/hMXvG0nx01emI54h7veS4G0WIKzv
+	99tkYP+xEJkKWcsIoH8VIyvLkshvC8E9b3VOiqGPdeBFKllLBcsP3Dyo9sdYw4G8E9qtGiqreOOjt
+	kZ8C9qsJg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kgIFA-00060w-Iw; Sat, 21 Nov 2020 02:03:16 +0000
+	id 1kgIFB-000618-3i; Sat, 21 Nov 2020 02:03:17 +0000
 Received: from mail-pg1-x543.google.com ([2607:f8b0:4864:20::543])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kgIF8-000609-Ry
- for linux-riscv@lists.infradead.org; Sat, 21 Nov 2020 02:03:15 +0000
-Received: by mail-pg1-x543.google.com with SMTP id 34so8873997pgp.10
- for <linux-riscv@lists.infradead.org>; Fri, 20 Nov 2020 18:03:13 -0800 (PST)
+ id 1kgIF9-00060E-Ee
+ for linux-riscv@lists.infradead.org; Sat, 21 Nov 2020 02:03:16 +0000
+Received: by mail-pg1-x543.google.com with SMTP id q28so8904334pgk.1
+ for <linux-riscv@lists.infradead.org>; Fri, 20 Nov 2020 18:03:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=5DPY1vOx809P/ji7WSLS+HQRWX/oPac7tdMVbcbRAD4=;
- b=sU0r9VvKPnh4YqmU6bjUbLanlL4K5gqvIvr35TrwINX52vvHu0W9Ffeo2kCIQTseit
- hM7y2s71tBb16iSHBhwD8sebf6akIouY/u4LgVglhHYeoQKYKKNoi8dQND3iKdiNT/6V
- VjzxmAdLdQlBJ2eC5wf+YxfqPmJDRCngz/XV4+s2/EznGKjB5lepnF16Cbx1Tx+jLAxB
- 0ltxlvqw0ZXbPc8I1WJxcyUs8yXrWOKJ7zyNYqQAqfVQtGstg1eUxJAusRCBnKcZrtJD
- gxa4oPeT6uHoVmZzyTj0etq/j7PJ0butKBRnCGr+8fPreFxnwZj3vFaflQkK5rSBAi8s
- bFgA==
+ bh=nPnxZmOuQtc2QtpdIwYqYkgLmJHUqSyVCOGjsd+282E=;
+ b=10KXWheb60ng6Ch8zRAfM4VncMaP5LEQSKpcExHA3/h8hhtJ3XCF1X6K0ha9taEP2k
+ sVX5X9HNihtT0GlO8odb29mCLoAUo+nAxXpGbHXPbGEpzKtxgc+iYNZ+50pKBjUHchqq
+ QgRUDtYLBuJfsL9zh7IovrQVPtfSQfVtPF7t4vBpABRvFjq9oEphnkoa8oNA36NwUSCL
+ QTsRlSyExL3yZtwOg6ni5aTHuRawOzkXKVFYIVjBszBy1+/8Q7pwr3764l5ZaKitFHX2
+ KZIOZ5m25LFhQtPIQh3/MEHXkNU58VlYhBh50R2WL4/Eh3A/ll6GRsRoO8IQKn1oMXRD
+ F2tA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=5DPY1vOx809P/ji7WSLS+HQRWX/oPac7tdMVbcbRAD4=;
- b=S27r3v/xCTXqjd4Sev28EXRuj/Z2AjaghkKcY2qviecV1ok0bNnbu14q2xi5zymkhd
- cOr7l0jtrg0/m4F0mRfDW3CV25TVZ9I/g6Cit0hhmm2/yEaSON/nnLyd9NihAwFi8Jy4
- Ia4+9sRTiwEWZgx1tiKXbOrOGo+LY7N7DfT4T0nLRmumXOktyauwLT/wrqYqbtPFtH1D
- puV6NRMGUfytWbJLTv94mtVyQW9MQnkcCCT9LBL3mpE/L6TQJE2iZ1a3ZO6fjCP8mKup
- z2cFjhlh2E3BEFVbJ0mX+PpXLm3FSJOMMwefL4GH5I6zGg8uXxCpYvF+gNdVl7Uff2mZ
- vQ+A==
-X-Gm-Message-State: AOAM533pwGLKGEUxgErkXjBOL/Rl7VyDwXvACQru439D0wUHJslXio8I
- 7gF/0QgPvaRJtTweYRlmRBERNQ==
-X-Google-Smtp-Source: ABdhPJyDP14AkgYpCgCR3YmCIbHfRj/o+Sq/K/gMiCMNAJo3ao8Juz4+eHDuhWxUATxv0ZoYRlNQmQ==
-X-Received: by 2002:a65:6299:: with SMTP id f25mr8544549pgv.402.1605924192244; 
- Fri, 20 Nov 2020 18:03:12 -0800 (PST)
+ bh=nPnxZmOuQtc2QtpdIwYqYkgLmJHUqSyVCOGjsd+282E=;
+ b=TAL7JvGmO40SACZvyquTDu/WsvZ4+zO6vL27zzM8N2pXw4ElmcrHUdn5qMQe+MWNq9
+ w98neerbOSHTFl9hnLfLG/ZWUtCCsLo25veiKYLGSpt7HkCs9QWAM1GLn0FCcwkFGEpv
+ 0on7miRwLFLgD8QySqenEYc5GAn9RBv3YBtuqkFY7h8csN5bYkmSJ/jQWTsxFLsQnqRG
+ wUAuas+rfqhQnwVfMHT3galQVvzenIu9wZFc0MaMh/cRL/xMGoxWpRKq272lxEfe7fem
+ P9NSrjNYxKaEPuLuBQDB3CxlU21mN1MaXWjxJwh93JcIyOwZMO1AzSypJbj6qdNbHjpU
+ iciw==
+X-Gm-Message-State: AOAM532jS/jYnklHG4a/3e0gGf/gdElUbbJgCXXA9x+n3e5Q53rF5Ivp
+ G5CGo7vsNcx9JDcztO+aUOd8GA==
+X-Google-Smtp-Source: ABdhPJxs9SxOKQmp2K0L56/ZWT5uX9uGpjmCzR37XJTOTy9NHs60QVk6oJozDNfprUDnxVNeyhSZiw==
+X-Received: by 2002:a63:a04:: with SMTP id 4mr8279807pgk.396.1605924193775;
+ Fri, 20 Nov 2020 18:03:13 -0800 (PST)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id m9sm5924464pjf.20.2020.11.20.18.03.11
+ by smtp.gmail.com with ESMTPSA id l133sm5432213pfd.112.2020.11.20.18.03.12
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 20 Nov 2020 18:03:11 -0800 (PST)
-Date: Fri, 20 Nov 2020 18:03:11 -0800 (PST)
-X-Google-Original-Date: Fri, 20 Nov 2020 17:59:30 PST (-0800)
-Subject: Re: [PATCH] riscv: Enable CMA support
-In-Reply-To: <dfaee222-59a6-7a47-f174-046ff2c13e95@huawei.com>
+ Fri, 20 Nov 2020 18:03:13 -0800 (PST)
+Date: Fri, 20 Nov 2020 18:03:13 -0800 (PST)
+X-Google-Original-Date: Fri, 20 Nov 2020 18:03:09 PST (-0800)
+Subject: Re: [PATCH] riscv: Add HAVE_IRQ_TIME_ACCOUNTING
+In-Reply-To: <454abd65-915b-d8cc-f375-34ebfb2ca9b7@huawei.com>
 From: Palmer Dabbelt <palmer@dabbelt.com>
 To: wangkefeng.wang@huawei.com
-Message-ID: <mhng-a2fc73b4-833b-46c3-aa5c-e1d09a69accb@palmerdabbelt-glaptop1>
+Message-ID: <mhng-4e4287d6-b583-43b7-9dfd-569bb2112617@palmerdabbelt-glaptop1>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201120_210314_939117_71DA0534 
-X-CRM114-Status: GOOD (  17.43  )
+X-CRM114-CacheID: sfid-20201120_210315_496141_93C246A7 
+X-CRM114-Status: GOOD (  16.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -95,73 +95,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu,
+Cc: corbet@lwn.net, linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu,
  Paul Walmsley <paul.walmsley@sifive.com>
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 12 Nov 2020 00:55:30 PST (-0800), wangkefeng.wang@huawei.com wrote:
+On Thu, 12 Nov 2020 00:56:13 PST (-0800), wangkefeng.wang@huawei.com wrote:
 > Any comments, kindly ping...
 
-Sorry, I must have missed this one.  It's on for-next.  Thanks!
+I guess I missed this one too.  It's now on for-next as well.  Thanks!
 
 >
-> On 2020/10/31 14:01, Kefeng Wang wrote:
->> riscv has selected HAVE_DMA_CONTIGUOUS, but don't call
->> dma_contiguous_reserve(). let's enable CMA as expect.
+> On 2020/10/28 12:28, Kefeng Wang wrote:
+>> RISCV_TIMER/CLINT_TIMER is required for RISC-V system, and it
+>> provides sched_clock, which allow us to enable IRQ_TIME_ACCOUNTING.
 >>
 >> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
 >> ---
->>   arch/riscv/mm/init.c | 8 ++++++--
->>   1 file changed, 6 insertions(+), 2 deletions(-)
+>>   Documentation/features/time/irq-time-acct/arch-support.txt | 2 +-
+>>   arch/riscv/Kconfig                                         | 1 +
+>>   2 files changed, 2 insertions(+), 1 deletion(-)
 >>
->> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
->> index ea933b789a88..87ae4b99442a 100644
->> --- a/arch/riscv/mm/init.c
->> +++ b/arch/riscv/mm/init.c
->> @@ -13,6 +13,7 @@
->>   #include <linux/of_fdt.h>
->>   #include <linux/libfdt.h>
->>   #include <linux/set_memory.h>
->> +#include <linux/dma-map-ops.h>
->>
->>   #include <asm/fixmap.h>
->>   #include <asm/tlbflush.h>
->> @@ -41,13 +42,14 @@ struct pt_alloc_ops {
->>   #endif
->>   };
->>
->> +static phys_addr_t dma32_phys_limit __ro_after_init;
->> +
->>   static void __init zone_sizes_init(void)
->>   {
->>   	unsigned long max_zone_pfns[MAX_NR_ZONES] = { 0, };
->>
->>   #ifdef CONFIG_ZONE_DMA32
->> -	max_zone_pfns[ZONE_DMA32] = PFN_DOWN(min(4UL * SZ_1G,
->> -			(unsigned long) PFN_PHYS(max_low_pfn)));
->> +	max_zone_pfns[ZONE_DMA32] = PFN_DOWN(dma32_phys_limit);
->>   #endif
->>   	max_zone_pfns[ZONE_NORMAL] = max_low_pfn;
->>
->> @@ -185,6 +187,7 @@ void __init setup_bootmem(void)
->>
->>   	max_pfn = PFN_DOWN(memblock_end_of_DRAM());
->>   	max_low_pfn = max_pfn;
->> +	dma32_phys_limit = min(4UL * SZ_1G, (unsigned long)PFN_PHYS(max_low_pfn));
->>   	set_max_mapnr(max_low_pfn);
->>
->>   #ifdef CONFIG_BLK_DEV_INITRD
->> @@ -198,6 +201,7 @@ void __init setup_bootmem(void)
->>   	memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
->>
->>   	early_init_fdt_scan_reserved_mem();
->> +	dma_contiguous_reserve(dma32_phys_limit);
->>   	memblock_allow_resize();
->>   	memblock_dump_all();
->>   }
+>> diff --git a/Documentation/features/time/irq-time-acct/arch-support.txt b/Documentation/features/time/irq-time-acct/arch-support.txt
+>> index d9082b91f10e..6fc03deb1c38 100644
+>> --- a/Documentation/features/time/irq-time-acct/arch-support.txt
+>> +++ b/Documentation/features/time/irq-time-acct/arch-support.txt
+>> @@ -23,7 +23,7 @@
+>>       |    openrisc: | TODO |
+>>       |      parisc: |  ..  |
+>>       |     powerpc: |  ok  |
+>> -    |       riscv: | TODO |
+>> +    |       riscv: |  ok  |
+>>       |        s390: |  ..  |
+>>       |          sh: | TODO |
+>>       |       sparc: |  ..  |
+>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+>> index 44377fd7860e..dfbc1351ee62 100644
+>> --- a/arch/riscv/Kconfig
+>> +++ b/arch/riscv/Kconfig
+>> @@ -68,6 +68,7 @@ config RISCV
+>>   	select HAVE_FUTEX_CMPXCHG if FUTEX
+>>   	select HAVE_GCC_PLUGINS
+>>   	select HAVE_GENERIC_VDSO if MMU && 64BIT
+>> +	select HAVE_IRQ_TIME_ACCOUNTING
+>>   	select HAVE_PCI
+>>   	select HAVE_PERF_EVENTS
+>>   	select HAVE_PERF_REGS
 
 _______________________________________________
 linux-riscv mailing list
