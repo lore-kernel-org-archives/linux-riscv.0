@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8E546C5519F
-	for <linux-riscv@archiver.kernel.org>; Sat, 21 Nov 2020 01:29:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1F74AC56202
+	for <linux-riscv@archiver.kernel.org>; Sat, 21 Nov 2020 01:29:44 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DB3472237B
-	for <linux-riscv@archiver.kernel.org>; Sat, 21 Nov 2020 01:29:40 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B78032237B
+	for <linux-riscv@archiver.kernel.org>; Sat, 21 Nov 2020 01:29:43 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="AEGLne3v";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="KsX3/vfX"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DB3472237B
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="RIndQVnU";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="CJObZz3V"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B78032237B
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,66 +26,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=tLWaF/A2G9TDLRNpxa8OPsInpMYJSlVzAfBpbRciSDo=; b=AEGLne3vqZ1vYjMPv/l2UB85o
-	jC6Y5ulcMrqFUI4Nn+BFHbD24V/Lg1m8fB/5gSlFOE/0netgzLPeuWfBxX/xtQzMEHEAQ4QxlRfwu
-	iBoTDBRfDkCEIUR0f7O9QTDUgnGkldPlwB1SANEO6UWOOpG+5DjhQ+XfpVU3Tp/DhEEYvNqZji/uK
-	E0twTIdcBxLUQB/sJbnBxA8prTsyYMgIbz7ACRaTNHdiHyIM0M+FH82XpuWP2WgBMmZTRP8ztqEeN
-	ZbxBN+Yyfvns3YZuxwKnPAW2XaO2rJBZfhxa0yqlnXIXvrfgS2Nz6D0o8K1sJx+4SekJPkr4moA1n
-	/1LAwgnIg==;
+	 bh=aCX179Y4yxKbj+9A1wBMlgbpc57hRMQhePbK3RVzJuA=; b=RIndQVnUxkRaSO2Nuzg39j9+L
+	F6/sK6e22HAHfPiWjAsoeoNYa0gR57ra+WrOwkGHQHDqkgYRda/L2/v9FESwWGoFpk3/OONIruep9
+	Q5mZck+KTp2E83YXx+JGIFCrLb4JgtVtTXjTN7W902tr03Q61fl3yJiEc5yTR+P8AR+UD2jXzMRJL
+	q1t2ycDbq/2EKCDNcTxhEA3i95JVuju8Rwgjy25nky1TOdd89hAcsy5ZgAfFRsMTMhQ2SLL9Uhyvk
+	eHTaG4tPL8Lx2E77/p1icOq31+Hvv9A2Ec8AwnbbtfLQN6ESXMW6hkd5/qIouLAQggtfv/4VtNkhS
+	4DJR1ABFw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kgHiY-0004j7-JP; Sat, 21 Nov 2020 01:29:34 +0000
-Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
+	id 1kgHia-0004jn-T0; Sat, 21 Nov 2020 01:29:37 +0000
+Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kgHiT-0004hZ-SY
- for linux-riscv@lists.infradead.org; Sat, 21 Nov 2020 01:29:31 +0000
-Received: by mail-pf1-x443.google.com with SMTP id t8so9560834pfg.8
- for <linux-riscv@lists.infradead.org>; Fri, 20 Nov 2020 17:29:29 -0800 (PST)
+ id 1kgHiX-0004iX-Dk
+ for linux-riscv@lists.infradead.org; Sat, 21 Nov 2020 01:29:34 +0000
+Received: by mail-pf1-x444.google.com with SMTP id v5so5534971pff.10
+ for <linux-riscv@lists.infradead.org>; Fri, 20 Nov 2020 17:29:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=e9e+der4tiI8HJvByBrDgbWSHOA3bihkhP0KklSxXps=;
- b=KsX3/vfX4tgCr+LUHs0syqeb7gDiIoj2kC/UmfWj60UV+yF7bYZvU/GOl4HYg+bT9p
- sXNWXbokDTC2F/xZo+Y75rI54zvI1CpWeTpmIdXkKRcdhT1OFuzfRBCeoSMIG0ORflp+
- trO6FGmKfa6Bw82PAwgOaqsVigFfwZX77W0eO44ZdgopVkTRzTx4cq9OadH3axfhIWX9
- QpRP9NEpa26fh7Kz+l3p7fRKnFj4rj05N0I0xnWOh8i0gI2jPXoGBtXy6nDrYCQliUgm
- cIclBukuyr8rUEaHeo1DVSLH3SXksUj8LPutEuDJbYwL56rlB6PuxgeMUGlIouswm6cd
- NmnA==
+ bh=Gmc1ZQK4Z7FJ+nkEJlaWLOCIx0EhjlxA5CekSRKuc3I=;
+ b=CJObZz3VgypRprpxFzhnUStf/tm/ekOtG6WFuHqCtp/ZMpbd3Oj2pbzyN+GJS71Iai
+ z362qF1phkcs0996rdZexf2Kfo7j09o1fhCky5mY5Yry+kPlsNDTD1V+5bZdABnae95Z
+ E/E7Hc1Pk+CwKgQvZoatyLOi5/EjarSXcZUEs1zyVnPV32V60pZXR2e4IUtxClVQJEsd
+ 2JuxYzeUXu5fGU6WLdzLYds/tMFJER9loZI4v2iUo6tI3Wq0hhfLl2+/X9h+iULdD3NO
+ gVGT6z0T1lzkUtMVe8MSjqUtfdpWSAuUh3elXiDVKRQvgY9z19Qdreizw2ssTsQkOff+
+ DVPg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=e9e+der4tiI8HJvByBrDgbWSHOA3bihkhP0KklSxXps=;
- b=dWL9BWqPiHFv7q/AoPFVhzkJv3KWDy/YCJPfk9Qhh6Ir2tW2qUDFOGof2q6CbQ5Jjg
- 6O/yOy3F/bLajySz6C6+ukUmo0kYmmE6v5AqZKRD5YCfKs9TzZDj+VWi93jPtwLOnmGK
- f0RarzcrSPkFuSNyqxO7m/j7+zzRhs6+0xHXem79/4gdmDsj8RLmdRFkeaYc+U1V3g95
- 33D+55SAxUwIK+o5Clp8qfkkEGZGx/vRIit/yHL5x6ZqafsXJiM+2RrzBG2HMDWdgcZT
- 9fdox23Fyq78LNjNchJK7/5cbguRxDnSJ7UXfgtbRF37Ja8WBf99nzj9Skixfv+E1Yoe
- yayw==
-X-Gm-Message-State: AOAM533kMGQXvkL26bU1yz2vIpmtZZ9zbRnoIGr1V/EaU0gVZ8zIKiMA
- b2IcDL1exPRinkLsdmN28McQdg==
-X-Google-Smtp-Source: ABdhPJy2vHOjVX0NAQyRf9EzyqxIHxAx88tnQehv6TPKwHu1Y9/c1H5mUD50zU5wKyhARRGCWWuO8w==
-X-Received: by 2002:a62:17c8:0:b029:18b:5a97:a8d1 with SMTP id
- 191-20020a6217c80000b029018b5a97a8d1mr16393477pfx.15.1605922167939; 
- Fri, 20 Nov 2020 17:29:27 -0800 (PST)
+ bh=Gmc1ZQK4Z7FJ+nkEJlaWLOCIx0EhjlxA5CekSRKuc3I=;
+ b=ixAC2rHc+2n/vA1U5K4UD122erfGlT3Bo3yeopsDsvauKLHA18ihg2+LOm+vN4/iqE
+ hn458pgsEsikCXOgLTyauuCxOan0DPB9hVRW8SpLtldy0Wry2JXbMSL0mvBwJt0DbDRb
+ 0fKuAcyraqzSiOoDmX93JeustOpVXL+bIgqypR3hze5Qrb3l4DyHzgG6HgxvwQPs12dR
+ qK7SjQUWKbb329xCtK9LjoGuoJdQfP6JuJLK6v1DtlCW0kk2ariO3BnxPEysSLxSBJAx
+ bQADH/ooL9Q33ElsIj3MxPbIP15KxJg+Fm+lo75b/UQ5r1Z3Op1ruIgo/d9RyF+5A5va
+ 0YRg==
+X-Gm-Message-State: AOAM532YVhsP1JmXYHbV269K11K5NdZGprQ1/deGObff5gegZQAr7pWH
+ tY7a021I1ypkSbWUpYVhqcmHpg==
+X-Google-Smtp-Source: ABdhPJwvrCGGFh+uqhHBDn+ONmkr3peDB3CNtE971PXKihKlcH2YlRD3I2Yfw+VfEpSjfykRBSEbCg==
+X-Received: by 2002:a17:90a:d58e:: with SMTP id
+ v14mr4401542pju.191.1605922171418; 
+ Fri, 20 Nov 2020 17:29:31 -0800 (PST)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id v7sm5010016pfu.39.2020.11.20.17.29.26
+ by smtp.gmail.com with ESMTPSA id l7sm5583805pjg.29.2020.11.20.17.29.30
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 20 Nov 2020 17:29:27 -0800 (PST)
-Date: Fri, 20 Nov 2020 17:29:27 -0800 (PST)
-X-Google-Original-Date: Fri, 20 Nov 2020 17:21:04 PST (-0800)
+ Fri, 20 Nov 2020 17:29:30 -0800 (PST)
+Date: Fri, 20 Nov 2020 17:29:30 -0800 (PST)
+X-Google-Original-Date: Fri, 20 Nov 2020 17:28:04 PST (-0800)
 Subject: Re: [PATCH v4 3/4] clk: sifive: Add a driver for the SiFive FU740
  PRCI IP block
 In-Reply-To: <20201111100608.108842-4-zong.li@sifive.com>
 From: Palmer Dabbelt <palmer@dabbelt.com>
 To: zong.li@sifive.com
-Message-ID: <mhng-b245fbc4-01df-4e10-accb-6d6a569a705b@palmerdabbelt-glaptop1>
+Message-ID: <mhng-c9b6aff3-72de-4ccc-9b9d-8ec7229c101d@palmerdabbelt-glaptop1>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201120_202930_125570_09CD956D 
-X-CRM114-Status: GOOD (  38.49  )
+X-CRM114-CacheID: sfid-20201120_202933_645443_AB987620 
+X-CRM114-Status: GOOD (  37.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -117,10 +117,6 @@ On Wed, 11 Nov 2020 02:06:07 PST (-0800), zong.li@sifive.com wrote:
 > Henry Styles <hes@sifive.com>
 > Erik Danie <erik.danie@sifive.com>
 > Pragnesh Patel <pragnesh.patel@sifive.com>
-
-Is there a datasheet for this chip?  It's geneally best to link to one, in case
-someone needs to sort out issues in the future.
-
 >
 > Signed-off-by: Zong Li <zong.li@sifive.com>
 > Reviewed-by: Pragnesh Patel <Pragnesh.patel@sifive.com>
@@ -135,6 +131,13 @@ someone needs to sort out issues in the future.
 >  drivers/clk/sifive/sifive-prci.c              | 120 +++++++++++++++++
 >  drivers/clk/sifive/sifive-prci.h              |  88 +++++++++++++
 >  include/dt-bindings/clock/sifive-fu740-prci.h |  23 ++++
+
+I don't see the bindings in Documentation, but assuming they're in flight
+
+Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
+
+Thanks!
+
 >  7 files changed, 377 insertions(+), 2 deletions(-)
 >  create mode 100644 drivers/clk/sifive/fu740-prci.c
 >  create mode 100644 drivers/clk/sifive/fu740-prci.h
@@ -175,22 +178,7 @@ someone needs to sort out issues in the future.
 > + * Wesley Terpstra
 > + * Paul Walmsley
 > + * Zong Li
-
-Presumably it's copyright 2020 as well, as that's the current year?  Also, IIUC
-the copyright lines should be independent from each other.  In other words,
-rather than
-
-
-   C ... 2020 SiFive
-   Zong
-
-this should be 
-
-   C ... 2020 SiFive
-   C ... 2020 Zong
-
-and the rest of this should be dropped in favor of the SPDX.
-
+> + *
 > + * This program is free software; you can redistribute it and/or modify
 > + * it under the terms of the GNU General Public License version 2 as
 > + * published by the Free Software Foundation.
