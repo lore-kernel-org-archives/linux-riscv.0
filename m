@@ -2,22 +2,22 @@ Return-Path: <SRS0=iP4b=E3=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 99AA6C2D0E4
-	for <linux-riscv@archiver.kernel.org>; Sat, 21 Nov 2020 03:01:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EE687C56201
+	for <linux-riscv@archiver.kernel.org>; Sat, 21 Nov 2020 03:25:49 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 23E55223FD
-	for <linux-riscv@archiver.kernel.org>; Sat, 21 Nov 2020 03:01:27 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 403DC2222F
+	for <linux-riscv@archiver.kernel.org>; Sat, 21 Nov 2020 03:25:48 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="OpJE7COH";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="M2jBZYGQ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 23E55223FD
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="V4CZC3bA";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="U92UXwN3"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 403DC2222F
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,65 +26,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=FCiJ0g1e4GN2pAGHzfpUeftR+1ahDRdfWfq7/0PGMo8=; b=OpJE7COHcOSt2YS7lCOFaeSMG
-	ZvHIkRvuYA1rHTGyukRPzqzJc1kOUdVYV460Zbn7kDzj0CRGzcdKlGDIHVBLxCc7pL5mqye6Bnz3M
-	kMDzDkWkiim/NgNnGilPf83dSIYLTXS3arFdMF3N9frBV5h3MXsjmKx7D4BMqmObpRjwefdgFV0Uc
-	WMBn36Jp4c+6BGuNOLrII7ykrQZkSufF6ZFv/MivrVT8EHQD+KbCe9x2gpt4sO4vVrQwX5ZacWRsb
-	5crk9w60Ds8/t79UNIUt0yV56VfvUcLqbW9VWa4Bdyz9oaLa6+csQqCTeThGaw5VQRKxrbli8F0OJ
-	pXqw9JDYw==;
+	 bh=oSPmQbTV4VJJNI72QvPYn86dyZ59F4/73IZWQo3UOoU=; b=V4CZC3bAGr93jUkEn98uk0Lvs
+	XqZUw9s06Z0POP6DnMCDsJAcGkU8CShvZm2+wmADxdChiU+D40H9xRDdixvUOTt+rO53tev+IQl5x
+	8fQHXVzG8205J/VcSlwSxx2NKEEsRGcCNx8I0E4mmb5h5tRATjHaTtLr4JU4cvEqiGh98KJCoB+/2
+	f09Bs5Id152WrY67wDPsHC7u0L2tJb54BlSPYJf/qjsIRndSt0qDXtsBT+/MvcoHixDePIi5Y95UY
+	F10C+AZQk9aymygysQnSbs1pN9/T0Iwlm00pNJpfvMYnksHJkr1hUzzgSitQkDIIzeYnoycfC59fO
+	rz3OjNx2g==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kgJ9M-0000Tw-Pz; Sat, 21 Nov 2020 03:01:20 +0000
-Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
+	id 1kgJWs-0001kt-Vq; Sat, 21 Nov 2020 03:25:39 +0000
+Received: from mail-pl1-x644.google.com ([2607:f8b0:4864:20::644])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kgJ9K-0000TC-Co
- for linux-riscv@lists.infradead.org; Sat, 21 Nov 2020 03:01:19 +0000
-Received: by mail-pg1-x541.google.com with SMTP id t37so8892795pga.7
- for <linux-riscv@lists.infradead.org>; Fri, 20 Nov 2020 19:01:17 -0800 (PST)
+ id 1kgJWp-0001kD-Sk
+ for linux-riscv@lists.infradead.org; Sat, 21 Nov 2020 03:25:36 +0000
+Received: by mail-pl1-x644.google.com with SMTP id k7so5918792plk.3
+ for <linux-riscv@lists.infradead.org>; Fri, 20 Nov 2020 19:25:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=0stukxeIbwUVfykWlgzI8f7rldTzyypjwN6oXTuJvv0=;
- b=M2jBZYGQts85WexcNlOFQ6qW/9Foo+Z4wocAEVyzFPHL7CfdUbJh0NM1xBunCJ8RBd
- NTR/HRYHBVdzh5ldvuwlWxTG5GZ0zubJiX4bAoSme6yJv/ZOCxidNiwEwM+kDpMlTeLk
- VzOeoDY/pK7+r7GAqxeXl0cJJSssfDnvVhq1a+XVghuxeMI+jpEiYJIACnw2Z2BwGZd6
- OdOYBfxeoDDa74H19Jq7kOOWa1AKJ8nynwJ7ceHoyfrbJEzd2Mwo91Mr5cvyFCoBwq70
- bOpauha4WrhYRkwy+dlqEhukNRhZzIkxUXOn6L/gm1YgU5314TT81Plu/MC4V0kYJOGS
- DEmA==
+ bh=F4LHuwHPehTGg6C7SwMVTgSDJxeRk/wpcUvGl+GXLpg=;
+ b=U92UXwN3msyCRk7cskDKA/IK+g4HTcj7kVry+hoQSSAovr8eSvCulEoBdUImOUIKXs
+ 9d3Nz45fFLcxE0prv5yNHdKzZC+Dn8ljLEb5JK/z0wNZcMFWbKnOGH2VzAxd4QkjWl9U
+ XpodiXZ5C9tCgNFZAl2VIwUbYnNe46aUilCMK4VyU94T9qd/Z6D1iHL/P+h4IazenZO7
+ V6LYITT4WulnwgX7ZjpVWsbZssu4+gc0/CcRf64YMm12LwNg2RB+bpHy5CVpsUEZzTRn
+ jms9ymXrbQM8YDDwuaENU0YeQJDQH0Qs5CXWG1Tz0XIRQophOK6ftzeGidYn7UZ5rTZr
+ 2f7A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=0stukxeIbwUVfykWlgzI8f7rldTzyypjwN6oXTuJvv0=;
- b=MdaMiT3u0IAk41hXP+vKlLPMGBtudZb6CqC4XtP4+kq5QxbmbxkC/Rt3SLn0LCfNUg
- hr7RePRJdqILfD3nnDXIi+ABM8d4PVt6Gmuchxt18CFAtlhhy+be8tWWs7jG8NYIS4Wb
- XwxCH1odzQzRmPhksXYyKZjJxRtCXbR7/qeHh0Mxgcya49LKuIQ8rK2rB51VSUpy6JR1
- o5cnC/uSICLGUE/+mX4RDZUWriLPnzeQ+Y8R+JGRieM2XT46tmj5SB0DO4NRqkvXQbE9
- oJmZefR+xgNodTRtFEz0SFNnqC/QofUgSFfbbfx74bXRVLFAQxz+KNLDOugYjrjpbFyh
- NPCA==
-X-Gm-Message-State: AOAM530KKRaK9eT7+NerhI1gOkNxV9yy8N43d3XWXLtkrqsgutBpO8IN
- FSr5eHfagXA2uFQRTMkAggafbQq3f2qc/g==
-X-Google-Smtp-Source: ABdhPJwSO9w2LktcG16OVv89ZGzYZCWiEHmMuECjq96HPpsZEkqVRTWMopkg/2XBP2afbaxsuAShhQ==
-X-Received: by 2002:a17:90a:7c4d:: with SMTP id
- e13mr14258944pjl.146.1605927676239; 
- Fri, 20 Nov 2020 19:01:16 -0800 (PST)
+ bh=F4LHuwHPehTGg6C7SwMVTgSDJxeRk/wpcUvGl+GXLpg=;
+ b=RGmGBApt/m+dELtoCg9pFSugNn13TFpcZ2I5G8NITtahfaXMrkx9kGy6zBlW5lY2KB
+ t2VnL1KCR4Kl/S9KAl9My+kKOVONzeAzTZrRPbRzAQZBBolOHDPrO+tQWaXLsnRMrW30
+ eUQi3SBTkrJcoMRnt97xs+RHWRjBdTcITSz66FWL2NDbzAA3FOmV/CrBAISh/nl9py9U
+ DyRyZgVweifUN37oRi1WALurDCwE+T2iWjyYLUm0wCDJaIr6Q1IRzwWIAb2sUe1GtUE3
+ nLWaxvMbPQsB5cKQRQ3zGs2D57QdfDtMlfHqJu9G9RIgleOWFTfhp2uK8G/y8sIAo1mu
+ vgLg==
+X-Gm-Message-State: AOAM533U3kU593dCBj4pjkAoYEO32MiGU278tVZI+xwN53Ocki5+ENBU
+ HRUVUxiLu/4HxeOfsBomtztZ1m6s7ftEQQ==
+X-Google-Smtp-Source: ABdhPJx3nkWlFu0uu97//0uNkR/dir2aPZDUB1x33bgenASk/eg4bD2X/6gKX3DIQiuKW8/ACRr4+w==
+X-Received: by 2002:a17:902:bd98:b029:d9:7b0:e1e5 with SMTP id
+ q24-20020a170902bd98b02900d907b0e1e5mr16129511pls.77.1605929132538; 
+ Fri, 20 Nov 2020 19:25:32 -0800 (PST)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id y5sm5629142pfc.165.2020.11.20.19.01.14
+ by smtp.gmail.com with ESMTPSA id w22sm4673768pge.25.2020.11.20.19.25.31
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 20 Nov 2020 19:01:14 -0800 (PST)
-Date: Fri, 20 Nov 2020 19:01:14 -0800 (PST)
-X-Google-Original-Date: Fri, 20 Nov 2020 18:53:59 PST (-0800)
-Subject: Re: [PATCH 0/3] riscv: cover to ARCH_STACKWALK
-In-Reply-To: <20201113064223.103530-1-wangkefeng.wang@huawei.com>
+ Fri, 20 Nov 2020 19:25:31 -0800 (PST)
+Date: Fri, 20 Nov 2020 19:25:31 -0800 (PST)
+X-Google-Original-Date: Fri, 20 Nov 2020 19:25:30 PST (-0800)
+Subject: Re: [PATCH] RISC-V: fix barrier() use in <vdso/processor.h>
+In-Reply-To: <20201117013951.7827-1-rdunlap@infradead.org>
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: wangkefeng.wang@huawei.com
-Message-ID: <mhng-54bff36c-7c0d-4448-8859-d8d05cbd8b0d@palmerdabbelt-glaptop1>
+To: rdunlap@infradead.org
+Message-ID: <mhng-8c56f671-512a-45e7-9c94-fa39a80451da@palmerdabbelt-glaptop1>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201120_220118_461128_FEE593C9 
-X-CRM114-Status: GOOD (  13.46  )
+X-CRM114-CacheID: sfid-20201120_222535_976402_AE4E25A2 
+X-CRM114-Status: GOOD (  20.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -96,30 +96,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu,
- wangkefeng.wang@huawei.com, Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Stephen Rothwell <sfr@canb.auug.org.au>, aou@eecs.berkeley.edu,
+ rdunlap@infradead.org, Nick Desaulniers <ndesaulniers@google.com>,
+ linux-kernel@vger.kernel.org, natechancellor@gmail.com,
+ clang-built-linux@googlegroups.com, nivedita@alum.mit.edu,
+ schwab@linux-m68k.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ akpm@linux-foundation.org, linux-riscv@lists.infradead.org
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 12 Nov 2020 22:42:20 PST (-0800), wangkefeng.wang@huawei.com wrote:
-> Use the newer common infrastructure and simpler arch_stack_walk() interface
-> for stack walk.
+On Mon, 16 Nov 2020 17:39:51 PST (-0800), rdunlap@infradead.org wrote:
+> riscv's <vdso/processor.h> uses barrier() so it should
+> #include <asm/barrier.h> to prevent build errors.
 >
-> Kefeng Wang (3):
->   riscv: Cleanup stacktrace
->   riscv: Make stack walk callback consistent with generic code
->   riscv: Enable ARCH_STACKWALK
+> Fixes this build error:
+>   CC [M]  drivers/net/ethernet/emulex/benet/be_main.o
+> In file included from ./include/vdso/processor.h:10,
+>                  from ./arch/riscv/include/asm/processor.h:11,
+>                  from ./include/linux/prefetch.h:15,
+>                  from drivers/net/ethernet/emulex/benet/be_main.c:14:
+> ./arch/riscv/include/asm/vdso/processor.h: In function 'cpu_relax':
+> ./arch/riscv/include/asm/vdso/processor.h:14:2: error: implicit declaration of function 'barrier' [-Werror=implicit-function-declaration]
+>    14 |  barrier();
 >
->  arch/riscv/Kconfig                  |  1 +
->  arch/riscv/include/asm/stacktrace.h | 17 ++++++++
->  arch/riscv/kernel/perf_callchain.c  | 10 +----
->  arch/riscv/kernel/stacktrace.c      | 62 +++++++----------------------
->  4 files changed, 34 insertions(+), 56 deletions(-)
->  create mode 100644 arch/riscv/include/asm/stacktrace.h
+> This happens with a total of 5 networking drivers -- they all use
+> <linux/prefetch.h>.
+>
+> rv64 allmodconfig now builds cleanly after this patch.
+>
+> Fixes fallout from:
+> 815f0ddb346c ("include/linux/compiler*.h: make compiler-*.h mutually exclusive")
+>
+> Fixes: ad5d1122b82f ("riscv: use vDSO common flow to reduce the latency of the time-related functions")
+> Reported-by: Andreas Schwab <schwab@linux-m68k.org>
+> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: Stephen Rothwell <sfr@canb.auug.org.au>
+> Cc: Arvind Sankar <nivedita@alum.mit.edu>
+> Cc: linux-riscv@lists.infradead.org
+> Cc: clang-built-linux@googlegroups.com
+> Cc: Nick Desaulniers <ndesaulniers@google.com>
+> Cc: Nathan Chancellor <natechancellor@gmail.com>
+> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Albert Ou <aou@eecs.berkeley.edu>
+> ---
+>  arch/riscv/include/asm/vdso/processor.h |    2 ++
+>  1 file changed, 2 insertions(+)
+>
+> --- lnx-510-rc4.orig/arch/riscv/include/asm/vdso/processor.h
+> +++ lnx-510-rc4/arch/riscv/include/asm/vdso/processor.h
+> @@ -4,6 +4,8 @@
+>
+>  #ifndef __ASSEMBLY__
+>
+> +#include <asm/barrier.h>
+> +
+>  static inline void cpu_relax(void)
+>  {
+>  #ifdef __riscv_muldiv
 
-Thanks, these are on for-next.
+Thanks, this is on fixes.
 
 _______________________________________________
 linux-riscv mailing list
