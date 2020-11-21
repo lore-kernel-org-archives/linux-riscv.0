@@ -2,78 +2,80 @@ Return-Path: <SRS0=iP4b=E3=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 40F18C388F9
-	for <linux-riscv@archiver.kernel.org>; Sat, 21 Nov 2020 23:12:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B2D5AC388F9
+	for <linux-riscv@archiver.kernel.org>; Sat, 21 Nov 2020 23:39:23 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9404A2168B
-	for <linux-riscv@archiver.kernel.org>; Sat, 21 Nov 2020 23:12:39 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6481220A8B
+	for <linux-riscv@archiver.kernel.org>; Sat, 21 Nov 2020 23:39:23 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="rVgjnHN6";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="F5ZhKToD"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9404A2168B
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Ug50LuNv"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6481220A8B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=28/LosMvGvjHqhxRbfpfigZQRaq8oot3qm6IJvaeqAc=; b=rVgjnHN6HK8Fh6dsQnw7FW7kT2
-	ktp5dVQblql8D/LRZuRJUCUSK5DxrkNlBidoRDigzngPyZxsCI7vH4f969Rb5Nbmm7tgX+TudAvzr
-	iNdwK3Kvm0g8eVUw2TcHK5oHhRPiveaMEUQxmTIVaYfC3aFFeNfQkrMXLnjqFkFLsN6xcs3kWtm+1
-	rq4D5/qoURz86RiZjQ+NyeL3iwgyhOTOFSHGK17QeVAwsVc0rTt/mXTX+bMj0fVod38ZJ9zTDpLYW
-	7nK8uWnCh8kkSXOGOGgVIdID+rxZyJqJuUWRLOK5noprHAL76khz51vn0WTeoA6CjTHs9IdxQUzAr
-	0oYRKCkg==;
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=2sLMj2EqGKrcE4IBUo1yUPybwVLg2p/Z+S1ob0bZLr0=; b=Ug50LuNvFlKATlh4ZuIG3Qc6Z
+	bunmh/+PQmqK1X10c9RXGEa8LoTK981s1scwE3PQskj8IAN0glkzf9zylIR+g8l6meORsi+5xm+IU
+	FE2A+1z++gz/WIJDrUaD46r2X57pPZ+GHkOzMqJ+CpY488y7jSaLr2+8tM+1qhsCbCFW0/vQXNkG3
+	aOFkBmj6smXyjps0w9TfbfH3OfVJRw+lgLpEyAMkqfJPtPaMUhX7/9lHF1LUS7KP6obOOdJv9WvIZ
+	4LVPiGaRSO5Qul+8aHZKSJX4Ap3SRdsoy5ysmbw4ejlsp5M5Tkj3mvJ6RCkipr7flMw3htso5vFJ9
+	fXGaz+JXQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kgc3R-00081n-6U; Sat, 21 Nov 2020 23:12:29 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1kgcTN-0005g0-4k; Sat, 21 Nov 2020 23:39:17 +0000
+Received: from mail-qt1-f195.google.com ([209.85.160.195])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kgc3D-0007xa-NM
- for linux-riscv@merlin.infradead.org; Sat, 21 Nov 2020 23:12:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=Content-Type:Content-Transfer-Encoding:
- MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
- Content-Description:In-Reply-To:References;
- bh=BGHU8zX9sAoC3r2CNc9TcIUMO7ktiNVS95ScxXwf994=; b=F5ZhKToDz8eIHm+A2sICPyQrNx
- jjEzPxX61PnvjuIfX4RWC4tgcMc/5BFuNxhh7RWS6D5uMfeRDZuJdGwEzr/2DWKw4IBxAcjEXhaLF
- 1aXnOvEMJR9TMKcEVW8yxDdJmKA8QyoeGU7ZvErdawcJIsZLKJJAULFaa0a39gnuW4f6ljREgqcH4
- 2vubgUx72+WalS70H5sCzoRdc5tHR8ljXbngjTUSL2+umVZQEkWrvrncFhAndhiBzjlLVHelcol07
- II5tCMUbRPx2zMoEhQbfp8N7mK+0gHPKDQS2JTDoH5EST90U8K2CCTaCQyvagvxlpI9UziQOL9TN1
- em5e34pw==;
-Received: from szxga07-in.huawei.com ([45.249.212.35])
- by casper.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kgPrQ-0001zV-9t
- for linux-riscv@lists.infradead.org; Sat, 21 Nov 2020 10:11:19 +0000
-Received: from DGGEMS410-HUB.china.huawei.com (unknown [172.30.72.60])
- by szxga07-in.huawei.com (SkyGuard) with ESMTP id 4CdTgy07W1z6vxh;
- Sat, 21 Nov 2020 18:10:38 +0800 (CST)
-Received: from localhost.localdomain.localdomain (10.175.113.25) by
- DGGEMS410-HUB.china.huawei.com (10.3.19.210) with Microsoft SMTP Server id
- 14.3.487.0; Sat, 21 Nov 2020 18:10:47 +0800
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- <linux-riscv@lists.infradead.org>
-Subject: [PATCH] riscv: kernel: Drop unused clean rule
-Date: Sat, 21 Nov 2020 18:15:19 +0800
-Message-ID: <20201121101519.165053-1-wangkefeng.wang@huawei.com>
-X-Mailer: git-send-email 2.26.2
+ id 1kgcTJ-0005ez-Oj
+ for linux-riscv@lists.infradead.org; Sat, 21 Nov 2020 23:39:14 +0000
+Received: by mail-qt1-f195.google.com with SMTP id z3so10051878qtw.9
+ for <linux-riscv@lists.infradead.org>; Sat, 21 Nov 2020 15:39:13 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=i2ejWjSwcsPIE/JaW7yGyr3QkPvl0CuFfocLUWFS4q0=;
+ b=eTW8wzpt2HINxmX9mef5owF/C7RznrhORbi9vsSfPgDywjASZMjGYN78N+M2Ah+VOx
+ cEOaNhnmfTUSg/FBRShaS4nRbltFPD0LDOa2UppneSQxyf5Y68AoA/E6qVm0Sw/bCx1I
+ scL1kQ46vhmQET060LrEqF38OBVGDFMno2In6nMWeBDylzFWGD/8cTzhhrttPvXvj/5w
+ uBTHtIgu9O00V7D54ExT5FMhNxZPkaZOlpXUQYd8o+p05ZTNLXTVnHSGG4A114MqF8X9
+ xHnmxbK9mGu0YbB5mq3u399e9ZpPffiDCUuDOb4meYti1xj31iElbq83vL4t7Q20sAua
+ ImBQ==
+X-Gm-Message-State: AOAM5320xNcfrbbhv1bR/iUtTqP7ez3zb6K1UiOKACNH5ATjTygP0iLE
+ qBea4ctTKl0UvHM0WcTMmVnh7v1g5Q==
+X-Google-Smtp-Source: ABdhPJyI4dNE34z1SUnPBQWVLYdjgLqPkdV2CupYPMB8yoQfkzgp69+njbLGZoagfA+JOBlg9NQeBg==
+X-Received: by 2002:a37:a481:: with SMTP id
+ n123mr20961708qke.114.1605963288811; 
+ Sat, 21 Nov 2020 04:54:48 -0800 (PST)
+Received: from xps15 ([2607:fb90:5feb:6270:cdf7:680e:59f2:6ccd])
+ by smtp.gmail.com with ESMTPSA id s134sm4045140qke.99.2020.11.21.04.54.45
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sat, 21 Nov 2020 04:54:48 -0800 (PST)
+Received: (nullmailer pid 2081252 invoked by uid 1000);
+ Sat, 21 Nov 2020 12:54:43 -0000
+Date: Sat, 21 Nov 2020 06:54:43 -0600
+From: Rob Herring <robh@kernel.org>
+To: Yash Shah <yash.shah@sifive.com>
+Subject: Re: [PATCH 1/2] RISC-V: Update l2 cache DT documentation to add
+ support for SiFive FU740
+Message-ID: <20201121125443.GA2076465@robh.at.kernel.org>
+References: <1605172274-44916-1-git-send-email-yash.shah@sifive.com>
 MIME-Version: 1.0
-X-Originating-IP: [10.175.113.25]
-X-CFilter-Loop: Reflected
+Content-Disposition: inline
+In-Reply-To: <1605172274-44916-1-git-send-email-yash.shah@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201121_101116_986550_1BF6F482 
-X-CRM114-Status: UNSURE (   5.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20201121_183913_900538_94D30C11 
+X-CRM114-Status: GOOD (  18.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -85,30 +87,107 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Kefeng Wang <wangkefeng.wang@huawei.com>
+Cc: devicetree@vger.kernel.org, aou@eecs.berkeley.edu, anup@brainfault.org,
+ paul.walmsley@sifive.com, linux-kernel@vger.kernel.org, wsa@kernel.org,
+ sachin.ghadi@sifive.com, palmer@dabbelt.com, sagar.kadam@sifive.com,
+ Jonathan.Cameron@huawei.com, linux-riscv@lists.infradead.org, bp@suse.de,
+ sam@ravnborg.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
----
- arch/riscv/kernel/Makefile | 2 --
- 1 file changed, 2 deletions(-)
+On Thu, Nov 12, 2020 at 02:41:13PM +0530, Yash Shah wrote:
+> The L2 cache controller in SiFive FU740 has 4 ECC interrupt sources as
+> compared to 3 in FU540. Update the DT documentation accordingly with
+> "compatible" and "interrupt" property changes.
+> 
+> Signed-off-by: Yash Shah <yash.shah@sifive.com>
+> ---
+>  .../devicetree/bindings/riscv/sifive-l2-cache.yaml | 33 +++++++++++++++++-----
+>  1 file changed, 26 insertions(+), 7 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml b/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+> index efc0198..4873d5c 100644
+> --- a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+> @@ -27,6 +27,7 @@ select:
+>        items:
+>          - enum:
+>              - sifive,fu540-c000-ccache
+> +            - sifive,fu740-c000-ccache
+>  
+>    required:
+>      - compatible
+> @@ -34,7 +35,9 @@ select:
+>  properties:
+>    compatible:
+>      items:
+> -      - const: sifive,fu540-c000-ccache
+> +      - enum:
+> +          - sifive,fu540-c000-ccache
+> +          - sifive,fu740-c000-ccache
+>        - const: cache
+>  
+>    cache-block-size:
+> @@ -51,12 +54,6 @@ properties:
+>  
+>    cache-unified: true
+>  
+> -  interrupts:
+> -    description: |
+> -      Must contain entries for DirError, DataError and DataFail signals.
+> -    minItems: 3
+> -    maxItems: 3
 
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index fa896c5f7ccb..f6caf4d9ca15 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -56,5 +56,3 @@ obj-$(CONFIG_KGDB)		+= kgdb.o
- obj-$(CONFIG_JUMP_LABEL)	+= jump_label.o
- 
- obj-$(CONFIG_EFI)		+= efi.o
--
--clean:
--- 
-2.26.2
+Keep this here and just change maxItems to 4. Really, what each 
+interrupt is should be listed out as an 'items' entry.
 
+> -
+>    reg:
+>      maxItems: 1
+>  
+> @@ -67,6 +64,28 @@ properties:
+>        The reference to the reserved-memory for the L2 Loosely Integrated Memory region.
+>        The reserved memory node should be defined as per the bindings in reserved-memory.txt.
+>  
+> +if:
+> +  properties:
+> +    compatible:
+> +      contains:
+> +        const: sifive,fu540-c000-ccache
+> +
+> +then:
+> +  properties:
+> +    interrupts:
+> +      description: |
+> +        Must contain entries for DirError, DataError and DataFail signals.
+> +      minItems: 3
+> +      maxItems: 3
+
+Here you just need 'maxItems: 3'.
+
+> +
+> +else:
+> +  properties:
+> +    interrupts:
+> +      description: |
+> +        Must contain entries for DirError, DirFail, DataError, DataFail signals.
+
+DirFail should be last so you keep the same indices.
+
+> +      minItems: 4
+> +      maxItems: 4
+
+And 'minItems: 4'
+
+> +
+>  additionalProperties: false
+>  
+>  required:
+> -- 
+> 2.7.4
+> 
 
 _______________________________________________
 linux-riscv mailing list
