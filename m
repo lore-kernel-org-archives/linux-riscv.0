@@ -2,22 +2,22 @@ Return-Path: <SRS0=TXXs=E5=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-18.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3F119C2D0E4
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2020 07:18:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 79A87C63697
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2020 07:22:17 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 985182072C
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2020 07:18:40 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id CBCE12072C
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2020 07:22:16 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="X2hVNBIi";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="Nhi41X2p"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 985182072C
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="YKzAfOZ9";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="R2+nqaQh"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CBCE12072C
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,58 +26,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=TBweOK6wkrV22KQsUaRB3HvQZLj2C/RwrQjOJT7DXIY=; b=X2hVNBIiuB6qoUc0Oc7NdNtwA
-	WdJMjYJSMgG516Zl5qaF1E1eAJKRFmepCudD6IhPw1gXxieyRHG4XMZ0DFRy83dFdt9tsluT5LKtD
-	ZpzyUcad7OxGQ815KfI6+MiVn9HvQHSgNR0GO62B4gm8mYeSIy7/7TiyxG/VAAMZ1GUImrhKl0xd9
-	1l15MLbW34qv9IjmExUPUhHKnfUdUyrymrso+7B2++MU6nihdjGKBcMbRtiPvmN1gJ85DYBQqz2Y2
-	BdX9iMupUKL0feJUU+ajVvrapdzrzdx0WEyAByfj6/VCLImD2+hpYXXhQJJRk7RSQFJrIdF/iqtLs
-	iNPYzJzlg==;
+	 bh=U+lbNTTmBUaAVldI97vo61UTVKMj204nLREkW5g9kb0=; b=YKzAfOZ9w1Ju9OW9CKRj6GCw0
+	DuwxHKkQ3cTTViskWEtBVybYTI37oUWmYmK5hyyJ6GDwHC4eL8HOmjOL9pd9GlkpkovrI0o15+mhQ
+	OBRcBsbKiBX6rbWwONIoILvcsU/8xcEwRDRH93ddbcxZgTUEub9o/A52ydGeo9/2wl744BBlOSKqX
+	5fLc2eKYYCAWkzGgjb8aYtxV/pCBkOM5Y7/bp6vCV87ekmzBRUwDPcz5wnWRg26WkqDDEa99S5jaJ
+	j6cSXD+VBAAX472JKfaWnSDWoZ2T0eyltJTouYBgS8L4Xihmnt4lx87uF5QEqO/8Y0RFg7ZOBkven
+	kcGuBd8yA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kh67L-00025s-UP; Mon, 23 Nov 2020 07:18:31 +0000
-Received: from mail-ot1-x341.google.com ([2607:f8b0:4864:20::341])
+	id 1kh6As-0002Fr-Ha; Mon, 23 Nov 2020 07:22:10 +0000
+Received: from mail-oo1-xc43.google.com ([2607:f8b0:4864:20::c43])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kh67J-00025T-86
- for linux-riscv@lists.infradead.org; Mon, 23 Nov 2020 07:18:30 +0000
-Received: by mail-ot1-x341.google.com with SMTP id z24so995505oto.6
- for <linux-riscv@lists.infradead.org>; Sun, 22 Nov 2020 23:18:29 -0800 (PST)
+ id 1kh6Ao-0002Eu-8l
+ for linux-riscv@lists.infradead.org; Mon, 23 Nov 2020 07:22:09 +0000
+Received: by mail-oo1-xc43.google.com with SMTP id z13so3731118ooa.5
+ for <linux-riscv@lists.infradead.org>; Sun, 22 Nov 2020 23:22:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=sfKjG2GvoDhQiB7EpkscGKZ+97rkBF/pnq0LhdxYBSQ=;
- b=Nhi41X2pbTeawhTkWHetJJ8SzZ7jdWhXuzFPECnPqfmjT2n5H0aJE/I9Fhz5WpkOTi
- U1f2uuCWR5MWR2ZUnRWcMSrmka1wwVzu4a6pwiYKsFabNZqQNgXJiJtVdQg6fBKG/ojv
- wQoiop9+kZRRADXjWOAF/gd5OO+gMdZdnWewS7O9jsEwzxEuyzSYSbmjWGXuCLu3smeQ
- aS/po47CbgOhCG5PUD2dzUI/mjZVLQVhLYtj9N8+Ga+eh9ixBzz4dcx2Roiqpt4QI0Al
- kmDFP01bTVN1xbUdqzWFwfsEyaL8LjqdkSyLMg1fWWx/9PneRe4zhP1jMIaBy3BPBPMv
- 92TA==
+ :cc; bh=veDkrlAP3vUASI5nWgzt1ja9Csyliot/DOyJrmX/+io=;
+ b=R2+nqaQhvt6dzwcWZ0RLarfwZKT4EgsIuGvAr8ZBG8vbJfnOp4s3o8BbZFyW5M1Ar/
+ cVpyx01AZR9tzR5RCQ2J2bg7dAFjLX957kIMlv/qJ4j4x6Yo0DJpTWiwH1lqH9WdRzb0
+ CMpEDKlRCpN86EOkW1JyXu0ZJkRB2bm7LddQP2m4vkFsEUhOI9TEWkO5sBUiuTw+qNVg
+ 3FLfoJwob3cXi5PPw4UT2x2YBVCeOIX2NsU9aMsaz0RZw+oTC58oPrsoWm/tqU9iSDsZ
+ oGdsGAmCehMGhm8q/jBVIC2Wuaw1hExXZM4EbdNzg41iIQg1sOvZTjKRWJKn4Q/G++iu
+ PrbQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=sfKjG2GvoDhQiB7EpkscGKZ+97rkBF/pnq0LhdxYBSQ=;
- b=Hs4uFqSevUg0ugdkG4oAglkCY14Ahj5a4im4Ft/IIVqy276uoHtCikSLue3+eRqPZC
- wpFP5vA2PiIcNgHhPbRqbXK+H3TVrJF0VTySGCPPDNg8+C5/KRd59yeV0AFuUam8Zn0k
- ZwhYeo3CLEW+BfHxf4AX6ynkfxH7DadrY2uD/dSyRHWIqB+3wSrWYCDxBa2TbdKVUqTj
- gGWN1+i//AnOJYQ5Yo14WiTdAz2gf8UFxi/grGMraOxpl3CgLNWIZOxF9WNbemvrNBKV
- 13uqzTtJM381EXqYCl5vOl5VOpvYm9ag7oS8s/x+YReK2bLmJFwnM+ehykQ0XucOSlKu
- bUPQ==
-X-Gm-Message-State: AOAM531Q5per2dWZS66D2TS03SvxeF+sbH5KAVIKifE6jcVxBYz4uHrz
- CXaQZ7dmNaMSe8/zsh4GQhR+oy8W1aOqzGJB1VXWNQ==
-X-Google-Smtp-Source: ABdhPJweIoXhEjpbvXwglI32aXPOWNF6IbolZiWACHGNa+GuXDBW2FXTa0dak0WYveQO8IuYFPBrvHcq4162/Q4SUIA=
-X-Received: by 2002:a9d:6f8f:: with SMTP id h15mr22428460otq.166.1606115907677; 
- Sun, 22 Nov 2020 23:18:27 -0800 (PST)
+ bh=veDkrlAP3vUASI5nWgzt1ja9Csyliot/DOyJrmX/+io=;
+ b=D22HiEnKjvUdgkjObSb6+j6uPbaWzmvzHWnQxjoh0qzbY4mtAeHq1vG6iNsBPGCsES
+ YAK6ceOxlJ70aVnwDoix5ur1Pl1DrPNDpbvXfU2+zvd5n5uX8KG1hJq8EFa35Mz3GxAZ
+ SNsfqibOANyMxPmb1sWO1IDuhRYp/eIvm6J6YtXe8Yb2UiYPMtuDemKEIvXMWamHlQJR
+ KmzPprs6t5wiM8PIAc9GDVixIOZXOrQQAQP7TMOOFmZwHJ6MWGabe8vKCZSoj7Q46V4f
+ yc9IG3ZDEWrL2i4mnhzrNk2HNcnTH3W7K+AMnZ/VpKRRJBbLJqorpks23NnCWV9/LtdT
+ CUew==
+X-Gm-Message-State: AOAM531DZF1YYFV8YmJcZRnQWiKRYnEIQDjWQEJdQBxzd/5S4YJbKGh7
+ bcVTVi4L4Dis3IMI/NrvgBrYWT1wP+gEDIzPGxO3bA==
+X-Google-Smtp-Source: ABdhPJzkYatD8bxSRbgX2vw4sl37lxUmnbMXTYGT4rNUnbHtjcfLZyQvSZNaqc5p9NrL3OZN5YmoxRTGsmBB3lcHKsU=
+X-Received: by 2002:a4a:eac1:: with SMTP id s1mr22131872ooh.15.1606116123747; 
+ Sun, 22 Nov 2020 23:22:03 -0800 (PST)
 MIME-Version: 1.0
-References: <20201111100608.108842-5-zong.li@sifive.com>
- <mhng-738e4a27-9751-4937-b3ed-efdcdce56f0c@palmerdabbelt-glaptop1>
-In-Reply-To: <mhng-738e4a27-9751-4937-b3ed-efdcdce56f0c@palmerdabbelt-glaptop1>
+References: <20201111100608.108842-4-zong.li@sifive.com>
+ <mhng-b245fbc4-01df-4e10-accb-6d6a569a705b@palmerdabbelt-glaptop1>
+In-Reply-To: <mhng-b245fbc4-01df-4e10-accb-6d6a569a705b@palmerdabbelt-glaptop1>
 From: Zong Li <zong.li@sifive.com>
-Date: Mon, 23 Nov 2020 15:18:17 +0800
-Message-ID: <CANXhq0rQtgVNoDJ7DLFcBRwru1H5+4_0LoANCVcGMaB2LmCOMA@mail.gmail.com>
-Subject: Re: [PATCH v4 4/4] clk: sifive: Fix the wrong bit field shift
+Date: Mon, 23 Nov 2020 15:21:53 +0800
+Message-ID: <CANXhq0qQ_es0+ioVyMqge3hSmUfJz0Rn4eApVT4NmdgiQcDuWw@mail.gmail.com>
+Subject: Re: [PATCH v4 3/4] clk: sifive: Add a driver for the SiFive FU740
+ PRCI IP block
 To: Palmer Dabbelt <palmer@dabbelt.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201123_021829_368672_84D13A70 
-X-CRM114-Status: GOOD (  18.23  )
+X-CRM114-CacheID: sfid-20201123_022206_492636_78FAA469 
+X-CRM114-Status: GOOD (  38.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -93,10 +94,10 @@ Cc: Albert Ou <aou@eecs.berkeley.edu>, Stephen Boyd <sboyd@kernel.org>,
  Michael Turquette <mturquette@baylibre.com>,
  "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
  Pragnesh Patel <pragnesh.patel@openfive.com>, Yash Shah <yash.shah@sifive.com>,
- Andreas Schwab <schwab@linux-m68k.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
+ Henry Styles <hes@sifive.com>, Andreas Schwab <schwab@linux-m68k.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Erik Danie <erik.danie@sifive.com>,
  linux-riscv <linux-riscv@lists.infradead.org>, linux-clk@vger.kernel.org,
- Pragnesh Patel <pragnesh.patel@sifive.com>
+ Pragnesh Patel <Pragnesh.patel@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
@@ -104,49 +105,534 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 On Sat, Nov 21, 2020 at 9:29 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
 >
-> On Wed, 11 Nov 2020 02:06:08 PST (-0800), zong.li@sifive.com wrote:
-> > The clk enable bit should be 31 instead of 24.
+> On Wed, 11 Nov 2020 02:06:07 PST (-0800), zong.li@sifive.com wrote:
+> > Add driver code for the SiFive FU740 PRCI IP block. This IP block
+> > handles reset and clock control for the SiFive FU740 device and
+> > implements SoC-level clock tree controls and dividers.
+> >
+> > This driver contains bug fixes and contributions from
+> > Henry Styles <hes@sifive.com>
+> > Erik Danie <erik.danie@sifive.com>
+> > Pragnesh Patel <pragnesh.patel@sifive.com>
+>
+> Is there a datasheet for this chip?  It's geneally best to link to one, in case
+> someone needs to sort out issues in the future.
+>
+
+We have a product brief as follow in public now, I would add the link
+of it in the next version patch. Thanks.
+https://sifive.cdn.prismic.io/sifive/c05b8ddd-e043-45a6-8a29-2a137090236f_HiFive+Unmatched+Product+Brief+%28released%29.pdf
+
 > >
 > > Signed-off-by: Zong Li <zong.li@sifive.com>
-> > Reported-by: Pragnesh Patel <pragnesh.patel@sifive.com>
+> > Reviewed-by: Pragnesh Patel <Pragnesh.patel@sifive.com>
+> > Cc: Henry Styles <hes@sifive.com>
+> > Cc: Erik Danie <erik.danie@sifive.com>
+> > Cc: Pragnesh Patel <pragnesh.patel@sifive.com>
 > > ---
-> >  drivers/clk/sifive/sifive-prci.h | 4 ++--
-> >  1 file changed, 2 insertions(+), 2 deletions(-)
+> >  drivers/clk/sifive/Kconfig                    |   4 +-
+> >  drivers/clk/sifive/Makefile                   |   1 +
+> >  drivers/clk/sifive/fu740-prci.c               | 122 ++++++++++++++++++
+> >  drivers/clk/sifive/fu740-prci.h               |  21 +++
+> >  drivers/clk/sifive/sifive-prci.c              | 120 +++++++++++++++++
+> >  drivers/clk/sifive/sifive-prci.h              |  88 +++++++++++++
+> >  include/dt-bindings/clock/sifive-fu740-prci.h |  23 ++++
+> >  7 files changed, 377 insertions(+), 2 deletions(-)
+> >  create mode 100644 drivers/clk/sifive/fu740-prci.c
+> >  create mode 100644 drivers/clk/sifive/fu740-prci.h
+> >  create mode 100644 include/dt-bindings/clock/sifive-fu740-prci.h
+> >
+> > diff --git a/drivers/clk/sifive/Kconfig b/drivers/clk/sifive/Kconfig
+> > index ab48cf7e0105..1c14eb20c066 100644
+> > --- a/drivers/clk/sifive/Kconfig
+> > +++ b/drivers/clk/sifive/Kconfig
+> > @@ -13,7 +13,7 @@ config CLK_SIFIVE_PRCI
+> >       select CLK_ANALOGBITS_WRPLL_CLN28HPC
+> >       help
+> >         Supports the Power Reset Clock interface (PRCI) IP block found in
+> > -       FU540 SoCs. If this kernel is meant to run on a SiFive FU540 SoC,
+> > -       enable this driver.
+> > +       FU540/FU740 SoCs. If this kernel is meant to run on a SiFive FU540/
+> > +       FU740 SoCs, enable this driver.
+> >
+> >  endif
+> > diff --git a/drivers/clk/sifive/Makefile b/drivers/clk/sifive/Makefile
+> > index fe3e2cb4c4d8..2c05798e4ba4 100644
+> > --- a/drivers/clk/sifive/Makefile
+> > +++ b/drivers/clk/sifive/Makefile
+> > @@ -2,3 +2,4 @@
+> >  obj-y += sifive-prci.o
+> >
+> >  obj-$(CONFIG_CLK_SIFIVE_PRCI)        += fu540-prci.o
+> > +obj-$(CONFIG_CLK_SIFIVE_PRCI)        += fu740-prci.o
+> > diff --git a/drivers/clk/sifive/fu740-prci.c b/drivers/clk/sifive/fu740-prci.c
+> > new file mode 100644
+> > index 000000000000..3b87e273c3eb
+> > --- /dev/null
+> > +++ b/drivers/clk/sifive/fu740-prci.c
+> > @@ -0,0 +1,122 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +/*
+> > + * Copyright (C) 2018-2019 SiFive, Inc.
+> > + * Wesley Terpstra
+> > + * Paul Walmsley
+> > + * Zong Li
+>
+> Presumably it's copyright 2020 as well, as that's the current year?  Also, IIUC
+> the copyright lines should be independent from each other.  In other words,
+> rather than
+>
+>
+>    C ... 2020 SiFive
+>    Zong
+>
+> this should be
+>
+>    C ... 2020 SiFive
+>    C ... 2020 Zong
+>
+> and the rest of this should be dropped in favor of the SPDX.
+
+Ok, many thanks for correcting that, I would modify it in the next
+version patch.
+
+
+>
+> > + * This program is free software; you can redistribute it and/or modify
+> > + * it under the terms of the GNU General Public License version 2 as
+> > + * published by the Free Software Foundation.
+> > + *
+> > + * This program is distributed in the hope that it will be useful,
+> > + * but WITHOUT ANY WARRANTY; without even the implied warranty of
+> > + * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+> > + * GNU General Public License for more details.
+> > + */
+> > +
+> > +#include <dt-bindings/clock/sifive-fu740-prci.h>
+> > +#include <linux/module.h>
+> > +#include "sifive-prci.h"
+> > +
+> > +/* PRCI integration data for each WRPLL instance */
+> > +
+> > +static struct __prci_wrpll_data __prci_corepll_data = {
+> > +     .cfg0_offs = PRCI_COREPLLCFG0_OFFSET,
+> > +     .enable_bypass = sifive_prci_coreclksel_use_hfclk,
+> > +     .disable_bypass = sifive_prci_coreclksel_use_final_corepll,
+> > +};
+> > +
+> > +static struct __prci_wrpll_data __prci_ddrpll_data = {
+> > +     .cfg0_offs = PRCI_DDRPLLCFG0_OFFSET,
+> > +};
+> > +
+> > +static struct __prci_wrpll_data __prci_gemgxlpll_data = {
+> > +     .cfg0_offs = PRCI_GEMGXLPLLCFG0_OFFSET,
+> > +};
+> > +
+> > +static struct __prci_wrpll_data __prci_dvfscorepll_data = {
+> > +     .cfg0_offs = PRCI_DVFSCOREPLLCFG0_OFFSET,
+> > +     .enable_bypass = sifive_prci_corepllsel_use_corepll,
+> > +     .disable_bypass = sifive_prci_corepllsel_use_dvfscorepll,
+> > +};
+> > +
+> > +static struct __prci_wrpll_data __prci_hfpclkpll_data = {
+> > +     .cfg0_offs = PRCI_HFPCLKPLLCFG0_OFFSET,
+> > +     .enable_bypass = sifive_prci_hfpclkpllsel_use_hfclk,
+> > +     .disable_bypass = sifive_prci_hfpclkpllsel_use_hfpclkpll,
+> > +};
+> > +
+> > +static struct __prci_wrpll_data __prci_cltxpll_data = {
+> > +     .cfg0_offs = PRCI_CLTXPLLCFG0_OFFSET,
+> > +};
+> > +
+> > +/* Linux clock framework integration */
+> > +
+> > +static const struct clk_ops sifive_fu740_prci_wrpll_clk_ops = {
+> > +     .set_rate = sifive_prci_wrpll_set_rate,
+> > +     .round_rate = sifive_prci_wrpll_round_rate,
+> > +     .recalc_rate = sifive_prci_wrpll_recalc_rate,
+> > +};
+> > +
+> > +static const struct clk_ops sifive_fu740_prci_wrpll_ro_clk_ops = {
+> > +     .recalc_rate = sifive_prci_wrpll_recalc_rate,
+> > +};
+> > +
+> > +static const struct clk_ops sifive_fu740_prci_tlclksel_clk_ops = {
+> > +     .recalc_rate = sifive_prci_tlclksel_recalc_rate,
+> > +};
+> > +
+> > +static const struct clk_ops sifive_fu740_prci_hfpclkplldiv_clk_ops = {
+> > +     .recalc_rate = sifive_prci_hfpclkplldiv_recalc_rate,
+> > +};
+> > +
+> > +/* List of clock controls provided by the PRCI */
+> > +struct __prci_clock __prci_init_clocks_fu740[] = {
+> > +     [PRCI_CLK_COREPLL] = {
+> > +             .name = "corepll",
+> > +             .parent_name = "hfclk",
+> > +             .ops = &sifive_fu740_prci_wrpll_clk_ops,
+> > +             .pwd = &__prci_corepll_data,
+> > +     },
+> > +     [PRCI_CLK_DDRPLL] = {
+> > +             .name = "ddrpll",
+> > +             .parent_name = "hfclk",
+> > +             .ops = &sifive_fu740_prci_wrpll_ro_clk_ops,
+> > +             .pwd = &__prci_ddrpll_data,
+> > +     },
+> > +     [PRCI_CLK_GEMGXLPLL] = {
+> > +             .name = "gemgxlpll",
+> > +             .parent_name = "hfclk",
+> > +             .ops = &sifive_fu740_prci_wrpll_clk_ops,
+> > +             .pwd = &__prci_gemgxlpll_data,
+> > +     },
+> > +     [PRCI_CLK_DVFSCOREPLL] = {
+> > +             .name = "dvfscorepll",
+> > +             .parent_name = "hfclk",
+> > +             .ops = &sifive_fu740_prci_wrpll_clk_ops,
+> > +             .pwd = &__prci_dvfscorepll_data,
+> > +     },
+> > +     [PRCI_CLK_HFPCLKPLL] = {
+> > +             .name = "hfpclkpll",
+> > +             .parent_name = "hfclk",
+> > +             .ops = &sifive_fu740_prci_wrpll_clk_ops,
+> > +             .pwd = &__prci_hfpclkpll_data,
+> > +     },
+> > +     [PRCI_CLK_CLTXPLL] = {
+> > +             .name = "cltxpll",
+> > +             .parent_name = "hfclk",
+> > +             .ops = &sifive_fu740_prci_wrpll_clk_ops,
+> > +             .pwd = &__prci_cltxpll_data,
+> > +     },
+> > +     [PRCI_CLK_TLCLK] = {
+> > +             .name = "tlclk",
+> > +             .parent_name = "corepll",
+> > +             .ops = &sifive_fu740_prci_tlclksel_clk_ops,
+> > +     },
+> > +     [PRCI_CLK_PCLK] = {
+> > +             .name = "pclk",
+> > +             .parent_name = "hfpclkpll",
+> > +             .ops = &sifive_fu740_prci_hfpclkplldiv_clk_ops,
+> > +     },
+> > +};
+> > diff --git a/drivers/clk/sifive/fu740-prci.h b/drivers/clk/sifive/fu740-prci.h
+> > new file mode 100644
+> > index 000000000000..13ef971f7764
+> > --- /dev/null
+> > +++ b/drivers/clk/sifive/fu740-prci.h
+> > @@ -0,0 +1,21 @@
+> > +/* SPDX-License-Identifier: GPL-2.0 */
+> > +/*
+> > + * Copyright (C) 2020 SiFive, Inc.
+> > + * Zong Li
+> > + */
+> > +
+> > +#ifndef __SIFIVE_CLK_FU740_PRCI_H
+> > +#define __SIFIVE_CLK_FU740_PRCI_H
+> > +
+> > +#include "sifive-prci.h"
+> > +
+> > +#define NUM_CLOCK_FU740      8
+> > +
+> > +extern struct __prci_clock __prci_init_clocks_fu740[NUM_CLOCK_FU740];
+> > +
+> > +static const struct prci_clk_desc prci_clk_fu740 = {
+> > +     .clks = __prci_init_clocks_fu740,
+> > +     .num_clks = ARRAY_SIZE(__prci_init_clocks_fu740),
+> > +};
+> > +
+> > +#endif /* __SIFIVE_CLK_FU740_PRCI_H */
+> > diff --git a/drivers/clk/sifive/sifive-prci.c b/drivers/clk/sifive/sifive-prci.c
+> > index 0ac729eeb71b..4098dbc5881a 100644
+> > --- a/drivers/clk/sifive/sifive-prci.c
+> > +++ b/drivers/clk/sifive/sifive-prci.c
+> > @@ -27,6 +27,7 @@
+> >  #include <linux/of_device.h>
+> >  #include "sifive-prci.h"
+> >  #include "fu540-prci.h"
+> > +#include "fu740-prci.h"
+> >
+> >  /*
+> >   * Private functions
+> > @@ -242,6 +243,18 @@ unsigned long sifive_prci_tlclksel_recalc_rate(struct clk_hw *hw,
+> >       return div_u64(parent_rate, div);
+> >  }
+> >
+> > +/* HFPCLK clock integration */
+> > +
+> > +unsigned long sifive_prci_hfpclkplldiv_recalc_rate(struct clk_hw *hw,
+> > +                                                unsigned long parent_rate)
+> > +{
+> > +     struct __prci_clock *pc = clk_hw_to_prci_clock(hw);
+> > +     struct __prci_data *pd = pc->pd;
+> > +     u32 div = __prci_readl(pd, PRCI_HFPCLKPLLDIV_OFFSET);
+> > +
+> > +     return div_u64(parent_rate, div + 2);
+> > +}
+> > +
+> >  /*
+> >   * Core clock mux control
+> >   */
+> > @@ -287,6 +300,112 @@ void sifive_prci_coreclksel_use_corepll(struct __prci_data *pd)
+> >       r = __prci_readl(pd, PRCI_CORECLKSEL_OFFSET);   /* barrier */
+> >  }
+> >
+> > +/**
+> > + * sifive_prci_coreclksel_use_final_corepll() - switch the CORECLK mux to output
+> > + * FINAL_COREPLL
+> > + * @pd: struct __prci_data * for the PRCI containing the CORECLK mux reg
+> > + *
+> > + * Switch the CORECLK mux to the final COREPLL output clock; return once
+> > + * complete.
+> > + *
+> > + * Context: Any context.  Caller must prevent concurrent changes to the
+> > + *          PRCI_CORECLKSEL_OFFSET register.
+> > + */
+> > +void sifive_prci_coreclksel_use_final_corepll(struct __prci_data *pd)
+> > +{
+> > +     u32 r;
+> > +
+> > +     r = __prci_readl(pd, PRCI_CORECLKSEL_OFFSET);
+> > +     r &= ~PRCI_CORECLKSEL_CORECLKSEL_MASK;
+> > +     __prci_writel(r, PRCI_CORECLKSEL_OFFSET, pd);
+> > +
+> > +     r = __prci_readl(pd, PRCI_CORECLKSEL_OFFSET);   /* barrier */
+> > +}
+> > +
+> > +/**
+> > + * sifive_prci_corepllsel_use_dvfscorepll() - switch the COREPLL mux to
+> > + * output DVFS_COREPLL
+> > + * @pd: struct __prci_data * for the PRCI containing the COREPLL mux reg
+> > + *
+> > + * Switch the COREPLL mux to the DVFSCOREPLL output clock; return once complete.
+> > + *
+> > + * Context: Any context.  Caller must prevent concurrent changes to the
+> > + *          PRCI_COREPLLSEL_OFFSET register.
+> > + */
+> > +void sifive_prci_corepllsel_use_dvfscorepll(struct __prci_data *pd)
+> > +{
+> > +     u32 r;
+> > +
+> > +     r = __prci_readl(pd, PRCI_COREPLLSEL_OFFSET);
+> > +     r |= PRCI_COREPLLSEL_COREPLLSEL_MASK;
+> > +     __prci_writel(r, PRCI_COREPLLSEL_OFFSET, pd);
+> > +
+> > +     r = __prci_readl(pd, PRCI_COREPLLSEL_OFFSET);   /* barrier */
+> > +}
+> > +
+> > +/**
+> > + * sifive_prci_corepllsel_use_corepll() - switch the COREPLL mux to
+> > + * output COREPLL
+> > + * @pd: struct __prci_data * for the PRCI containing the COREPLL mux reg
+> > + *
+> > + * Switch the COREPLL mux to the COREPLL output clock; return once complete.
+> > + *
+> > + * Context: Any context.  Caller must prevent concurrent changes to the
+> > + *          PRCI_COREPLLSEL_OFFSET register.
+> > + */
+> > +void sifive_prci_corepllsel_use_corepll(struct __prci_data *pd)
+> > +{
+> > +     u32 r;
+> > +
+> > +     r = __prci_readl(pd, PRCI_COREPLLSEL_OFFSET);
+> > +     r &= ~PRCI_COREPLLSEL_COREPLLSEL_MASK;
+> > +     __prci_writel(r, PRCI_COREPLLSEL_OFFSET, pd);
+> > +
+> > +     r = __prci_readl(pd, PRCI_COREPLLSEL_OFFSET);   /* barrier */
+> > +}
+> > +
+> > +/**
+> > + * sifive_prci_hfpclkpllsel_use_hfclk() - switch the HFPCLKPLL mux to
+> > + * output HFCLK
+> > + * @pd: struct __prci_data * for the PRCI containing the HFPCLKPLL mux reg
+> > + *
+> > + * Switch the HFPCLKPLL mux to the HFCLK input source; return once complete.
+> > + *
+> > + * Context: Any context.  Caller must prevent concurrent changes to the
+> > + *          PRCI_HFPCLKPLLSEL_OFFSET register.
+> > + */
+> > +void sifive_prci_hfpclkpllsel_use_hfclk(struct __prci_data *pd)
+> > +{
+> > +     u32 r;
+> > +
+> > +     r = __prci_readl(pd, PRCI_HFPCLKPLLSEL_OFFSET);
+> > +     r |= PRCI_HFPCLKPLLSEL_HFPCLKPLLSEL_MASK;
+> > +     __prci_writel(r, PRCI_HFPCLKPLLSEL_OFFSET, pd);
+> > +
+> > +     r = __prci_readl(pd, PRCI_HFPCLKPLLSEL_OFFSET); /* barrier */
+> > +}
+> > +
+> > +/**
+> > + * sifive_prci_hfpclkpllsel_use_hfpclkpll() - switch the HFPCLKPLL mux to
+> > + * output HFPCLKPLL
+> > + * @pd: struct __prci_data * for the PRCI containing the HFPCLKPLL mux reg
+> > + *
+> > + * Switch the HFPCLKPLL mux to the HFPCLKPLL output clock; return once complete.
+> > + *
+> > + * Context: Any context.  Caller must prevent concurrent changes to the
+> > + *          PRCI_HFPCLKPLLSEL_OFFSET register.
+> > + */
+> > +void sifive_prci_hfpclkpllsel_use_hfpclkpll(struct __prci_data *pd)
+> > +{
+> > +     u32 r;
+> > +
+> > +     r = __prci_readl(pd, PRCI_HFPCLKPLLSEL_OFFSET);
+> > +     r &= ~PRCI_HFPCLKPLLSEL_HFPCLKPLLSEL_MASK;
+> > +     __prci_writel(r, PRCI_HFPCLKPLLSEL_OFFSET, pd);
+> > +
+> > +     r = __prci_readl(pd, PRCI_HFPCLKPLLSEL_OFFSET); /* barrier */
+> > +}
+> > +
+> >  /**
+> >   * __prci_register_clocks() - register clock controls in the PRCI
+> >   * @dev: Linux struct device *
+> > @@ -391,6 +510,7 @@ static int sifive_prci_probe(struct platform_device *pdev)
+> >
+> >  static const struct of_device_id sifive_prci_of_match[] = {
+> >       {.compatible = "sifive,fu540-c000-prci", .data = &prci_clk_fu540},
+> > +     {.compatible = "sifive,fu740-c000-prci", .data = &prci_clk_fu740},
+> >       {}
+> >  };
 > >
 > > diff --git a/drivers/clk/sifive/sifive-prci.h b/drivers/clk/sifive/sifive-prci.h
-> > index 802fc8fb9c09..da7be9103d4d 100644
+> > index 025f717bc053..802fc8fb9c09 100644
 > > --- a/drivers/clk/sifive/sifive-prci.h
 > > +++ b/drivers/clk/sifive/sifive-prci.h
-> > @@ -59,7 +59,7 @@
+> > @@ -117,6 +117,87 @@
+> >  #define PRCI_CLKMUXSTATUSREG_TLCLKSEL_STATUS_MASK                    \
+> >               (0x1 << PRCI_CLKMUXSTATUSREG_TLCLKSEL_STATUS_SHIFT)
 > >
-> >  /* DDRPLLCFG1 */
-> >  #define PRCI_DDRPLLCFG1_OFFSET               0x10
-> > -#define PRCI_DDRPLLCFG1_CKE_SHIFT    24
-> > +#define PRCI_DDRPLLCFG1_CKE_SHIFT    31
-> >  #define PRCI_DDRPLLCFG1_CKE_MASK     (0x1 << PRCI_DDRPLLCFG1_CKE_SHIFT)
+> > +/* CLTXPLLCFG0 */
+> > +#define PRCI_CLTXPLLCFG0_OFFSET              0x30
+> > +#define PRCI_CLTXPLLCFG0_DIVR_SHIFT  0
+> > +#define PRCI_CLTXPLLCFG0_DIVR_MASK   (0x3f << PRCI_CLTXPLLCFG0_DIVR_SHIFT)
+> > +#define PRCI_CLTXPLLCFG0_DIVF_SHIFT  6
+> > +#define PRCI_CLTXPLLCFG0_DIVF_MASK   (0x1ff << PRCI_CLTXPLLCFG0_DIVF_SHIFT)
+> > +#define PRCI_CLTXPLLCFG0_DIVQ_SHIFT  15
+> > +#define PRCI_CLTXPLLCFG0_DIVQ_MASK   (0x7 << PRCI_CLTXPLLCFG0_DIVQ_SHIFT)
+> > +#define PRCI_CLTXPLLCFG0_RANGE_SHIFT 18
+> > +#define PRCI_CLTXPLLCFG0_RANGE_MASK  (0x7 << PRCI_CLTXPLLCFG0_RANGE_SHIFT)
+> > +#define PRCI_CLTXPLLCFG0_BYPASS_SHIFT        24
+> > +#define PRCI_CLTXPLLCFG0_BYPASS_MASK (0x1 << PRCI_CLTXPLLCFG0_BYPASS_SHIFT)
+> > +#define PRCI_CLTXPLLCFG0_FSE_SHIFT   25
+> > +#define PRCI_CLTXPLLCFG0_FSE_MASK    (0x1 << PRCI_CLTXPLLCFG0_FSE_SHIFT)
+> > +#define PRCI_CLTXPLLCFG0_LOCK_SHIFT  31
+> > +#define PRCI_CLTXPLLCFG0_LOCK_MASK   (0x1 << PRCI_CLTXPLLCFG0_LOCK_SHIFT)
+> > +
+> > +/* CLTXPLLCFG1 */
+> > +#define PRCI_CLTXPLLCFG1_OFFSET              0x34
+> > +#define PRCI_CLTXPLLCFG1_CKE_SHIFT   31
+> > +#define PRCI_CLTXPLLCFG1_CKE_MASK    (0x1 << PRCI_CLTXPLLCFG1_CKE_SHIFT)
+> > +
+> > +/* DVFSCOREPLLCFG0 */
+> > +#define PRCI_DVFSCOREPLLCFG0_OFFSET  0x38
+> > +
+> > +/* DVFSCOREPLLCFG1 */
+> > +#define PRCI_DVFSCOREPLLCFG1_OFFSET  0x3c
+> > +#define PRCI_DVFSCOREPLLCFG1_CKE_SHIFT       31
+> > +#define PRCI_DVFSCOREPLLCFG1_CKE_MASK        (0x1 << PRCI_DVFSCOREPLLCFG1_CKE_SHIFT)
+> > +
+> > +/* COREPLLSEL */
+> > +#define PRCI_COREPLLSEL_OFFSET                       0x40
+> > +#define PRCI_COREPLLSEL_COREPLLSEL_SHIFT     0
+> > +#define PRCI_COREPLLSEL_COREPLLSEL_MASK                                      \
+> > +             (0x1 << PRCI_COREPLLSEL_COREPLLSEL_SHIFT)
+> > +
+> > +/* HFPCLKPLLCFG0 */
+> > +#define PRCI_HFPCLKPLLCFG0_OFFSET            0x50
+> > +#define PRCI_HFPCLKPLL_CFG0_DIVR_SHIFT               0
+> > +#define PRCI_HFPCLKPLL_CFG0_DIVR_MASK                                        \
+> > +             (0x3f << PRCI_HFPCLKPLLCFG0_DIVR_SHIFT)
+> > +#define PRCI_HFPCLKPLL_CFG0_DIVF_SHIFT               6
+> > +#define PRCI_HFPCLKPLL_CFG0_DIVF_MASK                                        \
+> > +             (0x1ff << PRCI_HFPCLKPLLCFG0_DIVF_SHIFT)
+> > +#define PRCI_HFPCLKPLL_CFG0_DIVQ_SHIFT               15
+> > +#define PRCI_HFPCLKPLL_CFG0_DIVQ_MASK                                        \
+> > +             (0x7 << PRCI_HFPCLKPLLCFG0_DIVQ_SHIFT)
+> > +#define PRCI_HFPCLKPLL_CFG0_RANGE_SHIFT              18
+> > +#define PRCI_HFPCLKPLL_CFG0_RANGE_MASK                                       \
+> > +             (0x7 << PRCI_HFPCLKPLLCFG0_RANGE_SHIFT)
+> > +#define PRCI_HFPCLKPLL_CFG0_BYPASS_SHIFT     24
+> > +#define PRCI_HFPCLKPLL_CFG0_BYPASS_MASK                                      \
+> > +             (0x1 << PRCI_HFPCLKPLLCFG0_BYPASS_SHIFT)
+> > +#define PRCI_HFPCLKPLL_CFG0_FSE_SHIFT                25
+> > +#define PRCI_HFPCLKPLL_CFG0_FSE_MASK                                 \
+> > +             (0x1 << PRCI_HFPCLKPLLCFG0_FSE_SHIFT)
+> > +#define PRCI_HFPCLKPLL_CFG0_LOCK_SHIFT               31
+> > +#define PRCI_HFPCLKPLL_CFG0_LOCK_MASK                                        \
+> > +             (0x1 << PRCI_HFPCLKPLLCFG0_LOCK_SHIFT)
+> > +
+> > +/* HFPCLKPLLCFG1 */
+> > +#define PRCI_HFPCLKPLLCFG1_OFFSET            0x54
+> > +#define PRCI_HFPCLKPLLCFG1_CKE_SHIFT         31
+> > +#define PRCI_HFPCLKPLLCFG1_CKE_MASK                                  \
+> > +             (0x1 << PRCI_HFPCLKPLLCFG1_CKE_SHIFT)
+> > +
+> > +/* HFPCLKPLLSEL */
+> > +#define PRCI_HFPCLKPLLSEL_OFFSET             0x58
+> > +#define PRCI_HFPCLKPLLSEL_HFPCLKPLLSEL_SHIFT 0
+> > +#define PRCI_HFPCLKPLLSEL_HFPCLKPLLSEL_MASK                          \
+> > +             (0x1 << PRCI_HFPCLKPLLSEL_HFPCLKPLLSEL_SHIFT)
+> > +
+> > +/* HFPCLKPLLDIV */
+> > +#define PRCI_HFPCLKPLLDIV_OFFSET             0x5c
+> > +
+> > +/* PRCIPLL */
+> > +#define PRCI_PRCIPLL_OFFSET                  0xe0
+> > +
+> > +/* PROCMONCFG */
+> > +#define PRCI_PROCMONCFG_OFFSET                       0xf0
+> > +
+> >  /*
+> >   * Private structures
+> >   */
+> > @@ -187,6 +268,11 @@ struct prci_clk_desc {
+> >  /* Core clock mux control */
+> >  void sifive_prci_coreclksel_use_hfclk(struct __prci_data *pd);
+> >  void sifive_prci_coreclksel_use_corepll(struct __prci_data *pd);
+> > +void sifive_prci_coreclksel_use_final_corepll(struct __prci_data *pd);
+> > +void sifive_prci_corepllsel_use_dvfscorepll(struct __prci_data *pd);
+> > +void sifive_prci_corepllsel_use_corepll(struct __prci_data *pd);
+> > +void sifive_prci_hfpclkpllsel_use_hfclk(struct __prci_data *pd);
+> > +void sifive_prci_hfpclkpllsel_use_hfpclkpll(struct __prci_data *pd);
 > >
-> >  /* GEMGXLPLLCFG0 */
-> > @@ -81,7 +81,7 @@
+> >  /* Linux clock framework integration */
+> >  long sifive_prci_wrpll_round_rate(struct clk_hw *hw, unsigned long rate,
+> > @@ -197,5 +283,7 @@ unsigned long sifive_prci_wrpll_recalc_rate(struct clk_hw *hw,
+> >                                           unsigned long parent_rate);
+> >  unsigned long sifive_prci_tlclksel_recalc_rate(struct clk_hw *hw,
+> >                                              unsigned long parent_rate);
+> > +unsigned long sifive_prci_hfpclkplldiv_recalc_rate(struct clk_hw *hw,
+> > +                                                unsigned long parent_rate);
 > >
-> >  /* GEMGXLPLLCFG1 */
-> >  #define PRCI_GEMGXLPLLCFG1_OFFSET    0x20
-> > -#define RCI_GEMGXLPLLCFG1_CKE_SHIFT  24
-> > +#define RCI_GEMGXLPLLCFG1_CKE_SHIFT  31
-> >  #define PRCI_GEMGXLPLLCFG1_CKE_MASK  (0x1 << PRCI_GEMGXLPLLCFG1_CKE_SHIFT)
-> >
-> >  /* CORECLKSEL */
->
-> Section 7.3 of v1.0 of the FU540 manual says that bit 24 contains the PLL clock
-> enable for both of these.  I don't know if that's accurate, but if it is then I
-> believe this would break the FU540.  Don't have one to test on, though.
-
-Yes, the manual seems to be wrong and should be corrected. It doesn't
-break the FU540 yet because we don't use these fields in s-mode Linux
-driver, we set them in m-mode FSBL/U-boot-SPL bootloader during boot
-time, and the implementation of FSBL and U-boot-SPL both are correct.
-The following link is the U-boot SPL source:
-
-https://github.com/u-boot/u-boot/blob/da09b99ea572cec9a114872e480b798db11f9c6e/drivers/clk/sifive/fu540-prci.c#L128
+> >  #endif /* __SIFIVE_CLK_SIFIVE_PRCI_H */
+> > diff --git a/include/dt-bindings/clock/sifive-fu740-prci.h b/include/dt-bindings/clock/sifive-fu740-prci.h
+> > new file mode 100644
+> > index 000000000000..cd7706ea5677
+> > --- /dev/null
+> > +++ b/include/dt-bindings/clock/sifive-fu740-prci.h
+> > @@ -0,0 +1,23 @@
+> > +/* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
+> > +/*
+> > + * Copyright (C) 2019 SiFive, Inc.
+> > + * Wesley Terpstra
+> > + * Paul Walmsley
+> > + * Zong Li
+> > + */
+> > +
+> > +#ifndef __DT_BINDINGS_CLOCK_SIFIVE_FU740_PRCI_H
+> > +#define __DT_BINDINGS_CLOCK_SIFIVE_FU740_PRCI_H
+> > +
+> > +/* Clock indexes for use by Device Tree data and the PRCI driver */
+> > +
+> > +#define PRCI_CLK_COREPLL            0
+> > +#define PRCI_CLK_DDRPLL                     1
+> > +#define PRCI_CLK_GEMGXLPLL          2
+> > +#define PRCI_CLK_DVFSCOREPLL        3
+> > +#define PRCI_CLK_HFPCLKPLL          4
+> > +#define PRCI_CLK_CLTXPLL            5
+> > +#define PRCI_CLK_TLCLK                      6
+> > +#define PRCI_CLK_PCLK                       7
+> > +
+> > +#endif       /* __DT_BINDINGS_CLOCK_SIFIVE_FU740_PRCI_H */
 
 _______________________________________________
 linux-riscv mailing list
