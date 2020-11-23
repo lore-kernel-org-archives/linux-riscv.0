@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BC50BC2D0E4
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2020 15:41:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6F7D9C56202
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2020 15:42:10 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 39E0E2080A
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2020 15:41:06 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B13C62080A
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2020 15:42:09 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="mbWVWaLw";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="Awgx4kyY"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 39E0E2080A
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="zPzphtJV";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="BBzoE8ca"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B13C62080A
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Vzzd9CFtkI/Kq+XJoFAz58UJJWhVL9opoVY/Zdrfiu0=; b=mbWVWaLwiqcsvx94nscdkbvh4v
-	GEZU4Vjl8+iTCQwE7ISMjVVzYEA4JIId5r2J+K/iZ1M3VLDGa9JHy01bjob28EuwNYAZuzmRD/eG9
-	18tnGTtLN7NCkdKe3onJ/rCgLp9Ctp/xe/EV3WQCWc/Ww2jxcVL85woNqiS5ulh1LJUrNkczxx4Sl
-	piIemaIX2oOFe+AQgu9e56nswLO3Mlh63SDHjcRCYGOTaG52OdJO72mrf8xCvChm666rOGYMc1M4N
-	398EQ/1X7+Ipztb6BV8/CtQSGEFMfv7d+WI6iws6Q/qP4pWUeg9dxT5OzjFGEL96mp0ghBwAGwKfv
-	ep0qOI9w==;
+	List-Unsubscribe:List-Id:References:In-Reply-To:Message-Id:Date:Subject:To:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iwuZOBSs8KTVFbY+TvswIow3dkOwI5EC+66wpksTn70=; b=zPzphtJVRJN1EQhFmQNLc6JUcT
+	LTvmN0r1UW5Q21RxX84W6NPwc1EIdf4BAxp4TXBOLhOekYkTuxyQGljUqXQICnmAyMo1aMJCr0jdR
+	sb8EGlaDUXMIChs8Rt+I4X/60VneY/GjJWBQQZNQeQNjvS3iFGpTdclsJczEzsO7hNHrZLBt9oij7
+	M5zgT34+G1QmmfV2OiHc+9R8w78tlDBSFshYQlNrYz60LUgVOeYWfKoUZ2uDl4SYgXRyk9+ff4096
+	KawXL1wI1dy3pyIfj9lb+otEPDLIc1Op4eJPNwOw69rAH/cPFdKa0Jeo/zjNV3SaMFBvK/Byykj36
+	DzKEW4GQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1khDxa-0008DM-M2; Mon, 23 Nov 2020 15:40:58 +0000
+	id 1khDyd-0008IO-N0; Mon, 23 Nov 2020 15:42:03 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1khDxY-0008Cq-9a
- for linux-riscv@lists.infradead.org; Mon, 23 Nov 2020 15:40:57 +0000
+ id 1khDya-0008Hv-UE
+ for linux-riscv@lists.infradead.org; Mon, 23 Nov 2020 15:42:01 +0000
 Received: from localhost.localdomain (unknown [42.120.72.69])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 14C8220719;
- Mon, 23 Nov 2020 15:40:42 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id D9F472080A;
+ Mon, 23 Nov 2020 15:41:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1606146054;
- bh=Hcdyfk0kYZsv3hI9btjRLhXcU3rfrTM3E8RHn/I8BW8=;
- h=From:To:Cc:Subject:Date:From;
- b=Awgx4kyYENeoi1NYuacQXc+hhbiVF1VZs+iiqWoPyJ94EHr3CJZtVF0eMkqpW0Sq6
- MZ1Gu2tIiz9bm2IVkekd7Wsu8KjPDhNNU3fJYw9oxWoTLGGHfGrVuceTclBYibHXM/
- +UdB5YgHG6XdaM0NRPF8FiLWZFK61SxgIl4kJCIA=
+ s=default; t=1606146120;
+ bh=OkJ2G8OhwKYgiWV+wVeIHk5f00NcDCpYKGYROpWFFj8=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=BBzoE8caN1W5rpt/49LeI61b+JMMUEYmqcfkKzb6pQje5cJixZm7fpK7/c5xsYqrB
+ s17eWacNj1VxpG3oYW8dukePKbcubXUXDjZ7a0PNm3u1ywUpMORABnl1EhQC0lFeLN
+ o0lFPm1/He8laSaKCDBp2mkloa37H4isO4U1ZPp0=
 From: guoren@kernel.org
 To: palmerdabbelt@google.com, paul.walmsley@sifive.com, anup@brainfault.org,
  greentime.hu@sifive.com, zong.li@sifive.com, atish.patra@wdc.com
-Subject: [PATCH 1/2] riscv: Fixup do_page_fault warning in uprobe_xol
-Date: Mon, 23 Nov 2020 15:39:39 +0000
-Message-Id: <1606145980-5153-1-git-send-email-guoren@kernel.org>
+Subject: [PATCH 2/2] riscv: Fixup trace_hardirqs_on in entry.S
+Date: Mon, 23 Nov 2020 15:39:40 +0000
+Message-Id: <1606145980-5153-2-git-send-email-guoren@kernel.org>
 X-Mailer: git-send-email 2.7.4
+In-Reply-To: <1606145980-5153-1-git-send-email-guoren@kernel.org>
+References: <1606145980-5153-1-git-send-email-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201123_104056_434307_5AD695FA 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20201123_104201_346813_15EDA3B4 
+X-CRM114-Status: GOOD (  12.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -83,69 +85,43 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-[  670.922295] BUG: sleeping function called from invalid context at kernel/locking/rwsem.c:1491
-[  670.930853] in_atomic(): 0, irqs_disabled(): 1, non_block: 0, pid: 96, name: hello
-[  670.938446] CPU: 0 PID: 96 Comm: hello Tainted: G        W         5.9.3-00875-gaf1498803464-dirty #31
-[  670.947775] Call Trace:
-[  670.950236] [<ffffffe000203dc8>] walk_stackframe+0x0/0xc2
-[  670.955650] [<ffffffe000204078>] show_stack+0x46/0x52
-[  670.960716] [<ffffffe0005a3fce>] dump_stack+0x90/0xb6
-[  670.965783] [<ffffffe0002336b2>] ___might_sleep+0xf8/0x10c
-[  670.971284] [<ffffffe000233716>] __might_sleep+0x50/0x7e
-[  670.976613] [<ffffffe000a71498>] down_read+0x32/0xe0
-[  670.981592] [<ffffffe000207798>] do_page_fault+0xf0/0x3d8
-[  670.987006] [<ffffffe000201de8>] ret_from_exception+0x0/0x14
-
-When CONFIG_DEBUG_ATOMIC_SLEEP is enabled:
-mmap_read_lock()->down_read()->might_sleep->___might_sleep() will
-check irqs_disabled() is 0 or Not. If irqs disabled, kernel prints
-the BUG warning.
-
-Uprobe need prepare a xol_slot to emulate single-step the instruction
-for uprobe with irqs-off in user context. So it's the only case for
-us to meet a irqs-off user context situation.
-
-Second:
-
-/* Enable interrupts if they were enabled in the parent context. */
-if (likely(regs->status & SR_PIE))
-	local_irq_enable();
-
-It's duplicate with the patch by Vincent commit: c82dd6d078a2 ("
-riscv: Avoid interrupts being erroneously enabled in
-handle_exception()")
+Move trace_hardirqs_on to correct place. If SR_PIE isn't set, the
+trace_hardirqs_on will cause wrong record.
 
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 Cc: Palmer Dabbelt <palmer@sifive.com>
 Cc: Vincent Chen <vincent.chen@sifive.com>
 ---
- arch/riscv/mm/fault.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+ arch/riscv/kernel/entry.S | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
-diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
-index e889e65..a9d1f12 100644
---- a/arch/riscv/mm/fault.c
-+++ b/arch/riscv/mm/fault.c
-@@ -55,10 +55,6 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
- 	if (unlikely((addr >= VMALLOC_START) && (addr <= VMALLOC_END)))
- 		goto vmalloc_fault;
- 
--	/* Enable interrupts if they were enabled in the parent context. */
--	if (likely(regs->status & SR_PIE))
--		local_irq_enable();
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index 7a1a6bb..c1b38e2 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -124,17 +124,17 @@ skip_context_tracking:
+ 	REG_L a1, (a1)
+ 	jr a1
+ 1:
+-#ifdef CONFIG_TRACE_IRQFLAGS
+-	call trace_hardirqs_on
 -
+-	REG_L s1, PT_STATUS(sp)
+-#endif
  	/*
- 	 * If we're in an interrupt, have no user context, or are running
- 	 * in an atomic region, then we must not take the fault.
-@@ -71,6 +67,8 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
+ 	 * Exceptions run with interrupts enabled or disabled depending on the
+ 	 * state of SR_PIE in m/sstatus.
+ 	 */
+ 	andi t0, s1, SR_PIE
+ 	beqz t0, 1f
++#ifdef CONFIG_TRACE_IRQFLAGS
++	call trace_hardirqs_on
++
++	REG_L s1, PT_STATUS(sp)
++#endif
+ 	csrs CSR_STATUS, SR_IE
  
- 	perf_sw_event(PERF_COUNT_SW_PAGE_FAULTS, 1, regs, addr);
- 
-+	/* Enable interrupts for user context. */
-+	local_irq_enable();
- retry:
- 	mmap_read_lock(mm);
- 	vma = find_vma(mm, addr);
+ 1:
 -- 
 2.7.4
 
