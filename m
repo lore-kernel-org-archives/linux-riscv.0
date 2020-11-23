@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 79A87C63697
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2020 07:22:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B2966C2D0E4
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2020 07:31:20 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CBCE12072C
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2020 07:22:16 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 2208420731
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2020 07:31:19 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="YKzAfOZ9";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="R2+nqaQh"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CBCE12072C
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="IZ0RuXqH";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=sifive.com header.i=@sifive.com header.b="Wg32dI0o"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2208420731
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,59 +26,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=U+lbNTTmBUaAVldI97vo61UTVKMj204nLREkW5g9kb0=; b=YKzAfOZ9w1Ju9OW9CKRj6GCw0
-	DuwxHKkQ3cTTViskWEtBVybYTI37oUWmYmK5hyyJ6GDwHC4eL8HOmjOL9pd9GlkpkovrI0o15+mhQ
-	OBRcBsbKiBX6rbWwONIoILvcsU/8xcEwRDRH93ddbcxZgTUEub9o/A52ydGeo9/2wl744BBlOSKqX
-	5fLc2eKYYCAWkzGgjb8aYtxV/pCBkOM5Y7/bp6vCV87ekmzBRUwDPcz5wnWRg26WkqDDEa99S5jaJ
-	j6cSXD+VBAAX472JKfaWnSDWoZ2T0eyltJTouYBgS8L4Xihmnt4lx87uF5QEqO/8Y0RFg7ZOBkven
-	kcGuBd8yA==;
+	 bh=xvDT5a60rEM0Y8ng0LzEeQ8qP+ULjbRATG+J4fKn49U=; b=IZ0RuXqHpfg+qSJYd/DnDeYtd
+	SL93qmBOCjpMYK7Ci9SFFbSNL8QsvzPx3CFfA9tXZycCS2VWCBFRt/tih/Cxs8Rj0Xm+gVg34Rx2o
+	xRsJN4M42DkGQoJoniiEmf/LmBaQHhumvhVvhfsYAJSK5gNXY55fUiMItKLpdnrlH6eU9iYuPhLm0
+	W3fzF9MpLz/qEBbMCfrXdAlcWsCtm+NVvJHO8M5NeUBG01hsYENebvxCDw67GcpGpO8GxBOCMOCsH
+	SvOvSycZbMBJKodnesjzH19+U/TxlacMyskFlLzdP4BkAlYpkPPhRLVl7yHQYeav0/sRPiWtLd9Jv
+	9Mhxs+13A==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kh6As-0002Fr-Ha; Mon, 23 Nov 2020 07:22:10 +0000
-Received: from mail-oo1-xc43.google.com ([2607:f8b0:4864:20::c43])
+	id 1kh6Jc-00034M-JY; Mon, 23 Nov 2020 07:31:12 +0000
+Received: from mail-ot1-x344.google.com ([2607:f8b0:4864:20::344])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kh6Ao-0002Eu-8l
- for linux-riscv@lists.infradead.org; Mon, 23 Nov 2020 07:22:09 +0000
-Received: by mail-oo1-xc43.google.com with SMTP id z13so3731118ooa.5
- for <linux-riscv@lists.infradead.org>; Sun, 22 Nov 2020 23:22:05 -0800 (PST)
+ id 1kh6JZ-00033h-9z
+ for linux-riscv@lists.infradead.org; Mon, 23 Nov 2020 07:31:11 +0000
+Received: by mail-ot1-x344.google.com with SMTP id l36so15055932ota.4
+ for <linux-riscv@lists.infradead.org>; Sun, 22 Nov 2020 23:31:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=veDkrlAP3vUASI5nWgzt1ja9Csyliot/DOyJrmX/+io=;
- b=R2+nqaQhvt6dzwcWZ0RLarfwZKT4EgsIuGvAr8ZBG8vbJfnOp4s3o8BbZFyW5M1Ar/
- cVpyx01AZR9tzR5RCQ2J2bg7dAFjLX957kIMlv/qJ4j4x6Yo0DJpTWiwH1lqH9WdRzb0
- CMpEDKlRCpN86EOkW1JyXu0ZJkRB2bm7LddQP2m4vkFsEUhOI9TEWkO5sBUiuTw+qNVg
- 3FLfoJwob3cXi5PPw4UT2x2YBVCeOIX2NsU9aMsaz0RZw+oTC58oPrsoWm/tqU9iSDsZ
- oGdsGAmCehMGhm8q/jBVIC2Wuaw1hExXZM4EbdNzg41iIQg1sOvZTjKRWJKn4Q/G++iu
- PrbQ==
+ :cc; bh=nvzd84leekxZb1Ftygf07lWNtvjaa2ESlNoR+u/aGto=;
+ b=Wg32dI0o7uR6lqsCxJtcjjVyYOLyHXyROW+E5OFy7sjVXvPCtRUf3CkKVYPujL1BjK
+ 9oc7uwRbM1PCcMiu7sFmMNrXxPKvRgyQpniDbbA1p21R+G+WsY6g00h4mFrmjU4/BGRc
+ KAu2Q42CQRYC99azzRfv048VyEf0nfCFuCQ9NBctLv3HmhosGN8u1o2aAcfbl6/ykgCi
+ dT4Nq4u3wbj6ypUUEA6+emASNSUWRaUwVNLVEZATIDJQmqx22dTcc/0YxdrkyUw9O/P8
+ +ZRxuI/ASQ6PI+4CKESjqk0lCY06xRWgdYjlpVmW/JSsaYeCIKLiffxJYWsu0vCU4chn
+ o1cw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=veDkrlAP3vUASI5nWgzt1ja9Csyliot/DOyJrmX/+io=;
- b=D22HiEnKjvUdgkjObSb6+j6uPbaWzmvzHWnQxjoh0qzbY4mtAeHq1vG6iNsBPGCsES
- YAK6ceOxlJ70aVnwDoix5ur1Pl1DrPNDpbvXfU2+zvd5n5uX8KG1hJq8EFa35Mz3GxAZ
- SNsfqibOANyMxPmb1sWO1IDuhRYp/eIvm6J6YtXe8Yb2UiYPMtuDemKEIvXMWamHlQJR
- KmzPprs6t5wiM8PIAc9GDVixIOZXOrQQAQP7TMOOFmZwHJ6MWGabe8vKCZSoj7Q46V4f
- yc9IG3ZDEWrL2i4mnhzrNk2HNcnTH3W7K+AMnZ/VpKRRJBbLJqorpks23NnCWV9/LtdT
- CUew==
-X-Gm-Message-State: AOAM531DZF1YYFV8YmJcZRnQWiKRYnEIQDjWQEJdQBxzd/5S4YJbKGh7
- bcVTVi4L4Dis3IMI/NrvgBrYWT1wP+gEDIzPGxO3bA==
-X-Google-Smtp-Source: ABdhPJzkYatD8bxSRbgX2vw4sl37lxUmnbMXTYGT4rNUnbHtjcfLZyQvSZNaqc5p9NrL3OZN5YmoxRTGsmBB3lcHKsU=
-X-Received: by 2002:a4a:eac1:: with SMTP id s1mr22131872ooh.15.1606116123747; 
- Sun, 22 Nov 2020 23:22:03 -0800 (PST)
+ bh=nvzd84leekxZb1Ftygf07lWNtvjaa2ESlNoR+u/aGto=;
+ b=kPIuOd2NoMhpXcjEMNFGSmnO3G1kSHfTHYa25e7O455g4c2LAo8myEzhtpDW/1IV7t
+ dWARXOqynopEs4STnQUXYtfxEcaUnIQlTpObDk5Qu2P5xIENdaSSPYrhU3dtTG3HG0sO
+ aS5Y2a1awMO3t3jUy1Tlzhd5fXvkRmaOxVdER1KcxmGFJnJ7vUPqUeGZHwooN5EErrY1
+ hZbRam8vf1X3irAmIhx9uuUu9Nc/OgXlbhWgu5GbiqTvWPJb8iaWWYHxc9szUym1Pg5p
+ IoIS4ZvUbmMYyreiC5Q6J8gyFGmccanfblHvYqUI+CV//WkoieLEX9Z168owGPsLQQAO
+ FIJg==
+X-Gm-Message-State: AOAM530kTCxkICmVCGgKIJcZvsw4AGjEK9Zx+2JKvACLA4CCEv0tJ8tG
+ 6Nw600jpeuZ/0z+Gm2AX9rz2dtQ9+aBGhBETTqNZ9g==
+X-Google-Smtp-Source: ABdhPJyftWmPWL3HuHLpQyfgod7csuDWn+XQN6uGSLd62YVxuVKF6hkeEFBhWbx8U6G+a9h7qOBXlMUC2Uh1pTE14Mc=
+X-Received: by 2002:a05:6830:1ad0:: with SMTP id
+ r16mr22850487otc.160.1606116665953; 
+ Sun, 22 Nov 2020 23:31:05 -0800 (PST)
 MIME-Version: 1.0
 References: <20201111100608.108842-4-zong.li@sifive.com>
- <mhng-b245fbc4-01df-4e10-accb-6d6a569a705b@palmerdabbelt-glaptop1>
-In-Reply-To: <mhng-b245fbc4-01df-4e10-accb-6d6a569a705b@palmerdabbelt-glaptop1>
+ <mhng-c9b6aff3-72de-4ccc-9b9d-8ec7229c101d@palmerdabbelt-glaptop1>
+In-Reply-To: <mhng-c9b6aff3-72de-4ccc-9b9d-8ec7229c101d@palmerdabbelt-glaptop1>
 From: Zong Li <zong.li@sifive.com>
-Date: Mon, 23 Nov 2020 15:21:53 +0800
-Message-ID: <CANXhq0qQ_es0+ioVyMqge3hSmUfJz0Rn4eApVT4NmdgiQcDuWw@mail.gmail.com>
+Date: Mon, 23 Nov 2020 15:30:55 +0800
+Message-ID: <CANXhq0rt=F5Zqf7oBsqQyJBSmQpO9Afj4Sgwmnv5gkjuDZUMtg@mail.gmail.com>
 Subject: Re: [PATCH v4 3/4] clk: sifive: Add a driver for the SiFive FU740
  PRCI IP block
 To: Palmer Dabbelt <palmer@dabbelt.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201123_022206_492636_78FAA469 
-X-CRM114-Status: GOOD (  38.15  )
+X-CRM114-CacheID: sfid-20201123_023109_693502_CD527CFE 
+X-CRM114-Status: GOOD (  35.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -114,15 +115,6 @@ On Sat, Nov 21, 2020 at 9:29 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
 > > Henry Styles <hes@sifive.com>
 > > Erik Danie <erik.danie@sifive.com>
 > > Pragnesh Patel <pragnesh.patel@sifive.com>
->
-> Is there a datasheet for this chip?  It's geneally best to link to one, in case
-> someone needs to sort out issues in the future.
->
-
-We have a product brief as follow in public now, I would add the link
-of it in the next version patch. Thanks.
-https://sifive.cdn.prismic.io/sifive/c05b8ddd-e043-45a6-8a29-2a137090236f_HiFive+Unmatched+Product+Brief+%28released%29.pdf
-
 > >
 > > Signed-off-by: Zong Li <zong.li@sifive.com>
 > > Reviewed-by: Pragnesh Patel <Pragnesh.patel@sifive.com>
@@ -137,6 +129,19 @@ https://sifive.cdn.prismic.io/sifive/c05b8ddd-e043-45a6-8a29-2a137090236f_HiFive
 > >  drivers/clk/sifive/sifive-prci.c              | 120 +++++++++++++++++
 > >  drivers/clk/sifive/sifive-prci.h              |  88 +++++++++++++
 > >  include/dt-bindings/clock/sifive-fu740-prci.h |  23 ++++
+>
+> I don't see the bindings in Documentation, but assuming they're in flight
+
+Yash is working on some DT bindings, but he suggests that I could
+integrate PRCI's binding in this patch set, and rename the prci
+binding file, so I would add the binding in the next version.
+
+
+>
+> Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
+>
+> Thanks!
+>
 > >  7 files changed, 377 insertions(+), 2 deletions(-)
 > >  create mode 100644 drivers/clk/sifive/fu740-prci.c
 > >  create mode 100644 drivers/clk/sifive/fu740-prci.h
@@ -177,27 +182,7 @@ https://sifive.cdn.prismic.io/sifive/c05b8ddd-e043-45a6-8a29-2a137090236f_HiFive
 > > + * Wesley Terpstra
 > > + * Paul Walmsley
 > > + * Zong Li
->
-> Presumably it's copyright 2020 as well, as that's the current year?  Also, IIUC
-> the copyright lines should be independent from each other.  In other words,
-> rather than
->
->
->    C ... 2020 SiFive
->    Zong
->
-> this should be
->
->    C ... 2020 SiFive
->    C ... 2020 Zong
->
-> and the rest of this should be dropped in favor of the SPDX.
-
-Ok, many thanks for correcting that, I would modify it in the next
-version patch.
-
-
->
+> > + *
 > > + * This program is free software; you can redistribute it and/or modify
 > > + * it under the terms of the GNU General Public License version 2 as
 > > + * published by the Free Software Foundation.
