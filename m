@@ -2,81 +2,116 @@ Return-Path: <SRS0=TXXs=E5=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2DEB2C63777
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2020 10:12:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B04C7C2D0E4
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2020 10:32:59 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7EECC21741
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2020 10:12:03 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id F1BF520731
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2020 10:32:58 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pmPUYvoH";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="T6Fqxc/I";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="EIpjWtdb"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7EECC21741
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="tN3/y8mH";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=osportal.onmicrosoft.com header.i=@osportal.onmicrosoft.com header.b="nPIHEHNB"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F1BF520731
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=openfive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:Message-ID:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=fK5LarivX75IOCTDpUDU+a6oROC2TzsXzpnC4Xyo0PU=; b=pmPUYvoH7EEJkB81faJvPwSNk
-	ADsBzGreetos7DeLIsyJB1L8Tb/dgpk5qKKPRujP4VUx6O2LYlruPNCU7KMwwXJPBBVJY1hu6z+57
-	sRWWEa/+MNXu8Wbqcm1lRmOXVwkWJChQViZjmwWdJxGYn7bBNLLU+HjlL14vXOe52ZkFpXGpxaqrC
-	UWLDUqErHU/9riXDvXKdQYkyCOpPl5CYVBOTnHFaAELg6pNzUEnu9Uf9HI30f8GkVZMr4dtDvKRF/
-	6nOJHP37FFjdu2iBrAYB2gJueKNc1Y5MT30AJ8jfQw/eVY5KC88W+pQXk5JVzJFzXViElAADah7Sz
-	2NJ2BzYSg==;
+	 bh=qAQRACshDzZb08110QDe9Dqz3Sbl4pCwVGB54PEfAE0=; b=tN3/y8mHIok+fM9MZsO08rWGu
+	qxmv+U5bXyd9hmDLqg2Je1JCwjTQZmh9hXgmvG+FERME7Wjhqnpu/UXsvuUbp1pavw3xTgI06jV/K
+	0DX0SU1Jr1l7ff/wvrrX8Jo/sbvNhQtWRfGBOlqzRIbS9xDYJ3Q86TvRvbW05eVivg9HZ0aRu7su4
+	57Dc+8i5JxUOh6hYaY7JZaE5viJBJxAc1icT3MdZ8DHtBGapnztfGQ8WZoJNHTBv2Etx1WuH7eu+X
+	JSW2C3kmVPv5rtPOhaIreOjInyovVGP/S61Rt5/FhMJqJg1pEuBe/Mr/miVABuIQUFbvojzSMBp7j
+	N8LWV7cJQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kh8pC-0002eG-3e; Mon, 23 Nov 2020 10:11:58 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1kh99O-0004wN-P8; Mon, 23 Nov 2020 10:32:51 +0000
+Received: from mail-eopbgr760052.outbound.protection.outlook.com
+ ([40.107.76.52] helo=NAM02-CY1-obe.outbound.protection.outlook.com)
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kh8p2-0002cD-9J; Mon, 23 Nov 2020 10:11:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
- References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
- Content-Type:Content-ID:Content-Description;
- bh=E/W4W1XwylnK/N0X0i/Gq2ou7FUXg3zj7gJvVw5OZYk=; b=T6Fqxc/If87RJWDLZDRNnpPsx+
- LLu67oxL66iFYRZ10RHFbRziof2HDE0xOSznxRGPqY57wuZ48x5MTDi+RruqhPgJjeJHMLtrPzB6E
- a3cCReTBlnCLV072BwLIvmPD8p1h+KnlIwJk6rO+gEUYEhfynVrhRGtxUtHjY/APYBD6JBE+yCJNh
- Aprb2igVmaBesatL9/lGqy6TEX62BYSXg/3Q2j0xiPTZAYs07Z52ZNk6m33fW0JIW+px0vPt1wOYh
- W8rU1nfpAqgzBLXaKYwJHyiQ85k4xgexWFykStvjwSBlUlUFVBNzPPKzCeaH/tyi8g5pzc8gxKb0U
- SQDtTa/A==;
-Received: from mail.kernel.org ([198.145.29.99])
- by casper.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kh8a3-000661-Rr; Mon, 23 Nov 2020 09:56:23 +0000
-Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id D68832173E;
- Mon, 23 Nov 2020 09:56:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1606125378;
- bh=64/nnNkWaw37auo1/WFU5MJoRfuZyG65K2HxiqGfNR8=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=EIpjWtdbRzUsk5HBSixDRxGxiD1QD7x1saJnHy0lZc5KZ5En9HMwD8F68J37fqkH8
- X+Y628u+8TWaqF+j7YYOeO4sR69NF6tMo2cKo7AZvfYOqdDx+hl42HQMOCMyIWA5PU
- USfgrMV9wHHBWwxeNwWpSY13mAc+t/p1fX1rQEmM=
-From: Mike Rapoport <rppt@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH v10 8/9] arch,
- mm: wire up memfd_secret system call were relevant
-Date: Mon, 23 Nov 2020 11:54:31 +0200
-Message-Id: <20201123095432.5860-9-rppt@kernel.org>
-X-Mailer: git-send-email 2.28.0
-In-Reply-To: <20201123095432.5860-1-rppt@kernel.org>
-References: <20201123095432.5860-1-rppt@kernel.org>
+ id 1kh99M-0004w0-Lq
+ for linux-riscv@lists.infradead.org; Mon, 23 Nov 2020 10:32:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Cz8G1RvioP2kw1MDCl9hwjLCfjK20fwHL5FdL8554oKz4xEcxZxVu3ShKWaWLUaVslnqB/21GDoaH/q0yCWCfJHwZNf9POJxUL4NyGQnan1r911zslm1jEuwzIycMxZHchJpQ7szuVRx2ean8fUY+9WIUtCujpNObG+YhuBCw2kKkoYariz/wwkOknD4z8Vw77OmJxfhFJUvu1PbyDyO4pNvT45kzFblzPasVbkjhn44iRC8GhqkJYJ3pXD9dl74lfi5cN9J3sWm6DQzlQpC7P7LWwLPuKOy0+0dQjQsWae9YSziYlc7+tENcdYVRHbs85yZtPBRj5NqpNdJohblgQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/v3RabOWkB62RDyacqMafWyOZB5vX0udc7dbs95u1DY=;
+ b=ezx8u22/WtHwdKozsNXuejjtd8DVxmLrmXVVmUV4GNYBKOevAWtR/vAJuCRxS2pzXuV2TFoxBtSLDwM0qG5sh3Tjj2YuDv42ImuwTSbUyrINL1aKK1luGgHU5bj05ash3tHkqDVEptzO9RXIPQrQViVMr6rm0xptCRGvJMmeVySSNdJizH5Dsbi4KropvNTZioq5Fd232Wy8XFTeVwVBj2kWN7P/NyI++o19GOoglaGh49g2Ad4IMFRKjmAJgVNJq9v64kj2vWmCl7ElX1X14n+zQ/BFrngVzk07AgWPG0YdT9z0pzd/12I+w5cb2obbh7i53xm9TbegAZRapuCYUQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=openfive.com; dmarc=pass action=none header.from=openfive.com;
+ dkim=pass header.d=openfive.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=osportal.onmicrosoft.com; s=selector2-osportal-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/v3RabOWkB62RDyacqMafWyOZB5vX0udc7dbs95u1DY=;
+ b=nPIHEHNB4IG7K4TNUgcRABjrlwuTBONKfZ6GxJja4nVXij6K4dZpDiVZnaCaaNf3b+5NYxcoSq2Lhiat1pcNinF84WcVssy+B74M7CutxlcGz9C7qWeroHnEXRLNGp+UiRPDIn5ymcTuxWfZ3kWs099OitnvGj9ooz3ziRI02oo=
+Received: from BY5PR13MB4453.namprd13.prod.outlook.com (2603:10b6:a03:1d1::19)
+ by BY5PR13MB3394.namprd13.prod.outlook.com (2603:10b6:a03:1a8::11)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3611.18; Mon, 23 Nov
+ 2020 10:32:44 +0000
+Received: from BY5PR13MB4453.namprd13.prod.outlook.com
+ ([fe80::7c13:1ac6:9f2a:5eae]) by BY5PR13MB4453.namprd13.prod.outlook.com
+ ([fe80::7c13:1ac6:9f2a:5eae%7]) with mapi id 15.20.3611.020; Mon, 23 Nov 2020
+ 10:32:44 +0000
+From: Yash Shah <yash.shah@openfive.com>
+To: Rob Herring <robh@kernel.org>
+Subject: RE: [PATCH 1/2] RISC-V: Update l2 cache DT documentation to add
+ support for SiFive FU740
+Thread-Topic: [PATCH 1/2] RISC-V: Update l2 cache DT documentation to add
+ support for SiFive FU740
+Thread-Index: AQHWuNPXeVMTcgdvxUGkk0ItZFlleKnSmU6AgAL3WiA=
+Date: Mon, 23 Nov 2020 10:32:43 +0000
+Message-ID: <BY5PR13MB445328314FB3521DE257C57782FC0@BY5PR13MB4453.namprd13.prod.outlook.com>
+References: <1605172274-44916-1-git-send-email-yash.shah@sifive.com>
+ <20201121125443.GA2076465@robh.at.kernel.org>
+In-Reply-To: <20201121125443.GA2076465@robh.at.kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: kernel.org; dkim=none (message not signed)
+ header.d=none;kernel.org; dmarc=none action=none header.from=openfive.com;
+x-originating-ip: [103.109.13.228]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: a068c750-338b-4660-95ed-08d88f9b1ce9
+x-ms-traffictypediagnostic: BY5PR13MB3394:
+x-ld-processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
+x-ms-exchange-transport-forked: True
+x-microsoft-antispam-prvs: <BY5PR13MB33940F47281CCB671301EB4882FC0@BY5PR13MB3394.namprd13.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:8882;
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: OSdNfK0z+PbgBPRGtF1dPyZWJKjU2ZwrD3pmiQhOXQUzDcm0adDGKmF6QId8jiyVusfr9AbX3iL5I9Z+bG0bWcYzUGRbTi4N+Zok/7gVo7MmsF6n+x6MmI8//EVuCdsQzQHRazFGkjkHeYjFn+cVnUeDyhyRi258eu+7La9ZcG34QaapVAngXsY2odV9X5OaCepAQ8zDBsnCGF5G+PHLColVjSKRM4YQ/9cbwdIeSDpCedzsPASrVes6kSvAokH+AM/TjWGjDZk41diHTy7nOdf/v43l+wVQqLn/e4Xh8J+uuJ4oe5CiSot98lTzqU63mG1boI/8L2KbPPD9VSC6UQ==
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:BY5PR13MB4453.namprd13.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(6029001)(136003)(376002)(346002)(39840400004)(366004)(396003)(8936002)(6916009)(86362001)(76116006)(15650500001)(83380400001)(2906002)(66946007)(8676002)(316002)(54906003)(186003)(53546011)(6506007)(44832011)(7416002)(71200400001)(33656002)(7696005)(5660300002)(55016002)(26005)(4326008)(52536014)(478600001)(107886003)(9686003)(64756008)(66446008)(66556008)(66476007);
+ DIR:OUT; SFP:1101; 
+x-ms-exchange-antispam-messagedata: mHrDVxY/NtmgyGRYMQDn3RFNBFo27SBgHB576Bv8uS9bI5ERYc1tlKz6KfEl9edBc5V6wulCR1E5NC2yLl6I8Czg/QEShk33pybWN6UGYN47nCSqnDrKuYDFyRo+AoeVIOM7xEAFuuao2l4gT155gTwYcLiGVjK0iI2u33LV8ViC2tpJCC0ErYUcYm2F4tHZFIEAGcC/qyv/oh4rnDMD3liHL9lKkEk8htP+chYaCrf7NahtWp6LGHQVlBmJIOfk8nts4SnVwqbyAnoiEbVtJlgRE6tpVWgTFEjMiGVTqIZ19MP8OJc8LRNCLkZV9KlGbvh2+lJ5RmNlZmEMSYr3ukQ+9rPGcetsXFShKzA20j3LVUObGY2i17yb+kDjZTv/cPIrD7lQ+PA/Oz9zN4145e01wBS9TJbDeOcFanEbFyha28XXb9/ea6zmeOVPWLYcnYHLZXnUY4OEltpMJ0eUuY14rbqn+Nbh29mhdpGHAwEibswgkGwZ4WIYQYS10iQzyRZBodFDqmHtnnakN5km9TGHvxCPPJ5F/YyjHQ2KLtrMhna41EHzkW0zjddbl4u63zMqCO0oo4494TK7Nx9Eo2WyqUu8gjE6Kya7qx3huK2TWUq+Da9pUZTiTjzg7jxMYwuVApJ5qv+pcGUo2i/s9YL1zHGhVyb2i/o0Itj0HTqtg4xOJfUJaRBlYqHPmSX9PC6fNKjcLBbDnXUoINKuahlP9+l6kL5VmC/VpXHZCUPK5Iprh/Qj0GJEBrLpy/gfWnpeseBztKG/4kzgsd0r8JwXsrP+X2f3cQI7BxuFycen3d6tHY7l+Od9cOWzqmE/U1MkRxUCkG/H4iqhbvr721RMOLCMvAXB9QC6z/o+MmbkkDF20Mq+g7smAsOyUSjcJZ9PMVYsp9UCP7UxIapsmw==
 MIME-Version: 1.0
+X-OriginatorOrg: openfive.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BY5PR13MB4453.namprd13.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a068c750-338b-4660-95ed-08d88f9b1ce9
+X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Nov 2020 10:32:43.9901 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: XJnFEo+GU8ieWGz6zRm4L6Tu4cjHQsrxLrIg1jE16qn4mxqapzglP/HMN8acpUmamk5N32sv2QPAnt9mkzjWVg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR13MB3394
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201123_095620_620101_D4B0F9EA 
-X-CRM114-Status: GOOD (  15.55  )
+X-CRM114-CacheID: sfid-20201123_053248_830012_5068F7B4 
+X-CRM114-Status: GOOD (  19.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -88,143 +123,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
- Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
- linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>,
- Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
- Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
- Will Deacon <will@kernel.org>, x86@kernel.org,
- Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
- Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>, Arnd Bergmann <arnd@arndb.de>,
- James Bottomley <jejb@linux.ibm.com>, Borislav Petkov <bp@alien8.de>,
- Alexander Viro <viro@zeniv.linux.org.uk>, Andy Lutomirski <luto@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
- linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-fsdevel@vger.kernel.org, Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Roman Gushchin <guro@fb.com>, Mike Rapoport <rppt@kernel.org>
+Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+ Sagar Kadam <sagar.kadam@openfive.com>,
+ "anup@brainfault.org" <anup@brainfault.org>,
+ "Paul Walmsley \( Sifive\)" <paul.walmsley@sifive.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "wsa@kernel.org" <wsa@kernel.org>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
+ "Jonathan.Cameron@huawei.com" <Jonathan.Cameron@huawei.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "bp@suse.de" <bp@suse.de>, "sam@ravnborg.org" <sam@ravnborg.org>,
+ Sachin Ghadi <sachin.ghadi@openfive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Mike Rapoport <rppt@linux.ibm.com>
+> -----Original Message-----
+> From: Rob Herring <robh@kernel.org>
+> Sent: 21 November 2020 18:25
+> To: Yash Shah <yash.shah@openfive.com>
+> Cc: Paul Walmsley ( Sifive) <paul.walmsley@sifive.com>;
+> palmer@dabbelt.com; aou@eecs.berkeley.edu;
+> Jonathan.Cameron@huawei.com; wsa@kernel.org; sam@ravnborg.org;
+> Sagar Kadam <sagar.kadam@openfive.com>; anup@brainfault.org;
+> bp@suse.de; devicetree@vger.kernel.org; linux-riscv@lists.infradead.org;
+> linux-kernel@vger.kernel.org; Sachin Ghadi <sachin.ghadi@openfive.com>
+> Subject: Re: [PATCH 1/2] RISC-V: Update l2 cache DT documentation to add
+> support for SiFive FU740
+> 
+> [External Email] Do not click links or attachments unless you recognize the
+> sender and know the content is safe
+> 
+> On Thu, Nov 12, 2020 at 02:41:13PM +0530, Yash Shah wrote:
+> > The L2 cache controller in SiFive FU740 has 4 ECC interrupt sources as
+> > compared to 3 in FU540. Update the DT documentation accordingly with
+> > "compatible" and "interrupt" property changes.
+> >
+> > Signed-off-by: Yash Shah <yash.shah@sifive.com>
+> > ---
+> >  .../devicetree/bindings/riscv/sifive-l2-cache.yaml | 33
+> > +++++++++++++++++-----
+> >  1 file changed, 26 insertions(+), 7 deletions(-)
+> >
+> > diff --git
+> > a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+> > b/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+> > index efc0198..4873d5c 100644
+> > --- a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+> > +++ b/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
 
-Wire up memfd_secret system call on architectures that define
-ARCH_HAS_SET_DIRECT_MAP, namely arm64, risc-v and x86.
+<...>
 
-Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
-Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
-Acked-by: Arnd Bergmann <arnd@arndb.de>
----
- arch/arm64/include/uapi/asm/unistd.h   | 1 +
- arch/riscv/include/asm/unistd.h        | 1 +
- arch/x86/entry/syscalls/syscall_32.tbl | 1 +
- arch/x86/entry/syscalls/syscall_64.tbl | 1 +
- include/linux/syscalls.h               | 1 +
- include/uapi/asm-generic/unistd.h      | 6 +++++-
- scripts/checksyscalls.sh               | 4 ++++
- 7 files changed, 14 insertions(+), 1 deletion(-)
+> > @@ -51,12 +54,6 @@ properties:
+> >
+> >    cache-unified: true
+> >
+> > -  interrupts:
+> > -    description: |
+> > -      Must contain entries for DirError, DataError and DataFail signals.
+> > -    minItems: 3
+> > -    maxItems: 3
+> 
+> Keep this here and just change maxItems to 4. Really, what each interrupt is
+> should be listed out as an 'items' entry.
+> 
 
-diff --git a/arch/arm64/include/uapi/asm/unistd.h b/arch/arm64/include/uapi/asm/unistd.h
-index f83a70e07df8..ce2ee8f1e361 100644
---- a/arch/arm64/include/uapi/asm/unistd.h
-+++ b/arch/arm64/include/uapi/asm/unistd.h
-@@ -20,5 +20,6 @@
- #define __ARCH_WANT_SET_GET_RLIMIT
- #define __ARCH_WANT_TIME32_SYSCALLS
- #define __ARCH_WANT_SYS_CLONE3
-+#define __ARCH_WANT_MEMFD_SECRET
- 
- #include <asm-generic/unistd.h>
-diff --git a/arch/riscv/include/asm/unistd.h b/arch/riscv/include/asm/unistd.h
-index 977ee6181dab..6c316093a1e5 100644
---- a/arch/riscv/include/asm/unistd.h
-+++ b/arch/riscv/include/asm/unistd.h
-@@ -9,6 +9,7 @@
-  */
- 
- #define __ARCH_WANT_SYS_CLONE
-+#define __ARCH_WANT_MEMFD_SECRET
- 
- #include <uapi/asm/unistd.h>
- 
-diff --git a/arch/x86/entry/syscalls/syscall_32.tbl b/arch/x86/entry/syscalls/syscall_32.tbl
-index c52ab1c4a755..109e6681b8fa 100644
---- a/arch/x86/entry/syscalls/syscall_32.tbl
-+++ b/arch/x86/entry/syscalls/syscall_32.tbl
-@@ -446,3 +446,4 @@
- 439	i386	faccessat2		sys_faccessat2
- 440	i386	process_madvise		sys_process_madvise
- 441	i386	watch_mount		sys_watch_mount
-+442	i386	memfd_secret		sys_memfd_secret
-diff --git a/arch/x86/entry/syscalls/syscall_64.tbl b/arch/x86/entry/syscalls/syscall_64.tbl
-index f3270a9ef467..742cf17d7725 100644
---- a/arch/x86/entry/syscalls/syscall_64.tbl
-+++ b/arch/x86/entry/syscalls/syscall_64.tbl
-@@ -363,6 +363,7 @@
- 439	common	faccessat2		sys_faccessat2
- 440	common	process_madvise		sys_process_madvise
- 441	common	watch_mount		sys_watch_mount
-+442	common	memfd_secret		sys_memfd_secret
- 
- #
- # Due to a historical design error, certain syscalls are numbered differently
-diff --git a/include/linux/syscalls.h b/include/linux/syscalls.h
-index 6d55324363ab..f9d93fbf9b69 100644
---- a/include/linux/syscalls.h
-+++ b/include/linux/syscalls.h
-@@ -1010,6 +1010,7 @@ asmlinkage long sys_pidfd_send_signal(int pidfd, int sig,
- asmlinkage long sys_pidfd_getfd(int pidfd, int fd, unsigned int flags);
- asmlinkage long sys_watch_mount(int dfd, const char __user *path,
- 				unsigned int at_flags, int watch_fd, int watch_id);
-+asmlinkage long sys_memfd_secret(unsigned long flags);
- 
- /*
-  * Architecture-specific system calls
-diff --git a/include/uapi/asm-generic/unistd.h b/include/uapi/asm-generic/unistd.h
-index 5df46517260e..51151888f330 100644
---- a/include/uapi/asm-generic/unistd.h
-+++ b/include/uapi/asm-generic/unistd.h
-@@ -861,9 +861,13 @@ __SYSCALL(__NR_faccessat2, sys_faccessat2)
- __SYSCALL(__NR_process_madvise, sys_process_madvise)
- #define __NR_watch_mount 441
- __SYSCALL(__NR_watch_mount, sys_watch_mount)
-+#ifdef __ARCH_WANT_MEMFD_SECRET
-+#define __NR_memfd_secret 442
-+__SYSCALL(__NR_memfd_secret, sys_memfd_secret)
-+#endif
- 
- #undef __NR_syscalls
--#define __NR_syscalls 442
-+#define __NR_syscalls 443
- 
- /*
-  * 32 bit systems traditionally used different
-diff --git a/scripts/checksyscalls.sh b/scripts/checksyscalls.sh
-index a18b47695f55..b7609958ee36 100755
---- a/scripts/checksyscalls.sh
-+++ b/scripts/checksyscalls.sh
-@@ -40,6 +40,10 @@ cat << EOF
- #define __IGNORE_setrlimit	/* setrlimit */
- #endif
- 
-+#ifndef __ARCH_WANT_MEMFD_SECRET
-+#define __IGNORE_memfd_secret
-+#endif
-+
- /* Missing flags argument */
- #define __IGNORE_renameat	/* renameat2 */
- 
--- 
-2.28.0
+Sure will send a v2 with the above modifications.
+
+<...>
+
+> 
+> > +
+> > +else:
+> > +  properties:
+> > +    interrupts:
+> > +      description: |
+> > +        Must contain entries for DirError, DirFail, DataError, DataFail signals.
+> 
+> DirFail should be last so you keep the same indices.
+
+Actually, the interrupts have been numbered like that in FU740 SoCs and the driver expects the interrupts to be in this order.
+I will keep the same order for v2 as well. Let me know if you still disagree.
+
+Thanks for your review.
+
+- Yash
+
 
 
 _______________________________________________
