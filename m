@@ -7,17 +7,18 @@ X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 96919C56202
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2020 09:57:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 12282C56202
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2020 10:12:03 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1B6B3206F7
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2020 09:57:46 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 4622321741
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Nov 2020 10:12:02 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="dSzZNZ1+";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="e4Ew5z4M"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1B6B3206F7
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="r7V9vVT1";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="E/SzNggN";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="aR4fzhNo"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4622321741
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,43 +27,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=7v73SQerBP1uYFhw5fluniVVZ2YYS38EaTGgVF5fSTQ=; b=dSzZNZ1+AFJaRjk2ZAX+ZUvGD
-	vDH3ipBdfdGfmxugZ2iaV5ADRfySHF0z5QFjKpMQLZr9DMS84NMI54lmSwNbD7MMv9BoCQOkXMY+w
-	ahM4WaxD8XBxd1pq46Dwoe+ijdLMBrfqhNGaekJTft7uuR/NMMjaz5gtsPOOthp6wpfDQje5Po00F
-	148W+Lc8YJWRjWimrTCDMxGHJkC/fCnnsF46CK2VNZVuj3TTHFw5Ur1TNN7tshmHnHWNyDlz42r4L
-	zGL3VH41NSE8wlY8jppffZFIFVMhULfyMzy86bxchR5j/akYNHmYFP5ECEeBl7R29iVZ6NSGUp5oH
-	ImDzVuRpg==;
+	 bh=OTrHrMJ+AlByR2r2FkDARwlX1fSNy1YbZnn2BgfTiFU=; b=r7V9vVT1832oJWuXwgkNbK3Hs
+	6Fc36nYLQFhzf3ncKT9P/WM8jZoKYNHXwDFORxrF1xOgrIFdZMK532tqf1gLW4aB9Rp86Bp7322WO
+	8+0UGuI/avfI6LMGdbuYQeZFApHM+VpopKQPN2VLnhY2R0ltmkkfs3UVFYNLXo/Y4FXcKSZqyKfbj
+	QTBZwX1VTX06Dbs8Slub5gV7b9TSRIJFdVHoOKaNOVlLZZ1+V19BdYK3tZjKmNOE2k+SMkotEeunF
+	CYxbeNnt4t2K3Xz/lF/5mh3CVwFLpvWGp/g1p7st9/XG+6BjbZzdRBfCUB8yxiQhood7oZ1QNewM3
+	CWdNOX8Ww==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kh8bI-0008RB-Qq; Mon, 23 Nov 2020 09:57:36 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1kh8p9-0002do-Fw; Mon, 23 Nov 2020 10:11:55 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kh8Zt-0007q1-7z; Mon, 23 Nov 2020 09:56:42 +0000
+ id 1kh8p1-0002cD-5M; Mon, 23 Nov 2020 10:11:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+ References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+ Content-Type:Content-ID:Content-Description;
+ bh=COw8OnUxqYIqp5arVBGQa1GT0/PsKC6OUwDzmO3LqX4=; b=E/SzNggN+3UWV1MJxhDyfwklYE
+ 0joAwypWQDo/l4E8EA1UX9vaZ1SQgaFiRzzYy5WOkm8KJezmnn53O3zkTYxkKEf5qZvryOfeutaDw
+ +rAcdmU3VgXO4qG6zSm09c0iIJWdu1eSO3GzHNi+nHlzE0RGUWkBlAeKyANuwECrYnO+d1/32t6C7
+ r0KM7Efqo2gwGsvKPuf7Pu4L6RKhHwIkLPLLEJn7/JtZzI2GORzJIl2A5DnnF7JY00yKcYMcgNMSZ
+ enNWdpFxBwdEoduswZEMEjeNQY/hbwL55UPS/spL4XkGPiQX91GHA5gcvXP3Z6w+usB71Ct9zgUnS
+ 4NI5FDGQ==;
+Received: from mail.kernel.org ([198.145.29.99])
+ by casper.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1kh8aE-00067H-H8; Mon, 23 Nov 2020 09:56:34 +0000
 Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 62152208DB;
- Mon, 23 Nov 2020 09:55:57 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 938AD21D46;
+ Mon, 23 Nov 2020 09:56:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1606125367;
- bh=x9rsWynUSj92xJxzciKz2wcsB6wApkMO1t2A4HXerbs=;
+ s=default; t=1606125388;
+ bh=GcYHmVpON//HgfC+Q9fSTKhraRbGw/gcP2/N7E5anYQ=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=e4Ew5z4MgueMaSbcUhMrw9rF1X02/V4jDf+Y5PgvaJadcmM6PDhrV5w/HKj+ZwLXE
- 06Jbng4H5og2FBoK/OcryaIcLzQEj6UQnLW3QfGnMCFj0Lty4rsA2W3W5QCk1GicuE
- 1tnp3Q6tL8d1GhnvQmbjW2qKIPYMh4lgs8aL2AzI=
+ b=aR4fzhNoTb490aKdn0Dyuo9ZoJPlX7Bp+QnWNTe2eTgZV70d5N7mFf/a2NzKZj5Um
+ lgD+2qAvfCMTVuxxpbEVGOMaiYm7VlijTiiTapM7vP1iPtKQrYDw0vCj7hOcdSjt7F
+ 1xKCxbpDlj9Xr906uXb7RtUrjxedK3oA7Vm7fHsA=
 From: Mike Rapoport <rppt@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH v10 7/9] PM: hibernate: disable when there are active
- secretmem users
-Date: Mon, 23 Nov 2020 11:54:30 +0200
-Message-Id: <20201123095432.5860-8-rppt@kernel.org>
+Subject: [PATCH v10 9/9] secretmem: test: add basic selftest for
+ memfd_secret(2)
+Date: Mon, 23 Nov 2020 11:54:32 +0200
+Message-Id: <20201123095432.5860-10-rppt@kernel.org>
 X-Mailer: git-send-email 2.28.0
 In-Reply-To: <20201123095432.5860-1-rppt@kernel.org>
 References: <20201123095432.5860-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201123_045609_760312_4D98D2F5 
-X-CRM114-Status: GOOD (  19.72  )
+X-CRM114-CacheID: sfid-20201123_095631_421089_450B11B4 
+X-CRM114-Status: GOOD (  24.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -102,113 +116,381 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Mike Rapoport <rppt@linux.ibm.com>
 
-It is unsafe to allow saving of secretmem areas to the hibernation snapshot
-as they would be visible after the resume and this essentially will defeat
-the purpose of secret memory mappings.
-
-Prevent hibernation whenever there are active secret memory users.
+The test verifies that file descriptor created with memfd_secret does
+not allow read/write operations, that secret memory mappings respect
+RLIMIT_MEMLOCK and that remote accesses with process_vm_read() and
+ptrace() to the secret memory fail.
 
 Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
 ---
- include/linux/secretmem.h |  6 ++++++
- kernel/power/hibernate.c  |  5 ++++-
- mm/secretmem.c            | 15 +++++++++++++++
- 3 files changed, 25 insertions(+), 1 deletion(-)
+ tools/testing/selftests/vm/.gitignore     |   1 +
+ tools/testing/selftests/vm/Makefile       |   3 +-
+ tools/testing/selftests/vm/memfd_secret.c | 298 ++++++++++++++++++++++
+ tools/testing/selftests/vm/run_vmtests    |  17 ++
+ 4 files changed, 318 insertions(+), 1 deletion(-)
+ create mode 100644 tools/testing/selftests/vm/memfd_secret.c
 
-diff --git a/include/linux/secretmem.h b/include/linux/secretmem.h
-index 70e7db9f94fe..907a6734059c 100644
---- a/include/linux/secretmem.h
-+++ b/include/linux/secretmem.h
-@@ -6,6 +6,7 @@
+diff --git a/tools/testing/selftests/vm/.gitignore b/tools/testing/selftests/vm/.gitignore
+index 9a35c3f6a557..c8deddc81e7a 100644
+--- a/tools/testing/selftests/vm/.gitignore
++++ b/tools/testing/selftests/vm/.gitignore
+@@ -21,4 +21,5 @@ va_128TBswitch
+ map_fixed_noreplace
+ write_to_hugetlbfs
+ hmm-tests
++memfd_secret
+ local_config.*
+diff --git a/tools/testing/selftests/vm/Makefile b/tools/testing/selftests/vm/Makefile
+index 62fb15f286ee..9ab98946fbf2 100644
+--- a/tools/testing/selftests/vm/Makefile
++++ b/tools/testing/selftests/vm/Makefile
+@@ -34,6 +34,7 @@ TEST_GEN_FILES += khugepaged
+ TEST_GEN_FILES += map_fixed_noreplace
+ TEST_GEN_FILES += map_hugetlb
+ TEST_GEN_FILES += map_populate
++TEST_GEN_FILES += memfd_secret
+ TEST_GEN_FILES += mlock-random-test
+ TEST_GEN_FILES += mlock2-tests
+ TEST_GEN_FILES += mremap_dontunmap
+@@ -129,7 +130,7 @@ warn_32bit_failure:
+ endif
+ endif
  
- bool vma_is_secretmem(struct vm_area_struct *vma);
- bool page_is_secretmem(struct page *page);
-+bool secretmem_active(void);
+-$(OUTPUT)/mlock-random-test: LDLIBS += -lcap
++$(OUTPUT)/mlock-random-test $(OUTPUT)/memfd_secret: LDLIBS += -lcap
  
- #else
+ $(OUTPUT)/gup_test: ../../../../mm/gup_test.h
  
-@@ -19,6 +20,11 @@ static inline bool page_is_secretmem(struct page *page)
- 	return false;
- }
- 
-+static inline bool secretmem_active(void)
-+{
-+	return false;
-+}
+diff --git a/tools/testing/selftests/vm/memfd_secret.c b/tools/testing/selftests/vm/memfd_secret.c
+new file mode 100644
+index 000000000000..79578dfd13e6
+--- /dev/null
++++ b/tools/testing/selftests/vm/memfd_secret.c
+@@ -0,0 +1,298 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright IBM Corporation, 2020
++ *
++ * Author: Mike Rapoport <rppt@linux.ibm.com>
++ */
 +
- #endif /* CONFIG_SECRETMEM */
- 
- #endif /* _LINUX_SECRETMEM_H */
-diff --git a/kernel/power/hibernate.c b/kernel/power/hibernate.c
-index da0b41914177..559acef3fddb 100644
---- a/kernel/power/hibernate.c
-+++ b/kernel/power/hibernate.c
-@@ -31,6 +31,7 @@
- #include <linux/genhd.h>
- #include <linux/ktime.h>
- #include <linux/security.h>
++#define _GNU_SOURCE
++#include <sys/uio.h>
++#include <sys/mman.h>
++#include <sys/wait.h>
++#include <sys/types.h>
++#include <sys/ptrace.h>
++#include <sys/syscall.h>
++#include <sys/resource.h>
++#include <sys/capability.h>
++
++#include <stdlib.h>
++#include <string.h>
++#include <unistd.h>
++#include <errno.h>
++#include <stdio.h>
++
++#include "../kselftest.h"
++
++#define fail(fmt, ...) ksft_test_result_fail(fmt, ##__VA_ARGS__)
++#define pass(fmt, ...) ksft_test_result_pass(fmt, ##__VA_ARGS__)
++#define skip(fmt, ...) ksft_test_result_skip(fmt, ##__VA_ARGS__)
++
++#ifdef __NR_memfd_secret
++
 +#include <linux/secretmem.h>
- #include <trace/events/power.h>
- 
- #include "power.h"
-@@ -81,7 +82,9 @@ void hibernate_release(void)
- 
- bool hibernation_available(void)
- {
--	return nohibernate == 0 && !security_locked_down(LOCKDOWN_HIBERNATION);
-+	return nohibernate == 0 &&
-+		!security_locked_down(LOCKDOWN_HIBERNATION) &&
-+		!secretmem_active();
- }
- 
- /**
-diff --git a/mm/secretmem.c b/mm/secretmem.c
-index abf6ecdf70cb..14ef439841c9 100644
---- a/mm/secretmem.c
-+++ b/mm/secretmem.c
-@@ -51,6 +51,13 @@ struct secretmem_ctx {
- 
- static struct cma *secretmem_cma;
- 
-+static atomic_t secretmem_users;
 +
-+bool secretmem_active(void)
++#define PATTERN	0x55
++
++static const int prot = PROT_READ | PROT_WRITE;
++static const int mode = MAP_SHARED;
++
++static unsigned long page_size;
++static unsigned long mlock_limit_cur;
++static unsigned long mlock_limit_max;
++
++static int memfd_secret(unsigned long flags)
 +{
-+	return !!atomic_read(&secretmem_users);
++	return syscall(__NR_memfd_secret, flags);
 +}
 +
- static int secretmem_account_pages(struct page *page, gfp_t gfp, int order)
- {
- 	int err;
-@@ -185,6 +192,12 @@ static const struct vm_operations_struct secretmem_vm_ops = {
- 	.fault = secretmem_fault,
- };
- 
-+static int secretmem_release(struct inode *inode, struct file *file)
++static void test_file_apis(int fd)
 +{
-+	atomic_dec(&secretmem_users);
++	char buf[64];
++
++	if ((read(fd, buf, sizeof(buf)) >= 0) ||
++	    (write(fd, buf, sizeof(buf)) >= 0) ||
++	    (pread(fd, buf, sizeof(buf), 0) >= 0) ||
++	    (pwrite(fd, buf, sizeof(buf), 0) >= 0))
++		fail("unexpected file IO\n");
++	else
++		pass("file IO is blocked as expected\n");
++}
++
++static void test_mlock_limit(int fd)
++{
++	size_t len;
++	char *mem;
++
++	len = mlock_limit_cur;
++	mem = mmap(NULL, len, prot, mode, fd, 0);
++	if (mem == MAP_FAILED) {
++		fail("unable to mmap secret memory\n");
++		return;
++	}
++	munmap(mem, len);
++
++	len = mlock_limit_max * 2;
++	mem = mmap(NULL, len, prot, mode, fd, 0);
++	if (mem != MAP_FAILED) {
++		fail("unexpected mlock limit violation\n");
++		munmap(mem, len);
++		return;
++	}
++
++	pass("mlock limit is respected\n");
++}
++
++static void try_process_vm_read(int fd, int pipefd[2])
++{
++	struct iovec liov, riov;
++	char buf[64];
++	char *mem;
++
++	if (read(pipefd[0], &mem, sizeof(mem)) < 0) {
++		fail("pipe write: %s\n", strerror(errno));
++		exit(KSFT_FAIL);
++	}
++
++	liov.iov_len = riov.iov_len = sizeof(buf);
++	liov.iov_base = buf;
++	riov.iov_base = mem;
++
++	if (process_vm_readv(getppid(), &liov, 1, &riov, 1, 0) < 0) {
++		if (errno == ENOSYS)
++			exit(KSFT_SKIP);
++		exit(KSFT_PASS);
++	}
++
++	exit(KSFT_FAIL);
++}
++
++static void try_ptrace(int fd, int pipefd[2])
++{
++	pid_t ppid = getppid();
++	int status;
++	char *mem;
++	long ret;
++
++	if (read(pipefd[0], &mem, sizeof(mem)) < 0) {
++		perror("pipe write");
++		exit(KSFT_FAIL);
++	}
++
++	ret = ptrace(PTRACE_ATTACH, ppid, 0, 0);
++	if (ret) {
++		perror("ptrace_attach");
++		exit(KSFT_FAIL);
++	}
++
++	ret = waitpid(ppid, &status, WUNTRACED);
++	if ((ret != ppid) || !(WIFSTOPPED(status))) {
++		fprintf(stderr, "weird waitppid result %ld stat %x\n",
++			ret, status);
++		exit(KSFT_FAIL);
++	}
++
++	if (ptrace(PTRACE_PEEKDATA, ppid, mem, 0))
++		exit(KSFT_PASS);
++
++	exit(KSFT_FAIL);
++}
++
++static void check_child_status(pid_t pid, const char *name)
++{
++	int status;
++
++	waitpid(pid, &status, 0);
++
++	if (WIFEXITED(status) && WEXITSTATUS(status) == KSFT_SKIP) {
++		skip("%s is not supported\n", name);
++		return;
++	}
++
++	if ((WIFEXITED(status) && WEXITSTATUS(status) == KSFT_PASS) ||
++	    WIFSIGNALED(status)) {
++		pass("%s is blocked as expected\n", name);
++		return;
++	}
++
++	fail("%s: unexpected memory access\n", name);
++}
++
++static void test_remote_access(int fd, const char *name,
++			       void (*func)(int fd, int pipefd[2]))
++{
++	int pipefd[2];
++	pid_t pid;
++	char *mem;
++
++	if (pipe(pipefd)) {
++		fail("pipe failed: %s\n", strerror(errno));
++		return;
++	}
++
++	pid = fork();
++	if (pid < 0) {
++		fail("fork failed: %s\n", strerror(errno));
++		return;
++	}
++
++	if (pid == 0) {
++		func(fd, pipefd);
++		return;
++	}
++
++	mem = mmap(NULL, page_size, prot, mode, fd, 0);
++	if (mem == MAP_FAILED) {
++		fail("Unable to mmap secret memory\n");
++		return;
++	}
++
++	ftruncate(fd, page_size);
++	memset(mem, PATTERN, page_size);
++
++	if (write(pipefd[1], &mem, sizeof(mem)) < 0) {
++		fail("pipe write: %s\n", strerror(errno));
++		return;
++	}
++
++	check_child_status(pid, name);
++}
++
++static void test_process_vm_read(int fd)
++{
++	test_remote_access(fd, "process_vm_read", try_process_vm_read);
++}
++
++static void test_ptrace(int fd)
++{
++	test_remote_access(fd, "ptrace", try_ptrace);
++}
++
++static int set_cap_limits(rlim_t max)
++{
++	struct rlimit new;
++	cap_t cap = cap_init();
++
++	new.rlim_cur = max;
++	new.rlim_max = max;
++	if (setrlimit(RLIMIT_MEMLOCK, &new)) {
++		perror("setrlimit() returns error");
++		return -1;
++	}
++
++	/* drop capabilities including CAP_IPC_LOCK */
++	if (cap_set_proc(cap)) {
++		perror("cap_set_proc() returns error");
++		return -2;
++	}
++
 +	return 0;
 +}
 +
- static int secretmem_mmap(struct file *file, struct vm_area_struct *vma)
- {
- 	struct secretmem_ctx *ctx = file->private_data;
-@@ -211,6 +224,7 @@ bool vma_is_secretmem(struct vm_area_struct *vma)
- }
++static void prepare(void)
++{
++	struct rlimit rlim;
++
++	page_size = sysconf(_SC_PAGE_SIZE);
++	if (!page_size)
++		ksft_exit_fail_msg("Failed to get page size %s\n",
++				   strerror(errno));
++
++	if (getrlimit(RLIMIT_MEMLOCK, &rlim))
++		ksft_exit_fail_msg("Unable to detect mlock limit: %s\n",
++				   strerror(errno));
++
++	mlock_limit_cur = rlim.rlim_cur;
++	mlock_limit_max = rlim.rlim_max;
++
++	printf("page_size: %ld, mlock.soft: %ld, mlock.hard: %ld\n",
++	       page_size, mlock_limit_cur, mlock_limit_max);
++
++	if (page_size > mlock_limit_cur)
++		mlock_limit_cur = page_size;
++	if (page_size > mlock_limit_max)
++		mlock_limit_max = page_size;
++
++	if (set_cap_limits(mlock_limit_max))
++		ksft_exit_fail_msg("Unable to set mlock limit: %s\n",
++				   strerror(errno));
++}
++
++#define NUM_TESTS 4
++
++int main(int argc, char *argv[])
++{
++	int fd;
++
++	prepare();
++
++	ksft_print_header();
++	ksft_set_plan(NUM_TESTS);
++
++	fd = memfd_secret(0);
++	if (fd < 0) {
++		if (errno == ENOSYS)
++			ksft_exit_skip("memfd_secret is not supported\n");
++		else
++			ksft_exit_fail_msg("memfd_secret failed: %s\n",
++					   strerror(errno));
++	}
++
++	test_mlock_limit(fd);
++	test_file_apis(fd);
++	test_process_vm_read(fd);
++	test_ptrace(fd);
++
++	close(fd);
++
++	ksft_exit(!ksft_get_fail_cnt());
++}
++
++#else /* __NR_memfd_secret */
++
++int main(int argc, char *argv[])
++{
++	printf("skip: skipping memfd_secret test (missing __NR_memfd_secret)\n");
++	return KSFT_SKIP;
++}
++
++#endif /* __NR_memfd_secret */
+diff --git a/tools/testing/selftests/vm/run_vmtests b/tools/testing/selftests/vm/run_vmtests
+index e953f3cd9664..95a67382f132 100755
+--- a/tools/testing/selftests/vm/run_vmtests
++++ b/tools/testing/selftests/vm/run_vmtests
+@@ -346,4 +346,21 @@ else
+ 	exitcode=1
+ fi
  
- static const struct file_operations secretmem_fops = {
-+	.release	= secretmem_release,
- 	.mmap		= secretmem_mmap,
- };
- 
-@@ -328,6 +342,7 @@ SYSCALL_DEFINE1(memfd_secret, unsigned long, flags)
- 	file->f_flags |= O_LARGEFILE;
- 
- 	fd_install(fd, file);
-+	atomic_inc(&secretmem_users);
- 	return fd;
- 
- err_put_fd:
++echo "running memfd_secret test"
++echo "------------------------------------"
++./memfd_secret
++ret_val=$?
++
++if [ $ret_val -eq 0 ]; then
++	echo "[PASS]"
++elif [ $ret_val -eq $ksft_skip ]; then
++	echo "[SKIP]"
++	exitcode=$ksft_skip
++else
++	echo "[FAIL]"
++	exitcode=1
++fi
++
++exit $exitcode
++
+ exit $exitcode
 -- 
 2.28.0
 
