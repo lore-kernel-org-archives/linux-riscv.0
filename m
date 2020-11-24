@@ -2,67 +2,86 @@ Return-Path: <SRS0=DJxK=E6=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EC926C56201
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2020 09:28:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 327DFC56201
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2020 09:28:28 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5DCEE2073C
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2020 09:28:17 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 71BD92075A
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2020 09:28:27 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="m8kC8BSS";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="VwMlyKfv"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5DCEE2073C
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="itPISSJL";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="mTKhkigH"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 71BD92075A
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=ynueVOVU7u7ku7i1lY3HYyEgJIS90zsYGWgAb18gtg0=; b=m8kC8BSSzWWCIsxHKCYiFXZlT
-	MuLrtexwsgHXGZV3EKEoUZvCeqg0lpbejqFJg+ol0adCJybrHYIcwFfY1Fd/Rp6pahdQzBwhBfNd6
-	5hP7Tt7I7BpmGIElG2Wgqk/KrlYx1nzWR/Un2rSnte/9sfErp3Pud4NEEOwe9UcxwPuFmqCRLFbFQ
-	r3AD5f+RaDn8ghaWCxrTpNgYerQrs+b840iI3KQBkuLGnbVFfQY71Rhn/ZMnz93knKCxnw60HqZbW
-	a3LWmz5GF2gzTjmzRrFuipwwh2wW49FCaLn7x1YjkppCvMjGUyTxFyAIeAh0Dk7sQkbdTfvBEL4E8
-	6VvJ/Zqrw==;
+	 bh=K8fSQAB7cMMG/5DCtdEm3S3vZTgovDyWBY/t2srTEj8=; b=itPISSJLQAdz1OayW0YdUlo+O
+	0TSagBUpDFU3HNAzMs3TOlouC8IBvPlbBBUYnalgd7pE4mPBNrEHBBLafXbqsntiM9PogV6NxJZPi
+	V5RfPBtOnNoXd0a3lPEQlSuraWFEfqcWzECbY0UHHCWsRJ+rMyHJg64GTtm9h+lk6rKgstP/sZx29
+	ZQBsll3qZcIQ03/QIz+gwywJAM9p8Tze6U9+Rhj91GKy01Dpscoq8VqlNHEiKQPVcY+BOedQVZss4
+	7zRmCyxV/+9nQ0+ImE4BCOLakJdNXo7XTcfUiZ7EFTf7zHR/Xe2bnatc/OPWMBXjt7RfzMf/JmQrH
+	uk3paD9xg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1khUcG-0005XI-T7; Tue, 24 Nov 2020 09:28:04 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1khUcS-0005bi-2b; Tue, 24 Nov 2020 09:28:16 +0000
+Received: from mail-lj1-x243.google.com ([2a00:1450:4864:20::243])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1khUb9-00050W-27; Tue, 24 Nov 2020 09:26:58 +0000
-Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id E7DAE20888;
- Tue, 24 Nov 2020 09:26:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1606210014;
- bh=ixnMHZN7H2bYgCdh4/CsJm3N+HK5IMG5H3xGpPZmRnU=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=VwMlyKfvzoEJgB6bP9R93kH6mHHkFFUUVm5JOe5Lm1shkHAmeVSOKLF2gcE/3G5la
- 0mDC8OM3r7gsLhy9Co8rNwr6zTIIK4Z2NfZ5N1X+dPqN62VQJGniqUnkSDO5xZaUKK
- r4S6HGItp26p6lRDf4wfNpjFP+4RVlt+909uHrsU=
-From: Mike Rapoport <rppt@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH v11 4/9] mm: introduce memfd_secret system call to create
- "secret" memory areas
-Date: Tue, 24 Nov 2020 11:25:51 +0200
-Message-Id: <20201124092556.12009-5-rppt@kernel.org>
-X-Mailer: git-send-email 2.28.0
-In-Reply-To: <20201124092556.12009-1-rppt@kernel.org>
-References: <20201124092556.12009-1-rppt@kernel.org>
+ id 1khUbE-000522-B7
+ for linux-riscv@lists.infradead.org; Tue, 24 Nov 2020 09:27:04 +0000
+Received: by mail-lj1-x243.google.com with SMTP id r18so6433360ljc.2
+ for <linux-riscv@lists.infradead.org>; Tue, 24 Nov 2020 01:26:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20150623.gappssmtp.com; s=20150623;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=kukcRBKUzlxamYfGZyLQcYKTY8NzjKcvgUjtKw6Awcs=;
+ b=mTKhkigHDoPSK5lJonpLM+ptC9nzL1l0tydMD89elegFPdySD76uSEJsbq+YHeYnxf
+ Rz4FfjcDwKYN8FfQRRD+CLwKIrxw+xcIQTUUulqIGLJnGJJtpBcYxFzRdgpwQ6SWMOo+
+ q3PkgZauF0skJeSgzy6EUgoeZeJJIR3+wesynyuOYU7UUggGUuSO4MnumIkz/7FpUgH7
+ bPgZc731EbjWDEHb8hURC9bd0FVBXY8DcP4BR/R1Jo7TNsiP+2/tiOAVr2NZKsL2GNJp
+ Jz0F1Lwi4OR9qB/Gy/s392aYCVV5Fn7wwJXzfaxfm5gTj6TFxF3WmE5GY7WRrHhjdS8B
+ IXmQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=kukcRBKUzlxamYfGZyLQcYKTY8NzjKcvgUjtKw6Awcs=;
+ b=X4vLEa4dMdsWnIKaBzgqWDfeRIAo5aoseFwxm+mspy7lfzUSFp1qqQYkIjfSz8zw3g
+ KEAR9YPdozm6Yo4d3wnGXToaF31gPOPRX89KrDFUJFs8GU8UWXDMMctudMezafnZZxs2
+ rRMarAR5IJ986yI8sOR1YqiWrO1kWZSWdj1Oxel+NxFwVHrHF2ZOL6J0+39TYQ4lU97d
+ wLjbhMuVW7JCVrHhKQv2Nc+UdttSkW1fgaN0KSj2dhVxJQ2fP5hzaYMEtMyNJxe9Kr6/
+ w+RsQeoZ02YSJ5QNQSgVtGxC3iaJlqLSNQHEx/WOE/wDTjqX1b0LwgqB8J665Vqb2Y+B
+ VFfg==
+X-Gm-Message-State: AOAM532rio9EnuWAi6LpXgpgm+sU2Hs0MqJ0rpwQfYfM5Bjtem+uAgtQ
+ 4UN0knExi+c4aQSi4EWkny0p0JPCHtR/Ex8hWhrywg==
+X-Google-Smtp-Source: ABdhPJwOkzwqjm2LNBXyYJWEcdhsLWfHn+ob5iB1SDuNQIbquePN0gEeSNq06vXwo6W+kH3ODe5+sRqpAfJ/VDCKf+s=
+X-Received: by 2002:a05:651c:134f:: with SMTP id
+ j15mr1495677ljb.469.1606210016792; 
+ Tue, 24 Nov 2020 01:26:56 -0800 (PST)
 MIME-Version: 1.0
+References: <20201109113240.3733496-1-anup.patel@wdc.com>
+ <20201109113240.3733496-11-anup.patel@wdc.com>
+ <186ade3c372b44ef8ca1830da8c5002b@huawei.com>
+In-Reply-To: <186ade3c372b44ef8ca1830da8c5002b@huawei.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Tue, 24 Nov 2020 14:56:43 +0530
+Message-ID: <CAAhSdy1sx_oLGGoGjzr5ZrPStwCyFF4mBDEBw5zpsbSGcCRJjg@mail.gmail.com>
+Subject: Re: [PATCH v15 10/17] RISC-V: KVM: Implement stage2 page table
+ programming
+To: Jiangyifei <jiangyifei@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201124_042655_578270_3798A7D6 
-X-CRM114-Status: GOOD (  38.14  )
+X-CRM114-CacheID: sfid-20201124_042700_723132_D3776395 
+X-CRM114-Status: GOOD (  31.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -74,487 +93,203 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
- Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
- linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>,
- Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
- Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
- Will Deacon <will@kernel.org>, x86@kernel.org,
- Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
- Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
- Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
- Hagen Paul Pfeifer <hagen@jauu.net>, Borislav Petkov <bp@alien8.de>,
- Alexander Viro <viro@zeniv.linux.org.uk>, Andy Lutomirski <luto@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
- linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-fsdevel@vger.kernel.org, Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Roman Gushchin <guro@fb.com>, Mike Rapoport <rppt@kernel.org>
+Cc: Alistair Francis <Alistair.Francis@wdc.com>,
+ Anup Patel <anup.patel@wdc.com>, Alexander Graf <graf@amazon.com>,
+ yinyipeng <yinyipeng1@huawei.com>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+ Palmer Dabbelt <palmerdabbelt@google.com>,
+ Damien Le Moal <damien.lemoal@wdc.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Atish Patra <atish.patra@wdc.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ "kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Paolo Bonzini <pbonzini@redhat.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "Zhangxiaofeng \(F\)" <victor.zhangxiaofeng@huawei.com>,
+ "Wubin \(H\)" <wu.wubin@huawei.com>, "dengkai \(A\)" <dengkai1@huawei.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Mike Rapoport <rppt@linux.ibm.com>
+On Mon, Nov 16, 2020 at 2:59 PM Jiangyifei <jiangyifei@huawei.com> wrote:
+>
+>
+> > -----Original Message-----
+> > From: Anup Patel [mailto:anup.patel@wdc.com]
+> > Sent: Monday, November 9, 2020 7:33 PM
+> > To: Palmer Dabbelt <palmer@dabbelt.com>; Palmer Dabbelt
+> > <palmerdabbelt@google.com>; Paul Walmsley <paul.walmsley@sifive.com>;
+> > Albert Ou <aou@eecs.berkeley.edu>; Paolo Bonzini <pbonzini@redhat.com>
+> > Cc: Alexander Graf <graf@amazon.com>; Atish Patra <atish.patra@wdc.com>;
+> > Alistair Francis <Alistair.Francis@wdc.com>; Damien Le Moal
+> > <damien.lemoal@wdc.com>; Anup Patel <anup@brainfault.org>;
+> > kvm@vger.kernel.org; kvm-riscv@lists.infradead.org;
+> > linux-riscv@lists.infradead.org; linux-kernel@vger.kernel.org; Anup Patel
+> > <anup.patel@wdc.com>; Jiangyifei <jiangyifei@huawei.com>
+> > Subject: [PATCH v15 10/17] RISC-V: KVM: Implement stage2 page table
+> > programming
+> >
+> > This patch implements all required functions for programming the stage2 page
+> > table for each Guest/VM.
+> >
+> > At high-level, the flow of stage2 related functions is similar from KVM
+> > ARM/ARM64 implementation but the stage2 page table format is quite
+> > different for KVM RISC-V.
+> >
+> > [jiangyifei: stage2 dirty log support]
+> > Signed-off-by: Yifei Jiang <jiangyifei@huawei.com>
+> > Signed-off-by: Anup Patel <anup.patel@wdc.com>
+> > Acked-by: Paolo Bonzini <pbonzini@redhat.com>
+> > Reviewed-by: Paolo Bonzini <pbonzini@redhat.com>
+> > ---
+> >  arch/riscv/include/asm/kvm_host.h     |  12 +
+> >  arch/riscv/include/asm/pgtable-bits.h |   1 +
+> >  arch/riscv/kvm/Kconfig                |   1 +
+> >  arch/riscv/kvm/main.c                 |  19 +
+> >  arch/riscv/kvm/mmu.c                  | 649
+> > +++++++++++++++++++++++++-
+> >  arch/riscv/kvm/vm.c                   |   6 -
+> >  6 files changed, 672 insertions(+), 16 deletions(-)
+> >
+>
+> ......
+>
+> >
+> >  int kvm_riscv_stage2_map(struct kvm_vcpu *vcpu, @@ -69,27 +562,163 @@
+> > int kvm_riscv_stage2_map(struct kvm_vcpu *vcpu,
+> >                        gpa_t gpa, unsigned long hva,
+> >                        bool writeable, bool is_write)
+> >  {
+> > -     /* TODO: */
+> > -     return 0;
+> > +     int ret;
+> > +     kvm_pfn_t hfn;
+> > +     short vma_pageshift;
+> > +     gfn_t gfn = gpa >> PAGE_SHIFT;
+> > +     struct vm_area_struct *vma;
+> > +     struct kvm *kvm = vcpu->kvm;
+> > +     struct kvm_mmu_page_cache *pcache = &vcpu->arch.mmu_page_cache;
+> > +     bool logging = (memslot->dirty_bitmap &&
+> > +                     !(memslot->flags & KVM_MEM_READONLY)) ? true : false;
+> > +     unsigned long vma_pagesize;
+> > +
+> > +     mmap_read_lock(current->mm);
+> > +
+> > +     vma = find_vma_intersection(current->mm, hva, hva + 1);
+> > +     if (unlikely(!vma)) {
+> > +             kvm_err("Failed to find VMA for hva 0x%lx\n", hva);
+> > +             mmap_read_unlock(current->mm);
+> > +             return -EFAULT;
+> > +     }
+> > +
+> > +     if (is_vm_hugetlb_page(vma))
+> > +             vma_pageshift = huge_page_shift(hstate_vma(vma));
+> > +     else
+> > +             vma_pageshift = PAGE_SHIFT;
+> > +     vma_pagesize = 1ULL << vma_pageshift;
+> > +     if (logging || (vma->vm_flags & VM_PFNMAP))
+> > +             vma_pagesize = PAGE_SIZE;
+> > +
+> > +     if (vma_pagesize == PMD_SIZE || vma_pagesize == PGDIR_SIZE)
+> > +             gfn = (gpa & huge_page_mask(hstate_vma(vma))) >> PAGE_SHIFT;
+> > +
+> > +     mmap_read_unlock(current->mm);
+> > +
+> > +     if (vma_pagesize != PGDIR_SIZE &&
+> > +         vma_pagesize != PMD_SIZE &&
+> > +         vma_pagesize != PAGE_SIZE) {
+> > +             kvm_err("Invalid VMA page size 0x%lx\n", vma_pagesize);
+> > +             return -EFAULT;
+> > +     }
+> > +
+> > +     /* We need minimum second+third level pages */
+> > +     ret = stage2_cache_topup(pcache, stage2_pgd_levels,
+> > +                              KVM_MMU_PAGE_CACHE_NR_OBJS);
+> > +     if (ret) {
+> > +             kvm_err("Failed to topup stage2 cache\n");
+> > +             return ret;
+> > +     }
+> > +
+> > +     hfn = gfn_to_pfn_prot(kvm, gfn, is_write, NULL);
+> > +     if (hfn == KVM_PFN_ERR_HWPOISON) {
+> > +             send_sig_mceerr(BUS_MCEERR_AR, (void __user *)hva,
+> > +                             vma_pageshift, current);
+> > +             return 0;
+> > +     }
+> > +     if (is_error_noslot_pfn(hfn))
+> > +             return -EFAULT;
+> > +
+> > +     /*
+> > +      * If logging is active then we allow writable pages only
+> > +      * for write faults.
+> > +      */
+> > +     if (logging && !is_write)
+> > +             writeable = false;
+> > +
+> > +     spin_lock(&kvm->mmu_lock);
+> > +
+> > +     if (writeable) {
+>
+> Hi Anup,
+>
+> What is the purpose of "writable = !memslot_is_readonly(slot)" in this series?
 
-Introduce "memfd_secret" system call with the ability to create memory
-areas visible only in the context of the owning process and not mapped not
-only to other processes but in the kernel page tables as well.
+Where ? I don't see this line in any of the patches.
 
-The user will create a file descriptor using the memfd_secret() system
-call. The memory areas created by mmap() calls from this file descriptor
-will be unmapped from the kernel direct map and they will be only mapped in
-the page table of the owning mm.
+>
+> When mapping the HVA to HPA above, it doesn't know that the PTE writeable of stage2 is "!memslot_is_readonly(slot)".
+> This may causes the difference between the writability of HVA->HPA and GPA->HPA.
+> For example, GPA->HPA is writeable, but HVA->HPA is not writeable.
 
-The secret memory remains accessible in the process context using uaccess
-primitives, but it is not accessible using direct/linear map addresses.
+Yes, this is possible particularly when Host kernel is updating writability
+of HVA->HPA mappings for swapping in/out pages.
 
-Functions in the follow_page()/get_user_page() family will refuse to return
-a page that belongs to the secret memory area.
+>
+> Is it better that the writability of HVA->HPA is also determined by whether the memslot is readonly in this change?
+> Like this:
+> -    hfn = gfn_to_pfn_prot(kvm, gfn, is_write, NULL);
+> +    hfn = gfn_to_pfn_prot(kvm, gfn, writeable, NULL);
 
-A page that was a part of the secret memory area is cleared when it is
-freed.
+The gfn_to_pfn_prot() needs to know what type of fault we
+got (i.e read/write fault). Rest of the information (such as whether
+slot is writable or not) is already available to gfn_to_pfn_prot().
 
-The following example demonstrates creation of a secret mapping (error
-handling is omitted):
+The question here is should we pass "&writeable" or NULL as
+last parameter to gfn_to_pfn_prot(). The recent JUMP label
+support in Linux RISC-V causes problem on HW where PTE
+'A' and 'D' bits are not updated by HW so I have to change
+last parameter of gfn_to_pfn_prot() from "&writeable" to NULL.
 
-	fd = memfd_secret(0);
-	ftruncate(fd, MAP_SIZE);
-	ptr = mmap(NULL, MAP_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+I am still investigating this.
 
-Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
-Acked-by: Hagen Paul Pfeifer <hagen@jauu.net>
----
- arch/x86/Kconfig           |   2 +-
- include/linux/secretmem.h  |  24 ++++
- include/uapi/linux/magic.h |   1 +
- kernel/sys_ni.c            |   2 +
- mm/Kconfig                 |   3 +
- mm/Makefile                |   1 +
- mm/gup.c                   |  10 ++
- mm/secretmem.c             | 273 +++++++++++++++++++++++++++++++++++++
- 8 files changed, 315 insertions(+), 1 deletion(-)
- create mode 100644 include/linux/secretmem.h
- create mode 100644 mm/secretmem.c
+Regards,
+Anup
 
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index 34d5fb82f674..7d781fea79c2 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -41,7 +41,7 @@ config FORCE_DYNAMIC_FTRACE
- 	 in order to test the non static function tracing in the
- 	 generic code, as other architectures still use it. But we
- 	 only need to keep it around for x86_64. No need to keep it
--	 for x86_32. For x86_32, force DYNAMIC_FTRACE. 
-+	 for x86_32. For x86_32, force DYNAMIC_FTRACE.
- #
- # Arch settings
- #
-diff --git a/include/linux/secretmem.h b/include/linux/secretmem.h
-new file mode 100644
-index 000000000000..70e7db9f94fe
---- /dev/null
-+++ b/include/linux/secretmem.h
-@@ -0,0 +1,24 @@
-+/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-+#ifndef _LINUX_SECRETMEM_H
-+#define _LINUX_SECRETMEM_H
-+
-+#ifdef CONFIG_SECRETMEM
-+
-+bool vma_is_secretmem(struct vm_area_struct *vma);
-+bool page_is_secretmem(struct page *page);
-+
-+#else
-+
-+static inline bool vma_is_secretmem(struct vm_area_struct *vma)
-+{
-+	return false;
-+}
-+
-+static inline bool page_is_secretmem(struct page *page)
-+{
-+	return false;
-+}
-+
-+#endif /* CONFIG_SECRETMEM */
-+
-+#endif /* _LINUX_SECRETMEM_H */
-diff --git a/include/uapi/linux/magic.h b/include/uapi/linux/magic.h
-index f3956fc11de6..35687dcb1a42 100644
---- a/include/uapi/linux/magic.h
-+++ b/include/uapi/linux/magic.h
-@@ -97,5 +97,6 @@
- #define DEVMEM_MAGIC		0x454d444d	/* "DMEM" */
- #define Z3FOLD_MAGIC		0x33
- #define PPC_CMM_MAGIC		0xc7571590
-+#define SECRETMEM_MAGIC		0x5345434d	/* "SECM" */
- 
- #endif /* __LINUX_MAGIC_H__ */
-diff --git a/kernel/sys_ni.c b/kernel/sys_ni.c
-index 2dd6cbb8cabc..805fd7a668be 100644
---- a/kernel/sys_ni.c
-+++ b/kernel/sys_ni.c
-@@ -353,6 +353,8 @@ COND_SYSCALL(pkey_mprotect);
- COND_SYSCALL(pkey_alloc);
- COND_SYSCALL(pkey_free);
- 
-+/* memfd_secret */
-+COND_SYSCALL(memfd_secret);
- 
- /*
-  * Architecture specific weak syscall entries.
-diff --git a/mm/Kconfig b/mm/Kconfig
-index c89c5444924b..d8d170fa5210 100644
---- a/mm/Kconfig
-+++ b/mm/Kconfig
-@@ -884,4 +884,7 @@ config ARCH_HAS_HUGEPD
- config MAPPING_DIRTY_HELPERS
-         bool
- 
-+config SECRETMEM
-+	def_bool ARCH_HAS_SET_DIRECT_MAP && !EMBEDDED
-+
- endmenu
-diff --git a/mm/Makefile b/mm/Makefile
-index 6eeb4b29efb8..dfda14c48a75 100644
---- a/mm/Makefile
-+++ b/mm/Makefile
-@@ -121,3 +121,4 @@ obj-$(CONFIG_MEMFD_CREATE) += memfd.o
- obj-$(CONFIG_MAPPING_DIRTY_HELPERS) += mapping_dirty_helpers.o
- obj-$(CONFIG_PTDUMP_CORE) += ptdump.o
- obj-$(CONFIG_PAGE_REPORTING) += page_reporting.o
-+obj-$(CONFIG_SECRETMEM) += secretmem.o
-diff --git a/mm/gup.c b/mm/gup.c
-index 5ec98de1e5de..71164fa83114 100644
---- a/mm/gup.c
-+++ b/mm/gup.c
-@@ -10,6 +10,7 @@
- #include <linux/rmap.h>
- #include <linux/swap.h>
- #include <linux/swapops.h>
-+#include <linux/secretmem.h>
- 
- #include <linux/sched/signal.h>
- #include <linux/rwsem.h>
-@@ -793,6 +794,9 @@ struct page *follow_page(struct vm_area_struct *vma, unsigned long address,
- 	struct follow_page_context ctx = { NULL };
- 	struct page *page;
- 
-+	if (vma_is_secretmem(vma))
-+		return NULL;
-+
- 	page = follow_page_mask(vma, address, foll_flags, &ctx);
- 	if (ctx.pgmap)
- 		put_dev_pagemap(ctx.pgmap);
-@@ -923,6 +927,9 @@ static int check_vma_flags(struct vm_area_struct *vma, unsigned long gup_flags)
- 	if (gup_flags & FOLL_ANON && !vma_is_anonymous(vma))
- 		return -EFAULT;
- 
-+	if (vma_is_secretmem(vma))
-+		return -EFAULT;
-+
- 	if (write) {
- 		if (!(vm_flags & VM_WRITE)) {
- 			if (!(gup_flags & FOLL_FORCE))
-@@ -2196,6 +2203,9 @@ static int gup_pte_range(pmd_t pmd, unsigned long addr, unsigned long end,
- 		VM_BUG_ON(!pfn_valid(pte_pfn(pte)));
- 		page = pte_page(pte);
- 
-+		if (page_is_secretmem(page))
-+			goto pte_unmap;
-+
- 		head = try_grab_compound_head(page, 1, flags);
- 		if (!head)
- 			goto pte_unmap;
-diff --git a/mm/secretmem.c b/mm/secretmem.c
-new file mode 100644
-index 000000000000..781aaaca8c70
---- /dev/null
-+++ b/mm/secretmem.c
-@@ -0,0 +1,273 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright IBM Corporation, 2020
-+ *
-+ * Author: Mike Rapoport <rppt@linux.ibm.com>
-+ */
-+
-+#include <linux/mm.h>
-+#include <linux/fs.h>
-+#include <linux/mount.h>
-+#include <linux/memfd.h>
-+#include <linux/bitops.h>
-+#include <linux/printk.h>
-+#include <linux/pagemap.h>
-+#include <linux/syscalls.h>
-+#include <linux/pseudo_fs.h>
-+#include <linux/secretmem.h>
-+#include <linux/set_memory.h>
-+#include <linux/sched/signal.h>
-+
-+#include <uapi/linux/magic.h>
-+
-+#include <asm/tlbflush.h>
-+
-+#include "internal.h"
-+
-+#undef pr_fmt
-+#define pr_fmt(fmt) "secretmem: " fmt
-+
-+/*
-+ * Define mode and flag masks to allow validation of the system call
-+ * parameters.
-+ */
-+#define SECRETMEM_MODE_MASK	(0x0)
-+#define SECRETMEM_FLAGS_MASK	SECRETMEM_MODE_MASK
-+
-+struct secretmem_ctx {
-+	unsigned int mode;
-+};
-+
-+static struct page *secretmem_alloc_page(gfp_t gfp)
-+{
-+	/*
-+	 * FIXME: use a cache of large pages to reduce the direct map
-+	 * fragmentation
-+	 */
-+	return alloc_page(gfp);
-+}
-+
-+static vm_fault_t secretmem_fault(struct vm_fault *vmf)
-+{
-+	struct address_space *mapping = vmf->vma->vm_file->f_mapping;
-+	struct inode *inode = file_inode(vmf->vma->vm_file);
-+	pgoff_t offset = vmf->pgoff;
-+	vm_fault_t ret = 0;
-+	unsigned long addr;
-+	struct page *page;
-+	int err;
-+
-+	if (((loff_t)vmf->pgoff << PAGE_SHIFT) >= i_size_read(inode))
-+		return vmf_error(-EINVAL);
-+
-+	page = find_get_page(mapping, offset);
-+	if (!page) {
-+
-+		page = secretmem_alloc_page(vmf->gfp_mask);
-+		if (!page)
-+			return vmf_error(-ENOMEM);
-+
-+		err = add_to_page_cache(page, mapping, offset, vmf->gfp_mask);
-+		if (unlikely(err))
-+			goto err_put_page;
-+
-+		err = set_direct_map_invalid_noflush(page, 1);
-+		if (err)
-+			goto err_del_page_cache;
-+
-+		addr = (unsigned long)page_address(page);
-+		flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
-+
-+		__SetPageUptodate(page);
-+
-+		ret = VM_FAULT_LOCKED;
-+	}
-+
-+	vmf->page = page;
-+	return ret;
-+
-+err_del_page_cache:
-+	delete_from_page_cache(page);
-+err_put_page:
-+	put_page(page);
-+	return vmf_error(err);
-+}
-+
-+static const struct vm_operations_struct secretmem_vm_ops = {
-+	.fault = secretmem_fault,
-+};
-+
-+static int secretmem_mmap(struct file *file, struct vm_area_struct *vma)
-+{
-+	unsigned long len = vma->vm_end - vma->vm_start;
-+
-+	if ((vma->vm_flags & (VM_SHARED | VM_MAYSHARE)) == 0)
-+		return -EINVAL;
-+
-+	if (mlock_future_check(vma->vm_mm, vma->vm_flags | VM_LOCKED, len))
-+		return -EAGAIN;
-+
-+	vma->vm_ops = &secretmem_vm_ops;
-+	vma->vm_flags |= VM_LOCKED;
-+
-+	return 0;
-+}
-+
-+bool vma_is_secretmem(struct vm_area_struct *vma)
-+{
-+	return vma->vm_ops == &secretmem_vm_ops;
-+}
-+
-+static const struct file_operations secretmem_fops = {
-+	.mmap		= secretmem_mmap,
-+};
-+
-+static bool secretmem_isolate_page(struct page *page, isolate_mode_t mode)
-+{
-+	return false;
-+}
-+
-+static int secretmem_migratepage(struct address_space *mapping,
-+				 struct page *newpage, struct page *page,
-+				 enum migrate_mode mode)
-+{
-+	return -EBUSY;
-+}
-+
-+static void secretmem_freepage(struct page *page)
-+{
-+	set_direct_map_default_noflush(page, 1);
-+	clear_highpage(page);
-+}
-+
-+static const struct address_space_operations secretmem_aops = {
-+	.freepage	= secretmem_freepage,
-+	.migratepage	= secretmem_migratepage,
-+	.isolate_page	= secretmem_isolate_page,
-+};
-+
-+bool page_is_secretmem(struct page *page)
-+{
-+	struct address_space *mapping = page_mapping(page);
-+
-+	if (!mapping)
-+		return false;
-+
-+	return mapping->a_ops == &secretmem_aops;
-+}
-+
-+static struct vfsmount *secretmem_mnt;
-+
-+static struct file *secretmem_file_create(unsigned long flags)
-+{
-+	struct file *file = ERR_PTR(-ENOMEM);
-+	struct secretmem_ctx *ctx;
-+	struct inode *inode;
-+
-+	inode = alloc_anon_inode(secretmem_mnt->mnt_sb);
-+	if (IS_ERR(inode))
-+		return ERR_CAST(inode);
-+
-+	ctx = kzalloc(sizeof(*ctx), GFP_KERNEL);
-+	if (!ctx)
-+		goto err_free_inode;
-+
-+	file = alloc_file_pseudo(inode, secretmem_mnt, "secretmem",
-+				 O_RDWR, &secretmem_fops);
-+	if (IS_ERR(file))
-+		goto err_free_ctx;
-+
-+	mapping_set_unevictable(inode->i_mapping);
-+
-+	inode->i_mapping->private_data = ctx;
-+	inode->i_mapping->a_ops = &secretmem_aops;
-+
-+	/* pretend we are a normal file with zero size */
-+	inode->i_mode |= S_IFREG;
-+	inode->i_size = 0;
-+
-+	file->private_data = ctx;
-+
-+	ctx->mode = flags & SECRETMEM_MODE_MASK;
-+
-+	return file;
-+
-+err_free_ctx:
-+	kfree(ctx);
-+err_free_inode:
-+	iput(inode);
-+	return file;
-+}
-+
-+SYSCALL_DEFINE1(memfd_secret, unsigned long, flags)
-+{
-+	struct file *file;
-+	int fd, err;
-+
-+	/* make sure local flags do not confict with global fcntl.h */
-+	BUILD_BUG_ON(SECRETMEM_FLAGS_MASK & O_CLOEXEC);
-+
-+	if (flags & ~(SECRETMEM_FLAGS_MASK | O_CLOEXEC))
-+		return -EINVAL;
-+
-+	fd = get_unused_fd_flags(flags & O_CLOEXEC);
-+	if (fd < 0)
-+		return fd;
-+
-+	file = secretmem_file_create(flags);
-+	if (IS_ERR(file)) {
-+		err = PTR_ERR(file);
-+		goto err_put_fd;
-+	}
-+
-+	file->f_flags |= O_LARGEFILE;
-+
-+	fd_install(fd, file);
-+	return fd;
-+
-+err_put_fd:
-+	put_unused_fd(fd);
-+	return err;
-+}
-+
-+static void secretmem_evict_inode(struct inode *inode)
-+{
-+	struct secretmem_ctx *ctx = inode->i_private;
-+
-+	truncate_inode_pages_final(&inode->i_data);
-+	clear_inode(inode);
-+	kfree(ctx);
-+}
-+
-+static const struct super_operations secretmem_super_ops = {
-+	.evict_inode = secretmem_evict_inode,
-+};
-+
-+static int secretmem_init_fs_context(struct fs_context *fc)
-+{
-+	struct pseudo_fs_context *ctx = init_pseudo(fc, SECRETMEM_MAGIC);
-+
-+	if (!ctx)
-+		return -ENOMEM;
-+	ctx->ops = &secretmem_super_ops;
-+
-+	return 0;
-+}
-+
-+static struct file_system_type secretmem_fs = {
-+	.name		= "secretmem",
-+	.init_fs_context = secretmem_init_fs_context,
-+	.kill_sb	= kill_anon_super,
-+};
-+
-+static int secretmem_init(void)
-+{
-+	int ret = 0;
-+
-+	secretmem_mnt = kern_mount(&secretmem_fs);
-+	if (IS_ERR(secretmem_mnt))
-+		ret = PTR_ERR(secretmem_mnt);
-+
-+	return ret;
-+}
-+fs_initcall(secretmem_init);
--- 
-2.28.0
-
+>
+> Regards,
+> Yifei
+>
+> > +             kvm_set_pfn_dirty(hfn);
+> > +             mark_page_dirty(kvm, gfn);
+> > +             ret = stage2_map_page(kvm, pcache, gpa, hfn << PAGE_SHIFT,
+> > +                                   vma_pagesize, false, true);
+> > +     } else {
+> > +             ret = stage2_map_page(kvm, pcache, gpa, hfn << PAGE_SHIFT,
+> > +                                   vma_pagesize, true, true);
+> > +     }
+> > +
+> > +     if (ret)
+> > +             kvm_err("Failed to map in stage2\n");
+> > +
+> > +     spin_unlock(&kvm->mmu_lock);
+> > +     kvm_set_pfn_accessed(hfn);
+> > +     kvm_release_pfn_clean(hfn);
+> > +     return ret;
+> >  }
+> >
+>
+> ......
+>
 
 _______________________________________________
 linux-riscv mailing list
