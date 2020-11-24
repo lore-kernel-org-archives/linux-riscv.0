@@ -2,86 +2,67 @@ Return-Path: <SRS0=DJxK=E6=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 327DFC56201
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2020 09:28:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 69508C2D0E4
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2020 09:28:42 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 71BD92075A
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2020 09:28:27 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D03C12073C
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2020 09:28:41 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="itPISSJL";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=brainfault-org.20150623.gappssmtp.com header.i=@brainfault-org.20150623.gappssmtp.com header.b="mTKhkigH"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 71BD92075A
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="O9ROqQP3";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="EtlmtZCu"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D03C12073C
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=K8fSQAB7cMMG/5DCtdEm3S3vZTgovDyWBY/t2srTEj8=; b=itPISSJLQAdz1OayW0YdUlo+O
-	0TSagBUpDFU3HNAzMs3TOlouC8IBvPlbBBUYnalgd7pE4mPBNrEHBBLafXbqsntiM9PogV6NxJZPi
-	V5RfPBtOnNoXd0a3lPEQlSuraWFEfqcWzECbY0UHHCWsRJ+rMyHJg64GTtm9h+lk6rKgstP/sZx29
-	ZQBsll3qZcIQ03/QIz+gwywJAM9p8Tze6U9+Rhj91GKy01Dpscoq8VqlNHEiKQPVcY+BOedQVZss4
-	7zRmCyxV/+9nQ0+ImE4BCOLakJdNXo7XTcfUiZ7EFTf7zHR/Xe2bnatc/OPWMBXjt7RfzMf/JmQrH
-	uk3paD9xg==;
+	 bh=E8RnTbeE+/xbSANpwiVkPE57AfiwLjnOAj/N5HZYVsk=; b=O9ROqQP3IkYyHkO9Ke5ORfFvK
+	F5WoGPxtFuH5+1b+26GPjkLlZGge94gjE0cqOJ2lak//qTc3C6BfLg7JheKLLie/74PX7RKhB7h3r
+	cxkMXCQ/HvmJO9jWiL6cP4kXTK1vunVijpUl6OZuaCLZ3RCP5bREarrKltfhT6FmbZvDG3JFkUy9w
+	PwJNddfIyeLqrzsHNq8lFcjWXrB22KQfcEtAzumSTKUABXIYA83GrWM9AFVlII4AQAKgte5ZV5CFo
+	r962nrXmYxIjCr6nCdRKxns5KxBnam2P7adqIMBuiHZwl+g3Q31jgZmsuyHj1T1yqkRNX4LeEs+YG
+	lbzvTTwYg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1khUcS-0005bi-2b; Tue, 24 Nov 2020 09:28:16 +0000
-Received: from mail-lj1-x243.google.com ([2a00:1450:4864:20::243])
+	id 1khUcj-0005k3-RV; Tue, 24 Nov 2020 09:28:33 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1khUbE-000522-B7
- for linux-riscv@lists.infradead.org; Tue, 24 Nov 2020 09:27:04 +0000
-Received: by mail-lj1-x243.google.com with SMTP id r18so6433360ljc.2
- for <linux-riscv@lists.infradead.org>; Tue, 24 Nov 2020 01:26:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=kukcRBKUzlxamYfGZyLQcYKTY8NzjKcvgUjtKw6Awcs=;
- b=mTKhkigHDoPSK5lJonpLM+ptC9nzL1l0tydMD89elegFPdySD76uSEJsbq+YHeYnxf
- Rz4FfjcDwKYN8FfQRRD+CLwKIrxw+xcIQTUUulqIGLJnGJJtpBcYxFzRdgpwQ6SWMOo+
- q3PkgZauF0skJeSgzy6EUgoeZeJJIR3+wesynyuOYU7UUggGUuSO4MnumIkz/7FpUgH7
- bPgZc731EbjWDEHb8hURC9bd0FVBXY8DcP4BR/R1Jo7TNsiP+2/tiOAVr2NZKsL2GNJp
- Jz0F1Lwi4OR9qB/Gy/s392aYCVV5Fn7wwJXzfaxfm5gTj6TFxF3WmE5GY7WRrHhjdS8B
- IXmQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=kukcRBKUzlxamYfGZyLQcYKTY8NzjKcvgUjtKw6Awcs=;
- b=X4vLEa4dMdsWnIKaBzgqWDfeRIAo5aoseFwxm+mspy7lfzUSFp1qqQYkIjfSz8zw3g
- KEAR9YPdozm6Yo4d3wnGXToaF31gPOPRX89KrDFUJFs8GU8UWXDMMctudMezafnZZxs2
- rRMarAR5IJ986yI8sOR1YqiWrO1kWZSWdj1Oxel+NxFwVHrHF2ZOL6J0+39TYQ4lU97d
- wLjbhMuVW7JCVrHhKQv2Nc+UdttSkW1fgaN0KSj2dhVxJQ2fP5hzaYMEtMyNJxe9Kr6/
- w+RsQeoZ02YSJ5QNQSgVtGxC3iaJlqLSNQHEx/WOE/wDTjqX1b0LwgqB8J665Vqb2Y+B
- VFfg==
-X-Gm-Message-State: AOAM532rio9EnuWAi6LpXgpgm+sU2Hs0MqJ0rpwQfYfM5Bjtem+uAgtQ
- 4UN0knExi+c4aQSi4EWkny0p0JPCHtR/Ex8hWhrywg==
-X-Google-Smtp-Source: ABdhPJwOkzwqjm2LNBXyYJWEcdhsLWfHn+ob5iB1SDuNQIbquePN0gEeSNq06vXwo6W+kH3ODe5+sRqpAfJ/VDCKf+s=
-X-Received: by 2002:a05:651c:134f:: with SMTP id
- j15mr1495677ljb.469.1606210016792; 
- Tue, 24 Nov 2020 01:26:56 -0800 (PST)
+ id 1khUbL-00055Q-FZ; Tue, 24 Nov 2020 09:27:11 +0000
+Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id C02252087D;
+ Tue, 24 Nov 2020 09:26:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1606210025;
+ bh=LAwA7JIysoQWg82/yJyUQP7eFTb9BfgzLYqM+T8Rxg8=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=EtlmtZCuDoc4j1Zjn+59Veaeo3LANEQ5bCR4GllzUe/DVhJwjFmgdBD+vvkfx0MRe
+ L0guOrKuQzx9OsZ7v7QShK3j0j6fRdkF6REUfneKI27Kv2wngq7k9vHvRWQR8sZ/hU
+ XpXh4v+iFn3myCoRNSGg62ZQq8CANPDv30YQoOwU=
+From: Mike Rapoport <rppt@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>
+Subject: [PATCH v11 5/9] secretmem: use PMD-size pages to amortize direct map
+ fragmentation
+Date: Tue, 24 Nov 2020 11:25:52 +0200
+Message-Id: <20201124092556.12009-6-rppt@kernel.org>
+X-Mailer: git-send-email 2.28.0
+In-Reply-To: <20201124092556.12009-1-rppt@kernel.org>
+References: <20201124092556.12009-1-rppt@kernel.org>
 MIME-Version: 1.0
-References: <20201109113240.3733496-1-anup.patel@wdc.com>
- <20201109113240.3733496-11-anup.patel@wdc.com>
- <186ade3c372b44ef8ca1830da8c5002b@huawei.com>
-In-Reply-To: <186ade3c372b44ef8ca1830da8c5002b@huawei.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Tue, 24 Nov 2020 14:56:43 +0530
-Message-ID: <CAAhSdy1sx_oLGGoGjzr5ZrPStwCyFF4mBDEBw5zpsbSGcCRJjg@mail.gmail.com>
-Subject: Re: [PATCH v15 10/17] RISC-V: KVM: Implement stage2 page table
- programming
-To: Jiangyifei <jiangyifei@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201124_042700_723132_D3776395 
-X-CRM114-Status: GOOD (  31.36  )
+X-CRM114-CacheID: sfid-20201124_042707_904023_5086400C 
+X-CRM114-Status: GOOD (  28.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -93,203 +74,333 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Alistair Francis <Alistair.Francis@wdc.com>,
- Anup Patel <anup.patel@wdc.com>, Alexander Graf <graf@amazon.com>,
- yinyipeng <yinyipeng1@huawei.com>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
- Palmer Dabbelt <palmerdabbelt@google.com>,
- Damien Le Moal <damien.lemoal@wdc.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Atish Patra <atish.patra@wdc.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- "kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Paolo Bonzini <pbonzini@redhat.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "Zhangxiaofeng \(F\)" <victor.zhangxiaofeng@huawei.com>,
- "Wubin \(H\)" <wu.wubin@huawei.com>, "dengkai \(A\)" <dengkai1@huawei.com>
+Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
+ Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
+ Will Deacon <will@kernel.org>, x86@kernel.org,
+ Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
+ Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
+ Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-fsdevel@vger.kernel.org, Rick Edgecombe <rick.p.edgecombe@intel.com>,
+ Roman Gushchin <guro@fb.com>, Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 16, 2020 at 2:59 PM Jiangyifei <jiangyifei@huawei.com> wrote:
->
->
-> > -----Original Message-----
-> > From: Anup Patel [mailto:anup.patel@wdc.com]
-> > Sent: Monday, November 9, 2020 7:33 PM
-> > To: Palmer Dabbelt <palmer@dabbelt.com>; Palmer Dabbelt
-> > <palmerdabbelt@google.com>; Paul Walmsley <paul.walmsley@sifive.com>;
-> > Albert Ou <aou@eecs.berkeley.edu>; Paolo Bonzini <pbonzini@redhat.com>
-> > Cc: Alexander Graf <graf@amazon.com>; Atish Patra <atish.patra@wdc.com>;
-> > Alistair Francis <Alistair.Francis@wdc.com>; Damien Le Moal
-> > <damien.lemoal@wdc.com>; Anup Patel <anup@brainfault.org>;
-> > kvm@vger.kernel.org; kvm-riscv@lists.infradead.org;
-> > linux-riscv@lists.infradead.org; linux-kernel@vger.kernel.org; Anup Patel
-> > <anup.patel@wdc.com>; Jiangyifei <jiangyifei@huawei.com>
-> > Subject: [PATCH v15 10/17] RISC-V: KVM: Implement stage2 page table
-> > programming
-> >
-> > This patch implements all required functions for programming the stage2 page
-> > table for each Guest/VM.
-> >
-> > At high-level, the flow of stage2 related functions is similar from KVM
-> > ARM/ARM64 implementation but the stage2 page table format is quite
-> > different for KVM RISC-V.
-> >
-> > [jiangyifei: stage2 dirty log support]
-> > Signed-off-by: Yifei Jiang <jiangyifei@huawei.com>
-> > Signed-off-by: Anup Patel <anup.patel@wdc.com>
-> > Acked-by: Paolo Bonzini <pbonzini@redhat.com>
-> > Reviewed-by: Paolo Bonzini <pbonzini@redhat.com>
-> > ---
-> >  arch/riscv/include/asm/kvm_host.h     |  12 +
-> >  arch/riscv/include/asm/pgtable-bits.h |   1 +
-> >  arch/riscv/kvm/Kconfig                |   1 +
-> >  arch/riscv/kvm/main.c                 |  19 +
-> >  arch/riscv/kvm/mmu.c                  | 649
-> > +++++++++++++++++++++++++-
-> >  arch/riscv/kvm/vm.c                   |   6 -
-> >  6 files changed, 672 insertions(+), 16 deletions(-)
-> >
->
-> ......
->
-> >
-> >  int kvm_riscv_stage2_map(struct kvm_vcpu *vcpu, @@ -69,27 +562,163 @@
-> > int kvm_riscv_stage2_map(struct kvm_vcpu *vcpu,
-> >                        gpa_t gpa, unsigned long hva,
-> >                        bool writeable, bool is_write)
-> >  {
-> > -     /* TODO: */
-> > -     return 0;
-> > +     int ret;
-> > +     kvm_pfn_t hfn;
-> > +     short vma_pageshift;
-> > +     gfn_t gfn = gpa >> PAGE_SHIFT;
-> > +     struct vm_area_struct *vma;
-> > +     struct kvm *kvm = vcpu->kvm;
-> > +     struct kvm_mmu_page_cache *pcache = &vcpu->arch.mmu_page_cache;
-> > +     bool logging = (memslot->dirty_bitmap &&
-> > +                     !(memslot->flags & KVM_MEM_READONLY)) ? true : false;
-> > +     unsigned long vma_pagesize;
-> > +
-> > +     mmap_read_lock(current->mm);
-> > +
-> > +     vma = find_vma_intersection(current->mm, hva, hva + 1);
-> > +     if (unlikely(!vma)) {
-> > +             kvm_err("Failed to find VMA for hva 0x%lx\n", hva);
-> > +             mmap_read_unlock(current->mm);
-> > +             return -EFAULT;
-> > +     }
-> > +
-> > +     if (is_vm_hugetlb_page(vma))
-> > +             vma_pageshift = huge_page_shift(hstate_vma(vma));
-> > +     else
-> > +             vma_pageshift = PAGE_SHIFT;
-> > +     vma_pagesize = 1ULL << vma_pageshift;
-> > +     if (logging || (vma->vm_flags & VM_PFNMAP))
-> > +             vma_pagesize = PAGE_SIZE;
-> > +
-> > +     if (vma_pagesize == PMD_SIZE || vma_pagesize == PGDIR_SIZE)
-> > +             gfn = (gpa & huge_page_mask(hstate_vma(vma))) >> PAGE_SHIFT;
-> > +
-> > +     mmap_read_unlock(current->mm);
-> > +
-> > +     if (vma_pagesize != PGDIR_SIZE &&
-> > +         vma_pagesize != PMD_SIZE &&
-> > +         vma_pagesize != PAGE_SIZE) {
-> > +             kvm_err("Invalid VMA page size 0x%lx\n", vma_pagesize);
-> > +             return -EFAULT;
-> > +     }
-> > +
-> > +     /* We need minimum second+third level pages */
-> > +     ret = stage2_cache_topup(pcache, stage2_pgd_levels,
-> > +                              KVM_MMU_PAGE_CACHE_NR_OBJS);
-> > +     if (ret) {
-> > +             kvm_err("Failed to topup stage2 cache\n");
-> > +             return ret;
-> > +     }
-> > +
-> > +     hfn = gfn_to_pfn_prot(kvm, gfn, is_write, NULL);
-> > +     if (hfn == KVM_PFN_ERR_HWPOISON) {
-> > +             send_sig_mceerr(BUS_MCEERR_AR, (void __user *)hva,
-> > +                             vma_pageshift, current);
-> > +             return 0;
-> > +     }
-> > +     if (is_error_noslot_pfn(hfn))
-> > +             return -EFAULT;
-> > +
-> > +     /*
-> > +      * If logging is active then we allow writable pages only
-> > +      * for write faults.
-> > +      */
-> > +     if (logging && !is_write)
-> > +             writeable = false;
-> > +
-> > +     spin_lock(&kvm->mmu_lock);
-> > +
-> > +     if (writeable) {
->
-> Hi Anup,
->
-> What is the purpose of "writable = !memslot_is_readonly(slot)" in this series?
+From: Mike Rapoport <rppt@linux.ibm.com>
 
-Where ? I don't see this line in any of the patches.
+Removing a PAGE_SIZE page from the direct map every time such page is
+allocated for a secret memory mapping will cause severe fragmentation of
+the direct map. This fragmentation can be reduced by using PMD-size pages
+as a pool for small pages for secret memory mappings.
 
->
-> When mapping the HVA to HPA above, it doesn't know that the PTE writeable of stage2 is "!memslot_is_readonly(slot)".
-> This may causes the difference between the writability of HVA->HPA and GPA->HPA.
-> For example, GPA->HPA is writeable, but HVA->HPA is not writeable.
+Add a gen_pool per secretmem inode and lazily populate this pool with
+PMD-size pages.
 
-Yes, this is possible particularly when Host kernel is updating writability
-of HVA->HPA mappings for swapping in/out pages.
+As pages allocated by secretmem become unmovable, use CMA to back large
+page caches so that page allocator won't be surprised by failing attempt to
+migrate these pages.
 
->
-> Is it better that the writability of HVA->HPA is also determined by whether the memslot is readonly in this change?
-> Like this:
-> -    hfn = gfn_to_pfn_prot(kvm, gfn, is_write, NULL);
-> +    hfn = gfn_to_pfn_prot(kvm, gfn, writeable, NULL);
+The CMA area used by secretmem is controlled by the "secretmem=" kernel
+parameter. This allows explicit control over the memory available for
+secretmem and provides upper hard limit for secretmem consumption.
 
-The gfn_to_pfn_prot() needs to know what type of fault we
-got (i.e read/write fault). Rest of the information (such as whether
-slot is writable or not) is already available to gfn_to_pfn_prot().
+Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+---
+ mm/Kconfig     |   2 +
+ mm/secretmem.c | 152 ++++++++++++++++++++++++++++++++++++++++++-------
+ 2 files changed, 135 insertions(+), 19 deletions(-)
 
-The question here is should we pass "&writeable" or NULL as
-last parameter to gfn_to_pfn_prot(). The recent JUMP label
-support in Linux RISC-V causes problem on HW where PTE
-'A' and 'D' bits are not updated by HW so I have to change
-last parameter of gfn_to_pfn_prot() from "&writeable" to NULL.
+diff --git a/mm/Kconfig b/mm/Kconfig
+index d8d170fa5210..e0e789398421 100644
+--- a/mm/Kconfig
++++ b/mm/Kconfig
+@@ -886,5 +886,7 @@ config MAPPING_DIRTY_HELPERS
+ 
+ config SECRETMEM
+ 	def_bool ARCH_HAS_SET_DIRECT_MAP && !EMBEDDED
++	select GENERIC_ALLOCATOR
++	select CMA
+ 
+ endmenu
+diff --git a/mm/secretmem.c b/mm/secretmem.c
+index 781aaaca8c70..52a900a135a5 100644
+--- a/mm/secretmem.c
++++ b/mm/secretmem.c
+@@ -7,12 +7,15 @@
+ 
+ #include <linux/mm.h>
+ #include <linux/fs.h>
++#include <linux/cma.h>
+ #include <linux/mount.h>
+ #include <linux/memfd.h>
+ #include <linux/bitops.h>
+ #include <linux/printk.h>
+ #include <linux/pagemap.h>
++#include <linux/genalloc.h>
+ #include <linux/syscalls.h>
++#include <linux/memblock.h>
+ #include <linux/pseudo_fs.h>
+ #include <linux/secretmem.h>
+ #include <linux/set_memory.h>
+@@ -35,25 +38,80 @@
+ #define SECRETMEM_FLAGS_MASK	SECRETMEM_MODE_MASK
+ 
+ struct secretmem_ctx {
++	struct gen_pool *pool;
+ 	unsigned int mode;
+ };
+ 
+-static struct page *secretmem_alloc_page(gfp_t gfp)
++static struct cma *secretmem_cma;
++
++static int secretmem_pool_increase(struct secretmem_ctx *ctx, gfp_t gfp)
+ {
++	unsigned long nr_pages = (1 << PMD_PAGE_ORDER);
++	struct gen_pool *pool = ctx->pool;
++	unsigned long addr;
++	struct page *page;
++	int err;
++
++	page = cma_alloc(secretmem_cma, nr_pages, PMD_SIZE, gfp & __GFP_NOWARN);
++	if (!page)
++		return -ENOMEM;
++
++	err = set_direct_map_invalid_noflush(page, nr_pages);
++	if (err)
++		goto err_cma_release;
++
++	addr = (unsigned long)page_address(page);
++	err = gen_pool_add(pool, addr, PMD_SIZE, NUMA_NO_NODE);
++	if (err)
++		goto err_set_direct_map;
++
++	flush_tlb_kernel_range(addr, addr + PMD_SIZE);
++
++	return 0;
++
++err_set_direct_map:
+ 	/*
+-	 * FIXME: use a cache of large pages to reduce the direct map
+-	 * fragmentation
++	 * If a split of PUD-size page was required, it already happened
++	 * when we marked the pages invalid which guarantees that this call
++	 * won't fail
+ 	 */
+-	return alloc_page(gfp);
++	set_direct_map_default_noflush(page, nr_pages);
++err_cma_release:
++	cma_release(secretmem_cma, page, nr_pages);
++	return err;
++}
++
++static struct page *secretmem_alloc_page(struct secretmem_ctx *ctx,
++					 gfp_t gfp)
++{
++	struct gen_pool *pool = ctx->pool;
++	unsigned long addr;
++	struct page *page;
++	int err;
++
++	if (gen_pool_avail(pool) < PAGE_SIZE) {
++		err = secretmem_pool_increase(ctx, gfp);
++		if (err)
++			return NULL;
++	}
++
++	addr = gen_pool_alloc(pool, PAGE_SIZE);
++	if (!addr)
++		return NULL;
++
++	page = virt_to_page(addr);
++	get_page(page);
++
++	return page;
+ }
+ 
+ static vm_fault_t secretmem_fault(struct vm_fault *vmf)
+ {
++	struct secretmem_ctx *ctx = vmf->vma->vm_file->private_data;
+ 	struct address_space *mapping = vmf->vma->vm_file->f_mapping;
+ 	struct inode *inode = file_inode(vmf->vma->vm_file);
+ 	pgoff_t offset = vmf->pgoff;
+ 	vm_fault_t ret = 0;
+-	unsigned long addr;
+ 	struct page *page;
+ 	int err;
+ 
+@@ -62,8 +120,7 @@ static vm_fault_t secretmem_fault(struct vm_fault *vmf)
+ 
+ 	page = find_get_page(mapping, offset);
+ 	if (!page) {
+-
+-		page = secretmem_alloc_page(vmf->gfp_mask);
++		page = secretmem_alloc_page(ctx, vmf->gfp_mask);
+ 		if (!page)
+ 			return vmf_error(-ENOMEM);
+ 
+@@ -71,14 +128,8 @@ static vm_fault_t secretmem_fault(struct vm_fault *vmf)
+ 		if (unlikely(err))
+ 			goto err_put_page;
+ 
+-		err = set_direct_map_invalid_noflush(page, 1);
+-		if (err)
+-			goto err_del_page_cache;
+-
+-		addr = (unsigned long)page_address(page);
+-		flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+-
+ 		__SetPageUptodate(page);
++		set_page_private(page, (unsigned long)ctx);
+ 
+ 		ret = VM_FAULT_LOCKED;
+ 	}
+@@ -86,8 +137,6 @@ static vm_fault_t secretmem_fault(struct vm_fault *vmf)
+ 	vmf->page = page;
+ 	return ret;
+ 
+-err_del_page_cache:
+-	delete_from_page_cache(page);
+ err_put_page:
+ 	put_page(page);
+ 	return vmf_error(err);
+@@ -136,8 +185,11 @@ static int secretmem_migratepage(struct address_space *mapping,
+ 
+ static void secretmem_freepage(struct page *page)
+ {
+-	set_direct_map_default_noflush(page, 1);
+-	clear_highpage(page);
++	unsigned long addr = (unsigned long)page_address(page);
++	struct secretmem_ctx *ctx = (struct secretmem_ctx *)page_private(page);
++	struct gen_pool *pool = ctx->pool;
++
++	gen_pool_free(pool, addr, PAGE_SIZE);
+ }
+ 
+ static const struct address_space_operations secretmem_aops = {
+@@ -172,13 +224,18 @@ static struct file *secretmem_file_create(unsigned long flags)
+ 	if (!ctx)
+ 		goto err_free_inode;
+ 
++	ctx->pool = gen_pool_create(PAGE_SHIFT, NUMA_NO_NODE);
++	if (!ctx->pool)
++		goto err_free_ctx;
++
+ 	file = alloc_file_pseudo(inode, secretmem_mnt, "secretmem",
+ 				 O_RDWR, &secretmem_fops);
+ 	if (IS_ERR(file))
+-		goto err_free_ctx;
++		goto err_free_pool;
+ 
+ 	mapping_set_unevictable(inode->i_mapping);
+ 
++	inode->i_private = ctx;
+ 	inode->i_mapping->private_data = ctx;
+ 	inode->i_mapping->a_ops = &secretmem_aops;
+ 
+@@ -192,6 +249,8 @@ static struct file *secretmem_file_create(unsigned long flags)
+ 
+ 	return file;
+ 
++err_free_pool:
++	gen_pool_destroy(ctx->pool);
+ err_free_ctx:
+ 	kfree(ctx);
+ err_free_inode:
+@@ -210,6 +269,9 @@ SYSCALL_DEFINE1(memfd_secret, unsigned long, flags)
+ 	if (flags & ~(SECRETMEM_FLAGS_MASK | O_CLOEXEC))
+ 		return -EINVAL;
+ 
++	if (!secretmem_cma)
++		return -ENOMEM;
++
+ 	fd = get_unused_fd_flags(flags & O_CLOEXEC);
+ 	if (fd < 0)
+ 		return fd;
+@@ -230,11 +292,37 @@ SYSCALL_DEFINE1(memfd_secret, unsigned long, flags)
+ 	return err;
+ }
+ 
++static void secretmem_cleanup_chunk(struct gen_pool *pool,
++				    struct gen_pool_chunk *chunk, void *data)
++{
++	unsigned long start = chunk->start_addr;
++	unsigned long end = chunk->end_addr;
++	struct page *page = virt_to_page(start);
++	unsigned long nr_pages = (end - start + 1) / PAGE_SIZE;
++	int i;
++
++	set_direct_map_default_noflush(page, nr_pages);
++
++	for (i = 0; i < nr_pages; i++)
++		clear_highpage(page + i);
++
++	cma_release(secretmem_cma, page, nr_pages);
++}
++
++static void secretmem_cleanup_pool(struct secretmem_ctx *ctx)
++{
++	struct gen_pool *pool = ctx->pool;
++
++	gen_pool_for_each_chunk(pool, secretmem_cleanup_chunk, ctx);
++	gen_pool_destroy(pool);
++}
++
+ static void secretmem_evict_inode(struct inode *inode)
+ {
+ 	struct secretmem_ctx *ctx = inode->i_private;
+ 
+ 	truncate_inode_pages_final(&inode->i_data);
++	secretmem_cleanup_pool(ctx);
+ 	clear_inode(inode);
+ 	kfree(ctx);
+ }
+@@ -271,3 +359,29 @@ static int secretmem_init(void)
+ 	return ret;
+ }
+ fs_initcall(secretmem_init);
++
++static int __init secretmem_setup(char *str)
++{
++	phys_addr_t align = PMD_SIZE;
++	unsigned long reserved_size;
++	int err;
++
++	reserved_size = memparse(str, NULL);
++	if (!reserved_size)
++		return 0;
++
++	if (reserved_size * 2 > PUD_SIZE)
++		align = PUD_SIZE;
++
++	err = cma_declare_contiguous(0, reserved_size, 0, align, 0, false,
++				     "secretmem", &secretmem_cma);
++	if (err) {
++		pr_err("failed to create CMA: %d\n", err);
++		return err;
++	}
++
++	pr_info("reserved %luM\n", reserved_size >> 20);
++
++	return 0;
++}
++__setup("secretmem=", secretmem_setup);
+-- 
+2.28.0
 
-I am still investigating this.
-
-Regards,
-Anup
-
->
-> Regards,
-> Yifei
->
-> > +             kvm_set_pfn_dirty(hfn);
-> > +             mark_page_dirty(kvm, gfn);
-> > +             ret = stage2_map_page(kvm, pcache, gpa, hfn << PAGE_SHIFT,
-> > +                                   vma_pagesize, false, true);
-> > +     } else {
-> > +             ret = stage2_map_page(kvm, pcache, gpa, hfn << PAGE_SHIFT,
-> > +                                   vma_pagesize, true, true);
-> > +     }
-> > +
-> > +     if (ret)
-> > +             kvm_err("Failed to map in stage2\n");
-> > +
-> > +     spin_unlock(&kvm->mmu_lock);
-> > +     kvm_set_pfn_accessed(hfn);
-> > +     kvm_release_pfn_clean(hfn);
-> > +     return ret;
-> >  }
-> >
->
-> ......
->
 
 _______________________________________________
 linux-riscv mailing list
