@@ -2,152 +2,65 @@ Return-Path: <SRS0=DJxK=E6=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
+X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3B5B2C2D0E4
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2020 08:56:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1D777C56202
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2020 09:26:26 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AC83A2073C
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2020 08:56:52 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 8C207208C3
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2020 09:26:25 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Nyz2SQDz";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="YhlAkrzr";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="jq5jFzqU"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AC83A2073C
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="k5ts81Sj";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="yArC+oqs"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8C207208C3
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:Date:Subject:To:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	 bh=/C491ezvOglIjyMa0YMaYoxtzXjluKe2uRmJ88Yio74=; b=Nyz2SQDzK2tw9h/XNHwNfEp7e
-	zI5So93EVmN8Ev/FP8w23xHcYB1mpsWSwI+GnBhWt3Bj4GlpkAU1e3XK+nUq7HVwOfiKVRbDK5kME
-	UupzNDPJJOrPMUYd5wg+ox1Toqd932MRb7vgO9P2y3MYj9NvM9ZwkK1WdVXk+IxobiWHSM++q2hHt
-	DWZfpCZk9k4a0r7/f91KDFA1uDqDQzmu6cpcU/BqmqvsZTkVm7d/1Ku+pZto9zF8+MiVJczl1UjTD
-	QQwCT/JE3oviFHUNy0XdTE7Ls7S3OOGzmzXHv3kFSUiIl4wBUQVVK7yH3ZyIJ4rhVLMrvV9voJUGb
-	E6MpjddTA==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2E5WuL0wDLYXep8z6aMOgI6j4FlPPVC4+0zIDvxk/vI=; b=k5ts81SjbzEYksbolazbPJZ/Wc
+	+jZAdqVR1WhovMSIneHK4LEzeou4fKCoTybeWCY8IH/0eVky7/oXEb8n/x1DDTjvLcriiNtmOkoFn
+	XhergYbX+J4ku7A/xa19IGx0xsp44JOrlLW5rJtZ/fkGsjApm29kYRIcaHGJIdt2Jay9Q+zL3VFWp
+	0aw+6cxlyQNYYL2QVSrxbG09AsL/6kutzd9TcZRviL8JKEHSoMHlUcXJ4nMrrZWcJnHogui3ebQip
+	7AD/ZvHXZ9aGCoaPrq/+mAYSZJsVAieF9p9BMC6cUJXE5GIW9pKeD/XaTQezXjIGPtjDt7dJR+k/E
+	IL1SeVVA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1khU7z-00084J-4H; Tue, 24 Nov 2020 08:56:47 +0000
-Received: from esa5.hgst.iphmx.com ([216.71.153.144])
+	id 1khUaY-0004l0-Vs; Tue, 24 Nov 2020 09:26:19 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1khU7w-00083M-MQ
- for linux-riscv@lists.infradead.org; Tue, 24 Nov 2020 08:56:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1606208204; x=1637744204;
- h=from:to:cc:subject:date:message-id:references:
- content-transfer-encoding:mime-version;
- bh=hClvudRZ4CfU+wN8Mt0N7x59bKYYLkcgihgJizm6Px8=;
- b=YhlAkrzrNRBA+pln6P1r0W6Rq1uRetwm5CJsRQ/OxKylKXXA8rjwhmOf
- 7fjkFT1yzWI+URMD8dkD+8kFn0xX+uRqAfLFHOSnfeOPdT6SoIDgm6Ijw
- eLZ3R16vppxa3GGBdDchXDMRfr5d6kGDunFyPq+pQCuRDj6K3HxoprpHT
- JX/bRAxVf5pwVE4UsxoYIhRGoHT5YUMzrOb8ct6qPt95lKiR4od9mV8/D
- xutkGLnVhtJWzAsFex8aSlrQN1LohCqw0HQ0SZz+mpOdfZoAiwidkw0+a
- WvM7/zQCuwue3/4LVoXLJlx3jl1tU01pOO3llzaCnY4bEj4hGWmajBOx0 Q==;
-IronPort-SDR: vwZTyY5YHfzK+mINzBouOiPQJr/x2ekpV1GYKrzTPxuSYSmEdvG5lExURV7c68V1qasItoSbXA
- wN0Ef4c3Bh2wRhuxNYR85q0FYgps0H+dri+pDd7LKz4jt6YjPrZIUVryj4Qeevg3sW22WzQ9/n
- E3xbriuLPECuZWO2MPsHrrk+K2o7fBFJzzEnutU+XA2xFbW8S51dpjTM+rAm8XlSxISEGc2Ok1
- SAjaIm64rjsm+RfA56JRFrWXiG/xrGyIw8Fm34sf3z10GIxX0CtqXP39bi87nYVLplJc0DRipZ
- J00=
-X-IronPort-AV: E=Sophos;i="5.78,365,1599494400"; d="scan'208";a="153393279"
-Received: from mail-dm6nam11lp2170.outbound.protection.outlook.com (HELO
- NAM11-DM6-obe.outbound.protection.outlook.com) ([104.47.57.170])
- by ob1.hgst.iphmx.com with ESMTP; 24 Nov 2020 16:56:40 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=SwHMqPGCta4IhsnXoPkQHxm31BFD5eYlm4W+IlG9DY3ny4CPwTL8kAJ3Yz6iRvP7ddc6DGGNmhJ/jwvrZfDQPWN+XHQSoxRTmELI/NRSeYlZuBqiB0XP45RhTtP0jtlkBZst8gDOFM19rRkcyGRTyRe/IaKlyE4hjAhWYnIVyMjIp5lPpgzI6LgfIL/hcHA28w1UlNdI+QpuPLX+ox7cJ9HDLekq/F5D2oHiLIpDCXzQdkbemk4WarB/t1y+M4dAf0pJ7QsPKF//H8gvEOYlzjE5rtvvVhG0HjC2Y2MxgpA9OiwGWemGjIjJCutoTpBuSCL205qlVsSC2ZBa4Az0YQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hClvudRZ4CfU+wN8Mt0N7x59bKYYLkcgihgJizm6Px8=;
- b=Ty8x/fMsdqSGXpSpMNTYU+I/N5/0npl8dGSSl8yTaGewLl+aEXzun/GzkUoUQZpS4XGAzf+DMUyRcmQjaiCw4OTJgSKZk+hAq/ZGPqB35tVHcwBu1j87aeyhODZvs1XUEZx0/sm46rDYH2n3KSl26Ea51qZBDMThvGtZGV5KDrLdkfGJFmobmFnjjgDub7Bk8FnFcTUdZ6GplscyKTS8gB27ou5gg8pGzSLcrPxuY5dF2GQiy94hF77wrm++w/IEi/dyNrd718eISQwoSnspKUflk5K4L3hKx2zWQRnQ8x5I7igypecGIXlSOxpry6m0xvEX4fa7s0NYBzeVPRGyyw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
- header.d=wdc.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hClvudRZ4CfU+wN8Mt0N7x59bKYYLkcgihgJizm6Px8=;
- b=jq5jFzqU4AWDLjWkLaTsaQhI7xK7G6ukla2Z0taqtxlEVA3cHcYnMJj1nYQeS7ZgdyeBBsqoy7rAacNwmMfzmfYYR6aY8RBm5S/ng7ott3pU0LjU6ixp6AZGUbAS3XbYcXkqa94IcQEDWLUZSd4nNJjZSZztcx1ffcZiHfiq7YQ=
-Received: from CH2PR04MB6522.namprd04.prod.outlook.com (2603:10b6:610:34::19)
- by CH2PR04MB6792.namprd04.prod.outlook.com (2603:10b6:610:93::24)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3589.25; Tue, 24 Nov
- 2020 08:56:40 +0000
-Received: from CH2PR04MB6522.namprd04.prod.outlook.com
- ([fe80::897c:a04b:4eb0:640a]) by CH2PR04MB6522.namprd04.prod.outlook.com
- ([fe80::897c:a04b:4eb0:640a%7]) with mapi id 15.20.3589.022; Tue, 24 Nov 2020
- 08:56:40 +0000
-From: Damien Le Moal <Damien.LeMoal@wdc.com>
-To: Linus Walleij <linus.walleij@linaro.org>
-Subject: Re: [PATCH 20/32] riscv: Add Kendryte K210 FPIOA pinctrl driver
-Thread-Topic: [PATCH 20/32] riscv: Add Kendryte K210 FPIOA pinctrl driver
-Thread-Index: AQHWtN4lakjfsgLC7Uq3vn4b+Zr42Q==
-Date: Tue, 24 Nov 2020 08:56:39 +0000
-Message-ID: <CH2PR04MB652200854C0486B5875FA256E7FB0@CH2PR04MB6522.namprd04.prod.outlook.com>
-References: <20201107081420.60325-1-damien.lemoal@wdc.com>
- <20201107081420.60325-21-damien.lemoal@wdc.com>
- <CACRpkdZhOxz5NhrkFxZ5G4aOrmBoAcQodOvqzNROQtXpHVQGDQ@mail.gmail.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: linaro.org; dkim=none (message not signed)
- header.d=none;linaro.org; dmarc=none action=none header.from=wdc.com;
-x-originating-ip: [2400:2411:43c0:6000:ccb9:9212:86f5:6af]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-ht: Tenant
-x-ms-office365-filtering-correlation-id: f1242702-dd96-4721-8497-08d89056dbb3
-x-ms-traffictypediagnostic: CH2PR04MB6792:
-x-microsoft-antispam-prvs: <CH2PR04MB679238887B4A047341E68B49E7FB0@CH2PR04MB6792.namprd04.prod.outlook.com>
-wdcipoutbound: EOP-TRUE
-x-ms-oob-tlc-oobclassifiers: OLM:6790;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: d5y8kJv00q/9+kLPRf0eVWm3GgZsp3Kf5jgMKTp7jPtq2X1BDn+yCES+If3wBsBZ8OaWd52IGQDU1ToLiCr9RZ+A95ZkGDz4RoEIa0f4ZtIXZPCP7ZkKvfJeES1LM1BIRBT4xYImANuGjYn7Owi4KD4Nq92HriABdYRzVAvL7dS8ZIxDpC1uUMbEHPy6xMxmdJK3d2qDFDKgtyC+Ln1Zdx/yjxv9+qPcu09Rsow6CzaRJ+DSizFsLfKeWi6rqo2ZGKvrV+38mu7dWckykMFhoFkQpke/AKCSjz8T6d0pyMKXPW1JIxzVegXnexfbXUuL993MbW718nHyPx+J5bORNJJcQpMeEPwI3pR9PJ/dvTUysrDFyDMCCv6noP2HRA1SlG+M9pU9UN+P7ufBjqu1bg==
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:CH2PR04MB6522.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(136003)(39860400002)(366004)(376002)(346002)(396003)(5660300002)(52536014)(6916009)(7416002)(966005)(2906002)(86362001)(316002)(54906003)(71200400001)(8676002)(91956017)(76116006)(4326008)(6506007)(7696005)(66556008)(66446008)(66476007)(64756008)(9686003)(55016002)(478600001)(186003)(53546011)(66946007)(33656002)(8936002);
- DIR:OUT; SFP:1102; 
-x-ms-exchange-antispam-messagedata: =?us-ascii?Q?+sZZWakPqIeojs9AHHFoR7j/Jz7ChEwdhJxLlO9yWXZosE/DKCF9NbH/jtGA?=
- =?us-ascii?Q?QlKN79m3ezBiex3iJOasCxqbYOtS44aU0y+Z7TrbjZGxow5CoOVXuRpPpxzR?=
- =?us-ascii?Q?X4DCM20nt40+jvvcITcOOnMMudCXiA/2mjrNhk02kguQJ3b54yPyrChkU9HR?=
- =?us-ascii?Q?6Su+4nwdn7/cgXJNk9FqVUHA76GoN03/6tbPYoBN7PHjUVZDFBGEWgmG0i0m?=
- =?us-ascii?Q?bxi8RmUC0syPsS73c7Gfjxiv1XbXUnTmVktQX3S0MwarQ3dc7hoOcN3vTpdf?=
- =?us-ascii?Q?EVUhztSLWJEfBhBYd5ie53Ac0v6Zr702vRqGljyILF1ygISHsEvXyjdhXb7a?=
- =?us-ascii?Q?SIdUr6TwB16OjNcM1Taj19OdibX5X9dRXhHrOfW04TtQph5n6CMm1zlxp5wr?=
- =?us-ascii?Q?hC/pIBCq3s2JmC64O1naWt2k/5wG0RfiDFvRZqQEqJZ+Oy0LhrTXEFsjm2o/?=
- =?us-ascii?Q?kf8E6rsLXxBS7rf+5ltZ+Sw513PwrNdKMVb9TOapjzPO/8IlhTzhhrvveJrn?=
- =?us-ascii?Q?mczwb/zJ6JPMJHk2ES2dX7feGwE0cY06+aIubQoOj1sXxKqdSXyz+ctgPVBx?=
- =?us-ascii?Q?fsw+Dj3uqYVTfy7lKmK1zUHxjpEFy8Sfn70HP1e9YI0L/QSUD+C5Q4I+BZX/?=
- =?us-ascii?Q?hh4jkBNrf0tn/sAxOpPaZQtNN4+8HNzwJf4pMCsZH6hXyd5xBuNi/Va5P9iq?=
- =?us-ascii?Q?GdfKPNJpDB5i12tEoWsLTeYBnCn4XAw5cf3m7FsVaxtjmBht/JPUjzfYrmfF?=
- =?us-ascii?Q?GiLdNf+P48zKClvfFkCcTHuwV+VmpNjdgCaUcopCrzw7MSrp5cyOJhdnYJaq?=
- =?us-ascii?Q?xxOoz+QHTwqjuZZeEg3/u4p/xecGoMTS0aypRhztZsdbHPCfUtgJgeFVjE+2?=
- =?us-ascii?Q?VmkeiNViG/EgElKo3C/SdXa6Uuf1RKU1ZLH5fL6aweYpx5lBmaVwW7GcEuqX?=
- =?us-ascii?Q?fr/VTPPjyr4kPujjBsIDnQ=3D=3D?=
-x-ms-exchange-transport-forked: True
+ id 1khUaS-0004id-Ui; Tue, 24 Nov 2020 09:26:13 +0000
+Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 5B4272073C;
+ Tue, 24 Nov 2020 09:26:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1606209971;
+ bh=Vu/loiJSNRrO77MACnjmjt+n1JsAIxW9sPzEI8Ph9s4=;
+ h=From:To:Cc:Subject:Date:From;
+ b=yArC+oqs8UwMhkE4s7VBNMygmdJaXflqzzY4kzd8LiaNHcOU3eoinTB5Cfatt1YGu
+ ku7ryee1J1HtCFoVbBOueT+EtRc9zRXgf5egSMTHgM+vu/gHMH5yEhWHxoumvG0ktT
+ xirR2t8mG+6ImIcI4MrCjuAeIRpTEQ29ujzMRs68=
+From: Mike Rapoport <rppt@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>
+Subject: [PATCH v11 0/9] mm: introduce memfd_secret system call to create
+ "secret" memory areas
+Date: Tue, 24 Nov 2020 11:25:47 +0200
+Message-Id: <20201124092556.12009-1-rppt@kernel.org>
+X-Mailer: git-send-email 2.28.0
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CH2PR04MB6522.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f1242702-dd96-4721-8497-08d89056dbb3
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Nov 2020 08:56:39.9262 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: Q6CKY7rYXuq0lxSSqmWJzPoxJNUU5Ki3pcl3qoP7aBoaBvCoStgvajkOdBN3GzCmcZRbjJZsCKF4BK+2rr01hg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR04MB6792
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201124_035644_889432_6FED95E2 
-X-CRM114-Status: GOOD (  16.13  )
+X-CRM114-CacheID: sfid-20201124_042613_152689_0458CADA 
+X-CRM114-Status: GOOD (  26.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -159,58 +72,175 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "open list:OPEN FIRMWARE AND FLATTENED
- DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
- Stephen Boyd <sboyd@kernel.org>, Mark Brown <broonie@kernel.org>,
- Serge Semin <fancer.lancer@gmail.com>, linux-spi <linux-spi@vger.kernel.org>,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
- Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- Sean Anderson <seanga2@gmail.com>, Frank Rowand <frowand.list@gmail.com>,
- linux-clk <linux-clk@vger.kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
+ Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
+ Will Deacon <will@kernel.org>, x86@kernel.org,
+ Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
+ Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
+ Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-fsdevel@vger.kernel.org, Rick Edgecombe <rick.p.edgecombe@intel.com>,
+ Roman Gushchin <guro@fb.com>, Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2020/11/24 17:43, Linus Walleij wrote:
-> On Sat, Nov 7, 2020 at 9:15 AM Damien Le Moal <damien.lemoal@wdc.com> wrote:
-> 
->> Add the pinctrl-k210.c pinctrl driver for the Kendryte K210 FPIOA
->> (fully programmable IO array) to allow configuring the SoC pin
->> functions. The K210 has 48 programmable pins which can take any of 256
->> possible functions.
->>
->> This patch is inspired from the k210 pinctrl driver for the u-boot
->> project and contains many direct contributions from Sean Anderson.
->>
->> Signed-off-by: Sean Anderson <seanga2@gmail.com>
->> Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
-> 
-> The kernel build robot is complaining about this patch so I'm waiting for
-> a new version.
+From: Mike Rapoport <rppt@linux.ibm.com>
 
-If you did not receive the V2 patches, please let me know and I will resend.
-The patches are all on the riscv list:
+Hi,
 
-http://lists.infradead.org/pipermail/linux-riscv/2020-November/003280.html
+This is an implementation of "secret" mappings backed by a file descriptor.
 
-And for the fpioa driver:
+The file descriptor backing secret memory mappings is created using a
+dedicated memfd_secret system call The desired protection mode for the
+memory is configured using flags parameter of the system call. The mmap()
+of the file descriptor created with memfd_secret() will create a "secret"
+memory mapping. The pages in that mapping will be marked as not present in
+the direct map and will be present only in the page table of the owning mm.
 
-http://lists.infradead.org/pipermail/linux-riscv/2020-November/003293.html
+Although normally Linux userspace mappings are protected from other users,
+such secret mappings are useful for environments where a hostile tenant is
+trying to trick the kernel into giving them access to other tenants
+mappings.
 
-> 
-> Would also be nice if the maintainer could add some comments?
-> 
-> Yours,
-> Linus Walleij
-> 
+Additionally, in the future the secret mappings may be used as a mean to
+protect guest memory in a virtual machine host.
+
+For demonstration of secret memory usage we've created a userspace library
+
+https://git.kernel.org/pub/scm/linux/kernel/git/jejb/secret-memory-preloader.git
+
+that does two things: the first is act as a preloader for openssl to
+redirect all the OPENSSL_malloc calls to secret memory meaning any secret
+keys get automatically protected this way and the other thing it does is
+expose the API to the user who needs it. We anticipate that a lot of the
+use cases would be like the openssl one: many toolkits that deal with
+secret keys already have special handling for the memory to try to give
+them greater protection, so this would simply be pluggable into the
+toolkits without any need for user application modification.
+
+Hiding secret memory mappings behind an anonymous file allows (ab)use of
+the page cache for tracking pages allocated for the "secret" mappings as
+well as using address_space_operations for e.g. page migration callbacks.
+
+The anonymous file may be also used implicitly, like hugetlb files, to
+implement mmap(MAP_SECRET) and use the secret memory areas with "native" mm
+ABIs in the future.
+
+To limit fragmentation of the direct map to splitting only PUD-size pages,
+I've added an amortizing cache of PMD-size pages to each file descriptor
+that is used as an allocation pool for the secret memory areas.
+
+As the memory allocated by secretmem becomes unmovable, we use CMA to back
+large page caches so that page allocator won't be surprised by failing attempt
+to migrate these pages.
+
+v11:
+* Drop support for uncached mappings
+
+v10: https://lore.kernel.org/lkml/20201123095432.5860-1-rppt@kernel.org
+* Drop changes to arm64 compatibility layer
+* Add Roman's Ack for memcg accounting
+
+v9: https://lore.kernel.org/lkml/20201117162932.13649-1-rppt@kernel.org
+* Fix build with and without CONFIG_MEMCG
+* Update memcg accounting to avoid copying memcg_data, per Roman comments
+* Fix issues in secretmem_fault(), thanks Matthew
+* Do not wire up syscall in arm64 compatibility layer
+
+v8: https://lore.kernel.org/lkml/20201110151444.20662-1-rppt@kernel.org
+* Use CMA for all secretmem allocations as David suggested
+* Update memcg accounting after transtion to CMA
+* Prevent hibernation when there are active secretmem users
+* Add zeroing of the memory before releasing it back to cma/page allocator
+* Rebase on v5.10-rc2-mmotm-2020-11-07-21-40
+
+v7: https://lore.kernel.org/lkml/20201026083752.13267-1-rppt@kernel.org
+* Use set_direct_map() instead of __kernel_map_pages() to ensure error
+  handling in case the direct map update fails
+* Add accounting of large pages used to reduce the direct map fragmentation
+* Teach get_user_pages() and frieds to refuse get/pin secretmem pages
+
+v6: https://lore.kernel.org/lkml/20200924132904.1391-1-rppt@kernel.org
+* Silence the warning about missing syscall, thanks to Qian Cai
+* Replace spaces with tabs in Kconfig additions, per Randy
+* Add a selftest.
+
+Older history:
+v5: https://lore.kernel.org/lkml/20200916073539.3552-1-rppt@kernel.org
+v4: https://lore.kernel.org/lkml/20200818141554.13945-1-rppt@kernel.org
+v3: https://lore.kernel.org/lkml/20200804095035.18778-1-rppt@kernel.org
+v2: https://lore.kernel.org/lkml/20200727162935.31714-1-rppt@kernel.org
+v1: https://lore.kernel.org/lkml/20200720092435.17469-1-rppt@kernel.org
+
+Mike Rapoport (9):
+  mm: add definition of PMD_PAGE_ORDER
+  mmap: make mlock_future_check() global
+  set_memory: allow set_direct_map_*_noflush() for multiple pages
+  mm: introduce memfd_secret system call to create "secret" memory areas
+  secretmem: use PMD-size pages to amortize direct map fragmentation
+  secretmem: add memcg accounting
+  PM: hibernate: disable when there are active secretmem users
+  arch, mm: wire up memfd_secret system call were relevant
+  secretmem: test: add basic selftest for memfd_secret(2)
+
+ arch/arm64/include/asm/cacheflush.h       |   4 +-
+ arch/arm64/include/uapi/asm/unistd.h      |   1 +
+ arch/arm64/mm/pageattr.c                  |  10 +-
+ arch/riscv/include/asm/set_memory.h       |   4 +-
+ arch/riscv/include/asm/unistd.h           |   1 +
+ arch/riscv/mm/pageattr.c                  |   8 +-
+ arch/x86/Kconfig                          |   2 +-
+ arch/x86/entry/syscalls/syscall_32.tbl    |   1 +
+ arch/x86/entry/syscalls/syscall_64.tbl    |   1 +
+ arch/x86/include/asm/set_memory.h         |   4 +-
+ arch/x86/mm/pat/set_memory.c              |   8 +-
+ fs/dax.c                                  |  11 +-
+ include/linux/pgtable.h                   |   3 +
+ include/linux/secretmem.h                 |  30 ++
+ include/linux/set_memory.h                |   4 +-
+ include/linux/syscalls.h                  |   1 +
+ include/uapi/asm-generic/unistd.h         |   6 +-
+ include/uapi/linux/magic.h                |   1 +
+ kernel/power/hibernate.c                  |   5 +-
+ kernel/power/snapshot.c                   |   4 +-
+ kernel/sys_ni.c                           |   2 +
+ mm/Kconfig                                |   5 +
+ mm/Makefile                               |   1 +
+ mm/filemap.c                              |   3 +-
+ mm/gup.c                                  |  10 +
+ mm/internal.h                             |   3 +
+ mm/mmap.c                                 |   5 +-
+ mm/secretmem.c                            | 436 ++++++++++++++++++++++
+ mm/vmalloc.c                              |   5 +-
+ scripts/checksyscalls.sh                  |   4 +
+ tools/testing/selftests/vm/.gitignore     |   1 +
+ tools/testing/selftests/vm/Makefile       |   3 +-
+ tools/testing/selftests/vm/memfd_secret.c | 298 +++++++++++++++
+ tools/testing/selftests/vm/run_vmtests    |  17 +
+ 34 files changed, 863 insertions(+), 39 deletions(-)
+ create mode 100644 include/linux/secretmem.h
+ create mode 100644 mm/secretmem.c
+ create mode 100644 tools/testing/selftests/vm/memfd_secret.c
 
 
+base-commit: 9f8ce377d420db12b19d6a4f636fecbd88a725a5
 -- 
-Damien Le Moal
-Western Digital Research
+2.28.0
+
 
 _______________________________________________
 linux-riscv mailing list
