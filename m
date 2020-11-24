@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BA052C71155
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2020 04:38:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B9425C64E69
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2020 04:38:33 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3291D20857
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2020 04:38:30 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 262C920857
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2020 04:38:33 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Eeltkx4r";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="X9terlXB"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3291D20857
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="koMc07B2";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="lO0In+B/"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 262C920857
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,67 +26,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Hq1cG3S6xXkSDe9TuTFnduRnTA6kdcTsGqiw6gkC4CI=; b=Eeltkx4rr/jrazwjvcRdSuDRc
-	sB7lWPv7vkC0RvMnHkHLZ0dmPVftSVye+Pa/BUlGts5kr8xWuQx2D5AmiwpV+b2wSvdM9wdS+mQN3
-	udoQvkBpcUnIIdbVNSKqY8e4cYFY6n17TRiGe8DIe7DtN8jR0qls0gW5m5LvtcMkpCRqWoQ8vxsz+
-	vOZhrc//1AkYRNVUVsaMmdhkdf4HvCcQ7HdtsnHpqT12BUQidvcyZ5kWMenLvHzWSaS+LofvydfG9
-	TEspReBbW6hatqcWWR3sJmaDxsdeAtpvLB2XoC0jHeA0zrn/YvJPX/5CPz024pgYX9MAXWzi5Q32c
-	yjQH8t+1w==;
+	 bh=0FqjbVFnIY+fx7OljpHIXZy4OJaJYInYisfWhF0Bgw0=; b=koMc07B2Yja45yZbtH7dPRgFe
+	0muWisdmINIc8Wfr9H6lduI8T1Bw0k6TbqoSgeGCBC5jDjJdLrilRdWCK2EEF9sEMRa/dEDDsCZlc
+	QCUO3jau2BSdazJgkxvy8Dcz8BKCIPUfJOJmlltxBqHZOnGsbiJVB89yCPukWCdVD6tP3nC82pGgv
+	sJhGw5iY9a1k3l/LJm+4R/xsaE/+BTlv6DT7yhQx7b/k0NbmWI37t239EVgllYQrZmTUKO3ZSjYE1
+	HffCrGvPdn9Iny0VbaggUpBxSMk82Q9Gglas2uKkFuXMUIXK2hO2GeHZDa0CsomZ1OZJVeuSz+fXE
+	AaAWVQcLQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1khQ5w-0007mN-04; Tue, 24 Nov 2020 04:38:24 +0000
+	id 1khQ5y-0007nh-3a; Tue, 24 Nov 2020 04:38:26 +0000
 Received: from esa3.hgst.iphmx.com ([216.71.153.141])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1khQ5e-0007Z4-Qw
+ id 1khQ5i-0007Xk-Ig
  for linux-riscv@lists.infradead.org; Tue, 24 Nov 2020 04:38:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1606192686; x=1637728686;
+ t=1606192690; x=1637728690;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=JdBVBZY3ULTQ3qd6MFXdWgh6JhVeGPBTXCCSTFbMJb0=;
- b=X9terlXB9cA+035folH0bSM73LvDGn9/UxaBWWpK9Lc4Jag4Sj9RwroD
- VljkDhKahbs6juEvkQVBKGMd36z0qdZmuPtpMAA4ayQ2XImNFY/KRE04S
- 8ToRRgKT2Hwbf55G+tYWl7BUtAqrS3B8924foDo1YqX+8KT4UYaxIwVlp
- Oz+rfDZHiDmsNO/xbSMuFe6smhZlwM1eCxgR4lNnf8vMhmTsdJQlqFKPV
- 1jR4KVt8pJFnpbSMKkcrJ4v8sWTLKdswRtYm7y21A+F/W7UQFJU2uUgO0
- mzzrABYoDHzSjF/BuO5KNYAZxDH+wcJCimdZAN7lv2tEyXdwrySpkjHJw g==;
-IronPort-SDR: 8U7rH+YHxmqP06FqCDdM+n//3JSekZKNStcw5RxwMJtEj2UWh197P/m16d/rmBFwdud9w46f/n
- e2Ilo/UrbFNrC2euyrFY+3P6m9fScxgaesntys1Asn08AjBYtI340ikNULveRpFb/WKi41LBGg
- cUsa3m1u48SsvYgLJubwkwa09trnt/23laOdicL3lUEXxmbK8kOzkXoDPY3GZqHPnWTyxhgbXY
- 4nVds27+6ydJYRzqTW2CzcU4SkJOoaE6Rl+LJ0VxZGBLjo+/q1kCiYSWCiRBLPIxQCg8ubmQn0
- n+s=
-X-IronPort-AV: E=Sophos;i="5.78,365,1599494400"; d="scan'208";a="157768610"
+ bh=o/oF94yo9aDu58Pd1M6ydxhRGE9QyYMFAuofttIoZ48=;
+ b=lO0In+B/ALYNLLtoe6BKoSLQzw0GXr/Ljo+iqh+7KGcuP/Ltl8QzcJRu
+ 88BaAjPJ0Pz9hf2+AJV3XtdcWLrRemlnaSYVxnQ06Km0OeUrhkoEOzZM4
+ JrXZN8pwetou67tJPrBQPxUHr7t4jv+wXf7DNGyhrFgFs2TLF0jxRXnGO
+ eC4NX65qVEVpB9UlKjePWTG4/0a+XP6o3chNJcwlNNbTcvrzLgk+IjkfT
+ MLBSnOJ0u+rbDop8rjGJfBGaofuNHweEbb2B608adOuKGuJkOv1im+p5q
+ rhTjuRgNC49hSd/tEDFaHDvYZ1rrqcfEO00avkm8SE4G84J7sX2IXA2IH A==;
+IronPort-SDR: 2mOFA1y/n+6Fe1Z5rwfNbNDDZXkrWMXqPGqW7AvulFu2X7QbR8Zc/J6TblOoK1JBg0EAJHNj1u
+ 9gDK27sutrVlAtR/y4nzBfFUZmZblvwIEj6PHyuHEB4rSxXvRGkv9xBnotbAI2Pyfl1r8WI8OC
+ 3NJelqoMVbl5/0KI6ZLxQKrjTkVIZFcGZLEB6CCLBklCoYgfSOPZcfXA5aMvG9SEoqfWa/nIqq
+ 8eSzLz3Az6JWdwzv7TNNIm+p8G9u9Q7c6dbIh2OTWgSMBbKo/rlf8bv+07cKQYxItZTcuZ9exg
+ 7Rs=
+X-IronPort-AV: E=Sophos;i="5.78,365,1599494400"; d="scan'208";a="157768614"
 Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
  ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 24 Nov 2020 12:38:02 +0800
-IronPort-SDR: GPzravqVQuDHu2aIhdzCu9FmDfUVOAgiP9RW6E3z3LI6aA57H09GX9ALvb3PfsekyDQYqEcfk8
- Qg4KilzS5cgf3rebRziDUPePMdHnWBfTQ=
+ by ob1.hgst.iphmx.com with ESMTP; 24 Nov 2020 12:38:04 +0800
+IronPort-SDR: bI1d2vgSDWAd5UEsmIfza9imw9IGOF+3hIXBPUqH7yMDMAg16yNtyaz9zIOKmh7cUq/7bUcGTF
+ vtwonDwpCKfwsuHzUdzi20oIxtZLkcYFM=
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
  by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 23 Nov 2020 20:22:26 -0800
-IronPort-SDR: hOu3SgLc24FehT7ZJ1s/82fRqJNbIDkNbNBiT8Q1Yac1lv9kbaUZToZkOlMQBhEQe0OIVme4Ng
- kKgXmGDMkaeA==
+ 23 Nov 2020 20:22:28 -0800
+IronPort-SDR: N/o9M3gKU31kp7CGW3FXlwVikmdvZ0yQazfay4gT1nv6Bg07os6kWJn/IT19IKkSXnaF/47Uki
+ ZV4vdNU1TX3A==
 WDCIronportException: Internal
 Received: from hdrdzf2.ad.shared (HELO twashi.fujisawa.hgst.com)
  ([10.84.71.163])
- by uls-op-cesaip01.wdc.com with ESMTP; 23 Nov 2020 20:38:00 -0800
+ by uls-op-cesaip01.wdc.com with ESMTP; 23 Nov 2020 20:38:02 -0800
 From: Damien Le Moal <damien.lemoal@wdc.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
  Rob Herring <robh+dt@kernel.org>, devicetree@vger.kernel.org,
  Stephen Boyd <sboyd@kernel.org>, linux-clk@vger.kernel.org,
  Linus Walleij <linus.walleij@linaro.org>, linux-gpio@vger.kernel.org,
  Philipp Zabel <p.zabel@pengutronix.de>
-Subject: [PATCH v2 15/21] riscv: Add SiPeed MAIX BiT board device tree
-Date: Tue, 24 Nov 2020 13:37:22 +0900
-Message-Id: <20201124043728.199852-16-damien.lemoal@wdc.com>
+Subject: [PATCH v2 16/21] riscv: Add SiPeed MAIX DOCK board device tree
+Date: Tue, 24 Nov 2020 13:37:23 +0900
+Message-Id: <20201124043728.199852-17-damien.lemoal@wdc.com>
 X-Mailer: git-send-email 2.28.0
 In-Reply-To: <20201124043728.199852-1-damien.lemoal@wdc.com>
 References: <20201124043728.199852-1-damien.lemoal@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201123_233807_099469_A64EDA5C 
-X-CRM114-Status: GOOD (  14.50  )
+X-CRM114-CacheID: sfid-20201123_233810_841964_F53B5825 
+X-CRM114-Status: GOOD (  14.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -104,21 +104,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a device tree for the SiPeed MAIX BiT and MAIX BiTm boards. This
+Add a device tree for the SiPeed MAIX DOCK m1 and m1w boards. This
 device tree enables LEDs, gpio, i2c and spi/mmc SD card devices.
 
 Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
 ---
- arch/riscv/boot/dts/canaan/k210_maix_bit.dts | 227 +++++++++++++++++++
- 1 file changed, 227 insertions(+)
- create mode 100644 arch/riscv/boot/dts/canaan/k210_maix_bit.dts
+ arch/riscv/boot/dts/canaan/k210_maix_dock.dts | 229 ++++++++++++++++++
+ 1 file changed, 229 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/canaan/k210_maix_dock.dts
 
-diff --git a/arch/riscv/boot/dts/canaan/k210_maix_bit.dts b/arch/riscv/boot/dts/canaan/k210_maix_bit.dts
+diff --git a/arch/riscv/boot/dts/canaan/k210_maix_dock.dts b/arch/riscv/boot/dts/canaan/k210_maix_dock.dts
 new file mode 100644
-index 000000000000..a5a40f9cf812
+index 000000000000..abeaa9bad761
 --- /dev/null
-+++ b/arch/riscv/boot/dts/canaan/k210_maix_bit.dts
-@@ -0,0 +1,227 @@
++++ b/arch/riscv/boot/dts/canaan/k210_maix_dock.dts
+@@ -0,0 +1,229 @@
 +// SPDX-License-Identifier: GPL-2.0+
 +/*
 + * Copyright (C) 2019-20 Sean Anderson <seanga2@gmail.com>
@@ -133,8 +133,8 @@ index 000000000000..a5a40f9cf812
 +#include <dt-bindings/input/input.h>
 +
 +/ {
-+	model = "SiPeed MAIX BiT";
-+	compatible = "sipeed,maix-bitm", "sipeed,maix-bit",
++	model = "SiPeed MAIX Dock";
++	compatible = "sipeed,maix-dock-m1wm", "sipeed,maix-dock-m1",
 +		     "canaan,kendryte-k210";
 +
 +	chosen {
@@ -145,15 +145,20 @@ index 000000000000..a5a40f9cf812
 +	gpio-leds {
 +		compatible = "gpio-leds";
 +
-+		green {
++		/*
++		 * Note: the board specification document green on gpio #4,
++		 * red on gpio #5 and blue on gpio #6. However, the board
++		 * is actually wired differently as defined here.
++		 */
++		blue {
 +			gpios = <&gpio1_0 4 GPIO_ACTIVE_LOW>;
 +		};
 +
-+		red {
++		green {
 +			gpios = <&gpio1_0 5 GPIO_ACTIVE_LOW>;
 +		};
 +
-+		blue {
++		red {
 +			gpios = <&gpio1_0 6 GPIO_ACTIVE_LOW>;
 +		};
 +	};
@@ -190,8 +195,8 @@ index 000000000000..a5a40f9cf812
 +};
 +
 +&fpioa {
-+	pinctrl-names = "default";
 +	pinctrl-0 = <&jtag_pinctrl>;
++	pinctrl-names = "default";
 +	status = "okay";
 +
 +	jtag_pinctrl: jtag-pinmux {
@@ -208,8 +213,6 @@ index 000000000000..a5a40f9cf812
 +
 +	gpio_pinctrl: gpio-pinmux {
 +		pinmux = <K210_FPIOA(8, K210_PCF_GPIO0)>,
-+			 <K210_FPIOA(9, K210_PCF_GPIO1)>,
-+			 <K210_FPIOA(10, K210_PCF_GPIO2)>,
 +			 <K210_FPIOA(11, K210_PCF_GPIO3)>,
 +			 <K210_FPIOA(12, K210_PCF_GPIO4)>,
 +			 <K210_FPIOA(13, K210_PCF_GPIO5)>,
@@ -263,8 +266,8 @@ index 000000000000..a5a40f9cf812
 +	};
 +
 +	i2c1_pinctrl: i2c1-pinmux {
-+		pinmux = <K210_FPIOA(30, K210_PCF_I2C1_SCLK)>,
-+			 <K210_FPIOA(31, K210_PCF_I2C1_SDA)>;
++		pinmux = <K210_FPIOA(9, K210_PCF_I2C1_SCLK)>,
++			 <K210_FPIOA(10, K210_PCF_I2C1_SDA)>;
 +	};
 +};
 +
@@ -314,9 +317,8 @@ index 000000000000..a5a40f9cf812
 +		compatible = "sitronix,st7789v";
 +		reg = <0>;
 +		reset-gpios = <&gpio0 21 GPIO_ACTIVE_LOW>;
-+		dc-gpios = <&gpio0 22 GPIO_ACTIVE_HIGH>;
++		dc-gpios = <&gpio0 22 0>;
 +		spi-max-frequency = <15000000>;
-+		spi-cs-high;
 +		status = "disabled";
 +	};
 +};
