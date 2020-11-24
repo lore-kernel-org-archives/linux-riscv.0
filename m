@@ -2,67 +2,73 @@ Return-Path: <SRS0=DJxK=E6=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A6830C56201
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2020 09:30:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 003D1C2D0E4
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2020 09:49:24 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 26D5A2073C
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2020 09:30:19 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 81C3920684
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2020 09:49:23 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="cjDO4C0q";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="P3bKeuXg"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 26D5A2073C
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="gfrpSuaZ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 81C3920684
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=8A5qyvgQS3ifafZFTONPvNeqeGiwwbEV8rH4iWkQN5Q=; b=cjDO4C0q5bWR7mjzhfFlYuCps
-	5OQbZGHtNWLgsrZ8MDUWbYq28n1nAh28PNHUf0Gy/rCDms53mayBbSsKovdO7g4PyJjDoxnxSFKqb
-	1L4rCTOw/pudGDwTxzjxhKn3FtbKOSWefvF5J+qk2qyjyNXRLhZObBfHXzTFS4o6nBIdmrJXNZjvo
-	pCLRtRiV9TxsLYha3kDUz3dWDsqPnkwyxtGGSNveDs3/SgQwdem9YQMHPJbogRn2TVFOVzvSgkEI6
-	o8Sxeh32Ow7/lhDjCistbfi1DTsrUa2OCqS7xEPmN9vd5t9Wf98DEHTDENqJdZqY6hcTGrOFr0d79
-	wBW4Ul3fA==;
+	 bh=cdGRHd5/NVMpusF5dcI/DiG03vQIHX1iZ3ej4GEMars=; b=gfrpSuaZEIXivJ8+z+qxCz7K2
+	Gp+Lch/aeXC4z7sYMHBHOvtaK+OTbULzaVNrS8EqwwDpnAwWFpDwn7CBGb3g4ZQBBDoRusvuCGz3W
+	sUmTNaa9ZseqqYb5fyDKPWeJ1cn5tPpuHc22mEGvS1RNxB/nsYiktYVsd05x8SsvDLavjl8R5JEpT
+	BRG6ZmTNCkEjzvu95Pw+7PpfIRKXn06jT9f3QMUAsvkwRSJLMgsUvKTKcTTCV3tEbj0V/fzhw+C03
+	BUfNvRFFZyYuzU1EJ3IIJAi/CpEwnlFBeqmmsSeWuXORc7y9nHQiOSKvjL/v+eTj2a6mURaieeKt2
+	qt+4Yws8Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1khUeI-0006ca-CQ; Tue, 24 Nov 2020 09:30:10 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1khUwn-0002GS-4a; Tue, 24 Nov 2020 09:49:17 +0000
+Received: from mail-ot1-f66.google.com ([209.85.210.66])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1khUdm-0006Iu-3K; Tue, 24 Nov 2020 09:29:39 +0000
-Received: from kernel.org (unknown [77.125.7.142])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 08D202073C;
- Tue, 24 Nov 2020 09:29:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1606210177;
- bh=iTkMZLIpRtTWQfDGIB3Vl3mRtp/b8gkTxfVBLDleW2s=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=P3bKeuXgUqKvyJMqI2t3WocMqVtq5rV80ChLv9RkXZobErCnfHPcZXypQS/ff8OIc
- k9Yt6nSUwbnDnaqXryHrQQDoC3ltsZJwF2Txq8wR9gdzisTN7cFmPk0qphW+f2nwAw
- 8OtVd4ZVVbsESt0E2Fi0gLuo0Co6IDESghVXVkF8=
-Date: Tue, 24 Nov 2020 11:29:19 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Andy Lutomirski <luto@kernel.org>
-Subject: Re: [PATCH v10 0/9] mm: introduce memfd_secret system call to create
- "secret" memory areas
-Message-ID: <20201124092919.GI8537@kernel.org>
-References: <20201123095432.5860-1-rppt@kernel.org>
- <CALCETrXr-9ABs7rzXcCrh1VXn-15AfpwjA6bQA7aU9Ta7DR+bw@mail.gmail.com>
+ id 1khUwk-0002EF-Is
+ for linux-riscv@lists.infradead.org; Tue, 24 Nov 2020 09:49:15 +0000
+Received: by mail-ot1-f66.google.com with SMTP id f16so18748712otl.11
+ for <linux-riscv@lists.infradead.org>; Tue, 24 Nov 2020 01:49:10 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=mBoBDmbswRP+f/TlioNfn5J/ITMiXwI/C+Hc6TcJgzU=;
+ b=UbqbUyAZYWJxDK51tr16UoMgs3Zgs9N+TsYkCDs79lWZodjx4e5RohcX1pXUs/kBj4
+ y5brSqlNYYRLJpSzzmz2oiaM2QxfxOg7UAIYK8fJQVJZ4nT3OF1582Oa4IqiduN9lv5B
+ NkgSN2pCyivt3q08XPwWPq45iVsi82FVeDTS24YIq1nfzbjT3iyMcUqwo7A3D+uEIeT+
+ 7murxNnvFUormt7kpihPa6CX3s49AWTz8SSkkSDeH989IJ9OF7b6pV0kna70AADZbTY/
+ n9+SPncRzS+aVS45emtf+klog/xvwnPmK2VzJaZ8l/ApM9WRI5tsbCOOYc/rvbJZ8L8C
+ 7qVQ==
+X-Gm-Message-State: AOAM531go5RpDxwa6LdoOpWpSg93DTg2IEllamtRfj1g2+ny0jCz4FP8
+ /SpaG7C3fa91YtEcNi04rY7a5LD9W1/Xp3lpj9U=
+X-Google-Smtp-Source: ABdhPJz6Irq78spBVJCaLnpjMMDP1gMl71i0GUJM0pl7Y1kWkNP5zH9k8WezE7l7eQvPgrURVWHQIqBizil9lQFKdNE=
+X-Received: by 2002:a05:6830:210a:: with SMTP id
+ i10mr2653636otc.145.1606211350289; 
+ Tue, 24 Nov 2020 01:49:10 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CALCETrXr-9ABs7rzXcCrh1VXn-15AfpwjA6bQA7aU9Ta7DR+bw@mail.gmail.com>
+References: <20201124043728.199852-1-damien.lemoal@wdc.com>
+ <20201124043728.199852-10-damien.lemoal@wdc.com>
+In-Reply-To: <20201124043728.199852-10-damien.lemoal@wdc.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 24 Nov 2020 10:48:59 +0100
+Message-ID: <CAMuHMdXov3Dr7EmAeE7yrKRmtu_L3539u9cjeiGiaRu32YVPQQ@mail.gmail.com>
+Subject: Re: [PATCH v2 09/21] dt-bindings: Document canaan, k210-fpioa bindings
+To: Damien Le Moal <damien.lemoal@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201124_042938_347759_73053E0D 
-X-CRM114-Status: GOOD (  22.52  )
+X-CRM114-CacheID: sfid-20201124_044914_642594_9E6BD865 
+X-CRM114-Status: GOOD (  16.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -74,62 +80,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
- Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, Linux-MM <linux-mm@kvack.org>,
- "open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>,
- "H. Peter Anvin" <hpa@zytor.com>, Christopher Lameter <cl@linux.com>,
- Shuah Khan <shuah@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Elena Reshetova <elena.reshetova@intel.com>,
- linux-arch <linux-arch@vger.kernel.org>, Tycho Andersen <tycho@tycho.ws>,
- linux-nvdimm <linux-nvdimm@lists.01.org>, Will Deacon <will@kernel.org>,
- X86 ML <x86@kernel.org>, Matthew Wilcox <willy@infradead.org>,
- Mike Rapoport <rppt@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- Michael Kerrisk <mtk.manpages@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
- James Bottomley <jejb@linux.ibm.com>, Borislav Petkov <bp@alien8.de>,
- Alexander Viro <viro@zeniv.linux.org.uk>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Dan Williams <dan.j.williams@intel.com>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- Linux API <linux-api@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- Linux FS Devel <linux-fsdevel@vger.kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>
+Cc: "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>, Sean Anderson <seanga2@gmail.com>,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ linux-clk <linux-clk@vger.kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 23, 2020 at 07:28:22AM -0800, Andy Lutomirski wrote:
-> On Mon, Nov 23, 2020 at 1:54 AM Mike Rapoport <rppt@kernel.org> wrote:
-> >
-> > From: Mike Rapoport <rppt@linux.ibm.com>
-> >
-> > Hi,
-> >
-> > This is an implementation of "secret" mappings backed by a file descriptor.
-> >
-> > The file descriptor backing secret memory mappings is created using a
-> > dedicated memfd_secret system call The desired protection mode for the
-> > memory is configured using flags parameter of the system call. The mmap()
-> > of the file descriptor created with memfd_secret() will create a "secret"
-> > memory mapping. The pages in that mapping will be marked as not present in
-> > the direct map and will have desired protection bits set in the user page
-> > table. For instance, current implementation allows uncached mappings.
-> 
-> I'm still not ready to ACK uncached mappings on x86.  I'm fine with
-> the concept of allowing privileged users to create UC memory on x86
-> for testing and experimentation, but it's a big can of worms in
-> general. 
+Hi Damien,
 
-Ok, let's move forward without UC. 
+On Tue, Nov 24, 2020 at 5:40 AM Damien Le Moal <damien.lemoal@wdc.com> wrote:
+> Document the device tree bindings for the Canaan Kendryte K210 SoC
+> Fully Programmable IO Array (FPIOA) pinctrl driver in
+> Documentation/devicetree/bindings/pinctrl/canaan,k210-fpioa.yaml. The
+> new header file include/dt-bindings/pinctrl/k210-fpioa.h is added to
+> define all 256 possible pin functions of the SoC IO pins, as well as
+> macros simplifying the definition of pin functions in a device tree.
+>
+> Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
 
--- 
-Sincerely yours,
-Mike.
+Thanks for your patch!
+
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pinctrl/canaan,k210-fpioa.yaml
+
+> +  canaan,k210-sysctl-power:
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> +    description: |
+> +      phandle of the K210 system controller node and offset of the its
+
+of its
+
+> +      power domain control register.
+
+Your k210-sysctl-v15 branch has a bogus trailing space here.
+
+> +
+> +patternProperties:
+
+> +  '-pins$':
+> +    type: object
+> +    $ref: /schemas/pinctrl/pincfg-node.yaml
+> +    description:
+> +      FPIOA client devices use sub-nodes to define the desired
+> +      configuration of pins. Client device sub-nodes use the
+> +      properties below.
+> +
+> +    properties:
+
+> +      input-schmitt: true
+> +
+> +      input-schmitt-enable: true
+
+Do you need both?
+Documentation/devicetree/bindings/pinctrl/pincfg-node.yaml documents
+input-schmitt-enable and input-schmitt-disable, but not input-schmitt.
+
+> +
+> +      intput-polarity-invert:
+
+input-polarity-invert
+
+> +        description:
+> +          Enable or disable pin input polarity inversion.
+
+Still, this is a non-standard property.  Do you need it, or can this be
+handled by the software GPIO_ACTIVE_LOW flag?
+
+> +      output-polarity-invert:
+> +        description:
+> +          Enable or disable pin output polarity inversion.
+
+Same comment as for input.
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
