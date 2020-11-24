@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7288FC8300E
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2020 04:37:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6FA5BC8300B
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2020 04:37:47 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E2F622087C
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2020 04:37:47 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B271020857
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 Nov 2020 04:37:46 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Tc/DAHi2";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="cg2NuXVM"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E2F622087C
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WXtCTjAd";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="iVzlIGxE"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B271020857
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,67 +26,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=BAmLwP5sYNPHyzW5qvzX1N9JB4rYQq/vtO66cNHjSy0=; b=Tc/DAHi2qmXIQE/9Oi4b31vc4
-	mMV8TWU82kufDYyMcoN9rGif+vDQK7ckj4l9Crpc6Uir2WtGaF7Om6kqvbXmJherFXBXS1XWmTFLG
-	PZqI9j42gWIezNtHdMV1rQutTzpRFNzrzoS2rBD0yXYTiSBmgl9Ftfxy0SCdhwhGh1ktpMyy/DjnR
-	5K0RaHXdWDlFFRnirowFPKX0oyzfTcyn/qpTCIMHnPFyrCmqgADyEe1fr1y4Y0A95igzunAadm7oH
-	Bwm1tBd8hK6DiErUXLewTy3ElLjmYC0KafW665PB6j+U53jpUo8k6OogBL04v9AcM21x+NaZEHSoX
-	St7YLaPSQ==;
+	 bh=xjmTXat3tuzmc+QOwSjuEPmAKfJSPQSgev697492wUw=; b=WXtCTjAdWpFtYnj6YRkWPPPeB
+	ulBdlw8/pnuSgQ6GrNqw5i0eAvPJ8P6gFNd+eHrtUTI4obyBXlPUmmb+x8S0KiQGPTOJDOR7033Jx
+	mxH2G38WFIJBCaZkASt9uGPE/JSKLdvKHYq4IxDPG3gWtj9e7ReenG2MK6PpXCvw573biJomhsBlu
+	4z2DHfJhb5/6YB9dhl8Gx5x5uJ54lDectHBtvOWCH/aogYguZYvxv3xpn6I6uwKOUS0lVFGi5Qv2c
+	TE+sQWt72u4ky0pYK7XtGz4DObsCHNOQAmlRnvTwSGv5qHXpzAdcuCnMR6DMxL4BLmGrnGOXLa0OZ
+	ItwZOpztA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1khQ5G-0007Pw-0z; Tue, 24 Nov 2020 04:37:42 +0000
+	id 1khQ5F-0007PT-2P; Tue, 24 Nov 2020 04:37:41 +0000
 Received: from esa3.hgst.iphmx.com ([216.71.153.141])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1khQ5B-0007Nj-R0
- for linux-riscv@lists.infradead.org; Tue, 24 Nov 2020 04:37:38 +0000
+ id 1khQ5A-0007Nj-70
+ for linux-riscv@lists.infradead.org; Tue, 24 Nov 2020 04:37:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1606192657; x=1637728657;
+ t=1606192656; x=1637728656;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=LAnvTxuCrxiYwbhYLblxFRB980/m85EFlvtWJ9EMVlc=;
- b=cg2NuXVMdrQwdo7Fj30fUvihzhyK+WnlHhevmL7l4+8HIxKIpCrVKOgc
- Outi4SS50InjgwYD/xeQrsX3pPiy3mT3ytYISx8u92Jln4TPfJ6MYLW9C
- 73YCYonEocTfMOFIRyEYjqu+8YLW6haKgIIfNdTKGA2/l3zS6tqKfSXHF
- Uog5QEcjDCLpZfDkwivaQX8TyracVc6MAL1NL11EqJ7j9g+9XniIX3I2G
- WxjArW1FiVgUK1RTjKypMUWYJ3uErE4psLuljKw/ZMDknfbOmFqQaBrsO
- xUYnW5zg33gnsV5jTiElnD+o/JdhU9yH57LmK6mloWwRR9tbRlUHN3z1r w==;
-IronPort-SDR: UXdb+ZHx//snrBoaPhLvLbjZunXBggBfEzcRloRAV100zGfPn/UZeqE8uD0RdnFYuH0eXKmKkB
- 5R1cwUZrDO6xD5WpUgBwBQJe+YHHyOuTzkO/GHlfv3hnl8AMeECYervogCyi6dQANGwY/1SPuS
- F0H8GCyOMyvpXioi5hrSjlbECGSizykoXy8kUZK65zA4z0MxcUZ60St8q5BXpsWLg8Lwl/QGrl
- AbyS4WnfA1U5nW/prgkwuNGmF8piG47h+AvfhhM9Z+iDacFsM6cfQcJ0mZRWCtMTXx4ryahIAT
- Xfo=
-X-IronPort-AV: E=Sophos;i="5.78,365,1599494400"; d="scan'208";a="157768573"
+ bh=ah0+1mEnJdX05Q2mVPorPQhcLW5wBEGXXNi04bnk03g=;
+ b=iVzlIGxE3gGCCct84m/tOu/PE9WbbLEWTobfUn1YUXxU505iyZAZZlzh
+ MVmSGkzoOHT2LL55sCkAFXK8glr+9f0KZ9w8Ef/6L/H4And0TyN9hVQ7K
+ q61kNGVGDPIWh7UdOVnluVr5B2LQES8xAffE8qZc9RIE7IJle5yoRtiII
+ v+fuXsWaojxIszSesgOcWeNCut/EMIbF6yytDUK2qug0yjwsmvCGs9oAS
+ v11kvxPBzejVfvzew0eULsDJdDokvlWOt+Vs5wEuWrr/L8cQF8D0NwiMI
+ C0sCR2TdBr8xJeerc6WgsmDK+uCwwiaPvBIigwu7+wjns3fY7r4sP+3C9 Q==;
+IronPort-SDR: ueL1UGTfStEKvXOtvJr4I+jVUVmgH8wEolegxqlgJXlvVIlpbgNMUZNAhRKNSlz5bLSvpQMj6U
+ 3q/dS3epdl3RdiZ/VeusHo0QKjaYYWVijzuOTPiPPtP46LHoZH6H5iRPwM3av1H185h6PscM9H
+ N9bR/Pd7y7KW5CqiImulvrsc1Ca0WJQJnPPKUZHwlF4rb8IH5kDTxlVo6aIQeK8bYPUEPpJgfS
+ mbTiOqnok532O2U99WEr8M1bf0Yc9q+4Eo1n5nSG2R5O4keho4zPVuPJbo+9eqpO+HeKig7dX9
+ PIQ=
+X-IronPort-AV: E=Sophos;i="5.78,365,1599494400"; d="scan'208";a="157768570"
 Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
  ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 24 Nov 2020 12:37:37 +0800
-IronPort-SDR: krFMugT1cZA7ou+Qk3AisaDiyYXThu1ZyXPOFSm+mGHdlbOmzF2AhhB1dj4qBt8I3qbf3mVUUS
- 02VHLZhg+tBmiw9ndU0elBpEdwM8YI0fo=
+ by ob1.hgst.iphmx.com with ESMTP; 24 Nov 2020 12:37:35 +0800
+IronPort-SDR: KPMO+D4zNzDPuafhqRcz7BCUudPcdsV+qIFQNzvs85tq7pSLRoZFnQR/hrNCRFNo2xy+7MCVCP
+ l3/qGJrYejJpUdcQCBwSl1DxS5Ig3HFVg=
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
  by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 23 Nov 2020 20:22:02 -0800
-IronPort-SDR: +GJRS9u0nUxBOguxN99UNrglnLx6r2UfTkUb1JzQQ1VXyKr+GFadfoi1Ket/4sgvocApic1KjT
- 0GXKWXTHUbTw==
+ 23 Nov 2020 20:21:59 -0800
+IronPort-SDR: 5mthMKwGuxuDh6aVUWhJyePDMo4o4xfFoEKtf+jrB75v3fZ5wZFNkyVrWe4TljFiJKs3lAeCXj
+ nj0fFfzhElLQ==
 WDCIronportException: Internal
 Received: from hdrdzf2.ad.shared (HELO twashi.fujisawa.hgst.com)
  ([10.84.71.163])
- by uls-op-cesaip01.wdc.com with ESMTP; 23 Nov 2020 20:37:35 -0800
+ by uls-op-cesaip01.wdc.com with ESMTP; 23 Nov 2020 20:37:33 -0800
 From: Damien Le Moal <damien.lemoal@wdc.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
  Rob Herring <robh+dt@kernel.org>, devicetree@vger.kernel.org,
  Stephen Boyd <sboyd@kernel.org>, linux-clk@vger.kernel.org,
  Linus Walleij <linus.walleij@linaro.org>, linux-gpio@vger.kernel.org,
  Philipp Zabel <p.zabel@pengutronix.de>
-Subject: [PATCH v2 03/21] riscv: Enable interrupts during syscalls with M-Mode
-Date: Tue, 24 Nov 2020 13:37:10 +0900
-Message-Id: <20201124043728.199852-4-damien.lemoal@wdc.com>
+Subject: [PATCH v2 02/21] riscv: Fix sifive serial driver
+Date: Tue, 24 Nov 2020 13:37:09 +0900
+Message-Id: <20201124043728.199852-3-damien.lemoal@wdc.com>
 X-Mailer: git-send-email 2.28.0
 In-Reply-To: <20201124043728.199852-1-damien.lemoal@wdc.com>
 References: <20201124043728.199852-1-damien.lemoal@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201123_233738_077270_2FCC1057 
-X-CRM114-Status: GOOD (  11.57  )
+X-CRM114-CacheID: sfid-20201123_233736_424549_6148953C 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -104,37 +104,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When running is M-Mode (no MMU config), MPIE does not get set. This
-results in all syscalls being executed with interrupts disabled as
-handle_exception never sets SR_IE as it always sees SR_PIE being
-cleared. Fix this by always force enabling interrupts in
-handle_syscall when CONFIG_RISCV_M_MODE is enabled.
+Setup the port uartclk in sifive_serial_probe() so that the base baud
+rate is correctly printed during device probe instead of always showing
+"0".  I.e. the probe message is changed from
+
+38000000.serial: ttySIF0 at MMIO 0x38000000 (irq = 1,
+base_baud = 0) is a SiFive UART v0
+
+to the correct:
+
+38000000.serial: ttySIF0 at MMIO 0x38000000 (irq = 1,
+base_baud = 115200) is a SiFive UART v0
 
 Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
 ---
- arch/riscv/kernel/entry.S | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ drivers/tty/serial/sifive.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 524d918f3601..080eb8d78589 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -155,6 +155,15 @@ skip_context_tracking:
- 	tail do_trap_unknown
+diff --git a/drivers/tty/serial/sifive.c b/drivers/tty/serial/sifive.c
+index 13eadcb8aec4..214bf3086c68 100644
+--- a/drivers/tty/serial/sifive.c
++++ b/drivers/tty/serial/sifive.c
+@@ -999,6 +999,7 @@ static int sifive_serial_probe(struct platform_device *pdev)
+ 	/* Set up clock divider */
+ 	ssp->clkin_rate = clk_get_rate(ssp->clk);
+ 	ssp->baud_rate = SIFIVE_DEFAULT_BAUD_RATE;
++	ssp->port.uartclk = ssp->baud_rate * 16;
+ 	__ssp_update_div(ssp);
  
- handle_syscall:
-+#ifdef CONFIG_RISCV_M_MODE
-+	/*
-+	 * When running is M-Mode (no MMU config), MPIE does not get set.
-+	 * As a result, we need to force enable interrupts here because
-+	 * handle_exception did not do set SR_IE as it always sees SR_PIE
-+	 * being cleared.
-+	 */
-+	csrs CSR_STATUS, SR_IE
-+#endif
- #if defined(CONFIG_TRACE_IRQFLAGS) || defined(CONFIG_CONTEXT_TRACKING)
- 	/* Recover a0 - a7 for system calls */
- 	REG_L a0, PT_A0(sp)
+ 	platform_set_drvdata(pdev, ssp);
 -- 
 2.28.0
 
