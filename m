@@ -2,22 +2,22 @@ Return-Path: <SRS0=npMT=E7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,UNWANTED_LANGUAGE_BODY,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=unavailable autolearn_force=no version=3.4.0
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4AB29C63777
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2020 09:25:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C11E1C5519F
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2020 09:25:18 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C6A1620B80
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2020 09:25:05 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 40E4A20B1F
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2020 09:25:18 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="S4Xtxy1L";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="hVqHOQlX"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C6A1620B80
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="DyWbdjj1";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="Zeh6J+Eg"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 40E4A20B1F
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,42 +26,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=QvCH5iRqo0qS4JdLdbCWu1VA7JuI13dgwHy4Mz+PuP4=; b=S4Xtxy1LocdSUZBImjJCy/LuI
-	abBGLGCzKhu/hpRL0dD20psNIhRdKAMDhIwwn+7RsowsReilu1dvDNZXiNDG+s5HomSb896IiWSac
-	eSFuz2yzntfPmjv9TZdwv6RLw0f2vWXmumK3ST5TnHPdiSgOcBxN8QN0kA1M3aEo0WDVpljR9CPII
-	99wGQ3LX69sgZ01GAJqtdaWBaSdE7qhRjs2lkXdeYFQ79olWJ9t49cdNJrkR29HG4mQill6mcEJNd
-	vgd0mnw8COPLaFIMSC1BxyCANxWpD0EYNjjcZvsgmAe1SPAfzVghm8EAPp8sjw5nisD0o/eZgBIgm
-	b3RPyvA8w==;
+	 bh=73CfLtprq/X+2hE3utmAp1eEB0/uxJpmhQAp+U+CGiU=; b=DyWbdjj10TKmxISLSYdYOuNpz
+	xJrfsGr+WeY9L9MAcy9rxvp5ieu/x/1qfIcTqTTy3etqc9TnMin+vuwL3oL30mi8tj+fAPGsBdbB4
+	zCiU08FVQuzdFgJwlepfdqOmtgYYFaaNrSMJ5uRXVvt9CmXr5UPg15rXXJpOeJ675e6M7WsYSs/TF
+	4xFC1lxJOJqB7gTp7yYRYZbrjrHqCtFHQtandGp+jiSVIBmF5nZGqt+bKslnxP/yvSc8y0T1tv2H/
+	FnLquwjEk23+Fc/r0g3gqkVnLhATciQxT4tz1k8HJLMipx3XVUNld6giD8YFDYwP5jShn0UzNaZ7k
+	jzSn/9y4Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1khr2n-000126-LA; Wed, 25 Nov 2020 09:24:57 +0000
+	id 1khr31-00019c-4Z; Wed, 25 Nov 2020 09:25:11 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1khr1Y-0000RH-DT; Wed, 25 Nov 2020 09:23:42 +0000
+ id 1khr1j-0000WP-EA; Wed, 25 Nov 2020 09:23:55 +0000
 Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id E0D0521D7A;
- Wed, 25 Nov 2020 09:23:28 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id F33A620DD4;
+ Wed, 25 Nov 2020 09:23:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1606296219;
- bh=FE4Fb5pyFbxiYpTvF8+5R3jXAgN6YQa6IAgkzdCqJII=;
+ s=default; t=1606296230;
+ bh=oK2vSnvwolpB4EwUp+axAj4CN8XhshH61yb4ioPdlAY=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=hVqHOQlXqJfi501aXlkGmgqY6xWW90VQMa1f4fQRRWhfnCm8aYNrWSTgVZWdsrmEe
- 1c8fZzonAYA+LgUdEOcgCCC4gdd7QOZIMb0a65i4oRMud3kIiZlHMt+mSumVI1HYB9
- 8Wwz/KOrSnDl/1Zqi9fzAcT0tQDpL0UIpCuHf6hQ=
+ b=Zeh6J+EgK6Gbu9H3RBJ2ilRnGyVw13HrQRlNuHZojMpK56eW39Ilkplpeqb+yj/DD
+ lmRnqSPwZssx8W1MLv953IMqFAFcVFqR0sSTy1goCbTgHQxVWE6y/a//n3JwITDwQG
+ zi3LMjWO9yNOKuJLapiWuXVam75HWFNzYjFc8Hmw=
 From: Mike Rapoport <rppt@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH v12 07/10] secretmem: add memcg accounting
-Date: Wed, 25 Nov 2020 11:22:05 +0200
-Message-Id: <20201125092208.12544-8-rppt@kernel.org>
+Subject: [PATCH v12 08/10] PM: hibernate: disable when there are active
+ secretmem users
+Date: Wed, 25 Nov 2020 11:22:06 +0200
+Message-Id: <20201125092208.12544-9-rppt@kernel.org>
 X-Mailer: git-send-email 2.28.0
 In-Reply-To: <20201125092208.12544-1-rppt@kernel.org>
 References: <20201125092208.12544-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201125_042340_842584_2289E455 
-X-CRM114-Status: GOOD (  23.48  )
+X-CRM114-CacheID: sfid-20201125_042351_752712_1BD14ED3 
+X-CRM114-Status: GOOD (  20.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -101,115 +102,113 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Mike Rapoport <rppt@linux.ibm.com>
 
-Account memory consumed by secretmem to memcg. The accounting is updated
-when the memory is actually allocated and freed.
+It is unsafe to allow saving of secretmem areas to the hibernation snapshot
+as they would be visible after the resume and this essentially will defeat
+the purpose of secret memory mappings.
+
+Prevent hibernation whenever there are active secret memory users.
 
 Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
-Acked-by: Roman Gushchin <guro@fb.com>
 ---
- mm/filemap.c   |  3 ++-
- mm/secretmem.c | 36 +++++++++++++++++++++++++++++++++++-
- 2 files changed, 37 insertions(+), 2 deletions(-)
+ include/linux/secretmem.h |  6 ++++++
+ kernel/power/hibernate.c  |  5 ++++-
+ mm/secretmem.c            | 15 +++++++++++++++
+ 3 files changed, 25 insertions(+), 1 deletion(-)
 
-diff --git a/mm/filemap.c b/mm/filemap.c
-index 249cf489f5df..cf7f1dc9f4b8 100644
---- a/mm/filemap.c
-+++ b/mm/filemap.c
-@@ -42,6 +42,7 @@
- #include <linux/psi.h>
- #include <linux/ramfs.h>
- #include <linux/page_idle.h>
+diff --git a/include/linux/secretmem.h b/include/linux/secretmem.h
+index 70e7db9f94fe..907a6734059c 100644
+--- a/include/linux/secretmem.h
++++ b/include/linux/secretmem.h
+@@ -6,6 +6,7 @@
+ 
+ bool vma_is_secretmem(struct vm_area_struct *vma);
+ bool page_is_secretmem(struct page *page);
++bool secretmem_active(void);
+ 
+ #else
+ 
+@@ -19,6 +20,11 @@ static inline bool page_is_secretmem(struct page *page)
+ 	return false;
+ }
+ 
++static inline bool secretmem_active(void)
++{
++	return false;
++}
++
+ #endif /* CONFIG_SECRETMEM */
+ 
+ #endif /* _LINUX_SECRETMEM_H */
+diff --git a/kernel/power/hibernate.c b/kernel/power/hibernate.c
+index da0b41914177..559acef3fddb 100644
+--- a/kernel/power/hibernate.c
++++ b/kernel/power/hibernate.c
+@@ -31,6 +31,7 @@
+ #include <linux/genhd.h>
+ #include <linux/ktime.h>
+ #include <linux/security.h>
 +#include <linux/secretmem.h>
- #include "internal.h"
+ #include <trace/events/power.h>
  
- #define CREATE_TRACE_POINTS
-@@ -844,7 +845,7 @@ static noinline int __add_to_page_cache_locked(struct page *page,
- 	page->mapping = mapping;
- 	page->index = offset;
+ #include "power.h"
+@@ -81,7 +82,9 @@ void hibernate_release(void)
  
--	if (!huge) {
-+	if (!huge && !page_is_secretmem(page)) {
- 		error = mem_cgroup_charge(page, current->mm, gfp);
- 		if (error)
- 			goto error;
+ bool hibernation_available(void)
+ {
+-	return nohibernate == 0 && !security_locked_down(LOCKDOWN_HIBERNATION);
++	return nohibernate == 0 &&
++		!security_locked_down(LOCKDOWN_HIBERNATION) &&
++		!secretmem_active();
+ }
+ 
+ /**
 diff --git a/mm/secretmem.c b/mm/secretmem.c
-index 52a900a135a5..eb6628390444 100644
+index eb6628390444..f7398eb810c5 100644
 --- a/mm/secretmem.c
 +++ b/mm/secretmem.c
-@@ -18,6 +18,7 @@
- #include <linux/memblock.h>
- #include <linux/pseudo_fs.h>
- #include <linux/secretmem.h>
-+#include <linux/memcontrol.h>
- #include <linux/set_memory.h>
- #include <linux/sched/signal.h>
- 
-@@ -44,6 +45,32 @@ struct secretmem_ctx {
+@@ -45,6 +45,13 @@ struct secretmem_ctx {
  
  static struct cma *secretmem_cma;
  
-+static int secretmem_account_pages(struct page *page, gfp_t gfp, int order)
++static atomic_t secretmem_users;
++
++bool secretmem_active(void)
 +{
-+	int err;
++	return !!atomic_read(&secretmem_users);
++}
 +
-+	err = memcg_kmem_charge_page(page, gfp, order);
-+	if (err)
-+		return err;
-+
-+	/*
-+	 * seceremem caches are unreclaimable kernel allocations, so treat
-+	 * them as unreclaimable slab memory for VM statistics purposes
-+	 */
-+	mod_node_page_state(page_pgdat(page), NR_SLAB_UNRECLAIMABLE_B,
-+			    PAGE_SIZE << order);
-+
+ static int secretmem_account_pages(struct page *page, gfp_t gfp, int order)
+ {
+ 	int err;
+@@ -179,6 +186,12 @@ static const struct vm_operations_struct secretmem_vm_ops = {
+ 	.fault = secretmem_fault,
+ };
+ 
++static int secretmem_release(struct inode *inode, struct file *file)
++{
++	atomic_dec(&secretmem_users);
 +	return 0;
 +}
 +
-+static void secretmem_unaccount_pages(struct page *page, int order)
-+{
-+
-+	mod_node_page_state(page_pgdat(page), NR_SLAB_UNRECLAIMABLE_B,
-+			    -PAGE_SIZE << order);
-+	memcg_kmem_uncharge_page(page, order);
-+}
-+
- static int secretmem_pool_increase(struct secretmem_ctx *ctx, gfp_t gfp)
+ static int secretmem_mmap(struct file *file, struct vm_area_struct *vma)
  {
- 	unsigned long nr_pages = (1 << PMD_PAGE_ORDER);
-@@ -56,10 +83,14 @@ static int secretmem_pool_increase(struct secretmem_ctx *ctx, gfp_t gfp)
- 	if (!page)
- 		return -ENOMEM;
+ 	unsigned long len = vma->vm_end - vma->vm_start;
+@@ -201,6 +214,7 @@ bool vma_is_secretmem(struct vm_area_struct *vma)
+ }
  
--	err = set_direct_map_invalid_noflush(page, nr_pages);
-+	err = secretmem_account_pages(page, gfp, PMD_PAGE_ORDER);
- 	if (err)
- 		goto err_cma_release;
+ static const struct file_operations secretmem_fops = {
++	.release	= secretmem_release,
+ 	.mmap		= secretmem_mmap,
+ };
  
-+	err = set_direct_map_invalid_noflush(page, nr_pages);
-+	if (err)
-+		goto err_memcg_uncharge;
-+
- 	addr = (unsigned long)page_address(page);
- 	err = gen_pool_add(pool, addr, PMD_SIZE, NUMA_NO_NODE);
- 	if (err)
-@@ -76,6 +107,8 @@ static int secretmem_pool_increase(struct secretmem_ctx *ctx, gfp_t gfp)
- 	 * won't fail
- 	 */
- 	set_direct_map_default_noflush(page, nr_pages);
-+err_memcg_uncharge:
-+	secretmem_unaccount_pages(page, PMD_PAGE_ORDER);
- err_cma_release:
- 	cma_release(secretmem_cma, page, nr_pages);
- 	return err;
-@@ -302,6 +335,7 @@ static void secretmem_cleanup_chunk(struct gen_pool *pool,
- 	int i;
+@@ -318,6 +332,7 @@ SYSCALL_DEFINE1(memfd_secret, unsigned long, flags)
+ 	file->f_flags |= O_LARGEFILE;
  
- 	set_direct_map_default_noflush(page, nr_pages);
-+	secretmem_unaccount_pages(page, PMD_PAGE_ORDER);
+ 	fd_install(fd, file);
++	atomic_inc(&secretmem_users);
+ 	return fd;
  
- 	for (i = 0; i < nr_pages; i++)
- 		clear_highpage(page + i);
+ err_put_fd:
 -- 
 2.28.0
 
