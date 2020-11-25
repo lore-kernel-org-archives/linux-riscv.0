@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 99B1FC56201
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2020 19:58:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 23013C56202
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2020 19:58:40 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 58E7E20663
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2020 19:58:37 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 4753E20663
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2020 19:58:39 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="AESPYs1V";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="NGEK7Rhc"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 58E7E20663
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="unnXxOBi";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="bkwK4VpA"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4753E20663
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,63 +26,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:From:MIME-Version:Message-Id:Date:Subject:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rUymWPaYTO1hkftsueuqIZW/ODF3CRaiomolNsVlbFE=; b=AESPYs1VKMCgujCs4yPvqpGD5l
-	Cvc8e95e47DYBpo+pW4EPFZkne5jnFfEqKIrSwGaBvyyj43bD5IetsOHpAEFVGHdu2mexfONYtMug
-	i0cildM1PvElvCkq5IbRxFtSuwAMEudnKd8x6vU1xVlEeDlnn9b+SPX3uHgj02uuiDwA6zN/AQt1I
-	BCiRyXB2IvScWqiuuxxa9va524gdvdmWAyK1WEHETeGl44tHnUxu/bsgoPUC567vpndFSx8fX4H+Z
-	fTZKBDg1xyYaoyUazQm0kYRLbA5pbVy51sUNC3jIqRBt5E0ZfwjDWK95c4ZswOTjlaWeAXkNbPj4M
-	QvX3XrUA==;
+	bh=UvZnlSu3CbuU6Nebyht1oPVVQNgPaqOkyt9GLne2St4=; b=unnXxOBiKa0T3V5J94DhfHarYP
+	r6CgxWwv0IDH+aCdmbInXSAXwzLj5IzAkfGamYG4Jsi/PG3B12dMRPpwSI4oFBAMtkhpfmX03iLW7
+	lNf/D1FO5CzKW+hKsF3rMuJ5URi+m4IJR47LmBBsB87bMoad6zrUjITDvYbGM1PM3hVPUKfruz6qS
+	4CTfsh4blqrhYvGO7B7ZBBgUaNhRBdeslo3Z7lqL6vQ+n7jRr187VoqUercj9yBdR/5LEyNrJftvN
+	xTHO8asvjrEC9q2wnq+5VritsyfOfxbvudyRqqxc7SPvhmTiX7e2DsLd+tnr39pvjSAshtIdwJHZo
+	9qSOziQQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ki0vs-00030n-5a; Wed, 25 Nov 2020 19:58:28 +0000
-Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
+	id 1ki0vr-00030d-LU; Wed, 25 Nov 2020 19:58:27 +0000
+Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ki0vo-0002zr-6d
+ id 1ki0vo-0002zt-Hq
  for linux-riscv@lists.infradead.org; Wed, 25 Nov 2020 19:58:25 +0000
-Received: by mail-pg1-x541.google.com with SMTP id 81so3378420pgf.0
- for <linux-riscv@lists.infradead.org>; Wed, 25 Nov 2020 11:58:21 -0800 (PST)
+Received: by mail-pf1-x441.google.com with SMTP id t8so3340462pfg.8
+ for <linux-riscv@lists.infradead.org>; Wed, 25 Nov 2020 11:58:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=subject:date:message-id:mime-version:content-transfer-encoding:cc
- :from:to; bh=A6GqFZlfnfwQpVbBwycgYvuUf87ws0MJU+ShxbokfgI=;
- b=NGEK7Rhc1Uf2RIGyMm824jQ5Cq1mA6jJb1MR4xXvdz3pal6VBHxdSpy6MROb8D4JcY
- kXvrLYN+DGUryRZsH7REq2rNe4QC3tFjXhq2w0OhkHB2tzARQkGKv9/zks3JILAwZbam
- ziuLBVCnnlWm5dTClDgppeTTZvZaOt3devMd0NabDIaqEiBqrFJN8r+mIEvFpanPBci6
- 9IYnmio8Z7/DQ+G6lk02BK3Nls+lDmisOcHXzJfDj5brKcN9E98UP4SD13WnJGatGWAs
- 7gm7GxeU5g0EmDqj7E2JrF630JWd67rKeOKzuPjnyqjGYCLj6d277kIv2lKygnQt6pn9
- OGlg==
+ :from:to; bh=C2+gt+4Vla//T43iYMds5MwFx2eq1rtnxCXvX+Fkws0=;
+ b=bkwK4VpAVhpMM3mZ3JJJcmL343wveYoNrYyuIlWQmGg4j1plhP4wSFrAjNzOMXDQpf
+ m9ReO05eTylIEKMQzdbdymApGYTOt67PHKpv90bOeeO7LAqz72AyLZMAXtv5K05cmAxg
+ BlJNe6X2Qs21GzTvsOSikAiT0nzcvLY+AyG9hCAILK2jwtaXD+6PmYeJSN4+uzwRmTkn
+ criW1cjl3xrjB2HxAFZOguPwlA2pOXImWlekQjswDHxG1v7x8sFO26vLpBNzwR9+N+tn
+ bHY6sfMMfEOXuDhZh3LRbzgLsy66nQDxlFB9dkJXMO37YnRoM7qOD0Ff0lRQHnc1VgbH
+ R1Rw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:subject:date:message-id:mime-version
  :content-transfer-encoding:cc:from:to;
- bh=A6GqFZlfnfwQpVbBwycgYvuUf87ws0MJU+ShxbokfgI=;
- b=TmDZ9qMnwKmf3ZcPg/hNcPHFd6+NpEujCBsvwzLMiIRenBp7onZzoUSGqEWtxEbUBe
- Usa7TEd8eay30jM2hjF61m7no80EXXZhN37LNMldZZHuSl75XihRhqLO+lqV/MTlN2ct
- Rd3ReIRS/11rxiKkg18pMKBFcn6VmxX8WvT9Vc46xiM5KInXGUwmeMUVp7c66l8Jrr8k
- IqiundN9NAetVcapoFjULmDSouS+RKhmo0ygax3G7eNmQF2YsNChJmLySJSIihZ2a6tR
- mz2MbTVtyJfGuo+HiLAumypra95DlAxv2iKRHB/pcNMw6iK3XvimeyF6u8xYnWjyvjK8
- os5w==
-X-Gm-Message-State: AOAM533DcFlICXyI7U1MYc1ON7Tl310XNP3PitZFEyBl5WANdix62Xru
- zmNMB16G7HIkrf+t+u8eL/6M7g==
-X-Google-Smtp-Source: ABdhPJzp7Nvm7GiqyReS6Ir0Kb9GhSUuI4szAqtmh5rAnCAosX9h80Xbk6PWFsM4IhaPudbij/bRgw==
-X-Received: by 2002:a17:90a:f195:: with SMTP id
- bv21mr5733533pjb.63.1606334299933; 
- Wed, 25 Nov 2020 11:58:19 -0800 (PST)
+ bh=C2+gt+4Vla//T43iYMds5MwFx2eq1rtnxCXvX+Fkws0=;
+ b=YEuBZ/CoY+01ufUBIhJ9+mYOvK04V2NlTU8CYm6gg4cadg99akGYCnHAqaGl2WeAI8
+ 3UWD08T9QwF4OnHLciYOAwYgBwFMYVs3FgiFHsagFlhUI+TD6zSSKlA4Bo/XYqiWtTXj
+ jXUdq0FzfMZQEyikUw4h/oy8zZdycYPI0FaDsXTOplxyCwGrAQqK89LJd3uJYaJg05P1
+ SmfinFvk+TgobjTaQb6gkL1VBYhQoe+2ZBC8COv5q+DFQGtk4j7QczBIf1VGGu8RPSCt
+ KLHoXe22AsjE6bg6EZqjA1xiCJ6LjkoGVndjL9+xrZSlmVMlLsVfRSUcNXRS6Z0vA6+I
+ XhxA==
+X-Gm-Message-State: AOAM533vG3tFHYOtO8apB+oyIQTCFdvYcHOp9jpSbyrf42uG7suXPpe2
+ qUPZptiGrQQWPqW+FDOjRPuLpQ==
+X-Google-Smtp-Source: ABdhPJy0oBUqJ5zTUZSRrrCi7ojhyvNYwGOkozXDmt62EACijfKH/cgNzMmUvBT8QbvfsLJ7X71ZVQ==
+X-Received: by 2002:a65:6401:: with SMTP id a1mr4400231pgv.149.1606334301571; 
+ Wed, 25 Nov 2020 11:58:21 -0800 (PST)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id r15sm3844651pjp.51.2020.11.25.11.58.19
+ by smtp.gmail.com with ESMTPSA id cu1sm3626192pjb.6.2020.11.25.11.58.20
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 25 Nov 2020 11:58:19 -0800 (PST)
-Subject: [PATCH] RISC-V: Define get_cycles64() regardless of M-mode
-Date: Wed, 25 Nov 2020 11:57:03 -0800
-Message-Id: <20201125195703.3780383-1-palmer@dabbelt.com>
+ Wed, 25 Nov 2020 11:58:21 -0800 (PST)
+Subject: [PATCH] drivers: clocksource: timer-riscv: Depend on the SBI
+Date: Wed, 25 Nov 2020 11:58:04 -0800
+Message-Id: <20201125195804.3780975-1-palmer@dabbelt.com>
 X-Mailer: git-send-email 2.29.2.454.gaff20da3a2-goog
 MIME-Version: 1.0
 From: Palmer Dabbelt <palmer@dabbelt.com>
 To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201125_145824_278668_2413E0D7 
-X-CRM114-Status: GOOD (  15.92  )
+X-CRM114-CacheID: sfid-20201125_145824_635372_DB0F300F 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -94,12 +93,9 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, daniel.lezcano@linaro.org,
- Anup Patel <Anup.Patel@wdc.com>, linux-kernel@vger.kernel.org,
- Atish Patra <Atish.Patra@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>, linux-riscv@lists.infradead.org,
- kernel-team@android.com, kernel test robot <lkp@intel.com>
+Cc: Palmer Dabbelt <palmerdabbelt@google.com>, tglx@linutronix.de,
+ daniel.lezcano@linaro.org, kernel-team@android.com,
+ linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
@@ -107,39 +103,27 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Palmer Dabbelt <palmerdabbelt@google.com>
 
-The timer driver uses get_cycles64() unconditionally to obtain the current
-time.  A recent refactoring lost the common definition for some configs, which
-is now the only one we need.
+Fundamentally this is an SBI timer driver, so it cannot be enabled without
+support for the RISC-V SBI.
 
 Fixes: d5be89a8d118 ("RISC-V: Resurrect the MMIO timer implementation for M-mode systems")
-Reported-by: kernel test robot <lkp@intel.com>
 Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
 ---
- arch/riscv/include/asm/timex.h | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/clocksource/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/include/asm/timex.h b/arch/riscv/include/asm/timex.h
-index ab104905d4db..81de51e6aa32 100644
---- a/arch/riscv/include/asm/timex.h
-+++ b/arch/riscv/include/asm/timex.h
-@@ -60,6 +60,8 @@ static inline u32 get_cycles_hi(void)
- }
- #define get_cycles_hi get_cycles_hi
- 
-+#endif /* !CONFIG_RISCV_M_MODE */
-+
- #ifdef CONFIG_64BIT
- static inline u64 get_cycles64(void)
- {
-@@ -79,8 +81,6 @@ static inline u64 get_cycles64(void)
- }
- #endif /* CONFIG_64BIT */
- 
--#endif /* !CONFIG_RISCV_M_MODE */
--
- #define ARCH_HAS_READ_CURRENT_TIMER
- static inline int read_current_timer(unsigned long *timer_val)
- {
+diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
+index 68b087bff59c..3eeaf0efba8f 100644
+--- a/drivers/clocksource/Kconfig
++++ b/drivers/clocksource/Kconfig
+@@ -655,6 +655,7 @@ config ATCPIT100_TIMER
+ config RISCV_TIMER
+ 	bool "Timer for the RISC-V platform" if COMPILE_TEST
+ 	depends on GENERIC_SCHED_CLOCK && RISCV
++	depends on RISCV_SBI
+ 	select TIMER_PROBE
+ 	select TIMER_OF
+ 	help
 -- 
 2.29.2.454.gaff20da3a2-goog
 
