@@ -2,22 +2,22 @@ Return-Path: <SRS0=npMT=E7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1B8CBC5519F
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2020 12:47:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 314D3C5519F
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2020 14:09:53 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6C11A206E5
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2020 12:47:39 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id AD3762076B
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2020 14:09:52 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="1ofI+gWk"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6C11A206E5
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="e+9xEsgx";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="X+Hz6J02"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AD3762076B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -25,53 +25,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=a5E80nUSxSiWwyfk+//kOOTuC6lDNk+YOoKtr4URxXE=; b=1ofI+gWkLwFODiJIG38cW59CI
-	Dw5o/V1RCuIoS4lSXjBy2ts10vtCzKSnv6hFYUZ7xrrH97JfuYbMXGoylv4eZ8x6CaigsNOZ8JRkL
-	ruP1iBtp5PjhuEiGNR1orCDckavs6i+4iDvTY2icWjjgJjvmIHnz+/ppavaWuUlabwJOggDUglXhq
-	JmRyORinda89YRcHDZ3XcMroIr5hskdOEyTZ8BsP0826O/dPzuR996RLQz+wjdNhIo+01Q+oIDeF5
-	aB4k4D3UY3CXe2z6Yl5oG9FI4jtgXF4x7bNRurVxeBtWMCjlRQ5x7ykctOqHSPY26RHCAbnqEJA3h
-	TbvH8yJCA==;
+	 bh=NqT+7+c/b1zeTHfwXCj5nKOR6x9PBpDbpi/sltDOoMM=; b=e+9xEsgxMYOYBdxp+catZ3ao0
+	81MkI9/CcijYf8GjgrjYi7O21eIQqVJ93BSDNWLvVyWr/g2FJaZh8f5nohkfBHcI9qbCikTHKw88u
+	wuwzSeQgs89XtukAoDkeNteK1bs5GUVkIwIhNHN4SqkrLcnR46r2UOZc/7sSYs0h6wT4a+4tzg+VG
+	5osdfTcHDQ+WUnNtQMRBrT81b3AiU06h3DnXsS72r8aP0QU8YrUMDlaCkG4nYeXdbTAPZZAsW394v
+	DIRsJheR/njx5yjLW/zeUqczq5hMLE1cWJlIadAUt+Ds70kAIGCHS5kP7J0pXPXHzBR2aHpfTqvBr
+	KQyFv03Ag==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1khuCr-000419-CS; Wed, 25 Nov 2020 12:47:33 +0000
-Received: from mail-oi1-f193.google.com ([209.85.167.193])
+	id 1khvUO-0002b2-06; Wed, 25 Nov 2020 14:09:44 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1khuCo-0003zh-Oe
- for linux-riscv@lists.infradead.org; Wed, 25 Nov 2020 12:47:31 +0000
-Received: by mail-oi1-f193.google.com with SMTP id c80so2702414oib.2
- for <linux-riscv@lists.infradead.org>; Wed, 25 Nov 2020 04:47:29 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=gPUOnTI/GXJjBWfcQKn1UW1GCzqLDHOJc8mxlHuRZhA=;
- b=Ru2QifQqaClzWwlp5LXXqT+WmZnbVP3k/9odAyhAfyiM40BBzZGxktCPnUSZqLxM/N
- Y4m6B6BtnL+W1DpOhgTJCyiogHgxW7Ruz1PwNhDeNItDS+6zUvUqt1KXJVUDosTfW24p
- YirAt1Aq6Iq29pn1aZPnWUrH+dRNrM3cUriVWtXiphf4bMLgS78p340d4xkL+JQ4vRNv
- GtEhRojn2Gq/i0xFp3dVUmWQ68rurhI6BgcjPbkXOdJDuipaJZ8U7e8cOXLIDTR6ry/4
- VmcjUVXidDLy5W4YC1P0NdKO1XK1hRXLvl/0ecKIXRzoHq4B4SWIpTR8XrsZV06P46a4
- HAQA==
-X-Gm-Message-State: AOAM532XY9iL0t3psNMKWsrMkee7R8AueBvlm4PM1mdU7sx6z2Oz3z/8
- iugFFtmeM8vsgUZsJnvg0oSEstdyvwZFQMqr40o=
-X-Google-Smtp-Source: ABdhPJwikQNqVaFir6QHfyhm6IF2bhFKder5YyspCgClKVn0JsSsIW5TiEWBwEjHR4D8jSSsj5zffkSg2G78j4kq9IU=
-X-Received: by 2002:aca:1c0f:: with SMTP id c15mr2142536oic.54.1606308448683; 
- Wed, 25 Nov 2020 04:47:28 -0800 (PST)
+ id 1khvUL-0002aG-E6
+ for linux-riscv@lists.infradead.org; Wed, 25 Nov 2020 14:09:42 +0000
+Received: from mail-lj1-f174.google.com (mail-lj1-f174.google.com
+ [209.85.208.174])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 4B30A2076B
+ for <linux-riscv@lists.infradead.org>; Wed, 25 Nov 2020 14:09:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1606313380;
+ bh=yrOjx1H0BOl7yqO9YN4z/PIF02I6g+lpmxV/KJQECTs=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=X+Hz6J02dmJiTCqC1LtylAV0E8sIZQR8qXZIyS2rYijCBCK3OdhRn2UXvk6WQdoVt
+ h7B7URV1sMI4tK3zeJl8U94EZBbKLtkcCqBzIaBRo0LXqp7m0r8TIdioUZdzWskPy9
+ 2CzgBqKStENmNU+066s1Non2l7kR0N/CAKepSZJQ=
+Received: by mail-lj1-f174.google.com with SMTP id 142so2401900ljj.10
+ for <linux-riscv@lists.infradead.org>; Wed, 25 Nov 2020 06:09:40 -0800 (PST)
+X-Gm-Message-State: AOAM533ehnEX8AU5wfUvCRIm9F1umC8KEElGha6pggGbJeX4DHbYMn+i
+ 31cRhjjD3VfwZeo3sgnYbYNLmvRqhIq2BSgkpr8=
+X-Google-Smtp-Source: ABdhPJzE2tKNM/HUqwllZoE0zX54dUjodWRa76hsIf5p2+6KmS+voJMh729PHrBQeWPYcFftbjgcW+xcjzc5kseyoLs=
+X-Received: by 2002:a2e:8e6c:: with SMTP id t12mr1441948ljk.441.1606313378438; 
+ Wed, 25 Nov 2020 06:09:38 -0800 (PST)
 MIME-Version: 1.0
-References: <20201124185738.3541314-1-geert@linux-m68k.org>
- <CH2PR04MB652231C5B82E9F8184F496D8E7FA0@CH2PR04MB6522.namprd04.prod.outlook.com>
- <CAMuHMdW9dySq3y_Uixv8_7e+Pe2VKw4iGV36mx-DbX6-yzk-Gw@mail.gmail.com>
- <CH2PR04MB652268FD0FB44AA5DF36ACFBE7FA0@CH2PR04MB6522.namprd04.prod.outlook.com>
- <CAMuHMdXEzo4EOw_=MgskNXPrbkP4Ui+dHKZ5iyJ04h453BUAhQ@mail.gmail.com>
- <CH2PR04MB6522E6443C6E12CD28FD1A30E7FA0@CH2PR04MB6522.namprd04.prod.outlook.com>
-In-Reply-To: <CH2PR04MB6522E6443C6E12CD28FD1A30E7FA0@CH2PR04MB6522.namprd04.prod.outlook.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 25 Nov 2020 13:47:17 +0100
-Message-ID: <CAMuHMdW4YC4mNcX28s6HDSc-tuks2H7i-vojsOLbmaCBr2o2Ow@mail.gmail.com>
-Subject: Re: [PATCH] riscv: defconfig: k210: Disable CONFIG_VT
-To: Damien Le Moal <Damien.LeMoal@wdc.com>
+References: <1606225437-22948-1-git-send-email-guoren@kernel.org>
+ <1606225437-22948-2-git-send-email-guoren@kernel.org>
+ <20201124143931.GI2414@hirez.programming.kicks-ass.net>
+ <CAK8P3a1ykYmpXtjVbeAjLPY0AtfQTpL9jJ8e6SokiTb=J9UhnQ@mail.gmail.com>
+In-Reply-To: <CAK8P3a1ykYmpXtjVbeAjLPY0AtfQTpL9jJ8e6SokiTb=J9UhnQ@mail.gmail.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Wed, 25 Nov 2020 22:09:26 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQzDMwCALuZ05OAUdU7xZEijyHpOFpStiBQin3Y5RUDVg@mail.gmail.com>
+Message-ID: <CAJF2gTQzDMwCALuZ05OAUdU7xZEijyHpOFpStiBQin3Y5RUDVg@mail.gmail.com>
+Subject: Re: [PATCH 2/5] riscv: Add QUEUED_SPINLOCKS & QUEUED_RWLOCKS supported
+To: Arnd Bergmann <arnd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201125_074730_897150_31D51E08 
-X-CRM114-Status: GOOD (  15.53  )
+X-CRM114-CacheID: sfid-20201125_090941_648334_0497CA5C 
+X-CRM114-Status: GOOD (  21.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -83,52 +84,105 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
+Cc: Guo Ren <guoren@linux.alibaba.com>, Arnd Bergmann <arnd@arndb.de>,
+ Peter Zijlstra <peterz@infradead.org>, Anup Patel <anup@brainfault.org>,
+ Palmer Dabbelt <palmerdabbelt@google.com>,
  "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>
+ linux-csky@vger.kernel.org, Michael Clark <michaeljclark@mac.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Damien,
-
-On Wed, Nov 25, 2020 at 12:00 PM Damien Le Moal <Damien.LeMoal@wdc.com> wrote:
-> On 2020/11/25 18:26, Geert Uytterhoeven wrote:
-> > On Wed, Nov 25, 2020 at 10:02 AM Damien Le Moal <Damien.LeMoal@wdc.com> wrote:
-> >> On 2020/11/25 17:51, Geert Uytterhoeven wrote:
-> >> I was just fiddling with CONFIG_UNIX98_PTYS. Disabling it is OK with the simple
-> >> busybox userspace (no telnet/xterm like app running). But it saves only about
-> >> 1KB with my toolchain (gcc 9.3). So I left that one enabled. I am surprised that
-> >> you see 16K size impact... How big is your image ?
-> >>
-> >> For me, it is 1.768 MB right now for the sdcard defconfig, with CONFIG_VT
-> >> disabled and ext2 enabled.
+On Tue, Nov 24, 2020 at 11:00 PM Arnd Bergmann <arnd@kernel.org> wrote:
+>
+> On Tue, Nov 24, 2020 at 3:39 PM Peter Zijlstra <peterz@infradead.org> wrote:
+> > On Tue, Nov 24, 2020 at 01:43:54PM +0000, guoren@kernel.org wrote:
+> > > diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
+>
+> > > +             if (align) {                                            \
+> > > +             __asm__ __volatile__ (                                  \
+> > > +                     "0:     lr.w %0, 0(%z4)\n"                      \
+> > > +                     "       move %1, %0\n"                          \
+> > > +                     "       slli %1, %1, 16\n"                      \
+> > > +                     "       srli %1, %1, 16\n"                      \
+> > > +                     "       move %2, %z3\n"                         \
+> > > +                     "       slli %2, %2, 16\n"                      \
+> > > +                     "       or   %1, %2, %1\n"                      \
+> > > +                     "       sc.w %2, %1, 0(%z4)\n"                  \
+> > > +                     "       bnez %2, 0b\n"                          \
+> > > +                     "       srli %0, %0, 16\n"                      \
+> > > +                     : "=&r" (__ret), "=&r" (tmp), "=&r" (__rc)      \
+> > > +                     : "rJ" (__new), "rJ"(addr)                      \
+> > > +                     : "memory");                                    \
 > >
-> > It might depend on how you measure.  "size" says 15 KiB impact for UNIX98
-> > ptys, while bloat-o-meter reported less than 7 (my script uses "size").
+> > I'm pretty sure there's a handfull of implementations like this out
+> > there... if only we could share.
 >
-> I look at the size of the arch/riscv/boot/loader.bin file since that is what
-> gets loaded in RAM and booted. It is significantly smaller than vmlinux file
-> size. E.g. for the sd card defconfig, I have:
+> Isn't this effectively the same as the "_Q_PENDING_BITS != 8"
+> version of xchg_tail()?
+
+This can be concluded as the different effectiveness between cmpxchg
+and xchg. For the arch which only has lr/sc instructions, the cmpxchg
+& xchg are similar.
+
+#if _Q_PENDING_BITS == 8
+
+static __always_inline u32 xchg_tail(struct qspinlock *lock, u32 tail)
+{
+        /*
+         * We can use relaxed semantics since the caller ensures that the
+         * MCS node is properly initialized before updating the tail.
+         */
+        return (u32)xchg_relaxed(&lock->tail,
+                                 tail >> _Q_TAIL_OFFSET) << _Q_TAIL_OFFSET;
+}
+
+#else /* _Q_PENDING_BITS == 8 */
+
+static __always_inline u32 xchg_tail(struct qspinlock *lock, u32 tail)
+{
+        u32 old, new, val = atomic_read(&lock->val);
+
+        for (;;) {
+                new = (val & _Q_LOCKED_PENDING_MASK) | tail;
+                /*
+                 * We can use relaxed semantics since the caller ensures that
+                 * the MCS node is properly initialized before updating the
+                 * tail.
+                 */
+                old = atomic_cmpxchg_relaxed(&lock->val, val, new);
+                if (old == val)
+                        break;
+
+                val = old;
+        }
+        return old;
+}
+#endif /* _Q_PENDING_BITS == 8 */
+
+
 >
-> vmlinux: 2369920 B
-> loader.bin: 1751250 B
+> If nothing else needs xchg() on a 16-bit value, maybe
+> changing the #ifdef in the qspinlock code is enough.
+>
+> Only around half the architectures actually implement 8-bit
+> and 16-bit cmpxchg() and xchg(), it might even be worth trying
+> to eventually change the interface to not do it at all, but
+> instead have explicit cmpxchg8() and cmpxchg16() helpers
+> for the few files that do use them.
+>
+>      Arnd
 
-Doesn't loader.bin lack bss?
-Bss does consume RAM, so you do want to take that into account, too.
 
-Gr{oetje,eeting}s,
-
-                        Geert
 
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+Best Regards
+ Guo Ren
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
