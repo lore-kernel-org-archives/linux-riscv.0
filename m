@@ -2,86 +2,76 @@ Return-Path: <SRS0=npMT=E7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5B8FBC5519F
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2020 12:43:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1B8CBC5519F
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2020 12:47:40 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B02CE206E5
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2020 12:43:11 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 6C11A206E5
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2020 12:47:39 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Czkvhv0X";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=redhat.com header.i=@redhat.com header.b="ZE/ZgEKd"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B02CE206E5
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="1ofI+gWk"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6C11A206E5
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=QAXhQ9izS2zjT9+XsJEgoWX/m5Rb2pBUjN2/itRKtWA=; b=Czkvhv0XLOba4KCjsrzEwWbbc
-	/Oj+UJbKWbIUY82m34veL7gU16tfnCSjUdJK4qEtWX+nCDh0JwpT6Ezw8rWop0VBVto0RFmnC4Ebt
-	bIQmgOf6kEP0nb/dbkzoQ9D84pCU8at3bVXQ1l9y5Bh0BmjuZjfdeyo3ugZb4/epdI8JorzTKk8pD
-	G8pbVXFewhTtDRPvlvgxmJ75Ni4W9z9os4dnRsLqHqmfWcW4hXtV7aM7kyB4PveAWZdX1yQsqUbgi
-	GhhpAgGms43IAKSYakbtzgySIfOvAbPf0Oc0YrxZwOe4/IOA+Knc7ivSFNubrEJ+rk2lXtNrKNFuP
-	uYWKLNPoA==;
+	 bh=a5E80nUSxSiWwyfk+//kOOTuC6lDNk+YOoKtr4URxXE=; b=1ofI+gWkLwFODiJIG38cW59CI
+	Dw5o/V1RCuIoS4lSXjBy2ts10vtCzKSnv6hFYUZ7xrrH97JfuYbMXGoylv4eZ8x6CaigsNOZ8JRkL
+	ruP1iBtp5PjhuEiGNR1orCDckavs6i+4iDvTY2icWjjgJjvmIHnz+/ppavaWuUlabwJOggDUglXhq
+	JmRyORinda89YRcHDZ3XcMroIr5hskdOEyTZ8BsP0826O/dPzuR996RLQz+wjdNhIo+01Q+oIDeF5
+	aB4k4D3UY3CXe2z6Yl5oG9FI4jtgXF4x7bNRurVxeBtWMCjlRQ5x7ykctOqHSPY26RHCAbnqEJA3h
+	TbvH8yJCA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1khu8T-0003Sq-7D; Wed, 25 Nov 2020 12:43:01 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([216.205.24.124])
+	id 1khuCr-000419-CS; Wed, 25 Nov 2020 12:47:33 +0000
+Received: from mail-oi1-f193.google.com ([209.85.167.193])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1khu8N-0003PI-Sz
- for linux-riscv@lists.infradead.org; Wed, 25 Nov 2020 12:42:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1606308175;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=E+jgAoXCcc+2e3woKE/RD7YJatBg4rpbL38pBlAO/5Y=;
- b=ZE/ZgEKdodjQPv9xsAun9oB0x3G+vlgvb+54jDvMGZsWB6n4pv8TMvUdPbWHw1Q22Zkaix
- AfhMADeRX6ZdCK2Qkl7mcmYrh3DFeg3X5HbwtbbppJ/r1szAq8MgQ9TTDgN/Y8foRyZl+d
- cOeYYZGQMkJ2p9wUaFyXUZxyv4vBnQU=
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-185-DI1Pfe2wOHqV_YxKmpoagw-1; Wed, 25 Nov 2020 07:42:50 -0500
-X-MC-Unique: DI1Pfe2wOHqV_YxKmpoagw-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com
- [10.5.11.15])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mimecast-mx01.redhat.com (Postfix) with ESMTPS id E63451E7C7;
- Wed, 25 Nov 2020 12:42:44 +0000 (UTC)
-Received: from [10.36.112.131] (ovpn-112-131.ams2.redhat.com [10.36.112.131])
- by smtp.corp.redhat.com (Postfix) with ESMTP id C339A5D6AC;
- Wed, 25 Nov 2020 12:42:37 +0000 (UTC)
-Subject: Re: [PATCH v12 04/10] set_memory: allow querying whether
- set_direct_map_*() is actually enabled
-To: Mike Rapoport <rppt@linux.ibm.com>
-References: <20201125092208.12544-1-rppt@kernel.org>
- <20201125092208.12544-5-rppt@kernel.org>
- <5ea6eacd-79e8-0645-da39-d3461f60e627@redhat.com>
- <20201125121138.GJ123287@linux.ibm.com>
-From: David Hildenbrand <david@redhat.com>
-Organization: Red Hat GmbH
-Message-ID: <bb27ab9e-8c74-e297-acc1-a92bcc4087a9@redhat.com>
-Date: Wed, 25 Nov 2020 13:42:36 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.4.0
+ id 1khuCo-0003zh-Oe
+ for linux-riscv@lists.infradead.org; Wed, 25 Nov 2020 12:47:31 +0000
+Received: by mail-oi1-f193.google.com with SMTP id c80so2702414oib.2
+ for <linux-riscv@lists.infradead.org>; Wed, 25 Nov 2020 04:47:29 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=gPUOnTI/GXJjBWfcQKn1UW1GCzqLDHOJc8mxlHuRZhA=;
+ b=Ru2QifQqaClzWwlp5LXXqT+WmZnbVP3k/9odAyhAfyiM40BBzZGxktCPnUSZqLxM/N
+ Y4m6B6BtnL+W1DpOhgTJCyiogHgxW7Ruz1PwNhDeNItDS+6zUvUqt1KXJVUDosTfW24p
+ YirAt1Aq6Iq29pn1aZPnWUrH+dRNrM3cUriVWtXiphf4bMLgS78p340d4xkL+JQ4vRNv
+ GtEhRojn2Gq/i0xFp3dVUmWQ68rurhI6BgcjPbkXOdJDuipaJZ8U7e8cOXLIDTR6ry/4
+ VmcjUVXidDLy5W4YC1P0NdKO1XK1hRXLvl/0ecKIXRzoHq4B4SWIpTR8XrsZV06P46a4
+ HAQA==
+X-Gm-Message-State: AOAM532XY9iL0t3psNMKWsrMkee7R8AueBvlm4PM1mdU7sx6z2Oz3z/8
+ iugFFtmeM8vsgUZsJnvg0oSEstdyvwZFQMqr40o=
+X-Google-Smtp-Source: ABdhPJwikQNqVaFir6QHfyhm6IF2bhFKder5YyspCgClKVn0JsSsIW5TiEWBwEjHR4D8jSSsj5zffkSg2G78j4kq9IU=
+X-Received: by 2002:aca:1c0f:: with SMTP id c15mr2142536oic.54.1606308448683; 
+ Wed, 25 Nov 2020 04:47:28 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <20201125121138.GJ123287@linux.ibm.com>
-Content-Language: en-US
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+References: <20201124185738.3541314-1-geert@linux-m68k.org>
+ <CH2PR04MB652231C5B82E9F8184F496D8E7FA0@CH2PR04MB6522.namprd04.prod.outlook.com>
+ <CAMuHMdW9dySq3y_Uixv8_7e+Pe2VKw4iGV36mx-DbX6-yzk-Gw@mail.gmail.com>
+ <CH2PR04MB652268FD0FB44AA5DF36ACFBE7FA0@CH2PR04MB6522.namprd04.prod.outlook.com>
+ <CAMuHMdXEzo4EOw_=MgskNXPrbkP4Ui+dHKZ5iyJ04h453BUAhQ@mail.gmail.com>
+ <CH2PR04MB6522E6443C6E12CD28FD1A30E7FA0@CH2PR04MB6522.namprd04.prod.outlook.com>
+In-Reply-To: <CH2PR04MB6522E6443C6E12CD28FD1A30E7FA0@CH2PR04MB6522.namprd04.prod.outlook.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 25 Nov 2020 13:47:17 +0100
+Message-ID: <CAMuHMdW4YC4mNcX28s6HDSc-tuks2H7i-vojsOLbmaCBr2o2Ow@mail.gmail.com>
+Subject: Re: [PATCH] riscv: defconfig: k210: Disable CONFIG_VT
+To: Damien Le Moal <Damien.LeMoal@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201125_074256_022125_533C6868 
-X-CRM114-Status: GOOD (  20.30  )
+X-CRM114-CacheID: sfid-20201125_074730_897150_31D51E08 
+X-CRM114-Status: GOOD (  15.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -93,86 +83,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
- linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>,
- Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
- Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
- Will Deacon <will@kernel.org>, x86@kernel.org,
- Matthew Wilcox <willy@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Michael Kerrisk <mtk.manpages@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
- James Bottomley <jejb@linux.ibm.com>, Borislav Petkov <bp@alien8.de>,
- Alexander Viro <viro@zeniv.linux.org.uk>, Andy Lutomirski <luto@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
- linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-fsdevel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>,
- Mike Rapoport <rppt@kernel.org>
+Cc: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 25.11.20 13:11, Mike Rapoport wrote:
-> On Wed, Nov 25, 2020 at 12:22:52PM +0100, David Hildenbrand wrote:
->>>  #include <asm-generic/cacheflush.h>
->>>  
->>>  #endif /* __ASM_CACHEFLUSH_H */
->>> diff --git a/arch/arm64/include/asm/set_memory.h b/arch/arm64/include/asm/set_memory.h
->>> new file mode 100644
->>> index 000000000000..ecb6b0f449ab
->>> --- /dev/null
->>> +++ b/arch/arm64/include/asm/set_memory.h
->>> @@ -0,0 +1,17 @@
->>> +/* SPDX-License-Identifier: GPL-2.0-only */
->>> +
->>> +#ifndef _ASM_ARM64_SET_MEMORY_H
->>> +#define _ASM_ARM64_SET_MEMORY_H
->>> +
->>> +#include <asm-generic/set_memory.h>
->>> +
->>> +bool can_set_direct_map(void);
->>> +#define can_set_direct_map can_set_direct_map
->>
->> Well, that looks weird.
->> [...]
-> 
-> We have a lot of those e.g. in linux/pgtable.h
-> 
->>>  }
->>> +#else /* CONFIG_ARCH_HAS_SET_DIRECT_MAP */
->>> +/*
->>> + * Some architectures, e.g. ARM64 can disable direct map modifications at
->>> + * boot time. Let them overrive this query.
->>> + */
->>> +#ifndef can_set_direct_map
->>> +static inline bool can_set_direct_map(void)
->>> +{
->>> +	return true;
->>> +}
->>
->> I think we prefer __weak functions for something like that, avoids the
->> ifdefery.
-> 
-> I'd prefer this for two reasons: first, static inline can be optimized
-> away and second, there is no really good place to put generic
-> implementation.
+Hi Damien,
 
-Fair enough
+On Wed, Nov 25, 2020 at 12:00 PM Damien Le Moal <Damien.LeMoal@wdc.com> wrote:
+> On 2020/11/25 18:26, Geert Uytterhoeven wrote:
+> > On Wed, Nov 25, 2020 at 10:02 AM Damien Le Moal <Damien.LeMoal@wdc.com> wrote:
+> >> On 2020/11/25 17:51, Geert Uytterhoeven wrote:
+> >> I was just fiddling with CONFIG_UNIX98_PTYS. Disabling it is OK with the simple
+> >> busybox userspace (no telnet/xterm like app running). But it saves only about
+> >> 1KB with my toolchain (gcc 9.3). So I left that one enabled. I am surprised that
+> >> you see 16K size impact... How big is your image ?
+> >>
+> >> For me, it is 1.768 MB right now for the sdcard defconfig, with CONFIG_VT
+> >> disabled and ext2 enabled.
+> >
+> > It might depend on how you measure.  "size" says 15 KiB impact for UNIX98
+> > ptys, while bloat-o-meter reported less than 7 (my script uses "size").
+>
+> I look at the size of the arch/riscv/boot/loader.bin file since that is what
+> gets loaded in RAM and booted. It is significantly smaller than vmlinux file
+> size. E.g. for the sd card defconfig, I have:
+>
+> vmlinux: 2369920 B
+> loader.bin: 1751250 B
 
-Reviewed-by: David Hildenbrand <david@redhat.com>
+Doesn't loader.bin lack bss?
+Bss does consume RAM, so you do want to take that into account, too.
+
+Gr{oetje,eeting}s,
+
+                        Geert
 
 -- 
-Thanks,
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-David / dhildenb
-
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
