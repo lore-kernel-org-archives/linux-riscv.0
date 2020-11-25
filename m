@@ -2,77 +2,76 @@ Return-Path: <SRS0=npMT=E7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0B9AEC5519F
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2020 14:18:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0D5C6C5519F
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2020 14:19:12 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6BDB5206D9
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2020 14:18:27 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 89BA9206D9
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2020 14:19:11 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="oX3phC2h";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=infradead.org header.i=@infradead.org header.b="ZuzsjBMR"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6BDB5206D9
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="rZvvQ2VY";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="OUtK1yZs"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 89BA9206D9
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=a9/UDag+lJ43YhY8JvwtMJPAuFHhBuD/oPI1XjSLa4Y=; b=oX3phC2h/ZHYijEYxQbxBVD/k
-	f8y4jVn4K0xhYptNrs7gWNb++nUdvaUCMmBAF/T0ic002KKaFBoKQxSEmVc5DFqeSpJWjFCL1hqHl
-	G217WobJbUKmg1U1JguirA9FvimEUu5Aw24eZztQIl7d/1RZBtjkTk3WDzWrgmghP+to0+ZTNs2El
-	LPcNj4t0fsO4K6kpy13ZG74YERxcVMQOo/U7O4bshQO0YE+AEb7cJVqLqlWxaeuYdA8hAyKrx/Zfi
-	lr1a4NlTQO5fjVySo8HgK4n5Is6dcDK4GXTqq5peygkGU4lSEwHN6eBpsXbXDmQ3YPPY2QUrIBMPb
-	urxTO1qNQ==;
+	 bh=95G6MwnE6dmjpVWVY0RAddzKpAx8MXBllaOJYAtknAM=; b=rZvvQ2VYaum9xMfkNkS+S8OgT
+	RcHZjST3ve9vpEyQUPb/TxGMWRwJSYJSJUfPZ18LuX1WWk9NSetVlh4vYRRf0MKllTkJw+P1Yysd5
+	azr3g6gDDXnYx9FH3E+luIDg2VzPLErCaBNQXurlYTweRqwTVbPRsBGIof7Lq4gwABN6rIcdL6J5P
+	4gD0kICh6dXIGIPRDmVIHvPzYhy1n28V65rVJ2bZkAy7ntS8qdArKW5uumjYkVf50ktLoKj25SKb6
+	+CZfxsE9DDr40plo6C1BH+t5N/BWVt1fO4HMy530D55AZDWMc//3Vt+ia7LDvtcoOku+4Ps1gVgJT
+	VEx+fZ2Og==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1khvcj-0003Zf-3d; Wed, 25 Nov 2020 14:18:21 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1khvdQ-0003tp-TP; Wed, 25 Nov 2020 14:19:05 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1khvce-0003Xm-6z
- for linux-riscv@merlin.infradead.org; Wed, 25 Nov 2020 14:18:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=wU0zOrnocdlJXkwamHXZAUVyZC76vH5lJ5qYsICzTKo=; b=ZuzsjBMR9U0lOnIq/91BDGYPEA
- xn+47d8MvnUyg0jb+LlGQaXhOVNZZ0HxdFkuGcVOIPoxSJme47cjFNsRC0seL2naATdv5B4NKA2JS
- VySBiCx2iK4Qxvk7FeoJeptUxcaJwpWZBeryC506uwx6HbbOxVl08piQ7f4EVkumqG22zzaoxbOV9
- DXq+CfJ/nHL3hVFaQDowit5vE3Sl5ttR9mpY5iFcJ3epNHQjktWxbaPPSzAkZDGQDZrhjwhOYd9se
- OfC4HUbDqj/yJToiL2Qhu9n6pCJ5nXaV2e92gxqPrVSFydbh9TstGdABE92ozX3z+457pVs+qha/t
- W5xl5aJg==;
-Received: from j217100.upc-j.chello.nl ([24.132.217.100]
- helo=noisy.programming.kicks-ass.net)
- by casper.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
- id 1khvcc-0001r2-CL; Wed, 25 Nov 2020 14:18:14 +0000
-Received: from hirez.programming.kicks-ass.net
- (hirez.programming.kicks-ass.net [192.168.1.225])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (Client did not present a certificate)
- by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id B0254306E0C;
- Wed, 25 Nov 2020 15:18:13 +0100 (CET)
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
- id A08ED22B9CF4B; Wed, 25 Nov 2020 15:18:13 +0100 (CET)
-Date: Wed, 25 Nov 2020 15:18:13 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Guo Ren <guoren@kernel.org>
-Subject: Re: [PATCH 2/5] riscv: Add QUEUED_SPINLOCKS & QUEUED_RWLOCKS supported
-Message-ID: <20201125141813.GC2414@hirez.programming.kicks-ass.net>
-References: <1606225437-22948-1-git-send-email-guoren@kernel.org>
- <1606225437-22948-2-git-send-email-guoren@kernel.org>
- <20201124143931.GI2414@hirez.programming.kicks-ass.net>
- <CAJF2gTTBbjOhvvLTd6d5zgb0kskoSJhPW7nmg==4w2wV+OaUgg@mail.gmail.com>
+ id 1khvdJ-0003pS-Rr
+ for linux-riscv@lists.infradead.org; Wed, 25 Nov 2020 14:19:00 +0000
+Received: from mail-lj1-f181.google.com (mail-lj1-f181.google.com
+ [209.85.208.181])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id AC58021D91
+ for <linux-riscv@lists.infradead.org>; Wed, 25 Nov 2020 14:18:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1606313937;
+ bh=G3pKsUj3Y7MzqCMy07442BtCwg0kgd1c+eqGkdIkBxg=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=OUtK1yZsKr9EB20Zas0QOukq2U6zpaeI2GvRrIIQ5YC5S4xbuePa5FwwfzJSJqfrJ
+ YDAjz8XGY35WDLfV62iggl4nIAcd/ePRlRfv0wVlCbwA8sSrqWxEMcPuS5SYAywpkb
+ q5goHjwXwNiI/RLabD6ffkrD0uPYctaL33eLGHV4=
+Received: by mail-lj1-f181.google.com with SMTP id z1so2466002ljn.4
+ for <linux-riscv@lists.infradead.org>; Wed, 25 Nov 2020 06:18:56 -0800 (PST)
+X-Gm-Message-State: AOAM531fjB+XXJSKyHJoh2ck2NVgCdKMn0Cf6uIomLkKLINuEtO0yaRx
+ 4GtR4UgHbC7pH4yNk+KgYgLf1DB74TQ5K/uXGRU=
+X-Google-Smtp-Source: ABdhPJxgFfiVO1tJMw+IlkBm+qpJtZ+m45Hz5edm98uNAaCgEFTkb8waAwCmWT0iq+PBDrL5/XItcg8ywCZ/q0v9zAM=
+X-Received: by 2002:a05:651c:213:: with SMTP id
+ y19mr1404910ljn.250.1606313934732; 
+ Wed, 25 Nov 2020 06:18:54 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAJF2gTTBbjOhvvLTd6d5zgb0kskoSJhPW7nmg==4w2wV+OaUgg@mail.gmail.com>
+References: <1606225437-22948-1-git-send-email-guoren@kernel.org>
+ <20201124142905.GH2414@hirez.programming.kicks-ass.net>
+In-Reply-To: <20201124142905.GH2414@hirez.programming.kicks-ass.net>
+From: Guo Ren <guoren@kernel.org>
+Date: Wed, 25 Nov 2020 22:18:43 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTT1_mP-wiK2HsCpTeU61NqZVKZX1A5ye=TwqvGN4TPmrA@mail.gmail.com>
+Message-ID: <CAJF2gTT1_mP-wiK2HsCpTeU61NqZVKZX1A5ye=TwqvGN4TPmrA@mail.gmail.com>
+Subject: Re: [PATCH 1/5] riscv: Coding convention for xchg
+To: Peter Zijlstra <peterz@infradead.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20201125_091858_141426_EEBFDDF4 
+X-CRM114-Status: GOOD (  19.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -89,27 +88,134 @@ Cc: Guo Ren <guoren@linux.alibaba.com>, Arnd Bergmann <arnd@arndb.de>,
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
  linux-csky@vger.kernel.org, Michael Clark <michaeljclark@mac.com>,
  Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>, Will Deacon <will@kernel.org>
+ linux-riscv <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 25, 2020 at 08:52:23AM +0800, Guo Ren wrote:
+On Tue, Nov 24, 2020 at 10:29 PM Peter Zijlstra <peterz@infradead.org> wrote:
+>
+> On Tue, Nov 24, 2020 at 01:43:53PM +0000, guoren@kernel.org wrote:
+> > From: Guo Ren <guoren@linux.alibaba.com>
+> >
+> > This is prepare for QUEUED_SPINLOCKS which need xchg support short
+> > type value.
+> >  - Remove unused codes (xchg32, xchg64, cmpxchg32 ...)
+> >  - Combine xchg_relaxed, xchg_acquire, xchg_release into one asm
+> >  - Make atomic.aq/rl with seperated fence acquire & release
+>
+> Every time you find yourself doing multiple things, make it multiple
+> patches.
+Ok.
 
-> > I'm pretty sure there's a handfull of implementations like this out
-> > there... if only we could share.
-> Michael has sent qspinlock before, ref to Link below. He reused mips' code.
-> 
-> Link: https://lore.kernel.org/linux-riscv/20190211043829.30096-1-michaeljclark@mac.com/
-> 
-> Which short xchg implementation do you prefer (Mine or his)?
+>
+> > @@ -242,58 +239,58 @@ static __always_inline s64 atomic64_fetch_add_unless(atomic64_t *v, s64 a, s64 u
+> >   * atomic_{cmp,}xchg is required to have exactly the same ordering semantics as
+> >   * {cmp,}xchg and the operations that return, so they need a full barrier.
+> >   */
+> > +#define ATOMIC_OP(c_t, prefix)                                               \
+> >  static __always_inline                                                       \
+> >  c_t atomic##prefix##_xchg_relaxed(atomic##prefix##_t *v, c_t n)              \
+> >  {                                                                    \
+> > +     return xchg_relaxed(&(v->counter), n);                          \
+> >  }                                                                    \
+> >  static __always_inline                                                       \
+> >  c_t atomic##prefix##_xchg_acquire(atomic##prefix##_t *v, c_t n)              \
+> >  {                                                                    \
+> > +     return xchg_acquire(&(v->counter), n);                          \
+> >  }                                                                    \
+> >  static __always_inline                                                       \
+> >  c_t atomic##prefix##_xchg_release(atomic##prefix##_t *v, c_t n)              \
+> >  {                                                                    \
+> > +     return xchg_release(&(v->counter), n);                          \
+> >  }                                                                    \
+> >  static __always_inline                                                       \
+> >  c_t atomic##prefix##_xchg(atomic##prefix##_t *v, c_t n)                      \
+> >  {                                                                    \
+> > +     return xchg(&(v->counter), n);                                  \
+> >  }                                                                    \
+> >  static __always_inline                                                       \
+> >  c_t atomic##prefix##_cmpxchg_relaxed(atomic##prefix##_t *v,          \
+> >                                    c_t o, c_t n)                      \
+> >  {                                                                    \
+> > +     return cmpxchg_relaxed(&(v->counter), o, n);                    \
+> >  }                                                                    \
+> >  static __always_inline                                                       \
+> >  c_t atomic##prefix##_cmpxchg_acquire(atomic##prefix##_t *v,          \
+> >                                    c_t o, c_t n)                      \
+> >  {                                                                    \
+> > +     return cmpxchg_acquire(&(v->counter), o, n);                    \
+> >  }                                                                    \
+> >  static __always_inline                                                       \
+> >  c_t atomic##prefix##_cmpxchg_release(atomic##prefix##_t *v,          \
+> >                                    c_t o, c_t n)                      \
+> >  {                                                                    \
+> > +     return cmpxchg_release(&(v->counter), o, n);                    \
+> >  }                                                                    \
+> >  static __always_inline                                                       \
+> >  c_t atomic##prefix##_cmpxchg(atomic##prefix##_t *v, c_t o, c_t n)    \
+> >  {                                                                    \
+> > +     return cmpxchg(&(v->counter), o, n);                            \
+> >  }
+>
+> > diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
+> > index 262e5bb..5609185 100644
+> > --- a/arch/riscv/include/asm/cmpxchg.h
+> > +++ b/arch/riscv/include/asm/cmpxchg.h
+> > @@ -44,118 +44,31 @@
+> >                                           _x_, sizeof(*(ptr)));       \
+> >  })
+> >
+> >  #define xchg_acquire(ptr, x)                                         \
+> >  ({                                                                   \
+> > +     __typeof__(*(ptr)) _x_ = (x);                                   \
+> > +     __ret = __xchg_relaxed((ptr), _x_, sizeof(*(ptr)));             \
+> > +     __acquire_fence();                                              \
+> >       __ret;                                                          \
+> >  })
+> >
+> >  #define xchg_release(ptr, x)                                         \
+> >  ({                                                                   \
+> >       __typeof__(*(ptr)) _x_ = (x);                                   \
+> > +     __release_fence();                                              \
+> > +     (__typeof__(*(ptr))) __xchg_relaxed((ptr),                      \
+> >                                           _x_, sizeof(*(ptr)));       \
+> >  })
+> >
+> >  #define xchg(ptr, x)                                                 \
+> >  ({                                                                   \
+> > +     __typeof__(*(ptr)) __ret;                                       \
+> >       __typeof__(*(ptr)) _x_ = (x);                                   \
+> > +     __smp_mb();                                                     \
+> > +     __ret = __xchg_relaxed((ptr), _x_, sizeof(*(ptr)));             \
+> > +     __smp_mb();                                                     \
+> > +     __ret;                                                          \
+> >  })
+> >
+> >  /*
+>
+> Why are you defining *{,_acquire,_release}() at all, doesn't
+> atomic-fallback.h DTRT for you?
+Yes, you are right. I could reuse that. Thx
 
-Well, it would be very nice to have mips/riscv/csky all use the same
-header to implement these I suppose.
+#define cmpxchg_acquire(...) \
+        __atomic_op_acquire(cmpxchg, __VA_ARGS__)
+#endif
 
-But then we're back to a cmpxchg-loop, in which case Arnd's suggestion
-isn't worse.
+#define __atomic_op_acquire(op, args...)                                \
+({                                                                      \
+        typeof(op##_relaxed(args)) __ret  = op##_relaxed(args);         \
+        __atomic_acquire_fence();                                       \
+        __ret;                                                          \
+})
+
+
+-- 
+Best Regards
+ Guo Ren
+
+ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
