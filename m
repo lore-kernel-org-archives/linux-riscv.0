@@ -2,63 +2,115 @@ Return-Path: <SRS0=npMT=E7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7CD43C5519F
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2020 11:40:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8EE53C56202
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2020 12:12:38 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 77D46206D4
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2020 11:40:32 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E7986206E5
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2020 12:12:37 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="Kbpfbw2y"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 77D46206D4
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="euxpHhB3";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=ibm.com header.i=@ibm.com header.b="Dz5WMozo"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E7986206E5
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ROncHKEz0OglMddapcaT8XxDV1jrHyBwWrBvD4ArqP4=; b=Kbpfbw2yoj9yfcSDy/YXYV1A0r
-	gmKTS1t8zlVUWugXwAfUXUxhzwiBg1p1/wea+e0fmfnpr3QoXL+EJG9ScPZtWL7+SMsq27pqfj//s
-	Uqpd9P3zZKo4Vjyp6360ERKdycK5tZSWnxkxOMlILM8R7f7Ha2lB0NM0cXmnxbVA9AGWPXsTO+gkh
-	mFXBkm5g0aqsntDTaZ7ESZRBGacMHiUyVlDsRb+ea6I+jR4rRAy+uwCslj3AZiVp9ychciCw12wgV
-	GhXU4BZD2E4rhgNMzbSRcSBhzXp6BbK5RQLaLOcPrgFUSbqbHfRQHtmeH79J4h7auEO+T+6q26vKL
-	25yc3c9A==;
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=GSGvHM+k+JgHeEkC6TI37thastKRBeDTUDscDbFnK+c=; b=euxpHhB3wVGVv8y+M/iLcO6BN
+	zjaSEyxgSXVRZVcZ6hPGcllUd5nP8fdAcw6iiEVlRTDsfmNRg4w5C2yKzpZNHxzDNrlLkZd1qNdR8
+	uQE/giJkrcHD5LjRcc+cHyZTlqTOT1lCJ4dAmZsdTkG4G3J/L6uAfXS1//b4x0106AkZJIzG1hA8s
+	W7kGha8iWZCJRcFC6iWP2YhrKqqZBAmLmf79nh7pztIuvUXGsVnvwgq3tjJ84b4AzaOKvrtuP2HBO
+	5fo7BxlVfUXu/CVb7G9+JXX87pODbBNJU/R+MoWt8Th7WDhDZYGYWrHigeY7RlA9vcbU+vN9uKUxQ
+	Lt1yMb0Xw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kht9t-0002Lg-0j; Wed, 25 Nov 2020 11:40:25 +0000
-Received: from szxga04-in.huawei.com ([45.249.212.190])
+	id 1khtex-0006tS-6v; Wed, 25 Nov 2020 12:12:31 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5]
+ helo=mx0a-001b2d01.pphosted.com)
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kht9o-0002KK-4K
- for linux-riscv@lists.infradead.org; Wed, 25 Nov 2020 11:40:21 +0000
-Received: from DGGEMS414-HUB.china.huawei.com (unknown [172.30.72.58])
- by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4CgzSr6MLwz15S7n;
- Wed, 25 Nov 2020 19:39:40 +0800 (CST)
-Received: from localhost.localdomain.localdomain (10.175.113.25) by
- DGGEMS414-HUB.china.huawei.com (10.3.19.214) with Microsoft SMTP Server id
- 14.3.487.0; Wed, 25 Nov 2020 19:39:55 +0800
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- <linux-riscv@lists.infradead.org>
-Subject: [PATCH] riscv: Add machine name to kernel boot log and stack dump
- output
-Date: Wed, 25 Nov 2020 19:44:15 +0800
-Message-ID: <20201125114415.94912-1-wangkefeng.wang@huawei.com>
-X-Mailer: git-send-email 2.26.2
+ id 1khtes-0006sk-N6; Wed, 25 Nov 2020 12:12:27 +0000
+Received: from pps.filterd (m0098420.ppops.net [127.0.0.1])
+ by mx0b-001b2d01.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id
+ 0APC1MRH068941; Wed, 25 Nov 2020 07:11:50 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
+ h=date : from : to : cc :
+ subject : message-id : references : mime-version : content-type :
+ in-reply-to; s=pp1; bh=tJZHC6137uQUG8RKPb1dol8HSxgZMOUWtark59mf2wI=;
+ b=Dz5WMozo2vUGDh7A4Gjbkl4xbnkyJNqtzWYBzd6hnalu9/HdWbkTyWG46xEGCKwANBYD
+ n9UVHcO/5rlx2RFcs5DdcygFL5C9TlEL28hYlAKY2m3rutu+rur3Cv0/LgdAAN++jrst
+ Xhs88kRph/l7UY0/rCv70Rt7gXs5YjtnmxBp9lmYTwn7EYFsANP/3fKwIO3QGDnz3Igz
+ akoVFnMZtzsic6aSz7PqLvUuXEOihVJdzL+Lj340Pt5nqDKR+S9PD0SPJMwfgMXAM/HM
+ u7YarQUsM05nyGFrBxB9eBtEwBimmwzq/BapYj3b5vMMkFJ0aPRcQ0JMHVDg4aEb0Z5B Sw== 
+Received: from pps.reinject (localhost [127.0.0.1])
+ by mx0b-001b2d01.pphosted.com with ESMTP id 351nr6k6xd-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Wed, 25 Nov 2020 07:11:49 -0500
+Received: from m0098420.ppops.net (m0098420.ppops.net [127.0.0.1])
+ by pps.reinject (8.16.0.36/8.16.0.36) with SMTP id 0APC1Q7i069152;
+ Wed, 25 Nov 2020 07:11:49 -0500
+Received: from ppma04fra.de.ibm.com (6a.4a.5195.ip4.static.sl-reverse.com
+ [149.81.74.106])
+ by mx0b-001b2d01.pphosted.com with ESMTP id 351nr6k6wg-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Wed, 25 Nov 2020 07:11:48 -0500
+Received: from pps.filterd (ppma04fra.de.ibm.com [127.0.0.1])
+ by ppma04fra.de.ibm.com (8.16.0.42/8.16.0.42) with SMTP id 0APC8Z10008030;
+ Wed, 25 Nov 2020 12:11:46 GMT
+Received: from b06cxnps4076.portsmouth.uk.ibm.com
+ (d06relay13.portsmouth.uk.ibm.com [9.149.109.198])
+ by ppma04fra.de.ibm.com with ESMTP id 34xth8acey-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Wed, 25 Nov 2020 12:11:46 +0000
+Received: from d06av23.portsmouth.uk.ibm.com (d06av23.portsmouth.uk.ibm.com
+ [9.149.105.59])
+ by b06cxnps4076.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
+ 0APCBiZO2097800
+ (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Wed, 25 Nov 2020 12:11:44 GMT
+Received: from d06av23.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 4B669A4040;
+ Wed, 25 Nov 2020 12:11:44 +0000 (GMT)
+Received: from d06av23.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 7A075A405E;
+ Wed, 25 Nov 2020 12:11:40 +0000 (GMT)
+Received: from linux.ibm.com (unknown [9.145.183.229])
+ by d06av23.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
+ Wed, 25 Nov 2020 12:11:40 +0000 (GMT)
+Date: Wed, 25 Nov 2020 14:11:38 +0200
+From: Mike Rapoport <rppt@linux.ibm.com>
+To: David Hildenbrand <david@redhat.com>
+Subject: Re: [PATCH v12 04/10] set_memory: allow querying whether
+ set_direct_map_*() is actually enabled
+Message-ID: <20201125121138.GJ123287@linux.ibm.com>
+References: <20201125092208.12544-1-rppt@kernel.org>
+ <20201125092208.12544-5-rppt@kernel.org>
+ <5ea6eacd-79e8-0645-da39-d3461f60e627@redhat.com>
 MIME-Version: 1.0
-X-Originating-IP: [10.175.113.25]
-X-CFilter-Loop: Reflected
+Content-Disposition: inline
+In-Reply-To: <5ea6eacd-79e8-0645-da39-d3461f60e627@redhat.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.312, 18.0.737
+ definitions=2020-11-25_06:2020-11-25,
+ 2020-11-25 signatures=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 clxscore=1011
+ suspectscore=1 phishscore=0 priorityscore=1501 adultscore=0 spamscore=0
+ impostorscore=0 bulkscore=0 mlxscore=0 mlxlogscore=852 lowpriorityscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2009150000
+ definitions=main-2011250072
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201125_064020_423625_46BD6B57 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20201125_071226_826460_1B0775C0 
+X-CRM114-Status: GOOD (  30.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -70,58 +122,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Kefeng Wang <wangkefeng.wang@huawei.com>
+Cc: Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
+ Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
+ Will Deacon <will@kernel.org>, x86@kernel.org,
+ Matthew Wilcox <willy@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Michael Kerrisk <mtk.manpages@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
+ James Bottomley <jejb@linux.ibm.com>, Borislav Petkov <bp@alien8.de>,
+ Alexander Viro <viro@zeniv.linux.org.uk>, Andy Lutomirski <luto@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-fsdevel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>,
+ Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the machine name to kernel boot-up log, and install
-the machine name to stack dump for DT boot mode.
+On Wed, Nov 25, 2020 at 12:22:52PM +0100, David Hildenbrand wrote:
+> >  #include <asm-generic/cacheflush.h>
+> >  
+> >  #endif /* __ASM_CACHEFLUSH_H */
+> > diff --git a/arch/arm64/include/asm/set_memory.h b/arch/arm64/include/asm/set_memory.h
+> > new file mode 100644
+> > index 000000000000..ecb6b0f449ab
+> > --- /dev/null
+> > +++ b/arch/arm64/include/asm/set_memory.h
+> > @@ -0,0 +1,17 @@
+> > +/* SPDX-License-Identifier: GPL-2.0-only */
+> > +
+> > +#ifndef _ASM_ARM64_SET_MEMORY_H
+> > +#define _ASM_ARM64_SET_MEMORY_H
+> > +
+> > +#include <asm-generic/set_memory.h>
+> > +
+> > +bool can_set_direct_map(void);
+> > +#define can_set_direct_map can_set_direct_map
+> 
+> Well, that looks weird.
+> [...]
 
-Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
----
+We have a lot of those e.g. in linux/pgtable.h
 
-Here is the message after patched,
+> >  }
+> > +#else /* CONFIG_ARCH_HAS_SET_DIRECT_MAP */
+> > +/*
+> > + * Some architectures, e.g. ARM64 can disable direct map modifications at
+> > + * boot time. Let them overrive this query.
+> > + */
+> > +#ifndef can_set_direct_map
+> > +static inline bool can_set_direct_map(void)
+> > +{
+> > +	return true;
+> > +}
+> 
+> I think we prefer __weak functions for something like that, avoids the
+> ifdefery.
 
-root@(none):~# dmesg |grep "Machine model"
-[    0.000000] Machine model: riscv-virtio,qemu
+I'd prefer this for two reasons: first, static inline can be optimized
+away and second, there is no really good place to put generic
+implementation.
 
-root@(none):~# echo c > /proc/sysrq-trigger 
-[ 1519.475346] sysrq: Trigger a crash
-[ 1519.476004] Kernel panic - not syncing: sysrq triggered crash
-[ 1519.476480] CPU: 0 PID: 64 Comm: sh Not tainted 5.10.0-rc5 #246
-[ 1519.476877] Hardware name: riscv-virtio,qemu (DT)
-[ 1519.477169] Call Trace:
-...
+> Apart from that, LGTM.
+> 
+> -- 
+> Thanks,
+> 
+> David / dhildenb
+> 
 
- arch/riscv/kernel/setup.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
-
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index c424cc6dd833..901ac0c680dd 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -54,8 +54,15 @@ static DEFINE_PER_CPU(struct cpu, cpu_devices);
- static void __init parse_dtb(void)
- {
- 	/* Early scan of device tree from init memory */
--	if (early_init_dt_scan(dtb_early_va))
-+	if (early_init_dt_scan(dtb_early_va)) {
-+		const char *name = of_flat_dt_get_machine_name();
-+
-+		if (name) {
-+			pr_info("Machine model: %s\n", name);
-+			dump_stack_set_arch_desc("%s (DT)", name);
-+		}
- 		return;
-+	}
- 
- 	pr_err("No DTB passed to the kernel\n");
- #ifdef CONFIG_CMDLINE_FORCE
 -- 
-2.26.2
-
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
