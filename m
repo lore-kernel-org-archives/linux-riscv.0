@@ -2,139 +2,152 @@ Return-Path: <SRS0=npMT=E7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-21.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,MSGID_FROM_MTA_HEADER,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 100ACC63777
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2020 05:18:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9610AC5519F
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2020 06:14:56 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 09E802075A
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2020 05:18:31 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 129A5208CA
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Nov 2020 06:14:53 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="UJTXTfgq";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="SKqSg3qB";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="kYgKXYxj"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 09E802075A
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="KDHS/6Ih";
+	dkim=permerror (0-bit key) header.d=wdc.com header.i=@wdc.com header.b="SUh6HCnL";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="icAPg7WQ"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 129A5208CA
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=aD1rNM4WRVVun2wgQO5sj9YdPbZm1Og4/wAyYERkFZU=; b=UJTXTfgq0jiqt2Astl/JVmuxba
-	FIi0G3oLCGFtI1N/JIFHWs+R7Ct7z1D9nB/QX96w6MJKCPBA9M1mm06cyZ+nfjN5dAGvgklBpmDdg
-	fWh3BsjnkRyXk4w6lFXyNEIalThpWw+bOjfYuFbgbcB3ZRede1fQLXB6Jk4JJKQnAVIuMZamz257R
-	mHobjAYxHUVBu8791L2xYKtenowOUFHkF4MDO1Ww6+4EKNHnkSGdm0QLOSTMc4hS401N8aKLw4TjR
-	99oOXwEDpbVgevBPtdu4hpuWea8m5SEPxW4xUcBMdWAbnUuP2N/uRpj7bvuInHOSj5KHZsQwpqM6j
-	+XxwJRWg==;
+	List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:Date:Subject:To:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	 bh=MYSYbk2c/tQJYezzg6RvWRdnk6zKGv3lwofYdcNEtss=; b=KDHS/6Ihy51Lw21A7vacrRr9i
+	kPIfu+bZsgtC9CajveVyIq3nR34kKzj32h4nL+Fxs1S5wtJrto2t9iQddEyQlrwDH6Hd35+/dEKF3
+	wYDpu3/BmAxY5JDNCgr+J01RJJtjbo9Ot8UMsDLYq8olcO9xtUsrQRb5Vgoehm4RCEI9uqqp6wCLu
+	iS6mh8Chp/zK9DApF0lFa/Kh7qx+3gvo4msJK4o+MCF/WuwUQ6XU6ofDzoeoV85iCDPpm9gfkevPX
+	6xunKaIwi4egn+VNLXdZHXPmiFnNu9t5+8QCelMf6RYl5cCd9M4eNAQm5I550NUbOTHgmp1IbD8JZ
+	0xb7DCiWQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1khnCA-0004rL-7z; Wed, 25 Nov 2020 05:18:22 +0000
-Received: from esa1.hgst.iphmx.com ([68.232.141.245])
+	id 1kho4h-0000zA-Lj; Wed, 25 Nov 2020 06:14:43 +0000
+Received: from esa2.hgst.iphmx.com ([68.232.143.124])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1khnC6-0004qv-Ua
- for linux-riscv@lists.infradead.org; Wed, 25 Nov 2020 05:18:19 +0000
+ id 1kho4f-0000yT-Mj
+ for linux-riscv@lists.infradead.org; Wed, 25 Nov 2020 06:14:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1606281498; x=1637817498;
- h=from:to:cc:subject:date:message-id:
+ t=1606285375; x=1637821375;
+ h=from:to:cc:subject:date:message-id:references:
  content-transfer-encoding:mime-version;
- bh=kcIwYdcBVem1A54ootbTVE1YFkVgdjAkW2DXd7l8DJg=;
- b=SKqSg3qB9zb3Uo8l9aGbM9brB7yMhrEkcqOEOyfGZsGvPhmeSk2/0Ec1
- IUpnaoieg0DbWchlBKIwG7q+JWrgV32rt++Dh2Y0FPYW67Qv4FG/n+3sv
- b1seDTGsWJvyszpoiY7gmUVZi0jqQR3q90dT0UwGMvp5lWX84E6fjyLTi
- DYWwdHpwflC/OVraK5xj5RSXHmRKZu8Wf83DFToyTn2YwLLU5opBVt9V7
- u3pEmR/ODpDOIFm9jXs04ALBVE8Mv34w6tizm2tHJxJsKAS1ng5gf2UT4
- XvczY8QnffgJfFywSUSvK0r8r/sgkuiI36ZpLOA0f+8J7YfkgeHLKYCbG Q==;
-IronPort-SDR: Lg2G9vXFlSjGPBDXhFGREBb1pV16jAm8nO0RHg4/McuL3Adw1ONdRIj0AVgBsio7O3+0AintTM
- AWo87xc8x5RHALISO7AIu/W9Q3sxnldASThXLYqx6LZWNlnLyfLJP+yKCXbQZkcyLoxD77UCTE
- 5BOq78uVKRZxK27pN392zTqnsntZ8PJ/Mfb/7FBvkobOuA4fYGjITPciOJ5FshJ+UEA7oOPC4n
- AJablObp6NhreG+EkRMgTtdl+PKuqfKt1iY1MfwLshD1+BkqzBzod1mDvk0byNMGUAQhv8FU/v
- YDc=
-X-IronPort-AV: E=Sophos;i="5.78,368,1599494400"; d="scan'208";a="263496269"
-Received: from mail-co1nam11lp2177.outbound.protection.outlook.com (HELO
- NAM11-CO1-obe.outbound.protection.outlook.com) ([104.47.56.177])
- by ob1.hgst.iphmx.com with ESMTP; 25 Nov 2020 13:18:17 +0800
+ bh=lEBuSKDz7A9I1573NJOWsVt5AfQ7DjKT9kZYIvRRgMY=;
+ b=SUh6HCnLaIeoRMbev+GX2pIpxWAaLX6U78JodKs06JHkAST9xdGJS8xO
+ Ijwx5nKmm3FfcTgcaAjmLJC7SukEOnpjIxTjoPiZRZMx2KRPwTfw6LUKl
+ 3cY/L+eiQg5BTtXwcqgpbSCBa0vn8PnxzJ2bX9keGqvdDTh4UYio3HmIH
+ iDtz/h927UdUTilME7Lhw3CbQN5UTyfhWO7MNemAJO1ks+RvjpI3wbNNP
+ 60J6UX0giEHVv89VYfBftyFmdW8NhX0I9wjv5SX5fw86rtpGYbfwb8pdE
+ YOdyFKiEX7+nc705fZEzfPlmY41GBnHohQZdX8eUBjqzFhcPexpo0zfRY A==;
+IronPort-SDR: Gcx+TvSy0NXU+geL0ybbGY9dqa6N8jky5Ezc+0CyfeHuwxWW9auFQdTgjHbExi8+5hPtZvP7qN
+ 57YDpISE6hQT+lIPCsoZcXYzNpZKdUDj9JyE9wU6bjCgK+cvgpMhuGctLCPSDH6t1fO9wS9eqO
+ QRFduv+afHa+lYUdq4Ai7DHirL7EpiPHm/UCdPCbyjywSj64QDHpoa/ns1ThFuJZnLbWxYkrSL
+ lixtT26fQ3ikJ8+110/82770ayE15Z16/MAQsxeBivQd3Z87jK6Jg/8tZ+MoFTFyB4kM7SVSVG
+ 9/k=
+X-IronPort-AV: E=Sophos;i="5.78,368,1599494400"; d="scan'208";a="257062168"
+Received: from mail-dm6nam11lp2171.outbound.protection.outlook.com (HELO
+ NAM11-DM6-obe.outbound.protection.outlook.com) ([104.47.57.171])
+ by ob1.hgst.iphmx.com with ESMTP; 25 Nov 2020 14:22:51 +0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Z5A4sh4xxYDFJaR1jILYKOP9wJAz1XrlRRC07JQFOm+0U2/+GJr2AdEHE2TOPYK3f/e+qNTlK4gGpgX3/EzxrybWwRLDRIpyK9fAe6xG0TX3xD8CErWhQulgqBLCBvxmP/MlQGI6hnMjjQ5XUgixUNj+TDeOqzXHkwjHKdKzo1jorScS8LeA2QhmDpWCvje3FElBitcw7gZYw8OIhF+aqYaz09OrwatrMDe2QG/CbkaqQvK5bhBxVJ/q9oJLlASUBaagSBWzfzgKCfaN9Y/hxS1losbktcOgaCv9PQ0v1CSc5glk5dPTujFFYu3D1UaKNb4crzw5UvBrRrwNwJXzXg==
+ b=FOvLQbboz4p3Vr9jHOD7ao1l9LBrIrRtTW8Mo264nh4b2E3qG5QDbY4ubqiuNLAHPFwSi/59bN2YTONL8LEFqyIMXI6XdMAfWumaRK4oeq9xiq9ilymEE4nELDc+BruOz5le3jugw4IbFc7Pilfrdk98tGTQsgI6loAnpkLgpV821Sarhpz0r3E0SR2uyHoSeIXX+mTt/uROweNFCVKgg/YXfxlRHz0WVAv3k+UPaqSBWEalPrt2HtrJYXZroC1UqEdEpBfdzExZJfocNcTOb2aU2k7OVxMKWQYb9vtXWSD2iv7WamRjPm/pTY7xUZLqK0N7tYEF6kDNfE6bK9froQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rChYadDMdfqLrRchCgYkP1dM2E2w/gWOvaWe8ocvGQU=;
- b=eK0YLwDueZxJ9qQBNKwI0G6EJlwAdx0ZHWnmXUat9SzTTuuk1cQHvwnITfOq6NxhW01KQKsZxK9Uhef4jyduQyF2mBvD7gqgKITGeCnA1KkIjP82xY96tW4QjdvE8lblvsoqRsELCRAs5MB638lfeBKqfWQM0TX1z/40fIvswOk2cdQc/o6mCgX7SpWDgTol9CBQ48F4f4d4dmlnxjhetJUNl6H7dnksa190NdMjYoVl3HbZqKjzahjQhwyd/W/NCGnRkiS8n4yQsJOQB2e8upWdnNXkl1Zj4RLDgrwIIq2w+ayejPESHHFzsdwq8oB2Qcvy4PTaqIT1Q9zV1p24eA==
+ bh=cUy+IuRwKwEINnPViVgyD8SJ7lOCv5zw013XMzPCDPU=;
+ b=lbg6OJr4h2zQp8K4vdagAJ+ndc0koYZpAnvCJoZDHtin/vV8B99V+GjH54NSVQ3He32VbYVZKRSNrb9ujurPvlaWQatYlu1inBSeunDjofClKXz3cpJVKDiHoOPaiR6WTbM8M228X2Mzi4dNWfBIpbuSj21KBUSTujqHfOaYk0f85KMsSzxV9ygS02uJtQp8Kw2uh9hIkHVSoGZ3rsWX8WOU2D5VfY6BkfMTQSEV03swOAZsUJFAnFPkbRz+pH35DHISxZGDrAofX3q85jN3psAsV7tRYSuy+K7MNFO3nvWCpWSeufQ8inok0ErhwTTyVgWKQx9vVVfZ3cuZfzRwPg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
  header.d=wdc.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rChYadDMdfqLrRchCgYkP1dM2E2w/gWOvaWe8ocvGQU=;
- b=kYgKXYxjVvHZq4PvJcgzV+jDmrCdf+baJtNK2Qq5/rzzyaR7Z0z32UUu+aFnGKettpjbKNydvK/KUuDxks5LBKj1QSIrBODHs1CJWQ1WTvWiSZ5nvpPJ/GtgjyZfHAoFFu6jFo/+vzfYQ4TzAE/p9rJR/nvTDCX8erTRSDUiYj4=
-Authentication-Results: dabbelt.com; dkim=none (message not signed)
- header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
-Received: from DM6PR04MB6201.namprd04.prod.outlook.com (2603:10b6:5:127::32)
- by DM6PR04MB5131.namprd04.prod.outlook.com (2603:10b6:5:fe::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3611.20; Wed, 25 Nov
- 2020 05:18:16 +0000
-Received: from DM6PR04MB6201.namprd04.prod.outlook.com
- ([fe80::d035:e2c6:c11:51dd]) by DM6PR04MB6201.namprd04.prod.outlook.com
- ([fe80::d035:e2c6:c11:51dd%6]) with mapi id 15.20.3589.025; Wed, 25 Nov 2020
- 05:18:16 +0000
-From: Anup Patel <anup.patel@wdc.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
-Subject: [PATCH v3] RISC-V: Use SBI SRST extension when available
-Date: Wed, 25 Nov 2020 10:47:52 +0530
-Message-Id: <20201125051752.295572-1-anup.patel@wdc.com>
-X-Mailer: git-send-email 2.25.1
-X-Originating-IP: [122.182.227.30]
-X-ClientProxiedBy: MA1PR01CA0117.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a00:1::33) To DM6PR04MB6201.namprd04.prod.outlook.com
- (2603:10b6:5:127::32)
-MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-Received: from wdc.com (122.182.227.30) by
- MA1PR01CA0117.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:1::33) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.3611.20 via Frontend Transport; Wed, 25 Nov 2020 05:18:13 +0000
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-HT: Tenant
-X-MS-Office365-Filtering-Correlation-Id: 9f25a0c4-4fab-4482-9ef7-08d8910183c9
-X-MS-TrafficTypeDiagnostic: DM6PR04MB5131:
-X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <DM6PR04MB5131882226BF1D09AF3D99D78DFA0@DM6PR04MB5131.namprd04.prod.outlook.com>
-WDCIPOUTBOUND: EOP-TRUE
-X-MS-Oob-TLC-OOBClassifiers: OLM:8273;
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: ji6iX7TvfMfqXYumif3k/9foJ1c1hVo7ydHVhLLCjOB98MGJgmGlUb3tHFMvrs6DZEk5O19NnoH5+f7+wy0SdOgegJ9CON4y6ihJXDBRSDMjFtTBk3k2KY8LSMsDe5+2ioLJDT5YKt9fNYsbTEoLl3/fAhKl/mOv6IiERlTN/HcZrv1oo9uAZ6GxtcTUWDgpIowt1KBgcbuXiTUU946ovznevLRdDzzybKlqK5RrjuJo0jQOyJvYh/yZZa9nyf6TK3ikI9h3OpyRTJYeYCHyqaZc9T/6dhUOb3oZfco59sOr8yE6L3vwLcBD/asMtDChwZZUBDsfsujsZ2QItVMfyBeewZBKTEE2vS2VdbcxtOgwKMWO1lyP0+Aqc04ORcdxpBIIiVmBYTJvpkzIOSOXaA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:DM6PR04MB6201.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(346002)(136003)(396003)(39860400002)(376002)(366004)(7696005)(52116002)(16526019)(36756003)(186003)(83380400001)(2616005)(44832011)(5660300002)(110136005)(2906002)(6666004)(54906003)(4326008)(956004)(316002)(8936002)(8676002)(55016002)(478600001)(966005)(26005)(1076003)(86362001)(66946007)(66556008)(66476007)(8886007);
+ bh=cUy+IuRwKwEINnPViVgyD8SJ7lOCv5zw013XMzPCDPU=;
+ b=icAPg7WQDFdQnqQOMzqSInGhKOH9GnmoU+7mg/hx2uGpvbMUYKS7JCNLQjgMBRzkc3n0skCqDhz9MHDXbo8UI/W2CHh8GUIxWTRodXU3x0MSbxZSu399eyRewYpoJ7YZ+pMsx8b5J37ru/sTCCQYKRUu4FCwStr3hcPFIheftl0=
+Received: from CH2PR04MB6522.namprd04.prod.outlook.com (2603:10b6:610:34::19)
+ by CH2PR04MB6538.namprd04.prod.outlook.com (2603:10b6:610:35::19)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3589.22; Wed, 25 Nov
+ 2020 06:14:38 +0000
+Received: from CH2PR04MB6522.namprd04.prod.outlook.com
+ ([fe80::897c:a04b:4eb0:640a]) by CH2PR04MB6522.namprd04.prod.outlook.com
+ ([fe80::897c:a04b:4eb0:640a%7]) with mapi id 15.20.3589.022; Wed, 25 Nov 2020
+ 06:14:38 +0000
+From: Damien Le Moal <Damien.LeMoal@wdc.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Subject: Re: [PATCH] riscv: defconfig: k210: Disable CONFIG_VT
+Thread-Topic: [PATCH] riscv: defconfig: k210: Disable CONFIG_VT
+Thread-Index: AQHWwpO1HQiFqsmnr0WJzbSNTitMeQ==
+Date: Wed, 25 Nov 2020 06:14:37 +0000
+Message-ID: <CH2PR04MB652231C5B82E9F8184F496D8E7FA0@CH2PR04MB6522.namprd04.prod.outlook.com>
+References: <20201124185738.3541314-1-geert@linux-m68k.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: linux-m68k.org; dkim=none (message not signed)
+ header.d=none;linux-m68k.org; dmarc=none action=none header.from=wdc.com;
+x-originating-ip: [2400:2411:43c0:6000:7477:1782:371:aeb9]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-ht: Tenant
+x-ms-office365-filtering-correlation-id: f0c68056-809c-438e-eca2-08d891096362
+x-ms-traffictypediagnostic: CH2PR04MB6538:
+x-microsoft-antispam-prvs: <CH2PR04MB653843957CF7A4BFA4280BD8E7FA0@CH2PR04MB6538.namprd04.prod.outlook.com>
+wdcipoutbound: EOP-TRUE
+x-ms-oob-tlc-oobclassifiers: OLM:6430;
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: Z4x4bgqKvGW6v530qpF2GQ07J3smFFhF/LjLwNBS5zCFgxOrFGGRUZrDrB5dYNNsff0kFlknFpwGZ0XWsdWpE8ci2zDsQEbQh0uPcMnt10s08DS+Pn3mp6AjRSkpLrWXxdZn26tadbz77uod6p5wXeAkThHdtves0kpXXZTdRf11vb58oOxbY6YSdCkXsicG7/ZPf0qVJhnCjxgOAkl+a+dYYLhG15U4DKDflI1Lidp9IBgACOC4WG0izb+j55AcR+xG/3yuyBy2+hgQEGYXZKDWnpEdXXAMFATbpgfaMLNedPo9fyd3WLFloJUlc+7y8bcbqNDmWmOJb0SNss7LYA==
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:CH2PR04MB6522.namprd04.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(4636009)(366004)(39860400002)(346002)(376002)(136003)(396003)(478600001)(83380400001)(71200400001)(7696005)(91956017)(66476007)(53546011)(6506007)(76116006)(66946007)(52536014)(54906003)(4326008)(64756008)(5660300002)(66446008)(186003)(9686003)(6916009)(66556008)(86362001)(8936002)(8676002)(33656002)(316002)(2906002)(55016002);
  DIR:OUT; SFP:1102; 
-X-MS-Exchange-AntiSpam-MessageData: wMziT/1WMJaMPgFvOtitXnbv13HaqxKI+zTMrURkn/5tQaT7U2E50XOYzy5J2kBzBI4W6k+xDrMCHr+zVFVIokkp8JjLaMpGkvlyvg0bBYUEmAM7yWIAw0v6lYi46ib/P7g6n3aIZ5nXaK7aZRi7fm4nq1HGJ1TSZlglupco1LAj4gJTjBHTtOFVp+29MoRkdKbwb0yK9sz8Zbt1yoQ/IP23iWpai/6eeVNzyVkb1Wf6H/+N/LiXZTlL+ctGbJIG+bzKBS3p6hNpTGhnY3QQqLi9P3P2kwfINQWuvU3Q4xeYKViMuw74QNf6mLOlviz1ABfs6oYZdk+p44bX4U3jpvzPi2GCnk1AH5ytrAwmJBSbJbEkagCsG7Euh+Rupu7fXjMRgHJwUbgSfF9kBoALLL+IKXtZVkOtZxWbBgwx1jMAeNeswc4u04GaXwaQsIlbC1vzz4T/w/sgp2E62Sq1wo7faHYif2jFU0s5R/jYn6tuTj52w4rg2m3Ne8XOaaKKsbS8UhaWzLyY7VOmT/aFM5FWGxH8QVW4HMVuUZHu2yNuw6w0CKW99ifkqSDIN1/TPoITqU/b0PivpQiy1cLcjKNyKeKbTk6kYgxgAuqf5XGz7Q/uzntBqH22RO/qg93UnO9kbEn6Ar2WfHXkZBb/5MD1jxAjwfcmIBDMYwQNGE0ghiAeXWxX/YmMH6fo9L335Rs9HhWLkB2R0s37fSK3fT9UIB3aFciH19jqrdRFSpv8K6AcsiYfdatm7xMy4kOhbEOowHGDih6m2goildFeh7dKsFLYi5KeGh/J6cXs+fRqRO4kSoSx3VKdYdj9ifgTP4uw1S0+BVU0QmC6p7mx6AMXZWsNe9a9/GbhJWzHIWj5psYqDDj4TGNfiMa5N4q3OPG/wmLcUVddC7ThX1UdAg==
+x-ms-exchange-antispam-messagedata: =?us-ascii?Q?8YqnsJviO1yxQ8LJePpJ7pYxHegvwm8qO/IlHsAujIGW0bzzUHGF/RIJWTo2?=
+ =?us-ascii?Q?Lvu0LVBmunWttEv7VmsumPjVGgM9pPSz2sTWl0MKziZPZNgcX0cwPsVNt5B2?=
+ =?us-ascii?Q?MP/J0ikLN44jNlrTqNxgmjfrg3KNgc4WJQYupEG153csXE1ZMZeA5q5odfuO?=
+ =?us-ascii?Q?M6XtEMPuuNuNLfK1lgXLnJr05h5cGrAeJ0OaFS3Q+BzYTibqlgxmzfpncDoy?=
+ =?us-ascii?Q?CBxWtKs2O4s0bm3UINpy7+/I+kyYfQzyBMNBvyBV0RRULVO10/85VZHhK96G?=
+ =?us-ascii?Q?uogeZxowD6eXLKO74fs1792Lj5sVeDGa6eoCwV+BhGms6/U6j4t/teXENWhc?=
+ =?us-ascii?Q?EtZFePB2nB3LstFTzZXBbjbSDzX+5FD5VEQD1qZcc4h+a/B1lOJjmmedkztX?=
+ =?us-ascii?Q?w+NizvTeckAvWEdyAuzInznWQqWrRVMJU46x+Ynst0nWH9aHH7EX3f/8d810?=
+ =?us-ascii?Q?/KBLLjuNcpBiUFTCpgaBV1MsgUQbpwU+CtQV9sZ/AhqzMFVZpPenkTbxHPiV?=
+ =?us-ascii?Q?C4EEU8s8+SFkWtvX7YEMiA4sqAYV2ZJe/XOB7NgCg/boWC3F1xCA9Y5plROp?=
+ =?us-ascii?Q?97BOh/ftgd9tQPXgI6vFI6CZFqRExGLxDDWlgNexG57FEhP5hE39C1t59ljZ?=
+ =?us-ascii?Q?Gxc0FmBBz9Loj2iB9rRQJd/OHHCLvm/FKY3TBQH8R1mzGTaqXQkw71MKyGRK?=
+ =?us-ascii?Q?eRAWK2kGDSV8CPjmPVYYCRzJkHLmAtViJo41Sg4hVnHyyBK5ubGaeddG/MXk?=
+ =?us-ascii?Q?oepdvt5AifqQ62bsPWJSB85SK324+4fclVq+fmY+l22zQ/T9cnD5QxETOfkQ?=
+ =?us-ascii?Q?x8oO74PJ5SiBUSjG/ZqADG0biZSKfmkcVO6YWKtXdJcxQYzwX717nyEKcQxO?=
+ =?us-ascii?Q?dCBAYoML8g61JcqfhQ+9zw/AuBFbd2dNV0BxzhnbXTOUf6GvTzmVwDbMm/vY?=
+ =?us-ascii?Q?zbFmBj+qtTa33U0pgX48A2HjAYbs8UCPElKUGBLOxZiZzkYRvjhf3DpYEvb2?=
+ =?us-ascii?Q?QhAfUqjGUMnKA//b1VheJxfLwGaXCMH2IJfiPvdlnnVp0mVeL4++fPDAXagK?=
+ =?us-ascii?Q?Rz7i49Bu?=
+x-ms-exchange-transport-forked: True
+MIME-Version: 1.0
 X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9f25a0c4-4fab-4482-9ef7-08d8910183c9
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR04MB6201.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2020 05:18:16.7177 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Y6u6H6qm/yt480fR+5F1YP5vtQuQyEhQJYFPK9O/+koz0/gphDolR2QgXtygs+D+a+dxceU/94QZtL0Q9aoYag==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR04MB5131
+X-MS-Exchange-CrossTenant-AuthSource: CH2PR04MB6522.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f0c68056-809c-438e-eca2-08d891096362
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Nov 2020 06:14:37.9721 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: o0VzY5KycZc0FOzttIzRr777ywO+D7HNsX/rTKdI5eWpyfpu9Tax2JxIuHjEpaaRtkhzflO/ajT+t2tr6E+y0Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR04MB6538
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201125_001819_138967_B1DB52E3 
-X-CRM114-Status: GOOD (  18.39  )
+X-CRM114-CacheID: sfid-20201125_011441_925586_7D0CA10D 
+X-CRM114-Status: GOOD (  19.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -146,134 +159,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <anup@brainfault.org>, Anup Patel <anup.patel@wdc.com>,
- linux-kernel@vger.kernel.org, Atish Patra <atish.patra@wdc.com>,
- Alistair Francis <Alistair.Francis@wdc.com>, linux-riscv@lists.infradead.org
+Cc: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The SBI SRST extension provides a standard way to poweroff and
-reboot the system irrespective to whether Linux RISC-V S-mode
-is running natively (HS-mode) or inside Guest/VM (VS-mode).
+On 2020/11/25 3:57, Geert Uytterhoeven wrote:
+> There is no need to enable Virtual Terminal support in the Canaan
+> Kendryte K210 defconfigs, as no terminal devices are supported and
+> enabled.  Hence disable CONFIG_VT, and remove the no longer needed
+> override for CONFIG_VGA_CONSOLE.
+> 
+> This reduces kernel size by ca. 65 KiB.
 
-The SBI SRST extension is available in latest SBI v0.3-draft
-specification at: https://github.com/riscv/riscv-sbi-doc.
+Indeed, nice saving. Just tested, and all is good.
 
-This patch extends Linux RISC-V SBI implementation to detect
-and use SBI SRST extension.
+Can I squash this patch into the 2 defconfig update patches of the series,
+adding your signed-off-by ? Or would you prefer that I keep it as a separate patch ?
 
-Signed-off-by: Anup Patel <anup.patel@wdc.com>
----
-Changes since v2:
- - Rebased on Linux-5.10-rc5
- - Updated patch as-per SBI SRST extension available in the latest
-   SBI v0.3-draft specification
-Changes since v1:
- - Updated patch as-per latest SBI SRST extension draft spec where
-   we have only one SBI call with "reset_type" parameter
----
- arch/riscv/include/asm/sbi.h | 16 ++++++++++++++++
- arch/riscv/kernel/sbi.c      | 34 ++++++++++++++++++++++++++++++++++
- 2 files changed, 50 insertions(+)
+> 
+> Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
+> ---
+> Against k210-sysctl-v15
+> ---
+>  arch/riscv/configs/nommu_k210_defconfig        | 2 +-
+>  arch/riscv/configs/nommu_k210_sdcard_defconfig | 2 +-
+>  2 files changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/riscv/configs/nommu_k210_defconfig b/arch/riscv/configs/nommu_k210_defconfig
+> index df89d53bd125679b..9262223037e43479 100644
+> --- a/arch/riscv/configs/nommu_k210_defconfig
+> +++ b/arch/riscv/configs/nommu_k210_defconfig
+> @@ -48,6 +48,7 @@ CONFIG_DEVTMPFS_MOUNT=y
+>  # CONFIG_INPUT_KEYBOARD is not set
+>  # CONFIG_INPUT_MOUSE is not set
+>  # CONFIG_SERIO is not set
+> +# CONFIG_VT is not set
+>  # CONFIG_LEGACY_PTYS is not set
+>  # CONFIG_LDISC_AUTOLOAD is not set
+>  # CONFIG_HW_RANDOM is not set
+> @@ -67,7 +68,6 @@ CONFIG_GPIO_SIFIVE=y
+>  CONFIG_POWER_RESET=y
+>  CONFIG_POWER_RESET_SYSCON=y
+>  # CONFIG_HWMON is not set
+> -# CONFIG_VGA_CONSOLE is not set
+>  # CONFIG_HID is not set
+>  # CONFIG_USB_SUPPORT is not set
+>  CONFIG_NEW_LEDS=y
+> diff --git a/arch/riscv/configs/nommu_k210_sdcard_defconfig b/arch/riscv/configs/nommu_k210_sdcard_defconfig
+> index 3d2cb4747e7f85b7..4cd1715dd0cf3747 100644
+> --- a/arch/riscv/configs/nommu_k210_sdcard_defconfig
+> +++ b/arch/riscv/configs/nommu_k210_sdcard_defconfig
+> @@ -41,6 +41,7 @@ CONFIG_DEVTMPFS_MOUNT=y
+>  # CONFIG_INPUT_KEYBOARD is not set
+>  # CONFIG_INPUT_MOUSE is not set
+>  # CONFIG_SERIO is not set
+> +# CONFIG_VT is not set
+>  # CONFIG_LEGACY_PTYS is not set
+>  # CONFIG_LDISC_AUTOLOAD is not set
+>  # CONFIG_HW_RANDOM is not set
+> @@ -60,7 +61,6 @@ CONFIG_GPIO_SIFIVE=y
+>  CONFIG_POWER_RESET=y
+>  CONFIG_POWER_RESET_SYSCON=y
+>  # CONFIG_HWMON is not set
+> -# CONFIG_VGA_CONSOLE is not set
+>  # CONFIG_HID is not set
+>  # CONFIG_USB_SUPPORT is not set
+>  CONFIG_MMC=y
+> 
 
-diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-index 653edb25d495..5b2d6d614c20 100644
---- a/arch/riscv/include/asm/sbi.h
-+++ b/arch/riscv/include/asm/sbi.h
-@@ -27,6 +27,7 @@ enum sbi_ext_id {
- 	SBI_EXT_IPI = 0x735049,
- 	SBI_EXT_RFENCE = 0x52464E43,
- 	SBI_EXT_HSM = 0x48534D,
-+	SBI_EXT_SRST = 0x53525354,
- };
- 
- enum sbi_ext_base_fid {
-@@ -70,6 +71,21 @@ enum sbi_hsm_hart_status {
- 	SBI_HSM_HART_STATUS_STOP_PENDING,
- };
- 
-+enum sbi_ext_srst_fid {
-+	SBI_EXT_SRST_RESET = 0,
-+};
-+
-+enum sbi_srst_reset_type {
-+	SBI_SRST_RESET_TYPE_SHUTDOWN = 0,
-+	SBI_SRST_RESET_TYPE_COLD_REBOOT,
-+	SBI_SRST_RESET_TYPE_WARM_REBOOT,
-+};
-+
-+enum sbi_srst_reset_reason {
-+	SBI_SRST_RESET_REASON_NONE = 0,
-+	SBI_SRST_RESET_REASON_SYS_FAILURE,
-+};
-+
- #define SBI_SPEC_VERSION_DEFAULT	0x1
- #define SBI_SPEC_VERSION_MAJOR_SHIFT	24
- #define SBI_SPEC_VERSION_MAJOR_MASK	0x7f
-diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-index 226ccce0f9e0..33b834ecd195 100644
---- a/arch/riscv/kernel/sbi.c
-+++ b/arch/riscv/kernel/sbi.c
-@@ -7,6 +7,7 @@
- 
- #include <linux/init.h>
- #include <linux/pm.h>
-+#include <linux/reboot.h>
- #include <asm/sbi.h>
- #include <asm/smp.h>
- 
-@@ -501,6 +502,32 @@ int sbi_remote_hfence_vvma_asid(const unsigned long *hart_mask,
- }
- EXPORT_SYMBOL(sbi_remote_hfence_vvma_asid);
- 
-+static void sbi_srst_reset(unsigned long type, unsigned long reason)
-+{
-+	sbi_ecall(SBI_EXT_SRST, SBI_EXT_SRST_RESET, type, reason,
-+		  0, 0, 0, 0);
-+	pr_warn("%s: type=0x%lx reason=0x%lx failed\n",
-+		__func__, type, reason);
-+}
-+
-+static int sbi_srst_reboot(struct notifier_block *this,
-+			   unsigned long mode, void *cmd)
-+{
-+	sbi_srst_reset((mode == REBOOT_WARM || mode == REBOOT_SOFT) ?
-+		       SBI_SRST_RESET_TYPE_WARM_REBOOT :
-+		       SBI_SRST_RESET_TYPE_COLD_REBOOT,
-+		       SBI_SRST_RESET_REASON_NONE);
-+	return NOTIFY_DONE;
-+}
-+
-+static struct notifier_block sbi_srst_reboot_nb;
-+
-+static void sbi_srst_power_off(void)
-+{
-+	sbi_srst_reset(SBI_SRST_RESET_TYPE_SHUTDOWN,
-+		       SBI_SRST_RESET_REASON_NONE);
-+}
-+
- /**
-  * sbi_probe_extension() - Check if an SBI extension ID is supported or not.
-  * @extid: The extension ID to be probed.
-@@ -593,6 +620,13 @@ int __init sbi_init(void)
- 		} else {
- 			__sbi_rfence	= __sbi_rfence_v01;
- 		}
-+		if (sbi_probe_extension(SBI_EXT_SRST) > 0) {
-+			pr_info("SBI v0.2 SRST extension detected\n");
-+			pm_power_off = sbi_srst_power_off;
-+			sbi_srst_reboot_nb.notifier_call = sbi_srst_reboot;
-+			sbi_srst_reboot_nb.priority = 192;
-+			register_restart_handler(&sbi_srst_reboot_nb);
-+		}
- 	} else {
- 		__sbi_set_timer = __sbi_set_timer_v01;
- 		__sbi_send_ipi	= __sbi_send_ipi_v01;
+
 -- 
-2.25.1
-
+Damien Le Moal
+Western Digital Research
 
 _______________________________________________
 linux-riscv mailing list
