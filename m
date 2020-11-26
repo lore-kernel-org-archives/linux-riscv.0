@@ -2,81 +2,70 @@ Return-Path: <SRS0=LTnX=FA=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.2 required=3.0 tests=BAYES_00,
-	BUG6152_INVALID_DATE_TZ_ABSURD,DKIMWL_WL_HIGH,DKIM_SIGNED,DKIM_VALID,
-	HEADER_FROM_DIFFERENT_DOMAINS,INVALID_DATE_TZ_ABSURD,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-5.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 70319C56202
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2020 11:55:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 32ABBC56202
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2020 12:49:43 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E98FB20678
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2020 11:55:52 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 4E6A521D1A
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2020 12:49:42 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="f/bRkIQt";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.b="JqL2oXb2";
-	dkim=permerror (0-bit key) header.d=linutronix.de header.i=@linutronix.de header.b="1UFMJWXv"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E98FB20678
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linutronix.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="wjmAiAAr"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4E6A521D1A
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References:In-Reply-To:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=qjHABYYeUsUD4fx6gmrK8aSFsb3y4kjvsAFkEdsDGl8=; b=f/bRkIQtXSG2p5J1A1YUhf3HK
-	FnAd0I3rkVvypJ8+aXimGYnjrqXq8wagskhYexB4+epqggjqjCv8PTyc/R4Vep0ExQRKBfMvnl1qY
-	IVPA4Nf/RS5keLW1sf3k6xg01trcP9IVXF8sP7vIgOGY07qHW0C2eWP7QS/q4eOVy3ZlR1CR04W2/
-	z5Cm1lH+Sp7ONF16CIEE692k5vfGku7hfWWR2A0DUgtjKaqWDYVjboc8pGAbo+uvfRFoW/TN0e8e3
-	NUnIuTDbeGZUPNgo8qm7J83sdgWbh0tn+HWaSDIlFG5DVbPw12SiwqZur8msXelbeIBffAU00cLkm
-	lmnpqSFPA==;
+	 bh=ozbbnRX+AIlL4q/CBjsMbXvIOZohdjCfWMhxkqOrH/Q=; b=wjmAiAAr6kkIo37Sk3hritga2
+	aDto5un4ElbZzHyhUQ62ufVRtv6Nli9iNG1PPdntCu4zh2LJvajenZVyRysJbcGuXobWHvk6xUKr7
+	k440bvC+eojaStL3OSuAsa4GP2pQtfmxOlASj3WUHycd9nDTnSZtRh7wHpYwhd/fPBY/SIGxznRp4
+	jcUqyAtdT7oXzSSvk/1RAl+oKoQmqvQFj16bBbSplNS1o7Sk2GoPzMCCfyZ7mt41MTIIAMQZLM87A
+	GeIe+IFrjpAv4upuU2yfOWlYm3jOn8JeL/3f+DvXGovBz0a5cCVxhqQQnepnbU2h6T7BeSq15sfkL
+	HP0Wepszg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kiFsI-0004Xv-3M; Thu, 26 Nov 2020 11:55:46 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1kiGiN-0004xl-GP; Thu, 26 Nov 2020 12:49:35 +0000
+Received: from szxga05-in.huawei.com ([45.249.212.191])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kiFsD-0004V2-IW
- for linux-riscv@lists.infradead.org; Thu, 26 Nov 2020 11:55:43 +0000
-From: John Ogness <john.ogness@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
- s=2020; t=1606391737;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=USdZ8j/ng0viEFfQzzTA/cOwLPN8cugbi0RldZSuXOs=;
- b=JqL2oXb2W9U//3tZa3VgLnpx46uGDNzYaSDcZJmUXhPEq5UnA0u00g9dax2IfsLPzjrVGf
- 2l1Yf4fy9517ZRssNvxCszDD+A8VIVFIYoJz/9XuSUzDScdnVJtG7n8DmFlAX2y+N5joQn
- eaa6UILEXItvnPgzIFeYS/F5Yg7XLUuwyN3PDLYkC+sGEx2XAyctSttBi6ZPxN2L4Nb53U
- 0Rpztb8aPRQitmm6WitXnPVQ+F0RSz7+txAC3FgwZlZr3KGtNj7lAScE2N6/QfIuaNwKpC
- 4VQFoPLGmpzi++E0CIoTgxj/h0l/LiG7QIGaDyT7ZoF6S8gZFM8nnf/mE1NAVw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
- s=2020e; t=1606391737;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=USdZ8j/ng0viEFfQzzTA/cOwLPN8cugbi0RldZSuXOs=;
- b=1UFMJWXvvXFQ49q3Qyd4r612Vby5gDQcWm8EFK3fgs/WCUgSHMkKQ7owIPuFb8SEv/umG6
- cOAfr/DNe0yXCOBg==
-To: Kefeng Wang <wangkefeng.wang@huawei.com>,
- Atish Patra <atishp@atishpatra.org>
+ id 1kiGiH-0004sy-77
+ for linux-riscv@lists.infradead.org; Thu, 26 Nov 2020 12:49:31 +0000
+Received: from DGGEMS407-HUB.china.huawei.com (unknown [172.30.72.60])
+ by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4Chcy61mH6zLvhK;
+ Thu, 26 Nov 2020 20:48:46 +0800 (CST)
+Received: from [10.174.177.244] (10.174.177.244) by
+ DGGEMS407-HUB.china.huawei.com (10.3.19.207) with Microsoft SMTP Server id
+ 14.3.487.0; Thu, 26 Nov 2020 20:49:10 +0800
 Subject: Re: [PATCH 2/2] riscv: Fix __show_regs printing formats
-In-Reply-To: <87d000cu6l.fsf@jogness.linutronix.de>
+To: John Ogness <john.ogness@linutronix.de>, Atish Patra
+ <atishp@atishpatra.org>
 References: <mhng-54bff36c-7c0d-4448-8859-d8d05cbd8b0d@palmerdabbelt-glaptop1>
  <20201124112054.106960-1-wangkefeng.wang@huawei.com>
  <20201124112054.106960-2-wangkefeng.wang@huawei.com>
  <CAOnJCUJH7AFYNsyFzwzHApZhfx_1yiEj+zkQDxryD83zac6f2g@mail.gmail.com>
  <c60a5e75-96a5-2fb7-4089-1e3b777c6b0d@huawei.com>
- <87d000cu6l.fsf@jogness.linutronix.de>
-Date: Thu, 26 Nov 2020 13:01:37 +0106
-Message-ID: <877dq8coxy.fsf@jogness.linutronix.de>
+ <87d000cu6l.fsf@jogness.linutronix.de> <877dq8coxy.fsf@jogness.linutronix.de>
+From: Kefeng Wang <wangkefeng.wang@huawei.com>
+Message-ID: <917f6f5e-0627-452b-7140-3aa05f551980@huawei.com>
+Date: Thu, 26 Nov 2020 20:49:10 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
+ Thunderbird/60.7.0
 MIME-Version: 1.0
+In-Reply-To: <877dq8coxy.fsf@jogness.linutronix.de>
+Content-Language: en-US
+X-Originating-IP: [10.174.177.244]
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201126_065541_903608_F6962907 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20201126_074929_882248_A2E4485B 
+X-CRM114-Status: GOOD (  19.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -92,55 +81,41 @@ Cc: Petr Mladek <pmladek@suse.com>,
  linux-riscv <linux-riscv@lists.infradead.org>,
  Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2020-11-26, John Ogness <john.ogness@linutronix.de> wrote:
-> On 2020-11-26, Kefeng Wang <wangkefeng.wang@huawei.com> wrote:
->> On 2020/11/26 6:58, Atish Patra wrote:
->>> On Tue, Nov 24, 2020 at 3:17 AM Kefeng Wang <wangkefeng.wang@huawei.com> wrote:
->>>> Using printk directly and align the printing formats.
->>>>
->>> Why switch to printk ? IIRC, pr_* is preferred over printk for any new code.
->>
->> The stack output is strange, that is why I move to printk, and the old
->> kernel looks good.
->
-> This is just a quick response to let you know I can reproduce the issue
-> and I am investigating.
->
-> @Petr: The proposed change and output difference is here [0].
-
-This is a bug in continuous line handling. I have posted [0] a fix to
-LKML.
-
-Note that a pr_cont() message with a trailing newline will "terminate"
-the continous line so that it can no longer be continued. Having a bunch
-of:
-
-    pr_cont("...\n");
-
-lines is technically wrong. If you really want the full block to be a
-single message, put the newline at the beginning of the pr_cont()
-message or add some whitespace after a newline at the end. For example:
-
-    pr_cont("\n....");
-       or
-    pr_cont("...\n ");
-
-Although I would suggest making them separate printk calls. With
-CONFIG_PRINTK_CALLER it is still possible to sort out simultaneous dumps
-from multiple CPUs.
-
-Thank you for reporting this!
-
-John Ogness
-
-[0] https://lkml.kernel.org/r/20201126114836.14750-1-john.ogness@linutronix.de
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Ck9uIDIwMjAvMTEvMjYgMTk6NTUsIEpvaG4gT2duZXNzIHdyb3RlOgo+IE9uIDIwMjAtMTEtMjYs
+IEpvaG4gT2duZXNzIDxqb2huLm9nbmVzc0BsaW51dHJvbml4LmRlPiB3cm90ZToKPj4gT24gMjAy
+MC0xMS0yNiwgS2VmZW5nIFdhbmcgPHdhbmdrZWZlbmcud2FuZ0BodWF3ZWkuY29tPiB3cm90ZToK
+Pj4+IE9uIDIwMjAvMTEvMjYgNjo1OCwgQXRpc2ggUGF0cmEgd3JvdGU6Cj4+Pj4gT24gVHVlLCBO
+b3YgMjQsIDIwMjAgYXQgMzoxNyBBTSBLZWZlbmcgV2FuZyA8d2FuZ2tlZmVuZy53YW5nQGh1YXdl
+aS5jb20+IHdyb3RlOgo+Pj4+PiBVc2luZyBwcmludGsgZGlyZWN0bHkgYW5kIGFsaWduIHRoZSBw
+cmludGluZyBmb3JtYXRzLgo+Pj4+Pgo+Pj4+IFdoeSBzd2l0Y2ggdG8gcHJpbnRrID8gSUlSQywg
+cHJfKiBpcyBwcmVmZXJyZWQgb3ZlciBwcmludGsgZm9yIGFueSBuZXcgY29kZS4KPj4+IFRoZSBz
+dGFjayBvdXRwdXQgaXMgc3RyYW5nZSwgdGhhdCBpcyB3aHkgSSBtb3ZlIHRvIHByaW50aywgYW5k
+IHRoZSBvbGQKPj4+IGtlcm5lbCBsb29rcyBnb29kLgo+PiBUaGlzIGlzIGp1c3QgYSBxdWljayBy
+ZXNwb25zZSB0byBsZXQgeW91IGtub3cgSSBjYW4gcmVwcm9kdWNlIHRoZSBpc3N1ZQo+PiBhbmQg
+SSBhbSBpbnZlc3RpZ2F0aW5nLgo+Pgo+PiBAUGV0cjogVGhlIHByb3Bvc2VkIGNoYW5nZSBhbmQg
+b3V0cHV0IGRpZmZlcmVuY2UgaXMgaGVyZSBbMF0uCj4gVGhpcyBpcyBhIGJ1ZyBpbiBjb250aW51
+b3VzIGxpbmUgaGFuZGxpbmcuIEkgaGF2ZSBwb3N0ZWQgWzBdIGEgZml4IHRvCj4gTEtNTC4KWWVz
+LCBpdCBmaXhlcyB0aGUgb3V0cHV0IGlzc3VlLgo+Cj4gTm90ZSB0aGF0IGEgcHJfY29udCgpIG1l
+c3NhZ2Ugd2l0aCBhIHRyYWlsaW5nIG5ld2xpbmUgd2lsbCAidGVybWluYXRlIgo+IHRoZSBjb250
+aW5vdXMgbGluZSBzbyB0aGF0IGl0IGNhbiBubyBsb25nZXIgYmUgY29udGludWVkLiBIYXZpbmcg
+YSBidW5jaAo+IG9mOgo+Cj4gICAgICBwcl9jb250KCIuLi5cbiIpOwo+Cj4gbGluZXMgaXMgdGVj
+aG5pY2FsbHkgd3JvbmcuIElmIHlvdSByZWFsbHkgd2FudCB0aGUgZnVsbCBibG9jayB0byBiZSBh
+Cj4gc2luZ2xlIG1lc3NhZ2UsIHB1dCB0aGUgbmV3bGluZSBhdCB0aGUgYmVnaW5uaW5nIG9mIHRo
+ZSBwcl9jb250KCkKPiBtZXNzYWdlIG9yIGFkZCBzb21lIHdoaXRlc3BhY2UgYWZ0ZXIgYSBuZXds
+aW5lIGF0IHRoZSBlbmQuIEZvciBleGFtcGxlOgo+Cj4gICAgICBwcl9jb250KCJcbi4uLi4iKTsK
+PiAgICAgICAgIG9yCj4gICAgICBwcl9jb250KCIuLi5cbiAiKTsKPgo+IEFsdGhvdWdoIEkgd291
+bGQgc3VnZ2VzdCBtYWtpbmcgdGhlbSBzZXBhcmF0ZSBwcmludGsgY2FsbHMuIFdpdGgKPiBDT05G
+SUdfUFJJTlRLX0NBTExFUiBpdCBpcyBzdGlsbCBwb3NzaWJsZSB0byBzb3J0IG91dCBzaW11bHRh
+bmVvdXMgZHVtcHMKPiBmcm9tIG11bHRpcGxlIENQVXMuClRoYW5rcyBmb3IgeW91ciBleHBsYW5h
+dGlvbi7CoCBJIHdpbGwgcmUtcG9zdCBwYXRjaCB3aXRoIGNoYW5nZWxvZyByZWZyZXNoLgo+Cj4g
+VGhhbmsgeW91IGZvciByZXBvcnRpbmcgdGhpcyEKPgo+IEpvaG4gT2duZXNzCj4KPiBbMF0gaHR0
+cHM6Ly9sa21sLmtlcm5lbC5vcmcvci8yMDIwMTEyNjExNDgzNi4xNDc1MC0xLWpvaG4ub2duZXNz
+QGxpbnV0cm9uaXguZGUKPiAuCj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
