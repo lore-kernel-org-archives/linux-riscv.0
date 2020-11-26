@@ -2,156 +2,81 @@ Return-Path: <SRS0=LTnX=FA=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.2 required=3.0 tests=BAYES_00,
+	BUG6152_INVALID_DATE_TZ_ABSURD,DKIMWL_WL_HIGH,DKIM_SIGNED,DKIM_VALID,
+	HEADER_FROM_DIFFERENT_DOMAINS,INVALID_DATE_TZ_ABSURD,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9E06AC63697
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2020 10:52:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 70319C56202
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2020 11:55:53 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id F200420DD4
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2020 10:52:34 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id E98FB20678
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2020 11:55:52 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WCL30qtU";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="komXGf22";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="HGk4nnLV"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F200420DD4
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="f/bRkIQt";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.b="JqL2oXb2";
+	dkim=permerror (0-bit key) header.d=linutronix.de header.i=@linutronix.de header.b="1UFMJWXv"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E98FB20678
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linutronix.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:Date:Subject:To:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	 bh=1nZVL4Gvs5gT8kucSXfJ03aL9OGt+/QdLuiOQGT1E3s=; b=WCL30qtUIAVUcFkXtc6eyaa0H
-	YHLQatHaFEL6kzO3f/g8kpDeYnzI4uib96ERV6QxmUbhS49esfmEtGiaBveIS7FAOOrLLrTlp4bkM
-	xjl1WvaKg2mMAWpQOHcvr/zd4AL/23OuVavtl0c0vhn9xX73wg34+rurmLRqXlB9rlJ/FrjZLQPrb
-	IrCgk3r/L0ZaA491gbErb7Z9W2nyk609KjQ8BN7bqU7eAH5K7JURJoHXZ+FgVsQBw2dRjHV0TWBMG
-	NFnoyp2feuAfXKGsbGtGj8CS21ZmsmNOj263aAG5UuFhDyyj1JzkgP2keO0j+Y6GculP/JGQpgaXN
-	jKrdtWc6w==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References:In-Reply-To:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=qjHABYYeUsUD4fx6gmrK8aSFsb3y4kjvsAFkEdsDGl8=; b=f/bRkIQtXSG2p5J1A1YUhf3HK
+	FnAd0I3rkVvypJ8+aXimGYnjrqXq8wagskhYexB4+epqggjqjCv8PTyc/R4Vep0ExQRKBfMvnl1qY
+	IVPA4Nf/RS5keLW1sf3k6xg01trcP9IVXF8sP7vIgOGY07qHW0C2eWP7QS/q4eOVy3ZlR1CR04W2/
+	z5Cm1lH+Sp7ONF16CIEE692k5vfGku7hfWWR2A0DUgtjKaqWDYVjboc8pGAbo+uvfRFoW/TN0e8e3
+	NUnIuTDbeGZUPNgo8qm7J83sdgWbh0tn+HWaSDIlFG5DVbPw12SiwqZur8msXelbeIBffAU00cLkm
+	lmnpqSFPA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kiEt2-0004BO-A8; Thu, 26 Nov 2020 10:52:28 +0000
-Received: from esa6.hgst.iphmx.com ([216.71.154.45])
+	id 1kiFsI-0004Xv-3M; Thu, 26 Nov 2020 11:55:46 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kiEsy-00049s-Be
- for linux-riscv@lists.infradead.org; Thu, 26 Nov 2020 10:52:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1606387945; x=1637923945;
- h=from:to:cc:subject:date:message-id:references:
- content-transfer-encoding:mime-version;
- bh=CjvzGvZgfUbDQ1Z8gZeKHotw0tNQ+GO1BnQxmZuFBjk=;
- b=komXGf22cRUTYCMSdwLQBvV60jxLoBiWuK6t0ep2Qqu4bIwqBs2TMbD7
- ok8WL9V5zOFKyBuJbM5xbOslB42LEJlf7mXSxq1h63uVAPr1JuN8e6HVT
- LnUSFhXuu5Hkd0fERjBIRSL7GvCXCjt5jC8EYfv1AfBfuQMosSU1Gtbjp
- YmYDs8djC12g9QFLBzVD/8+r7qLY0j2ZVMOrbFboDTjDdNX5kNQc9UyIJ
- 6T2BCO2Cl4xP2LYcFmUFr8eZO4lv0eKO5n2qDTkpQdmdVfQ2YJe1CXCcj
- ciX6vyYHADYsoi1VOGVBrciFC7IBOBbe6XTSBSnSqT5GYtCCWwsqLqKXB g==;
-IronPort-SDR: YF2W67jduX+3gUnE5YKBv4Ooq8OIt8OxKgQQcQyy+h0dLh/5kGjtFXTp5/Hno9/gRRgc0tdUMl
- JBIcEuKElFdXY194VUEICetf3qZ+ELSYWrtomXW26CSHXIS8Pc0IPbzyw0XHUujl3vGW6TSbRm
- Mlv0BtemFZiragvAMzmL6Qee1LlBBq8EmNQOJ/Kew7LnDQZ6Enpn3qW76QZ1IQrgEXVVXsiXC0
- z0o9LUOZdSfZwPoK8NslmCWVKUSz0algnWTWBbq4Eo+h+eCJNPlA+N9QyP7GS7ujejnhIT0d8/
- i84=
-X-IronPort-AV: E=Sophos;i="5.78,371,1599494400"; d="scan'208";a="154747527"
-Received: from mail-bn8nam11lp2175.outbound.protection.outlook.com (HELO
- NAM11-BN8-obe.outbound.protection.outlook.com) ([104.47.58.175])
- by ob1.hgst.iphmx.com with ESMTP; 26 Nov 2020 18:52:22 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Vjw6B2jwaC1kpHhY/0iSSYEQhMmU050iqz7miZADVyHYlEPRYP5XREPFzS77R43q/C+gb5ufLiDMGSGPc6ESDx7Ie7J7eXq00z9+Au0KBUVU180xK5kYni7eJveJkS5VdO6sDZxMrdVCDUFDLuYoBKhl79//9mNyk1opN19m5hGx/it0pJKNPaTdAW5LiEJ0scnXtBokQ4Mr2kn29miebnUTPyce3iBgkqIl3z0fvhLC0wYQZd3sRj5yClrRmxOIoHrJ+ZF0hbSTkFpZAVGwMmMpEXrxA1vcxBHaUzv9WwRY+Vq5pooZoDTrJbXY/slL9SlY0B8v9ziDsZyurBNLWw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rDZPOWiqdV27x9Ref+8xiJQ9H1u9hLn9SFGX8aMCwz0=;
- b=f/pDq98io7S/ure41rcavnRHpNX35pmigsM0fnvU1TfMtpfb3sw6vC4fhRzi5iaCW682F4KmyddYk6N5jBbaeOLaVzYy7ra2+1oMaDFwe6gL5Cqd9wtNaZ4OPDhCNPBIQVrzPF0Lkje/vfWwcobNg3uXYTKCDwdWTxIooRKTG/qtRpbxjkBpKyy0pksSyFFkZlh3xXjXms7CXO771gHgtk6CU7Q/WFpmqYOMgySDOkgyamfqo00tOrCI9BWEwPIVaZfRLbFnIXNDgoVdcGAhwPN436qIgvpX24fZuepqSxhNwZy9Riq3ZWyd+xu8CjG/P2ABkRKavdvGLyBXC678Wg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
- header.d=wdc.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rDZPOWiqdV27x9Ref+8xiJQ9H1u9hLn9SFGX8aMCwz0=;
- b=HGk4nnLVUlXWFXLDGReY6Qh1iXw1FI9Wu9XCCunt/uPWCQHsqFpwXao08XaLrOO/Mxv6UloTpBgB/g55UsNuQF9sNVPTkgB4zkB43YHM0IApZbca7jiJKnPfMyERSJLEczOiCtDsovAZR0wQoS1WGyykfyC6t3FD6Nu/Nq72JVc=
-Received: from CH2PR04MB6522.namprd04.prod.outlook.com (2603:10b6:610:34::19)
- by CH2PR04MB6508.namprd04.prod.outlook.com (2603:10b6:610:6a::13)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3611.23; Thu, 26 Nov
- 2020 10:52:18 +0000
-Received: from CH2PR04MB6522.namprd04.prod.outlook.com
- ([fe80::897c:a04b:4eb0:640a]) by CH2PR04MB6522.namprd04.prod.outlook.com
- ([fe80::897c:a04b:4eb0:640a%7]) with mapi id 15.20.3589.022; Thu, 26 Nov 2020
- 10:52:18 +0000
-From: Damien Le Moal <Damien.LeMoal@wdc.com>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Subject: Re: [PATCH v2 09/21] dt-bindings: Document canaan, k210-fpioa bindings
-Thread-Topic: [PATCH v2 09/21] dt-bindings: Document canaan,k210-fpioa bindings
-Thread-Index: AQHWwhuTTl+n9RngRUi4SREztTsSrg==
-Date: Thu, 26 Nov 2020 10:52:18 +0000
-Message-ID: <CH2PR04MB65227207B4BAF30171E29ABFE7F90@CH2PR04MB6522.namprd04.prod.outlook.com>
-References: <20201124043728.199852-1-damien.lemoal@wdc.com>
- <20201124043728.199852-10-damien.lemoal@wdc.com>
- <CAMuHMdXov3Dr7EmAeE7yrKRmtu_L3539u9cjeiGiaRu32YVPQQ@mail.gmail.com>
- <CH2PR04MB6522F476C51D4C65F116BE9EE7FB0@CH2PR04MB6522.namprd04.prod.outlook.com>
- <CAMuHMdU_3B4jogmeisykbeH8QCbUrKMM3Zd8qHftdGGKYbtJoQ@mail.gmail.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: linux-m68k.org; dkim=none (message not signed)
- header.d=none;linux-m68k.org; dmarc=none action=none header.from=wdc.com;
-x-originating-ip: [2400:2411:43c0:6000:7477:1782:371:aeb9]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-ht: Tenant
-x-ms-office365-filtering-correlation-id: 7012d63f-efdb-4388-008e-08d891f9584e
-x-ms-traffictypediagnostic: CH2PR04MB6508:
-x-microsoft-antispam-prvs: <CH2PR04MB6508B1AD435903275AF6BED2E7F90@CH2PR04MB6508.namprd04.prod.outlook.com>
-wdcipoutbound: EOP-TRUE
-x-ms-oob-tlc-oobclassifiers: OLM:5236;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: vX3SWZBw9sYCVRnArr2zdr2ndYXRQ/xE4TJDJmn8HUhxQDOulserMZaYc57ZDRhVT/bgLbgqgBu6SZV5e0ss65vQm/MJlS1a1sMH27vGrKCkYiCNMmEGhFC6rF7M04EV3IkIS4Vz/UEoDj7ohOJSsF5ytOr24tbZxR2yU8PA0QmCbOmffUxF/2uGld8dzQ9gc/dsl24i7PvIMv1j2If/WEgUz/NUYYbcFn1V3VoWBwNr9zJjeYtOY1SDRzPb42A3GChmZIxekH6qXeSwuDLJoACwhji6qRq7hImyR2XrEfEUazYrLj4zQx+gK3U1p3fQFU85Kf5obMnh8ZdTKvDsXw==
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:CH2PR04MB6522.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(366004)(376002)(136003)(39860400002)(346002)(396003)(8676002)(5660300002)(9686003)(7696005)(86362001)(71200400001)(53546011)(4326008)(6506007)(8936002)(52536014)(6916009)(66446008)(186003)(66556008)(316002)(64756008)(66476007)(76116006)(2906002)(83380400001)(54906003)(33656002)(66946007)(55016002)(478600001)(91956017)(7416002);
- DIR:OUT; SFP:1102; 
-x-ms-exchange-antispam-messagedata: =?us-ascii?Q?e+zuw6u+tRk2MG6ewph23SS1QqbFmt1ENaeXKyID45nHXgHnlN8EgOjXdqcG?=
- =?us-ascii?Q?LHSa9VsXvK0hjMZJx/Zystg6vaTJPwL5xzpJfN+jFYKMlWamg6L3+xxIPgjT?=
- =?us-ascii?Q?FKWYzOhLhAU76MuDJs9qdkMwZBxx+lDf63ityppOzDvHjKiGec9ddguuPyfC?=
- =?us-ascii?Q?hRC8yojFVnaXcYZuk5AJIsi0DSXhLS8u2iVv46JpuwQLKmsJPhwdxP9LP8cd?=
- =?us-ascii?Q?HjfhTp59dFlgbCpoIhSsvoJMwWHa5gO3WYI/4qFrYfdrSE8b71N0/AEZVBOX?=
- =?us-ascii?Q?3tC0R1iG/uonGsFwseVc2yYveHZod4alb3pJ4IV8JJhm16S6at5WgNQWoeup?=
- =?us-ascii?Q?i+fm6SA1yyw0qWHgYdhQmejCeLgiEbo7kWqQ6CwcsPpfAud+ZJGWTBE5by30?=
- =?us-ascii?Q?HDVn+c39YqC6Kg/zg54TCFVf3+cQkXI6x3eDUTIHlGwQYoFM1V6STa6Z1Ptj?=
- =?us-ascii?Q?LFM4s2QfhAGcR0Pj2JRsT6iZW84awBJk6v995iEdGfAPL/krmieHfJSMMgLH?=
- =?us-ascii?Q?Q+G2BhDMbyMMNT8MJ0gfdhAWoySVa7uAw1789MujyYO0fWjT+bTfNY5HjkcG?=
- =?us-ascii?Q?TZc/ihPCdwU2OdDoDnMyZGHItbtZkULHiy2xylCL+G/nr/ZYD7Bt/1nbTKT1?=
- =?us-ascii?Q?Lr6SjcNzrvILFmpl4hnx2n8L6/tAIUpge8ryd0eJiGmyFcV9QladESC7Jrrh?=
- =?us-ascii?Q?kuarizgtvdJGE4MoCaEOsZwYe9AGnV5g/SCECqrHy8kmDBRbmABRyTcjXAXx?=
- =?us-ascii?Q?WBKtwbKi/Ai5VbrgCQD0fjoAMVSKd1HSZytSuxZyZXsC3wqOvWBkgmzn+llH?=
- =?us-ascii?Q?3jxPXFbc6oNlHqusiVXqoCZpB+5BwcRW4Jne9bg+CgjnxcgpkbJVGsxq1mVU?=
- =?us-ascii?Q?NI52t5sVd6HGoUAjL7oaHd7J6hmf0rZ1OkYJvGx2AqGgSmwaifvQfer4vKFT?=
- =?us-ascii?Q?4E5/NgYhpVjsUz5DB57eU99iBVWiAH3vO0CX6OfTIE25C4Gus4t4LfKoZw4V?=
- =?us-ascii?Q?fDEKF6XuquCm++woahQTXUvYdsPjBvG1gD7gHNv9IdiFtACOL9QJWLiyMv8e?=
- =?us-ascii?Q?59hCnFLG?=
-x-ms-exchange-transport-forked: True
+ id 1kiFsD-0004V2-IW
+ for linux-riscv@lists.infradead.org; Thu, 26 Nov 2020 11:55:43 +0000
+From: John Ogness <john.ogness@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+ s=2020; t=1606391737;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=USdZ8j/ng0viEFfQzzTA/cOwLPN8cugbi0RldZSuXOs=;
+ b=JqL2oXb2W9U//3tZa3VgLnpx46uGDNzYaSDcZJmUXhPEq5UnA0u00g9dax2IfsLPzjrVGf
+ 2l1Yf4fy9517ZRssNvxCszDD+A8VIVFIYoJz/9XuSUzDScdnVJtG7n8DmFlAX2y+N5joQn
+ eaa6UILEXItvnPgzIFeYS/F5Yg7XLUuwyN3PDLYkC+sGEx2XAyctSttBi6ZPxN2L4Nb53U
+ 0Rpztb8aPRQitmm6WitXnPVQ+F0RSz7+txAC3FgwZlZr3KGtNj7lAScE2N6/QfIuaNwKpC
+ 4VQFoPLGmpzi++E0CIoTgxj/h0l/LiG7QIGaDyT7ZoF6S8gZFM8nnf/mE1NAVw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+ s=2020e; t=1606391737;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=USdZ8j/ng0viEFfQzzTA/cOwLPN8cugbi0RldZSuXOs=;
+ b=1UFMJWXvvXFQ49q3Qyd4r612Vby5gDQcWm8EFK3fgs/WCUgSHMkKQ7owIPuFb8SEv/umG6
+ cOAfr/DNe0yXCOBg==
+To: Kefeng Wang <wangkefeng.wang@huawei.com>,
+ Atish Patra <atishp@atishpatra.org>
+Subject: Re: [PATCH 2/2] riscv: Fix __show_regs printing formats
+In-Reply-To: <87d000cu6l.fsf@jogness.linutronix.de>
+References: <mhng-54bff36c-7c0d-4448-8859-d8d05cbd8b0d@palmerdabbelt-glaptop1>
+ <20201124112054.106960-1-wangkefeng.wang@huawei.com>
+ <20201124112054.106960-2-wangkefeng.wang@huawei.com>
+ <CAOnJCUJH7AFYNsyFzwzHApZhfx_1yiEj+zkQDxryD83zac6f2g@mail.gmail.com>
+ <c60a5e75-96a5-2fb7-4089-1e3b777c6b0d@huawei.com>
+ <87d000cu6l.fsf@jogness.linutronix.de>
+Date: Thu, 26 Nov 2020 13:01:37 +0106
+Message-ID: <877dq8coxy.fsf@jogness.linutronix.de>
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CH2PR04MB6522.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7012d63f-efdb-4388-008e-08d891f9584e
-X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Nov 2020 10:52:18.5882 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: uVpw+o0/qaizRU60eXW8gYUumd+HIq4dl0jsgmE9AHBdFbqstjVFsG4eePmDLseByK0itNJsywatp2kJECOmKQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR04MB6508
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201126_055224_782580_6656EF3D 
-X-CRM114-Status: GOOD (  16.48  )
+X-CRM114-CacheID: sfid-20201126_065541_903608_F6962907 
+X-CRM114-Status: GOOD (  12.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -163,74 +88,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, Stephen Boyd <sboyd@kernel.org>,
- Linus Walleij <linus.walleij@linaro.org>, Sean Anderson <seanga2@gmail.com>,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
- Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
+Cc: Petr Mladek <pmladek@suse.com>,
  linux-riscv <linux-riscv@lists.infradead.org>,
- linux-clk <linux-clk@vger.kernel.org>
+ Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2020/11/26 19:43, Geert Uytterhoeven wrote:
-> Hi Damien,
-> 
-> On Tue, Nov 24, 2020 at 11:05 AM Damien Le Moal <Damien.LeMoal@wdc.com> wrote:
->> On 2020/11/24 18:49, Geert Uytterhoeven wrote:
->>> On Tue, Nov 24, 2020 at 5:40 AM Damien Le Moal <damien.lemoal@wdc.com> wrote:
->>>> Document the device tree bindings for the Canaan Kendryte K210 SoC
->>>> Fully Programmable IO Array (FPIOA) pinctrl driver in
->>>> Documentation/devicetree/bindings/pinctrl/canaan,k210-fpioa.yaml. The
->>>> new header file include/dt-bindings/pinctrl/k210-fpioa.h is added to
->>>> define all 256 possible pin functions of the SoC IO pins, as well as
->>>> macros simplifying the definition of pin functions in a device tree.
+On 2020-11-26, John Ogness <john.ogness@linutronix.de> wrote:
+> On 2020-11-26, Kefeng Wang <wangkefeng.wang@huawei.com> wrote:
+>> On 2020/11/26 6:58, Atish Patra wrote:
+>>> On Tue, Nov 24, 2020 at 3:17 AM Kefeng Wang <wangkefeng.wang@huawei.com> wrote:
+>>>> Using printk directly and align the printing formats.
 >>>>
->>>> Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
->>>
->>> Thanks for your patch!
->>>
->>>> --- /dev/null
->>>> +++ b/Documentation/devicetree/bindings/pinctrl/canaan,k210-fpioa.yaml
->>>
->>>> +  canaan,k210-sysctl-power:
->>>> +    $ref: /schemas/types.yaml#/definitions/phandle-array
->>>> +    description: |
->>>> +      phandle of the K210 system controller node and offset of the its
->>>
->>> of its
->>>
->>>> +      power domain control register.
->>>
->>> Your k210-sysctl-v15 branch has a bogus trailing space here.
+>>> Why switch to printk ? IIRC, pr_* is preferred over printk for any new code.
 >>
->> Oops. Forgot to push the fixed up patches. Just did it now (forced update
->> k210-sysctl-v15).
-> 
-> $ make dt_binding_check
-> DT_SCHEMA_FILES=Documentation/devicetree/bindings/pinctrl/canaan,k210-fpioa.yaml
-> Documentation/devicetree/bindings/pinctrl/canaan,k210-fpioa.yaml:59:1:
-> [error] syntax error: found character '\t' that cannot start any token
-> (syntax)
-> 
-> DT binding files should use spaces, not TABs.
+>> The stack output is strange, that is why I move to printk, and the old
+>> kernel looks good.
+>
+> This is just a quick response to let you know I can reproduce the issue
+> and I am investigating.
+>
+> @Petr: The proposed change and output difference is here [0].
 
-Arrg... emacs again... Need to configure it properly to use spaces for yaml
-files. Will fix this in v3. Thanks !
+This is a bug in continuous line handling. I have posted [0] a fix to
+LKML.
 
-> 
-> Gr{oetje,eeting}s,
-> 
->                         Geert
-> 
+Note that a pr_cont() message with a trailing newline will "terminate"
+the continous line so that it can no longer be continued. Having a bunch
+of:
 
+    pr_cont("...\n");
 
--- 
-Damien Le Moal
-Western Digital Research
+lines is technically wrong. If you really want the full block to be a
+single message, put the newline at the beginning of the pr_cont()
+message or add some whitespace after a newline at the end. For example:
+
+    pr_cont("\n....");
+       or
+    pr_cont("...\n ");
+
+Although I would suggest making them separate printk calls. With
+CONFIG_PRINTK_CALLER it is still possible to sort out simultaneous dumps
+from multiple CPUs.
+
+Thank you for reporting this!
+
+John Ogness
+
+[0] https://lkml.kernel.org/r/20201126114836.14750-1-john.ogness@linutronix.de
 
 _______________________________________________
 linux-riscv mailing list
