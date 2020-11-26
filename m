@@ -2,74 +2,81 @@ Return-Path: <SRS0=LTnX=FA=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.2 required=3.0 tests=BAYES_00,
+	BUG6152_INVALID_DATE_TZ_ABSURD,DKIMWL_WL_HIGH,DKIM_SIGNED,DKIM_VALID,
+	HEADER_FROM_DIFFERENT_DOMAINS,INVALID_DATE_TZ_ABSURD,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 604DFC63777
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2020 08:54:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D8635C6379D
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2020 10:02:47 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BD931208CA
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2020 08:54:13 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 4B10A2145D
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2020 10:02:47 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="lCAuFoYe";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="Fps3RUNT"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BD931208CA
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="oLNqTgwY";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.b="LAo7PDsp";
+	dkim=permerror (0-bit key) header.d=linutronix.de header.i=@linutronix.de header.b="J6tpgYEs"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4B10A2145D
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linutronix.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References:In-Reply-To:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=WwL3tZfx/tGALFm5skRf7rwVY2vbGO17sWn3cmeQ5s8=; b=lCAuFoYeh2fxFeFPHpZjcBkke
-	+0ve4lpgRYZh4iQx6qXhYm1eAeYUIL9b5oVC2by6hHX/+I2IRZFwgU1zITV49VThuWf3Vtvf7/z4t
-	7cFU5UXzI1d3VW+Bq1/gVOe6hXO06+lOPDNR7bjmtwiAUwV/+FTuNnvJao/EgIzzeLaOJzN9taOlT
-	SqNwyb0k2raIcfQpf+6p1WbfD13YGeMy2IvXZkE/8+bgLnHr8rOpkIUjP5jCFGQHkyMim17hfKRYq
-	IsA+SgeSyUmxNBAeIC1HTPe/KITIbg0aZApoANNl9Y4mLmrv1Ax9lSC5xyvwZUftK8yvJl+HzfieT
-	f6xwwOrnQ==;
+	 bh=5AWZqKsSa8qWBbZI9LSMo7EQtOYcOgOFEwZXxNac4Pg=; b=oLNqTgwYUYfs5ELJC/ZQrvYKY
+	7X7zBddFIg+KXLRG7I2idSbDbFLU6VHEZoCFBgd1ERkSva+afF6bolk1bbnaYeuDG7gNh95UgtLT5
+	zcnjm1e2441HuX0HTLstJe5clumzaUmCIThHji76AYTbW4gO68uSPYgZ48BZj5cbxuc0e2RcZHLm+
+	Wkfo/kSNkcu4bfmZAaej6cP8p862/gsYvUyB6XmjCpJIPoa/OQ4bW6LOOxnplCfVvj6n9Zv8ph+6W
+	F7WE16DY3Nco1HJWzdIUA+GstDVkZR1i+VNxzUTFpG64ASPowkNJ76tn6Ua01PRgyzxGjWlLpL4NE
+	7TindGiTQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kiD2M-00042P-Vk; Thu, 26 Nov 2020 08:53:59 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1kiE6j-0000Mz-Pv; Thu, 26 Nov 2020 10:02:33 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kiD2H-00041m-Gc
- for linux-riscv@lists.infradead.org; Thu, 26 Nov 2020 08:53:54 +0000
-Received: from willie-the-truck (236.31.169.217.in-addr.arpa [217.169.31.236])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
- bits)) (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 3EC2B208CA;
- Thu, 26 Nov 2020 08:53:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1606380832;
- bh=QgT3huId6ytL516YbcEUvc9XJ34jPp0iYndtARK7j7g=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=Fps3RUNTT6v4G7ajKtKqSUj2jXFhSwRjBEUhAc7zMVhuwc6iK2ugTVc5QxDir51Ll
- 0YI0WlG22bHOBDH+2Ms77ivo4ky7Frt+8tzAyThYRrj9v6IUH74BoTQR7xaAheNRl+
- l3KTm98g20RAa1PZ1itQJ4uWPurNWa4XVGdVFjQ0=
-Date: Thu, 26 Nov 2020 08:53:46 +0000
-From: Will Deacon <will@kernel.org>
-To: Guo Ren <guoren@kernel.org>
-Subject: Re: [PATCH 2/5] riscv: Add QUEUED_SPINLOCKS & QUEUED_RWLOCKS supported
-Message-ID: <20201126085346.GB17797@willie-the-truck>
-References: <1606225437-22948-1-git-send-email-guoren@kernel.org>
- <1606225437-22948-2-git-send-email-guoren@kernel.org>
- <20201124143931.GI2414@hirez.programming.kicks-ass.net>
- <CAK8P3a1ykYmpXtjVbeAjLPY0AtfQTpL9jJ8e6SokiTb=J9UhnQ@mail.gmail.com>
- <20201125141645.GB2414@hirez.programming.kicks-ass.net>
- <20201125143128.GC16159@willie-the-truck>
- <CAJF2gTTD8NqegPGvqFhUeidGYiuiE6aT3AOELEs2e0JeE_CmUg@mail.gmail.com>
+ id 1kiE6h-0000MV-Es
+ for linux-riscv@lists.infradead.org; Thu, 26 Nov 2020 10:02:32 +0000
+From: John Ogness <john.ogness@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+ s=2020; t=1606384947;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=2qit9PkXxg14UDk7jOPp9fXICEg92L6laUwiDD8YMJQ=;
+ b=LAo7PDsp9ozV4VuqR9/2rFDbQPZQHhFnGhWL6Yk3kOz0m10CfqeDF3P6M5CQZgaK8sWyyj
+ +GA7AC9BAKXQG+LasQUlnLuRl1EdY6pWiNX6nmQ2HzU6CW+fnYzX+asfnhEO6SRBFnJrTo
+ O3wlkd+ONn8TTWGz1SMHHKpvEvT/6F8d14aG1nBihwn8DLjR8+aIo/khC2V82bPtzfaYHx
+ l1m8hMLiFqnTfe1oTmam1Hp5aRKomAhFgQ3H9Bi4Ik7mw8vsrPPdSRziuIbKx4UGeJn9v5
+ XAOmgV87+pTzQlgOAckTEYc4azM8ZnhhVsRKfesltGq9GizBS/gh/isNldoiaA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+ s=2020e; t=1606384947;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=2qit9PkXxg14UDk7jOPp9fXICEg92L6laUwiDD8YMJQ=;
+ b=J6tpgYEsL+02anV8qVIMn71h9RO1bJclL44zJJi/HBVvdQQIosNypjius68PynNB5ur59E
+ s/9AlJ7xIqSoiOBw==
+To: Kefeng Wang <wangkefeng.wang@huawei.com>,
+ Atish Patra <atishp@atishpatra.org>
+Subject: Re: [PATCH 2/2] riscv: Fix __show_regs printing formats
+In-Reply-To: <c60a5e75-96a5-2fb7-4089-1e3b777c6b0d@huawei.com>
+References: <mhng-54bff36c-7c0d-4448-8859-d8d05cbd8b0d@palmerdabbelt-glaptop1>
+ <20201124112054.106960-1-wangkefeng.wang@huawei.com>
+ <20201124112054.106960-2-wangkefeng.wang@huawei.com>
+ <CAOnJCUJH7AFYNsyFzwzHApZhfx_1yiEj+zkQDxryD83zac6f2g@mail.gmail.com>
+ <c60a5e75-96a5-2fb7-4089-1e3b777c6b0d@huawei.com>
+Date: Thu, 26 Nov 2020 11:08:26 +0106
+Message-ID: <87d000cu6l.fsf@jogness.linutronix.de>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAJF2gTTD8NqegPGvqFhUeidGYiuiE6aT3AOELEs2e0JeE_CmUg@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201126_035353_781294_B0F5B5BB 
-X-CRM114-Status: GOOD (  25.83  )
+X-CRM114-CacheID: sfid-20201126_050231_681915_88551B82 
+X-CRM114-Status: UNSURE (   8.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -81,80 +88,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Arnd Bergmann <arnd@kernel.org>, Guo Ren <guoren@linux.alibaba.com>,
- Arnd Bergmann <arnd@arndb.de>, Peter Zijlstra <peterz@infradead.org>,
- Anup Patel <anup@brainfault.org>, Palmer Dabbelt <palmerdabbelt@google.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- linux-csky@vger.kernel.org, Michael Clark <michaeljclark@mac.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
+Cc: Petr Mladek <pmladek@suse.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 26, 2020 at 09:36:34AM +0800, Guo Ren wrote:
-> On Wed, Nov 25, 2020 at 10:31 PM Will Deacon <will@kernel.org> wrote:
-> > On Wed, Nov 25, 2020 at 03:16:45PM +0100, Peter Zijlstra wrote:
-> > > @@ -207,6 +187,32 @@ static __always_inline void clear_pending_set_locked(struct qspinlock *lock)
-> > >       atomic_add(-_Q_PENDING_VAL + _Q_LOCKED_VAL, &lock->val);
-> > >  }
-> > >
-> > > +#endif /* _Q_PENDING_BITS == 8 */
-> > > +
-> > > +#if _Q_PENDING_BITS == 8 && ARCH_HAS_XCHG16
-> > > +
-> > > +/*
-> > > + * xchg_tail - Put in the new queue tail code word & retrieve previous one
-> > > + * @lock : Pointer to queued spinlock structure
-> > > + * @tail : The new queue tail code word
-> > > + * Return: The previous queue tail code word
-> > > + *
-> > > + * xchg(lock, tail), which heads an address dependency
-> > > + *
-> > > + * p,*,* -> n,*,* ; prev = xchg(lock, node)
-> > > + */
-> > > +static __always_inline u32 xchg_tail(struct qspinlock *lock, u32 tail)
-> > > +{
-> > > +     /*
-> > > +      * We can use relaxed semantics since the caller ensures that the
-> > > +      * MCS node is properly initialized before updating the tail.
-> > > +      */
-> > > +     return (u32)xchg_relaxed(&lock->tail,
-> > > +                              tail >> _Q_TAIL_OFFSET) << _Q_TAIL_OFFSET;
-> > > +}
-> > > +
-> > > +#else /* !(_Q_PENDING_BITS == 8 && ARCH_HAS_XCHG16) */
-> >
-> > Why can't architectures just implement this with a 32-bit xchg instruction
-> > if they don't have one that operates on 16 bits? Sure, they'll store more
-> > data, but it's atomic so you shouldn't be able to tell... (ignoring parisc
-> > crazy).
-> >
-> > Also, I'm surprised qspinlock benefits riscv. On arm64, there's nothing in
-> > it over tickets for <= 16 CPUs.
-> NUMA is on the way:
-> https://lore.kernel.org/linux-riscv/20201119003829.1282810-1-atish.patra@wdc.com/
++Petr
 
-Well, they're patches not hardware (and I only see mention of QEMU over
-there for the RISCV platform) ;)
+On 2020-11-26, Kefeng Wang <wangkefeng.wang@huawei.com> wrote:
+> On 2020/11/26 6:58, Atish Patra wrote:
+>> On Tue, Nov 24, 2020 at 3:17 AM Kefeng Wang <wangkefeng.wang@huawei.com> wrote:
+>>> Using printk directly and align the printing formats.
+>>>
+>> Why switch to printk ? IIRC, pr_* is preferred over printk for any new code.
+>
+> The stack output is strange, that is why I move to printk, and the old
+> kernel looks good.
 
-> With your advice, I think we could using tickets lock when <= 16 CPUs
-> and using qspinlock when > 16 CPUs.
-> Is that right?
+This is just a quick response to let you know I can reproduce the issue
+and I am investigating.
 
-No, when I say "there's nothing in it", it means they're interchangeable.
-It's just that qspinlock introduces a lot of complexity and I'm not keen
-massively keen on changing the core code (which is used by many other
-architectures) just because you don't have a 16-bit xchg() implementation.
+@Petr: The proposed change and output difference is here [0].
 
-So if you need qspinlock on riscv (not sure you do), then go ahead and make
-that your one true lock implementation, but implement 16-bit xchg() at the
-same time. Bonus points if you implement that in terms of 32-bit xchg() in
-generic code (might need to watch out for endianness when shifting the new
-value after aligning the base pointer).
+John Ogness
 
-Will
+[0] http://lists.infradead.org/pipermail/linux-riscv/2020-November/003320.html
 
 _______________________________________________
 linux-riscv mailing list
