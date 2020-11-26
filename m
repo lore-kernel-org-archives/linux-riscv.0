@@ -2,81 +2,74 @@ Return-Path: <SRS0=LTnX=FA=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.2 required=3.0 tests=BAYES_00,
-	BUG6152_INVALID_DATE_TZ_ABSURD,DKIMWL_WL_HIGH,DKIM_SIGNED,DKIM_VALID,
-	HEADER_FROM_DIFFERENT_DOMAINS,INVALID_DATE_TZ_ABSURD,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D8635C6379D
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2020 10:02:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B3CF5C56202
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2020 10:43:09 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4B10A2145D
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2020 10:02:47 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 17673208CA
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 Nov 2020 10:43:08 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="oLNqTgwY";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.b="LAo7PDsp";
-	dkim=permerror (0-bit key) header.d=linutronix.de header.i=@linutronix.de header.b="J6tpgYEs"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4B10A2145D
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linutronix.de
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="URAh3bWu"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 17673208CA
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References:In-Reply-To:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=5AWZqKsSa8qWBbZI9LSMo7EQtOYcOgOFEwZXxNac4Pg=; b=oLNqTgwYUYfs5ELJC/ZQrvYKY
-	7X7zBddFIg+KXLRG7I2idSbDbFLU6VHEZoCFBgd1ERkSva+afF6bolk1bbnaYeuDG7gNh95UgtLT5
-	zcnjm1e2441HuX0HTLstJe5clumzaUmCIThHji76AYTbW4gO68uSPYgZ48BZj5cbxuc0e2RcZHLm+
-	Wkfo/kSNkcu4bfmZAaej6cP8p862/gsYvUyB6XmjCpJIPoa/OQ4bW6LOOxnplCfVvj6n9Zv8ph+6W
-	F7WE16DY3Nco1HJWzdIUA+GstDVkZR1i+VNxzUTFpG64ASPowkNJ76tn6Ua01PRgyzxGjWlLpL4NE
-	7TindGiTQ==;
+	 bh=xom8Sp9y7bv1s+kCnWGYvjy82qT89tPYXsgLn6peyvI=; b=URAh3bWujat1GyTtvMf/9Snhy
+	GppCmyZZmQkepwvVI4NNDuXCX/njpVtRJtYRySmf+ZK6lRMojFQMqVWbJHgf1spwBVbq8dmD7E3NI
+	WH3ETaxXtx3f0dLEcW5iSoEi+BOIHVUx0djCsymbfXc37u368nc7g6KjrB1StYs9MNgrX5ST8MLBR
+	bUGV/E2iVdAmkV+3YsY1CTPKuYWjTMrhreeqIz+aHIwqLLbMD4tMt0RvO7uZIpiVH+NrxywAaHiR9
+	9UMtiMTzGnlp8by3+7ndUnKiHKgfPV3/9OFx3Kb3oDjYM6l/ejgCIAUuwTcHwAO9Obts3LT3ufze+
+	QoiCXuGRg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kiE6j-0000Mz-Pv; Thu, 26 Nov 2020 10:02:33 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1kiEjs-00034p-Pd; Thu, 26 Nov 2020 10:43:00 +0000
+Received: from mail-oo1-f65.google.com ([209.85.161.65])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kiE6h-0000MV-Es
- for linux-riscv@lists.infradead.org; Thu, 26 Nov 2020 10:02:32 +0000
-From: John Ogness <john.ogness@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
- s=2020; t=1606384947;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=2qit9PkXxg14UDk7jOPp9fXICEg92L6laUwiDD8YMJQ=;
- b=LAo7PDsp9ozV4VuqR9/2rFDbQPZQHhFnGhWL6Yk3kOz0m10CfqeDF3P6M5CQZgaK8sWyyj
- +GA7AC9BAKXQG+LasQUlnLuRl1EdY6pWiNX6nmQ2HzU6CW+fnYzX+asfnhEO6SRBFnJrTo
- O3wlkd+ONn8TTWGz1SMHHKpvEvT/6F8d14aG1nBihwn8DLjR8+aIo/khC2V82bPtzfaYHx
- l1m8hMLiFqnTfe1oTmam1Hp5aRKomAhFgQ3H9Bi4Ik7mw8vsrPPdSRziuIbKx4UGeJn9v5
- XAOmgV87+pTzQlgOAckTEYc4azM8ZnhhVsRKfesltGq9GizBS/gh/isNldoiaA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
- s=2020e; t=1606384947;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=2qit9PkXxg14UDk7jOPp9fXICEg92L6laUwiDD8YMJQ=;
- b=J6tpgYEsL+02anV8qVIMn71h9RO1bJclL44zJJi/HBVvdQQIosNypjius68PynNB5ur59E
- s/9AlJ7xIqSoiOBw==
-To: Kefeng Wang <wangkefeng.wang@huawei.com>,
- Atish Patra <atishp@atishpatra.org>
-Subject: Re: [PATCH 2/2] riscv: Fix __show_regs printing formats
-In-Reply-To: <c60a5e75-96a5-2fb7-4089-1e3b777c6b0d@huawei.com>
-References: <mhng-54bff36c-7c0d-4448-8859-d8d05cbd8b0d@palmerdabbelt-glaptop1>
- <20201124112054.106960-1-wangkefeng.wang@huawei.com>
- <20201124112054.106960-2-wangkefeng.wang@huawei.com>
- <CAOnJCUJH7AFYNsyFzwzHApZhfx_1yiEj+zkQDxryD83zac6f2g@mail.gmail.com>
- <c60a5e75-96a5-2fb7-4089-1e3b777c6b0d@huawei.com>
-Date: Thu, 26 Nov 2020 11:08:26 +0106
-Message-ID: <87d000cu6l.fsf@jogness.linutronix.de>
+ id 1kiEjq-00034M-Do
+ for linux-riscv@lists.infradead.org; Thu, 26 Nov 2020 10:42:59 +0000
+Received: by mail-oo1-f65.google.com with SMTP id r11so296956oos.12
+ for <linux-riscv@lists.infradead.org>; Thu, 26 Nov 2020 02:42:58 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=JP/o0KCxV+hjR4qYH26j/gYgrajM2R1HBMLwhM9o1z0=;
+ b=qQSNWeg45tKf0yEysd9Ov3dzUnhItWeFJL7d5BJ+B7xFQG+WOVtZnjVnc87AOXBDew
+ dLOHGjoBSdRd0f1yx3KLx5F4dUxXrEdd3k9LWk/HatQkAkJfwBd+eEVwDT8ICk7wDUnC
+ 3ku7DHhy5ftTdPjNWBtBcWlQRBaNNLXCKNRhFL89qBF+nSF/COn1mw1KV6r3elsTmCGa
+ j9AMYRF1GLpsjhqNH9rPgFVdi4aaln8YrCVi7dfGFZTR0ZGxlJc2PXt7uGSZ+JGHury9
+ EQb3IeKo5P8ng0X0kMNl4hJH3Z+Zb50nEznQPQNpLhY6Cn60+qBA2MrkxMAF8eo1TtiR
+ mzKA==
+X-Gm-Message-State: AOAM5326Lgqs7YizHzWvzOKS90cc2cTdm57esNk0Itc0Vxz1xPqlORt1
+ gaysywz+zKpEwLGveOz1zwSvsF6lmyGJp4Fo7Xc=
+X-Google-Smtp-Source: ABdhPJxSUujMoQ0N/5YrOv0NkzjAOa1DYFknhYanT7tS1RZmC6dOxwX49R3l21pExpAU9KLPRmFl+mNeZMpsj+2TkBc=
+X-Received: by 2002:a4a:abc9:: with SMTP id o9mr1585403oon.1.1606387377622;
+ Thu, 26 Nov 2020 02:42:57 -0800 (PST)
 MIME-Version: 1.0
+References: <20201124043728.199852-1-damien.lemoal@wdc.com>
+ <20201124043728.199852-10-damien.lemoal@wdc.com>
+ <CAMuHMdXov3Dr7EmAeE7yrKRmtu_L3539u9cjeiGiaRu32YVPQQ@mail.gmail.com>
+ <CH2PR04MB6522F476C51D4C65F116BE9EE7FB0@CH2PR04MB6522.namprd04.prod.outlook.com>
+In-Reply-To: <CH2PR04MB6522F476C51D4C65F116BE9EE7FB0@CH2PR04MB6522.namprd04.prod.outlook.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 26 Nov 2020 11:42:46 +0100
+Message-ID: <CAMuHMdU_3B4jogmeisykbeH8QCbUrKMM3Zd8qHftdGGKYbtJoQ@mail.gmail.com>
+Subject: Re: [PATCH v2 09/21] dt-bindings: Document canaan, k210-fpioa bindings
+To: Damien Le Moal <Damien.LeMoal@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201126_050231_681915_88551B82 
-X-CRM114-Status: UNSURE (   8.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20201126_054258_533334_9336938D 
+X-CRM114-Status: GOOD (  18.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -88,35 +81,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Petr Mladek <pmladek@suse.com>,
+Cc: "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>, Sean Anderson <seanga2@gmail.com>,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
  linux-riscv <linux-riscv@lists.infradead.org>,
- Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>
+ linux-clk <linux-clk@vger.kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-+Petr
+Hi Damien,
 
-On 2020-11-26, Kefeng Wang <wangkefeng.wang@huawei.com> wrote:
-> On 2020/11/26 6:58, Atish Patra wrote:
->> On Tue, Nov 24, 2020 at 3:17 AM Kefeng Wang <wangkefeng.wang@huawei.com> wrote:
->>> Using printk directly and align the printing formats.
->>>
->> Why switch to printk ? IIRC, pr_* is preferred over printk for any new code.
+On Tue, Nov 24, 2020 at 11:05 AM Damien Le Moal <Damien.LeMoal@wdc.com> wrote:
+> On 2020/11/24 18:49, Geert Uytterhoeven wrote:
+> > On Tue, Nov 24, 2020 at 5:40 AM Damien Le Moal <damien.lemoal@wdc.com> wrote:
+> >> Document the device tree bindings for the Canaan Kendryte K210 SoC
+> >> Fully Programmable IO Array (FPIOA) pinctrl driver in
+> >> Documentation/devicetree/bindings/pinctrl/canaan,k210-fpioa.yaml. The
+> >> new header file include/dt-bindings/pinctrl/k210-fpioa.h is added to
+> >> define all 256 possible pin functions of the SoC IO pins, as well as
+> >> macros simplifying the definition of pin functions in a device tree.
+> >>
+> >> Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
+> >
+> > Thanks for your patch!
+> >
+> >> --- /dev/null
+> >> +++ b/Documentation/devicetree/bindings/pinctrl/canaan,k210-fpioa.yaml
+> >
+> >> +  canaan,k210-sysctl-power:
+> >> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> >> +    description: |
+> >> +      phandle of the K210 system controller node and offset of the its
+> >
+> > of its
+> >
+> >> +      power domain control register.
+> >
+> > Your k210-sysctl-v15 branch has a bogus trailing space here.
 >
-> The stack output is strange, that is why I move to printk, and the old
-> kernel looks good.
+> Oops. Forgot to push the fixed up patches. Just did it now (forced update
+> k210-sysctl-v15).
 
-This is just a quick response to let you know I can reproduce the issue
-and I am investigating.
+$ make dt_binding_check
+DT_SCHEMA_FILES=Documentation/devicetree/bindings/pinctrl/canaan,k210-fpioa.yaml
+Documentation/devicetree/bindings/pinctrl/canaan,k210-fpioa.yaml:59:1:
+[error] syntax error: found character '\t' that cannot start any token
+(syntax)
 
-@Petr: The proposed change and output difference is here [0].
+DT binding files should use spaces, not TABs.
 
-John Ogness
+Gr{oetje,eeting}s,
 
-[0] http://lists.infradead.org/pipermail/linux-riscv/2020-November/003320.html
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
