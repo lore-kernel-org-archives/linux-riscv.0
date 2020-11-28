@@ -2,62 +2,85 @@ Return-Path: <SRS0=R+Zt=FC=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-18.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	INCLUDES_PULL_REQUEST,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
+	SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1F703C63697
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Nov 2020 06:19:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C825BC63777
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Nov 2020 23:01:25 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0F65021D7F
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Nov 2020 06:19:43 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id F137A20809
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Nov 2020 23:01:24 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="NROSCbNQ"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0F65021D7F
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="VCC+U6XK";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=dabbelt-com.20150623.gappssmtp.com header.i=@dabbelt-com.20150623.gappssmtp.com header.b="dLnnhRRr"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F137A20809
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Ko80kzaMeCscsvc20ZZfTt1NHqtWIgbGZ0iVtlhKN64=; b=NROSCbNQjlMmXXI2eHv2fUSWU
-	KvdXlOxff72xCjt3dOAylsn6Ihf/VbaxTkSfOFDD3cOSMLk0gno/RrbFOOghiOsJsFlGRg3iH4itY
-	vEvah0x2v4Yq2XgJ9z2Er/M+cZm9uhPDkYFyCaia5uLaRAhrpa+bx08qrANvyn83NlcCTzmiz0evd
-	Kc/SvJ0IYhg9y+763WFfZhgW0gfJpDscdjIrBU9y7IAcEaaDBy/NQ8UK8T5bwet2F9lwmyvd9kXcA
-	mmf3cLbe/Slajxj8P4cQ1rZZnCYEqTcPLPq5xSjnm0KfneCTxt1d21iqYh8u2DzqJUXW5DENUZxG5
-	USOge9vVQ==;
+	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Message-ID:To:From:Subject:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PRRvzD9IudumuRajL4ufev8I0PGOSCOwK8ez5SX54Eg=; b=VCC+U6XKr7akE7zd0SWZblB63N
+	TLDh+gtQkV3mi9vDvbj4vo2JITNEHvyqHN4TRL42fjxrKS34ajak81V7XEmGqlM0gQ8x2MJErsPJN
+	AiDIc2hWLbnWf6SQrK0z2CLH9kd5BkO/axwSiKzRO+n3MqHWrmFoioQuVyW5a6Iw0xfMbN8yXpbWy
+	6rs+AJ3j9LUSVHUv64oMmtfABA4vwdjABVzx/Ei2IegXcDnMj0/b8OCoTKcjWE095IY1TWlRFIFxN
+	W4N4JeZ8axfva4r1AYItr575Bb+w+yqYTA5mnS6BMIvYd7IEYAvbPs5NM2AI9505HCK4z2beO6WyY
+	sJwKFfXA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kitZv-0002wd-Ez; Sat, 28 Nov 2020 06:19:27 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1kj9DB-0003VJ-H0; Sat, 28 Nov 2020 23:01:01 +0000
+Received: from mail-pl1-x642.google.com ([2607:f8b0:4864:20::642])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kitZs-0002wF-2a
- for linux-riscv@lists.infradead.org; Sat, 28 Nov 2020 06:19:25 +0000
-Received: from DGGEMS414-HUB.china.huawei.com (unknown [172.30.72.58])
- by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4CjhC42BVqzLw1Z;
- Sat, 28 Nov 2020 14:18:40 +0800 (CST)
-Received: from localhost.localdomain (10.175.112.125) by
- DGGEMS414-HUB.china.huawei.com (10.3.19.214) with Microsoft SMTP Server id
- 14.3.487.0; Sat, 28 Nov 2020 14:19:04 +0800
-From: Chen Huang <chenhuang5@huawei.com>
-To: <wangkefeng.wang@huawei.com>
-Subject: [PATCH v2] riscv: stacktrace: fix stackframe without ra on the top
-Date: Sat, 28 Nov 2020 06:22:42 +0000
-Message-ID: <20201128062242.825448-1-chenhuang5@huawei.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <22dbe32a-0757-97ad-8885-0f2ba55bb743@huawei.com>
-References: <22dbe32a-0757-97ad-8885-0f2ba55bb743@huawei.com>
-MIME-Version: 1.0
-X-Originating-IP: [10.175.112.125]
-X-CFilter-Loop: Reflected
+ id 1kj9D6-0003Up-Gb
+ for linux-riscv@lists.infradead.org; Sat, 28 Nov 2020 23:00:58 +0000
+Received: by mail-pl1-x642.google.com with SMTP id t18so4446251plo.0
+ for <linux-riscv@lists.infradead.org>; Sat, 28 Nov 2020 15:00:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:cc:from:to:message-id;
+ bh=bYGsECF90NImwkerygnoxQ6S7S+NIVHNiaB71IEALrI=;
+ b=dLnnhRRrnb2fDKTKpUfA/12JuXtrM/C1zinrFTvi2DII2tNex1zZ6Y2bII5zhyPI8v
+ U99DCa11cDzk7RASpv7aqa1170YvejEcV5gbygzdDq246Z8ya62JyjMWMNVsY3US2o1d
+ DE8Oy1MFisSTaH++EQC/zSg18ARRhKCtsOIS2deh2mV4W1u47JirnT+DVsakH/UXIkgH
+ wy4fZaSt821xjrViOJQl4gcPqkTOwFpx8ZBPt4fExavMQxp3RTSmarT6aWt1m5GNJDGw
+ gMKTfTd7eV2wPij0OEhCuAhyxGmhZyupTmi62WhAbw6izy9vGUxC7ycdq/5JRwvcZHiL
+ gTeg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:cc:from:to:message-id;
+ bh=bYGsECF90NImwkerygnoxQ6S7S+NIVHNiaB71IEALrI=;
+ b=XjnKDlawfYq+uMuC0FSa1Gz6/VVVL6WWEbbEFJdM8MRjcF3PW9BqTU/axm3RqqRi1H
+ mkcLVyeoUhZ79rbw9/rokd1N9pwFZzYzzPqsj7dEyj1sP9k/b7p1Pt8xk2leQS4f3v7f
+ V8LT6FAKlPIc8VTjLOhUGfR+PkiGtjeC6atrEoE2wKloZq05O/90T0jWzNksh8DDIfhw
+ 1TxdtJDcPDFVpkcvTZafwLAqnZqf6TwHysuUZoYvgY9rmCOKY0P0wqP5vYMU+0dgBTBF
+ weX7ieeQ1Je4kyCGjndkQpDk1ur3o+k2G9dxHH8SWzKbrMgPijLHGH9thXBq3d/0kfnj
+ v1Eg==
+X-Gm-Message-State: AOAM533+mzVGB/RvGAxlEPQNAsFd/TcxXlctY5oO/xZv35cvjUTlObK/
+ Sw3hgltvesVuE+rfuI6FnlQgsEZprORSLSEA
+X-Google-Smtp-Source: ABdhPJyE/PRMJZpe9/YTUcQ9LwvZQrK/TOgHvGU7WipqPz6+HJ4UDhQxgUlWK1BXM/0c1dml/q9lLA==
+X-Received: by 2002:a17:902:7b90:b029:d6:ad06:d4c0 with SMTP id
+ w16-20020a1709027b90b02900d6ad06d4c0mr12822055pll.35.1606604447877; 
+ Sat, 28 Nov 2020 15:00:47 -0800 (PST)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id m3sm9666826pgh.5.2020.11.28.15.00.47
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sat, 28 Nov 2020 15:00:47 -0800 (PST)
+Date: Sat, 28 Nov 2020 15:00:47 -0800 (PST)
+X-Google-Original-Date: Sat, 28 Nov 2020 15:00:45 PST (-0800)
+Subject: [GIT PULL] RISC-V Fixes for 5.10-rc6
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-a86b7c3c-7719-48e7-b6b3-5d7ec6b8933d@palmerdabbelt-glaptop1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201128_011924_399851_3EF6A55C 
-X-CRM114-Status: GOOD (  10.49  )
+X-CRM114-CacheID: sfid-20201128_180056_753488_9CD19F69 
+X-CRM114-Status: GOOD (  13.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -69,73 +92,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, chenhuang5@huawei.com, linux-kernel@vger.kernel.org,
- palmer@dabbelt.com, paul.walmsley@sifive.com, linux-riscv@lists.infradead.org,
- akpm@linux-foundation.org
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When a function doesn't have a callee, then it will not push ra
-into the stack, such as lkdtm_BUG() function:
+The following changes since commit 418baf2c28f3473039f2f7377760bd8f6897ae18:
 
-addi	sp,sp,-16
-sd		s0,8(sp)
-addi	s0,sp,16
-ebreak
+  Linux 5.10-rc5 (2020-11-22 15:36:08 -0800)
 
-The struct stackframe use {fp,ra} to get information from
-stack, if walk_stackframe() with pr_regs, we will obtain
-wrong value and bad stacktrace,
+are available in the Git repository at:
 
-[<ffffffe00066c56c>] lkdtm_BUG+0x6/0x8
----[ end trace 18da3fbdf08e25d5 ]---
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.10-rc6
 
-Correct the next fp and pc, after that, full stacktrace
-shown as expects,
+for you to fetch changes up to 30aca1bacb398dec6c1ed5eeca33f355bd7b6203:
 
-[<ffffffe00066c56c>] lkdtm_BUG+0x6/0x8
-[<ffffffe0008b24a4>] lkdtm_do_action+0x14/0x1c
-[<ffffffe00066c372>] direct_entry+0xc0/0x10a
-[<ffffffe000439f86>] full_proxy_write+0x42/0x6a
-[<ffffffe000309626>] vfs_write+0x7e/0x214
-[<ffffffe00030992a>] ksys_write+0x98/0xc0
-[<ffffffe000309960>] sys_write+0xe/0x16
-[<ffffffe0002014bc>] ret_from_syscall+0x0/0x2
----[ end trace 61917f3d9a9fadcd ]---
+  RISC-V: fix barrier() use in <vdso/processor.h> (2020-11-25 09:44:27 -0800)
 
-Signed-off-by: Chen Huang <chenhuang5@huawei.com>
-Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
----
- arch/riscv/kernel/stacktrace.c | 11 ++++++++---
- 1 file changed, 8 insertions(+), 3 deletions(-)
+----------------------------------------------------------------
+RISC-V Fixes for 5.10-rc6
 
-diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
-index 595342910c3f..3842fac26e85 100644
---- a/arch/riscv/kernel/stacktrace.c
-+++ b/arch/riscv/kernel/stacktrace.c
-@@ -57,9 +57,14 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
- 		/* Unwind stack frame */
- 		frame = (struct stackframe *)fp - 1;
- 		sp = fp;
--		fp = frame->fp;
--		pc = ftrace_graph_ret_addr(current, NULL, frame->ra,
--					   (unsigned long *)(fp - 8));
-+		if (regs && (pc == regs->epc) && (frame->fp & 0x7)) {
-+			fp = frame->ra;
-+			pc = regs->ra;
-+		} else {
-+			fp = frame->fp;
-+			pc = ftrace_graph_ret_addr(current, NULL, frame->ra,
-+						(unsigned long *)(fp - 8));
-+		}
- 	}
- }
- 
--- 
-2.17.1
+I've collected a handful of fixes over the past few weeks:
 
+* A fix to un-break the build-id argument to the vDSO build, which is necessary
+  for the LLVM linker.
+* A fix to initialize the jump label subsystem, without which it (and all the
+  stuff that uses it) doesn't actually function.
+* A fix to include <asm/barrier.h> from <vdso/processor.h>, without which some
+  drivers won't compile.
+
+I know it's the holidays, but I had some hiccups getting this tested earlier
+this week so it's just going out now.  None of these are tremendously urgent,
+so if they don't make rc6 it's not a big deal.  I'll have some more fixes
+coming next week either way.
+
+----------------------------------------------------------------
+Anup Patel (1):
+      RISC-V: Add missing jump label initialization
+
+Nathan Chancellor (1):
+      riscv: Explicitly specify the build id style in vDSO Makefile again
+
+Randy Dunlap (1):
+      RISC-V: fix barrier() use in <vdso/processor.h>
+
+ arch/riscv/include/asm/vdso/processor.h | 2 ++
+ arch/riscv/kernel/setup.c               | 1 +
+ arch/riscv/kernel/vdso/Makefile         | 2 +-
+ 3 files changed, 4 insertions(+), 1 deletion(-)
 
 _______________________________________________
 linux-riscv mailing list
