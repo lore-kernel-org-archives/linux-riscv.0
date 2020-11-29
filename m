@@ -2,83 +2,83 @@ Return-Path: <SRS0=QNeR=FD=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+X-Spam-Status: No, score=-5.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
 	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BCF93C3E8C5
-	for <linux-riscv@archiver.kernel.org>; Sun, 29 Nov 2020 21:34:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B0F32C3E8C5
+	for <linux-riscv@archiver.kernel.org>; Sun, 29 Nov 2020 22:11:17 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 42F822078D
-	for <linux-riscv@archiver.kernel.org>; Sun, 29 Nov 2020 21:34:05 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id EC8272074A
+	for <linux-riscv@archiver.kernel.org>; Sun, 29 Nov 2020 22:11:16 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="WDp04scd";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=linaro.org header.i=@linaro.org header.b="LzYwWyNh"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 42F822078D
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="iBdalv18";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=gmx.net header.i=@gmx.net header.b="XDpBE+Nc"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EC8272074A
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmx.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=07xBFAjnr9KrESXp5MBm9q0cIwhTWrwLCtz/tOeC338=; b=WDp04scd4cd7RiRKVbsYXQJdv
-	uKpvEr8eSPyp2Gi9Hxc2SvubhbNmsOV0QkYzwtRKxepNZ1DjbB/gKwviJPjbc2LnNCrdhrBJLmzu3
-	nJX6VnpfpDNoYPNeJ8GjCtzd+I6PpqiG+KpwAydYcC4bJczpovd9ML7ZvYajXtTHQbIvUKeWjPT5i
-	PANKJ2vVhEE9f1VGv1+yrVf0p6KMdW2VD0FdutjIYdeWPr+84bLuINBKaDTeFEqNTj/YW8caXiIC/
-	Ib+ODQnaaCvqi2H2RxkZUlzqlXy+C5eyc9WesvZ80LZpvCBx3oYocJQAUmqI0K/fRTtA1Sie/8wz6
-	PYNVBUEIA==;
+	 bh=fldmSxD3kewYGr2Kmdzo2cHtdk9VtXEK9ahpqQ1mdVY=; b=iBdalv18YFkJTULbKHsSy8O8P
+	H+GLnEOMkcKSbETGDRtIoiAF/B1jtRlkKdoLJ43Uq41Jd/kOP5xOykNm5wYRYSggJrruMtrNVE+Fv
+	2ipikhwbYxxJRL+l6k/qJfyYnlbRt3nIAJPG3wioIkUH1CrCbRhamE76yqRM0GHS2u1SBiSy66zgY
+	Os4qo6PvLl2/1MdorcDNCpE+tiKT480bi3C0R8XodWweur6DJE4H/C/dETLIPrqxCLTPMrwP9fTCY
+	ZZljaMyieaEkhSglTppGWo8oWdaZJIyecofr0nw1oAYGJL2bmZhdsmoBTST3oMrrkM4/t3a/O/YOY
+	iEBiJnU1w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kjUKR-0007mJ-Ar; Sun, 29 Nov 2020 21:33:55 +0000
-Received: from mail-lj1-x243.google.com ([2a00:1450:4864:20::243])
+	id 1kjUuS-0000gC-PZ; Sun, 29 Nov 2020 22:11:08 +0000
+Received: from mout.gmx.net ([212.227.15.18])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kjUKN-0007m0-Jx
- for linux-riscv@lists.infradead.org; Sun, 29 Nov 2020 21:33:52 +0000
-Received: by mail-lj1-x243.google.com with SMTP id y16so14044242ljk.1
- for <linux-riscv@lists.infradead.org>; Sun, 29 Nov 2020 13:33:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=DRks1S+Ljz02h+7aEMkPQyYH0KJUMNRRjQT6vkjrJ6U=;
- b=LzYwWyNh2aq60HnaalbW2E/tfDV3QS5ABPetwv/LjVocBlaMX7p8EW6wSpLS5A+xb6
- 3RYtKYPxh3tlC4eQbu6yQKmPtsDYTe+XHrG3aefbkfkGpkyuGSceFP20lxofOmU62OuZ
- jCDZzZvOeeb9rr+liyzgPtp15kW0t5oMmCWPVHMtFmJUzKwYJoSvUw+IOgwl+OIitkEt
- 0GYNtHEFzYR21Fqyfr9LrWkLBvuAdd7WcEJWkhAd5/ypnjcyODBcG34cskFi3J5BnKCE
- bwGyj3H502ljkfysjViKkFi0CqGDKaKGdxv8ZMvvVu2cqiGIfoSS8QAhEPPPNcA5KDjB
- cyMA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=DRks1S+Ljz02h+7aEMkPQyYH0KJUMNRRjQT6vkjrJ6U=;
- b=Jrr0trcdhoH1QnDz3FoljcD1+0e+jzP+1zviZWN4dKMSDBLbrUzMPF3ZUbL9hs/Elb
- SVWiSw9tD55Axoh+h0XdlHqglZ42qpTNClM2t3NUXiV3R/YRFlVuVmdHNaBSsb7qYjl7
- XdiZ7v459hfR94FY5Aw+PKZppJ62U9ZO1uwfPQnZp+a/N7/DtlflVqbBn4XiiGS4GlEY
- ro3e2ciALs358NuPM0v0fPe6CuVf6uKLTP2aNNouFic7MJLOANNhg5uNgHJA6izemYds
- dYGDMHIo2hHpNRN0qLyrLsr27Ex8jyye/k2snN+SosDBiyxdz370JkN+qOUeXLBvQ3ns
- aO/w==
-X-Gm-Message-State: AOAM5333oNQK9kP7w4yeRfrHtykL0wav1vxRRB3hLIh5IybaWqBxpAgm
- +/b1p55+Zx92ePMhciCXUrOMfRnhPn2URrF9wzaagw==
-X-Google-Smtp-Source: ABdhPJytWDlyUMuTJm2jW8TQXYrQA7Ue6rxAsqM+YqSfqeqX2hNWQDHsQOsrBzNYb3DWeZ5mYjjq9y/2I8HLd94BvcY=
-X-Received: by 2002:a2e:321a:: with SMTP id y26mr7756884ljy.293.1606685627784; 
- Sun, 29 Nov 2020 13:33:47 -0800 (PST)
+ id 1kjUuO-0000fp-NE
+ for linux-riscv@lists.infradead.org; Sun, 29 Nov 2020 22:11:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
+ s=badeba3b8450; t=1606687859;
+ bh=iXkhSMriV5maLLXF4ec2emP2gdExku4QakTNWEWxKUk=;
+ h=X-UI-Sender-Class:Date:From:To:Cc:Subject:References:In-Reply-To;
+ b=XDpBE+Ncm04FRwJ8vuODrGgKLku41S/SLjyJKexDsg8yKXkkz1nq4E0r8hWZmkYVa
+ sBpJNwquAuFevwavdDte9KcxOQtU30m39ANkaqQ28WzThFVrCaEZIdi6bBGkog4oqh
+ NxDUHpDDQvRiIFnkufGLiPnZYponASPII+rH28Ns=
+X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
+Received: from longitude ([37.201.214.162]) by mail.gmx.com (mrgmx005
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MdNcA-1kARCk3xVg-00ZPKJ; Sun, 29
+ Nov 2020 23:10:59 +0100
+Date: Sun, 29 Nov 2020 23:10:50 +0100
+From: Jonathan =?utf-8?Q?Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>
+To: "Enrico Weigelt, metux IT consult" <info@metux.net>
+Subject: Re: [PATCH] drivers: gpio: add virtio-gpio guest driver
+Message-ID: <20201129221050.GH456020@latitude>
+References: <20201127183003.2849-1-info@metux.net>
 MIME-Version: 1.0
-References: <20201107081420.60325-1-damien.lemoal@wdc.com>
- <20201107081420.60325-21-damien.lemoal@wdc.com>
- <CACRpkdZhOxz5NhrkFxZ5G4aOrmBoAcQodOvqzNROQtXpHVQGDQ@mail.gmail.com>
- <CH2PR04MB65228DE061918A4D2A08A0CFE7FB0@CH2PR04MB6522.namprd04.prod.outlook.com>
-In-Reply-To: <CH2PR04MB65228DE061918A4D2A08A0CFE7FB0@CH2PR04MB6522.namprd04.prod.outlook.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Sun, 29 Nov 2020 22:33:36 +0100
-Message-ID: <CACRpkdbA_JMiyraKC_3WT26mMUxfuLD=Q_HREmbEB=yNPpuHjw@mail.gmail.com>
-Subject: Re: [PATCH 20/32] riscv: Add Kendryte K210 FPIOA pinctrl driver
-To: Damien Le Moal <Damien.LeMoal@wdc.com>
+In-Reply-To: <20201127183003.2849-1-info@metux.net>
+X-Provags-ID: V03:K1:3k7JLc2Hawk0Hil86ZD/XR/DnpRxdu29H+22sf1XPZsO3A3cFlf
+ SxQ/j3JYOOj5W/6OrAzXx2V3O076zc9+NrzDyDM8AZ8wqGocU5aewHzEQInNuo92+4UlsDD
+ B+dmWGwciIxLEEEY8/RzK2w4ZvuG/ZUrlNEM1WfjP/lYlfRxEUuSgC0+llkx1LTYcu8lE+t
+ 5QoHc123fP+9CRYN/+MfQ==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:PPw4bc4Tusg=:mupDuzXAshUvS65GdN+8BR
+ /rLiFI9/5Z0tUqMq/dJViG9x/bF6MH+06xhtAoJa4XdVbdXG9tF0yqZT2SrwnWJdWJc0O2V1y
+ /8orh1WzXNoHT4PDDB6CxJr5GN/b9oPnZxkL15TSkf5daQMQuWAhJxE+URDXtXg7nRXI6yg9Y
+ OHO9ZYljwUriW6RjUL97GZi3dfGfFTZ8LLNNqfy4MZiCC6eed4zuXrSMRa0Wmu3lLZ9Qozhcr
+ KlO/RYtp7kbxVsi2EBOxH0qDUytd1D4dbAILaedAkTzDzEz+IpJ7q50RPYzhJti03COA1W7Vz
+ H+FtdxZMc7y6Zf6sGh1m614l3EMkplr9YWk4fPWjNM/SgO7x0BEWzdg1ShVOM1uw9dBeaXZor
+ HAIhZ8O1zZ52a0Y9dsuZkDLUwc4ijHvM+zvdtNCyMcxz8MFHbMz2sDfNw6voWfYJYE3oskXS9
+ j+jB22Xgo+tFP2Goi23ChJgRfVkrpjo6OruoCK9JVA11U9YvcWkYQ3r/t0Xaod5Jlt22SOkRS
+ +GTlzhdh6mgjtkXssxIYHDfFcn0+nIcmfJRXr+8SYreTE5WlMpasDD2bwINEp2rjWpYwYAuKt
+ vU15CgqAhGOUGIl3saac33BVUO6+cZG9QIAoA5FCKsbdrCrJn5ue/PrMh9fcCzhUsuyDS4agE
+ 5w27uuRB/sM6SaHV0nk0L0PlheUy+BU5IZuhmB4OlEhluox3EGWNXTxWkSreqkGidHG8uj0cT
+ J6uRwXLBB6ahsp/+cWSb9xQ16VzOeBv/23hmvrlbFvMPiV8UgvnvwTS0DjEUcN8+/h+5tlcpy
+ E60TDZ70kJKQCg/v1fJCS0aVHce6fgkz6h7atHTyw9of9lFauyayNnkf8vt28V8znk0nTVxJT
+ SwhCuFdz7xvXV2yUt3fA==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201129_163351_947918_C44F4BE8 
-X-CRM114-Status: GOOD (  16.98  )
+X-CRM114-CacheID: sfid-20201129_171105_202517_384D0E40 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -90,63 +90,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, Stephen Boyd <sboyd@kernel.org>,
- Mark Brown <broonie@kernel.org>, Serge Semin <fancer.lancer@gmail.com>,
- linux-spi <linux-spi@vger.kernel.org>,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
- Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- Sean Anderson <seanga2@gmail.com>, Frank Rowand <frowand.list@gmail.com>,
- linux-clk <linux-clk@vger.kernel.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: bgolaszewski@baylibre.com, linus.walleij@linaro.org, mst@redhat.com,
+ linux-kernel@vger.kernel.org, virtualization@lists.linux-foundation.org,
+ linux-gpio@vger.kernel.org, linux-riscv@lists.infradead.org,
+ jasowang@redhat.com
+Content-Type: multipart/mixed; boundary="===============7452211096507662425=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 24, 2020 at 9:53 AM Damien Le Moal <Damien.LeMoal@wdc.com> wrote:
-> On 2020/11/24 17:43, Linus Walleij wrote:
 
-> > Would also be nice if the maintainer could add some comments?
->
-> What do you mean ? I do not understand. scripts/get_maintainer.pl indicates that
-> you are the maintainer of the pinctrl drivers subsystem.
+--===============7452211096507662425==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="rV8arf8D5Dod9UkK"
+Content-Disposition: inline
 
-Sorry I thought we had a RISCV driver already, and we don't
-so this is cool.
 
-> Do you mean adding an
-> entry to the MAINTAINER file for this driver ? I can do that and put my self as
-> maintainer. Or do you mean you would like a comment from Palmer (riscv arch
-> maintainer) ?
+--rV8arf8D5Dod9UkK
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-That would be nice. Whoever will enthusiastically review patches to
-this driver and make sure it works and get modernized should ideally
-be listed as maintainer. I suggest you list yourself.
+Hi,
 
-The only input I want from the RISCV arch maintainer would
-be on this code:
+On Fri, Nov 27, 2020 at 07:30:03PM +0100, Enrico Weigelt, metux IT consult =
+wrote:
+> Introducing new gpio driver for virtual GPIO devices via virtio.
+>=20
+> The driver allows routing gpio control into VM guests, eg. brigding
+> virtual gpios to specific host gpios, or attaching simulators for
+> automatic application testing.
+>=20
+> Signed-off-by: Enrico Weigelt, metux IT consult <info@metux.net>
 
-+/*
-+ * Most devices on the K210 SoC depend on pin mapping changes to initialize
-+ * correctly. So initialize this driver early as part of the post core
-+ * initialization.
-+ */
-+static int __init k210_fpioa_init(void)
-+{
-+       return platform_driver_register(&k210_fpioa_driver);
-+}
-+postcore_initcall(k210_fpioa_init);
+is there a spec of the virtio-gpio protocol available? If so, linking it
+in the commit message and/or driver/Kconfig would be nice.
 
-This is a bit nasty and we do not recommend it. But I will accept it
-if the arch maintainer claims it is necessary. What happens if you
-just make it initialize at driver level?
 
-Yours,
-Linus Walleij
+Best regards,
+Jonathan Neusch=C3=A4fer
+
+--rV8arf8D5Dod9UkK
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEvHAHGBBjQPVy+qvDCDBEmo7zX9sFAl/EHGIACgkQCDBEmo7z
+X9vgjQ/7BGdfYQq78KeC7gpheGKolr7itYaIjyPeiwVUbLBnd98RdTr2u5bLTMJL
+bcE7IrgMjDos6NW2AvHqwS/n2McBo07w3mW2u0CcWPNn2T31cgjvMRPacVpm6SXk
+jYQ2Y9Yu/12fBWd6Bqp/GZH7brS00onhkkdjwpLJ85Kmj4T3BtPDVdteSgNyNQ+9
+q0T06QDzgstQCOUN8Rizjfmm/kP62VyV1H8fGeFIbqWyChIeNy3CpA1y1cNH2YOx
+8Qfot8iwWzAWjSHsYVZk5Nkf+4kV4/qVRNbVPvAhPBfge7zGJfwEmAmReEND4N4d
+6TOeEmEPDNLPHv3TynOtUWgGVB4RFblVh2PDqynP5cEvF+m7zhv2ZN14hJL8R146
+mPCU2pfEldzCloaiYEquriAXG+fTc7872OI7eF3oSzF+UyEs0HuZpsYZS17TVbhi
+cNT1JZ2unfZmcFOM5Xp1J+VrJ1zYGHp+9EPTX8Cp6DEDG+HL5zxv5Vaa7tjrmmIN
+7krg65s3g61Jo839BQQlJtb8P5BLU+RLDQYpiBS3X2YR3iCqCH4r3UWQyiRl3tcn
+Sa6qNES5SHMhTXWS8FFCelolQei7XVJ19aqN1mtz+zSS85I5U1kxbVOuMTFLgzu3
+K34XZBYz5Gj7Glv1uIF48IifPI5UVo1wlUy3roHIGBh36W4+fv0=
+=SCq+
+-----END PGP SIGNATURE-----
+
+--rV8arf8D5Dod9UkK--
+
+
+--===============7452211096507662425==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7452211096507662425==--
+
