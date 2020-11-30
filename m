@@ -4,162 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-15.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED autolearn=unavailable autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D5D3BC63777
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Nov 2020 20:17:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4577DC63777
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Nov 2020 21:50:29 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4330A20725
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Nov 2020 20:17:04 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 7C35D20857
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Nov 2020 21:50:28 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="0TIvvK7z";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=fb.com header.i=@fb.com header.b="nSqAW4vw";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=fb.onmicrosoft.com header.i=@fb.onmicrosoft.com header.b="eBU3S5Ng"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4330A20725
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=fb.com
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="LzDEYmcs";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="cJwP8cEe";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=sharedspace.onmicrosoft.com header.i=@sharedspace.onmicrosoft.com header.b="NtR7sTek"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7C35D20857
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=uivfyE+GGP/Cp3AMdyg8zPHVrCNftWz9PVhgZncwyYM=; b=0TIvvK7zixHsqyl6PQaoBoOWO
-	JE+xItecUEpYSPCilf6jlqlXZykLSn3gOC0gYxpFNw096PMNXjNLyFlbQbeMue1/7RI2YM1ctr5WH
-	RFgKjsXx3dTLP+LDMETAt+GVknhtclKExA5CjQnfXfqisis1/q8PR9L706RvP2BPeXaTo4BtFGNJ1
-	yR5gzReKykG79EBGtwMAqATcqeMELMZH7krOR3CEzDFtNE+2BNT02zJm9rpJkqfzAVo4LLWPZ7ZYT
-	fl+Wckm54wsRU4LK0qv/Kn8rBAOyOOvm06Vhutbmsq0DlSkshtwxA1BczJanvqB+POsjtPdT1zFtJ
-	Oja8gzLhQ==;
+	List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:Date:Subject:To:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	 bh=2M70RaRmnuo87zJQuAFD2zQudicWLsyM1cpw16Kb/kI=; b=LzDEYmcsCvBFaDF7cXWyDSfop
+	Dz0JyN4gOAlRyAliPAxsqzB0tqa8GdmklYJHPF8OQBAaBHVtPketdV0GEtqdHT46Pf8x9fUbne0SJ
+	AwJMyCQsfycxfARk4yFwIEgSsLTsnECd8FHWi7uZ4m6zxWfU76f73ixLEc17YFJ0PW3JFJGbFdOO+
+	0QCJRfgew8DitSuik4kq7whRX34REq1+JBomWdID4Eg9WScZct/3g8g8XUG8WbglO74BArZ2kPqcS
+	oTA0qhiurax6jl/Rjbth99wyIDcUF3aWdsssV84pwvMMhtskn//83zYMZaNmPymHRlBzA5xigki4E
+	LYagL71Bg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kjpbQ-00065Y-13; Mon, 30 Nov 2020 20:16:52 +0000
-Received: from mx0b-00082601.pphosted.com ([67.231.153.30]
- helo=mx0a-00082601.pphosted.com)
+	id 1kjr3r-0000pM-H9; Mon, 30 Nov 2020 21:50:19 +0000
+Received: from esa5.hgst.iphmx.com ([216.71.153.144])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kjpbL-00064f-EO; Mon, 30 Nov 2020 20:16:48 +0000
-Received: from pps.filterd (m0001303.ppops.net [127.0.0.1])
- by m0001303.ppops.net (8.16.0.42/8.16.0.42) with SMTP id 0AUK3FZg016588;
- Mon, 30 Nov 2020 12:15:51 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fb.com;
- h=date : from : to : cc :
- subject : message-id : references : content-type : in-reply-to :
- mime-version; s=facebook; bh=RdtE83tmijXt7lplw7hDnEBho3pDThFvGVCdYYGG35I=;
- b=nSqAW4vwU6oVyrGEJH2/4ywRu9W63IFUP0nqh5g6HwKyLyFVUDGw0xQ5u6K1VHMkQ/34
- xomjxmLC+k8Viyb1Hvbu6ImFWSagcQDABnLygi05a5oiCZr2UtASfFmqT1mDypjY9UFV
- le8GBXiswToepDgUNoOXLYb7BtuwHp2ns1k= 
-Received: from maileast.thefacebook.com ([163.114.130.16])
- by m0001303.ppops.net with ESMTP id 354g9udq5e-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
- Mon, 30 Nov 2020 12:15:51 -0800
-Received: from NAM11-DM6-obe.outbound.protection.outlook.com (100.104.31.183)
- by o365-in.thefacebook.com (100.104.35.174) with Microsoft SMTP
- Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.1979.3; Mon, 30 Nov 2020 12:15:49 -0800
+ id 1kjr3o-0000oe-9l
+ for linux-riscv@lists.infradead.org; Mon, 30 Nov 2020 21:50:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1606773016; x=1638309016;
+ h=from:to:cc:subject:date:message-id:references:
+ content-transfer-encoding:mime-version;
+ bh=C1BT7GlDlpvpcXUxuKHfn0dn7pXWAR0e9Zgb8JxCH3s=;
+ b=cJwP8cEeBX7y4uCOCXFNdvTQ18nMXyD9teoqykICawkXrrqi5BK2PdAm
+ oAsYJdyUMlptI5Wr9ZSFllwhIos88vbd9BR8itLUIqdwcs6JQzj/IC5MO
+ BuiJhphjhGRPkWDSZLyVukairyKRsLlIZeHc7j3GPjwieWTVepAxwI2pq
+ Pye08x5WunbmO5GT4i51Y+ancY4xMSdfbbyxbq43LHseyENrucdxrUsM7
+ WH8MijQb+cdV5VmbhCdNCT9VO6zmrCSWo9uaR02oJ6NlesfgPMtZmaFvP
+ RSdH0UeetYgGsHvzQmh1X1BQXNXkvQlXKol8gd0t0UZe2PPC9UDzj3Hq9 w==;
+IronPort-SDR: I4pGi2dDC8BGC4kj3QsD8qc//8ZHTjzkFKhl48FFoiebXLUwxu7Fzo0eoq3ieS4eUQi/iNchMH
+ ckX2HLFBt4a1aqmFL31hJPjBgKsEp6rwK43kaKe/mC46f3IRZJ6AXALTBtYzo+CTKZkAzuZfkR
+ sE6LWF39+IoDlE7V9Hjqr89Wu7SumRk1Ao5rP4KY+QwPS/FPab82bejJoNwKgxZEdWJk/qFgB/
+ SqT7ZUJLJv6sl2flotbpmPq8EMBDk+e23ziissw5G9W3Qd935pWwDYl7R7fX+Pl/RqSXDsf9dE
+ Cug=
+X-IronPort-AV: E=Sophos;i="5.78,382,1599494400"; d="scan'208";a="153919650"
+Received: from mail-dm6nam12lp2173.outbound.protection.outlook.com (HELO
+ NAM12-DM6-obe.outbound.protection.outlook.com) ([104.47.59.173])
+ by ob1.hgst.iphmx.com with ESMTP; 01 Dec 2020 05:50:13 +0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=GkIYp2xxBnak4MYL+YwfQdCKuXQHncjttEeBD+SaEHcuokoHtqewZWfcvdwRjkO0ioBLfP63SqAt9JO7tEoJW+7k1IL7IbMU3RGNe0aNmnQPMR7gfwfDv2yHjQUBfSWcQf31Fv4b3yj1OdmqbKhARgISgDNoDM2pcBKtmMN3UzI6ssuWK4R9m8NDNhhm2xd57igcHl5ks1ODPexBa3G9Q6Bfi5n7BSZMLpF5GQhKedg0FsB/+xJPQySqf7nLV0FQeaDpBVhk6yKtNKPHFT0tnbpXJ9ukRdf4krq4W9bZaiQjKpStK6V4qEc0zxJY534Vtil237quYqJ2zoAq0SHDsw==
+ b=elLWZUr4PKoa0YJ13ascTo8Nzjy6hn+Ndb0C7QppcLFjOTeSUxXG//5nDvpIOGBxvrJXEmlEMBAgjm8XVpRaD0KFSoLTweN3P/2nUbGneaA7mRmDrwV9yuJn/Q+gbqWHDakP719xZKGp+aqXkldpReG+1o2hIMNWqEKrlJXVfuWOmVxNlD6LYRJdUv/kWPvIKF47e+AH2QJ7dT5shI3ii917u3is4ewN+lz1qskajKt7PVpiYrQ/Z1eB8fdisXV9KGNSHSV/m6A9goxzuRWwAgzlvNg3PE8omDvNpo3NyM5zA4kphUZ3KuKt6q2g4IigFl7FPgqufeGdPI4dT2nNbg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RdtE83tmijXt7lplw7hDnEBho3pDThFvGVCdYYGG35I=;
- b=bq6YyXjrkrClMnjVts8q5/EuEyvRQh02BV4MdsfDLMhFqVKBSeGamu6wIKUIcL/MTcaiYsY5rBXkRN0dOjmLJG5oe5aYcam3uxq+8ZWxuKoS1pFD4KAJrz6v+BJMUwt9JOGPpfsDIllZaAYyUv8H7tjp8F7xYqlkg427QIBuNkfh+cyspriRUmLLS7pH0p55FrVA/2tkdMsSFiLp/5F5YYkPvxrtAzkfsnORs0dn98k+TCTHQtftfCvqyYu7bKt3gkWjCl+Gmltv5uTrGYWHzdGFeroaOyY6zVJXUW0ZrQbqgDuh621XqvVYD6kdwXZPIB3171Ch9tOH0Z6e/+VYVw==
+ bh=WUqLF1rwbh32V+4LmJ6lPpWz/QfkGLUCEM26ptg+6iQ=;
+ b=LdEovBe4mQfyzbFyXczckwgUV+FkVmU/Y2hSVGWL2okJd/lxXOLzvUo5+4+ztHcU9v6h10yJ53rVAcab87EhE7qL1RZfXFQZmexZw64ArOsmxXlwHPW5NxlzswJXKd5BPqrN1yxEdrbwBTDYFZh5Oxp+XT39D1KkmDPW5ANzg7cYqxht6+3+vNzJH4qkO3vZXJoAv64iXPwXhqpefv/IRDsN2U1z0E1x6nyVT1X5Wj83LbMCMix6m8SwGRa5MD5pFSs+wI4Rlfj0dlyyDMbjPz4OF1GKxCPfRhlsbvce+WuiDdBQJ7Vg4cPPf5GYtojf33HhxxrKnVLq7U26OdadAg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=fb.com; dmarc=pass action=none header.from=fb.com; dkim=pass
- header.d=fb.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fb.onmicrosoft.com;
- s=selector2-fb-onmicrosoft-com;
+ smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
+ header.d=wdc.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RdtE83tmijXt7lplw7hDnEBho3pDThFvGVCdYYGG35I=;
- b=eBU3S5NgHMbF10FsFYbZHo5zkCpDWEtLJwDYUG/uc3VtQYTy5dNVteyIeW9A4ZnJ8ksRtrawvFxuzlucGAVs3+8+mzKhyaDj4F+opoZuLf2fW6CIOXfhP2qVqjafv9nhEtbLXcfU8EarIBBbj8RPZjRV8WPr6W2+6TpkszjlOto=
-Authentication-Results: kernel.org; dkim=none (message not signed)
- header.d=none;kernel.org; dmarc=none action=none header.from=fb.com;
-Received: from BYAPR15MB4136.namprd15.prod.outlook.com (2603:10b6:a03:96::24)
- by BYAPR15MB2933.namprd15.prod.outlook.com (2603:10b6:a03:f6::26)
+ bh=WUqLF1rwbh32V+4LmJ6lPpWz/QfkGLUCEM26ptg+6iQ=;
+ b=NtR7sTekykOqOyFHS2VrFdotwYYYGqCJrR9/1HmMmofyGzpPZKPQBPOwkZ2kRwVC0C6sx/zMlNKxgGrpdMNA4J+xBl9TkFGPp4sl0rzbekFiWtmhJTU3Ula0hh0cP1jc7Wog4lwTWv6D83teiIi0sSbnu9nnfAfl7+N+5VjXHtM=
+Received: from CH2PR04MB6522.namprd04.prod.outlook.com (2603:10b6:610:34::19)
+ by CH2PR04MB6538.namprd04.prod.outlook.com (2603:10b6:610:35::19)
  with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3611.24; Mon, 30 Nov
- 2020 20:15:47 +0000
-Received: from BYAPR15MB4136.namprd15.prod.outlook.com
- ([fe80::3925:e1f9:4c6a:9396]) by BYAPR15MB4136.namprd15.prod.outlook.com
- ([fe80::3925:e1f9:4c6a:9396%6]) with mapi id 15.20.3611.025; Mon, 30 Nov 2020
- 20:15:47 +0000
-Date: Mon, 30 Nov 2020 12:15:40 -0800
-From: Roman Gushchin <guro@fb.com>
-To: Mike Rapoport <rppt@kernel.org>
-Subject: Re: [PATCH v12 07/10] secretmem: add memcg accounting
-Message-ID: <20201130201540.GB1354703@carbon.DHCP.thefacebook.com>
-References: <20201125092208.12544-1-rppt@kernel.org>
- <20201125092208.12544-8-rppt@kernel.org>
- <CALvZod4MoXod_YkbO+4k2=PS=xdMVbZa2HWWuUnMZ1G9hSr+Jw@mail.gmail.com>
- <20201129172625.GD557259@kernel.org>
-Content-Disposition: inline
-In-Reply-To: <20201129172625.GD557259@kernel.org>
-X-Originating-IP: [2620:10d:c090:400::5:6c8f]
-X-ClientProxiedBy: MWHPR11CA0009.namprd11.prod.outlook.com
- (2603:10b6:301:1::19) To BYAPR15MB4136.namprd15.prod.outlook.com
- (2603:10b6:a03:96::24)
-MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-Received: from carbon.DHCP.thefacebook.com (2620:10d:c090:400::5:6c8f) by
- MWHPR11CA0009.namprd11.prod.outlook.com (2603:10b6:301:1::19) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.3611.22 via Frontend Transport; Mon, 30 Nov 2020 20:15:43 +0000
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: e7f1d3a8-1199-45e7-b2c4-08d8956cb943
-X-MS-TrafficTypeDiagnostic: BYAPR15MB2933:
-X-Microsoft-Antispam-PRVS: <BYAPR15MB2933A5392BBDDBD44467A1E9BEF50@BYAPR15MB2933.namprd15.prod.outlook.com>
-X-FB-Source: Internal
-X-MS-Oob-TLC-OOBClassifiers: OLM:9508;
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: iFw2mu0Q/5xaFtwWblPc7d2PWZFOYxBg0jDr/XqenwXz3u99bM9acqJomsgPR5WxBM5aCZXp8f1E9jMhHEnhBkyFvcNU/8l38hInIaiyJSc6wcMBiv0o/2dXOdIXaLWlHCWwJIktO9YAR+gGaXQEKzxYFbj9odOUxVOeW9qQAEW70eeDAvQuknrpzThyRLOrBF9uaqPL7yV2Of7mHP5UNa6jyHddWh95WE53cveQQ9r+xeRDZlpNg7erOyZnpt0EMxokJWAlPigOhTjPR7gGV2zdG4hBDdaIOz7S5UM3W7wnVLnJl6/pfj8dJVgCvRjdnsWBeqhueN6TEbbwas92Rw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:BYAPR15MB4136.namprd15.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(366004)(136003)(396003)(346002)(376002)(39860400002)(6506007)(16526019)(186003)(7416002)(15650500001)(83380400001)(53546011)(1076003)(66946007)(54906003)(66556008)(316002)(7406005)(8936002)(55016002)(4326008)(7696005)(8676002)(33656002)(5660300002)(478600001)(52116002)(6916009)(86362001)(2906002)(9686003)(66476007);
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3611.23; Mon, 30 Nov
+ 2020 21:50:12 +0000
+Received: from CH2PR04MB6522.namprd04.prod.outlook.com
+ ([fe80::897c:a04b:4eb0:640a]) by CH2PR04MB6522.namprd04.prod.outlook.com
+ ([fe80::897c:a04b:4eb0:640a%7]) with mapi id 15.20.3589.022; Mon, 30 Nov 2020
+ 21:50:12 +0000
+From: Damien Le Moal <Damien.LeMoal@wdc.com>
+To: "Conor.Dooley@microchip.com" <Conor.Dooley@microchip.com>,
+ "robh+dt@kernel.org" <robh+dt@kernel.org>, "jassisinghbrar@gmail.com"
+ <jassisinghbrar@gmail.com>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+ "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>, "palmer@dabbelt.com"
+ <palmer@dabbelt.com>, "devicetree@vger.kernel.org"
+ <devicetree@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+ <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH 1/6] mbox: add polarfire soc system controller mailbox
+Thread-Topic: [PATCH 1/6] mbox: add polarfire soc system controller mailbox
+Thread-Index: AQHWvpYfVU6mtg0xhkO8MWTEOL0QWg==
+Date: Mon, 30 Nov 2020 21:50:11 +0000
+Message-ID: <CH2PR04MB6522D8B7E1EC319733D72CA5E7F50@CH2PR04MB6522.namprd04.prod.outlook.com>
+References: <20201119170419.18272-1-conor.dooley@microchip.com>
+ <BL0PR04MB6514AA9B313828842F7EF0D8E7FF0@BL0PR04MB6514.namprd04.prod.outlook.com>
+ <ffa091eb-0963-f2b5-de9a-c76767d6776c@microchip.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: microchip.com; dkim=none (message not signed)
+ header.d=none;microchip.com; dmarc=none action=none header.from=wdc.com;
+x-originating-ip: [60.117.181.124]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-ht: Tenant
+x-ms-office365-filtering-correlation-id: 689b61fd-168c-4ead-78ea-08d89579e9ea
+x-ms-traffictypediagnostic: CH2PR04MB6538:
+x-ms-exchange-transport-forked: True
+x-microsoft-antispam-prvs: <CH2PR04MB65386FB561FB26C7FBA7ADA9E7F50@CH2PR04MB6538.namprd04.prod.outlook.com>
+wdcipoutbound: EOP-TRUE
+x-ms-oob-tlc-oobclassifiers: OLM:7219;
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: vvFxFCpgNXGPxwimOZEZfA8xKgJ1i63HDG27wpQbDBt6OCpFwj1vBOP/y0h4SgYVPLh3E+HBvL74RpBmZhwC3YclGJDWKQygZe6t485c3nU8eh0q6922Tzq714ifYSaiM1KunDMCNt0+HXEvzCtgJ3XkcX/TO476QTVmSdiRPYmq/SyB5oNp8iXtnBJeib0svZz+u4Fi+AyDYvOKB8YfNYGs2mvjgZdl6K1YMoQRWJEBZYnIxchunJi9yZNXk2CZi8SWcz3mkicdm3NdOQ+50COf+/fb5y+vS++a8vPQ71miCh2RdJbB7uLiOQ9kzNR3
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:CH2PR04MB6522.namprd04.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(4636009)(39860400002)(136003)(346002)(396003)(376002)(366004)(9686003)(76116006)(6506007)(8676002)(66556008)(7416002)(186003)(66446008)(91956017)(66946007)(64756008)(8936002)(478600001)(110136005)(26005)(71200400001)(15650500001)(86362001)(7696005)(5660300002)(2906002)(33656002)(316002)(83380400001)(52536014)(54906003)(4326008)(66476007)(53546011)(55016002);
  DIR:OUT; SFP:1102; 
-X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?iqlKOIi4ERXHU7Zr75N4bB44+GuU4q4I8FYiclh5fY/GvAbfOuoM/f8YUfpg?=
- =?us-ascii?Q?6/cFcANL1nVfp4xGxT3aMqGaCbTRhvLcfotICeBRZ9peZlsOgWIl5+Ij2b/n?=
- =?us-ascii?Q?bHxxlJgpwojdK1Mxp4AZhHQvXA+QzIwlpOf6Yd9Grr4ESPjw+SqWEt5J659S?=
- =?us-ascii?Q?jtdL6e6qXjOJs5hKC2QjY2XDEEa6JOB36rTpBhwbHwtmuM7MmuNsou7vNkNC?=
- =?us-ascii?Q?3T63IhemfFLIw9vQ7ITZjHUc186mbqeuaDHEyFdIberhEloiV0vnJi5G6s68?=
- =?us-ascii?Q?uJ1tzp2KSRGr4I6WUAgQy1lUdAUgYbdMEaL3cjp8cuiseIdC7YyFhJINN72W?=
- =?us-ascii?Q?PDMgg7QSGn8+0uyDHjfj7sMI2tpvQHMosLa4/YIRoyQria8orEBi3Yy+1wvL?=
- =?us-ascii?Q?LilFlt4scpTRYeCarn4ZvuQ4go71G0AbPHcX3/pXEQ/sTU0qhLxd9gIrlfyZ?=
- =?us-ascii?Q?rmv804Vx18OS5gP1RTVKDOk+mUUxLAZS8diqejZSchcy2HDrt1BIyAqS86DG?=
- =?us-ascii?Q?PZbyQUsOsh/37xR2QwgvX6ayDusqhF6tBlOhqTu/sjBhODYf3wVWJJpdzzWr?=
- =?us-ascii?Q?98kmD03cHklbtsievGHl5CoCbgbpuagCaIqiQ4e1jEBwQm7YQc+mqjRMA8xI?=
- =?us-ascii?Q?xHBTsHFj0a6uhc1gvurE6C24zqxbyLoU49G3tMAs74vQ94csy2z2r7BYOETj?=
- =?us-ascii?Q?SPlpITSFaY3CeV7kCiWJhL7+ZGjTnpOyfBG5v3CHqpLyuNq9isQvD6rk57vj?=
- =?us-ascii?Q?ljFwk982AoWdOF+VEOIWCk+7Qpzbsn8w5ZLBzWBcbqY6ofnv8ZW8XYSA/8lS?=
- =?us-ascii?Q?KyZVbDUXwvwbvYSQ5OZ41wVds49x/F9q5e/XOvKPoNUNXGUH7e6MgTFJ3G12?=
- =?us-ascii?Q?k7/Rt6bOSXgiVQ7ZQMd4bVPwIvHYIg/873+tjdhlLTyqHprEdU9yWBhEM5V0?=
- =?us-ascii?Q?O6ebtIys0H+9AKoMnERpQX2zFbiiphRLaZ5VA5FZI3saa50oufwArQWERwnT?=
- =?us-ascii?Q?3zla4tmiBEZnteoNG/MxW32oXA=3D=3D?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: e7f1d3a8-1199-45e7-b2c4-08d8956cb943
-X-MS-Exchange-CrossTenant-AuthSource: BYAPR15MB4136.namprd15.prod.outlook.com
+x-ms-exchange-antispam-messagedata: =?iso-8859-1?Q?/OmoFwZdY9CXU5E67EXZcU730nkowQ0Mdy9xG4A5jIjJCNxRKXyidIUd0g?=
+ =?iso-8859-1?Q?wH7Fp1FWNlve1remKLl69Fwa0AJI7K07XVGGbVGckpOC9OFW6AMcMvCQUM?=
+ =?iso-8859-1?Q?dhohMeWktZiy3I75qvLpbHgEjJZg7ahVzww/lhpD0lznS5Q8KjARpFpIcU?=
+ =?iso-8859-1?Q?WCu47PwUvlmtwmfDCJ7cSjT3ZZuJfHKN95IZA2prYS1eZ3DIizkc0H066t?=
+ =?iso-8859-1?Q?UIoY4N/vIV0sq9etHxLJToOYQoxSd9ZRLSKj/QlfCSzVXKwcyOjwl5Hlir?=
+ =?iso-8859-1?Q?InZe9ZTPa6a+b48alBVd3/IKJWrcY3kYFO9ps6pDvxjvs9Pk66DtSKZO8v?=
+ =?iso-8859-1?Q?Qtng9Vaeo4e0iiHCScHIQ6L4leL/GgI+8bzvlv7Z6Q5sE6vDPsDGlBGWVQ?=
+ =?iso-8859-1?Q?ovzCTrkbTJXMQYmPFnduNj4paZrDkh4FkhXdx4zzkjTluYT74mD+8SME4K?=
+ =?iso-8859-1?Q?m7KyrWoXBcacD3q7xt9PdOp/jRDbULm1soXEe/aQ0+7ZVIthbNA9Oc47+2?=
+ =?iso-8859-1?Q?zyb0sjBT0iTckSS5Y/6WaEAIGihMH7E9keC5ZdcY+mvfKHelHkeM7BN4l+?=
+ =?iso-8859-1?Q?M0QW63soNqOgqDz9BXTdyeaYmB/inIUHHl1WFJaocaIV6J5wP42OyuolNN?=
+ =?iso-8859-1?Q?izz1eE7L6qCgrpuURLYYL2bKxyrXQhyB04/nkERRZRCBKle6gzVxGj3JZF?=
+ =?iso-8859-1?Q?d5EZX2wzsrSqyqSxSXRgiL/h5xre9UgSMzKIye5+LcCZpBPFQ/fSldar6o?=
+ =?iso-8859-1?Q?00xWeV7F6EchBP6cL5IncjFqprPklLObdiK6sMCa7sdca5VIVIGESDw4Aq?=
+ =?iso-8859-1?Q?wX32IgGmme2gwR8/Wuc53vWoVyjsAqUW4HUEsqku0qbNUGJQs6WPdehJWN?=
+ =?iso-8859-1?Q?V6j1UihPk86HhU5BN0/ObyeS5IrRSWH198SDNoBatg1eVMXD9fWogt/+6L?=
+ =?iso-8859-1?Q?HvXG5coPjx5w5/Ool7T0JYEotl+7jzKjP22wOLN7bJ9B45acHhJmiMUU+n?=
+ =?iso-8859-1?Q?9MA+grfw94xrGnqciuY0CeGIsAXoQCOtSWh/xw?=
+MIME-Version: 1.0
+X-OriginatorOrg: wdc.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Nov 2020 20:15:47.2482 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8ae927fe-1255-47a7-a2af-5f3a069daaa2
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /HRyLj7WzWrk8wEPiGyiQ7NpXUvMt3C5xgAH0q9VadSFMowQvih6G/Ng+JbVE7Lx
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR15MB2933
-X-OriginatorOrg: fb.com
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.312, 18.0.737
- definitions=2020-11-30_08:2020-11-30,
- 2020-11-30 signatures=0
-X-Proofpoint-Spam-Details: rule=fb_default_notspam policy=fb_default score=0
- lowpriorityscore=0
- malwarescore=0 suspectscore=1 clxscore=1015 impostorscore=0
- mlxlogscore=999 bulkscore=0 phishscore=0 spamscore=0 adultscore=0
- mlxscore=0 priorityscore=1501 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.12.0-2009150000 definitions=main-2011300129
-X-FB-Internal: deliver
+X-MS-Exchange-CrossTenant-AuthSource: CH2PR04MB6522.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 689b61fd-168c-4ead-78ea-08d89579e9ea
+X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Nov 2020 21:50:11.9391 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: U96q0cOg7ZEpRzwxe402U53WrU3Dc/q2E8z5irTu7nlt6R6THNh2UGmeg7AhRqwBG7QMbMYKu0JoLRYdrv/LNQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR04MB6538
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201130_151647_587950_28FDFC50 
-X-CRM114-Status: GOOD (  32.73  )
+X-CRM114-CacheID: sfid-20201130_165016_506913_EEF5F689 
+X-CRM114-Status: GOOD (  15.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -171,120 +166,140 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
- Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, Linux MM <linux-mm@kvack.org>,
- linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>,
- Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
- Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
- Will Deacon <will@kernel.org>, x86@kernel.org,
- Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
- Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
- Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
- Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A.
- Shutemov" <kirill@shutemov.name>, Dan Williams <dan.j.williams@intel.com>,
- linux-arm-kernel@lists.infradead.org, linux-api@vger.kernel.org,
- LKML <linux-kernel@vger.kernel.org>, linux-riscv@lists.infradead.org,
- Palmer Dabbelt <palmer@dabbelt.com>,
- linux-fsdevel <linux-fsdevel@vger.kernel.org>,
- Shakeel Butt <shakeelb@google.com>, Andrew Morton <akpm@linux-foundation.org>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: "Cyril.Jean@microchip.com" <Cyril.Jean@microchip.com>,
+ "david.abdurachmanov@gmail.com" <david.abdurachmanov@gmail.com>,
+ "Daire.McNamara@microchip.com" <Daire.McNamara@microchip.com>,
+ Anup Patel <Anup.Patel@wdc.com>, Atish Patra <Atish.Patra@wdc.com>,
+ "Lewis.Hanly@microchip.com" <Lewis.Hanly@microchip.com>
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 29, 2020 at 07:26:25PM +0200, Mike Rapoport wrote:
-> On Sun, Nov 29, 2020 at 07:53:45AM -0800, Shakeel Butt wrote:
-> > On Wed, Nov 25, 2020 at 1:51 AM Mike Rapoport <rppt@kernel.org> wrote:
-> > >
-> > > From: Mike Rapoport <rppt@linux.ibm.com>
-> > >
-> > > Account memory consumed by secretmem to memcg. The accounting is updated
-> > > when the memory is actually allocated and freed.
-> > >
-> > > Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
-> > > Acked-by: Roman Gushchin <guro@fb.com>
-> > > ---
-> > >  mm/filemap.c   |  3 ++-
-> > >  mm/secretmem.c | 36 +++++++++++++++++++++++++++++++++++-
-> > >  2 files changed, 37 insertions(+), 2 deletions(-)
-> > >
-> > > diff --git a/mm/filemap.c b/mm/filemap.c
-> > > index 249cf489f5df..cf7f1dc9f4b8 100644
-> > > --- a/mm/filemap.c
-> > > +++ b/mm/filemap.c
-> > > @@ -42,6 +42,7 @@
-> > >  #include <linux/psi.h>
-> > >  #include <linux/ramfs.h>
-> > >  #include <linux/page_idle.h>
-> > > +#include <linux/secretmem.h>
-> > >  #include "internal.h"
-> > >
-> > >  #define CREATE_TRACE_POINTS
-> > > @@ -844,7 +845,7 @@ static noinline int __add_to_page_cache_locked(struct page *page,
-> > >         page->mapping = mapping;
-> > >         page->index = offset;
-> > >
-> > > -       if (!huge) {
-> > > +       if (!huge && !page_is_secretmem(page)) {
-> > >                 error = mem_cgroup_charge(page, current->mm, gfp);
-> > >                 if (error)
-> > >                         goto error;
-> > > diff --git a/mm/secretmem.c b/mm/secretmem.c
-> > > index 52a900a135a5..eb6628390444 100644
-> > > --- a/mm/secretmem.c
-> > > +++ b/mm/secretmem.c
-> > > @@ -18,6 +18,7 @@
-> > >  #include <linux/memblock.h>
-> > >  #include <linux/pseudo_fs.h>
-> > >  #include <linux/secretmem.h>
-> > > +#include <linux/memcontrol.h>
-> > >  #include <linux/set_memory.h>
-> > >  #include <linux/sched/signal.h>
-> > >
-> > > @@ -44,6 +45,32 @@ struct secretmem_ctx {
-> > >
-> > >  static struct cma *secretmem_cma;
-> > >
-> > > +static int secretmem_account_pages(struct page *page, gfp_t gfp, int order)
-> > > +{
-> > > +       int err;
-> > > +
-> > > +       err = memcg_kmem_charge_page(page, gfp, order);
-> > > +       if (err)
-> > > +               return err;
-> > > +
-> > > +       /*
-> > > +        * seceremem caches are unreclaimable kernel allocations, so treat
-> > > +        * them as unreclaimable slab memory for VM statistics purposes
-> > > +        */
-> > > +       mod_node_page_state(page_pgdat(page), NR_SLAB_UNRECLAIMABLE_B,
-> > > +                           PAGE_SIZE << order);
-> > 
-> > Please use mod_lruvec_page_state() instead, so we get the memcg stats too.
-> 
-> Ok
-> 
-> > BTW I think secretmem deserves a vmstat entry instead of overloading
-> > NR_SLAB_UNRECLAIMABLE_B.
-> 
-> I'd prefer to wait with a dedicated vmstat for now. We can always add it
-> later, once we have better picture of secremem usage.
+On 2020/11/30 22:23, Conor.Dooley@microchip.com wrote:
+> On 20/11/2020 00:05, Damien Le Moal wrote:
+>> EXTERNAL EMAIL: Do not click links or open attachments unless you know t=
+he content is safe
+>>
+>> On 2020/11/20 2:05, conor.dooley@microchip.com wrote:
+>>> From: Conor Dooley <conor.dooley@microchip.com>
+>>>
+>>> This driver adds support for the single mailbox channel of the MSS
+>>> system controller on the Microchip PolarFire SoC.
+>>>
+>>> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+>>> ---
+>>>  drivers/mailbox/Kconfig        |  12 ++
+>>>  drivers/mailbox/Makefile       |   2 +
+>>>  drivers/mailbox/mailbox-mpfs.c | 296 +++++++++++++++++++++++++++++++++
+>>>  3 files changed, 310 insertions(+)
+>>>  create mode 100644 drivers/mailbox/mailbox-mpfs.c
+>>>
+>>> diff --git a/drivers/mailbox/Kconfig b/drivers/mailbox/Kconfig
+>>> index 05b1009e2820..4881a519683a 100644
+>>> --- a/drivers/mailbox/Kconfig
+>>> +++ b/drivers/mailbox/Kconfig
+>>> @@ -153,6 +153,18 @@ config MAILBOX_TEST
+>>>         Test client to help with testing new Controller driver
+>>>         implementations.
+>>>
+>>> +config MPFS_MBOX
+>>> +     tristate "MPFS Mailbox"
+>>> +     depends on HAS_IOMEM
+>> Shouldn't this dependency be on SOC_MICROCHIP_POLARFIRE ?
+> Not entirely sure what you mean by this one. You want the HAS_IOMEM to be=
+ selected by SOC_MICROCHIP_POLARFIRE ?
 
-+1 here.
+Sorry, I was not clear. I was referring to MPFS_MBOX: shouldn't it be depen=
+dent
+on SOC_MICROCHIP_POLARFIRE ? E.g.:
 
-From what I understand it's not clear now how big typical secret areas will be.
-If there will be few 2Mb areas per container (like for storing some keys),
-IMO it doesn't justify adding a separate counter. If they will be measured
-in GBs, then we'll add it later.
+config MPFS_MBOX
+	tristate "MPFS Mailbox"
+	depends on HAS_IOMEM
+	depends on SOC_MICROCHIP_POLARFIRE
+	...
 
-Thanks!
+Since it will probably not make sense to compile the driver when the SoC su=
+pport
+is not selected. No ?
+
+>>
+>>> +     depends on SOC_MICROCHIP_POLARFIRE
+>>> +     help
+>>> +       This driver adds support for the Polarfire SoC mailbox controll=
+er.
+>>> +
+>>> +       To compile this driver as a module, choose M here. the
+>>> +       module will be called mailbox-mpfs.
+>>> +
+>>> +       If unsure, say Y.
+>>> +
+>>>  config QCOM_APCS_IPC
+>>>       tristate "Qualcomm APCS IPC driver"
+>>>       depends on ARCH_QCOM || COMPILE_TEST
+>>> diff --git a/drivers/mailbox/Makefile b/drivers/mailbox/Makefile
+>>> index 2e06e02b2e03..63f49b5bcc43 100644
+>>> --- a/drivers/mailbox/Makefile
+>>> +++ b/drivers/mailbox/Makefile
+>>> @@ -39,6 +39,8 @@ obj-$(CONFIG_BCM_PDC_MBOX)  +=3D bcm-pdc-mailbox.o
+>>>
+>>>  obj-$(CONFIG_BCM_FLEXRM_MBOX)        +=3D bcm-flexrm-mailbox.o
+>>>
+>>> +obj-$(CONFIG_MPFS_MBOX)      +=3D mailbox-mpfs.o
+>>> +
+>>>  obj-$(CONFIG_QCOM_APCS_IPC)  +=3D qcom-apcs-ipc-mailbox.o
+>>>
+>>>  obj-$(CONFIG_TEGRA_HSP_MBOX) +=3D tegra-hsp.o
+>>> diff --git a/drivers/mailbox/mailbox-mpfs.c b/drivers/mailbox/mailbox-m=
+pfs.c
+>>> new file mode 100644
+>>> index 000000000000..686ccd3317f9
+>>> --- /dev/null
+>>> +++ b/drivers/mailbox/mailbox-mpfs.c
+>>> @@ -0,0 +1,296 @@
+>>> +// SPDX-License-Identifier: GPL-2.0
+>>> +/*
+>>> + * Microchip MPFS system controller/mailbox controller driver
+>>> + *
+>>> + * Copyright (c) 2020 Microchip Corporation. All rights reserved.
+>>> + *
+>>> + * Author: Conor Dooley <conor.dooley@microchip.com>
+>>> + *
+>>> + */
+>>> +
+>>> +#include <linux/io.h>
+>>> +#include <linux/err.h>
+>>> +#include <linux/init.h>
+>>> +#include <linux/module.h>
+>>> +#include <linux/kernel.h>
+>>> +#include <linux/interrupt.h>
+>>> +#include <linux/platform_device.h>
+>>> +#include <linux/mailbox_controller.h>
+>>> +#include <soc/microchip/mpfs.h>
+>>> +
+>>> +#define SERVICES_CR_OFFSET                   0x50u
+>>> +#define SERVICES_SR_OFFSET                   0x54u
+>>> +#define MAILBOX_REG_OFFSET                   0x800u
+>>> +#define MSS_SYS_SUCCESS                              0u
+> trimmed, will address the rest in V2
+>> -- =
+
+>> Damien Le Moal
+>> Western Digital Research
+> =
+
+> =A0
+> =
+
+> =
+
+
+
+-- =
+
+Damien Le Moal
+Western Digital Research
 
 _______________________________________________
 linux-riscv mailing list
