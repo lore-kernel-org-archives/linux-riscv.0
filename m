@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-18.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C8BFAC71155
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Nov 2020 23:49:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2E7E7C64E90
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Nov 2020 23:49:41 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4D5EC207BB
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Nov 2020 23:49:39 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id B8B4B207BB
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Nov 2020 23:49:40 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="AaOmnVdT";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="TQik6YB7"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4D5EC207BB
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="RBwcl6u7";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="MoJKLSIf"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B8B4B207BB
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,67 +26,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=4hXXIYksm0Bf5/FBvGvsoGvqZ0vAo2TNPUplWnL7dq8=; b=AaOmnVdTIN+gCv5n9dPH5IH/4
-	M84XSePIh5kQLqLpNTWWntv35ColG+apx3tgR6CovzhntSHg2oMWr1PdzILSNYsWzQCqIPZ7Xy6Fu
-	u7F8tJzNxAl1BDWC3arL9/CtVlyEWYiy+PYA/qG4CDGYeMwTJriNdUcCW4sl3ZcmMTO/OgjWUdKUl
-	nt4UpYV2VHWgsR5w0+Uy8CstsUxDF+rcX6xogMootXaupUV/DWu8WUMBoKFcN0bPgJX2x3Ao+TZaF
-	YKBh1YbLb0/tgYAa02qiwPuzmROWV2raB55SZ9YlvBUQE/ga9hm1sUPNaljiHnAFJ51uUEgC2rPT1
-	6OKKWufzQ==;
+	 bh=AnVbVYto0ttRajv0sg/5cdek0qPvZUpiv2Z6DFiYSCQ=; b=RBwcl6u7pPGhrHX0gK5jc+zZ6
+	PkCxBVYtHc7nDx/WhE2ubNJg5tWdOEHVGgSnO2TqSXIV+bI+LiW5FoeCR0opfDL4CBqqSMtgg+DOW
+	WE0hD4xie0FaUoEU/75tLs78tBaIwHRql+LUMILa+gp9fidJcnGmpzxJJwNKSb/XlEly9WBi7GY/Z
+	xBXLE51jdGbB+NpN1Y6C9nGpaQN+S2N6gXiCqnV1mSdTs38lCooan8s24gh1YAKp444ieXgJEhId0
+	XiBEXs5uPwKrRL7524klV26y17mEHkbEmnvVVMcLp0el0jry0VYm2eSUm9Kfxnhvjp5QqViv2GvHk
+	49OyLMaAQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kjsvD-0003bn-CV; Mon, 30 Nov 2020 23:49:31 +0000
+	id 1kjsvE-0003cN-Dh; Mon, 30 Nov 2020 23:49:32 +0000
 Received: from esa6.hgst.iphmx.com ([216.71.154.45])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kjsuu-0003QO-8A
- for linux-riscv@lists.infradead.org; Mon, 30 Nov 2020 23:49:13 +0000
+ id 1kjsuv-0003QO-RL
+ for linux-riscv@lists.infradead.org; Mon, 30 Nov 2020 23:49:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1606780153; x=1638316153;
+ t=1606780154; x=1638316154;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=Rc2RSPnBRWY/myYpbOIzJhXLv/SU9F0BII0ZoItAbwA=;
- b=TQik6YB7A0xejy7okffzCrtuR4LSn1/gZi2df+MkT93zslexnRK8C0Hb
- 09vmjMum8bkAM4qM6l/N+mh9dpyrFamYUak/x9Y8bNsXZPf0OA17U1gZj
- UoUrKNR8EYc3/sQv9+gdzCTYaDA3IluHRFdz3+87xhZ0TR0ccBt9gpbIb
- 0lQHCQouErs0ivhxIi5ayAh05iNlwuD4rcvVmX3f8bUmJylfXzvjAKuA+
- y67D/zVRpKfwtImD8RLeHTRJUdEzQXYCXc3G/0FWes3SBQUiUNHbU+RRZ
- 4gIqSXVWLV47Sw5U9snL1hBQJ5lPso6Zd44M4QpDStcNdgUP/zfjMlziT A==;
-IronPort-SDR: tD1FTdlHB7Taiv2ulIOrLMHcnKNXYklQNlOgvwLsYd6E/XuLkVPnS6VmYCZZFYOjHVqy53WFEl
- mO0/QVLDUYW4j5zuMuxTIBX+XG/PKCZFz9UrmmxrWOquQLH5QXuEmmWp2Vg/9BSS1iXVOEK7c7
- XAK5qWPX5A+TTml0hzBISmxGkOZyYbgsg5sPAISA3aYvV28Yt1BmWt2euaSMLw1U6RhDgeGU1u
- rVuVwQcOgx+cZmd0fD2TtQLHTCrMCkGVCKkyN1b+0Y/6FfSnbHA1gJ1WeXTxZ0xXfVY1AKG9sO
- Lw0=
-X-IronPort-AV: E=Sophos;i="5.78,382,1599494400"; d="scan'208";a="155058380"
+ bh=1dP7+RVvtD0fNcGcuRcgQIeBe2zsNSk0araRxFvsAas=;
+ b=MoJKLSIfwEjBAi06RDKdahV9Q8ojlveFTZVG/VWT4st4u/nO5cqwt2JP
+ BmirLgXA4YV8/D6nBgoc7jpTwewNSyAr6eAmOJNjzIFTl6ZhFKi93E5DJ
+ IaPIoVWrktwCOpAQblO9rMGAQxzTDwRApYPC+cQEzjmq7/JXngUl8E0P5
+ hzc5iRIY1GeBDDZhiRBU8X4XeqxXdGk7TzcFTPxL1qvUGy3PDfuMZ7yqc
+ ZB3urwaQ0LY3mMwzTMQIbtkLSc6iDbxO5yT4Zyo2ScHOYVL0YZWCTXeIJ
+ 1BcfJiCfHvsyFEtiFQaPMg/W1FZ6oDwzth+kyNeTuci/u2ikADOfPEwMc A==;
+IronPort-SDR: F1vVyQ/to7dKHpfd8B3q4+wLH7B01LVZ31pF6OwAhX4qtxbF98nhmyBu/g46ig1rbG6amWleFC
+ IXgW47wcqCN/iAntgyqVY4DPWr5wqJXeja0cXRWpfxcL7pWBj8NVSTm02cdacXu8oCIKcTkJKb
+ 2rLI9al+tGB5zWh6dZRw3rUpvYUrtWiJQfZHHxIPjy7ZhRfpjMZma+jG/eztmcsUrMbmERALjn
+ +Wvg1e3F2nSMIAg05+gbNu2QkzfhaZfFCjpRhMohgiPp5ipFQPFJcX/24ynUqrXg8PN37wSaU0
+ l8c=
+X-IronPort-AV: E=Sophos;i="5.78,382,1599494400"; d="scan'208";a="155058388"
 Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 01 Dec 2020 07:49:12 +0800
-IronPort-SDR: +hHjbgdMxkI2ef4RIqQ4h0/SX00QzeTfCCtTTuYwS9pF6m9pHmX3fIx8fyGa+ZIB+PLSb17+rA
- 0T5uLyAjoeKW71VUy5ajN0KQnGXE3cZSI=
+ by ob1.hgst.iphmx.com with ESMTP; 01 Dec 2020 07:49:14 +0800
+IronPort-SDR: MyX/6WgnsJSnD9NVsLqwcyYnthVayCbZuQOf3awFA8ssTJplQq3XGVhZAR2FX/XO6KyGAFJD7c
+ XecsDuMZZkOR+hzSQYfG7iPUoV0fKJgnA=
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 30 Nov 2020 15:34:47 -0800
-IronPort-SDR: vMfGvY+/CPGMzjBUQmg7XxeUU1DJaHUIg3t+Nah7IsZ7sAkH1gntvBaCQT8HKDmgH88VC2QuI3
- Lq0zx5KElbhQ==
+ 30 Nov 2020 15:34:49 -0800
+IronPort-SDR: L8Cvr19RwTWmy+2zh/o7owV+PDuDtZiI0a59F34kiLuNZuS2jQxYPAxqEB0B4AI/JqVTSmXqkh
+ T41wcwZH4hIQ==
 WDCIronportException: Internal
 Received: from phd004834.ad.shared (HELO twashi.fujisawa.hgst.com)
  ([10.84.71.196])
- by uls-op-cesaip01.wdc.com with ESMTP; 30 Nov 2020 15:49:09 -0800
+ by uls-op-cesaip01.wdc.com with ESMTP; 30 Nov 2020 15:49:11 -0800
 From: Damien Le Moal <damien.lemoal@wdc.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
  Rob Herring <robh+dt@kernel.org>, devicetree@vger.kernel.org,
  Stephen Boyd <sboyd@kernel.org>, linux-clk@vger.kernel.org,
  Linus Walleij <linus.walleij@linaro.org>, linux-gpio@vger.kernel.org,
  Philipp Zabel <p.zabel@pengutronix.de>
-Subject: [PATCH v3 18/21] riscv: Add SiPeed MAIXDUINO board device tree
-Date: Tue,  1 Dec 2020 08:48:26 +0900
-Message-Id: <20201130234829.118298-19-damien.lemoal@wdc.com>
+Subject: [PATCH v3 19/21] riscv: Add Kendryte KD233 board device tree
+Date: Tue,  1 Dec 2020 08:48:27 +0900
+Message-Id: <20201130234829.118298-20-damien.lemoal@wdc.com>
 X-Mailer: git-send-email 2.28.0
 In-Reply-To: <20201130234829.118298-1-damien.lemoal@wdc.com>
 References: <20201130234829.118298-1-damien.lemoal@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201130_184912_523244_930116F5 
-X-CRM114-Status: GOOD (  17.25  )
+X-CRM114-CacheID: sfid-20201130_184914_076459_233D7E06 
+X-CRM114-Status: GOOD (  16.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -104,23 +104,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a device tree for the SiPeed MAIXDUINO board. This device tree
-enables LEDs and spi/mmc SD card device. Additionally, gpios and i2c
-are also enabled and mapped to the board header pins as indicated on
-the board itself.
+Add a device tree for the Canaan Kendryte KD233 development board.
+This device tree enables LEDs, some gpios and spi/mmc SD card device.
+The WS2812B RGB LED and the 10 position rotary dip switch present on
+the board are left undefined.
 
 Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
 ---
- arch/riscv/boot/dts/canaan/k210_maixduino.dts | 201 ++++++++++++++++++
- 1 file changed, 201 insertions(+)
- create mode 100644 arch/riscv/boot/dts/canaan/k210_maixduino.dts
+ arch/riscv/boot/dts/canaan/k210_kd233.dts | 178 ++++++++++++++++++++++
+ 1 file changed, 178 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/canaan/k210_kd233.dts
 
-diff --git a/arch/riscv/boot/dts/canaan/k210_maixduino.dts b/arch/riscv/boot/dts/canaan/k210_maixduino.dts
+diff --git a/arch/riscv/boot/dts/canaan/k210_kd233.dts b/arch/riscv/boot/dts/canaan/k210_kd233.dts
 new file mode 100644
-index 000000000000..681f12b46894
+index 000000000000..44852a27df93
 --- /dev/null
-+++ b/arch/riscv/boot/dts/canaan/k210_maixduino.dts
-@@ -0,0 +1,201 @@
++++ b/arch/riscv/boot/dts/canaan/k210_kd233.dts
+@@ -0,0 +1,178 @@
 +// SPDX-License-Identifier: GPL-2.0+
 +/*
 + * Copyright (C) 2019-20 Sean Anderson <seanga2@gmail.com>
@@ -135,21 +135,34 @@ index 000000000000..681f12b46894
 +#include <dt-bindings/input/input.h>
 +
 +/ {
-+	model = "SiPeed MAIXDUINO";
-+	compatible = "sipeed,maixduino", "canaan,kendryte-k210";
++	model = "Kendryte KD233";
++	compatible = "canaan,kendryte-kd233",
++		     "canaan,kendryte-k210";
 +
 +	chosen {
 +		bootargs = "earlycon console=ttySIF0";
 +		stdout-path = "serial0:115200n8";
 +	};
 +
++	gpio-leds {
++		compatible = "gpio-leds";
++
++		led0 {
++			gpios = <&gpio0 8 GPIO_ACTIVE_LOW>;
++		};
++
++		led1 {
++			gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
++		};
++	};
++
 +	gpio-keys {
 +		compatible = "gpio-keys";
 +
-+		boot {
-+			label = "BOOT";
++		key0 {
++			label = "KEY0";
 +			linux,code = <BTN_0>;
-+			gpios = <&gpio0 0 GPIO_ACTIVE_LOW>;
++			gpios = <&gpio0 10 GPIO_ACTIVE_LOW>;
 +		};
 +	};
 +
@@ -175,74 +188,61 @@ index 000000000000..681f12b46894
 +};
 +
 +&fpioa {
++	pinctrl-0 = <&jtag_pinctrl>;
++	pinctrl-names = "default";
 +	status = "okay";
 +
++	jtag_pinctrl: jtag-pinmux {
++		pinmux = <K210_FPIOA(0, K210_PCF_JTAG_TCLK)>,
++			 <K210_FPIOA(1, K210_PCF_JTAG_TDI)>,
++			 <K210_FPIOA(2, K210_PCF_JTAG_TMS)>,
++			 <K210_FPIOA(3, K210_PCF_JTAG_TDO)>;
++	};
++
 +	uarths_pinctrl: uarths-pinmux {
-+		pinmux = <K210_FPIOA(4, K210_PCF_UARTHS_RX)>, /* Header "0" */
-+			 <K210_FPIOA(5, K210_PCF_UARTHS_TX)>; /* Header "1" */
-+	};
-+
-+	gpio_pinctrl: gpio-pinmux {
-+		pinmux = <K210_FPIOA(8, K210_PCF_GPIO0)>,
-+			 <K210_FPIOA(9, K210_PCF_GPIO1)>;
-+	};
-+
-+	gpiohs_pinctrl: gpiohs-pinmux {
-+		pinmux = <K210_FPIOA(16, K210_PCF_GPIOHS0)>,  /* BOOT */
-+			 <K210_FPIOA(21, K210_PCF_GPIOHS2)>,  /* Header "2" */
-+			 <K210_FPIOA(22, K210_PCF_GPIOHS3)>,  /* Header "3" */
-+			 <K210_FPIOA(23, K210_PCF_GPIOHS4)>,  /* Header "4" */
-+			 <K210_FPIOA(24, K210_PCF_GPIOHS5)>,  /* Header "5" */
-+			 <K210_FPIOA(32, K210_PCF_GPIOHS6)>,  /* Header "6" */
-+			 <K210_FPIOA(15, K210_PCF_GPIOHS7)>,  /* Header "7" */
-+			 <K210_FPIOA(14, K210_PCF_GPIOHS8)>,  /* Header "8" */
-+			 <K210_FPIOA(13, K210_PCF_GPIOHS9)>,  /* Header "9" */
-+			 <K210_FPIOA(12, K210_PCF_GPIOHS10)>, /* Header "10" */
-+			 <K210_FPIOA(11, K210_PCF_GPIOHS11)>, /* Header "11" */
-+			 <K210_FPIOA(10, K210_PCF_GPIOHS12)>, /* Header "12" */
-+			 <K210_FPIOA(3,  K210_PCF_GPIOHS13)>; /* Header "13" */
-+	};
-+
-+	i2s0_pinctrl: i2s0-pinmux {
-+		pinmux = <K210_FPIOA(18, K210_PCF_I2S0_SCLK)>,
-+			 <K210_FPIOA(19, K210_PCF_I2S0_WS)>,
-+			 <K210_FPIOA(20, K210_PCF_I2S0_IN_D0)>;
-+	};
-+
-+	spi1_pinctrl: spi1-pinmux {
-+		pinmux = <K210_FPIOA(26, K210_PCF_SPI1_D1)>,
-+			 <K210_FPIOA(27, K210_PCF_SPI1_SCLK)>,
-+			 <K210_FPIOA(28, K210_PCF_SPI1_D0)>,
-+			 <K210_FPIOA(29, K210_PCF_GPIO2)>; /* cs */
-+	};
-+
-+	i2c1_pinctrl: i2c1-pinmux {
-+		pinmux = <K210_FPIOA(30, K210_PCF_I2C1_SCLK)>, /* Header "scl" */
-+			 <K210_FPIOA(31, K210_PCF_I2C1_SDA)>;  /* Header "sda" */
-+	};
-+
-+	i2s1_pinctrl: i2s1-pinmux {
-+		pinmux = <K210_FPIOA(33, K210_PCF_I2S1_WS)>,
-+			 <K210_FPIOA(34, K210_PCF_I2S1_IN_D0)>,
-+			 <K210_FPIOA(35, K210_PCF_I2S1_SCLK)>;
++		pinmux = <K210_FPIOA(4, K210_PCF_UARTHS_RX)>,
++			 <K210_FPIOA(5, K210_PCF_UARTHS_TX)>;
 +	};
 +
 +	spi0_pinctrl: spi0-pinmux {
-+		pinmux = <K210_FPIOA(36, K210_PCF_GPIOHS20)>,  /* cs */
-+			 <K210_FPIOA(37, K210_PCF_GPIOHS21)>,  /* rst */
-+			 <K210_FPIOA(38, K210_PCF_GPIOHS22)>,  /* dc */
-+			 <K210_FPIOA(39, K210_PCF_SPI0_SCLK)>; /* wr */
++		pinmux = <K210_FPIOA(6, K210_PCF_GPIOHS20)>,  /* cs */
++			 <K210_FPIOA(7, K210_PCF_SPI0_SCLK)>, /* wr */
++			 <K210_FPIOA(8, K210_PCF_GPIOHS21)>;  /* dc */
 +	};
 +
 +	dvp_pinctrl: dvp-pinmux {
-+		pinmux = <K210_FPIOA(40, K210_PCF_SCCB_SDA)>,
-+			 <K210_FPIOA(41, K210_PCF_SCCB_SCLK)>,
-+			 <K210_FPIOA(42, K210_PCF_DVP_RST)>,
-+			 <K210_FPIOA(43, K210_PCF_DVP_VSYNC)>,
-+			 <K210_FPIOA(44, K210_PCF_DVP_PWDN)>,
-+			 <K210_FPIOA(45, K210_PCF_DVP_HSYNC)>,
-+			 <K210_FPIOA(46, K210_PCF_DVP_XCLK)>,
-+			 <K210_FPIOA(47, K210_PCF_DVP_PCLK)>;
++		pinmux = <K210_FPIOA(9, K210_PCF_SCCB_SCLK)>,
++			 <K210_FPIOA(10, K210_PCF_SCCB_SDA)>,
++			 <K210_FPIOA(11, K210_PCF_DVP_RST)>,
++			 <K210_FPIOA(12, K210_PCF_DVP_VSYNC)>,
++			 <K210_FPIOA(13, K210_PCF_DVP_PWDN)>,
++			 <K210_FPIOA(14, K210_PCF_DVP_XCLK)>,
++			 <K210_FPIOA(15, K210_PCF_DVP_PCLK)>,
++			 <K210_FPIOA(17, K210_PCF_DVP_HSYNC)>;
++	};
++
++	gpiohs_pinctrl: gpiohs-pinmux {
++		pinmux = <K210_FPIOA(16, K210_PCF_GPIOHS0)>,
++			 <K210_FPIOA(20, K210_PCF_GPIOHS4)>, /* Rot. dip sw line 8 */
++			 <K210_FPIOA(21, K210_PCF_GPIOHS5)>, /* Rot. dip sw line 4 */
++			 <K210_FPIOA(22, K210_PCF_GPIOHS6)>, /* Rot. dip sw line 2 */
++			 <K210_FPIOA(23, K210_PCF_GPIOHS7)>, /* Rot. dip sw line 1 */
++			 <K210_FPIOA(24, K210_PCF_GPIOHS8)>,
++			 <K210_FPIOA(25, K210_PCF_GPIOHS9)>,
++			 <K210_FPIOA(26, K210_PCF_GPIOHS10)>;
++	};
++
++	spi1_pinctrl: spi1-pinmux {
++		pinmux = <K210_FPIOA(29, K210_PCF_SPI1_SCLK)>,
++			 <K210_FPIOA(30, K210_PCF_SPI1_D0)>,
++			 <K210_FPIOA(31, K210_PCF_SPI1_D1)>,
++			 <K210_FPIOA(32, K210_PCF_GPIOHS16)>; /* cs */
++	};
++
++	i2s0_pinctrl: i2s0-pinmux {
++		pinmux = <K210_FPIOA(33, K210_PCF_I2S0_IN_D0)>,
++			 <K210_FPIOA(34, K210_PCF_I2S0_WS)>,
++			 <K210_FPIOA(35, K210_PCF_I2S0_SCLK)>;
 +	};
 +};
 +
@@ -258,23 +258,10 @@ index 000000000000..681f12b46894
 +	status = "okay";
 +};
 +
-+&gpio1 {
-+	pinctrl-0 = <&gpio_pinctrl>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
 +&i2s0 {
 +	#sound-dai-cells = <1>;
 +	pinctrl-0 = <&i2s0_pinctrl>;
 +	pinctrl-names = "default";
-+};
-+
-+&i2c1 {
-+	pinctrl-0 = <&i2c1_pinctrl>;
-+	pinctrl-names = "default";
-+	clock-frequency = <400000>;
-+	status = "okay";
 +};
 +
 +&dvp0 {
@@ -289,11 +276,11 @@ index 000000000000..681f12b46894
 +	cs-gpios = <&gpio0 20 GPIO_ACTIVE_HIGH>;
 +
 +	panel@0 {
-+		compatible = "sitronix,st7789v";
++		compatible = "ilitek,ili9341";
 +		reg = <0>;
-+		reset-gpios = <&gpio0 21 GPIO_ACTIVE_LOW>;
-+		dc-gpios = <&gpio0 22 0>;
++		dc-gpios = <&gpio0 21 GPIO_ACTIVE_HIGH>;
 +		spi-max-frequency = <15000000>;
++		status = "disabled";
 +	};
 +};
 +
@@ -301,7 +288,7 @@ index 000000000000..681f12b46894
 +	pinctrl-0 = <&spi1_pinctrl>;
 +	pinctrl-names = "default";
 +	num-cs = <1>;
-+	cs-gpios = <&gpio1_0 2 GPIO_ACTIVE_LOW>;
++	cs-gpios = <&gpio0 16 GPIO_ACTIVE_LOW>;
 +	status = "okay";
 +
 +	slot@0 {
@@ -310,16 +297,6 @@ index 000000000000..681f12b46894
 +		voltage-ranges = <3300 3300>;
 +		spi-max-frequency = <25000000>;
 +		broken-cd;
-+	};
-+};
-+
-+&spi3 {
-+	spi-flash@0 {
-+		compatible = "jedec,spi-nor";
-+		reg = <0>;
-+		spi-max-frequency = <50000000>;
-+		m25p,fast-read;
-+		broken-flash-reset;
 +	};
 +};
 -- 
