@@ -2,70 +2,79 @@ Return-Path: <SRS0=EtLq=FE=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-18.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-12.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
+	SPF_HELO_NONE,SPF_PASS,UNWANTED_LANGUAGE_BODY,URIBL_BLOCKED autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 60DFBC64E7B
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Nov 2020 15:37:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B9F6CC63777
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Nov 2020 16:39:30 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D5096207F7
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Nov 2020 15:37:17 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 45C3C206F9
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Nov 2020 16:39:30 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="aHSqjw1L";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="TRWg1GIg"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D5096207F7
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="KB/GGmAV"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 45C3C206F9
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=/rHh6/15Nlw3UdhxVc4WH1qCEIwWR6+4SgP7l4y7E1s=; b=aHSqjw1L9BYv3y5CpgZUUjTHQ
-	rbp/P5ToTrXMGqx/X+DP3EWbywq8N67H8ZxW8vy3OiN8kvLLJ+udQmZget3yGfpPdmeoeCOvi1Nnj
-	inCJsj7r18s11MCSCdy6ha9zaaso+T8TxwqbaamUqqAI9NtLgIXddJ/WvoPLgwXX/lngNGMWdEKZA
-	LRtQOM7ob/kyEdNn5Iw4A3MFa6eWyPpGhLYapxaD82s5sDR2b/hXk++gPUtptBvT9+DV1DVl2e0pS
-	kTNd3dVu71vzvXKhr/4ZpbDawMIRGKxUYD9Wt/j09AS1AMK48fLn1zMUxMsIOQrLLlMMpkkzv9VXY
-	k6FkGajRw==;
+	 bh=f7fncF73V+Q8Lqezy/bkQamW4pclwb5L0VjbPnNZ9eY=; b=KB/GGmAV4zG3Gkp1/FNMcqxBw
+	rUHUnQsWb0ILr3OxpbJw8+ZQtW+ywgN2ZG/Ps5YUbNkPmEYKpqvLqDPNSAa4qY4jiF0Oy+aZCU1Dz
+	R5YfwbpS+ZboA93RG+g2jnEaU0a4d6Q7D+ji5jaD7S2BdRCNkKw0LrMO2z2778EWhXbgfRBTdXzkG
+	NRgX/Zkdqiqvsa9wz6BJH5/0Dr1TmayxgbsbYRW1/tCYHUQbvOW+N7zAYoY4cUb/XHvARZT1iN1yR
+	ar/QEiAviVzrJPaqygXvgl0QQgmrQFPodd9JMQGOKDSBlTjfPb7eoNzsBxP3kykD5Da0QQg6c7uIa
+	Cz3sswjqA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kjlEj-0000xq-EN; Mon, 30 Nov 2020 15:37:09 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1kjmCw-0004HV-9p; Mon, 30 Nov 2020 16:39:22 +0000
+Received: from mail-il1-f193.google.com ([209.85.166.193])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kjlEN-0000qQ-4h; Mon, 30 Nov 2020 15:36:50 +0000
-Received: from mail.kernel.org (ip5f5ad5b3.dynamic.kabel-deutschland.de
- [95.90.213.179])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 2E293208FE;
- Mon, 30 Nov 2020 15:36:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1606750605;
- bh=0DZIgPt81ePJ9MlFFkPWiF0x1oIC/jHfOBLqtU2LcVQ=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=TRWg1GIgqep5FzBHzkhpbCADpinxgS3ZjWHDVNibMKTRwXUJQmJyz7Cx5qxuqtlb0
- C1IRZBGOAVGVeXjpV5tj7szk81cPRFjh/SC/zJkd+dJOYYH5AisFE3uHGXVbuxprSq
- xv247OkjYg7f0ThknaQ0sapQBHmSRChC6tg3L3Jw=
-Received: from mchehab by mail.kernel.org with local (Exim 4.94)
- (envelope-from <mchehab@kernel.org>)
- id 1kjlEI-00CjvU-Hk; Mon, 30 Nov 2020 16:36:42 +0100
-From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-To: Linux Doc Mailing List <linux-doc@vger.kernel.org>
-Subject: [PATCH 6/6] docs: archis: add a per-architecture features list
-Date: Mon, 30 Nov 2020 16:36:35 +0100
-Message-Id: <9c39d4dd93e05c0008205527d2c3450912f029ed.1606748711.git.mchehab+huawei@kernel.org>
-X-Mailer: git-send-email 2.28.0
-In-Reply-To: <cover.1606748711.git.mchehab+huawei@kernel.org>
-References: <cover.1606748711.git.mchehab+huawei@kernel.org>
+ id 1kjmCu-0004Gb-2D
+ for linux-riscv@lists.infradead.org; Mon, 30 Nov 2020 16:39:21 +0000
+Received: by mail-il1-f193.google.com with SMTP id v3so11896107ilo.5
+ for <linux-riscv@lists.infradead.org>; Mon, 30 Nov 2020 08:39:19 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=GxbcPm40Z/OfvA3tX+RN9PfY6ghzBrA55YxrDnO7ysY=;
+ b=gh7j6tqhX604oN80pWpwrnWJd9LxhEClenH8GGiSNHr1YBY635RdVJysfxnyOwhY5r
+ rEjscpXEQNORW3hxuknag5T08HC1WrsdNBpyOxvRtM3NvWQtgY+2QFN5mJpkYBg6Cr13
+ F1eBB70LfPSxgqaqLhJNv8wVFbG9l8cuFH0xWOIinoEIi2TAR0RV5nYGW2kwwmVv6SWy
+ aV2lzK4MZw/SXZ5qcKluazBCqDaTDjmjIfgCYfMNBK8XtjqdHVeVaHvhHE/P3hrvkZ/M
+ PT5B4Wp+aIVEk3/QF5YdnE2zQDqNpudZdO0dwxFYLy+IzQAvN6alKKkJmBiaEUb3Rbk7
+ jVag==
+X-Gm-Message-State: AOAM532P/HyWpG6N4MPI0B/tJsjeGDMmnBuWKNtvKtw3EOm/YDyxenKQ
+ aHId3Wo15BOCgfyA6vNJXw==
+X-Google-Smtp-Source: ABdhPJzY9MzktBK1OkYtWSDkzwOcRYCFt2VHyLCC7bUEJXijT3EkfPx6av4RZ3T4OMflXGgu5ppcjw==
+X-Received: by 2002:a92:607:: with SMTP id x7mr18906592ilg.34.1606754358863;
+ Mon, 30 Nov 2020 08:39:18 -0800 (PST)
+Received: from xps15 ([64.188.179.253])
+ by smtp.gmail.com with ESMTPSA id b9sm4311464iok.20.2020.11.30.08.39.16
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 30 Nov 2020 08:39:18 -0800 (PST)
+Received: (nullmailer pid 2593543 invoked by uid 1000);
+ Mon, 30 Nov 2020 16:39:15 -0000
+Date: Mon, 30 Nov 2020 09:39:15 -0700
+From: Rob Herring <robh@kernel.org>
+To: Damien Le Moal <damien.lemoal@wdc.com>
+Subject: Re: [PATCH v2 09/21] dt-bindings: Document canaan, k210-fpioa bindings
+Message-ID: <20201130163915.GA2593105@robh.at.kernel.org>
+References: <20201124043728.199852-1-damien.lemoal@wdc.com>
+ <20201124043728.199852-10-damien.lemoal@wdc.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20201124043728.199852-10-damien.lemoal@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201130_103647_381205_EEFBD6A3 
-X-CRM114-Status: GOOD (  18.69  )
+X-CRM114-CacheID: sfid-20201130_113920_142390_CD81609B 
+X-CRM114-Status: GOOD (  15.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -77,414 +86,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rich Felker <dalias@libc.org>, linux-ia64@vger.kernel.org,
- linux-sh@vger.kernel.org, Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- linux-mips@vger.kernel.org,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Paul Mackerras <paulus@samba.org>, "H. Peter Anvin" <hpa@zytor.com>,
- linux-riscv@lists.infradead.org, Will Deacon <will@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>, Jonas Bonn <jonas@southpole.se>,
- linux-s390@vger.kernel.org, Yoshinori Sato <ysato@users.sourceforge.jp>,
- Jonathan Corbet <corbet@lwn.net>,
- Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
- Michael Ellerman <mpe@ellerman.id.au>, Helge Deller <deller@gmx.de>,
- x86@kernel.org, Christian Borntraeger <borntraeger@de.ibm.com>,
- Ingo Molnar <mingo@redhat.com>, Catalin Marinas <catalin.marinas@arm.com>,
- Fenghua Yu <fenghua.yu@intel.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Vasily Gorbik <gor@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>,
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
- Tony Luck <tony.luck@intel.com>, Borislav Petkov <bp@alien8.de>,
- Paul Walmsley <paul.walmsley@sifive.com>, Stafford Horne <shorne@gmail.com>,
- linux-arm-kernel@lists.infradead.org,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, linux-parisc@vger.kernel.org,
- Andrew Cooper <andrew.cooper3@citrix.com>, linux-kernel@vger.kernel.org,
- openrisc@lists.librecores.org, Palmer Dabbelt <palmer@dabbelt.com>,
- linuxppc-dev@lists.ozlabs.org
+Cc: devicetree@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>, Sean Anderson <seanga2@gmail.com>,
+ linux-gpio@vger.kernel.org, Rob Herring <robh+dt@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a feature list matrix for each architecture to their
-respective Kernel books.
+On Tue, 24 Nov 2020 13:37:16 +0900, Damien Le Moal wrote:
+> Document the device tree bindings for the Canaan Kendryte K210 SoC
+> Fully Programmable IO Array (FPIOA) pinctrl driver in
+> Documentation/devicetree/bindings/pinctrl/canaan,k210-fpioa.yaml. The
+> new header file include/dt-bindings/pinctrl/k210-fpioa.h is added to
+> define all 256 possible pin functions of the SoC IO pins, as well as
+> macros simplifying the definition of pin functions in a device tree.
+> 
+> Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
+> ---
+>  .../bindings/pinctrl/canaan,k210-fpioa.yaml   | 165 +++++++++++
+>  include/dt-bindings/pinctrl/k210-fpioa.h      | 276 ++++++++++++++++++
+>  2 files changed, 441 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pinctrl/canaan,k210-fpioa.yaml
+>  create mode 100644 include/dt-bindings/pinctrl/k210-fpioa.h
+> 
 
-Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
----
- Documentation/arm/features.rst      |  3 +++
- Documentation/arm/index.rst         |  2 ++
- Documentation/arm64/features.rst    |  3 +++
- Documentation/arm64/index.rst       |  2 ++
- Documentation/ia64/features.rst     |  3 +++
- Documentation/ia64/index.rst        |  2 ++
- Documentation/index.rst             |  2 +-
- Documentation/m68k/features.rst     |  3 +++
- Documentation/m68k/index.rst        |  2 ++
- Documentation/mips/features.rst     |  3 +++
- Documentation/mips/index.rst        |  2 ++
- Documentation/nios2/index.rst       | 12 ++++++++++++
- Documentation/openrisc/features.rst |  3 +++
- Documentation/openrisc/index.rst    |  2 ++
- Documentation/parisc/features.rst   |  3 +++
- Documentation/parisc/index.rst      |  2 ++
- Documentation/powerpc/features.rst  |  3 +++
- Documentation/powerpc/index.rst     |  2 ++
- Documentation/riscv/features.rst    |  3 +++
- Documentation/riscv/index.rst       |  2 ++
- Documentation/s390/features.rst     |  3 +++
- Documentation/s390/index.rst        |  2 ++
- Documentation/sh/features.rst       |  3 +++
- Documentation/sh/index.rst          |  2 ++
- Documentation/sparc/features.rst    |  3 +++
- Documentation/sparc/index.rst       |  2 ++
- Documentation/x86/features.rst      |  3 +++
- Documentation/x86/index.rst         |  1 +
- Documentation/xtensa/features.rst   |  3 +++
- Documentation/xtensa/index.rst      |  2 ++
- 30 files changed, 82 insertions(+), 1 deletion(-)
- create mode 100644 Documentation/arm/features.rst
- create mode 100644 Documentation/arm64/features.rst
- create mode 100644 Documentation/ia64/features.rst
- create mode 100644 Documentation/m68k/features.rst
- create mode 100644 Documentation/mips/features.rst
- create mode 100644 Documentation/nios2/index.rst
- create mode 100644 Documentation/openrisc/features.rst
- create mode 100644 Documentation/parisc/features.rst
- create mode 100644 Documentation/powerpc/features.rst
- create mode 100644 Documentation/riscv/features.rst
- create mode 100644 Documentation/s390/features.rst
- create mode 100644 Documentation/sh/features.rst
- create mode 100644 Documentation/sparc/features.rst
- create mode 100644 Documentation/x86/features.rst
- create mode 100644 Documentation/xtensa/features.rst
 
-diff --git a/Documentation/arm/features.rst b/Documentation/arm/features.rst
-new file mode 100644
-index 000000000000..7414ec03dd15
---- /dev/null
-+++ b/Documentation/arm/features.rst
-@@ -0,0 +1,3 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+.. kernel-feat:: $srctree/Documentation/features arm
-diff --git a/Documentation/arm/index.rst b/Documentation/arm/index.rst
-index 5fc072dd0c5e..a2e9e1bba7b9 100644
---- a/Documentation/arm/index.rst
-+++ b/Documentation/arm/index.rst
-@@ -23,6 +23,8 @@ ARM Architecture
-    vlocks
-    porting
- 
-+   features
-+
- SoC-specific documents
- ======================
- 
-diff --git a/Documentation/arm64/features.rst b/Documentation/arm64/features.rst
-new file mode 100644
-index 000000000000..dfa4cb3cd3ef
---- /dev/null
-+++ b/Documentation/arm64/features.rst
-@@ -0,0 +1,3 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+.. kernel-feat:: $srctree/Documentation/features arm64
-diff --git a/Documentation/arm64/index.rst b/Documentation/arm64/index.rst
-index 937634c49979..97d65ba12a35 100644
---- a/Documentation/arm64/index.rst
-+++ b/Documentation/arm64/index.rst
-@@ -24,6 +24,8 @@ ARM64 Architecture
-     tagged-address-abi
-     tagged-pointers
- 
-+    features
-+
- .. only::  subproject and html
- 
-    Indices
-diff --git a/Documentation/ia64/features.rst b/Documentation/ia64/features.rst
-new file mode 100644
-index 000000000000..d7226fdcf5f8
---- /dev/null
-+++ b/Documentation/ia64/features.rst
-@@ -0,0 +1,3 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+.. kernel-feat:: $srctree/Documentation/features ia64
-diff --git a/Documentation/ia64/index.rst b/Documentation/ia64/index.rst
-index 4bdfe28067ee..761f2154dfa2 100644
---- a/Documentation/ia64/index.rst
-+++ b/Documentation/ia64/index.rst
-@@ -15,3 +15,5 @@ IA-64 Architecture
-    irq-redir
-    mca
-    serial
-+
-+   features
-diff --git a/Documentation/index.rst b/Documentation/index.rst
-index 57719744774c..5888e8a7272f 100644
---- a/Documentation/index.rst
-+++ b/Documentation/index.rst
-@@ -160,7 +160,7 @@ implementation.
-    ia64/index
-    m68k/index
-    mips/index
--   nios2/nios2
-+   nios2/index
-    openrisc/index
-    parisc/index
-    powerpc/index
-diff --git a/Documentation/m68k/features.rst b/Documentation/m68k/features.rst
-new file mode 100644
-index 000000000000..5107a2119472
---- /dev/null
-+++ b/Documentation/m68k/features.rst
-@@ -0,0 +1,3 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+.. kernel-feat:: $srctree/Documentation/features m68k
-diff --git a/Documentation/m68k/index.rst b/Documentation/m68k/index.rst
-index b89cb6a86d9b..0f890dbb5fe2 100644
---- a/Documentation/m68k/index.rst
-+++ b/Documentation/m68k/index.rst
-@@ -10,6 +10,8 @@ m68k Architecture
-    kernel-options
-    buddha-driver
- 
-+   features
-+
- .. only::  subproject and html
- 
-    Indices
-diff --git a/Documentation/mips/features.rst b/Documentation/mips/features.rst
-new file mode 100644
-index 000000000000..1973d729b29a
---- /dev/null
-+++ b/Documentation/mips/features.rst
-@@ -0,0 +1,3 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+.. kernel-feat:: $srctree/Documentation/features mips
-diff --git a/Documentation/mips/index.rst b/Documentation/mips/index.rst
-index 35cceea4e8bc..037f85a08fe3 100644
---- a/Documentation/mips/index.rst
-+++ b/Documentation/mips/index.rst
-@@ -11,6 +11,8 @@ MIPS-specific Documentation
-    booting
-    ingenic-tcu
- 
-+   features
-+
- .. only::  subproject and html
- 
-    Indices
-diff --git a/Documentation/nios2/index.rst b/Documentation/nios2/index.rst
-new file mode 100644
-index 000000000000..4468fe1a1037
---- /dev/null
-+++ b/Documentation/nios2/index.rst
-@@ -0,0 +1,12 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+==============================
-+Nios II Specific Documentation
-+==============================
-+
-+.. toctree::
-+   :maxdepth: 2
-+   :numbered:
-+
-+   nios2
-+   features
-diff --git a/Documentation/openrisc/features.rst b/Documentation/openrisc/features.rst
-new file mode 100644
-index 000000000000..3f7c40d219f2
---- /dev/null
-+++ b/Documentation/openrisc/features.rst
-@@ -0,0 +1,3 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+.. kernel-feat:: $srctree/Documentation/features openrisc
-diff --git a/Documentation/openrisc/index.rst b/Documentation/openrisc/index.rst
-index 748b3eea1707..6879f998b87a 100644
---- a/Documentation/openrisc/index.rst
-+++ b/Documentation/openrisc/index.rst
-@@ -10,6 +10,8 @@ OpenRISC Architecture
-    openrisc_port
-    todo
- 
-+   features
-+
- .. only::  subproject and html
- 
-    Indices
-diff --git a/Documentation/parisc/features.rst b/Documentation/parisc/features.rst
-new file mode 100644
-index 000000000000..501d7c450037
---- /dev/null
-+++ b/Documentation/parisc/features.rst
-@@ -0,0 +1,3 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+.. kernel-feat:: $srctree/Documentation/features parisc
-diff --git a/Documentation/parisc/index.rst b/Documentation/parisc/index.rst
-index aa3ee0470425..240685751825 100644
---- a/Documentation/parisc/index.rst
-+++ b/Documentation/parisc/index.rst
-@@ -10,6 +10,8 @@ PA-RISC Architecture
-    debugging
-    registers
- 
-+   features
-+
- .. only::  subproject and html
- 
-    Indices
-diff --git a/Documentation/powerpc/features.rst b/Documentation/powerpc/features.rst
-new file mode 100644
-index 000000000000..aeae73df86b0
---- /dev/null
-+++ b/Documentation/powerpc/features.rst
-@@ -0,0 +1,3 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+.. kernel-feat:: $srctree/Documentation/features powerpc
-diff --git a/Documentation/powerpc/index.rst b/Documentation/powerpc/index.rst
-index 6ec64b0d5257..bf5f1a2bdbdf 100644
---- a/Documentation/powerpc/index.rst
-+++ b/Documentation/powerpc/index.rst
-@@ -34,6 +34,8 @@ powerpc
-     vas-api
-     vcpudispatch_stats
- 
-+    features
-+
- .. only::  subproject and html
- 
-    Indices
-diff --git a/Documentation/riscv/features.rst b/Documentation/riscv/features.rst
-new file mode 100644
-index 000000000000..c70ef6ac2368
---- /dev/null
-+++ b/Documentation/riscv/features.rst
-@@ -0,0 +1,3 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+.. kernel-feat:: $srctree/Documentation/features riscv
-diff --git a/Documentation/riscv/index.rst b/Documentation/riscv/index.rst
-index fa33bffd8992..6e6e39482502 100644
---- a/Documentation/riscv/index.rst
-+++ b/Documentation/riscv/index.rst
-@@ -9,6 +9,8 @@ RISC-V architecture
-     pmu
-     patch-acceptance
- 
-+    features
-+
- .. only::  subproject and html
- 
-    Indices
-diff --git a/Documentation/s390/features.rst b/Documentation/s390/features.rst
-new file mode 100644
-index 000000000000..57c296a9d8f3
---- /dev/null
-+++ b/Documentation/s390/features.rst
-@@ -0,0 +1,3 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+.. kernel-feat:: $srctree/Documentation/features s390
-diff --git a/Documentation/s390/index.rst b/Documentation/s390/index.rst
-index cf71df5776b4..b10ca9192557 100644
---- a/Documentation/s390/index.rst
-+++ b/Documentation/s390/index.rst
-@@ -19,6 +19,8 @@ s390 Architecture
- 
-     text_files
- 
-+    features
-+
- .. only::  subproject and html
- 
-    Indices
-diff --git a/Documentation/sh/features.rst b/Documentation/sh/features.rst
-new file mode 100644
-index 000000000000..f722af3b6c99
---- /dev/null
-+++ b/Documentation/sh/features.rst
-@@ -0,0 +1,3 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+.. kernel-feat:: $srctree/Documentation/features sh
-diff --git a/Documentation/sh/index.rst b/Documentation/sh/index.rst
-index 7b9a79a28167..c64776738cf6 100644
---- a/Documentation/sh/index.rst
-+++ b/Documentation/sh/index.rst
-@@ -11,6 +11,8 @@ SuperH Interfaces Guide
-     new-machine
-     register-banks
- 
-+    features
-+
- Memory Management
- =================
- 
-diff --git a/Documentation/sparc/features.rst b/Documentation/sparc/features.rst
-new file mode 100644
-index 000000000000..c0c92468b0fe
---- /dev/null
-+++ b/Documentation/sparc/features.rst
-@@ -0,0 +1,3 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+.. kernel-feat:: $srctree/Documentation/features sparc
-diff --git a/Documentation/sparc/index.rst b/Documentation/sparc/index.rst
-index 71cff621f243..ae884224eec2 100644
---- a/Documentation/sparc/index.rst
-+++ b/Documentation/sparc/index.rst
-@@ -9,3 +9,5 @@ Sparc Architecture
-    adi
- 
-    oradax/oracle-dax
-+
-+   features
-diff --git a/Documentation/x86/features.rst b/Documentation/x86/features.rst
-new file mode 100644
-index 000000000000..b663f15053ce
---- /dev/null
-+++ b/Documentation/x86/features.rst
-@@ -0,0 +1,3 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+.. kernel-feat:: $srctree/Documentation/features x86
-diff --git a/Documentation/x86/index.rst b/Documentation/x86/index.rst
-index b224d12c880b..b4fcb6f258b2 100644
---- a/Documentation/x86/index.rst
-+++ b/Documentation/x86/index.rst
-@@ -33,3 +33,4 @@ x86-specific Documentation
-    i386/index
-    x86_64/index
-    sva
-+   features
-diff --git a/Documentation/xtensa/features.rst b/Documentation/xtensa/features.rst
-new file mode 100644
-index 000000000000..6b92c7bfa19d
---- /dev/null
-+++ b/Documentation/xtensa/features.rst
-@@ -0,0 +1,3 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+.. kernel-feat:: $srctree/Documentation/features xtensa
-diff --git a/Documentation/xtensa/index.rst b/Documentation/xtensa/index.rst
-index 52fa04eb39a3..69952446a9be 100644
---- a/Documentation/xtensa/index.rst
-+++ b/Documentation/xtensa/index.rst
-@@ -10,3 +10,5 @@ Xtensa Architecture
-    atomctl
-    booting
-    mmu
-+
-+   features
--- 
-2.28.0
+My bot found errors running 'make dt_binding_check' on your patch:
+
+yamllint warnings/errors:
+./Documentation/devicetree/bindings/pinctrl/canaan,k210-fpioa.yaml:59:1: [error] syntax error: found character '\t' that cannot start any token (syntax)
+
+dtschema/dtc warnings/errors:
+Traceback (most recent call last):
+  File "/usr/local/bin/dt-extract-example", line 45, in <module>
+    binding = yaml.load(open(args.yamlfile, encoding='utf-8').read())
+  File "/usr/local/lib/python3.8/dist-packages/ruamel/yaml/main.py", line 343, in load
+    return constructor.get_single_data()
+  File "/usr/local/lib/python3.8/dist-packages/ruamel/yaml/constructor.py", line 111, in get_single_data
+    node = self.composer.get_single_node()
+  File "_ruamel_yaml.pyx", line 706, in _ruamel_yaml.CParser.get_single_node
+  File "_ruamel_yaml.pyx", line 724, in _ruamel_yaml.CParser._compose_document
+  File "_ruamel_yaml.pyx", line 775, in _ruamel_yaml.CParser._compose_node
+  File "_ruamel_yaml.pyx", line 889, in _ruamel_yaml.CParser._compose_mapping_node
+  File "_ruamel_yaml.pyx", line 775, in _ruamel_yaml.CParser._compose_node
+  File "_ruamel_yaml.pyx", line 889, in _ruamel_yaml.CParser._compose_mapping_node
+  File "_ruamel_yaml.pyx", line 775, in _ruamel_yaml.CParser._compose_node
+  File "_ruamel_yaml.pyx", line 889, in _ruamel_yaml.CParser._compose_mapping_node
+  File "_ruamel_yaml.pyx", line 775, in _ruamel_yaml.CParser._compose_node
+  File "_ruamel_yaml.pyx", line 889, in _ruamel_yaml.CParser._compose_mapping_node
+  File "_ruamel_yaml.pyx", line 775, in _ruamel_yaml.CParser._compose_node
+  File "_ruamel_yaml.pyx", line 889, in _ruamel_yaml.CParser._compose_mapping_node
+  File "_ruamel_yaml.pyx", line 731, in _ruamel_yaml.CParser._compose_node
+  File "_ruamel_yaml.pyx", line 904, in _ruamel_yaml.CParser._parse_next_event
+ruamel.yaml.scanner.ScannerError: while scanning a plain scalar
+  in "<unicode string>", line 58, column 11
+found a tab character that violates indentation
+  in "<unicode string>", line 59, column 1
+make[1]: *** [Documentation/devicetree/bindings/Makefile:20: Documentation/devicetree/bindings/pinctrl/canaan,k210-fpioa.example.dts] Error 1
+make[1]: *** Deleting file 'Documentation/devicetree/bindings/pinctrl/canaan,k210-fpioa.example.dts'
+make[1]: *** Waiting for unfinished jobs....
+make[1]: *** [Documentation/devicetree/bindings/Makefile:59: Documentation/devicetree/bindings/processed-schema-examples.json] Error 123
+make: *** [Makefile:1364: dt_binding_check] Error 2
+
+
+See https://patchwork.ozlabs.org/patch/1405241
+
+The base for the patch is generally the last rc1. Any dependencies
+should be noted.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit.
 
 
 _______________________________________________
