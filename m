@@ -1,84 +1,90 @@
-Return-Path: <SRS0=QNeR=FD=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=EtLq=FE=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-0.7 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B0F32C3E8C5
-	for <linux-riscv@archiver.kernel.org>; Sun, 29 Nov 2020 22:11:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B885CC3E8C5
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Nov 2020 00:13:24 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EC8272074A
-	for <linux-riscv@archiver.kernel.org>; Sun, 29 Nov 2020 22:11:16 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 00DB020709
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Nov 2020 00:13:23 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="iBdalv18";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=gmx.net header.i=@gmx.net header.b="XDpBE+Nc"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EC8272074A
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmx.net
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="3JQULBbw";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b="X69LefQa"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 00DB020709
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=fldmSxD3kewYGr2Kmdzo2cHtdk9VtXEK9ahpqQ1mdVY=; b=iBdalv18YFkJTULbKHsSy8O8P
-	H+GLnEOMkcKSbETGDRtIoiAF/B1jtRlkKdoLJ43Uq41Jd/kOP5xOykNm5wYRYSggJrruMtrNVE+Fv
-	2ipikhwbYxxJRL+l6k/qJfyYnlbRt3nIAJPG3wioIkUH1CrCbRhamE76yqRM0GHS2u1SBiSy66zgY
-	Os4qo6PvLl2/1MdorcDNCpE+tiKT480bi3C0R8XodWweur6DJE4H/C/dETLIPrqxCLTPMrwP9fTCY
-	ZZljaMyieaEkhSglTppGWo8oWdaZJIyecofr0nw1oAYGJL2bmZhdsmoBTST3oMrrkM4/t3a/O/YOY
-	iEBiJnU1w==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+O02rJzo0e0cFdQI+2fCyslPqnMaSO8yLF59Rm74aRg=; b=3JQULBbwy3/XfcCtWxmXoszeU7
+	dV9QPhtDLvivfNmpzfMSHrexu/AvqA8beIEUbndiPxih4ecuKPV+FEsqOqe36QVzThZbgxZlWUSl6
+	Xp4qiL1MJ1XTI6kUBgBhj7FUktdCBYTDj23X/rJs1jSAExY0STwfhPkMTt5a7lUPbew49fCRLFc6P
+	s1D2CA9OF5b9FU4GyD5aHP5J0lBWHLfeqnR834E3un+QSahHciVJS8sY9d6Ix4p4O4+hwEGH8pFRy
+	hpQUTf2wiizSqfm6MzdZiTuPDQGLsk6w9furSeo6JQjqojTEkuIGsVUzUr/ijKDdRSihuOdyHu9Lf
+	5imikljw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kjUuS-0000gC-PZ; Sun, 29 Nov 2020 22:11:08 +0000
-Received: from mout.gmx.net ([212.227.15.18])
+	id 1kjWoP-0005ID-Bh; Mon, 30 Nov 2020 00:13:01 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kjUuO-0000fp-NE
- for linux-riscv@lists.infradead.org; Sun, 29 Nov 2020 22:11:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
- s=badeba3b8450; t=1606687859;
- bh=iXkhSMriV5maLLXF4ec2emP2gdExku4QakTNWEWxKUk=;
- h=X-UI-Sender-Class:Date:From:To:Cc:Subject:References:In-Reply-To;
- b=XDpBE+Ncm04FRwJ8vuODrGgKLku41S/SLjyJKexDsg8yKXkkz1nq4E0r8hWZmkYVa
- sBpJNwquAuFevwavdDte9KcxOQtU30m39ANkaqQ28WzThFVrCaEZIdi6bBGkog4oqh
- NxDUHpDDQvRiIFnkufGLiPnZYponASPII+rH28Ns=
-X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
-Received: from longitude ([37.201.214.162]) by mail.gmx.com (mrgmx005
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MdNcA-1kARCk3xVg-00ZPKJ; Sun, 29
- Nov 2020 23:10:59 +0100
-Date: Sun, 29 Nov 2020 23:10:50 +0100
-From: Jonathan =?utf-8?Q?Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>
-To: "Enrico Weigelt, metux IT consult" <info@metux.net>
-Subject: Re: [PATCH] drivers: gpio: add virtio-gpio guest driver
-Message-ID: <20201129221050.GH456020@latitude>
-References: <20201127183003.2849-1-info@metux.net>
+ id 1kjWoK-0005Hq-RR
+ for linux-riscv@lists.infradead.org; Mon, 30 Nov 2020 00:12:57 +0000
+Received: by mail-pf1-x434.google.com with SMTP id w202so9279766pff.10
+ for <linux-riscv@lists.infradead.org>; Sun, 29 Nov 2020 16:12:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=from:to:subject:date:message-id:organization:mime-version
+ :content-transfer-encoding;
+ bh=r5gOm63N9r2G0UuXiUtBAnvoVflu0pVHx/1wXoOioUQ=;
+ b=X69LefQai39g3MumyUGX6Vt8jn3uxKTzPVYVfjgAUlTkQjHg7bPbAaoWs1IPxw81yZ
+ zEiBGEmXp3N7CnYJbMyOxlXIQubKoihxjLLIuQDwqm7XTEB/obUDBXGKqWhNMrVtcHzx
+ 5RqKgjs8pRG5GTmFGMsUWvNL80OVjNnvYF6j+Cqlp3+WWEDHaPPoGzbyJIeGmegSgRZ5
+ Vj2jKxVIn3wvR0RsCKeTtUiB1DOyBwDaHLanW8QOhdigpsEyIPP3kjPozVvP3pqnwnej
+ DB4vc9vsU6hPEfJ14ctd1viNqXWCgzchK3ffihUIWItuBNZCLabROUUl3Ovg42VFU50v
+ uS9g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:subject:date:message-id:organization
+ :mime-version:content-transfer-encoding;
+ bh=r5gOm63N9r2G0UuXiUtBAnvoVflu0pVHx/1wXoOioUQ=;
+ b=WY7Cstpnc8fAgUxBE9hKtKopBJsAO+86MLvo4UCFM/V08yo1NzEYcddG0yGg2ChvPj
+ hndWN+u/RS7RP3V0fT31SvgSEhMZv+25FKbYs08ukZYeRO5cXJ9gap9UAtOSYikgkV1n
+ aCa3qe3kextxU03GghUH73xXjRCJjZqgGxLdPNuVtApx4aCU5G5DcRk+7k8EgyqMTAPO
+ zhjMGGksbcbBuU9PmFwb6f+qAIZXgOEnhSuyn/rhUjRVxBBRbi8vBP1qDFPTZ00rbjN3
+ LSOX/7bO6mH36wLBpaX1MKcF/rKKi0E1lN/DYyUQRtEHnHoTd1w7dbf1ejHvlJ2vJhl6
+ fjCw==
+X-Gm-Message-State: AOAM532NQD9c1vx8T3q/D/wkgT7+u+0FkJ+sn2bgLYsBOmwRVr+nTHFN
+ SYlmEVjg++LqCxafjV6ZeHIAn4YmBv0aBQ==
+X-Google-Smtp-Source: ABdhPJxGoIKYtY1VXYNjr98Q++5cZ2d8AaEtXTjU0LvYF1GpeBdjghaYNWJQKWHHrerUG7hUE+83UQ==
+X-Received: by 2002:a62:1b02:0:b029:18a:b052:deb1 with SMTP id
+ b2-20020a621b020000b029018ab052deb1mr16284681pfb.32.1606695172549; 
+ Sun, 29 Nov 2020 16:12:52 -0800 (PST)
+Received: from rata.localnet ([2406:e007:8145:4301:28da:23d:33fb:8a85])
+ by smtp.gmail.com with ESMTPSA id x6sm11760117pgr.20.2020.11.29.16.12.50
+ for <linux-riscv@lists.infradead.org>
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sun, 29 Nov 2020 16:12:51 -0800 (PST)
+From: Paul Campbell <taniwha@gmail.com>
+To: linux-riscv@lists.infradead.org
+Subject: Turning the MMU on .....
+Date: Mon, 30 Nov 2020 13:12:48 +1300
+Message-ID: <3057294.0aWk0VS80s@rata>
+Organization: Moonbase Otago
 MIME-Version: 1.0
-In-Reply-To: <20201127183003.2849-1-info@metux.net>
-X-Provags-ID: V03:K1:3k7JLc2Hawk0Hil86ZD/XR/DnpRxdu29H+22sf1XPZsO3A3cFlf
- SxQ/j3JYOOj5W/6OrAzXx2V3O076zc9+NrzDyDM8AZ8wqGocU5aewHzEQInNuo92+4UlsDD
- B+dmWGwciIxLEEEY8/RzK2w4ZvuG/ZUrlNEM1WfjP/lYlfRxEUuSgC0+llkx1LTYcu8lE+t
- 5QoHc123fP+9CRYN/+MfQ==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:PPw4bc4Tusg=:mupDuzXAshUvS65GdN+8BR
- /rLiFI9/5Z0tUqMq/dJViG9x/bF6MH+06xhtAoJa4XdVbdXG9tF0yqZT2SrwnWJdWJc0O2V1y
- /8orh1WzXNoHT4PDDB6CxJr5GN/b9oPnZxkL15TSkf5daQMQuWAhJxE+URDXtXg7nRXI6yg9Y
- OHO9ZYljwUriW6RjUL97GZi3dfGfFTZ8LLNNqfy4MZiCC6eed4zuXrSMRa0Wmu3lLZ9Qozhcr
- KlO/RYtp7kbxVsi2EBOxH0qDUytd1D4dbAILaedAkTzDzEz+IpJ7q50RPYzhJti03COA1W7Vz
- H+FtdxZMc7y6Zf6sGh1m614l3EMkplr9YWk4fPWjNM/SgO7x0BEWzdg1ShVOM1uw9dBeaXZor
- HAIhZ8O1zZ52a0Y9dsuZkDLUwc4ijHvM+zvdtNCyMcxz8MFHbMz2sDfNw6voWfYJYE3oskXS9
- j+jB22Xgo+tFP2Goi23ChJgRfVkrpjo6OruoCK9JVA11U9YvcWkYQ3r/t0Xaod5Jlt22SOkRS
- +GTlzhdh6mgjtkXssxIYHDfFcn0+nIcmfJRXr+8SYreTE5WlMpasDD2bwINEp2rjWpYwYAuKt
- vU15CgqAhGOUGIl3saac33BVUO6+cZG9QIAoA5FCKsbdrCrJn5ue/PrMh9fcCzhUsuyDS4agE
- 5w27uuRB/sM6SaHV0nk0L0PlheUy+BU5IZuhmB4OlEhluox3EGWNXTxWkSreqkGidHG8uj0cT
- J6uRwXLBB6ahsp/+cWSb9xQ16VzOeBv/23hmvrlbFvMPiV8UgvnvwTS0DjEUcN8+/h+5tlcpy
- E60TDZ70kJKQCg/v1fJCS0aVHce6fgkz6h7atHTyw9of9lFauyayNnkf8vt28V8znk0nTVxJT
- SwhCuFdz7xvXV2yUt3fA==
+Content-Type: multipart/mixed; boundary="nextPart2021202.rEpcuPdsNp"
+Content-Transfer-Encoding: 7Bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201129_171105_202517_384D0E40 
-X-CRM114-Status: GOOD (  11.69  )
+X-CRM114-CacheID: sfid-20201129_191256_967113_F17E33EC 
+X-CRM114-Status: GOOD (  21.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -90,69 +96,181 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: bgolaszewski@baylibre.com, linus.walleij@linaro.org, mst@redhat.com,
- linux-kernel@vger.kernel.org, virtualization@lists.linux-foundation.org,
- linux-gpio@vger.kernel.org, linux-riscv@lists.infradead.org,
- jasowang@redhat.com
-Content-Type: multipart/mixed; boundary="===============7452211096507662425=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This is a multi-part message in MIME format.
 
---===============7452211096507662425==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="rV8arf8D5Dod9UkK"
-Content-Disposition: inline
-
-
---rV8arf8D5Dod9UkK
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+--nextPart2021202.rEpcuPdsNp
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="UTF-8"
 
-Hi,
+I'm new to this list, likely ignorant to past discussions, please bear with=
+ me=20
+:-)
 
-On Fri, Nov 27, 2020 at 07:30:03PM +0100, Enrico Weigelt, metux IT consult =
-wrote:
-> Introducing new gpio driver for virtual GPIO devices via virtio.
->=20
-> The driver allows routing gpio control into VM guests, eg. brigding
-> virtual gpios to specific host gpios, or attaching simulators for
-> automatic application testing.
->=20
-> Signed-off-by: Enrico Weigelt, metux IT consult <info@metux.net>
+I'm bringing up a new core, one that's heavily pipelined/speculative/O-O al=
+l=20
+that good stuff, and reached the point where linux is coming up, most of my=
+=20
+issues are mine but there's one I've come across in the tip-of-tree riscv=20
+linux that I think is more general .... it's this code in relocate() in hea=
+d.S=20
+=2D to paraphrase the code is:
 
-is there a spec of the virtio-gpio protocol available? If so, linking it
-in the commit message and/or driver/Kconfig would be nice.
+relocate:
+	li a1, PAGE_OFFSET
+        	la a2, _start
+        	sub a1, a1, a2	    //a1 is relocation offset
+       	....
+	la a2, 1f
+	add a2, a2, a1
+	csrw CSR_TVEC, a2  // vector is 1f relocated
+	....
+	la a0, trampoline_pg_dir
+	srl a0, a0, PAGE_SHIFT
+	or a0, a0, a1
+	sfence.vma
+	csrw CSR_SATP, a0
+	.align 2
+1:	....
 
+In my world this fails miserably, mostly because the sfence.vma does a pipe=
+=20
+flush (as it should) and by the time the csrw CSR_SATP, a0 is executed has=
+=20
+already fetched (using the old [turned off] MMU mapping) and speculatively=
+=20
+executed much of the code up until the following return instruction. What I=
+=20
+think that the code is expecting to happen is that the instruction followin=
+g=20
+the write to CSR_SATP will fault and refetch the instruction stream using t=
+he=20
+new mapping, and this likely works on some microarchitectures, it also=20
+probably works by happenstance on some systems where there happens to be an=
+=20
+invalid instruction hiding under the ".align 2".
 
-Best regards,
-Jonathan Neusch=C3=A4fer
+Reading the RISC-V priviliged spec it's very explicit about "csrw CSR_SATP,=
+=20
+a0":
 
---rV8arf8D5Dod9UkK
-Content-Type: application/pgp-signature; name="signature.asc"
+"Note that writing satp does not imply any ordering constraints between pag=
+e-
+table updates and subsequent address translations. If the new address space=
+=E2=80=99s=20
+page tables have been modified, or if an ASID is reused, it may be necessar=
+y to=20
+execute an SFENCE.VMA instruction (see Section 4.2.1) after writing satp."
 
------BEGIN PGP SIGNATURE-----
+4.2.1 includes the note:
 
-iQIzBAABCgAdFiEEvHAHGBBjQPVy+qvDCDBEmo7zX9sFAl/EHGIACgkQCDBEmo7z
-X9vgjQ/7BGdfYQq78KeC7gpheGKolr7itYaIjyPeiwVUbLBnd98RdTr2u5bLTMJL
-bcE7IrgMjDos6NW2AvHqwS/n2McBo07w3mW2u0CcWPNn2T31cgjvMRPacVpm6SXk
-jYQ2Y9Yu/12fBWd6Bqp/GZH7brS00onhkkdjwpLJ85Kmj4T3BtPDVdteSgNyNQ+9
-q0T06QDzgstQCOUN8Rizjfmm/kP62VyV1H8fGeFIbqWyChIeNy3CpA1y1cNH2YOx
-8Qfot8iwWzAWjSHsYVZk5Nkf+4kV4/qVRNbVPvAhPBfge7zGJfwEmAmReEND4N4d
-6TOeEmEPDNLPHv3TynOtUWgGVB4RFblVh2PDqynP5cEvF+m7zhv2ZN14hJL8R146
-mPCU2pfEldzCloaiYEquriAXG+fTc7872OI7eF3oSzF+UyEs0HuZpsYZS17TVbhi
-cNT1JZ2unfZmcFOM5Xp1J+VrJ1zYGHp+9EPTX8Cp6DEDG+HL5zxv5Vaa7tjrmmIN
-7krg65s3g61Jo839BQQlJtb8P5BLU+RLDQYpiBS3X2YR3iCqCH4r3UWQyiRl3tcn
-Sa6qNES5SHMhTXWS8FFCelolQei7XVJ19aqN1mtz+zSS85I5U1kxbVOuMTFLgzu3
-K34XZBYz5Gj7Glv1uIF48IifPI5UVo1wlUy3roHIGBh36W4+fv0=
-=SCq+
------END PGP SIGNATURE-----
+"A consequence of this specification is that an implementation may use any=
+=20
+translation for an address that was valid at any time since the most recent=
+=20
+SFENCE.VMA that subsumes that address. In particular, if a leaf PTE is modi=
+fied=20
+but a subsuming SFENCE.VMA is not executed, either the old translation or t=
+he=20
+new translation will be used, but the choice is unpredictable. The behavior=
+ is=20
+otherwise well-defined."
 
---rV8arf8D5Dod9UkK--
+What does this mean? it means that if you SFENCE.VMA and then subsequently=
+=20
+write to satp it is undefined whether the new page table regime is in place=
+ for=20
+an arbitrary number of instructions thereafter (this number could be quite=
+=20
+large if you are turning on the MMU for the first time because some larger=
+=20
+systems may have hundreds of decoded instructions in flight at a time - in =
+some=20
+versions of my current system it can be ~100, though in this particular cas=
+e=20
+it's more likely in the order of 10-12 or so instructions that manage to pa=
+ss=20
+the instruction TLB between when the sfence is executed and when the satp i=
+s=20
+written).
 
+In general I think that for RISCV mmu code to work we always need to sfence=
+=20
+after every write to satp or page tables (as the spec says it needs to be f=
+or=20
+an 'enclosing range') .... AND there needs to be a mapping in place in the =
+MMU=20
+configuration both before and after the execution of the write to satp that=
+=20
+includes a valid mapping of the virtual address of the code fragment betwee=
+n=20
+where the write to satp occurs and the sfence instruction.=20
 
---===============7452211096507662425==
+This last requirement, is normally not an issue in the linux kernel since a=
+ll=20
+the code is mapped with one big mapping that doesn't change .... except of=
+=20
+course when you first turn on the MMU, when you're switching from no MMU to=
+ a=20
+running MMU - which is the situation where I started this discussion.
+
+=2D------------------------------------------------------------------------=
+=2D-----------------------------------------
+
+So a proposal: rather than use the 'trampoline' code, that only works for s=
+ome=20
+systems, we should use an initial kernel mapping that maps both the kernel=
+=20
+virtual addresses and also maps the initial memory 1:1. If we do that then =
+the=20
+actual initial switch becomes simple (see the attached code fragment), the=
+=20
+other required change is in setup_vm() - instead of making a 'trampoline'=20
+mapping and an initial kernel mapping we just make an initial kernel mappin=
+g=20
+that also contains a 1:1 mapping for the initially  loaded kernel.
+
+Anyway this has gone on too long, hopefully the right people will read it a=
+nd=20
+understand - as I mentioned above I'm a noob here (but a kernel hack since =
+V6,=20
+and have been laying gates for almost as long)
+
+	Paul Campbell
+	Moonbase Otago
+--nextPart2021202.rEpcuPdsNp
+Content-Disposition: attachment; filename="h.S"
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="UTF-8"; name="h.S"
+
+#ifdef CONFIG_MMU
+relocate:
+	/* Relocate return address */
+	li a1, PAGE_OFFSET
+	la a2, _start
+	sub a1, a1, a2
+	add ra, ra, a1
+
+	add	gp, gp, a1
+
+	/* Compute satp for kernel page tables  */
+	srl a2, a0, PAGE_SHIFT
+	li a1, SATP_MODE
+	or a2, a2, a1
+
+	/*
+	 * Switch to kernel page tables.  
+	 */
+
+	csrw CSR_SATP, a2
+	sfence.vma
+
+	ret	// switch to kernel addressing occurs here
+#endif /* CONFIG_MMU */
+
+--nextPart2021202.rEpcuPdsNp
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -163,5 +281,8 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============7452211096507662425==--
+--nextPart2021202.rEpcuPdsNp--
+
+
+
 
