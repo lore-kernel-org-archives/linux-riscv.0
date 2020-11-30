@@ -7,17 +7,17 @@ X-Spam-Status: No, score=-18.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 28F41C64E90
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Nov 2020 23:48:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5D922C71155
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Nov 2020 23:48:58 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AC925207BB
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Nov 2020 23:48:56 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id D0AB1207F7
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Nov 2020 23:48:57 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="pFu54tmN";
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="opfO7XCa"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AC925207BB
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="3O0zYI2c";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=wdc.com header.i=@wdc.com header.b="bQ+BHaXc"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D0AB1207F7
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -26,67 +26,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=BAmLwP5sYNPHyzW5qvzX1N9JB4rYQq/vtO66cNHjSy0=; b=pFu54tmN1WTCFOlxaLnMq3+Si
-	FygaeqVQCQu1ffp8931/lY0ngyM9pI09RQn7DlVPyWQb0mfxsDt8z/6qMn/tWS7R99C7MVY5Le/OV
-	c9i337XbgUCEJwUKcewAE+0oF9VSro/xfN68Q2YyM2eczXDS4GePlyzL3ZScfEyjMQDIFv+aVSoXg
-	lfapOIRIMrfQBFPNsIo0R23xMy0NZTXSQTjHZz7kp8ttVtfkShclVTjyADzAJUhfnKzpKSs3eanun
-	wixbcT2J7bpDvzYq7NDCFmDIq548RlEkhuoz1htNOAbRVLQjcUbceUUbzOilU2mTJ9NopADzeWZz5
-	XaXL3dXWA==;
+	 bh=p42vBsX8QDrGOVFuJy1DlnubFpzoymr0jskDk8KV+1M=; b=3O0zYI2c0JUH2FfgoxEMqB/2o
+	6ngY/wl/s1kqjrC9b2gv0scwvIKiLJ04earV8u5ETl1z8zdm9IbDNUdj9Ts2srEXVoeZlpY2aKIrI
+	lofTWWeHXej5p4qThcOzRSk3dbm7VCbLEmgMqXMsPxSETErP9/3k7INkx2lUQmir4+RyDNBEf3866
+	OoNb6qBgp0KFQtfihuwLCfOXTtykLSBCWV8i7CQwODRupxxH0SLyeKtDgso1ljdeRAtrurp6jrSN7
+	4f47R3+9gTC2by4JW95145ebinTWEPuibc73o7V8zKoC6EtsNIwQk14bPISsqMKiYK67k5to3JXT8
+	oejNLHTIQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kjsuV-0003DN-2I; Mon, 30 Nov 2020 23:48:47 +0000
+	id 1kjsuW-0003ED-I7; Mon, 30 Nov 2020 23:48:48 +0000
 Received: from esa6.hgst.iphmx.com ([216.71.154.45])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kjsuP-0003B3-Bl
- for linux-riscv@lists.infradead.org; Mon, 30 Nov 2020 23:48:42 +0000
+ id 1kjsuQ-0003B3-W3
+ for linux-riscv@lists.infradead.org; Mon, 30 Nov 2020 23:48:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1606780122; x=1638316122;
+ t=1606780123; x=1638316123;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=LAnvTxuCrxiYwbhYLblxFRB980/m85EFlvtWJ9EMVlc=;
- b=opfO7XCaO5vcUonvWw8X/NEOJB8kvPjjuTWTCK/q6F5vpipl3x/cPvOc
- F/rPG7sawXJipM++HQxpb4e28K+HVyQUvRJvIuozS9JT9Pb8bPhannN2K
- 9oTJM0brRrG2TxfJlpo2dNWMpZL1MvAaBXNyeWlg+Z13vK6jZjLljb7d3
- kZUuoKmt7IJ8bkUr8iywG3VXUcI9S0B/DNjpKcc+9/8W/jtESAPsfnL1h
- Pw/khDzz+EmDbNMhrzXBu2zppIA+guK9KC+UfPXS1zinbmxlD1H8WFEy5
- LS2HxVgNUJugY1rOJxaBIIlyTdT7+B4lddT5q7gBrF6XsVsw8UyqMnYlt A==;
-IronPort-SDR: cXdZ6HqyLj7GH02WUkl87LlNeLFeP1/gzmgUr7dOxHgoKOLVLDDHmA85lj+TwlqhDYGvZREf9D
- Jf6TWj3j/rgXMyCKyoO2H1T8Xto1ddaRg10UbAHiNd9HfShgG5UUac2FdFHNN0JwbnHEp3aJ6G
- 5zwyJ9OC9TwHDlZIE4qIcihgWg4ESTa/jYZdB4YUP4rOgWhKzv6iAd4C3SG0oYfsB6n5/iSL+U
- ZUCzvXXA8vRXpvd4PXknEuHPqICivk/CKgh17lYhRjVc0BSjST7kelsVQLFac4B64D4PU2Qa0c
- 0bg=
-X-IronPort-AV: E=Sophos;i="5.78,382,1599494400"; d="scan'208";a="155058253"
+ bh=J4YzATdmMGf4aVDh1oYO2Vvrkr1nKCVhj0JvlCRj+fE=;
+ b=bQ+BHaXcTPEkH+m+UA4gNqp7zR3KFTwTJzzyps5qgrdhye0jJgkyIvuG
+ rUXuijVK7fbJSR70J0sj1alWbKYteW7FfYcfI9SOmYUfrJ+qVARxnoTGW
+ rM0UqRhoybwVzJsD8oyDN8x4yzy0OGKCtSW6giC2vPcwpTtixf+CecMSg
+ /1JrE9dyCzuZtJq04Ua01j5N2QxUYznkcPj22iBtORepvaaXL36vQP8iu
+ /tlHeyNWvIgUBLM4ahksn7aFMMh65YpB6QzIiwKups1qqiQeQCM0UESUJ
+ x6avBR4HOCqLurRPZkvNA0hkpX1lD8FUp7TD0Wm4TIwpay69P0qlKw9Dw w==;
+IronPort-SDR: hBjWzVbQGExZekHm2RqKYLwwpMixJ/0D3yqf6q60mr2UObyn24kok1aN61cgA6ab6acvTyegaO
+ EVsQk9BJEh6DulzxODIFu7/vcjcRb52SIA3oAvD/mPxZVDfqaGgRynpqUFADUp9ByDzZTJbi8f
+ NCcyksnkbGhkO/YCCQq24q804nbFGIxqwqPN+72bV9Xl+Lyme07CcVI6Y5zkuRB3/DkCenjEZC
+ RWrtyTybcbko3e99yId/jSginBTAVZ8ju4XZh53MG2pRbnHmn0PLo8a3ChY2+/4CQB5p2iThc+
+ +tw=
+X-IronPort-AV: E=Sophos;i="5.78,382,1599494400"; d="scan'208";a="155058259"
 Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 01 Dec 2020 07:48:41 +0800
-IronPort-SDR: NE1JzyZttZZLiLN8VtcPQW1f2Sh8jqbL/1MP38etzvaH6EgUbmiJsJl6RspXxP/ZNdtCRMn/Da
- co2b7RoSxonWgQBjequBZFcZ8+/K4oSRc=
+ by ob1.hgst.iphmx.com with ESMTP; 01 Dec 2020 07:48:43 +0800
+IronPort-SDR: KdgKtvDTodwPR99Wzx1SPGwhMdFQtB3cKg5DzNDg6Gn5q0e4xaFfBCUYkacKFx1xjRrPmuLtuY
+ N2oujKRaVAUGqvdSLauwAlLld00GanhBY=
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 30 Nov 2020 15:34:17 -0800
-IronPort-SDR: KzFqzqX8anTpMG4dXaErAu2yqFBePyUg/u1I+TFU6bGUPJ+WYJdzcngfK90Ceo5pZ7J4nNcqTG
- KkB7x/dGM4fg==
+ 30 Nov 2020 15:34:19 -0800
+IronPort-SDR: XLMiteEScKOPOdG+9g0YeKFps6RJBriC0DBPEadbQeo+JzDjwKuwGjqEMnE3UwM7X1CmsZ4PwA
+ EWxJF4SEPMYw==
 WDCIronportException: Internal
 Received: from phd004834.ad.shared (HELO twashi.fujisawa.hgst.com)
  ([10.84.71.196])
- by uls-op-cesaip01.wdc.com with ESMTP; 30 Nov 2020 15:48:39 -0800
+ by uls-op-cesaip01.wdc.com with ESMTP; 30 Nov 2020 15:48:41 -0800
 From: Damien Le Moal <damien.lemoal@wdc.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
  Rob Herring <robh+dt@kernel.org>, devicetree@vger.kernel.org,
  Stephen Boyd <sboyd@kernel.org>, linux-clk@vger.kernel.org,
  Linus Walleij <linus.walleij@linaro.org>, linux-gpio@vger.kernel.org,
  Philipp Zabel <p.zabel@pengutronix.de>
-Subject: [PATCH v3 03/21] riscv: Enable interrupts during syscalls with M-Mode
-Date: Tue,  1 Dec 2020 08:48:11 +0900
-Message-Id: <20201130234829.118298-4-damien.lemoal@wdc.com>
+Subject: [PATCH v3 04/21] riscv: Fix builtin DTB handling
+Date: Tue,  1 Dec 2020 08:48:12 +0900
+Message-Id: <20201130234829.118298-5-damien.lemoal@wdc.com>
 X-Mailer: git-send-email 2.28.0
 In-Reply-To: <20201130234829.118298-1-damien.lemoal@wdc.com>
 References: <20201130234829.118298-1-damien.lemoal@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201130_184841_548896_7E0A3821 
-X-CRM114-Status: GOOD (  13.30  )
+X-CRM114-CacheID: sfid-20201130_184843_312875_204F1240 
+X-CRM114-Status: GOOD (  24.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -104,37 +104,200 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When running is M-Mode (no MMU config), MPIE does not get set. This
-results in all syscalls being executed with interrupts disabled as
-handle_exception never sets SR_IE as it always sees SR_PIE being
-cleared. Fix this by always force enabling interrupts in
-handle_syscall when CONFIG_RISCV_M_MODE is enabled.
+All SiPeed K210 MAIX boards have the exact same vendor, arch and
+implementation IDs, preventing differentiation to select the correct
+device tree to use through the SOC_BUILTIN_DTB_DECLARE() macro. This
+result in this macro to be useless and mandates changing the code of
+the sysctl driver to change the builtin device tree suitable for the
+target board.
+
+Fix this problem by removing the SOC_BUILTIN_DTB_DECLARE() macro since
+it is used only for the K210 support. The code searching the builtin
+DTBs using the vendor, arch an implementation IDs is also removed.
+Support for builtin DTB falls back to the simpler and more traditional
+handling of builtin DTB using the CONFIG_BUILTIN_DTB option, similarly
+to other architectures.
 
 Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
 ---
- arch/riscv/kernel/entry.S | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ arch/riscv/Kconfig.socs               | 19 ++++++++++----
+ arch/riscv/boot/dts/kendryte/Makefile |  5 ++--
+ arch/riscv/include/asm/soc.h          | 38 ---------------------------
+ arch/riscv/kernel/soc.c               | 27 -------------------
+ arch/riscv/mm/init.c                  |  6 +----
+ drivers/soc/kendryte/k210-sysctl.c    | 12 ---------
+ 6 files changed, 18 insertions(+), 89 deletions(-)
 
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 524d918f3601..080eb8d78589 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -155,6 +155,15 @@ skip_context_tracking:
- 	tail do_trap_unknown
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index 8a55f6156661..0bc3e28581f2 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -32,9 +32,7 @@ config SOC_KENDRYTE
+ 	help
+ 	  This enables support for Kendryte K210 SoC platform hardware.
  
- handle_syscall:
-+#ifdef CONFIG_RISCV_M_MODE
-+	/*
-+	 * When running is M-Mode (no MMU config), MPIE does not get set.
-+	 * As a result, we need to force enable interrupts here because
-+	 * handle_exception did not do set SR_IE as it always sees SR_PIE
-+	 * being cleared.
-+	 */
-+	csrs CSR_STATUS, SR_IE
-+#endif
- #if defined(CONFIG_TRACE_IRQFLAGS) || defined(CONFIG_CONTEXT_TRACKING)
- 	/* Recover a0 - a7 for system calls */
- 	REG_L a0, PT_A0(sp)
+-config SOC_KENDRYTE_K210_DTB
+-	def_bool y
+-	depends on SOC_KENDRYTE_K210_DTB_BUILTIN
++if SOC_KENDRYTE
+ 
+ config SOC_KENDRYTE_K210_DTB_BUILTIN
+ 	bool "Builtin device tree for the Kendryte K210"
+@@ -42,10 +40,21 @@ config SOC_KENDRYTE_K210_DTB_BUILTIN
+ 	default y
+ 	select OF
+ 	select BUILTIN_DTB
+-	select SOC_KENDRYTE_K210_DTB
+ 	help
+-	  Builds a device tree for the Kendryte K210 into the Linux image.
++	  Build a device tree for the Kendryte K210 into the Linux image.
+ 	  This option should be selected if no bootloader is being used.
+ 	  If unsure, say Y.
+ 
++config SOC_KENDRYTE_K210_DTB_SOURCE
++	string "Source file for the Kendryte K210 builtin DTB"
++	depends on SOC_KENDRYTE
++	depends on SOC_KENDRYTE_K210_DTB_BUILTIN
++	default "k210"
++	help
++	  Base name (without suffix, relative to arch/riscv/boot/dts/kendryte)
++	  for the DTS file that will be used to produce the DTB linked into the
++	  kernel.
++
++endif
++
+ endmenu
+diff --git a/arch/riscv/boot/dts/kendryte/Makefile b/arch/riscv/boot/dts/kendryte/Makefile
+index 1a88e616f18e..83636693166d 100644
+--- a/arch/riscv/boot/dts/kendryte/Makefile
++++ b/arch/riscv/boot/dts/kendryte/Makefile
+@@ -1,4 +1,5 @@
+ # SPDX-License-Identifier: GPL-2.0
+-dtb-$(CONFIG_SOC_KENDRYTE_K210_DTB) += k210.dtb
+-
++ifneq ($(CONFIG_SOC_KENDRYTE_K210_DTB_SOURCE),"")
++dtb-y += $(strip $(shell echo $(CONFIG_SOC_KENDRYTE_K210_DTB_SOURCE))).dtb
+ obj-$(CONFIG_SOC_KENDRYTE_K210_DTB_BUILTIN) += $(addsuffix .o, $(dtb-y))
++endif
+diff --git a/arch/riscv/include/asm/soc.h b/arch/riscv/include/asm/soc.h
+index 6c8363b1f327..f494066051a2 100644
+--- a/arch/riscv/include/asm/soc.h
++++ b/arch/riscv/include/asm/soc.h
+@@ -21,42 +21,4 @@ void soc_early_init(void);
+ extern unsigned long __soc_early_init_table_start;
+ extern unsigned long __soc_early_init_table_end;
+ 
+-/*
+- * Allows Linux to provide a device tree, which is necessary for SOCs that
+- * don't provide a useful one on their own.
+- */
+-struct soc_builtin_dtb {
+-	unsigned long vendor_id;
+-	unsigned long arch_id;
+-	unsigned long imp_id;
+-	void *(*dtb_func)(void);
+-};
+-
+-/*
+- * The argument name must specify a valid DTS file name without the dts
+- * extension.
+- */
+-#define SOC_BUILTIN_DTB_DECLARE(name, vendor, arch, impl)		\
+-	extern void *__dtb_##name##_begin;				\
+-									\
+-	static __init __used						\
+-	void *__soc_builtin_dtb_f__##name(void)				\
+-	{								\
+-		return (void *)&__dtb_##name##_begin;			\
+-	}								\
+-									\
+-	static const struct soc_builtin_dtb __soc_builtin_dtb__##name	\
+-		__used __section("__soc_builtin_dtb_table") =		\
+-	{								\
+-		.vendor_id = vendor,					\
+-		.arch_id   = arch,					\
+-		.imp_id    = impl,					\
+-		.dtb_func  = __soc_builtin_dtb_f__##name,		\
+-	}
+-
+-extern unsigned long __soc_builtin_dtb_table_start;
+-extern unsigned long __soc_builtin_dtb_table_end;
+-
+-void *soc_lookup_builtin_dtb(void);
+-
+ #endif
+diff --git a/arch/riscv/kernel/soc.c b/arch/riscv/kernel/soc.c
+index c7b0a73e382e..a0516172a33c 100644
+--- a/arch/riscv/kernel/soc.c
++++ b/arch/riscv/kernel/soc.c
+@@ -26,30 +26,3 @@ void __init soc_early_init(void)
+ 		}
+ 	}
+ }
+-
+-static bool soc_builtin_dtb_match(unsigned long vendor_id,
+-				unsigned long arch_id, unsigned long imp_id,
+-				const struct soc_builtin_dtb *entry)
+-{
+-	return entry->vendor_id == vendor_id &&
+-	       entry->arch_id == arch_id &&
+-	       entry->imp_id == imp_id;
+-}
+-
+-void * __init soc_lookup_builtin_dtb(void)
+-{
+-	unsigned long vendor_id, arch_id, imp_id;
+-	const struct soc_builtin_dtb *s;
+-
+-	__asm__ ("csrr %0, mvendorid" : "=r"(vendor_id));
+-	__asm__ ("csrr %0, marchid" : "=r"(arch_id));
+-	__asm__ ("csrr %0, mimpid" : "=r"(imp_id));
+-
+-	for (s = (void *)&__soc_builtin_dtb_table_start;
+-	     (void *)s < (void *)&__soc_builtin_dtb_table_end; s++) {
+-		if (soc_builtin_dtb_match(vendor_id, arch_id, imp_id, s))
+-			return s->dtb_func();
+-	}
+-
+-	return NULL;
+-}
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 8e577f14f120..c32ff32cf9ab 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -601,11 +601,7 @@ static void __init setup_vm_final(void)
+ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ {
+ #ifdef CONFIG_BUILTIN_DTB
+-	dtb_early_va = soc_lookup_builtin_dtb();
+-	if (!dtb_early_va) {
+-		/* Fallback to first available DTS */
+-		dtb_early_va = (void *) __dtb_start;
+-	}
++	dtb_early_va = (void *) __dtb_start;
+ #else
+ 	dtb_early_va = (void *)dtb_pa;
+ #endif
+diff --git a/drivers/soc/kendryte/k210-sysctl.c b/drivers/soc/kendryte/k210-sysctl.c
+index 707019223dd8..4608fbca20e1 100644
+--- a/drivers/soc/kendryte/k210-sysctl.c
++++ b/drivers/soc/kendryte/k210-sysctl.c
+@@ -246,15 +246,3 @@ static void __init k210_soc_early_init(const void *fdt)
+ 	iounmap(regs);
+ }
+ SOC_EARLY_INIT_DECLARE(generic_k210, "kendryte,k210", k210_soc_early_init);
+-
+-#ifdef CONFIG_SOC_KENDRYTE_K210_DTB_BUILTIN
+-/*
+- * Generic entry for the default k210.dtb embedded DTB for boards with:
+- *   - Vendor ID: 0x4B5
+- *   - Arch ID: 0xE59889E6A5A04149 (= "Canaan AI" in UTF-8 encoded Chinese)
+- *   - Impl ID:	0x4D41495832303030 (= "MAIX2000")
+- * These values are reported by the SiPEED MAXDUINO, SiPEED MAIX GO and
+- * SiPEED Dan dock boards.
+- */
+-SOC_BUILTIN_DTB_DECLARE(k210, 0x4B5, 0xE59889E6A5A04149, 0x4D41495832303030);
+-#endif
 -- 
 2.28.0
 
