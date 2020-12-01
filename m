@@ -2,67 +2,82 @@ Return-Path: <SRS0=guVx=FF=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-18.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-18.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DA68BC64E7A
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Dec 2020 07:49:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AB500C64E7B
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Dec 2020 09:01:11 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 50D702085B
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Dec 2020 07:49:14 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id 05D41221FF
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Dec 2020 09:01:10 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="mJ4AKyQA";
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=kernel.org header.i=@kernel.org header.b="j2DDqgcc"
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 50D702085B
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="i5o11jgT";
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=konsulko.com header.i=@konsulko.com header.b="swFV7DDs"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 05D41221FF
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=konsulko.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=OTrHrMJ+AlByR2r2FkDARwlX1fSNy1YbZnn2BgfTiFU=; b=mJ4AKyQAJB0i4h42fzJaeLj+q
-	HXNJlS+OWY+QlXWPYO4QOsOUuLl8FoxGub5BVQkpHWw+uJjizenY5nCB3hjG5OB7qv1RDw8Jrw9De
-	38Exa1JbZQODiG/HqLu9y36OVRp2LGi0l18Hi0Iw0t647ZITuCN0vqsdL2FE+CgvMK58go8m1c2N+
-	WwQVjG3aBY/vxiceKx9P/Q7Ng3jFkg2xe3Y3QA66lD54hnrnMg0BGu3gYuut+/Y/XktXgo4ZTBT1W
-	mUdJATWwIqB+oxugnFawhHdJXZG8m21jQ8gpQ4qkVlu1Pgd4a6vAhqQXv2GUY78yDLvfVlA3Mif6r
-	isSYXLnKA==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lwZH2KwrE1KFdtgkJeVsXGM1Uhez/JhnyqnlIw7MGTU=; b=i5o11jgTF6jVJIq5TZo+/hyc2v
+	LKpVch95hYZJgd5HeDKcGPoXMDYcmKQ5yro/QJEJRbZzZoZV+yitmgnpUiJSATonlhLrwi/XxIvE5
+	bBDN6ptq73+S5iRGBMrMkcgfcAcCunbzRXMSLjkkyoquEDXSZFxBgISFmKfrpkYyYYsbqDYxmMwxT
+	ncAb3VG/dYEnanuLE8NGESxBQThH9SvijvoeKj/CRLCWwsnZ/845gF/1PHLzW7ApMhpD6pSiGiGMy
+	OtEDD3fGl9uw8A+MJmlgqYjR0D0ZxffgzigMkJEdVEvDsfCWfQlcUxeZEM3t+3bDtHdjzZ1duFJYJ
+	99CrCLSw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kk0PF-0001Qd-3j; Tue, 01 Dec 2020 07:49:01 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1kk1Ww-0000QD-Ac; Tue, 01 Dec 2020 09:01:02 +0000
+Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kk0OQ-0000tz-D3; Tue, 01 Dec 2020 07:48:14 +0000
-Received: from aquarius.haifa.ibm.com (nesher1.haifa.il.ibm.com [195.110.40.7])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 01796221FF;
- Tue,  1 Dec 2020 07:47:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1606808889;
- bh=GcYHmVpON//HgfC+Q9fSTKhraRbGw/gcP2/N7E5anYQ=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=j2DDqgccT0jZwLRscJlvFl5QvWdyP0mHDT2bXYy/Xk9neO3YeTNauBZVOaggC4Gyl
- ro/QaTazJ+EKjNwJeJfYvwksJtYpFUjW6YKPCvqfgskXQTXFPr0IjaRVWtIq7zsM6j
- VKQgRnng4ethePj4KMvLVYuGaDImnh7tBOjqI/OY=
-From: Mike Rapoport <rppt@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH v13 10/10] secretmem: test: add basic selftest for
- memfd_secret(2)
-Date: Tue,  1 Dec 2020 09:45:59 +0200
-Message-Id: <20201201074559.27742-11-rppt@kernel.org>
-X-Mailer: git-send-email 2.28.0
-In-Reply-To: <20201201074559.27742-1-rppt@kernel.org>
-References: <20201201074559.27742-1-rppt@kernel.org>
+ id 1kk1Wu-0000Ow-4f
+ for linux-riscv@lists.infradead.org; Tue, 01 Dec 2020 09:01:01 +0000
+Received: by mail-wm1-x342.google.com with SMTP id a6so1645754wmc.2
+ for <linux-riscv@lists.infradead.org>; Tue, 01 Dec 2020 01:00:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=konsulko.com; s=google;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=Lg7/wzzyNccd4o9M3b2wuJGsFz5jftc3SFIFqCFutik=;
+ b=swFV7DDsgM5W8tut0PcZ/Rh5qtlfX4uFO+3ZOYeNIL6SS3n2aJMYBC5MEo66p7jM5N
+ pBK1sNp+96f41A9UrRZ15g6AP6YEegGsQVWsF01kmm7m51DgIEgybByC8ucqjhJtCTBD
+ DsJr5bUmCS5dUH+S5qbIYoHcRiCNQmko+oidE=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=Lg7/wzzyNccd4o9M3b2wuJGsFz5jftc3SFIFqCFutik=;
+ b=PXNLHtpXEBKwNi+DVkq8VJNNdxAkNKC4Q4JT5jEuBIkx4GwENZhzw836qs/1/mRvuz
+ XunRPsx2GU7J8P6g/lkN5pjnEqP+UzXigFT1eauLAqCALWWdlsqYH6ehwwY9lwamp/Vm
+ 0jspPiuF7R3DfYECGBHdPCDUPDmgwmaMWMh2x2vu8Ljhl8kWAX/7rqsi9EqLkVrhmpfy
+ 8rYTJxNwDaJzyNNXuHyHfT7YBpaAB4gLayqaZNYVWiAGnJR651tUwRTipB8THwamXbP1
+ 5tcmLHhQUzoVBt6KkMuX1WMcxok6oQL0hzxDWFk+iilLIQ0Y51KDdNcHd9CH56FEHOd2
+ BifA==
+X-Gm-Message-State: AOAM530giCZeYniOrtLsPUywD7C/RW71woeMWCfGwOTZuejqS1wNmQQ/
+ X6xCdMHVlojql8Rt6r3uP5pHr4dU1TYGqb+3
+X-Google-Smtp-Source: ABdhPJxyBTo+RPM7zhn4hUP/O5dZCH4wEp4+5eLlqexqIusPhFTF01xWbr6It3pIGZmVIUKQ+9O/7g==
+X-Received: by 2002:a1c:b684:: with SMTP id g126mr1592306wmf.135.1606813257116; 
+ Tue, 01 Dec 2020 01:00:57 -0800 (PST)
+Received: from lootbox.konsulko.bg (lan.nucleusys.com. [92.247.61.126])
+ by smtp.gmail.com with ESMTPSA id l8sm1959654wro.46.2020.12.01.01.00.55
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 01 Dec 2020 01:00:56 -0800 (PST)
+From: vitaly.wool@konsulko.com
+To: linux-riscv@lists.infradead.org
+Subject: [PATCH] riscv: toggle mmu_enabled flag in a precise manner
+Date: Tue,  1 Dec 2020 11:00:24 +0200
+Message-Id: <20201201090023.2852-1-vitaly.wool@konsulko.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201201_024812_666758_AE5BC91E 
-X-CRM114-Status: GOOD (  27.30  )
+X-CRM114-CacheID: sfid-20201201_040100_371663_FD08B845 
+X-CRM114-Status: GOOD (  13.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -74,412 +89,120 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
- Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
- linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>,
- Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
- Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
- Will Deacon <will@kernel.org>, x86@kernel.org,
- Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
- Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
- Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
- Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
- linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-fsdevel@vger.kernel.org, Shakeel Butt <shakeelb@google.com>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>,
- Mike Rapoport <rppt@kernel.org>
+Cc: Bin Meng <bin.meng@windriver.com>, Anup Patel <anup@brainfault.org>,
+ Palmer Dabbelt <palmerdabbelt@google.com>, linux-kernel@vger.kernel.org,
+ Alistair Francis <alistair.francis@wdc.com>,
+ Vitaly Wool <vitaly.wool@konsulko.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Mike Rapoport <rppt@linux.ibm.com>
+From: Vitaly Wool <vitaly.wool@konsulko.com>
 
-The test verifies that file descriptor created with memfd_secret does
-not allow read/write operations, that secret memory mappings respect
-RLIMIT_MEMLOCK and that remote accesses with process_vm_read() and
-ptrace() to the secret memory fail.
+Cuurently mmu_enabled flag is set to true way later than the actual
+MMU enablement takes place. This leads to hard-to-track races in
+e. g. SBI earlycon initialization taking wrong path configuring
+fixmap.
 
-Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+To fix that, move mmu_enabled toggling to head.S and rename it to
+_mmu_enabled to avoid possible name clashes since it's not a static
+variable any more.
+
+Signed-off-by: Vitaly Wool <vitaly.wool@konsulko.com>
 ---
- tools/testing/selftests/vm/.gitignore     |   1 +
- tools/testing/selftests/vm/Makefile       |   3 +-
- tools/testing/selftests/vm/memfd_secret.c | 298 ++++++++++++++++++++++
- tools/testing/selftests/vm/run_vmtests    |  17 ++
- 4 files changed, 318 insertions(+), 1 deletion(-)
- create mode 100644 tools/testing/selftests/vm/memfd_secret.c
+ arch/riscv/kernel/head.S |  9 +++++++++
+ arch/riscv/mm/init.c     | 13 +++++--------
+ 2 files changed, 14 insertions(+), 8 deletions(-)
 
-diff --git a/tools/testing/selftests/vm/.gitignore b/tools/testing/selftests/vm/.gitignore
-index 9a35c3f6a557..c8deddc81e7a 100644
---- a/tools/testing/selftests/vm/.gitignore
-+++ b/tools/testing/selftests/vm/.gitignore
-@@ -21,4 +21,5 @@ va_128TBswitch
- map_fixed_noreplace
- write_to_hugetlbfs
- hmm-tests
-+memfd_secret
- local_config.*
-diff --git a/tools/testing/selftests/vm/Makefile b/tools/testing/selftests/vm/Makefile
-index 62fb15f286ee..9ab98946fbf2 100644
---- a/tools/testing/selftests/vm/Makefile
-+++ b/tools/testing/selftests/vm/Makefile
-@@ -34,6 +34,7 @@ TEST_GEN_FILES += khugepaged
- TEST_GEN_FILES += map_fixed_noreplace
- TEST_GEN_FILES += map_hugetlb
- TEST_GEN_FILES += map_populate
-+TEST_GEN_FILES += memfd_secret
- TEST_GEN_FILES += mlock-random-test
- TEST_GEN_FILES += mlock2-tests
- TEST_GEN_FILES += mremap_dontunmap
-@@ -129,7 +130,7 @@ warn_32bit_failure:
- endif
- endif
+diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+index 0a4e81b8dc79..33cd57285be3 100644
+--- a/arch/riscv/kernel/head.S
++++ b/arch/riscv/kernel/head.S
+@@ -248,6 +248,10 @@ clear_bss_done:
+ 	call relocate
+ #endif /* CONFIG_MMU */
  
--$(OUTPUT)/mlock-random-test: LDLIBS += -lcap
-+$(OUTPUT)/mlock-random-test $(OUTPUT)/memfd_secret: LDLIBS += -lcap
++	la a0, _mmu_enabled
++	li a1, 1
++	sw a1, (a0)
++
+ 	call setup_trap_vector
+ 	/* Restore C environment */
+ 	la tp, init_task
+@@ -370,6 +374,11 @@ ENTRY(reset_regs)
+ END(reset_regs)
+ #endif /* CONFIG_RISCV_M_MODE */
  
- $(OUTPUT)/gup_test: ../../../../mm/gup_test.h
++.section ".data"
++	.global _mmu_enabled
++_mmu_enabled:
++	.word 0
++
+ __PAGE_ALIGNED_BSS
+ 	/* Empty zero page */
+ 	.balign PAGE_SIZE
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 787c75f751a5..4038be635e25 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -211,7 +211,7 @@ EXPORT_SYMBOL(pfn_base);
+ pgd_t swapper_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
+ pgd_t trampoline_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
+ pte_t fixmap_pte[PTRS_PER_PTE] __page_aligned_bss;
+-static bool mmu_enabled;
++extern bool _mmu_enabled;
  
-diff --git a/tools/testing/selftests/vm/memfd_secret.c b/tools/testing/selftests/vm/memfd_secret.c
-new file mode 100644
-index 000000000000..79578dfd13e6
---- /dev/null
-+++ b/tools/testing/selftests/vm/memfd_secret.c
-@@ -0,0 +1,298 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright IBM Corporation, 2020
-+ *
-+ * Author: Mike Rapoport <rppt@linux.ibm.com>
-+ */
-+
-+#define _GNU_SOURCE
-+#include <sys/uio.h>
-+#include <sys/mman.h>
-+#include <sys/wait.h>
-+#include <sys/types.h>
-+#include <sys/ptrace.h>
-+#include <sys/syscall.h>
-+#include <sys/resource.h>
-+#include <sys/capability.h>
-+
-+#include <stdlib.h>
-+#include <string.h>
-+#include <unistd.h>
-+#include <errno.h>
-+#include <stdio.h>
-+
-+#include "../kselftest.h"
-+
-+#define fail(fmt, ...) ksft_test_result_fail(fmt, ##__VA_ARGS__)
-+#define pass(fmt, ...) ksft_test_result_pass(fmt, ##__VA_ARGS__)
-+#define skip(fmt, ...) ksft_test_result_skip(fmt, ##__VA_ARGS__)
-+
-+#ifdef __NR_memfd_secret
-+
-+#include <linux/secretmem.h>
-+
-+#define PATTERN	0x55
-+
-+static const int prot = PROT_READ | PROT_WRITE;
-+static const int mode = MAP_SHARED;
-+
-+static unsigned long page_size;
-+static unsigned long mlock_limit_cur;
-+static unsigned long mlock_limit_max;
-+
-+static int memfd_secret(unsigned long flags)
-+{
-+	return syscall(__NR_memfd_secret, flags);
-+}
-+
-+static void test_file_apis(int fd)
-+{
-+	char buf[64];
-+
-+	if ((read(fd, buf, sizeof(buf)) >= 0) ||
-+	    (write(fd, buf, sizeof(buf)) >= 0) ||
-+	    (pread(fd, buf, sizeof(buf), 0) >= 0) ||
-+	    (pwrite(fd, buf, sizeof(buf), 0) >= 0))
-+		fail("unexpected file IO\n");
-+	else
-+		pass("file IO is blocked as expected\n");
-+}
-+
-+static void test_mlock_limit(int fd)
-+{
-+	size_t len;
-+	char *mem;
-+
-+	len = mlock_limit_cur;
-+	mem = mmap(NULL, len, prot, mode, fd, 0);
-+	if (mem == MAP_FAILED) {
-+		fail("unable to mmap secret memory\n");
-+		return;
-+	}
-+	munmap(mem, len);
-+
-+	len = mlock_limit_max * 2;
-+	mem = mmap(NULL, len, prot, mode, fd, 0);
-+	if (mem != MAP_FAILED) {
-+		fail("unexpected mlock limit violation\n");
-+		munmap(mem, len);
-+		return;
-+	}
-+
-+	pass("mlock limit is respected\n");
-+}
-+
-+static void try_process_vm_read(int fd, int pipefd[2])
-+{
-+	struct iovec liov, riov;
-+	char buf[64];
-+	char *mem;
-+
-+	if (read(pipefd[0], &mem, sizeof(mem)) < 0) {
-+		fail("pipe write: %s\n", strerror(errno));
-+		exit(KSFT_FAIL);
-+	}
-+
-+	liov.iov_len = riov.iov_len = sizeof(buf);
-+	liov.iov_base = buf;
-+	riov.iov_base = mem;
-+
-+	if (process_vm_readv(getppid(), &liov, 1, &riov, 1, 0) < 0) {
-+		if (errno == ENOSYS)
-+			exit(KSFT_SKIP);
-+		exit(KSFT_PASS);
-+	}
-+
-+	exit(KSFT_FAIL);
-+}
-+
-+static void try_ptrace(int fd, int pipefd[2])
-+{
-+	pid_t ppid = getppid();
-+	int status;
-+	char *mem;
-+	long ret;
-+
-+	if (read(pipefd[0], &mem, sizeof(mem)) < 0) {
-+		perror("pipe write");
-+		exit(KSFT_FAIL);
-+	}
-+
-+	ret = ptrace(PTRACE_ATTACH, ppid, 0, 0);
-+	if (ret) {
-+		perror("ptrace_attach");
-+		exit(KSFT_FAIL);
-+	}
-+
-+	ret = waitpid(ppid, &status, WUNTRACED);
-+	if ((ret != ppid) || !(WIFSTOPPED(status))) {
-+		fprintf(stderr, "weird waitppid result %ld stat %x\n",
-+			ret, status);
-+		exit(KSFT_FAIL);
-+	}
-+
-+	if (ptrace(PTRACE_PEEKDATA, ppid, mem, 0))
-+		exit(KSFT_PASS);
-+
-+	exit(KSFT_FAIL);
-+}
-+
-+static void check_child_status(pid_t pid, const char *name)
-+{
-+	int status;
-+
-+	waitpid(pid, &status, 0);
-+
-+	if (WIFEXITED(status) && WEXITSTATUS(status) == KSFT_SKIP) {
-+		skip("%s is not supported\n", name);
-+		return;
-+	}
-+
-+	if ((WIFEXITED(status) && WEXITSTATUS(status) == KSFT_PASS) ||
-+	    WIFSIGNALED(status)) {
-+		pass("%s is blocked as expected\n", name);
-+		return;
-+	}
-+
-+	fail("%s: unexpected memory access\n", name);
-+}
-+
-+static void test_remote_access(int fd, const char *name,
-+			       void (*func)(int fd, int pipefd[2]))
-+{
-+	int pipefd[2];
-+	pid_t pid;
-+	char *mem;
-+
-+	if (pipe(pipefd)) {
-+		fail("pipe failed: %s\n", strerror(errno));
-+		return;
-+	}
-+
-+	pid = fork();
-+	if (pid < 0) {
-+		fail("fork failed: %s\n", strerror(errno));
-+		return;
-+	}
-+
-+	if (pid == 0) {
-+		func(fd, pipefd);
-+		return;
-+	}
-+
-+	mem = mmap(NULL, page_size, prot, mode, fd, 0);
-+	if (mem == MAP_FAILED) {
-+		fail("Unable to mmap secret memory\n");
-+		return;
-+	}
-+
-+	ftruncate(fd, page_size);
-+	memset(mem, PATTERN, page_size);
-+
-+	if (write(pipefd[1], &mem, sizeof(mem)) < 0) {
-+		fail("pipe write: %s\n", strerror(errno));
-+		return;
-+	}
-+
-+	check_child_status(pid, name);
-+}
-+
-+static void test_process_vm_read(int fd)
-+{
-+	test_remote_access(fd, "process_vm_read", try_process_vm_read);
-+}
-+
-+static void test_ptrace(int fd)
-+{
-+	test_remote_access(fd, "ptrace", try_ptrace);
-+}
-+
-+static int set_cap_limits(rlim_t max)
-+{
-+	struct rlimit new;
-+	cap_t cap = cap_init();
-+
-+	new.rlim_cur = max;
-+	new.rlim_max = max;
-+	if (setrlimit(RLIMIT_MEMLOCK, &new)) {
-+		perror("setrlimit() returns error");
-+		return -1;
-+	}
-+
-+	/* drop capabilities including CAP_IPC_LOCK */
-+	if (cap_set_proc(cap)) {
-+		perror("cap_set_proc() returns error");
-+		return -2;
-+	}
-+
-+	return 0;
-+}
-+
-+static void prepare(void)
-+{
-+	struct rlimit rlim;
-+
-+	page_size = sysconf(_SC_PAGE_SIZE);
-+	if (!page_size)
-+		ksft_exit_fail_msg("Failed to get page size %s\n",
-+				   strerror(errno));
-+
-+	if (getrlimit(RLIMIT_MEMLOCK, &rlim))
-+		ksft_exit_fail_msg("Unable to detect mlock limit: %s\n",
-+				   strerror(errno));
-+
-+	mlock_limit_cur = rlim.rlim_cur;
-+	mlock_limit_max = rlim.rlim_max;
-+
-+	printf("page_size: %ld, mlock.soft: %ld, mlock.hard: %ld\n",
-+	       page_size, mlock_limit_cur, mlock_limit_max);
-+
-+	if (page_size > mlock_limit_cur)
-+		mlock_limit_cur = page_size;
-+	if (page_size > mlock_limit_max)
-+		mlock_limit_max = page_size;
-+
-+	if (set_cap_limits(mlock_limit_max))
-+		ksft_exit_fail_msg("Unable to set mlock limit: %s\n",
-+				   strerror(errno));
-+}
-+
-+#define NUM_TESTS 4
-+
-+int main(int argc, char *argv[])
-+{
-+	int fd;
-+
-+	prepare();
-+
-+	ksft_print_header();
-+	ksft_set_plan(NUM_TESTS);
-+
-+	fd = memfd_secret(0);
-+	if (fd < 0) {
-+		if (errno == ENOSYS)
-+			ksft_exit_skip("memfd_secret is not supported\n");
-+		else
-+			ksft_exit_fail_msg("memfd_secret failed: %s\n",
-+					   strerror(errno));
-+	}
-+
-+	test_mlock_limit(fd);
-+	test_file_apis(fd);
-+	test_process_vm_read(fd);
-+	test_ptrace(fd);
-+
-+	close(fd);
-+
-+	ksft_exit(!ksft_get_fail_cnt());
-+}
-+
-+#else /* __NR_memfd_secret */
-+
-+int main(int argc, char *argv[])
-+{
-+	printf("skip: skipping memfd_secret test (missing __NR_memfd_secret)\n");
-+	return KSFT_SKIP;
-+}
-+
-+#endif /* __NR_memfd_secret */
-diff --git a/tools/testing/selftests/vm/run_vmtests b/tools/testing/selftests/vm/run_vmtests
-index e953f3cd9664..95a67382f132 100755
---- a/tools/testing/selftests/vm/run_vmtests
-+++ b/tools/testing/selftests/vm/run_vmtests
-@@ -346,4 +346,21 @@ else
- 	exitcode=1
- fi
+ #define MAX_EARLY_MAPPING_SIZE	SZ_128M
  
-+echo "running memfd_secret test"
-+echo "------------------------------------"
-+./memfd_secret
-+ret_val=$?
-+
-+if [ $ret_val -eq 0 ]; then
-+	echo "[PASS]"
-+elif [ $ret_val -eq $ksft_skip ]; then
-+	echo "[SKIP]"
-+	exitcode=$ksft_skip
-+else
-+	echo "[FAIL]"
-+	exitcode=1
-+fi
-+
-+exit $exitcode
-+
- exit $exitcode
+@@ -236,7 +236,7 @@ void __set_fixmap(enum fixed_addresses idx, phys_addr_t phys, pgprot_t prot)
+ 
+ static pte_t *__init get_pte_virt(phys_addr_t pa)
+ {
+-	if (mmu_enabled) {
++	if (_mmu_enabled) {
+ 		clear_fixmap(FIX_PTE);
+ 		return (pte_t *)set_fixmap_offset(FIX_PTE, pa);
+ 	} else {
+@@ -250,7 +250,7 @@ static phys_addr_t __init alloc_pte(uintptr_t va)
+ 	 * We only create PMD or PGD early mappings so we
+ 	 * should never reach here with MMU disabled.
+ 	 */
+-	BUG_ON(!mmu_enabled);
++	BUG_ON(!_mmu_enabled);
+ 
+ 	return memblock_phys_alloc(PAGE_SIZE, PAGE_SIZE);
+ }
+@@ -281,7 +281,7 @@ pmd_t early_pmd[PTRS_PER_PMD * NUM_EARLY_PMDS] __initdata __aligned(PAGE_SIZE);
+ 
+ static pmd_t *__init get_pmd_virt(phys_addr_t pa)
+ {
+-	if (mmu_enabled) {
++	if (_mmu_enabled) {
+ 		clear_fixmap(FIX_PMD);
+ 		return (pmd_t *)set_fixmap_offset(FIX_PMD, pa);
+ 	} else {
+@@ -293,7 +293,7 @@ static phys_addr_t __init alloc_pmd(uintptr_t va)
+ {
+ 	uintptr_t pmd_num;
+ 
+-	if (mmu_enabled)
++	if (_mmu_enabled)
+ 		return memblock_phys_alloc(PAGE_SIZE, PAGE_SIZE);
+ 
+ 	pmd_num = (va - PAGE_OFFSET) >> PGDIR_SHIFT;
+@@ -467,9 +467,6 @@ static void __init setup_vm_final(void)
+ 	phys_addr_t pa, start, end;
+ 	struct memblock_region *reg;
+ 
+-	/* Set mmu_enabled flag */
+-	mmu_enabled = true;
+-
+ 	/* Setup swapper PGD for fixmap */
+ 	create_pgd_mapping(swapper_pg_dir, FIXADDR_START,
+ 			   __pa_symbol(fixmap_pgd_next),
 -- 
-2.28.0
+2.20.1
 
 
 _______________________________________________
