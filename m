@@ -2,71 +2,83 @@ Return-Path: <SRS0=guVx=FF=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-16.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-13.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9E318C64E8A
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Dec 2020 10:25:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 90760C64E7A
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Dec 2020 11:02:51 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EA6C620770
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Dec 2020 10:25:55 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPS id EE4E620809
+	for <linux-riscv@archiver.kernel.org>; Tue,  1 Dec 2020 11:02:50 +0000 (UTC)
 Authentication-Results: mail.kernel.org;
-	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="eaD6cfuQ"
-Authentication-Results: mail.kernel.org; dmarc=permerror header.from=codethink.co.uk
+	dkim=pass (2048-bit key) header.d=lists.infradead.org header.i=@lists.infradead.org header.b="i+BtnTOL";
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=microchip.com header.i=@microchip.com header.b="Z7Wa82w4"
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EE4E620809
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=microchip.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=qnbmrnHcjGYWwDB5UDwCE2Gzv4tVv1g9tirkPQzMXrU=; b=eaD6cfuQ6LPqr6FXvfIv1grGo
-	l9fUcft45cc25bj2GqvSIG/o+AF6zf+aciln3uNWQfLOayTLJhWVtB5if3LH5iqo5ZpZ5rDZm/UXi
-	r2GAaHPbQplUpeETjsdkluYB6iImFZ2jSa9YfflGpJyzf76K0LTSPhhEJXdioMVDD0W2ZROH1ooFD
-	veFT16wgGOY27Htk0lwxYW77CySgiZZjGRJ2ZGZpt678v+gcYZdVTkziINjq47h2RH1gExrESUMpO
-	RnECoRPG6DQgJkJyj6XK37v/CqmT9QMzmNKSStA5MDKKnLNUY9OqU5YfsE+YY3N0X51NfogGwk1Xt
-	/d1m9MlDg==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3Zo9Rtj08KUr7+1spj4Ts3bIvWMesZzQyGW9d5ANg8k=; b=i+BtnTOLLpEA5zy5iqMIF8KVyq
+	KMWz3pgentUlRxiX0iAx3wFy9jwfzYKMKcvoKLZuCExDax0mxOvuVtwoOCWVmu9Uq/pOC4hXoSSmd
+	Sgddm/0Q0o3SFqxW7tbKbDGC+sVfHPg5SmcV3XQh8pqGNiIWeyF4pKGF5Owcdm6U1WZhnohmWFH8C
+	MRxACtcU0nAWL3TucnT2gis4GcYD7iJVCF/H1QHlhc4O7UbpN8DK877gnKMsLPRcZXDFngJLqusat
+	36T8wn0///tsddZoZUdG8O/yNk3it3Ihjv6GeghpJWOczx1jYcArNnMKODKTA6Fsjf4pJXIyp3DDJ
+	MRXIKfvA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kk2qy-0005Kr-IC; Tue, 01 Dec 2020 10:25:48 +0000
-Received: from imap3.hz.codethink.co.uk ([176.9.8.87])
+	id 1kk3Qh-0004F4-Jn; Tue, 01 Dec 2020 11:02:43 +0000
+Received: from esa4.microchip.iphmx.com ([68.232.154.123])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kk2dl-0005y4-Is
- for linux-riscv@lists.infradead.org; Tue, 01 Dec 2020 10:12:11 +0000
-Received: from cpc79921-stkp12-2-0-cust288.10-2.cable.virginm.net
- ([86.16.139.33] helo=[192.168.0.18])
- by imap3.hz.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
- id 1kk2dT-0004w8-Pi; Tue, 01 Dec 2020 10:11:51 +0000
-Subject: Re: [PATCH 1/6] mbox: add polarfire soc system controller mailbox
-To: Damien Le Moal <Damien.LeMoal@wdc.com>,
- "Conor.Dooley@microchip.com" <Conor.Dooley@microchip.com>,
- "robh+dt@kernel.org" <robh+dt@kernel.org>,
- "jassisinghbrar@gmail.com" <jassisinghbrar@gmail.com>,
- "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
- "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
- "palmer@dabbelt.com" <palmer@dabbelt.com>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-References: <20201119170419.18272-1-conor.dooley@microchip.com>
- <BL0PR04MB6514AA9B313828842F7EF0D8E7FF0@BL0PR04MB6514.namprd04.prod.outlook.com>
- <ffa091eb-0963-f2b5-de9a-c76767d6776c@microchip.com>
- <CH2PR04MB6522D8B7E1EC319733D72CA5E7F50@CH2PR04MB6522.namprd04.prod.outlook.com>
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-Organization: Codethink Limited.
-Message-ID: <bf2e38ae-dbc0-8952-9a30-b56a5340c28a@codethink.co.uk>
-Date: Tue, 1 Dec 2020 10:11:49 +0000
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.12.0
+ id 1kk3Qd-0004Dz-8u
+ for linux-riscv@lists.infradead.org; Tue, 01 Dec 2020 11:02:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+ t=1606820559; x=1638356559;
+ h=from:to:cc:subject:date:message-id:mime-version;
+ bh=FGtPhqRgilZG6lzFXwF1W6lCCJFnX3QJX7Kd0Z86TGw=;
+ b=Z7Wa82w4A0zJ3fKYaZLB6oBv/ReIiIhl9HXNUtlArfVJ+QtdUFUK7wXW
+ MlrYQrRFaRtdkeouGOjQJI6jqmTLXa8Y0tszj7xwnTHHHwz8k7yuik3HB
+ DtvSNTXTsgheHC9hFXzr4e6ga6fmfyhd67z6y3UhDs6Oge/5CO9oFxl4A
+ 1umKPbQ4o7t0p5Bzx1G7DT1iQCTgIRX6c4Z5YDdw2S3Iqo0c7wO0i6t4P
+ BFwwJZvNmwfjC9Bwz602xhsGmRjqDaWrBnQfOVagmE941nq3OaxDs5dkt
+ /7Mu75wiJHRmmgd+xFTOCm92uUOk8o15p6QWF/QHvKVhXKIGx0ForJZ9i A==;
+IronPort-SDR: Cs03h4YGEaHjkbLY08KhFq3entQDhODQoH5WPueKyU4feyT+ERtJRhDtYzTMYTmt1jGm44KpeH
+ NPwXp7RZW7axleaEdSseEpGJlfNpI+bEGok7YXz0jGv6vOMJa0J4SaK18AD0Vir1Jky9B5Lkot
+ oAIaxGQxqxeujzlj8KasUKxwN/gaLXDD9wn0Yww7SW94AZNQI+taZpi5NUOqTUI/aWFd9gwVNF
+ ACRVAA8z9rITrH/YCdB2ly6TaIoXabDKt12tq9eqyEFYb/xbjTAISVIsDKm5KCh/YNHfialhZH
+ l1U=
+X-IronPort-AV: E=Sophos;i="5.78,384,1599548400"; d="scan'208";a="95390174"
+Received: from smtpout.microchip.com (HELO email.microchip.com)
+ ([198.175.253.82])
+ by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 01 Dec 2020 04:02:37 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.1979.3; Tue, 1 Dec 2020 04:02:36 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server id 15.1.1979.3 via Frontend
+ Transport; Tue, 1 Dec 2020 04:02:34 -0700
+From: <conor.dooley@microchip.com>
+To: <robh+dt@kernel.org>, <damien.lemoal@wdc.com>, <jassisinghbrar@gmail.com>, 
+ <aou@eecs.berkeley.edu>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, 
+ <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: [PATCH v2 0/5] Add support for the PolarFire SoC system controller
+Date: Tue, 1 Dec 2020 11:02:33 +0000
+Message-ID: <20201201110233.28296-1-conor.dooley@microchip.com>
+X-Mailer: git-send-email 2.17.1
 MIME-Version: 1.0
-In-Reply-To: <CH2PR04MB6522D8B7E1EC319733D72CA5E7F50@CH2PR04MB6522.namprd04.prod.outlook.com>
-Content-Language: en-GB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201201_051209_728123_C74DFAFB 
-X-CRM114-Status: GOOD (  13.53  )
+X-CRM114-CacheID: sfid-20201201_060239_550013_775A9BA8 
+X-CRM114-Status: GOOD (  13.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -78,67 +90,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "Cyril.Jean@microchip.com" <Cyril.Jean@microchip.com>,
- "david.abdurachmanov@gmail.com" <david.abdurachmanov@gmail.com>,
- "Daire.McNamara@microchip.com" <Daire.McNamara@microchip.com>,
- Anup Patel <Anup.Patel@wdc.com>, Atish Patra <Atish.Patra@wdc.com>,
- "Lewis.Hanly@microchip.com" <Lewis.Hanly@microchip.com>
+Cc: cyril.jean@microchip.com, david.abdurachmanov@gmail.com,
+ daire.mcnamara@microchip.com, anup.patel@wdc.com, atish.patra@wdc.com,
+ Conor Dooley <conor.dooley@microchip.com>, lewis.hanly@microchip.com
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 30/11/2020 21:50, Damien Le Moal wrote:
-> On 2020/11/30 22:23, Conor.Dooley@microchip.com wrote:
->> On 20/11/2020 00:05, Damien Le Moal wrote:
->>> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
->>>
->>> On 2020/11/20 2:05, conor.dooley@microchip.com wrote:
->>>> From: Conor Dooley <conor.dooley@microchip.com>
->>>>
->>>> This driver adds support for the single mailbox channel of the MSS
->>>> system controller on the Microchip PolarFire SoC.
->>>>
->>>> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
->>>> ---
->>>>   drivers/mailbox/Kconfig        |  12 ++
->>>>   drivers/mailbox/Makefile       |   2 +
->>>>   drivers/mailbox/mailbox-mpfs.c | 296 +++++++++++++++++++++++++++++++++
->>>>   3 files changed, 310 insertions(+)
->>>>   create mode 100644 drivers/mailbox/mailbox-mpfs.c
->>>>
->>>> diff --git a/drivers/mailbox/Kconfig b/drivers/mailbox/Kconfig
->>>> index 05b1009e2820..4881a519683a 100644
->>>> --- a/drivers/mailbox/Kconfig
->>>> +++ b/drivers/mailbox/Kconfig
->>>> @@ -153,6 +153,18 @@ config MAILBOX_TEST
->>>>          Test client to help with testing new Controller driver
->>>>          implementations.
->>>>
->>>> +config MPFS_MBOX
->>>> +     tristate "MPFS Mailbox"
->>>> +     depends on HAS_IOMEM
->>> Shouldn't this dependency be on SOC_MICROCHIP_POLARFIRE ?
->> Not entirely sure what you mean by this one. You want the HAS_IOMEM to be selected by SOC_MICROCHIP_POLARFIRE ?
-> 
-> Sorry, I was not clear. I was referring to MPFS_MBOX: shouldn't it be dependent
-> on SOC_MICROCHIP_POLARFIRE ? E.g.:
-> 
-> config MPFS_MBOX
-> 	tristate "MPFS Mailbox"
-> 	depends on HAS_IOMEM
-> 	depends on SOC_MICROCHIP_POLARFIRE
-> 	...
+From: Conor Dooley <conor.dooley@microchip.com>
 
-probably depends on SOC_MICROCHIP_POLARFIRE || COMPILE_TEST
-so that you can build a "compile test" kernel with as much enabled as 
-possible
+This patch series adds support for the system controller on
+the PolarFire SoC, using the mailbox framework. A Microchip directory
+in the SoC subsystem has been created to hold the mailbox client
+driver and will be used for future service drivers.
+
+This directory is included by the kconfig option: 
+CONFIG_SOC_MICROCHIP_POLARFIRE, so this patch series depends on Atish 
+Patra's PolarFire SoC support patches which introduce that option.
+
+Changes from v1:
+* Squashed header into first patch
+* Fixed DT binding warnings & small fixes
+* Cleaned up drivers from feedback
+
+Conor Dooley (5):
+  mbox: add polarfire soc system controller mailbox
+  dt-bindings: add bindings for polarfire soc mailbox
+  soc: add polarfire soc system controller
+  dt-bindings: add bindings for polarfire soc system controller
+  MAINTAINERS: add microchip polarfire soc support
+
+ .../mailbox/microchip,mpfs-mailbox.yaml       |  47 +++
+ .../microchip,mpfs_sys_controller.yaml        |  49 +++
+ MAINTAINERS                                   |   9 +
+ drivers/mailbox/Kconfig                       |  12 +
+ drivers/mailbox/Makefile                      |   2 +
+ drivers/mailbox/mailbox-mpfs.c                | 285 ++++++++++++++++++
+ drivers/soc/Kconfig                           |   1 +
+ drivers/soc/Makefile                          |   1 +
+ drivers/soc/microchip/Kconfig                 |  10 +
+ drivers/soc/microchip/Makefile                |   1 +
+ drivers/soc/microchip/mpfs_sys_controller.c   | 135 +++++++++
+ include/soc/microchip/mpfs.h                  |  51 ++++
+ 12 files changed, 603 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/mailbox/microchip,mpfs-mailbox.yaml
+ create mode 100644 Documentation/devicetree/bindings/soc/microchip/microchip,mpfs_sys_controller.yaml
+ create mode 100644 drivers/mailbox/mailbox-mpfs.c
+ create mode 100644 drivers/soc/microchip/Kconfig
+ create mode 100644 drivers/soc/microchip/Makefile
+ create mode 100644 drivers/soc/microchip/mpfs_sys_controller.c
+ create mode 100644 include/soc/microchip/mpfs.h
 
 -- 
-Ben Dooks				http://www.codethink.co.uk/
-Senior Engineer				Codethink - Providing Genius
+2.17.1
 
-https://www.codethink.co.uk/privacy.html
 
 _______________________________________________
 linux-riscv mailing list
