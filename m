@@ -2,135 +2,167 @@ Return-Path: <SRS0=xwCb=FG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-18.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A2025C71155
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Dec 2020 08:05:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1CF02C64E7C
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Dec 2020 09:13:48 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1F9FF20C56
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Dec 2020 08:05:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1F9FF20C56
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	by mail.kernel.org (Postfix) with ESMTPS id 7AC702086A
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Dec 2020 09:13:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7AC702086A
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=microchip.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:References:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=8+W6K2QdgK4zKqiiigDqiDgVABLuoZPqfF4l+9JA65E=; b=rBTvEVGs5xBivEhcP8JAkiQWq
-	a46TDeAWOYtbDcI2H5k2hKZ+0ZsejbEsPR7tzwoYZkEzgSbtYE2j9ajQzbnTGAJ9jiukT9TTmrKnl
-	A52Ib5OXzkktkqw5FDaGSrdfa6xQi7smu5UDfPsUX0nQdjrKN3FuMR5+Pfik1AgWip/kqolws6gir
-	fsVm0LMBNnPsLDvAcRAMTJGqXm3FEmnCcDaCnE++Bv1jXa/6By9e3DAS0or1jvwjvRf+SC8v2Z0bS
-	SDRNo+kmSugIMUYSLOtfnKgtb8vvjUqr3i96bvSMCsIvbwsb4Oo8cOiQK5Rz3/AEIRfgq4cHxyxaX
-	uYWaPpuDA==;
+	 bh=XqNkXl27v28hhCJeKVFmWcUX0M8m8gzKFn3ZRd9Bj54=; b=hntQSfKWOcBYN7kPOG79NUsaU
+	lTjI3jgZOozZTJuNC9lbPQ/u5Y3lrBuePl2v/OYWRNMCE5Oe6iqay/UqMgpo7olVnRouuipgwEUs1
+	MiWxiPtDRiKn017h3MwEmlG/g18TI98NEX6t9GfVOw/D85CWEWtWs3h8Hnrx38d9iRWCBFP7OFW/0
+	tTZBFBEZJ1RbGVJxdg+VRYmGY8aTKBwQ1PUPsif2m/P76AEaRe8ZZx3+dHF/jxOVOjN4gP23up00H
+	5jnSABoC/g8FC+dJ3Fp3sG2jvFtNzxhv04VmYdQnyUg2pdeirLd75tRw1+otalkcmW4VMkwAS3SyK
+	4jxPtRDuw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kkN88-00034h-Ly; Wed, 02 Dec 2020 08:04:52 +0000
-Received: from mail-bn7nam10on2053.outbound.protection.outlook.com
- ([40.107.92.53] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	id 1kkOCg-0000ms-5h; Wed, 02 Dec 2020 09:13:38 +0000
+Received: from esa3.microchip.iphmx.com ([68.232.153.233])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kkN86-00033L-0z
- for linux-riscv@lists.infradead.org; Wed, 02 Dec 2020 08:04:51 +0000
+ id 1kkOCc-0000lk-1r
+ for linux-riscv@lists.infradead.org; Wed, 02 Dec 2020 09:13:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+ t=1606900413; x=1638436413;
+ h=from:to:cc:subject:date:message-id:references:
+ in-reply-to:content-id:content-transfer-encoding: mime-version;
+ bh=PBMwD8WzpGJEscxKLGOH3iGtopS9AuPdUGCGE/BgPxw=;
+ b=n1qFfaBta94bTp4jqnT0olUp1bQrKs62YNI1hC7KwqTerVaejGZeIcOS
+ WfhZIP6T2XNA04eg7k83SrPevGSsGTEwgLgwKe23fcWRfoT+E/THRasot
+ XRF/jDFdGDp1kiBlzXY7AiPbPgIGrLqQ0lwmtMhnZR6BluLSz+BFG8fMg
+ yz2FR5Fdp+t9kn8xqrImNbPoOdXtKi79zTZxP3jyt1zON7U8Kbo2L5wag
+ a6dOlFEMOUkBhxMg1VEdYboAhmTVXg9drng0ij9Ugp62stTW519mNIjVa
+ 2IxyU3n2+2mRgEIFOtZir0Si5RYFgiIonHTtpcvxYiUa/oRHS/EPQKPUu Q==;
+IronPort-SDR: 3k6sWBM4Dm6prQXh+Xvjqrwv7jGMz+/gxTPfbf8yhJY8+YVpNv+rioZ0kVmBsi4LiH7a79p9ac
+ nvN/mse7Ywm6h+Z2dYO9h2D1yGzfjZvXeuoPir/ObcEtpw9FRXhzdByrivSU/UCH5Y5bRZSNia
+ K1qJx7YLy5ZmIR0fEgXlpqDVma+wet5JJAgh+laoDzWs5VFKwag3YxLVE0GnnktwnoElXmQhP4
+ NVvaNXfQVvtTr5SX3ufydhfMKwuVuNJiJc5nqsCpWpwktb2JAEwVO2bu8yWU36NANA5AFwvI4Z
+ whk=
+X-IronPort-AV: E=Sophos;i="5.78,386,1599548400"; d="scan'208";a="101092937"
+Received: from smtpout.microchip.com (HELO email.microchip.com)
+ ([198.175.253.82])
+ by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 02 Dec 2020 02:13:32 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.1979.3; Wed, 2 Dec 2020 02:13:31 -0700
+Received: from NAM11-CO1-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.71) with Microsoft SMTP Server
+ (version=TLS1_2, 
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1979.3 via Frontend
+ Transport; Wed, 2 Dec 2020 02:13:31 -0700
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=a0YriRyNs2QHgLSTKv+Rb5dyraSaYjxnZTdRmtfOBGiaGQKLvFuNpq29uJPpcPGb4QvdH5ZTSyvGrYAn4rk8K8Tp+vqvJHUJdPZcUaq5/eEYeDF2Tx+AWWM7GkZjOEs0rZN1jX531eORHiUuXtaQE5/qnEtIaFlWT/RmroofA1ja2j+2u7U2MDHqR7Fhdn2v2MtXtcEWwk9Cxl8vqfS22TodHNgykBO3KBcg5hLHo3MagBa1NOnYXTZZE9u26nAD5EDTCQQlFdvscp2vdlpAo1YuvsKVYTiGfC4FSGwHhgDMpdretiDsaWzVcFG2L9qXE8I6XSg0vx32C0pv/aA/Zw==
+ b=euySvAvvcJw3YzRttg6Kgki+HaahPJpNGkm8tbVgwtdIvOpmAKN/ek8F/6WWR9463OrpmX7XyyJsNbtN0fWInk0nw21SbcikGyXA6WuMlf19UQ6cJRGh8Cl9o+ZF6qAM/qZw8XV+7cYmMjE/RRAAW0Nps95O+dp97l3eXYQRCAeWBioZcqDY66YKyopjwEev3SmUN+D3zR1HaWPzLIhiIZI3JVfT6r6NUlEzKuo7HHyk+RLVb1AVV2o/S6PnrY0uraQTi++hSe1Tly2eoWd/V0/dyyYe6Ecna70Ibc+jaF1ahxNtjo9eLRzkyx7VR7sGDP0hDw0JlDljPBBzsUtqWw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rXZ2cqQb+PKX4OQqvpL1oiXVHTrIWB/tL9KWb3D3lYI=;
- b=a/eyfFKaKhq9ba5QSsbJT+LfANltGyBqR/hGOMDKykem0yG8rZjh7OGgcXB2PtVvehatxPietgPSPhusaqLILCqYCdLpmsgbSGzZyKO3FkZUXqSmk1JHcHC7KsekKczpHmGOncOMO5EmMsVpefZzbNYnDMBLkiZscS0M6mkVW5C4TJ4Ue81NQjkBO5+OFKnmLT6L4WXetmoKagEBMgpBXWSkHuMdRLGz5kwrVKmen7YaPTTok3by7Q/+ErmbF6m6YSc3/U3p7wWSPR4lUXCnrv7oH9SRvizZ6XTDJ052XgOmt8DIX1Lge3sndx8hcchISOLAJ8eomMp8qENTKqTKEw==
+ bh=PBMwD8WzpGJEscxKLGOH3iGtopS9AuPdUGCGE/BgPxw=;
+ b=dxyJz5EM+3GEQpReqr3WtvdEjfYF/gHznWOpxH1YGu69/Xx+nzNDQjI5dPibXb5wCVm9xI5s+opEutLBjxQRWlQ6Qfz+r0UudNJpD/w5Ge027QpjUmAyDiqWiBxOUZi9nGzNbNDmkO6fRvtKHoJir4PuinH8JQSBSQ5fswXNKPjgIYyqJjcoNlb46vWEX0gJMAyhTsY44CcJuPa/SG/k5sMKEBzBFalfAEixuRHa4Cnn0vFgh2kZHtqe4hmNOcITJ79N0+I0TYTmNPE0Tp8QI2pFVTwfSZ+luAUXpp1khDnIETPfkkitevsNIBIngjv04SWgQXhrb/w68qffUU8NFw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=openfive.com; dmarc=pass action=none header.from=sifive.com;
- dkim=pass header.d=sifive.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com;
- s=selector1;
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=microchiptechnology.onmicrosoft.com;
+ s=selector2-microchiptechnology-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rXZ2cqQb+PKX4OQqvpL1oiXVHTrIWB/tL9KWb3D3lYI=;
- b=fmHWpnvTjrpjbXixk8ybbc45R3zvWpBNeLuYNeokzXtZhUuUNO5TgoMPUHbNumJgcKCkiXtKRfvRRSCk2HNImnQTbmOQ2RI1sZwji03UD/fd4dV5kxWxf+ymHVOp+UfUvDjliVnScPF7RHx337f2g4H2zVwClMkC8HYk2TwZg50=
-Authentication-Results: vger.kernel.org; dkim=none (message not signed)
- header.d=none; vger.kernel.org; dmarc=none action=none header.from=sifive.com; 
-Received: from CH2PR13MB4458.namprd13.prod.outlook.com (2603:10b6:610:6c::22)
- by CH2PR13MB3543.namprd13.prod.outlook.com (2603:10b6:610:2b::33)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3632.6; Wed, 2 Dec
- 2020 08:04:48 +0000
-Received: from CH2PR13MB4458.namprd13.prod.outlook.com
- ([fe80::bdcd:2c1b:bf81:515c]) by CH2PR13MB4458.namprd13.prod.outlook.com
- ([fe80::bdcd:2c1b:bf81:515c%7]) with mapi id 15.20.3632.006; Wed, 2 Dec 2020
- 08:04:48 +0000
-From: Yash Shah <yash.shah@sifive.com>
-To: linux-spi@vger.kernel.org, linux-serial@vger.kernel.org,
- linux-pwm@vger.kernel.org, linux-i2c@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, linux-gpio@vger.kernel.org
-Subject: [PATCH 4/4] riscv: dts: add initial board data for the SiFive HiFive
- Unmatched
-Date: Wed,  2 Dec 2020 13:33:56 +0530
-Message-Id: <1606896236-62780-5-git-send-email-yash.shah@sifive.com>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1606896236-62780-1-git-send-email-yash.shah@sifive.com>
-References: <1606896236-62780-1-git-send-email-yash.shah@sifive.com>
-X-Originating-IP: [159.117.144.156]
-X-ClientProxiedBy: BMXPR01CA0018.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:b00:d::28) To CH2PR13MB4458.namprd13.prod.outlook.com
- (2603:10b6:610:6c::22)
-MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-Received: from osubuntu003.open-silicon.com (159.117.144.156) by
- BMXPR01CA0018.INDPRD01.PROD.OUTLOOK.COM (2603:1096:b00:d::28) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.3632.17 via Frontend Transport; Wed, 2 Dec 2020 08:04:42 +0000
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 2723f445-5272-4926-cd5f-08d89698f073
-X-MS-TrafficTypeDiagnostic: CH2PR13MB3543:
-X-LD-Processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
-X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <CH2PR13MB35433BBC38AB2255F2301CB782F30@CH2PR13MB3543.namprd13.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:3826;
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 7rB6JJ/bGp85SrsjM3455hs/3alPRuWyyVoAEJm36FN+KQ9+rjraexbSd+NtCuYv4ebx02inXF0dWzdWCIjtZv+usBo3p8j8pGAIaUIh2N1vPPhhSLjZCSkJMBRJg/5WSbIWtKTNBNinE8lDKtfDiqGnCAMYUFLQf53ymXaBJrT3gzicJjcnUfZU9+gPGwuCxNZKUGWH6uh3bKOZ9eM0SOHagX0QVcMN1OprMNB8bMZiqRqfLaXK25KPUavjJBm/z6HpK92uKSApWPQCz209BthbfmhBx/zNT87HmDClfGKXjgymv3tda3rf9EDvky99C4rIDByVwEXyHKE6dxkmEg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:CH2PR13MB4458.namprd13.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(6029001)(366004)(136003)(396003)(39850400004)(346002)(376002)(83170400001)(36756003)(42882007)(66476007)(316002)(66556008)(83380400001)(2906002)(4326008)(956004)(2616005)(26005)(44832011)(5660300002)(7416002)(52116002)(478600001)(107886003)(66946007)(16526019)(8936002)(6512007)(6666004)(6506007)(186003)(6486002)(8676002);
+ bh=PBMwD8WzpGJEscxKLGOH3iGtopS9AuPdUGCGE/BgPxw=;
+ b=kusz3u0/lwzD1b2s4qto4xMvwdfuBUxsfSycnPTcAlSOJlTBxXC9T0qBSR8AeL1kNT1PRBznD7j+Z7DhN3g1mZRbnCK0WcVFQVl7dMBvcjhW1Bvr8ueqNli3aMoWoRvrrmlXATkP45wA4Ey6FvEcaB6dj1RSeaqgSLWw13pycow=
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:95::7)
+ by MWHPR11MB1520.namprd11.prod.outlook.com (2603:10b6:301:b::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3632.17; Wed, 2 Dec
+ 2020 09:13:30 +0000
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::a007:19e8:3f74:b14d]) by CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::a007:19e8:3f74:b14d%5]) with mapi id 15.20.3589.037; Wed, 2 Dec 2020
+ 09:13:30 +0000
+From: <Conor.Dooley@microchip.com>
+To: <atishp@atishpatra.org>
+Subject: Re: [PATCH v2 5/5] MAINTAINERS: add microchip polarfire soc support
+Thread-Topic: [PATCH v2 5/5] MAINTAINERS: add microchip polarfire soc support
+Thread-Index: AQHWx9GX08ZpWwt4JUCkSm0fYfafqqniieEAgAD9R4A=
+Date: Wed, 2 Dec 2020 09:13:29 +0000
+Message-ID: <1cb10c03-d5fd-c6bc-62fa-7eb854a31cba@microchip.com>
+References: <20201201110316.28656-1-conor.dooley@microchip.com>
+ <CAOnJCUL3qELbuDAAgyGB8jMP3x6WB1qhubd3UZNKqE5zs1B2wg@mail.gmail.com>
+In-Reply-To: <CAOnJCUL3qELbuDAAgyGB8jMP3x6WB1qhubd3UZNKqE5zs1B2wg@mail.gmail.com>
+Accept-Language: en-IE, en-US
+Content-Language: en-IE
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.10.0
+authentication-results: atishpatra.org; dkim=none (message not signed)
+ header.d=none;atishpatra.org; dmarc=none action=none
+ header.from=microchip.com;
+x-originating-ip: [89.204.252.178]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 96c26ca4-42f1-4867-9fd2-08d896a288fe
+x-ms-traffictypediagnostic: MWHPR11MB1520:
+x-ms-exchange-transport-forked: True
+x-microsoft-antispam-prvs: <MWHPR11MB15204A6AA0CFB731EBFF7BF598F30@MWHPR11MB1520.namprd11.prod.outlook.com>
+x-bypassexternaltag: True
+x-ms-oob-tlc-oobclassifiers: OLM:3631;
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: 9qloEvTQSTFJvktFI9g/ykR/xmGJQo5JfsYWj8lW7qejNl6oony8kUBKN3fdbytha5BfmhfIQqYJD0toCykJQX5nwsRqi10f5NJ7x1f3lQLjdBw4+2F9Ot4rZXBGmn3kdUijJx+j9BCJF2OsAnae09ZI98J98sV8eqbgd0pFjrwmmhjzgcSgLqwSWuWB6rATV2Wb0L3JnRkKAUJ2iN0lK3j5fHLQRn+SZpmq9Fhr1g5xfTpPff+WW4lZDXWVpWEl8y4ts86eN0vXmBKlu04SbydBKnoHp8RRJCPa/qOMnS7s3udcnqb4TVC5rnuYrt/rc49cIZV8REiWCWoEN/XpNchWHVTXxbixvq3a10H+MCr1MJHQAeuhc1ob2MkzyJBU1yLSPJmyq8eqHXN3fcthuSZmh6YZI8+tiuSq7ZDZ2KOYxwO6jx9C9RHHB+8IcIh7o9LxDf4AJPffH8LfxwDy3LJIcuTTKXTpMjeS+ddBQUG49r/5OK8zLIobok6cWsJ6
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:CO1PR11MB5154.namprd11.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(39860400002)(366004)(376002)(346002)(396003)(136003)(7416002)(26005)(6506007)(53546011)(83380400001)(71200400001)(2906002)(8936002)(86362001)(91956017)(6512007)(76116006)(6486002)(5660300002)(31696002)(2616005)(8676002)(36756003)(478600001)(186003)(31686004)(66476007)(64756008)(66556008)(66446008)(54906003)(6916009)(316002)(4326008)(66946007)(966005)(43740500002)(45980500001);
  DIR:OUT; SFP:1101; 
-X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?q4uLYTt1eCFrWR8hrhgmpr0mx5UD5uQlkMLJPbw4daWqa/v41tD0sHw6KDJY?=
- =?us-ascii?Q?KwdlypZlAz9FuUhv+5Uml1EgNIIfopSqsSPxH8DYukfa5xoVbEQeauo0N1yl?=
- =?us-ascii?Q?32G8L2Ag5+be4EHcpKxglRfB6dbrcHPRsleWgMa9AhrVE+LSHX66wUgKi4oC?=
- =?us-ascii?Q?NOksxXLjYZEveiD0nIVjMNBAXopowVUOrk2PAO41gyOF9tSfSpsVcUkCpwtt?=
- =?us-ascii?Q?evsp8zrrFgUYZej7my5/R9G8hDBZwtp4Gv0tg7TgeshDPo6SlrKVXHwTRzyy?=
- =?us-ascii?Q?pHWnNTYWzokaQkh2wFMMkjgRFK4PE0qgSFrH0aEIydSYY2Ae+AOJ5dsfvlb0?=
- =?us-ascii?Q?YGKG0Bf4N2CGxE6trxIyEP4YsEesjLTu1KVrNdZe3OYhbkwHN1vg0wB4QOsL?=
- =?us-ascii?Q?li5fc7jnathiZj0dNwbSbYgCN3KOh+mcU6Ktwybr1FNBXFNigYDsZ+S+h9ov?=
- =?us-ascii?Q?yep7IB2mGHid2VMNExPlQ83A8igR3zrvuhDfaMFFbOFCTxqIRvrfWczJj8+e?=
- =?us-ascii?Q?NWOrr2aGElMVBx6K7puvFHY6Yl/HeiFMEuGDXtxasjl2mWbvSTAkth7sTCA7?=
- =?us-ascii?Q?rlCt921tEf30KQBIrvuiy5b49Pli9Zt5gcKPtezsk5VHXFjd9XjXMUN9QQsl?=
- =?us-ascii?Q?eA+JjclJgnFqh1AxWcg2LFRww95OrkFoI+WI1SAblgv9bQFwOY4KbZobYGwh?=
- =?us-ascii?Q?QmdNe3CMXLpzMKQ0Yu1SG0NJrcF7Tv3BtLkSuOOlNsrmGIYdlQVVhdCdKpUY?=
- =?us-ascii?Q?1zNskzwjVypujj3fecs7sBecIWyANnQBkc6QfdCCFf4wNvaA9wUx+526Vunk?=
- =?us-ascii?Q?wvhzH/gc2cIapTg/Ovy0LV+JIench2x9MXxVCodeAt554sfvvIjHOO75FF0U?=
- =?us-ascii?Q?o4daSOes1R3kIliJAEyWGxCTeiTUJ3Mp33SGPqRX/23KLIxeFWM9JWQS91hV?=
- =?us-ascii?Q?4+8IYB3Q97ZiUh1hEWK87VKnbr6+2fwIv/RYFOm+nC8HOdFw+ahYS+UrdN9b?=
- =?us-ascii?Q?97Mg?=
-X-OriginatorOrg: sifive.com
-X-MS-Exchange-CrossTenant-AuthSource: CH2PR13MB4458.namprd13.prod.outlook.com
+x-ms-exchange-antispam-messagedata: =?utf-8?B?OGxvRnBPbkthZ2d2WHdXVVIzd0dKZ09TZlFPZkRSaE5oc0JqcXV4OHRna1l5?=
+ =?utf-8?B?VFozeCtvbmx4cVFZWlFmZ1FRakZLRDdVbHZzei9CeTQzL1ZQR0tNcHlXMTlW?=
+ =?utf-8?B?Vnd5QnhzV0NtaWo0Ny9Rb25qa3FZeWRFcVpwbTBTN2NCbk1qWlhuVzdpMzdE?=
+ =?utf-8?B?clJEc04rSkhuTUw0c0ZZbms2Z1hmY3ZjWlYvUE1yb3R3U1ZMNytWT29yTUtB?=
+ =?utf-8?B?YmxUL2Noc2tpYnhXTUh2RVBPZDM0aCtXUHl0Mi9tejdBZnpiR2ZHeGltM0sx?=
+ =?utf-8?B?RXB6djJYUGk4WUE3cHN0NkNLQzhwZUNDWU9BNG1BMFRwRlpBd0VUNmc4OW8y?=
+ =?utf-8?B?dWxkUTJ0d3k1UytqaDdZUTVSWmV5VGlnTElGNlh3UDlIWGcrTktuKzFYeEg4?=
+ =?utf-8?B?U2Uya0FUYlJNWlo3aytQSTVjSGU1THZsbmRTRWx1WFVYUVZxdXJVSG52b0NR?=
+ =?utf-8?B?SXBRamhwNVoyN3BaTzhhZGtRMUlvQUdYakUwSkNlZWs5V1RmYWxwamlSYVFl?=
+ =?utf-8?B?US9QYWlsSFlqY1JLb203Z0hzWXYvQ21hdlVaNjNsYXZZbjlTUWpQam1lK3p6?=
+ =?utf-8?B?VmhQS3FPVFlXUC9LMW1JTkdXTUFqYjRXMk14WWZaa2JqQkE3U3RFd0NTRVlB?=
+ =?utf-8?B?Sis5SlFaVU1UaUNwTlFZOEdaQ1VteVZEeW1nckYva1J6MUxBVnRDSml1bjFE?=
+ =?utf-8?B?eGRHWFBvdW9jYWxxMGt3NU82N0tnbGxRTUV6aG5CcHpwSlIzNm9jcmRsNlFU?=
+ =?utf-8?B?NG9IR1RJMVlRTXM5dkJRNENBcTFTVkkwMmR2TnBxdUNUaHNKQllkcGIrMkFk?=
+ =?utf-8?B?M1Zva25DU1RLWlN2MFVqVDI2T0piMmdoWjErRUtEcjZ0MEV4bk16SzhrRE80?=
+ =?utf-8?B?THNKdFhQUDZ0dFozOUdtMEkyWnZRMTZhM1BFd3RpVjFqVlFLOE5YZDN2K1Q3?=
+ =?utf-8?B?ZEZXWkhSUml4WWptb0Izd1FaWVVza3RhMUxtOVRERnBUbHlxUGdLRHFlakRI?=
+ =?utf-8?B?eXZMS0NhZzVjSDlQdkhnQXNaUGtZTjJ6cDBhYUNkWjRaUCtEM3pUenBsSk5J?=
+ =?utf-8?B?cDNMRG9lK3ZoUFNJVDdnTEM2Nmx5MHd6cXZ2U2RKQ2puL3RreGMwV1p5MFpY?=
+ =?utf-8?B?emlWVHk1dzJuSlpsSlNrTGtRTTVreHNGMTdBTkVjVG5yL0thOWQ3bEswV0tJ?=
+ =?utf-8?B?Z2svZXpnSVpvU0FWamxmQnNFUHBMMUZrTXNVaUFRWUxzcmZ3NllUUzF5dzlG?=
+ =?utf-8?B?b1p1R1l2bDlUQ3VtM2dYcGZteTBKQWg5eFpiVWZsWU95YkZyb1FXWVdNcElH?=
+ =?utf-8?Q?tgJnyREzWAgV8=3D?=
+Content-ID: <652A3F58F739C34190C6E75E478379B0@namprd11.prod.outlook.com>
+MIME-Version: 1.0
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Dec 2020 08:04:48.4788 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2723f445-5272-4926-cd5f-08d89698f073
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Jf+usVyydGv8ovuU9HLyt7/41mwikWEzoi47UJKOFNSq6gfEzhWMcbITWagyAuyzYr6TEV+wwUq/0phkKR3U+A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR13MB3543
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 96c26ca4-42f1-4867-9fd2-08d896a288fe
+X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Dec 2020 09:13:29.9345 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 2vEPD8o0VqKMg1zInOg8pFfmzQH1TsafB+SIVZXcb/aTNPjmewdfGyA94293OQh9jGcUpzOv+3DQWpXCh0+0+WehDNPTRucWh+X9rcYChno=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MWHPR11MB1520
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201202_030450_091550_15996021 
-X-CRM114-Status: GOOD (  14.24  )
+X-CRM114-CacheID: sfid-20201202_041334_349492_7E08C109 
+X-CRM114-Status: GOOD (  18.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -142,295 +174,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: andrew@lunn.ch, peter@korsgaard.com, aou@eecs.berkeley.edu,
- sachin.ghadi@sifive.com, gregkh@linuxfoundation.org, broonie@kernel.org,
- paul.walmsley@sifive.com, robh+dt@kernel.org, bgolaszewski@baylibre.com,
- Yash Shah <yash.shah@sifive.com>, thierry.reding@gmail.com, palmer@dabbelt.com,
- u.kleine-koenig@pengutronix.de, lee.jones@linaro.org, linus.walleij@linaro.org
+Cc: devicetree@vger.kernel.org, damien.lemoal@wdc.com, aou@eecs.berkeley.edu,
+ Cyril.Jean@microchip.com, david.abdurachmanov@gmail.com,
+ Daire.McNamara@microchip.com, jassisinghbrar@gmail.com, atish.patra@wdc.com,
+ anup.patel@wdc.com, robh+dt@kernel.org, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, Lewis.Hanly@microchip.com,
+ linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add initial board data for the SiFive HiFive Unmatched A00
+On 01/12/2020 18:06, Atish Patra wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+>
+> On Tue, Dec 1, 2020 at 3:03 AM <conor.dooley@microchip.com> wrote:
+>> From: Conor Dooley <conor.dooley@microchip.com>
+>>
+>> Add Cyril Jean and Lewis Hanly as maintainers for the Microchip SoC
+>> directory
+>>
+>> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> I think this patch will make more sense in my basic SoC support patch.
+> Can I include this patch in my series as is?
 
-Signed-off-by: Yash Shah <yash.shah@sifive.com>
----
- arch/riscv/boot/dts/sifive/Makefile                |   3 +-
- .../riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 253 +++++++++++++++++++++
- 2 files changed, 255 insertions(+), 1 deletion(-)
- create mode 100644 arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+Eh sure, I don't mind.
 
-diff --git a/arch/riscv/boot/dts/sifive/Makefile b/arch/riscv/boot/dts/sifive/Makefile
-index 6d6189e..74c47fe 100644
---- a/arch/riscv/boot/dts/sifive/Makefile
-+++ b/arch/riscv/boot/dts/sifive/Makefile
-@@ -1,2 +1,3 @@
- # SPDX-License-Identifier: GPL-2.0
--dtb-$(CONFIG_SOC_SIFIVE) += hifive-unleashed-a00.dtb
-+dtb-$(CONFIG_SOC_SIFIVE) += hifive-unleashed-a00.dtb \
-+			    hifive-unmatched-a00.dtb
-diff --git a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
-new file mode 100644
-index 0000000..b1c3c59
---- /dev/null
-+++ b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
-@@ -0,0 +1,253 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/* Copyright (c) 2020 SiFive, Inc */
-+
-+#include "fu740-c000.dtsi"
-+#include <dt-bindings/interrupt-controller/irq.h>
-+
-+/* Clock frequency (in Hz) of the PCB crystal for rtcclk */
-+#define RTCCLK_FREQ		1000000
-+
-+/ {
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+	model = "SiFive HiFive Unmatched A00";
-+	compatible = "sifive,hifive-unmatched-a00", "sifive,fu740-c000",
-+		     "sifive,fu740";
-+
-+	chosen {
-+		stdout-path = "serial0";
-+	};
-+
-+	cpus {
-+		timebase-frequency = <RTCCLK_FREQ>;
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x0 0x80000000 0x2 0x00000000>;
-+	};
-+
-+	soc {
-+	};
-+
-+	hfclk: hfclk {
-+		#clock-cells = <0>;
-+		compatible = "fixed-clock";
-+		clock-frequency = <26000000>;
-+		clock-output-names = "hfclk";
-+	};
-+
-+	rtcclk: rtcclk {
-+		#clock-cells = <0>;
-+		compatible = "fixed-clock";
-+		clock-frequency = <RTCCLK_FREQ>;
-+		clock-output-names = "rtcclk";
-+	};
-+};
-+
-+&uart0 {
-+	status = "okay";
-+};
-+
-+&uart1 {
-+	status = "okay";
-+};
-+
-+&i2c0 {
-+	status = "okay";
-+
-+	temperature-sensor@4c {
-+		compatible = "ti,tmp451";
-+		reg = <0x4c>;
-+		interrupt-parent = <&gpio>;
-+		interrupts = <6 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	pmic@58 {
-+		compatible = "dlg,da9063";
-+		reg = <0x58>;
-+		interrupt-parent = <&gpio>;
-+		interrupts = <1 IRQ_TYPE_LEVEL_LOW>;
-+		interrupt-controller;
-+
-+		regulators {
-+			vdd_bcore1: bcore1 {
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <900000>;
-+				regulator-min-microamp = <5000000>;
-+				regulator-max-microamp = <5000000>;
-+				regulator-always-on;
-+			};
-+
-+			vdd_bcore2: bcore2 {
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <900000>;
-+				regulator-min-microamp = <5000000>;
-+				regulator-max-microamp = <5000000>;
-+				regulator-always-on;
-+			};
-+
-+			vdd_bpro: bpro {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-min-microamp = <2500000>;
-+				regulator-max-microamp = <2500000>;
-+				regulator-always-on;
-+			};
-+
-+			vdd_bperi: bperi {
-+				regulator-min-microvolt = <1050000>;
-+				regulator-max-microvolt = <1050000>;
-+				regulator-min-microamp = <1500000>;
-+				regulator-max-microamp = <1500000>;
-+				regulator-always-on;
-+			};
-+
-+			vdd_bmem: bmem {
-+				regulator-min-microvolt = <1200000>;
-+				regulator-max-microvolt = <1200000>;
-+				regulator-min-microamp = <3000000>;
-+				regulator-max-microamp = <3000000>;
-+				regulator-always-on;
-+			};
-+
-+			vdd_bio: bio {
-+				regulator-min-microvolt = <1200000>;
-+				regulator-max-microvolt = <1200000>;
-+				regulator-min-microamp = <3000000>;
-+				regulator-max-microamp = <3000000>;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo1: ldo1 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-min-microamp = <100000>;
-+				regulator-max-microamp = <100000>;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo2: ldo2 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-min-microamp = <200000>;
-+				regulator-max-microamp = <200000>;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo3: ldo3 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-min-microamp = <200000>;
-+				regulator-max-microamp = <200000>;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo4: ldo4 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-min-microamp = <200000>;
-+				regulator-max-microamp = <200000>;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo5: ldo5 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-min-microamp = <100000>;
-+				regulator-max-microamp = <100000>;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo6: ldo6 {
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-min-microamp = <200000>;
-+				regulator-max-microamp = <200000>;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo7: ldo7 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-min-microamp = <200000>;
-+				regulator-max-microamp = <200000>;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo8: ldo8 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-min-microamp = <200000>;
-+				regulator-max-microamp = <200000>;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ld09: ldo9 {
-+				regulator-min-microvolt = <1050000>;
-+				regulator-max-microvolt = <1050000>;
-+				regulator-min-microamp = <200000>;
-+				regulator-max-microamp = <200000>;
-+			};
-+
-+			vdd_ldo10: ldo10 {
-+				regulator-min-microvolt = <1000000>;
-+				regulator-max-microvolt = <1000000>;
-+				regulator-min-microamp = <300000>;
-+				regulator-max-microamp = <300000>;
-+			};
-+
-+			vdd_ldo11: ldo11 {
-+				regulator-min-microvolt = <2500000>;
-+				regulator-max-microvolt = <2500000>;
-+				regulator-min-microamp = <300000>;
-+				regulator-max-microamp = <300000>;
-+				regulator-always-on;
-+			};
-+		};
-+	};
-+};
-+
-+&qspi0 {
-+	status = "okay";
-+	flash@0 {
-+		compatible = "issi,is25wp256", "jedec,spi-nor";
-+		reg = <0>;
-+		spi-max-frequency = <50000000>;
-+		m25p,fast-read;
-+		spi-tx-bus-width = <4>;
-+		spi-rx-bus-width = <4>;
-+	};
-+};
-+
-+&spi0 {
-+	status = "okay";
-+	mmc@0 {
-+		compatible = "mmc-spi-slot";
-+		reg = <0>;
-+		spi-max-frequency = <20000000>;
-+		voltage-ranges = <3300 3300>;
-+		disable-wp;
-+	};
-+};
-+
-+&eth0 {
-+	status = "okay";
-+	phy-mode = "gmii";
-+	phy-handle = <&phy0>;
-+	phy0: ethernet-phy@0 {
-+		reg = <0>;
-+	};
-+};
-+
-+&pwm0 {
-+	status = "okay";
-+};
-+
-+&pwm1 {
-+	status = "okay";
-+};
-+
-+&gpio {
-+	status = "okay";
-+};
--- 
-2.7.4
+Should it be split and I add the mailbox entry in my series & you do the rest?
+
+>
+>> ---
+>>  MAINTAINERS | 9 +++++++++
+>>  1 file changed, 9 insertions(+)
+>>
+>> diff --git a/MAINTAINERS b/MAINTAINERS
+>> index 2daa6ee673f7..2241bdac4816 100644
+>> --- a/MAINTAINERS
+>> +++ b/MAINTAINERS
+>> @@ -14989,6 +14989,15 @@ F:     arch/riscv/
+>>  N:     riscv
+>>  K:     riscv
+>>
+>> +RISC-V/MICROCHIP POLARFIRE SOC SUPPORT
+>> +M:     Lewis Hanly <lewis.hanly@microchip.com>
+>> +M:     Cyril Jean <cyril.jean@microchip.com>
+>> +L:     linux-riscv@lists.infradead.org
+>> +S:     Supported
+>> +F:     drivers/mailbox/mailbox-mpfs.c
+>> +F:     drivers/soc/microchip/
+>> +F:     include/soc/microchip/mpfs.h
+>> +
+>>  RNBD BLOCK DRIVERS
+>>  M:     Danil Kipnis <danil.kipnis@cloud.ionos.com>
+>>  M:     Jack Wang <jinpu.wang@cloud.ionos.com>
+>> --
+>> 2.17.1
+>>
+>>
+>> _______________________________________________
+>> linux-riscv mailing list
+>> linux-riscv@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-riscv
+>
+>
+> --
+> Regards,
+> Atish
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 
 _______________________________________________
