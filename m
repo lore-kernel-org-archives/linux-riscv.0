@@ -2,88 +2,131 @@ Return-Path: <SRS0=xwCb=FG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-18.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+X-Spam-Status: No, score=-13.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C033AC83013
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Dec 2020 03:26:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 601FBC64E7C
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Dec 2020 08:04:38 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 62C7F221E9
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Dec 2020 03:26:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 62C7F221E9
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	by mail.kernel.org (Postfix) with ESMTPS id DB0E620C56
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Dec 2020 08:04:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DB0E620C56
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=BJIilVYNBzftV5Kc8XQiIWfYkgbbbTV+rGch1SB1VgA=; b=ZlX4W56AaVuzyk2q00wwiNuk3
-	F1pMsGU0+/K1Njj2iWzztPik0nKVDns8j+sDJsNVD/jxRJFOUYO2Mw0ScO0COKhGbCklx9Vx2HeEY
-	8pOpPkbcZS3tPan6Wvc4p8ZU+U07/nplONvOH7Ltal/eV5tNk+ChZb16p4E/1jfpxMgTI6ddKcHv5
-	FiESjCHERg0fQrIIrQSnYjoDbb2baeOJWWk4GwpwW4ka9jjPQbDohoE2c/GKNqDWXkD+DHs9pk5Jh
-	EsAB6lhIH8rWa5ruhLakhmkb7cyOvwot4/wexkPf13U+fDfplyv7aiiFQhzxSCKoRFw8wD1lMutr1
-	wDyWs2QMg==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WpNkqsVmQIfAT0vHwVG770IPBWqQD9Zngss3TkHRfjY=; b=PF4J/ajEuzMOoxOJIy4VXeWHOE
+	OVVIe4Z1FFxg1MqLYfwbQNHh77aVGe7uDrJPA5XUNU5sLphBJMLUf75SlIcGKdmcGS/gLht6IB1dM
+	lWx4jiQsrQVCWfTlwYv3Xs6wrYe1f5AsBPUSB2wPx6dUJS6l1RoIcJpjvFBmZYx3Qq5LrV6G0v4di
+	JADfxP4bEJYdxPk4c/3OwGzM1xaon9DqbWc8Pw63mFyc3HzSBIHFI+U9ZkVBsYLZxc9QvRll5HEU1
+	aeFm//l65iE2cz7dVSMznj63OHWbcfTtFqEHAF7t4YDYRhOVhNX5A/aCnl8Zcqc8akE41/k7II+Mo
+	wrVp+PFQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kkImJ-0001Ec-JT; Wed, 02 Dec 2020 03:26:03 +0000
-Received: from esa4.hgst.iphmx.com ([216.71.154.42])
+	id 1kkN7l-0002vL-A9; Wed, 02 Dec 2020 08:04:29 +0000
+Received: from mail-bn7nam10on2086.outbound.protection.outlook.com
+ ([40.107.92.86] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kkIm4-0000n9-Ej
- for linux-riscv@lists.infradead.org; Wed, 02 Dec 2020 03:25:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1606879548; x=1638415548;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=2rnV5PkQIBCqcTmTBmP7vWqrn4eu+wULGdTFOzOGoCk=;
- b=DVcQ26sapocjZgjVf9eQdaw+hr6IRMsBsmnyE8/Ze9C7vjld2j6EAIZG
- u//LrqEyc1aDtEwTFqCOfwqZmywyyR02KP/EplJ6To5LZb9brwDPQI44S
- wl5910bBdnK/Xs0coEd7Xa+YfjLDT7ncOHMpNeKK3nA7pOvmROu5apCck
- ZyZEevVOQpa6kVuKgK3XHmzjO9rhWzS3UoK1fMyx8gtYn+kACahdwtbHI
- mcjQi0dGHmJk8LHHQcHCKdy7FRYbD8dav/+z7pVGVUwtuk9ItisA0vmZm
- H9U8yEgYSv1KsMUENqsAqDUE3NcZhbK53NSkPgMZG0mA+QDFfVJ3gwEMv A==;
-IronPort-SDR: DTZN8OBkVllQFllALFizrStKAjIPgVOSqMQvAsloI5RsvuZMGFodtnqao5fz3OKMAv+JcUGSTb
- iQwEcsBLM8we8bWRIkM9/wn4qQS+mh92WduqVTL9KsynQRZVain0GvFXl7WIwsmqWMa/lyJjUv
- Q8jqgRqnrkAufShVI+t410xbED4JwEbINH39/4M5OpNT0FPZsV2pLKaTUbIudkbDeQpIJESRo7
- Sk5aJ1DNoOLx0IfdVZ2YUiWTb3NJhZzhbw9oWdKRVZD0Yn1BTPPaxnDLqOJAnhqMyUfbsrOZMy
- Qqs=
-X-IronPort-AV: E=Sophos;i="5.78,385,1599494400"; d="scan'208";a="153922383"
-Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
- ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 02 Dec 2020 11:25:47 +0800
-IronPort-SDR: 7ISiaWjXWQc32zGgYBgC611yrw/AJgXr99rMtYrLYQe/fzC82j9vCt7YZRNht58Btt4Ckv7XUz
- AWYL7zkHLxrwgX3XGAUhupZyKKhyZieH0=
-Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
- by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 01 Dec 2020 19:11:22 -0800
-IronPort-SDR: MS9OsiVBM4B1QKtf7jsDJx4apuQmZUmJyy/j7WDyF+2mJKCsKtb3fj+7qB/oEMC2l11dGPRCuA
- zl/R1eVSD4OQ==
-WDCIronportException: Internal
-Received: from phd004834.ad.shared (HELO twashi.fujisawa.hgst.com)
- ([10.84.71.196])
- by uls-op-cesaip02.wdc.com with ESMTP; 01 Dec 2020 19:25:46 -0800
-From: Damien Le Moal <damien.lemoal@wdc.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
- Rob Herring <robh+dt@kernel.org>, devicetree@vger.kernel.org,
- Stephen Boyd <sboyd@kernel.org>, linux-clk@vger.kernel.org,
- Linus Walleij <linus.walleij@linaro.org>, linux-gpio@vger.kernel.org,
- Philipp Zabel <p.zabel@pengutronix.de>
-Subject: [PATCH v4 21/21] riscv: Add Canaan Kendryte K210 SD card defconfig
-Date: Wed,  2 Dec 2020 12:25:00 +0900
-Message-Id: <20201202032500.206346-22-damien.lemoal@wdc.com>
-X-Mailer: git-send-email 2.28.0
-In-Reply-To: <20201202032500.206346-1-damien.lemoal@wdc.com>
-References: <20201202032500.206346-1-damien.lemoal@wdc.com>
+ id 1kkN7i-0002tP-41
+ for linux-riscv@lists.infradead.org; Wed, 02 Dec 2020 08:04:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Fzggsbll1NKXOqIrYOVckQ5uD+A3k/Z4dZIozAwkWCTIR+nGoMss9sdDzMA57ifVr3OA1uuT/C4TQ3+ZpsUVh7dHgml4UW+SG7YsrldUeHnaZvNBpzGVg/JOUuatp22DvBSMb6f1SFtlgc1aOPxADZliX5qmOdK7JoXqo/Dxpbu6PsjMyS1UabE/cyrOWUarJpFj2AYwIfbFPbOF+AmSm5PjLpSsY7qRQ46LPaVBxB48DZegtEjn6nekB4IIAY3/3sVKQJ4NeGmMfW7cmjCJDkZ6wfq/Y3sVwWNUJWfWRHU1iceqcbPYvRZ+YD9VIMKTq7cdr6bCXwpNvQfJ1qSoew==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=lokp4fHtuvzfblfGZUmhqUCbojpWzus3liIh15gT2D0=;
+ b=QNU1k0kE4fujKTZPdrVWQxKyF4qMMt9/tX0HSO9Vh8gS/j8xEFyDi28LOLyh5Bt4ZI39nF7k/rxXs3RdTNaUPw9FVOvnprLOtMG1WxNJ9UiowyQ87xsDhpQXwxWfbs3XohE274YUMNpCGsNSkePLeOLKu4ZbPgjW+YR477DpgjkA+DcvmFI3xq/UbroDBPMla4rEHePceOo/AkPMiHzJvclqu6/vBQWLLneqBQyDDsVnU0tcF9MUoZe1e5e7RaLyPF7uEmSwdTYWDXUxtHkFX033fwNMP6naYYbDm+fuuG2OM4CSsynfuJfIzHWqup2UUQ+dD3LlWGKGf46KGGPTGg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=openfive.com; dmarc=pass action=none header.from=sifive.com;
+ dkim=pass header.d=sifive.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=lokp4fHtuvzfblfGZUmhqUCbojpWzus3liIh15gT2D0=;
+ b=DL1V+1+FMcY1DUjwRJ5HwFWcXG00MKWO3dzdpjHXTEqkmAe60jeRIf9ZPfUNvqowSMk7oW9FR9eXHWrWlWOk7NYDhwe8ncH/Ps+FmzbkxgGy5cn7PAirTFogjwEeZJouZ44EneiU8Ykuv34XOfO8YI7zeekF2UiStveZzVTGaCQ=
+Authentication-Results: vger.kernel.org; dkim=none (message not signed)
+ header.d=none; vger.kernel.org; dmarc=none action=none header.from=sifive.com; 
+Received: from CH2PR13MB4458.namprd13.prod.outlook.com (2603:10b6:610:6c::22)
+ by CH2PR13MB3543.namprd13.prod.outlook.com (2603:10b6:610:2b::33)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3632.6; Wed, 2 Dec
+ 2020 08:04:21 +0000
+Received: from CH2PR13MB4458.namprd13.prod.outlook.com
+ ([fe80::bdcd:2c1b:bf81:515c]) by CH2PR13MB4458.namprd13.prod.outlook.com
+ ([fe80::bdcd:2c1b:bf81:515c%7]) with mapi id 15.20.3632.006; Wed, 2 Dec 2020
+ 08:04:21 +0000
+From: Yash Shah <yash.shah@sifive.com>
+To: linux-spi@vger.kernel.org, linux-serial@vger.kernel.org,
+ linux-pwm@vger.kernel.org, linux-i2c@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-gpio@vger.kernel.org
+Subject: [PATCH 0/4] arch: riscv: add board and SoC DT file support
+Date: Wed,  2 Dec 2020 13:33:52 +0530
+Message-Id: <1606896236-62780-1-git-send-email-yash.shah@sifive.com>
+X-Mailer: git-send-email 2.7.4
+X-Originating-IP: [159.117.144.156]
+X-ClientProxiedBy: BMXPR01CA0018.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:b00:d::28) To CH2PR13MB4458.namprd13.prod.outlook.com
+ (2603:10b6:610:6c::22)
 MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+Received: from osubuntu003.open-silicon.com (159.117.144.156) by
+ BMXPR01CA0018.INDPRD01.PROD.OUTLOOK.COM (2603:1096:b00:d::28) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.3632.17 via Frontend Transport; Wed, 2 Dec 2020 08:04:14 +0000
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: c5c9a6a6-70c0-4851-34f0-08d89698e02d
+X-MS-TrafficTypeDiagnostic: CH2PR13MB3543:
+X-LD-Processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
+X-MS-Exchange-Transport-Forked: True
+X-Microsoft-Antispam-PRVS: <CH2PR13MB3543A0DC604150AE7CBF58FA82F30@CH2PR13MB3543.namprd13.prod.outlook.com>
+X-MS-Oob-TLC-OOBClassifiers: OLM:3968;
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 7fmbLO5njw71lR5jAtFm8sUcNSgGtBMKRiBMvJ9Bun1QAS9ax4iNF74hoUmx/DTwhmo0EJ+Ikp+Ktp7iI7SgR+XR3AENk5Lmiv78wDyxNpIN6cMzjT/+PapjW7COkN453EwpnpxmaVjYc13sMm1f+PG0yv/z9kmdBpRhq1iGsP5LwzzP55dwncPp0yqosYAIf8Wfm13Tb92fxjeGcFPDO1W3772BzEmBEsIbRXWTxGvhsgkrCxzZVXZhEjsoCFWcdKe14D6zraS6F8c8/MnlqgiynSqZEQvjcvHWbbqAlamJ6/slSft9wl8Sv+RoTsVZna2WoQ+5EC+DiJcL3QueNXA3j4aIHV+NYj0kstWjOpi1GEA5NSg6I0NDi0wh6Eh46mk7Mg4I/1rWFlM72xmD5Q==
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:CH2PR13MB4458.namprd13.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(366004)(136003)(396003)(39850400004)(346002)(376002)(83170400001)(36756003)(42882007)(66476007)(316002)(66556008)(83380400001)(2906002)(4326008)(956004)(2616005)(26005)(44832011)(5660300002)(7416002)(52116002)(478600001)(107886003)(66946007)(966005)(16526019)(8936002)(6512007)(6666004)(6506007)(186003)(6486002)(8676002);
+ DIR:OUT; SFP:1101; 
+X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?xrZbnmfzMCMOKGqA+uzHGzc/lugSrCqRj7RGVDAPpqvBb3mhkiuOheYsDBlZ?=
+ =?us-ascii?Q?RjdRh57URFM5F0AY2bs4kj7KswlhhFiKDZh9LJew1V9ibCikOtizL6BlcIkD?=
+ =?us-ascii?Q?nsyTovyg+HLYZifr/U6FvZRFwXlosyu9si9odFLrllOqe9mVJCv/n0MqoQ5C?=
+ =?us-ascii?Q?OudPc3o1ly4q4bMSNHTbKqd9O2tuUB7Pw/sGD/hgUa8eCIbD72wV+J+5TtGt?=
+ =?us-ascii?Q?UDwzEiF2TVtsVNbwMLiAbP06Op+QobVP+GPrpot+cElfLbP/DBafZZzQsI+m?=
+ =?us-ascii?Q?1fkqH1IyGGgbCayBxiBR20DuofmVhWhfOy81VhTu0yoy0KXOGyzRXBGqdX6u?=
+ =?us-ascii?Q?FRq2MNOPViCRSD5fSkKzOoKz3r4Z4JjjoMGjijRJVNfOWMNH/0PeIIn/R0sC?=
+ =?us-ascii?Q?bJ/cUvBI92heAg8dU8yEWGSVJM1ufGw35bGHOS5zN9dzKMVJi0Mm1wqtabGL?=
+ =?us-ascii?Q?oeyyZ3djTrJDbG6XG+8ekkQep5wuHBo/TvDx4JTSMPmCRQ4SPMbEPEZURLl+?=
+ =?us-ascii?Q?/IjK3Y39VX2vPJb0V1h2wWFmDhx9w1ULfk3UBYXHzYMLas28PUCF/0aORWss?=
+ =?us-ascii?Q?kqLDYgo+78/R6XFWg3xCVpIqlkLuaOo6uY8iSHAMx1tdVr6LxzwsAaAm/uAJ?=
+ =?us-ascii?Q?mz00LxRXRxfY6jteCLvrEQ4OIuVQ5GjqTX4e9FHFAtTnIBAIJFnP299dei4T?=
+ =?us-ascii?Q?t2J2X5h7zbnEa8g2YKcQBpTpbZuRQQdoBq7K3QAsNqv9pbEEsPEZ7PZoprc7?=
+ =?us-ascii?Q?xQMjX/UFOJyDWoLiYN4bnpKVWjigKkNLBVNs4lwWnisPvrZQn6FrujYfOTnl?=
+ =?us-ascii?Q?AV5s6yUfFvzDkY4dhmyev7t65Lv1YJQm9XfkuwsdjQ+2G008YvWd/1fOu+3n?=
+ =?us-ascii?Q?iMfWWcFdMyWNV7lz1lVcqWupLhTPOcWx+u1BJ1s/UHiuoMVnKSG0sonKw+5A?=
+ =?us-ascii?Q?srmR/ED+NSFgP8u44GzZoPwC7m6f55otZ7v9QPnBawwSWPKHZYOSv6+OH0Uq?=
+ =?us-ascii?Q?89rt?=
+X-OriginatorOrg: sifive.com
+X-MS-Exchange-CrossTenant-AuthSource: CH2PR13MB4458.namprd13.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Dec 2020 08:04:21.1058 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
+X-MS-Exchange-CrossTenant-Network-Message-Id: c5c9a6a6-70c0-4851-34f0-08d89698e02d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: MIMwcXU6BWM1mESFxVQjKIOxqBF1R79qgVW7rvr8gi4r2iES8JIUP2kUG3DRWfXsd/BsC/HMwLwH9bjx0g5X5w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR13MB3543
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201201_222548_664316_C79E5B0A 
-X-CRM114-Status: GOOD (  19.71  )
+X-CRM114-CacheID: sfid-20201202_030426_360353_1CDDB11C 
+X-CRM114-Status: GOOD (  12.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -95,143 +138,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Sean Anderson <seanga2@gmail.com>
+Cc: andrew@lunn.ch, peter@korsgaard.com, aou@eecs.berkeley.edu,
+ sachin.ghadi@sifive.com, gregkh@linuxfoundation.org, broonie@kernel.org,
+ paul.walmsley@sifive.com, robh+dt@kernel.org, bgolaszewski@baylibre.com,
+ Yash Shah <yash.shah@sifive.com>, thierry.reding@gmail.com, palmer@dabbelt.com,
+ u.kleine-koenig@pengutronix.de, lee.jones@linaro.org, linus.walleij@linaro.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The nommu_k210_defconfig default configuration allows booting a Canaan
-Kendryte K210 SoC based boards using an embedded intramfs cpio file.
-Modifying this configuration to enable support for the board SD card is
-not trivial for all users. To help beginners getting started with these
-boards, add the nommu_k210_sdcard_defconfig default configuration file
-to set all configuration options necessary to use the board mmc-spi sd
-card for the root file system.
+Start board support by adding initial support for the SiFive FU740 SoC
+and the first development board that uses it, the SiFive HiFive
+Unmatched A00.
 
-This new configuration adds support for the block layer, the mmc-spi
-driver and modifies the boot options to specify the rootfs device as
-mmcblk0p1 (first partition of the sd card block device). The ext2 file
-system is selected by default to encourage its use as that results in
-only about 4KB added to the kernel image size. As ext2 does not have
-journaling, the boot options specify a read-only mount of the file
-system. Similarly to the smaller nommu_k210_defconfig, this new default
-configuration disables virtual terminal support to reduce the kernel
-image size.
+Boot-tested on Linux 5.10-rc4 on a HiFive Unmatched A00 board using the
+U-boot and OpenSBI.
 
-The default device tree selected is unchanged, specifying the simple
-"k210_generic" device tree file. The user must change this setting to
-specify the device tree suitable for the board being used
-(k210_maix_bit, k210_maix_dock, k210_maix_go, k210_maixduino or
-k210_kd233).
+This patch series is dependent on Zong's Patchset[0]. The patchset also
+adds two new nodes in dtsi file. The binding documentation patch
+for these nodes are already posted on the mailing list[1][2].
 
-Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
----
- .../riscv/configs/nommu_k210_sdcard_defconfig | 93 +++++++++++++++++++
- 1 file changed, 93 insertions(+)
- create mode 100644 arch/riscv/configs/nommu_k210_sdcard_defconfig
+[0]: https://lore.kernel.org/linux-riscv/20201130082330.77268-4-zong.li@sifive.com/T/#u
+[1]: https://lore.kernel.org/linux-riscv/1606714984-16593-1-git-send-email-yash.shah@sifive.com/T/#t
+[2]: https://lore.kernel.org/linux-riscv/20201126030043.67390-1-zong.li@sifive.com/T/#u
 
-diff --git a/arch/riscv/configs/nommu_k210_sdcard_defconfig b/arch/riscv/configs/nommu_k210_sdcard_defconfig
-new file mode 100644
-index 000000000000..999905ee9d53
---- /dev/null
-+++ b/arch/riscv/configs/nommu_k210_sdcard_defconfig
-@@ -0,0 +1,93 @@
-+# CONFIG_CPU_ISOLATION is not set
-+CONFIG_LOG_BUF_SHIFT=13
-+CONFIG_PRINTK_SAFE_LOG_BUF_SHIFT=12
-+CONFIG_CC_OPTIMIZE_FOR_SIZE=y
-+# CONFIG_SYSFS_SYSCALL is not set
-+# CONFIG_FHANDLE is not set
-+# CONFIG_BASE_FULL is not set
-+# CONFIG_FUTEX is not set
-+# CONFIG_EPOLL is not set
-+# CONFIG_SIGNALFD is not set
-+# CONFIG_TIMERFD is not set
-+# CONFIG_EVENTFD is not set
-+# CONFIG_AIO is not set
-+# CONFIG_IO_URING is not set
-+# CONFIG_ADVISE_SYSCALLS is not set
-+# CONFIG_MEMBARRIER is not set
-+# CONFIG_KALLSYMS is not set
-+CONFIG_EMBEDDED=y
-+# CONFIG_VM_EVENT_COUNTERS is not set
-+# CONFIG_COMPAT_BRK is not set
-+CONFIG_SLOB=y
-+# CONFIG_MMU is not set
-+CONFIG_SOC_CANAAN=y
-+CONFIG_SOC_CANAAN_K210_DTB_SOURCE="k210_generic"
-+CONFIG_MAXPHYSMEM_2GB=y
-+CONFIG_SMP=y
-+CONFIG_NR_CPUS=2
-+CONFIG_CMDLINE="earlycon console=ttySIF0 rootdelay=2 root=/dev/mmcblk0p1 ro"
-+CONFIG_CMDLINE_FORCE=y
-+# CONFIG_SECCOMP is not set
-+# CONFIG_STACKPROTECTOR is not set
-+# CONFIG_BLK_DEV_BSG is not set
-+# CONFIG_MQ_IOSCHED_DEADLINE is not set
-+# CONFIG_MQ_IOSCHED_KYBER is not set
-+CONFIG_BINFMT_FLAT=y
-+# CONFIG_COREDUMP is not set
-+CONFIG_DEVTMPFS=y
-+CONFIG_DEVTMPFS_MOUNT=y
-+# CONFIG_FW_LOADER is not set
-+# CONFIG_ALLOW_DEV_COREDUMP is not set
-+# CONFIG_BLK_DEV is not set
-+# CONFIG_INPUT_LEDS is not set
-+# CONFIG_INPUT_KEYBOARD is not set
-+# CONFIG_INPUT_MOUSE is not set
-+# CONFIG_SERIO is not set
-+# CONFIG_VT is not set
-+# CONFIG_UNIX98_PTYS is not set
-+# CONFIG_LEGACY_PTYS is not set
-+# CONFIG_LDISC_AUTOLOAD is not set
-+# CONFIG_HW_RANDOM is not set
-+# CONFIG_DEVMEM is not set
-+CONFIG_I2C=y
-+CONFIG_I2C_CHARDEV=y
-+# CONFIG_I2C_HELPER_AUTO is not set
-+CONFIG_I2C_DESIGNWARE_PLATFORM=y
-+CONFIG_SPI=y
-+# CONFIG_SPI_MEM is not set
-+CONFIG_SPI_DESIGNWARE=y
-+CONFIG_SPI_DW_MMIO=y
-+CONFIG_GPIO_SYSFS=y
-+# CONFIG_GPIO_CDEV_V1 is not set
-+CONFIG_GPIO_DWAPB=y
-+CONFIG_GPIO_SIFIVE=y
-+CONFIG_POWER_RESET=y
-+CONFIG_POWER_RESET_SYSCON=y
-+# CONFIG_HWMON is not set
-+# CONFIG_HID is not set
-+# CONFIG_USB_SUPPORT is not set
-+CONFIG_MMC=y
-+# CONFIG_PWRSEQ_EMMC is not set
-+# CONFIG_PWRSEQ_SIMPLE is not set
-+CONFIG_MMC_SPI=y
-+CONFIG_NEW_LEDS=y
-+CONFIG_LEDS_CLASS=y
-+CONFIG_LEDS_GPIO=y
-+CONFIG_LEDS_USER=y
-+# CONFIG_VIRTIO_MENU is not set
-+# CONFIG_VHOST_MENU is not set
-+CONFIG_EXT2_FS=y
-+# CONFIG_FILE_LOCKING is not set
-+# CONFIG_DNOTIFY is not set
-+# CONFIG_INOTIFY_USER is not set
-+# CONFIG_MISC_FILESYSTEMS is not set
-+CONFIG_LSM="[]"
-+CONFIG_PRINTK_TIME=y
-+# CONFIG_SYMBOLIC_ERRNAME is not set
-+# CONFIG_DEBUG_BUGVERBOSE is not set
-+# CONFIG_DEBUG_MISC is not set
-+CONFIG_PANIC_ON_OOPS=y
-+# CONFIG_SCHED_DEBUG is not set
-+# CONFIG_RCU_TRACE is not set
-+# CONFIG_FTRACE is not set
-+# CONFIG_RUNTIME_TESTING_MENU is not set
+Yash Shah (4):
+  dt-bindings: riscv: Update DT binding docs to support SiFive FU740 SoC
+  riscv: dts: add initial support for the SiFive FU740-C000 SoC
+  dt-bindings: riscv: Update YAML doc to support SiFive HiFive Unmatched
+    board
+  riscv: dts: add initial board data for the SiFive HiFive Unmatched
+
+ .../devicetree/bindings/gpio/sifive,gpio.yaml      |   4 +-
+ .../devicetree/bindings/i2c/i2c-ocores.txt         |   6 +-
+ .../devicetree/bindings/pwm/pwm-sifive.yaml        |   9 +-
+ Documentation/devicetree/bindings/riscv/cpus.yaml  |   6 +
+ .../devicetree/bindings/riscv/sifive.yaml          |  17 +-
+ .../devicetree/bindings/serial/sifive-serial.yaml  |   4 +-
+ .../devicetree/bindings/spi/spi-sifive.yaml        |  10 +-
+ arch/riscv/boot/dts/sifive/Makefile                |   3 +-
+ arch/riscv/boot/dts/sifive/fu740-c000.dtsi         | 293 +++++++++++++++++++++
+ .../riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 253 ++++++++++++++++++
+ 10 files changed, 588 insertions(+), 17 deletions(-)
+ create mode 100644 arch/riscv/boot/dts/sifive/fu740-c000.dtsi
+ create mode 100644 arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+
 -- 
-2.28.0
+2.7.4
 
 
 _______________________________________________
