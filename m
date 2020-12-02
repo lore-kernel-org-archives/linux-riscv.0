@@ -2,81 +2,58 @@ Return-Path: <SRS0=xwCb=FG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BA4FEC64E7B
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Dec 2020 14:16:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 13357C64E7B
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Dec 2020 14:58:42 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E17DD21D7F
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Dec 2020 14:16:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E17DD21D7F
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=baylibre.com
+	by mail.kernel.org (Postfix) with ESMTPS id 650D221D7F
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Dec 2020 14:58:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 650D221D7F
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=lunn.ch
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=uhzAXbEbpIjffVOyPQGbxzRRhOEw/EyQ4kpVHjYOTvo=; b=DBRysOBHC2hqDRhfKs/JfaTrZ
-	gY42+gSakVlfGs1hDlmX+q4ll9CtuPAuCyFxYvso5BPCqJbUJvW0YE63++KwWFdjqg0FTdRvaC1mM
-	sTAp57QlpAsakZNNRZ1GCWNo9WN7qnEFpOABXUgNFKnsMMSzfvGrMie4avKSxeohxWnhZUz9ULbD4
-	fo5JTYk2E0SH6jJ3mDG+vfFIlNbX7EC4aTeg6FGY+2GklIXlY+stUjB1dTlHF4rRwz8o8RXn1IR6l
-	R1JlFqlyI/MmRDG0+bEZHpYizUi+WS/ZvIuqOmTFW7Mi0ImHqWoK9LB85Ja4ztFfBkID/Kn0ufLzL
-	S5ORs/pFg==;
+	 bh=p8v1KgKlzRKN81deF5+hi8i3WJSktIHOAlcCgqTeGxo=; b=VVG1e7nBDwRTKC0CBL2kO40/k
+	pIhIWtkoyypa7zy5CHVyFdJl5MGqCjrhF90A1RvhREBmgqKWk/XJUJUXDold9K2j80ti+tBypWaBO
+	GqAotf+bxI30eKqut0RHH7DN/nD3a84bJOg9LC7nxBr0SSXWBn/EsSahTMR+xt3sDCCaIgTyV+aVN
+	+XX7Nm4r1Bj5FrE0NcQ/0BlMsl5CmLLboS8zVVZm2qFWw1+WChoHUaATXPPHcprrpK9KH2NHgD21X
+	jpYAlXiViX/Ld9aXrl+H+5lL6R3zon2gukF9lx4QphHFCvfAMcP3sjwKBXKTKj1FleywLivSPXZzq
+	boff49qMg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kkSvG-0003GB-4f; Wed, 02 Dec 2020 14:15:58 +0000
-Received: from mail-ej1-x641.google.com ([2a00:1450:4864:20::641])
+	id 1kkTaS-0005MD-Au; Wed, 02 Dec 2020 14:58:32 +0000
+Received: from vps0.lunn.ch ([185.16.172.187])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kkSvC-0003FN-GB
- for linux-riscv@lists.infradead.org; Wed, 02 Dec 2020 14:15:56 +0000
-Received: by mail-ej1-x641.google.com with SMTP id d17so4507390ejy.9
- for <linux-riscv@lists.infradead.org>; Wed, 02 Dec 2020 06:15:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=baylibre-com.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=UYCOtg+s6QFyNZoxQOkJ8A9gRBZ3nCIO0zZsQHVrK0k=;
- b=WLMnKPDmSR4HFxsV/ZPiX+/bB4cg3rwguXHQvgffFWrlk/QQ7yHOliIY5BJ4DrrDQO
- h1hYwdwX9lO81HIwOMA6vLTJ2xqjU0KiI2oJImY+zWjzGJxp+KECY7Jqr22BWkEDckHP
- JUO8dMLHilW5S4s6adAbYcIQPITcumRrF7K08cGtBbZqPcAaneYlOHb3I2mDaYc1ZS0j
- awjW9xk7KftLTAnngTNKvcB2NJusUbUzIfSQCwOGo7jKCmVumzLOjd+I8SF+1DDWGaow
- D4QBizaaJK7MEwNwpf6JWN0frz8dYNfH19BIpVOdpcdtdzHner3eE+eqEpm5Vk3do9EG
- QgVA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=UYCOtg+s6QFyNZoxQOkJ8A9gRBZ3nCIO0zZsQHVrK0k=;
- b=LDywnr6fzX36RGEDQ3K7Gi3WUftY0OMG/SajfAka3Ac3l7Mwfkqgd5vzuV5NCMF9DW
- nT3W3t2o94zUfR6ESMqz2XuWc0MEDzT/ut8UfEjhRMQX3c3rNJGRRzgVljHBFC71mMXw
- Opyo311KrIXH0o8t+vGWHeW3P3l6umPPT/8AJSygUOYb4RVhBgTNjXqnA1slU2dCJcYc
- BbAypSxFAXbdxi7rTpnMVAa4kNTYKe7YyadS+OSNVDXOrBGEYPjUW/2111KckuhQXxqj
- Z4TGJKGZU6Ijj0RCPDD8MYGR5y3UoDjGRwrYPVlowret485c553zzOT977MxqRg5V7Ky
- xDlw==
-X-Gm-Message-State: AOAM531ici0OTHHJ+k1FXAj5N8ZUv7ygaZpurVUWaBUw2XC82I7uuIZ0
- w1vL85cgg0e2rZboSt698cWXphEQQuYwYubtCrr+eg==
-X-Google-Smtp-Source: ABdhPJzDAIuWsCNvzFifQKuSEp0neWwWXG2Mdmgf9yyeK4qmnvTl7r/e86tivbu5Cd0+1yl/b4DKBo2ntWmd58iH0J4=
-X-Received: by 2002:a17:907:b09:: with SMTP id
- h9mr2514612ejl.155.1606918553142; 
- Wed, 02 Dec 2020 06:15:53 -0800 (PST)
+ id 1kkTaP-0005L6-OG
+ for linux-riscv@lists.infradead.org; Wed, 02 Dec 2020 14:58:30 +0000
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94)
+ (envelope-from <andrew@lunn.ch>)
+ id 1kkTaJ-009sny-Sv; Wed, 02 Dec 2020 15:58:23 +0100
+Date: Wed, 2 Dec 2020 15:58:23 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Yash Shah <yash.shah@sifive.com>
+Subject: Re: [PATCH 1/4] dt-bindings: riscv: Update DT binding docs to
+ support SiFive FU740 SoC
+Message-ID: <20201202145823.GC2324545@lunn.ch>
+References: <1606896236-62780-1-git-send-email-yash.shah@sifive.com>
+ <1606896236-62780-2-git-send-email-yash.shah@sifive.com>
 MIME-Version: 1.0
-References: <20201127183003.2849-1-info@metux.net>
-In-Reply-To: <20201127183003.2849-1-info@metux.net>
-From: Bartosz Golaszewski <bgolaszewski@baylibre.com>
-Date: Wed, 2 Dec 2020 15:15:42 +0100
-Message-ID: <CAMpxmJXJLTzM20xLCoM4spjibXbA-FfdPmOBp1QcV+9cScNNMw@mail.gmail.com>
-Subject: Re: [PATCH] drivers: gpio: add virtio-gpio guest driver
-To: "Enrico Weigelt, metux IT consult" <info@metux.net>,
- "Michael S. Tsirkin" <mst@redhat.com>
+Content-Disposition: inline
+In-Reply-To: <1606896236-62780-2-git-send-email-yash.shah@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201202_091554_666738_80B2A9BF 
-X-CRM114-Status: GOOD (  30.88  )
+X-CRM114-CacheID: sfid-20201202_095829_814779_A109234F 
+X-CRM114-Status: UNSURE (   9.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -88,525 +65,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Jason Wang <jasowang@redhat.com>, LKML <linux-kernel@vger.kernel.org>,
- virtualization@lists.linux-foundation.org,
- linux-gpio <linux-gpio@vger.kernel.org>, linux-riscv@lists.infradead.org,
- Linus Walleij <linus.walleij@linaro.org>
+Cc: linux-pwm@vger.kernel.org, peter@korsgaard.com, aou@eecs.berkeley.edu,
+ sachin.ghadi@sifive.com, devicetree@vger.kernel.org,
+ gregkh@linuxfoundation.org, bgolaszewski@baylibre.com,
+ paul.walmsley@sifive.com, linux-kernel@vger.kernel.org, robh+dt@kernel.org,
+ linux-spi@vger.kernel.org, linux-gpio@vger.kernel.org, broonie@kernel.org,
+ thierry.reding@gmail.com, linux-i2c@vger.kernel.org,
+ linux-serial@vger.kernel.org, u.kleine-koenig@pengutronix.de,
+ palmer@dabbelt.com, linux-riscv@lists.infradead.org, lee.jones@linaro.org,
+ linus.walleij@linaro.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 27, 2020 at 7:30 PM Enrico Weigelt, metux IT consult
-<info@metux.net> wrote:
->
-> Introducing new gpio driver for virtual GPIO devices via virtio.
->
-> The driver allows routing gpio control into VM guests, eg. brigding
-> virtual gpios to specific host gpios, or attaching simulators for
-> automatic application testing.
->
-> Signed-off-by: Enrico Weigelt, metux IT consult <info@metux.net>
-> ---
->  MAINTAINERS                      |   6 +
->  drivers/gpio/Kconfig             |   9 ++
->  drivers/gpio/Makefile            |   1 +
->  drivers/gpio/gpio-virtio.c       | 332 +++++++++++++++++++++++++++++++++++++++
->  include/uapi/linux/virtio_gpio.h |  39 +++++
->  include/uapi/linux/virtio_ids.h  |   1 +
->  6 files changed, 388 insertions(+)
->  create mode 100644 drivers/gpio/gpio-virtio.c
->  create mode 100644 include/uapi/linux/virtio_gpio.h
->
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index a008b70f3c16..dfb8bfe09bbe 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -18588,6 +18588,12 @@ F:     Documentation/filesystems/virtiofs.rst
->  F:     fs/fuse/virtio_fs.c
->  F:     include/uapi/linux/virtio_fs.h
->
-> +VIRTIO GPIO DRIVER
-> +M:     Enrico Weigelt, metux IT consult <info@metux.net>
-> +S:     Maintained
-> +F:     drivers/gpio/gpio-virtio.c
-> +F:     include/uapi/linux/virtio_gpio.h
-> +
->  VIRTIO GPU DRIVER
->  M:     David Airlie <airlied@linux.ie>
->  M:     Gerd Hoffmann <kraxel@redhat.com>
-> diff --git a/drivers/gpio/Kconfig b/drivers/gpio/Kconfig
-> index 5d4de5cd6759..e8414d82cf75 100644
-> --- a/drivers/gpio/Kconfig
-> +++ b/drivers/gpio/Kconfig
-> @@ -1613,4 +1613,13 @@ config GPIO_MOCKUP
->           tools/testing/selftests/gpio/gpio-mockup.sh. Reference the usage in
->           it.
->
-> +config GPIO_VIRTIO
-> +       tristate "VirtIO GPIO support"
-> +       depends on VIRTIO
-> +       help
-> +         Say Y here to enable guest support for virtio based GPIOs.
-> +
-> +         These virtual gpios can be routed to real GPIOs or attached to
-> +         simulators on the host (qemu).
-> +
+> diff --git a/Documentation/devicetree/bindings/i2c/i2c-ocores.txt b/Documentation/devicetree/bindings/i2c/i2c-ocores.txt
+> index 6b25a80..1966b2c 100644
+> --- a/Documentation/devicetree/bindings/i2c/i2c-ocores.txt
+> +++ b/Documentation/devicetree/bindings/i2c/i2c-ocores.txt
+> @@ -3,9 +3,11 @@ Device tree configuration for i2c-ocores
+>  Required properties:
+>  - compatible      : "opencores,i2c-ocores"
+>                      "aeroflexgaisler,i2cmst"
+> -                    "sifive,fu540-c000-i2c", "sifive,i2c0"
+> +                    "sifive,<chip>-i2c", "sifive,i2c0"
 
-With a third entry (after gpio-mockup and gpio-aggregator) I think
-these deserve a separate submenu for "virtual GPIO drivers" or
-something like that.
+Please make this a full list. At some point, this file will get turned
+into yaml, at which point substitution like this will need
+expanding. It is better to do that now.
 
->  endif
-> diff --git a/drivers/gpio/Makefile b/drivers/gpio/Makefile
-> index 09dada80ac34..2b12e75af123 100644
-> --- a/drivers/gpio/Makefile
-> +++ b/drivers/gpio/Makefile
-> @@ -160,6 +160,7 @@ obj-$(CONFIG_GPIO_TWL4030)          += gpio-twl4030.o
->  obj-$(CONFIG_GPIO_TWL6040)             += gpio-twl6040.o
->  obj-$(CONFIG_GPIO_UCB1400)             += gpio-ucb1400.o
->  obj-$(CONFIG_GPIO_UNIPHIER)            += gpio-uniphier.o
-> +obj-$(CONFIG_GPIO_VIRTIO)              += gpio-virtio.o
->  obj-$(CONFIG_GPIO_VF610)               += gpio-vf610.o
->  obj-$(CONFIG_GPIO_VIPERBOARD)          += gpio-viperboard.o
->  obj-$(CONFIG_GPIO_VR41XX)              += gpio-vr41xx.o
-> diff --git a/drivers/gpio/gpio-virtio.c b/drivers/gpio/gpio-virtio.c
-> new file mode 100644
-> index 000000000000..61e183cc26bf
-> --- /dev/null
-> +++ b/drivers/gpio/gpio-virtio.c
-> @@ -0,0 +1,332 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +
-> +/*
-> + * GPIO driver for virtio-based virtual GPIOs
-> + *
-> + * Copyright (C) 2018 metux IT consult
-> + * Author: Enrico Weigelt, metux IT consult <info@metux.net>
-> + *
-> + */
-> +
-> +#include <linux/err.h>
-> +#include <linux/io.h>
-> +#include <linux/kernel.h>
-> +#include <linux/module.h>
-> +#include <linux/gpio/driver.h>
-> +#include <linux/spinlock.h>
-> +#include <linux/virtio_config.h>
-> +#include <uapi/linux/virtio_ids.h>
-> +#include <uapi/linux/virtio_gpio.h>
-> +
-
-Please keep headers ordered alphabetically.
-
-> +struct virtio_gpio_priv {
-> +       struct gpio_chip                gc;
-> +       spinlock_t                      vq_lock;
-> +       spinlock_t                      op_lock;
-> +       struct virtio_device            *vdev;
-> +       int                             num_gpios;
-> +       char                            *name;
-> +       struct virtqueue                *vq_rx;
-> +       struct virtqueue                *vq_tx;
-> +       struct virtio_gpio_event        rcv_buf;
-> +       struct virtio_gpio_event        last;
-> +       int                             irq_base;
-> +       wait_queue_head_t               waitq;
-> +
-> +       unsigned long reply_wait;
-> +};
-
-Don't use tabs here - not only doesn't it improve readability but
-you're not even consistent.
-
-> +
-> +static void virtio_gpio_prepare_inbuf(struct virtio_gpio_priv *priv)
-> +{
-> +       struct scatterlist rcv_sg;
-> +
-> +       sg_init_one(&rcv_sg, &priv->rcv_buf, sizeof(priv->rcv_buf));
-> +       virtqueue_add_inbuf(priv->vq_rx, &rcv_sg, 1, &priv->rcv_buf,
-> +                           GFP_KERNEL);
-> +       virtqueue_kick(priv->vq_rx);
-> +}
-> +
-> +static int virtio_gpio_xmit(struct virtio_gpio_priv *priv, int type,
-> +                           int pin, int value, struct virtio_gpio_event *ev)
-> +{
-> +       struct scatterlist sg[1];
-> +       int ret;
-> +       unsigned long flags;
-> +
-> +       WARN_ON(!ev);
-> +
-> +       ev->type = type;
-> +       ev->pin = pin;
-> +       ev->value = value;
-> +
-> +       sg_init_table(sg, 1);
-> +       sg_set_buf(&sg[0], ev, sizeof(struct virtio_gpio_event));
-> +
-> +       spin_lock_irqsave(&priv->vq_lock, flags);
-> +       ret = virtqueue_add_outbuf(priv->vq_tx, sg, ARRAY_SIZE(sg),
-> +                                  priv, GFP_KERNEL);
-> +       if (ret < 0) {
-> +               dev_err(&priv->vdev->dev,
-> +                       "virtqueue_add_outbuf() failed: %d\n", ret);
-> +               goto out;
-> +       }
-> +       virtqueue_kick(priv->vq_tx);
-> +
-> +out:
-> +       spin_unlock_irqrestore(&priv->vq_lock, flags);
-> +       return 0;
-> +}
-> +
-> +static inline void wakeup_event(struct virtio_gpio_priv *priv, int id)
-> +{
-> +       set_bit(id, &priv->reply_wait);
-> +}
-> +
-> +static inline int check_event(struct virtio_gpio_priv *priv, int id)
-> +{
-> +       return test_bit(id, &priv->reply_wait);
-> +}
-> +
-> +static inline void clear_event(struct virtio_gpio_priv *priv, int id)
-> +{
-> +       clear_bit(id, &priv->reply_wait);
-> +}
-> +
-> +static int virtio_gpio_req(struct virtio_gpio_priv *priv, int type,
-> +                          int pin, int value)
-> +{
-> +       struct virtio_gpio_event *ev
-> +               = devm_kzalloc(&priv->vdev->dev,
-> +                              sizeof(struct virtio_gpio_event), GFP_KERNEL);
-
-Just move the allocation to a separate line because this is super ugly.
-
-> +
-> +       if (!ev)
-> +               return -ENOMEM;
-> +
-> +       clear_event(priv, type);
-> +       virtio_gpio_xmit(priv, type, pin, value, ev);
-> +       wait_event_interruptible(priv->waitq, check_event(priv, type));
-> +
-> +       devm_kfree(&priv->vdev->dev, ev);
-
-In fact you don't need the managed variant if you're freeing it in the
-same function. Managed resources should live as long as a device is
-attached to a driver.
-
-> +
-> +       return priv->last.value;
-> +}
-> +
-> +static int virtio_gpio_direction_input(struct gpio_chip *gc,
-> +                                      unsigned int pin)
-> +{
-> +       return virtio_gpio_req(gpiochip_get_data(gc),
-> +                              VIRTIO_GPIO_EV_GUEST_DIRECTION_INPUT,
-> +                              pin, 0);
-> +}
-> +
-> +static int virtio_gpio_direction_output(struct gpio_chip *gc,
-> +                                       unsigned int pin, int value)
-> +{
-> +       return virtio_gpio_req(gpiochip_get_data(gc),
-> +                              VIRTIO_GPIO_EV_GUEST_DIRECTION_OUTPUT,
-> +                              pin, value);
-> +}
-> +
-> +static int virtio_gpio_get_direction(struct gpio_chip *gc, unsigned int pin)
-> +{
-> +       return virtio_gpio_req(gpiochip_get_data(gc),
-> +                              VIRTIO_GPIO_EV_GUEST_GET_DIRECTION,
-> +                              pin, 0);
-> +}
-> +
-> +static void virtio_gpio_set(struct gpio_chip *gc,
-> +                           unsigned int pin, int value)
-> +{
-> +       virtio_gpio_req(gpiochip_get_data(gc),
-> +                       VIRTIO_GPIO_EV_GUEST_SET_VALUE, pin, value);
-> +}
-> +
-> +static int virtio_gpio_get(struct gpio_chip *gc,
-> +                          unsigned int pin)
-> +{
-> +       return virtio_gpio_req(gpiochip_get_data(gc),
-> +                              VIRTIO_GPIO_EV_GUEST_GET_VALUE, pin, 0);
-> +}
-> +
-> +static int virtio_gpio_request(struct gpio_chip *gc,
-> +                              unsigned int pin)
-> +{
-> +       return virtio_gpio_req(gpiochip_get_data(gc),
-> +                              VIRTIO_GPIO_EV_GUEST_REQUEST, pin, 0);
-> +}
-> +
-> +static void virtio_gpio_signal(struct virtio_gpio_priv *priv, int event,
-> +                             int pin, int value)
-> +{
-> +       if (pin < priv->num_gpios)
-> +               generic_handle_irq(priv->irq_base + pin);
-> +}
-> +
-> +static void virtio_gpio_data_rx(struct virtqueue *vq)
-> +{
-> +       struct virtio_gpio_priv *priv = vq->vdev->priv;
-> +       void *data;
-> +       unsigned int len;
-> +       struct virtio_gpio_event *ev;
-> +
-> +       data = virtqueue_get_buf(priv->vq_rx, &len);
-> +       if (!data || !len) {
-> +               dev_warn(&vq->vdev->dev, "RX received no data ! %d\n", len);
-> +               return;
-> +       }
-> +
-> +       ev = data;
-> +       WARN_ON(data != &priv->rcv_buf);
-
-Is it fine to proceed if this is the case?
-
-> +
-> +       memcpy(&priv->last, &priv->rcv_buf, sizeof(struct virtio_gpio_event));
-> +
-> +       switch (ev->type) {
-> +       case VIRTIO_GPIO_EV_HOST_LEVEL:
-> +               virtio_gpio_signal(priv, ev->type, ev->pin, ev->value);
-> +       break;
-
-Break should be one tab farther.
-
-> +       default:
-> +               wakeup_event(priv, ev->type & ~VIRTIO_GPIO_EV_REPLY);
-> +       break;
-> +       }
-> +       virtio_gpio_prepare_inbuf(priv);
-> +       wake_up_all(&priv->waitq);
-> +}
-> +
-> +static int virtio_gpio_alloc_vq(struct virtio_gpio_priv *priv)
-> +{
-> +       struct virtqueue *vqs[2];
-> +       vq_callback_t *cbs[] = {
-> +               NULL,
-> +               virtio_gpio_data_rx,
-> +       };
-> +       static const char * const names[] = { "in", "out", };
-> +       int ret;
-> +
-> +       ret = virtio_find_vqs(priv->vdev, 2, vqs, cbs, names, NULL);
-> +       if (ret) {
-> +               dev_err(&priv->vdev->dev, "failed to alloc vqs: %d\n", ret);
-> +               return ret;
-> +       }
-> +
-> +       priv->vq_rx = vqs[0];
-> +       priv->vq_tx = vqs[1];
-> +
-> +       virtio_gpio_prepare_inbuf(priv);
-> +
-> +       virtio_config_enable(priv->vdev);
-> +       virtqueue_enable_cb(priv->vq_rx);
-> +       virtio_device_ready(priv->vdev);
-> +
-> +       return 0;
-> +}
-> +
-> +static int virtio_gpio_probe(struct virtio_device *vdev)
-> +{
-> +       struct virtio_gpio_priv *priv;
-> +       struct virtio_gpio_config cf = {};
-> +       char *name_buffer;
-> +       const char **gpio_names = NULL;
-> +       struct device *dev = &vdev->dev;
-> +
-> +       priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-> +       if (!priv)
-> +               return -ENOMEM;
-> +
-> +       priv->name = devm_kzalloc(dev, sizeof(cf.name)+1, GFP_KERNEL);
-
-This can fail.
-
-> +
-> +       spin_lock_init(&priv->vq_lock);
-> +       spin_lock_init(&priv->op_lock);
-> +
-> +       virtio_cread(vdev, struct virtio_gpio_config, version, &cf.version);
-> +       virtio_cread(vdev, struct virtio_gpio_config, num_gpios,
-> +                    &cf.num_gpios);
-> +       virtio_cread(vdev, struct virtio_gpio_config, names_size,
-> +                    &cf.names_size);
-> +       virtio_cread_bytes(vdev, offsetof(struct virtio_gpio_config, name),
-> +                          priv->name, sizeof(cf.name));
-> +
-> +       if (cf.version != 1) {
-> +               dev_err(dev, "unsupported interface version %d\n", cf.version);
-> +               return -EINVAL;
-> +       }
-> +
-> +       priv->num_gpios = cf.num_gpios;
-> +
-> +       if (cf.names_size) {
-> +               char *bufwalk;
-> +               int idx = 0;
-> +
-> +               name_buffer = devm_kzalloc(&vdev->dev, cf.names_size,
-> +                                          GFP_KERNEL)+1;
-> +               virtio_cread_bytes(vdev, sizeof(struct virtio_gpio_config),
-> +                                  name_buffer, cf.names_size);
-> +               name_buffer[cf.names_size] = 0;
-> +
-> +               gpio_names = devm_kzalloc(dev,
-> +                                         sizeof(char *) * priv->num_gpios,
-> +                                         GFP_KERNEL);
-
-Use devm_kcalloc() for arrays.
-
-> +               bufwalk = name_buffer;
-> +
-> +               while (idx < priv->num_gpios &&
-> +                      bufwalk < (name_buffer+cf.names_size)) {
-> +                       gpio_names[idx] = (strlen(bufwalk) ? bufwalk : NULL);
-> +                       bufwalk += strlen(bufwalk)+1;
-> +                       idx++;
-
-
-Something's wrong with indentation here.
-
-> +               }
-> +       }
-> +
-> +       priv->gc.owner                  = THIS_MODULE;
-> +       priv->gc.parent                 = dev;
-> +       priv->gc.label                  = (priv->name[0] ? priv->name
-> +                                                        : dev_name(dev));
-> +       priv->gc.ngpio                  = priv->num_gpios;
-> +       priv->gc.names                  = gpio_names;
-> +       priv->gc.base                   = -1;
-> +       priv->gc.request                = virtio_gpio_request;
-> +       priv->gc.direction_input        = virtio_gpio_direction_input;
-> +       priv->gc.direction_output       = virtio_gpio_direction_output;
-> +       priv->gc.get_direction          = virtio_gpio_get_direction;
-> +       priv->gc.get                    = virtio_gpio_get;
-> +       priv->gc.set                    = virtio_gpio_set;
-> +
-> +       priv->vdev                      = vdev;
-> +       vdev->priv = priv;
-> +
-> +       priv->irq_base = devm_irq_alloc_descs(dev, -1, 0, priv->num_gpios,
-> +                                             NUMA_NO_NODE);
-> +       if (priv->irq_base < 0) {
-> +               dev_err(&vdev->dev, "failed to alloc irqs\n");
-> +               priv->irq_base = -1;
-> +               return -ENOMEM;
-> +       }
-> +
-> +       init_waitqueue_head(&priv->waitq);
-> +
-> +       priv->reply_wait = 0;
-> +
-> +       virtio_gpio_alloc_vq(priv);
-> +
-> +       return devm_gpiochip_add_data(dev, &priv->gc, priv);
-> +}
-
-I don't know virtio at all - Michael: could you take a look at the
-code here and see if it looks good to you?
-
-> +
-> +static void virtio_gpio_remove(struct virtio_device *vdev)
-> +{
-> +}
-
-Just don't implement it. Or does virtio actually require the remove() callback?
-
-Bartosz
-
-> +
-> +static const struct virtio_device_id id_table[] = {
-> +       { VIRTIO_ID_GPIO, VIRTIO_DEV_ANY_ID },
-> +       { 0 },
-> +};
-> +
-> +static struct virtio_driver virtio_gpio_driver = {
-> +       .driver.name    = KBUILD_MODNAME,
-> +       .driver.owner   = THIS_MODULE,
-> +       .id_table       = id_table,
-> +       .probe          = virtio_gpio_probe,
-> +       .remove         = virtio_gpio_remove,
-> +};
-> +
-> +module_virtio_driver(virtio_gpio_driver);
-> +
-> +MODULE_AUTHOR("Enrico Weigelt, metux IT consult <info@metux.net>");
-> +MODULE_DESCRIPTION("VirtIO GPIO driver");
-> +MODULE_LICENSE("GPL");
-> diff --git a/include/uapi/linux/virtio_gpio.h b/include/uapi/linux/virtio_gpio.h
-> new file mode 100644
-> index 000000000000..5a48b975bc7a
-> --- /dev/null
-> +++ b/include/uapi/linux/virtio_gpio.h
-> @@ -0,0 +1,39 @@
-> +/* SPDX-License-Identifier: GPL-2.0+ */
-> +
-> +#ifndef _LINUX_VIRTIO_GPIO_H
-> +#define _LINUX_VIRTIO_GPIO_H
-> +
-> +#include <linux/types.h>
-> +
-> +enum virtio_gpio_event_type {
-> +       // requests from quest to host
-> +       VIRTIO_GPIO_EV_GUEST_REQUEST            = 0x01, // ->request()
-> +       VIRTIO_GPIO_EV_GUEST_DIRECTION_INPUT    = 0x02, // ->direction_input()
-> +       VIRTIO_GPIO_EV_GUEST_DIRECTION_OUTPUT   = 0x03, // ->direction_output()
-> +       VIRTIO_GPIO_EV_GUEST_GET_DIRECTION      = 0x04, // ->get_direction()
-> +       VIRTIO_GPIO_EV_GUEST_GET_VALUE          = 0x05, // ->get_value()
-> +       VIRTIO_GPIO_EV_GUEST_SET_VALUE          = 0x06, // ->set_value()
-> +
-> +       // messages from host to guest
-> +       VIRTIO_GPIO_EV_HOST_LEVEL               = 0x11, // gpio state changed
-> +
-> +       /* mask bit set on host->guest reply */
-> +       VIRTIO_GPIO_EV_REPLY                    = 0xF000,
-> +};
-> +
-> +struct virtio_gpio_config {
-> +       __u8    version;
-> +       __u8    reserved0;
-> +       __u16   num_gpios;
-> +       __u32   names_size;
-> +       __u8    reserved1[24];
-> +       __u8    name[32];
-> +};
-> +
-> +struct virtio_gpio_event {
-> +       __le16 type;
-> +       __le16 pin;
-> +       __le32 value;
-> +};
-> +
-> +#endif /* _LINUX_VIRTIO_GPIO_H */
-> diff --git a/include/uapi/linux/virtio_ids.h b/include/uapi/linux/virtio_ids.h
-> index b052355ac7a3..85772c0bcb4b 100644
-> --- a/include/uapi/linux/virtio_ids.h
-> +++ b/include/uapi/linux/virtio_ids.h
-> @@ -48,5 +48,6 @@
->  #define VIRTIO_ID_FS           26 /* virtio filesystem */
->  #define VIRTIO_ID_PMEM         27 /* virtio pmem */
->  #define VIRTIO_ID_MAC80211_HWSIM 29 /* virtio mac80211-hwsim */
-> +#define VIRTIO_ID_GPIO           30 /* virtio GPIO */
->
->  #endif /* _LINUX_VIRTIO_IDS_H */
-> --
-> 2.11.0
->
+     Andrew
 
 _______________________________________________
 linux-riscv mailing list
