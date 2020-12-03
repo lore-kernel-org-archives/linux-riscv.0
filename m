@@ -2,67 +2,66 @@ Return-Path: <SRS0=jyWZ=FH=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-18.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-13.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EE813C71156
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DCCC2C63777
 	for <linux-riscv@archiver.kernel.org>; Thu,  3 Dec 2020 06:51:05 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4CBCA20758
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Dec 2020 06:51:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4CBCA20758
+	by mail.kernel.org (Postfix) with ESMTPS id 4556320709
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Dec 2020 06:51:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4556320709
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=andestech.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=iPjEl2U18akCLe4Oj+eskN8JvTx2H80vzv9ecXQfrf8=; b=TXfKkQb3s+DE0IU0Yig3N5IHy
-	jTOLhMEQlqQSSLV/luTJkukLqmtdPmA9Q0f7r+y+gZ1f0uFs2/MxqQwCMZpj7pKGmI5VVAENJlCAc
-	KxQKEE5+2fJ0Z2aZnIfaJpxgFG+zsJe+0b8HAH6FRfeACKHEFulUbdQbLqH4SA7JrtXUysh128KmI
-	Mz3a0KbwVAEt4tM5TAJhcCDsPM7MrcFzlxk2Of+Vgz2pXQhfnFOPO10LdiF9Jf5aLJE3jiwQPJNbr
-	/ppAGzsth7PSLWvfBtIgHyOL+A1PlkzfLOsR2GVAXReWKk9qUJVqHauPxBwpYSWvDBRTMVWwcKpf1
-	ya+fHbXVA==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9yaK+eBYmgFmVmmWLu+I1C2UoL30hffYBRaQhF+8VEM=; b=aox1YOxdEiM7CA/j8j/pyTVZqZ
+	3yjk+MmniEpQq5RLNY6cyZrF2NILqFs9WPg5PcG+7mawYSl0fxD+gFh+h1Z8ky7wAEqF20qKZnJx6
+	OMrRxOhv4qx2Z4ATCiAybv+qFH0Cs1WcrJD4JDfe7WA9P49P1Bq5a7s8GqeFMVxO8q/MJXQgc5YO0
+	igGEqp5qlGh06TIRfZ0FcZls6uqSh6QUBiAhtvDKnX25/0yg73yD7spYURPHF7Cm3cPN1kgJC9iOj
+	5au5GiHizFWLCp1I3sIrUpLyQ9F5+8VnsLQVbf8WOPO18ZiTSOVGSvYcf6C3NvGCIia+If3DggJeq
+	VUElLVzw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kkiS7-0001RP-Ty; Thu, 03 Dec 2020 06:50:55 +0000
-Received: from atcsqr.andestech.com ([60.248.187.195])
+	id 1kkiS8-0001Rc-Dd; Thu, 03 Dec 2020 06:50:56 +0000
+Received: from exmail.andestech.com ([60.248.187.195]
+ helo=ATCSQR.andestech.com)
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kkiS3-0001Pa-Rr
- for linux-riscv@lists.infradead.org; Thu, 03 Dec 2020 06:50:52 +0000
+ id 1kkiS3-0001PY-Rr
+ for linux-riscv@lists.infradead.org; Thu, 03 Dec 2020 06:50:53 +0000
 Received: from mail.andestech.com (atcpcs16.andestech.com [10.0.1.222])
- by ATCSQR.andestech.com with ESMTP id 0B36njXT099106;
- Thu, 3 Dec 2020 14:49:45 +0800 (GMT-8)
+ by ATCSQR.andestech.com with ESMTP id 0B36nZGV099083;
+ Thu, 3 Dec 2020 14:49:35 +0800 (GMT-8)
  (envelope-from tesheng@andestech.com)
 Received: from atcfdc88.andestech.com (10.0.15.120) by ATCPCS16.andestech.com
  (10.0.1.222) with Microsoft SMTP Server id 14.3.487.0;
- Thu, 3 Dec 2020 14:49:29 +0800
+ Thu, 3 Dec 2020 14:49:20 +0800
 From: Eric Lin <tesheng@andestech.com>
 To: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
  <walken@google.com>, <vbabka@suse.cz>, <peterx@redhat.com>,
  <akpm@linux-foundation.org>, <penberg@kernel.org>,
  <aou@eecs.berkeley.edu>, <palmer@dabbelt.com>,
  <paul.walmsley@sifive.com>, <hch@infradead.org>
-Subject: [PATCH v2 1/2] riscv/mm: Introduce a die_kernel_fault() helper
- function
-Date: Thu, 3 Dec 2020 14:48:25 +0800
-Message-ID: <20201203064826.30832-2-tesheng@andestech.com>
+Subject: [PATCH v2 0/2] Let illegal access to user-space memory die
+Date: Thu, 3 Dec 2020 14:48:24 +0800
+Message-ID: <20201203064826.30832-1-tesheng@andestech.com>
 X-Mailer: git-send-email 2.17.0
-In-Reply-To: <20201203064826.30832-1-tesheng@andestech.com>
-References: <20201203064826.30832-1-tesheng@andestech.com>
 MIME-Version: 1.0
 X-Originating-IP: [10.0.15.120]
 X-DNSRBL: 
-X-MAIL: ATCSQR.andestech.com 0B36njXT099106
+X-MAIL: ATCSQR.andestech.com 0B36nZGV099083
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201203_015052_403391_E03766B4 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20201203_015052_404356_15231C63 
+X-CRM114-Status: UNSURE (   6.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -74,45 +73,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Eric Lin <tesheng@andestech.com>, Alan Kao <alankao@andestech.com>
+Cc: Eric Lin <tesheng@andestech.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Like arm64, this patch adds a die_kernel_fault() helper
-to ensure the same semantics for the different kernel faults.
+Accesses to user-space memory without calling uaccess routine
+leads to hanging in page fault handler. Like arm64, we let it
+die earlier in page fault handler.
 
-Signed-off-by: Eric Lin <tesheng@andestech.com>
-Cc: Alan Kao <alankao@andestech.com>
----
- arch/riscv/mm/fault.c | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+Changes in v2:
+    -Add a die_kernel_fault() helper
+    -Split one long line code into two
 
-diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
-index 3c8b9e433c67..0bcfd0e1b39e 100644
---- a/arch/riscv/mm/fault.c
-+++ b/arch/riscv/mm/fault.c
-@@ -19,6 +19,19 @@
- 
- #include "../kernel/head.h"
- 
-+static void die_kernel_fault(const char *msg, unsigned long addr,
-+		struct pt_regs *regs)
-+{
-+	bust_spinlocks(1);
-+
-+	pr_alert("Unable to handle kernel %s at virtual address " REG_FMT "\n", msg,
-+			addr);
-+
-+	bust_spinlocks(0);
-+	die(regs, "Oops");
-+	do_exit(SIGKILL);
-+}
-+
- static inline void no_context(struct pt_regs *regs, unsigned long addr)
- {
- 	/* Are we prepared to handle this kernel fault? */
+Eric Lin (2):
+  riscv/mm: Introduce a die_kernel_fault() helper function
+  riscv/mm: Prevent kernel module to access user memory without uaccess
+    routines
+
+ arch/riscv/mm/fault.c | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+
 -- 
 2.17.0
 
