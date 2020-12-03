@@ -2,54 +2,130 @@ Return-Path: <SRS0=jyWZ=FH=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-18.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+X-Spam-Status: No, score=-10.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C4D0FC64E7B
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Dec 2020 06:33:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 48720C63777
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Dec 2020 06:36:52 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 411B82085B
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Dec 2020 06:33:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 411B82085B
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 9BB4A206B6
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Dec 2020 06:36:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9BB4A206B6
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=openfive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:Message-ID:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=OTrHrMJ+AlByR2r2FkDARwlX1fSNy1YbZnn2BgfTiFU=; b=V9bWLRkGUlWhqNTh3aI4CyIRf
-	9oKDJsx/IHWG5liK5viw8MMGi2K5aWGxI91Sbh7WL4/3ELU4X43Lx5YvzNXWmo0ibVqMPH0F3WKMc
-	9OdBjJ7YP6UyE00jJLHAYAkMmDJXSaQNmnKK2gN5xqWJztUlh9xNI7BPcHbk/WDMMsUXX4T8Xa9gO
-	OioF76beDDmTQcuKlXoFv0mb6cYxNiRw2eDCqzKXAhcKIdevgTiKU/JDslNtVFujSyCtSFqSVoEei
-	o+IJuzaNrQ7TLXBA99JZs0ni69hlgQR2FHc0olHVPFO+l+p+alpahehrWuYi2DnAN4Iyv/YvBpHg9
-	klPuABzcA==;
+	 bh=wItkipQv1zRg6Ii6B2UTKNllOvFDw6WJxYHWh1DYnUg=; b=go0Aq2De2MR+a0+vVW+Boh9nk
+	7aLTMyIiJg0hzUXZkyTPOVz9j1dCNy1PIK0dup4gXrVYQDTjdUS1M/CPz7MqGwed00dYbTo9rln7R
+	NkLN8M/71bggvtVL4fb31z3MbxRC5MXlEjlk7U4wHtFIrZ82aSlHWUhiOua4zwIYR4N5dS06HZ+17
+	+7EP7jYAYQJDogH2jmNuc+IpQb8qBYuCZGWLMAXodoyB5dLu+tgqoJX+1jLiHTxvMnxGCUykvvXgd
+	OTwWtfj3aPhVBXjiEf66x6wfqHzX45a/onEK1X29PMBiASkoVciRdgL07Kll6p9NFsiEPOD94O/ln
+	MA47ZIEGg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kkiAu-00062N-CG; Thu, 03 Dec 2020 06:33:08 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1kkiEM-0007de-1j; Thu, 03 Dec 2020 06:36:42 +0000
+Received: from mail-dm6nam10on2071.outbound.protection.outlook.com
+ ([40.107.93.71] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kki9l-0005E2-Tx; Thu, 03 Dec 2020 06:32:01 +0000
-From: Mike Rapoport <rppt@kernel.org>
-Authentication-Results: mail.kernel.org;
- dkim=permerror (bad message/signature format)
-To: Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH v14 10/10] secretmem: test: add basic selftest for
- memfd_secret(2)
-Date: Thu,  3 Dec 2020 08:29:49 +0200
-Message-Id: <20201203062949.5484-11-rppt@kernel.org>
-X-Mailer: git-send-email 2.28.0
-In-Reply-To: <20201203062949.5484-1-rppt@kernel.org>
-References: <20201203062949.5484-1-rppt@kernel.org>
+ id 1kkiEF-0007bC-KA
+ for linux-riscv@lists.infradead.org; Thu, 03 Dec 2020 06:36:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=CrY8CXsCXuqRCcVRedrhnrAjAfFDEP9h4NMUTxVAdw3I6eTrcUsNras8hLDnLevV74MHz8MXKGEe7sfSfRsr2XwGj3k7StaqTPTlo/IR5NYH4r8BsX20rkvpy9nMafC2QkIZjbJ8DAd5A84DO3v2o9M8c1oZOKuXrO+vbeyE3EWFFR6zztgppSg6/icluFEPmOTQj5bzJ12QTjOU1AWXwXw1GAnpc7AOEUWXuACFNzZFGz6zbTQqun7rg+X28JqjlwP/6nDqfbG0hf1WgjW0is4NKjFBymVUD7Z0zblStQfdLqXD45OxEyu2+N98mcwThSMvWcvhB4vPVHLXyqb2mw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2RztgGnOW09w3RsugC599Ue61IRnRdky32cOFPWSVrY=;
+ b=oJy2tImu0bM3lGqip9wVhvyCVUmiqog8ijblj0CRY5UETgYbNupV9yBmjiG4/7634eOJ2Mbbz1bNFlNkd1iLcEOKDzwgVyW/DNeoOhHhH3uBVwYc8FJKCkF7iR5mxRU8UPTHr+C5Nv+O3z/Pu5MefV8gPzbXzRZ1z5nZEn93STu8CPUA5HSZoxmRZ4x4OZf8vr0NdxAFzeNYNdwEt1uEjhFOte7LsAT4nXzknv7Ng5TRuH3NrnrNxJh63WMcsXjmW51v+3YDB84fBAJkqizcjh1yp+6/rBQmJCcdpazr/aTVSnkmcQRTwu3yi/j2dpwl1gFMnXe4FMbzERZlrorZZA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=openfive.com; dmarc=pass action=none header.from=openfive.com;
+ dkim=pass header.d=openfive.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=osportal.onmicrosoft.com; s=selector2-osportal-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2RztgGnOW09w3RsugC599Ue61IRnRdky32cOFPWSVrY=;
+ b=IvOcrzSTjnBdL62IPGdKUclH4KfStoAg2D5IOs3fkWNOdMpIxfBs1IXaGiZFbvbZ6EJJu/zFEv1rtUeqf5Z6a84rTqcR1biljPBiYgXAkTC7IZnbf0N/EUi1xlCzQ3bGg3pE9CDNITwWUAC5X2IDOpe6vrLW8C3+IWjeciu466s=
+Received: from BY5PR13MB4453.namprd13.prod.outlook.com (2603:10b6:a03:1d1::19)
+ by BY5PR13MB4520.namprd13.prod.outlook.com (2603:10b6:a03:1d3::22)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3632.6; Thu, 3 Dec
+ 2020 06:36:32 +0000
+Received: from BY5PR13MB4453.namprd13.prod.outlook.com
+ ([fe80::7c13:1ac6:9f2a:5eae]) by BY5PR13MB4453.namprd13.prod.outlook.com
+ ([fe80::7c13:1ac6:9f2a:5eae%8]) with mapi id 15.20.3654.005; Thu, 3 Dec 2020
+ 06:36:32 +0000
+From: Yash Shah <yash.shah@openfive.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Subject: RE: [PATCH 1/4] dt-bindings: riscv: Update DT binding docs to support
+ SiFive FU740 SoC
+Thread-Topic: [PATCH 1/4] dt-bindings: riscv: Update DT binding docs to
+ support SiFive FU740 SoC
+Thread-Index: AQHWyIHBGfYvEaJ6f0qSdKOZggdFCqnj5iWAgAEFz3A=
+Date: Thu, 3 Dec 2020 06:36:32 +0000
+Message-ID: <BY5PR13MB4453B21AD0714272B39B375982F20@BY5PR13MB4453.namprd13.prod.outlook.com>
+References: <1606896236-62780-1-git-send-email-yash.shah@sifive.com>
+ <1606896236-62780-2-git-send-email-yash.shah@sifive.com>
+ <20201202145823.GC2324545@lunn.ch>
+In-Reply-To: <20201202145823.GC2324545@lunn.ch>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: lunn.ch; dkim=none (message not signed)
+ header.d=none;lunn.ch; dmarc=none action=none header.from=openfive.com;
+x-originating-ip: [103.109.13.228]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: c01b394d-a1d6-44ce-3428-08d89755c648
+x-ms-traffictypediagnostic: BY5PR13MB4520:
+x-ld-processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
+x-ms-exchange-transport-forked: True
+x-microsoft-antispam-prvs: <BY5PR13MB4520BF8E53256F7EC213475D82F20@BY5PR13MB4520.namprd13.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:7219;
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: PVJNyFs8K9RXxiUH/2oHgzFJ7Eg/HJftmqg8vnNP8KW2qju6E+p8iVcpUtPHf+1OD/o0Eqwi3d6EsfRpZtYqDoaWwpPAMc6CC3j+XellyDwag7uEqH+dxy7q3nK9VbdZYK2u3K3Noo98up96gG/LeiDMKbgUvUIix0dB4IbwAIMSIgn0XsP3+258m00MCPD4ceh/XdrO9ZQOgqHudzeTl5Jcqt5DegdvQjW05mUSZvKR4iYC+J3oyghZABW/fg4D2a0/oNpurNGdn3wn4UCGOa8XceCmrastKhvnaSEnGCvbs7/Sibd8ZCLlBkY8jBuQcJ7yhvDEG5rEOEs3mAzzbg==
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:BY5PR13MB4453.namprd13.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(6029001)(39840400004)(136003)(346002)(366004)(376002)(396003)(7696005)(66446008)(53546011)(52536014)(6506007)(4326008)(5660300002)(64756008)(107886003)(66946007)(66556008)(66476007)(186003)(26005)(76116006)(55016002)(9686003)(54906003)(71200400001)(6916009)(15650500001)(478600001)(2906002)(83380400001)(86362001)(8936002)(7416002)(33656002)(316002)(8676002)(44832011);
+ DIR:OUT; SFP:1101; 
+x-ms-exchange-antispam-messagedata: =?us-ascii?Q?xYSfoCz+wR0kTQRgfwNFBhFbicJR5mHoDsUbKmmq19761rPQbBKUR9urL+5E?=
+ =?us-ascii?Q?XuOv9Hs+GJUMZZP4y/Lw4vma86ZuMYxV7Mn48H41k46ge9m0aF65yrOJmmia?=
+ =?us-ascii?Q?glTMbPpBlJlHM9p6YAxAdErKGCJYdCahxErp0qy4BqoXkA8pV7nFt/SAMAds?=
+ =?us-ascii?Q?P3JdNaBlQn/owH002ZeD3LMR29Iudp/JXpn4DqVpdo5GJYg+GW66Ym+9klfZ?=
+ =?us-ascii?Q?I8HCYAKIQOxE0umrgHrIeP3jBI9c+oMx6HwuYWvOxKB1B2hcoXc+2pjQGyaf?=
+ =?us-ascii?Q?292HyRrAp8yC2ho6jOfVcbgQ2eAe3e0BhSF+DsFP7QzFoyyD2aut/BXVb4Xu?=
+ =?us-ascii?Q?2yf5YEACb16R5WXM3sbnjpjQlRyPGP6yBqX59ZlGlZ57GA4g4vW9Ei9NHSvQ?=
+ =?us-ascii?Q?Ri6fMJ15LXYMSllSJEqohNCfA8jtkAaZkdbXbaA4D58MsoMFqKH6NKChKpni?=
+ =?us-ascii?Q?jOqYottsqIaqM3/tu2tNFEnDbpRoC4MZPwbSuHxQ87F0qQb0my5djM7YgsW0?=
+ =?us-ascii?Q?LqtQPYWh72LxDlnIdQUu4rlPQCk3J0j06Vl6SghvkoB9YT+EFwgltizo9pYY?=
+ =?us-ascii?Q?X8djNSVheD+zsfRIct1v6jJWeHI+bVdtqI5RXGsjEfRemVNOZs0V6gU7fBEZ?=
+ =?us-ascii?Q?EfdJd4DNtFeGZBEVM+V6UC9zYtyILHMXcKRZsaNV/6O8P3oI25YoL7DVIyYH?=
+ =?us-ascii?Q?H1Lvz6NKYTZzXcA1h4095ygxceDtDBho/DaVN1g6FLcxBq0pRmjq9Z6zZfxj?=
+ =?us-ascii?Q?jFhrDlBaqlcrJWkGWoxvV3nIG6UCErS0nQ3Y7E5nUvoKHmuh6YO/UJBm17Gh?=
+ =?us-ascii?Q?RAJSw2J2KbLG/1wzrzI2o+xy95laiDsjcY5iYr/j2cGpipQ7XjL39EydZfO7?=
+ =?us-ascii?Q?1NET/I10p8kezUG6u4HuBKfvMK4hZa+n55vVvmWYqTEv/YvtEmrCtd9I6RoN?=
+ =?us-ascii?Q?UKdEd6bKFbry+AYSEPESAFdmfhVkq1abyuPkVmrRSiU=3D?=
 MIME-Version: 1.0
+X-OriginatorOrg: openfive.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BY5PR13MB4453.namprd13.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c01b394d-a1d6-44ce-3428-08d89755c648
+X-MS-Exchange-CrossTenant-originalarrivaltime: 03 Dec 2020 06:36:32.6136 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 16wh5RM7AeJwrfdaNzH5FqDOJqCJC2qQWCzXXIw+fJ+ZCD6mnZo4EFY9MNtJm1EZx1pa8xrGHNrJtoqhXPFKDQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR13MB4520
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201203_013158_345462_C17DD20A 
-X-CRM114-Status: GOOD (  24.35  )
+X-CRM114-CacheID: sfid-20201203_013635_853629_8A3DC3A1 
+X-CRM114-Status: GOOD (  12.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -61,413 +137,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
- Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
- linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>,
- Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
- Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
- Will Deacon <will@kernel.org>, x86@kernel.org,
- Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
- Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
- Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
- Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
- linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-fsdevel@vger.kernel.org, Shakeel Butt <shakeelb@google.com>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>,
- Mike Rapoport <rppt@kernel.org>
+Cc: "linux-pwm@vger.kernel.org" <linux-pwm@vger.kernel.org>,
+ "peter@korsgaard.com" <peter@korsgaard.com>,
+ "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+ "bgolaszewski@baylibre.com" <bgolaszewski@baylibre.com>,
+ "Paul Walmsley \( Sifive\)" <paul.walmsley@sifive.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "robh+dt@kernel.org" <robh+dt@kernel.org>,
+ "linux-spi@vger.kernel.org" <linux-spi@vger.kernel.org>,
+ "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+ "broonie@kernel.org" <broonie@kernel.org>,
+ "thierry.reding@gmail.com" <thierry.reding@gmail.com>,
+ "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
+ "linux-serial@vger.kernel.org" <linux-serial@vger.kernel.org>,
+ "u.kleine-koenig@pengutronix.de" <u.kleine-koenig@pengutronix.de>,
+ "palmer@dabbelt.com" <palmer@dabbelt.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "lee.jones@linaro.org" <lee.jones@linaro.org>,
+ "linus.walleij@linaro.org" <linus.walleij@linaro.org>,
+ Sachin Ghadi <sachin.ghadi@openfive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Mike Rapoport <rppt@linux.ibm.com>
 
-The test verifies that file descriptor created with memfd_secret does
-not allow read/write operations, that secret memory mappings respect
-RLIMIT_MEMLOCK and that remote accesses with process_vm_read() and
-ptrace() to the secret memory fail.
 
-Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
----
- tools/testing/selftests/vm/.gitignore     |   1 +
- tools/testing/selftests/vm/Makefile       |   3 +-
- tools/testing/selftests/vm/memfd_secret.c | 298 ++++++++++++++++++++++
- tools/testing/selftests/vm/run_vmtests    |  17 ++
- 4 files changed, 318 insertions(+), 1 deletion(-)
- create mode 100644 tools/testing/selftests/vm/memfd_secret.c
+> -----Original Message-----
+> From: Andrew Lunn <andrew@lunn.ch>
+> Sent: 02 December 2020 20:28
+> To: Yash Shah <yash.shah@openfive.com>
+> Cc: linux-spi@vger.kernel.org; linux-serial@vger.kernel.org; linux-
+> pwm@vger.kernel.org; linux-i2c@vger.kernel.org; linux-
+> kernel@vger.kernel.org; linux-riscv@lists.infradead.org;
+> devicetree@vger.kernel.org; linux-gpio@vger.kernel.org;
+> broonie@kernel.org; gregkh@linuxfoundation.org; aou@eecs.berkeley.edu;
+> lee.jones@linaro.org; u.kleine-koenig@pengutronix.de;
+> thierry.reding@gmail.com; peter@korsgaard.com; Paul Walmsley ( Sifive)
+> <paul.walmsley@sifive.com>; palmer@dabbelt.com; robh+dt@kernel.org;
+> bgolaszewski@baylibre.com; linus.walleij@linaro.org; Sachin Ghadi
+> <sachin.ghadi@openfive.com>
+> Subject: Re: [PATCH 1/4] dt-bindings: riscv: Update DT binding docs to
+> support SiFive FU740 SoC
+> 
+> [External Email] Do not click links or attachments unless you recognize the
+> sender and know the content is safe
+> 
+> > diff --git a/Documentation/devicetree/bindings/i2c/i2c-ocores.txt
+> > b/Documentation/devicetree/bindings/i2c/i2c-ocores.txt
+> > index 6b25a80..1966b2c 100644
+> > --- a/Documentation/devicetree/bindings/i2c/i2c-ocores.txt
+> > +++ b/Documentation/devicetree/bindings/i2c/i2c-ocores.txt
+> > @@ -3,9 +3,11 @@ Device tree configuration for i2c-ocores  Required
+> > properties:
+> >  - compatible      : "opencores,i2c-ocores"
+> >                      "aeroflexgaisler,i2cmst"
+> > -                    "sifive,fu540-c000-i2c", "sifive,i2c0"
+> > +                    "sifive,<chip>-i2c", "sifive,i2c0"
+> 
+> Please make this a full list. At some point, this file will get turned into yaml, at
+> which point substitution like this will need expanding. It is better to do that
+> now.
 
-diff --git a/tools/testing/selftests/vm/.gitignore b/tools/testing/selftests/vm/.gitignore
-index 9a35c3f6a557..c8deddc81e7a 100644
---- a/tools/testing/selftests/vm/.gitignore
-+++ b/tools/testing/selftests/vm/.gitignore
-@@ -21,4 +21,5 @@ va_128TBswitch
- map_fixed_noreplace
- write_to_hugetlbfs
- hmm-tests
-+memfd_secret
- local_config.*
-diff --git a/tools/testing/selftests/vm/Makefile b/tools/testing/selftests/vm/Makefile
-index 62fb15f286ee..9ab98946fbf2 100644
---- a/tools/testing/selftests/vm/Makefile
-+++ b/tools/testing/selftests/vm/Makefile
-@@ -34,6 +34,7 @@ TEST_GEN_FILES += khugepaged
- TEST_GEN_FILES += map_fixed_noreplace
- TEST_GEN_FILES += map_hugetlb
- TEST_GEN_FILES += map_populate
-+TEST_GEN_FILES += memfd_secret
- TEST_GEN_FILES += mlock-random-test
- TEST_GEN_FILES += mlock2-tests
- TEST_GEN_FILES += mremap_dontunmap
-@@ -129,7 +130,7 @@ warn_32bit_failure:
- endif
- endif
- 
--$(OUTPUT)/mlock-random-test: LDLIBS += -lcap
-+$(OUTPUT)/mlock-random-test $(OUTPUT)/memfd_secret: LDLIBS += -lcap
- 
- $(OUTPUT)/gup_test: ../../../../mm/gup_test.h
- 
-diff --git a/tools/testing/selftests/vm/memfd_secret.c b/tools/testing/selftests/vm/memfd_secret.c
-new file mode 100644
-index 000000000000..79578dfd13e6
---- /dev/null
-+++ b/tools/testing/selftests/vm/memfd_secret.c
-@@ -0,0 +1,298 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright IBM Corporation, 2020
-+ *
-+ * Author: Mike Rapoport <rppt@linux.ibm.com>
-+ */
-+
-+#define _GNU_SOURCE
-+#include <sys/uio.h>
-+#include <sys/mman.h>
-+#include <sys/wait.h>
-+#include <sys/types.h>
-+#include <sys/ptrace.h>
-+#include <sys/syscall.h>
-+#include <sys/resource.h>
-+#include <sys/capability.h>
-+
-+#include <stdlib.h>
-+#include <string.h>
-+#include <unistd.h>
-+#include <errno.h>
-+#include <stdio.h>
-+
-+#include "../kselftest.h"
-+
-+#define fail(fmt, ...) ksft_test_result_fail(fmt, ##__VA_ARGS__)
-+#define pass(fmt, ...) ksft_test_result_pass(fmt, ##__VA_ARGS__)
-+#define skip(fmt, ...) ksft_test_result_skip(fmt, ##__VA_ARGS__)
-+
-+#ifdef __NR_memfd_secret
-+
-+#include <linux/secretmem.h>
-+
-+#define PATTERN	0x55
-+
-+static const int prot = PROT_READ | PROT_WRITE;
-+static const int mode = MAP_SHARED;
-+
-+static unsigned long page_size;
-+static unsigned long mlock_limit_cur;
-+static unsigned long mlock_limit_max;
-+
-+static int memfd_secret(unsigned long flags)
-+{
-+	return syscall(__NR_memfd_secret, flags);
-+}
-+
-+static void test_file_apis(int fd)
-+{
-+	char buf[64];
-+
-+	if ((read(fd, buf, sizeof(buf)) >= 0) ||
-+	    (write(fd, buf, sizeof(buf)) >= 0) ||
-+	    (pread(fd, buf, sizeof(buf), 0) >= 0) ||
-+	    (pwrite(fd, buf, sizeof(buf), 0) >= 0))
-+		fail("unexpected file IO\n");
-+	else
-+		pass("file IO is blocked as expected\n");
-+}
-+
-+static void test_mlock_limit(int fd)
-+{
-+	size_t len;
-+	char *mem;
-+
-+	len = mlock_limit_cur;
-+	mem = mmap(NULL, len, prot, mode, fd, 0);
-+	if (mem == MAP_FAILED) {
-+		fail("unable to mmap secret memory\n");
-+		return;
-+	}
-+	munmap(mem, len);
-+
-+	len = mlock_limit_max * 2;
-+	mem = mmap(NULL, len, prot, mode, fd, 0);
-+	if (mem != MAP_FAILED) {
-+		fail("unexpected mlock limit violation\n");
-+		munmap(mem, len);
-+		return;
-+	}
-+
-+	pass("mlock limit is respected\n");
-+}
-+
-+static void try_process_vm_read(int fd, int pipefd[2])
-+{
-+	struct iovec liov, riov;
-+	char buf[64];
-+	char *mem;
-+
-+	if (read(pipefd[0], &mem, sizeof(mem)) < 0) {
-+		fail("pipe write: %s\n", strerror(errno));
-+		exit(KSFT_FAIL);
-+	}
-+
-+	liov.iov_len = riov.iov_len = sizeof(buf);
-+	liov.iov_base = buf;
-+	riov.iov_base = mem;
-+
-+	if (process_vm_readv(getppid(), &liov, 1, &riov, 1, 0) < 0) {
-+		if (errno == ENOSYS)
-+			exit(KSFT_SKIP);
-+		exit(KSFT_PASS);
-+	}
-+
-+	exit(KSFT_FAIL);
-+}
-+
-+static void try_ptrace(int fd, int pipefd[2])
-+{
-+	pid_t ppid = getppid();
-+	int status;
-+	char *mem;
-+	long ret;
-+
-+	if (read(pipefd[0], &mem, sizeof(mem)) < 0) {
-+		perror("pipe write");
-+		exit(KSFT_FAIL);
-+	}
-+
-+	ret = ptrace(PTRACE_ATTACH, ppid, 0, 0);
-+	if (ret) {
-+		perror("ptrace_attach");
-+		exit(KSFT_FAIL);
-+	}
-+
-+	ret = waitpid(ppid, &status, WUNTRACED);
-+	if ((ret != ppid) || !(WIFSTOPPED(status))) {
-+		fprintf(stderr, "weird waitppid result %ld stat %x\n",
-+			ret, status);
-+		exit(KSFT_FAIL);
-+	}
-+
-+	if (ptrace(PTRACE_PEEKDATA, ppid, mem, 0))
-+		exit(KSFT_PASS);
-+
-+	exit(KSFT_FAIL);
-+}
-+
-+static void check_child_status(pid_t pid, const char *name)
-+{
-+	int status;
-+
-+	waitpid(pid, &status, 0);
-+
-+	if (WIFEXITED(status) && WEXITSTATUS(status) == KSFT_SKIP) {
-+		skip("%s is not supported\n", name);
-+		return;
-+	}
-+
-+	if ((WIFEXITED(status) && WEXITSTATUS(status) == KSFT_PASS) ||
-+	    WIFSIGNALED(status)) {
-+		pass("%s is blocked as expected\n", name);
-+		return;
-+	}
-+
-+	fail("%s: unexpected memory access\n", name);
-+}
-+
-+static void test_remote_access(int fd, const char *name,
-+			       void (*func)(int fd, int pipefd[2]))
-+{
-+	int pipefd[2];
-+	pid_t pid;
-+	char *mem;
-+
-+	if (pipe(pipefd)) {
-+		fail("pipe failed: %s\n", strerror(errno));
-+		return;
-+	}
-+
-+	pid = fork();
-+	if (pid < 0) {
-+		fail("fork failed: %s\n", strerror(errno));
-+		return;
-+	}
-+
-+	if (pid == 0) {
-+		func(fd, pipefd);
-+		return;
-+	}
-+
-+	mem = mmap(NULL, page_size, prot, mode, fd, 0);
-+	if (mem == MAP_FAILED) {
-+		fail("Unable to mmap secret memory\n");
-+		return;
-+	}
-+
-+	ftruncate(fd, page_size);
-+	memset(mem, PATTERN, page_size);
-+
-+	if (write(pipefd[1], &mem, sizeof(mem)) < 0) {
-+		fail("pipe write: %s\n", strerror(errno));
-+		return;
-+	}
-+
-+	check_child_status(pid, name);
-+}
-+
-+static void test_process_vm_read(int fd)
-+{
-+	test_remote_access(fd, "process_vm_read", try_process_vm_read);
-+}
-+
-+static void test_ptrace(int fd)
-+{
-+	test_remote_access(fd, "ptrace", try_ptrace);
-+}
-+
-+static int set_cap_limits(rlim_t max)
-+{
-+	struct rlimit new;
-+	cap_t cap = cap_init();
-+
-+	new.rlim_cur = max;
-+	new.rlim_max = max;
-+	if (setrlimit(RLIMIT_MEMLOCK, &new)) {
-+		perror("setrlimit() returns error");
-+		return -1;
-+	}
-+
-+	/* drop capabilities including CAP_IPC_LOCK */
-+	if (cap_set_proc(cap)) {
-+		perror("cap_set_proc() returns error");
-+		return -2;
-+	}
-+
-+	return 0;
-+}
-+
-+static void prepare(void)
-+{
-+	struct rlimit rlim;
-+
-+	page_size = sysconf(_SC_PAGE_SIZE);
-+	if (!page_size)
-+		ksft_exit_fail_msg("Failed to get page size %s\n",
-+				   strerror(errno));
-+
-+	if (getrlimit(RLIMIT_MEMLOCK, &rlim))
-+		ksft_exit_fail_msg("Unable to detect mlock limit: %s\n",
-+				   strerror(errno));
-+
-+	mlock_limit_cur = rlim.rlim_cur;
-+	mlock_limit_max = rlim.rlim_max;
-+
-+	printf("page_size: %ld, mlock.soft: %ld, mlock.hard: %ld\n",
-+	       page_size, mlock_limit_cur, mlock_limit_max);
-+
-+	if (page_size > mlock_limit_cur)
-+		mlock_limit_cur = page_size;
-+	if (page_size > mlock_limit_max)
-+		mlock_limit_max = page_size;
-+
-+	if (set_cap_limits(mlock_limit_max))
-+		ksft_exit_fail_msg("Unable to set mlock limit: %s\n",
-+				   strerror(errno));
-+}
-+
-+#define NUM_TESTS 4
-+
-+int main(int argc, char *argv[])
-+{
-+	int fd;
-+
-+	prepare();
-+
-+	ksft_print_header();
-+	ksft_set_plan(NUM_TESTS);
-+
-+	fd = memfd_secret(0);
-+	if (fd < 0) {
-+		if (errno == ENOSYS)
-+			ksft_exit_skip("memfd_secret is not supported\n");
-+		else
-+			ksft_exit_fail_msg("memfd_secret failed: %s\n",
-+					   strerror(errno));
-+	}
-+
-+	test_mlock_limit(fd);
-+	test_file_apis(fd);
-+	test_process_vm_read(fd);
-+	test_ptrace(fd);
-+
-+	close(fd);
-+
-+	ksft_exit(!ksft_get_fail_cnt());
-+}
-+
-+#else /* __NR_memfd_secret */
-+
-+int main(int argc, char *argv[])
-+{
-+	printf("skip: skipping memfd_secret test (missing __NR_memfd_secret)\n");
-+	return KSFT_SKIP;
-+}
-+
-+#endif /* __NR_memfd_secret */
-diff --git a/tools/testing/selftests/vm/run_vmtests b/tools/testing/selftests/vm/run_vmtests
-index e953f3cd9664..95a67382f132 100755
---- a/tools/testing/selftests/vm/run_vmtests
-+++ b/tools/testing/selftests/vm/run_vmtests
-@@ -346,4 +346,21 @@ else
- 	exitcode=1
- fi
- 
-+echo "running memfd_secret test"
-+echo "------------------------------------"
-+./memfd_secret
-+ret_val=$?
-+
-+if [ $ret_val -eq 0 ]; then
-+	echo "[PASS]"
-+elif [ $ret_val -eq $ksft_skip ]; then
-+	echo "[SKIP]"
-+	exitcode=$ksft_skip
-+else
-+	echo "[FAIL]"
-+	exitcode=1
-+fi
-+
-+exit $exitcode
-+
- exit $exitcode
--- 
-2.28.0
+Ok sure, will do that in patch v2.
 
+- Yash
+
+> 
+>      Andrew
 
 _______________________________________________
 linux-riscv mailing list
