@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-10.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C841DC4361A
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Dec 2020 23:36:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 39B2DC4361A
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Dec 2020 23:39:35 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5FA7F223C8
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Dec 2020 23:36:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5FA7F223C8
+	by mail.kernel.org (Postfix) with ESMTPS id BEC0F223C8
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Dec 2020 23:39:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BEC0F223C8
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,39 +23,39 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:Message-Id:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=QYcydZ/gbSJO76JmVebbewWHm7NsB7fkWq9mu7uvF7I=; b=eiEmRcRFhvIA1yrcePUJPo3Dy
-	YUtrDk7E9bMFOB3NsIb0uLzfVad2mZWNEoD8TkiCjl5F4iVTD7bhKbPZs2pUU9ZAA3naTcymBLsAn
-	+4HRI2gR6h7MG/7pkwtBdxG64GxzRL3rJx5+j/o/vD0NG6x4u9DrJvfm+A76+Utul4uDWAsZVJZvh
-	/X/sf0IGfAares0eC/X0iyDIhW3B8z2Y5ZoamQN1TvH4gAES+ibzgkVnaGqmHjBLayFJwkTy57GGd
-	fPmN+3YSKJS7AOVNgR3FXtHo0AAOsjTHjTSAcICF0cdGBbtPYkFusVzSaSxaEiitF2oizU74Vw6O6
-	NYuUa/nww==;
+	 bh=i/7hLieHg2exVG1uL10kuEAVt8sFHrPmpw5OlGfnack=; b=z1b2SM+PvZqy15z9KVypqiIf8
+	H+OlKqwQK1nNZU/FK7c/EOYVHLY+hXOR7265v9A2ozEtwxbupup985cg1iQbEQLq5/sopOT39rILo
+	9bS7oeQPxHvX++xLbMxQGs/gbbnI4KXAV3AOjxfqBnhswsrWwyQJZN7iALTcT7C9VL8I57HPEwWr6
+	IvOANAuwIrC7ggp5F5sSI+TypQojhVa6vMu2w7NslK2xhbnQpgKFEHbwHdvoEaUI+RckpZM4tfHxw
+	M8feizEROQfR73FJ1+UeczSNVo5VDe4l31tkcImEyCVYf9o8ufhwOIxhdF/+rgJyQcc0FcUqEjiaG
+	oatf8a0uw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kky96-0002Wz-IT; Thu, 03 Dec 2020 23:36:20 +0000
+	id 1kkyC6-00031Q-VL; Thu, 03 Dec 2020 23:39:27 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kky92-0002V6-5G; Thu, 03 Dec 2020 23:36:17 +0000
-Date: Thu, 3 Dec 2020 15:36:10 -0800
+ id 1kkyC1-0002zF-7P; Thu, 03 Dec 2020 23:39:22 +0000
+Date: Thu, 3 Dec 2020 15:39:16 -0800
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
- s=korg; t=1607038573;
- bh=Pa4oRfRRHtvNG6DkXhfCABnpMt5dHNY/S5ZIo3xu0I8=;
+ s=korg; t=1607038759;
+ bh=zDBJmA1njD9c5R9U97XtgqdT27wAv2IVLfk1nPS0FJM=;
  h=From:To:Cc:Subject:In-Reply-To:References:From;
- b=kuOijURD2S/LKZN7m2xU1Yqs8aTgSaE+8PAXCjOUF+k6SmWXgnBX1a127MGk9xsxD
- Zehgx/bS+bttrniAwVRGaqKRk/HeHmkpC5g5mw+66gde6sKC1WxOhrIrOWZsRz9QI2
- m7IWOOo+Ox/qds8Kx515xXzlhgz0bQmTT4jC/P9M=
+ b=mS6E8T6sd+XV4qfkYaIC7AzHKw/6zG99ExlvCv9CM2GiRif+p2YkZqPRApdyQ8W6k
+ 4GQb78gRhspuJjIgU7TpCoScNXnKT9kg7Cb/IBT70e6ZKsRZ74kZc1jLZ9uATm4O+j
+ kPi+AoMzreC1GgZnwmGefOwVW3qrUNdYbrXPS6vE=
 From: Andrew Morton <akpm@linux-foundation.org>
 To: Mike Rapoport <rppt@kernel.org>
-Subject: Re: [PATCH v14 04/10] set_memory: allow querying whether
- set_direct_map_*() is actually enabled
-Message-Id: <20201203153610.724f40f26ca1620247bc6b09@linux-foundation.org>
-In-Reply-To: <20201203062949.5484-5-rppt@kernel.org>
+Subject: Re: [PATCH v14 09/10] arch, mm: wire up memfd_secret system call
+ were relevant
+Message-Id: <20201203153916.91f0f80dcb8a0fa81fc341fa@linux-foundation.org>
+In-Reply-To: <20201203062949.5484-10-rppt@kernel.org>
 References: <20201203062949.5484-1-rppt@kernel.org>
- <20201203062949.5484-5-rppt@kernel.org>
+ <20201203062949.5484-10-rppt@kernel.org>
 X-Mailer: Sylpheed 3.5.1 (GTK+ 2.24.31; x86_64-pc-linux-gnu)
 Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201203_183616_303184_1903D34C 
-X-CRM114-Status: GOOD (  18.19  )
+X-CRM114-CacheID: sfid-20201203_183921_401259_909F2FEB 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -79,9 +79,10 @@ Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
  Will Deacon <will@kernel.org>, x86@kernel.org,
  Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
  Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
- Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
- Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>, Arnd Bergmann <arnd@arndb.de>,
+ James Bottomley <jejb@linux.ibm.com>, Borislav Petkov <bp@alien8.de>,
+ Alexander Viro <viro@zeniv.linux.org.uk>, Andy Lutomirski <luto@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
  "Kirill A. Shutemov" <kirill@shutemov.name>,
  Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
  linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
@@ -93,46 +94,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu,  3 Dec 2020 08:29:43 +0200 Mike Rapoport <rppt@kernel.org> wrote:
+On Thu,  3 Dec 2020 08:29:48 +0200 Mike Rapoport <rppt@kernel.org> wrote:
 
 > From: Mike Rapoport <rppt@linux.ibm.com>
 > 
-> On arm64, set_direct_map_*() functions may return 0 without actually
-> changing the linear map. This behaviour can be controlled using kernel
-> parameters, so we need a way to determine at runtime whether calls to
-> set_direct_map_invalid_noflush() and set_direct_map_default_noflush() have
-> any effect.
-> 
-> Extend set_memory API with can_set_direct_map() function that allows
-> checking if calling set_direct_map_*() will actually change the page table,
-> replace several occurrences of open coded checks in arm64 with the new
-> function and provide a generic stub for architectures that always modify
-> page tables upon calls to set_direct_map APIs.
+> Wire up memfd_secret system call on architectures that define
+> ARCH_HAS_SET_DIRECT_MAP, namely arm64, risc-v and x86.
 > 
 > ...
 >
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -22,6 +22,7 @@
->  #include <linux/io.h>
->  #include <linux/mm.h>
->  #include <linux/vmalloc.h>
-> +#include <linux/set_memory.h>
->  
->  #include <asm/barrier.h>
->  #include <asm/cputype.h>
-> @@ -477,7 +478,7 @@ static void __init map_mem(pgd_t *pgdp)
->  	int flags = 0;
->  	u64 i;
->  
-> -	if (rodata_full || debug_pagealloc_enabled())
-> +	if (can_set_direct_map())
->  		flags = NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
+> --- a/include/uapi/asm-generic/unistd.h
+> +++ b/include/uapi/asm-generic/unistd.h
+> @@ -861,9 +861,13 @@ __SYSCALL(__NR_faccessat2, sys_faccessat2)
+>  __SYSCALL(__NR_process_madvise, sys_process_madvise)
+>  #define __NR_watch_mount 441
+>  __SYSCALL(__NR_watch_mount, sys_watch_mount)
+> +#ifdef __ARCH_WANT_MEMFD_SECRET
+> +#define __NR_memfd_secret 442
+> +__SYSCALL(__NR_memfd_secret, sys_memfd_secret)
+> +#endif
 
-Changes in -next turned this into
-
-	if (can_set_direct_map() || crash_mem_map)
-
+Why do we add the ifdef?  Can't we simply define the syscall on all
+architectures and let sys_ni do its thing?
 
 
 _______________________________________________
