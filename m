@@ -2,130 +2,69 @@ Return-Path: <SRS0=jyWZ=FH=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-18.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 48720C63777
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Dec 2020 06:36:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AF6A8C64E7B
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Dec 2020 06:51:04 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9BB4A206B6
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Dec 2020 06:36:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9BB4A206B6
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=openfive.com
+	by mail.kernel.org (Postfix) with ESMTPS id 3EB8620709
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Dec 2020 06:51:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3EB8620709
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=andestech.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:Message-ID:Date:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=wItkipQv1zRg6Ii6B2UTKNllOvFDw6WJxYHWh1DYnUg=; b=go0Aq2De2MR+a0+vVW+Boh9nk
-	7aLTMyIiJg0hzUXZkyTPOVz9j1dCNy1PIK0dup4gXrVYQDTjdUS1M/CPz7MqGwed00dYbTo9rln7R
-	NkLN8M/71bggvtVL4fb31z3MbxRC5MXlEjlk7U4wHtFIrZ82aSlHWUhiOua4zwIYR4N5dS06HZ+17
-	+7EP7jYAYQJDogH2jmNuc+IpQb8qBYuCZGWLMAXodoyB5dLu+tgqoJX+1jLiHTxvMnxGCUykvvXgd
-	OTwWtfj3aPhVBXjiEf66x6wfqHzX45a/onEK1X29PMBiASkoVciRdgL07Kll6p9NFsiEPOD94O/ln
-	MA47ZIEGg==;
+	 bh=yMD39cRiqwWfBAa7gMk3bVuDksaa4FX5+CZXjGdKjIE=; b=T6u0tEv/AOvDSEwqEB+VfAdzd
+	tzo1iosMVBv/qfgt/iW0K9QcUVvOAAUsWhK+emCTtk/QY8VEv/PWesFkaXI8mpNnvRVcymAR2yKwH
+	etz1hjMy9nuS/xhArOHBXeB9oQxn0TXuS7MQ9kj8tUM50lqPaLQBePfnc+bQ4229xjAlx/6zLRYWA
+	TYgujR5Ta7wIFbINsQe28XOyVoRIZEYeyDhFvkXPqIYZ0FnwgX9/BsJMOPNi5EA+3aboP4kKTYZt6
+	LwRIYRdCvjIN2C/VuoMfGF9xLEDqw4fGyUkAbltIRzjt1OaipzAQUTWlLip8L8Kl7N7FTXqQWdnB2
+	d56Dabo6w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kkiEM-0007de-1j; Thu, 03 Dec 2020 06:36:42 +0000
-Received: from mail-dm6nam10on2071.outbound.protection.outlook.com
- ([40.107.93.71] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1kkiS7-0001R7-1l; Thu, 03 Dec 2020 06:50:55 +0000
+Received: from exmail.andestech.com ([60.248.187.195]
+ helo=ATCSQR.andestech.com)
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kkiEF-0007bC-KA
- for linux-riscv@lists.infradead.org; Thu, 03 Dec 2020 06:36:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=CrY8CXsCXuqRCcVRedrhnrAjAfFDEP9h4NMUTxVAdw3I6eTrcUsNras8hLDnLevV74MHz8MXKGEe7sfSfRsr2XwGj3k7StaqTPTlo/IR5NYH4r8BsX20rkvpy9nMafC2QkIZjbJ8DAd5A84DO3v2o9M8c1oZOKuXrO+vbeyE3EWFFR6zztgppSg6/icluFEPmOTQj5bzJ12QTjOU1AWXwXw1GAnpc7AOEUWXuACFNzZFGz6zbTQqun7rg+X28JqjlwP/6nDqfbG0hf1WgjW0is4NKjFBymVUD7Z0zblStQfdLqXD45OxEyu2+N98mcwThSMvWcvhB4vPVHLXyqb2mw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2RztgGnOW09w3RsugC599Ue61IRnRdky32cOFPWSVrY=;
- b=oJy2tImu0bM3lGqip9wVhvyCVUmiqog8ijblj0CRY5UETgYbNupV9yBmjiG4/7634eOJ2Mbbz1bNFlNkd1iLcEOKDzwgVyW/DNeoOhHhH3uBVwYc8FJKCkF7iR5mxRU8UPTHr+C5Nv+O3z/Pu5MefV8gPzbXzRZ1z5nZEn93STu8CPUA5HSZoxmRZ4x4OZf8vr0NdxAFzeNYNdwEt1uEjhFOte7LsAT4nXzknv7Ng5TRuH3NrnrNxJh63WMcsXjmW51v+3YDB84fBAJkqizcjh1yp+6/rBQmJCcdpazr/aTVSnkmcQRTwu3yi/j2dpwl1gFMnXe4FMbzERZlrorZZA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=openfive.com; dmarc=pass action=none header.from=openfive.com;
- dkim=pass header.d=openfive.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=osportal.onmicrosoft.com; s=selector2-osportal-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2RztgGnOW09w3RsugC599Ue61IRnRdky32cOFPWSVrY=;
- b=IvOcrzSTjnBdL62IPGdKUclH4KfStoAg2D5IOs3fkWNOdMpIxfBs1IXaGiZFbvbZ6EJJu/zFEv1rtUeqf5Z6a84rTqcR1biljPBiYgXAkTC7IZnbf0N/EUi1xlCzQ3bGg3pE9CDNITwWUAC5X2IDOpe6vrLW8C3+IWjeciu466s=
-Received: from BY5PR13MB4453.namprd13.prod.outlook.com (2603:10b6:a03:1d1::19)
- by BY5PR13MB4520.namprd13.prod.outlook.com (2603:10b6:a03:1d3::22)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3632.6; Thu, 3 Dec
- 2020 06:36:32 +0000
-Received: from BY5PR13MB4453.namprd13.prod.outlook.com
- ([fe80::7c13:1ac6:9f2a:5eae]) by BY5PR13MB4453.namprd13.prod.outlook.com
- ([fe80::7c13:1ac6:9f2a:5eae%8]) with mapi id 15.20.3654.005; Thu, 3 Dec 2020
- 06:36:32 +0000
-From: Yash Shah <yash.shah@openfive.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Subject: RE: [PATCH 1/4] dt-bindings: riscv: Update DT binding docs to support
- SiFive FU740 SoC
-Thread-Topic: [PATCH 1/4] dt-bindings: riscv: Update DT binding docs to
- support SiFive FU740 SoC
-Thread-Index: AQHWyIHBGfYvEaJ6f0qSdKOZggdFCqnj5iWAgAEFz3A=
-Date: Thu, 3 Dec 2020 06:36:32 +0000
-Message-ID: <BY5PR13MB4453B21AD0714272B39B375982F20@BY5PR13MB4453.namprd13.prod.outlook.com>
-References: <1606896236-62780-1-git-send-email-yash.shah@sifive.com>
- <1606896236-62780-2-git-send-email-yash.shah@sifive.com>
- <20201202145823.GC2324545@lunn.ch>
-In-Reply-To: <20201202145823.GC2324545@lunn.ch>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: lunn.ch; dkim=none (message not signed)
- header.d=none;lunn.ch; dmarc=none action=none header.from=openfive.com;
-x-originating-ip: [103.109.13.228]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: c01b394d-a1d6-44ce-3428-08d89755c648
-x-ms-traffictypediagnostic: BY5PR13MB4520:
-x-ld-processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
-x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <BY5PR13MB4520BF8E53256F7EC213475D82F20@BY5PR13MB4520.namprd13.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:7219;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: PVJNyFs8K9RXxiUH/2oHgzFJ7Eg/HJftmqg8vnNP8KW2qju6E+p8iVcpUtPHf+1OD/o0Eqwi3d6EsfRpZtYqDoaWwpPAMc6CC3j+XellyDwag7uEqH+dxy7q3nK9VbdZYK2u3K3Noo98up96gG/LeiDMKbgUvUIix0dB4IbwAIMSIgn0XsP3+258m00MCPD4ceh/XdrO9ZQOgqHudzeTl5Jcqt5DegdvQjW05mUSZvKR4iYC+J3oyghZABW/fg4D2a0/oNpurNGdn3wn4UCGOa8XceCmrastKhvnaSEnGCvbs7/Sibd8ZCLlBkY8jBuQcJ7yhvDEG5rEOEs3mAzzbg==
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:BY5PR13MB4453.namprd13.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(6029001)(39840400004)(136003)(346002)(366004)(376002)(396003)(7696005)(66446008)(53546011)(52536014)(6506007)(4326008)(5660300002)(64756008)(107886003)(66946007)(66556008)(66476007)(186003)(26005)(76116006)(55016002)(9686003)(54906003)(71200400001)(6916009)(15650500001)(478600001)(2906002)(83380400001)(86362001)(8936002)(7416002)(33656002)(316002)(8676002)(44832011);
- DIR:OUT; SFP:1101; 
-x-ms-exchange-antispam-messagedata: =?us-ascii?Q?xYSfoCz+wR0kTQRgfwNFBhFbicJR5mHoDsUbKmmq19761rPQbBKUR9urL+5E?=
- =?us-ascii?Q?XuOv9Hs+GJUMZZP4y/Lw4vma86ZuMYxV7Mn48H41k46ge9m0aF65yrOJmmia?=
- =?us-ascii?Q?glTMbPpBlJlHM9p6YAxAdErKGCJYdCahxErp0qy4BqoXkA8pV7nFt/SAMAds?=
- =?us-ascii?Q?P3JdNaBlQn/owH002ZeD3LMR29Iudp/JXpn4DqVpdo5GJYg+GW66Ym+9klfZ?=
- =?us-ascii?Q?I8HCYAKIQOxE0umrgHrIeP3jBI9c+oMx6HwuYWvOxKB1B2hcoXc+2pjQGyaf?=
- =?us-ascii?Q?292HyRrAp8yC2ho6jOfVcbgQ2eAe3e0BhSF+DsFP7QzFoyyD2aut/BXVb4Xu?=
- =?us-ascii?Q?2yf5YEACb16R5WXM3sbnjpjQlRyPGP6yBqX59ZlGlZ57GA4g4vW9Ei9NHSvQ?=
- =?us-ascii?Q?Ri6fMJ15LXYMSllSJEqohNCfA8jtkAaZkdbXbaA4D58MsoMFqKH6NKChKpni?=
- =?us-ascii?Q?jOqYottsqIaqM3/tu2tNFEnDbpRoC4MZPwbSuHxQ87F0qQb0my5djM7YgsW0?=
- =?us-ascii?Q?LqtQPYWh72LxDlnIdQUu4rlPQCk3J0j06Vl6SghvkoB9YT+EFwgltizo9pYY?=
- =?us-ascii?Q?X8djNSVheD+zsfRIct1v6jJWeHI+bVdtqI5RXGsjEfRemVNOZs0V6gU7fBEZ?=
- =?us-ascii?Q?EfdJd4DNtFeGZBEVM+V6UC9zYtyILHMXcKRZsaNV/6O8P3oI25YoL7DVIyYH?=
- =?us-ascii?Q?H1Lvz6NKYTZzXcA1h4095ygxceDtDBho/DaVN1g6FLcxBq0pRmjq9Z6zZfxj?=
- =?us-ascii?Q?jFhrDlBaqlcrJWkGWoxvV3nIG6UCErS0nQ3Y7E5nUvoKHmuh6YO/UJBm17Gh?=
- =?us-ascii?Q?RAJSw2J2KbLG/1wzrzI2o+xy95laiDsjcY5iYr/j2cGpipQ7XjL39EydZfO7?=
- =?us-ascii?Q?1NET/I10p8kezUG6u4HuBKfvMK4hZa+n55vVvmWYqTEv/YvtEmrCtd9I6RoN?=
- =?us-ascii?Q?UKdEd6bKFbry+AYSEPESAFdmfhVkq1abyuPkVmrRSiU=3D?=
+ id 1kkiS3-0001PZ-Rq
+ for linux-riscv@lists.infradead.org; Thu, 03 Dec 2020 06:50:52 +0000
+Received: from mail.andestech.com (atcpcs16.andestech.com [10.0.1.222])
+ by ATCSQR.andestech.com with ESMTP id 0B36noOo099128;
+ Thu, 3 Dec 2020 14:49:50 +0800 (GMT-8)
+ (envelope-from tesheng@andestech.com)
+Received: from atcfdc88.andestech.com (10.0.15.120) by ATCPCS16.andestech.com
+ (10.0.1.222) with Microsoft SMTP Server id 14.3.487.0;
+ Thu, 3 Dec 2020 14:49:38 +0800
+From: Eric Lin <tesheng@andestech.com>
+To: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+ <walken@google.com>, <vbabka@suse.cz>, <peterx@redhat.com>,
+ <akpm@linux-foundation.org>, <penberg@kernel.org>,
+ <aou@eecs.berkeley.edu>, <palmer@dabbelt.com>,
+ <paul.walmsley@sifive.com>, <hch@infradead.org>
+Subject: [PATCH v2 2/2] riscv/mm: Prevent kernel module to access user memory
+ without uaccess routines
+Date: Thu, 3 Dec 2020 14:48:26 +0800
+Message-ID: <20201203064826.30832-3-tesheng@andestech.com>
+X-Mailer: git-send-email 2.17.0
+In-Reply-To: <20201203064826.30832-1-tesheng@andestech.com>
+References: <20201203064826.30832-1-tesheng@andestech.com>
 MIME-Version: 1.0
-X-OriginatorOrg: openfive.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BY5PR13MB4453.namprd13.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c01b394d-a1d6-44ce-3428-08d89755c648
-X-MS-Exchange-CrossTenant-originalarrivaltime: 03 Dec 2020 06:36:32.6136 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 16wh5RM7AeJwrfdaNzH5FqDOJqCJC2qQWCzXXIw+fJ+ZCD6mnZo4EFY9MNtJm1EZx1pa8xrGHNrJtoqhXPFKDQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR13MB4520
+X-Originating-IP: [10.0.15.120]
+X-DNSRBL: 
+X-MAIL: ATCSQR.andestech.com 0B36noOo099128
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201203_013635_853629_8A3DC3A1 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20201203_015052_318874_55821A4E 
+X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -137,76 +76,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "linux-pwm@vger.kernel.org" <linux-pwm@vger.kernel.org>,
- "peter@korsgaard.com" <peter@korsgaard.com>,
- "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
- "bgolaszewski@baylibre.com" <bgolaszewski@baylibre.com>,
- "Paul Walmsley \( Sifive\)" <paul.walmsley@sifive.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "robh+dt@kernel.org" <robh+dt@kernel.org>,
- "linux-spi@vger.kernel.org" <linux-spi@vger.kernel.org>,
- "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
- "broonie@kernel.org" <broonie@kernel.org>,
- "thierry.reding@gmail.com" <thierry.reding@gmail.com>,
- "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
- "linux-serial@vger.kernel.org" <linux-serial@vger.kernel.org>,
- "u.kleine-koenig@pengutronix.de" <u.kleine-koenig@pengutronix.de>,
- "palmer@dabbelt.com" <palmer@dabbelt.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "lee.jones@linaro.org" <lee.jones@linaro.org>,
- "linus.walleij@linaro.org" <linus.walleij@linaro.org>,
- Sachin Ghadi <sachin.ghadi@openfive.com>
+Cc: Eric Lin <tesheng@andestech.com>, Alan Kao <alankao@andestech.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+We found this issue in an legacy out-of-tree kernel module
+which didn't properly access user space pointer by get/put_user().
+Such an illegal access loops in the page fault handler.
+To resolve this, let it die here.
 
+Signed-off-by: Eric Lin <tesheng@andestech.com>
+Cc: Alan Kao <alankao@andestech.com>
+---
+ arch/riscv/mm/fault.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-> -----Original Message-----
-> From: Andrew Lunn <andrew@lunn.ch>
-> Sent: 02 December 2020 20:28
-> To: Yash Shah <yash.shah@openfive.com>
-> Cc: linux-spi@vger.kernel.org; linux-serial@vger.kernel.org; linux-
-> pwm@vger.kernel.org; linux-i2c@vger.kernel.org; linux-
-> kernel@vger.kernel.org; linux-riscv@lists.infradead.org;
-> devicetree@vger.kernel.org; linux-gpio@vger.kernel.org;
-> broonie@kernel.org; gregkh@linuxfoundation.org; aou@eecs.berkeley.edu;
-> lee.jones@linaro.org; u.kleine-koenig@pengutronix.de;
-> thierry.reding@gmail.com; peter@korsgaard.com; Paul Walmsley ( Sifive)
-> <paul.walmsley@sifive.com>; palmer@dabbelt.com; robh+dt@kernel.org;
-> bgolaszewski@baylibre.com; linus.walleij@linaro.org; Sachin Ghadi
-> <sachin.ghadi@openfive.com>
-> Subject: Re: [PATCH 1/4] dt-bindings: riscv: Update DT binding docs to
-> support SiFive FU740 SoC
-> 
-> [External Email] Do not click links or attachments unless you recognize the
-> sender and know the content is safe
-> 
-> > diff --git a/Documentation/devicetree/bindings/i2c/i2c-ocores.txt
-> > b/Documentation/devicetree/bindings/i2c/i2c-ocores.txt
-> > index 6b25a80..1966b2c 100644
-> > --- a/Documentation/devicetree/bindings/i2c/i2c-ocores.txt
-> > +++ b/Documentation/devicetree/bindings/i2c/i2c-ocores.txt
-> > @@ -3,9 +3,11 @@ Device tree configuration for i2c-ocores  Required
-> > properties:
-> >  - compatible      : "opencores,i2c-ocores"
-> >                      "aeroflexgaisler,i2cmst"
-> > -                    "sifive,fu540-c000-i2c", "sifive,i2c0"
-> > +                    "sifive,<chip>-i2c", "sifive,i2c0"
-> 
-> Please make this a full list. At some point, this file will get turned into yaml, at
-> which point substitution like this will need expanding. It is better to do that
-> now.
+diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
+index 0bcfd0e1b39e..00884c1bac28 100644
+--- a/arch/riscv/mm/fault.c
++++ b/arch/riscv/mm/fault.c
+@@ -245,6 +245,11 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
+ 	if (user_mode(regs))
+ 		flags |= FAULT_FLAG_USER;
+ 
++	if (!user_mode(regs) && addr < TASK_SIZE &&
++			unlikely(!(regs->status & SR_SUM)))
++		die_kernel_fault("access to user memory without uaccess routines",
++				addr, regs);
++
+ 	perf_sw_event(PERF_COUNT_SW_PAGE_FAULTS, 1, regs, addr);
+ 
+ 	if (cause == EXC_STORE_PAGE_FAULT)
+-- 
+2.17.0
 
-Ok sure, will do that in patch v2.
-
-- Yash
-
-> 
->      Andrew
 
 _______________________________________________
 linux-riscv mailing list
