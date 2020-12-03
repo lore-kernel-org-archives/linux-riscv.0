@@ -3,102 +3,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
 X-Spam-Status: No, score=-10.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 47A4BC433FE
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Dec 2020 14:55:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5E40FC4361A
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Dec 2020 15:47:41 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A3218206D5
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Dec 2020 14:55:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A3218206D5
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
+	by mail.kernel.org (Postfix) with ESMTPS id E2649205CB
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Dec 2020 15:47:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E2649205CB
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=7i71fnPLw8c8wSiEag4koDbPBEonUjBwaWZiiIz6ePk=; b=0PKq6U56bU9IZR5Um7u9lSVwx
-	Tq/2Y2PQVT+NaKQtyijXYuN4rpeA0n5WAfQl640/7L9+RmJrduckxkCFp8SDrijyRtKKDxJVQwKl8
-	YbvjZ1Dw4BxKD2ZuPiCMdEhr+YogKPqtTsCZ45ObVEy+hcypyy8RMOC+IWUHxLWRb+VtdN8Pi1igv
-	MCiPkhb50al9UUTMd3s1Xx2j1jsosS1xZTjZcpF5o9RMgORqdWaVLU5BWPoUedchpq3MN+seAY1ag
-	r1y6d4wC5dAEnUpIcAhSvAJoZnoipj8bTLycWJ3eSsEtXJw+T8SlVbHVKStXusbKRifKGOYy5VnDU
-	BZjplGbBw==;
+	 bh=09F/r7rU4IG+HxCWT+Lz37kUf72Rrn8z/ynFDYJuk40=; b=A944irvR6DVRkdxMHJXy+GSsC
+	OTeVJ/dtCf+89txalnqgSnuGsdORc6Jq8RGJ5eOqKbaAQ8snoL8GG6x/tqm6gFYCkSxHFI+5TQOa/
+	1DS+khAHeqjLaCjnLWyp36r+GeLMhHhpI6ilQBBVLF+/+efWb437Yii/3X3VyOVZh4Kuqo+PfvFu5
+	+52nOqzz6UhM2x+7/qBGRiMOeffz4dMlReKu9oXQShcnuw6G1j/gY3iuQEIISbe9JL3cITUNC6URG
+	dor9aedz00Jy895+ln4b8tZvi7gMVXcqTzTrykY9bFMzcAQ8StKbNi9EGZihMqjXRY8v41oCO4njU
+	eQcFVoJzA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kkq0c-00059u-LV; Thu, 03 Dec 2020 14:55:02 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1kkqpN-0002KC-V4; Thu, 03 Dec 2020 15:47:30 +0000
+Received: from mail-lj1-x244.google.com ([2a00:1450:4864:20::244])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kkq0Y-000565-Pd; Thu, 03 Dec 2020 14:54:59 +0000
-Received: from pps.filterd (m0098396.ppops.net [127.0.0.1])
- by mx0a-001b2d01.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id
- 0B3Eexhl182531; Thu, 3 Dec 2020 09:54:49 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
- h=date : from : to : cc :
- subject : message-id : references : mime-version : content-type :
- in-reply-to; s=pp1; bh=aTanWXDu6GDQOgBiwV6VCa4+Gz8xmuiEnuHmxtcgxPE=;
- b=JqgdPm8hiRdcgHmP2Asq50K14PiR4++DD5Vd+nt7oiR5rd0dVWxNV+CyaTMf2v55XBpe
- s+gVM1OtIwF2Xnm6yZRH5aEnHoH29g2Yy8k/Ydrh+57AZhG9ihxP6O/ACCzsKz7KkpOm
- 9uS4eAhzbs0Rj2Rj4AMToilq6M0k4MDriKFj72s90FNSX+Q9/pCO+3fSr2ZGQr23vN8l
- GYsZ4WHeDjYTuCodVhHapE4fIyykKImPmGci1Z/T4XpayaYDLVLAdQj2574h9vrX3CRA
- fq8QCuZA7L9FqVJdEZDAIvcQsl+YOkjb9kuPNJCT0dbuGMlFlnmoHAfQVay2BAazStvv tQ== 
-Received: from ppma04ams.nl.ibm.com (63.31.33a9.ip4.static.sl-reverse.com
- [169.51.49.99])
- by mx0a-001b2d01.pphosted.com with ESMTP id 3571nssyg2-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Thu, 03 Dec 2020 09:54:49 -0500
-Received: from pps.filterd (ppma04ams.nl.ibm.com [127.0.0.1])
- by ppma04ams.nl.ibm.com (8.16.0.42/8.16.0.42) with SMTP id 0B3EppGY020571;
- Thu, 3 Dec 2020 14:54:47 GMT
-Received: from b06cxnps4074.portsmouth.uk.ibm.com
- (d06relay11.portsmouth.uk.ibm.com [9.149.109.196])
- by ppma04ams.nl.ibm.com with ESMTP id 35693xh8ty-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Thu, 03 Dec 2020 14:54:47 +0000
-Received: from d06av25.portsmouth.uk.ibm.com (d06av25.portsmouth.uk.ibm.com
- [9.149.105.61])
- by b06cxnps4074.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
- 0B3EsjwT26083698
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Thu, 3 Dec 2020 14:54:45 GMT
-Received: from d06av25.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id DDC8C11C054;
- Thu,  3 Dec 2020 14:54:44 +0000 (GMT)
-Received: from d06av25.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 0F8A611C058;
- Thu,  3 Dec 2020 14:54:44 +0000 (GMT)
-Received: from osiris (unknown [9.171.50.208])
- by d06av25.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
- Thu,  3 Dec 2020 14:54:43 +0000 (GMT)
-Date: Thu, 3 Dec 2020 15:54:42 +0100
-From: Heiko Carstens <hca@linux.ibm.com>
-To: Sasha Levin <sashal@kernel.org>
-Subject: Re: [PATCH AUTOSEL 5.9 27/39] sched/idle: Fix arch_cpu_idle() vs
- tracing
-Message-ID: <20201203145442.GC9994@osiris>
-References: <20201203132834.930999-1-sashal@kernel.org>
- <20201203132834.930999-27-sashal@kernel.org>
+ id 1kkqpJ-0002I7-JN
+ for linux-riscv@lists.infradead.org; Thu, 03 Dec 2020 15:47:26 +0000
+Received: by mail-lj1-x244.google.com with SMTP id y16so3053646ljk.1
+ for <linux-riscv@lists.infradead.org>; Thu, 03 Dec 2020 07:47:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=/ayfcs9PdWYm7lbPtI7skq4RBm0f2Hr2bSO79nAHtFc=;
+ b=qeNyZ8YsBRIcSSEnxPslZwdaQzbHNHWQrVBr58zRszE0F8P9QlO9s+F6Eup0AC7FxW
+ QCI9RwkC5r87S1DcMFuQ0LGorDW6hc5tvP0HfgHeOOAQ4yRiIDrmcnabMErr46z25doA
+ KuS+R05984StHPoMfsXc6p3fX8UtHh/OTtoHz+R5rvw8+PEVFCbi/ODbvauIcTOeBy/l
+ LjY8bfJMs0j0jbctFehRcbnTYB5vfU33O6FRUX3G3dJeEzqE4yjZP8cwtzrXBtIu4V9x
+ qG8OhxlOwT0sXfEVrrlcH+U1SXqjVUNsoLXauBwPRBppDacfBHal0+6hTivZDoWfPiUF
+ I5fQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=/ayfcs9PdWYm7lbPtI7skq4RBm0f2Hr2bSO79nAHtFc=;
+ b=IgxPWOsnx+5PF/8jAzefV/naXIkam2wHIfu0EWAtTfpVepsCwW/2q88aclLZLgRTv0
+ 5+9Os2isEWgKu901b3yoBc3GeEFoM5BGr09qKmhxauGiQE4limtmnglsvVgaFtSyCo+R
+ eo8Mzx0ILpvGgd+Bq5MDYoyOAGccSB8XgRJr4MtLLOG0ylDflI55eOt0TV4bgK9hIu5m
+ EsfeABxEa+Nrf1P4b5pJJOo0I+sEBpPV2cBtJ0uf5ia9lQOw0mEmaJkBOre35vie27ZM
+ aY+XKfv6LMH//iSRuusNFs87pDsVj4QWXq+QLFLoD2kWGagXM2NvUBV0Aepkzj6km8Zi
+ XDOg==
+X-Gm-Message-State: AOAM532YHJBJU8G7aqBkxnKaJGt1Cymb2HCQ4zHKWcEchp9j0MK08TaP
+ 6MeEirtqSXhHQDLxya7V7T2ka8oriBdLASwIddSfvQ==
+X-Google-Smtp-Source: ABdhPJwIWQzmwxHBiRB8EE+s5XaHTO5aY/OfRodwgESsla0us6E0o0PYvgEf52SU6B5EtE5PNDOv6vNy/ZwtEjOqjbg=
+X-Received: by 2002:a2e:3c12:: with SMTP id j18mr1526064lja.192.1607010439133; 
+ Thu, 03 Dec 2020 07:47:19 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20201203132834.930999-27-sashal@kernel.org>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.312, 18.0.737
- definitions=2020-12-03_07:2020-12-03,
- 2020-12-03 signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0
- mlxlogscore=999 bulkscore=0 clxscore=1031 priorityscore=1501 adultscore=0
- suspectscore=0 spamscore=0 phishscore=0 malwarescore=0 mlxscore=0
- lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2009150000 definitions=main-2012030085
+References: <20201203062949.5484-1-rppt@kernel.org>
+ <20201203062949.5484-8-rppt@kernel.org>
+In-Reply-To: <20201203062949.5484-8-rppt@kernel.org>
+From: Shakeel Butt <shakeelb@google.com>
+Date: Thu, 3 Dec 2020 07:47:07 -0800
+Message-ID: <CALvZod5-r+TmuAYS7ErpSPdF0RKN_F_CbNMoXQdqONbhPxunTg@mail.gmail.com>
+Subject: Re: [PATCH v14 07/10] secretmem: add memcg accounting
+To: Mike Rapoport <rppt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201203_095458_968760_CF10A7F4 
-X-CRM114-Status: GOOD (  20.60  )
+X-CRM114-CacheID: sfid-20201203_104725_662176_62FC64AF 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -110,46 +86,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, uclinux-h8-devel@lists.sourceforge.jp,
- linux-ia64@vger.kernel.org, linux-parisc@vger.kernel.org,
- linux-s390@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>,
- linux-hexagon@vger.kernel.org, linux-sh@vger.kernel.org,
- linux-um@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org, linux-mips@vger.kernel.org,
- openrisc@lists.librecores.org, linux-csky@vger.kernel.org,
- Sven Schnelle <svens@linux.ibm.com>, linux-alpha@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org
+Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, Linux MM <linux-mm@kvack.org>,
+ linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
+ Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
+ Will Deacon <will@kernel.org>, x86@kernel.org,
+ Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
+ Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
+ Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ linux-api@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-fsdevel <linux-fsdevel@vger.kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 03, 2020 at 08:28:21AM -0500, Sasha Levin wrote:
-> From: Peter Zijlstra <peterz@infradead.org>
-> 
-> [ Upstream commit 58c644ba512cfbc2e39b758dd979edd1d6d00e27 ]
-> 
-> We call arch_cpu_idle() with RCU disabled, but then use
-> local_irq_{en,dis}able(), which invokes tracing, which relies on RCU.
-> 
-> Switch all arch_cpu_idle() implementations to use
-> raw_local_irq_{en,dis}able() and carefully manage the
-> lockdep,rcu,tracing state like we do in entry.
-> 
-> (XXX: we really should change arch_cpu_idle() to not return with
-> interrupts enabled)
-> 
-> Reported-by: Sven Schnelle <svens@linux.ibm.com>
-> Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-> Reviewed-by: Mark Rutland <mark.rutland@arm.com>
-> Tested-by: Mark Rutland <mark.rutland@arm.com>
-> Link: https://lkml.kernel.org/r/20201120114925.594122626@infradead.org
-> Signed-off-by: Sasha Levin <sashal@kernel.org>
+On Wed, Dec 2, 2020 at 10:31 PM Mike Rapoport <rppt@kernel.org> wrote:
+>
+> From: Mike Rapoport <rppt@linux.ibm.com>
+>
+> Account memory consumed by secretmem to memcg. The accounting is updated
+> when the memory is actually allocated and freed.
+>
+> Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+> Acked-by: Roman Gushchin <guro@fb.com>
 
-This patch broke s390 irq state tracing. A patch to fix this is
-scheduled to be merged upstream today (hopefully).
-Therefore I think this patch should not yet go into 5.9 stable.
+Reviewed-by: Shakeel Butt <shakeelb@google.com>
 
 _______________________________________________
 linux-riscv mailing list
