@@ -2,20 +2,20 @@ Return-Path: <SRS0=7obj=FL=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D9B9BC433FE
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Dec 2020 15:57:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9F0DCC433FE
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Dec 2020 16:01:38 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7167C23731
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Dec 2020 15:57:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7167C23731
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 448D223750
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Dec 2020 16:01:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 448D223750
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -23,56 +23,90 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=LcA7qazhJn4gk9R/GEOGVbxeoXdjjC2ICLubyxloFq0=; b=LIY8q4iK5PLKBK1PXaEtpN/ye
-	WcRcC1TzEIEy8RIFEOCeBhHZP6CG6T7uGKcKwZm5mqQv0TMtuJsSZXMTd+mFcJ9NNRtvD+LyC1PXF
-	ZxZu7vwFc9LbNKR8f9sLfsN3TBcc9PrTjFTWf3DabuxcE5xUTcUkUPDJw5NFXs0bHkkPXVUn+FKJN
-	Lx7AsO+IgavAAAbNNnR8IuThzUpyG22rNFLG/9ga4ey1AkvCSo0IZOMFsjbtONZv+lA1XipHgzL6O
-	ZC7/KUDqDgl7ThLGuEKXekp+KGeDr8yPdTXbkYwsD36sTDHJPaobFtaRYlPxyBPXmmeJtidFz6c5t
-	n0owitQMQ==;
+	 bh=9onFVU8OtaxAabD+JKUFyR0Dvb2985JcQIIJ6uf+l0U=; b=IbDMiefTs7VxYEp9zMEy00T/F
+	AYp5BRK1JlMQhXHvKN3YPykqpHzUDxNNOpfxzoNn4PeYpiOtKK2wKCFjZ3Z1YwL2jZdBpsImIvc6f
+	HkxDGYGpvjevqabzALcwGt/vhY2J2u/XUYoKc2nUglf+La/c7+29IXv1OLxQcLdQutJXAnXlL4QQp
+	lKkIGfmvN37QmXPXA84fjtQL2AHStj9/E10SN+Sjtrq6eFYm7Dw63GhkQCL8MB7KwlCvomnG90prK
+	Iarrmg87Hh0Zt75iPFA+HU5jca8a9DdsdUcklXX5I/5R4ACKzrjwKgtlS/SlqVSmlb68ZcAbf8xlk
+	YVUV4i8dg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kmIsq-0004jS-0E; Mon, 07 Dec 2020 15:57:04 +0000
-Received: from mail-oi1-f195.google.com ([209.85.167.195])
+	id 1kmIx7-0006u3-AF; Mon, 07 Dec 2020 16:01:29 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kmIsn-0004i7-ES
- for linux-riscv@lists.infradead.org; Mon, 07 Dec 2020 15:57:02 +0000
-Received: by mail-oi1-f195.google.com with SMTP id d27so8339393oic.0
- for <linux-riscv@lists.infradead.org>; Mon, 07 Dec 2020 07:57:00 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=hsOMZgEE8UhsWhVv7cu5xwPuYZ+QaDeTUjEEYmQ/L1U=;
- b=t6CT919DRPZiBzkcFpEw5BhiXOIYE36Kd3/SmgHYfi/w+6F7JE5Khauf93jkBFotWt
- N3yuGfWwTX5F3IhXvkaz/K96Lssnw4ax0yr2HCV3oVO5Z+2Nl1eh9xKop3sbd/CRlzEZ
- sCzSCipucd4iY3RNnNd3t/MWCQovQ4Vm1pbM2XOFHLDIIUQKClPjM12FE0zFQBr+voMg
- SPXlfnnhtUZ6qI3kq4Z9qR30H8s7Y4l0X+MILlkUd9Tk6bTjD8V8CkhGNWMZLtaKlHDG
- Si6GSzBJQZUCuOAhnO7ohQwwLguvLjQUhYtgg0G3Zsm8a5D5AvNc1SU6um8WhhjEl6kj
- THhA==
-X-Gm-Message-State: AOAM531NoBd/+fxL71DtNIoN9+NebAT/wHPu2oJUa98XKL6weA6PSd+y
- SFfInNNCWvvF8ZuyyZT4oA==
-X-Google-Smtp-Source: ABdhPJxkyYm+K3548Xdy2L+VcNfgUPunU99ZP7sfZJcQSS0768YNjewgdMQT8n2W2zo6Ts9jaUMntA==
-X-Received: by 2002:aca:5204:: with SMTP id g4mr12939950oib.91.1607356619559; 
- Mon, 07 Dec 2020 07:56:59 -0800 (PST)
-Received: from xps15 (24-155-109-49.dyn.grandenetworks.net. [24.155.109.49])
- by smtp.gmail.com with ESMTPSA id z10sm2704039oom.3.2020.12.07.07.56.58
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 07 Dec 2020 07:56:58 -0800 (PST)
-Received: (nullmailer pid 350077 invoked by uid 1000);
- Mon, 07 Dec 2020 15:56:57 -0000
-Date: Mon, 7 Dec 2020 09:56:57 -0600
-From: Rob Herring <robh@kernel.org>
-To: conor.dooley@microchip.com
-Subject: Re: [PATCH v2 4/5] dt-bindings: add bindings for polarfire soc
- system controller
-Message-ID: <20201207155657.GB345332@robh.at.kernel.org>
-References: <20201201110311.28593-1-conor.dooley@microchip.com>
+ id 1kmIwl-0006li-M6; Mon, 07 Dec 2020 16:01:09 +0000
+Received: from pps.filterd (m0098421.ppops.net [127.0.0.1])
+ by mx0a-001b2d01.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id
+ 0B7FWp04062929; Mon, 7 Dec 2020 11:00:20 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
+ h=date : from : to : cc :
+ subject : message-id : references : mime-version : content-type :
+ in-reply-to; s=pp1; bh=k1wpCQsort0IzYh/DjMW0A6+snT0JIYuzCRTR+TV2H4=;
+ b=IlBG77CHhECNohXSJ7vbdMx4y6/Bb0nbUjONmUvdIPakRhIy8FzBasmfI8eWl58TeyVN
+ Kjtc8pUHgh+2ap1XV+1HEBI0+A2LQX6fYvD1s9/Ee93E3Pt/pEkon88XOPnHqYaV33qG
+ IDmFGTAyeyO0YatqA+ifqGAhT3juO7yNH9ZnqZMiOOcMOb5Flu6zksHQd0UI/0phjlqU
+ KUUjCGjlfeXc00yPS4L3jQSexQSryZYCWacgb0LfNoCHdrwOk5fBrEfZMXNqtop2m89t
+ /SVlnxsj2ypv8tL3Dd2lqptfmVSqPLSJuTwjBOQfO7woEZTjBjelkB6wa+8ncw9vZALb Pw== 
+Received: from pps.reinject (localhost [127.0.0.1])
+ by mx0a-001b2d01.pphosted.com with ESMTP id 359pyghad7-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Mon, 07 Dec 2020 11:00:19 -0500
+Received: from m0098421.ppops.net (m0098421.ppops.net [127.0.0.1])
+ by pps.reinject (8.16.0.36/8.16.0.36) with SMTP id 0B7FtVmR167099;
+ Mon, 7 Dec 2020 11:00:18 -0500
+Received: from ppma03fra.de.ibm.com (6b.4a.5195.ip4.static.sl-reverse.com
+ [149.81.74.107])
+ by mx0a-001b2d01.pphosted.com with ESMTP id 359pyghaau-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Mon, 07 Dec 2020 11:00:18 -0500
+Received: from pps.filterd (ppma03fra.de.ibm.com [127.0.0.1])
+ by ppma03fra.de.ibm.com (8.16.0.42/8.16.0.42) with SMTP id 0B7Fs0JH028499;
+ Mon, 7 Dec 2020 16:00:15 GMT
+Received: from b06cxnps4074.portsmouth.uk.ibm.com
+ (d06relay11.portsmouth.uk.ibm.com [9.149.109.196])
+ by ppma03fra.de.ibm.com with ESMTP id 3581u8kvwx-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Mon, 07 Dec 2020 16:00:15 +0000
+Received: from d06av22.portsmouth.uk.ibm.com (d06av22.portsmouth.uk.ibm.com
+ [9.149.105.58])
+ by b06cxnps4074.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
+ 0B7G0Dr845416766
+ (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Mon, 7 Dec 2020 16:00:13 GMT
+Received: from d06av22.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 0BD254C071;
+ Mon,  7 Dec 2020 16:00:13 +0000 (GMT)
+Received: from d06av22.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id B96F74C070;
+ Mon,  7 Dec 2020 16:00:08 +0000 (GMT)
+Received: from linux.ibm.com (unknown [9.145.50.18])
+ by d06av22.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
+ Mon,  7 Dec 2020 16:00:08 +0000 (GMT)
+Date: Mon, 7 Dec 2020 18:00:06 +0200
+From: Mike Rapoport <rppt@linux.ibm.com>
+To: Qian Cai <qcai@redhat.com>
+Subject: Re: [PATCH v14 09/10] arch, mm: wire up memfd_secret system call
+ were relevant
+Message-ID: <20201207160006.GG1112728@linux.ibm.com>
+References: <20201203062949.5484-1-rppt@kernel.org>
+ <20201203062949.5484-10-rppt@kernel.org>
+ <81631d3391abca3f41f2e19092b97a61d49f4e44.camel@redhat.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20201201110311.28593-1-conor.dooley@microchip.com>
+In-Reply-To: <81631d3391abca3f41f2e19092b97a61d49f4e44.camel@redhat.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.343, 18.0.737
+ definitions=2020-12-07_11:2020-12-04,
+ 2020-12-07 signatures=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ mlxlogscore=849 spamscore=0
+ phishscore=0 bulkscore=0 clxscore=1015 priorityscore=1501 adultscore=0
+ impostorscore=0 mlxscore=0 malwarescore=0 suspectscore=0
+ lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2009150000 definitions=main-2012070098
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201207_105701_516108_5A8303E7 
-X-CRM114-Status: GOOD (  17.89  )
+X-CRM114-CacheID: sfid-20201207_110107_830123_7EEAA43D 
+X-CRM114-Status: GOOD (  29.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -84,98 +118,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, damien.lemoal@wdc.com, aou@eecs.berkeley.edu,
- lewis.hanly@microchip.com, david.abdurachmanov@gmail.com,
- daire.mcnamara@microchip.com, jassisinghbrar@gmail.com, atish.patra@wdc.com,
- anup.patel@wdc.com, palmer@dabbelt.com, paul.walmsley@sifive.com,
- cyril.jean@microchip.com, linux-riscv@lists.infradead.org
+Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
+ Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
+ Will Deacon <will@kernel.org>, x86@kernel.org,
+ Matthew Wilcox <willy@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Michael Kerrisk <mtk.manpages@gmail.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>, Arnd Bergmann <arnd@arndb.de>,
+ James Bottomley <jejb@linux.ibm.com>, Borislav Petkov <bp@alien8.de>,
+ Alexander Viro <viro@zeniv.linux.org.uk>, Andy Lutomirski <luto@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-fsdevel@vger.kernel.org, Shakeel Butt <shakeelb@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>,
+ Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 01, 2020 at 11:03:11AM +0000, conor.dooley@microchip.com wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
+On Mon, Dec 07, 2020 at 09:45:59AM -0500, Qian Cai wrote:
+> On Thu, 2020-12-03 at 08:29 +0200, Mike Rapoport wrote:
+
+...
+
+> > diff --git a/include/linux/syscalls.h b/include/linux/syscalls.h
+> > index 6d55324363ab..f9d93fbf9b69 100644
+> > --- a/include/linux/syscalls.h
+> > +++ b/include/linux/syscalls.h
+> > @@ -1010,6 +1010,7 @@ asmlinkage long sys_pidfd_send_signal(int pidfd, int sig,
+> >  asmlinkage long sys_pidfd_getfd(int pidfd, int fd, unsigned int flags);
+> >  asmlinkage long sys_watch_mount(int dfd, const char __user *path,
+> >  				unsigned int at_flags, int watch_fd, int watch_id);
+> > +asmlinkage long sys_memfd_secret(unsigned long flags);
+> >  
+> >  /*
+> >   * Architecture-specific system calls
+> > diff --git a/include/uapi/asm-generic/unistd.h b/include/uapi/asm-generic/unistd.h
+> > index 5df46517260e..51151888f330 100644
+> > --- a/include/uapi/asm-generic/unistd.h
+> > +++ b/include/uapi/asm-generic/unistd.h
+> > @@ -861,9 +861,13 @@ __SYSCALL(__NR_faccessat2, sys_faccessat2)
+> >  __SYSCALL(__NR_process_madvise, sys_process_madvise)
+> >  #define __NR_watch_mount 441
+> >  __SYSCALL(__NR_watch_mount, sys_watch_mount)
+> > +#ifdef __ARCH_WANT_MEMFD_SECRET
+> > +#define __NR_memfd_secret 442
+> > +__SYSCALL(__NR_memfd_secret, sys_memfd_secret)
+> > +#endif
 > 
-> Add device tree bindings for the MSS system controller on
-> the Microchip PolarFire SoC.
+> I can't see where was it defined for arm64 after it looks like Andrew has
+> deleted the  above chunk. Thus, we have a warning using this .config:
 > 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  .../microchip,mpfs_sys_controller.yaml        | 49 +++++++++++++++++++
->  1 file changed, 49 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/soc/microchip/microchip,mpfs_sys_controller.yaml
+> https://cailca.coding.net/public/linux/mm/git/files/master/arm64.config
 > 
-> diff --git a/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs_sys_controller.yaml b/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs_sys_controller.yaml
-> new file mode 100644
-> index 000000000000..c22fc203b95c
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs_sys_controller.yaml
-> @@ -0,0 +1,49 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: "http://devicetree.org/schemas/soc/microchip/microchip,mpfs_sys_controller.yaml#"
-> +$schema: "http://devicetree.org/meta-schemas/core.yaml#"
-> +
-> +title: Microchip MPFS system controller
-> +
-> +maintainers:
-> +  - Conor Dooley <conor.dooley@microchip.com>
-> +
-> +properties:
-> +  compatible:
-> +    const: microchip,polarfire-soc-sys-controller
-> +
-> +  mbox-names:
-> +    maxItems: 1
-> +    description: name of the mailbox controller device node
+> <stdin>:1539:2: warning: #warning syscall memfd_secret not implemented [-Wcpp]
 
-Kind of pointless to have names when there is only one entry. I'd drop, 
-but if you do, you need to define what the name is.
+I was under the impression that Andrew only removed the #ifdef...
 
-> +
-> +  mboxes:
-> +    maxItems: 1
-> +    description: |
-> +      phandle and index of the mailbox controller device node. It must be 0 (hardware supports only one channel).
+Andrew, can you please restore syscall definition for memfd_secret() in
+include/uapi/asm-generic/unistd.h?
 
-No need to redefine a common property. And the value 0 is outside the 
-scope of this binding. That's dependent on the mbox h/w.
-
-> +
-> +
-> +  "#address-cells":
-> +    const: 1
-> +
-> +  "#size-cells":
-> +    const: 1
-
-These are not needed unless you have child nodes. If you do, then they 
-also need to be defined here.
-
-> +
-> +required:
-> +  - compatible
-> +  - mbox-names
-> +  - "#address-cells"
-> +  - "#size-cells"
-> +  - "mboxes"
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    syscontroller: syscontroller {
-> +      compatible = "microchip,polarfire-soc-sys-controller";
-> +      #address-cells = <1>;
-> +      #size-cells = <1>;
-> +      mbox-names = "mbox-mpfs";
-> +      mboxes = <&mbox 0>;
-> +    };
-> -- 
-> 2.17.1
+> >  
+> >  #undef __NR_syscalls
+> > -#define __NR_syscalls 442
+> > +#define __NR_syscalls 443
+> >  
+> >  /*
+> >   * 32 bit systems traditionally used different
+> > diff --git a/mm/secretmem.c b/mm/secretmem.c
+> > index 7236f4d9458a..b8a32954ac68 100644
+> > --- a/mm/secretmem.c
+> > +++ b/mm/secretmem.c
+> > @@ -415,6 +415,9 @@ static int __init secretmem_setup(char *str)
+> >  	unsigned long reserved_size;
+> >  	int err;
+> >  
+> > +	if (!can_set_direct_map())
+> > +		return 0;
+> > +
+> >  	reserved_size = memparse(str, NULL);
+> >  	if (!reserved_size)
+> >  		return 0;
+> > diff --git a/scripts/checksyscalls.sh b/scripts/checksyscalls.sh
+> > index a18b47695f55..b7609958ee36 100755
+> > --- a/scripts/checksyscalls.sh
+> > +++ b/scripts/checksyscalls.sh
+> > @@ -40,6 +40,10 @@ cat << EOF
+> >  #define __IGNORE_setrlimit	/* setrlimit */
+> >  #endif
+> >  
+> > +#ifndef __ARCH_WANT_MEMFD_SECRET
+> > +#define __IGNORE_memfd_secret
+> > +#endif
+> > +
+> >  /* Missing flags argument */
+> >  #define __IGNORE_renameat	/* renameat2 */
+> >  
 > 
+
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
