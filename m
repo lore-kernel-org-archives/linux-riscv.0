@@ -2,83 +2,101 @@ Return-Path: <SRS0=7obj=FL=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 62CA2C4361B
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Dec 2020 12:16:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8F569C4361B
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Dec 2020 13:52:41 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 188132339D
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Dec 2020 12:16:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 188132339D
-Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=microchip.com
+	by mail.kernel.org (Postfix) with ESMTPS id 475262343F
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Dec 2020 13:52:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 475262343F
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=tCrRleembU68lG3cNR4wK6DIoBTibLEjzxkZXDaPa2U=; b=2Ivv0J+fxJnMarz6Xy0yHxbKY
-	RTFPK3zFsoDRhDFOt3T9brzIvdTBppd0XRnGEb30cWWBFhRdQRxX7dP/S4HEsxhTEZ4ZOf9ycFc4b
-	YI2tHGZw86TeG3bumiFXvERIFX7caTx0ghRRoQug25GrDr+JF7Zz8PTnF9+WqyaBylVKpTmJWFSJw
-	k5NPSyL2uJGZxB/oJlsiMGFhD2QlI7Wi7ezpF/BFN6GvO0/x6xiVmR+wZIbz73naw6Tdb3t3fMmTY
-	wQWvr+KiCOwVPvAYAEADdyQM0EKez1+dgTkt8Gv978nqyqrxljb/cAoMZ8PcPTPFlVkqKw9ZWqB2g
-	QiL68L5lg==;
+	 bh=e0JbMTkJygHQeWqVr0krmLGda+tzE7xPtXnB8/IaQKE=; b=1YtoE6FHKn3WiWXe1vThD71K/
+	WIGVOivFAgBU64Zn0NTpr+gAaySlnStiVQgJtMeo4wBCnujnVcBQkOQj9kylvGFIIfW05MqxGntLP
+	yI68euRTP5z0kRx5z4zvRkWyZu08WrE6g9Rg5m3MCvL40FZl28/gz0rY4kOBVzqE28D2YqwbaMuIJ
+	pza6TIqoVKWKM0Pxx7Uc8tUYYewCwsn0QlHMjfP1aViUxbZ4779AJZISWGj1fljGM78NIMBwdxf9r
+	Necvplb3CXSTDtR/bn42V5kEl8AQ2JIuRIOBtZ/axz22pRCv4kk8LPQToTXWEhJvKt6TcXUky+KXS
+	YLWmWjO9A==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kmFRi-0000Mr-TO; Mon, 07 Dec 2020 12:16:51 +0000
-Received: from esa1.microchip.iphmx.com ([68.232.147.91])
+	id 1kmGwK-0005vT-T5; Mon, 07 Dec 2020 13:52:32 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([63.128.21.124])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kmFRd-0000Im-AS
- for linux-riscv@lists.infradead.org; Mon, 07 Dec 2020 12:16:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
- t=1607343405; x=1638879405;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version;
- bh=7c4o9HTAPU/FWDNBRxOIP9hZ2d9X8oAOdvZ31rPTtNA=;
- b=U4L5cy7Kg0Ygbko3ug46RoZrJn+LvyxdBz7GOea9Jbvwi06j8mCx1mcT
- eWDphsjsKxmfSXDgwltiEnariqpMUhRxMoGPDI2moKi7hUv5ai/Gih1JV
- 1Ra8hq9y1I1OZRdV9SD7zhViYKxJx3Wyl3r7G+NwLA4txwd5BSTa7d2sV
- NUyNs47JPFmJfoVAFpFRCtTKepKRzg29v8UJcvOZKXocaZL9BE0wGb4fL
- 1Y1ryhOFs+DomGI++QXAhw+V0Qe07J99k+GlWHGvUsdMrW2IWq5VzvCPq
- fmBSfnrBAQhD1y0Wzu5OTbzQlmz8MojRqNd690GABdDklqX4oHdB1RZx0 w==;
-IronPort-SDR: JpSfP/AgQp80I2E07mROSc85GO+IM9hwMHoqsZw22CNZUSZa2rNq0wbldfGl20okQ6sKRVGJlH
- L8ic9lS44WkFgjY1jRzRmbTJZcL+MBOwvETWrXcLHviyJJ7Bhg8rO7WSZMvFl0zznu4sqVjDrh
- d4oMlrBUzPgluv4nzd7+GMgIMFSCa13Ly+nMkkbu1KEekqvzDai/YQt/kAE1WN475DXBIJ00in
- tBKdxDoZIeVVPwd+/jpBSz5srUkvomlpVvZjn2eJhsr4nBmxQFp99z8KJ4JePOLrjxENiwujr5
- oAw=
-X-IronPort-AV: E=Sophos;i="5.78,399,1599548400"; d="scan'208";a="106497590"
-Received: from smtpout.microchip.com (HELO email.microchip.com)
- ([198.175.253.82])
- by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 07 Dec 2020 05:16:43 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.1979.3; Mon, 7 Dec 2020 05:16:43 -0700
-Received: from m18063-ThinkPad-T460p.microchip.com (10.10.115.15) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
- 15.1.1979.3 via Frontend Transport; Mon, 7 Dec 2020 05:16:37 -0700
-From: Claudiu Beznea <claudiu.beznea@microchip.com>
-To: <davem@davemloft.net>, <kuba@kernel.org>, <robh+dt@kernel.org>,
- <nicolas.ferre@microchip.com>, <linux@armlinux.org.uk>,
- <paul.walmsley@sifive.com>, <palmer@dabbelt.com>
-Subject: [PATCH v2 8/8] net: macb: add support for sama7g5 emac interface
-Date: Mon, 7 Dec 2020 14:15:33 +0200
-Message-ID: <1607343333-26552-9-git-send-email-claudiu.beznea@microchip.com>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1607343333-26552-1-git-send-email-claudiu.beznea@microchip.com>
-References: <1607343333-26552-1-git-send-email-claudiu.beznea@microchip.com>
+ id 1kmGwI-0005u6-04
+ for linux-riscv@lists.infradead.org; Mon, 07 Dec 2020 13:52:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1607349149;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=QwkrY6cjQW6l0lAUCv8oVDdwg/KrYKuVcu8dAb8pkjA=;
+ b=PCnoCkOIRE2qgBOGnq7ktRTNjpvQa5xzkXXQEv2gmI9iL6afCGT9IWYVuBwwVEkousvfGm
+ vaL48L58PMDUQVxolK5WEXiw0SaLG4xdEkBKQKNTVkKGUtHefSDPhnNSiVyqh1b4aN+RdI
+ 1LYiYgI3sZ+q2t5SmL9FdlR19lNYgi4=
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-160-7oscLf6YMGGCLp0fb2sRVQ-1; Mon, 07 Dec 2020 08:52:27 -0500
+X-MC-Unique: 7oscLf6YMGGCLp0fb2sRVQ-1
+Received: by mail-wr1-f72.google.com with SMTP id y5so854671wrs.15
+ for <linux-riscv@lists.infradead.org>; Mon, 07 Dec 2020 05:52:27 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:content-transfer-encoding
+ :in-reply-to;
+ bh=o2eDRpg2p3nscNNP24Y5Wwi2J4Ejtn5EoY7jP2IsnBU=;
+ b=ghwgrMbEgeVwVFam+JiCOc2EwtzHJZxNaq1N0Mgfdh/HSOgxA79epQK08K4hMKYKzm
+ /HimazpFBP+mv7jOXcsj/h/niZHau8F7sbEbXovPpo3xbVeuuUoAjXqT5FUTloz/QsUa
+ 1rOKcuB0m7pjzAJhChmPYvPh+kFOuliMeEV9cJJ2/fhYLBzDprFRz2r3Ql369N4Pt439
+ o5Qun+s0Mer3Cbgq34aJVGTVi/PsM5MTQsvkFN2XsUhTFF+JS1wIDIJdFti0IdWQz8HZ
+ q1cFoffj13bkAn0RwMTYNc2Ekr1rX6OXtbTuLUidXxbx/SvImuGh0XDUdjgXu1EFWg4m
+ +jPQ==
+X-Gm-Message-State: AOAM5319ztnYimE56ENRV/XNcg4yTqAaQeWqXpUQryLhRG8v3d74PbS/
+ GC0QViOqG43c7iDcBTqJNl8nYrPuyqwpAQU4wT4q/TgGDZdf4uImno/G/d7CkXoPudYyp0pcQkN
+ xbp/Gzy/31LkDTaL1fGXswkcog88k
+X-Received: by 2002:a5d:5689:: with SMTP id f9mr19985949wrv.181.1607349145790; 
+ Mon, 07 Dec 2020 05:52:25 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJxry8r99XfuZsd9xpT/D3HhTrDgujG2fkSVGb9ILMFpXGDKe10crdm3NpHJ20Ml9kS7Zd7JfA==
+X-Received: by 2002:a5d:5689:: with SMTP id f9mr19985923wrv.181.1607349145521; 
+ Mon, 07 Dec 2020 05:52:25 -0800 (PST)
+Received: from redhat.com (bzq-79-176-44-197.red.bezeqint.net. [79.176.44.197])
+ by smtp.gmail.com with ESMTPSA id h14sm13884316wrx.37.2020.12.07.05.52.22
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 07 Dec 2020 05:52:24 -0800 (PST)
+Date: Mon, 7 Dec 2020 08:52:20 -0500
+From: "Michael S. Tsirkin" <mst@redhat.com>
+To: "Enrico Weigelt, metux IT consult" <lkml@metux.net>
+Subject: Re: [PATCH v2 2/2] drivers: gpio: add virtio-gpio guest driver
+Message-ID: <20201206075131-mutt-send-email-mst@kernel.org>
+References: <20201203191135.21576-1-info@metux.net>
+ <20201203191135.21576-2-info@metux.net>
+ <8209ce55-a4aa-f256-b9b9-f7eb3cac877b@redhat.com>
+ <96aca1e6-2d5a-deb1-2444-88f938c7a9de@metux.net>
+ <20201205142218-mutt-send-email-mst@kernel.org>
+ <e69569b5-0c45-e072-5de4-81a4acecdae3@metux.net>
 MIME-Version: 1.0
+In-Reply-To: <e69569b5-0c45-e072-5de4-81a4acecdae3@metux.net>
+Authentication-Results: relay.mimecast.com;
+ auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=mst@redhat.com
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201207_071645_597807_C48D7FE9 
-X-CRM114-Status: GOOD (  10.66  )
+X-CRM114-CacheID: sfid-20201207_085230_096086_F26C98CC 
+X-CRM114-Status: GOOD (  30.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -90,51 +108,138 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, yash.shah@sifive.com,
- linux-riscv@lists.infradead.org, Claudiu Beznea <claudiu.beznea@microchip.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: stefanha@redhat.com, corbet@lwn.net, Jason Wang <jasowang@redhat.com>,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ virtualization@lists.linux-foundation.org, bgolaszewski@baylibre.com,
+ linux-gpio@vger.kernel.org, linux-riscv@lists.infradead.org, msuchanek@suse.de,
+ "Enrico Weigelt, metux IT consult" <info@metux.net>, linus.walleij@linaro.org
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add support for SAMA7G5 10/100Mbps interface.
+On Sat, Dec 05, 2020 at 09:05:16PM +0100, Enrico Weigelt, metux IT consult =
+wrote:
+> On 05.12.20 20:32, Michael S. Tsirkin wrote:
+> =
 
-Signed-off-by: Claudiu Beznea <claudiu.beznea@microchip.com>
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
----
- drivers/net/ethernet/cadence/macb_main.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+> Hi,
+> =
 
-diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-index ca56476b3a04..bb280c55c4b3 100644
---- a/drivers/net/ethernet/cadence/macb_main.c
-+++ b/drivers/net/ethernet/cadence/macb_main.c
-@@ -4574,6 +4574,14 @@ static const struct macb_config sama7g5_gem_config = {
- 	.usrio = &sama7g5_usrio,
- };
- 
-+static const struct macb_config sama7g5_emac_config = {
-+	.caps = MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII | MACB_CAPS_USRIO_HAS_CLKEN,
-+	.dma_burst_length = 16,
-+	.clk_init = macb_clk_init,
-+	.init = macb_init,
-+	.usrio = &sama7g5_usrio,
-+};
-+
- static const struct of_device_id macb_dt_ids[] = {
- 	{ .compatible = "cdns,at32ap7000-macb" },
- 	{ .compatible = "cdns,at91sam9260-macb", .data = &at91sam9260_config },
-@@ -4592,6 +4600,7 @@ static const struct of_device_id macb_dt_ids[] = {
- 	{ .compatible = "cdns,zynq-gem", .data = &zynq_config },
- 	{ .compatible = "sifive,fu540-c000-gem", .data = &fu540_c000_config },
- 	{ .compatible = "microchip,sama7g5-gem", .data = &sama7g5_gem_config },
-+	{ .compatible = "microchip,sama7g5-emac", .data = &sama7g5_emac_config },
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, macb_dt_ids);
--- 
-2.7.4
+> > It seems a bit of a mess, at this point I'm not entirely sure when
+> > should drivers select VIRTIO and when depend on it.
+> =
+
+> if VIRTIO just enables something that could be seen as library
+> functions, then select should be right, IMHO.
+> =
+
+> > The text near it says:
+> > =
+
+> > # SPDX-License-Identifier: GPL-2.0-only
+> > config VIRTIO
+> >         tristate
+> =
+
+> oh, wait, doesn't have an menu text, so we can't even explicitly enable
+> it (not shown in menu) - only implicitly. Which means that some other
+> option must select it, in order to become availe at all, and in order
+> to make others depending on it becoming available.
+> =
+
+> IMHO, therefore select is the correct approach.
+> =
+
+> =
+
+> >         help
+> >           This option is selected by any driver which implements the vi=
+rtio
+> >           bus, such as CONFIG_VIRTIO_PCI, CONFIG_VIRTIO_MMIO, CONFIG_RP=
+MSG
+> >           or CONFIG_S390_GUEST.
+> > =
+
+> > Which seems clear enough and would indicate drivers for devices *behind*
+> > the bus should not select VIRTIO and thus presumably should "depend on"=
+ it.
+> > This is violated in virtio console and virtio fs drivers.
+> =
+
+> See above: NAK. because it can't even be enabled directly (by the user).
+> If it wasn't meant otherwise, we'd have to add an menu text.
+
+
+The point is that user enables one of the bindings.
+That in turn enables drivers. If we merely select VIRTIO
+there's a chance user won't remember to select any bindings
+and will be surprised not to see any devices.
+
+
+
+> > For console it says:
+> > =
+
+> > commit 9f30eb29c514589e16f2999ea070598583d1f6ec
+> > Author: Michal Suchanek <msuchanek@suse.de>
+> > Date:   Mon Aug 31 18:58:50 2020 +0200
+> > =
+
+> >     char: virtio: Select VIRTIO from VIRTIO_CONSOLE.
+> >     =
+
+> >     Make it possible to have virtio console built-in when
+> >     other virtio drivers are modular.
+> >     =
+
+> >     Signed-off-by: Michal Suchanek <msuchanek@suse.de>
+> >     Reviewed-by: Amit Shah <amit@kernel.org>
+> >     Link: https://lore.kernel.org/r/20200831165850.26163-1-msuchanek@su=
+se.de
+> >     Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+> > =
+
+> > which seems kind of bogus - why do we care about allowing a builtin
+> > virtio console driver if the pci virtio bus driver is a module?
+> > There won't be any devices on the bus to attach to ...
+> =
+
+> When using other transports ?
+
+Any transport selects VIRTIO so if you enable that, you get
+VIRTIO and thus it's enough to depend on it.
+
+> In my current project, eg. I'm using mmio - my kernel has pci completely
+> disabled.
+> =
+
+> > I am inclined to fix console and virtio fs to depend on VIRTIO:
+> > select is harder to use correctly ...
+> =
+
+> I don't thinkt that would be good - instead everybody should just select
+> VIRTIO, never depend on it (maybe depend on VIRTIO_MENU instead)
+
+GPU depends on VIRTIO and on VIRTIO_MENU ... which seems even messier
+...
+
+> =
+
+> --mtx
+> =
+
+> -- =
+
+> ---
+> Hinweis: unverschl=C3=BCsselte E-Mails k=C3=B6nnen leicht abgeh=C3=B6rt u=
+nd manipuliert
+> werden ! F=C3=BCr eine vertrauliche Kommunikation senden Sie bitte ihren
+> GPG/PGP-Schl=C3=BCssel zu.
+> ---
+> Enrico Weigelt, metux IT consult
+> Free software and Linux embedded engineering
+> info@metux.net -- +49-151-27565287
 
 
 _______________________________________________
