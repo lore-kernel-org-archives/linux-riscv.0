@@ -2,111 +2,74 @@ Return-Path: <SRS0=7obj=FL=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9F0DCC433FE
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Dec 2020 16:01:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 34A51C4361B
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Dec 2020 20:35:19 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 448D223750
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Dec 2020 16:01:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 448D223750
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
+	by mail.kernel.org (Postfix) with ESMTPS id A121D23406
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Dec 2020 20:35:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A121D23406
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=metux.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=9onFVU8OtaxAabD+JKUFyR0Dvb2985JcQIIJ6uf+l0U=; b=IbDMiefTs7VxYEp9zMEy00T/F
-	AYp5BRK1JlMQhXHvKN3YPykqpHzUDxNNOpfxzoNn4PeYpiOtKK2wKCFjZ3Z1YwL2jZdBpsImIvc6f
-	HkxDGYGpvjevqabzALcwGt/vhY2J2u/XUYoKc2nUglf+La/c7+29IXv1OLxQcLdQutJXAnXlL4QQp
-	lKkIGfmvN37QmXPXA84fjtQL2AHStj9/E10SN+Sjtrq6eFYm7Dw63GhkQCL8MB7KwlCvomnG90prK
-	Iarrmg87Hh0Zt75iPFA+HU5jca8a9DdsdUcklXX5I/5R4ACKzrjwKgtlS/SlqVSmlb68ZcAbf8xlk
-	YVUV4i8dg==;
+	 bh=R0slSoM/yIgcdwcBGvz/mfum/8YVFRH6ID3knXSf1mc=; b=yJHaVzHsHIKOoi1nYxa3rrS3l
+	9DubYBVD0/ofQketqRFvpD/4QxDOC4+WFTvfjGMIYtvFM3tG4tEIGrLMmfwcBAT2htiNKww5meqvk
+	T4jp3ijDqMCn4ashtZBX3BzvAMorOQCHgH1bVnRb0lcRGE2d8pnMnU5mBpQPEkiUxTOhXHYgba7t9
+	yRCB71t8sCmS4QRKO6y2HWmO59tEdc6uAN87KiZB2j/zfD2MRde2y/AxIFUEeQ8/J29J/u+j3z8Bh
+	AvNNxHMJd0gkcmwuwT8QSh1vD5knT01eEpCAO5bIsl+DZtW0ymcAE6f7mkyDQPo3rV6yMMpTDzdoz
+	NV4L709YA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kmIx7-0006u3-AF; Mon, 07 Dec 2020 16:01:29 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1kmNDy-00072Y-DN; Mon, 07 Dec 2020 20:35:10 +0000
+Received: from mout.kundenserver.de ([212.227.126.131])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kmIwl-0006li-M6; Mon, 07 Dec 2020 16:01:09 +0000
-Received: from pps.filterd (m0098421.ppops.net [127.0.0.1])
- by mx0a-001b2d01.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id
- 0B7FWp04062929; Mon, 7 Dec 2020 11:00:20 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
- h=date : from : to : cc :
- subject : message-id : references : mime-version : content-type :
- in-reply-to; s=pp1; bh=k1wpCQsort0IzYh/DjMW0A6+snT0JIYuzCRTR+TV2H4=;
- b=IlBG77CHhECNohXSJ7vbdMx4y6/Bb0nbUjONmUvdIPakRhIy8FzBasmfI8eWl58TeyVN
- Kjtc8pUHgh+2ap1XV+1HEBI0+A2LQX6fYvD1s9/Ee93E3Pt/pEkon88XOPnHqYaV33qG
- IDmFGTAyeyO0YatqA+ifqGAhT3juO7yNH9ZnqZMiOOcMOb5Flu6zksHQd0UI/0phjlqU
- KUUjCGjlfeXc00yPS4L3jQSexQSryZYCWacgb0LfNoCHdrwOk5fBrEfZMXNqtop2m89t
- /SVlnxsj2ypv8tL3Dd2lqptfmVSqPLSJuTwjBOQfO7woEZTjBjelkB6wa+8ncw9vZALb Pw== 
-Received: from pps.reinject (localhost [127.0.0.1])
- by mx0a-001b2d01.pphosted.com with ESMTP id 359pyghad7-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Mon, 07 Dec 2020 11:00:19 -0500
-Received: from m0098421.ppops.net (m0098421.ppops.net [127.0.0.1])
- by pps.reinject (8.16.0.36/8.16.0.36) with SMTP id 0B7FtVmR167099;
- Mon, 7 Dec 2020 11:00:18 -0500
-Received: from ppma03fra.de.ibm.com (6b.4a.5195.ip4.static.sl-reverse.com
- [149.81.74.107])
- by mx0a-001b2d01.pphosted.com with ESMTP id 359pyghaau-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Mon, 07 Dec 2020 11:00:18 -0500
-Received: from pps.filterd (ppma03fra.de.ibm.com [127.0.0.1])
- by ppma03fra.de.ibm.com (8.16.0.42/8.16.0.42) with SMTP id 0B7Fs0JH028499;
- Mon, 7 Dec 2020 16:00:15 GMT
-Received: from b06cxnps4074.portsmouth.uk.ibm.com
- (d06relay11.portsmouth.uk.ibm.com [9.149.109.196])
- by ppma03fra.de.ibm.com with ESMTP id 3581u8kvwx-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Mon, 07 Dec 2020 16:00:15 +0000
-Received: from d06av22.portsmouth.uk.ibm.com (d06av22.portsmouth.uk.ibm.com
- [9.149.105.58])
- by b06cxnps4074.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
- 0B7G0Dr845416766
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Mon, 7 Dec 2020 16:00:13 GMT
-Received: from d06av22.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 0BD254C071;
- Mon,  7 Dec 2020 16:00:13 +0000 (GMT)
-Received: from d06av22.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id B96F74C070;
- Mon,  7 Dec 2020 16:00:08 +0000 (GMT)
-Received: from linux.ibm.com (unknown [9.145.50.18])
- by d06av22.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
- Mon,  7 Dec 2020 16:00:08 +0000 (GMT)
-Date: Mon, 7 Dec 2020 18:00:06 +0200
-From: Mike Rapoport <rppt@linux.ibm.com>
-To: Qian Cai <qcai@redhat.com>
-Subject: Re: [PATCH v14 09/10] arch, mm: wire up memfd_secret system call
- were relevant
-Message-ID: <20201207160006.GG1112728@linux.ibm.com>
-References: <20201203062949.5484-1-rppt@kernel.org>
- <20201203062949.5484-10-rppt@kernel.org>
- <81631d3391abca3f41f2e19092b97a61d49f4e44.camel@redhat.com>
+ id 1kmNDu-00071b-N5
+ for linux-riscv@lists.infradead.org; Mon, 07 Dec 2020 20:35:07 +0000
+Received: from [192.168.1.155] ([95.114.88.149]) by mrelayeu.kundenserver.de
+ (mreue010 [212.227.15.167]) with ESMTPSA (Nemesis) id
+ 1Mum6l-1jvEXL33ml-00rn89; Mon, 07 Dec 2020 21:34:56 +0100
+Subject: Re: [PATCH v2 2/2] drivers: gpio: add virtio-gpio guest driver
+To: "Michael S. Tsirkin" <mst@redhat.com>
+References: <20201203191135.21576-1-info@metux.net>
+ <20201203191135.21576-2-info@metux.net>
+ <8209ce55-a4aa-f256-b9b9-f7eb3cac877b@redhat.com>
+ <96aca1e6-2d5a-deb1-2444-88f938c7a9de@metux.net>
+ <20201205142218-mutt-send-email-mst@kernel.org>
+ <e69569b5-0c45-e072-5de4-81a4acecdae3@metux.net>
+ <20201206075131-mutt-send-email-mst@kernel.org>
+From: "Enrico Weigelt, metux IT consult" <lkml@metux.net>
+Message-ID: <dadc99c5-dd63-9b3e-aa00-c9dc0b622134@metux.net>
+Date: Mon, 7 Dec 2020 21:34:55 +0100
+User-Agent: Mozilla/5.0 (X11; Linux i686 on x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.12.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <81631d3391abca3f41f2e19092b97a61d49f4e44.camel@redhat.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.343, 18.0.737
- definitions=2020-12-07_11:2020-12-04,
- 2020-12-07 signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- mlxlogscore=849 spamscore=0
- phishscore=0 bulkscore=0 clxscore=1015 priorityscore=1501 adultscore=0
- impostorscore=0 mlxscore=0 malwarescore=0 suspectscore=0
- lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2009150000 definitions=main-2012070098
+In-Reply-To: <20201206075131-mutt-send-email-mst@kernel.org>
+Content-Language: tl
+X-Provags-ID: V03:K1:hbxWK5NoTU1gQ95fGH3BMY4QAmnZBlvFnu9xed6dReXqGP9zoef
+ MckleM1vV7HliBSRZ6udkFDg4oyUKSNbZwul7Y66weAy+oon65LCWdmf+dxfK6r3WTQNoS4
+ h3/cDg6RD1w561g9mrzJSlidlzrboqRUVJhpHVuHlrVchpYU/bfHn/az49skSDmMNfUtWjr
+ zd0PBJPpX1GrxPAxwHQmw==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:a1HG/QGb8tY=:0q0pD8h55NgouMf6dv3JD2
+ Cmx7N9LkvLMDbG6kymexPbp1HKRzx7Rorroj2ZlFUcC7DgJUW/cKzL/tB4CyNoE0tfadzvgWR
+ bKZcQEkxGiiiXDLxGxZN31wPYHCpJE3AnuMMRqhHMlRbsY7l9Gw4vYhc2Z5xyIVpb4d7TX8ar
+ lBAAh6lHX5wJL44SeNWREbvfTDEkT8JE0A7/FGxY0QMVapvLqU+tUnES7VA7OVAL/BMcBsZAR
+ mUfUnQC5YTSsKej0IiwPX5L7/EhgLUAoJufCr5ePB6QiYs0//YTjXBmuTkPRZ9iMf2WA5LiKE
+ EWc75DMdfsNl2sI5I1wAmNtpnkJ7Eh+BIiQNXpFYikpjA2IcRQDXbwBkOmf7j4zJPg4vp0ZmI
+ skM9M1UncysVw4xvpgNJA3M80NZgL50I41KvIF5I0T9ArXakC5fAvYc4NfJVv
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201207_110107_830123_7EEAA43D 
-X-CRM114-Status: GOOD (  29.53  )
+X-CRM114-CacheID: sfid-20201207_153507_011628_5746ED0A 
+X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -118,120 +81,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
- Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
- linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>,
- Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
- Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
- Will Deacon <will@kernel.org>, x86@kernel.org,
- Matthew Wilcox <willy@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Michael Kerrisk <mtk.manpages@gmail.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>, Arnd Bergmann <arnd@arndb.de>,
- James Bottomley <jejb@linux.ibm.com>, Borislav Petkov <bp@alien8.de>,
- Alexander Viro <viro@zeniv.linux.org.uk>, Andy Lutomirski <luto@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
- linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-fsdevel@vger.kernel.org, Shakeel Butt <shakeelb@google.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>,
- Mike Rapoport <rppt@kernel.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: stefanha@redhat.com, corbet@lwn.net, Jason Wang <jasowang@redhat.com>,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ virtualization@lists.linux-foundation.org, bgolaszewski@baylibre.com,
+ linux-gpio@vger.kernel.org, linux-riscv@lists.infradead.org, msuchanek@suse.de,
+ "Enrico Weigelt, metux IT consult" <info@metux.net>, linus.walleij@linaro.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 07, 2020 at 09:45:59AM -0500, Qian Cai wrote:
-> On Thu, 2020-12-03 at 08:29 +0200, Mike Rapoport wrote:
-
-...
-
-> > diff --git a/include/linux/syscalls.h b/include/linux/syscalls.h
-> > index 6d55324363ab..f9d93fbf9b69 100644
-> > --- a/include/linux/syscalls.h
-> > +++ b/include/linux/syscalls.h
-> > @@ -1010,6 +1010,7 @@ asmlinkage long sys_pidfd_send_signal(int pidfd, int sig,
-> >  asmlinkage long sys_pidfd_getfd(int pidfd, int fd, unsigned int flags);
-> >  asmlinkage long sys_watch_mount(int dfd, const char __user *path,
-> >  				unsigned int at_flags, int watch_fd, int watch_id);
-> > +asmlinkage long sys_memfd_secret(unsigned long flags);
-> >  
-> >  /*
-> >   * Architecture-specific system calls
-> > diff --git a/include/uapi/asm-generic/unistd.h b/include/uapi/asm-generic/unistd.h
-> > index 5df46517260e..51151888f330 100644
-> > --- a/include/uapi/asm-generic/unistd.h
-> > +++ b/include/uapi/asm-generic/unistd.h
-> > @@ -861,9 +861,13 @@ __SYSCALL(__NR_faccessat2, sys_faccessat2)
-> >  __SYSCALL(__NR_process_madvise, sys_process_madvise)
-> >  #define __NR_watch_mount 441
-> >  __SYSCALL(__NR_watch_mount, sys_watch_mount)
-> > +#ifdef __ARCH_WANT_MEMFD_SECRET
-> > +#define __NR_memfd_secret 442
-> > +__SYSCALL(__NR_memfd_secret, sys_memfd_secret)
-> > +#endif
-> 
-> I can't see where was it defined for arm64 after it looks like Andrew has
-> deleted the  above chunk. Thus, we have a warning using this .config:
-> 
-> https://cailca.coding.net/public/linux/mm/git/files/master/arm64.config
-> 
-> <stdin>:1539:2: warning: #warning syscall memfd_secret not implemented [-Wcpp]
-
-I was under the impression that Andrew only removed the #ifdef...
-
-Andrew, can you please restore syscall definition for memfd_secret() in
-include/uapi/asm-generic/unistd.h?
-
-> >  
-> >  #undef __NR_syscalls
-> > -#define __NR_syscalls 442
-> > +#define __NR_syscalls 443
-> >  
-> >  /*
-> >   * 32 bit systems traditionally used different
-> > diff --git a/mm/secretmem.c b/mm/secretmem.c
-> > index 7236f4d9458a..b8a32954ac68 100644
-> > --- a/mm/secretmem.c
-> > +++ b/mm/secretmem.c
-> > @@ -415,6 +415,9 @@ static int __init secretmem_setup(char *str)
-> >  	unsigned long reserved_size;
-> >  	int err;
-> >  
-> > +	if (!can_set_direct_map())
-> > +		return 0;
-> > +
-> >  	reserved_size = memparse(str, NULL);
-> >  	if (!reserved_size)
-> >  		return 0;
-> > diff --git a/scripts/checksyscalls.sh b/scripts/checksyscalls.sh
-> > index a18b47695f55..b7609958ee36 100755
-> > --- a/scripts/checksyscalls.sh
-> > +++ b/scripts/checksyscalls.sh
-> > @@ -40,6 +40,10 @@ cat << EOF
-> >  #define __IGNORE_setrlimit	/* setrlimit */
-> >  #endif
-> >  
-> > +#ifndef __ARCH_WANT_MEMFD_SECRET
-> > +#define __IGNORE_memfd_secret
-> > +#endif
-> > +
-> >  /* Missing flags argument */
-> >  #define __IGNORE_renameat	/* renameat2 */
-> >  
-> 
-
--- 
-Sincerely yours,
-Mike.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMDcuMTIuMjAgMTQ6NTIsIE1pY2hhZWwgUy4gVHNpcmtpbiB3cm90ZToKCj4+IFNlZSBhYm92
+ZTogTkFLLiBiZWNhdXNlIGl0IGNhbid0IGV2ZW4gYmUgZW5hYmxlZCBkaXJlY3RseSAoYnkgdGhl
+IHVzZXIpLgo+PiBJZiBpdCB3YXNuJ3QgbWVhbnQgb3RoZXJ3aXNlLCB3ZSdkIGhhdmUgdG8gYWRk
+IGFuIG1lbnUgdGV4dC4KPiAKPiBUaGUgcG9pbnQgaXMgdGhhdCB1c2VyIGVuYWJsZXMgb25lIG9m
+IHRoZSBiaW5kaW5ncy4KPiBUaGF0IGluIHR1cm4gZW5hYmxlcyBkcml2ZXJzLiBJZiB3ZSBtZXJl
+bHkgc2VsZWN0IFZJUlRJTwo+IHRoZXJlJ3MgYSBjaGFuY2UgdXNlciB3b24ndCByZW1lbWJlciB0
+byBzZWxlY3QgYW55IGJpbmRpbmdzCj4gYW5kIHdpbGwgYmUgc3VycHJpc2VkIG5vdCB0byBzZWUg
+YW55IGRldmljZXMuCgpOb3Qgc3VyZSB3aGF0IHlvdSBtZWFuIGJ5ICJiaW5kaW5ncyIgLi4uIHRy
+YW5zcG9ydHMgPwoKSU1ITywgdHJhbnNwb3J0cyBhbmQgZGV2aWNlIGRyaXZlcnMgYXJlIGVudGly
+ZWx5IG9ydGhvZ29uYWwuIEJvdGggKnVzZSoKdGhlIGNvcmUsIGJ1dCBJIGRvbid0IHRoaW5rIHRo
+ZXkgc2hhbGwgb25seSBzaG93IHVwLCBhZnRlciB0aGUgY29yZSB3YXMKZW5hYmxlZCBleHBsaWNp
+dGx5LiBBbnkgY29tYmluYXRpb24gb2YgdHJhbnNwb3J0cyBpcyB2YWxpZCAoaGF2aW5nIG5vbmUK
+YXQgYWxsLCBvZiBjb3Vyc2UsIGlzbid0IGFjdHVhbGx5IHVzZWZ1bCkuCgo+PiBXaGVuIHVzaW5n
+IG90aGVyIHRyYW5zcG9ydHMgPwo+IAo+IEFueSB0cmFuc3BvcnQgc2VsZWN0cyBWSVJUSU8gc28g
+aWYgeW91IGVuYWJsZSB0aGF0LCB5b3UgZ2V0Cj4gVklSVElPIGFuZCB0aHVzIGl0J3MgZW5vdWdo
+IHRvIGRlcGVuZCBvbiBpdC4KClRoZSBjb21iaW5hdGlvbiBvZiAnc2VsZWN0IFZJUlRJTycgYW5k
+ICdkZXBlbmRzIG9uIFZJUlRJTycgaXMgd2hhdApjYXVzZWQgdGhlIHJlY3Vyc2l2ZSBkZXBlbmRl
+bmN5LiBDaGFuaW5nIGV2ZXJ5dGhpbmcgdG8gJ3NlbGVjdCBWSVJUSU8nCmZpeGVkIHRoYXQuCgo+
+PiBJIGRvbid0IHRoaW5rdCB0aGF0IHdvdWxkIGJlIGdvb2QgLSBpbnN0ZWFkIGV2ZXJ5Ym9keSBz
+aG91bGQganVzdCBzZWxlY3QKPj4gVklSVElPLCBuZXZlciBkZXBlbmQgb24gaXQgKG1heWJlIGRl
+cGVuZCBvbiBWSVJUSU9fTUVOVSBpbnN0ZWFkKQo+IAo+IEdQVSBkZXBlbmRzIG9uIFZJUlRJTyBh
+bmQgb24gVklSVElPX01FTlUgLi4uIHdoaWNoIHNlZW1zIGV2ZW4gbWVzc2llcgo+IC4uLgoKU2Vl
+OgpodHRwczovL3d3dy5tYWlsLWFyY2hpdmUuY29tL2xpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5v
+cmcvbXNnMjQwNDg3MS5odG1sCgoKLS1tdHgKCi0tIAotLS0KSGlud2VpczogdW52ZXJzY2hsw7xz
+c2VsdGUgRS1NYWlscyBrw7ZubmVuIGxlaWNodCBhYmdlaMO2cnQgdW5kIG1hbmlwdWxpZXJ0Cndl
+cmRlbiAhIEbDvHIgZWluZSB2ZXJ0cmF1bGljaGUgS29tbXVuaWthdGlvbiBzZW5kZW4gU2llIGJp
+dHRlIGlocmVuCkdQRy9QR1AtU2NobMO8c3NlbCB6dS4KLS0tCkVucmljbyBXZWlnZWx0LCBtZXR1
+eCBJVCBjb25zdWx0CkZyZWUgc29mdHdhcmUgYW5kIExpbnV4IGVtYmVkZGVkIGVuZ2luZWVyaW5n
+CmluZm9AbWV0dXgubmV0IC0tICs0OS0xNTEtMjc1NjUyODcKCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
+eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
+aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
