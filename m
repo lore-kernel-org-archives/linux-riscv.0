@@ -2,78 +2,77 @@ Return-Path: <SRS0=7obj=FL=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BAA0CC4167B
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Dec 2020 14:46:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 29ADCC433FE
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Dec 2020 15:53:56 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7094523372
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Dec 2020 14:46:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7094523372
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
+	by mail.kernel.org (Postfix) with ESMTPS id B17F623358
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Dec 2020 15:53:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B17F623358
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:Date:To:From:
-	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=81d4oJt/A2Sa+79z3S3/hqxzi8P9OLw5gHFaaGIUtKI=; b=JisaiJEMy+PZ9tAxXvwcdWtsp
-	1L6WWAgq+J3EHN0uj5ezuZC428c9d3UrwxFG1L4mFA/oiz75P8p7RFpsWA/xmX80IkAR3L4PpE7W9
-	NErhQc3CbD2SXMYn/kiMHyxAbBmYyZNjawoDrZDZom4S+9c6fRiIIonTOc/JK6JqEfBtdTqkiBFEc
-	dmFYZXKqA/ujuLCHgvrDRfSnC54PFIX5Kff2TslJD4/AFxlVOdwbLrmMRaWRat7A3kRIYu/Ay/bm0
-	baK/tdOdIQW7VUYRuI6W0HQAJ+OwOZHCmNuIt6rr0BLQO4aNkszfd8Lm6RZS0Je8EO/ikPzYXPn+k
-	L3TDo5U+w==;
+	 bh=rcI1qBqWQjUB29kwbEoWM7cAMO8ZyuMr7aFkaty6Wx8=; b=kWloKOLgmdOeLDrIgfKK0yLHW
+	hIemMln+gBChjg6KjT6s2jJv6eCgwwmDM9b1vOCqWK6vbe86HV6DFlENRsxlZU9JVt9OOGwPFjXh6
+	4EmK6wFaSbelsZn/EMX/VU/fXSWhy29+7yMQYtVPZOFqEbQuGmf57CTMbcyQKH+XPv3uNrpMEHe74
+	2xR27Z+O2xxHAOWYF0Ez8h8ZH+CjGRcbc/HyN+4ubWTOM2O1pgiHErW6JWdNMdex2bPUJJcsUDk5U
+	l9VGOKl/Uv7j35KAWBZdN+mXNVOdDE4kaF53cT9ZQDuMRleEYHza2lrs9Rr0z1StL0m5Btml2CfHg
+	lbXxjKJbQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kmHmW-00040g-FT; Mon, 07 Dec 2020 14:46:28 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([63.128.21.124])
+	id 1kmIpg-0003yN-2j; Mon, 07 Dec 2020 15:53:48 +0000
+Received: from mail-oi1-f193.google.com ([209.85.167.193])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kmHmS-0003y6-Jo
- for linux-riscv@lists.infradead.org; Mon, 07 Dec 2020 14:46:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1607352378;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=jWg1t6sTeUgW79K7ShAQcqT7Q1eiw+skkSRDGT0t/ys=;
- b=IgZXFcH6KI5zb99XSOn93x6wat38sLvXBZhmYfZQpOhoJ/vSDsCydfcc81qQQWH/lzudV5
- +peJyv3/Iuf2+aLhNQf+Prxlrjodoh7GfQGiatOX8ov5xi6KR2V0kvMCavUhVhTKSzWBNP
- jqIquTSbUDLFBn/KH4kNTiQ8CjiqWsc=
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-370-0dVUfL9vOh2HHBPLYoOQ1w-1; Mon, 07 Dec 2020 09:46:13 -0500
-X-MC-Unique: 0dVUfL9vOh2HHBPLYoOQ1w-1
-Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com
- [10.5.11.12])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 77E8F1005504;
- Mon,  7 Dec 2020 14:46:08 +0000 (UTC)
-Received: from ovpn-66-220.rdu2.redhat.com (ovpn-66-220.rdu2.redhat.com
- [10.10.66.220])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 0FE5F60BE2;
- Mon,  7 Dec 2020 14:45:59 +0000 (UTC)
-Message-ID: <81631d3391abca3f41f2e19092b97a61d49f4e44.camel@redhat.com>
-Subject: Re: [PATCH v14 09/10] arch, mm: wire up memfd_secret system call
- were relevant
-From: Qian Cai <qcai@redhat.com>
-To: Mike Rapoport <rppt@kernel.org>, Andrew Morton <akpm@linux-foundation.org>
-Date: Mon, 07 Dec 2020 09:45:59 -0500
-In-Reply-To: <20201203062949.5484-10-rppt@kernel.org>
-References: <20201203062949.5484-1-rppt@kernel.org>
- <20201203062949.5484-10-rppt@kernel.org>
-Mime-Version: 1.0
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+ id 1kmIpd-0003wK-5H
+ for linux-riscv@lists.infradead.org; Mon, 07 Dec 2020 15:53:47 +0000
+Received: by mail-oi1-f193.google.com with SMTP id s2so6387854oij.2
+ for <linux-riscv@lists.infradead.org>; Mon, 07 Dec 2020 07:53:36 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=Hypmg4LpjXSy0GzxNxBUf1ww7vOYIv2Xlk3pfbDp9J0=;
+ b=e3t20NejxAqyiYb5LWwEZGOVUTo+VWbWD+lVuyoCZLbdGJRIPiordYbUPXUmuT4P5P
+ 8G9bW6+S6a+UHKWE8kVYI9gHi2XfZ0n/7pE+nDTqelZJqUUaF8PQ5WwwV6d8gyIwKry2
+ CDyHqtBc2BzqiWDCvAe4ngVH1Ylmq9YE762EoPB0BTiiwYUWu5MLxXr3IlDThdz7yiHd
+ vcBubhYdJWdQAbcyaOndyNe5LsnmHLmEjBzmiA/o3VQKd3W6z+rABdJ7/pUaiBQv3rdq
+ FZY75nznohu0wjkGPSSaddzkXjQb9+whhSfi1Qu1vw+fSh7EuTbPJvu1lwPglPWJUvOi
+ 3wBA==
+X-Gm-Message-State: AOAM533uaStvdAL0gXiMOgbVk6vmKoftyOq40+6r6Cp7QdDZrQ0zLeDc
+ oOwd3QlmiVLKoIU3oPddkw==
+X-Google-Smtp-Source: ABdhPJyGjeSH/GRe0J8BAg2uOUh/diV9qfejX27wBKuR4x7Sq1coEii1ZQtzYAuPbWmRRy3UhNAnmg==
+X-Received: by 2002:aca:c3c3:: with SMTP id t186mr12960411oif.53.1607356416130; 
+ Mon, 07 Dec 2020 07:53:36 -0800 (PST)
+Received: from xps15 (24-155-109-49.dyn.grandenetworks.net. [24.155.109.49])
+ by smtp.gmail.com with ESMTPSA id k3sm1422103oor.19.2020.12.07.07.53.33
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 07 Dec 2020 07:53:34 -0800 (PST)
+Received: (nullmailer pid 345583 invoked by uid 1000);
+ Mon, 07 Dec 2020 15:53:33 -0000
+Date: Mon, 7 Dec 2020 09:53:33 -0600
+From: Rob Herring <robh@kernel.org>
+To: conor.dooley@microchip.com
+Subject: Re: [PATCH v2 4/5] dt-bindings: add bindings for polarfire soc
+ system controller
+Message-ID: <20201207155333.GA345332@robh.at.kernel.org>
+References: <20201201110311.28593-1-conor.dooley@microchip.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20201201110311.28593-1-conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201207_094624_713393_08A3B6B8 
-X-CRM114-Status: GOOD (  24.87  )
+X-CRM114-CacheID: sfid-20201207_105345_226624_3381B44E 
+X-CRM114-Status: GOOD (  11.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -85,165 +84,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
- Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
- linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>,
- Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
- Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
- Will Deacon <will@kernel.org>, x86@kernel.org,
- Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
- Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>, Arnd Bergmann <arnd@arndb.de>,
- James Bottomley <jejb@linux.ibm.com>, Borislav Petkov <bp@alien8.de>,
- Alexander Viro <viro@zeniv.linux.org.uk>, Andy Lutomirski <luto@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
- linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-fsdevel@vger.kernel.org, Shakeel Butt <shakeelb@google.com>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>
+Cc: devicetree@vger.kernel.org, damien.lemoal@wdc.com, aou@eecs.berkeley.edu,
+ cyril.jean@microchip.com, david.abdurachmanov@gmail.com,
+ daire.mcnamara@microchip.com, jassisinghbrar@gmail.com, atish.patra@wdc.com,
+ anup.patel@wdc.com, robh+dt@kernel.org, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, lewis.hanly@microchip.com,
+ linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2020-12-03 at 08:29 +0200, Mike Rapoport wrote:
-> From: Mike Rapoport <rppt@linux.ibm.com>
+On Tue, 01 Dec 2020 11:03:11 +0000, conor.dooley@microchip.com wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
 > 
-> Wire up memfd_secret system call on architectures that define
-> ARCH_HAS_SET_DIRECT_MAP, namely arm64, risc-v and x86.
+> Add device tree bindings for the MSS system controller on
+> the Microchip PolarFire SoC.
 > 
-> Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
-> Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
-> Acked-by: Arnd Bergmann <arnd@arndb.de>
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 > ---
->  arch/arm64/include/uapi/asm/unistd.h   | 1 +
->  arch/riscv/include/asm/unistd.h        | 1 +
->  arch/x86/entry/syscalls/syscall_32.tbl | 1 +
->  arch/x86/entry/syscalls/syscall_64.tbl | 1 +
->  include/linux/syscalls.h               | 1 +
->  include/uapi/asm-generic/unistd.h      | 6 +++++-
->  mm/secretmem.c                         | 3 +++
->  scripts/checksyscalls.sh               | 4 ++++
->  8 files changed, 17 insertions(+), 1 deletion(-)
+>  .../microchip,mpfs_sys_controller.yaml        | 49 +++++++++++++++++++
+>  1 file changed, 49 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/soc/microchip/microchip,mpfs_sys_controller.yaml
 > 
-> diff --git a/arch/arm64/include/uapi/asm/unistd.h b/arch/arm64/include/uapi/asm/unistd.h
-> index f83a70e07df8..ce2ee8f1e361 100644
-> --- a/arch/arm64/include/uapi/asm/unistd.h
-> +++ b/arch/arm64/include/uapi/asm/unistd.h
-> @@ -20,5 +20,6 @@
->  #define __ARCH_WANT_SET_GET_RLIMIT
->  #define __ARCH_WANT_TIME32_SYSCALLS
->  #define __ARCH_WANT_SYS_CLONE3
-> +#define __ARCH_WANT_MEMFD_SECRET
->  
->  #include <asm-generic/unistd.h>
-> diff --git a/arch/riscv/include/asm/unistd.h b/arch/riscv/include/asm/unistd.h
-> index 977ee6181dab..6c316093a1e5 100644
-> --- a/arch/riscv/include/asm/unistd.h
-> +++ b/arch/riscv/include/asm/unistd.h
-> @@ -9,6 +9,7 @@
->   */
->  
->  #define __ARCH_WANT_SYS_CLONE
-> +#define __ARCH_WANT_MEMFD_SECRET
->  
->  #include <uapi/asm/unistd.h>
->  
-> diff --git a/arch/x86/entry/syscalls/syscall_32.tbl b/arch/x86/entry/syscalls/syscall_32.tbl
-> index c52ab1c4a755..109e6681b8fa 100644
-> --- a/arch/x86/entry/syscalls/syscall_32.tbl
-> +++ b/arch/x86/entry/syscalls/syscall_32.tbl
-> @@ -446,3 +446,4 @@
->  439	i386	faccessat2		sys_faccessat2
->  440	i386	process_madvise		sys_process_madvise
->  441	i386	watch_mount		sys_watch_mount
-> +442	i386	memfd_secret		sys_memfd_secret
-> diff --git a/arch/x86/entry/syscalls/syscall_64.tbl b/arch/x86/entry/syscalls/syscall_64.tbl
-> index f3270a9ef467..742cf17d7725 100644
-> --- a/arch/x86/entry/syscalls/syscall_64.tbl
-> +++ b/arch/x86/entry/syscalls/syscall_64.tbl
-> @@ -363,6 +363,7 @@
->  439	common	faccessat2		sys_faccessat2
->  440	common	process_madvise		sys_process_madvise
->  441	common	watch_mount		sys_watch_mount
-> +442	common	memfd_secret		sys_memfd_secret
->  
->  #
->  # Due to a historical design error, certain syscalls are numbered differently
-> diff --git a/include/linux/syscalls.h b/include/linux/syscalls.h
-> index 6d55324363ab..f9d93fbf9b69 100644
-> --- a/include/linux/syscalls.h
-> +++ b/include/linux/syscalls.h
-> @@ -1010,6 +1010,7 @@ asmlinkage long sys_pidfd_send_signal(int pidfd, int sig,
->  asmlinkage long sys_pidfd_getfd(int pidfd, int fd, unsigned int flags);
->  asmlinkage long sys_watch_mount(int dfd, const char __user *path,
->  				unsigned int at_flags, int watch_fd, int watch_id);
-> +asmlinkage long sys_memfd_secret(unsigned long flags);
->  
->  /*
->   * Architecture-specific system calls
-> diff --git a/include/uapi/asm-generic/unistd.h b/include/uapi/asm-generic/unistd.h
-> index 5df46517260e..51151888f330 100644
-> --- a/include/uapi/asm-generic/unistd.h
-> +++ b/include/uapi/asm-generic/unistd.h
-> @@ -861,9 +861,13 @@ __SYSCALL(__NR_faccessat2, sys_faccessat2)
->  __SYSCALL(__NR_process_madvise, sys_process_madvise)
->  #define __NR_watch_mount 441
->  __SYSCALL(__NR_watch_mount, sys_watch_mount)
-> +#ifdef __ARCH_WANT_MEMFD_SECRET
-> +#define __NR_memfd_secret 442
-> +__SYSCALL(__NR_memfd_secret, sys_memfd_secret)
-> +#endif
 
-I can't see where was it defined for arm64 after it looks like Andrew has
-deleted the  above chunk. Thus, we have a warning using this .config:
 
-https://cailca.coding.net/public/linux/mm/git/files/master/arm64.config
+My bot found errors running 'make dt_binding_check' on your patch:
 
-<stdin>:1539:2: warning: #warning syscall memfd_secret not implemented [-Wcpp]
+yamllint warnings/errors:
+./Documentation/devicetree/bindings/soc/microchip/microchip,mpfs_sys_controller.yaml:23:111: [warning] line too long (113 > 110 characters) (line-length)
 
->  
->  #undef __NR_syscalls
-> -#define __NR_syscalls 442
-> +#define __NR_syscalls 443
->  
->  /*
->   * 32 bit systems traditionally used different
-> diff --git a/mm/secretmem.c b/mm/secretmem.c
-> index 7236f4d9458a..b8a32954ac68 100644
-> --- a/mm/secretmem.c
-> +++ b/mm/secretmem.c
-> @@ -415,6 +415,9 @@ static int __init secretmem_setup(char *str)
->  	unsigned long reserved_size;
->  	int err;
->  
-> +	if (!can_set_direct_map())
-> +		return 0;
-> +
->  	reserved_size = memparse(str, NULL);
->  	if (!reserved_size)
->  		return 0;
-> diff --git a/scripts/checksyscalls.sh b/scripts/checksyscalls.sh
-> index a18b47695f55..b7609958ee36 100755
-> --- a/scripts/checksyscalls.sh
-> +++ b/scripts/checksyscalls.sh
-> @@ -40,6 +40,10 @@ cat << EOF
->  #define __IGNORE_setrlimit	/* setrlimit */
->  #endif
->  
-> +#ifndef __ARCH_WANT_MEMFD_SECRET
-> +#define __IGNORE_memfd_secret
-> +#endif
-> +
->  /* Missing flags argument */
->  #define __IGNORE_renameat	/* renameat2 */
->  
+dtschema/dtc warnings/errors:
+
+
+See https://patchwork.ozlabs.org/patch/1408782
+
+The base for the patch is generally the last rc1. Any dependencies
+should be noted.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit.
 
 
 _______________________________________________
