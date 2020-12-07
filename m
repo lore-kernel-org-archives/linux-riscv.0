@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CD5C7C433FE
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Dec 2020 12:16:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A4135C4361B
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Dec 2020 12:16:47 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6F50D233FE
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Dec 2020 12:16:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6F50D233FE
+	by mail.kernel.org (Postfix) with ESMTPS id 49799233A0
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Dec 2020 12:16:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 49799233A0
 Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=microchip.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,64 +23,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=buy60QqZSV5flSOZ/0A2UuE3fc1oC2n4J3mWRM/II/0=; b=juySBIjfAXOY1xC3EiWMke0io
-	EFViI8nDP+jAMRF7JlUHA4kSURQydb6SVV3Lv1kGrzzTz0D2+L8f/OG1v2tWdlRc1o+yFw8EAVhHu
-	ULUxwch8j/OK2O5n3hQgTsjvS4QtKpAFU6i/7oJTflciXPQrJOPxhcX2njKA9p/+fdfUxlUqwtHvq
-	8JovGlOw1Zy6DcvYvbUS6O7Ntlue1XBZ89qiQb59ZjLLdmTHouAHDD81Dq4bwr9l208q0HITEM/pF
-	yPixR7NPyxkVhS+HzcNCYPgWPP7X+BJTM10O0HrSVK2ryleT45Q8i0/xTTklgpb4I8W2R5J0gIirQ
-	2IXp9Fh+A==;
+	 bh=H+i/0jurUt6VbA6YO7XiJAuPRui25jS2r56tD9Eygfc=; b=gY51YDWn9gHjGXT9156SaifLe
+	ZX44Sg5H4de6KguBwDPGXgn9sCJuxyfExXtcteLJHPlWIRa5aH3B7+llsXLueEcmBY0QmnElZfw5Y
+	aO1CDoa3xaB4TVrEDPse1o59zjurpp/WRanY3GPgcLjAh8Wz+BqPuAR418VPhuO4N0O4QjRU6rL2W
+	3UWu3qxKgSrDNs3FOgJy3uVpWVUOZ6t9F7xkQgua3C6x/uA8YxYkFV00YssRec9UDQ5M630SnJVkY
+	8bw3U6fTYBS5uHkQRlxMTekKzPVx6MhQYs1yCrIgahtmPcA2HLhmFPuG+FH78luzso4Zv9LQBsly3
+	WPyPNKBMA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kmFRL-0000Ar-7F; Mon, 07 Dec 2020 12:16:27 +0000
+	id 1kmFRY-0000Gq-74; Mon, 07 Dec 2020 12:16:40 +0000
 Received: from esa6.microchip.iphmx.com ([216.71.154.253])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kmFRH-00008M-HT
- for linux-riscv@lists.infradead.org; Mon, 07 Dec 2020 12:16:25 +0000
+ id 1kmFRV-0000EQ-Ep
+ for linux-riscv@lists.infradead.org; Mon, 07 Dec 2020 12:16:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
- t=1607343383; x=1638879383;
+ t=1607343397; x=1638879397;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version;
- bh=DUxcKkP9tne2ZEad42EnpND5G9jdrOj1iXVeTt57jG8=;
- b=D0e0tZTpNX9aIkZp75bQuMVmx5kokt4ZSaiK5SBLF3RAdpJzci0y2Y02
- Og/uXQvHL+CM0cxXqLx7DGAGmr18r4CObgKHrHC4V3G4BQhincne6Uuck
- iyigdWlTzt3d9R9Qk7IsyJYakRxTNr9ojMIvm2Mjj+Ph3EVdM65geAzTh
- ALDC+Y1lUPjFpCNNbNOq7xB59jLiPcHjW9x4gDR+obnCIcgwR7E821viJ
- tNAbfcjFH7WrIqW9W/jggRq1LcqZfm2e9i3xT2TpGN8T1WWhNkESkTW3q
- oALAkEtSfbn1GNR7V5e+bNE/R1LFjGX6pYaslHjsJgspY/13zMbjBWSRX g==;
-IronPort-SDR: 7NBQCNTqGwOIfkmqgNYQkDZLfGGyFDD+TjnnaGsPa3QWsUk8C8FCdpp+PLQBX7//R9MW7N1dD0
- W+mMQyRPpn39Utv2/7RK81YAGY9f1CR6QMlX/6lC8BaULd1Hq5da3eejitf39Gn4+AkQ9MzbhD
- jT0Tz7KaB2UkZhA5IhbZgi6EsGADKRSvE7myeNDJspoxq6CqZocjBB7ucYKTqBiacPKBgsyXKv
- qxUqEv+aM48ugJ3C4/p9xNUxEoKeQvvW3QggYpMnrGkQOIS6u3AQY4BFA4dZtm8jgBP5/cjuOc
- zpI=
-X-IronPort-AV: E=Sophos;i="5.78,399,1599548400"; d="scan'208";a="36409538"
+ bh=iHGOWxfZtvERAS2ndiOX258JxP4h/8vCbp16AmM7GnE=;
+ b=chJqJXv3MDDHTauHnZUhwZfRJ0xZVVu4aWhdl9wUuH+H+uFf3ktgv54x
+ Y8EJLOAfqQpGWwsTB0QV+Hxw0Gtu5Wy6GpHYj17Q70c73qwHfIfUsARfe
+ ADJUNMAiLq2089/j45ZtwsL5ZaySL4Q/3CPYkYDb5bWML0MJnsxw0CJO3
+ +zzTLDa1R2mhhDdOkFPATVvfpv99zXbjmBGQ6bDq/UoHDjDUFKQrgNeGn
+ fG9pFjw4oU+0S3rB39mIMi3N0DKDVAwsiXdFt41UkrD6PLRZqyzdQCzLH
+ qnQpl0jNQHS0iuO1enpi8h/k7AlohKiWWN24LsRXn2pBFDE6cZExU7dBE g==;
+IronPort-SDR: q8MNQtYY8SurIZDAn2ql2e/my3IrSqOfvwmLkRZgJKkp9TNuN7Df8R1B5mUy6HY5SEki2u36vB
+ WMdL/VUun+KpnCI8Coto4NrqRQ7OW+9+yEgbiELYmjD+FlleX2Ci9Acz7wu8228h3OxJrQwyko
+ 9hj7IdMoTIvriQdxamRygA68SUz5gNQywyMQc7n0ZcwWiWAmZIUS+x+P3ep+oWziTSmtQZYDgE
+ Tke8xbrqGFaJNHz6H3nQFOTjM5DnQKIedvK/IPCYzF2HuiAeqp8TtGWY4iHMtAkg3xZTtGEbvM
+ dIw=
+X-IronPort-AV: E=Sophos;i="5.78,399,1599548400"; d="scan'208";a="36409576"
 Received: from smtpout.microchip.com (HELO email.microchip.com)
  ([198.175.253.82])
  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 07 Dec 2020 05:16:21 -0700
+ 07 Dec 2020 05:16:36 -0700
 Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
  chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.1979.3; Mon, 7 Dec 2020 05:16:21 -0700
+ 15.1.1979.3; Mon, 7 Dec 2020 05:16:36 -0700
 Received: from m18063-ThinkPad-T460p.microchip.com (10.10.115.15) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
- 15.1.1979.3 via Frontend Transport; Mon, 7 Dec 2020 05:16:15 -0700
+ 15.1.1979.3 via Frontend Transport; Mon, 7 Dec 2020 05:16:29 -0700
 From: Claudiu Beznea <claudiu.beznea@microchip.com>
 To: <davem@davemloft.net>, <kuba@kernel.org>, <robh+dt@kernel.org>,
  <nicolas.ferre@microchip.com>, <linux@armlinux.org.uk>,
  <paul.walmsley@sifive.com>, <palmer@dabbelt.com>
-Subject: [PATCH v2 5/8] dt-bindings: add documentation for sama7g5 ethernet
- interface
-Date: Mon, 7 Dec 2020 14:15:30 +0200
-Message-ID: <1607343333-26552-6-git-send-email-claudiu.beznea@microchip.com>
+Subject: [PATCH v2 7/8] net: macb: add support for sama7g5 gem interface
+Date: Mon, 7 Dec 2020 14:15:32 +0200
+Message-ID: <1607343333-26552-8-git-send-email-claudiu.beznea@microchip.com>
 X-Mailer: git-send-email 2.7.4
 In-Reply-To: <1607343333-26552-1-git-send-email-claudiu.beznea@microchip.com>
 References: <1607343333-26552-1-git-send-email-claudiu.beznea@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201207_071623_754287_AA616C65 
-X-CRM114-Status: UNSURE (   9.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20201207_071637_684146_F5C63A24 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -100,26 +98,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add documentation for SAMA7G5 ethernet interface.
+Add support for SAMA7G5 gigabit ethernet interface.
 
 Signed-off-by: Claudiu Beznea <claudiu.beznea@microchip.com>
 Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 ---
- Documentation/devicetree/bindings/net/macb.txt | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/net/ethernet/cadence/macb_main.c | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/net/macb.txt b/Documentation/devicetree/bindings/net/macb.txt
-index 0b61a90f1592..26543a4e15d5 100644
---- a/Documentation/devicetree/bindings/net/macb.txt
-+++ b/Documentation/devicetree/bindings/net/macb.txt
-@@ -16,6 +16,7 @@ Required properties:
-   Use "cdns,zynq-gem" Xilinx Zynq-7xxx SoC.
-   Use "cdns,zynqmp-gem" for Zynq Ultrascale+ MPSoC.
-   Use "sifive,fu540-c000-gem" for SiFive FU540-C000 SoC.
-+  Use "microchip,sama7g5-emac" for Microchip SAMA7G5 ethernet interface.
-   Or the generic form: "cdns,emac".
- - reg: Address and length of the register set for the device
- 	For "sifive,fu540-c000-gem", second range is required to specify the
+diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
+index deb232801edb..ca56476b3a04 100644
+--- a/drivers/net/ethernet/cadence/macb_main.c
++++ b/drivers/net/ethernet/cadence/macb_main.c
+@@ -4465,6 +4465,14 @@ static const struct macb_usrio_config macb_default_usrio = {
+ 	.refclk = MACB_BIT(CLKEN),
+ };
+ 
++static const struct macb_usrio_config sama7g5_usrio = {
++	.mii = 0,
++	.rmii = 1,
++	.rgmii = 2,
++	.refclk = BIT(2),
++	.hdfctlen = BIT(6),
++};
++
+ static const struct macb_config fu540_c000_config = {
+ 	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE | MACB_CAPS_JUMBO |
+ 		MACB_CAPS_GEM_HAS_PTP,
+@@ -4558,6 +4566,14 @@ static const struct macb_config zynq_config = {
+ 	.usrio = &macb_default_usrio,
+ };
+ 
++static const struct macb_config sama7g5_gem_config = {
++	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE | MACB_CAPS_CLK_HW_CHG,
++	.dma_burst_length = 16,
++	.clk_init = macb_clk_init,
++	.init = macb_init,
++	.usrio = &sama7g5_usrio,
++};
++
+ static const struct of_device_id macb_dt_ids[] = {
+ 	{ .compatible = "cdns,at32ap7000-macb" },
+ 	{ .compatible = "cdns,at91sam9260-macb", .data = &at91sam9260_config },
+@@ -4575,6 +4591,7 @@ static const struct of_device_id macb_dt_ids[] = {
+ 	{ .compatible = "cdns,zynqmp-gem", .data = &zynqmp_config},
+ 	{ .compatible = "cdns,zynq-gem", .data = &zynq_config },
+ 	{ .compatible = "sifive,fu540-c000-gem", .data = &fu540_c000_config },
++	{ .compatible = "microchip,sama7g5-gem", .data = &sama7g5_gem_config },
+ 	{ /* sentinel */ }
+ };
+ MODULE_DEVICE_TABLE(of, macb_dt_ids);
 -- 
 2.7.4
 
