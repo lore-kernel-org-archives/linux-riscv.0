@@ -8,15 +8,15 @@ X-Spam-Status: No, score=-21.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C8445C4361B
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Dec 2020 15:42:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2FA59C19437
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Dec 2020 15:42:25 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6EF0923A9B
+	by mail.kernel.org (Postfix) with ESMTPS id AB3B323AAA
 	for <linux-riscv@archiver.kernel.org>; Tue,  8 Dec 2020 15:42:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6EF0923A9B
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AB3B323AAA
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -24,67 +24,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=u8HJuXB4JjRc6Nu+MjipSQfWbWY2z/3zrTV0fHg81Hg=; b=yNLZGxEsNY48wadegIwraJoaS
-	V676wudnfviRCJx4Y8XTogpR6AKsRUtHoQcHSEc5BivJ3h4usJnOOUDrUlXPDry9l/vvQ6htIx7Vo
-	jp97ThUcIXd15X89I2fNWrXuqPQBbqAD6YikGQLp/8XxJwTgaKZGMxSiM723xmjn1i5clS065EsuQ
-	Ag4YoRfUqE2lL7E+1m3xLoLxWi6RFzd/AlndF6MSsF+VUS9TG6R0S5xRrv1ScqSNCysVwo7idE74y
-	XOk+X8V14gdsqcmjpZz3i5JvXGiZusbgPK/+PumoKwyZ8fodK5h5BsCOujGp361ER0f+zBDLFyBhF
-	HDB3u6Wfg==;
+	 bh=557iCuH89Xd3a45+jNQZs5dz/W79FoG4bh4d1oe2Flk=; b=fEuMz8159kJQ0LmHQTC+Iyog9
+	nfUmnFlJ27smv1hELqRSiPSQbQLZDhG6T9O+DjjdzjhZx+VwQ2FhTNP6N0cefsaJvORQQJbnuSyGi
+	U1rnf6BJ2mB8bnxbpJHMB+uv+SnKaGcVYqXtGSZRqP/0cg7bXAElDasbF6KrW5n4XlKrfShtq6Yor
+	GrAzgnOAf7G8Xe+d+ANMBcbE3gdnXv0MV94FfuYovvPYhvi7aKn/fpuuNQbktclYNvKkXCL9cy3Aa
+	haGOA1xYUYUTD9e5d9Ulaf+OzX8BFWBOjc2RClC2qYs34vvUkSkL1wNBEAR/w1LCo6l369DFDPZiR
+	xgK78I0Ig==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kmf83-0008T5-JZ; Tue, 08 Dec 2020 15:42:15 +0000
-Received: from esa5.hgst.iphmx.com ([216.71.153.144])
+	id 1kmf82-0008Sv-U6; Tue, 08 Dec 2020 15:42:14 +0000
+Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kmXVv-0000GP-5w
- for linux-riscv@lists.infradead.org; Tue, 08 Dec 2020 07:34:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1607412862; x=1638948862;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=yAjWctHf8AP4HagufjhcdQdx8KLubAwRXRiGmRcPLLI=;
- b=Sa2pmlO8S2MKw//+KSLqSOWCK1klXju5znaOWg5hD3W2dE7vtaHHW9L5
- bi0sL4/bntA2lQ7F3+f6ESxTK3ZxQy2hcusTTX9b0NqKANZwp8viR623w
- AwfT875w1R9B9N/4EQZBB7/+x5BgK2qSAHrgh/A1xhJGzlz6D/4qToanc
- m+inIj78dyZbXUz854hbWlPvL6kyAzQTQ91J7BUkSKdwjwu8EUvr5vmVI
- d/BB7qfdWdNcaw/MMItLx7oW1Z4NBmNWPKdTY7S/sTw8FXw1zbNNT3Mwn
- W8TgWqDuePyKOo4AWc05sU41rCUrsGjQ9BOj8zuxm6C3t2tMK9lb0rpMs w==;
-IronPort-SDR: QPkvKxcBbtM2FumAapb5hdA+XVguV+ZDWKCPgHyn5MGecyEjUXXoiIFGnxLZQrU1UR1WIr6HdK
- vB9mN5eeN+JOsdVq3+L6EzVmM33FNOXh5i2tMXSRXKUdnqqmsePneJ02exS30CRt2I0OjYzhRv
- 4n+FbATSnXx0POgSHzrO7ghuvxdg7a6TKuH7awwNTIsCbZZtREEE6JkOO/PqA20fRBgAr1rzWP
- 0QYQF4MonrBvlaIH+nxqtObBokvBTZvNr7mB/XGuU+3jr+ibiBHGcxdFUl0jXeUX6Bz06U7i4E
- Yi8=
-X-IronPort-AV: E=Sophos;i="5.78,401,1599494400"; d="scan'208";a="154714907"
-Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
- ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 08 Dec 2020 15:34:22 +0800
-IronPort-SDR: zuaqQLesv1h6wR559IymZVajzNoYdhWc3hvz5tdXd1L5l9yPvrtIvoG0aE9r+98CbmjW6nAxsu
- 56sdhaejdGeQhDHQdrb0TvpXfvPn/1oe4=
-Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
- by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 07 Dec 2020 23:19:50 -0800
-IronPort-SDR: JMVJ8mx7Xy6crK0/XfKx5uj3ra4FohOSC500pUCsWh6UakvUW/4UD4PevvpK0X/1zGF/bnO2GB
- 9idwlIbK9mXg==
-WDCIronportException: Internal
-Received: from wdapacbjl0003.my.asia.wdc.com (HELO twashi.fujisawa.hgst.com)
- ([10.84.71.173])
- by uls-op-cesaip02.wdc.com with ESMTP; 07 Dec 2020 23:34:21 -0800
-From: Damien Le Moal <damien.lemoal@wdc.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
- Rob Herring <robh+dt@kernel.org>, devicetree@vger.kernel.org,
- Stephen Boyd <sboyd@kernel.org>, linux-clk@vger.kernel.org,
- Linus Walleij <linus.walleij@linaro.org>, linux-gpio@vger.kernel.org,
- Philipp Zabel <p.zabel@pengutronix.de>
-Subject: [PATCH v5 11/21] riscv: Add Canaan Kendryte K210 clock driver
-Date: Tue,  8 Dec 2020 16:33:45 +0900
-Message-Id: <20201208073355.40828-12-damien.lemoal@wdc.com>
-X-Mailer: git-send-email 2.28.0
-In-Reply-To: <20201208073355.40828-1-damien.lemoal@wdc.com>
-References: <20201208073355.40828-1-damien.lemoal@wdc.com>
+ id 1kmXCu-0004cO-HG
+ for linux-riscv@lists.infradead.org; Tue, 08 Dec 2020 07:14:47 +0000
+Received: by mail-pg1-x544.google.com with SMTP id t37so11374104pga.7
+ for <linux-riscv@lists.infradead.org>; Mon, 07 Dec 2020 23:14:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=cWofmxWlrcLCAjebkOUoBbZot4OIkJ43u78114PQi8E=;
+ b=EdwDEo3vJ1KzCXrXXGMxhpsSJsiVn5LfYwKaqr5I/SCK2jmY3Hf0Aru6W5SaiUAO/6
+ h3k5GQl0dYJojgBC71lSPLYRnDYFYJp0OB6bwQBP/qzGBtbyoxpWn9Xtw1Dh6uxt+TX3
+ GuVe7Jlm+3f+P+XljBozYqkqEiEQqOgQVzfMnqA/nwvYD5hSufno/hsMvSM0kQkA29y6
+ 6AB8N55LbDHcOx2dzg0BRRBJgzew6hcUuZmw3e4caSPKA9V64Uvy2teBe1k/LEz1zQwZ
+ i/WtDSW4QfPCb3VwXgPEMJxqjGDOiUHtprSBV/N0yjVqaxU1iriAk1VK8IhWh628rKZa
+ rJ6A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=cWofmxWlrcLCAjebkOUoBbZot4OIkJ43u78114PQi8E=;
+ b=dTmRrfcz2x7k9f6nr216MCWAGTxIXlxumnTg2qPDzCDvLsZhCwxNf80LL4SMp1Baf3
+ x/+RuuBizzRnjE2OyL6jyGaJM0gUb2+3SNDUH2Y4d/S9wwCj3r2hc7zWWY3JmsXXy8QB
+ NFdz8f10pm5RC4/OuyMkph5BcaxSFdimYKmxmlZK7K1/y7x5D4Sm+VK44tQ0gH+oa0qn
+ 18a4mo4XqE0YNGix7y+faUv+Tbqt2kR8tVBqdlVi1rxv3/Hl7J589qlgEGXqY77AcPKa
+ OfnKFJMX3az49Xp+UhFPrn8csYmcpcWRdntUjw2gXl+qh681zVDEn74j2eIZzApCTrn4
+ S+zw==
+X-Gm-Message-State: AOAM533ttk6iMA/4Bj1kzBp4tUvsPqAgs2XlGP9alxAJu0SxiloGxvyr
+ nBUOlJKbcvkPuGKQ1qZ0y0xyVQ==
+X-Google-Smtp-Source: ABdhPJx7f1ouqocmL+dflISAQ+5CFlK4tOj8VZiSb21RXyc71V/cWIL4i11z9xkQNSzKY7ouPeNqKw==
+X-Received: by 2002:a63:3205:: with SMTP id y5mr21668070pgy.47.1607411681623; 
+ Mon, 07 Dec 2020 23:14:41 -0800 (PST)
+Received: from hsinchu02.internal.sifive.com
+ (114-34-229-221.HINET-IP.hinet.net. [114.34.229.221])
+ by smtp.gmail.com with ESMTPSA id gp17sm1801318pjb.0.2020.12.07.23.14.38
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 07 Dec 2020 23:14:41 -0800 (PST)
+From: Zong Li <zong.li@sifive.com>
+To: paul.walmsley@sifive.com, palmer@dabbelt.com, sboyd@kernel.org,
+ schwab@linux-m68k.org, pragnesh.patel@openfive.com, aou@eecs.berkeley.edu,
+ mturquette@baylibre.com, yash.shah@sifive.com,
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Subject: [PATCH v6 1/5] clk: sifive: Extract prci core to common base
+Date: Tue,  8 Dec 2020 15:14:28 +0800
+Message-Id: <20201208071432.55583-2-zong.li@sifive.com>
+X-Mailer: git-send-email 2.29.2
+In-Reply-To: <20201208071432.55583-1-zong.li@sifive.com>
+References: <20201208071432.55583-1-zong.li@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201208_023423_683545_2B964A41 
-X-CRM114-Status: GOOD (  27.53  )
+X-CRM114-CacheID: sfid-20201208_021444_673181_33810F62 
+X-CRM114-Status: GOOD (  25.50  )
 X-Mailman-Approved-At: Tue, 08 Dec 2020 10:42:13 -0500
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -97,1486 +98,1431 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Sean Anderson <seanga2@gmail.com>
+Cc: Palmer Dabbelt <palmerdabbelt@google.com>,
+ Pragnesh Patel <Pragnesh.patel@sifive.com>, Zong Li <zong.li@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a clock provider driver for the Canaan Kendryte K210 RISC-V SoC.
-This new driver with the compatible string "canaan,k210-clk" implements
-support for the full clock structure of the K210 SoC. Since it is
-required for the correct operation of the SoC, this driver is
-automatically selected for compilation when the SOC_CANAAN option is
-selected.
+Extract common core of prci driver to an independent file, it could
+allow other chips to reuse it. Separate SoCs-dependent code 'fu540'
+from prci core, then we can easily add 'fu740' later.
 
-With this change, the k210-sysctl driver is turned into a simple
-platform driver which enables its power bus clock and triggers
-populating its child nodes. This driver is also automatically selected
-for compilation with the selection of SOC_CANAAN. The sysctl driver
-retains the SOC early initialization code, but the implementation now
-relies on the new function k210_clk_early_init() provided by the new
-clk-k210 driver. This function declaration is done using the new header
-file include/soc/canaan/k210-sysctl.h which also include register
-definitions for the system controller.
+Almost these changes are code movement. The different is adding the
+private data for each SoC use, so it needs to get match data in probe
+callback function, then use the data for initialization.
 
-The clock structure implemented and many of the coding ideas for the
-driver come from the work by Sean Anderson on the K210 support for the
-U-Boot project.
-
-The MAINTAINERS file is updated, adding the entry "CANAAN/KENDRYTE
-K210 SOC SYSTEM CONTROLLER DRIVER" with myself listed as maintainer
-for this driver.
-
-Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
+Signed-off-by: Zong Li <zong.li@sifive.com>
+Reviewed-by: Pragnesh Patel <Pragnesh.patel@sifive.com>
+Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
 ---
- MAINTAINERS                      |    8 +
- drivers/clk/Kconfig              |    8 +
- drivers/clk/Makefile             |    1 +
- drivers/clk/clk-k210.c           | 1005 ++++++++++++++++++++++++++++++
- drivers/soc/canaan/Kconfig       |   18 +-
- drivers/soc/canaan/Makefile      |    2 +-
- drivers/soc/canaan/k210-sysctl.c |  248 ++------
- include/soc/canaan/k210-sysctl.h |   43 ++
- 8 files changed, 1113 insertions(+), 220 deletions(-)
- create mode 100644 drivers/clk/clk-k210.c
- create mode 100644 include/soc/canaan/k210-sysctl.h
+ drivers/clk/sifive/Makefile                   |   2 +
+ drivers/clk/sifive/fu540-prci.c               | 579 +-----------------
+ drivers/clk/sifive/fu540-prci.h               |  21 +
+ .../sifive/{fu540-prci.c => sifive-prci.c}    | 396 +++---------
+ drivers/clk/sifive/sifive-prci.h              | 201 ++++++
+ 5 files changed, 322 insertions(+), 877 deletions(-)
+ create mode 100644 drivers/clk/sifive/fu540-prci.h
+ copy drivers/clk/sifive/{fu540-prci.c => sifive-prci.c} (41%)
+ create mode 100644 drivers/clk/sifive/sifive-prci.h
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 6f474153dbec..85a6a0beebd1 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3831,6 +3831,14 @@ W:	https://github.com/Cascoda/ca8210-linux.git
- F:	Documentation/devicetree/bindings/net/ieee802154/ca8210.txt
- F:	drivers/net/ieee802154/ca8210.c
- 
-+CANAAN/KENDRYTE K210 SOC SYSTEM CONTROLLER DRIVER
-+M:	Damien Le Moal <damien.lemoal@wdc.com>
-+L:	linux-riscv@lists.infradead.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/mfd/canaan,k210-sysctl.yaml
-+F:	drivers/soc/canaan/
-+F:	include/soc/canaan/
-+
- CACHEFILES: FS-CACHE BACKEND FOR CACHING ON MOUNTED FILESYSTEMS
- M:	David Howells <dhowells@redhat.com>
- L:	linux-cachefs@redhat.com (moderated for non-subscribers)
-diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
-index c715d4681a0b..bd899707cc31 100644
---- a/drivers/clk/Kconfig
-+++ b/drivers/clk/Kconfig
-@@ -359,6 +359,14 @@ config COMMON_CLK_FIXED_MMIO
- 	help
- 	  Support for Memory Mapped IO Fixed clocks
- 
-+config COMMON_CLK_K210
-+	bool "Clock driver for the Canaan Kendryte K210 SoC"
-+	depends on COMMON_CLK && OF
-+	depends on RISCV && SOC_CANAAN
-+	default SOC_CANAAN
-+	help
-+	  Support for the Canaan Kendryte K210 RISC-V SoC clocks.
-+
- source "drivers/clk/actions/Kconfig"
- source "drivers/clk/analogbits/Kconfig"
- source "drivers/clk/baikal-t1/Kconfig"
-diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
-index da8fcf147eb1..573a060c7e57 100644
---- a/drivers/clk/Makefile
-+++ b/drivers/clk/Makefile
-@@ -36,6 +36,7 @@ obj-$(CONFIG_COMMON_CLK_ASPEED)		+= clk-aspeed.o
- obj-$(CONFIG_MACH_ASPEED_G6)		+= clk-ast2600.o
- obj-$(CONFIG_ARCH_HIGHBANK)		+= clk-highbank.o
- obj-$(CONFIG_CLK_HSDK)			+= clk-hsdk-pll.o
-+obj-$(CONFIG_COMMON_CLK_K210)		+= clk-k210.o
- obj-$(CONFIG_COMMON_CLK_LOCHNAGAR)	+= clk-lochnagar.o
- obj-$(CONFIG_COMMON_CLK_MAX77686)	+= clk-max77686.o
- obj-$(CONFIG_COMMON_CLK_MAX9485)	+= clk-max9485.o
-diff --git a/drivers/clk/clk-k210.c b/drivers/clk/clk-k210.c
-new file mode 100644
-index 000000000000..1d528395527c
---- /dev/null
-+++ b/drivers/clk/clk-k210.c
-@@ -0,0 +1,1005 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Copyright (C) 2019-20 Sean Anderson <seanga2@gmail.com>
-+ * Copyright (c) 2019 Western Digital Corporation or its affiliates.
-+ */
-+#define pr_fmt(fmt)     "k210-clk: " fmt
-+
-+#include <linux/io.h>
-+#include <linux/slab.h>
-+#include <linux/spinlock.h>
-+#include <linux/platform_device.h>
-+#include <linux/of.h>
-+#include <linux/of_platform.h>
-+#include <linux/of_address.h>
-+#include <linux/clk-provider.h>
-+#include <linux/clk.h>
-+#include <linux/bitfield.h>
-+#include <linux/delay.h>
-+#include <asm/soc.h>
-+#include <soc/canaan/k210-sysctl.h>
-+
-+#include <dt-bindings/clock/k210-clk.h>
-+
-+/*
-+ * Clocks parameters.
-+ */
-+struct k210_clk_cfg {
-+	const char *name;
-+	u8 gate_reg;
-+	u8 gate_bit;
-+	u8 div_reg;
-+	u8 div_shift;
-+	u8 div_width;
-+	u8 div_type;
-+	u8 mux_reg;
-+	u8 mux_bit;
-+};
-+
-+enum k210_clk_div_type {
-+	K210_DIV_NONE,
-+	K210_DIV_ONE_BASED,
-+	K210_DIV_DOUBLE_ONE_BASED,
-+	K210_DIV_POWER_OF_TWO,
-+};
-+
-+#define K210_GATE(_reg, _bit)	\
-+	.gate_reg = (_reg),	\
-+	.gate_bit = (_bit)
-+#define K210_DIV(_reg, _shift, _width, _type)	\
-+	.div_reg = (_reg),			\
-+	.div_shift = (_shift),			\
-+	.div_width = (_width),			\
-+	.div_type = (_type)
-+#define K210_MUX(_reg, _bit)	\
-+	.mux_reg = (_reg),	\
-+	.mux_bit = (_bit)
-+
-+static struct k210_clk_cfg k210_clks[K210_NUM_CLKS] = {
-+
-+	/* Gated clocks, no mux, no divider */
-+	[K210_CLK_CPU] = {
-+		.name = "cpu",
-+		K210_GATE(K210_SYSCTL_EN_CENT, 0)
-+	},
-+	[K210_CLK_DMA] = {
-+		.name = "dma",
-+		K210_GATE(K210_SYSCTL_EN_PERI, 1)
-+	},
-+	[K210_CLK_FFT] = {
-+		.name = "fft",
-+		K210_GATE(K210_SYSCTL_EN_PERI, 4)
-+	},
-+	[K210_CLK_GPIO] = {
-+		.name = "gpio",
-+		K210_GATE(K210_SYSCTL_EN_PERI, 5)
-+	},
-+	[K210_CLK_UART1] = {
-+		.name = "uart1",
-+		K210_GATE(K210_SYSCTL_EN_PERI, 16)
-+	},
-+	[K210_CLK_UART2] = {
-+		.name = "uart2",
-+		K210_GATE(K210_SYSCTL_EN_PERI, 17)
-+	},
-+	[K210_CLK_UART3] = {
-+		.name = "uart3",
-+		K210_GATE(K210_SYSCTL_EN_PERI, 18)
-+	},
-+	[K210_CLK_FPIOA] = {
-+		.name = "fpioa",
-+		K210_GATE(K210_SYSCTL_EN_PERI, 20)
-+	},
-+	[K210_CLK_SHA] = {
-+		.name = "sha",
-+		K210_GATE(K210_SYSCTL_EN_PERI, 26)
-+	},
-+	[K210_CLK_AES] = {
-+		.name = "aes",
-+		K210_GATE(K210_SYSCTL_EN_PERI, 19)
-+	},
-+	[K210_CLK_OTP] = {
-+		.name = "otp",
-+		K210_GATE(K210_SYSCTL_EN_PERI, 27)
-+	},
-+	[K210_CLK_RTC] = {
-+		.name = "rtc",
-+		K210_GATE(K210_SYSCTL_EN_PERI, 29)
-+	},
-+
-+	/* Gated divider clocks */
-+	[K210_CLK_SRAM0] = {
-+		.name = "sram0",
-+		K210_GATE(K210_SYSCTL_EN_CENT, 1),
-+		K210_DIV(K210_SYSCTL_THR0, 0, 4, K210_DIV_ONE_BASED)
-+	},
-+	[K210_CLK_SRAM1] = {
-+		.name = "sram1",
-+		K210_GATE(K210_SYSCTL_EN_CENT, 2),
-+		K210_DIV(K210_SYSCTL_THR0, 4, 4, K210_DIV_ONE_BASED)
-+	},
-+	[K210_CLK_ROM] = {
-+		.name = "rom",
-+		K210_GATE(K210_SYSCTL_EN_PERI, 0),
-+		K210_DIV(K210_SYSCTL_THR0, 16, 4, K210_DIV_ONE_BASED)
-+	},
-+	[K210_CLK_DVP] = {
-+		.name = "dvp",
-+		K210_GATE(K210_SYSCTL_EN_PERI, 3),
-+		K210_DIV(K210_SYSCTL_THR0, 12, 4, K210_DIV_ONE_BASED)
-+	},
-+	[K210_CLK_APB0] = {
-+		.name = "apb0",
-+		K210_GATE(K210_SYSCTL_EN_CENT, 3),
-+		K210_DIV(K210_SYSCTL_SEL0, 3, 3, K210_DIV_ONE_BASED)
-+	},
-+	[K210_CLK_APB1] = {
-+		.name = "apb1",
-+		K210_GATE(K210_SYSCTL_EN_CENT, 4),
-+		K210_DIV(K210_SYSCTL_SEL0, 6, 3, K210_DIV_ONE_BASED)
-+	},
-+	[K210_CLK_APB2] = {
-+		.name = "apb2",
-+		K210_GATE(K210_SYSCTL_EN_CENT, 5),
-+		K210_DIV(K210_SYSCTL_SEL0, 9, 3, K210_DIV_ONE_BASED)
-+	},
-+	[K210_CLK_AI] = {
-+		.name = "ai",
-+		K210_GATE(K210_SYSCTL_EN_PERI, 2),
-+		K210_DIV(K210_SYSCTL_THR0, 8, 4, K210_DIV_ONE_BASED)
-+	},
-+	[K210_CLK_SPI0] = {
-+		.name = "spi0",
-+		K210_GATE(K210_SYSCTL_EN_PERI, 6),
-+		K210_DIV(K210_SYSCTL_THR1, 0, 8, K210_DIV_DOUBLE_ONE_BASED)
-+	},
-+	[K210_CLK_SPI1] = {
-+		.name = "spi1",
-+		K210_GATE(K210_SYSCTL_EN_PERI, 7),
-+		K210_DIV(K210_SYSCTL_THR1, 8, 8, K210_DIV_DOUBLE_ONE_BASED)
-+	},
-+	[K210_CLK_SPI2] = {
-+		.name = "spi2",
-+		K210_GATE(K210_SYSCTL_EN_PERI, 8),
-+		K210_DIV(K210_SYSCTL_THR1, 16, 8, K210_DIV_DOUBLE_ONE_BASED)
-+	},
-+	[K210_CLK_I2C0] = {
-+		.name = "i2c0",
-+		K210_GATE(K210_SYSCTL_EN_PERI, 13),
-+		K210_DIV(K210_SYSCTL_THR5, 8, 8, K210_DIV_DOUBLE_ONE_BASED)
-+	},
-+	[K210_CLK_I2C1] = {
-+		.name = "i2c1",
-+		K210_GATE(K210_SYSCTL_EN_PERI, 14),
-+		K210_DIV(K210_SYSCTL_THR5, 16, 8, K210_DIV_DOUBLE_ONE_BASED)
-+	},
-+	[K210_CLK_I2C2] = {
-+		.name = "i2c2",
-+		K210_GATE(K210_SYSCTL_EN_PERI, 15),
-+		K210_DIV(K210_SYSCTL_THR5, 24, 8, K210_DIV_DOUBLE_ONE_BASED)
-+	},
-+	[K210_CLK_WDT0] = {
-+		.name = "wdt0",
-+		K210_GATE(K210_SYSCTL_EN_PERI, 24),
-+		K210_DIV(K210_SYSCTL_THR6, 0, 8, K210_DIV_DOUBLE_ONE_BASED)
-+	},
-+	[K210_CLK_WDT1] = {
-+		.name = "wdt1",
-+		K210_GATE(K210_SYSCTL_EN_PERI, 25),
-+		K210_DIV(K210_SYSCTL_THR6, 8, 8, K210_DIV_DOUBLE_ONE_BASED)
-+	},
-+	[K210_CLK_I2S0] = {
-+		.name = "i2s0",
-+		K210_GATE(K210_SYSCTL_EN_PERI, 10),
-+		K210_DIV(K210_SYSCTL_THR3, 0, 16, K210_DIV_DOUBLE_ONE_BASED)
-+	},
-+	[K210_CLK_I2S1] = {
-+		.name = "i2s1",
-+		K210_GATE(K210_SYSCTL_EN_PERI, 11),
-+		K210_DIV(K210_SYSCTL_THR3, 16, 16, K210_DIV_DOUBLE_ONE_BASED)
-+	},
-+	[K210_CLK_I2S2] = {
-+		.name = "i2s2",
-+		K210_GATE(K210_SYSCTL_EN_PERI, 12),
-+		K210_DIV(K210_SYSCTL_THR4, 0, 16, K210_DIV_DOUBLE_ONE_BASED)
-+	},
-+
-+	/* Divider clocks, no gate, no mux */
-+	[K210_CLK_I2S0_M] = {
-+		.name = "i2s0_m",
-+		K210_DIV(K210_SYSCTL_THR4, 16, 8, K210_DIV_DOUBLE_ONE_BASED)
-+	},
-+	[K210_CLK_I2S1_M] = {
-+		.name = "i2s1_m",
-+		K210_DIV(K210_SYSCTL_THR4, 24, 8, K210_DIV_DOUBLE_ONE_BASED)
-+	},
-+	[K210_CLK_I2S2_M] = {
-+		.name = "i2s2_m",
-+		K210_DIV(K210_SYSCTL_THR4, 0, 8, K210_DIV_DOUBLE_ONE_BASED)
-+	},
-+
-+	/* Muxed gated divider clocks */
-+	[K210_CLK_SPI3] = {
-+		.name = "spi3",
-+		K210_GATE(K210_SYSCTL_EN_PERI, 9),
-+		K210_DIV(K210_SYSCTL_THR1, 24, 8, K210_DIV_DOUBLE_ONE_BASED),
-+		K210_MUX(K210_SYSCTL_SEL0, 12)
-+	},
-+	[K210_CLK_TIMER0] = {
-+		.name = "timer0",
-+		K210_GATE(K210_SYSCTL_EN_PERI, 21),
-+		K210_DIV(K210_SYSCTL_THR2,  0, 8, K210_DIV_DOUBLE_ONE_BASED),
-+		K210_MUX(K210_SYSCTL_SEL0, 13)
-+	},
-+	[K210_CLK_TIMER1] = {
-+		.name = "timer1",
-+		K210_GATE(K210_SYSCTL_EN_PERI, 22),
-+		K210_DIV(K210_SYSCTL_THR2, 8, 8, K210_DIV_DOUBLE_ONE_BASED),
-+		K210_MUX(K210_SYSCTL_SEL0, 14)
-+	},
-+	[K210_CLK_TIMER2] = {
-+		.name = "timer2",
-+		K210_GATE(K210_SYSCTL_EN_PERI, 23),
-+		K210_DIV(K210_SYSCTL_THR2, 16, 8, K210_DIV_DOUBLE_ONE_BASED),
-+		K210_MUX(K210_SYSCTL_SEL0, 15)
-+	},
-+};
-+
-+/*
-+ * PLL control register bits.
-+ */
-+#define K210_PLL_CLKR		GENMASK(3, 0)
-+#define K210_PLL_CLKF		GENMASK(9, 4)
-+#define K210_PLL_CLKOD		GENMASK(13, 10)
-+#define K210_PLL_BWADJ		GENMASK(19, 14)
-+#define K210_PLL_RESET		(1 << 20)
-+#define K210_PLL_PWRD		(1 << 21)
-+#define K210_PLL_INTFB		(1 << 22)
-+#define K210_PLL_BYPASS		(1 << 23)
-+#define K210_PLL_TEST		(1 << 24)
-+#define K210_PLL_EN		(1 << 25)
-+#define K210_PLL_SEL		GENMASK(27, 26) /* PLL2 only */
-+
-+/*
-+ * PLL lock register bits.
-+ */
-+#define K210_PLL_LOCK		0
-+#define K210_PLL_CLEAR_SLIP	2
-+#define K210_PLL_TEST_OUT	3
-+
-+/*
-+ * Clock selector register bits.
-+ */
-+#define K210_ACLK_SEL		BIT(0)
-+#define K210_ACLK_DIV		GENMASK(2, 1)
-+
-+/*
-+ * PLLs.
-+ */
-+enum k210_pll_id {
-+	K210_PLL0, K210_PLL1, K210_PLL2, K210_PLL_NUM
-+};
-+
-+struct k210_pll {
-+	enum k210_pll_id id;
-+	void __iomem *reg;
-+	void __iomem *lock;
-+	u8 lock_shift;
-+	u8 lock_width;
-+	struct clk_hw hw;
-+};
-+#define to_k210_pll(hw)	container_of(hw, struct k210_pll, hw)
-+
-+/*
-+ * PLLs configuration: by default PLL0 runs at 780 MHz and PLL1 at 299 MHz.
-+ * The first 2 SRAM banks depend on ACLK/CPU clock which is by default PLL0
-+ * rate divided by 2. Set PLL1 to 390 MHz so that the third SRAM bank has the
-+ * same clock as the first 2.
-+ */
-+struct k210_pll_cfg {
-+	u32 reg;
-+	u8 lock_shift;
-+	u8 lock_width;
-+	u32 r;
-+	u32 f;
-+	u32 od;
-+	u32 bwadj;
-+};
-+
-+static struct k210_pll_cfg k210_plls_cfg[] = {
-+	{ K210_SYSCTL_PLL0,  0, 2, 0, 59, 1, 59 }, /* 780 MHz */
-+	{ K210_SYSCTL_PLL1,  8, 1, 0, 59, 3, 59 }, /* 390 MHz */
-+	{ K210_SYSCTL_PLL2, 16, 1, 0, 22, 1, 22 }, /* 299 MHz */
-+};
-+
-+/*
-+ * Indexes in the parents array of clocks used as parents to other clocks.
-+ */
-+enum k210_parent_idx {
-+	K210_PARENT_IN0 = 0,
-+	K210_PARENT_PLL0,
-+	K210_PARENT_PLL1,
-+	K210_PARENT_PLL2,
-+	K210_PARENT_ACLK,
-+	K210_PARENT_APB0,
-+	K210_PARENT_APB1,
-+	K210_PARENT_NUM_CLKS,
-+};
-+
-+/**
-+ * struct k210_clk - Driver data
-+ * @regs: system controller registers start address
-+ * @clk_lock: clock setting spinlock
-+ * @plls: SoC PLLs descriptors
-+ * @aclk: ACLK clock
-+ * @clks: All other clocks
-+ * @parents: array of pointers to clocks used as parents for muxed clocks.
-+ * @clk_data: clock specifier translation for all clocks
-+ */
-+struct k210_clk {
-+	void __iomem			*regs;
-+	spinlock_t			clk_lock;
-+	struct k210_pll			plls[K210_PLL_NUM];
-+	struct clk_hw			aclk;
-+	struct clk_hw			clks[K210_NUM_CLKS];
-+	const struct clk_hw		*parents[K210_PARENT_NUM_CLKS];
-+	struct clk_hw_onecell_data	*clk_data;
-+};
-+
-+static struct k210_clk *kcl;
-+
-+/*
-+ * Set ACLK parent selector: 0 for IN0, 1 for PLL0.
-+ */
-+static void k210_aclk_set_selector(u8 sel)
-+{
-+	u32 reg = readl(kcl->regs + K210_SYSCTL_SEL0);
-+
-+	if (sel)
-+		reg |= K210_ACLK_SEL;
-+	else
-+		reg &= K210_ACLK_SEL;
-+	writel(reg, kcl->regs + K210_SYSCTL_SEL0);
-+}
-+
-+static void k210_init_pll(struct k210_pll *pll, enum k210_pll_id id,
-+			  void __iomem *base)
-+{
-+	pll->id = id;
-+	pll->lock = base + K210_SYSCTL_PLL_LOCK;
-+	pll->reg = base + k210_plls_cfg[id].reg;
-+	pll->lock_shift = k210_plls_cfg[id].lock_shift;
-+	pll->lock_width = k210_plls_cfg[id].lock_width;
-+}
-+
-+static void k210_pll_wait_for_lock(struct k210_pll *pll)
-+{
-+	u32 reg, mask = GENMASK(pll->lock_shift + pll->lock_width - 1,
-+				pll->lock_shift);
-+
-+	while (true) {
-+		reg = readl(pll->lock);
-+		if ((reg & mask) == mask)
-+			break;
-+
-+		reg |= BIT(pll->lock_shift + K210_PLL_CLEAR_SLIP);
-+		writel(reg, pll->lock);
-+	}
-+}
-+
-+static bool k210_pll_hw_is_enabled(struct k210_pll *pll)
-+{
-+	u32 reg = readl(pll->reg);
-+	u32 mask = K210_PLL_PWRD | K210_PLL_EN;
-+
-+	if (reg & K210_PLL_RESET)
-+		return false;
-+
-+	return (reg & mask) == mask;
-+}
-+
-+static void k210_pll_enable_hw(struct k210_pll *pll)
-+{
-+	struct k210_pll_cfg *pll_cfg = &k210_plls_cfg[pll->id];
-+	unsigned long flags;
-+	u32 reg;
-+
-+	spin_lock_irqsave(&kcl->clk_lock, flags);
-+
-+	if (k210_pll_hw_is_enabled(pll))
-+		goto unlock;
-+
-+	/*
-+	 * For PLL0, we need to re-parent ACLK to IN0 to keep the CPU cores and
-+	 * SRAM running.
-+	 */
-+	if (pll->id == K210_PLL0)
-+		k210_aclk_set_selector(0);
-+
-+	/* Set PLL factors */
-+	reg = readl(pll->reg);
-+	reg &= ~GENMASK(19, 0);
-+	reg |= FIELD_PREP(K210_PLL_CLKR, pll_cfg->r);
-+	reg |= FIELD_PREP(K210_PLL_CLKF, pll_cfg->f);
-+	reg |= FIELD_PREP(K210_PLL_CLKOD, pll_cfg->od);
-+	reg |= FIELD_PREP(K210_PLL_BWADJ, pll_cfg->bwadj);
-+	reg |= K210_PLL_PWRD;
-+	writel(reg, pll->reg);
-+
-+	/*
-+	 * Reset the PLL: ensure reset is low before asserting it.
-+	 * The magic NOPs come from the Kendryte reference SDK.
-+	 */
-+	reg &= ~K210_PLL_RESET;
-+	writel(reg, pll->reg);
-+	reg |= K210_PLL_RESET;
-+	writel(reg, pll->reg);
-+	nop();
-+	nop();
-+	reg &= ~K210_PLL_RESET;
-+	writel(reg, pll->reg);
-+
-+	k210_pll_wait_for_lock(pll);
-+
-+	reg &= ~K210_PLL_BYPASS;
-+	reg |= K210_PLL_EN;
-+	writel(reg, pll->reg);
-+
-+	if (pll->id == K210_PLL0)
-+		k210_aclk_set_selector(1);
-+
-+unlock:
-+	spin_unlock_irqrestore(&kcl->clk_lock, flags);
-+}
-+
-+static void k210_pll_disable_hw(struct k210_pll *pll)
-+{
-+	unsigned long flags;
-+	u32 reg;
-+
-+	/*
-+	 * Bypassing before powering off is important so child clocks do not
-+	 * stop working. This is especially important for pll0, the indirect
-+	 * parent of the cpu clock.
-+	 */
-+	spin_lock_irqsave(&kcl->clk_lock, flags);
-+	reg = readl(pll->reg);
-+	reg |= K210_PLL_BYPASS;
-+	writel(reg, pll->reg);
-+
-+	reg &= ~K210_PLL_PWRD;
-+	reg &= ~K210_PLL_EN;
-+	writel(reg, pll->reg);
-+	spin_unlock_irqrestore(&kcl->clk_lock, flags);
-+}
-+
-+static int k210_pll_enable(struct clk_hw *hw)
-+{
-+	k210_pll_enable_hw(to_k210_pll(hw));
-+
-+	return 0;
-+}
-+
-+static void k210_pll_disable(struct clk_hw *hw)
-+{
-+	k210_pll_disable_hw(to_k210_pll(hw));
-+}
-+
-+static int k210_pll_is_enabled(struct clk_hw *hw)
-+{
-+	return k210_pll_hw_is_enabled(to_k210_pll(hw));
-+}
-+
-+static unsigned long k210_pll_get_rate(struct clk_hw *hw,
-+				       unsigned long parent_rate)
-+{
-+	struct k210_pll *pll = to_k210_pll(hw);
-+	u32 reg = readl(pll->reg);
-+	u32 r, f, od;
-+
-+	if (reg & K210_PLL_BYPASS)
-+		return parent_rate;
-+
-+	if (!(reg & K210_PLL_PWRD))
-+		return 0;
-+
-+	r = FIELD_GET(K210_PLL_CLKR, reg) + 1;
-+	f = FIELD_GET(K210_PLL_CLKF, reg) + 1;
-+	od = FIELD_GET(K210_PLL_CLKOD, reg) + 1;
-+
-+	return (u64)parent_rate * f / (r * od);
-+}
-+
-+static const struct clk_ops k210_pll_ops = {
-+	.enable		= k210_pll_enable,
-+	.disable	= k210_pll_disable,
-+	.is_enabled	= k210_pll_is_enabled,
-+	.recalc_rate	= k210_pll_get_rate,
-+};
-+
-+static int k210_pll2_set_parent(struct clk_hw *hw, u8 index)
-+{
-+	struct k210_pll *pll = to_k210_pll(hw);
-+	unsigned long flags;
-+	u32 reg;
-+
-+	spin_lock_irqsave(&kcl->clk_lock, flags);
-+
-+	reg = readl(pll->reg);
-+	reg &= ~K210_PLL_SEL;
-+	reg |= FIELD_PREP(K210_PLL_SEL, index);
-+	writel(reg, pll->reg);
-+
-+	spin_unlock_irqrestore(&kcl->clk_lock, flags);
-+
-+	return 0;
-+}
-+
-+static u8 k210_pll2_get_parent(struct clk_hw *hw)
-+{
-+	struct k210_pll *pll = to_k210_pll(hw);
-+	u32 reg = readl(pll->reg);
-+
-+	return FIELD_GET(K210_PLL_SEL, reg);
-+}
-+
-+static const struct clk_ops k210_pll2_ops = {
-+	.enable		= k210_pll_enable,
-+	.disable	= k210_pll_disable,
-+	.is_enabled	= k210_pll_is_enabled,
-+	.recalc_rate	= k210_pll_get_rate,
-+	.set_parent	= k210_pll2_set_parent,
-+	.get_parent	= k210_pll2_get_parent,
-+};
-+
-+static int k210_register_pll(struct k210_pll *pll, const char *name,
-+			     int num_parents, const struct clk_ops *ops)
-+{
-+	struct clk_init_data init = {};
-+
-+	init.name = name;
-+	init.parent_hws = kcl->parents;
-+	init.num_parents = num_parents;
-+	init.ops = ops;
-+	pll->hw.init = &init;
-+
-+	return clk_hw_register(NULL, &pll->hw);
-+}
-+
-+static int k210_register_plls(struct device_node *np)
-+{
-+	int i, ret;
-+
-+	for (i = 0; i < K210_PLL_NUM; i++)
-+		k210_init_pll(&kcl->plls[i], i, kcl->regs);
-+
-+	/* PLL0 and PLL1 only have IN0 as parent */
-+	ret = k210_register_pll(&kcl->plls[K210_PLL0], "pll0", 1,
-+				&k210_pll_ops);
-+	if (ret) {
-+		pr_err("%pOFP: register PLL0 failed\n", np);
-+		return ret;
-+	}
-+	kcl->parents[K210_PARENT_PLL0] = &kcl->plls[K210_PLL0].hw;
-+
-+	ret = k210_register_pll(&kcl->plls[K210_PLL1], "pll1", 1,
-+				&k210_pll_ops);
-+	if (ret) {
-+		pr_err("%pOFP: register PLL1 failed\n", np);
-+		return ret;
-+	}
-+	kcl->parents[K210_PARENT_PLL1] = &kcl->plls[K210_PLL1].hw;
-+
-+	/* PLL2 has IN0, PLL0 and PLL1 as parents */
-+	ret = k210_register_pll(&kcl->plls[K210_PLL2], "pll2", 3,
-+				&k210_pll2_ops);
-+	if (ret) {
-+		pr_err("%pOFP: register PLL2 failed\n", np);
-+		return ret;
-+	}
-+	kcl->parents[K210_PARENT_PLL2] = &kcl->plls[K210_PLL2].hw;
-+
-+	return 0;
-+}
-+
-+static int k210_aclk_set_parent(struct clk_hw *hw, u8 index)
-+{
-+	k210_aclk_set_selector(index);
-+
-+	return 0;
-+}
-+
-+static u8 k210_aclk_get_parent(struct clk_hw *hw)
-+{
-+	u32 sel;
-+
-+	sel = readl(kcl->regs + K210_SYSCTL_SEL0) & K210_ACLK_SEL;
-+
-+	return sel ? 1 : 0;
-+}
-+
-+static unsigned long k210_aclk_get_rate(struct clk_hw *hw,
-+					unsigned long parent_rate)
-+{
-+	u32 reg = readl(kcl->regs + K210_SYSCTL_SEL0);
-+	unsigned int shift;
-+
-+	if (!(reg & 0x1))
-+		return parent_rate;
-+
-+	shift = FIELD_GET(K210_ACLK_DIV, reg);
-+
-+	return parent_rate / (2UL << shift);
-+}
-+
-+static const struct clk_ops k210_aclk_ops = {
-+	.set_parent	= k210_aclk_set_parent,
-+	.get_parent	= k210_aclk_get_parent,
-+	.recalc_rate	= k210_aclk_get_rate,
-+};
-+
-+static int k210_register_aclk(struct device_node *np)
-+{
-+	struct clk_init_data init = {};
-+	int ret;
-+
-+	/* ACLK has IN0 and PLL0 as parents */
-+	init.name = "aclk";
-+	init.parent_hws = kcl->parents;
-+	init.num_parents = 2;
-+	init.ops = &k210_aclk_ops;
-+	kcl->aclk.init = &init;
-+
-+	ret = clk_hw_register(NULL, &kcl->aclk);
-+	if (ret) {
-+		pr_err("%pOFP: register aclk failed\n", np);
-+		return ret;
-+	}
-+
-+	kcl->parents[K210_PARENT_ACLK] = &kcl->aclk;
-+
-+	return 0;
-+}
-+
-+#define to_k210_clk_id(hw)	((unsigned int)((hw) - &kcl->clks[0]))
-+#define to_k210_clk_cfg(hw)	(&k210_clks[to_k210_clk_id(hw)])
-+
-+static u32 k210_clk_get_div_val(struct k210_clk_cfg *kclk)
-+{
-+	u32 reg = readl(kcl->regs + kclk->div_reg);
-+
-+	return (reg >> kclk->div_shift) & GENMASK(kclk->div_width - 1, 0);
-+}
-+
-+static unsigned long k210_clk_divider(struct k210_clk_cfg *kclk,
-+				      u32 div_val)
-+{
-+	switch (kclk->div_type) {
-+	case K210_DIV_ONE_BASED:
-+		return div_val + 1;
-+	case K210_DIV_DOUBLE_ONE_BASED:
-+		return (div_val + 1) * 2;
-+	case K210_DIV_POWER_OF_TWO:
-+		return 2UL << div_val;
-+	case K210_DIV_NONE:
-+	default:
-+		return 0;
-+	}
-+}
-+
-+static int k210_clk_enable(struct clk_hw *hw)
-+{
-+	struct k210_clk_cfg *kclk = to_k210_clk_cfg(hw);
-+	unsigned long flags;
-+	u32 reg;
-+
-+	if (!kclk->gate_reg)
-+		return 0;
-+
-+	spin_lock_irqsave(&kcl->clk_lock, flags);
-+	reg = readl(kcl->regs + kclk->gate_reg);
-+	reg |= BIT(kclk->gate_bit);
-+	writel(reg, kcl->regs + kclk->gate_reg);
-+	spin_unlock_irqrestore(&kcl->clk_lock, flags);
-+
-+	return 0;
-+}
-+
-+static void k210_clk_disable(struct clk_hw *hw)
-+{
-+	struct k210_clk_cfg *kclk = to_k210_clk_cfg(hw);
-+	unsigned long flags;
-+	u32 reg;
-+
-+	if (!kclk->gate_reg)
-+		return;
-+
-+	spin_lock_irqsave(&kcl->clk_lock, flags);
-+	reg = readl(kcl->regs + kclk->gate_reg);
-+	reg &= ~BIT(kclk->gate_bit);
-+	writel(reg, kcl->regs + kclk->gate_reg);
-+	spin_unlock_irqrestore(&kcl->clk_lock, flags);
-+}
-+
-+static int k210_clk_set_parent(struct clk_hw *hw, u8 index)
-+{
-+	struct k210_clk_cfg *kclk = to_k210_clk_cfg(hw);
-+	unsigned long flags;
-+	u32 reg;
-+
-+	if (!kclk->mux_reg) {
-+		if (WARN_ON(index != 0))
-+			return -EINVAL;
-+		return 0;
-+	}
-+
-+	spin_lock_irqsave(&kcl->clk_lock, flags);
-+	reg = readl(kcl->regs + kclk->mux_reg);
-+	if (index)
-+		reg |= BIT(kclk->mux_bit);
-+	else
-+		reg &= ~BIT(kclk->mux_bit);
-+	spin_unlock_irqrestore(&kcl->clk_lock, flags);
-+
-+	return 0;
-+}
-+
-+static u8 k210_clk_get_parent(struct clk_hw *hw)
-+{
-+	struct k210_clk_cfg *kclk = to_k210_clk_cfg(hw);
-+	unsigned long flags;
-+	u32 reg, idx;
-+
-+	if (!kclk->mux_reg)
-+		return 0;
-+
-+	spin_lock_irqsave(&kcl->clk_lock, flags);
-+	reg = readl(kcl->regs + kclk->mux_reg);
-+	idx = (reg & BIT(kclk->mux_bit)) ? 1 : 0;
-+	spin_unlock_irqrestore(&kcl->clk_lock, flags);
-+
-+	return idx;
-+}
-+
-+static unsigned long k210_clk_get_rate(struct clk_hw *hw,
-+				       unsigned long parent_rate)
-+{
-+	struct k210_clk_cfg *kclk = to_k210_clk_cfg(hw);
-+	unsigned long divider;
-+
-+	if (!kclk->div_reg)
-+		return parent_rate;
-+
-+	divider = k210_clk_divider(kclk, k210_clk_get_div_val(kclk));
-+	if (WARN_ON(!divider))
-+		return 0;
-+
-+	return parent_rate / divider;
-+}
-+
-+static const struct clk_ops k210_clk_ops = {
-+	.enable		= k210_clk_enable,
-+	.disable	= k210_clk_disable,
-+	.set_parent	= k210_clk_set_parent,
-+	.get_parent	= k210_clk_get_parent,
-+	.recalc_rate	= k210_clk_get_rate,
-+};
-+
-+static struct clk_hw *k210_register_clk(int id, enum k210_parent_idx parent_idx,
-+					int num_parents, unsigned long flags)
-+{
-+	struct clk_init_data init = {};
-+	int ret;
-+
-+	init.name = k210_clks[id].name;
-+	init.parent_hws = &kcl->parents[parent_idx];
-+	init.num_parents = num_parents;
-+	init.flags = flags;
-+	init.ops = &k210_clk_ops;
-+	kcl->clks[id].init = &init;
-+
-+	ret = clk_hw_register(NULL, &kcl->clks[id]);
-+	if (ret)
-+		return ERR_PTR(ret);
-+
-+	return &kcl->clks[id];
-+}
-+
-+static inline struct clk_hw *k210_register_mux_clk(int id)
-+{
-+	/*
-+	 * All muxed clocks have IN0 and PLL0 as parents: these are the
-+	 * first two entries of the parents array.
-+	 */
-+	return k210_register_clk(id, K210_PARENT_IN0, 2, 0);
-+}
-+
-+static inline struct clk_hw *k210_register_critical_clk(int id,
-+					enum k210_parent_idx parent_idx)
-+{
-+	return k210_register_clk(id, parent_idx, 1, CLK_IS_CRITICAL);
-+}
-+
-+static inline struct clk_hw *k210_register_child(int id,
-+					enum k210_parent_idx parent_idx)
-+{
-+	return k210_register_clk(id, parent_idx, 1, 0);
-+}
-+
-+static inline struct clk_hw *k210_register_in0_child(int id)
-+{
-+	return k210_register_child(id, K210_PARENT_IN0);
-+}
-+
-+static inline struct clk_hw *k210_register_pll0_child(int id)
-+{
-+	return k210_register_child(id, K210_PARENT_PLL0);
-+}
-+
-+static inline struct clk_hw *k210_register_pll2_child(int id)
-+{
-+	return k210_register_child(id, K210_PARENT_PLL2);
-+}
-+
-+static inline struct clk_hw *k210_register_aclk_child(int id)
-+{
-+	return k210_register_child(id, K210_PARENT_ACLK);
-+}
-+
-+static inline struct clk_hw *k210_register_apb0_child(int id)
-+{
-+	return k210_register_child(id, K210_PARENT_APB0);
-+}
-+
-+static inline struct clk_hw *k210_register_apb1_child(int id)
-+{
-+	return k210_register_child(id, K210_PARENT_APB1);
-+}
-+
-+static void __init k210_clk_init(struct device_node *np)
-+{
-+	struct device_node *sysctl_np;
-+	struct clk_hw **hws;
-+	struct clk *in0;
-+	int i, ret;
-+
-+	kcl = kzalloc(sizeof(*kcl), GFP_KERNEL);
-+	if (!kcl)
-+		return;
-+
-+	kcl->clk_data = kzalloc(struct_size(kcl->clk_data, hws, K210_NUM_CLKS),
-+				GFP_KERNEL);
-+	if (!kcl->clk_data)
-+		return;
-+
-+	sysctl_np = of_get_parent(np);
-+	kcl->regs = of_iomap(sysctl_np, 0);
-+	of_node_put(sysctl_np);
-+	if (!kcl->regs) {
-+		pr_err("%pOFP: failed to map registers\n", np);
-+		return;
-+	}
-+
-+	spin_lock_init(&kcl->clk_lock);
-+	kcl->clk_data->num = K210_NUM_CLKS;
-+	hws = kcl->clk_data->hws;
-+	for (i = 0; i < K210_NUM_CLKS; i++)
-+		hws[i] = ERR_PTR(-EPROBE_DEFER);
-+
-+	/* Get the system base fixed-rate 26MHz oscillator clock */
-+	in0 = of_clk_get(np, 0);
-+	if (IS_ERR(in0)) {
-+		pr_err("%pOFP: failed to get base fixed-rate oscillator\n", np);
-+		return;
-+	}
-+	kcl->parents[K210_PARENT_IN0] = __clk_get_hw(in0);
-+
-+	ret = k210_register_plls(np);
-+	if (ret)
-+		return;
-+
-+	ret = k210_register_aclk(np);
-+	if (ret)
-+		return;
-+
-+	/*
-+	 * Critical clocks: there are no consumers of the SRAM clocks,
-+	 * including the AI clock for the third SRAM bank. The CPU clock
-+	 * is only referenced by the uarths serial device and so would be
-+	 * disabled if the serial console is disabled. Mark all these clocks
-+	 * as critical so that they are never disabled by the core clock
-+	 * management.
-+	 */
-+	hws[K210_CLK_CPU] =
-+		k210_register_critical_clk(K210_CLK_CPU, K210_PARENT_ACLK);
-+	hws[K210_CLK_SRAM0] =
-+		k210_register_critical_clk(K210_CLK_SRAM0, K210_PARENT_ACLK);
-+	hws[K210_CLK_SRAM1] =
-+		k210_register_critical_clk(K210_CLK_SRAM1, K210_PARENT_ACLK);
-+	hws[K210_CLK_AI] =
-+		 k210_register_critical_clk(K210_CLK_AI, K210_PARENT_PLL1);
-+
-+	/* Clocks with aclk as source */
-+	hws[K210_CLK_DMA] = k210_register_aclk_child(K210_CLK_DMA);
-+	hws[K210_CLK_FFT] = k210_register_aclk_child(K210_CLK_FFT);
-+	hws[K210_CLK_ROM] = k210_register_aclk_child(K210_CLK_ROM);
-+	hws[K210_CLK_DVP] = k210_register_aclk_child(K210_CLK_DVP);
-+	hws[K210_CLK_APB0] = k210_register_aclk_child(K210_CLK_APB0);
-+	hws[K210_CLK_APB1] = k210_register_aclk_child(K210_CLK_APB1);
-+	hws[K210_CLK_APB2] = k210_register_aclk_child(K210_CLK_APB2);
-+
-+	/* Clocks with PLL0 as source */
-+	hws[K210_CLK_SPI0] = k210_register_pll0_child(K210_CLK_SPI0);
-+	hws[K210_CLK_SPI1] = k210_register_pll0_child(K210_CLK_SPI1);
-+	hws[K210_CLK_SPI2] = k210_register_pll0_child(K210_CLK_SPI2);
-+	hws[K210_CLK_I2C0] = k210_register_pll0_child(K210_CLK_I2C0);
-+	hws[K210_CLK_I2C1] = k210_register_pll0_child(K210_CLK_I2C1);
-+	hws[K210_CLK_I2C2] = k210_register_pll0_child(K210_CLK_I2C2);
-+
-+	/* Clocks with PLL2 as source */
-+	hws[K210_CLK_I2S0] = k210_register_pll2_child(K210_CLK_I2S0);
-+	hws[K210_CLK_I2S1] = k210_register_pll2_child(K210_CLK_I2S1);
-+	hws[K210_CLK_I2S2] = k210_register_pll2_child(K210_CLK_I2S2);
-+	hws[K210_CLK_I2S0_M] = k210_register_pll2_child(K210_CLK_I2S0_M);
-+	hws[K210_CLK_I2S1_M] = k210_register_pll2_child(K210_CLK_I2S1_M);
-+	hws[K210_CLK_I2S2_M] = k210_register_pll2_child(K210_CLK_I2S2_M);
-+
-+	/* Clocks with IN0 as source */
-+	hws[K210_CLK_WDT0] = k210_register_in0_child(K210_CLK_WDT0);
-+	hws[K210_CLK_WDT1] = k210_register_in0_child(K210_CLK_WDT1);
-+	hws[K210_CLK_RTC] = k210_register_in0_child(K210_CLK_RTC);
-+
-+	/* Clocks with APB0 as source */
-+	kcl->parents[K210_PARENT_APB0] = hws[K210_CLK_APB0];
-+	hws[K210_CLK_GPIO] = k210_register_apb0_child(K210_CLK_GPIO);
-+	hws[K210_CLK_UART1] = k210_register_apb0_child(K210_CLK_UART1);
-+	hws[K210_CLK_UART2] = k210_register_apb0_child(K210_CLK_UART2);
-+	hws[K210_CLK_UART3] = k210_register_apb0_child(K210_CLK_UART3);
-+	hws[K210_CLK_FPIOA] = k210_register_apb0_child(K210_CLK_FPIOA);
-+	hws[K210_CLK_SHA] = k210_register_apb0_child(K210_CLK_SHA);
-+
-+	/* Clocks with APB1 as source */
-+	kcl->parents[K210_PARENT_APB1] = hws[K210_CLK_APB1];
-+	hws[K210_CLK_AES] = k210_register_apb1_child(K210_CLK_AES);
-+	hws[K210_CLK_OTP] = k210_register_apb1_child(K210_CLK_OTP);
-+
-+	/* Mux clocks with in0 or pll0 as source */
-+	hws[K210_CLK_SPI3] = k210_register_mux_clk(K210_CLK_SPI3);
-+	hws[K210_CLK_TIMER0] = k210_register_mux_clk(K210_CLK_TIMER0);
-+	hws[K210_CLK_TIMER1] = k210_register_mux_clk(K210_CLK_TIMER1);
-+	hws[K210_CLK_TIMER2] = k210_register_mux_clk(K210_CLK_TIMER2);
-+
-+	for (i = 0; i < K210_NUM_CLKS; i++) {
-+		if (IS_ERR(hws[i])) {
-+			pr_err("%pOFP: register clock %s failed %ld\n",
-+			       np, k210_clks[i].name, PTR_ERR(hws[i]));
-+			return;
-+		}
-+	}
-+
-+	ret = of_clk_add_hw_provider(np, of_clk_hw_onecell_get, kcl->clk_data);
-+	if (ret) {
-+		pr_err("%pOFP: add clock provider failed %d\n", np, ret);
-+		return;
-+	}
-+
-+	pr_info("%pOFP: CPU running at %lu MHz\n",
-+		np, clk_hw_get_rate(hws[K210_CLK_CPU]) / 1000000);
-+}
-+
-+CLK_OF_DECLARE(k210_clk, "canaan,k210-clk", k210_clk_init);
-+
-+/*
-+ * Enable PLL1 to be able to use the AI SRAM.
-+ */
-+void __init k210_clk_early_init(void __iomem *regs)
-+{
-+	struct k210_pll pll1;
-+
-+	/* Make sure ACLK selector is set to PLL0 */
-+	k210_aclk_set_selector(1);
-+
-+	/* Startup PLL1 to enable the aisram bank for general memory use */
-+	k210_init_pll(&pll1, K210_PLL1, regs);
-+	k210_pll_enable_hw(&pll1);
-+}
-diff --git a/drivers/soc/canaan/Kconfig b/drivers/soc/canaan/Kconfig
-index 5232d13f07e5..8179b69518b4 100644
---- a/drivers/soc/canaan/Kconfig
-+++ b/drivers/soc/canaan/Kconfig
-@@ -1,14 +1,12 @@
- # SPDX-License-Identifier: GPL-2.0
- 
--if SOC_CANAAN
--
--config K210_SYSCTL
-+config SOC_K210_SYSCTL
- 	bool "Canaan Kendryte K210 SoC system controller"
--	default y
--	depends on RISCV
-+	depends on RISCV && SOC_CANAAN && OF
-+	default SOC_CANAAN
-+        select PM
-+        select SIMPLE_PM_BUS
-+        select SYSCON
-+        select MFD_SYSCON
- 	help
--	  Enables controlling the K210 various clocks and to enable
--	  general purpose use of the extra 2MB of SRAM normally
--	  reserved for the AI engine.
--
--endif
-+	  Canaan Kendryte K210 SoC system controller driver.
-diff --git a/drivers/soc/canaan/Makefile b/drivers/soc/canaan/Makefile
-index 002d9ce95c0d..570280ad7967 100644
---- a/drivers/soc/canaan/Makefile
-+++ b/drivers/soc/canaan/Makefile
-@@ -1,3 +1,3 @@
- # SPDX-License-Identifier: GPL-2.0
- 
--obj-$(CONFIG_K210_SYSCTL)	+= k210-sysctl.o
-+obj-$(CONFIG_SOC_K210_SYSCTL)	+= k210-sysctl.o
-diff --git a/drivers/soc/canaan/k210-sysctl.c b/drivers/soc/canaan/k210-sysctl.c
-index 4608fbca20e1..b9c54390fbd5 100644
---- a/drivers/soc/canaan/k210-sysctl.c
-+++ b/drivers/soc/canaan/k210-sysctl.c
-@@ -3,205 +3,44 @@
-  * Copyright (c) 2019 Christoph Hellwig.
-  * Copyright (c) 2019 Western Digital Corporation or its affiliates.
+diff --git a/drivers/clk/sifive/Makefile b/drivers/clk/sifive/Makefile
+index 0797f14fef6b..627effe2ece1 100644
+--- a/drivers/clk/sifive/Makefile
++++ b/drivers/clk/sifive/Makefile
+@@ -1,2 +1,4 @@
+ # SPDX-License-Identifier: GPL-2.0-only
++obj-y += sifive-prci.o
++
+ obj-$(CONFIG_CLK_SIFIVE_FU540_PRCI)	+= fu540-prci.o
+diff --git a/drivers/clk/sifive/fu540-prci.c b/drivers/clk/sifive/fu540-prci.c
+index a8901f90a61a..34dc4ea6a3af 100644
+--- a/drivers/clk/sifive/fu540-prci.c
++++ b/drivers/clk/sifive/fu540-prci.c
+@@ -3,6 +3,7 @@
+  * Copyright (C) 2018-2019 SiFive, Inc.
+  * Wesley Terpstra
+  * Paul Walmsley
++ * Zong Li
+  *
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License version 2 as
+@@ -25,463 +26,43 @@
   */
--#include <linux/types.h>
- #include <linux/io.h>
--#include <linux/of.h>
- #include <linux/platform_device.h>
--#include <linux/clk-provider.h>
+ 
+ #include <dt-bindings/clock/sifive-fu540-prci.h>
 -#include <linux/clkdev.h>
--#include <linux/bitfield.h>
-+#include <linux/of_platform.h>
-+#include <linux/clk.h>
- #include <asm/soc.h>
+-#include <linux/clk-provider.h>
+-#include <linux/clk/analogbits-wrpll-cln28hpc.h>
+-#include <linux/delay.h>
+-#include <linux/err.h>
+-#include <linux/io.h>
+ #include <linux/module.h>
+-#include <linux/of.h>
+-#include <linux/of_clk.h>
+-#include <linux/platform_device.h>
+-#include <linux/slab.h>
++#include "sifive-prci.h"
  
--#define K210_SYSCTL_CLK0_FREQ		26000000UL
-+#include <soc/canaan/k210-sysctl.h>
+-/*
+- * EXPECTED_CLK_PARENT_COUNT: how many parent clocks this driver expects:
+- *     hfclk and rtcclk
+- */
+-#define EXPECTED_CLK_PARENT_COUNT		2
+-
+-/*
+- * Register offsets and bitmasks
+- */
+-
+-/* COREPLLCFG0 */
+-#define PRCI_COREPLLCFG0_OFFSET			0x4
+-# define PRCI_COREPLLCFG0_DIVR_SHIFT		0
+-# define PRCI_COREPLLCFG0_DIVR_MASK		(0x3f << PRCI_COREPLLCFG0_DIVR_SHIFT)
+-# define PRCI_COREPLLCFG0_DIVF_SHIFT		6
+-# define PRCI_COREPLLCFG0_DIVF_MASK		(0x1ff << PRCI_COREPLLCFG0_DIVF_SHIFT)
+-# define PRCI_COREPLLCFG0_DIVQ_SHIFT		15
+-# define PRCI_COREPLLCFG0_DIVQ_MASK		(0x7 << PRCI_COREPLLCFG0_DIVQ_SHIFT)
+-# define PRCI_COREPLLCFG0_RANGE_SHIFT		18
+-# define PRCI_COREPLLCFG0_RANGE_MASK		(0x7 << PRCI_COREPLLCFG0_RANGE_SHIFT)
+-# define PRCI_COREPLLCFG0_BYPASS_SHIFT		24
+-# define PRCI_COREPLLCFG0_BYPASS_MASK		(0x1 << PRCI_COREPLLCFG0_BYPASS_SHIFT)
+-# define PRCI_COREPLLCFG0_FSE_SHIFT		25
+-# define PRCI_COREPLLCFG0_FSE_MASK		(0x1 << PRCI_COREPLLCFG0_FSE_SHIFT)
+-# define PRCI_COREPLLCFG0_LOCK_SHIFT		31
+-# define PRCI_COREPLLCFG0_LOCK_MASK		(0x1 << PRCI_COREPLLCFG0_LOCK_SHIFT)
+-
+-/* DDRPLLCFG0 */
+-#define PRCI_DDRPLLCFG0_OFFSET			0xc
+-# define PRCI_DDRPLLCFG0_DIVR_SHIFT		0
+-# define PRCI_DDRPLLCFG0_DIVR_MASK		(0x3f << PRCI_DDRPLLCFG0_DIVR_SHIFT)
+-# define PRCI_DDRPLLCFG0_DIVF_SHIFT		6
+-# define PRCI_DDRPLLCFG0_DIVF_MASK		(0x1ff << PRCI_DDRPLLCFG0_DIVF_SHIFT)
+-# define PRCI_DDRPLLCFG0_DIVQ_SHIFT		15
+-# define PRCI_DDRPLLCFG0_DIVQ_MASK		(0x7 << PRCI_DDRPLLCFG0_DIVQ_SHIFT)
+-# define PRCI_DDRPLLCFG0_RANGE_SHIFT		18
+-# define PRCI_DDRPLLCFG0_RANGE_MASK		(0x7 << PRCI_DDRPLLCFG0_RANGE_SHIFT)
+-# define PRCI_DDRPLLCFG0_BYPASS_SHIFT		24
+-# define PRCI_DDRPLLCFG0_BYPASS_MASK		(0x1 << PRCI_DDRPLLCFG0_BYPASS_SHIFT)
+-# define PRCI_DDRPLLCFG0_FSE_SHIFT		25
+-# define PRCI_DDRPLLCFG0_FSE_MASK		(0x1 << PRCI_DDRPLLCFG0_FSE_SHIFT)
+-# define PRCI_DDRPLLCFG0_LOCK_SHIFT		31
+-# define PRCI_DDRPLLCFG0_LOCK_MASK		(0x1 << PRCI_DDRPLLCFG0_LOCK_SHIFT)
+-
+-/* DDRPLLCFG1 */
+-#define PRCI_DDRPLLCFG1_OFFSET			0x10
+-# define PRCI_DDRPLLCFG1_CKE_SHIFT		24
+-# define PRCI_DDRPLLCFG1_CKE_MASK		(0x1 << PRCI_DDRPLLCFG1_CKE_SHIFT)
+-
+-/* GEMGXLPLLCFG0 */
+-#define PRCI_GEMGXLPLLCFG0_OFFSET		0x1c
+-# define PRCI_GEMGXLPLLCFG0_DIVR_SHIFT		0
+-# define PRCI_GEMGXLPLLCFG0_DIVR_MASK		(0x3f << PRCI_GEMGXLPLLCFG0_DIVR_SHIFT)
+-# define PRCI_GEMGXLPLLCFG0_DIVF_SHIFT		6
+-# define PRCI_GEMGXLPLLCFG0_DIVF_MASK		(0x1ff << PRCI_GEMGXLPLLCFG0_DIVF_SHIFT)
+-# define PRCI_GEMGXLPLLCFG0_DIVQ_SHIFT		15
+-# define PRCI_GEMGXLPLLCFG0_DIVQ_MASK		(0x7 << PRCI_GEMGXLPLLCFG0_DIVQ_SHIFT)
+-# define PRCI_GEMGXLPLLCFG0_RANGE_SHIFT		18
+-# define PRCI_GEMGXLPLLCFG0_RANGE_MASK		(0x7 << PRCI_GEMGXLPLLCFG0_RANGE_SHIFT)
+-# define PRCI_GEMGXLPLLCFG0_BYPASS_SHIFT	24
+-# define PRCI_GEMGXLPLLCFG0_BYPASS_MASK		(0x1 << PRCI_GEMGXLPLLCFG0_BYPASS_SHIFT)
+-# define PRCI_GEMGXLPLLCFG0_FSE_SHIFT		25
+-# define PRCI_GEMGXLPLLCFG0_FSE_MASK		(0x1 << PRCI_GEMGXLPLLCFG0_FSE_SHIFT)
+-# define PRCI_GEMGXLPLLCFG0_LOCK_SHIFT		31
+-# define PRCI_GEMGXLPLLCFG0_LOCK_MASK		(0x1 << PRCI_GEMGXLPLLCFG0_LOCK_SHIFT)
+-
+-/* GEMGXLPLLCFG1 */
+-#define PRCI_GEMGXLPLLCFG1_OFFSET		0x20
+-# define PRCI_GEMGXLPLLCFG1_CKE_SHIFT		24
+-# define PRCI_GEMGXLPLLCFG1_CKE_MASK		(0x1 << PRCI_GEMGXLPLLCFG1_CKE_SHIFT)
++/* PRCI integration data for each WRPLL instance */
  
--/* Registers base address */
--#define K210_SYSCTL_SYSCTL_BASE_ADDR	0x50440000ULL
+-/* CORECLKSEL */
+-#define PRCI_CORECLKSEL_OFFSET			0x24
+-# define PRCI_CORECLKSEL_CORECLKSEL_SHIFT	0
+-# define PRCI_CORECLKSEL_CORECLKSEL_MASK	(0x1 << PRCI_CORECLKSEL_CORECLKSEL_SHIFT)
 -
--/* Registers */
--#define K210_SYSCTL_PLL0		0x08
--#define K210_SYSCTL_PLL1		0x0c
--/* clkr: 4bits, clkf1: 6bits, clkod: 4bits, bwadj: 4bits */
--#define   PLL_RESET		(1 << 20)
--#define   PLL_PWR		(1 << 21)
--#define   PLL_INTFB		(1 << 22)
--#define   PLL_BYPASS		(1 << 23)
--#define   PLL_TEST		(1 << 24)
--#define   PLL_OUT_EN		(1 << 25)
--#define   PLL_TEST_EN		(1 << 26)
--#define K210_SYSCTL_PLL_LOCK		0x18
--#define   PLL0_LOCK1		(1 << 0)
--#define   PLL0_LOCK2		(1 << 1)
--#define   PLL0_SLIP_CLEAR	(1 << 2)
--#define   PLL0_TEST_CLK_OUT	(1 << 3)
--#define   PLL1_LOCK1		(1 << 8)
--#define   PLL1_LOCK2		(1 << 9)
--#define   PLL1_SLIP_CLEAR	(1 << 10)
--#define   PLL1_TEST_CLK_OUT	(1 << 11)
--#define   PLL2_LOCK1		(1 << 16)
--#define   PLL2_LOCK2		(1 << 16)
--#define   PLL2_SLIP_CLEAR	(1 << 18)
--#define   PLL2_TEST_CLK_OUT	(1 << 19)
--#define K210_SYSCTL_CLKSEL0	0x20
--#define   CLKSEL_ACLK		(1 << 0)
--#define K210_SYSCTL_CLKEN_CENT		0x28
--#define   CLKEN_CPU		(1 << 0)
--#define   CLKEN_SRAM0		(1 << 1)
--#define   CLKEN_SRAM1		(1 << 2)
--#define   CLKEN_APB0		(1 << 3)
--#define   CLKEN_APB1		(1 << 4)
--#define   CLKEN_APB2		(1 << 5)
--#define K210_SYSCTL_CLKEN_PERI		0x2c
--#define   CLKEN_ROM		(1 << 0)
--#define   CLKEN_DMA		(1 << 1)
--#define   CLKEN_AI		(1 << 2)
--#define   CLKEN_DVP		(1 << 3)
--#define   CLKEN_FFT		(1 << 4)
--#define   CLKEN_GPIO		(1 << 5)
--#define   CLKEN_SPI0		(1 << 6)
--#define   CLKEN_SPI1		(1 << 7)
--#define   CLKEN_SPI2		(1 << 8)
--#define   CLKEN_SPI3		(1 << 9)
--#define   CLKEN_I2S0		(1 << 10)
--#define   CLKEN_I2S1		(1 << 11)
--#define   CLKEN_I2S2		(1 << 12)
--#define   CLKEN_I2C0		(1 << 13)
--#define   CLKEN_I2C1		(1 << 14)
--#define   CLKEN_I2C2		(1 << 15)
--#define   CLKEN_UART1		(1 << 16)
--#define   CLKEN_UART2		(1 << 17)
--#define   CLKEN_UART3		(1 << 18)
--#define   CLKEN_AES		(1 << 19)
--#define   CLKEN_FPIO		(1 << 20)
--#define   CLKEN_TIMER0		(1 << 21)
--#define   CLKEN_TIMER1		(1 << 22)
--#define   CLKEN_TIMER2		(1 << 23)
--#define   CLKEN_WDT0		(1 << 24)
--#define   CLKEN_WDT1		(1 << 25)
--#define   CLKEN_SHA		(1 << 26)
--#define   CLKEN_OTP		(1 << 27)
--#define   CLKEN_RTC		(1 << 29)
+-/* DEVICESRESETREG */
+-#define PRCI_DEVICESRESETREG_OFFSET			0x28
+-# define PRCI_DEVICESRESETREG_DDR_CTRL_RST_N_SHIFT	0
+-# define PRCI_DEVICESRESETREG_DDR_CTRL_RST_N_MASK	(0x1 << PRCI_DEVICESRESETREG_DDR_CTRL_RST_N_SHIFT)
+-# define PRCI_DEVICESRESETREG_DDR_AXI_RST_N_SHIFT	1
+-# define PRCI_DEVICESRESETREG_DDR_AXI_RST_N_MASK	(0x1 << PRCI_DEVICESRESETREG_DDR_AXI_RST_N_SHIFT)
+-# define PRCI_DEVICESRESETREG_DDR_AHB_RST_N_SHIFT	2
+-# define PRCI_DEVICESRESETREG_DDR_AHB_RST_N_MASK	(0x1 << PRCI_DEVICESRESETREG_DDR_AHB_RST_N_SHIFT)
+-# define PRCI_DEVICESRESETREG_DDR_PHY_RST_N_SHIFT	3
+-# define PRCI_DEVICESRESETREG_DDR_PHY_RST_N_MASK	(0x1 << PRCI_DEVICESRESETREG_DDR_PHY_RST_N_SHIFT)
+-# define PRCI_DEVICESRESETREG_GEMGXL_RST_N_SHIFT	5
+-# define PRCI_DEVICESRESETREG_GEMGXL_RST_N_MASK		(0x1 << PRCI_DEVICESRESETREG_GEMGXL_RST_N_SHIFT)
 -
--struct k210_sysctl {
--	void __iomem		*regs;
--	struct clk_hw		hw;
+-/* CLKMUXSTATUSREG */
+-#define PRCI_CLKMUXSTATUSREG_OFFSET			0x2c
+-# define PRCI_CLKMUXSTATUSREG_TLCLKSEL_STATUS_SHIFT	1
+-# define PRCI_CLKMUXSTATUSREG_TLCLKSEL_STATUS_MASK	(0x1 << PRCI_CLKMUXSTATUSREG_TLCLKSEL_STATUS_SHIFT)
+-
+-/*
+- * Private structures
+- */
+-
+-/**
+- * struct __prci_data - per-device-instance data
+- * @va: base virtual address of the PRCI IP block
+- * @hw_clks: encapsulates struct clk_hw records
+- *
+- * PRCI per-device instance data
+- */
+-struct __prci_data {
+-	void __iomem *va;
+-	struct clk_hw_onecell_data hw_clks;
++static struct __prci_wrpll_data __prci_corepll_data = {
++	.cfg0_offs = PRCI_COREPLLCFG0_OFFSET,
++	.enable_bypass = sifive_prci_coreclksel_use_hfclk,
++	.disable_bypass = sifive_prci_coreclksel_use_corepll,
+ };
+ 
+-/**
+- * struct __prci_wrpll_data - WRPLL configuration and integration data
+- * @c: WRPLL current configuration record
+- * @enable_bypass: fn ptr to code to bypass the WRPLL (if applicable; else NULL)
+- * @disable_bypass: fn ptr to code to not bypass the WRPLL (or NULL)
+- * @cfg0_offs: WRPLL CFG0 register offset (in bytes) from the PRCI base address
+- *
+- * @enable_bypass and @disable_bypass are used for WRPLL instances
+- * that contain a separate external glitchless clock mux downstream
+- * from the PLL.  The WRPLL internal bypass mux is not glitchless.
+- */
+-struct __prci_wrpll_data {
+-	struct wrpll_cfg c;
+-	void (*enable_bypass)(struct __prci_data *pd);
+-	void (*disable_bypass)(struct __prci_data *pd);
+-	u8 cfg0_offs;
++static struct __prci_wrpll_data __prci_ddrpll_data = {
++	.cfg0_offs = PRCI_DDRPLLCFG0_OFFSET,
+ };
+ 
+-/**
+- * struct __prci_clock - describes a clock device managed by PRCI
+- * @name: user-readable clock name string - should match the manual
+- * @parent_name: parent name for this clock
+- * @ops: struct clk_ops for the Linux clock framework to use for control
+- * @hw: Linux-private clock data
+- * @pwd: WRPLL-specific data, associated with this clock (if not NULL)
+- * @pd: PRCI-specific data associated with this clock (if not NULL)
+- *
+- * PRCI clock data.  Used by the PRCI driver to register PRCI-provided
+- * clocks to the Linux clock infrastructure.
+- */
+-struct __prci_clock {
+-	const char *name;
+-	const char *parent_name;
+-	const struct clk_ops *ops;
+-	struct clk_hw hw;
+-	struct __prci_wrpll_data *pwd;
+-	struct __prci_data *pd;
++static struct __prci_wrpll_data __prci_gemgxlpll_data = {
++	.cfg0_offs = PRCI_GEMGXLPLLCFG0_OFFSET,
+ };
+ 
+-#define clk_hw_to_prci_clock(pwd) container_of(pwd, struct __prci_clock, hw)
+-
+-/*
+- * Private functions
+- */
+-
+-/**
+- * __prci_readl() - read from a PRCI register
+- * @pd: PRCI context
+- * @offs: register offset to read from (in bytes, from PRCI base address)
+- *
+- * Read the register located at offset @offs from the base virtual
+- * address of the PRCI register target described by @pd, and return
+- * the value to the caller.
+- *
+- * Context: Any context.
+- *
+- * Return: the contents of the register described by @pd and @offs.
+- */
+-static u32 __prci_readl(struct __prci_data *pd, u32 offs)
+-{
+-	return readl_relaxed(pd->va + offs);
+-}
+-
+-static void __prci_writel(u32 v, u32 offs, struct __prci_data *pd)
+-{
+-	writel_relaxed(v, pd->va + offs);
+-}
+-
+-/* WRPLL-related private functions */
+-
+-/**
+- * __prci_wrpll_unpack() - unpack WRPLL configuration registers into parameters
+- * @c: ptr to a struct wrpll_cfg record to write config into
+- * @r: value read from the PRCI PLL configuration register
+- *
+- * Given a value @r read from an FU540 PRCI PLL configuration register,
+- * split it into fields and populate it into the WRPLL configuration record
+- * pointed to by @c.
+- *
+- * The COREPLLCFG0 macros are used below, but the other *PLLCFG0 macros
+- * have the same register layout.
+- *
+- * Context: Any context.
+- */
+-static void __prci_wrpll_unpack(struct wrpll_cfg *c, u32 r)
+-{
+-	u32 v;
+-
+-	v = r & PRCI_COREPLLCFG0_DIVR_MASK;
+-	v >>= PRCI_COREPLLCFG0_DIVR_SHIFT;
+-	c->divr = v;
+-
+-	v = r & PRCI_COREPLLCFG0_DIVF_MASK;
+-	v >>= PRCI_COREPLLCFG0_DIVF_SHIFT;
+-	c->divf = v;
+-
+-	v = r & PRCI_COREPLLCFG0_DIVQ_MASK;
+-	v >>= PRCI_COREPLLCFG0_DIVQ_SHIFT;
+-	c->divq = v;
+-
+-	v = r & PRCI_COREPLLCFG0_RANGE_MASK;
+-	v >>= PRCI_COREPLLCFG0_RANGE_SHIFT;
+-	c->range = v;
+-
+-	c->flags &= (WRPLL_FLAGS_INT_FEEDBACK_MASK |
+-		     WRPLL_FLAGS_EXT_FEEDBACK_MASK);
+-
+-	/* external feedback mode not supported */
+-	c->flags |= WRPLL_FLAGS_INT_FEEDBACK_MASK;
+-}
+-
+-/**
+- * __prci_wrpll_pack() - pack PLL configuration parameters into a register value
+- * @c: pointer to a struct wrpll_cfg record containing the PLL's cfg
+- *
+- * Using a set of WRPLL configuration values pointed to by @c,
+- * assemble a PRCI PLL configuration register value, and return it to
+- * the caller.
+- *
+- * Context: Any context.  Caller must ensure that the contents of the
+- *          record pointed to by @c do not change during the execution
+- *          of this function.
+- *
+- * Returns: a value suitable for writing into a PRCI PLL configuration
+- *          register
+- */
+-static u32 __prci_wrpll_pack(const struct wrpll_cfg *c)
+-{
+-	u32 r = 0;
+-
+-	r |= c->divr << PRCI_COREPLLCFG0_DIVR_SHIFT;
+-	r |= c->divf << PRCI_COREPLLCFG0_DIVF_SHIFT;
+-	r |= c->divq << PRCI_COREPLLCFG0_DIVQ_SHIFT;
+-	r |= c->range << PRCI_COREPLLCFG0_RANGE_SHIFT;
+-
+-	/* external feedback mode not supported */
+-	r |= PRCI_COREPLLCFG0_FSE_MASK;
+-
+-	return r;
+-}
+-
+-/**
+- * __prci_wrpll_read_cfg() - read the WRPLL configuration from the PRCI
+- * @pd: PRCI context
+- * @pwd: PRCI WRPLL metadata
+- *
+- * Read the current configuration of the PLL identified by @pwd from
+- * the PRCI identified by @pd, and store it into the local configuration
+- * cache in @pwd.
+- *
+- * Context: Any context.  Caller must prevent the records pointed to by
+- *          @pd and @pwd from changing during execution.
+- */
+-static void __prci_wrpll_read_cfg(struct __prci_data *pd,
+-				  struct __prci_wrpll_data *pwd)
+-{
+-	__prci_wrpll_unpack(&pwd->c, __prci_readl(pd, pwd->cfg0_offs));
+-}
+-
+-/**
+- * __prci_wrpll_write_cfg() - write WRPLL configuration into the PRCI
+- * @pd: PRCI context
+- * @pwd: PRCI WRPLL metadata
+- * @c: WRPLL configuration record to write
+- *
+- * Write the WRPLL configuration described by @c into the WRPLL
+- * configuration register identified by @pwd in the PRCI instance
+- * described by @c.  Make a cached copy of the WRPLL's current
+- * configuration so it can be used by other code.
+- *
+- * Context: Any context.  Caller must prevent the records pointed to by
+- *          @pd and @pwd from changing during execution.
+- */
+-static void __prci_wrpll_write_cfg(struct __prci_data *pd,
+-				   struct __prci_wrpll_data *pwd,
+-				   struct wrpll_cfg *c)
+-{
+-	__prci_writel(__prci_wrpll_pack(c), pwd->cfg0_offs, pd);
+-
+-	memcpy(&pwd->c, c, sizeof(*c));
+-}
+-
+-/* Core clock mux control */
+-
+-/**
+- * __prci_coreclksel_use_hfclk() - switch the CORECLK mux to output HFCLK
+- * @pd: struct __prci_data * for the PRCI containing the CORECLK mux reg
+- *
+- * Switch the CORECLK mux to the HFCLK input source; return once complete.
+- *
+- * Context: Any context.  Caller must prevent concurrent changes to the
+- *          PRCI_CORECLKSEL_OFFSET register.
+- */
+-static void __prci_coreclksel_use_hfclk(struct __prci_data *pd)
+-{
+-	u32 r;
+-
+-	r = __prci_readl(pd, PRCI_CORECLKSEL_OFFSET);
+-	r |= PRCI_CORECLKSEL_CORECLKSEL_MASK;
+-	__prci_writel(r, PRCI_CORECLKSEL_OFFSET, pd);
+-
+-	r = __prci_readl(pd, PRCI_CORECLKSEL_OFFSET); /* barrier */
+-}
+-
+-/**
+- * __prci_coreclksel_use_corepll() - switch the CORECLK mux to output COREPLL
+- * @pd: struct __prci_data * for the PRCI containing the CORECLK mux reg
+- *
+- * Switch the CORECLK mux to the PLL output clock; return once complete.
+- *
+- * Context: Any context.  Caller must prevent concurrent changes to the
+- *          PRCI_CORECLKSEL_OFFSET register.
+- */
+-static void __prci_coreclksel_use_corepll(struct __prci_data *pd)
+-{
+-	u32 r;
+-
+-	r = __prci_readl(pd, PRCI_CORECLKSEL_OFFSET);
+-	r &= ~PRCI_CORECLKSEL_CORECLKSEL_MASK;
+-	__prci_writel(r, PRCI_CORECLKSEL_OFFSET, pd);
+-
+-	r = __prci_readl(pd, PRCI_CORECLKSEL_OFFSET); /* barrier */
+-}
+-
+-/*
+- * Linux clock framework integration
+- *
+- * See the Linux clock framework documentation for more information on
+- * these functions.
+- */
+-
+-static unsigned long sifive_fu540_prci_wrpll_recalc_rate(struct clk_hw *hw,
+-							 unsigned long parent_rate)
+-{
+-	struct __prci_clock *pc = clk_hw_to_prci_clock(hw);
+-	struct __prci_wrpll_data *pwd = pc->pwd;
+-
+-	return wrpll_calc_output_rate(&pwd->c, parent_rate);
+-}
+-
+-static long sifive_fu540_prci_wrpll_round_rate(struct clk_hw *hw,
+-					       unsigned long rate,
+-					       unsigned long *parent_rate)
+-{
+-	struct __prci_clock *pc = clk_hw_to_prci_clock(hw);
+-	struct __prci_wrpll_data *pwd = pc->pwd;
+-	struct wrpll_cfg c;
+-
+-	memcpy(&c, &pwd->c, sizeof(c));
+-
+-	wrpll_configure_for_rate(&c, rate, *parent_rate);
+-
+-	return wrpll_calc_output_rate(&c, *parent_rate);
+-}
+-
+-static int sifive_fu540_prci_wrpll_set_rate(struct clk_hw *hw,
+-					    unsigned long rate,
+-					    unsigned long parent_rate)
+-{
+-	struct __prci_clock *pc = clk_hw_to_prci_clock(hw);
+-	struct __prci_wrpll_data *pwd = pc->pwd;
+-	struct __prci_data *pd = pc->pd;
+-	int r;
+-
+-	r = wrpll_configure_for_rate(&pwd->c, rate, parent_rate);
+-	if (r)
+-		return r;
+-
+-	if (pwd->enable_bypass)
+-		pwd->enable_bypass(pd);
+-
+-	__prci_wrpll_write_cfg(pd, pwd, &pwd->c);
+-
+-	udelay(wrpll_calc_max_lock_us(&pwd->c));
+-
+-	if (pwd->disable_bypass)
+-		pwd->disable_bypass(pd);
+-
+-	return 0;
+-}
++/* Linux clock framework integration */
+ 
+ static const struct clk_ops sifive_fu540_prci_wrpll_clk_ops = {
+-	.set_rate = sifive_fu540_prci_wrpll_set_rate,
+-	.round_rate = sifive_fu540_prci_wrpll_round_rate,
+-	.recalc_rate = sifive_fu540_prci_wrpll_recalc_rate,
++	.set_rate = sifive_prci_wrpll_set_rate,
++	.round_rate = sifive_prci_wrpll_round_rate,
++	.recalc_rate = sifive_prci_wrpll_recalc_rate,
+ };
+ 
+ static const struct clk_ops sifive_fu540_prci_wrpll_ro_clk_ops = {
+-	.recalc_rate = sifive_fu540_prci_wrpll_recalc_rate,
++	.recalc_rate = sifive_prci_wrpll_recalc_rate,
+ };
+ 
+-/* TLCLKSEL clock integration */
+-
+-static unsigned long sifive_fu540_prci_tlclksel_recalc_rate(struct clk_hw *hw,
+-							    unsigned long parent_rate)
+-{
+-	struct __prci_clock *pc = clk_hw_to_prci_clock(hw);
+-	struct __prci_data *pd = pc->pd;
+-	u32 v;
+-	u8 div;
+-
+-	v = __prci_readl(pd, PRCI_CLKMUXSTATUSREG_OFFSET);
+-	v &= PRCI_CLKMUXSTATUSREG_TLCLKSEL_STATUS_MASK;
+-	div = v ? 1 : 2;
+-
+-	return div_u64(parent_rate, div);
+-}
+-
+ static const struct clk_ops sifive_fu540_prci_tlclksel_clk_ops = {
+-	.recalc_rate = sifive_fu540_prci_tlclksel_recalc_rate,
 -};
 -
--static void k210_set_bits(u32 val, void __iomem *reg)
-+static int __init k210_sysctl_probe(struct platform_device *pdev)
- {
--	writel(readl(reg) | val, reg);
--}
+-/*
+- * PRCI integration data for each WRPLL instance
+- */
 -
--static void k210_clear_bits(u32 val, void __iomem *reg)
--{
--	writel(readl(reg) & ~val, reg);
--}
--
--static void k210_pll1_enable(void __iomem *regs)
--{
--	u32 val;
--
--	val = readl(regs + K210_SYSCTL_PLL1);
--	val &= ~GENMASK(19, 0);				/* clkr1 = 0 */
--	val |= FIELD_PREP(GENMASK(9, 4), 0x3B);		/* clkf1 = 59 */
--	val |= FIELD_PREP(GENMASK(13, 10), 0x3);	/* clkod1 = 3 */
--	val |= FIELD_PREP(GENMASK(19, 14), 0x3B);	/* bwadj1 = 59 */
--	writel(val, regs + K210_SYSCTL_PLL1);
--
--	k210_clear_bits(PLL_BYPASS, regs + K210_SYSCTL_PLL1);
--	k210_set_bits(PLL_PWR, regs + K210_SYSCTL_PLL1);
--
--	/*
--	 * Reset the pll. The magic NOPs come from the Kendryte reference SDK.
--	 */
--	k210_clear_bits(PLL_RESET, regs + K210_SYSCTL_PLL1);
--	k210_set_bits(PLL_RESET, regs + K210_SYSCTL_PLL1);
--	nop();
--	nop();
--	k210_clear_bits(PLL_RESET, regs + K210_SYSCTL_PLL1);
--
--	for (;;) {
--		val = readl(regs + K210_SYSCTL_PLL_LOCK);
--		if (val & PLL1_LOCK2)
--			break;
--		writel(val | PLL1_SLIP_CLEAR, regs + K210_SYSCTL_PLL_LOCK);
-+	struct device *dev = &pdev->dev;
-+	struct clk *pclk;
-+	int ret;
-+
-+	dev_info(dev, "K210 system controller\n");
-+
-+	/* Get power bus clock */
-+	pclk = devm_clk_get(dev, NULL);
-+	if (IS_ERR(pclk))
-+		return dev_err_probe(dev, PTR_ERR(pclk),
-+				     "Get bus clock failed\n");
-+
-+	ret = clk_prepare_enable(pclk);
-+	if (ret) {
-+		dev_err(dev, "Enable bus clock failed\n");
-+		return ret;
- 	}
- 
--	k210_set_bits(PLL_OUT_EN, regs + K210_SYSCTL_PLL1);
--}
--
--static unsigned long k210_sysctl_clk_recalc_rate(struct clk_hw *hw,
--		unsigned long parent_rate)
--{
--	struct k210_sysctl *s = container_of(hw, struct k210_sysctl, hw);
--	u32 clksel0, pll0;
--	u64 pll0_freq, clkr0, clkf0, clkod0;
--
--	/*
--	 * If the clock selector is not set, use the base frequency.
--	 * Otherwise, use PLL0 frequency with a frequency divisor.
--	 */
--	clksel0 = readl(s->regs + K210_SYSCTL_CLKSEL0);
--	if (!(clksel0 & CLKSEL_ACLK))
--		return K210_SYSCTL_CLK0_FREQ;
--
--	/*
--	 * Get PLL0 frequency:
--	 * freq = base frequency * clkf0 / (clkr0 * clkod0)
--	 */
--	pll0 = readl(s->regs + K210_SYSCTL_PLL0);
--	clkr0 = 1 + FIELD_GET(GENMASK(3, 0), pll0);
--	clkf0 = 1 + FIELD_GET(GENMASK(9, 4), pll0);
--	clkod0 = 1 + FIELD_GET(GENMASK(13, 10), pll0);
--	pll0_freq = clkf0 * K210_SYSCTL_CLK0_FREQ / (clkr0 * clkod0);
-+	/* Populate children */
-+	ret = devm_of_platform_populate(dev);
-+	if (ret)
-+		dev_err(dev, "Populate platform failed %d\n", ret);
- 
--	/* Get the frequency divisor from the clock selector */
--	return pll0_freq / (2ULL << FIELD_GET(0x00000006, clksel0));
--}
--
--static const struct clk_ops k210_sysctl_clk_ops = {
--	.recalc_rate	= k210_sysctl_clk_recalc_rate,
+-static struct __prci_wrpll_data __prci_corepll_data = {
+-	.cfg0_offs = PRCI_COREPLLCFG0_OFFSET,
+-	.enable_bypass = __prci_coreclksel_use_hfclk,
+-	.disable_bypass = __prci_coreclksel_use_corepll,
 -};
 -
--static const struct clk_init_data k210_clk_init_data = {
--	.name		= "k210-sysctl-pll1",
--	.ops		= &k210_sysctl_clk_ops,
+-static struct __prci_wrpll_data __prci_ddrpll_data = {
+-	.cfg0_offs = PRCI_DDRPLLCFG0_OFFSET,
++	.recalc_rate = sifive_prci_tlclksel_recalc_rate,
+ };
+ 
+-static struct __prci_wrpll_data __prci_gemgxlpll_data = {
+-	.cfg0_offs = PRCI_GEMGXLPLLCFG0_OFFSET,
 -};
 -
--static int k210_sysctl_probe(struct platform_device *pdev)
+-/*
+- * List of clock controls provided by the PRCI
+- */
+-
+-static struct __prci_clock __prci_init_clocks[] = {
++/* List of clock controls provided by the PRCI */
++struct __prci_clock __prci_init_clocks_fu540[] = {
+ 	[PRCI_CLK_COREPLL] = {
+ 		.name = "corepll",
+ 		.parent_name = "hfclk",
+@@ -506,125 +87,3 @@ static struct __prci_clock __prci_init_clocks[] = {
+ 		.ops = &sifive_fu540_prci_tlclksel_clk_ops,
+ 	},
+ };
+-
+-/**
+- * __prci_register_clocks() - register clock controls in the PRCI with Linux
+- * @dev: Linux struct device *
+- *
+- * Register the list of clock controls described in __prci_init_plls[] with
+- * the Linux clock framework.
+- *
+- * Return: 0 upon success or a negative error code upon failure.
+- */
+-static int __prci_register_clocks(struct device *dev, struct __prci_data *pd)
 -{
--	struct k210_sysctl *s;
--	int error;
+-	struct clk_init_data init = { };
+-	struct __prci_clock *pic;
+-	int parent_count, i, r;
 -
--	pr_info("Kendryte K210 SoC sysctl\n");
--
--	s = devm_kzalloc(&pdev->dev, sizeof(*s), GFP_KERNEL);
--	if (!s)
--		return -ENOMEM;
--
--	s->regs = devm_ioremap_resource(&pdev->dev,
--			platform_get_resource(pdev, IORESOURCE_MEM, 0));
--	if (IS_ERR(s->regs))
--		return PTR_ERR(s->regs);
--
--	s->hw.init = &k210_clk_init_data;
--	error = devm_clk_hw_register(&pdev->dev, &s->hw);
--	if (error) {
--		dev_err(&pdev->dev, "failed to register clk");
--		return error;
+-	parent_count = of_clk_get_parent_count(dev->of_node);
+-	if (parent_count != EXPECTED_CLK_PARENT_COUNT) {
+-		dev_err(dev, "expected only two parent clocks, found %d\n",
+-			parent_count);
+-		return -EINVAL;
 -	}
 -
--	error = devm_of_clk_add_hw_provider(&pdev->dev, of_clk_hw_simple_get,
--					    &s->hw);
--	if (error) {
--		dev_err(&pdev->dev, "adding clk provider failed\n");
--		return error;
+-	/* Register PLLs */
+-	for (i = 0; i < ARRAY_SIZE(__prci_init_clocks); ++i) {
+-		pic = &__prci_init_clocks[i];
+-
+-		init.name = pic->name;
+-		init.parent_names = &pic->parent_name;
+-		init.num_parents = 1;
+-		init.ops = pic->ops;
+-		pic->hw.init = &init;
+-
+-		pic->pd = pd;
+-
+-		if (pic->pwd)
+-			__prci_wrpll_read_cfg(pd, pic->pwd);
+-
+-		r = devm_clk_hw_register(dev, &pic->hw);
+-		if (r) {
+-			dev_warn(dev, "Failed to register clock %s: %d\n",
+-				 init.name, r);
+-			return r;
+-		}
+-
+-		r = clk_hw_register_clkdev(&pic->hw, pic->name, dev_name(dev));
+-		if (r) {
+-			dev_warn(dev, "Failed to register clkdev for %s: %d\n",
+-				 init.name, r);
+-			return r;
+-		}
+-
+-		pd->hw_clks.hws[i] = &pic->hw;
+-	}
+-
+-	pd->hw_clks.num = i;
+-
+-	r = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get,
+-					&pd->hw_clks);
+-	if (r) {
+-		dev_err(dev, "could not add hw_provider: %d\n", r);
+-		return r;
 -	}
 -
 -	return 0;
-+	return ret;
- }
- 
- static const struct of_device_id k210_sysctl_of_match[] = {
--	{ .compatible = "kendryte,k210-sysctl", },
-+	{ .compatible = "canaan,k210-sysctl", },
- 	{}
- };
- 
-@@ -212,12 +51,13 @@ static struct platform_driver k210_sysctl_driver = {
- 	},
- 	.probe			= k210_sysctl_probe,
- };
-+builtin_platform_driver(k210_sysctl_driver);
- 
--static int __init k210_sysctl_init(void)
--{
--	return platform_driver_register(&k210_sysctl_driver);
 -}
--core_initcall(k210_sysctl_init);
+-
+-/*
+- * Linux device model integration
+- *
+- * See the Linux device model documentation for more information about
+- * these functions.
+- */
+-static int sifive_fu540_prci_probe(struct platform_device *pdev)
+-{
+-	struct device *dev = &pdev->dev;
+-	struct resource *res;
+-	struct __prci_data *pd;
+-	int r;
+-
+-	pd = devm_kzalloc(dev,
+-			  struct_size(pd, hw_clks.hws,
+-				      ARRAY_SIZE(__prci_init_clocks)),
+-			  GFP_KERNEL);
+-	if (!pd)
+-		return -ENOMEM;
+-
+-	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+-	pd->va = devm_ioremap_resource(dev, res);
+-	if (IS_ERR(pd->va))
+-		return PTR_ERR(pd->va);
+-
+-	r = __prci_register_clocks(dev, pd);
+-	if (r) {
+-		dev_err(dev, "could not register clocks: %d\n", r);
+-		return r;
+-	}
+-
+-	dev_dbg(dev, "SiFive FU540 PRCI probed\n");
+-
+-	return 0;
+-}
+-
+-static const struct of_device_id sifive_fu540_prci_of_match[] = {
+-	{ .compatible = "sifive,fu540-c000-prci", },
+-	{}
+-};
+-MODULE_DEVICE_TABLE(of, sifive_fu540_prci_of_match);
+-
+-static struct platform_driver sifive_fu540_prci_driver = {
+-	.driver	= {
+-		.name = "sifive-fu540-prci",
+-		.of_match_table = sifive_fu540_prci_of_match,
+-	},
+-	.probe = sifive_fu540_prci_probe,
+-};
+-
+-static int __init sifive_fu540_prci_init(void)
+-{
+-	return platform_driver_register(&sifive_fu540_prci_driver);
+-}
+-core_initcall(sifive_fu540_prci_init);
+diff --git a/drivers/clk/sifive/fu540-prci.h b/drivers/clk/sifive/fu540-prci.h
+new file mode 100644
+index 000000000000..c8271efa7bdc
+--- /dev/null
++++ b/drivers/clk/sifive/fu540-prci.h
+@@ -0,0 +1,21 @@
++/* SPDX-License-Identifier: GPL-2.0 */
 +/*
-+ * System controller registers base address and size.
++ * Copyright (C) 2020 SiFive, Inc.
++ * Zong Li
 + */
-+#define K210_SYSCTL_BASE_ADDR	0x50440000ULL
-+#define K210_SYSCTL_BASE_SIZE	0x1000
++
++#ifndef __SIFIVE_CLK_FU540_PRCI_H
++#define __SIFIVE_CLK_FU540_PRCI_H
++
++#include "sifive-prci.h"
++
++#define NUM_CLOCK_FU540	4
++
++extern struct __prci_clock __prci_init_clocks_fu540[NUM_CLOCK_FU540];
++
++static const struct prci_clk_desc prci_clk_fu540 = {
++	.clks = __prci_init_clocks_fu540,
++	.num_clks = ARRAY_SIZE(__prci_init_clocks_fu540),
++};
++
++#endif /* __SIFIVE_CLK_FU540_PRCI_H */
+diff --git a/drivers/clk/sifive/fu540-prci.c b/drivers/clk/sifive/sifive-prci.c
+similarity index 41%
+copy from drivers/clk/sifive/fu540-prci.c
+copy to drivers/clk/sifive/sifive-prci.c
+index a8901f90a61a..603c0cad5e8d 100644
+--- a/drivers/clk/sifive/fu540-prci.c
++++ b/drivers/clk/sifive/sifive-prci.c
+@@ -1,192 +1,15 @@
+ // SPDX-License-Identifier: GPL-2.0
+ /*
+- * Copyright (C) 2018-2019 SiFive, Inc.
+- * Wesley Terpstra
+- * Paul Walmsley
+- *
+- * This program is free software; you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License version 2 as
+- * published by the Free Software Foundation.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * The FU540 PRCI implements clock and reset control for the SiFive
+- * FU540-C000 chip.  This driver assumes that it has sole control
+- * over all PRCI resources.
+- *
+- * This driver is based on the PRCI driver written by Wesley Terpstra:
+- * https://github.com/riscv/riscv-linux/commit/999529edf517ed75b56659d456d221b2ee56bb60
+- *
+- * References:
+- * - SiFive FU540-C000 manual v1p0, Chapter 7 "Clocking and Reset"
++ * Copyright (C) 2020 SiFive, Inc.
++ * Copyright (C) 2020 Zong Li
+  */
+ 
+-#include <dt-bindings/clock/sifive-fu540-prci.h>
+ #include <linux/clkdev.h>
+-#include <linux/clk-provider.h>
+-#include <linux/clk/analogbits-wrpll-cln28hpc.h>
+ #include <linux/delay.h>
+-#include <linux/err.h>
+ #include <linux/io.h>
+-#include <linux/module.h>
+-#include <linux/of.h>
+-#include <linux/of_clk.h>
+-#include <linux/platform_device.h>
+-#include <linux/slab.h>
+-
+-/*
+- * EXPECTED_CLK_PARENT_COUNT: how many parent clocks this driver expects:
+- *     hfclk and rtcclk
+- */
+-#define EXPECTED_CLK_PARENT_COUNT		2
+-
+-/*
+- * Register offsets and bitmasks
+- */
+-
+-/* COREPLLCFG0 */
+-#define PRCI_COREPLLCFG0_OFFSET			0x4
+-# define PRCI_COREPLLCFG0_DIVR_SHIFT		0
+-# define PRCI_COREPLLCFG0_DIVR_MASK		(0x3f << PRCI_COREPLLCFG0_DIVR_SHIFT)
+-# define PRCI_COREPLLCFG0_DIVF_SHIFT		6
+-# define PRCI_COREPLLCFG0_DIVF_MASK		(0x1ff << PRCI_COREPLLCFG0_DIVF_SHIFT)
+-# define PRCI_COREPLLCFG0_DIVQ_SHIFT		15
+-# define PRCI_COREPLLCFG0_DIVQ_MASK		(0x7 << PRCI_COREPLLCFG0_DIVQ_SHIFT)
+-# define PRCI_COREPLLCFG0_RANGE_SHIFT		18
+-# define PRCI_COREPLLCFG0_RANGE_MASK		(0x7 << PRCI_COREPLLCFG0_RANGE_SHIFT)
+-# define PRCI_COREPLLCFG0_BYPASS_SHIFT		24
+-# define PRCI_COREPLLCFG0_BYPASS_MASK		(0x1 << PRCI_COREPLLCFG0_BYPASS_SHIFT)
+-# define PRCI_COREPLLCFG0_FSE_SHIFT		25
+-# define PRCI_COREPLLCFG0_FSE_MASK		(0x1 << PRCI_COREPLLCFG0_FSE_SHIFT)
+-# define PRCI_COREPLLCFG0_LOCK_SHIFT		31
+-# define PRCI_COREPLLCFG0_LOCK_MASK		(0x1 << PRCI_COREPLLCFG0_LOCK_SHIFT)
+-
+-/* DDRPLLCFG0 */
+-#define PRCI_DDRPLLCFG0_OFFSET			0xc
+-# define PRCI_DDRPLLCFG0_DIVR_SHIFT		0
+-# define PRCI_DDRPLLCFG0_DIVR_MASK		(0x3f << PRCI_DDRPLLCFG0_DIVR_SHIFT)
+-# define PRCI_DDRPLLCFG0_DIVF_SHIFT		6
+-# define PRCI_DDRPLLCFG0_DIVF_MASK		(0x1ff << PRCI_DDRPLLCFG0_DIVF_SHIFT)
+-# define PRCI_DDRPLLCFG0_DIVQ_SHIFT		15
+-# define PRCI_DDRPLLCFG0_DIVQ_MASK		(0x7 << PRCI_DDRPLLCFG0_DIVQ_SHIFT)
+-# define PRCI_DDRPLLCFG0_RANGE_SHIFT		18
+-# define PRCI_DDRPLLCFG0_RANGE_MASK		(0x7 << PRCI_DDRPLLCFG0_RANGE_SHIFT)
+-# define PRCI_DDRPLLCFG0_BYPASS_SHIFT		24
+-# define PRCI_DDRPLLCFG0_BYPASS_MASK		(0x1 << PRCI_DDRPLLCFG0_BYPASS_SHIFT)
+-# define PRCI_DDRPLLCFG0_FSE_SHIFT		25
+-# define PRCI_DDRPLLCFG0_FSE_MASK		(0x1 << PRCI_DDRPLLCFG0_FSE_SHIFT)
+-# define PRCI_DDRPLLCFG0_LOCK_SHIFT		31
+-# define PRCI_DDRPLLCFG0_LOCK_MASK		(0x1 << PRCI_DDRPLLCFG0_LOCK_SHIFT)
+-
+-/* DDRPLLCFG1 */
+-#define PRCI_DDRPLLCFG1_OFFSET			0x10
+-# define PRCI_DDRPLLCFG1_CKE_SHIFT		24
+-# define PRCI_DDRPLLCFG1_CKE_MASK		(0x1 << PRCI_DDRPLLCFG1_CKE_SHIFT)
+-
+-/* GEMGXLPLLCFG0 */
+-#define PRCI_GEMGXLPLLCFG0_OFFSET		0x1c
+-# define PRCI_GEMGXLPLLCFG0_DIVR_SHIFT		0
+-# define PRCI_GEMGXLPLLCFG0_DIVR_MASK		(0x3f << PRCI_GEMGXLPLLCFG0_DIVR_SHIFT)
+-# define PRCI_GEMGXLPLLCFG0_DIVF_SHIFT		6
+-# define PRCI_GEMGXLPLLCFG0_DIVF_MASK		(0x1ff << PRCI_GEMGXLPLLCFG0_DIVF_SHIFT)
+-# define PRCI_GEMGXLPLLCFG0_DIVQ_SHIFT		15
+-# define PRCI_GEMGXLPLLCFG0_DIVQ_MASK		(0x7 << PRCI_GEMGXLPLLCFG0_DIVQ_SHIFT)
+-# define PRCI_GEMGXLPLLCFG0_RANGE_SHIFT		18
+-# define PRCI_GEMGXLPLLCFG0_RANGE_MASK		(0x7 << PRCI_GEMGXLPLLCFG0_RANGE_SHIFT)
+-# define PRCI_GEMGXLPLLCFG0_BYPASS_SHIFT	24
+-# define PRCI_GEMGXLPLLCFG0_BYPASS_MASK		(0x1 << PRCI_GEMGXLPLLCFG0_BYPASS_SHIFT)
+-# define PRCI_GEMGXLPLLCFG0_FSE_SHIFT		25
+-# define PRCI_GEMGXLPLLCFG0_FSE_MASK		(0x1 << PRCI_GEMGXLPLLCFG0_FSE_SHIFT)
+-# define PRCI_GEMGXLPLLCFG0_LOCK_SHIFT		31
+-# define PRCI_GEMGXLPLLCFG0_LOCK_MASK		(0x1 << PRCI_GEMGXLPLLCFG0_LOCK_SHIFT)
+-
+-/* GEMGXLPLLCFG1 */
+-#define PRCI_GEMGXLPLLCFG1_OFFSET		0x20
+-# define PRCI_GEMGXLPLLCFG1_CKE_SHIFT		24
+-# define PRCI_GEMGXLPLLCFG1_CKE_MASK		(0x1 << PRCI_GEMGXLPLLCFG1_CKE_SHIFT)
+-
+-/* CORECLKSEL */
+-#define PRCI_CORECLKSEL_OFFSET			0x24
+-# define PRCI_CORECLKSEL_CORECLKSEL_SHIFT	0
+-# define PRCI_CORECLKSEL_CORECLKSEL_MASK	(0x1 << PRCI_CORECLKSEL_CORECLKSEL_SHIFT)
+-
+-/* DEVICESRESETREG */
+-#define PRCI_DEVICESRESETREG_OFFSET			0x28
+-# define PRCI_DEVICESRESETREG_DDR_CTRL_RST_N_SHIFT	0
+-# define PRCI_DEVICESRESETREG_DDR_CTRL_RST_N_MASK	(0x1 << PRCI_DEVICESRESETREG_DDR_CTRL_RST_N_SHIFT)
+-# define PRCI_DEVICESRESETREG_DDR_AXI_RST_N_SHIFT	1
+-# define PRCI_DEVICESRESETREG_DDR_AXI_RST_N_MASK	(0x1 << PRCI_DEVICESRESETREG_DDR_AXI_RST_N_SHIFT)
+-# define PRCI_DEVICESRESETREG_DDR_AHB_RST_N_SHIFT	2
+-# define PRCI_DEVICESRESETREG_DDR_AHB_RST_N_MASK	(0x1 << PRCI_DEVICESRESETREG_DDR_AHB_RST_N_SHIFT)
+-# define PRCI_DEVICESRESETREG_DDR_PHY_RST_N_SHIFT	3
+-# define PRCI_DEVICESRESETREG_DDR_PHY_RST_N_MASK	(0x1 << PRCI_DEVICESRESETREG_DDR_PHY_RST_N_SHIFT)
+-# define PRCI_DEVICESRESETREG_GEMGXL_RST_N_SHIFT	5
+-# define PRCI_DEVICESRESETREG_GEMGXL_RST_N_MASK		(0x1 << PRCI_DEVICESRESETREG_GEMGXL_RST_N_SHIFT)
+-
+-/* CLKMUXSTATUSREG */
+-#define PRCI_CLKMUXSTATUSREG_OFFSET			0x2c
+-# define PRCI_CLKMUXSTATUSREG_TLCLKSEL_STATUS_SHIFT	1
+-# define PRCI_CLKMUXSTATUSREG_TLCLKSEL_STATUS_MASK	(0x1 << PRCI_CLKMUXSTATUSREG_TLCLKSEL_STATUS_SHIFT)
+-
+-/*
+- * Private structures
+- */
+-
+-/**
+- * struct __prci_data - per-device-instance data
+- * @va: base virtual address of the PRCI IP block
+- * @hw_clks: encapsulates struct clk_hw records
+- *
+- * PRCI per-device instance data
+- */
+-struct __prci_data {
+-	void __iomem *va;
+-	struct clk_hw_onecell_data hw_clks;
+-};
+-
+-/**
+- * struct __prci_wrpll_data - WRPLL configuration and integration data
+- * @c: WRPLL current configuration record
+- * @enable_bypass: fn ptr to code to bypass the WRPLL (if applicable; else NULL)
+- * @disable_bypass: fn ptr to code to not bypass the WRPLL (or NULL)
+- * @cfg0_offs: WRPLL CFG0 register offset (in bytes) from the PRCI base address
+- *
+- * @enable_bypass and @disable_bypass are used for WRPLL instances
+- * that contain a separate external glitchless clock mux downstream
+- * from the PLL.  The WRPLL internal bypass mux is not glitchless.
+- */
+-struct __prci_wrpll_data {
+-	struct wrpll_cfg c;
+-	void (*enable_bypass)(struct __prci_data *pd);
+-	void (*disable_bypass)(struct __prci_data *pd);
+-	u8 cfg0_offs;
+-};
+-
+-/**
+- * struct __prci_clock - describes a clock device managed by PRCI
+- * @name: user-readable clock name string - should match the manual
+- * @parent_name: parent name for this clock
+- * @ops: struct clk_ops for the Linux clock framework to use for control
+- * @hw: Linux-private clock data
+- * @pwd: WRPLL-specific data, associated with this clock (if not NULL)
+- * @pd: PRCI-specific data associated with this clock (if not NULL)
+- *
+- * PRCI clock data.  Used by the PRCI driver to register PRCI-provided
+- * clocks to the Linux clock infrastructure.
+- */
+-struct __prci_clock {
+-	const char *name;
+-	const char *parent_name;
+-	const struct clk_ops *ops;
+-	struct clk_hw hw;
+-	struct __prci_wrpll_data *pwd;
+-	struct __prci_data *pd;
+-};
+-
+-#define clk_hw_to_prci_clock(pwd) container_of(pwd, struct __prci_clock, hw)
++#include <linux/of_device.h>
++#include "sifive-prci.h"
++#include "fu540-prci.h"
  
  /*
-  * This needs to be called very early during initialization, given that
-@@ -225,24 +65,14 @@ core_initcall(k210_sysctl_init);
-  */
- static void __init k210_soc_early_init(const void *fdt)
- {
--	void __iomem *regs;
--
--	regs = ioremap(K210_SYSCTL_SYSCTL_BASE_ADDR, 0x1000);
--	if (!regs)
--		panic("K210 sysctl ioremap");
--
--	/* Enable PLL1 to make the KPU SRAM useable */
--	k210_pll1_enable(regs);
--
--	k210_set_bits(PLL_OUT_EN, regs + K210_SYSCTL_PLL0);
-+	void __iomem *sysctl_base;
+  * Private functions
+@@ -222,7 +45,7 @@ static void __prci_writel(u32 v, u32 offs, struct __prci_data *pd)
+  * @c: ptr to a struct wrpll_cfg record to write config into
+  * @r: value read from the PRCI PLL configuration register
+  *
+- * Given a value @r read from an FU540 PRCI PLL configuration register,
++ * Given a value @r read from an FU740 PRCI PLL configuration register,
+  * split it into fields and populate it into the WRPLL configuration record
+  * pointed to by @c.
+  *
+@@ -251,8 +74,8 @@ static void __prci_wrpll_unpack(struct wrpll_cfg *c, u32 r)
+ 	v >>= PRCI_COREPLLCFG0_RANGE_SHIFT;
+ 	c->range = v;
  
--	k210_set_bits(CLKEN_CPU | CLKEN_SRAM0 | CLKEN_SRAM1,
--		      regs + K210_SYSCTL_CLKEN_CENT);
--	k210_set_bits(CLKEN_ROM | CLKEN_TIMER0 | CLKEN_RTC,
--		      regs + K210_SYSCTL_CLKEN_PERI);
-+	sysctl_base = ioremap(K210_SYSCTL_BASE_ADDR, K210_SYSCTL_BASE_SIZE);
-+	if (!sysctl_base)
-+		panic("k210-sysctl: ioremap failed");
+-	c->flags &= (WRPLL_FLAGS_INT_FEEDBACK_MASK |
+-		     WRPLL_FLAGS_EXT_FEEDBACK_MASK);
++	c->flags &=
++	    (WRPLL_FLAGS_INT_FEEDBACK_MASK | WRPLL_FLAGS_EXT_FEEDBACK_MASK);
  
--	k210_set_bits(CLKSEL_ACLK, regs + K210_SYSCTL_CLKSEL0);
-+	k210_clk_early_init(sysctl_base);
- 
--	iounmap(regs);
-+	iounmap(sysctl_base);
+ 	/* external feedback mode not supported */
+ 	c->flags |= WRPLL_FLAGS_INT_FEEDBACK_MASK;
+@@ -329,48 +152,6 @@ static void __prci_wrpll_write_cfg(struct __prci_data *pd,
+ 	memcpy(&pwd->c, c, sizeof(*c));
  }
--SOC_EARLY_INIT_DECLARE(generic_k210, "kendryte,k210", k210_soc_early_init);
-+SOC_EARLY_INIT_DECLARE(k210_soc, "canaan,kendryte-k210", k210_soc_early_init);
-diff --git a/include/soc/canaan/k210-sysctl.h b/include/soc/canaan/k210-sysctl.h
+ 
+-/* Core clock mux control */
+-
+-/**
+- * __prci_coreclksel_use_hfclk() - switch the CORECLK mux to output HFCLK
+- * @pd: struct __prci_data * for the PRCI containing the CORECLK mux reg
+- *
+- * Switch the CORECLK mux to the HFCLK input source; return once complete.
+- *
+- * Context: Any context.  Caller must prevent concurrent changes to the
+- *          PRCI_CORECLKSEL_OFFSET register.
+- */
+-static void __prci_coreclksel_use_hfclk(struct __prci_data *pd)
+-{
+-	u32 r;
+-
+-	r = __prci_readl(pd, PRCI_CORECLKSEL_OFFSET);
+-	r |= PRCI_CORECLKSEL_CORECLKSEL_MASK;
+-	__prci_writel(r, PRCI_CORECLKSEL_OFFSET, pd);
+-
+-	r = __prci_readl(pd, PRCI_CORECLKSEL_OFFSET); /* barrier */
+-}
+-
+-/**
+- * __prci_coreclksel_use_corepll() - switch the CORECLK mux to output COREPLL
+- * @pd: struct __prci_data * for the PRCI containing the CORECLK mux reg
+- *
+- * Switch the CORECLK mux to the PLL output clock; return once complete.
+- *
+- * Context: Any context.  Caller must prevent concurrent changes to the
+- *          PRCI_CORECLKSEL_OFFSET register.
+- */
+-static void __prci_coreclksel_use_corepll(struct __prci_data *pd)
+-{
+-	u32 r;
+-
+-	r = __prci_readl(pd, PRCI_CORECLKSEL_OFFSET);
+-	r &= ~PRCI_CORECLKSEL_CORECLKSEL_MASK;
+-	__prci_writel(r, PRCI_CORECLKSEL_OFFSET, pd);
+-
+-	r = __prci_readl(pd, PRCI_CORECLKSEL_OFFSET); /* barrier */
+-}
+-
+ /*
+  * Linux clock framework integration
+  *
+@@ -378,8 +159,8 @@ static void __prci_coreclksel_use_corepll(struct __prci_data *pd)
+  * these functions.
+  */
+ 
+-static unsigned long sifive_fu540_prci_wrpll_recalc_rate(struct clk_hw *hw,
+-							 unsigned long parent_rate)
++unsigned long sifive_prci_wrpll_recalc_rate(struct clk_hw *hw,
++					    unsigned long parent_rate)
+ {
+ 	struct __prci_clock *pc = clk_hw_to_prci_clock(hw);
+ 	struct __prci_wrpll_data *pwd = pc->pwd;
+@@ -387,9 +168,9 @@ static unsigned long sifive_fu540_prci_wrpll_recalc_rate(struct clk_hw *hw,
+ 	return wrpll_calc_output_rate(&pwd->c, parent_rate);
+ }
+ 
+-static long sifive_fu540_prci_wrpll_round_rate(struct clk_hw *hw,
+-					       unsigned long rate,
+-					       unsigned long *parent_rate)
++long sifive_prci_wrpll_round_rate(struct clk_hw *hw,
++				  unsigned long rate,
++				  unsigned long *parent_rate)
+ {
+ 	struct __prci_clock *pc = clk_hw_to_prci_clock(hw);
+ 	struct __prci_wrpll_data *pwd = pc->pwd;
+@@ -402,9 +183,8 @@ static long sifive_fu540_prci_wrpll_round_rate(struct clk_hw *hw,
+ 	return wrpll_calc_output_rate(&c, *parent_rate);
+ }
+ 
+-static int sifive_fu540_prci_wrpll_set_rate(struct clk_hw *hw,
+-					    unsigned long rate,
+-					    unsigned long parent_rate)
++int sifive_prci_wrpll_set_rate(struct clk_hw *hw,
++			       unsigned long rate, unsigned long parent_rate)
+ {
+ 	struct __prci_clock *pc = clk_hw_to_prci_clock(hw);
+ 	struct __prci_wrpll_data *pwd = pc->pwd;
+@@ -428,20 +208,10 @@ static int sifive_fu540_prci_wrpll_set_rate(struct clk_hw *hw,
+ 	return 0;
+ }
+ 
+-static const struct clk_ops sifive_fu540_prci_wrpll_clk_ops = {
+-	.set_rate = sifive_fu540_prci_wrpll_set_rate,
+-	.round_rate = sifive_fu540_prci_wrpll_round_rate,
+-	.recalc_rate = sifive_fu540_prci_wrpll_recalc_rate,
+-};
+-
+-static const struct clk_ops sifive_fu540_prci_wrpll_ro_clk_ops = {
+-	.recalc_rate = sifive_fu540_prci_wrpll_recalc_rate,
+-};
+-
+ /* TLCLKSEL clock integration */
+ 
+-static unsigned long sifive_fu540_prci_tlclksel_recalc_rate(struct clk_hw *hw,
+-							    unsigned long parent_rate)
++unsigned long sifive_prci_tlclksel_recalc_rate(struct clk_hw *hw,
++					       unsigned long parent_rate)
+ {
+ 	struct __prci_clock *pc = clk_hw_to_prci_clock(hw);
+ 	struct __prci_data *pd = pc->pd;
+@@ -455,68 +225,62 @@ static unsigned long sifive_fu540_prci_tlclksel_recalc_rate(struct clk_hw *hw,
+ 	return div_u64(parent_rate, div);
+ }
+ 
+-static const struct clk_ops sifive_fu540_prci_tlclksel_clk_ops = {
+-	.recalc_rate = sifive_fu540_prci_tlclksel_recalc_rate,
+-};
+-
+ /*
+- * PRCI integration data for each WRPLL instance
++ * Core clock mux control
+  */
+ 
+-static struct __prci_wrpll_data __prci_corepll_data = {
+-	.cfg0_offs = PRCI_COREPLLCFG0_OFFSET,
+-	.enable_bypass = __prci_coreclksel_use_hfclk,
+-	.disable_bypass = __prci_coreclksel_use_corepll,
+-};
++/**
++ * sifive_prci_coreclksel_use_hfclk() - switch the CORECLK mux to output HFCLK
++ * @pd: struct __prci_data * for the PRCI containing the CORECLK mux reg
++ *
++ * Switch the CORECLK mux to the HFCLK input source; return once complete.
++ *
++ * Context: Any context.  Caller must prevent concurrent changes to the
++ *          PRCI_CORECLKSEL_OFFSET register.
++ */
++void sifive_prci_coreclksel_use_hfclk(struct __prci_data *pd)
++{
++	u32 r;
+ 
+-static struct __prci_wrpll_data __prci_ddrpll_data = {
+-	.cfg0_offs = PRCI_DDRPLLCFG0_OFFSET,
+-};
++	r = __prci_readl(pd, PRCI_CORECLKSEL_OFFSET);
++	r |= PRCI_CORECLKSEL_CORECLKSEL_MASK;
++	__prci_writel(r, PRCI_CORECLKSEL_OFFSET, pd);
+ 
+-static struct __prci_wrpll_data __prci_gemgxlpll_data = {
+-	.cfg0_offs = PRCI_GEMGXLPLLCFG0_OFFSET,
+-};
++	r = __prci_readl(pd, PRCI_CORECLKSEL_OFFSET);	/* barrier */
++}
+ 
+-/*
+- * List of clock controls provided by the PRCI
++/**
++ * sifive_prci_coreclksel_use_corepll() - switch the CORECLK mux to output
++ * COREPLL
++ * @pd: struct __prci_data * for the PRCI containing the CORECLK mux reg
++ *
++ * Switch the CORECLK mux to the COREPLL output clock; return once complete.
++ *
++ * Context: Any context.  Caller must prevent concurrent changes to the
++ *          PRCI_CORECLKSEL_OFFSET register.
+  */
++void sifive_prci_coreclksel_use_corepll(struct __prci_data *pd)
++{
++	u32 r;
+ 
+-static struct __prci_clock __prci_init_clocks[] = {
+-	[PRCI_CLK_COREPLL] = {
+-		.name = "corepll",
+-		.parent_name = "hfclk",
+-		.ops = &sifive_fu540_prci_wrpll_clk_ops,
+-		.pwd = &__prci_corepll_data,
+-	},
+-	[PRCI_CLK_DDRPLL] = {
+-		.name = "ddrpll",
+-		.parent_name = "hfclk",
+-		.ops = &sifive_fu540_prci_wrpll_ro_clk_ops,
+-		.pwd = &__prci_ddrpll_data,
+-	},
+-	[PRCI_CLK_GEMGXLPLL] = {
+-		.name = "gemgxlpll",
+-		.parent_name = "hfclk",
+-		.ops = &sifive_fu540_prci_wrpll_clk_ops,
+-		.pwd = &__prci_gemgxlpll_data,
+-	},
+-	[PRCI_CLK_TLCLK] = {
+-		.name = "tlclk",
+-		.parent_name = "corepll",
+-		.ops = &sifive_fu540_prci_tlclksel_clk_ops,
+-	},
+-};
++	r = __prci_readl(pd, PRCI_CORECLKSEL_OFFSET);
++	r &= ~PRCI_CORECLKSEL_CORECLKSEL_MASK;
++	__prci_writel(r, PRCI_CORECLKSEL_OFFSET, pd);
++
++	r = __prci_readl(pd, PRCI_CORECLKSEL_OFFSET);	/* barrier */
++}
+ 
+ /**
+- * __prci_register_clocks() - register clock controls in the PRCI with Linux
++ * __prci_register_clocks() - register clock controls in the PRCI
+  * @dev: Linux struct device *
+  *
+- * Register the list of clock controls described in __prci_init_plls[] with
++ * Register the list of clock controls described in __prci_init_clocks[] with
+  * the Linux clock framework.
+  *
+  * Return: 0 upon success or a negative error code upon failure.
+  */
+-static int __prci_register_clocks(struct device *dev, struct __prci_data *pd)
++static int __prci_register_clocks(struct device *dev, struct __prci_data *pd,
++				  const struct prci_clk_desc *desc)
+ {
+ 	struct clk_init_data init = { };
+ 	struct __prci_clock *pic;
+@@ -530,8 +294,8 @@ static int __prci_register_clocks(struct device *dev, struct __prci_data *pd)
+ 	}
+ 
+ 	/* Register PLLs */
+-	for (i = 0; i < ARRAY_SIZE(__prci_init_clocks); ++i) {
+-		pic = &__prci_init_clocks[i];
++	for (i = 0; i < desc->num_clks; ++i) {
++		pic = &(desc->clks[i]);
+ 
+ 		init.name = pic->name;
+ 		init.parent_names = &pic->parent_name;
+@@ -573,23 +337,22 @@ static int __prci_register_clocks(struct device *dev, struct __prci_data *pd)
+ 	return 0;
+ }
+ 
+-/*
+- * Linux device model integration
++/**
++ * sifive_prci_init() - initialize prci data and check parent count
+  *
+- * See the Linux device model documentation for more information about
+- * these functions.
++ * Return: 0 upon success or a negative error code upon failure.
+  */
+-static int sifive_fu540_prci_probe(struct platform_device *pdev)
++static int sifive_prci_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+ 	struct resource *res;
+ 	struct __prci_data *pd;
++	const struct prci_clk_desc *desc;
+ 	int r;
+ 
+-	pd = devm_kzalloc(dev,
+-			  struct_size(pd, hw_clks.hws,
+-				      ARRAY_SIZE(__prci_init_clocks)),
+-			  GFP_KERNEL);
++	desc = of_device_get_match_data(&pdev->dev);
++
++	pd = devm_kzalloc(dev, struct_size(pd, hw_clks.hws, desc->num_clks), GFP_KERNEL);
+ 	if (!pd)
+ 		return -ENOMEM;
+ 
+@@ -598,33 +361,32 @@ static int sifive_fu540_prci_probe(struct platform_device *pdev)
+ 	if (IS_ERR(pd->va))
+ 		return PTR_ERR(pd->va);
+ 
+-	r = __prci_register_clocks(dev, pd);
++	r = __prci_register_clocks(dev, pd, desc);
+ 	if (r) {
+ 		dev_err(dev, "could not register clocks: %d\n", r);
+ 		return r;
+ 	}
+ 
+-	dev_dbg(dev, "SiFive FU540 PRCI probed\n");
++	dev_dbg(dev, "SiFive PRCI probed\n");
+ 
+ 	return 0;
+ }
+ 
+-static const struct of_device_id sifive_fu540_prci_of_match[] = {
+-	{ .compatible = "sifive,fu540-c000-prci", },
++static const struct of_device_id sifive_prci_of_match[] = {
++	{.compatible = "sifive,fu540-c000-prci", .data = &prci_clk_fu540},
+ 	{}
+ };
+-MODULE_DEVICE_TABLE(of, sifive_fu540_prci_of_match);
+ 
+-static struct platform_driver sifive_fu540_prci_driver = {
+-	.driver	= {
+-		.name = "sifive-fu540-prci",
+-		.of_match_table = sifive_fu540_prci_of_match,
++static struct platform_driver sifive_prci_driver = {
++	.driver = {
++		.name = "sifive-clk-prci",
++		.of_match_table = sifive_prci_of_match,
+ 	},
+-	.probe = sifive_fu540_prci_probe,
++	.probe = sifive_prci_probe,
+ };
+ 
+-static int __init sifive_fu540_prci_init(void)
++static int __init sifive_prci_init(void)
+ {
+-	return platform_driver_register(&sifive_fu540_prci_driver);
++	return platform_driver_register(&sifive_prci_driver);
+ }
+-core_initcall(sifive_fu540_prci_init);
++core_initcall(sifive_prci_init);
+diff --git a/drivers/clk/sifive/sifive-prci.h b/drivers/clk/sifive/sifive-prci.h
 new file mode 100644
-index 000000000000..0c2b2c2dabca
+index 000000000000..025f717bc053
 --- /dev/null
-+++ b/include/soc/canaan/k210-sysctl.h
-@@ -0,0 +1,43 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
++++ b/drivers/clk/sifive/sifive-prci.h
+@@ -0,0 +1,201 @@
++/* SPDX-License-Identifier: GPL-2.0 */
 +/*
-+ * Copyright (C) 2019-20 Sean Anderson <seanga2@gmail.com>
-+ * Copyright (c) 2020 Western Digital Corporation or its affiliates.
++ * Copyright (C) 2018-2019 SiFive, Inc.
++ * Wesley Terpstra
++ * Paul Walmsley
++ * Zong Li
 + */
-+#ifndef K210_SYSCTL_H
-+#define K210_SYSCTL_H
++
++#ifndef __SIFIVE_CLK_SIFIVE_PRCI_H
++#define __SIFIVE_CLK_SIFIVE_PRCI_H
++
++#include <linux/clk/analogbits-wrpll-cln28hpc.h>
++#include <linux/clk-provider.h>
++#include <linux/platform_device.h>
 +
 +/*
-+ * Kendryte K210 SoC system controller registers offsets.
-+ * Taken from Kendryte SDK (kendryte-standalone-sdk).
++ * EXPECTED_CLK_PARENT_COUNT: how many parent clocks this driver expects:
++ *     hfclk and rtcclk
 + */
-+#define K210_SYSCTL_GIT_ID	0x00 /* Git short commit id */
-+#define K210_SYSCTL_UART_BAUD	0x04 /* Default UARTHS baud rate */
-+#define K210_SYSCTL_PLL0	0x08 /* PLL0 controller */
-+#define K210_SYSCTL_PLL1	0x0C /* PLL1 controller */
-+#define K210_SYSCTL_PLL2	0x10 /* PLL2 controller */
-+#define K210_SYSCTL_PLL_LOCK	0x18 /* PLL lock tester */
-+#define K210_SYSCTL_ROM_ERROR	0x1C /* AXI ROM detector */
-+#define K210_SYSCTL_SEL0	0x20 /* Clock select controller 0 */
-+#define K210_SYSCTL_SEL1	0x24 /* Clock select controller 1 */
-+#define K210_SYSCTL_EN_CENT	0x28 /* Central clock enable */
-+#define K210_SYSCTL_EN_PERI	0x2C /* Peripheral clock enable */
-+#define K210_SYSCTL_SOFT_RESET	0x30 /* Soft reset ctrl */
-+#define K210_SYSCTL_PERI_RESET	0x34 /* Peripheral reset controller */
-+#define K210_SYSCTL_THR0	0x38 /* Clock threshold controller 0 */
-+#define K210_SYSCTL_THR1	0x3C /* Clock threshold controller 1 */
-+#define K210_SYSCTL_THR2	0x40 /* Clock threshold controller 2 */
-+#define K210_SYSCTL_THR3	0x44 /* Clock threshold controller 3 */
-+#define K210_SYSCTL_THR4	0x48 /* Clock threshold controller 4 */
-+#define K210_SYSCTL_THR5	0x4C /* Clock threshold controller 5 */
-+#define K210_SYSCTL_THR6	0x50 /* Clock threshold controller 6 */
-+#define K210_SYSCTL_MISC	0x54 /* Miscellaneous controller */
-+#define K210_SYSCTL_PERI	0x58 /* Peripheral controller */
-+#define K210_SYSCTL_SPI_SLEEP	0x5C /* SPI sleep controller */
-+#define K210_SYSCTL_RESET_STAT	0x60 /* Reset source status */
-+#define K210_SYSCTL_DMA_SEL0	0x64 /* DMA handshake selector 0 */
-+#define K210_SYSCTL_DMA_SEL1	0x68 /* DMA handshake selector 1 */
-+#define K210_SYSCTL_POWER_SEL	0x6C /* IO Power Mode Select controller */
++#define EXPECTED_CLK_PARENT_COUNT 2
 +
-+void k210_clk_early_init(void __iomem *regs);
++/*
++ * Register offsets and bitmasks
++ */
 +
-+#endif
++/* COREPLLCFG0 */
++#define PRCI_COREPLLCFG0_OFFSET		0x4
++#define PRCI_COREPLLCFG0_DIVR_SHIFT	0
++#define PRCI_COREPLLCFG0_DIVR_MASK	(0x3f << PRCI_COREPLLCFG0_DIVR_SHIFT)
++#define PRCI_COREPLLCFG0_DIVF_SHIFT	6
++#define PRCI_COREPLLCFG0_DIVF_MASK	(0x1ff << PRCI_COREPLLCFG0_DIVF_SHIFT)
++#define PRCI_COREPLLCFG0_DIVQ_SHIFT	15
++#define PRCI_COREPLLCFG0_DIVQ_MASK	(0x7 << PRCI_COREPLLCFG0_DIVQ_SHIFT)
++#define PRCI_COREPLLCFG0_RANGE_SHIFT	18
++#define PRCI_COREPLLCFG0_RANGE_MASK	(0x7 << PRCI_COREPLLCFG0_RANGE_SHIFT)
++#define PRCI_COREPLLCFG0_BYPASS_SHIFT	24
++#define PRCI_COREPLLCFG0_BYPASS_MASK	(0x1 << PRCI_COREPLLCFG0_BYPASS_SHIFT)
++#define PRCI_COREPLLCFG0_FSE_SHIFT	25
++#define PRCI_COREPLLCFG0_FSE_MASK	(0x1 << PRCI_COREPLLCFG0_FSE_SHIFT)
++#define PRCI_COREPLLCFG0_LOCK_SHIFT	31
++#define PRCI_COREPLLCFG0_LOCK_MASK	(0x1 << PRCI_COREPLLCFG0_LOCK_SHIFT)
++
++/* DDRPLLCFG0 */
++#define PRCI_DDRPLLCFG0_OFFSET		0xc
++#define PRCI_DDRPLLCFG0_DIVR_SHIFT	0
++#define PRCI_DDRPLLCFG0_DIVR_MASK	(0x3f << PRCI_DDRPLLCFG0_DIVR_SHIFT)
++#define PRCI_DDRPLLCFG0_DIVF_SHIFT	6
++#define PRCI_DDRPLLCFG0_DIVF_MASK	(0x1ff << PRCI_DDRPLLCFG0_DIVF_SHIFT)
++#define PRCI_DDRPLLCFG0_DIVQ_SHIFT	15
++#define PRCI_DDRPLLCFG0_DIVQ_MASK	(0x7 << PRCI_DDRPLLCFG0_DIVQ_SHIFT)
++#define PRCI_DDRPLLCFG0_RANGE_SHIFT	18
++#define PRCI_DDRPLLCFG0_RANGE_MASK	(0x7 << PRCI_DDRPLLCFG0_RANGE_SHIFT)
++#define PRCI_DDRPLLCFG0_BYPASS_SHIFT	24
++#define PRCI_DDRPLLCFG0_BYPASS_MASK	(0x1 << PRCI_DDRPLLCFG0_BYPASS_SHIFT)
++#define PRCI_DDRPLLCFG0_FSE_SHIFT	25
++#define PRCI_DDRPLLCFG0_FSE_MASK	(0x1 << PRCI_DDRPLLCFG0_FSE_SHIFT)
++#define PRCI_DDRPLLCFG0_LOCK_SHIFT	31
++#define PRCI_DDRPLLCFG0_LOCK_MASK	(0x1 << PRCI_DDRPLLCFG0_LOCK_SHIFT)
++
++/* DDRPLLCFG1 */
++#define PRCI_DDRPLLCFG1_OFFSET		0x10
++#define PRCI_DDRPLLCFG1_CKE_SHIFT	24
++#define PRCI_DDRPLLCFG1_CKE_MASK	(0x1 << PRCI_DDRPLLCFG1_CKE_SHIFT)
++
++/* GEMGXLPLLCFG0 */
++#define PRCI_GEMGXLPLLCFG0_OFFSET	0x1c
++#define PRCI_GEMGXLPLLCFG0_DIVR_SHIFT	0
++#define PRCI_GEMGXLPLLCFG0_DIVR_MASK	(0x3f << PRCI_GEMGXLPLLCFG0_DIVR_SHIFT)
++#define PRCI_GEMGXLPLLCFG0_DIVF_SHIFT	6
++#define PRCI_GEMGXLPLLCFG0_DIVF_MASK	(0x1ff << PRCI_GEMGXLPLLCFG0_DIVF_SHIFT)
++#define PRCI_GEMGXLPLLCFG0_DIVQ_SHIFT	15
++#define PRCI_GEMGXLPLLCFG0_DIVQ_MASK	(0x7 << PRCI_GEMGXLPLLCFG0_DIVQ_SHIFT)
++#define PRCI_GEMGXLPLLCFG0_RANGE_SHIFT	18
++#define PRCI_GEMGXLPLLCFG0_RANGE_MASK	(0x7 << PRCI_GEMGXLPLLCFG0_RANGE_SHIFT)
++#define PRCI_GEMGXLPLLCFG0_BYPASS_SHIFT	24
++#define PRCI_GEMGXLPLLCFG0_BYPASS_MASK	(0x1 << PRCI_GEMGXLPLLCFG0_BYPASS_SHIFT)
++#define PRCI_GEMGXLPLLCFG0_FSE_SHIFT	25
++#define PRCI_GEMGXLPLLCFG0_FSE_MASK	(0x1 << PRCI_GEMGXLPLLCFG0_FSE_SHIFT)
++#define PRCI_GEMGXLPLLCFG0_LOCK_SHIFT	31
++#define PRCI_GEMGXLPLLCFG0_LOCK_MASK	(0x1 << PRCI_GEMGXLPLLCFG0_LOCK_SHIFT)
++
++/* GEMGXLPLLCFG1 */
++#define PRCI_GEMGXLPLLCFG1_OFFSET	0x20
++#define RCI_GEMGXLPLLCFG1_CKE_SHIFT	24
++#define PRCI_GEMGXLPLLCFG1_CKE_MASK	(0x1 << PRCI_GEMGXLPLLCFG1_CKE_SHIFT)
++
++/* CORECLKSEL */
++#define PRCI_CORECLKSEL_OFFSET			0x24
++#define PRCI_CORECLKSEL_CORECLKSEL_SHIFT	0
++#define PRCI_CORECLKSEL_CORECLKSEL_MASK					\
++		(0x1 << PRCI_CORECLKSEL_CORECLKSEL_SHIFT)
++
++/* DEVICESRESETREG */
++#define PRCI_DEVICESRESETREG_OFFSET				0x28
++#define PRCI_DEVICESRESETREG_DDR_CTRL_RST_N_SHIFT		0
++#define PRCI_DEVICESRESETREG_DDR_CTRL_RST_N_MASK			\
++		(0x1 << PRCI_DEVICESRESETREG_DDR_CTRL_RST_N_SHIFT)
++#define PRCI_DEVICESRESETREG_DDR_AXI_RST_N_SHIFT		1
++#define PRCI_DEVICESRESETREG_DDR_AXI_RST_N_MASK				\
++		(0x1 << PRCI_DEVICESRESETREG_DDR_AXI_RST_N_SHIFT)
++#define PRCI_DEVICESRESETREG_DDR_AHB_RST_N_SHIFT		2
++#define PRCI_DEVICESRESETREG_DDR_AHB_RST_N_MASK				\
++		(0x1 << PRCI_DEVICESRESETREG_DDR_AHB_RST_N_SHIFT)
++#define PRCI_DEVICESRESETREG_DDR_PHY_RST_N_SHIFT		3
++#define PRCI_DEVICESRESETREG_DDR_PHY_RST_N_MASK				\
++		(0x1 << PRCI_DEVICESRESETREG_DDR_PHY_RST_N_SHIFT)
++#define PRCI_DEVICESRESETREG_GEMGXL_RST_N_SHIFT			5
++#define PRCI_DEVICESRESETREG_GEMGXL_RST_N_MASK				\
++		(0x1 << PRCI_DEVICESRESETREG_GEMGXL_RST_N_SHIFT)
++#define PRCI_DEVICESRESETREG_CHIPLINK_RST_N_SHIFT		6
++#define PRCI_DEVICESRESETREG_CHIPLINK_RST_N_MASK			\
++		(0x1 << PRCI_DEVICESRESETREG_CHIPLINK_RST_N_SHIFT)
++
++/* CLKMUXSTATUSREG */
++#define PRCI_CLKMUXSTATUSREG_OFFSET				0x2c
++#define PRCI_CLKMUXSTATUSREG_TLCLKSEL_STATUS_SHIFT		1
++#define PRCI_CLKMUXSTATUSREG_TLCLKSEL_STATUS_MASK			\
++		(0x1 << PRCI_CLKMUXSTATUSREG_TLCLKSEL_STATUS_SHIFT)
++
++/*
++ * Private structures
++ */
++
++/**
++ * struct __prci_data - per-device-instance data
++ * @va: base virtual address of the PRCI IP block
++ * @hw_clks: encapsulates struct clk_hw records
++ *
++ * PRCI per-device instance data
++ */
++struct __prci_data {
++	void __iomem *va;
++	struct clk_hw_onecell_data hw_clks;
++};
++
++/**
++ * struct __prci_wrpll_data - WRPLL configuration and integration data
++ * @c: WRPLL current configuration record
++ * @enable_bypass: fn ptr to code to bypass the WRPLL (if applicable; else NULL)
++ * @disable_bypass: fn ptr to code to not bypass the WRPLL (or NULL)
++ * @cfg0_offs: WRPLL CFG0 register offset (in bytes) from the PRCI base address
++ *
++ * @enable_bypass and @disable_bypass are used for WRPLL instances
++ * that contain a separate external glitchless clock mux downstream
++ * from the PLL.  The WRPLL internal bypass mux is not glitchless.
++ */
++struct __prci_wrpll_data {
++	struct wrpll_cfg c;
++	void (*enable_bypass)(struct __prci_data *pd);
++	void (*disable_bypass)(struct __prci_data *pd);
++	u8 cfg0_offs;
++};
++
++/**
++ * struct __prci_clock - describes a clock device managed by PRCI
++ * @name: user-readable clock name string - should match the manual
++ * @parent_name: parent name for this clock
++ * @ops: struct clk_ops for the Linux clock framework to use for control
++ * @hw: Linux-private clock data
++ * @pwd: WRPLL-specific data, associated with this clock (if not NULL)
++ * @pd: PRCI-specific data associated with this clock (if not NULL)
++ *
++ * PRCI clock data.  Used by the PRCI driver to register PRCI-provided
++ * clocks to the Linux clock infrastructure.
++ */
++struct __prci_clock {
++	const char *name;
++	const char *parent_name;
++	const struct clk_ops *ops;
++	struct clk_hw hw;
++	struct __prci_wrpll_data *pwd;
++	struct __prci_data *pd;
++};
++
++#define clk_hw_to_prci_clock(pwd) container_of(pwd, struct __prci_clock, hw)
++
++/*
++ * struct prci_clk_desc - describes the information of clocks of each SoCs
++ * @clks: point to a array of __prci_clock
++ * @num_clks: the number of element of clks
++ */
++struct prci_clk_desc {
++	struct __prci_clock *clks;
++	size_t num_clks;
++};
++
++/* Core clock mux control */
++void sifive_prci_coreclksel_use_hfclk(struct __prci_data *pd);
++void sifive_prci_coreclksel_use_corepll(struct __prci_data *pd);
++
++/* Linux clock framework integration */
++long sifive_prci_wrpll_round_rate(struct clk_hw *hw, unsigned long rate,
++				  unsigned long *parent_rate);
++int sifive_prci_wrpll_set_rate(struct clk_hw *hw, unsigned long rate,
++			       unsigned long parent_rate);
++unsigned long sifive_prci_wrpll_recalc_rate(struct clk_hw *hw,
++					    unsigned long parent_rate);
++unsigned long sifive_prci_tlclksel_recalc_rate(struct clk_hw *hw,
++					       unsigned long parent_rate);
++
++#endif /* __SIFIVE_CLK_SIFIVE_PRCI_H */
 -- 
-2.28.0
+2.29.2
 
 
 _______________________________________________
