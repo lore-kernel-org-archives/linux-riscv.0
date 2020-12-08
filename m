@@ -2,136 +2,76 @@ Return-Path: <SRS0=oC46=FM=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-16.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-5.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8826DC433FE
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Dec 2020 04:57:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E6921C433FE
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Dec 2020 07:03:01 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3813123A5B
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Dec 2020 04:57:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3813123A5B
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	by mail.kernel.org (Postfix) with ESMTPS id 5E71B23A6A
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Dec 2020 07:03:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5E71B23A6A
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=metux.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=K8zVAOgbi5lLjk9U3BcBGfH3QvJ595X15mTA3BiJiJk=; b=2Rcb0MdhPKGqQ1uv8nEThqBvA
-	jC+DeLLpYrjENFZONU3xtBjYt7ARFhzGLfHDtQolkrpPNdfvrfX58s0CZSraPE1YV2wCq+6jSHI5y
-	8iENNMEbT2N8RRDOzof/jpht52A/SRFw4T1ekU+I8ccHyT49RRsVIu6ABt+KOwRr5xiihn4fTGYgM
-	WCmfb1+xxo/WYzHb2RvEu+a9MQD5KhUv+uKbBPpdRmfXRMIpGnXoSsoWhf2ZQVa2l4gkjebCqZ99L
-	Kqf5tVBomGPC7RaCks9mFhjEgimboVxBDSv9fyn+4SA6Wp8OoliYGbaIVfS2o8ey7z7McUGQncHCR
-	RF0gI5R6g==;
+	 bh=yA/+9y5nb6g/hZoHNFog2b17krbnZ5uN+kxOqIoabj0=; b=E3a2+Pnz98+PIigRqJ33ne4J+
+	ttSpI0/X53Th+yDEUcCH09OwGuThSM4exBxkKVWHQUn+uDbuitORjUTVWWR86IjTdLHrfJqVcn7S3
+	SHLEaPdGg6VCV6+n1UJw9L1HnWpV0zvndBGceaT51ygVI1waneY3VdCbZw3UcNfM6i4pYQpgDsuEP
+	IIXcbQRI+P9moZXFwVrkvZD75cdTW1npO1VlszdJqvq5ZhdTyHfi5rs8UKWWjiiN6BUZJCWWHjnVY
+	22I1nng1f7u4AQASuXyvaUXpx5Z54hyiTzLeX2IXh1aoa8WNffcQAPComUPmRVEpXK14EDmPewR3T
+	EEz9UrcXA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kmV3j-0004Im-TZ; Tue, 08 Dec 2020 04:57:07 +0000
-Received: from mail-bn8nam08on2074.outbound.protection.outlook.com
- ([40.107.100.74] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
+	id 1kmX1Q-0003OV-94; Tue, 08 Dec 2020 07:02:52 +0000
+Received: from mout.kundenserver.de ([212.227.17.24])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kmV3g-0004Hb-W6
- for linux-riscv@lists.infradead.org; Tue, 08 Dec 2020 04:57:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=EE3oy9izEk6PmhEo0jyiod/61jQut1ENqHHO6t0zt0DZ261gAue9Zr7WIVhJND8sbrUKD7iWKqI9aoaR3QpAzzomqOMM09kZc9Ov4e/38AZAIdKEijydHt/t2CrA1G/nAPT6yfWRQm3oSyULwmloA/zGW3l3EJe8lt7lJHAcrkD/98jF/k9kSlij8jFsgRwGWSmsvFgGUMVFPzdHbOd7rOnFZdX5w8l3Kt6vdtrl8RiZ9S4Ml7GTSL6GdImb9aTxOLwyy66RmHuezqVxwSLl1Lg0oo67KKQVr05gCXwA3HvT4Vh3XohM+fhdKaNStEeCy8kQaJwMjtirX5XOK9a+CQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mDZ/WGWTZLipd61Fvk2rm2veRbyPa19lEjVRyXdUyjc=;
- b=e/boOLoxBuTP66jvTYZ+994/jwxanFxyiHQU6IvdVQpAS48yh/xZAO+xB/4oYmcae8yPzTHKi8cladh18aWmNW6KWZie1K+ekoVQOd7SB/NsxdTqhnZ+QPQnjyBbhF6efBncFFQt5R26xlvx4d5TxSlHCBjLCB9O/8vnJdiZrdAMJUHTD8UqSQEN258IOtCB0cGIvJYxYTm8DyZ1A+wr37J4vh16w/Oi5i0kqSDQrvShY8qMpqNrMf+uD+xUYzrZdfPWb5uFUG1Rq1JCZOcwAGmmwi3OYNQ90xitg7khTeoc9eSIWxuE+DNTA3gndqNajNT9p3HGuK3ZzBoj+I4YsA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=openfive.com; dmarc=pass action=none header.from=sifive.com;
- dkim=pass header.d=sifive.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mDZ/WGWTZLipd61Fvk2rm2veRbyPa19lEjVRyXdUyjc=;
- b=kMTumNNPuuoL4Ec+dO6ClFzWXVSpHjmDPnY7bFFPX7kNxsNQLjR3bNADVO4PWkdlf8tSXLOExUXlQQSJwIPVeKQ1MlDdkJUFDFVMpeOgx7RZmz1aqgY/GG+A8pDsRgVdH87/bPderyJN0Jek2F7pUo8nXxGdNk85PpNlNovnU+g=
-Authentication-Results: vger.kernel.org; dkim=none (message not signed)
- header.d=none; vger.kernel.org; dmarc=none action=none header.from=sifive.com; 
-Received: from BY5PR13MB4453.namprd13.prod.outlook.com (2603:10b6:a03:1d1::19)
- by BY5PR13MB4440.namprd13.prod.outlook.com (2603:10b6:a03:1d2::16)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3654.7; Tue, 8 Dec
- 2020 04:57:02 +0000
-Received: from BY5PR13MB4453.namprd13.prod.outlook.com
- ([fe80::7c13:1ac6:9f2a:5eae]) by BY5PR13MB4453.namprd13.prod.outlook.com
- ([fe80::7c13:1ac6:9f2a:5eae%8]) with mapi id 15.20.3654.012; Tue, 8 Dec 2020
- 04:57:02 +0000
-From: Yash Shah <yash.shah@sifive.com>
-To: linux-spi@vger.kernel.org, linux-serial@vger.kernel.org,
- linux-pwm@vger.kernel.org, linux-i2c@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, linux-gpio@vger.kernel.org
-Subject: [PATCH v2 9/9] riscv: dts: add initial board data for the SiFive
- HiFive Unmatched
-Date: Tue,  8 Dec 2020 10:25:41 +0530
-Message-Id: <1607403341-57214-10-git-send-email-yash.shah@sifive.com>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1607403341-57214-1-git-send-email-yash.shah@sifive.com>
-References: <1607403341-57214-1-git-send-email-yash.shah@sifive.com>
-X-Originating-IP: [159.117.144.156]
-X-ClientProxiedBy: PN1PR0101CA0041.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:c00:c::27) To BY5PR13MB4453.namprd13.prod.outlook.com
- (2603:10b6:a03:1d1::19)
+ id 1kmX1N-0003Nw-Tg
+ for linux-riscv@lists.infradead.org; Tue, 08 Dec 2020 07:02:50 +0000
+Received: from [192.168.1.155] ([95.117.39.192]) by mrelayeu.kundenserver.de
+ (mreue107 [212.227.15.183]) with ESMTPSA (Nemesis) id
+ 1N1gac-1k2W2w0CRk-0122tg; Tue, 08 Dec 2020 08:02:38 +0100
+Subject: Re: [PATCH v2 2/2] drivers: gpio: add virtio-gpio guest driver
+To: Jason Wang <jasowang@redhat.com>, "Michael S. Tsirkin" <mst@redhat.com>
+References: <20201203191135.21576-1-info@metux.net>
+ <20201203191135.21576-2-info@metux.net>
+ <8209ce55-a4aa-f256-b9b9-f7eb3cac877b@redhat.com>
+ <96aca1e6-2d5a-deb1-2444-88f938c7a9de@metux.net>
+ <20201205142218-mutt-send-email-mst@kernel.org>
+ <842519cc-94ca-3c11-ddd6-543e5a89c998@redhat.com>
+ <20201207085247-mutt-send-email-mst@kernel.org>
+ <0a9c19bd-0d25-1035-57e3-b1f5f204c309@redhat.com>
+From: "Enrico Weigelt, metux IT consult" <lkml@metux.net>
+Message-ID: <500d0c68-0c6d-f5fb-665b-74aec6d59f99@metux.net>
+Date: Tue, 8 Dec 2020 08:02:30 +0100
+User-Agent: Mozilla/5.0 (X11; Linux i686 on x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.12.0
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-Received: from osubuntu003.open-silicon.com (159.117.144.156) by
- PN1PR0101CA0041.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c00:c::27) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3632.17 via Frontend
- Transport; Tue, 8 Dec 2020 04:56:56 +0000
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: e5febfd7-4098-4949-af14-08d89b35b3e8
-X-MS-TrafficTypeDiagnostic: BY5PR13MB4440:
-X-LD-Processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
-X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <BY5PR13MB4440602D5B077095DA458FFC82CD0@BY5PR13MB4440.namprd13.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:1923;
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: qX1Vxp1qAn630t/VqvSPVEvu6vwQfaB8Sq21jnhx+IoRqFiBcvMPbICs1rMkwCl9gD6ZTPS7bTw13N5XGbmE3u4xsgMXyQJrlePZrFKuDWQrEC3RsSPRZKuoHIhuhuexWC6CmtqtYPAqhsxAMZv2fuWnnsEistWcSTi3XeqtfNvbEvmoM6jKTovWt5OAO8C5HLimBbv9PqnRexuU7d5KJFAU0XxLGTCetoaRdedzw8lnWjXkBUHl3fl0Ykof63d9Z/nmpFFKmtRyU/yD9yCFdlZ6mL6k/8lY6jslw4/bZaxpHYZT/JIQovTIbd8tjiR5ilaBtDW5m5Fmfwg63dEI3NYxgUSqWDKt8eM+wkjbTgzNSeiGQd8jaPf2HVf1tkiQk0QdVuJnj20t5viVwZazfQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:BY5PR13MB4453.namprd13.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(6029001)(396003)(376002)(39850400004)(366004)(136003)(346002)(52116002)(83170400001)(956004)(5660300002)(4326008)(107886003)(2616005)(26005)(2906002)(316002)(7416002)(42882007)(44832011)(6666004)(83380400001)(16526019)(6506007)(8936002)(8676002)(36756003)(478600001)(6486002)(186003)(966005)(6512007)(66946007)(66476007)(66556008);
- DIR:OUT; SFP:1101; 
-X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?n+9ccuoVTME2rBYS0qcpR7op3zNjvTy1FtxVR22Ou4kdrWv6L2DuvGGgqEJ4?=
- =?us-ascii?Q?ZqGWZ2CBg7zLeDJvDFUa+8ecYZD82C7rQyCDt6p5dfYdBp7Njdu/ZLRfsjhy?=
- =?us-ascii?Q?sBskbqsApjgTsODNidV3Zv15Vbyf1pfeWx/CQ87rakZIwPRfdYFj9fcsPgjq?=
- =?us-ascii?Q?UY//Z1OqqXXEKPlliYGy1rh2vXQBZLWjXEIStoQOgjqACGf5P+zjxGbDFOcW?=
- =?us-ascii?Q?BIPw9sb0megijQnwv4Z4w4BMrZa8T/LRRDhygfGVFb9ua1L1VbktQAVyM3c7?=
- =?us-ascii?Q?nj254WY3xd/rW0e8vbhT4oC2qmogwY8faExF1G6RkQqugwifLriOvqhljmXN?=
- =?us-ascii?Q?GZDtOgu3Q7ic58JWUOatp1NFyZShcsnZb2FOj5+ua5tAryEJcKoHwRZ3xn83?=
- =?us-ascii?Q?r8UnpRQVKRsux7SbcvYHFvuQf+7G7UMWRVh6QsG1t/pv07TCmwp4R6SkRQ9r?=
- =?us-ascii?Q?LVyb8ZPtk5+OymCS8if9GbeXn5MElQAXPZJ5gDYRpPpgxeTUl3YtWTBfA6/Y?=
- =?us-ascii?Q?PySbg+sQJyULsYMxouqqBl2zN0XIgZj2d5ZOCbU5VvJo/NIyoRGRHr/8mYXK?=
- =?us-ascii?Q?+aoOHpLcXhsvUahXMReVMF+CHrjUki8RDlZJfA5lonfbzueN9Jlp4uz7+WUR?=
- =?us-ascii?Q?pNOS4tLE50NrmXZJ7Atxf3W+JespJO7dIeowQdjHlEh2wlVKvM6V/5t6Q26S?=
- =?us-ascii?Q?n5JXx8hx4qn18FT3gYjR2kJgIzGEYXlUCU7pYRL+KVHSH7iGJJd/7jwZ0vbo?=
- =?us-ascii?Q?7r76MJW73PAPtYfVxrYggVyKVih2oMR5op2jdhmzm6+SCLD2jISqjxD/D6Ko?=
- =?us-ascii?Q?lmDybUt7pneabV0PBMBw8SSPeoaKV0p2Gtn1OczEh/lnBRokqILmrOqwUYHn?=
- =?us-ascii?Q?yeZc4r2iNGXaro6fGcCO+4h08Gu3PRNswhJrC/uxmzSLvH/ciUWW5h7ib8A6?=
- =?us-ascii?Q?5bhf+hNno7Dom/SrgrRELWkOXerggBAS6ln/xP3VZZ8sYcw83wCAidKthfZ9?=
- =?us-ascii?Q?K9FV?=
-X-OriginatorOrg: sifive.com
-X-MS-Exchange-CrossTenant-AuthSource: BY5PR13MB4453.namprd13.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Dec 2020 04:57:02.5205 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
-X-MS-Exchange-CrossTenant-Network-Message-Id: e5febfd7-4098-4949-af14-08d89b35b3e8
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: FsCxZ+eFgYJGWyUlDDaV7iRnV0te8VB3PwvSIJLHmdyY9BXx6xJsoPu7djIUwBJNS/qvOYceS5GhNhIv3G3VFA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR13MB4440
+In-Reply-To: <0a9c19bd-0d25-1035-57e3-b1f5f204c309@redhat.com>
+Content-Language: tl
+X-Provags-ID: V03:K1:yN/BLdqz0Vt6Gc78kBHQubmPRXCo+73gjuzZ/FFo2aygJNFdokw
+ bIFudmapyFmrSTiIyDb+aUPLo4yjgmjzlZMHyY524wcRKwqJq6WUoQuYl0k5Pj+8yTyR84y
+ vzIM/cQCfW0r7jZgN8QvC1Wc8KV3kJ84BqpcGGXAv4vtZ2kMN43JYtqtkbJ/w0CRh6eQyeu
+ CxLLWsOi5p/z4+EPl66hw==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:J6pWCIG+eKA=:YbDwb0QlpqYTg8o6ISKAj2
+ 2nx0ApszFX4DE52Hscm8BkPNFR0h/2Fr+oZcQFep2yDc08ctJ8p3fmYPuNV0jI70LoAD5gsmZ
+ UxJi4zgWgNmSEvnNeoGRSVyAPJzxpqhOYJlqrEfs6XBgcCp4H31ur0WIKnKawxt5XmNQaEbyU
+ Rd1swVS5bTy3atV1TPcwwydDrVdZEbmA90gVpyvuZVgeJqSAU/BNLajbH7aJTMgwe+L9AD1TU
+ atTQxHBFZtuKkB6bOLxKMt0WimiYKuxTkIqGHJUnP832C47aTjMj9ATICWRI1Lt8a0McjrO0T
+ 9tPJ17odptw/ER8zz/fYEcdCYQV1gkbJatZw3JfUkDE3zbSJphmhDX4SyLdWuI/DPlFWqZi+K
+ 5tuNk+qVAyf10TKOHLGmyg6s05gRd1Kdo0Mt3jgjYDktLNgL9yI5eZAWfZ8U9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201207_235705_064008_95F73C99 
-X-CRM114-Status: GOOD (  14.04  )
+X-CRM114-CacheID: sfid-20201208_020250_189425_A2BFD636 
+X-CRM114-Status: UNSURE (   9.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -143,301 +83,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: andrew@lunn.ch, peter@korsgaard.com, aou@eecs.berkeley.edu,
- gregkh@linuxfoundation.org, broonie@kernel.org, paul.walmsley@sifive.com,
- robh+dt@kernel.org, bgolaszewski@baylibre.com,
- Yash Shah <yash.shah@sifive.com>, thierry.reding@gmail.com, palmer@dabbelt.com,
- u.kleine-koenig@pengutronix.de, lee.jones@linaro.org, linus.walleij@linaro.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: stefanha@redhat.com, linux-doc@vger.kernel.org, linus.walleij@linaro.org,
+ corbet@lwn.net, linux-kernel@vger.kernel.org,
+ virtualization@lists.linux-foundation.org, bgolaszewski@baylibre.com,
+ linux-gpio@vger.kernel.org, linux-riscv@lists.infradead.org, msuchanek@suse.de,
+ "Enrico Weigelt, metux IT consult" <info@metux.net>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add initial board data for the SiFive HiFive Unmatched A00.
-This patch is dependent on Zong's Patchset[0].
-
-[0]: https://lore.kernel.org/linux-riscv/20201130082330.77268-4-zong.li@sifive.com/T/#u
-
-Signed-off-by: Yash Shah <yash.shah@sifive.com>
----
- arch/riscv/boot/dts/sifive/Makefile                |   3 +-
- .../riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 253 +++++++++++++++++++++
- 2 files changed, 255 insertions(+), 1 deletion(-)
- create mode 100644 arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
-
-diff --git a/arch/riscv/boot/dts/sifive/Makefile b/arch/riscv/boot/dts/sifive/Makefile
-index 6d6189e..74c47fe 100644
---- a/arch/riscv/boot/dts/sifive/Makefile
-+++ b/arch/riscv/boot/dts/sifive/Makefile
-@@ -1,2 +1,3 @@
- # SPDX-License-Identifier: GPL-2.0
--dtb-$(CONFIG_SOC_SIFIVE) += hifive-unleashed-a00.dtb
-+dtb-$(CONFIG_SOC_SIFIVE) += hifive-unleashed-a00.dtb \
-+			    hifive-unmatched-a00.dtb
-diff --git a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
-new file mode 100644
-index 0000000..b1c3c59
---- /dev/null
-+++ b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
-@@ -0,0 +1,253 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/* Copyright (c) 2020 SiFive, Inc */
-+
-+#include "fu740-c000.dtsi"
-+#include <dt-bindings/interrupt-controller/irq.h>
-+
-+/* Clock frequency (in Hz) of the PCB crystal for rtcclk */
-+#define RTCCLK_FREQ		1000000
-+
-+/ {
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+	model = "SiFive HiFive Unmatched A00";
-+	compatible = "sifive,hifive-unmatched-a00", "sifive,fu740-c000",
-+		     "sifive,fu740";
-+
-+	chosen {
-+		stdout-path = "serial0";
-+	};
-+
-+	cpus {
-+		timebase-frequency = <RTCCLK_FREQ>;
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x0 0x80000000 0x2 0x00000000>;
-+	};
-+
-+	soc {
-+	};
-+
-+	hfclk: hfclk {
-+		#clock-cells = <0>;
-+		compatible = "fixed-clock";
-+		clock-frequency = <26000000>;
-+		clock-output-names = "hfclk";
-+	};
-+
-+	rtcclk: rtcclk {
-+		#clock-cells = <0>;
-+		compatible = "fixed-clock";
-+		clock-frequency = <RTCCLK_FREQ>;
-+		clock-output-names = "rtcclk";
-+	};
-+};
-+
-+&uart0 {
-+	status = "okay";
-+};
-+
-+&uart1 {
-+	status = "okay";
-+};
-+
-+&i2c0 {
-+	status = "okay";
-+
-+	temperature-sensor@4c {
-+		compatible = "ti,tmp451";
-+		reg = <0x4c>;
-+		interrupt-parent = <&gpio>;
-+		interrupts = <6 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	pmic@58 {
-+		compatible = "dlg,da9063";
-+		reg = <0x58>;
-+		interrupt-parent = <&gpio>;
-+		interrupts = <1 IRQ_TYPE_LEVEL_LOW>;
-+		interrupt-controller;
-+
-+		regulators {
-+			vdd_bcore1: bcore1 {
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <900000>;
-+				regulator-min-microamp = <5000000>;
-+				regulator-max-microamp = <5000000>;
-+				regulator-always-on;
-+			};
-+
-+			vdd_bcore2: bcore2 {
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <900000>;
-+				regulator-min-microamp = <5000000>;
-+				regulator-max-microamp = <5000000>;
-+				regulator-always-on;
-+			};
-+
-+			vdd_bpro: bpro {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-min-microamp = <2500000>;
-+				regulator-max-microamp = <2500000>;
-+				regulator-always-on;
-+			};
-+
-+			vdd_bperi: bperi {
-+				regulator-min-microvolt = <1050000>;
-+				regulator-max-microvolt = <1050000>;
-+				regulator-min-microamp = <1500000>;
-+				regulator-max-microamp = <1500000>;
-+				regulator-always-on;
-+			};
-+
-+			vdd_bmem: bmem {
-+				regulator-min-microvolt = <1200000>;
-+				regulator-max-microvolt = <1200000>;
-+				regulator-min-microamp = <3000000>;
-+				regulator-max-microamp = <3000000>;
-+				regulator-always-on;
-+			};
-+
-+			vdd_bio: bio {
-+				regulator-min-microvolt = <1200000>;
-+				regulator-max-microvolt = <1200000>;
-+				regulator-min-microamp = <3000000>;
-+				regulator-max-microamp = <3000000>;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo1: ldo1 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-min-microamp = <100000>;
-+				regulator-max-microamp = <100000>;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo2: ldo2 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-min-microamp = <200000>;
-+				regulator-max-microamp = <200000>;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo3: ldo3 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-min-microamp = <200000>;
-+				regulator-max-microamp = <200000>;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo4: ldo4 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-min-microamp = <200000>;
-+				regulator-max-microamp = <200000>;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo5: ldo5 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-min-microamp = <100000>;
-+				regulator-max-microamp = <100000>;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo6: ldo6 {
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-min-microamp = <200000>;
-+				regulator-max-microamp = <200000>;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo7: ldo7 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-min-microamp = <200000>;
-+				regulator-max-microamp = <200000>;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo8: ldo8 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-min-microamp = <200000>;
-+				regulator-max-microamp = <200000>;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ld09: ldo9 {
-+				regulator-min-microvolt = <1050000>;
-+				regulator-max-microvolt = <1050000>;
-+				regulator-min-microamp = <200000>;
-+				regulator-max-microamp = <200000>;
-+			};
-+
-+			vdd_ldo10: ldo10 {
-+				regulator-min-microvolt = <1000000>;
-+				regulator-max-microvolt = <1000000>;
-+				regulator-min-microamp = <300000>;
-+				regulator-max-microamp = <300000>;
-+			};
-+
-+			vdd_ldo11: ldo11 {
-+				regulator-min-microvolt = <2500000>;
-+				regulator-max-microvolt = <2500000>;
-+				regulator-min-microamp = <300000>;
-+				regulator-max-microamp = <300000>;
-+				regulator-always-on;
-+			};
-+		};
-+	};
-+};
-+
-+&qspi0 {
-+	status = "okay";
-+	flash@0 {
-+		compatible = "issi,is25wp256", "jedec,spi-nor";
-+		reg = <0>;
-+		spi-max-frequency = <50000000>;
-+		m25p,fast-read;
-+		spi-tx-bus-width = <4>;
-+		spi-rx-bus-width = <4>;
-+	};
-+};
-+
-+&spi0 {
-+	status = "okay";
-+	mmc@0 {
-+		compatible = "mmc-spi-slot";
-+		reg = <0>;
-+		spi-max-frequency = <20000000>;
-+		voltage-ranges = <3300 3300>;
-+		disable-wp;
-+	};
-+};
-+
-+&eth0 {
-+	status = "okay";
-+	phy-mode = "gmii";
-+	phy-handle = <&phy0>;
-+	phy0: ethernet-phy@0 {
-+		reg = <0>;
-+	};
-+};
-+
-+&pwm0 {
-+	status = "okay";
-+};
-+
-+&pwm1 {
-+	status = "okay";
-+};
-+
-+&gpio {
-+	status = "okay";
-+};
--- 
-2.7.4
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMDguMTIuMjAgMDM6MzYsIEphc29uIFdhbmcgd3JvdGU6CgpIaSwKCj4gU28gd2UgZW5kdXAg
+d2l0aCB0d28gc29sdXRpb25zICh3aXRob3V0IGEgcHJvbXB0KToKPiAKPiAxKSB1c2luZyBzZWxl
+Y3QsIHVzZXIgbWF5IGVuZCB1cCB3aXRoIGRyaXZlciB3aXRob3V0IHRyYW5zcG9ydAoKSU1ITyBu
+b3QgYW4gZW50aXJlbHkgdW51c3VhbCBzaXR1YXRpb24gaW4gb3RoZXIgcGxhY2VzIG9mIHRoZSBr
+ZXJuZWwsCmVnLiBvbmUgY2FuIGVuYWJsZSBVU0IgZGV2aWNlcywgdy9vIGhhdmluZyBhbiB1c2Ig
+aG9zdCBhZGFwdGVyIGVuYWJsZWQuCgpBbmQgZXZlbiBpZiBzb21lIFVTQi1IQSBkcml2ZXIgaXMg
+ZW5hYmxlZCwgdGhlIGFjdHVhbHkgbWFjaGluZSBkb2Vzbid0Cm5lY2Vzc2FyaWx5IGhhdmUgdGhl
+IGNvcnJlc3BvbmRpbmcgZGV2aWNlLgoKPiAyKSB1c2luZyBkZXBlbmRzLCB1c2VyIG5lZWQgdG8g
+ZW5hYmxlIGF0IGxlYXN0IG9uZSB0cmFuc3BvcnQKPiAKPiAyKSBsb29rcyBhIGxpdHRsZSBiaXQg
+YmV0dGVyIEkgYWRtaXQuCgpTbywgYWxsIHZpcnRpbyBkZXZpY2VzIHNob3VsZCBkZXBlbmQgb24g
+VFJBTlNQT1JUX0EgfHwgVFJBTlNQT1JUX0IgfHwKVFJBTlNQT1JUX0MgfHwgLi4uID8gKGFuZCBh
+bHNvIGNoYW5nZSBhbGwgdGhlc2UgcGxhY2VzIGlmIGFub3RoZXIKdHJhbnNwb3J0IGlzIGFkZGVk
+KSA/CgotLW10eAoKLS0gCi0tLQpIaW53ZWlzOiB1bnZlcnNjaGzDvHNzZWx0ZSBFLU1haWxzIGvD
+tm5uZW4gbGVpY2h0IGFiZ2Vow7ZydCB1bmQgbWFuaXB1bGllcnQKd2VyZGVuICEgRsO8ciBlaW5l
+IHZlcnRyYXVsaWNoZSBLb21tdW5pa2F0aW9uIHNlbmRlbiBTaWUgYml0dGUgaWhyZW4KR1BHL1BH
+UC1TY2hsw7xzc2VsIHp1LgotLS0KRW5yaWNvIFdlaWdlbHQsIG1ldHV4IElUIGNvbnN1bHQKRnJl
+ZSBzb2Z0d2FyZSBhbmQgTGludXggZW1iZWRkZWQgZW5naW5lZXJpbmcKaW5mb0BtZXR1eC5uZXQg
+LS0gKzQ5LTE1MS0yNzU2NTI4NwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
+ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
+aW51eC1yaXNjdgo=
