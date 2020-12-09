@@ -2,166 +2,88 @@ Return-Path: <SRS0=PU6a=FN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EF2EDC433FE
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Dec 2020 05:26:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3E723C4361B
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Dec 2020 05:35:25 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5D30623B23
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Dec 2020 05:26:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5D30623B23
+	by mail.kernel.org (Postfix) with ESMTPS id DEAFD23B4B
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Dec 2020 05:35:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DEAFD23B4B
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=sVuXHo43EKMIayVdjgJWQrevZ2K/k+gdMemaHCdVnJQ=; b=moQDZtH92xxt2ycW7z+RNreUd
-	9ERekZQ8/UzzN6P/HEzTItZHJX9f21H7ukciS5Vep2NjHjQXU2mz65fvd+wtSzQ41YFwCKaCwennN
-	Vz9kwWAa1DwPN5mgKNvs0UcftzqXBrcm1OVdfTQEzxZpubWxviWyDPKI93JKTh1yGIGK08oDT99dn
-	pg3tPAQiNgPrViHHVMUp3n/mKQdl7uy4c52qeelyYMshr+4MOYuiXStajoE1y4pMBTzg24ihNHQyM
-	Bp5YeVnhizmm7MAoymNyu6OkEIfK7prN3E3sBSHCfZpOlegqLNvi17gyYgCILqg9ET0I4frBPEHhA
-	9jbW2CX6A==;
+	 bh=XuK/QRGtqKP+5UJecutJLUJ9yfLlE/VrfxcC3ZZk3vs=; b=GWAXhL1W9tBv1lig0VEh3v/fG
+	R6ltNa3Rj/s7dHwQXu28TIsnxqk4DQXZozUqPAyHxC83xI0ifsHRRvc4kPJJMBPKZlyeiwLpqsCsv
+	D7+9I5haZMMvq/RanexgaEX3jddjCAe2oM3f8w4fGFV68FEaNlKhKT2SMRTha5PeF4TTM5/cGJOtY
+	LycnVnf3tb4B4v3rTDmelksTmIOoJq/9F5b1UGH0LJcS3Rux2G7lI/8etdyLNaq2SAKLmedNxUKBB
+	oJdOAtu2OFNFM9wOGJz77t0J3U3p81wmN1g5poIl5Gk0XURziqVWz5JIASLxCpAMB0m3N81wVxwVY
+	9j2m2E6OA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kmrzy-0006xA-Nk; Wed, 09 Dec 2020 05:26:46 +0000
-Received: from esa1.hgst.iphmx.com ([68.232.141.245])
+	id 1kms8B-0007or-Mp; Wed, 09 Dec 2020 05:35:15 +0000
+Received: from esa2.hgst.iphmx.com ([68.232.143.124])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kmrzw-0006we-4i
- for linux-riscv@lists.infradead.org; Wed, 09 Dec 2020 05:26:45 +0000
+ id 1kms8A-0007oD-29
+ for linux-riscv@lists.infradead.org; Wed, 09 Dec 2020 05:35:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1607491604; x=1639027604;
- h=from:to:cc:subject:date:message-id:references:
- in-reply-to:content-id:content-transfer-encoding: mime-version;
- bh=P6AhmMdvX3SaB8wW5xHLnlJikkU8D2CUop9+evyPJWU=;
- b=aNJeyunNU6FMWRjVbibu2/wS/K+nPq+sMb/V/HagS7okoYfjOF98FSFj
- VnuLrxhN+ec0ZlhRcj1npYzLMLmow3l77Wt2HTcm3dCVa+p8wqaVih4kY
- LtjeqYwJ+9j4Ga5PoONtugz+5BFRhCtUzklHMBxBDn4CLgNWNRZaE/PeZ
- gjRDgweiMHSg4M+f9qHBjofe30XEZiSTccRcQq1H8n8HI9RuQJ0dc0tXg
- uRxD7QQj4tuNIoLBkrxlqbIFsxLKiGWD0m3h2J9xngDFmYUdr46kCjsoD
- Yp4zDwT8CxxqUvsLmkl7xKRxdvz1m/MwjlyIUv6Xj5V7YImyUtAGKhH38 w==;
-IronPort-SDR: EZe0Nt3VmWC/3gbnkrMUS5K8CDlBVqnh7IcOPG8xpsyKXNzN+hZrIu+mbk8wgPaUvhf3Kvb1jo
- GiYPlDdBHStQYOeYV8fLfvVP+0LYSQRdPg1etZaHJaEvq9H4BFcZ6Nvs5Lhb+JKCZ2rCpS648I
- 7oE2h6qktHu10r8oR7Q5d3sca3Nl8FKqUvqAJFw31eaCo/89CV1qV8gYS0M+izT/NyoSHUN3mV
- 4tdEaY00+arc6ImjFFccR/ad4dECpO5EstTBb4lzphXKM5tmbiIu66pwnnBJ4WsLZUIePjY0TL
- wek=
-X-IronPort-AV: E=Sophos;i="5.78,404,1599494400"; d="scan'208";a="264903418"
-Received: from mail-dm6nam10lp2103.outbound.protection.outlook.com (HELO
- NAM10-DM6-obe.outbound.protection.outlook.com) ([104.47.58.103])
- by ob1.hgst.iphmx.com with ESMTP; 09 Dec 2020 13:26:41 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=bserNzRQbkjPOpHUWtFiaCKgPhScvioRvf2ANLTJg/hBPA7hfP6MCDoHd6DclDjjkoVjzcONc4glPn8yUDylmzHO73i9LrqhBxbRp8JgFKe5u3DMpKp51TAz589yHo2ksDAam+HESjr+tHrcmMVll/YjpdBf2BP/1flBZXo5j8he9sldU0/oZIWFtkLqxyrT8aRqqMgLLU5u7hPVYVPgt8aLg4pN0pTIZ0lWX46bSC4PB6pguGrrV5fJSs5jzpdFtgjKMZdQC6xgTYBoIhhp/yV8Q39bvDbMBmaRGLGyQjiQZICN/Sz6wdfvlTYs/KxQ1LSQDyTRKf+Q5Uu/WtWo7Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=P6AhmMdvX3SaB8wW5xHLnlJikkU8D2CUop9+evyPJWU=;
- b=BpihVTXSpevs3ya//e+0yTGh7Qg0WuY3LfJQ7HypVTobPrNWI5uTrAOgkzTem7Auh6cN/RvbgIcI/cFxcTs+1JQ8imKEBORI2ErUqIxz0qyxAe1Xzw91oos1v4dmu6yfaGPKUnoPVglbRdjoQpbEvk53uAJU0nqcjzZdzWpEg0wDAwgE8geCtliT2Dl3pUnYPxnJ4ofmv85i1aRwYQNGr/sCXVfLVk48cpCfAaCoXch0RrVi11AerOcykXhVrLFgkGs+4Au1glt/8T7rJluJv/hfrUPK/ocT80Z+I1Jh8tmqaiTbKMyIsb4nm3BqLmmKK4tJSaOY7+WcwMSfjhnDtQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
- header.d=wdc.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=P6AhmMdvX3SaB8wW5xHLnlJikkU8D2CUop9+evyPJWU=;
- b=QczG1i3W230v/HG/4qQO0OatR3/kQUhQXygnzzQgYRbuMJz7XucS3Jpm2IgtJ4GOXqS2/3pPl2kK3pyXov3/P4kioYeXShZac6uhssh56qXxUM06lHI2EVgsSglTi66WtqxeoWuhpZy6MkQu06NMrzUq4WGtdjGfT01PI3gclLA=
-Received: from CH2PR04MB6522.namprd04.prod.outlook.com (2603:10b6:610:34::19)
- by CH2PR04MB6570.namprd04.prod.outlook.com (2603:10b6:610:64::18)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3632.20; Wed, 9 Dec
- 2020 05:26:40 +0000
-Received: from CH2PR04MB6522.namprd04.prod.outlook.com
- ([fe80::897c:a04b:4eb0:640a]) by CH2PR04MB6522.namprd04.prod.outlook.com
- ([fe80::897c:a04b:4eb0:640a%7]) with mapi id 15.20.3632.023; Wed, 9 Dec 2020
- 05:26:40 +0000
-From: Damien Le Moal <Damien.LeMoal@wdc.com>
-To: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linus.walleij@linaro.org" <linus.walleij@linaro.org>, "palmer@dabbelt.com"
- <palmer@dabbelt.com>, "sboyd@kernel.org" <sboyd@kernel.org>,
- "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>, "robh+dt@kernel.org"
- <robh+dt@kernel.org>, "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>
-Subject: Re: [PATCH v5 12/21] riscv: Add Canaan Kendryte K210 reset controller
-Thread-Topic: [PATCH v5 12/21] riscv: Add Canaan Kendryte K210 reset controller
-Thread-Index: AQHWzTSPIz1S/nfdakuQ9rbvqwZfmqntFJgAgAEovIA=
-Date: Wed, 9 Dec 2020 05:26:40 +0000
-Message-ID: <57d4ae6e06551a56e41a4d50078ef51cbad67083.camel@wdc.com>
-References: <20201208073355.40828-1-damien.lemoal@wdc.com>
- <20201208073355.40828-13-damien.lemoal@wdc.com>
- <4d0a0c80e57b156b7d86dfca250285048ab30825.camel@pengutronix.de>
-In-Reply-To: <4d0a0c80e57b156b7d86dfca250285048ab30825.camel@pengutronix.de>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.38.1 (3.38.1-1.fc33) 
-authentication-results: lists.infradead.org; dkim=none (message not signed)
- header.d=none;lists.infradead.org; dmarc=none action=none
- header.from=wdc.com;
-x-originating-ip: [2400:2411:43c0:6000:8d3e:27aa:85c2:44b5]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-ht: Tenant
-x-ms-office365-filtering-correlation-id: 398932e8-bc18-489f-6f3c-08d89c03020f
-x-ms-traffictypediagnostic: CH2PR04MB6570:
-x-microsoft-antispam-prvs: <CH2PR04MB6570BEBDDA3416DA8A243064E7CC0@CH2PR04MB6570.namprd04.prod.outlook.com>
-wdcipoutbound: EOP-TRUE
-x-ms-oob-tlc-oobclassifiers: OLM:9508;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: 6fnvXe3tt4MmPESgOxsa0+mS3cIy92lmykMNBg5BPebe0tVlBTKxKseKl1BTpZTRGy6MlMalnMBxZoHL833wxcjIjHDxuj+ndaRPXvxQxV60hLMPDpiapdnEoTDjo69haNaI5w57wKHS+edc2miuUwcwL0up8pu7pZff0cBBcPkIdT5C7lt4br74Ij6sw+dSZH4XKZ9tc6+wfFfRKWBUQDgomycRcMHZ8Wc+eX1k4cL7gWwIa8rh1TUafNfwhpx7X7shcVpt1yRWzP84wBLvxw9N6e++UjHWfXmhyiqGUsQEJhEjgH+DGWLdF+max1z2
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:CH2PR04MB6522.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(366004)(376002)(346002)(136003)(6512007)(6486002)(186003)(2906002)(86362001)(7416002)(8676002)(91956017)(71200400001)(66556008)(66446008)(8936002)(4326008)(2616005)(110136005)(508600001)(66476007)(36756003)(6506007)(5660300002)(66946007)(76116006)(64756008);
- DIR:OUT; SFP:1102; 
-x-ms-exchange-antispam-messagedata: =?utf-8?B?aHBuY1J0Ry9nbWx1eVlwK2hrQ1ZaYkROY0lueUUzQ2poaWpqbEpyQ01wSEZC?=
- =?utf-8?B?aXNCVzVkU3RrdzlnKzhMV0pCdnZHV1FYT2ZHazJIM1B4Q1htSUc1ZmdydTJV?=
- =?utf-8?B?ZEFYVnFCNUZLWEdEVlQ5RG9yVXVsdEJDbGNMcnpPSEhlRE9uY0VRWFlmbEpk?=
- =?utf-8?B?K01BOFo2UFQzZXFJUDhJTUNjWmtZbVN5ZDduMHU2SHM0MVRCYnE1MCt5ekNZ?=
- =?utf-8?B?bm9haTdFaDdNOEFXZERRVmRQQzdkT3RxVTZvZW5VWXhuRU9xVnFMU1M4QS9w?=
- =?utf-8?B?bkliZ0tqUmF3TXdGcUJ5dmtGeTVnZG9aUTJxdlVSWkc1eFh6OGJpaXpYMHpY?=
- =?utf-8?B?RzNOYmJ0aGJ1dDBIWElIdWliRGpXa25rU2E4TnkyLzdCNkhBaW9mN2JUZDA1?=
- =?utf-8?B?LzhHYU9SU2J6OTkxcWlaM2hWVSttdlZlTGJZRFpPbm9najFRSmx5TXVTSk85?=
- =?utf-8?B?YXFpaG83ZnBRSVNkc0prbExEblZqblRsOVZyVEVWVHRyc3IwdGVXQkx4SEdn?=
- =?utf-8?B?U2YyMEx4V1ZvRmdYTTk2M0IrU1NMc0xaQmlVUzJkWHZlSXhEUUZzRTdsZmRQ?=
- =?utf-8?B?OEtUNUgrSVFQNUJFdGtPNHptL2ZjN1M1cjVOdTd3NHp4RlQyUHlRWGF2ZDlv?=
- =?utf-8?B?cFkzcHBUYytEYVovMVRER1JJZ2NPQm5wU3ROMDkxeklKUnQrU1pURTE1Yk5u?=
- =?utf-8?B?bFM4ZGZ5SEJkcTZ2dVBKckxWVFdndWxMREEvWHVieXNmQU5pUHNtZFQycllP?=
- =?utf-8?B?Qzl6dnJoa0ttTHNxNFNjVzNLSVhSQjA2R21xNjdJTG9NWHRVRVJQZ2FjOG9Z?=
- =?utf-8?B?cUt5ZWxwNUVQRjNDUmF3bjA2ZnpaMVpXVEExOTRNMFhReWE1bWY5QTFpS2lC?=
- =?utf-8?B?M2tMbGVuSDI2cWlhRkFYczFJV1A0QnVoaHM4dFhyWDZlMlNpaTFoTmRWSGtE?=
- =?utf-8?B?RXlvYXBVUEY0eFM2eFB6eGNPc1k2dU10d1JYUjFsVWZWMWFBOU1lVzA2Z3pz?=
- =?utf-8?B?M0xaWmsvNERkYnRJcVBQTnIzdjByTXd4MVZUTnNCNXd1d3UyYVdmZ2xpUVNl?=
- =?utf-8?B?SnhsR0wxRHVUR28xYW0wcFlIYlBwa05HNDdQTHpDdHpMaysyalpjYkt4K3FT?=
- =?utf-8?B?Wm9tWFdLRzdqZ0R1RXlGQTNMVEt4TzRINFZPdkxNRVk1U3BiMEs1bHZsc2V6?=
- =?utf-8?B?QnZpNVIzeTYra2lFMVZ3MGR0cFB2SjNmZC94Umt3SG5Kc1ZoRndTaVVXcjBn?=
- =?utf-8?B?WENwTFBSdGhUd3I2YXVscHVVTkpZWE1QRjZQL0RYek5KTkdDZGZVeExwZ01C?=
- =?utf-8?B?MjNVa1RpZnlxdnBnSm9ycEhHTXVUVWtrZCt4bzVyZmVDNDV1UG5KbHdWVGJB?=
- =?utf-8?B?STFkeUxCR1FCL3RUeVZMNU95L3JXSUFIT3Y1VGpTS3ZCemNMQTFNakZLWEgr?=
- =?utf-8?Q?Yy9Yrbja?=
-x-ms-exchange-transport-forked: True
-Content-ID: <78BAA7F2FFE18D4D85E00F3C90043326@namprd04.prod.outlook.com>
+ t=1607492323; x=1639028323;
+ h=from:to:cc:subject:date:message-id:in-reply-to:
+ references:mime-version:content-transfer-encoding;
+ bh=EAsgY70FjzgQvwdP24wPIY3ZkM4SKpRDXaMvRy+2s84=;
+ b=e27tnMX/kSPqwhSqo4GTY1hq/2uAQXHp88+vWUusVmGfNFEZRB48esvI
+ QG17q3wlsKUbkfcCyu1rFe9WNL82GoK9OVfFDhvxSsRnEKzg3oMTnNcUs
+ ebIgJ3KXcMotDVqDiZevvotSMYFeJ8XgGtN8FyIo7v1IwJqWeHXVjXEbj
+ /2HCVsSBnHreFHq63EhM9cJd+xSdwbq2vPkO/EQ5fpklM4FvX2Aq/3Lcl
+ UURBpDZFYZpIkT5oIYQ8LMv3p3rPjpLj88R08/zHyTsRvq/yW9QvrW/r2
+ Cyco0/TetgKxN9aEvc03oARSxnFw+mnr75dDJT9eMR3sCq53W+gr1ngae Q==;
+IronPort-SDR: fXfybk59/W/F/F903JoQyvvve9hpO4LPfiR6uRYSVGXPP07A1xJmlN4eAmpD/n6KQOeJyt4FCT
+ 13HO1O6tLxHXq3DR42R7MAjY14Ki/eI3Wo6kC4fR579ti1yiQOfFB7gjUNsmk0cpNJ3zzBmJiY
+ 7ZP8M3usZI+FSGHAbVfEMuFVMKOnwybi8kRYhv+gfWibUAUppZR+DsbzIEEMmWBTa4T0ZzTXdZ
+ TkfNu6g1KBrea2ppq9lsXpahdLvINI8KA2F3KQJIw4ogVOtao652UA8xsrlyKnC5cuIA/zEkWX
+ 8T0=
+X-IronPort-AV: E=Sophos;i="5.78,404,1599494400"; d="scan'208";a="258465519"
+Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
+ ([199.255.45.14])
+ by ob1.hgst.iphmx.com with ESMTP; 09 Dec 2020 13:38:42 +0800
+IronPort-SDR: Grqzmt4ABR6o8yTIXvvDx2e2+/YQC6B8rYb0RjwpAcMJDfONjrxAojG7KjzVwn20m63gsofWMv
+ tvN9gq2gvZpmOMj7wyMuYFRqgysqQFj9w=
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+ by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 08 Dec 2020 21:20:39 -0800
+IronPort-SDR: 4uVy4+tmfwhiyOcJGoLJ2t844A1lXmKlNHQYogYXcY0+htmUicyDEHGhihOFKRXtUX72PQt70q
+ Ng//O7QT68IQ==
+WDCIronportException: Internal
+Received: from wdapacbjl0003.my.asia.wdc.com (HELO twashi.fujisawa.hgst.com)
+ ([10.84.71.173])
+ by uls-op-cesaip02.wdc.com with ESMTP; 08 Dec 2020 21:35:11 -0800
+From: Damien Le Moal <damien.lemoal@wdc.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
+ Rob Herring <robh+dt@kernel.org>, devicetree@vger.kernel.org,
+ Stephen Boyd <sboyd@kernel.org>, linux-clk@vger.kernel.org,
+ Linus Walleij <linus.walleij@linaro.org>, linux-gpio@vger.kernel.org,
+ Philipp Zabel <p.zabel@pengutronix.de>
+Subject: [PATCH v6 01/22] riscv: Fix kernel time_init()
+Date: Wed,  9 Dec 2020 14:34:45 +0900
+Message-Id: <20201209053506.122582-2-damien.lemoal@wdc.com>
+X-Mailer: git-send-email 2.28.0
+In-Reply-To: <20201209053506.122582-1-damien.lemoal@wdc.com>
+References: <20201209053506.122582-1-damien.lemoal@wdc.com>
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CH2PR04MB6522.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 398932e8-bc18-489f-6f3c-08d89c03020f
-X-MS-Exchange-CrossTenant-originalarrivaltime: 09 Dec 2020 05:26:40.5121 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: m07qDmQZmRGzK/r4s0+tCn+nRbsBrzhCyl/iycCQ6lPgdyeQdQy/h28ukS3hz3wIzOFxCUXvDnqweDavMCqu8A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR04MB6570
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201209_002644_357586_8BA1D97A 
-X-CRM114-Status: GOOD (  18.88  )
+X-CRM114-CacheID: sfid-20201209_003514_246837_E9A03397 
+X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -173,35 +95,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "seanga2@gmail.com" <seanga2@gmail.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Sean Anderson <seanga2@gmail.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgUGhpbGlwcCwNCg0KT24gVHVlLCAyMDIwLTEyLTA4IGF0IDEyOjQ0ICswMTAwLCBQaGlsaXBw
-IFphYmVsIHdyb3RlOg0KWy4uLl0NCj4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9yZXNldC9LY29u
-ZmlnIGIvZHJpdmVycy9yZXNldC9LY29uZmlnDQo+ID4gaW5kZXggMDdkMTYyYjE3OWZjLi5kZWQ0
-NDg4OTQ4NGYgMTAwNjQ0DQo+ID4gLS0tIGEvZHJpdmVycy9yZXNldC9LY29uZmlnDQo+ID4gKysr
-IGIvZHJpdmVycy9yZXNldC9LY29uZmlnDQo+ID4gQEAgLTgyLDYgKzgyLDE2IEBAIGNvbmZpZyBS
-RVNFVF9JTlRFTF9HVw0KPiA+IMKgCSAgU2F5IFkgdG8gY29udHJvbCB0aGUgcmVzZXQgc2lnbmFs
-cyBwcm92aWRlZCBieSByZXNldCBjb250cm9sbGVyLg0KPiA+IMKgCSAgT3RoZXJ3aXNlLCBzYXkg
-Ti4NCj4gPiDCoA0KPiA+IA0KPiA+IA0KPiA+IA0KPiA+ICtjb25maWcgUkVTRVRfSzIxMA0KPiA+
-ICsJYm9vbCAiUmVzZXQgY29udHJvbGxlciBkcml2ZXIgZm9yIENhbmFhbiBLZW5kcnl0ZSBLMjEw
-IFNvQyINCj4gPiArCWRlcGVuZHMgb24gUklTQ1YgJiYgU09DX0NBTkFBTiAmJiBPRg0KPiANCj4g
-UGxlYXNlIGVuYWJsZSBjb21waWxlLXRlc3Rpbmcgb24gb3RoZXIgYXJjaGl0ZWN0dXJlcywgZm9y
-IGV4YW1wbGU6DQo+IA0KPiAJZGVwZW5kcyBvbiAoKFJJU0NWICYmIFNPQ19DQU5BQU4pIHx8IENP
-TVBJTEVfVEVTVCkgJiYgT0YNCj4gDQo+IEFyZSB0aGVyZSBub24tUklTQ1YgU09DX0NBTkFBTiBk
-ZXZpY2VzIGZvciB3aGljaCB0aGlzIGRyaXZlciBzaG91bGRuJ3QNCj4gYmUgY29tcGlsZWQ/DQo+
-IElmIG5vdCwgeW91IGNvdWxkIHlvdSBkcm9wIHRoZSBSSVNDViBkZXBlbmRlbmN5IHdpdGhvdXQg
-bG9zcyBvZg0KPiBpbmZvcm1hdGlvbi4NCg0KSSBhZGRlZCBDT01QSUxFX1RFU1QuIEkgYWxzbyBy
-ZW1vdmVkIHRoZSBSSVNDViBkZXBlbmRlbmN5IHNpbmNlIFNPQ19DQU5BQU4NCmFscmVhZHkgZGVw
-ZW5kIG9uIGl0IChkdWUgdG8gdGhlIFNPQ19FQVJMWV9JTklUX0RFQ0xBUkUoKSB1c2UgaW4gdGhl
-IHN5c2N0bA0KZHJpdmVyKS4gU3RyaWNrdGx5IHNwZWFraW5nLCBJIHRoaW5rIHdlIGNvdWxkIGFs
-c28gcmVtb3ZlIHRoZSBTT0NfQ0FOQUFODQpkZXBlbmRlbmN5IGZvciB0aGUgcmVzZXQgZHJpdmVy
-LCBidXQgSSBkbyBub3QgcmVhbGx5IHNlZSB0aGUgcG9pbnQgc2luY2UgaXQgaXMNCmNhbm5vdCBi
-ZSB1c2VkIGZvciBhbnkgb3RoZXIgU29DLg0KDQpJIGFkZHJlc3NlZCBhbGwgb2YgeW91ciBvdGhl
-ciBjb21tZW50cy4NCg0KVGhhbmtzICENCg0KDQotLSANCkRhbWllbiBMZSBNb2FsDQpXZXN0ZXJu
-IERpZ2l0YWwNCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+If of_clk_init() is not called in time_init(), clock providers defined
+in the system device tree are not initialized, resulting in failures for
+other devices to initialize due to missing clocks.
+Similarly to other architectures and to the default kernel time_init()
+implementation, call of_clk_init() before executing timer_probe() in
+time_init().
+
+Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
+Acked-by: Stephen Boyd <sboyd@kernel.org>
+---
+ arch/riscv/kernel/time.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/arch/riscv/kernel/time.c b/arch/riscv/kernel/time.c
+index 4d3a1048ad8b..8a5cf99c0776 100644
+--- a/arch/riscv/kernel/time.c
++++ b/arch/riscv/kernel/time.c
+@@ -4,6 +4,7 @@
+  * Copyright (C) 2017 SiFive
+  */
+ 
++#include <linux/of_clk.h>
+ #include <linux/clocksource.h>
+ #include <linux/delay.h>
+ #include <asm/sbi.h>
+@@ -24,6 +25,8 @@ void __init time_init(void)
+ 	riscv_timebase = prop;
+ 
+ 	lpj_fine = riscv_timebase / HZ;
++
++	of_clk_init(NULL);
+ 	timer_probe();
+ }
+ 
+-- 
+2.28.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
