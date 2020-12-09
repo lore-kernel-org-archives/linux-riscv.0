@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B4999C4361B
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Dec 2020 05:35:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F0156C4361B
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Dec 2020 05:35:48 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5638E23B23
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Dec 2020 05:35:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5638E23B23
+	by mail.kernel.org (Postfix) with ESMTPS id A8B3C23B23
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Dec 2020 05:35:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A8B3C23B23
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,68 +23,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=v5jJHr83jPSxSSB40mNYAlfjXPmk9B+h05OQndH4qXs=; b=rJ8hU2iIVxuwtKhETGuVi7OAH
-	IJw4fZcdcvW0FNA3c84cVLn99pl7Zynpe88ADlbbcdMAKcSHarI5jFkd6cEkFIyAjdwAJIJYiXXCD
-	IqpNg0Xb4S38pfXneIz45152g1ElMR1MnWZ7zqUGQCLmn9LKUPZKvLjPXSUPliChW9CsAKzJb0EC3
-	qb2MBi7EpVWg/18qB9zYtYhDXg4bsbl0vgCREW2XGMwGBbfDhTqLi11at8/KV8vb+W6CFPXEofbC7
-	/1OdpqUQIg9Q7WxHSuxGGVvJ6SvGDR8ZBbQ9HNt0Zbby9byZSDh1d7Vydgt33/oVvpubq+ItqXpfN
-	6sOv4Zr5Q==;
+	 bh=L7pKDQ8FNdDGTP9LZZNKNFtlZNdyRJ1pPg1A5hebDYI=; b=VcXn24aDxAyqkUiO3vYY1r0yf
+	5QNR7gKsbEOTmYXNtOyvF9j6aK9kE9eVMc4ul/pTBaC9zRLl4YUcsg8AGYkT/tqSKnPiMwYmzRWSt
+	DbeElzRktoFkPtGMS4Vta4hg9s/DCFg8T/ypDK3vGmQ40WHOhw9xS8wQflP4fGri8VXdeK/cTLNWI
+	8SdaPAiGZEpaIpGQYIEP1vcRYS0dQ2mQ4IyShxbT8AmQftb11KTSv3+PElBuHmwjnkQWorYGn/7f+
+	OGLNQE+IZpcVekLbRcQzRaoBeyCwRGERxYr+H5EeR5UvKM5PG4mEU2HO78R1HKRws1odfNBONfSA0
+	fcxJkJHbg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kms8T-0007xZ-Mk; Wed, 09 Dec 2020 05:35:33 +0000
+	id 1kms8a-00081r-58; Wed, 09 Dec 2020 05:35:40 +0000
 Received: from esa2.hgst.iphmx.com ([68.232.143.124])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kms8P-0007os-LS
- for linux-riscv@lists.infradead.org; Wed, 09 Dec 2020 05:35:30 +0000
+ id 1kms8U-0007xt-CR
+ for linux-riscv@lists.infradead.org; Wed, 09 Dec 2020 05:35:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1607492347; x=1639028347;
+ t=1607492354; x=1639028354;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=S1YmWmqvdIYXxQKwYnEAtpW95Vpx9w6kjXteMcQR5RY=;
- b=mUqm+ACvSpA1VfcXkcIAv85xD0GyHtXn8cotEv3u0w6J0S7YG4RQDC2z
- A5cod7B0LxNaOq7+xY0A6KbrxZcRqRaSXFDjs5JcwB/Vh/bvdUwUMhmVn
- sKsBeRzuDuI4vvrv9JrlNbWu+Q5qqmLVyHrd2myA+GmT27PgWQdW0WapK
- C5vknG/k3yxBVD6uT2fYXC0xF+DWu9Tl/CwUjhPq1IIKbxe435H2Nm2S3
- XjkPLhYekd4UCrCf8R8Y1yqdlVjPdNHXPE0Wo7l8/o0aIpYGgK5V99zQk
- OUqQR/0V2V7zxK//KoVGSi8ZVVfhKyWAx5plKkWp4fvrGcceiaY/tiyMw A==;
-IronPort-SDR: OTIvWwuiQk5u96qqof4cfwzMAkU585wFS/1tBoPwqDJjPZ72sw2WmxRW2xd9fACON7vD6dhV0c
- QE0ansU2Jo4z6Re3l1zqICcNruDkik/p/vzFZty9oP6EQwPRtjWLPetklXAqCiedAdxjvcUoYd
- snBGLVhNeoC4Ryu+f0AiZhO25deYEExKhZanR5lk7ng6iVCUk0Ta3tTv7HVa30WWdVagqMQMv7
- 0VjoiYnDLcmnc20l8w+jATve8lAIg5O0CestIo45WgVh/18VeoQurH9kyR6HIWMCj1Gi0Jp7XE
- S4Q=
-X-IronPort-AV: E=Sophos;i="5.78,404,1599494400"; d="scan'208";a="258465537"
+ bh=irTVIQIcf04Qv4d6ntB8ZOD8tnnSkj9g+ksFRT5I7iY=;
+ b=I/WxIz4rXbg2NrkTQy+FqVckmMnQEg0jhLTRZ60F318qP8kChIbyFdT8
+ 3aPFpk/yHK0rrz30gH9sNDYrU1mktE4CHl2IF1ZH4O/+Fri8shv28abjl
+ 22+3mk4VjCvMpDWdhdM+0YIZuAq/JqdsE312Sh4OA/hDtWEjNJmQDxfOg
+ Q+VzoldPVhV6/032hcZ1YL+daulQPK7ej/+3qzlnWzRv52Y5LCgKczcOQ
+ zdpJgFbv+9rvzqDx6dVhLv1rEkDRlFBIxwtSqxWVv7FnRkSpxWBT/NdwO
+ gp7y/VvK1VV096d3ALuQaF/2TPs0Rhjtf6RiXroRG5o4gJhHQfJ9guPuE A==;
+IronPort-SDR: DCm8ILN3hMtMIGfB/2r73oWVZ57fFRb1zsbUefwe+888P2nZewu5M1Qohzv38yWMHjIfjAKHE5
+ IgPc9cwesGleX2LuxGzHahUMt15ShaR7dSM9gzgFYWXl5WU0rVFGgxarMgp4lVbnb8JT1JpeyE
+ cnOug6HnYmljaZSV3UliyCx7HRquTsmPUIaRQ59rjyxE3VJwagvWX1jbdunPz1ZvY8gXMU5OaE
+ WhUWLhu+A3qQwRJ/GD/29TEcKA/PaJzz/qA9BHbtwNhOsnN3ockTuouNGtuUENj3r2rbpYXfV7
+ uJs=
+X-IronPort-AV: E=Sophos;i="5.78,404,1599494400"; d="scan'208";a="258465540"
 Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 09 Dec 2020 13:39:06 +0800
-IronPort-SDR: CLQiB9nj2fJiOXjhGP97Olbg0Wx2w1zUkTrE9cVkYxmxWT7nAHIu6r9UTuafY2REXaNZ9Zs2el
- sCfSvWspqZ2E20YC3h0Lu6YXr3WT8EWKo=
+ by ob1.hgst.iphmx.com with ESMTP; 09 Dec 2020 13:39:13 +0800
+IronPort-SDR: /ccwaMdtqA2LpjY976Nk8mdRvDYgSvdAP8S/eDz3U17iXvCcjxxXKExepV6tuP8shNir9IfFRF
+ 3njc02No8U+apdi3QEVQoTceUekxldZ6Q=
 Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 08 Dec 2020 21:20:55 -0800
-IronPort-SDR: l2or2Xos59B6y0OEgvzEJVydM2+S+T9J6z0dAzRpP2Uu7CtfLeaovNivzpwuKeVIvDv+OzEs31
- XxIpdOXzWRfw==
+ 08 Dec 2020 21:21:00 -0800
+IronPort-SDR: GJmnq7w0IhRhheiSh3mHMDeWiAKpF183abZghRPoDlQ717ftmRl5DJAKnbXtneSvK3DXR3xQ2K
+ jb4dWMqnO/Zg==
 WDCIronportException: Internal
 Received: from wdapacbjl0003.my.asia.wdc.com (HELO twashi.fujisawa.hgst.com)
  ([10.84.71.173])
- by uls-op-cesaip02.wdc.com with ESMTP; 08 Dec 2020 21:35:27 -0800
+ by uls-op-cesaip02.wdc.com with ESMTP; 08 Dec 2020 21:35:32 -0800
 From: Damien Le Moal <damien.lemoal@wdc.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
  Rob Herring <robh+dt@kernel.org>, devicetree@vger.kernel.org,
  Stephen Boyd <sboyd@kernel.org>, linux-clk@vger.kernel.org,
  Linus Walleij <linus.walleij@linaro.org>, linux-gpio@vger.kernel.org,
  Philipp Zabel <p.zabel@pengutronix.de>
-Subject: [PATCH v6 09/22] dt-bindings: reset: Document canaan,
- k210-rst bindings
-Date: Wed,  9 Dec 2020 14:34:53 +0900
-Message-Id: <20201209053506.122582-10-damien.lemoal@wdc.com>
+Subject: [PATCH v6 11/22] dt-binding: mfd: Document canaan,
+ k210-sysctl bindings
+Date: Wed,  9 Dec 2020 14:34:55 +0900
+Message-Id: <20201209053506.122582-12-damien.lemoal@wdc.com>
 X-Mailer: git-send-email 2.28.0
 In-Reply-To: <20201209053506.122582-1-damien.lemoal@wdc.com>
 References: <20201209053506.122582-1-damien.lemoal@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201209_003529_908813_06A34992 
-X-CRM114-Status: GOOD (  15.71  )
+X-CRM114-CacheID: sfid-20201209_003534_603336_33D4A7D3 
+X-CRM114-Status: GOOD (  13.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -102,114 +102,138 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Document the device tree bindings for the Canaan Kendryte K210 SoC
-reset controller driver in
-Documentation/devicetree/bindings/reset/canaan,k210-rst.yaml. The header
-file include/dt-bindings/reset/k210-rst.h is added to define all
-possible reset lines of the SoC.
+Document the device tree bindings of the Canaan Kendryte K210 SoC
+system controller driver in
+Documentation/devicetree/bindings/mfd/canaan,k210-sysctl.yaml.
 
 Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
 ---
- .../bindings/reset/canaan,k210-rst.yaml       | 40 ++++++++++++++++++
- include/dt-bindings/reset/k210-rst.h          | 42 +++++++++++++++++++
- 2 files changed, 82 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/reset/canaan,k210-rst.yaml
- create mode 100644 include/dt-bindings/reset/k210-rst.h
+ .../bindings/mfd/canaan,k210-sysctl.yaml      | 116 ++++++++++++++++++
+ 1 file changed, 116 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/mfd/canaan,k210-sysctl.yaml
 
-diff --git a/Documentation/devicetree/bindings/reset/canaan,k210-rst.yaml b/Documentation/devicetree/bindings/reset/canaan,k210-rst.yaml
+diff --git a/Documentation/devicetree/bindings/mfd/canaan,k210-sysctl.yaml b/Documentation/devicetree/bindings/mfd/canaan,k210-sysctl.yaml
 new file mode 100644
-index 000000000000..53e4ede9c0bd
+index 000000000000..a61d8ea4fbec
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/reset/canaan,k210-rst.yaml
-@@ -0,0 +1,40 @@
++++ b/Documentation/devicetree/bindings/mfd/canaan,k210-sysctl.yaml
+@@ -0,0 +1,116 @@
 +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/reset/canaan,k210-rst.yaml#
++$id: http://devicetree.org/schemas/mfd/canaan,k210-sysctl.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: Canaan Kendryte K210 Reset Controller Device Tree Bindings
++title: Canaan Kendryte K210 System Controller Device Tree Bindings
 +
 +maintainers:
 +  - Damien Le Moal <damien.lemoal@wdc.com>
 +
-+description: |
-+  Canaan Kendryte K210 reset controller driver which supports the SoC
-+  system controller supplied reset registers for the various peripherals
-+  of the SoC. The K210 reset controller node must be defined as a child
-+  node of the K210 system controller node.
-+
-+  See also:
-+  - dt-bindings/reset/k210-rst.h
++description:
++  Canaan Inc. Kendryte K210 SoC system controller which provides a
++  register map for controlling the clocks, reset signals and pin power
++  domains of the SoC.
 +
 +properties:
 +  compatible:
-+    const: canaan,k210-rst
++    allOf:
++      - items:
++          - const: canaan,k210-sysctl
++          - const: syscon
++          - const: simple-mfd
 +
-+  '#reset-cells':
-+    const: 1
++  clocks:
++    description:
++      System controller Advanced Power Bus (APB) interface clock source.
++
++  clock-names:
++    maxItems: 1
++    items:
++      - const: pclk
++
++  reg:
++    maxItems: 1
++    description:
++      Offset and length of the system controller register space.
++
++  reg-io-width:
++    const: 4
++
++  clock-controller:
++    # Child node
++    type: object
++    $ref: "../clock/canaan,k210-clk.yaml"
++    description:
++      Clock controller for the SoC clocks. This child node definition
++      should follow the bindings specified in
++      Documentation/devicetree/bindings/clock/canaan,k210-clk.yaml.
++
++  reset-controller:
++    # Child node
++    type: object
++    $ref: "../reset/canaan,k210-rst.yaml"
++    description:
++      Reset controller for the SoC. This child node definition
++      should follow the bindings specified in
++      Documentation/devicetree/bindings/reset/canaan,k210-rst.yaml.
++
++  syscon-reboot:
++    # Child node
++    type: object
++    $ref: "../power/reset/syscon-reboot.yaml"
++    description:
++      Reboot method for the SoC. This child node definition
++      should follow the bindings specified in
++      Documentation/devicetree/bindings/power/reset/syscon-reboot.yaml.
 +
 +required:
-+  - '#reset-cells'
 +  - compatible
++  - clocks
++  - reg
++  - clock-controller
 +
 +additionalProperties: false
 +
 +examples:
 +  - |
++    #include <dt-bindings/clock/k210-clk.h>
 +    #include <dt-bindings/reset/k210-rst.h>
-+    sysrst: reset-controller {
-+      compatible = "canaan,k210-rst";
-+      #reset-cells = <1>;
++
++    clocks {
++      in0: oscllator {
++        compatible = "fixed-clock";
++        #clock-cells = <0>;
++        clock-frequency = <26000000>;
++      };
 +    };
-diff --git a/include/dt-bindings/reset/k210-rst.h b/include/dt-bindings/reset/k210-rst.h
-new file mode 100644
-index 000000000000..883c1aed50e8
---- /dev/null
-+++ b/include/dt-bindings/reset/k210-rst.h
-@@ -0,0 +1,42 @@
-+/* SPDX-License-Identifier: GPL-2.0+ */
-+/*
-+ * Copyright (C) 2019 Sean Anderson <seanga2@gmail.com>
-+ * Copyright (c) 2020 Western Digital Corporation or its affiliates.
-+ */
-+#ifndef RESET_K210_SYSCTL_H
-+#define RESET_K210_SYSCTL_H
 +
-+/*
-+ * Kendryte K210 SoC system controller K210_SYSCTL_SOFT_RESET register bits.
-+ * Taken from Kendryte SDK (kendryte-standalone-sdk).
-+ */
-+#define K210_RST_ROM	0
-+#define K210_RST_DMA	1
-+#define K210_RST_AI	2
-+#define K210_RST_DVP	3
-+#define K210_RST_FFT	4
-+#define K210_RST_GPIO	5
-+#define K210_RST_SPI0	6
-+#define K210_RST_SPI1	7
-+#define K210_RST_SPI2	8
-+#define K210_RST_SPI3	9
-+#define K210_RST_I2S0	10
-+#define K210_RST_I2S1	11
-+#define K210_RST_I2S2	12
-+#define K210_RST_I2C0	13
-+#define K210_RST_I2C1	14
-+#define K210_RST_I2C2	15
-+#define K210_RST_UART1	16
-+#define K210_RST_UART2	17
-+#define K210_RST_UART3	18
-+#define K210_RST_AES	19
-+#define K210_RST_FPIOA	20
-+#define K210_RST_TIMER0	21
-+#define K210_RST_TIMER1	22
-+#define K210_RST_TIMER2	23
-+#define K210_RST_WDT0	24
-+#define K210_RST_WDT1	25
-+#define K210_RST_SHA	26
-+#define K210_RST_RTC	29
++    sysctl: syscon@50440000 {
++      compatible = "canaan,k210-sysctl",
++                   "syscon", "simple-mfd";
++      reg = <0x50440000 0x100>;
++      reg-io-width = <4>;
++      clocks = <&sysclk K210_CLK_APB1>;
++      clock-names = "pclk";
 +
-+#endif /* RESET_K210_SYSCTL_H */
++      sysclk: clock-controller {
++        #clock-cells = <1>;
++        compatible = "canaan,k210-clk";
++        clocks = <&in0>;
++      };
++
++      sysrst: reset-controller {
++        compatible = "canaan,k210-rst";
++        #reset-cells = <1>;
++      };
++
++      reboot: syscon-reboot {
++        compatible = "syscon-reboot";
++        regmap = <&sysctl>;
++        offset = <48>;
++        mask = <1>;
++        value = <1>;
++      };
++    };
 -- 
 2.28.0
 
