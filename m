@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id ED6A3C433FE
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Dec 2020 13:04:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4E9D3C4361B
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Dec 2020 13:04:30 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6A19E23BDF
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Dec 2020 13:04:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6A19E23BDF
+	by mail.kernel.org (Postfix) with ESMTPS id 0CA8923B45
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Dec 2020 13:04:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0CA8923B45
 Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=microchip.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,63 +23,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=cv2YrBVghUY3LPjguM7X6P2XxJ5wUiCON2iNZZSiPF4=; b=dQna7a1iPVayhhaBnQaqQHaiD
-	0NDkiIV1JtYoS7w3h2EEOEr+XVCMdJlC/gWCjfI5DgLT6MBKTtn5m06zCMMuivD9qzBbx99m7IVuz
-	IimZeKhs/8CmUoFFSGLtp82zqmgNmwcsjen8C/5M3PeiuU/daU1PYgXJpq/qFl8hJe0B+q3G4Ez0d
-	oakFNBSiriBByFw+v3yfUCEDCW1Z/sBM3XXmn6E1x391gxuNyLmh6/tC/yGE3pPkDa0K/0Wvk9Hr9
-	PlIyI0rKOM2khSVgLqunJI6A5y4uosbTExfeoBi61Hw6VHJcwTGZnLFTmCobaWTmL98K2301hEPwM
-	sHP24KkLg==;
+	 bh=buy60QqZSV5flSOZ/0A2UuE3fc1oC2n4J3mWRM/II/0=; b=eX9FwTRl5FZfQNnebJBHSSGu1
+	ruBQaMQoJkJbYSxvCfqySuYC91jVk6I+vRlOXrzUSMfzdrq2UyqQATy0LHd4mFPXUC+sV/38Wq9Cz
+	/vsOQc80Vo8lPywh4T0M1/08rLo8FwT1csqVW75SlyPb1nB7UziCqkrVWP30Yg0tIMoapiOmEMnFE
+	CphwwOMiCXtyAFrFdzzaoPECTVIcApJnHS9BaNBlyNzyv1VFwo1KTvxZsILrPQnupu0v+toN+IV1W
+	osNfo5kb2cbcHp33TnmOuajhz3YGduQE8FbA+d0Xi4+xRJKcLOzmmJ2qXic4ETjnmb2gF+LEUD8qw
+	/6ihaRieA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kmz8m-0001VN-Jc; Wed, 09 Dec 2020 13:04:20 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1kmz8o-0001WI-Ks; Wed, 09 Dec 2020 13:04:22 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kmz8j-0001UL-F5
- for linux-riscv@lists.infradead.org; Wed, 09 Dec 2020 13:04:19 +0000
+ id 1kmz8l-0001Un-BQ
+ for linux-riscv@lists.infradead.org; Wed, 09 Dec 2020 13:04:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
- t=1607519057; x=1639055057;
+ t=1607519059; x=1639055059;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version;
- bh=IKugsm/d3kZD6lpm6POkBOpF9mUABeF8EZuTFUDQaUo=;
- b=U18ecz/hw7+EAdA2WJlbAMhsfL1ZI0IhMk807+81pncPCCcaSDPULwqw
- jLfENG4iDaBOWwTQcOdNNzClBO4vvcQRROq7ZhH0FMY15vBC6fYcTiLlI
- UwVCTgu/zqxnPxtkif1aJCPHlvx64NjrR3uFJVF8We8yQiHlToaWOsqyj
- GV2P0s908NoK5gcMc6ozBJmCiZta56B6/KkelKJAftSW3ZzRnMWJCPMP9
- iDvZZEkVfl25pu4Ed23XqS442fapYBCS2+7Sg1WAIv9RPgVB+g/D40l8Y
- Biyoa3k6ChItHZAKLcAuyUdzn8W71N0x/Zv1K7hIguTOEpHvfAF1lNxIN Q==;
-IronPort-SDR: 3s+U0c5+Up6XvoxY8cbrMUJYa30W3vZ9MKVXokWp/6GxZEZP7LPDXynQOZB2916ox4j+dYajQa
- vWpxHlNmiwTGVC1CG395t7HUSXH9Q3/K85BUKI4bsVQbLjd0fVWJoJ5tU48gLCTSQ5AmrX+RvU
- FlvnO2OQkLhcxZI8rXsmKuusHXC9yLd5Q4AZJKuh/Ef8LMRrBlJRDGp602GoNUEjDj5W8QWz6I
- yjXRgYx7zcGl2hPJAt9mA1P3K7vm9D7XGfBST1QZZ8mQtKHlZPl5UY/hrJ1hmQa35XrF6WbP1g
- pNA=
-X-IronPort-AV: E=Sophos;i="5.78,405,1599548400"; d="scan'208";a="96475108"
+ bh=DUxcKkP9tne2ZEad42EnpND5G9jdrOj1iXVeTt57jG8=;
+ b=plQ6IRCORJh1EINI6OCfvScTKSD0Y6YIji+nUl+EX7QxjFSlmkBPU+kj
+ bfe9hapDesHLdLmn/0f0vRf1byqcyV3zlzfnkYDp1yzcPs4HIl8XZjrGy
+ 53Iy0uJVqDRIJ90gk6hah9TqeEOqU0bUf2UlqUAZL0OQMV2mbRxjOBCRL
+ lwkQFNjW5rbJNz2sSbIpHSnuCd5LEY9QkAcCeHfaZEVxlCEf2hskhznON
+ JTg5/cgSuEZqxC2qx+Bjk0VaZR5Iv5s3fLQ4rRljzjmxWDsmbUhLfprNj
+ CpD9x+Ki0g/3ExAs7nZxgcSe4QHocGHe8p9HBVUz5OYmADqwXMP1yVgA+ Q==;
+IronPort-SDR: WnhyyC67VAqaMCBDpwz2vNsmDbtjfzkkqnGtk85N3D9h3jDYItoQ7C4Nnupdn/1sNsgHXOc+kL
+ +ZhyWyra5UpPa/Q1iDXyyg0beKqDen8eBpbzgHrIYCQ92sFgThhCzmk6bxR5Wyode6wTY7TsSI
+ AwxWeIEMBCK2AQq9QpTPJ/5SWq8yun4cV7tOWkm78T9TksbTZPRf0k2Ewy37Q5GjEs4TK4zeEA
+ x+mgpY8Hs9oQMUoDITxKmCbfiVzsBvOCEX4PJPeWv5f8It7MbfLzf9POufURyhRXrgd9TNs3XN
+ q+k=
+X-IronPort-AV: E=Sophos;i="5.78,405,1599548400"; d="scan'208";a="106862448"
 Received: from smtpout.microchip.com (HELO email.microchip.com)
  ([198.175.253.82])
- by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 09 Dec 2020 06:04:05 -0700
+ by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 09 Dec 2020 06:04:17 -0700
 Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.1979.3; Wed, 9 Dec 2020 06:03:58 -0700
+ 15.1.1979.3; Wed, 9 Dec 2020 06:04:16 -0700
 Received: from m18063-ThinkPad-T460p.microchip.com (10.10.115.15) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
- 15.1.1979.3 via Frontend Transport; Wed, 9 Dec 2020 06:03:53 -0700
+ 15.1.1979.3 via Frontend Transport; Wed, 9 Dec 2020 06:04:11 -0700
 From: Claudiu Beznea <claudiu.beznea@microchip.com>
 To: <davem@davemloft.net>, <kuba@kernel.org>, <robh+dt@kernel.org>,
  <nicolas.ferre@microchip.com>, <linux@armlinux.org.uk>,
  <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <natechancellor@gmail.com>, 
  <ndesaulniers@google.com>
-Subject: [PATCH v3 2/8] net: macb: add capability to not set the clock rate
-Date: Wed, 9 Dec 2020 15:03:33 +0200
-Message-ID: <1607519019-19103-3-git-send-email-claudiu.beznea@microchip.com>
+Subject: [PATCH v3 5/8] dt-bindings: add documentation for sama7g5 ethernet
+ interface
+Date: Wed, 9 Dec 2020 15:03:36 +0200
+Message-ID: <1607519019-19103-6-git-send-email-claudiu.beznea@microchip.com>
 X-Mailer: git-send-email 2.7.4
 In-Reply-To: <1607519019-19103-1-git-send-email-claudiu.beznea@microchip.com>
 References: <1607519019-19103-1-git-send-email-claudiu.beznea@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201209_080417_687512_7882E6BC 
-X-CRM114-Status: GOOD (  15.14  )
+X-CRM114-CacheID: sfid-20201209_080419_561292_D1FBA310 
+X-CRM114-Status: GOOD (  10.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -100,89 +101,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SAMA7G5's ethernet IPs TX clock could be provided by its generic clock or
-by the external clock provided by the PHY. The internal IP logic divides
-properly this clock depending on the link speed. The patch adds a new
-capability so that macb_set_tx_clock() to not be called for IPs having
-this capability (the clock rate, in case of generic clock, is set at the
-boot time via device tree and the driver only enables it).
+Add documentation for SAMA7G5 ethernet interface.
 
 Signed-off-by: Claudiu Beznea <claudiu.beznea@microchip.com>
 Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 ---
- drivers/net/ethernet/cadence/macb.h      |  1 +
- drivers/net/ethernet/cadence/macb_main.c | 18 +++++++++---------
- 2 files changed, 10 insertions(+), 9 deletions(-)
+ Documentation/devicetree/bindings/net/macb.txt | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/net/ethernet/cadence/macb.h b/drivers/net/ethernet/cadence/macb.h
-index 7daabffe4318..769694c7f86c 100644
---- a/drivers/net/ethernet/cadence/macb.h
-+++ b/drivers/net/ethernet/cadence/macb.h
-@@ -699,6 +699,7 @@
- #define MACB_CAPS_GEM_HAS_PTP			0x00000040
- #define MACB_CAPS_BD_RD_PREFETCH		0x00000080
- #define MACB_CAPS_NEEDS_RSTONUBR		0x00000100
-+#define MACB_CAPS_CLK_HW_CHG			0x04000000
- #define MACB_CAPS_MACB_IS_EMAC			0x08000000
- #define MACB_CAPS_FIFO_MODE			0x10000000
- #define MACB_CAPS_GIGABIT_MODE_AVAILABLE	0x20000000
-diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-index 6d46153a7c4b..b23e986ac6dc 100644
---- a/drivers/net/ethernet/cadence/macb_main.c
-+++ b/drivers/net/ethernet/cadence/macb_main.c
-@@ -460,15 +460,14 @@ static void macb_init_buffers(struct macb *bp)
- 
- /**
-  * macb_set_tx_clk() - Set a clock to a new frequency
-- * @clk:	Pointer to the clock to change
-+ * @bp:		pointer to struct macb
-  * @speed:	New frequency in Hz
-- * @dev:	Pointer to the struct net_device
-  */
--static void macb_set_tx_clk(struct clk *clk, int speed, struct net_device *dev)
-+static void macb_set_tx_clk(struct macb *bp, int speed)
- {
- 	long ferr, rate, rate_rounded;
- 
--	if (!clk)
-+	if (!bp->tx_clk || !(bp->caps & MACB_CAPS_CLK_HW_CHG))
- 		return;
- 
- 	switch (speed) {
-@@ -485,7 +484,7 @@ static void macb_set_tx_clk(struct clk *clk, int speed, struct net_device *dev)
- 		return;
- 	}
- 
--	rate_rounded = clk_round_rate(clk, rate);
-+	rate_rounded = clk_round_rate(bp->tx_clk, rate);
- 	if (rate_rounded < 0)
- 		return;
- 
-@@ -495,11 +494,12 @@ static void macb_set_tx_clk(struct clk *clk, int speed, struct net_device *dev)
- 	ferr = abs(rate_rounded - rate);
- 	ferr = DIV_ROUND_UP(ferr, rate / 100000);
- 	if (ferr > 5)
--		netdev_warn(dev, "unable to generate target frequency: %ld Hz\n",
-+		netdev_warn(bp->dev,
-+			    "unable to generate target frequency: %ld Hz\n",
- 			    rate);
- 
--	if (clk_set_rate(clk, rate_rounded))
--		netdev_err(dev, "adjusting tx_clk failed.\n");
-+	if (clk_set_rate(bp->tx_clk, rate_rounded))
-+		netdev_err(bp->dev, "adjusting tx_clk failed.\n");
- }
- 
- static void macb_validate(struct phylink_config *config,
-@@ -751,7 +751,7 @@ static void macb_mac_link_up(struct phylink_config *config,
- 		if (rx_pause)
- 			ctrl |= MACB_BIT(PAE);
- 
--		macb_set_tx_clk(bp->tx_clk, speed, ndev);
-+		macb_set_tx_clk(bp, speed);
- 
- 		/* Initialize rings & buffers as clearing MACB_BIT(TE) in link down
- 		 * cleared the pipeline and control registers.
+diff --git a/Documentation/devicetree/bindings/net/macb.txt b/Documentation/devicetree/bindings/net/macb.txt
+index 0b61a90f1592..26543a4e15d5 100644
+--- a/Documentation/devicetree/bindings/net/macb.txt
++++ b/Documentation/devicetree/bindings/net/macb.txt
+@@ -16,6 +16,7 @@ Required properties:
+   Use "cdns,zynq-gem" Xilinx Zynq-7xxx SoC.
+   Use "cdns,zynqmp-gem" for Zynq Ultrascale+ MPSoC.
+   Use "sifive,fu540-c000-gem" for SiFive FU540-C000 SoC.
++  Use "microchip,sama7g5-emac" for Microchip SAMA7G5 ethernet interface.
+   Or the generic form: "cdns,emac".
+ - reg: Address and length of the register set for the device
+ 	For "sifive,fu540-c000-gem", second range is required to specify the
 -- 
 2.7.4
 
