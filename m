@@ -2,88 +2,83 @@ Return-Path: <SRS0=PU6a=FN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9776FC4361B
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Dec 2020 05:36:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 44250C433FE
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Dec 2020 08:51:57 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4ADFF23B4B
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Dec 2020 05:36:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4ADFF23B4B
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	by mail.kernel.org (Postfix) with ESMTPS id DD0E123609
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Dec 2020 08:51:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DD0E123609
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=AnVbVYto0ttRajv0sg/5cdek0qPvZUpiv2Z6DFiYSCQ=; b=TLugzY2Se6Q4zvtco6SXdhDii
-	noB3wFybLL8OPxFmlgW05plCxsM+5Ej7mC8Vz3oq8K4+mLtOWvTEWFRpntcM99tLloet2LDSehe2d
-	IMApC+Yib+UJoS3e7OW5bpXduRPTgcpK7nc6M+pjr8CqXHGpsfZbOP95P3LbQQzEmUogoatJDjGVB
-	YxdfIfimRuzOmTB9kRwog6w616yJa78cY6ktOzS4+3Bq3gomEjSwys5DCZtoj1cK/7cN1WmiXw2S2
-	yZXaCZcUKb+NnDvqIMQCJ9FlfFTRwWPe8J37fi3LuUshUgzLopBkybGTWUgAlL1PEbOp7M0AMyETX
-	efBlkJGQA==;
+	 bh=tbBmyW0pPStmmQFOD0/0/6P5Qb9zmYyyiwG0G8RF2BI=; b=Jn7TUIq+1HZLIL18oRHAa58RV
+	kVQg8CWQ8EXaEcpY9HeA1ADwKc44nhZSSqlwFntvL1c996o181SQ7WQSfN7S04qMPccGf1Yjh23yv
+	0ezhpOaAQ+PerXotRYnhUxYN63fWU28Z4G3tTmckkumXJMul2ZgYPbPyfRGyVnl4rncpu7VqfbsTF
+	gZ0cOib8Blq+h+xiC2h+XMz5jvpBJMMjNnA8ZY+m8dxlOFfqPXrVrKFRmeWs1AxnhyasZb/bhUUqb
+	jfnwrPWdOFr3UAgK1LHS0eTbvRWDjeF5jqXIRgPVy9yQ+n2qw2r/1UaQWoEWCHMr/Vc1EW58D7NcE
+	xUlEq+GGw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kms8w-0008Fd-Cd; Wed, 09 Dec 2020 05:36:02 +0000
-Received: from esa2.hgst.iphmx.com ([68.232.143.124])
+	id 1kmvCO-000784-7q; Wed, 09 Dec 2020 08:51:48 +0000
+Received: from mail-lj1-x244.google.com ([2a00:1450:4864:20::244])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kms8l-00081z-Vx
- for linux-riscv@lists.infradead.org; Wed, 09 Dec 2020 05:35:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1607492380; x=1639028380;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=1dP7+RVvtD0fNcGcuRcgQIeBe2zsNSk0araRxFvsAas=;
- b=bEInxpyZSFftbMO4bAMbBdhUlo/ep9Pg50iimfBo552Z0WkdfvxYspfX
- rpSEk6/0wtOnyH6IbWtlvDMtFK77PQUvkdZARMDhVTnymlSHgtYSs/N5z
- MCuyRNv8iEWA92FyvYPLgk4x4iJKxc5fKWZDkEM1OBbXqsk2flrewN9TR
- Oontk+VQnEoaovgEH9C6ovvfUgbBTsEi1F39Wr1r4SVyyrx2z6uV9ypvi
- YO0SsHVTvRzJTAKaKFrUrw6sl5LEdWVT7UaHXAHyv8GOlBZX6dRIb9IQQ
- 7hiHUukfuNKLL944nwiQ697AdOZ8/HUFVSm2IfP2OiqaYqON7awcIn/rO w==;
-IronPort-SDR: aB7HUWydZp9kdLUAk5YYfiwXWe4tiMR8EUdXtBRqADXoVz1jCNdmSVl9jqGK5jNh3vrOGHUZtc
- wZjPPXrxhX81KiySSxyZCHqepGJLfMdQ6eXPYLMJVIH6ErwpCMZVu8ECfwOEsXxYjYeUQ8PU1E
- hBJE7wYloug2+bfR8efEebMoZO5lax9CFwStv9zRCCIkj3sWYu9dMB3w+rkdQ4OdTELrXjJkFU
- z2JGEN4FVPWWFSp8dstdFCNLATY4RpuSBpIMrvrIAiJwtZHmGpnGJMGqqrZVrygifQTUqcN9MR
- j80=
-X-IronPort-AV: E=Sophos;i="5.78,404,1599494400"; d="scan'208";a="258465575"
-Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
- ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 09 Dec 2020 13:39:40 +0800
-IronPort-SDR: pcojlveABgS2NJgTJhn1gpWQtohB+l6w4NgGVb5NS4boJzjR49wjZVLCdKZXl3APrtvh3acfzZ
- 9VPLIGuPyiU+58EvJuOaVlEgduT4JolRc=
-Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
- by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 08 Dec 2020 21:21:18 -0800
-IronPort-SDR: i8Z/evyZKvk8PbPrBR4PCQDefIbLeZciozLMQkZd9dws3jOGpYV9ZZQ5FVlkNdU4iGwP7g7DlR
- 37LF/lwcGz8A==
-WDCIronportException: Internal
-Received: from wdapacbjl0003.my.asia.wdc.com (HELO twashi.fujisawa.hgst.com)
- ([10.84.71.173])
- by uls-op-cesaip02.wdc.com with ESMTP; 08 Dec 2020 21:35:50 -0800
-From: Damien Le Moal <damien.lemoal@wdc.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
- Rob Herring <robh+dt@kernel.org>, devicetree@vger.kernel.org,
- Stephen Boyd <sboyd@kernel.org>, linux-clk@vger.kernel.org,
- Linus Walleij <linus.walleij@linaro.org>, linux-gpio@vger.kernel.org,
- Philipp Zabel <p.zabel@pengutronix.de>
-Subject: [PATCH v6 20/22] riscv: Add Kendryte KD233 board device tree
-Date: Wed,  9 Dec 2020 14:35:04 +0900
-Message-Id: <20201209053506.122582-21-damien.lemoal@wdc.com>
-X-Mailer: git-send-email 2.28.0
-In-Reply-To: <20201209053506.122582-1-damien.lemoal@wdc.com>
-References: <20201209053506.122582-1-damien.lemoal@wdc.com>
+ id 1kmvCL-00077A-KO
+ for linux-riscv@lists.infradead.org; Wed, 09 Dec 2020 08:51:46 +0000
+Received: by mail-lj1-x244.google.com with SMTP id y22so1310183ljn.9
+ for <linux-riscv@lists.infradead.org>; Wed, 09 Dec 2020 00:51:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=2LZygKLdMeXtg6UECM3hwilY+T5j2Bz/7hXfM4FH8eM=;
+ b=epPtSSR/7bb7N5MVhrvn8mmG61DUhbJ5ceSBz3zdi5ttU8hgJi895CvkV+jIJ/6Elk
+ faLbAlJ0Ct8dkmLFvgIrcS2c+E739IaF5RCxecfGNHm3mm9cz8saP5sgGgYp+X1PV4bC
+ 8mhsjose2UwRapucDt1waykXBayMMNhXuMNDIMFXYNitjuaFIJIsgeaGcS06BwcAfxiT
+ KnhaJQskTWoexBWR6Z8n6Tmma+HZsp8I7wCXBC5u3Xfmk6pam3fV2CZ4Ur7GSbOGsa+I
+ mOEm5C+iR1V90Ai9/YLl2ZsKt3HZkVjDOpFbulodrKnOwGlU5c4D2BW0bjsEGeVxZrhT
+ woEw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=2LZygKLdMeXtg6UECM3hwilY+T5j2Bz/7hXfM4FH8eM=;
+ b=HAs20xzStMOIz9BdFSpT4gXPxUNB8Td6lThE9dW2xsWcvPh0wpII5ByiktYrmXii2v
+ 0oxcdhUnb7tw9BIwU9PzCPCDj3iR7vyOkv7LsUIQqbEGiZSwOg2p6+jmNlQgckLtiNi5
+ QB2F1YTeW1ZwzLtT/5Zd5JszIZEDSx90HdCVrZ6xoL6SNpDUmWBeAqb4Za9S0Vh5YnxP
+ wtfu+ChHO6WL8iwooWjr6YFzM0sip5qJYuZkctd21wcCV1oTnXEizzRCWK5TigSfPPoq
+ MzFwjeOy82KhMJfrX9bxn+Ln++UJ7IDv2IDJ1VaGzMB8May7CNr7f5IDXLYtSrSUOzTp
+ CxWw==
+X-Gm-Message-State: AOAM530zCeTVooBjokwmdhKQroEQvYsUYRGvPqv+asfuo5FDUE099hgl
+ gWg9JyiS/G6ehipSa2bOWIuoQsmyv9bOakt6Ioah2w==
+X-Google-Smtp-Source: ABdhPJzppB0j8WgWv6IdUZKKIGJXOVBgkHuLGiXKbyH9OU440iaPPvmtmnyjuDh6a/e9QQ8jwdYfQNzIxLD6F6BmUpY=
+X-Received: by 2002:a2e:910f:: with SMTP id m15mr622232ljg.467.1607503901332; 
+ Wed, 09 Dec 2020 00:51:41 -0800 (PST)
 MIME-Version: 1.0
+References: <20201203191135.21576-1-info@metux.net>
+ <20201203191135.21576-2-info@metux.net>
+ <0080d492-2f07-d1c6-d18c-73d4204a5d40@metux.net>
+ <CACRpkdb4R4yHcUV2KbGEC_RkU+QmH6Xg7X+qee8sEa9TURGr8A@mail.gmail.com>
+ <51d3efb7-b7eb-83d7-673a-308dd51616d3@metux.net>
+In-Reply-To: <51d3efb7-b7eb-83d7-673a-308dd51616d3@metux.net>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Wed, 9 Dec 2020 09:51:30 +0100
+Message-ID: <CACRpkdbqVoT56H88hoZwDqV0kW_8XTaE5TkMQsg-RRrPqgF=cQ@mail.gmail.com>
+Subject: Re: Howto listen to/handle gpio state changes ? Re: [PATCH v2 2/2]
+ drivers: gpio: add virtio-gpio guest driver
+To: "Enrico Weigelt, metux IT consult" <lkml@metux.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201209_003552_304194_665CF634 
-X-CRM114-Status: GOOD (  14.06  )
+X-CRM114-CacheID: sfid-20201209_035145_977313_CB9E8CB4 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -95,210 +90,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Sean Anderson <seanga2@gmail.com>
+Cc: "Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowang@redhat.com>,
+ Jonathan Corbet <corbet@lwn.net>,
+ Linux Doc Mailing List <linux-doc@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ virtualization@lists.linux-foundation.org,
+ Bartosz Golaszewski <bgolaszewski@baylibre.com>,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ linux-riscv@lists.infradead.org, "Enrico Weigelt,
+ metux IT consult" <info@metux.net>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a device tree for the Canaan Kendryte KD233 development board.
-This device tree enables LEDs, some gpios and spi/mmc SD card device.
-The WS2812B RGB LED and the 10 position rotary dip switch present on
-the board are left undefined.
+On Tue, Dec 8, 2020 at 3:07 PM Enrico Weigelt, metux IT consult
+<lkml@metux.net> wrote:
 
-Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
----
- arch/riscv/boot/dts/canaan/k210_kd233.dts | 178 ++++++++++++++++++++++
- 1 file changed, 178 insertions(+)
- create mode 100644 arch/riscv/boot/dts/canaan/k210_kd233.dts
+> I've been looking for some more direct notification callback for gpio
+> consumers: here the consumer would register itself as a listener on
+> some gpio_desc and called back when something changes (with data what
+> exactly changed, eg. "gpio #3 input switched to high").
+>
+> Seems we currently just have the indirect path via interrupts.
 
-diff --git a/arch/riscv/boot/dts/canaan/k210_kd233.dts b/arch/riscv/boot/dts/canaan/k210_kd233.dts
-new file mode 100644
-index 000000000000..44852a27df93
---- /dev/null
-+++ b/arch/riscv/boot/dts/canaan/k210_kd233.dts
-@@ -0,0 +1,178 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * Copyright (C) 2019-20 Sean Anderson <seanga2@gmail.com>
-+ * Copyright (C) 2020 Western Digital Corporation or its affiliates.
-+ */
-+
-+/dts-v1/;
-+
-+#include "k210.dtsi"
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/input/input.h>
-+
-+/ {
-+	model = "Kendryte KD233";
-+	compatible = "canaan,kendryte-kd233",
-+		     "canaan,kendryte-k210";
-+
-+	chosen {
-+		bootargs = "earlycon console=ttySIF0";
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	gpio-leds {
-+		compatible = "gpio-leds";
-+
-+		led0 {
-+			gpios = <&gpio0 8 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		led1 {
-+			gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
-+		};
-+	};
-+
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+
-+		key0 {
-+			label = "KEY0";
-+			linux,code = <BTN_0>;
-+			gpios = <&gpio0 10 GPIO_ACTIVE_LOW>;
-+		};
-+	};
-+
-+	sound {
-+		compatible = "simple-audio-card";
-+		simple-audio-card,format = "i2s";
-+		status = "disabled";
-+
-+		simple-audio-card,cpu {
-+			sound-dai = <&i2s0 0>;
-+		};
-+
-+		simple-audio-card,codec {
-+			sound-dai = <&mic>;
-+		};
-+	};
-+
-+	mic: mic {
-+		#sound-dai-cells = <0>;
-+		compatible = "memsensing,msm261s4030h0";
-+		status = "disabled";
-+	};
-+};
-+
-+&fpioa {
-+	pinctrl-0 = <&jtag_pinctrl>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+
-+	jtag_pinctrl: jtag-pinmux {
-+		pinmux = <K210_FPIOA(0, K210_PCF_JTAG_TCLK)>,
-+			 <K210_FPIOA(1, K210_PCF_JTAG_TDI)>,
-+			 <K210_FPIOA(2, K210_PCF_JTAG_TMS)>,
-+			 <K210_FPIOA(3, K210_PCF_JTAG_TDO)>;
-+	};
-+
-+	uarths_pinctrl: uarths-pinmux {
-+		pinmux = <K210_FPIOA(4, K210_PCF_UARTHS_RX)>,
-+			 <K210_FPIOA(5, K210_PCF_UARTHS_TX)>;
-+	};
-+
-+	spi0_pinctrl: spi0-pinmux {
-+		pinmux = <K210_FPIOA(6, K210_PCF_GPIOHS20)>,  /* cs */
-+			 <K210_FPIOA(7, K210_PCF_SPI0_SCLK)>, /* wr */
-+			 <K210_FPIOA(8, K210_PCF_GPIOHS21)>;  /* dc */
-+	};
-+
-+	dvp_pinctrl: dvp-pinmux {
-+		pinmux = <K210_FPIOA(9, K210_PCF_SCCB_SCLK)>,
-+			 <K210_FPIOA(10, K210_PCF_SCCB_SDA)>,
-+			 <K210_FPIOA(11, K210_PCF_DVP_RST)>,
-+			 <K210_FPIOA(12, K210_PCF_DVP_VSYNC)>,
-+			 <K210_FPIOA(13, K210_PCF_DVP_PWDN)>,
-+			 <K210_FPIOA(14, K210_PCF_DVP_XCLK)>,
-+			 <K210_FPIOA(15, K210_PCF_DVP_PCLK)>,
-+			 <K210_FPIOA(17, K210_PCF_DVP_HSYNC)>;
-+	};
-+
-+	gpiohs_pinctrl: gpiohs-pinmux {
-+		pinmux = <K210_FPIOA(16, K210_PCF_GPIOHS0)>,
-+			 <K210_FPIOA(20, K210_PCF_GPIOHS4)>, /* Rot. dip sw line 8 */
-+			 <K210_FPIOA(21, K210_PCF_GPIOHS5)>, /* Rot. dip sw line 4 */
-+			 <K210_FPIOA(22, K210_PCF_GPIOHS6)>, /* Rot. dip sw line 2 */
-+			 <K210_FPIOA(23, K210_PCF_GPIOHS7)>, /* Rot. dip sw line 1 */
-+			 <K210_FPIOA(24, K210_PCF_GPIOHS8)>,
-+			 <K210_FPIOA(25, K210_PCF_GPIOHS9)>,
-+			 <K210_FPIOA(26, K210_PCF_GPIOHS10)>;
-+	};
-+
-+	spi1_pinctrl: spi1-pinmux {
-+		pinmux = <K210_FPIOA(29, K210_PCF_SPI1_SCLK)>,
-+			 <K210_FPIOA(30, K210_PCF_SPI1_D0)>,
-+			 <K210_FPIOA(31, K210_PCF_SPI1_D1)>,
-+			 <K210_FPIOA(32, K210_PCF_GPIOHS16)>; /* cs */
-+	};
-+
-+	i2s0_pinctrl: i2s0-pinmux {
-+		pinmux = <K210_FPIOA(33, K210_PCF_I2S0_IN_D0)>,
-+			 <K210_FPIOA(34, K210_PCF_I2S0_WS)>,
-+			 <K210_FPIOA(35, K210_PCF_I2S0_SCLK)>;
-+	};
-+};
-+
-+&uarths0 {
-+	pinctrl-0 = <&uarths_pinctrl>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+&gpio0 {
-+	pinctrl-0 = <&gpiohs_pinctrl>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+&i2s0 {
-+	#sound-dai-cells = <1>;
-+	pinctrl-0 = <&i2s0_pinctrl>;
-+	pinctrl-names = "default";
-+};
-+
-+&dvp0 {
-+	pinctrl-0 = <&dvp_pinctrl>;
-+	pinctrl-names = "default";
-+};
-+
-+&spi0 {
-+	pinctrl-0 = <&spi0_pinctrl>;
-+	pinctrl-names = "default";
-+	num-cs = <1>;
-+	cs-gpios = <&gpio0 20 GPIO_ACTIVE_HIGH>;
-+
-+	panel@0 {
-+		compatible = "ilitek,ili9341";
-+		reg = <0>;
-+		dc-gpios = <&gpio0 21 GPIO_ACTIVE_HIGH>;
-+		spi-max-frequency = <15000000>;
-+		status = "disabled";
-+	};
-+};
-+
-+&spi1 {
-+	pinctrl-0 = <&spi1_pinctrl>;
-+	pinctrl-names = "default";
-+	num-cs = <1>;
-+	cs-gpios = <&gpio0 16 GPIO_ACTIVE_LOW>;
-+	status = "okay";
-+
-+	slot@0 {
-+		compatible = "mmc-spi-slot";
-+		reg = <0>;
-+		voltage-ranges = <3300 3300>;
-+		spi-max-frequency = <25000000>;
-+		broken-cd;
-+	};
-+};
--- 
-2.28.0
+I don't know how indirect it is, it seems pretty direct to me. The subsystem
+was designed in response to how the hardware in front of the developers
+worked.
 
+So far we have had:
+- Cascaded interrupts
+- Dedicated (hieararchical) interrupts
+- Message Signalled Interrupts
+
+And if you now bring something else to the show then it's not like the
+subsystem was designed for some abstract quality such as
+generic notification of events that occurred, all practical instances
+have been around actual IRQs and that is why it is using
+struct irq_chip.
+
+What we need to understand is if your new usecase is an outlier
+so it is simplest modeled by a "mock" irq_chip or we have to design
+something new altogether like notifications on changes. I suspect
+irq_chip would be best because all drivers using GPIOs for interrupts
+are expecting interrupts, and it would be an enormous task to
+change them all and really annoying to create a new mechanism
+on the side.
+
+Yours,
+Linus Walleij
 
 _______________________________________________
 linux-riscv mailing list
