@@ -2,75 +2,78 @@ Return-Path: <SRS0=PU6a=FN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BF73FC4361B
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Dec 2020 20:38:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 893B1C433FE
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Dec 2020 23:30:27 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7B15B23BAC
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Dec 2020 20:38:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7B15B23BAC
+	by mail.kernel.org (Postfix) with ESMTPS id 4474B207D1
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Dec 2020 23:30:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4474B207D1
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=je2JM3BhUxEfkSMNS2/FLYYHUsRMLtdV1zhO61zVg+E=; b=hCKcVOVQc2KNy72H4C3S/YyRB
-	KyLKV2NiiDESAvu+ta2uNMOArNfWdxJk/KJb6KVdS52+yltwnrF5kL0UYW5Pvqxr+ML7MNSoLXht1
-	kwrpgHoGbV8vYywWszvKZNON81dQteeA2L5TVSiwYz2mG+0ZpvUKQrmGMlMvuIGhoXNqiRxJLk10P
-	2nCgL32LBmNjB+4H9keLI50+YfXPbzNnQJ+Xy1YDK1/z5sOotdMKnMZFS5iA64khl8sdPqTBAy5SH
-	ghDh83yPtJamY3HQ1JZUuZ/T5dPSZaQXIpfiL+Z5RyZX8TqIfRO6NuLcCCH/e5GXJlAANrvv5YLeh
-	dtBjpcndw==;
+	 bh=L0W/W/IOcdY0DkDQteOJOGLTKPkwxRsmPYl5Axco3E4=; b=3EiuSVRdyG8i8LwrDP7KqBOmP
+	IChgZRaDKOY/rDm3VHqvCr3at+5YHrnCeAM54DH8LD8kpXXb9UxYpVD2pqtEgvadRZgxHb99wfm4u
+	Z+O/9SUGqAAIYgFql7hECHeiJA92EmHm2Nw2y6BFCn0rXFfKkc+HDbss6fpvp0IjVkxcJDXWdalUg
+	+Z9qCbitC14atB9DDtDPrUWBVO+0NF3bxcBOmM5uwQ2YyVkSjisyBV9h3eHbftakcbRRtRN46wP7Y
+	tmEQMmB/3bzSJ81xbyKUONzEMRGoP7kpFcHzSzl7k1YAX02aHykUEE0j7v/3AkKnxLAl8B+iKa+64
+	+PSjwpwwg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kn6EW-0007M5-QT; Wed, 09 Dec 2020 20:38:44 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1kn8uY-0007Ty-JP; Wed, 09 Dec 2020 23:30:18 +0000
+Received: from mail-ot1-f68.google.com ([209.85.210.68])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kn6ET-0007LX-U8
- for linux-riscv@lists.infradead.org; Wed, 09 Dec 2020 20:38:42 +0000
-X-Gm-Message-State: AOAM530QHKE11dCHU1xuk7jWg30RU9PZAWyDfx2M2E1C3khN6yjYnLmN
- IE/1Ej3etlQC7qfZEwttPSbyQYGZgGByDpXwgks=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1607546320;
- bh=Ha7lLzOpXQ1X99veTNG7S+85hi9hDdUnwFrOdFxJkFY=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=m2wotAQGycNW3fNMRpvScONvUE+gNQJa/7UXeuv/E5/eArPXRVUCPnYQLNrImG/mi
- EJQV7WMwocrOB73rk8fCLhZCKjNIIiR/bzljek61mxBTwLpxZP82Xn6jRhlnEUKATY
- iEBAwk/CSGD9Xo47fY9oJGPZG78DcYthsCzyjY+hsWhf7D9e50RNKkGKje4//M6lnX
- 86DGjo+2ZTer6Q7yhGH0UvyBu2prkduSQAGOLKN5qBU3EyEyp7I4BzaQZcPiejMXMM
- 6hNi9fuj/ykVQO5y8Oy4vK4OaddGLZhWOG0zHrOv8NhJ1xIkzjm0yvECImZOpff6AX
- yJ8H5FndHMpDA==
-X-Google-Smtp-Source: ABdhPJx9b5wUc4ET8rElWbclWiQSLM9K0iZJ/2Q/ZLrhCrcYkZDXsayj9l5KMwDCDCiFnl6/qW8E7Vk6lrA60XCvUYc=
-X-Received: by 2002:a9d:6317:: with SMTP id q23mr3381889otk.251.1607546319268; 
- Wed, 09 Dec 2020 12:38:39 -0800 (PST)
+ id 1kn8uV-0007TX-LH
+ for linux-riscv@lists.infradead.org; Wed, 09 Dec 2020 23:30:16 +0000
+Received: by mail-ot1-f68.google.com with SMTP id h18so3148776otq.12
+ for <linux-riscv@lists.infradead.org>; Wed, 09 Dec 2020 15:30:15 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=B0Asjv3XbyAFTbDKBsljyKhv/NpTZ/vtxsoSKiwLJis=;
+ b=j/aN3KZt3rW2MIy5gU6VcBFYSqJglKXQY8Of6X+8BzbnxSjhNVrFgS1/FwIMCXpjNb
+ FW1nkG8RpYb3/9i5X4zf71yNacRSuDMgQiLDC0Tv32PhEfFP8d2MlOs147ZW2rL0Byjn
+ ZrjbZXOolqEhC1Tw922zgvB51kaUcgELFgkQElmlaYbvShyeS7qTH7YqFLi/URzJIfaQ
+ t4P2NQOLTtZv0TebUSKMflz26FE3Mzv7gAT3rWidGCqFU0/Yos9ioQom7C7ogu3W8Csb
+ Dy67d2n3HVvEcN4XwUctSdSVnlpSScTXWMJjfKC4VSDEPnEQ2n0zH7/NXJTNKnGLaUY/
+ 1/fQ==
+X-Gm-Message-State: AOAM531UgHRpovoS4aoMCbuIXqLxdsEs5Usx26BjP0IWKd11pyICfD4X
+ h9WxVlDjrxNG34Utzff5FQ==
+X-Google-Smtp-Source: ABdhPJyebnMDO1idYvlHeSFT8mQf086CjkENt81nzyUnEjEz9CGaSHhlfhM4muLZ79s59u3SrEfCxQ==
+X-Received: by 2002:a9d:479a:: with SMTP id b26mr3786121otf.297.1607556614465; 
+ Wed, 09 Dec 2020 15:30:14 -0800 (PST)
+Received: from xps15 (24-155-109-49.dyn.grandenetworks.net. [24.155.109.49])
+ by smtp.gmail.com with ESMTPSA id t19sm753901otp.36.2020.12.09.15.30.12
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 09 Dec 2020 15:30:13 -0800 (PST)
+Received: (nullmailer pid 1281044 invoked by uid 1000);
+ Wed, 09 Dec 2020 23:30:11 -0000
+Date: Wed, 9 Dec 2020 17:30:11 -0600
+From: Rob Herring <robh@kernel.org>
+To: Atish Patra <atish.patra@wdc.com>
+Subject: Re: [PATCH v3 2/5] dt-bindings: riscv: microchip: Add YAML
+ documentation for the PolarFire SoC
+Message-ID: <20201209233011.GA1276461@robh.at.kernel.org>
+References: <20201204085835.2406541-1-atish.patra@wdc.com>
+ <20201204085835.2406541-3-atish.patra@wdc.com>
 MIME-Version: 1.0
-References: <20201203191135.21576-1-info@metux.net>
- <20201203191135.21576-2-info@metux.net>
- <0080d492-2f07-d1c6-d18c-73d4204a5d40@metux.net>
- <CACRpkdb4R4yHcUV2KbGEC_RkU+QmH6Xg7X+qee8sEa9TURGr8A@mail.gmail.com>
- <51d3efb7-b7eb-83d7-673a-308dd51616d3@metux.net>
- <CACRpkdbqVoT56H88hoZwDqV0kW_8XTaE5TkMQsg-RRrPqgF=cQ@mail.gmail.com>
- <CAK8P3a1PRQGUXkjdSmqxXSONX_ZoCgsfx8hJBUdBUk14tyzErA@mail.gmail.com>
- <CACRpkdbNAeDsi9B14kbkAeoqX7NE_Ua_yOX1iNF75oNK0ELefQ@mail.gmail.com>
- <2827855a-dc4f-2e17-aca3-4b1b9f0d5084@ti.com>
-In-Reply-To: <2827855a-dc4f-2e17-aca3-4b1b9f0d5084@ti.com>
-From: Arnd Bergmann <arnd@kernel.org>
-Date: Wed, 9 Dec 2020 21:38:22 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a30=AcEZAZ2yNUgctj=4YM6FhS1ZXB4ts7a7WV=gBcatA@mail.gmail.com>
-Message-ID: <CAK8P3a30=AcEZAZ2yNUgctj=4YM6FhS1ZXB4ts7a7WV=gBcatA@mail.gmail.com>
-Subject: Re: Howto listen to/handle gpio state changes ? Re: [PATCH v2 2/2]
- drivers: gpio: add virtio-gpio guest driver
-To: Grygorii Strashko <grygorii.strashko@ti.com>
+Content-Disposition: inline
+In-Reply-To: <20201204085835.2406541-3-atish.patra@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201209_153842_112533_5DBC5D9A 
-X-CRM114-Status: GOOD (  19.38  )
+X-CRM114-CacheID: sfid-20201209_183015_786428_CD6CFC10 
+X-CRM114-Status: GOOD (  14.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -82,63 +85,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "Michael S. Tsirkin" <mst@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
- Linus Walleij <linus.walleij@linaro.org>,
- Linux Doc Mailing List <linux-doc@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- virtualization@lists.linux-foundation.org,
- Bartosz Golaszewski <bgolaszewski@baylibre.com>, "Enrico Weigelt,
- metux IT consult" <lkml@metux.net>,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>, "Enrico Weigelt,
- metux IT consult" <info@metux.net>, Jason Wang <jasowang@redhat.com>
+Cc: devicetree@vger.kernel.org, Conor.Dooley@microchip.com,
+ Anup Patel <anup.patel@wdc.com>, Cyril.Jean@microchip.com,
+ Daire McNamara <daire.mcnamara@microchip.com>,
+ Bin Meng <bin.meng@windriver.com>, linux-kernel@vger.kernel.org,
+ Ivan.Griffin@microchip.com, Albert Ou <aou@eecs.berkeley.edu>,
+ Alistair Francis <alistair.francis@wdc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 9, 2020 at 9:22 PM Grygorii Strashko
-<grygorii.strashko@ti.com> wrote:
-> On 09/12/2020 14:53, Linus Walleij wrote:
-> > On Wed, Dec 9, 2020 at 12:19 PM Arnd Bergmann <arnd@kernel.org> wrote:
-> >> On Wed, Dec 9, 2020 at 9:51 AM Linus Walleij <linus.walleij@linaro.org> wrote:
-> >>> On Tue, Dec 8, 2020 at 3:07 PM Enrico Weigelt, metux IT consult <lkml@metux.net> wrote:
-> >>
-> >>> What we need to understand is if your new usecase is an outlier
-> >>> so it is simplest modeled by a "mock" irq_chip or we have to design
-> >>> something new altogether like notifications on changes. I suspect
-> >>> irq_chip would be best because all drivers using GPIOs for interrupts
-> >>> are expecting interrupts, and it would be an enormous task to
-> >>> change them all and really annoying to create a new mechanism
-> >>> on the side.
-> >>
-> >> I would expect the platform abstraction to actually be close enough
-> >> to a chained irqchip that it actually works: the notification should
-> >> come in via vring_interrupt(), which is a normal interrupt handler
-> >> that calls vq->vq.callback(), calling generic_handle_irq() (and
-> >> possibly chained_irq_enter()/chained_irq_exit() around it) like the
-> >> other gpio drivers do should just work here I think, and if it did
-> >> not, then I would expect this to be just a bug in the driver rather
-> >> than something missing in the gpio framework.
-> >
-> > Performance/latency-wise that would also be strongly encouraged.
-> >
-> > Tglx isn't super-happy about the chained interrupts at times, as they
-> > can create really nasty bugs, but a pure IRQ in fastpath of some
-> > kinde is preferable and intuitive either way.
->
-> In my opinion the problem here is that proposed patch somehow describes Front end, but
-> says nothing about Backend and overall design.
->
-> What is expected to be virtualized? whole GPIO chip? or set of GPIOs from different GPIO chips?
-> Most often nobody want to give Guest access to the whole GPIO chip, so, most probably, smth. similar to
-> GPIO Aggregator will be needed.
+On Fri, Dec 04, 2020 at 12:58:32AM -0800, Atish Patra wrote:
+> Add YAML DT binding documentation for the Microchip PolarFire SoC.
+> It is documented at:
+> 
+> https://www.microsemi.com/products/fpga-soc/polarfire-soc-icicle-quick-start-guide
+> 
+> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> ---
+>  .../devicetree/bindings/riscv/microchip.yaml  | 28 +++++++++++++++++++
+>  1 file changed, 28 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/riscv/microchip.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/riscv/microchip.yaml b/Documentation/devicetree/bindings/riscv/microchip.yaml
+> new file mode 100644
+> index 000000000000..66e63c2bf359
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/riscv/microchip.yaml
+> @@ -0,0 +1,28 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR MIT)
 
-I would argue that it does not matter, the virtual GPIO chip could really
-be anything. Certain functions such as a gpio based keyboard require
-interrupts, so it sounds useful to make them work.
+See what checkpatch.pl says.
 
-     Arnd
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/riscv/microchip.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Microchip PolarFire SoC-based boards device tree bindings
+> +
+> +maintainers:
+> +  - Cyril Jean <Cyril.Jean@microchip.com>
+> +  - Lewis Hanly <lewis.hanly@microchip.com>
+> +
+> +description:
+> +  Microchip PolarFire SoC-based boards
+> +
+> +properties:
+> +  $nodename:
+> +    const: '/'
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - microchip,mpfs-icicle-kit
+> +      - const: microchip,polarfire-soc
+> +      - const: microchip,mpfs
+
+Is this last compatible really useful? Usually better to just have SoC 
+and board (or SoM plus baseboard) compatibles.
+
+Rob
 
 _______________________________________________
 linux-riscv mailing list
