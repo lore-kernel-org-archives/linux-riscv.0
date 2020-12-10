@@ -8,14 +8,14 @@ X-Spam-Status: No, score=-10.7 required=3.0 tests=BAYES_00,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D9367C4361B
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Dec 2020 13:35:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 31589C4361B
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Dec 2020 13:35:19 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 93F6B221E2
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Dec 2020 13:35:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 93F6B221E2
+	by mail.kernel.org (Postfix) with ESMTPS id DD943221E2
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Dec 2020 13:35:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DD943221E2
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,59 +24,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Lu+LwiAgBGAOGtH8dWnqE7t87yU10TKuOQHnLPROc04=; b=JXGb63qy4kE6/eEA+xa6ohu6u
-	idT1AOBDu65ODO/dd9qOkAD+LlUEwykqySEoKpsNv/Vk+/f9OU0XftZSTpi/OYsAtOziwsfWHBtJJ
-	Or87WtT9zSJOAAXyPdrur3/B5zYNXSGpNBs7wYonDeYBB7HwIfeOOUdg52g4q07TR41lrHNJDwL3V
-	peywdUV5IYhCZqeey1wkyT0IQ3KEh63jFyfnPkT6Z3gthztM6bu1ZX73P//RDqOro8PjjeMOn61Vx
-	culFs2nfr68wb9BC45k9eKMJ2kWgtBPIctiHYmqifu7IM1nF8AADliJXQSA4jzTLZIZTIOPdEf0v+
-	S4bPQF4jA==;
+	 bh=TezwE6WAQP9R6tEwyYL4ClgAPLqownp/aOKz+L8agSU=; b=J3dkOShnQAE024hcda9JwNxEl
+	/uoScrvPfTruurWGTSrcbYzywSFNob4VFb1KlAyFiOJY9LX039/G65DziOw0lSCtq6d7MVtZ1JrIh
+	6x+bi+IQ4F0dby3KJv2FylCBPJ/+4srKq1LvK490LUSKIOwtneklIgS9hR80kmAI+1hiDAGe/H3Gl
+	yDUxBjIRwniBUvY5NBnm97g3dEdyWCWvVt5aIwcLonPW3lAKHmW6Q4dz0nugCDdtDteflVCJfHbbp
+	p7w7uziZtvyfEA0HhlIjH0o0oZeHo1+A8QZVTYsGQuggIJCoQ8yyC+2J0iJTktH7XOvAHvzFaJni6
+	p1vR/a3AA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1knM68-0001UZ-3x; Thu, 10 Dec 2020 13:35:08 +0000
-Received: from mail-yb1-xb41.google.com ([2607:f8b0:4864:20::b41])
+	id 1knM6C-0001Vq-9J; Thu, 10 Dec 2020 13:35:12 +0000
+Received: from mail-yb1-xb42.google.com ([2607:f8b0:4864:20::b42])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1knM65-0001TK-9M
- for linux-riscv@lists.infradead.org; Thu, 10 Dec 2020 13:35:06 +0000
-Received: by mail-yb1-xb41.google.com with SMTP id u203so4733898ybb.2
- for <linux-riscv@lists.infradead.org>; Thu, 10 Dec 2020 05:35:04 -0800 (PST)
+ id 1knM69-0001Ub-3H
+ for linux-riscv@lists.infradead.org; Thu, 10 Dec 2020 13:35:10 +0000
+Received: by mail-yb1-xb42.google.com with SMTP id r127so4704178yba.10
+ for <linux-riscv@lists.infradead.org>; Thu, 10 Dec 2020 05:35:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=PruGUtDJdsgm777wkWNoe3vOXDaPQKYGDAojPXnGM3g=;
- b=qr+ZqQ2F4EZQfgdy8K+Kqs+ju2va5nhDTYEtOvAiGmiJX2+U4h7E0rqdX/PQIbTGh+
- CaNBjYsEAXvrBdvcJyqNLGW4vI71xB9Nunla2/S8Xyg076OROcaxIxeqZTo87P3ZrpEK
- Tpyw6ehpSlxTCxW21MgYgUT/F7qeRYG8LkRURerN8L1ZKKDe4UG5A5J53BhFNdTcPG/Y
- CJlzYxOG+uJgGNDy4V8xNEcrr5hALBb9Ini1MUiJq1CqsUQiqthZCmUX5zIc5YHmI0Qy
- OVaNLCOIWBxSV2WCJM383Thx15WG8Z/Tf8K5+nJcmuQC/qSm75GCDSEV190GMIGubzD8
- TUTg==
+ :cc; bh=m1HP1yIoElif264wBbc+cWtKQMdT/dfCn4qH9f3uFvE=;
+ b=D+sXkGE27BvA8k13Mm/sLNkyOydzvwrVUbzyCyveTzQBfOflUmMnRdlUbE1OB+XKYW
+ xAmA/jH7hEgXzn/jR1xat4Jl1JTLn1LNyvDwFWOyN+rM5gvFGsX2gF5jV/1zz/+DHn1p
+ 8GwqJ0+PjdYQGgBrXHoSoUxg8xvd1nCCjoet1SqORFlbPMQik1j9l0AqIccpUl/qOtje
+ DhtZol6YtZnv2IoYwJphso8ZDk/O+9P+Z33jGvem80h46ouMJ4798Sy1u3SBX/QLLlV6
+ LNMi9s4YUIU75yhG9QY+FS/b5Mh2TAC3FkdofTj8hYhqsvsCtdyzYHTTOsVJyyrrAMxi
+ yglg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=PruGUtDJdsgm777wkWNoe3vOXDaPQKYGDAojPXnGM3g=;
- b=eQHXXw0AX5EUgME0um/duS9lfbuG+ccrDYNT8AinqP7uaKFJ+fXgfFXmkQULtzkP9V
- 0zN6QRS+Q2dJW4PaV9mqoZXlq5JM1rvFSgmlDyF34axP8L3JC46ZPS+9iqOiTCE8ecx+
- tE/5uPrMk0yiaX5IP01f0I8hp6Khqzpdt6pgV0Q8BhmM2Hl45KWEPWWN7CeePSF2lJD2
- bLNRWb2a62BNWgbr0AwsiUnsY4lqTOJAO37l4ATAcNz49YXtNLHFStJeFwz4gGaR09XZ
- lJtOm1pdFPM5YD/1gKCuwSgCNTPZqRYbjw/NdKrR4Ksqr0Rwv1sXvNpPQrlsr279W0nO
- 9nBg==
-X-Gm-Message-State: AOAM531PHvB8cWzDT+M9/9SJgHK+ovwmExuRQ+PEb03rBagBp+pNVVe3
- i5Kxxwc9HvA0R9pm5w/UqhCDtvsNkvlOIUCfwK0=
-X-Google-Smtp-Source: ABdhPJwt8733zr6N4yj6FxVSgrph3s9l4oGe3cVPbzqFrVlmw6Xv6Vu14kyHNxg5hkVg18XwvFJU42O68ypfOORJOLs=
-X-Received: by 2002:a5b:2c6:: with SMTP id h6mr10931588ybp.306.1607607303436; 
- Thu, 10 Dec 2020 05:35:03 -0800 (PST)
+ bh=m1HP1yIoElif264wBbc+cWtKQMdT/dfCn4qH9f3uFvE=;
+ b=sYyKGu4dvdMxa5fat7tTDNcyKUhAYaZq58jpnOSYHIm/5Sh87Hl8h7Z2TbH34BjuHq
+ hZ7/7e7GfMm3EnZAFVjzV+wNLesapkXm+NV2ngusWZMBitC3/dyznS4+06WjB/3EfVMe
+ +xHpU1cI+GNpubctTW3XaGL9+m/hfrzOKYMNlCNF+68brokOugIPJh/VaE29loc88UCq
+ qhml3vwf7c97tJT2p08WJb6agTYPD6LQ0hV/PWYDkufvkAzYGyaaO0qU8R9aMD72Aoev
+ j0slpM8V7qdH4a0OgdE9G+zV7zTo1lGMDag0LAU58BtfjwYwNr+p6xNYMd9YiYtNqmn5
+ 8C6g==
+X-Gm-Message-State: AOAM531bsiuiYpTJNAxaY1XQC14KCRBUV8Y52tg24fPSnJO/sicp5BGP
+ U/jV2a4kP0KqNTc8Ktpe3A/xBKd9h3+tzwmTmhQ=
+X-Google-Smtp-Source: ABdhPJyr0TYOgXzMuicga7wyBOkKbBeJ/YheB2Zrk4q9fKy+qC4mFj82XZKUw2JcVTA3YVjJ1ocGnBF5j6BpIIbt1WI=
+X-Received: by 2002:a25:bb50:: with SMTP id b16mr11643994ybk.152.1607607307674; 
+ Thu, 10 Dec 2020 05:35:07 -0800 (PST)
 MIME-Version: 1.0
 References: <1607403341-57214-1-git-send-email-yash.shah@sifive.com>
- <1607403341-57214-9-git-send-email-yash.shah@sifive.com>
-In-Reply-To: <1607403341-57214-9-git-send-email-yash.shah@sifive.com>
+ <1607403341-57214-10-git-send-email-yash.shah@sifive.com>
+In-Reply-To: <1607403341-57214-10-git-send-email-yash.shah@sifive.com>
 From: Bin Meng <bmeng.cn@gmail.com>
-Date: Thu, 10 Dec 2020 21:34:51 +0800
-Message-ID: <CAEUhbmUPvu6bRDSnA4aUNNZRdjzfYSQOVvkN=PrqAxCK5oCngg@mail.gmail.com>
-Subject: Re: [PATCH v2 8/9] dt-bindings: riscv: Update YAML doc to support
- SiFive HiFive Unmatched board
+Date: Thu, 10 Dec 2020 21:34:55 +0800
+Message-ID: <CAEUhbmVi7oVEJhyar+GyCVY=MrZri9h3DvQWOceZhcqFe544Kw@mail.gmail.com>
+Subject: Re: [PATCH v2 9/9] riscv: dts: add initial board data for the SiFive
+ HiFive Unmatched
 To: Yash Shah <yash.shah@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201210_083505_401123_DD804E38 
-X-CRM114-Status: GOOD (  10.26  )
+X-CRM114-CacheID: sfid-20201210_083509_191841_230094E5 
+X-CRM114-Status: GOOD (  14.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -106,17 +106,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 8, 2020 at 3:05 PM Yash Shah <yash.shah@sifive.com> wrote:
+On Tue, Dec 8, 2020 at 3:06 PM Yash Shah <yash.shah@sifive.com> wrote:
 >
-> Add new compatible strings to the YAML DT binding document to support
-> SiFive's HiFive Unmatched board
+> Add initial board data for the SiFive HiFive Unmatched A00.
+> This patch is dependent on Zong's Patchset[0].
+>
+> [0]: https://lore.kernel.org/linux-riscv/20201130082330.77268-4-zong.li@sifive.com/T/#u
+
+I think the dependency should be put below --, not in the commit message itself
+
 >
 > Signed-off-by: Yash Shah <yash.shah@sifive.com>
 > ---
->  Documentation/devicetree/bindings/riscv/sifive.yaml | 17 ++++++++++++-----
->  1 file changed, 12 insertions(+), 5 deletions(-)
+>  arch/riscv/boot/dts/sifive/Makefile                |   3 +-
+>  .../riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 253 +++++++++++++++++++++
+>  2 files changed, 255 insertions(+), 1 deletion(-)
+>  create mode 100644 arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
 >
+> diff --git a/arch/riscv/boot/dts/sifive/Makefile b/arch/riscv/boot/dts/sifive/Makefile
+> index 6d6189e..74c47fe 100644
+> --- a/arch/riscv/boot/dts/sifive/Makefile
+> +++ b/arch/riscv/boot/dts/sifive/Makefile
+> @@ -1,2 +1,3 @@
+>  # SPDX-License-Identifier: GPL-2.0
+> -dtb-$(CONFIG_SOC_SIFIVE) += hifive-unleashed-a00.dtb
+> +dtb-$(CONFIG_SOC_SIFIVE) += hifive-unleashed-a00.dtb \
+> +                           hifive-unmatched-a00.dtb
 
+Otherwise LGTM:
 Reviewed-by: Bin Meng <bin.meng@windriver.com>
 
 _______________________________________________
