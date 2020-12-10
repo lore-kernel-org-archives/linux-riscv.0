@@ -2,133 +2,80 @@ Return-Path: <SRS0=mXjn=FO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,
-	SPF_PASS,UNWANTED_LANGUAGE_BODY,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.7 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C24C9C433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Dec 2020 10:28:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B27AFC433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Dec 2020 11:06:52 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5F11023A7C
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Dec 2020 10:28:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5F11023A7C
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sifive.com
+	by mail.kernel.org (Postfix) with ESMTPS id 43E7C23D98
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Dec 2020 11:06:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 43E7C23D98
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=IK0asb4qlIPkkRNBrDhCaT6FvosCkS/Yf8/Mqhbqzj0=; b=riXeCR4SYwTDc3CtXbtj0st6j
-	KREmoxz0tlnJqK4/Ly6VgnMA0rIViRyCIR32TvShhyE8IT8dwjeq/UWf7scpwCTmoVm2Oo9u7YONF
-	G2aEP4OU6S5e1GMpsU/6jTl+TRmQUvZT//jnxG3wkXNc2TH2uF332RsOT+nV8kVAmVNcAsQWjN7un
-	pVYkrqeTRJ/KdE3Zdd8PHxxCTlCmp7Mt4//uMBTKzq27j+DdeK3jHenhHcbD8BwteoWuLpYva++Ro
-	HKI7x+FvCEQP6FDIPbldzW+/uoSdHwWFSXkXTsh7qSJL07t9HgM8rQGHDyue/hj+lCfinw34e51aJ
-	ZMZE7uWog==;
+	 bh=y2TTGE6va9dWKSo48sblYl2HeVo39IPdO0J1ctG91c4=; b=nBFc9J5JpWCOxNWhaI+j3HQD7
+	3qblcaUCA2TnMNSXum1Zx6m4tGLQpUVtzVo72K51tPa5TtJx9NVOJtJykTqpz5nAbtLVVel8BY7vo
+	QlbGh16BG6nmdMPunxX63Q/pXvDMXzPb4gg9xn/glyC7/y5HOgwkLK9a23zrK235P45R/NJr8bsmX
+	hStQqtM5CpaKzW9EpBlJGgIUfLRn+o70uCsGOgw5PmkOAN4v/r6dP8UIllepagVTBm8dZa+U3LIWA
+	YfWkQVN8ZBxWNAt7z8ApEGcdYxKvkS+wuLq3NRij3KI0sNSdUWT6jBUlOG94RE8xrD1TyKmMP1Cfg
+	SJ/f7TkdQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1knJBb-0006Xh-TM; Thu, 10 Dec 2020 10:28:35 +0000
-Received: from mail-dm6nam12on2069.outbound.protection.outlook.com
- ([40.107.243.69] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	id 1knJmW-0007XX-RH; Thu, 10 Dec 2020 11:06:44 +0000
+Received: from mail-yb1-xb44.google.com ([2607:f8b0:4864:20::b44])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1knJBZ-0006Wk-6t
- for linux-riscv@lists.infradead.org; Thu, 10 Dec 2020 10:28:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=iuGOKvfIqg8wATxYUrdzjOpdXsSucj0gZpB+1rOJoPhT2JogcLpPpoM/s2783qE+eNGwmy5QEphYTZZKKdbjct/iZOh58MVuP/kQ9cGGx2UvO3lMN8icApoinhRYHJ/9vQ8PjmHCyx5K4xwMb5pX2IZdpPvSP+o6CTqtpwTd8oAOTv9Fns8vhutg4yy0xtQ+FPNNSc37EuWyFHMiSMJEQGmKb2Rv11gf6MkvdxE1y6IHcxPvMn480n2jDRLoHXFK/ThUeKqkOGJpiV2G5jE2NoUGKJZ4aJGXfMtET2s+Gi4QFhE+YZDqxoS/4cYnkJbddrzTbtx+XFaAb2KTLv9g1A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+G73yeJi5CqkoOSQ0F00zuXL1qkQhjPSyv3ujMlpJ80=;
- b=IvdaNyq7+xrtN5iXAM8EU+N9M8MJcMIHdSRNUInBcInrARq/vkoXL7b6lJf/DfcBc7Fn/UGosUd+g6hWMTp9u9ABdeG4DyMfBewOW5ZAVBHITAY1frHtQPbtkf8V28Bh/XH4SghpEThypaQL7ywgxSo7E6qabOLVS/tVB9ONGHgMnoJqARvWT0EdFKEIBdl2Pcp7e3uMTKc9NTAsT+LP8i+5g0DEPwrGfv50TRgdtckGN197apbISkgaPkI5SA+heY25pnBiC6I429GoaqUzxbQr3gEKieUcsqqvvoUXJOdfuDHfb9zf77ApgM4+8UfnnfTHUMrPIysv7SCKGtCU+Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=openfive.com; dmarc=pass action=none header.from=sifive.com;
- dkim=pass header.d=sifive.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+G73yeJi5CqkoOSQ0F00zuXL1qkQhjPSyv3ujMlpJ80=;
- b=dtDVeIEJu9M24E+gTi4vuSSKUQx9toyxrKMH5DP3Vb+FptQ5DsQ6AZ6iqfT6eVwLQotYpujx1nWTtA2T95Wvi2i+1CY+CQpStQ7JhUjRC8jwYcWvkLYOk4QTzfGyAdDj5iRX7Sn20TlicXg3bl/2obnYSne7PB87nEwiDQh/LP8=
-Authentication-Results: vger.kernel.org; dkim=none (message not signed)
- header.d=none; vger.kernel.org; dmarc=none action=none header.from=sifive.com; 
-Received: from BY5PR13MB4453.namprd13.prod.outlook.com (2603:10b6:a03:1d1::19)
- by BYAPR13MB2838.namprd13.prod.outlook.com (2603:10b6:a03:fe::32)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3654.11; Thu, 10 Dec
- 2020 10:28:31 +0000
-Received: from BY5PR13MB4453.namprd13.prod.outlook.com
- ([fe80::7c13:1ac6:9f2a:5eae]) by BY5PR13MB4453.namprd13.prod.outlook.com
- ([fe80::7c13:1ac6:9f2a:5eae%8]) with mapi id 15.20.3654.015; Thu, 10 Dec 2020
- 10:28:31 +0000
-From: Yash Shah <yash.shah@sifive.com>
-To: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org
-Subject: [PATCH v3 2/2] RISC-V: sifive_l2_cache: Update L2 cache driver to
- support SiFive FU740
-Date: Thu, 10 Dec 2020 15:58:03 +0530
-Message-Id: <1607596083-81480-3-git-send-email-yash.shah@sifive.com>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1607596083-81480-1-git-send-email-yash.shah@sifive.com>
-References: <1607596083-81480-1-git-send-email-yash.shah@sifive.com>
-X-Originating-IP: [159.117.144.156]
-X-ClientProxiedBy: CH0PR13CA0015.namprd13.prod.outlook.com
- (2603:10b6:610:b1::20) To BY5PR13MB4453.namprd13.prod.outlook.com
- (2603:10b6:a03:1d1::19)
+ id 1knJmT-0007Us-HS
+ for linux-riscv@lists.infradead.org; Thu, 10 Dec 2020 11:06:42 +0000
+Received: by mail-yb1-xb44.google.com with SMTP id w135so4304482ybg.13
+ for <linux-riscv@lists.infradead.org>; Thu, 10 Dec 2020 03:06:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=ETGSMY6awNXPXPJo5cOg9EbQ8Jdr01cRs6yp25MZwq4=;
+ b=CEUoIrXzXOfWzXkhrhgG4vM6yIbY5CUSJlpFuQhAg5ptSMGwa1BQYNQ+ZRmvrcddpl
+ A5aBXDOuu4LVlk2ZPoiJJHBKvULxZf3hwBz6Cgbm+y/E6ZbvrmNG69esnTt78RoX9wcr
+ xr3EHyggFRodZCQbnudjL71WPq0w7OjadyqUPpwN0Z9hI1DExi6twGG1CrhEFAOUA7zR
+ gFZY0mbcXV9UcCBv42CmbMPD86CqVVDLqC6M1JRX5NmCeigwekfkvbxCutl6xa2XdqP0
+ MG5J5KWGgiq70KU7nB5tBoocydlp1lZtw5trZDzaxybp/BL08jqn+S4hQ7MmbdYvY8zB
+ JhCA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=ETGSMY6awNXPXPJo5cOg9EbQ8Jdr01cRs6yp25MZwq4=;
+ b=XugTcqPX9cG9UiNtJN32F2hQ+xUafq7rXKrb2x39isUSD4OVMhi6Z38QFy7niWFajS
+ d5Gq7DRb8ay2LGgU9f2akXdoPbBTk+OoiEJyYF0GF3BRBDa7nPNv+ZDyKLbC2FiPTB7L
+ XFqEoy/5hePvS0tfxVYvKYrMBHBGKcbFHKgI9AwTUMWpHNnGnVowoavdXhhaCgz5BsYs
+ 0dUretikDE57Q4KnlO1t7uII+nmP4RH8+QvM3tK72On+yri0EZIPbNhqy9YY63iu72tp
+ ObLgSqAHcJtRYtbYpFY6ThuRcsKUHSDKhp6dtUjmmZSoe+1ad+d6PXu3ElC2PU89ZpTJ
+ ipgQ==
+X-Gm-Message-State: AOAM532eX/ZJkEL8GyscTFRwv5doGbgpFocNpp+LLVYKYcqXqTrVhFlT
+ rFAY7Vf/XjwOhUcZxbnJBLjujzNXIvbZL9CFcBE=
+X-Google-Smtp-Source: ABdhPJyUHpmghvFm6Cre6IHt0eY0oQI7lbjRspYTn+O1XN7rgEwvLPWvYc1jGSRyf2hoesxTlyH4AVRtUf7f/f1rej0=
+X-Received: by 2002:a25:690b:: with SMTP id e11mr9980504ybc.314.1607598397208; 
+ Thu, 10 Dec 2020 03:06:37 -0800 (PST)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-Received: from osubuntu003.open-silicon.com (159.117.144.156) by
- CH0PR13CA0015.namprd13.prod.outlook.com (2603:10b6:610:b1::20) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.3654.9 via Frontend Transport; Thu, 10 Dec 2020 10:28:25 +0000
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: a98b503a-bbec-433b-ca12-08d89cf6574c
-X-MS-TrafficTypeDiagnostic: BYAPR13MB2838:
-X-LD-Processed: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1,ExtAddr
-X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <BYAPR13MB28385929B2485C00EF38120282CB0@BYAPR13MB2838.namprd13.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:5797;
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: Zm2vimluL97kcDT5a+8L+ToIAx6cYUiHqhMosmtcEwywx27m0NjHo4C1Hg3zQ/CqRf9Ta274fWKDTtHNRcnkqfjgB51o8556Sqj6XkEF/v5mA2FWnJHuhcS294HXCuss4pMMMrZXTPqu7Pr5dUqv1oQQiKcy8vpS80HETQDrLoVwS4Vq3Gfp8/K+9ak0xyiVN0xBMmyNSS4FG7PYNYinO9IagsQlZKVVb+HRdGYXe95SBajgHl9v4rloNaMXGeB7E/5Jb/LEPbh4zc/dAcDOzZoXlej3YJsHQwmyjt3yWpwewDwV+01TK+xTih+xTLtx
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:BY5PR13MB4453.namprd13.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(6029001)(376002)(366004)(136003)(346002)(15650500001)(7416002)(508600001)(26005)(8676002)(36756003)(4326008)(956004)(66476007)(2616005)(42882007)(66556008)(107886003)(44832011)(8936002)(16526019)(186003)(66946007)(83170400001)(83380400001)(6486002)(52116002)(2906002)(6666004)(5660300002)(6506007)(6512007);
- DIR:OUT; SFP:1101; 
-X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?tziQNxKmoBzJCe05mQ8XXuYwFXPA2aFsnWEfSeR9ydHXQjNQdfg/aevCttSa?=
- =?us-ascii?Q?Pxv9HT7tK0MuEeqlfJwZ05jeoRBkg3bofWl9sfLPXEpJeQ7mclfCXaYFHPwj?=
- =?us-ascii?Q?Wywrc6+wrGATliXVAh9F0Ew2zyTG4+Ael/lAuEkDmojOE/Wo5Q9EPjn3eg1P?=
- =?us-ascii?Q?sp3U5tdrjLRdhFB5p7r0KHmE6TL+hOeJIFi3v2g5VxKAw+5M9AqKgWoLdU9e?=
- =?us-ascii?Q?tgsk6ZYjTD0Wxsidax/bZ9XLgTkpYyxtu1YtLxbAuGClXkufU+Q/tafVCaSo?=
- =?us-ascii?Q?0jBOhxiyD6IjMFGinSTY3fPdHn7Tvj7Q3+M93a7dF6aSxaKVb/vSz/Rdw0bo?=
- =?us-ascii?Q?0frQ6z+W+/Cxqo8u+grwm860bD3WXqcFDyeU71uEzE+d1lpSxp+Lk8QAcdjN?=
- =?us-ascii?Q?bQ6kQliHfDGpEIrqZGCpbXq/UzaI5GAqsvU0jLbYWxdjKuImXbDyxL2eIJNE?=
- =?us-ascii?Q?dgo1Xqb5BkLZjcDbsOdmodG4oif00u1zfHF8S8f2+hCaW4150tioB/Ecoi86?=
- =?us-ascii?Q?AJ26BPuNvllfFFFE6u5qcZJUPz9RdphT+EelkT4MEgpOgAWYJccL0aH7CNkt?=
- =?us-ascii?Q?Q1TVvzcxcjdclaaVTCakI8rIOU54KGlpZlhKQVqIeAHPF9V1SLYwQ20vME8w?=
- =?us-ascii?Q?GcBBfmBsgBcQHnI4P9m6pdcAd6/B9k9SkzF+uKMNrWNtV4e5ECX+RI/P4kl5?=
- =?us-ascii?Q?bsKCGBhcpib0tIEAMorSfSVnJwpoBXrS9UGj0H5rjXmmf7uPxxKn9NPCSL/L?=
- =?us-ascii?Q?5EfMt0ZVlaY9M3g+7h9TKIZmmjKByQDx4lq/pOsKGdgfxUyIe4fDv14h3Ll5?=
- =?us-ascii?Q?54SjrUcmLgDJ2cKWy6Ew4naaPKjzDSdU32PZ4SKfjvBut8FmsWfqnr02cQeT?=
- =?us-ascii?Q?iIumIS5BQSOcI/+ww6zYVLhNv2+cnlz04MAEH+tMWWuFoy9U9LTugRAZQFrq?=
- =?us-ascii?Q?kalrIUHm3JJVlv1QPFUOpcu6BR38Wycx7PTlpWU8/TCJSoGbyf9LSaFMty+0?=
- =?us-ascii?Q?xPcs?=
-X-OriginatorOrg: sifive.com
-X-MS-Exchange-CrossTenant-AuthSource: BY5PR13MB4453.namprd13.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Dec 2020 10:28:31.1989 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 22f88e9d-ae0d-4ed9-b984-cdc9be1529f1
-X-MS-Exchange-CrossTenant-Network-Message-Id: a98b503a-bbec-433b-ca12-08d89cf6574c
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: jRcIDmfGU/S2i3jRkFnLFRS/14lg4zJbIwXbBGM1xaqGufonXqTaKqoJyxzNS5GBrqfw2Kb8AB7A3MnhdpA7cQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR13MB2838
+References: <20201204085835.2406541-1-atish.patra@wdc.com>
+ <20201204085835.2406541-4-atish.patra@wdc.com>
+In-Reply-To: <20201204085835.2406541-4-atish.patra@wdc.com>
+From: Bin Meng <bmeng.cn@gmail.com>
+Date: Thu, 10 Dec 2020 19:06:12 +0800
+Message-ID: <CAEUhbmU4hrVRGs30oE=GK42NUwpgOtnDXWRcE76xdxmC-z25qA@mail.gmail.com>
+Subject: Re: [PATCH v3 3/5] RISC-V: Initial DTS for Microchip ICICLE board
+To: Atish Patra <atish.patra@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201210_052833_282915_DC60FC96 
-X-CRM114-Status: GOOD (  16.87  )
+X-CRM114-CacheID: sfid-20201210_060641_594701_73A6747B 
+X-CRM114-Status: GOOD (  10.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -140,107 +87,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, anup@brainfault.org, paul.walmsley@sifive.com,
- wsa@kernel.org, sachin.ghadi@sifive.com, Yash Shah <yash.shah@sifive.com>,
- robh+dt@kernel.org, palmer@dabbelt.com, sagar.kadam@sifive.com,
- Jonathan.Cameron@huawei.com, bp@suse.de, sam@ravnborg.org
+Cc: devicetree <devicetree@vger.kernel.org>, Conor.Dooley@microchip.com,
+ Anup Patel <anup.patel@wdc.com>, Cyril.Jean@microchip.com,
+ Daire McNamara <daire.mcnamara@microchip.com>,
+ Bin Meng <bin.meng@windriver.com>, linux-kernel <linux-kernel@vger.kernel.org>,
+ Rob Herring <robh+dt@kernel.org>, Ivan.Griffin@microchip.com,
+ Albert Ou <aou@eecs.berkeley.edu>, Alistair Francis <alistair.francis@wdc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SiFive FU740 has 4 ECC interrupt sources as compared to 3 in FU540.
-Update the L2 cache controller driver to support this additional
-interrupt in case of FU740-C000 chip.
+On Fri, Dec 4, 2020 at 5:05 PM Atish Patra <atish.patra@wdc.com> wrote:
+>
+> Add initial DTS for Microchip ICICLE board having only
+> essential devices (clocks, sdhci, ethernet, serial, etc).
+> The device tree is based on the U-Boot patch.
+>
+> https://patchwork.ozlabs.org/project/uboot/patch/20201110103414.10142-6-padmarao.begari@microchip.com/
 
-Signed-off-by: Yash Shah <yash.shah@sifive.com>
----
- drivers/soc/sifive/sifive_l2_cache.c | 27 ++++++++++++++++++++++++---
- 1 file changed, 24 insertions(+), 3 deletions(-)
+There is a newer version of U-Boot patch. Probably needs to sync again.
 
-diff --git a/drivers/soc/sifive/sifive_l2_cache.c b/drivers/soc/sifive/sifive_l2_cache.c
-index 44d7e19..59640a1 100644
---- a/drivers/soc/sifive/sifive_l2_cache.c
-+++ b/drivers/soc/sifive/sifive_l2_cache.c
-@@ -17,6 +17,10 @@
- #define SIFIVE_L2_DIRECCFIX_HIGH 0x104
- #define SIFIVE_L2_DIRECCFIX_COUNT 0x108
- 
-+#define SIFIVE_L2_DIRECCFAIL_LOW 0x120
-+#define SIFIVE_L2_DIRECCFAIL_HIGH 0x124
-+#define SIFIVE_L2_DIRECCFAIL_COUNT 0x128
-+
- #define SIFIVE_L2_DATECCFIX_LOW 0x140
- #define SIFIVE_L2_DATECCFIX_HIGH 0x144
- #define SIFIVE_L2_DATECCFIX_COUNT 0x148
-@@ -29,7 +33,7 @@
- #define SIFIVE_L2_WAYENABLE 0x08
- #define SIFIVE_L2_ECCINJECTERR 0x40
- 
--#define SIFIVE_L2_MAX_ECCINTR 3
-+#define SIFIVE_L2_MAX_ECCINTR 4
- 
- static void __iomem *l2_base;
- static int g_irq[SIFIVE_L2_MAX_ECCINTR];
-@@ -39,6 +43,7 @@ enum {
- 	DIR_CORR = 0,
- 	DATA_CORR,
- 	DATA_UNCORR,
-+	DIR_UNCORR,
- };
- 
- #ifdef CONFIG_DEBUG_FS
-@@ -93,6 +98,7 @@ static void l2_config_read(void)
- 
- static const struct of_device_id sifive_l2_ids[] = {
- 	{ .compatible = "sifive,fu540-c000-ccache" },
-+	{ .compatible = "sifive,fu740-c000-ccache" },
- 	{ /* end of table */ },
- };
- 
-@@ -155,6 +161,15 @@ static irqreturn_t l2_int_handler(int irq, void *device)
- 		atomic_notifier_call_chain(&l2_err_chain, SIFIVE_L2_ERR_TYPE_CE,
- 					   "DirECCFix");
- 	}
-+	if (irq == g_irq[DIR_UNCORR]) {
-+		add_h = readl(l2_base + SIFIVE_L2_DIRECCFAIL_HIGH);
-+		add_l = readl(l2_base + SIFIVE_L2_DIRECCFAIL_LOW);
-+		/* Reading this register clears the DirFail interrupt sig */
-+		readl(l2_base + SIFIVE_L2_DIRECCFAIL_COUNT);
-+		atomic_notifier_call_chain(&l2_err_chain, SIFIVE_L2_ERR_TYPE_UE,
-+					   "DirECCFail");
-+		panic("L2CACHE: DirFail @ 0x%08X.%08X\n", add_h, add_l);
-+	}
- 	if (irq == g_irq[DATA_CORR]) {
- 		add_h = readl(l2_base + SIFIVE_L2_DATECCFIX_HIGH);
- 		add_l = readl(l2_base + SIFIVE_L2_DATECCFIX_LOW);
-@@ -181,7 +196,7 @@ static int __init sifive_l2_init(void)
- {
- 	struct device_node *np;
- 	struct resource res;
--	int i, rc;
-+	int i, rc, intr_num;
- 
- 	np = of_find_matching_node(NULL, sifive_l2_ids);
- 	if (!np)
-@@ -194,7 +209,13 @@ static int __init sifive_l2_init(void)
- 	if (!l2_base)
- 		return -ENOMEM;
- 
--	for (i = 0; i < SIFIVE_L2_MAX_ECCINTR; i++) {
-+	intr_num = of_property_count_u32_elems(np, "interrupts");
-+	if (!intr_num) {
-+		pr_err("L2CACHE: no interrupts property\n");
-+		return -ENODEV;
-+	}
-+
-+	for (i = 0; i < intr_num; i++) {
- 		g_irq[i] = irq_of_parse_and_map(np, i);
- 		rc = request_irq(g_irq[i], l2_int_handler, 0, "l2_ecc", NULL);
- 		if (rc) {
--- 
-2.7.4
+>
+> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> ---
+>  arch/riscv/boot/dts/Makefile                  |   1 +
+>  arch/riscv/boot/dts/microchip/Makefile        |   2 +
+>  .../microchip/microchip-mpfs-icicle-kit.dts   |  72 ++++
+>  .../boot/dts/microchip/microchip-mpfs.dtsi    | 331 ++++++++++++++++++
+>  4 files changed, 406 insertions(+)
+>  create mode 100644 arch/riscv/boot/dts/microchip/Makefile
+>  create mode 100644 arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
+>  create mode 100644 arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
+>
 
+Regards,
+Bin
 
 _______________________________________________
 linux-riscv mailing list
