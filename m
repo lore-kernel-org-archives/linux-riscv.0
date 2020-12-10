@@ -4,17 +4,17 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9E989C433FE
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CF5BEC4361B
 	for <linux-riscv@archiver.kernel.org>; Thu, 10 Dec 2020 03:40:27 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3C7B32184D
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Dec 2020 03:40:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3C7B32184D
+	by mail.kernel.org (Postfix) with ESMTPS id 6AF9123A1D
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Dec 2020 03:40:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6AF9123A1D
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,67 +23,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=zCWKsNhd+y0U9BNQd+Xc8+hQx/lATMHTCzQr2Ai/vkc=; b=SFCIe0ibvozfDTqknIw4NPu1B
-	86+HflQeGlOPEREiReMMyXqya7/UTa0vcb8e59Sl7FTZ1mT2sQdS8jd0PltNZnmT48HXJWkSQjzbP
-	n/7WjABVX2mWayxmxZmpm84A6Ovpr0UgM5YEDcOKawC8f66SOM0X3eJ1mg0KRSXEYSxjq2Cyg6tP1
-	dLssLAeMPy6qpagp6Lm/ii9NVrYY7YlnmOrg8cbVawt/bfejA1s8UGos2KaDOFrub/za15qXXcub7
-	xzT8kFCN9/pJ+nyAH3LEAnWzpsUsX0EqpgzQtld9p6zOKleRjcnGMsv/QRCrTIIqs2bivY6DYYUDI
-	JQtAXLJBQ==;
+	 bh=+X6Y1Ttt7A2GIyuQD8gKoA8q1kmY9sfyCg0+FcD9pI0=; b=MXB1yvxscw5Jjp1YTgEdkKduS
+	lXVrP+zCICMO2dgJ+sguoJK/S7hlzcJsb7fKuOKoCE7qkchjSTr9J0uu0MEfX2I23haw5oOpHSLgc
+	BvDIJSO6DvCLqYBTMcI+30AB6eFQrGGK8ijaWUTVMOBcLTV+RUibRBERu2gX7J0LOT7GvBxJhIoR1
+	j53wh4IImUIAofyRtInkcmKTrVBFP8HYc+2wSKsFnadjIdb23lIBDiZXtDxqQRGNzWVIdJZZq/Rxq
+	qzV+UgFT9J1fJ4UYFlaSaigl3rJDPDjt5pufFTpE1W3iH7CC/DcsB4oNA662KO6Hf91NyMat2z0ie
+	zexv0qJ0w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1knCoU-0004Wu-1l; Thu, 10 Dec 2020 03:40:18 +0000
+	id 1knCoW-0004Xz-PW; Thu, 10 Dec 2020 03:40:20 +0000
 Received: from esa4.hgst.iphmx.com ([216.71.154.42])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1knCoS-0004Vq-8o
- for linux-riscv@lists.infradead.org; Thu, 10 Dec 2020 03:40:17 +0000
+ id 1knCoU-0004Wg-7h
+ for linux-riscv@lists.infradead.org; Thu, 10 Dec 2020 03:40:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1607571616; x=1639107616;
+ t=1607571618; x=1639107618;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=a9lIXSkXmm1JjHCFgZUF+EI1D5ZXZRRfkRqwz5LKPsE=;
- b=bCIm3jOMhTVakw89rnIsbU2tRL5R6lOqC8l+dWkGHwqwbtb6hJ4wO4ky
- iBCfVwinEIhYA/GuRsi2sAWwmXOvJkL7beVZSs3FmvN1ritsBw1Xko1hX
- hqqQHdr2juaNhlVnRr8MKjvrEqp7dHnRF1Fwm25GSysXqrzIOV6RsB4z5
- UJnCaeHLGz9cr2Bwg1RygngIIs5GUYS+qGGwjE0ZWMtfmJOnkIBJUfND5
- PeXpqUjuw3PptLGcEojWxPL+oAIEqMLjs3xDCX7t4biSN9EXyHz5KQPUj
- Kl5ICbTNmA9Ct7WFxlUkiU15SkfOokmu01Lm2P5rnq5nRoS1kqGt7s0M2 A==;
-IronPort-SDR: FK3XV/lha27UnIQaw51Duawwj0DhO4HyW/MbpaJ+YaUWITULDoBYT3NaJ1n1tNVK3PsrkRWvug
- WSXiE7jfI1yxxoOhXcPDeH5rEsbNyW5x8lxjl8OGSRlMGG4J8T4PfDzISH4KF3XFxbfzefJMK7
- hm0lSJThQDl9db7rHjDo0DdvY2Xx1Qc04fSFm2+P+yvjBIj25r8W0hog6dXCjIMPeTqjePZqEM
- V3JTmQw8uhsR6SDW6pkWgJSpBJGyiSoqQ6ZL8bB2nv2VGXClAiI2zWI5Sl1McK0p/DQhTkmEva
- r5M=
-X-IronPort-AV: E=Sophos;i="5.78,407,1599494400"; d="scan'208";a="154813104"
+ bh=y2U65G64UeShjGJVOnYVAq9kfdKwB51xvYK09lHldEg=;
+ b=IaUqT51xS3bxqcgbTPqDn6Fc3z6xPYHFzyfure28/MFoGqvDmz1mpoJh
+ +NAjMaQxt9P8T6f9MlOpNBb77us+52b4w1EC3rWmBk11gzjNPGgMsnm9Z
+ YumMcsTNCmNgFaLhSW82E7GCz/7Td370AEkbZhMgLefsvG2axYvHaXCZ7
+ wKYDcqJtBwtNJoytiCQSz8orprJUHLdoVcODx/ZyUQFozj3ZdWjBUs/rv
+ EvD/lEBKOLPrmSW51D3GBk9uRDj6jlEWXmIz7quPAT4fVP7DfQckCNMxF
+ eXyg9WKNd5FE1CMzotylelCmhqxJzS84UI9byGiBqD+hpoqR0WszWrdEO g==;
+IronPort-SDR: clYzLT/eDCA+BlX3iwAAzQSqwGEAiEZsi7ozmD5kPH9Nd1tcu7ip9bHmqCPur3vWhTtbnzRIxq
+ NcSyyE4w/j3llTqJmZypz3EU3Vv3z1Io3f+6aMrXGH2irVChYxZXTGKrAsE7DSW9njkhaUK+oz
+ 0J7Qbs+5s1t5Dj08lMdNPn77c42jALs7zgGvol7yTlk8NzHtzYxgh1qyyDcN943mkddQYGSXMu
+ eWOX6qnDU9xpvV/SclzURNT8dHT3VfRENOnuAC+vo5IA17kvvUQKQrHWgDPzCuUfK/ljNSVdd8
+ HGU=
+X-IronPort-AV: E=Sophos;i="5.78,407,1599494400"; d="scan'208";a="154813105"
 Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
  ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 10 Dec 2020 11:40:15 +0800
-IronPort-SDR: nIk2z3zEJ6Lc7hrTpmtJSd4y3AbOmRj4KFugnUxEAUVvKQYtrSGT0vFeL9j0yRyqzqVvxW0LV8
- 2O4Ozb4PNvpIK5F+r9vnvI1+jm1K0Cb14=
+ by ob1.hgst.iphmx.com with ESMTP; 10 Dec 2020 11:40:17 +0800
+IronPort-SDR: 7MmpaWVDt09ViL5MPswkznCSSLIAi5cQ42DJyJMT6PG2L+lIGNj4m0X/ZYPkKa1ex/68n3pJTN
+ kMrg2UX6HBL5ItJZpaSkXuIggtM9W91co=
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
  by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 09 Dec 2020 19:24:11 -0800
-IronPort-SDR: wEESJt/qlZsFQNbUANYLhzB3DFbaaogp712R+AZekxpejGOdxwjN6Bsy93ahaUlPn/GLf1HPKs
- ThW/3HsaZpfg==
+ 09 Dec 2020 19:24:13 -0800
+IronPort-SDR: XxOPwkiQzXQt2vNqM9234LBWN3pWe2e5lq0AG9XMnlSwKVWdN0LOK2v3aC+jzH7/9NGYbvct7e
+ /0v0UqUcg3uQ==
 WDCIronportException: Internal
 Received: from wdapacbjl0003.my.asia.wdc.com (HELO twashi.fujisawa.hgst.com)
  ([10.84.71.173])
- by uls-op-cesaip01.wdc.com with ESMTP; 09 Dec 2020 19:40:13 -0800
+ by uls-op-cesaip01.wdc.com with ESMTP; 09 Dec 2020 19:40:15 -0800
 From: Damien Le Moal <damien.lemoal@wdc.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
  Rob Herring <robh+dt@kernel.org>, devicetree@vger.kernel.org,
  Stephen Boyd <sboyd@kernel.org>, linux-clk@vger.kernel.org,
  Linus Walleij <linus.walleij@linaro.org>, linux-gpio@vger.kernel.org,
  Philipp Zabel <p.zabel@pengutronix.de>
-Subject: [PATCH v7 01/22] riscv: Fix kernel time_init()
-Date: Thu, 10 Dec 2020 12:39:42 +0900
-Message-Id: <20201210034003.222297-2-damien.lemoal@wdc.com>
+Subject: [PATCH v7 02/22] riscv: Fix sifive serial driver
+Date: Thu, 10 Dec 2020 12:39:43 +0900
+Message-Id: <20201210034003.222297-3-damien.lemoal@wdc.com>
 X-Mailer: git-send-email 2.29.2
 In-Reply-To: <20201210034003.222297-1-damien.lemoal@wdc.com>
 References: <20201210034003.222297-1-damien.lemoal@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201209_224016_463430_F92AEF32 
-X-CRM114-Status: GOOD (  12.82  )
+X-CRM114-CacheID: sfid-20201209_224018_478136_A13B36A2 
+X-CRM114-Status: GOOD (  12.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -101,40 +101,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If of_clk_init() is not called in time_init(), clock providers defined
-in the system device tree are not initialized, resulting in failures for
-other devices to initialize due to missing clocks.
-Similarly to other architectures and to the default kernel time_init()
-implementation, call of_clk_init() before executing timer_probe() in
-time_init().
+Setup the port uartclk in sifive_serial_probe() so that the base baud
+rate is correctly printed during device probe instead of always showing
+"0".  I.e. the probe message is changed from
+
+38000000.serial: ttySIF0 at MMIO 0x38000000 (irq = 1,
+base_baud = 0) is a SiFive UART v0
+
+to the correct:
+
+38000000.serial: ttySIF0 at MMIO 0x38000000 (irq = 1,
+base_baud = 115200) is a SiFive UART v0
 
 Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
-Acked-by: Stephen Boyd <sboyd@kernel.org>
 ---
- arch/riscv/kernel/time.c | 3 +++
- 1 file changed, 3 insertions(+)
+ drivers/tty/serial/sifive.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/kernel/time.c b/arch/riscv/kernel/time.c
-index 4d3a1048ad8b..8a5cf99c0776 100644
---- a/arch/riscv/kernel/time.c
-+++ b/arch/riscv/kernel/time.c
-@@ -4,6 +4,7 @@
-  * Copyright (C) 2017 SiFive
-  */
+diff --git a/drivers/tty/serial/sifive.c b/drivers/tty/serial/sifive.c
+index 13eadcb8aec4..214bf3086c68 100644
+--- a/drivers/tty/serial/sifive.c
++++ b/drivers/tty/serial/sifive.c
+@@ -999,6 +999,7 @@ static int sifive_serial_probe(struct platform_device *pdev)
+ 	/* Set up clock divider */
+ 	ssp->clkin_rate = clk_get_rate(ssp->clk);
+ 	ssp->baud_rate = SIFIVE_DEFAULT_BAUD_RATE;
++	ssp->port.uartclk = ssp->baud_rate * 16;
+ 	__ssp_update_div(ssp);
  
-+#include <linux/of_clk.h>
- #include <linux/clocksource.h>
- #include <linux/delay.h>
- #include <asm/sbi.h>
-@@ -24,6 +25,8 @@ void __init time_init(void)
- 	riscv_timebase = prop;
- 
- 	lpj_fine = riscv_timebase / HZ;
-+
-+	of_clk_init(NULL);
- 	timer_probe();
- }
- 
+ 	platform_set_drvdata(pdev, ssp);
 -- 
 2.29.2
 
