@@ -4,17 +4,17 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C2BBAC433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Dec 2020 03:40:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 53F22C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Dec 2020 03:40:44 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 83DB823A1D
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Dec 2020 03:40:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 83DB823A1D
+	by mail.kernel.org (Postfix) with ESMTPS id ED31E2184D
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Dec 2020 03:40:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ED31E2184D
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,67 +23,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=sFyHLO3Cm+j9t5kOzHTksEkkjlUHh820PhOIu6kO6vM=; b=NK0Ka/w+RV/BnTTLaltP1PxJW
-	jc8QSaz7oY7RJMwtHc+htXBf5rDw1C0bdGmOJd5HokHMf1+oGG4e69ZrtPXSPGHAlvyC1rem13Ihj
-	vn3JZdByZqA0tuwBfBDCHHLwWcAokab20Epkdwmt6e47zMGFn3/A5PFrriYvNMvqIwJ4C+zkHftay
-	KMADskPzf8Kl846H7t+jSAm7ExPTJ1JLUBgi9C9o0UXLEcZSnX1G5+fQGcd8t6j2qlXbfA8O4odTd
-	iNsFQYgPup9WhCVi0VAhYPMRmii3qy2oe2t3qqx5e68xylFWWtxZ46I/LqwoK4m4LDKT3O+7v1nJW
-	qsBw66bQA==;
+	 bh=MBj/vUPLNRyqJoZRiKWqmL9Qfp+RkgsaUXeq6/aMKPw=; b=Ndhb6vkcBjX3euGQtS7PdRXcT
+	t0AZmN72F4y0wLi/JzX/EjXQkrweYR0AbPwEUl/hReBNhvlhEB72VttALQcMM/1h48rESM8mEY9jC
+	BzpUW/Ri022GX5LwHDV1uWBYVzr45op4eCX+RXfrHLzQD/Z44koLOzP9vMDQHnnPTzf8NbfrY/+m9
+	euq5JjapCEfp+5CzpojIGKxXObkufYfEQ8ktkbuUBTDy5b1dIq5C/xXGyzHivFFNNuCGg2oCTArPL
+	zaoO7RZn3W0u/OUlEHkjL4R5AqkQYWWIgUvi9dSiM4kcTyyvWNni2mZMcK2H4ksLeiHpIl/OM/6P5
+	sXfvs9G+g==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1knCoi-0004dq-RW; Thu, 10 Dec 2020 03:40:32 +0000
+	id 1knCok-0004fD-SI; Thu, 10 Dec 2020 03:40:34 +0000
 Received: from esa4.hgst.iphmx.com ([216.71.154.42])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1knCoe-0004bC-Uq
- for linux-riscv@lists.infradead.org; Thu, 10 Dec 2020 03:40:30 +0000
+ id 1knCof-0004Wg-Qt
+ for linux-riscv@lists.infradead.org; Thu, 10 Dec 2020 03:40:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1607571628; x=1639107628;
+ t=1607571629; x=1639107629;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=H22u4xiKw/P4g/XcfsJWee9fpfvG7aMiAyWR5GHomJw=;
- b=HSSAsBfDCrAcw5K+MhMmaZu6UTxESho2EI+v2uYXXYLO7BVYg+7VZKjv
- yyBRWMEINTJMrSnMcKnMrYr+ZAlfzYhpjSYYKfr48yIVSa6Tt4Xu8Trxi
- oYCuJyIOrYjRIIZDwvbkgKm+DXWkcGd3H5oYu6x82dnm+K7ek7NsqvWmv
- TB51FucID/98Uu++ZEQBhZ31yrb73QP9SMK+k0vDGjhVRSdH4f5riKxY4
- d12xWUascNUhn1w4mh8K5uGdssgQQ0pE6a2k7r7bre9MWdszmvqSgnhdL
- 2SU4wvTDqy4yZLNyEbBv300t5BVtp0WU5t6E0/dN3tLwHw4nAwNtJVpla w==;
-IronPort-SDR: zxH8u02bFVpaVXQmHd6amEpwrZa+Xv9QdwnQWfRuM9z+l+mPFePBhXOC3qahDcDv4UzT6NQJbs
- u3SgfY0Ekr22a6zgURj9P2rN3eXjoz04uNuQppnbG4GpONfjSou4C1aLlmw05CF3lYPB7nLbpD
- 2cGkAKjQ4xxK3ItLWlQxNqlN3z5TTjWp8wFeCn/bLAjnUxtNkc0rcJ/zvG6flm7PxF1/ivrABp
- mx0Wc7g6tVGDlZh8cpOBh/c9V1S2NHa2y3wK4Gh39+c51wmCvOS0MKJdk4l35kCwrqPvT5g+EQ
- fNI=
-X-IronPort-AV: E=Sophos;i="5.78,407,1599494400"; d="scan'208";a="154813120"
+ bh=AeiEHbIkWwtw1R4io5A6L+qNVMQkbPlxqlTU/ANGemA=;
+ b=TSUqygg7Nfsn+AbilBJZI7JIKsBUvIlMhKT92VYaXcncBIu3L+Rt9Rm4
+ h0c4RA6U34NWl0G9nqz6xgVXLGTnq6sU44iVG9N0vG7qYBACzZ/k7rxk0
+ aiWnhU/jW6YJR+QgNqlGSZUk0vuS2TFrzX/hnaVL1V/04cU9oU3Lr6Ts1
+ mPb+Eqgb8s0zNKboOpREHmpIHq6+y8ZZ5O8ZFIxXYT/agMaFoh6v9dVnQ
+ Y7vq7dBqOHICpGfeM/R/NFmZx58HXNfNs/WVvqJc6W3vaL2jpcx2BP91z
+ J0rq1wbJHZiOlGomMDKcaPu/uxNXvFfClNKXfuieWtK1i0QpPITCK0ZY7 g==;
+IronPort-SDR: IjdxgKjFSe/u7fQwHt/0/8A+dQhzy2T/atiVEtCSWDONYh/aif7sj2OVo+N9b2ytOWsxqG6Bfn
+ Wk/EvzgxLxI7RVcQRMIzaRLgNDzF6GLEPLsfxX+szSgIutCSAw6X4GEPzjH/qljbl1dRsiAwv9
+ pvW00pRnyRLtCLmPvGmpD1x3tRWIDTsQuHKp6oEQ6EsxshnJcCW6UjPMJPoJcvRu4dAV9kQ6+n
+ X7nt/ncv8NMYeEjqjFmQtsyCTPBvhtL0BAmue0TRV9ghVqDuWui5Pztmgpf61HeoD4XCAOP2i3
+ PiE=
+X-IronPort-AV: E=Sophos;i="5.78,407,1599494400"; d="scan'208";a="154813121"
 Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
  ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 10 Dec 2020 11:40:27 +0800
-IronPort-SDR: X+kDLf4tqIWEdzS9WJD/98H4M6Cv0whWxX8BKf1eHgWB7YbXApFm25v4xQM2gJ2pRCn/r1IwCU
- QIWUykjxfJNV1YgQbie39JY2sV12yW9G8=
+ by ob1.hgst.iphmx.com with ESMTP; 10 Dec 2020 11:40:29 +0800
+IronPort-SDR: 7OKMXpqqVvp1bxIES14I4XN+K8Fj45ChVmQfoW0QzWVYexLrmR2H417heRCZ8tD5i5raMFQEEx
+ 3Z+8ruTKRsnTDAPGQ+oYBI7/kp2BVeiCI=
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
  by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 09 Dec 2020 19:24:23 -0800
-IronPort-SDR: /axEbwi3MPwj2rIvOtkwuX8xwH/xQfgZQHA1graKYojTPpnPo27ILLjazmJP1ps+hByCbCf5Yi
- eja1+5YhCl7Q==
+ 09 Dec 2020 19:24:25 -0800
+IronPort-SDR: pDyNbCO/fdoBaj3AA4cEC62ohDz9atroDHRBrP+JhINPVJr5p92Q0ebq3dDbpw4uB2cazGKS65
+ BGkHQe8lA47w==
 WDCIronportException: Internal
 Received: from wdapacbjl0003.my.asia.wdc.com (HELO twashi.fujisawa.hgst.com)
  ([10.84.71.173])
- by uls-op-cesaip01.wdc.com with ESMTP; 09 Dec 2020 19:40:25 -0800
+ by uls-op-cesaip01.wdc.com with ESMTP; 09 Dec 2020 19:40:27 -0800
 From: Damien Le Moal <damien.lemoal@wdc.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
  Rob Herring <robh+dt@kernel.org>, devicetree@vger.kernel.org,
  Stephen Boyd <sboyd@kernel.org>, linux-clk@vger.kernel.org,
  Linus Walleij <linus.walleij@linaro.org>, linux-gpio@vger.kernel.org,
  Philipp Zabel <p.zabel@pengutronix.de>
-Subject: [PATCH v7 07/22] dt-bindings: Add Canaan vendor prefix
-Date: Thu, 10 Dec 2020 12:39:48 +0900
-Message-Id: <20201210034003.222297-8-damien.lemoal@wdc.com>
+Subject: [PATCH v7 08/22] dt-binding: clock: Document canaan, k210-clk bindings
+Date: Thu, 10 Dec 2020 12:39:49 +0900
+Message-Id: <20201210034003.222297-9-damien.lemoal@wdc.com>
 X-Mailer: git-send-email 2.29.2
 In-Reply-To: <20201210034003.222297-1-damien.lemoal@wdc.com>
 References: <20201210034003.222297-1-damien.lemoal@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201209_224029_155382_FF68C1A6 
-X-CRM114-Status: GOOD (  10.02  )
+X-CRM114-CacheID: sfid-20201209_224030_116421_6D3FC8C2 
+X-CRM114-Status: GOOD (  17.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -101,28 +101,145 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Update Documentation/devicetree/bindings/vendor-prefixes.yaml to
-include "canaan" as a vendor prefix for "Canaan Inc.". Canaan is the
-vendor of the Kendryte K210 RISC-V SoC.
+Document the device tree bindings of the Canaan Kendryte K210 SoC clock
+driver in Documentation/devicetree/bindings/clock/canaan,k210-clk.yaml.
+The header file include/dt-bindings/clock/k210-clk.h is modified to
+include the complete list of IDs for all clocks of the SoC.
 
 Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
 ---
- Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+ .../bindings/clock/canaan,k210-clk.yaml       | 54 ++++++++++++++++++
+ include/dt-bindings/clock/k210-clk.h          | 55 +++++++++++++++----
+ 2 files changed, 98 insertions(+), 11 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/canaan,k210-clk.yaml
 
-diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-index 2735be1a8470..a07231aaf3e7 100644
---- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-+++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-@@ -179,6 +179,8 @@ patternProperties:
-     description: CALAO Systems SAS
-   "^calxeda,.*":
-     description: Calxeda
-+  "^canaan,.*":
-+    description: Canaan, Inc.
-   "^caninos,.*":
-     description: Caninos Loucos Program
-   "^capella,.*":
+diff --git a/Documentation/devicetree/bindings/clock/canaan,k210-clk.yaml b/Documentation/devicetree/bindings/clock/canaan,k210-clk.yaml
+new file mode 100644
+index 000000000000..565ca468cb44
+--- /dev/null
++++ b/Documentation/devicetree/bindings/clock/canaan,k210-clk.yaml
+@@ -0,0 +1,54 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/canaan,k210-clk.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Canaan Kendryte K210 Clock Device Tree Bindings
++
++maintainers:
++  - Damien Le Moal <damien.lemoal@wdc.com>
++
++description: |
++  Canaan Kendryte K210 SoC clocks driver bindings. The clock
++  controller node must be defined as a child node of the K210
++  system controller node.
++
++  See also:
++  - dt-bindings/clock/k210-clk.h
++
++properties:
++  compatible:
++    const: canaan,k210-clk
++
++  clocks:
++    description:
++      Phandle of the SoC 26MHz fixed-rate oscillator clock.
++
++  '#clock-cells':
++    const: 1
++
++required:
++  - compatible
++  - '#clock-cells'
++  - clocks
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/k210-clk.h>
++    clocks {
++      in0: oscillator {
++        compatible = "fixed-clock";
++        #clock-cells = <0>;
++        clock-frequency = <26000000>;
++      };
++    };
++
++    /* ... */
++    sysclk: clock-controller {
++      #clock-cells = <1>;
++      compatible = "canaan,k210-clk";
++      clocks = <&in0>;
++    };
+diff --git a/include/dt-bindings/clock/k210-clk.h b/include/dt-bindings/clock/k210-clk.h
+index 5a2fd64d1a49..b2de702cbf75 100644
+--- a/include/dt-bindings/clock/k210-clk.h
++++ b/include/dt-bindings/clock/k210-clk.h
+@@ -3,18 +3,51 @@
+  * Copyright (C) 2019-20 Sean Anderson <seanga2@gmail.com>
+  * Copyright (c) 2020 Western Digital Corporation or its affiliates.
+  */
+-#ifndef K210_CLK_H
+-#define K210_CLK_H
++#ifndef CLOCK_K210_CLK_H
++#define CLOCK_K210_CLK_H
+ 
+ /*
+- * Arbitrary identifiers for clocks.
+- * The structure is: in0 -> pll0 -> aclk -> cpu
+- *
+- * Since we use the hardware defaults for now, set all these to the same clock.
++ * Kendryte K210 SoC clock identifiers (arbitrary values).
+  */
+-#define K210_CLK_PLL0   0
+-#define K210_CLK_PLL1   0
+-#define K210_CLK_ACLK   0
+-#define K210_CLK_CPU    0
++#define K210_CLK_CPU	0
++#define K210_CLK_SRAM0	1
++#define K210_CLK_SRAM1	2
++#define K210_CLK_AI	3
++#define K210_CLK_DMA	4
++#define K210_CLK_FFT	5
++#define K210_CLK_ROM	6
++#define K210_CLK_DVP	7
++#define K210_CLK_APB0	8
++#define K210_CLK_APB1	9
++#define K210_CLK_APB2	10
++#define K210_CLK_I2S0	11
++#define K210_CLK_I2S1	12
++#define K210_CLK_I2S2	13
++#define K210_CLK_I2S0_M	14
++#define K210_CLK_I2S1_M	15
++#define K210_CLK_I2S2_M	16
++#define K210_CLK_WDT0	17
++#define K210_CLK_WDT1	18
++#define K210_CLK_SPI0	19
++#define K210_CLK_SPI1	20
++#define K210_CLK_SPI2	21
++#define K210_CLK_I2C0	22
++#define K210_CLK_I2C1	23
++#define K210_CLK_I2C2	24
++#define K210_CLK_SPI3	25
++#define K210_CLK_TIMER0	26
++#define K210_CLK_TIMER1	27
++#define K210_CLK_TIMER2	28
++#define K210_CLK_GPIO	29
++#define K210_CLK_UART1	30
++#define K210_CLK_UART2	31
++#define K210_CLK_UART3	32
++#define K210_CLK_FPIOA	33
++#define K210_CLK_SHA	34
++#define K210_CLK_AES	35
++#define K210_CLK_OTP	36
++#define K210_CLK_RTC	37
+ 
+-#endif /* K210_CLK_H */
++#define K210_NUM_CLKS	38
++
++#endif /* CLOCK_K210_CLK_H */
 -- 
 2.29.2
 
