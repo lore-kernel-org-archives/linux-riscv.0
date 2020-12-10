@@ -2,79 +2,69 @@ Return-Path: <SRS0=mXjn=FO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
+X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B820EC433FE
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Dec 2020 03:59:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 53131C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Dec 2020 10:05:22 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7C93523BAC
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Dec 2020 03:59:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7C93523BAC
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 4C36022DA9
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Dec 2020 10:05:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4C36022DA9
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=/wnSr77N3jpMUm0+6YEtm4Z01/C/X6y5S83EZuluPhI=; b=fKrprKuxaGiLDCFEUekdUHCYO
-	2zfRfTrgmfNH5KuDu6cPiDapPpzrT/WYvlrr+gXN6GDLp6nFctFerptyg1E9OjchYFGBcvBPj1Z3T
-	yEjzn5oe3st4tfOmYGgjsC4bv6gf5/w2tqKqUlSFrQ4ZinRfRXSXiCtF2k1MG2BEAjbHGcV+lDlkl
-	Jp6Tt01QfWAlvGdPcHH2taon+nkXjVv1NmehrUFrv5UZqXE8f8rJWyhB1OVh0VTznCTepiDbfXwcO
-	8ngY5sGRMFvaouYxkM6byK3nGUOHRSkRuzMjw/CBEoQlIa954tDHJsJX60TI74IBXQAYHO7n3wb6T
-	vQLUIChHQ==;
+	 bh=EMyNe8jRs98jSuWPF5MV7uUo1lwIjP+LrQI2oOQ4puo=; b=1EtwRYXGMghEt97guQKzosTLm
+	9yRYUUuhahcRnXnlYLO4IPtmKiJixGUGz+uKkZsLQ9jHY1KojeNOXeZVvkh2YYqlcZ+BXGxJFKmy/
+	0e0aI6U5UuLRkDwgk9W5CAlMIqvTAYWAF3mIoy2DL+4UloGT4h5jkMqoydrGA3RXuVjHf+jiKvHiF
+	C3G2/l9duDHM7CKOyNOygBCW2RRIxN+AnRsjbEWy3X+CfIBl0WB3qCLfyydoeiQp44X+h0brdeVT/
+	N7lr/M+NQm0mKuz9+oZZoyHtO/yk8VcQfXUrQ8jWIteRD6Gem+/Q3fxdT4Cn1PNLmNKxofnV5eTnd
+	ysblQlyjw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1knD6z-00084q-8c; Thu, 10 Dec 2020 03:59:25 +0000
-Received: from mail-oi1-f195.google.com ([209.85.167.195])
+	id 1knIov-0003Gw-A3; Thu, 10 Dec 2020 10:05:09 +0000
+Received: from mail-ot1-f68.google.com ([209.85.210.68])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1knD6x-00084D-8n
- for linux-riscv@lists.infradead.org; Thu, 10 Dec 2020 03:59:24 +0000
-Received: by mail-oi1-f195.google.com with SMTP id s2so4308524oij.2
- for <linux-riscv@lists.infradead.org>; Wed, 09 Dec 2020 19:59:23 -0800 (PST)
+ id 1knIor-0003GW-FR
+ for linux-riscv@lists.infradead.org; Thu, 10 Dec 2020 10:05:06 +0000
+Received: by mail-ot1-f68.google.com with SMTP id b62so4334721otc.5
+ for <linux-riscv@lists.infradead.org>; Thu, 10 Dec 2020 02:05:05 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=6oGGK+dOGnoINWzCvubHZwwfiFrKLTQRjMEQW/QxQb0=;
- b=nNaZLTDKuy5dId+6iR4vRGrdz45lbRf4ZK87pbeEssFhie7HiwypAsVquEnk1nh/Mf
- +YBG+Ysby4fzpXLl5u0VaWEs2AlkwOgVsDb2m4LhZtH/lAk2be1JqXQHNPTzU60m1bOo
- 2gmHhRvvDxM3+vw80W6pN4x+PeBcxUEyN83v2bz71riyBnjY5vMDXm/DvAub9rJDexUc
- Hn0c6RgsENjpiROqpjV+SzaRynEqBscokgQea9wQRzNCYwtN5ihHy2HDa8WRJWPvlCDp
- UMhVlCqEsUN2Xn0nAPLmASyESDjIgToeL0lRzH7Vt10pK71Z+pSWm0jnCgnZBe3z4f9M
- h6SA==
-X-Gm-Message-State: AOAM530EhjhdSjRm+VoR+mOGDrWfpLTRHC2gyzt/haqinQR8VQfApztH
- Bp2eeHls54M00W2xPHJdqg==
-X-Google-Smtp-Source: ABdhPJzEJCziD7jzt8D07hIPtVj4iDG6Ls9LzxABH6iHQCPLAjSuLffty8DXLKn3cyFZUEmG/e2Tew==
-X-Received: by 2002:aca:6044:: with SMTP id u65mr4205383oib.109.1607572762746; 
- Wed, 09 Dec 2020 19:59:22 -0800 (PST)
-Received: from xps15 (24-155-109-49.dyn.grandenetworks.net. [24.155.109.49])
- by smtp.gmail.com with ESMTPSA id g12sm795862oos.8.2020.12.09.19.59.20
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 09 Dec 2020 19:59:22 -0800 (PST)
-Received: (nullmailer pid 1638029 invoked by uid 1000);
- Thu, 10 Dec 2020 03:59:20 -0000
-Date: Wed, 9 Dec 2020 21:59:20 -0600
-From: Rob Herring <robh@kernel.org>
-To: Yash Shah <yash.shah@sifive.com>
-Subject: Re: [PATCH v2 8/9] dt-bindings: riscv: Update YAML doc to support
- SiFive HiFive Unmatched board
-Message-ID: <20201210035920.GA1637999@robh.at.kernel.org>
-References: <1607403341-57214-1-git-send-email-yash.shah@sifive.com>
- <1607403341-57214-9-git-send-email-yash.shah@sifive.com>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=DAZ8PgYzvtbc3rL4ZfV3e1oM3SXylqOqHN7opQzLty8=;
+ b=Bz1zjckmOCipzFS/1setK37WysTN1vdHtkJ4eX0e+SF/qYwM3BbTXw6Ki1q9CSD3hx
+ g9dwxYaSJ4+5KwqxQzjSFJbmmhJMnfzI4s9+WllaLrgJaP4ciD1i2UR+JxM7K+OHJMb8
+ fdt2jBpPUUNvBkUY3eqB96inED4DemnUJR+UatfYKq4tqFCxJZ6JdVLGszsw3DGC1oh9
+ ddkmtB2G+guBO0UNhFLeHtmRcb3ZbpqpPlvj9qv3nIBKUJwlK+VsVmaDY+oc1TiwvTEq
+ xhlbUEXvhihAps1lH8UgCLjxe3XwkQwZ3sx2RsUlOlujVZZ0B0+Ahj6A7e7G40HIroH2
+ q67w==
+X-Gm-Message-State: AOAM533mpDRBAgFK7SMXhV9u6pRW5O/F4jRex+3BInxMggO8aB3n/GBa
+ QHKd6epvFpfrX0ru8OISnuqWcqcfu+9MYfSzcQY=
+X-Google-Smtp-Source: ABdhPJyZli++OabJZH6oIk+doFCPUSskqqsQBvXQPxaex8q/acKKJGdIBrCVdCFmU/ZT7NKzZrrVrWx4c80BaVxZYR8=
+X-Received: by 2002:a9d:2203:: with SMTP id o3mr5253404ota.107.1607594704647; 
+ Thu, 10 Dec 2020 02:05:04 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <1607403341-57214-9-git-send-email-yash.shah@sifive.com>
+References: <20201210034003.222297-1-damien.lemoal@wdc.com>
+In-Reply-To: <20201210034003.222297-1-damien.lemoal@wdc.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 10 Dec 2020 11:04:53 +0100
+Message-ID: <CAMuHMdVbU2kjKU3EVN5kszPc=VQcgzYLemV6AOyg+YyZBfc31Q@mail.gmail.com>
+Subject: Re: [PATCH v7 00/22] RISC-V Kendryte K210 support improvements
+To: Damien Le Moal <damien.lemoal@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201209_225923_363977_D7ACAFCC 
-X-CRM114-Status: UNSURE (   9.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20201210_050505_550777_419F2B67 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -86,31 +76,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, peter@korsgaard.com, aou@eecs.berkeley.edu,
- robh+dt@kernel.org, bgolaszewski@baylibre.com, gregkh@linuxfoundation.org,
- broonie@kernel.org, u.kleine-koenig@pengutronix.de,
- linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
- linux-spi@vger.kernel.org, andrew@lunn.ch, linux-gpio@vger.kernel.org,
- thierry.reding@gmail.com, palmer@dabbelt.com, linux-i2c@vger.kernel.org,
- linux-serial@vger.kernel.org, paul.walmsley@sifive.com,
- linux-riscv@lists.infradead.org, lee.jones@linaro.org,
- linus.walleij@linaro.org
+Cc: "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>, Sean Anderson <seanga2@gmail.com>,
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ linux-clk <linux-clk@vger.kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 08 Dec 2020 10:25:40 +0530, Yash Shah wrote:
-> Add new compatible strings to the YAML DT binding document to support
-> SiFive's HiFive Unmatched board
-> 
-> Signed-off-by: Yash Shah <yash.shah@sifive.com>
-> ---
->  Documentation/devicetree/bindings/riscv/sifive.yaml | 17 ++++++++++++-----
->  1 file changed, 12 insertions(+), 5 deletions(-)
-> 
+Hi Damien,
 
-Reviewed-by: Rob Herring <robh@kernel.org>
+On Thu, Dec 10, 2020 at 4:41 AM Damien Le Moal <damien.lemoal@wdc.com> wrote:
+> Changes from v6:
+> * Annotate struct platform_driver variables with __refdata to avoid
+>   section mismatch compilation errors
+
+Blindly following the advice from kernel test robot <lkp@intel.com> is
+not always a good idea:
+
+    The variable k210_rst_driver references
+    the function __init set_reset_devices()
+    If the reference is valid then annotate the
+    variable with or __refdata (see linux/init.h) or name the variable:
+
+If your driver's probe function is annotated with __init, you cannot
+have a pointer to it in the driver structure, as any binding done after
+the freeing of initmem will cause a crash.  Adding the __refdata merely
+suppresses the warning, and won't avoid the crash.
+
+There are two solutions for this:
+  1. Remove the .probe pointer, and use platform_driver_probe() instead
+     of platform_driver_register().
+     This guarantees the probe method will be called only once, before
+     initmem is freed, but does mean that probe deferral cannot work.
+  2. Drop the __init annotation.
+     This means the probe method can be called anytime, and supports
+     both probe deferral and driver unbind/rebind cycles.
+
+Given the limited amount of RAM on k210, I think option 1 is preferred,
+but may require careful tuning of the initialization order using
+*_initcall*(), to make sure probe deferral won't ever be needed.
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
