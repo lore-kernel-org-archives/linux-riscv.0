@@ -2,78 +2,157 @@ Return-Path: <SRS0=mTxS=FP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E9A06C433FE
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Dec 2020 03:55:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B16D8C4361B
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Dec 2020 04:35:14 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7DDB823ECE
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Dec 2020 03:55:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7DDB823ECE
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id DA3F323ED2
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Dec 2020 04:35:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DA3F323ED2
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:References:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=RY32IP5zCWNm1xI26dqzOrUtdlNOhkUxhBoKdJ+6uaQ=; b=gZElRkzV+CrBgZYUeiORe38Sf
-	U1jgpJhfczCXQN4Uoz+IfiDogM/BcuBROMZByz5deUQ12O6K3No5Jms7iG0yk2B6YLK19K30d3sba
-	tuRG+URfDQEXZOM3DYqNnmuRh/9lDiHzEfn31/z6kGHtH+NfG8BtNAHvkSwh1tFSdUQfrThiNT88X
-	xydc0HPwD0EiKpWsTldinxK9xrWaSQ4hNvx20IF6FObva9pb4nAcvdfxO5TC9m89eivz2aLQLqllS
-	xzpF8qmTZMJb9sVFclKKccgNXkCN36izvHX7o6HNWGQirdbPoLVCdhCrQakT7J3kLY8BWICJo9yWE
-	V5b3RnM1g==;
+	 bh=uEA8SFvDFM4j/FA8A/6cDveCS/t/nYNatO5qRnAvlxo=; b=NQ1/VSkXoPhvt0ZgmYxXCJfjF
+	cZ6/43gIFAqhBjKLyHOhTnB++AWQ25S5pl5myODxsOiboM521eIfWBhCxK+93KrorWJ9vkmf48B1r
+	X78XnVfwvfnT41zLcnpZkw4M6tCwKUUfDgTJ+TGiZlEQUIlnJmTSS/DBHzY+P4/Tqw72oZFzJkaNP
+	cPs8JOrlx3Xowubzixix1/k7qdb2F0Eqh1iKn41zh0NBrKZ6aV7gJTt4lQnRSH4FV2slOLAV0S0p8
+	JQ/Ev2PN7EEPc9ul1Y3GV0qO2MpBlBp5ZRqNpZo3ktnbPjATVLsIQUDWfub8f9Po4z17GRf8l37U6
+	ja/9gxewA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1knZWB-00013i-8z; Fri, 11 Dec 2020 03:54:55 +0000
-Received: from mail-oi1-f194.google.com ([209.85.167.194])
+	id 1kna90-0003Pk-JS; Fri, 11 Dec 2020 04:35:02 +0000
+Received: from esa4.hgst.iphmx.com ([216.71.154.42])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1knZW8-00012m-6z
- for linux-riscv@lists.infradead.org; Fri, 11 Dec 2020 03:54:53 +0000
-Received: by mail-oi1-f194.google.com with SMTP id q25so8389424oij.10
- for <linux-riscv@lists.infradead.org>; Thu, 10 Dec 2020 19:54:51 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=jg43q2n1KDadesdGGoPvRtgEcEu/bB0AmQcOaS55oHQ=;
- b=UQBaoTtiijIUi9qxf/LXerpnttamT08mEdDxw7ETWweyp6nR9s+V3NTrG4Se6bLMtT
- aDpfK80x4zPkEE6LmPH7NlxHCfUvP174WlpPhSyjr1+Qs9xkJPOtzc6UeP+3ri0NXcho
- 5dNkdQaoM26YpqofgmGV9VhbaGkZW51GeXRFX9ML/ZaZXST+vB3lK0GSOxZ1wkZkV4mp
- RL2PavaUrZwSAxzzFBipCCEp6/aT8q2Eh6ATPgIhU6P4tEHeENZ7JFpq3gHfjORupXTe
- Fb4GqJURlUtYmE3QSz1azCsi4Tv2Zr6+4lT1RCamsBJhCVeyyDjoVQnRlm7CQMKr2Sqr
- saoQ==
-X-Gm-Message-State: AOAM530JmrrmnDekcuFmQHQdRjbt2bKXZNxHrh9AGT0KAHPSc132Ffni
- BA1SqYhTu52rMbdiIHPPXA==
-X-Google-Smtp-Source: ABdhPJyxsD7fhYNejCAuQal6tfRPHmBDNB2l51iUU5epxUE4gGdgMpqPe/gSgXx9TJRDGTwWA2afwQ==
-X-Received: by 2002:aca:1e03:: with SMTP id m3mr7898681oic.107.1607658891426; 
- Thu, 10 Dec 2020 19:54:51 -0800 (PST)
-Received: from xps15 (24-155-109-49.dyn.grandenetworks.net. [24.155.109.49])
- by smtp.gmail.com with ESMTPSA id v13sm1507827ook.13.2020.12.10.19.54.50
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 10 Dec 2020 19:54:50 -0800 (PST)
-Received: (nullmailer pid 3614115 invoked by uid 1000);
- Fri, 11 Dec 2020 03:54:49 -0000
-Date: Thu, 10 Dec 2020 21:54:49 -0600
-From: Rob Herring <robh@kernel.org>
-To: Damien Le Moal <damien.lemoal@wdc.com>
-Subject: Re: [PATCH v8 11/22] dt-binding: mfd: Document canaan,k210-sysctl
- bindings
-Message-ID: <20201211035449.GA3610311@robh.at.kernel.org>
-References: <20201210140313.258739-1-damien.lemoal@wdc.com>
- <20201210140313.258739-12-damien.lemoal@wdc.com>
+ id 1kna8x-0003P6-2l
+ for linux-riscv@lists.infradead.org; Fri, 11 Dec 2020 04:35:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1607661298; x=1639197298;
+ h=from:to:cc:subject:date:message-id:references:
+ in-reply-to:content-id:content-transfer-encoding: mime-version;
+ bh=vuKSTPQRRL/+1jHmZbL8pSQ2rIoJxWJwnMX3vYYfLNs=;
+ b=lnu7x8byFtS0VUNGwgIuu+XVu4rgKzDTERlKcZvUxkxYSFZDrN7mQFeg
+ GXb1ZDe5SW7s/joQhwzunFgOpDlGRaU/3x1qsUCfFC9ORIqsyujC7b+QD
+ 4RdhMvGwdW9tPbzU5lyPUe5WOiS+LNn8IKVXogzuqktWvVYgDWI36BieG
+ NaLYXftp0fYvPyKk7Sx02BS4xSk2KDNEz+EhCXBTZtyDu61tDIo/zS8GR
+ Gi/h7yhdyVkOwKGT3Hp4nH0ekEmRoBKRSoxyMf4fszh8jsh86OUDJ3tGZ
+ MitYcO5tyLlVxPBq4bdmDpYV96Z3ft+P2NQOC8qB4V2Dk8/+UgXAqilCM w==;
+IronPort-SDR: Qm0jDXUGB7y1Vu8NsCy+cCyaLtgsHT0IqXrlVmCo3rlkEPeP/khGY0I/XirYfPTwOYM7t302Yt
+ D2ehzOMU3Bua9rhBq6qOYmKwugmh2ewAfOH5W2492AscS5oS7a3jf++kdfiO1xrCZzmZsroZiv
+ Pp8pVPcFpAaRvXyNtI0EoOtc89N9/ZLkzphztthhv6jiSS3qiMYgCPPQbrt1ngQ5/u7zsRUeSJ
+ VW9gfMIkQLR3bXsgMdzEWodVwMqqYmiNlZqdq1L9dV/ZWm5WYqmrzjNk5Mb3kIAag+HapfB9ee
+ U0E=
+X-IronPort-AV: E=Sophos;i="5.78,410,1599494400"; d="scan'208";a="154908192"
+Received: from mail-dm6nam12lp2174.outbound.protection.outlook.com (HELO
+ NAM12-DM6-obe.outbound.protection.outlook.com) ([104.47.59.174])
+ by ob1.hgst.iphmx.com with ESMTP; 11 Dec 2020 12:34:53 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=dmlUbeLGwnvv2WpL0oNiTfyavRiE7jeODIDZUY6MZVVqOuOfzxAnyfPVhs2KPTCfCh0K4U3agecXlCHaHZe42LdRPgFqTU719vn2CnnbkDKXD+ZY5ihEhlHwI2u1eh+7pV8aQv8wy0fhQ6sV/AUkoebtAwYyUlsuzbku2Vofzydry/Vf9BmrfFnLQ5tqvZ+9zC/O0r0eUoNHSLuogRhYmCLGNebNrgDZcoQ3Hf+YpPMeFDiKWWRJCa5qADDnH388D0sV4k2fzNpniEJn0CPrkCmNuWdBNSo154JQ/gX6aO3/EPoNVhzhyKdnuWwB84zcZb2iXM72c2FAkL9YdEpX6g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vuKSTPQRRL/+1jHmZbL8pSQ2rIoJxWJwnMX3vYYfLNs=;
+ b=i24iefSL0rsXFCXEGwx8H32afxCE03mr+Zex5hSiIeFGE8+zsJ4tF+lBXQ9KEbkecdmjVCGXfU5KNkcgCIgVfJQNe9HJOf3UAw0MvVJES2gwVKVIVJDJvgDvECMzxy7fZ478Olmfbgaxoh3SkVZC91rtMCq17sdIz9IxIByeQo7V+Yo+uZFQO3JXtYrAizgllgDwTLHgncCBTZkft+wp0evMRiBQuDFHFUNIfIqdHw3leUhR2OMSHrR11qMRvs+Al1D/RiSBQioVVZuNNfFxVy/q4sbsuSiJvwy9c+yUAiwxUAHg5nvVd5Cob74GvfqqO0kysmNwYvUcfHC0yW2UwA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
+ header.d=wdc.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vuKSTPQRRL/+1jHmZbL8pSQ2rIoJxWJwnMX3vYYfLNs=;
+ b=T6VBnDKfzyXqZ95Mh3LvS2QRWyXjH41sZfnNZ9BW50fow28TaR3ijITX+GtYxaVt7yXLuRYsl95Yv36cLmMyUCluWp06jfU5Ugwzs9Ucg++bjYAOUKKk7nYwNnTXckvHmhKO9W9Hmo+SIZO6cAZZ3fO8KqqLJOBtzra0YOPhEZQ=
+Received: from CH2PR04MB6522.namprd04.prod.outlook.com (2603:10b6:610:34::19)
+ by CH2PR04MB7110.namprd04.prod.outlook.com (2603:10b6:610:98::19)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3632.18; Fri, 11 Dec
+ 2020 04:34:51 +0000
+Received: from CH2PR04MB6522.namprd04.prod.outlook.com
+ ([fe80::897c:a04b:4eb0:640a]) by CH2PR04MB6522.namprd04.prod.outlook.com
+ ([fe80::897c:a04b:4eb0:640a%7]) with mapi id 15.20.3632.023; Fri, 11 Dec 2020
+ 04:34:51 +0000
+From: Damien Le Moal <Damien.LeMoal@wdc.com>
+To: "palmer@dabbelt.com" <palmer@dabbelt.com>
+Subject: Re: [PATCH v8 02/22] riscv: Fix sifive serial driver
+Thread-Topic: [PATCH v8 02/22] riscv: Fix sifive serial driver
+Thread-Index: AQHWzv0+WUHKICqlv0mHeaBjjeB886nxJ2MAgAAojoA=
+Date: Fri, 11 Dec 2020 04:34:51 +0000
+Message-ID: <3c3238a00beaab166a67e3baf0ad4714d3c90ef1.camel@wdc.com>
+References: <mhng-b369aaef-f262-4ca3-bcda-5bd4ee893332@palmerdabbelt-glaptop1>
+In-Reply-To: <mhng-b369aaef-f262-4ca3-bcda-5bd4ee893332@palmerdabbelt-glaptop1>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Evolution 3.38.1 (3.38.1-1.fc33) 
+authentication-results: dabbelt.com; dkim=none (message not signed)
+ header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
+x-originating-ip: [2400:2411:43c0:6000:8d3e:27aa:85c2:44b5]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-ht: Tenant
+x-ms-office365-filtering-correlation-id: 6ad32981-35ba-4a54-aefe-08d89d8e19a3
+x-ms-traffictypediagnostic: CH2PR04MB7110:
+x-microsoft-antispam-prvs: <CH2PR04MB7110126C2B9FA86510E0B0F9E7CA0@CH2PR04MB7110.namprd04.prod.outlook.com>
+wdcipoutbound: EOP-TRUE
+x-ms-oob-tlc-oobclassifiers: OLM:9508;
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: 1Qfvuaic0wyNQynXBS4gXzoARHcB8ebAji03aOxtYV6gxzgcitlFSGii9uQjXdH+p3U3AHTLzWUljkPzLqO7R71W/gXWuI6JpCd0VtxqMHSiZE5URPvsWkQW85w6ZusZKocMcpVhCxEAiGYztB2CUmNTT/7i6lM17gYTt6M9661u9yIFvKY8AoPJlL4SXC/j4zPVZkviy9HStsY2g3eWHc4EtILZRNKqF6e5DRRhAR6PY2N3OzzWiNelNW5mnEzuSIxrt6Ua9mB7zPENumouAPCa7hyqIeP6aYPXB6UBEm+L4g55jI01+fsMV6sxPRxIFw2IB+TJPjMIkvq1oPAHRA==
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:CH2PR04MB6522.namprd04.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(4636009)(376002)(136003)(346002)(366004)(6486002)(5660300002)(54906003)(6506007)(76116006)(66446008)(64756008)(66556008)(66476007)(186003)(508600001)(66946007)(71200400001)(7416002)(8936002)(6512007)(91956017)(2906002)(86362001)(36756003)(6916009)(83380400001)(4326008)(4001150100001)(8676002)(2616005);
+ DIR:OUT; SFP:1102; 
+x-ms-exchange-antispam-messagedata: =?utf-8?B?MUVlTjl3cTBIYUx2RXJyWndxdUpkMHllZXlaSzlVYy9hSGVCQVFNdGphbS94?=
+ =?utf-8?B?bm9hZnBnMy92UnFSa3JtSS9Ed0dQMzk2VlMxNHpGWVA4YkxTd3dQZThlTWFY?=
+ =?utf-8?B?MVl6cmx5M1dodEVuZmFoOHRncWp1eVhjTUhsREJ3cnFJYUNuZnhQaTdaankz?=
+ =?utf-8?B?NzFXRW9tQStaR1k3M2FoYURUcEZ4R3QvekcydVRRL0tpMVRCWjNXQThTSDZh?=
+ =?utf-8?B?cndlK25rMXJYMTBXZE1CUFNDN3ZLRGFZUW9OVU5YVnN1YWtuazlVZndkdXhq?=
+ =?utf-8?B?VmFXb2twV2c5RWxYNjNJZXg3dHJ3cVBVQjAvQW5ncndpUzdwUnFxaC85Zk5l?=
+ =?utf-8?B?eXordnJJdmZ6Mk9YZjM5R3VFbHlpdUZmcFVKc0JveTlzTEt5S0JnWFR2SC9P?=
+ =?utf-8?B?Tm1pb3h1NWFJWVRkdUZpNWpWZWxEdURNenlSVDhPZHNiK0hFeFpBVC8rVFZH?=
+ =?utf-8?B?Zmw5KzBwbDl5NmtQSlptT0VGb0lUeGhUUnFOalBQUW9SUCtQMW80am5aN2Jj?=
+ =?utf-8?B?VjhWa3I3andHZGdYdWd5djF3NDRuSzFoMjFUYk9uV3cxODBpQkN1emx6SzFi?=
+ =?utf-8?B?NlZRQXJZSXZReW5nMW9xV05UQjB2dWlWZHhLcVNKdmN6ZUkxOHJRQlFtMkl5?=
+ =?utf-8?B?dXdseTFzR3ppRTJ1OHZuaDJaeWVKV243K0J3RG1DOWJpTU44MytmV3ZIc0Ns?=
+ =?utf-8?B?aTJ4REtUSjB3RmdyYjBvSjhKSXIyaGpNYlBOZEJJa0haNGRXeS9vcnBrd0Fz?=
+ =?utf-8?B?ZllyMVVqMFlBYTYwUyt1Q2g1ZUJMRkgxVHhuZVJrME1FanArYUkyZSsvd3dS?=
+ =?utf-8?B?bGJMd3MyTFFVanh6SmV4NVo2MHBTbklrc0E1TVc3TGhZMy84UGZ0TGo5R215?=
+ =?utf-8?B?VXlXN1dLbUhiNDFiQ21landLQkQ3YnlpNnRMYjRVZUhERlNRNWlEc0VkRDd1?=
+ =?utf-8?B?YTlOd3FTcWNxbUd1S0ZwN3ZNREtneXBrRE1lUURXRUQyVmlwYnhhdGd4V3NJ?=
+ =?utf-8?B?bG5ZZE1DZnJSaXQvRlh4WG1lR2ZHZnIxNGR3dENyb0hnTWtkcjZqcVhQMzhs?=
+ =?utf-8?B?RnVQN3FvU0ZyeEtaOUhFOURCb3dpRkZCZEFHTTloaWVObmdpZXJ1eUpFNmNv?=
+ =?utf-8?B?dDkwYXRRemd6YlQzUUp1Ky9vRVN2ZXJveDY0ZzhZRFFtOWR0WEFDbCs2ZTMy?=
+ =?utf-8?B?aEQxYitmMFh0Y01LTTl1S3JGejM1NlNRMkxZNVlFYWtLdWRiNEk0dTI4S012?=
+ =?utf-8?B?U1YrUGJ4ejdQREtBUUJGUko0eHVzM2JUdUhuV29ZWHRwbENwZmF3SnZPNlJM?=
+ =?utf-8?B?aG9PYVFRMTNiWGtyMkYrMy8yN3pwMmVPS1Q1Rm5DUXFmNXlUTy9vMzRGUVVm?=
+ =?utf-8?B?VUd3bW1JbFhGTDBsVHVzWTkzeHJzbHJUUDdNU1lYVUM1VGtzdkJacWNnYlNv?=
+ =?utf-8?Q?EH2Xbw7o?=
+x-ms-exchange-transport-forked: True
+Content-ID: <5B0F95E23DF45045B4C02D0DBEB6CADE@namprd04.prod.outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20201210140313.258739-12-damien.lemoal@wdc.com>
+X-OriginatorOrg: wdc.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CH2PR04MB6522.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6ad32981-35ba-4a54-aefe-08d89d8e19a3
+X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Dec 2020 04:34:51.2814 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: FoUMWV3+O3vtlcr9hqw53GuMV/H3EYJiB7yIU+dXdEhqHq7F58JfyA3WoIzcLgFwBQrmYIysarywDGGPSee0tw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR04MB7110
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201210_225452_332642_E1D9C915 
-X-CRM114-Status: GOOD (  19.21  )
+X-CRM114-CacheID: sfid-20201210_233459_513359_57D98151 
+X-CRM114-Status: GOOD (  28.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -85,169 +164,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>,
- Linus Walleij <linus.walleij@linaro.org>, Sean Anderson <seanga2@gmail.com>,
- linux-gpio@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, linux-riscv@lists.infradead.org,
- linux-clk@vger.kernel.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "sboyd@kernel.org" <sboyd@kernel.org>,
+ "linus.walleij@linaro.org" <linus.walleij@linaro.org>,
+ "seanga2@gmail.com" <seanga2@gmail.com>,
+ "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+ "robh+dt@kernel.org" <robh+dt@kernel.org>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 10, 2020 at 11:03:02PM +0900, Damien Le Moal wrote:
-> Document the device tree bindings of the Canaan Kendryte K210 SoC
-> system controller driver in
-> Documentation/devicetree/bindings/mfd/canaan,k210-sysctl.yaml.
-> 
-> Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
-> ---
->  .../bindings/mfd/canaan,k210-sysctl.yaml      | 116 ++++++++++++++++++
->  1 file changed, 116 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/mfd/canaan,k210-sysctl.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/mfd/canaan,k210-sysctl.yaml b/Documentation/devicetree/bindings/mfd/canaan,k210-sysctl.yaml
-> new file mode 100644
-> index 000000000000..a61d8ea4fbec
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/mfd/canaan,k210-sysctl.yaml
-> @@ -0,0 +1,116 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/mfd/canaan,k210-sysctl.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Canaan Kendryte K210 System Controller Device Tree Bindings
-> +
-> +maintainers:
-> +  - Damien Le Moal <damien.lemoal@wdc.com>
-> +
-> +description:
-> +  Canaan Inc. Kendryte K210 SoC system controller which provides a
-> +  register map for controlling the clocks, reset signals and pin power
-> +  domains of the SoC.
-> +
-> +properties:
-> +  compatible:
-> +    allOf:
-
-Don't need 'allOf'.
-
-> +      - items:
-> +          - const: canaan,k210-sysctl
-> +          - const: syscon
-> +          - const: simple-mfd
-> +
-> +  clocks:
-> +    description:
-> +      System controller Advanced Power Bus (APB) interface clock source.
-
-How many entries?
-
-> +
-> +  clock-names:
-> +    maxItems: 1
-
-Don't need maxItems as it is implied by length of 'items'.
-
-> +    items:
-> +      - const: pclk
-> +
-> +  reg:
-> +    maxItems: 1
-> +    description:
-> +      Offset and length of the system controller register space.
-
-Drop. That's pretty much the description for all 'reg' entries.
-
-> +
-> +  reg-io-width:
-> +    const: 4
-
-Why is this needed if always 4?
-
-> +
-> +  clock-controller:
-> +    # Child node
-> +    type: object
-> +    $ref: "../clock/canaan,k210-clk.yaml"
-> +    description:
-> +      Clock controller for the SoC clocks. This child node definition
-> +      should follow the bindings specified in
-> +      Documentation/devicetree/bindings/clock/canaan,k210-clk.yaml.
-> +
-> +  reset-controller:
-> +    # Child node
-> +    type: object
-> +    $ref: "../reset/canaan,k210-rst.yaml"
-> +    description:
-> +      Reset controller for the SoC. This child node definition
-> +      should follow the bindings specified in
-> +      Documentation/devicetree/bindings/reset/canaan,k210-rst.yaml.
-> +
-> +  syscon-reboot:
-> +    # Child node
-> +    type: object
-> +    $ref: "../power/reset/syscon-reboot.yaml"
-> +    description:
-> +      Reboot method for the SoC. This child node definition
-> +      should follow the bindings specified in
-> +      Documentation/devicetree/bindings/power/reset/syscon-reboot.yaml.
-> +
-> +required:
-> +  - compatible
-> +  - clocks
-> +  - reg
-> +  - clock-controller
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/k210-clk.h>
-> +    #include <dt-bindings/reset/k210-rst.h>
-> +
-> +    clocks {
-> +      in0: oscllator {
-> +        compatible = "fixed-clock";
-> +        #clock-cells = <0>;
-> +        clock-frequency = <26000000>;
-> +      };
-> +    };
-> +
-> +    sysctl: syscon@50440000 {
-> +      compatible = "canaan,k210-sysctl",
-> +                   "syscon", "simple-mfd";
-> +      reg = <0x50440000 0x100>;
-> +      reg-io-width = <4>;
-> +      clocks = <&sysclk K210_CLK_APB1>;
-> +      clock-names = "pclk";
-> +
-> +      sysclk: clock-controller {
-> +        #clock-cells = <1>;
-> +        compatible = "canaan,k210-clk";
-> +        clocks = <&in0>;
-> +      };
-> +
-> +      sysrst: reset-controller {
-> +        compatible = "canaan,k210-rst";
-> +        #reset-cells = <1>;
-> +      };
-> +
-> +      reboot: syscon-reboot {
-> +        compatible = "syscon-reboot";
-> +        regmap = <&sysctl>;
-> +        offset = <48>;
-> +        mask = <1>;
-> +        value = <1>;
-> +      };
-> +    };
-> -- 
-> 2.29.2
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCAyMDIwLTEyLTEwIGF0IDE4OjA5IC0wODAwLCBQYWxtZXIgRGFiYmVsdCB3cm90ZToN
+Cj4gT24gVGh1LCAxMCBEZWMgMjAyMCAwNjowMjo1MyBQU1QgKC0wODAwKSwgRGFtaWVuIExlIE1v
+YWwgd3JvdGU6DQo+ID4gU2V0dXAgdGhlIHBvcnQgdWFydGNsayBpbiBzaWZpdmVfc2VyaWFsX3By
+b2JlKCkgc28gdGhhdCB0aGUgYmFzZSBiYXVkDQo+ID4gcmF0ZSBpcyBjb3JyZWN0bHkgcHJpbnRl
+ZCBkdXJpbmcgZGV2aWNlIHByb2JlIGluc3RlYWQgb2YgYWx3YXlzIHNob3dpbmcNCj4gPiAiMCIu
+ICBJLmUuIHRoZSBwcm9iZSBtZXNzYWdlIGlzIGNoYW5nZWQgZnJvbQ0KPiA+IA0KPiA+IDM4MDAw
+MDAwLnNlcmlhbDogdHR5U0lGMCBhdCBNTUlPIDB4MzgwMDAwMDAgKGlycSA9IDEsDQo+ID4gYmFz
+ZV9iYXVkID0gMCkgaXMgYSBTaUZpdmUgVUFSVCB2MA0KPiA+IA0KPiA+IHRvIHRoZSBjb3JyZWN0
+Og0KPiA+IA0KPiA+IDM4MDAwMDAwLnNlcmlhbDogdHR5U0lGMCBhdCBNTUlPIDB4MzgwMDAwMDAg
+KGlycSA9IDEsDQo+ID4gYmFzZV9iYXVkID0gMTE1MjAwKSBpcyBhIFNpRml2ZSBVQVJUIHYwDQo+
+ID4gDQo+ID4gU2lnbmVkLW9mZi1ieTogRGFtaWVuIExlIE1vYWwgPGRhbWllbi5sZW1vYWxAd2Rj
+LmNvbT4NCj4gPiAtLS0NCj4gPiDCoGRyaXZlcnMvdHR5L3NlcmlhbC9zaWZpdmUuYyB8IDEgKw0K
+PiA+IMKgMSBmaWxlIGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCspDQo+ID4gDQo+ID4gZGlmZiAtLWdp
+dCBhL2RyaXZlcnMvdHR5L3NlcmlhbC9zaWZpdmUuYyBiL2RyaXZlcnMvdHR5L3NlcmlhbC9zaWZp
+dmUuYw0KPiA+IGluZGV4IDEzZWFkY2I4YWVjNC4uMjE0YmYzMDg2YzY4IDEwMDY0NA0KPiA+IC0t
+LSBhL2RyaXZlcnMvdHR5L3NlcmlhbC9zaWZpdmUuYw0KPiA+ICsrKyBiL2RyaXZlcnMvdHR5L3Nl
+cmlhbC9zaWZpdmUuYw0KPiA+IEBAIC05OTksNiArOTk5LDcgQEAgc3RhdGljIGludCBzaWZpdmVf
+c2VyaWFsX3Byb2JlKHN0cnVjdCBwbGF0Zm9ybV9kZXZpY2UgKnBkZXYpDQo+ID4gwqAJLyogU2V0
+IHVwIGNsb2NrIGRpdmlkZXIgKi8NCj4gPiDCoAlzc3AtPmNsa2luX3JhdGUgPSBjbGtfZ2V0X3Jh
+dGUoc3NwLT5jbGspOw0KPiA+IMKgCXNzcC0+YmF1ZF9yYXRlID0gU0lGSVZFX0RFRkFVTFRfQkFV
+RF9SQVRFOw0KPiA+ICsJc3NwLT5wb3J0LnVhcnRjbGsgPSBzc3AtPmJhdWRfcmF0ZSAqIDE2Ow0K
+PiA+IMKgCV9fc3NwX3VwZGF0ZV9kaXYoc3NwKTsNCj4gPiANCj4gPiDCoAlwbGF0Zm9ybV9zZXRf
+ZHJ2ZGF0YShwZGV2LCBzc3ApOw0KPiANCj4gUmV2aWV3ZWQtYnk6IFBhbG1lciBEYWJiZWx0IDxw
+YWxtZXJkYWJiZWx0QGdvb2dsZS5jb20+DQo+IEFja2VkLWJ5OiBQYWxtZXIgRGFiYmVsdCA8cGFs
+bWVyZGFiYmVsdEBnb29nbGUuY29tPg0KPiANCj4gQXMgYW4gYXNpZGU6IGlzIHRoaXMgYW4gaW50
+cmluc2ljIHByb3BlcnR5IG9mIGJlaW5nIGEgc2VyaWFsIHBvcnQsIG9yIHNwZWNpZmljDQo+IHRv
+IHRoZSBTaUZpdmUgZHJpdmVyPyAgV2Ugc2VlbSB0byBtdWx0aXBseS9kaXZpZGUgYnkgMTYgcXVp
+dGUgYSBiaXQgdG8gY29udmVydA0KPiBiZXR3ZWVuIGJhdWQgcmF0ZXMgYW5kIGNsb2Nrcywgc28g
+aWYgaXQncyBzcGVjaWZpYyB0byBTaUZpdmUgdGhlbiBpdCBzZWVtcw0KPiByZWFzb25hYmxlIHRv
+IG5hbWUgdGhhdCBjb25zdGFudCBpbiB0aGlzIGRyaXZlci4gIElmIGl0J3MgYSBzZXJpYWwgdGhp
+bmcgdGhlbiBJDQo+IGd1ZXNzIHdlIHNob3VsZCBqdXN0IGRvIHdoYXRldmVyIGV2ZXJ5b25lIGVs
+c2UgaXMgZG9pbmcuDQoNClRoYXQgcG9ydC51YXJ0Y2xrIGZpZWxkIGlzIG5vdCBzcGVjaWZpYyB0
+byB0aGUgc2lmaXZlIGRyaXZlci4gQW5kIHNldHRpbmcgaXRzDQp2YWx1ZSBjb3JyZWN0bHkgbGVh
+ZCB0byB0aGUgY29ycmVjdCBtZXNzYWdlIGJlaW5nIHByaW50ZWQuIFRoYXQgbWVzc2FnZSBpcyBh
+bHNvDQpnZW5lcmljIGFuZCBub3Qgc3BlY2lhbCB0byB0aGUgU2lGaXZlIHNlcmlhbCBkcml2ZXIu
+DQoNCj4gRG9uJ3QgdGhpbmsgdGhhdCBibG9ja3MgdGhpcyBwYXRjaCwgdGhvdWdoLCBhcyBpdCdz
+IGFsbCBvdmVyIHRoZSBwbGFjZS4NCg0KSSBkaWQgbm90IGRpZyB0b28gZmFyIGluIHRoYXQgZHJp
+dmVyLCBJIG9ubHkgd2FudGVkIHRvIGZpeCB0aGUgbWVzc2FnZSBzbyB0aGF0DQptZWFuaW5nZnVs
+IGluZm9ybWF0aW9uIGlzIHByaW50ZWQuIEJ1dCB5ZXMsIEkgYWxzbyB0aG91Z2h0IHRoYXQgYSBs
+aXR0bGUNCmNsZWFudXAgd291bGQgYmUgZ29vZC4gVGhlIERUIGJpbmRpbmcgZG9jIGlzIGFsc28g
+aW5jb21wbGV0ZSBhcyBpdCBpcyBtaXNzaW5nDQp0aGUgInNpZml2ZSxmdTU0MC1jMDAwLXVhcnQw
+IiBjb21wYXRpYmxlIHN0cmluZy4NCg0KDQotLSANCkRhbWllbiBMZSBNb2FsDQpXZXN0ZXJuIERp
+Z2l0YWwNCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
+bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
+dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
