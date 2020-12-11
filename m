@@ -2,19 +2,19 @@ Return-Path: <SRS0=mTxS=FP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 504F9C4361B
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Dec 2020 01:48:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EB36BC433FE
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Dec 2020 01:55:37 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AE6E32312A
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Dec 2020 01:48:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AE6E32312A
+	by mail.kernel.org (Postfix) with ESMTPS id 9EE8E23D5A
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Dec 2020 01:55:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9EE8E23D5A
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,64 +23,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=rKFDv31yZTkduTWne/Mdleh5HsgvVRcIf6uD1YSLBwM=; b=Yht6gelx+9Z1wlaGca7Kph4Tx
-	QchtlkD6Rtr04Z20QxbGqx3hpAXeh4JVRH56bGVD17yBsn/h8JrWxlLTFebvr126jAmY8j4iO9F6I
-	ngg/DgVeN2jyg1TxKd9Es/1KQQ+H6TEZ5/7Rflz3RMEn5cdY75We3O9uLWM5DjJZ8CskiB7OP+NNX
-	h8kTNBawlnsWAge2MD+sPdbWcFBY2askfriDQmwCy7Vpd/bbL5YM7Cnn5EIVYkZHF64iuWxUtmn82
-	GvSF9KcKzGwFGZImuJcAB70H6eBKkjglFfhu2DEqmqHb79GbYA/dlkgcPQAUIfh+mZ1HQ8r52haWh
-	ccNh6qGZw==;
+	 bh=9johOBACtNN2narqdr+PFT+caFNS77lY6Wlk6q4i8qw=; b=Ty91VZmB0rJGOUd6SxkcTP7Fs
+	2VX/SZ3OMWkQV4LhVAVYAfbLjsYYXSmXC9RF+qhnvvScGL2+7/fsAmBZbBWy7AsIwvHFPqQbJ/duc
+	kLT8l+dLn1K77ydDXmxakubgFz7JX+hCF0D/th1lZTiknJvMjENMTDbMyLff2B8jG79UaL1unmyYD
+	SZbyZaBTrlIPdJb4f1A8tv/cxTZwnkYgXyGxFh0wZItWbPrvs1vw4v3tUWMroDwd5ElCLs59+0S0u
+	K/s8IWFoS93TZ7mSzeEgpcA4LUwBO7mpUWyNuPH9zbrEFx2QK2oHnsjUGF82SCr0mSG6AGM8MNg24
+	WuKFdmylw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1knXXP-00038D-C4; Fri, 11 Dec 2020 01:48:03 +0000
-Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
+	id 1knXec-0003cv-IB; Fri, 11 Dec 2020 01:55:30 +0000
+Received: from mail-pl1-x644.google.com ([2607:f8b0:4864:20::644])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1knXXN-00037q-2P
- for linux-riscv@lists.infradead.org; Fri, 11 Dec 2020 01:48:02 +0000
-Received: by mail-pf1-x444.google.com with SMTP id i3so5984489pfd.6
- for <linux-riscv@lists.infradead.org>; Thu, 10 Dec 2020 17:48:00 -0800 (PST)
+ id 1knXeY-0003aO-Rk
+ for linux-riscv@lists.infradead.org; Fri, 11 Dec 2020 01:55:28 +0000
+Received: by mail-pl1-x644.google.com with SMTP id y8so3798088plp.8
+ for <linux-riscv@lists.infradead.org>; Thu, 10 Dec 2020 17:55:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=fA3qErY5xWtluykmP171Qn295o/oLmlgFbu/oLQ6EYU=;
- b=BkB8McS41LHbQfbR5XFx7gpaMm0wLA8+/dGBqOeJ/bO6i8JBz2Jm3oNfR/o/pumZfg
- FUj7RcMwZ4VDu4qIb2lbTqzMgEp45T0zL4UcPh4/oYuIH4at+9rScAnKQcuDTrhD5pN/
- xf0z+tS+jRmmQnwuQTjVo+twinS6+DP28y7h/MV5HDRTKvZ6h4Ttc3JBMB0XTBvi2IBu
- stnZDYdWgwRy6juvNby4nGOaHJZIkrGx27VybvEbXyyzR4uIphqmYPdh5NUJRdVleSLV
- 0nhrP/EjMS//IUzXWOGZX28goJlNHl8pZv+YG5JukdpPtziVxNkP7jxOzb4xr6NcL/Jy
- QTIw==
+ bh=luVzHjwrVb0RaJq5Uh65n6skCC7p9OMiArCM0mPgdkM=;
+ b=ML9QG1vU7L4oiXWmFVohfhtCuoxC2/7X83dJ2wknZhwXoPeS69iqmDBv4wozPFOYMo
+ nGwN/y15nRURe06hz/ZLfFDkJh4bxeD/HrGH1c6KRKpqxHznfGK6Mkggeyaeq7C9VQQ3
+ bGPvK1OF6YPetx5e9v9siqga7GSR67M2sjK+KxpyMYFEeQc2qUa8rlrspWHPbmGdDXFs
+ FAvTncsTkiaBjn004Ge/ubpI1mb8yJ6F8Utl0XKoxrSsMwPwoPSMWkBgZrr7neRYyC/k
+ yewFTxXdU5qGGO4JiI+9N/QruUluX4rjeXcUHnmpEL1r9+OLjMevMihPfkHmotZiBFus
+ jW0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=fA3qErY5xWtluykmP171Qn295o/oLmlgFbu/oLQ6EYU=;
- b=rfj7TqEMNfbeqBqvKRaH3a4VO2vXvr5AVKEPKQ02hTmRK0hik2SlHIpVVX5tjwUfn5
- G02+SSr8M0Ji13pe/CZgjcvSBCq3R6VPLsYxGC3qV3UHMrMT0vesGFw8cGSZ7s3KOwqK
- 3F7PnNc96UFlMLAOOXwvUo66LqBKWc9F+6Dp/fNtx2uoMlGVLkqvLdUnzGFTUI2jEIff
- NHckEwttxAUXUraTDxq+XPS9N+7fIBCojlclYkyG3TxYCh28yEH6N7EHAt3F7KlHUm9e
- Bru1hY9T9kny8IbNcPnJvJSt/P2HFYahUJ34K6PJtwDViMjMy0uOjocVhQDDRNgFZc7N
- cvhA==
-X-Gm-Message-State: AOAM531CKBb9fu3uuqrNtjE+O/oVa4mt+NYDVieqyLIDtQrw9BkqIqG0
- 3/LhxelbbAC8DXhD8qmisau1qjPUFKKWj8Nj
-X-Google-Smtp-Source: ABdhPJw2xx8Obho74Imst8OWUtZv32cQkKCQwZoys+cHZFd+IuxekDBxbleOpirENmy/BAtWF3VKfg==
-X-Received: by 2002:a63:4c41:: with SMTP id m1mr9306781pgl.427.1607651279205; 
- Thu, 10 Dec 2020 17:47:59 -0800 (PST)
+ bh=luVzHjwrVb0RaJq5Uh65n6skCC7p9OMiArCM0mPgdkM=;
+ b=UwLZWQHyURb9zV3tvRpBAMyMlj+UQbjimE3qil3NMkcZT58JmDD4vEKymDGOjoQ+vz
+ Sf725r6TGJDmqjxHCUOackddrbz7dMTAI8xkRH606v+a3PbMIrLoitD7HpAzKPPf5KEN
+ VFMzoXBHYDvPCOpSUFPEFj7R3pW/XufIMfJY+ZRb970yiMkzxlZd44BzhTo0gWHTz3Xw
+ nHVOOtIlBryiixS9FpY4YSGpKYQtELwo22WV9J8wpTaQ6RFIYw5IwXqQXgZJBCIkyizM
+ 9geLvyJFo3fbbLG+bld+skPJA6cribFgDvTmQ5QwrsOT4YTdhjgRxdHz7N0ul1My5TKJ
+ 6f9w==
+X-Gm-Message-State: AOAM530bhTXQNZuqJmszHAwI3ZVBkoK0y7x1ozMt8vYMbE/NeLG8mHmZ
+ V0PK4Be1fn2cqDmYJgKY29l6Gg==
+X-Google-Smtp-Source: ABdhPJwXnEk0V0IcjX6ye8t6BccBKFZFi9BAljK+NJr03V/zUFLWswriUIqU3kqvyjsSKs3s/YWSPw==
+X-Received: by 2002:a17:902:9307:b029:d9:d097:fd6c with SMTP id
+ bc7-20020a1709029307b02900d9d097fd6cmr8843219plb.10.1607651724635; 
+ Thu, 10 Dec 2020 17:55:24 -0800 (PST)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id q23sm8007344pfg.18.2020.12.10.17.47.58
+ by smtp.gmail.com with ESMTPSA id a26sm7630727pgd.64.2020.12.10.17.55.23
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 10 Dec 2020 17:47:58 -0800 (PST)
-Date: Thu, 10 Dec 2020 17:47:58 -0800 (PST)
-X-Google-Original-Date: Thu, 10 Dec 2020 17:47:52 PST (-0800)
-Subject: Re: [PATCH] riscv: Fixed kernel test robot warning
-In-Reply-To: <871rg0cajt.fsf@igel.home>
+ Thu, 10 Dec 2020 17:55:23 -0800 (PST)
+Date: Thu, 10 Dec 2020 17:55:23 -0800 (PST)
+X-Google-Original-Date: Thu, 10 Dec 2020 17:55:22 PST (-0800)
+Subject: Re: [PATCH v3 1/2] dt-bindings: riscv: Update l2 cache DT
+ documentation to add support for SiFive FU740
+In-Reply-To: <1607596083-81480-2-git-send-email-yash.shah@sifive.com>
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: schwab@linux-m68k.org
-Message-ID: <mhng-0e645b05-d32f-42ea-874a-4c91273f5bb6@palmerdabbelt-glaptop1>
+To: yash.shah@sifive.com
+Message-ID: <mhng-c5b27f57-f267-485d-a497-631b31a88c6f@palmerdabbelt-glaptop1>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201210_204801_170818_35FD5035 
-X-CRM114-Status: GOOD (  16.35  )
+X-CRM114-CacheID: sfid-20201210_205526_963843_7A5C0222 
+X-CRM114-Status: GOOD (  20.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -92,40 +94,100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: guoren@linux.alibaba.com, linux-kernel@vger.kernel.org,
- aou@eecs.berkeley.edu, jrdr.linux@gmail.com,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
+Cc: devicetree@vger.kernel.org, aou@eecs.berkeley.edu, anup@brainfault.org,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org,
+ wsa@kernel.org, sachin.ghadi@sifive.com, yash.shah@sifive.com,
+ robh+dt@kernel.org, sagar.kadam@sifive.com, Jonathan.Cameron@huawei.com,
+ linux-riscv@lists.infradead.org, bp@suse.de, sam@ravnborg.org
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 08 Dec 2020 12:22:46 PST (-0800), schwab@linux-m68k.org wrote:
-> On Dez 09 2020, Souptick Joarder wrote:
->
->> On Wed, Dec 9, 2020 at 1:21 AM Andreas Schwab <schwab@linux-m68k.org> wrote:
->>>
->>> On Dez 09 2020, Souptick Joarder wrote:
->>>
->>> > Kernel test robot throws below warning -
->>> >
->>> >    arch/riscv/kernel/asm-offsets.c:14:6: warning: no previous prototype
->>> > for 'asm_offsets' [-Wmissing-prototypes]
->>> >       14 | void asm_offsets(void)
->>> >          |      ^~~~~~~~~~~
->>> >
->>> > This patch should fixed it.
->>>
->>> Or rename it to main, like most other asm-offsets files.
->>
->> Few asm-offsets files named it as foo(). Does a rename to main() will
->> work straight forward ?
->
-> Calling it main will suppress the warning, but other than that it is
-> completely irrelevant how you call it.
+On Thu, 10 Dec 2020 02:28:02 PST (-0800), yash.shah@sifive.com wrote:
+> The L2 cache controller in SiFive FU740 has 4 ECC interrupt sources as
+> compared to 3 in FU540. Update the DT documentation accordingly with
+> "compatible" and "interrupt" property changes.
 
-Ya, I think it doesn't really matter so I'm just going to take this as is.
-It's on for-next (being a bit paranoid, as we're so late in the cycle).
+This generally looks good to me, but I'd prefer to get an ack from the DT folks
+as I do frequently miss stuff in the bindings.
+
+Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
+Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
+
+>
+> Signed-off-by: Yash Shah <yash.shah@sifive.com>
+> ---
+>  .../devicetree/bindings/riscv/sifive-l2-cache.yaml | 34 +++++++++++++++++++---
+>  1 file changed, 30 insertions(+), 4 deletions(-)
+>
+> diff --git a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml b/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+> index efc0198..6a576dc 100644
+> --- a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+> @@ -27,6 +27,7 @@ select:
+>        items:
+>          - enum:
+>              - sifive,fu540-c000-ccache
+> +            - sifive,fu740-c000-ccache
+>
+>    required:
+>      - compatible
+> @@ -34,7 +35,9 @@ select:
+>  properties:
+>    compatible:
+>      items:
+> -      - const: sifive,fu540-c000-ccache
+> +      - enum:
+> +          - sifive,fu540-c000-ccache
+> +          - sifive,fu740-c000-ccache
+>        - const: cache
+>
+>    cache-block-size:
+> @@ -52,10 +55,13 @@ properties:
+>    cache-unified: true
+>
+>    interrupts:
+> -    description: |
+> -      Must contain entries for DirError, DataError and DataFail signals.
+>      minItems: 3
+> -    maxItems: 3
+> +    maxItems: 4
+> +    items:
+> +      - description: DirError interrupt
+> +      - description: DataError interrupt
+> +      - description: DataFail interrupt
+> +      - description: DirFail interrupt
+>
+>    reg:
+>      maxItems: 1
+> @@ -67,6 +73,26 @@ properties:
+>        The reference to the reserved-memory for the L2 Loosely Integrated Memory region.
+>        The reserved memory node should be defined as per the bindings in reserved-memory.txt.
+>
+> +if:
+> +  properties:
+> +    compatible:
+> +      contains:
+> +        const: sifive,fu540-c000-ccache
+> +
+> +then:
+> +  properties:
+> +    interrupts:
+> +      description: |
+> +        Must contain entries for DirError, DataError and DataFail signals.
+> +      maxItems: 3
+> +
+> +else:
+> +  properties:
+> +    interrupts:
+> +      description: |
+> +        Must contain entries for DirError, DataError, DataFail, DirFail signals.
+> +      minItems: 4
+> +
+>  additionalProperties: false
+>
+>  required:
 
 _______________________________________________
 linux-riscv mailing list
