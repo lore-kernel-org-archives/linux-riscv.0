@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 081EDC433FE
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Dec 2020 03:46:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2BD3BC4361B
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Dec 2020 03:47:54 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C571923ECE
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Dec 2020 03:46:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C571923ECE
+	by mail.kernel.org (Postfix) with ESMTPS id CC18523ECE
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Dec 2020 03:47:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CC18523ECE
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,57 +23,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=AAF/qNqoHzUyb3mEqj3B5ixezb/G76mCDYqf6kuFDMk=; b=pBlJPSgfb5Ij+PfdETFsPcsvd
-	gUyNgSTkA8fGA/T0stBRx9v/81k1jyY2r4qIReQ4kayGECFf96qCwnGyHoj0jk1N8qbxsggGsY7dw
-	wmDEQDQU+wRBgQ4B6J3jAUvkol1r8kMhICsMGaXzc35nFNxCG2fTP3Yl6mLfwVZYyBxfL41qbfGGM
-	tKNqKiUszn66O3b3UYcrBjalHlf2LocKgn5Ft9h8xnGMkwaqeNwCX8RCY7z00K2TJUPBMHII1ynHc
-	SUJ0a9xT6o//gYnGz+hO+8D0AV3FOyedRPueQtKAtb6B49rPxZ69ppMy6bfDx9eRjmPzd/UiGJJ2f
-	8ZB2EyFjg==;
+	 bh=Oh1Mo6bDf5CUYWGK+t0snlR5XeSE1aaCe5N3b9JMoC4=; b=szW4SA6DAvmPv1K/ZnslISjy1
+	g6vILcbIwDSe0ewkhl+xN/aN9sxdXoCh/F0GipFQGJHlcf2u9th0yK+8nlQMexyQXgIR+E3n16SVr
+	ZdgeQB5c47HQMZ+pL08CtiLRHw/b8O1c1msuNHqAT5SdMdYtm38MKEqVDw/neHeG1QRMEF6fOZuNE
+	q7YeSOMayzHTawoeYSsvnVQaFSf0KLUcloWqGuoGAMPxdoy+3t2h2c7JG7Bg5KBmwO1u83YpaHmo7
+	KEQfZzj4zQ6B1LLZfq1A3RFBwIRmf39ujf6CRNplO4Uxj8D4Yv6zZgQvptEAsC254PsLPcfBkhGhR
+	MYp3UzfNA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1knZOL-0000Ce-Sa; Fri, 11 Dec 2020 03:46:49 +0000
-Received: from mail-oi1-f194.google.com ([209.85.167.194])
+	id 1knZPH-0000QD-G4; Fri, 11 Dec 2020 03:47:47 +0000
+Received: from mail-oi1-f193.google.com ([209.85.167.193])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1knZOJ-0000C5-R6
- for linux-riscv@lists.infradead.org; Fri, 11 Dec 2020 03:46:48 +0000
-Received: by mail-oi1-f194.google.com with SMTP id d189so8361683oig.11
- for <linux-riscv@lists.infradead.org>; Thu, 10 Dec 2020 19:46:47 -0800 (PST)
+ id 1knZPF-0000Pc-EG
+ for linux-riscv@lists.infradead.org; Fri, 11 Dec 2020 03:47:46 +0000
+Received: by mail-oi1-f193.google.com with SMTP id s75so8417442oih.1
+ for <linux-riscv@lists.infradead.org>; Thu, 10 Dec 2020 19:47:45 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to;
- bh=iwVzMGtpSHL3nSep40GqM93jnUr637ufBEvmc9oL7BQ=;
- b=sU3fbFWh3JmjTVT1uHmT4VUgz/nFNz0ajo3zSUHNAzcCfio0SiF5t+K+MxktG4+9I3
- 6K35dWT8hN0jitLqNEiGZ7EsbPQZgxtPtdWpHXWRaStZaUcKEuUZB6JcyJ1W/T590UZJ
- 7828eN11E4zUrKOIGvuKPrM4CwoLYIcV9+iTXx5uVdaKUtkhUT34MX1uZ2WvfkTgHSAW
- Rk85AWjIMP0/Samj2E6betaqs3NSSpcQTtAXUa/2nPgo35r41uVgyjrQwKmjucGkeTW1
- RGQ2CKSuEm6FJOOfYdLQqZcvKxbOMCAL1XEcjz/ljdXNL/B6lfn3JgxTeTMb8+JuV1HF
- lRzQ==
-X-Gm-Message-State: AOAM5335KHglw8JPkfJ5wQ295QSVLQurk+zMeFGUWFmOvjMiNBz3SC47
- bn1g06kLOy79zg1APffODw==
-X-Google-Smtp-Source: ABdhPJxbn2bDUr56MHJSyIKL8JYbMykYRWoRV70y5sdY/tAEPi8Rt3Ge/B+Dd2pOmwAWcSlh6S+KsQ==
-X-Received: by 2002:aca:ad85:: with SMTP id w127mr7853659oie.102.1607658407097; 
- Thu, 10 Dec 2020 19:46:47 -0800 (PST)
+ bh=XhSRab4aMQWwYyuTmi2vIMiRs/pePu7XSUwtatQgq6g=;
+ b=hTyaqxIHYJ1WmkPIqWDOpPwAHcAmivxOLj9BNBw10ypw9eZCB+8WlREsuiovtLRT2Q
+ 7wkIUbkJaHAphYgAqFjo6fXyyGbzn/cOAFN2r1di3Ox8I8avFLBztjOnKjeM5saqS3Y2
+ be//e0mTV2IXcAPJEG9azRFFf8DXbSTqnaRdh4wa7cM4hGdaC0KDTM910vg4YO5wIIbi
+ dg6k79fcQT9s8GcjJgUMi/rbGEzMOZNq0gYBO0BJQB1sdrffdOV7aShXUis4s4SmEEWD
+ I4gaok1bHIdJ4ppnFUPtM/PnT+tD+pJ9PVhNWw2hQDTy9eO5BvotBORxNUvD23x+6zXV
+ Hujg==
+X-Gm-Message-State: AOAM530+GfpcIG4R1/JL56jJPJuND05vrKsPMUFJ5fdQ4DGKg3KzwzB4
+ D3dwT4C0de2VnW8J5YapuQ==
+X-Google-Smtp-Source: ABdhPJxUY0qfNTBPh2nGN2/hb2xbvceB+PnFxN2dfniKPwJhm/a4XaBEIxkKPAEQaDy/NmYFelMwaQ==
+X-Received: by 2002:aca:d4cf:: with SMTP id l198mr7857127oig.170.1607658464855; 
+ Thu, 10 Dec 2020 19:47:44 -0800 (PST)
 Received: from xps15 (24-155-109-49.dyn.grandenetworks.net. [24.155.109.49])
- by smtp.gmail.com with ESMTPSA id s26sm1583997otd.8.2020.12.10.19.46.45
+ by smtp.gmail.com with ESMTPSA id d62sm1511737oia.6.2020.12.10.19.47.43
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 10 Dec 2020 19:46:45 -0800 (PST)
-Received: (nullmailer pid 3603005 invoked by uid 1000);
- Fri, 11 Dec 2020 03:46:44 -0000
-Date: Thu, 10 Dec 2020 21:46:44 -0600
+ Thu, 10 Dec 2020 19:47:44 -0800 (PST)
+Received: (nullmailer pid 3604500 invoked by uid 1000);
+ Fri, 11 Dec 2020 03:47:43 -0000
+Date: Thu, 10 Dec 2020 21:47:43 -0600
 From: Rob Herring <robh@kernel.org>
-To: Yash Shah <yash.shah@sifive.com>
-Subject: Re: [PATCH v3 1/2] dt-bindings: riscv: Update l2 cache DT
- documentation to add support for SiFive FU740
-Message-ID: <20201211034644.GA3602957@robh.at.kernel.org>
-References: <1607596083-81480-1-git-send-email-yash.shah@sifive.com>
- <1607596083-81480-2-git-send-email-yash.shah@sifive.com>
+To: Damien Le Moal <damien.lemoal@wdc.com>
+Subject: Re: [PATCH v8 07/22] dt-bindings: Add Canaan vendor prefix
+Message-ID: <20201211034743.GA3604451@robh.at.kernel.org>
+References: <20201210140313.258739-1-damien.lemoal@wdc.com>
+ <20201210140313.258739-8-damien.lemoal@wdc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <1607596083-81480-2-git-send-email-yash.shah@sifive.com>
+In-Reply-To: <20201210140313.258739-8-damien.lemoal@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201210_224647_894449_FA3EC354 
-X-CRM114-Status: GOOD (  10.37  )
+X-CRM114-CacheID: sfid-20201210_224745_524378_55469DC7 
+X-CRM114-Status: GOOD (  10.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -85,28 +84,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, aou@eecs.berkeley.edu, anup@brainfault.org,
- Jonathan.Cameron@huawei.com, linux-kernel@vger.kernel.org, wsa@kernel.org,
- sachin.ghadi@sifive.com, robh+dt@kernel.org, palmer@dabbelt.com,
- sagar.kadam@sifive.com, paul.walmsley@sifive.com,
- linux-riscv@lists.infradead.org, bp@suse.de, sam@ravnborg.org
+Cc: devicetree@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>, Sean Anderson <seanga2@gmail.com>,
+ linux-gpio@vger.kernel.org, Rob Herring <robh+dt@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 10 Dec 2020 15:58:02 +0530, Yash Shah wrote:
-> The L2 cache controller in SiFive FU740 has 4 ECC interrupt sources as
-> compared to 3 in FU540. Update the DT documentation accordingly with
-> "compatible" and "interrupt" property changes.
+On Thu, 10 Dec 2020 23:02:58 +0900, Damien Le Moal wrote:
+> Update Documentation/devicetree/bindings/vendor-prefixes.yaml to
+> include "canaan" as a vendor prefix for "Canaan Inc.". Canaan is the
+> vendor of the Kendryte K210 RISC-V SoC.
 > 
-> Signed-off-by: Yash Shah <yash.shah@sifive.com>
+> Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
 > ---
->  .../devicetree/bindings/riscv/sifive-l2-cache.yaml | 34 +++++++++++++++++++---
->  1 file changed, 30 insertions(+), 4 deletions(-)
+>  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
 > 
 
-Reviewed-by: Rob Herring <robh@kernel.org>
+Acked-by: Rob Herring <robh@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
