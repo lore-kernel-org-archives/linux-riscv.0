@@ -2,20 +2,20 @@ Return-Path: <SRS0=mTxS=FP=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 19DE0C433FE
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1EAF2C4361B
 	for <linux-riscv@archiver.kernel.org>; Fri, 11 Dec 2020 01:43:58 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CBBAD2312C
+	by mail.kernel.org (Postfix) with ESMTPS id 9A64F2312A
 	for <linux-riscv@archiver.kernel.org>; Fri, 11 Dec 2020 01:43:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CBBAD2312C
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9A64F2312A
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
@@ -23,63 +23,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=ZXHpbdIKnrGdJ4rVSfdovSUF/mBZRzAy0UgFyNSbK2g=; b=tiKeIPKvjRCmxzZXiVKQ/DJlB
-	noz4BofP9IImsz+Kjb6nNUfWAvVeeR8yrN0o87+BTm7IJ2u5WniXH0TIMsNC1XHhGndW1JF0wwedF
-	Qkz4t0z/bzvzF9ftCpbnJYJHZkrENKdK8fiH8mF8qgsLc5bqu+t16Mpz4PH810ffN5qiNrL7BOwBz
-	RKrGezI9J4987iqUUaat9006hy9jQU6OnyR4IMRqX34X37fW2u4FR+7520gGDC4hlRPzZXpVfs4AS
-	JSNotAvw+kvIGQQwuCR4vl8jM693kl+1tVXojQgC6T/t0PySUVty0ipSgW1oh/XAMkiO9zNDfEKZ5
-	NaIPiqQDQ==;
+	 bh=0QuwNKaEXYNkk1oyKW0I0fQz22FKrLInNpNqAUpSrqA=; b=PYihBILZfc5pqLf6A7A+LPV/4
+	Z9XSSrSiSbXu8qO6yi0JDNwp+RJXhR0o9eHZ8eEO5heViYHe581xSgGgHyo7wc1sYcux9y4l1r2If
+	jkq6lM5whO5YYUOziHyNxzIWZxINnY4cRyZ8dVT/qlNE3wGgSjd7oHUL9TZqr170bjmisdbZ1SmcK
+	05y07K7hiG9ldpCibfXyas4Nlni+dSqP/tC3si/MP37SS1QrTeND8IomjMg6LUXxA0ce97Ipb6knR
+	FH25+8SuT7FGd9sYIwZnYqm6Ilj0buv0ACrZCOYshhYDocsCqAVzjR5820zMEoGwYhXNp2cgEWW1/
+	0q6UF84AQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1knXTJ-0002uS-HU; Fri, 11 Dec 2020 01:43:49 +0000
-Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
+	id 1knXTH-0002u3-52; Fri, 11 Dec 2020 01:43:47 +0000
+Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1knXTF-0002tD-Vb
- for linux-riscv@lists.infradead.org; Fri, 11 Dec 2020 01:43:46 +0000
-Received: by mail-pg1-x544.google.com with SMTP id f17so6063845pge.6
- for <linux-riscv@lists.infradead.org>; Thu, 10 Dec 2020 17:43:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+ id 1knXTE-0002tB-DF
+ for linux-riscv@lists.infradead.org; Fri, 11 Dec 2020 01:43:45 +0000
+Received: by mail-pf1-x444.google.com with SMTP id c12so5961897pfo.10
+ for <linux-riscv@lists.infradead.org>; Thu, 10 Dec 2020 17:43:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=o4IO9x5aEMAZkJsJ8UcOzO1BYQWTgRN9yYy1EDB9wVE=;
- b=jrsMsJGnCkHq40AaAwZQoBsb76eJzvdy+Ov+GMBJr1OjpkhHiI32W1id4TXubdcxQb
- 6IqHydCYezugiYO1b06GID82LAQoE85XYjUXEIo19sZrly4sIZqg4DlubBBc+lFAiqQg
- WWFPwR1S1ChmCRzkPC2N4h91MqweoJ2ZJl91N1pTG2iPy0bhZBGXIbUt1EbErHI0yz4P
- ugeiYUFGEsZnC0BWiqdgmuR5sCHWBw7kAu3Kz2HjjOCV5CUQFZwlAGLNJo//m8ncAbhd
- WL8K7rYQQR1P4ayGVqXb9n5+updU1NQUTUNb3Vaz6ron3R+sTLIGiWh2CkqR9K1CVytN
- nu1w==
+ bh=pQu0LnGna1dWoV0eZjzZ6tJ6W057k3Sx2X7eDqkVyI4=;
+ b=P444x4XONVykcGyaVpl0sjZKMddSH0r4u7h7zcjPuUaqB8DfhbIKQMMaEFRUzUPdFl
+ 7iNB/LnfXMsYOeNMw5/WlIXHGl4zc8SYDc7Xt/9GtoDK2iboz6dJz/4YIrzhLOu4pDJt
+ tO07YJ6cgBD45CcZYnMI0DvNjPUl0dym2z9A2rWisUOH2nyC4d26Z+5XJhimavcR/sXD
+ A6NSHBKvzLK/bqThakR3yexeZEp4P/LkWUi4wvGx/azjA84WXhYEWkfu8LzTPN1zQiDD
+ b9ksdhgc0I7BXGsrmMyE0qeanaOZ8fmpi0EiCI22En76OxK3K18ldJA09I99iJpYYif/
+ yTIg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=o4IO9x5aEMAZkJsJ8UcOzO1BYQWTgRN9yYy1EDB9wVE=;
- b=GCMG5WHrbj8WXzt6Fb+EtrvZU9MSqZSdSatz96PxASTXfEcD3ooynZiuFJZ9uaYpzl
- QjsGjvnLoGEL+KLJBrClv0SUO7iWSyCiGQIJxO6jSyQFm+HMZRW6vqHvljv/dzd1osKY
- haonoChODvWctZPdT7aIAKivqK/zKercG3GRfJBNLB8qipMCX35Od9MqDz4F0cBnVYnA
- SkHrq7+w8DjUrbTr0BmwC0VUmtH/7v5JLVGMWTDZTqWqS6o3JKRcbyzOsrnEJSZaEwQ0
- wVNgHlAcEXMxOLEgMlLWFM9wqD3S/8QmxMox8+coZeKm78boq2Lk7alOccngehlzH+L3
- MV5w==
-X-Gm-Message-State: AOAM533UwyfqaKAOqXsJlKXPTrBbHstjcqlUL0GUtJQVfbSdZfV6fyJm
- UJTR/As8wjMskZ/vDiU7aR1ly+GSw3PnEgOx
-X-Google-Smtp-Source: ABdhPJwD1RYPyFMu5Hiyg/+NWIZoyGHbeSJzysO2I5afZck1DDhHH566ivRitSSkDre91/oAcgmsIA==
-X-Received: by 2002:a65:4d48:: with SMTP id j8mr613713pgt.392.1607651022288;
- Thu, 10 Dec 2020 17:43:42 -0800 (PST)
+ bh=pQu0LnGna1dWoV0eZjzZ6tJ6W057k3Sx2X7eDqkVyI4=;
+ b=ZIeG3XIwDcdnmrgOqP9lzm39rE41NmGLkBklYHQuaIskkp1PKH2YfR0nuITOMvf0VR
+ x/coc7p8d1JmHonr5VbTiTcBZ1zzeBsvv4KofZ8CVJeq7BAOBix8IL+yrTC6ztLm182h
+ tIPx+abYGSV3dJBjU8z6brsC8cRU085UOqx5S6Ntn3SsAtSvwQPGi6yamP0AqNdGLBiI
+ vu3ZhMXLpc9o4r9olPOJFCXOtOlvJB97mmqYk9JNPlgEzqgSd5lMTqplkN1zsoPNJA4w
+ ogR0Tr/OWepOoCU6Z2erTEK3GwBUl8wtJu0ZUpKKaKseXA4dHZHHzCuEfAdCQ85Budin
+ V++g==
+X-Gm-Message-State: AOAM530SPlFOhhq1pWrzcdiDZcUxcbvmF6eX8gyr45pRo2v2h/Gz9NSc
+ FdBG65LoTlB3ob9jMLUQon3x/g==
+X-Google-Smtp-Source: ABdhPJw/Y4nD+V1nAjphKP8QMRgU937bQpX0mIpFp/n0KlGyQ1v/YR8CWQrAceBpA3D35PEc3CsnIQ==
+X-Received: by 2002:a65:5bcd:: with SMTP id o13mr9267114pgr.81.1607651020439; 
+ Thu, 10 Dec 2020 17:43:40 -0800 (PST)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id gp14sm8032183pjb.6.2020.12.10.17.43.41
+ by smtp.gmail.com with ESMTPSA id x28sm7592780pff.182.2020.12.10.17.43.39
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 10 Dec 2020 17:43:41 -0800 (PST)
-Date: Thu, 10 Dec 2020 17:43:41 -0800 (PST)
-X-Google-Original-Date: Thu, 10 Dec 2020 17:38:44 PST (-0800)
-Subject: Re: [PATCH v2] riscv: Using printk directly in __show_regs
-In-Reply-To: <20201126133338.125608-1-wangkefeng.wang@huawei.com>
-From: Palmer Dabbelt <palmerdabbelt@google.com>
-To: wangkefeng.wang@huawei.com
-Message-ID: <mhng-749d2791-936b-493d-9b8b-89dfea7ec9da@palmerdabbelt-glaptop1>
+ Thu, 10 Dec 2020 17:43:39 -0800 (PST)
+Date: Thu, 10 Dec 2020 17:43:39 -0800 (PST)
+X-Google-Original-Date: Thu, 10 Dec 2020 17:28:07 PST (-0800)
+Subject: Re: [PATCH 1/1] riscv: provide memmove implementation
+In-Reply-To: <1606727599-8598-2-git-send-email-nylon7@andestech.com>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: nylon7@andestech.com
+Message-ID: <mhng-d7cf2bc5-2d77-4da4-ad30-206628447bc1@palmerdabbelt-glaptop1>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201210_204346_095234_C0A1A6C7 
-X-CRM114-Status: GOOD (  18.69  )
+X-CRM114-CacheID: sfid-20201210_204344_596124_4DC9F517 
+X-CRM114-Status: GOOD (  21.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -91,82 +92,151 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu,
- wangkefeng.wang@huawei.com, john.ogness@linutronix.de,
- Paul Walmsley <paul.walmsley@sifive.com>
+Cc: aou@eecs.berkeley.edu, alankao@andestech.com, nickhu@andestech.com,
+ nick650823@gmail.com, kasan-dev@googlegroups.com, nylon7@andestech.com,
+ nylon7717@gmail.com, linux-riscv@lists.infradead.org, glider@google.com,
+ luc.vanoostenryck@gmail.com, Paul Walmsley <paul.walmsley@sifive.com>,
+ aryabinin@virtuozzo.com, akpm@linux-foundation.org, greentime.hu@sifive.com,
+ dvyukov@google.com
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 26 Nov 2020 05:33:38 PST (-0800), wangkefeng.wang@huawei.com wrote:
-> Covert bulk of pr_cont("...\n") to separate printk calls.
+On Mon, 30 Nov 2020 01:13:19 PST (-0800), nylon7@andestech.com wrote:
+> The memmove used by the kernel feature like KASAN.
 >
-> Note that a pr_cont() message with a trailing newline will
-> "terminate" the continous line so that it can no longer be
-> continued, also it is possible to sort out simultaneous dumps
-> from multiple CPUs with CONFIG_PRINTK_CALLER enabled.
->
-> And align the printing formats.
->
-> Suggested-by: John Ogness <john.ogness@linutronix.de>
-> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+> Signed-off-by: Nick Hu <nickhu@andestech.com>
+> Signed-off-by: Nick Hu <nick650823@gmail.com>
+> Signed-off-by: Nylon Chen <nylon7@andestech.com>
 > ---
->  arch/riscv/kernel/process.c | 24 ++++++++++++------------
->  1 file changed, 12 insertions(+), 12 deletions(-)
+>  arch/riscv/include/asm/string.h |  8 ++---
+>  arch/riscv/kernel/riscv_ksyms.c |  2 ++
+>  arch/riscv/lib/Makefile         |  1 +
+>  arch/riscv/lib/memmove.S        | 64 +++++++++++++++++++++++++++++++++
+>  4 files changed, 71 insertions(+), 4 deletions(-)
+>  create mode 100644 arch/riscv/lib/memmove.S
 >
-> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-> index e41b733abeaa..2119d49feea5 100644
-> --- a/arch/riscv/kernel/process.c
-> +++ b/arch/riscv/kernel/process.c
-> @@ -44,30 +44,30 @@ void __show_regs(struct pt_regs *regs)
->  {
->  	show_regs_print_info(KERN_DEFAULT);
->
-> -	pr_cont("epc: " REG_FMT " ra : " REG_FMT " sp : " REG_FMT "\n",
-> +	printk("epc: " REG_FMT " ra : " REG_FMT " sp : " REG_FMT "\n",
->  		regs->epc, regs->ra, regs->sp);
-> -	pr_cont(" gp : " REG_FMT " tp : " REG_FMT " t0 : " REG_FMT "\n",
-> +	printk("gp : " REG_FMT " tp : " REG_FMT " t0 : " REG_FMT "\n",
->  		regs->gp, regs->tp, regs->t0);
-> -	pr_cont(" t1 : " REG_FMT " t2 : " REG_FMT " s0 : " REG_FMT "\n",
-> +	printk("t1 : " REG_FMT " t2 : " REG_FMT " s0 : " REG_FMT "\n",
->  		regs->t1, regs->t2, regs->s0);
-> -	pr_cont(" s1 : " REG_FMT " a0 : " REG_FMT " a1 : " REG_FMT "\n",
-> +	printk("s1 : " REG_FMT " a0 : " REG_FMT " a1 : " REG_FMT "\n",
->  		regs->s1, regs->a0, regs->a1);
-> -	pr_cont(" a2 : " REG_FMT " a3 : " REG_FMT " a4 : " REG_FMT "\n",
-> +	printk("a2 : " REG_FMT " a3 : " REG_FMT " a4 : " REG_FMT "\n",
->  		regs->a2, regs->a3, regs->a4);
-> -	pr_cont(" a5 : " REG_FMT " a6 : " REG_FMT " a7 : " REG_FMT "\n",
-> +	printk("a5 : " REG_FMT " a6 : " REG_FMT " a7 : " REG_FMT "\n",
->  		regs->a5, regs->a6, regs->a7);
-> -	pr_cont(" s2 : " REG_FMT " s3 : " REG_FMT " s4 : " REG_FMT "\n",
-> +	printk("s2 : " REG_FMT " s3 : " REG_FMT " s4 : " REG_FMT "\n",
->  		regs->s2, regs->s3, regs->s4);
-> -	pr_cont(" s5 : " REG_FMT " s6 : " REG_FMT " s7 : " REG_FMT "\n",
-> +	printk("s5 : " REG_FMT " s6 : " REG_FMT " s7 : " REG_FMT "\n",
->  		regs->s5, regs->s6, regs->s7);
-> -	pr_cont(" s8 : " REG_FMT " s9 : " REG_FMT " s10: " REG_FMT "\n",
-> +	printk("s8 : " REG_FMT " s9 : " REG_FMT " s10: " REG_FMT "\n",
->  		regs->s8, regs->s9, regs->s10);
-> -	pr_cont(" s11: " REG_FMT " t3 : " REG_FMT " t4 : " REG_FMT "\n",
-> +	printk("s11: " REG_FMT " t3 : " REG_FMT " t4 : " REG_FMT "\n",
->  		regs->s11, regs->t3, regs->t4);
-> -	pr_cont(" t5 : " REG_FMT " t6 : " REG_FMT "\n",
-> +	printk("t5 : " REG_FMT " t6 : " REG_FMT "\n",
->  		regs->t5, regs->t6);
->
-> -	pr_cont("status: " REG_FMT " badaddr: " REG_FMT " cause: " REG_FMT "\n",
-> +	printk("status: " REG_FMT " badaddr: " REG_FMT " cause: " REG_FMT "\n",
->  		regs->status, regs->badaddr, regs->cause);
->  }
->  void show_regs(struct pt_regs *regs)
+> diff --git a/arch/riscv/include/asm/string.h b/arch/riscv/include/asm/string.h
+> index 924af13f8555..5477e7ecb6e1 100644
+> --- a/arch/riscv/include/asm/string.h
+> +++ b/arch/riscv/include/asm/string.h
+> @@ -12,16 +12,16 @@
+>  #define __HAVE_ARCH_MEMSET
+>  extern asmlinkage void *memset(void *, int, size_t);
+>  extern asmlinkage void *__memset(void *, int, size_t);
+> -
+>  #define __HAVE_ARCH_MEMCPY
+>  extern asmlinkage void *memcpy(void *, const void *, size_t);
+>  extern asmlinkage void *__memcpy(void *, const void *, size_t);
+> -
+> +#define __HAVE_ARCH_MEMMOVE
+> +extern asmlinkage void *memmove(void *, const void *, size_t);
+> +extern asmlinkage void *__memmove(void *, const void *, size_t);
+>  /* For those files which don't want to check by kasan. */
+>  #if defined(CONFIG_KASAN) && !defined(__SANITIZE_ADDRESS__)
+> -
+>  #define memcpy(dst, src, len) __memcpy(dst, src, len)
+>  #define memset(s, c, n) __memset(s, c, n)
+> -
+> +#define memmove(dst, src, len) __memmove(dst, src, len)
+>  #endif
+>  #endif /* _ASM_RISCV_STRING_H */
+> diff --git a/arch/riscv/kernel/riscv_ksyms.c b/arch/riscv/kernel/riscv_ksyms.c
+> index 450492e1cb4e..5ab1c7e1a6ed 100644
+> --- a/arch/riscv/kernel/riscv_ksyms.c
+> +++ b/arch/riscv/kernel/riscv_ksyms.c
+> @@ -11,5 +11,7 @@
+>   */
+>  EXPORT_SYMBOL(memset);
+>  EXPORT_SYMBOL(memcpy);
+> +EXPORT_SYMBOL(memmove);
+>  EXPORT_SYMBOL(__memset);
+>  EXPORT_SYMBOL(__memcpy);
+> +EXPORT_SYMBOL(__memmove);
+> diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+> index 47e7a8204460..ac6171e9c19e 100644
+> --- a/arch/riscv/lib/Makefile
+> +++ b/arch/riscv/lib/Makefile
+> @@ -2,5 +2,6 @@
+>  lib-y			+= delay.o
+>  lib-y			+= memcpy.o
+>  lib-y			+= memset.o
+> +lib-y			+= memmove.o
+>  lib-$(CONFIG_MMU)	+= uaccess.o
+>  lib-$(CONFIG_64BIT)	+= tishift.o
+> diff --git a/arch/riscv/lib/memmove.S b/arch/riscv/lib/memmove.S
+> new file mode 100644
+> index 000000000000..07d1d2152ba5
+> --- /dev/null
+> +++ b/arch/riscv/lib/memmove.S
+> @@ -0,0 +1,64 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +
+> +#include <linux/linkage.h>
+> +#include <asm/asm.h>
+> +
+> +ENTRY(__memmove)
+> +WEAK(memmove)
+> +        move    t0, a0
+> +        move    t1, a1
+> +
+> +        beq     a0, a1, exit_memcpy
+> +        beqz    a2, exit_memcpy
+> +        srli    t2, a2, 0x2
+> +
+> +        slt     t3, a0, a1
+> +        beqz    t3, do_reverse
+> +
+> +        andi    a2, a2, 0x3
+> +        li      t4, 1
+> +        beqz    t2, byte_copy
+> +
+> +word_copy:
+> +        lw      t3, 0(a1)
+> +        addi    t2, t2, -1
+> +        addi    a1, a1, 4
+> +        sw      t3, 0(a0)
+> +        addi    a0, a0, 4
+> +        bnez    t2, word_copy
+> +        beqz    a2, exit_memcpy
+> +        j       byte_copy
+> +
+> +do_reverse:
+> +        add     a0, a0, a2
+> +        add     a1, a1, a2
+> +        andi    a2, a2, 0x3
+> +        li      t4, -1
+> +        beqz    t2, reverse_byte_copy
+> +
+> +reverse_word_copy:
+> +        addi    a1, a1, -4
+> +        addi    t2, t2, -1
+> +        lw      t3, 0(a1)
+> +        addi    a0, a0, -4
+> +        sw      t3, 0(a0)
+> +        bnez    t2, reverse_word_copy
+> +        beqz    a2, exit_memcpy
+> +
+> +reverse_byte_copy:
+> +        addi    a0, a0, -1
+> +        addi    a1, a1, -1
+> +
+> +byte_copy:
+> +        lb      t3, 0(a1)
+> +        addi    a2, a2, -1
+> +        sb      t3, 0(a0)
+> +        add     a1, a1, t4
+> +        add     a0, a0, t4
+> +        bnez    a2, byte_copy
+> +
+> +exit_memcpy:
+> +        move a0, t0
+> +        move a1, t1
+> +        ret
+> +END(__memmove)
 
-For some reason I remember having these as printk()s originally, but I don't
-see that in the git history so maybe it was from before we merged the port?  I
-don't really understand the difference here, and I thought using printk()
-directly wasn't recommended?
+Thanks, this is on for-next.
 
 _______________________________________________
 linux-riscv mailing list
