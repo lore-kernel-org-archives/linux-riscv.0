@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2326EC4167B
-	for <linux-riscv@archiver.kernel.org>; Sun, 13 Dec 2020 08:10:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EE4FBC433FE
+	for <linux-riscv@archiver.kernel.org>; Sun, 13 Dec 2020 08:10:45 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9F1BF22D6F
-	for <linux-riscv@archiver.kernel.org>; Sun, 13 Dec 2020 08:10:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9F1BF22D6F
+	by mail.kernel.org (Postfix) with ESMTPS id 2FA5322D6F
+	for <linux-riscv@archiver.kernel.org>; Sun, 13 Dec 2020 08:10:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2FA5322D6F
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,73 +23,73 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=SdECECkEwc2TD5tymtiEBhrnUsitFmz9wTDpDGLmhdI=; b=KLK5n06hQ9jNoQuAypWxbOFhg
-	lr2j9ZaPI9vR6lHUjljO/xeuVeAuwY5uLp+tIFnvgY/LkdCUt4qxiUMiF4rOgLnfI2/q0l435244h
-	FZJTNUpMYIRz/V6MKmso0jvTYLwi5nLDqppM1j3WwZZoJcGdfJCpQ0jXcL7Wl5yD688czMtPIau0K
-	KJx+w9Rp1VNIEkh2ZvtQ5b4y2RHj1xC0tem3jdhjaDrzfGmSq+4NKdD/nopYrVe93kAuv5VNMfQz1
-	Pk2QJK2JiHUHzZg4lRjUrUZqXOnIy5By4YQiUYY1UvnTTkkS6MWuv6QPr35YDSYRphRh1wWNVlU6X
-	BJjV91xbA==;
+	 bh=CN3Zz+K5j3a6oLdZlViZr98CW/lAmZNL6eMOEGnxk+w=; b=aKeOvaa+LTef0o9xAJOI4rNBL
+	acfs3QMfd8NCBkY2TT490tWHen/jXdaZHRUxJu5QXZZEofcfd2uVpM12GOmiuaGXry6bveb/vywOP
+	hN7TmqSKSwCqBMA7kWICtN5Kc1LdnktYQERYNBrckmxFnyU5bRy9MFeJWsMPDBbgscI0eaSinEtCO
+	jIqe80Ckqn6CCpxP3z/ZkB2EPMw7B5NOVf6g93H51hiWuzvQ/pTFXp9mMfnzQCi84C3xVViojKYbM
+	nsHdPAEwsu5R1Jil31Snc103de9tb9q3yO/KMTQhE4NEgTBq7STw1foCWDypxArY6rgWFUgwZVLzB
+	Vt7lduhAg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1koMSg-0002Uk-9V; Sun, 13 Dec 2020 08:10:34 +0000
+	id 1koMSj-0002Vg-OR; Sun, 13 Dec 2020 08:10:37 +0000
 Received: from esa6.hgst.iphmx.com ([216.71.154.45])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1koMSX-0002SW-Uk
- for linux-riscv@lists.infradead.org; Sun, 13 Dec 2020 08:10:28 +0000
+ id 1koMSa-0002SE-67
+ for linux-riscv@lists.infradead.org; Sun, 13 Dec 2020 08:10:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1607847026; x=1639383026;
+ t=1607847028; x=1639383028;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=AeXALpcFI2zXhzG/wZi1dKZAPJWbKG/DcS+NIXfB8/U=;
- b=cth9kCyMO/V0d0jOZ60OIpQFy7EAV8+qXRGvdxaszHOacw2eDZ38gmwA
- 2bsDd6i3cPxCezmPuL+/EKlU5y3XcrQUSjodSow2aefSvQKuI2dIaOSlO
- 3eHZ7vjyZJgf7lmBTBiAoz+TaKOO8Z8O1bAufmZmfud6MonlReIqOn8Yl
- xLuz6y6hEdH9Kf7DVnxeaQQNWDfU/9SkigqyRE9C0O+Ru55Pnk6JuVWSI
- lHUS5mlxXxVWCbpW3vHzQYCLLk5gSuSr9ZfoFEteI43pYLjaCQlRP5RvG
- 72wq5Gq/cYas5qUjD9v8v2hBckn/fFcaS3DXht8vByO/tZGH8YmQrZ8yP Q==;
-IronPort-SDR: yuaajnX2M0to7FAxbIZnQH3QXUCXfduKDpFybKqBbXxB2erBrJpl7xJE3Um7qEV6IJGkcn1Vg1
- I2Xa2drRdMLehbnNy3VTn3TCN2gMX12tXxnIrbKCXTlfiTWdAxjWRO3xZVe8kzRUDleQe1USuy
- uO8cPSV9Ow/dqYIQByRs+//KIEBjM3j7DZnp2XZknPJsdrAyeLFt6zXKyWuvIIkeSCy9SBdIfT
- yRA1lPhT41Hn7rzojMzcggebKlcqQuIa0Jy9jNUzuGe3FVy4vS94wGyIyz25kbwi8TCO2uaJPX
- 1oA=
-X-IronPort-AV: E=Sophos;i="5.78,415,1599494400"; d="scan'208";a="156235142"
+ bh=muoLqIq9oUwVuEYLXSApkgkU2WvgA1DCXiwKKEwbKSU=;
+ b=BqGeCLMOnbKW+MWwyCvvkdX1Ow83VXBV0mdGbnP1JGFsC7IuKlJY2bjG
+ UL/H5XvUq174llY9HG16fD+OWB5BvhcrTh2zy3HLbwq60BO6D/rKchZme
+ okGdAvvDYRGDYxEcLFZ6Si4JP3clNiYAjvIXJrbKgor6e0uZM/gcoChRH
+ SMq5zQtcsx5R+R+UATXkzeUC5lJQSSQFWlIvt6nnXvU1TUnS/wk77eBnr
+ YHlbUWlWC8LDskHncQei7SoCJSVhHKTaeD6aShPmn1+3whgbYVv4ElT05
+ g5BjIxdVo2PSrsnsJ3DlCPqLymsg6HCw/0vIrpU9L0I8EeYTbMKYlzgag w==;
+IronPort-SDR: 6JOItdEVxjvkYNYDDMwfn6a1h6Z5i5tAE3Eq3dABEfIsw3i4nRIy4P8dKY9rG+CB+c64jXJ2hz
+ AJNvAINszsIDzEl2xdBrtDIuqyHkRd0vTD17qKQZzB/PFj+dyclgZvLpTY33v8Lt8G91dm7LVk
+ CsC3yCM+Cvh54dh+J3EwN24HMb1/FZUahLo2GxZfVZ/t5c1/8Zbx7DJfHxd/prQWyKOintjV+/
+ jovjVJGeMDyQEQInLo6khALSlXeFX1Z/zQLKBVellu/7DoDCX3OJ3PSjfW0rRbUmRwPkdNKAjI
+ 43Q=
+X-IronPort-AV: E=Sophos;i="5.78,415,1599494400"; d="scan'208";a="156235144"
 Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
  ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 13 Dec 2020 16:10:25 +0800
-IronPort-SDR: NszWZki9DlyZODCd1WfivfH6KkzQ/qlhSPdv4cP2XcfQ4fRzQK7pnAe7DTEScSyHEXu4TOtIRS
- Q8l6wQlQkNkqKK0RqsWZ0o0CBy4PNeQP+m4qDhcExLqDe/bX766A/NJlgIgODFEx5Obf3fBVqv
- 4nlccBIfofDyheYWddVlstfdpNhq4UXFOKWSWZQ2eFjf2JMIoOzOisr/5FAeABL5Dnqj6I6crJ
- aI4hw47UhGs7RG8ffEPMsfI8p96ACBvtwAZe2ngg02ZGNtVEyx9bjnbIuvz2IpEUhBNbwDCnO1
- DiYlP4iTNOgJmJzmYlUDJTIo
+ by ob1.hgst.iphmx.com with ESMTP; 13 Dec 2020 16:10:27 +0800
+IronPort-SDR: 4OG6a8CedZe6dop4OCcEOLm6ot4S7CvJf20okaKNQtnafVv3LVRmOh+3DA0iuhngjupYYJw83u
+ /PGD78I3EshSQ6KDs7/OPUkg6YW+3YcSqKwM7n/QEVo3k8csJdfNlhboINjOdoVWIJsDS0dd9Y
+ Kz6LSRHhohBf4TB2XCThQLyYYhiTjVF7mhXShHfuFMOtzOFErurAVh2hpuHjmLjKa9f+6wzrS0
+ qdf8taF/Udt/bOR9umFUhncdgQaSNMonCm4l+q3CDdhQFeI5VBFz0APeaQBDoByestWj8lXiOU
+ 2272iEYzpoNXCEZYrAQkl8Dr
 Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
  by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 12 Dec 2020 23:54:13 -0800
-IronPort-SDR: wEKjSUXxUeuWWffbNyplSQMPzKvNIVkiXiYpz7jctDt7DMQH8StyK7A1Jp8QcEBGqe1u1i33Ak
- 4wrRdUN0HuVmFki8qmY0HWFRXBl8LdHxZ1+g2G06aYBbqmUN2QeRVaMCtjZenshm8pgTsKz/gq
- qYDxfYbuFP8HMLJOWG1qem1eDHt/h4zzn4ZPuVn1WS/rpxHgWaYByA1HKILr9SZMY6gnxuibvH
- RezyDUq5pwKEymYwWhzEM2+iyupcSBesu29nFb7Y6zX1UZBKaXFhiZTLKSW+xej/z887Er9chC
- Dkk=
+ 12 Dec 2020 23:54:15 -0800
+IronPort-SDR: JNYt3tKikLR+31qmHDtIbo5dDeSqHeVtS19c9DBzbMhE1f0aiK1UpEoNaT/7NfnRIxihfR1D9U
+ l8wHqO7xh7V4j/W5qzweqpRLk9Sy2JRJHYZYR3ZN00PF/QQ9fOa71it5Ykg5iGP+wpI+CwLzPg
+ g8y18DqbH5xLMX9tj5rhyqZHwMByZtOId4L5BBmBzNyq5RIaRDrVHjN6cFbcprI80l+qULzLGX
+ HS6Coe8gwCabV/Z/0gGgl3vM6ix6KF2uy85UTsXeMDoWPHlIiVyoncOgEZffc5OzcnvqL3batN
+ wZ8=
 WDCIronportException: Internal
 Received: from phd004806.ad.shared (HELO twashi.fujisawa.hgst.com)
  ([10.84.71.197])
- by uls-op-cesaip02.wdc.com with ESMTP; 13 Dec 2020 00:10:24 -0800
+ by uls-op-cesaip02.wdc.com with ESMTP; 13 Dec 2020 00:10:26 -0800
 From: Damien Le Moal <damien.lemoal@wdc.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
  Rob Herring <robh+dt@kernel.org>, devicetree@vger.kernel.org,
  Stephen Boyd <sboyd@kernel.org>, linux-clk@vger.kernel.org,
  Linus Walleij <linus.walleij@linaro.org>, linux-gpio@vger.kernel.org,
  Philipp Zabel <p.zabel@pengutronix.de>
-Subject: [PATCH v9 02/22] riscv: Fix sifive serial driver
-Date: Sun, 13 Dec 2020 17:09:56 +0900
-Message-Id: <20201213081016.179192-3-damien.lemoal@wdc.com>
+Subject: [PATCH v9 03/22] riscv: Enable interrupts during syscalls with M-Mode
+Date: Sun, 13 Dec 2020 17:09:57 +0900
+Message-Id: <20201213081016.179192-4-damien.lemoal@wdc.com>
 X-Mailer: git-send-email 2.29.2
 In-Reply-To: <20201213081016.179192-1-damien.lemoal@wdc.com>
 References: <20201213081016.179192-1-damien.lemoal@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201213_031027_888248_AD3DC2E8 
-X-CRM114-Status: GOOD (  13.13  )
+X-CRM114-CacheID: sfid-20201213_031029_116568_4F310820 
+X-CRM114-Status: GOOD (  12.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -107,37 +107,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Setup the port uartclk in sifive_serial_probe() so that the base baud
-rate is correctly printed during device probe instead of always showing
-"0".  I.e. the probe message is changed from
-
-38000000.serial: ttySIF0 at MMIO 0x38000000 (irq = 1,
-base_baud = 0) is a SiFive UART v0
-
-to the correct:
-
-38000000.serial: ttySIF0 at MMIO 0x38000000 (irq = 1,
-base_baud = 115200) is a SiFive UART v0
+When running is M-Mode (no MMU config), MPIE does not get set. This
+results in all syscalls being executed with interrupts disabled as
+handle_exception never sets SR_IE as it always sees SR_PIE being
+cleared. Fix this by always force enabling interrupts in
+handle_syscall when CONFIG_RISCV_M_MODE is enabled.
 
 Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
 Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
-Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
 ---
- drivers/tty/serial/sifive.c | 1 +
- 1 file changed, 1 insertion(+)
+ arch/riscv/kernel/entry.S | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/drivers/tty/serial/sifive.c b/drivers/tty/serial/sifive.c
-index 13eadcb8aec4..214bf3086c68 100644
---- a/drivers/tty/serial/sifive.c
-+++ b/drivers/tty/serial/sifive.c
-@@ -999,6 +999,7 @@ static int sifive_serial_probe(struct platform_device *pdev)
- 	/* Set up clock divider */
- 	ssp->clkin_rate = clk_get_rate(ssp->clk);
- 	ssp->baud_rate = SIFIVE_DEFAULT_BAUD_RATE;
-+	ssp->port.uartclk = ssp->baud_rate * 16;
- 	__ssp_update_div(ssp);
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index 524d918f3601..080eb8d78589 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -155,6 +155,15 @@ skip_context_tracking:
+ 	tail do_trap_unknown
  
- 	platform_set_drvdata(pdev, ssp);
+ handle_syscall:
++#ifdef CONFIG_RISCV_M_MODE
++	/*
++	 * When running is M-Mode (no MMU config), MPIE does not get set.
++	 * As a result, we need to force enable interrupts here because
++	 * handle_exception did not do set SR_IE as it always sees SR_PIE
++	 * being cleared.
++	 */
++	csrs CSR_STATUS, SR_IE
++#endif
+ #if defined(CONFIG_TRACE_IRQFLAGS) || defined(CONFIG_CONTEXT_TRACKING)
+ 	/* Recover a0 - a7 for system calls */
+ 	REG_L a0, PT_A0(sp)
 -- 
 2.29.2
 
