@@ -2,94 +2,92 @@ Return-Path: <SRS0=J7tQ=FR=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-21.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 35C29C433FE
-	for <linux-riscv@archiver.kernel.org>; Sun, 13 Dec 2020 13:51:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C396FC0018C
+	for <linux-riscv@archiver.kernel.org>; Sun, 13 Dec 2020 13:51:25 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A6617222B6
-	for <linux-riscv@archiver.kernel.org>; Sun, 13 Dec 2020 13:51:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A6617222B6
+	by mail.kernel.org (Postfix) with ESMTPS id 4DD0222A84
+	for <linux-riscv@archiver.kernel.org>; Sun, 13 Dec 2020 13:51:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4DD0222A84
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=DzIxaW33Wg/oxbcb+lQcj7geWEQpinl2AoRu0SONOmk=; b=rYCMPhMYTQRVAqXB0HWLmXwwq
-	CrLTh5RtwSG7wG5QTHhqF8bw1DIvO+43gKVyDezlTXWNvgjKML5f9BszcLr1iQp7dqVo9RTGaBthM
-	AMTX72kqRxmnz2XlTTQ0oyj18ivTdRcPJK6XVI0gFJIMwA78/kWzl49xsG3GXEoapPCsL/wsuOvNv
-	JHw7NceRhf4jREI/0FSn2MfG0FiDnQ3umgR9w51J1S4TuV6ipIrpqX+X/+aGFZMTIIrRcAzOETqdv
-	PTT2zXKSPsCYru4dPzn6XiajvekeM8uBlDGKZ/VM07Va5CqTyHuK39FCzwlt9DmgUiUJPu/gAVyZJ
-	YW9Li9qqQ==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PnVFqFc2gz0/m9Mm4T81KstnleafGPcfdRnAjwrIwsE=; b=AhCibGTnOLgaHBUKlBIaPDStKp
+	C3tElUY19FReCuLE5XfyCu57BpCTXxN/aw4YelAUsSvX2116XldHCJKmxe092bygEFwzoqL2wzFbr
+	6cdDgxa0MXy+8XrIoT8AkzNB/UIFhC+nu0yl2GL9yWEdtzWg2GpYLSEXPgF/IJUYlX5JcSdzLI5v/
+	3/bMDOpHXExDG0FrmCxosHv0vlscbHOa7gU0D9QIgwQ5zXuONDHVKOpvX6h8D7h6xfdBVDvylkGvx
+	9tUOhMg8DfPkLnwiQIHjfWt/xtFHBtXQuqjZ2U8qUXzBSlUMXppKCsKQdtvbOvPOrsig8pay+HGx7
+	1G3jO88Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1koRmQ-0000Eh-2U; Sun, 13 Dec 2020 13:51:18 +0000
+	id 1koRmH-0000BZ-8I; Sun, 13 Dec 2020 13:51:09 +0000
 Received: from esa6.hgst.iphmx.com ([216.71.154.45])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1koRmM-0000AJ-MK
- for linux-riscv@lists.infradead.org; Sun, 13 Dec 2020 13:51:16 +0000
+ id 1koRmA-0000AJ-Pb
+ for linux-riscv@lists.infradead.org; Sun, 13 Dec 2020 13:51:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1607867475; x=1639403475;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=ClvrNvc9ueVuR2BQ2Aez67Uy8hk5dNK+OucEci/qmOc=;
- b=OJcOnijsnbpR5HeRwmtV8DlKFHNBwre07jy/vLi74KEjWbS04XjXG1Od
- JnWL6Ncf85etBLYy+qVeyKfZhddQgxdKsz12R0depc5G2sIoWSJu671kb
- ovWSzTiUI8iap28DAkCEW9yJ0OJ4fohcZudPBjPXgifZO5KXUyHZcu8vx
- /Qho0pfnMop3Aiu/wwp30CJsTUhS+CYSBX9/seqyopUdxTUwlBFHchbHS
- pJiXCsp/GDyUmlq0ERB148LX/bN5ascp6Hr4iMiBvAZeJzyYUsypeh59I
- kljjbI9bN5KI3VhEzE0ZRKC0yLN6eEfezABWnvMaoH+LXH09js5CQrHGk w==;
-IronPort-SDR: CdcY+WbGN+/GnBQ5WZmI9Wf+oRQqmSInMF6Ufpd0RG8IzqlHAKbte51i5TLTB+cfaAR6/Qj6Mm
- G/ukRs3oDve2y6Qoegh1O8zHG4rzGf2zkoSosqzceVObGfkwT4jmI4W6/x6Z78smnc8oVglqIV
- 0p17HXvFLG4BLnLDGIyC2C6/oFJtPBQeOSZz2BEMFIry6J1vTEu5dS16FmX+W1BAMZhomdPI0Q
- 0dpHe2S+R2wZN+lDQ80E9L4o1CwRlGzNuG7irKj7FGUjwapO7T3P7gtkarPZRPLCFBAd8g5W4K
- pzA=
-X-IronPort-AV: E=Sophos;i="5.78,416,1599494400"; d="scan'208";a="156242566"
+ t=1607867463; x=1639403463;
+ h=from:to:cc:subject:date:message-id:mime-version:
+ content-transfer-encoding;
+ bh=FGKm1Qsi+PWrGidQ/IF49t45nHp6Ozn40HZc64VFdp4=;
+ b=F0+b/y2hf16VFGItF6pWSOevzvy9fyYWJh/17OK+zHXfDQlWKvuPaNVI
+ dWa3WQ5zki2KgTlfVSZy++l7s8m9TsozNGsTqhaI58XepfmLi/nR6I226
+ e1MSPAfUp4UBeTYTUNaPS+E6w4VO1enjZej+eEz493MepLXuxljM4Jzr9
+ f1qf5yBLhpJ+rJMU0z/b3XtFrZdqutRePBDmOdJXKq1fl8uJTcbE65cSQ
+ T5WhjlveRgECmxHsA57HjJrE9Zkv+MPyBXElH6QGQ1dbSue6Mwponwr1i
+ YvbxxIZI53C4lZQwYrngNZUFkcGotuO2bEzmUmzACvS/0udfXPmEOGJZO Q==;
+IronPort-SDR: EubExKQO6RGcsIbDAM84n30eH0MtBJ+eYepC54WBoUA0fpD82xaGtbLJlIqCfXHy4979aFmi4I
+ mfivT+rQ06aA8CXnGOADBXISCeRaJEMqkQVGV+utLGBe4N8/oye70XBLxxFTUjEsCBXNER8XP4
+ /udq5lvFXSBfq8TlEEkeOzN3Emwu9ysHV+YRp4M3iEPxy+e38CgMyv+s9g7JwgvkMfNBSuq76p
+ Yp7m/5zUsghoyH3uoma9ou6e43nOnp4usp9cyUclTtPEpnUsCyf641pc2Z6VLKqvE5zhY1Lq94
+ Qu4=
+X-IronPort-AV: E=Sophos;i="5.78,416,1599494400"; d="scan'208";a="156242546"
 Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
  ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 13 Dec 2020 21:51:15 +0800
-IronPort-SDR: cML5op8H6Qijkh1e8YpWEg+5VtODs5id14LecR6swtMbCRwntEv7sdDh7hiURH52rPvQBqYJH8
- 4sWmDiI5QcaEw8qXhDYrXFBYXw2PuMobOTCx5P8S04VcSbcCTZJ28m6yC8aWxtGpIxQiR+S4jS
- 77mv8WTIvb2mdNNs/oxM9kcYksLCWLyIVbTgSJKDNIqyXH5GP+6PzWxMGQF7/u5bAPvu7RzVac
- PZp5I8QLxWIr808bditMllssUOoIHIvJdWnopujbXl2/CA4BXUM2Tm/sRuE1ppXDWtJPezVS5z
- iDRun/AKAVKtnutWlXtJV4qO
+ by ob1.hgst.iphmx.com with ESMTP; 13 Dec 2020 21:51:01 +0800
+IronPort-SDR: 3vOwOUXqfqIGUhRptbsB/QPfGGARSg2t+d6qr4tSBZLUelx8YH6hFfXqpCcKBHCvb29WeT36oS
+ QVvDzk/wyQkNkAQ+0rYS/6ybWCPirtLF/STXvvrLj0K1jUI+V2043yPsb/QIsjEyDiEzlioYoR
+ 1tLokEKa7UKd85bd0HuQRUsZLaKBVy9DBeYa7wsZlssCceODV8FgnfZV1A/DMieOMDTy0e9yMk
+ cCOtmi7JxP6srCqFTjsaubP2Ee6cIechz7CnGM37rbB0V5n0Li4+GtAfHRSugiyd8E3uS9327H
+ Lby4iQ3pl4TJlU2lakzLmVOu
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
  by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 13 Dec 2020 05:34:59 -0800
-IronPort-SDR: v85EmyuuC3/SIjv7Ii81tcrk712tppUTR02GD9wXDmD9M+zyh6h8MszFpw2vtJJG0QTk/egpCh
- GzWz9c9+FnPF1UNjS565iyXfcnBWmcKwx9tIJwt/M9xuq7sKmOtNT3SAsR+QGJuQaXJfBgRkY5
- Q0Bpl9KSjyA0Ah590eoCS2u+oFDvqPQ8UwcOaT0/MCt9AvURtTisZNbyXQE+idzGrmUHVcdtiS
- xlprpV28HVwjtkQ0SV8jEyAc0liwLZ7Tjpt5Wng2R7dJ7ChDmTmcIABd5PUfPuuCNWaMV8x25a
- Hjs=
+ 13 Dec 2020 05:34:45 -0800
+IronPort-SDR: GKzb5VNoL3F4GiPF71igddccbN8pgvs8vwl0r2dnRFZoNNK5TXIn5WBgSD9EeaGmJNUObN9jf4
+ x5LZ1JV7wggWhDu8kY7ZXUAxJhNDtkC7+/LX8qoyWCMZeceWKoExM1EN5hT3G2x5XumomlxjPD
+ 4OIsLMPGkWCzCgJJFzc4w/j1jfK6tQx0z5XIO7I4oLrX3xNmXJIrhwNGbSsC1j1XZbf0TYhFiH
+ K/1cyrkwuTH6DgsrDFuwXvsAIcm76rNzX0tLUw3u6XYmIVFZtzXyzztS95YOUmflzlwST8tCFd
+ m/g=
 WDCIronportException: Internal
 Received: from phd004806.ad.shared (HELO twashi.fujisawa.hgst.com)
  ([10.84.71.197])
- by uls-op-cesaip01.wdc.com with ESMTP; 13 Dec 2020 05:51:12 -0800
+ by uls-op-cesaip01.wdc.com with ESMTP; 13 Dec 2020 05:50:58 -0800
 From: Damien Le Moal <damien.lemoal@wdc.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
  Rob Herring <robh+dt@kernel.org>, devicetree@vger.kernel.org,
  Stephen Boyd <sboyd@kernel.org>, linux-clk@vger.kernel.org,
  Linus Walleij <linus.walleij@linaro.org>, linux-gpio@vger.kernel.org,
  Philipp Zabel <p.zabel@pengutronix.de>
-Subject: [PATCH v10 07/23] riscv: cleanup Canaan Kendryte K210 sysctl driver
-Date: Sun, 13 Dec 2020 22:50:40 +0900
-Message-Id: <20201213135056.24446-8-damien.lemoal@wdc.com>
+Subject: [PATCH v10 00/23] RISC-V Kendryte K210 support improvements
+Date: Sun, 13 Dec 2020 22:50:33 +0900
+Message-Id: <20201213135056.24446-1-damien.lemoal@wdc.com>
 X-Mailer: git-send-email 2.29.2
-In-Reply-To: <20201213135056.24446-1-damien.lemoal@wdc.com>
-References: <20201213135056.24446-1-damien.lemoal@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201213_085114_937012_2849B885 
-X-CRM114-Status: GOOD (  21.02  )
+X-CRM114-CacheID: sfid-20201213_085103_105544_E0F601A6 
+X-CRM114-Status: GOOD (  27.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -107,213 +105,245 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce the header file include/soc/canaan/k210-sysctl.h to have a
-common definition of the Canaan Kendryte K210 SoC system controller
-registers. Simplify the k210 system controller driver code by removing
-unused register bits definition. The MAINTAINERS file is updated,
-adding the entry "CANAAN/KENDRYTE K210 SOC SYSTEM CONTROLLER DRIVER"
-with myself listed as maintainer for this driver.
-This is a preparatory patch for introducing the K210 clock driver. No
-functional changes are introduced.
+This series of patches improves support for boards based on the Canaan
+Kendryte K210 RISC-V dual core SoC. Minimal support for this SoC is
+already included in the kernel. These patches complete it, enabling
+support for most peripherals present on the SoC as well as introducing
+device trees for the various K210 boards available on the market today
+from SiPeed and Kendryte.
 
-Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
----
- MAINTAINERS                      |  7 +++
- drivers/soc/canaan/k210-sysctl.c | 93 +++++++++-----------------------
- include/soc/canaan/k210-sysctl.h | 41 ++++++++++++++
- 3 files changed, 74 insertions(+), 67 deletions(-)
+Pathes 1 to 4 are various fixes for riscv arch code and riscv
+dependent devices. Of note here is patch 3 which fix system calls
+execution in the no MMU case, and patch 4 which simplifies DTB builtin
+handling.
+
+Patch 5 fixes naming of directories and configuration options to use the
+K210 SoC vendor name (Canaan) instead of its branding name (Kendryte).
+
+Patch 6 is a preparatory patch cleaning up the K210 system controller
+driver to facilitate introducing the SoC clock driver.
+
+The following patches 7 to 11 document device tree bindings for the SoC
+drivers. The implementation of these drivers is provided in patches 12,
+13 and 14, respectively implementing the SoC clock driver, reset
+controller and SOC pin function control.
+
+Patches 15 to 20 update the existing K210 device tree and add new
+device tree files for several K210 based boards: MAIX Bit, MAIXDUINO,
+MAIX Dock and MAIX Go boards from SiPeed and the KD233 development
+board from Canaan.
+
+Finally the last two patches updates the k210 nommu defconfig to include
+the newly implemented drivers and provide a new default configuration
+file enabling SD card support.
+
+A lot of the work on the device tree and on the K210 drivers come from
+the work by Sean Anderson for the U-Boot project support of the K210
+SoC. Sean also helped with debugging many aspects of this series.
+
+A tree with all patches applied is available here:
+https://github.com/damien-lemoal/linux, k210-sysctl-v22 branch.
+A demonstration of this series used on a SiPeed MAIX Dock
+board together with an I2C servo controller can be seen here:
+https://damien-lemoal.github.io/linux-robot-arm/#example
+
+This tree was used to build userspace busybox environment image that is
+then copied onto an SD card formatted with ext2:
+https://github.com/damien-lemoal/buildroot
+Of note is that running this userspace environment requires a revert of
+commit 2217b982624680d19a80ebb4600d05c8586c4f96 introduced during the
+5.9 development cycle. Without this revert, execution of the init
+process fails. A problem with the riscv port of elf2flt is suspected but
+not confirmed. I am now starting to investigate this problem.
+
+Reviews and comments are as always much welcome.
+
+Changes from v9:
+* Added patch 6 to avoid DTS compilation errors after patch 9 is
+  applied and until patch 16 is applied.
+
+Changes from v8:
+* Addressed Rob's comments on the sysctl driver bindings documentation
+* Fixed a typo in the fpios driver bindings documentation
+
+Changes from v7:
+* Removed the __init annotation for the drivers reset, pinctrl and
+  sysctl drivers probe functions as suggested by Geert. Also removed
+  the __refdata annotation for the struct platform_driver variables of
+  these drivers.
+
+Changes from v6:
+* Annotate struct platform_driver variables with __refdata to avoid
+  section mismatch compilation errors
+* Add empty sentinel entry to of_device_id tables of the sysctl, reset
+  and pinctrl drivers.
+
+Changes from v5:
+* Addressed Philipp's comment on the reset controller driver
+* Added patch 6 to reduce the size of the clock driver patch
+  (now patch 12).
+
+Changes from v4:
+* Simplified reset controller driver using of_xlate callback as
+  suggested by Philipp
+* Fixed compilation error when using other configs than one of the
+  nommu_k210 defconfigs.
+* Addressed most clock driver comments from Stephen.
+* Removed CONFIG_GPIO_SYSFS from defconfigs
+* Rebased on 5.10-rc7
+
+Changes from V3:
+* Add one entry per driver in MAINTAINERS file
+
+Changes from V2:
+* Add MAINTAINERS file entry for the SoC support, listing myself as
+  maintainer.
+* Removed use of postcore_initcall() for declaring the drivers, using
+  the regular builtin_platform_driver() instead.
+* Fixed fpio pinctrl driver bindings documentation as commented by
+  Geert: removed input-schmitt and added input-schmitt-disable, fixed
+  typo and added input-disable and output-disable.
+* Fixed device tree to have cs-gpios active low, as per the default, as
+  active high necessity was an artifact of the gpio level double
+  inversion bug fixed recently.
+* Removed CONFIG_VT from defconfigs to reduce the kernel image size as
+  suggested by Geert.
+
+Changes from v1:
+* Improved DT bindings documentation
+* SPI and GPIO patches removed from this series (and being processed
+  directly through the relevant subsystems directly)
+* Improved device trees
+* Various cleanup and improvments of the drivers
+
+Damien Le Moal (22):
+  riscv: Fix kernel time_init()
+  riscv: Fix sifive serial driver
+  riscv: Enable interrupts during syscalls with M-Mode
+  riscv: Fix builtin DTB handling
+  riscv: Use vendor name for K210 SoC support
+  riscv: cleanup Canaan Kendryte K210 sysctl driver
+  dt-bindings: Add Canaan vendor prefix
+  dt-binding: clock: Document canaan,k210-clk bindings
+  dt-bindings: reset: Document canaan,k210-rst bindings
+  dt-bindings: pinctrl: Document canaan,k210-fpioa bindings
+  dt-binding: mfd: Document canaan,k210-sysctl bindings
+  riscv: Add Canaan Kendryte K210 clock driver
+  riscv: Add Canaan Kendryte K210 reset controller
+  riscv: Add Canaan Kendryte K210 FPIOA driver
+  riscv: Update Canaan Kendryte K210 device tree
+  riscv: Add SiPeed MAIX BiT board device tree
+  riscv: Add SiPeed MAIX DOCK board device tree
+  riscv: Add SiPeed MAIX GO board device tree
+  riscv: Add SiPeed MAIXDUINO board device tree
+  riscv: Add Kendryte KD233 board device tree
+  riscv: Update Canaan Kendryte K210 defconfig
+  riscv: Add Canaan Kendryte K210 SD card defconfig
+
+Damien Le Moal (23):
+  riscv: Fix kernel time_init()
+  riscv: Fix sifive serial driver
+  riscv: Enable interrupts during syscalls with M-Mode
+  riscv: Fix builtin DTB handling
+  riscv: Use vendor name for K210 SoC support
+  riscv: Fix Canaan Kendryte K210 device tree
+  riscv: cleanup Canaan Kendryte K210 sysctl driver
+  dt-bindings: Add Canaan vendor prefix
+  dt-binding: clock: Document canaan,k210-clk bindings
+  dt-bindings: reset: Document canaan,k210-rst bindings
+  dt-bindings: pinctrl: Document canaan,k210-fpioa bindings
+  dt-binding: mfd: Document canaan,k210-sysctl bindings
+  riscv: Add Canaan Kendryte K210 clock driver
+  riscv: Add Canaan Kendryte K210 reset controller
+  riscv: Add Canaan Kendryte K210 FPIOA driver
+  riscv: Update Canaan Kendryte K210 device tree
+  riscv: Add SiPeed MAIX BiT board device tree
+  riscv: Add SiPeed MAIX DOCK board device tree
+  riscv: Add SiPeed MAIX GO board device tree
+  riscv: Add SiPeed MAIXDUINO board device tree
+  riscv: Add Kendryte KD233 board device tree
+  riscv: Update Canaan Kendryte K210 defconfig
+  riscv: Add Canaan Kendryte K210 SD card defconfig
+
+ .../bindings/clock/canaan,k210-clk.yaml       |   54 +
+ .../bindings/mfd/canaan,k210-sysctl.yaml      |  109 ++
+ .../bindings/pinctrl/canaan,k210-fpioa.yaml   |  171 +++
+ .../bindings/reset/canaan,k210-rst.yaml       |   40 +
+ .../devicetree/bindings/vendor-prefixes.yaml  |    2 +
+ MAINTAINERS                                   |   23 +
+ arch/riscv/Kconfig.socs                       |   33 +-
+ arch/riscv/Makefile                           |    2 +-
+ arch/riscv/boot/dts/Makefile                  |    2 +-
+ arch/riscv/boot/dts/canaan/Makefile           |    5 +
+ arch/riscv/boot/dts/canaan/k210.dtsi          |  621 ++++++++++
+ arch/riscv/boot/dts/canaan/k210_generic.dts   |   46 +
+ arch/riscv/boot/dts/canaan/k210_kd233.dts     |  178 +++
+ arch/riscv/boot/dts/canaan/k210_maix_bit.dts  |  227 ++++
+ arch/riscv/boot/dts/canaan/k210_maix_dock.dts |  229 ++++
+ arch/riscv/boot/dts/canaan/k210_maix_go.dts   |  237 ++++
+ arch/riscv/boot/dts/canaan/k210_maixduino.dts |  201 ++++
+ arch/riscv/boot/dts/kendryte/Makefile         |    4 -
+ arch/riscv/boot/dts/kendryte/k210.dts         |   23 -
+ arch/riscv/boot/dts/kendryte/k210.dtsi        |  125 --
+ arch/riscv/configs/nommu_k210_defconfig       |   39 +-
+ .../riscv/configs/nommu_k210_sdcard_defconfig |   93 ++
+ arch/riscv/include/asm/soc.h                  |   38 -
+ arch/riscv/kernel/entry.S                     |    9 +
+ arch/riscv/kernel/soc.c                       |   27 -
+ arch/riscv/kernel/time.c                      |    3 +
+ arch/riscv/mm/init.c                          |    6 +-
+ drivers/clk/Kconfig                           |    8 +
+ drivers/clk/Makefile                          |    1 +
+ drivers/clk/clk-k210.c                        | 1005 +++++++++++++++++
+ drivers/pinctrl/Kconfig                       |   13 +
+ drivers/pinctrl/Makefile                      |    1 +
+ drivers/pinctrl/pinctrl-k210.c                |  985 ++++++++++++++++
+ drivers/reset/Kconfig                         |   10 +
+ drivers/reset/Makefile                        |    1 +
+ drivers/reset/reset-k210.c                    |  131 +++
+ drivers/soc/Kconfig                           |    2 +-
+ drivers/soc/Makefile                          |    2 +-
+ drivers/soc/canaan/Kconfig                    |   12 +
+ drivers/soc/canaan/Makefile                   |    3 +
+ drivers/soc/canaan/k210-sysctl.c              |   78 ++
+ drivers/soc/kendryte/Kconfig                  |   14 -
+ drivers/soc/kendryte/Makefile                 |    3 -
+ drivers/soc/kendryte/k210-sysctl.c            |  260 -----
+ drivers/tty/serial/sifive.c                   |    1 +
+ include/dt-bindings/clock/k210-clk.h          |   55 +-
+ include/dt-bindings/pinctrl/k210-fpioa.h      |  276 +++++
+ include/dt-bindings/reset/k210-rst.h          |   42 +
+ include/soc/canaan/k210-sysctl.h              |   43 +
+ 49 files changed, 4962 insertions(+), 531 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/canaan,k210-clk.yaml
+ create mode 100644 Documentation/devicetree/bindings/mfd/canaan,k210-sysctl.yaml
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/canaan,k210-fpioa.yaml
+ create mode 100644 Documentation/devicetree/bindings/reset/canaan,k210-rst.yaml
+ create mode 100644 arch/riscv/boot/dts/canaan/Makefile
+ create mode 100644 arch/riscv/boot/dts/canaan/k210.dtsi
+ create mode 100644 arch/riscv/boot/dts/canaan/k210_generic.dts
+ create mode 100644 arch/riscv/boot/dts/canaan/k210_kd233.dts
+ create mode 100644 arch/riscv/boot/dts/canaan/k210_maix_bit.dts
+ create mode 100644 arch/riscv/boot/dts/canaan/k210_maix_dock.dts
+ create mode 100644 arch/riscv/boot/dts/canaan/k210_maix_go.dts
+ create mode 100644 arch/riscv/boot/dts/canaan/k210_maixduino.dts
+ delete mode 100644 arch/riscv/boot/dts/kendryte/Makefile
+ delete mode 100644 arch/riscv/boot/dts/kendryte/k210.dts
+ delete mode 100644 arch/riscv/boot/dts/kendryte/k210.dtsi
+ create mode 100644 arch/riscv/configs/nommu_k210_sdcard_defconfig
+ create mode 100644 drivers/clk/clk-k210.c
+ create mode 100644 drivers/pinctrl/pinctrl-k210.c
+ create mode 100644 drivers/reset/reset-k210.c
+ create mode 100644 drivers/soc/canaan/Kconfig
+ create mode 100644 drivers/soc/canaan/Makefile
+ create mode 100644 drivers/soc/canaan/k210-sysctl.c
+ delete mode 100644 drivers/soc/kendryte/Kconfig
+ delete mode 100644 drivers/soc/kendryte/Makefile
+ delete mode 100644 drivers/soc/kendryte/k210-sysctl.c
+ create mode 100644 include/dt-bindings/pinctrl/k210-fpioa.h
+ create mode 100644 include/dt-bindings/reset/k210-rst.h
  create mode 100644 include/soc/canaan/k210-sysctl.h
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 6f474153dbec..6d06a5fda7ba 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3831,6 +3831,13 @@ W:	https://github.com/Cascoda/ca8210-linux.git
- F:	Documentation/devicetree/bindings/net/ieee802154/ca8210.txt
- F:	drivers/net/ieee802154/ca8210.c
- 
-+CANAAN/KENDRYTE K210 SOC SYSTEM CONTROLLER DRIVER
-+M:	Damien Le Moal <damien.lemoal@wdc.com>
-+L:	linux-riscv@lists.infradead.org
-+S:	Maintained
-+F:	drivers/soc/canaan/
-+F:	include/soc/canaan/
-+
- CACHEFILES: FS-CACHE BACKEND FOR CACHING ON MOUNTED FILESYSTEMS
- M:	David Howells <dhowells@redhat.com>
- L:	linux-cachefs@redhat.com (moderated for non-subscribers)
-diff --git a/drivers/soc/canaan/k210-sysctl.c b/drivers/soc/canaan/k210-sysctl.c
-index 4608fbca20e1..60b474c33d45 100644
---- a/drivers/soc/canaan/k210-sysctl.c
-+++ b/drivers/soc/canaan/k210-sysctl.c
-@@ -12,74 +12,33 @@
- #include <linux/bitfield.h>
- #include <asm/soc.h>
- 
-+#include <soc/canaan/k210-sysctl.h>
-+
- #define K210_SYSCTL_CLK0_FREQ		26000000UL
- 
- /* Registers base address */
- #define K210_SYSCTL_SYSCTL_BASE_ADDR	0x50440000ULL
- 
--/* Registers */
--#define K210_SYSCTL_PLL0		0x08
--#define K210_SYSCTL_PLL1		0x0c
--/* clkr: 4bits, clkf1: 6bits, clkod: 4bits, bwadj: 4bits */
--#define   PLL_RESET		(1 << 20)
--#define   PLL_PWR		(1 << 21)
--#define   PLL_INTFB		(1 << 22)
--#define   PLL_BYPASS		(1 << 23)
--#define   PLL_TEST		(1 << 24)
--#define   PLL_OUT_EN		(1 << 25)
--#define   PLL_TEST_EN		(1 << 26)
--#define K210_SYSCTL_PLL_LOCK		0x18
--#define   PLL0_LOCK1		(1 << 0)
--#define   PLL0_LOCK2		(1 << 1)
--#define   PLL0_SLIP_CLEAR	(1 << 2)
--#define   PLL0_TEST_CLK_OUT	(1 << 3)
--#define   PLL1_LOCK1		(1 << 8)
--#define   PLL1_LOCK2		(1 << 9)
--#define   PLL1_SLIP_CLEAR	(1 << 10)
--#define   PLL1_TEST_CLK_OUT	(1 << 11)
--#define   PLL2_LOCK1		(1 << 16)
--#define   PLL2_LOCK2		(1 << 16)
--#define   PLL2_SLIP_CLEAR	(1 << 18)
--#define   PLL2_TEST_CLK_OUT	(1 << 19)
--#define K210_SYSCTL_CLKSEL0	0x20
--#define   CLKSEL_ACLK		(1 << 0)
--#define K210_SYSCTL_CLKEN_CENT		0x28
--#define   CLKEN_CPU		(1 << 0)
--#define   CLKEN_SRAM0		(1 << 1)
--#define   CLKEN_SRAM1		(1 << 2)
--#define   CLKEN_APB0		(1 << 3)
--#define   CLKEN_APB1		(1 << 4)
--#define   CLKEN_APB2		(1 << 5)
--#define K210_SYSCTL_CLKEN_PERI		0x2c
--#define   CLKEN_ROM		(1 << 0)
--#define   CLKEN_DMA		(1 << 1)
--#define   CLKEN_AI		(1 << 2)
--#define   CLKEN_DVP		(1 << 3)
--#define   CLKEN_FFT		(1 << 4)
--#define   CLKEN_GPIO		(1 << 5)
--#define   CLKEN_SPI0		(1 << 6)
--#define   CLKEN_SPI1		(1 << 7)
--#define   CLKEN_SPI2		(1 << 8)
--#define   CLKEN_SPI3		(1 << 9)
--#define   CLKEN_I2S0		(1 << 10)
--#define   CLKEN_I2S1		(1 << 11)
--#define   CLKEN_I2S2		(1 << 12)
--#define   CLKEN_I2C0		(1 << 13)
--#define   CLKEN_I2C1		(1 << 14)
--#define   CLKEN_I2C2		(1 << 15)
--#define   CLKEN_UART1		(1 << 16)
--#define   CLKEN_UART2		(1 << 17)
--#define   CLKEN_UART3		(1 << 18)
--#define   CLKEN_AES		(1 << 19)
--#define   CLKEN_FPIO		(1 << 20)
--#define   CLKEN_TIMER0		(1 << 21)
--#define   CLKEN_TIMER1		(1 << 22)
--#define   CLKEN_TIMER2		(1 << 23)
--#define   CLKEN_WDT0		(1 << 24)
--#define   CLKEN_WDT1		(1 << 25)
--#define   CLKEN_SHA		(1 << 26)
--#define   CLKEN_OTP		(1 << 27)
--#define   CLKEN_RTC		(1 << 29)
-+/* Register bits */
-+/* K210_SYSCTL_PLL1: clkr: 4bits, clkf1: 6bits, clkod: 4bits, bwadj: 4bits */
-+#define PLL_RESET		(1 << 20)
-+#define PLL_PWR			(1 << 21)
-+#define PLL_BYPASS		(1 << 23)
-+#define PLL_OUT_EN		(1 << 25)
-+/* K210_SYSCTL_PLL_LOCK */
-+#define PLL1_LOCK1		(1 << 8)
-+#define PLL1_LOCK2		(1 << 9)
-+#define PLL1_SLIP_CLEAR		(1 << 10)
-+/* K210_SYSCTL_SEL0 */
-+#define CLKSEL_ACLK		(1 << 0)
-+/* K210_SYSCTL_CLKEN_CENT */
-+#define CLKEN_CPU		(1 << 0)
-+#define CLKEN_SRAM0		(1 << 1)
-+#define CLKEN_SRAM1		(1 << 2)
-+/* K210_SYSCTL_EN_PERI */
-+#define CLKEN_ROM		(1 << 0)
-+#define CLKEN_TIMER0		(1 << 21)
-+#define CLKEN_RTC		(1 << 29)
- 
- struct k210_sysctl {
- 	void __iomem		*regs;
-@@ -140,7 +99,7 @@ static unsigned long k210_sysctl_clk_recalc_rate(struct clk_hw *hw,
- 	 * If the clock selector is not set, use the base frequency.
- 	 * Otherwise, use PLL0 frequency with a frequency divisor.
- 	 */
--	clksel0 = readl(s->regs + K210_SYSCTL_CLKSEL0);
-+	clksel0 = readl(s->regs + K210_SYSCTL_SEL0);
- 	if (!(clksel0 & CLKSEL_ACLK))
- 		return K210_SYSCTL_CLK0_FREQ;
- 
-@@ -237,11 +196,11 @@ static void __init k210_soc_early_init(const void *fdt)
- 	k210_set_bits(PLL_OUT_EN, regs + K210_SYSCTL_PLL0);
- 
- 	k210_set_bits(CLKEN_CPU | CLKEN_SRAM0 | CLKEN_SRAM1,
--		      regs + K210_SYSCTL_CLKEN_CENT);
-+		      regs + K210_SYSCTL_EN_CENT);
- 	k210_set_bits(CLKEN_ROM | CLKEN_TIMER0 | CLKEN_RTC,
--		      regs + K210_SYSCTL_CLKEN_PERI);
-+		      regs + K210_SYSCTL_EN_PERI);
- 
--	k210_set_bits(CLKSEL_ACLK, regs + K210_SYSCTL_CLKSEL0);
-+	k210_set_bits(CLKSEL_ACLK, regs + K210_SYSCTL_SEL0);
- 
- 	iounmap(regs);
- }
-diff --git a/include/soc/canaan/k210-sysctl.h b/include/soc/canaan/k210-sysctl.h
-new file mode 100644
-index 000000000000..2e037db68f35
---- /dev/null
-+++ b/include/soc/canaan/k210-sysctl.h
-@@ -0,0 +1,41 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+/*
-+ * Copyright (C) 2019-20 Sean Anderson <seanga2@gmail.com>
-+ * Copyright (c) 2020 Western Digital Corporation or its affiliates.
-+ */
-+#ifndef K210_SYSCTL_H
-+#define K210_SYSCTL_H
-+
-+/*
-+ * Kendryte K210 SoC system controller registers offsets.
-+ * Taken from Kendryte SDK (kendryte-standalone-sdk).
-+ */
-+#define K210_SYSCTL_GIT_ID	0x00 /* Git short commit id */
-+#define K210_SYSCTL_UART_BAUD	0x04 /* Default UARTHS baud rate */
-+#define K210_SYSCTL_PLL0	0x08 /* PLL0 controller */
-+#define K210_SYSCTL_PLL1	0x0C /* PLL1 controller */
-+#define K210_SYSCTL_PLL2	0x10 /* PLL2 controller */
-+#define K210_SYSCTL_PLL_LOCK	0x18 /* PLL lock tester */
-+#define K210_SYSCTL_ROM_ERROR	0x1C /* AXI ROM detector */
-+#define K210_SYSCTL_SEL0	0x20 /* Clock select controller 0 */
-+#define K210_SYSCTL_SEL1	0x24 /* Clock select controller 1 */
-+#define K210_SYSCTL_EN_CENT	0x28 /* Central clock enable */
-+#define K210_SYSCTL_EN_PERI	0x2C /* Peripheral clock enable */
-+#define K210_SYSCTL_SOFT_RESET	0x30 /* Soft reset ctrl */
-+#define K210_SYSCTL_PERI_RESET	0x34 /* Peripheral reset controller */
-+#define K210_SYSCTL_THR0	0x38 /* Clock threshold controller 0 */
-+#define K210_SYSCTL_THR1	0x3C /* Clock threshold controller 1 */
-+#define K210_SYSCTL_THR2	0x40 /* Clock threshold controller 2 */
-+#define K210_SYSCTL_THR3	0x44 /* Clock threshold controller 3 */
-+#define K210_SYSCTL_THR4	0x48 /* Clock threshold controller 4 */
-+#define K210_SYSCTL_THR5	0x4C /* Clock threshold controller 5 */
-+#define K210_SYSCTL_THR6	0x50 /* Clock threshold controller 6 */
-+#define K210_SYSCTL_MISC	0x54 /* Miscellaneous controller */
-+#define K210_SYSCTL_PERI	0x58 /* Peripheral controller */
-+#define K210_SYSCTL_SPI_SLEEP	0x5C /* SPI sleep controller */
-+#define K210_SYSCTL_RESET_STAT	0x60 /* Reset source status */
-+#define K210_SYSCTL_DMA_SEL0	0x64 /* DMA handshake selector 0 */
-+#define K210_SYSCTL_DMA_SEL1	0x68 /* DMA handshake selector 1 */
-+#define K210_SYSCTL_POWER_SEL	0x6C /* IO Power Mode Select controller */
-+
-+#endif
 -- 
 2.29.2
 
