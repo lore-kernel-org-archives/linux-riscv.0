@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-15.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
 	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7C90EC4361B
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Dec 2020 11:52:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 870E6C4361B
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Dec 2020 11:53:48 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6816323124
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Dec 2020 11:52:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6816323124
+	by mail.kernel.org (Postfix) with ESMTPS id 45B8422CB9
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Dec 2020 11:53:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 45B8422CB9
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,44 +23,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
 	References:To:Subject:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=qctfuN+pCfPl7ME+xgbLJH39dWIMKf/aD7NXl+Bhqg8=; b=RolrkYG44kYLHFg8tufFTYbeq
-	eByTAb7a9Id6YFGVPVCQd2upW+VJbnPGlm/JtGGq622jhqu4RSLnGU5fT21lcJmrOufEZJu5Q/mAG
-	YzCd3MYydclAqvdln/IDYwDILAWXEeSeafG33ysNVMfCmp/aSvPIpypAGZUF4OQzycGOeh3GB61/J
-	zs5Jzh8tz65mjPGPRbGdIUJuB5JHDZhtDGwyYcAvhU2DOpPVw1r1vB2E9M8CatL+QLjfNMcb5BR7S
-	XZaNCRc9vO/Dt3uaHOaZM8fpngFFW3UirHqIrPP3VVeWvtpEz/iBWsDiCeFUCLsP2haHiGUYoxL2b
-	8BVU3fSRg==;
+	 bh=0nCiYnYcpH4y3UuMK6PFr9bGc43HQgOWwTDwPTdefNs=; b=Y6IJDC4H/xpSKLbZCrH+C8vln
+	moLaS96I+xqYnGXF+XbJVD0MZoP4L66oqozQ+q/KBonIzNFjafflbeC8qkKyaDwu1D7AwjaUkHAQA
+	cLE3MFkqJmBi9/S026XhjCuObknz1aMqk58FJzd0gNOSqmdBkc8IAYWXrcW0juc8BThBFJ6MrMoUU
+	ITcvAFTjuQTgXxm/xlidAja2p28DhfQfGD2vaV1BdCQiGx/bhGekCoSyPkt5H8DcMBVGASe22dpKw
+	fOLTvqRPLiN02kW7uzD8s4rmPmbT5jw1OiLsiQ6/9xMupS3uma9pppjHhWFiWTmLvv2lxmiaa7D8w
+	yg5fKg89g==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1komP2-0004Yn-DY; Mon, 14 Dec 2020 11:52:32 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1komQB-0004h9-62; Mon, 14 Dec 2020 11:53:43 +0000
+Received: from szxga06-in.huawei.com ([45.249.212.32])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1komOz-0004YN-Ob
- for linux-riscv@lists.infradead.org; Mon, 14 Dec 2020 11:52:31 +0000
-Received: from DGGEMS406-HUB.china.huawei.com (unknown [172.30.72.60])
- by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4Cvfqt54Z6zM5ZF;
- Mon, 14 Dec 2020 19:51:38 +0800 (CST)
+ id 1komQ9-0004gQ-7b
+ for linux-riscv@lists.infradead.org; Mon, 14 Dec 2020 11:53:42 +0000
+Received: from DGGEMS409-HUB.china.huawei.com (unknown [172.30.72.60])
+ by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4CvfsY4ZjMzhsrR;
+ Mon, 14 Dec 2020 19:53:05 +0800 (CST)
 Received: from [10.174.177.244] (10.174.177.244) by
- DGGEMS406-HUB.china.huawei.com (10.3.19.206) with Microsoft SMTP Server id
- 14.3.498.0; Mon, 14 Dec 2020 19:52:19 +0800
-Subject: Re: [PATCH 1/2] riscv: Add dump stack in show_regs
+ DGGEMS409-HUB.china.huawei.com (10.3.19.209) with Microsoft SMTP Server id
+ 14.3.498.0; Mon, 14 Dec 2020 19:53:30 +0800
+Subject: Re: [PATCH] riscv: Cleanup sbi function stubs when RISCV_SBI disabled
 To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
  <linux-riscv@lists.infradead.org>, Palmer Dabbelt <palmerdabbelt@google.com>
-References: <mhng-54bff36c-7c0d-4448-8859-d8d05cbd8b0d@palmerdabbelt-glaptop1>
- <20201124112054.106960-1-wangkefeng.wang@huawei.com>
+References: <20201126024038.180680-1-wangkefeng.wang@huawei.com>
 From: Kefeng Wang <wangkefeng.wang@huawei.com>
-Message-ID: <30626a12-5cb5-c113-ab6c-9fdc3c598c70@huawei.com>
-Date: Mon, 14 Dec 2020 19:52:19 +0800
+Message-ID: <9aaa0069-12d9-b062-2e7d-95847ee2283c@huawei.com>
+Date: Mon, 14 Dec 2020 19:53:29 +0800
 User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
  Thunderbird/60.7.0
 MIME-Version: 1.0
-In-Reply-To: <20201124112054.106960-1-wangkefeng.wang@huawei.com>
+In-Reply-To: <20201126024038.180680-1-wangkefeng.wang@huawei.com>
 Content-Language: en-US
 X-Originating-IP: [10.174.177.244]
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201214_065230_326797_C5F50BD7 
-X-CRM114-Status: GOOD (  18.52  )
+X-CRM114-CacheID: sfid-20201214_065341_512845_5C8104E0 
+X-CRM114-Status: GOOD (  17.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -72,133 +71,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-hi Palmer, kindly ping...
-
-On 2020/11/24 19:20, Kefeng Wang wrote:
-> Like commit 1149aad10b1e ("arm64: Add dump_backtrace() in show_regs"),
-> dump the stack in riscv show_regs as common code expects.
->
-> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
-> ---
-> NOTE: The patches based on
-> https://patchwork.kernel.org/project/linux-riscv/list/?series=383349
->
->   arch/riscv/include/asm/bug.h        |  1 +
->   arch/riscv/include/asm/stacktrace.h |  2 ++
->   arch/riscv/kernel/process.c         |  9 ++++++++-
->   arch/riscv/kernel/stacktrace.c      | 10 ++++++++--
->   arch/riscv/kernel/traps.c           |  3 ++-
->   5 files changed, 21 insertions(+), 4 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/bug.h b/arch/riscv/include/asm/bug.h
-> index d6f1ec08d97b..d3804a2f9aad 100644
-> --- a/arch/riscv/include/asm/bug.h
-> +++ b/arch/riscv/include/asm/bug.h
-> @@ -85,6 +85,7 @@ do {								\
->   struct pt_regs;
->   struct task_struct;
->   
-> +void __show_regs(struct pt_regs *regs);
->   void die(struct pt_regs *regs, const char *str);
->   void do_trap(struct pt_regs *regs, int signo, int code, unsigned long addr);
->   
-> diff --git a/arch/riscv/include/asm/stacktrace.h b/arch/riscv/include/asm/stacktrace.h
-> index 470a65c4ccdc..3450c1912afd 100644
-> --- a/arch/riscv/include/asm/stacktrace.h
-> +++ b/arch/riscv/include/asm/stacktrace.h
-> @@ -13,5 +13,7 @@ struct stackframe {
->   
->   extern void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
->   				    bool (*fn)(void *, unsigned long), void *arg);
-> +extern void dump_backtrace(struct pt_regs *regs, struct task_struct *task,
-> +			   const char *loglvl);
->   
->   #endif /* _ASM_RISCV_STACKTRACE_H */
-> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-> index 19225ec65db6..e41b733abeaa 100644
-> --- a/arch/riscv/kernel/process.c
-> +++ b/arch/riscv/kernel/process.c
-> @@ -18,6 +18,7 @@
->   #include <asm/unistd.h>
->   #include <asm/processor.h>
->   #include <asm/csr.h>
-> +#include <asm/stacktrace.h>
->   #include <asm/string.h>
->   #include <asm/switch_to.h>
->   #include <asm/thread_info.h>
-> @@ -39,7 +40,7 @@ void arch_cpu_idle(void)
->   	local_irq_enable();
->   }
->   
-> -void show_regs(struct pt_regs *regs)
-> +void __show_regs(struct pt_regs *regs)
->   {
->   	show_regs_print_info(KERN_DEFAULT);
->   
-> @@ -69,6 +70,12 @@ void show_regs(struct pt_regs *regs)
->   	pr_cont("status: " REG_FMT " badaddr: " REG_FMT " cause: " REG_FMT "\n",
->   		regs->status, regs->badaddr, regs->cause);
->   }
-> +void show_regs(struct pt_regs *regs)
-> +{
-> +	__show_regs(regs);
-> +	if (!user_mode(regs))
-> +		dump_backtrace(regs, NULL, KERN_DEFAULT);
-> +}
->   
->   void start_thread(struct pt_regs *regs, unsigned long pc,
->   	unsigned long sp)
-> diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
-> index 48b870a685b3..76dadf6d396b 100644
-> --- a/arch/riscv/kernel/stacktrace.c
-> +++ b/arch/riscv/kernel/stacktrace.c
-> @@ -101,10 +101,16 @@ static bool print_trace_address(void *arg, unsigned long pc)
->   	return true;
->   }
->   
-> +void dump_backtrace(struct pt_regs *regs, struct task_struct *task,
-> +		    const char *loglvl)
-> +{
-> +	pr_cont("%sCall Trace:\n", loglvl);
-> +	walk_stackframe(task, regs, print_trace_address, (void *)loglvl);
-> +}
-> +
->   void show_stack(struct task_struct *task, unsigned long *sp, const char *loglvl)
->   {
-> -	pr_cont("Call Trace:\n");
-> -	walk_stackframe(task, NULL, print_trace_address, (void *)loglvl);
-> +	dump_backtrace(NULL, task, loglvl);
->   }
->   
->   static bool save_wchan(void *arg, unsigned long pc)
-> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-> index ad14f4466d92..570eb078b1e1 100644
-> --- a/arch/riscv/kernel/traps.c
-> +++ b/arch/riscv/kernel/traps.c
-> @@ -16,6 +16,7 @@
->   #include <linux/module.h>
->   #include <linux/irq.h>
->   
-> +#include <asm/bug.h>
->   #include <asm/processor.h>
->   #include <asm/ptrace.h>
->   #include <asm/csr.h>
-> @@ -66,7 +67,7 @@ void do_trap(struct pt_regs *regs, int signo, int code, unsigned long addr)
->   			tsk->comm, task_pid_nr(tsk), signo, code, addr);
->   		print_vma_addr(KERN_CONT " in ", instruction_pointer(regs));
->   		pr_cont("\n");
-> -		show_regs(regs);
-> +		__show_regs(regs);
->   	}
->   
->   	force_sig_fault(signo, code, (void __user *)addr);
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgYWxsLMKgIGFueSBjb21tZW50cy4uLgoKT24gMjAyMC8xMS8yNiAxMDo0MCwgS2VmZW5nIFdh
+bmcgd3JvdGU6Cj4gRml4IHNiaV9pbml0KCkgZnVuY3Rpb24gZGVjbGFyYXRpb24gbWlzbWF0Y2gg
+YmV0d2VlbiBSSVNDVl9TQkkKPiBlbmFibGUgYW5kIGRpc2FibGUsIGFzIGl0IGFsd2F5cyByZXR1
+cm5lZCAwLCBtYWtlIGl0IHZvaWQgZnVuY3Rpb24uCj4KPiBEcm9wIHNvbWUgc3R1YnMgd2hpY2gg
+d29uJ3QgYmUgdXNlZCBpZiBSSVNDVl9TQkkgZGlzYWJsZWQuCj4KPiBTaWduZWQtb2ZmLWJ5OiBL
+ZWZlbmcgV2FuZyA8d2FuZ2tlZmVuZy53YW5nQGh1YXdlaS5jb20+Cj4gLS0tCj4gICBhcmNoL3Jp
+c2N2L2luY2x1ZGUvYXNtL3NiaS5oIHwgMTAgKysrLS0tLS0tLQo+ICAgYXJjaC9yaXNjdi9rZXJu
+ZWwvc2JpLmMgICAgICB8ICA0ICstLS0KPiAgIGFyY2gvcmlzY3Yva2VybmVsL3NldHVwLmMgICAg
+fCAgMiAtLQo+ICAgMyBmaWxlcyBjaGFuZ2VkLCA0IGluc2VydGlvbnMoKyksIDEyIGRlbGV0aW9u
+cygtKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc2JpLmggYi9hcmNo
+L3Jpc2N2L2luY2x1ZGUvYXNtL3NiaS5oCj4gaW5kZXggNjUzZWRiMjVkNDk1Li45OWRjNzdiYThl
+NDMgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zYmkuaAo+ICsrKyBiL2Fy
+Y2gvcmlzY3YvaW5jbHVkZS9hc20vc2JpLmgKPiBAQCAtODksNyArODksNyBAQCBzdHJ1Y3Qgc2Jp
+cmV0IHsKPiAgIAlsb25nIHZhbHVlOwo+ICAgfTsKPiAgIAo+IC1pbnQgc2JpX2luaXQodm9pZCk7
+Cj4gK3ZvaWQgc2JpX2luaXQodm9pZCk7Cj4gICBzdHJ1Y3Qgc2JpcmV0IHNiaV9lY2FsbChpbnQg
+ZXh0LCBpbnQgZmlkLCB1bnNpZ25lZCBsb25nIGFyZzAsCj4gICAJCQl1bnNpZ25lZCBsb25nIGFy
+ZzEsIHVuc2lnbmVkIGxvbmcgYXJnMiwKPiAgIAkJCXVuc2lnbmVkIGxvbmcgYXJnMywgdW5zaWdu
+ZWQgbG9uZyBhcmc0LAo+IEBAIC0xNDcsMTEgKzE0Nyw3IEBAIHN0YXRpYyBpbmxpbmUgdW5zaWdu
+ZWQgbG9uZyBzYmlfbWlub3JfdmVyc2lvbih2b2lkKQo+ICAgCj4gICBpbnQgc2JpX2Vycl9tYXBf
+bGludXhfZXJybm8oaW50IGVycik7Cj4gICAjZWxzZSAvKiBDT05GSUdfUklTQ1ZfU0JJICovCj4g
+LS8qIHN0dWJzIGZvciBjb2RlIHRoYXQgaXMgb25seSByZWFjaGFibGUgdW5kZXIgSVNfRU5BQkxF
+RChDT05GSUdfUklTQ1ZfU0JJKTogKi8KPiAtdm9pZCBzYmlfc2V0X3RpbWVyKHVpbnQ2NF90IHN0
+aW1lX3ZhbHVlKTsKPiAtdm9pZCBzYmlfY2xlYXJfaXBpKHZvaWQpOwo+IC12b2lkIHNiaV9zZW5k
+X2lwaShjb25zdCB1bnNpZ25lZCBsb25nICpoYXJ0X21hc2spOwo+IC12b2lkIHNiaV9yZW1vdGVf
+ZmVuY2VfaShjb25zdCB1bnNpZ25lZCBsb25nICpoYXJ0X21hc2spOwo+IC12b2lkIHNiaV9pbml0
+KHZvaWQpOwo+ICtzdGF0aWMgaW5saW5lIHZvaWQgc2JpX3JlbW90ZV9mZW5jZV9pKGNvbnN0IHVu
+c2lnbmVkIGxvbmcgKmhhcnRfbWFzaykge30KPiArc3RhdGljIGlubGluZSB2b2lkIHNiaV9pbml0
+KHZvaWQpIHt9Cj4gICAjZW5kaWYgLyogQ09ORklHX1JJU0NWX1NCSSAqLwo+ICAgI2VuZGlmIC8q
+IF9BU01fUklTQ1ZfU0JJX0ggKi8KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvc2Jp
+LmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9zYmkuYwo+IGluZGV4IDIyNmNjY2UwZjllMC4uYmFlNmZm
+ZGM2ZTdiIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL3NiaS5jCj4gKysrIGIvYXJj
+aC9yaXNjdi9rZXJuZWwvc2JpLmMKPiBAQCAtNTYwLDcgKzU2MCw3IEBAIHN0YXRpYyBzdHJ1Y3Qg
+cmlzY3ZfaXBpX29wcyBzYmlfaXBpX29wcyA9IHsKPiAgIAkuaXBpX2luamVjdCA9IHNiaV9zZW5k
+X2NwdW1hc2tfaXBpCj4gICB9Owo+ICAgCj4gLWludCBfX2luaXQgc2JpX2luaXQodm9pZCkKPiAr
+dm9pZCBfX2luaXQgc2JpX2luaXQodm9pZCkKPiAgIHsKPiAgIAlpbnQgcmV0Owo+ICAgCj4gQEAg
+LTYwMCw2ICs2MDAsNCBAQCBpbnQgX19pbml0IHNiaV9pbml0KHZvaWQpCj4gICAJfQo+ICAgCj4g
+ICAJcmlzY3Zfc2V0X2lwaV9vcHMoJnNiaV9pcGlfb3BzKTsKPiAtCj4gLQlyZXR1cm4gMDsKPiAg
+IH0KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvc2V0dXAuYyBiL2FyY2gvcmlzY3Yv
+a2VybmVsL3NldHVwLmMKPiBpbmRleCA5MDFhYzBjNjgwZGQuLmVmNGY1YzA3NmQ2MSAxMDA2NDQK
+PiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9zZXR1cC5jCj4gKysrIGIvYXJjaC9yaXNjdi9rZXJu
+ZWwvc2V0dXAuYwo+IEBAIC0xMDQsOSArMTA0LDcgQEAgdm9pZCBfX2luaXQgc2V0dXBfYXJjaChj
+aGFyICoqY21kbGluZV9wKQo+ICAgCWthc2FuX2luaXQoKTsKPiAgICNlbmRpZgo+ICAgCj4gLSNp
+ZiBJU19FTkFCTEVEKENPTkZJR19SSVNDVl9TQkkpCj4gICAJc2JpX2luaXQoKTsKPiAtI2VuZGlm
+Cj4gICAKPiAgICNpZmRlZiBDT05GSUdfU01QCj4gICAJc2V0dXBfc21wKCk7CgpfX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
+IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
+ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
