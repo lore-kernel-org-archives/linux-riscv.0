@@ -7,59 +7,60 @@ X-Spam-Status: No, score=-15.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
 	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CE419C4361B
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Dec 2020 11:49:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7C90EC4361B
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Dec 2020 11:52:45 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2B7DE22EBE
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Dec 2020 11:49:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2B7DE22EBE
+	by mail.kernel.org (Postfix) with ESMTPS id 6816323124
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Dec 2020 11:52:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6816323124
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	References:To:Subject:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=lQLrQm4MRYbgQigSOhWJFfxtZ5jinSfuh3WEaDOrk4I=; b=sW4RJUzgrG5kcRpmv5rB3oAvL
-	JAskYE0EvDy2yqaB5mhX3+uaEhW6wJcU4rGUfWuSBgdCWx0FNrH9iKy1gNCUavQ1RekAB+I/7TMar
-	dUq7Wd2FkZHXXoj3BDi+f3GQuKEfRAZOU4BHqnbcYJmszgsHeBZFmcR+EoXoUXW1YUhpSUFFJAabp
-	MPsXkDoRnFGjIl9q0i9vhOTcNEOKms83ZRYc/wqb0AbcNeuWOI0g7qfJ2emI3kUT8RBD+NJ7CT0zj
-	0F8MV+J0UpUN5MrAzIP9Fj5OifKTdG60NMzCeeIkXZyvIvOZbE1hKIsx516gICKkHepenKAoE6QMq
-	uL8uQdXWQ==;
+	 bh=qctfuN+pCfPl7ME+xgbLJH39dWIMKf/aD7NXl+Bhqg8=; b=RolrkYG44kYLHFg8tufFTYbeq
+	eByTAb7a9Id6YFGVPVCQd2upW+VJbnPGlm/JtGGq622jhqu4RSLnGU5fT21lcJmrOufEZJu5Q/mAG
+	YzCd3MYydclAqvdln/IDYwDILAWXEeSeafG33ysNVMfCmp/aSvPIpypAGZUF4OQzycGOeh3GB61/J
+	zs5Jzh8tz65mjPGPRbGdIUJuB5JHDZhtDGwyYcAvhU2DOpPVw1r1vB2E9M8CatL+QLjfNMcb5BR7S
+	XZaNCRc9vO/Dt3uaHOaZM8fpngFFW3UirHqIrPP3VVeWvtpEz/iBWsDiCeFUCLsP2haHiGUYoxL2b
+	8BVU3fSRg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1komLw-0004OT-Iq; Mon, 14 Dec 2020 11:49:20 +0000
-Received: from szxga04-in.huawei.com ([45.249.212.190])
+	id 1komP2-0004Yn-DY; Mon, 14 Dec 2020 11:52:32 +0000
+Received: from szxga05-in.huawei.com ([45.249.212.191])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1komLt-0004Nz-NF
- for linux-riscv@lists.infradead.org; Mon, 14 Dec 2020 11:49:19 +0000
-Received: from DGGEMS401-HUB.china.huawei.com (unknown [172.30.72.60])
- by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4CvfmB1vQ7zkqtR;
- Mon, 14 Dec 2020 19:48:26 +0800 (CST)
+ id 1komOz-0004YN-Ob
+ for linux-riscv@lists.infradead.org; Mon, 14 Dec 2020 11:52:31 +0000
+Received: from DGGEMS406-HUB.china.huawei.com (unknown [172.30.72.60])
+ by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4Cvfqt54Z6zM5ZF;
+ Mon, 14 Dec 2020 19:51:38 +0800 (CST)
 Received: from [10.174.177.244] (10.174.177.244) by
- DGGEMS401-HUB.china.huawei.com (10.3.19.201) with Microsoft SMTP Server id
- 14.3.498.0; Mon, 14 Dec 2020 19:49:09 +0800
-Subject: Re: [PATCH v2] riscv: Using printk directly in __show_regs
-To: John Ogness <john.ogness@linutronix.de>, Palmer Dabbelt
- <palmerdabbelt@google.com>
-References: <mhng-749d2791-936b-493d-9b8b-89dfea7ec9da@palmerdabbelt-glaptop1>
- <87sg8chgnr.fsf@jogness.linutronix.de>
+ DGGEMS406-HUB.china.huawei.com (10.3.19.206) with Microsoft SMTP Server id
+ 14.3.498.0; Mon, 14 Dec 2020 19:52:19 +0800
+Subject: Re: [PATCH 1/2] riscv: Add dump stack in show_regs
+To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ <linux-riscv@lists.infradead.org>, Palmer Dabbelt <palmerdabbelt@google.com>
+References: <mhng-54bff36c-7c0d-4448-8859-d8d05cbd8b0d@palmerdabbelt-glaptop1>
+ <20201124112054.106960-1-wangkefeng.wang@huawei.com>
 From: Kefeng Wang <wangkefeng.wang@huawei.com>
-Message-ID: <1a733e2e-f473-f26a-9982-57740941a011@huawei.com>
-Date: Mon, 14 Dec 2020 19:49:08 +0800
+Message-ID: <30626a12-5cb5-c113-ab6c-9fdc3c598c70@huawei.com>
+Date: Mon, 14 Dec 2020 19:52:19 +0800
 User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
  Thunderbird/60.7.0
 MIME-Version: 1.0
-In-Reply-To: <87sg8chgnr.fsf@jogness.linutronix.de>
+In-Reply-To: <20201124112054.106960-1-wangkefeng.wang@huawei.com>
 Content-Language: en-US
 X-Originating-IP: [10.174.177.244]
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201214_064918_250117_2002D334 
-X-CRM114-Status: GOOD (  20.89  )
+X-CRM114-CacheID: sfid-20201214_065230_326797_C5F50BD7 
+X-CRM114-Status: GOOD (  18.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -71,123 +72,131 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu,
- Paul Walmsley <paul.walmsley@sifive.com>
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+hi Palmer, kindly ping...
 
-On 2020/12/11 16:48, John Ogness wrote:
-> On 2020-12-10, Palmer Dabbelt <palmerdabbelt@google.com> wrote:
->> On Thu, 26 Nov 2020 05:33:38 PST (-0800), wangkefeng.wang@huawei.com wrote:
->>> Covert bulk of pr_cont("...\n") to separate printk calls.
->>>
->>> Note that a pr_cont() message with a trailing newline will
->>> "terminate" the continous line so that it can no longer be
->>> continued, also it is possible to sort out simultaneous dumps
->>> from multiple CPUs with CONFIG_PRINTK_CALLER enabled.
->>>
->>> And align the printing formats.
->>>
->>> Suggested-by: John Ogness <john.ogness@linutronix.de>
->>> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
->>> ---
->>>   arch/riscv/kernel/process.c | 24 ++++++++++++------------
->>>   1 file changed, 12 insertions(+), 12 deletions(-)
->>>
->>> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
->>> index e41b733abeaa..2119d49feea5 100644
->>> --- a/arch/riscv/kernel/process.c
->>> +++ b/arch/riscv/kernel/process.c
->>> @@ -44,30 +44,30 @@ void __show_regs(struct pt_regs *regs)
->>>   {
->>>   	show_regs_print_info(KERN_DEFAULT);
->>>
->>> -	pr_cont("epc: " REG_FMT " ra : " REG_FMT " sp : " REG_FMT "\n",
->>> +	printk("epc: " REG_FMT " ra : " REG_FMT " sp : " REG_FMT "\n",
->>>   		regs->epc, regs->ra, regs->sp);
->>> -	pr_cont(" gp : " REG_FMT " tp : " REG_FMT " t0 : " REG_FMT "\n",
->>> +	printk("gp : " REG_FMT " tp : " REG_FMT " t0 : " REG_FMT "\n",
->>>   		regs->gp, regs->tp, regs->t0);
->>> -	pr_cont(" t1 : " REG_FMT " t2 : " REG_FMT " s0 : " REG_FMT "\n",
->>> +	printk("t1 : " REG_FMT " t2 : " REG_FMT " s0 : " REG_FMT "\n",
->>>   		regs->t1, regs->t2, regs->s0);
->>> -	pr_cont(" s1 : " REG_FMT " a0 : " REG_FMT " a1 : " REG_FMT "\n",
->>> +	printk("s1 : " REG_FMT " a0 : " REG_FMT " a1 : " REG_FMT "\n",
->>>   		regs->s1, regs->a0, regs->a1);
->>> -	pr_cont(" a2 : " REG_FMT " a3 : " REG_FMT " a4 : " REG_FMT "\n",
->>> +	printk("a2 : " REG_FMT " a3 : " REG_FMT " a4 : " REG_FMT "\n",
->>>   		regs->a2, regs->a3, regs->a4);
->>> -	pr_cont(" a5 : " REG_FMT " a6 : " REG_FMT " a7 : " REG_FMT "\n",
->>> +	printk("a5 : " REG_FMT " a6 : " REG_FMT " a7 : " REG_FMT "\n",
->>>   		regs->a5, regs->a6, regs->a7);
->>> -	pr_cont(" s2 : " REG_FMT " s3 : " REG_FMT " s4 : " REG_FMT "\n",
->>> +	printk("s2 : " REG_FMT " s3 : " REG_FMT " s4 : " REG_FMT "\n",
->>>   		regs->s2, regs->s3, regs->s4);
->>> -	pr_cont(" s5 : " REG_FMT " s6 : " REG_FMT " s7 : " REG_FMT "\n",
->>> +	printk("s5 : " REG_FMT " s6 : " REG_FMT " s7 : " REG_FMT "\n",
->>>   		regs->s5, regs->s6, regs->s7);
->>> -	pr_cont(" s8 : " REG_FMT " s9 : " REG_FMT " s10: " REG_FMT "\n",
->>> +	printk("s8 : " REG_FMT " s9 : " REG_FMT " s10: " REG_FMT "\n",
->>>   		regs->s8, regs->s9, regs->s10);
->>> -	pr_cont(" s11: " REG_FMT " t3 : " REG_FMT " t4 : " REG_FMT "\n",
->>> +	printk("s11: " REG_FMT " t3 : " REG_FMT " t4 : " REG_FMT "\n",
->>>   		regs->s11, regs->t3, regs->t4);
->>> -	pr_cont(" t5 : " REG_FMT " t6 : " REG_FMT "\n",
->>> +	printk("t5 : " REG_FMT " t6 : " REG_FMT "\n",
->>>   		regs->t5, regs->t6);
->>>
->>> -	pr_cont("status: " REG_FMT " badaddr: " REG_FMT " cause: " REG_FMT "\n",
->>> +	printk("status: " REG_FMT " badaddr: " REG_FMT " cause: " REG_FMT "\n",
->>>   		regs->status, regs->badaddr, regs->cause);
->>>   }
->>>   void show_regs(struct pt_regs *regs)
->> For some reason I remember having these as printk()s originally, but I
->> don't see that in the git history so maybe it was from before we
->> merged the port?  I don't really understand the difference here, and I
->> thought using printk() directly wasn't recommended?
-
-The original reason which I changed to printk is the strange out-print, 
-see v1 patch [1],
-
-but it's found that there is a regression in v5.10 printk rework, and 
-being fixed by commit
-
-4ad9921af4f1 ("printk: finalize records with trailing newlines").
-
-The v2 patch major change is align the printing (not a big change) and 
-in case of rearrangement of
-
-print when CONFIG_PRINTK_CALLER enabled
-
-[1] 
-https://patchwork.kernel.org/project/linux-riscv/patch/20201124112054.106960-2-wangkefeng.wang@huawei.com/
-
-
-> There no difference between:
+On 2020/11/24 19:20, Kefeng Wang wrote:
+> Like commit 1149aad10b1e ("arm64: Add dump_backtrace() in show_regs"),
+> dump the stack in riscv show_regs as common code expects.
 >
->     pr_cont("...\n");
->        and
->     printk("...\n");
+> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+> ---
+> NOTE: The patches based on
+> https://patchwork.kernel.org/project/linux-riscv/list/?series=383349
 >
-> except for the very first call, which will try to continue from whatever
-> was printed before. (But even that only makes a difference if the
-> previous call did not have a newline at the end.)
+>   arch/riscv/include/asm/bug.h        |  1 +
+>   arch/riscv/include/asm/stacktrace.h |  2 ++
+>   arch/riscv/kernel/process.c         |  9 ++++++++-
+>   arch/riscv/kernel/stacktrace.c      | 10 ++++++++--
+>   arch/riscv/kernel/traps.c           |  3 ++-
+>   5 files changed, 21 insertions(+), 4 deletions(-)
 >
-> Note that the printk() being used does not specify the loglevel. Perhaps
-> it is intentional that the default loglevel (which can be specified by
-> the user) is used? Otherwise, if a particular loglevel _is_ desired,
-> then the appropriate pr_info/pr_warn/... should be used.
->
-> Also, this patch is also sneaking in some formatting changes. Previously
-> the columns were not aligned correctly. That spacing is also fixed
-> here. The spacing change _is_ a real improvement.
->
-> John Ogness
-> .
->
+> diff --git a/arch/riscv/include/asm/bug.h b/arch/riscv/include/asm/bug.h
+> index d6f1ec08d97b..d3804a2f9aad 100644
+> --- a/arch/riscv/include/asm/bug.h
+> +++ b/arch/riscv/include/asm/bug.h
+> @@ -85,6 +85,7 @@ do {								\
+>   struct pt_regs;
+>   struct task_struct;
+>   
+> +void __show_regs(struct pt_regs *regs);
+>   void die(struct pt_regs *regs, const char *str);
+>   void do_trap(struct pt_regs *regs, int signo, int code, unsigned long addr);
+>   
+> diff --git a/arch/riscv/include/asm/stacktrace.h b/arch/riscv/include/asm/stacktrace.h
+> index 470a65c4ccdc..3450c1912afd 100644
+> --- a/arch/riscv/include/asm/stacktrace.h
+> +++ b/arch/riscv/include/asm/stacktrace.h
+> @@ -13,5 +13,7 @@ struct stackframe {
+>   
+>   extern void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+>   				    bool (*fn)(void *, unsigned long), void *arg);
+> +extern void dump_backtrace(struct pt_regs *regs, struct task_struct *task,
+> +			   const char *loglvl);
+>   
+>   #endif /* _ASM_RISCV_STACKTRACE_H */
+> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+> index 19225ec65db6..e41b733abeaa 100644
+> --- a/arch/riscv/kernel/process.c
+> +++ b/arch/riscv/kernel/process.c
+> @@ -18,6 +18,7 @@
+>   #include <asm/unistd.h>
+>   #include <asm/processor.h>
+>   #include <asm/csr.h>
+> +#include <asm/stacktrace.h>
+>   #include <asm/string.h>
+>   #include <asm/switch_to.h>
+>   #include <asm/thread_info.h>
+> @@ -39,7 +40,7 @@ void arch_cpu_idle(void)
+>   	local_irq_enable();
+>   }
+>   
+> -void show_regs(struct pt_regs *regs)
+> +void __show_regs(struct pt_regs *regs)
+>   {
+>   	show_regs_print_info(KERN_DEFAULT);
+>   
+> @@ -69,6 +70,12 @@ void show_regs(struct pt_regs *regs)
+>   	pr_cont("status: " REG_FMT " badaddr: " REG_FMT " cause: " REG_FMT "\n",
+>   		regs->status, regs->badaddr, regs->cause);
+>   }
+> +void show_regs(struct pt_regs *regs)
+> +{
+> +	__show_regs(regs);
+> +	if (!user_mode(regs))
+> +		dump_backtrace(regs, NULL, KERN_DEFAULT);
+> +}
+>   
+>   void start_thread(struct pt_regs *regs, unsigned long pc,
+>   	unsigned long sp)
+> diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
+> index 48b870a685b3..76dadf6d396b 100644
+> --- a/arch/riscv/kernel/stacktrace.c
+> +++ b/arch/riscv/kernel/stacktrace.c
+> @@ -101,10 +101,16 @@ static bool print_trace_address(void *arg, unsigned long pc)
+>   	return true;
+>   }
+>   
+> +void dump_backtrace(struct pt_regs *regs, struct task_struct *task,
+> +		    const char *loglvl)
+> +{
+> +	pr_cont("%sCall Trace:\n", loglvl);
+> +	walk_stackframe(task, regs, print_trace_address, (void *)loglvl);
+> +}
+> +
+>   void show_stack(struct task_struct *task, unsigned long *sp, const char *loglvl)
+>   {
+> -	pr_cont("Call Trace:\n");
+> -	walk_stackframe(task, NULL, print_trace_address, (void *)loglvl);
+> +	dump_backtrace(NULL, task, loglvl);
+>   }
+>   
+>   static bool save_wchan(void *arg, unsigned long pc)
+> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+> index ad14f4466d92..570eb078b1e1 100644
+> --- a/arch/riscv/kernel/traps.c
+> +++ b/arch/riscv/kernel/traps.c
+> @@ -16,6 +16,7 @@
+>   #include <linux/module.h>
+>   #include <linux/irq.h>
+>   
+> +#include <asm/bug.h>
+>   #include <asm/processor.h>
+>   #include <asm/ptrace.h>
+>   #include <asm/csr.h>
+> @@ -66,7 +67,7 @@ void do_trap(struct pt_regs *regs, int signo, int code, unsigned long addr)
+>   			tsk->comm, task_pid_nr(tsk), signo, code, addr);
+>   		print_vma_addr(KERN_CONT " in ", instruction_pointer(regs));
+>   		pr_cont("\n");
+> -		show_regs(regs);
+> +		__show_regs(regs);
+>   	}
+>   
+>   	force_sig_fault(signo, code, (void __user *)addr);
 
 _______________________________________________
 linux-riscv mailing list
