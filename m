@@ -2,64 +2,83 @@ Return-Path: <SRS0=dKKk=FS=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-11.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 870E6C4361B
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Dec 2020 11:53:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 46602C4361B
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Dec 2020 15:24:57 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 45B8422CB9
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Dec 2020 11:53:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 45B8422CB9
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
+	by mail.kernel.org (Postfix) with ESMTPS id D308D22B2C
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Dec 2020 15:24:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D308D22B2C
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=embecosm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=0nCiYnYcpH4y3UuMK6PFr9bGc43HQgOWwTDwPTdefNs=; b=Y6IJDC4H/xpSKLbZCrH+C8vln
-	moLaS96I+xqYnGXF+XbJVD0MZoP4L66oqozQ+q/KBonIzNFjafflbeC8qkKyaDwu1D7AwjaUkHAQA
-	cLE3MFkqJmBi9/S026XhjCuObknz1aMqk58FJzd0gNOSqmdBkc8IAYWXrcW0juc8BThBFJ6MrMoUU
-	ITcvAFTjuQTgXxm/xlidAja2p28DhfQfGD2vaV1BdCQiGx/bhGekCoSyPkt5H8DcMBVGASe22dpKw
-	fOLTvqRPLiN02kW7uzD8s4rmPmbT5jw1OiLsiQ6/9xMupS3uma9pppjHhWFiWTmLvv2lxmiaa7D8w
-	yg5fKg89g==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2nHr/ksuPT7JDIdmywKlkoIxth7YES+51mO9qKJiKII=; b=RJ259+v/BvjIjGBrKW0ooDRCFz
+	AK9DVbYEWrSDqoLAsDzTfQw7nENHC75u20kkINJezYdTLCFmBMG0+BsiZkm/cRaJHNKT0UGw9QeLf
+	Jjw4d971y6zKYmvl/CgNxqqZvAqtduaxD0DFDaW74nm6Rnr3x4Dj2V+UYfKO87Oxv3kYJhsTWUxP2
+	StgPQ0VqIZG9IityyM9x0KRSUkh/jn91StxRvTjkIh0YLeb8jcQp40oc+1g8kT49Lgf+RxbAB+Gld
+	7Lm8idw+CKsWgzUZeXPT/AnDCQcN0Bf8pISwuG2pA+Fj++ZBe0/V9UTYSSmDfQW27vKNa6zuyPaq0
+	ZxdcF2sg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1komQB-0004h9-62; Mon, 14 Dec 2020 11:53:43 +0000
-Received: from szxga06-in.huawei.com ([45.249.212.32])
+	id 1kopiT-00015o-Fo; Mon, 14 Dec 2020 15:24:49 +0000
+Received: from mail-wr1-x441.google.com ([2a00:1450:4864:20::441])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1komQ9-0004gQ-7b
- for linux-riscv@lists.infradead.org; Mon, 14 Dec 2020 11:53:42 +0000
-Received: from DGGEMS409-HUB.china.huawei.com (unknown [172.30.72.60])
- by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4CvfsY4ZjMzhsrR;
- Mon, 14 Dec 2020 19:53:05 +0800 (CST)
-Received: from [10.174.177.244] (10.174.177.244) by
- DGGEMS409-HUB.china.huawei.com (10.3.19.209) with Microsoft SMTP Server id
- 14.3.498.0; Mon, 14 Dec 2020 19:53:30 +0800
-Subject: Re: [PATCH] riscv: Cleanup sbi function stubs when RISCV_SBI disabled
-To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- <linux-riscv@lists.infradead.org>, Palmer Dabbelt <palmerdabbelt@google.com>
-References: <20201126024038.180680-1-wangkefeng.wang@huawei.com>
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
-Message-ID: <9aaa0069-12d9-b062-2e7d-95847ee2283c@huawei.com>
-Date: Mon, 14 Dec 2020 19:53:29 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
- Thunderbird/60.7.0
+ id 1kopiR-000152-2P
+ for linux-riscv@lists.infradead.org; Mon, 14 Dec 2020 15:24:47 +0000
+Received: by mail-wr1-x441.google.com with SMTP id y17so16794651wrr.10
+ for <linux-riscv@lists.infradead.org>; Mon, 14 Dec 2020 07:24:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=embecosm.com; s=google;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=8H2LBI9VeDuPINomw3QTGahebwzxmIJkoeZt/7hmvXk=;
+ b=WUgM/7QBHsjJiJwvJv3g1qHHA3Uk3hjGVs8lvBpFqVzLgJ3uRpFsLQfRD5/t2njcB2
+ JmK+L0wt1GnuvhCv9tlAjbOrJ7iuCcEehDsDScyyIbtwCpb4GfrlTD/+lDdg06iGxz10
+ d0OmSVaGi+E+CTckDXHoAyrd++QyZWjBlKd7gEgaUWEJDOgRwVHqEzB/KxnQNK/XLeH/
+ SVuVtEIKnJYjcvLOI0SMebE1G5TzmJ2VOcQNU3JrpwBMS0j669+2ZVUOG33ekmF4ie8R
+ mlCymf/TwiL2j8huRc7NAh5HIePPFo7ahRxMDp3v78sE5kYtqRk6sCtdGGkQibX14vhI
+ KIXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=8H2LBI9VeDuPINomw3QTGahebwzxmIJkoeZt/7hmvXk=;
+ b=r9zCXi/M9/QiyD1iDFNzrUEg25szTRBtz/6Mzy4bMu3tGmtFP0oQmeFbEFGtfWCxlt
+ wwzxi4WYg90m2jesVsMGgy8KXHbZUpdyAg7f747HC732gs3mgnduoCca8zxUZI2djb53
+ G2IiSDDN/8cB3YGmndiCDKa74UigGe5LRaQHCEcMDByfUOXvRTe8vy7WV0bEBnlianEn
+ 6mBdrw1063iXs2BemqQdMd7OnyldNhFuGuidc3NUwt89oaNQLP9F+eDum9IistEfcXW9
+ k1nvJE96Nvo6eRkRon8uFNDmCIuKWjJWIcJFWbYjsoSwriHUPW0rL2m/d88DrjglLSaq
+ 4Tew==
+X-Gm-Message-State: AOAM530Q/I3IakmnLZoOs58SuIKskTFAZZg3XOxCtib5Ad/Zb7AiBCfY
+ uC2dN2oPif0s14xu/KhBFD/HVi7Nk1xaYw==
+X-Google-Smtp-Source: ABdhPJwU7vhExIc899Hi1k/EnUudnaag2DnCUy70QGf6z0NgMPEE7GBeIo4JsaphhGCDg64zfqt3Ew==
+X-Received: by 2002:adf:8342:: with SMTP id 60mr29979704wrd.140.1607959484047; 
+ Mon, 14 Dec 2020 07:24:44 -0800 (PST)
+Received: from localhost (host86-180-62-188.range86-180.btcentralplus.com.
+ [86.180.62.188])
+ by smtp.gmail.com with ESMTPSA id o8sm20031899wrm.17.2020.12.14.07.24.43
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 14 Dec 2020 07:24:43 -0800 (PST)
+From: Andrew Burgess <andrew.burgess@embecosm.com>
+To: linux-riscv@lists.infradead.org
+Subject: [PATCH] riscv: add NT_RISCV_CSR constant
+Date: Mon, 14 Dec 2020 15:24:37 +0000
+Message-Id: <20201214152437.1526146-1-andrew.burgess@embecosm.com>
+X-Mailer: git-send-email 2.25.4
 MIME-Version: 1.0
-In-Reply-To: <20201126024038.180680-1-wangkefeng.wang@huawei.com>
-Content-Language: en-US
-X-Originating-IP: [10.174.177.244]
-X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201214_065341_512845_5C8104E0 
-X-CRM114-Status: GOOD (  17.67  )
+X-CRM114-CacheID: sfid-20201214_102447_233102_430182FE 
+X-CRM114-Status: GOOD (  15.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -71,55 +90,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Cc: Andrew Burgess <andrew.burgess@embecosm.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgYWxsLMKgIGFueSBjb21tZW50cy4uLgoKT24gMjAyMC8xMS8yNiAxMDo0MCwgS2VmZW5nIFdh
-bmcgd3JvdGU6Cj4gRml4IHNiaV9pbml0KCkgZnVuY3Rpb24gZGVjbGFyYXRpb24gbWlzbWF0Y2gg
-YmV0d2VlbiBSSVNDVl9TQkkKPiBlbmFibGUgYW5kIGRpc2FibGUsIGFzIGl0IGFsd2F5cyByZXR1
-cm5lZCAwLCBtYWtlIGl0IHZvaWQgZnVuY3Rpb24uCj4KPiBEcm9wIHNvbWUgc3R1YnMgd2hpY2gg
-d29uJ3QgYmUgdXNlZCBpZiBSSVNDVl9TQkkgZGlzYWJsZWQuCj4KPiBTaWduZWQtb2ZmLWJ5OiBL
-ZWZlbmcgV2FuZyA8d2FuZ2tlZmVuZy53YW5nQGh1YXdlaS5jb20+Cj4gLS0tCj4gICBhcmNoL3Jp
-c2N2L2luY2x1ZGUvYXNtL3NiaS5oIHwgMTAgKysrLS0tLS0tLQo+ICAgYXJjaC9yaXNjdi9rZXJu
-ZWwvc2JpLmMgICAgICB8ICA0ICstLS0KPiAgIGFyY2gvcmlzY3Yva2VybmVsL3NldHVwLmMgICAg
-fCAgMiAtLQo+ICAgMyBmaWxlcyBjaGFuZ2VkLCA0IGluc2VydGlvbnMoKyksIDEyIGRlbGV0aW9u
-cygtKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc2JpLmggYi9hcmNo
-L3Jpc2N2L2luY2x1ZGUvYXNtL3NiaS5oCj4gaW5kZXggNjUzZWRiMjVkNDk1Li45OWRjNzdiYThl
-NDMgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zYmkuaAo+ICsrKyBiL2Fy
-Y2gvcmlzY3YvaW5jbHVkZS9hc20vc2JpLmgKPiBAQCAtODksNyArODksNyBAQCBzdHJ1Y3Qgc2Jp
-cmV0IHsKPiAgIAlsb25nIHZhbHVlOwo+ICAgfTsKPiAgIAo+IC1pbnQgc2JpX2luaXQodm9pZCk7
-Cj4gK3ZvaWQgc2JpX2luaXQodm9pZCk7Cj4gICBzdHJ1Y3Qgc2JpcmV0IHNiaV9lY2FsbChpbnQg
-ZXh0LCBpbnQgZmlkLCB1bnNpZ25lZCBsb25nIGFyZzAsCj4gICAJCQl1bnNpZ25lZCBsb25nIGFy
-ZzEsIHVuc2lnbmVkIGxvbmcgYXJnMiwKPiAgIAkJCXVuc2lnbmVkIGxvbmcgYXJnMywgdW5zaWdu
-ZWQgbG9uZyBhcmc0LAo+IEBAIC0xNDcsMTEgKzE0Nyw3IEBAIHN0YXRpYyBpbmxpbmUgdW5zaWdu
-ZWQgbG9uZyBzYmlfbWlub3JfdmVyc2lvbih2b2lkKQo+ICAgCj4gICBpbnQgc2JpX2Vycl9tYXBf
-bGludXhfZXJybm8oaW50IGVycik7Cj4gICAjZWxzZSAvKiBDT05GSUdfUklTQ1ZfU0JJICovCj4g
-LS8qIHN0dWJzIGZvciBjb2RlIHRoYXQgaXMgb25seSByZWFjaGFibGUgdW5kZXIgSVNfRU5BQkxF
-RChDT05GSUdfUklTQ1ZfU0JJKTogKi8KPiAtdm9pZCBzYmlfc2V0X3RpbWVyKHVpbnQ2NF90IHN0
-aW1lX3ZhbHVlKTsKPiAtdm9pZCBzYmlfY2xlYXJfaXBpKHZvaWQpOwo+IC12b2lkIHNiaV9zZW5k
-X2lwaShjb25zdCB1bnNpZ25lZCBsb25nICpoYXJ0X21hc2spOwo+IC12b2lkIHNiaV9yZW1vdGVf
-ZmVuY2VfaShjb25zdCB1bnNpZ25lZCBsb25nICpoYXJ0X21hc2spOwo+IC12b2lkIHNiaV9pbml0
-KHZvaWQpOwo+ICtzdGF0aWMgaW5saW5lIHZvaWQgc2JpX3JlbW90ZV9mZW5jZV9pKGNvbnN0IHVu
-c2lnbmVkIGxvbmcgKmhhcnRfbWFzaykge30KPiArc3RhdGljIGlubGluZSB2b2lkIHNiaV9pbml0
-KHZvaWQpIHt9Cj4gICAjZW5kaWYgLyogQ09ORklHX1JJU0NWX1NCSSAqLwo+ICAgI2VuZGlmIC8q
-IF9BU01fUklTQ1ZfU0JJX0ggKi8KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvc2Jp
-LmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9zYmkuYwo+IGluZGV4IDIyNmNjY2UwZjllMC4uYmFlNmZm
-ZGM2ZTdiIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL3NiaS5jCj4gKysrIGIvYXJj
-aC9yaXNjdi9rZXJuZWwvc2JpLmMKPiBAQCAtNTYwLDcgKzU2MCw3IEBAIHN0YXRpYyBzdHJ1Y3Qg
-cmlzY3ZfaXBpX29wcyBzYmlfaXBpX29wcyA9IHsKPiAgIAkuaXBpX2luamVjdCA9IHNiaV9zZW5k
-X2NwdW1hc2tfaXBpCj4gICB9Owo+ICAgCj4gLWludCBfX2luaXQgc2JpX2luaXQodm9pZCkKPiAr
-dm9pZCBfX2luaXQgc2JpX2luaXQodm9pZCkKPiAgIHsKPiAgIAlpbnQgcmV0Owo+ICAgCj4gQEAg
-LTYwMCw2ICs2MDAsNCBAQCBpbnQgX19pbml0IHNiaV9pbml0KHZvaWQpCj4gICAJfQo+ICAgCj4g
-ICAJcmlzY3Zfc2V0X2lwaV9vcHMoJnNiaV9pcGlfb3BzKTsKPiAtCj4gLQlyZXR1cm4gMDsKPiAg
-IH0KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvc2V0dXAuYyBiL2FyY2gvcmlzY3Yv
-a2VybmVsL3NldHVwLmMKPiBpbmRleCA5MDFhYzBjNjgwZGQuLmVmNGY1YzA3NmQ2MSAxMDA2NDQK
-PiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9zZXR1cC5jCj4gKysrIGIvYXJjaC9yaXNjdi9rZXJu
-ZWwvc2V0dXAuYwo+IEBAIC0xMDQsOSArMTA0LDcgQEAgdm9pZCBfX2luaXQgc2V0dXBfYXJjaChj
-aGFyICoqY21kbGluZV9wKQo+ICAgCWthc2FuX2luaXQoKTsKPiAgICNlbmRpZgo+ICAgCj4gLSNp
-ZiBJU19FTkFCTEVEKENPTkZJR19SSVNDVl9TQkkpCj4gICAJc2JpX2luaXQoKTsKPiAtI2VuZGlm
-Cj4gICAKPiAgICNpZmRlZiBDT05GSUdfU01QCj4gICAJc2V0dXBfc21wKCk7CgpfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
-IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
-ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+I am currently working on adding support to GDB for dumping bare metal
+core files for RISC-V.  As part of this work I would like to include
+support for dumping RISC-V CSRs.
+
+The format of these bare metal core files is planned to be ELF + NOTES
+very similar to the core file format use by Linux.
+
+As such I need to pick a number to use for the CSR note.  Currently
+Linux for RISC-V doesn't support writing out CSRs, and so no number
+has been assigned for a CSR note.
+
+In this patch I propose reserving a note number for RISC-V CSRs.  This
+note isn't currently used within Linux, but might be one day.  Given
+how the per-architecture notes are allocated this patch not only
+reserves a note number for the CSRs, but as the first RISC-V specific
+note number, it reserves the whole 0x9?? number range for RISC-V
+specific notes.
+
+Reserving this constant now will allow for coordination between Linux
+and user-space tools that work with core files (like GDB) without
+risking possible number conflicts in the future.
+
+I don't know if it's acceptable to have reserved, but otherwise
+unused, constants like this in the kernel or not.
+---
+ include/uapi/linux/elf.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/include/uapi/linux/elf.h b/include/uapi/linux/elf.h
+index 34c02e4290fe..7db3752108c8 100644
+--- a/include/uapi/linux/elf.h
++++ b/include/uapi/linux/elf.h
+@@ -428,6 +428,7 @@ typedef struct elf64_shdr {
+ #define NT_MIPS_DSP	0x800		/* MIPS DSP ASE registers */
+ #define NT_MIPS_FP_MODE	0x801		/* MIPS floating-point mode */
+ #define NT_MIPS_MSA	0x802		/* MIPS SIMD registers */
++#define NT_RISCV_CSR	0x900		/* RISC-V Control Status Registers */
+ 
+ /* Note header in a PT_NOTE section */
+ typedef struct elf32_note {
+-- 
+2.25.4
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
