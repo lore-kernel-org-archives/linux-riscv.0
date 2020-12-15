@@ -2,20 +2,20 @@ Return-Path: <SRS0=RRT7=FT=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-10.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2D126C4361B
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Dec 2020 17:01:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E8B3CC4361B
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Dec 2020 21:52:16 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E120422515
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Dec 2020 17:01:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E120422515
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id A973722D07
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Dec 2020 21:52:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A973722D07
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=suse.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -23,57 +23,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Ewr9vGevg7EP1JN9h9ahYARrLXw4REKu2rTg4crrFA8=; b=xo/6TawRsr1BKVdwKb4su1Vb9
-	mJfgzM/gcfzzKZ/kYawFWRnam9agvuAFpO40ni6i/QUoTcjCiObRuyikkIJZ8VzCD9Lz0WsJcjpc9
-	IXYciCfezYsLLJ5pny9VS+wogL7kUuQDP5l1m3+RZvMWENl1JaJNnJcZtgMduw1YCePptRppVkbSM
-	4A4xr9aK2dFkBB+wVQ+UV7p+jDTv2+E+hzq70w8dd1vcB6axQgVxmEBoE0rlh+kyTBVXg34RklRyN
-	Pdk0yy/i7uUY2y3x8h1NzqN+tog5oyffX7pHz9PzNbD6h0YyMp+cn6T6SBhcnqV5JmzeymG/nXf5o
-	JLtdAcShw==;
+	 bh=8c7vOfdqSJ/GrJb44y9Y3YW1x/zEGp/YnpbQKMOJ6OY=; b=frEIti2LnFXKxPlYk3aoTTrPt
+	ENhI/DxJdTJHsG/oI7oGU8b7fuB0Hq+hX5X8F2oxrUm/ylfOc4ckplV54rpIgFfd+IdnekOirvAaj
+	aHzumd6tZNR2np0bCiql0kRQypUP6wnmksPIglOX79GBsqjm0Vs4u3uSosYxz5egvHnYXgekvGMZJ
+	Lc4OUdvu4iY01RwogwnbxFUVT+e1qAVYr8Ed2JVp6MzSHW5CAaySZXdWmpjN0SKF81AAEyCzBi5ij
+	IMKnHjJ8KRk8USufVN2+w/7vbXJHq5hVULP7b8f43KgbZxHcfsvY234T7blxH5G0U+TecKdAtdoex
+	QbuTcQfkA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kpDh7-0001wn-QU; Tue, 15 Dec 2020 17:01:01 +0000
-Received: from mail-oi1-f194.google.com ([209.85.167.194])
+	id 1kpIEp-0000DY-V2; Tue, 15 Dec 2020 21:52:07 +0000
+Received: from mx2.suse.de ([195.135.220.15])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kpDh5-0001vW-IS
- for linux-riscv@lists.infradead.org; Tue, 15 Dec 2020 17:01:00 +0000
-Received: by mail-oi1-f194.google.com with SMTP id q25so24053057oij.10
- for <linux-riscv@lists.infradead.org>; Tue, 15 Dec 2020 09:00:59 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=X8gCJMjUmleKLa/nPoLv/63eSrzRGptbGJqEgfH+stU=;
- b=YM2rVrpbMpfksa90qeHZB+4Xp1gGIl0HO1fcyjPfo4wHxJGFR+pNtmKvr2UpcdYySs
- Q8ivuyCbJionzxEis6g6yFxEZpoDmhgcbr91FPVUQganXsPbWbAaBf8pBSUGZDgkBb4X
- yJbtl+RGKSIA5AAQG14/EiEEkokuYzI71zWlTDVsoAMqzzJUrKQ3xPEoOsgr8h4bR3VF
- UaKavSfucNQ2BfZHFxK1LTYimNpq8QiSec2OkoKBCxTbtJaNzCur3KduVeewudeig7aD
- 3RvPYXMHV8uzExbgPNlzjBvqk5AyYv0rOCW8+mlt2kQT0YwNpMpEJ56JH7UEuQj28FsB
- F4UQ==
-X-Gm-Message-State: AOAM5334+tigzPJqrEyE9xx4kkifnnzBBKnWmvJJ9mDaZI+0qxBhvDhu
- E/cAIQY4uPUKDaSXZvmrpA==
-X-Google-Smtp-Source: ABdhPJxBKssZb6QQehemTtLam4Yhhb6MzbIdTgEOXl9dxsoqsQm/sUt/QY7L3oNjBwyYbVfUOyty4g==
-X-Received: by 2002:aca:75cc:: with SMTP id q195mr999080oic.173.1608051658841; 
- Tue, 15 Dec 2020 09:00:58 -0800 (PST)
-Received: from xps15 (24-155-109-49.dyn.grandenetworks.net. [24.155.109.49])
- by smtp.gmail.com with ESMTPSA id q77sm4770421ooq.15.2020.12.15.09.00.57
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 15 Dec 2020 09:00:57 -0800 (PST)
-Received: (nullmailer pid 4025072 invoked by uid 1000);
- Tue, 15 Dec 2020 17:00:56 -0000
-Date: Tue, 15 Dec 2020 11:00:56 -0600
-From: Rob Herring <robh@kernel.org>
-To: Damien Le Moal <damien.lemoal@wdc.com>
-Subject: Re: [PATCH v10 12/23] dt-binding: mfd: Document canaan,k210-sysctl
- bindings
-Message-ID: <20201215170056.GA4025018@robh.at.kernel.org>
-References: <20201213135056.24446-1-damien.lemoal@wdc.com>
- <20201213135056.24446-13-damien.lemoal@wdc.com>
+ id 1kpIEk-0000Cn-Uq; Tue, 15 Dec 2020 21:52:03 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.221.27])
+ by mx2.suse.de (Postfix) with ESMTP id 5D4C3AD87;
+ Tue, 15 Dec 2020 21:52:00 +0000 (UTC)
+Date: Tue, 15 Dec 2020 22:51:57 +0100
+From: Michal =?iso-8859-1?Q?Such=E1nek?= <msuchanek@suse.de>
+To: "Alex Xu (Hello71)" <alex_y_xu@yahoo.ca>
+Subject: Re: [RFC PATCH] treewide: remove bzip2 compression support
+Message-ID: <20201215215157.GJ6564@kitsune.suse.cz>
+References: <20201215190315.8681-1-alex_y_xu.ref@yahoo.ca>
+ <20201215190315.8681-1-alex_y_xu@yahoo.ca>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20201213135056.24446-13-damien.lemoal@wdc.com>
+In-Reply-To: <20201215190315.8681-1-alex_y_xu@yahoo.ca>
+User-Agent: Mutt/1.11.3 (2019-02-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201215_120059_698817_08E1F55A 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20201215_165203_105121_BBA73450 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -85,29 +64,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>,
- Linus Walleij <linus.walleij@linaro.org>, Sean Anderson <seanga2@gmail.com>,
- linux-gpio@vger.kernel.org, Rob Herring <robh+dt@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org
+Cc: linux-s390@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linux-aspeed@lists.ozlabs.org, linux-kbuild@vger.kernel.org,
+ torvalds@linux-foundation.org, linux-xtensa@linux-xtensa.org,
+ linux-sh@vger.kernel.org, linux-mips@vger.kernel.org,
+ linux-kernel@vger.kernel.org, openrisc@lists.librecores.org,
+ linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 13 Dec 2020 22:50:45 +0900, Damien Le Moal wrote:
-> Document the device tree bindings of the Canaan Kendryte K210 SoC
-> system controller driver in
-> Documentation/devicetree/bindings/mfd/canaan,k210-sysctl.yaml.
-> 
-> Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
-> ---
->  .../bindings/mfd/canaan,k210-sysctl.yaml      | 109 ++++++++++++++++++
->  1 file changed, 109 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/mfd/canaan,k210-sysctl.yaml
-> 
+Hello,
 
-Reviewed-by: Rob Herring <robh@kernel.org>
+On Tue, Dec 15, 2020 at 02:03:15PM -0500, Alex Xu (Hello71) wrote:
+> bzip2 is either slower or larger than every other supported algorithm,
+> according to benchmarks at [0]. It is far slower to decompress than any
+> other algorithm, and still larger than lzma, xz, and zstd.
+> 
+> [0] https://lore.kernel.org/lkml/1588791882.08g1378g67.none@localhost/
+
+Sounds cool. I wonder how many people will complain that their
+distribution migrated to bzip2 but got stuck there and now new kernels
+won't work on there with some odd tool or another :p
+
+> @@ -212,11 +209,6 @@ choice
+>  	  Compression speed is only relevant when building a kernel.
+>  	  Decompression speed is relevant at each boot.
+>  
+> -	  If you have any problems with bzip2 or lzma compressed
+> -	  kernels, mail me (Alain Knaff) <alain@knaff.lu>. (An older
+> -	  version of this functionality (bzip2 only), for 2.4, was
+> -	  supplied by Christian Ludwig)
+> -
+Shouldn't the LZMA part be preserved here?
+
+Thanks
+
+Michal
 
 _______________________________________________
 linux-riscv mailing list
