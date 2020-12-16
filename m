@@ -6,14 +6,14 @@ X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,
 	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id F1660C2BBCA
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Dec 2020 20:21:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8FE11C4361B
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Dec 2020 20:21:34 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 75B2A236FB
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Dec 2020 20:21:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 75B2A236FB
+	by mail.kernel.org (Postfix) with ESMTPS id 14A96236F9
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Dec 2020 20:21:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 14A96236F9
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -22,46 +22,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Message-ID:Date:To:From:Subject:References:
 	In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=4utXxLfTvyImxSS2WvTWZ5wY0IQfpdRmHFPAuxbVn8o=; b=lakzCReEYNs46a+hg9tq2EYZ+
-	5pnZqrXBlt/YKb4v3DaLZSO0Gm4pcFyf7/O9WV3FjHzBmLKqj+ydeKC6BlAM38F+ZgsT0bGeYSEFQ
-	ITCsJMrq3e2pqy6oa+AZc4rUCSQX0PDCHrZSOWc3cqAcDIDTEWM+uy4Xe3Tq05g76XScCCU53bj1L
-	YjR09xhjh+02MNpIPSfDF3iJ1eedRVymy9UfXPpjWIz9fKBs6K7kRRF7DzB91QhbL28rkZCmPPBjq
-	g8CfqER8NwlGQAHvU0rlkDatPWnQqO9tQAd8ncVmsdUBOoRcu2gFEyA5yEejCjvVlqrJk/vz9099V
-	4Me7BAMRg==;
+	 bh=0EmU57ie5YJd3YACpPLZYz5NNLY/I+poH47jGh1IgNI=; b=m2gAUfC3B0lKJyxBdgncv6tmC
+	nMALE4Jtq0fEeoof0YPP1OxjrIY7bT8tA+YE6dShCyAIFBK05gMCFhlEPkngJLPWBdulUsKRqdon8
+	CNVGcKCZT5qxm2RhDKUS/rQt2QS8+DVe5MQgSSmxQW8rwDynZua6lQkg30y08vZmOC9o8tMJfn/ek
+	tf7N4kiiISB6X71xo/YLd/BrU3oC3rZjHkVlF33yOfS/3uy18vpQZ4B21Ppd0yrSbNpnzQTW9Kd2u
+	66j5/rAEFIdebR8zNFn459ZkqqfoRX1npV8Ut7lPaeF+twhYInc59KjE3RlafJTh2/oIQbxd1PS3Q
+	2y4rzdFzA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kpdIU-0006I9-1z; Wed, 16 Dec 2020 20:21:18 +0000
+	id 1kpdIe-0006KD-N4; Wed, 16 Dec 2020 20:21:28 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kpdIR-0006Hc-1b
- for linux-riscv@lists.infradead.org; Wed, 16 Dec 2020 20:21:16 +0000
+ id 1kpdIc-0006JZ-NL
+ for linux-riscv@lists.infradead.org; Wed, 16 Dec 2020 20:21:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1608150073;
- bh=E6+S0iH7JA6VSioCcRQNsQtNX73hr73AJHCOek3qQ2U=;
+ s=k20201202; t=1608150086;
+ bh=N+zhwQ+YfkBtvavMJpsqeEW9p7YZZNr6aOvmok4o4gs=;
  h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
- b=i8ELWSJXsO/nvyD3rEMIkiZpJ4FaJ8R6rvUnukYchKNLenDvb7MAnP1Wc8X48UBhA
- HKBT6liNXbsbYY4IFcH3+wQAJLe/JLdvH/4xkUb1k7eJWHIlveQJ6I5ZdMNPV5Mard
- uiVgwDb0dc7XOWjgW5DfLCDNhsfjjIGSXiQjXsv9xp3Odu4xMx7gR6t00nElfk3wmu
- Tq1br+HoRo1Ew2hispa81r9iNWU20hE47XMtSCKZbAu1ucGyxBQCYyVWeEF5eUDTIi
- ZedmPDoyxPFIes1cmB5KZCRMOVrcDbw8IVWeS1Y9D3UAKiIvywrCQVx4PLhnDdTsnD
- X93r0EneG75tw==
+ b=UNjChfjfxsSDltNd7XCWDaMsNU7Vlki9M2oBfaWhJv90xpYc5kLp++DhXbwemADbX
+ Hv9cXlfnlmCwFvVMGwWgFd8ygpDZcOu7zjr1chPA9FgnEPJmwhtr1VaypLDPE0X0aK
+ HAviCPUgHfVjVYYGoWK0KeP1HDVAjZf954uNEmpRi8rnx0PhteTflLBMJiG5WCet4u
+ 48Bio3A6mO4B3dFfUxomPcVdLcsEj5aGqw50VfYQ0NA9CZ3g+25JywQqALzdngJPhl
+ UuMD9CqiucCTru5p/h0Gw/99MMgoozENOj/f5s7M96G8DFsPGpvJMEH5uRVNkCNYor
+ 3eIvWZiz4BBvw==
 MIME-Version: 1.0
-In-Reply-To: <20201209094916.17383-2-zong.li@sifive.com>
+In-Reply-To: <20201209094916.17383-4-zong.li@sifive.com>
 References: <20201209094916.17383-1-zong.li@sifive.com>
- <20201209094916.17383-2-zong.li@sifive.com>
-Subject: Re: [PATCH v7 1/5] clk: sifive: Extract prci core to common base
+ <20201209094916.17383-4-zong.li@sifive.com>
+Subject: Re: [PATCH v7 3/5] clk: sifive: Add a driver for the SiFive FU740
+ PRCI IP block
 From: Stephen Boyd <sboyd@kernel.org>
 To: Zong Li <zong.li@sifive.com>, aou@eecs.berkeley.edu,
  linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, mturquette@baylibre.com, palmer@dabbelt.com,
  paul.walmsley@sifive.com, pragnesh.patel@openfive.com, schwab@linux-m68k.org,
  yash.shah@sifive.com
-Date: Wed, 16 Dec 2020 12:21:12 -0800
-Message-ID: <160815007240.1580929.5097103153471981375@swboyd.mtv.corp.google.com>
+Date: Wed, 16 Dec 2020 12:21:24 -0800
+Message-ID: <160815008470.1580929.14197735214079508813@swboyd.mtv.corp.google.com>
 User-Agent: alot/0.9.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201216_152115_543734_EF0C933A 
-X-CRM114-Status: UNSURE (   6.98  )
+X-CRM114-CacheID: sfid-20201216_152126_893025_980EFB62 
+X-CRM114-Status: UNSURE (   8.83  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -74,25 +75,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Palmer Dabbelt <palmerdabbelt@google.com>,
- Pragnesh Patel <Pragnesh.patel@sifive.com>, Zong Li <zong.li@sifive.com>
+Cc: Erik Danie <erik.danie@sifive.com>, Henry Styles <hes@sifive.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>,
+ Pragnesh Patel <pragnesh.patel@sifive.com>, Zong Li <zong.li@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Quoting Zong Li (2020-12-09 01:49:12)
-> Extract common core of prci driver to an independent file, it could
-> allow other chips to reuse it. Separate SoCs-dependent code 'fu540'
-> from prci core, then we can easily add 'fu740' later.
+Quoting Zong Li (2020-12-09 01:49:14)
+> Add driver code for the SiFive FU740 PRCI IP block. This IP block
+> handles reset and clock control for the SiFive FU740 device and
+> implements SoC-level clock tree controls and dividers.
 > 
-> Almost these changes are code movement. The different is adding the
-> private data for each SoC use, so it needs to get match data in probe
-> callback function, then use the data for initialization.
+> The link of unmatched as follow, and the U740-C000 manual would
+> be present in the same page as soon.
+> https://www.sifive.com/boards/hifive-unmatched
+> 
+> This driver contains bug fixes and contributions from
+> Henry Styles <hes@sifive.com>
+> Erik Danie <erik.danie@sifive.com>
+> Pragnesh Patel <pragnesh.patel@sifive.com>
 > 
 > Signed-off-by: Zong Li <zong.li@sifive.com>
 > Reviewed-by: Pragnesh Patel <Pragnesh.patel@sifive.com>
 > Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
+> Cc: Henry Styles <hes@sifive.com>
+> Cc: Erik Danie <erik.danie@sifive.com>
+> Cc: Pragnesh Patel <pragnesh.patel@sifive.com>
 > ---
 
 Applied to clk-next
