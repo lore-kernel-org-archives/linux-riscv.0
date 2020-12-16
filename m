@@ -2,148 +2,66 @@ Return-Path: <SRS0=pf/r=FU=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 482D8C4361B
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Dec 2020 02:12:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C6514C4361B
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Dec 2020 03:22:15 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CB19A23102
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Dec 2020 02:12:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CB19A23102
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	by mail.kernel.org (Postfix) with ESMTPS id 3F31A23122
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Dec 2020 03:22:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3F31A23122
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:Date:Subject:To:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	 bh=SACBI/biutj7KoH/asZw4Q8N+hLTaOWZSLZamptnu3A=; b=TRyOZRp4fFtP2w5ymKtYGA359
-	kGAb5lUc7Lsz4FoDCF+3a0YjgYKEJyPuLNpunjbaoDxYHVMoB+2SdUAhLngAH5KJC4nJJO9O+vn+D
-	w9YFFP6gz6718sCVKsiU3o8BHF6hh1Ka5pER8uz91ZyAEo6Y/KoB9fJIcu9EcoczBUZQ/75EYFSCs
-	j9QkUZcTWHx8EuFjPE0rwhSKtSuffoymifD/jGjkXUU4RJBlulVaHlFkrRTLyjtJhq7eSsCnvF8S4
-	uNcog0aIGDd1RGQFumGZjK3W3cS5DLQRLlFn1Dwx+MJUbWRed71hem9txHSIyQqXQhDJgNbLr+s/a
-	/oCq4J/Vw==;
+	List-Unsubscribe:List-Id:Message-ID:Date:To:From:Subject:References:
+	In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=1gb4INv7V52wnSL0vGBsewn4KimmycTVqH6V+W5kpvA=; b=r8SX4AAyxf0t5xGS7xGhbtXJx
+	IVoM4nQRrUwzKDM7SeCbTA+egxAP6FK8CYc5YnNCZbNW3vPmN/ylwjPxxwddsTJUj6MfZiDQmqbos
+	UGy3uYS2oR6aXBMlQKcctIlIckBd4Lu9PVMpSLFHwJIZEomcAwwQ7kvhfnBH0Y1h92DJTvPHWpvOw
+	m1yRpGZpyDcVpLG9DQH9eWl83HN7Z7b/UG/m0uMSOyCLPzWknRcek2CsoCrLMX8oHb7q/ghv0z040
+	HuESxS0lD8kbJgZVjXamT5sl5DncZz7hEyr9sVKfOnzGlJhSTl9TqzFS0VfTjHHacze6AI2Lr6Lci
+	TS6zC6y6w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kpMIr-0002sj-8P; Wed, 16 Dec 2020 02:12:33 +0000
-Received: from esa6.hgst.iphmx.com ([216.71.154.45])
+	id 1kpNO7-0007oT-Ay; Wed, 16 Dec 2020 03:22:03 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kpMIo-0002sD-4B
- for linux-riscv@lists.infradead.org; Wed, 16 Dec 2020 02:12:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1608084750; x=1639620750;
- h=from:to:cc:subject:date:message-id:references:
- content-transfer-encoding:mime-version;
- bh=nIqFSKX5K0rHm0QqOgZV0+YiD7mul09KALIoGZkN06M=;
- b=GagGTXtpbY0r7ZFdb+WYSsLZLvLYrBJpFTmvJ/fjhWlffx/EXWo9wMH5
- KM8v9ga9Z5WgGejEYn/mFgvIyNh6NzcS2TptKUhaoiDB457SVZV8zsXgE
- qb0CRh8XxHoTCkRWTaVoWXursbAPMpGdJBEvF18NB8vDVYOONV95BxQAn
- MDORIL0XEFuk3Mm9E+Q9VDvvbzWc8qv12b9VrFDRojrkuGOWak74o+KYu
- Vk2KckAjsl/kxlT3WTdjN+syRhyyMs6v6KZ3DFOEK+1Ct8hblSwbGGASy
- czHhX3/gV5YLN3bieYR7dIfYf3on9A/DJY6qX+GHSoU7Gz1a6hmy85TYU g==;
-IronPort-SDR: kQnBMiQzNZlLSE6REwX2VaVmLs1MTMU4X2Q0DIrZEP4YCUGDJXQeJNVA3MuMBe2OocupaafTya
- 3VobqpEtZ2Yt4skG7nyTeyI1N6MKExLbarwvrKPBIaR26ZCOZ7vmxeTYmUlhKeyZT+1Jm1MluZ
- 1MnjOhAMUI0/TgFL9mi6hAX6NZtznFUrWqXkiwhn7A2AwgPtXpvwoD+N6jpdUNh1rpm/qp8Qxn
- YVmIgkOU/uqJqOYhCYr0uPLEf5ihX8GqCEXka1ehluosz1NQD8XTHhOYJScdetUdZrn7nZZNLi
- 8z0=
-X-IronPort-AV: E=Sophos;i="5.78,423,1599494400"; d="scan'208";a="156449137"
-Received: from mail-bn7nam10lp2106.outbound.protection.outlook.com (HELO
- NAM10-BN7-obe.outbound.protection.outlook.com) ([104.47.70.106])
- by ob1.hgst.iphmx.com with ESMTP; 16 Dec 2020 10:12:25 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=QzjWuRnzzMM7JbbBLfrJzjEq2YGBUww5Ohv305s8mKvNQJ4nX+S1HdpiHrWTOALEuIgJ5JFVoOKbDcrU8J/NkwOFY2dVR+y6thgWaIwdtnmyU+c1k29HOrXrQ/Z4bnjjwbF/Z2iWOD2U5gUHFi/UqHNp43NP5V6izwpKHBvoQHK46blvnKfUqPyRqYjVCXRRcI7suhTNNZJZiYqq2rsLdz3OMUWFzJyMexNMKj8HXdUYbSsxrAE9IL7n5hoqBjISPfszk86xJhqqEmRD2ut7UXei0fQ9o0V6lGKBimxQ6UIP5gSfEQbJJi7q8ppdxq94DYMJ7kimfAcG4HINlhCRlg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=H9aqbn6g38ePO/67TtHb+gDiq5b0LzLvgbtuFbO33EA=;
- b=G006razoNY6tiXqqr6SmvM+h57d0Jp8/eNxa13OQBNl/RptkfTA+ZpCj+4qjsjBG9hFlLpswm7rnTNI3fIc/WsGSSUSWsG7uqjUeJ4J2D52XCaX1VR88gY/zUCTBWcL0uNUK8L33AwoxMev0FDi3EGdSRYV2KvICI1fxZGKkGiUI1MKNN8buQGxKH0ANCsWXEcUxlD1x+DbVPpeyd6a4IUkPJX/Lel6rcducesiwHRNJGzU+USw7ecMoDV4H4Nowb/vDPEdUEhjxGh69C/Gyey+aeEt46AH+d4SRtx8k+oP3AIOa0rHcaOerbfxOzwIBlS1ZngPCMpkqGmhg/aa+Wg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
- header.d=wdc.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=H9aqbn6g38ePO/67TtHb+gDiq5b0LzLvgbtuFbO33EA=;
- b=haD/qXbAXClsn2pE77pxBjJFPi5TGb5Xk/RJxPG1seMTFAWnzfP/g1JE04zoO0xqKXaINqc8H4af1uEwrSwAdv3uG5kzz7OFBuk7NT5WFuMqQppfcUAcCtLihKMYoV8SUkzobCfNxhnb/ECsPIpsMBozos3fcYdF7cs4xF5u4eE=
-Received: from CH2PR04MB6522.namprd04.prod.outlook.com (2603:10b6:610:34::19)
- by CH2PR04MB6824.namprd04.prod.outlook.com (2603:10b6:610:9c::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3654.14; Wed, 16 Dec
- 2020 02:12:24 +0000
-Received: from CH2PR04MB6522.namprd04.prod.outlook.com
- ([fe80::897c:a04b:4eb0:640a]) by CH2PR04MB6522.namprd04.prod.outlook.com
- ([fe80::897c:a04b:4eb0:640a%6]) with mapi id 15.20.3654.026; Wed, 16 Dec 2020
- 02:12:24 +0000
-From: Damien Le Moal <Damien.LeMoal@wdc.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Subject: Re: [PATCH v8 00/22] RISC-V Kendryte K210 support improvements
-Thread-Topic: [PATCH v8 00/22] RISC-V Kendryte K210 support improvements
-Thread-Index: AQHWzv0+AkP/QAM3bkK0BMKIxWgl6Q==
-Date: Wed, 16 Dec 2020 02:12:23 +0000
-Message-ID: <CH2PR04MB6522C3DA1FB852D1946AF916E7C50@CH2PR04MB6522.namprd04.prod.outlook.com>
-References: <mhng-bdf9260d-0bbf-42e5-b32e-c75b870227b9@palmerdabbelt-glaptop>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dabbelt.com; dkim=none (message not signed)
- header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
-x-originating-ip: [2400:2411:43c0:6000:a485:d5fe:a448:e314]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-ht: Tenant
-x-ms-office365-filtering-correlation-id: 9e41f83b-2aaf-4f30-ada8-08d8a168071c
-x-ms-traffictypediagnostic: CH2PR04MB6824:
-x-microsoft-antispam-prvs: <CH2PR04MB68243955BBD1CE68E198D85EE7C50@CH2PR04MB6824.namprd04.prod.outlook.com>
-wdcipoutbound: EOP-TRUE
-x-ms-oob-tlc-oobclassifiers: OLM:1186;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: rUkOpQo1srSrLCYW2FwA+MoQ9kw/9joObc3NVi1+C81t91QdeCACIQFJ3UQK3zCHDBGU+QF+xZZ37cZyTIYnlLTEIjsvm6B2fpTGrI8HzdHB2Cd67DfjRlW0AR+aeRO1m7II43ErHc/4f4Wt4uZH52riReBGY2sZJz0NnZrJkNfep2CfN42yakG46Yjn/qime8vVS22vFw/xm+R+r3tYAC6z3zW1mf2vz4WTB/3/tbP+jug2GfOXUybcZ9G+Ofa57Iv9Am4ZeA5CxwqN2Hfi5dRS1XkqviENrHYx3y6Txq+tX/GnT3B/YuHral9t11lDpBnY/vySna6Z53jQ3tbBEBU66HVaWsX9NnQswOOeUsA7E3z+p+dr0nfd6XJvYA4Y2tN7Wil5MF80fLzy/v+bhg==
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:CH2PR04MB6522.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(396003)(376002)(136003)(39860400002)(366004)(346002)(8936002)(91956017)(52536014)(54906003)(4001150100001)(55016002)(316002)(33656002)(7696005)(5660300002)(76116006)(186003)(9686003)(2906002)(4326008)(66446008)(66476007)(53546011)(66946007)(86362001)(83380400001)(8676002)(966005)(6916009)(7416002)(64756008)(66556008)(6506007)(478600001)(71200400001);
- DIR:OUT; SFP:1102; 
-x-ms-exchange-antispam-messagedata: =?us-ascii?Q?/KH4JvWJ/mFbgst8GG9LqOtHGx14z/sV52SwCkLutDUgDofDR4JC9DKM5EY6?=
- =?us-ascii?Q?2Bo3cfVS9Ht/oCeOVNIkrXGNJS6+ram0DTduHbWspOGZ4Exg3wgsJFj6bruU?=
- =?us-ascii?Q?yGsCIitMXKIS5qcw6a1Y6a/toAxZvCl9gK/WKLOEtK1pjmZ44sAn3VfxCaV8?=
- =?us-ascii?Q?spUvSFWMy4Wp2vU1veTDU9Ty/PdI1cXTXEJ1jZ2uKf4ICSmbJjtzP2Pvw84y?=
- =?us-ascii?Q?yfRGQ3/ntWWXmOqSbCIDQn2Fm+gzrSJINqSskXo4bBDqVzxOBlvsQfAjLIYy?=
- =?us-ascii?Q?So1eRMKd/Jnw+kQ9ROJk7QBxvMUjMtI3Kd4jYAvviyoRNgGIbk3o40T8Ir8U?=
- =?us-ascii?Q?XXwn/7UmWW8o+LC6G+s5Y1pgWfm3CbpHMEsRI7Vz5FNaT0hQwSaaK7m/g59A?=
- =?us-ascii?Q?dbQmLEp2EMI523m77t3CU366ybTF+UaMcsyqYHnlWJuU7t+hAcUVvBfl5IYp?=
- =?us-ascii?Q?/Hmh1Nm29vD/RoUAT3HF/b0lBYBn1EXviKo3gKcrZ4hYvWm9gWruMKjVWGX+?=
- =?us-ascii?Q?HETrbCnwAarSLovOOGtvrui+qN5b93MBQTtc3E9eVg9KHN7G1ySPk4SROw+5?=
- =?us-ascii?Q?HabGrtT6k7KCpNJa0JwMmVexkyq/K3W8/3zsUxXRKyvHsXcA6bGsE2HekMbt?=
- =?us-ascii?Q?B+r/Pyrgfdb4Rw1V74iWPlK6I/6tgw6uBY5UxTAaJVz+xtcbMufb+8odKYBH?=
- =?us-ascii?Q?Rj2q1Fvctj9kRMRB5qynkQwXYMQcIVpnG+8evfiFSokmHtiRCUNCexvNnCMr?=
- =?us-ascii?Q?QoiN4VMF6wCHiSKjnOau5YWsIbB0JITOu4SsyxK5Ci6uu9VRq728uoF234Z5?=
- =?us-ascii?Q?DMAsSGAhJyxFTJYFP6P4/Nz4BQRqy6UTTyXouMpYCxVc1hlL1LmkEaYrjcuE?=
- =?us-ascii?Q?aL/98rj4ETw5MmlDCUZYVEaIf30Ydhfk6qctbN/adlqFDRP2P9advK8pGAYc?=
- =?us-ascii?Q?z20wtujPrRf/hZLEelDTxxcm9YUcpiEgBwPktzkS9Z4iNcZBsZhwurjgUF9E?=
- =?us-ascii?Q?js8nEizQJjDvY/zXK3fmLa6Tbh8wpz+Aqf283KpIT5fe6tzadfNA7ejoNwAA?=
- =?us-ascii?Q?Ks+FXy55?=
-x-ms-exchange-transport-forked: True
+ id 1kpNO5-0007nw-9v
+ for linux-riscv@lists.infradead.org; Wed, 16 Dec 2020 03:22:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1608088920;
+ bh=zXOu3Dsa7PjAV8LCk/8JtIkNMtPqZuJsgeUbq9ntAms=;
+ h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+ b=VHDiWkyzJG4AhGEdOpncZIfbEIH/5U1BsuFpYicphwvUt5qjm2OrLC5UQ1DdcAths
+ JAMSvRaXgBVwEIV+cbu9Rk7wPINeZTHrbdW7ppqZXdLjyflvonplP5bXlOKeGwOQCX
+ 4t5xNVgSAJSobcmG4yOjaOt/BvFLkJDuaKorNe0aJNCLdmWwN6Z+TmbRKu+CBM3BUg
+ Q8/2LgcioL/3inLo9UdzhQzwPR5AZ3+lviNbRtlMJpF5Hrf/AfLiA893nBhO7ueqH3
+ q2yMpGMA/qSjRwuE0FntOmf3TwmX/acDBZ/8FoMRioVYvB21g/+RuUCIpq99xrJ2uM
+ myEVxtqUjOM5w==
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CH2PR04MB6522.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9e41f83b-2aaf-4f30-ada8-08d8a168071c
-X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Dec 2020 02:12:24.0119 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: FUInlzIj/CYyqanMO6+Majve/lWCdugmgHMd+SSfcoiMzi1MQGT/cJX0F5m7qpESSm5SlmYIFyLyTOdHsQDFfA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR04MB6824
+In-Reply-To: <20201126030043.67390-1-zong.li@sifive.com>
+References: <20201126030043.67390-1-zong.li@sifive.com>
+Subject: Re: [PATCH] dt-bindings: fu740: prci: add YAML documentation for the
+ FU740 PRCI
+From: Stephen Boyd <sboyd@kernel.org>
+To: Zong Li <zong.li@sifive.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ mturquette@baylibre.com, palmer@dabbelt.com, paul.walmsley@sifive.com,
+ robh+dt@kernel.org
+Date: Tue, 15 Dec 2020 19:21:58 -0800
+Message-ID: <160808891852.1580929.2514120348145455057@swboyd.mtv.corp.google.com>
+User-Agent: alot/0.9.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201215_211230_461278_905CEABF 
-X-CRM114-Status: GOOD (  21.99  )
+X-CRM114-CacheID: sfid-20201215_222201_456298_5BBDAFEF 
+X-CRM114-Status: UNSURE (   4.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -155,81 +73,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "sboyd@kernel.org" <sboyd@kernel.org>,
- "linus.walleij@linaro.org" <linus.walleij@linaro.org>,
- "seanga2@gmail.com" <seanga2@gmail.com>,
- "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
- "robh+dt@kernel.org" <robh+dt@kernel.org>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>
+Cc: Zong Li <zong.li@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2020/12/16 10:43, Palmer Dabbelt wrote:
-> On Sun, 13 Dec 2020 00:06:22 PST (-0800), Damien Le Moal wrote:
->> On Sat, 2020-12-12 at 22:04 -0800, Stephen Boyd wrote:
->>> Quoting Damien Le Moal (2020-12-10 06:02:51)
->>>>
->>>> Finally the last two patches updates the k210 nommu defconfig to include
->>>> the newly implemented drivers and provide a new default configuration
->>>> file enabling SD card support.
->>>>
->>>> A lot of the work on the device tree and on the K210 drivers come from
->>>> the work by Sean Anderson for the U-Boot project support of the K210
->>>> SoC. Sean also helped with debugging many aspects of this series.
->>>>
->>>> A tree with all patches applied is available here:
->>>> https://github.com/damien-lemoal/linux, k210-sysctl-v20 branch.
->>>> A demonstration of this series used on a SiPeed MAIX Dock
->>>> board together with an I2C servo controller can be seen here:
->>>> https://damien-lemoal.github.io/linux-robot-arm/#example
->>>>
->>>> This tree was used to build userspace busybox environment image that is
->>>> then copied onto an SD card formatted with ext2:
->>>> https://github.com/damien-lemoal/buildroot
->>>> Of note is that running this userspace environment requires a revert of
->>>> commit 2217b982624680d19a80ebb4600d05c8586c4f96 introduced during the
->>>> 5.9 development cycle. Without this revert, execution of the init
->>>> process fails. A problem with the riscv port of elf2flt is suspected but
->>>> not confirmed. I am now starting to investigate this problem.
->>>>
->>>> Reviews and comments are as always much welcome.
->>>
->>> What's the merge plan for this series? I'd like to apply the clk patches
->>> but they're combined with the sysctl driver so I guess I can't?
->>
->> Not sure. Palmer ? What is your plan for this series ? Can you queue the
->> riscv/DT pieces for 5.11 ?
->>
->> I will post a v9 to address Rob's comment on the sysctl and fpioa drivers
->> binding doc, not other with v8 changes beside that.
+Quoting Zong Li (2020-11-25 19:00:43)
+> Add YAML DT binding documentation for the SiFive FU740 PRCI. The
+> link of unmatched board as follow, the U740-C000 manual would be present
+> in the same page later.
 > 
-> I guess I got hung up on that bultin DT thing, but I've sort of decided I don't
-> really care that much (though I guess I didn't decide enough to reply to the
-> email...).  I don't think it's 5.11 material: we were told to be stricter this
-> time around because of the timing, and I'm trying to sort out a boot issue
-> that's manifesting post 5.10+for-next merge so I probably won't have time to
-> take more stuff.
+>     https://www.sifive.com/boards/hifive-unmatched
 > 
-> Also: I'm kind of trying to avoid the whole thing where I take patches that
-> have a bunch of versions sent either right before or during the merge window,
-> as it just makes things too hard to keep track of.
+> Passes dt_binding_check.
+> 
+> Signed-off-by: Zong Li <zong.li@sifive.com>
+> ---
 
-OK. 5.12 it is then. Please queue these in a branch as soon as possible once the
-merge window is done. Or do you prefer that I resend everything rebased on
-5.11-rc first ?
-
-That said, I think patches 1-3 should go in 5.11. 1 & 2 are trivial and patch 3
-fixes a nasty bug that exists with the current k210 support.
-
-
--- 
-Damien Le Moal
-Western Digital Research
+Applied to clk-next
 
 _______________________________________________
 linux-riscv mailing list
