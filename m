@@ -2,77 +2,85 @@ Return-Path: <SRS0=pf/r=FU=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CA249C4361B
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Dec 2020 01:36:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 730FBC4361B
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Dec 2020 01:43:15 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 43283230FA
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Dec 2020 01:36:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 43283230FA
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
+	by mail.kernel.org (Postfix) with ESMTPS id 0DA6522D75
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Dec 2020 01:43:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0DA6522D75
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=E9KwaOG7zXVjWfpvl4fzMxAIGJjg8HuC1lYl8nrar1g=; b=eumF2+CGUpHAaZQI2AXI6wcbW
-	KbIiykDAgGKd4U0iJwyts+3mq9pKT9rNP7n4z+sGCJbbNuBZvtzBbqBWgoCXH2Wl8YE5b5GOxSwTm
-	OlsW+zuTI5eoyxDSZwE5PVU8jGkMOWLbxAi+H1q09RSev8LLdyqYeAZgK+4TvUryBjW4HN7vf6Tby
-	2cGhS/kdaQF0yz/ozSRXechqx27Ke5GZRstjUEe894wAa+gn+lWmPvr0rlRJOiZ74ROS4rS+p7JDw
-	XcSYm9XAnHkn4prglPLoHJYdTHiH7PkvMRt/e0MHjt2cIGDb4GbSuigS/YP0QGFTRrlQd0NYzv7Zm
-	vrPuXWtHQ==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=HUF70e3HrBaKTqgBkVu3XqTcOXBxRq8QNKyZF5QUF4o=; b=0j/0AmEMQs04tOZG0nwla28/a
+	bBx7QE09qJuWk2Dbm0CKd33308P87J6+dXa4/1lpr9WQO58ehGb/jC0swrBXfML6guCUFExbPUemp
+	nJNdDIEOTL/Pr0NeN5LMjU3Y2tvAskqLhb6TZ+nUjUt+r62EfNdddntFpwCDe9BGQuXQOCnU9ipyz
+	tVTcPN97uTZrNc2PIYJSVv8BPSBsoWzQ5AAaB8RVZoQNZ46c3hSrMF13mbAJcipA9cdued7DH/sxw
+	8118RJrFyWkZsvbsADDCMXIhbobZa2J4QxUzpAZsbuZJevrG+7KfCgdnzsCy8xQrI++ZcH/Y6O3O1
+	MUulvcxtw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kpLjT-0000pY-7U; Wed, 16 Dec 2020 01:35:59 +0000
-Received: from mail-il1-x141.google.com ([2607:f8b0:4864:20::141])
+	id 1kpLqM-00018L-N8; Wed, 16 Dec 2020 01:43:06 +0000
+Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kpLjQ-0000p4-8B
- for linux-riscv@lists.infradead.org; Wed, 16 Dec 2020 01:35:57 +0000
-Received: by mail-il1-x141.google.com with SMTP id r17so21064248ilo.11
- for <linux-riscv@lists.infradead.org>; Tue, 15 Dec 2020 17:35:53 -0800 (PST)
+ id 1kpLqJ-00017b-CV
+ for linux-riscv@lists.infradead.org; Wed, 16 Dec 2020 01:43:04 +0000
+Received: by mail-pf1-x441.google.com with SMTP id 131so15589598pfb.9
+ for <linux-riscv@lists.infradead.org>; Tue, 15 Dec 2020 17:43:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=MRd3YNHCqzK5NhqnkEbEDb94QUR4VdeTapVOxE6cbKc=;
- b=Or+/lveC48saPTq8E59KdZFlgJ4pYZ9kc8zK/zM8M8qtzMTsBKUPBasvvkac+KXlwg
- ni5Cj1HjqKDjLGcJHYimyvsrEsMi2F2Qz6qoKKu/kw2WRRzyLAFZJmGRkTf8YqhNTZgH
- MA5lIVuadi7sCsQ6tL37O4rUkz02/njjjeIk4=
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=DGe/kRe3MPa9vd1aCEWGdtZxWk4QoHI77u2B0aTPVnk=;
+ b=QuNnQeUg3VuTh7gBLVXdIVgxTypFlOGy6oePrOx2wgkTrttR5ak2rIv7STrsRFoatP
+ fjv1prlnss/4pkuopcEJa1cNeW1zThsNa4mGSOMHXhBDRnZQwEr/+7Z5BbYGhxMkl1Qp
+ 7NEMjOpUCkzq2liC0dhW38IdMnm+WmqmUiM0WVEU10mnaF6MYa3Pm3xhDMSfyK3XUgql
+ XnTeaoxOZo3m2wf518FOBMf03pVB/ns4Z1qGHCUE+oyjlUNhogEUlthqZ9QKuoT6ssCx
+ HY1NaeRuF8kGFlsZRtVDrPPqbMZHgm+Rh+UbiIe+7zDwGsHMSx05rWiz+uM6g4TRe4St
+ 4v8A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=MRd3YNHCqzK5NhqnkEbEDb94QUR4VdeTapVOxE6cbKc=;
- b=BJvBVl2YKU7Y8rMDyDlbWdpOtuPgtyZ//xdCDQMkbwdAQrQaidX/CH6trCo29rlcPP
- V65WJz9PXIfrG1OVTLoJ+ZERQIrrtN+rARsp28b3skckddqFfNJOJguTFZSpoP5I0TeF
- TnBKLR8/1X88quDqbWgll2iY7SCW7fG/q6nZqEAkXUA1eARdb3D1XxCPO3ZN31O/laV5
- Xz+QmbYf3EfOzx2iw1AazPc+O3Mm287nUlOUcvYdvnl2Nc7CMMXyAARaaBXr2LV4AtCA
- wDsKg/qnW8d222XD4sEGKC5L9Uyf/vzMleMwAsy4tw92IBzdpw3LZx9yxR8EuIdtPBOf
- 5ZEA==
-X-Gm-Message-State: AOAM5304ubSoZjSm6IXPoyRZ3ZBrAxG8R/8Rb+w/PoQ54uDlPVsvjFB+
- B/mbjM/HND7uFSkUleDt3toHBzx2LTLKWDib9qST
-X-Google-Smtp-Source: ABdhPJzIBCadYeToNm0MoslYBuG+uI/FLxtB3+6QwrRR8hZov+KWYR/Ze3DwUAPzjRoXIKYqc4j+AfHgajlmCvTHl2M=
-X-Received: by 2002:a92:d84a:: with SMTP id h10mr42172073ilq.77.1608082551494; 
- Tue, 15 Dec 2020 17:35:51 -0800 (PST)
-MIME-Version: 1.0
-References: <20201126024038.180680-1-wangkefeng.wang@huawei.com>
- <9aaa0069-12d9-b062-2e7d-95847ee2283c@huawei.com>
-In-Reply-To: <9aaa0069-12d9-b062-2e7d-95847ee2283c@huawei.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Tue, 15 Dec 2020 17:35:40 -0800
-Message-ID: <CAOnJCUL+Mkyy7D6mUFr0GiT9CGbXg1aa3jO8d0Hrzan=GdV6PA@mail.gmail.com>
-Subject: Re: [PATCH] riscv: Cleanup sbi function stubs when RISCV_SBI disabled
-To: Kefeng Wang <wangkefeng.wang@huawei.com>
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=DGe/kRe3MPa9vd1aCEWGdtZxWk4QoHI77u2B0aTPVnk=;
+ b=VmIHhf/03ke7bArIxv4x2sAyW9NjOx3D9PWVk79w/pv08xI/O5JwUSCUcR6qTMBr41
+ Phawf2iJRrk8Ryi4ZP7mFti4AjHF5yQgPt7OfX6WEvkL/HdhJ+uJ+ydmiE9zreAZktw3
+ fZA8rEoSrMqs9FfUFDKXjX5S+oWkJ+gsMnLo2Y+2xl+6V7LI1SY8okJP3eR7I4atYFR4
+ nz173AxXy2FNuhYh6njqf/NRf744CO6fVoxp4q5FLvxq7sigK4jZA1EJrb4P8KSloWDw
+ eiNTaw+13TYLdTtW2dy1PwHtGZJnm7fsLZuGfYm9rgdMLBMjkPv13S3FQkMUyb21cSlk
+ DXhQ==
+X-Gm-Message-State: AOAM532gu6xufNREjDZTJOc9ZZ716W9OztK+NTYF8ROs7fHE0/FtFg6s
+ FeCILG8FD5WPILmCkweFH95AZvHajAjJf4kT
+X-Google-Smtp-Source: ABdhPJyD+Cum/1oT2A0wUWaIVXeLrYJ3kkq1S47NQ3+eDX2q876+qo+YidZox/GyTlXMcM5A3tbvNg==
+X-Received: by 2002:a63:4950:: with SMTP id y16mr31128740pgk.415.1608082980594; 
+ Tue, 15 Dec 2020 17:43:00 -0800 (PST)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id o11sm154817pjs.36.2020.12.15.17.42.59
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 15 Dec 2020 17:42:59 -0800 (PST)
+Date: Tue, 15 Dec 2020 17:42:59 -0800 (PST)
+X-Google-Original-Date: Tue, 15 Dec 2020 17:42:58 PST (-0800)
+Subject: Re: [PATCH v8 00/22] RISC-V Kendryte K210 support improvements
+In-Reply-To: <f47e089de657073d09ee5407af690e8f97bc6e95.camel@wdc.com>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Damien Le Moal <Damien.LeMoal@wdc.com>
+Message-ID: <mhng-bdf9260d-0bbf-42e5-b32e-c75b870227b9@palmerdabbelt-glaptop>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201215_203556_406262_DFA7FC73 
-X-CRM114-Status: GOOD (  19.70  )
+X-CRM114-CacheID: sfid-20201215_204303_552369_C65A6D6A 
+X-CRM114-Status: GOOD (  27.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -84,106 +92,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Palmer Dabbelt <palmerdabbelt@google.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>
-Content-Type: text/plain; charset="us-ascii"
+Cc: devicetree@vger.kernel.org, sboyd@kernel.org, linus.walleij@linaro.org,
+ seanga2@gmail.com, linux-gpio@vger.kernel.org, robh+dt@kernel.org,
+ p.zabel@pengutronix.de, linux-riscv@lists.infradead.org,
+ linux-clk@vger.kernel.org
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 14, 2020 at 5:23 AM Kefeng Wang <wangkefeng.wang@huawei.com> wrote:
->
-> Hi all,  any comments...
->
-> On 2020/11/26 10:40, Kefeng Wang wrote:
-> > Fix sbi_init() function declaration mismatch between RISCV_SBI
-> > enable and disable, as it always returned 0, make it void function.
-> >
-> > Drop some stubs which won't be used if RISCV_SBI disabled.
-> >
-> > Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
-> > ---
-> >   arch/riscv/include/asm/sbi.h | 10 +++-------
-> >   arch/riscv/kernel/sbi.c      |  4 +---
-> >   arch/riscv/kernel/setup.c    |  2 --
-> >   3 files changed, 4 insertions(+), 12 deletions(-)
-> >
-> > diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-> > index 653edb25d495..99dc77ba8e43 100644
-> > --- a/arch/riscv/include/asm/sbi.h
-> > +++ b/arch/riscv/include/asm/sbi.h
-> > @@ -89,7 +89,7 @@ struct sbiret {
-> >       long value;
-> >   };
-> >
-> > -int sbi_init(void);
-> > +void sbi_init(void);
-> >   struct sbiret sbi_ecall(int ext, int fid, unsigned long arg0,
-> >                       unsigned long arg1, unsigned long arg2,
-> >                       unsigned long arg3, unsigned long arg4,
-> > @@ -147,11 +147,7 @@ static inline unsigned long sbi_minor_version(void)
-> >
-> >   int sbi_err_map_linux_errno(int err);
-> >   #else /* CONFIG_RISCV_SBI */
-> > -/* stubs for code that is only reachable under IS_ENABLED(CONFIG_RISCV_SBI): */
-> > -void sbi_set_timer(uint64_t stime_value);
-> > -void sbi_clear_ipi(void);
-> > -void sbi_send_ipi(const unsigned long *hart_mask);
-> > -void sbi_remote_fence_i(const unsigned long *hart_mask);
-> > -void sbi_init(void);
-> > +static inline void sbi_remote_fence_i(const unsigned long *hart_mask) {}
-> > +static inline void sbi_init(void) {}
-> >   #endif /* CONFIG_RISCV_SBI */
-> >   #endif /* _ASM_RISCV_SBI_H */
-> > diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-> > index 226ccce0f9e0..bae6ffdc6e7b 100644
-> > --- a/arch/riscv/kernel/sbi.c
-> > +++ b/arch/riscv/kernel/sbi.c
-> > @@ -560,7 +560,7 @@ static struct riscv_ipi_ops sbi_ipi_ops = {
-> >       .ipi_inject = sbi_send_cpumask_ipi
-> >   };
-> >
-> > -int __init sbi_init(void)
-> > +void __init sbi_init(void)
-> >   {
-> >       int ret;
-> >
-> > @@ -600,6 +600,4 @@ int __init sbi_init(void)
-> >       }
-> >
-> >       riscv_set_ipi_ops(&sbi_ipi_ops);
-> > -
-> > -     return 0;
-> >   }
-> > diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> > index 901ac0c680dd..ef4f5c076d61 100644
-> > --- a/arch/riscv/kernel/setup.c
-> > +++ b/arch/riscv/kernel/setup.c
-> > @@ -104,9 +104,7 @@ void __init setup_arch(char **cmdline_p)
-> >       kasan_init();
-> >   #endif
-> >
-> > -#if IS_ENABLED(CONFIG_RISCV_SBI)
-> >       sbi_init();
-> > -#endif
-> >
-> >   #ifdef CONFIG_SMP
-> >       setup_smp();
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+On Sun, 13 Dec 2020 00:06:22 PST (-0800), Damien Le Moal wrote:
+> On Sat, 2020-12-12 at 22:04 -0800, Stephen Boyd wrote:
+>> Quoting Damien Le Moal (2020-12-10 06:02:51)
+>> > 
+>> > Finally the last two patches updates the k210 nommu defconfig to include
+>> > the newly implemented drivers and provide a new default configuration
+>> > file enabling SD card support.
+>> > 
+>> > A lot of the work on the device tree and on the K210 drivers come from
+>> > the work by Sean Anderson for the U-Boot project support of the K210
+>> > SoC. Sean also helped with debugging many aspects of this series.
+>> > 
+>> > A tree with all patches applied is available here:
+>> > https://github.com/damien-lemoal/linux, k210-sysctl-v20 branch.
+>> > A demonstration of this series used on a SiPeed MAIX Dock
+>> > board together with an I2C servo controller can be seen here:
+>> > https://damien-lemoal.github.io/linux-robot-arm/#example
+>> > 
+>> > This tree was used to build userspace busybox environment image that is
+>> > then copied onto an SD card formatted with ext2:
+>> > https://github.com/damien-lemoal/buildroot
+>> > Of note is that running this userspace environment requires a revert of
+>> > commit 2217b982624680d19a80ebb4600d05c8586c4f96 introduced during the
+>> > 5.9 development cycle. Without this revert, execution of the init
+>> > process fails. A problem with the riscv port of elf2flt is suspected but
+>> > not confirmed. I am now starting to investigate this problem.
+>> > 
+>> > Reviews and comments are as always much welcome.
+>> 
+>> What's the merge plan for this series? I'd like to apply the clk patches
+>> but they're combined with the sysctl driver so I guess I can't?
+> 
+> Not sure. Palmer ? What is your plan for this series ? Can you queue the
+> riscv/DT pieces for 5.11 ?
+> 
+> I will post a v9 to address Rob's comment on the sysctl and fpioa drivers
+> binding doc, not other with v8 changes beside that.
 
-LGTM,
+I guess I got hung up on that bultin DT thing, but I've sort of decided I don't
+really care that much (though I guess I didn't decide enough to reply to the
+email...).  I don't think it's 5.11 material: we were told to be stricter this
+time around because of the timing, and I'm trying to sort out a boot issue
+that's manifesting post 5.10+for-next merge so I probably won't have time to
+take more stuff.
 
-Reviewed-by: Atish Patra <atish.patra@wdc.com>
-
--- 
-Regards,
-Atish
+Also: I'm kind of trying to avoid the whole thing where I take patches that
+have a bunch of versions sent either right before or during the merge window,
+as it just makes things too hard to keep track of.
 
 _______________________________________________
 linux-riscv mailing list
