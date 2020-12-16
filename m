@@ -2,72 +2,79 @@ Return-Path: <SRS0=pf/r=FU=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-0.7 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D02F1C2BBCA
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Dec 2020 08:02:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4F86CC4361B
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Dec 2020 09:15:59 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 420E323356
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Dec 2020 08:02:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 420E323356
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
+	by mail.kernel.org (Postfix) with ESMTPS id E001922DBF
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Dec 2020 09:15:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E001922DBF
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:Message-ID:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=3FQTGOXfMC2hI/zqRdPTEHIBznzUnGCqkfqXfASWmP8=; b=Y6NlJNn4LQMxQ4m5JUHpmRkSB
-	BeB9l5Dk+LZ4m+vnbSTW3BlkmpDT/XoNXPhg4aERQ82Lse82pMp4zGNiY/19dR6a651cl73CrqPkg
-	ilxzPji1fDfdR/VppDtzV3jmmi/SF/0pz/prdeBx0oeM2LdqE6P3ZCaXqtYex+anKNBt0hbMj1hza
-	2ex9xap6jXw5lW8ih8zeh7SMCCzHdtqtTlwUFRL7De+2+L4XDnZxVtzlhq0OnzcFFArsfGrIGA3Ow
-	tbmrf1ZfvdLgcGVMdbOBK7Blrlg1cEOd9U3EFjUrCiPjmRgb4o3YDQzzllS+nmr3YX7Du7kbmELJJ
-	lrQgYRvSA==;
+	Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe
+	:List-Id:To:Subject:Message-ID:Date:From:MIME-Version:Reply-To:Cc:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AIJ6loN7CHX9Ok4wnRlz+vzJbanjcrFTQotOWJY5pTc=; b=mf0yG7KGA3XnFEeXPhbvk4wOQQ
+	deDMS2xHrJtfJ18muSanzA9P3Bnkx3bV+boHmcqJKgoodFBD6N4ZpXn+OF6Z956T72G5gB9DG6JmZ
+	I3o6qivau3/M8+C2BnNcZjm17lgVEk9JgRcP0J6M3h6Q1Ah2aj5EMGXKOD0Nc/gMIVbWtRFS2e9oE
+	O55zLxZz1tpTBRFVd5YdDx87ayyq42b1RJcBu+XqDUbguHkOVuIEkqLX6F7s3FY9sYNmQ5MBwrK1/
+	QSUa0rnIfqZ3BGOrtJOkMV1Sn51orDzW0VaUHv97DU/SqBnaCSebumlVnXah8+VsuPWZzuMe5o7ok
+	Q7QfP+6A==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kpRky-0002AO-NG; Wed, 16 Dec 2020 08:01:56 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1kpSuV-00080Y-KB; Wed, 16 Dec 2020 09:15:51 +0000
+Received: from mail-yb1-xb2c.google.com ([2607:f8b0:4864:20::b2c])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kpRku-00026J-99; Wed, 16 Dec 2020 08:01:54 +0000
-Received: from DGGEMM404-HUB.china.huawei.com (unknown [172.30.72.53])
- by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4CwncL4gcpzVpnY;
- Wed, 16 Dec 2020 16:00:34 +0800 (CST)
-Received: from dggemm751-chm.china.huawei.com (10.1.198.57) by
- DGGEMM404-HUB.china.huawei.com (10.3.20.212) with Microsoft SMTP Server (TLS)
- id 14.3.498.0; Wed, 16 Dec 2020 16:01:37 +0800
-Received: from dggpemm000001.china.huawei.com (7.185.36.245) by
- dggemm751-chm.china.huawei.com (10.1.198.57) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.1913.5; Wed, 16 Dec 2020 16:01:37 +0800
-Received: from dggpemm000001.china.huawei.com ([7.185.36.245]) by
- dggpemm000001.china.huawei.com ([7.185.36.245]) with mapi id 15.01.1913.007;
- Wed, 16 Dec 2020 16:01:37 +0800
-From: Jiangyifei <jiangyifei@huawei.com>
-To: Anup Patel <anup@brainfault.org>
-Subject: RE: [PATCH RFC 0/3] Implement guest time scaling in RISC-V KVM
-Thread-Topic: [PATCH RFC 0/3] Implement guest time scaling in RISC-V KVM
-Thread-Index: AQHWyW7J7KJ3/h39l0SdrqVdkwzNb6n403kAgACcZuA=
-Date: Wed, 16 Dec 2020 08:01:37 +0000
-Message-ID: <70bdbe9c25214e9483950a0a0efb4305@huawei.com>
-References: <20201203121839.308-1-jiangyifei@huawei.com>
- <CAAhSdy2zdwfOGFUtakhbeDUJBapz6fWPnQptT7nCdyFMSoLyGg@mail.gmail.com>
-In-Reply-To: <CAAhSdy2zdwfOGFUtakhbeDUJBapz6fWPnQptT7nCdyFMSoLyGg@mail.gmail.com>
-Accept-Language: zh-CN, en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.174.186.236]
+ id 1kpSuR-0007zS-0X; Wed, 16 Dec 2020 09:15:48 +0000
+Received: by mail-yb1-xb2c.google.com with SMTP id 82so14817263yby.6;
+ Wed, 16 Dec 2020 01:15:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:from:date:message-id:subject:to;
+ bh=W0LXqv5YrqIShnAJ3j/zRhwKpy8jwb9vaREIG/ChG9c=;
+ b=EDmnCHdeeslnwFBXDnjQxisodSQ+2tet7hb2eI+g/TS8FWeN3D95bm5k4ALUksfAqI
+ zkHdeewnuq01Yw5Ib/Ogk8Qf710QFMt+ET18cJ2+zqsE9OZevPqYXxeT/jjHWm7s4Ct+
+ K2+dXZHEI0QzIlb/szTqkBh6ST7IfMdrwvdO0YD0xE3DLNpfYngIU6d92AbxfjWjpbdP
+ G3TIETT0c3ZtgoE0tPV6CYK/Fppg0Svutr+H9SHAvlMtpy8TSi/O46bn07UymQoUISCn
+ nxC1LCj7XSmn4BKSAGpQYxSQCvX9HbA0m+xyo/dO5u16jrEsaYxjV0PHeElVo+cFQJ1v
+ dmcw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+ bh=W0LXqv5YrqIShnAJ3j/zRhwKpy8jwb9vaREIG/ChG9c=;
+ b=RVkOu0CaqqF+TxCgUl5II0ii1Y+FyaXZVf8mmdAxw3PnqZBEUH+K2+UJhxF1qtSsnm
+ tM6JXI/nyJ8et6FnelYVJqIsgyB+kEcbuCtu3heAmTaD5vRwxc/zSnX4Bnvr7XrR/ZeK
+ ZWdJK06CB9cQlxduaxOrSqm4yi1v+heCrfFFuGtZIerRR3c4BFeIQ9pRiVsxOlK4R32a
+ 4z6E7sAwe2LIVuUE14qpR5Oxq369/wR9yxuRTS9rnd6WM9VlMMfC03CdXuOx19s66f3s
+ NyIl8suzt/WHJ/hO5bLIrsOjlP3M2XyVHmXQv2j8EXf4tLiyiYiAwXNBbuUTSL+1BDQb
+ hapA==
+X-Gm-Message-State: AOAM5319Clsubf6RCObg5gVaDZzk2OmZfcxctk4wi3QoHrwrPY3RT1IF
+ MgSE/bPAP214dGjCPgk1emuwpkSMYHnE0CzXDMozU1HjEKs=
+X-Google-Smtp-Source: ABdhPJx414pazVSH07VBlqNumnWChCa1Vi8stoWiNcygFiqEWZfvi1aoz/+uMUVoDLw68KofbEM3X1P9V8KP6PTHxQQ=
+X-Received: by 2002:a25:ec5:: with SMTP id 188mr52665046ybo.387.1608110144920; 
+ Wed, 16 Dec 2020 01:15:44 -0800 (PST)
 MIME-Version: 1.0
-X-CFilter-Loop: Reflected
+From: Bin Meng <bmeng.cn@gmail.com>
+Date: Wed, 16 Dec 2020 17:15:33 +0800
+Message-ID: <CAEUhbmX1_3FTO4LwSN37p8itHhsLfUHaJF9qauESEx1E3B1UfA@mail.gmail.com>
+Subject: OpenSBI fw_dynamic firmware does not boot 32-bit kernel on QEMU 'virt'
+To: OpenSBI <opensbi@lists.infradead.org>,
+ "open list:RISC-V" <qemu-riscv@nongnu.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, Anup Patel <anup.patel@wdc.com>,
+ Atish Patra <atish.patra@wdc.com>, Alistair Francis <Alistair.Francis@wdc.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201216_030152_872703_DD26D260 
-X-CRM114-Status: GOOD (  20.87  )
+X-CRM114-CacheID: sfid-20201216_041547_123788_A14B952F 
+X-CRM114-Status: UNSURE (   8.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -79,96 +86,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Zhanghailiang <zhang.zhanghailiang@huawei.com>,
- KVM General <kvm@vger.kernel.org>, Anup Patel <anup.patel@wdc.com>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Atish Patra <atish.patra@wdc.com>,
- "Zhangxiaofeng \(F\)" <victor.zhangxiaofeng@huawei.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, yinyipeng <yinyipeng1@huawei.com>, Paul
- Walmsley <paul.walmsley@sifive.com>, Paolo Bonzini <pbonzini@redhat.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- "Wubin \(H\)" <wu.wubin@huawei.com>, "dengkai \(A\)" <dengkai1@huawei.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-> -----Original Message-----
-> From: Anup Patel [mailto:anup@brainfault.org]
-> Sent: Wednesday, December 16, 2020 2:40 PM
-> To: Jiangyifei <jiangyifei@huawei.com>
-> Cc: Anup Patel <anup.patel@wdc.com>; Atish Patra <atish.patra@wdc.com>;
-> Paul Walmsley <paul.walmsley@sifive.com>; Palmer Dabbelt
-> <palmer@dabbelt.com>; Albert Ou <aou@eecs.berkeley.edu>; Paolo Bonzini
-> <pbonzini@redhat.com>; Zhanghailiang <zhang.zhanghailiang@huawei.com>;
-> KVM General <kvm@vger.kernel.org>; yinyipeng <yinyipeng1@huawei.com>;
-> Zhangxiaofeng (F) <victor.zhangxiaofeng@huawei.com>;
-> linux-kernel@vger.kernel.org List <linux-kernel@vger.kernel.org>;
-> kvm-riscv@lists.infradead.org; linux-riscv <linux-riscv@lists.infradead.org>;
-> Wubin (H) <wu.wubin@huawei.com>; dengkai (A) <dengkai1@huawei.com>
-> Subject: Re: [PATCH RFC 0/3] Implement guest time scaling in RISC-V KVM
-> 
-> On Thu, Dec 3, 2020 at 5:51 PM Yifei Jiang <jiangyifei@huawei.com> wrote:
-> >
-> > This series implements guest time scaling based on RDTIME instruction
-> > emulation so that we can allow migrating Guest/VM across Hosts with
-> > different time frequency.
-> >
-> > Why not through para-virt. From arm's experience[1], para-virt
-> > implementation doesn't really solve the problem for the following two main
-> reasons:
-> > - RDTIME not only be used in linux, but also in firmware and userspace.
-> > - It is difficult to be compatible with nested virtualization.
-> 
-> I think this approach is rather incomplete. Also, I don't see how para-virt time
-> scaling will be difficult for nested virtualization.
-> 
-> If trap-n-emulate TIME CSR for Guest Linux then it will have significant
-> performance impact of systems where TIME CSR is implemented in HW.
-> 
-> Best approach will be to have VDSO-style para-virt time-scale SBI calls (similar
-> to what KVM x86 does). If the Guest software (Linux/Bootloader) does not
-> enable para-virt time-scaling then we trap-n-emulate TIME CSR (this series).
-> 
-> Please propose VDSO-style para-virt time-scale SBI call and expand this this
-> series to provide both:
-> 1. VDSO-style para-virt time-scaling
-> 2. Trap-n-emulation of TIME CSR when #1 is disabled
-> 
-> Regards,
-> Anup
-> 
+With latest QEMU HEAD, 32-bit kernel with the following kernel commit
+reverted [1]
 
-OK, it sounds good. We will look into the para-virt time-scaling for more details.
+1bd14a66ee5200d6a24419cbd2e0a0fccd4da36f ("RISC-V: Remove any memblock
+representing unusable memory area")
 
-Yifei
+still does not boot on QEMU 'virt'. However explicitly specifying
+-bios to use the fw_jump firmware will allow the kernel to boot.
 
-> >
-> > [1] https://lore.kernel.org/patchwork/cover/1288153/
-> >
-> > Yifei Jiang (3):
-> >   RISC-V: KVM: Change the method of calculating cycles to nanoseconds
-> >   RISC-V: KVM: Support dynamic time frequency from userspace
-> >   RISC-V: KVM: Implement guest time scaling
-> >
-> >  arch/riscv/include/asm/csr.h            |  3 ++
-> >  arch/riscv/include/asm/kvm_vcpu_timer.h | 13 +++++--
-> >  arch/riscv/kvm/vcpu_exit.c              | 35 +++++++++++++++++
-> >  arch/riscv/kvm/vcpu_timer.c             | 51
-> ++++++++++++++++++++++---
-> >  4 files changed, 93 insertions(+), 9 deletions(-)
-> >
-> > --
-> > 2.19.1
-> >
-> >
-> > --
-> > kvm-riscv mailing list
-> > kvm-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/kvm-riscv
+When QEMU switched OpenSBI from fw_jump to fw_dynamic during the 5.2.0
+development cycle, I remember at that time I tested this on 32-bit
+machine for both 'virt' and 'sifive_u'. See the following commit
+message as it indicated 32-bit testing.
+
+2cacd8414daf6a0643926392f05fd397ed1e9b66 "hw/riscv: Use pre-built bios
+image of generic platform for virt & sifive_u"
+
+I don't have too much time to do the debugging. I hope someone could
+pick this up and identify where the problem is.
+
+[1] http://lists.infradead.org/pipermail/linux-riscv/2020-December/003925.html
+
+Regards,
+Bin
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
