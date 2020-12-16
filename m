@@ -1,116 +1,78 @@
-Return-Path: <SRS0=RRT7=FT=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=pf/r=FU=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.7 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7AC20C4361B
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Dec 2020 23:39:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CA249C4361B
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Dec 2020 01:36:11 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2AC2E22CAE
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Dec 2020 23:39:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2AC2E22CAE
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=yahoo.ca
+	by mail.kernel.org (Postfix) with ESMTPS id 43283230FA
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Dec 2020 01:36:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 43283230FA
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe
-	:List-Id:Message-Id:MIME-Version:In-Reply-To:References:To:Subject:From:Date:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zxW45iJEp0RwYRaQpQ55+QARTZeLnQ+E58fumjkI/S4=; b=iagR9lDh4gTbOdVD4BXRlu0zRo
-	49B5uIXxysDk/QmCy50kMPaJu9QNkEeW/bU2XV1m8VtT36EjKwpJA48o9jfTPJMSEOIgJ2sfEqJ67
-	QGtuuxxOQBwZbFmadw5+3W82BFZ8wbivkVvSFGBTzNcUuXmNIQ2D2z/aFxz2x6wynQZQhbj8dUehR
-	pJmUJHdb4AORgrcxDLT/FQNwjAPfS9JFoteyvrjVyiAO63YaBOTokyjPhDBPPnN36R2d8YWvuGVCW
-	mbPV83v8E9WJY9LCIOA8aRFKuwgHCKc6zO2FWt3jrWf6Y36e95gfGCm/FAtgo7S84hz0jKdDW8ebw
-	rTc6MB+Q==;
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=E9KwaOG7zXVjWfpvl4fzMxAIGJjg8HuC1lYl8nrar1g=; b=eumF2+CGUpHAaZQI2AXI6wcbW
+	KbIiykDAgGKd4U0iJwyts+3mq9pKT9rNP7n4z+sGCJbbNuBZvtzBbqBWgoCXH2Wl8YE5b5GOxSwTm
+	OlsW+zuTI5eoyxDSZwE5PVU8jGkMOWLbxAi+H1q09RSev8LLdyqYeAZgK+4TvUryBjW4HN7vf6Tby
+	2cGhS/kdaQF0yz/ozSRXechqx27Ke5GZRstjUEe894wAa+gn+lWmPvr0rlRJOiZ74ROS4rS+p7JDw
+	XcSYm9XAnHkn4prglPLoHJYdTHiH7PkvMRt/e0MHjt2cIGDb4GbSuigS/YP0QGFTRrlQd0NYzv7Zm
+	vrPuXWtHQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kpJui-0001AT-4a; Tue, 15 Dec 2020 23:39:28 +0000
-Received: from sonic305-21.consmr.mail.gq1.yahoo.com ([98.137.64.84])
+	id 1kpLjT-0000pY-7U; Wed, 16 Dec 2020 01:35:59 +0000
+Received: from mail-il1-x141.google.com ([2607:f8b0:4864:20::141])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kpJue-00019q-W1
- for linux-riscv@lists.infradead.org; Tue, 15 Dec 2020 23:39:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.ca; s=s2048;
- t=1608075561; bh=ZkwtcN1Znn8ElcNfcf+qBswC+LM15JB4pYSZu2ijlTk=;
- h=Date:From:Subject:To:References:In-Reply-To:From:Subject;
- b=bsOksqOjy08JRuM1vNMYKY63ugniz6HKC1zmUhBC5VKH2e12SAHB008RzBECewMo+icMFJI6NYQhG4/OH7Z/GLk5hLZgxT6F8kZiz5UMvuAYx2D/hINMWnQtozRzOnLfAyfg4lGjSjjFIIidoNVJcMiw2bwjvwedEWRGxpRnyM3Ldt3qrWOgqFbOOiBgI3BZuVeYXjfeaWjeGeT0MBIBWTGZika6x6BAqY+x1IAlvkfZB4WTzvSUQjuyI/HEv0kpieYrUu5GWR9OVUjFxGsut6hwHVFFNYOj3DlUB/PQIYAldTAgtvZgISakZfFzJiNQVM/20ujq6L1prYQ3+1aTYw==
-X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048;
- t=1608075561; bh=sa9UqAHRB7t41f/GLWfHt+ZwGcZHRuwzz9vsWaaIuHi=;
- h=Date:From:Subject:To:From:Subject;
- b=jBqLOED7uPJH+hPV5WVZNIV/P86RjHeCPnWryS+Z+teP5vUvDvppKa/KgpFjsDGAyX9x5IVqe+MNZRFJB5wO7GjSO7NrcrdbtS1i1Cme4DGBGEmM0jUIHuBXr+OHecGvV7frx91OwbA8b5xY+qrzhHM/5e4s7p781cSM5YNwfIKpYsLgKfnFNg83UyrBfJWg4ioEuMwW13uUB7hTvBTivVGYHzSpMaP5scMnwuPq4A0xgJH7L62FGyU7yxofnHAZEjRZVoCzfy4+YdMpUhltJUNVEe2aZs4O59gIQy2zlFm0AkPZB1YIqvAWU3PE6Sh8JQefZqwhHUv/kiFoAQioAQ==
-X-YMail-OSG: JulUi2QVM1nOM7VAg5vRbxJvcPrCfaXBKUng8mGlePCsxSIq3rtbyl96cSN5qFK
- 7.h4Aa88liq6HVnGOUXcsPeXL74TBWciCtyW_KeIQUDxofTYYXt5IHkQm_umaVImY3W8liebEIU4
- szvNP5o2H3HY3PIhLLi9iNOUkBJ2yguyZZ4umprzcIXvxROcjUkrtUF8dVFU5Y3xwGuCdvPCLPqj
- mLREEVIFTPri8ysQqktoHfLQdaQYt8xV18xWtfZtrMrOK_JzwXGk7SW7sYwSNosu9uwQQJEIYp25
- cTHfIxdQVf4lWmsA.CIzdUsg8QPSpTavYfCr6LO0SfIZRWuzGApiP8U6LWearQZG1UoSMaGOlmvV
- QK3kWN4RGWv9HSH1Hg82mcZreKjG.nLZe.u_SHz2u_rWetzTpPUsB1yRuKpBnteJnWvrO.qum9.z
- mv0L0fE0DATM5I0.NwaT7tn2NiCPFmwsqfsc9.kyWtiASArq.zAo2RpYFPlBPXhEbPBlCENQEQKv
- s5QeeeNSDN1OwLxmgN5B5wiM7K_r72En.FDRAtdIxWMRCAOJKiCjmnzIEoMIk3FFRaoSWD9jNBrW
- Oax9cagl6c79yx1SMZUw7ySAIVUiSnngUQlsee9F1VF7DviJZxvYlHBMNbteIpirbYjbC6Z9rvGd
- uIH6K0NPiK9DtjyFmrZzLewFlF_wE_jjzO.nvjjRG5DkZVtY4xYLtBfRNyfvz.5E4gb6oRmifOoI
- yfzOfhS68sbdmcv.z2QoB95lDfu3Lh2usQc9_iLkRfF2x0fJZKLWl5yMHJXhjqc5CL0OBrD_Quwn
- vlJyTIvFRHi9cuQOYThWQ7mmLMLJno6OSpcAiAh_Ov4rS_62MmN5bX.L_8AtKoD663erfbVNhRAK
- _rkXoHsNSR41yhY_.keMq9DQU_iI2kQWkNUYGpVI5GpnJWjdlBqWagg20f40YxDoPHDa6tXsqhlb
- ZZA.yEr0wXymIX4mjuMRnTLupT1nD4oq_M65fcyBFE.nyrW3Fet4XndSxEbOE.bwMM60PNwxD1Nz
- eJvvTM6.CqVT_feH0fVAhigwiI4l.YfplONEEAyRsLwhS_HH6gbt4JPTz6fLQWku6QOq5lpehXsZ
- KUeYwDTIJkmNzjjmCeg3GbP4xFEhYYaUIg42LJ.97ldAT9iYf8g.c7P.7KUMMArV5ypQrnw1j6CD
- 0JxTjhsdTnF49PUfrYa0s_MEKYvrly5B2WyCbpAcG9EFoTFhU.LWSbdyHz8C.Dcva4VHJIgt8XYf
- Gi5MaKoYfAvOC4MAgTmJ4ZOg0q3eMDsHGs.gyr.XUwV6rOJIFsQkmWHe5rSAMGlXIPUW8t8tg3dJ
- EvwOP9NXlwMJ566bOyAKEwOMCM34ICqvVjQsUOrkPwQ4lyO74vG6CfNeJQLhgtteaNJckXbbMYom
- 0JTVZbosF0m5qEi1TVusHClEGP7Z4xbDXarz8NRWZI_ZNZFL.tIYlsO22EHLzE22YQPFWcWAkth1
- NZ_M2bnWezpO5GVnUliz65SktX_0SpmT5rqk7GR_19caN3LB.MaDOkY4ecZ0XcBRN8uEIFI64YWy
- 1My91erfKvO3oXGTtA7m7jZSqJjGz3K7Il_Tb_XdT8YVxK._qI6DnY0Qp4Yh0m5nj4k9R6JN.Ikx
- VasRMIlnL.xwcgifvV.4GjcKSJahPRp5GpCTEBPcurH1zDt9QwztI3Zv07uC5koUrcwqGNtnc3XD
- gFmL1quC.BGbahu9v8eRrCAEIppDmZO.72mlMtzLhZENeSQiSuo4cPtoMsGBJN_KUy8VeztqYzFD
- EfxCmL21bPq.A4QLIFTpRzDhKirGiOWr0Bq2IHZfHT5ijhUpfqv5K.6JgXPa1IMg7DM_Gow4vzuP
- SeW27Y0P4zHN3SxUy2r61UDe1ZbNJ9k4MwzC6YoC_d6QOi46NjldipKhbIqHo6o71_eEjH9uwL_i
- _zgJQIT_J3itRCrREf451k4iZvlUlSyX5IczmCMYrOsE7cfoqb0Nyc7DTrbKJHMnBwBJix09Ckpz
- .teceLV2ymIU0aOOwiX.44MLRrUl5Wg7YYqY8CI2J7cC3fPw5cIxg5O4UXv7pvPyVvE2W3hJgO9F
- wrGwyKCcY0bXQu3GN6OoCkX6jNSHTPoYu5k7WLYoK7tcL3eS0LE5PG9xVEoyy7oXWUlyZshME2qI
- KO_DK.c_1z4S77qdx7g5kAF.OHVQX6ndSiRlwpiBBGFE2ThKR.xWlfNg8OtjD_wkPzbb8jPOhVmZ
- _pWEzmIMWTGML6UG6XRrr26iSpK.L_5qJkOWiU_JTnF0dRNmoQeW6JpP_jzs8qwn3izwaxkDlldY
- 4.oHtiHpqde8T4uIl9ob33_.aMuSa_PkLK9CJYHa7_B_gmqr37Xx9ToobzNTJjlOlg5SwfFGAHk7
- 3vK2RZcMYwoQjAmf3xX38T1lWinVefLaW4ivnACyz9UikzJX0SBJKjQLkSc_afdyIjXARY_Urvn_
- QMkkwGljA8VbvJ2CWPJ0BMEmUwiCYzPtTyHlmQiOv9yAAxhuCg32.jgPJVuvGU7Iet6xroUXpqsM
- t99A9lEGlYWGE_SBf56PyMeXAk.yv3NBa7T4I43u.X.xjVy7D01r4ED5lpaQ7RCnx.XfVJFK6Btg
- sQRdIz_UER_rNkMUrGDlzs8dnJMpxICv7gh0fSIrB4JgTsIn9g3Oy5eZZvHp5d6lEj6PgrUHyrSu
- qCDbrnZdiqIFiE3TS9ywhnHJKOP31TMCVzhypQtBC9KPedUuZe0GGlqPLWBVgc2E6nm8L4s2b56N
- UlyZdlKFUyeBoFy8vhS8Q1XuFHcLinhhwKHbG8s60WOAZAmRNkYJ1AEtD_trNzcKQ7a8f.oS6a8I
- _UgJD1jFuMJeAjp4Nd2zY.fTu_1t5CBIPBgaVlesmI_6dUDjGS5M6zjHuoD.IHF5YAwJNQW764XX
- hYuc-
-Received: from sonic.gate.mail.ne1.yahoo.com by
- sonic305.consmr.mail.gq1.yahoo.com with HTTP; Tue, 15 Dec 2020 23:39:21 +0000
-Received: by smtp409.mail.ne1.yahoo.com (VZM Hermes SMTP Server) with ESMTPA
- ID 7f42f66753ff764add4cd34d24e29391; 
- Tue, 15 Dec 2020 23:39:20 +0000 (UTC)
-Date: Tue, 15 Dec 2020 18:39:17 -0500
-From: "Alex Xu (Hello71)" <alex_y_xu@yahoo.ca>
-Subject: Re: [RFC PATCH] treewide: remove bzip2 compression support
-To: linux-kernel@vger.kernel.org, linux-kbuild@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, linux-xtensa@linux-xtensa.org
-References: <20201215190315.8681-1-alex_y_xu.ref@yahoo.ca>
- <20201215190315.8681-1-alex_y_xu@yahoo.ca>
-In-Reply-To: <20201215190315.8681-1-alex_y_xu@yahoo.ca>
+ id 1kpLjQ-0000p4-8B
+ for linux-riscv@lists.infradead.org; Wed, 16 Dec 2020 01:35:57 +0000
+Received: by mail-il1-x141.google.com with SMTP id r17so21064248ilo.11
+ for <linux-riscv@lists.infradead.org>; Tue, 15 Dec 2020 17:35:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=atishpatra.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=MRd3YNHCqzK5NhqnkEbEDb94QUR4VdeTapVOxE6cbKc=;
+ b=Or+/lveC48saPTq8E59KdZFlgJ4pYZ9kc8zK/zM8M8qtzMTsBKUPBasvvkac+KXlwg
+ ni5Cj1HjqKDjLGcJHYimyvsrEsMi2F2Qz6qoKKu/kw2WRRzyLAFZJmGRkTf8YqhNTZgH
+ MA5lIVuadi7sCsQ6tL37O4rUkz02/njjjeIk4=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=MRd3YNHCqzK5NhqnkEbEDb94QUR4VdeTapVOxE6cbKc=;
+ b=BJvBVl2YKU7Y8rMDyDlbWdpOtuPgtyZ//xdCDQMkbwdAQrQaidX/CH6trCo29rlcPP
+ V65WJz9PXIfrG1OVTLoJ+ZERQIrrtN+rARsp28b3skckddqFfNJOJguTFZSpoP5I0TeF
+ TnBKLR8/1X88quDqbWgll2iY7SCW7fG/q6nZqEAkXUA1eARdb3D1XxCPO3ZN31O/laV5
+ Xz+QmbYf3EfOzx2iw1AazPc+O3Mm287nUlOUcvYdvnl2Nc7CMMXyAARaaBXr2LV4AtCA
+ wDsKg/qnW8d222XD4sEGKC5L9Uyf/vzMleMwAsy4tw92IBzdpw3LZx9yxR8EuIdtPBOf
+ 5ZEA==
+X-Gm-Message-State: AOAM5304ubSoZjSm6IXPoyRZ3ZBrAxG8R/8Rb+w/PoQ54uDlPVsvjFB+
+ B/mbjM/HND7uFSkUleDt3toHBzx2LTLKWDib9qST
+X-Google-Smtp-Source: ABdhPJzIBCadYeToNm0MoslYBuG+uI/FLxtB3+6QwrRR8hZov+KWYR/Ze3DwUAPzjRoXIKYqc4j+AfHgajlmCvTHl2M=
+X-Received: by 2002:a92:d84a:: with SMTP id h10mr42172073ilq.77.1608082551494; 
+ Tue, 15 Dec 2020 17:35:51 -0800 (PST)
 MIME-Version: 1.0
-Message-Id: <1608075451.ootu1tx25o.none@localhost>
-X-Mailer: WebService/1.1.17278
- mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
- Apache-HttpAsyncClient/4.1.4 (Java/11.0.8)
+References: <20201126024038.180680-1-wangkefeng.wang@huawei.com>
+ <9aaa0069-12d9-b062-2e7d-95847ee2283c@huawei.com>
+In-Reply-To: <9aaa0069-12d9-b062-2e7d-95847ee2283c@huawei.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Tue, 15 Dec 2020 17:35:40 -0800
+Message-ID: <CAOnJCUL+Mkyy7D6mUFr0GiT9CGbXg1aa3jO8d0Hrzan=GdV6PA@mail.gmail.com>
+Subject: Re: [PATCH] riscv: Cleanup sbi function stubs when RISCV_SBI disabled
+To: Kefeng Wang <wangkefeng.wang@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201215_183925_263050_A799CBD5 
-X-CRM114-Status: UNSURE (   5.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20201215_203556_406262_DFA7FC73 
+X-CRM114-Status: GOOD (  19.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -122,24 +84,106 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Palmer Dabbelt <palmerdabbelt@google.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Excerpts from Alex Xu (Hello71)'s message of December 15, 2020 2:03 pm:
-> bzip2 is either slower or larger than every other supported algorithm,
-> according to benchmarks at [0]. It is far slower to decompress than any
-> other algorithm, and still larger than lzma, xz, and zstd.
-> 
-> [0] https://lore.kernel.org/lkml/1588791882.08g1378g67.none@localhost/
-> 
-> Signed-off-by: Alex Xu (Hello71) <alex_y_xu@yahoo.ca>
+On Mon, Dec 14, 2020 at 5:23 AM Kefeng Wang <wangkefeng.wang@huawei.com> wrote:
+>
+> Hi all,  any comments...
+>
+> On 2020/11/26 10:40, Kefeng Wang wrote:
+> > Fix sbi_init() function declaration mismatch between RISCV_SBI
+> > enable and disable, as it always returned 0, make it void function.
+> >
+> > Drop some stubs which won't be used if RISCV_SBI disabled.
+> >
+> > Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+> > ---
+> >   arch/riscv/include/asm/sbi.h | 10 +++-------
+> >   arch/riscv/kernel/sbi.c      |  4 +---
+> >   arch/riscv/kernel/setup.c    |  2 --
+> >   3 files changed, 4 insertions(+), 12 deletions(-)
+> >
+> > diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+> > index 653edb25d495..99dc77ba8e43 100644
+> > --- a/arch/riscv/include/asm/sbi.h
+> > +++ b/arch/riscv/include/asm/sbi.h
+> > @@ -89,7 +89,7 @@ struct sbiret {
+> >       long value;
+> >   };
+> >
+> > -int sbi_init(void);
+> > +void sbi_init(void);
+> >   struct sbiret sbi_ecall(int ext, int fid, unsigned long arg0,
+> >                       unsigned long arg1, unsigned long arg2,
+> >                       unsigned long arg3, unsigned long arg4,
+> > @@ -147,11 +147,7 @@ static inline unsigned long sbi_minor_version(void)
+> >
+> >   int sbi_err_map_linux_errno(int err);
+> >   #else /* CONFIG_RISCV_SBI */
+> > -/* stubs for code that is only reachable under IS_ENABLED(CONFIG_RISCV_SBI): */
+> > -void sbi_set_timer(uint64_t stime_value);
+> > -void sbi_clear_ipi(void);
+> > -void sbi_send_ipi(const unsigned long *hart_mask);
+> > -void sbi_remote_fence_i(const unsigned long *hart_mask);
+> > -void sbi_init(void);
+> > +static inline void sbi_remote_fence_i(const unsigned long *hart_mask) {}
+> > +static inline void sbi_init(void) {}
+> >   #endif /* CONFIG_RISCV_SBI */
+> >   #endif /* _ASM_RISCV_SBI_H */
+> > diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+> > index 226ccce0f9e0..bae6ffdc6e7b 100644
+> > --- a/arch/riscv/kernel/sbi.c
+> > +++ b/arch/riscv/kernel/sbi.c
+> > @@ -560,7 +560,7 @@ static struct riscv_ipi_ops sbi_ipi_ops = {
+> >       .ipi_inject = sbi_send_cpumask_ipi
+> >   };
+> >
+> > -int __init sbi_init(void)
+> > +void __init sbi_init(void)
+> >   {
+> >       int ret;
+> >
+> > @@ -600,6 +600,4 @@ int __init sbi_init(void)
+> >       }
+> >
+> >       riscv_set_ipi_ops(&sbi_ipi_ops);
+> > -
+> > -     return 0;
+> >   }
+> > diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> > index 901ac0c680dd..ef4f5c076d61 100644
+> > --- a/arch/riscv/kernel/setup.c
+> > +++ b/arch/riscv/kernel/setup.c
+> > @@ -104,9 +104,7 @@ void __init setup_arch(char **cmdline_p)
+> >       kasan_init();
+> >   #endif
+> >
+> > -#if IS_ENABLED(CONFIG_RISCV_SBI)
+> >       sbi_init();
+> > -#endif
+> >
+> >   #ifdef CONFIG_SMP
+> >       setup_smp();
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
-Upon further research, I found that bzip2 removal was already 
-implemented as part of zstd addition, but were apparently abandoned in 
-an effort to get zstd in. I will check those patches and try sending 
-those instead. Thanks to all reviewers for comments on this patch.
+LGTM,
+
+Reviewed-by: Atish Patra <atish.patra@wdc.com>
+
+-- 
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
