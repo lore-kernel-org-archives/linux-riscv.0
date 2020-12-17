@@ -2,87 +2,69 @@ Return-Path: <SRS0=FwEc=FV=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 463E8C4361B
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Dec 2020 10:14:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C05F5C4361B
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Dec 2020 10:17:22 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C47732311F
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Dec 2020 10:14:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C47732311F
-Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=microchip.com
+	by mail.kernel.org (Postfix) with ESMTPS id 5A4DF238EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Dec 2020 10:17:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5A4DF238EF
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Message-ID:Date:To:From:Subject:References:
+	In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=PZlrep0KCZ/UznMVKuEAR9hFl6vsevSKXZ1/SXmt6qM=; b=mjfJ99rVEyNFt3pQ/A+9xceP0
-	4S4cIUJq9ZypJcgTX3CTtIsu7yGFgHkUK8T0ekw32SkjkzSbjHIkuIOkRXiXLXrWQzvesRm7CZxeK
-	Do5uBk7pyslaNzV6IjrYeiFj0P6AmMIWwB+6S/0IiYvJu9WXqEnxfjLISpscZjNYp8BfQZkyz9UCT
-	nYT4L2V9RUcKXPoxDOPqe+19xZRTAkZRCrXN5xCxQq7dohgfpViSJTJMszjtyyY6SLdZ3NYuU2JFN
-	PBtU3LnHZ75Jn8JFQ1ilCkyCqqUSTLRsiOrfozWrP1O/xNcoksig1j3uwH0KD1d6bGXJrAOYVRS/W
-	bphK0Sw7w==;
+	 bh=A7QILW4k0RtJqLa1zU3e4KG4glTksCGpI3/85wzYNAQ=; b=U++06lGH9xMf00sgqMdwduvRb
+	O475682YEUIH3DurSe1lsrL4oLsAnXRRZYCqk0rY8zc+12Teg1tq36dFRDYOrW+e3dsBrT9izBti7
+	hygZbIZOb3cPLYhjcV1WY897/ZJE3rfaSEQFN6ovvvBNOWgPckZIGCJzRjZai+YdYkpUELyWAvFq3
+	t3oHF1tZh+DnF8f+P3a9SYdqHsOK4MCIB1knfAoxGObaJc+mq4HRjJS/PbFqzkvpJG0IMnUbDCa5X
+	LmkSjZatWUu8ng3uPbUXzzKZg7V3/qAllhvZO5eoVAASN9xaU7F7pGWq7J4lG0KSKgC35LF/NR8W9
+	QtHEDvoUA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kpqIM-00084c-In; Thu, 17 Dec 2020 10:14:02 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1kpqLS-0000uc-Na; Thu, 17 Dec 2020 10:17:14 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kpqID-00080j-IZ
- for linux-riscv@lists.infradead.org; Thu, 17 Dec 2020 10:13:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
- t=1608200033; x=1639736033;
- h=subject:to:cc:references:from:message-id:date:
- mime-version:in-reply-to:content-transfer-encoding;
- bh=gEkW6RbrgOxi90YpOZkCKsJYSwuRnd4VKz5XMjUVr8U=;
- b=kPqRC1g5C0wkOGPYNECV9/DedC9cb9c0x63NhH2ZtBIYb0xN3yMzMcJv
- zP77zmebawW124xd3ncMRWu0noA+8GtK24r8EtnBj2lFxYs1qDmqJrmXs
- P36HMtbu4ufntmr1mZhosARqVpIw3dnoUJu4XYXFRnUDtzGufi8Sbdbn9
- mT3C796SGsxnl08A+X9gM1P6+pJZv39GWLGzEfVHfbOBsXj+ipOiZHbcZ
- eNkgLvvdihBrT5YWvIimEJVnAHKP3CSXrjVb9aolvmpfu8IXLPY/nQU5X
- S7NO3OgHEGaMusgntGWDe+sEwrcGTiqHeoaVcwqN4roYKmx9cSz517PLk A==;
-IronPort-SDR: XEIhSz+1243SkrqAaquvhpaycDwjiYjytgf/0ojV8Ra+XGEh7Ub5SegTOh9PrYmkwiHPh9KbLn
- Pl790Ke1EUiS7vYmW3T9r81Eicw8r5rDDCK3xUTlaTjtHmW507fFjDS4WVjSvjas3p4LEpVUOh
- 0Mjngbi1OqJbQkCcJgIPAmdYP3EQFre5wvdcTbEVE0zBzLA8GmtkGyvcxPbhCWJ0eI/LQYnuHV
- m9uYSCejclBipVOKhyxrDIW6kI2bbsPp13sNQI+b+9plwmnNJ5dh4/XqCtQdxDxDUPPMUCVhbO
- vyE=
-X-IronPort-AV: E=Sophos;i="5.78,426,1599548400"; d="scan'208";a="97439396"
-Received: from smtpout.microchip.com (HELO email.microchip.com)
- ([198.175.253.82])
- by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 17 Dec 2020 03:13:51 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.1979.3; Thu, 17 Dec 2020 03:13:50 -0700
-Received: from [10.171.246.74] (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server id 15.1.1979.3 via Frontend
- Transport; Thu, 17 Dec 2020 03:13:46 -0700
-Subject: Re: [PATCH v3 0/8] net: macb: add support for sama7g5
-To: Claudiu Beznea <claudiu.beznea@microchip.com>, <davem@davemloft.net>,
- <kuba@kernel.org>, <robh+dt@kernel.org>, <linux@armlinux.org.uk>,
- <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <natechancellor@gmail.com>, 
- <ndesaulniers@google.com>
-References: <1607519019-19103-1-git-send-email-claudiu.beznea@microchip.com>
-From: Nicolas Ferre <nicolas.ferre@microchip.com>
-Organization: microchip
-Message-ID: <419c402d-b214-410d-24c4-45c1d2ba388d@microchip.com>
-Date: Thu, 17 Dec 2020 11:13:45 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.10.0
+ id 1kpqLC-0000pv-Nf
+ for linux-riscv@lists.infradead.org; Thu, 17 Dec 2020 10:17:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1608200218;
+ bh=R0x1PA8BvcIrgXrlUvqF6asRJGMm2WhicqNyzRbZC2o=;
+ h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+ b=mCL1L9zgdfqLhBl2s7Z9cWUEM5KEpflWhFZaOhh3dbYhlmraw4KTFW1Yh6wHlWEsS
+ Eu427VLD3QX6z2qjMeyRu7gLqwgHoiEJbuzK72wlgEYQMjpj66IKazEg3bIZCa0tS3
+ x14drQubinSh3dl3V1RbLu0itU7G9142RXMd3bMO9YFornBfgvT7byTXJcz706WCl2
+ DhVkteYoW7WUlR/JfEqu+NbvfpnB6F+FzQKyiO3PAujPt3HBZMSS9ChuQ+tRHiQsR4
+ taLbQSCM/AqHjaBNZixdrhHexcseMI3PvmqWJ/sxqc+53WDHEPCCCYeme3Zk6OycoJ
+ h2zjkylROTluw==
 MIME-Version: 1.0
-In-Reply-To: <1607519019-19103-1-git-send-email-claudiu.beznea@microchip.com>
-Content-Language: en-US
+In-Reply-To: <CH2PR04MB65227B0B94F919406CB84C28E7C40@CH2PR04MB6522.namprd04.prod.outlook.com>
+References: <20201213135056.24446-1-damien.lemoal@wdc.com>
+ <20201213135056.24446-10-damien.lemoal@wdc.com>
+ <160819259979.1580929.9332027241734052085@swboyd.mtv.corp.google.com>
+ <CH2PR04MB65227B0B94F919406CB84C28E7C40@CH2PR04MB6522.namprd04.prod.outlook.com>
+Subject: Re: [PATCH v10 09/23] dt-binding: clock: Document canaan,
+ k210-clk bindings
+From: Stephen Boyd <sboyd@kernel.org>
+To: Damien Le Moal <Damien.LeMoal@wdc.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh+dt@kernel.org>,
+ devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-riscv@lists.infradead.org
+Date: Thu, 17 Dec 2020 02:16:55 -0800
+Message-ID: <160820021596.1580929.1686334340234415270@swboyd.mtv.corp.google.com>
+User-Agent: alot/0.9.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201217_051353_903947_9B8553DA 
-X-CRM114-Status: GOOD (  17.00  )
+X-CRM114-CacheID: sfid-20201217_051658_923511_B001FBCD 
+X-CRM114-Status: GOOD (  19.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -94,61 +76,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com,
- yash.shah@sifive.com, linux-riscv@lists.infradead.org
+Cc: Sean Anderson <seanga2@gmail.com>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 09/12/2020 at 14:03, Claudiu Beznea wrote:
-> Hi,
+Quoting Damien Le Moal (2020-12-17 00:13:57)
+> On 2020/12/17 17:10, Stephen Boyd wrote:
+> > Quoting Damien Le Moal (2020-12-13 05:50:42)
+> >> diff --git a/include/dt-bindings/clock/k210-clk.h b/include/dt-bindings/clock/k210-clk.h
+> >> index 5a2fd64d1a49..b2de702cbf75 100644
+> >> --- a/include/dt-bindings/clock/k210-clk.h
+> >> +++ b/include/dt-bindings/clock/k210-clk.h
+> >> @@ -3,18 +3,51 @@
+> >>   * Copyright (C) 2019-20 Sean Anderson <seanga2@gmail.com>
+> >>   * Copyright (c) 2020 Western Digital Corporation or its affiliates.
+> >>   */
+> >> -#ifndef K210_CLK_H
+> >> -#define K210_CLK_H
+> >> +#ifndef CLOCK_K210_CLK_H
+> >> +#define CLOCK_K210_CLK_H
+> >>  
+> >>  /*
+> >> - * Arbitrary identifiers for clocks.
+> >> - * The structure is: in0 -> pll0 -> aclk -> cpu
+> >> - *
+> >> - * Since we use the hardware defaults for now, set all these to the same clock.
+> >> + * Kendryte K210 SoC clock identifiers (arbitrary values).
+> >>   */
+> >> -#define K210_CLK_PLL0   0
+> >> -#define K210_CLK_PLL1   0
+> >> -#define K210_CLK_ACLK   0
+> >> -#define K210_CLK_CPU    0
+> > 
+> > This seems to open a bisection hole. I see that ACLK is used in the
+> > existing dtsi file, and that is the same as CLK_CPU, but after this
+> > patch it will change to not exist anymore. Can we leave ACLK around
+> > defined to be 0? I imagine it won't be used in the future so we can
+> > remove it later. I can then apply this for v5.11-rc1 and then merge the
+> > clk driver patch in clk tree.
+> > 
+> >> +#define K210_CLK_CPU   0
+> >> +#define K210_CLK_SRAM0 1
+> >> +#define K210_CLK_SRAM1 2
+> > 
 > 
-> This series adds support for SAMA7G5 Ethernet interfaces: one 10/100Mbps
-> and one 1Gbps interfaces.
+> Patch 6 of the series removes the use of K210_CLK_CPU and K210_CLK_ACLK from the
+> device trees. I added that patch as the DT modification proper comes only at
+> patch 16. Maybe I should squash patch 6 into this one ?
 > 
-> Along with it I also included a fix to disable clocks for SiFive FU540-C000
-> on failure path of fu540_c000_clk_init().
-> 
-> Thank you,
-> Claudiu Beznea
-> 
-> Changed in v3:
-> - use clk_bulk_disable_unprepare in patch 3/8
-> - corrected clang compilation warning in patch 3/8
-> - revert changes in macb_clk_init() in patch 3/8
-> 
-> Changes in v2:
-> - introduced patch "net: macb: add function to disable all macb clocks" and
->    update patch "net: macb: unprepare clocks in case of failure" accordingly
-> - collected tags
-> 
-> Claudiu Beznea (8):
->    net: macb: add userio bits as platform configuration
->    net: macb: add capability to not set the clock rate
->    net: macb: add function to disable all macb clocks
->    net: macb: unprepare clocks in case of failure
->    dt-bindings: add documentation for sama7g5 ethernet interface
->    dt-bindings: add documentation for sama7g5 gigabit ethernet interface
->    net: macb: add support for sama7g5 gem interface
->    net: macb: add support for sama7g5 emac interface
 
-For the whole series:
-Acked-by: Nicolas Ferre <nicolas.ferre@microchip.com>
-
-Thanks Claudiu, best regards,
-   Nicolas
-
->   Documentation/devicetree/bindings/net/macb.txt |   2 +
->   drivers/net/ethernet/cadence/macb.h            |  11 ++
->   drivers/net/ethernet/cadence/macb_main.c       | 134 ++++++++++++++++++-------
->   3 files changed, 111 insertions(+), 36 deletions(-)
-> 
-
-
--- 
-Nicolas Ferre
+Preferably the defines are just left alone forever and then forgotten.
+The dt-bindings directory is almost ABI and so changing numbers or
+removing defines is hard to do. Usually patches in this directory are an
+additive thing.
 
 _______________________________________________
 linux-riscv mailing list
