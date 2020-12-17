@@ -2,62 +2,86 @@ Return-Path: <SRS0=FwEc=FV=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-18.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E2117C4361B
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Dec 2020 02:35:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 849EDC4361B
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Dec 2020 06:51:30 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B631720866
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Dec 2020 02:35:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B631720866
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
+	by mail.kernel.org (Postfix) with ESMTPS id 40D7723603
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Dec 2020 06:51:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 40D7723603
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
 	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=T+rzyDtfvXTdQZiMZ220LpL8S4vWFJmCzP2v2o+NoTk=; b=MloBhes56wCk6Y785zY27EwpO
-	bwQBsCG+5WRhKAwYiBN7J+4JlbX5s8jx+XAzxr/yN2qckvI7y+9Se1dAmZGQpAc7Zj+dQ1YFf6pE3
-	dAKdQlxAOIyuOYdNaFzbwqjp0iOYbqven7kwAtlJc19SVXNUSU10NGusOWeJrP+mqDANtOfFsWFDp
-	0z/eFsKiT7GfiEL4NPaeT2LAA8/TBThxuUa9q5fwzqetXYbwzfTzT8RJRNfRTbPBdf2e+l8XjxL12
-	9zSzKo1IFd4qDQB0NO56zJz+lRUUfSfBu4MsEXGDTXa5IlhZo+yjoemEFTWf+d1WRHACZEoWgpxb8
-	Sna4naYPA==;
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=4YXkQ0gnUFRGB7D5kRHStS3MU/KjERSw0UJS2nUniYE=; b=Cipr6SUvqR9CEF608COAOmUFa
+	d5/2xhYQc2c4ujPchPpNwNeRAicOTgXGMuOMa/4XNJJHk+dFKYuo8TGgMT4AM7YSJDn4M6BebDXgF
+	VnJAGL6LE1dw8VFspYESqsoSA+QKcyb0/e8YM3pGTcjBKoWw3d14Zpiliw7A11GPfw6ko6mL/rV1l
+	m4PcXNYCZqGCdHAb21TxmwXl5CyuVJwgsh8KhPiJ6v7GDYrvKT2GnHf/zuRg/v20v+cTXKe8t/QgJ
+	4O8aGK+GnoifTU+VzDqD8uo8iERpdJpMnlYhoWY5DKh4yEGUI4uXakUFwpntkzcLJWEGQT0IforXo
+	HC3MShTRw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kpj8V-0003ff-L9; Thu, 17 Dec 2020 02:35:23 +0000
-Received: from szxga06-in.huawei.com ([45.249.212.32])
+	id 1kpn8B-00022p-EV; Thu, 17 Dec 2020 06:51:19 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kpj8S-0003ep-1A
- for linux-riscv@lists.infradead.org; Thu, 17 Dec 2020 02:35:22 +0000
-Received: from DGGEMS404-HUB.china.huawei.com (unknown [172.30.72.60])
- by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4CxGKg4HMtzhsbt;
- Thu, 17 Dec 2020 10:34:31 +0800 (CST)
-Received: from [10.174.177.244] (10.174.177.244) by
- DGGEMS404-HUB.china.huawei.com (10.3.19.204) with Microsoft SMTP Server id
- 14.3.498.0; Thu, 17 Dec 2020 10:34:59 +0800
-Subject: Re: [PATCH 0/3] riscv: cover to ARCH_STACKWALK
-To: Palmer Dabbelt <palmer@dabbelt.com>
-References: <mhng-54bff36c-7c0d-4448-8859-d8d05cbd8b0d@palmerdabbelt-glaptop1>
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
-Message-ID: <e103e594-d7f5-7a43-6d5d-da538e44b795@huawei.com>
-Date: Thu, 17 Dec 2020 10:34:58 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
- Thunderbird/60.7.0
-MIME-Version: 1.0
-In-Reply-To: <mhng-54bff36c-7c0d-4448-8859-d8d05cbd8b0d@palmerdabbelt-glaptop1>
-Content-Language: en-US
-X-Originating-IP: [10.174.177.244]
-X-CFilter-Loop: Reflected
+ id 1kpn88-00021d-1z
+ for linux-riscv@lists.infradead.org; Thu, 17 Dec 2020 06:51:17 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id g20so13775611plo.2
+ for <linux-riscv@lists.infradead.org>; Wed, 16 Dec 2020 22:51:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=A2L6oL6ADpLP0KoW9Pu9uKXnU693BVKyVAwaJ1jmZqk=;
+ b=QEKst/rL0NDLTjaWaQ81OMKHsSIAvNH6uOLS8fgS8RMMf4zHzKwnBFyKUZeKBOPjz0
+ vIbWWO+xvsaqxlmI85uVYTh9XarJMsqk1BK7vrKew3Ox7k8kzQhnV9yr6A1vWZQrvIkO
+ ESJsHkYoJVhVW4IN05AaJLj+7MCYc8Q4u4wHqDeAtORb3NO81qD3zLzz23//ygzFW3hJ
+ kyKpuLFyvfiTxeWSgGl43q+BFeeilNQaNsbWP612Ex4lOkfpN4hhXqvTBJBIW9HZl6th
+ ddeQonf+4UzDMGCaCvh/0oxLD5w/y35XHIrt2nZr2QIeeyTmWBkvjmuK1/P3OGCLwNID
+ 2mLA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=A2L6oL6ADpLP0KoW9Pu9uKXnU693BVKyVAwaJ1jmZqk=;
+ b=Nf8u2AWMvOixBu8zYZRZCcRUKYgIVbodO6okvSHP3XaxHJSvZ9+Ri97paroMHeYgJj
+ RwyalunSFJ6aNdX88kWbqCqHqPtguL5CZp+DOEba0mzxW1L+RDDCHYVd0zBvVbIdAweK
+ 0AoB9tb1gvftJoGBO5MUPg7oMoPanNJkHCgOblgOVYr/nkEjB+RnfbbppTPat+MDzwnR
+ sCg/0kGy/Cn5Bk0wRQwKLRcavjmEzWqYT4+bgIQNccVbw2L1NtGitM6nANwcc2OILrCr
+ iiWBYW26PSsSlUpgvZDbFGY3uubPsuCcr0936xZEdRCP27JfgARMaHu7MB33mwMY4haD
+ avTA==
+X-Gm-Message-State: AOAM531+bF5roBpxslOCnU9vO7cm6pLnh6o9FO4qlmBUKjRI3QfCLjWY
+ 12tin+mf5QhFan2diP5Nch8xIg==
+X-Google-Smtp-Source: ABdhPJxdUkeYMyF2EK90JXhK9sm4VgAdfvMOw2GsBXOw6TCNUrEtRZNEMLQFdFBE8SXz1E5qjrOekA==
+X-Received: by 2002:a17:90a:e28f:: with SMTP id
+ d15mr6652761pjz.10.1608187872349; 
+ Wed, 16 Dec 2020 22:51:12 -0800 (PST)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id z13sm3979942pjt.45.2020.12.16.22.51.11
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 16 Dec 2020 22:51:11 -0800 (PST)
+Date: Wed, 16 Dec 2020 22:51:11 -0800 (PST)
+X-Google-Original-Date: Wed, 16 Dec 2020 22:51:07 PST (-0800)
+Subject: Re: [PATCH v3 3/5] RISC-V: Align the .init.text section
+In-Reply-To: <mhng-5b9a6df7-f6a2-4db8-aaf9-b4e89115522d@palmerdabbelt-glaptop>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Alistair Francis <Alistair.Francis@wdc.com>
+Message-ID: <mhng-ec25b026-f312-4d65-9afb-1c34a5cac6c7@palmerdabbelt-glaptop>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201216_213520_326839_ECA4E3BC 
-X-CRM114-Status: GOOD (  10.15  )
+X-CRM114-CacheID: sfid-20201217_015116_213458_0B23F274 
+X-CRM114-Status: GOOD (  27.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -69,32 +93,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu,
- Paul Walmsley <paul.walmsley@sifive.com>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Cc: aou@eecs.berkeley.edu, zong.li@sifive.com, anup@brainfault.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Atish Patra <Atish.Patra@wdc.com>, ren_guo@c-sky.com,
+ Paul Walmsley <paul.walmsley@sifive.com>, ojeda@kernel.org,
+ greentime.hu@sifive.com, akpm@linux-foundation.org, walken@google.com,
+ ardb@kernel.org, rppt@kernel.org, Jim Wilson <jimw@sifive.com>
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ck9uIDIwMjAvMTEvMjEgMTE6MDEsIFBhbG1lciBEYWJiZWx0IHdyb3RlOgo+IE9uIFRodSwgMTIg
-Tm92IDIwMjAgMjI6NDI6MjAgUFNUICgtMDgwMCksIHdhbmdrZWZlbmcud2FuZ0BodWF3ZWkuY29t
-IAo+IHdyb3RlOgo+PiBVc2UgdGhlIG5ld2VyIGNvbW1vbiBpbmZyYXN0cnVjdHVyZSBhbmQgc2lt
-cGxlciBhcmNoX3N0YWNrX3dhbGsoKSAKPj4gaW50ZXJmYWNlCj4+IGZvciBzdGFjayB3YWxrLgo+
-Pgo+PiBLZWZlbmcgV2FuZyAoMyk6Cj4+IMKgIHJpc2N2OiBDbGVhbnVwIHN0YWNrdHJhY2UKPj4g
-wqAgcmlzY3Y6IE1ha2Ugc3RhY2sgd2FsayBjYWxsYmFjayBjb25zaXN0ZW50IHdpdGggZ2VuZXJp
-YyBjb2RlCj4+IMKgIHJpc2N2OiBFbmFibGUgQVJDSF9TVEFDS1dBTEsKPj4KPj4gwqBhcmNoL3Jp
-c2N2L0tjb25maWfCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzCoCAxICsKPj4g
-wqBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3N0YWNrdHJhY2UuaCB8IDE3ICsrKysrKysrCj4+IMKg
-YXJjaC9yaXNjdi9rZXJuZWwvcGVyZl9jYWxsY2hhaW4uY8KgIHwgMTAgKy0tLS0KPj4gwqBhcmNo
-L3Jpc2N2L2tlcm5lbC9zdGFja3RyYWNlLmPCoMKgwqDCoMKgIHwgNjIgKysrKysrKy0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0KPj4gwqA0IGZpbGVzIGNoYW5nZWQsIDM0IGluc2VydGlvbnMoKyksIDU2
-IGRlbGV0aW9ucygtKQo+PiDCoGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2luY2x1ZGUv
-YXNtL3N0YWNrdHJhY2UuaAo+Cj4gVGhhbmtzLCB0aGVzZSBhcmUgb24gZm9yLW5leHQuCgoKaGkg
-UGFsbWVyLMKgIEkgZm91bmQgYSBleHRyYSBjb2RlIGFib3V0IGRlbGV0aW5nICJfX0lOSVQiLMKg
-IGlzIHRoZXJlIGEgCm1pc3Rha2VuIHdoZW4gbWVyZ2VkIGludG8gZm9yLSBuZXh0PwoKc2VlIGxp
-bmsKCmh0dHBzOi8va2VybmVsLmdvb2dsZXNvdXJjZS5jb20vcHViL3NjbS9saW51eC9rZXJuZWwv
-Z2l0L3Jpc2N2L2xpbnV4LysvNWNiMDA4MGYxYmZkY2NiNTZkNWMyMjVkMWNkNjQ4Y2RiMzNmYTli
-YiU1RSUyMS8jRjEKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
-Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
-c2N2Cg==
+On Tue, 15 Dec 2020 22:02:54 PST (-0800), Palmer Dabbelt wrote:
+> On Wed, 04 Nov 2020 16:04:37 PST (-0800), Atish Patra wrote:
+>> In order to improve kernel text protection, we need separate .init.text/
+>> .init.data/.text in separate sections. However, RISC-V linker relaxation
+>> code is not aware of any alignment between sections. As a result, it may
+>> relax any RISCV_CALL relocations between sections to JAL without realizing
+>> that an inter section alignment may move the address farther. That may
+>> lead to a relocation truncated fit error. However, linker relaxation code
+>> is aware of the individual section alignments.
+>>
+>> The detailed discussion on this issue can be found here.
+>> https://github.com/riscv/riscv-gnu-toolchain/issues/738
+>>
+>> Keep the .init.text section aligned so that linker relaxation will take
+>> that as a hint while relaxing inter section calls.
+>> Here are the code size changes for each section because of this change.
+>>
+>> section         change in size (in bytes)
+>>   .head.text      +4
+>>   .text           +40
+>>   .init.text      +6530
+>>   .exit.text      +84
+>>
+>> The only significant increase in size happened for .init.text because
+>> all intra relocations also use 2MB alignment.
+>>
+>> Suggested-by: Jim Wilson <jimw@sifive.com>
+>> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+>> ---
+>>  arch/riscv/kernel/vmlinux.lds.S | 8 +++++++-
+>>  1 file changed, 7 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
+>> index 3ffbd6cbdb86..cacd7898ba7f 100644
+>> --- a/arch/riscv/kernel/vmlinux.lds.S
+>> +++ b/arch/riscv/kernel/vmlinux.lds.S
+>> @@ -30,7 +30,13 @@ SECTIONS
+>>  	. = ALIGN(PAGE_SIZE);
+>>
+>>  	__init_begin = .;
+>> -	INIT_TEXT_SECTION(PAGE_SIZE)
+>> +	__init_text_begin = .;
+>> +	.init.text : AT(ADDR(.init.text) - LOAD_OFFSET) ALIGN(SECTION_ALIGN) { \
+>> +		_sinittext = .;						\
+>> +		INIT_TEXT						\
+>> +		_einittext = .;						\
+>> +	}
+>> +
+>>  	. = ALIGN(8);
+>>  	__soc_early_init_table : {
+>>  		__soc_early_init_table_start = .;
+>
+> Not sure what's going on here (or why I wasn't catching it earlier), but this
+> is breaking boot on one of my test configs.  I'm not getting any Linux boot
+> spew, so it's something fairly early.  I'm running defconfig with
+>
+>     CONFIG_PREEMPT=y
+>     CONFIG_DEBUG_PREEMPT=y
+>     CONFIG_PROVE_LOCKING=y
+>
+> It looks like that's been throwing a bunch of warnings for a while, but it did
+> at least used to boot.  No idea what PREEMPT would have to do with this, and
+> the other two don't generally trigger issues that early in boot (or at least,
+> trigger halts that early in boot).
+>
+> There's a bunch of other stuff that depends on this that's on for-next so I
+> don't want to just drop it, but I also don't want to break something.  I'm just
+> running QEMU's virt board.
+>
+> I'll take a look again tomorrow night, but if anyone has some time to look
+> that'd be great!
+
+Looks like this breaks on QEMU 5.0.0 but works on 5.2.0.  I guess technically
+that means could be considered a regression, but as we don't really have any
+scheme for which old versions of QEMU we support it's not absolute.  I'd
+usually err on the side of keeping support for older platforms, but in this
+case it's probably just not worth the time so I'm going to just ignore it.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
