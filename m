@@ -2,62 +2,77 @@ Return-Path: <SRS0=FwEc=FV=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-18.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A4F5EC4361B
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Dec 2020 08:27:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9D309C4361B
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Dec 2020 08:33:58 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 40CA923884
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Dec 2020 08:27:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 40CA923884
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 2210D22D6E
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Dec 2020 08:33:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2210D22D6E
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=ftje0uOP1quzHiUA0i19/gsX3Uh8wZYq0WdX00/l2cM=; b=oTV1b/IUSZPp8cbJPy/MrDlgS
-	UCdEnDZGYepNLNvEhkSJmz6zXtnSnfUc6pb333DEfRlEpaFbHSm6D8N8kP9HOVgmXuhU7TuVt9MQ+
-	VXwvtHjZ5/zoiQRkJ6Knxf4V8TQi7PoM20PbIRZPWzoHMLbijuv87dU1gYnxdZiixKPQZt1Yomrz1
-	vqqKAKCVeLwXV0OhydDY8ZgEGyZRBLLjWC7TSCr5qF7HtWudcON8pfilxNOg016wMN9EmzE0TOIGv
-	OJPq6Z0nyob4T3UgmzJfcToOyL2tGe0Rci5trpfem+pVYEnF4NXS6md51SJAOO21xNGBU7pzttQCe
-	dJ1u2KH9g==;
+	 bh=LEBPJi99o/nfBMJZ8omt9ZFEnyMejgnYv2erTnRYT9Q=; b=sLWzSf5KFyGNzQPmi04D0eIZk
+	tuD9SvCVePZxVYcv/4arocWNpNWQHlFnO6Wg3E2AzR2QcjdUoyvoJyOoFWQ6bUb9YhE/sOdxE5pA9
+	UsXBjZIDqKP9Dl8aNAVYejQdgX3otlSAWfNi9jKVl5Xoige/LCxHq6Am9uo9VLr2Q7IVPM9jOV4yj
+	ilLDyG2hk5pKigom4qiOKr5tFC0k++5T7V5nZ8fEiyebjHKg5hc2aJXpGD2aZooKrk05QFGcndBd1
+	pFgF4LkfqjYR4IAu076QVi9NiDGhpe+aZXIdVSeZlWLu4xQxw6k4bHJvO2Ahjz77yPLP6fBNzSDyN
+	2Iynh5Iig==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kpodD-0003XR-Py; Thu, 17 Dec 2020 08:27:27 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1kpojN-00047c-7D; Thu, 17 Dec 2020 08:33:49 +0000
+Received: from mail-il1-x130.google.com ([2607:f8b0:4864:20::130])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kpodB-0003Wr-AK
- for linux-riscv@lists.infradead.org; Thu, 17 Dec 2020 08:27:26 +0000
-Date: Thu, 17 Dec 2020 10:27:14 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1608193642;
- bh=frpXPBgDVHFosWMul7jo1G7mud658hMgY0gDjD8FzmM=;
- h=From:To:Cc:Subject:References:In-Reply-To:From;
- b=I+KHhrtBFQ9uN0v4rQDUWJEj9kiScJue0SpkR9fQkMH9UKQGlUABKYKefZtQ+bPjv
- 3V5k70FQljpXOTht4ob7nI6+AV3BBE6XgBpe73zONGlsqUNtyww7a9gqPGsgoX9Tw7
- i2sYigy713Xw4EIQfA1Em1mwBHoXD3mAOQ8CfgB9soeWQgHE9mPQbe4wNzAGSm1q3c
- lr06/CQWkYksKnHiOfUZQhUJ87VdxY8WAg6A7w/AzrjdDUJJem8luZ+HP39EjE3u0f
- k32RgbCJz4SdDdXtFEHDmj0+krI96a+9D+wEVlOXoQqWnBEBbFxtnXtIwu41eJezH8
- /HlnIE7BBm1Tg==
-From: Mike Rapoport <rppt@kernel.org>
-To: Atish Patra <atish.patra@wdc.com>
-Subject: Re: [PATCH] RISC-V: Fix usage of memblock_enforce_memory_limit
-Message-ID: <20201217082714.GA366777@kernel.org>
-References: <20201217074855.1948743-1-atish.patra@wdc.com>
+ id 1kpojJ-00046u-V1
+ for linux-riscv@lists.infradead.org; Thu, 17 Dec 2020 08:33:47 +0000
+Received: by mail-il1-x130.google.com with SMTP id 2so25118526ilg.9
+ for <linux-riscv@lists.infradead.org>; Thu, 17 Dec 2020 00:33:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=atishpatra.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=DUte5MZb3VgmcVGjhmZGHO+sbeoQVX9ioF310lk1DlM=;
+ b=sTA4NLIAZ6ZSRkLiJJDaYIwt+a0K9pKODxKCrc3xUiXv6exsXJ2CGMHUEK3+vLuL/O
+ i7nD0VF5A/5MTADxkf/ZykzVwz+y/twHQKWqudTU662Y2lQ3xI0H5WBCjx8V/EDPeIGR
+ XQIFrh0jLpMUVPpMFXVc4mxTS4DlAk00uM/og=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=DUte5MZb3VgmcVGjhmZGHO+sbeoQVX9ioF310lk1DlM=;
+ b=sfSIfneKWKIhsNC6WIe9EGJG7xjGBT+Mz5sCpikF5xd9noTcSgz3F0uK+uJ7zl399b
+ l0CHsLp8hNYsVYW7zLuL/fb6ztnGZcBAYYG/Qye90AIfhTbqhcCq8nkuR80Qht2BpSac
+ eDvdEzKPSf3fIM8QxKdbHxk1wbqxZFxNShcD5wwdneDleS7r4AS237sJ9riHPAoWJVXu
+ 0YHnh8uJ5ok5lxl6KsEwyFjqRTsFWa76CHptrsZ9EgMt3c7w98JzGG2YHGu2RJwHmUMe
+ M8IseD89CRnuw4vWM7Mk9maC59j6Q/bUulR+qGnVj/JLvqcAuD3dS8mdMaBZaLts6kZ/
+ QOYA==
+X-Gm-Message-State: AOAM530mMdO+H3eI0SVZsCl3NBWM2H/k2tWiBo4s8c99hAeU8aoLKWYI
+ V9ppac2au3feEImOi7IgLPzw9DX2jbTQp9rI3+jeXeJetm6q
+X-Google-Smtp-Source: ABdhPJzt31wK+zmuokHE1Cu7YvCT4RhK78rmt7+i93T60Wfs0RAnKDae02C8YXuPWWHsEVCYpQG1FXdYnnpxHiaqYC8=
+X-Received: by 2002:a92:d84a:: with SMTP id h10mr47844317ilq.77.1608194018942; 
+ Thu, 17 Dec 2020 00:33:38 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20201217074855.1948743-1-atish.patra@wdc.com>
+References: <mhng-5b9a6df7-f6a2-4db8-aaf9-b4e89115522d@palmerdabbelt-glaptop>
+ <mhng-ec25b026-f312-4d65-9afb-1c34a5cac6c7@palmerdabbelt-glaptop>
+In-Reply-To: <mhng-ec25b026-f312-4d65-9afb-1c34a5cac6c7@palmerdabbelt-glaptop>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Thu, 17 Dec 2020 00:33:28 -0800
+Message-ID: <CAOnJCUJ4Z6wGQMy+7ELMNxRby5joe_U+9zjO66cmXGHKHkzLsg@mail.gmail.com>
+Subject: Re: [PATCH v3 3/5] RISC-V: Align the .init.text section
+To: Palmer Dabbelt <palmer@dabbelt.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201217_032725_458362_43D4BBB5 
-X-CRM114-Status: GOOD (  17.04  )
+X-CRM114-CacheID: sfid-20201217_033346_118014_E364E324 
+X-CRM114-Status: GOOD (  33.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -69,50 +84,122 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup.patel@wdc.com>,
- linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Andrew Morton <akpm@linux-foundation.org>, Bin Meng <bmeng.cn@gmail.com>,
- linux-riscv@lists.infradead.org
+Cc: Albert Ou <aou@eecs.berkeley.edu>, ren_guo@c-sky.com,
+ Anup Patel <anup@brainfault.org>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Ard Biesheuvel <ardb@kernel.org>, Atish Patra <Atish.Patra@wdc.com>,
+ Alistair Francis <Alistair.Francis@wdc.com>, Zong Li <zong.li@sifive.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, ojeda@kernel.org,
+ Greentime Hu <greentime.hu@sifive.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Michel Lespinasse <walken@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
+ Jim Wilson <jimw@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 16, 2020 at 11:48:55PM -0800, Atish Patra wrote:
-> memblock_enforce_memory_limit accepts the maximum memory size not the last
-> address. Fix the function invocation correctly.
-> 
-> Fixes: 1bd14a66ee52 ("RISC-V: Remove any memblock representing unusable memory area")
-> 
-> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+On Wed, Dec 16, 2020 at 10:51 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+>
+> On Tue, 15 Dec 2020 22:02:54 PST (-0800), Palmer Dabbelt wrote:
+> > On Wed, 04 Nov 2020 16:04:37 PST (-0800), Atish Patra wrote:
+> >> In order to improve kernel text protection, we need separate .init.text/
+> >> .init.data/.text in separate sections. However, RISC-V linker relaxation
+> >> code is not aware of any alignment between sections. As a result, it may
+> >> relax any RISCV_CALL relocations between sections to JAL without realizing
+> >> that an inter section alignment may move the address farther. That may
+> >> lead to a relocation truncated fit error. However, linker relaxation code
+> >> is aware of the individual section alignments.
+> >>
+> >> The detailed discussion on this issue can be found here.
+> >> https://github.com/riscv/riscv-gnu-toolchain/issues/738
+> >>
+> >> Keep the .init.text section aligned so that linker relaxation will take
+> >> that as a hint while relaxing inter section calls.
+> >> Here are the code size changes for each section because of this change.
+> >>
+> >> section         change in size (in bytes)
+> >>   .head.text      +4
+> >>   .text           +40
+> >>   .init.text      +6530
+> >>   .exit.text      +84
+> >>
+> >> The only significant increase in size happened for .init.text because
+> >> all intra relocations also use 2MB alignment.
+> >>
+> >> Suggested-by: Jim Wilson <jimw@sifive.com>
+> >> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> >> ---
+> >>  arch/riscv/kernel/vmlinux.lds.S | 8 +++++++-
+> >>  1 file changed, 7 insertions(+), 1 deletion(-)
+> >>
+> >> diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
+> >> index 3ffbd6cbdb86..cacd7898ba7f 100644
+> >> --- a/arch/riscv/kernel/vmlinux.lds.S
+> >> +++ b/arch/riscv/kernel/vmlinux.lds.S
+> >> @@ -30,7 +30,13 @@ SECTIONS
+> >>      . = ALIGN(PAGE_SIZE);
+> >>
+> >>      __init_begin = .;
+> >> -    INIT_TEXT_SECTION(PAGE_SIZE)
+> >> +    __init_text_begin = .;
+> >> +    .init.text : AT(ADDR(.init.text) - LOAD_OFFSET) ALIGN(SECTION_ALIGN) { \
+> >> +            _sinittext = .;                                         \
+> >> +            INIT_TEXT                                               \
+> >> +            _einittext = .;                                         \
+> >> +    }
+> >> +
+> >>      . = ALIGN(8);
+> >>      __soc_early_init_table : {
+> >>              __soc_early_init_table_start = .;
+> >
+> > Not sure what's going on here (or why I wasn't catching it earlier), but this
+> > is breaking boot on one of my test configs.  I'm not getting any Linux boot
+> > spew, so it's something fairly early.  I'm running defconfig with
+> >
+> >     CONFIG_PREEMPT=y
+> >     CONFIG_DEBUG_PREEMPT=y
+> >     CONFIG_PROVE_LOCKING=y
+> >
+> > It looks like that's been throwing a bunch of warnings for a while, but it did
+> > at least used to boot.  No idea what PREEMPT would have to do with this, and
+> > the other two don't generally trigger issues that early in boot (or at least,
+> > trigger halts that early in boot).
+> >
+> > There's a bunch of other stuff that depends on this that's on for-next so I
+> > don't want to just drop it, but I also don't want to break something.  I'm just
+> > running QEMU's virt board.
+> >
 
-Acked-by: Mike Rapoport <rppt@linux.ibm.com>
+I just verified for-next on QEMU 5.2.0 for virt (RV32,64, nommu) and
+sifive_u as well.
+I will give it a try on unleashed tomorrow as well with the above
+configs enabled.
 
-> ---
->  arch/riscv/mm/init.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 8e577f14f120..e4133c20744c 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -174,7 +174,7 @@ void __init setup_bootmem(void)
->  	 * Make sure that any memory beyond mem_start + (-PAGE_OFFSET) is removed
->  	 * as it is unusable by kernel.
->  	 */
-> -	memblock_enforce_memory_limit(mem_start - PAGE_OFFSET);
-> +	memblock_enforce_memory_limit(-PAGE_OFFSET);
->  
->  	/* Reserve from the start of the kernel to the end of the kernel */
->  	memblock_reserve(vmlinux_start, vmlinux_end - vmlinux_start);
-> -- 
-> 2.25.1
-> 
+> > I'll take a look again tomorrow night, but if anyone has some time to look
+> > that'd be great!
+>
+> Looks like this breaks on QEMU 5.0.0 but works on 5.2.0.
+
+I will take a look tomorrow to check the root cause.
+
+I guess technically
+> that means could be considered a regression, but as we don't really have any
+> scheme for which old versions of QEMU we support it's not absolute.  I'd
+> usually err on the side of keeping support for older platforms, but in this
+> case it's probably just not worth the time so I'm going to just ignore it.
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+
 
 -- 
-Sincerely yours,
-Mike.
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
