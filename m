@@ -4,54 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=3.4.0
+	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 573C6C4361B
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Dec 2020 16:04:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A89CCC2BB48
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Dec 2020 16:05:11 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 164DB239A4
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Dec 2020 16:04:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 164DB239A4
+	by mail.kernel.org (Postfix) with ESMTPS id 4DF5F239D0
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Dec 2020 16:05:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4DF5F239D0
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Asmum0YCKWw4nadlSxZ9MyMD/IgC9ZdI5BruiQ5aOoM=; b=SDEj7NNZ/ovzW2N7fY8njnS6n
-	WCD/LWoDQh5DkAW6ZuOc7Mlobmu5lsCKe4bXrA/9R6CxPqPW1JL6GvtyASCCbvvlghjXHA9BgQeik
-	F15RP7uXlDhEXENYUIvL3BPe6P8BrGkCaOF7sc68LH96mQ2Aov0KDtGRzeI4K8yd1evvZd6solYsb
-	90d+xVTc9+80wctfqls96weWzPPPz4G904NtN/36J2oKzcTFaqCulwdUzyk5sfod9Nv065qoOKVwx
-	Wiv80gXidlBrQMjW0BvUOpu49i0htoAcjnwA2yRIuUlxjXYUXVrJxAO1MSaoovzo0dBfhapx3nNPB
-	9YB3KUfWg==;
+	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:References:In-Reply-To:Message-Id:Date:Subject:To:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Dg7IalF5QSsDsL6KLnZ2NFsxYYiXGjIvfMWECaroJ2Q=; b=qUmC5JYPOVEalFApUGyILdEP1W
+	EqGcNeEqpium2YcUVIRhT52CZPU/UP7ViPWZOdbvaGZNuuCxMOJCLmqGEtELJ913JbsqRC64RpbE3
+	h4fFyGnOPtoiWyOZrwHczSHTjMZ11pD9tvbI7if64qV54p4sz2vTDlfQolCTpFohQ0BBT2YL2eZ7U
+	KcDCjO0YetGm/pWX7OR+kIs/ZJhyHQDnVuc3NRFxp7msFMdl+GrMdL10qL2h2PUDxm0NZpEu8x8v8
+	fN1D0RP9TEOr+En/mcxpPrdJ+TcknEdXh5hqq4IUgzEiicE5wFmEjyiv4lvfvMXqqcq28Qo7R4+9u
+	qelSX+FA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kpvlq-0008N0-Vb; Thu, 17 Dec 2020 16:04:51 +0000
+	id 1kpvm5-0008Px-KN; Thu, 17 Dec 2020 16:05:05 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kpvlo-0008Lv-QE
- for linux-riscv@lists.infradead.org; Thu, 17 Dec 2020 16:04:49 +0000
+ id 1kpvm2-0008P9-Hk
+ for linux-riscv@lists.infradead.org; Thu, 17 Dec 2020 16:05:03 +0000
 From: guoren@kernel.org
 Authentication-Results: mail.kernel.org;
  dkim=permerror (bad message/signature format)
 To: palmerdabbelt@google.com, paul.walmsley@sifive.com, mhiramat@kernel.org,
  alankao@andestech.com, rostedt@goodmis.org, bjorn.topel@intel.com,
  pdp7pdp7@gmail.com
-Subject: [PATCH v5 7/9] riscv: Add KPROBES_ON_FTRACE supported
-Date: Thu, 17 Dec 2020 16:01:43 +0000
-Message-Id: <1608220905-1962-8-git-send-email-guoren@kernel.org>
+Subject: [PATCH v5 8/9] riscv: Add uprobes supported
+Date: Thu, 17 Dec 2020 16:01:44 +0000
+Message-Id: <1608220905-1962-9-git-send-email-guoren@kernel.org>
 X-Mailer: git-send-email 2.7.4
 In-Reply-To: <1608220905-1962-1-git-send-email-guoren@kernel.org>
 References: <1608220905-1962-1-git-send-email-guoren@kernel.org>
-MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201217_110449_023251_745A04CF 
-X-CRM114-Status: GOOD (  16.36  )
+X-CRM114-CacheID: sfid-20201217_110502_744303_D932F391 
+X-CRM114-Status: GOOD (  24.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -65,86 +64,432 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: me@packi.ch, Guo Ren <guoren@linux.alibaba.com>, anup@brainfault.org,
  linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
- Pekka Enberg <penberg@kernel.org>, guoren@kernel.org, zong.li@sifive.com,
- =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn.topel@gmail.com>,
+ Oleg Nesterov <oleg@redhat.com>, guoren@kernel.org, zong.li@sifive.com,
  greentime.hu@sifive.com, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgoKVGhpcyBwYXRjaCBhZGRz
-IHN1cHBvcnQgZm9yIGtwcm9iZXMgb24gZnRyYWNlIGNhbGwgc2l0ZXMgdG8gYXZvaWRzCm11Y2gg
-b2YgdGhlIG92ZXJoZWFkIHdpdGggcmVndWxhciBrcHJvYmVzLiBUcnkgaXQgd2l0aCBzaW1wbGUK
-c3RlcHM6CgogZWNobyAncDpteXByb2JlIHN5c19jbG9uZSBhMD0lYTAgYTE9JWExIHN0YWNrX3Zh
-bD0rNCgkc3RhY2spJyA+IC9zeXMva2VybmVsL2RlCmJ1Zy90cmFjaW5nL2twcm9iZV9ldmVudHMK
-IGVjaG8gMSA+IC9zeXMva2VybmVsL2RlYnVnL3RyYWNpbmcvZXZlbnRzL2twcm9iZXMvZW5hYmxl
-CiBjYXQgL3N5cy9rZXJuZWwvZGVidWcvdHJhY2luZy90cmFjZQogdHJhY2VyOiBub3AKCiBlbnRy
-aWVzLWluLWJ1ZmZlci9lbnRyaWVzLXdyaXR0ZW46IDEvMSAgICNQOjEKCiAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgXy0tLS0tPT4gaXJxcy1vZmYKICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgIC8gXy0tLS09PiBuZWVkLXJlc2NoZWQKICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgfCAvIF8tLS09PiBoYXJkaXJxL3NvZnRpcnEKICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgfHwgLyBfLS09PiBwcmVlbXB0LWRlcHRoCiAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgIHx8fCAvICAgICBkZWxheQogICAgICAgICAgIFRBU0stUElEICAgICBDUFUjICB8fHx8ICAg
-VElNRVNUQU1QICBGVU5DVElPTgogICAgICAgICAgICAgIHwgfCAgICAgICAgIHwgICB8fHx8ICAg
-ICAgfCAgICAgICAgIHwKICAgICAgICAgICAgICBzaC05MiAgICAgIFswMDBdIC4uLi4gICAzNjku
-ODk5OTYyOiBteXByb2JlOiAoc3lzX2Nsb25lKzB4MC8weDI4KSBhMD0weDEyMDAwMTEgYTE9MHgw
-IHN0YWNrX3ZhbD0weDIwMWMyMGZmZmZmZmUwCiBjYXQgL3N5cy9rZXJuZWwvZGVidWcva3Byb2Jl
-cy9saXN0CmZmZmZmZmUwMDAyMGI1ODQgIGsgIHN5c19jbG9uZSsweDAgICAgW0ZUUkFDRV0KICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXl5eXl5eCgpTaWduZWQtb2ZmLWJ5
-OiBHdW8gUmVuIDxndW9yZW5AbGludXguYWxpYmFiYS5jb20+ClJldmlld2VkLWJ5OiBNYXNhbWkg
-SGlyYW1hdHN1IDxtaGlyYW1hdEBrZXJuZWwub3JnPgpDYzogUGFsbWVyIERhYmJlbHQgPHBhbG1l
-cmRhYmJlbHRAZ29vZ2xlLmNvbT4KQ2M6IFBhdWwgV2FsbXNsZXkgPHBhdWwud2FsbXNsZXlAc2lm
-aXZlLmNvbT4KQ2M6IEJqw7ZybiBUw7ZwZWwgPGJqb3JuLnRvcGVsQGdtYWlsLmNvbT4KQ2M6IFpv
-bmcgTGkgPHpvbmcubGlAc2lmaXZlLmNvbT4KQ2M6IFBla2thIEVuYmVyZyA8cGVuYmVyZ0BrZXJu
-ZWwub3JnPgotLS0KIGFyY2gvcmlzY3YvS2NvbmZpZyAgICAgICAgICAgICAgICB8ICAxICsKIGFy
-Y2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9NYWtlZmlsZSB8ICAxICsKIGFyY2gvcmlzY3Yva2VybmVs
-L3Byb2Jlcy9mdHJhY2UuYyB8IDUzICsrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysr
-KysrKwogMyBmaWxlcyBjaGFuZ2VkLCA1NSBpbnNlcnRpb25zKCspCiBjcmVhdGUgbW9kZSAxMDA2
-NDQgYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL2Z0cmFjZS5jCgpkaWZmIC0tZ2l0IGEvYXJjaC9y
-aXNjdi9LY29uZmlnIGIvYXJjaC9yaXNjdi9LY29uZmlnCmluZGV4IDlhOTIwZWQuLmY1OGIyMzQg
-MTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3YvS2NvbmZpZworKysgYi9hcmNoL3Jpc2N2L0tjb25maWcK
-QEAgLTY5LDYgKzY5LDcgQEAgY29uZmlnIFJJU0NWCiAJc2VsZWN0IEhBVkVfR0NDX1BMVUdJTlMK
-IAlzZWxlY3QgSEFWRV9HRU5FUklDX1ZEU08gaWYgTU1VICYmIDY0QklUCiAJc2VsZWN0IEhBVkVf
-S1BST0JFUworCXNlbGVjdCBIQVZFX0tQUk9CRVNfT05fRlRSQUNFCiAJc2VsZWN0IEhBVkVfS1JF
-VFBST0JFUwogCXNlbGVjdCBIQVZFX1BDSQogCXNlbGVjdCBIQVZFX1BFUkZfRVZFTlRTCmRpZmYg
-LS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMvTWFrZWZpbGUgYi9hcmNoL3Jpc2N2L2tl
-cm5lbC9wcm9iZXMvTWFrZWZpbGUKaW5kZXggOGEzOTUwNy4uYWJiZDEzMSAxMDA2NDQKLS0tIGEv
-YXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL01ha2VmaWxlCisrKyBiL2FyY2gvcmlzY3Yva2VybmVs
-L3Byb2Jlcy9NYWtlZmlsZQpAQCAtMSw0ICsxLDUgQEAKICMgU1BEWC1MaWNlbnNlLUlkZW50aWZp
-ZXI6IEdQTC0yLjAKIG9iai0kKENPTkZJR19LUFJPQkVTKQkJKz0ga3Byb2Jlcy5vIGRlY29kZS1p
-bnNuLm8gc2ltdWxhdGUtaW5zbi5vCiBvYmotJChDT05GSUdfS1BST0JFUykJCSs9IGtwcm9iZXNf
-dHJhbXBvbGluZS5vCitvYmotJChDT05GSUdfS1BST0JFU19PTl9GVFJBQ0UpCSs9IGZ0cmFjZS5v
-CiBDRkxBR1NfUkVNT1ZFX3NpbXVsYXRlLWluc24ubyA9ICQoQ0NfRkxBR1NfRlRSQUNFKQpkaWZm
-IC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL2Z0cmFjZS5jIGIvYXJjaC9yaXNjdi9r
-ZXJuZWwvcHJvYmVzL2Z0cmFjZS5jCm5ldyBmaWxlIG1vZGUgMTAwNjQ0CmluZGV4IDAwMDAwMDAw
-Li5jN2NjZmZmCi0tLSAvZGV2L251bGwKKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL2Z0
-cmFjZS5jCkBAIC0wLDAgKzEsNTMgQEAKKy8vIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwt
-Mi4wCisKKyNpbmNsdWRlIDxsaW51eC9rcHJvYmVzLmg+CisKKy8qIEZ0cmFjZSBjYWxsYmFjayBo
-YW5kbGVyIGZvciBrcHJvYmVzIC0tIGNhbGxlZCB1bmRlciBwcmVlcG10IGRpc2FiZWQgKi8KK3Zv
-aWQga3Byb2JlX2Z0cmFjZV9oYW5kbGVyKHVuc2lnbmVkIGxvbmcgaXAsIHVuc2lnbmVkIGxvbmcg
-cGFyZW50X2lwLAorCQkJICAgc3RydWN0IGZ0cmFjZV9vcHMgKm9wcywgc3RydWN0IHB0X3JlZ3Mg
-KnJlZ3MpCit7CisJc3RydWN0IGtwcm9iZSAqcDsKKwlzdHJ1Y3Qga3Byb2JlX2N0bGJsayAqa2Ni
-OworCisJcCA9IGdldF9rcHJvYmUoKGtwcm9iZV9vcGNvZGVfdCAqKWlwKTsKKwlpZiAodW5saWtl
-bHkoIXApIHx8IGtwcm9iZV9kaXNhYmxlZChwKSkKKwkJcmV0dXJuOworCisJa2NiID0gZ2V0X2tw
-cm9iZV9jdGxibGsoKTsKKwlpZiAoa3Byb2JlX3J1bm5pbmcoKSkgeworCQlrcHJvYmVzX2luY19u
-bWlzc2VkX2NvdW50KHApOworCX0gZWxzZSB7CisJCXVuc2lnbmVkIGxvbmcgb3JpZ19pcCA9IGlu
-c3RydWN0aW9uX3BvaW50ZXIocmVncyk7CisKKwkJaW5zdHJ1Y3Rpb25fcG9pbnRlcl9zZXQocmVn
-cywgaXApOworCisJCV9fdGhpc19jcHVfd3JpdGUoY3VycmVudF9rcHJvYmUsIHApOworCQlrY2It
-Pmtwcm9iZV9zdGF0dXMgPSBLUFJPQkVfSElUX0FDVElWRTsKKwkJaWYgKCFwLT5wcmVfaGFuZGxl
-ciB8fCAhcC0+cHJlX2hhbmRsZXIocCwgcmVncykpIHsKKwkJCS8qCisJCQkgKiBFbXVsYXRlIHNp
-bmdsZXN0ZXAgKGFuZCBhbHNvIHJlY292ZXIgcmVncy0+cGMpCisJCQkgKiBhcyBpZiB0aGVyZSBp
-cyBhIG5vcAorCQkJICovCisJCQlpbnN0cnVjdGlvbl9wb2ludGVyX3NldChyZWdzLAorCQkJCSh1
-bnNpZ25lZCBsb25nKXAtPmFkZHIgKyBNQ09VTlRfSU5TTl9TSVpFKTsKKwkJCWlmICh1bmxpa2Vs
-eShwLT5wb3N0X2hhbmRsZXIpKSB7CisJCQkJa2NiLT5rcHJvYmVfc3RhdHVzID0gS1BST0JFX0hJ
-VF9TU0RPTkU7CisJCQkJcC0+cG9zdF9oYW5kbGVyKHAsIHJlZ3MsIDApOworCQkJfQorCQkJaW5z
-dHJ1Y3Rpb25fcG9pbnRlcl9zZXQocmVncywgb3JpZ19pcCk7CisJCX0KKworCQkvKgorCQkgKiBJ
-ZiBwcmVfaGFuZGxlciByZXR1cm5zICEwLCBpdCBjaGFuZ2VzIHJlZ3MtPnBjLiBXZSBoYXZlIHRv
-CisJCSAqIHNraXAgZW11bGF0aW5nIHBvc3RfaGFuZGxlci4KKwkJICovCisJCV9fdGhpc19jcHVf
-d3JpdGUoY3VycmVudF9rcHJvYmUsIE5VTEwpOworCX0KK30KK05PS1BST0JFX1NZTUJPTChrcHJv
-YmVfZnRyYWNlX2hhbmRsZXIpOworCitpbnQgYXJjaF9wcmVwYXJlX2twcm9iZV9mdHJhY2Uoc3Ry
-dWN0IGtwcm9iZSAqcCkKK3sKKwlwLT5haW5zbi5hcGkuaW5zbiA9IE5VTEw7CisJcmV0dXJuIDA7
-Cit9Ci0tIAoyLjcuNAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
-YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
-cmlzY3YK
+From: Guo Ren <guoren@linux.alibaba.com>
+
+This patch adds support for uprobes on riscv architecture.
+
+Just like kprobe, it support single-step and simulate instructions.
+
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Reviewed-by: Pekka Enberg <penberg@kernel.org>
+Cc: Oleg Nesterov <oleg@redhat.com>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>
+Cc: Palmer Dabbelt <palmerdabbelt@google.com>
+---
+ arch/riscv/Kconfig                   |   3 +
+ arch/riscv/include/asm/processor.h   |   1 +
+ arch/riscv/include/asm/thread_info.h |   4 +-
+ arch/riscv/include/asm/uprobes.h     |  40 ++++++++
+ arch/riscv/kernel/probes/Makefile    |   1 +
+ arch/riscv/kernel/probes/uprobes.c   | 186 +++++++++++++++++++++++++++++++++++
+ arch/riscv/kernel/signal.c           |   3 +
+ arch/riscv/kernel/traps.c            |  10 ++
+ arch/riscv/mm/fault.c                |   6 ++
+ 9 files changed, 253 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/include/asm/uprobes.h
+ create mode 100644 arch/riscv/kernel/probes/uprobes.c
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index f58b234..af0ec36 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -160,6 +160,9 @@ config ARCH_WANT_GENERAL_HUGETLB
+ config ARCH_SUPPORTS_DEBUG_PAGEALLOC
+ 	def_bool y
+ 
++config ARCH_SUPPORTS_UPROBES
++	def_bool y
++
+ config SYS_SUPPORTS_HUGETLBFS
+ 	depends on MMU
+ 	def_bool y
+diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+index bdddcd5..3a24003 100644
+--- a/arch/riscv/include/asm/processor.h
++++ b/arch/riscv/include/asm/processor.h
+@@ -34,6 +34,7 @@ struct thread_struct {
+ 	unsigned long sp;	/* Kernel mode stack */
+ 	unsigned long s[12];	/* s[0]: frame pointer */
+ 	struct __riscv_d_ext_state fstate;
++	unsigned long bad_cause;
+ };
+ 
+ #define INIT_THREAD {					\
+diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
+index a390711..bdb5928 100644
+--- a/arch/riscv/include/asm/thread_info.h
++++ b/arch/riscv/include/asm/thread_info.h
+@@ -74,6 +74,7 @@ struct thread_info {
+ #define TIF_SYSCALL_TRACEPOINT  6       /* syscall tracepoint instrumentation */
+ #define TIF_SYSCALL_AUDIT	7	/* syscall auditing */
+ #define TIF_SECCOMP		8	/* syscall secure computing */
++#define TIF_UPROBE		9	/* uprobe breakpoint or singlestep */
+ 
+ #define _TIF_SYSCALL_TRACE	(1 << TIF_SYSCALL_TRACE)
+ #define _TIF_NOTIFY_RESUME	(1 << TIF_NOTIFY_RESUME)
+@@ -82,9 +83,10 @@ struct thread_info {
+ #define _TIF_SYSCALL_TRACEPOINT	(1 << TIF_SYSCALL_TRACEPOINT)
+ #define _TIF_SYSCALL_AUDIT	(1 << TIF_SYSCALL_AUDIT)
+ #define _TIF_SECCOMP		(1 << TIF_SECCOMP)
++#define _TIF_UPROBE		(1 << TIF_UPROBE)
+ 
+ #define _TIF_WORK_MASK \
+-	(_TIF_NOTIFY_RESUME | _TIF_SIGPENDING | _TIF_NEED_RESCHED)
++	(_TIF_NOTIFY_RESUME | _TIF_SIGPENDING | _TIF_NEED_RESCHED | _TIF_UPROBE)
+ 
+ #define _TIF_SYSCALL_WORK \
+ 	(_TIF_SYSCALL_TRACE | _TIF_SYSCALL_TRACEPOINT | _TIF_SYSCALL_AUDIT | \
+diff --git a/arch/riscv/include/asm/uprobes.h b/arch/riscv/include/asm/uprobes.h
+new file mode 100644
+index 00000000..f2183e0
+--- /dev/null
++++ b/arch/riscv/include/asm/uprobes.h
+@@ -0,0 +1,40 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++
++#ifndef _ASM_RISCV_UPROBES_H
++#define _ASM_RISCV_UPROBES_H
++
++#include <asm/probes.h>
++#include <asm/patch.h>
++#include <asm/bug.h>
++
++#define MAX_UINSN_BYTES		8
++
++#ifdef CONFIG_RISCV_ISA_C
++#define UPROBE_SWBP_INSN	__BUG_INSN_16
++#define UPROBE_SWBP_INSN_SIZE	2
++#else
++#define UPROBE_SWBP_INSN	__BUG_INSN_32
++#define UPROBE_SWBP_INSN_SIZE	4
++#endif
++#define UPROBE_XOL_SLOT_BYTES	MAX_UINSN_BYTES
++
++typedef u32 uprobe_opcode_t;
++
++struct arch_uprobe_task {
++	unsigned long   saved_cause;
++};
++
++struct arch_uprobe {
++	union {
++		u8 insn[MAX_UINSN_BYTES];
++		u8 ixol[MAX_UINSN_BYTES];
++	};
++	struct arch_probe_insn api;
++	unsigned long insn_size;
++	bool simulate;
++};
++
++bool uprobe_breakpoint_handler(struct pt_regs *regs);
++bool uprobe_single_step_handler(struct pt_regs *regs);
++
++#endif /* _ASM_RISCV_UPROBES_H */
+diff --git a/arch/riscv/kernel/probes/Makefile b/arch/riscv/kernel/probes/Makefile
+index abbd131..7f0840d 100644
+--- a/arch/riscv/kernel/probes/Makefile
++++ b/arch/riscv/kernel/probes/Makefile
+@@ -2,4 +2,5 @@
+ obj-$(CONFIG_KPROBES)		+= kprobes.o decode-insn.o simulate-insn.o
+ obj-$(CONFIG_KPROBES)		+= kprobes_trampoline.o
+ obj-$(CONFIG_KPROBES_ON_FTRACE)	+= ftrace.o
++obj-$(CONFIG_UPROBES)		+= uprobes.o decode-insn.o simulate-insn.o
+ CFLAGS_REMOVE_simulate-insn.o = $(CC_FLAGS_FTRACE)
+diff --git a/arch/riscv/kernel/probes/uprobes.c b/arch/riscv/kernel/probes/uprobes.c
+new file mode 100644
+index 00000000..7a057b5
+--- /dev/null
++++ b/arch/riscv/kernel/probes/uprobes.c
+@@ -0,0 +1,186 @@
++// SPDX-License-Identifier: GPL-2.0-only
++
++#include <linux/highmem.h>
++#include <linux/ptrace.h>
++#include <linux/uprobes.h>
++
++#include "decode-insn.h"
++
++#define UPROBE_TRAP_NR	UINT_MAX
++
++bool is_swbp_insn(uprobe_opcode_t *insn)
++{
++#ifdef CONFIG_RISCV_ISA_C
++	return (*insn & 0xffff) == UPROBE_SWBP_INSN;
++#else
++	return *insn == UPROBE_SWBP_INSN;
++#endif
++}
++
++unsigned long uprobe_get_swbp_addr(struct pt_regs *regs)
++{
++	return instruction_pointer(regs);
++}
++
++int arch_uprobe_analyze_insn(struct arch_uprobe *auprobe, struct mm_struct *mm,
++			     unsigned long addr)
++{
++	probe_opcode_t opcode;
++
++	opcode = *(probe_opcode_t *)(&auprobe->insn[0]);
++
++	auprobe->insn_size = GET_INSN_LENGTH(opcode);
++
++	switch (riscv_probe_decode_insn(&opcode, &auprobe->api)) {
++	case INSN_REJECTED:
++		return -EINVAL;
++
++	case INSN_GOOD_NO_SLOT:
++		auprobe->simulate = true;
++		break;
++
++	case INSN_GOOD:
++		auprobe->simulate = false;
++		break;
++
++	default:
++		return -EINVAL;
++	}
++
++	return 0;
++}
++
++int arch_uprobe_pre_xol(struct arch_uprobe *auprobe, struct pt_regs *regs)
++{
++	struct uprobe_task *utask = current->utask;
++
++	utask->autask.saved_cause = current->thread.bad_cause;
++	current->thread.bad_cause = UPROBE_TRAP_NR;
++
++	instruction_pointer_set(regs, utask->xol_vaddr);
++
++	regs->status &= ~SR_SPIE;
++
++	return 0;
++}
++
++int arch_uprobe_post_xol(struct arch_uprobe *auprobe, struct pt_regs *regs)
++{
++	struct uprobe_task *utask = current->utask;
++
++	WARN_ON_ONCE(current->thread.bad_cause != UPROBE_TRAP_NR);
++
++	instruction_pointer_set(regs, utask->vaddr + auprobe->insn_size);
++
++	regs->status |= SR_SPIE;
++
++	return 0;
++}
++
++bool arch_uprobe_xol_was_trapped(struct task_struct *t)
++{
++	if (t->thread.bad_cause != UPROBE_TRAP_NR)
++		return true;
++
++	return false;
++}
++
++bool arch_uprobe_skip_sstep(struct arch_uprobe *auprobe, struct pt_regs *regs)
++{
++	probe_opcode_t insn;
++	unsigned long addr;
++
++	if (!auprobe->simulate)
++		return false;
++
++	insn = *(probe_opcode_t *)(&auprobe->insn[0]);
++	addr = instruction_pointer(regs);
++
++	if (auprobe->api.handler)
++		auprobe->api.handler(insn, addr, regs);
++
++	return true;
++}
++
++void arch_uprobe_abort_xol(struct arch_uprobe *auprobe, struct pt_regs *regs)
++{
++	struct uprobe_task *utask = current->utask;
++
++	/*
++	 * Task has received a fatal signal, so reset back to probbed
++	 * address.
++	 */
++	instruction_pointer_set(regs, utask->vaddr);
++
++	regs->status &= ~SR_SPIE;
++}
++
++bool arch_uretprobe_is_alive(struct return_instance *ret, enum rp_check ctx,
++		struct pt_regs *regs)
++{
++	if (ctx == RP_CHECK_CHAIN_CALL)
++		return regs->sp <= ret->stack;
++	else
++		return regs->sp < ret->stack;
++}
++
++unsigned long
++arch_uretprobe_hijack_return_addr(unsigned long trampoline_vaddr,
++				  struct pt_regs *regs)
++{
++	unsigned long ra;
++
++	ra = regs->ra;
++
++	regs->ra = trampoline_vaddr;
++
++	return ra;
++}
++
++int arch_uprobe_exception_notify(struct notifier_block *self,
++				 unsigned long val, void *data)
++{
++	return NOTIFY_DONE;
++}
++
++bool uprobe_breakpoint_handler(struct pt_regs *regs)
++{
++	if (uprobe_pre_sstep_notifier(regs))
++		return true;
++
++	return false;
++}
++
++bool uprobe_single_step_handler(struct pt_regs *regs)
++{
++	if (uprobe_post_sstep_notifier(regs))
++		return true;
++
++	return false;
++}
++
++void arch_uprobe_copy_ixol(struct page *page, unsigned long vaddr,
++			   void *src, unsigned long len)
++{
++	/* Initialize the slot */
++	void *kaddr = kmap_atomic(page);
++	void *dst = kaddr + (vaddr & ~PAGE_MASK);
++
++	memcpy(dst, src, len);
++
++	/* Add ebreak behind opcode to simulate singlestep */
++	if (vaddr) {
++		dst += GET_INSN_LENGTH(*(probe_opcode_t *)src);
++		*(uprobe_opcode_t *)dst = __BUG_INSN_32;
++	}
++
++	kunmap_atomic(kaddr);
++
++	/*
++	 * We probably need flush_icache_user_page() but it needs vma.
++	 * This should work on most of architectures by default. If
++	 * architecture needs to do something different it can define
++	 * its own version of the function.
++	 */
++	flush_dcache_page(page);
++}
+diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
+index bc68418..18fd97a 100644
+--- a/arch/riscv/kernel/signal.c
++++ b/arch/riscv/kernel/signal.c
+@@ -309,6 +309,9 @@ static void do_signal(struct pt_regs *regs)
+ asmlinkage __visible void do_notify_resume(struct pt_regs *regs,
+ 					   unsigned long thread_info_flags)
+ {
++	if (thread_info_flags & _TIF_UPROBE)
++		uprobe_notify_resume(regs);
++
+ 	/* Handle pending signal delivery */
+ 	if (thread_info_flags & _TIF_SIGPENDING)
+ 		do_signal(regs);
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index 19a788a..2bca2fa 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -76,6 +76,8 @@ void do_trap(struct pt_regs *regs, int signo, int code, unsigned long addr)
+ static void do_trap_error(struct pt_regs *regs, int signo, int code,
+ 	unsigned long addr, const char *str)
+ {
++	current->thread.bad_cause = regs->cause;
++
+ 	if (user_mode(regs)) {
+ 		do_trap(regs, signo, code, addr);
+ 	} else {
+@@ -153,6 +155,14 @@ asmlinkage __visible void do_trap_break(struct pt_regs *regs)
+ 	if (kprobe_breakpoint_handler(regs))
+ 		return;
+ #endif
++#ifdef CONFIG_UPROBES
++	if (uprobe_single_step_handler(regs))
++		return;
++
++	if (uprobe_breakpoint_handler(regs))
++		return;
++#endif
++	current->thread.bad_cause = regs->cause;
+ 
+ 	if (user_mode(regs))
+ 		force_sig_fault(SIGTRAP, TRAP_BRKPT, (void __user *)regs->epc);
+diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
+index 602f125..0c98db9 100644
+--- a/arch/riscv/mm/fault.c
++++ b/arch/riscv/mm/fault.c
+@@ -229,6 +229,7 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
+ 	 * in an atomic region, then we must not take the fault.
+ 	 */
+ 	if (unlikely(faulthandler_disabled() || !mm)) {
++		tsk->thread.bad_cause = cause;
+ 		no_context(regs, addr);
+ 		return;
+ 	}
+@@ -246,16 +247,19 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
+ 	mmap_read_lock(mm);
+ 	vma = find_vma(mm, addr);
+ 	if (unlikely(!vma)) {
++		tsk->thread.bad_cause = cause;
+ 		bad_area(regs, mm, code, addr);
+ 		return;
+ 	}
+ 	if (likely(vma->vm_start <= addr))
+ 		goto good_area;
+ 	if (unlikely(!(vma->vm_flags & VM_GROWSDOWN))) {
++		tsk->thread.bad_cause = cause;
+ 		bad_area(regs, mm, code, addr);
+ 		return;
+ 	}
+ 	if (unlikely(expand_stack(vma, addr))) {
++		tsk->thread.bad_cause = cause;
+ 		bad_area(regs, mm, code, addr);
+ 		return;
+ 	}
+@@ -268,6 +272,7 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
+ 	code = SEGV_ACCERR;
+ 
+ 	if (unlikely(access_error(cause, vma))) {
++		tsk->thread.bad_cause = cause;
+ 		bad_area(regs, mm, code, addr);
+ 		return;
+ 	}
+@@ -301,6 +306,7 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
+ 	mmap_read_unlock(mm);
+ 
+ 	if (unlikely(fault & VM_FAULT_ERROR)) {
++		tsk->thread.bad_cause = cause;
+ 		mm_fault_error(regs, addr, fault);
+ 		return;
+ 	}
+-- 
+2.7.4
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
