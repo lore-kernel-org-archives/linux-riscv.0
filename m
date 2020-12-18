@@ -2,64 +2,68 @@ Return-Path: <SRS0=XAcR=FW=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 87BA0C4361B
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Dec 2020 08:25:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 73603C4361B
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Dec 2020 19:10:55 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 473D923A63
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Dec 2020 08:25:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 473D923A63
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
+	by mail.kernel.org (Postfix) with ESMTPS id 1AEF223B86
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Dec 2020 19:10:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1AEF223B86
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=GGyF0oQPoF1sr8h7yE1MxQq7D7EL7IjvZVhTqblljv0=; b=e6YTb4TczUrBJ8WJFnMi7Y/GD
-	6dVGHblgWkckHfkW2Xu9I3iqHeZMqEaP+9spS2/xadhJuuKj47RqP/IRYc49xG+zfdK2/XT8sytJP
-	FUJOX1qLp0zxbf3+AyxqDPHQIDLBVUOyUd1F4UM0pE9CA3H/ubhlOnDPmBD/9osvYYIO/t2lhp+Lr
-	npx6el5n9Ec1YuoRCDUVvocKAb4QhD+CnTxdQFJ/UbNczmtISb2o64vfYT2Umicf2LW3hLy0O2OU9
-	G4T+f0lx2RJt3n3HHe/alFRTvSZtjUv+5Fqgfx3A7G1k4vn2CH6M2RjkxE5z8hz50WxUyojB4U1Kg
-	sJ2NMN6Dw==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:To:Date:Message-Id:References:In-Reply-To:From:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LGuHaPw+jMdYAOk5orOwkVKCuwRZTNOewa90kGCrZ6Y=; b=WJx+QSwg2BdbsRzmqHzTMAyyRp
+	0/eNXM+InK4oxLP+k6j3yEeLMjnsHIBZd5ercTSeIcAh3H5bl0vMPV4grWY3kN0h6zI9dD9CMIWFn
+	C6qCaUXQsDROkgfOvcVw3O4oH3IjOr7BFyLNo7YCTsrjP+uU8FrHzY6ECT7aOzHen/Y0xsmZPUHFA
+	YH2sk1WjLohz52WoYEQ3FMkgy9UNTgdYmQ7PDNPcOxgScMiR0J/vl2S3kU+95TTkDfo3Aw0lp1R2t
+	Q/PTUCCAdnnsEPQaUbEh9swgy5TMqQ4oyZDsGJaW56NCu06VW8qjnQY6fAc2YmcPf/uc83MSACtE3
+	GYpn1Q+Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kqB4S-0004jm-SZ; Fri, 18 Dec 2020 08:25:04 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1kqL9H-0004ry-BW; Fri, 18 Dec 2020 19:10:43 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kqB4Q-0004ig-Mw
- for linux-riscv@lists.infradead.org; Fri, 18 Dec 2020 08:25:04 +0000
-Received: from DGGEMS413-HUB.china.huawei.com (unknown [172.30.72.60])
- by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4Cy22M3fZWzM5B9;
- Fri, 18 Dec 2020 16:23:55 +0800 (CST)
-Received: from [10.174.177.244] (10.174.177.244) by
- DGGEMS413-HUB.china.huawei.com (10.3.19.213) with Microsoft SMTP Server id
- 14.3.498.0; Fri, 18 Dec 2020 16:24:41 +0800
-Subject: Re: [PATCH] riscv: cacheinfo: Fix using smp_processor_id() in
- preemptible
-To: Atish Patra <atishp@atishpatra.org>
-References: <20201116081238.44223-1-wangkefeng.wang@huawei.com>
- <CAOnJCUJz-L_S77rU+whk-86vkHkdrx4V9F-mYb72J0fT6yysmw@mail.gmail.com>
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
-Message-ID: <1b70da3a-29ef-9456-6419-eca78c82446b@huawei.com>
-Date: Fri, 18 Dec 2020 16:24:40 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
- Thunderbird/60.7.0
-MIME-Version: 1.0
-In-Reply-To: <CAOnJCUJz-L_S77rU+whk-86vkHkdrx4V9F-mYb72J0fT6yysmw@mail.gmail.com>
-Content-Language: en-US
-X-Originating-IP: [10.174.177.244]
-X-CFilter-Loop: Reflected
+ id 1kqL9E-0004rX-JX
+ for linux-riscv@lists.infradead.org; Fri, 18 Dec 2020 19:10:41 +0000
+Subject: Re: [GIT PULL] RISC-V Patches for the 5.11 Merge Window, Part 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1608318639;
+ bh=HHjqFizdZpjgkWrzLkZbiFgqfTZmzHzCGLToJgYSaD4=;
+ h=From:In-Reply-To:References:Date:To:Cc:From;
+ b=ca94pmBZcnUytQExMAn4yoXqDY/wuVspvi1WK6m8g8AHzSnytPU7EvX3Wnyufl9RS
+ owidJ8CyfUKEkj9LtyKGLWEvyCwqQfVGUDBKW7gI/yo/TWDkkO/xdOqkSXjXM13Iiz
+ rarxgQqNrS33bjjLb94bZf5HzEbZGB+06VSkcjrUsPiQgeUoXpotNQ6OBST1+8mGTk
+ QMhOaYpocd48FrmHszWBIMyJ7YciUHqlQjSNOKMD9muhS06urz2DLRU75mXtKxBMTK
+ ArjWhHCsah3YlkKXRE8DlOldYIAzA6aJhc2PI8+byML+5KaliTRb4NgdF2+sx9t+dl
+ qpP+n5w+Glt4w==
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <mhng-9bb2f707-7aac-4141-8e3b-edc1b463fcd6@palmerdabbelt-glaptop>
+References: <mhng-9bb2f707-7aac-4141-8e3b-edc1b463fcd6@palmerdabbelt-glaptop>
+X-PR-Tracked-List-Id: <linux-riscv.lists.infradead.org>
+X-PR-Tracked-Message-Id: <mhng-9bb2f707-7aac-4141-8e3b-edc1b463fcd6@palmerdabbelt-glaptop>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
+ tags/riscv-for-linus-5.11-mw0
+X-PR-Tracked-Commit-Id: 7d95a88f9254b711a3a95106fc73f6a3a9866a40
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: e2ae634014d3a8839a99f8897b3f6346a133a33b
+Message-Id: <160831863914.5982.8524807332166745328.pr-tracker-bot@kernel.org>
+Date: Fri, 18 Dec 2020 19:10:39 +0000
+To: Palmer Dabbelt <palmer@dabbelt.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201218_032503_624982_2C3A9E82 
-X-CRM114-Status: GOOD (  16.88  )
+X-CRM114-CacheID: sfid-20201218_141040_715521_092D43BA 
+X-CRM114-Status: UNSURE (   3.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -71,76 +75,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>,
- Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
- Zong Li <zong.li@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>
+Cc: linux-riscv@lists.infradead.org,
+ Linus Torvalds <torvalds@linux-foundation.org>, linux-kernel@vger.kernel.org
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The pull request you sent on Thu, 17 Dec 2020 19:10:50 -0800 (PST):
 
-On 2020/12/18 16:14, Atish Patra wrote:
-> On Mon, Nov 16, 2020 at 12:08 AM Kefeng Wang <wangkefeng.wang@huawei.com> wrote:
->> Use raw_smp_processor_id instead of smp_processor_id() to fix warning,
->>
->> BUG: using smp_processor_id() in preemptible [00000000] code: init/1
->> caller is debug_smp_processor_id+0x1c/0x26
->> CPU: 0 PID: 1 Comm: init Not tainted 5.10.0-rc4 #211
->> Call Trace:
->>    walk_stackframe+0x0/0xaa
->>    show_stack+0x32/0x3e
->>    dump_stack+0x76/0x90
->>    check_preemption_disabled+0xaa/0xac
->>    debug_smp_processor_id+0x1c/0x26
->>    get_cache_size+0x18/0x68
->>    load_elf_binary+0x868/0xece
->>    bprm_execve+0x224/0x498
->>    kernel_execve+0xdc/0x142
->>    run_init_process+0x90/0x9e
->>    try_to_run_init_process+0x12/0x3c
->>    kernel_init+0xb4/0xf8
->>    ret_from_exception+0x0/0xc
->>
->> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
->> ---
->>   arch/riscv/kernel/cacheinfo.c | 2 +-
->>   1 file changed, 1 insertion(+), 1 deletion(-)
->>
->> diff --git a/arch/riscv/kernel/cacheinfo.c b/arch/riscv/kernel/cacheinfo.c
->> index de59dd457b41..9b5a8a347434 100644
->> --- a/arch/riscv/kernel/cacheinfo.c
->> +++ b/arch/riscv/kernel/cacheinfo.c
->> @@ -26,7 +26,7 @@ cache_get_priv_group(struct cacheinfo *this_leaf)
->>
->>   static struct cacheinfo *get_cacheinfo(u32 level, enum cache_type type)
->>   {
->> -       struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(smp_processor_id());
->> +       struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(raw_smp_processor_id());
->>          struct cacheinfo *this_leaf;
->>          int index;
->>
->> --
->> 2.26.2
->>
->>
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-riscv
-> Reviewed-by: Atish Patra <atish.patra@wdc.com>
->
-> As this issue is only reproducible with CONFIG_PREEMPT, the commit
-> text can be updated to specify that. I have tested this patch with
-> Qemu as well. FWIW,
->
-> Tested-by: Atish Patra <atish.patra@wdc.com>
+> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.11-mw0
 
-Thanks Atish, will send v2.
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/e2ae634014d3a8839a99f8897b3f6346a133a33b
 
+Thank you!
 
->
->
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
 _______________________________________________
 linux-riscv mailing list
