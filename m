@@ -2,79 +2,64 @@ Return-Path: <SRS0=XAcR=FW=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-18.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C88FCC4361B
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Dec 2020 08:19:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 87BA0C4361B
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Dec 2020 08:25:13 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 608B023A00
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Dec 2020 08:19:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 608B023A00
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
+	by mail.kernel.org (Postfix) with ESMTPS id 473D923A63
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Dec 2020 08:25:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 473D923A63
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=ZGPJ3KxFBgIQkqekhPb4ZTZTNHH/Kzj//BqwOJOwvjU=; b=qFqwWbAY6KYCpmWnbUfLLDyAB
-	XKAitQf4dUiFkmvTMQr4ARIGwt7B1qpEmHQ/CIuJK6/MXEurjrdJXPIKDO/qoUOMofZQ/Etlh1qsj
-	9XE/Nx45+zx1PWtKczHOkWMvMDPLdwpGwXd1BRO+zXJpCbZw2dAZYF5m1y4PIjEUq1un+xcIaXKgn
-	Q8rcvjUKehyAZaLjZlv8kptqrokd7Pmy7KoTdzJU906EAn2je/O5qgcv4MwceoaVDCB986vTTt9ur
-	ABl7QharHxMI4Kv+/zTfOcj4483qfo7AbMqGdgOI4v9UMh8PRacHMJ4ei3kzCB/w/Wjf81pPErnQZ
-	qKMTXoYVg==;
+	 bh=GGyF0oQPoF1sr8h7yE1MxQq7D7EL7IjvZVhTqblljv0=; b=e6YTb4TczUrBJ8WJFnMi7Y/GD
+	6dVGHblgWkckHfkW2Xu9I3iqHeZMqEaP+9spS2/xadhJuuKj47RqP/IRYc49xG+zfdK2/XT8sytJP
+	FUJOX1qLp0zxbf3+AyxqDPHQIDLBVUOyUd1F4UM0pE9CA3H/ubhlOnDPmBD/9osvYYIO/t2lhp+Lr
+	npx6el5n9Ec1YuoRCDUVvocKAb4QhD+CnTxdQFJ/UbNczmtISb2o64vfYT2Umicf2LW3hLy0O2OU9
+	G4T+f0lx2RJt3n3HHe/alFRTvSZtjUv+5Fqgfx3A7G1k4vn2CH6M2RjkxE5z8hz50WxUyojB4U1Kg
+	sJ2NMN6Dw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kqAyz-0004Ob-5F; Fri, 18 Dec 2020 08:19:25 +0000
-Received: from mail-io1-xd36.google.com ([2607:f8b0:4864:20::d36])
+	id 1kqB4S-0004jm-SZ; Fri, 18 Dec 2020 08:25:04 +0000
+Received: from szxga05-in.huawei.com ([45.249.212.191])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kqAyw-0004Mi-68
- for linux-riscv@lists.infradead.org; Fri, 18 Dec 2020 08:19:23 +0000
-Received: by mail-io1-xd36.google.com with SMTP id w18so1318722iot.0
- for <linux-riscv@lists.infradead.org>; Fri, 18 Dec 2020 00:19:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=wbYyQM6vtKWNhmgXfVNxNU4dmNtH9tEakno/EFx2YII=;
- b=OcRRb/edb5SR6Ck+a0GNJ7PpPo+T4peiyPGdloGi/6MEwBYDjiV5wV1ZJvTmIb0TYj
- 2nn34SNBSUwqgRzfcewN7/IRn25Sb+G3740O0Js5/0pGGjWmoYyg0spKe0d6zg4qntON
- CmdZXbdGIohyTxWEcsvVHtYbHJuJ2ig6Ay/BU=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=wbYyQM6vtKWNhmgXfVNxNU4dmNtH9tEakno/EFx2YII=;
- b=F70erac/rK6dhIAPVAxySE/AYU45GTzQqSONNfk+ZZzq8faNMzGpaL68BqITgfvAm8
- Ufv81CMrexaMDRu3fxLdBfKeG01XzGN4lDg7j6uNO49cn9MOkinNz+qKfWhy/2o8m5qb
- bP+uSNcuf97j1t3PMw4iB3Y+iLdOJQKIfAMVEIhRx6a8KQRnJonGh8+g2bBmL4uRePu4
- tq7g1rGsYCIwby0/JDJGsmaw5uuKvQXFljHunOuHgL0tkT4GcB5kLCqRgNgqk9XLoDT8
- Y6+/gMBXNS63AK8igSVfrFcK5CK/SrAOt9iXdriGe5/Xim/+KSWhTO0GHyWHZcYAPxSC
- WUJQ==
-X-Gm-Message-State: AOAM531nl7LyubUdoPyD41vjMaJHgb99ssYlrgauwE494ykdFh0zjIpj
- mljna72yLbZFNkZnivHIv38nikGvCxf/3LVXM/AU4fE3VFzrE+0=
-X-Google-Smtp-Source: ABdhPJwCeiX8EZg1KH2LuIpOgY56YucZ10eRZmZW3kO0I9xPXVG97rfReKbx4zYoHyPKHM8Uuf0EC2OWNFpc+R7/qq8=
-X-Received: by 2002:a05:6602:20ca:: with SMTP id
- 10mr2805554ioz.51.1608279560083; 
- Fri, 18 Dec 2020 00:19:20 -0800 (PST)
+ id 1kqB4Q-0004ig-Mw
+ for linux-riscv@lists.infradead.org; Fri, 18 Dec 2020 08:25:04 +0000
+Received: from DGGEMS413-HUB.china.huawei.com (unknown [172.30.72.60])
+ by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4Cy22M3fZWzM5B9;
+ Fri, 18 Dec 2020 16:23:55 +0800 (CST)
+Received: from [10.174.177.244] (10.174.177.244) by
+ DGGEMS413-HUB.china.huawei.com (10.3.19.213) with Microsoft SMTP Server id
+ 14.3.498.0; Fri, 18 Dec 2020 16:24:41 +0800
+Subject: Re: [PATCH] riscv: cacheinfo: Fix using smp_processor_id() in
+ preemptible
+To: Atish Patra <atishp@atishpatra.org>
+References: <20201116081238.44223-1-wangkefeng.wang@huawei.com>
+ <CAOnJCUJz-L_S77rU+whk-86vkHkdrx4V9F-mYb72J0fT6yysmw@mail.gmail.com>
+From: Kefeng Wang <wangkefeng.wang@huawei.com>
+Message-ID: <1b70da3a-29ef-9456-6419-eca78c82446b@huawei.com>
+Date: Fri, 18 Dec 2020 16:24:40 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
+ Thunderbird/60.7.0
 MIME-Version: 1.0
-References: <mhng-5b9a6df7-f6a2-4db8-aaf9-b4e89115522d@palmerdabbelt-glaptop>
- <mhng-ec25b026-f312-4d65-9afb-1c34a5cac6c7@palmerdabbelt-glaptop>
- <CAOnJCUJ4Z6wGQMy+7ELMNxRby5joe_U+9zjO66cmXGHKHkzLsg@mail.gmail.com>
-In-Reply-To: <CAOnJCUJ4Z6wGQMy+7ELMNxRby5joe_U+9zjO66cmXGHKHkzLsg@mail.gmail.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Fri, 18 Dec 2020 00:19:09 -0800
-Message-ID: <CAOnJCU+T3QcZbC0N5h0+916=V-8NSp2O7eZ83F-AUJf5-cTx5A@mail.gmail.com>
-Subject: Re: [PATCH v3 3/5] RISC-V: Align the .init.text section
-To: Palmer Dabbelt <palmer@dabbelt.com>
+In-Reply-To: <CAOnJCUJz-L_S77rU+whk-86vkHkdrx4V9F-mYb72J0fT6yysmw@mail.gmail.com>
+Content-Language: en-US
+X-Originating-IP: [10.174.177.244]
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201218_031922_242004_B49BED42 
-X-CRM114-Status: GOOD (  39.00  )
+X-CRM114-CacheID: sfid-20201218_032503_624982_2C3A9E82 
+X-CRM114-Status: GOOD (  16.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -86,144 +71,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, ren_guo@c-sky.com,
- Anup Patel <anup@brainfault.org>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Ard Biesheuvel <ardb@kernel.org>, Atish Patra <Atish.Patra@wdc.com>,
- Alistair Francis <Alistair.Francis@wdc.com>, Zong Li <zong.li@sifive.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, ojeda@kernel.org,
- Greentime Hu <greentime.hu@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Michel Lespinasse <walken@google.com>,
- Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
- Jim Wilson <jimw@sifive.com>
-Content-Type: text/plain; charset="us-ascii"
+Cc: linux-riscv <linux-riscv@lists.infradead.org>,
+ Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Zong Li <zong.li@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 17, 2020 at 12:33 AM Atish Patra <atishp@atishpatra.org> wrote:
->
-> On Wed, Dec 16, 2020 at 10:51 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
-> >
-> > On Tue, 15 Dec 2020 22:02:54 PST (-0800), Palmer Dabbelt wrote:
-> > > On Wed, 04 Nov 2020 16:04:37 PST (-0800), Atish Patra wrote:
-> > >> In order to improve kernel text protection, we need separate .init.text/
-> > >> .init.data/.text in separate sections. However, RISC-V linker relaxation
-> > >> code is not aware of any alignment between sections. As a result, it may
-> > >> relax any RISCV_CALL relocations between sections to JAL without realizing
-> > >> that an inter section alignment may move the address farther. That may
-> > >> lead to a relocation truncated fit error. However, linker relaxation code
-> > >> is aware of the individual section alignments.
-> > >>
-> > >> The detailed discussion on this issue can be found here.
-> > >> https://github.com/riscv/riscv-gnu-toolchain/issues/738
-> > >>
-> > >> Keep the .init.text section aligned so that linker relaxation will take
-> > >> that as a hint while relaxing inter section calls.
-> > >> Here are the code size changes for each section because of this change.
-> > >>
-> > >> section         change in size (in bytes)
-> > >>   .head.text      +4
-> > >>   .text           +40
-> > >>   .init.text      +6530
-> > >>   .exit.text      +84
-> > >>
-> > >> The only significant increase in size happened for .init.text because
-> > >> all intra relocations also use 2MB alignment.
-> > >>
-> > >> Suggested-by: Jim Wilson <jimw@sifive.com>
-> > >> Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> > >> ---
-> > >>  arch/riscv/kernel/vmlinux.lds.S | 8 +++++++-
-> > >>  1 file changed, 7 insertions(+), 1 deletion(-)
-> > >>
-> > >> diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
-> > >> index 3ffbd6cbdb86..cacd7898ba7f 100644
-> > >> --- a/arch/riscv/kernel/vmlinux.lds.S
-> > >> +++ b/arch/riscv/kernel/vmlinux.lds.S
-> > >> @@ -30,7 +30,13 @@ SECTIONS
-> > >>      . = ALIGN(PAGE_SIZE);
-> > >>
-> > >>      __init_begin = .;
-> > >> -    INIT_TEXT_SECTION(PAGE_SIZE)
-> > >> +    __init_text_begin = .;
-> > >> +    .init.text : AT(ADDR(.init.text) - LOAD_OFFSET) ALIGN(SECTION_ALIGN) { \
-> > >> +            _sinittext = .;                                         \
-> > >> +            INIT_TEXT                                               \
-> > >> +            _einittext = .;                                         \
-> > >> +    }
-> > >> +
-> > >>      . = ALIGN(8);
-> > >>      __soc_early_init_table : {
-> > >>              __soc_early_init_table_start = .;
-> > >
-> > > Not sure what's going on here (or why I wasn't catching it earlier), but this
-> > > is breaking boot on one of my test configs.  I'm not getting any Linux boot
-> > > spew, so it's something fairly early.  I'm running defconfig with
-> > >
-> > >     CONFIG_PREEMPT=y
-> > >     CONFIG_DEBUG_PREEMPT=y
-> > >     CONFIG_PROVE_LOCKING=y
-> > >
-> > > It looks like that's been throwing a bunch of warnings for a while, but it did
-> > > at least used to boot.  No idea what PREEMPT would have to do with this, and
-> > > the other two don't generally trigger issues that early in boot (or at least,
-> > > trigger halts that early in boot).
-> > >
 
-I am able to reproduce this issue but with CONFIG_PROVE_LOCKING not
-CONFIG_PREEMPT.
-With CONFIG_PREEMPT, I see a bunch of warnings around smp_processor_id
-but it boots even with 5.0.
-If CONFIG_PROVE_LOCKING is enabled, I am not able to boot using 5.0.
-However, 5.2.0 works fine.
-I am going to take a look at the issue with 5.0 and PROVE_LOCKING.
+On 2020/12/18 16:14, Atish Patra wrote:
+> On Mon, Nov 16, 2020 at 12:08 AM Kefeng Wang <wangkefeng.wang@huawei.com> wrote:
+>> Use raw_smp_processor_id instead of smp_processor_id() to fix warning,
+>>
+>> BUG: using smp_processor_id() in preemptible [00000000] code: init/1
+>> caller is debug_smp_processor_id+0x1c/0x26
+>> CPU: 0 PID: 1 Comm: init Not tainted 5.10.0-rc4 #211
+>> Call Trace:
+>>    walk_stackframe+0x0/0xaa
+>>    show_stack+0x32/0x3e
+>>    dump_stack+0x76/0x90
+>>    check_preemption_disabled+0xaa/0xac
+>>    debug_smp_processor_id+0x1c/0x26
+>>    get_cache_size+0x18/0x68
+>>    load_elf_binary+0x868/0xece
+>>    bprm_execve+0x224/0x498
+>>    kernel_execve+0xdc/0x142
+>>    run_init_process+0x90/0x9e
+>>    try_to_run_init_process+0x12/0x3c
+>>    kernel_init+0xb4/0xf8
+>>    ret_from_exception+0x0/0xc
+>>
+>> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+>> ---
+>>   arch/riscv/kernel/cacheinfo.c | 2 +-
+>>   1 file changed, 1 insertion(+), 1 deletion(-)
+>>
+>> diff --git a/arch/riscv/kernel/cacheinfo.c b/arch/riscv/kernel/cacheinfo.c
+>> index de59dd457b41..9b5a8a347434 100644
+>> --- a/arch/riscv/kernel/cacheinfo.c
+>> +++ b/arch/riscv/kernel/cacheinfo.c
+>> @@ -26,7 +26,7 @@ cache_get_priv_group(struct cacheinfo *this_leaf)
+>>
+>>   static struct cacheinfo *get_cacheinfo(u32 level, enum cache_type type)
+>>   {
+>> -       struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(smp_processor_id());
+>> +       struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(raw_smp_processor_id());
+>>          struct cacheinfo *this_leaf;
+>>          int index;
+>>
+>> --
+>> 2.26.2
+>>
+>>
+>> _______________________________________________
+>> linux-riscv mailing list
+>> linux-riscv@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> Reviewed-by: Atish Patra <atish.patra@wdc.com>
+>
+> As this issue is only reproducible with CONFIG_PREEMPT, the commit
+> text can be updated to specify that. I have tested this patch with
+> Qemu as well. FWIW,
+>
+> Tested-by: Atish Patra <atish.patra@wdc.com>
 
-The config preempt warnings are resolved by the following patch. I
-have tested it in Qemu.
-
-https://patchwork.kernel.org/project/linux-riscv/patch/20201116081238.44223-1-wangkefeng.wang@huawei.com/
-
-> > > There's a bunch of other stuff that depends on this that's on for-next so I
-> > > don't want to just drop it, but I also don't want to break something.  I'm just
-> > > running QEMU's virt board.
-> > >
->
-> I just verified for-next on QEMU 5.2.0 for virt (RV32,64, nommu) and
-> sifive_u as well.
-> I will give it a try on unleashed tomorrow as well with the above
-> configs enabled.
->
-> > > I'll take a look again tomorrow night, but if anyone has some time to look
-> > > that'd be great!
-> >
-> > Looks like this breaks on QEMU 5.0.0 but works on 5.2.0.
->
-> I will take a look tomorrow to check the root cause.
->
-> I guess technically
-> > that means could be considered a regression, but as we don't really have any
-> > scheme for which old versions of QEMU we support it's not absolute.  I'd
-> > usually err on the side of keeping support for older platforms, but in this
-> > case it's probably just not worth the time so I'm going to just ignore it.
-> >
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
->
->
->
-> --
-> Regards,
-> Atish
+Thanks Atish, will send v2.
 
 
-
--- 
-Regards,
-Atish
+>
+>
 
 _______________________________________________
 linux-riscv mailing list
