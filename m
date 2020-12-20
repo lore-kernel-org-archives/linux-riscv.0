@@ -2,18 +2,18 @@ Return-Path: <SRS0=wI7M=FY=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 03187C4361B
-	for <linux-riscv@archiver.kernel.org>; Sun, 20 Dec 2020 05:30:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BBD50C4361B
+	for <linux-riscv@archiver.kernel.org>; Sun, 20 Dec 2020 05:35:14 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6E865233CE
-	for <linux-riscv@archiver.kernel.org>; Sun, 20 Dec 2020 05:30:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6E865233CE
+	by mail.kernel.org (Postfix) with ESMTPS id 6B20A233CE
+	for <linux-riscv@archiver.kernel.org>; Sun, 20 Dec 2020 05:35:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6B20A233CE
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -22,43 +22,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Message-ID:Date:To:From:Subject:References:
 	In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=s2FbBTLjzHsc3b7zacrngRN/G3yQZlyaJvZHZ9Vzg0E=; b=CaIirJITFg/vfAb1NShhjsoZm
-	9NWJii3PztuUt6LSuT30dbo3RCYbSAAyE7d9CmdMcDyty5rLhsmNVAgQC0ySgkjkMC18kfoxl99/X
-	ENnC4+nbbx81qLtsqWekZg0+TiX2a5Lyn9HGzeo95FAy1oz4qPzNEmXZDCvzywc4J7Nl9LQOaiGxU
-	fIN2ZoZ7fvd/CpBQjDVoiiBBkC8n4h2o73wof/l2Ut8cdaXHpax5OROS4KFSeukax0C4zU2R0USo7
-	jy907d2MEx/Eb+/4PyGSXBfPVaPWQBEXe3V/+N5ZVPwGbGHhPp3JVJv0E1ZsNwuQXlgKOrdGidnkU
-	qBJVVT3Ww==;
+	 bh=hmHHFskgJC5FCnob1emVIwW1HK5reDiOnK7s+c9bkg8=; b=g4BzfvZqU83HQp40mKBXfKAcx
+	UNbkU6yuDq1WEbKfI5FN2/AXTrB9V/v6ktCvuWPaNscvYTIAW1bqmBr5KGfzttlqq74cxC+/631PN
+	2qToICC8O6sl6dMUpfriQDVow/s6jI3rODk+sCPtEHyrJflrC1Vzp0wESRIb+NDroyL9TAP1WjR+R
+	kQIxm9pTZeC/alSKsX+kfWgEqB1tFfZ1FH2BNsjEl9aSJ12GoTSetEbkhk+nGB5xRRv4AbBsNbKoE
+	cNsqgOL7hcZQ6Z32b4aYp00Y/GlnYLviwFKMWHCZoFhgiHkDOpOw/B7rne2FKboWv8KahLc1WESOH
+	ezl6dMvZA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kqrIg-0006ze-9j; Sun, 20 Dec 2020 05:30:34 +0000
+	id 1kqrN5-00079W-KK; Sun, 20 Dec 2020 05:35:07 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kqrId-0006zD-Vu
- for linux-riscv@lists.infradead.org; Sun, 20 Dec 2020 05:30:32 +0000
+ id 1kqrN3-00079A-S7
+ for linux-riscv@lists.infradead.org; Sun, 20 Dec 2020 05:35:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1608442230;
- bh=Qdp7EFwkVoAyU8h9N+P7QV/Zm+mzSlLdhJZueQ/2kCc=;
+ s=k20201202; t=1608442504;
+ bh=aIFosRjp0pvkc7SjVi5j1znmZz4mlFjF/3Le9rkNXvw=;
  h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
- b=sN5VYnuFYQUKtsSck81JTIJ0Q+DmZr9EJ9WoDQ/TCXhktxDUGF2a0BpekviXPmfQX
- nZ1fP4BiU7+DOrRfhd4bowztoqdt4faaE3TD6skhMuJv1LhDwA7IJ0nnigA9cOFxGu
- Y2IdIkzwV0CN8IhhCWLthxxE9sYXyZYB4GUbiA3IANHR8kKcvVe13FI1HkZOZdcZJt
- euwikrbgMa15eokDlvOZH1QuYXGsrLhHB3Gg9z8SqARK5HaJFKJm3I+GNrukQEMsDj
- uA4GWfUfzaWHJLVRFlwgqwX2A2Z6J0Whwz9DVZO48IGpPA0ZywNCCwyFct1yaZTA5w
- E8OQ2FhSh9vJQ==
+ b=OUPgAhjqV84wDwcNTFEfgf5cCxdnSyI6X244yxCQ/4HKA8VLf+g6B8GYj/pRVYc/e
+ GkcMovrHkCP2M2Qkb6uYeqIpAodyDmSqZSN4GyQxIfpZCsxO0PV4c40SJkD/HNAg4p
+ slsRhyfuGBu/zmRxX8N+K5liQvNqYSw84cbLBB+ZYS7XxxL0S6wfeXUn8TnUp2Dg8e
+ RpHvkhcXp7SSvsIRBLf3MXgnxLvn8nLQ8RK+LCv3CoFYJc2rKf7hR5DSPonNLYNcNy
+ BRdIPrqMcS12RfywFvjY3jmNUOYAri/36JaeY5o8AYzNoykV34012mHoEQjAg2ZAA3
+ LauaD7TSl5pcg==
 MIME-Version: 1.0
-In-Reply-To: <160842266128.1580929.15786525540819499647@swboyd.mtv.corp.google.com>
-References: <20201202123446.21902-1-info@metux.net>
- <160842266128.1580929.15786525540819499647@swboyd.mtv.corp.google.com>
-Subject: Re: [PATCH v3] drivers: clk: make gpio-gated clock support optional
+In-Reply-To: <CH2PR04MB652284F1607FD2A29275693CE7C40@CH2PR04MB6522.namprd04.prod.outlook.com>
+References: <20201213135056.24446-1-damien.lemoal@wdc.com>
+ <20201213135056.24446-10-damien.lemoal@wdc.com>
+ <160819259979.1580929.9332027241734052085@swboyd.mtv.corp.google.com>
+ <CH2PR04MB65227B0B94F919406CB84C28E7C40@CH2PR04MB6522.namprd04.prod.outlook.com>
+ <160820021596.1580929.1686334340234415270@swboyd.mtv.corp.google.com>
+ <CH2PR04MB6522E9EC44FF8FFA5981107CE7C40@CH2PR04MB6522.namprd04.prod.outlook.com>
+ <160820216451.1580929.9401304620489565784@swboyd.mtv.corp.google.com>
+ <CH2PR04MB652284F1607FD2A29275693CE7C40@CH2PR04MB6522.namprd04.prod.outlook.com>
+Subject: Re: [PATCH v10 09/23] dt-binding: clock: Document canaan,
+ k210-clk bindings
 From: Stephen Boyd <sboyd@kernel.org>
-To: "Enrico Weigelt, metux IT consult" <info@metux.net>,
- linux-kernel@vger.kernel.org
-Date: Sat, 19 Dec 2020 21:30:28 -0800
-Message-ID: <160844222880.1580929.12780984836660049815@swboyd.mtv.corp.google.com>
+To: Damien Le Moal <Damien.LeMoal@wdc.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh+dt@kernel.org>,
+ devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-riscv@lists.infradead.org
+Date: Sat, 19 Dec 2020 21:35:02 -0800
+Message-ID: <160844250293.1580929.6654681087428087193@swboyd.mtv.corp.google.com>
 User-Agent: alot/0.9.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201220_003032_122038_7E1849E1 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20201220_003506_023366_61D6461E 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -70,70 +81,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: matthias.bgg@gmail.com, mturquette@baylibre.com, linux-clk@vger.kernel.org,
- linux-riscv@lists.infradead.org
+Cc: Sean Anderson <seanga2@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Quoting Stephen Boyd (2020-12-19 16:04:21)
-> Quoting Enrico Weigelt, metux IT consult (2020-12-02 04:34:46)
-> > The gpio-gate-clock / gpio-mux-clock driver isn't used much,
-> > just by a few ARM SoCs, so there's no need to always include
-> > it unconditionally.
-> > 
-> > Thus make it optional, but keep it enabled by default.
-> > 
-> > changes v3: default to y when gpiolib enabled
-> >             fix depends on gpiolib to uppercase
-> > 
-> > changes v2: added missing dependency on gpiolib
-> > 
-> > Signed-off-by: Enrico Weigelt, metux IT consult <info@metux.net>
-> > ---
+Quoting Damien Le Moal (2020-12-17 02:51:20)
+> On 2020/12/17 19:49, Stephen Boyd wrote:
+> > I was thinking of just applying this DT binding patch now so it gets
+> > merged into the next -rc1. Then anyone can use the defines because
+> > they're in Linus' tree and wherever the dts file ends up can just base
+> > on -rc1. I probably won't merge the clk driver until v5.12 given that
+> > the merge window is open.
 > 
-> Applied to clk-next
+> OK. Makes sense. Sending just the clk binding patch then, with the K210_CLK_ACLK
+> clock definition left in.
+> 
 
-And now reverted
-
-In file included from include/linux/device.h:32:0,
-                 from drivers/clk/clk-gpio.c:17:
-include/linux/device/driver.h:290:1: warning: data definition has no type or storage class
- device_initcall(__driver##_init);
- ^
-include/linux/platform_device.h:258:2: note: in expansion of macro 'builtin_driver'
-  builtin_driver(__platform_driver, platform_driver_register)
-  ^~~~~~~~~~~~~~
-drivers/clk/clk-gpio.c:249:1: note: in expansion of macro 'builtin_platform_driver'
- builtin_platform_driver(gpio_clk_driver);
- ^~~~~~~~~~~~~~~~~~~~~~~
-include/linux/device/driver.h:290:1: error: type defaults to 'int' in declaration of 'device_initcall' [-Werror=implicit-int]
- device_initcall(__driver##_init);
- ^
-include/linux/platform_device.h:258:2: note: in expansion of macro 'builtin_driver'
-  builtin_driver(__platform_driver, platform_driver_register)
-  ^~~~~~~~~~~~~~
-drivers/clk/clk-gpio.c:249:1: note: in expansion of macro 'builtin_platform_driver'
- builtin_platform_driver(gpio_clk_driver);
- ^~~~~~~~~~~~~~~~~~~~~~~
-drivers/clk/clk-gpio.c:249:1: warning: parameter names (without types) in function declaration
-In file included from include/linux/device.h:32:0,
-                 from drivers/clk/clk-gpio.c:17:
-drivers/clk/clk-gpio.c:249:25: warning: 'gpio_clk_driver_init' defined but not used [-Wunused-function]
- builtin_platform_driver(gpio_clk_driver);
-                         ^
-include/linux/device/driver.h:286:19: note: in definition of macro 'builtin_driver'
- static int __init __driver##_init(void) \
-                   ^~~~~~~~
-drivers/clk/clk-gpio.c:249:1: note: in expansion of macro 'builtin_platform_driver'
- builtin_platform_driver(gpio_clk_driver);
- ^~~~~~~~~~~~~~~~~~~~~~~
-
-It looks like it needs to be a bool Kconfig to match how it used to be.
-A module would be interesting, but would require more changes
-presumably, like getting rid of builtin_platform_driver() and replacing
-it with module_platform_driver().
+Did you send it?
 
 _______________________________________________
 linux-riscv mailing list
