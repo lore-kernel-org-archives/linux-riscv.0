@@ -1,174 +1,80 @@
-Return-Path: <SRS0=wI7M=FY=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=GJuv=FZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id F268EC4361B
-	for <linux-riscv@archiver.kernel.org>; Sun, 20 Dec 2020 08:58:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3B24EC433E0
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Dec 2020 20:39:00 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 84E9F22CF8
-	for <linux-riscv@archiver.kernel.org>; Sun, 20 Dec 2020 08:58:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 84E9F22CF8
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	by mail.kernel.org (Postfix) with ESMTPS id D2EFB22518
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Dec 2020 20:38:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D2EFB22518
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=konsulko.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=omIZe7opF0MuXwGdFmHYk9mHDKeAHywcjgF8L/xSOQ8=; b=WxvPUNV5EVIQcch5o8rPAwTis
-	CtKzGFCpU/yYfG7inUxnvb1ovMqHIbLdMtAGN74Zp2O9+xgLaIRNIIMnp1h3Amg+x//bfdphFdXbv
-	G8Hjp5+Ymuq5ipkpwN4ifxst9lqkfc7J3rIPgPSuM7hEhRpNclvMGeQLPbGYjN15KntnOX8lEjVIJ
-	w2UEdfkE1xhuE9aZZSAB7U8OHJ/+TroErpnVlE/1uD4tRxbPKXG+7Jec4kqLimFgy4bk2RAUCD4l0
-	9lsmyDyvVQsZFwkw6q0ei3OdPK3R5OS4pvMdAteNwJumpWtJRor7DINHIJ35jjkeoYLFvuypXrDin
-	GrANpp49w==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yVKfE4HmVDpg29676VqIIXH/eMu6F5G+rZAXcNNTCZk=; b=IttzXPg9PuZZHRBmerFJV+pfMR
+	mwS8PlW3hYMyEYp5rNdXBq4gGm3b8kz+D7XaE8xF5CdrAVGJWHa6cMlWT52YC8qyCDhfAfKyNbsfs
+	shF5Ms27kjEayh0UMNAb0eX0tWq4JphMiLG6kTYFJER5K25sSedpUYgQBg7MIx+Rh+oSbFZdh+xkL
+	60DpgkiJnj0X71YJyYDyLwzwGk/95VEfKi4zM2lJXUaAvQKvwUemzFsdL2j4TWgSRH5bltUMhUHGv
+	f14ROeMgtGyA8WE0WZ/D88qb+swqw0PWh7l9ar9Jp31I5cKXM5j4biH0ZkqOgmJldNUoH7Py/Tp1H
+	1tjKS0mA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kquY2-00081J-2B; Sun, 20 Dec 2020 08:58:38 +0000
-Received: from esa1.hgst.iphmx.com ([68.232.141.245])
+	id 1krRx8-0000QW-AZ; Mon, 21 Dec 2020 20:38:46 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kquXw-00080i-QK
- for linux-riscv@lists.infradead.org; Sun, 20 Dec 2020 08:58:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1608454712; x=1639990712;
- h=from:to:cc:subject:date:message-id:references:
- in-reply-to:content-id:content-transfer-encoding: mime-version;
- bh=XtBjsfRXjuEuGKKlufREJ/U9xFr1c//Y4LDb1m2YAys=;
- b=NmFRqbmguTatq3fGJouNvlvqxXEpaaEOSgNXk5d/jRRcP9/YueFv8jmL
- 5xQyQpmi3Z/v68TLeuklnvK6JUvZvEgAIr6gwOE+cDF2/Wet/CwZRUBxf
- gyv5iYffNbUD+FVJieI5fojr5gkzF3gPdg8MaptJRvmhemFglsTXaZ3lv
- fJN+dyXzVwl8gpxOtru3/5oN1vNVxsGMnKEy1f4tBqPzyAQThamW93mza
- 7Ev7ljD+KRzETFp4bNRYeJUPRmlQWlS08L3s2AzycGefOjaovi56QgqgQ
- svOQwOpleiNu788pHnHj3p+sEJMnkmtc4SUc7YgC2YzqtOK/kWRyS+DqM w==;
-IronPort-SDR: wIi06JcBrL4CYMPt0NmMyKgNm9TwCN4vLCIUGuO7oZToz27N9Nmz+tMpkovt4sz37MQZUs8nvF
- YL6hKhdu60xa2Sw+e5qe01XlGnDrvtRifsVIMkwHNuQu5tyV4/8syjMjs0AePRllL2/X9uqatv
- VTrjanbr9zGxYnAG72/susVuWAtQ+cKvWgW+eXs2NVTbaC44J80EFyV3Mob8SgHQsYrCW51D+u
- pTGxu9/r4n3dnHvgHjAvnP75Mdw/e+FyYwZVZ1q0ijLPea8INqLbjmGtzIXSnLmG5fH894Hr9b
- rEM=
-X-IronPort-AV: E=Sophos;i="5.78,434,1599494400"; d="scan'208";a="265810487"
-Received: from mail-bn8nam11lp2168.outbound.protection.outlook.com (HELO
- NAM11-BN8-obe.outbound.protection.outlook.com) ([104.47.58.168])
- by ob1.hgst.iphmx.com with ESMTP; 20 Dec 2020 16:58:26 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Spm2rECXbFKLOPxV3aPwWpQaeHcn7OwDGEUeAHIWW1ai89yOR3yfAxwxcj+g6qGbOpBxV9KM6KzCveZW+yjOonX/88ftwZtdDcd10PR9n0LO1rjZq2hIJgTLhwpfhWMDtbyaEq6lPjS1dLHyPmwFDd+3SgaJ5gkP2SsBIJv3DhJC8YxFYvXYusoWVEbCaIrr/hRzT/vA4W6MSaFNQs2fHm2mbgc4d/fZi1nF6kIpiGwNqXBmkXIf0zcv9ToVfNjMqfBf8qJh6HEeHK+QZthteZ2bkT/bng07hAM8Ld22WeOoSjqzWfET10VRoIxlKiR6FluYIhqrR8TX4jZjThgftw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XtBjsfRXjuEuGKKlufREJ/U9xFr1c//Y4LDb1m2YAys=;
- b=NCbOVb8ZQDmfnr7dvH4eSxXX5Ye3cb9z5hs+Ba382OAHxs3uwX2YRsv6hYetN1mx9mCRJjYRjZbyMFzzApNDggTFXLvgyCoTMJrssFbinAfnfOfAJwlHyl3p77SWsp2zWYD9AFEsCFqRqh7+6pQ30B7FVGKyHlyKdVvJzx4YEXErSIdqZEdd1Nf64AoWgzMQ+MN9Ax4d3H9LYtx+lLXOJcnmhvCY/gVK66eWTTwH5MqJwe5Ykb8Au/+CCq58tw65R8xwjC1TNFVBfkfUdwON87qIhTc93mO8280+CrOSF90zmOik5KBUKNDnrAuKKny0o6oJ2nlo0FL9gqeRyAHf6w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
- header.d=wdc.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XtBjsfRXjuEuGKKlufREJ/U9xFr1c//Y4LDb1m2YAys=;
- b=rNGZ7W4VKHyScKL31GRPQ1ahmenPqf2FjAQ1WOiCZkiQc5HZmP/vc7nrEEeL9sFoj9aPMhB2lVXoYd93eEIREnArBD42nuylLixg169lCWv1QlKFQMCRVxjD2WwlnG9SHxTz9hXAiuikpFkYtD5XhQXoqg/Lzu0S3Hpn2k/W9L4=
-Received: from DM6PR04MB6527.namprd04.prod.outlook.com (2603:10b6:5:20e::9) by
- DM6PR04MB5067.namprd04.prod.outlook.com (2603:10b6:5:fe::20) with
- Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.3676.25; Sun, 20 Dec 2020 08:58:24 +0000
-Received: from DM6PR04MB6527.namprd04.prod.outlook.com
- ([fe80::80a1:12c6:f282:f22a]) by DM6PR04MB6527.namprd04.prod.outlook.com
- ([fe80::80a1:12c6:f282:f22a%4]) with mapi id 15.20.3676.025; Sun, 20 Dec 2020
- 08:58:24 +0000
-From: Damien Le Moal <Damien.LeMoal@wdc.com>
-To: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
- "palmer@dabbelt.com" <palmer@dabbelt.com>, "sboyd@kernel.org"
- <sboyd@kernel.org>, "linus.walleij@linaro.org" <linus.walleij@linaro.org>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>, "robh+dt@kernel.org"
- <robh+dt@kernel.org>, "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>
-Subject: Re: [PATCH v10 09/23] dt-binding: clock: Document canaan,k210-clk
- bindings
-Thread-Topic: [PATCH v10 09/23] dt-binding: clock: Document canaan,k210-clk
- bindings
-Thread-Index: AQHW0VcKSUc5JWucbkupBqEzxYwjiqn/gQsAgAA40YA=
-Date: Sun, 20 Dec 2020 08:58:24 +0000
-Message-ID: <66782ff9a9086468af7aeabd8292786c1d97eaaf.camel@wdc.com>
-References: <20201213135056.24446-1-damien.lemoal@wdc.com>
- <20201213135056.24446-10-damien.lemoal@wdc.com>
- <160819259979.1580929.9332027241734052085@swboyd.mtv.corp.google.com>
- <CH2PR04MB65227B0B94F919406CB84C28E7C40@CH2PR04MB6522.namprd04.prod.outlook.com>
- <160820021596.1580929.1686334340234415270@swboyd.mtv.corp.google.com>
- <CH2PR04MB6522E9EC44FF8FFA5981107CE7C40@CH2PR04MB6522.namprd04.prod.outlook.com>
- <160820216451.1580929.9401304620489565784@swboyd.mtv.corp.google.com>
- <CH2PR04MB652284F1607FD2A29275693CE7C40@CH2PR04MB6522.namprd04.prod.outlook.com>
- <160844250293.1580929.6654681087428087193@swboyd.mtv.corp.google.com>
-In-Reply-To: <160844250293.1580929.6654681087428087193@swboyd.mtv.corp.google.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.38.2 (3.38.2-1.fc33) 
-authentication-results: lists.infradead.org; dkim=none (message not signed)
- header.d=none;lists.infradead.org; dmarc=none action=none
- header.from=wdc.com;
-x-originating-ip: [2400:2411:43c0:6000:8d3e:27aa:85c2:44b5]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-ht: Tenant
-x-ms-office365-filtering-correlation-id: 7d879904-98c0-4e8a-ac75-08d8a4c568d5
-x-ms-traffictypediagnostic: DM6PR04MB5067:
-x-microsoft-antispam-prvs: <DM6PR04MB5067C11364AA1252D4F3B874E7C10@DM6PR04MB5067.namprd04.prod.outlook.com>
-wdcipoutbound: EOP-TRUE
-x-ms-oob-tlc-oobclassifiers: OLM:7691;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: EyOnO4DI5+OHvv3H8ilN6mhf2mL13yUPvhgrfVXrN7Wvn2aJPB5E7JERJZpPkSIZLfg0S8dWu/Oa6vmsbQc8RDHmm9fpTJ8KSdhW956gEX5LSUpljRiecMSqSWyG8vyCpVkL7hwuIu4rElnJ5Su7tlXaps2WNntsSoO+cgmzLKocc+paLWVe+fG8XRmj09X5FvIKLNPklZ3sbD+h4/Lkz7HM0THP+8JDoOK5fSsu8jzEPtZFdohgjKWLjktrAOl1Y7m4YsfYL3y1qAt9sFgcRwGSVtgX+8gqzMxgM+YDuiTjm+2/iTNTYCUs50y++G8lB0QN3R0bX6plUiK9l2VAHsynTqDJJRCWg1s5y4OaN0MCKGunqadG5xBG10VmL1C/LtNfJ0OmblsrBaGBnp1bkQ==
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:DM6PR04MB6527.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(346002)(366004)(39850400004)(376002)(396003)(136003)(66446008)(8676002)(4744005)(8936002)(53546011)(6506007)(7416002)(110136005)(186003)(4326008)(2616005)(6512007)(316002)(478600001)(5660300002)(36756003)(2906002)(4001150100001)(6486002)(86362001)(91956017)(64756008)(66556008)(66476007)(76116006)(66946007)(83380400001)(71200400001);
- DIR:OUT; SFP:1102; 
-x-ms-exchange-antispam-messagedata: =?utf-8?B?UlBjSU1xbjRZOVdGdkt3UlhkZHM0eDdneEh0NkNSQjBycy9yaUduRFNJSnVE?=
- =?utf-8?B?SUVIcmtnVkUvMnc5UDM4S3A0M0IvckxoQThGbkNEVURlelNRL2JKRmIzRi9M?=
- =?utf-8?B?ZGc0Z0cxS1dGczNDOVpDdko2WW95d3E3WUtMeEVnOVUrcWMzRDI0d2ZLQTN3?=
- =?utf-8?B?OE9IWU1pMkN2NWtkSHpEOE9WVDlFU2dsNGRNZVNyRG8wZElQMjNmdldHbitS?=
- =?utf-8?B?UEkvMWdERjIrSW1mMjA2MllFWElSbzhUUGpxNGMvdWhHOU5TSzRsM1gvY0dS?=
- =?utf-8?B?aG93azZaRHl1YWVEazR2d0xiQlhPdHM2ZUxENzg0WFpIdlF1Z2k0S21YOHhR?=
- =?utf-8?B?eHp1QlNqdXhUQXBoU0trb3lMTjFnKzJxZTVlNHFqSWM5emtNODNrZElHT21S?=
- =?utf-8?B?SUVOOEQ1N2xHMkxLOTE3NS9MZ2NIVHRCRkg1WkZXV0pXMEQvZ044WENGTm44?=
- =?utf-8?B?RTZueW9SSnVDcm52c254V2dqcTlHeXRYbjZVM2M1cklXTXp6M2RCcEZNcFRy?=
- =?utf-8?B?ekt6c2FTVjk0MysvL2NjazhvWklqc2NCUzd5R2ZKdDdYMy80L0YvbVVjNjBy?=
- =?utf-8?B?ejNGalVUYUdjV1hDUW1Ka3lZSzhBUHhUYXlnOFFyai9DNXYrQ2xuWm5HNzlk?=
- =?utf-8?B?QmxndVVzMUpHZ01NZU9XMVExZXF1S1o1TUg0SW5ld1pBSzFPdHJxTWgvNmpk?=
- =?utf-8?B?VVZGOEhNR0dLUHk1Vy9ycXhHbEpKcTBXcEQ0Y2NFR3pVNFhjbFY5VFVDVktv?=
- =?utf-8?B?ZFN5KzZiRi9uUFJFbVZqQy9oNXRoR2xCSE5nL2V5NEI1ZmNYSVkzdS9RVUZ3?=
- =?utf-8?B?UjRmVEJhSE9oSEtuQklvYmRiU2FPNXE1bFI0Um5TVzdZSGJSZHE4MHY3bCsy?=
- =?utf-8?B?WGdWOXRVN2pBUkVrekhlR3AxQXpsQVRaMXR1OTczZWwzNFVvS25lZ0hEemx1?=
- =?utf-8?B?UEZzSTdIMHJKazFNbWVZQ2lvTU5uUU1QelpGOHd2c2ZzMWdtandYQU5meCtM?=
- =?utf-8?B?bzllck1YZU1aY3kvQytOd1dKMVFmNzkrYW45VFVacDBmQ0NUaDBwUEZsRG93?=
- =?utf-8?B?cFhMYjk2SldjVHc0ekZzc2d4bVd2c09ZWXZPd2Y1UjAzUzROYVBWVWYvYkJM?=
- =?utf-8?B?U1ZzbG5ibWZyYlpGWVZ3OCtvTFB0bHdSUzE1dkFaMi9NOThkK1NLWFBxWElL?=
- =?utf-8?B?WkV4RE16MWxSUkQyc0dEdElvWWticUoyZElvd29jbkVNaExzTFJ6Um5lQi9S?=
- =?utf-8?B?b2tTeS8vNEhXNHA1R01sdUNTdVJlejBXbW9rSGF3NDZyS3ZVTVAxYXA0clpC?=
- =?utf-8?B?L1BOWkR5amtyKzhGdFN0UEIwYWhoc1MvTElaOHZtK0NIUWJsQ3d4MDJ6c2hC?=
- =?utf-8?B?Qi96RURGd1lxWkNVMXJxSUdzN2VOQ2dLMGxMWkYxTTZGNFYxN0NHTlJQa0FP?=
- =?utf-8?Q?ZS8TjaTr?=
-x-ms-exchange-transport-forked: True
-Content-ID: <0673CEBBD92DA24185A54098E1AD15B8@namprd04.prod.outlook.com>
+ id 1krRx4-0000Pp-0n
+ for linux-riscv@lists.infradead.org; Mon, 21 Dec 2020 20:38:43 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id 91so12454156wrj.7
+ for <linux-riscv@lists.infradead.org>; Mon, 21 Dec 2020 12:38:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=konsulko.com; s=google;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=hXRZY77rdG4Q3UWzaOSDoUsvDp+nGn4lmeU1zioVKxE=;
+ b=RVtRzC6McKBhUDhlAaRaXRegfu3OfJU07fbM5jH+8fugdVfAVQcamGt7kGqvTpaEEG
+ eLtog61HlPKzez4i6INlKylmyGD0O1XdRrmKuOcpmEzGvuPkqaj/6MJMhOUgKfKEdtqv
+ Fyr+gmWZ9uLad7QOyfvxShUg/2tl51q5ihzGQ=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=hXRZY77rdG4Q3UWzaOSDoUsvDp+nGn4lmeU1zioVKxE=;
+ b=USQPuf1HaslnOAWoa+8opbB+uWE2ddLCEbBJKOuEAENabDTw4UsjKEuL+qJpU8XmYc
+ Q4nNDttxyBKlx9XIn2mbSKISzMzQburpjoi3R46TpSlAO0oc+X75wXkOxWriLA2R98TW
+ 1XTkDHWBCOr6+4rm1+7cM/yXVwvu5BxCkQu9SSpsiH7raaTT6dV3Ibt+5TOl5DFEEkmP
+ +b2Hl6iYp+AtDtb9ameHiFasaBbmMzwifKBGxVLvLNbWKPby2V/iilis5nz81TG+6y7Q
+ PkZDvUPcWNNSuTSVKM0TeFr8hZGG1e2JC3krihbyfo1b/VvnyQ5YYdKzZMspbkfy/2Ua
+ 2n2Q==
+X-Gm-Message-State: AOAM5331ebmu9sYfdr6XFONfUbF3lRYB5M3yU/JfyQvOdljcfJjbbUSC
+ a7h/CJRjr/WpM/uDCcf8Q8q6zFFQrx2ejaLf
+X-Google-Smtp-Source: ABdhPJxH1u9n+1j72+BAXp6/g7UHMYOBer6mVaopFYQg6kg00QaB907e88Vv7PjsBTFQsEfSz8z7FQ==
+X-Received: by 2002:a5d:5387:: with SMTP id d7mr20101791wrv.417.1608583116571; 
+ Mon, 21 Dec 2020 12:38:36 -0800 (PST)
+Received: from lootbox.konsulko.bg (lan.nucleusys.com. [92.247.61.126])
+ by smtp.gmail.com with ESMTPSA id g184sm25557816wma.16.2020.12.21.12.38.35
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 21 Dec 2020 12:38:36 -0800 (PST)
+From: Vitaly Wool <vitaly.wool@konsulko.com>
+To: linux-riscv@lists.infradead.org
+Subject: [PATCH v3] RISC-V: enable XIP
+Date: Mon, 21 Dec 2020 22:37:20 +0200
+Message-Id: <20201221203719.15988-1-vitaly.wool@konsulko.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR04MB6527.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7d879904-98c0-4e8a-ac75-08d8a4c568d5
-X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Dec 2020 08:58:24.5917 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 6R17piFvJAclMnC/M2V+OTSNIREdk219nYVs6DCCjWn1LFBWhrWHaQys1d4v5hr6u5gYSIrsj1ZoocUPA14DXA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR04MB5067
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201220_035833_278994_7F8B1848 
-X-CRM114-Status: GOOD (  17.04  )
+X-CRM114-CacheID: sfid-20201221_153842_203072_91795333 
+X-CRM114-Status: GOOD (  29.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -180,34 +86,865 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "seanga2@gmail.com" <seanga2@gmail.com>
+Cc: Bin Meng <bin.meng@windriver.com>, Nicolas Pitre <nico@fluxnic.net>,
+ Anup Patel <anup@brainfault.org>, Palmer Dabbelt <palmerdabbelt@google.com>,
+ linux-kernel@vger.kernel.org, Alistair Francis <alistair.francis@wdc.com>,
+ Vitaly Wool <vitaly.wool@konsulko.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 2020-12-19 at 21:35 -0800, Stephen Boyd wrote:
-> Quoting Damien Le Moal (2020-12-17 02:51:20)
-> > On 2020/12/17 19:49, Stephen Boyd wrote:
-> > > I was thinking of just applying this DT binding patch now so it gets
-> > > merged into the next -rc1. Then anyone can use the defines because
-> > > they're in Linus' tree and wherever the dts file ends up can just base
-> > > on -rc1. I probably won't merge the clk driver until v5.12 given that
-> > > the merge window is open.
-> > 
-> > OK. Makes sense. Sending just the clk binding patch then, with the K210_CLK_ACLK
-> > clock definition left in.
-> > 
-> 
-> Did you send it?
+Introduce XIP (eXecute In Place) support for RISC-V platforms.
+It allows code to be executed directly from non-volatile storage
+directly addressable by the CPU, such as QSPI NOR flash which can
+be found on many RISC-V platforms. This makes way for significant
+optimization of RAM footprint. The XIP kernel is not compressed
+since it has to run directly from flash, so it will occupy more
+space on the non-volatile storage to The physical flash address
+used to link the kernel object files and for storing it has to
+be known at compile time and is represented by a Kconfig option.
 
-Just did. My apologies for the delay. Already in vacation mode :)
+XIP on RISC-V will currently only work on MMU-enabled kernels.
 
-Happy holidays !
+Changed in v2:
+- dedicated macro for XIP address fixup when MMU is not enabled yet
+  o both for 32-bit and 64-bit RISC-V
+- SP is explicitly set to a safe place in RAM before __copy_data call
+- removed redundant alignment requirements in vmlinux-xip.lds.S
+- changed long -> uintptr_t typecast in __XIP_FIXUP macro.
 
+Changed in v3:
+- rebased against latest for-next
+- XIP address fixup macro now takes an argument
+- SMP related fixes
+Signed-off-by: Vitaly Wool <vitaly.wool@konsulko.com>
+---
+ arch/riscv/Kconfig                  |  46 ++++++++-
+ arch/riscv/Makefile                 |   8 +-
+ arch/riscv/boot/Makefile            |  13 +++
+ arch/riscv/include/asm/pgtable.h    |  56 +++++++++--
+ arch/riscv/kernel/cpu_ops_sbi.c     |   3 +
+ arch/riscv/kernel/head.S            |  69 +++++++++++++-
+ arch/riscv/kernel/head.h            |   3 +
+ arch/riscv/kernel/setup.c           |   8 +-
+ arch/riscv/kernel/vmlinux-xip.lds.S | 132 ++++++++++++++++++++++++++
+ arch/riscv/kernel/vmlinux.lds.S     |   6 ++
+ arch/riscv/mm/init.c                | 142 +++++++++++++++++++++++++---
+ 11 files changed, 460 insertions(+), 26 deletions(-)
+ create mode 100644 arch/riscv/kernel/vmlinux-xip.lds.S
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 2b41f6d8e458..fabafdf763da 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -398,7 +398,7 @@ config EFI_STUB
+ 
+ config EFI
+ 	bool "UEFI runtime support"
+-	depends on OF
++	depends on OF && !XIP_KERNEL
+ 	select LIBFDT
+ 	select UCS2_STRING
+ 	select EFI_PARAMS_FROM_FDT
+@@ -415,12 +415,52 @@ config EFI
+ 	  allow the kernel to be booted as an EFI application. This
+ 	  is only useful on systems that have UEFI firmware.
+ 
++config XIP_KERNEL
++	bool "Kernel Execute-In-Place from ROM"
++	depends on MMU
++	help
++	  Execute-In-Place allows the kernel to run from non-volatile storage
++	  directly addressable by the CPU, such as NOR flash. This saves RAM
++	  space since the text section of the kernel is not loaded from flash
++	  to RAM.  Read-write sections, such as the data section and stack,
++	  are still copied to RAM.  The XIP kernel is not compressed since
++	  it has to run directly from flash, so it will take more space to
++	  store it.  The flash address used to link the kernel object files,
++	  and for storing it, is configuration dependent. Therefore, if you
++	  say Y here, you must know the proper physical address where to
++	  store the kernel image depending on your own flash memory usage.
++
++	  Also note that the make target becomes "make xipImage" rather than
++	  "make zImage" or "make Image".  The final kernel binary to put in
++	  ROM memory will be arch/riscv/boot/xipImage.
++
++	  If unsure, say N.
++
++config XIP_PHYS_ADDR
++	hex "XIP Kernel Physical Location"
++	depends on XIP_KERNEL
++	default "0x21000000"
++	help
++	  This is the physical address in your flash memory the kernel will
++	  be linked for and stored to.  This address is dependent on your
++	  own flash usage.
++
++config XIP_PHYS_RAM_BASE
++	hex "Platform Physical RAM address"
++	depends on XIP_KERNEL
++	default "0x80000000"
++	help
++	  This is the physical address of RAM in the system. It has to be
++	  explicitly specified to run early relocations of read-write data
++	  from flash to RAM.
+ endmenu
+ 
+ config BUILTIN_DTB
+-	def_bool n
+-	depends on RISCV_M_MODE
++	bool
++	depends on (RISCV_M_MODE || XIP_KERNEL)
+ 	depends on OF
++	default y if XIP_KERNEL
++	default n if !XIP_KERNEL
+ 
+ menu "Power management options"
+ 
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index 8c29e553ef7f..b89b6897b0be 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -70,7 +70,11 @@ CHECKFLAGS += -D__riscv -D__riscv_xlen=$(BITS)
+ 
+ # Default target when executing plain make
+ boot		:= arch/riscv/boot
++ifeq ($(CONFIG_XIP_KERNEL),y)
++KBUILD_IMAGE := $(boot)/xipImage
++else
+ KBUILD_IMAGE	:= $(boot)/Image.gz
++endif
+ 
+ head-y := arch/riscv/kernel/head.o
+ 
+@@ -83,12 +87,14 @@ PHONY += vdso_install
+ vdso_install:
+ 	$(Q)$(MAKE) $(build)=arch/riscv/kernel/vdso $@
+ 
++ifneq ($(CONFIG_XIP_KERNEL),y)
+ ifeq ($(CONFIG_RISCV_M_MODE)$(CONFIG_SOC_KENDRYTE),yy)
+ KBUILD_IMAGE := $(boot)/loader.bin
+ else
+ KBUILD_IMAGE := $(boot)/Image.gz
+ endif
+-BOOT_TARGETS := Image Image.gz loader loader.bin
++endif
++BOOT_TARGETS := Image Image.gz loader loader.bin xipImage
+ 
+ all:	$(notdir $(KBUILD_IMAGE))
+ 
+diff --git a/arch/riscv/boot/Makefile b/arch/riscv/boot/Makefile
+index 03404c84f971..6bf299f70c27 100644
+--- a/arch/riscv/boot/Makefile
++++ b/arch/riscv/boot/Makefile
+@@ -17,8 +17,21 @@
+ KCOV_INSTRUMENT := n
+ 
+ OBJCOPYFLAGS_Image :=-O binary -R .note -R .note.gnu.build-id -R .comment -S
++OBJCOPYFLAGS_xipImage :=-O binary -R .note -R .note.gnu.build-id -R .comment -S
+ 
+ targets := Image Image.* loader loader.o loader.lds loader.bin
++targets := Image Image.* loader loader.o loader.lds loader.bin xipImage
++
++ifeq ($(CONFIG_XIP_KERNEL),y)
++
++quiet_cmd_mkxip = $(quiet_cmd_objcopy)
++cmd_mkxip = $(cmd_objcopy)
++
++$(obj)/xipImage: vmlinux FORCE
++	$(call if_changed,mkxip)
++	@$(kecho) '  Physical Address of xipImage: $(CONFIG_XIP_PHYS_ADDR)'
++
++endif
+ 
+ $(obj)/Image: vmlinux FORCE
+ 	$(call if_changed,objcopy)
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 183f1f4b2ae6..ec3360363b71 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -11,6 +11,42 @@
+ 
+ #include <asm/pgtable-bits.h>
+ 
++#ifdef CONFIG_MMU
++
++#define VMALLOC_SIZE     (KERN_VIRT_SIZE >> 1)
++#define VMALLOC_START    (PAGE_OFFSET - VMALLOC_SIZE)
++
++#ifdef CONFIG_XIP_KERNEL
++/*
++ * Since we use sections to map it, this macro replaces the physical address
++ * with its virtual address while keeping offset from the base section.
++ */
++#define XIP_OFFSET		SZ_8M
++#define XIP_MASK		(SZ_8M - 1)
++#define XIP_VIRT_ADDR(physaddr)	(PAGE_OFFSET - XIP_OFFSET + ((physaddr) & XIP_MASK))
++#define XIP_PHYS_ADDR(va)	 \
++	((uintptr_t)(va) - PAGE_OFFSET + XIP_OFFSET + CONFIG_XIP_PHYS_ADDR)
++#define VMALLOC_END		(PAGE_OFFSET - SZ_16M - 1)
++
++#define XIP_VIRT_ADDR_START	XIP_VIRT_ADDR(CONFIG_XIP_PHYS_ADDR)
++#define __PHYS_RAM_BASE		CONFIG_XIP_PHYS_RAM_BASE
++
++#define __XIP_FIXUP(addr) \
++	(((uintptr_t)(addr) >= CONFIG_XIP_PHYS_ADDR && \
++	  (uintptr_t)(addr) <= CONFIG_XIP_PHYS_ADDR + SZ_16M) ? \
++	(uintptr_t)(addr) - CONFIG_XIP_PHYS_ADDR + __PHYS_RAM_BASE - XIP_OFFSET : \
++	(uintptr_t)(addr))
++
++#else
++#define VMALLOC_END		(PAGE_OFFSET - 1)
++#endif /* CONFIG_XIP_KERNEL */
++
++#else
++
++#define XIP_VIRT_ADDR(physaddr) physaddr
++
++#endif /* CONFIG_MMU */
++
+ #ifndef __ASSEMBLY__
+ 
+ /* Page Upper Directory not used in RISC-V */
+@@ -21,10 +57,6 @@
+ 
+ #ifdef CONFIG_MMU
+ 
+-#define VMALLOC_SIZE     (KERN_VIRT_SIZE >> 1)
+-#define VMALLOC_END      (PAGE_OFFSET - 1)
+-#define VMALLOC_START    (PAGE_OFFSET - VMALLOC_SIZE)
+-
+ #define BPF_JIT_REGION_SIZE	(SZ_128M)
+ #define BPF_JIT_REGION_START	(PAGE_OFFSET - BPF_JIT_REGION_SIZE)
+ #define BPF_JIT_REGION_END	(VMALLOC_END)
+@@ -467,8 +499,20 @@ static inline void __kernel_map_pages(struct page *page, int numpages, int enabl
+ 
+ #define kern_addr_valid(addr)   (1) /* FIXME */
+ 
+-extern void *dtb_early_va;
+-extern uintptr_t dtb_early_pa;
++extern void *_dtb_early_va;
++extern uintptr_t _dtb_early_pa;
++#if defined(CONFIG_XIP_KERNEL) && defined(CONFIG_MMU)
++
++#define dtb_early_va	(*(void **)__XIP_FIXUP(&_dtb_early_va))
++#define dtb_early_pa	(*(uintptr_t *)__XIP_FIXUP(&_dtb_early_pa))
++
++#else
++
++#define dtb_early_va	_dtb_early_va
++#define dtb_early_pa	_dtb_early_pa
++
++#endif /* CONFIG_XIP_KERNEL */
++
+ void setup_bootmem(void);
+ void paging_init(void);
+ 
+diff --git a/arch/riscv/kernel/cpu_ops_sbi.c b/arch/riscv/kernel/cpu_ops_sbi.c
+index 685fae72b7f5..9c8d6dab55b8 100644
+--- a/arch/riscv/kernel/cpu_ops_sbi.c
++++ b/arch/riscv/kernel/cpu_ops_sbi.c
+@@ -59,6 +59,9 @@ static int sbi_cpu_start(unsigned int cpuid, struct task_struct *tidle)
+ 	unsigned long boot_addr = __pa_symbol(secondary_start_sbi);
+ 	int hartid = cpuid_to_hartid_map(cpuid);
+ 
++#ifdef CONFIG_XIP_KERNEL
++	boot_addr = XIP_PHYS_ADDR(secondary_start_sbi);
++#endif
+ 	cpu_update_secondary_bootdata(cpuid, tidle);
+ 	rc = sbi_hsm_hart_start(hartid, boot_addr, 0);
+ 
+diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+index 45dbdae930bf..6f065a5502d3 100644
+--- a/arch/riscv/kernel/head.S
++++ b/arch/riscv/kernel/head.S
+@@ -9,11 +9,31 @@
+ #include <linux/linkage.h>
+ #include <asm/thread_info.h>
+ #include <asm/page.h>
++#include <asm/pgtable.h>
+ #include <asm/csr.h>
+ #include <asm/hwcap.h>
+ #include <asm/image.h>
+ #include "efi-header.S"
+ 
++#ifdef CONFIG_XIP_KERNEL
++.macro XIP_FIXUP_OFFSET reg
++#ifdef CONFIG_64BIT
++		ld t0, _xip_fixup
++#else
++		lw t0, _xip_fixup
++#endif
++		add \reg, \reg, t0
++.endm
++
++_xip_fixup:
++#ifdef CONFIG_64BIT
++	.dword CONFIG_XIP_PHYS_RAM_BASE - CONFIG_XIP_PHYS_ADDR - XIP_OFFSET
++#else
++	.word CONFIG_XIP_PHYS_RAM_BASE - CONFIG_XIP_PHYS_ADDR - XIP_OFFSET
++#endif
++
++#endif /* CONFIG_XIP_KERNEL */
++
+ __HEAD
+ ENTRY(_start)
+ 	/*
+@@ -64,7 +84,11 @@ pe_head_start:
+ #ifdef CONFIG_MMU
+ relocate:
+ 	/* Relocate return address */
++#ifdef CONFIG_XIP_KERNEL
++	li a1, XIP_VIRT_ADDR(CONFIG_XIP_PHYS_ADDR)
++#else
+ 	li a1, PAGE_OFFSET
++#endif
+ 	la a2, _start
+ 	sub a1, a1, a2
+ 	add ra, ra, a1
+@@ -85,7 +109,12 @@ relocate:
+ 	 * full fence here because setup_vm() just wrote these PTEs and we need
+ 	 * to ensure the new translations are in use.
+ 	 */
++#ifdef CONFIG_XIP_KERNEL
++	la a0, _trampoline_pg_dir
++	XIP_FIXUP_OFFSET a0
++#else
+ 	la a0, trampoline_pg_dir
++#endif
+ 	srl a0, a0, PAGE_SHIFT
+ 	or a0, a0, a1
+ 	sfence.vma
+@@ -140,6 +169,10 @@ secondary_start_sbi:
+ 	slli a3, a0, LGREG
+ 	la a4, __cpu_up_stack_pointer
+ 	la a5, __cpu_up_task_pointer
++#ifdef CONFIG_XIP_KERNEL
++	XIP_FIXUP_OFFSET a4
++	XIP_FIXUP_OFFSET a5
++#endif
+ 	add a4, a3, a4
+ 	add a5, a3, a5
+ 	REG_L sp, (a4)
+@@ -233,10 +266,24 @@ pmp_done:
+ 
+ 	/* Pick one hart to run the main boot sequence */
+ 	la a3, hart_lottery
++#ifdef CONFIG_XIP_KERNEL
++	XIP_FIXUP_OFFSET a3
++#endif
+ 	li a2, 1
+ 	amoadd.w a3, a2, (a3)
+ 	bnez a3, .Lsecondary_start
+ 
++#ifdef CONFIG_XIP_KERNEL
++	la sp, _end + THREAD_SIZE
++	XIP_FIXUP_OFFSET sp
++	mv s0, a0
++	call __copy_data
++
++	/* Restore a0 copy */
++	mv a0, s0
++#endif
++
++#ifndef CONFIG_XIP_KERNEL
+ 	/* Clear BSS for flat non-ELF images */
+ 	la a3, __bss_start
+ 	la a4, __bss_stop
+@@ -246,19 +293,35 @@ clear_bss:
+ 	add a3, a3, RISCV_SZPTR
+ 	blt a3, a4, clear_bss
+ clear_bss_done:
+-
++#endif
+ 	/* Save hart ID and DTB physical address */
+ 	mv s0, a0
+ 	mv s1, a1
++
+ 	la a2, boot_cpu_hartid
++#ifdef CONFIG_XIP_KERNEL
++	XIP_FIXUP_OFFSET a2
++#endif
+ 	REG_S a0, (a2)
+ 
+ 	/* Initialize page tables and relocate to virtual addresses */
+ 	la sp, init_thread_union + THREAD_SIZE
++#ifdef CONFIG_XIP_KERNEL
++	XIP_FIXUP_OFFSET sp
++#endif
++#if defined (CONFIG_XIP_KERNEL) && defined (CONFIG_BUILTIN_DTB)
++	la a0, __dtb_start
++#else
+ 	mv a0, s1
++#endif
+ 	call setup_vm
+ #ifdef CONFIG_MMU
++#ifdef CONFIG_XIP_KERNEL
++	la a0, _early_pg_dir
++	XIP_FIXUP_OFFSET a0
++#else
+ 	la a0, early_pg_dir
++#endif
+ 	call relocate
+ #endif /* CONFIG_MMU */
+ 
+@@ -284,6 +347,10 @@ clear_bss_done:
+ 	slli a3, a0, LGREG
+ 	la a1, __cpu_up_stack_pointer
+ 	la a2, __cpu_up_task_pointer
++#ifdef CONFIG_XIP_KERNEL
++	XIP_FIXUP_OFFSET a1
++	XIP_FIXUP_OFFSET a2
++#endif
+ 	add a1, a3, a1
+ 	add a2, a3, a2
+ 
+diff --git a/arch/riscv/kernel/head.h b/arch/riscv/kernel/head.h
+index b48dda3d04f6..aabbc3ac3e48 100644
+--- a/arch/riscv/kernel/head.h
++++ b/arch/riscv/kernel/head.h
+@@ -12,6 +12,9 @@ extern atomic_t hart_lottery;
+ 
+ asmlinkage void do_page_fault(struct pt_regs *regs);
+ asmlinkage void __init setup_vm(uintptr_t dtb_pa);
++#ifdef CONFIG_XIP_KERNEL
++asmlinkage void __init __copy_data(void);
++#endif
+ 
+ extern void *__cpu_up_stack_pointer[];
+ extern void *__cpu_up_task_pointer[];
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index a834deab31d3..876d4ff0ecc4 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -50,7 +50,11 @@ struct screen_info screen_info __section(".data") = {
+  * This is used before the kernel initializes the BSS so it can't be in the
+  * BSS.
+  */
+-atomic_t hart_lottery __section(".sdata");
++atomic_t hart_lottery __section(".sdata")
++#ifdef CONFIG_XIP_KERNEL
++= ATOMIC_INIT(1)
++#endif
++;
+ unsigned long boot_cpu_hartid;
+ static DEFINE_PER_CPU(struct cpu, cpu_devices);
+ 
+@@ -244,7 +248,7 @@ void __init setup_arch(char **cmdline_p)
+ #if IS_ENABLED(CONFIG_BUILTIN_DTB)
+ 	unflatten_and_copy_device_tree();
+ #else
+-	if (early_init_dt_verify(__va(dtb_early_pa)))
++	if (early_init_dt_verify(dtb_early_va))
+ 		unflatten_device_tree();
+ 	else
+ 		pr_err("No DTB found in kernel mappings\n");
+diff --git a/arch/riscv/kernel/vmlinux-xip.lds.S b/arch/riscv/kernel/vmlinux-xip.lds.S
+new file mode 100644
+index 000000000000..9f0f08c34cd3
+--- /dev/null
++++ b/arch/riscv/kernel/vmlinux-xip.lds.S
+@@ -0,0 +1,132 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2012 Regents of the University of California
++ * Copyright (C) 2017 SiFive
++ * Copyright (C) 2020 Vitaly Wool, Konsulko AB
++ */
++
++#define LOAD_OFFSET XIP_VIRT_ADDR(CONFIG_XIP_PHYS_ADDR)
++/* No __ro_after_init data in the .rodata section - which will always be ro */
++#define RO_AFTER_INIT_DATA
++
++#include <asm/vmlinux.lds.h>
++#include <asm/page.h>
++#include <asm/pgtable.h>
++#include <asm/cache.h>
++#include <asm/thread_info.h>
++
++OUTPUT_ARCH(riscv)
++ENTRY(_start)
++
++jiffies = jiffies_64;
++
++SECTIONS
++{
++	/* Beginning of code and text segment */
++	. = XIP_VIRT_ADDR(CONFIG_XIP_PHYS_ADDR);
++	_xiprom = .;
++	_start = .;
++	HEAD_TEXT_SECTION
++	INIT_TEXT_SECTION(PAGE_SIZE)
++	/* we have to discard exit text and such at runtime, not link time */
++	.exit.text :
++	{
++		EXIT_TEXT
++	}
++
++	.text : {
++		_text = .;
++		_stext = .;
++		TEXT_TEXT
++		SCHED_TEXT
++		CPUIDLE_TEXT
++		LOCK_TEXT
++		KPROBES_TEXT
++		ENTRY_TEXT
++		IRQENTRY_TEXT
++		SOFTIRQENTRY_TEXT
++		*(.fixup)
++		_etext = .;
++	}
++	RO_DATA(L1_CACHE_BYTES)
++	.srodata : {
++		*(.srodata*)
++	}
++	.init.rodata : {
++		INIT_SETUP(16)
++		INIT_CALLS
++		CON_INITCALL
++		INIT_RAM_FS
++	}
++	_exiprom = .;			/* End of XIP ROM area */
++
++
++/*
++ * From this point, stuff is considered writable and will be copied to RAM
++ */
++	__data_loc = ALIGN(16);		/* location in file */
++	. = PAGE_OFFSET;		/* location in memory */
++
++	_sdata = .;			/* Start of data section */
++	_data = .;
++	RW_DATA(L1_CACHE_BYTES, PAGE_SIZE, THREAD_SIZE)
++	_edata = .;
++	__start_ro_after_init = .;
++	.data.ro_after_init : AT(ADDR(.data.ro_after_init) - LOAD_OFFSET) {
++		*(.data..ro_after_init)
++	}
++	__end_ro_after_init = .;
++
++	. = ALIGN(PAGE_SIZE);
++	__init_begin = .;
++	.init.data : {
++		INIT_DATA
++	}
++	.exit.data : {
++		EXIT_DATA
++	}
++	. = ALIGN(8);
++	__soc_early_init_table : {
++		__soc_early_init_table_start = .;
++		KEEP(*(__soc_early_init_table))
++		__soc_early_init_table_end = .;
++	}
++	__soc_builtin_dtb_table : {
++		__soc_builtin_dtb_table_start = .;
++		KEEP(*(__soc_builtin_dtb_table))
++		__soc_builtin_dtb_table_end = .;
++	}
++	PERCPU_SECTION(L1_CACHE_BYTES)
++
++	. = ALIGN(PAGE_SIZE);
++	__init_end = .;
++
++	.sdata : {
++		__global_pointer$ = . + 0x800;
++		*(.sdata*)
++		*(.sbss*)
++	}
++
++	BSS_SECTION(PAGE_SIZE, PAGE_SIZE, 0)
++	EXCEPTION_TABLE(0x10)
++
++	.rel.dyn : AT(ADDR(.rel.dyn) - LOAD_OFFSET) {
++		*(.rel.dyn*)
++	}
++
++	/*
++	 * End of copied data. We need a dummy section to get its LMA.
++	 * Also located before final ALIGN() as trailing padding is not stored
++	 * in the resulting binary file and useless to copy.
++	 */
++	.data.endmark : AT(ADDR(.data.endmark) - LOAD_OFFSET) { }
++	_edata_loc = LOADADDR(.data.endmark);
++
++	. = ALIGN(PAGE_SIZE);
++	_end = .;
++
++	STABS_DEBUG
++	DWARF_DEBUG
++
++	DISCARDS
++}
+diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
+index de03cb22d0e9..6745ec325930 100644
+--- a/arch/riscv/kernel/vmlinux.lds.S
++++ b/arch/riscv/kernel/vmlinux.lds.S
+@@ -4,7 +4,12 @@
+  * Copyright (C) 2017 SiFive
+  */
+ 
++#ifdef CONFIG_XIP_KERNEL
++#include "vmlinux-xip.lds.S"
++#else
++
+ #define LOAD_OFFSET PAGE_OFFSET
++
+ #include <asm/vmlinux.lds.h>
+ #include <asm/page.h>
+ #include <asm/cache.h>
+@@ -132,3 +137,4 @@ SECTIONS
+ 
+ 	DISCARDS
+ }
++#endif /* CONFIG_XIP_KERNEL */
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 87c305c566ac..8636432400df 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -30,8 +30,8 @@ EXPORT_SYMBOL(empty_zero_page);
+ 
+ extern char _start[];
+ #define DTB_EARLY_BASE_VA      PGDIR_SIZE
+-void *dtb_early_va __initdata;
+-uintptr_t dtb_early_pa __initdata;
++void *_dtb_early_va __initdata;
++uintptr_t _dtb_early_pa __initdata;
+ 
+ struct pt_alloc_ops {
+ 	pte_t *(*get_pte_virt)(phys_addr_t pa);
+@@ -87,6 +87,10 @@ static void print_vm_layout(void)
+ 		  (unsigned long)VMALLOC_END);
+ 	print_mlm("lowmem", (unsigned long)PAGE_OFFSET,
+ 		  (unsigned long)high_memory);
++#ifdef CONFIG_XIP_KERNEL
++	print_mlm("xip", (unsigned long)XIP_VIRT_ADDR_START,
++		  (unsigned long)XIP_VIRT_ADDR_START + SZ_16M);
++#endif /* CONFIG_XIP_KERNEL */
+ }
+ #else
+ static void print_vm_layout(void) { }
+@@ -163,6 +167,10 @@ void __init setup_bootmem(void)
+ 	phys_addr_t vmlinux_start = __pa_symbol(&_start);
+ 	u64 i;
+ 
++#ifdef CONFIG_XIP_KERNEL
++	vmlinux_start = __pa_symbol(&_sdata);
++#endif
++
+ 	/* Find the memory region containing the kernel */
+ 	for_each_mem_range(i, &start, &end) {
+ 		phys_addr_t size = end - start;
+@@ -194,11 +202,18 @@ void __init setup_bootmem(void)
+ 	setup_initrd();
+ #endif /* CONFIG_BLK_DEV_INITRD */
+ 
+-	/*
+-	 * Avoid using early_init_fdt_reserve_self() since __pa() does
+-	 * not work for DTB pointers that are fixmap addresses
+-	 */
+-	memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
++#ifdef CONFIG_XIP_KERNEL
++	if (dtb_early_pa < CONFIG_XIP_PHYS_ADDR ||
++	    dtb_early_pa > CONFIG_XIP_PHYS_ADDR + SZ_16M)
++#endif
++	{
++		/*
++		 * Avoid using early_init_fdt_reserve_self() since __pa() does
++		 * not work for DTB pointers that are fixmap addresses
++		 */
++		memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
++		dtb_early_va = __va(dtb_early_pa);
++	}
+ 
+ 	early_init_fdt_scan_reserved_mem();
+ 	dma_contiguous_reserve(dma32_phys_limit);
+@@ -206,21 +221,47 @@ void __init setup_bootmem(void)
+ 	memblock_dump_all();
+ }
+ 
++#ifdef CONFIG_XIP_KERNEL
++
++extern char _xiprom[], _exiprom[];
++extern char _sdata[], _edata[];
++
++#endif /* CONFIG_XIP_KERNEL */
++
+ #ifdef CONFIG_MMU
+-static struct pt_alloc_ops pt_ops;
++static struct pt_alloc_ops _pt_ops;
++
++#ifdef CONFIG_XIP_KERNEL
++#define pt_ops (*(struct pt_alloc_ops *)__XIP_FIXUP(&_pt_ops))
++#else
++#define pt_ops	_pt_ops
++#endif
+ 
+ unsigned long va_pa_offset;
+ EXPORT_SYMBOL(va_pa_offset);
++#ifdef CONFIG_XIP_KERNEL
++#define va_pa_offset	(*((unsigned long *)__XIP_FIXUP(&va_pa_offset)))
++#endif
+ unsigned long pfn_base;
+ EXPORT_SYMBOL(pfn_base);
+ 
+ pgd_t swapper_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
+-pgd_t trampoline_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
+-pte_t fixmap_pte[PTRS_PER_PTE] __page_aligned_bss;
+ 
+ #define MAX_EARLY_MAPPING_SIZE	SZ_128M
+ 
++#ifdef CONFIG_XIP_KERNEL
++pgd_t _trampoline_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
++pte_t _fixmap_pte[PTRS_PER_PTE] __page_aligned_bss;
++pgd_t _early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
++
++#define trampoline_pg_dir	((pgd_t *)__XIP_FIXUP(_trampoline_pg_dir))
++#define fixmap_pte		((pte_t *)__XIP_FIXUP(_fixmap_pte))
++#define early_pg_dir		((pgd_t *)__XIP_FIXUP(_early_pg_dir))
++#else
++pgd_t trampoline_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
++pte_t fixmap_pte[PTRS_PER_PTE] __page_aligned_bss;
+ pgd_t early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
++#endif /* CONFIG_XIP_KERNEL */
+ 
+ void __set_fixmap(enum fixed_addresses idx, phys_addr_t phys, pgprot_t prot)
+ {
+@@ -292,15 +333,27 @@ static void __init create_pte_mapping(pte_t *ptep,
+ 
+ #ifndef __PAGETABLE_PMD_FOLDED
+ 
+-pmd_t trampoline_pmd[PTRS_PER_PMD] __page_aligned_bss;
+-pmd_t fixmap_pmd[PTRS_PER_PMD] __page_aligned_bss;
+-
+ #if MAX_EARLY_MAPPING_SIZE < PGDIR_SIZE
+ #define NUM_EARLY_PMDS		1UL
+ #else
+ #define NUM_EARLY_PMDS		(1UL + MAX_EARLY_MAPPING_SIZE / PGDIR_SIZE)
+ #endif
++
++#ifdef CONFIG_XIP_KERNEL
++pmd_t _trampoline_pmd[PTRS_PER_PMD] __page_aligned_bss;
++pmd_t _fixmap_pmd[PTRS_PER_PMD] __page_aligned_bss;
++pmd_t _xip_pmd[PTRS_PER_PGD * NUM_EARLY_PMDS] __page_aligned_bss;
++pmd_t _early_pmd[PTRS_PER_PMD * NUM_EARLY_PMDS] __initdata __aligned(PAGE_SIZE);
++
++#define trampoline_pmd	((pmd_t *)__XIP_FIXUP(_trampoline_pmd))
++#define fixmap_pmd	((pmd_t *)__XIP_FIXUP(_fixmap_pmd))
++#define xip_pmd		((pmd_t *)__XIP_FIXUP(_xip_pmd))
++#define early_pmd	((pmd_t *)__XIP_FIXUP(_early_pmd))
++#else
++pmd_t trampoline_pmd[PTRS_PER_PMD] __page_aligned_bss;
++pmd_t fixmap_pmd[PTRS_PER_PMD] __page_aligned_bss;
+ pmd_t early_pmd[PTRS_PER_PMD * NUM_EARLY_PMDS] __initdata __aligned(PAGE_SIZE);
++#endif
+ 
+ static pmd_t *__init get_pmd_virt_early(phys_addr_t pa)
+ {
+@@ -420,6 +473,19 @@ static uintptr_t __init best_map_size(phys_addr_t base, phys_addr_t size)
+ 	return PMD_SIZE;
+ }
+ 
++#ifdef CONFIG_XIP_KERNEL
++/* called from head.S with MMU off */
++asmlinkage void __init __copy_data(void)
++{
++	void *from = (void *)(&_sdata);
++	void *end = (void *)(&_end);
++	void *to = (void *)CONFIG_XIP_PHYS_RAM_BASE;
++	size_t sz = (size_t)(end - from);
++
++	memcpy(to, from, sz);
++}
++#endif
++
+ /*
+  * setup_vm() is called from head.S with MMU-off.
+  *
+@@ -448,6 +514,19 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ 	pmd_t fix_bmap_spmd, fix_bmap_epmd;
+ #endif
+ 
++#ifdef CONFIG_XIP_KERNEL
++	uintptr_t xiprom = (uintptr_t)CONFIG_XIP_PHYS_ADDR;
++	uintptr_t xiprom_sz = (uintptr_t)(&_exiprom) - (uintptr_t)(&_xiprom);
++	uintptr_t xip_map_size = best_map_size(xiprom,
++					       MAX_EARLY_MAPPING_SIZE);
++
++	BUG_ON((xiprom % xip_map_size) != 0);
++	BUG_ON(xiprom_sz > MAX_EARLY_MAPPING_SIZE);
++
++	load_pa = (uintptr_t)CONFIG_XIP_PHYS_RAM_BASE;
++	load_sz = (uintptr_t)(&_end) - (uintptr_t)(&_sdata);
++	map_size = best_map_size(load_pa, MAX_EARLY_MAPPING_SIZE);
++#endif
+ 	va_pa_offset = PAGE_OFFSET - load_pa;
+ 	pfn_base = PFN_DOWN(load_pa);
+ 
+@@ -487,6 +566,21 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ 			   load_pa, PGDIR_SIZE, PAGE_KERNEL_EXEC);
+ #endif
+ 
++#ifdef CONFIG_XIP_KERNEL
++	create_pgd_mapping(trampoline_pg_dir, XIP_VIRT_ADDR_START,
++			   (uintptr_t)xip_pmd, PGDIR_SIZE, PAGE_TABLE);
++	for (va = XIP_VIRT_ADDR_START;
++	     va < XIP_VIRT_ADDR_START + xiprom_sz;
++	     va += PMD_SIZE) {
++		create_pmd_mapping(xip_pmd, va,
++				   xiprom + (va - XIP_VIRT_ADDR_START),
++				   PMD_SIZE, PAGE_KERNEL_EXEC);
++	}
++
++	create_pgd_mapping(early_pg_dir, XIP_VIRT_ADDR_START,
++			   (uintptr_t)xip_pmd, PGDIR_SIZE, PAGE_TABLE);
++#endif
++
+ 	/*
+ 	 * Setup early PGD covering entire kernel which will allows
+ 	 * us to reach paging_init(). We map all memory banks later
+@@ -543,6 +637,9 @@ static void __init setup_vm_final(void)
+ 	uintptr_t va, map_size;
+ 	phys_addr_t pa, start, end;
+ 	u64 i;
++#ifdef CONFIG_XIP_KERNEL
++	uintptr_t xiprom_sz = (uintptr_t)(&_exiprom) - (uintptr_t)(&_xiprom);
++#endif
+ 
+ 	/**
+ 	 * MMU is enabled at this point. But page table setup is not complete yet.
+@@ -574,6 +671,25 @@ static void __init setup_vm_final(void)
+ 					   map_size, PAGE_KERNEL_EXEC);
+ 		}
+ 	}
++#ifdef CONFIG_XIP_KERNEL
++	for (va = XIP_VIRT_ADDR_START;
++	     va < XIP_VIRT_ADDR_START + xiprom_sz;
++	     va += PMD_SIZE)
++		create_pgd_mapping(swapper_pg_dir, va,
++				   CONFIG_XIP_PHYS_ADDR + (va - XIP_VIRT_ADDR_START),
++				   PMD_SIZE, PAGE_KERNEL_EXEC);
++
++	/* if DT is in NOR, keep the early mapping */
++	if (dtb_early_pa >= CONFIG_XIP_PHYS_ADDR &&
++	    dtb_early_pa <= CONFIG_XIP_PHYS_ADDR + SZ_16M) {
++		pa = dtb_early_pa & ~(PGDIR_SIZE - 1);
++		va = DTB_EARLY_BASE_VA;
++		create_pgd_mapping(swapper_pg_dir, va,
++				   pa, PGDIR_SIZE, PAGE_KERNEL);
++		create_pgd_mapping(swapper_pg_dir, va + PGDIR_SIZE,
++				   pa + PGDIR_SIZE, PGDIR_SIZE, PAGE_KERNEL);
++	}
++#endif
+ 
+ 	/* Clear fixmap PTE and PMD mappings */
+ 	clear_fixmap(FIX_PTE);
 -- 
-Damien Le Moal
-Western Digital
+2.29.2
+
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
