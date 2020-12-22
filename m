@@ -2,61 +2,96 @@ Return-Path: <SRS0=WnC5=F2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2AD53C433DB
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Dec 2020 15:58:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D6EFDC433E0
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Dec 2020 16:22:37 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6CE8C221FA
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Dec 2020 15:58:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6CE8C221FA
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
+	by mail.kernel.org (Postfix) with ESMTPS id 82E8D229C6
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Dec 2020 16:22:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 82E8D229C6
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=tycho.pizza
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fnQ86+OgPchXMG2SsSIa8E2oc0yXqXrYb6ARUyUH1Y4=; b=AApmz43sMPpa3N/A2DCRhX0PT2
-	Kh1suNoI6w2Gnpf9U1WO61bDox7m++Ix2ugfTzAwGgRppkCdwA44K31OXs1W3shNLNAMRwuybSUvw
-	/kRJ2wollmVtwGXtT/QwzNe6jZmsy+JemFI5HQ6gRFTnswX8wI/hXqLf6lwBtQLuvqCILV3NA718U
-	dV9ZJjWYpRi6MDoSfaf+3zRe7G9kB+RdX4dzH5rs6WVlCG5VZSav1UBEeLCRvBQ106HbNeEVMpeyw
-	IFeG94Hl0KRIpT5VKqwspeqhGk7gYyEKGmsx4HyVJxD6llOToW5xnZpUUQ1zx2oTJKAD7K4uDVHim
-	WVGJintw==;
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=zEFwEHvKCs2jOQ6UHOcFTXv3OVuNQ34TTvi7Yi7bK2E=; b=odOPFWtKWML2ey0nGy1dkCLrG
+	qungRphFZIYWuXTYy+ddX4qu+q8pO9Q9LhOa/El9VWBdyjjDYO6r/tw4M8NiBO/5wnNQ6XNXr9gwa
+	CwPOsxB5yy0TrpwVIIamp1BWES70X/11Kf1NeerjWaGBC7Fw5/a8Xe2MF62OcdDEjrtRB+O9haX2b
+	8nqeK2dNDuqIlDCpP+/TpaEvEhCaOvdT9FAS+Qqs8NPiUs7Vdeby1TJoFv0uaBpSXhjMtDEU0cG2I
+	yJmnNVCO58BPJ3uNz++zgJqJ0kDw82tfoSQQEE9OSBMukRXxX7kYcCGTjEH4w8UyyrgV8AbtpayFi
+	Z6dEPb86Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1krk3S-0007iU-Tk; Tue, 22 Dec 2020 15:58:30 +0000
-Received: from szxga04-in.huawei.com ([45.249.212.190])
+	id 1krkQg-0001uH-K6; Tue, 22 Dec 2020 16:22:30 +0000
+Received: from out2-smtp.messagingengine.com ([66.111.4.26])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1krk3Q-0007Qu-Cg
- for linux-riscv@lists.infradead.org; Tue, 22 Dec 2020 15:58:29 +0000
-Received: from DGGEMS401-HUB.china.huawei.com (unknown [172.30.72.59])
- by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4D0grN3mYkz15hYB;
- Tue, 22 Dec 2020 23:54:28 +0800 (CST)
-Received: from localhost.localdomain.localdomain (10.175.113.25) by
- DGGEMS401-HUB.china.huawei.com (10.3.19.201) with Microsoft SMTP Server id
- 14.3.498.0; Tue, 22 Dec 2020 23:55:04 +0800
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
-To: Palmer Dabbelt <palmerdabbelt@google.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- <linux-riscv@lists.infradead.org>
-Subject: [PATCH v2] riscv: cacheinfo: Fix using smp_processor_id() in
- preemptible
-Date: Wed, 23 Dec 2020 00:01:52 +0800
-Message-ID: <20201222160152.180981-1-wangkefeng.wang@huawei.com>
-X-Mailer: git-send-email 2.26.2
+ id 1krkQd-0001tU-Gh
+ for linux-riscv@lists.infradead.org; Tue, 22 Dec 2020 16:22:28 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.46])
+ by mailout.nyi.internal (Postfix) with ESMTP id 27A265C00AB;
+ Tue, 22 Dec 2020 11:22:22 -0500 (EST)
+Received: from mailfrontend2 ([10.202.2.163])
+ by compute6.internal (MEProxy); Tue, 22 Dec 2020 11:22:22 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tycho.pizza; h=
+ date:from:to:cc:subject:message-id:references:mime-version
+ :content-type:in-reply-to; s=fm2; bh=7l9FwVWMt0lhChPES7y4KGsYeP9
+ QeYxFohpctDuoPzk=; b=fow6qqKZCy1e29PzP504o/np8ROIMv4EF4lHHVCVwsz
+ /qk7EpjYDDqlFrvg8vaAF9HqdF2v6xuGZ0/HBIDEvZ0A9vkLCaHlCnEOXyZ14ezZ
+ oVPugSt2xgph7SKV7EEdxqciMUsPC+WZi2evB5DE3dt2lasulz4NrH4imVZs6/Ca
+ d6Ef9vBgUlRihSNKoR3j5c2w88a47sGFf9zhjpqAGdiWzWU+OiAs/CTKO4+6oLY8
+ VYcq95+HQpwDy3ORiT+z4dI68VsI0uxTWDvbtlr4NI/hqHTEdVmxA+Vs9EOqaxzM
+ XoiDTo943YbB9pypXMgtQCt05a9BHmcjkNZP3esGpWA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+ messagingengine.com; h=cc:content-type:date:from:in-reply-to
+ :message-id:mime-version:references:subject:to:x-me-proxy
+ :x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; bh=7l9FwV
+ WMt0lhChPES7y4KGsYeP9QeYxFohpctDuoPzk=; b=TzkByXBZ3GEBX8ayZGFwnL
+ N6YbXfMQrtJqwjWg/0dUeKtGpCP6z8OkKHwEQaaposdBq9RwC3rL64RoXFvE8PsZ
+ 4pXneKsNBMgUrmFVv54DgrQ3zHyUO2gQImLAp70vOEOJX3b6SFXQ0ms6gh4Ltqeg
+ hw8hln6myiq5cpCGry/vf0/aA4A1MQfzNwlGDHJgzYvjcYexEuICwyivDgf933q2
+ e87+TVbHXnjykhgAqAgriPLoPD55bCgzOjp8D/h7S/TgmU9S4Tfg00mAZftwz56s
+ dmxgHnqM0IAO30a2RJfPiuX+wGanwj9aXZRxrRGYt1/bDl/gzOcrwM+HNgVAqdPQ
+ ==
+X-ME-Sender: <xms:PR3iX0jEM967jLgkEUHQtbI2LwNdmxX9fTDKqR4fkfgQsAu3d25gzg>
+ <xme:PR3iX9Beucht2bvRUu7XD440tECQaqwKl0y0J2P-EB73IRh1-BlUw2l_UrGi_WAQt
+ WIshBWJ7DNkE661oUM>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedujedrvddtgedgkeekucetufdoteggodetrfdotf
+ fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+ uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+ cujfgurhepfffhvffukfhfgggtuggjsehttdertddttddvnecuhfhrohhmpefvhigthhho
+ ucetnhguvghrshgvnhcuoehthigthhhosehthigthhhordhpihiiiigrqeenucggtffrrg
+ htthgvrhhnpeeifffffeekkeeifffhteekleejhfetledvvdeileefheffveduveevleef
+ lefgtdenucffohhmrghinhepvghnthhrhidrshgsnecukfhppeejuddrheeirdduleefrd
+ duieeknecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhep
+ thihtghhohesthihtghhohdrphhiiiiirg
+X-ME-Proxy: <xmx:PR3iX8GWPMEW-3g-kbyF-1R548MJZpw2b6HtzLN4puV1zrUKFlB2Mw>
+ <xmx:PR3iX1QCDVN2j9xFtkf-8ztoE4CgNb9Yfa7RDjBD5c_61N1cR4EA0A>
+ <xmx:PR3iXxw6VUbMqa8fwgUiKxxbD_Ivdm7Gua8IQJ80ZSRNDGMllrB_6g>
+ <xmx:Ph3iX5-xaDy9hnWKVY75VZU4TyqXyFL4k0KwZbJNXarSmpOlrM47MQ>
+Received: from cisco (unknown [71.56.193.168])
+ by mail.messagingengine.com (Postfix) with ESMTPA id C466A108005B;
+ Tue, 22 Dec 2020 11:22:20 -0500 (EST)
+Date: Tue, 22 Dec 2020 09:22:19 -0700
+From: Tycho Andersen <tycho@tycho.pizza>
+To: Andreas Schwab <schwab@suse.de>
+Subject: Re: [PATCH] riscv: return -ENOSYS for syscall -1
+Message-ID: <20201222162219.GA710211@cisco>
+References: <mvma6u6vkkv.fsf@suse.de>
 MIME-Version: 1.0
-X-Originating-IP: [10.175.113.25]
-X-CFilter-Loop: Reflected
+Content-Disposition: inline
+In-Reply-To: <mvma6u6vkkv.fsf@suse.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201222_105828_844197_CB27467B 
-X-CRM114-Status: GOOD (  10.18  )
+X-CRM114-CacheID: sfid-20201222_112227_805366_C270BB67 
+X-CRM114-Status: GOOD (  16.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -68,58 +103,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Atish Patra <atish.patra@wdc.com>, Kefeng Wang <wangkefeng.wang@huawei.com>,
- Zong Li <zong.li@sifive.com>
+Cc: David Abdurachmanov <david.abdurachmanov@sifive.com>,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-kernel@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use raw_smp_processor_id instead of smp_processor_id() to fix warning,
+On Mon, Dec 21, 2020 at 11:52:00PM +0100, Andreas Schwab wrote:
+> Properly return -ENOSYS for syscall -1 instead of leaving the return value
+> uninitialized.  This fixes the strace teststuite.
+> 
+> Fixes: 5340627e3fe0 ("riscv: add support for SECCOMP and SECCOMP_FILTER")
+> Signed-off-by: Andreas Schwab <schwab@suse.de>
+> ---
+>  arch/riscv/kernel/entry.S | 9 +--------
+>  1 file changed, 1 insertion(+), 8 deletions(-)
+> 
+> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> index 524d918f3601..d07763001eb0 100644
+> --- a/arch/riscv/kernel/entry.S
+> +++ b/arch/riscv/kernel/entry.S
+> @@ -186,14 +186,7 @@ check_syscall_nr:
+>  	 * Syscall number held in a7.
+>  	 * If syscall number is above allowed value, redirect to ni_syscall.
+>  	 */
+> -	bge a7, t0, 1f
+> -	/*
+> -	 * Check if syscall is rejected by tracer, i.e., a7 == -1.
+> -	 * If yes, we pretend it was executed.
+> -	 */
+> -	li t1, -1
+> -	beq a7, t1, ret_from_syscall_rejected
+> -	blt a7, t1, 1f
+> +	bgeu a7, t0, 1f
 
-BUG: using smp_processor_id() in preemptible [00000000] code: init/1
-caller is debug_smp_processor_id+0x1c/0x26
-CPU: 0 PID: 1 Comm: init Not tainted 5.10.0-rc4 #211
-Call Trace:
-  walk_stackframe+0x0/0xaa
-  show_stack+0x32/0x3e
-  dump_stack+0x76/0x90
-  check_preemption_disabled+0xaa/0xac
-  debug_smp_processor_id+0x1c/0x26
-  get_cache_size+0x18/0x68
-  load_elf_binary+0x868/0xece
-  bprm_execve+0x224/0x498
-  kernel_execve+0xdc/0x142
-  run_init_process+0x90/0x9e
-  try_to_run_init_process+0x12/0x3c
-  kernel_init+0xb4/0xf8
-  ret_from_exception+0x0/0xc
+IIUC, this is all dead code anyway for the path where seccomp actually
+rejects the syscall, since it should do the rejection directly in
+handle_syscall_trace_enter(), which is called above this hunk. So it
+seems good to me.
 
-The issue is found when CONFIG_DEBUG_PREEMPT enabled.
-
-Reviewed-by: Atish Patra <atish.patra@wdc.com>
-Tested-by: Atish Patra <atish.patra@wdc.com>
-Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
----
- arch/riscv/kernel/cacheinfo.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/riscv/kernel/cacheinfo.c b/arch/riscv/kernel/cacheinfo.c
-index de59dd457b41..9b5a8a347434 100644
---- a/arch/riscv/kernel/cacheinfo.c
-+++ b/arch/riscv/kernel/cacheinfo.c
-@@ -26,7 +26,7 @@ cache_get_priv_group(struct cacheinfo *this_leaf)
- 
- static struct cacheinfo *get_cacheinfo(u32 level, enum cache_type type)
- {
--	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(smp_processor_id());
-+	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(raw_smp_processor_id());
- 	struct cacheinfo *this_leaf;
- 	int index;
- 
--- 
-2.26.2
-
+Reviewed-by: Tycho Andersen <tycho@tycho.pizza>
 
 _______________________________________________
 linux-riscv mailing list
