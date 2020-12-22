@@ -2,72 +2,62 @@ Return-Path: <SRS0=WnC5=F2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id F3FF5C433DB
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Dec 2020 16:23:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 27959C433E0
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Dec 2020 18:46:30 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 998AD22AAE
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Dec 2020 16:23:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 998AD22AAE
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id A09AD229C5
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Dec 2020 18:46:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A09AD229C5
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=metux.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=tfn44ZzSp7EMn0KQ9RD3Sczeai/IFBQwo1QvvzipNBo=; b=fs8PQKNtZEyGhA+caK86Zb1sZ
-	e7eYZhg+4HCp3F9kqmYOxrfo0KXWuDhqmGz3UbZVANejFZed/D9RxyPILuNfLywF5xFSid9dV0Z9a
-	obg9nL2T2Ci8Vod93UvYonnRvzuTImKzVcCnzZhR9qakbBTXKgwulVzm0+2Mnbjs70cRoc1WOyJkT
-	PpZGGx0yHk0ACBxpWHf1hUoT0hOXEZE1Wx01j+ix2GL3Jrqwyj+B3TkrFuCFE2inG0+4rjn/qOYZQ
-	C9+JE0woUxVOf8KbLmYYqyJwSkrj5vLSgi6wsMjeu3u/ueN4RL7L3eJ2vs6X6vwLWir73es+38k2x
-	AWZ4LUHkw==;
+	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OuD+k9dzMuO/CdcZZ2jpknZn+6w7fHwJXymQat7JvW0=; b=XeAwgOstSanzM/ZlVH4mwperUn
+	lNPqLX4BBZU7CMSMppkhP00K32TdEUpQgOwQmouyNagh3r08AhYHU2B/0hGe1guAkC1ctwxRaUP/j
+	E3AORo003aWUsclf0JRchgYPsEJVEqZgGqfcJniiaHBICrMSVlYIxuG+D7wHpEiyLwv9+Y0zIcSZP
+	KDqXsu2TXBdOklfwAYGs5izQyguhYGaEkTPnSjff2o+aJ5S0+jzjVgTi5iqriVn/Mo1W/R32shpKB
+	puNiW0z2QoyL4InHPDfC5FtjDdeGnNMTjbVT45Nz75L10oHinHiGQOxFpGLTyYoMn18YsHSgefWwZ
+	1ZqtlrCw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1krkRb-00025K-3w; Tue, 22 Dec 2020 16:23:27 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1krmfp-0005I0-B8; Tue, 22 Dec 2020 18:46:17 +0000
+Received: from mout.kundenserver.de ([212.227.126.133])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1krkRY-00024o-Ug
- for linux-riscv@lists.infradead.org; Tue, 22 Dec 2020 16:23:25 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id D16DB22AAE
- for <linux-riscv@lists.infradead.org>; Tue, 22 Dec 2020 16:23:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1608654202;
- bh=hgTbRtl345QvToMR1KtPH4MwUiPkFT0bNVBFJJgaBIA=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=YRXC8OBzquLeroke8JC8i1zMfaK+Wjtna7OxurvZ01Yy5NQXXqlGdPOa0+v6ZZVOS
- 1XC39f+AtVbu3b6mtea0kl7bxfRIBIwhnB5B8iM7myUa7Med2NyZbjFqHqlSwoPKmp
- PJ2muUjkW5Wuda9htUcDPgWJEfPsJNVoK1uLQ5cB4fb1GH74lamWcPSloRdGPXu2Xf
- A308GM68nQq4yeCCF2QvSQq2QHr7Ew3n0+4OxO/WuKL+gcAb+nkOyHat0uuHyTxarU
- Sa82ONlynm9VaqwTDOkBbdGOau5ZCkvOJRpzIp8uvczciABoMRn+JueVmFe54/kqmf
- IYm//4ccsirwQ==
-Received: by mail-ot1-f42.google.com with SMTP id q25so12376312otn.10
- for <linux-riscv@lists.infradead.org>; Tue, 22 Dec 2020 08:23:22 -0800 (PST)
-X-Gm-Message-State: AOAM532n6+ZXhtgZPfastE5ih2LlB18Z8VVmqKiX2zC/Yyc6GTXpiupV
- ryt145wJ/1hBFmvK1aNrOHtM8ljxzH/2L7Yg7GE=
-X-Google-Smtp-Source: ABdhPJxXVDETZEU3t/kt9oB/93b1uTyucCAY9oF/6xdfST0h7OgMl+C9jTDzDThb8t23AJojHOU/aDUd6+Ev0H29CCU=
-X-Received: by 2002:a05:6830:2413:: with SMTP id
- j19mr16932935ots.251.1608654202188; 
- Tue, 22 Dec 2020 08:23:22 -0800 (PST)
-MIME-Version: 1.0
-References: <20201222160152.180981-1-wangkefeng.wang@huawei.com>
-In-Reply-To: <20201222160152.180981-1-wangkefeng.wang@huawei.com>
-From: Arnd Bergmann <arnd@kernel.org>
-Date: Tue, 22 Dec 2020 17:23:06 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a1awG0wWM2awvZy+uMB0jXnB+zggoGrCw4xnxGUECwQVQ@mail.gmail.com>
-Message-ID: <CAK8P3a1awG0wWM2awvZy+uMB0jXnB+zggoGrCw4xnxGUECwQVQ@mail.gmail.com>
-Subject: Re: [PATCH v2] riscv: cacheinfo: Fix using smp_processor_id() in
- preemptible
-To: Kefeng Wang <wangkefeng.wang@huawei.com>
+ id 1krmfl-0005GM-E9; Tue, 22 Dec 2020 18:46:14 +0000
+Received: from orion.localdomain ([95.118.68.26]) by mrelayeu.kundenserver.de
+ (mreue011 [212.227.15.167]) with ESMTPSA (Nemesis) id
+ 1M3D3N-1kvLYf3Bb3-003gAL; Tue, 22 Dec 2020 19:45:17 +0100
+From: "Enrico Weigelt, metux IT consult" <info@metux.net>
+To: linux-kernel@vger.kernel.org
+Subject: [PATCH] arch: consolidate pm_power_off callback
+Date: Tue, 22 Dec 2020 19:45:10 +0100
+Message-Id: <20201222184510.19415-1-info@metux.net>
+X-Mailer: git-send-email 2.11.0
+X-Provags-ID: V03:K1:n4hqwhh7LIjEQSp9rLWYAb9MND0ZkRP95+g1E+jzaHcC8BjMZKX
+ bRX7HDy98scHqJv/TvEudskGuZFxlSq4AtOv/qPJ5NAPv6cGBsTGa6ax8noKD/hgjjLO09l
+ f5Needsa/iXKi3HojJrBH233VwZxpoVLzcPV6Nl/UGu4HwbcHoixH76JoYvRIU8c0xxI+B+
+ Wed4rfrftuXiD3ZhBWV/g==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:ZYY3bhRqRrE=:9Z7+Ttntpc/yZ0ONUaW5+X
+ y6uHceCsl3e2HplEDGgS4EFL2eghEQvTFn4w7NTu9QXh3AH/FIvI+UZmyV0s8t/6vx0aml4RL
+ Zut2vYA2aVk8OWgJiDj5Agz0Gjh/B6BgIsYIAfckjDIiepL3IfcRF4Sh491jL5phu1uisMhTW
+ +e0BCNzTZbKom2EeX6gSHewwhdeI1a0pk/FcRHiTvdpTtCzMPQ2MqY091fdBXnoXMxOaIWiwa
+ nfGBsEpd21MGuxqgE0x7F5khOKrOvkY3ydOk77hP7VIRipf69SRZlprj8ecbFvkYGF97o/x26
+ wPD01yvWzKtEucv8YUz7YjauAKprIUvFXkMEcBi9bse7DyYb2+fjtV9xCe9eRFTYuT3JL/A7h
+ SlU9NhNG5n0ZLlQGjml/4UrjChq0cs1aMzc5MTMPVEAootea1kqsuVV94Go6V
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201222_112325_067854_981DAEEA 
-X-CRM114-Status: GOOD (  10.77  )
+X-CRM114-CacheID: sfid-20201222_134613_699515_0F5F6A10 
+X-CRM114-Status: GOOD (  17.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -79,54 +69,624 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>,
- Palmer Dabbelt <palmerdabbelt@google.com>, Atish Patra <atish.patra@wdc.com>,
- Zong Li <zong.li@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
+Cc: dalias@libc.org, linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
+ benh@kernel.crashing.org, James.Bottomley@HansenPartnership.com,
+ jcmvbkbc@gmail.com, paulus@samba.org, linux-csky@vger.kernel.org,
+ hpa@zytor.com, linux-riscv@lists.infradead.org, will@kernel.org,
+ tglx@linutronix.de, jonas@southpole.se, linux-s390@vger.kernel.org,
+ sstabellini@kernel.org, linux-c6x-dev@linux-c6x.org,
+ ysato@users.sourceforge.jp, linux-hexagon@vger.kernel.org, deller@gmx.de,
+ x86@kernel.org, ley.foon.tan@intel.com, mingo@redhat.com, geert@linux-m68k.org,
+ catalin.marinas@arm.com, linux-snps-arc@lists.infradead.org,
+ linux-xtensa@linux-xtensa.org, linux-pm@vger.kernel.org, msalter@redhat.com,
+ jacquiot.aurelien@gmail.com, linux-m68k@lists.linux-m68k.org,
+ openrisc@lists.librecores.org, bp@alien8.de, shorne@gmail.com,
+ stefan.kristiansson@saunalahti.fi, christian@brauner.io, chris@zankel.net,
+ tsbogend@alpha.franken.de, linux-parisc@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-alpha@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 22, 2020 at 5:01 PM Kefeng Wang <wangkefeng.wang@huawei.com> wrote:
->
-> Use raw_smp_processor_id instead of smp_processor_id() to fix warning,
->
-> BUG: using smp_processor_id() in preemptible [00000000] code: init/1
-> caller is debug_smp_processor_id+0x1c/0x26
-> CPU: 0 PID: 1 Comm: init Not tainted 5.10.0-rc4 #211
-> Call Trace:
->   walk_stackframe+0x0/0xaa
->   show_stack+0x32/0x3e
->   dump_stack+0x76/0x90
->   check_preemption_disabled+0xaa/0xac
->   debug_smp_processor_id+0x1c/0x26
->   get_cache_size+0x18/0x68
->   load_elf_binary+0x868/0xece
->   bprm_execve+0x224/0x498
->   kernel_execve+0xdc/0x142
->   run_init_process+0x90/0x9e
->   try_to_run_init_process+0x12/0x3c
->   kernel_init+0xb4/0xf8
->   ret_from_exception+0x0/0xc
->
-> The issue is found when CONFIG_DEBUG_PREEMPT enabled.
+Move the pm_power_off callback into one global place and also add an
+function for conditionally calling it (when not NULL), in order to remove
+code duplication in all individual archs.
 
-The warning sounds legitimate.
+Signed-off-by: Enrico Weigelt, metux IT consult <info@metux.net>
+---
+ arch/alpha/kernel/process.c        |  6 ------
+ arch/arc/kernel/reset.c            |  3 ---
+ arch/arm/kernel/reboot.c           |  6 ++----
+ arch/arm64/kernel/process.c        |  6 +-----
+ arch/c6x/kernel/process.c          | 10 ++--------
+ arch/csky/kernel/power.c           | 10 +++-------
+ arch/h8300/kernel/process.c        |  3 ---
+ arch/hexagon/kernel/reset.c        |  3 ---
+ arch/ia64/kernel/process.c         |  5 +----
+ arch/m68k/kernel/process.c         |  3 ---
+ arch/microblaze/kernel/process.c   |  3 ---
+ arch/mips/kernel/reset.c           |  6 +-----
+ arch/nds32/kernel/process.c        |  7 ++-----
+ arch/nios2/kernel/process.c        |  3 ---
+ arch/openrisc/kernel/process.c     |  3 ---
+ arch/parisc/kernel/process.c       |  9 +++------
+ arch/powerpc/kernel/setup-common.c |  5 ++---
+ arch/powerpc/xmon/xmon.c           |  4 ++--
+ arch/riscv/kernel/reset.c          |  9 ++++-----
+ arch/s390/kernel/setup.c           |  3 ---
+ arch/sh/kernel/reboot.c            |  6 +-----
+ arch/x86/kernel/reboot.c           | 15 ++++-----------
+ arch/x86/xen/enlighten_pv.c        |  4 ++--
+ arch/xtensa/kernel/process.c       |  4 ----
+ include/linux/pm.h                 |  2 ++
+ kernel/reboot.c                    | 10 ++++++++++
+ 26 files changed, 42 insertions(+), 106 deletions(-)
 
->  static struct cacheinfo *get_cacheinfo(u32 level, enum cache_type type)
->  {
-> -       struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(smp_processor_id());
-> +       struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(raw_smp_processor_id());
+diff --git a/arch/alpha/kernel/process.c b/arch/alpha/kernel/process.c
+index 6c71554206cc..df0df869751d 100644
+--- a/arch/alpha/kernel/process.c
++++ b/arch/alpha/kernel/process.c
+@@ -43,12 +43,6 @@
+ #include "proto.h"
+ #include "pci_impl.h"
+ 
+-/*
+- * Power off function, if any
+- */
+-void (*pm_power_off)(void) = machine_power_off;
+-EXPORT_SYMBOL(pm_power_off);
+-
+ #ifdef CONFIG_ALPHA_WTINT
+ /*
+  * Sleep the CPU.
+diff --git a/arch/arc/kernel/reset.c b/arch/arc/kernel/reset.c
+index fd6c3eb930ba..3a27b6a202d4 100644
+--- a/arch/arc/kernel/reset.c
++++ b/arch/arc/kernel/reset.c
+@@ -26,6 +26,3 @@ void machine_power_off(void)
+ 	/* FIXME ::  power off ??? */
+ 	machine_halt();
+ }
+-
+-void (*pm_power_off) (void) = NULL;
+-EXPORT_SYMBOL(pm_power_off);
+diff --git a/arch/arm/kernel/reboot.c b/arch/arm/kernel/reboot.c
+index 0ce388f15422..9e1bf0e9b3e0 100644
+--- a/arch/arm/kernel/reboot.c
++++ b/arch/arm/kernel/reboot.c
+@@ -6,6 +6,7 @@
+ #include <linux/cpu.h>
+ #include <linux/delay.h>
+ #include <linux/reboot.h>
++#include <linux/pm.h>
+ 
+ #include <asm/cacheflush.h>
+ #include <asm/idmap.h>
+@@ -19,8 +20,6 @@ typedef void (*phys_reset_t)(unsigned long, bool);
+  * Function pointers to optional machine specific functions
+  */
+ void (*arm_pm_restart)(enum reboot_mode reboot_mode, const char *cmd);
+-void (*pm_power_off)(void);
+-EXPORT_SYMBOL(pm_power_off);
+ 
+ /*
+  * A temporary stack to use for CPU reset. This is static so that we
+@@ -118,8 +117,7 @@ void machine_power_off(void)
+ 	local_irq_disable();
+ 	smp_send_stop();
+ 
+-	if (pm_power_off)
+-		pm_power_off();
++	do_power_off();
+ }
+ 
+ /*
+diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+index 6616486a58fe..a5d4c1e80abd 100644
+--- a/arch/arm64/kernel/process.c
++++ b/arch/arm64/kernel/process.c
+@@ -67,9 +67,6 @@ EXPORT_SYMBOL(__stack_chk_guard);
+ /*
+  * Function pointers to optional machine specific functions
+  */
+-void (*pm_power_off)(void);
+-EXPORT_SYMBOL_GPL(pm_power_off);
+-
+ void (*arm_pm_restart)(enum reboot_mode reboot_mode, const char *cmd);
+ 
+ static void noinstr __cpu_do_idle(void)
+@@ -172,8 +169,7 @@ void machine_power_off(void)
+ {
+ 	local_irq_disable();
+ 	smp_send_stop();
+-	if (pm_power_off)
+-		pm_power_off();
++	do_power_off();
+ }
+ 
+ /*
+diff --git a/arch/c6x/kernel/process.c b/arch/c6x/kernel/process.c
+index 9f4fd6a40a10..8b4b24476162 100644
+--- a/arch/c6x/kernel/process.c
++++ b/arch/c6x/kernel/process.c
+@@ -15,6 +15,7 @@
+ #include <linux/reboot.h>
+ #include <linux/sched/task.h>
+ #include <linux/sched/task_stack.h>
++#include <linux/pm.h>
+ 
+ #include <asm/syscalls.h>
+ 
+@@ -25,12 +26,6 @@ void	(*c6x_halt)(void);
+ extern asmlinkage void ret_from_fork(void);
+ extern asmlinkage void ret_from_kernel_thread(void);
+ 
+-/*
+- * power off function, if any
+- */
+-void (*pm_power_off)(void);
+-EXPORT_SYMBOL(pm_power_off);
+-
+ void arch_cpu_idle(void)
+ {
+ 	unsigned long tmp;
+@@ -71,8 +66,7 @@ void machine_halt(void)
+ 
+ void machine_power_off(void)
+ {
+-	if (pm_power_off)
+-		pm_power_off();
++	do_power_off();
+ 	halt_loop();
+ }
+ 
+diff --git a/arch/csky/kernel/power.c b/arch/csky/kernel/power.c
+index 923ee4e381b8..c702e66ce03a 100644
+--- a/arch/csky/kernel/power.c
++++ b/arch/csky/kernel/power.c
+@@ -2,23 +2,19 @@
+ // Copyright (C) 2018 Hangzhou C-SKY Microsystems co.,ltd.
+ 
+ #include <linux/reboot.h>
+-
+-void (*pm_power_off)(void);
+-EXPORT_SYMBOL(pm_power_off);
++#include <linux/pm.h>
+ 
+ void machine_power_off(void)
+ {
+ 	local_irq_disable();
+-	if (pm_power_off)
+-		pm_power_off();
++	do_power_off();
+ 	asm volatile ("bkpt");
+ }
+ 
+ void machine_halt(void)
+ {
+ 	local_irq_disable();
+-	if (pm_power_off)
+-		pm_power_off();
++	do_power_off();
+ 	asm volatile ("bkpt");
+ }
+ 
+diff --git a/arch/h8300/kernel/process.c b/arch/h8300/kernel/process.c
+index bc1364db58fe..020bf78a779c 100644
+--- a/arch/h8300/kernel/process.c
++++ b/arch/h8300/kernel/process.c
+@@ -46,9 +46,6 @@
+ #include <asm/traps.h>
+ #include <asm/setup.h>
+ 
+-void (*pm_power_off)(void) = NULL;
+-EXPORT_SYMBOL(pm_power_off);
+-
+ asmlinkage void ret_from_fork(void);
+ asmlinkage void ret_from_kernel_thread(void);
+ 
+diff --git a/arch/hexagon/kernel/reset.c b/arch/hexagon/kernel/reset.c
+index da36114d928f..8370ddbcdfd9 100644
+--- a/arch/hexagon/kernel/reset.c
++++ b/arch/hexagon/kernel/reset.c
+@@ -19,6 +19,3 @@ void machine_halt(void)
+ void machine_restart(char *cmd)
+ {
+ }
+-
+-void (*pm_power_off)(void) = NULL;
+-EXPORT_SYMBOL(pm_power_off);
+diff --git a/arch/ia64/kernel/process.c b/arch/ia64/kernel/process.c
+index 4ebbfa076a26..72104b967668 100644
+--- a/arch/ia64/kernel/process.c
++++ b/arch/ia64/kernel/process.c
+@@ -57,8 +57,6 @@ void (*ia64_mark_idle)(int);
+ 
+ unsigned long boot_option_idle_override = IDLE_NO_OVERRIDE;
+ EXPORT_SYMBOL(boot_option_idle_override);
+-void (*pm_power_off) (void);
+-EXPORT_SYMBOL(pm_power_off);
+ 
+ static void
+ ia64_do_show_stack (struct unw_frame_info *info, void *arg)
+@@ -602,8 +600,7 @@ machine_halt (void)
+ void
+ machine_power_off (void)
+ {
+-	if (pm_power_off)
+-		pm_power_off();
++	do_power_off()
+ 	machine_halt();
+ }
+ 
+diff --git a/arch/m68k/kernel/process.c b/arch/m68k/kernel/process.c
+index 08359a6e058f..b8dc10a630e1 100644
+--- a/arch/m68k/kernel/process.c
++++ b/arch/m68k/kernel/process.c
+@@ -72,9 +72,6 @@ void machine_power_off(void)
+ 	for (;;);
+ }
+ 
+-void (*pm_power_off)(void) = machine_power_off;
+-EXPORT_SYMBOL(pm_power_off);
+-
+ void show_regs(struct pt_regs * regs)
+ {
+ 	pr_info("Format %02x  Vector: %04x  PC: %08lx  Status: %04x    %s\n",
+diff --git a/arch/microblaze/kernel/process.c b/arch/microblaze/kernel/process.c
+index 657c2beb665e..f1dd66a14ab6 100644
+--- a/arch/microblaze/kernel/process.c
++++ b/arch/microblaze/kernel/process.c
+@@ -46,9 +46,6 @@ void show_regs(struct pt_regs *regs)
+ 				regs->msr, regs->ear, regs->esr, regs->fsr);
+ }
+ 
+-void (*pm_power_off)(void) = NULL;
+-EXPORT_SYMBOL(pm_power_off);
+-
+ void flush_thread(void)
+ {
+ }
+diff --git a/arch/mips/kernel/reset.c b/arch/mips/kernel/reset.c
+index 6288780b779e..73e32eba422f 100644
+--- a/arch/mips/kernel/reset.c
++++ b/arch/mips/kernel/reset.c
+@@ -25,9 +25,6 @@
+  */
+ void (*_machine_restart)(char *command);
+ void (*_machine_halt)(void);
+-void (*pm_power_off)(void);
+-
+-EXPORT_SYMBOL(pm_power_off);
+ 
+ static void machine_hang(void)
+ {
+@@ -114,8 +111,7 @@ void machine_halt(void)
+ 
+ void machine_power_off(void)
+ {
+-	if (pm_power_off)
+-		pm_power_off();
++	do_power_off();
+ 
+ #ifdef CONFIG_SMP
+ 	preempt_disable();
+diff --git a/arch/nds32/kernel/process.c b/arch/nds32/kernel/process.c
+index e01ad5d17224..624e2a563082 100644
+--- a/arch/nds32/kernel/process.c
++++ b/arch/nds32/kernel/process.c
+@@ -12,6 +12,7 @@
+ #include <asm/fpu.h>
+ #include <linux/ptrace.h>
+ #include <linux/reboot.h>
++#include <linux/pm.h>
+ 
+ #if IS_ENABLED(CONFIG_LAZY_FPU)
+ struct task_struct *last_task_used_math;
+@@ -27,9 +28,6 @@ extern inline void arch_reset(char mode)
+ 	}
+ }
+ 
+-void (*pm_power_off) (void);
+-EXPORT_SYMBOL(pm_power_off);
+-
+ static char reboot_mode_nds32 = 'h';
+ 
+ int __init reboot_setup(char *str)
+@@ -54,8 +52,7 @@ EXPORT_SYMBOL(machine_halt);
+ 
+ void machine_power_off(void)
+ {
+-	if (pm_power_off)
+-		pm_power_off();
++	do_power_off();
+ }
+ 
+ EXPORT_SYMBOL(machine_power_off);
+diff --git a/arch/nios2/kernel/process.c b/arch/nios2/kernel/process.c
+index 50b4eb19a6cc..a6195cc02ea4 100644
+--- a/arch/nios2/kernel/process.c
++++ b/arch/nios2/kernel/process.c
+@@ -28,9 +28,6 @@
+ asmlinkage void ret_from_fork(void);
+ asmlinkage void ret_from_kernel_thread(void);
+ 
+-void (*pm_power_off)(void) = NULL;
+-EXPORT_SYMBOL(pm_power_off);
+-
+ void arch_cpu_idle(void)
+ {
+ 	raw_local_irq_enable();
+diff --git a/arch/openrisc/kernel/process.c b/arch/openrisc/kernel/process.c
+index 3c98728cce24..c02343bacf59 100644
+--- a/arch/openrisc/kernel/process.c
++++ b/arch/openrisc/kernel/process.c
+@@ -84,9 +84,6 @@ void arch_cpu_idle(void)
+ 		mtspr(SPR_PMR, mfspr(SPR_PMR) | SPR_PMR_DME);
+ }
+ 
+-void (*pm_power_off) (void) = machine_power_off;
+-EXPORT_SYMBOL(pm_power_off);
+-
+ /*
+  * When a process does an "exec", machine state like FPU and debug
+  * registers need to be reset.  This is a hook function for that.
+diff --git a/arch/parisc/kernel/process.c b/arch/parisc/kernel/process.c
+index a92a23d6acd9..8b94599c9480 100644
+--- a/arch/parisc/kernel/process.c
++++ b/arch/parisc/kernel/process.c
+@@ -41,6 +41,7 @@
+ #include <linux/rcupdate.h>
+ #include <linux/random.h>
+ #include <linux/nmi.h>
++#include <linux/pm.h>
+ 
+ #include <asm/io.h>
+ #include <asm/asm-offsets.h>
+@@ -117,9 +118,8 @@ void machine_power_off(void)
+ 	pdc_chassis_send_status(PDC_CHASSIS_DIRECT_SHUTDOWN);
+ 
+ 	/* ipmi_poweroff may have been installed. */
+-	if (pm_power_off)
+-		pm_power_off();
+-		
++	do_power_off();
++
+ 	/* It seems we have no way to power the system off via
+ 	 * software. The user has to press the button himself. */
+ 
+@@ -132,9 +132,6 @@ void machine_power_off(void)
+ 	for (;;);
+ }
+ 
+-void (*pm_power_off)(void);
+-EXPORT_SYMBOL(pm_power_off);
+-
+ void machine_halt(void)
+ {
+ 	machine_power_off();
+diff --git a/arch/powerpc/kernel/setup-common.c b/arch/powerpc/kernel/setup-common.c
+index 71f38e9248be..b36346326176 100644
+--- a/arch/powerpc/kernel/setup-common.c
++++ b/arch/powerpc/kernel/setup-common.c
+@@ -32,6 +32,7 @@
+ #include <linux/of_platform.h>
+ #include <linux/hugetlb.h>
+ #include <linux/pgtable.h>
++#include <linux/pm.h>
+ #include <asm/debugfs.h>
+ #include <asm/io.h>
+ #include <asm/paca.h>
+@@ -163,9 +164,7 @@ void machine_restart(char *cmd)
+ void machine_power_off(void)
+ {
+ 	machine_shutdown();
+-	if (pm_power_off)
+-		pm_power_off();
+-
++	do_power_off();
+ 	smp_send_stop();
+ 	machine_hang();
+ }
+diff --git a/arch/powerpc/xmon/xmon.c b/arch/powerpc/xmon/xmon.c
+index dcd817ca2edf..38d76c283412 100644
+--- a/arch/powerpc/xmon/xmon.c
++++ b/arch/powerpc/xmon/xmon.c
+@@ -26,6 +26,7 @@
+ #include <linux/ctype.h>
+ #include <linux/highmem.h>
+ #include <linux/security.h>
++#include <linux/pm.h>
+ 
+ #include <asm/debugfs.h>
+ #include <asm/ptrace.h>
+@@ -1237,8 +1238,7 @@ static void bootcmds(void)
+ 	} else if (cmd == 'h') {
+ 		ppc_md.halt();
+ 	} else if (cmd == 'p') {
+-		if (pm_power_off)
+-			pm_power_off();
++		do_power_off();
+ 	}
+ }
+ 
+diff --git a/arch/riscv/kernel/reset.c b/arch/riscv/kernel/reset.c
+index ee5878d968cc..f8bcf4d8b19b 100644
+--- a/arch/riscv/kernel/reset.c
++++ b/arch/riscv/kernel/reset.c
+@@ -12,9 +12,6 @@ static void default_power_off(void)
+ 		wait_for_interrupt();
+ }
+ 
+-void (*pm_power_off)(void) = default_power_off;
+-EXPORT_SYMBOL(pm_power_off);
+-
+ void machine_restart(char *cmd)
+ {
+ 	do_kernel_restart(cmd);
+@@ -23,10 +20,12 @@ void machine_restart(char *cmd)
+ 
+ void machine_halt(void)
+ {
+-	pm_power_off();
++	do_power_off();
++	default_power_off();
+ }
+ 
+ void machine_power_off(void)
+ {
+-	pm_power_off();
++	do_power_off();
++	default_power_off();
+ }
+diff --git a/arch/s390/kernel/setup.c b/arch/s390/kernel/setup.c
+index 1fbed91c73bc..4e348d3b711f 100644
+--- a/arch/s390/kernel/setup.c
++++ b/arch/s390/kernel/setup.c
+@@ -302,9 +302,6 @@ void machine_power_off(void)
+ /*
+  * Dummy power off function.
+  */
+-void (*pm_power_off)(void) = machine_power_off;
+-EXPORT_SYMBOL_GPL(pm_power_off);
+-
+ void *restart_stack;
+ 
+ unsigned long stack_alloc(void)
+diff --git a/arch/sh/kernel/reboot.c b/arch/sh/kernel/reboot.c
+index 5c33f036418b..8c9b63e1dbba 100644
+--- a/arch/sh/kernel/reboot.c
++++ b/arch/sh/kernel/reboot.c
+@@ -10,9 +10,6 @@
+ #include <asm/tlbflush.h>
+ #include <asm/traps.h>
+ 
+-void (*pm_power_off)(void);
+-EXPORT_SYMBOL(pm_power_off);
+-
+ static void watchdog_trigger_immediate(void)
+ {
+ 	sh_wdt_write_cnt(0xFF);
+@@ -46,8 +43,7 @@ static void native_machine_shutdown(void)
+ 
+ static void native_machine_power_off(void)
+ {
+-	if (pm_power_off)
+-		pm_power_off();
++	do_power_off();
+ }
+ 
+ static void native_machine_halt(void)
+diff --git a/arch/x86/kernel/reboot.c b/arch/x86/kernel/reboot.c
+index db115943e8bd..cddf9ca4e6f6 100644
+--- a/arch/x86/kernel/reboot.c
++++ b/arch/x86/kernel/reboot.c
+@@ -34,12 +34,6 @@
+ #include <asm/efi.h>
+ 
+ /*
+- * Power off function, if any
+- */
+-void (*pm_power_off)(void);
+-EXPORT_SYMBOL(pm_power_off);
+-
+-/*
+  * This is set if we need to go through the 'emergency' path.
+  * When machine_emergency_restart() is called, we may be on
+  * an inconsistent state and won't be able to do a clean cleanup
+@@ -747,11 +741,10 @@ static void native_machine_halt(void)
+ 
+ static void native_machine_power_off(void)
+ {
+-	if (pm_power_off) {
+-		if (!reboot_force)
+-			machine_shutdown();
+-		pm_power_off();
+-	}
++	if (!reboot_force)
++		machine_shutdown();
++	do_power_off();
++
+ 	/* A fallback in case there is no PM info available */
+ 	tboot_shutdown(TB_SHUTDOWN_HALT);
+ }
+diff --git a/arch/x86/xen/enlighten_pv.c b/arch/x86/xen/enlighten_pv.c
+index 4409306364dc..7e5416c316d3 100644
+--- a/arch/x86/xen/enlighten_pv.c
++++ b/arch/x86/xen/enlighten_pv.c
+@@ -33,6 +33,7 @@
+ #include <linux/gfp.h>
+ #include <linux/edd.h>
+ #include <linux/objtool.h>
++#include <linux/pm.h>
+ 
+ #include <xen/xen.h>
+ #include <xen/events.h>
+@@ -1084,8 +1085,7 @@ static void xen_machine_halt(void)
+ 
+ static void xen_machine_power_off(void)
+ {
+-	if (pm_power_off)
+-		pm_power_off();
++	do_power_off();
+ 	xen_reboot(SHUTDOWN_poweroff);
+ }
+ 
+diff --git a/arch/xtensa/kernel/process.c b/arch/xtensa/kernel/process.c
+index 397a7de56377..fb8d5e9829ba 100644
+--- a/arch/xtensa/kernel/process.c
++++ b/arch/xtensa/kernel/process.c
+@@ -51,10 +51,6 @@
+ extern void ret_from_fork(void);
+ extern void ret_from_kernel_thread(void);
+ 
+-void (*pm_power_off)(void) = NULL;
+-EXPORT_SYMBOL(pm_power_off);
+-
+-
+ #ifdef CONFIG_STACKPROTECTOR
+ #include <linux/stackprotector.h>
+ unsigned long __stack_chk_guard __read_mostly;
+diff --git a/include/linux/pm.h b/include/linux/pm.h
+index 47aca6bac1d6..78627c970be0 100644
+--- a/include/linux/pm.h
++++ b/include/linux/pm.h
+@@ -22,6 +22,8 @@
+ extern void (*pm_power_off)(void);
+ extern void (*pm_power_off_prepare)(void);
+ 
++extern void do_power_off(void);
++
+ struct device; /* we have a circular dep with device.h */
+ #ifdef CONFIG_VT_CONSOLE_SLEEP
+ extern void pm_vt_switch_required(struct device *dev, bool required);
+diff --git a/kernel/reboot.c b/kernel/reboot.c
+index eb1b15850761..ec4cd66dd1ae 100644
+--- a/kernel/reboot.c
++++ b/kernel/reboot.c
+@@ -53,6 +53,16 @@ int reboot_force;
+ void (*pm_power_off_prepare)(void);
+ EXPORT_SYMBOL_GPL(pm_power_off_prepare);
+ 
++void (*pm_power_off)(void);
++EXPORT_SYMBOL_GPL(pm_power_off);
++
++void do_power_off(void)
++{
++	if (pm_power_off)
++		pm_power_off();
++}
++EXPORT_SYMBOL_GPL(do_power_off);
++
+ /**
+  *	emergency_restart - reboot the system
+  *
+-- 
+2.11.0
 
-And this just hides the warning if someone calls this function
-without disabling preemption first.
-
-If you cannot use the normal get_cpu()/put_cpu() interfaces or
-the cacheinfo of the boot CPU, maybe add a comment to explain
-why raw_smp_processor_id() is necessary here.
-
-       Arnd
 
 _______________________________________________
 linux-riscv mailing list
