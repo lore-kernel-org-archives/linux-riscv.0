@@ -2,80 +2,85 @@ Return-Path: <SRS0=WnC5=F2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.7 required=3.0 tests=BAYES_00,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
-	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-13.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B06EEC433DB
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Dec 2020 01:44:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3AAD0C433E0
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Dec 2020 02:23:20 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id F3E4522A83
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Dec 2020 01:44:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F3E4522A83
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id CEBCE22525
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Dec 2020 02:23:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CEBCE22525
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=lxDB3mjR2p7ZV3Wi5LrLPz4aQweX+8rV/hZXx7FR7NA=; b=Dsem69YIBAI56inDwnJSreq2E
-	xKTUHuhpWtjj2rlWKiydXKqX4dX15DP+VaZzVSZ27xJfvCmjc1UB/WiRzea5RFZdXKVFtMoLjVFEb
-	2fyDSx9lhE4PFUD5AEJ2venxx/Pxzo2P6QolppBXSV4e4zBVI3xcTts3Wro1D75vYlXI+QYskHiaq
-	J6Z4bew2OX/q40mCKQd9G6I4DMITxpjb72L6rPPCXkmOydC6IKEWaNHgPXSbXZohZGrU6c5EoVniF
-	9Dylawoa4POHArSt9904gxKHT+Cbjgr+LFAk9O6QqMV603MA14NGpM+XFu07HiPxReWyIR1165uiL
-	4SnRC3bHw==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=F/9pn4YN33x7jgAzq95zYTmUOSoRgJFUU86H7Cy25VE=; b=yysZkpokV2QjvtaZaEdGWCwau
+	h/kiVW6X4bBDo8kxQZriGKqJFlxi58sQqlHzt00IUI3wR6TCQv+FeERE29jPtqF7B87JYBgd4avhA
+	12jPGx72oh/mmu6wgMEKnYwO8UcdrOOW2fu+9Seq2o6SrO5Zw/g23nE+unKoctav1r+4vrtF4cBXm
+	7KZOK5y96k05VIdESgpBIbFJVWeRZ2O0fzC5EbuZ7euYoRg2Jo3szyt9IlS6+Nzrhj6zibyeaDZU0
+	vHz0phF96PvkK+DuWtjz4T/KGEXHbmkNqgC1aDDNrJoTAWb/Ejie2FKDQK884TcMRy/NVij/OHQk/
+	3lJAam1vA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1krWiv-00040a-Hq; Tue, 22 Dec 2020 01:44:25 +0000
-Received: from mail-yb1-xb2d.google.com ([2607:f8b0:4864:20::b2d])
+	id 1krXKQ-0006Zl-3F; Tue, 22 Dec 2020 02:23:10 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1krWis-0003zs-VS
- for linux-riscv@lists.infradead.org; Tue, 22 Dec 2020 01:44:23 +0000
-Received: by mail-yb1-xb2d.google.com with SMTP id f6so1829248ybq.13
- for <linux-riscv@lists.infradead.org>; Mon, 21 Dec 2020 17:44:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=YH3kWY/9FTGGbdzmNW9iq4F93NRlfV9MWRvEtUM4SS0=;
- b=rjmLASfuwY28xHGdpeV19G1UBOLlHHOdWjZgjVW/XmS9DcoS+OXS0kiWoh4378uujl
- jy4nUBTNtXJeExUNXmxcA5VTBzKFrJlOJ2sOZyQv11+B4iXErsaCHCzUoxMX725JJSVF
- zhQkcLI14tlflcdajcQWTyYJbAeqtkDPCmbJc9Ln8iqPqk8msY9HfFKhXbY99zj3UD/I
- VvsXaWkO+OWCkmvrE/ekjrAjVWSkBOBNBorhdxd2kdrigyouJPKHQXxvgwBRDuvfNvDZ
- p/HhrGC5McY2W+sJ3ZvDlJc3TYVljC4KerJW6Fvm3XpnZxaPUs39Ms8QfdI1c8QUVIDL
- ueJw==
+ id 1krXKO-0006Z9-AH
+ for linux-riscv@lists.infradead.org; Tue, 22 Dec 2020 02:23:09 +0000
+Received: by mail-pl1-x634.google.com with SMTP id r4so6623003pls.11
+ for <linux-riscv@lists.infradead.org>; Mon, 21 Dec 2020 18:23:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=RxSpVNtkVXcE4uWbxK87WcLmAH5zgIvp8SPN3AGUvwQ=;
+ b=omoCxMrTOG8AugFL5AfUd+fAt07Nb31B40wkYudccxqa6GsjR0ZLKaTYhlypuYolyb
+ rJ8IfqSmhj990BFfO0m3HNq8pbK+gH0IGsjYuDQMAJDkKQ9n/QEFJ60suc17TLWiseX7
+ sJ0uCqFAMzceewH5fFKTKnCYQPt54s6Wl8vQEGEhzoQklUeirrOnlOoJ3bW+MuZWMBRi
+ fDEt9jRWyer9FgYhTkvjcTJBplV5X+R/cKMpO0Ye88NePbtpGhk1LTPM3KlYb+l5RfwP
+ WMMlM08o/XjGjs+AeyaXANfz87DoreZo8kt6Y4UUg8EKmVw9/8y3yJpnhZGx/prTXGCg
+ KIpQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=YH3kWY/9FTGGbdzmNW9iq4F93NRlfV9MWRvEtUM4SS0=;
- b=Es+aFn5ezzr8j26qmfwK3z01mlepfBG76nL2ZmwlprzE+wVMA8VLgCjWzAxnqa7rD/
- 6YME0oANO/+xryP9t7SSn5M6ct0m/WjHA1IMU+CE8TI87akgvJwSnein8fyyUggQiEwU
- ExXHf2AshxJR0a8HEMRTl/hhSRzy61JDDvCo9NozxcLGr3nw308QtxxkIkhcpUGEtnOh
- QbZckHsTrIyIo4973OzuiK8XK/dAKA47MqzAA882VVefPyio0phvchL895XuPOw42sm7
- nL8iffCxwflSYS3zoaLhdpdLZRGTzho8ylGqc4GEU8BiKfIIl7moK9tXvSRaRsjwQ/Yw
- qOzQ==
-X-Gm-Message-State: AOAM530suHdUs7/k+pIfsPPidUCR/nxQIK8V7TVSI4raTNA3ILNlzjF9
- eDzmjq21MNTpUfZors8GiZY///OudEjtYhR7QZ8=
-X-Google-Smtp-Source: ABdhPJysp9vMmw/VrIF8je/96pRXtsRwVglS1oOcwhaM9qgwQUdK1kNb9gWC9DWMJURPZkbZN/TYBVB5HPX0fjC4np8=
-X-Received: by 2002:a05:6902:210:: with SMTP id
- j16mr26754851ybs.122.1608601459692; 
- Mon, 21 Dec 2020 17:44:19 -0800 (PST)
-MIME-Version: 1.0
-References: <20201221203719.15988-1-vitaly.wool@konsulko.com>
-In-Reply-To: <20201221203719.15988-1-vitaly.wool@konsulko.com>
-From: Bin Meng <bmeng.cn@gmail.com>
-Date: Tue, 22 Dec 2020 09:44:08 +0800
-Message-ID: <CAEUhbmVrMEWCds2QRgnUGE4KGakxrYi6Z_EY-meyX33Fy_teoA@mail.gmail.com>
-Subject: Re: [PATCH v3] RISC-V: enable XIP
-To: Vitaly Wool <vitaly.wool@konsulko.com>
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=RxSpVNtkVXcE4uWbxK87WcLmAH5zgIvp8SPN3AGUvwQ=;
+ b=MDb7EnP3k8RiFrLYw2/LjlsIFebxH41f0Cfv0e+I5w6hC76ShrQuflhyiyVZGMvfMn
+ jlXYPFCWV6ZvvV0W3UnIghxSK6eQekSoSj8H4dIRDiM/9+X6uZraEjKPWCqjOBFBsoBu
+ c5MjUT/vqos7Bbc+38P/2UnfTfFtUa2AdqtVwgN1UTKsecLOU+9Fc+DlRE5VuM3uG9gL
+ ADm6NADV3m5eNZhf6qVlOojPG6L7BBQoeY7zgSlfDwvM/FbLH1nJA5oLHIgl/VOUFW46
+ NP4sLJwjiTx3+KZ4eFWEq7BwnrjUFjWFf3V59u03W6FoI8pac3z3an0rSEpsY430fvhI
+ BLAw==
+X-Gm-Message-State: AOAM531GTpD3CFivyEFrrRTeyb4i6prQppX3butJMcHAht0zIM7iGZw1
+ KD2yYOdb5I/YGWP7y4FdWAz9rw==
+X-Google-Smtp-Source: ABdhPJyzw9/zFd4t5Dq587wVtQYYVA72W+OgRG+vrUG19nurazG2tIKa9+h9PW4+Q+jv43jUXCnT1A==
+X-Received: by 2002:a17:902:b904:b029:dc:18f2:9419 with SMTP id
+ bf4-20020a170902b904b02900dc18f29419mr19081331plb.66.1608603783765; 
+ Mon, 21 Dec 2020 18:23:03 -0800 (PST)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id c24sm18182738pgi.71.2020.12.21.18.23.02
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 21 Dec 2020 18:23:02 -0800 (PST)
+Date: Mon, 21 Dec 2020 18:23:02 -0800 (PST)
+X-Google-Original-Date: Mon, 21 Dec 2020 17:48:49 PST (-0800)
+Subject: Re: [PATCH] riscv: Cleanup sbi function stubs when RISCV_SBI disabled
+In-Reply-To: <CAOnJCUL+Mkyy7D6mUFr0GiT9CGbXg1aa3jO8d0Hrzan=GdV6PA@mail.gmail.com>
+From: Palmer Dabbelt <palmerdabbelt@google.com>
+To: atishp@atishpatra.org
+Message-ID: <mhng-49df2890-5271-4952-964b-8e10339fe1b9@palmerdabbelt-glaptop>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201221_204423_050432_E2995686 
-X-CRM114-Status: GOOD (  17.98  )
+X-CRM114-CacheID: sfid-20201221_212308_401833_73BEDF24 
+X-CRM114-Status: GOOD (  22.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -87,65 +92,103 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Bin Meng <bin.meng@windriver.com>, Nicolas Pitre <nico@fluxnic.net>,
- Anup Patel <anup@brainfault.org>, Palmer Dabbelt <palmerdabbelt@google.com>,
- linux-kernel <linux-kernel@vger.kernel.org>,
- Alistair Francis <alistair.francis@wdc.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
-Content-Type: text/plain; charset="us-ascii"
+Cc: wangkefeng.wang@huawei.com, aou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Vitaly,
+On Tue, 15 Dec 2020 17:35:40 PST (-0800), atishp@atishpatra.org wrote:
+> On Mon, Dec 14, 2020 at 5:23 AM Kefeng Wang <wangkefeng.wang@huawei.com> wrote:
+>>
+>> Hi all,  any comments...
+>>
+>> On 2020/11/26 10:40, Kefeng Wang wrote:
+>> > Fix sbi_init() function declaration mismatch between RISCV_SBI
+>> > enable and disable, as it always returned 0, make it void function.
+>> >
+>> > Drop some stubs which won't be used if RISCV_SBI disabled.
+>> >
+>> > Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+>> > ---
+>> >   arch/riscv/include/asm/sbi.h | 10 +++-------
+>> >   arch/riscv/kernel/sbi.c      |  4 +---
+>> >   arch/riscv/kernel/setup.c    |  2 --
+>> >   3 files changed, 4 insertions(+), 12 deletions(-)
+>> >
+>> > diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+>> > index 653edb25d495..99dc77ba8e43 100644
+>> > --- a/arch/riscv/include/asm/sbi.h
+>> > +++ b/arch/riscv/include/asm/sbi.h
+>> > @@ -89,7 +89,7 @@ struct sbiret {
+>> >       long value;
+>> >   };
+>> >
+>> > -int sbi_init(void);
+>> > +void sbi_init(void);
+>> >   struct sbiret sbi_ecall(int ext, int fid, unsigned long arg0,
+>> >                       unsigned long arg1, unsigned long arg2,
+>> >                       unsigned long arg3, unsigned long arg4,
+>> > @@ -147,11 +147,7 @@ static inline unsigned long sbi_minor_version(void)
+>> >
+>> >   int sbi_err_map_linux_errno(int err);
+>> >   #else /* CONFIG_RISCV_SBI */
+>> > -/* stubs for code that is only reachable under IS_ENABLED(CONFIG_RISCV_SBI): */
+>> > -void sbi_set_timer(uint64_t stime_value);
+>> > -void sbi_clear_ipi(void);
+>> > -void sbi_send_ipi(const unsigned long *hart_mask);
+>> > -void sbi_remote_fence_i(const unsigned long *hart_mask);
+>> > -void sbi_init(void);
+>> > +static inline void sbi_remote_fence_i(const unsigned long *hart_mask) {}
+>> > +static inline void sbi_init(void) {}
+>> >   #endif /* CONFIG_RISCV_SBI */
+>> >   #endif /* _ASM_RISCV_SBI_H */
+>> > diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+>> > index 226ccce0f9e0..bae6ffdc6e7b 100644
+>> > --- a/arch/riscv/kernel/sbi.c
+>> > +++ b/arch/riscv/kernel/sbi.c
+>> > @@ -560,7 +560,7 @@ static struct riscv_ipi_ops sbi_ipi_ops = {
+>> >       .ipi_inject = sbi_send_cpumask_ipi
+>> >   };
+>> >
+>> > -int __init sbi_init(void)
+>> > +void __init sbi_init(void)
+>> >   {
+>> >       int ret;
+>> >
+>> > @@ -600,6 +600,4 @@ int __init sbi_init(void)
+>> >       }
+>> >
+>> >       riscv_set_ipi_ops(&sbi_ipi_ops);
+>> > -
+>> > -     return 0;
+>> >   }
+>> > diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+>> > index 901ac0c680dd..ef4f5c076d61 100644
+>> > --- a/arch/riscv/kernel/setup.c
+>> > +++ b/arch/riscv/kernel/setup.c
+>> > @@ -104,9 +104,7 @@ void __init setup_arch(char **cmdline_p)
+>> >       kasan_init();
+>> >   #endif
+>> >
+>> > -#if IS_ENABLED(CONFIG_RISCV_SBI)
+>> >       sbi_init();
+>> > -#endif
+>> >
+>> >   #ifdef CONFIG_SMP
+>> >       setup_smp();
+>>
+>> _______________________________________________
+>> linux-riscv mailing list
+>> linux-riscv@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-riscv
+>
+> LGTM,
+>
+> Reviewed-by: Atish Patra <atish.patra@wdc.com>
 
-On Tue, Dec 22, 2020 at 4:39 AM Vitaly Wool <vitaly.wool@konsulko.com> wrote:
->
-> Introduce XIP (eXecute In Place) support for RISC-V platforms.
-> It allows code to be executed directly from non-volatile storage
-> directly addressable by the CPU, such as QSPI NOR flash which can
-> be found on many RISC-V platforms. This makes way for significant
-> optimization of RAM footprint. The XIP kernel is not compressed
-> since it has to run directly from flash, so it will occupy more
-> space on the non-volatile storage to The physical flash address
-> used to link the kernel object files and for storing it has to
-> be known at compile time and is represented by a Kconfig option.
->
-> XIP on RISC-V will currently only work on MMU-enabled kernels.
->
-> Changed in v2:
-> - dedicated macro for XIP address fixup when MMU is not enabled yet
->   o both for 32-bit and 64-bit RISC-V
-> - SP is explicitly set to a safe place in RAM before __copy_data call
-> - removed redundant alignment requirements in vmlinux-xip.lds.S
-> - changed long -> uintptr_t typecast in __XIP_FIXUP macro.
->
-> Changed in v3:
-> - rebased against latest for-next
-> - XIP address fixup macro now takes an argument
-> - SMP related fixes
-
-The above changelogs should go below ---
-
-> Signed-off-by: Vitaly Wool <vitaly.wool@konsulko.com>
-> ---
->  arch/riscv/Kconfig                  |  46 ++++++++-
->  arch/riscv/Makefile                 |   8 +-
->  arch/riscv/boot/Makefile            |  13 +++
->  arch/riscv/include/asm/pgtable.h    |  56 +++++++++--
->  arch/riscv/kernel/cpu_ops_sbi.c     |   3 +
->  arch/riscv/kernel/head.S            |  69 +++++++++++++-
->  arch/riscv/kernel/head.h            |   3 +
->  arch/riscv/kernel/setup.c           |   8 +-
->  arch/riscv/kernel/vmlinux-xip.lds.S | 132 ++++++++++++++++++++++++++
->  arch/riscv/kernel/vmlinux.lds.S     |   6 ++
->  arch/riscv/mm/init.c                | 142 +++++++++++++++++++++++++---
->  11 files changed, 460 insertions(+), 26 deletions(-)
->  create mode 100644 arch/riscv/kernel/vmlinux-xip.lds.S
->
-
-Regards,
-Bin
+Thanks.  This will be on for-next when the merge window closes.
 
 _______________________________________________
 linux-riscv mailing list
