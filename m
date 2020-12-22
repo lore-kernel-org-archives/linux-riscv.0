@@ -2,19 +2,19 @@ Return-Path: <SRS0=WnC5=F2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 60A8DC433DB
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Dec 2020 20:27:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 72F30C433DB
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Dec 2020 20:29:10 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 17B85229C5
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Dec 2020 20:27:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 17B85229C5
+	by mail.kernel.org (Postfix) with ESMTPS id 22D41224D2
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Dec 2020 20:29:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 22D41224D2
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,56 +23,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Yzx6uEqGO0ARTTGvdTJ1pe3SSNe4LPo1o2ouhwq/zzo=; b=zk/QcOJbKvXV0oOitrBt/uML1
-	taWWkz34sw6gRVw4wdYVhfRC/iNB8rZMuSO/N73nqWADDyuF3//+SWHLJOj/Y4sixRs7NQvGgjYnY
-	hAUmIiTnF3SBOXRU62ZoVKM25r3FIWzC78lH0GQyCKOAkoenZOiulGPF0aSQbj+cGXo4Va2b6D+u7
-	G9qGvof+eOrrJRckTLJCpjUrmdWLlrx8co/Czna0e2W+Ui69oz54iHxp1jgVyyk82QIu7Pgfx8QLu
-	6Po+wzZGWD89Sxu2lqVUbkHQSa0mfNwZK3fEAEYnqx/kxWnyo8myszmqRL1h3sPz7xho/xejR5pzv
-	NlaA7mOUA==;
+	 bh=noM0xJFcMawPsW18K8Yuvd0mWcdf3beWkHdzgRAHmQo=; b=bfmZ+VQzyYwNdchHyGFHbeLVW
+	LU7BoU7zVvWc8b6vGevV/TtGbMoam5QJTnN3gNrc4EK7bQGlY6g3q6oXxq1xodvpd5i9WHz2B4v/d
+	Pq2KHRydkKvZJ3FEo4E4XAkMqdycWWy8u/QAN00EnVB0HNGThJKGXiI7C+k87EjxgMisWFNkUI5sP
+	Xu8qZiHw20lVvDMyXt9yTkQa58mWUwjzucMM6+4iDz8DFw8Rz+d/tCbca18oWHt3h4PVstY+5SXwK
+	qQRP4swZcTjOGkcyY03ATFOqFqQtlgYUZpNbPgEMPO3TrIg2kjN7Lci0XCqPudc8G4X6mCFkibWfn
+	QxtM7VksQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kroFM-0007Vl-Un; Tue, 22 Dec 2020 20:27:04 +0000
+	id 1kroHG-0007jW-VI; Tue, 22 Dec 2020 20:29:02 +0000
 Received: from mail-io1-xd29.google.com ([2607:f8b0:4864:20::d29])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kroFK-0007Uv-Fz
- for linux-riscv@lists.infradead.org; Tue, 22 Dec 2020 20:27:03 +0000
-Received: by mail-io1-xd29.google.com with SMTP id 81so13088867ioc.13
- for <linux-riscv@lists.infradead.org>; Tue, 22 Dec 2020 12:27:02 -0800 (PST)
+ id 1kroHE-0007ir-LI
+ for linux-riscv@lists.infradead.org; Tue, 22 Dec 2020 20:29:01 +0000
+Received: by mail-io1-xd29.google.com with SMTP id i18so13159348ioa.1
+ for <linux-riscv@lists.infradead.org>; Tue, 22 Dec 2020 12:29:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=atishpatra.org; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=s4eq0AhfPjlFgt6wX8XqFRkHGBvSUkB/noacG+ANrhQ=;
- b=PdgXwm+8hKObh+trYcWGCpH3MmdPOF0hW3ALimafOCRaSREEv94bkVz59RtngZrk1R
- ii5jA2pT6wp2qY0z/vw/lz4s8RKo/Edj2egupTBuOAGVlKBlQM1VHtoCECU+sIIMMDZb
- +AMdiXw9pLUISzt42aCgWZE0LiIXfv3+EzVT4=
+ :cc:content-transfer-encoding;
+ bh=OTjpbzYdqfy5holAtVpMy0B5i/Z0HCSXKXt74XUjUwM=;
+ b=rxV0TSHX2r1WwoMSddhqhSJMOtzqynd22XcR0IasHMZI8T5Ouh5kBAjpkFzut9/eUT
+ 1mN5HNo49/m3xvx7t8fcx8MZ1S0UIm5fBmP5OT8/aKPTQ5Zkvalw/i1GFMvIT5Y6Wr01
+ bfMJ6KYML0r3lFBG+SUK2nn+wK8zzlPQJlihc=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=s4eq0AhfPjlFgt6wX8XqFRkHGBvSUkB/noacG+ANrhQ=;
- b=mdYiZYtQQ78NWnIHQf8gynY0rEGLBNat98mBvFp62fbP5igyvv48BhudqRn1v9p95J
- EAc3kloivdadzT+hyHycWyP/BwUPHmY0B4DFwWo7bynY95TfdUX3yVsKzRIWt9UFDZdU
- OayPYSO7dVKjHrvo9mwqUUgzDzRi022JIBwAzGw+u1AkBAnQMG0rWONlGQ6Sj3ETK67P
- SmEPIYKX3pprwzReAxO6qZqcRScHRlVoNHrugqOIKvbeZOJeK0jn7O/MZf/hn7PNNALq
- /HiTUKOrcXawujIYPp3E2Ccm3aB3WxeuEn5kKLW1qdXQ23GFnN7Hix7mOPZrZjRFrhka
- 7VNw==
-X-Gm-Message-State: AOAM5320KWhntByK3oTawBfQ6TW/+cBxQhHDT4iyo5TwJJDOXibgIjfu
- 8rZqMO4FRTso+dRgAm1GZI46Adv/d86+lcpuR1Vm
-X-Google-Smtp-Source: ABdhPJwbxAyjZnISDKpXczfPPFTrbbpIBz9t5pmtrM2v097I452wHLnKYL5XvVbAq3JhkqEjzlqW0OFEnFM/H5kRC9w=
-X-Received: by 2002:a02:cd84:: with SMTP id l4mr20518070jap.141.1608668820615; 
- Tue, 22 Dec 2020 12:27:00 -0800 (PST)
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=OTjpbzYdqfy5holAtVpMy0B5i/Z0HCSXKXt74XUjUwM=;
+ b=Z8OcS9aX9dlKiM/88G1twpvLFqU2jaKVIzgs4I/lSzgmc9rHSykzViXnrLR9c25IG9
+ wpW/ptemEjp9E9/25i4u9jlOaFRgYdKd5g/w8junxThKMPBxgyPkvjoaY61fSS27feBp
+ 9YMo52q/dujwdIGpVf7B38uXkMZifH/fOVm3l8Q9Hu2OyxTW2OzkKNmgxWMWxFjYByiF
+ s9TavxITxHMy16du68eTTPxd4erQugmUoiWmmGBD+ldCiwQBKCjQ1xTf3Lof5CQDuPik
+ YANTSzuHuq67BpcNKSUbkt2GZRJzupvVc5/F8QLEhqOycVfmlCgEb3gETQtzynsTGoLB
+ 8iZQ==
+X-Gm-Message-State: AOAM531a9AXftTH4gfjm9IdCtgLMsDBXwDnA66CAQ8PfRaBTZBXaLKka
+ HsqBb7ckuKv9JDR0FUH+lDwEMSmRxv3m3rcYZAzP0o6GPWQa9SU=
+X-Google-Smtp-Source: ABdhPJzTMIJllL6FWzYT4NDN0l4KUevQysMzf3L2QkUqr5KjoRWeoj5NkIFT9q/63k0XxRNObZ+pjP9PyPErQGuIGew=
+X-Received: by 2002:a02:ac18:: with SMTP id a24mr20186071jao.24.1608668939009; 
+ Tue, 22 Dec 2020 12:28:59 -0800 (PST)
 MIME-Version: 1.0
-References: <1608220905-1962-1-git-send-email-guoren@kernel.org>
- <1608220905-1962-5-git-send-email-guoren@kernel.org>
-In-Reply-To: <1608220905-1962-5-git-send-email-guoren@kernel.org>
+References: <9b57034f-a4a0-1602-d331-5883f961cd7a@suse.com>
+ <CAOnJCU+RXxiP+_qK=H_d30tUg1-GMo5PDk+WBVFLumquXYUNNQ@mail.gmail.com>
+In-Reply-To: <CAOnJCU+RXxiP+_qK=H_d30tUg1-GMo5PDk+WBVFLumquXYUNNQ@mail.gmail.com>
 From: Atish Patra <atishp@atishpatra.org>
-Date: Tue, 22 Dec 2020 12:26:49 -0800
-Message-ID: <CAOnJCUJxdZbYJM44EReZKizsBXAZMOn4zvrJA1kTW0k574iWNQ@mail.gmail.com>
-Subject: Re: [PATCH v5 4/9] riscv: Fixup patch_text panic in ftrace
-To: Guo Ren <guoren@kernel.org>
+Date: Tue, 22 Dec 2020 12:28:48 -0800
+Message-ID: <CAOnJCUKuywqBd+E2gtPnsJMdcQUqS2P734CYWuOPavprhkAa3g@mail.gmail.com>
+Subject: Re: ftrace_init doesn't patch _mcount calls on boot
+To: Varad Gautam <varad.gautam@suse.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201222_152702_547211_AD01B4D7 
-X-CRM114-Status: GOOD (  21.40  )
+X-CRM114-CacheID: sfid-20201222_152900_722968_241380A5 
+X-CRM114-Status: GOOD (  22.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -84,191 +85,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: me@packi.ch, Guo Ren <guoren@linux.alibaba.com>,
- Alan Kao <alankao@andestech.com>, Anup Patel <anup@brainfault.org>,
- Palmer Dabbelt <palmerdabbelt@google.com>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Steven Rostedt <rostedt@goodmis.org>, Atish Patra <atish.patra@wdc.com>,
- linux-csky@vger.kernel.org, Masami Hiramatsu <mhiramat@kernel.org>,
- Zong Li <zong.li@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Greentime Hu <greentime.hu@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn.topel@intel.com>,
- Drew Fustini <pdp7pdp7@gmail.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: linux-riscv <linux-riscv@lists.infradead.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 17, 2020 at 8:04 AM <guoren@kernel.org> wrote:
->
-> From: Guo Ren <guoren@linux.alibaba.com>
->
-> Just like arm64, we can't trace the function in the patch_text path.
->
-> Here is the bug log:
->
-> [   45.234334] Unable to handle kernel paging request at virtual address ffffffd38ae80900
-> [   45.242313] Oops [#1]
-> [   45.244600] Modules linked in:
-> [   45.247678] CPU: 0 PID: 11 Comm: migration/0 Not tainted 5.9.0-00025-g9b7db83-dirty #215
-> [   45.255797] epc: ffffffe00021689a ra : ffffffe00021718e sp : ffffffe01afabb58
-> [   45.262955]  gp : ffffffe00136afa0 tp : ffffffe01af94d00 t0 : 0000000000000002
-> [   45.270200]  t1 : 0000000000000000 t2 : 0000000000000001 s0 : ffffffe01afabc08
-> [   45.277443]  s1 : ffffffe0013718a8 a0 : 0000000000000000 a1 : ffffffe01afabba8
-> [   45.284686]  a2 : 0000000000000000 a3 : 0000000000000000 a4 : c4c16ad38ae80900
-> [   45.291929]  a5 : 0000000000000000 a6 : 0000000000000000 a7 : 0000000052464e43
-> [   45.299173]  s2 : 0000000000000001 s3 : ffffffe000206a60 s4 : ffffffe000206a60
-> [   45.306415]  s5 : 00000000000009ec s6 : ffffffe0013718a8 s7 : c4c16ad38ae80900
-> [   45.313658]  s8 : 0000000000000004 s9 : 0000000000000001 s10: 0000000000000001
-> [   45.320902]  s11: 0000000000000003 t3 : 0000000000000001 t4 : ffffffffd192fe79
-> [   45.328144]  t5 : ffffffffb8f80000 t6 : 0000000000040000
-> [   45.333472] status: 0000000200000100 badaddr: ffffffd38ae80900 cause: 000000000000000f
-> [   45.341514] ---[ end trace d95102172248fdcf ]---
-> [   45.346176] note: migration/0[11] exited with preempt_count 1
->
-> (gdb) x /2i $pc
-> => 0xffffffe00021689a <__do_proc_dointvec+196>: sd      zero,0(s7)
->    0xffffffe00021689e <__do_proc_dointvec+200>: li      s11,0
->
-> (gdb) bt
-> 0  __do_proc_dointvec (tbl_data=0x0, table=0xffffffe01afabba8,
-> write=0, buffer=0x0, lenp=0x7bf897061f9a0800, ppos=0x4, conv=0x0,
-> data=0x52464e43) at kernel/sysctl.c:581
-> 1  0xffffffe00021718e in do_proc_dointvec (data=<optimized out>,
-> conv=<optimized out>, ppos=<optimized out>, lenp=<optimized out>,
-> buffer=<optimized out>, write=<optimized out>, table=<optimized out>)
-> at kernel/sysctl.c:964
-> 2  proc_dointvec_minmax (ppos=<optimized out>, lenp=<optimized out>,
-> buffer=<optimized out>, write=<optimized out>, table=<optimized out>)
-> at kernel/sysctl.c:964
-> 3  proc_do_static_key (table=<optimized out>, write=1, buffer=0x0,
-> lenp=0x0, ppos=0x7bf897061f9a0800) at kernel/sysctl.c:1643
-> 4  0xffffffe000206792 in ftrace_make_call (rec=<optimized out>,
-> addr=<optimized out>) at arch/riscv/kernel/ftrace.c:109
-> 5  0xffffffe0002c9c04 in __ftrace_replace_code
-> (rec=0xffffffe01ae40c30, enable=3) at kernel/trace/ftrace.c:2503
-> 6  0xffffffe0002ca0b2 in ftrace_replace_code (mod_flags=<optimized
-> out>) at kernel/trace/ftrace.c:2530
-> 7  0xffffffe0002ca26a in ftrace_modify_all_code (command=5) at
-> kernel/trace/ftrace.c:2677
-> 8  0xffffffe0002ca30e in __ftrace_modify_code (data=<optimized out>)
-> at kernel/trace/ftrace.c:2703
-> 9  0xffffffe0002c13b0 in multi_cpu_stop (data=0x0) at kernel/stop_machine.c:224
-> 10 0xffffffe0002c0fde in cpu_stopper_thread (cpu=<optimized out>) at
-> kernel/stop_machine.c:491
-> 11 0xffffffe0002343de in smpboot_thread_fn (data=0x0) at kernel/smpboot.c:165
-> 12 0xffffffe00022f8b4 in kthread (_create=0xffffffe01af0c040) at
-> kernel/kthread.c:292
-> 13 0xffffffe000201fac in handle_exception () at arch/riscv/kernel/entry.S:236
->
->    0xffffffe00020678a <+114>:   auipc   ra,0xffffe
->    0xffffffe00020678e <+118>:   jalr    -118(ra) # 0xffffffe000204714 <patch_text_nosync>
->    0xffffffe000206792 <+122>:   snez    a0,a0
->
-> (gdb) disassemble patch_text_nosync
-> Dump of assembler code for function patch_text_nosync:
->    0xffffffe000204714 <+0>:     addi    sp,sp,-32
->    0xffffffe000204716 <+2>:     sd      s0,16(sp)
->    0xffffffe000204718 <+4>:     sd      ra,24(sp)
->    0xffffffe00020471a <+6>:     addi    s0,sp,32
->    0xffffffe00020471c <+8>:     auipc   ra,0x0
->    0xffffffe000204720 <+12>:    jalr    -384(ra) # 0xffffffe00020459c <patch_insn_write>
->    0xffffffe000204724 <+16>:    beqz    a0,0xffffffe00020472e <patch_text_nosync+26>
->    0xffffffe000204726 <+18>:    ld      ra,24(sp)
->    0xffffffe000204728 <+20>:    ld      s0,16(sp)
->    0xffffffe00020472a <+22>:    addi    sp,sp,32
->    0xffffffe00020472c <+24>:    ret
->    0xffffffe00020472e <+26>:    sd      a0,-24(s0)
->    0xffffffe000204732 <+30>:    auipc   ra,0x4
->    0xffffffe000204736 <+34>:    jalr    -1464(ra) # 0xffffffe00020817a <flush_icache_all>
->    0xffffffe00020473a <+38>:    ld      a0,-24(s0)
->    0xffffffe00020473e <+42>:    ld      ra,24(sp)
->    0xffffffe000204740 <+44>:    ld      s0,16(sp)
->    0xffffffe000204742 <+46>:    addi    sp,sp,32
->    0xffffffe000204744 <+48>:    ret
->
-> (gdb) disassemble flush_icache_all-4
-> Dump of assembler code for function flush_icache_all:
->    0xffffffe00020817a <+0>:     addi    sp,sp,-8
->    0xffffffe00020817c <+2>:     sd      ra,0(sp)
->    0xffffffe00020817e <+4>:     auipc   ra,0xfffff
->    0xffffffe000208182 <+8>:     jalr    -1822(ra) # 0xffffffe000206a60 <ftrace_caller>
->    0xffffffe000208186 <+12>:    ld      ra,0(sp)
->    0xffffffe000208188 <+14>:    addi    sp,sp,8
->    0xffffffe00020818a <+0>:     addi    sp,sp,-16
->    0xffffffe00020818c <+2>:     sd      s0,0(sp)
->    0xffffffe00020818e <+4>:     sd      ra,8(sp)
->    0xffffffe000208190 <+6>:     addi    s0,sp,16
->    0xffffffe000208192 <+8>:     li      a0,0
->    0xffffffe000208194 <+10>:    auipc   ra,0xfffff
->    0xffffffe000208198 <+14>:    jalr    -410(ra) # 0xffffffe000206ffa <sbi_remote_fence_i>
->    0xffffffe00020819c <+18>:    ld      s0,0(sp)
->    0xffffffe00020819e <+20>:    ld      ra,8(sp)
->    0xffffffe0002081a0 <+22>:    addi    sp,sp,16
->    0xffffffe0002081a2 <+24>:    ret
->
-> (gdb) frame 5
-> (rec=0xffffffe01ae40c30, enable=3) at kernel/trace/ftrace.c:2503
-> 2503                    return ftrace_make_call(rec, ftrace_addr);
-> (gdb) p /x rec->ip
-> $2 = 0xffffffe00020817a -> flush_icache_all !
->
-> When we modified flush_icache_all's patchable-entry with ftrace_caller:
->  - Insert ftrace_caller at flush_icache_all prologue.
->  - Call flush_icache_all to sync I/Dcache, but flush_icache_all is
-> just we modified by half.
->
-> Link: https://lore.kernel.org/linux-riscv/CAJF2gTT=oDWesWe0JVWvTpGi60-gpbNhYLdFWN_5EbyeqoEDdw@mail.gmail.com/T/#t
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Cc: Atish Patra <atish.patra@wdc.com>
-> Cc: Steven Rostedt (VMware) <rostedt@goodmis.org>
-> ---
->  arch/riscv/kernel/Makefile | 1 +
->  arch/riscv/mm/Makefile     | 1 +
->  2 files changed, 2 insertions(+)
->
-> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-> index 27f10eb..62de075 100644
-> --- a/arch/riscv/kernel/Makefile
-> +++ b/arch/riscv/kernel/Makefile
-> @@ -6,6 +6,7 @@
->  ifdef CONFIG_FTRACE
->  CFLAGS_REMOVE_ftrace.o = $(CC_FLAGS_FTRACE)
->  CFLAGS_REMOVE_patch.o  = $(CC_FLAGS_FTRACE)
-> +CFLAGS_REMOVE_sbi.o    = $(CC_FLAGS_FTRACE)
->  endif
->
->  extra-y += head.o
-> diff --git a/arch/riscv/mm/Makefile b/arch/riscv/mm/Makefile
-> index 6b4b7ec..7ebaef1 100644
-> --- a/arch/riscv/mm/Makefile
-> +++ b/arch/riscv/mm/Makefile
-> @@ -3,6 +3,7 @@
->  CFLAGS_init.o := -mcmodel=medany
->  ifdef CONFIG_FTRACE
->  CFLAGS_REMOVE_init.o = $(CC_FLAGS_FTRACE)
-> +CFLAGS_REMOVE_cacheflush.o = $(CC_FLAGS_FTRACE)
->  endif
->
->  KCOV_INSTRUMENT_init.o := n
-> --
-> 2.7.4
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-Reviewed-by: Atish Patra <atish.patra@wdc.com>
-
-
--- 
-Regards,
-Atish
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBEZWMgMjIsIDIwMjAgYXQgMTI6MTggUE0gQXRpc2ggUGF0cmEgPGF0aXNocEBhdGlz
+aHBhdHJhLm9yZz4gd3JvdGU6Cj4KPiBPbiBUdWUsIERlYyAyMiwgMjAyMCBhdCAyOjUzIEFNIFZh
+cmFkIEdhdXRhbSA8dmFyYWQuZ2F1dGFtQHN1c2UuY29tPiB3cm90ZToKPiA+Cj4gPiBIaSwKPiA+
+Cj4gPiBJJ20gb2JzZXJ2aW5nIHRoZSBmb2xsb3dpbmcgb24gcWVtdSB3aXRoIENPTkZJR19EWU5B
+TUlDX0ZUUkFDRT15Ogo+ID4KPiA+IHJvb3RAZGViaWFuOi9zeXMva2VybmVsL2RlYnVnL3RyYWNp
+bmcjIGVjaG8gZnVuY3Rpb24gPiBjdXJyZW50X3RyYWNlcgo+ID4gWyAgIDczLjY3NDI2NV0gKF9f
+X19wdHJ2YWxfX19fKTogZXhwZWN0ZWQgKDAwMDAwMDEzIDAwMDAwMDEzKSBidXQgZ290Cj4gPiAo
+MDAwMDYwOTcgYTM4MDgwZTcpCj4gPiBbICAgNzMuNjc1MTQ0XSAtLS0tLS0tLS0tLS1bIGZ0cmFj
+ZSBidWcgXS0tLS0tLS0tLS0tLQo+ID4gWyAgIDczLjY3NTY2NV0gZnRyYWNlIGZhaWxlZCB0byBt
+b2RpZnkKPiA+IFsgICA3My42NzY1NDhdIFs8ZmZmZmZmZTAwMDAwMjAxMD5dIF9zdGV4dCsweDEw
+LzB4M2MKPiA+IFsgICA3My42Nzc2NDFdICBhY3R1YWw6ICAgOTc6NjA6MDA6MDA6ZTc6ODA6ODA6
+YTMKPiA+IFsgICA3My42Nzg1MzRdIFNldHRpbmcgZnRyYWNlIGNhbGwgc2l0ZSB0byBjYWxsIGZ0
+cmFjZSBmdW5jdGlvbgo+ID4gWyAgIDczLjY3ODg0Ml0gZnRyYWNlIHJlY29yZCBmbGFnczogODAw
+MDAwMDEKPiA+IFsgICA3My42NzkwODhdICAoMSkKPiA+IFsgICA3My42NzkwODhdICBleHBlY3Rl
+ZCB0cmFtcDogZmZmZmZmZTAwMDAwODAyMAo+ID4gWyAgIDczLjY3OTY4N10gLS0tLS0tLS0tLS0t
+WyBjdXQgaGVyZSBdLS0tLS0tLS0tLS0tCj4gPgo+ID4gVGhpcyBjb21lcyBmcm9tIGZ0cmFjZV9j
+aGVja19jdXJyZW50X2NhbGwoKSwgd2hpY2ggZW5zdXJlcyB0aGF0IHRoZQo+ID4gcGF0Y2ggdGFy
+Z2V0IGxvY2F0aW9uIGlzIHNldCB0byBOT1BzIGJlZm9yZSBwYXRjaGluZyBpdCB3aXRoIGEKPiA+
+IGBhdWlwYy9qYWxyIE1DT1VOVF9BRERSYCBzZXF1ZW5jZSB3aGVuIGZ0cmFjZSBpcyBlbmFibGVk
+Cj4gPiAoZnRyYWNlX25vcF9pbml0aWFsaXplIC0+IGZ0cmFjZV9pbml0X25vcCAtPiBmdHJhY2Vf
+bWFrZV9ub3AgLT4KPiA+IGZ0cmFjZV9jaGVja19jdXJyZW50X2NhbGwpLgo+ID4KPiA+IER1bXBp
+bmcgYSBmZXcgZnVuY3Rpb24gcHJvbG9ndWVzIGZyb20gbWVtb3J5IGJlZm9yZSBlbmFibGluZyBm
+dHJhY2UsIEkKPiA+IHNlZSB0aGF0IGJvb3QtdGltZSBwYXRjaGluZyBkaWRuJ3Qgd29yayBhcyBl
+eHBlY3RlZC4gVGhlIGZ0cmFjZV9zdHViCj4gPiBjYWxsIHNlcXVlbmNlIHN0aWxsIGV4aXN0cywg
+d2hpY2ggc2hvdWxkIGhhdmUgYmVlbiBwYXRjaGVkIG92ZXIgYnkgTk9Qcy4KPiA+Cj4gPiAoZ2Ri
+KSB4LzEwaSBibGtfcHV0X3JlcXVlc3QKPiA+ICAgICBbLi4uXQo+ID4gICAgIDB4ZmZmZmZmZTAw
+MDMxNjliYSA8YmxrX3B1dF9yZXF1ZXN0KzE0PjogICAgIGF1aXBjICAgcmEsMHhmZmNmMQo+ID4g
+ICAgIDB4ZmZmZmZmZTAwMDMxNjliZSA8YmxrX3B1dF9yZXF1ZXN0KzE4PjogICAgIGphbHIgICAg
+NDQ2KHJhKQo+ID4KPiA+IChnZGIpIGRpc2FzIGJsa19wdXRfcmVxdWVzdAo+ID4gRHVtcCBvZiBh
+c3NlbWJsZXIgY29kZSBmb3IgZnVuY3Rpb24gYmxrX3B1dF9yZXF1ZXN0Ogo+ID4gICAgIFsuLi5d
+Cj4gPiAgICAgMHhmZmZmZmZlMDAwMzE2OWJhIDwrMTQ+OiAgICBhdWlwYyAgIHJhLDB4ZmZjZjEK
+PiA+ICAgICAweGZmZmZmZmUwMDAzMTY5YmUgPCsxOD46ICAgIGphbHIgICAgNDQ2KHJhKSAjIDB4
+ZmZmZmZmZTAwMDAwN2I3OAo+ID4gPGZ0cmFjZV9zdHViPgo+ID4KPiA+IERpZ2dpbmcgZnVydGhl
+ciwgSSBmaW5kIHRoYXQgdGhlIGNvcHlfdG9fa2VybmVsX25vZmF1bHQoKSB3cmFwcGVkIGluCj4g
+PiBwYXRjaF9pbnNuX3dyaXRlKCkgcmV0dXJucyB3aXRob3V0IHRoZSB3cml0ZSBnb2luZyB0aHJv
+dWdoLiBSZXBsYWNpbmcKPiA+IHRoaXMgd2l0aCBhIG1lbWNweSBob3dldmVyLCBtYWtlcyBmdHJh
+Y2Ugd29yayBhcyBleHBlY3RlZC4KPiA+Cj4gPiBJJ2xsIGJlIGxvb2tpbmcgaW50byBxZW11J3Mg
+ZW11bGF0aW9uIGZvciBjb3B5X3RvX2tlcm5lbF9ub2ZhdWx0KCkgbmV4dCwKPiA+IGJ1dCBJJ2Qg
+bGlrZSB0byBjaGVjayBpZiBzb21lb25lIGVsc2UgY2FuIHJlcHJvZHVjZSB0aGlzIGJlaGF2aW9y
+IHdpdGgKPiA+IENPTkZJR19EWU5BTUlDX0ZUUkFDRT15Lgo+ID4KPgo+IERvZXMgdGhpcyBmaXgg
+dGhlIGlzc3VlID8KPgo+IGh0dHBzOi8vbGttbC5vcmcvbGttbC8yMDIwLzEwLzIxLzc3Cj4KCmFu
+ZCB0aGlzIHNlcmllcy4gSXQgdHJpZXMgdG8gbW92ZSB0byBmZW50cnkgZnJvbSBtY291bnQuIEd1
+byBmaXhlZCBhCmtlcm5lbCBwYW5pYyBpbiB0aGlzIGFzIHdlbGwuCgpodHRwczovL3BhdGNod29y
+ay5rZXJuZWwub3JnL3Byb2plY3QvbGludXgtcmlzY3YvbGlzdC8/c2VyaWVzPTQwMzY4NQoKPiA+
+IEtlcm5lbCA6Cj4gPiBodHRwczovL2dpdC5rZXJuZWwub3JnL3B1Yi9zY20vbGludXgva2VybmVs
+L2dpdC9yaXNjdi9saW51eC5naXQvY29tbWl0Lz9oPWZvci1uZXh0JmlkPTdkOTVhODhmOTI1NGI3
+MTFhM2E5NTEwNmZjNzNmNmEzYTk4NjZhNDAKPiA+Cj4gPiBUaGFua3MsCj4gPiBWYXJhZAo+ID4K
+PiA+IC0tCj4gPiBTVVNFIFNvZnR3YXJlIFNvbHV0aW9ucyBHZXJtYW55IEdtYkgKPiA+IE1heGZl
+bGRzdHIuIDUKPiA+IDkwNDA5IE7DvHJuYmVyZwo+ID4gR2VybWFueQo+ID4KPiA+IEhSQiAzNjgw
+OSwgQUcgTsO8cm5iZXJnCj4gPiBHZXNjaMOkZnRzZsO8aHJlcjogRmVsaXggSW1lbmTDtnJmZmVy
+Cj4gPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+ID4g
+bGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4gPiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
+b3JnCj4gPiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LXJpc2N2Cj4KPgo+Cj4gLS0KPiBSZWdhcmRzLAo+IEF0aXNoCgoKCi0tIApSZWdhcmRzLApBdGlz
+aAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
+cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
+L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
