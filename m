@@ -2,77 +2,70 @@ Return-Path: <SRS0=WnC5=F2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-17.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=unavailable autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B6946C433E0
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Dec 2020 20:14:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E6290C433DB
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Dec 2020 20:15:35 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 030B0229C5
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Dec 2020 20:14:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 030B0229C5
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
+	by mail.kernel.org (Postfix) with ESMTPS id 4D7ED229C5
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Dec 2020 20:15:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4D7ED229C5
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=metux.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=3tel0DZrNYHKSuEz7s2x8AcozixxM2yD6Bg+zLAP0So=; b=Fn4zkxH3V+RODL4fUyzwNVRVd
-	Zd6c8qcaymJRX8NG/FKeQJYrYC42hzLms2IjN8huRa4Khov+Jihd//pA/bnJxoyKESee2AGZKX+wf
-	1rjcSdpl6UGHl5ic4cShvYebszSPhleU340hDC9a7UFxkYdDrubeRMZEQH9z6CUM13elxe+EdfM3K
-	u3OLhLNljgZioVQOqj/Zq6CB2S/R7xo7+KIkeUbwYgupchF2jTECXVaiJ0K7yaSE8CCdLam7El+30
-	VkkG8xw4bVZ6qyTaV2J0zAntDG2R4akwU5iJfJAWpvIdlqcv0PwYDANBS3P41JBhdn0jMAE5FxtFV
-	cJTCIEx9w==;
+	 bh=sPM6Fnx+0wbWwNgbJOJA/IoTtP1/v3Cm+6wsOAVW8T8=; b=eEWsut9Ff3+Rod7znRWWptL+V
+	NtBFXT0TTLIhjymtrhA//xDpxY7nM5nLyKLSYaiGywdvyoh0lmRfT4BN7/YTTBdgWOKmGF3B9YzuA
+	ARz1n5uJoz8GnSiuEW/wYNgR+WVbTn7yJpV8HXfqxQySr2VyAMbIoc7b4ovQ6StABlCIQXa2S903S
+	gtBXqKyokvj7BM7m0+Eb1L5d/HcfW1MLiY3TzhAoPvbTcffSH9rPASyxWTRUuatZW5S2LW6bewu7K
+	Nhj4gE+tcvibIw3icTC1jZ78pZLiLVXklBn2PAK9Zc+zCwKEcsElbihhqpRlcK6/Wfz6dVnwWYdVc
+	YmDBy45ZA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kro3Q-0005pR-62; Tue, 22 Dec 2020 20:14:44 +0000
-Received: from mail-io1-xd33.google.com ([2607:f8b0:4864:20::d33])
+	id 1kro49-0005w6-Eh; Tue, 22 Dec 2020 20:15:29 +0000
+Received: from mout.kundenserver.de ([212.227.126.131])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kro3M-0005oV-LB
- for linux-riscv@lists.infradead.org; Tue, 22 Dec 2020 20:14:42 +0000
-Received: by mail-io1-xd33.google.com with SMTP id z136so13122576iof.3
- for <linux-riscv@lists.infradead.org>; Tue, 22 Dec 2020 12:14:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=7zOf6F8ODgFcmacS9f6DCdrzJfrVz8BP88T2NFPCiVA=;
- b=cXF3QvfttDRIq6gJ4Wz3ZKQqCIAXSUZcQeXRHzebIehV4HKBFNWVNn6z1Ou6En9XWC
- pObVsIyeBEPxjyG0GERA2gzo+/ZsKhyr/3waLfWia8Uv4rjS210W9rXrPc+7hhfGEifD
- L0U/GtfZjNVxyBmr9EIZev92P+plFUGWBzWEs=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=7zOf6F8ODgFcmacS9f6DCdrzJfrVz8BP88T2NFPCiVA=;
- b=drcoBSdBhvnCOBQQl+8DkU7h31PQMn9anYf2f+mKMNC0W5utbCqDP5guXZJjRTbmt6
- YPO9ZFSTNy21gniaLnTEh3RkSgGIigbrmGjgV4QGy/oenpXid6dApoutL6w9I9eTH+O/
- 9sftlPL5dyYK9yfbOSQIhxv5H9+4GTFMMmn1DUsfiFnRW+xQsEGDAdHQ5ieEZwmEeMfE
- FE54H/tC4svrbrduYpy+sC0nlAyisYuQGxP70RvfM/wtcWEgVZZQ8sF1H8mccc5lLUTa
- kLoYcptRNPSFYF9s78P2uQOiI4AswzpzKIsv8459A40dK8weNmIZkRzfbprG3BDQTWRG
- UA+Q==
-X-Gm-Message-State: AOAM5305orT4gAi7hcR2Yb5Pa0Oiu4BD5C1R2VYjhaHsOgCqPGTZST4O
- mdUukCeFaB4xJM1oslkg2ZYkpGo3K19y4+JQtyuW
-X-Google-Smtp-Source: ABdhPJyUHJf84Lg2qSP3jMdGstvvHuPcN2/TySq54r/xcVNXu2cRD3MFNmcm4v52z1nN7Jo4djZ2OMIE3EEPlyzUtEI=
-X-Received: by 2002:a6b:b74e:: with SMTP id h75mr19143399iof.0.1608668078357; 
- Tue, 22 Dec 2020 12:14:38 -0800 (PST)
+ id 1kro46-0005vF-9t; Tue, 22 Dec 2020 20:15:27 +0000
+Received: from [192.168.1.155] ([95.118.68.26]) by mrelayeu.kundenserver.de
+ (mreue011 [212.227.15.167]) with ESMTPSA (Nemesis) id
+ 1N5FtF-1jtguL3EaD-0118EC; Tue, 22 Dec 2020 21:14:24 +0100
+Subject: Re: [PATCH] arch: consolidate pm_power_off callback
+To: Geert Uytterhoeven <geert@linux-m68k.org>,
+ "Enrico Weigelt, metux IT consult" <info@metux.net>
+References: <20201222184510.19415-1-info@metux.net>
+ <CAMuHMdVze3oaWmzvzn8ROjpP6h6Tsv2SFLiV7T1Cnej36X445g@mail.gmail.com>
+From: "Enrico Weigelt, metux IT consult" <lkml@metux.net>
+Message-ID: <2f1d53e9-0dbb-78ef-22d5-ab230438ddf0@metux.net>
+Date: Tue, 22 Dec 2020 21:14:19 +0100
+User-Agent: Mozilla/5.0 (X11; Linux i686 on x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.12.0
 MIME-Version: 1.0
-References: <20201204085835.2406541-1-atish.patra@wdc.com>
- <mhng-2a16d74b-c896-4ad0-9d02-87b3b09ee3be@palmerdabbelt-glaptop>
-In-Reply-To: <mhng-2a16d74b-c896-4ad0-9d02-87b3b09ee3be@palmerdabbelt-glaptop>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Tue, 22 Dec 2020 12:14:27 -0800
-Message-ID: <CAOnJCUJ5UK3Do=uC0R2DVMNt6HmoJHKB1XXr8MkoeBYNzQHZrw@mail.gmail.com>
-Subject: Re: [PATCH v3 0/5] Add Microchip PolarFire Soc Support
-To: Daire McNamara <daire.mcnamara@microchip.com>
+In-Reply-To: <CAMuHMdVze3oaWmzvzn8ROjpP6h6Tsv2SFLiV7T1Cnej36X445g@mail.gmail.com>
+Content-Language: tl
+X-Provags-ID: V03:K1:UpSPX5SjSxB2JTjoTNk4sWDtA2g9Ks1Ix8dKZhB/ESwn1jWfyhx
+ EoQG8feaYKyQLnGwygV2naaePTeCvGl6q4M5FCoVvWDzd5IDw7I4++spAXF1Cn7hlWYDZ9i
+ kl7Eptzr5sffhmk6uqoQvQuMaJH6WbEHZSp8VbRZESTCM8tqF2liTqVeSG60D5ct0JeRFXM
+ C/vRJPf10ZNRyihx6OQ7A==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:4rmsxPbYFfk=:r6XlGr1qgoUDdOPZvl+EZB
+ Tvvn/+E+IBfJxp8NYxN6kmODEYBvHcxpBa91h8yz4H6rftNQGPPvhJG9K3iz7sa8U3axvH9gb
+ k8MQxF8AkxpsOIqgXUvRf2/UkUWU0UyTVaNY4yxFyPXaJ5HZGvdBlHztqC0ROOQbfPfvuc9EL
+ FxgUfcgonSSkeeYMjRiTB3zJbeFMtXOTHkBa2rvNba1MQtk+fNt8bwxkcg/16D1kNX6CaQa6R
+ /HjaLu8M8eiwjXWLzppTMleqwd3hE1HiIRNtfJF9qFLMDQKH5ELRRUKQxUmk7wwJOm6jAqUoz
+ DxOEn9gjBP8Krn67rCBumevzsK7LiZ8dtcUh+n3F3XTZoxMWvkNcvhbeCfAuF95ukrIWyQBXn
+ H8gIR89lqyF1p5Egw7NhgnSoXyIbQAraihthZryjzaPuyq4jPkP8GrsbXJIV3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201222_151440_847143_14A11EFF 
-X-CRM114-Status: GOOD (  31.84  )
+X-CRM114-CacheID: sfid-20201222_151526_554073_2ED18614 
+X-CRM114-Status: GOOD (  15.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -84,99 +77,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree <devicetree@vger.kernel.org>, Anup Patel <Anup.Patel@wdc.com>,
- Cyril.Jean@microchip.com, Bin Meng <bin.meng@windriver.com>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Atish Patra <Atish.Patra@wdc.com>, Conor.Dooley@microchip.com,
- Rob Herring <robh+dt@kernel.org>, Ivan.Griffin@microchip.com,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Rich Felker <dalias@libc.org>,
+ "linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>,
+ Linux-sh list <linux-sh@vger.kernel.org>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
+ James Bottomley <James.Bottomley@hansenpartnership.com>,
+ Max Filippov <jcmvbkbc@gmail.com>, Paul Mackerras <paulus@samba.org>,
+ linux-csky@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>, Will Deacon <will@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Jonas Bonn <jonas@southpole.se>,
+ linux-s390 <linux-s390@vger.kernel.org>,
+ Stefano Stabellini <sstabellini@kernel.org>, linux-c6x-dev@linux-c6x.org,
+ Yoshinori Sato <ysato@users.sourceforge.jp>,
+ "open list:QUALCOMM HEXAGON..." <linux-hexagon@vger.kernel.org>,
+ Helge Deller <deller@gmx.de>, the arch/x86 maintainers <x86@kernel.org>,
+ Ley Foon Tan <ley.foon.tan@intel.com>, Ingo Molnar <mingo@redhat.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ arcml <linux-snps-arc@lists.infradead.org>,
+ "open list:TENSILICA XTENSA PORT \(xtensa\)" <linux-xtensa@linux-xtensa.org>,
+ Linux PM list <linux-pm@vger.kernel.org>, Mark Salter <msalter@redhat.com>,
+ Aurelien Jacquiot <jacquiot.aurelien@gmail.com>,
+ linux-m68k <linux-m68k@lists.linux-m68k.org>,
+ Openrisc <openrisc@lists.librecores.org>, Borislav Petkov <bp@alien8.de>,
+ Stafford Horne <shorne@gmail.com>,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Christian Brauner <christian@brauner.io>, Chris Zankel <chris@zankel.net>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Parisc List <linux-parisc@vger.kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ alpha <linux-alpha@vger.kernel.org>,
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 21, 2020 at 7:19 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
->
-> On Fri, 04 Dec 2020 00:58:30 PST (-0800), Atish Patra wrote:
-> > This series adds minimal support for Microchip Polar Fire Soc Icicle kit.
-> > It is rebased on v5.10-rc6 and depends on clock support.
-> > Only MMC and ethernet drivers are enabled via this series.
-> > The idea here is to add the foundational patches so that other drivers
-> > can be added to on top of this. The device tree may change based on
-> > feedback on bindings of individual driver support patches.
-> >
-> > This series has been tested on Qemu and Polar Fire Soc Icicle kit.
-> > The following qemu series is necessary to test it on Qemu.
-> >
-> > The series can also be found at.
-> > https://github.com/atishp04/linux/tree/polarfire_support_upstream_v3
-> >
-> > I noticed the latest version of mmc driver[2] hangs on the board with
-> > the latest clock driver. That's why, I have tested with the old clock
-> > driver available in the above github repo.
->
-> IIRC the previous version was an RFC, but this is a PATCH.  I'd be generally
-> happy to take it on for-next, but I don't want to merge something that doesn't
-> boot and that I don't have any way to fix (I don't have one of the boards yet).
->
-
-Fair enough. We can wait for clock patches to be merged before merging
-this series.
-
-> > [1] https://lists.nongnu.org/archive/html/qemu-devel/2020-10/msg08582.html
-> > [2] https://www.spinics.net/lists/devicetree/msg383626.html
-> >
-> > Changes from v2->v3:
-> > 1. Fixed a typo in dt binding.
-> > 2. Included MAINTAINERS entry for PolarFire SoC.
-> > 3. Improved the dts file by using lowercase clock names and keeping phy
-> >    details in board specific dts file.
-> >
-> > Changes from v1->v2:
-> > 1. Modified the DT to match the device tree in U-Boot.
-> > 2. Added both eMMC & SDcard entries in DT. However, SD card is only enabled
-> >    as it allows larger storage option for linux distros.
-> >
-> > Atish Patra (4):
-> > RISC-V: Add Microchip PolarFire SoC kconfig option
-> > dt-bindings: riscv: microchip: Add YAML documentation for the
-> > PolarFire SoC
-> > RISC-V: Initial DTS for Microchip ICICLE board
-> > RISC-V: Enable Microchip PolarFire ICICLE SoC
-> >
-> > Conor Dooley (1):
-> > MAINTAINERS: add microchip polarfire soc support
-> >
-> > .../devicetree/bindings/riscv/microchip.yaml  |  28 ++
-> > MAINTAINERS                                   |   8 +
-> > arch/riscv/Kconfig.socs                       |   7 +
-> > arch/riscv/boot/dts/Makefile                  |   1 +
-> > arch/riscv/boot/dts/microchip/Makefile        |   2 +
-> > .../microchip/microchip-mpfs-icicle-kit.dts   |  72 ++++
-> > .../boot/dts/microchip/microchip-mpfs.dtsi    | 331 ++++++++++++++++++
-> > arch/riscv/configs/defconfig                  |   4 +
-> > 8 files changed, 453 insertions(+)
-> > create mode 100644 Documentation/devicetree/bindings/riscv/microchip.yaml
-> > create mode 100644 arch/riscv/boot/dts/microchip/Makefile
-> > create mode 100644 arch/riscv/boot/dts/microchip/microchip-mpfs-icicle-kit.dts
-> > create mode 100644 arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-@Daire McNamara Do you have a v2 of the clock patch series that works
-with the latest upstream.
-
--- 
-Regards,
-Atish
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMjIuMTIuMjAgMTk6NTQsIEdlZXJ0IFV5dHRlcmhvZXZlbiB3cm90ZToKCkhpLAoKPiBPbiBU
+dWUsIERlYyAyMiwgMjAyMCBhdCA3OjQ2IFBNIEVucmljbyBXZWlnZWx0LCBtZXR1eCBJVCBjb25z
+dWx0Cj4gPGluZm9AbWV0dXgubmV0PiB3cm90ZToKPj4gTW92ZSB0aGUgcG1fcG93ZXJfb2ZmIGNh
+bGxiYWNrIGludG8gb25lIGdsb2JhbCBwbGFjZSBhbmQgYWxzbyBhZGQgYW4KPj4gZnVuY3Rpb24g
+Zm9yIGNvbmRpdGlvbmFsbHkgY2FsbGluZyBpdCAod2hlbiBub3QgTlVMTCksIGluIG9yZGVyIHRv
+IHJlbW92ZQo+PiBjb2RlIGR1cGxpY2F0aW9uIGluIGFsbCBpbmRpdmlkdWFsIGFyY2hzLgo+Pgo+
+PiBTaWduZWQtb2ZmLWJ5OiBFbnJpY28gV2VpZ2VsdCwgbWV0dXggSVQgY29uc3VsdCA8aW5mb0Bt
+ZXR1eC5uZXQ+Cj4gCj4gVGhhbmtzIGZvciB5b3VyIHBhdGNoIQo+IAo+PiAtLS0gYS9hcmNoL2Fs
+cGhhL2tlcm5lbC9wcm9jZXNzLmMKPj4gKysrIGIvYXJjaC9hbHBoYS9rZXJuZWwvcHJvY2Vzcy5j
+Cj4+IEBAIC00MywxMiArNDMsNiBAQAo+PiAgI2luY2x1ZGUgInByb3RvLmgiCj4+ICAjaW5jbHVk
+ZSAicGNpX2ltcGwuaCIKPj4KPj4gLS8qCj4+IC0gKiBQb3dlciBvZmYgZnVuY3Rpb24sIGlmIGFu
+eQo+PiAtICovCj4+IC12b2lkICgqcG1fcG93ZXJfb2ZmKSh2b2lkKSA9IG1hY2hpbmVfcG93ZXJf
+b2ZmOwo+IAo+IEFzc2lnbm1lbnRzIGxpa2UgdGhlc2UgYXJlIGxvc3QgaW4gdGhlIGNvbnZlcnNp
+b24uCgpZZXMsIGJ1dCB0aGlzIGRvZXNuJ3Qgc2VlbSB0byBiZSBldmVyIGNhbGxlZCBhbnl3YXlz
+LiAoaW4gYXJjaC9hbHBoYSkKQW5kLCBCVFcsIGxldHRpbmcgaXQgcG9pbnQgdG8gbWFjaGluZV9w
+b3dlcl9vZmYoKSBkb2Vzbid0IG1ha2UgbXVjaApzZW5zZSwgc2luY2UgaXQncyB0aGUgYXJjaCdz
+IG1hY2hpbmVfcG93ZXJfb2ZmKCkgZnVuY3Rpb24sIHdobydyZQpjYWxsaW5nIHBtX3Bvd2VyX29m
+ZigpLgoKQWN0dWFsbHksIHdlIGNvdWxkIHJlbW92ZSBwbV9wb3dlcl9vZmYgY29tcGxldGVseSBm
+cm9tIGhlcmUsIGFzc3VtaW5nCm5vYm9keSB3b3VsZCAqYnVpbGQqIGFueSBkcml2ZXJzIHRoYXQg
+cmVnaXN0ZXIgdGhlbXNlbHZlcyBpbnRvCnBtX3Bvd2VyX29mZi4KCklmIHlvdSBmZWVsIGJldHRl
+ciB3aXRoIGl0LCBJIGNvdWxkIHBvc3QgYSBwYXRjaCB0aGF0IGp1c3QgcmVtb3ZlcwpwbV9wb3dl
+cl9vZmYgZnJvbSBhcmNoL2FscGhhLgoKCi0tbXR4CgotLSAKLS0tCkhpbndlaXM6IHVudmVyc2No
+bMO8c3NlbHRlIEUtTWFpbHMga8O2bm5lbiBsZWljaHQgYWJnZWjDtnJ0IHVuZCBtYW5pcHVsaWVy
+dAp3ZXJkZW4gISBGw7xyIGVpbmUgdmVydHJhdWxpY2hlIEtvbW11bmlrYXRpb24gc2VuZGVuIFNp
+ZSBiaXR0ZSBpaHJlbgpHUEcvUEdQLVNjaGzDvHNzZWwgenUuCi0tLQpFbnJpY28gV2VpZ2VsdCwg
+bWV0dXggSVQgY29uc3VsdApGcmVlIHNvZnR3YXJlIGFuZCBMaW51eCBlbWJlZGRlZCBlbmdpbmVl
+cmluZwppbmZvQG1ldHV4Lm5ldCAtLSArNDktMTUxLTI3NTY1Mjg3CgpfX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
+bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
+Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
