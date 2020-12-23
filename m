@@ -5,61 +5,67 @@ X-Spam-Level:
 X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 572FBC433E0
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Dec 2020 08:24:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 32084C433E0
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Dec 2020 10:38:26 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 05B5D20857
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Dec 2020 08:24:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 05B5D20857
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
+	by mail.kernel.org (Postfix) with ESMTPS id 6CA2F207CD
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Dec 2020 10:38:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6CA2F207CD
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Jxdejy8F9kUUBOOtP7etS1MET/kZU2e6v5xE4R6g2iE=; b=DobFVhwkk5Me96xn0L2JcHuMe
-	0wmwLBIyaz4nPAs657WZ1uomVe8Es+t1YHNCkCJ7n0HSP0KCCjpP+JYmSHnIUElcDxu12RRyyfqQW
-	4+f1J/JcF+niJm0SLIvI12QGLc9/JKNOqseS4Ilm86Ts+HVCYAVlNreOBDtkRU6zISDuryw8sWlGD
-	WaKGV5QuutpfFNzsf8oozlwUezAhuVbmhFiGUq6qitllvPLv+QUBnwCzD7F4ESFqdFo1O0HqVI0R1
-	nnQ78eOLlllsWfEspWiMVJTZISF1pXNLdFaRFa52I1YutF8SPyqD84R9Qp7C3YameXOhbml3CHi2L
-	D8mNVrPjw==;
+	 bh=ja49/ChS5tVjpJBp/leZg007U8s5XPVtF/ircbvX7w4=; b=i9SZ/OJw7/xVQCxLYOezpOvo1
+	ullrAN2zGpw+RqIKMx2R3QRplObBWA8VmOnejcc0EY+o1Cm9mELuHyA9D1UhVEoQvyZAPWVqZsD0X
+	xC4mq61walzsQzC4BqoN5+UFJOlmGpscAyklw1jmQbI2aE4WH+mdvmWuSwPxqj5uO8AFuFtx4TVdq
+	BGC40YONlzxdvJkysahKadYpRJticw3j+rf3j7AKUXrdfDIU0B8CK/IuwWyGrjBv+i2dXB02tv54G
+	G5wVUR5GUW1hG/UR3Iaaobx9dUd5vgB8C6MtDReoe32qwg3Op0Ee2UfS2xFji/CEEmXXFjCan5mxH
+	J72F1RUNQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1krzRI-0002X6-Cd; Wed, 23 Dec 2020 08:24:08 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1ks1X2-0006PI-HK; Wed, 23 Dec 2020 10:38:12 +0000
+Received: from mail-oo1-f48.google.com ([209.85.161.48])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1krzRG-0002Vo-Kv
- for linux-riscv@merlin.infradead.org; Wed, 23 Dec 2020 08:24:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=Tp7btXv5fh0AyxUwJtWbQ5xEJ3yfKa4NDNQ6BNO/2ng=; b=TGg8zFcVOyxLssxq0mWWJF9vL2
- auT1KvIGFQ8vDcWwa5fqMu2YZGrUbUOuzn7c4BK1Rt/v3sW+kOED+QFHTrH/DECvQ+wL6wTr4xhpi
- cIpIPaPcSjXANE2ConOihMtjC3UDX3rQRDl3lW6dIP2EcKP8wHN+7JGSWcpCwUGg7mpJTSuONjQOy
- mMa2xFqOmmPlJjKFp8h0moomSP9ySLaVMswZRa83N49Ab6NO4+tSDf3Jve/twS2uZtSobqnVTX1MY
- 33qF4PcRp+siS1mIDTTuHoFiej+sBluSdX44XiqL5l1u4d/o9H3NPlHQB/Asj8PI6c+UpMZmnMj72
- MWL5ja+w==;
-Received: from hch by casper.infradead.org with local (Exim 4.92.3 #3 (Red Hat
- Linux)) id 1krzRE-0006Zm-LA; Wed, 23 Dec 2020 08:24:04 +0000
-Date: Wed, 23 Dec 2020 08:24:04 +0000
-From: Christoph Hellwig <hch@infradead.org>
-To: Tycho Andersen <tycho@tycho.pizza>
-Subject: Re: [PATCH] riscv: return -ENOSYS for syscall -1
-Message-ID: <20201223082404.GB24581@infradead.org>
-References: <mvma6u6vkkv.fsf@suse.de>
- <20201222162219.GA710211@cisco>
+ id 1ks1X0-0006Og-J0; Wed, 23 Dec 2020 10:38:11 +0000
+Received: by mail-oo1-f48.google.com with SMTP id q6so3593726ooo.8;
+ Wed, 23 Dec 2020 02:38:08 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=KihTF5JbxFD42cY1wA7aOsNP35ZO1n0Na3DWL4feoYk=;
+ b=LaCkVUp+LTaJstNWLGzpZvG8b3goI7xBsP2uIYwFPjgz2EbzYDK8EKsehKetOhba0y
+ +s+CfOBgYj3AnszLuLbUhHz9KyMWFd6/FeXhYzFPBDvrNt/0SDknvBaz6qbIYYpQo5ET
+ x+Eg+KbQEut148uilC0V+WS4hK0DIUIWvH0ou1Fcnlaz88lKG2IU50PSiGNILsST4LMu
+ TIERUCgnCmQvmG3zpu0sgFM/0uG2cKOiSWILk9Wj27TdCRzF2t37jH6GCqEg7Xf4UWZF
+ 7Yalzk9ucQQYRQz1HwwoxYUsuDtVLWG86qxU4spPICHR8u8U0wZZvZROXGJi/davBkV5
+ N/nA==
+X-Gm-Message-State: AOAM532s0fqyH6lIZXHBV+LXJ4L78dW7JPTtNx2gqWNq9pQ0SrQGN0zg
+ OgzLQJeN/C6Njtvo5+59DaOVXUczm/b6Pn1YgUc=
+X-Google-Smtp-Source: ABdhPJy9U98CPLOM9qWfCFZui6dO/PQYCRjI00tgXXUEHSfVAWiteZLCs+U7EpAO2soA/tWzSTNFmBBqnM2RmfJo+z4=
+X-Received: by 2002:a4a:c191:: with SMTP id w17mr18070553oop.1.1608719888011; 
+ Wed, 23 Dec 2020 02:38:08 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20201222162219.GA710211@cisco>
-X-SRS-Rewrite: SMTP reverse-path rewritten from <hch@infradead.org> by
- casper.infradead.org. See http://www.infradead.org/rpr.html
+References: <20201222184510.19415-1-info@metux.net>
+ <CAMuHMdVze3oaWmzvzn8ROjpP6h6Tsv2SFLiV7T1Cnej36X445g@mail.gmail.com>
+ <2f1d53e9-0dbb-78ef-22d5-ab230438ddf0@metux.net>
+In-Reply-To: <2f1d53e9-0dbb-78ef-22d5-ab230438ddf0@metux.net>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 23 Dec 2020 11:37:56 +0100
+Message-ID: <CAMuHMdXoHVPwqC_v6DL2MTi2j_tgnCqy9eiuLHvmZ9cB5scbQA@mail.gmail.com>
+Subject: Re: [PATCH] arch: consolidate pm_power_off callback
+To: "Enrico Weigelt, metux IT consult" <lkml@metux.net>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20201223_053810_645523_292ACF41 
+X-CRM114-Status: GOOD (  21.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -71,51 +77,101 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: David Abdurachmanov <david.abdurachmanov@sifive.com>,
- Andreas Schwab <schwab@suse.de>, linux-kernel@vger.kernel.org,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv@lists.infradead.org
+Cc: Rich Felker <dalias@libc.org>,
+ "linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>,
+ Linux-sh list <linux-sh@vger.kernel.org>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
+ James Bottomley <James.Bottomley@hansenpartnership.com>,
+ Max Filippov <jcmvbkbc@gmail.com>, Paul Mackerras <paulus@samba.org>,
+ linux-csky@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>, Will Deacon <will@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Jonas Bonn <jonas@southpole.se>,
+ linux-s390 <linux-s390@vger.kernel.org>,
+ Stefano Stabellini <sstabellini@kernel.org>, linux-c6x-dev@linux-c6x.org,
+ Yoshinori Sato <ysato@users.sourceforge.jp>,
+ "open list:QUALCOMM HEXAGON..." <linux-hexagon@vger.kernel.org>,
+ Helge Deller <deller@gmx.de>, the arch/x86 maintainers <x86@kernel.org>,
+ Ley Foon Tan <ley.foon.tan@intel.com>, Ingo Molnar <mingo@redhat.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ arcml <linux-snps-arc@lists.infradead.org>,
+ "open list:TENSILICA XTENSA PORT \(xtensa\)" <linux-xtensa@linux-xtensa.org>,
+ Linux PM list <linux-pm@vger.kernel.org>, Mark Salter <msalter@redhat.com>,
+ Aurelien Jacquiot <jacquiot.aurelien@gmail.com>,
+ linux-m68k <linux-m68k@lists.linux-m68k.org>,
+ Openrisc <openrisc@lists.librecores.org>, Borislav Petkov <bp@alien8.de>,
+ Stafford Horne <shorne@gmail.com>,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Christian Brauner <christian@brauner.io>, Chris Zankel <chris@zankel.net>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Parisc List <linux-parisc@vger.kernel.org>,
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ alpha <linux-alpha@vger.kernel.org>, "Enrico Weigelt,
+ metux IT consult" <info@metux.net>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 22, 2020 at 09:22:19AM -0700, Tycho Andersen wrote:
-> On Mon, Dec 21, 2020 at 11:52:00PM +0100, Andreas Schwab wrote:
-> > Properly return -ENOSYS for syscall -1 instead of leaving the return value
-> > uninitialized.  This fixes the strace teststuite.
-> > 
-> > Fixes: 5340627e3fe0 ("riscv: add support for SECCOMP and SECCOMP_FILTER")
-> > Signed-off-by: Andreas Schwab <schwab@suse.de>
-> > ---
-> >  arch/riscv/kernel/entry.S | 9 +--------
-> >  1 file changed, 1 insertion(+), 8 deletions(-)
-> > 
-> > diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> > index 524d918f3601..d07763001eb0 100644
-> > --- a/arch/riscv/kernel/entry.S
-> > +++ b/arch/riscv/kernel/entry.S
-> > @@ -186,14 +186,7 @@ check_syscall_nr:
-> >  	 * Syscall number held in a7.
-> >  	 * If syscall number is above allowed value, redirect to ni_syscall.
-> >  	 */
-> > -	bge a7, t0, 1f
-> > -	/*
-> > -	 * Check if syscall is rejected by tracer, i.e., a7 == -1.
-> > -	 * If yes, we pretend it was executed.
-> > -	 */
-> > -	li t1, -1
-> > -	beq a7, t1, ret_from_syscall_rejected
-> > -	blt a7, t1, 1f
-> > +	bgeu a7, t0, 1f
-> 
-> IIUC, this is all dead code anyway for the path where seccomp actually
-> rejects the syscall, since it should do the rejection directly in
-> handle_syscall_trace_enter(), which is called above this hunk. So it
-> seems good to me.
+Hi Enrico,
 
-That change really needs to be documented in the commit log, or even
-better split into a separate patch (still documented of course!).
+On Tue, Dec 22, 2020 at 9:15 PM Enrico Weigelt, metux IT consult
+<lkml@metux.net> wrote:
+> On 22.12.20 19:54, Geert Uytterhoeven wrote:
+> > On Tue, Dec 22, 2020 at 7:46 PM Enrico Weigelt, metux IT consult
+> > <info@metux.net> wrote:
+> >> Move the pm_power_off callback into one global place and also add an
+> >> function for conditionally calling it (when not NULL), in order to remove
+> >> code duplication in all individual archs.
+> >>
+> >> Signed-off-by: Enrico Weigelt, metux IT consult <info@metux.net>
+> >
+> > Thanks for your patch!
+> >
+> >> --- a/arch/alpha/kernel/process.c
+> >> +++ b/arch/alpha/kernel/process.c
+> >> @@ -43,12 +43,6 @@
+> >>  #include "proto.h"
+> >>  #include "pci_impl.h"
+> >>
+> >> -/*
+> >> - * Power off function, if any
+> >> - */
+> >> -void (*pm_power_off)(void) = machine_power_off;
+> >
+> > Assignments like these are lost in the conversion.
+>
+> Yes, but this doesn't seem to be ever called anyways. (in arch/alpha)
+> And, BTW, letting it point to machine_power_off() doesn't make much
+> sense, since it's the arch's machine_power_off() function, who're
+> calling pm_power_off().
+>
+> Actually, we could remove pm_power_off completely from here, assuming
+> nobody would *build* any drivers that register themselves into
+> pm_power_off.
+>
+> If you feel better with it, I could post a patch that just removes
+> pm_power_off from arch/alpha.
+
+This is not limited to alpha, there are similar initializations on
+m68k, openrisc,
+and s390.
+If none of these are called, they can be removed, but you should mention
+that in the patch description.
+
+Thanks!
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
