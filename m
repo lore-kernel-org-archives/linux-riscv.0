@@ -2,20 +2,19 @@ Return-Path: <SRS0=SHZ6=F3=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	UNWANTED_LANGUAGE_BODY,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
-	autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 62A2FC433E0
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Dec 2020 16:33:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2487DC433E0
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Dec 2020 16:33:18 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E467F222BB
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Dec 2020 16:33:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E467F222BB
+	by mail.kernel.org (Postfix) with ESMTPS id 1D59D2229C
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Dec 2020 16:33:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1D59D2229C
 Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=microchip.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,59 +23,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TPvdOzThvsBRme1EgrALZMeBN6ivs75yxvXIjun+C70=; b=ybLSkhg5i2lJLMexGczMTBrsLF
-	bU2Aa4E5SOm/uKcP2754OfMVsxPywhzFi9oTFJtb1GXyBGqVxbeKIcxHl9+PBvMoeudnmllqANBFl
-	9qDA3FZutNvIW1GuG+5TpjbcQ8jc2V4iK4xWmO0FiIDCL8wXcv9ZgEOr7iAF6QMtYxyN8FDK1+9PY
-	fv+/t64LKCE+VKUIpbWNw1icQH4N0K98yrIn1OLOSbWnJw0HfUtRCr4KvYgJfQIQ2GcDNGqowSrP2
-	qjJE6iGjqTp5JnQj61ajQiaMMbuoaYQ2GNMrpM9zhnh97VSSAIBLYMVWEJNc8OFDj41VnyEK6QYq3
-	4Bt3LwVg==;
+	bh=rU9xRBinfXNXYBUCCCMokF/K39wU85JSJv0MyJ2noQY=; b=I0Rtdcnsm84N31FRci/LKDaepv
+	dFwB4UaJw2/F0PXEXxxHsOMoqnPftuBjJrSR2h+n5yDgfvlBb+GfKM2rHUSBkn9MGGRYOOWjVPBD/
+	XoT6anew9vmUd3qxGOuRXufSIkNSuAFrv79CgugRK7YyDNwaofsaYAyVl9F1g/t4febVpUsMP085I
+	trJh2sozzA116KNBbFFVhPqkp/xxwoPUIdtQLGIO+yU7AypyA8ECoAD+wIEpYL+9Wymkj+Efi1DnC
+	tbiEvdJ0sf6qULXWXPMpFu5XMLjTaKu73pZVRkqAZWXiclHyHl4/u6N6koiMcpy2JfSwlYdmkXoS+
+	Jbtz+99w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ks74Q-0007H6-MB; Wed, 23 Dec 2020 16:33:02 +0000
+	id 1ks74Y-0007IL-93; Wed, 23 Dec 2020 16:33:10 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ks74P-0007Ge-22
- for linux-riscv@lists.infradead.org; Wed, 23 Dec 2020 16:33:02 +0000
+ id 1ks74V-0007Hl-Rj
+ for linux-riscv@lists.infradead.org; Wed, 23 Dec 2020 16:33:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
- t=1608741180; x=1640277180;
+ t=1608741187; x=1640277187;
  h=from:to:cc:subject:date:message-id:mime-version;
- bh=YwYB+WOtpYKvAv4y2yVoR1fKm+XG11/A71tqgdjHX1A=;
- b=wNrbJMjDL6RvpeUmif+bW46+Vw7sACUYBFzBQZyDJhlWjUNJN8CKV9DW
- C01jZkZmP7o4X9baX6ZCGphxCwPa13/n8vl21qiMg8jHPLbFkN/L0AUTG
- iPjcXbEWu0bYViMt0Z20wD1reICGmXD5F6f1tccSj2sBh9lQdOFk3C++G
- zto0tR2BbYIUPcyHKvcg7ty0142l1FgUR3pSVacjzrEyoM4gPtc0ZE+zF
- fE5cdJaIJcDsoYcEULxKTOs0Uz5E54Pdz7feeR8Tz1Vwfm9H0TEC23OG7
- ubH0v12rZjxefnOxKWkAfcXCCpZ7dDeshYgqZdz+HcrLwNRhnn3W9gEJu g==;
-IronPort-SDR: 14SSg/UVpgo6PP51cEFaFXIwH1I6WRqAcqXtiKgLqvn8rRLnIUH/uZRzOm6iGuy3ZrE+ra879C
- uuqNOyytORxQ8bB3MlhBiXWySxBjHZ0keV+Nv0aX9mpGrKnqtZXaHxCtd9kzrKhsqveEDIKeeX
- s+X/2x20eVZ9zRnXO1lmSmxjzd5OetCFTqu5QMFv8xgKvlgB0PjITtUNJ8B7aVXx/wP/ssBYdS
- 1eAmVFxFKtEQ9u5TUk7MfvKY6SZjTbuHdySA4z/gIJKxpqO1IvFMZISr8fpe6GBZFceG+SDaYZ
- cic=
-X-IronPort-AV: E=Sophos;i="5.78,441,1599548400"; d="scan'208";a="103833415"
+ bh=h1uU/xZB+u65R9PycjaTtcUTsDJER2E6v6lRjGcr7MY=;
+ b=Qh0OQaXc8NXaf2n2ETd6x7d9EXJe8rAtmpaQpb7lffukvmIJE329P881
+ uQOGEO25QXiuTUXStTEDtYCRm4q9qfuzMdRnC/0NIsfroLEaOMHJKoD+o
+ c6lwR5H/GxGnRwItz3uO9dXGCUbcyx4yev8mzAfdXb92A2mmeRBHiAN3o
+ HPTprT8dGgapZ+9ICfGfU4MIXYAQvyqFPTpC6+L4nyaZy5SiONEUubIzT
+ BagmlB4sZeYtg3OP29p4JR2ZrcaSYje58sHbh/VdOKITZTavp3H9gTBQx
+ oLDDn3EWTTGP2aRD+oaL62n+i8MVls+DTzmApU3gI2/2A13UUxlXiclXL w==;
+IronPort-SDR: oh4ujwtW0+2ocjPCLo+sBsWgV7rQeYWKTsmjw3cPi2gPsVn361FffOmr+D6Whuw8TlodKwcVb0
+ hgZk+Dl2pxIYGCET6DDNaIOiaVFMgwSCeVS792woC7SBNAcuco4CfXaE3VfqwmGE/HUQX/svGq
+ ov0ns3IFfSTb/WmsS7WQ1OAGn4I21LfIDo0xeybb0ZTeXQzk74Q4AtpRuOch4s6wzdB2ObC6G4
+ sTMXVWXumOyi+29LoOnSyVoEgeTQXCu/rHkrWfgDD14Z0fxjFeWZJ5EtkeURZlXYC/wV79WcfE
+ Yv0=
+X-IronPort-AV: E=Sophos;i="5.78,441,1599548400"; d="scan'208";a="108748448"
 Received: from smtpout.microchip.com (HELO email.microchip.com)
  ([198.175.253.82])
- by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 23 Dec 2020 09:32:58 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 23 Dec 2020 09:33:06 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
  chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.1979.3; Wed, 23 Dec 2020 09:32:58 -0700
-Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server id 15.1.1979.3 via Frontend
- Transport; Wed, 23 Dec 2020 09:32:56 -0700
+ 15.1.1979.3; Wed, 23 Dec 2020 09:33:06 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server id 15.1.1979.3 via Frontend
+ Transport; Wed, 23 Dec 2020 09:33:03 -0700
 From: <conor.dooley@microchip.com>
 To: <robh+dt@kernel.org>, <damien.lemoal@wdc.com>, <jassisinghbrar@gmail.com>, 
  <aou@eecs.berkeley.edu>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, 
  <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: [PATCH v3 1/5] mbox: add polarfire soc system controller mailbox
-Date: Wed, 23 Dec 2020 16:32:55 +0000
-Message-ID: <20201223163255.28992-1-conor.dooley@microchip.com>
+Subject: [PATCH v3 2/5] dt-bindings: add bindings for polarfire soc mailbox
+Date: Wed, 23 Dec 2020 16:33:02 +0000
+Message-ID: <20201223163302.29057-1-conor.dooley@microchip.com>
 X-Mailer: git-send-email 2.17.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201223_113301_275451_B0C925F4 
-X-CRM114-Status: GOOD (  23.96  )
+X-CRM114-CacheID: sfid-20201223_113308_036392_FBACE952 
+X-CRM114-Status: GOOD (  10.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -99,403 +98,68 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-This driver adds support for the single mailbox channel of the MSS
-system controller on the Microchip PolarFire SoC.
+Add device tree bindings for the MSS system controller mailbox on
+the Microchip PolarFire SoC.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- drivers/mailbox/Kconfig        |  12 ++
- drivers/mailbox/Makefile       |   2 +
- drivers/mailbox/mailbox-mpfs.c | 285 +++++++++++++++++++++++++++++++++
- include/soc/microchip/mpfs.h   |  51 ++++++
- 4 files changed, 350 insertions(+)
- create mode 100644 drivers/mailbox/mailbox-mpfs.c
- create mode 100644 include/soc/microchip/mpfs.h
+ .../mailbox/microchip,mailbox-mpfs.yaml       | 47 +++++++++++++++++++
+ 1 file changed, 47 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/mailbox/microchip,mailbox-mpfs.yaml
 
-diff --git a/drivers/mailbox/Kconfig b/drivers/mailbox/Kconfig
-index 05b1009e2820..9aa18631c50b 100644
---- a/drivers/mailbox/Kconfig
-+++ b/drivers/mailbox/Kconfig
-@@ -153,6 +153,18 @@ config MAILBOX_TEST
- 	  Test client to help with testing new Controller driver
- 	  implementations.
- 
-+config POLARFIRE_SOC_MAILBOX
-+	tristate "PolarFire SoC (MPFS) Mailbox"
-+	depends on HAS_IOMEM
-+	depends on SOC_MICROCHIP_POLARFIRE || COMPILE_TEST
-+	help
-+	  This driver adds support for the PolarFire SoC (MPFS) mailbox controller.
-+
-+	  To compile this driver as a module, choose M here. the
-+	  module will be called mailbox-mpfs.
-+
-+	  If unsure, say N.
-+
- config QCOM_APCS_IPC
- 	tristate "Qualcomm APCS IPC driver"
- 	depends on ARCH_QCOM || COMPILE_TEST
-diff --git a/drivers/mailbox/Makefile b/drivers/mailbox/Makefile
-index 2e06e02b2e03..77b79a0c384c 100644
---- a/drivers/mailbox/Makefile
-+++ b/drivers/mailbox/Makefile
-@@ -39,6 +39,8 @@ obj-$(CONFIG_BCM_PDC_MBOX)	+= bcm-pdc-mailbox.o
- 
- obj-$(CONFIG_BCM_FLEXRM_MBOX)	+= bcm-flexrm-mailbox.o
- 
-+obj-$(CONFIG_POLARFIRE_SOC_MAILBOX)	+= mailbox-mpfs.o
-+
- obj-$(CONFIG_QCOM_APCS_IPC)	+= qcom-apcs-ipc-mailbox.o
- 
- obj-$(CONFIG_TEGRA_HSP_MBOX)	+= tegra-hsp.o
-diff --git a/drivers/mailbox/mailbox-mpfs.c b/drivers/mailbox/mailbox-mpfs.c
+diff --git a/Documentation/devicetree/bindings/mailbox/microchip,mailbox-mpfs.yaml b/Documentation/devicetree/bindings/mailbox/microchip,mailbox-mpfs.yaml
 new file mode 100644
-index 000000000000..b31317a8f44e
+index 000000000000..c5b126c6fb66
 --- /dev/null
-+++ b/drivers/mailbox/mailbox-mpfs.c
-@@ -0,0 +1,285 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Microchip PolarFire SoC (MPFS) system controller/mailbox controller driver
-+ *
-+ * Copyright (c) 2020 Microchip Corporation. All rights reserved.
-+ *
-+ * Author: Conor Dooley <conor.dooley@microchip.com>
-+ *
-+ */
-+
-+#include <linux/io.h>
-+#include <linux/err.h>
-+#include <linux/init.h>
-+#include <linux/module.h>
-+#include <linux/kernel.h>
-+#include <linux/interrupt.h>
-+#include <linux/platform_device.h>
-+#include <linux/mailbox_controller.h>
-+#include <soc/microchip/mpfs.h>
-+
-+#define SERVICES_CR_OFFSET		0x50u
-+#define SERVICES_SR_OFFSET		0x54u
-+#define MAILBOX_REG_OFFSET		0x800u
-+#define MSS_SYS_BUSY			-EBUSY
-+#define MSS_SYS_PARAM_ERR		-EINVAL
-+#define MSS_SYS_MAILBOX_DATA_OFFSET	0u
-+#define SCB_MASK_WIDTH			16u
-+
-+/* SCBCTRL service control register */
-+
-+#define SCB_CTRL_REQ (0)
-+#define SCB_CTRL_REQ_MASK BIT(SCB_CTRL_REQ)
-+
-+#define SCB_CTRL_BUSY (1)
-+#define SCB_CTRL_BUSY_MASK BIT(SCB_CTRL_BUSY)
-+
-+#define SCB_CTRL_ABORT (2)
-+#define SCB_CTRL_ABORT_MASK BIT(SCB_CTRL_ABORT)
-+
-+#define SCB_CTRL_NOTIFY (3)
-+#define SCB_CTRL_NOTIFY_MASK BIT(SCB_CTRL_NOTIFY)
-+
-+#define SCB_CTRL_POS (16)
-+#define SCB_CTRL_MASK GENMASK(SCB_CTRL_POS + SCB_MASK_WIDTH, SCB_CTRL_POS)
-+
-+/* SCBCTRL service status registers */
-+
-+#define SCB_STATUS_REQ (0)
-+#define SCB_STATUS_REQ_MASK BIT(SCB_STATUS_REQ)
-+
-+#define SCB_STATUS_BUSY (1)
-+#define SCB_STATUS_BUSY_MASK BIT(SCB_STATUS_BUSY)
-+
-+#define SCB_STATUS_ABORT (2)
-+#define SCB_STATUS_ABORT_MASK BIT(SCB_STATUS_ABORT)
-+
-+#define SCB_STATUS_NOTIFY (3)
-+#define SCB_STATUS_NOTIFY_MASK BIT(SCB_STATUS_NOTIFY)
-+
-+#define SCB_STATUS_POS (16)
-+#define SCB_STATUS_MASK GENMASK(SCB_STATUS_POS + SCB_MASK_WIDTH, SCB_STATUS_POS)
-+
-+struct mpfs_mbox {
-+	struct mbox_controller controller;
-+	struct device *dev;
-+	int irq;
-+	void __iomem *mailbox_base;
-+	void __iomem *int_reg;
-+	struct mbox_chan *chan;
-+	u16 response_size;
-+	u16 response_offset;
-+};
-+
-+static bool mpfs_mbox_busy(struct mpfs_mbox *mbox)
-+{
-+	u32 status;
-+
-+	status = readl_relaxed(mbox->mailbox_base + SERVICES_SR_OFFSET);
-+
-+	return status & SCB_STATUS_BUSY_MASK;
-+}
-+
-+static struct mpfs_mbox *mbox_chan_to_mpfs_mbox(struct mbox_chan *chan)
-+{
-+	if (!chan)
-+		return NULL;
-+
-+	return (struct mpfs_mbox *)chan->con_priv;
-+}
-+
-+static int mpfs_mbox_send_data(struct mbox_chan *chan, void *data)
-+{
-+	u32 index;
-+	u32 *word_buf;
-+	u8 *byte_buf;
-+	u8 byte_off;
-+	u8 extra_bits;
-+	u8 i;
-+	u32 mailbox_val = 0u;
-+	u16 mbox_offset;
-+	u16 mbox_options_select;
-+	u32 mbox_tx_trigger;
-+	struct mpfs_mss_msg *msg = data;
-+	struct mpfs_mbox *mbox = mbox_chan_to_mpfs_mbox(chan);
-+
-+	mbox_offset = msg->mailbox_offset;
-+	mbox->response_size = msg->response_size;
-+	mbox->response_offset = msg->response_offset;
-+
-+	if (mpfs_mbox_busy(mbox))
-+		return MSS_SYS_BUSY;
-+
-+	mbox_options_select = ((mbox_offset << 7u) | (msg->cmd_opcode & 0x7fu));
-+	mbox_tx_trigger = (((mbox_options_select << SCB_CTRL_POS) &
-+		SCB_CTRL_MASK) | SCB_CTRL_REQ_MASK | SCB_STATUS_NOTIFY_MASK);
-+
-+	/* Code for MSS_SYS_PARAM_ERR is not implemented with this version of driver. */
-+
-+	writel_relaxed(0, mbox->int_reg);
-+
-+	if (msg->cmd_data_size) {
-+		byte_buf = msg->cmd_data;
-+
-+		for (index = 0; index < (msg->cmd_data_size / 4); index++)
-+			writel_relaxed(word_buf[index],
-+				       mbox->mailbox_base + MAILBOX_REG_OFFSET + index);
-+		extra_bits = msg->cmd_data_size & 3;
-+		if (extra_bits) {
-+			byte_off = ALIGN_DOWN(msg->cmd_data_size, 4);
-+			byte_buf = msg->cmd_data + byte_off;
-+
-+			mailbox_val = readl_relaxed(mbox->mailbox_base +
-+						    MAILBOX_REG_OFFSET + index);
-+
-+			for (i = 0u; i < extra_bits; i++) {
-+				mailbox_val &= ~(0xffu << (i * 8u));
-+				mailbox_val |= (byte_buf[i] << (i * 8u));
-+			}
-+
-+			writel_relaxed(mailbox_val,
-+				       mbox->mailbox_base + MAILBOX_REG_OFFSET + index);
-+		}
-+	}
-+
-+	writel_relaxed(mbox_tx_trigger, mbox->mailbox_base + SERVICES_CR_OFFSET);
-+
-+	return 0;
-+}
-+
-+static inline bool mpfs_mbox_pending(struct mpfs_mbox *mbox)
-+{
-+	u32 status;
-+
-+	status = readl_relaxed(mbox->mailbox_base + SERVICES_SR_OFFSET);
-+
-+	return !(status & SCB_STATUS_BUSY_MASK);
-+}
-+
-+static void mpfs_mbox_rx_data(struct mbox_chan *chan)
-+{
-+	struct mpfs_mbox *mbox = mbox_chan_to_mpfs_mbox(chan);
-+	u32 *data;
-+	u32 i;
-+	u32 response_limit;
-+
-+	data = devm_kzalloc(mbox->dev, sizeof(*data) * mbox->response_size, GFP_ATOMIC);
-+	if (!data)
-+		dev_err(mbox->dev, "failed to assign memory for response\n", -ENOMEM);
-+
-+	response_limit = mbox->response_size + mbox->response_offset;
-+	if (mpfs_mbox_pending(mbox) && mbox->response_size > 0U) {
-+		for (i = mbox->response_offset; i < response_limit; i++) {
-+			data[i - mbox->response_offset] =
-+				readl_relaxed(mbox->mailbox_base + MAILBOX_REG_OFFSET + i * 0x4);
-+		}
-+	}
-+
-+	mbox_chan_received_data(chan, (void *)data);
-+	devm_kfree(mbox->dev, data);
-+}
-+
-+static irqreturn_t mpfs_mbox_inbox_isr(int irq, void *data)
-+{
-+	struct mbox_chan *chan = (struct mbox_chan *)data;
-+	struct mpfs_mbox *mbox = mbox_chan_to_mpfs_mbox(chan);
-+
-+	writel_relaxed(0, mbox->int_reg);
-+
-+	mpfs_mbox_rx_data(chan);
-+
-+	mbox_chan_txdone(chan, 0);
-+	return IRQ_HANDLED;
-+}
-+
-+static int mpfs_mbox_startup(struct mbox_chan *chan)
-+{
-+	struct mpfs_mbox *mbox = mbox_chan_to_mpfs_mbox(chan);
-+	int ret = 0;
-+
-+	if (!mbox)
-+		return -EINVAL;
-+	ret = devm_request_irq(mbox->dev, mbox->irq, mpfs_mbox_inbox_isr, 0, "mpfs-mailbox", chan);
-+	if (ret)
-+		dev_err(mbox->dev, "failed to register mailbox interrupt:%d\n", ret);
-+
-+	return ret;
-+}
-+
-+static void mpfs_mbox_shutdown(struct mbox_chan *chan)
-+{
-+	struct mpfs_mbox *mbox = mbox_chan_to_mpfs_mbox(chan);
-+
-+	devm_free_irq(mbox->dev, mbox->irq, chan);
-+}
-+
-+static const struct mbox_chan_ops mpfs_mbox_ops = {
-+	.send_data = mpfs_mbox_send_data,
-+	.startup = mpfs_mbox_startup,
-+	.shutdown = mpfs_mbox_shutdown,
-+};
-+
-+static int mpfs_mbox_probe(struct platform_device *pdev)
-+{
-+	struct mpfs_mbox *mbox;
-+	struct resource *regs;
-+	struct mbox_chan *chans;
-+	int ret;
-+
-+	mbox = devm_kzalloc(&pdev->dev, sizeof(*mbox), GFP_KERNEL);
-+	if (!mbox)
-+		return -ENOMEM;
-+
-+	chans = devm_kzalloc(&pdev->dev, sizeof(*chans), GFP_KERNEL);
-+	if (!chans)
-+		return -ENOMEM;
-+
-+	mbox->mailbox_base = devm_platform_get_and_ioremap_resource(pdev, 0, &regs);
-+	if (IS_ERR(mbox->mailbox_base))
-+		return PTR_ERR(mbox->mailbox_base);
-+
-+	mbox->int_reg = devm_platform_get_and_ioremap_resource(pdev, 1, &regs);
-+	if (IS_ERR(mbox->int_reg))
-+		return PTR_ERR(mbox->int_reg);
-+
-+	mbox->irq = platform_get_irq(pdev, 0);
-+	if (mbox->irq < 0)
-+		return mbox->irq;
-+
-+	mbox->dev = &pdev->dev;
-+
-+	chans[0].con_priv = mbox;
-+	mbox->controller.dev = mbox->dev;
-+	mbox->controller.num_chans = 1;
-+	mbox->controller.chans = chans;
-+	mbox->controller.ops = &mpfs_mbox_ops;
-+	mbox->controller.txdone_irq = true;
-+
-+	ret = devm_mbox_controller_register(&pdev->dev, &mbox->controller);
-+	if (ret) {
-+		dev_err(&pdev->dev, "Registering MPFS mailbox controller failed\n");
-+		return ret;
-+	}
-+	dev_info(&pdev->dev, "Registered MPFS mailbox controller driver\n");
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id mpfs_mbox_of_match[] = {
-+	{.compatible = "microchip,polarfire-soc-mailbox", },
-+	{},
-+};
-+MODULE_DEVICE_TABLE(of, mpfs_mbox_of_match);
-+
-+static struct platform_driver mpfs_mbox_driver = {
-+	.driver = {
-+		.name = "mpfs-mailbox",
-+		.of_match_table = mpfs_mbox_of_match,
-+	},
-+	.probe = mpfs_mbox_probe,
-+};
-+module_platform_driver(mpfs_mbox_driver);
-+
-+MODULE_LICENSE("GPL v2");
-+MODULE_AUTHOR("Conor Dooley <conor.dooley@microchip.com>");
-+MODULE_DESCRIPTION("MPFS mailbox controller driver");
-diff --git a/include/soc/microchip/mpfs.h b/include/soc/microchip/mpfs.h
-new file mode 100644
-index 000000000000..4a9d335154a1
---- /dev/null
-+++ b/include/soc/microchip/mpfs.h
-@@ -0,0 +1,51 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ *
-+ * Microchip PolarFire SoC (MPFS) mailbox
-+ *
-+ * Copyright (c) 2020 Microchip Corporation. All rights reserved.
-+ *
-+ * Author: Conor Dooley <conor.dooley@microchip.com>
-+ *
-+ */
-+
-+#ifndef __SOC_MPFS_H__
-+#define __SOC_MPFS_H__
-+
-+#include <linux/types.h>
-+#include <linux/of_device.h>
-+
-+struct mpfs_sys_controller;
-+
-+struct mpfs_mss_msg {
-+	u8 cmd_opcode;
-+	u16 cmd_data_size;
-+	u16 response_size;
-+	u8 *cmd_data;
-+	u16 mailbox_offset;
-+	u16 response_offset;
-+};
-+
-+#if IS_ENABLED(CONFIG_POLARFIRE_SOC_SYS_CTRL)
-+
-+int mpfs_blocking_transaction(struct mpfs_sys_controller *mpfs_client, void *msg,
-+			      void *response, u16 response_size_bytes);
-+
-+struct mpfs_sys_controller *mpfs_sys_controller_get(struct device_node *mailbox_node);
-+
-+#else
-+
-+static int mpfs_blocking_transaction(struct mpfs_sys_controller *mpfs_client, void *msg,
-+				     void *response, u16 response_size_bytes)
-+{
-+	return -ENOSYS;
-+}
-+
-+struct mpfs_sys_controller *mpfs_sys_controller_get(struct device_node *mailbox_node)
-+{
-+	return NULL;
-+}
-+
-+#endif /* if IS_ENABLED(CONFIG_POLARFIRE_SOC_SYS_CTRL) */
-+
-+#endif /* __SOC_MPFS_H__ */
++++ b/Documentation/devicetree/bindings/mailbox/microchip,mailbox-mpfs.yaml
+@@ -0,0 +1,47 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: "http://devicetree.org/schemas/mailbox/microchip,mailbox-mpfs.yaml#"
++$schema: "http://devicetree.org/meta-schemas/core.yaml#"
++
++title: Microchip PolarFire SoC (MPFS) mss mailbox controller
++
++maintainers:
++  - Conor Dooley <conor.dooley@microchip.com>
++
++properties:
++  compatible:
++    const: microchip,polarfire-soc-mailbox
++
++  reg:
++    items:
++      - description: mailbox data registers
++      - description: mailbox int registers
++
++  interrupts:
++    maxItems: 1
++
++  "#mbox-cells":
++    const: 1
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - "#mbox-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    soc {
++      #address-cells = <2>;
++      #size-cells = <2>;
++      mbox: mailbox@37020000 {
++        compatible = "microchip,polarfire-soc-mailbox";
++        reg = <0x0 0x37020000 0x0 0x1000>, <0x0 0x2000318c 0x0 0x40>;
++        interrupt-parent = <&L1>;
++        interrupts = <96>;
++        #mbox-cells = <1>;
++      };
++    };
 -- 
 2.17.1
 
