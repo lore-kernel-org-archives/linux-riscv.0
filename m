@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 370DFC433DB
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Dec 2020 16:33:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 248E9C433E0
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Dec 2020 16:33:39 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D5F402229C
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Dec 2020 16:33:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D5F402229C
+	by mail.kernel.org (Postfix) with ESMTPS id B4DC0222BB
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Dec 2020 16:33:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B4DC0222BB
 Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=microchip.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,60 +23,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9HVkC4ucyXbVJ6pux/SqjMvGT5lDPlSk3uuT9qneSug=; b=bX0PJliGMklXkTzikcN1H5LW0x
-	T8EGqZ0CQd1uQfKo7K1yLOkKkLrHnAMTiIUGqU2f1jKtwW9mG+dRf2lln5lM7eRTVmHNEcan+YSPt
-	AwWjEc9YzBEbWNEEwW9xC2t4WOpCoQRuadYUZqYgAluqC9h2ICQ0hr1kSnTetKWkh+TRs/oQLdj5r
-	CKQbHatW/ReoaVBKkEQeXQLUqYBhOL0Ctli1nqRBNp02LCcT6G+q089mxuKgdjucFRTV6u3PP7fys
-	Zty4ij6P98TpbzJUR++IFYUjWHdcTqNIgq8kKfEgugQYL0z55mNXarUt+9ioqDD2RDnboFy9xWOM0
-	sV3x4fow==;
+	bh=JqU1p5N54FZKh7zh4hDBiVF5/lcosqxAom1ucsy+aks=; b=JsaSn69tlXdNF5P3OeFuNQUyw6
+	4+YTb5A5ZGZJSk9QWh3xBZGQvvC+nB7qp8cG8Ev6EY7l6B6M0JmHiHH9XpyonU3pn6HgNNb+hFWeT
+	4/S7AX3yzym/r54BYSoH4+KU3ceyIgnyA3wx+8FNdQPMfe72z/jZFVmLeKBDQMpUCox1Bb78K3C0I
+	ishFjNPiFPte2pYx4c+/rTEp9Hg7NJaBUKFiObLiem0wfWy7LJ5+4MLxya76v29i3p4creSsVOD6b
+	e086svMAa9H0CviQTlZP4aelSTm/B5xrxivN5uCeZKtWdf2gZxHZlojS7CSHfkq7GhK63HAAQ8ir/
+	+jAAJmnQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ks74m-0007Lf-Hx; Wed, 23 Dec 2020 16:33:24 +0000
+	id 1ks74u-0007Op-AB; Wed, 23 Dec 2020 16:33:32 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ks74j-0007Kq-Gd
- for linux-riscv@lists.infradead.org; Wed, 23 Dec 2020 16:33:22 +0000
+ id 1ks74r-0007Ni-UI
+ for linux-riscv@lists.infradead.org; Wed, 23 Dec 2020 16:33:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
- t=1608741201; x=1640277201;
+ t=1608741209; x=1640277209;
  h=from:to:cc:subject:date:message-id:mime-version;
- bh=tjw0tl7bjtaxEZV9EBKLzBZuGR484w4552aqADq9SFc=;
- b=NTawax4ksR1+thwLhk6W+ruh4hSM3kDsRgQIHuE+LRXjE2ksDQ3c5Guo
- +NDVYI0f+RFFPDh4K6FVBBmD7Wc0JfcFby9hAfEYdCOLELDvzn31J8pgr
- XjhmdaQQ3LnBHVcBt7FYUZuvHC8lTZBq0WcSQFCSNXK2i2u4dYkxRzo6/
- +c0E5LoQ+OFzX7nVYhaLG0XjrLNQDcSSUzMBtFZT3Ye5cWa3qGpHW+97h
- qOBbv2lS90feQ1OXcMhm1xYLFeQkRwQcdpqPdXCuWdRPe5n/ONFG48ItJ
- rWBi9t2hcp3CXmOp8jP2C6EtjhEFPApt4Rpp1Yb8eUDviF8zq0Mww8koe g==;
-IronPort-SDR: wytZxmg8k8NTQAaVcd0srjIc7fVwHONouyyTd42iwJ2nq88dbriRXgRY5XZ6aH8UrdNsiPtJDx
- wD4SUYQvLiKqa2uBYc63ZpteEWgYweFQw3eTtGAuTNDBauVJzE1cP8IePbOM2fse2LZGCogNRw
- GF/6f85GFC8k4cZr309Pr3oOFjQ9JDV5kb2FUew6bTos2SEFEnuL6mcUgG15JpyQ4Zpu7HrRku
- FFtWMdQDEnTWNdm+5hIxF3AdXzuqOJEoS+ZVnrA9wVfd7lA7mL+VeYIyzPynh1TMCabWnOykoz
- VME=
-X-IronPort-AV: E=Sophos;i="5.78,441,1599548400"; d="scan'208";a="108748466"
+ bh=dYPZGNkeNLwFNM7ZbWk1HhdOD7XnxcZHTcC7mnA/goY=;
+ b=rtki0BKNmM46F2S5cSqxFXU7ZWCZmMCiu9D638yuVCwRH1fHNDhVQA7S
+ 5/c+hI7YFL1tfUHURAMjfcUGdxci16rdc580V2xn+KjAIdi8/VRVnjvzz
+ L6+hA8N1AxNc/KQGtnrUO+m2xu6GVXYU2XJrnjlZwIL0WehLWQfArlN19
+ QrSAxNgOvTxTbpKrVZ3pIwUglkuoQ7iyWKpsE88GFk3cdBqhn/9J7R5Iw
+ tlaefFm43JU7bKEawn6zsNTb9ecCZYfnnYSS7uwg0l+ZJOvl3R0iI97ow
+ vHRkI/uIauh25I4A5l3uM77CKvqF36W4bvNqdceCFWHVFSvFdtkqSzAT6 g==;
+IronPort-SDR: yiJ1k/dFWF2ugYZs1v2M4r/mbI03gkCvf+kyQoYRDQe9B5ebnoq8xhJ/rYEP3RHJ02Di4iKNEN
+ ZD9GlDS7CS9nr7xP13uvMntA19eAUgakpnGpZNIrfV8aybOrJrp561sFLUziIxM1/8sbnb5dQx
+ yezdo3nHRQ1dcaWRwt/ivWxYWBcvLhNLGR6eL7WtExBvG2ZomQpPwkrOSD9U7WDlMNubGKPEwl
+ ArNxa1Zn73ZDjTfzmV1EaJwJruzgj4tZ16ARYZBzORyc5UbMEqEQRogstTmd1YqNWWYRjhtpIX
+ CB8=
+X-IronPort-AV: E=Sophos;i="5.78,441,1599548400"; d="scan'208";a="103833490"
 Received: from smtpout.microchip.com (HELO email.microchip.com)
  ([198.175.253.82])
- by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 23 Dec 2020 09:33:19 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 23 Dec 2020 09:33:28 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.1979.3; Wed, 23 Dec 2020 09:33:19 -0700
-Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server id 15.1.1979.3 via Frontend
- Transport; Wed, 23 Dec 2020 09:33:17 -0700
+ 15.1.1979.3; Wed, 23 Dec 2020 09:33:28 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server id 15.1.1979.3 via Frontend
+ Transport; Wed, 23 Dec 2020 09:33:25 -0700
 From: <conor.dooley@microchip.com>
 To: <robh+dt@kernel.org>, <damien.lemoal@wdc.com>, <jassisinghbrar@gmail.com>, 
  <aou@eecs.berkeley.edu>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, 
  <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: [PATCH v3 4/5] dt-bindings: add bindings for polarfire soc system
- controller
-Date: Wed, 23 Dec 2020 16:33:16 +0000
-Message-ID: <20201223163316.29186-1-conor.dooley@microchip.com>
+Subject: [PATCH v3 5/5] MAINTAINERS: add maintainers for polarfire soc mailbox
+ driver
+Date: Wed, 23 Dec 2020 16:33:25 +0000
+Message-ID: <20201223163325.29270-1-conor.dooley@microchip.com>
 X-Mailer: git-send-email 2.17.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201223_113321_788296_02B09663 
-X-CRM114-Status: GOOD (  10.18  )
+X-CRM114-CacheID: sfid-20201223_113330_175951_7D1E8912 
+X-CRM114-Status: UNSURE (   9.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -99,55 +100,25 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-Add device tree bindings for the MSS system controller on
-the Microchip PolarFire SoC.
+Add the mailbox driver to the existing MAINTAINERS entry for the polarfire soc
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../microchip,mpfs_sys_controller.yaml        | 34 +++++++++++++++++++
- 1 file changed, 34 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/soc/microchip/microchip,mpfs_sys_controller.yaml
+ MAINTAINERS | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs_sys_controller.yaml b/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs_sys_controller.yaml
-new file mode 100644
-index 000000000000..60fde1925910
---- /dev/null
-+++ b/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs_sys_controller.yaml
-@@ -0,0 +1,34 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: "http://devicetree.org/schemas/soc/microchip/microchip,mpfs_sys_controller.yaml#"
-+$schema: "http://devicetree.org/meta-schemas/core.yaml#"
-+
-+title: Microchip PolarFire SoC (MPFS) system controller
-+
-+maintainers:
-+  - Conor Dooley <conor.dooley@microchip.com>
-+
-+properties:
-+  compatible:
-+    const: microchip,polarfire-soc-sys-controller
-+
-+  mboxes:
-+    $ref: '/schemas/types.yaml#/definitions/phandle-array'
-+    description: |
-+      phandle and index of the mailbox controller device node.
-+      See: ../mailbox/mailbox.txt for more information.
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - "mboxes"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    syscontroller: syscontroller {
-+      compatible = "microchip,polarfire-soc-sys-controller";
-+      mboxes = <&mbox 0>;
-+    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 5da634ea3adb..1e9b08ae1266 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -15016,6 +15016,7 @@ M:     Lewis Hanly <lewis.hanly@microchip.com>
+ M:     Cyril Jean <cyril.jean@microchip.com>
+ L:     linux-riscv@lists.infradead.org
+ S:     Supported
++F:	drivers/mailbox/mailbox-mpfs.c
+ F:     drivers/soc/microchip/
+ F:     include/soc/microchip/mpfs.h
+ 
 -- 
 2.17.1
 
