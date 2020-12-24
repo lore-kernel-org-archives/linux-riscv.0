@@ -2,82 +2,97 @@ Return-Path: <SRS0=/9Zu=F4=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-18.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	INCLUDES_PULL_REQUEST,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
-	SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 43FA1C433E0
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Dec 2020 04:24:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 92FF9C433DB
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Dec 2020 04:38:29 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C822222AAC
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Dec 2020 04:24:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C822222AAC
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id 0814922AAA
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Dec 2020 04:38:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0814922AAA
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=tycho.pizza
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Message-ID:To:From:Subject:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+7TM+yZOzYbxfAma3LYYKVfKjRcxe7+FoyfOHL8ah6s=; b=HbFoale+MM5TliUBK+W/ugHCsx
-	k5iqbHsyrw+Gq44iXRy/h4iA5w9gteya41OmFS8hMLlCBPy0oMzCq+EdYgxdTwFCS85pAR53MvOuu
-	cwiRFIqn+9gtmzCOd3KQsdkxw1g65OOi/eeM7x+KBwws/vhjjpkBvWSXgNPJaQWpOs4ejbS5ns/M2
-	hz6mSUVxBZtDQsYQbZsWslzTEA0fW788BZt3kycdour37aDP5unRVIDJwhFC8/RfGZO5WCF/AYc08
-	ev5cs0fX0WduTqeV+4mXtBrZRlHUw1ea7qDZRPtwFsbusiPpSggVA4aL/mcwz8/ppdh+zW3rtCLxn
-	8k/E1RBg==;
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=6Xlz+Vn398YcObjzbeQxpmDwbyBnvrB929TFfFe1Prc=; b=rJuIQAWtsC2lcylaenzHfUkj5
+	ZIwLfKrZ4W+od7ZKSOkA8EhncCSyxeu9OudU8iFXNP2njRpoQvgT/EJtfEApVZczNf2WYBrIHOG2E
+	UIAVuV7GYqlk5w21pp2hrtVMCPqFMAqa0nPWu2x9XQzAnb9Wh8xeir2OzNKgdSQ5F7CJc9G7wGLNu
+	TZzWIxzxAVIjdHcygHITm2KlCJLJWgoiy+pdoRs343pRfXQSq6ZBYoSiSm+wBnNfM1jq88tzjYU9/
+	8lKyMzAovFI5wzR3E81MAVmFnXUs8aKTxb5NMDlNzaTKJhzqKYTCFgrGluTfscTBw88hVpvozD2tD
+	sM4S41Jvg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ksIAg-0001lW-1N; Thu, 24 Dec 2020 04:24:14 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1ksIOH-0002G1-WB; Thu, 24 Dec 2020 04:38:18 +0000
+Received: from out4-smtp.messagingengine.com ([66.111.4.28])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ksIAd-0001l5-Vh
- for linux-riscv@lists.infradead.org; Thu, 24 Dec 2020 04:24:13 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id f9so605667pfc.11
- for <linux-riscv@lists.infradead.org>; Wed, 23 Dec 2020 20:24:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:cc:from:to:message-id;
- bh=eFNIDdfQMEQDT5VxT7UvlOTQkhuP0UlcVF5/8a1oZVw=;
- b=FIiIaF8Y2qiTVMo9ROp0f2zFUknPhBk7Hyq2hBZiQTKyunSIF8Vb87uYOzuqmyYc/Y
- Bn8cvZ9bTvq1nESCGy6EmfdfMpv+NmOH9zZ8vL+8EJSHcp9ScLfspxR5Oe00erHWAJNH
- XhoAcDmX4TUfFQLeYZMITcq60hiQxC2eRPLTXtUeIN9lpTOM3SvNqf2yWd2xXMyPfxrb
- 2OC5np46ppFJmXdXmRApgs3V73YPdIQI49Xs/usuakEsBBn66OAwpiwEC4l1jEUdddRU
- 5FuGmuHRufiS/2be/30OlhFNahDKWdonV1cNmkmFzwiGVMT9vrEhi+UFd3r40UGD/CL+
- +sRA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:cc:from:to:message-id;
- bh=eFNIDdfQMEQDT5VxT7UvlOTQkhuP0UlcVF5/8a1oZVw=;
- b=V3r4pQJ3n8ak4kGH8LluHQ5gZMbPzbpIyjuQxi6VohhU3DHmU2OqBgPpvyq//ssJtZ
- msl2YqHDK0z448AualbfTxgV0uWJPH+iLSpI1QXcjDkod7wSsYP8+ES+YS/0vBvqLK9x
- TW8u3BRYdO5JwoaMFdT1BO0kO5wsGspvCArKO63rK4njrbZEvawmGdHqHhlFtm+PO46K
- dfqQVqYJEkR6T5ZhUHi+MlJwJI05HF24QiC8MYOLzzSls2AMT+pR3rS41Qf1Yt9bCTf+
- Rdded6itmEEjLxDoE8FntRGpw2ht6AVFp8wHNnTJny/ry2AsmFTTy5MNRCpGejMe2Gpc
- mtcA==
-X-Gm-Message-State: AOAM532BPqHW2dthxzbnj1WaJNBb+QxAKemVZAmW0uRH127gE11TIXne
- HVYXcDOiBGTFQ0Op/LG8+jXXJ2LRpNSH4w==
-X-Google-Smtp-Source: ABdhPJxEKQn2mqdHvl3fjDZEpX4U6V7iktUQsILQrETYO1uYQ3wOX2SBIPyj3cwUngkvfHP+yOYs+g==
-X-Received: by 2002:a62:d142:0:b029:19e:62a0:ca1a with SMTP id
- t2-20020a62d1420000b029019e62a0ca1amr26275067pfl.80.1608783846600; 
- Wed, 23 Dec 2020 20:24:06 -0800 (PST)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id b6sm23421973pfd.43.2020.12.23.20.24.05
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 23 Dec 2020 20:24:05 -0800 (PST)
-Date: Wed, 23 Dec 2020 20:24:05 -0800 (PST)
-X-Google-Original-Date: Wed, 23 Dec 2020 20:23:59 PST (-0800)
-Subject: [GIT PULL] RISC-V Fixes for 5.11-rc1 (or rc2, if it's too late)
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <mhng-ab52db2e-d084-4a51-b804-ae41d45ca8db@palmerdabbelt-glaptop>
+ id 1ksIOE-0002FH-Kn
+ for linux-riscv@lists.infradead.org; Thu, 24 Dec 2020 04:38:16 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.46])
+ by mailout.nyi.internal (Postfix) with ESMTP id 510325C00D5;
+ Wed, 23 Dec 2020 23:38:09 -0500 (EST)
+Received: from mailfrontend2 ([10.202.2.163])
+ by compute6.internal (MEProxy); Wed, 23 Dec 2020 23:38:09 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tycho.pizza; h=
+ date:from:to:cc:subject:message-id:references:mime-version
+ :content-type:in-reply-to; s=fm2; bh=ZuAOZsuNyuhekGAfAuVc4cPYDPj
+ wuvIUZMlI+9EGZFw=; b=P0tHQ73n6Zk/97bKki+yq/zgjYW2E5/0zcclADwMdwW
+ hHvXicBzFMFnbiYXVTRynKWcQBIcoyeZ8R+d8XCYlJyuCuEfHVPm3pX70KHVaxKw
+ ko+VaehO28E6WXZxQ601VKjvWXvi8nXl2GMfloi9bMtG6JMkxhXPgSLSV4LA1+jW
+ heqVQ6vkDmPBWiPD5rK2/ECEgzAk9tE0PejYD7g4wZC6tIM0OU2dLLukFY3NVwn+
+ Jj79SFJSduL6jBmYcTn6Ni3m9NLZA2r1xjnVRBGzQG0z8U0WHqWcd7xCk/v8IPpL
+ 2QeHo7B6XXpWENlyUnyQN1V6NuWGabUZ8qIT2vYy2HA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+ messagingengine.com; h=cc:content-type:date:from:in-reply-to
+ :message-id:mime-version:references:subject:to:x-me-proxy
+ :x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; bh=ZuAOZs
+ uNyuhekGAfAuVc4cPYDPjwuvIUZMlI+9EGZFw=; b=YyvLRtpIJyopSIVz4gqp7p
+ t4AZgfleFqUiwzNFyPtIwee9tlvRdp9iiPt3acpSLBn+JFnWZyN07q3XBI7ZoDp8
+ H9zbYOdwB+7g0kQ3f/uETALWnr2VOG2QxurzFwLHCtwEvBV/OQKd/M0c5G1f9vWF
+ msEUmhz0CcClZRO8eOlTcqsceQPpQbNoK1ohnH7MVlolN4JSNvj7P5OlQEP5JOEC
+ U0f44hNj4XKjLh4wEPt11FctECj++Vch/syQDthoLnnQR87f8TzOo/KeIg1NX+1E
+ lyVTlaKsiMPGlbJh0Xdgw2g/NgIT+V1u1MPpMc0Iq4bKxcpiH/AaE1Pi3mzKyikA
+ ==
+X-ME-Sender: <xms:MBvkX7g4h8X4d05Fuk4RuPJI0Ld7wclAueQtbbBho5CEGe9p4YyzhQ>
+ <xme:MBvkX4CSHrlJiher9HaRRnMIFs1R0EbPvNv9A0JLaPFj57CIhNj4mFguYaGRjuBsA
+ sXsp4a7lkJH_BkoYw8>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedujedrvddtkedgjeefucetufdoteggodetrfdotf
+ fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+ uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+ cujfgurhepfffhvffukfhfgggtuggjsehttdertddttddvnecuhfhrohhmpefvhigthhho
+ ucetnhguvghrshgvnhcuoehthigthhhosehthigthhhordhpihiiiigrqeenucggtffrrg
+ htthgvrhhnpeeifffffeekkeeifffhteekleejhfetledvvdeileefheffveduveevleef
+ lefgtdenucffohhmrghinhepvghnthhrhidrshgsnecukfhppeduledvrddvgedurddvhe
+ ehrdduhedunecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhho
+ mhepthihtghhohesthihtghhohdrphhiiiiirg
+X-ME-Proxy: <xmx:MBvkX7G4A08d8f2fBeohYY-mii_krUFX01seA_TIEOzpOwZSWx1dVQ>
+ <xmx:MBvkX4QVlALfD6qcwO4gzME0yOE7lf1lhtYwHGRl-yssqhyP1DwYlg>
+ <xmx:MBvkX4yFVa6JUSlW7ead94cGv1VPJWY--ZJ9u-JDhBwa279pB7S3yA>
+ <xmx:MRvkXyuZgBxHa9Ht_fbJeBWtshIOzOw1PtEQBcYa9A938ZvFa234nw>
+Received: from cisco (unknown [192.241.255.151])
+ by mail.messagingengine.com (Postfix) with ESMTPA id DA5FA1080059;
+ Wed, 23 Dec 2020 23:38:07 -0500 (EST)
+Date: Wed, 23 Dec 2020 21:38:06 -0700
+From: Tycho Andersen <tycho@tycho.pizza>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Subject: Re: [PATCH] riscv: return -ENOSYS for syscall -1
+Message-ID: <20201224043806.GE710211@cisco>
+References: <20201223082404.GB24581@infradead.org>
+ <mhng-c15e4fab-6487-4875-a392-85669982b8b1@palmerdabbelt-glaptop>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <mhng-c15e4fab-6487-4875-a392-85669982b8b1@palmerdabbelt-glaptop>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201223_232412_146260_6E9A0485 
-X-CRM114-Status: GOOD (  14.09  )
+X-CRM114-CacheID: sfid-20201223_233814_993948_91431475 
+X-CRM114-Status: GOOD (  26.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -89,46 +104,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-MIME-Version: 1.0
+Cc: david.abdurachmanov@sifive.com, schwab@suse.de,
+ linux-kernel@vger.kernel.org, Christoph Hellwig <hch@infradead.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-merged tag 'riscv-for-linus-5.11-mw0'
-The following changes since commit e2ae634014d3a8839a99f8897b3f6346a133a33b:
+On Wed, Dec 23, 2020 at 06:54:43PM -0800, Palmer Dabbelt wrote:
+> On Wed, 23 Dec 2020 00:24:04 PST (-0800), Christoph Hellwig wrote:
+> > On Tue, Dec 22, 2020 at 09:22:19AM -0700, Tycho Andersen wrote:
+> > > On Mon, Dec 21, 2020 at 11:52:00PM +0100, Andreas Schwab wrote:
+> > > > Properly return -ENOSYS for syscall -1 instead of leaving the return value
+> > > > uninitialized.  This fixes the strace teststuite.
+> > > >
+> > > > Fixes: 5340627e3fe0 ("riscv: add support for SECCOMP and SECCOMP_FILTER")
+> > > > Signed-off-by: Andreas Schwab <schwab@suse.de>
+> > > > ---
+> > > >  arch/riscv/kernel/entry.S | 9 +--------
+> > > >  1 file changed, 1 insertion(+), 8 deletions(-)
+> > > >
+> > > > diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> > > > index 524d918f3601..d07763001eb0 100644
+> > > > --- a/arch/riscv/kernel/entry.S
+> > > > +++ b/arch/riscv/kernel/entry.S
+> > > > @@ -186,14 +186,7 @@ check_syscall_nr:
+> > > >  	 * Syscall number held in a7.
+> > > >  	 * If syscall number is above allowed value, redirect to ni_syscall.
+> > > >  	 */
+> > > > -	bge a7, t0, 1f
+> > > > -	/*
+> > > > -	 * Check if syscall is rejected by tracer, i.e., a7 == -1.
+> > > > -	 * If yes, we pretend it was executed.
+> > > > -	 */
+> > > > -	li t1, -1
+> > > > -	beq a7, t1, ret_from_syscall_rejected
+> > > > -	blt a7, t1, 1f
+> > > > +	bgeu a7, t0, 1f
+> > > 
+> > > IIUC, this is all dead code anyway for the path where seccomp actually
+> > > rejects the syscall, since it should do the rejection directly in
+> > > handle_syscall_trace_enter(), which is called above this hunk. So it
+> > > seems good to me.
+> > 
+> > That change really needs to be documented in the commit log, or even
+> > better split into a separate patch (still documented of course!).
+> 
+> Unless I'm missing something, this is already how it works already?
 
-  Merge tag 'riscv-for-linus-5.11-mw0' of git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux (2020-12-18 10:43:07 -0800)
+Yes, agreed. My musing was mostly just that this is dead code that
+probably should have been in removed in af33d2433b03 ("riscv: fix
+seccomp reject syscall code path"), but was overlooked. Maybe this
+could use a Fixes: tag for that too.
 
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.11-rc1
-
-for you to fetch changes up to de043da0b9e71147ca610ed542d34858aadfc61c:
-
-  RISC-V: Fix usage of memblock_enforce_memory_limit (2020-12-21 21:02:14 -0800)
-
-----------------------------------------------------------------
-RISC-V Fixes for 5.11-rc1
-
-* A fix that avoids trying to initialize memory regions outside the
-  usable range.
-
----
-
-I know it's an odd time, but I figured it'd be better to just send this out.
-There's a few other fixes on the list that I was considering including, but
-there's enough discussion that I didn't want to rush those over the holidays.
-I don't see any reason to delay this one any longer, though, as it's relevant
-to the ongoing QEMU work.
-
-----------------------------------------------------------------
-Atish Patra (1):
-      RISC-V: Fix usage of memblock_enforce_memory_limit
-
- arch/riscv/mm/init.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Tycho
 
 _______________________________________________
 linux-riscv mailing list
