@@ -2,19 +2,18 @@ Return-Path: <SRS0=/9Zu=F4=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 48F1FC433DB
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Dec 2020 02:55:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AB7B6C433DB
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Dec 2020 02:59:47 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E86EA224B1
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Dec 2020 02:54:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E86EA224B1
+	by mail.kernel.org (Postfix) with ESMTPS id 1D10A224B1
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Dec 2020 02:59:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1D10A224B1
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,64 +22,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=gsCc0t0BnqltAYRaK9BKxguh9TvjtNHl9nSukVAgNy4=; b=KGqXQ89T9XFAm/bSSYw0qYOWa
-	jd+S77XG3CJcktdstmuOUNz1T7WjEBLvfOZQpDGB72PQbClsrJl+aoOTlsqW3xyilysW42HyNZS0Y
-	9X7FN7IabTpWDTd0h0w9XUk+V0HG3nnQw8FjhxUrmA3Kiq+R3vPaAkPmY+YTAguwu7TEqBhknwIuL
-	vNLdbR0dS1kHZpRqq1hfBDJi23Op28lKhCAEnT1xZ8s3qRUqJU7PNS1f0w0h5+PoYcnuDTdvmr1Sg
-	qsTkaY0qoxOymr6bHs+4ojuj8mwv0mooU07CmnslbXRHADQBdaeQWZUb9wc4Map67jOBZyZH+tlMe
-	1obRGSBIg==;
+	 bh=iUx2uyapqjldk4S97n+6x7R/VkDpsPb9mlsLcltBT9U=; b=rIV8qP0m5tpS23DpuZB5OP6FT
+	yT2pdyO5tRXFzyZ51PKX87U/d1d8WmT3sHcbuiTbDOqpQuQ0Ab+D723PS10F/wS4Z5pj6OZI1QfTB
+	yzfeNjga3BEJKQcS54nBFE7JuTbnk3XdlBfI6xMf5z77fGhZFnlnyL0u3tXNVFFmUWlD+bM4MUkLq
+	Eojd17V8j/Wm4XEb+SUGWSC+iSDKIHAxarCYKWThrFTkQfmvPAf4BXhnXOastuzM03I/VrU1w4/vd
+	atynkjJSPqrp0fkTc8DDsIo8w06Z3qS7sAQ/t5+QIuMjGso5wlxkF/WqpyYjwjbK3q7xpHRcfhsVm
+	W8Gc1NQFw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ksGmA-0004iF-45; Thu, 24 Dec 2020 02:54:50 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1ksGqq-000586-9D; Thu, 24 Dec 2020 02:59:40 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ksGm7-0004hS-GH
- for linux-riscv@lists.infradead.org; Thu, 24 Dec 2020 02:54:48 +0000
-Received: by mail-pf1-x430.google.com with SMTP id h186so538714pfe.0
- for <linux-riscv@lists.infradead.org>; Wed, 23 Dec 2020 18:54:46 -0800 (PST)
+ id 1ksGqn-000577-Cz
+ for linux-riscv@lists.infradead.org; Thu, 24 Dec 2020 02:59:38 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id v1so413677pjr.2
+ for <linux-riscv@lists.infradead.org>; Wed, 23 Dec 2020 18:59:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=6CruMwj3es7dN6q83DfEO/iKaOGfekskSHiLh5zWSNc=;
- b=GAeVIaMZiPs8NRaZ3wq491yVrDkq3ECS5AMBUZ365/RMef6sA+O73T4MQ2eCWsvAYh
- huLXuanMXOYUu6uesUcP2PRQQHs72NtJKGFswpeStxs4zfudYQqLlZt/6LmrQm0RKtVU
- 2buLGf1k7x99bgDxkB5NJ5p90RjgbGtNbDiYp+QBitZLSmN+RLplzEgnQkB4ds2zdxUd
- OgjuZPHPHfgUuyFbCj5FZPrSEtejucShCNZHSYuhhfus38Npq94XMrQu8ytETXo/s2/D
- euKBc0HFYswXYUOj0SnubTXRtq5OLDsJJ61Gdkl5omkOv0/6bg8qtr165cs5ZmKmnWLv
- /MwA==
+ bh=3274995OIrIodYLZAPXVphdO1nymbyMxfaEx20SaZ6w=;
+ b=gifmByTYbZN/rFI3tzj68H9m91uBP0jKQ2MF3LyG9P6gD/Uf3yh63hkjv4NpX5XWV8
+ BnFSn2bCpwG+4x1StJeKR+KqX90+2KF8/lpHRYIwcilVPTdRRoe2IZrRdZg5+k6VOgKJ
+ 2ZPuJyz0Pzro7uRE/DkqVcYz8mqlzvcB15laSgiMVLpT7PMoyAlzEqCJeEMJmeR9JF0D
+ FXPVsiAgKUHOWYEPUs5Wdq4PoW+jaP8x7m8DV4v1Goxa8kfhEC4xTFjq0O9ADx9Lh5AS
+ fRxH3SWdiZ9IWK6qJzepU4QPl+arxCsJCvYTIjX1j9Su6hVmgvZTLcyBoGXCMitnIBXi
+ ATGw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=6CruMwj3es7dN6q83DfEO/iKaOGfekskSHiLh5zWSNc=;
- b=KPswWBHzXfGRPq+YlJVQnaFe+lUkoSCN/pMlsng4R6b/PCsCg27afe3RvqGS6mA4j1
- TOX46tVzzMX69jTEFcn7eyYmw8cb8etlUHaGANBac21NF4kP88RVtcKIunqge0AN1Zdm
- m+lKab2DWNqGVfQru0rgNCAPzwazkVo0CEx7xbfSDg6Fr20nTlWE1Nh+XbUYmg7UkHEO
- A3dpuQR14eqF51Agkq9Jec9Jh2/A8EmrXUXId4LHDQXFBMQKm1iCvNqdmkuSpw6wA9F0
- kAYj5uD9RdfRmQHQN1on+DmiiFz1L9jETXLMfi7I+JAD1j0M5ZzHSQJa9BCKqgZInlyV
- sU1Q==
-X-Gm-Message-State: AOAM532yMz49ZPEENHcj9IzEeT+ElphKV059xh14clcGfGRBtAkpKUKf
- iwEX0xf8/hsftMdAlW+CSukpMSL8LqSRog==
-X-Google-Smtp-Source: ABdhPJx0Yr6reyiHyhZsaOkM7rzq2fgP9/YI4GoIKOHadjhSWZphN/IEG7hIgDtbYiQrLfBEBhSHxw==
-X-Received: by 2002:a63:720c:: with SMTP id n12mr25325416pgc.97.1608778484909; 
- Wed, 23 Dec 2020 18:54:44 -0800 (PST)
+ bh=3274995OIrIodYLZAPXVphdO1nymbyMxfaEx20SaZ6w=;
+ b=jjxHSyYFPNABZerf0b2eoONg7O8RqcUhHqiY7Zn3p3RPDWHZHwLm6dXzD/hpsVwF2N
+ yKL3u9u8sy89bgdyWte3IeFy7qNZzYS1MxoY2DcSjk2xOOTPkkjR+fmldUnp40++xlpW
+ iHn7N/HUrr7ZWXEuELu12uMuR926+y4qeVaGy4H+b0u4sDfMV/fykxaXj9Bx/hJdhfOU
+ /22nJBf8CSHRTB5fm6vcefOYnlzRRBJcjCjJhBhLw3krBLvw+S/7eEGvyDQglhxJur+7
+ zW420+tNgmUJ9ZgyDPZMRjW/Zj4kEvxrRU3SUXI3D/KwhUm1VrUdpt9uKd9OXkPbordi
+ EkQg==
+X-Gm-Message-State: AOAM5317XE4Aa5alWKdAOAtYldQd2ZpXffC+87hJV3e7mpryEN1gUd8e
+ Ml4tE9eYgOcF3fzHnYaN7VHuFe1A19oyFg==
+X-Google-Smtp-Source: ABdhPJxwB4tNgytYCMMsgD4gR55Q+C/CjqGPeEkValNyYJrOZvu+lWvom1FTWhdXPxOoRUiAYJDLYA==
+X-Received: by 2002:a17:90b:4396:: with SMTP id
+ in22mr2335613pjb.63.1608778775082; 
+ Wed, 23 Dec 2020 18:59:35 -0800 (PST)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id u11sm857259pjy.17.2020.12.23.18.54.43
+ by smtp.gmail.com with ESMTPSA id t22sm24996732pgm.18.2020.12.23.18.59.33
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 23 Dec 2020 18:54:43 -0800 (PST)
-Date: Wed, 23 Dec 2020 18:54:43 -0800 (PST)
-X-Google-Original-Date: Wed, 23 Dec 2020 18:54:42 PST (-0800)
-Subject: Re: [PATCH] riscv: return -ENOSYS for syscall -1
-In-Reply-To: <20201223082404.GB24581@infradead.org>
+ Wed, 23 Dec 2020 18:59:34 -0800 (PST)
+Date: Wed, 23 Dec 2020 18:59:34 -0800 (PST)
+X-Google-Original-Date: Wed, 23 Dec 2020 18:59:32 PST (-0800)
+Subject: Re: [PATCH] clocksource: clint: Avoid remove __iomem in
+ get_cycles_hi()
+In-Reply-To: <20201223082330.GA24581@infradead.org>
 From: Palmer Dabbelt <palmer@dabbelt.com>
 To: Christoph Hellwig <hch@infradead.org>
-Message-ID: <mhng-c15e4fab-6487-4875-a392-85669982b8b1@palmerdabbelt-glaptop>
+Message-ID: <mhng-b2cf0325-66e1-4e3c-bfbb-b393963fbb3f@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201223_215447_666411_AE0B29BF 
-X-CRM114-Status: GOOD (  27.10  )
+X-CRM114-CacheID: sfid-20201223_215937_800780_3D82974A 
+X-CRM114-Status: GOOD (  17.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -92,63 +93,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: david.abdurachmanov@sifive.com, schwab@suse.de,
- linux-kernel@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv@lists.infradead.org, tycho@tycho.pizza
+Cc: lkp@intel.com, daniel.lezcano@linaro.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, kernel-team@android.com, tglx@linutronix.de
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 23 Dec 2020 00:24:04 PST (-0800), Christoph Hellwig wrote:
-> On Tue, Dec 22, 2020 at 09:22:19AM -0700, Tycho Andersen wrote:
->> On Mon, Dec 21, 2020 at 11:52:00PM +0100, Andreas Schwab wrote:
->> > Properly return -ENOSYS for syscall -1 instead of leaving the return value
->> > uninitialized.  This fixes the strace teststuite.
->> >
->> > Fixes: 5340627e3fe0 ("riscv: add support for SECCOMP and SECCOMP_FILTER")
->> > Signed-off-by: Andreas Schwab <schwab@suse.de>
->> > ---
->> >  arch/riscv/kernel/entry.S | 9 +--------
->> >  1 file changed, 1 insertion(+), 8 deletions(-)
->> >
->> > diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
->> > index 524d918f3601..d07763001eb0 100644
->> > --- a/arch/riscv/kernel/entry.S
->> > +++ b/arch/riscv/kernel/entry.S
->> > @@ -186,14 +186,7 @@ check_syscall_nr:
->> >  	 * Syscall number held in a7.
->> >  	 * If syscall number is above allowed value, redirect to ni_syscall.
->> >  	 */
->> > -	bge a7, t0, 1f
->> > -	/*
->> > -	 * Check if syscall is rejected by tracer, i.e., a7 == -1.
->> > -	 * If yes, we pretend it was executed.
->> > -	 */
->> > -	li t1, -1
->> > -	beq a7, t1, ret_from_syscall_rejected
->> > -	blt a7, t1, 1f
->> > +	bgeu a7, t0, 1f
+On Wed, 23 Dec 2020 00:23:30 PST (-0800), Christoph Hellwig wrote:
+> On Mon, Dec 21, 2020 at 09:32:30PM -0800, Palmer Dabbelt wrote:
+>> From: Palmer Dabbelt <palmerdabbelt@google.com>
 >>
->> IIUC, this is all dead code anyway for the path where seccomp actually
->> rejects the syscall, since it should do the rejection directly in
->> handle_syscall_trace_enter(), which is called above this hunk. So it
->> seems good to me.
+>> This cast loses the __iomem qualifier from clint_timer_val, which
+>> triggers an sparse warning.
 >
-> That change really needs to be documented in the commit log, or even
-> better split into a separate patch (still documented of course!).
+> I'm not a native speaker, but the subject line sounds strange to me.
+> Shouldn't this be:
+>
+> 	"don't cast away the __iommu annotation"
+>
+> or something similar?
 
-Unless I'm missing something, this is already how it works already?
-handle_syscall_trace_enter is checking the result of do_syscall_trace_enter(),
-which checks secure_computing().  When secure_computing() rejects the syscall
-we already ended up rejecting the syscall, so this code wasn't doing anything
-for the case it was supposed to handle.
+The title is also nonsense, I was probably trying to do two things at once when
+I wrote this.  I'll send another one.
 
-It was, however, intercepting syscall number -1 when we weren't rejecting the
-syscall and directly exiting rather than calling sys_ni_syscall.  That would,
-at a bare minimum, result in an uninitialized return value.  It also breaks the
-pairing of trace_sys_enter() and trace_sys_exit(), which doesn't smell like a
-good idea.
+> Also this adds an overly long line.  Otherwise it looks fine.
+
+Aren't we OK with lines longer than 80 characters now?  Or was that some other
+project?  checkpatch doesn't complain, which I guess is why I didn't notice, so
+hopefully that means I'm not crazy (though I guess the commit message and title
+don't provide the best argument there... ;)).
 
 _______________________________________________
 linux-riscv mailing list
