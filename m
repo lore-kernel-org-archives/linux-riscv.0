@@ -7,15 +7,15 @@ X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C19E0C433E0
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Dec 2020 12:12:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5A271C433DB
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Dec 2020 13:35:42 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7CC3A2074D
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Dec 2020 12:12:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7CC3A2074D
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	by mail.kernel.org (Postfix) with ESMTPS id 14215207C9
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Dec 2020 13:35:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 14215207C9
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=konsulko.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -23,61 +23,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=FSnVO0eQLPyS4F2f+nYzhRBd52DFrbe156MgmjzfdZ8=; b=TKUq7gmcW353GFUi48prkFSBy
-	ObkWWS9mq7KWktJ5h2mDJ9b0Dy0QfxyqN5kxkHkcVp4LxOVPEs7Ea604pmug6tQIlmKr40ds8OAY0
-	eapkL3dwtZ4+WId7UHcaKD680uDLHTeBvdb6d0lW1+Ln8rZBJ+KLl2OwsqQk1+PqbWaEslMRrNaJy
-	oft6aD1bgQctopZKtvqvNaL+rEk0Nq1mUNdgket6UMRrwP4E1ELEYg+MpYX1qpSuPZa9XeSlmYRZf
-	DJgCRxgbDnL5XdzreyrhrR3WQX4zuAKF409ie489iuSRyTOnLgR54xD9pIdOSinR/b5BeIq+eDfjM
-	bRHUOEqDw==;
+	 bh=7K9Yptbo67hO2HoTLQ4ZrIaIlvUzaeRy+21qlpdrelg=; b=prQ2VsbZt1lt/dRozrrOEugw9
+	g0whQOEaR4UNvJLK2bcjmTvoiKyZdfA6ggVZPQLOYEaqL7lpvPQfdTuyKaNmS3xt18XCvX4V/FTQq
+	zIYoxzUlUkMPsnkXpSvUqmnb0BCeJwy7o2+GMtkdh9qHSyI2NXMxlyRfmo6Hff3gdzmrhlKg9NVzn
+	k1IULYOTA0LMQiEr+yX+Nh1EZWlsuqs5J6QW7e4b5S2OA7Mvb9dgVKqe8ZtT2sILMO9OfcM86+QSf
+	3psiUtUt3+zgjjXqydvMMYMEtJ3FZy8z/jDr9tFobaAl0vsLLJqnZjEu7VP/HUAVBPn6LzYy2A8i2
+	QlenhcKHQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ktrOE-0000JU-Sm; Mon, 28 Dec 2020 12:12:42 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1ktsgP-0001aG-5j; Mon, 28 Dec 2020 13:35:33 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ktrOC-0000Ik-1z
- for linux-riscv@lists.infradead.org; Mon, 28 Dec 2020 12:12:40 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 23so23381081lfg.10
- for <linux-riscv@lists.infradead.org>; Mon, 28 Dec 2020 04:12:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
+ id 1ktsgM-0001ZY-54
+ for linux-riscv@lists.infradead.org; Mon, 28 Dec 2020 13:35:31 +0000
+Received: by mail-lf1-x134.google.com with SMTP id o19so23988005lfo.1
+ for <linux-riscv@lists.infradead.org>; Mon, 28 Dec 2020 05:35:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=konsulko.com; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=U5dnI6hl/uAinnpfwjzW42khHlLLdEo6KFHybJaznUs=;
- b=Jjb/nwUvkEGmkSEzVwmXn+lIezhxSCwnCtBvaNxeeiDgCb7PMiokmM1cqfH3/4rb+e
- XyFo74xz0qxF8mjDYOFcbGd6H2sGCyh3XWCoBM9vLWRa09nq/idp+AWqYRHqIM3MPcK6
- 7BwJZfHx4w+NSbgUlsmePG/yOTJRMlZ2+Gs/036xKf7gUovORvmdCSlLa2ACLiBEkwxG
- b/evgHVMvJD6nRbHECWe8o/Gqg33nOFw22LpGuRIkceZvlQC/QjVaFyBDnBYq3IiO2yn
- iHLT7/SY6TWLnAo3zwkFYcVZc4v6oV9CFwZv+pEukiOrqUSoQL9E5XdXZcwl4JuaW8GB
- RyBQ==
+ :cc; bh=lnlocphoctX4r6uKPUYm4iHsqJYYWrO7RnR7sqTcTMQ=;
+ b=DdXN+SIqlIxijQhfqX1KanDmg13RIXZawO+UXnE2GnWP6WUQA7qLK01tybwDacK6iT
+ h9liV046J29RuS5Zo7EOoAUQXF2kmtjRWi7TLj0vlg/kmog2D6lwCNkbM3zfTiw0/Gnt
+ 2A7ihf1wx1d8wlrQdJbC9WjqiuVOgoEiAoSPc=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=U5dnI6hl/uAinnpfwjzW42khHlLLdEo6KFHybJaznUs=;
- b=iYseEghm4Mf6fP/rGeaKBhytQHFW0iXU1D8cgwyIwu1XHHZdqyNIcAnzgxIlKxhIks
- sTDJKxmD7BP60jgKtbs5+9aKqK9TrqPyl/aZlixAm1TrkAAoFuzsNhP0t8W+iOb3i1SS
- k82dzwCGxoeoHQN/wcQptVnwHUQ5kguhijVYh6jA+6t8QX/nnFezZeoiWuC0xCg80df0
- FZdCilOyRs03LfMU2OAtP0dBGNzCTSs1x99cuROIxZ1Bv2U34ybEmsQQ2aLbgXjVKqUW
- guFaqBOKhQgsDgGr3qFeXqjd0qc7po7EFjUqryk9YGj9Mto9G7BgfQt+7ppl2p9db9U8
- wYdQ==
-X-Gm-Message-State: AOAM531+kk4WiuWluggHUvFy/PTJL1/39GlY/JIOH2jnTyGOTE59BlDM
- 0liRhVbL4UswJ+2vjJN4WKQEU2MnbDi0uednNb1O0w==
-X-Google-Smtp-Source: ABdhPJxwpJprr6pD65kQrg3HfTYT/inYom0+1ZwhUQegnwfPAS2avm2w25j3YRiAFyIflTh1hkDoKyEuPzX3x50S5o0=
-X-Received: by 2002:a05:6512:34c5:: with SMTP id
- w5mr18333870lfr.214.1609157558710; 
- Mon, 28 Dec 2020 04:12:38 -0800 (PST)
+ bh=lnlocphoctX4r6uKPUYm4iHsqJYYWrO7RnR7sqTcTMQ=;
+ b=oDmBp4XK//dOdAj60rdTCc0xf1gczE1yPi7xFgmuvGQVGBKSiNi+d4JkYLWJ3Whgbm
+ BY5hrjlPLrP721x8vFGSoBV/+XvCxR9EN2vnfkX204krHMSb/QGdmOw/+kx4fnQtDWNC
+ dUY3JEdyFgoNrhI1Z8fVOWNNlpAouYCMReLmDQT1tgxAcCcZ/hRuEbcJ74/Hr9g/2XLt
+ u0c4Qy/ZkRj7Yc2seNvOcVD2DDg9SSY41hY3TrbTPGT/XhcGoHgIJFNxsYGUMKwexJiK
+ YKTaus4iKJWU8wUCU1t+Oe+ULSJSZKSiF0no3+Rpatkve9n63kogAv4Q7dW07t08dhx0
+ HxVg==
+X-Gm-Message-State: AOAM533f+pd8GgdgSMSzfGVfSXKW8K1u025/HhBojORBTwIrr79K+X25
+ oqQh5tPQvO9Z0MH4YyJn2kS5qs294xuY+5yxEp6YrQ==
+X-Google-Smtp-Source: ABdhPJyiqupZuDE0Vxp4Jp2VXGNRbz8ArOYKPHzS+2ZWvcmC136bVxjhF83SmGCPsFzZ1cANTCZzpN6YjAEuwCAW2d0=
+X-Received: by 2002:a05:6512:2009:: with SMTP id
+ a9mr18356183lfb.575.1609162526880; 
+ Mon, 28 Dec 2020 05:35:26 -0800 (PST)
 MIME-Version: 1.0
-References: <20201213135056.24446-1-damien.lemoal@wdc.com>
- <20201213135056.24446-24-damien.lemoal@wdc.com>
-In-Reply-To: <20201213135056.24446-24-damien.lemoal@wdc.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Mon, 28 Dec 2020 17:42:27 +0530
-Message-ID: <CAAhSdy0XSzrnucDJPWzVVr37Zn0iRxVQZf5X2KkxCkv2kDf4_Q@mail.gmail.com>
-Subject: Re: [PATCH v10 23/23] riscv: Add Canaan Kendryte K210 SD card
- defconfig
-To: Damien Le Moal <damien.lemoal@wdc.com>
+References: <20201226163037.43691-1-vitaly.wool@konsulko.com>
+ <CAAhSdy1M5pMjYHNWdOicb3N3fjTfQLEgE8tFb74sqGbPE_9eyQ@mail.gmail.com>
+In-Reply-To: <CAAhSdy1M5pMjYHNWdOicb3N3fjTfQLEgE8tFb74sqGbPE_9eyQ@mail.gmail.com>
+From: Vitaly Wool <vitaly.wool@konsulko.com>
+Date: Mon, 28 Dec 2020 14:35:16 +0100
+Message-ID: <CAM4kBBJ3Vbytx=dFK7+DMByV3zK=FVLATSwjyuuygkDK1MCQjA@mail.gmail.com>
+Subject: Re: [PATCH] riscv: add BUILTIN_DTB support for MMU-enabled targets
+To: Anup Patel <anup@brainfault.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201228_071240_119257_58571C09 
-X-CRM114-Status: GOOD (  26.67  )
+X-CRM114-CacheID: sfid-20201228_083530_314630_CD17A619 
+X-CRM114-Status: GOOD (  28.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -89,162 +84,101 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>,
- Linus Walleij <linus.walleij@linaro.org>, Sean Anderson <seanga2@gmail.com>,
- linux-gpio@vger.kernel.org, Rob Herring <robh+dt@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- linux-riscv <linux-riscv@lists.infradead.org>, linux-clk@vger.kernel.org
+Cc: devicetree@vger.kernel.org, Damien Le Moal <damien.lemoal@wdc.com>,
+ Bin Meng <bin.meng@windriver.com>, Palmer Dabbelt <palmerdabbelt@google.com>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Dec 13, 2020 at 7:22 PM Damien Le Moal <damien.lemoal@wdc.com> wrote:
+On Mon, Dec 28, 2020 at 12:59 PM Anup Patel <anup@brainfault.org> wrote:
 >
-> The nommu_k210_defconfig default configuration allows booting a Canaan
-> Kendryte K210 SoC based boards using an embedded intramfs cpio file.
-> Modifying this configuration to enable support for the board SD card is
-> not trivial for all users. To help beginners getting started with these
-> boards, add the nommu_k210_sdcard_defconfig default configuration file
-> to set all configuration options necessary to use the board mmc-spi sd
-> card for the root file system.
+> On Sat, Dec 26, 2020 at 10:03 PM Vitaly Wool <vitaly.wool@konsulko.com> wrote:
+> >
+> > Sometimes, especially in a production system we may not want to
+> > use a "smart bootloader" like u-boot to load kernel, ramdisk and
+> > device tree from a filesystem on eMMC, but rather load the kernel
+> > from a NAND partition and just run it as soon as we can, and in
+> > this case it is convenient to have device tree compiled into the
+> > kernel binary. Since this case is not limited to MMU-less systems,
+> > let's support it for these which have MMU enabled too.
+> >
+> > Signed-off-by: Vitaly Wool <vitaly.wool@konsulko.com>
+> > ---
+> >  arch/riscv/Kconfig   |  1 -
+> >  arch/riscv/mm/init.c | 12 ++++++++++--
+> >  2 files changed, 10 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > index 2b41f6d8e458..9464b4e3a71a 100644
+> > --- a/arch/riscv/Kconfig
+> > +++ b/arch/riscv/Kconfig
+> > @@ -419,7 +419,6 @@ endmenu
+> >
+> >  config BUILTIN_DTB
+> >         def_bool n
+> > -       depends on RISCV_M_MODE
+> >         depends on OF
+> >
+> >  menu "Power management options"
+> > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> > index 87c305c566ac..5d1c7a3ec01c 100644
+> > --- a/arch/riscv/mm/init.c
+> > +++ b/arch/riscv/mm/init.c
+> > @@ -194,12 +194,20 @@ void __init setup_bootmem(void)
+> >         setup_initrd();
+> >  #endif /* CONFIG_BLK_DEV_INITRD */
+> >
+> > +       /*
+> > +        * If DTB is built in, no need to reserve its memblock.
+> > +        * OTOH, initial_boot_params has to be set to properly copy DTB
+> > +        * before unflattening later on.
+> > +        */
+> > +       if (IS_ENABLED(CONFIG_BUILTIN_DTB))
+> > +               initial_boot_params = __va(dtb_early_pa);
 >
-> This new configuration adds support for the block layer, the mmc-spi
-> driver and modifies the boot options to specify the rootfs device as
-> mmcblk0p1 (first partition of the sd card block device). The ext2 file
-> system is selected by default to encourage its use as that results in
-> only about 4KB added to the kernel image size. As ext2 does not have
-> journaling, the boot options specify a read-only mount of the file
-> system. Similarly to the smaller nommu_k210_defconfig, this new default
-> configuration disables virtual terminal support to reduce the kernel
-> image size.
->
-> The default device tree selected is unchanged, specifying the simple
-> "k210_generic" device tree file. The user must change this setting to
-> specify the device tree suitable for the board being used
-> (k210_maix_bit, k210_maix_dock, k210_maix_go, k210_maixduino or
-> k210_kd233).
->
-> Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
-> ---
->  .../riscv/configs/nommu_k210_sdcard_defconfig | 93 +++++++++++++++++++
->  1 file changed, 93 insertions(+)
->  create mode 100644 arch/riscv/configs/nommu_k210_sdcard_defconfig
->
-> diff --git a/arch/riscv/configs/nommu_k210_sdcard_defconfig b/arch/riscv/configs/nommu_k210_sdcard_defconfig
-> new file mode 100644
-> index 000000000000..a75388defd44
-> --- /dev/null
-> +++ b/arch/riscv/configs/nommu_k210_sdcard_defconfig
-> @@ -0,0 +1,93 @@
-> +# CONFIG_CPU_ISOLATION is not set
-> +CONFIG_LOG_BUF_SHIFT=13
-> +CONFIG_PRINTK_SAFE_LOG_BUF_SHIFT=12
-> +CONFIG_CC_OPTIMIZE_FOR_SIZE=y
-> +# CONFIG_SYSFS_SYSCALL is not set
-> +# CONFIG_FHANDLE is not set
-> +# CONFIG_BASE_FULL is not set
-> +# CONFIG_FUTEX is not set
-> +# CONFIG_EPOLL is not set
-> +# CONFIG_SIGNALFD is not set
-> +# CONFIG_TIMERFD is not set
-> +# CONFIG_EVENTFD is not set
-> +# CONFIG_AIO is not set
-> +# CONFIG_IO_URING is not set
-> +# CONFIG_ADVISE_SYSCALLS is not set
-> +# CONFIG_MEMBARRIER is not set
-> +# CONFIG_KALLSYMS is not set
-> +CONFIG_EMBEDDED=y
-> +# CONFIG_VM_EVENT_COUNTERS is not set
-> +# CONFIG_COMPAT_BRK is not set
-> +CONFIG_SLOB=y
-> +# CONFIG_MMU is not set
-> +CONFIG_SOC_CANAAN=y
-> +CONFIG_SOC_CANAAN_K210_DTB_SOURCE="k210_generic"
-> +CONFIG_MAXPHYSMEM_2GB=y
-> +CONFIG_SMP=y
-> +CONFIG_NR_CPUS=2
-> +CONFIG_CMDLINE="earlycon console=ttySIF0 rootdelay=2 root=/dev/mmcblk0p1 ro"
-> +CONFIG_CMDLINE_FORCE=y
-> +# CONFIG_SECCOMP is not set
-> +# CONFIG_STACKPROTECTOR is not set
-> +# CONFIG_BLK_DEV_BSG is not set
-> +# CONFIG_MQ_IOSCHED_DEADLINE is not set
-> +# CONFIG_MQ_IOSCHED_KYBER is not set
-> +CONFIG_BINFMT_FLAT=y
-> +# CONFIG_COREDUMP is not set
-> +CONFIG_DEVTMPFS=y
-> +CONFIG_DEVTMPFS_MOUNT=y
-> +# CONFIG_FW_LOADER is not set
-> +# CONFIG_ALLOW_DEV_COREDUMP is not set
-> +# CONFIG_BLK_DEV is not set
-> +# CONFIG_INPUT_LEDS is not set
-> +# CONFIG_INPUT_KEYBOARD is not set
-> +# CONFIG_INPUT_MOUSE is not set
-> +# CONFIG_SERIO is not set
-> +# CONFIG_VT is not set
-> +# CONFIG_UNIX98_PTYS is not set
-> +# CONFIG_LEGACY_PTYS is not set
-> +# CONFIG_LDISC_AUTOLOAD is not set
-> +# CONFIG_HW_RANDOM is not set
-> +# CONFIG_DEVMEM is not set
-> +CONFIG_I2C=y
-> +CONFIG_I2C_CHARDEV=y
-> +# CONFIG_I2C_HELPER_AUTO is not set
-> +CONFIG_I2C_DESIGNWARE_PLATFORM=y
-> +CONFIG_SPI=y
-> +# CONFIG_SPI_MEM is not set
-> +CONFIG_SPI_DESIGNWARE=y
-> +CONFIG_SPI_DW_MMIO=y
-> +# CONFIG_GPIO_SYSFS is not set
-> +# CONFIG_GPIO_CDEV_V1 is not set
-> +CONFIG_GPIO_DWAPB=y
-> +CONFIG_GPIO_SIFIVE=y
-> +CONFIG_POWER_RESET=y
-> +CONFIG_POWER_RESET_SYSCON=y
-> +# CONFIG_HWMON is not set
-> +# CONFIG_HID is not set
-> +# CONFIG_USB_SUPPORT is not set
-> +CONFIG_MMC=y
-> +# CONFIG_PWRSEQ_EMMC is not set
-> +# CONFIG_PWRSEQ_SIMPLE is not set
-> +CONFIG_MMC_SPI=y
-> +CONFIG_NEW_LEDS=y
-> +CONFIG_LEDS_CLASS=y
-> +CONFIG_LEDS_GPIO=y
-> +CONFIG_LEDS_USER=y
-> +# CONFIG_VIRTIO_MENU is not set
-> +# CONFIG_VHOST_MENU is not set
-> +CONFIG_EXT2_FS=y
-> +# CONFIG_FILE_LOCKING is not set
-> +# CONFIG_DNOTIFY is not set
-> +# CONFIG_INOTIFY_USER is not set
-> +# CONFIG_MISC_FILESYSTEMS is not set
-> +CONFIG_LSM="[]"
-> +CONFIG_PRINTK_TIME=y
-> +# CONFIG_SYMBOLIC_ERRNAME is not set
-> +# CONFIG_DEBUG_BUGVERBOSE is not set
-> +# CONFIG_DEBUG_MISC is not set
-> +CONFIG_PANIC_ON_OOPS=y
-> +# CONFIG_SCHED_DEBUG is not set
-> +# CONFIG_RCU_TRACE is not set
-> +# CONFIG_FTRACE is not set
-> +# CONFIG_RUNTIME_TESTING_MENU is not set
-> --
-> 2.29.2
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> Don't assign initial_boot_params directly here because the
+> early_init_dt_scan() will do it.
 
-Looks good to me.
+early_init_dt_scan will set initial_boot_params to dtb_early_va from
+the early mapping which will be gone by the time
+unflatten_and_copy_device_tree() is called.
 
-Reviewed-by: Anup Patel <anup@brainfault.org>
+> The setup_vm() is supposed to setup dtb_early_va and dtb_early_pa
+> for MMU-enabled case so please add a "#ifdef" over there for the
+> built-in DTB case.
+>
+> > +       else
+> > +               memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
+> > +
+> >         /*
+> >          * Avoid using early_init_fdt_reserve_self() since __pa() does
+> >          * not work for DTB pointers that are fixmap addresses
+> >          */
+>
+> This comment needs to be updated and moved along the memblock_reserve()
+> statement.
+>
+> > -       memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
+> > -
+> >         early_init_fdt_scan_reserved_mem();
+> >         dma_contiguous_reserve(dma32_phys_limit);
+> >         memblock_allow_resize();
+> > --
+> > 2.29.2
+> >
+>
+> This patch should be based upon Damiens builtin DTB patch.
+> Refer, https://www.spinics.net/lists/linux-gpio/msg56616.html
 
-Regards,
-Anup
+Thanks for the pointer, however I don't think our patches have
+intersections. Besides, Damien is dealing with the MMU-less case
+there.
+
+Best regards,
+   Vitaly
 
 _______________________________________________
 linux-riscv mailing list
