@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E1067C433E0
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Dec 2020 14:10:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 01A69C433DB
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Dec 2020 14:14:15 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9FC4D207CC
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Dec 2020 14:10:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9FC4D207CC
+	by mail.kernel.org (Postfix) with ESMTPS id 9620B20715
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Dec 2020 14:14:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9620B20715
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,61 +23,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=2h36JKDQJ0COcjPJCQx241npsaZLAXGmOPD1WZhyg6c=; b=P3vlHHa9N/blcv5LDdfIic+oh
-	3A5iHYTiR9bKqv4lezROoHLTfC7OVZ67QmVlyISz6SoB8/IyfnOFyxiAv9cr3mftU3vmX67yu9Q51
-	P9GoN/SZbzWvtIMNgflRvT/dbIW3DCE/HZ2i1Q5nEMxjP9Awj0gkz5ZSLFu2MdRCbE181DLRYVNkI
-	oyG0wKEfggTvue1UheOcxzGJVu01pjAqzNYxjaZuMA2VYDuEvyjsZTPjSJ4Io8Ai3MPG4gEnuOqGn
-	ULvp2oaNrbkOvR3W+YHOXBTX4S5/aHuPAIG8O7fe0J+vUSgSBW5JuZMhr9tDtNLHMh8Lwa1LNN4rk
-	sdmLF4VjA==;
+	 bh=gNViCl0tCaWvdBnOGwKZLq5IZqVblIChKDvWHi4bR2U=; b=GUWDQfKV+UkkCFmtaKqAHI1/t
+	1Wj7bG1LuFa79u9s4dEuOEex7pMqkmieD09wZRnZ6P8/adJ6MyFzqA6CayxPZIqfibBniSacOsaZN
+	RWLYI3OEs42CneR2k2rKZkreY6tLuSs291o2l1+WtXTbLsYzlSHzMimhXfU4BtCXDtnzzVXKi8+vn
+	49iAB4SVLaadIilzKB5sGTUgUwQ525h69Uk/2BVTL9NgjJgkyAdmUg19qa6bbt8D7LN2vVXjFRuOo
+	8spqFT2GEoDu1SqQU5dQIEyYPum994v63ggEQnVVDzlnn922klVTiLE/diZwXEFrEFml93D01fWXh
+	Mv82eLNTg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kttE6-00065w-Qt; Mon, 28 Dec 2020 14:10:22 +0000
-Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
+	id 1kttHj-0006kB-UL; Mon, 28 Dec 2020 14:14:07 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kttE3-00065K-T6
- for linux-riscv@lists.infradead.org; Mon, 28 Dec 2020 14:10:20 +0000
-Received: by mail-lf1-x12d.google.com with SMTP id a12so24134760lfl.6
- for <linux-riscv@lists.infradead.org>; Mon, 28 Dec 2020 06:10:18 -0800 (PST)
+ id 1kttHh-0006jJ-Lo
+ for linux-riscv@lists.infradead.org; Mon, 28 Dec 2020 14:14:06 +0000
+Received: by mail-lf1-x129.google.com with SMTP id o13so24183247lfr.3
+ for <linux-riscv@lists.infradead.org>; Mon, 28 Dec 2020 06:14:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=eDrae5NlX7atsBnbOFDs+BsHNDAqH6cr7KQ2BZiRu9g=;
- b=dqHY0sUVNmDOTf+aHtGeQqT+ubwl8V7kw7gIzNrTS/0Zd7s285xIvbrMgrA93eRMAB
- /1GHwOroZP8yTdaDh+c/YPuYv6yF+l/23WK0pNPHosyN8/V+rJBncoRkWCiIxhDSuIOE
- sZq2Rs5xOn4W34uvmQXhL/gWHkBMVsxzvVHwV/phaWnNqkCZpJ/HXcjktxusJCdKGsky
- MtDEp8TBZdd1BbHpyknD+6LjUm9fdAaczpGPMbYX9r7PtCaL2c/KQxSld+s+AaIA6TbK
- JuzxMFf5+a71DwaQ2MWRs6FU8ho1Af0S6leDecn3FSRMB+NMuO5RuzBRmU1/mndvj2W0
- vjAw==
+ :cc; bh=NPeSW+R1SSfRx+04CRlDhpX7N3sgocK07oaNDyUcAtQ=;
+ b=ca8s8BXf1hhY+CYTlYaY7cbOnbBLNRpJziaNgNL0O1DmVav7uY5DZU2FrvBAul3FPK
+ qASLpWCCyZr9LhbzyJyL0w2jNgqhiCu7DzFiLXvv+70lS6bxurLywKj+A2S933Y09OIR
+ kntxzCfNY2NlsQpftT/btNwnwCnQWF9KIY9dbib2K5X3Ll0lHqxXETqnUCW/U+Fh93zo
+ il/p3u/GOX8kaoIqzEqV+5OycVEntz0Vc7SOeV0vXzya03eFYka/8dnE1D7k/Zgk8ZR9
+ g55hWD6PTSH11D9lCwPnoTp1QtW0Ks7lGV2ZF8eDa+m4YAOc/9tO9ABvEPrvio0PgqM5
+ G+0w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=eDrae5NlX7atsBnbOFDs+BsHNDAqH6cr7KQ2BZiRu9g=;
- b=m6Py1SfkOj2qwepORpaGdOhlSJ9yB7MfDhM71AXf+wAdAnMZ7GqtJWBKLQc58WMDqJ
- 91QVDzpfrTxcE9+8YqC3F5CkB5VNgLGbNQnwMa0wlVEo2KNhdcdjyJHYoLqSn1fbYJPh
- RIh/iV3CgkpCFDl8P5tLXwlAG+Sz+Zad9NIJg+khYImYOACMDEg26yiu9P0rIkfI+LlP
- 3RXJKOcRpN20+eoKJSO01ABpt0xr6alg93mBFcAXKTmIb5HTySwaWvmviMRlB0f/i4PY
- nzwgy61VkEDt+qgYTYTiLoz9qWpnW32KuOgw0e5huN0YAGg9nQFTtPK87iyWecz0ZCfN
- 8YzQ==
-X-Gm-Message-State: AOAM532Mj1tcxOOr59ucgJhal8TjOOMYnZf+44EwM2q72rugRn16xlai
- Cjk2psmIDffZcUM+CaAlnodetaKLkNm5ZSKrkwTkvA==
-X-Google-Smtp-Source: ABdhPJxse0shOvUnwJroAasQ1isNMTLZzoRqEfI03iytFRHnoPYRsIhHIflw56KmNtLdTnzsGf7RkAiaClFzBR41C6M=
+ bh=NPeSW+R1SSfRx+04CRlDhpX7N3sgocK07oaNDyUcAtQ=;
+ b=R22o/yBstFe3c/emnjhcRw3IJVAM0DRmVxwauU6ATQhL3x5gS6hXueVbbf2NRxsAoI
+ p6adc9qFXE6LmY2qxAyQ+JIO5Jq4wd8F+xHbanuTygUu1AGKWTF6slB8Z+CHupbqvhVW
+ Mw2k1hl+qa9+RVu83Zl3f2AzG9jGeIbkEjgdDjUBSR6fZcVULIFMHHjCHSXeo//UzfqP
+ O6opNJd23a6+pJS1yec+HB+aEFES9JotYTCnsRRvmRBJoj4i/GkZgxGV81ZdWVJqLWC+
+ wCunX56eUoEvOUPZZzj5NSnxhpHHLco0jFVw0wGyCoVeIi+e7ppNYauEtwvVtKIEX6lI
+ ny7g==
+X-Gm-Message-State: AOAM531QGCiAM4PmVHS2bFtapP8RtNGh3LSk2hpVXp8xtXcy2rNjn1sL
+ whFBmmsRnkfbuZf7BYyi8gVmdA/39wEHv+KxYjodNQ==
+X-Google-Smtp-Source: ABdhPJxkOkUZ2+WFCA9kUXkWVgnWKZbc6ENUsxa3iUZhVqA8izUArbjN5NvmwueKDr2OZFrqx7CqbYQQPKiwAhSOzRs=
 X-Received: by 2002:a05:651c:202:: with SMTP id
- y2mr21426940ljn.162.1609164617377; 
- Mon, 28 Dec 2020 06:10:17 -0800 (PST)
+ y2mr21433617ljn.162.1609164843848; 
+ Mon, 28 Dec 2020 06:14:03 -0800 (PST)
 MIME-Version: 1.0
 References: <20201226163037.43691-1-vitaly.wool@konsulko.com>
  <CAAhSdy1M5pMjYHNWdOicb3N3fjTfQLEgE8tFb74sqGbPE_9eyQ@mail.gmail.com>
  <CAM4kBBJ3Vbytx=dFK7+DMByV3zK=FVLATSwjyuuygkDK1MCQjA@mail.gmail.com>
 In-Reply-To: <CAM4kBBJ3Vbytx=dFK7+DMByV3zK=FVLATSwjyuuygkDK1MCQjA@mail.gmail.com>
 From: Anup Patel <anup@brainfault.org>
-Date: Mon, 28 Dec 2020 19:40:05 +0530
-Message-ID: <CAAhSdy0E8xspb3epBdrTmjg7vSQanG9zwyMY19eeDDL8z=WJFg@mail.gmail.com>
+Date: Mon, 28 Dec 2020 19:43:52 +0530
+Message-ID: <CAAhSdy2CssmEJVP=+eXsNqRXbQgTSn=+1d6w1UcFOJTA3Zbcug@mail.gmail.com>
 Subject: Re: [PATCH] riscv: add BUILTIN_DTB support for MMU-enabled targets
 To: Vitaly Wool <vitaly.wool@konsulko.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201228_091020_086452_3D91468C 
-X-CRM114-Status: GOOD (  32.13  )
+X-CRM114-CacheID: sfid-20201228_091405_728014_7195A92D 
+X-CRM114-Status: GOOD (  32.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -153,10 +153,11 @@ On Mon, Dec 28, 2020 at 7:05 PM Vitaly Wool <vitaly.wool@konsulko.com> wrote:
 > the early mapping which will be gone by the time
 > unflatten_and_copy_device_tree() is called.
 
-That's why we are doing early_init_dt_verify() again for the MMU-enabled
-case which already takes care of your concern.
-
-We use early_init_dt_verify() like most architectures to set the initial DTB.
+The throw-away early DTB mapping in early_pg_dir is anyway
+redundant when we have built-in DTB so this patch needs to
+add an "#ifdef" around it for the MMU-enabled case. Also, please
+update dtb_early_va and dtb_early_pa separately for MMU-enabled
+case in the setup_vm()
 
 >
 > > The setup_vm() is supposed to setup dtb_early_va and dtb_early_pa
@@ -189,10 +190,9 @@ We use early_init_dt_verify() like most architectures to set the initial DTB.
 > Thanks for the pointer, however I don't think our patches have
 > intersections. Besides, Damien is dealing with the MMU-less case
 > there.
-
-Damien's patch is also trying to move to use generic BUILTIN_DTB
-support for the MMU-less case so it is similar work hence the chance
-of patch conflict.
+>
+> Best regards,
+>    Vitaly
 
 Regards,
 Anup
