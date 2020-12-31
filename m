@@ -2,81 +2,76 @@ Return-Path: <SRS0=hIOt=GD=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1FFB6C433E0
-	for <linux-riscv@archiver.kernel.org>; Thu, 31 Dec 2020 09:53:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A1319C433E0
+	for <linux-riscv@archiver.kernel.org>; Thu, 31 Dec 2020 18:34:59 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B4D6020786
-	for <linux-riscv@archiver.kernel.org>; Thu, 31 Dec 2020 09:53:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B4D6020786
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=konsulko.com
+	by mail.kernel.org (Postfix) with ESMTPS id 54A86223C8
+	for <linux-riscv@archiver.kernel.org>; Thu, 31 Dec 2020 18:34:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 54A86223C8
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=baVTOwor94cwqyvlyZWMMbWvHThCOsInw9ccwrHnHFQ=; b=LYSlK6Oe+mpEwhStOjOdz9G93
-	fbtqXD6sg3WE3lRc2rX45s3UmbEWZCSdycx8LjTE72p1GnIDZGS2+Q9WaaRC8xE815Jl+Rwny7htQ
-	xekNuApCT4mJYmRjxUTLSkeHdGm9V9k9FWEGDV5f5ForNrMqhtteI+KSZ9YrdmfD199XonwC+JPUF
-	UN7co/rcK8DAQIhrH7my4q7h3NXQTqmdzIlJIbhI5dtOaYJlNwtDkFn9EJL3HqvbTzIIYZQpCzouL
-	Q/Hkz0wNyyomt9JVWNZxf2YmtPI7gBcmKCxxu4JzmVYD5SsS149eICgLTKzzrds/fb+vKbb9JFWwz
-	hStZBDsOQ==;
+	 bh=cLq6vWd7sxF0V2COc+ZVFfM0vb+F9KYpVBzORpu4FNs=; b=XiCDNOUq+6s0rA1GZ55p0Mg7B
+	4IZf0UOr/oF/0bsavLtxDl2bGcACVEvXXgR1taUqlhpJdcl6EdPTpsDKZv9T7BahPQvj+n2KEnSWd
+	ifSFMor31d6RPLYxuqXnNuvaBhNPjzJpMEdJIOpxFK+LBtIphmifWHMXzPjFoE8G6ebTioBEcw/Bx
+	aJX4SLasaJCD5R1QM0jmzIrr5AyEqm26HcGBpQtkyQDDSpZ8yTXzKrFlSZ7zAHNqDIlaE2V0nMZPW
+	SySZKxa9eneytd6yh7QcpaSIxppSh+PUmkFxaUXIpKClTu+qbPnooJ+WrD+kkBtmL7VXyb+S4/BLb
+	ih5qeCcbw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kuueH-0005bE-BL; Thu, 31 Dec 2020 09:53:37 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1kv2mb-00086d-0w; Thu, 31 Dec 2020 18:34:45 +0000
+Received: from mail-oi1-f169.google.com ([209.85.167.169])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kuueE-0005ad-Gb
- for linux-riscv@lists.infradead.org; Thu, 31 Dec 2020 09:53:35 +0000
-Received: by mail-lf1-x134.google.com with SMTP id s26so43023993lfc.8
- for <linux-riscv@lists.infradead.org>; Thu, 31 Dec 2020 01:53:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=konsulko.com; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=M9V0ZomxWf5FI6Pzw3Hb0y0s9lG9QTEQPE+MoCBxoaw=;
- b=MyoI/oDbk1eBXNR6Q1xj1TEt28OJWIUQXMTmH9g4iQ2KI/499qhTqvkBfbV9FL6OJI
- ozYKs7ZfqDV9IoVQDG7t5WI8UfOHkyKcpnuSqazBoYZu+E+RnC6WWknVe0Z3mr3XK/xh
- TRiTJSdzopiIHuftMe95xOUGtAnFyrYaiZX/8=
+ id 1kv2mX-000861-Pk
+ for linux-riscv@lists.infradead.org; Thu, 31 Dec 2020 18:34:42 +0000
+Received: by mail-oi1-f169.google.com with SMTP id s2so22593995oij.2
+ for <linux-riscv@lists.infradead.org>; Thu, 31 Dec 2020 10:34:40 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=M9V0ZomxWf5FI6Pzw3Hb0y0s9lG9QTEQPE+MoCBxoaw=;
- b=B0zVXfhz9cKFt7y99GwypFLvC7KUJvjBTXkiHd+NAcriOlCOv3KmHHgoQFZlTF6WdC
- Vp8rfFdDl8dWpIXgmscaS9OY5vERwAxh/EmXxYXXxlOMcanqREHuim7ffmkS9kQ7Cq1U
- diKAph/nmH4GBtyM84tlsG6fxN0Zvd6NZKLk3l8iuI+2oMk6DqICzIyIjOAzVh9lo7xW
- JVsyCzI5KwEYV/uaHPGiaAKn45rQZW9CEZzSnMZHqt3ALSEn9ErATqME+eEWC/55S12y
- rW9YRrTlPCzfCCgQzN37pguqUdqU6ILv5PdWvfJWuWE8wLYoBVzKZ4X0fbZqlwhIVB63
- +58Q==
-X-Gm-Message-State: AOAM531EIbE8orPUmArE8DMQ+0Ai2KJipPMu8Uy8hb0P2wSzs0KjqZRi
- wSAqdDH/sTEJWOROhTvR3okDjVBg/e6lHTLHRbYbrQ==
-X-Google-Smtp-Source: ABdhPJyNNZPt1wfoVD+7d/vQ025wnymJUtRR4PYDYtvCI4JzcbGJrjpUgp6diGSdnvGBTaDm2kpNOhpGX13hQ36MXKc=
-X-Received: by 2002:a05:6512:3e7:: with SMTP id
- n7mr23736548lfq.585.1609408410757; 
- Thu, 31 Dec 2020 01:53:30 -0800 (PST)
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=F6GO/pF6op8vNadZMJry1vYTssx1a6tY68+XCu4xIas=;
+ b=PjGK8sN8XD26K+ycQV4r5MYZPAq7lhBvvoMvjZT5pNhoF2CCI9O0YnB/0sqZOFTFDT
+ Vm+ylTGjQPYJiIsRHw0X2m+ZQPFXJqgSvetEUOMJgcnG8K2orpRxjdBTfhLbJDEJDCLr
+ KarLFd7Pd6ZsCV6uqC2GWR0TW+J4rejxp0hS/AGMDkqPuA/Q+EjHMVJ92jvXFvMISmYa
+ CDf58nqHIziP6+JhkuXQJnBQTsnL34DPBEmeTbcQxu4UDZ3Lb50rpvgdS1iWPYQ60SIG
+ qO+YOmVk2LqftWMR38/3K6cuil77yzQ0EvERWLp29i1Wo7OkpF6eu0xhM/MIK9pG9mR0
+ z8uA==
+X-Gm-Message-State: AOAM531v7Amz2+rF94/bq0j5lI3qDnMSnyTXMVzGzfenmvwFmXW6MgbB
+ flu1ThMJswunI7/ogWkxMQ==
+X-Google-Smtp-Source: ABdhPJw5jb2HbYQ/4+/j5s0xoEhsHOLYmsFBuhcXx7aFLOWXNkmjfe0Ob33KoZ3EIedtrzOcqKi60A==
+X-Received: by 2002:aca:f106:: with SMTP id p6mr8709854oih.63.1609439680378;
+ Thu, 31 Dec 2020 10:34:40 -0800 (PST)
+Received: from robh.at.kernel.org ([64.188.179.253])
+ by smtp.gmail.com with ESMTPSA id r13sm11496792oti.49.2020.12.31.10.34.36
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 31 Dec 2020 10:34:39 -0800 (PST)
+Received: (nullmailer pid 2113540 invoked by uid 1000);
+ Thu, 31 Dec 2020 18:34:35 -0000
+Date: Thu, 31 Dec 2020 11:34:35 -0700
+From: Rob Herring <robh@kernel.org>
+To: conor.dooley@microchip.com
+Subject: Re: [PATCH v3 2/5] dt-bindings: add bindings for polarfire soc mailbox
+Message-ID: <20201231183435.GA2113432@robh.at.kernel.org>
+References: <20201223163302.29057-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
-References: <20201226163037.43691-1-vitaly.wool@konsulko.com>
- <CAAhSdy1M5pMjYHNWdOicb3N3fjTfQLEgE8tFb74sqGbPE_9eyQ@mail.gmail.com>
- <CAM4kBBJ3Vbytx=dFK7+DMByV3zK=FVLATSwjyuuygkDK1MCQjA@mail.gmail.com>
- <CAAhSdy0E8xspb3epBdrTmjg7vSQanG9zwyMY19eeDDL8z=WJFg@mail.gmail.com>
- <CAM4kBBJLnrp8XB1OZnv2FEuKdEQuQfDWdgwsV--9mZYB=JmJPQ@mail.gmail.com>
- <CAAhSdy1VMujreaaWCDjO9BPa0P2As7c0Hh3riZsY3ncU3NnsGg@mail.gmail.com>
-In-Reply-To: <CAAhSdy1VMujreaaWCDjO9BPa0P2As7c0Hh3riZsY3ncU3NnsGg@mail.gmail.com>
-From: Vitaly Wool <vitaly.wool@konsulko.com>
-Date: Thu, 31 Dec 2020 10:53:36 +0100
-Message-ID: <CAM4kBB+fAOhN6dodf8nz2qqTJbXhKQ-EF+jHrBu2OA9wtBv-7w@mail.gmail.com>
-Subject: Re: [PATCH] riscv: add BUILTIN_DTB support for MMU-enabled targets
-To: Anup Patel <anup@brainfault.org>
+Content-Disposition: inline
+In-Reply-To: <20201223163302.29057-1-conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20201231_045334_667418_43430C2F 
-X-CRM114-Status: GOOD (  45.16  )
+X-CRM114-CacheID: sfid-20201231_133441_860203_5E16876A 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -88,160 +83,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Damien Le Moal <damien.lemoal@wdc.com>,
- Bin Meng <bin.meng@windriver.com>, Palmer Dabbelt <palmerdabbelt@google.com>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>
+Cc: devicetree@vger.kernel.org, damien.lemoal@wdc.com, aou@eecs.berkeley.edu,
+ lewis.hanly@microchip.com, david.abdurachmanov@gmail.com,
+ daire.mcnamara@microchip.com, anup.patel@wdc.com, j.neuschaefer@gmx.net,
+ atish.patra@wdc.com, robh+dt@kernel.org, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, cyril.jean@microchip.com,
+ linux-riscv@lists.infradead.org, jassisinghbrar@gmail.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 29, 2020 at 6:05 AM Anup Patel <anup@brainfault.org> wrote:
->
-> On Mon, Dec 28, 2020 at 10:08 PM Vitaly Wool <vitaly.wool@konsulko.com> wrote:
-> >
-> > On Mon, Dec 28, 2020 at 3:10 PM Anup Patel <anup@brainfault.org> wrote:
-> > >
-> > > On Mon, Dec 28, 2020 at 7:05 PM Vitaly Wool <vitaly.wool@konsulko.com> wrote:
-> > > >
-> > > > On Mon, Dec 28, 2020 at 12:59 PM Anup Patel <anup@brainfault.org> wrote:
-> > > > >
-> > > > > On Sat, Dec 26, 2020 at 10:03 PM Vitaly Wool <vitaly.wool@konsulko.com> wrote:
-> > > > > >
-> > > > > > Sometimes, especially in a production system we may not want to
-> > > > > > use a "smart bootloader" like u-boot to load kernel, ramdisk and
-> > > > > > device tree from a filesystem on eMMC, but rather load the kernel
-> > > > > > from a NAND partition and just run it as soon as we can, and in
-> > > > > > this case it is convenient to have device tree compiled into the
-> > > > > > kernel binary. Since this case is not limited to MMU-less systems,
-> > > > > > let's support it for these which have MMU enabled too.
-> > > > > >
-> > > > > > Signed-off-by: Vitaly Wool <vitaly.wool@konsulko.com>
-> > > > > > ---
-> > > > > >  arch/riscv/Kconfig   |  1 -
-> > > > > >  arch/riscv/mm/init.c | 12 ++++++++++--
-> > > > > >  2 files changed, 10 insertions(+), 3 deletions(-)
-> > > > > >
-> > > > > > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > > > > > index 2b41f6d8e458..9464b4e3a71a 100644
-> > > > > > --- a/arch/riscv/Kconfig
-> > > > > > +++ b/arch/riscv/Kconfig
-> > > > > > @@ -419,7 +419,6 @@ endmenu
-> > > > > >
-> > > > > >  config BUILTIN_DTB
-> > > > > >         def_bool n
-> > > > > > -       depends on RISCV_M_MODE
-> > > > > >         depends on OF
-> > > > > >
-> > > > > >  menu "Power management options"
-> > > > > > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> > > > > > index 87c305c566ac..5d1c7a3ec01c 100644
-> > > > > > --- a/arch/riscv/mm/init.c
-> > > > > > +++ b/arch/riscv/mm/init.c
-> > > > > > @@ -194,12 +194,20 @@ void __init setup_bootmem(void)
-> > > > > >         setup_initrd();
-> > > > > >  #endif /* CONFIG_BLK_DEV_INITRD */
-> > > > > >
-> > > > > > +       /*
-> > > > > > +        * If DTB is built in, no need to reserve its memblock.
-> > > > > > +        * OTOH, initial_boot_params has to be set to properly copy DTB
-> > > > > > +        * before unflattening later on.
-> > > > > > +        */
-> > > > > > +       if (IS_ENABLED(CONFIG_BUILTIN_DTB))
-> > > > > > +               initial_boot_params = __va(dtb_early_pa);
-> > > > >
-> > > > > Don't assign initial_boot_params directly here because the
-> > > > > early_init_dt_scan() will do it.
-> > > >
-> > > > early_init_dt_scan will set initial_boot_params to dtb_early_va from
-> > > > the early mapping which will be gone by the time
-> > > > unflatten_and_copy_device_tree() is called.
-> > >
-> > > That's why we are doing early_init_dt_verify() again for the MMU-enabled
-> > > case which already takes care of your concern.
-> >
-> > I might be out in the woods here but... Do you mean the call to
-> > early_init_dt_verify() in setup_arch() which is compiled out
-> > completely in the CONFIG_BUILTIN_DTB case?
-> > Or is there any other call that I'm overlooking?
->
-> Sorry for the confusion, what I meant was that we are calling
-> early_init_dt_verify() from setup_arch() for the MMU-enabled
-> with built-in DTB disabled case to update "initial_boot_params"
-> after the boot CPU has switched from early_pg_dir to swapper_pg_dir.
->
-> For MMU-enabled with built-in DTB case, if setup_vm() sets the
-> dtb_early_va and dtb_early_pa correctly then early_init_dt_scan()
-> called from setup_arch() will automatically set correct value for
-> "initial_boot_params".
+On Wed, 23 Dec 2020 16:33:02 +0000, conor.dooley@microchip.com wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+> 
+> Add device tree bindings for the MSS system controller mailbox on
+> the Microchip PolarFire SoC.
+> 
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>  .../mailbox/microchip,mailbox-mpfs.yaml       | 47 +++++++++++++++++++
+>  1 file changed, 47 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/mailbox/microchip,mailbox-mpfs.yaml
+> 
 
-Oh I think I get it now. You are suggesting to skip the temporary
-mapping for DT altogether since it is anyway in the kernel mapping
-range, aren't you?
-That does make sense indeed, thanks :)
 
-> It is strange that early_init_dt_verify() is being compiled-out for you
-> because the early_init_dt_scan() called from setup_arch() also uses
-> early_init_dt_verify(). I quickly compiled the NoMMU kernel for K210
-> which also uses built-in DTB and I see that early_init_dt_verify()
-> is not being compiled-out when built-in DTB is enabled.
+Please add Acked-by/Reviewed-by tags when posting new versions. However,
+there's no need to repost patches *only* to add the tags. The upstream
+maintainer will do that for acks received on the version they apply.
 
-I did not say that early_init_dt_verify() is compiled out, it's the
-call to it in setup_arch() that is compiled out if BUILTIN_DTB is
-selected. However, if I understand you correctly now, it should not
-matter if we don't set dtb_early_va to point to the temporary mapping.
+If a tag was not added on purpose, please state why and what changed.
 
-Best regards,
-   Vitaly
->
-> Regards,
-> Anup
->
-> >
-> > Best regards,
-> >    Vitaly
-> >
-> > > We use early_init_dt_verify() like most architectures to set the initial DTB.
-> > >
-> > > >
-> > > > > The setup_vm() is supposed to setup dtb_early_va and dtb_early_pa
-> > > > > for MMU-enabled case so please add a "#ifdef" over there for the
-> > > > > built-in DTB case.
-> > > > >
-> > > > > > +       else
-> > > > > > +               memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
-> > > > > > +
-> > > > > >         /*
-> > > > > >          * Avoid using early_init_fdt_reserve_self() since __pa() does
-> > > > > >          * not work for DTB pointers that are fixmap addresses
-> > > > > >          */
-> > > > >
-> > > > > This comment needs to be updated and moved along the memblock_reserve()
-> > > > > statement.
-> > > > >
-> > > > > > -       memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
-> > > > > > -
-> > > > > >         early_init_fdt_scan_reserved_mem();
-> > > > > >         dma_contiguous_reserve(dma32_phys_limit);
-> > > > > >         memblock_allow_resize();
-> > > > > > --
-> > > > > > 2.29.2
-> > > > > >
-> > > > >
-> > > > > This patch should be based upon Damiens builtin DTB patch.
-> > > > > Refer, https://www.spinics.net/lists/linux-gpio/msg56616.html
-> > > >
-> > > > Thanks for the pointer, however I don't think our patches have
-> > > > intersections. Besides, Damien is dealing with the MMU-less case
-> > > > there.
-> > >
-> > > Damien's patch is also trying to move to use generic BUILTIN_DTB
-> > > support for the MMU-less case so it is similar work hence the chance
-> > > of patch conflict.
-> > >
-> > > Regards,
-> > > Anup
 
 _______________________________________________
 linux-riscv mailing list
