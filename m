@@ -2,71 +2,60 @@ Return-Path: <SRS0=j3hv=GH=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+X-Spam-Status: No, score=-12.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BB291C433E0
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Jan 2021 16:49:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CE806C433DB
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Jan 2021 19:59:16 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 57275224DE
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Jan 2021 16:49:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 57275224DE
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
+	by mail.kernel.org (Postfix) with ESMTPS id 0EF8E2085B
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Jan 2021 19:59:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0EF8E2085B
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=AkecHzwhCoGMY8xMzXoYe5Goqgc7kQCFotU/SKuvZn4=; b=p3H4k5qAPD9jVllIXsWh05fUu
-	WASBeeFod9kwWSg2MtFn84ujBJruI5cfXqlrDCUo+WMDYraRw4Q6Kc/wdzRTe6ySdIrQYIflusJjN
-	mZcDh8PVJPDqzfZBFE36F5jQjuVBZpNrurcxXyQLX1tsq77bcSWlge2jcSbcY9IGKKDWHFlrgrJoS
-	7WQsZMt5t6vGuvu8nOqlpieCZkiq0RjhXwnvyZvL5Mq4fv3LrS7Pv7MCFXBCTarjKn9aiAWjK9bGT
-	RpqFJA0RwPvcRP3qQvTx5JJrlvRda2tooVrzwuhw4WptF91KeoFo9CdKaZysOKR4aIXDZ8Bz2TCTq
-	4SVZLkclw==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oPwwobYWmPjew9om8Qy9FGMSmGdU4uXHQUxG+hUBNEY=; b=auTiosXL+Rh6rmtVzossxXPxle
+	d2Cjhp43gKjSD/lSslrPFmwcGgSfkRxJ764lFz7bCH6M6PKqbCs+fWAI63m7LP0RO2cMDoX+6KyMo
+	ihB2blA44jwGS3vEPCLqWoulyaXdgAMX0+yMQQksupmJkacMZlrKRWe58Q9LbUayFzADMDVWF8iDi
+	zGVtAirsCx51QN4yzM+NwqunW3so4Mu4rYHwFbXDt8SPAuJP6wLjXzMnWfyaxjGR+sTccae4gb/6R
+	toOabc/qp/fbzvtP+zBjvBEaJytpzuYPL4G0MSSCYHTHvKaPcfOIxSK5OAj2tUb+MMDNilxhUemd1
+	71lBGQ/Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kwT2k-0004T9-T9; Mon, 04 Jan 2021 16:49:18 +0000
-Received: from mail-ot1-f46.google.com ([209.85.210.46])
+	id 1kwW0M-0006LF-L9; Mon, 04 Jan 2021 19:59:02 +0000
+Received: from relay4-d.mail.gandi.net ([217.70.183.196])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kwT2i-0004Sk-HM
- for linux-riscv@lists.infradead.org; Mon, 04 Jan 2021 16:49:17 +0000
-Received: by mail-ot1-f46.google.com with SMTP id b24so26635160otj.0
- for <linux-riscv@lists.infradead.org>; Mon, 04 Jan 2021 08:49:14 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=7fkrQP4tLbvvA8Dq58BtGeBgLkf6qqiDBKQsJadGDrI=;
- b=pWkMZ+Qv+ENq3PLZrFXxhrud7Vwp8GF1LouW2uorpMr9r3rjM+L6pA0rd64dUNiZQH
- QvwpCL3SLpA2X8hDcKJ0oCen8MkDhQiBzzkqYTdD2ScGo3VDD/Z/8V97BhEuZUwbsnWu
- sO/lDuAPaRfjnfPgA3BZlKF0pqDXH6YTXbDwyWJOydWZXCv7vpslnn1OMy0+UKz76FE5
- FXOUM6U4ECdCZgdBKebAbpxLUXNMEXMYxNFESsnGfKwJ6g4zSsBtWvHe5+18bX69mNlX
- OBJxS/lmqolBf1xH13xdw9DWKFAASiNx1C1IbCBbzuPtLYbe2tMvninAt/bX0/KlrFkE
- VBEw==
-X-Gm-Message-State: AOAM533sOqAk1TazX+eBpg3Ao9KBm+trkC6CMoYyndzsn+lhIaUwnia3
- 3jumpt0R/vdjSEOZrxyRlwXYgU3ObNpIi2XRe+w=
-X-Google-Smtp-Source: ABdhPJw/fX5bDYgvVjAZ3/BXEfeMxMiKSCRsFXnDni2smUO6Y2LjN6+8nWI9zHhWsMEQkXD5+HFg8UlLyux2KP2cNiA=
-X-Received: by 2002:a05:6830:1f5a:: with SMTP id
- u26mr53508152oth.250.1609778954548; 
- Mon, 04 Jan 2021 08:49:14 -0800 (PST)
+ id 1kwW0L-0006KZ-1o
+ for linux-riscv@lists.infradead.org; Mon, 04 Jan 2021 19:59:02 +0000
+X-Originating-IP: 90.112.190.212
+Received: from debian.home (lfbn-gre-1-231-212.w90-112.abo.wanadoo.fr
+ [90.112.190.212]) (Authenticated sender: alex@ghiti.fr)
+ by relay4-d.mail.gandi.net (Postfix) with ESMTPSA id 7DD92E0009;
+ Mon,  4 Jan 2021 19:58:53 +0000 (UTC)
+From: Alexandre Ghiti <alex@ghiti.fr>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Zong Li <zong.li@sifive.com>,
+ Anup Patel <anup@brainfault.org>, Christoph Hellwig <hch@lst.de>,
+ Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ linux-efi@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [RFC PATCH 00/12] Introduce sv48 support without relocable kernel
+Date: Mon,  4 Jan 2021 14:58:28 -0500
+Message-Id: <20210104195840.1593-1-alex@ghiti.fr>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-References: <20210104164500.1311091-1-geert@linux-m68k.org>
-In-Reply-To: <20210104164500.1311091-1-geert@linux-m68k.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 4 Jan 2021 17:49:03 +0100
-Message-ID: <CAMuHMdXG_B-3y1MWh64T6LU3Gmo6UQGGWU8EbLApjDeXVLL3GQ@mail.gmail.com>
-Subject: Re: [PATCH v2] drivers/soc/litex: Add restart handler
-To: Karol Gugala <kgugala@antmicro.com>,
- Mateusz Holenko <mholenko@antmicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210104_114916_599370_48F3E927 
-X-CRM114-Status: GOOD (  19.96  )
+X-CRM114-CacheID: sfid-20210104_145901_284104_9E279877 
+X-CRM114-Status: GOOD (  15.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -78,69 +67,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Gabriel Somlo <gsomlo@gmail.com>, Stafford Horne <shorne@gmail.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Cc: Alexandre Ghiti <alex@ghiti.fr>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 4, 2021 at 5:45 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> Let the LiteX SoC Controller a register a restart handler, which resets
-> the LiteX SoC by writing 1 to CSR_CTRL_RESET_ADDR.
->
-> Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
-> ---
-> Tested with linux-on-litex-vexriscv.
->
-> This patch is based on upstream, i.e. not on top of Gabriel Somlo's
-> "[PATCH v5 0/4] drivers/soc/litex: support 32-bit subregisters, 64-bit
-> CPUs"
-> (https://lore.kernel.org/lkml/20201227161320.2194830-1-gsomlo@gmail.com/)
+This patchset, contrary to the previous versions, allows to have a single        
+kernel for sv39 and sv48 without being relocatable.                              
+                                                                                 
+The idea comes from Arnd Bergmann who suggested to do the same as x86,           
+that is mapping the kernel to the end of the address space, which allows         
+the kernel to be linked at the same address for both sv39 and sv48 and           
+then does not require to be relocated at runtime.                                
+                                                                                 
+This is an RFC because I need to at least rebase a few commits and add           
+documentation. The most interesting patches where I expect feedbacks are         
+1/12, 2/12 and 8/12. Note that moving the kernel out of the linear
+mapping and sv48 support can be separate patchsets, I share them together
+today to show that it works (this patchset is rebased on top of v5.10). 
 
-Bummer, and that's why the RESET_REG_* definitions are no longer
-next to the SCRATCH_REG_* definitions :-(
+If we agree about the overall idea, I'll rebase my relocatable patchset
+on top of that and then KASLR implementation from Zong will be greatly
+simplified since moving the kernel out of the linear mapping will avoid
+to copy the kernel physically. 
+                                                                                 
+This implements sv48 support at runtime. The kernel will try to                  
+boot with 4-level page table and will fallback to 3-level if the HW does not     
+support it. Folding the 4th level into a 3-level page table has almost no        
+cost at runtime.                                                                 
+                                                                                 
+Finally, the user can now ask for sv39 explicitly by using the device-tree       
+which will reduce memory footprint and reduce the number of memory accesses      
+in case of TLB miss.   
 
-Well, I assume that will be fixed by evolution ;-)
+Alexandre Ghiti (12):
+  riscv: Move kernel mapping outside of linear mapping
+  riscv: Protect the kernel linear mapping
+  riscv: Get rid of compile time logic with MAX_EARLY_MAPPING_SIZE
+  riscv: Allow to dynamically define VA_BITS
+  riscv: Simplify MAXPHYSMEM config
+  riscv: Prepare ptdump for vm layout dynamic addresses
+  asm-generic: Prepare for riscv use of pud_alloc_one and pud_free
+  riscv: Implement sv48 support
+  riscv: Allow user to downgrade to sv39 when hw supports sv48
+  riscv: Use pgtable_l4_enabled to output mmu type in cpuinfo
+  riscv: Explicit comment about user virtual address space size
+  riscv: Improve virtual kernel memory layout dump
 
-> v2:
->   - Rebase on top of v5.11-rc1,
->   - Change reset handler priority to recommended default value of 128
->     (was 192).
->
-> (v1 was not sent to a mailing list)
-> ---
->  drivers/soc/litex/litex_soc_ctrl.c | 33 +++++++++++++++++++++++++++---
->  1 file changed, 30 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/soc/litex/litex_soc_ctrl.c b/drivers/soc/litex/litex_soc_ctrl.c
-> index 1217cafdfd4d1d2b..d729ad50d4ffca5e 100644
-> --- a/drivers/soc/litex/litex_soc_ctrl.c
-> +++ b/drivers/soc/litex/litex_soc_ctrl.c
-> @@ -15,6 +15,11 @@
->  #include <linux/module.h>
->  #include <linux/errno.h>
->  #include <linux/io.h>
-> +#include <linux/reboot.h>
-> +
-> +/* reset register located at the base address */
-> +#define RESET_REG_OFF           0x00
-> +#define RESET_REG_VALUE         0x00000001
->
->  /*
->   * LiteX SoC Generator, depending on the configuration, can split a single
-
-Gr{oetje,eeting}s,
-
-                        Geert
+ arch/riscv/Kconfig                      |  34 +--
+ arch/riscv/boot/loader.lds.S            |   3 +-
+ arch/riscv/include/asm/csr.h            |   3 +-
+ arch/riscv/include/asm/fixmap.h         |   3 +
+ arch/riscv/include/asm/page.h           |  33 ++-
+ arch/riscv/include/asm/pgalloc.h        |  40 +++
+ arch/riscv/include/asm/pgtable-64.h     | 104 ++++++-
+ arch/riscv/include/asm/pgtable.h        |  68 +++--
+ arch/riscv/include/asm/sparsemem.h      |   6 +-
+ arch/riscv/kernel/cpu.c                 |  23 +-
+ arch/riscv/kernel/head.S                |   6 +-
+ arch/riscv/kernel/module.c              |   4 +-
+ arch/riscv/kernel/vmlinux.lds.S         |   3 +-
+ arch/riscv/mm/context.c                 |   2 +-
+ arch/riscv/mm/init.c                    | 376 ++++++++++++++++++++----
+ arch/riscv/mm/physaddr.c                |   2 +-
+ arch/riscv/mm/ptdump.c                  |  56 +++-
+ drivers/firmware/efi/libstub/efi-stub.c |   2 +-
+ include/asm-generic/pgalloc.h           |  24 +-
+ include/linux/sizes.h                   |   3 +-
+ 20 files changed, 648 insertions(+), 147 deletions(-)
 
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+2.20.1
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
