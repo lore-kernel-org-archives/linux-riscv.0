@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B20BDC433DB
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Jan 2021 20:04:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D48E8C433DB
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Jan 2021 20:05:30 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 49FC52085B
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Jan 2021 20:04:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 49FC52085B
+	by mail.kernel.org (Postfix) with ESMTPS id 6AEA92085B
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Jan 2021 20:05:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6AEA92085B
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,24 +23,24 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=st5lVm3jTR6LcXhjji0jcF2vA2hbduWo10tz+KbNQUA=; b=foSELO1iHvO+Ei/x6sXNeU8j+
-	0g+PmuffEhhnZXZMbnpqTX2k0hli196/wbMe9twNvkzkcu21DE+vkeBNRwCA7R2txyudG92jffCQi
-	GPw6hjC1YS8N7cWHHKKrF0/hY9hgXsPZM7Afz+f6JN3aJe1nNUv9iEAQ0EhAFFcuPojAN2h7mQ6DP
-	4FxwPjxFK1NkLNGM8FvMTSVloy0KaDSgqk9sjeuJUB6epwQWfiDD3giTXIk0vH8jmAndrSruU1bcj
-	iLPQ9hsWmEu/F6W/1NBkP4hJtj3L+pW7dkTo3Tmnm3O6PvQ/ytvJXA5D7TWEQIGhMo8GQILhbOlAr
-	thb7SOmAA==;
+	 bh=5PMXKlwefKRYSL2m7e7vBMUcgqAPhW7gu5LdDpEOX1M=; b=1vfavhiQBst17GTAAcP5TT2BZ
+	QLiEl4fPmUuo9HcUjI96e9EHCRb2F2+vCxvY9d/Ee4vcLMj6HnS7z3lhEdwxr5+6NZl/B3J6LhJlj
+	0XwHNgV+bbI7ZsfT7E/jNgLwbNs8hpHgqw4XQgZL/aXEoPB8BLxYSmbsr0g2IbK3nAEjEZUgX3Woh
+	dhm/BKni8SsW2d9ZGM8vlIm3rPmhspAOmFPAksyHyTwiRYqEcrR3q42e5+7pvGDreGcOQdfDDyIB6
+	0ucb+7XUaDLiUCiUcCH0CEJayy2V+StkqRmwY+vU0cS6aDbKTEaNxPgOLaOCGZPTgRgn6UbpRBfgv
+	DJFBEeLwQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kwW5O-0007ss-6z; Mon, 04 Jan 2021 20:04:14 +0000
-Received: from relay7-d.mail.gandi.net ([217.70.183.200])
+	id 1kwW6Q-00083w-QK; Mon, 04 Jan 2021 20:05:18 +0000
+Received: from relay4-d.mail.gandi.net ([217.70.183.196])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kwW5M-0007rr-1p
- for linux-riscv@lists.infradead.org; Mon, 04 Jan 2021 20:04:12 +0000
+ id 1kwW6M-00082D-KB
+ for linux-riscv@lists.infradead.org; Mon, 04 Jan 2021 20:05:17 +0000
 X-Originating-IP: 90.112.190.212
 Received: from debian.home (lfbn-gre-1-231-212.w90-112.abo.wanadoo.fr
  [90.112.190.212]) (Authenticated sender: alex@ghiti.fr)
- by relay7-d.mail.gandi.net (Postfix) with ESMTPSA id CA64720002;
- Mon,  4 Jan 2021 20:04:08 +0000 (UTC)
+ by relay4-d.mail.gandi.net (Postfix) with ESMTPSA id 53D97E0002;
+ Mon,  4 Jan 2021 20:05:11 +0000 (UTC)
 From: Alexandre Ghiti <alex@ghiti.fr>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Zong Li <zong.li@sifive.com>,
@@ -48,17 +48,17 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
  Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
  linux-efi@vger.kernel.org, linux-arch@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [RFC PATCH 05/12] riscv: Simplify MAXPHYSMEM config
-Date: Mon,  4 Jan 2021 14:58:33 -0500
-Message-Id: <20210104195840.1593-6-alex@ghiti.fr>
+Subject: [RFC PATCH 06/12] riscv: Prepare ptdump for vm layout dynamic
+ addresses
+Date: Mon,  4 Jan 2021 14:58:34 -0500
+Message-Id: <20210104195840.1593-7-alex@ghiti.fr>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20210104195840.1593-1-alex@ghiti.fr>
 References: <20210104195840.1593-1-alex@ghiti.fr>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210104_150412_191201_AAF8528C 
-X-CRM114-Status: UNSURE (   9.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210104_150515_002188_ED875336 
+X-CRM114-Status: GOOD (  12.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -76,54 +76,107 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Either the user specifies maximum physical memory size of 2GB or the
-user lives with the system constraint which is 1/4th of maximum
-addressable memory in Sv39 MMU mode (i.e. 128GB) for now.
+This is a preparatory patch for sv48 support that will introduce
+dynamic PAGE_OFFSET.
+
+Dynamic PAGE_OFFSET implies that all zones (vmalloc, vmemmap, fixaddr...)
+whose addresses depend on PAGE_OFFSET become dynamic and can't be used
+to statically initialize the array used by ptdump to identify the
+different zones of the vm layout.
 
 Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
 Reviewed-by: Anup Patel <anup@brainfault.org>
 ---
- arch/riscv/Kconfig | 20 ++++++--------------
- 1 file changed, 6 insertions(+), 14 deletions(-)
+ arch/riscv/mm/ptdump.c | 56 ++++++++++++++++++++++++++++++++++--------
+ 1 file changed, 46 insertions(+), 10 deletions(-)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 2979a44103be..852ab2f7a50d 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -127,7 +127,7 @@ config PAGE_OFFSET
- 	default 0xC0000000 if 32BIT && MAXPHYSMEM_2GB
- 	default 0x80000000 if 64BIT && !MMU
- 	default 0xffffffff80000000 if 64BIT && MAXPHYSMEM_2GB
--	default 0xffffffe000000000 if 64BIT && MAXPHYSMEM_128GB
-+	default 0xffffffe000000000 if 64BIT && !MAXPHYSMEM_2GB
+diff --git a/arch/riscv/mm/ptdump.c b/arch/riscv/mm/ptdump.c
+index ace74dec7492..1be2ca81f8ad 100644
+--- a/arch/riscv/mm/ptdump.c
++++ b/arch/riscv/mm/ptdump.c
+@@ -58,29 +58,50 @@ struct ptd_mm_info {
+ 	unsigned long end;
+ };
  
- config ARCH_FLATMEM_ENABLE
- 	def_bool y
-@@ -235,19 +235,11 @@ config MODULE_SECTIONS
- 	bool
- 	select HAVE_MOD_ARCH_SPECIFIC
++enum address_markers_idx {
++#ifdef CONFIG_KASAN
++	KASAN_SHADOW_START_NR,
++	KASAN_SHADOW_END_NR,
++#endif
++	FIXMAP_START_NR,
++	FIXMAP_END_NR,
++	PCI_IO_START_NR,
++	PCI_IO_END_NR,
++#ifdef CONFIG_SPARSEMEM_VMEMMAP
++	VMEMMAP_START_NR,
++	VMEMMAP_END_NR,
++#endif
++	VMALLOC_START_NR,
++	VMALLOC_END_NR,
++	PAGE_OFFSET_NR,
++    KERNEL_MAPPING_NR,
++	END_OF_SPACE_NR
++};
++
+ static struct addr_marker address_markers[] = {
+ #ifdef CONFIG_KASAN
+ 	{KASAN_SHADOW_START,	"Kasan shadow start"},
+ 	{KASAN_SHADOW_END,	"Kasan shadow end"},
+ #endif
+-	{FIXADDR_START,		"Fixmap start"},
+-	{FIXADDR_TOP,		"Fixmap end"},
+-	{PCI_IO_START,		"PCI I/O start"},
+-	{PCI_IO_END,		"PCI I/O end"},
++	{0,			"Fixmap start"},
++	{0,			"Fixmap end"},
++	{0,			"PCI I/O start"},
++	{0,			"PCI I/O end"},
+ #ifdef CONFIG_SPARSEMEM_VMEMMAP
+-	{VMEMMAP_START,		"vmemmap start"},
+-	{VMEMMAP_END,		"vmemmap end"},
++	{0,			"vmemmap start"},
++	{0,			"vmemmap end"},
+ #endif
+-	{VMALLOC_START,		"vmalloc() area"},
+-	{VMALLOC_END,		"vmalloc() end"},
+-	{PAGE_OFFSET,		"Linear mapping"},
++	{0,			"vmalloc() area"},
++	{0,			"vmalloc() end"},
++	{0,			"Linear mapping"},
++	{0,			"Kernel mapping (kernel, BPF, modules)"},
+ 	{-1, NULL},
+ };
  
--choice
--	prompt "Maximum Physical Memory"
--	default MAXPHYSMEM_2GB if 32BIT
--	default MAXPHYSMEM_2GB if 64BIT && CMODEL_MEDLOW
--	default MAXPHYSMEM_128GB if 64BIT && CMODEL_MEDANY
--
--	config MAXPHYSMEM_2GB
--		bool "2GiB"
--	config MAXPHYSMEM_128GB
--		depends on 64BIT && CMODEL_MEDANY
--		bool "128GiB"
--endchoice
--
-+config MAXPHYSMEM_2GB
-+	bool "Maximum Physical Memory 2GiB"
-+	default y if 32BIT
-+	default y if 64BIT && CMODEL_MEDLOW
-+	default n
+ static struct ptd_mm_info kernel_ptd_info = {
+ 	.mm		= &init_mm,
+ 	.markers	= address_markers,
+-	.base_addr	= KERN_VIRT_START,
++	.base_addr	= 0,
+ 	.end		= ULONG_MAX,
+ };
  
- config SMP
- 	bool "Symmetric Multi-Processing"
+@@ -335,6 +356,21 @@ static int ptdump_init(void)
+ {
+ 	unsigned int i, j;
+ 
++	address_markers[FIXMAP_START_NR].start_address = FIXADDR_START;
++	address_markers[FIXMAP_END_NR].start_address = FIXADDR_TOP;
++	address_markers[PCI_IO_START_NR].start_address = PCI_IO_START;
++	address_markers[PCI_IO_END_NR].start_address = PCI_IO_END;
++#ifdef CONFIG_SPARSEMEM_VMEMMAP
++	address_markers[VMEMMAP_START_NR].start_address = VMEMMAP_START;
++	address_markers[VMEMMAP_END_NR].start_address = VMEMMAP_END;
++#endif
++	address_markers[VMALLOC_START_NR].start_address = VMALLOC_START;
++	address_markers[VMALLOC_END_NR].start_address = VMALLOC_END;
++	address_markers[PAGE_OFFSET_NR].start_address = PAGE_OFFSET;
++	address_markers[KERNEL_MAPPING_NR].start_address = KERNEL_LINK_ADDR;
++
++	kernel_ptd_info.base_addr = KERN_VIRT_START;
++
+ 	for (i = 0; i < ARRAY_SIZE(pg_level); i++)
+ 		for (j = 0; j < ARRAY_SIZE(pte_bits); j++)
+ 			pg_level[i].mask |= pte_bits[j].mask;
 -- 
 2.20.1
 
