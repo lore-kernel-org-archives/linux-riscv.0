@@ -2,66 +2,63 @@ Return-Path: <SRS0=oZIk=GI=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-14.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0999AC433DB
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Jan 2021 01:00:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7E5B4C433DB
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Jan 2021 11:18:41 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B502222B2A
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Jan 2021 01:00:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B502222B2A
+	by mail.kernel.org (Postfix) with ESMTPS id 26A9F229C7
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Jan 2021 11:18:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 26A9F229C7
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=d7wwxT+ciEFQiEzImi/BvVu9s3gzyUS3yOf3DozlAeE=; b=DBReRT+Dx2YC2icrYe/Pr+51s
-	iA5O2YK0rLFKa3QXUf2u2QEfee/dsE0tup4feqDFo+sS4/8zfdewsFEcCNV+XrCt0E+zqH4f63z9w
-	nscARVYtXlaDk9CQlLRN4WuuHfwmtL2NDr0TrU9f3k3z+oEypyJfOps+Saz0ziM7rCC+hyha1wayq
-	hrJ6sN0KDmEAtPXCI62mAbUCJmajC33heP2z9LSoIdDN/ZhwF9k+3XwWPWPU0+D4Bbduval4nls86
-	gPk9VZvhNe2ZgHNGAE+1A2op8Ejlr3QPQHcnSJqw5VbgDcGRjsEa9hgAQyoYBPgqFweMKje0S586D
-	O6mdxS/Mg==;
+	 bh=YXWz3TNQ4uiJHwRn8dUp8s6ZTHWnCOF+panE5Q6FYOw=; b=vi/h3sIgUbTy5MOByuq49bjIH
+	zML9y1JChfes9n74ZIbf/m8HiO7p+Vu/QwkYpyf1RgitONuUxRhIRO6+2fsh8tM1XtiDMmvdaEpF6
+	Lkn5cTEPe7caz4Vrh7YAuxlGRpoWEcy8ypZYXX+udeiLzAFEbTmgSySOqRV/jEx7DbKMolII3tgjx
+	YrtcH2EZOK2LOAxzaFIe806YzjBM6AZjt0VkOgT/oFXpWnaT/zMDNbVKzvnbmYG78FbdYNKrIUkPG
+	pHgPe7GMtvbAVagslPtjBZ210hBPemrfF0CBb+CSEiMFDeF+kIrCh9+GWuMJoNCpottjsPMWf3/iK
+	qei0kZM2w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kwahY-0005PQ-Ut; Tue, 05 Jan 2021 00:59:57 +0000
+	id 1kwkLz-0004Ud-Ei; Tue, 05 Jan 2021 11:18:19 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kwahJ-0005FX-8L; Tue, 05 Jan 2021 00:59:42 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id ADCE6229C4;
- Tue,  5 Jan 2021 00:59:37 +0000 (UTC)
+ id 1kwkLu-0004T1-Co; Tue, 05 Jan 2021 11:18:15 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 736B5229C5;
+ Tue,  5 Jan 2021 11:18:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1609808380;
- bh=k5tUJHFjMO2s79xpLs4QJPdGWhJciPZsye1o8rF3dAs=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=J3TSwo3nNU7X1fflv8qhWlBhn2SmnPDX6zcIj6O9oxknpuMjJ7N3yvo9ua4URUl0A
- PuUfYceIKgapinnC/7xgRiktpmKCh88uXW3LIc+YIkYPxRD/9TsV1xs0NmEEJ6pjuk
- oOPR+/OyUvkgYYruRtYDpBW7qfr/apzWLFoFvF4TGS/TmChN4wb9jYM6uX/RFJil+Z
- yH/zKrmA41wjU1rucnDW1bq8SawDIgRo6A2eiQ22TOP0a4SI8/53r6h2GhKGeDbolu
- KP0RRqhT1KCPIJETNATjvr6VeQAgN6iMWTc1LgWYyJbTxVaFthxWvx/CpUMxRgvKs3
- 4F1Hff+G6hnoQ==
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH AUTOSEL 5.10 13/17] local64.h: make <asm/local64.h> mandatory
-Date: Mon,  4 Jan 2021 19:59:11 -0500
-Message-Id: <20210105005915.3954208-13-sashal@kernel.org>
-X-Mailer: git-send-email 2.27.0
-In-Reply-To: <20210105005915.3954208-1-sashal@kernel.org>
-References: <20210105005915.3954208-1-sashal@kernel.org>
+ s=k20201202; t=1609845492;
+ bh=GDmYQRHGn/AcnFt3hdxGi1mf2d4j0SgudD/3lB6HiLU=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=MGoc1AfjFEcjnH2LG9n6lBEYoM6Ri+jtRDQ3pMETkgkS4xWatgY5WzBCv7tGFTTX4
+ 9deGZUIgeLAhm1VPGBdYES++ZORJDj29LOoOSG8tACOto7uS1nWJwFUZ5fw3Q/9+7t
+ 9Rnjcz0F86y/qp986vAfUr6GinSVP0XwPgyXu3vSEN7cNL4OxE10chjJdGA85/nxVF
+ lPpoMqPvAHjIz+Tazlv2fQtQtSQARqHG/OYlCfxgVMRWyanIC2bLCSGkFIWiXyTy98
+ QR/IH6Kj4pkkDkHe387Q3RpA+JZkCdNIme8yoaM7itWnaNn71YrIoqeYgceFoOyLsB
+ SI0+F1HbHOM4g==
+Received: by earth.universe (Postfix, from userid 1000)
+ id 4BD5B3C0C94; Tue,  5 Jan 2021 12:18:10 +0100 (CET)
+Date: Tue, 5 Jan 2021 12:18:10 +0100
+From: Sebastian Reichel <sre@kernel.org>
+To: Rob Herring <robh@kernel.org>
+Subject: Re: [PATCH] dt-bindings: Add missing array size constraints
+Message-ID: <20210105111810.5sdfmjga5in5wgvx@earth.universe>
+References: <20210104230253.2805217-1-robh@kernel.org>
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
+In-Reply-To: <20210104230253.2805217-1-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210104_195941_458000_40B08170 
-X-CRM114-Status: GOOD (  14.79  )
+X-CRM114-CacheID: sfid-20210105_061814_617057_4486BB47 
+X-CRM114-Status: GOOD (  16.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -73,315 +70,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
- Peter Zijlstra <peterz@infradead.org>, linux-csky@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
- Sasha Levin <sashal@kernel.org>, linux-s390@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-hexagon@vger.kernel.org,
- Masahiro Yamada <masahiroy@kernel.org>, Ley Foon Tan <ley.foon.tan@intel.com>,
- Christoph Hellwig <hch@infradead.org>, Mark Salter <msalter@redhat.com>,
- linux-snps-arc@lists.infradead.org, uclinux-h8-devel@lists.sourceforge.jp,
- linux-xtensa@linux-xtensa.org, Arnd Bergmann <arnd@arndb.de>,
- Aurelien Jacquiot <jacquiot.aurelien@gmail.com>,
- linux-m68k@lists.linux-m68k.org, linux-arm-kernel@lists.infradead.org,
- Jens Axboe <axboe@kernel.dk>, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, Randy Dunlap <rdunlap@infradead.org>,
- linux-mips@vger.kernel.org, linux-alpha@vger.kernel.org,
- Andrew Morton <akpm@linux-foundation.org>,
- Linus Torvalds <torvalds@linux-foundation.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Ulf Hansson <ulf.hansson@linaro.org>, linux-usb@vger.kernel.org,
+ linux-iio@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>,
+ linux-remoteproc@vger.kernel.org, alsa-devel@alsa-project.org,
+ dri-devel@lists.freedesktop.org, Bjorn Andersson <bjorn.andersson@linaro.org>,
+ linux-ide@vger.kernel.org, Thierry Reding <thierry.reding@gmail.com>,
+ linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
+ Chanwoo Choi <cw00.choi@samsung.com>, Marc Zyngier <maz@kernel.org>,
+ Bartosz Golaszewski <bgolaszewski@baylibre.com>, Chen-Yu Tsai <wens@csie.org>,
+ MyungJoo Ham <myungjoo.ham@samsung.com>, linux-serial@vger.kernel.org,
+ linux-input@vger.kernel.org, Jakub Kicinski <kuba@kernel.org>,
+ linux-media@vger.kernel.org, Ohad Ben-Cohen <ohad@wizery.com>,
+ devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-gpio@vger.kernel.org, Thomas Gleixner <tglx@linutronix.de>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, Jens Axboe <axboe@kernel.dk>,
+ Stephen Boyd <sboyd@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, linux-mmc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org,
+ netdev@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
+ Jonathan Cameron <jic23@kernel.org>
+Content-Type: multipart/mixed; boundary="===============4119480794287532838=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Randy Dunlap <rdunlap@infradead.org>
 
-[ Upstream commit 87dbc209ea04645fd2351981f09eff5d23f8e2e9 ]
+--===============4119480794287532838==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="vyuzhxvp4ms2cjlb"
+Content-Disposition: inline
 
-Make <asm-generic/local64.h> mandatory in include/asm-generic/Kbuild and
-remove all arch/*/include/asm/local64.h arch-specific files since they
-only #include <asm-generic/local64.h>.
 
-This fixes build errors on arch/c6x/ and arch/nios2/ for
-block/blk-iocost.c.
+--vyuzhxvp4ms2cjlb
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Build-tested on 21 of 25 arch-es.  (tools problems on the others)
+Hi Rob,
 
-Yes, we could even rename <asm-generic/local64.h> to
-<linux/local64.h> and change all #includes to use
-<linux/local64.h> instead.
+On Mon, Jan 04, 2021 at 04:02:53PM -0700, Rob Herring wrote:
+> DT properties which can have multiple entries need to specify what the
+> entries are and define how many entries there can be. In the case of
+> only a single entry, just 'maxItems: 1' is sufficient.
+>=20
+> Add the missing entry constraints. These were found with a modified
+> meta-schema. Unfortunately, there are a few cases where the size
+> constraints are not defined such as common bindings, so the meta-schema
+> can't be part of the normal checks.
+>=20
+> [...]
+>  .../bindings/power/supply/bq25980.yaml        |  1 +
+> [...]
 
-Link: https://lkml.kernel.org/r/20201227024446.17018-1-rdunlap@infradead.org
-Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
-Suggested-by: Christoph Hellwig <hch@infradead.org>
-Reviewed-by: Masahiro Yamada <masahiroy@kernel.org>
-Cc: Jens Axboe <axboe@kernel.dk>
-Cc: Ley Foon Tan <ley.foon.tan@intel.com>
-Cc: Mark Salter <msalter@redhat.com>
-Cc: Aurelien Jacquiot <jacquiot.aurelien@gmail.com>
-Cc: Peter Zijlstra <peterz@infradead.org>
-Cc: Arnd Bergmann <arnd@arndb.de>
-Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
-Signed-off-by: Linus Torvalds <torvalds@linux-foundation.org>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- arch/alpha/include/asm/local64.h   | 1 -
- arch/arc/include/asm/Kbuild        | 1 -
- arch/arm/include/asm/Kbuild        | 1 -
- arch/arm64/include/asm/Kbuild      | 1 -
- arch/csky/include/asm/Kbuild       | 1 -
- arch/h8300/include/asm/Kbuild      | 1 -
- arch/hexagon/include/asm/Kbuild    | 1 -
- arch/ia64/include/asm/local64.h    | 1 -
- arch/m68k/include/asm/Kbuild       | 1 -
- arch/microblaze/include/asm/Kbuild | 1 -
- arch/mips/include/asm/Kbuild       | 1 -
- arch/nds32/include/asm/Kbuild      | 1 -
- arch/parisc/include/asm/Kbuild     | 1 -
- arch/powerpc/include/asm/Kbuild    | 1 -
- arch/riscv/include/asm/Kbuild      | 1 -
- arch/s390/include/asm/Kbuild       | 1 -
- arch/sh/include/asm/Kbuild         | 1 -
- arch/sparc/include/asm/Kbuild      | 1 -
- arch/x86/include/asm/local64.h     | 1 -
- arch/xtensa/include/asm/Kbuild     | 1 -
- include/asm-generic/Kbuild         | 1 +
- 21 files changed, 1 insertion(+), 20 deletions(-)
- delete mode 100644 arch/alpha/include/asm/local64.h
- delete mode 100644 arch/ia64/include/asm/local64.h
- delete mode 100644 arch/x86/include/asm/local64.h
+Acked-by: Sebastian Reichel <sre@kernel.org>
 
-diff --git a/arch/alpha/include/asm/local64.h b/arch/alpha/include/asm/local64.h
-deleted file mode 100644
-index 36c93b5cc239b..0000000000000
---- a/arch/alpha/include/asm/local64.h
-+++ /dev/null
-@@ -1 +0,0 @@
--#include <asm-generic/local64.h>
-diff --git a/arch/arc/include/asm/Kbuild b/arch/arc/include/asm/Kbuild
-index 81f4edec0c2a9..3c1afa524b9c2 100644
---- a/arch/arc/include/asm/Kbuild
-+++ b/arch/arc/include/asm/Kbuild
-@@ -1,7 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0
- generic-y += extable.h
- generic-y += kvm_para.h
--generic-y += local64.h
- generic-y += mcs_spinlock.h
- generic-y += parport.h
- generic-y += user.h
-diff --git a/arch/arm/include/asm/Kbuild b/arch/arm/include/asm/Kbuild
-index 383635b68763c..f1398b9267c08 100644
---- a/arch/arm/include/asm/Kbuild
-+++ b/arch/arm/include/asm/Kbuild
-@@ -2,7 +2,6 @@
- generic-y += early_ioremap.h
- generic-y += extable.h
- generic-y += flat.h
--generic-y += local64.h
- generic-y += parport.h
- generic-y += seccomp.h
- 
-diff --git a/arch/arm64/include/asm/Kbuild b/arch/arm64/include/asm/Kbuild
-index ff9cbb6312128..07ac208edc894 100644
---- a/arch/arm64/include/asm/Kbuild
-+++ b/arch/arm64/include/asm/Kbuild
-@@ -1,6 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0
- generic-y += early_ioremap.h
--generic-y += local64.h
- generic-y += mcs_spinlock.h
- generic-y += qrwlock.h
- generic-y += qspinlock.h
-diff --git a/arch/csky/include/asm/Kbuild b/arch/csky/include/asm/Kbuild
-index 64876e59e2ef9..2a5a4d94fafad 100644
---- a/arch/csky/include/asm/Kbuild
-+++ b/arch/csky/include/asm/Kbuild
-@@ -2,7 +2,6 @@
- generic-y += asm-offsets.h
- generic-y += gpio.h
- generic-y += kvm_para.h
--generic-y += local64.h
- generic-y += qrwlock.h
- generic-y += seccomp.h
- generic-y += user.h
-diff --git a/arch/h8300/include/asm/Kbuild b/arch/h8300/include/asm/Kbuild
-index ddf04f32b5467..60ee7f0d60a8f 100644
---- a/arch/h8300/include/asm/Kbuild
-+++ b/arch/h8300/include/asm/Kbuild
-@@ -2,7 +2,6 @@
- generic-y += asm-offsets.h
- generic-y += extable.h
- generic-y += kvm_para.h
--generic-y += local64.h
- generic-y += mcs_spinlock.h
- generic-y += parport.h
- generic-y += spinlock.h
-diff --git a/arch/hexagon/include/asm/Kbuild b/arch/hexagon/include/asm/Kbuild
-index 373964bb177e4..3ece3c93fe086 100644
---- a/arch/hexagon/include/asm/Kbuild
-+++ b/arch/hexagon/include/asm/Kbuild
-@@ -2,5 +2,4 @@
- generic-y += extable.h
- generic-y += iomap.h
- generic-y += kvm_para.h
--generic-y += local64.h
- generic-y += mcs_spinlock.h
-diff --git a/arch/ia64/include/asm/local64.h b/arch/ia64/include/asm/local64.h
-deleted file mode 100644
-index 36c93b5cc239b..0000000000000
---- a/arch/ia64/include/asm/local64.h
-+++ /dev/null
-@@ -1 +0,0 @@
--#include <asm-generic/local64.h>
-diff --git a/arch/m68k/include/asm/Kbuild b/arch/m68k/include/asm/Kbuild
-index 1bff55aa2d54e..0dbf9c5c6faeb 100644
---- a/arch/m68k/include/asm/Kbuild
-+++ b/arch/m68k/include/asm/Kbuild
-@@ -2,6 +2,5 @@
- generated-y += syscall_table.h
- generic-y += extable.h
- generic-y += kvm_para.h
--generic-y += local64.h
- generic-y += mcs_spinlock.h
- generic-y += spinlock.h
-diff --git a/arch/microblaze/include/asm/Kbuild b/arch/microblaze/include/asm/Kbuild
-index 63bce836b9f10..29b0e557aa7c5 100644
---- a/arch/microblaze/include/asm/Kbuild
-+++ b/arch/microblaze/include/asm/Kbuild
-@@ -2,7 +2,6 @@
- generated-y += syscall_table.h
- generic-y += extable.h
- generic-y += kvm_para.h
--generic-y += local64.h
- generic-y += mcs_spinlock.h
- generic-y += parport.h
- generic-y += syscalls.h
-diff --git a/arch/mips/include/asm/Kbuild b/arch/mips/include/asm/Kbuild
-index 198b3bafdac97..95b4fa7bd0d1f 100644
---- a/arch/mips/include/asm/Kbuild
-+++ b/arch/mips/include/asm/Kbuild
-@@ -6,7 +6,6 @@ generated-y += syscall_table_64_n64.h
- generated-y += syscall_table_64_o32.h
- generic-y += export.h
- generic-y += kvm_para.h
--generic-y += local64.h
- generic-y += mcs_spinlock.h
- generic-y += parport.h
- generic-y += qrwlock.h
-diff --git a/arch/nds32/include/asm/Kbuild b/arch/nds32/include/asm/Kbuild
-index ff1e94299317d..82a4453c9c2d5 100644
---- a/arch/nds32/include/asm/Kbuild
-+++ b/arch/nds32/include/asm/Kbuild
-@@ -4,6 +4,5 @@ generic-y += cmpxchg.h
- generic-y += export.h
- generic-y += gpio.h
- generic-y += kvm_para.h
--generic-y += local64.h
- generic-y += parport.h
- generic-y += user.h
-diff --git a/arch/parisc/include/asm/Kbuild b/arch/parisc/include/asm/Kbuild
-index e3ee5c0bfe80f..a1bd2adc63e3a 100644
---- a/arch/parisc/include/asm/Kbuild
-+++ b/arch/parisc/include/asm/Kbuild
-@@ -3,7 +3,6 @@ generated-y += syscall_table_32.h
- generated-y += syscall_table_64.h
- generated-y += syscall_table_c32.h
- generic-y += kvm_para.h
--generic-y += local64.h
- generic-y += mcs_spinlock.h
- generic-y += seccomp.h
- generic-y += user.h
-diff --git a/arch/powerpc/include/asm/Kbuild b/arch/powerpc/include/asm/Kbuild
-index 90cd5c53af666..e1f9b4ea1c537 100644
---- a/arch/powerpc/include/asm/Kbuild
-+++ b/arch/powerpc/include/asm/Kbuild
-@@ -5,7 +5,6 @@ generated-y += syscall_table_c32.h
- generated-y += syscall_table_spu.h
- generic-y += export.h
- generic-y += kvm_types.h
--generic-y += local64.h
- generic-y += mcs_spinlock.h
- generic-y += qrwlock.h
- generic-y += vtime.h
-diff --git a/arch/riscv/include/asm/Kbuild b/arch/riscv/include/asm/Kbuild
-index 59dd7be550054..445ccc97305a5 100644
---- a/arch/riscv/include/asm/Kbuild
-+++ b/arch/riscv/include/asm/Kbuild
-@@ -3,6 +3,5 @@ generic-y += early_ioremap.h
- generic-y += extable.h
- generic-y += flat.h
- generic-y += kvm_para.h
--generic-y += local64.h
- generic-y += user.h
- generic-y += vmlinux.lds.h
-diff --git a/arch/s390/include/asm/Kbuild b/arch/s390/include/asm/Kbuild
-index 319efa0e6d024..1a18d7b82f86d 100644
---- a/arch/s390/include/asm/Kbuild
-+++ b/arch/s390/include/asm/Kbuild
-@@ -7,5 +7,4 @@ generated-y += unistd_nr.h
- generic-y += asm-offsets.h
- generic-y += export.h
- generic-y += kvm_types.h
--generic-y += local64.h
- generic-y += mcs_spinlock.h
-diff --git a/arch/sh/include/asm/Kbuild b/arch/sh/include/asm/Kbuild
-index 7435182ef8465..fc44d9c88b419 100644
---- a/arch/sh/include/asm/Kbuild
-+++ b/arch/sh/include/asm/Kbuild
-@@ -1,6 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0
- generated-y += syscall_table.h
- generic-y += kvm_para.h
--generic-y += local64.h
- generic-y += mcs_spinlock.h
- generic-y += parport.h
-diff --git a/arch/sparc/include/asm/Kbuild b/arch/sparc/include/asm/Kbuild
-index 5269a704801fa..3688fdae50e45 100644
---- a/arch/sparc/include/asm/Kbuild
-+++ b/arch/sparc/include/asm/Kbuild
-@@ -6,5 +6,4 @@ generated-y += syscall_table_64.h
- generated-y += syscall_table_c32.h
- generic-y += export.h
- generic-y += kvm_para.h
--generic-y += local64.h
- generic-y += mcs_spinlock.h
-diff --git a/arch/x86/include/asm/local64.h b/arch/x86/include/asm/local64.h
-deleted file mode 100644
-index 36c93b5cc239b..0000000000000
---- a/arch/x86/include/asm/local64.h
-+++ /dev/null
-@@ -1 +0,0 @@
--#include <asm-generic/local64.h>
-diff --git a/arch/xtensa/include/asm/Kbuild b/arch/xtensa/include/asm/Kbuild
-index c59c42a1221a8..adefb1636f7ae 100644
---- a/arch/xtensa/include/asm/Kbuild
-+++ b/arch/xtensa/include/asm/Kbuild
-@@ -2,7 +2,6 @@
- generated-y += syscall_table.h
- generic-y += extable.h
- generic-y += kvm_para.h
--generic-y += local64.h
- generic-y += mcs_spinlock.h
- generic-y += param.h
- generic-y += qrwlock.h
-diff --git a/include/asm-generic/Kbuild b/include/asm-generic/Kbuild
-index e78bbb9a07e90..d1300c6e0a471 100644
---- a/include/asm-generic/Kbuild
-+++ b/include/asm-generic/Kbuild
-@@ -34,6 +34,7 @@ mandatory-y += kmap_types.h
- mandatory-y += kprobes.h
- mandatory-y += linkage.h
- mandatory-y += local.h
-+mandatory-y += local64.h
- mandatory-y += mm-arch-hooks.h
- mandatory-y += mmiowb.h
- mandatory-y += mmu.h
--- 
-2.27.0
+-- Sebastian
 
+--vyuzhxvp4ms2cjlb
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAl/0SucACgkQ2O7X88g7
++ppIAQ/8CwCUtes2Mr7K09stdBuNtR3gBayMxcQnnIM6AQvBexKzq6gM2xpDIPB8
+YVpTjaGQkOcwS3BMu7BsRT4t2s3KXy9lVS5jkChykskjyAyr9a7QPsK7MVZVRh2Q
+U896qS+zI2nsNdeX6+kT10+29b7PcoEvTJRtEPEFlsq4UoFbMAsdJhtHBo9v1oUP
+cJMT7NSkqtcHM9HeSPZFCTLyAsoGFPYMTneKdN9ZVlPHoQRkCH0k3vyHMmKKPWAQ
+uafDLlP+nvs9Ug/FSsFsoaLcixHHAI+GkVj48muZL7EVAygGTbrRA27r0txduvfj
+DOxfT7BdNOMkmDge0RR2vk29V/2WYsEg4vwi3uyP2BDQsdXEYpwTn00IJ5IJgcqE
+EAjq7hWsSo7zd8VkMc/CLN1a1W+PEpIJ0CGfS4cLtAMwRLNLdPA+FS4UaBCAoS4k
+T9AZGFXABwtQQHyOAHD8/Hjs5vexDnWdvcRyCuDqgt6YeUX6Lu8pRTWx5lkWPkLy
+GZf/jppVAnP/gtnsOOJnPL37jxbOpelu+4UopYZ/j9YLJb+M7P2xYhsYuRlnKn0r
+aAgoNpEXu3TNpex2apw+Cm70EiidWAGcWqvrOCWhdqWBulGJ+O4v1DYe536LLoZN
+rdX4Hbkx7kBMNJ1ZZVIA3x9YzLwGKo/1nnV2q7fUdTzUEobcJWQ=
+=gWL0
+-----END PGP SIGNATURE-----
+
+--vyuzhxvp4ms2cjlb--
+
+
+--===============4119480794287532838==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4119480794287532838==--
+
