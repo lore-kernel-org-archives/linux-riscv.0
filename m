@@ -2,64 +2,86 @@ Return-Path: <SRS0=kC5X=GJ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=unavailable autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 469A0C433E0
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jan 2021 08:17:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 52689C433E0
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jan 2021 16:13:05 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0DFAF230FB
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jan 2021 08:17:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0DFAF230FB
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
+	by mail.kernel.org (Postfix) with ESMTPS id D6CC42246B
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jan 2021 16:13:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D6CC42246B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=YbJYyvPfRs5WnS0wsxslrQlBFrhJnX3nJHb+eCN3G7k=; b=u5XCNrFRTHC/vN8rvCiZjFVaV
-	i3L92Z9fvmsBQGwRmDLdvz5h6evINvoivzaJtJkAKFv2ifSCdrm/hFu8ExOQnglBjHlNOsW4KA6I/
-	icgOKhXpwgI+rp3smKHDl2FoJevLadjTzt5XffYPFf5DjanvqjEOB4eeiVLaDnR46F911jUzSPQq4
-	y4GTz5+M98OkrLEE/KY1ORGIEAgEDUd3grL70fBpNVknlHaxsZqdf5wU97qfoZbKp3szVXQmn/tDc
-	8tYu11o4RimO7omRoYXliCzo/OCMcxmAvrSyCpcAGeJhAOKy0BfFmbuD8/n9Uxa2e9uqKiNqk36ZR
-	6Znw26d5w==;
+	 bh=FyNCYyW1Ju8scXBRC9tpG6ObwHf1XpDui9YBTwqQyVI=; b=jjj9jwpiMZsqbF0ArVB3srCO5
+	W5iJ9/Ojn83uutlLo6dVLRCrYM6mhOZ/+qN18WaE8bJ9bD5TxE4Ovh/VP6yYdVfO3zp002+VnF/Mv
+	HuqCunNzSngP+ebe7sxXVFdvCSIflgN7d0Qceb04BVJqKnzWhCKUsqCFWP38BuW2OCVro0upPjGJT
+	yHBtBjoSx9CPPfy7T3IdoJnhhxHjIesTxdga72xLqJMztATT1x/iIL/8By7L4JbpNuwcI4AwaKR0h
+	nJBc45AfERrsc5QW1X3V/LR0uKDkfCvuHOK0RshYrzDhE9Bj0sq1gqd0f0omxANKd5RT5eGHeidAC
+	metbt7HBQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kx409-0001EI-Ia; Wed, 06 Jan 2021 08:17:05 +0000
-Received: from relay3-d.mail.gandi.net ([217.70.183.195])
+	id 1kxBQb-0007AQ-Vu; Wed, 06 Jan 2021 16:12:54 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kx406-0001Dh-0Z
- for linux-riscv@lists.infradead.org; Wed, 06 Jan 2021 08:17:04 +0000
-X-Originating-IP: 82.65.183.113
-Received: from [172.16.5.113] (82-65-183-113.subs.proxad.net [82.65.183.113])
- (Authenticated sender: alex@ghiti.fr)
- by relay3-d.mail.gandi.net (Postfix) with ESMTPSA id 1FF1860003;
- Wed,  6 Jan 2021 08:16:56 +0000 (UTC)
-Subject: Re: [RFC PATCH 01/12] riscv: Move kernel mapping outside of linear
- mapping
-To: Anup Patel <anup@brainfault.org>
-References: <20210104195840.1593-1-alex@ghiti.fr>
- <20210104195840.1593-2-alex@ghiti.fr>
- <CAAhSdy1h+Akz-esWVG2oeLuhjDedcJyvRntV5LuaK8LhirD=Sw@mail.gmail.com>
- <a10129d7-33e4-ba05-7c50-3852ba2f1993@ghiti.fr>
- <CAAhSdy0ecu=FeNdu+g8+Q8H1KeTvC_fNprH3EGL-nn8u4yZVaQ@mail.gmail.com>
-From: Alex Ghiti <alex@ghiti.fr>
-Message-ID: <148ccc89-a277-a1bb-7779-d1b1dea59e43@ghiti.fr>
-Date: Wed, 6 Jan 2021 03:16:56 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.6.0
+ id 1kwvjk-0007ax-R9
+ for linux-riscv@lists.infradead.org; Tue, 05 Jan 2021 23:27:40 +0000
+Received: by mail-pg1-x533.google.com with SMTP id p18so898971pgm.11
+ for <linux-riscv@lists.infradead.org>; Tue, 05 Jan 2021 15:27:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=Y0oAcHw7B8AOrMn14qEmbPdedEj6fnICk95LQ64N4xc=;
+ b=vRkjyHVtIV/zSvYPxyp60g5MFjSBs7l8jYc0DiGKGH5oMkl8kaG4PGaSwzXGwNZiHB
+ IaP+24myWNa2qo+RV0oyfk+X1jQVrdptVwoTnlRiDFXTnfWwQwEwSm0YMQJUzEvwIjjy
+ /G492gJ8YQgpv1aD2zwoHi6LALDvLtbrV6sFGlpIkH1bJyCPlehzGLo4XI1lprEwaZ1k
+ PtZdfWnHZ0GA4on0LSO9udZnx9023IGYgNS5TZMRJIDH1q358DkopWbhsohg3rZJ6nOc
+ LvQkmuovHOv3qJv9/SaNPYyZ5IbPT7YZBrw/HwOwHya4KRuvIozcrW3pt66zzAjVVRGd
+ 9kkw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=Y0oAcHw7B8AOrMn14qEmbPdedEj6fnICk95LQ64N4xc=;
+ b=QZwaTzf3Px6+BSGdvPi2yNa7gcU2ALkpXSIO/JJp9wcKImucoM3ea6vc9Q0neJ+Ee3
+ 8gGDKjjNqMzA8ZKro0Fz3gN/Enf5gzdrqguyWGCe0vw3KnHX3JAIwv6aNyDCmQCUFCGt
+ WbIaf77Ygk3m7qHWJNa9JvpuhYiflN+fAE75Pj9vTPeTVTl/DPO3iISvRo7zu9xsm89U
+ itcZHtRt8Za/Cx0j+zKqiiG3lIDlVRmBJ6cMoBse6V4AJF/o6bsBl+4o0jVa5zZuhXl+
+ 33Jmv16D0OLYx46Domqb/AWsAOrX+xXZysbGdGUGH0ehg/WAxst5yAEBWGeT9JEtKgMU
+ vLfQ==
+X-Gm-Message-State: AOAM530XO/xzNcD/gomeRv2sDx7wD3cG1uNBVrCzxeX9je8a+xnvOG+j
+ xi0eVY3TGArf6PqLxqGDq9Q9AA==
+X-Google-Smtp-Source: ABdhPJyxMdrDeR24Ej+HNB73Hk0k0kWC69h/j/+uMSrCUKxQ/Qgp+Rc8AS9rydNUJJU6Plv/NAUA+w==
+X-Received: by 2002:aa7:85d8:0:b029:19e:610e:1974 with SMTP id
+ z24-20020aa785d80000b029019e610e1974mr1425585pfn.21.1609889254026; 
+ Tue, 05 Jan 2021 15:27:34 -0800 (PST)
+Received: from xps15 (S0106889e681aac74.cg.shawcable.net. [68.147.0.187])
+ by smtp.gmail.com with ESMTPSA id gw7sm279696pjb.36.2021.01.05.15.27.30
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 05 Jan 2021 15:27:33 -0800 (PST)
+Date: Tue, 5 Jan 2021 16:27:29 -0700
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Rob Herring <robh@kernel.org>
+Subject: Re: [PATCH] dt-bindings: Add missing array size constraints
+Message-ID: <20210105232729.GA2864340@xps15>
+References: <20210104230253.2805217-1-robh@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <CAAhSdy0ecu=FeNdu+g8+Q8H1KeTvC_fNprH3EGL-nn8u4yZVaQ@mail.gmail.com>
-Content-Language: fr
+Content-Disposition: inline
+In-Reply-To: <20210104230253.2805217-1-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210106_031703_030110_0D6AC574 
-X-CRM114-Status: GOOD (  27.32  )
+X-CRM114-CacheID: sfid-20210105_182737_058850_6E7BC9D0 
+X-CRM114-Status: GOOD (  28.76  )
+X-Mailman-Approved-At: Wed, 06 Jan 2021 11:12:51 -0500
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -71,311 +93,1244 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-arch@vger.kernel.org, linux-efi <linux-efi@vger.kernel.org>,
- Arnd Bergmann <arnd@arndb.de>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Christoph Hellwig <hch@lst.de>, Palmer Dabbelt <palmer@dabbelt.com>,
- Zong Li <zong.li@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Ard Biesheuvel <ardb@kernel.org>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Cc: Ulf Hansson <ulf.hansson@linaro.org>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, linux-iio@vger.kernel.org,
+ Linus Walleij <linus.walleij@linaro.org>, linux-remoteproc@vger.kernel.org,
+ alsa-devel@alsa-project.org, dri-devel@lists.freedesktop.org,
+ Bjorn Andersson <bjorn.andersson@linaro.org>, paul@crapouillou.net,
+ linux-ide@vger.kernel.org, Thierry Reding <thierry.reding@gmail.com>,
+ linux-riscv@lists.infradead.org, s-anna@ti.com, linux-clk@vger.kernel.org,
+ Bartosz Golaszewski <bgolaszewski@baylibre.com>, Marc Zyngier <maz@kernel.org>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Chen-Yu Tsai <wens@csie.org>,
+ MyungJoo Ham <myungjoo.ham@samsung.com>, linux-serial@vger.kernel.org,
+ linux-input@vger.kernel.org, Jakub Kicinski <kuba@kernel.org>,
+ linux-media@vger.kernel.org, Ohad Ben-Cohen <ohad@wizery.com>,
+ devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-gpio@vger.kernel.org, Sebastian Reichel <sre@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, Jens Axboe <axboe@kernel.dk>,
+ Stephen Boyd <sboyd@kernel.org>, netdev@vger.kernel.org,
+ linux-usb@vger.kernel.org, linux-mmc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "David S. Miller" <davem@davemloft.net>, Jonathan Cameron <jic23@kernel.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpMZSAxLzYvMjEgw6AgMTo0NCBBTSwgQW51cCBQYXRlbCBhIMOpY3JpdMKgOgo+IE9uIFdlZCwg
-SmFuIDYsIDIwMjEgYXQgMTI6MDYgUE0gQWxleCBHaGl0aSA8YWxleEBnaGl0aS5mcj4gd3JvdGU6
-Cj4+Cj4+IEhpIEFudXAsCj4+Cj4+IExlIDEvNS8yMSDDoCA2OjQwIEFNLCBBbnVwIFBhdGVsIGEg
-w6ljcml0IDoKPj4+IE9uIFR1ZSwgSmFuIDUsIDIwMjEgYXQgMToyOSBBTSBBbGV4YW5kcmUgR2hp
-dGkgPGFsZXhAZ2hpdGkuZnI+IHdyb3RlOgo+Pj4+Cj4+Pj4gVGhpcyBpcyBhIHByZXBhcmF0b3J5
-IHBhdGNoIGZvciByZWxvY2F0YWJsZSBrZXJuZWwgYW5kIHN2NDggc3VwcG9ydC4KPj4+Pgo+Pj4+
-IFRoZSBrZXJuZWwgdXNlZCB0byBiZSBsaW5rZWQgYXQgUEFHRV9PRkZTRVQgYWRkcmVzcyB0aGVy
-ZWZvcmUgd2UgY291bGQgdXNlCj4+Pj4gdGhlIGxpbmVhciBtYXBwaW5nIGZvciB0aGUga2VybmVs
-IG1hcHBpbmcuIEJ1dCB0aGUgcmVsb2NhdGVkIGtlcm5lbCBiYXNlCj4+Pj4gYWRkcmVzcyB3aWxs
-IGJlIGRpZmZlcmVudCBmcm9tIFBBR0VfT0ZGU0VUIGFuZCBzaW5jZSBpbiB0aGUgbGluZWFyIG1h
-cHBpbmcsCj4+Pj4gdHdvIGRpZmZlcmVudCB2aXJ0dWFsIGFkZHJlc3NlcyBjYW5ub3QgcG9pbnQg
-dG8gdGhlIHNhbWUgcGh5c2ljYWwgYWRkcmVzcywKPj4+PiB0aGUga2VybmVsIG1hcHBpbmcgbmVl
-ZHMgdG8gbGllIG91dHNpZGUgdGhlIGxpbmVhciBtYXBwaW5nIHNvIHRoYXQgd2UgZG9uJ3QKPj4+
-PiBoYXZlIHRvIGNvcHkgaXQgYXQgdGhlIHNhbWUgcGh5c2ljYWwgb2Zmc2V0Lgo+Pj4+Cj4+Pj4g
-VGhlIGtlcm5lbCBtYXBwaW5nIGlzIG1vdmVkIHRvIHRoZSBsYXN0IDJHQiBvZiB0aGUgYWRkcmVz
-cyBzcGFjZSBhbmQgdGhlbgo+Pj4+IEJQRiBhbmQgbW9kdWxlcyBhcmUgYWxzbyBwdXNoZWQgdG8g
-dGhlIHNhbWUgcmFuZ2Ugc2luY2UgdGhleSBoYXZlIHRvIGxpZQo+Pj4+IGNsb3NlIHRvIHRoZSBr
-ZXJuZWwgaW5zaWRlIGEgMkdCIHdpbmRvdy4KPj4+Pgo+Pj4+IE5vdGUgdGhlbiB0aGF0IEtBU0xS
-IGltcGxlbWVudGF0aW9uIHdpbGwgc2ltcGx5IGhhdmUgdG8gbW92ZSB0aGUga2VybmVsIGluCj4+
-Pj4gdGhpcyAyR0IgcmFuZ2UgYW5kIG1vZGlmeSBCUEYvbW9kdWxlcyByZWdpb25zIGFjY29yZGlu
-Z2x5Lgo+Pj4+Cj4+Pj4gSW4gYWRkaXRpb24sIGJ5IG1vdmluZyB0aGUga2VybmVsIHRvIHRoZSBl
-bmQgb2YgdGhlIGFkZHJlc3Mgc3BhY2UsIGJvdGgKPj4+PiBzdjM5IGFuZCBzdjQ4IGtlcm5lbHMg
-d2lsbCBiZSBleGFjdGx5IHRoZSBzYW1lIHdpdGhvdXQgbmVlZGluZyB0byBiZQo+Pj4+IHJlbG9j
-YXRlZCBhdCBydW50aW1lLgo+Pj4KPj4+IEF3ZXNvbWUgISBUaGlzIGlzIGEgZ29vZCBhcHByb2Fj
-aCB3aXRoIG5vIHBlcmZvcm1hbmNlIGltcGFjdC4KPj4+Cj4+Pj4KPj4+PiBTdWdnZXN0ZWQtYnk6
-IEFybmQgQmVyZ21hbm4gPGFybmRAYXJuZGIuZGU+Cj4+Pj4gU2lnbmVkLW9mZi1ieTogQWxleGFu
-ZHJlIEdoaXRpIDxhbGV4QGdoaXRpLmZyPgo+Pj4+IC0tLQo+Pj4+ICAgIGFyY2gvcmlzY3YvYm9v
-dC9sb2FkZXIubGRzLlMgICAgIHwgIDMgKy0KPj4+PiAgICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNt
-L3BhZ2UuaCAgICB8IDEwICsrKystCj4+Pj4gICAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3Rh
-YmxlLmggfCAzOSArKysrKysrKysrKysrLS0tLS0tCj4+Pj4gICAgYXJjaC9yaXNjdi9rZXJuZWwv
-aGVhZC5TICAgICAgICAgfCAgMyArLQo+Pj4+ICAgIGFyY2gvcmlzY3Yva2VybmVsL21vZHVsZS5j
-ICAgICAgIHwgIDQgKy0KPj4+PiAgICBhcmNoL3Jpc2N2L2tlcm5lbC92bWxpbnV4Lmxkcy5TICB8
-ICAzICstCj4+Pj4gICAgYXJjaC9yaXNjdi9tbS9pbml0LmMgICAgICAgICAgICAgfCA2NSArKysr
-KysrKysrKysrKysrKysrKysrKystLS0tLS0tLQo+Pj4+ICAgIGFyY2gvcmlzY3YvbW0vcGh5c2Fk
-ZHIuYyAgICAgICAgIHwgIDIgKy0KPj4+PiAgICA4IGZpbGVzIGNoYW5nZWQsIDk0IGluc2VydGlv
-bnMoKyksIDM1IGRlbGV0aW9ucygtKQo+Pj4+Cj4+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yv
-Ym9vdC9sb2FkZXIubGRzLlMgYi9hcmNoL3Jpc2N2L2Jvb3QvbG9hZGVyLmxkcy5TCj4+Pj4gaW5k
-ZXggNDdhNTAwM2MyZTI4Li42MmQ5NDY5NmExOWMgMTAwNjQ0Cj4+Pj4gLS0tIGEvYXJjaC9yaXNj
-di9ib290L2xvYWRlci5sZHMuUwo+Pj4+ICsrKyBiL2FyY2gvcmlzY3YvYm9vdC9sb2FkZXIubGRz
-LlMKPj4+PiBAQCAtMSwxMyArMSwxNCBAQAo+Pj4+ICAgIC8qIFNQRFgtTGljZW5zZS1JZGVudGlm
-aWVyOiBHUEwtMi4wICovCj4+Pj4KPj4+PiAgICAjaW5jbHVkZSA8YXNtL3BhZ2UuaD4KPj4+PiAr
-I2luY2x1ZGUgPGFzbS9wZ3RhYmxlLmg+Cj4+Pj4KPj4+PiAgICBPVVRQVVRfQVJDSChyaXNjdikK
-Pj4+PiAgICBFTlRSWShfc3RhcnQpCj4+Pj4KPj4+PiAgICBTRUNUSU9OUwo+Pj4+ICAgIHsKPj4+
-PiAtICAgICAgIC4gPSBQQUdFX09GRlNFVDsKPj4+PiArICAgICAgIC4gPSBLRVJORUxfTElOS19B
-RERSOwo+Pj4+Cj4+Pj4gICAgICAgICAgIC5wYXlsb2FkIDogewo+Pj4+ICAgICAgICAgICAgICAg
-ICAgICooLnBheWxvYWQpCj4+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20v
-cGFnZS5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wYWdlLmgKPj4+PiBpbmRleCAyZDUwZjc2
-ZWZlNDguLjk4MTg4ZTMxNWU4ZCAxMDA2NDQKPj4+PiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUv
-YXNtL3BhZ2UuaAo+Pj4+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGFnZS5oCj4+Pj4g
-QEAgLTkwLDE4ICs5MCwyNiBAQCB0eXBlZGVmIHN0cnVjdCBwYWdlICpwZ3RhYmxlX3Q7Cj4+Pj4K
-Pj4+PiAgICAjaWZkZWYgQ09ORklHX01NVQo+Pj4+ICAgIGV4dGVybiB1bnNpZ25lZCBsb25nIHZh
-X3BhX29mZnNldDsKPj4+PiArZXh0ZXJuIHVuc2lnbmVkIGxvbmcgdmFfa2VybmVsX3BhX29mZnNl
-dDsKPj4+PiAgICBleHRlcm4gdW5zaWduZWQgbG9uZyBwZm5fYmFzZTsKPj4+PiAgICAjZGVmaW5l
-IEFSQ0hfUEZOX09GRlNFVCAgICAgICAgICAgICAgICAocGZuX2Jhc2UpCj4+Pj4gICAgI2Vsc2UK
-Pj4+PiAgICAjZGVmaW5lIHZhX3BhX29mZnNldCAgICAgICAgICAgMAo+Pj4+ICsjZGVmaW5lIHZh
-X2tlcm5lbF9wYV9vZmZzZXQgICAgMAo+Pj4+ICAgICNkZWZpbmUgQVJDSF9QRk5fT0ZGU0VUICAg
-ICAgICAgICAgICAgIChQQUdFX09GRlNFVCA+PiBQQUdFX1NISUZUKQo+Pj4+ICAgICNlbmRpZiAv
-KiBDT05GSUdfTU1VICovCj4+Pj4KPj4+PiAgICBleHRlcm4gdW5zaWduZWQgbG9uZyBtYXhfbG93
-X3BmbjsKPj4+PiAgICBleHRlcm4gdW5zaWduZWQgbG9uZyBtaW5fbG93X3BmbjsKPj4+PiArZXh0
-ZXJuIHVuc2lnbmVkIGxvbmcga2VybmVsX3ZpcnRfYWRkcjsKPj4+Pgo+Pj4+ICAgICNkZWZpbmUg
-X19wYV90b192YV9ub2RlYnVnKHgpICAoKHZvaWQgKikoKHVuc2lnbmVkIGxvbmcpICh4KSArIHZh
-X3BhX29mZnNldCkpCj4+Pj4gLSNkZWZpbmUgX192YV90b19wYV9ub2RlYnVnKHgpICAoKHVuc2ln
-bmVkIGxvbmcpKHgpIC0gdmFfcGFfb2Zmc2V0KQo+Pj4+ICsjZGVmaW5lIGxpbmVhcl9tYXBwaW5n
-X3ZhX3RvX3BhKHgpICAgICAoKHVuc2lnbmVkIGxvbmcpKHgpIC0gdmFfcGFfb2Zmc2V0KQo+Pj4+
-ICsjZGVmaW5lIGtlcm5lbF9tYXBwaW5nX3ZhX3RvX3BhKHgpICAgICBcCj4+Pj4gKyAgICAgICAo
-KHVuc2lnbmVkIGxvbmcpKHgpIC0gdmFfa2VybmVsX3BhX29mZnNldCkKPj4+PiArI2RlZmluZSBf
-X3ZhX3RvX3BhX25vZGVidWcoeCkgICAgICAgICAgXAo+Pj4+ICsgICAgICAgKCgoeCkgPCBLRVJO
-RUxfTElOS19BRERSKSA/ICAgICAgICAgICAgIFwKPj4+PiArICAgICAgICAgICAgICAgbGluZWFy
-X21hcHBpbmdfdmFfdG9fcGEoeCkgOiBrZXJuZWxfbWFwcGluZ192YV90b19wYSh4KSkKPj4+Pgo+
-Pj4+ICAgICNpZmRlZiBDT05GSUdfREVCVUdfVklSVFVBTAo+Pj4+ICAgIGV4dGVybiBwaHlzX2Fk
-ZHJfdCBfX3ZpcnRfdG9fcGh5cyh1bnNpZ25lZCBsb25nIHgpOwo+Pj4+IGRpZmYgLS1naXQgYS9h
-cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20v
-cGd0YWJsZS5oCj4+Pj4gaW5kZXggMTgzZjFmNGIyYWU2Li4xMDJiNzI4Y2ExNDYgMTAwNjQ0Cj4+
-Pj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLmgKPj4+PiArKysgYi9hcmNo
-L3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaAo+Pj4+IEBAIC0xMSwyMyArMTEsMzIgQEAKPj4+
-Pgo+Pj4+ICAgICNpbmNsdWRlIDxhc20vcGd0YWJsZS1iaXRzLmg+Cj4+Pj4KPj4+PiAtI2lmbmRl
-ZiBfX0FTU0VNQkxZX18KPj4+PiAtCj4+Pj4gLS8qIFBhZ2UgVXBwZXIgRGlyZWN0b3J5IG5vdCB1
-c2VkIGluIFJJU0MtViAqLwo+Pj4+IC0jaW5jbHVkZSA8YXNtLWdlbmVyaWMvcGd0YWJsZS1ub3B1
-ZC5oPgo+Pj4+IC0jaW5jbHVkZSA8YXNtL3BhZ2UuaD4KPj4+PiAtI2luY2x1ZGUgPGFzbS90bGJm
-bHVzaC5oPgo+Pj4+IC0jaW5jbHVkZSA8bGludXgvbW1fdHlwZXMuaD4KPj4+PiArI2lmbmRlZiBD
-T05GSUdfTU1VCj4+Pj4gKyNkZWZpbmUgS0VSTkVMX1ZJUlRfQUREUiAgICAgICBQQUdFX09GRlNF
-VAo+Pj4+ICsjZGVmaW5lIEtFUk5FTF9MSU5LX0FERFIgICAgICAgUEFHRV9PRkZTRVQKPj4+PiAr
-I2Vsc2UKPj4+Pgo+Pj4+IC0jaWZkZWYgQ09ORklHX01NVQo+Pj4+ICsjZGVmaW5lIEFERFJFU1Nf
-U1BBQ0VfRU5EICAgICAgKFVMKC0xKSkKPj4+PiArLyoKPj4+PiArICogTGVhdmUgMkdCIGZvciBr
-ZXJuZWwsIG1vZHVsZXMgYW5kIEJQRiBhdCB0aGUgZW5kIG9mIHRoZSBhZGRyZXNzIHNwYWNlCj4+
-Pj4gKyAqLwo+Pj4+ICsjZGVmaW5lIEtFUk5FTF9WSVJUX0FERFIgICAgICAgKEFERFJFU1NfU1BB
-Q0VfRU5EIC0gU1pfMkcgKyAxKQo+Pj4+ICsjZGVmaW5lIEtFUk5FTF9MSU5LX0FERFIgICAgICAg
-S0VSTkVMX1ZJUlRfQUREUgo+Pj4+Cj4+Pj4gICAgI2RlZmluZSBWTUFMTE9DX1NJWkUgICAgIChL
-RVJOX1ZJUlRfU0laRSA+PiAxKQo+Pj4+ICAgICNkZWZpbmUgVk1BTExPQ19FTkQgICAgICAoUEFH
-RV9PRkZTRVQgLSAxKQo+Pj4+ICAgICNkZWZpbmUgVk1BTExPQ19TVEFSVCAgICAoUEFHRV9PRkZT
-RVQgLSBWTUFMTE9DX1NJWkUpCj4+Pj4KPj4+PiArLyogS0FTTFIgc2hvdWxkIGxlYXZlIGF0IGxl
-YXN0IDEyOE1CIGZvciBCUEYgYWZ0ZXIgdGhlIGtlcm5lbCAqLwo+Pj4+ICAgICNkZWZpbmUgQlBG
-X0pJVF9SRUdJT05fU0laRSAgICAoU1pfMTI4TSkKPj4+PiAtI2RlZmluZSBCUEZfSklUX1JFR0lP
-Tl9TVEFSVCAgIChQQUdFX09GRlNFVCAtIEJQRl9KSVRfUkVHSU9OX1NJWkUpCj4+Pj4gLSNkZWZp
-bmUgQlBGX0pJVF9SRUdJT05fRU5EICAgICAoVk1BTExPQ19FTkQpCj4+Pj4gKyNkZWZpbmUgQlBG
-X0pJVF9SRUdJT05fU1RBUlQgICBQRk5fQUxJR04oKHVuc2lnbmVkIGxvbmcpJl9lbmQpCj4+Pj4g
-KyNkZWZpbmUgQlBGX0pJVF9SRUdJT05fRU5EICAgICAoQlBGX0pJVF9SRUdJT05fU1RBUlQgKyBC
-UEZfSklUX1JFR0lPTl9TSVpFKQo+Pj4+ICsKPj4+PiArLyogTW9kdWxlcyBhbHdheXMgbGl2ZSBi
-ZWZvcmUgdGhlIGtlcm5lbCAqLwo+Pj4+ICsjaWZkZWYgQ09ORklHXzY0QklUCj4+Pj4gKyNkZWZp
-bmUgVk1BTExPQ19NT0RVTEVfU1RBUlQgICAoUEZOX0FMSUdOKCh1bnNpZ25lZCBsb25nKSZfZW5k
-KSAtIFNaXzJHKQo+Pj4+ICsjZGVmaW5lIFZNQUxMT0NfTU9EVUxFX0VORCAgICAgKFBGTl9BTElH
-TigodW5zaWduZWQgbG9uZykmX3N0YXJ0KSkKPj4+PiArI2VuZGlmCj4+Pgo+Pj4gVGhpcyBkb2Vz
-IG5vdCBsb29rIHJpZ2h0IG9yIEkgYW0gbWlzc2luZyBzb21ldGhpbmcuCj4+Pgo+Pj4gSSB0aGlu
-ayB0aGUgVk1BTExPQ19NT0RVTEVfU1RBUlQgc2hvdWxkIGJlOgo+Pj4gI2RlZmluZSBWTUFMTE9D
-X01PRFVMRV9TVEFSVCAgIChQRk5fQUxJR04oKHVuc2lnbmVkIGxvbmcpJl9zdGFydCkgLSBTWl8y
-RykKPj4+Cj4+Cj4+IEkgdGhpbmsgdGhlIHBhdGNoIGlzIGNvcnJlY3Q6IHdvcnN0LWNhc2UsIHdl
-IHdhbnQgdGhlIGZpcnN0IGFkZHJlc3Mgb2YKPj4gdGhlIG1vZHVsZSBhcmVhIHRvIGJlIGFibGUg
-dG8gYWNjZXNzIHRoZSBsYXN0IGFkZHJlc3Mgb2YgdGhlIGtlcm5lbCwgc28KPj4gd2UgbXVzdCB1
-c2UgX2VuZCBhbmQgbm90IF9zdGFydCB0byBndWFyYW50ZWUgdGhhdCB0aGUgZGlmZmVyZW5jZSBi
-ZXR3ZWVuCj4+IHRob3NlIDIgYWRkcmVzc2VzIGlzIG5vdCBncmVhdGVyIHRoYW4gMkdCLgo+IAo+
-IE1ha2VzIHNlbnNlLiBQbGVhc2UgYWRkIG1vcmUgZGV0YWlsZWQgY29tbWVudCBpbnN0ZWFkIG9m
-IHNpbmdsZS1saW5lIGNvbW1lbnQuCj4gCgpPayBJJ2xsIGRvIHRoYXQuCkkgcmVhbGl6ZSB0aGUg
-bmFtaW5nIGlzIGNvbmZ1c2luZywgdGhpcyBhcmVhIGRvZXMgbm90IGJlbG9uZyB0byB2bWFsbG9j
-IAphbnltb3JlLCBJJ2xsIGNoYW5nZSB0aGF0IHRvby4KClRoYW5rcyBhZ2FpbiwKCj4+Cj4+Pj4K
-Pj4+PiAgICAvKgo+Pj4+ICAgICAqIFJvdWdobHkgc2l6ZSB0aGUgdm1lbW1hcCBzcGFjZSB0byBi
-ZSBsYXJnZSBlbm91Z2ggdG8gZml0IGVub3VnaAo+Pj4+IEBAIC01Nyw5ICs2NiwxNiBAQAo+Pj4+
-ICAgICNkZWZpbmUgRklYQUREUl9TSVpFICAgICBQR0RJUl9TSVpFCj4+Pj4gICAgI2VuZGlmCj4+
-Pj4gICAgI2RlZmluZSBGSVhBRERSX1NUQVJUICAgIChGSVhBRERSX1RPUCAtIEZJWEFERFJfU0la
-RSkKPj4+PiAtCj4+Pj4gICAgI2VuZGlmCj4+Pj4KPj4+PiArI2lmbmRlZiBfX0FTU0VNQkxZX18K
-Pj4+PiArCj4+Pj4gKy8qIFBhZ2UgVXBwZXIgRGlyZWN0b3J5IG5vdCB1c2VkIGluIFJJU0MtViAq
-Lwo+Pj4+ICsjaW5jbHVkZSA8YXNtLWdlbmVyaWMvcGd0YWJsZS1ub3B1ZC5oPgo+Pj4+ICsjaW5j
-bHVkZSA8YXNtL3BhZ2UuaD4KPj4+PiArI2luY2x1ZGUgPGFzbS90bGJmbHVzaC5oPgo+Pj4+ICsj
-aW5jbHVkZSA8bGludXgvbW1fdHlwZXMuaD4KPj4+PiArCj4+Pj4gICAgI2lmZGVmIENPTkZJR182
-NEJJVAo+Pj4+ICAgICNpbmNsdWRlIDxhc20vcGd0YWJsZS02NC5oPgo+Pj4+ICAgICNlbHNlCj4+
-Pj4gQEAgLTQ2Nyw2ICs0ODMsNyBAQCBzdGF0aWMgaW5saW5lIHZvaWQgX19rZXJuZWxfbWFwX3Bh
-Z2VzKHN0cnVjdCBwYWdlICpwYWdlLCBpbnQgbnVtcGFnZXMsIGludCBlbmFibAo+Pj4+Cj4+Pj4g
-ICAgI2RlZmluZSBrZXJuX2FkZHJfdmFsaWQoYWRkcikgICAoMSkgLyogRklYTUUgKi8KPj4+Pgo+
-Pj4+ICtleHRlcm4gY2hhciBfc3RhcnRbXTsKPj4+PiAgICBleHRlcm4gdm9pZCAqZHRiX2Vhcmx5
-X3ZhOwo+Pj4+ICAgIGV4dGVybiB1aW50cHRyX3QgZHRiX2Vhcmx5X3BhOwo+Pj4+ICAgIHZvaWQg
-c2V0dXBfYm9vdG1lbSh2b2lkKTsKPj4+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwv
-aGVhZC5TIGIvYXJjaC9yaXNjdi9rZXJuZWwvaGVhZC5TCj4+Pj4gaW5kZXggN2U4NDk3OTdjOWMz
-Li42NmY0MGM0OWJmNjggMTAwNjQ0Cj4+Pj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvaGVhZC5T
-Cj4+Pj4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvaGVhZC5TCj4+Pj4gQEAgLTY5LDcgKzY5LDgg
-QEAgcGVfaGVhZF9zdGFydDoKPj4+PiAgICAjaWZkZWYgQ09ORklHX01NVQo+Pj4+ICAgIHJlbG9j
-YXRlOgo+Pj4+ICAgICAgICAgICAvKiBSZWxvY2F0ZSByZXR1cm4gYWRkcmVzcyAqLwo+Pj4+IC0g
-ICAgICAgbGkgYTEsIFBBR0VfT0ZGU0VUCj4+Pj4gKyAgICAgICBsYSBhMSwga2VybmVsX3ZpcnRf
-YWRkcgo+Pj4+ICsgICAgICAgUkVHX0wgYTEsIDAoYTEpCj4+Pj4gICAgICAgICAgIGxhIGEyLCBf
-c3RhcnQKPj4+PiAgICAgICAgICAgc3ViIGExLCBhMSwgYTIKPj4+PiAgICAgICAgICAgYWRkIHJh
-LCByYSwgYTEKPj4+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvbW9kdWxlLmMgYi9h
-cmNoL3Jpc2N2L2tlcm5lbC9tb2R1bGUuYwo+Pj4+IGluZGV4IDEwNGZiYTg4OWNmNy4uNzVhMGI5
-NTQxMjY2IDEwMDY0NAo+Pj4+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL21vZHVsZS5jCj4+Pj4g
-KysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvbW9kdWxlLmMKPj4+PiBAQCAtNDA4LDEyICs0MDgsMTAg
-QEAgaW50IGFwcGx5X3JlbG9jYXRlX2FkZChFbGZfU2hkciAqc2VjaGRycywgY29uc3QgY2hhciAq
-c3RydGFiLAo+Pj4+ICAgIH0KPj4+Pgo+Pj4+ICAgICNpZiBkZWZpbmVkKENPTkZJR19NTVUpICYm
-IGRlZmluZWQoQ09ORklHXzY0QklUKQo+Pj4+IC0jZGVmaW5lIFZNQUxMT0NfTU9EVUxFX1NUQVJU
-IFwKPj4+PiAtICAgICAgICBtYXgoUEZOX0FMSUdOKCh1bnNpZ25lZCBsb25nKSZfZW5kIC0gU1pf
-MkcpLCBWTUFMTE9DX1NUQVJUKQo+Pj4+ICAgIHZvaWQgKm1vZHVsZV9hbGxvYyh1bnNpZ25lZCBs
-b25nIHNpemUpCj4+Pj4gICAgewo+Pj4+ICAgICAgICAgICByZXR1cm4gX192bWFsbG9jX25vZGVf
-cmFuZ2Uoc2l6ZSwgMSwgVk1BTExPQ19NT0RVTEVfU1RBUlQsCj4+Pj4gLSAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgVk1BTExPQ19FTkQsIEdGUF9LRVJORUwsCj4+Pj4gKyAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgVk1BTExPQ19NT0RVTEVfRU5ELCBHRlBfS0VS
-TkVMLAo+Pj4+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgUEFHRV9LRVJO
-RUxfRVhFQywgMCwgTlVNQV9OT19OT0RFLAo+Pj4+ICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgX19idWlsdGluX3JldHVybl9hZGRyZXNzKDApKTsKPj4+PiAgICB9Cj4+Pj4g
-ZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3ZtbGludXgubGRzLlMgYi9hcmNoL3Jpc2N2
-L2tlcm5lbC92bWxpbnV4Lmxkcy5TCj4+Pj4gaW5kZXggM2ZmYmQ2Y2JkYjg2Li5jMjFkYzQ2ZjQx
-YmUgMTAwNjQ0Cj4+Pj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvdm1saW51eC5sZHMuUwo+Pj4+
-ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3ZtbGludXgubGRzLlMKPj4+PiBAQCAtNCw3ICs0LDgg
-QEAKPj4+PiAgICAgKiBDb3B5cmlnaHQgKEMpIDIwMTcgU2lGaXZlCj4+Pj4gICAgICovCj4+Pj4K
-Pj4+PiAtI2RlZmluZSBMT0FEX09GRlNFVCBQQUdFX09GRlNFVAo+Pj4+ICsjaW5jbHVkZSA8YXNt
-L3BndGFibGUuaD4KPj4+PiArI2RlZmluZSBMT0FEX09GRlNFVCBLRVJORUxfTElOS19BRERSCj4+
-Pj4gICAgI2luY2x1ZGUgPGFzbS92bWxpbnV4Lmxkcy5oPgo+Pj4+ICAgICNpbmNsdWRlIDxhc20v
-cGFnZS5oPgo+Pj4+ICAgICNpbmNsdWRlIDxhc20vY2FjaGUuaD4KPj4+PiBkaWZmIC0tZ2l0IGEv
-YXJjaC9yaXNjdi9tbS9pbml0LmMgYi9hcmNoL3Jpc2N2L21tL2luaXQuYwo+Pj4+IGluZGV4IDhl
-NTc3ZjE0ZjEyMC4uOWQwNmZmMGUwMTVhIDEwMDY0NAo+Pj4+IC0tLSBhL2FyY2gvcmlzY3YvbW0v
-aW5pdC5jCj4+Pj4gKysrIGIvYXJjaC9yaXNjdi9tbS9pbml0LmMKPj4+PiBAQCAtMjMsNiArMjMs
-OSBAQAo+Pj4+Cj4+Pj4gICAgI2luY2x1ZGUgIi4uL2tlcm5lbC9oZWFkLmgiCj4+Pj4KPj4+PiAr
-dW5zaWduZWQgbG9uZyBrZXJuZWxfdmlydF9hZGRyID0gS0VSTkVMX1ZJUlRfQUREUjsKPj4+PiAr
-RVhQT1JUX1NZTUJPTChrZXJuZWxfdmlydF9hZGRyKTsKPj4+PiArCj4+Pj4gICAgdW5zaWduZWQg
-bG9uZyBlbXB0eV96ZXJvX3BhZ2VbUEFHRV9TSVpFIC8gc2l6ZW9mKHVuc2lnbmVkIGxvbmcpXQo+
-Pj4+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICBfX3BhZ2VfYWxpZ25lZF9ic3M7Cj4+Pj4gICAgRVhQT1JUX1NZTUJPTChlbXB0eV96ZXJv
-X3BhZ2UpOwo+Pj4+IEBAIC0yMDEsOCArMjA0LDEyIEBAIHZvaWQgX19pbml0IHNldHVwX2Jvb3Rt
-ZW0odm9pZCkKPj4+PiAgICAjaWZkZWYgQ09ORklHX01NVQo+Pj4+ICAgIHN0YXRpYyBzdHJ1Y3Qg
-cHRfYWxsb2Nfb3BzIHB0X29wczsKPj4+Pgo+Pj4+ICsvKiBPZmZzZXQgYmV0d2VlbiBsaW5lYXIg
-bWFwcGluZyB2aXJ0dWFsIGFkZHJlc3MgYW5kIGtlcm5lbCBsb2FkIGFkZHJlc3MgKi8KPj4+PiAg
-ICB1bnNpZ25lZCBsb25nIHZhX3BhX29mZnNldDsKPj4+PiAgICBFWFBPUlRfU1lNQk9MKHZhX3Bh
-X29mZnNldCk7Cj4+Pj4gKy8qIE9mZnNldCBiZXR3ZWVuIGtlcm5lbCBtYXBwaW5nIHZpcnR1YWwg
-YWRkcmVzcyBhbmQga2VybmVsIGxvYWQgYWRkcmVzcyAqLwo+Pj4+ICt1bnNpZ25lZCBsb25nIHZh
-X2tlcm5lbF9wYV9vZmZzZXQ7Cj4+Pj4gK0VYUE9SVF9TWU1CT0wodmFfa2VybmVsX3BhX29mZnNl
-dCk7Cj4+Pj4gICAgdW5zaWduZWQgbG9uZyBwZm5fYmFzZTsKPj4+PiAgICBFWFBPUlRfU1lNQk9M
-KHBmbl9iYXNlKTsKPj4+Pgo+Pj4+IEBAIC0zMTYsNyArMzIzLDcgQEAgc3RhdGljIHBoeXNfYWRk
-cl90IF9faW5pdCBhbGxvY19wbWRfZWFybHkodWludHB0cl90IHZhKQo+Pj4+ICAgIHsKPj4+PiAg
-ICAgICAgICAgdWludHB0cl90IHBtZF9udW07Cj4+Pj4KPj4+PiAtICAgICAgIHBtZF9udW0gPSAo
-dmEgLSBQQUdFX09GRlNFVCkgPj4gUEdESVJfU0hJRlQ7Cj4+Pj4gKyAgICAgICBwbWRfbnVtID0g
-KHZhIC0ga2VybmVsX3ZpcnRfYWRkcikgPj4gUEdESVJfU0hJRlQ7Cj4+Pj4gICAgICAgICAgIEJV
-R19PTihwbWRfbnVtID49IE5VTV9FQVJMWV9QTURTKTsKPj4+PiAgICAgICAgICAgcmV0dXJuICh1
-aW50cHRyX3QpJmVhcmx5X3BtZFtwbWRfbnVtICogUFRSU19QRVJfUE1EXTsKPj4+PiAgICB9Cj4+
-Pj4gQEAgLTQzMSwxNyArNDM4LDM0IEBAIHN0YXRpYyB1aW50cHRyX3QgX19pbml0IGJlc3RfbWFw
-X3NpemUocGh5c19hZGRyX3QgYmFzZSwgcGh5c19hZGRyX3Qgc2l6ZSkKPj4+PiAgICAjZXJyb3Ig
-InNldHVwX3ZtKCkgaXMgY2FsbGVkIGZyb20gaGVhZC5TIGJlZm9yZSByZWxvY2F0ZSBzbyBpdCBz
-aG91bGQgbm90IHVzZSBhYnNvbHV0ZSBhZGRyZXNzaW5nLiIKPj4+PiAgICAjZW5kaWYKPj4+Pgo+
-Pj4+ICtzdGF0aWMgdWludHB0cl90IGxvYWRfcGEsIGxvYWRfc3o7Cj4+Pj4gKwo+Pj4+ICtzdGF0
-aWMgdm9pZCBfX2luaXQgY3JlYXRlX2tlcm5lbF9wYWdlX3RhYmxlKHBnZF90ICpwZ2RpciwgdWlu
-dHB0cl90IG1hcF9zaXplKQo+Pj4+ICt7Cj4+Pj4gKyAgICAgICB1aW50cHRyX3QgdmEsIGVuZF92
-YTsKPj4+PiArCj4+Pj4gKyAgICAgICBlbmRfdmEgPSBrZXJuZWxfdmlydF9hZGRyICsgbG9hZF9z
-ejsKPj4+PiArICAgICAgIGZvciAodmEgPSBrZXJuZWxfdmlydF9hZGRyOyB2YSA8IGVuZF92YTsg
-dmEgKz0gbWFwX3NpemUpCj4+Pj4gKyAgICAgICAgICAgICAgIGNyZWF0ZV9wZ2RfbWFwcGluZyhw
-Z2RpciwgdmEsCj4+Pj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBsb2FkX3Bh
-ICsgKHZhIC0ga2VybmVsX3ZpcnRfYWRkciksCj4+Pj4gKyAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICBtYXBfc2l6ZSwgUEFHRV9LRVJORUxfRVhFQyk7Cj4+Pj4gK30KPj4+PiArCj4+
-Pj4gICAgYXNtbGlua2FnZSB2b2lkIF9faW5pdCBzZXR1cF92bSh1aW50cHRyX3QgZHRiX3BhKQo+
-Pj4+ICAgIHsKPj4+PiAtICAgICAgIHVpbnRwdHJfdCB2YSwgcGEsIGVuZF92YTsKPj4+PiAtICAg
-ICAgIHVpbnRwdHJfdCBsb2FkX3BhID0gKHVpbnRwdHJfdCkoJl9zdGFydCk7Cj4+Pj4gLSAgICAg
-ICB1aW50cHRyX3QgbG9hZF9zeiA9ICh1aW50cHRyX3QpKCZfZW5kKSAtIGxvYWRfcGE7Cj4+Pj4g
-LSAgICAgICB1aW50cHRyX3QgbWFwX3NpemUgPSBiZXN0X21hcF9zaXplKGxvYWRfcGEsIE1BWF9F
-QVJMWV9NQVBQSU5HX1NJWkUpOwo+Pj4+ICsgICAgICAgdWludHB0cl90IHBhOwo+Pj4+ICsgICAg
-ICAgdWludHB0cl90IG1hcF9zaXplOwo+Pj4+ICAgICNpZm5kZWYgX19QQUdFVEFCTEVfUE1EX0ZP
-TERFRAo+Pj4+ICAgICAgICAgICBwbWRfdCBmaXhfYm1hcF9zcG1kLCBmaXhfYm1hcF9lcG1kOwo+
-Pj4+ICAgICNlbmRpZgo+Pj4+Cj4+Pj4gKyAgICAgICBsb2FkX3BhID0gKHVpbnRwdHJfdCkoJl9z
-dGFydCk7Cj4+Pj4gKyAgICAgICBsb2FkX3N6ID0gKHVpbnRwdHJfdCkoJl9lbmQpIC0gbG9hZF9w
-YTsKPj4+PiArICAgICAgIG1hcF9zaXplID0gYmVzdF9tYXBfc2l6ZShsb2FkX3BhLCBNQVhfRUFS
-TFlfTUFQUElOR19TSVpFKTsKPj4+PiArCj4+Pj4gICAgICAgICAgIHZhX3BhX29mZnNldCA9IFBB
-R0VfT0ZGU0VUIC0gbG9hZF9wYTsKPj4+PiArICAgICAgIHZhX2tlcm5lbF9wYV9vZmZzZXQgPSBr
-ZXJuZWxfdmlydF9hZGRyIC0gbG9hZF9wYTsKPj4+PiArCj4+Pj4gICAgICAgICAgIHBmbl9iYXNl
-ID0gUEZOX0RPV04obG9hZF9wYSk7Cj4+Pj4KPj4+PiAgICAgICAgICAgLyoKPj4+PiBAQCAtNDcw
-LDI2ICs0OTQsMjIgQEAgYXNtbGlua2FnZSB2b2lkIF9faW5pdCBzZXR1cF92bSh1aW50cHRyX3Qg
-ZHRiX3BhKQo+Pj4+ICAgICAgICAgICBjcmVhdGVfcG1kX21hcHBpbmcoZml4bWFwX3BtZCwgRklY
-QUREUl9TVEFSVCwKPj4+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICh1aW50cHRyX3Qp
-Zml4bWFwX3B0ZSwgUE1EX1NJWkUsIFBBR0VfVEFCTEUpOwo+Pj4+ICAgICAgICAgICAvKiBTZXR1
-cCB0cmFtcG9saW5lIFBHRCBhbmQgUE1EICovCj4+Pj4gLSAgICAgICBjcmVhdGVfcGdkX21hcHBp
-bmcodHJhbXBvbGluZV9wZ19kaXIsIFBBR0VfT0ZGU0VULAo+Pj4+ICsgICAgICAgY3JlYXRlX3Bn
-ZF9tYXBwaW5nKHRyYW1wb2xpbmVfcGdfZGlyLCBrZXJuZWxfdmlydF9hZGRyLAo+Pj4+ICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgKHVpbnRwdHJfdCl0cmFtcG9saW5lX3BtZCwgUEdESVJf
-U0laRSwgUEFHRV9UQUJMRSk7Cj4+Pj4gLSAgICAgICBjcmVhdGVfcG1kX21hcHBpbmcodHJhbXBv
-bGluZV9wbWQsIFBBR0VfT0ZGU0VULAo+Pj4+ICsgICAgICAgY3JlYXRlX3BtZF9tYXBwaW5nKHRy
-YW1wb2xpbmVfcG1kLCBrZXJuZWxfdmlydF9hZGRyLAo+Pj4+ICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgbG9hZF9wYSwgUE1EX1NJWkUsIFBBR0VfS0VSTkVMX0VYRUMpOwo+Pj4+ICAgICNl
-bHNlCj4+Pj4gICAgICAgICAgIC8qIFNldHVwIHRyYW1wb2xpbmUgUEdEICovCj4+Pj4gLSAgICAg
-ICBjcmVhdGVfcGdkX21hcHBpbmcodHJhbXBvbGluZV9wZ19kaXIsIFBBR0VfT0ZGU0VULAo+Pj4+
-ICsgICAgICAgY3JlYXRlX3BnZF9tYXBwaW5nKHRyYW1wb2xpbmVfcGdfZGlyLCBrZXJuZWxfdmly
-dF9hZGRyLAo+Pj4+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbG9hZF9wYSwgUEdESVJf
-U0laRSwgUEFHRV9LRVJORUxfRVhFQyk7Cj4+Pj4gICAgI2VuZGlmCj4+Pj4KPj4+PiAgICAgICAg
-ICAgLyoKPj4+PiAtICAgICAgICAqIFNldHVwIGVhcmx5IFBHRCBjb3ZlcmluZyBlbnRpcmUga2Vy
-bmVsIHdoaWNoIHdpbGwgYWxsb3dzCj4+Pj4gKyAgICAgICAgKiBTZXR1cCBlYXJseSBQR0QgY292
-ZXJpbmcgZW50aXJlIGtlcm5lbCB3aGljaCB3aWxsIGFsbG93Cj4+Pj4gICAgICAgICAgICAqIHVz
-IHRvIHJlYWNoIHBhZ2luZ19pbml0KCkuIFdlIG1hcCBhbGwgbWVtb3J5IGJhbmtzIGxhdGVyCj4+
-Pj4gICAgICAgICAgICAqIGluIHNldHVwX3ZtX2ZpbmFsKCkgYmVsb3cuCj4+Pj4gICAgICAgICAg
-ICAqLwo+Pj4+IC0gICAgICAgZW5kX3ZhID0gUEFHRV9PRkZTRVQgKyBsb2FkX3N6Owo+Pj4+IC0g
-ICAgICAgZm9yICh2YSA9IFBBR0VfT0ZGU0VUOyB2YSA8IGVuZF92YTsgdmEgKz0gbWFwX3NpemUp
-Cj4+Pj4gLSAgICAgICAgICAgICAgIGNyZWF0ZV9wZ2RfbWFwcGluZyhlYXJseV9wZ19kaXIsIHZh
-LAo+Pj4+IC0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbG9hZF9wYSArICh2YSAt
-IFBBR0VfT0ZGU0VUKSwKPj4+PiAtICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG1h
-cF9zaXplLCBQQUdFX0tFUk5FTF9FWEVDKTsKPj4+PiArICAgICAgIGNyZWF0ZV9rZXJuZWxfcGFn
-ZV90YWJsZShlYXJseV9wZ19kaXIsIG1hcF9zaXplKTsKPj4+Pgo+Pj4+ICAgICNpZm5kZWYgX19Q
-QUdFVEFCTEVfUE1EX0ZPTERFRAo+Pj4+ICAgICAgICAgICAvKiBTZXR1cCBlYXJseSBQTUQgZm9y
-IERUQiAqLwo+Pj4+IEBAIC01NDksNiArNTY5LDcgQEAgc3RhdGljIHZvaWQgX19pbml0IHNldHVw
-X3ZtX2ZpbmFsKHZvaWQpCj4+Pj4gICAgICAgICAgIHVpbnRwdHJfdCB2YSwgbWFwX3NpemU7Cj4+
-Pj4gICAgICAgICAgIHBoeXNfYWRkcl90IHBhLCBzdGFydCwgZW5kOwo+Pj4+ICAgICAgICAgICB1
-NjQgaTsKPj4+PiArICAgICAgIHN0YXRpYyBzdHJ1Y3Qgdm1fc3RydWN0IHZtX2tlcm5lbCA9IHsg
-MCB9Owo+Pj4+Cj4+Pj4gICAgICAgICAgIC8qKgo+Pj4+ICAgICAgICAgICAgKiBNTVUgaXMgZW5h
-YmxlZCBhdCB0aGlzIHBvaW50LiBCdXQgcGFnZSB0YWJsZSBzZXR1cCBpcyBub3QgY29tcGxldGUg
-eWV0Lgo+Pj4+IEBAIC01NjUsNyArNTg2LDcgQEAgc3RhdGljIHZvaWQgX19pbml0IHNldHVwX3Zt
-X2ZpbmFsKHZvaWQpCj4+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICBfX3BhX3N5bWJv
-bChmaXhtYXBfcGdkX25leHQpLAo+Pj4+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgUEdE
-SVJfU0laRSwgUEFHRV9UQUJMRSk7Cj4+Pj4KPj4+PiAtICAgICAgIC8qIE1hcCBhbGwgbWVtb3J5
-IGJhbmtzICovCj4+Pj4gKyAgICAgICAvKiBNYXAgYWxsIG1lbW9yeSBiYW5rcyBpbiB0aGUgbGlu
-ZWFyIG1hcHBpbmcgKi8KPj4+PiAgICAgICAgICAgZm9yX2VhY2hfbWVtX3JhbmdlKGksICZzdGFy
-dCwgJmVuZCkgewo+Pj4+ICAgICAgICAgICAgICAgICAgIGlmIChzdGFydCA+PSBlbmQpCj4+Pj4g
-ICAgICAgICAgICAgICAgICAgICAgICAgICBicmVhazsKPj4+PiBAQCAtNTc3LDEwICs1OTgsMjIg
-QEAgc3RhdGljIHZvaWQgX19pbml0IHNldHVwX3ZtX2ZpbmFsKHZvaWQpCj4+Pj4gICAgICAgICAg
-ICAgICAgICAgZm9yIChwYSA9IHN0YXJ0OyBwYSA8IGVuZDsgcGEgKz0gbWFwX3NpemUpIHsKPj4+
-PiAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhID0gKHVpbnRwdHJfdClfX3ZhKHBhKTsKPj4+
-PiAgICAgICAgICAgICAgICAgICAgICAgICAgIGNyZWF0ZV9wZ2RfbWFwcGluZyhzd2FwcGVyX3Bn
-X2RpciwgdmEsIHBhLAo+Pj4+IC0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICBtYXBfc2l6ZSwgUEFHRV9LRVJORUxfRVhFQyk7Cj4+Pj4gKyAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgIG1hcF9zaXplLCBQQUdFX0tFUk5FTCk7Cj4+Pj4gICAg
-ICAgICAgICAgICAgICAgfQo+Pj4+ICAgICAgICAgICB9Cj4+Pj4KPj4+PiArICAgICAgIC8qIE1h
-cCB0aGUga2VybmVsICovCj4+Pj4gKyAgICAgICBjcmVhdGVfa2VybmVsX3BhZ2VfdGFibGUoc3dh
-cHBlcl9wZ19kaXIsIFBNRF9TSVpFKTsKPj4+PiArCj4+Pj4gKyAgICAgICAvKiBSZXNlcnZlIHRo
-ZSB2bWFsbG9jIGFyZWEgb2NjdXBpZWQgYnkgdGhlIGtlcm5lbCAqLwo+Pj4+ICsgICAgICAgdm1f
-a2VybmVsLmFkZHIgPSAodm9pZCAqKWtlcm5lbF92aXJ0X2FkZHI7Cj4+Pj4gKyAgICAgICB2bV9r
-ZXJuZWwucGh5c19hZGRyID0gbG9hZF9wYTsKPj4+PiArICAgICAgIHZtX2tlcm5lbC5zaXplID0g
-KGxvYWRfc3ogKyBQTURfU0laRSAtIDEpICYgfihQTURfU0laRSAtIDEpOwo+Pj4+ICsgICAgICAg
-dm1fa2VybmVsLmZsYWdzID0gVk1fTUFQIHwgVk1fTk9fR1VBUkQ7Cj4+Pj4gKyAgICAgICB2bV9r
-ZXJuZWwuY2FsbGVyID0gX19idWlsdGluX3JldHVybl9hZGRyZXNzKDApOwo+Pj4+ICsKPj4+PiAr
-ICAgICAgIHZtX2FyZWFfYWRkX2Vhcmx5KCZ2bV9rZXJuZWwpOwo+Pj4+ICsKPj4+PiAgICAgICAg
-ICAgLyogQ2xlYXIgZml4bWFwIFBURSBhbmQgUE1EIG1hcHBpbmdzICovCj4+Pj4gICAgICAgICAg
-IGNsZWFyX2ZpeG1hcChGSVhfUFRFKTsKPj4+PiAgICAgICAgICAgY2xlYXJfZml4bWFwKEZJWF9Q
-TUQpOwo+Pj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L21tL3BoeXNhZGRyLmMgYi9hcmNoL3Jp
-c2N2L21tL3BoeXNhZGRyLmMKPj4+PiBpbmRleCBlOGU0ZGNkMzlmZWQuLjM1NzAzZDVlZjVmZCAx
-MDA2NDQKPj4+PiAtLS0gYS9hcmNoL3Jpc2N2L21tL3BoeXNhZGRyLmMKPj4+PiArKysgYi9hcmNo
-L3Jpc2N2L21tL3BoeXNhZGRyLmMKPj4+PiBAQCAtMjMsNyArMjMsNyBAQCBFWFBPUlRfU1lNQk9M
-KF9fdmlydF90b19waHlzKTsKPj4+Pgo+Pj4+ICAgIHBoeXNfYWRkcl90IF9fcGh5c19hZGRyX3N5
-bWJvbCh1bnNpZ25lZCBsb25nIHgpCj4+Pj4gICAgewo+Pj4+IC0gICAgICAgdW5zaWduZWQgbG9u
-ZyBrZXJuZWxfc3RhcnQgPSAodW5zaWduZWQgbG9uZylQQUdFX09GRlNFVDsKPj4+PiArICAgICAg
-IHVuc2lnbmVkIGxvbmcga2VybmVsX3N0YXJ0ID0gKHVuc2lnbmVkIGxvbmcpa2VybmVsX3ZpcnRf
-YWRkcjsKPj4+PiAgICAgICAgICAgdW5zaWduZWQgbG9uZyBrZXJuZWxfZW5kID0gKHVuc2lnbmVk
-IGxvbmcpX2VuZDsKPj4+Pgo+Pj4+ICAgICAgICAgICAvKgo+Pj4+IC0tCj4+Pj4gMi4yMC4xCj4+
-Pj4KPj4+Cj4+PiBBcGFydCBmcm9tIHRoZSBtaW5vciBjb21tZW50IGFib3ZlLCB0aGlzIGxvb2tz
-IGdvb2QgdG8gbWUuCj4+Pgo+Pj4gUmV2aWV3ZWQtYnk6IEFudXAgUGF0ZWwgPGFudXBAYnJhaW5m
-YXVsdC5vcmc+Cj4+Cj4+IFRoYW5rcyBmb3IgeW91ciB0aW1lIEFudXAsCj4+Cj4+Pgo+Pj4gUmVn
-YXJkcywKPj4+IEFudXAKPj4+Cj4+Cj4+IEFsZXgKPiAKPiBSZWdhcmRzLAo+IEFudXAKPiAKCkFs
-ZXgKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
-LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
-Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Adding Suman and Paul - guys please have a look.
+
+On Mon, Jan 04, 2021 at 04:02:53PM -0700, Rob Herring wrote:
+> DT properties which can have multiple entries need to specify what the
+> entries are and define how many entries there can be. In the case of
+> only a single entry, just 'maxItems: 1' is sufficient.
+> 
+> Add the missing entry constraints. These were found with a modified
+> meta-schema. Unfortunately, there are a few cases where the size
+> constraints are not defined such as common bindings, so the meta-schema
+> can't be part of the normal checks.
+> 
+> Cc: Jens Axboe <axboe@kernel.dk>
+> Cc: Stephen Boyd <sboyd@kernel.org>
+> Cc: Thierry Reding <thierry.reding@gmail.com>
+> Cc: MyungJoo Ham <myungjoo.ham@samsung.com>
+> Cc: Chanwoo Choi <cw00.choi@samsung.com>
+> Cc: Linus Walleij <linus.walleij@linaro.org>
+> Cc: Bartosz Golaszewski <bgolaszewski@baylibre.com>
+> Cc: Jonathan Cameron <jic23@kernel.org>
+> Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Mauro Carvalho Chehab <mchehab@kernel.org>
+> Cc: Chen-Yu Tsai <wens@csie.org>
+> Cc: Ulf Hansson <ulf.hansson@linaro.org>
+> Cc: "David S. Miller" <davem@davemloft.net>
+> Cc: Jakub Kicinski <kuba@kernel.org>
+> Cc: Sebastian Reichel <sre@kernel.org>
+> Cc: Ohad Ben-Cohen <ohad@wizery.com>
+> Cc: Bjorn Andersson <bjorn.andersson@linaro.org>
+> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+> Signed-off-by: Rob Herring <robh@kernel.org>
+> ---
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-ide@vger.kernel.org
+> Cc: linux-clk@vger.kernel.org
+> Cc: dri-devel@lists.freedesktop.org
+> Cc: linux-gpio@vger.kernel.org
+> Cc: linux-iio@vger.kernel.org
+> Cc: linux-input@vger.kernel.org
+> Cc: linux-media@vger.kernel.org
+> Cc: linux-mmc@vger.kernel.org
+> Cc: netdev@vger.kernel.org
+> Cc: linux-pm@vger.kernel.org
+> Cc: linux-remoteproc@vger.kernel.org
+> Cc: linux-riscv@lists.infradead.org
+> Cc: linux-serial@vger.kernel.org
+> Cc: alsa-devel@alsa-project.org
+> Cc: linux-spi@vger.kernel.org
+> Cc: linux-usb@vger.kernel.org
+> ---
+>  .../socionext,uniphier-system-cache.yaml      |  4 ++--
+>  .../bindings/ata/sata_highbank.yaml           |  1 +
+>  .../bindings/clock/canaan,k210-clk.yaml       |  1 +
+>  .../bindings/display/brcm,bcm2711-hdmi.yaml   |  1 +
+>  .../bindings/display/brcm,bcm2835-hdmi.yaml   |  1 +
+>  .../display/panel/jdi,lt070me05000.yaml       |  1 +
+>  .../display/panel/mantix,mlaf057we51-x.yaml   |  3 ++-
+>  .../display/panel/novatek,nt36672a.yaml       |  1 +
+>  .../devicetree/bindings/dsp/fsl,dsp.yaml      |  2 +-
+>  .../devicetree/bindings/eeprom/at25.yaml      |  3 +--
+>  .../bindings/extcon/extcon-ptn5150.yaml       |  2 ++
+>  .../bindings/gpio/gpio-pca95xx.yaml           |  1 +
+>  .../bindings/iio/adc/adi,ad7768-1.yaml        |  2 ++
+>  .../bindings/iio/adc/aspeed,ast2400-adc.yaml  |  1 +
+>  .../bindings/iio/adc/lltc,ltc2496.yaml        |  2 +-
+>  .../bindings/iio/adc/qcom,spmi-vadc.yaml      |  1 +
+>  .../bindings/iio/adc/st,stm32-adc.yaml        |  2 ++
+>  .../iio/magnetometer/asahi-kasei,ak8975.yaml  |  1 +
+>  .../iio/potentiometer/adi,ad5272.yaml         |  1 +
+>  .../input/touchscreen/elan,elants_i2c.yaml    |  1 +
+>  .../interrupt-controller/fsl,intmux.yaml      |  2 +-
+>  .../interrupt-controller/st,stm32-exti.yaml   |  2 ++
+>  .../allwinner,sun4i-a10-video-engine.yaml     |  1 +
+>  .../devicetree/bindings/media/i2c/imx219.yaml |  1 +
+>  .../memory-controllers/exynos-srom.yaml       |  2 ++
+>  .../bindings/misc/fsl,dpaa2-console.yaml      |  1 +
+>  .../bindings/mmc/mmc-controller.yaml          |  2 ++
+>  .../bindings/net/ti,k3-am654-cpsw-nuss.yaml   |  1 +
+>  .../bindings/net/ti,k3-am654-cpts.yaml        |  1 +
+>  .../phy/allwinner,sun4i-a10-usb-phy.yaml      |  2 ++
+>  .../phy/allwinner,sun50i-a64-usb-phy.yaml     |  2 ++
+>  .../phy/allwinner,sun50i-h6-usb-phy.yaml      |  2 ++
+>  .../phy/allwinner,sun5i-a13-usb-phy.yaml      |  2 ++
+>  .../phy/allwinner,sun6i-a31-usb-phy.yaml      |  2 ++
+>  .../phy/allwinner,sun8i-a23-usb-phy.yaml      |  2 ++
+>  .../phy/allwinner,sun8i-a83t-usb-phy.yaml     |  2 ++
+>  .../phy/allwinner,sun8i-h3-usb-phy.yaml       |  2 ++
+>  .../phy/allwinner,sun8i-r40-usb-phy.yaml      |  2 ++
+>  .../phy/allwinner,sun8i-v3s-usb-phy.yaml      |  2 ++
+>  .../phy/allwinner,sun9i-a80-usb-phy.yaml      | 19 ++++++++-----------
+>  .../phy/socionext,uniphier-ahci-phy.yaml      |  2 +-
+>  .../phy/socionext,uniphier-pcie-phy.yaml      |  2 +-
+>  .../phy/socionext,uniphier-usb3hs-phy.yaml    |  2 +-
+>  .../phy/socionext,uniphier-usb3ss-phy.yaml    |  2 +-
+>  .../bindings/phy/ti,phy-gmii-sel.yaml         |  2 +-
+>  .../pinctrl/aspeed,ast2400-pinctrl.yaml       |  3 +--
+>  .../pinctrl/aspeed,ast2500-pinctrl.yaml       |  4 ++--
+>  .../bindings/power/supply/bq25980.yaml        |  1 +
+>  .../bindings/remoteproc/ingenic,vpu.yaml      |  2 +-
+>  .../remoteproc/ti,omap-remoteproc.yaml        |  3 +++
+>  .../bindings/riscv/sifive-l2-cache.yaml       |  1 +
+>  .../bindings/serial/renesas,hscif.yaml        |  2 ++
+>  .../bindings/serial/renesas,scif.yaml         |  2 ++
+>  .../bindings/serial/renesas,scifa.yaml        |  2 ++
+>  .../bindings/serial/renesas,scifb.yaml        |  2 ++
+>  .../sound/allwinner,sun4i-a10-codec.yaml      |  1 +
+>  .../bindings/sound/google,sc7180-trogdor.yaml |  1 +
+>  .../bindings/sound/samsung,aries-wm8994.yaml  |  3 +++
+>  .../bindings/sound/samsung,midas-audio.yaml   |  2 ++
+>  .../devicetree/bindings/sound/tas2562.yaml    |  2 ++
+>  .../devicetree/bindings/sound/tas2770.yaml    |  2 ++
+>  .../bindings/sound/tlv320adcx140.yaml         |  1 +
+>  .../devicetree/bindings/spi/renesas,rspi.yaml |  2 ++
+>  .../devicetree/bindings/sram/sram.yaml        |  2 ++
+>  .../timer/allwinner,sun4i-a10-timer.yaml      |  2 ++
+>  .../bindings/timer/intel,ixp4xx-timer.yaml    |  2 +-
+>  .../usb/allwinner,sun4i-a10-musb.yaml         |  2 +-
+>  .../bindings/usb/brcm,usb-pinmap.yaml         |  3 +++
+>  .../devicetree/bindings/usb/generic-ehci.yaml |  1 +
+>  .../devicetree/bindings/usb/generic-ohci.yaml |  1 +
+>  .../devicetree/bindings/usb/ingenic,musb.yaml |  2 +-
+>  .../bindings/usb/renesas,usbhs.yaml           |  1 +
+>  .../devicetree/bindings/usb/ti,j721e-usb.yaml |  3 ++-
+>  .../bindings/usb/ti,keystone-dwc3.yaml        |  2 ++
+>  74 files changed, 118 insertions(+), 33 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/arm/socionext/socionext,uniphier-system-cache.yaml b/Documentation/devicetree/bindings/arm/socionext/socionext,uniphier-system-cache.yaml
+> index 2e765bb3e6f6..7ca5375f278f 100644
+> --- a/Documentation/devicetree/bindings/arm/socionext/socionext,uniphier-system-cache.yaml
+> +++ b/Documentation/devicetree/bindings/arm/socionext/socionext,uniphier-system-cache.yaml
+> @@ -30,8 +30,8 @@ properties:
+>        Interrupts can be used to notify the completion of cache operations.
+>        The number of interrupts should match to the number of CPU cores.
+>        The specified interrupts correspond to CPU0, CPU1, ... in this order.
+> -      minItems: 1
+> -      maxItems: 4
+> +    minItems: 1
+> +    maxItems: 4
+>  
+>    cache-unified: true
+>  
+> diff --git a/Documentation/devicetree/bindings/ata/sata_highbank.yaml b/Documentation/devicetree/bindings/ata/sata_highbank.yaml
+> index 5e2a2394e600..ce75d77e9289 100644
+> --- a/Documentation/devicetree/bindings/ata/sata_highbank.yaml
+> +++ b/Documentation/devicetree/bindings/ata/sata_highbank.yaml
+> @@ -61,6 +61,7 @@ properties:
+>      maxItems: 8
+>  
+>    calxeda,sgpio-gpio:
+> +    maxItems: 3
+>      description: |
+>        phandle-gpio bank, bit offset, and default on or off, which indicates
+>        that the driver supports SGPIO indicator lights using the indicated
+> diff --git a/Documentation/devicetree/bindings/clock/canaan,k210-clk.yaml b/Documentation/devicetree/bindings/clock/canaan,k210-clk.yaml
+> index 565ca468cb44..7f5cf4001f76 100644
+> --- a/Documentation/devicetree/bindings/clock/canaan,k210-clk.yaml
+> +++ b/Documentation/devicetree/bindings/clock/canaan,k210-clk.yaml
+> @@ -22,6 +22,7 @@ properties:
+>      const: canaan,k210-clk
+>  
+>    clocks:
+> +    maxItems: 1
+>      description:
+>        Phandle of the SoC 26MHz fixed-rate oscillator clock.
+>  
+> diff --git a/Documentation/devicetree/bindings/display/brcm,bcm2711-hdmi.yaml b/Documentation/devicetree/bindings/display/brcm,bcm2711-hdmi.yaml
+> index 7ce06f9f9f8e..767edc0a7978 100644
+> --- a/Documentation/devicetree/bindings/display/brcm,bcm2711-hdmi.yaml
+> +++ b/Documentation/devicetree/bindings/display/brcm,bcm2711-hdmi.yaml
+> @@ -60,6 +60,7 @@ properties:
+>        Phandle of the I2C controller used for DDC EDID probing
+>  
+>    hpd-gpios:
+> +    maxItems: 1
+>      description: >
+>        The GPIO pin for the HDMI hotplug detect (if it doesn't appear
+>        as an interrupt/status bit in the HDMI controller itself)
+> diff --git a/Documentation/devicetree/bindings/display/brcm,bcm2835-hdmi.yaml b/Documentation/devicetree/bindings/display/brcm,bcm2835-hdmi.yaml
+> index f54b4e4808f0..031e35e76db2 100644
+> --- a/Documentation/devicetree/bindings/display/brcm,bcm2835-hdmi.yaml
+> +++ b/Documentation/devicetree/bindings/display/brcm,bcm2835-hdmi.yaml
+> @@ -37,6 +37,7 @@ properties:
+>        Phandle of the I2C controller used for DDC EDID probing
+>  
+>    hpd-gpios:
+> +    maxItems: 1
+>      description: >
+>        The GPIO pin for the HDMI hotplug detect (if it doesn't appear
+>        as an interrupt/status bit in the HDMI controller itself)
+> diff --git a/Documentation/devicetree/bindings/display/panel/jdi,lt070me05000.yaml b/Documentation/devicetree/bindings/display/panel/jdi,lt070me05000.yaml
+> index b8b9435e464c..4f92365e888a 100644
+> --- a/Documentation/devicetree/bindings/display/panel/jdi,lt070me05000.yaml
+> +++ b/Documentation/devicetree/bindings/display/panel/jdi,lt070me05000.yaml
+> @@ -30,6 +30,7 @@ properties:
+>        power supply for LCM (1.8V)
+>  
+>    dcdc-en-gpios:
+> +    maxItems: 1
+>      description: |
+>        phandle of the gpio for power ic line
+>        Power IC supply enable, High active
+> diff --git a/Documentation/devicetree/bindings/display/panel/mantix,mlaf057we51-x.yaml b/Documentation/devicetree/bindings/display/panel/mantix,mlaf057we51-x.yaml
+> index 51f423297ec8..aa5a0dc391a4 100644
+> --- a/Documentation/devicetree/bindings/display/panel/mantix,mlaf057we51-x.yaml
+> +++ b/Documentation/devicetree/bindings/display/panel/mantix,mlaf057we51-x.yaml
+> @@ -37,7 +37,8 @@ properties:
+>  
+>    reset-gpios: true
+>  
+> -  'mantix,tp-rstn-gpios':
+> +  mantix,tp-rstn-gpios:
+> +    maxItems: 1
+>      description: second reset line that triggers DSI config load
+>  
+>    backlight: true
+> diff --git a/Documentation/devicetree/bindings/display/panel/novatek,nt36672a.yaml b/Documentation/devicetree/bindings/display/panel/novatek,nt36672a.yaml
+> index 2f5df1d235ae..ef4c0a24512d 100644
+> --- a/Documentation/devicetree/bindings/display/panel/novatek,nt36672a.yaml
+> +++ b/Documentation/devicetree/bindings/display/panel/novatek,nt36672a.yaml
+> @@ -30,6 +30,7 @@ properties:
+>        panel. The novatek,nt36672a compatible shall always be provided as a fallback.
+>  
+>    reset-gpios:
+> +    maxItems: 1
+>      description: phandle of gpio for reset line - This should be 8mA, gpio
+>        can be configured using mux, pinctrl, pinctrl-names (active high)
+>  
+> diff --git a/Documentation/devicetree/bindings/dsp/fsl,dsp.yaml b/Documentation/devicetree/bindings/dsp/fsl,dsp.yaml
+> index 4cc011230153..7afc9f2be13a 100644
+> --- a/Documentation/devicetree/bindings/dsp/fsl,dsp.yaml
+> +++ b/Documentation/devicetree/bindings/dsp/fsl,dsp.yaml
+> @@ -21,7 +21,7 @@ properties:
+>        - fsl,imx8mp-dsp
+>  
+>    reg:
+> -    description: Should contain register location and length
+> +    maxItems: 1
+>  
+>    clocks:
+>      items:
+> diff --git a/Documentation/devicetree/bindings/eeprom/at25.yaml b/Documentation/devicetree/bindings/eeprom/at25.yaml
+> index 121a601db22e..6a2dc8b3ed14 100644
+> --- a/Documentation/devicetree/bindings/eeprom/at25.yaml
+> +++ b/Documentation/devicetree/bindings/eeprom/at25.yaml
+> @@ -39,8 +39,7 @@ properties:
+>            - const: atmel,at25
+>  
+>    reg:
+> -    description:
+> -      Chip select number.
+> +    maxItems: 1
+>  
+>    spi-max-frequency: true
+>  
+> diff --git a/Documentation/devicetree/bindings/extcon/extcon-ptn5150.yaml b/Documentation/devicetree/bindings/extcon/extcon-ptn5150.yaml
+> index 4b0f414486d2..d5cfa32ea52d 100644
+> --- a/Documentation/devicetree/bindings/extcon/extcon-ptn5150.yaml
+> +++ b/Documentation/devicetree/bindings/extcon/extcon-ptn5150.yaml
+> @@ -19,6 +19,7 @@ properties:
+>      const: nxp,ptn5150
+>  
+>    int-gpios:
+> +    maxItems: 1
+>      deprecated: true
+>      description:
+>        GPIO pin (input) connected to the PTN5150's INTB pin.
+> @@ -31,6 +32,7 @@ properties:
+>      maxItems: 1
+>  
+>    vbus-gpios:
+> +    maxItems: 1
+>      description:
+>        GPIO pin (output) used to control VBUS. If skipped, no such control
+>        takes place.
+> diff --git a/Documentation/devicetree/bindings/gpio/gpio-pca95xx.yaml b/Documentation/devicetree/bindings/gpio/gpio-pca95xx.yaml
+> index f5ee23c2df60..57cdcfd4ff3c 100644
+> --- a/Documentation/devicetree/bindings/gpio/gpio-pca95xx.yaml
+> +++ b/Documentation/devicetree/bindings/gpio/gpio-pca95xx.yaml
+> @@ -81,6 +81,7 @@ properties:
+>      const: 2
+>  
+>    reset-gpios:
+> +    maxItems: 1
+>      description:
+>        GPIO specification for the RESET input. This is an active low signal to
+>        the PCA953x.  Not valid for Maxim MAX732x devices.
+> diff --git a/Documentation/devicetree/bindings/iio/adc/adi,ad7768-1.yaml b/Documentation/devicetree/bindings/iio/adc/adi,ad7768-1.yaml
+> index 924477dfb833..a85a28145ef6 100644
+> --- a/Documentation/devicetree/bindings/iio/adc/adi,ad7768-1.yaml
+> +++ b/Documentation/devicetree/bindings/iio/adc/adi,ad7768-1.yaml
+> @@ -40,6 +40,7 @@ properties:
+>        ADC reference voltage supply
+>  
+>    adi,sync-in-gpios:
+> +    maxItems: 1
+>      description:
+>        Enables synchronization of multiple devices that require simultaneous
+>        sampling. A pulse is always required if the configuration is changed
+> @@ -76,6 +77,7 @@ patternProperties:
+>  
+>      properties:
+>        reg:
+> +        maxItems: 1
+>          description: |
+>            The channel number.
+>  
+> diff --git a/Documentation/devicetree/bindings/iio/adc/aspeed,ast2400-adc.yaml b/Documentation/devicetree/bindings/iio/adc/aspeed,ast2400-adc.yaml
+> index 7f534a933e92..a726b6c2ab65 100644
+> --- a/Documentation/devicetree/bindings/iio/adc/aspeed,ast2400-adc.yaml
+> +++ b/Documentation/devicetree/bindings/iio/adc/aspeed,ast2400-adc.yaml
+> @@ -23,6 +23,7 @@ properties:
+>      maxItems: 1
+>  
+>    clocks:
+> +    maxItems: 1
+>      description:
+>        Input clock used to derive the sample clock. Expected to be the
+>        SoC's APB clock.
+> diff --git a/Documentation/devicetree/bindings/iio/adc/lltc,ltc2496.yaml b/Documentation/devicetree/bindings/iio/adc/lltc,ltc2496.yaml
+> index 2716d4e95329..0bd2fc0356c8 100644
+> --- a/Documentation/devicetree/bindings/iio/adc/lltc,ltc2496.yaml
+> +++ b/Documentation/devicetree/bindings/iio/adc/lltc,ltc2496.yaml
+> @@ -20,7 +20,7 @@ properties:
+>      description: Power supply for the reference voltage
+>  
+>    reg:
+> -    description: spi chipselect number according to the usual spi bindings
+> +    maxItems: 1
+>  
+>    spi-max-frequency:
+>      description: maximal spi bus frequency supported
+> diff --git a/Documentation/devicetree/bindings/iio/adc/qcom,spmi-vadc.yaml b/Documentation/devicetree/bindings/iio/adc/qcom,spmi-vadc.yaml
+> index 95cc705b961b..74a4a9d95798 100644
+> --- a/Documentation/devicetree/bindings/iio/adc/qcom,spmi-vadc.yaml
+> +++ b/Documentation/devicetree/bindings/iio/adc/qcom,spmi-vadc.yaml
+> @@ -68,6 +68,7 @@ patternProperties:
+>  
+>      properties:
+>        reg:
+> +        maxItems: 1
+>          description: |
+>            ADC channel number.
+>            See include/dt-bindings/iio/qcom,spmi-vadc.h
+> diff --git a/Documentation/devicetree/bindings/iio/adc/st,stm32-adc.yaml b/Documentation/devicetree/bindings/iio/adc/st,stm32-adc.yaml
+> index 28417b31b558..6364ede9bb5f 100644
+> --- a/Documentation/devicetree/bindings/iio/adc/st,stm32-adc.yaml
+> +++ b/Documentation/devicetree/bindings/iio/adc/st,stm32-adc.yaml
+> @@ -41,6 +41,8 @@ properties:
+>      maxItems: 2
+>  
+>    clocks:
+> +    minItems: 1
+> +    maxItems: 2
+>      description: |
+>        Core can use up to two clocks, depending on part used:
+>          - "adc" clock: for the analog circuitry, common to all ADCs.
+> diff --git a/Documentation/devicetree/bindings/iio/magnetometer/asahi-kasei,ak8975.yaml b/Documentation/devicetree/bindings/iio/magnetometer/asahi-kasei,ak8975.yaml
+> index a25590a16ba7..a0a1ffe017df 100644
+> --- a/Documentation/devicetree/bindings/iio/magnetometer/asahi-kasei,ak8975.yaml
+> +++ b/Documentation/devicetree/bindings/iio/magnetometer/asahi-kasei,ak8975.yaml
+> @@ -47,6 +47,7 @@ properties:
+>      description: an optional 3x3 mounting rotation matrix.
+>  
+>    reset-gpios:
+> +    maxItems: 1
+>      description: |
+>        an optional pin needed for AK09911 to set the reset state. This should
+>        be usually active low
+> diff --git a/Documentation/devicetree/bindings/iio/potentiometer/adi,ad5272.yaml b/Documentation/devicetree/bindings/iio/potentiometer/adi,ad5272.yaml
+> index 1aee9f9be951..0ebb6725a1af 100644
+> --- a/Documentation/devicetree/bindings/iio/potentiometer/adi,ad5272.yaml
+> +++ b/Documentation/devicetree/bindings/iio/potentiometer/adi,ad5272.yaml
+> @@ -25,6 +25,7 @@ properties:
+>      maxItems: 1
+>  
+>    reset-gpios:
+> +    maxItems: 1
+>      description:
+>        Active low signal to the AD5272 RESET input.
+>  
+> diff --git a/Documentation/devicetree/bindings/input/touchscreen/elan,elants_i2c.yaml b/Documentation/devicetree/bindings/input/touchscreen/elan,elants_i2c.yaml
+> index a792d6377b1d..a9b53c2e6f0a 100644
+> --- a/Documentation/devicetree/bindings/input/touchscreen/elan,elants_i2c.yaml
+> +++ b/Documentation/devicetree/bindings/input/touchscreen/elan,elants_i2c.yaml
+> @@ -29,6 +29,7 @@ properties:
+>      description: touchscreen can be used as a wakeup source.
+>  
+>    reset-gpios:
+> +    maxItems: 1
+>      description: reset gpio the chip is connected to.
+>  
+>    vcc33-supply:
+> diff --git a/Documentation/devicetree/bindings/interrupt-controller/fsl,intmux.yaml b/Documentation/devicetree/bindings/interrupt-controller/fsl,intmux.yaml
+> index 43c6effbb5bd..1d6e0f64a807 100644
+> --- a/Documentation/devicetree/bindings/interrupt-controller/fsl,intmux.yaml
+> +++ b/Documentation/devicetree/bindings/interrupt-controller/fsl,intmux.yaml
+> @@ -31,7 +31,7 @@ properties:
+>        The 1st cell is hw interrupt number, the 2nd cell is channel index.
+>  
+>    clocks:
+> -    description: ipg clock.
+> +    maxItems: 1
+>  
+>    clock-names:
+>      const: ipg
+> diff --git a/Documentation/devicetree/bindings/interrupt-controller/st,stm32-exti.yaml b/Documentation/devicetree/bindings/interrupt-controller/st,stm32-exti.yaml
+> index 2a5b29567926..6d3e68eb2e8b 100644
+> --- a/Documentation/devicetree/bindings/interrupt-controller/st,stm32-exti.yaml
+> +++ b/Documentation/devicetree/bindings/interrupt-controller/st,stm32-exti.yaml
+> @@ -36,6 +36,8 @@ properties:
+>        Reference to a phandle of a hardware spinlock provider node.
+>  
+>    interrupts:
+> +    minItems: 1
+> +    maxItems: 96
+>      description:
+>        Interrupts references to primary interrupt controller
+>  
+> diff --git a/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-video-engine.yaml b/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-video-engine.yaml
+> index 2f7058f7760c..c34303b87a5b 100644
+> --- a/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-video-engine.yaml
+> +++ b/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-video-engine.yaml
+> @@ -53,6 +53,7 @@ properties:
+>      maxItems: 1
+>  
+>    memory-region:
+> +    maxItems: 1
+>      description:
+>        CMA pool to use for buffers allocation instead of the default
+>        CMA pool.
+> diff --git a/Documentation/devicetree/bindings/media/i2c/imx219.yaml b/Documentation/devicetree/bindings/media/i2c/imx219.yaml
+> index dfc4d29a4f04..184d33bd3828 100644
+> --- a/Documentation/devicetree/bindings/media/i2c/imx219.yaml
+> +++ b/Documentation/devicetree/bindings/media/i2c/imx219.yaml
+> @@ -40,6 +40,7 @@ properties:
+>        Digital core voltage supply, 1.2 volts
+>  
+>    reset-gpios:
+> +    maxItems: 1
+>      description: |-
+>        Reference to the GPIO connected to the xclr pin, if any.
+>        Must be released (set high) after all supplies are applied.
+> diff --git a/Documentation/devicetree/bindings/memory-controllers/exynos-srom.yaml b/Documentation/devicetree/bindings/memory-controllers/exynos-srom.yaml
+> index 637e24f0f73b..c6e44f47ce7c 100644
+> --- a/Documentation/devicetree/bindings/memory-controllers/exynos-srom.yaml
+> +++ b/Documentation/devicetree/bindings/memory-controllers/exynos-srom.yaml
+> @@ -28,6 +28,8 @@ properties:
+>      const: 1
+>  
+>    ranges:
+> +    minItems: 1
+> +    maxItems: 4
+>      description: |
+>        Reflects the memory layout with four integer values per bank. Format:
+>        <bank-number> 0 <parent address of bank> <size>
+> diff --git a/Documentation/devicetree/bindings/misc/fsl,dpaa2-console.yaml b/Documentation/devicetree/bindings/misc/fsl,dpaa2-console.yaml
+> index 271a3eafc054..8cc951feb7df 100644
+> --- a/Documentation/devicetree/bindings/misc/fsl,dpaa2-console.yaml
+> +++ b/Documentation/devicetree/bindings/misc/fsl,dpaa2-console.yaml
+> @@ -15,6 +15,7 @@ properties:
+>      const: "fsl,dpaa2-console"
+>  
+>    reg:
+> +    maxItems: 1
+>      description: A standard property. Specifies the region where the MCFBA
+>                  (MC firmware base address) register can be found.
+>  
+> diff --git a/Documentation/devicetree/bindings/mmc/mmc-controller.yaml b/Documentation/devicetree/bindings/mmc/mmc-controller.yaml
+> index 186f04ba9357..df4ee4c778ae 100644
+> --- a/Documentation/devicetree/bindings/mmc/mmc-controller.yaml
+> +++ b/Documentation/devicetree/bindings/mmc/mmc-controller.yaml
+> @@ -40,6 +40,7 @@ properties:
+>        There is no card detection available; polling must be used.
+>  
+>    cd-gpios:
+> +    maxItems: 1
+>      description:
+>        The card detection will be done using the GPIO provided.
+>  
+> @@ -104,6 +105,7 @@ properties:
+>        line. Not used in combination with eMMC or SDIO.
+>  
+>    wp-gpios:
+> +    maxItems: 1
+>      description:
+>        GPIO to use for the write-protect detection.
+>  
+> diff --git a/Documentation/devicetree/bindings/net/ti,k3-am654-cpsw-nuss.yaml b/Documentation/devicetree/bindings/net/ti,k3-am654-cpsw-nuss.yaml
+> index c47b58f3e3f6..097c5cc6c853 100644
+> --- a/Documentation/devicetree/bindings/net/ti,k3-am654-cpsw-nuss.yaml
+> +++ b/Documentation/devicetree/bindings/net/ti,k3-am654-cpsw-nuss.yaml
+> @@ -66,6 +66,7 @@ properties:
+>    dma-coherent: true
+>  
+>    clocks:
+> +    maxItems: 1
+>      description: CPSW2G NUSS functional clock
+>  
+>    clock-names:
+> diff --git a/Documentation/devicetree/bindings/net/ti,k3-am654-cpts.yaml b/Documentation/devicetree/bindings/net/ti,k3-am654-cpts.yaml
+> index 9b7117920d90..2a42a27fb911 100644
+> --- a/Documentation/devicetree/bindings/net/ti,k3-am654-cpts.yaml
+> +++ b/Documentation/devicetree/bindings/net/ti,k3-am654-cpts.yaml
+> @@ -59,6 +59,7 @@ properties:
+>        - const: cpts
+>  
+>    clocks:
+> +    maxItems: 1
+>      description: CPTS reference clock
+>  
+>    clock-names:
+> diff --git a/Documentation/devicetree/bindings/phy/allwinner,sun4i-a10-usb-phy.yaml b/Documentation/devicetree/bindings/phy/allwinner,sun4i-a10-usb-phy.yaml
+> index 94ac23687b7e..77606c899fe2 100644
+> --- a/Documentation/devicetree/bindings/phy/allwinner,sun4i-a10-usb-phy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/allwinner,sun4i-a10-usb-phy.yaml
+> @@ -51,9 +51,11 @@ properties:
+>        - const: usb2_reset
+>  
+>    usb0_id_det-gpios:
+> +    maxItems: 1
+>      description: GPIO to the USB OTG ID pin
+>  
+>    usb0_vbus_det-gpios:
+> +    maxItems: 1
+>      description: GPIO to the USB OTG VBUS detect pin
+>  
+>    usb0_vbus_power-supply:
+> diff --git a/Documentation/devicetree/bindings/phy/allwinner,sun50i-a64-usb-phy.yaml b/Documentation/devicetree/bindings/phy/allwinner,sun50i-a64-usb-phy.yaml
+> index fd6e126fcf18..078af52b16ed 100644
+> --- a/Documentation/devicetree/bindings/phy/allwinner,sun50i-a64-usb-phy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/allwinner,sun50i-a64-usb-phy.yaml
+> @@ -50,9 +50,11 @@ properties:
+>        - const: usb1_reset
+>  
+>    usb0_id_det-gpios:
+> +    maxItems: 1
+>      description: GPIO to the USB OTG ID pin
+>  
+>    usb0_vbus_det-gpios:
+> +    maxItems: 1
+>      description: GPIO to the USB OTG VBUS detect pin
+>  
+>    usb0_vbus_power-supply:
+> diff --git a/Documentation/devicetree/bindings/phy/allwinner,sun50i-h6-usb-phy.yaml b/Documentation/devicetree/bindings/phy/allwinner,sun50i-h6-usb-phy.yaml
+> index 7670411002c9..e632140722a2 100644
+> --- a/Documentation/devicetree/bindings/phy/allwinner,sun50i-h6-usb-phy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/allwinner,sun50i-h6-usb-phy.yaml
+> @@ -50,9 +50,11 @@ properties:
+>        - const: usb3_reset
+>  
+>    usb0_id_det-gpios:
+> +    maxItems: 1
+>      description: GPIO to the USB OTG ID pin
+>  
+>    usb0_vbus_det-gpios:
+> +    maxItems: 1
+>      description: GPIO to the USB OTG VBUS detect pin
+>  
+>    usb0_vbus_power-supply:
+> diff --git a/Documentation/devicetree/bindings/phy/allwinner,sun5i-a13-usb-phy.yaml b/Documentation/devicetree/bindings/phy/allwinner,sun5i-a13-usb-phy.yaml
+> index 9b319381d1ad..5bad9b06e2e7 100644
+> --- a/Documentation/devicetree/bindings/phy/allwinner,sun5i-a13-usb-phy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/allwinner,sun5i-a13-usb-phy.yaml
+> @@ -45,9 +45,11 @@ properties:
+>        - const: usb1_reset
+>  
+>    usb0_id_det-gpios:
+> +    maxItems: 1
+>      description: GPIO to the USB OTG ID pin
+>  
+>    usb0_vbus_det-gpios:
+> +    maxItems: 1
+>      description: GPIO to the USB OTG VBUS detect pin
+>  
+>    usb0_vbus_power-supply:
+> diff --git a/Documentation/devicetree/bindings/phy/allwinner,sun6i-a31-usb-phy.yaml b/Documentation/devicetree/bindings/phy/allwinner,sun6i-a31-usb-phy.yaml
+> index b0ed01bbf3db..922b4665e00d 100644
+> --- a/Documentation/devicetree/bindings/phy/allwinner,sun6i-a31-usb-phy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/allwinner,sun6i-a31-usb-phy.yaml
+> @@ -54,9 +54,11 @@ properties:
+>        - const: usb2_reset
+>  
+>    usb0_id_det-gpios:
+> +    maxItems: 1
+>      description: GPIO to the USB OTG ID pin
+>  
+>    usb0_vbus_det-gpios:
+> +    maxItems: 1
+>      description: GPIO to the USB OTG VBUS detect pin
+>  
+>    usb0_vbus_power-supply:
+> diff --git a/Documentation/devicetree/bindings/phy/allwinner,sun8i-a23-usb-phy.yaml b/Documentation/devicetree/bindings/phy/allwinner,sun8i-a23-usb-phy.yaml
+> index b0674406f8aa..a94019efc2f3 100644
+> --- a/Documentation/devicetree/bindings/phy/allwinner,sun8i-a23-usb-phy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/allwinner,sun8i-a23-usb-phy.yaml
+> @@ -50,9 +50,11 @@ properties:
+>        - const: usb1_reset
+>  
+>    usb0_id_det-gpios:
+> +    maxItems: 1
+>      description: GPIO to the USB OTG ID pin
+>  
+>    usb0_vbus_det-gpios:
+> +    maxItems: 1
+>      description: GPIO to the USB OTG VBUS detect pin
+>  
+>    usb0_vbus_power-supply:
+> diff --git a/Documentation/devicetree/bindings/phy/allwinner,sun8i-a83t-usb-phy.yaml b/Documentation/devicetree/bindings/phy/allwinner,sun8i-a83t-usb-phy.yaml
+> index 48dc9c834a9b..33f3ddc0492d 100644
+> --- a/Documentation/devicetree/bindings/phy/allwinner,sun8i-a83t-usb-phy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/allwinner,sun8i-a83t-usb-phy.yaml
+> @@ -56,9 +56,11 @@ properties:
+>        - const: usb2_reset
+>  
+>    usb0_id_det-gpios:
+> +    maxItems: 1
+>      description: GPIO to the USB OTG ID pin
+>  
+>    usb0_vbus_det-gpios:
+> +    maxItems: 1
+>      description: GPIO to the USB OTG VBUS detect pin
+>  
+>    usb0_vbus_power-supply:
+> diff --git a/Documentation/devicetree/bindings/phy/allwinner,sun8i-h3-usb-phy.yaml b/Documentation/devicetree/bindings/phy/allwinner,sun8i-h3-usb-phy.yaml
+> index 60c344585276..f80431060803 100644
+> --- a/Documentation/devicetree/bindings/phy/allwinner,sun8i-h3-usb-phy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/allwinner,sun8i-h3-usb-phy.yaml
+> @@ -62,9 +62,11 @@ properties:
+>        - const: usb3_reset
+>  
+>    usb0_id_det-gpios:
+> +    maxItems: 1
+>      description: GPIO to the USB OTG ID pin
+>  
+>    usb0_vbus_det-gpios:
+> +    maxItems: 1
+>      description: GPIO to the USB OTG VBUS detect pin
+>  
+>    usb0_vbus_power-supply:
+> diff --git a/Documentation/devicetree/bindings/phy/allwinner,sun8i-r40-usb-phy.yaml b/Documentation/devicetree/bindings/phy/allwinner,sun8i-r40-usb-phy.yaml
+> index a2bb36790fbd..d947e50a49d2 100644
+> --- a/Documentation/devicetree/bindings/phy/allwinner,sun8i-r40-usb-phy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/allwinner,sun8i-r40-usb-phy.yaml
+> @@ -56,9 +56,11 @@ properties:
+>        - const: usb2_reset
+>  
+>    usb0_id_det-gpios:
+> +    maxItems: 1
+>      description: GPIO to the USB OTG ID pin
+>  
+>    usb0_vbus_det-gpios:
+> +    maxItems: 1
+>      description: GPIO to the USB OTG VBUS detect pin
+>  
+>    usb0_vbus_power-supply:
+> diff --git a/Documentation/devicetree/bindings/phy/allwinner,sun8i-v3s-usb-phy.yaml b/Documentation/devicetree/bindings/phy/allwinner,sun8i-v3s-usb-phy.yaml
+> index eadfd0c9493c..a2836c296cc4 100644
+> --- a/Documentation/devicetree/bindings/phy/allwinner,sun8i-v3s-usb-phy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/allwinner,sun8i-v3s-usb-phy.yaml
+> @@ -42,9 +42,11 @@ properties:
+>      const: usb0_reset
+>  
+>    usb0_id_det-gpios:
+> +    maxItems: 1
+>      description: GPIO to the USB OTG ID pin
+>  
+>    usb0_vbus_det-gpios:
+> +    maxItems: 1
+>      description: GPIO to the USB OTG VBUS detect pin
+>  
+>    usb0_vbus_power-supply:
+> diff --git a/Documentation/devicetree/bindings/phy/allwinner,sun9i-a80-usb-phy.yaml b/Documentation/devicetree/bindings/phy/allwinner,sun9i-a80-usb-phy.yaml
+> index ded7d6f0a119..2eb493fa64fd 100644
+> --- a/Documentation/devicetree/bindings/phy/allwinner,sun9i-a80-usb-phy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/allwinner,sun9i-a80-usb-phy.yaml
+> @@ -22,7 +22,8 @@ properties:
+>  
+>    clocks:
+>      anyOf:
+> -      - description: Main PHY Clock
+> +      - maxItems: 1
+> +        description: Main PHY Clock
+>  
+>        - items:
+>            - description: Main PHY clock
+> @@ -39,20 +40,16 @@ properties:
+>            - const: hsic_480M
+>  
+>    resets:
+> -    anyOf:
+> +    minItems: 1
+> +    items:
+>        - description: Normal USB PHY reset
+> -
+> -      - items:
+> -          - description: Normal USB PHY reset
+> -          - description: HSIC Reset
+> +      - description: HSIC Reset
+>  
+>    reset-names:
+> -    oneOf:
+> +    minItems: 1
+> +    items:
+>        - const: phy
+> -
+> -      - items:
+> -          - const: phy
+> -          - const: hsic
+> +      - const: hsic
+>  
+>    phy_type:
+>      const: hsic
+> diff --git a/Documentation/devicetree/bindings/phy/socionext,uniphier-ahci-phy.yaml b/Documentation/devicetree/bindings/phy/socionext,uniphier-ahci-phy.yaml
+> index 34756347a14e..745c525ce6b9 100644
+> --- a/Documentation/devicetree/bindings/phy/socionext,uniphier-ahci-phy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/socionext,uniphier-ahci-phy.yaml
+> @@ -20,7 +20,7 @@ properties:
+>        - socionext,uniphier-pxs3-ahci-phy
+>  
+>    reg:
+> -    description: PHY register region (offset and length)
+> +    maxItems: 1
+>  
+>    "#phy-cells":
+>      const: 0
+> diff --git a/Documentation/devicetree/bindings/phy/socionext,uniphier-pcie-phy.yaml b/Documentation/devicetree/bindings/phy/socionext,uniphier-pcie-phy.yaml
+> index a06831fd64b9..3e0566899041 100644
+> --- a/Documentation/devicetree/bindings/phy/socionext,uniphier-pcie-phy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/socionext,uniphier-pcie-phy.yaml
+> @@ -21,7 +21,7 @@ properties:
+>        - socionext,uniphier-pxs3-pcie-phy
+>  
+>    reg:
+> -    description: PHY register region (offset and length)
+> +    maxItems: 1
+>  
+>    "#phy-cells":
+>      const: 0
+> diff --git a/Documentation/devicetree/bindings/phy/socionext,uniphier-usb3hs-phy.yaml b/Documentation/devicetree/bindings/phy/socionext,uniphier-usb3hs-phy.yaml
+> index 6fa5caab1487..a681cbc3b4ef 100644
+> --- a/Documentation/devicetree/bindings/phy/socionext,uniphier-usb3hs-phy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/socionext,uniphier-usb3hs-phy.yaml
+> @@ -24,7 +24,7 @@ properties:
+>        - socionext,uniphier-pxs3-usb3-hsphy
+>  
+>    reg:
+> -    description: PHY register region (offset and length)
+> +    maxItems: 1
+>  
+>    "#phy-cells":
+>      const: 0
+> diff --git a/Documentation/devicetree/bindings/phy/socionext,uniphier-usb3ss-phy.yaml b/Documentation/devicetree/bindings/phy/socionext,uniphier-usb3ss-phy.yaml
+> index 9d46715ed036..41c0dd68ee25 100644
+> --- a/Documentation/devicetree/bindings/phy/socionext,uniphier-usb3ss-phy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/socionext,uniphier-usb3ss-phy.yaml
+> @@ -25,7 +25,7 @@ properties:
+>        - socionext,uniphier-pxs3-usb3-ssphy
+>  
+>    reg:
+> -    description: PHY register region (offset and length)
+> +    maxItems: 1
+>  
+>    "#phy-cells":
+>      const: 0
+> diff --git a/Documentation/devicetree/bindings/phy/ti,phy-gmii-sel.yaml b/Documentation/devicetree/bindings/phy/ti,phy-gmii-sel.yaml
+> index bcec422d7734..ff8a6d9eb153 100644
+> --- a/Documentation/devicetree/bindings/phy/ti,phy-gmii-sel.yaml
+> +++ b/Documentation/devicetree/bindings/phy/ti,phy-gmii-sel.yaml
+> @@ -55,7 +55,7 @@ properties:
+>        - ti,am654-phy-gmii-sel
+>  
+>    reg:
+> -    description: Address and length of the register set for the device
+> +    maxItems: 1
+>  
+>    '#phy-cells': true
+>  
+> diff --git a/Documentation/devicetree/bindings/pinctrl/aspeed,ast2400-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/aspeed,ast2400-pinctrl.yaml
+> index 54631dc1adb0..91be5720d094 100644
+> --- a/Documentation/devicetree/bindings/pinctrl/aspeed,ast2400-pinctrl.yaml
+> +++ b/Documentation/devicetree/bindings/pinctrl/aspeed,ast2400-pinctrl.yaml
+> @@ -23,8 +23,7 @@ properties:
+>    compatible:
+>      const: aspeed,ast2400-pinctrl
+>    reg:
+> -    description: |
+> -      A hint for the memory regions associated with the pin-controller
+> +    maxItems: 2
+>  
+>  patternProperties:
+>    '^.*$':
+> diff --git a/Documentation/devicetree/bindings/pinctrl/aspeed,ast2500-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/aspeed,ast2500-pinctrl.yaml
+> index a90c0fe0495f..40e9e8d4be5a 100644
+> --- a/Documentation/devicetree/bindings/pinctrl/aspeed,ast2500-pinctrl.yaml
+> +++ b/Documentation/devicetree/bindings/pinctrl/aspeed,ast2500-pinctrl.yaml
+> @@ -24,8 +24,8 @@ properties:
+>    compatible:
+>      const: aspeed,ast2500-pinctrl
+>    reg:
+> -    description: |
+> -      A hint for the memory regions associated with the pin-controller
+> +    maxItems: 2
+> +
+>    aspeed,external-nodes:
+>      minItems: 2
+>      maxItems: 2
+> diff --git a/Documentation/devicetree/bindings/power/supply/bq25980.yaml b/Documentation/devicetree/bindings/power/supply/bq25980.yaml
+> index f6b3dd4093ca..06eca6667f67 100644
+> --- a/Documentation/devicetree/bindings/power/supply/bq25980.yaml
+> +++ b/Documentation/devicetree/bindings/power/supply/bq25980.yaml
+> @@ -70,6 +70,7 @@ properties:
+>      description: Enables bypass mode at boot time
+>  
+>    interrupts:
+> +    maxItems: 1
+>      description: |
+>        Indicates that the device state has changed.
+>  
+> diff --git a/Documentation/devicetree/bindings/remoteproc/ingenic,vpu.yaml b/Documentation/devicetree/bindings/remoteproc/ingenic,vpu.yaml
+> index c019f9fbe916..d0aa91bbf5e5 100644
+> --- a/Documentation/devicetree/bindings/remoteproc/ingenic,vpu.yaml
+> +++ b/Documentation/devicetree/bindings/remoteproc/ingenic,vpu.yaml
+> @@ -44,7 +44,7 @@ properties:
+>        - const: vpu
+>  
+>    interrupts:
+> -    description: VPU hardware interrupt
+> +    maxItems: 1
+>  
+>  required:
+>    - compatible
+> diff --git a/Documentation/devicetree/bindings/remoteproc/ti,omap-remoteproc.yaml b/Documentation/devicetree/bindings/remoteproc/ti,omap-remoteproc.yaml
+> index 084960a8f17a..1a1159097a2a 100644
+> --- a/Documentation/devicetree/bindings/remoteproc/ti,omap-remoteproc.yaml
+> +++ b/Documentation/devicetree/bindings/remoteproc/ti,omap-remoteproc.yaml
+> @@ -70,10 +70,13 @@ properties:
+>        the firmware image.
+>  
+>    clocks:
+> +    maxItems: 1
+>      description: |
+>        Main functional clock for the remote processor
+>  
+>    resets:
+> +    minItems: 1
+> +    maxItems: 2
+>      description: |
+>        Reset handles for the remote processor
+>  
+> diff --git a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml b/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+> index efc0198eeb74..2ece8630dc68 100644
+> --- a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+> @@ -63,6 +63,7 @@ properties:
+>    next-level-cache: true
+>  
+>    memory-region:
+> +    maxItems: 1
+>      description: |
+>        The reference to the reserved-memory for the L2 Loosely Integrated Memory region.
+>        The reserved memory node should be defined as per the bindings in reserved-memory.txt.
+> diff --git a/Documentation/devicetree/bindings/serial/renesas,hscif.yaml b/Documentation/devicetree/bindings/serial/renesas,hscif.yaml
+> index c139c5edb93e..69533347aa57 100644
+> --- a/Documentation/devicetree/bindings/serial/renesas,hscif.yaml
+> +++ b/Documentation/devicetree/bindings/serial/renesas,hscif.yaml
+> @@ -81,6 +81,8 @@ properties:
+>      maxItems: 1
+>  
+>    dmas:
+> +    minItems: 2
+> +    maxItems: 4
+>      description:
+>        Must contain a list of pairs of references to DMA specifiers, one for
+>        transmission, and one for reception.
+> diff --git a/Documentation/devicetree/bindings/serial/renesas,scif.yaml b/Documentation/devicetree/bindings/serial/renesas,scif.yaml
+> index 672158906c33..22d76829f7ae 100644
+> --- a/Documentation/devicetree/bindings/serial/renesas,scif.yaml
+> +++ b/Documentation/devicetree/bindings/serial/renesas,scif.yaml
+> @@ -120,6 +120,8 @@ properties:
+>      maxItems: 1
+>  
+>    dmas:
+> +    minItems: 2
+> +    maxItems: 4
+>      description:
+>        Must contain a list of pairs of references to DMA specifiers, one for
+>        transmission, and one for reception.
+> diff --git a/Documentation/devicetree/bindings/serial/renesas,scifa.yaml b/Documentation/devicetree/bindings/serial/renesas,scifa.yaml
+> index dbffb9534835..3c67d3202e1b 100644
+> --- a/Documentation/devicetree/bindings/serial/renesas,scifa.yaml
+> +++ b/Documentation/devicetree/bindings/serial/renesas,scifa.yaml
+> @@ -55,6 +55,8 @@ properties:
+>      maxItems: 1
+>  
+>    dmas:
+> +    minItems: 2
+> +    maxItems: 4
+>      description:
+>        Must contain a list of pairs of references to DMA specifiers, one for
+>        transmission, and one for reception.
+> diff --git a/Documentation/devicetree/bindings/serial/renesas,scifb.yaml b/Documentation/devicetree/bindings/serial/renesas,scifb.yaml
+> index 147f8a37e02a..d5571c7a4424 100644
+> --- a/Documentation/devicetree/bindings/serial/renesas,scifb.yaml
+> +++ b/Documentation/devicetree/bindings/serial/renesas,scifb.yaml
+> @@ -55,6 +55,8 @@ properties:
+>      maxItems: 1
+>  
+>    dmas:
+> +    minItems: 2
+> +    maxItems: 4
+>      description:
+>        Must contain a list of pairs of references to DMA specifiers, one for
+>        transmission, and one for reception.
+> diff --git a/Documentation/devicetree/bindings/sound/allwinner,sun4i-a10-codec.yaml b/Documentation/devicetree/bindings/sound/allwinner,sun4i-a10-codec.yaml
+> index dd47fef9854d..559aff13ae23 100644
+> --- a/Documentation/devicetree/bindings/sound/allwinner,sun4i-a10-codec.yaml
+> +++ b/Documentation/devicetree/bindings/sound/allwinner,sun4i-a10-codec.yaml
+> @@ -88,6 +88,7 @@ properties:
+>      description: Phandle to the codec analog controls in the PRCM
+>  
+>    allwinner,pa-gpios:
+> +    maxItems: 1
+>      description: GPIO to enable the external amplifier
+>  
+>  required:
+> diff --git a/Documentation/devicetree/bindings/sound/google,sc7180-trogdor.yaml b/Documentation/devicetree/bindings/sound/google,sc7180-trogdor.yaml
+> index 5095b780e2c7..837e3faa63a9 100644
+> --- a/Documentation/devicetree/bindings/sound/google,sc7180-trogdor.yaml
+> +++ b/Documentation/devicetree/bindings/sound/google,sc7180-trogdor.yaml
+> @@ -55,6 +55,7 @@ patternProperties:
+>          maxItems: 1
+>  
+>        reg:
+> +        maxItems: 1
+>          description: dai link address.
+>  
+>        cpu:
+> diff --git a/Documentation/devicetree/bindings/sound/samsung,aries-wm8994.yaml b/Documentation/devicetree/bindings/sound/samsung,aries-wm8994.yaml
+> index 1c6947294825..5fff586dc802 100644
+> --- a/Documentation/devicetree/bindings/sound/samsung,aries-wm8994.yaml
+> +++ b/Documentation/devicetree/bindings/sound/samsung,aries-wm8994.yaml
+> @@ -62,12 +62,15 @@ properties:
+>      description: Supply for the micbias on the headset mic
+>  
+>    earpath-sel-gpios:
+> +    maxItems: 1
+>      description: GPIO for switching between tv-out and mic paths
+>  
+>    headset-detect-gpios:
+> +    maxItems: 1
+>      description: GPIO for detection of headset insertion
+>  
+>    headset-key-gpios:
+> +    maxItems: 1
+>      description: GPIO for detection of headset key press
+>  
+>    io-channels:
+> diff --git a/Documentation/devicetree/bindings/sound/samsung,midas-audio.yaml b/Documentation/devicetree/bindings/sound/samsung,midas-audio.yaml
+> index 578928e67e5c..095775c598fa 100644
+> --- a/Documentation/devicetree/bindings/sound/samsung,midas-audio.yaml
+> +++ b/Documentation/devicetree/bindings/sound/samsung,midas-audio.yaml
+> @@ -53,9 +53,11 @@ properties:
+>      description: Supply for the micbias on the Sub microphone
+>  
+>    fm-sel-gpios:
+> +    maxItems: 1
+>      description: GPIO pin for FM selection
+>  
+>    lineout-sel-gpios:
+> +    maxItems: 1
+>      description: GPIO pin for line out selection
+>  
+>  required:
+> diff --git a/Documentation/devicetree/bindings/sound/tas2562.yaml b/Documentation/devicetree/bindings/sound/tas2562.yaml
+> index 27f7132ba2ef..acd4bbe69731 100644
+> --- a/Documentation/devicetree/bindings/sound/tas2562.yaml
+> +++ b/Documentation/devicetree/bindings/sound/tas2562.yaml
+> @@ -36,10 +36,12 @@ properties:
+>         I2C address of the device can be one of these 0x4c, 0x4d, 0x4e or 0x4f
+>  
+>    shut-down-gpios:
+> +    maxItems: 1
+>      description: GPIO used to control the state of the device.
+>      deprecated: true
+>  
+>    shutdown-gpios:
+> +    maxItems: 1
+>      description: GPIO used to control the state of the device.
+>  
+>    interrupts:
+> diff --git a/Documentation/devicetree/bindings/sound/tas2770.yaml b/Documentation/devicetree/bindings/sound/tas2770.yaml
+> index 07e7f9951d2e..027bebf4e8cf 100644
+> --- a/Documentation/devicetree/bindings/sound/tas2770.yaml
+> +++ b/Documentation/devicetree/bindings/sound/tas2770.yaml
+> @@ -27,9 +27,11 @@ properties:
+>         I2C address of the device can be between 0x41 to 0x48.
+>  
+>    reset-gpio:
+> +    maxItems: 1
+>      description: GPIO used to reset the device.
+>  
+>    shutdown-gpios:
+> +    maxItems: 1
+>      description: GPIO used to control the state of the device.
+>  
+>    interrupts:
+> diff --git a/Documentation/devicetree/bindings/sound/tlv320adcx140.yaml b/Documentation/devicetree/bindings/sound/tlv320adcx140.yaml
+> index df18be9d7b15..54d64785aad2 100644
+> --- a/Documentation/devicetree/bindings/sound/tlv320adcx140.yaml
+> +++ b/Documentation/devicetree/bindings/sound/tlv320adcx140.yaml
+> @@ -35,6 +35,7 @@ properties:
+>        I2C addresss of the device can be one of these 0x4c, 0x4d, 0x4e or 0x4f
+>  
+>    reset-gpios:
+> +    maxItems: 1
+>      description: |
+>        GPIO used for hardware reset.
+>  
+> diff --git a/Documentation/devicetree/bindings/spi/renesas,rspi.yaml b/Documentation/devicetree/bindings/spi/renesas,rspi.yaml
+> index 10e83cb17e8d..8397f60d80a2 100644
+> --- a/Documentation/devicetree/bindings/spi/renesas,rspi.yaml
+> +++ b/Documentation/devicetree/bindings/spi/renesas,rspi.yaml
+> @@ -68,6 +68,8 @@ properties:
+>      maxItems: 1
+>  
+>    dmas:
+> +    minItems: 2
+> +    maxItems: 4
+>      description:
+>        Must contain a list of pairs of references to DMA specifiers, one for
+>        transmission, and one for reception.
+> diff --git a/Documentation/devicetree/bindings/sram/sram.yaml b/Documentation/devicetree/bindings/sram/sram.yaml
+> index 19d116ff9ddc..2a62bb204bbe 100644
+> --- a/Documentation/devicetree/bindings/sram/sram.yaml
+> +++ b/Documentation/devicetree/bindings/sram/sram.yaml
+> @@ -35,6 +35,7 @@ properties:
+>      maxItems: 1
+>  
+>    clocks:
+> +    maxItems: 1
+>      description:
+>        A list of phandle and clock specifier pair that controls the single
+>        SRAM clock.
+> @@ -46,6 +47,7 @@ properties:
+>      const: 1
+>  
+>    ranges:
+> +    maxItems: 1
+>      description:
+>        Should translate from local addresses within the sram to bus addresses.
+>  
+> diff --git a/Documentation/devicetree/bindings/timer/allwinner,sun4i-a10-timer.yaml b/Documentation/devicetree/bindings/timer/allwinner,sun4i-a10-timer.yaml
+> index d918cee100ac..1c7cf32e7ac2 100644
+> --- a/Documentation/devicetree/bindings/timer/allwinner,sun4i-a10-timer.yaml
+> +++ b/Documentation/devicetree/bindings/timer/allwinner,sun4i-a10-timer.yaml
+> @@ -22,6 +22,8 @@ properties:
+>      maxItems: 1
+>  
+>    interrupts:
+> +    minItems: 2
+> +    maxItems: 6
+>      description:
+>        List of timers interrupts
+>  
+> diff --git a/Documentation/devicetree/bindings/timer/intel,ixp4xx-timer.yaml b/Documentation/devicetree/bindings/timer/intel,ixp4xx-timer.yaml
+> index 1a721d8af67a..a8de99b0c0f9 100644
+> --- a/Documentation/devicetree/bindings/timer/intel,ixp4xx-timer.yaml
+> +++ b/Documentation/devicetree/bindings/timer/intel,ixp4xx-timer.yaml
+> @@ -18,7 +18,7 @@ properties:
+>        - const: intel,ixp4xx-timer
+>  
+>    reg:
+> -    description: Should contain registers location and length
+> +    maxItems: 1
+>  
+>    interrupts:
+>      minItems: 1
+> diff --git a/Documentation/devicetree/bindings/usb/allwinner,sun4i-a10-musb.yaml b/Documentation/devicetree/bindings/usb/allwinner,sun4i-a10-musb.yaml
+> index d9207bf9d894..0f520f17735e 100644
+> --- a/Documentation/devicetree/bindings/usb/allwinner,sun4i-a10-musb.yaml
+> +++ b/Documentation/devicetree/bindings/usb/allwinner,sun4i-a10-musb.yaml
+> @@ -39,7 +39,7 @@ properties:
+>      maxItems: 1
+>  
+>    phys:
+> -    description: PHY specifier for the OTG PHY
+> +    maxItems: 1
+>  
+>    phy-names:
+>      const: usb
+> diff --git a/Documentation/devicetree/bindings/usb/brcm,usb-pinmap.yaml b/Documentation/devicetree/bindings/usb/brcm,usb-pinmap.yaml
+> index ffa148b9eaa8..d4618d15ecc1 100644
+> --- a/Documentation/devicetree/bindings/usb/brcm,usb-pinmap.yaml
+> +++ b/Documentation/devicetree/bindings/usb/brcm,usb-pinmap.yaml
+> @@ -22,6 +22,8 @@ properties:
+>      description: Interrupt for signals mirrored to out-gpios.
+>  
+>    in-gpios:
+> +    minItems: 1
+> +    maxItems: 2
+>      description: Array of one or two GPIO pins used for input signals.
+>  
+>    brcm,in-functions:
+> @@ -33,6 +35,7 @@ properties:
+>      description: Array of enable and mask pairs, one per gpio in-gpios.
+>  
+>    out-gpios:
+> +    maxItems: 1
+>      description: Array of one GPIO pin used for output signals.
+>  
+>    brcm,out-functions:
+> diff --git a/Documentation/devicetree/bindings/usb/generic-ehci.yaml b/Documentation/devicetree/bindings/usb/generic-ehci.yaml
+> index 247ef00381ea..f76b25f7fc7a 100644
+> --- a/Documentation/devicetree/bindings/usb/generic-ehci.yaml
+> +++ b/Documentation/devicetree/bindings/usb/generic-ehci.yaml
+> @@ -83,6 +83,7 @@ properties:
+>        Phandle of a companion.
+>  
+>    phys:
+> +    maxItems: 1
+>      description: PHY specifier for the USB PHY
+>  
+>    phy-names:
+> diff --git a/Documentation/devicetree/bindings/usb/generic-ohci.yaml b/Documentation/devicetree/bindings/usb/generic-ohci.yaml
+> index 2178bcc401bc..8e2bd61f2075 100644
+> --- a/Documentation/devicetree/bindings/usb/generic-ohci.yaml
+> +++ b/Documentation/devicetree/bindings/usb/generic-ohci.yaml
+> @@ -71,6 +71,7 @@ properties:
+>        Overrides the detected port count
+>  
+>    phys:
+> +    maxItems: 1
+>      description: PHY specifier for the USB PHY
+>  
+>    phy-names:
+> diff --git a/Documentation/devicetree/bindings/usb/ingenic,musb.yaml b/Documentation/devicetree/bindings/usb/ingenic,musb.yaml
+> index 678396eeeb78..f506225a4d57 100644
+> --- a/Documentation/devicetree/bindings/usb/ingenic,musb.yaml
+> +++ b/Documentation/devicetree/bindings/usb/ingenic,musb.yaml
+> @@ -40,7 +40,7 @@ properties:
+>        - const: mc
+>  
+>    phys:
+> -    description: PHY specifier for the USB PHY
+> +    maxItems: 1
+>  
+>    usb-role-switch:
+>      type: boolean
+> diff --git a/Documentation/devicetree/bindings/usb/renesas,usbhs.yaml b/Documentation/devicetree/bindings/usb/renesas,usbhs.yaml
+> index 54c361d4a7af..e67223d90bb7 100644
+> --- a/Documentation/devicetree/bindings/usb/renesas,usbhs.yaml
+> +++ b/Documentation/devicetree/bindings/usb/renesas,usbhs.yaml
+> @@ -68,6 +68,7 @@ properties:
+>        Integer to use BUSWAIT register.
+>  
+>    renesas,enable-gpio:
+> +    maxItems: 1
+>      description: |
+>        gpio specifier to check GPIO determining if USB function should be
+>        enabled.
+> diff --git a/Documentation/devicetree/bindings/usb/ti,j721e-usb.yaml b/Documentation/devicetree/bindings/usb/ti,j721e-usb.yaml
+> index 388245b91a55..adce36e48bc9 100644
+> --- a/Documentation/devicetree/bindings/usb/ti,j721e-usb.yaml
+> +++ b/Documentation/devicetree/bindings/usb/ti,j721e-usb.yaml
+> @@ -15,13 +15,14 @@ properties:
+>        - const: ti,j721e-usb
+>  
+>    reg:
+> -    description: module registers
+> +    maxItems: 1
+>  
+>    power-domains:
+>      description:
+>        PM domain provider node and an args specifier containing
+>        the USB device id value. See,
+>        Documentation/devicetree/bindings/soc/ti/sci-pm-domain.txt
+> +    maxItems: 1
+>  
+>    clocks:
+>      description: Clock phandles to usb2_refclk and lpm_clk
+> diff --git a/Documentation/devicetree/bindings/usb/ti,keystone-dwc3.yaml b/Documentation/devicetree/bindings/usb/ti,keystone-dwc3.yaml
+> index c1b19fc5d0a2..91ef374faba8 100644
+> --- a/Documentation/devicetree/bindings/usb/ti,keystone-dwc3.yaml
+> +++ b/Documentation/devicetree/bindings/usb/ti,keystone-dwc3.yaml
+> @@ -43,12 +43,14 @@ properties:
+>      maxItems: 2
+>  
+>    power-domains:
+> +    maxItems: 1
+>      description: Should contain a phandle to a PM domain provider node
+>        and an args specifier containing the USB device id
+>        value. This property is as per the binding,
+>        Documentation/devicetree/bindings/soc/ti/sci-pm-domain.txt
+>  
+>    phys:
+> +    maxItems: 1
+>      description:
+>        PHY specifier for the USB3.0 PHY. Some SoCs need the USB3.0 PHY
+>        to be turned on before the controller.
+> -- 
+> 2.27.0
+> 
+> 
+> _______________________________________________
+> linux-arm-kernel mailing list
+> linux-arm-kernel@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-arm-kernel
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
