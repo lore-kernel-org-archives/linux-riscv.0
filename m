@@ -2,81 +2,80 @@ Return-Path: <SRS0=oZIk=GI=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 792CBC433DB
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Jan 2021 22:14:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8E202C433E0
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Jan 2021 23:43:50 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C220422DFA
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Jan 2021 22:14:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C220422DFA
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmx.net
+	by mail.kernel.org (Postfix) with ESMTPS id 3B2272075B
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Jan 2021 23:43:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3B2272075B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=ti.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=lAMFAt+R8EcoNCJjX0HEXkqJ0K0S6ZD8kZZ/hVUAkNM=; b=nI2iTDQCagfte+79jrIEva992
-	TYsatQPBvWqdUcCQLtm6I8S2163w4ZIZ7+KAn4zurLjV8ej4ykYDy6SPRx/O11OS4V7AK8KND2xjh
-	ezyY2DLfysCsJgS521+KjOeU9t+Q7UGvEGY9pov+1V7gD2z5GHmHdegelmb3hta2MuKTFvDmXAt4x
-	MzCH9ThGh+h+bL5halAS79OXzO62ftXJhDCOvEnF8Q/eg4ZSHbh56hz5TscvoyGk75wR0hpHKE8zx
-	PZNf7SxvRu5uh82HKwQxx8JJTsVSzeMJb1XyCd6o0pVYizUuEL7hFcaqlJ5Va7YIJ4jlYECD1iYvj
-	/qCBy+CgQ==;
+	 bh=3QTr9dNtHj48gYPRopWdKrA14eBDCRmqHMLwpiJ9N+I=; b=1xWk+XujbuTbauTVLOFmPFRg9
+	T5f1K5hhgIxHOgZUFxyi+gn+gEWrJSwCkp7Z2z3/qFoRfk5lYaiIehd/LupIMd6tzwWmbIkLmokLE
+	sSHEt4/Fp8lzKB2W1I93xhGL48PJV8/l4gKs86k0vwGwL+/VAU5Cu0ozzVeiL0R8/QJzqPVYAUJEN
+	ZECI1eJHTG/EoKgAKAOTejiHJsQjXNHSRxnAuhD5TDvwwFBqdgktYcHRHz9cubXnuprCo19i+YQH/
+	F1fEfRfENcuJadpRPAV9HW+gu1JGK1Fer2Emp/GtqrMxWmzRrtGR7AVhhqixTEem7KQGrBoXoQXPP
+	o42gh50Xw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kwuas-0006Pg-Bs; Tue, 05 Jan 2021 22:14:22 +0000
-Received: from mout.gmx.net ([212.227.15.15])
+	id 1kwvzD-0002Q1-M5; Tue, 05 Jan 2021 23:43:35 +0000
+Received: from fllv0016.ext.ti.com ([198.47.19.142])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kwuao-0006Or-5E
- for linux-riscv@lists.infradead.org; Tue, 05 Jan 2021 22:14:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
- s=badeba3b8450; t=1609884844;
- bh=Akq1tCzOrH1xiiw0JByliJwuWqpFfqfeL3h97Gehb3Y=;
- h=X-UI-Sender-Class:Date:From:To:Cc:Subject:References:In-Reply-To;
- b=PPrT1ZKwNdw2YiEW7joY3becyNjQK8GD/ZQb5PzbTi2RaSBk6wtI8YnvlK/w3yxiN
- ZXpd/zxXF08t/vUjAuQZChXSGDbNHWNbYzoZhtntK25Z28x5lGwAg1TYWJateGkxQm
- rt833ZQcFZ7GJr55KP7vcDMzhXqOyfTwbl8tH++4=
-X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
-Received: from longitude ([37.201.215.57]) by mail.gmx.com (mrgmx005
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MtOKi-1k7Z5O2SpK-00uusx; Tue, 05
- Jan 2021 23:14:04 +0100
-Date: Tue, 5 Jan 2021 23:14:02 +0100
-From: Jonathan =?utf-8?Q?Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>
-To: conor.dooley@microchip.com
-Subject: Re: [PATCH v3 3/5] soc: add polarfire soc system controller
-Message-ID: <X/TkquplML5INtZg@latitude>
-References: <20201223163310.29122-1-conor.dooley@microchip.com>
+ id 1kwvz7-0002OI-Ck; Tue, 05 Jan 2021 23:43:31 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+ by fllv0016.ext.ti.com (8.15.2/8.15.2) with ESMTP id 105Ngoas062857;
+ Tue, 5 Jan 2021 17:42:50 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+ s=ti-com-17Q1; t=1609890170;
+ bh=6dhfOFmcZvlhHUA7H0jJjPacgVUfTjK3LaKxIV3EFVQ=;
+ h=Subject:To:CC:References:From:Date:In-Reply-To;
+ b=u1+jEY40acep8COqpooLBvAa/WyVfwYiXTGsLN1HL2YcOpLEpp0hCHrnIXdd6IzIy
+ fHAzrBaAirWjFfMrAP+xFL+7SAXEdOrf7GANCKEuuar4UWoXdhijvqdt3EbqDOHdEO
+ 6nydFbUDiEqnSRWNDoCilUL5yH/+xXexFR7kwmQ4=
+Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
+ by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 105NgoF5036388
+ (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+ Tue, 5 Jan 2021 17:42:50 -0600
+Received: from DFLE115.ent.ti.com (10.64.6.36) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1979.3; Tue, 5 Jan
+ 2021 17:42:49 -0600
+Received: from lelv0326.itg.ti.com (10.180.67.84) by DFLE115.ent.ti.com
+ (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1979.3 via
+ Frontend Transport; Tue, 5 Jan 2021 17:42:49 -0600
+Received: from [10.250.37.61] (ileax41-snat.itg.ti.com [10.172.224.153])
+ by lelv0326.itg.ti.com (8.15.2/8.15.2) with ESMTP id 105Ngn67081191;
+ Tue, 5 Jan 2021 17:42:49 -0600
+Subject: Re: [PATCH] dt-bindings: Add missing array size constraints
+To: Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>
+References: <20210104230253.2805217-1-robh@kernel.org>
+ <20210105232729.GA2864340@xps15>
+From: Suman Anna <s-anna@ti.com>
+Message-ID: <3223d736-285a-7465-03c6-4b73198fdaca@ti.com>
+Date: Tue, 5 Jan 2021 17:42:43 -0600
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.10.0
 MIME-Version: 1.0
-In-Reply-To: <20201223163310.29122-1-conor.dooley@microchip.com>
-X-Provags-ID: V03:K1:nIcxYDV20l0/8DyaPjDAuGxdNyqjJZIMd7NUiUPag8lQcVINg4U
- tTRPXH1hSXVBXy1+tOQwqB6hTG1Zm1hW+1kVbvW43XV2tOhm2hCp73zCBsnkQaaRfPv43AF
- RRxS90l8wQxf3K9eCcoLYb2YRwMGFuYAFgN1X9bcuzgWb8BPfkKHMPnWdYEVJaG++a41pgt
- dn5uPEqv96BQv3RXlahXA==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:Vx/O7sD3hGM=:F10vPCdKP6pJhYycrUd5P/
- yxwWDzpiNUFfICbikFZYdLFldsf4p5U9dGPrwUhbFJMBfhMyWIqKYMKptXQ0WbMKMHyHOrzWQ
- iv+BId+Y11LTj94Za71fh3IqJAQS2g8p8PNrxM3O3DsNBRsFpV+7HUDLVAleq4y9d5X32WwTg
- lgeTTGvnOZAXdTs0vuN5eA4SIFyakKGA5laGBZ9H23C335O2b3qXW/7aiug9th+tw3NSNAbPR
- bU3OX3Nh7f8tQ+bU61iMxXczTINcgtrxZEpsfxi0mg4yKdlMhCFVkPliWvPH9LBmfDmlASouh
- 3HucCpMAWe2LaXUdyL7B5/d5yQh73qjFDO+BVpP5g89oxyT/+1FSaVcRsNYYUdBDihPEYDKQM
- pUcCf5VOdzxiTyZecNqoa+USVlAZjhcS6HPO3jehdyO6JyC5hTC91nnji3Z461F5/L9soH1U8
- l7/EvXkLLeLv2onyD3hdbrkI5//ShBNnCGYz7JrzdrkrIJtAVn18hOMys/64w8U2QlH3huvsn
- bgPWfvA0ZFrDIi9XgAvdyVF17YjKid+Ecxk084wVVxXjymDgZUNA/0Q22oTQ+d9sfE2k+K8mU
- uHrMAZuDN5rO6pOldgLXyVB5iyUSQdAhFYEFryGc2X6TbcG2xiGRodmegNZHOfe8+1yHMF0dk
- OApLN/BCWOo3pb0QKWCx5XjcznFy1YKlTNoY15nbVmXEldJyhaW5UrzXHIqf+NqCXsaf853J1
- kozqvCHwFb9wg4k6d5f5XHYBDLeq2elKBuOGepOXA7xJYcWSJ+8934NPjIc/wRvYQmUhIRG5m
- 8pOK7hxsn68HUZm9o+Ly9OOc0UAVFVxVIDSTI8OgIA+MqxTkeOnDbwzO6a1OCPC5R0NAkVG/P
- J80kR+U0APznVZYF8uPw==
+In-Reply-To: <20210105232729.GA2864340@xps15>
+Content-Language: en-US
+X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210105_171418_484148_5D7319B2 
-X-CRM114-Status: GOOD (  14.24  )
+X-CRM114-CacheID: sfid-20210105_184329_550099_AA2280E2 
+X-CRM114-Status: GOOD (  23.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -88,132 +87,214 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, damien.lemoal@wdc.com, aou@eecs.berkeley.edu,
- cyril.jean@microchip.com, david.abdurachmanov@gmail.com,
- daire.mcnamara@microchip.com, jassisinghbrar@gmail.com, j.neuschaefer@gmx.net,
- atish.patra@wdc.com, anup.patel@wdc.com, robh+dt@kernel.org,
- palmer@dabbelt.com, paul.walmsley@sifive.com, lewis.hanly@microchip.com,
- linux-riscv@lists.infradead.org
-Content-Type: multipart/mixed; boundary="===============3508457004247040347=="
+Cc: Ulf Hansson <ulf.hansson@linaro.org>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, linux-iio@vger.kernel.org,
+ Linus Walleij <linus.walleij@linaro.org>, linux-remoteproc@vger.kernel.org,
+ alsa-devel@alsa-project.org, dri-devel@lists.freedesktop.org,
+ Bjorn Andersson <bjorn.andersson@linaro.org>, paul@crapouillou.net,
+ linux-ide@vger.kernel.org, Thierry Reding <thierry.reding@gmail.com>,
+ linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
+ Bartosz Golaszewski <bgolaszewski@baylibre.com>, Marc Zyngier <maz@kernel.org>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Chen-Yu Tsai <wens@csie.org>,
+ MyungJoo Ham <myungjoo.ham@samsung.com>, linux-serial@vger.kernel.org,
+ linux-input@vger.kernel.org, Jakub Kicinski <kuba@kernel.org>,
+ linux-media@vger.kernel.org, Ohad Ben-Cohen <ohad@wizery.com>,
+ devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-gpio@vger.kernel.org, Sebastian Reichel <sre@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, Jens Axboe <axboe@kernel.dk>,
+ Stephen Boyd <sboyd@kernel.org>, netdev@vger.kernel.org,
+ linux-usb@vger.kernel.org, linux-mmc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "David S. Miller" <davem@davemloft.net>, Jonathan Cameron <jic23@kernel.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 1/5/21 5:27 PM, Mathieu Poirier wrote:
+> Adding Suman and Paul - guys please have a look.
+> 
+> On Mon, Jan 04, 2021 at 04:02:53PM -0700, Rob Herring wrote:
+>> DT properties which can have multiple entries need to specify what the
+>> entries are and define how many entries there can be. In the case of
+>> only a single entry, just 'maxItems: 1' is sufficient.
+>>
+>> Add the missing entry constraints. These were found with a modified
+>> meta-schema. Unfortunately, there are a few cases where the size
+>> constraints are not defined such as common bindings, so the meta-schema
+>> can't be part of the normal checks.
+>>
+>> Cc: Jens Axboe <axboe@kernel.dk>
+>> Cc: Stephen Boyd <sboyd@kernel.org>
+>> Cc: Thierry Reding <thierry.reding@gmail.com>
+>> Cc: MyungJoo Ham <myungjoo.ham@samsung.com>
+>> Cc: Chanwoo Choi <cw00.choi@samsung.com>
+>> Cc: Linus Walleij <linus.walleij@linaro.org>
+>> Cc: Bartosz Golaszewski <bgolaszewski@baylibre.com>
+>> Cc: Jonathan Cameron <jic23@kernel.org>
+>> Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+>> Cc: Thomas Gleixner <tglx@linutronix.de>
+>> Cc: Marc Zyngier <maz@kernel.org>
+>> Cc: Mauro Carvalho Chehab <mchehab@kernel.org>
+>> Cc: Chen-Yu Tsai <wens@csie.org>
+>> Cc: Ulf Hansson <ulf.hansson@linaro.org>
+>> Cc: "David S. Miller" <davem@davemloft.net>
+>> Cc: Jakub Kicinski <kuba@kernel.org>
+>> Cc: Sebastian Reichel <sre@kernel.org>
+>> Cc: Ohad Ben-Cohen <ohad@wizery.com>
+>> Cc: Bjorn Andersson <bjorn.andersson@linaro.org>
+>> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+>> Signed-off-by: Rob Herring <robh@kernel.org>
+>> ---
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> Cc: linux-ide@vger.kernel.org
+>> Cc: linux-clk@vger.kernel.org
+>> Cc: dri-devel@lists.freedesktop.org
+>> Cc: linux-gpio@vger.kernel.org
+>> Cc: linux-iio@vger.kernel.org
+>> Cc: linux-input@vger.kernel.org
+>> Cc: linux-media@vger.kernel.org
+>> Cc: linux-mmc@vger.kernel.org
+>> Cc: netdev@vger.kernel.org
+>> Cc: linux-pm@vger.kernel.org
+>> Cc: linux-remoteproc@vger.kernel.org
+>> Cc: linux-riscv@lists.infradead.org
+>> Cc: linux-serial@vger.kernel.org
+>> Cc: alsa-devel@alsa-project.org
+>> Cc: linux-spi@vger.kernel.org
+>> Cc: linux-usb@vger.kernel.org
+>> ---
+>>  .../socionext,uniphier-system-cache.yaml      |  4 ++--
+>>  .../bindings/ata/sata_highbank.yaml           |  1 +
+>>  .../bindings/clock/canaan,k210-clk.yaml       |  1 +
+>>  .../bindings/display/brcm,bcm2711-hdmi.yaml   |  1 +
+>>  .../bindings/display/brcm,bcm2835-hdmi.yaml   |  1 +
+>>  .../display/panel/jdi,lt070me05000.yaml       |  1 +
+>>  .../display/panel/mantix,mlaf057we51-x.yaml   |  3 ++-
+>>  .../display/panel/novatek,nt36672a.yaml       |  1 +
+>>  .../devicetree/bindings/dsp/fsl,dsp.yaml      |  2 +-
+>>  .../devicetree/bindings/eeprom/at25.yaml      |  3 +--
+>>  .../bindings/extcon/extcon-ptn5150.yaml       |  2 ++
+>>  .../bindings/gpio/gpio-pca95xx.yaml           |  1 +
+>>  .../bindings/iio/adc/adi,ad7768-1.yaml        |  2 ++
+>>  .../bindings/iio/adc/aspeed,ast2400-adc.yaml  |  1 +
+>>  .../bindings/iio/adc/lltc,ltc2496.yaml        |  2 +-
+>>  .../bindings/iio/adc/qcom,spmi-vadc.yaml      |  1 +
+>>  .../bindings/iio/adc/st,stm32-adc.yaml        |  2 ++
+>>  .../iio/magnetometer/asahi-kasei,ak8975.yaml  |  1 +
+>>  .../iio/potentiometer/adi,ad5272.yaml         |  1 +
+>>  .../input/touchscreen/elan,elants_i2c.yaml    |  1 +
+>>  .../interrupt-controller/fsl,intmux.yaml      |  2 +-
+>>  .../interrupt-controller/st,stm32-exti.yaml   |  2 ++
+>>  .../allwinner,sun4i-a10-video-engine.yaml     |  1 +
+>>  .../devicetree/bindings/media/i2c/imx219.yaml |  1 +
+>>  .../memory-controllers/exynos-srom.yaml       |  2 ++
+>>  .../bindings/misc/fsl,dpaa2-console.yaml      |  1 +
+>>  .../bindings/mmc/mmc-controller.yaml          |  2 ++
+>>  .../bindings/net/ti,k3-am654-cpsw-nuss.yaml   |  1 +
+>>  .../bindings/net/ti,k3-am654-cpts.yaml        |  1 +
+>>  .../phy/allwinner,sun4i-a10-usb-phy.yaml      |  2 ++
+>>  .../phy/allwinner,sun50i-a64-usb-phy.yaml     |  2 ++
+>>  .../phy/allwinner,sun50i-h6-usb-phy.yaml      |  2 ++
+>>  .../phy/allwinner,sun5i-a13-usb-phy.yaml      |  2 ++
+>>  .../phy/allwinner,sun6i-a31-usb-phy.yaml      |  2 ++
+>>  .../phy/allwinner,sun8i-a23-usb-phy.yaml      |  2 ++
+>>  .../phy/allwinner,sun8i-a83t-usb-phy.yaml     |  2 ++
+>>  .../phy/allwinner,sun8i-h3-usb-phy.yaml       |  2 ++
+>>  .../phy/allwinner,sun8i-r40-usb-phy.yaml      |  2 ++
+>>  .../phy/allwinner,sun8i-v3s-usb-phy.yaml      |  2 ++
+>>  .../phy/allwinner,sun9i-a80-usb-phy.yaml      | 19 ++++++++-----------
+>>  .../phy/socionext,uniphier-ahci-phy.yaml      |  2 +-
+>>  .../phy/socionext,uniphier-pcie-phy.yaml      |  2 +-
+>>  .../phy/socionext,uniphier-usb3hs-phy.yaml    |  2 +-
+>>  .../phy/socionext,uniphier-usb3ss-phy.yaml    |  2 +-
+>>  .../bindings/phy/ti,phy-gmii-sel.yaml         |  2 +-
+>>  .../pinctrl/aspeed,ast2400-pinctrl.yaml       |  3 +--
+>>  .../pinctrl/aspeed,ast2500-pinctrl.yaml       |  4 ++--
+>>  .../bindings/power/supply/bq25980.yaml        |  1 +
+>>  .../bindings/remoteproc/ingenic,vpu.yaml      |  2 +-
+>>  .../remoteproc/ti,omap-remoteproc.yaml        |  3 +++
+>>  .../bindings/riscv/sifive-l2-cache.yaml       |  1 +
+>>  .../bindings/serial/renesas,hscif.yaml        |  2 ++
+>>  .../bindings/serial/renesas,scif.yaml         |  2 ++
+>>  .../bindings/serial/renesas,scifa.yaml        |  2 ++
+>>  .../bindings/serial/renesas,scifb.yaml        |  2 ++
+>>  .../sound/allwinner,sun4i-a10-codec.yaml      |  1 +
+>>  .../bindings/sound/google,sc7180-trogdor.yaml |  1 +
+>>  .../bindings/sound/samsung,aries-wm8994.yaml  |  3 +++
+>>  .../bindings/sound/samsung,midas-audio.yaml   |  2 ++
+>>  .../devicetree/bindings/sound/tas2562.yaml    |  2 ++
+>>  .../devicetree/bindings/sound/tas2770.yaml    |  2 ++
+>>  .../bindings/sound/tlv320adcx140.yaml         |  1 +
+>>  .../devicetree/bindings/spi/renesas,rspi.yaml |  2 ++
+>>  .../devicetree/bindings/sram/sram.yaml        |  2 ++
+>>  .../timer/allwinner,sun4i-a10-timer.yaml      |  2 ++
+>>  .../bindings/timer/intel,ixp4xx-timer.yaml    |  2 +-
+>>  .../usb/allwinner,sun4i-a10-musb.yaml         |  2 +-
+>>  .../bindings/usb/brcm,usb-pinmap.yaml         |  3 +++
+>>  .../devicetree/bindings/usb/generic-ehci.yaml |  1 +
+>>  .../devicetree/bindings/usb/generic-ohci.yaml |  1 +
+>>  .../devicetree/bindings/usb/ingenic,musb.yaml |  2 +-
+>>  .../bindings/usb/renesas,usbhs.yaml           |  1 +
+>>  .../devicetree/bindings/usb/ti,j721e-usb.yaml |  3 ++-
+>>  .../bindings/usb/ti,keystone-dwc3.yaml        |  2 ++
+>>  74 files changed, 118 insertions(+), 33 deletions(-)
+>>
 
---===============3508457004247040347==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="lzfUsh6qR7gklPXt"
-Content-Disposition: inline
+[snip]
+
+>>  
+>> diff --git a/Documentation/devicetree/bindings/remoteproc/ingenic,vpu.yaml b/Documentation/devicetree/bindings/remoteproc/ingenic,vpu.yaml
+>> index c019f9fbe916..d0aa91bbf5e5 100644
+>> --- a/Documentation/devicetree/bindings/remoteproc/ingenic,vpu.yaml
+>> +++ b/Documentation/devicetree/bindings/remoteproc/ingenic,vpu.yaml
+>> @@ -44,7 +44,7 @@ properties:
+>>        - const: vpu
+>>  
+>>    interrupts:
+>> -    description: VPU hardware interrupt
+>> +    maxItems: 1
+>>  
+>>  required:
+>>    - compatible
+>> diff --git a/Documentation/devicetree/bindings/remoteproc/ti,omap-remoteproc.yaml b/Documentation/devicetree/bindings/remoteproc/ti,omap-remoteproc.yaml
+>> index 084960a8f17a..1a1159097a2a 100644
+>> --- a/Documentation/devicetree/bindings/remoteproc/ti,omap-remoteproc.yaml
+>> +++ b/Documentation/devicetree/bindings/remoteproc/ti,omap-remoteproc.yaml
+>> @@ -70,10 +70,13 @@ properties:
+>>        the firmware image.
+>>  
+>>    clocks:
+>> +    maxItems: 1
+>>      description: |
+>>        Main functional clock for the remote processor
+>>  
+>>    resets:
+>> +    minItems: 1
+>> +    maxItems: 2
+
+While this works for passing the schema, if we want to be specifically accurate
+between the different remoteprocs, the DSPs will have 1 items while the IPUs
+should have 2 items.
+
+I can submit an incremental update if that's ok. Otherwise, for this file,
+
+Reviewed-by: Suman Anna <s-anna@ti.com>
 
 
---lzfUsh6qR7gklPXt
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+>>      description: |
+>>        Reset handles for the remote processor
+>>  
 
-Hello,
+[snip]
 
-On Wed, Dec 23, 2020 at 04:33:10PM +0000, conor.dooley@microchip.com wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
->=20
-> This driver provides an interface for other drivers to access the
-> functions of the system controller on the Microchip PolarFire SoC.
->=20
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
-[...]
-> --- a/drivers/soc/Makefile
-> +++ b/drivers/soc/Makefile
-> @@ -14,6 +14,7 @@ obj-$(CONFIG_ARCH_GEMINI)	+=3D gemini/
->  obj-y				+=3D imx/
->  obj-$(CONFIG_ARCH_IXP4XX)	+=3D ixp4xx/
->  obj-$(CONFIG_SOC_XWAY)		+=3D lantiq/
-> +obj-$(CONFIG_SOC_MICROCHIP_POLARFIRE)	+=3D microchip/
-
-CONFIG_SOC_MICROCHIP_POLARFIRE is more specific than a flag guarding
-the microchip directory should (intuitively) be (because there may be
-Microchip SoCs that are not Microchip PolarFire). Fortunately, since
-mpfs-sys-controller.o itself is guarded by CONFIG_POLARFIRE_SOC_SYS_CTRL,
-using "obj-y +=3D microchip/" here should work without a problem.
-
-
-[...]
-> +int mpfs_blocking_transaction(struct mpfs_sys_controller *mpfs_client, v=
-oid *msg,
-> +			      void *response, u16 response_size_bytes)
-> +{
-> +	int ret;
-> +
-> +	mpfs_client->response =3D response;
-> +	mpfs_client->response_size_bytes =3D response_size_bytes;
-> +
-> +	mutex_lock_interruptible(&transaction_lock);
-> +
-> +	reinit_completion(&mpfs_client->c);
-> +
-> +	ret =3D mbox_send_message(mpfs_client->chan, msg);
-> +	if (ret >=3D 0) {
-> +		if (wait_for_completion_timeout(&mpfs_client->c, HZ)) {
-> +			ret =3D 0;
-> +		} else {
-> +			ret =3D -ETIMEDOUT;
-> +			dev_warn(mpfs_client->client.dev, "MPFS sys controller transaction ti=
-meout");
-
-\n is missing
-
-> +		}
-> +	} else {
-> +		dev_err(mpfs_client->client.dev,
-> +			"mpfs sys controller transaction returned %d\r\n", ret);
-
-\r\n is quite unusual and probably unnecessary in printk-style
-functions, \n is enough.
-
-> +	}
-> +
-> +	mutex_unlock(&transaction_lock);
-> +
-> +	return ret;
-> +}
-> +EXPORT_SYMBOL(mpfs_blocking_transaction);
-
-
-Best regards,
-Jonathan Neusch=C3=A4fer
-
---lzfUsh6qR7gklPXt
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEvHAHGBBjQPVy+qvDCDBEmo7zX9sFAl/05KEACgkQCDBEmo7z
-X9uW3w/7BWkX0EOwMcLup/IOp5yIzP/Pc8Jh3HP7N1inwHaB+g9ot2514xdnMYSy
-A07zImFXlaCbw0T+qXpUQfLAlt4DZs/24ysSnJ5wPHp5yFXt9e4M5i6S5k6mCsv3
-B4+MnwY2AyD6MwTJ0jYOJYCsc5Pvi89v4hFPGsXZOieebXj1RZMDJ4mmfI6z/Jru
-+l+o86J9tX09sOz4eBDXf4+pNcaqoaLuMNDdrJVZJcVuTRtsbhV+U39d6b8czYsE
-u/xzdmK4lt0zJg5ZdpEPrU+WDWAbihyQ4o40iO4J0f4g7vEwX/68oHMoBffCDoNX
-0yXjbTaCiHRQacS83P+nAkAUe4a+3Mw6Cvq1T3eWIqJVTqgYXIhyo64K8rlKo2GO
-v3bSKKCCtWvmXCtcXFEp3YjMfsnurDijUbblAMowAsyJ7pOtp19A1c2TbXb8tftd
-YQFms3A4yBFtKjj0D0LNjoUFtRg1lD1fzDRuF2Dep5rF3Q8WRgCscigy8nHsvqRy
-cpDpdx2sbCXh4dYqAb0OUsIlas+Iu/xahlu/vvWhJg2s2SQhM319LuJgAf8sEJ7X
-XkmtvuM3q3FqAMXaIbmVSCo8bKHa5bZCY2BGFIPkCxE4uGZ4RcDt2dQHvv4alWq/
-43chRCnLrzlZlJ3c5f5J+rPbS5qWmDdCeylPoxDA6T61i1DVn2A=
-=juh7
------END PGP SIGNATURE-----
-
---lzfUsh6qR7gklPXt--
-
-
---===============3508457004247040347==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+regards
+Suman
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3508457004247040347==--
-
