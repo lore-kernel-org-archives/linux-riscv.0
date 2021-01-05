@@ -2,79 +2,83 @@ Return-Path: <SRS0=oZIk=GI=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-8.7 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
-	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	FREEMAIL_REPLYTO_END_DIGIT,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
-	autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7AF7BC433E0
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Jan 2021 20:48:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B359FC433DB
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Jan 2021 21:25:56 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id F22C022262
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Jan 2021 20:48:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F22C022262
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
+	by mail.kernel.org (Postfix) with ESMTPS id 38CD92076D
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Jan 2021 21:25:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 38CD92076D
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmx.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:Reply-To:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=dShwRcdter+iSLkvPsptMvOzhT+apoHMXBhG6t6QSF4=; b=V7RSw3UYTl5Tg0eENFG/hFt0S
-	tumYlpS62ByX5T6UFrSvaE4HL1WkZr6gMpgCPvaT+zZKp6LzQnac56qEkl3pcpGyGWCi5C8ZxrMUx
-	IAxBuO0CsPyZFmOpl1uBxbiEzTwUo+UifIaRdGvuueaQtDOE1W9XtwFpsbBLVs5X7p8fGld8hLEIr
-	RN9dP1qwgsoITqHcoUNfoRj+B+uJdfMo40NOTgrcFJjKpy/zAdEK82Q/7IlYYUq0mmRl/QUR3RYLj
-	exIq4tcuTjhmo51YkIhDniyvR+0UVe+ZqcbYnq51IrA2/iOUNuVQoqc3EQs6Ksy3JZtKq8LOzaqBP
-	NaXOHHvhg==;
+	 bh=KqX+OlMAy3UmWYX/ZKjZ+41jafrEMLsgb5g9DkqzaPM=; b=CEzwzPFiD/OuCSQEJofnAzY9f
+	HGHu3MjIpGv2UQbtps8sVaxClcXMzt1OLsolFK9Xrqk/tWKqhYU0sIusw4sgvJPbXl3gIAvWZgXG5
+	MSOcANYlJ0SbCfWcW4qr6PbvSRUTXPWZsXWWyIG7MNGs5htwSKvqJWpS9VTpUL6dAnK4E/HFjzpf6
+	6aMeINaQd6pnqsyV9B0mKQQZJR+h230pha4PezCStEdmyFl0ioFBKoqbQpHfzyG8O5DejVL5c1iJh
+	8DlMqVCEtwRj3+/Q9s0BTDz5qCPJTndtt9E+15kasi7C+QM60se1STBhiQDDPmZoLZd03847N9dpb
+	k36i/hHww==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kwtFp-000756-P1; Tue, 05 Jan 2021 20:48:33 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	id 1kwtpp-000229-Cb; Tue, 05 Jan 2021 21:25:45 +0000
+Received: from mout.gmx.net ([212.227.17.21])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kwtFn-00074I-LW; Tue, 05 Jan 2021 20:48:32 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id o17so1650134lfg.4;
- Tue, 05 Jan 2021 12:48:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:reply-to:from:date:message-id
- :subject:to:cc;
- bh=VI6nFNhOrDBsKOeartd6J0bcnx10OA5inX4UBRpL4qE=;
- b=XMzvAK1uTDP9sqD7pLv4Wz7WB5ahyaA4m6Kusb5//KKj6ORucbf4DEkHedVG2WYchx
- ww5E+S2pe/MVFqDwCWn3GDiS2f5riKTPoV75h71RVrW0K2vBiy9ckj/U7dA9PWNjyCNI
- nX5bomPKCcbVJeOgp/Cj7QeOBmzBoXkvbgT+W8lDuSsHgW8SMCpsK5rlGY82XsKP7qkx
- a29IAV41Ls1xim5un7jcVMha0ymLBu7etMhtRuauiNm4Zo6NPbxuUdxGaFB5dXcGICKr
- V9gREmCqoUjAr+3BJU51evd6QVFkDSbGIsK3A3GwKvAN8OhPsBEmC8Moy5N8LCKzSIDI
- qz8g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:reply-to
- :from:date:message-id:subject:to:cc;
- bh=VI6nFNhOrDBsKOeartd6J0bcnx10OA5inX4UBRpL4qE=;
- b=jhyQk8MVzZ1uZx6/Mlf9Cdqjcr2yHpaHJ8TFrigj5CE7YR73gPuOYf7Bwf2Sz/f9ej
- IFKVEIV10ITvzS3znimPf861Q5TGeiQ6prn63K2ry+gquHEz/b+ZIvaQdwInysmQRS9n
- JK+I4I+7df7G27/6sIBJlWfiZrEIsejN85F5r61SlQlFrV4yxjt3RIUd1/5Vzs66YIAP
- qwSDJKth4DAvco5k77Yc0pUrQbWF4j9pZSUSh1tmXvJhsdTCLEQ/rgZC2Pisytxcpd/z
- En2cwE5Yj9q0LgkaikKUnI6UkZdN3yUSTrToh0NPyk662UFnXGQg9MHbUMVfYI+6gygd
- F+xg==
-X-Gm-Message-State: AOAM530QlZrQl0DlZkHan8ZDme3Hm7HMwXvLo7sPbKIW2CByBt8msggD
- QykoqHmjwH86lvIGXxccNASuCq/VkFWm36xVJeA=
-X-Google-Smtp-Source: ABdhPJxu0obS2EF+VNsGTCaRCOLzZxvocXJO+DOkx1q/eD1CrMCNDr6ayRfy6f/783TFKHGmdZ4OqMWe5HwKjoHK0HI=
-X-Received: by 2002:a2e:8084:: with SMTP id i4mr635086ljg.291.1609879708350;
- Tue, 05 Jan 2021 12:48:28 -0800 (PST)
+ id 1kwtpm-00021d-6n
+ for linux-riscv@lists.infradead.org; Tue, 05 Jan 2021 21:25:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
+ s=badeba3b8450; t=1609881929;
+ bh=G0OVLdbaJsgO8HPhgo/xuHH4VcarVg+GV7RnGJ7YXdM=;
+ h=X-UI-Sender-Class:Date:From:To:Cc:Subject:References:In-Reply-To;
+ b=Bk4UHtUkaNQN8pmEkgqMXvvlLezQM4/a9/y6BmHYL8NQuM8ESeAjvijTwRtNjw7DE
+ lcyul/e3QnYqj+wcfGGH3GWJj0HGo/a1WIh/CI/1+M+yYecYLpC1GsWKx2ybTCdyu7
+ 9UUMpdHbA1zLZGuTW0jPllLuVHOdv5p12ne0rb7Q=
+X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
+Received: from longitude ([37.201.215.57]) by mail.gmx.com (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MFbRm-1klMik3YaM-00H7Wo; Tue, 05
+ Jan 2021 22:25:28 +0100
+Date: Tue, 5 Jan 2021 22:25:25 +0100
+From: Jonathan =?utf-8?Q?Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>
+To: conor.dooley@microchip.com
+Subject: Re: [PATCH v3 4/5] dt-bindings: add bindings for polarfire soc
+ system controller
+Message-ID: <X/TZRXPQv0wXvT+0@latitude>
+References: <20201223163247.28923-1-conor.dooley@microchip.com>
+ <20201223163316.29186-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
-References: <20210104230253.2805217-1-robh@kernel.org>
-In-Reply-To: <20210104230253.2805217-1-robh@kernel.org>
-From: Chanwoo Choi <cwchoi00@gmail.com>
-Date: Wed, 6 Jan 2021 05:47:51 +0900
-Message-ID: <CAGTfZH11n8cRbrNB6XbzCydR4387d7V-gmRWou8hFFXbFBgvHQ@mail.gmail.com>
-Subject: Re: [PATCH] dt-bindings: Add missing array size constraints
-To: Rob Herring <robh@kernel.org>
+In-Reply-To: <20201223163316.29186-1-conor.dooley@microchip.com>
+X-Provags-ID: V03:K1:Gf17oAsiy5iz7mpMhRYz4egNe5BoH7WNT/wUW88YtCqDXne5g+C
+ e2uaohiym9EwmEtwsMV2r2FkbRo8kvy+9YvPbO74LgZoX6VlHOczciuwcqPr5bJqZGEpKgQ
+ lXbNdzOCwN+tT3UVQm5dOIsVD8oLKPGxVJRKtBbw5qXhqDXYAlnPafZUgiRxQW3NUjRv1pK
+ 9iS9vTqNZ/h9MTKIsLCKw==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:k1IA2ttbA+I=:Nzv6Ro/7yo7NnjwXZwfMM/
+ CctYuJ+TcwhItd0GMsOBXv7X6SPHbY+raN4/J83K2RV8uFUyr+LMkfrpJxUstl61JDnXOq+P4
+ oa0mRTQt5T5nUqhmIPsAAfvmUCDknPWxMxageQ6bkxeQPpbW1LS9GC++tTRR/YRoOnDdmvvxP
+ M/XPnwo/HSCAz6eN57aGLgcpgjAkm+r/UHsy4A6BfHIjDbE/A9cSJZgIJvkBYGSwCA9b3Sba7
+ uYVgYU1SYH7y5FX8Z4/zI2hPt0xmKHgpvyqwBqAc2Qm/4n0TN8IW/QhnH5oKUSKahOWcOgb8Y
+ wV6eEnHaXbAU5f93jdvaVWXqzFsPj6s3Cub8jdtPGFLfrMpX7hYYFrcaOfcthLtxik18tQL2u
+ ISY3GN7Grnv4VF0x3Ul98kL1abnod2X5fq9a/XHG941k1b7D8X88x9CH74qy4n4rqsS7B+FGS
+ 4PsMU7ZAR0eUTA6IRpD8HdraEbBQfio9eT/Jw64DuRpM2v9F5Zk8RRXX6vQFvF0ZRv3vb+QfH
+ RarMais8KR6GgSXq7qxJM5zGv0QMz6GbA9RXG1V2IRxAkdhSSY2dTazLttQpZdWRZhwRkjm00
+ Pb57d+hK3Udq2wKxgkuQKdtn4fm0m+uxObHM2+uHxN219Xl5YhiHxINZWn5TPgo+qyQ7ZZhPU
+ TYnNnMO+MvezBP0HHyTILOei+E0Nq4gJqORbENQ2ssNvrUPeFZ5mFYWlUMTvohmj9a/gRmaJw
+ 26DJNb/rKncJL0q44zfLdSC6KIBES5huHTMn4w7816LWZS9f8WeUAn+h3THVDc+jzhQsbpt0l
+ tB3ZUGER19700IONLAuQ+QP1XbcrrdRJ1UTsgmaaMEz9sOk0PsWfi+knyvJdDZLlxUMyfALmw
+ txbgTSeI9dWou15a5b+w==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210105_154831_752180_DCD6C9F6 
-X-CRM114-Status: GOOD (  18.90  )
+X-CRM114-CacheID: sfid-20210105_162542_486910_6BF717D9 
+X-CRM114-Status: GOOD (  15.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -86,107 +90,138 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: cwchoi00@gmail.com
-Cc: Ulf Hansson <ulf.hansson@linaro.org>,
- Dmitry Torokhov <dmitry.torokhov@gmail.com>, linux-iio@vger.kernel.org,
- linux-remoteproc@vger.kernel.org, alsa-devel@alsa-project.org,
- dri-devel <dri-devel@lists.freedesktop.org>,
- Bjorn Andersson <bjorn.andersson@linaro.org>, linux-ide@vger.kernel.org,
- Thierry Reding <thierry.reding@gmail.com>, linux-riscv@lists.infradead.org,
- linux-clk@vger.kernel.org, Bartosz Golaszewski <bgolaszewski@baylibre.com>,
- Marc Zyngier <maz@kernel.org>, Chanwoo Choi <cw00.choi@samsung.com>,
- Chen-Yu Tsai <wens@csie.org>, MyungJoo Ham <myungjoo.ham@samsung.com>,
- linux-serial@vger.kernel.org, linux-input@vger.kernel.org,
- Jakub Kicinski <kuba@kernel.org>, linux-media@vger.kernel.org,
- Ohad Ben-Cohen <ohad@wizery.com>, devicetree <devicetree@vger.kernel.org>,
- Linux PM list <linux-pm@vger.kernel.org>, linux-gpio@vger.kernel.org,
- Sebastian Reichel <sre@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- Jens Axboe <axboe@kernel.dk>, Stephen Boyd <sboyd@kernel.org>,
- netdev@vger.kernel.org, linux-usb@vger.kernel.org, linux-mmc@vger.kernel.org,
- linux-kernel <linux-kernel@vger.kernel.org>, linux-spi@vger.kernel.org,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "David S. Miller" <davem@davemloft.net>, Jonathan Cameron <jic23@kernel.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: devicetree@vger.kernel.org, damien.lemoal@wdc.com, aou@eecs.berkeley.edu,
+ lewis.hanly@microchip.com, david.abdurachmanov@gmail.com,
+ daire.mcnamara@microchip.com, jassisinghbrar@gmail.com, j.neuschaefer@gmx.net,
+ atish.patra@wdc.com, anup.patel@wdc.com, robh+dt@kernel.org,
+ palmer@dabbelt.com, paul.walmsley@sifive.com, cyril.jean@microchip.com,
+ linux-riscv@lists.infradead.org
+Content-Type: multipart/mixed; boundary="===============3977222611519892631=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
 
-On Tue, Jan 5, 2021 at 8:03 AM Rob Herring <robh@kernel.org> wrote:
->
-> DT properties which can have multiple entries need to specify what the
-> entries are and define how many entries there can be. In the case of
-> only a single entry, just 'maxItems: 1' is sufficient.
->
-> Add the missing entry constraints. These were found with a modified
-> meta-schema. Unfortunately, there are a few cases where the size
-> constraints are not defined such as common bindings, so the meta-schema
-> can't be part of the normal checks.
->
-> Cc: Jens Axboe <axboe@kernel.dk>
-> Cc: Stephen Boyd <sboyd@kernel.org>
-> Cc: Thierry Reding <thierry.reding@gmail.com>
-> Cc: MyungJoo Ham <myungjoo.ham@samsung.com>
-> Cc: Chanwoo Choi <cw00.choi@samsung.com>
-> Cc: Linus Walleij <linus.walleij@linaro.org>
-> Cc: Bartosz Golaszewski <bgolaszewski@baylibre.com>
-> Cc: Jonathan Cameron <jic23@kernel.org>
-> Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Mauro Carvalho Chehab <mchehab@kernel.org>
-> Cc: Chen-Yu Tsai <wens@csie.org>
-> Cc: Ulf Hansson <ulf.hansson@linaro.org>
-> Cc: "David S. Miller" <davem@davemloft.net>
-> Cc: Jakub Kicinski <kuba@kernel.org>
-> Cc: Sebastian Reichel <sre@kernel.org>
-> Cc: Ohad Ben-Cohen <ohad@wizery.com>
-> Cc: Bjorn Andersson <bjorn.andersson@linaro.org>
-> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-> Signed-off-by: Rob Herring <robh@kernel.org>
+--===============3977222611519892631==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="FMJAI3Xpdhqt2MKs"
+Content-Disposition: inline
+
+
+--FMJAI3Xpdhqt2MKs
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hi,
+
+On Wed, Dec 23, 2020 at 04:33:16PM +0000, conor.dooley@microchip.com wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+>=20
+> Add device tree bindings for the MSS system controller on
+> the Microchip PolarFire SoC.
+
+"MSS" doesn't appear below, so perhaps an expansion in parentheses would
+be nice, e.g.: "MSS (microprocessor subsystem)"
+
+>=20
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 > ---
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-ide@vger.kernel.org
-> Cc: linux-clk@vger.kernel.org
-> Cc: dri-devel@lists.freedesktop.org
-> Cc: linux-gpio@vger.kernel.org
-> Cc: linux-iio@vger.kernel.org
-> Cc: linux-input@vger.kernel.org
-> Cc: linux-media@vger.kernel.org
-> Cc: linux-mmc@vger.kernel.org
-> Cc: netdev@vger.kernel.org
-> Cc: linux-pm@vger.kernel.org
-> Cc: linux-remoteproc@vger.kernel.org
-> Cc: linux-riscv@lists.infradead.org
-> Cc: linux-serial@vger.kernel.org
-> Cc: alsa-devel@alsa-project.org
-> Cc: linux-spi@vger.kernel.org
-> Cc: linux-usb@vger.kernel.org
-> ---
->  .../socionext,uniphier-system-cache.yaml      |  4 ++--
->  .../bindings/ata/sata_highbank.yaml           |  1 +
->  .../bindings/clock/canaan,k210-clk.yaml       |  1 +
->  .../bindings/display/brcm,bcm2711-hdmi.yaml   |  1 +
->  .../bindings/display/brcm,bcm2835-hdmi.yaml   |  1 +
->  .../display/panel/jdi,lt070me05000.yaml       |  1 +
->  .../display/panel/mantix,mlaf057we51-x.yaml   |  3 ++-
->  .../display/panel/novatek,nt36672a.yaml       |  1 +
->  .../devicetree/bindings/dsp/fsl,dsp.yaml      |  2 +-
->  .../devicetree/bindings/eeprom/at25.yaml      |  3 +--
->  .../bindings/extcon/extcon-ptn5150.yaml       |  2 ++
+>  .../microchip,mpfs_sys_controller.yaml        | 34 +++++++++++++++++++
+>  1 file changed, 34 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/soc/microchip/micro=
+chip,mpfs_sys_controller.yaml
+>=20
+> diff --git a/Documentation/devicetree/bindings/soc/microchip/microchip,mp=
+fs_sys_controller.yaml b/Documentation/devicetree/bindings/soc/microchip/mi=
+crochip,mpfs_sys_controller.yaml
+> new file mode 100644
+> index 000000000000..60fde1925910
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs_sys_=
+controller.yaml
+> @@ -0,0 +1,34 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: "http://devicetree.org/schemas/soc/microchip/microchip,mpfs_sys_con=
+troller.yaml#"
+> +$schema: "http://devicetree.org/meta-schemas/core.yaml#"
+> +
+> +title: Microchip PolarFire SoC (MPFS) system controller
+> +
+> +maintainers:
+> +  - Conor Dooley <conor.dooley@microchip.com>
+> +
+> +properties:
+> +  compatible:
+> +    const: microchip,polarfire-soc-sys-controller
 
-For extcon part,
-Acked-by: Chanwoo Choi <cw00.choi@samsung.com>
+The file name and compatible string are inconsistent in phrasing
+(mpfs- vs. polarfire-soc-). If possible, please align them.
 
-(snip)
+> +
+> +  mboxes:
+> +    $ref: '/schemas/types.yaml#/definitions/phandle-array'
+> +    description: |
+> +      phandle and index of the mailbox controller device node.
+> +      See: ../mailbox/mailbox.txt for more information.
+> +    maxItems: 1
+> +
+> +required:
+> +  - compatible
+> +  - "mboxes"
 
-Best Regards,
-Chanwoo Choi
+Quotation marks are unnecessary here, because there are no special
+characters in "mboxes".
+
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    syscontroller: syscontroller {
+> +      compatible =3D "microchip,polarfire-soc-sys-controller";
+> +      mboxes =3D <&mbox 0>;
+> +    };
+> --=20
+
+
+Best regards,
+Jonathan Neusch=C3=A4fer
+
+--FMJAI3Xpdhqt2MKs
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEvHAHGBBjQPVy+qvDCDBEmo7zX9sFAl/02T0ACgkQCDBEmo7z
+X9sWYQ/7Bwcca3EgLofiNd2r0011OLx1t8Jw8k38CkgtkY4Gu/0aAWbNK1ZiGncW
+Uf2sqJw9jU/pqHMhPBbq3WhBMxIZ8mJRLNxaDkcywMCjLlaV3UsSh4J7iU70Odo3
+JgLdybDMOdVZRX8e/k0LjZ6evJSGkgwKQuRqgqWc6N30zRBeINo2DTzYYgLY9j9d
+QZY/679R0Olf2V4LgHkYRsvElxYOgj0HIqFtVB0yADv0MdxGpdIJzpjDCwfL6POy
+356gORm8um+fywEBCZ1h3TKD6adfulFMdTVAAsky+Py1px8eFyPvbD5ln1a5+q1U
+kyQgvJ5ZQqZ2y13+3emdUZJslZSSxaqfKvqzESorrii1cfvMLmoArtBf4hJ+OHNb
+QVUT+9Y9IEEEEDVa3asjppkB64RxENNBVvjQfjAuN9gHE6ZMElAFrhNG/mWZiwI5
+hLpRN8iy80bOKT1RrreMSdoIT2spFQNY2HZGXAJtJNAEyIcjl3W7ZASJuRyr1Xxo
+95EF4WV8MQzNUNoz3aoyAa3oMcpe44xY3T9ac6gVeD3iYL3KoA49lC2f0EWpp2gt
+SkSrKRmXqjBNx2cvgsMEFuWUuAPw/VeR7lpBeiRN5KM6DOzn0hMxYBIy0gK8e5dq
+BMlWjrdiPcDhcvucwnf1CyLfwjoihMimxblN0bLqSkbR80O/+nY=
+=vass
+-----END PGP SIGNATURE-----
+
+--FMJAI3Xpdhqt2MKs--
+
+
+--===============3977222611519892631==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3977222611519892631==--
+
