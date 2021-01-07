@@ -2,89 +2,165 @@ Return-Path: <SRS0=n1sQ=GK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 051A4C433E0
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Jan 2021 09:27:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 49767C433E6
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Jan 2021 11:40:06 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 987F82312E
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Jan 2021 09:27:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 987F82312E
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	by mail.kernel.org (Postfix) with ESMTPS id CA9BB22CF8
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Jan 2021 11:40:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CA9BB22CF8
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=microchip.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:References:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=si1Iwve9h3eglvLVTFSEckFNVFqYLSOVwnzS12u8+CY=; b=HZNBlc58iz/WxWJvDFoztyjw4
-	HGkoEMeCt3vFlh5XJC3HoOEhmnDbp9LadGeHdJLmOKuzsqaZTywhtuvRGiP0iT6L2Mxmj76ze8BjQ
-	a+Y5wHYGY3LtNg7tVrD7fMFNJffhpwzu0wdF3HJmdTIvKbl69w+8Re3BGphI39xKdMrYob8Gu+ivM
-	Tvu5QMbHLWVw1TZLVCae2S7qznMwz6YqBF5XTTj5iQOh8pSjSnXQig0r0rbVv8H6LJPVaDo4tiYRw
-	PHpHWW6CXn1ioLysAS5VOBczPp+hIf9RWSWo9eSwM4QXdkaf5qVPYDaJiFfMV3ml+rdtQjWWrOtES
-	Uzh8m6Erw==;
+	 bh=cm5I3M1zRB4kw8f4SDUnCWzpH5cm5mQ7MYadTVMlsEU=; b=V/J0UwwTkKLfzJiD5x+ahaZb/
+	7yjIt8Jnt58Fw7KgywyDm8J7EVVeaRKepo+QkydCAIYSJZpPao5y1Z+KU4bL8oGfhYGWJduLtjrjo
+	kg4G3NcgOIiVJOEJcpU2ew3d/QGPLRhwkFFT5Jze3N1JoWhucTr0EAEvXmDeS8fwRQR1Tx8dt05Mb
+	QhcqcDEac/YJaThcx54WfIcV0gpMrlXbexxHt18cL+ObgJu5CxhSjbxhmJP+cCIVUFg5QXhYN9AZ9
+	w9BmGYIfHqekMJd0be0K67Ulije4Tt1qXTBcHZBZeNgYfBBERltmoofKELcaCV4XT8Yj/RcBNWlD/
+	gV6Z+v/AA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kxRZz-0001Ba-7t; Thu, 07 Jan 2021 09:27:39 +0000
-Received: from esa4.hgst.iphmx.com ([216.71.154.42])
+	id 1kxTdw-0005ck-IX; Thu, 07 Jan 2021 11:39:52 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kxRZv-00019E-I1
- for linux-riscv@lists.infradead.org; Thu, 07 Jan 2021 09:27:36 +0000
+ id 1kxTdr-0005bM-6Z
+ for linux-riscv@lists.infradead.org; Thu, 07 Jan 2021 11:39:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1610011655; x=1641547655;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=JbxwQXAp8/3z4IWi+Gua7LgpjZZA1rYhUXq7awjP4hg=;
- b=C0R26+rShMPIy48AIxhoOc/o+DNM9B6yaAbQ6MsBH3OObQb1T/lMmebs
- CeCFHgGhhzYEk9mzYwwiQfxMllpz5gxFtNvQtJc9AZ6yfTIAzrnI0i7eI
- 2q+4X0dY7WI6nb6rBnLItosQRpH3E6yg7pO3OenbvP7/w9WMdqxZLLGi9
- 1pTO0/nEJ8vSYLwvwUyQSoa7LZKwrqiySf5hDBJcPBSpURk3c+KmeIrd4
- pNtxAXIQf7uU+MNi3gz2hbPpW4SepkwNm8hsBNGkDvfCdCWc6ea7X6IqN
- RDiT50tHo4NNzxFyR4aH5QsHT5598mpSyRSvm1v5ENTnLrvlsjQrg1n03 g==;
-IronPort-SDR: cvWQtrwZ06gtHytdLTDQ7WyS7/WKxJYJQrQ36KhMDBZlU21FpKky+x76g4TywICtW0DivpH6TV
- z5MHFBFcf5EuCknol+49lIHdIibtDFGqyGP23rTjopwa6MMXTlEB9x4cJ7HIlOG0X4yoyAQk8h
- 0995ve2hdrydrEPSNobUlNGMerk+LzMjqkRpKTEikhFwFeSo9u12z8YM+G2oBWRlVZbgOG9SW5
- m5CnB4QIKO0UQ0f6kvcj9L7Iv4xe92HWtL8Dx+hXvULE5R7nM+DqD0IQzJvqagVeJaEHS89uCn
- f9A=
-X-IronPort-AV: E=Sophos;i="5.79,329,1602518400"; d="scan'208";a="156751196"
-Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
- ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 07 Jan 2021 17:27:30 +0800
-IronPort-SDR: AdwSKgk4scAGci1c+ZaZ37zVSgQ9GFomW7TTT30b/JGO5OCTrP3UrNkYr9AiBr8RzMUuxNpeQk
- 2urAD6L8IbpODQt6PGSVnpGHS+uC3RQJi4UqAaW/+DdOggRDBoAyWZnV21Rpu/bwcPtRYZlqeO
- 1TcIwkApQKrniPrAf//c+UcRo6M27eVUnp336XvXWiyP+AI2olCs3II8FezT4VVzNuz8vNdP6r
- znPuZbJPZNq82aJ1djnhfZLGd8LNdiZNXAdiCx5HsMhMEjcyVGr+YXMNI/hBKM4lc6M3jGZGdM
- dpSOUmy3YUyoMFS7heU89eGA
-Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
- by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 07 Jan 2021 01:12:22 -0800
-IronPort-SDR: ijzR/wHlOB+9SpHSl1Smyc1/40iR2xT2DOt6Q/lPeC383NbJy2iGpBzrL7+jBDKTBqem+vyyZl
- J7uxDWuTesC2mrzZGX8Mn65QLuklE9mnZTRH71dbECceulqD0Cba0Cr6k8tLezR58Nxud+O+OJ
- o4BAddTZ2ECsjm8KbDSYoWUzI5Ui9cIFQJ1f07oz2EPsybKDZVEwny6UJBpMNxxkYvhMfy/mUi
- /tf3EcqQeQJwTFJiQD2UYQqxjwZlgS3xL7DKqLFu5G6mrEmfl092v2VLuJMdfP3b4I1QyRwlye
- mgM=
-WDCIronportException: Internal
-Received: from usa002483.ad.shared (HELO jedi-01.hgst.com) ([10.86.62.136])
- by uls-op-cesaip02.wdc.com with ESMTP; 07 Jan 2021 01:27:30 -0800
-From: Atish Patra <atish.patra@wdc.com>
-To: linux-kernel@vger.kernel.org
-Subject: [PATCH 4/4] RISC-V: Fix maximum allowed phsyical memory for RV32
-Date: Thu,  7 Jan 2021 01:26:52 -0800
-Message-Id: <20210107092652.3438696-5-atish.patra@wdc.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20210107092652.3438696-1-atish.patra@wdc.com>
-References: <20210107092652.3438696-1-atish.patra@wdc.com>
+ d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+ t=1610019587; x=1641555587;
+ h=from:to:cc:subject:date:message-id:references:
+ in-reply-to:content-id:content-transfer-encoding: mime-version;
+ bh=hh88MeXfbWANBeEHLTM8SZbwNby/AistNL/iUpVK8l4=;
+ b=Bm2l0hGbH3dA2mezBHRwKFLJKDbinTI/Yu/DNZoN2BIAsZnV8MwC4q/2
+ Z46vXwvHr65MartEFZjZ1ZfW6YqwhTBcnDHf5M9xwQRt7YBBvMKdy0r0l
+ hcdZj28tvhv9sA7hEP+91n+s+ebzJYdQtR7AJEOX06pIIoWZcej6TGQKE
+ JNv45RJLfcdJUshu3CD/z8nf9JnHVXE/XQT7U5ZL+j41bo+HJ5XfMPv5c
+ dwTC3gkLBRP9XEBY2GKg6/Lt1ndAptoIM0a1tElZotbJW2PjjBUJqPe/9
+ EV5HFZ29RtRJkd1aH217jcp+hxlETv+oBMrgnfykvwSwMaVsJScG51iaE w==;
+IronPort-SDR: /LFrllATivWoFB/cGnNYDhWO6pqui0YyWyA9svmSoExgmNGi/4o5YRnNaPC+pvpSbBJT69f08D
+ /zMHAoGsBsCbnFZbilgaVFY2A9XU3MeC0bBukmoZFiIBKS/DgRD6WhLmk5TQChz/rWqbuHvm1y
+ uv865GjYRuR99NVEPQ9L+SHqaM8ngqwC+GzlYy5Ve1fRbRXwDYlGpSQO384kShLfxwi6sOPS/I
+ Zp4ERjqECM7ka2ErwdObdmSaDW6hSDdhXjOWt4Iew9x1xP4E7hpd9dy0XuVffK0m8p6jw372BK
+ nCU=
+X-IronPort-AV: E=Sophos;i="5.79,329,1602572400"; d="scan'208";a="39640441"
+Received: from smtpout.microchip.com (HELO email.microchip.com)
+ ([198.175.253.82])
+ by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 07 Jan 2021 04:39:44 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.1979.3; Thu, 7 Jan 2021 04:39:44 -0700
+Received: from NAM12-BN8-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1979.3
+ via Frontend Transport; Thu, 7 Jan 2021 04:39:44 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=hQJhDMNpN2EHpL524e+eDkikeX/oAhZe0tST19vRxEPM6lBB2LBjQxZUVNz64DsdI30s/eyB2EPsuh83Es1HuitaG5KxwXYpaOOFO/Vs0iUzXSJlEa+yh/ysCX2dw77BBo9xrfW8j3ZueNQFkEomeW1WkDIdIMFKBAg0rCxUzlheWOk2jSH6Tjo79aARyDGl3UBtgJHzjLW3KNFl+fdaF8h7smxiM0QiQbC9gQ71Oc9MEC9qb4vaCXgtUMm78D1SLUaUaW7XjaMKnoNJQgxx8rJZmKI9oJgDN5fPkP4vIVeLU/2Z3YYwkb4sjZlr029ZGz+ESVrBILOAnAitkq3ugw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hh88MeXfbWANBeEHLTM8SZbwNby/AistNL/iUpVK8l4=;
+ b=XiNsH+JOc1iqa9JGcza/bMCF4nX/deK+GrSFEsYo7D9b3mSOpkv1rSE3Z6qP7T1baiE9D1Tv63MAKmjkAz9tvK2pVF2qYO+bWcO3gPH9LayuI52dteoH0tyCdtWna4IFcDqQ7S0eIlKJg9YpYTVf02cogIQVVVueoo20lUb3icHeXqJgELUoay9QYstjtn357RQ+0RkkaV0koFbt5YUAkN8VQVwWsa/LiGnw5XIDQafdahvG+gtFoc/x+EZnFW9KZq8Y3pE75xkKEx1UPAi1YHs5UFVXt8g0/ehfnQqZChw1feqk0wVUB1H4f9R29PJ50ZtARcFcjYGgB+B8GO9ZZA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=microchiptechnology.onmicrosoft.com;
+ s=selector2-microchiptechnology-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hh88MeXfbWANBeEHLTM8SZbwNby/AistNL/iUpVK8l4=;
+ b=NChjel/aM+2DlyGubhyVbx5Hf9kTdm3QYgCNB4HI/3MhT2RYha4FHQEY2Fw5pk6qhuQeVF0lFvnlqtezK803xPZ7Pli732aRwfA6j3nwL7MolTT/MKxUiEzCaTyHjTzki4bGWyAy5SqD+4aqRuzApy/ljVPqCgNRwQQJU63OU/8=
+Received: from DM6PR11MB3690.namprd11.prod.outlook.com (2603:10b6:5:13d::32)
+ by DM6PR11MB3578.namprd11.prod.outlook.com (2603:10b6:5:143::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3721.23; Thu, 7 Jan
+ 2021 11:39:41 +0000
+Received: from DM6PR11MB3690.namprd11.prod.outlook.com
+ ([fe80::2d16:756c:541c:7aa5]) by DM6PR11MB3690.namprd11.prod.outlook.com
+ ([fe80::2d16:756c:541c:7aa5%6]) with mapi id 15.20.3742.006; Thu, 7 Jan 2021
+ 11:39:41 +0000
+From: <Cyril.Jean@microchip.com>
+To: <atish.patra@wdc.com>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3 1/5] RISC-V: Add Microchip PolarFire SoC kconfig option
+Thread-Topic: [PATCH v3 1/5] RISC-V: Add Microchip PolarFire SoC kconfig option
+Thread-Index: AQHWyhu0xs81qxA4TUKGelrkN8HN26ocP1oA
+Date: Thu, 7 Jan 2021 11:39:41 +0000
+Message-ID: <4655c810-e406-f807-d2dc-1b2e0198d945@microchip.com>
+References: <20201204085835.2406541-1-atish.patra@wdc.com>
+ <20201204085835.2406541-2-atish.patra@wdc.com>
+In-Reply-To: <20201204085835.2406541-2-atish.patra@wdc.com>
+Accept-Language: en-IE, en-US
+Content-Language: en-IE
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.10.0
+authentication-results: wdc.com; dkim=none (message not signed)
+ header.d=none;wdc.com; dmarc=none action=none header.from=microchip.com;
+x-originating-ip: [86.40.244.225]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 8f1d9d4e-6ccc-44d7-af57-08d8b300ec32
+x-ms-traffictypediagnostic: DM6PR11MB3578:
+x-ms-exchange-transport-forked: True
+x-microsoft-antispam-prvs: <DM6PR11MB3578A6B39B6ECD17750D74379EAF0@DM6PR11MB3578.namprd11.prod.outlook.com>
+x-bypassexternaltag: True
+x-ms-oob-tlc-oobclassifiers: OLM:2449;
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: jpvj003fNUmuJOwwwyI1eMyXt6RjrYS5Jzmgvnp2kp4LP80Z2UVj4yKoi5rwM4g1xUu1qfP0PyhNJrxHyf/TdJsd1aua2JJdpmzxndGOUvF0tLn4QQzFZ/6lnioFUYSKmc6UMYJGdnVzEHto9z3EiBjR+Ur9ljvVVRNKKDBI84fm/x2mNMcHcjn5bW/e/YK9T27LjZ1LCVt+k/dttwco9c2ESo4EXWVHY3XavISzzvGORI7cEcOICVzuUOC6qkQ5PqFK/yhcV3zc2DBWcuVcGHFEGstO46m3cDaPbyEHDoaUy4qJgZUDQTRRSTHp6mAM6sTDo/uUJrPCQhnfOCOhcArvKyDJpr/4fC1AsrMyTKoH/o1nAg5CXn3U4MBzph7os/DYvqZLiuTJnPP2a599SLgEOQOfDKRcbL3dvKEWvX/lzfh4Uka/iyewSs+8SJNUB8+LRTjr5v2Bv7bypRyoO0c42tYJPXyAdvuwe5Dwsag=
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:DM6PR11MB3690.namprd11.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(136003)(396003)(39860400002)(346002)(376002)(366004)(91956017)(66946007)(7416002)(71200400001)(6506007)(4326008)(66476007)(26005)(186003)(53546011)(66446008)(31686004)(86362001)(66556008)(316002)(5660300002)(83380400001)(8936002)(64756008)(36756003)(54906003)(478600001)(6486002)(76116006)(31696002)(2906002)(8676002)(110136005)(6512007)(107886003)(2616005)(43740500002)(45980500001);
+ DIR:OUT; SFP:1101; 
+x-ms-exchange-antispam-messagedata: =?utf-8?B?eUhMTUx1UlVuVXdXQzNCNG5RWWNqV0hWTk05KzF1cm9KZWc1eG9XcWJkRFM2?=
+ =?utf-8?B?bm9LV3ZLbXdVek1PMUZaV1IxNW5rUGFqallwL2lkcnNFaC9OSEJHWXIvcHI1?=
+ =?utf-8?B?SWRlUWc3WkZiN1laV3hIaTh4Rno0WVZwU3hFWjU1UEpMcXZIbGVkdzNGcHR2?=
+ =?utf-8?B?Z0t2bDkwSFNDMXF5WUhpdlRKUWhvRmVhVjIwZWtSRzd1ZHByUTlad3BOcEo2?=
+ =?utf-8?B?RE95MEN0OG9hdmo4YkdVQ0RlbjZjK1puSVVhanA3dEp5UzdCeGttbzEzc1lM?=
+ =?utf-8?B?YzBHS1JTak1FaHdKSms2VTUwUm1QellQUDFteWMxdk5mZDFZalNrdTg3RndG?=
+ =?utf-8?B?QzlRUStzNEVhT1FPOTBzTmlacEV4d003bjJncXdLcFFZNmZ4ZC83cDY3VFVP?=
+ =?utf-8?B?SEZBSlNyR09GanZ4QktISUpMN0NJbit3MG1uc25OVWs4dU1TeG5RUkxNaUl6?=
+ =?utf-8?B?YWIwRU5GRDUwRzJLL1c3bGdCU1Q3VTlZb2hiUmhHMmp0aDA5bWUyaDBQMzF3?=
+ =?utf-8?B?cXFrTWF5U241MmhvaTJpc2MwZk5wNk1NOGdGRmZRNjdwcHVkV2VQdkVCT3pp?=
+ =?utf-8?B?NWdySlI2azNpS2xucHQwVjlXQVMrYWxBTUpTL0NpaXdXMytBblU3ekxJODdP?=
+ =?utf-8?B?RTVtYVprZUwvL2tyRHRicE9XRWcvY1JOL3A4UnZUZ05IdC9oRS9OZjhDTTZR?=
+ =?utf-8?B?SXA5VTlWRCtjR2U2R0xTbXcwcm9WZzVBU2wwSWtEdi9maEhjQm5GN2txTmZu?=
+ =?utf-8?B?SUN4NzFwWWNkQ2x2aEFBaitteEcrd3VFNkJQaDVZTmZMb3dXQW5FRHRjR1p6?=
+ =?utf-8?B?bFFmbjFBU0R5RWRWaHhUeHI4N3JqMlVETFBWczV1N0lneURtUGZ0UjZ1R0ll?=
+ =?utf-8?B?M1dzcGZYMTVGZFJpOFpXeUNzQklsK0FwbjVoZGc1b01VM2VCQy9OeXgrR3hq?=
+ =?utf-8?B?czJUZ1VOUWpXbmN6bHdQU2p5eHFvSHU4N0tpanRrc1VVeitpOXBhRlRFcWhk?=
+ =?utf-8?B?S2R2cjB4eHp6a1dabUVZWVNDL2RpR2RkcUUyVVpZQWk5dVVEZzJ0eVBoZFp1?=
+ =?utf-8?B?MjZFVFpvcW9iUVI4LzJMbE50SjlJSGV5UWxBSEZFcXJaTzB5ckRNeFV3Ullw?=
+ =?utf-8?B?Z0FJTkFDUGNteGlMZWVpU3FNcnhQVDFzWGVVbTBWUTZPalJ5WWljd3JaOFBC?=
+ =?utf-8?B?bTBWbTg5T09xa3BPejFJdzlSclJjT0ZPQlJXTUNwbTREdkRNNlpYYnZVQk1y?=
+ =?utf-8?B?bjhydHpJVWFJekNMcEJTNnIzdk5hengyY0NwRFUxaTVkb3VZbkI4T2RuWGF3?=
+ =?utf-8?Q?9h0Cn2XXNaoqo=3D?=
+Content-ID: <D74F8BCFDF8F684C87F495FD1FF81176@namprd11.prod.outlook.com>
 MIME-Version: 1.0
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR11MB3690.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8f1d9d4e-6ccc-44d7-af57-08d8b300ec32
+X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Jan 2021 11:39:41.6092 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: y7gI7V72CH41tCFYudKoMxV90Hxx01iq7qrH1T3XmtqeF4UkEKA2tcvuKus3nfhDbXkGhOZoAXECts7/7+MYWfZL/grWTdxINC0K8gJgZz4=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR11MB3578
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210107_042735_770550_0E332140 
-X-CRM114-Status: GOOD (  12.64  )
+X-CRM114-CacheID: sfid-20210107_063947_506062_189F5E0F 
+X-CRM114-Status: GOOD (  16.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -96,56 +172,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup.patel@wdc.com>,
- linux-riscv@lists.infradead.org, Atish Patra <atish.patra@wdc.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Nick Kossifidis <mick@ics.forth.gr>, Andrew Morton <akpm@linux-foundation.org>,
- Ard Biesheuvel <ardb@kernel.org>, Mike Rapoport <rppt@kernel.org>
+Cc: devicetree@vger.kernel.org, bin.meng@windriver.com,
+ Daire.McNamara@microchip.com, anup@brainfault.org, anup.patel@wdc.com,
+ Conor.Dooley@microchip.com, robh+dt@kernel.org, Ivan.Griffin@microchip.com,
+ aou@eecs.berkeley.edu, alistair.francis@wdc.com, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Linux kernel can only map 1GB of address space for RV32 as the page offset
-is set to 0xC0000000. The current description in the Kconfig is confusing
-as it indicates that RV32 can support 2GB of physical memory. That is
-simply not true for current kernel. In future, a 2GB split support can be
-added to allow 2GB physical address space.
+Hi Atish,
 
-Signed-off-by: Atish Patra <atish.patra@wdc.com>
----
- arch/riscv/Kconfig | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+On 12/4/20 8:58 AM, Atish Patra wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+>
+> Add Microchip PolarFire kconfig option which selects SoC specific
+> and common drivers that is required for this SoC.
+>
+> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> Reviewed-by: Bin Meng <bin.meng@windriver.com>
+> Reviewed-by: Anup Patel <anup@brainfault.org>
+> ---
+>   arch/riscv/Kconfig.socs | 7 +++++++
+>   1 file changed, 7 insertions(+)
+>
+> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+> index 8a55f6156661..148ab095966b 100644
+> --- a/arch/riscv/Kconfig.socs
+> +++ b/arch/riscv/Kconfig.socs
+> @@ -1,5 +1,12 @@
+>   menu "SoC selection"
+>
+> +config SOC_MICROCHIP_POLARFIRE
+> +       bool "Microchip PolarFire SoCs"
+> +       select MCHP_CLK_PFSOC
+Can you change MCHP_CLK_PFSOC to MCHP_CLK_MPFS to align with the v2 
+clock driver?
+> +       select SIFIVE_PLIC
+> +       help
+> +         This enables support for Microchip PolarFire SoC platforms.
+> +
+>   config SOC_SIFIVE
+>          bool "SiFive SoCs"
+>          select SERIAL_SIFIVE if TTY
+> --
+> 2.25.1
+>
+Regards,
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 81b76d44725d..e9e2c1f0a690 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -137,7 +137,7 @@ config PA_BITS
- 
- config PAGE_OFFSET
- 	hex
--	default 0xC0000000 if 32BIT && MAXPHYSMEM_2GB
-+	default 0xC0000000 if 32BIT && MAXPHYSMEM_1GB
- 	default 0x80000000 if 64BIT && !MMU
- 	default 0xffffffff80000000 if 64BIT && MAXPHYSMEM_2GB
- 	default 0xffffffe000000000 if 64BIT && MAXPHYSMEM_128GB
-@@ -247,10 +247,12 @@ config MODULE_SECTIONS
- 
- choice
- 	prompt "Maximum Physical Memory"
--	default MAXPHYSMEM_2GB if 32BIT
-+	default MAXPHYSMEM_1GB if 32BIT
- 	default MAXPHYSMEM_2GB if 64BIT && CMODEL_MEDLOW
- 	default MAXPHYSMEM_128GB if 64BIT && CMODEL_MEDANY
- 
-+	config MAXPHYSMEM_1GB
-+		bool "1GiB"
- 	config MAXPHYSMEM_2GB
- 		bool "2GiB"
- 	config MAXPHYSMEM_128GB
--- 
-2.25.1
+Cyril.
 
 
 _______________________________________________
