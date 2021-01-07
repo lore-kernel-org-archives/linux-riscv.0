@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3A327C433E6
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F40B4C433DB
 	for <linux-riscv@archiver.kernel.org>; Thu,  7 Jan 2021 09:27:49 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BB4712312E
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Jan 2021 09:27:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BB4712312E
+	by mail.kernel.org (Postfix) with ESMTPS id 9EC532312E
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Jan 2021 09:27:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9EC532312E
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,69 +23,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=ygn2Li3VSxHx0EFNvRpWVefQ7SK/6ZJA2po6OARn5QM=; b=yHVOPVFkBC8zb4SXeTEPJjUwX
-	8smh2VW+bvMoedNSFurDLmRAg05LT8+AMVFY7lo1ZsOeFL6fTZwYKVtLfgnkaMmKyjarqt/geLwpc
-	wkp2ufxdPA2SbiYGkmPCIuwNWz7zf13xMgI9cQnQGPbMcxh42JBG63sV2117bT7TmzAfOxUGNq6DR
-	HXy5XumUaomLNMEJU8OuwFJJVK0mUa0P31BxPnOT8FW/SGCHtSkwdnNKVcQDioStQjEnto8QT1iz4
-	de6CDJuq6Oer0flH7L9/U/G/TDTEJXCs/YbKQQeuDVsHeUjgx1za0EZ3Cwe2BGJyQpOOEepWa8aje
-	v1qgahd9Q==;
+	 bh=IgBvbEsTa8hyOWw5o32lyuH0SnG5LR9lUKFhhedjih8=; b=IRe8xpoMY/Ss9Hm8Gr2bwB/ZA
+	DM6HW4hAqKcuwbuk6ydhrJx4HT8mAHz+Jz3pbRXjSuzAQbCKIyTVfWZ2adl2gqlA9FbvVMb/k9fWR
+	jU1A6KTok/CBWzfxcH6WpEnPQz7IAKGfKyynWcoaYL3FiQkNA2jTUXaEkGXy178yRpHJg4D+ZBzkx
+	Sm6IG4p+6fKZ40AJUL1beziclJsZ1SnMM7RXjgzBAQMoB2Cpmna/3l9fa/6BWbzANDaRmTE0GP673
+	06KNFVeO5oi4b+jd99HUJ+W50QHaYe5UTxlFofkJ11KXBo4xbKJBJ6JaAQSBVsn/0K8VB3QHJwz4X
+	r7bMlciTQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kxRZx-0001Aj-03; Thu, 07 Jan 2021 09:27:37 +0000
+	id 1kxRZx-0001B0-Sx; Thu, 07 Jan 2021 09:27:37 +0000
 Received: from esa4.hgst.iphmx.com ([216.71.154.42])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kxRZu-00018a-4i
- for linux-riscv@lists.infradead.org; Thu, 07 Jan 2021 09:27:34 +0000
+ id 1kxRZu-00019E-I9
+ for linux-riscv@lists.infradead.org; Thu, 07 Jan 2021 09:27:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1610011653; x=1641547653;
+ t=1610011654; x=1641547654;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=HZSbgxwC4YIGgbIv1CVEHDpNY53JBS2SY0k5ZL1SxFM=;
- b=DqgkxaUE/b8VP5ujfqttA5DgT/BnpjKr3UBq2/2ycT+HlYUT5lE28CXX
- ymGrlqC8IZrVy/PoQp1m0qpr7AlvhNce+JGo59coan0JYbeVHr1yMiHbJ
- +02qZ/SwXgiIaVLjG1QFg1iC1E4CPzhm4+ZzQcwxbaHbCPbKQAApAGwRE
- priYtq94t9tc00AumptZ7vEJbIzwBUF6YfWnQG0Ki5uV0/bUKhhXKpNNZ
- US+sSoE6mltQQ0F0AJU9LykeCM97s8W6c7PEKBKtRvs4z54GEeTNDXZCM
- pYrWK2edvwAswohCUIrPr0m3fRhd2fcjF3Lg6JrstCCgGB/5p3w3R4AoJ g==;
-IronPort-SDR: PmvKdsl0u5lWZabK6Kr27WqCDqPZ0/D4vwSbyZ+jdcHZH7byM/b8rclHGvZ5R937H4Sj9F9BMz
- V7rZpatWJ9OA1LjoLXoLIUVTfT+8213CUkKUgWkUIGjo3PpNC9tyQFueVgesY8TChv2VQ0OmTB
- Pz4UJ3b/9bETH6wQxcktP3QnlE8BxTWvlqGd9mzXZ5yybSJ4ZHHXRGIs8nlkyIqoh5G1DjbkW2
- DJGQ8ni9HsiJSIscgXtOsk7nGqmhLrBk9POXoRO8V2KXlBjXNDRFvU/bNk3h5IWAHAbcQ5teqh
- hVI=
-X-IronPort-AV: E=Sophos;i="5.79,329,1602518400"; d="scan'208";a="156751187"
+ bh=M5vIqNGUKsHMdFcPSrix1DQ77zV4rtwvAiAcgNpAPDw=;
+ b=gJQE6mpP94AX8nv1/ajwpi7kevPgrgvHiWbX1TFYPaKd2q+LkuI/bfgA
+ PauPKchT1V8gIJQBoAZObU44HOOlDfEhH1SZmRpQhsF6H/qrEKdDem3de
+ cwc+eREFb9Smme4OhJOXa9sWZhvCF/zFlmMO0Ut0eZNqmAz70Iitv8wUi
+ xTIuPa9/FhHDhOJMQ8rS+plO6DiapSvn4WQvwxCBg5WBbG34ife1KFUZt
+ 0cwDVcpMbEWVAuaaXuiYBpL+Sbbd6v/SuSvwqJvIE/a7N7lsW5Ev7duXL
+ jcBILf5c9vDE7RKgG9CflTpeG5/egqcqLquweGVPaqgSeR/C2L3iT6gT3 A==;
+IronPort-SDR: wPz4hJmsGXcZmwuUkPmvMANlqEVETm09oh0jYxNw6mLk8ng2Ug48RdnpuzG0T1GA6SCEbTiTB/
+ +2Ghj7zeZu63vVOsQkIfS36xKXyvNuRatx1DALpWAsTcHcSrR4z9z74mUwNP7xg/F4NAsUbBJu
+ +kWOpJLogfLwzgEITHCIHyqdleKZurV3E/v8tyDSreUmoifI0GXYhXENwr7gVGg9vM2+oQh6ic
+ 9SavNiy92WtAV8I9SiCwgEmYNzNrsnlYB1d3BNhAujJVHvTYJ3dIBv9Ra1hVe806+dvnBKL6mF
+ D44=
+X-IronPort-AV: E=Sophos;i="5.79,329,1602518400"; d="scan'208";a="156751190"
 Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
  by ob1.hgst.iphmx.com with ESMTP; 07 Jan 2021 17:27:29 +0800
-IronPort-SDR: +gUmZjE6mzsHN+VRSlUW3TnBA97yFn18QUj57ZMr1O3FuGFQ56ZdoUrMEFzhtHIEEXrlRIGnVq
- 1bXMQZOnbtK3schhzlC5CgXxuJSbGGxkw65Niijs+IgFd+bcRYaA92PY3naoFlxTCaDRb5ewbg
- rJPc2p8l4+LLiayPFfIY12Q8ZsepqppfEixMK2YQlRp2twKS++vTKJqQ9drAAiZtlrVYXk3qaB
- uH6X+YYIXEobOZddU62kKTplubpWDG6dWU2v7dkiRUuCsEGsfWGQCLJucmOXewCvh6477ziuJx
- /V90nOq2WhB6jGVdHx6Xa90O
+IronPort-SDR: vmHDqPvXREUfAIHK5Shl6vrcGAghKE4Q3cH5K7Sf+cZ9E3oYiEXub4pKG8GlUE7s7bHBflWSsU
+ lH8hDkxJNIQEW1FuTc9b2xoKN94fzNyW8+wM0RtrlkfxvmgWDrob8QoiCTUm1LkgKHOwaRvlVU
+ fJ+s2udLzzRzE+gKPsgVsxfrW2mSZlKoBbwghuezDilv7lLajkW5w/ujg+PCHPPqaGhV5hBC1U
+ 9orGM5OUBRx7CJTTo0QfURUDBjU/JHMwVZsnH6oeorG2iNx98OQsfsrNYLEAq7L/tJpbMxch8d
+ 79MjA112lnib7Nosz8tQSlY+
 Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
  07 Jan 2021 01:12:21 -0800
-IronPort-SDR: kLjln25qDdG41vstcY7mxJThPxVXQ/G2dXUPRPrEz9UusObiazDjcJWc4TGnfb78oBBRrAekYv
- fMAAxVLqu30wqz8KSo7SSDLnGGvWvJ6ERVRwjPOoBs9aGEUYf8TszF9EozC23jrGSNALnWwpwE
- 3aaM3Tc5VSM1ABuLJmiF+3Bk5xyeZ9T/qfF+g6XGvQJ3UbtvKcEKk4DbaT3XrkXZvbnahQauLJ
- vnXDruup40/3utsPciFdH+xPcMI17iYVnjhzwioPMhRAbvqtBu8YwVC0hfyfQJ6mdl23Qrf46y
- XSA=
+IronPort-SDR: zSv8gBFiIWRny6FjEV8Yh1InJHxQN7lciB7TEACKijT9oMMn4Tl9SSMq5naYBX+V7UCT6WEv2Z
+ Z0HeSBhGLtYefyMzDZTigNYRqc24ppYws+x8SVISbFqIGpR2ntO6AHRB9EO/DH5K3UBXbjRkuT
+ OoVJlsGpCksgX/BTluFubRa2KIe+HQqnMAa7p0tc9+bYi44CrVIeSwrk9W0umSP8hRnCF0Nbmd
+ xpNy9jsRxwfU81LaiCOHwItEbAvCdjq2sd1f8hHe76owjXGvF577atF8HZs5h5i9J0qhY07Jee
+ 1jw=
 WDCIronportException: Internal
 Received: from usa002483.ad.shared (HELO jedi-01.hgst.com) ([10.86.62.136])
  by uls-op-cesaip02.wdc.com with ESMTP; 07 Jan 2021 01:27:29 -0800
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [PATCH 1/4] RISC-V: Do not allocate memblock while iterating reserved
- memblocks
-Date: Thu,  7 Jan 2021 01:26:49 -0800
-Message-Id: <20210107092652.3438696-2-atish.patra@wdc.com>
+Subject: [PATCH 2/4] RISC-V: Set current memblock limit
+Date: Thu,  7 Jan 2021 01:26:50 -0800
+Message-Id: <20210107092652.3438696-3-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20210107092652.3438696-1-atish.patra@wdc.com>
 References: <20210107092652.3438696-1-atish.patra@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210107_042734_347563_78D9C4FA 
-X-CRM114-Status: GOOD (  18.12  )
+X-CRM114-CacheID: sfid-20210107_042734_732874_700213B0 
+X-CRM114-Status: GOOD (  15.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -107,110 +106,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, resource tree allocates memory blocks while iterating on the
-list. It leads to following kernel warning because memblock allocation
-also invokes memory block reservation API.
+Currently, linux kernel can not use last 4k bytes of addressable space because
+IS_ERR_VALUE macro treats those as an error. This will be an issue for RV32
+as any memblock allocator potentially allocate chunk of memory from the end
+of DRAM (2GB) leading bad address error even though the address was technically
+valid.
 
-[    0.000000] ------------[ cut here ]------------
-[    0.000000] WARNING: CPU: 0 PID: 0 at kernel/resource.c:795
-__insert_resource+0x8e/0xd0
-[    0.000000] Modules linked in:
-[    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted
-5.10.0-00022-ge20097fb37e2-dirty #549
-[    0.000000] epc: c00125c2 ra : c001262c sp : c1c01f50
-[    0.000000]  gp : c1d456e0 tp : c1c0a980 t0 : ffffcf20
-[    0.000000]  t1 : 00000000 t2 : 00000000 s0 : c1c01f60
-[    0.000000]  s1 : ffffcf00 a0 : ffffff00 a1 : c1c0c0c4
-[    0.000000]  a2 : 80c12b15 a3 : 80402000 a4 : 80402000
-[    0.000000]  a5 : c1c0c0c4 a6 : 80c12b15 a7 : f5faf600
-[    0.000000]  s2 : c1c0c0c4 s3 : c1c0e000 s4 : c1009a80
-[    0.000000]  s5 : c1c0c000 s6 : c1d48000 s7 : c1613b4c
-[    0.000000]  s8 : 00000fff s9 : 80000200 s10: c1613b40
-[    0.000000]  s11: 00000000 t3 : c1d4a000 t4 : ffffffff
-
-This is also unnecessary as we can pre-compute the total memblocks required
-for each memory region and allocate it before the loop. It save precious
-boot time not going through memblock allocation code every time.
-
-Fixes: 00ab027a3b82 ("RISC-V: Add kernel image sections to the resource tree")
+Fix this issue by limiting the memblock if available memory spans the entire
+address space.
 
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
 ---
- arch/riscv/kernel/setup.c | 24 +++++++++++++-----------
- 1 file changed, 13 insertions(+), 11 deletions(-)
+ arch/riscv/mm/init.c | 16 ++++++++++++++--
+ 1 file changed, 14 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index 1d85e9bf783c..3fa3f26dde85 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -127,7 +127,9 @@ static void __init init_resources(void)
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index bf5379135e39..da53902ef0fc 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -157,9 +157,10 @@ static void __init setup_initrd(void)
+ void __init setup_bootmem(void)
  {
- 	struct memblock_region *region = NULL;
- 	struct resource *res = NULL;
--	int ret = 0;
-+	struct resource *mem_res = NULL;
-+	size_t mem_res_sz = 0;
-+	int ret = 0, i = 0;
+ 	phys_addr_t mem_start = 0;
+-	phys_addr_t start, end = 0;
++	phys_addr_t start, dram_end, end = 0;
+ 	phys_addr_t vmlinux_end = __pa_symbol(&_end);
+ 	phys_addr_t vmlinux_start = __pa_symbol(&_start);
++	phys_addr_t max_mapped_addr = __pa(PHYS_ADDR_MAX);
+ 	u64 i;
  
- 	code_res.start = __pa_symbol(_text);
- 	code_res.end = __pa_symbol(_etext) - 1;
-@@ -145,16 +147,17 @@ static void __init init_resources(void)
- 	bss_res.end = __pa_symbol(__bss_stop) - 1;
- 	bss_res.flags = IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY;
+ 	/* Find the memory region containing the kernel */
+@@ -181,7 +182,18 @@ void __init setup_bootmem(void)
+ 	/* Reserve from the start of the kernel to the end of the kernel */
+ 	memblock_reserve(vmlinux_start, vmlinux_end - vmlinux_start);
  
-+	mem_res_sz = (memblock.memory.cnt + memblock.reserved.cnt) * sizeof(*mem_res);
-+	mem_res = memblock_alloc(mem_res_sz, SMP_CACHE_BYTES);
-+	if (!mem_res)
-+		panic("%s: Failed to allocate %zu bytes\n", __func__, mem_res_sz);
- 	/*
- 	 * Start by adding the reserved regions, if they overlap
- 	 * with /memory regions, insert_resource later on will take
- 	 * care of it.
- 	 */
- 	for_each_reserved_mem_region(region) {
--		res = memblock_alloc(sizeof(struct resource), SMP_CACHE_BYTES);
--		if (!res)
--			panic("%s: Failed to allocate %zu bytes\n", __func__,
--			      sizeof(struct resource));
-+		res = &mem_res[i++];
- 
- 		res->name = "Reserved";
- 		res->flags = IORESOURCE_MEM | IORESOURCE_BUSY;
-@@ -171,8 +174,10 @@ static void __init init_resources(void)
- 		 * Ignore any other reserved regions within
- 		 * system memory.
- 		 */
--		if (memblock_is_memory(res->start))
-+		if (memblock_is_memory(res->start)) {
-+			memblock_free((phys_addr_t) res, sizeof(struct resource));
- 			continue;
-+		}
- 
- 		ret = add_resource(&iomem_resource, res);
- 		if (ret < 0)
-@@ -181,10 +186,7 @@ static void __init init_resources(void)
- 
- 	/* Add /memory regions to the resource tree */
- 	for_each_mem_region(region) {
--		res = memblock_alloc(sizeof(struct resource), SMP_CACHE_BYTES);
--		if (!res)
--			panic("%s: Failed to allocate %zu bytes\n", __func__,
--			      sizeof(struct resource));
-+		res = &mem_res[i++];
- 
- 		if (unlikely(memblock_is_nomap(region))) {
- 			res->name = "Reserved";
-@@ -205,9 +207,9 @@ static void __init init_resources(void)
- 	return;
- 
-  error:
--	memblock_free((phys_addr_t) res, sizeof(struct resource));
- 	/* Better an empty resource tree than an inconsistent one */
- 	release_child_resources(&iomem_resource);
-+	memblock_free((phys_addr_t) mem_res, mem_res_sz);
- }
- 
- 
+-	max_pfn = PFN_DOWN(memblock_end_of_DRAM());
++	dram_end = memblock_end_of_DRAM();
++
++	/*
++	 * memblock allocator is not aware of the fact that last 4K bytes of
++	 * the addressable memory can not be mapped because of IS_ERR_VALUE
++	 * macro. Make sure that last 4k bytes are not usable by memblock
++	 * if end of dram is equal to maximum addressable memory.
++	 */
++	if (max_mapped_addr == (dram_end - 1))
++		memblock_set_current_limit(max_mapped_addr - 4096);
++
++	max_pfn = PFN_DOWN(dram_end);
+ 	max_low_pfn = max_pfn;
+ 	dma32_phys_limit = min(4UL * SZ_1G, (unsigned long)PFN_PHYS(max_low_pfn));
+ 	set_max_mapnr(max_low_pfn);
 -- 
 2.25.1
 
