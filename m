@@ -2,87 +2,77 @@ Return-Path: <SRS0=xmGS=GL=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A1B09C433DB
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Jan 2021 01:36:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 14F45C433E0
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Jan 2021 02:31:40 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4C5E02368A
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Jan 2021 01:36:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4C5E02368A
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id A983623601
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Jan 2021 02:31:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A983623601
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=Maq3l5agyjEyQx7/iWmE2VJ7nF5xCieMuVaFO/+ER0o=; b=Ws48rZIE745MLsGGCP1PWdBmW
-	V5zUa89h8Gk/q5Rj2T5QZqSoe1VXCcT9XUniuZDoKtwvg7ERQuBu6eRwWaU+VfZJxEeU+EHjpGEOJ
-	2OhW01hmD9662jOyWUmIi3jAo/BF+5vdPGxPyipdBSHU8nMCQrHjhUiv+oeFFVhv+7kYvDEGu8MyR
-	JZXdbjBui/Zoi6fWxB/HA2gV2c6sT4trQ9pemCiULe5JuWwz7O+isHLU0kHlFQ6AQVxtSjd5UQ9dI
-	KByAfszsiTzzWFfKAZPv6/pUUW0wp6ZIPgVBYk1tP7JTdzg1nlbmzDuqjp4R5vrlrQ+lBOQbIHMme
-	Nj7FqCjPg==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=7B1QPF/NKt411yV5Nw/L3qYnNJnpwUuwIXUytC4BNzw=; b=wF4JjaeDr9SfJqpfQuxGhzbaN
+	t60hJxT93aFIb+ZgiCpkE/B+NC7ZlBdLGTdiU0D62jp6q4/tGc6oy9k48E/bV9Mu95+heL1G7tXxq
+	mR6ircVbT//ihBueedZaateH8PQ7S/Ra040y3mfB3T8tmq/JKAQ+xXG6Dib+YeOtMlEXR4wItP2eX
+	ztihjQfCP4kDVZu7aorsoTPC4hW7ChxNVdlN1m0imE3SSQhPHxt/bGS+FCJdJd2tjh1dFR5XWcUgs
+	7qGVdgz3BY9f2UXNZGG8IgtfqWUR70nZ4675nqso8DMFVs0PD1/jo+zzKYwEgOnw6I5p2F+rjHQiw
+	2G4ykt/Sw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kxghY-0002D8-Ir; Fri, 08 Jan 2021 01:36:28 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1kxhYl-0005bH-2y; Fri, 08 Jan 2021 02:31:27 +0000
+Received: from mail-il1-f173.google.com ([209.85.166.173])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kxghV-0002Ce-Oc
- for linux-riscv@lists.infradead.org; Fri, 08 Jan 2021 01:36:26 +0000
-Received: by mail-pl1-x629.google.com with SMTP id be12so4837420plb.4
- for <linux-riscv@lists.infradead.org>; Thu, 07 Jan 2021 17:36:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=Y1J3DUdWcOQx0bVUfuDnHN7QMPqvsEtCtXv4CCI/gFU=;
- b=We21GKe5c5ppvnQ5+V38BX7N59HJaXyZsmnSGyVb9vsePRAy0GYDEpFLfzJV2P/64U
- G1LQ4IfjlcpaNkahgKsq/VBl8dJvlvTT9W55gtIhXSDT1SlLL6ULEs/6Xb9ifjQVfmZ3
- W+XsaM+OCL/DBmLRMvmvn8hJSLGSZj4fi9b91Q6CHepgQn+dpF98gLfBykCvZNA5aByP
- lhDkvbNxaYcTQgnBJdE3HHi2jHDSdXnYfR9mNdTfIKBHwSI3ypZFvvtFFzK0k/XDsq9r
- V+auQg9QfQtpGJ4Rb5m2mMZFWFDMVqaPUgerlEf7WLVzZ3NUTIVkrgCc1CayrVy/lpVJ
- fcwA==
+ id 1kxhYj-0005ar-71
+ for linux-riscv@lists.infradead.org; Fri, 08 Jan 2021 02:31:26 +0000
+Received: by mail-il1-f173.google.com with SMTP id 14so7587106ilq.2
+ for <linux-riscv@lists.infradead.org>; Thu, 07 Jan 2021 18:31:24 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=Y1J3DUdWcOQx0bVUfuDnHN7QMPqvsEtCtXv4CCI/gFU=;
- b=uelHBhXShMIToHktbdmeqJzjLWMrkjdPmTrWu2/xTlZpwXx1zsovcRZmh4NZ+7dBQ9
- BnDKe7DpP1onVHQUStnFkZCuq5zydMBqiFeY99j4ilRomKWPVdnuDz10EVhex5U4khI8
- 5Kore5w2pWFAohva4+qeYilx59Oa85R2ScFN9t1pjHoXNr1r0Edw4J+bGGh7wOJNC1mh
- dJL3tjakU9JM+X1Xie7NdV6oZ8QwKFrD5yLwIVRYYAV/ukXZNny2r7cy/L7HMM22o/6e
- 8EQlttzt4llg1lQzyk6DC9IjkRfwJRDOPH/YFiv2SiciMLzySuZiCIlV4ep+xDkKZCS0
- s3lw==
-X-Gm-Message-State: AOAM533T9lAviCE0VpT1bgi58KdKbEJgSN52MWDVisNLHKNo9NpcNUQH
- MNA2u+tzNPj/BdoJTPYJmLSB0A==
-X-Google-Smtp-Source: ABdhPJwTQMFJXBOd42SE6blUoubNT5H3NxGBzcRFMuHBbDHQRNAJzbKlAUEqkL9CnagoK8T0LCnxRA==
-X-Received: by 2002:a17:90a:5793:: with SMTP id
- g19mr1274178pji.32.1610069779086; 
- Thu, 07 Jan 2021 17:36:19 -0800 (PST)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id c18sm6735984pfj.200.2021.01.07.17.36.17
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=GIfcW+WHG8z7SGoqdIufDckI3aByw7oe2X21FXOjtJQ=;
+ b=q1bz/wJz1aIbAN+d+egJ9i/nN+QbCf1dlmgYqjRPlj6WRXLa6KL5euIJRiJSXVFnBM
+ uHsNHIKME8xeliJqW6Bif5xyMuYvZr87Qv8aDlCu4B2xNFv6Kp1TarkkOjfjs3N/lPK0
+ K8XglntFQSgF6Tkv/tvgqmpDWT9aq8c2NcfidN6w+tLc5z3RyF3J+SsA4tNmDXW5vQHs
+ /PwU9qx67bXFlzmMQtQuQwJUvuZkPkfstFh7+nUBtMHfZ6TVdEXoGw1Cqt6iJRupCStH
+ OZNS07OL0oQrDX2kVCIUUm1ue+m0A7dfbgkAuf57vUNoTt86STFUNNBLBypW3pYL4OvD
+ q8Ww==
+X-Gm-Message-State: AOAM532V99RFH8Yho7VL69DatDXbcZz2XPtHdakkTurhIOtwT30wZa2y
+ q9O4nlqoVDWxZon9sjKI/A==
+X-Google-Smtp-Source: ABdhPJyFcS7+aInokqTq8EtfzmBKUMB1ryb+seTpqDPUc43EMh10DSiYgbqHNjvNanGBoF110kVGRA==
+X-Received: by 2002:a92:a1da:: with SMTP id b87mr1818408ill.111.1610073083650; 
+ Thu, 07 Jan 2021 18:31:23 -0800 (PST)
+Received: from robh.at.kernel.org ([64.188.179.253])
+ by smtp.gmail.com with ESMTPSA id m75sm6155114ill.15.2021.01.07.18.31.21
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 07 Jan 2021 17:36:18 -0800 (PST)
-Date: Thu, 07 Jan 2021 17:36:18 -0800 (PST)
-X-Google-Original-Date: Thu, 07 Jan 2021 17:28:44 PST (-0800)
-Subject: Re: [PATCH v3 0/2] riscv: sifive_l2_cache: Add support for SiFive
- FU740 SoC
-In-Reply-To: <1607596083-81480-1-git-send-email-yash.shah@sifive.com>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: yash.shah@sifive.com
-Message-ID: <mhng-18249e76-3632-4347-b9f1-73e1cc39683a@palmerdabbelt-glaptop>
-Mime-Version: 1.0 (MHng)
+ Thu, 07 Jan 2021 18:31:22 -0800 (PST)
+Received: (nullmailer pid 1754724 invoked by uid 1000);
+ Fri, 08 Jan 2021 02:31:21 -0000
+Date: Thu, 7 Jan 2021 19:31:21 -0700
+From: Rob Herring <robh@kernel.org>
+To: conor.dooley@microchip.com
+Subject: Re: [PATCH v3 4/5] dt-bindings: add bindings for polarfire soc
+ system controller
+Message-ID: <20210108023121.GA1750857@robh.at.kernel.org>
+References: <20201223163316.29186-1-conor.dooley@microchip.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20201223163316.29186-1-conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210107_203625_926123_988FE926 
-X-CRM114-Status: GOOD (  16.27  )
+X-CRM114-CacheID: sfid-20210107_213125_300653_AB9E7E33 
+X-CRM114-Status: GOOD (  16.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -94,39 +84,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, aou@eecs.berkeley.edu, anup@brainfault.org,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org,
- wsa@kernel.org, sachin.ghadi@sifive.com, yash.shah@sifive.com,
- robh+dt@kernel.org, sagar.kadam@sifive.com, Jonathan.Cameron@huawei.com,
- linux-riscv@lists.infradead.org, bp@suse.de, sam@ravnborg.org
+Cc: devicetree@vger.kernel.org, damien.lemoal@wdc.com, aou@eecs.berkeley.edu,
+ lewis.hanly@microchip.com, david.abdurachmanov@gmail.com,
+ daire.mcnamara@microchip.com, jassisinghbrar@gmail.com, j.neuschaefer@gmx.net,
+ atish.patra@wdc.com, anup.patel@wdc.com, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, cyril.jean@microchip.com,
+ linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 10 Dec 2020 02:28:01 PST (-0800), yash.shah@sifive.com wrote:
-> Add support for additional interrupt present in SiFive FU740 chip.
->
-> Changes:
-> v3:
-> - Rename the subject line of dt-binding patch
-> - Add the additional interrupt "DirFail" as the last entry so as to keep
->   the order of all previous index same.
->
-> v2:
-> - Changes as per Rob Herring's request on v1
->
-> Yash Shah (2):
->   dt-bindings: riscv: Update l2 cache DT documentation to add support
->     for SiFive FU740
->   RISC-V: sifive_l2_cache: Update L2 cache driver to support SiFive
->     FU740
->
->  .../devicetree/bindings/riscv/sifive-l2-cache.yaml | 34 +++++++++++++++++++---
->  drivers/soc/sifive/sifive_l2_cache.c               | 27 +++++++++++++++--
->  2 files changed, 54 insertions(+), 7 deletions(-)
+On Wed, Dec 23, 2020 at 04:33:16PM +0000, conor.dooley@microchip.com wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+> 
+> Add device tree bindings for the MSS system controller on
+> the Microchip PolarFire SoC.
+> 
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>  .../microchip,mpfs_sys_controller.yaml        | 34 +++++++++++++++++++
+>  1 file changed, 34 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/soc/microchip/microchip,mpfs_sys_controller.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs_sys_controller.yaml b/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs_sys_controller.yaml
+> new file mode 100644
+> index 000000000000..60fde1925910
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/soc/microchip/microchip,mpfs_sys_controller.yaml
+> @@ -0,0 +1,34 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: "http://devicetree.org/schemas/soc/microchip/microchip,mpfs_sys_controller.yaml#"
+> +$schema: "http://devicetree.org/meta-schemas/core.yaml#"
+> +
+> +title: Microchip PolarFire SoC (MPFS) system controller
+> +
+> +maintainers:
+> +  - Conor Dooley <conor.dooley@microchip.com>
 
-Thanks, these are on for-next.
+'description'?
+
+Perhaps including some info about what this block does and how it is 
+accessed.
+
+> +
+> +properties:
+> +  compatible:
+> +    const: microchip,polarfire-soc-sys-controller
+> +
+> +  mboxes:
+> +    $ref: '/schemas/types.yaml#/definitions/phandle-array'
+> +    description: |
+> +      phandle and index of the mailbox controller device node.
+> +      See: ../mailbox/mailbox.txt for more information.
+
+All this is defined already in the common binding schema, drop.
+
+> +    maxItems: 1
+> +
+> +required:
+> +  - compatible
+> +  - "mboxes"
+
+Don't need quotes.
+
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    syscontroller: syscontroller {
+> +      compatible = "microchip,polarfire-soc-sys-controller";
+> +      mboxes = <&mbox 0>;
+> +    };
+> -- 
+> 2.17.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
