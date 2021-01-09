@@ -4,17 +4,17 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 18478C433DB
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 Jan 2021 23:14:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 62ABAC433E0
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Jan 2021 23:14:12 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C809923975
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 Jan 2021 23:14:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C809923975
+	by mail.kernel.org (Postfix) with ESMTPS id 2A62123975
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Jan 2021 23:14:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2A62123975
 Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,63 +23,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=A3dL4GwAcyRAvm3orGelfHQiY+JFoi60GCNGPidxmY4=; b=0imdIiKg0eeJ+CtOpBXuAB8ml
-	g5n4EK3WlNn2lrk3GwCMknM5h3KeoLQQYCE8td9I0D+5P0URZQ5gRK70qAtmds2JcfLjYfzY8p/eH
-	vG1v1V/UMtMWfRaubcgqeR/EWP/Gn/dYvBl79LhiUs1xw8Bs2Ulri2dQ3eNH4HULIIwpFPQDNHlSr
-	Hx4fNroYkf4kvKH4Mw/SGnAxgaxKsoz6NL/edCPdwuI3hB4Exb8M7GezgNPjoYB+GGkCpwr1HcLyw
-	V18azzJIypb4JMqQWnaalKa2iNpu+JfVNidMK4J3NqliIWn0AMDeEC8aIki1NVBJmVUYknkQXJMgu
-	8+6x+s1Hg==;
+	 bh=ZBpXstwnQm1/S+wpa65HjyMS9dZjhnL5M8qWu+L8Emw=; b=Hh/lzKIiBYNqMEISIonVHkpQr
+	obsM2ZY5j4wA2cofINP8j7yxPGRNepCqmfpv3RgUD55pDksm58jkibYeVfGoFnRAhyLkuxihq5Zq/
+	S1Xx44AmU871ogJiXSA+TWPLhXGEkE2o2VeNw+fR8YDe4AWh5tpeGaPVeLFsrbJSs918vXxWGIZgH
+	LqBXGfeh5sy3HLR0z0EUYpioKow2YthMYfAYsy64QzZJZ6+gJSKkLXuHexBvfGEHVOqApl15YAwJC
+	4275n+LThVG6AS1AF66C9Ya3IXhPN0gGonYmIf5cEVtrR0nKAf07WbCmAPsiiriLrN/FG9aUDy30J
+	QznbZUEng==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kyNQn-00077L-1A; Sat, 09 Jan 2021 23:14:01 +0000
-Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
+	id 1kyNQi-00075L-2m; Sat, 09 Jan 2021 23:13:56 +0000
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kyMf5-00057T-0e
- for linux-riscv@lists.infradead.org; Sat, 09 Jan 2021 22:24:44 +0000
-Received: by mail-pg1-x533.google.com with SMTP id n10so10023353pgl.10
- for <linux-riscv@lists.infradead.org>; Sat, 09 Jan 2021 14:24:42 -0800 (PST)
+ id 1kyMbx-0003eA-Ku
+ for linux-riscv@lists.infradead.org; Sat, 09 Jan 2021 22:21:30 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id p18so10015879pgm.11
+ for <linux-riscv@lists.infradead.org>; Sat, 09 Jan 2021 14:21:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=8jO6peNCFCsdIJiomlgSocSpgqixsztiGecX28LPTMM=;
- b=jBDRyKVr1NadYUtpXf3am3NBXSRL8pt04z1SJLMR+f9MAAYsAclHy15W3GAa6YJEHS
- x2DAxbKQbHWoFiF5kWlPFqabX6TibYROffrn6FltANWj5/PVwxrK+AzyL6VIGexZahi0
- a1vuap2bvnFE2vNe86FlA745AnGLLfUnwjVH9k0/Hcis1fCOLRVsay4UOHfF0yqbavw5
- H406OXVqhoce5rREf4/ZeyRHWngXeKlKfBmU0cI0pM2znU0hU9OE2Z3FrL8jcBVWNj1Y
- FGm3EnlT4c4PVWmOsPm8fJYXLLMGEvUMazZVg1uWp5VzO+BwCIfMMT/6Zdwrsy+9PmPa
- oypA==
+ bh=7W2YZRkQEwPTHFli7Q8LAXtCbhfH5mCxXdH2FfDDn10=;
+ b=fQDwlGnuJZ2Qb94R/idwKS2rS1VJoLBJv/4xpeVlsLf3RORTeovyj6XBALp/fYEUtN
+ /X/IiFbLjUrJyyE72jbZCDHvUKL9SeB015uczBWKNPOFpD0qPmdcmJK7oZzNSt9GlELX
+ 3XdyGx6cx4B7I+4R/yqxvzfy9Me1SxzCROU1gGj8TGeRKVQSVKQ0BydZKfD2aegdJyjG
+ axBLDooPRXnRusLH9OEclbq6/FsVEUM8fpn4VIkb6CNkoOcnig0PTGdJ6xtZUII8FN2D
+ vy1B5NPs5UI3rrs8a8bpmmaBe0v0DooRZBij02REo9kNqqtyLfzaXfw09voXaNb3AXDy
+ vC+A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=8jO6peNCFCsdIJiomlgSocSpgqixsztiGecX28LPTMM=;
- b=bplgZB8I8KYSL7PSpKl5wTN4a71lXpiEcfOzYfTRkzPxSo5HLD5CXcXeXiy1QNP37r
- LGbx89XXHPPNQvnPLnonXuiaoC+0AxHpg9ed24sYy2AALIou19vwr4x+st5MB7brnb9c
- yiGwWLQpLI0N6uuTY80fAE9OFG8N3W8vBtOhJwNzTqlO+5tACDQQZ1NwnpgHl64JDVYP
- KEVm46PZElIhMANjGqhU7hnTiu4dmMQDx6uXM3MKKruXb+tabjl1H5wyqn9Jel1eZf85
- a6Zio0EQt+Y+NdGVd9MitjlPgj/F/LA5eGzSpmhXNkp24lg242Sj1WU7TdjfyLl5Rr3S
- nBGA==
-X-Gm-Message-State: AOAM533Hqe8hLYjyTsxWdm0kLG6EPtlTHAYFZHdB61iluoA5i3ioBXKR
- za7oYvvR3XgDZx79XMOKnGSFkw==
-X-Google-Smtp-Source: ABdhPJxUkd9awf3gYUoz2oeQlg2MhkDyB7jFFhDkaL5rB/Vs6DT33wHdiDnLCIbasQPaLsjffpNRUw==
-X-Received: by 2002:a63:4c4b:: with SMTP id m11mr13323114pgl.20.1610231080612; 
- Sat, 09 Jan 2021 14:24:40 -0800 (PST)
+ bh=7W2YZRkQEwPTHFli7Q8LAXtCbhfH5mCxXdH2FfDDn10=;
+ b=UFbFyfCz+o+pETK0cwjsF8iruCLvPtfZeth1J12Yjlt2ac0akWE8BpeeCtsrzFdz+P
+ ZzRv7HAlAJJ/G8CDptmyDuTsxRUiycIg1B/yrSIYoRaq4lPodUa/FZzDmQ+n5dZOyF12
+ arGE0N2BIjkQHvXQBSjmz3D0101EFgZ9B1kEVqG58H+2w9eKvQ8EjXIZYbIiXeik1wTH
+ pzadWc8W/eHCKS13FY0Gvmw7jP15k9hMAsH9w7xqhm/gW0FAFi+sVZpgHaDxGHfkCyyE
+ MK/eDOVImfUvMzkckpBZUaFQs1vClmGlpSDHryF/H1J7hwI/+v8yLdbAv+RgHfNyJf8Y
+ CMzQ==
+X-Gm-Message-State: AOAM532Qbmxhepjq+HY+aona3N0mg56II+2FeuhBKdzOLI2fpAspo/64
+ MfIo7lnwYp6V6exoB4NNG2s6Tv7N4ab+4Kms
+X-Google-Smtp-Source: ABdhPJxgmgAsC+9E0s7+UJiwTZujZ0nHBTaH+3c9sAzyweaAdRU/7Y+jTDP6T8vGg0ASD1bBh817hw==
+X-Received: by 2002:a63:545f:: with SMTP id e31mr13328314pgm.327.1610230881651; 
+ Sat, 09 Jan 2021 14:21:21 -0800 (PST)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id t1sm9400479pju.43.2021.01.09.14.24.39
+ by smtp.gmail.com with ESMTPSA id 22sm13464449pfn.190.2021.01.09.14.21.20
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sat, 09 Jan 2021 14:24:39 -0800 (PST)
-Date: Sat, 09 Jan 2021 14:24:39 -0800 (PST)
-X-Google-Original-Date: Sat, 09 Jan 2021 14:24:38 PST (-0800)
-Subject: Re: [PATCH 1/2] riscv: Add dump stack in show_regs
-In-Reply-To: <30626a12-5cb5-c113-ab6c-9fdc3c598c70@huawei.com>
+ Sat, 09 Jan 2021 14:21:21 -0800 (PST)
+Date: Sat, 09 Jan 2021 14:21:21 -0800 (PST)
+X-Google-Original-Date: Sat, 09 Jan 2021 14:21:19 PST (-0800)
+Subject: Re: [PATCH] riscv: Add machine name to kernel boot log and stack dump
+ output
+In-Reply-To: <b0cc0186-b14f-7ce4-e429-1a09442c4953@huawei.com>
 From: Palmer Dabbelt <palmerdabbelt@google.com>
 To: wangkefeng.wang@huawei.com
-Message-ID: <mhng-965396e3-01db-4be9-bc1d-1da8cb0127f0@palmerdabbelt-glaptop>
+Message-ID: <mhng-fb261c4e-325c-47ed-a3d6-fb0da634c743@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210109_172443_150822_69B2280C 
-X-CRM114-Status: GOOD (  18.89  )
+X-CRM114-CacheID: sfid-20210109_172129_764986_6577B80B 
+X-CRM114-Status: GOOD (  17.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -93,141 +94,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu,
  Paul Walmsley <paul.walmsley@sifive.com>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 14 Dec 2020 03:52:19 PST (-0800), wangkefeng.wang@huawei.com wrote:
-> hi Palmer, kindly ping...
-
-Sorry, it looks like I missed this because it's all threaded together.  I'm not
-really sure what you're trying to do here: you've got three patch sets in one
-thread, one of which seems to be a v2 of only a single patch.
-
-Do you mind sending out a standalone version of this?
-
->
-> On 2020/11/24 19:20, Kefeng Wang wrote:
->> Like commit 1149aad10b1e ("arm64: Add dump_backtrace() in show_regs"),
->> dump the stack in riscv show_regs as common code expects.
->>
->> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
->> ---
->> NOTE: The patches based on
->> https://patchwork.kernel.org/project/linux-riscv/list/?series=383349
->>
->>   arch/riscv/include/asm/bug.h        |  1 +
->>   arch/riscv/include/asm/stacktrace.h |  2 ++
->>   arch/riscv/kernel/process.c         |  9 ++++++++-
->>   arch/riscv/kernel/stacktrace.c      | 10 ++++++++--
->>   arch/riscv/kernel/traps.c           |  3 ++-
->>   5 files changed, 21 insertions(+), 4 deletions(-)
->>
->> diff --git a/arch/riscv/include/asm/bug.h b/arch/riscv/include/asm/bug.h
->> index d6f1ec08d97b..d3804a2f9aad 100644
->> --- a/arch/riscv/include/asm/bug.h
->> +++ b/arch/riscv/include/asm/bug.h
->> @@ -85,6 +85,7 @@ do {								\
->>   struct pt_regs;
->>   struct task_struct;
->>
->> +void __show_regs(struct pt_regs *regs);
->>   void die(struct pt_regs *regs, const char *str);
->>   void do_trap(struct pt_regs *regs, int signo, int code, unsigned long addr);
->>
->> diff --git a/arch/riscv/include/asm/stacktrace.h b/arch/riscv/include/asm/stacktrace.h
->> index 470a65c4ccdc..3450c1912afd 100644
->> --- a/arch/riscv/include/asm/stacktrace.h
->> +++ b/arch/riscv/include/asm/stacktrace.h
->> @@ -13,5 +13,7 @@ struct stackframe {
->>
->>   extern void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
->>   				    bool (*fn)(void *, unsigned long), void *arg);
->> +extern void dump_backtrace(struct pt_regs *regs, struct task_struct *task,
->> +			   const char *loglvl);
->>
->>   #endif /* _ASM_RISCV_STACKTRACE_H */
->> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
->> index 19225ec65db6..e41b733abeaa 100644
->> --- a/arch/riscv/kernel/process.c
->> +++ b/arch/riscv/kernel/process.c
->> @@ -18,6 +18,7 @@
->>   #include <asm/unistd.h>
->>   #include <asm/processor.h>
->>   #include <asm/csr.h>
->> +#include <asm/stacktrace.h>
->>   #include <asm/string.h>
->>   #include <asm/switch_to.h>
->>   #include <asm/thread_info.h>
->> @@ -39,7 +40,7 @@ void arch_cpu_idle(void)
->>   	local_irq_enable();
->>   }
->>
->> -void show_regs(struct pt_regs *regs)
->> +void __show_regs(struct pt_regs *regs)
->>   {
->>   	show_regs_print_info(KERN_DEFAULT);
->>
->> @@ -69,6 +70,12 @@ void show_regs(struct pt_regs *regs)
->>   	pr_cont("status: " REG_FMT " badaddr: " REG_FMT " cause: " REG_FMT "\n",
->>   		regs->status, regs->badaddr, regs->cause);
->>   }
->> +void show_regs(struct pt_regs *regs)
->> +{
->> +	__show_regs(regs);
->> +	if (!user_mode(regs))
->> +		dump_backtrace(regs, NULL, KERN_DEFAULT);
->> +}
->>
->>   void start_thread(struct pt_regs *regs, unsigned long pc,
->>   	unsigned long sp)
->> diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
->> index 48b870a685b3..76dadf6d396b 100644
->> --- a/arch/riscv/kernel/stacktrace.c
->> +++ b/arch/riscv/kernel/stacktrace.c
->> @@ -101,10 +101,16 @@ static bool print_trace_address(void *arg, unsigned long pc)
->>   	return true;
->>   }
->>
->> +void dump_backtrace(struct pt_regs *regs, struct task_struct *task,
->> +		    const char *loglvl)
->> +{
->> +	pr_cont("%sCall Trace:\n", loglvl);
->> +	walk_stackframe(task, regs, print_trace_address, (void *)loglvl);
->> +}
->> +
->>   void show_stack(struct task_struct *task, unsigned long *sp, const char *loglvl)
->>   {
->> -	pr_cont("Call Trace:\n");
->> -	walk_stackframe(task, NULL, print_trace_address, (void *)loglvl);
->> +	dump_backtrace(NULL, task, loglvl);
->>   }
->>
->>   static bool save_wchan(void *arg, unsigned long pc)
->> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
->> index ad14f4466d92..570eb078b1e1 100644
->> --- a/arch/riscv/kernel/traps.c
->> +++ b/arch/riscv/kernel/traps.c
->> @@ -16,6 +16,7 @@
->>   #include <linux/module.h>
->>   #include <linux/irq.h>
->>
->> +#include <asm/bug.h>
->>   #include <asm/processor.h>
->>   #include <asm/ptrace.h>
->>   #include <asm/csr.h>
->> @@ -66,7 +67,7 @@ void do_trap(struct pt_regs *regs, int signo, int code, unsigned long addr)
->>   			tsk->comm, task_pid_nr(tsk), signo, code, addr);
->>   		print_vma_addr(KERN_CONT " in ", instruction_pointer(regs));
->>   		pr_cont("\n");
->> -		show_regs(regs);
->> +		__show_regs(regs);
->>   	}
->>
->>   	force_sig_fault(signo, code, (void __user *)addr);
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCAxNCBEZWMgMjAyMCAwMzozMTowMyBQU1QgKC0wODAwKSwgd2FuZ2tlZmVuZy53YW5n
+QGh1YXdlaS5jb20gd3JvdGU6Cj4gSGkgUGFsbWVyLMKgIGtpbmRseSBwaW5nLi4KPgo+IE9uIDIw
+MjAvMTEvMjUgMTk6NDQsIEtlZmVuZyBXYW5nIHdyb3RlOgo+PiBBZGQgdGhlIG1hY2hpbmUgbmFt
+ZSB0byBrZXJuZWwgYm9vdC11cCBsb2csIGFuZCBpbnN0YWxsCj4+IHRoZSBtYWNoaW5lIG5hbWUg
+dG8gc3RhY2sgZHVtcCBmb3IgRFQgYm9vdCBtb2RlLgo+Pgo+PiBTaWduZWQtb2ZmLWJ5OiBLZWZl
+bmcgV2FuZyA8d2FuZ2tlZmVuZy53YW5nQGh1YXdlaS5jb20+Cj4+IC0tLQo+Pgo+PiBIZXJlIGlz
+IHRoZSBtZXNzYWdlIGFmdGVyIHBhdGNoZWQsCj4+Cj4+IHJvb3RAKG5vbmUpOn4jIGRtZXNnIHxn
+cmVwICJNYWNoaW5lIG1vZGVsIgo+PiBbICAgIDAuMDAwMDAwXSBNYWNoaW5lIG1vZGVsOiByaXNj
+di12aXJ0aW8scWVtdQo+Pgo+PiByb290QChub25lKTp+IyBlY2hvIGMgPiAvcHJvYy9zeXNycS10
+cmlnZ2VyCj4+IFsgMTUxOS40NzUzNDZdIHN5c3JxOiBUcmlnZ2VyIGEgY3Jhc2gKPj4gWyAxNTE5
+LjQ3NjAwNF0gS2VybmVsIHBhbmljIC0gbm90IHN5bmNpbmc6IHN5c3JxIHRyaWdnZXJlZCBjcmFz
+aAo+PiBbIDE1MTkuNDc2NDgwXSBDUFU6IDAgUElEOiA2NCBDb21tOiBzaCBOb3QgdGFpbnRlZCA1
+LjEwLjAtcmM1ICMyNDYKPj4gWyAxNTE5LjQ3Njg3N10gSGFyZHdhcmUgbmFtZTogcmlzY3Ytdmly
+dGlvLHFlbXUgKERUKQo+PiBbIDE1MTkuNDc3MTY5XSBDYWxsIFRyYWNlOgo+PiAuLi4KPj4KPj4g
+ICBhcmNoL3Jpc2N2L2tlcm5lbC9zZXR1cC5jIHwgOSArKysrKysrKy0KPj4gICAxIGZpbGUgY2hh
+bmdlZCwgOCBpbnNlcnRpb25zKCspLCAxIGRlbGV0aW9uKC0pCj4+Cj4+IGRpZmYgLS1naXQgYS9h
+cmNoL3Jpc2N2L2tlcm5lbC9zZXR1cC5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvc2V0dXAuYwo+PiBp
+bmRleCBjNDI0Y2M2ZGQ4MzMuLjkwMWFjMGM2ODBkZCAxMDA2NDQKPj4gLS0tIGEvYXJjaC9yaXNj
+di9rZXJuZWwvc2V0dXAuYwo+PiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9zZXR1cC5jCj4+IEBA
+IC01NCw4ICs1NCwxNSBAQCBzdGF0aWMgREVGSU5FX1BFUl9DUFUoc3RydWN0IGNwdSwgY3B1X2Rl
+dmljZXMpOwo+PiAgIHN0YXRpYyB2b2lkIF9faW5pdCBwYXJzZV9kdGIodm9pZCkKPj4gICB7Cj4+
+ICAgCS8qIEVhcmx5IHNjYW4gb2YgZGV2aWNlIHRyZWUgZnJvbSBpbml0IG1lbW9yeSAqLwo+PiAt
+CWlmIChlYXJseV9pbml0X2R0X3NjYW4oZHRiX2Vhcmx5X3ZhKSkKPj4gKwlpZiAoZWFybHlfaW5p
+dF9kdF9zY2FuKGR0Yl9lYXJseV92YSkpIHsKPj4gKwkJY29uc3QgY2hhciAqbmFtZSA9IG9mX2Zs
+YXRfZHRfZ2V0X21hY2hpbmVfbmFtZSgpOwo+PiArCj4+ICsJCWlmIChuYW1lKSB7Cj4+ICsJCQlw
+cl9pbmZvKCJNYWNoaW5lIG1vZGVsOiAlc1xuIiwgbmFtZSk7Cj4+ICsJCQlkdW1wX3N0YWNrX3Nl
+dF9hcmNoX2Rlc2MoIiVzIChEVCkiLCBuYW1lKTsKPj4gKwkJfQo+PiAgIAkJcmV0dXJuOwo+PiAr
+CX0KPj4KPj4gICAJcHJfZXJyKCJObyBEVEIgcGFzc2VkIHRvIHRoZSBrZXJuZWxcbiIpOwo+PiAg
+ICNpZmRlZiBDT05GSUdfQ01ETElORV9GT1JDRQoKVGhhbmtzLCB0aGlzIGlzIG9uIGZvci1uZXh0
+LgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
+cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
+L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
