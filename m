@@ -2,20 +2,20 @@ Return-Path: <SRS0=RTcI=GM=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-19.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 36F31C433E0
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 Jan 2021 20:51:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 18478C433DB
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Jan 2021 23:14:09 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AD6DC23AC4
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 Jan 2021 20:51:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AD6DC23AC4
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id C809923975
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Jan 2021 23:14:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C809923975
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
@@ -23,64 +23,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=leZsreaSZRGauOlS9DuRpc02wo5WR+CYl+ZAMFtWMZc=; b=hWUjoKLB/dlpJPnzZmOYAECAX
-	9RXLfumUvC2L/bX/7A/kpKpTdWe97CbFx3zmN1wHqCcZm1/W/mdcS74ZevCWyx2csTAfL/cWTiRV6
-	MSzCaZnD0EigOEjZmzrpVF4G5stc3W9IGxuFz9YGWcaB3ygvluwi3myzRwkRCWMAuzvn85VxI3enL
-	LpqctfynRHD1Ci9/j6siZa3WS9TXjlpvgDz649TP6DxNR0AczGHnromiTXl7x4IeTPWv9jem6hdt7
-	yq2DT4zaPNUzjWX/3LdE7xwnFT7mur8+XmB4E2IGJ8KQ65R7ozWGTN9gB+ozpD8QWCD/pqw5b/hzb
-	PEjd1K7rw==;
+	 bh=A3dL4GwAcyRAvm3orGelfHQiY+JFoi60GCNGPidxmY4=; b=0imdIiKg0eeJ+CtOpBXuAB8ml
+	g5n4EK3WlNn2lrk3GwCMknM5h3KeoLQQYCE8td9I0D+5P0URZQ5gRK70qAtmds2JcfLjYfzY8p/eH
+	vG1v1V/UMtMWfRaubcgqeR/EWP/Gn/dYvBl79LhiUs1xw8Bs2Ulri2dQ3eNH4HULIIwpFPQDNHlSr
+	Hx4fNroYkf4kvKH4Mw/SGnAxgaxKsoz6NL/edCPdwuI3hB4Exb8M7GezgNPjoYB+GGkCpwr1HcLyw
+	V18azzJIypb4JMqQWnaalKa2iNpu+JfVNidMK4J3NqliIWn0AMDeEC8aIki1NVBJmVUYknkQXJMgu
+	8+6x+s1Hg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kyLCl-0001aw-Sa; Sat, 09 Jan 2021 20:51:23 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1kyNQn-00077L-1A; Sat, 09 Jan 2021 23:14:01 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kyLCg-0001ZJ-IS
- for linux-riscv@lists.infradead.org; Sat, 09 Jan 2021 20:51:21 +0000
-Received: by mail-pf1-x429.google.com with SMTP id h186so8536174pfe.0
- for <linux-riscv@lists.infradead.org>; Sat, 09 Jan 2021 12:51:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ id 1kyMf5-00057T-0e
+ for linux-riscv@lists.infradead.org; Sat, 09 Jan 2021 22:24:44 +0000
+Received: by mail-pg1-x533.google.com with SMTP id n10so10023353pgl.10
+ for <linux-riscv@lists.infradead.org>; Sat, 09 Jan 2021 14:24:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=62H/x/rByJ7ggse69TMiJJtItRYsUHxpZdki7cQ0WSY=;
- b=DoveRgb7gXjFv1+ebT4gOVEgstLeS7xoNCzngzTIpcb6n9yiwNrt81KUF+6Amd0gkK
- RGOK1gcWgCICsIv/c4SURHsg8OztnlMoRMvJj1dh4E31jGgzNJHrIsngtGwccM9Jsj4C
- 9b9CVH3nW16+SldrGzvq9Ba75tpJeOrozHIVJPhC3hmxCisbOwttLLbPBvaOZBFFGKkD
- XktLpcJcbFL6JN2BGMGY4HrfC6+FDi1WDm1zO9/9mJcqnx7TjtgEp766x1eOWP3DZwCH
- F4ZEalrhwuWiTxNFAId3p3wnknrkMI8Qfo8JUy1Va1ajglff2/EfQinLBe74NKFd7CK9
- M6Xw==
+ bh=8jO6peNCFCsdIJiomlgSocSpgqixsztiGecX28LPTMM=;
+ b=jBDRyKVr1NadYUtpXf3am3NBXSRL8pt04z1SJLMR+f9MAAYsAclHy15W3GAa6YJEHS
+ x2DAxbKQbHWoFiF5kWlPFqabX6TibYROffrn6FltANWj5/PVwxrK+AzyL6VIGexZahi0
+ a1vuap2bvnFE2vNe86FlA745AnGLLfUnwjVH9k0/Hcis1fCOLRVsay4UOHfF0yqbavw5
+ H406OXVqhoce5rREf4/ZeyRHWngXeKlKfBmU0cI0pM2znU0hU9OE2Z3FrL8jcBVWNj1Y
+ FGm3EnlT4c4PVWmOsPm8fJYXLLMGEvUMazZVg1uWp5VzO+BwCIfMMT/6Zdwrsy+9PmPa
+ oypA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=62H/x/rByJ7ggse69TMiJJtItRYsUHxpZdki7cQ0WSY=;
- b=j/SfjXFk9z/e0tm2qv4RooACHJ4z4P+bvvXLDL+bv7gdMQIMxkLJ4616G06BW1B8Fg
- OMbk4kK3ovvKUO+UJVb8mGQh/hmsQxs4BZrrJlbGQbvrtljVC/JMiMcmYvyRdzjz+GRV
- Ww+LNlkjxCeuIO+wKSRUSsOC0sPn6zE+C8nWwzpdAKrJClO+TQdUBKiQWwwipLXlcqAf
- eJEmIe71d/ReLAuY4sxF16fTIS+pbDylcnIYLMoPQuphGrgUeHp9VgbOdx34I6zx5Y3R
- Wl+Tc7iyaJU536PBnV4ZP0Bo3zrcqvOO02STr1tMycI+RgEd6S/FnhsFYWEEULSCalv/
- G+Hg==
-X-Gm-Message-State: AOAM531FWyKOf7YsGK+A+vDcu87P7+MLKFvGzVtBbtkZ2x40D6g5r2fs
- 6MwpIfTuKTBDXSNUf0P3pMadoA==
-X-Google-Smtp-Source: ABdhPJzvQxmL/8rMOc/FYAbYs90guGWjhjVKrS4AG8vAK2ohMHxboO5/LTHzyHEKf2KsQsS1OtwLHQ==
-X-Received: by 2002:a63:e:: with SMTP id 14mr13053823pga.253.1610225475399;
- Sat, 09 Jan 2021 12:51:15 -0800 (PST)
+ bh=8jO6peNCFCsdIJiomlgSocSpgqixsztiGecX28LPTMM=;
+ b=bplgZB8I8KYSL7PSpKl5wTN4a71lXpiEcfOzYfTRkzPxSo5HLD5CXcXeXiy1QNP37r
+ LGbx89XXHPPNQvnPLnonXuiaoC+0AxHpg9ed24sYy2AALIou19vwr4x+st5MB7brnb9c
+ yiGwWLQpLI0N6uuTY80fAE9OFG8N3W8vBtOhJwNzTqlO+5tACDQQZ1NwnpgHl64JDVYP
+ KEVm46PZElIhMANjGqhU7hnTiu4dmMQDx6uXM3MKKruXb+tabjl1H5wyqn9Jel1eZf85
+ a6Zio0EQt+Y+NdGVd9MitjlPgj/F/LA5eGzSpmhXNkp24lg242Sj1WU7TdjfyLl5Rr3S
+ nBGA==
+X-Gm-Message-State: AOAM533Hqe8hLYjyTsxWdm0kLG6EPtlTHAYFZHdB61iluoA5i3ioBXKR
+ za7oYvvR3XgDZx79XMOKnGSFkw==
+X-Google-Smtp-Source: ABdhPJxUkd9awf3gYUoz2oeQlg2MhkDyB7jFFhDkaL5rB/Vs6DT33wHdiDnLCIbasQPaLsjffpNRUw==
+X-Received: by 2002:a63:4c4b:: with SMTP id m11mr13323114pgl.20.1610231080612; 
+ Sat, 09 Jan 2021 14:24:40 -0800 (PST)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id z13sm9312972pjt.45.2021.01.09.12.51.14
+ by smtp.gmail.com with ESMTPSA id t1sm9400479pju.43.2021.01.09.14.24.39
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sat, 09 Jan 2021 12:51:14 -0800 (PST)
-Date: Sat, 09 Jan 2021 12:51:14 -0800 (PST)
-X-Google-Original-Date: Sat, 09 Jan 2021 12:51:12 PST (-0800)
-Subject: Re: [PATCH v5 0/5] Unify NUMA implementation between ARM64 & RISC-V
-In-Reply-To: <CAOnJCULPCxhirYH8xCciKDNJ=zfWKwiOOfAoT8QQBOKqTuWuTA@mail.gmail.com>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: atishp@atishpatra.org
-Message-ID: <mhng-94c90991-c4e8-49fe-a225-854ae0343d8d@palmerdabbelt-glaptop>
+ Sat, 09 Jan 2021 14:24:39 -0800 (PST)
+Date: Sat, 09 Jan 2021 14:24:39 -0800 (PST)
+X-Google-Original-Date: Sat, 09 Jan 2021 14:24:38 PST (-0800)
+Subject: Re: [PATCH 1/2] riscv: Add dump stack in show_regs
+In-Reply-To: <30626a12-5cb5-c113-ab6c-9fdc3c598c70@huawei.com>
+From: Palmer Dabbelt <palmerdabbelt@google.com>
+To: wangkefeng.wang@huawei.com
+Message-ID: <mhng-965396e3-01db-4be9-bc1d-1da8cb0127f0@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210109_155118_840763_83EAEF15 
-X-CRM114-Status: GOOD (  26.69  )
+X-CRM114-CacheID: sfid-20210109_172443_150822_69B2280C 
+X-CRM114-Status: GOOD (  18.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -92,141 +91,141 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: rafael@kernel.org, catalin.marinas@arm.com, Jonathan.Cameron@huawei.com,
- Atish Patra <Atish.Patra@wdc.com>, linux-riscv@lists.infradead.org,
- will@kernel.org, ardb@kernel.org, linux-arch@vger.kernel.org,
- liuzhengyuan@tj.kylinos.cn, bhe@redhat.com, anup@brainfault.org,
- daniel.lezcano@linaro.org, steven.price@arm.com, greentime.hu@sifive.com,
- aou@eecs.berkeley.edu, Arnd Bergmann <arnd@arndb.de>,
- anshuman.khandual@arm.com, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-arm-kernel@lists.infradead.org, Greg KH <gregkh@linuxfoundation.org>,
- linux-kernel@vger.kernel.org, akpm@linux-foundation.org, rppt@kernel.org
+Cc: linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu,
+ Paul Walmsley <paul.walmsley@sifive.com>
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 13 Dec 2020 17:02:19 PST (-0800), atishp@atishpatra.org wrote:
-> On Wed, Nov 18, 2020 at 4:39 PM Atish Patra <atish.patra@wdc.com> wrote:
->>
->> This series attempts to move the ARM64 numa implementation to common
->> code so that RISC-V can leverage that as well instead of reimplementing
->> it again.
->>
->> RISC-V specific bits are based on initial work done by Greentime Hu [1] but
->> modified to reuse the common implementation to avoid duplication.
->>
->> [1] https://lkml.org/lkml/2020/1/10/233
->>
->> This series has been tested on qemu with numa enabled for both RISC-V & ARM64.
->> It would be great if somebody can test it on numa capable ARM64 hardware platforms.
->> This patch series doesn't modify the maintainers list for the common code (arch_numa)
->> as I am not sure if somebody from ARM64 community or Greg should take up the
->> maintainership. Ganapatrao was the original author of the arm64 version.
->> I would be happy to update that in the next revision once it is decided.
->>
->> # numactl --hardware
->> available: 2 nodes (0-1)
->> node 0 cpus: 0 1 2 3
->> node 0 size: 486 MB
->> node 0 free: 470 MB
->> node 1 cpus: 4 5 6 7
->> node 1 size: 424 MB
->> node 1 free: 408 MB
->> node distances:
->> node   0   1
->>   0:  10  20
->>   1:  20  10
->> # numactl -show
->> policy: default
->> preferred node: current
->> physcpubind: 0 1 2 3 4 5 6 7
->> cpubind: 0 1
->> nodebind: 0 1
->> membind: 0 1
->>
->> The patches are also available at
->> https://github.com/atishp04/linux/tree/5.11_numa_unified_v5
->>
->> For RISC-V, the following qemu series is a pre-requisite(already available in upstream)
->> https://patchwork.kernel.org/project/qemu-devel/list/?series=303313
->>
->> Testing:
->> RISC-V:
->> Tested in Qemu and 2 socket OmniXtend FPGA.
->>
->> ARM64:
->> 2 socket kunpeng920 (4 nodes around 250G a node)
->> Tested-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
->>
->> Changes from v4->v5:
->> 1. Added by Acked-by & Reviewed-by tags.
->> 2. Swapped patch 1 & 2 in v4 version.
->>
->> Changes from v3->v4:
->> 1. Removed redundant duplicate header.
->> 2. Added Reviewed-by tags.
->>
->> Changes from v2->v3:
->> 1. Added Acked-by/Reviewed-by tags.
->> 2. Replaced asm/acpi.h with linux/acpi.h
->> 3. Defined arch_acpi_numa_init as static.
->>
->> Changes from v1->v2:
->> 1. Replaced ARM64 specific compile time protection with ACPI specific ones.
->> 2. Dropped common pcibus_to_node changes. Added required changes in RISC-V.
->> 3. Fixed few typos.
->>
->> Atish Patra (4):
->> arm64, numa: Change the numa init functions name to be generic
->> numa: Move numa implementation to common code
->> riscv: Separate memory init from paging init
->> riscv: Add numa support for riscv64 platform
->>
->> Greentime Hu (1):
->> riscv: Add support pte_protnone and pmd_protnone if
->> CONFIG_NUMA_BALANCING
->>
->> arch/arm64/Kconfig                            |  1 +
->> arch/arm64/include/asm/numa.h                 | 48 +----------------
->> arch/arm64/kernel/acpi_numa.c                 | 12 -----
->> arch/arm64/mm/Makefile                        |  1 -
->> arch/arm64/mm/init.c                          |  4 +-
->> arch/riscv/Kconfig                            | 31 ++++++++++-
->> arch/riscv/include/asm/mmzone.h               | 13 +++++
->> arch/riscv/include/asm/numa.h                 |  8 +++
->> arch/riscv/include/asm/pci.h                  | 14 +++++
->> arch/riscv/include/asm/pgtable.h              | 21 ++++++++
->> arch/riscv/kernel/setup.c                     | 11 +++-
->> arch/riscv/kernel/smpboot.c                   | 12 ++++-
->> arch/riscv/mm/init.c                          | 10 +++-
->> drivers/base/Kconfig                          |  6 +++
->> drivers/base/Makefile                         |  1 +
->> .../mm/numa.c => drivers/base/arch_numa.c     | 27 ++++++++--
->> include/asm-generic/numa.h                    | 52 +++++++++++++++++++
->> 17 files changed, 200 insertions(+), 72 deletions(-)
->> create mode 100644 arch/riscv/include/asm/mmzone.h
->> create mode 100644 arch/riscv/include/asm/numa.h
->> rename arch/arm64/mm/numa.c => drivers/base/arch_numa.c (96%)
->> create mode 100644 include/asm-generic/numa.h
->>
->> --
->> 2.25.1
->>
->>
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-riscv
->
-> Hey Palmer,
-> I did not see this series in for-next. Let me know if you need
-> anything else to be done for this series.
+On Mon, 14 Dec 2020 03:52:19 PST (-0800), wangkefeng.wang@huawei.com wrote:
+> hi Palmer, kindly ping...
 
-Sorry about that.  It's on for-next, with Randy's comment addressed.  There was
-one merge conflict: we don't have resource_init() in for-next yet (which I
-think means I missed something else).  IDK if that's necessary for the NUMA
-stuff, I just dropped it.  I haven't tested this yet.
+Sorry, it looks like I missed this because it's all threaded together.  I'm not
+really sure what you're trying to do here: you've got three patch sets in one
+thread, one of which seems to be a v2 of only a single patch.
+
+Do you mind sending out a standalone version of this?
+
+>
+> On 2020/11/24 19:20, Kefeng Wang wrote:
+>> Like commit 1149aad10b1e ("arm64: Add dump_backtrace() in show_regs"),
+>> dump the stack in riscv show_regs as common code expects.
+>>
+>> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+>> ---
+>> NOTE: The patches based on
+>> https://patchwork.kernel.org/project/linux-riscv/list/?series=383349
+>>
+>>   arch/riscv/include/asm/bug.h        |  1 +
+>>   arch/riscv/include/asm/stacktrace.h |  2 ++
+>>   arch/riscv/kernel/process.c         |  9 ++++++++-
+>>   arch/riscv/kernel/stacktrace.c      | 10 ++++++++--
+>>   arch/riscv/kernel/traps.c           |  3 ++-
+>>   5 files changed, 21 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/arch/riscv/include/asm/bug.h b/arch/riscv/include/asm/bug.h
+>> index d6f1ec08d97b..d3804a2f9aad 100644
+>> --- a/arch/riscv/include/asm/bug.h
+>> +++ b/arch/riscv/include/asm/bug.h
+>> @@ -85,6 +85,7 @@ do {								\
+>>   struct pt_regs;
+>>   struct task_struct;
+>>
+>> +void __show_regs(struct pt_regs *regs);
+>>   void die(struct pt_regs *regs, const char *str);
+>>   void do_trap(struct pt_regs *regs, int signo, int code, unsigned long addr);
+>>
+>> diff --git a/arch/riscv/include/asm/stacktrace.h b/arch/riscv/include/asm/stacktrace.h
+>> index 470a65c4ccdc..3450c1912afd 100644
+>> --- a/arch/riscv/include/asm/stacktrace.h
+>> +++ b/arch/riscv/include/asm/stacktrace.h
+>> @@ -13,5 +13,7 @@ struct stackframe {
+>>
+>>   extern void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+>>   				    bool (*fn)(void *, unsigned long), void *arg);
+>> +extern void dump_backtrace(struct pt_regs *regs, struct task_struct *task,
+>> +			   const char *loglvl);
+>>
+>>   #endif /* _ASM_RISCV_STACKTRACE_H */
+>> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+>> index 19225ec65db6..e41b733abeaa 100644
+>> --- a/arch/riscv/kernel/process.c
+>> +++ b/arch/riscv/kernel/process.c
+>> @@ -18,6 +18,7 @@
+>>   #include <asm/unistd.h>
+>>   #include <asm/processor.h>
+>>   #include <asm/csr.h>
+>> +#include <asm/stacktrace.h>
+>>   #include <asm/string.h>
+>>   #include <asm/switch_to.h>
+>>   #include <asm/thread_info.h>
+>> @@ -39,7 +40,7 @@ void arch_cpu_idle(void)
+>>   	local_irq_enable();
+>>   }
+>>
+>> -void show_regs(struct pt_regs *regs)
+>> +void __show_regs(struct pt_regs *regs)
+>>   {
+>>   	show_regs_print_info(KERN_DEFAULT);
+>>
+>> @@ -69,6 +70,12 @@ void show_regs(struct pt_regs *regs)
+>>   	pr_cont("status: " REG_FMT " badaddr: " REG_FMT " cause: " REG_FMT "\n",
+>>   		regs->status, regs->badaddr, regs->cause);
+>>   }
+>> +void show_regs(struct pt_regs *regs)
+>> +{
+>> +	__show_regs(regs);
+>> +	if (!user_mode(regs))
+>> +		dump_backtrace(regs, NULL, KERN_DEFAULT);
+>> +}
+>>
+>>   void start_thread(struct pt_regs *regs, unsigned long pc,
+>>   	unsigned long sp)
+>> diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
+>> index 48b870a685b3..76dadf6d396b 100644
+>> --- a/arch/riscv/kernel/stacktrace.c
+>> +++ b/arch/riscv/kernel/stacktrace.c
+>> @@ -101,10 +101,16 @@ static bool print_trace_address(void *arg, unsigned long pc)
+>>   	return true;
+>>   }
+>>
+>> +void dump_backtrace(struct pt_regs *regs, struct task_struct *task,
+>> +		    const char *loglvl)
+>> +{
+>> +	pr_cont("%sCall Trace:\n", loglvl);
+>> +	walk_stackframe(task, regs, print_trace_address, (void *)loglvl);
+>> +}
+>> +
+>>   void show_stack(struct task_struct *task, unsigned long *sp, const char *loglvl)
+>>   {
+>> -	pr_cont("Call Trace:\n");
+>> -	walk_stackframe(task, NULL, print_trace_address, (void *)loglvl);
+>> +	dump_backtrace(NULL, task, loglvl);
+>>   }
+>>
+>>   static bool save_wchan(void *arg, unsigned long pc)
+>> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+>> index ad14f4466d92..570eb078b1e1 100644
+>> --- a/arch/riscv/kernel/traps.c
+>> +++ b/arch/riscv/kernel/traps.c
+>> @@ -16,6 +16,7 @@
+>>   #include <linux/module.h>
+>>   #include <linux/irq.h>
+>>
+>> +#include <asm/bug.h>
+>>   #include <asm/processor.h>
+>>   #include <asm/ptrace.h>
+>>   #include <asm/csr.h>
+>> @@ -66,7 +67,7 @@ void do_trap(struct pt_regs *regs, int signo, int code, unsigned long addr)
+>>   			tsk->comm, task_pid_nr(tsk), signo, code, addr);
+>>   		print_vma_addr(KERN_CONT " in ", instruction_pointer(regs));
+>>   		pr_cont("\n");
+>> -		show_regs(regs);
+>> +		__show_regs(regs);
+>>   	}
+>>
+>>   	force_sig_fault(signo, code, (void __user *)addr);
 
 _______________________________________________
 linux-riscv mailing list
