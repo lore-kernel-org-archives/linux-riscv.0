@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7B031C433E6
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jan 2021 23:45:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9A50CC433E0
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jan 2021 23:45:46 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3151322D0B
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jan 2021 23:45:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3151322D0B
+	by mail.kernel.org (Postfix) with ESMTPS id 57CA022D08
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jan 2021 23:45:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 57CA022D08
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,68 +23,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=8UM4XB29gbYuHUbLpaKcw2dZqOaHCkV9YnEw7hW4e9o=; b=ppoLUtpRysTP79kFN4J38QQF9
-	pheBAxrTpH+SaCezgzrXoG/UWRDNG+/XopFU0ATaY44sMTPIhFUiPjDlF4Mqpe0U6uVphvah1xx70
-	/xcoG2AX79hBbQfXeFjaepru6UjvA8ZaBEuuGt8h8BGh33tX0hlqkIuB14SfxHrnFzHg27SMcglZ/
-	x+UbUWvC9l5Z1GYHETtPATC34pqIAUdbPkOksgv64QSaDkBv0+/EZsV0FMh+NvysB+ZBiVoaYI1TF
-	DgqCH2bQBElrhn6bQe1zLThkb+cwR91ZSMGvGo9nenLvCENIb63f+jHL9wdsA9/LIcaDTh/6cijNx
-	C4A3+ehoA==;
+	 bh=tIoURQEik4PWfmwotpha84YnR5yjzVQJLqUy6Rwp398=; b=PYtUT+y4OFQ16mmphY/zZOynY
+	tq8bPtILnPLSDDahPnbvIheh2c1vKZ9yhQQzGIQEfHmKC9yLcmfOWm/pWG6HtVp5IJm3O/YMugSMI
+	rRukZG8cRXXMAs3A4nDbvNHeLwPcTCDDRHTuZg6Yjn1dximpepDLKLSMC33LKPfFOzi/6/n19qtGr
+	GrKjbmKsSQ/NOWgH8Uh42vaSDc0w/E2hkQSJlEogZmMGQvTLcpIeJOEd9/ibpXGom4ha/FYCv8D8J
+	MsrR00tI/Ov3v8Zy12GRrjbgTSvOXPc1Q4LVVS0nQ86WkQxviGH4BhEjYTQSbpuhAPzXHN1wtssmD
+	caAHAD1Og==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kz6sO-0002NS-D7; Mon, 11 Jan 2021 23:45:32 +0000
+	id 1kz6sP-0002O3-Hl; Mon, 11 Jan 2021 23:45:33 +0000
 Received: from esa3.hgst.iphmx.com ([216.71.153.141])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kz6sI-0002KC-6X
- for linux-riscv@lists.infradead.org; Mon, 11 Jan 2021 23:45:27 +0000
+ id 1kz6sI-0002IU-Tv
+ for linux-riscv@lists.infradead.org; Mon, 11 Jan 2021 23:45:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
  t=1610408726; x=1641944726;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=Io1Pp7bw+RC8AMMDpe1YABzZYAEHgEO0leECzsL7CUo=;
- b=Qdi/y0RW1ZJ8cRcCwC93rUrShTvJFYcSuGgCeMQles8u4TFvmpHAjvWH
- stfznQF6AmjUZhvysze9ZX1VEr9WGg+n7Yd465J9Qe+hQPU1YJew2T6HE
- bAiMB0OGrbetZxDufMNdf+giuNI1nRG312pndQzcSJT2cHWC1h8eVVQLV
- 33SbAYWehGW6Y+7o2d12N9iY8FGxBsSuW0FXmUm6VSizI+ahPNdcZV/zd
- Pg7mxCZz3V5mpoJkDrlCdIv/fY/qFW+X9Vf9vnWFw0gq1gqZIY4dsrZ+u
- ruqcyT+AqbwqDA8Zq5afmJidVdOAxu+kDY1+VZcWzfjD7t4U7qBDSUwYW A==;
-IronPort-SDR: 90oDX7/ov4pgOTZ+tq93OdfzTrMrQXWbDXpCi04Z0yCJihvNgYxqAYn+femwfNi+wGD5QctzZm
- kYJ9wNPkXNhZw9dkYpFB3DXjnFF8D+2wpcaZctg038DUi7begzXlE5CvfCKlZrzG6a04xEHPHr
- bKlcs6wkDALAfBxbHd9lYkUo0sUgXSClPLd55AhbtJ6+ZRjKqO83D1Dy2qf80CyvFMcogsWaSD
- A8sAQJnXN5MjJTSKO31mOk4eaUYyu5Em7U3LJlrCOiVq/UgS+gpvqWY5CpKU64u6uRdLVbkQkh
- 8+0=
-X-IronPort-AV: E=Sophos;i="5.79,339,1602518400"; d="scan'208";a="161629289"
+ bh=RNOH9gvngKv4PYnI6ojB0jPRmrRFh5gcDLRyBhBMMTY=;
+ b=CmvOE1bRJ2hIuchpI8E5SPFXZyiI3NvNvLoWl+NPp69Y3aRJlzOd7fa9
+ XrxhFuLpAB7vaEymwkGFFobWcVlbIf3+CO4ZXS8Qj8buOPNwkg10N9fDE
+ CldbW0lm1ELK7y41MkeCn+VOd6x32vrGWzdnbLbQdZf1tNTYXeKnlGHgB
+ W+JKdip6gvVPo2f5ahih41qu4W2PKmtFhL3/NfMqIhwUTpd9kD8NCVbMr
+ YlyXtyiGt8bzm/onp0xX2b2b+QG+LEJjN06j1XV6bEblqL3zo2a8Bf8H9
+ X6OsdFOAX2NEYT2CZkCzClR09577PHbbNcHjK1DBCx7ZIXhKA4Ammh420 w==;
+IronPort-SDR: +rd9AA2lqMQTGiRNAtwwE5ykpJNLTLyKfot/jl+UnV8v2by9zhylHgtQsP88tgqQjjp/QiXKp0
+ +tG1AOc6IS35glcJrT+MH/cGwdA7EQ6Sp+JMCsW9hv7Ufhp2XXWbUqjARPiOZm8yt/izK1tZi6
+ /xViZue3eZYQQe3lhU7j15WXwL+D7JD6epz3lXjUmVDp607RffvR96+DPnyTMoDwoiN8jPfSwh
+ AGIrWxzL4FQuBPZrEHDAQp04lT7bKip8LsfHgD651KO2v163CgOkrwFaQRBZmkQAOsK2uCR0FG
+ qqo=
+X-IronPort-AV: E=Sophos;i="5.79,339,1602518400"; d="scan'208";a="161629292"
 Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
  by ob1.hgst.iphmx.com with ESMTP; 12 Jan 2021 07:45:20 +0800
-IronPort-SDR: O9WdicAzbw0SKhu8RLpYpaUzTZv0PyOIDm/G7HLVbHp5Gb9EDvGlcnOGM7k/RrEFkVPTISGt+I
- MwtoM0RwgHD4YgL2oMEVKOXhMxBCkuI749MBTFVuLvB2g+r27WWyJJRM3u6ro5bAmHhjCfHJXv
- FHUxOcCZd7Qi8VArQLSJzicS9hZ2j2njIKB1KN7rmazj9hiVskGJHLBpUmoliNybnZdK4apEpz
- UiUL5Pg/AEhodYH4NnGbhh1BTeEYByBg+gZTmqCdtTtkUzdkoSePZi31R00fRzNe0taDtPmm/l
- b86ziH9l0wQm4ESWDv1Pb3s9
+IronPort-SDR: hg/JWht7DY9TqWUKItEcVJEp/+bKIWB7BWO+Tc0BP7l6XYkNYTYYkw/KCHLYE0ZwrDq7qEZUuX
+ 36OQJYK5KmRhQ19syHJm3JjrOUfrurrTJ5vvuJKiEvsYDtNBHlg3FRLninVYWHkCZvAEellU2W
+ sY/j2RKv4e99Id4dxpflybZ/fBe2oS/DK+f/h9HXmcn+4IKFcJebQ1mXPni01BMDWE8n9V3kHa
+ kEseaevswQ1JzvOd2izaqbGNmKA6pBN5E0PHu8y8Dq/gheBgd0aYRjZYkIBPAZ2RysltyLoRoo
+ 8VHfwY8+ueAprWNVSvFLV2Df
 Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
  11 Jan 2021 15:30:06 -0800
-IronPort-SDR: ox38t4igJU0HZ0yuKw/XhjcfplepASAM4Swjrpnp6n6vw7ZypirIWOtHz0UmDIdPF9RtAITyO8
- +hBx6NYdR/CaTPR+Gi11KbHw+YZQVRLWaKSeqGuFNX1YVm8W83SIb+sqUEEInb0H0nD/HoecjS
- MTEYF2NATdI4+nLTlJ2MC3WJprR4XaR7eYkiHc6zB2UsP/WdwzKhFTW99qt7w/4uXOX6gdewmG
- XuDPYwEfN7zQw1X5o2WM1P8ofysAfLWfH6GJKsBBpIbSWBLCDgzsZdWfJv+ohqqh8wHzXY2VwG
- W/Y=
+IronPort-SDR: S4/lzpttx6/ZOnuXtMd2AXORHB8tLqvAqVfTYA8r+mdnyUCj7ItefrtrKECOgJE02m8nayn5A6
+ CoVXlHknaU3TfcNc2Uwee8WCnSvWmEpd5tkfUQ3TEA+uIGX6197ACGDOBZkKGdI39K4Oi/0Por
+ UgnAQY6aaf9JjD83vanUpc2jsIUtaElnPKvWUN8WujGXNRDtUUybiUa/b42T7LSb5TPIn/VFEZ
+ /kqrRJVFAxSyq60AiEaVu8jxdvKhccWAJDDroZZMKRxusckMqvhm0DW29VLl65CpImj5UVpZ5t
+ +rE=
 WDCIronportException: Internal
 Received: from usa002483.ad.shared (HELO jedi-01.hgst.com) ([10.86.62.194])
  by uls-op-cesaip02.wdc.com with ESMTP; 11 Jan 2021 15:45:20 -0800
 From: Atish Patra <atish.patra@wdc.com>
 To: linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/4] RISC-V: Set current memblock limit
-Date: Mon, 11 Jan 2021 15:45:02 -0800
-Message-Id: <20210111234504.3782179-3-atish.patra@wdc.com>
+Subject: [PATCH v2 3/4] RISC-V: Fix L1_CACHE_BYTES for RV32
+Date: Mon, 11 Jan 2021 15:45:03 -0800
+Message-Id: <20210111234504.3782179-4-atish.patra@wdc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20210111234504.3782179-1-atish.patra@wdc.com>
 References: <20210111234504.3782179-1-atish.patra@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210111_184526_387538_DFD02BE7 
-X-CRM114-Status: GOOD (  16.12  )
+X-CRM114-CacheID: sfid-20210111_184527_202297_15E68916 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -98,7 +98,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
  linux-riscv@lists.infradead.org, Atish Patra <atish.patra@wdc.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
  Andrew Morton <akpm@linux-foundation.org>, Ard Biesheuvel <ardb@kernel.org>,
  Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
@@ -106,57 +107,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, linux kernel can not use last 4k bytes of addressable space
-because IS_ERR_VALUE macro treats those as an error. This will be an issue
-for RV32 as any memblock allocator potentially allocate chunk of memory
-from the end of DRAM (2GB) leading bad address error even though the
-address was technically valid.
-
-Fix this issue by limiting the memblock if available memory spans the
-entire address space.
+SMP_CACHE_BYTES/L1_CACHE_BYTES should be defined as 32 instead of
+64 for RV32. Otherwise, there will be hole of 32 bytes with each memblock
+allocation if it is requested to be aligned with SMP_CACHE_BYTES.
 
 Reviewed-by: Anup Patel <anup@brainfault.org>
+Tested-by: Geert Uytterhoeven <geert@linux-m68k.org>
+(on vexriscv)
 Signed-off-by: Atish Patra <atish.patra@wdc.com>
 ---
- arch/riscv/mm/init.c | 16 ++++++++++++++--
- 1 file changed, 14 insertions(+), 2 deletions(-)
+ arch/riscv/include/asm/cache.h | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index bf5379135e39..7cd4993f4ff2 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -157,9 +157,10 @@ static void __init setup_initrd(void)
- void __init setup_bootmem(void)
- {
- 	phys_addr_t mem_start = 0;
--	phys_addr_t start, end = 0;
-+	phys_addr_t start, dram_end, end = 0;
- 	phys_addr_t vmlinux_end = __pa_symbol(&_end);
- 	phys_addr_t vmlinux_start = __pa_symbol(&_start);
-+	phys_addr_t max_mapped_addr = __pa(~(ulong)0);
- 	u64 i;
+diff --git a/arch/riscv/include/asm/cache.h b/arch/riscv/include/asm/cache.h
+index 9b58b104559e..c9c669ea2fe6 100644
+--- a/arch/riscv/include/asm/cache.h
++++ b/arch/riscv/include/asm/cache.h
+@@ -7,7 +7,11 @@
+ #ifndef _ASM_RISCV_CACHE_H
+ #define _ASM_RISCV_CACHE_H
  
- 	/* Find the memory region containing the kernel */
-@@ -181,7 +182,18 @@ void __init setup_bootmem(void)
- 	/* Reserve from the start of the kernel to the end of the kernel */
- 	memblock_reserve(vmlinux_start, vmlinux_end - vmlinux_start);
++#ifdef CONFIG_64BIT
+ #define L1_CACHE_SHIFT		6
++#else
++#define L1_CACHE_SHIFT		5
++#endif
  
--	max_pfn = PFN_DOWN(memblock_end_of_DRAM());
-+	dram_end = memblock_end_of_DRAM();
-+
-+	/*
-+	 * memblock allocator is not aware of the fact that last 4K bytes of
-+	 * the addressable memory can not be mapped because of IS_ERR_VALUE
-+	 * macro. Make sure that last 4k bytes are not usable by memblock
-+	 * if end of dram is equal to maximum addressable memory.
-+	 */
-+	if (max_mapped_addr == (dram_end - 1))
-+		memblock_set_current_limit(max_mapped_addr - 4096);
-+
-+	max_pfn = PFN_DOWN(dram_end);
- 	max_low_pfn = max_pfn;
- 	dma32_phys_limit = min(4UL * SZ_1G, (unsigned long)PFN_PHYS(max_low_pfn));
- 	set_max_mapnr(max_low_pfn);
+ #define L1_CACHE_BYTES		(1 << L1_CACHE_SHIFT)
+ 
 -- 
 2.25.1
 
