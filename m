@@ -2,81 +2,64 @@ Return-Path: <SRS0=44w3=GO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9432AC433DB
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jan 2021 04:06:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E807AC433E0
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jan 2021 12:35:04 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 346722247F
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jan 2021 04:06:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 346722247F
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	by mail.kernel.org (Postfix) with ESMTPS id 4ED10223DB
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jan 2021 12:35:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4ED10223DB
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=8LsYkWbLyOWxPRiWhsq91qB56dmFbFqhLioYKG9s++w=; b=3b1rIuhF3RNsEQ0EX+k3CKd+u
-	zFyv2YK4yc+ooZcSSzLhRza6srhjRSxYRQB2/H7eBSEbHY1KB3FSZ42dwJ4HQCkDsCPh0SYNipOQ5
-	vS+uPZ25ySa7vbu6ms/ZbEr3kVWpDdBDodmtUki5Q/uGFxGalCmzDXZCrYHGH4EYt1lhMgaEqCPeY
-	MsHJUIwwunbQYLigcp81YaLiEG+ZzOwNTix6r+3HC9BsYGer8D6BlKaj0TH2DZxlGqhS9Sou8QjnI
-	egtjbyotuu/WD4ZXv91ScM0j86WTBujxQfBifC9oLgOupiRSvb0sgm4gVY7N83xWtV4jNiXDq2mAj
-	gLpRDKqQA==;
+	 bh=Naxt2HdLpqsETcKCziCME7ZqKyhcpLggFAxOdKWr79M=; b=MH64CTcfXEZ+14q2ABKIW/3UM
+	FVvWpjxtIfVzwZGV+bTYwRZw/Y+9O8wEFW42SPhMaul90PtImGFCO+RvqObNcdmRHo0x5p9PYeQaZ
+	mlMOTn/gG7HWPzFl/k8Df+EI3qT6XGMUqJMXAKqKAvieNFCED5taM7uFTIZdAy+2YB0U4fpYTZWYM
+	f+RtLYoiQaT9BOEGPLePdLVWr7usLXN9hoPB66jK6/seEU/WWxU4mqLGrVRc+fRLPjMUcN8hjczXe
+	QRk2QCWCSJnbjI/nuZCii22swrImVjM2r01p/WgGSBD7IIJS1XBAESIRjcOE0Y/piMDtrysOE5f+d
+	Ro8FazOrw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kyoSz-00040F-F4; Mon, 11 Jan 2021 04:06:05 +0000
-Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
+	id 1kywPP-0002hc-Mv; Mon, 11 Jan 2021 12:34:55 +0000
+Received: from szxga07-in.huawei.com ([45.249.212.35])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kyoSv-0003yd-8J
- for linux-riscv@lists.infradead.org; Mon, 11 Jan 2021 04:06:03 +0000
-Received: by mail-lj1-x22d.google.com with SMTP id f11so2025427ljm.8
- for <linux-riscv@lists.infradead.org>; Sun, 10 Jan 2021 20:06:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=hzsKcFE55evqkbte9pblpk+brr3UPTtNXgfWl4bSkvQ=;
- b=hM/2qZ5oBMHmZ8bIq4Q64okW/khXDZZZYSrngmVEwDaI9HqzAwtw+WxmJ7eyyoQcyF
- 251iKCymCS/rjZyfuGfgpCUPIT8RKsh8JIpuUVOrNdwteP36K27NpUZLqVflPsKXoDa5
- Oa0EKaxkigCLQRRTLoNt6/doPd/ipur6+XXsFC6gVY8X0Bjc5uqREYSn2p/Eq9ty8vtM
- FVk4cyCZXEK2labVL98wK0CIuHGzvT+SWV41ev7uv3Bw0KcvtfVyMcqJc92OR50Cuih7
- WqYPHpRiCtegX3uP5OJe/tYF2tQDL3ZU2awVce2MkTUqtO72oqlwL5WbBU/FW9RE0kfi
- 5ezQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=hzsKcFE55evqkbte9pblpk+brr3UPTtNXgfWl4bSkvQ=;
- b=fTjF23SOSTktbxQc2k+SZkV8UPq3Hovqzjvv1yK5ZZ5N0jzlndHNzcQqu7T5jiKJet
- 7UkKumGwwcXR1a0Js43X8bXwcRjt9KeMGAtZlqElKixI70kKifLey9fJUG1s9wiFGaMI
- OtUxPHldYK0AdbZYOaYvcxSC8/nBQV0CJmWNmPNf0gRrv58CWAmQygiukuCIlPGLEmis
- F3QW89CxaXzkgf50pbyOhwleg97htZVsrUGouQJrUkRvxbV8AnQYFzjJcF5aV59q/5+k
- VduNwiASeZDY5CaSBZ6zugAomzj9sbCs1THCK9K5I0lVtpQwOYmY1uZVw0U9xzAD5OPP
- 6nSg==
-X-Gm-Message-State: AOAM530FHWYc9zZCyF8mQOos5mp4offOH4uyDa2wtCnH8VAh669sSNYQ
- pmiY6dEDlL1aop5hD9Egy3qjDPcsvvO4+SN9JF7sxQ==
-X-Google-Smtp-Source: ABdhPJwFrWbgeTNNnn3V/4rMxmo8AroirXBbsDtnq5zOogzgkAe41SvHr0K2TNhq1Vuj2W6HdVR0ckBKuNfHVXxQ6sw=
-X-Received: by 2002:a05:651c:48b:: with SMTP id
- s11mr6414476ljc.28.1610337958991; 
- Sun, 10 Jan 2021 20:05:58 -0800 (PST)
+ id 1kywPN-0002g4-5T
+ for linux-riscv@lists.infradead.org; Mon, 11 Jan 2021 12:34:54 +0000
+Received: from DGGEMS401-HUB.china.huawei.com (unknown [172.30.72.60])
+ by szxga07-in.huawei.com (SkyGuard) with ESMTP id 4DDtRb3K4Hz7Sqf;
+ Mon, 11 Jan 2021 20:33:47 +0800 (CST)
+Received: from localhost.localdomain.localdomain (10.175.113.25) by
+ DGGEMS401-HUB.china.huawei.com (10.3.19.201) with Microsoft SMTP Server id
+ 14.3.498.0; Mon, 11 Jan 2021 20:34:39 +0800
+From: Kefeng Wang <wangkefeng.wang@huawei.com>
+To: Palmer Dabbelt <palmerdabbelt@google.com>,
+ <linux-riscv@lists.infradead.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>
+Subject: [PATCH RESEND 3/3] riscv/stacktrace: Fix stack output without ra on
+ the stack top
+Date: Mon, 11 Jan 2021 20:40:14 +0800
+Message-ID: <20210111124014.182957-4-wangkefeng.wang@huawei.com>
+X-Mailer: git-send-email 2.26.2
+In-Reply-To: <20210111124014.182957-1-wangkefeng.wang@huawei.com>
+References: <20210111124014.182957-1-wangkefeng.wang@huawei.com>
 MIME-Version: 1.0
-References: <20210107092652.3438696-1-atish.patra@wdc.com>
-In-Reply-To: <20210107092652.3438696-1-atish.patra@wdc.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Mon, 11 Jan 2021 09:35:45 +0530
-Message-ID: <CAAhSdy2w=uY-Bp_bKzmVxRwcF+-xwCtvKtZ0e-J5PTke-+m5Pg@mail.gmail.com>
-Subject: Re: [PATCH 0/4] Assorted fixes for RV32
-To: Atish Patra <atish.patra@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Palmer Dabbelt <palmerdabbelt@google.com>
+X-Originating-IP: [10.175.113.25]
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210110_230602_201400_2709B90B 
-X-CRM114-Status: GOOD (  17.34  )
+X-CRM114-CacheID: sfid-20210111_073453_487502_D99FFD95 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -88,57 +71,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup.patel@wdc.com>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Ard Biesheuvel <ardb@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Nick Kossifidis <mick@ics.forth.gr>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>
+Cc: Kefeng Wang <wangkefeng.wang@huawei.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Chen Huang <chenhuang5@huawei.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Palmer,
+From: Chen Huang <chenhuang5@huawei.com>
 
-On Thu, Jan 7, 2021 at 2:57 PM Atish Patra <atish.patra@wdc.com> wrote:
->
-> This series fixes various issues observed in latest kernel on RV32.
-> The first two patches fixes an resource tree introduced in 5.11-rc1
-> while the last two fixes the case where 2GB physical memory is used
-> on RV32.
->
-> There are may be better way to fix the issue pointed out in PATCH 3
-> as it seems a generic kernel issue where kernel pointers can not use
-> last 4k of addressable memory. I am open to other better alternate
-> suggestions.
->
-> Atish Patra (4):
-> RISC-V: Do not allocate memblock while iterating reserved memblocks
-> RISC-V: Set current memblock limit
-> RISC-V: Fix L1_CACHE_BYTES for RV32
-> RISC-V: Fix maximum allowed phsyical memory for RV32
+When a function doesn't have a callee, then it will not
+push ra into the stack, such as lkdtm_BUG() function,
 
-Please consider these fixes for Linux-5.11-rcX.
+addi	sp,sp,-16
+sd	s0,8(sp)
+addi	s0,sp,16
+ebreak
 
->
-> arch/riscv/Kconfig             |  6 ++++--
-> arch/riscv/include/asm/cache.h |  4 ++++
-> arch/riscv/kernel/setup.c      | 24 +++++++++++++-----------
-> arch/riscv/mm/init.c           | 16 ++++++++++++++--
-> 4 files changed, 35 insertions(+), 15 deletions(-)
->
-> --
-> 2.25.1
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+The struct stackframe use {fp,ra} to get information from
+stack, if walk_stackframe() with pr_regs, we will obtain
+wrong value and bad stacktrace,
 
-Regards,
-Anup
+[<ffffffe00066c56c>] lkdtm_BUG+0x6/0x8
+---[ end trace 18da3fbdf08e25d5 ]---
+
+Correct the next fp and pc, after that, full stacktrace
+shown as expects,
+
+[<ffffffe00066c56c>] lkdtm_BUG+0x6/0x8
+[<ffffffe0008b24a4>] lkdtm_do_action+0x14/0x1c
+[<ffffffe00066c372>] direct_entry+0xc0/0x10a
+[<ffffffe000439f86>] full_proxy_write+0x42/0x6a
+[<ffffffe000309626>] vfs_write+0x7e/0x214
+[<ffffffe00030992a>] ksys_write+0x98/0xc0
+[<ffffffe000309960>] sys_write+0xe/0x16
+[<ffffffe0002014bc>] ret_from_syscall+0x0/0x2
+---[ end trace 61917f3d9a9fadcd ]---
+
+Signed-off-by: Chen Huang <chenhuang5@huawei.com>
+Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+---
+ arch/riscv/kernel/stacktrace.c | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
+
+diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
+index 76dadf6d396b..51ce3620ac1f 100644
+--- a/arch/riscv/kernel/stacktrace.c
++++ b/arch/riscv/kernel/stacktrace.c
+@@ -54,9 +54,15 @@ void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
+ 		/* Unwind stack frame */
+ 		frame = (struct stackframe *)fp - 1;
+ 		sp = fp;
+-		fp = frame->fp;
+-		pc = ftrace_graph_ret_addr(current, NULL, frame->ra,
+-					   (unsigned long *)(fp - 8));
++		if (regs && (regs->epc == pc) && (frame->fp & 0x7)) {
++			fp = frame->ra;
++			pc = regs->ra;
++		} else {
++			fp = frame->fp;
++			pc = ftrace_graph_ret_addr(current, NULL, frame->ra,
++						   (unsigned long *)(fp - 8));
++		}
++
+ 	}
+ }
+ 
+-- 
+2.26.2
+
 
 _______________________________________________
 linux-riscv mailing list
