@@ -2,62 +2,78 @@ Return-Path: <SRS0=44w3=GO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E431FC433E0
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jan 2021 12:35:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 21E53C433E0
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jan 2021 19:20:40 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 687F52242A
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jan 2021 12:35:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 687F52242A
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
+	by mail.kernel.org (Postfix) with ESMTPS id C1AF422CA1
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jan 2021 19:20:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C1AF422CA1
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-ID:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=vY7jTrEsRGvMlhdMWBRWyXWSIxXWYRiKe5U4vTBES50=; b=isaxbe8/fxasILmosWzLhbuNm
-	fT9wKnaNHl195EtUkfyJNJqQfoQJLTJTprPgistcg6qunFyOQ7y1ADJ+kmxQOkCtvCq8M2FzECO7m
-	LTNYqBCivnioRLDMISYzLQCefILtbdGe3SNZVyo8e/IFWXMAuD84CHlogy/bwmbmO/p4sCDj978gH
-	AcJAbUucae0SNcj1dQjLErFRYujqpk8nq80xFTRQzZi6rIFO8qZUNcnIilE2joP5Z2hcbuKWALZwL
-	lUK4XCkltPPf/qNTeKzOMaZLP+nMu8dy9ZZhTV2MLl9WQS5eZTBRvKB7MHT3s0+Jvi9tKQbpVYqxo
-	C83QX1w3g==;
+	 bh=qNBfVCxp0bvSoWw8mo5donsJqtY0aVOJD8rlkm2/0z0=; b=WWD/k0YJ9b2JLCOlaAdTYqZw4
+	lQQjGNVTEJZtNZrhz0jkYrF7MHvwvFGk2eUlKomHCm46wo+4rz2RpcKXO8DYNpDMHX9vyIT9RO+aA
+	6YHBsCYqCJB3xlXvDPHY9XqS6rCLjBJWSOTBZGwhGCsLzdePQiHsfCGXU1lNG/5qy+ZZH9sVYIXmq
+	XNr9KdT5jw1t2zyZqsH8aPjHTLvzGIZlRh+M1n1+WgwR71kBuo27WEp58Kcbn+AUQ+0jFuSKwpS/W
+	wrPRNUbjGlrh3//frKSeU6RE1RGRlnPENx+moBkOh6fLg3N+Ux8rZvWSfndyl/tQliMPGKHxWtrCm
+	6qwCZS8pA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kywPb-0002m5-LZ; Mon, 11 Jan 2021 12:35:07 +0000
-Received: from szxga07-in.huawei.com ([45.249.212.35])
+	id 1kz2jq-0007IT-Dz; Mon, 11 Jan 2021 19:20:26 +0000
+Received: from mail-il1-x12c.google.com ([2607:f8b0:4864:20::12c])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kywPQ-0002g2-6A
- for linux-riscv@lists.infradead.org; Mon, 11 Jan 2021 12:35:06 +0000
-Received: from DGGEMS401-HUB.china.huawei.com (unknown [172.30.72.60])
- by szxga07-in.huawei.com (SkyGuard) with ESMTP id 4DDtRb32Q4z7Sqd;
- Mon, 11 Jan 2021 20:33:47 +0800 (CST)
-Received: from localhost.localdomain.localdomain (10.175.113.25) by
- DGGEMS401-HUB.china.huawei.com (10.3.19.201) with Microsoft SMTP Server id
- 14.3.498.0; Mon, 11 Jan 2021 20:34:38 +0800
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
-To: Palmer Dabbelt <palmerdabbelt@google.com>,
- <linux-riscv@lists.infradead.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>
-Subject: [PATCH RESEND 1/3] riscv: Add dump stack in show_regs
-Date: Mon, 11 Jan 2021 20:40:12 +0800
-Message-ID: <20210111124014.182957-2-wangkefeng.wang@huawei.com>
-X-Mailer: git-send-email 2.26.2
-In-Reply-To: <20210111124014.182957-1-wangkefeng.wang@huawei.com>
-References: <20210111124014.182957-1-wangkefeng.wang@huawei.com>
+ id 1kz2ji-0007BZ-24
+ for linux-riscv@lists.infradead.org; Mon, 11 Jan 2021 19:20:22 +0000
+Received: by mail-il1-x12c.google.com with SMTP id v3so260354ilo.5
+ for <linux-riscv@lists.infradead.org>; Mon, 11 Jan 2021 11:20:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=atishpatra.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=nDbikhMgQRIBAGWvHhwnSOWp+tYdIa1L7HqD2Fuhn5o=;
+ b=TNk8AsQklmM1D18YtjeuP5msks8k476ei5PZfBL/rN+WUCBbkWH5tSwvzzd5cdrK3z
+ Au896fIPreNaHrPS29rJmrmXO89zRZN+HdhQ2txPclH9RI2uPkuron3RBWCrewyB6oiV
+ 7GbGoIPTWXbxsHAf/Y1gReu0BWWttvce4AbBM=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=nDbikhMgQRIBAGWvHhwnSOWp+tYdIa1L7HqD2Fuhn5o=;
+ b=ec3l8OL0Kzl/BT8RxnV1OLlo9nZox4cHbs5JR4H6L/QsQfVRCudHAsxjipMYy63F9g
+ eevDvIpbPi48bA+uaJUTYmROnHWFFe+sgL5jpVQl9+OTJ3wOIedchjEQdItJUUo/sgxZ
+ fweEi5euChbNl8W9RYvctqnq0RPzhuByEZv1M85OhgTG6a2WEI4WGmESLVnprH16WPnl
+ hOEfRXtPoWNTdo9KxugBK/a6LpT4/pAQ/JdYyMWxjsAaPjW+hL2cc96Ey2DWkFB8Ou+9
+ lA5LMnBOV8SOWIXMPTwvKYRJ5a8J+E08fQ7W7N0PJHp9+skTCIU6ebCUaOCCC9dpPwco
+ /Z2w==
+X-Gm-Message-State: AOAM531ef9YbCBghxQCu+cqKUKn9Mt+eMOBqX56RHMFgZs4lGiHIufF2
+ k/JSi2etnSmbtodIiJZOrsfgFiHAFY0zdLDtcEZR
+X-Google-Smtp-Source: ABdhPJzkn7BbM4YArCF4jyHvJMfbgs77ibK0XTF30AzoxUE582rYgBVYQd58Gi8jMJG7GedknFeRdUTeZMhJ8kG+JtQ=
+X-Received: by 2002:a92:512:: with SMTP id q18mr590913ile.147.1610392813919;
+ Mon, 11 Jan 2021 11:20:13 -0800 (PST)
 MIME-Version: 1.0
-X-Originating-IP: [10.175.113.25]
-X-CFilter-Loop: Reflected
+References: <20210107092652.3438696-1-atish.patra@wdc.com>
+ <20210107092652.3438696-3-atish.patra@wdc.com>
+ <CAAhSdy0AdK3YbnqmG_rBAneDSHBZwFSEr5+HkkUm-3SO_--zAQ@mail.gmail.com>
+In-Reply-To: <CAAhSdy0AdK3YbnqmG_rBAneDSHBZwFSEr5+HkkUm-3SO_--zAQ@mail.gmail.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Mon, 11 Jan 2021 11:20:03 -0800
+Message-ID: <CAOnJCUJNC3UzNapLG9yXKF6areRZaN5UvPJOX_YsNk+PY2TFUw@mail.gmail.com>
+Subject: Re: [PATCH 2/4] RISC-V: Set current memblock limit
+To: Anup Patel <anup@brainfault.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210111_073505_435994_03E8CF96 
-X-CRM114-Status: GOOD (  12.87  )
+X-CRM114-CacheID: sfid-20210111_142018_272430_4364EC62 
+X-CRM114-Status: GOOD (  26.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -69,131 +85,104 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Atish Patra <atish.patra@wdc.com>, Kefeng Wang <wangkefeng.wang@huawei.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Chen Huang <chenhuang5@huawei.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>,
+ Andrew Morton <akpm@linux-foundation.org>, Anup Patel <anup.patel@wdc.com>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Atish Patra <atish.patra@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Nick Kossifidis <mick@ics.forth.gr>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Ard Biesheuvel <ardb@kernel.org>, Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Like commit 1149aad10b1e ("arm64: Add dump_backtrace() in show_regs"),
-dump the stack in riscv show_regs as common code expects.
+On Sun, Jan 10, 2021 at 7:59 PM Anup Patel <anup@brainfault.org> wrote:
+>
+> On Thu, Jan 7, 2021 at 2:57 PM Atish Patra <atish.patra@wdc.com> wrote:
+> >
+> > Currently, linux kernel can not use last 4k bytes of addressable space because
+> > IS_ERR_VALUE macro treats those as an error. This will be an issue for RV32
+> > as any memblock allocator potentially allocate chunk of memory from the end
+> > of DRAM (2GB) leading bad address error even though the address was technically
+> > valid.
+> >
+> > Fix this issue by limiting the memblock if available memory spans the entire
+> > address space.
+> >
+> > Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> > ---
+> >  arch/riscv/mm/init.c | 16 ++++++++++++++--
+> >  1 file changed, 14 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> > index bf5379135e39..da53902ef0fc 100644
+> > --- a/arch/riscv/mm/init.c
+> > +++ b/arch/riscv/mm/init.c
+> > @@ -157,9 +157,10 @@ static void __init setup_initrd(void)
+> >  void __init setup_bootmem(void)
+> >  {
+> >         phys_addr_t mem_start = 0;
+> > -       phys_addr_t start, end = 0;
+> > +       phys_addr_t start, dram_end, end = 0;
+> >         phys_addr_t vmlinux_end = __pa_symbol(&_end);
+> >         phys_addr_t vmlinux_start = __pa_symbol(&_start);
+> > +       phys_addr_t max_mapped_addr = __pa(PHYS_ADDR_MAX);
+>
+> Using PHYS_ADDR_MAX as the max virtual address does not look right.
+>
+> Better use __pa(~(ulong)0) here. Otherwise looks good to me.
+>
 
-Reviewed-by: Atish Patra <atish.patra@wdc.com>
-Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
----
- arch/riscv/include/asm/bug.h        |  1 +
- arch/riscv/include/asm/stacktrace.h |  2 ++
- arch/riscv/kernel/process.c         |  9 ++++++++-
- arch/riscv/kernel/stacktrace.c      | 10 ++++++++--
- arch/riscv/kernel/traps.c           |  3 ++-
- 5 files changed, 21 insertions(+), 4 deletions(-)
+ok will change it. Thanks for the review.
 
-diff --git a/arch/riscv/include/asm/bug.h b/arch/riscv/include/asm/bug.h
-index d6f1ec08d97b..d3804a2f9aad 100644
---- a/arch/riscv/include/asm/bug.h
-+++ b/arch/riscv/include/asm/bug.h
-@@ -85,6 +85,7 @@ do {								\
- struct pt_regs;
- struct task_struct;
- 
-+void __show_regs(struct pt_regs *regs);
- void die(struct pt_regs *regs, const char *str);
- void do_trap(struct pt_regs *regs, int signo, int code, unsigned long addr);
- 
-diff --git a/arch/riscv/include/asm/stacktrace.h b/arch/riscv/include/asm/stacktrace.h
-index 470a65c4ccdc..3450c1912afd 100644
---- a/arch/riscv/include/asm/stacktrace.h
-+++ b/arch/riscv/include/asm/stacktrace.h
-@@ -13,5 +13,7 @@ struct stackframe {
- 
- extern void notrace walk_stackframe(struct task_struct *task, struct pt_regs *regs,
- 				    bool (*fn)(void *, unsigned long), void *arg);
-+extern void dump_backtrace(struct pt_regs *regs, struct task_struct *task,
-+			   const char *loglvl);
- 
- #endif /* _ASM_RISCV_STACKTRACE_H */
-diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index dd5f985b1f40..78bb3a00d249 100644
---- a/arch/riscv/kernel/process.c
-+++ b/arch/riscv/kernel/process.c
-@@ -18,6 +18,7 @@
- #include <asm/unistd.h>
- #include <asm/processor.h>
- #include <asm/csr.h>
-+#include <asm/stacktrace.h>
- #include <asm/string.h>
- #include <asm/switch_to.h>
- #include <asm/thread_info.h>
-@@ -39,7 +40,7 @@ void arch_cpu_idle(void)
- 	raw_local_irq_enable();
- }
- 
--void show_regs(struct pt_regs *regs)
-+void __show_regs(struct pt_regs *regs)
- {
- 	show_regs_print_info(KERN_DEFAULT);
- 
-@@ -69,6 +70,12 @@ void show_regs(struct pt_regs *regs)
- 	pr_cont("status: " REG_FMT " badaddr: " REG_FMT " cause: " REG_FMT "\n",
- 		regs->status, regs->badaddr, regs->cause);
- }
-+void show_regs(struct pt_regs *regs)
-+{
-+	__show_regs(regs);
-+	if (!user_mode(regs))
-+		dump_backtrace(regs, NULL, KERN_DEFAULT);
-+}
- 
- void start_thread(struct pt_regs *regs, unsigned long pc,
- 	unsigned long sp)
-diff --git a/arch/riscv/kernel/stacktrace.c b/arch/riscv/kernel/stacktrace.c
-index 48b870a685b3..76dadf6d396b 100644
---- a/arch/riscv/kernel/stacktrace.c
-+++ b/arch/riscv/kernel/stacktrace.c
-@@ -101,10 +101,16 @@ static bool print_trace_address(void *arg, unsigned long pc)
- 	return true;
- }
- 
-+void dump_backtrace(struct pt_regs *regs, struct task_struct *task,
-+		    const char *loglvl)
-+{
-+	pr_cont("%sCall Trace:\n", loglvl);
-+	walk_stackframe(task, regs, print_trace_address, (void *)loglvl);
-+}
-+
- void show_stack(struct task_struct *task, unsigned long *sp, const char *loglvl)
- {
--	pr_cont("Call Trace:\n");
--	walk_stackframe(task, NULL, print_trace_address, (void *)loglvl);
-+	dump_backtrace(NULL, task, loglvl);
- }
- 
- static bool save_wchan(void *arg, unsigned long pc)
-diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-index ad14f4466d92..570eb078b1e1 100644
---- a/arch/riscv/kernel/traps.c
-+++ b/arch/riscv/kernel/traps.c
-@@ -16,6 +16,7 @@
- #include <linux/module.h>
- #include <linux/irq.h>
- 
-+#include <asm/bug.h>
- #include <asm/processor.h>
- #include <asm/ptrace.h>
- #include <asm/csr.h>
-@@ -66,7 +67,7 @@ void do_trap(struct pt_regs *regs, int signo, int code, unsigned long addr)
- 			tsk->comm, task_pid_nr(tsk), signo, code, addr);
- 		print_vma_addr(KERN_CONT " in ", instruction_pointer(regs));
- 		pr_cont("\n");
--		show_regs(regs);
-+		__show_regs(regs);
- 	}
- 
- 	force_sig_fault(signo, code, (void __user *)addr);
+> Reviewed-by: Anup Patel <anup@brainfault.org>
+>
+> >         u64 i;
+> >
+> >         /* Find the memory region containing the kernel */
+> > @@ -181,7 +182,18 @@ void __init setup_bootmem(void)
+> >         /* Reserve from the start of the kernel to the end of the kernel */
+> >         memblock_reserve(vmlinux_start, vmlinux_end - vmlinux_start);
+> >
+> > -       max_pfn = PFN_DOWN(memblock_end_of_DRAM());
+> > +       dram_end = memblock_end_of_DRAM();
+> > +
+> > +       /*
+> > +        * memblock allocator is not aware of the fact that last 4K bytes of
+> > +        * the addressable memory can not be mapped because of IS_ERR_VALUE
+> > +        * macro. Make sure that last 4k bytes are not usable by memblock
+> > +        * if end of dram is equal to maximum addressable memory.
+> > +        */
+> > +       if (max_mapped_addr == (dram_end - 1))
+> > +               memblock_set_current_limit(max_mapped_addr - 4096);
+> > +
+> > +       max_pfn = PFN_DOWN(dram_end);
+> >         max_low_pfn = max_pfn;
+> >         dma32_phys_limit = min(4UL * SZ_1G, (unsigned long)PFN_PHYS(max_low_pfn));
+> >         set_max_mapnr(max_low_pfn);
+> > --
+> > 2.25.1
+> >
+> >
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+>
+> Regards,
+> Anup
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+
+
 -- 
-2.26.2
-
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
