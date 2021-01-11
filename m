@@ -2,19 +2,19 @@ Return-Path: <SRS0=44w3=GO=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-19.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 50AC2C433DB
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jan 2021 19:31:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2FFB3C433DB
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jan 2021 19:40:45 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id EBF6222A84
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jan 2021 19:31:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org EBF6222A84
+	by mail.kernel.org (Postfix) with ESMTPS id C686822CB1
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jan 2021 19:40:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C686822CB1
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,56 +23,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=7FQyUAuZgR2I5AJubeH1lMuG0P96rc4C/y43GtHjNKY=; b=yoJA8R5ebS5lJ4TNud+KxV/YM
-	iPPCK/EPlbc9fStzMbUvJmZIoAcW/mZkb5pGfwTgqaj3RZY4aKNarQrBkkppQeT7qoLyUb84rEw2Q
-	z7c+lIAjmZY4AVFhb3W1EexidBlDXwYyciX/mok2QdYqkHGdMpq7C6SS2H2s9gevauHgE4lHI+EFE
-	4gdZbPvKQtiQl5M7UYqIcmbWXuAQfn4zsLCgmGcUb5463dym12gDXzt2UnE93WO3CkcQ2tKHRNB/i
-	FcBV35ssx/+nj7B1HJr8UjE7cQd4RyyXNRIG+12xsUmlV/a/cB1Zrf7auU3mJCLx+UVjDxd43ldBh
-	R7v9cDfoA==;
+	 bh=G0NZ7RhdnbVQjQWOCfYlAnu+nJEAv6gVa4Vr/H5wM7s=; b=aDD+qdx+RfuTqH+NKAtS3l+cI
+	RqvJV1sZDlPEdgXYv/Gl/+TtkHOE+rKwK/RWvLNX63b7HnoAHhlZx3nD6EbUDYsUuerJnmnAsa4B7
+	8NBM7m422wcMU5tA1E1JSWXcNYV+BRSrzgNncSOMvZBzr1wWMgylNVbs/ilfvEUndTQnhgR11Sus7
+	tk73ksHm68Jc5wRijgHNCllkO7rTHPf2vrxXBkGgO0Dv/YxJvz+yBMNVjpJsQSXWz7f1x5JFXlKzz
+	UhXSs3chTLgP1brPs4MjT2v2NGp0NivRDTvdf/qi0UMdnw/GarSfVLEWKnk1KzOXHhI4zrBvP7mSU
+	4DN+j7NOg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kz2ub-0002WV-H5; Mon, 11 Jan 2021 19:31:33 +0000
-Received: from mail-io1-xd2c.google.com ([2607:f8b0:4864:20::d2c])
+	id 1kz33E-0005O4-6h; Mon, 11 Jan 2021 19:40:28 +0000
+Received: from mail-io1-xd34.google.com ([2607:f8b0:4864:20::d34])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kz2uS-0002RH-3c
- for linux-riscv@lists.infradead.org; Mon, 11 Jan 2021 19:31:26 +0000
-Received: by mail-io1-xd2c.google.com with SMTP id w18so868537iot.0
- for <linux-riscv@lists.infradead.org>; Mon, 11 Jan 2021 11:31:23 -0800 (PST)
+ id 1kz339-0005Me-VV
+ for linux-riscv@lists.infradead.org; Mon, 11 Jan 2021 19:40:25 +0000
+Received: by mail-io1-xd34.google.com with SMTP id p187so872266iod.4
+ for <linux-riscv@lists.infradead.org>; Mon, 11 Jan 2021 11:40:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=atishpatra.org; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=R2I4BbShbTu/yJpEZj0PNRRdCnuLwVEUr5DQ9wFpqcE=;
- b=srZzPZyePcV1kAldudiypZ0rRVK8bt8lvJ2u9G/OM6L5wyUuvQJ6iiE7U54MXmR8LI
- 8v01ioV782Fz0JH5/1ojhhDjdU3OogkTVx5hoJmg/pcXWDg1H4kM/vPV6FiAKdGSTtfd
- UzFfVK7HotL53AU5ROuFl/mbmJPrAkzBpOqRw=
+ :cc; bh=vW75v17uS7/3mGusRNoa3W4DvP8cfQjojooBMI129qA=;
+ b=Bs3UNZ/rVRxQ2cxv8BqerMLqugO1l7enyHwTdva8R2GMEdMkpVrABnFqckPoA8oGoL
+ m6wpCD9seUJn0SUXENyE7nkYBVOd4svIZwsITx+oIFQrj+3kVFJJm3k0RrGDmuNOo62i
+ SvkTw/0mihb8CoW2Y/MskORlsdgWGLry/J4Ls=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=R2I4BbShbTu/yJpEZj0PNRRdCnuLwVEUr5DQ9wFpqcE=;
- b=d8STTuSXJRI4JNloLZ8QVKKQgwm96a3MNL7D0I4EvYbrzhAgmEg4h7ldmVC7jt5Mql
- m8/5il/vBNMEqcxeRoXWNATG7mM26+HVfij+6j4fxjuKqJrh57cncuiyoasOoCBGXtR1
- TsiZsGpbpG4MJ3FjuVr8kKspZDR/TXtjiN85OnudCtq/XwCFcmtQdqxG8WEoSgVOhk7L
- 3rtfJ5bn2BY6zLuG37EkMW3CkHfx2b2Fc1cxhxOLFpnWIJPFS30RbQBUsu7MGtDeSyjt
- D3NdYlgCDivIVs9CA0dteAZMLC4n1fKqgc/amgzOjzc/2KjNMXWnABINSR0KgDDCaxQg
- sEzg==
-X-Gm-Message-State: AOAM531KCN4nyokVnEXnAoxNxG+08To+7boheWoI5MUtqcqWAo2Qn9Gc
- qUpP2j5PalFmZ+Ej4hinljORPMq8SjodZgUa7bf1
-X-Google-Smtp-Source: ABdhPJzhe7x3UfUvfOZk8hrT4czPh4HNfXiB6nfRWX8ysGPV0CWtXhWKQhiUlsD3i77pSSTTtW+at4ya/ydmJxPk2PA=
-X-Received: by 2002:a6b:b74e:: with SMTP id h75mr670195iof.0.1610393482014;
- Mon, 11 Jan 2021 11:31:22 -0800 (PST)
+ bh=vW75v17uS7/3mGusRNoa3W4DvP8cfQjojooBMI129qA=;
+ b=BG2o7a4IHQcwaL1iVLcCNWKBCetlDaGVzXZNm5qb7mZAgPYT0DpiUoFm84DNeKNwJN
+ KEZgyKE89B2MPiCsS55/ulmjZ7mn8L//7sxOJZ6kkvHGtK9mH9v5Nox5zARWJOPt+uS+
+ dachi75avzTPhzn3jcIqNUcZaf93R5lhrPBS0N/xNr7pc81V/Fe+3lpacQsT3aKT/7N1
+ QHj4Tq2ugo7KIwajk9GBlJTagGUQfTCnAfhv3gjf3XmQFYkn3VGOqo7G/+vIxBWWGcQh
+ tQWns3DX33/mUT9C/OC7RQlycdJxUkikZbv+e11v9OpdSwZqWcVfntyDujqqleVU2MHT
+ FqOA==
+X-Gm-Message-State: AOAM532MxdsBIzjLNn8HuTn49DVHGBcdyDVW/AGUQBBzYw6gu0YFjkSv
+ NcjKjkviVIetTRQFfRmm0UtCxcKdC+laLbwil0ic
+X-Google-Smtp-Source: ABdhPJz+o05aaCHJebpSsp7aFhOrrU2YUfpaolTQxOIGk44ejdVJjIalwLbSBakQUjLyFTHpPcRndzd9K7SzmbR3gIU=
+X-Received: by 2002:a05:6602:3c6:: with SMTP id
+ g6mr664370iov.174.1610394021686; 
+ Mon, 11 Jan 2021 11:40:21 -0800 (PST)
 MIME-Version: 1.0
-References: <CAOnJCULPCxhirYH8xCciKDNJ=zfWKwiOOfAoT8QQBOKqTuWuTA@mail.gmail.com>
- <mhng-94c90991-c4e8-49fe-a225-854ae0343d8d@palmerdabbelt-glaptop>
-In-Reply-To: <mhng-94c90991-c4e8-49fe-a225-854ae0343d8d@palmerdabbelt-glaptop>
+References: <3ba42880e5b43fc238aac8d30da271516fb281ac.camel@gmail.com>
+ <CAMuHMdXFf4=7D_SLBgju2qaUzwC8dMkxq3zWDTmZ3AgWkBMQig@mail.gmail.com>
+ <CAOnJCU+pwTMktUfcY_GrL6_tfk8APyh7jOh=VJtCW2B8=t4wnw@mail.gmail.com>
+ <CAMuHMdWSOQkY+ZFg1FrwSZp2NX4ofzxnBgxC_se-QpfMYThcFg@mail.gmail.com>
+In-Reply-To: <CAMuHMdWSOQkY+ZFg1FrwSZp2NX4ofzxnBgxC_se-QpfMYThcFg@mail.gmail.com>
 From: Atish Patra <atishp@atishpatra.org>
-Date: Mon, 11 Jan 2021 11:31:11 -0800
-Message-ID: <CAOnJCUJq5e7W1UXkFFMkKje_BTedekoUT=32ia6t+Sc4UVDhEQ@mail.gmail.com>
-Subject: Re: [PATCH v5 0/5] Unify NUMA implementation between ARM64 & RISC-V
-To: Palmer Dabbelt <palmer@dabbelt.com>
+Date: Mon, 11 Jan 2021 11:40:10 -0800
+Message-ID: <CAOnJCUK8FdrhYXhFpGPfzpEy8wxpbdSQQn-D6mCPCwxYrNyuog@mail.gmail.com>
+Subject: Re: [PATCH] riscv: Align on L1_CACHE_BYTES when STRICT_KERNEL_RWX
+To: Geert Uytterhoeven <geert@linux-m68k.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210111_143125_047265_B2850D04 
-X-CRM114-Status: GOOD (  33.45  )
+X-CRM114-CacheID: sfid-20210111_144024_074992_E2EBAC42 
+X-CRM114-Status: GOOD (  25.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -84,161 +87,115 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- Jonathan Cameron <Jonathan.Cameron@huawei.com>,
- Atish Patra <Atish.Patra@wdc.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- "will@kernel.org" <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
- linux-arch@vger.kernel.org, Zhengyuan Liu <liuzhengyuan@tj.kylinos.cn>,
- Baoquan He <bhe@redhat.com>, Anup Patel <anup@brainfault.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Steven Price <steven.price@arm.com>, Greentime Hu <greentime.hu@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
- Greg KH <gregkh@linuxfoundation.org>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>
+Cc: Sebastien Van Cauwenberghe <svancau@gmail.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Zong Li <zong.li@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jan 9, 2021 at 12:51 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+On Sat, Jan 9, 2021 at 1:35 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
 >
-> On Sun, 13 Dec 2020 17:02:19 PST (-0800), atishp@atishpatra.org wrote:
-> > On Wed, Nov 18, 2020 at 4:39 PM Atish Patra <atish.patra@wdc.com> wrote:
-> >>
-> >> This series attempts to move the ARM64 numa implementation to common
-> >> code so that RISC-V can leverage that as well instead of reimplementing
-> >> it again.
-> >>
-> >> RISC-V specific bits are based on initial work done by Greentime Hu [1] but
-> >> modified to reuse the common implementation to avoid duplication.
-> >>
-> >> [1] https://lkml.org/lkml/2020/1/10/233
-> >>
-> >> This series has been tested on qemu with numa enabled for both RISC-V & ARM64.
-> >> It would be great if somebody can test it on numa capable ARM64 hardware platforms.
-> >> This patch series doesn't modify the maintainers list for the common code (arch_numa)
-> >> as I am not sure if somebody from ARM64 community or Greg should take up the
-> >> maintainership. Ganapatrao was the original author of the arm64 version.
-> >> I would be happy to update that in the next revision once it is decided.
-> >>
-> >> # numactl --hardware
-> >> available: 2 nodes (0-1)
-> >> node 0 cpus: 0 1 2 3
-> >> node 0 size: 486 MB
-> >> node 0 free: 470 MB
-> >> node 1 cpus: 4 5 6 7
-> >> node 1 size: 424 MB
-> >> node 1 free: 408 MB
-> >> node distances:
-> >> node   0   1
-> >>   0:  10  20
-> >>   1:  20  10
-> >> # numactl -show
-> >> policy: default
-> >> preferred node: current
-> >> physcpubind: 0 1 2 3 4 5 6 7
-> >> cpubind: 0 1
-> >> nodebind: 0 1
-> >> membind: 0 1
-> >>
-> >> The patches are also available at
-> >> https://github.com/atishp04/linux/tree/5.11_numa_unified_v5
-> >>
-> >> For RISC-V, the following qemu series is a pre-requisite(already available in upstream)
-> >> https://patchwork.kernel.org/project/qemu-devel/list/?series=303313
-> >>
-> >> Testing:
-> >> RISC-V:
-> >> Tested in Qemu and 2 socket OmniXtend FPGA.
-> >>
-> >> ARM64:
-> >> 2 socket kunpeng920 (4 nodes around 250G a node)
-> >> Tested-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-> >>
-> >> Changes from v4->v5:
-> >> 1. Added by Acked-by & Reviewed-by tags.
-> >> 2. Swapped patch 1 & 2 in v4 version.
-> >>
-> >> Changes from v3->v4:
-> >> 1. Removed redundant duplicate header.
-> >> 2. Added Reviewed-by tags.
-> >>
-> >> Changes from v2->v3:
-> >> 1. Added Acked-by/Reviewed-by tags.
-> >> 2. Replaced asm/acpi.h with linux/acpi.h
-> >> 3. Defined arch_acpi_numa_init as static.
-> >>
-> >> Changes from v1->v2:
-> >> 1. Replaced ARM64 specific compile time protection with ACPI specific ones.
-> >> 2. Dropped common pcibus_to_node changes. Added required changes in RISC-V.
-> >> 3. Fixed few typos.
-> >>
-> >> Atish Patra (4):
-> >> arm64, numa: Change the numa init functions name to be generic
-> >> numa: Move numa implementation to common code
-> >> riscv: Separate memory init from paging init
-> >> riscv: Add numa support for riscv64 platform
-> >>
-> >> Greentime Hu (1):
-> >> riscv: Add support pte_protnone and pmd_protnone if
-> >> CONFIG_NUMA_BALANCING
-> >>
-> >> arch/arm64/Kconfig                            |  1 +
-> >> arch/arm64/include/asm/numa.h                 | 48 +----------------
-> >> arch/arm64/kernel/acpi_numa.c                 | 12 -----
-> >> arch/arm64/mm/Makefile                        |  1 -
-> >> arch/arm64/mm/init.c                          |  4 +-
-> >> arch/riscv/Kconfig                            | 31 ++++++++++-
-> >> arch/riscv/include/asm/mmzone.h               | 13 +++++
-> >> arch/riscv/include/asm/numa.h                 |  8 +++
-> >> arch/riscv/include/asm/pci.h                  | 14 +++++
-> >> arch/riscv/include/asm/pgtable.h              | 21 ++++++++
-> >> arch/riscv/kernel/setup.c                     | 11 +++-
-> >> arch/riscv/kernel/smpboot.c                   | 12 ++++-
-> >> arch/riscv/mm/init.c                          | 10 +++-
-> >> drivers/base/Kconfig                          |  6 +++
-> >> drivers/base/Makefile                         |  1 +
-> >> .../mm/numa.c => drivers/base/arch_numa.c     | 27 ++++++++--
-> >> include/asm-generic/numa.h                    | 52 +++++++++++++++++++
-> >> 17 files changed, 200 insertions(+), 72 deletions(-)
-> >> create mode 100644 arch/riscv/include/asm/mmzone.h
-> >> create mode 100644 arch/riscv/include/asm/numa.h
-> >> rename arch/arm64/mm/numa.c => drivers/base/arch_numa.c (96%)
-> >> create mode 100644 include/asm-generic/numa.h
-> >>
-> >> --
-> >> 2.25.1
-> >>
-> >>
-> >> _______________________________________________
-> >> linux-riscv mailing list
-> >> linux-riscv@lists.infradead.org
-> >> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> Hi Atish,
+>
+> On Fri, Jan 8, 2021 at 8:12 PM Atish Patra <atishp@atishpatra.org> wrote:
+> > On Fri, Jan 8, 2021 at 8:37 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> > > On Mon, Nov 16, 2020 at 1:59 PM Sebastien Van Cauwenberghe
+> > > <svancau@gmail.com> wrote:
+> > > > From 5690c2f91d87a007babb13e2d2c9c45d1ff68b7a Mon Sep 17 00:00:00 2001
+> > > > From: Sebastien Van Cauwenberghe <svancau@gmail.com>
+> > > > Date: Mon, 16 Nov 2020 13:37:32 +0100
+> > > > Subject: [PATCH] riscv: Align on L1_CACHE_BYTES when STRICT_KERNEL_RWX is
+> > > >  disabled
+> > > >
+> > > > Allows the sections to be aligned on smaller boundaries and
+> > > > therefore results in a smaller kernel image size.
+> > > >
+> > > > Signed-off-by: Sebastien Van Cauwenberghe <svancau@gmail.com>
+> > >
+> > > Thanks for your patch!
+> > >
+> > > > --- a/arch/riscv/include/asm/set_memory.h
+> > > > +++ b/arch/riscv/include/asm/set_memory.h
+> > > > @@ -27,14 +27,14 @@ int set_direct_map_default_noflush(struct page *page);
+> > > >
+> > > >  #endif /* __ASSEMBLY__ */
+> > > >
+> > > > -#ifdef CONFIG_ARCH_HAS_STRICT_KERNEL_RWX
+> > > > +#ifdef CONFIG_STRICT_KERNEL_RWX
+> > > >  #ifdef CONFIG_64BIT
+> > > >  #define SECTION_ALIGN (1 << 21)
+> > > >  #else
+> > > >  #define SECTION_ALIGN (1 << 22)
+> > > >  #endif
+> > > > -#else /* !CONFIG_ARCH_HAS_STRICT_KERNEL_RWX */
+> > > > +#else /* !CONFIG_STRICT_KERNEL_RWX */
+> > > >  #define SECTION_ALIGN L1_CACHE_BYTES
+> > > > -#endif /* CONFIG_ARCH_HAS_STRICT_KERNEL_RWX */
+> > > > +#endif /* CONFIG_STRICT_KERNEL_RWX */
+> > > >
+> > > >  #endif /* _ASM_RISCV_SET_MEMORY_H */
+> > >
+> > > Since commit 19a00869028f4a28 ("RISC-V: Protect all kernel sections
+> > > including init early"), you also need (whitespace-damaged-gmail-patch):
+> > >
+> > > --- a/arch/riscv/kernel/setup.c
+> > > +++ b/arch/riscv/kernel/setup.c
+> > > @@ -293,6 +293,8 @@ void free_initmem(void)
+> > >         unsigned long init_begin = (unsigned long)__init_begin;
+> > >         unsigned long init_end = (unsigned long)__init_end;
+> > >
+> > > -       set_memory_rw_nx(init_begin, (init_end - init_begin) >> PAGE_SHIFT);
+> > > +       if (IS_ENABLED(CONFIG_STRICT_KERNEL_RWX))
+> > > +               set_memory_rw_nx(init_begin,
+> > > +                                (init_end - init_begin) >> PAGE_SHIFT);
+> > >         free_initmem_default(POISON_FREE_INITMEM);
+> > >  }
+> > >
 > >
-> > Hey Palmer,
-> > I did not see this series in for-next. Let me know if you need
-> > anything else to be done for this series.
+> > Thanks for the fix. I guess you need to disable
+> > CONFIG_STRICT_KERNEL_RWX explicitly
+> > to notice this issue.
 >
-> Sorry about that.  It's on for-next, with Randy's comment addressed.  There was
-> one merge conflict: we don't have resource_init() in for-next yet (which I
-> think means I missed something else).
+> Indeed.
+>
+> > > Else it crashes here without any kernel output.
+> > >
+> > > Feel free to fold this into your patch.
+> > >
+> >
+> > IMO, this can be a separate patch with Fixes tag.
+>
+> Why? Sebastien's patch (which hasn't been applied yet) no longer works
+> due to interaction with a commit in v5.11-rc1.
+>
 
-resource_init is changed to init_resource and moved to setup.c in the
-following patch which was merged in 5.11 MW.
-00ab027a3b82 RISC-V: Add kernel image sections to the resource tree
+Technically, Sebastien's patch was an improvement while this one fixes
+an issue so that the Fixes tag can be added.
+But the original patch was merged in this cycle only. So these changes
+can be a single change as long as it is sent as an rc fix.
+I am fine with either way.
 
-IDK if that's necessary for the NUMA
-> stuff, I just dropped it.  I haven't tested this yet.
+@Sebastien: Can you send the updated patch soon so that palmer can
+pull this one as an RC fix?
+
+
+> Gr{oetje,eeting}s,
+>
+>                         Geert
+>
+> --
+> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+>
+> In personal conversations with technical people, I call myself a hacker. But
+> when I'm talking to journalists I just say "programmer" or something like that.
+>                                 -- Linus Torvalds
 
 
 
--- 
+--
 Regards,
 Atish
 
