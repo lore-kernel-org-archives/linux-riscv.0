@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2A9EDC433DB
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jan 2021 04:00:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9F0A7C433DB
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jan 2021 04:04:33 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B081A22473
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jan 2021 04:00:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B081A22473
+	by mail.kernel.org (Postfix) with ESMTPS id 5AB8322473
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jan 2021 04:04:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5AB8322473
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,60 +23,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=miYTBxsgE0wbcXEqVjv9K8icMgEMGraU/+WsmR5sWGY=; b=x+9XHyAo03QEAZ5b4HbYJsnmM
-	uIUVnOUwyjLsnNPvkKCk7ZNGV/ZWzXY3mCkDBvlUNDDNx9IIO4perVFbGULk0m+x4hGHlDLp9vSyX
-	9AFP0ewbknd6CpToZShzH3koeXK26+RY7lXXZN3DIjHjB7iBybYOyTsAG66mzZdBavneA6/5pf4ns
-	RTVCamwT8AdqURGBe1N2e+nbsBO+CcgkGbsQuotQ5Y0P13xYUiALC+oUfrNURVKdjH6Ax3j607QPa
-	drJfjj5/rE0JFfltWTzEzxyAihzgFrm5zMDo9Jgtr5FsvVMwYzU9EYlMEbfjgUB2HKucyQy7L/oRm
-	O3DMpGlzA==;
+	 bh=2uMDUULljZmwf2PiBYRQ1pLY8W/8byDagFUj/PiYqc0=; b=PJX5/ZTEFJn8m4gii5tKuv0ZC
+	jN4QYhN232Kc2K3UxcKktrCkHrEFFO8sr/sCcrte17Pg1/Z73pOIV768fbvJ3icAxfFE6xP8xXKO7
+	OwcRE5Ao5i17kM/zkmJXuJi5GOnvi5Hy10TSCfs1uQCP1gDU/DKOUTaN1i0rqmMfYFCRDqXg/1cDj
+	nzD0D1ReNkrBumvcRYL2E66z3IBVU7cQehQQM3SjN32Ql6/AUwTnd41lr/39N2r7GQEOwZj1m95PK
+	UJue3maiO++wzwx0GoEVNWxUvVvWZPa8lC+2rlS35Vw5gHFzruNT5ZXjcdHAU/B34J37tshPsTkNI
+	44y/wDIEg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kyoNN-0002P5-9a; Mon, 11 Jan 2021 04:00:17 +0000
-Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
+	id 1kyoRK-0003XA-JJ; Mon, 11 Jan 2021 04:04:22 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kyoNK-0002Nm-K4
- for linux-riscv@lists.infradead.org; Mon, 11 Jan 2021 04:00:15 +0000
-Received: by mail-lj1-x229.google.com with SMTP id f11so2016690ljm.8
- for <linux-riscv@lists.infradead.org>; Sun, 10 Jan 2021 20:00:14 -0800 (PST)
+ id 1kyoRI-0003W7-72
+ for linux-riscv@lists.infradead.org; Mon, 11 Jan 2021 04:04:21 +0000
+Received: by mail-lf1-x131.google.com with SMTP id o17so35871624lfg.4
+ for <linux-riscv@lists.infradead.org>; Sun, 10 Jan 2021 20:04:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20150623.gappssmtp.com; s=20150623;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=aHEcr4bSN1zx2FiEMYBhMzgQIQxqAhuq0PemUwVcZMc=;
- b=17Yxy068PsRgBYF8Z92oLby9dxH4xCw0G3KUSVK5aO7ukRRPstyXKGXxnHINqOemMp
- bU+NJ7KZAgJRAVo1zy+w+gzx0dM0gHBT+TQt0yxMMgKCsw5tPTwi5KdwHDmcU01JhPNV
- Bq9F+wWEQQ5tV7c9UmvAI+X3CWzL3R0e2Vo4y/OJhC+Q/1amaASVE7w5mH5k+bbFG1jA
- wRgBprCrTIrNPjuO56ZRm3Vjyv4ZJsDDjbmGyCJXoMCA2T0TBPAWe+/DQKLeJZ+CIrJP
- 7gPBedFvoO6wG3diINpIwu3pGaOmD8MLRNwJOiAvB/SGca5vL0Y3LUbVHbfy/laplQwT
- s0PA==
+ :cc; bh=6q6bK74e1uGqFWykBzn1UfhFP5mb0Otk6HA48F1HwJ0=;
+ b=C4nnRQ5QCFjqgRoNNA42Lz3EEKsOU+VJ6t9NqBzyosLVIRvjbrNmE4YBob6IONSS1P
+ nVuss5Nr2dsMA/DsEcvIR6UdEjSW+YQe+x28wgEB3GAA+yLPLKVWGWS4CHu+h57Jnnul
+ MD6MJp7vwMjnVmxSV2ZZ1ZvtETLEtzonJoVatVOfzR57Qzfvs23kG2nFwbhe304/0klQ
+ GunA6HWLx8Nu+0vIpvKolH+ffK8D3p+1SrEYTqS0XQ0aSI/iyy/unSGAEHMhNKoiuzdD
+ x+ZhvBSWXJ/J5FTrn0fCabxKEeL+BtgyIX9/ofmEBXDB4RjpSGMI0jC+UBJtnX0jyowk
+ sPnw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=aHEcr4bSN1zx2FiEMYBhMzgQIQxqAhuq0PemUwVcZMc=;
- b=nyLejlIC16KakXoVBCid3pbtByTzoBoNUfjfWlRJbrji9RBx+QWT/yKBXHxYpgS814
- pmprjWx3AOapyks94Q0DkrzCQeL37cyw4kh5phtbU00KF8nKtU/SACTzgn7LsdXo5jBT
- gvPZZ2t7v46z6qfKsueNxpElm7DS8woCfgy2O4RxLEeK5sKNylE6YWnNJy1gkMkSMHpn
- y7YxRKz8QO0BVJTxbQ77bxC2QT/is6MqufejwjVXCNnLqaEnXyGuNhrqpXa/e36nE/Vh
- efdF6eLjon2f5msGUpiJxngA5t4Ye5KiH75pnXGPK3AnKoxbGynSObWYGopg/iY67LcR
- H/Ug==
-X-Gm-Message-State: AOAM530uAYBR8NH+miuF+sBS5JQIJbYKH+HXFTiCaxRJe7E0DGj2jWRU
- eHZUjn4ENb3Kc/GLVlDqtviMbJ6w7P08FTDH//tG+g==
-X-Google-Smtp-Source: ABdhPJx0b8YVu7rdN1I7HqOu9IoKI4q9eHnmGHiqxjmUPNYuhHmSXBuJjGwjX9ZjFoRWPWz4LF2jbblYZ1gYh8hSE7c=
-X-Received: by 2002:a05:651c:202:: with SMTP id
- y2mr6385586ljn.162.1610337613243; 
- Sun, 10 Jan 2021 20:00:13 -0800 (PST)
+ bh=6q6bK74e1uGqFWykBzn1UfhFP5mb0Otk6HA48F1HwJ0=;
+ b=SQVL7S4XoEnZybjo9EiFeYPTJDjtAO9Zhg0pBjKAkB7jhlG3/eb0KkJ/+PocSaiLH1
+ MrOoKcCR0V4umzttCqy/R49qrK4IB8P4leTPExeWqFgbFgJDcCbCYSNz28LtphkfaBFL
+ n1ny0lWR681CoHjOKPEKi4gD60tkK+hN5FsOgIfBgaaoNaXzLRi5fdy31A3Shtak5q/g
+ GKjOZ74/vN01SVoaY8XqcqvqXSiqJu6hOxUhdzJmLWD2onLXO0R1gpsRghwExw4pceTH
+ a1NCwH/80zMkFMdnbWZxxZ1gxnqratH/p12KUs/UBryerkh5fWpDESCO2d2QuGJtCD0Y
+ g7yw==
+X-Gm-Message-State: AOAM533VCX2Z+OdDRiQJuFCj0ISrS3wPRaBcdz6IxbCQVueyqZJyGkrQ
+ TwCdpme/KKYUPS/kqc1MlffANWINR4+3Uc7lYPpPCA==
+X-Google-Smtp-Source: ABdhPJxEWJWq6kAkGml3Vbi80k+g5JFrJYBEIDCSWA5K143y9EPCKxl2jzrEW+w0uxSJMhOjZ8BnB9QsuXQMPQYKusc=
+X-Received: by 2002:a05:6512:22ca:: with SMTP id
+ g10mr3298651lfu.87.1610337858451; 
+ Sun, 10 Jan 2021 20:04:18 -0800 (PST)
 MIME-Version: 1.0
 References: <20210107092652.3438696-1-atish.patra@wdc.com>
- <20210107092652.3438696-4-atish.patra@wdc.com>
-In-Reply-To: <20210107092652.3438696-4-atish.patra@wdc.com>
+ <20210107092652.3438696-5-atish.patra@wdc.com>
+In-Reply-To: <20210107092652.3438696-5-atish.patra@wdc.com>
 From: Anup Patel <anup@brainfault.org>
-Date: Mon, 11 Jan 2021 09:30:01 +0530
-Message-ID: <CAAhSdy3XsG3J1nE-nQhiJe5vVTa-1f09t=FY4AMRv7HtdoK=-w@mail.gmail.com>
-Subject: Re: [PATCH 3/4] RISC-V: Fix L1_CACHE_BYTES for RV32
+Date: Mon, 11 Jan 2021 09:34:07 +0530
+Message-ID: <CAAhSdy3Z1zxFdPr+dSvP6GH+1NtRw7o=JS7OnOmZnqb8LPbnRQ@mail.gmail.com>
+Subject: Re: [PATCH 4/4] RISC-V: Fix maximum allowed phsyical memory for RV32
 To: Atish Patra <atish.patra@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210110_230014_708559_BD9D88A1 
-X-CRM114-Status: GOOD (  14.95  )
+X-CRM114-CacheID: sfid-20210110_230420_480077_01D113C8 
+X-CRM114-Status: GOOD (  18.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -101,36 +101,52 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 On Thu, Jan 7, 2021 at 2:57 PM Atish Patra <atish.patra@wdc.com> wrote:
 >
-> SMP_CACHE_BYTES/L1_CACHE_BYTES should be defined as 32 instead of
-> 64 for RV32. Otherwise, there will be hole of 32 bytes with each memblock
-> allocation if it is requested to be aligned with SMP_CACHE_BYTES.
+> Linux kernel can only map 1GB of address space for RV32 as the page offset
+> is set to 0xC0000000. The current description in the Kconfig is confusing
+> as it indicates that RV32 can support 2GB of physical memory. That is
+> simply not true for current kernel. In future, a 2GB split support can be
+> added to allow 2GB physical address space.
 >
 > Signed-off-by: Atish Patra <atish.patra@wdc.com>
+
+Just for information, Alex's also has a patch to simplify this. Refer,
+"[RFC PATCH 05/12] riscv: Simplify MAXPHYSMEM config"
 
 Looks good to me.
 
 Reviewed-by: Anup Patel <anup@brainfault.org>
 
 > ---
->  arch/riscv/include/asm/cache.h | 4 ++++
->  1 file changed, 4 insertions(+)
+>  arch/riscv/Kconfig | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
 >
-> diff --git a/arch/riscv/include/asm/cache.h b/arch/riscv/include/asm/cache.h
-> index 9b58b104559e..c9c669ea2fe6 100644
-> --- a/arch/riscv/include/asm/cache.h
-> +++ b/arch/riscv/include/asm/cache.h
-> @@ -7,7 +7,11 @@
->  #ifndef _ASM_RISCV_CACHE_H
->  #define _ASM_RISCV_CACHE_H
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 81b76d44725d..e9e2c1f0a690 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -137,7 +137,7 @@ config PA_BITS
 >
-> +#ifdef CONFIG_64BIT
->  #define L1_CACHE_SHIFT         6
-> +#else
-> +#define L1_CACHE_SHIFT         5
-> +#endif
+>  config PAGE_OFFSET
+>         hex
+> -       default 0xC0000000 if 32BIT && MAXPHYSMEM_2GB
+> +       default 0xC0000000 if 32BIT && MAXPHYSMEM_1GB
+>         default 0x80000000 if 64BIT && !MMU
+>         default 0xffffffff80000000 if 64BIT && MAXPHYSMEM_2GB
+>         default 0xffffffe000000000 if 64BIT && MAXPHYSMEM_128GB
+> @@ -247,10 +247,12 @@ config MODULE_SECTIONS
 >
->  #define L1_CACHE_BYTES         (1 << L1_CACHE_SHIFT)
+>  choice
+>         prompt "Maximum Physical Memory"
+> -       default MAXPHYSMEM_2GB if 32BIT
+> +       default MAXPHYSMEM_1GB if 32BIT
+>         default MAXPHYSMEM_2GB if 64BIT && CMODEL_MEDLOW
+>         default MAXPHYSMEM_128GB if 64BIT && CMODEL_MEDANY
 >
+> +       config MAXPHYSMEM_1GB
+> +               bool "1GiB"
+>         config MAXPHYSMEM_2GB
+>                 bool "2GiB"
+>         config MAXPHYSMEM_128GB
 > --
 > 2.25.1
 >
