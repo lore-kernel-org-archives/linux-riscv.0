@@ -2,75 +2,72 @@ Return-Path: <SRS0=HZsE=GQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-12.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 09460C433E0
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Jan 2021 02:29:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BDFAEC433E0
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Jan 2021 02:57:53 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 90A5D2310F
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Jan 2021 02:29:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 90A5D2310F
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=andestech.com
+	by mail.kernel.org (Postfix) with ESMTPS id 5479C23131
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Jan 2021 02:57:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5479C23131
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kHrjUUmJHYUv2NtcagSNrbXLRiKYnHttjvDEM1mj55k=; b=fZfKsv/YXBrjLCaOCrT+CRrFcK
-	BsNRhPVGsMeJn2RrP4+3MY4l6fEy4H54TMK18GDRGgzWcvrEHbSgI51CX4fSNKJvSPVVjAmHsL3JL
-	N5yc1Zafx8IY2oHe23U65d3Cem3+hGcWJPeRRGupHW7nVFJbW2enwKCknMEx895asyT3AOOFwm+om
-	XE/Pu64/h2TwGXAB7r+dUSi/o5DTacDHCOvYcmWqf+8sxJvUuznW7SEfkJ/gtDb8gno33YFQf8sy0
-	OK+77AI4jaNfqNtrw6IbC79AWJKo3AJNjuAk52CACaYXsp+VNZ6u8D/BDYP1vBRpJtq6n/x/5dYTB
-	UPot3LyA==;
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=oNRYP/2mnAESBBX/sRcQPLT0WphlNP2wkime7zMF2e0=; b=FvUdoaLZP0cfvck29uB08IHaW
+	r1WxzEdiN0TZfCe7B4QrYOA7FRgFS9si6L9Hykx/Zr39X8PfXnktAXzhztXXuza44ufB5986wjQN0
+	8iK6GLSzO6tOKmQMQMgJnuaXJHPe3cLknRdMIdmExX97oe9ra0IK/XiaQ7JQWzb4fwvJUBcHLJWYp
+	Wbng6efnaawSCVHrwsG2OfgiszTUXIiAN0TG1anmwfVPZzVkUJhW3eDHtQa7zNpbwVAFb7U7w7RjE
+	nggtQKcUxIujUpGDJULLk56F2oXRgyKEYS2hWwl2R9k9LWqk1jdsvbbr4ozSDIO7WzjFOXPeq4BBG
+	ENW2fSC4Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kzVul-0001nT-Mb; Wed, 13 Jan 2021 02:29:39 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1kzWLt-0001tl-KN; Wed, 13 Jan 2021 02:57:41 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kzVuk-0001n1-H6
- for linux-riscv@merlin.infradead.org; Wed, 13 Jan 2021 02:29:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=Content-Type:MIME-Version:Message-ID:
- Date:Subject:CC:To:From:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
- Content-Description:In-Reply-To:References;
- bh=4g8bpWRFFbze0eKjyeoZv0D3z0R2ISPPfm/xh72URvs=; b=b9+9MK+tPTyoygwLsd417VkrP2
- iOsc3LdPwO/4Fl52H29kf1z3cDH6KsPMoWV/yexK/DPSYkdNyZyMfh1IeNASS9YH/7y0zJdXecY6k
- 2tfWfi3CPC7rasWVquEivXEP/NKFpmVD4/mStsaAiuPPlZOSz6HGMWQHOIez2/T3UGD5SvR2Y5NOx
- Fu33FoBNpO0dbsW8IY+qddTPevtULKY/kQh/cb1ZpC6IZd2v6v/uBuuHYl8+t8IqJRE+yjGlR8NWQ
- ZP9W/T/aDlXYImiGndn78j4/XtyCRZKas3xlyPrPSpd+C0cTQYBB75v/fpCydrj9BOvMxXp17QwY8
- xtgg95Pw==;
-Received: from atcsqr.andestech.com ([60.248.187.195])
- by casper.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1kzVuR-005gia-JA
- for linux-riscv@lists.infradead.org; Wed, 13 Jan 2021 02:29:30 +0000
-Received: from mail.andestech.com (atcpcs16.andestech.com [10.0.1.222])
- by ATCSQR.andestech.com with ESMTP id 10D2Pffl039664;
- Wed, 13 Jan 2021 10:25:41 +0800 (GMT-8)
- (envelope-from nylon7@andestech.com)
-Received: from atcfdc88.andestech.com (10.0.15.120) by ATCPCS16.andestech.com
- (10.0.1.222) with Microsoft SMTP Server id 14.3.487.0;
- Wed, 13 Jan 2021 10:28:24 +0800
-From: Nylon Chen <nylon7@andestech.com>
-To: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH 0/1] kasan: support backing vmalloc space for riscv
-Date: Wed, 13 Jan 2021 10:28:21 +0800
-Message-ID: <20210113022822.9230-1-nylon7@andestech.com>
-X-Mailer: git-send-email 2.17.1
+ id 1kzWLq-0001sR-7k
+ for linux-riscv@lists.infradead.org; Wed, 13 Jan 2021 02:57:39 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id D4CFE2312E
+ for <linux-riscv@lists.infradead.org>; Wed, 13 Jan 2021 02:57:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1610506656;
+ bh=A2X9yAJjMelGsnUZoFeBcSZDu8oKUroi/CJv9/mXNCk=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=fkC/OTEwMOc1ls89758/bPG65vPCysFvTAGXFqzRzS7YoGiCuSlwPFZ/xouX3dvDs
+ R1duE0mjZrHOZmpS6SB3pGEmyGxtk69DuUV19Dnz9phAaYAyGQUhGovoRzkoGfWvg/
+ eUqlSevoePa/Si6iEq+dnfrQo7mLrk7TwqqXcXQ6IlLpOVBcMsmdmRr6+RpbcyytPl
+ KIJUzE5DePPJgUKkQrT8xVzdDxOwaQdcG8/Mr0KFkFIFyZWtGhMArrs1Yth9Rs7iun
+ VnoX7DWj1WbCVrJw+wAYQLpiQy8kclwqkYzhI9AS/SWIpgsZhDxW0QLUAW+Lo0fV3L
+ QmuXWtmz3tpHA==
+Received: by mail-lf1-f47.google.com with SMTP id o10so541322lfl.13
+ for <linux-riscv@lists.infradead.org>; Tue, 12 Jan 2021 18:57:35 -0800 (PST)
+X-Gm-Message-State: AOAM530Jq3jH5xhaWbngOtvL5jGwc9c8Lb25ZqvLl9pqUm4XqrxpiqJa
+ OoyMJWWeVNw0qnxU+BnEy+Hqs0SUac8nP4buvuU=
+X-Google-Smtp-Source: ABdhPJwlhGXDaVk1dHC2iXVm1w5QTAinOx5BgK1PGcETU2AuiXP4xhOlgjZ7sCe4ka/j4bOSE6viYJm2r3RIZu5N+Fk=
+X-Received: by 2002:a19:38e:: with SMTP id 136mr852405lfd.346.1610506654053;
+ Tue, 12 Jan 2021 18:57:34 -0800 (PST)
 MIME-Version: 1.0
-X-Originating-IP: [10.0.15.120]
-X-DNSRBL: 
-X-MAIL: ATCSQR.andestech.com 10D2Pffl039664
+References: <20210112023534.117354-1-guoren@kernel.org>
+ <CAOnJCUK89rwjfnpMtavbaf-pwBndnS-=kVwsdP2yJnJAwJi-kg@mail.gmail.com>
+In-Reply-To: <CAOnJCUK89rwjfnpMtavbaf-pwBndnS-=kVwsdP2yJnJAwJi-kg@mail.gmail.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Wed, 13 Jan 2021 10:57:22 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQYT-pkUrdoCiZsLX+SwYk89FKO=tgscwwQrdtHEobPpQ@mail.gmail.com>
+Message-ID: <CAJF2gTQYT-pkUrdoCiZsLX+SwYk89FKO=tgscwwQrdtHEobPpQ@mail.gmail.com>
+Subject: Re: [PATCH] riscv: Remove duplicate definition in pagtable.h
+To: Atish Patra <atishp@atishpatra.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210113_022930_810393_DB89486F 
-X-CRM114-Status: UNSURE (   5.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210112_215738_374924_D6B1872A 
+X-CRM114-Status: GOOD (  17.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -82,92 +79,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, nickhu@andestech.com, alankao@andestech.com,
- kasan-dev@googlegroups.com, nylon7@andestech.com, nylon7717@gmail.com,
- aryabinin@virtuozzo.com, glider@google.com, paul.walmsley@sifive.com,
- palmer@dabbelt.com, dvyukov@google.com
+Cc: Guo Ren <guoren@linux.alibaba.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Pekka Enberg <penberg@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset is support KASAN_VMALLOC in riscv.
+On Tue, Jan 12, 2021 at 4:18 PM Atish Patra <atishp@atishpatra.org> wrote:
+>
+> On Mon, Jan 11, 2021 at 6:38 PM <guoren@kernel.org> wrote:
+> >
+> > From: Guo Ren <guoren@linux.alibaba.com>
+> >
+> > PAGE_KERNEL_EXEC has been defined above.
+> >
+> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> > Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> > Cc: Pekka Enberg <penberg@kernel.org>
+> > ---
+> >  arch/riscv/include/asm/pgtable.h | 1 -
+> >  1 file changed, 1 deletion(-)
+> >
+> > diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> > index 41a72861987c..dff51a84e52e 100644
+> > --- a/arch/riscv/include/asm/pgtable.h
+> > +++ b/arch/riscv/include/asm/pgtable.h
+> > @@ -101,7 +101,6 @@
+> >  #define PAGE_KERNEL            __pgprot(_PAGE_KERNEL)
+> >  #define PAGE_KERNEL_EXEC       __pgprot(_PAGE_KERNEL | _PAGE_EXEC)
+> >  #define PAGE_KERNEL_READ       __pgprot(_PAGE_KERNEL & ~_PAGE_WRITE)
+> > -#define PAGE_KERNEL_EXEC       __pgprot(_PAGE_KERNEL | _PAGE_EXEC)
+> >  #define PAGE_KERNEL_READ_EXEC  __pgprot((_PAGE_KERNEL & ~_PAGE_WRITE) \
+> >                                          | _PAGE_EXEC)
+> >
+> > --
+> > 2.17.1
+> >
+> >
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+>
+> It's already on the fixes.
+>
+> http://lists.infradead.org/pipermail/linux-riscv/2021-January/004134.html
+Great, ignore mine :)
 
-We reference x86/s390 mailing list discussion for our implement.
-https://lwn.net/Articles/797950/
-
-It's also pass `vmalloc-out-of-bounds` of test_kasan.ko
-
-log:
-[  235.834318]     # Subtest: kasan
-[  235.835190]     1..37
-[  235.845238]
-==================================================================
-[  235.847818] BUG: KASAN: slab-out-of-bounds in
-kmalloc_oob_right+0xe2/0x192 [test_kasan]
-[  235.850688] Write of size 1 at addr ffffffe0075d5a7b by task
-kunit_try_catch/125
-[  235.852630]
-[  235.853212] CPU: 0 PID: 125 Comm: kunit_try_catch Tainted: G    B
-5.11.0-rc3-13940-gb0bb4cd86282-dirty #1
-...
-[  241.835850]
-==================================================================
-[1154/67143]
-[  241.840884]     ok 36 - kmalloc_double_kzfree
-[  241.852642]
-==================================================================
-[  241.857261] BUG: KASAN: vmalloc-out-of-bounds in
-vmalloc_oob+0xcc/0x17c [test_kasan]
-[  241.861327] Read of size 1 at addr ffffffd00407ec1c by task
-kunit_try_catch/161
-[  241.864525]
-[  241.865200] CPU: 0 PID: 161 Comm: kunit_try_catch Tainted: G    B
-5.11.0-rc3-13940-gb0bb4cd86282-dirty #1
-[  241.869887] Call Trace:
-[  241.870972] [<ffffffe0000052d2>] walk_stackframe+0x0/0x128
-[  241.873353] [<ffffffe000abcff0>] show_stack+0x32/0x3e
-[  241.875457] [<ffffffe000ac0d46>] dump_stack+0x84/0xa0
-[  241.877806] [<ffffffe000188926>]
-print_address_description.constprop.0+0x88/0x362
-[  241.881150] [<ffffffe000188e4a>] kasan_report+0x176/0x194
-[  241.883604] [<ffffffe000189390>] __asan_load1+0x42/0x4a
-[  241.885897] [<ffffffdf81f9f2f4>] vmalloc_oob+0xcc/0x17c [test_kasan]
-[  241.889458] [<ffffffdf81f91e8e>] kunit_try_run_case+0x80/0x11a
-[kunit]
-[  241.892665] [<ffffffdf81f92e16>]
-kunit_generic_run_threadfn_adapter+0x2c/0x4e [kunit]
-[  241.896568] [<ffffffe000034ac4>] kthread+0x206/0x222
-[  241.899219] [<ffffffe00000361a>] ret_from_exception+0x0/0xc
-[  241.901700]
-[  241.902497]
-[  241.903257] Memory state around the buggy address:
-[  241.905430]  ffffffd00407eb00: 00 00 00 00 00 00 00 00 00 00 00 00 00
-00 00 00
-[  241.908661]  ffffffd00407eb80: 00 00 00 00 00 00 00 f8 f8 f8 f8 f8 f8
-f8 f8 f8
-[  241.911841] >ffffffd00407ec00: f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8
-f8 f8 f8
-[  241.915037]                             ^
-[  241.916053]  ffffffd00407ec80: f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8
-f8 f8 f8
-[  241.919272]  ffffffd00407ed00: f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8
-f8 f8 f8
-[  241.922417]
-==================================================================
-[  242.073698]     ok 37 - vmalloc_oob
-
-
-Nylon Chen (1):
-  riscv/kasan: add KASAN_VMALLOC support
-
- arch/riscv/Kconfig         |  1 +
- arch/riscv/mm/kasan_init.c | 66 +++++++++++++++++++++++++++++++++++++-
- 2 files changed, 66 insertions(+), 1 deletion(-)
 
 -- 
-2.17.1
+Best Regards
+ Guo Ren
 
+ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
