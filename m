@@ -2,72 +2,85 @@ Return-Path: <SRS0=HZsE=GQ=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BDFAEC433E0
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Jan 2021 02:57:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4EE9FC433E0
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Jan 2021 04:36:53 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5479C23131
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Jan 2021 02:57:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5479C23131
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id DA1FA22A84
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Jan 2021 04:36:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DA1FA22A84
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=oNRYP/2mnAESBBX/sRcQPLT0WphlNP2wkime7zMF2e0=; b=FvUdoaLZP0cfvck29uB08IHaW
-	r1WxzEdiN0TZfCe7B4QrYOA7FRgFS9si6L9Hykx/Zr39X8PfXnktAXzhztXXuza44ufB5986wjQN0
-	8iK6GLSzO6tOKmQMQMgJnuaXJHPe3cLknRdMIdmExX97oe9ra0IK/XiaQ7JQWzb4fwvJUBcHLJWYp
-	Wbng6efnaawSCVHrwsG2OfgiszTUXIiAN0TG1anmwfVPZzVkUJhW3eDHtQa7zNpbwVAFb7U7w7RjE
-	nggtQKcUxIujUpGDJULLk56F2oXRgyKEYS2hWwl2R9k9LWqk1jdsvbbr4ozSDIO7WzjFOXPeq4BBG
-	ENW2fSC4Q==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=lmrw9tQMl7NbPWUSOEXHxdERr+rL/beIP377zcUyveI=; b=QX8yD/7T1sbIGcYnZ+yzjUnDv
+	lWo+dem4ge9ScqQg0wUaBPdpwH5xvwih6wEBPGI2HrbEansHuuAqDcM2JFkWrdE1V1MSueK0VqgMv
+	V59YwgF8ThGMlOzPDXIy06uvHTS9xSzt2Ny4o1AQf01fZ/0D4vAD7coQL+WrmnPA1VYVHRDNMpJ+u
+	OBX6Sh06uvHsfRHy0fVw6Yr/2ONp0H/K6rdD4731qH+VuYvuLvUs5YBWlWyzsRG+pHq9a32qDhayN
+	MK9K80Ukec4Hn99cfd1gdcHhODXI+40Y9Ry7gvlnHRRkJ2z28h2a1GZzMqhS0Tm7M18ENKrOXSm6Q
+	dISLPExCQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kzWLt-0001tl-KN; Wed, 13 Jan 2021 02:57:41 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1kzXtc-0005YQ-EK; Wed, 13 Jan 2021 04:36:36 +0000
+Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kzWLq-0001sR-7k
- for linux-riscv@lists.infradead.org; Wed, 13 Jan 2021 02:57:39 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id D4CFE2312E
- for <linux-riscv@lists.infradead.org>; Wed, 13 Jan 2021 02:57:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1610506656;
- bh=A2X9yAJjMelGsnUZoFeBcSZDu8oKUroi/CJv9/mXNCk=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=fkC/OTEwMOc1ls89758/bPG65vPCysFvTAGXFqzRzS7YoGiCuSlwPFZ/xouX3dvDs
- R1duE0mjZrHOZmpS6SB3pGEmyGxtk69DuUV19Dnz9phAaYAyGQUhGovoRzkoGfWvg/
- eUqlSevoePa/Si6iEq+dnfrQo7mLrk7TwqqXcXQ6IlLpOVBcMsmdmRr6+RpbcyytPl
- KIJUzE5DePPJgUKkQrT8xVzdDxOwaQdcG8/Mr0KFkFIFyZWtGhMArrs1Yth9Rs7iun
- VnoX7DWj1WbCVrJw+wAYQLpiQy8kclwqkYzhI9AS/SWIpgsZhDxW0QLUAW+Lo0fV3L
- QmuXWtmz3tpHA==
-Received: by mail-lf1-f47.google.com with SMTP id o10so541322lfl.13
- for <linux-riscv@lists.infradead.org>; Tue, 12 Jan 2021 18:57:35 -0800 (PST)
-X-Gm-Message-State: AOAM530Jq3jH5xhaWbngOtvL5jGwc9c8Lb25ZqvLl9pqUm4XqrxpiqJa
- OoyMJWWeVNw0qnxU+BnEy+Hqs0SUac8nP4buvuU=
-X-Google-Smtp-Source: ABdhPJwlhGXDaVk1dHC2iXVm1w5QTAinOx5BgK1PGcETU2AuiXP4xhOlgjZ7sCe4ka/j4bOSE6viYJm2r3RIZu5N+Fk=
-X-Received: by 2002:a19:38e:: with SMTP id 136mr852405lfd.346.1610506654053;
- Tue, 12 Jan 2021 18:57:34 -0800 (PST)
-MIME-Version: 1.0
-References: <20210112023534.117354-1-guoren@kernel.org>
- <CAOnJCUK89rwjfnpMtavbaf-pwBndnS-=kVwsdP2yJnJAwJi-kg@mail.gmail.com>
-In-Reply-To: <CAOnJCUK89rwjfnpMtavbaf-pwBndnS-=kVwsdP2yJnJAwJi-kg@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Wed, 13 Jan 2021 10:57:22 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQYT-pkUrdoCiZsLX+SwYk89FKO=tgscwwQrdtHEobPpQ@mail.gmail.com>
-Message-ID: <CAJF2gTQYT-pkUrdoCiZsLX+SwYk89FKO=tgscwwQrdtHEobPpQ@mail.gmail.com>
-Subject: Re: [PATCH] riscv: Remove duplicate definition in pagtable.h
-To: Atish Patra <atishp@atishpatra.org>
+ id 1kzXtY-0005Vp-BS
+ for linux-riscv@lists.infradead.org; Wed, 13 Jan 2021 04:36:33 +0000
+Received: by mail-pg1-x52b.google.com with SMTP id z21so701109pgj.4
+ for <linux-riscv@lists.infradead.org>; Tue, 12 Jan 2021 20:36:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=W2DTFJctevO80Wxiy22I5eLvGa6N2Q2gSn+izgPeWUc=;
+ b=tIqQ6gZJJFZk6/Xx106xzUhWnMRicG4nVSUz6WCgW8rzlYJfTK1drm+H8JxIMw7zKM
+ gXOhsEMrxYmmA7pbpW7lITrSiKAnWLWuaH+PjSyRZkK5vL7U4BlPATruoxrNKJopMly0
+ FAUdZmyZAEP4+8cDiWqnMbAmLt5z+fn/4fo++aB+85vE2AIUiXk5Bv0Y3ajHvhD5L0tn
+ HDyryJIICLWTUkR1BBNGW9XQYT0eq5wGt0MT+w82W16H8UKbFcisRDWXgYW3Tg7aaJup
+ 1loscuOCcKO5n4q5uGV2Vmzg8NcXX3N4/Uly1jgrc56a0JCHW4KJ6AO+ywjkBgHtApde
+ 50wQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=W2DTFJctevO80Wxiy22I5eLvGa6N2Q2gSn+izgPeWUc=;
+ b=N8tcHEsMY7rXL/LW5tZfZmrLMKEf7TrKBmxuM6MDbqwzh63XFeJ3FyAy+Lm9akDVzG
+ A/y4dKp+3efl0y1wtaW/oRH7xlzwvYrSivt30sj2cqzCsek+dhK3bjGhjr02ECYZi40x
+ voW1uyOJ+SHUzG4wAeUNmjHDh3tDpTjXJB28bICEi2EEm47q38lhaHfaBZcyeKHwmCik
+ nG7Xq+cmI51D/eQ6ojbImVos6i/ddjIMrfDSj1Wp44noWnHB1h8CJZmeh6r0LC6ZHhWl
+ pRGWhXi4NMsqM3fVEaoHds942Po6iDKunb26tZF/y+4n7l09Nl6kAKl+WA13sTG4eC5o
+ lWww==
+X-Gm-Message-State: AOAM530B6BVt6eCwlrk3ftqZRDxeJj1zeupeF/ThzWdCtK7igmlRchHQ
+ czsj6hEkPgv5l31y3KjX87lJLw==
+X-Google-Smtp-Source: ABdhPJwRQpy1F4tqIHhuToOWLrzd50514xkM9r4W6T6xrab908m3RIfCwXHp9cXISTgxfDAgReRTsA==
+X-Received: by 2002:a63:100e:: with SMTP id f14mr341352pgl.102.1610512590060; 
+ Tue, 12 Jan 2021 20:36:30 -0800 (PST)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id gc20sm686135pjb.49.2021.01.12.20.36.28
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 12 Jan 2021 20:36:29 -0800 (PST)
+Date: Tue, 12 Jan 2021 20:36:29 -0800 (PST)
+X-Google-Original-Date: Tue, 12 Jan 2021 20:26:16 PST (-0800)
+Subject: Re: [PATCH v2] riscv: cacheinfo: Fix using smp_processor_id() in
+ preemptible
+In-Reply-To: <20201222160152.180981-1-wangkefeng.wang@huawei.com>
+From: Palmer Dabbelt <palmerdabbelt@google.com>
+To: wangkefeng.wang@huawei.com
+Message-ID: <mhng-c05e1b40-6218-44a4-8742-fb7d3d07af0e@palmerdabbelt-glaptop>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210112_215738_374924_D6B1872A 
-X-CRM114-Status: GOOD (  17.09  )
+X-CRM114-CacheID: sfid-20210112_233632_456933_C3C6BE75 
+X-CRM114-Status: GOOD (  17.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -79,63 +92,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Guo Ren <guoren@linux.alibaba.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Pekka Enberg <penberg@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
-Content-Type: text/plain; charset="us-ascii"
+Cc: wangkefeng.wang@huawei.com, aou@eecs.berkeley.edu,
+ Atish Patra <Atish.Patra@wdc.com>, zong.li@sifive.com,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 12, 2021 at 4:18 PM Atish Patra <atishp@atishpatra.org> wrote:
+On Tue, 22 Dec 2020 08:01:52 PST (-0800), wangkefeng.wang@huawei.com wrote:
+> Use raw_smp_processor_id instead of smp_processor_id() to fix warning,
 >
-> On Mon, Jan 11, 2021 at 6:38 PM <guoren@kernel.org> wrote:
-> >
-> > From: Guo Ren <guoren@linux.alibaba.com>
-> >
-> > PAGE_KERNEL_EXEC has been defined above.
-> >
-> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> > Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> > Cc: Pekka Enberg <penberg@kernel.org>
-> > ---
-> >  arch/riscv/include/asm/pgtable.h | 1 -
-> >  1 file changed, 1 deletion(-)
-> >
-> > diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> > index 41a72861987c..dff51a84e52e 100644
-> > --- a/arch/riscv/include/asm/pgtable.h
-> > +++ b/arch/riscv/include/asm/pgtable.h
-> > @@ -101,7 +101,6 @@
-> >  #define PAGE_KERNEL            __pgprot(_PAGE_KERNEL)
-> >  #define PAGE_KERNEL_EXEC       __pgprot(_PAGE_KERNEL | _PAGE_EXEC)
-> >  #define PAGE_KERNEL_READ       __pgprot(_PAGE_KERNEL & ~_PAGE_WRITE)
-> > -#define PAGE_KERNEL_EXEC       __pgprot(_PAGE_KERNEL | _PAGE_EXEC)
-> >  #define PAGE_KERNEL_READ_EXEC  __pgprot((_PAGE_KERNEL & ~_PAGE_WRITE) \
-> >                                          | _PAGE_EXEC)
-> >
-> > --
-> > 2.17.1
-> >
-> >
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+> BUG: using smp_processor_id() in preemptible [00000000] code: init/1
+> caller is debug_smp_processor_id+0x1c/0x26
+> CPU: 0 PID: 1 Comm: init Not tainted 5.10.0-rc4 #211
+> Call Trace:
+>   walk_stackframe+0x0/0xaa
+>   show_stack+0x32/0x3e
+>   dump_stack+0x76/0x90
+>   check_preemption_disabled+0xaa/0xac
+>   debug_smp_processor_id+0x1c/0x26
+>   get_cache_size+0x18/0x68
+>   load_elf_binary+0x868/0xece
+>   bprm_execve+0x224/0x498
+>   kernel_execve+0xdc/0x142
+>   run_init_process+0x90/0x9e
+>   try_to_run_init_process+0x12/0x3c
+>   kernel_init+0xb4/0xf8
+>   ret_from_exception+0x0/0xc
 >
-> It's already on the fixes.
+> The issue is found when CONFIG_DEBUG_PREEMPT enabled.
 >
-> http://lists.infradead.org/pipermail/linux-riscv/2021-January/004134.html
-Great, ignore mine :)
+> Reviewed-by: Atish Patra <atish.patra@wdc.com>
+> Tested-by: Atish Patra <atish.patra@wdc.com>
+> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+> ---
+>  arch/riscv/kernel/cacheinfo.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/kernel/cacheinfo.c b/arch/riscv/kernel/cacheinfo.c
+> index de59dd457b41..9b5a8a347434 100644
+> --- a/arch/riscv/kernel/cacheinfo.c
+> +++ b/arch/riscv/kernel/cacheinfo.c
+> @@ -26,7 +26,7 @@ cache_get_priv_group(struct cacheinfo *this_leaf)
+>
+>  static struct cacheinfo *get_cacheinfo(u32 level, enum cache_type type)
+>  {
+> -	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(smp_processor_id());
+> +	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(raw_smp_processor_id());
+>  	struct cacheinfo *this_leaf;
+>  	int index;
 
-
--- 
-Best Regards
- Guo Ren
-
-ML: https://lore.kernel.org/linux-csky/
+Thanks, this is on fixes with a comment about why we need the raw_.
 
 _______________________________________________
 linux-riscv mailing list
