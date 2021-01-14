@@ -2,86 +2,149 @@ Return-Path: <SRS0=X6bA=GR=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-19.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CC676C433DB
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jan 2021 05:22:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CF71BC433DB
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jan 2021 06:50:57 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C9FBB238E7
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jan 2021 05:22:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C9FBB238E7
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id 91FC5239A1
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jan 2021 06:50:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 91FC5239A1
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=O7eVlLzNAdD6cZ2LV4+3HVxEGYZURNezvCN5vQHyUdY=; b=utO7hmrCfJQNv40e2GHQsB8XW
-	dakpx5Ns84crYsN0wk7r5hn6JgKuBlU9NAm3kiYhvJEBnfZdPgT9CewznnKRneM6QQkWmPm8xrL/D
-	0ncY9Su85c8ZbA+JL/3lPvKvJVqsGKNFuy94K71DfEdLzHuCe8HoH+bWChFwAv29SkCv/h5dAJRVm
-	07Z6ZvVfwQGAsT/Iq+puWLrfxgTs6EXS8k0duekjz5F+IoP9Fj5uPXAE/WQG2ZvIprfQ+XkCxtPxv
-	q/4MD4pd5nttyCz5aR2gWeFKZUn7mwp95qlhnLWN/mbTjGTVmdcO0vAaQHVErwqWu54L3tyurdLpM
-	KsDNBOi5g==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe
+	:List-Id:MIME-Version:References:Message-ID:Date:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=Z+Qd5FQPHGyLLsTokPPqA5IyCIQYVXnDIIJMC3fnBCc=; b=l3kJnqUU7RLroJclPTOYOcSLqI
+	HiAcX9a++gnVWHw3kmcg58tDYKeQASSSxtK67CqEZ5MNBI2vVkav8HPFuWMocCpi8hQ5PoRmIgnvy
+	9Uh0JgfRYuwvD8wpEfGrASnfds3BI06Eysx6zN6Dl/vEcqGdpIdd0BHc3oNwmmI/Gqp8LC51PIuqU
+	qZvHgNm5TkY+GfM+u/DHoAn3BQMZqC63ed3+T9AXFJJ64x1sdEIxtQ/YLqv8uU8AjBzXAHgc1OsIt
+	1Kva0HlM8dNU+GmqQYaWRxirDTS04hvN/LhCIj4oca8qhAzB/gMfn+NRSAemIYV7XprN2uyg6swjP
+	HA4dxtNA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kzv4s-0003sy-Kd; Thu, 14 Jan 2021 05:21:46 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1kzwSx-0007wX-NO; Thu, 14 Jan 2021 06:50:43 +0000
+Received: from esa2.hgst.iphmx.com ([68.232.143.124])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kzv4n-0003rt-FE
- for linux-riscv@lists.infradead.org; Thu, 14 Jan 2021 05:21:42 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d4so2336561plh.5
- for <linux-riscv@lists.infradead.org>; Wed, 13 Jan 2021 21:21:40 -0800 (PST)
+ id 1kzwSu-0007vn-O3
+ for linux-riscv@lists.infradead.org; Thu, 14 Jan 2021 06:50:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1610607961; x=1642143961;
+ h=from:to:subject:date:message-id:references:
+ content-transfer-encoding:mime-version;
+ bh=Say7I4sk83JIG76bMrqmtNLIhpJEVFvDxX4lvjgRioM=;
+ b=gvbIg+1rh3w2sWxzcJnJP6KJO/Pv8TzrToJJzQ5HxU6x1gXdpzGLcGmS
+ 1D4Ag4SqqSMufWKrPmBd1VfLKKFOWWMfw66s9+pa9f0Rqcfr7R3B2AqKv
+ l8PsHpmMzSlHCkehylpp723pBjFslKvzGhoVGKP9YNzssbvIJaa6wue5f
+ 9+cvglV+DkLvihqxFOthoq8dDXFS5GqMHSO8BTtYusPhBNnu1Ji+n6YRu
+ ZyBP/mLbcHGsjKFaIxTW9UvGUx5E/uNUW4Zm2wtLZy+p3qoiUt1/681Bf
+ dH/YIfnPjYH5IuHWsiB3oClpwybOqIbnTvs70QMyvqbcsk5KafgElUOSV Q==;
+IronPort-SDR: fHD4P4BVpdV0DrBrpH9ZMKWyea3jRhMhJUyg7cqYXsbNS9q9VlYm22HJQzumAqu4k2fO0I9JX3
+ psfVQ2nvxL+Q5oaWDnzT7mfRjZtQl0aAERZ5fcOvnsUNKyvo/hmcCWBAURt6wPfX350ASJhcaD
+ uTeDpfJzcQ9hMk9wzP5aC1s8bHDF4V+Cb+gAAZMD1lmDgcFW/IABwHnL5DM+VGgiiP6WhM+4ps
+ KhLKxKL+05Y8+v6Dzt7E9OyCv7/AzvKsj8VP5WEj0I0IM26sAoCuYIKJyx/cu+t/O9aV1j5g1W
+ S0c=
+X-IronPort-AV: E=Sophos;i="5.79,346,1602518400"; d="scan'208";a="261311015"
+Received: from mail-dm6nam11lp2172.outbound.protection.outlook.com (HELO
+ NAM11-DM6-obe.outbound.protection.outlook.com) ([104.47.57.172])
+ by ob1.hgst.iphmx.com with ESMTP; 14 Jan 2021 15:05:59 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=RTUmFBlzFCLy83C16o50ER9giOcv8qboglvf82A0lI6GuGETYRm5BHsxdcMGQP5VeNnea5J5CBs/trevOAn2nMF6DG83TMxKhUxRUTltCcUOgkBv9zQ8XknOXlkmygV2TrdQNLs/HwBBUvNisc0iYAshqZHDr1ZHCoGrKv7chn45X3bMZ0JqgJbVAawxmVf8I0CdNaa47QF/1zp8QXrsedPkFO2YfSAhjqkTAwlk1m5nqIHC08vCcSjD2XDPpNi0XOGRcqTps5KpRPvg9lkk5pwqvqzFn4FOa730AVOi9lccHOhGrQxzLXvHfQCAc4TE0fVnv8vFk3bpuITHjdYMsA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BZ7MW74Dvso3HQTlrACV6Qy9C0tBhgH/JsVqN8OEau0=;
+ b=f4JVy4uuaig89MxLz8mjpqIGL/vadE+tHlWJ+LdZS6QTu22Z7hlki6Rex0COlj0aA4y7fDP0tAaNUboI6xvWoL9mKat6SHrejiJ6E8qBeD7ZsDQtaQgEbPAgpVmfMX+vtercAyD5OC6lp9XvZlQEtiTxCi3Yjf6aWl9dbj5Q65z5Q7Y+R2Ut4k01OmKJ/TlJHY3WRO1v69e3v6rwnt2vYtb2ac/spdn8XeVdiF2LA104HPPqv3VhzfKVmVZm7IVWcbqD0Sjtzh2tpNwtwc1qqpNp/pL8Xrg94YF05XM9A/bPMBB+6WPh8oqCbFiV482FP1dGdVCftVA82/QMnCxAmw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
+ header.d=wdc.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=dSai6iPBy5GOPDDnJmUw+Dep5lqLN0apCZM1NIECn6w=;
- b=Z9kw/dgGpDfKf6drcfBTl9HA7hYqlue69fbt8q81Hskf1Zt1m+/hcgNtdYUfC9ABGH
- rqjqSbr/e3NOqpzFUiB10YWLn65uTl7/ClX2fIYNDjDmEH/fQ2LowsXdbeOe7OHgIgpu
- w1kwu+nlr51EuFu9rC9YqBpvLSzIqxdlNh+dM269of29OOT/I8/EJ5eY1O80Iy1d84Uf
- jaYuI3NDGsJPEnafqFnxyzYFl+P0/xXCn2rrsJVeRggnLIFMgNboy/7YwnGMcVR308lJ
- CjNNBax0UoSoZQKc8PvGfgoIWzwzHrhBPBJ64iVFVN0Rx9ByqfO4jJGemlZziLtykF/M
- 15mA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=dSai6iPBy5GOPDDnJmUw+Dep5lqLN0apCZM1NIECn6w=;
- b=uFnVv+FavPOcmcTsU0fggJiOK/6p4lZi+6fcvOOnJWI27AMlGTYzmctFcOhPNLSkKK
- 4d8mggMWZlXBa9gfmxGQLO1TkPHtxk3FLP8R5S3k12lnuzVn7w/UcZRph/ZWc4lqFHdV
- W/PqZOuJxCy075TGIkfa/5Agjcfkw0vMz2Ug7M8oXQ3GEIdp6qj1YCpTfiqlI+QKzG5K
- EL0NscM3yhafH0s7aqWMfN7oZqUm65JMVnudl877BT7cbEN1GjlmG7MqT15udJPmC6AW
- 0tzyNY0/OOho3DWi1lBV7q6KpBln4A4/UBI+OEf4/PxLO5YtZNlDL/tYqgZT+zQDeSFU
- hKMA==
-X-Gm-Message-State: AOAM532j/M9CtT+om/P/YY3AxGYxdkdR9VpclKAim7JPJq3r4/f0sA5f
- HhwflX2pEAqmSJwG0KDfnozefg==
-X-Google-Smtp-Source: ABdhPJzftb4hm1KpIPbHySW6VDs66gZk4k12vOhzyy3pxiqoAT9//sHcwcXIMGLCNEsyrT3stfkrUg==
-X-Received: by 2002:a17:90b:8cb:: with SMTP id
- ds11mr3201447pjb.208.1610601699133; 
- Wed, 13 Jan 2021 21:21:39 -0800 (PST)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id n4sm4009507pfu.150.2021.01.13.21.21.38
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 13 Jan 2021 21:21:38 -0800 (PST)
-Date: Wed, 13 Jan 2021 21:21:38 -0800 (PST)
-X-Google-Original-Date: Wed, 13 Jan 2021 21:21:37 PST (-0800)
-Subject: Re: [PATCH v5 0/5] Unify NUMA implementation between ARM64 & RISC-V
-In-Reply-To: <CAOnJCUJq5e7W1UXkFFMkKje_BTedekoUT=32ia6t+Sc4UVDhEQ@mail.gmail.com>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: atishp@atishpatra.org
-Message-ID: <mhng-e9591590-a6e1-41b1-ae48-1987bba7c828@palmerdabbelt-glaptop>
-Mime-Version: 1.0 (MHng)
+ d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BZ7MW74Dvso3HQTlrACV6Qy9C0tBhgH/JsVqN8OEau0=;
+ b=c31WwNTpjpb+CJrZ1OFu4BMKtb0SD/h1jRX7ape/3NVnBQ8Mmi5VFCjK/zrfaR0wR6gEyUL+MoAAo2WZ8y/ECBSsZkQHJUKQrAlTjfDe+3XySEQhQmw9O5XdXoUsL4s3qLAvhUeWfRXwy4dqexR7fQVik2SGPgtUU7Q67SiK4Y4=
+Received: from BL0PR04MB6514.namprd04.prod.outlook.com (2603:10b6:208:1ca::23)
+ by BL0PR04MB4977.namprd04.prod.outlook.com (2603:10b6:208:5d::25)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3742.6; Thu, 14 Jan
+ 2021 06:50:36 +0000
+Received: from BL0PR04MB6514.namprd04.prod.outlook.com
+ ([fe80::b880:19d5:c7fe:329d]) by BL0PR04MB6514.namprd04.prod.outlook.com
+ ([fe80::b880:19d5:c7fe:329d%8]) with mapi id 15.20.3763.011; Thu, 14 Jan 2021
+ 06:50:36 +0000
+From: Damien Le Moal <Damien.LeMoal@wdc.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>, "linux-riscv@lists.infradead.org"
+ <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH v2] riscv: fix build failure with Canaan K210 SoC
+Thread-Topic: [PATCH v2] riscv: fix build failure with Canaan K210 SoC
+Thread-Index: AQHW6ZCgmg4pqNGJpUG8TQGkRYwf2g==
+Date: Thu, 14 Jan 2021 06:50:36 +0000
+Message-ID: <BL0PR04MB65148043472967F37CA27774E7A80@BL0PR04MB6514.namprd04.prod.outlook.com>
+References: <20210113094353.401690-1-damien.lemoal@wdc.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dabbelt.com; dkim=none (message not signed)
+ header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
+x-originating-ip: [2400:2411:43c0:6000:8c78:be0:63f5:4b05]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-ht: Tenant
+x-ms-office365-filtering-correlation-id: 6d768d5e-b16a-41bf-4043-08d8b858b26e
+x-ms-traffictypediagnostic: BL0PR04MB4977:
+x-microsoft-antispam-prvs: <BL0PR04MB497730DFFBE84F412F4FFCD7E7A80@BL0PR04MB4977.namprd04.prod.outlook.com>
+wdcipoutbound: EOP-TRUE
+x-ms-oob-tlc-oobclassifiers: OLM:8882;
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: TA1dh+3oz7LuRj/VIy8LmS+w5t8h4iYEcXxkwjS12vxtTRI38D1a8tOfh7HIi6iTaiA6SEjlwzT2VI/0uHzdo43dDAx/yChevjNv02R9xfsgx3KMpa1BVDmdavT9h7REu5wNKFCrZY6dtqZEeXVJXGensj7RkksYe/QFx5PPSvu85gMT1LTojYMQRVVZH2quTIWCEnvJBio44RARRPl61JOlVJhVzQKyOQz/+34l8ty7IWsNF5GxYb6L3SDhHISbiIAQ6VTAL+Ya2HcqKZXbW/qCoVuuOMW4sdgvmlygPT6K6c2SZiI7v8ClRt/965NQpm9VM+jqzBCobXCM/58y8jlqCWcV/bw0f6fJfp5K9nbR2IQ36W5th68xxbWXDxWJQKGb3HzxA/Wr8lZYVf/Oow==
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:BL0PR04MB6514.namprd04.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(4636009)(366004)(346002)(376002)(396003)(136003)(39860400002)(6506007)(5660300002)(53546011)(66556008)(64756008)(91956017)(66476007)(71200400001)(76116006)(66446008)(8936002)(8676002)(316002)(86362001)(83380400001)(52536014)(55016002)(9686003)(2906002)(33656002)(7696005)(110136005)(66946007)(478600001)(186003);
+ DIR:OUT; SFP:1102; 
+x-ms-exchange-antispam-messagedata: =?us-ascii?Q?11OyMN/y4YhdYRLF929Uz4I1CyvidEoM2ulcSiDhddz+SucuGpvKpFiMyydH?=
+ =?us-ascii?Q?PDr46J8x0pqYKiMLIRKxqFOjPNbA53Z5GcfrVMW4YQ+b2lHjuJ2EUzhcWk30?=
+ =?us-ascii?Q?jbTp8f/pWVkBEw9dDOccXjYYaAwlOL3kZI0Bzc0C+ZIhmmhrJ1OFemfUNIxv?=
+ =?us-ascii?Q?j+ArJXCZg20NU6zZyiognrkAaE6DeDkxd9MRnvdQb3yY/dKfXLxcCmcUSBAK?=
+ =?us-ascii?Q?exaT9hMwkz2/hcE8Yp9jhusl7Ou0dg0Dec0LAqYsKQ5prSSkvNtkPuGAenIX?=
+ =?us-ascii?Q?iH2DeCb1CycLGvcn0Lf7qvf1h342zBbug8oRCGgnR/nwE3yvz+SYXLn3febx?=
+ =?us-ascii?Q?DcCA6mDW6293UHLN15gI3CsJkYzimn1u5wJJYtUUASWB5Kb8qAl7XE9jcvLt?=
+ =?us-ascii?Q?bZFsfUKmElfgh/DDEQx3+kVeE/Bl5ThG5EQQU0rSOTvzNj0+h4QjYcePoV4N?=
+ =?us-ascii?Q?5mFM4R8JyBZsARD3OW7OdUtnuCbHIMa5HetIUVnhh14A3SGF4ZIulX26WAkI?=
+ =?us-ascii?Q?vDLc8cs8H+13GrwQkfnxSuWEHqHAC9/BYtfoJhBxnpsR21JTDaX+HWEC2PAp?=
+ =?us-ascii?Q?iGuP7hWyiPkDCOiUrX7K0W2ggQ9TchX0FG6f751QTkyKsDacLHgv8d/Yu4fg?=
+ =?us-ascii?Q?GCeTs+wM9AR9x6ruXONN23RKhlPX4S30zQBHld+ZxwNvv+caNsWYRFrUtRma?=
+ =?us-ascii?Q?Ixh9FQ1WCrgH+iJ9L/uxmRpJY1rHoMFxaz0sPC6pJBYX/WyOK+yHhKPNtkkz?=
+ =?us-ascii?Q?m6PyM6cTY+aY0LPUUNfSuJyqAnctEeObCIO7d7AxT0v/2T2IYa8YOpI3M5FQ?=
+ =?us-ascii?Q?ETi/DsJp+WuAIubdSFhLrmlhkH06qAbKIOXHQSxjWdcVq+Mkx39JWw1OkteH?=
+ =?us-ascii?Q?tgjpOVecejyZI59BRaiFAgdeRfEtiVE0jNzTL4kThSQl5esB6xC9ji1j0VBp?=
+ =?us-ascii?Q?V4ue5giTACIit6/0yiXyFeQYkdR7d/gghibiWC2m+ScABQjDN8voguVzHCBk?=
+ =?us-ascii?Q?tm+BylZ+4HK16DYvczA4NSRw/OC7fe8JW17HCt+aga1qtbUTcxPWlvbwB1zD?=
+ =?us-ascii?Q?bHVuXy0K?=
+x-ms-exchange-transport-forked: True
+MIME-Version: 1.0
+X-OriginatorOrg: wdc.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BL0PR04MB6514.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6d768d5e-b16a-41bf-4043-08d8b858b26e
+X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Jan 2021 06:50:36.2052 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: WIpQL5piGloHnlWOagsHAFG6ENnkD4KVZIpjZAMRnHe4tYHg8ZvEVZKTJGN/Zob38qnuE6ZKrKnnUVEH2CrPmQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL0PR04MB4977
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210114_002141_572385_20D65FD7 
-X-CRM114-Status: GOOD (  32.22  )
+X-CRM114-CacheID: sfid-20210114_015041_150889_C6AF74F6 
+X-CRM114-Status: GOOD (  16.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -93,152 +156,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: rafael@kernel.org, catalin.marinas@arm.com, Jonathan.Cameron@huawei.com,
- Atish Patra <Atish.Patra@wdc.com>, linux-riscv@lists.infradead.org,
- will@kernel.org, ardb@kernel.org, linux-arch@vger.kernel.org,
- liuzhengyuan@tj.kylinos.cn, bhe@redhat.com, anup@brainfault.org,
- daniel.lezcano@linaro.org, steven.price@arm.com, greentime.hu@sifive.com,
- aou@eecs.berkeley.edu, Arnd Bergmann <arnd@arndb.de>,
- anshuman.khandual@arm.com, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-arm-kernel@lists.infradead.org, Greg KH <gregkh@linuxfoundation.org>,
- linux-kernel@vger.kernel.org, akpm@linux-foundation.org, rppt@kernel.org
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 11 Jan 2021 11:31:11 PST (-0800), atishp@atishpatra.org wrote:
-> On Sat, Jan 9, 2021 at 12:51 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
->>
->> On Sun, 13 Dec 2020 17:02:19 PST (-0800), atishp@atishpatra.org wrote:
->> > On Wed, Nov 18, 2020 at 4:39 PM Atish Patra <atish.patra@wdc.com> wrote:
->> >>
->> >> This series attempts to move the ARM64 numa implementation to common
->> >> code so that RISC-V can leverage that as well instead of reimplementing
->> >> it again.
->> >>
->> >> RISC-V specific bits are based on initial work done by Greentime Hu [1] but
->> >> modified to reuse the common implementation to avoid duplication.
->> >>
->> >> [1] https://lkml.org/lkml/2020/1/10/233
->> >>
->> >> This series has been tested on qemu with numa enabled for both RISC-V & ARM64.
->> >> It would be great if somebody can test it on numa capable ARM64 hardware platforms.
->> >> This patch series doesn't modify the maintainers list for the common code (arch_numa)
->> >> as I am not sure if somebody from ARM64 community or Greg should take up the
->> >> maintainership. Ganapatrao was the original author of the arm64 version.
->> >> I would be happy to update that in the next revision once it is decided.
->> >>
->> >> # numactl --hardware
->> >> available: 2 nodes (0-1)
->> >> node 0 cpus: 0 1 2 3
->> >> node 0 size: 486 MB
->> >> node 0 free: 470 MB
->> >> node 1 cpus: 4 5 6 7
->> >> node 1 size: 424 MB
->> >> node 1 free: 408 MB
->> >> node distances:
->> >> node   0   1
->> >>   0:  10  20
->> >>   1:  20  10
->> >> # numactl -show
->> >> policy: default
->> >> preferred node: current
->> >> physcpubind: 0 1 2 3 4 5 6 7
->> >> cpubind: 0 1
->> >> nodebind: 0 1
->> >> membind: 0 1
->> >>
->> >> The patches are also available at
->> >> https://github.com/atishp04/linux/tree/5.11_numa_unified_v5
->> >>
->> >> For RISC-V, the following qemu series is a pre-requisite(already available in upstream)
->> >> https://patchwork.kernel.org/project/qemu-devel/list/?series=303313
->> >>
->> >> Testing:
->> >> RISC-V:
->> >> Tested in Qemu and 2 socket OmniXtend FPGA.
->> >>
->> >> ARM64:
->> >> 2 socket kunpeng920 (4 nodes around 250G a node)
->> >> Tested-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
->> >>
->> >> Changes from v4->v5:
->> >> 1. Added by Acked-by & Reviewed-by tags.
->> >> 2. Swapped patch 1 & 2 in v4 version.
->> >>
->> >> Changes from v3->v4:
->> >> 1. Removed redundant duplicate header.
->> >> 2. Added Reviewed-by tags.
->> >>
->> >> Changes from v2->v3:
->> >> 1. Added Acked-by/Reviewed-by tags.
->> >> 2. Replaced asm/acpi.h with linux/acpi.h
->> >> 3. Defined arch_acpi_numa_init as static.
->> >>
->> >> Changes from v1->v2:
->> >> 1. Replaced ARM64 specific compile time protection with ACPI specific ones.
->> >> 2. Dropped common pcibus_to_node changes. Added required changes in RISC-V.
->> >> 3. Fixed few typos.
->> >>
->> >> Atish Patra (4):
->> >> arm64, numa: Change the numa init functions name to be generic
->> >> numa: Move numa implementation to common code
->> >> riscv: Separate memory init from paging init
->> >> riscv: Add numa support for riscv64 platform
->> >>
->> >> Greentime Hu (1):
->> >> riscv: Add support pte_protnone and pmd_protnone if
->> >> CONFIG_NUMA_BALANCING
->> >>
->> >> arch/arm64/Kconfig                            |  1 +
->> >> arch/arm64/include/asm/numa.h                 | 48 +----------------
->> >> arch/arm64/kernel/acpi_numa.c                 | 12 -----
->> >> arch/arm64/mm/Makefile                        |  1 -
->> >> arch/arm64/mm/init.c                          |  4 +-
->> >> arch/riscv/Kconfig                            | 31 ++++++++++-
->> >> arch/riscv/include/asm/mmzone.h               | 13 +++++
->> >> arch/riscv/include/asm/numa.h                 |  8 +++
->> >> arch/riscv/include/asm/pci.h                  | 14 +++++
->> >> arch/riscv/include/asm/pgtable.h              | 21 ++++++++
->> >> arch/riscv/kernel/setup.c                     | 11 +++-
->> >> arch/riscv/kernel/smpboot.c                   | 12 ++++-
->> >> arch/riscv/mm/init.c                          | 10 +++-
->> >> drivers/base/Kconfig                          |  6 +++
->> >> drivers/base/Makefile                         |  1 +
->> >> .../mm/numa.c => drivers/base/arch_numa.c     | 27 ++++++++--
->> >> include/asm-generic/numa.h                    | 52 +++++++++++++++++++
->> >> 17 files changed, 200 insertions(+), 72 deletions(-)
->> >> create mode 100644 arch/riscv/include/asm/mmzone.h
->> >> create mode 100644 arch/riscv/include/asm/numa.h
->> >> rename arch/arm64/mm/numa.c => drivers/base/arch_numa.c (96%)
->> >> create mode 100644 include/asm-generic/numa.h
->> >>
->> >> --
->> >> 2.25.1
->> >>
->> >>
->> >> _______________________________________________
->> >> linux-riscv mailing list
->> >> linux-riscv@lists.infradead.org
->> >> http://lists.infradead.org/mailman/listinfo/linux-riscv
->> >
->> > Hey Palmer,
->> > I did not see this series in for-next. Let me know if you need
->> > anything else to be done for this series.
->>
->> Sorry about that.  It's on for-next, with Randy's comment addressed.  There was
->> one merge conflict: we don't have resource_init() in for-next yet (which I
->> think means I missed something else).
->
-> resource_init is changed to init_resource and moved to setup.c in the
-> following patch which was merged in 5.11 MW.
-> 00ab027a3b82 RISC-V: Add kernel image sections to the resource tree
+On 2021/01/13 18:44, Damien Le Moal wrote:
+> Fix riscv dts main Makefile to avoid build failures when
+> CONFIG_SOC_CANAAN is selected but CONFIG_SOC_CANAAN_K210_DTB_BUILTIN is
+> not set. In this case, the SoC device tree should not be built.
+> Avoid the failure by changing the canaan subdir inclusion based on the
+> CONFIG_SOC_CANAAN_K210_DTB_BUILTIN configuration option value instead
+> of on the value of the CONFIG_SOC_CANAAN configuration option.
+> 
+> Reported-by: kernel test robot <lkp@intel.com>
+> Fixes: 3c54e3125dcd ("riscv: Use vendor name for K210 SoC support")
+> Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
+> ---
+> Changes from v1:
+> * Add missing CONFIG_ prefix to SOC_CANAAN_K210_DTB_BUILTIN option
+> 
+>  arch/riscv/boot/dts/Makefile | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
+> index 4da40691c55b..7ffd502e3e7b 100644
+> --- a/arch/riscv/boot/dts/Makefile
+> +++ b/arch/riscv/boot/dts/Makefile
+> @@ -1,5 +1,5 @@
+>  # SPDX-License-Identifier: GPL-2.0
+>  subdir-y += sifive
+> -subdir-$(CONFIG_SOC_CANAAN) += canaan
+> +subdir-$(CONFIG_SOC_CANAAN_K210_DTB_BUILTIN) += canaan
+>  
+>  obj-$(CONFIG_BUILTIN_DTB) := $(addsuffix /, $(subdir-y))
+> 
 
-Ah, great, for some reason I thought we hadn't merged those yet.
+Palmer,
 
->> IDK if that's necessary for the NUMA
->> stuff, I just dropped it.  I haven't tested this yet.
+Ping ?
+The kernel build robot is complaining...
+
+-- 
+Damien Le Moal
+Western Digital Research
 
 _______________________________________________
 linux-riscv mailing list
