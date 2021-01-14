@@ -2,149 +2,79 @@ Return-Path: <SRS0=X6bA=GR=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CF71BC433DB
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jan 2021 06:50:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BA507C433E0
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jan 2021 09:23:52 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 91FC5239A1
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jan 2021 06:50:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 91FC5239A1
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	by mail.kernel.org (Postfix) with ESMTPS id 52AB423A05
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jan 2021 09:23:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 52AB423A05
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe
-	:List-Id:MIME-Version:References:Message-ID:Date:Subject:To:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	bh=Z+Qd5FQPHGyLLsTokPPqA5IyCIQYVXnDIIJMC3fnBCc=; b=l3kJnqUU7RLroJclPTOYOcSLqI
-	HiAcX9a++gnVWHw3kmcg58tDYKeQASSSxtK67CqEZ5MNBI2vVkav8HPFuWMocCpi8hQ5PoRmIgnvy
-	9Uh0JgfRYuwvD8wpEfGrASnfds3BI06Eysx6zN6Dl/vEcqGdpIdd0BHc3oNwmmI/Gqp8LC51PIuqU
-	qZvHgNm5TkY+GfM+u/DHoAn3BQMZqC63ed3+T9AXFJJ64x1sdEIxtQ/YLqv8uU8AjBzXAHgc1OsIt
-	1Kva0HlM8dNU+GmqQYaWRxirDTS04hvN/LhCIj4oca8qhAzB/gMfn+NRSAemIYV7XprN2uyg6swjP
-	HA4dxtNA==;
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=dNb5f2th5Kqzm4kAerlouGed0/vnnT938i/oW1fsbMg=; b=ZEipJBCvqPh7MxdPI252+JkpJ
+	HGbuLvMrcQE2wySampFW4oYTIFCjuhcuRao402RAuNeuucjiIBiz3Sa/jErPA5D6dFE9od98yUfiu
+	KnBMAtzghErqYOCzjbSoXyQUlvFeAsw6CVWjOiaR69+NoaXCn8xwAoOYb4OqmRLxQ6/m4OGFzvetA
+	pco0+U0jngO2W7dB4kXg4dUMuj7Bc/l1CuGihAoank5qpzVEuzXF6M5/RgRuFCs1jy6wZzwGs85sH
+	/gaZ1jpyNitS91w4NBU7Fomhu4iaNdRM/UArj0/IUOg8KyPcDxUkHJ+v11Oz6SSAzl8m8EC4rUgsN
+	nDatiVhnw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kzwSx-0007wX-NO; Thu, 14 Jan 2021 06:50:43 +0000
-Received: from esa2.hgst.iphmx.com ([68.232.143.124])
+	id 1kzyqv-0003fP-VP; Thu, 14 Jan 2021 09:23:37 +0000
+Received: from mail-qk1-x733.google.com ([2607:f8b0:4864:20::733])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kzwSu-0007vn-O3
- for linux-riscv@lists.infradead.org; Thu, 14 Jan 2021 06:50:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1610607961; x=1642143961;
- h=from:to:subject:date:message-id:references:
- content-transfer-encoding:mime-version;
- bh=Say7I4sk83JIG76bMrqmtNLIhpJEVFvDxX4lvjgRioM=;
- b=gvbIg+1rh3w2sWxzcJnJP6KJO/Pv8TzrToJJzQ5HxU6x1gXdpzGLcGmS
- 1D4Ag4SqqSMufWKrPmBd1VfLKKFOWWMfw66s9+pa9f0Rqcfr7R3B2AqKv
- l8PsHpmMzSlHCkehylpp723pBjFslKvzGhoVGKP9YNzssbvIJaa6wue5f
- 9+cvglV+DkLvihqxFOthoq8dDXFS5GqMHSO8BTtYusPhBNnu1Ji+n6YRu
- ZyBP/mLbcHGsjKFaIxTW9UvGUx5E/uNUW4Zm2wtLZy+p3qoiUt1/681Bf
- dH/YIfnPjYH5IuHWsiB3oClpwybOqIbnTvs70QMyvqbcsk5KafgElUOSV Q==;
-IronPort-SDR: fHD4P4BVpdV0DrBrpH9ZMKWyea3jRhMhJUyg7cqYXsbNS9q9VlYm22HJQzumAqu4k2fO0I9JX3
- psfVQ2nvxL+Q5oaWDnzT7mfRjZtQl0aAERZ5fcOvnsUNKyvo/hmcCWBAURt6wPfX350ASJhcaD
- uTeDpfJzcQ9hMk9wzP5aC1s8bHDF4V+Cb+gAAZMD1lmDgcFW/IABwHnL5DM+VGgiiP6WhM+4ps
- KhLKxKL+05Y8+v6Dzt7E9OyCv7/AzvKsj8VP5WEj0I0IM26sAoCuYIKJyx/cu+t/O9aV1j5g1W
- S0c=
-X-IronPort-AV: E=Sophos;i="5.79,346,1602518400"; d="scan'208";a="261311015"
-Received: from mail-dm6nam11lp2172.outbound.protection.outlook.com (HELO
- NAM11-DM6-obe.outbound.protection.outlook.com) ([104.47.57.172])
- by ob1.hgst.iphmx.com with ESMTP; 14 Jan 2021 15:05:59 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=RTUmFBlzFCLy83C16o50ER9giOcv8qboglvf82A0lI6GuGETYRm5BHsxdcMGQP5VeNnea5J5CBs/trevOAn2nMF6DG83TMxKhUxRUTltCcUOgkBv9zQ8XknOXlkmygV2TrdQNLs/HwBBUvNisc0iYAshqZHDr1ZHCoGrKv7chn45X3bMZ0JqgJbVAawxmVf8I0CdNaa47QF/1zp8QXrsedPkFO2YfSAhjqkTAwlk1m5nqIHC08vCcSjD2XDPpNi0XOGRcqTps5KpRPvg9lkk5pwqvqzFn4FOa730AVOi9lccHOhGrQxzLXvHfQCAc4TE0fVnv8vFk3bpuITHjdYMsA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BZ7MW74Dvso3HQTlrACV6Qy9C0tBhgH/JsVqN8OEau0=;
- b=f4JVy4uuaig89MxLz8mjpqIGL/vadE+tHlWJ+LdZS6QTu22Z7hlki6Rex0COlj0aA4y7fDP0tAaNUboI6xvWoL9mKat6SHrejiJ6E8qBeD7ZsDQtaQgEbPAgpVmfMX+vtercAyD5OC6lp9XvZlQEtiTxCi3Yjf6aWl9dbj5Q65z5Q7Y+R2Ut4k01OmKJ/TlJHY3WRO1v69e3v6rwnt2vYtb2ac/spdn8XeVdiF2LA104HPPqv3VhzfKVmVZm7IVWcbqD0Sjtzh2tpNwtwc1qqpNp/pL8Xrg94YF05XM9A/bPMBB+6WPh8oqCbFiV482FP1dGdVCftVA82/QMnCxAmw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
- header.d=wdc.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BZ7MW74Dvso3HQTlrACV6Qy9C0tBhgH/JsVqN8OEau0=;
- b=c31WwNTpjpb+CJrZ1OFu4BMKtb0SD/h1jRX7ape/3NVnBQ8Mmi5VFCjK/zrfaR0wR6gEyUL+MoAAo2WZ8y/ECBSsZkQHJUKQrAlTjfDe+3XySEQhQmw9O5XdXoUsL4s3qLAvhUeWfRXwy4dqexR7fQVik2SGPgtUU7Q67SiK4Y4=
-Received: from BL0PR04MB6514.namprd04.prod.outlook.com (2603:10b6:208:1ca::23)
- by BL0PR04MB4977.namprd04.prod.outlook.com (2603:10b6:208:5d::25)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3742.6; Thu, 14 Jan
- 2021 06:50:36 +0000
-Received: from BL0PR04MB6514.namprd04.prod.outlook.com
- ([fe80::b880:19d5:c7fe:329d]) by BL0PR04MB6514.namprd04.prod.outlook.com
- ([fe80::b880:19d5:c7fe:329d%8]) with mapi id 15.20.3763.011; Thu, 14 Jan 2021
- 06:50:36 +0000
-From: Damien Le Moal <Damien.LeMoal@wdc.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>, "linux-riscv@lists.infradead.org"
- <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH v2] riscv: fix build failure with Canaan K210 SoC
-Thread-Topic: [PATCH v2] riscv: fix build failure with Canaan K210 SoC
-Thread-Index: AQHW6ZCgmg4pqNGJpUG8TQGkRYwf2g==
-Date: Thu, 14 Jan 2021 06:50:36 +0000
-Message-ID: <BL0PR04MB65148043472967F37CA27774E7A80@BL0PR04MB6514.namprd04.prod.outlook.com>
-References: <20210113094353.401690-1-damien.lemoal@wdc.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dabbelt.com; dkim=none (message not signed)
- header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
-x-originating-ip: [2400:2411:43c0:6000:8c78:be0:63f5:4b05]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-ht: Tenant
-x-ms-office365-filtering-correlation-id: 6d768d5e-b16a-41bf-4043-08d8b858b26e
-x-ms-traffictypediagnostic: BL0PR04MB4977:
-x-microsoft-antispam-prvs: <BL0PR04MB497730DFFBE84F412F4FFCD7E7A80@BL0PR04MB4977.namprd04.prod.outlook.com>
-wdcipoutbound: EOP-TRUE
-x-ms-oob-tlc-oobclassifiers: OLM:8882;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: TA1dh+3oz7LuRj/VIy8LmS+w5t8h4iYEcXxkwjS12vxtTRI38D1a8tOfh7HIi6iTaiA6SEjlwzT2VI/0uHzdo43dDAx/yChevjNv02R9xfsgx3KMpa1BVDmdavT9h7REu5wNKFCrZY6dtqZEeXVJXGensj7RkksYe/QFx5PPSvu85gMT1LTojYMQRVVZH2quTIWCEnvJBio44RARRPl61JOlVJhVzQKyOQz/+34l8ty7IWsNF5GxYb6L3SDhHISbiIAQ6VTAL+Ya2HcqKZXbW/qCoVuuOMW4sdgvmlygPT6K6c2SZiI7v8ClRt/965NQpm9VM+jqzBCobXCM/58y8jlqCWcV/bw0f6fJfp5K9nbR2IQ36W5th68xxbWXDxWJQKGb3HzxA/Wr8lZYVf/Oow==
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:BL0PR04MB6514.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(366004)(346002)(376002)(396003)(136003)(39860400002)(6506007)(5660300002)(53546011)(66556008)(64756008)(91956017)(66476007)(71200400001)(76116006)(66446008)(8936002)(8676002)(316002)(86362001)(83380400001)(52536014)(55016002)(9686003)(2906002)(33656002)(7696005)(110136005)(66946007)(478600001)(186003);
- DIR:OUT; SFP:1102; 
-x-ms-exchange-antispam-messagedata: =?us-ascii?Q?11OyMN/y4YhdYRLF929Uz4I1CyvidEoM2ulcSiDhddz+SucuGpvKpFiMyydH?=
- =?us-ascii?Q?PDr46J8x0pqYKiMLIRKxqFOjPNbA53Z5GcfrVMW4YQ+b2lHjuJ2EUzhcWk30?=
- =?us-ascii?Q?jbTp8f/pWVkBEw9dDOccXjYYaAwlOL3kZI0Bzc0C+ZIhmmhrJ1OFemfUNIxv?=
- =?us-ascii?Q?j+ArJXCZg20NU6zZyiognrkAaE6DeDkxd9MRnvdQb3yY/dKfXLxcCmcUSBAK?=
- =?us-ascii?Q?exaT9hMwkz2/hcE8Yp9jhusl7Ou0dg0Dec0LAqYsKQ5prSSkvNtkPuGAenIX?=
- =?us-ascii?Q?iH2DeCb1CycLGvcn0Lf7qvf1h342zBbug8oRCGgnR/nwE3yvz+SYXLn3febx?=
- =?us-ascii?Q?DcCA6mDW6293UHLN15gI3CsJkYzimn1u5wJJYtUUASWB5Kb8qAl7XE9jcvLt?=
- =?us-ascii?Q?bZFsfUKmElfgh/DDEQx3+kVeE/Bl5ThG5EQQU0rSOTvzNj0+h4QjYcePoV4N?=
- =?us-ascii?Q?5mFM4R8JyBZsARD3OW7OdUtnuCbHIMa5HetIUVnhh14A3SGF4ZIulX26WAkI?=
- =?us-ascii?Q?vDLc8cs8H+13GrwQkfnxSuWEHqHAC9/BYtfoJhBxnpsR21JTDaX+HWEC2PAp?=
- =?us-ascii?Q?iGuP7hWyiPkDCOiUrX7K0W2ggQ9TchX0FG6f751QTkyKsDacLHgv8d/Yu4fg?=
- =?us-ascii?Q?GCeTs+wM9AR9x6ruXONN23RKhlPX4S30zQBHld+ZxwNvv+caNsWYRFrUtRma?=
- =?us-ascii?Q?Ixh9FQ1WCrgH+iJ9L/uxmRpJY1rHoMFxaz0sPC6pJBYX/WyOK+yHhKPNtkkz?=
- =?us-ascii?Q?m6PyM6cTY+aY0LPUUNfSuJyqAnctEeObCIO7d7AxT0v/2T2IYa8YOpI3M5FQ?=
- =?us-ascii?Q?ETi/DsJp+WuAIubdSFhLrmlhkH06qAbKIOXHQSxjWdcVq+Mkx39JWw1OkteH?=
- =?us-ascii?Q?tgjpOVecejyZI59BRaiFAgdeRfEtiVE0jNzTL4kThSQl5esB6xC9ji1j0VBp?=
- =?us-ascii?Q?V4ue5giTACIit6/0yiXyFeQYkdR7d/gghibiWC2m+ScABQjDN8voguVzHCBk?=
- =?us-ascii?Q?tm+BylZ+4HK16DYvczA4NSRw/OC7fe8JW17HCt+aga1qtbUTcxPWlvbwB1zD?=
- =?us-ascii?Q?bHVuXy0K?=
-x-ms-exchange-transport-forked: True
+ id 1kzyqs-0003eX-Ci
+ for linux-riscv@lists.infradead.org; Thu, 14 Jan 2021 09:23:36 +0000
+Received: by mail-qk1-x733.google.com with SMTP id n142so6619064qkn.2
+ for <linux-riscv@lists.infradead.org>; Thu, 14 Jan 2021 01:23:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=w/LJg7CR6qaPsGfNmkbIMr5Jr63fqVaiJy3TQL5NmSk=;
+ b=daSmqRkqh1pyuQ+eoKgHpzC7776Sl4czwn0WTWBYy6ewbkyO24/S1rw9YordoZhL3P
+ 9QRAMKdZttbkJB8Gi06uoYdcZYmG/U59fbQWwoDI1eP+WxLl9nvc8HkwQn9B5lxsEHka
+ kvZfAyy3MFrKzX49kb06Q3ZZtn6Qw75gZ6oPBM2QVobxocF4NIE+Xl1srUYeBbxuyepE
+ 4fTSAi2fHjFTytyZTsLQqq2Ki0uYfwvQvBjyT2ohp2PFloKocszCSQ4MHft2U2+q7WCh
+ NTRJQNELcwtJPK3feJBU5Py3o4Xm8v3NddzcXeJhG0XdPgZlW+u6L5HaZXIZ6hc0MJE8
+ 7CMw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=w/LJg7CR6qaPsGfNmkbIMr5Jr63fqVaiJy3TQL5NmSk=;
+ b=TzhSekWBFk090D53FK9bALIEPbgvub+5FboQ8auJpe5yIV/RiiqOcRCB3LARj31Tz8
+ 0fwt0kHEBhoqpExCNLPi975wkW5RmqrsXoJsEkfF/cjtT5qNkucjJ2ZKciFHkxsqPjnI
+ OcPvCdXtv8knt1auAPdJYmOGp+vj+m36vsEZPVziSV2Vu1VeD5ZvvUT3DA3NohmuHqf7
+ YjyGo3Yb1as2Uplm3l3nPOxs+f2q2+pyD2c7iepbaT2I7Xwv2Ery68K7gue8/4rsS7e3
+ lFSEtvL2zGuq1Esbyq2Bfb4LbQubphHmCE9JO/SudUFfYlDEOcsd9uC0UOiY+TWIs6Cs
+ f2kQ==
+X-Gm-Message-State: AOAM533xwzUBqn2MP31wbcPCQ/mmzEpvHcuPWRs6U9sz+FKvstJNPSf4
+ 2P1rv7Bc8rNg4GuXLU7bBGdvo72t6c9rVcU5LkgYVQ==
+X-Google-Smtp-Source: ABdhPJxv3VxNFUqait/ezsgtDf5QE6R/RwKeWmD7H9dMAZP+TyiejvEkRpFwRLLPk10qIrJxJDCL1MYcD7CgdDF8vdM=
+X-Received: by 2002:a37:9a97:: with SMTP id c145mr6087373qke.350.1610616209537; 
+ Thu, 14 Jan 2021 01:23:29 -0800 (PST)
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BL0PR04MB6514.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6d768d5e-b16a-41bf-4043-08d8b858b26e
-X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Jan 2021 06:50:36.2052 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: WIpQL5piGloHnlWOagsHAFG6ENnkD4KVZIpjZAMRnHe4tYHg8ZvEVZKTJGN/Zob38qnuE6ZKrKnnUVEH2CrPmQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL0PR04MB4977
+References: <CACT4Y+bDqMiC+ou5ghb=XB3Oyjw3p-GTDvNw4NkkQqQthw1yuQ@mail.gmail.com>
+ <mhng-02b88d43-ede8-48f9-82f1-c84201acb7a8@palmerdabbelt-glaptop>
+In-Reply-To: <mhng-02b88d43-ede8-48f9-82f1-c84201acb7a8@palmerdabbelt-glaptop>
+From: Dmitry Vyukov <dvyukov@google.com>
+Date: Thu, 14 Jan 2021 10:23:18 +0100
+Message-ID: <CACT4Y+aN3LvgaBc_zmW=t=D7ChU-jrWYnjt5sZ2GEDQhg_BC9A@mail.gmail.com>
+Subject: Re: riscv+KASAN does not boot
+To: Palmer Dabbelt <palmerdabbelt@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210114_015041_150889_C6AF74F6 
-X-CRM114-Status: GOOD (  16.13  )
+X-CRM114-CacheID: sfid-20210114_042334_501991_8B50F0E7 
+X-CRM114-Status: GOOD (  24.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -156,50 +86,251 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Bjorn Topel <bjorn.topel@gmail.com>,
+ LKML <linux-kernel@vger.kernel.org>, nylon7@andestech.com,
+ syzkaller <syzkaller@googlegroups.com>, Andreas Schwab <schwab@linux-m68k.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Tobias Klauser <tklauser@distanz.ch>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2021/01/13 18:44, Damien Le Moal wrote:
-> Fix riscv dts main Makefile to avoid build failures when
-> CONFIG_SOC_CANAAN is selected but CONFIG_SOC_CANAAN_K210_DTB_BUILTIN is
-> not set. In this case, the SoC device tree should not be built.
-> Avoid the failure by changing the canaan subdir inclusion based on the
-> CONFIG_SOC_CANAAN_K210_DTB_BUILTIN configuration option value instead
-> of on the value of the CONFIG_SOC_CANAAN configuration option.
-> 
-> Reported-by: kernel test robot <lkp@intel.com>
-> Fixes: 3c54e3125dcd ("riscv: Use vendor name for K210 SoC support")
-> Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
-> ---
-> Changes from v1:
-> * Add missing CONFIG_ prefix to SOC_CANAAN_K210_DTB_BUILTIN option
-> 
->  arch/riscv/boot/dts/Makefile | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
-> index 4da40691c55b..7ffd502e3e7b 100644
-> --- a/arch/riscv/boot/dts/Makefile
-> +++ b/arch/riscv/boot/dts/Makefile
-> @@ -1,5 +1,5 @@
->  # SPDX-License-Identifier: GPL-2.0
->  subdir-y += sifive
-> -subdir-$(CONFIG_SOC_CANAAN) += canaan
-> +subdir-$(CONFIG_SOC_CANAAN_K210_DTB_BUILTIN) += canaan
->  
->  obj-$(CONFIG_BUILTIN_DTB) := $(addsuffix /, $(subdir-y))
-> 
+On Thu, Jan 14, 2021 at 5:57 AM Palmer Dabbelt <palmerdabbelt@google.com> wrote:
+>
+> On Fri, 25 Dec 2020 09:13:23 PST (-0800), dvyukov@google.com wrote:
+> > On Fri, Dec 25, 2020 at 5:58 PM Andreas Schwab <schwab@linux-m68k.org> wrote:
+> >>
+> >> On Dez 25 2020, Dmitry Vyukov wrote:
+> >>
+> >> > qemu-system-riscv64 \
+> >> > -machine virt -bios default -smp 1 -m 2G \
+> >> > -device virtio-blk-device,drive=hd0 \
+> >> > -drive file=buildroot-riscv64.ext4,if=none,format=raw,id=hd0 \
+> >> > -kernel arch/riscv/boot/Image \
+> >> > -nographic \
+> >> > -device virtio-rng-device,rng=rng0 -object
+> >> > rng-random,filename=/dev/urandom,id=rng0 \
+> >> > -netdev user,id=net0,host=10.0.2.10,hostfwd=tcp::10022-:22 -device
+> >> > virtio-net-device,netdev=net0 \
+> >> > -append "root=/dev/vda earlyprintk=serial console=ttyS0 oops=panic
+> >> > panic_on_warn=1 panic=86400"
+> >>
+> >> Do you get more output with earlycon=sbi?
+> >
+> > Hi Andreas,
+> >
+> > For defconfig+kvm_guest.config+ scripts/config -e KASAN -e
+> > KASAN_INLINE it actually gave me more output:
+> >
+> >
+> > OpenSBI v0.7
+> >    ____                    _____ ____ _____
+> >   / __ \                  / ____|  _ \_   _|
+> >  | |  | |_ __   ___ _ __ | (___ | |_) || |
+> >  | |  | | '_ \ / _ \ '_ \ \___ \|  _ < | |
+> >  | |__| | |_) |  __/ | | |____) | |_) || |_
+> >   \____/| .__/ \___|_| |_|_____/|____/_____|
+> >         | |
+> >         |_|
+> >
+> > Platform Name          : QEMU Virt Machine
+> > Platform HART Features : RV64ACDFIMSU
+> > Current Hart           : 0
+> > Firmware Base          : 0x80000000
+> > Firmware Size          : 132 KB
+> > Runtime SBI Version    : 0.2
+> >
+> > MIDELEG : 0x0000000000000222
+> > MEDELEG : 0x000000000000b109
+> > PMP0    : 0x0000000080000000-0x000000008003ffff (A)
+> > PMP1    : 0x0000000000000000-0xffffffffffffffff (A,R,W,X)
+> > [    0.000000] Linux version 5.10.0-01370-g71c5f03154ac
+> > (dvyukov@dvyukov-desk.muc.corp.google.com) (riscv64-linux-gnu-gcc
+> > (Debian 10.2.0-9) 10.2.0, GNU ld (GNU Binutils for Debian) 2.35.1) #17
+> > SMP Fri Dec 25 18:10:12 CET 2020
+> > [    0.000000] OF: fdt: Ignoring memory range 0x80000000 - 0x80200000
+> > [    0.000000] earlycon: sbi0 at I/O port 0x0 (options '')
+> > [    0.000000] printk: bootconsole [sbi0] enabled
+> > [    0.000000] efi: UEFI not found.
+> > [    0.000000] Zone ranges:
+> > [    0.000000]   DMA32    [mem 0x0000000080200000-0x00000000ffffffff]
+> > [    0.000000]   Normal   empty
+> > [    0.000000] Movable zone start for each node
+> > [    0.000000] Early memory node ranges
+> > [    0.000000]   node   0: [mem 0x0000000080200000-0x00000000ffffffff]
+> > [    0.000000] Initmem setup node 0 [mem 0x0000000080200000-0x00000000ffffffff]
+> > [    0.000000] SBI specification v0.2 detected
+> > [    0.000000] SBI implementation ID=0x1 Version=0x7
+> > [    0.000000] SBI v0.2 TIME extension detected
+> > [    0.000000] SBI v0.2 IPI extension detected
+> > [    0.000000] SBI v0.2 RFENCE extension detected
+> > [    0.000000] software IO TLB: mapped [mem
+> > 0x00000000fa3f9000-0x00000000fe3f9000] (64MB)
+> > [    0.000000] Unable to handle kernel paging request at virtual
+> > address dfffffc810040000
+> > [    0.000000] Oops [#1]
+> > [    0.000000] Modules linked in:
+> > [    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted
+> > 5.10.0-01370-g71c5f03154ac #17
+> > [    0.000000] epc: ffffffe00042e3e4 ra : ffffffe000c0462c sp : ffffffe001603ea0
+> > [    0.000000]  gp : ffffffe0016e3c60 tp : ffffffe00160cd40 t0 :
+> > dfffffc810040000
+> > [    0.000000]  t1 : ffffffe000e0a838 t2 : 0000000000000000 s0 :
+> > ffffffe001603f50
+> > [    0.000000]  s1 : ffffffe0016e50a8 a0 : dfffffc810040000 a1 :
+> > 0000000000000000
+> > [    0.000000]  a2 : 000000000ffc0000 a3 : dfffffc820000000 a4 :
+> > 0000000000000000
+> > [    0.000000]  a5 : 000000003e8c6001 a6 : ffffffe000e0a820 a7 :
+> > 0000000000000900
+> > [    0.000000]  s2 : dfffffc820000000 s3 : dfffffc800000000 s4 :
+> > 0000000000000001
+> > [    0.000000]  s5 : ffffffe0016e5108 s6 : fffffffffffff000 s7 :
+> > dfffffc810040000
+> > [    0.000000]  s8 : 0000000000000080 s9 : ffffffffffffffff s10:
+> > ffffffe07a119000
+> > [    0.000000]  s11: 000000000000ffc0 t3 : ffffffe0016eb908 t4 :
+> > 0000000000000001
+> > [    0.000000]  t5 : ffffffc4001c150a t6 : ffffffe001603be8
+> > [    0.000000] status: 0000000000000100 badaddr: dfffffc810040000
+> > cause: 000000000000000f
+> > [    0.000000] random: get_random_bytes called from
+> > oops_exit+0x30/0x58 with crng_init=0
+> > [    0.000000] ---[ end trace 0000000000000000 ]---
+> > [    0.000000] Kernel panic - not syncing: Fatal exception
+> > [    0.000000] ---[ end Kernel panic - not syncing: Fatal exception ]---
+> >
+> >
+> > But I first tried with a the kernel image I had in the dir, I think it
+> > was this config (no KASAN):
+> > https://gist.githubusercontent.com/dvyukov/b2b62beccf80493781ab03b41430e616/raw/62e673cff08a8a41656d2871b8a37f74b00f509f/gistfile1.txt
+> >
+> > and earlycon=sbi did not change anything (no output after OpenSBI).
+> > So potentially there are 2 different problems.
+>
+> Thanks for reporting this.  Looks like I'd forgotten to add a kasan config to
+> my tests.  There's one in there now, and it's passing as of the fix that Nylon
+> posted.
 
-Palmer,
+I can boot the KASAN kernel now on riscv/fixes.
 
-Ping ?
-The kernel build robot is complaining...
+Next problem: I've got only to:
 
--- 
-Damien Le Moal
-Western Digital Research
+[   90.498967][    T1] Run /sbin/init as init process
+[   91.164353][ T4022] init[4022]: unhandled signal 11 code 0x1 at
+0x0000000000000bb0 in busybox[10000+d7000]
+[   91.179640][ T4022] CPU: 1 PID: 4022 Comm: init Not tainted
+5.11.0-rc2-00012-g0983834a8393 #19
+[   91.180853][ T4022] epc: 0000000000000bb0 ra : 0000003fccab09d0 sp
+: 0000003fffa8c7b0
+[   91.181861][ T4022]  gp : 00000000000e8d70 tp : 0000003fccaaf820 t0
+: 000000000000001e
+[   91.182810][ T4022]  t1 : 0000003fccab0bfc t2 : 000000000000000a s0
+: 0000003fffa8c850
+[   91.183749][ T4022]  s1 : 0000003fccab1070 a0 : 0000003fccab1070 a1
+: 0000003fffa8c8c8
+[   91.184689][ T4022]  a2 : 0000000000000001 a3 : 0000000000000020 a4
+: 0000000000000000
+[   91.185620][ T4022]  a5 : 0000000000000000 a6 : 0000003fcc9c4260 a7
+: fffffffffffffffe
+[   91.186566][ T4022]  s2 : 0000000000000000 s3 : 0000003fffa8c8c8 s4
+: 0000003fccab1000
+[   91.187500][ T4022]  s5 : 0000003fccab1078 s6 : 0000003fffa8c8d0 s7
+: 0000000000000010
+[   91.189672][ T4022]  s8 : 0000000000000016 s9 : 0000000000000000
+s10: 0000003fffa8c8c8
+[   91.190637][ T4022]  s11: 0000000000000000 t3 : 0000000000000bb0 t4
+: 0000000000000000
+[   91.191568][ T4022]  t5 : 0000003fffa8c360 t6 : 0000000000000000
+[   91.192389][ T4022] status: 8000000000004020 badaddr:
+0000000000000bb0 cause: 000000000000000c
+[   91.201573][    T1] Kernel panic - not syncing: Attempted to kill
+init! exitcode=0x0000000b
+[   91.202906][    T1] CPU: 0 PID: 1 Comm: init Not tainted
+5.11.0-rc2-00012-g0983834a8393 #19
+[   91.204139][    T1] Call Trace:
+[   91.204849][    T1] [<ffffffe0000095c0>] walk_stackframe+0x0/0x1d0
+[   91.206124][    T1] [<ffffffe00458b2d8>] show_stack+0x3a/0x46
+[   91.207240][    T1] [<ffffffe0045a5b72>] dump_stack+0x11c/0x180
+[   91.208732][    T1] [<ffffffe00458b6a0>] panic+0x20a/0x5cc
+[   91.209890][    T1] [<ffffffe00002eea4>] do_exit+0x1846/0x1874
+[   91.211052][    T1] [<ffffffe00002efdc>] do_group_exit+0xa0/0x192
+[   91.212224][    T1] [<ffffffe000047d30>] get_signal+0x2d6/0x13dc
+[   91.213390][    T1] [<ffffffe000007eb0>] do_notify_resume+0xa8/0x912
+[   91.214567][    T1] [<ffffffe00000559c>] ret_from_exception+0x0/0x14
+
+The image is buildroot on 2020.11.x built with this script:
+https://gist.githubusercontent.com/dvyukov/1a9a01ca2189e35175a021820c95b04d/raw/5c01d755e83f4eab0d56aa7dc84af3b2d5e80423/gistfile1.txt
+
+Readelf for init shows the following (is it that [10000+d7000] address
+is not .text at all?):
+
+$ riscv64-linux-gnu-readelf --sections image/bin/busybox
+There are 27 section headers, starting at offset 0xd7f20:
+
+Section Headers:
+  [Nr] Name              Type             Address           Offset
+       Size              EntSize          Flags  Link  Info  Align
+  [ 0]                   NULL             0000000000000000  00000000
+       0000000000000000  0000000000000000           0     0     0
+  [ 1] .interp           PROGBITS         0000000000010238  00000238
+       0000000000000021  0000000000000000   A       0     0     1
+  [ 2] .note.ABI-tag     NOTE             000000000001025c  0000025c
+       0000000000000020  0000000000000000   A       0     0     4
+  [ 3] .hash             HASH             0000000000010280  00000280
+       00000000000009cc  0000000000000004   A       5     0     8
+  [ 4] .gnu.hash         GNU_HASH         0000000000010c50  00000c50
+       0000000000000ac8  0000000000000000   A       5     0     8
+  [ 5] .dynsym           DYNSYM           0000000000011718  00001718
+       00000000000021f0  0000000000000018   A       6     1     8
+  [ 6] .dynstr           STRTAB           0000000000013908  00003908
+       0000000000000c66  0000000000000000   A       0     0     1
+  [ 7] .gnu.version      VERSYM           000000000001456e  0000456e
+       00000000000002d4  0000000000000002   A       5     0     2
+  [ 8] .gnu.version_r    VERNEED          0000000000014848  00004848
+       0000000000000050  0000000000000000   A       6     2     8
+  [ 9] .rela.dyn         RELA             0000000000014898  00004898
+       00000000000000c0  0000000000000018   A       5     0     8
+  [10] .rela.plt         RELA             0000000000014958  00004958
+       00000000000020a0  0000000000000018  AI       5    22     8
+  [11] .plt              PROGBITS         0000000000016a00  00006a00
+       00000000000015e0  0000000000000010  AX       0     0     16
+  [12] .text             PROGBITS         0000000000017fe0  00007fe0
+       00000000000a3668  0000000000000000  AX       0     0     4
+  [13] .rodata           PROGBITS         00000000000bb648  000ab648
+       000000000002b076  0000000000000000   A       0     0     8
+  [14] .sdata2           PROGBITS         00000000000e66c0  000d66c0
+       0000000000000163  0000000000000000   A       0     0     8
+  [15] .eh_frame_hdr     PROGBITS         00000000000e6824  000d6824
+       0000000000000014  0000000000000000   A       0     0     4
+  [16] .eh_frame         PROGBITS         00000000000e6838  000d6838
+       000000000000002c  0000000000000000   A       0     0     8
+  [17] .preinit_array    PREINIT_ARRAY    00000000000e7df8  000d6df8
+       0000000000000008  0000000000000008  WA       0     0     1
+  [18] .init_array       INIT_ARRAY       00000000000e7e00  000d6e00
+       0000000000000008  0000000000000008  WA       0     0     8
+  [19] .fini_array       FINI_ARRAY       00000000000e7e08  000d6e08
+       0000000000000008  0000000000000008  WA       0     0     8
+  [20] .dynamic          DYNAMIC          00000000000e7e10  000d6e10
+       00000000000001f0  0000000000000010  WA       6     0     8
+  [21] .data             PROGBITS         00000000000e8000  000d7000
+       0000000000000240  0000000000000000  WA       0     0     8
+  [22] .got              PROGBITS         00000000000e8240  000d7240
+       0000000000000af8  0000000000000008  WA       0     0     8
+  [23] .sdata            PROGBITS         00000000000e8d38  000d7d38
+       0000000000000101  0000000000000000  WA       0     0     8
+  [24] .sbss             NOBITS           00000000000e8e40  000d7e39
+       000000000000017f  0000000000000000  WA       0     0     8
+  [25] .bss              NOBITS           00000000000e8fc0  000d7e39
+       00000000000005b0  0000000000000000  WA       0     0     8
+  [26] .shstrtab         STRTAB           0000000000000000  000d7e39
+       00000000000000e6  0000000000000000           0     0     1
+
+
+Before I spent more time on this, am I doing anything obviously wrong?
+Is it a known issue? Are there any fresh working recipes?
 
 _______________________________________________
 linux-riscv mailing list
