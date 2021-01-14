@@ -2,78 +2,88 @@ Return-Path: <SRS0=X6bA=GR=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6F90EC433DB
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jan 2021 01:48:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A956DC433DB
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jan 2021 02:03:38 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0745A2343B
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jan 2021 01:48:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0745A2343B
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
+	by mail.kernel.org (Postfix) with ESMTPS id 2567223442
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jan 2021 02:03:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2567223442
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=gvSYe/QUBiUfoMB6TKOikHEhaB5dbrebHkiZA32Nbp8=; b=3GXlKOvZEE6NRCBKZSN6b8B8n
-	80oGQetBIUDv/oWh6EbhZRtkY5WOyn5cwalGIbESWp6ib6jNpKuwJVzJ+i9mfGzb3AzksuL0xeWXz
-	D0SNLa+aNBL6M4u5q5W0cZrVn7he2EYbc787uiDEujkOX8yW/OpD17PS6e9kv2w4WHMQ9neQ6hc4W
-	j8SZKdPF/gXek5rPH+3Ja1+Bn2C9nLBGLI6Ty8W51+WD2VemSREtdfOf+27Sn7Vl1MgJ1Mh0GDiVs
-	QQDJhjGo6elYFmG0mW4GdN3exs5NvzTz+itCC+CmO4vwSX0SiV0yDPTtbeR8RjgcjpKwCstitW4Nk
-	PygC30eCA==;
+	 bh=5svfd92EqyeMcyXug9a+Az/7PDXlmje3exOMvOkdKTM=; b=Axe5HLf8PtXKEkdsVJhXF0Gb7
+	7KxQ3Ma1zOUeu6FjS6LT4JSmJ36ywpzLnCy6BZLcjiqH+GhZTWMMxBJoiueD3Idc4J3u0fS0utk+p
+	/uWuFtgpOWYr4/+HOSyMp6eVkXIBr8BT8o/r0hLiz+uzJBteQZXhbsj5WyfsBriYlGOnyB+MuU2QP
+	ID4YC9N69V4Wb7rXL2tcA5tuTm7Fy8Mvk+CwH8Pau/H+7y8LR1AaAVspnTGDqexo1XzTJuJufWzTT
+	j6vWbkdVOmguXnObhbUj00tJvVh9OKEL90lsnT0Rb4TeY5MmlVCf2oquwNfiQfJdInESdLWO8raYI
+	grzoBUu8Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1kzrkn-0000I3-ON; Thu, 14 Jan 2021 01:48:49 +0000
-Received: from mail-io1-xd34.google.com ([2607:f8b0:4864:20::d34])
+	id 1kzryq-0001Jz-CT; Thu, 14 Jan 2021 02:03:20 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1kzrkk-0000HV-61
- for linux-riscv@lists.infradead.org; Thu, 14 Jan 2021 01:48:47 +0000
-Received: by mail-io1-xd34.google.com with SMTP id q1so8218022ion.8
- for <linux-riscv@lists.infradead.org>; Wed, 13 Jan 2021 17:48:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=L8QvwvUhud/Q+2LPdzjKUM5l1LRzUmNPYEOr4FUbNZg=;
- b=K74SmuAPHGiY1Xm3OEROEniQQzbLkjg8ihHiyDupkWPIMxXS1i4P49cGGswD+7TLdP
- fSeXchnpxynysbbldGRrqi2b+8lAi3CntMnl7z2b+2lHM7VQgSRsPr5kDzBFX9cIclx6
- 9r31EpMguv5rndoN2TEo04LcbEYLywB+9NchI=
+ id 1kzryo-0001JR-2J
+ for linux-riscv@lists.infradead.org; Thu, 14 Jan 2021 02:03:18 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id u4so2341542pjn.4
+ for <linux-riscv@lists.infradead.org>; Wed, 13 Jan 2021 18:03:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=/59kB1O5XIVx4wkhix0uTI9M83ghuwediLtzMt/ydBU=;
+ b=hMgyZ0xWZXRDy8tBW0qOIwh+Xe7D8eY37gm1btzh5tZbvbHil34ZvT9v/bxYeUBFQY
+ GDmvsv/lcJ98YUN88Plde66JeOnXZyw8/rFSlei6Jdq/k8K2ft40iwR5cVBPn8qIijks
+ WcglGx7KYHon9U9Xx1kjTDAaCWaOPYzXbZzn8qAQakbcw3AlmbBBMYhA7nrPpPx1Uq7p
+ QF8zG0ZalqAwZ+ksqQM/xkStlgAJ7ZOyFN8/IjTw8wk4vgkmzl3lh35+wyhuoar+Hn9p
+ WDnuv4FtVJs7wzXVk1Y+vxAULFRRWZWUat8zc4dLez2OKQKFTLhbgCcTAQoXWc1VlifE
+ uR4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=L8QvwvUhud/Q+2LPdzjKUM5l1LRzUmNPYEOr4FUbNZg=;
- b=Ep/BMBYOWr/7AW1ODvZat4L2eiOuPc+U5vrP1ckQj/F0IY/vdAssY2SreznQ4UpUNA
- zoHrYAbl1CvRSoJo0TY0nLfDnFEBAE0dJMIhxQSiVfRPN0rSHAag1tkjXAPCc70d5d8W
- egE8Pkiul5IivzidvQAofgZPHVAePBebCh0js/lIIeM0ZwSqeFu+2wEc0/TckSF2QSYQ
- N7uWLv3XMniI32Ax2ApcKDGn5onhUiZzsOjrFTHSL6EiAGoLhG/TXqSwBlI6r1PQBrBY
- LHNAzDUOZrOL1ubT3N0iDV/KUNWZjtI/XA5vj3SS9A5yZXUmaYD6XTXxS/BA7rBvd9/H
- FeAw==
-X-Gm-Message-State: AOAM5312z38MQMDvR7JzqUuBITgEiROtMOT/Q8UJwrexkJtl0eDl1EsH
- oy9GxG8EbxvurFMpxFMOVNJo8w2H1YaDfS5Irf+DeZRyaEdi
-X-Google-Smtp-Source: ABdhPJxRh4p10sHVUvelmknlQZKChH/dCz0+aVzwkIDrG96kmYQO8I5iVw8sphqkRKnsbjTVDpxM/SJ+UgalkSh1ZwE=
-X-Received: by 2002:a6b:2d4:: with SMTP id 203mr2642557ioc.0.1610588924508;
- Wed, 13 Jan 2021 17:48:44 -0800 (PST)
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=/59kB1O5XIVx4wkhix0uTI9M83ghuwediLtzMt/ydBU=;
+ b=KOganeAMncmhsleG7l1PlR5RzcH6RBvDaooMqs2Md2jc4tSlJaWnmJY2jcVDdHunZw
+ FI3Z+pnN3IISdJDOXV8wzI4PIs6RTrWPoV1zwjUN0GTszoKeC2V7fY8BuGYbTov4AuHW
+ UawbyheiNLNJpY1HBm2+rQp+BIsFjjNP5ttvpcROQQmurBAyGDJMHzo5Q3NKcdiP0bzV
+ n9dJgKkRaBj0+gpbLUtsWHa3ORqp4VWaI5OqDox7Sz5ApaUe4kODNAaqmCbTHK6fKPzt
+ SuQq8jXaH6UH56dZcPQmEpquENY7+wJXKmJHly8gNRm2eYZgXJ9mS7vE7sTX6w+yeFM0
+ umdg==
+X-Gm-Message-State: AOAM531i8GHJdD7VUjlhWWWiig81E8fr+P17/kfCgL1bQMEFR+MIFPUg
+ gqI/g3VG25OFzWE6ZP6xyuc=
+X-Google-Smtp-Source: ABdhPJz6RVp8xXM12Kc+tzA7oP/A24jYoxwPWUFPY3GjYTDJEeBLPPNN9KWE/Xvw/6NFqJ0e9TzsFA==
+X-Received: by 2002:a17:90b:4d09:: with SMTP id
+ mw9mr2403589pjb.199.1610589794397; 
+ Wed, 13 Jan 2021 18:03:14 -0800 (PST)
+Received: from localhost (g238.115-65-210.ppp.wakwak.ne.jp. [115.65.210.238])
+ by smtp.gmail.com with ESMTPSA id
+ u1sm3878281pjr.51.2021.01.13.18.03.13
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 13 Jan 2021 18:03:13 -0800 (PST)
+Date: Thu, 14 Jan 2021 11:03:11 +0900
+From: Stafford Horne <shorne@gmail.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Subject: Re: [PATCH v2] drivers/soc/litex: Add restart handler
+Message-ID: <20210114020311.GE2002709@lianli.shorne-pla.net>
+References: <20210104164500.1311091-1-geert@linux-m68k.org>
+ <CAMuHMdXG_B-3y1MWh64T6LU3Gmo6UQGGWU8EbLApjDeXVLL3GQ@mail.gmail.com>
 MIME-Version: 1.0
-References: <mvmk0ssu8yi.fsf@suse.de>
- <CAOnJCU+JmDaU1f3hAbyjR4__TVHJbjnZZ8th25i5Q-et_UxXeg@mail.gmail.com>
- <87im8154r2.fsf@igel.home>
-In-Reply-To: <87im8154r2.fsf@igel.home>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Wed, 13 Jan 2021 17:48:33 -0800
-Message-ID: <CAOnJCUJg+-4RTz=6JQDU_c90W1KpNkvNN=riLfHmtwtpHAh0yw@mail.gmail.com>
-Subject: Re: EFI booting crashes
-To: Andreas Schwab <schwab@suse.de>
+Content-Disposition: inline
+In-Reply-To: <CAMuHMdXG_B-3y1MWh64T6LU3Gmo6UQGGWU8EbLApjDeXVLL3GQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210113_204846_366074_D49C2421 
-X-CRM114-Status: GOOD (  10.11  )
+X-CRM114-CacheID: sfid-20210113_210318_131417_C5DA3E5F 
+X-CRM114-Status: GOOD (  25.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -85,60 +95,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>
+Cc: Gabriel Somlo <gsomlo@gmail.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Mateusz Holenko <mholenko@antmicro.com>, Karol Gugala <kgugala@antmicro.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 13, 2021 at 5:46 AM Andreas Schwab <schwab@suse.de> wrote:
->
-> Looking closer, the fault address is pointing to the GOT of u-boot,
-> coming from loading the address of efi_var_buf in efi_var_mem_find:
->
->     80200338:   00078497                auipc   s1,0x78
->     8020033c:   9e84b483                ld      s1,-1560(s1) # 80277d20 <_GLOBAL_OFFSET_TABLE_+0x80>
->
-> I wonder how this is supposed to work?  Surely the GOT isn't mapped in
-> the EFI runtime memory.
->
+On Mon, Jan 04, 2021 at 05:49:03PM +0100, Geert Uytterhoeven wrote:
+> On Mon, Jan 4, 2021 at 5:45 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> > Let the LiteX SoC Controller a register a restart handler, which resets
+> > the LiteX SoC by writing 1 to CSR_CTRL_RESET_ADDR.
+> >
+> > Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
+> > ---
+> > Tested with linux-on-litex-vexriscv.
+> >
+> > This patch is based on upstream, i.e. not on top of Gabriel Somlo's
+> > "[PATCH v5 0/4] drivers/soc/litex: support 32-bit subregisters, 64-bit
+> > CPUs"
+> > (https://lore.kernel.org/lkml/20201227161320.2194830-1-gsomlo@gmail.com/)
+> 
+> Bummer, and that's why the RESET_REG_* definitions are no longer
+> next to the SCRATCH_REG_* definitions :-(
 
-You are right. The code snippet where the fault happened is
-efi_get_variable_runtime->efi_get_variable_mem->efi_var_mem_find->efi_var_buf
+If it helps I have accepted Gabriel's patches and put them onto for-next.
 
-efi_var_buf is at 0x200b2338 where the regions that are mapped are
+  https://github.com/openrisc/linux/commits/for-next
 
-[    0.181783] Remapping and enabling EFI services.
-[    0.182923] efi_create_mapping: virt 20008000 phys be738000
-num_pages 1                                     [    0.184485]
-efi_create_mapping: virt 2001c000 phys be73c000  num_pages 3
-[    0.185068] efi_create_mapping: virt 20020000 phys be740000  num_pages 4
-[    0.185692] efi_create_mapping: virt 2003d000 phys bff6d000  num_pages 1
+I am happy to take and test a patch based on that.  Or I can do the adjustments
+to base the patch on that myself.  Let me know.
 
-efi runtime services doesn't have mapping for that address which
-explains the panic in the kernel.
+-Stafford
 
-efi_var_mem_find code was added during the same time as kernel EFI
-patches were merged. Most likely, those patches caused a regression
-which was never noticed.
-
-It seems that during allocation efi_var_buf was allocated at be740000
-which is mapped correctly as a runtime service data. However, the load
-address during execution is invalid(0x200b2338). I am debugging this
-further.
-
-> Andreas.
->
-> --
-> Andreas Schwab, SUSE Labs, schwab@suse.de
-> GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-> "And now for something completely different."
-
-
-
--- 
-Regards,
-Atish
+> Well, I assume that will be fixed by evolution ;-)
+> 
+> > v2:
+> >   - Rebase on top of v5.11-rc1,
+> >   - Change reset handler priority to recommended default value of 128
+> >     (was 192).
+> >
+> > (v1 was not sent to a mailing list)
+> > ---
+> >  drivers/soc/litex/litex_soc_ctrl.c | 33 +++++++++++++++++++++++++++---
+> >  1 file changed, 30 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/drivers/soc/litex/litex_soc_ctrl.c b/drivers/soc/litex/litex_soc_ctrl.c
+> > index 1217cafdfd4d1d2b..d729ad50d4ffca5e 100644
+> > --- a/drivers/soc/litex/litex_soc_ctrl.c
+> > +++ b/drivers/soc/litex/litex_soc_ctrl.c
+> > @@ -15,6 +15,11 @@
+> >  #include <linux/module.h>
+> >  #include <linux/errno.h>
+> >  #include <linux/io.h>
+> > +#include <linux/reboot.h>
+> > +
+> > +/* reset register located at the base address */
+> > +#define RESET_REG_OFF           0x00
+> > +#define RESET_REG_VALUE         0x00000001
+> >
+> >  /*
+> >   * LiteX SoC Generator, depending on the configuration, can split a single
+> 
+> Gr{oetje,eeting}s,
+> 
+>                         Geert
+> 
+> -- 
+> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+> 
+> In personal conversations with technical people, I call myself a hacker. But
+> when I'm talking to journalists I just say "programmer" or something like that.
+>                                 -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
