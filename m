@@ -4,17 +4,17 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,UPPERCASE_50_75,
+	URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 15F18C433E9
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jan 2021 14:05:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3C3C8C433DB
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jan 2021 14:05:40 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D3540223E0
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jan 2021 14:05:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D3540223E0
+	by mail.kernel.org (Postfix) with ESMTPS id F38B5223E0
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jan 2021 14:05:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F38B5223E0
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,70 +23,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=YZW8gpm3QDQJGzPwewHWtiMfT6E9LhjTgh1XHd05nyA=; b=S8GQaBKGmVj0JoTcQGMWNuPDJ
-	gUAxe9U3ElqW9cNPq8NQeYZDDTMzYo6B8T2WbeJ2JQEwdCr2HGn8JbM0l4BJYjNo5884CQrnRlXDc
-	lqj8owowDhG6Tcn56af0W5GSgVYXsXaTN22k39b1lg4sPdGluOXo3ir+wVrWadGkWR+OF9XuzH/Ht
-	50qkA3Bi9b8UczndrtqXDE/iyLaej1EJsVRSgH/u0a8IZCVLOQOLbBhuK+sbYGFCGsSE/6WRU0Csb
-	UqjVxYEHuM3rSRfTzZyvCaAG6fzi2DGe1MP0tm2kuoqbWu1g9cTMvoo5i7UmMDJsDxt95pv2UddPw
-	SvGCtu5JA==;
+	 bh=2UHA5Zx6N+zh8lVOtrjgyus4wAyZuKbbx0clkhIRIS8=; b=0VpV2saYqHtoANwboM2F4DEjk
+	19vfT4e80MZiO+zFFzvN4nHUC46RvQ8NhnripYiPNhk7O1LImjQ3/JuEx6QdhcPwuRt6+NRG5tHny
+	YJ6+Q46WZbpQF/yM/GQBVfLBSAfo/PP+2HMINJuQXf8PiU5tjBVPTpf65yyaedF1PKk2v7He/QJ5r
+	rtVK1ddoA0S7YItfCB2uScyr1x15W0cDkDGWGosOS2xk7gGCMvrBEo+//kuWiwU/JGtBV1cMIEzBS
+	7ekOWpNthMXwrOI1PbD1A2Pg3s0/+gEWMcPkAdN6/0j+5RxFUQ0Tu5EmUkIPcIU2spa9075Z6wqst
+	PbYmV4Aow==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l0PjG-0003Ik-3h; Fri, 15 Jan 2021 14:05:30 +0000
+	id 1l0Pj8-0003D0-H8; Fri, 15 Jan 2021 14:05:22 +0000
 Received: from esa2.hgst.iphmx.com ([68.232.143.124])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l0Pir-0002zr-0H
- for linux-riscv@lists.infradead.org; Fri, 15 Jan 2021 14:05:08 +0000
+ id 1l0Pip-0002zC-Df
+ for linux-riscv@lists.infradead.org; Fri, 15 Jan 2021 14:05:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1610720681; x=1642256681;
+ t=1610720679; x=1642256679;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=iCl8jfGIkA6lBxfq8FKLd/PLwWhFvUQ5CsE4NNgRF58=;
- b=EZN0808knf3gvjB+DuWHdMHvF7gOWXTudfnyvWf1pbdjAhU8HrH+Ygr5
- O5OY0itKFQ+UOJKxlrbepiG+tSRKAiLygsHjjA2lW51EbJTQ4+p2JNUUz
- mvRXQgXQSdZDwLV1yJG/Jn9Vq1/XA717ytJsrgFaMac6JS0q/t+LORJSc
- RqhvMTBzrIMliUKud0byuF8GqfG3GBRhYMU9b79ErquGfjWaC4DBqc0u8
- aXJSfR9HijU7DMSpr+SDjEBwYvFEgC6tezEjQZXVOmVhP3emYz/gFBChe
- PJoDgLjYPCr/Wiltpp+voo/4x6QXFc68BIauMJqJMYxBjbeabSLtoFAop Q==;
-IronPort-SDR: wr9RBfrA0o93GWxfXk8103R/pdLFaepLCBDRCBtUeZYTq6sFtE3kmkrNINecer6u/fos5CHRRo
- MiujTRJe5L7l1kzAH2/Ps+iJzd16qkXmjn8+QnV/BfE+AbyUGVvuJXa//xf6XJlqwLL4TmSp0l
- WNJn1BBAGY8erG2iXQBAnFk4xJ/kJNJDfXKD6poTq5usRlcTxXZNOE6tXgywOOw0MfpAuxmet+
- SBhNLSJh5N/zZJTDhCKJ2iCK7Khmwt/ZSl+tI1l32PAl6I+5NYoyY9nDS74Sr9Z7XzD4ydGWf+
- 6x8=
-X-IronPort-AV: E=Sophos;i="5.79,349,1602518400"; d="scan'208";a="261448310"
+ bh=4XnbB3QOtetYNRnt0KEHzdhJjN/cGVbYVHe8bnOapuU=;
+ b=erB09HGv+NRl/2GDh8jXgLRQNm7IRBebEMGt8DqTV+TOxHAHgphKivbV
+ BvB0CUGLfq+gSvMR70ENBuSsgNKkt7BecYmIrGDLQTD+O4WnS2GJQu1gq
+ bET619nonKCCj1ZOh+tUCTvIIc10BmQE5fDMqGlJ9sqEMwpjN5Ly7unxH
+ y2BUipejKr1wtJVflSyp/hEPsfZXiHzwOwFFGqnWPOIy9CV71mJwt3E5Q
+ OFSVeVbbLY8yS5JLjLCX6GCNAS3hPaGw5Tg5/s6RjCpFi9k7dMfCvESDx
+ H0nvDKAAnDYywLh6pO55co3JrunN9Pm+cLEHTCxesjB2Vu8lH6GP8aqxN A==;
+IronPort-SDR: P4/BXaBeKvWSA8p2NmCT3Yhk4muqz1q8AVIkc0o6aIMpn7Or3r4yPahCDaOJI2RTs8pj3CoEep
+ IJ0Ly7+NPta6wGC7P+ayWLsQQZWLr1SMM5oGDEIgs/kKnsKQtE7qQ2uKsGy6PqKmbt9Q2//AzB
+ yn5GqTgc29feeHX6a3BUUTSToteoXJCuCsAamkdcNrQyNQvrl2sIUfIjWhkP/YYNzlUkOf/iQC
+ UG6ci49qgnUkD24KUugRAXrXFnCCrZb7jYWghW/2Z5nCs7qu9kALT4tKqtxZP9BcKCQNOqjn9q
+ UfA=
+X-IronPort-AV: E=Sophos;i="5.79,349,1602518400"; d="scan'208";a="261448307"
 Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
  ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 15 Jan 2021 22:24:40 +0800
-IronPort-SDR: u9rNfwdftmtMyD6n08V2QFVPfTW64prn3hs9VOopPkyVhk0Aho8A7C6pBMhdXkiza8lXoMBenb
- eprYGWqf9TuO8CmcxVY6TiUgk7hbO72XwWuCpGDo7LKgasRxA2A9JJ4l/qPIlPvOFy4P7cAyBa
- RPM9T342ccKGsrC71Cu71kPLlFiXKPxVSOtsXDaZ+iPjS7mPkfvEDsTswUApdXVKRwGdvNxyoe
- ulEwyRcTBc7eVLxwFiI0vD8IFr0yauPALf65e/l4Wg26/Dmo1Wn6s2eDthv8IADANNayssSC+v
- sfv33gIKCS/m38zEAnLf+IEn
+ by ob1.hgst.iphmx.com with ESMTP; 15 Jan 2021 22:24:39 +0800
+IronPort-SDR: lf+13P76KxsmlzATGMqNtZUs3ISj5DCidRrbmL801qW5oO9XmRFx1BXdqUhdxf9/zjIXyM9QYT
+ 61g4H0TVB3fxNmHLYc5iEnSTtvZWzcUQ3KvH2X40gqU8WcCeuTHoO0pUdNdxMYbOqHrnHLYreq
+ QChzJR6d3QbFwFHgaZ9Cnx+dIqY2jGhO+j0DO6e0dytQzvSfFDcaimFI+Tk4NqWP2l1asfhtHK
+ X2wx+WgAA5Q1lJgEfho8+Qlp5/fu9MKzIAIIvvF83O3kOW5eFHRkYSW25Uah6UuEMC/P8WZBcb
+ C/au+O3PrGcCEEZtX/EsDUqx
 Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 15 Jan 2021 05:49:46 -0800
-IronPort-SDR: s4hpNIVlfsN2+KedcFP2z0E46XaZo2vFFmVcbwmLMBDnU4PtkPV7xgPoAbJynDz5gJTwdoBD59
- Ab2nFYCamVH6xv1S76r4Z4zHc8hTwxW0vI5qmv8dZ9RLHW5wvvgbs1r1IdpUEvq+eqoYF3I4rQ
- ib/Om+ihr8yysPxEx4py6+/kglL1RM0LZLZCyxrEojkP5XC1r0FNkPbU/JKP05GR0v+cWMnrxC
- iUVmW1QnPHzW8SGbemtQBFAlcnKbLKoUsh1Te9jmsyiVXQzDRCblfHK6Zo+7/EzYoGsuGEq0/T
- AlI=
+ 15 Jan 2021 05:49:45 -0800
+IronPort-SDR: jv9vo/rQkkXXpk2yMgUTyHFipc6nNIuONmvMkj4B/V+SM7wL2YUkqxuDqnr3CwUo96ORrT0xEH
+ LGvSWZds6YvPA223WVh9JenxWx6GlvXDn6T/j4+evhaos99jgBd3IRFY7dg9ji0eTFI+VBxwk9
+ w8tlZBQu7VnxKjdguAvmgBjU7WcWcw2idtBilx8Kptu91Zes0HiiojzRXhkRjlbQsOf8JoED/p
+ CGbSNlmOwwdNgX70cprG1wqKihtuJCWHK1FKPOlSHL76vulNLf/sMQwwKQr12z9ODWMA+2UAa7
+ fgM=
 WDCIronportException: Internal
 Received: from wdapacbjl0003.my.asia.wdc.com (HELO twashi.fujisawa.hgst.com)
  ([10.84.70.177])
- by uls-op-cesaip02.wdc.com with ESMTP; 15 Jan 2021 06:05:04 -0800
+ by uls-op-cesaip02.wdc.com with ESMTP; 15 Jan 2021 06:05:03 -0800
 From: Damien Le Moal <damien.lemoal@wdc.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v12 17/17] riscv: Add Canaan Kendryte K210 SD card defconfig
-Date: Fri, 15 Jan 2021 23:03:52 +0900
-Message-Id: <20210115140352.146941-18-damien.lemoal@wdc.com>
+Subject: [PATCH v12 16/17] riscv: Update Canaan Kendryte K210 defconfig
+Date: Fri, 15 Jan 2021 23:03:51 +0900
+Message-Id: <20210115140352.146941-17-damien.lemoal@wdc.com>
 X-Mailer: git-send-email 2.29.2
 In-Reply-To: <20210115140352.146941-1-damien.lemoal@wdc.com>
 References: <20210115140352.146941-1-damien.lemoal@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210115_090505_250402_480242E0 
-X-CRM114-Status: GOOD (  18.46  )
+X-CRM114-CacheID: sfid-20210115_090504_433716_47741B3B 
+X-CRM114-Status: GOOD (  13.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -104,93 +104,84 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The nommu_k210_defconfig default configuration allows booting a Canaan
-Kendryte K210 SoC based boards using an embedded intramfs cpio file.
-Modifying this configuration to enable support for the board SD card is
-not trivial for all users. To help beginners getting started with these
-boards, add the nommu_k210_sdcard_defconfig default configuration file
-to set all configuration options necessary to use the board mmc-spi sd
-card for the root file system.
+Update the Kendryte k210 nommu default configuration file
+(nommu_k210_defconfig) to include device drivers for reset, reboot,
+I2C, SPI, gpio and LEDs support. Virtual Terminal support is also
+disabled as no terminal devices are supported and enabled. Disabling
+CONFIG_VT (removing the no longer needed override for
+CONFIG_VGA_CONSOLE) reduces the kernel image size by about 65 KB.
 
-This new configuration adds support for the block layer, the mmc-spi
-driver and modifies the boot options to specify the rootfs device as
-mmcblk0p1 (first partition of the sd card block device). The ext2 file
-system is selected by default to encourage its use as that results in
-only about 4KB added to the kernel image size. As ext2 does not have
-journaling, the boot options specify a read-only mount of the file
-system. Similarly to the smaller nommu_k210_defconfig, this new default
-configuration disables virtual terminal support to reduce the kernel
-image size.
-
-The default device tree selected is unchanged, specifying the simple
-"k210_generic" device tree file. The user must change this setting to
-specify the device tree suitable for the board being used
-(sipeed_maix_bit, sipeed_maix_dock, sipeed_maix_go, sipeed_maixduino or
-canaan_kd233).
+This default configuration remains suitable for a system using an
+initramfs cpio file linked into the kernel image.
 
 Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
 Reviewed-by: Anup Patel <anup@brainfault.org>
 ---
- .../riscv/configs/nommu_k210_sdcard_defconfig | 92 +++++++++++++++++++
- 1 file changed, 92 insertions(+)
- create mode 100644 arch/riscv/configs/nommu_k210_sdcard_defconfig
+ arch/riscv/configs/nommu_k210_defconfig | 44 ++++++++++++++++++++-----
+ 1 file changed, 36 insertions(+), 8 deletions(-)
 
-diff --git a/arch/riscv/configs/nommu_k210_sdcard_defconfig b/arch/riscv/configs/nommu_k210_sdcard_defconfig
-new file mode 100644
-index 000000000000..61f887f65419
---- /dev/null
-+++ b/arch/riscv/configs/nommu_k210_sdcard_defconfig
-@@ -0,0 +1,92 @@
-+# CONFIG_CPU_ISOLATION is not set
+diff --git a/arch/riscv/configs/nommu_k210_defconfig b/arch/riscv/configs/nommu_k210_defconfig
+index 368a28cf1467..b16a2a12c82a 100644
+--- a/arch/riscv/configs/nommu_k210_defconfig
++++ b/arch/riscv/configs/nommu_k210_defconfig
+@@ -1,17 +1,19 @@
+ # CONFIG_CPU_ISOLATION is not set
+-CONFIG_LOG_BUF_SHIFT=15
 +CONFIG_LOG_BUF_SHIFT=13
-+CONFIG_PRINTK_SAFE_LOG_BUF_SHIFT=12
-+CONFIG_CC_OPTIMIZE_FOR_SIZE=y
-+# CONFIG_SYSFS_SYSCALL is not set
-+# CONFIG_FHANDLE is not set
-+# CONFIG_BASE_FULL is not set
+ CONFIG_PRINTK_SAFE_LOG_BUF_SHIFT=12
+ CONFIG_BLK_DEV_INITRD=y
+-CONFIG_INITRAMFS_FORCE=y
++# CONFIG_RD_GZIP is not set
+ # CONFIG_RD_BZIP2 is not set
+ # CONFIG_RD_LZMA is not set
+ # CONFIG_RD_XZ is not set
+ # CONFIG_RD_LZO is not set
+ # CONFIG_RD_LZ4 is not set
++# CONFIG_RD_ZSTD is not set
+ CONFIG_CC_OPTIMIZE_FOR_SIZE=y
+ # CONFIG_SYSFS_SYSCALL is not set
+ # CONFIG_FHANDLE is not set
+ # CONFIG_BASE_FULL is not set
 +# CONFIG_FUTEX is not set
-+# CONFIG_EPOLL is not set
-+# CONFIG_SIGNALFD is not set
-+# CONFIG_TIMERFD is not set
-+# CONFIG_EVENTFD is not set
-+# CONFIG_AIO is not set
-+# CONFIG_IO_URING is not set
-+# CONFIG_ADVISE_SYSCALLS is not set
-+# CONFIG_MEMBARRIER is not set
-+# CONFIG_KALLSYMS is not set
-+CONFIG_EMBEDDED=y
-+# CONFIG_VM_EVENT_COUNTERS is not set
-+# CONFIG_COMPAT_BRK is not set
-+CONFIG_SLOB=y
-+# CONFIG_MMU is not set
-+CONFIG_SOC_CANAAN=y
+ # CONFIG_EPOLL is not set
+ # CONFIG_SIGNALFD is not set
+ # CONFIG_TIMERFD is not set
+@@ -25,15 +27,17 @@ CONFIG_EMBEDDED=y
+ # CONFIG_VM_EVENT_COUNTERS is not set
+ # CONFIG_COMPAT_BRK is not set
+ CONFIG_SLOB=y
+-# CONFIG_SLAB_MERGE_DEFAULT is not set
+ # CONFIG_MMU is not set
+ CONFIG_SOC_CANAAN=y
 +CONFIG_SOC_CANAAN_K210_DTB_SOURCE="k210_generic"
-+CONFIG_MAXPHYSMEM_2GB=y
-+CONFIG_SMP=y
-+CONFIG_NR_CPUS=2
-+CONFIG_CMDLINE="earlycon console=ttySIF0 rootdelay=2 root=/dev/mmcblk0p1 ro"
-+CONFIG_CMDLINE_FORCE=y
+ CONFIG_MAXPHYSMEM_2GB=y
+ CONFIG_SMP=y
+ CONFIG_NR_CPUS=2
+ CONFIG_CMDLINE="earlycon console=ttySIF0"
+ CONFIG_CMDLINE_FORCE=y
+-CONFIG_JUMP_LABEL=y
 +# CONFIG_SECCOMP is not set
 +# CONFIG_STACKPROTECTOR is not set
 +# CONFIG_GCC_PLUGINS is not set
-+# CONFIG_BLK_DEV_BSG is not set
-+# CONFIG_MQ_IOSCHED_DEADLINE is not set
-+# CONFIG_MQ_IOSCHED_KYBER is not set
-+CONFIG_BINFMT_FLAT=y
-+# CONFIG_COREDUMP is not set
-+CONFIG_DEVTMPFS=y
-+CONFIG_DEVTMPFS_MOUNT=y
-+# CONFIG_FW_LOADER is not set
-+# CONFIG_ALLOW_DEV_COREDUMP is not set
-+# CONFIG_BLK_DEV is not set
+ # CONFIG_BLOCK is not set
+ CONFIG_BINFMT_FLAT=y
+ # CONFIG_COREDUMP is not set
+@@ -41,23 +45,47 @@ CONFIG_DEVTMPFS=y
+ CONFIG_DEVTMPFS_MOUNT=y
+ # CONFIG_FW_LOADER is not set
+ # CONFIG_ALLOW_DEV_COREDUMP is not set
+-# CONFIG_INPUT_KEYBOARD is not set
+-# CONFIG_INPUT_MOUSE is not set
 +# CONFIG_INPUT is not set
-+# CONFIG_SERIO is not set
+ # CONFIG_SERIO is not set
 +# CONFIG_VT is not set
-+# CONFIG_LEGACY_PTYS is not set
-+# CONFIG_LDISC_AUTOLOAD is not set
-+# CONFIG_HW_RANDOM is not set
-+# CONFIG_DEVMEM is not set
++# CONFIG_UNIX98_PTYS is not set
+ # CONFIG_LEGACY_PTYS is not set
+ # CONFIG_LDISC_AUTOLOAD is not set
+ # CONFIG_HW_RANDOM is not set
+ # CONFIG_DEVMEM is not set
 +CONFIG_I2C=y
++# CONFIG_I2C_COMPAT is not set
 +CONFIG_I2C_CHARDEV=y
 +# CONFIG_I2C_HELPER_AUTO is not set
 +CONFIG_I2C_DESIGNWARE_PLATFORM=y
@@ -203,36 +194,30 @@ index 000000000000..61f887f65419
 +CONFIG_GPIO_SIFIVE=y
 +CONFIG_POWER_RESET=y
 +CONFIG_POWER_RESET_SYSCON=y
-+# CONFIG_HWMON is not set
-+# CONFIG_USB_SUPPORT is not set
-+CONFIG_MMC=y
-+# CONFIG_PWRSEQ_EMMC is not set
-+# CONFIG_PWRSEQ_SIMPLE is not set
-+CONFIG_MMC_SPI=y
+ # CONFIG_HWMON is not set
+-# CONFIG_VGA_CONSOLE is not set
+-# CONFIG_HID is not set
+ # CONFIG_USB_SUPPORT is not set
 +CONFIG_NEW_LEDS=y
 +CONFIG_LEDS_CLASS=y
 +CONFIG_LEDS_GPIO=y
 +CONFIG_LEDS_USER=y
-+# CONFIG_VIRTIO_MENU is not set
+ # CONFIG_VIRTIO_MENU is not set
 +# CONFIG_VHOST_MENU is not set
 +# CONFIG_SURFACE_PLATFORMS is not set
-+CONFIG_EXT2_FS=y
 +# CONFIG_FILE_LOCKING is not set
-+# CONFIG_DNOTIFY is not set
-+# CONFIG_INOTIFY_USER is not set
-+# CONFIG_MISC_FILESYSTEMS is not set
-+CONFIG_LSM="[]"
-+CONFIG_PRINTK_TIME=y
+ # CONFIG_DNOTIFY is not set
+ # CONFIG_INOTIFY_USER is not set
+ # CONFIG_MISC_FILESYSTEMS is not set
+ CONFIG_LSM="[]"
+ CONFIG_PRINTK_TIME=y
 +# CONFIG_SYMBOLIC_ERRNAME is not set
 +# CONFIG_DEBUG_BUGVERBOSE is not set
 +# CONFIG_SECTION_MISMATCH_WARN_ONLY is not set
 +# CONFIG_FRAME_POINTER is not set
-+# CONFIG_DEBUG_MISC is not set
-+CONFIG_PANIC_ON_OOPS=y
-+# CONFIG_SCHED_DEBUG is not set
-+# CONFIG_RCU_TRACE is not set
-+# CONFIG_FTRACE is not set
-+# CONFIG_RUNTIME_TESTING_MENU is not set
+ # CONFIG_DEBUG_MISC is not set
+ CONFIG_PANIC_ON_OOPS=y
+ # CONFIG_SCHED_DEBUG is not set
 -- 
 2.29.2
 
