@@ -2,64 +2,79 @@ Return-Path: <SRS0=UwrA=GS=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,
-	MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A770EC433E6
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jan 2021 23:00:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 274E1C433E0
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jan 2021 23:58:05 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6BFAE23339
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jan 2021 23:00:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6BFAE23339
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id C093C239E5
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jan 2021 23:58:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C093C239E5
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=konsulko.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:In-Reply-To:References:Date:Message-Id:From:
-	Subject:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=L+8tq8q2R+YSzJmLmhVENV+bdGEgQOze0XuoHqbQezk=; b=IyrD1XmKXe/QVpYgCiXEC1R8B
-	p+RCskC8P5N5M/b17PcEUm0QscGZykShIsD3miX7mjxxXpKZ8PHblDGodtACtp9oxqAp7uoN6eN9a
-	Y/a+XVOVuqf77rnVIctp4d+yBjOVlW69eEGtAVQUZaAiMXRpJx0Vc3H9J/z6Hv3K/iy8eWdLMXEbC
-	70t183OT+6gc6FBIIb9U7ZCacBig3r/rTbMYuTehaeAF8LsQia9ioY1aLbVAZm3PTlCkAdjGLUJ+s
-	oZY9R+HMQ1YcavWrABJnNVD6wqyNDXnA+YfHEIf/EGwNg6whs24q18cTSKRaGzXZL19bf27zwfuSh
-	XsLSKTM/g==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gNeQQ25s9oF28VTyPTbLr249P2lCIoaZ80wEUJyGjkQ=; b=JLcjh7GB64l1E0ajv0NFe6YM7L
+	5S9HwFEFUaunQRR0Y9H7LxEi47NGgtiFFWefcmovGkh+5oZtB/tfUqiJXlvWhcQngAqlU0ukBIZjL
+	8UOy0LqABnV7g38mk46k5mgx38HTPrGUAnf9xl6eYSbox49/F7riA/DmcM+79x+pBU4jjhpBSoCBE
+	NTHMm7oCQCHzUmyhvLHCCiZ5oWnGQInpmK0zlpuRrxrRSkAPGk6PflNQQYgbGyG6xGqKWLIzZduTf
+	Unx0j20dDRZ/XlwNgrDo3ZtZshH+N03VG/WMNTxuZF+4B9DqvwUGL2oZY21qUdCKrrTpCNX1OiNfq
+	VmW2trhA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l0Y4i-0003lD-Fl; Fri, 15 Jan 2021 23:00:12 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1l0YyU-0007uO-OK; Fri, 15 Jan 2021 23:57:50 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l0Y4g-0003kP-0n
- for linux-riscv@lists.infradead.org; Fri, 15 Jan 2021 23:00:10 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPS id 6591A2399A;
- Fri, 15 Jan 2021 23:00:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1610751608;
- bh=RuxI0+5o+iF8ELYoih7lRTU/CZKmOIoEc5ZL2ZswYjI=;
- h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
- b=C2i6wcPIUOSxDA240gv7CVN1x1bbDwvGhBsUZ8z3I6gbETbPmLhOTqbYaFlj1/ZMt
- r0obPA5rAYIF7I4sBucQP7fETZYPgNrRL0k4HuW0wyuIYMXMwTPcGY7HiRQtpbz3Dc
- 4ht+fJLHpjheFkdmCbdJo2akI81ID/eo+AioU5ExV/aX0PBF4uIhDo79Ozvh4nUzhM
- 0VQaNjrM7+dOqmT1S/ynQF0JyUNw+Yg2sNpTseRGq5QWfNnPrEJdCbuvNIGxV6dM4L
- BMmplvy3tXS3NJ4ifKiYkXjAqjbL2SWBERPk1IPnCw4X09ZvN2OTk/xbbGMKWEkaHi
- InAQI9MvrLKmA==
+ id 1l0YyR-0007td-Gz
+ for linux-riscv@lists.infradead.org; Fri, 15 Jan 2021 23:57:48 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id v15so7238034wrx.4
+ for <linux-riscv@lists.infradead.org>; Fri, 15 Jan 2021 15:57:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=konsulko.com; s=google;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=MoPtjiXICTHSPG1bOGTrCCNZTOSTe5/uvK3NlSNpsME=;
+ b=P6c5VHbPJHhV3m5glbcNs1X4ni0LaxJ0aJvGxTIZiHbF62g7Yk9LYnegO8LLFLeSW4
+ zY4c7kGUxjrMvYUe1Wtt0J6ecKqZiMnr3Q9vNGOgfggz9M18srY84FBSlstqxD3MST8O
+ 2NTfIyRlO2St4c857jF8StbkAbOeklFU2L0eI=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=MoPtjiXICTHSPG1bOGTrCCNZTOSTe5/uvK3NlSNpsME=;
+ b=CBbBrS/T6mqybfmTHtihjTqOTJKq6yOY97iCQ9HeOb9XH84dK/Sy65zM7l93I2XsVK
+ mysCTNWBsrd7WEQMkF0N1eGAXa/zUi0FLGhyF9VdS1o5ETsTUsrczNosAtJkcVRsIYJn
+ +mamMP6xI+HLZQ3R7HObI9DtWaMfJ7dvyOfh6rtcChwBMULpX/MReoByuOyYtsXXG4s4
+ 1+pfpdVQJ6XtPfO1MEq8KS4/5lqdgRvyU/bo1DOMGyLnHRYVz9JBWoXMLAgSUi+9WPYm
+ ieCI8etBGFnGIHCp+ssJwlpnx9fZta1M7A3OUHPiLHWSBJIlHzj58zZwUY726CIuQZU8
+ X+fw==
+X-Gm-Message-State: AOAM532HDhfKvOrmcJzUk4q6PASv6MZjji7ps1S9meUqh0moIGhpF7ex
+ o1bS4XApmCqhrfU1a8FDK+B9+e2bT3Qg835B
+X-Google-Smtp-Source: ABdhPJyzaAoIhOk/GMqgKLaMgQVcJWC5+f3xqU3qia1R871iR9aXyDcVTmXzmwp+jgMVzzeLhj+Pag==
+X-Received: by 2002:a5d:5147:: with SMTP id u7mr15852760wrt.114.1610755065729; 
+ Fri, 15 Jan 2021 15:57:45 -0800 (PST)
+Received: from lootbox.konsulko.bg (lan.nucleusys.com. [92.247.61.126])
+ by smtp.gmail.com with ESMTPSA id l7sm13736464wme.4.2021.01.15.15.57.44
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 15 Jan 2021 15:57:45 -0800 (PST)
+From: Vitaly Wool <vitaly.wool@konsulko.com>
+To: linux-riscv@lists.infradead.org
+Subject: [PATCH v3] riscv: add BUILTIN_DTB support for MMU-enabled targets
+Date: Sat, 16 Jan 2021 01:49:48 +0200
+Message-Id: <20210115234947.44014-1-vitaly.wool@konsulko.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-Subject: Re: [PATCH bpf] MAINTAINERS: update my email address
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <161075160837.22495.5230649397692870926.git-patchwork-notify@kernel.org>
-Date: Fri, 15 Jan 2021 23:00:08 +0000
-References: <20210115104337.7751-1-bjorn.topel@gmail.com>
-In-Reply-To: <20210115104337.7751-1-bjorn.topel@gmail.com>
-To: =?utf-8?b?QmrDtnJuIFTDtnBlbCA8Ympvcm4udG9wZWxAZ21haWwuY29tPg==?=@ci.codeaurora.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210115_180010_130262_61908870 
-X-CRM114-Status: UNSURE (   6.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210115_185747_714617_5C64B589 
+X-CRM114-Status: GOOD (  15.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -71,24 +86,135 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: daniel@iogearbox.net, netdev@vger.kernel.org, ast@kernel.org,
- bjorn@kernel.org, bpf@vger.kernel.org, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: devicetree@vger.kernel.org, damien.lemoal@wdc.com,
+ Anup Patel <anup@brainfault.org>, Palmer Dabbelt <palmerdabbelt@google.com>,
+ linux-kernel@vger.kernel.org, Vitaly Wool <vitaly.wool@konsulko.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGVsbG86CgpUaGlzIHBhdGNoIHdhcyBhcHBsaWVkIHRvIGJwZi9icGYuZ2l0IChyZWZzL2hlYWRz
-L21hc3Rlcik6CgpPbiBGcmksIDE1IEphbiAyMDIxIDExOjQzOjM3ICswMTAwIHlvdSB3cm90ZToK
-PiBGcm9tOiBCasO2cm4gVMO2cGVsIDxiam9ybkBrZXJuZWwub3JnPgo+IAo+IE15IEludGVsIGVt
-YWlsIHdpbGwgc3RvcCB3b3JraW5nIGluIGEgbm90IHRvbyBkaXN0YW50IGZ1dHVyZS4gTW92ZSBt
-eQo+IE1BSU5UQUlORVJTIGVudHJpZXMgdG8gbXkga2VybmVsLm9yZyBhZGRyZXNzLgo+IAo+IFNp
-Z25lZC1vZmYtYnk6IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQGtlcm5lbC5vcmc+Cj4gCj4gWy4uLl0K
-CkhlcmUgaXMgdGhlIHN1bW1hcnkgd2l0aCBsaW5rczoKICAtIFticGZdIE1BSU5UQUlORVJTOiB1
-cGRhdGUgbXkgZW1haWwgYWRkcmVzcwogICAgaHR0cHM6Ly9naXQua2VybmVsLm9yZy9icGYvYnBm
-L2MvMjM1ZWNkMzZjN2E5CgpZb3UgYXJlIGF3ZXNvbWUsIHRoYW5rIHlvdSEKLS0KRGVldC1kb290
-LWRvdCwgSSBhbSBhIGJvdC4KaHR0cHM6Ly9rb3JnLmRvY3Mua2VybmVsLm9yZy9wYXRjaHdvcmsv
-cHdib3QuaHRtbAoKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
-Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
-c2N2Cg==
+Sometimes, especially in a production system we may not want to
+use a "smart bootloader" like u-boot to load kernel, ramdisk and
+device tree from a filesystem on eMMC, but rather load the kernel
+from a NAND partition and just run it as soon as we can, and in
+this case it is convenient to have device tree compiled into the
+kernel binary. Since this case is not limited to MMU-less systems,
+let's support it for these which have MMU enabled too.
+
+While at it, provide __dtb_start as a parameter to setup_vm() in
+BUILTIN_DTB case, so we don't have to duplicate BUILTIN_DTB specific
+processing in MMU-enabled and MMU-disabled versions of setup_vm().
+
+Signed-off-by: Vitaly Wool <vitaly.wool@konsulko.com>
+---
+Changes from v2:
+* folded "RISC-V: simplify BUILTIN_DTB processing" patch
+[http://lists.infradead.org/pipermail/linux-riscv/2021-January/004153.html]
+Changes from v1:
+* no direct initial_boot_params assignment
+* skips the temporary mapping for DT if BUILTIN_DTB=y
+
+ arch/riscv/Kconfig       |  1 -
+ arch/riscv/kernel/head.S |  4 ++++
+ arch/riscv/mm/init.c     | 19 +++++++++++++------
+ 3 files changed, 17 insertions(+), 7 deletions(-)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 2ef05ef921b5..444a1ed1e847 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -445,7 +445,6 @@ endmenu
+ 
+ config BUILTIN_DTB
+ 	def_bool n
+-	depends on RISCV_M_MODE
+ 	depends on OF
+ 
+ menu "Power management options"
+diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+index 16e9941900c4..f5a9bad86e58 100644
+--- a/arch/riscv/kernel/head.S
++++ b/arch/riscv/kernel/head.S
+@@ -260,7 +260,11 @@ clear_bss_done:
+ 
+ 	/* Initialize page tables and relocate to virtual addresses */
+ 	la sp, init_thread_union + THREAD_SIZE
++#ifdef CONFIG_BUILTIN_DTB
++	la a0, __dtb_start
++#else
+ 	mv a0, s1
++#endif /* CONFIG_BUILTIN_DTB */
+ 	call setup_vm
+ #ifdef CONFIG_MMU
+ 	la a0, early_pg_dir
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 30b61f2c6b87..45faad7c4291 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -192,10 +192,13 @@ void __init setup_bootmem(void)
+ #endif /* CONFIG_BLK_DEV_INITRD */
+ 
+ 	/*
+-	 * Avoid using early_init_fdt_reserve_self() since __pa() does
++	 * If DTB is built in, no need to reserve its memblock.
++	 * Otherwise, do reserve it but avoid using
++	 * early_init_fdt_reserve_self() since __pa() does
+ 	 * not work for DTB pointers that are fixmap addresses
+ 	 */
+-	memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
++	if (!IS_ENABLED(CONFIG_BUILTIN_DTB))
++		memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
+ 
+ 	early_init_fdt_scan_reserved_mem();
+ 	dma_contiguous_reserve(dma32_phys_limit);
+@@ -499,6 +502,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ 	/* Setup early PMD for DTB */
+ 	create_pgd_mapping(early_pg_dir, DTB_EARLY_BASE_VA,
+ 			   (uintptr_t)early_dtb_pmd, PGDIR_SIZE, PAGE_TABLE);
++#ifndef CONFIG_BUILTIN_DTB
+ 	/* Create two consecutive PMD mappings for FDT early scan */
+ 	pa = dtb_pa & ~(PMD_SIZE - 1);
+ 	create_pmd_mapping(early_dtb_pmd, DTB_EARLY_BASE_VA,
+@@ -506,7 +510,11 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ 	create_pmd_mapping(early_dtb_pmd, DTB_EARLY_BASE_VA + PMD_SIZE,
+ 			   pa + PMD_SIZE, PMD_SIZE, PAGE_KERNEL);
+ 	dtb_early_va = (void *)DTB_EARLY_BASE_VA + (dtb_pa & (PMD_SIZE - 1));
++#else /* CONFIG_BUILTIN_DTB */
++	dtb_early_va = __va(dtb_pa);
++#endif /* CONFIG_BUILTIN_DTB */
+ #else
++#ifndef CONFIG_BUILTIN_DTB
+ 	/* Create two consecutive PGD mappings for FDT early scan */
+ 	pa = dtb_pa & ~(PGDIR_SIZE - 1);
+ 	create_pgd_mapping(early_pg_dir, DTB_EARLY_BASE_VA,
+@@ -514,6 +522,9 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ 	create_pgd_mapping(early_pg_dir, DTB_EARLY_BASE_VA + PGDIR_SIZE,
+ 			   pa + PGDIR_SIZE, PGDIR_SIZE, PAGE_KERNEL);
+ 	dtb_early_va = (void *)DTB_EARLY_BASE_VA + (dtb_pa & (PGDIR_SIZE - 1));
++#else /* CONFIG_BUILTIN_DTB */
++	dtb_early_va = __va(dtb_pa);
++#endif /* CONFIG_BUILTIN_DTB */
+ #endif
+ 	dtb_early_pa = dtb_pa;
+ 
+@@ -604,11 +615,7 @@ static void __init setup_vm_final(void)
+ #else
+ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ {
+-#ifdef CONFIG_BUILTIN_DTB
+-	dtb_early_va = (void *) __dtb_start;
+-#else
+ 	dtb_early_va = (void *)dtb_pa;
+-#endif
+ 	dtb_early_pa = dtb_pa;
+ }
+ 
+-- 
+2.20.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
