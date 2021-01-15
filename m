@@ -2,148 +2,91 @@ Return-Path: <SRS0=UwrA=GS=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-12.5 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DCAEAC433DB
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jan 2021 00:33:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9F483C433E0
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jan 2021 00:35:46 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8510E23A9D
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jan 2021 00:33:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8510E23A9D
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	by mail.kernel.org (Postfix) with ESMTPS id 5771F23AA7
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jan 2021 00:35:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5771F23AA7
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:Date:Subject:To:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	 bh=kwJD5NICUNr2gQiIRUZclR/CXCO7ayVXt/RIWf0WXvI=; b=X9yyY/1w+RCJBAXbn1+l32qDQ
-	KTbn7XSlR2nxsmCfI+zm6V3dE6vMn1/ed2urVIEQpoO6y3eqDJ8U+Iixdlyf6pQ4JoKYFBzoerpsj
-	WEA1PF8SmefYJy1G/uCgvQPsPP6wdrbHPogRl5nhU+pYS68TgBH0moo3nTMdaP+uqKBCan1ZpqQKa
-	gLZiJ8UaSJpls/wuuuCARDZdVbOZUVnfVTQrh/6k1YNwo3u/6Ka2dzaTTulWCZnv9zL8DSQfGH7Iq
-	h9VejhKjljR86pm5cbD08O1GzOXpla18IMN/a/VwU/Zx47PEuJFuOXbBhFr7nHQVjDL0VotjR/tRM
-	GRqDS74sQ==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:References:
+	To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=HOJWmujUlQRKN2wmws656b7cmtvMi5BCWa2kGCGv3l0=; b=Wn1TJTxMx2SJ5WwwPEy9KG3Y+
+	xjURe1Muin4XiLKsejmM5KxESfOVyGsqa97WCIgmrrsL4cz7AO2sPr6mCKekFrr+GBsWxL+mAvYvi
+	GYRc/yjlrT54YU69QwgHrLyTHsBRu8a8bt+PedGmOliGXa9NwPi3STUVa3z0gNUnK1bcaXe7/nuE0
+	+zudK8yCD9rSosy5qkG1XRCNQizvKIlaZsmPsVRKoLKBvo/bTrBTG99Mxxx27V1VWsVOjFJ0xN10E
+	x6WzIC+2VALlchgG6oCg7zTWX3KjnP5azQhZVXpgXr7ru6Tp1CXHLkkXFqrd8+WdzwrTj6SHgBQ0U
+	8VbbJOAkw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l0D3O-00019r-EG; Fri, 15 Jan 2021 00:33:26 +0000
-Received: from esa3.hgst.iphmx.com ([216.71.153.141])
+	id 1l0D5W-0001T0-0r; Fri, 15 Jan 2021 00:35:38 +0000
+Received: from mail-qk1-x72d.google.com ([2607:f8b0:4864:20::72d])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l0D3J-00018t-TJ
- for linux-riscv@lists.infradead.org; Fri, 15 Jan 2021 00:33:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1610670801; x=1642206801;
- h=from:to:cc:subject:date:message-id:references:
- content-transfer-encoding:mime-version;
- bh=YwfoWqkXXMEMJn5En745BfP970xGbKepPZj0k8C6+XI=;
- b=cCwnUfZ7izaN4zVPJqIECepyOKsRzZA8+pWYt4A1B4HZGRgCyq6P5plD
- 0FV+crsTjqnqGnLfrkZGEzxryY1TSOVRmKkzXUWwruFz7CLi5EBWBXxnb
- mWf9vqbWGvJXy8DW1v/ErqyLBsy7m3YloQLV4Dm9JInt7D3UYDNwp9ceX
- kPF8SKslKzTL7mqc0PaNmNG+zPA945fWlbTbIuq/kLOrsTXLza5GWTyem
- Q7OGX2fNw6owj0gTTiRsf7ooopLMyCTUYjPTAugcE1BvcMUREjjLalV2d
- 0qeh2RCcQXPXXEDTAtr2yLjdgVlUyDI61Y888CdCDtyGb1Sl3CIfuDN7Q A==;
-IronPort-SDR: o7F8+xGeJC5GMk7dFiPgc2zNRWp1+aW83Y5aZBJlE9Qcvj+piCd8Hq6JAyMv7Rqli4WwcH/Jrd
- EvKIMqUVfcMPUiPWgVhNSMeAbtTrsx8+WTJ8QqcEWV6I3J7hJs5wqVJgOZBcKlOo1nmjuXYrSY
- FbPR7Nh+1LX+A5r0JinRw9Gyj4vqcdBZWyojf8JyIK08Luky8itTkjlnmpPxvm41KC8+Tq+BOs
- qXFTowli/3GMZfTxe6wSYXUeB48YJWcQCgMiAXkYZ9t86JOc9stmFbmeC8ZlKh3m37kmwk+wvC
- 2UI=
-X-IronPort-AV: E=Sophos;i="5.79,347,1602518400"; d="scan'208";a="161900608"
-Received: from mail-co1nam11lp2174.outbound.protection.outlook.com (HELO
- NAM11-CO1-obe.outbound.protection.outlook.com) ([104.47.56.174])
- by ob1.hgst.iphmx.com with ESMTP; 15 Jan 2021 08:33:18 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=eV2OQp0CEvKhW+EChfUV16aDm+RcMzFk/pn/d0bFpbJ/11qA4TFf/NKnZOu39zkYIWpM6xHc179cKdOsWAiZmKuDwJMvKh1wXVLJ/WR+fvAwfF/JlKn+1vHWE2jVuu8d7YL0DhArtxDd1joN2WMT35xwI5cEiiU8/4M0t0LQsHojsuSE9HIWFeFj5TTB2lWd4/+fAK+R8Up9So4ZpbuMmr/HM344MtW3GoX9a5kJ8b+F6R7D0TqaZBUD8bjzO8E/s1RKIX+aifknRGJFPDOUZ63lzHpu736ZghmTs5a5pvKN+l0I0Q6w9c2LwrhG7LXCKZKKuJk1HLWdlA3PyzBQzA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pcSEAfZZeKpX7w9dV0Z+XBwymwW6IowJDnL5/g/KN90=;
- b=iYMVYdB0ZmbeqIEZqX56ag/JW6+TSCXaofm0fYpBQDdFArmG/rqarDT/bz8zS4y9eyOOrSciWPf0sXxEwEoP1/X3GvV5gBqc7q0Y5geRxYwl2JgVpVnRlvY1dTB/PdfYmN3u5NhziLsV3G7+2Ca9YS5kzZucGWm5AguGXn30YWQCG2XmiXJ+eMx6UE6M9Sx0dfTaWZpM8g7VZ3fud7uzG16/OJyqJthDEktLmPSayU4VYHrEEuWoDyeFcxSeehVpoLRltnSy6IOpE4XHaRF5kd18FxczFfguOWf+xlWdY+LgRoTrFqC0HtGJU4++D3YBEYtp7k7vpQAL9tcdjpANyA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
- header.d=wdc.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pcSEAfZZeKpX7w9dV0Z+XBwymwW6IowJDnL5/g/KN90=;
- b=aDKXMHv8cmufmWWEUj6e8HoRpltqlQ7/7hC49tXJTrTrFElcL/z9hOJ+N+QkwWj5heGdI9upgVuitNI2SAtLWBaZUKw56rDcQZSQUdgmycpCrEhFsP1kF3zS0rFi/LfkCWrU/sE8GQ/8H9AWAvCDDrbP+KHL0Fbz32ZpgOWUcEQ=
-Received: from BL0PR04MB6514.namprd04.prod.outlook.com (2603:10b6:208:1ca::23)
- by BL0PR04MB4738.namprd04.prod.outlook.com (2603:10b6:208:4c::31)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3742.6; Fri, 15 Jan
- 2021 00:33:15 +0000
-Received: from BL0PR04MB6514.namprd04.prod.outlook.com
- ([fe80::b880:19d5:c7fe:329d]) by BL0PR04MB6514.namprd04.prod.outlook.com
- ([fe80::b880:19d5:c7fe:329d%8]) with mapi id 15.20.3763.011; Fri, 15 Jan 2021
- 00:33:15 +0000
-From: Damien Le Moal <Damien.LeMoal@wdc.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>
+ id 1l0D5T-0001S5-Cs
+ for linux-riscv@lists.infradead.org; Fri, 15 Jan 2021 00:35:36 +0000
+Received: by mail-qk1-x72d.google.com with SMTP id 186so10229123qkj.3
+ for <linux-riscv@lists.infradead.org>; Thu, 14 Jan 2021 16:35:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=subject:from:to:cc:references:message-id:date:user-agent
+ :mime-version:in-reply-to:content-language:content-transfer-encoding;
+ bh=3PxwXOyKQ3VQyBGmQW1n6Fgpy5pTtQU8FEDLLOeJ71w=;
+ b=uQtSbCjx4yUt58E72UspMXTQdmTBjEl+DXZqYUmEwZptUEEtfRwhyc+UCMNBUlN7rl
+ ay2LweF2JlXxC3vk5vki9L28ZIWX5Sh3n1JbdrcTugQGs6QuZaRlQR4n9SmY28xjpicV
+ bvM6Gb9hr2NwAoZdpecxgyDRpdDsG5f6QaBA3GeKplMPbbOGKh898L6IWuRTKtfGVwpG
+ bGy3u9NsCk0zjiNQhzclxtE1hDbjp8ekAmX+0EBXKJmOPqKVd9ATeexvRnahbBk6AClq
+ HVs6s5pOkCX3hV3/ygZFU1oScZjfBn3jTemKpRH4rxX41+NlFzjaGBJnZy8rQhorWfAa
+ 8T2Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:subject:from:to:cc:references:message-id:date
+ :user-agent:mime-version:in-reply-to:content-language
+ :content-transfer-encoding;
+ bh=3PxwXOyKQ3VQyBGmQW1n6Fgpy5pTtQU8FEDLLOeJ71w=;
+ b=M9+Qm3SVAfAZpRaR5ouWjf/qvlAnP4wxZZTpjzNRAjoRTVMbPtTvNCdZ6ANNHaBRpn
+ +ILdf26kNC+g7CxmA8Sdyz9XU9fTMf8YComXQVm5npxx2O++6lVLjp+o9I141fPyEQvO
+ 2nrny1nvzF1JV/7pKtBnJLDX9BDFVvooxUAWoEh6Fp1hflRoPTyFA0Jn3zaa11l1uH+w
+ XYIal7o0iRd/KdDpehAlF0YoQ8q2cEsGcpMjdePL4gUks0OEzdgn0AY9HpThyN0WeKJx
+ MvHkQK05K0/0EFZIbg7/5AkPYo/QklFz0VEWmexr/kkhFLq4JNTKn2Kj0MHkc+w1kLHy
+ //1w==
+X-Gm-Message-State: AOAM5300+8S0Mz52BWkzOI6OjZ6Fn3ynJw8rew2L2v5IT9AOs1RFzdMN
+ wwoDPezq/4r5Pbz7crZiCj5zu1G+8ds=
+X-Google-Smtp-Source: ABdhPJxujLCxOhwwF4u2B0gUY4H8bREGZMGlgSpfBRkj7U5jX43GtC3BptribpA2KBCCOE6FPxEuwQ==
+X-Received: by 2002:a37:86c2:: with SMTP id i185mr9834483qkd.477.1610670933230; 
+ Thu, 14 Jan 2021 16:35:33 -0800 (PST)
+Received: from [192.168.1.201] (pool-108-51-35-162.washdc.fios.verizon.net.
+ [108.51.35.162])
+ by smtp.googlemail.com with ESMTPSA id a5sm3907527qtn.57.2021.01.14.16.35.32
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Thu, 14 Jan 2021 16:35:32 -0800 (PST)
 Subject: Re: [PATCH v11 03/10] riscv: Update Canaan Kendryte K210 device tree
-Thread-Topic: [PATCH v11 03/10] riscv: Update Canaan Kendryte K210 device tree
-Thread-Index: AQHW6H4ffzJIz+L53U2eOGwbaV2KdQ==
-Date: Fri, 15 Jan 2021 00:33:15 +0000
-Message-ID: <BL0PR04MB651404813AAFE779EB2972A6E7A70@BL0PR04MB6514.namprd04.prod.outlook.com>
+From: Sean Anderson <seanga2@gmail.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>, Damien Le Moal <Damien.LeMoal@wdc.com>
 References: <mhng-b30be63a-5293-4d18-85cb-fb2c62b3188e@palmerdabbelt-glaptop>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dabbelt.com; dkim=none (message not signed)
- header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
-x-originating-ip: [2400:2411:43c0:6000:8c78:be0:63f5:4b05]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-ht: Tenant
-x-ms-office365-filtering-correlation-id: 0d76f938-c8ee-4dd5-f850-08d8b8ed25b0
-x-ms-traffictypediagnostic: BL0PR04MB4738:
-x-microsoft-antispam-prvs: <BL0PR04MB47384276CF4C668AEBA21AF6E7A70@BL0PR04MB4738.namprd04.prod.outlook.com>
-wdcipoutbound: EOP-TRUE
-x-ms-oob-tlc-oobclassifiers: OLM:10000;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: Y3K0oRbnhzp9GUw5KyVRXMg1lsM1poZCceTDj3RBQxWAGFdLmCS3hREmWCMZHblrR39ToiRdIYcLFf2GMc0uW9DkiKRPOsGeKJWJzT+NBdfMbBZ/zT9+UHVq4EQ8e3xt+NOW4ZRxMarTtIpbO2oXdZ0pixRp+KVqK63vAwjyb7Lg59UaTwA3J8ccBbonxkJMyeswWrrv/MQqPh1OhhdGePmuejJwzPZ9FsTJZpskp+8Y82IhQyJOWZNR6wrE+usKRwAWQcH4GAtw74nVCqN6n64jZ04JK2nloSvpD8HNjluoKwYX1gepHBRUAQtEMC3P6EmdXmTnN+A1I4f06faCv1mXyXId3YyPC2KPC+7fad7Oos5sDRVTrDyObLpXAlIkyrxnSXzhEUnyk+7gaJqJtrNldYhwv9aEeoNGOsrVsd9owAzyj/wSV+p+JEr23vG4V3upd+MvSoRmpKXQx2SXPA==
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:BL0PR04MB6514.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(366004)(39860400002)(136003)(396003)(346002)(376002)(478600001)(7696005)(6916009)(966005)(66556008)(66476007)(64756008)(91956017)(4326008)(66946007)(83380400001)(76116006)(316002)(54906003)(9686003)(66446008)(52536014)(55016002)(8936002)(8676002)(53546011)(6506007)(86362001)(71200400001)(15650500001)(186003)(2906002)(33656002)(5660300002);
- DIR:OUT; SFP:1102; 
-x-ms-exchange-antispam-messagedata: =?us-ascii?Q?sLWuohRpuzOLv4W4qmxoeOzReBKloSQSV5FtYlO5VkgBWVXJWIkRbQFm1/48?=
- =?us-ascii?Q?oWg1PXvfuG08lEPyeWKFNI/VuFkmgMKrShGiiAHTKudCLSuoJ14ajb5pd+6x?=
- =?us-ascii?Q?Kikf0/OXhtv9Dsttnot1e9rZoPmd9yEBanH9KEvlro3+UWadqVC5rHHOlRWx?=
- =?us-ascii?Q?Ayg6QBV8CBeVLdp45qceY7FfwddSTlMF3aF6N7h2D2HMM68y/0voeWmWlihH?=
- =?us-ascii?Q?BFyc3/9UXloqydrVqDGOShe0GYDuIP2WKoRL4TtwHnEMFUZhIAHMmKTZT0OL?=
- =?us-ascii?Q?IN58GjleDuZM2lbB4trPu79MZLDQV+vry56mwB9+4iJsNnQYIjDMWeDadkZ/?=
- =?us-ascii?Q?WCaacwR+wxM+kgI5GJ4dKtjChYzGMl0z9E5uNNfmt8LAW/GjZiwlAFy0bMwX?=
- =?us-ascii?Q?qtDGPsBcQuxXmSJ27UoPPdf6ILedumb6hcnqvNTZ/DPeZrkeJbrR62VHejXi?=
- =?us-ascii?Q?PxN8T9px/glTvuL6WVueNPYH9gjOGRmmQPo9iFmDI5tqItBohhQqRt2pNrgL?=
- =?us-ascii?Q?la1816Ry6MI5nWp8i1ZGDH9iO1rw2S4iFaz5PNgrzW/MnGoiDcsyx27smHQV?=
- =?us-ascii?Q?4NOFEc85fQ5NUWPkHV1ky50Zb6k+ZNI0L8d1W4HPdQelGifOQK6/f/4kVAU3?=
- =?us-ascii?Q?pyxrnaOQxIz7+f4++wUgk1zihFaMVC/a1g+kphKQ/OZzXm2Zos30Ll82w0Ic?=
- =?us-ascii?Q?nERpJVqin/W69cI4vLk8RRPgGX5RHq2vJGDMbytIXgDSfxYnWAahxCv5jpzC?=
- =?us-ascii?Q?1pbYn3yZMogAMIckezFtypxcDmuWvoYU+I3+6ul9J0cbQswPpC3MF9s+bXXw?=
- =?us-ascii?Q?VzeVEsygvE1WvUAv1R4R+lEUlgTqd6mUrqH75gy1dzfD9l6LCY+dyzMz2zlR?=
- =?us-ascii?Q?xp2/QoadG+bFrkklYbchyD4N/tkteD7QK2Dsq60xKRm9qNNSG3dyQB14kygm?=
- =?us-ascii?Q?AdVtNCjLdjZ8o3q+n/D1lXMb9Alf1U5kXQAJnRdZC2Ih4uQFOjv3t3jTR2Oq?=
- =?us-ascii?Q?cf4H0T6nRwM5CQtLWg9RPTOSSMRXBgTxKtzHoAq7M3lm6j1qQ39MxlgujRCW?=
- =?us-ascii?Q?EA9WKB+g?=
-x-ms-exchange-transport-forked: True
+ <9d32abd1-ffb4-a887-a40d-fc173a371d23@gmail.com>
+ <484787f2-558c-1eb4-7ab0-23f0ac5e6cd5@gmail.com>
+Message-ID: <fbff79af-deb7-e400-4e1b-cc1ef814451d@gmail.com>
+Date: Thu, 14 Jan 2021 19:35:32 -0500
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.12.0
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BL0PR04MB6514.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0d76f938-c8ee-4dd5-f850-08d8b8ed25b0
-X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Jan 2021 00:33:15.0626 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: F8Xg2DOYqLMaMUCHb9pfYGKC07h7n/u/HvYMPkdmeM/TyBbp+GJ3nDCbZbf4YsxUhLFTUUUi8LHj8TESBMSO6Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL0PR04MB4738
+In-Reply-To: <484787f2-558c-1eb4-7ab0-23f0ac5e6cd5@gmail.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210114_193322_241364_30362C6D 
-X-CRM114-Status: GOOD (  21.08  )
+X-CRM114-CacheID: sfid-20210114_193535_462677_6F350AA8 
+X-CRM114-Status: GOOD (  22.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -155,94 +98,217 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "seanga2@gmail.com" <seanga2@gmail.com>
-Content-Type: text/plain; charset="us-ascii"
+Cc: linux-riscv@lists.infradead.org
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2021/01/15 8:32, Palmer Dabbelt wrote:
-> On Mon, 11 Jan 2021 16:58:41 PST (-0800), Damien Le Moal wrote:
->> Update the Canaan Kendryte K210 base device tree k210.dtsi to define
->> all peripherals of the SoC, their clocks and reset lines. The device
->> tree file k210.dts is renamed to k210_generic.dts and becomes the
->> default value selection of the SOC_CANAAN_K210_DTB_BUILTIN_SOURCE
->> configuration option. No device beside the serial console is defined by
->> this device tree. This makes this generic device tree suitable for use
->> with a builtin initramfs with all known K210 based boards.
->>
->> These changes result in the K210_CLK_ACLK clock ID to be unused and
->> removed from the dt-bindings k210-clk.h header file.
->>
->> Most updates to the k210.dtsi file come from Sean Anderson's work on
->> U-Boot support for the K210.
->>
->> Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
->> Reviewed-by: Anup Patel <anup@brainfault.org>
->> ---
->>  arch/riscv/Kconfig.socs                     |   2 +-
->>  arch/riscv/boot/dts/canaan/k210.dts         |  23 -
->>  arch/riscv/boot/dts/canaan/k210.dtsi        | 551 +++++++++++++++++++-
->>  arch/riscv/boot/dts/canaan/k210_generic.dts |  46 ++
->>  include/dt-bindings/clock/k210-clk.h        |   1 -
->>  5 files changed, 573 insertions(+), 50 deletions(-)
->>  delete mode 100644 arch/riscv/boot/dts/canaan/k210.dts
->>  create mode 100644 arch/riscv/boot/dts/canaan/k210_generic.dts
+On 1/14/21 7:06 PM, Sean Anderson wrote:
 > 
-> [Snipping this to the relevant bits, in case you missed it before.]
-> 
->> @@ -81,40 +107,515 @@ in0: oscillator {
->>  	soc {
->>  		#address-cells = <1>;
->>  		#size-cells = <1>;
->> -		compatible = "kendryte,k210-soc", "simple-bus";
->> +		compatible = "canaan,k210-soc", "simple-bus";
->>  		ranges;
->>  		interrupt-parent = <&plic0>;
+> On 1/14/21 7:01 PM, Sean Anderson wrote:
 >>
->> -		sysctl: sysctl@50440000 {
->> -			compatible = "kendryte,k210-sysctl", "simple-mfd";
->> -			reg = <0x50440000 0x1000>;
->> -			#clock-cells = <1>;
->> +		debug0: debug@0 {
->> +			compatible = "canaan,k210-debug", "riscv,debug";
+>> On 1/14/21 6:32 PM, Palmer Dabbelt wrote:
+>>> On Mon, 11 Jan 2021 16:58:41 PST (-0800), Damien Le Moal wrote:
+>>>> Update the Canaan Kendryte K210 base device tree k210.dtsi to define
+>>>> all peripherals of the SoC, their clocks and reset lines. The device
+>>>> tree file k210.dts is renamed to k210_generic.dts and becomes the
+>>>> default value selection of the SOC_CANAAN_K210_DTB_BUILTIN_SOURCE
+>>>> configuration option. No device beside the serial console is defined by
+>>>> this device tree. This makes this generic device tree suitable for use
+>>>> with a builtin initramfs with all known K210 based boards.
+>>>>
+>>>> These changes result in the K210_CLK_ACLK clock ID to be unused and
+>>>> removed from the dt-bindings k210-clk.h header file.
+>>>>
+>>>> Most updates to the k210.dtsi file come from Sean Anderson's work on
+>>>> U-Boot support for the K210.
+>>>>
+>>>> Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
+>>>> Reviewed-by: Anup Patel <anup@brainfault.org>
+>>>> ---
+>>>>  arch/riscv/Kconfig.socs                     |   2 +-
+>>>>  arch/riscv/boot/dts/canaan/k210.dts         |  23 -
+>>>>  arch/riscv/boot/dts/canaan/k210.dtsi        | 551 +++++++++++++++++++-
+>>>>  arch/riscv/boot/dts/canaan/k210_generic.dts |  46 ++
+>>>>  include/dt-bindings/clock/k210-clk.h        |   1 -
+>>>>  5 files changed, 573 insertions(+), 50 deletions(-)
+>>>>  delete mode 100644 arch/riscv/boot/dts/canaan/k210.dts
+>>>>  create mode 100644 arch/riscv/boot/dts/canaan/k210_generic.dts
+>>>
+>>> [Snipping this to the relevant bits, in case you missed it before.]
+>>>
+>>>> @@ -81,40 +107,515 @@ in0: oscillator {
+>>>>      soc {
+>>>>          #address-cells = <1>;
+>>>>          #size-cells = <1>;
+>>>> -        compatible = "kendryte,k210-soc", "simple-bus";
+>>>> +        compatible = "canaan,k210-soc", "simple-bus";
+>>>>          ranges;
+>>>>          interrupt-parent = <&plic0>;
+>>>>
+>>>> -        sysctl: sysctl@50440000 {
+>>>> -            compatible = "kendryte,k210-sysctl", "simple-mfd";
+>>>> -            reg = <0x50440000 0x1000>;
+>>>> -            #clock-cells = <1>;
+>>>> +        debug0: debug@0 {
+>>>> +            compatible = "canaan,k210-debug", "riscv,debug";
+>>>
+>>> I'm still getting lots of warnings about undocumented DT compatible strings
+>>> from checpatch.  Some of them might be in flight, but I don't see many of them
+>>> (including both of these debug ones) having been defined anywhere.  We went
+>>> through a whole process to sort out the SiFive DT naming conventions, I don't
+>>> want to just circumvent that for the Canaan stuff by merging it as-is.
+>>
+>> As far as I'm aware, it's recommended practice to add device-specific compatible
+>>
 > 
-> I'm still getting lots of warnings about undocumented DT compatible strings
-> from checpatch.  Some of them might be in flight, but I don't see many of them
-> (including both of these debug ones) having been defined anywhere.  We went
-> through a whole process to sort out the SiFive DT naming conventions, I don't
-> want to just circumvent that for the Canaan stuff by merging it as-is.
+> Here it's because "riscv,debug" doesn't exist. This is the "debug"
+> device as described in the debug spec. AFAIK Linux never needs to
+> configure this device. It could probably be removed.
 > 
+> I am going to try and go through the list of nonexistant compatibles and
+> see if there are any other devices like this (nothing else like it in
+> Linux).
+> 
+> --Sean
 
-As mentioned in my previous reply about this, I am aware of the warnings and I
-am ignoring them. The reason is that I really would like to keep the DTs as-is,
-describing all pieces of the SoC, even the nodes that do not have Linux support
-yet. Doing so, we end up with what amounts to the best public documentation ever
- for this SoC and the boards as what is available publicly from the SoC and
-boards vendors is not great (that is an understatement). All this information
-was extracted from the Kendryte SDK and from board design CAD prints (available
-from https://dl.sipeed.com/MAIX). Sean did most of that for the MAIX Bit board
-and I added other boards and some corrections. I really do not wish anybody to
-have to do this again to figure out the memory mapping, clocks, reset lines, and
-pinctrl mapping. That was hard and painful.
+Ok, here is the (abbreviated) output:
 
-Having these unsupported DT nodes around will also allow us to point to them for
-people who want to start getting involved with risc-v & Linux and want a project
-to start with. I see these boards as cheap hardware for hobbyist and educational
-tools rather than production hardware. I am having a blast building a biped
-walking robot with a MAIX Bit as the controller right now...
 
-So unless you keep insisting, I would like to keep the DTs as they are. The
-naming convention of all nodes in the DT is fine and follows the
-"vendor,soc-function" pattern. All unsupported nodes are also marked with
-"status = disabled;" so they do not cause any problem.
+> cpu@0: compatible: ['canaan,k210', 'sifive,rocket0', 'riscv'] is not valid under any of the given schemas (Possible causes of the failure):
+> cpu@0: compatible: ['canaan,k210', 'sifive,rocket0', 'riscv'] is too long
+> cpu@0: compatible:0: 'canaan,k210' is not one of ['sifive,rocket0', 'sifive,bullet0', 'sifive,e5', 'sifive,e7', 'sifive,e51', 'sifive,e71', 'sifive,u54-mc', 'sifive,u74-mc', 'sifive,u54', 'sifive,u74', 'sifive,u5', 'sifive,u7']
 
-Thoughts ?
+This is a device-specific compatible string as recommended by the
+current DT docs.
 
--- 
-Damien Le Moal
-Western Digital Research
+> cpu@0: mmu-type:0: 'none' is not one of ['riscv,sv32', 'riscv,sv39', 'riscv,sv48']
+
+This should be added (though it is technically incorrect).
+
+(perhaps a version number should be added like 'riscv,sv39-1.10')
+
+> cpu@0: riscv,isa:0: 'rv64imafdgc' is not one of ['rv64imac', 'rv64imafdc']
+
+Should probably be fixed, as the g is redundant. However, this is
+probably not a good warning going forward, as more exotic combinations
+of extensions are implemented.
+
+> cpu@1: compatible: ['canaan,k210', 'sifive,rocket0', 'riscv'] is not valid under any of the given schemas (Possible causes of the failure):
+> cpu@1: compatible: ['canaan,k210', 'sifive,rocket0', 'riscv'] is too long
+> cpu@1: compatible:0: 'canaan,k210' is not one of ['sifive,rocket0', 'sifive,bullet0', 'sifive,e5', 'sifive,e7', 'sifive,e51', 'sifive,e71', 'sifive,u54-mc', 'sifive,u74-mc', 'sifive,u54', 'sifive,u74', 'sifive,u5', 'sifive,u7']
+> 
+> cpu@1: mmu-type:0: 'none' is not one of ['riscv,sv32', 'riscv,sv39', 'riscv,sv48']
+> cpu@1: riscv,isa:0: 'rv64imafdgc' is not one of ['rv64imac', 'rv64imafdc']
+
+see above
+
+> serial@38000000: compatible:0: 'canaan,k210-uarths' is not one of ['sifive,fu540-c000-uart', 'sifive,fu740-c000-uart']
+
+device-specific, and intentional
+
+> gpio-controller@38001000: compatible:0: 'canaan,k210-gpiohs' is not one of ['sifive,fu540-c000-gpio', 'sifive,fu740-c000-gpio']
+
+ditto
+
+> gpio-controller@38001000: 'ngpios' does not match any of the regexes: 'pinctrl-[0-9]+'
+
+known shortcoming with this dt property, but alas
+
+> gpio-controller@50200000: $nodename:0: 'gpio-controller@50200000' does not match '^gpio@[0-9a-f]+$'
+
+This matches devicetree/bindings/gpio/snps,dw-apb-gpio.yaml
+
+> gpio-controller@50200000: compatible: ['canaan,k210-gpio', 'snps,dw-apb-gpio'] is too long
+> gpio-controller@50200000: compatible: Additional items are not allowed ('snps,dw-apb-gpio' was unexpected)
+> gpio-controller@50200000: 'gpio1@0' does not match any of the regexes: '^gpio-(port|controller)@[0-9a-f]+$', 'pinctrl-[0-9]+'
+> serial@50210000: compatible: ['canaan,k210-uart', 'snps,dw-apb-uart'] is not valid under any of the given schemas (Possible causes of the failure):
+> serial@50210000: compatible: ['canaan,k210-uart', 'snps,dw-apb-uart'] is too long
+> serial@50210000: compatible:0: 'canaan,k210-uart' is not one of ['renesas,r9a06g032-uart', 'renesas,r9a06g033-uart']
+> serial@50210000: compatible:0: 'canaan,k210-uart' is not one of ['rockchip,px30-uart', 'rockchip,rk3036-uart', 'rockchip,rk3066-uart', 'rockchip,rk3188-uart', 'rockchip,rk3288-uart', 'rockchip,rk3308-uart', 'rockchip,rk3328-uart', 'rockchip,rk3368-uart', 'rockchip,rk3399-uart', 'rockchip,rv1108-uart']
+> serial@50210000: compatible:0: 'canaan,k210-uart' is not one of ['brcm,bcm11351-dw-apb-uart', 'brcm,bcm21664-dw-apb-uart']
+> 
+> serial@50220000: compatible: ['canaan,k210-uart', 'snps,dw-apb-uart'] is not valid under any of the given schemas (Possible causes of the failure):
+> serial@50220000: compatible: ['canaan,k210-uart', 'snps,dw-apb-uart'] is too long
+> serial@50220000: compatible:0: 'canaan,k210-uart' is not one of ['renesas,r9a06g032-uart', 'renesas,r9a06g033-uart']
+> serial@50220000: compatible:0: 'canaan,k210-uart' is not one of ['rockchip,px30-uart', 'rockchip,rk3036-uart', 'rockchip,rk3066-uart', 'rockchip,rk3188-uart', 'rockchip,rk3288-uart', 'rockchip,rk3308-uart', 'rockchip,rk3328-uart', 'rockchip,rk3368-uart', 'rockchip,rk3399-uart', 'rockchip,rv1108-uart']
+> serial@50220000: compatible:0: 'canaan,k210-uart' is not one of ['brcm,bcm11351-dw-apb-uart', 'brcm,bcm21664-dw-apb-uart']
+> 
+> serial@50230000: compatible: ['canaan,k210-uart', 'snps,dw-apb-uart'] is not valid under any of the given schemas (Possible causes of the failure):
+> serial@50230000: compatible: ['canaan,k210-uart', 'snps,dw-apb-uart'] is too long
+> serial@50230000: compatible:0: 'canaan,k210-uart' is not one of ['renesas,r9a06g032-uart', 'renesas,r9a06g033-uart']
+> serial@50230000: compatible:0: 'canaan,k210-uart' is not one of ['rockchip,px30-uart', 'rockchip,rk3036-uart', 'rockchip,rk3066-uart', 'rockchip,rk3188-uart', 'rockchip,rk3288-uart', 'rockchip,rk3308-uart', 'rockchip,rk3328-uart', 'rockchip,rk3368-uart', 'rockchip,rk3399-uart', 'rockchip,rv1108-uart']
+> serial@50230000: compatible:0: 'canaan,k210-uart' is not one of ['brcm,bcm11351-dw-apb-uart', 'brcm,bcm21664-dw-apb-uart']
+
+More device-specific strings.
+
+> spi@50240000: compatible: ['canaan,k210-spi', 'snps,dw-apb-ssi-4.01', 'snps,dw-apb-ssi'] is not valid under any of the given schemas (Possible causes of the failure):
+> spi@50240000: compatible: ['canaan,k210-spi', 'snps,dw-apb-ssi-4.01', 'snps,dw-apb-ssi'] is too long
+> spi@50240000: compatible:0: 'canaan,k210-spi' is not one of ['snps,dw-apb-ssi', 'snps,dwc-ssi-1.01a']
+> spi@50240000: compatible:0: 'canaan,k210-spi' is not one of ['mscc,ocelot-spi', 'mscc,jaguar2-spi']
+
+ditto
+
+> i2c@50280000: compatible: ['canaan,k210-i2c', 'snps,designware-i2c'] is not valid under any of the given schemas (Possible causes of the failure):
+> i2c@50280000: compatible: ['canaan,k210-i2c', 'snps,designware-i2c'] is too long
+> 
+> i2c@50290000: compatible: ['canaan,k210-i2c', 'snps,designware-i2c'] is not valid under any of the given schemas (Possible causes of the failure):
+> i2c@50290000: compatible: ['canaan,k210-i2c', 'snps,designware-i2c'] is too long
+> 
+> i2c@502A0000: compatible: ['canaan,k210-i2c', 'snps,designware-i2c'] is not valid under any of the given schemas (Possible causes of the failure):
+> i2c@502A0000: compatible: ['canaan,k210-i2c', 'snps,designware-i2c'] is too long
+
+ditto
+
+> timer@502D0000: compatible: ['canaan,k210-timer', 'snps,dw-apb-timer'] is not valid under any of the given schemas (Possible causes of the failure):
+> timer@502D0000: compatible: ['canaan,k210-timer', 'snps,dw-apb-timer'] is too long
+> timer@502D0000: compatible:0: 'canaan,k210-timer' is not one of ['snps,dw-apb-timer-sp', 'snps,dw-apb-timer-osc']
+> 
+> timer@502D0000: 'resets' does not match any of the regexes: 'pinctrl-[0-9]+'
+
+`resets` is the correct name for this property.
+
+> timer@502E0000: compatible: ['canaan,k210-timer', 'snps,dw-apb-timer'] is not valid under any of the given schemas (Possible causes of the failure):
+> timer@502E0000: compatible: ['canaan,k210-timer', 'snps,dw-apb-timer'] is too long
+> timer@502E0000: compatible:0: 'canaan,k210-timer' is not one of ['snps,dw-apb-timer-sp', 'snps,dw-apb-timer-osc']
+
+More device-specific.
+
+> timer@502E0000: 'resets' does not match any of the regexes: 'pinctrl-[0-9]+'
+> timer@502F0000: compatible: ['canaan,k210-timer', 'snps,dw-apb-timer'] is not valid under any of the given schemas (Possible causes of the failure):
+> timer@502F0000: compatible: ['canaan,k210-timer', 'snps,dw-apb-timer'] is too long
+> timer@502F0000: compatible:0: 'canaan,k210-timer' is not one of ['snps,dw-apb-timer-sp', 'snps,dw-apb-timer-osc']
+> 
+> timer@502F0000: 'resets' does not match any of the regexes: 'pinctrl-[0-9]+'
+> watchdog@50400000: compatible: ['canaan,k210-wdt', 'snps,dw-wdt'] is not valid under any of the given schemas (Possible causes of the failure):
+> watchdog@50400000: compatible: ['canaan,k210-wdt', 'snps,dw-wdt'] is too long
+> watchdog@50400000: compatible:0: 'canaan,k210-wdt' is not one of ['rockchip,rk3066-wdt', 'rockchip,rk3188-wdt', 'rockchip,rk3288-wdt', 'rockchip,rk3368-wdt']
+> 
+> watchdog@50410000: compatible: ['canaan,k210-wdt', 'snps,dw-wdt'] is not valid under any of the given schemas (Possible causes of the failure):
+> watchdog@50410000: compatible: ['canaan,k210-wdt', 'snps,dw-wdt'] is too long
+> watchdog@50410000: compatible:0: 'canaan,k210-wdt' is not one of ['rockchip,rk3066-wdt', 'rockchip,rk3188-wdt', 'rockchip,rk3288-wdt', 'rockchip,rk3368-wdt']
+> 
+> spi@52000000: compatible: ['canaan,k210-spi', 'snps,dw-apb-ssi-4.01', 'snps,dw-apb-ssi'] is not valid under any of the given schemas (Possible causes of the failure):
+> spi@52000000: compatible: ['canaan,k210-spi', 'snps,dw-apb-ssi-4.01', 'snps,dw-apb-ssi'] is too long
+> spi@52000000: compatible:0: 'canaan,k210-spi' is not one of ['snps,dw-apb-ssi', 'snps,dwc-ssi-1.01a']
+> spi@52000000: compatible:0: 'canaan,k210-spi' is not one of ['mscc,ocelot-spi', 'mscc,jaguar2-spi']
+> 
+> spi@53000000: compatible: ['canaan,k210-spi', 'snps,dw-apb-ssi-4.01', 'snps,dw-apb-ssi'] is not valid under any of the given schemas (Possible causes of the failure):
+> spi@53000000: compatible: ['canaan,k210-spi', 'snps,dw-apb-ssi-4.01', 'snps,dw-apb-ssi'] is too long
+> spi@53000000: compatible:0: 'canaan,k210-spi' is not one of ['snps,dw-apb-ssi', 'snps,dwc-ssi-1.01a']
+> spi@53000000: compatible:0: 'canaan,k210-spi' is not one of ['mscc,ocelot-spi', 'mscc,jaguar2-spi']
+> 
+> spi@54000000: compatible: ['canaan,k210-ssi', 'snps,dwc-ssi-1.01a'] is not valid under any of the given schemas (Possible causes of the failure):
+> spi@54000000: compatible: ['canaan,k210-ssi', 'snps,dwc-ssi-1.01a'] is too long
+> spi@54000000: compatible:0: 'canaan,k210-ssi' is not one of ['snps,dw-apb-ssi', 'snps,dwc-ssi-1.01a']
+> spi@54000000: compatible:0: 'canaan,k210-ssi' is not one of ['mscc,ocelot-spi', 'mscc,jaguar2-spi']
+
+Ok, so the vast majority of these warnings are from unknown compatible
+strings. IMO this is not an issue, but the simple fix is to just add
+these strings to the yaml files.
+
+--Sean
 
 _______________________________________________
 linux-riscv mailing list
