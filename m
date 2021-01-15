@@ -5,17 +5,17 @@ X-Spam-Level:
 X-Spam-Status: No, score=-22.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,MSGID_FROM_MTA_HEADER,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8F64FC433DB
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jan 2021 12:22:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3B02DC433E6
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jan 2021 12:22:27 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 45701223E0
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jan 2021 12:22:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 45701223E0
+	by mail.kernel.org (Postfix) with ESMTPS id 0156A223E0
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jan 2021 12:22:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0156A223E0
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -24,74 +24,73 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=DT/9wQVa3BgYHaeAiWhHk3GDbDrJRCokRgnIc5Eo6Gc=; b=S1FxYxuF8LVLiEvIynbaZiaUr
-	3MDdoC9IvGQk9U5t+oEbEJSxH7SMwG+00ZXebgC0HhcHKwMo8xpT7hQRiPPxSgD0XUS5+trdTGYoY
-	vpYhDkRmvcweiFekJB8XMxFkMmCkMoKxQg2H9OPUyzrh+3Y00x+bmkeTkpoW17JXkC4hDLWcm2xEN
-	aDtd8sAwR4Id4yJZnIAEnhf82vIEDAyeAE/dehINmWu6p1P27Uo2KFj/EaQspPhksP15j3PGgFHvw
-	dBEIc4QDiip0w1PPvCd8FdKg9aYzHjwokEC3bjyhvXfHuOsETQDNDUl7mcYqr2YtGP8hSs00HNfuu
-	iUjk4rU6Q==;
+	 bh=LHloan2hNAVUSb5I/3G67k18xcIqzCsmwTsNUy6q3eg=; b=gkKtnt5oyPU4uaEzUFUNCVcLB
+	Jr42HSEp64JO7YApN6MDcFgznxfX3xHegx350uAKiE8layf/F9Y0BaDT9rjJUsVT00lqnsrP3mKb1
+	8B2WvT4LWNjRRM/SQFU45wQbbeOa2ng13/vYmG7HKDAxRH0CvlWhl4qPd4Jdcz05iYsmcok3lC00P
+	wWOfkvENU92wu+vrrTz66xmuIRvGw4vTtUjP9+m8eniwtoS9fVHdzWgRjDmJOtudXRARFDyQ3679Q
+	2DkpoyUfcj5lYFd4JyS/4QYpuT+SAHuWWvuyoLgB5Kc71zfn11WJun1cbMHseSST1IQ4cD8pDtUDX
+	rOjPMPXog==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l0O7P-0002uZ-Bh; Fri, 15 Jan 2021 12:22:19 +0000
+	id 1l0O7Q-0002vX-DK; Fri, 15 Jan 2021 12:22:20 +0000
 Received: from esa5.hgst.iphmx.com ([216.71.153.144])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l0O5r-00025C-BG; Fri, 15 Jan 2021 12:21:12 +0000
+ id 1l0O5y-0001zq-JJ; Fri, 15 Jan 2021 12:21:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1610713243; x=1642249243;
+ t=1610713250; x=1642249250;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:content-transfer-encoding:mime-version;
- bh=b5BQZvkF6iX1PZ8Er+KwwI5ddQoTvYvcdTlCpptiqxg=;
- b=TV8MPyQ2T0YR+WQXSiCWtJEJ563U1XCRkwkj7g+V/ZQgsYv7DFBO+wgr
- ZB+8ge8WOSIx9qmAMYCeRrOjMDFdbb9A6u4y+sXBubq643mit4tlFMUDW
- jTRSZPXM89pj13boJTFQY4bJv/bk0K2G1mPwjNWbj6Sidu1DKfETTzpbI
- IxG+KSyWnJ9SnvATlVNMw5w5dgHCeAkULbTnSVpzzphRn4Ji2rtQnAZzg
- TgwkRRpjqV69Bdp93/0UYvLAR8hPWLrrlWM3CTse14pXEUfoU4JUyYzBP
- VfAJfnz4ABbdHToL1njhqkgF4LtJM48nOk2BmRf/c9v0jM+PhPcMr1Cco A==;
-IronPort-SDR: V0YHNN1BhzGgcezPhwK9fArErwGi3PGUPq4NpVTnpzfd3OtdjQ+JszPZ0X8gowcuE6UBVA+9B/
- x+poNgtiGBZDCiKcCA93D8eRGOMQy6URkHMe8HJDKjshcXwd805LARsZVj/GmHg7kSRXBC4zvT
- /IUSXVAnw6fMT2zcm2S15zIUFwSkcll0MRWL2caPxcrdlecGZUmmxXC7s0Igbe+WRBafl2WNQk
- NlCRVk1GV1J//mPZWKHvVHB6GRu6Fcy8pWdnty1Z3gm3yvp3NXk4Ycup71KBdKBWme01Mnx9/u
- QkY=
-X-IronPort-AV: E=Sophos;i="5.79,349,1602518400"; d="scan'208";a="157507154"
-Received: from mail-co1nam11lp2173.outbound.protection.outlook.com (HELO
- NAM11-CO1-obe.outbound.protection.outlook.com) ([104.47.56.173])
- by ob1.hgst.iphmx.com with ESMTP; 15 Jan 2021 20:20:40 +0800
+ bh=wDhD0EFwIBITnSoPCysuFLCzTcJlqo/KLgCMeMDGKao=;
+ b=f0Qn5uAkAl5XalGl1Bbtkk6n3Co9tnOuuFBoUl0ZIU9OqdWFFUzOsl53
+ n87UgWQeY6sClrSf5jWXZdY6SVBt0R/GEg7H9rLXJsz7TeoBvdWA+CiVi
+ fWKwvQ1GRqIYxXK313jH+PcZ/xJ1l7gPn2eFPgnWciYZ/9OlfTNQvZuz5
+ a1/uQMpSOl/uNKKqp5TAi/oIT+6ZcTp+TCYOtNWXcZgYiDrL4FxiU31Se
+ 95thnFnMvsC45q398bQL+YBPhOOwsLOk8pYIrXT/1FhyEhYfowJ7vPds4
+ boTCnJei43cL4QweXEwJY8UWW7mAAmRL/7hrVbsRMg5Mf+bNFUlwYd93n A==;
+IronPort-SDR: owV0S+07T3N8hd3igRHgjwOnWE5ORrVKbhlVVXShEYUD2yTF2iLk89/HwWXeJPu/JG6SJR19l6
+ kG21gjGaF+dFkqaXYcADS8cRE7fNAkB8wrN6f1HZfQ/LRPvSufM3em6pjozq1GXUXJsKGENs7H
+ arfDfjy2M/tZDMK5aIe9Dw03YkF8JHeIIOIcmz2M5JNzP/oGeUdEnCIkepFsrIrSVWXVlhyUl+
+ Vu0/9bZpKVV2ysAtzewTlnucRgjEuRFeZcxusAwNbfRLRll5qLnpBvGjCq/qW5xX0FiUKLdavW
+ YlM=
+X-IronPort-AV: E=Sophos;i="5.79,349,1602518400"; d="scan'208";a="157507161"
+Received: from mail-co1nam11lp2172.outbound.protection.outlook.com (HELO
+ NAM11-CO1-obe.outbound.protection.outlook.com) ([104.47.56.172])
+ by ob1.hgst.iphmx.com with ESMTP; 15 Jan 2021 20:20:45 +0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=BiBHA17Qs5iyr0/xkBpoO1pOduQ11zF2o4TpXFo3x6sH74puhBGxSksB1i7uXYF7bcnkQUzh991BaSoY/OJC3p2P54WhoHaU9lQIO81So0ihUqnAx7ZUwIl/9+sMi8sYaWdnslNjziqctI6urIEmn4VJon+jxqHGAvo/6vvV1FxW+PgSa1OrFgqFpbtmSufTSr1c5SMUNytOANYHbEFqrs1ajsyYWAuuLT63NDze1sbiWSKxFY8h9aMjGB1SUYY5FGjviz8H25kUczpbk/Fig1AKiIuU6shyjSIvH+euAGGZ1F/8t2wQOCgjBh2fx0kFexCiJ+9unWqHVFtOAg20Ww==
+ b=jTpd1FMMXGf11sqCuXiVqhKAvCx9ftqw/RHngUIBaoMHmC/IBRqwUcAJLjPzegwORDnK4SCcFHju/MATck6sXL9qFUe7C/OSvdrLb3HjVBOi50mfyGXGf3mq1FAK5W8SFTtTiDVzX/IncT2R3S3F/5AHaavg5xgeeQMhnPwT7kJk12zwkJScPRGzN9kDTi/DLHInZh18yzTGjVrXIpYsue71+jVDRLjRXrF6HdJSC+9VzNhyWYdxfnMptTujq3kIjW7QRTnJ9PzOXMHWoDCQVudW/EILkqVLB4Jcjot9Lx/PRkwzL/KUCMx3f6P1GWHaiEqz+rxMff8XdCk0Bu2Zuw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SIsEkbh/kabksROMC47HVRLP923Zntw5a8fumkMlRdM=;
- b=TDPdAx9qhzeg2BNJujI7OxKSs/KjWp2QaAmgg8QlVSefFkHQfrf42WGtTzVWREfeOhi6Zhe0zPvzUUs8VHHBIWaDWuBrwBrQGWM87D/pB89t1OsKXwg2PVffEV6Rf6YVCe25Xk6vvC7BAhCEfANq21DHZwUlCNS/2c4GchA8sVus/b05wKRUYI8kNEp2o5qcGgHhpNKYIj5uCzxQLdeHxg+rHnytOahASN9zRxdYhxWHhRsdEtpuIONmBrCWsIyNoNnECQj1YDQrCNPHa83L6VxGYVx5/Y9wJTKZ8zCbO30cWdrdF/Ju47xja6IeuAHw1k5hq+dMqVf5mk9VvrIPyA==
+ bh=rEXVk2pLVEuQxZ9IxQ9Sdn+Q1fvb8QR2bD/xxf4dsIU=;
+ b=NlQZYCXrTbpdLkXfN7tT2eNEoHuh2YpDP8zmFKCKEmMJLI7lvOaWNFjF4Ldl/N9MGjXpjVZuvhFqle84m99mKFGHzc+nXTmKZdG/OavPRZ3UQAwtfbfQKgl3JAcq9cJlbSkaUZ2JVWl1qJEV0/HvgMhz2bAFcuSYAhE9Buxus2pZ7wwjzFShgeX6WQyUXbKGv4datz2IxjKsVS+/AysCapQycwE3HHPXJnOFv0xRhw6gnd7OUkMzAUqA7O4LOU9G9pRpIlCqsZHNIV3uNIb+L45AiGfpx0dCgYuszdNFFwijsKqgU1VhsUR5Dhowu2lgFGTFrORdMMUywZmU4axVOg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
  header.d=wdc.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SIsEkbh/kabksROMC47HVRLP923Zntw5a8fumkMlRdM=;
- b=wOydWpv4nFgvHK20OD7lTtDMgxaeDX2pLwJeFO3BYGN4WpJjZ3U2RJa7AlmZjjIPZ/prQqtHgFZB6YAUwklNqTagnWSEbLWOK51fXUjfXHGDiVhEeuCrp+EPznZpSwgdQnjEV5mDgnfVqr1yYRdAvn8UIPxRWXr59eiGp0ts3kA=
+ bh=rEXVk2pLVEuQxZ9IxQ9Sdn+Q1fvb8QR2bD/xxf4dsIU=;
+ b=DgZcj/0LiLY5fxp3SnYkSlUcPLJY0MpZUE6DcC+fNw2M/o2C6ghDHywQ/1JOPyAhvdOMJ4RSPFAWNoleZi+/h7fY0jzj8JN0QwMCbIa3S9nwFmmYE1GXPKnTqX9EM5vtRehgpQwp6qemEllv2CFAMYyseMVuxBEA1OTNsyDXDRI=
 Authentication-Results: dabbelt.com; dkim=none (message not signed)
  header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
 Received: from DM6PR04MB6201.namprd04.prod.outlook.com (2603:10b6:5:127::32)
  by DM6PR04MB4330.namprd04.prod.outlook.com (2603:10b6:5:a0::16) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3742.6; Fri, 15 Jan
- 2021 12:20:39 +0000
+ 2021 12:20:44 +0000
 Received: from DM6PR04MB6201.namprd04.prod.outlook.com
  ([fe80::2513:b200:bdc8:b97]) by DM6PR04MB6201.namprd04.prod.outlook.com
  ([fe80::2513:b200:bdc8:b97%5]) with mapi id 15.20.3742.012; Fri, 15 Jan 2021
- 12:20:39 +0000
+ 12:20:44 +0000
 From: Anup Patel <anup.patel@wdc.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
  Palmer Dabbelt <palmerdabbelt@google.com>,
  Paul Walmsley <paul.walmsley@sifive.com>,
  Albert Ou <aou@eecs.berkeley.edu>, Paolo Bonzini <pbonzini@redhat.com>
-Subject: [PATCH v16 16/17] RISC-V: KVM: Document RISC-V specific parts of KVM
- API
-Date: Fri, 15 Jan 2021 17:48:45 +0530
-Message-Id: <20210115121846.114528-17-anup.patel@wdc.com>
+Subject: [PATCH v16 17/17] RISC-V: KVM: Add MAINTAINERS entry
+Date: Fri, 15 Jan 2021 17:48:46 +0530
+Message-Id: <20210115121846.114528-18-anup.patel@wdc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20210115121846.114528-1-anup.patel@wdc.com>
 References: <20210115121846.114528-1-anup.patel@wdc.com>
@@ -105,53 +104,53 @@ Received: from wdc.com (122.167.152.18) by
  MAXPR0101CA0024.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:c::34) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3763.10 via Frontend
- Transport; Fri, 15 Jan 2021 12:20:34 +0000
+ Transport; Fri, 15 Jan 2021 12:20:39 +0000
 X-MS-PublicTrafficType: Email
 X-MS-Office365-Filtering-HT: Tenant
-X-MS-Office365-Filtering-Correlation-Id: 1727e3dc-0e28-42bc-5bfc-08d8b94ff816
+X-MS-Office365-Filtering-Correlation-Id: 9346f790-4cc5-4abc-1ad5-08d8b94ffb2c
 X-MS-TrafficTypeDiagnostic: DM6PR04MB4330:
 X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <DM6PR04MB4330D94960FE2E9078716CD78DA70@DM6PR04MB4330.namprd04.prod.outlook.com>
+X-Microsoft-Antispam-PRVS: <DM6PR04MB433005781EA46949311E35A98DA70@DM6PR04MB4330.namprd04.prod.outlook.com>
 WDCIPOUTBOUND: EOP-TRUE
-X-MS-Oob-TLC-OOBClassifiers: OLM:6790;
+X-MS-Oob-TLC-OOBClassifiers: OLM:1303;
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 122+FcxukkV1Ii4Eyx9IKJf/fWROYvjsaykGD1iQNSjetv4gZ1cU6Tb1bGevqdwkiv9frnEP/sy2MYnK3iDRkCAkwKS2bNpbacA0jGiW8SOdNQJ/2fmvGvfCRb+aTW7kLUGPTXyzYcuK1xapUPn9BbGtBIf1ZUFqP56NFD/LCPPOwtVnjDYJmeYukyoGSdAA9nHNXP8ErFdWmKfAKTnjaxdYe2/pY0S4l2tr9bW9AxGZnHMo2DpAK0y4uGas5Wfz29pd/2KjG9AcwB2r2qgYMjw8cPjwP4OQWyFKRyDTZUa0mT7xqHbS+2sa8wqJGGCaPofeSrORVGh7rKoTkXjQmKrYpKMB8c4NaeOzTWxNyiyYXhaLiPQYMQhyttmf54jIowEhhZa6yTLMlUoPgNdzVs6f4YDs/fg+T2kQXR0+S6g0wvHQctg+wZdX5LaFL9k6h1Vod0ycRxsA1WzNVI86ng==
+X-Microsoft-Antispam-Message-Info: ESRHHgkXg8UxKkJ4Oreu1MYtPgqBuaYZWOFpc3INN+otUXwGmvVOIGe6BL39sZSXwAlpiUmyiWbpObeLq37ZLyiL4hgXczTLHVFq086CPldKS8NU6F7fiTxnS+ySf9Qf2WbfjybO9WmY3IeLVFz/IaFLXvMbwY5vojxySWdO+LyTVQ3xF/k9eQB4M64ko2g76a0eR6HZvpbr7kot6/CpH72iQlNf7PjLCAruhm3SqqOnUSH8WH5oHS5yyeTwqzR04Lih7u5lOKfKmeHR4PHcA65EFA3XycUQ5n5jX2wqWJSl74dZmubzHPH+UZGoKXFPCiZ2vBKhnxQdtLL0h0y+uIrsNfaAqmuz1oHdeu2KqXgP9+olZrg7yEXwbLvy50QKhK+nOIVnFNMZxDTCxzIYdw==
 X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
  IPV:NLI; SFV:NSPM; H:DM6PR04MB6201.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(136003)(346002)(39860400002)(376002)(366004)(396003)(7416002)(966005)(66946007)(316002)(1076003)(66476007)(8936002)(110136005)(186003)(66556008)(86362001)(16526019)(36756003)(44832011)(6666004)(7696005)(4326008)(26005)(52116002)(30864003)(8676002)(2616005)(478600001)(2906002)(54906003)(956004)(8886007)(55016002)(83380400001)(5660300002);
+ SFS:(4636009)(136003)(346002)(39860400002)(376002)(366004)(396003)(7416002)(66946007)(316002)(1076003)(66476007)(8936002)(110136005)(186003)(66556008)(86362001)(16526019)(36756003)(44832011)(6666004)(7696005)(4326008)(26005)(52116002)(8676002)(2616005)(478600001)(2906002)(54906003)(956004)(8886007)(55016002)(5660300002);
  DIR:OUT; SFP:1102; 
-X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?j6+lYS0inxjsQIUj19KJLCA+yxj9tA2/0AYvZKK7tkw43Ip5TFXfPeJDl5qT?=
- =?us-ascii?Q?UJHSVm2kHagzNEkfSXs3Me9n2Jkmxsx20gh8aaeCc63QieLXZrB/lfQ5KrzO?=
- =?us-ascii?Q?0CUykZ30Mg8QH0eIRMevB6E9qZM1HhDcvl2B05JJFA687/j+HUj/WbR7Bygf?=
- =?us-ascii?Q?B2BTHs8dHkEU0/qz9gLTac9cBNcQ/LmZmljp/Eueb0OnhzjffLxvvjhUb3pR?=
- =?us-ascii?Q?DNH6WXgxl7taYtMfUWIrFJEQOiqdHKyWxpCmsHloXdVmRWu8xIfavhfbkMyX?=
- =?us-ascii?Q?bIW3DSlDVTqUVLZShEBU4sgpND1UrdAhv4t/4EXqeoL4gXxZDIYE9XCdQJCC?=
- =?us-ascii?Q?W54GLIJK6x9jto3JEV1DRmhyrldzDJpDCCDclKjaCvTje61c/+rQYYXSNsdF?=
- =?us-ascii?Q?8DGfuc7f7B8cvt8JGRCsiXhT9M1hpTd+yXV7RQYh9dar5lKJ5ek3UtcOTzmE?=
- =?us-ascii?Q?eTXlFa1sKT+oi+xkCytsLgDWZ76hIAiKVSA6ucq22YkuUMaPMt6bkNZ2+ste?=
- =?us-ascii?Q?o+mshGz4zjd+flfjV/ghWkFszb6Nfxp18VMtZAHdmAswyp662zD+YoJR9jXQ?=
- =?us-ascii?Q?X/VxAnz8lxvy/0iVrHF8N42LDUqiHEbbF0CfJtwkrM8WDYHmPkhfF/xrbi30?=
- =?us-ascii?Q?e0uK3biUOMj0uNjhXcXuRmRT0PC8tRclQTZ4aK+l0XJmAKA47p0Odk7LIXgU?=
- =?us-ascii?Q?Kn72NdJlTRQbFCIOBU0g4oHFnEXjCVTXxA9LA/QzqElWyjyyNvQM6DuXmTCZ?=
- =?us-ascii?Q?g4PfUcl8ONWwQd+mW7Lzz5NecSUzh9kr5vElwZsiifV3lxqq/yjAbdkqeF4Y?=
- =?us-ascii?Q?c4nJImrh/1RGUFDd6VsBfJvEWRbOOObyMzpWjysHB4dNVuDyrkVyyo2if2im?=
- =?us-ascii?Q?w6l9wmJKqJx8p5J2+17lfKPYCoBE0QcRObVCWdZ0oLAsbUxyioZSwvwf97dz?=
- =?us-ascii?Q?itc41TyuyxrXCkO9V5q17ZIcvZr9FmWzEVhITeubZ+XbBD4CsFFJPWYPmFfJ?=
- =?us-ascii?Q?EKij?=
+X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?mpdWkvscHF/sc0MHfd3m2TeQXqOlFQA8YofUStVHvv++aciSDy+q8FhWv3Sf?=
+ =?us-ascii?Q?SJ/6JUNZK8/j39mPRYsEeKzaki8hWdAu+12KjaC258SFMeOnGCyf+w3frbaN?=
+ =?us-ascii?Q?tIhMxp/MWeW9PvukPcN1hr8bh319dAg3fhbpm/iekbnrTN6+CIKtirexymm8?=
+ =?us-ascii?Q?feBOE4kwqHP+MxpVOy2v0angbddFJSVWSJw3GxhBeGfsglC2yWQQnfb1MoKo?=
+ =?us-ascii?Q?JwGyW9kG/B9Hxw2lRP5KiJk2RoRV6Dg462aCfT/izIFC7ave7vgiULsOfCNh?=
+ =?us-ascii?Q?iARKBIAHlv5tHFnT3Vhde/tIrZxbnYoTqehGLN9Ul0BEM88Wt4StXmhdcgZU?=
+ =?us-ascii?Q?gUskdUv95E9BpLQTP7xRd2DlC0cMZY+mkC80guglk+qNO6K3WXz4LXPxjVll?=
+ =?us-ascii?Q?gD84DBdIa6eC7Y3IwNuwNbaMmV9XBE1G+bBqWG90a+jMwgaDhLZwwObl7lgo?=
+ =?us-ascii?Q?LFNAZH09spd+yY03pzmfNnEOHmbV5wFxUE/S68QQGkYaRhkPk4khaSXTZUKJ?=
+ =?us-ascii?Q?DvTW0xtLjzi8sdbBfYP+XOZHeDbQa/0nzzYVGNaAh+4nyEe3rzA6Xo66pEgl?=
+ =?us-ascii?Q?MMNV2fOwf3xHKFL3N8wV+tC+Oxeu/q2ortB37vLATEBo0sKUMp/Q5TYD31WX?=
+ =?us-ascii?Q?vgGcUJvLqSfshuz1gwjQEErwONdhE8C0i7WIl3nzyXtV7wo4T4yED/nf8HCy?=
+ =?us-ascii?Q?Xn3/YFFC/oAjJf79KfhHThXGS5+ez57Q1KfCQIbzqSNLxjIQE7OQn6WsgU6h?=
+ =?us-ascii?Q?C6h4oQJ3Kf4cPxBGiJGsIFAokjQcYpE4MG4NCNx4xCS6I+FGdJ2Fy/NsgAYM?=
+ =?us-ascii?Q?lwK6L+0SkHVJB1Do5bG2U0lmEYLvjmS+G+3Lh3fIKS3C92gJQkeEuYuDrrVR?=
+ =?us-ascii?Q?ALTPHli80tKTOjjWf/F7CtWgngApQsEwlVi4dsWvjVfA4rlXnlaEkL3+vg8V?=
+ =?us-ascii?Q?V6IB8hjQPFVzo6gPfktPMTyn/CMXWrxzys2amRESHdo5+cC5VctcVRcoKQ6O?=
+ =?us-ascii?Q?z1VS?=
 X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1727e3dc-0e28-42bc-5bfc-08d8b94ff816
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9346f790-4cc5-4abc-1ad5-08d8b94ffb2c
 X-MS-Exchange-CrossTenant-AuthSource: DM6PR04MB6201.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jan 2021 12:20:39.3092 (UTC)
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jan 2021 12:20:44.6118 (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: n7z7bEi9J7Dfg1g7Mki1yM9Y22Xivc6wlHKIaLYpzkI/afdxsAh1qnzXbpzQmscbPOSjMJsB3nlTGEU7Ba8PYg==
+X-MS-Exchange-CrossTenant-UserPrincipalName: qb1WKlbByasZhUY+9OyiwBBWjIeYEvftGg5mnlqnHffioEYNNMwvFqawsHUc624NHCG2CPW7jQZA1yM5Dc14eA==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR04MB4330
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210115_072043_730227_8270A600 
-X-CRM114-Status: GOOD (  16.68  )
+X-CRM114-CacheID: sfid-20210115_072050_905821_180DA1B9 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -164,8 +163,7 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: Damien Le Moal <damien.lemoal@wdc.com>, kvm@vger.kernel.org,
- Jonathan Corbet <corbet@lwn.net>, Anup Patel <anup@brainfault.org>,
- Anup Patel <anup.patel@wdc.com>, linux-doc@vger.kernel.org,
+ Anup Patel <anup@brainfault.org>, Anup Patel <anup.patel@wdc.com>,
  linux-kernel@vger.kernel.org, Atish Patra <atish.patra@wdc.com>,
  Alistair Francis <Alistair.Francis@wdc.com>, kvm-riscv@lists.infradead.org,
  Alexander Graf <graf@amazon.com>, linux-riscv@lists.infradead.org
@@ -174,288 +172,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Document RISC-V specific parts of the KVM API, such as:
- - The interrupt numbers passed to the KVM_INTERRUPT ioctl.
- - The states supported by the KVM_{GET,SET}_MP_STATE ioctls.
- - The registers supported by the KVM_{GET,SET}_ONE_REG interface
-   and the encoding of those register ids.
- - The exit reason KVM_EXIT_RISCV_SBI for SBI calls forwarded to
-   userspace tool.
+Add myself as maintainer for KVM RISC-V and Atish as designated reviewer.
 
-CC: Jonathan Corbet <corbet@lwn.net>
-CC: linux-doc@vger.kernel.org
+Signed-off-by: Atish Patra <atish.patra@wdc.com>
 Signed-off-by: Anup Patel <anup.patel@wdc.com>
+Acked-by: Paolo Bonzini <pbonzini@redhat.com>
+Reviewed-by: Paolo Bonzini <pbonzini@redhat.com>
+Reviewed-by: Alexander Graf <graf@amazon.com>
 ---
- Documentation/virt/kvm/api.rst | 193 +++++++++++++++++++++++++++++++--
- 1 file changed, 184 insertions(+), 9 deletions(-)
+ MAINTAINERS | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-index c136e254b496..f159ce4a66c9 100644
---- a/Documentation/virt/kvm/api.rst
-+++ b/Documentation/virt/kvm/api.rst
-@@ -530,7 +530,7 @@ translation mode.
- ------------------
+diff --git a/MAINTAINERS b/MAINTAINERS
+index cc1e6a5ee6e6..a21739347495 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -9753,6 +9753,17 @@ F:	arch/powerpc/include/uapi/asm/kvm*
+ F:	arch/powerpc/kernel/kvm*
+ F:	arch/powerpc/kvm/
  
- :Capability: basic
--:Architectures: x86, ppc, mips
-+:Architectures: x86, ppc, mips, riscv
- :Type: vcpu ioctl
- :Parameters: struct kvm_interrupt (in)
- :Returns: 0 on success, negative on failure.
-@@ -599,6 +599,23 @@ interrupt number dequeues the interrupt.
- 
- This is an asynchronous vcpu ioctl and can be invoked from any thread.
- 
-+RISC-V:
-+^^^^^^^
++KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)
++M:	Anup Patel <anup.patel@wdc.com>
++R:	Atish Patra <atish.patra@wdc.com>
++L:	kvm@vger.kernel.org
++L:	kvm-riscv@lists.infradead.org
++S:	Maintained
++T:	git git://github.com/kvm-riscv/linux.git
++F:	arch/riscv/include/asm/kvm*
++F:	arch/riscv/include/uapi/asm/kvm*
++F:	arch/riscv/kvm/
 +
-+Queues an external interrupt to be injected into the virutal CPU. This ioctl
-+is overloaded with 2 different irq values:
-+
-+a) KVM_INTERRUPT_SET
-+
-+   This sets external interrupt for a virtual CPU and it will receive
-+   once it is ready.
-+
-+b) KVM_INTERRUPT_UNSET
-+
-+   This clears pending external interrupt for a virtual CPU.
-+
-+This is an asynchronous vcpu ioctl and can be invoked from any thread.
-+
- 
- 4.17 KVM_DEBUG_GUEST
- --------------------
-@@ -1381,7 +1398,7 @@ for vm-wide capabilities.
- ---------------------
- 
- :Capability: KVM_CAP_MP_STATE
--:Architectures: x86, s390, arm, arm64
-+:Architectures: x86, s390, arm, arm64, riscv
- :Type: vcpu ioctl
- :Parameters: struct kvm_mp_state (out)
- :Returns: 0 on success; -1 on error
-@@ -1398,7 +1415,8 @@ uniprocessor guests).
- Possible values are:
- 
-    ==========================    ===============================================
--   KVM_MP_STATE_RUNNABLE         the vcpu is currently running [x86,arm/arm64]
-+   KVM_MP_STATE_RUNNABLE         the vcpu is currently running
-+                                 [x86,arm/arm64,riscv]
-    KVM_MP_STATE_UNINITIALIZED    the vcpu is an application processor (AP)
-                                  which has not yet received an INIT signal [x86]
-    KVM_MP_STATE_INIT_RECEIVED    the vcpu has received an INIT signal, and is
-@@ -1407,7 +1425,7 @@ Possible values are:
-                                  is waiting for an interrupt [x86]
-    KVM_MP_STATE_SIPI_RECEIVED    the vcpu has just received a SIPI (vector
-                                  accessible via KVM_GET_VCPU_EVENTS) [x86]
--   KVM_MP_STATE_STOPPED          the vcpu is stopped [s390,arm/arm64]
-+   KVM_MP_STATE_STOPPED          the vcpu is stopped [s390,arm/arm64,riscv]
-    KVM_MP_STATE_CHECK_STOP       the vcpu is in a special error state [s390]
-    KVM_MP_STATE_OPERATING        the vcpu is operating (running or halted)
-                                  [s390]
-@@ -1419,8 +1437,8 @@ On x86, this ioctl is only useful after KVM_CREATE_IRQCHIP. Without an
- in-kernel irqchip, the multiprocessing state must be maintained by userspace on
- these architectures.
- 
--For arm/arm64:
--^^^^^^^^^^^^^^
-+For arm/arm64/riscv:
-+^^^^^^^^^^^^^^^^^^^^
- 
- The only states that are valid are KVM_MP_STATE_STOPPED and
- KVM_MP_STATE_RUNNABLE which reflect if the vcpu is paused or not.
-@@ -1429,7 +1447,7 @@ KVM_MP_STATE_RUNNABLE which reflect if the vcpu is paused or not.
- ---------------------
- 
- :Capability: KVM_CAP_MP_STATE
--:Architectures: x86, s390, arm, arm64
-+:Architectures: x86, s390, arm, arm64, riscv
- :Type: vcpu ioctl
- :Parameters: struct kvm_mp_state (in)
- :Returns: 0 on success; -1 on error
-@@ -1441,8 +1459,8 @@ On x86, this ioctl is only useful after KVM_CREATE_IRQCHIP. Without an
- in-kernel irqchip, the multiprocessing state must be maintained by userspace on
- these architectures.
- 
--For arm/arm64:
--^^^^^^^^^^^^^^
-+For arm/arm64/riscv:
-+^^^^^^^^^^^^^^^^^^^^
- 
- The only states that are valid are KVM_MP_STATE_STOPPED and
- KVM_MP_STATE_RUNNABLE which reflect if the vcpu should be paused or not.
-@@ -2556,6 +2574,144 @@ following id bit patterns::
- 
-   0x7020 0000 0003 02 <0:3> <reg:5>
- 
-+RISC-V registers are mapped using the lower 32 bits. The upper 8 bits of
-+that is the register group type.
-+
-+RISC-V config registers are meant for configuring a Guest VCPU and it has
-+the following id bit patterns::
-+
-+  0x8020 0000 01 <index into the kvm_riscv_config struct:24> (32bit Host)
-+  0x8030 0000 01 <index into the kvm_riscv_config struct:24> (64bit Host)
-+
-+Following are the RISC-V config registers:
-+
-+======================= ========= =============================================
-+    Encoding            Register  Description
-+======================= ========= =============================================
-+  0x80x0 0000 0100 0000 isa       ISA feature bitmap of Guest VCPU
-+======================= ========= =============================================
-+
-+The isa config register can be read anytime but can only be written before
-+a Guest VCPU runs. It will have ISA feature bits matching underlying host
-+set by default.
-+
-+RISC-V core registers represent the general excution state of a Guest VCPU
-+and it has the following id bit patterns::
-+
-+  0x8020 0000 02 <index into the kvm_riscv_core struct:24> (32bit Host)
-+  0x8030 0000 02 <index into the kvm_riscv_core struct:24> (64bit Host)
-+
-+Following are the RISC-V core registers:
-+
-+======================= ========= =============================================
-+    Encoding            Register  Description
-+======================= ========= =============================================
-+  0x80x0 0000 0200 0000 regs.pc   Program counter
-+  0x80x0 0000 0200 0001 regs.ra   Return address
-+  0x80x0 0000 0200 0002 regs.sp   Stack pointer
-+  0x80x0 0000 0200 0003 regs.gp   Global pointer
-+  0x80x0 0000 0200 0004 regs.tp   Task pointer
-+  0x80x0 0000 0200 0005 regs.t0   Caller saved register 0
-+  0x80x0 0000 0200 0006 regs.t1   Caller saved register 1
-+  0x80x0 0000 0200 0007 regs.t2   Caller saved register 2
-+  0x80x0 0000 0200 0008 regs.s0   Callee saved register 0
-+  0x80x0 0000 0200 0009 regs.s1   Callee saved register 1
-+  0x80x0 0000 0200 000a regs.a0   Function argument (or return value) 0
-+  0x80x0 0000 0200 000b regs.a1   Function argument (or return value) 1
-+  0x80x0 0000 0200 000c regs.a2   Function argument 2
-+  0x80x0 0000 0200 000d regs.a3   Function argument 3
-+  0x80x0 0000 0200 000e regs.a4   Function argument 4
-+  0x80x0 0000 0200 000f regs.a5   Function argument 5
-+  0x80x0 0000 0200 0010 regs.a6   Function argument 6
-+  0x80x0 0000 0200 0011 regs.a7   Function argument 7
-+  0x80x0 0000 0200 0012 regs.s2   Callee saved register 2
-+  0x80x0 0000 0200 0013 regs.s3   Callee saved register 3
-+  0x80x0 0000 0200 0014 regs.s4   Callee saved register 4
-+  0x80x0 0000 0200 0015 regs.s5   Callee saved register 5
-+  0x80x0 0000 0200 0016 regs.s6   Callee saved register 6
-+  0x80x0 0000 0200 0017 regs.s7   Callee saved register 7
-+  0x80x0 0000 0200 0018 regs.s8   Callee saved register 8
-+  0x80x0 0000 0200 0019 regs.s9   Callee saved register 9
-+  0x80x0 0000 0200 001a regs.s10  Callee saved register 10
-+  0x80x0 0000 0200 001b regs.s11  Callee saved register 11
-+  0x80x0 0000 0200 001c regs.t3   Caller saved register 3
-+  0x80x0 0000 0200 001d regs.t4   Caller saved register 4
-+  0x80x0 0000 0200 001e regs.t5   Caller saved register 5
-+  0x80x0 0000 0200 001f regs.t6   Caller saved register 6
-+  0x80x0 0000 0200 0020 mode      Privilege mode (1 = S-mode or 0 = U-mode)
-+======================= ========= =============================================
-+
-+RISC-V csr registers represent the supervisor mode control/status registers
-+of a Guest VCPU and it has the following id bit patterns::
-+
-+  0x8020 0000 03 <index into the kvm_riscv_csr struct:24> (32bit Host)
-+  0x8030 0000 03 <index into the kvm_riscv_csr struct:24> (64bit Host)
-+
-+Following are the RISC-V csr registers:
-+
-+======================= ========= =============================================
-+    Encoding            Register  Description
-+======================= ========= =============================================
-+  0x80x0 0000 0300 0000 sstatus   Supervisor status
-+  0x80x0 0000 0300 0001 sie       Supervisor interrupt enable
-+  0x80x0 0000 0300 0002 stvec     Supervisor trap vector base
-+  0x80x0 0000 0300 0003 sscratch  Supervisor scratch register
-+  0x80x0 0000 0300 0004 sepc      Supervisor exception program counter
-+  0x80x0 0000 0300 0005 scause    Supervisor trap cause
-+  0x80x0 0000 0300 0006 stval     Supervisor bad address or instruction
-+  0x80x0 0000 0300 0007 sip       Supervisor interrupt pending
-+  0x80x0 0000 0300 0008 satp      Supervisor address translation and protection
-+======================= ========= =============================================
-+
-+RISC-V timer registers represent the timer state of a Guest VCPU and it has
-+the following id bit patterns::
-+
-+  0x8030 0000 04 <index into the kvm_riscv_timer struct:24>
-+
-+Following are the RISC-V timer registers:
-+
-+======================= ========= =============================================
-+    Encoding            Register  Description
-+======================= ========= =============================================
-+  0x8030 0000 0400 0000 frequency Time base frequency (read-only)
-+  0x8030 0000 0400 0001 time      Time value visible to Guest
-+  0x8030 0000 0400 0002 compare   Time compare programmed by Guest
-+  0x8030 0000 0400 0003 state     Time compare state (1 = ON or 0 = OFF)
-+======================= ========= =============================================
-+
-+RISC-V F-extension registers represent the single precision floating point
-+state of a Guest VCPU and it has the following id bit patterns::
-+
-+  0x8020 0000 05 <index into the __riscv_f_ext_state struct:24>
-+
-+Following are the RISC-V F-extension registers:
-+
-+======================= ========= =============================================
-+    Encoding            Register  Description
-+======================= ========= =============================================
-+  0x8020 0000 0500 0000 f[0]      Floating point register 0
-+  ...
-+  0x8020 0000 0500 001f f[31]     Floating point register 31
-+  0x8020 0000 0500 0020 fcsr      Floating point control and status register
-+======================= ========= =============================================
-+
-+RISC-V D-extension registers represent the double precision floating point
-+state of a Guest VCPU and it has the following id bit patterns::
-+
-+  0x8020 0000 06 <index into the __riscv_d_ext_state struct:24> (fcsr)
-+  0x8030 0000 06 <index into the __riscv_d_ext_state struct:24> (non-fcsr)
-+
-+Following are the RISC-V D-extension registers:
-+
-+======================= ========= =============================================
-+    Encoding            Register  Description
-+======================= ========= =============================================
-+  0x8030 0000 0600 0000 f[0]      Floating point register 0
-+  ...
-+  0x8030 0000 0600 001f f[31]     Floating point register 31
-+  0x8020 0000 0600 0020 fcsr      Floating point control and status register
-+======================= ========= =============================================
-+
- 
- 4.69 KVM_GET_ONE_REG
- --------------------
-@@ -5326,6 +5482,25 @@ wants to write. Once finished processing the event, user space must continue
- vCPU execution. If the MSR write was unsuccessful, user space also sets the
- "error" field to "1".
- 
-+::
-+
-+		/* KVM_EXIT_RISCV_SBI */
-+		struct {
-+			unsigned long extension_id;
-+			unsigned long function_id;
-+			unsigned long args[6];
-+			unsigned long ret[2];
-+		} riscv_sbi;
-+If exit reason is KVM_EXIT_RISCV_SBI then it indicates that the VCPU has
-+done a SBI call which is not handled by KVM RISC-V kernel module. The details
-+of the SBI call are available in 'riscv_sbi' member of kvm_run structure. The
-+'extension_id' field of 'riscv_sbi' represents SBI extension ID whereas the
-+'function_id' field represents function ID of given SBI extension. The 'args'
-+array field of 'riscv_sbi' represents parameters for the SBI call and 'ret'
-+array field represents return values. The userspace should update the return
-+values of SBI call before resuming the VCPU. For more details on RISC-V SBI
-+spec refer, https://github.com/riscv/riscv-sbi-doc.
-+
- ::
- 
- 		/* Fix the size of the union. */
+ KERNEL VIRTUAL MACHINE for s390 (KVM/s390)
+ M:	Christian Borntraeger <borntraeger@de.ibm.com>
+ M:	Janosch Frank <frankja@linux.ibm.com>
 -- 
 2.25.1
 
