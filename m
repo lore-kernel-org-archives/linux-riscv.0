@@ -3,154 +3,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
 X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MSGID_FROM_MTA_HEADER,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BC243C433E9
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jan 2021 13:28:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 98895C433E0
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jan 2021 14:04:20 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6F5822339D
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jan 2021 13:28:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6F5822339D
+	by mail.kernel.org (Postfix) with ESMTPS id 4CA1E23884
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jan 2021 14:04:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4CA1E23884
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=fUMZb+YMOLgMIPkf2DzP/pQbWpcpILepgyVgs2eNNEM=; b=2KGdC3vbDaFJ5FA2DTCPxF/vA
-	o9TkJ008RfwEEKRwZOdJHMXMnQKRNwScAYYHINfavr9Tyh150+Kb2xXBAAM6ZGuCVm9jwpnhQxO3F
-	biY5IyGpqHE/2f3cMFWgU1Aior0Hs+ocnzYOR3EE3rMm+NwyBNTQzZK4SBN47fnwpaKF7mmX5aLff
-	vlHDx4uINr5ATaLgppru4iEk87SDnpeq5QUAkoyDE45xjCGnb3H4j4CW0I8w6o26JV4/BT7Ed9Cwe
-	HdJHrvKhgCWm98e77VywTwinxa57Wa0r6CHlGyoOMxdwY5iEOWv+IYN26WNV00G8NHaMMueQ4csZp
-	7gZM0R9tg==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UuqLpbxQlZGbP4Owf5Honh8DHhMfSoc4nW69kJueMDg=; b=URdvke7BeR51vU6Gfsa7whAq8O
+	yr7jIZzGFNomACm0tTq1OkkBr+HhGm5y1zNQzwBZEa1UZtghsAhDJHRYlh3hM4WOzPQ8IGM2NA8GV
+	7FEgSzRlk4uoBCz58d2KwzqyjYrcvD+q4dMxafiuKXTF+/U+5l9faCJm+/3iFuYZDWvunRaOGUt70
+	eXJcFhl5XkdYR5wdBUTc+tyKQPvYoQ186f5hyUwDV3iJ1Sz/hTS2GQLMBJXPlv7dPqrm9NVaGLszL
+	c+cKzfpwVa0QwrB+Z9PrAHYDMfR492Jo6BhGFocY8mTaxqZkMNyohmEejk5olv9xATpTcOHh7evfE
+	6nSTJulQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l0P9f-000575-6N; Fri, 15 Jan 2021 13:28:43 +0000
-Received: from esa6.hgst.iphmx.com ([216.71.154.45])
+	id 1l0Pht-0002ec-WE; Fri, 15 Jan 2021 14:04:06 +0000
+Received: from esa1.hgst.iphmx.com ([68.232.141.245])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l0O5A-0001lE-Hl; Fri, 15 Jan 2021 12:20:18 +0000
+ id 1l0Phq-0002dS-Ja
+ for linux-riscv@lists.infradead.org; Fri, 15 Jan 2021 14:04:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1610713200; x=1642249200;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:content-transfer-encoding:mime-version;
- bh=s7/0EWy4yubtzvJ4dohqJWr3ynMErwYSx/VMwjclKpE=;
- b=WPRDLnYyY01KC43xwP1b2uDHtIY2xtQDx+yWirwxT2TaSPWe4jc0rRAS
- dKNJBLNWVgvMzk0FEyY1mRJOmj1f/VFkrbqxqu9jwFpz7yNHcOHfhspIA
- /qfNnCXE37toY5l/Jzq3BhhlnY0cwwFHrJVVtDO3kgFpLw7c5b0YC4kA5
- /rz99Qrql3hnNnnI+6Hdkq7IWeQM8Ek+iy0WHWDskrIqdRpxY47D9oUaE
- mLt3vQXuyRdcV6rtMoOEvM1uB2zM2vXctjkRd4nTiCnydi2UKhvaUer9o
- +Hnvz7cJtZnnLZE2azfZzr20LKshwzCq0jsJEdBLGqa5EMta9tWSs4/DV A==;
-IronPort-SDR: m0pnPfm5hPq8qQFPFsrHofDgh8doCo2fF33ah4rM/92jhXYFbMnrDHGP4YogO376JMct340HhN
- jo2I7rz0JL2/cHr9uQtBhndBZC46SOC1lSaZ4OqHJ8suo5UsYFq1GtUiTjO75uMtOoeiTeW0Jk
- LyZaOsodgCghnizFub1Ys67DBqF2ycafAEGQ2KpzNblaFRwBfqo+QH3AYrt8b27cLrYMrq+luP
- AUSFB+BsoOq3pwDvtc+lg5FRVvKMpFP5VZoquP4/K6rnonEoZFVTetqaucGwIvutKZ1CnOn3TT
- dlE=
-X-IronPort-AV: E=Sophos;i="5.79,349,1602518400"; d="scan'208";a="158687397"
-Received: from mail-bl2nam02lp2050.outbound.protection.outlook.com (HELO
- NAM02-BL2-obe.outbound.protection.outlook.com) ([104.47.38.50])
- by ob1.hgst.iphmx.com with ESMTP; 15 Jan 2021 20:19:58 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=n1WA/ygsSTILGSKHo9WrYfa0WrxfIGh+ga7vuTx32zG218sJiWK+cA8JxuaALCLfo6RUDGfIeWlEYfbaRitQmY3HFGHOWxU8sKH2FVQkEicHyrqeBaSS8nS1+3tFTT7F5jKmrcqhUOMDY9ohddN0kixsYl9jb5VbCmDdXWV7+BRvyeeogIVMUMsIe5FDrORmJzbuO7KnI5QtKpyen5aRKy2iUeA0A2aQfiCXKKLFVbKfdXfReiAPTyA3yc5Uj2tzXksT03ew5lawe2UE7SAQuRoCf0XxliM/mEetvifIe2JoU1g3v7PZBhM8hWBbsNjMOXp/4N0Lj6sw1EJ4BXhrMA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lnZOIvueOy+GgUgxlpSgIkCX7kMrNVHUu+eKWroFFeg=;
- b=NEWB82qSqVvXjEiVyOibBIiL7ksTPIQiRJgr3TVxHMZXws8skeHN4lY+kh9k4dYjSgJZ3v6N9gQqJ5zuq/FeL8Z2d04fw1KFIuJOK/i53eGwfRH5QrPoCZzT2raNJxUouwjay68v9TRJcyVmsBXmIBYbSm3mXr8s6tEBt/RZWysqm2afSstgYLN+QHobqEER+h/DyFY3izoQca6E20hguVxQq7UPTAQCdoo/z7HISU2u5S4JDK8nkqi8Bqbqsq0wUjq+Bxnx99x8ZtHSorc4IUMcACfQXwqa5h9HULZXN1Bu9Ro4sjx2ydLJncIyL8P9ekJZepBLAyWadd/8CZeyGA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
- header.d=wdc.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lnZOIvueOy+GgUgxlpSgIkCX7kMrNVHUu+eKWroFFeg=;
- b=NvUlllCFlLAeiwXGnI028UV/08U5hmiBY9gO9V+33HQX6t1fY238f1cmEVzapnSR7Uig9Q2gUkqqgzApgSGeFP3a2XtAp6kxhLIDrt2KOKCXiINhYNhJyQ4g/ocTAVazvihLnpPye5UaROjR8dSZexEdVOTcy7Z0bOhVR9/xWUU=
-Authentication-Results: dabbelt.com; dkim=none (message not signed)
- header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
-Received: from DM6PR04MB6201.namprd04.prod.outlook.com (2603:10b6:5:127::32)
- by DM5PR04MB3769.namprd04.prod.outlook.com (2603:10b6:3:fc::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3763.10; Fri, 15 Jan
- 2021 12:19:56 +0000
-Received: from DM6PR04MB6201.namprd04.prod.outlook.com
- ([fe80::2513:b200:bdc8:b97]) by DM6PR04MB6201.namprd04.prod.outlook.com
- ([fe80::2513:b200:bdc8:b97%5]) with mapi id 15.20.3742.012; Fri, 15 Jan 2021
- 12:19:56 +0000
-From: Anup Patel <anup.patel@wdc.com>
+ t=1610719442; x=1642255442;
+ h=from:to:cc:subject:date:message-id:mime-version:
+ content-transfer-encoding;
+ bh=TH8iSrL7xCkxmp5PN1zDvynqza+7czBw4Ewm2iWzaaU=;
+ b=JhPA3RROIJsWJYyRrQNkv42BSKcgZjbwXRo4wjpb/2G14eT3c03mR6f1
+ YBooS+ZmA+L+NRdlhyn/dv3hwHgtG35khCUb1KKEdmO3PaJ0qK2k09y1d
+ reYYJiptoNpIziHeTv66ndGmyAWhF1v2OEtKBLiIKDcSPa4uCXueknwf7
+ EmnsZ6AqCtCKVdHDNkltoyJ0xELj0nwOSUzYg3RIH1JuGF/b2cDYq6t9j
+ Dt4z70qGVUstZKHRiHKzlXJUIHd9J5nn/k8rwGCJQcwcWhb28nM4xWkQp
+ xpypfUWFH6qUBCnj2YOONHLHPWArVi1qdYQ8lIGuT5fCBLSz7D6CQIG4U Q==;
+IronPort-SDR: ruLFRi34feGzNsxKlwIDC46HeNC44KvwYfj4FVIowMu4OffxpPnwLcocih6B+0QV0i9lp4IOI6
+ PeQxUC6Z3+FaaNwwL+Ol1Lpwujj9E4Uz7aaNI4bEuxaEdjcyMacubpTf0kTcxoHmJSwD98dfDJ
+ wsDY6A++lFJ1nQQfEaushw9IuFlGNBFWn7bgV5ot0arMTNiS8daGZ+DeIGjDBVfwW38B5vASWr
+ 3eKBt8uMi5i/LI0MV5CvmzW6VJUdBvNO/0vfMtNRF+bMV7BM0FDPXBP5km8sVb2MS4xfhl2rGi
+ 2Rs=
+X-IronPort-AV: E=Sophos;i="5.79,349,1602518400"; d="scan'208";a="267835163"
+Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
+ ([199.255.45.14])
+ by ob1.hgst.iphmx.com with ESMTP; 15 Jan 2021 22:03:56 +0800
+IronPort-SDR: BGTH0lSkLNmETGOWzENGnBUbYhLV/hd2yR4xLoascjgNV2I28nXETxf2Ls1TTVoY84JHBKG7mB
+ kdLonDChd1zAQdQOFi5BBfaYviwy9VAJW42GEw9StL6gNvybuREYPV34oPRJd1w+LOxvnN4k4q
+ 2SsHMLo1A5YW/v0itRyAkdbDGXi9vgr8PWyaG4wk2ZahUI2sBQJHom45IE8W7gj21P3NmsxTUQ
+ kCjXbmXw55bY3yFJSmRUGnBAhTEFHmyeOS7BmmANpc/BQlAZZvDyXpDJAroyRsQkYyJLeBsupj
+ y9JX1aoZocRtNOBdNS80oFP7
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+ by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 15 Jan 2021 05:48:38 -0800
+IronPort-SDR: wYEii0/cQ1LbbbR5XKUeMcxdGzki3ac/kD3f7+1QJObekv/6rupRqxT8hOCGC9/N+n8wPlQ8NO
+ 7WGBIlmlOo9mZ5a6MI3o968yAmT5FgBN6ljgn1ubow0gus+dMqVAQRrGfP7cVPtq1CnI1FATkx
+ Vugzct6soXH2BLgYY8FwhfpK9U+gZ62ImeOfy5DeWcWxgTZZIYaeCkDBuNYAprt+0BmL6g46Ig
+ asCCtc0p8aGY/LH00EPu/Z3j9asdmWDgCQxLy7b1yNsQZeaUU2pPvtiELFB0S0vZwuqck7NGSe
+ aDs=
+WDCIronportException: Internal
+Received: from wdapacbjl0003.my.asia.wdc.com (HELO twashi.fujisawa.hgst.com)
+ ([10.84.70.177])
+ by uls-op-cesaip02.wdc.com with ESMTP; 15 Jan 2021 06:03:56 -0800
+From: Damien Le Moal <damien.lemoal@wdc.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Paolo Bonzini <pbonzini@redhat.com>
-Subject: [PATCH v16 08/17] RISC-V: KVM: Handle WFI exits for VCPU
-Date: Fri, 15 Jan 2021 17:48:37 +0530
-Message-Id: <20210115121846.114528-9-anup.patel@wdc.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20210115121846.114528-1-anup.patel@wdc.com>
-References: <20210115121846.114528-1-anup.patel@wdc.com>
-X-Originating-IP: [122.167.152.18]
-X-ClientProxiedBy: MAXPR0101CA0024.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a00:c::34) To DM6PR04MB6201.namprd04.prod.outlook.com
- (2603:10b6:5:127::32)
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v12 00/17] RISC-V Kendryte K210 support improvements
+Date: Fri, 15 Jan 2021 23:03:35 +0900
+Message-Id: <20210115140352.146941-1-damien.lemoal@wdc.com>
+X-Mailer: git-send-email 2.29.2
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-Received: from wdc.com (122.167.152.18) by
- MAXPR0101CA0024.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:c::34) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3763.10 via Frontend
- Transport; Fri, 15 Jan 2021 12:19:51 +0000
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-HT: Tenant
-X-MS-Office365-Filtering-Correlation-Id: 80313619-edf8-40a5-4219-08d8b94fdea8
-X-MS-TrafficTypeDiagnostic: DM5PR04MB3769:
-X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <DM5PR04MB3769E16A1FDB18206F6A6B068DA70@DM5PR04MB3769.namprd04.prod.outlook.com>
-WDCIPOUTBOUND: EOP-TRUE
-X-MS-Oob-TLC-OOBClassifiers: OLM:2887;
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: aMtHQSA2rmQkAmv8BYJW+aNCtrb4n0QARqPbdAc2Qz+oTEbNdAPstpdkfE02k2GZVpovARcWdlz7IwCuJZjFP8OvMZNau+EfUGqTQAC3gpdkEmgWoyvz3APgw4Z2Z5gzegnrrm4RrKfVWlOymHk4Hsq4tO7YPj45gpHyd8Fypld9u6tscB9Wf7OvUJjjEMxQQW+9hykvKB7YAfHVzYrAXxCWzjC2q2gGD9+nO6Vq2M0EjafkRW0WPsojjH3SmCyanqLg8pzllgJUn1jzOvEuZpXULp4x7jYRL3xW4ed/UmG0o5HXlvf/DC8i1D/djyLheNpHjhtlR7g5znd4buvVi966Rtvq53jQ9pqvrdOP9Q4ytLAHe2IxJjZFqjMv7e+1bB2Nbx8ZzmHK/Zfs3Jc6Hw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:DM6PR04MB6201.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(39860400002)(346002)(136003)(366004)(376002)(396003)(66476007)(6666004)(55016002)(7696005)(54906003)(66946007)(110136005)(956004)(5660300002)(2616005)(186003)(52116002)(44832011)(478600001)(66556008)(8936002)(26005)(86362001)(2906002)(83380400001)(7416002)(16526019)(8676002)(316002)(4326008)(36756003)(8886007)(1076003);
- DIR:OUT; SFP:1102; 
-X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?PdS73lM26eFYPV5yDjrY8JrEcjwjtrwB6L5vQKqwnmjcXHW6qZ8CWliI9oko?=
- =?us-ascii?Q?H12cRzO+VQb9GVB3nP0nqSk8fIyst1ngbswqWgsBaDzuV/Pg6wrIyRf8WloN?=
- =?us-ascii?Q?T5LBsgcyFFZvwrCO6LoZ459qxh0jWYd6fMxQDdvOZtqYCWqe1ejU0kYVvv9B?=
- =?us-ascii?Q?NKtgSngtZXzKbthN592APV1CZGJu8psA2IcM6R6jNjeQT12UcI5oG1GA9+Pa?=
- =?us-ascii?Q?lV0nw2bz5HY5fd/WSa8+Rm+TVtfNp6uPgJiv5NU2lcS9Yv8+/123JeiW+WQ8?=
- =?us-ascii?Q?g1cs34vRJNnZ3Uo5qRq3O5nQewnSjjfIyxTgmauqdkbkk6I5UczBdlyy8Cec?=
- =?us-ascii?Q?KsmqGHJOdiCMbeSknN8Jd0BnOqLvg17NmfuyoSPxuGRBqT6SP3Lnap2KIqlQ?=
- =?us-ascii?Q?c4P7X7ozhyL+asV+U/8V0cstjPfi9uVxHV3YwoSPI1jrzpWN/5/2grh987pm?=
- =?us-ascii?Q?EaKL01iDCpSDhsjY12sxsR1DDPqfr/mJ8pmYI7DvZBQFLvBhuCWOpHQM6MhP?=
- =?us-ascii?Q?weRkMAPYSNgPjgzYgAFCyYn96sjUoBpEL1CnB5JhR9x21jFJIQtvSCeQYP3O?=
- =?us-ascii?Q?GM+O2Qqx9lHc4j7/cHn2lk0micK4GuAyIpUBE+jg56/aRqx9H/4Teesutr/7?=
- =?us-ascii?Q?wSJc6vk/K5RM2eV945t44xl7cpR0GSeip/BKEHk2kIXAUY0jMKQBrWMFOS+z?=
- =?us-ascii?Q?QROIpgUnfwRToL2jT+lJt8OhSTFPSS4AzCJ97olClIcX4ssr55P+tywDHDsp?=
- =?us-ascii?Q?TiK7A6j/m6z8esNAoV8ft7I9VEMQ7zA8NS+Yjk4wXPvdbko/69YAEVD3B2vq?=
- =?us-ascii?Q?tPY6ShXzJ+xpRV9LgKpHz3S6erg6XYX8ZN6ZwuitlfzUj9dJnebTzfbfRnsx?=
- =?us-ascii?Q?tIdG9Fs8zDwgH4BH6Fa4c7ZUpiakCTnhOtiNL4E3tvLgEpGzJMgfb5YdeKPm?=
- =?us-ascii?Q?e0VuUzcFD/ts6VHwuu+IgZ0jUdpQ2VDa1awmEokrmUdVtkcUd6pj2V/VgPI9?=
- =?us-ascii?Q?DWOL?=
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 80313619-edf8-40a5-4219-08d8b94fdea8
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR04MB6201.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jan 2021 12:19:56.6156 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: BGNlsgI+bmklZIDssRh6sgSYPLjxKfGiCarAYnXj+AKzStC1XAei75MR3OB55cklJmGngmkNBDCd1XMlAB2/DA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM5PR04MB3769
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210115_072000_817884_6DEDFA6C 
-X-CRM114-Status: GOOD (  18.87  )
+X-CRM114-CacheID: sfid-20210115_090403_220361_A2CD7D16 
+X-CRM114-Status: GOOD (  23.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -162,134 +96,192 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Damien Le Moal <damien.lemoal@wdc.com>, kvm@vger.kernel.org,
- Anup Patel <anup@brainfault.org>, Anup Patel <anup.patel@wdc.com>,
- linux-kernel@vger.kernel.org, Atish Patra <atish.patra@wdc.com>,
- Alistair Francis <Alistair.Francis@wdc.com>, kvm-riscv@lists.infradead.org,
- Alexander Graf <graf@amazon.com>, linux-riscv@lists.infradead.org
+Cc: Sean Anderson <seanga2@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We get illegal instruction trap whenever Guest/VM executes WFI
-instruction.
+This series of patches improves support for boards based on the Canaan
+Kendryte K210 RISC-V dual core SoC. Minimal support for this SoC is
+already included in the kernel. These patches complete it, enabling
+support for most peripherals present on the SoC as well as introducing
+device trees for the various K210 boards available on the market today
+from SiPeed and Kendryte.
 
-This patch handles WFI trap by blocking the trapped VCPU using
-kvm_vcpu_block() API. The blocked VCPU will be automatically
-resumed whenever a VCPU interrupt is injected from user-space
-or from in-kernel IRQCHIP emulation.
+The patches here are the remaining patches not yet applied. Patch 1
+adds the SoC clock driver and patch 2 adds the pinctrl driver.
 
-Signed-off-by: Anup Patel <anup.patel@wdc.com>
-Acked-by: Paolo Bonzini <pbonzini@redhat.com>
-Reviewed-by: Paolo Bonzini <pbonzini@redhat.com>
----
- arch/riscv/kvm/vcpu_exit.c | 76 ++++++++++++++++++++++++++++++++++++++
- 1 file changed, 76 insertions(+)
+Patches 3 to 9 add and update device tree bindings documentation to
+document the K210 device tree files. In particular, patch 4 defines the
+compatible strings used for the SoC and for the K210 based boards
+supported.
 
-diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
-index cf99567955ad..bacad80686a2 100644
---- a/arch/riscv/kvm/vcpu_exit.c
-+++ b/arch/riscv/kvm/vcpu_exit.c
-@@ -12,6 +12,13 @@
- #include <linux/kvm_host.h>
- #include <asm/csr.h>
- 
-+#define INSN_OPCODE_MASK	0x007c
-+#define INSN_OPCODE_SHIFT	2
-+#define INSN_OPCODE_SYSTEM	28
-+
-+#define INSN_MASK_WFI		0xffffff00
-+#define INSN_MATCH_WFI		0x10500000
-+
- #define INSN_MATCH_LB		0x3
- #define INSN_MASK_LB		0x707f
- #define INSN_MATCH_LH		0x1003
-@@ -116,6 +123,71 @@
- 				 (s32)(((insn) >> 7) & 0x1f))
- #define MASK_FUNCT3		0x7000
- 
-+static int truly_illegal_insn(struct kvm_vcpu *vcpu,
-+			      struct kvm_run *run,
-+			      ulong insn)
-+{
-+	struct kvm_cpu_trap utrap = { 0 };
-+
-+	/* Redirect trap to Guest VCPU */
-+	utrap.sepc = vcpu->arch.guest_context.sepc;
-+	utrap.scause = EXC_INST_ILLEGAL;
-+	utrap.stval = insn;
-+	kvm_riscv_vcpu_trap_redirect(vcpu, &utrap);
-+
-+	return 1;
-+}
-+
-+static int system_opcode_insn(struct kvm_vcpu *vcpu,
-+			      struct kvm_run *run,
-+			      ulong insn)
-+{
-+	if ((insn & INSN_MASK_WFI) == INSN_MATCH_WFI) {
-+		vcpu->stat.wfi_exit_stat++;
-+		if (!kvm_arch_vcpu_runnable(vcpu)) {
-+			srcu_read_unlock(&vcpu->kvm->srcu, vcpu->arch.srcu_idx);
-+			kvm_vcpu_block(vcpu);
-+			vcpu->arch.srcu_idx = srcu_read_lock(&vcpu->kvm->srcu);
-+			kvm_clear_request(KVM_REQ_UNHALT, vcpu);
-+		}
-+		vcpu->arch.guest_context.sepc += INSN_LEN(insn);
-+		return 1;
-+	}
-+
-+	return truly_illegal_insn(vcpu, run, insn);
-+}
-+
-+static int virtual_inst_fault(struct kvm_vcpu *vcpu, struct kvm_run *run,
-+			      struct kvm_cpu_trap *trap)
-+{
-+	unsigned long insn = trap->stval;
-+	struct kvm_cpu_trap utrap = { 0 };
-+	struct kvm_cpu_context *ct;
-+
-+	if (unlikely(INSN_IS_16BIT(insn))) {
-+		if (insn == 0) {
-+			ct = &vcpu->arch.guest_context;
-+			insn = kvm_riscv_vcpu_unpriv_read(vcpu, true,
-+							  ct->sepc,
-+							  &utrap);
-+			if (utrap.scause) {
-+				utrap.sepc = ct->sepc;
-+				kvm_riscv_vcpu_trap_redirect(vcpu, &utrap);
-+				return 1;
-+			}
-+		}
-+		if (INSN_IS_16BIT(insn))
-+			return truly_illegal_insn(vcpu, run, insn);
-+	}
-+
-+	switch ((insn & INSN_OPCODE_MASK) >> INSN_OPCODE_SHIFT) {
-+	case INSN_OPCODE_SYSTEM:
-+		return system_opcode_insn(vcpu, run, insn);
-+	default:
-+		return truly_illegal_insn(vcpu, run, insn);
-+	}
-+}
-+
- static int emulate_load(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 			unsigned long fault_addr, unsigned long htinst)
- {
-@@ -596,6 +668,10 @@ int kvm_riscv_vcpu_exit(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 	ret = -EFAULT;
- 	run->exit_reason = KVM_EXIT_UNKNOWN;
- 	switch (trap->scause) {
-+	case EXC_VIRTUAL_INST_FAULT:
-+		if (vcpu->arch.guest_context.hstatus & HSTATUS_SPV)
-+			ret = virtual_inst_fault(vcpu, run, trap);
-+		break;
- 	case EXC_INST_GUEST_PAGE_FAULT:
- 	case EXC_LOAD_GUEST_PAGE_FAULT:
- 	case EXC_STORE_GUEST_PAGE_FAULT:
+Patches 10 to 15 update the existing K210 device tree and add new
+device tree files for several K210 based boards: MAIX Bit, MAIXDUINO,
+MAIX Dock and MAIX Go boards from SiPeed and the KD233 development
+board from Canaan.
+
+Finally the last two patches updates the k210 nommu defconfig to include
+the newly implemented drivers and provide a new default configuration
+file enabling SD card support.
+
+A lot of the work on the device tree and on the K210 drivers come from
+the work by Sean Anderson for the U-Boot project support of the K210
+SoC. Sean also helped with debugging many aspects of the K210 support.
+
+A tree with all patches applied is available here:
+https://github.com/damien-lemoal/linux, k210-sysctl-v25 branch.
+A demonstration of this series used on a SiPeed MAIX Dock
+board together with an I2C servo controller can be seen here:
+https://damien-lemoal.github.io/linux-robot-arm/#example
+
+This tree was used to build userspace busybox environment image that is
+then copied onto an SD card formatted with ext2:
+https://github.com/damien-lemoal/buildroot
+Of note is that running this userspace environment requires a revert of
+commit 2217b982624680d19a80ebb4600d05c8586c4f96 introduced during the
+5.9 development cycle. Without this revert, execution of the init
+process fails. A problem with the riscv port of elf2flt is suspected but
+not confirmed. I am now starting to investigate this problem.
+
+Reviews and comments are as always much welcome.
+
+Changes from v11:
+* Addressed Stephen's comment on the clock driver
+* Fixed and added device tree bindings yaml files and fixed the device
+  tree files to fix all warnings generated by make dtbs_check
+* Rebased on riscv tree fixes + latest riscv for-next branches.
+
+Changes from v10:
+* Rebased on riscv tree fixes+for-next branches. Patches already applied
+  to these branches were removed from this series.
+* Fixed the clock driver and pinctrl driver patch titles to indicate the
+  correct target sub-components.
+* Applied reviewed-by tags from Anup.
+
+Changes from v9:
+* Added patch 6 to avoid DTS compilation errors after patch 9 is
+  applied and until patch 16 is applied.
+
+Changes from v8:
+* Addressed Rob's comments on the sysctl driver bindings documentation
+* Fixed a typo in the fpios driver bindings documentation
+
+Changes from v7:
+* Removed the __init annotation for the drivers reset, pinctrl and
+  sysctl drivers probe functions as suggested by Geert. Also removed
+  the __refdata annotation for the struct platform_driver variables of
+  these drivers.
+
+Changes from v6:
+* Annotate struct platform_driver variables with __refdata to avoid
+  section mismatch compilation errors
+* Add empty sentinel entry to of_device_id tables of the sysctl, reset
+  and pinctrl drivers.
+
+Changes from v5:
+* Addressed Philipp's comment on the reset controller driver
+* Added patch 6 to reduce the size of the clock driver patch
+  (now patch 12).
+
+Changes from v4:
+* Simplified reset controller driver using of_xlate callback as
+  suggested by Philipp
+* Fixed compilation error when using other configs than one of the
+  nommu_k210 defconfigs.
+* Addressed most clock driver comments from Stephen.
+* Removed CONFIG_GPIO_SYSFS from defconfigs
+* Rebased on 5.10-rc7
+
+Changes from V3:
+* Add one entry per driver in MAINTAINERS file
+
+Changes from V2:
+* Add MAINTAINERS file entry for the SoC support, listing myself as
+  maintainer.
+* Removed use of postcore_initcall() for declaring the drivers, using
+  the regular builtin_platform_driver() instead.
+* Fixed fpio pinctrl driver bindings documentation as commented by
+  Geert: removed input-schmitt and added input-schmitt-disable, fixed
+  typo and added input-disable and output-disable.
+* Fixed device tree to have cs-gpios active low, as per the default, as
+  active high necessity was an artifact of the gpio level double
+  inversion bug fixed recently.
+* Removed CONFIG_VT from defconfigs to reduce the kernel image size as
+  suggested by Geert.
+
+Changes from v1:
+* Improved DT bindings documentation
+* SPI and GPIO patches removed from this series (and being processed
+  directly through the relevant subsystems directly)
+* Improved device trees
+* Various cleanup and improvments of the drivers
+
+Damien Le Moal (17):
+  clk: Add RISC-V Canaan Kendryte K210 clock driver
+  pinctrl: Add RISC-V Canaan Kendryte K210 FPIOA driver
+  dt-bindings: fix sifive plic compatible string
+  dt-bindings: add Canaan boards compatible strings
+  dt-bindings: fix sifive gpio properties
+  dt-bindings: add resets property to dw-apb-timer
+  dt-bindings: update risc-v cpu properties
+  dt-bindings: fix sifive clint compatible string
+  dt-bindings: update sifive serial
+  riscv: Update Canaan Kendryte K210 device tree
+  riscv: Add SiPeed MAIX BiT board device tree
+  riscv: Add SiPeed MAIX DOCK board device tree
+  riscv: Add SiPeed MAIX GO board device tree
+  riscv: Add SiPeed MAIXDUINO board device tree
+  riscv: Add Kendryte KD233 board device tree
+  riscv: Update Canaan Kendryte K210 defconfig
+  riscv: Add Canaan Kendryte K210 SD card defconfig
+
+ .../devicetree/bindings/gpio/sifive,gpio.yaml |   21 +-
+ .../sifive,plic-1.0.0.yaml                    |   10 +-
+ .../devicetree/bindings/riscv/canaan.yaml     |   47 +
+ .../devicetree/bindings/riscv/cpus.yaml       |    2 +
+ .../bindings/serial/sifive-serial.yaml        |    1 +
+ .../bindings/timer/sifive,clint.yaml          |    9 +-
+ .../bindings/timer/snps,dw-apb-timer.yaml     |    3 +
+ MAINTAINERS                                   |    8 +
+ arch/riscv/Kconfig.socs                       |    3 +-
+ arch/riscv/boot/dts/canaan/canaan_kd233.dts   |  177 +++
+ arch/riscv/boot/dts/canaan/k210.dts           |   23 -
+ arch/riscv/boot/dts/canaan/k210.dtsi          |  535 ++++++++-
+ arch/riscv/boot/dts/canaan/k210_generic.dts   |   46 +
+ .../riscv/boot/dts/canaan/sipeed_maix_bit.dts |  234 ++++
+ .../boot/dts/canaan/sipeed_maix_dock.dts      |  236 ++++
+ arch/riscv/boot/dts/canaan/sipeed_maix_go.dts |  244 ++++
+ .../boot/dts/canaan/sipeed_maixduino.dts      |  209 ++++
+ arch/riscv/configs/nommu_k210_defconfig       |   44 +-
+ .../riscv/configs/nommu_k210_sdcard_defconfig |   92 ++
+ drivers/clk/Kconfig                           |    8 +
+ drivers/clk/Makefile                          |    1 +
+ drivers/clk/clk-k210.c                        | 1012 +++++++++++++++++
+ drivers/pinctrl/Kconfig                       |   13 +
+ drivers/pinctrl/Makefile                      |    1 +
+ drivers/pinctrl/pinctrl-k210.c                |  985 ++++++++++++++++
+ drivers/soc/canaan/Kconfig                    |   18 +-
+ drivers/soc/canaan/Makefile                   |    2 +-
+ drivers/soc/canaan/k210-sysctl.c              |  205 +---
+ include/dt-bindings/clock/k210-clk.h          |    1 -
+ include/soc/canaan/k210-sysctl.h              |    2 +
+ 30 files changed, 3943 insertions(+), 249 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/riscv/canaan.yaml
+ create mode 100644 arch/riscv/boot/dts/canaan/canaan_kd233.dts
+ delete mode 100644 arch/riscv/boot/dts/canaan/k210.dts
+ create mode 100644 arch/riscv/boot/dts/canaan/k210_generic.dts
+ create mode 100644 arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts
+ create mode 100644 arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts
+ create mode 100644 arch/riscv/boot/dts/canaan/sipeed_maix_go.dts
+ create mode 100644 arch/riscv/boot/dts/canaan/sipeed_maixduino.dts
+ create mode 100644 arch/riscv/configs/nommu_k210_sdcard_defconfig
+ create mode 100644 drivers/clk/clk-k210.c
+ create mode 100644 drivers/pinctrl/pinctrl-k210.c
+
 -- 
-2.25.1
+2.29.2
 
 
 _______________________________________________
