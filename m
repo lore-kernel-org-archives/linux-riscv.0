@@ -2,64 +2,75 @@ Return-Path: <SRS0=fQ+v=GU=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0D6E6C433DB
-	for <linux-riscv@archiver.kernel.org>; Sun, 17 Jan 2021 04:59:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 89856C433DB
+	for <linux-riscv@archiver.kernel.org>; Sun, 17 Jan 2021 10:12:40 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8B6E622DBF
-	for <linux-riscv@archiver.kernel.org>; Sun, 17 Jan 2021 04:59:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8B6E622DBF
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
+	by mail.kernel.org (Postfix) with ESMTPS id 45B49206D6
+	for <linux-riscv@archiver.kernel.org>; Sun, 17 Jan 2021 10:12:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 45B49206D6
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=armlinux.org.uk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=apd57nPAJ1CKdSVZSz5AnJhEow/UhfTNVTY3pXH35E8=; b=tdOPAt+TMzOMX1GTNpWxQT+A+
-	rDdIE/tkvplR83+EaOL320FHXA+JNg7X75zPCUkEOV2pqolDQSzquVBe68EXsFEs3CctLwwQZjHkN
-	8pbPqoTjhAgG7eT914RPcnU4ucQ1C2XUchI5qndYv4826mTsRpcYG2Zy5E4z0RMgNJQyxfqQaEtoV
-	Jz6PfARotQ4OpvVvUcb5Iz52DNLAcCKOSU4+ae6vTt/oXqdS74mYn6U4rmzig83vzI8G8ga6ZuaF4
-	X0kEvLLUd6BhadHzlk5bhMnzpzKzJzVToDHwSsxYvXmfbPcYjoPiaS55yLXr9oF1MG5a1m2Q/7VNx
-	RWTxa1UOw==;
+	 bh=0LsXY6DtkTmo6yAtnD964OK74HDtKQY2faLc/Y2cOHo=; b=zgJ/eIqdC9LuOP9ebzPrGOmBz
+	O40TljyTyGcq8B09y5bt/gzukPrVfvrDYD3/Y4VaXWAa+EalMZ2tWbWkXXqO1Zyz7osOGqxyPsgQB
+	yBPODjBU/ZwLp2FASUdwwlPiZ34FTZ2w2oVJUYJya8JFFcYGQLBhcLXU+mXz7dk+Us3EpnDTTfyYy
+	vRT7L15GKY+KdDgBMcdr6SIhVdGOUeuVwEZ1QHQNt/elS0v1fXA3+8hL3ScD9f/QWDoCq8u3mhp0V
+	Uzi5cTljIOeLCI1O9YH0bPiYPYhRlol+m6oRI8CqK9637M7ZzisrnhPuNRUqopyoeO26z6ordlA3K
+	dQjChM7SA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l109Z-0000S8-42; Sun, 17 Jan 2021 04:59:05 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1l152i-0005yZ-6y; Sun, 17 Jan 2021 10:12:20 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l109V-0000QG-6E; Sun, 17 Jan 2021 04:59:02 +0000
-Received: from DGGEMS408-HUB.china.huawei.com (unknown [172.30.72.60])
- by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4DJN2j4k0lzj3fR;
- Sun, 17 Jan 2021 12:57:49 +0800 (CST)
-Received: from [10.174.177.244] (10.174.177.244) by
- DGGEMS408-HUB.china.huawei.com (10.3.19.208) with Microsoft SMTP Server id
- 14.3.498.0; Sun, 17 Jan 2021 12:58:52 +0800
-Subject: Re: [PATCH v3 3/4] ARM: Covert to reserve_initrd_mem()
-To: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, Russell King <rmk+kernel@armlinux.org.uk>, 
- <palmerdabbelt@google.com>, Atish Patra <atish.patra@wdc.com>
+ id 1l152b-0005XX-A7; Sun, 17 Jan 2021 10:12:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+ MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+ List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=ItbSYqJ0DbCe+J/gZUetRPMemBxEJIEpaxGcVk0SftY=; b=0mn8fckZlbhhwYm/aXkpvFTFQ
+ Q+sWZ4yWv44x8bHqyF14DtXaRL+AIyzCR5a92GsrwEDyr2z3jWULutPT9gVEZrAZOJ8gWAlSCAua/
+ 8TE20ZOXND/WTK+mqe4r1P9aprwhblsuHr0gtWFKCAJ2oyxKVFN8NxdLgemTQBFAhUsdg/T24i2Qi
+ rx/Ca8k8VkLqmN3ebW0dbwvr2kO1BQUAypZCOZ51rE66Hbq3kFPCTIY8vGH9HNJgpy4HwcfNABvbG
+ Oqgjs7qMzjrrIwrFgfjq3J4oAZMiOFUw82nTNUD86SRF9+Agh32/q2mqL6HUHsZ83r5tFLgtRyH8j
+ nlZ66ywfA==;
+Received: from shell.armlinux.org.uk
+ ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:49082)
+ by pandora.armlinux.org.uk with esmtpsa
+ (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
+ (envelope-from <linux@armlinux.org.uk>)
+ id 1l14zb-0005Mu-4k; Sun, 17 Jan 2021 10:09:07 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.92)
+ (envelope-from <linux@shell.armlinux.org.uk>)
+ id 1l14zY-0002tT-4x; Sun, 17 Jan 2021 10:09:04 +0000
+Date: Sun, 17 Jan 2021 10:09:04 +0000
+From: Russell King - ARM Linux admin <linux@armlinux.org.uk>
+To: Kefeng Wang <wangkefeng.wang@huawei.com>
+Subject: Re: [PATCH v3 0/4] initrd: Use unified initrd reserve function in
+ ARM/RISCV
+Message-ID: <20210117100903.GB1551@shell.armlinux.org.uk>
 References: <20210115054606.124502-1-wangkefeng.wang@huawei.com>
- <20210115054606.124502-4-wangkefeng.wang@huawei.com>
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
-Message-ID: <07838e5e-de03-8caf-6599-e516c35cc3c8@huawei.com>
-Date: Sun, 17 Jan 2021 12:58:52 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
- Thunderbird/60.7.0
+ <48c006a8-a352-488c-4981-768faffbe343@huawei.com>
 MIME-Version: 1.0
-In-Reply-To: <20210115054606.124502-4-wangkefeng.wang@huawei.com>
-Content-Language: en-US
-X-Originating-IP: [10.174.177.244]
-X-CFilter-Loop: Reflected
+Content-Disposition: inline
+In-Reply-To: <48c006a8-a352-488c-4981-768faffbe343@huawei.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210116_235901_574811_3FC351AC 
-X-CRM114-Status: GOOD (  18.09  )
+X-CRM114-CacheID: sfid-20210117_051213_369715_2311B46A 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -71,85 +82,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: guoren@kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>
+Cc: palmerdabbelt@google.com, linux-kernel@vger.kernel.org,
+ Atish Patra <atish.patra@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, guoren@kernel.org,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-update Russell's mail address.
+On Sun, Jan 17, 2021 at 12:57:55PM +0800, Kefeng Wang wrote:
+> Correct Russell's mail address (from linux@armlinux.org.uk to
+> rmk+kernel@armlinux.org.uk, should update the MAINTAINERS)
 
+No. MAINTAINERS is correct.
 
-On 2021/1/15 13:46, Kefeng Wang wrote:
-> Covert to the generic reserve_initrd_mem() function.
->
-> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
-> ---
->   arch/arm/mm/init.c | 43 +------------------------------------------
->   1 file changed, 1 insertion(+), 42 deletions(-)
->
-> diff --git a/arch/arm/mm/init.c b/arch/arm/mm/init.c
-> index 828a2561b229..a29e14cd626c 100644
-> --- a/arch/arm/mm/init.c
-> +++ b/arch/arm/mm/init.c
-> @@ -153,47 +153,6 @@ phys_addr_t __init arm_memblock_steal(phys_addr_t size, phys_addr_t align)
->   	return phys;
->   }
->   
-> -static void __init arm_initrd_init(void)
-> -{
-> -#ifdef CONFIG_BLK_DEV_INITRD
-> -	phys_addr_t start;
-> -	unsigned long size;
-> -
-> -	initrd_start = initrd_end = 0;
-> -
-> -	if (!phys_initrd_size)
-> -		return;
-> -
-> -	/*
-> -	 * Round the memory region to page boundaries as per free_initrd_mem()
-> -	 * This allows us to detect whether the pages overlapping the initrd
-> -	 * are in use, but more importantly, reserves the entire set of pages
-> -	 * as we don't want these pages allocated for other purposes.
-> -	 */
-> -	start = round_down(phys_initrd_start, PAGE_SIZE);
-> -	size = phys_initrd_size + (phys_initrd_start - start);
-> -	size = round_up(size, PAGE_SIZE);
-> -
-> -	if (!memblock_is_region_memory(start, size)) {
-> -		pr_err("INITRD: 0x%08llx+0x%08lx is not a memory region - disabling initrd\n",
-> -		       (u64)start, size);
-> -		return;
-> -	}
-> -
-> -	if (memblock_is_region_reserved(start, size)) {
-> -		pr_err("INITRD: 0x%08llx+0x%08lx overlaps in-use memory region - disabling initrd\n",
-> -		       (u64)start, size);
-> -		return;
-> -	}
-> -
-> -	memblock_reserve(start, size);
-> -
-> -	/* Now convert initrd to virtual addresses */
-> -	initrd_start = __phys_to_virt(phys_initrd_start);
-> -	initrd_end = initrd_start + phys_initrd_size;
-> -#endif
-> -}
-> -
->   #ifdef CONFIG_CPU_ICACHE_MISMATCH_WORKAROUND
->   void check_cpu_icache_size(int cpuid)
->   {
-> @@ -215,7 +174,7 @@ void __init arm_memblock_init(const struct machine_desc *mdesc)
->   	/* Register the kernel text, kernel data and initrd with memblock. */
->   	memblock_reserve(__pa(KERNEL_START), KERNEL_END - KERNEL_START);
->   
-> -	arm_initrd_init();
-> +	reserve_initrd_mem();
->   
->   	arm_mm_memblock_reserve();
->   
+> On 2021/1/15 13:46, Kefeng Wang wrote:
+> > Use the same implementation of initrd reserve to avoid duplication.
+> > 
+> > v3:
+> > - split into four patches, suggested-by Palmer Dabbelt
+> > v2:
+> > - fix build error found by kernel test robot
+> > 
+> > Kefeng Wang (4):
+> >    initrd: Add the preprocessor guard in initrd.h
+> >    initramfs: Provide a common initrd reserve function
+> >    ARM: Covert to reserve_initrd_mem()
+> >    riscv: Covert to reserve_initrd_mem()
+> > 
+> >   arch/arm/mm/init.c     | 43 +--------------------------------
+> >   arch/riscv/mm/init.c   | 54 +-----------------------------------------
+> >   include/linux/initrd.h | 11 +++++++++
+> >   init/initramfs.c       | 45 +++++++++++++++++++++++++++++++++++
+> >   4 files changed, 58 insertions(+), 95 deletions(-)
+> > 
+> 
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 40Mbps down 10Mbps up. Decent connectivity at last!
 
 _______________________________________________
 linux-riscv mailing list
