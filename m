@@ -2,20 +2,20 @@ Return-Path: <SRS0=XTRi=GV=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9C589C433DB
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Jan 2021 12:28:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 680A3C433E0
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Jan 2021 13:33:40 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 082E82225C
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Jan 2021 12:28:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 082E82225C
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
+	by mail.kernel.org (Postfix) with ESMTPS id 1260321D93
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Jan 2021 13:33:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1260321D93
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -23,52 +23,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=10OOtWEm0i2ZOqTnhkL8P19yT0Yq5H+TqBwo2ms9cHE=; b=BnAHTpv53vyWpC/auK1Etd8XU
-	dSJ6eoMdtZJepUtZdLYK/Gfcp90K1eegA+tga1wch9xsBTi1pnt9Rw+61VYxk4q85c6Bxk8xeH42b
-	CYslor8cD1LxlhJ1i2MaZ1TwkexCINQgaoMJSQq1u2Eho0F4r5ebVV9bC8SgLbhJx0Y1ctXoGscd2
-	3mYLH9KADAeRRQJfWrO7v9IaZtlG5LEuQV22JIyts3CgTv+VC6/XvvgXTwW3ohSB+uFNpaq6Ys72z
-	wwhvN5qp+NO40na/DRBCol5t1vEy1+3VjeYy/PbSPMFQtakTNjOG+Wg2xWJpbB7p8zF4r2EKCpe+E
-	MMfnfPQTw==;
+	 bh=bSU49YW8qPCbToscgFcM/r+KK2Wf7+8SPPMoOWsbXUA=; b=mU7Xegzr78EyuYC1rCCyYwwwG
+	p6GJqrBcrEvg4x1FA1ZblZfR6QugeidoSXrUQ+1xrxuy/oa8T4q+oJRgh5mdRd9kyS5G5Q1m64Rdn
+	RVKBUyk4s2yf6j5N4K7FuSZenAEVIyfIHixLfmIoY0ioCfA6yvOprd3bR+aDbZnSwsUGUb9aaVL0R
+	ix/gAhHCKHiF/p4tUPFPbXF3f8Rjfbh4v/Fo03qF3ab6ZGV6+zussFwTeN3RJBGsnXhX5zoIbqk6E
+	+mbMkhUxBKEd+EJxXVonw7xL1H848MKvuFbiwjnt3x/YWIwlRopDZO8szw0ZXC2wYO66lUptYeAkx
+	esjn5ydUg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l1TdM-0002dW-De; Mon, 18 Jan 2021 12:27:48 +0000
-Received: from mail-oi1-f172.google.com ([209.85.167.172])
+	id 1l1Uem-0001gr-LD; Mon, 18 Jan 2021 13:33:20 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l1TdI-0002cq-Nx
- for linux-riscv@lists.infradead.org; Mon, 18 Jan 2021 12:27:45 +0000
-Received: by mail-oi1-f172.google.com with SMTP id n186so9626865oia.5
- for <linux-riscv@lists.infradead.org>; Mon, 18 Jan 2021 04:27:44 -0800 (PST)
+ id 1l1Uek-0001g8-Pv
+ for linux-riscv@lists.infradead.org; Mon, 18 Jan 2021 13:33:19 +0000
+Received: by mail-ej1-x630.google.com with SMTP id g12so23710687ejf.8
+ for <linux-riscv@lists.infradead.org>; Mon, 18 Jan 2021 05:33:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=gpeJt4sFwqBjOrypvHBXhkahW36fR0StjLmTVgCtx60=;
+ b=hDXxDkcaKc7QNbc330eLBN3cb3dfHrC+IXPmlM/8Py/JhfIlPFAZxIQKSIbwuW2O4w
+ a4FAgystYnEPU62jeHwsnOV77tlhvsesS4V6/gTk1UUGjoefRmk6YImjixp6Gm8ukN/q
+ h/Fko+ulgHMj6nqJAQLttZlsIMRG5wHnR4IK1l8CiPiIJjzV9b+bYyVDaMnXnXYKv8nI
+ dAWjRidp+RY11T16qTQT/YCT5lPfKQZxSA3Emlc+gfCEzm4YQ7xRPsHHm5AXVRzLEnv+
+ jIOZL6EnGbxbglqq00WoMynZCsR3iGkc7vqsgiklk+8hOTbvVQ6P2wxYQBJ0rAa4UDTt
+ uoAw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=gaIQafbLKqUO8DmT84Dip1Hdgpm2ABLHEOu0dotUJU8=;
- b=bGRul/ylXF4jf0c7dn2G0VdLABzcIcNg1UyCokAAtCBOVjVir8l3QLL25FNC3V5ptY
- RMnRSOqAdvq+cQ6A0d75OelgcpI4+aaFNC0HcwWCOL6C0bk+MPC/fX8hK/NmDLIw9SlW
- ANFGQb7OCQrptKZnfXAtrWvtdQ5duvjF1/u11Llc1fol2yFbZEivv+kZp7hOYZCBBeJn
- T/c+E7fmmSMSCEaHSn1ugdqhZW5kh62IP4+1KboEXOw+l+Rr78fKraNEIYNzs/rIusks
- gEjNjz8ETMbnK4zf80kltUduP6Z1FtjEv87RaNQGYjK+EM0pGDTItcNRwXZGm9w2Krd1
- cp3g==
-X-Gm-Message-State: AOAM532us5jogyS6nFlWCUos/xVpbQiSzShFS7Y34fRHLOw/f4zMQk/q
- tHgh90EeDcRiEH5BaBjp34VpulCkkwB2z2muvKw=
-X-Google-Smtp-Source: ABdhPJz1GwiXU+qWm//9EYtjp1S5Xk44DKAOE51qMOGR9tXIV7MeqE7Ob/7JcwZKUurBwZ/zWL7Lg0u4zmzzhoyyCe0=
-X-Received: by 2002:aca:31d5:: with SMTP id x204mr5249304oix.153.1610972863647; 
- Mon, 18 Jan 2021 04:27:43 -0800 (PST)
+ bh=gpeJt4sFwqBjOrypvHBXhkahW36fR0StjLmTVgCtx60=;
+ b=HBTz31bOT3XE5tzgU1ZUvOIVnA02CRb6ewrIJ9mPu2Rzs6OgPopRuvOPgxJGQ8ZdCE
+ yVjk5upluaI0yugyOhKZgCFL7Zh58E6R1qT60lXTo5uUK+CqOnUSTtk/zlLbKeYR/KQG
+ cKwaBEI206WhW5B8ja4QDdoMTlsgo8rJ1ux3zErbhGWXyUhv7AWYyVXCMb2P/C4CffJI
+ MK7iAwXK+8rr8eEYdP0g1HqY7Oy92d4E+LVVkXij+B1Hb5A/YMmVuBgmdE9UXHLJTiVl
+ hK/pkq3RRawUOcBaUUYGJLPW5OckiV+LLTa2DZpNgCV5KYpJN9PyNN6txldeNFtW0/N7
+ 9J1Q==
+X-Gm-Message-State: AOAM533B0N/SZbXPiTq4hJuTM7u2OdFcik47NJItIiJmdzMEL+e9x4F3
+ 7YZJ4lL04DneQDA18jx74ntQl8Rmu3aQe16+vM6+MA==
+X-Google-Smtp-Source: ABdhPJwVX59jV33b/2juxlTLiEw7kRhKO1iEukLetuvO57JbX+1ydMf4Oy10iEUEc7vjhQI74tXtTpB5iSL87be58eE=
+X-Received: by 2002:a17:906:388b:: with SMTP id
+ q11mr4290515ejd.421.1610976797058; 
+ Mon, 18 Jan 2021 05:33:17 -0800 (PST)
 MIME-Version: 1.0
-References: <20210104164500.1311091-1-geert@linux-m68k.org>
- <CAMuHMdXG_B-3y1MWh64T6LU3Gmo6UQGGWU8EbLApjDeXVLL3GQ@mail.gmail.com>
- <20210114020311.GE2002709@lianli.shorne-pla.net>
- <CAMuHMdWnrPBAh_U43C7jA8wDvyAegqCM3OP++NkkiT1Co5yjkQ@mail.gmail.com>
- <20210118114331.GF2002709@lianli.shorne-pla.net>
-In-Reply-To: <20210118114331.GF2002709@lianli.shorne-pla.net>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 18 Jan 2021 13:27:32 +0100
-Message-ID: <CAMuHMdUxAEE2A=dyhdH5Tscin_=m_b61WfRpLvj6pJfdPjd1nA@mail.gmail.com>
-Subject: Re: [PATCH v2] drivers/soc/litex: Add restart handler
-To: Stafford Horne <shorne@gmail.com>
+References: <20210112010307.200310-1-damien.lemoal@wdc.com>
+In-Reply-To: <20210112010307.200310-1-damien.lemoal@wdc.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Mon, 18 Jan 2021 14:33:05 +0100
+Message-ID: <CACRpkdbTazK7yLPVe79SoneD+tdiXv9GPvN29dSMgCZkf8Pjbg@mail.gmail.com>
+Subject: Re: [PATCH v11 02/10] pinctrl: Add RISC-V Canaan Kendryte K210 FPIOA
+ driver
+To: Damien Le Moal <damien.lemoal@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210118_072745_147739_376865BC 
-X-CRM114-Status: GOOD (  21.73  )
+X-CRM114-CacheID: sfid-20210118_083319_002983_8D76E6A0 
+X-CRM114-Status: UNSURE (   5.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -80,67 +88,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Gabriel Somlo <gsomlo@gmail.com>,
+Cc: "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
  linux-riscv <linux-riscv@lists.infradead.org>,
- Mateusz Holenko <mholenko@antmicro.com>, Karol Gugala <kgugala@antmicro.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+ Palmer Dabbelt <palmer@dabbelt.com>, Sean Anderson <seanga2@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Stafford,
+Hi Damien,
 
-On Mon, Jan 18, 2021 at 12:43 PM Stafford Horne <shorne@gmail.com> wrote:
-> On Thu, Jan 14, 2021 at 02:48:49PM +0100, Geert Uytterhoeven wrote:
-> > On Thu, Jan 14, 2021 at 3:03 AM Stafford Horne <shorne@gmail.com> wrote:
-> > > On Mon, Jan 04, 2021 at 05:49:03PM +0100, Geert Uytterhoeven wrote:
-> > > > On Mon, Jan 4, 2021 at 5:45 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> > > > > Let the LiteX SoC Controller a register a restart handler, which resets
-> > > > > the LiteX SoC by writing 1 to CSR_CTRL_RESET_ADDR.
-> > > > >
-> > > > > Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
-> > > > > ---
-> > > > > Tested with linux-on-litex-vexriscv.
-> > > > >
-> > > > > This patch is based on upstream, i.e. not on top of Gabriel Somlo's
-> > > > > "[PATCH v5 0/4] drivers/soc/litex: support 32-bit subregisters, 64-bit
-> > > > > CPUs"
-> > > > > (https://lore.kernel.org/lkml/20201227161320.2194830-1-gsomlo@gmail.com/)
-> > > >
-> > > > Bummer, and that's why the RESET_REG_* definitions are no longer
-> > > > next to the SCRATCH_REG_* definitions :-(
-> > >
-> > > If it helps I have accepted Gabriel's patches and put them onto for-next.
-> > >
-> > >   https://github.com/openrisc/linux/commits/for-next
-> > >
-> > > I am happy to take and test a patch based on that.  Or I can do the adjustments
-> > > to base the patch on that myself.  Let me know.
-> >
-> > Thanks for letting me know! V3 sent.
->
-> Hi Geert,
->
-> I don't seem to see v3 anywhere.  Where did you send it and what is the subject?
+this looks all right to me.
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 
-https://lore.kernel.org/linux-riscv/20210114134813.2238587-1-geert@linux-m68k.org/
+Shall I apply just this one patch to the pinctrl tree?
 
-So "b4 am 20210114134813.2238587-1-geert@linux-m68k.org" should give you
-a copy.
+I think the line that touches arch/*/Kconfig should be dropped
+then, that better go to the SoC tree.
 
-Thanks!
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Yours,
+Linus Walleij
 
 _______________________________________________
 linux-riscv mailing list
