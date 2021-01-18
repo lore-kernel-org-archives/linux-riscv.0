@@ -2,76 +2,92 @@ Return-Path: <SRS0=XTRi=GV=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.7 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 224C3C433E0
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Jan 2021 19:59:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C4595C433DB
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Jan 2021 21:16:33 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B72CF22B49
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Jan 2021 19:59:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B72CF22B49
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 7C86222EBD
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Jan 2021 21:16:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7C86222EBD
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=mbc6NupKXebY6phm+/Se3Hc7QhwX8dI4rXEFr4PKX+4=; b=naC9Qfv8y1H+f7d5VZDYLghmC
-	PbXoruhsJISQbWOnYZP7MBWyFqoIQOMXd+cNM0kmsHJ+oqd1TwBtklEFGCw6P5Lqt1ek1KcD6huu8
-	jRlM5n/Y1HahawieuHXw61cyyFKqaboa/HTHE9khL4EBOlp8StVsjWEE5uY1+8D/MqFmsrU41CPht
-	gsrCg6e5HGlnb0xHVhm95k+0jr/e5erMYnUdEbudLIL7lYfVYHoemijbs0OnbAL0KDWQOFtsqnUm8
-	OJVOlTS1yqWT6KXyrO1Y+nTJ8fot0YyFwc4ER2CemMn8wGwicXsdlXlMiWOP1S6tYs4tp9saf+iWK
-	duRgMVRQQ==;
+	 bh=rDJeXa6yd5CnPXTNyv9r0tLk7zhpC11cjUNCtRWW79A=; b=KAo1YwiT7Lij8atA28SSDMTav
+	bEUxmjiyKzBGaEXypXnq2iavfUz1q9oxPbTWg2rhHsolF5WjyMJvlrVQY/laUIV03jmqfJXBnPn+O
+	5oi4XgNrJQmjZ9b+E0RdUIaBU7nEDndQf/8vvg8Ehq1f4DoWTS/1fGAI/sRIJswviLgdv2T/cEH3t
+	zg/PEaeaVMYrTPsFrW3PUXfwZuLvpOuiYQWMMGCehg7dvmT4yPh2/Qp6MtjUki7p+a7b96kssTBxK
+	8dTVtrqVyt3A9DhCgRsGBl7/Hm0CJF2C3kXdyuJaQ85jNTBblzPzt/BB9dRegwyM2ER+QRDLqhOQC
+	eKYpQt2KA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l1agB-0008Fm-PW; Mon, 18 Jan 2021 19:59:11 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1l1bsb-0004oR-8L; Mon, 18 Jan 2021 21:16:05 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l1ag8-0008FR-T4
- for linux-riscv@lists.infradead.org; Mon, 18 Jan 2021 19:59:10 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id AA28922D5B
- for <linux-riscv@lists.infradead.org>; Mon, 18 Jan 2021 19:59:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1610999947;
- bh=RCF30Vg+Wet2xG0r5EVf+JhKfFllDWby8xnGyCy3/os=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=tb+LhWWVVm/CDSo5AOmq2nZBXXcERQnH6IFdRuOpDu/Hvo/Ry1txTMD23JffiNC2S
- ySl4dNCXQjXcuepatqXeakayxAabZzFOJce6/nKB+XLG7FIS3cpIGnzBqaRKWDFm5g
- SPY7Gj3RUDwl949l/coONnPhriIPEzHF5Taco5p1zg2jEq244dKlYB6g852yuG9m2g
- b/WDzqbIbiIR1tzmWYcMqXJQZWU42/BzhQdtIUZz3rGo7XOEucliupkF5pHBq1VLxq
- RujirAW0DaXDrQ7mInJLCYYvKgkd/cNFkpkKTq4zEFERZcx2KTy5MzaFzUcCOUCL/E
- eBczurIhN7N5Q==
-Received: by mail-oo1-f54.google.com with SMTP id x203so4371320ooa.9
- for <linux-riscv@lists.infradead.org>; Mon, 18 Jan 2021 11:59:07 -0800 (PST)
-X-Gm-Message-State: AOAM531S1p4C025cZwhoaU+rVpPm0jDsy2/kiedVPFYAVHoTyZjmTmVV
- 82mtXosm69r3uLd1nTBaiv+Pb2vvabJ9CQB12Z4=
-X-Google-Smtp-Source: ABdhPJzZtNhOIcSnPc2C9uk4dCBsiSFAZW0suvVs39FcXLlFxO1IdYB5x2Ivodp8tsQXHrAXohEfi6f9S0TSFB1J1ic=
-X-Received: by 2002:a4a:9c01:: with SMTP id y1mr527885ooj.15.1610999946950;
- Mon, 18 Jan 2021 11:59:06 -0800 (PST)
+ id 1l1bsX-0004na-Ph
+ for linux-riscv@lists.infradead.org; Mon, 18 Jan 2021 21:16:02 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id p15so10264055pjv.3
+ for <linux-riscv@lists.infradead.org>; Mon, 18 Jan 2021 13:15:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=n6ccMeFbQ5o+gz4ZLG3v85J3POpNhHyS8cqYFbBY9Nw=;
+ b=Okf4zD4ZvjiKYhpxXhqvo/q91mDIgDpEHaknqMjRYq1Tj9eADuXtzDZk5pnS5f3Zho
+ Uz68jsEh3R4KogqWJLEyahcGkTlCvOV48aUER2+r3FYHhsVqRMQIJQV5PtE5OQsFaNEO
+ 7WYGMCe+NER8LcHV3UGe+Mx0sGkfGq0sA8ct+ITT2MfSk6QT27Uuu49rxlUWTomZC7V4
+ 1bpIzqUBl72XiW+F7lUO9+0Wx8pSjOdbZ2YWIQN+EsPROjqscc5+9nfZ1aAoI/gvQjgM
+ j5FZA7vJXIxDMKVeTk99MIpNJyI5fLHi3MHpnOlz76BHZF6PbjuFxJQxNnMhL5NZcz5x
+ FMaw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=n6ccMeFbQ5o+gz4ZLG3v85J3POpNhHyS8cqYFbBY9Nw=;
+ b=Rjed8n+qcOvTxm3fQhZ8ET2T55b0QMjol7lH3HXWiOaWRUQNRimAt5sgcj+1JTQUd4
+ eekpMtFjGTKxYQVNA2deezpt87Mag0DdlIQ9Imb1Eczdn/DTjJKWAEL0ZT19qSyauaB/
+ aUHWf1zCyUCkI2NfScT2yxtFJN1/2ERIjcGqO/EtoLz5lcyZg9Chp1OQNygsDV1yw7wX
+ J1pwXK0QUp5eyn0EtgB53s7R8jyfiOuDmbk92GKfPtfzH99RNSVPrhXcqtUnGTgJFQYT
+ SW9xsYv4m2S4rCCEHdXOaIyuzCSUWsyzEC/SqOQAteTTeqOnyjI7k/6KrgMYb/VPq6Vq
+ z1xQ==
+X-Gm-Message-State: AOAM5319JCz6HVo+u8w3yeIXyx1ALsgwUHPtQuOso4arsPlYU7heeyMP
+ TSUe7qQNsy+K13eHsJzcRWo=
+X-Google-Smtp-Source: ABdhPJwr7otRnwzmlhyKKc7fxrw9vPkypltSjfr/FJoMTsNeIkowL9MfQnTdO/GY8z8Orr5F5OxWAg==
+X-Received: by 2002:a17:902:7149:b029:db:a6de:4965 with SMTP id
+ u9-20020a1709027149b02900dba6de4965mr1324421plm.3.1611004557389; 
+ Mon, 18 Jan 2021 13:15:57 -0800 (PST)
+Received: from localhost (g238.115-65-210.ppp.wakwak.ne.jp. [115.65.210.238])
+ by smtp.gmail.com with ESMTPSA id
+ i62sm10487833pfc.150.2021.01.18.13.15.56
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 18 Jan 2021 13:15:56 -0800 (PST)
+Date: Tue, 19 Jan 2021 06:15:54 +0900
+From: Stafford Horne <shorne@gmail.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Subject: Re: [PATCH v2] drivers/soc/litex: Add restart handler
+Message-ID: <20210118211554.GH2002709@lianli.shorne-pla.net>
+References: <20210104164500.1311091-1-geert@linux-m68k.org>
+ <CAMuHMdXG_B-3y1MWh64T6LU3Gmo6UQGGWU8EbLApjDeXVLL3GQ@mail.gmail.com>
+ <20210114020311.GE2002709@lianli.shorne-pla.net>
+ <CAMuHMdWnrPBAh_U43C7jA8wDvyAegqCM3OP++NkkiT1Co5yjkQ@mail.gmail.com>
+ <20210118114331.GF2002709@lianli.shorne-pla.net>
+ <CAMuHMdUxAEE2A=dyhdH5Tscin_=m_b61WfRpLvj6pJfdPjd1nA@mail.gmail.com>
 MIME-Version: 1.0
-References: <CAK8P3a0dJnKiX5minsUNdAcNnxPvZkyK363f1ibj_x0L2MQiPQ@mail.gmail.com>
- <YAVynNqAwBt5GzQT@ingrassia.epigenesys.com>
- <CAK8P3a33i2r0xx==3hTW32pc_Sm33EMDXYAS4PtEaEV8DX4s_A@mail.gmail.com>
- <YAWaQVBM84CaY1B2@ingrassia.epigenesys.com>
- <YAWg6KQt6hAtIR6O@ingrassia.epigenesys.com>
- <CAK8P3a3Vc4wrLvrfwkHd6HCMohk07Yi6P_jKaC_5AybCMBNjPA@mail.gmail.com>
- <YAWqS9YZ0rpXPoSN@ingrassia.epigenesys.com>
-In-Reply-To: <YAWqS9YZ0rpXPoSN@ingrassia.epigenesys.com>
-From: Arnd Bergmann <arnd@kernel.org>
-Date: Mon, 18 Jan 2021 20:58:50 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a31ssD+FS1tAUxVHzrtUz-L9=mYCbv=ShEMci_bDdiTAg@mail.gmail.com>
-Message-ID: <CAK8P3a31ssD+FS1tAUxVHzrtUz-L9=mYCbv=ShEMci_bDdiTAg@mail.gmail.com>
-Subject: Re: perf tools build broken for RISCV 32 bit
-To: Emiliano Ingrassia <ingrassia@epigenesys.com>
+Content-Disposition: inline
+In-Reply-To: <CAMuHMdUxAEE2A=dyhdH5Tscin_=m_b61WfRpLvj6pJfdPjd1nA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210118_145909_260412_3C1CB352 
-X-CRM114-Status: GOOD (  23.27  )
+X-CRM114-CacheID: sfid-20210118_161602_087889_B37FFAC4 
+X-CRM114-Status: GOOD (  25.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -83,117 +99,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "linux-perf-users@vger.kernel.org" <linux-perf-users@vger.kernel.org>,
- Albert Ou <aou@eecs.berkeley.edu>, Bruce Ashfield <bruce.ashfield@gmail.com>,
- Khem Raj <raj.khem@gmail.com>, Arnaldo Carvalho de Melo <acme@redhat.com>,
- Richard Purdie <richard.purdie@linuxfoundation.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Jiri Olsa <jolsa@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Namhyung Kim <namhyung@kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>
+Cc: Gabriel Somlo <gsomlo@gmail.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Mateusz Holenko <mholenko@antmicro.com>, Karol Gugala <kgugala@antmicro.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 18, 2021 at 4:33 PM Emiliano Ingrassia
-<ingrassia@epigenesys.com> wrote:
-> On Mon, Jan 18, 2021 at 04:19:47PM +0100, Arnd Bergmann wrote:
-> > On Mon, Jan 18, 2021 at 3:53 PM Emiliano Ingrassia <ingrassia@epigenesys.com> wrote:
+On Mon, Jan 18, 2021 at 01:27:32PM +0100, Geert Uytterhoeven wrote:
+> Hi Stafford,
+> 
+> On Mon, Jan 18, 2021 at 12:43 PM Stafford Horne <shorne@gmail.com> wrote:
+> > On Thu, Jan 14, 2021 at 02:48:49PM +0100, Geert Uytterhoeven wrote:
+> > > On Thu, Jan 14, 2021 at 3:03 AM Stafford Horne <shorne@gmail.com> wrote:
+> > > > On Mon, Jan 04, 2021 at 05:49:03PM +0100, Geert Uytterhoeven wrote:
+> > > > > On Mon, Jan 4, 2021 at 5:45 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> > > > > > Let the LiteX SoC Controller a register a restart handler, which resets
+
+I think there is a typo here:
+
+  Let the LiteX SoC Controller a register a restart ...
+
+should remove the first 'a' and say
+
+ Let the LiteX SoC Controller register a restart ...
+
+> > > > > > the LiteX SoC by writing 1 to CSR_CTRL_RESET_ADDR.
+> > > > > >
+> > > > > > Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
+> > > > > > ---
+> > > > > > Tested with linux-on-litex-vexriscv.
+> > > > > >
+> > > > > > This patch is based on upstream, i.e. not on top of Gabriel Somlo's
+> > > > > > "[PATCH v5 0/4] drivers/soc/litex: support 32-bit subregisters, 64-bit
+> > > > > > CPUs"
+> > > > > > (https://lore.kernel.org/lkml/20201227161320.2194830-1-gsomlo@gmail.com/)
+> > > > >
+> > > > > Bummer, and that's why the RESET_REG_* definitions are no longer
+> > > > > next to the SCRATCH_REG_* definitions :-(
+> > > >
+> > > > If it helps I have accepted Gabriel's patches and put them onto for-next.
+> > > >
+> > > >   https://github.com/openrisc/linux/commits/for-next
+> > > >
+> > > > I am happy to take and test a patch based on that.  Or I can do the adjustments
+> > > > to base the patch on that myself.  Let me know.
 > > >
-> > > Hi,
-> > >
-> > > after some searching I found this patch from Yocto project:
-> > >
-> > > https://www.mail-archive.com/linux-yocto@lists.yoctoproject.org/msg01004.html.
-> > >
-> > > I don't know if it's ever been proposed as mainline patch.
-> > >
-> > > What do you think about it? Could it be the right solution?
+> > > Thanks for letting me know! V3 sent.
 > >
-> > No. While this makes it work on rv32, it does not fix it in a
-> > way that makes it work on other architectures with a time64
-> > libc. If you fix it, please do it in a way that works on all architectures.
->
-> Ok, I totally agree with you on this point.
->
-> So, it is right to conclude that the problem is not in perf
-> implementation but in the libc implementation?
-> That is, for example, glibc should define SYS_futex as SYS_futex_time64
-> in case of riscv 32 bit because of its support to 64 bit time_t?
+> > Hi Geert,
+> >
+> > I don't seem to see v3 anywhere.  Where did you send it and what is the subject?
+> 
+> https://lore.kernel.org/linux-riscv/20210114134813.2238587-1-geert@linux-m68k.org/
+> 
+> So "b4 am 20210114134813.2238587-1-geert@linux-m68k.org" should give you
+> a copy.
 
-Actually, there might be a somewhat less ugly workaround, if we decide
-to put a correct wrapper into the exported kernel headers, e.g. adding
-something along these lines to include/uapi/linux/futex.h or a new header
-from the kernel:
+Thanks I got it, I am not sure why it does not show up in my inbox anywhere,
+sometimes gmail drops mails.  Hence, I am replying here.
 
-#ifndef __KERNEL__
-#include <linux/futex.h>
-#include <linux/time_types.h>
-#include <asm/unistd.h>
-#include <sys/time.h>
-#include <unistd.h>
-#include <errno.h>
+As per the typo above I can fix during applying or you could send during a v4.
 
-#define __kernel_futex __kernel_futex
-typedef union __attribute__ ((__transparent_union__)) {
-       const struct timespec *timeout;
-       unsigned int intval;
-} __kernel_futex_union;
+One more small nit is that you move soc_ctrl_dev out to a static instance it
+might help to mention.  But it's easy to see why.
 
-struct __kernel_old_timespec {
-       __kernel_time_t tv_sec;                 /* seconds */
-       long            tv_nsec;                /* nanoseconds */
-};
-
-static inline int __kernel_futex(int *uaddr, int op, int val,
-                                 __kernel_futex_union val2,
-                                 unsigned *uaddr2, int val3)
-{
-        int cmd = op & FUTEX_CMD_MASK;
-        int ret = -ENOSYS;
-#ifdef __NR_futex64
-        {
-                if (((cmd != FUTEX_WAIT) && (cmd != FUTEX_WAIT_BITSET)) ||
-                    (sizeof(time_t) == sizeof(__u64))) {
-                        ret = syscall(__NR_futex64, uaddr, op, val,
-                                      val2.timeout, uaddr2, val3);
-                }
-
-                if (ret != -ENOSYS && ret != -EPERM)
-                        return ret;
-        }
-#endif
-#ifdef __NR_futex
-        {
-                if (((cmd != FUTEX_WAIT) && (cmd != FUTEX_WAIT_BITSET)) ||
-                    sizeof(time_t) == sizeof(__kernel_long_t)) {
-                        ret = syscall(__NR_futex, uaddr, op, val,
-                                       val2.timeout, uaddr2, val3);
-                } else {
-                        struct __kernel_old_timespec oldtimeout = {
-                                .tv_sec  = val2.timeout->tv_sec,
-                                .tv_nsec = val2.timeout->tv_nsec,
-                        };
-                        ret = syscall(__NR_futex, uaddr, op, val,
-                                      &oldtimeout, uaddr2, val3);
-                }
-        }
-#endif
-        return ret;
-}
-#endif /* __KERNEL__
-
-With this, applications can be changed to define their own
-
-#ifdef __kernel_futex
-#define futex(uaddr, futex_op, val, val2, uaddr2, val3) \
-      __kernel_futex(uaddr, futex_op, val, val2, uaddr2, val3)
-#else
-#define futex(uaddr, futex_op, val, val2, uaddr2, val3) \
-       syscall(__NR_futex, uaddr, futex_op, val, val2, uaddr2, val3)
-#endif
-
-         Arnd
+-Stafford
 
 _______________________________________________
 linux-riscv mailing list
