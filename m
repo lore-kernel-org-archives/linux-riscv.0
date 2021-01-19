@@ -2,76 +2,62 @@ Return-Path: <SRS0=fDxE=GW=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS autolearn=ham
-	autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 20331C433DB
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Jan 2021 07:59:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D785CC433E0
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Jan 2021 08:10:18 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 51DFC20773
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Jan 2021 07:59:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 51DFC20773
+	by mail.kernel.org (Postfix) with ESMTPS id 3338020878
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Jan 2021 08:10:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3338020878
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=J3sdLuIj9k/teXGKRJnnXHI7ztk0lFmuXgN0qFTYgwY=; b=M9eMlVGCtNB2RfKubyIMUd1z0
-	l/JkOuG2J9nJcaOBcQ6Mt/IniOGlBmsn1kHgN2kRLheNOsIlNChRmC6CXs1Z55yX8J38NMT665R5Z
-	gwgzCGdOLBMRZHQrZsYqzVleEhVWXD/D1MTTYxA+qkTyQNDDI4+gOlfUO99jHPODKRVbXlC8HMlE8
-	ih5siNDpuQDXd9eGKgqfABYHyjOwtaxJty5Acbro/VnrBisGzZP/mjaDGOuAzhuPKVMJ/7Yw+9d4g
-	wS9FK2ha1G4Q55qhXp0E/MSH9AcVsTG8p8rBeSP+50/Dwbe54uzscLbnyzGq9AIRi46/OXrDOMAxV
-	uorCYpbNw==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=49N2zrNSEU8KebhGYE8GU8lIHu+PMn+AixG6Yjph9iM=; b=jMDrvsslI2uxvydLkdFQPjG21l
+	d9HRFkC+E5nWIKXaCSnW1nh+8bsmRdeyg5hQDWVQ14ZWpKIXWvPTp0L0jF6X4iXwSf8/rrkq5woSH
+	/vQKSJokVhC6ID4PkDVS4pAp+geKerdsWzjPPZEhQ8XAfu3FwvFzFYMOoUBdGpQcZQ+ZpmTTHgYGF
+	VPPxOOQ8KAajOdN6I1zrZA3A+hRZT6PDS0XjWfyRRNMN6nVrWI7AJcd4AaymxK3aNaAxI4mcdAogK
+	THF42W3TeG0Y7yxZtsBRZhRCuXqmEFGiAtEeUxr2LHbERWS60jVl18z/Awh5y0I3ujbkkzgKrZMZq
+	+o5vV/2A==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l1lv3-00083v-Pd; Tue, 19 Jan 2021 07:59:17 +0000
-Received: from mail-ot1-f50.google.com ([209.85.210.50])
+	id 1l1m5J-0000Rs-NK; Tue, 19 Jan 2021 08:09:53 +0000
+Received: from xavier.telenet-ops.be ([2a02:1800:120:4::f00:14])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l1lv1-00083Y-Ho
- for linux-riscv@lists.infradead.org; Tue, 19 Jan 2021 07:59:17 +0000
-Received: by mail-ot1-f50.google.com with SMTP id v21so1181388otj.3
- for <linux-riscv@lists.infradead.org>; Mon, 18 Jan 2021 23:59:14 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=50LoqJ0vcbBGTat2MdC306m45dAPIXcmM7OGo1AqWqQ=;
- b=ILKHre0ibsdHq1b63dm1FWKmjKAYAZ28w6Kc1KJbMSB8OR0ZqH2MBG8RZDpr+7E9of
- SaiWk030eBUCIRIx3dlrWCYPZy1IK27FdhVN/Tbl5MzfhOjXgLo1S44pIOFG4lVbcx/U
- 1gP25nsFY2jvv0JAW2F5sFZEOd+YMxzUv6ZIOHQK6zISFC6Ky/jf6Lk5Z4RCFg5WmP5Y
- 3t2p2O9R3ltfQWaE+Mu3jye4GCl6GyknAPCd3pAzRs0kSsEHnZGf+LpgSK11tQ5lbnZX
- Izck/k1uQfA++b/+pawkQ226VJoCN5AwdN58cirJh26H3QOWjD4IyGbCJ5iOCurOGyzT
- 7k0Q==
-X-Gm-Message-State: AOAM531mgk9MYmv4nicMd9u5YPHsg8cmPEfc9LwOVJV78S49C8FhBlnp
- OXQyMbVnZa8YokbStqs/eULoe0kQBK2PppIHPTY=
-X-Google-Smtp-Source: ABdhPJz/WliAIvO0lI5a1zlFdgSSgBDzpNZaaOdrNvaOBvgBhtPOxwVGjna9pxcuoaXmPPw3jpupDfNrku6M8CJ0b7Q=
-X-Received: by 2002:a05:6830:1f5a:: with SMTP id
- u26mr2586166oth.250.1611043153659; 
- Mon, 18 Jan 2021 23:59:13 -0800 (PST)
-MIME-Version: 1.0
-References: <20210104164500.1311091-1-geert@linux-m68k.org>
- <CAMuHMdXG_B-3y1MWh64T6LU3Gmo6UQGGWU8EbLApjDeXVLL3GQ@mail.gmail.com>
- <20210114020311.GE2002709@lianli.shorne-pla.net>
- <CAMuHMdWnrPBAh_U43C7jA8wDvyAegqCM3OP++NkkiT1Co5yjkQ@mail.gmail.com>
- <20210118114331.GF2002709@lianli.shorne-pla.net>
- <CAMuHMdUxAEE2A=dyhdH5Tscin_=m_b61WfRpLvj6pJfdPjd1nA@mail.gmail.com>
- <20210118211554.GH2002709@lianli.shorne-pla.net>
-In-Reply-To: <20210118211554.GH2002709@lianli.shorne-pla.net>
+ id 1l1m5H-0000RG-Dp
+ for linux-riscv@lists.infradead.org; Tue, 19 Jan 2021 08:09:52 +0000
+Received: from ramsan.of.borg ([84.195.186.194])
+ by xavier.telenet-ops.be with bizsmtp
+ id JY9g2400H4C55Sk01Y9gdg; Tue, 19 Jan 2021 09:09:43 +0100
+Received: from rox.of.borg ([192.168.97.57])
+ by ramsan.of.borg with esmtps (TLS1.3) tls
+ TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
+ (envelope-from <geert@linux-m68k.org>)
+ id 1l1m56-004oHH-3o; Tue, 19 Jan 2021 09:09:40 +0100
+Received: from geert by rox.of.borg with local (Exim 4.93)
+ (envelope-from <geert@linux-m68k.org>)
+ id 1l1m55-007gn0-Dl; Tue, 19 Jan 2021 09:09:39 +0100
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 19 Jan 2021 08:59:02 +0100
-Message-ID: <CAMuHMdU4AyL=tWU5p5rZOGBet1BtpG3H2mnwcO0du29-dmK34w@mail.gmail.com>
-Subject: Re: [PATCH v2] drivers/soc/litex: Add restart handler
-To: Stafford Horne <shorne@gmail.com>
+To: Stafford Horne <shorne@gmail.com>, Karol Gugala <kgugala@antmicro.com>,
+ Mateusz Holenko <mholenko@antmicro.com>
+Subject: [PATCH v4] drivers/soc/litex: Add restart handler
+Date: Tue, 19 Jan 2021 09:09:38 +0100
+Message-Id: <20210119080938.1832733-1-geert@linux-m68k.org>
+X-Mailer: git-send-email 2.25.1
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210119_025915_603200_3B44D0F5 
-X-CRM114-Status: GOOD (  27.90  )
+X-CRM114-CacheID: sfid-20210119_030951_586863_3BD6FC30 
+X-CRM114-Status: GOOD (  15.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -83,90 +69,123 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Gabriel Somlo <gsomlo@gmail.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Mateusz Holenko <mholenko@antmicro.com>, Karol Gugala <kgugala@antmicro.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Cc: Gabriel Somlo <gsomlo@gmail.com>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Stafford,
+Let the LiteX SoC Controller register a restart handler, which resets
+the LiteX SoC by writing 1 to CSR_CTRL_RESET_ADDR.
 
-On Mon, Jan 18, 2021 at 10:16 PM Stafford Horne <shorne@gmail.com> wrote:
-> On Mon, Jan 18, 2021 at 01:27:32PM +0100, Geert Uytterhoeven wrote:
-> > On Mon, Jan 18, 2021 at 12:43 PM Stafford Horne <shorne@gmail.com> wrote:
-> > > On Thu, Jan 14, 2021 at 02:48:49PM +0100, Geert Uytterhoeven wrote:
-> > > > On Thu, Jan 14, 2021 at 3:03 AM Stafford Horne <shorne@gmail.com> wrote:
-> > > > > On Mon, Jan 04, 2021 at 05:49:03PM +0100, Geert Uytterhoeven wrote:
-> > > > > > On Mon, Jan 4, 2021 at 5:45 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> > > > > > > Let the LiteX SoC Controller a register a restart handler, which resets
->
-> I think there is a typo here:
->
->   Let the LiteX SoC Controller a register a restart ...
->
-> should remove the first 'a' and say
->
->  Let the LiteX SoC Controller register a restart ...
->
-> > > > > > > the LiteX SoC by writing 1 to CSR_CTRL_RESET_ADDR.
-> > > > > > >
-> > > > > > > Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
-> > > > > > > ---
-> > > > > > > Tested with linux-on-litex-vexriscv.
-> > > > > > >
-> > > > > > > This patch is based on upstream, i.e. not on top of Gabriel Somlo's
-> > > > > > > "[PATCH v5 0/4] drivers/soc/litex: support 32-bit subregisters, 64-bit
-> > > > > > > CPUs"
-> > > > > > > (https://lore.kernel.org/lkml/20201227161320.2194830-1-gsomlo@gmail.com/)
-> > > > > >
-> > > > > > Bummer, and that's why the RESET_REG_* definitions are no longer
-> > > > > > next to the SCRATCH_REG_* definitions :-(
-> > > > >
-> > > > > If it helps I have accepted Gabriel's patches and put them onto for-next.
-> > > > >
-> > > > >   https://github.com/openrisc/linux/commits/for-next
-> > > > >
-> > > > > I am happy to take and test a patch based on that.  Or I can do the adjustments
-> > > > > to base the patch on that myself.  Let me know.
-> > > >
-> > > > Thanks for letting me know! V3 sent.
-> > >
-> > > Hi Geert,
-> > >
-> > > I don't seem to see v3 anywhere.  Where did you send it and what is the subject?
-> >
-> > https://lore.kernel.org/linux-riscv/20210114134813.2238587-1-geert@linux-m68k.org/
-> >
-> > So "b4 am 20210114134813.2238587-1-geert@linux-m68k.org" should give you
-> > a copy.
->
-> Thanks I got it, I am not sure why it does not show up in my inbox anywhere,
-> sometimes gmail drops mails.  Hence, I am replying here.
+Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
+---
+v4:
+  - Drop bogus "a" from description,
+  - Get rid of static litex_soc_ctrl_device and litex_reset_nb
+    instances,
+  - Unregister handler on driver unbind,
 
-You may want to add a rule to never mark as spam emails with "PATCH"
-in the subject.  And check your spam folder regularly, and teach gmail by
-marking non-spam as non-spam.
+v3:
+  - Rebase on top of openrisc/for-next,
 
-> As per the typo above I can fix during applying or you could send during a v4.
->
-> One more small nit is that you move soc_ctrl_dev out to a static instance it
-> might help to mention.  But it's easy to see why.
+v2:
+  - Rebase on top of v5.11-rc1,
+  - Change reset handler priority to recommended default value of 128
+    (was 192).
 
-Found a way to get rid of it.  Will send v4 shortly.
+(v1 was not sent to a mailing list)
+---
+ drivers/soc/litex/litex_soc_ctrl.c | 42 +++++++++++++++++++++++++++++-
+ 1 file changed, 41 insertions(+), 1 deletion(-)
 
-Gr{oetje,eeting}s,
-
-                        Geert
-
+diff --git a/drivers/soc/litex/litex_soc_ctrl.c b/drivers/soc/litex/litex_soc_ctrl.c
+index da17ba56b7956c84..a7dd5be9fd5bd8ad 100644
+--- a/drivers/soc/litex/litex_soc_ctrl.c
++++ b/drivers/soc/litex/litex_soc_ctrl.c
+@@ -15,6 +15,11 @@
+ #include <linux/module.h>
+ #include <linux/errno.h>
+ #include <linux/io.h>
++#include <linux/reboot.h>
++
++/* reset register located at the base address */
++#define RESET_REG_OFF           0x00
++#define RESET_REG_VALUE         0x00000001
+ 
+ #define SCRATCH_REG_OFF         0x04
+ #define SCRATCH_REG_VALUE       0x12345678
+@@ -66,8 +71,19 @@ static int litex_check_csr_access(void __iomem *reg_addr)
+ 
+ struct litex_soc_ctrl_device {
+ 	void __iomem *base;
++	struct notifier_block reset_nb;
+ };
+ 
++static int litex_reset_handler(struct notifier_block *this, unsigned long mode,
++			       void *cmd)
++{
++	struct litex_soc_ctrl_device *soc_ctrl_dev =
++		container_of(this, struct litex_soc_ctrl_device, reset_nb);
++
++	litex_write32(soc_ctrl_dev->base + RESET_REG_OFF, RESET_REG_VALUE);
++	return NOTIFY_DONE;
++}
++
+ static const struct of_device_id litex_soc_ctrl_of_match[] = {
+ 	{.compatible = "litex,soc-controller"},
+ 	{},
+@@ -78,6 +94,7 @@ MODULE_DEVICE_TABLE(of, litex_soc_ctrl_of_match);
+ static int litex_soc_ctrl_probe(struct platform_device *pdev)
+ {
+ 	struct litex_soc_ctrl_device *soc_ctrl_dev;
++	int error;
+ 
+ 	soc_ctrl_dev = devm_kzalloc(&pdev->dev, sizeof(*soc_ctrl_dev), GFP_KERNEL);
+ 	if (!soc_ctrl_dev)
+@@ -87,7 +104,29 @@ static int litex_soc_ctrl_probe(struct platform_device *pdev)
+ 	if (IS_ERR(soc_ctrl_dev->base))
+ 		return PTR_ERR(soc_ctrl_dev->base);
+ 
+-	return litex_check_csr_access(soc_ctrl_dev->base);
++	error = litex_check_csr_access(soc_ctrl_dev->base);
++	if (error)
++		return error;
++
++	platform_set_drvdata(pdev, soc_ctrl_dev);
++
++	soc_ctrl_dev->reset_nb.notifier_call = litex_reset_handler;
++	soc_ctrl_dev->reset_nb.priority = 128;
++	error = register_restart_handler(&soc_ctrl_dev->reset_nb);
++	if (error) {
++		dev_warn(&pdev->dev, "cannot register restart handler: %d\n",
++			 error);
++	}
++
++	return 0;
++}
++
++static int litex_soc_ctrl_remove(struct platform_device *pdev)
++{
++	struct litex_soc_ctrl_device *soc_ctrl_dev = platform_get_drvdata(pdev);
++
++	unregister_restart_handler(&soc_ctrl_dev->reset_nb);
++	return 0;
+ }
+ 
+ static struct platform_driver litex_soc_ctrl_driver = {
+@@ -96,6 +135,7 @@ static struct platform_driver litex_soc_ctrl_driver = {
+ 		.of_match_table = of_match_ptr(litex_soc_ctrl_of_match)
+ 	},
+ 	.probe = litex_soc_ctrl_probe,
++	.remove = litex_soc_ctrl_remove,
+ };
+ 
+ module_platform_driver(litex_soc_ctrl_driver);
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+2.25.1
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
