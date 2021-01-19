@@ -2,20 +2,19 @@ Return-Path: <SRS0=fDxE=GW=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham
+X-Spam-Status: No, score=-4.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=no
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DB238C433DB
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Jan 2021 08:18:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 78C17C433E6
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Jan 2021 19:48:44 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3FDF222227
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Jan 2021 08:18:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3FDF222227
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	by mail.kernel.org (Postfix) with ESMTPS id CB17123138
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Jan 2021 19:48:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CB17123138
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -23,59 +22,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=tU1v6//WvUdIr1IP7vZfBa5EFElvZwb1GSU4+5IIySY=; b=aBGP49ODqn0kJqWPuY1fMEkVf
-	OaiaNinRAuKHG19RwxLsZnx9LzIN7RckJ08FIR+tS5cTmfWvJZV09zGYKbxWdP4di8GSZHJrO2FJB
-	M3Zl35D740muKRanohpGlOkIH9t8iFimNF9TqxdI5E+LIJy6Wn4ssExYtcKOycPD8oCV/ER383BKd
-	VadxPzg5eOn5jNiewve7plW7fgXVv3OWFiVMdVsAAwb8WvRtIqNqjhETG+2xxbgJyzityocuGFr1V
-	ZmZJnZDKssX06TIcpANsnjTvTQRNg4r+F3oVf+x62gDRnz6yhRG2GBN2+5RRcgMQIqugASuMClXQ0
-	yP/nBhQDA==;
+	 bh=XtC0F+qwYvvGdVxUv/aEH8ORxa5SGgVd7yXLkH86NOA=; b=RSkm3A1Q/naOTmWgIc+SLtLNy
+	HLSfTBfn3uATiqTWuWZfMe3+Bq+eOd0IiyU0q+r1YlZlBF+ccCUHKeWNzg+2bCnHK/qQI8p48cW0a
+	oOQHWOZjmbo+Uhp1WfXj01nCgXehtgrww6AcCGYUdcdqPxzeTXqw8uLfRudFzycsXTEhWIRt+QZTx
+	4h0FfQIQjp2WnUEcpIHlg/gHrjW6l1Ob5cFuBceBubi7g5D/2LUKI1xzPDJg0jcKnLKshHAUsask/
+	ht6q7lfI64oxnpFKFyOn7iEE4vt2KQQMyXrd8DM+zcF52TKA3bkA6/tVtp0cKvNQT2eVKHWmWqMk5
+	a2f+vZ4vQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l1mDJ-00013r-K1; Tue, 19 Jan 2021 08:18:09 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1l1wzE-0005jq-MH; Tue, 19 Jan 2021 19:48:20 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l1mDH-000136-D6
- for linux-riscv@lists.infradead.org; Tue, 19 Jan 2021 08:18:08 +0000
-Received: by mail-lf1-x131.google.com with SMTP id o19so27859221lfo.1
- for <linux-riscv@lists.infradead.org>; Tue, 19 Jan 2021 00:18:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=Bex7COrdJ/07+iU2EYVxWE5mtZ00AfCIkhn7mqzRkwQ=;
- b=Sgy4vEIxGxOZvbB0AyDKeuqwfz/6V6aXNblu7uZ5cg7SaUuH8ICezC0KLXM1Q5kLr/
- NiIc4bRWnjBbprMMa8osrRXVoebxfEO2rSliTgXU6ct47WpOnO/VAn8Vj6xTwVwKiYJO
- sOQzNAidTzRAb4jQ5ksO6JvwbjlHIgerkFd/mAr8eFocesTIa6rJO2AXlST/aMJPSTgW
- 3rvob0OQvjDg5JTCYjJpgpafHGFyVclpCOa1mzGJbydEuuMeqyBbeFiANi7TvT8FgZyl
- urVA0VXipjl+FKLtGefVHCiAQB03hhgugYHH5Fnn5GfFEjyVFlSxNzpV1ASfECgIIQKe
- zbaA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=Bex7COrdJ/07+iU2EYVxWE5mtZ00AfCIkhn7mqzRkwQ=;
- b=ooj9zINi1gcjKXs27HgSW1PDHErGrrQAiXeWlPPoWaE8Nz+JAdI9rAq7Qhzk3lkUb8
- uO1hgnHgklykp4WXAeqSSoeOxbO6II1sC2tLh09qZcYn+/nnZf9OgojvO2m+zBRJDQWE
- jn3/UB57BJAHxleMiXqAYRgtA1+cTWRJra56YJXhntJDK4bGQewSkM1o4RIC60TOHfL8
- 89Pq8VIz3AvfHl57hOnCtSmxhCTBeqz70tAKpi5pJwUFRw0hTKdh7TliV8kNFeZNHScI
- SxbsnyGP4oSeObqpH02efc4Rrs3pDjGefaUZsmM3q2oYuPuLBtDruKgILNxP/uY85JpT
- gWWg==
-X-Gm-Message-State: AOAM5317Q6WVbd8A4xPxWl01JVEwCd23Dz+wh9j8vuHA2bhUGj3qOZvs
- bn3abNMdUuBJB4J610UK8RT7aFcALdIofP58r66Zzg==
-X-Google-Smtp-Source: ABdhPJwMoFMQkXJv8+k3HuexsPpIdE6JBDv/cvZETT+bzC6wWwKKKfJL1Y27gtSD+KcJe4tpj3GeOHICWb8qtoxWEeI=
-X-Received: by 2002:a05:6512:3222:: with SMTP id
- f2mr1404944lfe.25.1611044280842; 
- Tue, 19 Jan 2021 00:18:00 -0800 (PST)
+ id 1l1wzC-0005jC-Fe
+ for linux-riscv@lists.infradead.org; Tue, 19 Jan 2021 19:48:19 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id CF31423341
+ for <linux-riscv@lists.infradead.org>; Tue, 19 Jan 2021 19:48:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1611085696;
+ bh=j6n8yI1MDAH7PE11JhncCRXL95geAhKTsTHzJxlfXcE=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=cxKFazurcISUU3RjW++AUJCBGOCbdk1i9YilIenQqZOtPPs/uMFXaniq32NTy23Ai
+ zxKQeVgkRjwn9zqxOEcp4Lzt7co95CT0UkokTfjkc2yV7f181FygUo/zdXbq0puAIf
+ CEsDWhKTyTybw75XNZugSmYPb9fQNDfzmor7gqUKJFKxpw6oFSp8KoeM0M9GqMYdUn
+ 8zRxau92FIwlFE6CXsWQECKFYibwJTZJg3G22JH3jGElZW8bnAh2x4kggbJsm9dGvX
+ YA6w3FzY4++1LL0xMXp/wznO4WuB8jIAAfrPMLRPj03M09LC30xpaHayWkgw6y6/iv
+ 3PhcYIm03kjSw==
+Received: by mail-oi1-f175.google.com with SMTP id 9so22509738oiq.3
+ for <linux-riscv@lists.infradead.org>; Tue, 19 Jan 2021 11:48:16 -0800 (PST)
+X-Gm-Message-State: AOAM530DO25H82p3mqhpU7OCGC64RZKtAzy8c1GEgyR1vAXV/WVsbd93
+ M77J77kFIxEOi/GbVQucJePn83rAZ1cUlNRzWBk=
+X-Google-Smtp-Source: ABdhPJybeBxNilCd4ZBKXuAiNvqyTyPxxCK2TM2HNQhG530/No1r1iG5Jr7OdvURNxVplXmrYO75E2PJ4ve8JtGQT/0=
+X-Received: by 2002:aca:44d:: with SMTP id 74mr885932oie.4.1611085695958; Tue,
+ 19 Jan 2021 11:48:15 -0800 (PST)
 MIME-Version: 1.0
-References: <20210119080938.1832733-1-geert@linux-m68k.org>
-In-Reply-To: <20210119080938.1832733-1-geert@linux-m68k.org>
-From: Anup Patel <anup@brainfault.org>
-Date: Tue, 19 Jan 2021 13:47:49 +0530
-Message-ID: <CAAhSdy3woKdo1=sZRO3ua=hK6M8NM7dp3nMFX99dKoUOC6+W5Q@mail.gmail.com>
-Subject: Re: [PATCH v4] drivers/soc/litex: Add restart handler
-To: Geert Uytterhoeven <geert@linux-m68k.org>
+References: <CAK8P3a0dJnKiX5minsUNdAcNnxPvZkyK363f1ibj_x0L2MQiPQ@mail.gmail.com>
+ <YAVynNqAwBt5GzQT@ingrassia.epigenesys.com>
+ <CAK8P3a33i2r0xx==3hTW32pc_Sm33EMDXYAS4PtEaEV8DX4s_A@mail.gmail.com>
+ <YAWaQVBM84CaY1B2@ingrassia.epigenesys.com>
+ <YAWg6KQt6hAtIR6O@ingrassia.epigenesys.com>
+ <CAK8P3a3Vc4wrLvrfwkHd6HCMohk07Yi6P_jKaC_5AybCMBNjPA@mail.gmail.com>
+ <YAWqS9YZ0rpXPoSN@ingrassia.epigenesys.com>
+ <CAK8P3a31ssD+FS1tAUxVHzrtUz-L9=mYCbv=ShEMci_bDdiTAg@mail.gmail.com>
+ <YAcOi0l44VTtd2LS@ingrassia.epigenesys.com>
+In-Reply-To: <YAcOi0l44VTtd2LS@ingrassia.epigenesys.com>
+From: Arnd Bergmann <arnd@kernel.org>
+Date: Tue, 19 Jan 2021 20:47:59 +0100
+X-Gmail-Original-Message-ID: <CAK8P3a3q16Fds9bujhjHRwjXoc_8NJBvutNRqajMEPHb9hGdNw@mail.gmail.com>
+Message-ID: <CAK8P3a3q16Fds9bujhjHRwjXoc_8NJBvutNRqajMEPHb9hGdNw@mail.gmail.com>
+Subject: Re: perf tools build broken for RISCV 32 bit
+To: Emiliano Ingrassia <ingrassia@epigenesys.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210119_031807_548953_AF89F9CF 
-X-CRM114-Status: GOOD (  28.12  )
+X-CRM114-CacheID: sfid-20210119_144818_671792_22278494 
+X-CRM114-Status: GOOD (  47.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -87,152 +85,219 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mateusz Holenko <mholenko@antmicro.com>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Gabriel Somlo <gsomlo@gmail.com>, Stafford Horne <shorne@gmail.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Karol Gugala <kgugala@antmicro.com>
+Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Bruce Ashfield <bruce.ashfield@gmail.com>,
+ Khem Raj <raj.khem@gmail.com>,
+ "linux-perf-users@vger.kernel.org" <linux-perf-users@vger.kernel.org>,
+ Richard Purdie <richard.purdie@linuxfoundation.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Jiri Olsa <jolsa@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Namhyung Kim <namhyung@kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Tue, Jan 19, 2021 at 5:53 PM Emiliano Ingrassia
+<ingrassia@epigenesys.com> wrote:
+> On Mon, Jan 18, 2021 at 08:58:50PM +0100, Arnd Bergmann wrote:
+> > On Mon, Jan 18, 2021 at 4:33 PM Emiliano Ingrassia
+> > <ingrassia@epigenesys.com> wrote:
+> > > On Mon, Jan 18, 2021 at 04:19:47PM +0100, Arnd Bergmann wrote:
+> > > > On Mon, Jan 18, 2021 at 3:53 PM Emiliano Ingrassia <ingrassia@epigenesys.com> wrote:
+> > > > >
+> > > > > Hi,
+> > > > >
+> > > > > after some searching I found this patch from Yocto project:
+> > > > >
+> > > > > https://www.mail-archive.com/linux-yocto@lists.yoctoproject.org/msg01004.html.
+> > > > >
+> > > > > I don't know if it's ever been proposed as mainline patch.
+> > > > >
+> > > > > What do you think about it? Could it be the right solution?
+> > > >
+> > > > No. While this makes it work on rv32, it does not fix it in a
+> > > > way that makes it work on other architectures with a time64
+> > > > libc. If you fix it, please do it in a way that works on all architectures.
+> > >
+> > > Ok, I totally agree with you on this point.
+> > >
+> > > So, it is right to conclude that the problem is not in perf
+> > > implementation but in the libc implementation?
+> > > That is, for example, glibc should define SYS_futex as SYS_futex_time64
+> > > in case of riscv 32 bit because of its support to 64 bit time_t?
+> >
+> > Actually, there might be a somewhat less ugly workaround, if we decide
+> > to put a correct wrapper into the exported kernel headers, e.g. adding
+> > something along these lines to include/uapi/linux/futex.h or a new header
+> > from the kernel:
+> >
+> > #ifndef __KERNEL__
+> > #include <linux/futex.h>
+> > #include <linux/time_types.h>
+> > #include <asm/unistd.h>
+> > #include <sys/time.h>
+> > #include <unistd.h>
+> > #include <errno.h>
+> >
+> > #define __kernel_futex __kernel_futex
+> > typedef union __attribute__ ((__transparent_union__)) {
+> >        const struct timespec *timeout;
+> >        unsigned int intval;
+> > } __kernel_futex_union;
+> >
+> > struct __kernel_old_timespec {
+> >        __kernel_time_t tv_sec;                 /* seconds */
+> >        long            tv_nsec;                /* nanoseconds */
+> > };
+> >
+> > static inline int __kernel_futex(int *uaddr, int op, int val,
+> >                                  __kernel_futex_union val2,
+> >                                  unsigned *uaddr2, int val3)
+> > {
+> >         int cmd = op & FUTEX_CMD_MASK;
+> >         int ret = -ENOSYS;
+> > #ifdef __NR_futex64
+> >         {
+> >                 if (((cmd != FUTEX_WAIT) && (cmd != FUTEX_WAIT_BITSET)) ||
+> >                     (sizeof(time_t) == sizeof(__u64))) {
+> >                         ret = syscall(__NR_futex64, uaddr, op, val,
+> >                                       val2.timeout, uaddr2, val3);
+> >                 }
+> >
+> >                 if (ret != -ENOSYS && ret != -EPERM)
+> >                         return ret;
+> >         }
+> > #endif
+> > #ifdef __NR_futex
+> >         {
+> >                 if (((cmd != FUTEX_WAIT) && (cmd != FUTEX_WAIT_BITSET)) ||
+> >                     sizeof(time_t) == sizeof(__kernel_long_t)) {
+> >                         ret = syscall(__NR_futex, uaddr, op, val,
+> >                                        val2.timeout, uaddr2, val3);
+> >                 } else {
+> >                         struct __kernel_old_timespec oldtimeout = {
+> >                                 .tv_sec  = val2.timeout->tv_sec,
+> >                                 .tv_nsec = val2.timeout->tv_nsec,
+> >                         };
+> >                         ret = syscall(__NR_futex, uaddr, op, val,
+> >                                       &oldtimeout, uaddr2, val3);
+> >                 }
+> >         }
+> > #endif
+> >         return ret;
+> > }
+> > #endif /* __KERNEL__
+> >
+> > With this, applications can be changed to define their own
+> >
+> > #ifdef __kernel_futex
+> > #define futex(uaddr, futex_op, val, val2, uaddr2, val3) \
+> >       __kernel_futex(uaddr, futex_op, val, val2, uaddr2, val3)
+> > #else
+> > #define futex(uaddr, futex_op, val, val2, uaddr2, val3) \
+> >        syscall(__NR_futex, uaddr, futex_op, val, val2, uaddr2, val3)
+> > #endif
+> >
+> >          Arnd
+>
+> I would like to do a recap on what we have so far.
+>
+> The goal is to compile perf for RISCV 32 bit with glibc 2.32 which has support
+> for 64 bit time_t. The target kernel is 5.10.7 with option COMPAT_32BIT_TIME
+> enabled.
 
-On Tue, Jan 19, 2021 at 1:40 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
->
-> Let the LiteX SoC Controller register a restart handler, which resets
-> the LiteX SoC by writing 1 to CSR_CTRL_RESET_ADDR.
->
-> Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
+I didn't think that COMPAT_32BIT_TIME was even allowed on rv32,
+but it seems there is a bug in Kconfig, it should be disabled for any
+architecture that does not set __ARCH_WANT_TIME32_SYSCALLS,
+but this should not affect the problem at hand.
 
-We have SBI System Reset Extension (SRST) in upcoming
-SBI v0.3 spec. Using this SBI extension, you will not require a
-dedicated reboot driver for various projects such as Linux kernel,
-U-Boot, EDK2, FreeBSD kernel, etc.
+> The userspace header file bits/syscall.h contains the needed definitions:
+> |...
+> |#ifdef __NR_futex
+> |# define SYS_futex __NR_futex
+> |#endif
+> |
+> |#ifdef __NR_futex_time64
+> |# define SYS_futex_time64 __NR_futex_time64
+> |#endif
+> |...
+>
+> In case of architecture without __NR_futex definition nor futex() wrapper,
+> the syscall function should be called with SYS_futex_time64 instead of the
+> classic SYS_futex. This is not backward compatible and also not documented
+> as far as I know.
+>
+> How this problem is solved in real scenarios? For example how can pthread
+> library, which uses futex syscall, be compiled correctly in glibc?
 
-The OpenSBI v0.9 (released yesterday) already has SBI SRST
-extension implemented so we will just need platform hooks for
-LiteX.
+The pthread library is built as part of glibc, and it uses its own local
+(architecture specific) workaround.
 
-The Linux support for SRST extension is already available on
-LKML so far no comments: https://lkml.org/lkml/2020/11/25/6
+> The solution is quite simple, glibc has a file called sysdep.h which in case of
+> RISCV 32 bit contains the following workarounds:
+> |...
+> |#if __WORDSIZE == 32
+> |
+> |/* Workarounds for generic code needing to handle 64-bit time_t.  */
+> |
+> |/* Fix sysdeps/unix/sysv/linux/clock_getcpuclockid.c.  */
+> |#define __NR_clock_getres       __NR_clock_getres_time64
+> |/* Fix sysdeps/nptl/lowlevellock-futex.h.  */
+> |#define __NR_futex              __NR_futex_time64
+> |...
+>
+> So, in that case, __NR_futex is defined as __NR_futex_time64 and so SYS_futex is
+> defined and usable.
+>
+> But this file can not be seen and used by userspace application.
 
-Regards,
-Anup
+Right, this is intentional, redefining __NR_futex would break any
+correctly written application that passes a __kernel_old_timespec
+structure when using __NR_futex.
 
+> So, what should be the right solution here?
+>
+> Should the kernel export only __NR_futex and then check the timer struct
+> dimension and distinguish the various cases (time32 vs time64 futex)?
+>
+> Or should the libc implementation take care to define SYS_futex once and for all
+> and then use the proper __NR_futex{_time64} based on its definition of time_t?
+>
+> Considering that this is not only a problem of futex but of many others syscalls
+> (e.g. __NR_clock_gettime{64}, __NR_clock_settime{64}, and so on), probably
+> I would argue that the problem should be solved in the libc implementation
+> in some way.
+>
+> What do you think?
 
-> ---
-> v4:
->   - Drop bogus "a" from description,
->   - Get rid of static litex_soc_ctrl_device and litex_reset_nb
->     instances,
->   - Unregister handler on driver unbind,
->
-> v3:
->   - Rebase on top of openrisc/for-next,
->
-> v2:
->   - Rebase on top of v5.11-rc1,
->   - Change reset handler priority to recommended default value of 128
->     (was 192).
->
-> (v1 was not sent to a mailing list)
-> ---
->  drivers/soc/litex/litex_soc_ctrl.c | 42 +++++++++++++++++++++++++++++-
->  1 file changed, 41 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/soc/litex/litex_soc_ctrl.c b/drivers/soc/litex/litex_soc_ctrl.c
-> index da17ba56b7956c84..a7dd5be9fd5bd8ad 100644
-> --- a/drivers/soc/litex/litex_soc_ctrl.c
-> +++ b/drivers/soc/litex/litex_soc_ctrl.c
-> @@ -15,6 +15,11 @@
->  #include <linux/module.h>
->  #include <linux/errno.h>
->  #include <linux/io.h>
-> +#include <linux/reboot.h>
-> +
-> +/* reset register located at the base address */
-> +#define RESET_REG_OFF           0x00
-> +#define RESET_REG_VALUE         0x00000001
->
->  #define SCRATCH_REG_OFF         0x04
->  #define SCRATCH_REG_VALUE       0x12345678
-> @@ -66,8 +71,19 @@ static int litex_check_csr_access(void __iomem *reg_addr)
->
->  struct litex_soc_ctrl_device {
->         void __iomem *base;
-> +       struct notifier_block reset_nb;
->  };
->
-> +static int litex_reset_handler(struct notifier_block *this, unsigned long mode,
-> +                              void *cmd)
-> +{
-> +       struct litex_soc_ctrl_device *soc_ctrl_dev =
-> +               container_of(this, struct litex_soc_ctrl_device, reset_nb);
-> +
-> +       litex_write32(soc_ctrl_dev->base + RESET_REG_OFF, RESET_REG_VALUE);
-> +       return NOTIFY_DONE;
-> +}
-> +
->  static const struct of_device_id litex_soc_ctrl_of_match[] = {
->         {.compatible = "litex,soc-controller"},
->         {},
-> @@ -78,6 +94,7 @@ MODULE_DEVICE_TABLE(of, litex_soc_ctrl_of_match);
->  static int litex_soc_ctrl_probe(struct platform_device *pdev)
->  {
->         struct litex_soc_ctrl_device *soc_ctrl_dev;
-> +       int error;
->
->         soc_ctrl_dev = devm_kzalloc(&pdev->dev, sizeof(*soc_ctrl_dev), GFP_KERNEL);
->         if (!soc_ctrl_dev)
-> @@ -87,7 +104,29 @@ static int litex_soc_ctrl_probe(struct platform_device *pdev)
->         if (IS_ERR(soc_ctrl_dev->base))
->                 return PTR_ERR(soc_ctrl_dev->base);
->
-> -       return litex_check_csr_access(soc_ctrl_dev->base);
-> +       error = litex_check_csr_access(soc_ctrl_dev->base);
-> +       if (error)
-> +               return error;
-> +
-> +       platform_set_drvdata(pdev, soc_ctrl_dev);
-> +
-> +       soc_ctrl_dev->reset_nb.notifier_call = litex_reset_handler;
-> +       soc_ctrl_dev->reset_nb.priority = 128;
-> +       error = register_restart_handler(&soc_ctrl_dev->reset_nb);
-> +       if (error) {
-> +               dev_warn(&pdev->dev, "cannot register restart handler: %d\n",
-> +                        error);
-> +       }
-> +
-> +       return 0;
-> +}
-> +
-> +static int litex_soc_ctrl_remove(struct platform_device *pdev)
-> +{
-> +       struct litex_soc_ctrl_device *soc_ctrl_dev = platform_get_drvdata(pdev);
-> +
-> +       unregister_restart_handler(&soc_ctrl_dev->reset_nb);
-> +       return 0;
->  }
->
->  static struct platform_driver litex_soc_ctrl_driver = {
-> @@ -96,6 +135,7 @@ static struct platform_driver litex_soc_ctrl_driver = {
->                 .of_match_table = of_match_ptr(litex_soc_ctrl_of_match)
->         },
->         .probe = litex_soc_ctrl_probe,
-> +       .remove = litex_soc_ctrl_remove,
->  };
->
->  module_platform_driver(litex_soc_ctrl_driver);
-> --
-> 2.25.1
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+The fundamental problem is mixing glibc interfaces with kernel interfaces,
+which is broken in many ways. You would hit a similar issue when using
+__NR_stat with 'struct stat' from glibc instead of 'struct __old_kernel_stat'.
+
+Ideally, an application would just use the kernel types when calling
+the kernel interfaces, or use the libc types and call a libc-provided
+function (which glibc does not provide for futex).
+
+There is nothing that glibc or kernel could do here to fix existing
+applications, they all have to be changed manually to use a correct
+interface when built against a time64 glibc or musl but directly
+calling low-level syscall interfaces including but not limited to futex.
+
+rv32 is in the unfortunate position of being the first one that has a glibc
+port, so it hits a lot of problems that other architectures do not.
+If the applications get fixed properly, then at least they will also
+work with musl-1.2 and a (will work-in-progress) glibc that will
+eventually allow building with 64-bit time_t.
+
+One thing that glibc can do to help would be to #undef all the
+time32 SYS_* macros when 64-bit time_t is used, to force a
+build error on broken applications that try to use the wrong types,
+but this is also problematic since you sometimes want to use
+the numbers for something other than calling syscall(), e.g.
+in strace or seccomp.
+
+      Arnd
 
 _______________________________________________
 linux-riscv mailing list
