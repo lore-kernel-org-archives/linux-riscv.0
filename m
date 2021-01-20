@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AA79EC433E9
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 01:27:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AD85FC433E6
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 01:28:06 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 30DC723600
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 01:27:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 30DC723600
+	by mail.kernel.org (Postfix) with ESMTPS id 55154236FB
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 01:28:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 55154236FB
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,38 +23,38 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=FTH3ClIS0oXWTes1mgYOuP8ou2DsCLKrwxkpjd0yL30=; b=Bwvcu2y/CZ4HF01sGTyUAaCSg
-	8ie3oG/u6xLdARJ4kHnUPNu5AUc4jwJX5PcvRJmIavYpx+ox6Oo7Kyr4nT0KclUbRTz2tTYU/+Zkt
-	StrO5VkXEF2CXRRkNiU4fr6e1Umb5ePKYGkpF1AzM6CSz7kIqihw6sWjO7DiRMM0s0u5vdnAcZw/s
-	e0WFrhL2LQ2BLsaTh1h24wQ9yRExusO/vzGWsfT4bTMEReVFgCoKEZyVX5LD588onMEYSmDJY24jR
-	kf27fgEU4zVC1LOfeHiRsP/GcgiKsgSPxy9OXdrgit518DywqKZJ3z8aNkvsDYbYHAXhvgf1gk6fb
-	L01eeGiMg==;
+	 bh=EcAbb5h5Kq5pcGRp0mJzbGoXMCnbFeKrq4TmIbpvKn0=; b=2432aOr7wvJ7WtbnGbRFf9jhM
+	/7FxRrSpypIHVGNQzHsF+tP9T5QLw3uIkpCBy2kyISWi0SGgwtKObDE2SkC00HSgToVTc/pVQN2oZ
+	z/zTegLMY21i6ahCMSN+rAUgqKrR6Mv2t1VKUyiI7+yk+n3XHagKeIyBHo2ioovXkIg1wOz///qlk
+	D9vSs2wz3jHJzuZOXz16z+DCArHiaKxGSmz1tRNF3WUkfjaycpvNU+nqO3GakUrh1TN6om4m+QPAa
+	oQttTSgd2Y9s03c10YH4U8dS0DiQs1ahhYzQHCNQo6gN3i7wL+gG0fnH2i0s6djrPccM90054yX9v
+	Q3ykUv2fQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l22HV-0003Lw-E9; Wed, 20 Jan 2021 01:27:33 +0000
+	id 1l22He-0003QA-LM; Wed, 20 Jan 2021 01:27:42 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l22Gi-0002s0-Tq
- for linux-riscv@lists.infradead.org; Wed, 20 Jan 2021 01:26:46 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id EC818221E5;
- Wed, 20 Jan 2021 01:26:42 +0000 (UTC)
+ id 1l22H1-00031r-9Q
+ for linux-riscv@lists.infradead.org; Wed, 20 Jan 2021 01:27:05 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 9D70723340;
+ Wed, 20 Jan 2021 01:27:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1611106003;
- bh=hMs1Enxi29RFmdXP40/oB+4f2xHXZetfroIgBXwOUt8=;
+ s=k20201202; t=1611106022;
+ bh=p1zvHNvX4mBTOFr0HwcT/Szj2x4F0eoll/67TJiUa4s=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=rPUN3LQ7Ss1/VXbohDCt8yrRLDCH4/+/j+vxCtSelaDzdkkA04/y6FLC6DISzDDYm
- iY+q0cMk/BI+mlhKiRrUHSZDd88TylmVzjpfWysQ0aD5nqLKV3DxofP4MSMV4Szy4F
- hWK3Uz3UPKgmyel80jYSp3H0YRq0Saa+HrAobYy5jHy6luC53Y5WsOZc5NVBo40lkc
- Bi/ZvgGg+Z8Vu7s96zQyzwq7cNN7nIZIPT1VVGSzkpHncIFS7rWHYkOHQxVMXGJxX1
- HDGt1syXnUEwnsT/KPm5T37TrPvRjgbOR28aGdfx42+oPjW5def/TGsrgkLBbZMZVt
- hy33v4L68imZQ==
+ b=VbAisGcOMP21BrtTr/9HhpyUwjRa+RjvBj+tPuZn/eB+rDVeSLEeK8xveTg6P8TmZ
+ e+ei4RsHiTCYj48OdYDyqzX2hRNAEnobQpLvmZlu6PjvE7VeEeBkyi+ac6PrvWZvWr
+ ynChJOUEWYIdkQcc3Tkk32abfWal2WqnLYzdsH1+Zfl0iIi7ZK4tKSCe+iUr9Q3/SC
+ wt+dMRhp3vTwcYxMcXjQAzeccbmFc6ayhI2P5BAR1iwO7eCoaW4wzr9A2ljOsXsfRu
+ Ji8n1agqX/nb3Idw9vWz93iLYSQcOfvjHUvOk+R+IpXwuGK2WVC5t34tRg/LqNfwtA
+ kNVgi6rqGXneQ==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Subject: [PATCH AUTOSEL 5.10 31/45] riscv: defconfig: enable gpio support for
- HiFive Unleashed
-Date: Tue, 19 Jan 2021 20:25:48 -0500
-Message-Id: <20210120012602.769683-31-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.10 45/45] RISC-V: Fix maximum allowed phsyical
+ memory for RV32
+Date: Tue, 19 Jan 2021 20:26:02 -0500
+Message-Id: <20210120012602.769683-45-sashal@kernel.org>
 X-Mailer: git-send-email 2.27.0
 In-Reply-To: <20210120012602.769683-1-sashal@kernel.org>
 References: <20210120012602.769683-1-sashal@kernel.org>
@@ -62,9 +62,8 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210119_202645_098678_BE9D1E60 
-X-CRM114-Status: UNSURE (   9.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210119_202703_420373_1481CF51 
+X-CRM114-Status: GOOD (  10.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -76,42 +75,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Sasha Levin <sashal@kernel.org>, linux-riscv@lists.infradead.org,
- Palmer Dabbelt <palmerdabbelt@google.com>,
- Sagar Shrikant Kadam <sagar.kadam@sifive.com>
+Cc: Sasha Levin <sashal@kernel.org>, Atish Patra <atish.patra@wdc.com>,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmerdabbelt@google.com>,
+ Anup Patel <anup@brainfault.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Sagar Shrikant Kadam <sagar.kadam@sifive.com>
+From: Atish Patra <atish.patra@wdc.com>
 
-[ Upstream commit 0983834a83931606a647c275e5d4165ce4e7b49f ]
+[ Upstream commit e557793799c5a8406afb08aa170509619f7eac36 ]
 
-Ethernet phy VSC8541-01 on HiFive Unleashed has its reset line
-connected to a gpio, so enable GPIO driver's required to reset
-the phy.
+Linux kernel can only map 1GB of address space for RV32 as the page offset
+is set to 0xC0000000. The current description in the Kconfig is confusing
+as it indicates that RV32 can support 2GB of physical memory. That is
+simply not true for current kernel. In future, a 2GB split support can be
+added to allow 2GB physical address space.
 
-Signed-off-by: Sagar Shrikant Kadam <sagar.kadam@sifive.com>
+Reviewed-by: Anup Patel <anup@brainfault.org>
+Signed-off-by: Atish Patra <atish.patra@wdc.com>
 Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- arch/riscv/configs/defconfig | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/riscv/Kconfig | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index d222d353d86d4..8c3d1e4517031 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -64,6 +64,8 @@ CONFIG_HW_RANDOM=y
- CONFIG_HW_RANDOM_VIRTIO=y
- CONFIG_SPI=y
- CONFIG_SPI_SIFIVE=y
-+CONFIG_GPIOLIB=y
-+CONFIG_GPIO_SIFIVE=y
- # CONFIG_PTP_1588_CLOCK is not set
- CONFIG_POWER_RESET=y
- CONFIG_DRM=y
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 44377fd7860e4..234a21d26f674 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -134,7 +134,7 @@ config PA_BITS
+ 
+ config PAGE_OFFSET
+ 	hex
+-	default 0xC0000000 if 32BIT && MAXPHYSMEM_2GB
++	default 0xC0000000 if 32BIT && MAXPHYSMEM_1GB
+ 	default 0x80000000 if 64BIT && !MMU
+ 	default 0xffffffff80000000 if 64BIT && MAXPHYSMEM_2GB
+ 	default 0xffffffe000000000 if 64BIT && MAXPHYSMEM_128GB
+@@ -247,10 +247,12 @@ config MODULE_SECTIONS
+ 
+ choice
+ 	prompt "Maximum Physical Memory"
+-	default MAXPHYSMEM_2GB if 32BIT
++	default MAXPHYSMEM_1GB if 32BIT
+ 	default MAXPHYSMEM_2GB if 64BIT && CMODEL_MEDLOW
+ 	default MAXPHYSMEM_128GB if 64BIT && CMODEL_MEDANY
+ 
++	config MAXPHYSMEM_1GB
++		bool "1GiB"
+ 	config MAXPHYSMEM_2GB
+ 		bool "2GiB"
+ 	config MAXPHYSMEM_128GB
 -- 
 2.27.0
 
