@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 346EBC433DB
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5D928C433E6
 	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 01:29:45 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C339D20449
+	by mail.kernel.org (Postfix) with ESMTPS id F29A5206F9
 	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 01:29:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C339D20449
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F29A5206F9
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,38 +23,38 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=pwHmL3Qs3Z1YJNhKx3EJXqBML8HBmaONtEcdzcMgkYE=; b=QhjUI9eAevAT71vdK0MGAFuTR
-	N1H3Q8YfqTGHK7Qjkz9M17FEO/4dgdqPwKAdvY9ltQw8r6eQaTklmBwbkI2+EAo8/zCQRPw1Q1y/T
-	gTnjrlPV84RpC6hmUbGHtKKwQo/RalAvzewtHgZPD//U6OKV1kUBeDwPzFevwWOp3vsIkj6KEcRdn
-	Kl18n5h5x9jepPpvxRj5+DZZC901EnjVy5R2fmZiVUceKjFbr4OO16P00TC4oYUvBUGdbEOYslrAs
-	HSJDH1k1Bm5LbzY+u0OeYEkJ9Nxv9e8XWTS7rTuPODWG9LhhdEzFLX6P6xCyXV4U5CZ9v2OYNAyRo
-	8dF7F7aWw==;
+	 bh=scnnyGSQ1s21hD33vUARpSC9pQYzLh0arOUMScUVXOY=; b=MA/H54zI0nJ9E2qO2CnnyDb2x
+	cGUhvAqSxN18pDYPBqhXosk9u9zOBppLG2/pC09KZXNPS6BG2/I7SzU8ZRtFsFWm02KlX1Jr1TzHZ
+	Wn1Bq2N+10BQbwnxr7KE4E2XLH0L2agZyHAlhxEnFkGRWifcW4nWy4jjOCVs7X5ycFkXN4PJDjSNa
+	LnsJrsZ2aMM/PRQTCOTk1qAuo+3p4R4iSjtC9JUbBU96uMyCQpMVcQVYKUc5Uj5S6gNt0zhT2q9lP
+	Z83MWKOa38GydIkgxwgUy339KLyz/KzC4bxCaGiAVXLypklYu3gaMTQjJqaxL0yRTXcwFwbPwkg8I
+	aykqehvnw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l22JR-0004Y4-LI; Wed, 20 Jan 2021 01:29:33 +0000
+	id 1l22JT-0004Yg-9N; Wed, 20 Jan 2021 01:29:35 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l22HQ-0003JQ-Oc
+ id 1l22HR-0003KN-UC
  for linux-riscv@lists.infradead.org; Wed, 20 Jan 2021 01:27:30 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 0DA3C23132;
- Wed, 20 Jan 2021 01:27:26 +0000 (UTC)
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 4B1BF23407;
+ Wed, 20 Jan 2021 01:27:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1611106047;
- bh=owIngL+z287/Db33e2oPnaB1cVU/Og2SEo74Yox/CZI=;
+ s=k20201202; t=1611106049;
+ bh=1rfwSpVJ+UEYl/EIDIKbdLpUVSO+QYuuMjMAelssO6g=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=qATTsf3CUlGFqOD3WhwiI6KEkT5LJ8+TePLhxnfA0cdwyCym3Wys2dhHo5uzjfxgr
- E4BQLnL8R1Wa4IddPeAJT1CBqRwgTscbgNq05sVNwcAVe8xMrU4aapkMr1KLRfnvfO
- zd7UEjQ84pmgictEkdUBbvWO2V6OoDP28JW+mVKymvANXgIa9KLyq1/MunMF6NJBb3
- muqvapx4OAtu2YHPcooHegWi/o/objNJNR7Ta5wdAyImJkM9lLBQw2nZoozqF+nkVA
- eiDVY21m7+IPqALwEHEEH5wzgZDI3i92c+r2I+k2mNpT6T7C0blehve9lPk9RS6Msq
- nVtIKYCFxzhlw==
+ b=kWPthReLQzMzIsihOhaLz5wqAHkmhGRtfz175sBHeNZFMNA4OoLm02Mi3UjsYea52
+ UEN049sSnfokfsnnzzJBlGj1Eb0T6pgzrcYrhvKsY5tiEXi5cEidizOlt2olikwRK5
+ pYTf7GNnXxJyaPBB262mZYxaY3S06FNHqjNZUyMXu6frTEW7xMrKfRW7TBzuDy9M12
+ +hg69LhksLCY26Exw07tbfkpmMJp6NztRtvBIlhDpBbyqZMtzlubarQTmAb5RB6hsZ
+ lCgxyl0V/YgbqTseLMowARFe/Q0mPkhJK/vrbYp1AnToNqBI3e43U35pp9cmf3QoqX
+ rmsbPFuehBktA==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Subject: [PATCH AUTOSEL 5.4 17/26] dts: phy: fix missing mdio device and probe
- failure of vsc8541-01 device
-Date: Tue, 19 Jan 2021 20:26:54 -0500
-Message-Id: <20210120012704.770095-17-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.4 18/26] dts: phy: add GPIO number and active state
+ used for phy reset
+Date: Tue, 19 Jan 2021 20:26:55 -0500
+Message-Id: <20210120012704.770095-18-sashal@kernel.org>
 X-Mailer: git-send-email 2.27.0
 In-Reply-To: <20210120012704.770095-1-sashal@kernel.org>
 References: <20210120012704.770095-1-sashal@kernel.org>
@@ -62,8 +62,9 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210119_202728_978115_E72417A3 
-X-CRM114-Status: GOOD (  12.49  )
+X-CRM114-CacheID: sfid-20210119_202730_050744_C5720662 
+X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -85,28 +86,11 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Sagar Shrikant Kadam <sagar.kadam@sifive.com>
 
-[ Upstream commit be969b7cfbcfa8a835a528f1dc467f0975c6d883 ]
+[ Upstream commit a0fa9d727043da2238432471e85de0bdb8a8df65 ]
 
-HiFive unleashed A00 board has VSC8541-01 ethernet phy, this device is
-identified as a Revision B device as described in device identification
-registers. In order to use this phy in the unmanaged mode, it requires
-a specific reset sequence of logical 0-1-0-1 transition on the NRESET pin
-as documented here [1].
-
-Currently, the bootloader (fsbl or u-boot-spl) takes care of the phy reset.
-If due to some reason the phy device hasn't received the reset by the prior
-stages before the linux macb driver comes into the picture, the MACB mii
-bus gets probed but the mdio scan fails and is not even able to read the
-phy ID registers. It gives an error message:
-
-"libphy: MACB_mii_bus: probed
-mdio_bus 10090000.ethernet-ffffffff: MDIO device at address 0 is missing."
-
-Thus adding the device OUI (Organizationally Unique Identifier) to the phy
-device node helps to probe the phy device.
-
-[1]: VSC8541-01 datasheet:
-https://www.mouser.com/ds/2/523/Microsemi_VSC8541-01_Datasheet_10496_V40-1148034.pdf
+The GEMGXL_RST line on HiFive Unleashed is pulled low and is
+using GPIO number 12. Add these reset-gpio details to dt-node
+using which the linux phylib can reset the phy.
 
 Signed-off-by: Sagar Shrikant Kadam <sagar.kadam@sifive.com>
 Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
@@ -116,17 +100,17 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 1 insertion(+)
 
 diff --git a/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts
-index 88cfcb96bf233..cc04e66752aac 100644
+index cc04e66752aac..1ad3dc2fb6343 100644
 --- a/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts
 +++ b/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts
-@@ -83,6 +83,7 @@ &eth0 {
- 	phy-mode = "gmii";
- 	phy-handle = <&phy0>;
+@@ -85,6 +85,7 @@ &eth0 {
  	phy0: ethernet-phy@0 {
-+		compatible = "ethernet-phy-id0007.0771";
+ 		compatible = "ethernet-phy-id0007.0771";
  		reg = <0>;
++		reset-gpios = <&gpio 12 GPIO_ACTIVE_LOW>;
  	};
  };
+ 
 -- 
 2.27.0
 
