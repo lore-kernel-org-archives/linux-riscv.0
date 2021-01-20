@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0DF8AC433DB
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 01:26:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 50F34C433DB
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 01:26:57 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AEA082242A
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 01:26:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AEA082242A
+	by mail.kernel.org (Postfix) with ESMTPS id BBDBF23340
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 01:26:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BBDBF23340
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,37 +23,38 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=aYa63/E7sCOMumaXaEO5gt/euXktnPXx7nfZWAOaYqE=; b=iQs087BQszLrwOBMk34ODWNOD
-	spKtqUpYvhR8gfa2vo31mgEYbND4ZX1D+mxpxxYzjqszf02PzqAaSB4+jQx75NsEJENj9zlBM51AG
-	bYAQ9PAb7PSt18JctVNInZH0Vh9wE5KRiARy/qukG+eS0XTcOuebA08HorORPk5snK4mYt4O48Nbj
-	dJ1HCYEWac22JygjyoPjAz7VtwvQOuHqFEKZFk5v8c9FNWMuArMlNb4bH5G52YeyeIt2CqflbqRbM
-	YPLQgJOM0z1pbsF3obxwX1tizzacwkOwqPKb1A1KGZrve1n8+eY7z4sNXlK2BvaI37bXRZ3ygnc12
-	DU1HpN9GQ==;
+	 bh=tlQcdjnJNQZlj9pjKejdAKpcTVJ4OdM0GFPWz+mr8lU=; b=ukL8wxKX0JSqhziCYBf/rqAYK
+	ciN8h77JuvmUyVmOr6Oj1spZCoKpCQlXCd8EB/d48ZbssVNMEKC923CxWdgE3H+tQSIigI+J+5p6V
+	ZSzGVkNUlYZmnw19MjrDGVMiHb/wsbvbThfyWbxjtXN29TtWuo81bpTVTMXH492Dubfur4Mqv0iBA
+	8z2o+W6ove9RrqB2WcNZGKAyf2YOzIsoLMlUqacD26U7XtqZlHhldBt43nobQT+VZnrgVr3lLT24A
+	Cix3xKmdz8KHFmupKFCkoWSNqf8KvR9c91qnRCdIvRls+fv312KqNixTNsc4cPiQ8Uj5yOQbtkCmH
+	G5A8YV3mw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l22GQ-0002k4-VN; Wed, 20 Jan 2021 01:26:27 +0000
+	id 1l22GY-0002nO-MC; Wed, 20 Jan 2021 01:26:34 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l22GL-0002iD-TA
- for linux-riscv@lists.infradead.org; Wed, 20 Jan 2021 01:26:22 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 4607C2313C;
- Wed, 20 Jan 2021 01:26:20 +0000 (UTC)
+ id 1l22GW-0002lp-C4
+ for linux-riscv@lists.infradead.org; Wed, 20 Jan 2021 01:26:33 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id A5CFA23333;
+ Wed, 20 Jan 2021 01:26:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1611105981;
- bh=rF/943KhXezfdgbCMm4/HFxCfE2Bb3ZbRhYMEJrffP4=;
+ s=k20201202; t=1611105991;
+ bh=YRDhHawHPzSnZSitjYPPVI9uapMujMO5D+sYLQsexXk=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=tePpvyy25iYttGPl+WJ989/ZrUmDukBEXZEcqiXAoKDQuR+p7fF5hyIQqm9iCHEuG
- v7+XifcDyogYrXmY7TiH+XA2CzUmlOi/5IzolebVIjNXt+XQENvDK7rnDcDoA5byVl
- Vdi60cARudHC2bk/fFV5z1FhIcahZH280j3BVnVj4T/+vJ39Ow+jUNuibJDlx2PKkl
- /HNEurwluJqOcL57ATpHgyP1IAiF2fZaQhGzkUmi4NigMOxM4fwvh02svCbg+n7s+q
- 2ByNr/pWMb7Fs3+Hg8FEkdcHhn3o2Ag9EbB/WCG+7pBZJNlNQtiOgrhaNG2fbfr9Zd
- kzlYDOooQG74g==
+ b=h4QdNhj+98SxI9yz5M12Cd5mCJQOh8ZEetqbEQE7etc2JYbmYK6NnISEoTvTb4viA
+ VTF7EXfXHt7RGOxFVjwMvxSgNoZr8/tSJyCof0FQFnqiAsTm0iS4Pemzp8thPSx4bM
+ 6Wr8511E0k8LcJZSYtg6ZNhlgtfoqLQxIzSW22vHBIMH27o4m3e7y2hXGK+ffVV6Lc
+ YOCusQrrlu+gb0JPxWLMB6+Xs+i5IfAtKx+t5KRbBqdjWDWQpkMDDtaEMNfC3saRjA
+ o6tNlCr/o1n8Vbz5nCQScrpU93K0ReAMnHNwV1z1RumXXO54pFVaD8eUC3yhbve6D9
+ Tc758MeG9AAsA==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Subject: [PATCH AUTOSEL 5.10 14/45] riscv: Fix kernel time_init()
-Date: Tue, 19 Jan 2021 20:25:31 -0500
-Message-Id: <20210120012602.769683-14-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.10 22/45] riscv: cacheinfo: Fix using
+ smp_processor_id() in preemptible
+Date: Tue, 19 Jan 2021 20:25:39 -0500
+Message-Id: <20210120012602.769683-22-sashal@kernel.org>
 X-Mailer: git-send-email 2.27.0
 In-Reply-To: <20210120012602.769683-1-sashal@kernel.org>
 References: <20210120012602.769683-1-sashal@kernel.org>
@@ -61,8 +62,8 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210119_202622_050442_BE0944B1 
-X-CRM114-Status: GOOD (  11.03  )
+X-CRM114-CacheID: sfid-20210119_202632_483571_07FABA26 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -74,54 +75,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Stephen Boyd <sboyd@kernel.org>, Sasha Levin <sashal@kernel.org>,
- Damien Le Moal <damien.lemoal@wdc.com>,
+Cc: Sasha Levin <sashal@kernel.org>, Atish Patra <atish.patra@wdc.com>,
+ Kefeng Wang <wangkefeng.wang@huawei.com>,
  Palmer Dabbelt <palmerdabbelt@google.com>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Damien Le Moal <damien.lemoal@wdc.com>
+From: Kefeng Wang <wangkefeng.wang@huawei.com>
 
-[ Upstream commit 11f4c2e940e2f317c9d8fb5a79702f2a4a02ff98 ]
+[ Upstream commit 80709af7325d179b433817f421c85449f2454046 ]
 
-If of_clk_init() is not called in time_init(), clock providers defined
-in the system device tree are not initialized, resulting in failures for
-other devices to initialize due to missing clocks.
-Similarly to other architectures and to the default kernel time_init()
-implementation, call of_clk_init() before executing timer_probe() in
-time_init().
+Use raw_smp_processor_id instead of smp_processor_id() to fix warning,
 
-Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
-Acked-by: Stephen Boyd <sboyd@kernel.org>
-Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
+BUG: using smp_processor_id() in preemptible [00000000] code: init/1
+caller is debug_smp_processor_id+0x1c/0x26
+CPU: 0 PID: 1 Comm: init Not tainted 5.10.0-rc4 #211
+Call Trace:
+  walk_stackframe+0x0/0xaa
+  show_stack+0x32/0x3e
+  dump_stack+0x76/0x90
+  check_preemption_disabled+0xaa/0xac
+  debug_smp_processor_id+0x1c/0x26
+  get_cache_size+0x18/0x68
+  load_elf_binary+0x868/0xece
+  bprm_execve+0x224/0x498
+  kernel_execve+0xdc/0x142
+  run_init_process+0x90/0x9e
+  try_to_run_init_process+0x12/0x3c
+  kernel_init+0xb4/0xf8
+  ret_from_exception+0x0/0xc
+
+The issue is found when CONFIG_DEBUG_PREEMPT enabled.
+
+Reviewed-by: Atish Patra <atish.patra@wdc.com>
+Tested-by: Atish Patra <atish.patra@wdc.com>
+Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+[Palmer: Added a comment.]
 Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- arch/riscv/kernel/time.c | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/riscv/kernel/cacheinfo.c | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/kernel/time.c b/arch/riscv/kernel/time.c
-index 4d3a1048ad8b1..8a5cf99c07762 100644
---- a/arch/riscv/kernel/time.c
-+++ b/arch/riscv/kernel/time.c
-@@ -4,6 +4,7 @@
-  * Copyright (C) 2017 SiFive
-  */
+diff --git a/arch/riscv/kernel/cacheinfo.c b/arch/riscv/kernel/cacheinfo.c
+index de59dd457b415..d867813570442 100644
+--- a/arch/riscv/kernel/cacheinfo.c
++++ b/arch/riscv/kernel/cacheinfo.c
+@@ -26,7 +26,16 @@ cache_get_priv_group(struct cacheinfo *this_leaf)
  
-+#include <linux/of_clk.h>
- #include <linux/clocksource.h>
- #include <linux/delay.h>
- #include <asm/sbi.h>
-@@ -24,6 +25,8 @@ void __init time_init(void)
- 	riscv_timebase = prop;
- 
- 	lpj_fine = riscv_timebase / HZ;
-+
-+	of_clk_init(NULL);
- 	timer_probe();
- }
+ static struct cacheinfo *get_cacheinfo(u32 level, enum cache_type type)
+ {
+-	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(smp_processor_id());
++	/*
++	 * Using raw_smp_processor_id() elides a preemptability check, but this
++	 * is really indicative of a larger problem: the cacheinfo UABI assumes
++	 * that cores have a homonogenous view of the cache hierarchy.  That
++	 * happens to be the case for the current set of RISC-V systems, but
++	 * likely won't be true in general.  Since there's no way to provide
++	 * correct information for these systems via the current UABI we're
++	 * just eliding the check for now.
++	 */
++	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(raw_smp_processor_id());
+ 	struct cacheinfo *this_leaf;
+ 	int index;
  
 -- 
 2.27.0
