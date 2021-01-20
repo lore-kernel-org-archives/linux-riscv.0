@@ -2,86 +2,62 @@ Return-Path: <SRS0=Zzcc=GX=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0DE8BC433DB
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 18:22:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3F991C433E0
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 20:37:08 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9C1E1233ED
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 18:22:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9C1E1233ED
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id 0D00023432
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 20:37:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0D00023432
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=q8SrcN623Q4o7es9ISntPkiW31ZrfHGiPKhxlwkJA7A=; b=z+yaOYyBvJiCUC0Mnf315mI2F
-	E9MJbPBv6lLN7luWXBTZuOaeHrzOjPVj9D0O1OFTiVMb60jELVoVf+7zhYz9+xZqkEozwGGDV01f/
-	kNvBjHVWSsDCkYM14BcQ5JQSvKqJ5K6abyVg/t5Dy0d0T5x6pe6E3iBt2uCA3IwzHKT5n/1UKj3VC
-	ha+uqumNOzm17JBYQHUlnapuaoYfKXwPl9eYNgLVCRA/Rwr19rD4fN5FgORH7G20yMw4nPZz7wJGi
-	DXZF51AOdFtt3uu0/annoaPEaKT2l/eg4LDaUvQpoIohHCUXZbZ5hfTSu1Kq8IjCAdKVNM0f6GkAw
-	6arJAitvw==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=z+SBtrQtEVTcKzduH62V2mxELkMqvHaKFhw7/R0UHoc=; b=E+TAZxjA/rAjbfScMb2FJ4F+q
+	mq9oTKV0/7h/YxOZsVx924ql9ILVlWbq5H4okryy2mZX0e4vqhq+exJRzvFWvdPnH7vlJjzwmxH4i
+	igdZ5Crsgfsi/nPqGXYxuykKEXmhHhDoXlNPx7/Ands4p+6D2veSnkZ2iJr09aw6zmrOV5G2kOcJz
+	X6QLPwe84nZYgCi4JrpQdxKbXYrSuM4E9d4YvsvfmcwH5aJvGMXQagAdtPqT9230wzrl2X0qWvyrO
+	Ji2XMmW+/UNuPEXtwsWrc2TgPGSJdRRVTvwGihgvKALDDxifJBfErsaWtjg9NutSJaHvG6I0Nf3/l
+	iGtldJLRg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l2I79-0000ns-Rf; Wed, 20 Jan 2021 18:21:55 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1l2KDW-0001DW-Fs; Wed, 20 Jan 2021 20:36:38 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l2I77-0000mj-Oi
- for linux-riscv@lists.infradead.org; Wed, 20 Jan 2021 18:21:55 +0000
-Received: by mail-pf1-x435.google.com with SMTP id q20so15015424pfu.8
- for <linux-riscv@lists.infradead.org>; Wed, 20 Jan 2021 10:21:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=3zA2PNOgC/6qMsKy4aM1hGJRHMX6FMexQumMpBDwYYg=;
- b=A2qykjDjIALvxy2rFZKrHfmDImHmjIdmVaOm1B4dktGCC6yYKvZrZ6S7nG7X9dROx9
- XFrIpnfiuGjIXk19bJ5F9H89C0OapDwiH4l3CTO2FtJI2eo3Ia/zCXgKqr8o2Vtpd1Ly
- gtNNmG6xu4x2tMeE/lHyDX929zDR/2iG7zXXMti9igv6IPU4rLBJvCxWRBB1RkgNfPEk
- EcrFtDCIeIrrs/7e1C8T8d1TZR+3eZKB02i2onasg0Zx5PtiSn3kz4tmSzUggXyi1i7y
- XNxwbYay885qrx+O7+HpHrSk7cd+e0dt3xDDRCk3C4peRJWEEGCk1KsGpbeRHkNPP1K7
- u+/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=3zA2PNOgC/6qMsKy4aM1hGJRHMX6FMexQumMpBDwYYg=;
- b=Wky3MGJVPpCk7utbtq45mRKkAkEWQMEGSTd9Ehwer+06uZhUqY1+o9CpzR5KZQCTqF
- iX3lRnVMoYmaKIE6VyOj7EzGSZ1Xo8qF+AeijbybeZK+BnQRH63getEkR0qyaC1aD5ao
- xPPYyzZ7tTv23CfoFNDeB9uvXKORjKsFwFNu5d78WTp8dmkCyf7+77zV4zrJhmMihgF1
- 14UOUv+J5bQITNH5tvT1eqEIhwYeD73qDIid9ER4cKfzSEa219LTXrpJ5YiGqG2iDsCG
- UOXgfs0umDhBnm0qC/isKciOdI8dZMIJSohS0Ic+WxAop8bJANADj5bHFx39WMyaA0rV
- xkIA==
-X-Gm-Message-State: AOAM530r0xhHilidlhWx2e4C33PLAnzZ2X5KssRi5g59WHwf0aXyDKHN
- NnolWdxvCbEIdADHJxCB4KDeNuoO+ur+qA==
-X-Google-Smtp-Source: ABdhPJxZ9IXq8e3w29XqwyA4tFdKUt34VgrdrBdiovLR95Y4t32vajYGB/nJA8DVEItUbXob/hqirQ==
-X-Received: by 2002:a63:1142:: with SMTP id 2mr10642235pgr.263.1611166909930; 
- Wed, 20 Jan 2021 10:21:49 -0800 (PST)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id x127sm2965069pfb.74.2021.01.20.10.21.48
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 20 Jan 2021 10:21:49 -0800 (PST)
-Date: Wed, 20 Jan 2021 10:21:49 -0800 (PST)
-X-Google-Original-Date: Wed, 20 Jan 2021 10:21:47 PST (-0800)
-Subject: Re: [PATCH v11 02/10] pinctrl: Add RISC-V Canaan Kendryte K210 FPIOA
- driver
-In-Reply-To: <CACRpkdbTazK7yLPVe79SoneD+tdiXv9GPvN29dSMgCZkf8Pjbg@mail.gmail.com>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: linus.walleij@linaro.org
-Message-ID: <mhng-8e7e9405-6528-4fec-8d2e-41eb7ec1362c@palmerdabbelt-glaptop>
-Mime-Version: 1.0 (MHng)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210120_132153_961218_9A0C65DE 
-X-CRM114-Status: GOOD (  14.38  )
+ id 1l2KCW-0000pA-BN; Wed, 20 Jan 2021 20:35:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+ References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description;
+ bh=wha2ICxXtgWp8RSsmCA+ALoEMK4ppTh6Oifr+i/Aq5k=; b=POzz2vX4NL2FOL5KBbnP1afVXx
+ 7DUTchSw2uhr4v29pMLrprop/X/8ZeNKhQq7aAFkKjGCAaz+4r1ZagnvTwdmKGmT9i0FzNXsqZahm
+ q9E7TLVeaTjgo4hB//QCK/z3qo/IC038TH8qoDfcTrbEX4HQwU+j3xjBQbd2dBZq1M8sL4f6Bgywx
+ uWLIgA09gDv+4QyFtj2nzdZ6SX/r+mfucsyd3HnBXPOJQTMl8QIGIc+jM4N6BLZRg11soghFJAHDI
+ MBF25b/+EoBQGmRDSRBoj1XqDhYK0b2JcmyiChLejE9AC5YkNQhOshX3nQckPpNNZoG+dbrcsXsTk
+ Y0dgmP2g==;
+Received: from willy by casper.infradead.org with local (Exim 4.94 #2 (Red Hat
+ Linux)) id 1l2KC0-00GBPk-8o; Wed, 20 Jan 2021 20:35:07 +0000
+Date: Wed, 20 Jan 2021 20:35:04 +0000
+From: Matthew Wilcox <willy@infradead.org>
+To: Mike Rapoport <rppt@kernel.org>
+Subject: Re: [PATCH v15 06/11] mm: introduce memfd_secret system call to
+ create "secret" memory areas
+Message-ID: <20210120203504.GM2260413@casper.infradead.org>
+References: <20210120180612.1058-1-rppt@kernel.org>
+ <20210120180612.1058-7-rppt@kernel.org>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20210120180612.1058-7-rppt@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -93,39 +69,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-gpio@vger.kernel.org, Damien Le Moal <Damien.LeMoal@wdc.com>,
- linux-riscv@lists.infradead.org, seanga2@gmail.com
+Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
+ Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
+ Will Deacon <will@kernel.org>, x86@kernel.org, linux-riscv@lists.infradead.org,
+ Mike Rapoport <rppt@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+ Michael Kerrisk <mtk.manpages@gmail.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>, Arnd Bergmann <arnd@arndb.de>,
+ James Bottomley <jejb@linux.ibm.com>, Hagen Paul Pfeifer <hagen@jauu.net>,
+ Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Palmer Dabbelt <palmer@dabbelt.com>, linux-fsdevel@vger.kernel.org,
+ Shakeel Butt <shakeelb@google.com>, Andrew Morton <akpm@linux-foundation.org>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 18 Jan 2021 05:33:05 PST (-0800), linus.walleij@linaro.org wrote:
-> Hi Damien,
->
-> this looks all right to me.
-> Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
->
-> Shall I apply just this one patch to the pinctrl tree?
+On Wed, Jan 20, 2021 at 08:06:07PM +0200, Mike Rapoport wrote:
+> +static struct page *secretmem_alloc_page(gfp_t gfp)
+> +{
+> +	/*
+> +	 * FIXME: use a cache of large pages to reduce the direct map
+> +	 * fragmentation
+> +	 */
+> +	return alloc_page(gfp);
+> +}
+> +
+> +static vm_fault_t secretmem_fault(struct vm_fault *vmf)
+> +{
+> +	struct address_space *mapping = vmf->vma->vm_file->f_mapping;
+> +	struct inode *inode = file_inode(vmf->vma->vm_file);
+> +	pgoff_t offset = vmf->pgoff;
+> +	unsigned long addr;
+> +	struct page *page;
+> +	int err;
+> +
+> +	if (((loff_t)vmf->pgoff << PAGE_SHIFT) >= i_size_read(inode))
+> +		return vmf_error(-EINVAL);
+> +
+> +retry:
+> +	page = find_lock_page(mapping, offset);
+> +	if (!page) {
+> +		page = secretmem_alloc_page(vmf->gfp_mask);
+> +		if (!page)
+> +			return VM_FAULT_OOM;
+> +
+> +		err = set_direct_map_invalid_noflush(page, 1);
+> +		if (err)
+> +			return vmf_error(err);
 
-That's fine with me.  The DT bindings are in riscv/for-next, maybe it's best to
-take those as well and I'll drop them?  I don't generally like to drop stuff
-from for-next, but that's probably better than having everything all mixed up.
+Haven't we leaked the page at this point?
 
-https://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git/commit/?h=for-next&id=ed3137edb31b86702511e7ad12b4abe8686b6805
+> +		__SetPageUptodate(page);
+> +		err = add_to_page_cache(page, mapping, offset, vmf->gfp_mask);
 
-> I think the line that touches arch/*/Kconfig should be dropped
-> then, that better go to the SoC tree.
+At this point, doesn't the page contain data from the last person to use
+the page?  ie we've leaked data to this process?  I don't see anywhere
+that we write data to the page.
 
-I'm OK with you taking them along with my Ack, but if you don't want to that's
-fine.  Just LMK
-
-Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
-
-> Yours,
-> Linus Walleij
-
-Thanks!
 
 _______________________________________________
 linux-riscv mailing list
