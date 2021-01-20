@@ -2,20 +2,19 @@ Return-Path: <SRS0=Zzcc=GX=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-4.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3F991C433E0
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 20:37:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AA24AC433E0
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 21:43:25 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0D00023432
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 20:37:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0D00023432
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=infradead.org
+	by mail.kernel.org (Postfix) with ESMTPS id 51C6F2360D
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 21:43:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 51C6F2360D
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -23,41 +22,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=z+SBtrQtEVTcKzduH62V2mxELkMqvHaKFhw7/R0UHoc=; b=E+TAZxjA/rAjbfScMb2FJ4F+q
-	mq9oTKV0/7h/YxOZsVx924ql9ILVlWbq5H4okryy2mZX0e4vqhq+exJRzvFWvdPnH7vlJjzwmxH4i
-	igdZ5Crsgfsi/nPqGXYxuykKEXmhHhDoXlNPx7/Ands4p+6D2veSnkZ2iJr09aw6zmrOV5G2kOcJz
-	X6QLPwe84nZYgCi4JrpQdxKbXYrSuM4E9d4YvsvfmcwH5aJvGMXQagAdtPqT9230wzrl2X0qWvyrO
-	Ji2XMmW+/UNuPEXtwsWrc2TgPGSJdRRVTvwGihgvKALDDxifJBfErsaWtjg9NutSJaHvG6I0Nf3/l
-	iGtldJLRg==;
+	 bh=ol7QA2kz/QCVpl+nkSN94sdNOo3XJ52yfSLbFWURjfc=; b=yE2xSt3LyBjtcYuYMzY6qldfL
+	balYDHrcON0ZguQL3S06mUa9tUvzrC2KdhfA61eKpi+3zHMtvYK2oP1K5Vi8jiN7roPjhFXOc5weI
+	+cqXZd4E1clqoj7/DcVVCalT6/xT1S/0U2Hoz59+c6n7FduDfeYRKaKD4sa3wAQFqMSdKBhFnqwx5
+	sX4fE8vtQA86qyZvASNocFdGHdaEZg78zqiviEe0S/cnT0trG29DK5UGpqS5y3muNQYNppAuHNakg
+	edjcNvQxsfD87zTyrXWtmaRwTwLcDlINHBSyJ8n+5KYO1sjHpZxuy07dvR5fMrG1j654Vel5auitW
+	WEXU1gTEQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l2KDW-0001DW-Fs; Wed, 20 Jan 2021 20:36:38 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1l2LFk-0001wS-Ol; Wed, 20 Jan 2021 21:43:00 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l2KCW-0000pA-BN; Wed, 20 Jan 2021 20:35:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=wha2ICxXtgWp8RSsmCA+ALoEMK4ppTh6Oifr+i/Aq5k=; b=POzz2vX4NL2FOL5KBbnP1afVXx
- 7DUTchSw2uhr4v29pMLrprop/X/8ZeNKhQq7aAFkKjGCAaz+4r1ZagnvTwdmKGmT9i0FzNXsqZahm
- q9E7TLVeaTjgo4hB//QCK/z3qo/IC038TH8qoDfcTrbEX4HQwU+j3xjBQbd2dBZq1M8sL4f6Bgywx
- uWLIgA09gDv+4QyFtj2nzdZ6SX/r+mfucsyd3HnBXPOJQTMl8QIGIc+jM4N6BLZRg11soghFJAHDI
- MBF25b/+EoBQGmRDSRBoj1XqDhYK0b2JcmyiChLejE9AC5YkNQhOshX3nQckPpNNZoG+dbrcsXsTk
- Y0dgmP2g==;
-Received: from willy by casper.infradead.org with local (Exim 4.94 #2 (Red Hat
- Linux)) id 1l2KC0-00GBPk-8o; Wed, 20 Jan 2021 20:35:07 +0000
-Date: Wed, 20 Jan 2021 20:35:04 +0000
-From: Matthew Wilcox <willy@infradead.org>
-To: Mike Rapoport <rppt@kernel.org>
+ id 1l2LFf-0001uG-9r; Wed, 20 Jan 2021 21:42:56 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 1E57F23600;
+ Wed, 20 Jan 2021 21:42:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1611178974;
+ bh=ZemV/+dUIhWWETHuwU5pHRPb6MkbPLkRamXfzO/LwBk=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=uzb7oUqqqTl6faKktid0R1cfCdzOhvge6hefHpP1hVsOrRWHUIRjtRR24feMvviBV
+ qSPgQ0BpNLkdq1Dh3XK99XOPci+LskNVcWHz5989GtZRhQv44Gf357HRSoLSYk494t
+ IKjF5/HIb64hJBLOgZxf/YfAPKv47GTkUJBbd7DJcJTd2tSyzQVNhz0mzFh7G7vSAC
+ QsPumwQssV3QVC+8stgE0LaJa76huTme80dU3hSp8RBkxnlwydBxS3gUzVaX1cLjEk
+ zdGWVnOXpFdtYn/+WUm8E0F8/cTMAueXosEUkqwcn7jAPBJAPaxvqXgAzRBJ8CwIBD
+ wQMKvnyLvI9vA==
+Date: Wed, 20 Jan 2021 23:42:39 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Matthew Wilcox <willy@infradead.org>
 Subject: Re: [PATCH v15 06/11] mm: introduce memfd_secret system call to
  create "secret" memory areas
-Message-ID: <20210120203504.GM2260413@casper.infradead.org>
+Message-ID: <20210120214239.GR1106298@kernel.org>
 References: <20210120180612.1058-1-rppt@kernel.org>
  <20210120180612.1058-7-rppt@kernel.org>
+ <20210120203504.GM2260413@casper.infradead.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20210120180612.1058-7-rppt@kernel.org>
+In-Reply-To: <20210120203504.GM2260413@casper.infradead.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20210120_164255_552660_3D39F999 
+X-CRM114-Status: GOOD (  21.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -96,48 +99,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 20, 2021 at 08:06:07PM +0200, Mike Rapoport wrote:
-> +static struct page *secretmem_alloc_page(gfp_t gfp)
-> +{
-> +	/*
-> +	 * FIXME: use a cache of large pages to reduce the direct map
-> +	 * fragmentation
-> +	 */
-> +	return alloc_page(gfp);
-> +}
-> +
-> +static vm_fault_t secretmem_fault(struct vm_fault *vmf)
-> +{
-> +	struct address_space *mapping = vmf->vma->vm_file->f_mapping;
-> +	struct inode *inode = file_inode(vmf->vma->vm_file);
-> +	pgoff_t offset = vmf->pgoff;
-> +	unsigned long addr;
-> +	struct page *page;
-> +	int err;
-> +
-> +	if (((loff_t)vmf->pgoff << PAGE_SHIFT) >= i_size_read(inode))
-> +		return vmf_error(-EINVAL);
-> +
-> +retry:
-> +	page = find_lock_page(mapping, offset);
-> +	if (!page) {
-> +		page = secretmem_alloc_page(vmf->gfp_mask);
-> +		if (!page)
-> +			return VM_FAULT_OOM;
-> +
-> +		err = set_direct_map_invalid_noflush(page, 1);
-> +		if (err)
-> +			return vmf_error(err);
+On Wed, Jan 20, 2021 at 08:35:04PM +0000, Matthew Wilcox wrote:
+> On Wed, Jan 20, 2021 at 08:06:07PM +0200, Mike Rapoport wrote:
+> > +static struct page *secretmem_alloc_page(gfp_t gfp)
+> > +{
+> > +	/*
+> > +	 * FIXME: use a cache of large pages to reduce the direct map
+> > +	 * fragmentation
+> > +	 */
+> > +	return alloc_page(gfp);
+> > +}
+> > +
+> > +static vm_fault_t secretmem_fault(struct vm_fault *vmf)
+> > +{
+> > +	struct address_space *mapping = vmf->vma->vm_file->f_mapping;
+> > +	struct inode *inode = file_inode(vmf->vma->vm_file);
+> > +	pgoff_t offset = vmf->pgoff;
+> > +	unsigned long addr;
+> > +	struct page *page;
+> > +	int err;
+> > +
+> > +	if (((loff_t)vmf->pgoff << PAGE_SHIFT) >= i_size_read(inode))
+> > +		return vmf_error(-EINVAL);
+> > +
+> > +retry:
+> > +	page = find_lock_page(mapping, offset);
+> > +	if (!page) {
+> > +		page = secretmem_alloc_page(vmf->gfp_mask);
+> > +		if (!page)
+> > +			return VM_FAULT_OOM;
+> > +
+> > +		err = set_direct_map_invalid_noflush(page, 1);
+> > +		if (err)
+> > +			return vmf_error(err);
+> 
+> Haven't we leaked the page at this point?
 
-Haven't we leaked the page at this point?
+Well, yes. :(
 
-> +		__SetPageUptodate(page);
-> +		err = add_to_page_cache(page, mapping, offset, vmf->gfp_mask);
+But this code is anyway changed in the next patch. Is this really so
+important to fix this in the middle of the series?
+ 
+> > +		__SetPageUptodate(page);
+> > +		err = add_to_page_cache(page, mapping, offset, vmf->gfp_mask);
+> 
+> At this point, doesn't the page contain data from the last person to use
+> the page?  ie we've leaked data to this process?  I don't see anywhere
+> that we write data to the page.
 
-At this point, doesn't the page contain data from the last person to use
-the page?  ie we've leaked data to this process?  I don't see anywhere
-that we write data to the page.
+The data is visible for all processes that share the file descriptor. So
+no, we don't leak anything unless the file descriptor itself is leaked.
 
+Did you have a particular scenario in mind?
+
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
