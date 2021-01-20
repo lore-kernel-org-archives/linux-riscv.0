@@ -6,77 +6,63 @@ X-Spam-Status: No, score=-4.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
 	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4319AC433E0
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 16:04:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D8F5BC433E6
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 17:05:34 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DAD852339E
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 16:04:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DAD852339E
+	by mail.kernel.org (Postfix) with ESMTPS id 8F8FE22CE3
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 17:05:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8F8FE22CE3
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=tMDBCk2ZLNVH2naFs34QOZq/FBZVhIwqBUkf4OIwnYI=; b=ZFdBtqUhN6RVLguj7QSqPrLIt
-	IvjDjemJUMGCVfwch5mypW5IyDDNfGP2uGFZzPbDnXZ5FhUpPpxj+xVBoFirXLJHEfBYqlbao4Mpu
-	lIZCJ8r/VrJn8tXMZFnC5ZD3+6ZouJ746P5Z4LC6UnZEAtUEetLfhur3bvHfCwlgDutE8OTy+VSQQ
-	4N4ALSONTfXV8B7Q18c3b+q0r/yqGXdgOlhLVILrXbTnhMg3ybLM1eqW71jwwUwdYuWmFKx1peRd9
-	FRjdcHI+dsLvQE21RsdrwTaGTlDKcfPsT/Raqi5o9QsdLw/44LOM5uK5ohdF37pOiAGoB5y8Bf585
-	cLgJUqmow==;
+	 bh=BbddkltkxfIX05ZxFazz1hM58neskjUgIiCfHp7GOO8=; b=oZF6N/n9fpI0gFU6yH4xxCgy1
+	mgGaQd5sfvpLFB3Le8D/YAZXNksKkqR3yEj2VERfnhsK82sxEJq0KIJRatcFLQ2gQmvGryh14Cp4/
+	YkMcL9aBCPtGg5Hl/Z88ryG2vujl9m6gIYic4VNqprs3aVBeJJFVTcyiFd4SU0WOdYuw15zQcgqWV
+	Ucn2MvAfreGFRzC7yvPcnC2+y5aP3e0NW/YTggOUtRB2PBS0gd7sficCTcrQkzNpAFEfAsJnq+glc
+	MUSX+dB9bE/pT1MgLT7u54zDPo5e4q+AMX7infRkxTcko2GYLBPp3pCLIrXD8uHK0xgvlbmkLM5V+
+	tGyjr8FqQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l2FxW-0003U2-OS; Wed, 20 Jan 2021 16:03:50 +0000
+	id 1l2Gul-0007VR-KV; Wed, 20 Jan 2021 17:05:03 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l2FxU-0003Td-Dm
- for linux-riscv@lists.infradead.org; Wed, 20 Jan 2021 16:03:49 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 7EE42233ED
- for <linux-riscv@lists.infradead.org>; Wed, 20 Jan 2021 16:03:47 +0000 (UTC)
+ id 1l2Guf-0007Sy-C7; Wed, 20 Jan 2021 17:04:58 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id A0CF0233E2;
+ Wed, 20 Jan 2021 17:04:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1611158627;
- bh=T0E6+mqakN4V9vWo8X1ljtTe+kN6yus7W9b1XzynuwM=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=SrLoCkiCGaNFYbjas36sYatWF5/YwK4EjiIhWAUUpJ+Apy0cHpDZaYo1Qp5ivJFmI
- rtBsUbqbm9eOQGZeTEV3H7YU/59qHVHmxdsUNRbzOL0kpxP0uFuwCgjbzObzIJn4UG
- 66BTYrf475a/8CuI9nnfKxACUsO2xlofj/qXVy+gUhpqSPbvQsMn97O0hc0wAwOATj
- 31ChqIXGptr/EMxHVe5+tSzcFzTAWc71nGZtby9E78w7eljp3MU9k9jk2D/zCEO4yL
- PYWU+aEyQwSWXAspeQKcG/rWS6q3UfwpCuESSO64r1GQgGvYdTqR6OQP89Eu5fdBsO
- 7f/9eTAxLWVuA==
-Received: by mail-ot1-f48.google.com with SMTP id i30so10912954ota.6
- for <linux-riscv@lists.infradead.org>; Wed, 20 Jan 2021 08:03:47 -0800 (PST)
-X-Gm-Message-State: AOAM532FlcrgTd/0d7WPaUjzyuj+Ro5uJt+N3G5nHl8VZ7ZyVq6o971F
- dvXEOWH7uWK7qlsgOISKYd/7UEZ0g+/WaQG01O0=
-X-Google-Smtp-Source: ABdhPJxaRbbNCHdD3JOd3u35/vAqUKVfGKWCfXkdtpwBgrfo502SBbYLtn9isLPcnVFeKsBmrqxPppHoV64aP1QpSf0=
-X-Received: by 2002:a05:6830:139a:: with SMTP id
- d26mr7491016otq.305.1611158626717; 
- Wed, 20 Jan 2021 08:03:46 -0800 (PST)
+ s=k20201202; t=1611162296;
+ bh=va+8yzZazWv2hNG2ZtWuIyB2nJKfDd4jMqhGqRAZb7o=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=Vmed0anBzGag0Z8bSuEA0Tx/cC2Rraek86TT4ZNBf5NWU9KhkSVm47/e5qYB2EgMG
+ Hh793Ebmr7UiucCD7spwxNAAotjKclldyTVEYvY9+Om97WYeu5OqlrmkqqKdKRpINM
+ GV6HUfz4n8Lekq7b7M91CggobdUqgDEJR05GIrgy0oOyeyO3ODydj2WcNDpe3XSGHF
+ QplrvZQrYQPXpoJ2Cyr26Z2rsG2RRiX+lrymQWzImJfV+oWjs+Ld2e7BrF1+MXHfM+
+ dqmV2WkQoEQfDON1aBRr8qJafeH3vkc+RZswoi3YHDceC2JJuhHPHvpbcu02/r+uVD
+ Qbg9LOZsR6tsA==
+Date: Wed, 20 Jan 2021 19:04:39 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Matthew Wilcox <willy@infradead.org>
+Subject: Re: [PATCH v14 05/10] mm: introduce memfd_secret system call to
+ create "secret" memory areas
+Message-ID: <20210120170439.GP1106298@kernel.org>
+References: <20201203062949.5484-1-rppt@kernel.org>
+ <20201203062949.5484-6-rppt@kernel.org>
+ <20210119202213.GI2260413@casper.infradead.org>
+ <20210120150510.GO1106298@kernel.org>
+ <20210120160210.GK2260413@casper.infradead.org>
 MIME-Version: 1.0
-References: <CAK8P3a33i2r0xx==3hTW32pc_Sm33EMDXYAS4PtEaEV8DX4s_A@mail.gmail.com>
- <YAWaQVBM84CaY1B2@ingrassia.epigenesys.com>
- <YAWg6KQt6hAtIR6O@ingrassia.epigenesys.com>
- <CAK8P3a3Vc4wrLvrfwkHd6HCMohk07Yi6P_jKaC_5AybCMBNjPA@mail.gmail.com>
- <YAWqS9YZ0rpXPoSN@ingrassia.epigenesys.com>
- <CAK8P3a31ssD+FS1tAUxVHzrtUz-L9=mYCbv=ShEMci_bDdiTAg@mail.gmail.com>
- <YAcOi0l44VTtd2LS@ingrassia.epigenesys.com>
- <CAK8P3a3q16Fds9bujhjHRwjXoc_8NJBvutNRqajMEPHb9hGdNw@mail.gmail.com>
- <YAhBu/T02m5oFOcM@ingrassia.epigenesys.com>
- <CAK8P3a2y9BC9JDXoJVTi0+TcDvYH-nb27K4r2SybmL-zrxfBtw@mail.gmail.com>
- <YAhQIksHO+xM7wEO@ingrassia.epigenesys.com>
-In-Reply-To: <YAhQIksHO+xM7wEO@ingrassia.epigenesys.com>
-From: Arnd Bergmann <arnd@kernel.org>
-Date: Wed, 20 Jan 2021 17:03:30 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a1Kjy14Pxf4_1SOYA5cy1bSYhhxW9_5LefNzJ2dRTJ29g@mail.gmail.com>
-Message-ID: <CAK8P3a1Kjy14Pxf4_1SOYA5cy1bSYhhxW9_5LefNzJ2dRTJ29g@mail.gmail.com>
-Subject: Re: perf tools build broken for RISCV 32 bit
-To: Emiliano Ingrassia <ingrassia@epigenesys.com>
+Content-Disposition: inline
+In-Reply-To: <20210120160210.GK2260413@casper.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210120_110348_643186_ECA31DFF 
-X-CRM114-Status: GOOD (  26.98  )
+X-CRM114-CacheID: sfid-20210120_120457_563183_17897854 
+X-CRM114-Status: GOOD (  24.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -88,69 +74,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Bruce Ashfield <bruce.ashfield@gmail.com>,
- Khem Raj <raj.khem@gmail.com>,
- "linux-perf-users@vger.kernel.org" <linux-perf-users@vger.kernel.org>,
- Namhyung Kim <namhyung@kernel.org>,
- Richard Purdie <richard.purdie@linuxfoundation.org>,
- Alistair Francis <alistair.francis@wdc.com>, Jiri Olsa <jolsa@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, "Maciej W. Rozycki" <macro@wdc.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
+ Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
+ Will Deacon <will@kernel.org>, x86@kernel.org, linux-riscv@lists.infradead.org,
+ Mike Rapoport <rppt@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
+ Michael Kerrisk <mtk.manpages@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
+ James Bottomley <jejb@linux.ibm.com>, Hagen Paul Pfeifer <hagen@jauu.net>,
+ Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Palmer Dabbelt <palmer@dabbelt.com>, linux-fsdevel@vger.kernel.org,
+ Shakeel Butt <shakeelb@google.com>, Andrew Morton <akpm@linux-foundation.org>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 20, 2021 at 4:45 PM Emiliano Ingrassia
-<ingrassia@epigenesys.com> wrote:
-> > > > rv32 is in the unfortunate position of being the first one that has a glibc
-> > > > port, so it hits a lot of problems that other architectures do not.
-> > > > If the applications get fixed properly, then at least they will also
-> > > > work with musl-1.2 and a (will work-in-progress) glibc that will
-> > > > eventually allow building with 64-bit time_t.
-> > >
-> > > Ok, so in case of perf we probably should limit the needed patch to
-> > > riscv 32 bit architecture, unless we want to solve the problem for all
-> > > 32 bit architecture with time_t 64 bit support.
-> >
-> > No, whatever you do should be written to work on all 32-bit
-> > architectures. It would be crazy to add a special case for one
-> > architecture when it's easier to fix it properly.
-> >
-> > What was wrong with the helper function I suggested?
->
-> Sorry, I was just trying to have a more clear picture of the problem.
->
-> I'm totally fine with the helper function you proposed. About that,
-> should such approach be used for every time64 syscall for which is known
-> that there is no libc wrapper?
+On Wed, Jan 20, 2021 at 04:02:10PM +0000, Matthew Wilcox wrote:
+> On Wed, Jan 20, 2021 at 05:05:10PM +0200, Mike Rapoport wrote:
+> > On Tue, Jan 19, 2021 at 08:22:13PM +0000, Matthew Wilcox wrote:
+> > > On Thu, Dec 03, 2020 at 08:29:44AM +0200, Mike Rapoport wrote:
+> > > > +static vm_fault_t secretmem_fault(struct vm_fault *vmf)
+> > > > +{
+> > > > +	struct address_space *mapping = vmf->vma->vm_file->f_mapping;
+> > > > +	struct inode *inode = file_inode(vmf->vma->vm_file);
+> > > > +	pgoff_t offset = vmf->pgoff;
+> > > > +	vm_fault_t ret = 0;
+> > > > +	unsigned long addr;
+> > > > +	struct page *page;
+> > > > +	int err;
+> > > > +
+> > > > +	if (((loff_t)vmf->pgoff << PAGE_SHIFT) >= i_size_read(inode))
+> > > > +		return vmf_error(-EINVAL);
+> > > > +
+> > > > +	page = find_get_page(mapping, offset);
+> > > > +	if (!page) {
+> > > > +
+> > > > +		page = secretmem_alloc_page(vmf->gfp_mask);
+> > > > +		if (!page)
+> > > > +			return vmf_error(-ENOMEM);
+> > > 
+> > > Just use VM_FAULT_OOM directly.
+> >  
+> > Ok.
+> > 
+> > > > +		err = add_to_page_cache(page, mapping, offset, vmf->gfp_mask);
+> > > > +		if (unlikely(err))
+> > > > +			goto err_put_page;
+> > > 
+> > > What if the error is EEXIST because somebody else raced with you to add
+> > > a new page to the page cache?
+> > 
+> > Right, for -EEXIST I need a retry here, thanks.
+> > 
+> > > > +		err = set_direct_map_invalid_noflush(page, 1);
+> > > > +		if (err)
+> > > > +			goto err_del_page_cache;
+> > > 
+> > > Does this work correctly if somebody else has a reference to the page
+> > > in the meantime?
+> > 
+> > Yes, it does. If somebody else won the race that page was dropped from the
+> > direct map and this call would be essentially a nop. And anyway, the very
+> > next patch changes the way pages are removed from the direct map ;-)
+> 
+> What I'm thinking is:
+> 
+> thread A page faults
+> doesn't find page
+> allocates page
+> adds page to page cache
+> 				thread B page faults
+> 				does find page in page cache
+> set direct map invalid fails
+> deletes from page cache
+> 				... ?
 
-We have previously discussed adding generated wrappers for every
-syscall, but my suggestion to have an inline function in one of the kernel
-headers was not very popular at the time.
+Hmm, this is not nice indeed...
 
-I think futex() is very much a special case here because this is the
-only[1] thing that gets called directly by a number of applications through
-syscall(). All the other time32 system calls have wrappers that are
-provided by any C library, which will just use the correct syscall number
-to match the arguments, or do a conversion if needed.
-
-Most of the packages that use the other __NR_* macros need them
-for something other than calling them (e.g. strace), so a wrapper does
-not help.
-
-      Arnd
-
-[1] technically, there is also io_{p,}getevents, but that is usually abstracted
-through libaio, and only that needs to be fixed. I checked
-https://pagure.io/libaio/commits/master, which seems to be the upstream
-but I do not see a fix in there, so this version is currently broken on 32-bit
-architectures with musl-1.2 as well as on rv32 with glibc. Distros may
-have already fixed this in their downstream copies.
-
-        Arnd
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
