@@ -2,71 +2,90 @@ Return-Path: <SRS0=Zzcc=GX=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-18.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+X-Spam-Status: No, score=-15.7 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
 	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8FC4CC433E0
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 10:59:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 809F5C433DB
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 13:07:36 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1B96022242
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 10:59:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1B96022242
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=linux-m68k.org
+	by mail.kernel.org (Postfix) with ESMTPS id 25EE022210
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 13:07:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 25EE022210
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=1O98FyCyiUu9BF4WP2xArD1ZLqb+PwEB9Xgzc8TXhi8=; b=x5vjfT8Ab5CwuINOG2qIeXfF5
-	gjvjzSCc8zCc4lW8xnBCfklz+0niNEuQX28ggd5olhkUlo5SArlfNy+MkZnMWxno/Sr1oFC5AvVL0
-	/naOkhs+Uj3cddm633cNNDScGSxxU+cJVvfIpE3AORel2yscIj2I+2kv74gHFRqRt9ZWbSCnH7y6L
-	0SiSBf20kSFDu9wrD6dbohL/BrZmKQYLQb5t33UXKQf73xh8Bqgo2FcWd+D0chDwXdM8YgP9ncae7
-	f/9dtu8st+4sEZCc0jbJhZzqLpXoroa9o6bam5hbVc3eCrv9FTn7ZKLIHMwBSlUclzkKnblxdEX1/
-	VXk9RVrBg==;
+	 bh=mgUiiiD8n1oTsfdM2h2XgShW46BjBwlNreSrV/qLwcs=; b=NJvo3zJcL7aRvr2Ld5EK9DBJN
+	pzRiSx5uYGu/qtoBD5EQdPWqbgoLbb3iR8BUn1RDU5bkQBMgyB2MhkzyHM473akuiGsxudEsFH3ti
+	j9EjJbvq0ZimfBK9D7R3F1Hv+iT/jjZQf7ofbTgsJzSiR0aBfu2Zq4vkfumLyZyuboij2FlmeDtCj
+	G3u6haP4CcwfRdiLKOK7+fB04rgog3C2XPf9ukPaPgXpa9q8VzOs9wKCayJ6KdUm0MU9p2Wbv7NKe
+	4p2+Ufp/T7O2BEl+gTbCO77wEymMUReZs3Kxa613D17m+uyLkVWIl/6Ci2cGzvhadzMti0iB6Q+oQ
+	KphwOm6dQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l2BD6-0004Ni-DA; Wed, 20 Jan 2021 10:59:36 +0000
-Received: from mail-oi1-f174.google.com ([209.85.167.174])
+	id 1l2DCW-0006KR-4x; Wed, 20 Jan 2021 13:07:08 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l2BD3-0004Mz-1e
- for linux-riscv@lists.infradead.org; Wed, 20 Jan 2021 10:59:34 +0000
-Received: by mail-oi1-f174.google.com with SMTP id p5so24575235oif.7
- for <linux-riscv@lists.infradead.org>; Wed, 20 Jan 2021 02:59:32 -0800 (PST)
+ id 1l2DCU-0006JL-EM
+ for linux-riscv@lists.infradead.org; Wed, 20 Jan 2021 13:07:07 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id 11so14452115pfu.4
+ for <linux-riscv@lists.infradead.org>; Wed, 20 Jan 2021 05:07:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=ZOvZA96ZqHhYYsl3TXxpU61JXBoyw6gS3vQQtm7WhqA=;
+ b=XGLsFqBfw29Axuri0oRGB/SxGWwPC7x9iXNKeWx1fOQd8pNcWe580ocWmP+vByX8p2
+ 2djvXDWYV6b/0PPSyWBfS0TzmYUHM7drEbSJlaGFF7+93p0iv8HKen6LU3BtbwX4fnDz
+ YTqBI0q3y8GI37coPtA8sJsqBfyNv/H8hikQ9tWeA44biBh7fvY0O3hf5k1qRacdCrVj
+ 9k6DSywqBx/oolXcfCqKs1CWp/IgmBQVKla7D5PKMGqpAv8Fm+4Xq8LIjrmHevXwluBE
+ 3s0dLTxUFPLrIkdJp+L0nzWbu7PclY62v0aZyEaYwDNeDusMNXf1jwIXalp2k46eUmjo
+ OHKQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=DK+FZYOgme3Ym7xK/6JU3jj5omlMd5NXSakDyCnkIA0=;
- b=n/Y6FxjevTok/CyCNBck5gNTRQjmSEOByPFYv0ZYvSPACGL502ewXJd7I2jE76QwxF
- yIYe79uSBAUBrhkbSVFl1NfJtz+5UvUV2ykPk1eVnQTbGcnwRzGgh5qFSkIDyX8vetZv
- GRc82L3G39psajMws74GRKJD6mFykehfxWCxYLWhXXjgGcwHOMkEtqloUEx+K5Yqzryt
- UdobCkC0p7v+A1Q74M7fxMD0JfxK5tqqRj6oaPNNasbKNJGlBqwxtFBXzMQJLUnSgPUF
- 8yanLx3d2rThhiJYXu8On2CqsYiH3FsnyUKjuOF/rKVdntKcCHEOptJUVxIbdgeDSnyk
- HNcA==
-X-Gm-Message-State: AOAM533fwsFk5Kp5rKmG853u0JM21/SDdwNLxT7k3jdcW38fDdq0Gnu3
- yfuvHPk56W0NRf/UczZ5qwRYW56+d0Snt44FOfM=
-X-Google-Smtp-Source: ABdhPJzNOkj0RJCg5MWPsB2nJeuOLyBgBm/U9bYvMf7/sxQ4TwReP40jMWCWWK5UEYqKMB4u26wZ+I6DChBs1N3JiDs=
-X-Received: by 2002:aca:4b16:: with SMTP id y22mr2455753oia.148.1611140371974; 
- Wed, 20 Jan 2021 02:59:31 -0800 (PST)
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=ZOvZA96ZqHhYYsl3TXxpU61JXBoyw6gS3vQQtm7WhqA=;
+ b=CkVFo456JTREfJEe9MzwWej+e7qr6WiUzuDOlVFU2lLEYdblh2kWsj/c25jwEQcMiq
+ EnPGvVKMdo14bKFCexUdHc8Qwef/yKtL840tdYze/GQUr8pd8UMWEJEX9LM6N/uuffSi
+ qUKXx9/K2ttfCikmuBaJI/TE78CFmVPL/026//X4e7r00SDjnZkSgoqSkLzo4PSAOEBJ
+ HLosqmPl4PYNop2ZibKpwIlscIYCtemog2E4D4S+UXq5AEXGtDQoRaVlwbfPMRW5R4du
+ hSdXqyhgHBsA2DcWrojo4qgIOKcOIqOv8VflwEK070AlT6RsoisgpRuN8MBYMx23eOrF
+ cKZA==
+X-Gm-Message-State: AOAM532GoG+S6IR5hp8+GQX+RtlxIMwFdCSgUtizQIBt/Zj1EG1TG7ho
+ 2zurvVCGu/p//KiMR/RYUa8=
+X-Google-Smtp-Source: ABdhPJyWYxsCNaud4l5HTIU2X7R5T/Xz6UT6kJEieFA13jRSuANZg+q8KXJ17UrLhYygL3ubwyjH3Q==
+X-Received: by 2002:aa7:8eda:0:b029:19e:c8c3:ed74 with SMTP id
+ b26-20020aa78eda0000b029019ec8c3ed74mr9014247pfr.66.1611148022806; 
+ Wed, 20 Jan 2021 05:07:02 -0800 (PST)
+Received: from localhost (g238.115-65-210.ppp.wakwak.ne.jp. [115.65.210.238])
+ by smtp.gmail.com with ESMTPSA id
+ r30sm2593787pjg.43.2021.01.20.05.07.01
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 20 Jan 2021 05:07:01 -0800 (PST)
+Date: Wed, 20 Jan 2021 22:06:59 +0900
+From: Stafford Horne <shorne@gmail.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Subject: Re: [PATCH v4] drivers/soc/litex: Add restart handler
+Message-ID: <20210120130659.GN2002709@lianli.shorne-pla.net>
+References: <20210119080938.1832733-1-geert@linux-m68k.org>
+ <20210119213444.GL2002709@lianli.shorne-pla.net>
+ <20210119221110.GM2002709@lianli.shorne-pla.net>
+ <CAMuHMdVpogc=oEgCCq8N__RJkujJX47OaZZcyaRgjSJV2+SZ-Q@mail.gmail.com>
 MIME-Version: 1.0
-References: <CAMuHMdXQr-qNQ2aNVmgQFfs_dJ8=A-xzrhxRf9VUmzFXx+2o_w@mail.gmail.com>
- <mhng-c5ceb653-6391-407e-acd9-bd5c43ca434a@penguin>
- <CAMuHMdXoJ9-jM4sazFbHXEsaDFFMK1ybM53SDqy_2QqPMZEQ=g@mail.gmail.com>
-In-Reply-To: <CAMuHMdXoJ9-jM4sazFbHXEsaDFFMK1ybM53SDqy_2QqPMZEQ=g@mail.gmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 20 Jan 2021 11:59:20 +0100
-Message-ID: <CAMuHMdU9JTYKGxLpmDaYGMGOeaeDb_mCWbCNP2VM7LKwSE+YAg@mail.gmail.com>
-Subject: Re: [PATCH 3/4] RISC-V: Fix L1_CACHE_BYTES for RV32
-To: Palmer Dabbelt <palmer@dabbelt.com>
+Content-Disposition: inline
+In-Reply-To: <CAMuHMdVpogc=oEgCCq8N__RJkujJX47OaZZcyaRgjSJV2+SZ-Q@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210120_055933_096934_20BFD8EB 
-X-CRM114-Status: GOOD (  50.21  )
+X-CRM114-CacheID: sfid-20210120_080706_487059_47A1AD62 
+X-CRM114-Status: GOOD (  26.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -78,148 +97,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <Anup.Patel@wdc.com>,
+Cc: Mateusz Holenko <mholenko@antmicro.com>,
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Ard Biesheuvel <ardb@kernel.org>, Atish Patra <Atish.Patra@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Atish Patra <atishp@atishpatra.org>,
- Nick Kossifidis <mick@ics.forth.gr>,
+ Gabriel Somlo <gsomlo@gmail.com>, Joel Stanley <joel@jms.id.au>,
  linux-riscv <linux-riscv@lists.infradead.org>,
- Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>
+ Karol Gugala <kgugala@antmicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jan 17, 2021 at 8:03 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> On Fri, Jan 15, 2021 at 11:44 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
-> > On Thu, 14 Jan 2021 23:59:04 PST (-0800), geert@linux-m68k.org wrote:
-> > > On Thu, Jan 14, 2021 at 10:11 PM Atish Patra <atishp@atishpatra.org> wrote:
-> > >> On Thu, Jan 14, 2021 at 11:46 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
-> > >> > On Thu, 14 Jan 2021 10:33:01 PST (-0800), atishp@atishpatra.org wrote:
-> > >> > > On Wed, Jan 13, 2021 at 9:10 PM Palmer Dabbelt <palmer@dabbelt.com> wrote:
-> > >> > >>
-> > >> > >> On Thu, 07 Jan 2021 01:26:51 PST (-0800), Atish Patra wrote:
-> > >> > >> > SMP_CACHE_BYTES/L1_CACHE_BYTES should be defined as 32 instead of
-> > >> > >> > 64 for RV32. Otherwise, there will be hole of 32 bytes with each memblock
-> > >> > >> > allocation if it is requested to be aligned with SMP_CACHE_BYTES.
-> > >> > >> >
-> > >> > >> > Signed-off-by: Atish Patra <atish.patra@wdc.com>
-> > >> > >> > ---
-> > >> > >> >  arch/riscv/include/asm/cache.h | 4 ++++
-> > >> > >> >  1 file changed, 4 insertions(+)
-> > >> > >> >
-> > >> > >> > diff --git a/arch/riscv/include/asm/cache.h b/arch/riscv/include/asm/cache.h
-> > >> > >> > index 9b58b104559e..c9c669ea2fe6 100644
-> > >> > >> > --- a/arch/riscv/include/asm/cache.h
-> > >> > >> > +++ b/arch/riscv/include/asm/cache.h
-> > >> > >> > @@ -7,7 +7,11 @@
-> > >> > >> >  #ifndef _ASM_RISCV_CACHE_H
-> > >> > >> >  #define _ASM_RISCV_CACHE_H
-> > >> > >> >
-> > >> > >> > +#ifdef CONFIG_64BIT
-> > >> > >> >  #define L1_CACHE_SHIFT               6
-> > >> > >> > +#else
-> > >> > >> > +#define L1_CACHE_SHIFT               5
-> > >> > >> > +#endif
-> > >> > >> >
-> > >> > >> >  #define L1_CACHE_BYTES               (1 << L1_CACHE_SHIFT)
-> > >> > >>
-> > >> > >> Should we not instead just
-> > >> > >>
-> > >> > >> #define SMP_CACHE_BYTES L1_CACHE_BYTES
-> > >> > >>
-> > >> > >> like a handful of architectures do?
-> > >> > >>
-> > >> > >
-> > >> > > The generic code already defines it that way in include/linux/cache.h
-> > >> > >
-> > >> > >> The cache size is sort of fake here, as we don't have any non-coherent
-> > >> > >> mechanisms, but IIRC we wrote somewhere that it's recommended to have 64-byte
-> > >> > >> cache lines in RISC-V implementations as software may assume that for
-> > >> > >> performance reasons.  Not really a strong reason, but I'd prefer to just make
-> > >> > >> these match.
-> > >> > >>
-> > >> > >
-> > >> > > If it is documented somewhere in the kernel, we should update that. I
-> > >> > > think SMP_CACHE_BYTES being 64
-> > >> > > actually degrades the performance as there will be a fragmented memory
-> > >> > > blocks with 32 bit bytes gap wherever
-> > >> > > SMP_CACHE_BYTES is used as an alignment requirement.
-> > >> >
-> > >> > I don't buy that: if you're trying to align to the cache size then the gaps are
-> > >> > the whole point.  IIUC the 64-byte cache lines come from DDR, not XLEN, so
-> > >> > there's really no reason for these to be different between the base ISAs.
-> > >> >
-> > >>
-> > >> Got your point. I noticed this when fixing the resource tree issue
-> > >> where the SMP_CACHE_BYTES
-> > >> alignment was not intentional but causing the issue. The real issue
-> > >> was solved via another patch in this series though.
-> > >>
-> > >> Just to clarify, if the allocation function intends to allocate
-> > >> consecutive memory, it should use 32 instead of SMP_CACHE_BYTES.
-> > >> This will lead to a #ifdef macro in the code.
-> > >>
-> > >> > > In addition to that, Geert Uytterhoeven mentioned some panic on vex32
-> > >> > > without this patch.
-> > >> > > I didn't see anything in Qemu though.
-> > >> >
-> > >> > Something like that is probably only going to show up on real hardware, QEMU
-> > >> > doesn't really do anything with the cache line size.  That said, as there's
-> > >> > nothing in our kernel now related to non-coherent memory there really should
-> > >> > only be performance issue (at least until we have non-coherent systems).
-> > >> >
-> > >> > I'd bet that the change is just masking some other bug, either in the software
-> > >> > or the hardware.  I'd prefer to root cause this rather than just working around
-> > >> > it, as it'll probably come back later and in a more difficult way to find.
-> > >> >
-> > >>
-> > >> Agreed. @Geert Uytterhoeven Can you do a further analysis of the panic
-> > >> you were saying ?
-> > >> We may need to change an alignment requirement to 32 for RV32 manually
-> > >> at some place in code.
+On Wed, Jan 20, 2021 at 09:20:39AM +0100, Geert Uytterhoeven wrote:
+> Hi Stafford,
+> 
+> On Tue, Jan 19, 2021 at 11:11 PM Stafford Horne <shorne@gmail.com> wrote:
+> > On Wed, Jan 20, 2021 at 06:34:44AM +0900, Stafford Horne wrote:
+> > > On Tue, Jan 19, 2021 at 09:09:38AM +0100, Geert Uytterhoeven wrote:
+> > > > Let the LiteX SoC Controller register a restart handler, which resets
+> > > > the LiteX SoC by writing 1 to CSR_CTRL_RESET_ADDR.
+> > > >
+> > > > Signed-off-by: Geert Uytterhoeven <geert@linux-m68k.org>
 > > >
-> > > My findings were in
-> > > https://lore.kernel.org/linux-riscv/CAMuHMdWf6K-5y02+WJ6Khu1cD6P0n5x1wYQikrECkuNtAA1pgg@mail.gmail.com/
+> > > Thanks, this looks good to me, queued to my linux-next branch.
 > > >
-> > > Note that when the memblock.reserved list kept increasing, it kept on
-> > > adding the same entry to the list.  But that was fixed by "[PATCH 1/4]
-> > > RISC-V: Do not allocate memblock while iterating reserved memblocks".
+> > > -Stafford
 > > >
-> > > After that, only the (reproducible) "Unable to handle kernel paging
-> > > request at virtual address 61636473" was left, always at the same place.
-> > > No idea where the actual corruption happened.
+> > > > @@ -66,8 +71,19 @@ static int litex_check_csr_access(void __iomem *reg_addr)
+> > > >
+> > > >  struct litex_soc_ctrl_device {
+> > > >     void __iomem *base;
+> > > > +   struct notifier_block reset_nb;
+> > > >  };
+> > > >
+> > > > +static int litex_reset_handler(struct notifier_block *this, unsigned long mode,
+> > > > +                          void *cmd)
+> > > > +{
+> > > > +   struct litex_soc_ctrl_device *soc_ctrl_dev =
+> > > > +           container_of(this, struct litex_soc_ctrl_device, reset_nb);
+> > >
+> > > Nice.
+> > >
+> > > > +   litex_write32(soc_ctrl_dev->base + RESET_REG_OFF, RESET_REG_VALUE);
+> > > > +   return NOTIFY_DONE;
+> > > > +}
+> > > > +
 > >
-> > Thanks.  Presumably I need an FPGA to run this?  That will make it tricky to
-> > find anything here on my end.
->
-> In theory, it should work with the LiteX simulation, too.
-> I.e. follow the instructions at
-> https://github.com/litex-hub/linux-on-litex-vexriscv
-> You can find prebuilt binaries at
-> https://github.com/litex-hub/linux-on-litex-vexriscv/issues/164
-> Take images/opensbi.bin from opensbi_2020_12_15.zip, and
-> images/rootfs.cpio from linux_2021_01_11.zip.
-> Take images/Image from your own kernel build.
->
-> Unfortunately it seems the simulator is currently broken, and kernels
-> (both prebuilt and my own config) hang after
-> "sched_clock: 64 bits at 1000kHz, resolution 1000ns, wraps every
-> 2199023255500ns"
+> > Actually, I tested this out on the latest (2-weeks ago) Litex and
+> > openrisc/for-next and it didn't seem to work correctly.
+> >
+> > I will look into it a bit closer, but if you see or can think of anything let
+> > me know.  Note There are a few failures below related to network services as my
+> > for-next kernel doesnt have a network driver (yet).
+> 
+> Hmmm, openrisc/for-next does have commit 131172a4a8ce3fcc ("openrisc:
+> restart: Call common handlers before hanging").
+> 
+> It's been a few years I used an OpenRISC setup.
+> Do you have a link to Linux on mor1kx/LiteX setup instructions?
 
-In the mean time, the simulator got fixed.
-Unfortunately the crash does not happen on the simulator.
+Actually, I rebuilt everything again and it works fine.  FYI, my instructions
+for setup are here:
 
-Gr{oetje,eeting}s,
+ - https://github.com/stffrdhrn/or1k-utils/tree/master/litex
 
-                        Geert
+I use an arty dev board, you can see the reset working below. There are some
+things I need to fix in my dev rootfs shutdown scripts but it does reset.
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+    # shutdown -r now
+
+    Broadcast message from root@buildroot (console) (Thu Jan  1 00:01:07 1970):
+    The system is going down for reboot NOW!
+    INIT: Switching to runlevel: 6
+    # mounting home work nfs ...
+    mount: mounting 10.0.0.27:/home/shorne/work on /home/shorne/work failed: No such device
+    enabling login for shorne ...
+    setting coredumps ...
+    Stopping dropbear sshd: FAIL
+    Stopping ntpd: FAIL
+    Nothing to do, sntp is not a daemon.
+    Stopping network: ifdown: interface lo not configured
+    ifdown: interface eth0 not configured
+    OK
+    Saving random seed: [   70.960000] random: dd: uninitialized urandom read (512 bytes read)
+    OK
+    Stopping klogd: OK
+    Stopping syslogd: start-stop-daemon: warning: killing process 51: No such
+    process
+    FAIL
+    umount: devtmpfs busy - remounted read-only
+    umount: can't unmount /: Invalid argument
+    [   72.650000] reboot: Res
+	    __   _ __      _  __
+	   / /  (_) /____ | |/_/
+	  / /__/ / __/ -_)>  <
+	 /____/_/\__/\__/_/|_|
+       Build your hardware, easily!
+
+     (c) Copyright 2012-2020 Enjoy-Digital
+     (c) Copyright 2007-2015 M-Labs
+
+     BIOS built on Jan 20 2021 21:18:10
+     BIOS CRC passed (b12f1de3)
+
+     Migen git sha1: 40b1092
+     LiteX git sha1: 57289dd4
+
+    --=============== SoC ==================--
+    CPU:            MOR1KX @ 100MHz
+    BUS:            WISHBONE 32-bit @ 4GiB
+
+-Stafford
 
 _______________________________________________
 linux-riscv mailing list
