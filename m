@@ -2,80 +2,86 @@ Return-Path: <SRS0=Zzcc=GX=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-8.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EEDB1C433E0
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 15:29:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 85668C433E0
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 15:34:32 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A3C8623358
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 15:29:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A3C8623358
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 39DB523358
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 15:34:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 39DB523358
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=embecosm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Ne6+KE8jv5r3wiEME5WXHkYFa/h9ddiSVYHPAYXNrzc=; b=F86zpybFI+fS0FI0KZWBVivKb
-	aNbANYf0m/zANykhuxyN6JEYCfBRXBywY9y5fnzR5AbvCo0Hbhp/qw50Y5MLgirc/AupDrfxI3fjJ
-	JUAFul8Nus3MsYe0SYSgUGl3720iMnrj9Do6G2ZICT8MBlM/aCsYRrat8tJBxAHln4SBC+x/E970f
-	wtJXQ6BbSeVUP1857uxpFvJ2KDim4vb8IZaiIhp7dUfs+fT5ZSRdpqJm0u77y/qGoZBnU3byENcJG
-	gPLkcXV0Is3fR3xL8dvtx9QfpWwbHtgcUXTYNT3GcGq2zTeJM3EAH7oF52JXodbIFhMMg/G7ywk5q
-	sGX2vwfwQ==;
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:Subject:To:From:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=THWRGobeAJxifW3C4hTnYe6tpcEHjtxHlYgbOJa+Zp8=; b=ePqFpiQBAq/TNoQTKzc9MdeJL
+	NrbO/7tcjfdqOTAXyNVhLdrSyLA5VJnMQQ0ZjG/5ZtEPJXGjxXwBuCmxq7aoJUxlvwXZm2EUAZf7y
+	ZonkenB6iRwDoOno+z7TpAl13Loit+9Fvi1bCqXfvjDtfavS0cs8yixB6ivL+eUEfCxdXALepkPdr
+	PljzBckhzWZgbFxdXpcp6zh/RPPRnfqtU8l3OYjXyCh7IPEEnFCT3K97E/6aotrJ2y9hQkx+BKo5D
+	10rbjrHqXVT2Yb248vmEoCpKOw4MMDOljrSAMNgqPUApvpHz9bxpZ5anrBKCEhB1V5d8f9fo7Y2dB
+	+99eNkchQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l2FQA-0005kT-Qm; Wed, 20 Jan 2021 15:29:22 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1l2FUn-0006U0-St; Wed, 20 Jan 2021 15:34:09 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l2FQ8-0005jM-Rt
- for linux-riscv@lists.infradead.org; Wed, 20 Jan 2021 15:29:21 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 9876B2339E
- for <linux-riscv@lists.infradead.org>; Wed, 20 Jan 2021 15:29:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1611156559;
- bh=7WmsTvnAxPUyLnSy+7idacbviQ2ZXQ9V63K2VAQXPPQ=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=njosop8oX4+mLBzQ4sXl8FUyNqfAJnAZG/nYjpjD4PCTQXjAbXaRtCcfP4/TrBbrQ
- Fg0gYdC8Nmd40f8PSxwlk56RVL/XRcUW8J4jpXc+lDq8pEFZcvTgRuAUyuidc4uB7e
- h4gP4kgAFoGCzzxQCDicr6dtdIrkA96TB8DIa1Qokb7Z2b+G9NREWBYV4/52XvxUv5
- alTYs0iX5OeOEOr1ApcS8Y3H+KVGZV91rCrfCnU9aEJb0K2RAtMBiq6PPzu8G+kGSh
- QTagLesvb4XUG/uuT+C8J6kRG2vZtB1pS+CHc0hdgFwOeiNRsG33j/EVnblJRwFgut
- GDCYIcRnzoy1A==
-Received: by mail-oi1-f178.google.com with SMTP id q205so25340949oig.13
- for <linux-riscv@lists.infradead.org>; Wed, 20 Jan 2021 07:29:19 -0800 (PST)
-X-Gm-Message-State: AOAM532p1n+nteqqiP5c5toccNj9D3KD3tSV1LFwXHiByA3hXZT4jMzk
- jr/N8yMFw9fuz6opsQWF/4TldZ/Z0dZHR7+OfvU=
-X-Google-Smtp-Source: ABdhPJwZiFp47TofXx52OGFpz+dwnvNbLq2R0G7FqMR3WLWTVDTOq+qhS0F0eCIyFj2IT4PmtXzzeqiaRUH9oYlE4BI=
-X-Received: by 2002:aca:44d:: with SMTP id 74mr3252962oie.4.1611156558930;
- Wed, 20 Jan 2021 07:29:18 -0800 (PST)
+ id 1l2FUk-0006Sd-Vh
+ for linux-riscv@lists.infradead.org; Wed, 20 Jan 2021 15:34:07 +0000
+Received: by mail-wr1-x433.google.com with SMTP id 7so16257396wrz.0
+ for <linux-riscv@lists.infradead.org>; Wed, 20 Jan 2021 07:34:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=embecosm.com; s=google;
+ h=date:from:to:cc:subject:message-id:mime-version:content-disposition
+ :in-reply-to; bh=yJWQbhCc0AAf8neuWVEcWBzYJRG3dVvxC4lEV4Idv+g=;
+ b=NegdkMbiNHK6mJ/4QwOtuhMZy/KWfi1rku9mZ4q+0X/7FN5gaBmMwFOvi6vwAA7z2m
+ 29NMfZllDN3/qrEQk+KugKFzKegznbhUBIAQQbUIBORLqmFsllOaka67tf2c5g1rb6mk
+ UW+S+CW595nR9ijoOPk2UnJFdPVZ7YigoIQ+NkD4rLM/cv73nXaf2tF5pVJXGXXp16qG
+ isVqDXihOTR1wBm/L5xkD2fpUkAPjiWdR0wkUfrI2jT58HP+emitQitS4v6hID7gYsr+
+ 4mhrhHs4UoIe5ALQjLE4uhl/0unTmF4bLtbKVOndbXYDQsJtW73Yjazk+IwTVhIFownC
+ cvaQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:mime-version
+ :content-disposition:in-reply-to;
+ bh=yJWQbhCc0AAf8neuWVEcWBzYJRG3dVvxC4lEV4Idv+g=;
+ b=Lk2ZimOy1nUEBNS/3mN43Dx9fBj9kt4haytWFJtkAqX3W9RhSJiU5fPOmRH+WxxMLH
+ SsAU8RAB0XTLB2WGf/0K0CNeZlxtk2UsY4KkndzEXrWe0r87PeT8VnIBMyaY2rp08CaU
+ CuT3KpB1Xyz5kKzxZ5f0EykSYpfAaXxOknpw8tP1TiFioholvLp9+CH8UsoPm8lzTvWp
+ Vi4EV4rHpnxDbj4KX9uMrBgDntwt7l2nUaUAfjAD2wyRwfl6sRSVS3x6TUSGLbGFfB3y
+ G3e8U5nlGTpQw/MMXEKLgRlWdOxAjCXYAYNvyXznwXW3OXQgh2jYwVwA5rnNzVPA5Tz4
+ 5JmA==
+X-Gm-Message-State: AOAM532vCSrFqP6YjszgAVuZbow502ZGmrbTRPv0jMthXGFqSkEmos8Z
+ 9kqkQuB1aaX+p/IrqajTp6QOqQhxdcRcjA==
+X-Google-Smtp-Source: ABdhPJxB/lgF/M5i2ogXpJaQprQqPxkYZXoZdJ4KPS8LXgeV9R1mPFril1weO+AUFLvsLuwH6zkBZQ==
+X-Received: by 2002:a5d:530c:: with SMTP id e12mr9860383wrv.54.1611156844204; 
+ Wed, 20 Jan 2021 07:34:04 -0800 (PST)
+Received: from localhost (host86-180-62-229.range86-180.btcentralplus.com.
+ [86.180.62.229])
+ by smtp.gmail.com with ESMTPSA id p9sm3184705wrj.11.2021.01.20.07.34.03
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 20 Jan 2021 07:34:03 -0800 (PST)
+Date: Wed, 20 Jan 2021 15:34:02 +0000
+From: Andrew Burgess <andrew.burgess@embecosm.com>
+To: linux-riscv@lists.infradead.org
+Subject: [PING] Re: [PATCH] riscv: add NT_RISCV_CSR constant
+Message-ID: <20210120153402.GA1226955@embecosm.com>
 MIME-Version: 1.0
-References: <CAK8P3a0dJnKiX5minsUNdAcNnxPvZkyK363f1ibj_x0L2MQiPQ@mail.gmail.com>
- <YAVynNqAwBt5GzQT@ingrassia.epigenesys.com>
- <CAK8P3a33i2r0xx==3hTW32pc_Sm33EMDXYAS4PtEaEV8DX4s_A@mail.gmail.com>
- <YAWaQVBM84CaY1B2@ingrassia.epigenesys.com>
- <YAWg6KQt6hAtIR6O@ingrassia.epigenesys.com>
- <CAK8P3a3Vc4wrLvrfwkHd6HCMohk07Yi6P_jKaC_5AybCMBNjPA@mail.gmail.com>
- <YAWqS9YZ0rpXPoSN@ingrassia.epigenesys.com>
- <CAK8P3a31ssD+FS1tAUxVHzrtUz-L9=mYCbv=ShEMci_bDdiTAg@mail.gmail.com>
- <YAcOi0l44VTtd2LS@ingrassia.epigenesys.com>
- <CAK8P3a3q16Fds9bujhjHRwjXoc_8NJBvutNRqajMEPHb9hGdNw@mail.gmail.com>
- <YAhBu/T02m5oFOcM@ingrassia.epigenesys.com>
-In-Reply-To: <YAhBu/T02m5oFOcM@ingrassia.epigenesys.com>
-From: Arnd Bergmann <arnd@kernel.org>
-Date: Wed, 20 Jan 2021 16:29:02 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a2y9BC9JDXoJVTi0+TcDvYH-nb27K4r2SybmL-zrxfBtw@mail.gmail.com>
-Message-ID: <CAK8P3a2y9BC9JDXoJVTi0+TcDvYH-nb27K4r2SybmL-zrxfBtw@mail.gmail.com>
-Subject: Re: perf tools build broken for RISCV 32 bit
-To: Emiliano Ingrassia <ingrassia@epigenesys.com>
+Content-Disposition: inline
+In-Reply-To: <20201214152437.1526146-1-andrew.burgess@embecosm.com>
+X-Operating-System: Linux/5.8.13-100.fc31.x86_64 (x86_64)
+X-Uptime: 15:28:22 up 42 days, 20:12,
+X-Editor: GNU Emacs [ http://www.gnu.org/software/emacs ]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210120_102921_036134_0DB745C2 
-X-CRM114-Status: GOOD (  24.61  )
+X-CRM114-CacheID: sfid-20210120_103407_124491_65D89E42 
+X-CRM114-Status: GOOD (  29.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -87,74 +93,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Bruce Ashfield <bruce.ashfield@gmail.com>,
- Khem Raj <raj.khem@gmail.com>,
- "linux-perf-users@vger.kernel.org" <linux-perf-users@vger.kernel.org>,
- Namhyung Kim <namhyung@kernel.org>,
- Richard Purdie <richard.purdie@linuxfoundation.org>,
- Alistair Francis <alistair.francis@wdc.com>, Jiri Olsa <jolsa@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, "Maciej W. Rozycki" <macro@wdc.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
+Cc: Andrew Burgess <andrew.burgess@embecosm.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 20, 2021 at 3:44 PM Emiliano Ingrassia
-<ingrassia@epigenesys.com> wrote:
-> On Tue, Jan 19, 2021 at 08:47:59PM +0100, Arnd Bergmann wrote:
-> > On Tue, Jan 19, 2021 at 5:53 PM Emiliano Ingrassia
-> >
-> > I didn't think that COMPAT_32BIT_TIME was even allowed on rv32,
-> > but it seems there is a bug in Kconfig, it should be disabled for any
-> > architecture that does not set __ARCH_WANT_TIME32_SYSCALLS,
-> > but this should not affect the problem at hand.
+Ping!
+
+I'm not sure if this is the correct mailing list for this patch, or if
+this should be posted to a more common list for consideration?
+
+Does anyone have any thoughts on this?  As RISC-V gains more
+extensions (like vectors) it seems inevitable that at some point we
+would need to claim a RISC-V specific number range for notes.  It
+would be super useful if we could coordinate the note numbers used by
+Linux with those used in other tools to avoid conflicts.
+
+Thanks,
+Andrew
+
+
+> I am currently working on adding support to GDB for dumping bare metal
+> core files for RISC-V.  As part of this work I would like to include
+> support for dumping RISC-V CSRs.
 >
-> Ok, will you submit a patch for this bug?
-
-Sure, will do.
+> The format of these bare metal core files is planned to be ELF + NOTES
+> very similar to the core file format use by Linux.
 >
-> Here is the example futex app corrected w.r.t. all the previous
-> considerations:
+> As such I need to pick a number to use for the CSR note.  Currently
+> Linux for RISC-V doesn't support writing out CSRs, and so no number
+> has been assigned for a CSR note.
 >
-> |#include <features.h>
-> |#if (defined __GLIBC__) && (__GLIBC__ >= 2 && __GLIBC_MINOR__ >= 32)
-> |#include <asm/unistd.h>
-> |#include <bits/timesize.h>
-> |# ifndef __NR_futex
-> |#  if defined (__NR_futex_time64) && (__TIMESIZE == 64)
-> |#   define __NR_futex  __NR_futex_time64
-> |#  endif
-> |# endif
-> |#endif
-
-This is broken on musl (which does not define __GLIBC__), on kernels
-running with CONFIG_COMPAT_32BIT_TIME disabled (which may
-define __NR_futex, but always returns -ENOSYS), and on any future glibc
-with 64-bit time_t on anything other all existing architectures (which
-define __NR_futex but expect an incompatible argument). It may also
-be broken on rv32 if we end up adding support for futex() in the future,
-as has been discussed as a possible workaround.
-
-> > rv32 is in the unfortunate position of being the first one that has a glibc
-> > port, so it hits a lot of problems that other architectures do not.
-> > If the applications get fixed properly, then at least they will also
-> > work with musl-1.2 and a (will work-in-progress) glibc that will
-> > eventually allow building with 64-bit time_t.
+> In this patch I propose reserving a note number for RISC-V CSRs.  This
+> note isn't currently used within Linux, but might be one day.  Given
+> how the per-architecture notes are allocated this patch not only
+> reserves a note number for the CSRs, but as the first RISC-V specific
+> note number, it reserves the whole 0x9?? number range for RISC-V
+> specific notes.
 >
-> Ok, so in case of perf we probably should limit the needed patch to
-> riscv 32 bit architecture, unless we want to solve the problem for all
-> 32 bit architecture with time_t 64 bit support.
-
-No, whatever you do should be written to work on all 32-bit
-architectures. It would be crazy to add a special case for one
-architecture when it's easier to fix it properly.
-
-What was wrong with the helper function I suggested?
-
-       Arnd
+> Reserving this constant now will allow for coordination between Linux
+> and user-space tools that work with core files (like GDB) without
+> risking possible number conflicts in the future.
+>
+> I don't know if it's acceptable to have reserved, but otherwise
+> unused, constants like this in the kernel or not.
+> ---
+>  include/uapi/linux/elf.h | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/include/uapi/linux/elf.h b/include/uapi/linux/elf.h
+> index 34c02e4290fe..7db3752108c8 100644
+> --- a/include/uapi/linux/elf.h
+> +++ b/include/uapi/linux/elf.h
+> @@ -428,6 +428,7 @@ typedef struct elf64_shdr {
+>  #define NT_MIPS_DSP	0x800		/* MIPS DSP ASE registers */
+>  #define NT_MIPS_FP_MODE	0x801		/* MIPS floating-point mode */
+>  #define NT_MIPS_MSA	0x802		/* MIPS SIMD registers */
+> +#define NT_RISCV_CSR	0x900		/* RISC-V Control Status Registers */
+>
+>  /* Note header in a PT_NOTE section */
+>  typedef struct elf32_note {
+> --
+> 2.25.4
 
 _______________________________________________
 linux-riscv mailing list
