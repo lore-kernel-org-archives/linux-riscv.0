@@ -3,61 +3,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
 X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 81597C433E6
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 18:06:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 20B9DC433E9
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 18:07:09 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 415962333F
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 18:06:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 415962333F
+	by mail.kernel.org (Postfix) with ESMTPS id D204F233F6
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jan 2021 18:07:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D204F233F6
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=S4H0Yk+QaJBfnUMCUUQEeM/2J/jcFkk2eHPDl/29zH4=; b=gyFmL087snk85qErQzZ5JG3APY
-	naFNOq6TJ0dpdGrSwQe06ltfxq2QGbsPDOEmCy7BMmPXtAJ8s7I9eMAAhkNzT30WmGYJXOEhA0L5L
-	5TK641hXa7KoR7p67T+/kJtE7DV6JYy38YSA+nwLwwsykZCuCXziBwMIfLOROFWFuAYEYf9AinPbO
-	yH71u84vRqH6sKQNg/oKOTg+cO/pjxGr7cnZiO1N2rYstCYQu3MhZ+NGoO2OzlSn0zbCQNfGzwHPq
-	lASXyKi79iDf63P5knhdYNadg+dakkMWsL3oaDluA3qrUGIkN/8/zHIz61yu3/X8nN3I4zbu0s5xQ
-	q71pgWXw==;
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=oBn2NN1s25Vs4UqYG7vinPBkjgyXB/KaTDODykeZ7Nk=; b=JuqqIMdIAk0/Pw0ejRgiZk80U
+	yOMx/Yv4B1HiOXhDvhtAhWMh3R546nYi2vRftv1Uw/s0KV/keDf5ESVDqdT4lN0hiuObNzRYx7Dd6
+	kbrf+uYYDTGVucIX82RYQkWbjejaJRkD6QKqrXqMcc4sapTKT6kfyVPuLQYn58o7raDdyPi4bGZBz
+	F+qFSJsORzwnmN/IvepyMc4yCbMCwtF6Jopd45BJ5Wc4YoTMfwrP8nBk1rNAYv2zLPJRnlw90nya7
+	wv3lJtipFmtLZM2yCda2lvKGO5tdsJZEJ9uW56uZIb7l7dbskCP9b/qRDm0XTlhIS4FFOj9Wo3wzC
+	YQQ8e9ASw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l2HsH-0003jZ-Nv; Wed, 20 Jan 2021 18:06:33 +0000
+	id 1l2Hsc-0003rL-1n; Wed, 20 Jan 2021 18:06:54 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l2HsB-0003hN-LB; Wed, 20 Jan 2021 18:06:29 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id AEAE5223E0;
- Wed, 20 Jan 2021 18:06:17 +0000 (UTC)
+ id 1l2HsU-0003nt-JF; Wed, 20 Jan 2021 18:06:47 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 46757233EA;
+ Wed, 20 Jan 2021 18:06:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1611165986;
- bh=9Vin9NRkZZzzDyAGorPhv/gc4XEgMJMyu7SN6/Dh5VA=;
- h=From:To:Cc:Subject:Date:From;
- b=QOKEXn49xZDqA25NftPpO/RhkxJETDjVf8IwHpQ4c4PgKIITTSzpWMbDaeojhBUwL
- AMaTuXDNO63mTUWNbY24M3Yn+7DyKVZ+gNfV0aq/Dzc3g78RdLXK2k3Lz68zw0dayF
- k7KgU0ssARtxoZRDbM1Vkbm4DhO+09bX/vNuWT48iYJOiZWGLNIHuLQ+Ux7Pvm6XEn
- AkJ1UdNPkKGmiwayZz5VG0HmLINNNDg1ACGZNK0ueBC5/dAPUdQaItmbr7SFs+ZPGG
- 1Apd7L7ou+VlQSz5qSDqD7pRid/TVYdrpQc3rI6lz7TGhDv8myM1uigOLdVZovjahF
- Nd4So8+S5XcJA==
+ s=k20201202; t=1611166005;
+ bh=iee2dGZmaG4EKHM9QU8vrsOr5P0gX21AcMxI1zm4D/0=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=Wnvjso8rzh9i/8q90GvD4SLiA23hx9V9fXR3BhL+4VzVuSDpo5J7yNGi9wBjPn1Zc
+ XSEHHfK+vernoNHhEkkOAKhlqo+z8irg1RqxaG56h/SOCUS206rE3dLBBtg9K+JgKr
+ f1xmIIShsGww5oEFaNQkBWpj2rVmPapLb7oKUTf1M99quuvqqzwXG1I27AFbumX2B2
+ bicsAJ6TW1hfw6vPazpq0Rrda5vmwpVQWxIuYRjXWBWeIGO2vjTRiTFuySvnMwu1Gx
+ HKgEqC9eP+aDavvxcTe+FN4lMQ0Etiy6cTkAAfRf556RBYdjzzxN21Rak6spEn2QIc
+ 1pBjxihF70YtA==
 From: Mike Rapoport <rppt@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH v15 00/11] mm: introduce memfd_secret system call to create
- "secret" memory areas
-Date: Wed, 20 Jan 2021 20:06:01 +0200
-Message-Id: <20210120180612.1058-1-rppt@kernel.org>
+Subject: [PATCH v15 02/11] mmap: make mlock_future_check() global
+Date: Wed, 20 Jan 2021 20:06:03 +0200
+Message-Id: <20210120180612.1058-3-rppt@kernel.org>
 X-Mailer: git-send-email 2.28.0
+In-Reply-To: <20210120180612.1058-1-rppt@kernel.org>
+References: <20210120180612.1058-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210120_130627_847449_B488F926 
-X-CRM114-Status: GOOD (  23.48  )
+X-CRM114-CacheID: sfid-20210120_130646_806404_73C9D901 
+X-CRM114-Status: GOOD (  16.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -81,7 +82,8 @@ Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
  Will Deacon <will@kernel.org>, x86@kernel.org,
  Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
  Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
- Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>, Arnd Bergmann <arnd@arndb.de>,
+ James Bottomley <jejb@linux.ibm.com>, Hagen Paul Pfeifer <hagen@jauu.net>,
  Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
  Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
  "Kirill A. Shutemov" <kirill@shutemov.name>,
@@ -98,148 +100,73 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Mike Rapoport <rppt@linux.ibm.com>
 
-Hi,
+It will be used by the upcoming secret memory implementation.
 
-@Andrew, this is based on v5.11-rc4-mmots-2021-01-19-13-54 with secretmem
-patches dropped from there, I can rebase whatever way you prefer.
+Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+Cc: Alexander Viro <viro@zeniv.linux.org.uk>
+Cc: Andy Lutomirski <luto@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: Borislav Petkov <bp@alien8.de>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Christopher Lameter <cl@linux.com>
+Cc: Dan Williams <dan.j.williams@intel.com>
+Cc: Dave Hansen <dave.hansen@linux.intel.com>
+Cc: David Hildenbrand <david@redhat.com>
+Cc: Elena Reshetova <elena.reshetova@intel.com>
+Cc: Hagen Paul Pfeifer <hagen@jauu.net>
+Cc: "H. Peter Anvin" <hpa@zytor.com>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: James Bottomley <jejb@linux.ibm.com>
+Cc: "Kirill A. Shutemov" <kirill@shutemov.name>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Matthew Wilcox <willy@infradead.org>
+Cc: Michael Kerrisk <mtk.manpages@gmail.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Palmer Dabbelt <palmerdabbelt@google.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Rick Edgecombe <rick.p.edgecombe@intel.com>
+Cc: Roman Gushchin <guro@fb.com>
+Cc: Shakeel Butt <shakeelb@google.com>
+Cc: Shuah Khan <shuah@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Tycho Andersen <tycho@tycho.ws>
+Cc: Will Deacon <will@kernel.org>
+---
+ mm/internal.h | 3 +++
+ mm/mmap.c     | 5 ++---
+ 2 files changed, 5 insertions(+), 3 deletions(-)
 
-This is an implementation of "secret" mappings backed by a file descriptor.
-
-The file descriptor backing secret memory mappings is created using a
-dedicated memfd_secret system call The desired protection mode for the
-memory is configured using flags parameter of the system call. The mmap()
-of the file descriptor created with memfd_secret() will create a "secret"
-memory mapping. The pages in that mapping will be marked as not present in
-the direct map and will be present only in the page table of the owning mm.
-
-Although normally Linux userspace mappings are protected from other users,
-such secret mappings are useful for environments where a hostile tenant is
-trying to trick the kernel into giving them access to other tenants
-mappings.
-
-Additionally, in the future the secret mappings may be used as a mean to
-protect guest memory in a virtual machine host.
-
-For demonstration of secret memory usage we've created a userspace library
-
-https://git.kernel.org/pub/scm/linux/kernel/git/jejb/secret-memory-preloader.git
-
-that does two things: the first is act as a preloader for openssl to
-redirect all the OPENSSL_malloc calls to secret memory meaning any secret
-keys get automatically protected this way and the other thing it does is
-expose the API to the user who needs it. We anticipate that a lot of the
-use cases would be like the openssl one: many toolkits that deal with
-secret keys already have special handling for the memory to try to give
-them greater protection, so this would simply be pluggable into the
-toolkits without any need for user application modification.
-
-Hiding secret memory mappings behind an anonymous file allows (ab)use of
-the page cache for tracking pages allocated for the "secret" mappings as
-well as using address_space_operations for e.g. page migration callbacks.
-
-The anonymous file may be also used implicitly, like hugetlb files, to
-implement mmap(MAP_SECRET) and use the secret memory areas with "native" mm
-ABIs in the future.
-
-To limit fragmentation of the direct map to splitting only PUD-size pages,
-I've added an amortizing cache of PMD-size pages to each file descriptor
-that is used as an allocation pool for the secret memory areas.
-
-As the memory allocated by secretmem becomes unmovable, we use CMA to back
-large page caches so that page allocator won't be surprised by failing attempt
-to migrate these pages.
-
-v15:
-* Add riscv/Kconfig update to disable set_memory operations for nommu
-  builds (patch 3)
-* Update the code around add_to_page_cache() per Matthew's comments
-  (patches 6,7)
-* Add fixups for build/checkpatch errors discovered by CI systems
-
-v14: https://lore.kernel.org/lkml/20201203062949.5484-1-rppt@kernel.org
-* Finally s/mod_node_page_state/mod_lruvec_page_state/
-
-v13: https://lore.kernel.org/lkml/20201201074559.27742-1-rppt@kernel.org
-* Added Reviewed-by, thanks Catalin and David
-* s/mod_node_page_state/mod_lruvec_page_state/ as Shakeel suggested
-
-v12: https://lore.kernel.org/lkml/20201125092208.12544-1-rppt@kernel.org
-* Add detection of whether set_direct_map has actual effect on arm64 and bail
-  out of CMA allocation for secretmem and the memfd_secret() syscall if pages
-  would not be removed from the direct map
-
-v11: https://lore.kernel.org/lkml/20201124092556.12009-1-rppt@kernel.org
-* Drop support for uncached mappings
-
-Older history:
-v10: https://lore.kernel.org/lkml/20201123095432.5860-1-rppt@kernel.org
-v9: https://lore.kernel.org/lkml/20201117162932.13649-1-rppt@kernel.org
-v8: https://lore.kernel.org/lkml/20201110151444.20662-1-rppt@kernel.org
-v7: https://lore.kernel.org/lkml/20201026083752.13267-1-rppt@kernel.org
-v6: https://lore.kernel.org/lkml/20200924132904.1391-1-rppt@kernel.org
-v5: https://lore.kernel.org/lkml/20200916073539.3552-1-rppt@kernel.org
-v4: https://lore.kernel.org/lkml/20200818141554.13945-1-rppt@kernel.org
-v3: https://lore.kernel.org/lkml/20200804095035.18778-1-rppt@kernel.org
-v2: https://lore.kernel.org/lkml/20200727162935.31714-1-rppt@kernel.org
-v1: https://lore.kernel.org/lkml/20200720092435.17469-1-rppt@kernel.org
-
-Mike Rapoport (11):
-  mm: add definition of PMD_PAGE_ORDER
-  mmap: make mlock_future_check() global
-  riscv/Kconfig: make direct map manipulation options depend on MMU
-  set_memory: allow set_direct_map_*_noflush() for multiple pages
-  set_memory: allow querying whether set_direct_map_*() is actually enabled
-  mm: introduce memfd_secret system call to create "secret" memory areas
-  secretmem: use PMD-size pages to amortize direct map fragmentation
-  secretmem: add memcg accounting
-  PM: hibernate: disable when there are active secretmem users
-  arch, mm: wire up memfd_secret system call where relevant
-  secretmem: test: add basic selftest for memfd_secret(2)
-
- arch/arm64/include/asm/Kbuild             |   1 -
- arch/arm64/include/asm/cacheflush.h       |   6 -
- arch/arm64/include/asm/set_memory.h       |  17 +
- arch/arm64/include/uapi/asm/unistd.h      |   1 +
- arch/arm64/kernel/machine_kexec.c         |   1 +
- arch/arm64/mm/mmu.c                       |   6 +-
- arch/arm64/mm/pageattr.c                  |  23 +-
- arch/riscv/Kconfig                        |   4 +-
- arch/riscv/include/asm/set_memory.h       |   4 +-
- arch/riscv/include/asm/unistd.h           |   1 +
- arch/riscv/mm/pageattr.c                  |   8 +-
- arch/x86/entry/syscalls/syscall_32.tbl    |   1 +
- arch/x86/entry/syscalls/syscall_64.tbl    |   1 +
- arch/x86/include/asm/set_memory.h         |   4 +-
- arch/x86/mm/pat/set_memory.c              |   8 +-
- fs/dax.c                                  |  11 +-
- include/linux/pgtable.h                   |   3 +
- include/linux/secretmem.h                 |  30 ++
- include/linux/set_memory.h                |  16 +-
- include/linux/syscalls.h                  |   1 +
- include/uapi/asm-generic/unistd.h         |   6 +-
- include/uapi/linux/magic.h                |   1 +
- kernel/power/hibernate.c                  |   5 +-
- kernel/power/snapshot.c                   |   4 +-
- kernel/sys_ni.c                           |   2 +
- mm/Kconfig                                |   5 +
- mm/Makefile                               |   1 +
- mm/filemap.c                              |   3 +-
- mm/gup.c                                  |  10 +
- mm/internal.h                             |   3 +
- mm/mmap.c                                 |   5 +-
- mm/secretmem.c                            | 444 ++++++++++++++++++++++
- mm/vmalloc.c                              |   5 +-
- scripts/checksyscalls.sh                  |   4 +
- tools/testing/selftests/vm/.gitignore     |   1 +
- tools/testing/selftests/vm/Makefile       |   3 +-
- tools/testing/selftests/vm/memfd_secret.c | 296 +++++++++++++++
- tools/testing/selftests/vm/run_vmtests    |  17 +
- 38 files changed, 910 insertions(+), 52 deletions(-)
- create mode 100644 arch/arm64/include/asm/set_memory.h
- create mode 100644 include/linux/secretmem.h
- create mode 100644 mm/secretmem.c
- create mode 100644 tools/testing/selftests/vm/memfd_secret.c
-
+diff --git a/mm/internal.h b/mm/internal.h
+index 9902648f2206..8e9c660f33ca 100644
+--- a/mm/internal.h
++++ b/mm/internal.h
+@@ -353,6 +353,9 @@ static inline void munlock_vma_pages_all(struct vm_area_struct *vma)
+ extern void mlock_vma_page(struct page *page);
+ extern unsigned int munlock_vma_page(struct page *page);
+ 
++extern int mlock_future_check(struct mm_struct *mm, unsigned long flags,
++			      unsigned long len);
++
+ /*
+  * Clear the page's PageMlocked().  This can be useful in a situation where
+  * we want to unconditionally remove a page from the pagecache -- e.g.,
+diff --git a/mm/mmap.c b/mm/mmap.c
+index 28ef5e29152a..10b9b8b88913 100644
+--- a/mm/mmap.c
++++ b/mm/mmap.c
+@@ -1346,9 +1346,8 @@ static inline unsigned long round_hint_to_min(unsigned long hint)
+ 	return hint;
+ }
+ 
+-static inline int mlock_future_check(struct mm_struct *mm,
+-				     unsigned long flags,
+-				     unsigned long len)
++int mlock_future_check(struct mm_struct *mm, unsigned long flags,
++		       unsigned long len)
+ {
+ 	unsigned long locked, lock_limit;
+ 
 -- 
 2.28.0
 
