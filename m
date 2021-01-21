@@ -2,80 +2,62 @@ Return-Path: <SRS0=hJrJ=GY=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 18098C433E0
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Jan 2021 12:03:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EC89AC433E0
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Jan 2021 12:28:05 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8B3242395A
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Jan 2021 12:03:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8B3242395A
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	by mail.kernel.org (Postfix) with ESMTPS id 887DA2395A
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Jan 2021 12:28:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 887DA2395A
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=+TPN42f7pUuRfnqR0UspiDgYaQbrKQBXirPBenwAWRQ=; b=uUOdgqvcSfdx6FWM8lyH0UGvE
-	cbNWOz+G50/2Nz6XUB6vPenn8IS/s4gpiDeDtqoXtSJ0lrU43VnpT4rshIA8OW+KoeVIj1bn8dXzV
-	2oJ3AOiaWM4VZSq3grpCFDuWX8jwWFVxm2YHq6acWehWjesLi6aCgRLTZBQBlGcnmU/Y3iXsU67lU
-	5kKs02DDZkuCKsTnQneTLbb70E3makAszCHW15MfnTknwvK8HOFAOgtJTKoFFZQpjCTBk6w/ME/5n
-	neIA31z24HTBDbunSCMViasFNdMn9WuBnG9/HEJGBGkXQnc+CUyShe4ao76kiiGuzuBIgfkjSyLh4
-	PioiUoMeA==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mhkfxulVe3hxuMgTaYR/piGfTB+9T6D/aThC0NtvixY=; b=blZTmTJs5hmFF8MQAvcGNW/6Og
+	+o5OM7mqc3XpHBqHaLGbKhik/p4w8OcIti/3WFEtj1d2HGOGwvWvNtOlLmkXuKW0uvNf2X9bQcI7N
+	+/Qv/nM4npW99GkYetMrXam5GAsMxNSQhkn/cDI1gws8ptBfLyeTQ4bU4IoL4RfozV/l9i67PUEJi
+	k/930xxN/XL1FxFKwmgQZE0W7/4VV9NvJjI1s2bAP7gcrbaesFZER7u41rtA0YFBGo3jiVjPC+iMJ
+	MrGP6bjAeoXKGneDYhFkq8Qd+wBFfM2WsXq2+J96YNkOE8fYzzQ2jurPoetQTgGtoUKLWr0X6qD9c
+	gHcqOU4g==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l2YgA-0007fN-Mb; Thu, 21 Jan 2021 12:03:10 +0000
-Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
+	id 1l2Z3w-0002mb-Kx; Thu, 21 Jan 2021 12:27:44 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l2Yg8-0007er-Qv
- for linux-riscv@lists.infradead.org; Thu, 21 Jan 2021 12:03:09 +0000
-Received: by mail-lj1-x233.google.com with SMTP id f4so1285407ljo.11
- for <linux-riscv@lists.infradead.org>; Thu, 21 Jan 2021 04:03:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=+GxUh6LdEbxJRv07F8Bu1ZiZVv45b/NrzvE6NyqT1jY=;
- b=s6KAF+5hcJQnVyHzHpbcpB7ECymmyrl7oGTDfTYzwH3PY5ecmMgw1jvDZV4g0xUtYr
- jYRNlddph6y6QV9hFmR6uKANTqpnTfgCT2BkCJTCCT9/5ucYQ3rNxz+tPGwumMlA0bWn
- UiKMRRWD3dsKp8HEegO1OYp+ApOw+VkXxbu0/AQWM2Qmhf7OeE8qJz+eb7Os/XLfUjEI
- b3X5/TAdVhEOSALW0v1ASCCRK3izsRNgGrtTAlI42G+IyOUMN+v+GcgMjguB6IB0bYkg
- vnveHBqsN+dFGzxkvlwsYyd5eC9s5Xo4D/uFSgd3SjZ3wsFU9rl4VfYu7lbnav3WjuS5
- fRGA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=+GxUh6LdEbxJRv07F8Bu1ZiZVv45b/NrzvE6NyqT1jY=;
- b=iXaFKC17uABSZX5Hsx/pTYRE9QVujRUC+q89P5t8arzYXa1NVSv5Kry/30rnsksfrF
- hjiayQzvWYnhKhjjxjKgXLgAiuWK4V+8bW8+1Fegpbd3NZpmnV3MhN2NDrvsYlKdCWwg
- zR43W6qmMWLyuZn3FslP588n4NQU51/Sx+UAIH96RRPsjT3r+KGq16mKj8VxUekADqQK
- qF8ieZS8ysABUUy5Xk1t1vwTjrU8V6kV0QjILQdOFroJoJe3JR1CzkqPwmo/HZsN4Uic
- DAizmFosyjvGy2nF3yFshwbu32pZUyEE774FBb0k4fTs+YovVx8j4ht8BsP6/2Zs4fFI
- o3MA==
-X-Gm-Message-State: AOAM533xZqmyZUstKS2VD3E4iXqC9Yo23WZcHcVxgWyuqqCHOaUuxuZ3
- uT+CBzx12WrB+yi+BD/JgQeYxW+ajKMk5S0tAinMew==
-X-Google-Smtp-Source: ABdhPJz+q9Yw0jbUW6lR6xs6Pfi5vKPGh8TQE9gQI/nGSHzpiOWheAJLzVPUMQnfMkkXGPlgIgZOAhbG8sWOxwPnwrU=
-X-Received: by 2002:a2e:9ed5:: with SMTP id h21mr6815528ljk.125.1611230584561; 
- Thu, 21 Jan 2021 04:03:04 -0800 (PST)
+ id 1l2Z3p-0002jv-TQ; Thu, 21 Jan 2021 12:27:39 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 6919623975;
+ Thu, 21 Jan 2021 12:27:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1611232056;
+ bh=JVEZdLQYDmrPJQN6/19poQLxBpqOrtCucaVwa+xCIFA=;
+ h=From:To:Cc:Subject:Date:From;
+ b=RXN2yB8yoH7tRFOvyt8DEjDBJVZIYJv+EDBQ3LclIXqruFVtYqnajVtX+kCK0jmMZ
+ xNXbRyGMRnuDczjqFxJQEhEULTJnT0I0R8QcXLQ84wS7Ge9UaB4mzKPBlrJTTSC9aE
+ BImK3GtdH4Vb+7HmSjr+6F5hmtoCm3E6mTjz3WCsLHQfVxcvPoCYTxNRVqnTfWuQVu
+ CurpH+AOvmZ+6VWwJ9/BNAwu+IjCwCE+dTA+d7Mq3PpB6PxEnf2B6rLg8CQ5LhgGqr
+ hfCFFKGp6mnVkYUjYb1vxi/T7/pqvZL6JEljMjZNc8WAUKJ8P1MasGrdLaC8vHalh8
+ Vy4wqNt92PNXw==
+From: Mike Rapoport <rppt@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>
+Subject: [PATCH v16 00/11] mm: introduce memfd_secret system call to create
+ "secret" memory areas
+Date: Thu, 21 Jan 2021 14:27:12 +0200
+Message-Id: <20210121122723.3446-1-rppt@kernel.org>
+X-Mailer: git-send-email 2.28.0
 MIME-Version: 1.0
-References: <20210115234947.44014-1-vitaly.wool@konsulko.com>
- <CAM4kBBLhKsysQCf1GgpSvnGKVV2HsOoVP+4VvYmQaqfpKJ45+A@mail.gmail.com>
-In-Reply-To: <CAM4kBBLhKsysQCf1GgpSvnGKVV2HsOoVP+4VvYmQaqfpKJ45+A@mail.gmail.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Thu, 21 Jan 2021 17:32:52 +0530
-Message-ID: <CAAhSdy0DJZKhtSwiVvFMTqka6Piym2DTiqTYJq16CJrOPO4ktQ@mail.gmail.com>
-Subject: Re: [PATCH v3] riscv: add BUILTIN_DTB support for MMU-enabled targets
-To: Vitaly Wool <vitaly.wool@konsulko.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210121_070308_968021_65C78D35 
-X-CRM114-Status: GOOD (  31.20  )
+X-CRM114-CacheID: sfid-20210121_072738_215716_3C36BD5F 
+X-CRM114-Status: GOOD (  24.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -87,157 +69,183 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Damien Le Moal <damien.lemoal@wdc.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Palmer Dabbelt <palmerdabbelt@google.com>, LKML <linux-kernel@vger.kernel.org>,
- devicetree@vger.kernel.org
+Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
+ Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
+ Will Deacon <will@kernel.org>, x86@kernel.org,
+ Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
+ Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
+ Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-fsdevel@vger.kernel.org, Shakeel Butt <shakeelb@google.com>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>,
+ Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 21, 2021 at 2:51 PM Vitaly Wool <vitaly.wool@konsulko.com> wrote:
->
-> On Sat, Jan 16, 2021 at 12:57 AM Vitaly Wool <vitaly.wool@konsulko.com> wrote:
-> >
-> > Sometimes, especially in a production system we may not want to
-> > use a "smart bootloader" like u-boot to load kernel, ramdisk and
-> > device tree from a filesystem on eMMC, but rather load the kernel
-> > from a NAND partition and just run it as soon as we can, and in
-> > this case it is convenient to have device tree compiled into the
-> > kernel binary. Since this case is not limited to MMU-less systems,
-> > let's support it for these which have MMU enabled too.
-> >
-> > While at it, provide __dtb_start as a parameter to setup_vm() in
-> > BUILTIN_DTB case, so we don't have to duplicate BUILTIN_DTB specific
-> > processing in MMU-enabled and MMU-disabled versions of setup_vm().
->
-> @Palmer: ping :)
->
-> > Signed-off-by: Vitaly Wool <vitaly.wool@konsulko.com>
->
-> While at it, since this is just a respin/concatenation:
-> @Damien: are you okay with re-adding 'Tested-By:' ?
-> @Anup: are you okay with adding 'Reviewed-by:' since you have reviewed
-> both v1 patches that were concatenated?
+From: Mike Rapoport <rppt@linux.ibm.com>
 
-Yes, my Reviewed-by holds on this patch as well.
+Hi,
 
-Reviewed-by: Anup Patel <anup@brainfault.org>
+@Andrew, this is based on v5.11-rc4-mmots-2021-01-19-13-54 with secretmem
+patches dropped from there, I can rebase whatever way you prefer.
 
-Best Regards,
-Anup
+This is an implementation of "secret" mappings backed by a file descriptor.
 
->
-> Best regards,
->    Vitaly
->
-> > ---
-> > Changes from v2:
-> > * folded "RISC-V: simplify BUILTIN_DTB processing" patch
-> > [http://lists.infradead.org/pipermail/linux-riscv/2021-January/004153.html]
-> > Changes from v1:
-> > * no direct initial_boot_params assignment
-> > * skips the temporary mapping for DT if BUILTIN_DTB=y
-> >
-> >  arch/riscv/Kconfig       |  1 -
-> >  arch/riscv/kernel/head.S |  4 ++++
-> >  arch/riscv/mm/init.c     | 19 +++++++++++++------
-> >  3 files changed, 17 insertions(+), 7 deletions(-)
-> >
-> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > index 2ef05ef921b5..444a1ed1e847 100644
-> > --- a/arch/riscv/Kconfig
-> > +++ b/arch/riscv/Kconfig
-> > @@ -445,7 +445,6 @@ endmenu
-> >
-> >  config BUILTIN_DTB
-> >         def_bool n
-> > -       depends on RISCV_M_MODE
-> >         depends on OF
-> >
-> >  menu "Power management options"
-> > diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-> > index 16e9941900c4..f5a9bad86e58 100644
-> > --- a/arch/riscv/kernel/head.S
-> > +++ b/arch/riscv/kernel/head.S
-> > @@ -260,7 +260,11 @@ clear_bss_done:
-> >
-> >         /* Initialize page tables and relocate to virtual addresses */
-> >         la sp, init_thread_union + THREAD_SIZE
-> > +#ifdef CONFIG_BUILTIN_DTB
-> > +       la a0, __dtb_start
-> > +#else
-> >         mv a0, s1
-> > +#endif /* CONFIG_BUILTIN_DTB */
-> >         call setup_vm
-> >  #ifdef CONFIG_MMU
-> >         la a0, early_pg_dir
-> > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> > index 30b61f2c6b87..45faad7c4291 100644
-> > --- a/arch/riscv/mm/init.c
-> > +++ b/arch/riscv/mm/init.c
-> > @@ -192,10 +192,13 @@ void __init setup_bootmem(void)
-> >  #endif /* CONFIG_BLK_DEV_INITRD */
-> >
-> >         /*
-> > -        * Avoid using early_init_fdt_reserve_self() since __pa() does
-> > +        * If DTB is built in, no need to reserve its memblock.
-> > +        * Otherwise, do reserve it but avoid using
-> > +        * early_init_fdt_reserve_self() since __pa() does
-> >          * not work for DTB pointers that are fixmap addresses
-> >          */
-> > -       memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
-> > +       if (!IS_ENABLED(CONFIG_BUILTIN_DTB))
-> > +               memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
-> >
-> >         early_init_fdt_scan_reserved_mem();
-> >         dma_contiguous_reserve(dma32_phys_limit);
-> > @@ -499,6 +502,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
-> >         /* Setup early PMD for DTB */
-> >         create_pgd_mapping(early_pg_dir, DTB_EARLY_BASE_VA,
-> >                            (uintptr_t)early_dtb_pmd, PGDIR_SIZE, PAGE_TABLE);
-> > +#ifndef CONFIG_BUILTIN_DTB
-> >         /* Create two consecutive PMD mappings for FDT early scan */
-> >         pa = dtb_pa & ~(PMD_SIZE - 1);
-> >         create_pmd_mapping(early_dtb_pmd, DTB_EARLY_BASE_VA,
-> > @@ -506,7 +510,11 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
-> >         create_pmd_mapping(early_dtb_pmd, DTB_EARLY_BASE_VA + PMD_SIZE,
-> >                            pa + PMD_SIZE, PMD_SIZE, PAGE_KERNEL);
-> >         dtb_early_va = (void *)DTB_EARLY_BASE_VA + (dtb_pa & (PMD_SIZE - 1));
-> > +#else /* CONFIG_BUILTIN_DTB */
-> > +       dtb_early_va = __va(dtb_pa);
-> > +#endif /* CONFIG_BUILTIN_DTB */
-> >  #else
-> > +#ifndef CONFIG_BUILTIN_DTB
-> >         /* Create two consecutive PGD mappings for FDT early scan */
-> >         pa = dtb_pa & ~(PGDIR_SIZE - 1);
-> >         create_pgd_mapping(early_pg_dir, DTB_EARLY_BASE_VA,
-> > @@ -514,6 +522,9 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
-> >         create_pgd_mapping(early_pg_dir, DTB_EARLY_BASE_VA + PGDIR_SIZE,
-> >                            pa + PGDIR_SIZE, PGDIR_SIZE, PAGE_KERNEL);
-> >         dtb_early_va = (void *)DTB_EARLY_BASE_VA + (dtb_pa & (PGDIR_SIZE - 1));
-> > +#else /* CONFIG_BUILTIN_DTB */
-> > +       dtb_early_va = __va(dtb_pa);
-> > +#endif /* CONFIG_BUILTIN_DTB */
-> >  #endif
-> >         dtb_early_pa = dtb_pa;
-> >
-> > @@ -604,11 +615,7 @@ static void __init setup_vm_final(void)
-> >  #else
-> >  asmlinkage void __init setup_vm(uintptr_t dtb_pa)
-> >  {
-> > -#ifdef CONFIG_BUILTIN_DTB
-> > -       dtb_early_va = (void *) __dtb_start;
-> > -#else
-> >         dtb_early_va = (void *)dtb_pa;
-> > -#endif
-> >         dtb_early_pa = dtb_pa;
-> >  }
-> >
-> > --
-> > 2.20.1
-> >
+The file descriptor backing secret memory mappings is created using a
+dedicated memfd_secret system call The desired protection mode for the
+memory is configured using flags parameter of the system call. The mmap()
+of the file descriptor created with memfd_secret() will create a "secret"
+memory mapping. The pages in that mapping will be marked as not present in
+the direct map and will be present only in the page table of the owning mm.
+
+Although normally Linux userspace mappings are protected from other users,
+such secret mappings are useful for environments where a hostile tenant is
+trying to trick the kernel into giving them access to other tenants
+mappings.
+
+Additionally, in the future the secret mappings may be used as a mean to
+protect guest memory in a virtual machine host.
+
+For demonstration of secret memory usage we've created a userspace library
+
+https://git.kernel.org/pub/scm/linux/kernel/git/jejb/secret-memory-preloader.git
+
+that does two things: the first is act as a preloader for openssl to
+redirect all the OPENSSL_malloc calls to secret memory meaning any secret
+keys get automatically protected this way and the other thing it does is
+expose the API to the user who needs it. We anticipate that a lot of the
+use cases would be like the openssl one: many toolkits that deal with
+secret keys already have special handling for the memory to try to give
+them greater protection, so this would simply be pluggable into the
+toolkits without any need for user application modification.
+
+Hiding secret memory mappings behind an anonymous file allows (ab)use of
+the page cache for tracking pages allocated for the "secret" mappings as
+well as using address_space_operations for e.g. page migration callbacks.
+
+The anonymous file may be also used implicitly, like hugetlb files, to
+implement mmap(MAP_SECRET) and use the secret memory areas with "native" mm
+ABIs in the future.
+
+To limit fragmentation of the direct map to splitting only PUD-size pages,
+I've added an amortizing cache of PMD-size pages to each file descriptor
+that is used as an allocation pool for the secret memory areas.
+
+As the memory allocated by secretmem becomes unmovable, we use CMA to back
+large page caches so that page allocator won't be surprised by failing attempt
+to migrate these pages.
+
+v16:
+* Fix memory leak intorduced in v15
+* Clean the data left from previous page user before handing the page to
+  the userspace
+
+v15: https://lore.kernel.org/lkml/20210120180612.1058-1-rppt@kernel.org
+* Add riscv/Kconfig update to disable set_memory operations for nommu
+  builds (patch 3)
+* Update the code around add_to_page_cache() per Matthew's comments
+  (patches 6,7)
+* Add fixups for build/checkpatch errors discovered by CI systems
+
+v14: https://lore.kernel.org/lkml/20201203062949.5484-1-rppt@kernel.org
+* Finally s/mod_node_page_state/mod_lruvec_page_state/
+
+v13: https://lore.kernel.org/lkml/20201201074559.27742-1-rppt@kernel.org
+* Added Reviewed-by, thanks Catalin and David
+* s/mod_node_page_state/mod_lruvec_page_state/ as Shakeel suggested
+
+v12: https://lore.kernel.org/lkml/20201125092208.12544-1-rppt@kernel.org
+* Add detection of whether set_direct_map has actual effect on arm64 and bail
+  out of CMA allocation for secretmem and the memfd_secret() syscall if pages
+  would not be removed from the direct map
+
+Older history:
+v11: https://lore.kernel.org/lkml/20201124092556.12009-1-rppt@kernel.org
+v10: https://lore.kernel.org/lkml/20201123095432.5860-1-rppt@kernel.org
+v9: https://lore.kernel.org/lkml/20201117162932.13649-1-rppt@kernel.org
+v8: https://lore.kernel.org/lkml/20201110151444.20662-1-rppt@kernel.org
+v7: https://lore.kernel.org/lkml/20201026083752.13267-1-rppt@kernel.org
+v6: https://lore.kernel.org/lkml/20200924132904.1391-1-rppt@kernel.org
+v5: https://lore.kernel.org/lkml/20200916073539.3552-1-rppt@kernel.org
+v4: https://lore.kernel.org/lkml/20200818141554.13945-1-rppt@kernel.org
+v3: https://lore.kernel.org/lkml/20200804095035.18778-1-rppt@kernel.org
+v2: https://lore.kernel.org/lkml/20200727162935.31714-1-rppt@kernel.org
+v1: https://lore.kernel.org/lkml/20200720092435.17469-1-rppt@kernel.org
+
+Mike Rapoport (11):
+  mm: add definition of PMD_PAGE_ORDER
+  mmap: make mlock_future_check() global
+  riscv/Kconfig: make direct map manipulation options depend on MMU
+  set_memory: allow set_direct_map_*_noflush() for multiple pages
+  set_memory: allow querying whether set_direct_map_*() is actually enabled
+  mm: introduce memfd_secret system call to create "secret" memory areas
+  secretmem: use PMD-size pages to amortize direct map fragmentation
+  secretmem: add memcg accounting
+  PM: hibernate: disable when there are active secretmem users
+  arch, mm: wire up memfd_secret system call where relevant
+  secretmem: test: add basic selftest for memfd_secret(2)
+
+ arch/arm64/include/asm/Kbuild             |   1 -
+ arch/arm64/include/asm/cacheflush.h       |   6 -
+ arch/arm64/include/asm/set_memory.h       |  17 +
+ arch/arm64/include/uapi/asm/unistd.h      |   1 +
+ arch/arm64/kernel/machine_kexec.c         |   1 +
+ arch/arm64/mm/mmu.c                       |   6 +-
+ arch/arm64/mm/pageattr.c                  |  23 +-
+ arch/riscv/Kconfig                        |   4 +-
+ arch/riscv/include/asm/set_memory.h       |   4 +-
+ arch/riscv/include/asm/unistd.h           |   1 +
+ arch/riscv/mm/pageattr.c                  |   8 +-
+ arch/x86/entry/syscalls/syscall_32.tbl    |   1 +
+ arch/x86/entry/syscalls/syscall_64.tbl    |   1 +
+ arch/x86/include/asm/set_memory.h         |   4 +-
+ arch/x86/mm/pat/set_memory.c              |   8 +-
+ fs/dax.c                                  |  11 +-
+ include/linux/pgtable.h                   |   3 +
+ include/linux/secretmem.h                 |  30 ++
+ include/linux/set_memory.h                |  16 +-
+ include/linux/syscalls.h                  |   1 +
+ include/uapi/asm-generic/unistd.h         |   6 +-
+ include/uapi/linux/magic.h                |   1 +
+ kernel/power/hibernate.c                  |   5 +-
+ kernel/power/snapshot.c                   |   4 +-
+ kernel/sys_ni.c                           |   2 +
+ mm/Kconfig                                |   5 +
+ mm/Makefile                               |   1 +
+ mm/filemap.c                              |   3 +-
+ mm/gup.c                                  |  10 +
+ mm/internal.h                             |   3 +
+ mm/mmap.c                                 |   5 +-
+ mm/secretmem.c                            | 451 ++++++++++++++++++++++
+ mm/vmalloc.c                              |   5 +-
+ scripts/checksyscalls.sh                  |   4 +
+ tools/testing/selftests/vm/.gitignore     |   1 +
+ tools/testing/selftests/vm/Makefile       |   3 +-
+ tools/testing/selftests/vm/memfd_secret.c | 296 ++++++++++++++
+ tools/testing/selftests/vm/run_vmtests    |  17 +
+ 38 files changed, 917 insertions(+), 52 deletions(-)
+ create mode 100644 arch/arm64/include/asm/set_memory.h
+ create mode 100644 include/linux/secretmem.h
+ create mode 100644 mm/secretmem.c
+ create mode 100644 tools/testing/selftests/vm/memfd_secret.c
+
+-- 
+2.28.0
+
 
 _______________________________________________
 linux-riscv mailing list
