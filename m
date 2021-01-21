@@ -2,64 +2,163 @@ Return-Path: <SRS0=hJrJ=GY=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,NICE_REPLY_A,PDS_BAD_THREAD_QP_64,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B9EFDC433DB
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Jan 2021 12:31:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 903ECC433E0
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Jan 2021 12:47:19 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 434B623975
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Jan 2021 12:31:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 434B623975
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 2B44B239FD
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Jan 2021 12:47:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2B44B239FD
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=microchip.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:References:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=LDpFGngZn0n30pZFwve+bKpns/Gtc+kyWz1X1RjRK6U=; b=Cr++cVrLyJxiu0nX5gU/wCN9j
-	IPst/t0Eqf9mGQ4u2FwgXHZA6f8s1OD5myv+3LeSdBsUqjyx/NeJ4cpC9ddJ0YFCUNTnNuol8gNZt
-	FWfDx1BC4Rk+Jj0uEVxxoeLcWVO96R3B1cOYwdEzHjEjE0LF6k8ymynDLK8tembc9VCqgJ40b9p4a
-	m4KpgUpq8MWqtVk8LNBq+r72elnBjBBdbfkFVaQZDAQBuOyhalbkqDXXQa4WZ/5xn1/k3//em/NGs
-	T/RtBm2ylCpumzaDdbvgOW9pM/DsQ4NUYQVuwnj3jM/JADtJqc1lUyiNJamwXV9ehTazV5M4szHfH
-	GGfUHf+sQ==;
+	 bh=jWi+Aq/jmMUGAVodJ76seMB0GgwXwyqLxEq0Zu6lLeg=; b=AHgQ/6kpnL6pMJIku/d7Db1yD
+	HKd7gaqIXkuRrJ12sV9Fyy9ZDe8OSPRXRAql0qPPdiUL5MmDyVfswWOXVV0Yt6ee8mErM198Z2Dth
+	IcA563iZsG2KFO2gXkARIDISbNdg+d+Usf6NGPSoEqAdA9pvRWqLUDSfUddbmyW2XuY+HxCKJMve3
+	e51HEJLiharNuK2N7iGGA+uglTdoCeb2uC1QewAZlM0qM+h07NN3GaC6P6lcDAIyC9ILO3LlPQpUf
+	ZL523yhfX6z2m8RvKwULRz7WJ/ewzNzdDr0T99fSky+CJBSGNxlR9ylJdMVcsS8t5NhCxlLVLoZg3
+	R6vJ/kNPg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l2Z74-0004PT-R5; Thu, 21 Jan 2021 12:30:58 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1l2ZMV-0001ba-4S; Thu, 21 Jan 2021 12:46:55 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l2Z5h-0003dm-A1; Thu, 21 Jan 2021 12:29:42 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 1A61623A22;
- Thu, 21 Jan 2021 12:29:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1611232170;
- bh=QCyk29L+/YnC25PEa9uZAFcJZDrkvY6AexHtzQsre5w=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=kQpbM1QE1NlNqBdwoey5+R0tvBdgWTTH/hmrIaBDRNZQQJfUZrCciIOLRgleJE0oF
- FhkrSvNAZoBWIacJ4pNh41o1r0cXq//ctSe3sE4fUbvFaIaZgfksRmGBjyquXaai4I
- J4I95lLrYv6Q4ZOFikH/ATKVWP4dIVXsXqaBo1h3S0viknOVS7L5A981JnGRzmf88e
- nAq0S0D6LHUEYIB1tIvLClrZIzjJztYBHu3HTWRCQ3nAHo/g/JcfBhvvlZgiKCaI+p
- qkqNe0gES2UPTFcP0if8H9X9muHYxD3w7dqhMRMCMQW4p0pjYpN8zfJ5s/o949oif9
- dfgphaoPsyDjw==
-From: Mike Rapoport <rppt@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH v16 11/11] secretmem: test: add basic selftest for
- memfd_secret(2)
-Date: Thu, 21 Jan 2021 14:27:23 +0200
-Message-Id: <20210121122723.3446-12-rppt@kernel.org>
-X-Mailer: git-send-email 2.28.0
-In-Reply-To: <20210121122723.3446-1-rppt@kernel.org>
-References: <20210121122723.3446-1-rppt@kernel.org>
+ id 1l2ZMS-0001Zz-3a
+ for linux-riscv@lists.infradead.org; Thu, 21 Jan 2021 12:46:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+ t=1611233212; x=1642769212;
+ h=from:to:cc:subject:date:message-id:references:
+ in-reply-to:content-id:content-transfer-encoding: mime-version;
+ bh=CaUZehLEPs3R0B5XtozfFQ2K1IBbp9WavGveXpAZmT0=;
+ b=atxAaq4uPwBMjyun41ySInHGBAuuQnma8hvWQlFdi1geJNutyDidMCL9
+ ikqHxb7y87yKlpqo+TH6IbyMEmN/R+FdSEslTPdbfDLBl9ksinO08ahnL
+ 5Nh8rMgykkUih5dWPCz5ka6+wZs5/1l5I+cBkvvsdQUZMa956aooM33hL
+ DfRYeMDm6Q5qt0n7+xdWEp7PhdLZeHHxvhdikoLCABX7I3reEonECfETh
+ MHpINYX6yDriRmJesVNCjw11+wEHMHuydhjFbTcI4DSu3M7csRowS2GQX
+ 6Vj+XiCCvEkpZl7l5GkMQZNa5oKG0QYd8Y55fdEMTB5WWd3+nDap1n418 w==;
+IronPort-SDR: ye5gD6GM2LkQERXJhrZUaexWWQo2EwPwRpfT2/4lChqHK+HiRerxTLClHYNkWKxKESQapF6F/O
+ 1DPHncYscLw1vAC+lZ2PFS9XRqmfAVioEQv11nGNq4Nd5bnPGnqkbX+Ug/WEZblWzfHAKFuUx2
+ LTIndYo6yvHn18nXx6pzt5ydr3g/RLMU3DDjQngzQTs1jJcR+RWfKEvxdtMdVJ3Wqe7EH+yOV3
+ nvHcklibfSVIgQtyAtxirNEo/9e4QKeZQE5IP9lDWja/ohN74FaYtOh4ZW5m2fSYuJvZJM0BKZ
+ azQ=
+X-IronPort-AV: E=Sophos;i="5.79,363,1602572400"; d="scan'208";a="41215908"
+Received: from smtpout.microchip.com (HELO email.microchip.com)
+ ([198.175.253.82])
+ by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 21 Jan 2021 05:46:49 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.1979.3; Thu, 21 Jan 2021 05:46:44 -0700
+Received: from NAM10-DM6-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1979.3
+ via Frontend Transport; Thu, 21 Jan 2021 05:46:44 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=E/A94J5MO/zfq6HGcT96/hmsJBINwIGc8uMxkJ2ZVrNqk9E1kwcV3mLjDjBBk/igIJNC00EVD5XY9DiaRQezu3f7z01yTNeRuhFAOItqQX++Z0AVeZ/afg88zRQOkSMvSZioNgAV6J+MeG2AGkQ4qIz7ILweB9ks3mZb+Jf70sQyomsHek07N5zxmag1wY5cKJdFhpHaDTl0BneCFkxKrFkLG7IvCIXBm1M+REvaIj4xT8R28i+B9imiXzlLC0hJiOukhSnUA7EV2BFxOlxChR4/uBZsFBhgd2cEZ93LFC3qeuHdcm2p8HS3D/ZZXmahRFIjzjdwq+eqUTjlZCcbLQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CaUZehLEPs3R0B5XtozfFQ2K1IBbp9WavGveXpAZmT0=;
+ b=PeP9mLuDp/58SSgoWGt+WGoB0LSQu/sfIf4+Kc/ASnwtlSPv0EOxe/4kaz9arw3gX/fsnogq8+VEzZ6k80b20Cc8mm27UU+w2mRg52vua2Lrpt0nUYRyTd3vOo2cOChZwfC6cGoJ1RG3e9gI2tEh/cXdwIiaQo262chIDxGOEDlbYy2YizHsZbfCTXAkAjTj67WXFoRK1yorm9bzNp09w4CJfif4SXlvRTDQOkLdYfOfSnErZj4nlCb0CHiSq5xUQKlf2+KXYBQv06Ar++rfZvcrPiVaDqiMINpna2y4NBTshlMowm3+CkkyT8tPHBS5u04XS76KuxCfjoVMGwoAng==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=microchiptechnology.onmicrosoft.com;
+ s=selector2-microchiptechnology-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CaUZehLEPs3R0B5XtozfFQ2K1IBbp9WavGveXpAZmT0=;
+ b=jKpBPedm4s962tWrPdYP9tjav+U2NnqTpeor80t8ltH31DW1Gfjo9A1YaSKGWQxFtsi2PkOdd2wd3L70HxfV8nDPdyk+0GRrb3zKQ78vu4P+ad41L7HXWU/ULNhAd0ryaAVIBMJRKgRzUlhezd5ApW5UX9vR3njm0mrY6ZefOzI=
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:95::7)
+ by MWHPR1101MB2269.namprd11.prod.outlook.com (2603:10b6:301:4d::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3784.13; Thu, 21 Jan
+ 2021 12:46:42 +0000
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::9863:7157:f43e:3205]) by CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::9863:7157:f43e:3205%5]) with mapi id 15.20.3763.015; Thu, 21 Jan 2021
+ 12:46:42 +0000
+From: <Conor.Dooley@microchip.com>
+To: <j.neuschaefer@gmx.net>
+Subject: Re: [PATCH v3 1/5] mbox: add polarfire soc system controller mailbox
+Thread-Topic: [PATCH v3 1/5] mbox: add polarfire soc system controller mailbox
+Thread-Index: AQHW2UlNXeYm4PMxvUi4o6GADiv4HaoUXEWAgB3YFoA=
+Date: Thu, 21 Jan 2021 12:46:42 +0000
+Message-ID: <3425400b-889f-5393-6c26-bf708f2734f1@microchip.com>
+References: <20201223163247.28923-1-conor.dooley@microchip.com>
+ <20201223163255.28992-1-conor.dooley@microchip.com>
+ <X/BuucfqPGpE/S1r@latitude>
+In-Reply-To: <X/BuucfqPGpE/S1r@latitude>
+Accept-Language: en-IE, en-US
+Content-Language: en-IE
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.10.0
+authentication-results: gmx.net; dkim=none (message not signed)
+ header.d=none;gmx.net; dmarc=none action=none header.from=microchip.com;
+x-originating-ip: [89.204.252.178]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 26297adb-bc5b-451a-be13-08d8be0a9a80
+x-ms-traffictypediagnostic: MWHPR1101MB2269:
+x-ms-exchange-transport-forked: True
+x-microsoft-antispam-prvs: <MWHPR1101MB22691277037A6BF1E01E7F3898A19@MWHPR1101MB2269.namprd11.prod.outlook.com>
+x-bypassexternaltag: True
+x-ms-oob-tlc-oobclassifiers: OLM:7691;
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: I7fNk03CbYv2dycQyvRbyCuNVee+yo+kBdyocamx9NpAYJh/5uQmIPAzgzLtQJ8gGOGjFDBVgpW828LXvYADGxKl1c4PGd7k+aeR3RLDR4B+kxTyxlemTnziAg4R3p/6bcDog/AVMYYt3OtWvYQ9vQI+/XxcnOAiaZ50cbt5RZf6j332oe4TJIyr9a/3Y2PQNlyedlW1KFS7zaF47TPxLYRnYUjJDEgL6vngQRD94+9cZGCtMRoasQmQG4I225tjj8d27CLJKDbuSrwR3J3nKSICLoKv26BKv2spvsmfhrArgasTwJBmVC0wQpPaI9k/3LBX7kI6aVlIz39VLIkIcVVUNzC6Z+Glz0+c5ZMYaUSNVuUM6QWh0sM9Ssv04daMrV5nbmGk3bBUU0ftBc1rQVpzn50SG38+tHqdzdAUyNo5L9eID8TB1PQnRvjb4g97g0coVvOxfm6Vha6WwbgPsmSwuWQpNBwv+QHSHVZK0Vw=
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:CO1PR11MB5154.namprd11.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(39860400002)(346002)(396003)(366004)(136003)(376002)(64756008)(66446008)(36756003)(91956017)(66476007)(66556008)(76116006)(66946007)(8676002)(66574015)(6512007)(2906002)(316002)(5660300002)(26005)(6486002)(15650500001)(86362001)(186003)(8936002)(2616005)(31686004)(6916009)(83380400001)(6506007)(71200400001)(4326008)(478600001)(31696002)(7416002)(54906003)(45980500001)(43740500002);
+ DIR:OUT; SFP:1101; 
+x-ms-exchange-antispam-messagedata: =?Windows-1252?Q?yZO2B7eiFLLq6WHq66erATenRMuLnokXqQjQNEfCo79ALH1IZw9VU9XE?=
+ =?Windows-1252?Q?2viAND3rFduYGFUWFKaBbAezGJxWHHYi/0aTEBI/Jgb8dHAe3yDmOm+b?=
+ =?Windows-1252?Q?YG166alhfG4/lTYPXmi2En4UZ9cRBxB6qDcdkvpUy6Ek55EKoa1rE6KS?=
+ =?Windows-1252?Q?F4k8Uu+t8lCfaiAn7aQSpJ6hN35dycl5Q75mEAYgUz+oUenWCyuu6P8l?=
+ =?Windows-1252?Q?NC6NVpRUseQJ5cnwE1e4VIYAid8vri5aH0ATgQ7bsC4ks70RTz7RLyFD?=
+ =?Windows-1252?Q?VRJg11xQKAGkBpZP54ehEB4F6R1Qrb9n1wQfwTO7h13J4xPgtyjRVSb8?=
+ =?Windows-1252?Q?GEfYE1WGFikxRdfb58B45f6XV1Y3h1+jRSLSzxiR2cTAHsKQ71kHnuOl?=
+ =?Windows-1252?Q?fSjbA2gnSyZhpS02SamdbhhGgBMJ59qrILmt8ameS2CwzMT+REKFE+QA?=
+ =?Windows-1252?Q?Wj2MQJscCtf/Cnhrmr3lnZhNJvPYzjo4buj6qC7O/xlWmGyz9SqV86Ks?=
+ =?Windows-1252?Q?KUjvPHHx8E6DCLDgGXPw7L3L8P5vgAj860Q3/gECSm8hQoux6LWGOjPq?=
+ =?Windows-1252?Q?H/PWi3hsv7FpW/iUIBKhB9C/9UKp1QNlYNQw1vBmNtMZRFJvVSFEIvl8?=
+ =?Windows-1252?Q?nHlLmf5f2+ICg6Ww83gHbrdGbxQKKgXqCocHtBXbJQxJjCV4mbMAejGe?=
+ =?Windows-1252?Q?hky7rF859pZYdMAsOgyxYJdUYVajZezTI4KpnrWipWmZNRJwDYpjFbkK?=
+ =?Windows-1252?Q?o31RDOIv+P5uCX5pW1Dg45MkUofEfVerCsn5uHWTUy1WglFvwE9ZuJbZ?=
+ =?Windows-1252?Q?T7c8wSy65SfDKOMur0IclCJey2f54vv+7wat27PzLywHNTqEVzCw/5Yd?=
+ =?Windows-1252?Q?PcEq3v2ApxJy+196IrAFi9+NTJe6UgOrBBNYbnNY8SwovHCwsFndLxPA?=
+ =?Windows-1252?Q?8MwP4Sw5U2NEn6Mn+QbfURJMlF57tPfgHg2KdrnPwISRC3SccsR7Wfye?=
+ =?Windows-1252?Q?Dw/Y0CeFyuf8Ozsq+eBvyZyTEc4FKDTwlJGeZODWyHS2mLYQe/4DUmoz?=
+ =?Windows-1252?Q?LA/DkdZbmGx48MPQQPAepBnoiDTN8puYkw8/7Ch6+5BlcIY/KSj4Ewbs?=
+ =?Windows-1252?Q?c8qUR7h3mfNbjTc+lHjvsr5b?=
+Content-ID: <9D97453363D5334E984D346FAB298ABC@namprd11.prod.outlook.com>
 MIME-Version: 1.0
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 26297adb-bc5b-451a-be13-08d8be0a9a80
+X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Jan 2021 12:46:42.1634 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: LX6fF+lQlhrYQRQYtibX3jT4xLXxpVQr4zMgLkpqCWUWOp9NKC6VYnwmS1Y1pI2SBU4dWERUKkZ1/ti+XG1LYyaYgH+IQZObBjmngLbVYZY=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MWHPR1101MB2269
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210121_072933_750680_AE199DF9 
-X-CRM114-Status: GOOD (  26.97  )
+X-CRM114-CacheID: sfid-20210121_074652_446674_998BF305 
+X-CRM114-Status: GOOD (  18.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -71,440 +170,103 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
- Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
- linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>,
- Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
- Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
- Will Deacon <will@kernel.org>, x86@kernel.org,
- Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
- Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>, Arnd Bergmann <arnd@arndb.de>,
- James Bottomley <jejb@linux.ibm.com>, Hagen Paul Pfeifer <hagen@jauu.net>,
- Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
- linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-fsdevel@vger.kernel.org, Shakeel Butt <shakeelb@google.com>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>,
- Mike Rapoport <rppt@kernel.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: devicetree@vger.kernel.org, damien.lemoal@wdc.com, aou@eecs.berkeley.edu,
+ Lewis.Hanly@microchip.com, david.abdurachmanov@gmail.com,
+ Daire.McNamara@microchip.com, jassisinghbrar@gmail.com, atish.patra@wdc.com,
+ anup.patel@wdc.com, robh+dt@kernel.org, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, Cyril.Jean@microchip.com,
+ linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="windows-1252"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Mike Rapoport <rppt@linux.ibm.com>
+On 02/01/2021 13:01, Jonathan Neusch=E4fer wrote
 
-The test verifies that file descriptor created with memfd_secret does
-not allow read/write operations, that secret memory mappings respect
-RLIMIT_MEMLOCK and that remote accesses with process_vm_read() and
-ptrace() to the secret memory fail.
+>Hello,
+>
+>I've added review comments below. Some of them might be more detailed
+>than necessary, and reflect my opinion rather than something that must
+>be fixed. Anyway, I hope my comments make sense.
+>
+the more detailed feedback the better in my book, if i dont mention it youl=
+l probably see in changed in the next day or two
+...
+...
+>
+>
+>> +=A0=A0=A0 /* Code for MSS_SYS_PARAM_ERR is not implemented with this ve=
+rsion of driver. */
+>
+>What is the "code for MSS_SYS_PARAM_ERR" semantically? Input validation?
+>
+>> +=A0=A0=A0 writel_relaxed(0, mbox->int_reg);
+>
+>What does a write to mbox->int_reg do? Does it acknowledge an interrupt?
+>It would be interesting to have an explaining comment here.
 
-Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
-Cc: Alexander Viro <viro@zeniv.linux.org.uk>
-Cc: Andy Lutomirski <luto@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: Borislav Petkov <bp@alien8.de>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Christopher Lameter <cl@linux.com>
-Cc: Dan Williams <dan.j.williams@intel.com>
-Cc: Dave Hansen <dave.hansen@linux.intel.com>
-Cc: David Hildenbrand <david@redhat.com>
-Cc: Elena Reshetova <elena.reshetova@intel.com>
-Cc: Hagen Paul Pfeifer <hagen@jauu.net>
-Cc: "H. Peter Anvin" <hpa@zytor.com>
-Cc: Ingo Molnar <mingo@redhat.com>
-Cc: James Bottomley <jejb@linux.ibm.com>
-Cc: "Kirill A. Shutemov" <kirill@shutemov.name>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: Matthew Wilcox <willy@infradead.org>
-Cc: Michael Kerrisk <mtk.manpages@gmail.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Palmer Dabbelt <palmerdabbelt@google.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Peter Zijlstra <peterz@infradead.org>
-Cc: Rick Edgecombe <rick.p.edgecombe@intel.com>
-Cc: Roman Gushchin <guro@fb.com>
-Cc: Shakeel Butt <shakeelb@google.com>
-Cc: Shuah Khan <shuah@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: Tycho Andersen <tycho@tycho.ws>
-Cc: Will Deacon <will@kernel.org>
----
- tools/testing/selftests/vm/.gitignore     |   1 +
- tools/testing/selftests/vm/Makefile       |   3 +-
- tools/testing/selftests/vm/memfd_secret.c | 296 ++++++++++++++++++++++
- tools/testing/selftests/vm/run_vmtests    |  17 ++
- 4 files changed, 316 insertions(+), 1 deletion(-)
- create mode 100644 tools/testing/selftests/vm/memfd_secret.c
+both of these are hang overs from the bare metal driver and will be dropped
+>> +
+>> +=A0=A0=A0 if (msg->cmd_data_size) {
+>> +=A0=A0=A0 =A0=A0=A0 byte_buf =3D msg->cmd_data;
+>> +
+>> +=A0=A0=A0 =A0=A0=A0 for (index =3D 0; index < (msg->cmd_data_size / 4);=
+ index++)
+>> +=A0=A0=A0 =A0=A0=A0 =A0=A0=A0 writel_relaxed(word_buf[index],
+>> +=A0=A0=A0 =A0=A0=A0 =A0=A0=A0 =A0=A0=A0 =A0=A0=A0=A0=A0=A0 mbox->mailbo=
+x_base + MAILBOX_REG_OFFSET + index);
+>
+>word_buf is uninitialized.
+>
+>In mpfs_mbox_rx_data, you access the registers at mbox->mailbox_base +
+>MAILBOX_REG_OFFSET in steps of four bytes, here you increment the offset
+>in steps of one byte, because the index isn't scaled. This seems wrong.
+>
 
-diff --git a/tools/testing/selftests/vm/.gitignore b/tools/testing/selftests/vm/.gitignore
-index 9a35c3f6a557..c8deddc81e7a 100644
---- a/tools/testing/selftests/vm/.gitignore
-+++ b/tools/testing/selftests/vm/.gitignore
-@@ -21,4 +21,5 @@ va_128TBswitch
- map_fixed_noreplace
- write_to_hugetlbfs
- hmm-tests
-+memfd_secret
- local_config.*
-diff --git a/tools/testing/selftests/vm/Makefile b/tools/testing/selftests/vm/Makefile
-index d42115e4284d..0200fb61646c 100644
---- a/tools/testing/selftests/vm/Makefile
-+++ b/tools/testing/selftests/vm/Makefile
-@@ -34,6 +34,7 @@ TEST_GEN_FILES += khugepaged
- TEST_GEN_FILES += map_fixed_noreplace
- TEST_GEN_FILES += map_hugetlb
- TEST_GEN_FILES += map_populate
-+TEST_GEN_FILES += memfd_secret
- TEST_GEN_FILES += mlock-random-test
- TEST_GEN_FILES += mlock2-tests
- TEST_GEN_FILES += mremap_dontunmap
-@@ -133,7 +134,7 @@ warn_32bit_failure:
- endif
- endif
- 
--$(OUTPUT)/mlock-random-test: LDLIBS += -lcap
-+$(OUTPUT)/mlock-random-test $(OUTPUT)/memfd_secret: LDLIBS += -lcap
- 
- $(OUTPUT)/gup_test: ../../../../mm/gup_test.h
- 
-diff --git a/tools/testing/selftests/vm/memfd_secret.c b/tools/testing/selftests/vm/memfd_secret.c
-new file mode 100644
-index 000000000000..c878c2b841fc
---- /dev/null
-+++ b/tools/testing/selftests/vm/memfd_secret.c
-@@ -0,0 +1,296 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright IBM Corporation, 2020
-+ *
-+ * Author: Mike Rapoport <rppt@linux.ibm.com>
-+ */
-+
-+#define _GNU_SOURCE
-+#include <sys/uio.h>
-+#include <sys/mman.h>
-+#include <sys/wait.h>
-+#include <sys/types.h>
-+#include <sys/ptrace.h>
-+#include <sys/syscall.h>
-+#include <sys/resource.h>
-+#include <sys/capability.h>
-+
-+#include <stdlib.h>
-+#include <string.h>
-+#include <unistd.h>
-+#include <errno.h>
-+#include <stdio.h>
-+
-+#include "../kselftest.h"
-+
-+#define fail(fmt, ...) ksft_test_result_fail(fmt, ##__VA_ARGS__)
-+#define pass(fmt, ...) ksft_test_result_pass(fmt, ##__VA_ARGS__)
-+#define skip(fmt, ...) ksft_test_result_skip(fmt, ##__VA_ARGS__)
-+
-+#ifdef __NR_memfd_secret
-+
-+#define PATTERN	0x55
-+
-+static const int prot = PROT_READ | PROT_WRITE;
-+static const int mode = MAP_SHARED;
-+
-+static unsigned long page_size;
-+static unsigned long mlock_limit_cur;
-+static unsigned long mlock_limit_max;
-+
-+static int memfd_secret(unsigned long flags)
-+{
-+	return syscall(__NR_memfd_secret, flags);
-+}
-+
-+static void test_file_apis(int fd)
-+{
-+	char buf[64];
-+
-+	if ((read(fd, buf, sizeof(buf)) >= 0) ||
-+	    (write(fd, buf, sizeof(buf)) >= 0) ||
-+	    (pread(fd, buf, sizeof(buf), 0) >= 0) ||
-+	    (pwrite(fd, buf, sizeof(buf), 0) >= 0))
-+		fail("unexpected file IO\n");
-+	else
-+		pass("file IO is blocked as expected\n");
-+}
-+
-+static void test_mlock_limit(int fd)
-+{
-+	size_t len;
-+	char *mem;
-+
-+	len = mlock_limit_cur;
-+	mem = mmap(NULL, len, prot, mode, fd, 0);
-+	if (mem == MAP_FAILED) {
-+		fail("unable to mmap secret memory\n");
-+		return;
-+	}
-+	munmap(mem, len);
-+
-+	len = mlock_limit_max * 2;
-+	mem = mmap(NULL, len, prot, mode, fd, 0);
-+	if (mem != MAP_FAILED) {
-+		fail("unexpected mlock limit violation\n");
-+		munmap(mem, len);
-+		return;
-+	}
-+
-+	pass("mlock limit is respected\n");
-+}
-+
-+static void try_process_vm_read(int fd, int pipefd[2])
-+{
-+	struct iovec liov, riov;
-+	char buf[64];
-+	char *mem;
-+
-+	if (read(pipefd[0], &mem, sizeof(mem)) < 0) {
-+		fail("pipe write: %s\n", strerror(errno));
-+		exit(KSFT_FAIL);
-+	}
-+
-+	liov.iov_len = riov.iov_len = sizeof(buf);
-+	liov.iov_base = buf;
-+	riov.iov_base = mem;
-+
-+	if (process_vm_readv(getppid(), &liov, 1, &riov, 1, 0) < 0) {
-+		if (errno == ENOSYS)
-+			exit(KSFT_SKIP);
-+		exit(KSFT_PASS);
-+	}
-+
-+	exit(KSFT_FAIL);
-+}
-+
-+static void try_ptrace(int fd, int pipefd[2])
-+{
-+	pid_t ppid = getppid();
-+	int status;
-+	char *mem;
-+	long ret;
-+
-+	if (read(pipefd[0], &mem, sizeof(mem)) < 0) {
-+		perror("pipe write");
-+		exit(KSFT_FAIL);
-+	}
-+
-+	ret = ptrace(PTRACE_ATTACH, ppid, 0, 0);
-+	if (ret) {
-+		perror("ptrace_attach");
-+		exit(KSFT_FAIL);
-+	}
-+
-+	ret = waitpid(ppid, &status, WUNTRACED);
-+	if ((ret != ppid) || !(WIFSTOPPED(status))) {
-+		fprintf(stderr, "weird waitppid result %ld stat %x\n",
-+			ret, status);
-+		exit(KSFT_FAIL);
-+	}
-+
-+	if (ptrace(PTRACE_PEEKDATA, ppid, mem, 0))
-+		exit(KSFT_PASS);
-+
-+	exit(KSFT_FAIL);
-+}
-+
-+static void check_child_status(pid_t pid, const char *name)
-+{
-+	int status;
-+
-+	waitpid(pid, &status, 0);
-+
-+	if (WIFEXITED(status) && WEXITSTATUS(status) == KSFT_SKIP) {
-+		skip("%s is not supported\n", name);
-+		return;
-+	}
-+
-+	if ((WIFEXITED(status) && WEXITSTATUS(status) == KSFT_PASS) ||
-+	    WIFSIGNALED(status)) {
-+		pass("%s is blocked as expected\n", name);
-+		return;
-+	}
-+
-+	fail("%s: unexpected memory access\n", name);
-+}
-+
-+static void test_remote_access(int fd, const char *name,
-+			       void (*func)(int fd, int pipefd[2]))
-+{
-+	int pipefd[2];
-+	pid_t pid;
-+	char *mem;
-+
-+	if (pipe(pipefd)) {
-+		fail("pipe failed: %s\n", strerror(errno));
-+		return;
-+	}
-+
-+	pid = fork();
-+	if (pid < 0) {
-+		fail("fork failed: %s\n", strerror(errno));
-+		return;
-+	}
-+
-+	if (pid == 0) {
-+		func(fd, pipefd);
-+		return;
-+	}
-+
-+	mem = mmap(NULL, page_size, prot, mode, fd, 0);
-+	if (mem == MAP_FAILED) {
-+		fail("Unable to mmap secret memory\n");
-+		return;
-+	}
-+
-+	ftruncate(fd, page_size);
-+	memset(mem, PATTERN, page_size);
-+
-+	if (write(pipefd[1], &mem, sizeof(mem)) < 0) {
-+		fail("pipe write: %s\n", strerror(errno));
-+		return;
-+	}
-+
-+	check_child_status(pid, name);
-+}
-+
-+static void test_process_vm_read(int fd)
-+{
-+	test_remote_access(fd, "process_vm_read", try_process_vm_read);
-+}
-+
-+static void test_ptrace(int fd)
-+{
-+	test_remote_access(fd, "ptrace", try_ptrace);
-+}
-+
-+static int set_cap_limits(rlim_t max)
-+{
-+	struct rlimit new;
-+	cap_t cap = cap_init();
-+
-+	new.rlim_cur = max;
-+	new.rlim_max = max;
-+	if (setrlimit(RLIMIT_MEMLOCK, &new)) {
-+		perror("setrlimit() returns error");
-+		return -1;
-+	}
-+
-+	/* drop capabilities including CAP_IPC_LOCK */
-+	if (cap_set_proc(cap)) {
-+		perror("cap_set_proc() returns error");
-+		return -2;
-+	}
-+
-+	return 0;
-+}
-+
-+static void prepare(void)
-+{
-+	struct rlimit rlim;
-+
-+	page_size = sysconf(_SC_PAGE_SIZE);
-+	if (!page_size)
-+		ksft_exit_fail_msg("Failed to get page size %s\n",
-+				   strerror(errno));
-+
-+	if (getrlimit(RLIMIT_MEMLOCK, &rlim))
-+		ksft_exit_fail_msg("Unable to detect mlock limit: %s\n",
-+				   strerror(errno));
-+
-+	mlock_limit_cur = rlim.rlim_cur;
-+	mlock_limit_max = rlim.rlim_max;
-+
-+	printf("page_size: %ld, mlock.soft: %ld, mlock.hard: %ld\n",
-+	       page_size, mlock_limit_cur, mlock_limit_max);
-+
-+	if (page_size > mlock_limit_cur)
-+		mlock_limit_cur = page_size;
-+	if (page_size > mlock_limit_max)
-+		mlock_limit_max = page_size;
-+
-+	if (set_cap_limits(mlock_limit_max))
-+		ksft_exit_fail_msg("Unable to set mlock limit: %s\n",
-+				   strerror(errno));
-+}
-+
-+#define NUM_TESTS 4
-+
-+int main(int argc, char *argv[])
-+{
-+	int fd;
-+
-+	prepare();
-+
-+	ksft_print_header();
-+	ksft_set_plan(NUM_TESTS);
-+
-+	fd = memfd_secret(0);
-+	if (fd < 0) {
-+		if (errno == ENOSYS)
-+			ksft_exit_skip("memfd_secret is not supported\n");
-+		else
-+			ksft_exit_fail_msg("memfd_secret failed: %s\n",
-+					   strerror(errno));
-+	}
-+
-+	test_mlock_limit(fd);
-+	test_file_apis(fd);
-+	test_process_vm_read(fd);
-+	test_ptrace(fd);
-+
-+	close(fd);
-+
-+	ksft_exit(!ksft_get_fail_cnt());
-+}
-+
-+#else /* __NR_memfd_secret */
-+
-+int main(int argc, char *argv[])
-+{
-+	printf("skip: skipping memfd_secret test (missing __NR_memfd_secret)\n");
-+	return KSFT_SKIP;
-+}
-+
-+#endif /* __NR_memfd_secret */
-diff --git a/tools/testing/selftests/vm/run_vmtests b/tools/testing/selftests/vm/run_vmtests
-index e953f3cd9664..95a67382f132 100755
---- a/tools/testing/selftests/vm/run_vmtests
-+++ b/tools/testing/selftests/vm/run_vmtests
-@@ -346,4 +346,21 @@ else
- 	exitcode=1
- fi
- 
-+echo "running memfd_secret test"
-+echo "------------------------------------"
-+./memfd_secret
-+ret_val=$?
-+
-+if [ $ret_val -eq 0 ]; then
-+	echo "[PASS]"
-+elif [ $ret_val -eq $ksft_skip ]; then
-+	echo "[SKIP]"
-+	exitcode=$ksft_skip
-+else
-+	echo "[FAIL]"
-+	exitcode=1
-+fi
-+
-+exit $exitcode
-+
- exit $exitcode
--- 
-2.28.0
+Thanks for catching this bug, both are related and were introduced during r=
+efactoring.
+The only dependent drivers implemented so far don't use the full sending fu=
+nctionality
+so it went unnoticed.
+
+...
+>
+>
+>> +
+>> +=A0=A0=A0 mbox_chan_received_data(chan, (void *)data);
+>> +=A0=A0=A0 devm_kfree(mbox->dev, data);
+>> +}
+>> +
+>> +static irqreturn_t mpfs_mbox_inbox_isr(int irq, void *data)
+>> +{
+>> +=A0=A0=A0 struct mbox_chan *chan =3D (struct mbox_chan *)data;
+>
+>This cast and the one at the end of mpfs_mbox_rx_data are somewhat
+>uncessary, because C allows implicit conversion of void pointers to and
+>from other pointer types.
+>
+
+true, i had put them in thinking it made it more clear, but on reflection i=
+t doesnt.
+
+...
+>> +++ b/include/soc/microchip/mpfs.h
+>> @@ -0,0 +1,51 @@
+>> +/* SPDX-License-Identifier: GPL-2.0 */
+>> +/*
+>> + *
+>> + * Microchip PolarFire SoC (MPFS) mailbox
+>
+>This is mpfs.h, but the comment implies it's only for mailbox-related
+>code, not for all of the Microchip PolarFire SoC. Is this intentional?
+>
+
+yeah, while thats correct for now it wont remain that way for long. ill dro=
+p the mailbox reference
+
+>
+>Best regards,
+>Jonathan Neusch=E4fer
 
 
 _______________________________________________
