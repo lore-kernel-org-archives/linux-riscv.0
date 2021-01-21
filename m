@@ -4,151 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 X-Spam-Level: 
 X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2DAB6C433E9
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Jan 2021 08:33:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2D3F5C433E0
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Jan 2021 09:22:29 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C73E323998
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Jan 2021 08:33:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C73E323998
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	by mail.kernel.org (Postfix) with ESMTPS id BE45823888
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Jan 2021 09:22:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BE45823888
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=konsulko.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:Date:Subject:To:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	 bh=2uGhxkvEEqRmjEFjzewddzwVsCZdBueh0rg6u6N1JdQ=; b=gHx/VoxDSxNcR93ezMj1hdeRa
-	YWsbpYRib4VbrKjrFUTMQxcMLeHHdKaN/0qbr5jdN1U8VWS/KVpzaG36lR/A0wsOaNCt2oVkLORJt
-	pKpPohVYvKCrHikJ7XzEncZngDBIGXLSuH8+z52CoJexWWhMLIF0DSb+lzHhWZ2qOluqWOkO4eM75
-	MYj4IItsz6ng4dKjB19hh5qPqyi3tjr2j1Cqtjm7ramN4U8+OiF8C3s5Schqd0IskZMyTrpePruXt
-	PYjDef57mdphKPf8VfTLtFF4CTy193i2+x7a+0z3nAzAyU5lRxZ1uXhsRRGBkvTE3QsEGxIYwhJjz
-	i3Jnv7H1A==;
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=zxGO/128SHd3dpxJTQqww4rIMc7e00cJrI9jowMF7Pg=; b=bJnKP4BDZR23fPoeMpWvJojGA
+	IR6pOSG34xVGe/xkDsrxK05MBXubjsvuQoiWcLsPeu0FKhnIQ6P3svxvX7x+Kc7QH+oCXo6wwslKx
+	Fwspc/vzMKF2STTs9iSJCGQfM456NlqQbY1FBo+U0tvGtCyG3Ff9yu3bnGTHPhQTU0Q/R+te7kpx/
+	Ptlu7F7M4oUCiQtslZyjPA5VUF3q/32AEtqBmt3hBDYrOElP8tID7A6RsRxIBT3HgMNd1NRxYdtWG
+	9Dv0jMk2xoXe7nCq5yGTizya3RNA09QPuJj1O+6ZL8TwKRRPVMcn5dodD5GNGIWPjTNSdwxQ/liB+
+	MnESrlKZw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l2VOX-0004MR-EC; Thu, 21 Jan 2021 08:32:45 +0000
-Received: from esa1.hgst.iphmx.com ([68.232.141.245])
+	id 1l2WAH-0005TT-Kb; Thu, 21 Jan 2021 09:22:05 +0000
+Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l2VOU-0004LQ-Ly
- for linux-riscv@lists.infradead.org; Thu, 21 Jan 2021 08:32:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1611217962; x=1642753962;
- h=from:to:cc:subject:date:message-id:references:
- content-transfer-encoding:mime-version;
- bh=Xnwi5bCnNoQlclRZuKjaI6DvBlaodbUwsv4e1gail8E=;
- b=PdWniNbZgnUQOFk8u8detLcYpZCV666PxQ0r2Tljgg3ItRCX85ARaE7P
- FVfrYukrPKfHeungoP7/aRRXcvhSa/AhroXWAgYnSg2KMXXe/+Lw3Kxk5
- bTybJrnUaPv+5xZnVqsWkmolBRMwYD0Z3iC3RJKt+9hn7w/Hvv+V3dYZ5
- HSlQ9RSpUnyv4Hrs4qmBg4fcJ/pv3+y4LtyHYYP0233w6Vh/Z+09v1gFV
- 1DfeF9dOvQDq5HRqZo+rkR0vnv+4QpGFOayyQNNZgY0qEk7hpxEsqcPZb
- NqETQMCd155lQwOlg4ovHAXlF0afL/GJTqTfw3mHbwooQ1mL5TSpQCMgy Q==;
-IronPort-SDR: 0bwJUBxnXXp/y09GOMIycOGdsAm2rTUSOr1YM8eIjNWcjdcATnkB7bOnHcbhi3fyH06v76XKOV
- Gby7L3w7R4QGqBHyR4rmVTdbU2tQI0ieYUgMuHceiRzpz78jbvBjGLvyEnySYX642mTiHn0WxB
- ReeXW/wTyl9xh5sMASbgSGb+vc0e/UfEMZJmYWJyra+KoPMWJqM7gfLujwu0kDsTTy/DaK+M22
- rXIyfQ3B5VvEsFONu8Lq762fp3FRaxsBmcdsutFpeulqFiZ4ALs3cF62NVka5YbzIxhqFqZes9
- rJw=
-X-IronPort-AV: E=Sophos;i="5.79,363,1602518400"; d="scan'208";a="268302521"
-Received: from mail-dm6nam10lp2100.outbound.protection.outlook.com (HELO
- NAM10-DM6-obe.outbound.protection.outlook.com) ([104.47.58.100])
- by ob1.hgst.iphmx.com with ESMTP; 21 Jan 2021 16:32:41 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=UlWor/KxAgcgzl2nU7A9l9BsWJ/B5v6iK6p1Dry9BLGfOQRNPipUhl+2yrhNiDguLSHuzjNelnM5o9l2maei86rS8PHR6khUncc4MCS1Ht9PoxzWROdkk/w8w71MG37lxRzyTUSkdNdr7xBzGF4gRC0ViuXUH9bKIgeNU7IRRnqXislkgNfGCfFtQfQOtz3j6StaIZ9q3gy4z8cKfAeKBsR+AtlwykElsEUyIwnLFRPPrfQQyGxdj2YlUVdpk/5e/7KhnU+IaagtRUjAizZPqstVQott1QMW1go/JZ9dlwsdGcegRoZCiHQac6gyieoMVvYY1Aq0I1/zeDjD/o2hKQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=65f+QvN9lK9/6kfmEPnEOY/TYzLYi8KLy6M+LESaC7M=;
- b=KV5aKVbk6wNlncDJdLg1aIHKp0QNuUDu7BNCMQ6w9kI8bBKSQDEZfz2vHoiZZY2tDWo/TPFidSaivy5xbhGAwedmuG59jqf7I8AbG9lpk7Jh8Ux3x1lmbkjG2vdSelgWh8CLthF70WtvwVca788oRTSXey+73RKBZpqSPAIAXemD6YfGvozVADP3lIk0OweTRzWY8ei6MXL8c8sC9OSbMBAOjX2dqTmt0J8BSJSjpVZmzyp5x4zAEvP19g7UPCeL8KNxItgME4f16UlqiaMKVuXcinUGMdfpFJIzvs7ecavbdxZ59MPGhAg4y0dy8mmu9ZIEb73ooTmXcl2mx2taNQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
- header.d=wdc.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=65f+QvN9lK9/6kfmEPnEOY/TYzLYi8KLy6M+LESaC7M=;
- b=tzWbAK1FMx2PmIQKsz1URtmz5V+5ba93yIEFJQPES8E8+cWvAKNVMxeNfmYzz6bj1pHdsoQYMpQ7Z/tG2qyBIEdFPECGtuI7thyGUpI4SWttofLu7/CUL+dmfNLhjQRDcgMDe1ueg2B2Mr/b9WjkJTLED5NM02fP/fubh3urWK4=
-Received: from BL0PR04MB6514.namprd04.prod.outlook.com (2603:10b6:208:1ca::23)
- by BL0PR04MB4916.namprd04.prod.outlook.com (2603:10b6:208:58::16)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3763.13; Thu, 21 Jan
- 2021 08:32:38 +0000
-Received: from BL0PR04MB6514.namprd04.prod.outlook.com
- ([fe80::b880:19d5:c7fe:329d]) by BL0PR04MB6514.namprd04.prod.outlook.com
- ([fe80::b880:19d5:c7fe:329d%8]) with mapi id 15.20.3763.014; Thu, 21 Jan 2021
- 08:32:38 +0000
-From: Damien Le Moal <Damien.LeMoal@wdc.com>
-To: Linus Walleij <linus.walleij@linaro.org>
-Subject: Re: [PATCH v11 02/10] pinctrl: Add RISC-V Canaan Kendryte K210 FPIOA
- driver
-Thread-Topic: [PATCH v11 02/10] pinctrl: Add RISC-V Canaan Kendryte K210 FPIOA
- driver
-Thread-Index: AQHW6H603OQs4bGY/kKjaT3KXrLhfA==
-Date: Thu, 21 Jan 2021 08:32:38 +0000
-Message-ID: <BL0PR04MB6514439CE158BAB4253D8903E7A10@BL0PR04MB6514.namprd04.prod.outlook.com>
-References: <mhng-8e7e9405-6528-4fec-8d2e-41eb7ec1362c@palmerdabbelt-glaptop>
- <BL0PR04MB6514410C82DBB40E645112E1E7A10@BL0PR04MB6514.namprd04.prod.outlook.com>
- <CACRpkdYCiiuBUnJGMea66Q=MEmp9hpYMm3bwYZg2YnSUbAPGFQ@mail.gmail.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: linaro.org; dkim=none (message not signed)
- header.d=none;linaro.org; dmarc=none action=none header.from=wdc.com;
-x-originating-ip: [2400:2411:43c0:6000:b0d5:1d20:2559:58ed]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-ht: Tenant
-x-ms-office365-filtering-correlation-id: 2689a7fd-37e7-4595-3b72-08d8bde71c4a
-x-ms-traffictypediagnostic: BL0PR04MB4916:
-x-microsoft-antispam-prvs: <BL0PR04MB491648EA0E8338B4198056BBE7A10@BL0PR04MB4916.namprd04.prod.outlook.com>
-wdcipoutbound: EOP-TRUE
-x-ms-oob-tlc-oobclassifiers: OLM:3276;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: UOjNBXjrWylatyBQkBR5gCKDTcZRICcmYERjvaQ3LT9UwbiNFJyY/2WiFHRc4qCi5u29ApaMKu2PHkBQ/iGwn5kohWMmiXZiAsGI3H5KODDUfjV7jRrV7ViOsnoQMtDhqYa6QA/+fDb2dYCv+hSa7ZNZykg5cBL+zuJzZRTIAlrdDNHUFNawMp59uIoIqLttOxwLfBp7Oruc37q3bNY3i0QGSuW9qSrEioE+wYmpiMIXS4XbjbalRf1xghVlbUasqUo27MS4nZV3DBNCBOimqRerYzmUFIu7hyXqXW5j3MEp4e8h6azBnwXL5UGmx233B3FKWMAfzw0kT1YHogL1yNgk5RW3PANmjGNnu4XRXgkj3EhBdJswJT1rU15H3mY5YBnQeIFfQm+XaNS1Bpdq8SGj1A8JHzQk7ZCLjEyBWOTBIKAVAxKGk2rYMKK+rrjub0rgXe3bp9IDxkNNYjKbMw==
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:BL0PR04MB6514.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(376002)(136003)(346002)(396003)(39860400002)(366004)(4326008)(8676002)(83380400001)(186003)(478600001)(53546011)(316002)(5660300002)(33656002)(6506007)(8936002)(91956017)(66446008)(64756008)(6916009)(66476007)(55016002)(66946007)(7696005)(2906002)(71200400001)(66556008)(52536014)(966005)(86362001)(76116006)(9686003)(54906003);
- DIR:OUT; SFP:1102; 
-x-ms-exchange-antispam-messagedata: =?us-ascii?Q?Bvc4Zk6p0eB7d4udOM70wpTAbIxoG8fUaYOiRnZJ7QhzwM1LEBsM1TZdgFqN?=
- =?us-ascii?Q?X+eoj1P6XhARwN0CtE07xpmkf+bHkQqlKRf5R0FzUBA3iEmsK3YHNxGgBmlb?=
- =?us-ascii?Q?5Mo3zIWclo83jwjw0lqUiugeDGl/OQmCf4tw5rCFrc6UMB9NjhOMmaZkOyYx?=
- =?us-ascii?Q?BajBeAlIIIzCxUnZcAtS5gwv+FBqWod8zcwQztZ6raM0O7hIcQzaJh3z9GjT?=
- =?us-ascii?Q?E/9G3dE/KZSRS2jxTTvtBcP5lssslsmBY4PywBkrDt51Tbv3Ux5FHFyPiBX3?=
- =?us-ascii?Q?ynu+hcwQIewPEhEEvilD8uGM7J5WoUX4aPeDqRXM1DbE6EllGnLmo8xZPAHz?=
- =?us-ascii?Q?l5Udt2nIHcpTOFV/2suc0o/4M+MNApPXDkMDe/973JCpSkQ6K14xcaiMiqU+?=
- =?us-ascii?Q?/I46Nz4f4HXpfBzXIf5g2jakSy+r+tGqqO6DbAYSMGXHuP3XmIRHPMGZvYZF?=
- =?us-ascii?Q?yDMQkD/ZoqyWpWkwd/8nU3r0jqsbMIsbV/3xTznZFc0Bh1C7tqLnHYBSPU9I?=
- =?us-ascii?Q?St4eSWJQLQCJZT75f+HtLNaPBYiT7gu6R0dSJPnGdDMXF24PoweGdwk4Y/ZI?=
- =?us-ascii?Q?o8GGmQVElSOlCmy/LXuBFWsSFA2zrWgHfBqGjb7tbiNM/pYvDGQg7xsDTO64?=
- =?us-ascii?Q?4oIYRCe7l0DIIwBXdDITLQ/HHvkZ6yvoj/kJAFfRbvs3fK9i3H22HJK9tcmx?=
- =?us-ascii?Q?HsB1EBgiz3sBuD6zwxeugGtXfhLUMW/lQjsniRB31upjnR/w7ATLL6rZ8DuM?=
- =?us-ascii?Q?HJ4nAfbe6nBJaTzuhMNrTtOEUtb7xcSdGoP1DSbuWM+jNczQOZy2ZqddA1Bn?=
- =?us-ascii?Q?fHDG40BFBVhpUwI3bTZ0NMMxxpWWZp/vy9PUyHQ8M5KbrQrpCBhdIEtC5Eqv?=
- =?us-ascii?Q?2PmrWBectu5eB1A9WZePPoVlilqYvLraSF16qA9KFOr6bnltgxwaYYcvNvNj?=
- =?us-ascii?Q?RmsUnzQsx9XiX4/h5I3JwftmkjigscIKX5pydmeZZGzC2ZAKCpnx7UKhdZUw?=
- =?us-ascii?Q?eG/WDOP/gQSyzfd4KtjsjawLWV0yqdWCALvNEZF8bR08wqtEOgfbIMRuUCz6?=
- =?us-ascii?Q?gHPMHXzdCa4IIsXxBxsLL+3XOkbihbeQdxU7jxXmnvdm15E7gwFiRtHmKK8F?=
- =?us-ascii?Q?tc0+daRF/eGRIbEry+FAK/gF8QNRc/itQg=3D=3D?=
-x-ms-exchange-transport-forked: True
+ id 1l2WAE-0005Sa-L3
+ for linux-riscv@lists.infradead.org; Thu, 21 Jan 2021 09:22:03 +0000
+Received: by mail-lj1-x232.google.com with SMTP id n8so1695676ljg.3
+ for <linux-riscv@lists.infradead.org>; Thu, 21 Jan 2021 01:22:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=konsulko.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=W2RjDBv9P3j9wxeJUAoiB4MW/LqAwK6JSb2C7o1dWoM=;
+ b=bvWPlHHLe3bjw7pTPhEw3rCRornram+wtOuO7NizVyZiYTs1Dp7QoZch+nmjgd4Y62
+ dTz3pgnSeHVqydBNPjiNGgE2J1QtzPhuS3xKaIhuBLXJNJWV7gPz0hz/m7hmftjNlhE8
+ VvFtH83jLfsaGHVNMD0Rkf81VeVsG1O9dwU2o=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=W2RjDBv9P3j9wxeJUAoiB4MW/LqAwK6JSb2C7o1dWoM=;
+ b=nKKHLbRfzvFjnIGzrih1Ar0TH5iHRq9GQ4Kf2nGBUJAgiuArw7l3ZwT2h07qZkIsPS
+ oP4vMMT7vObjoRFlwUDSqXIZceJ3nMrsqyoPwquj6YOgeame2Acr9EK7RfwpJjnB8Qt7
+ xuMl2q6hhdMdGcDSLhLPeFJaYJHbwt0Gm3tJjBCkRYhS2ENuvy8CHEfIyyXTNXentg8V
+ 6q082cefHgptYsS/nIiJsRWRZ8eE1Y1EEvN071MGkC9wmVRwCkCVuuvFR5e+cV1AesKg
+ nPVSswrSQtDekr0ccuVvEq/rBSAhbi1mkWeVtDc1njLQGqex1cNb79dNazuhuDTu9u5v
+ wN6Q==
+X-Gm-Message-State: AOAM530a4DiwpckMVpO9zpr3hiQBEGcs1dr8qQzrk8GJAaUxpQri1b8M
+ XHYu1gMYXE41goDFnLcLWiwMH0E9fW7nLHif7Wb7MT342M4=
+X-Google-Smtp-Source: ABdhPJxNj6MOr6RpfwzZgv0VI4M3/od8Hezr+/6Jep8v6YkBDlSuq6ZVsP1gXCdC/IcnmjZecIOBtzvoa/VOt+c+cHE=
+X-Received: by 2002:a2e:9153:: with SMTP id q19mr6211843ljg.173.1611220919160; 
+ Thu, 21 Jan 2021 01:21:59 -0800 (PST)
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BL0PR04MB6514.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2689a7fd-37e7-4595-3b72-08d8bde71c4a
-X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Jan 2021 08:32:38.2000 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: HrrzU0ycHzK3IxQIiFpYVc2Sf1IwSUXZhB9v1Je1a8Gru/R/XeUDTC7DJ3pDH6vmmCSnmTvEM/ZQ+uaZ2z0oAw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL0PR04MB4916
+References: <20210115234947.44014-1-vitaly.wool@konsulko.com>
+In-Reply-To: <20210115234947.44014-1-vitaly.wool@konsulko.com>
+From: Vitaly Wool <vitaly.wool@konsulko.com>
+Date: Thu, 21 Jan 2021 10:21:48 +0100
+Message-ID: <CAM4kBBLhKsysQCf1GgpSvnGKVV2HsOoVP+4VvYmQaqfpKJ45+A@mail.gmail.com>
+Subject: Re: [PATCH v3] riscv: add BUILTIN_DTB support for MMU-enabled targets
+To: linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210121_033242_867156_F6ED1EF1 
-X-CRM114-Status: GOOD (  14.04  )
+X-CRM114-CacheID: sfid-20210121_042202_695560_EA1BA9DE 
+X-CRM114-Status: GOOD (  26.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -160,59 +82,146 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, "seanga2@gmail.com" <seanga2@gmail.com>
+Cc: Anup Patel <anup@brainfault.org>, Damien Le Moal <damien.lemoal@wdc.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>, LKML <linux-kernel@vger.kernel.org>,
+ devicetree@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2021/01/21 17:25, Linus Walleij wrote:
-> On Thu, Jan 21, 2021 at 1:15 AM Damien Le Moal <Damien.LeMoal@wdc.com> wrote:
->> On 2021/01/21 3:21, Palmer Dabbelt wrote:
->>> On Mon, 18 Jan 2021 05:33:05 PST (-0800), linus.walleij@linaro.org wrote:
->>>> Hi Damien,
->>>>
->>>> this looks all right to me.
->>>> Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
->>>>
->>>> Shall I apply just this one patch to the pinctrl tree?
->>>
->>> That's fine with me.  The DT bindings are in riscv/for-next, maybe it's best to
->>> take those as well and I'll drop them?  I don't generally like to drop stuff
->>> from for-next, but that's probably better than having everything all mixed up.
->>>
->>> https://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git/commit/?h=for-next&id=ed3137edb31b86702511e7ad12b4abe8686b6805
->>>
->>>> I think the line that touches arch/*/Kconfig should be dropped
->>>> then, that better go to the SoC tree.
->>>
->>> I'm OK with you taking them along with my Ack, but if you don't want to that's
->>> fine.  Just LMK
->>>
->>> Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
->>
->> Linus,
->>
->> Please let me know which way you want to proceed. If you want to take the patch,
->> I will resend without the Kconfig change and move that change to another patch.
-> 
-> It's fine to proceed as is, since Palmer already applied the bindings to
-> his tree, just apply the pinctrl driver there as well. I don't see any
-> risk of collisions in the tree.
+On Sat, Jan 16, 2021 at 12:57 AM Vitaly Wool <vitaly.wool@konsulko.com> wrote:
+>
+> Sometimes, especially in a production system we may not want to
+> use a "smart bootloader" like u-boot to load kernel, ramdisk and
+> device tree from a filesystem on eMMC, but rather load the kernel
+> from a NAND partition and just run it as soon as we can, and in
+> this case it is convenient to have device tree compiled into the
+> kernel binary. Since this case is not limited to MMU-less systems,
+> let's support it for these which have MMU enabled too.
+>
+> While at it, provide __dtb_start as a parameter to setup_vm() in
+> BUILTIN_DTB case, so we don't have to duplicate BUILTIN_DTB specific
+> processing in MMU-enabled and MMU-disabled versions of setup_vm().
 
-Sounds good. Thanks !
+@Palmer: ping :)
 
-> 
-> Yours,
-> Linus Walleij
-> 
+> Signed-off-by: Vitaly Wool <vitaly.wool@konsulko.com>
 
+While at it, since this is just a respin/concatenation:
+@Damien: are you okay with re-adding 'Tested-By:' ?
+@Anup: are you okay with adding 'Reviewed-by:' since you have reviewed
+both v1 patches that were concatenated?
 
--- 
-Damien Le Moal
-Western Digital Research
+Best regards,
+   Vitaly
+
+> ---
+> Changes from v2:
+> * folded "RISC-V: simplify BUILTIN_DTB processing" patch
+> [http://lists.infradead.org/pipermail/linux-riscv/2021-January/004153.html]
+> Changes from v1:
+> * no direct initial_boot_params assignment
+> * skips the temporary mapping for DT if BUILTIN_DTB=y
+>
+>  arch/riscv/Kconfig       |  1 -
+>  arch/riscv/kernel/head.S |  4 ++++
+>  arch/riscv/mm/init.c     | 19 +++++++++++++------
+>  3 files changed, 17 insertions(+), 7 deletions(-)
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 2ef05ef921b5..444a1ed1e847 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -445,7 +445,6 @@ endmenu
+>
+>  config BUILTIN_DTB
+>         def_bool n
+> -       depends on RISCV_M_MODE
+>         depends on OF
+>
+>  menu "Power management options"
+> diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+> index 16e9941900c4..f5a9bad86e58 100644
+> --- a/arch/riscv/kernel/head.S
+> +++ b/arch/riscv/kernel/head.S
+> @@ -260,7 +260,11 @@ clear_bss_done:
+>
+>         /* Initialize page tables and relocate to virtual addresses */
+>         la sp, init_thread_union + THREAD_SIZE
+> +#ifdef CONFIG_BUILTIN_DTB
+> +       la a0, __dtb_start
+> +#else
+>         mv a0, s1
+> +#endif /* CONFIG_BUILTIN_DTB */
+>         call setup_vm
+>  #ifdef CONFIG_MMU
+>         la a0, early_pg_dir
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index 30b61f2c6b87..45faad7c4291 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -192,10 +192,13 @@ void __init setup_bootmem(void)
+>  #endif /* CONFIG_BLK_DEV_INITRD */
+>
+>         /*
+> -        * Avoid using early_init_fdt_reserve_self() since __pa() does
+> +        * If DTB is built in, no need to reserve its memblock.
+> +        * Otherwise, do reserve it but avoid using
+> +        * early_init_fdt_reserve_self() since __pa() does
+>          * not work for DTB pointers that are fixmap addresses
+>          */
+> -       memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
+> +       if (!IS_ENABLED(CONFIG_BUILTIN_DTB))
+> +               memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
+>
+>         early_init_fdt_scan_reserved_mem();
+>         dma_contiguous_reserve(dma32_phys_limit);
+> @@ -499,6 +502,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+>         /* Setup early PMD for DTB */
+>         create_pgd_mapping(early_pg_dir, DTB_EARLY_BASE_VA,
+>                            (uintptr_t)early_dtb_pmd, PGDIR_SIZE, PAGE_TABLE);
+> +#ifndef CONFIG_BUILTIN_DTB
+>         /* Create two consecutive PMD mappings for FDT early scan */
+>         pa = dtb_pa & ~(PMD_SIZE - 1);
+>         create_pmd_mapping(early_dtb_pmd, DTB_EARLY_BASE_VA,
+> @@ -506,7 +510,11 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+>         create_pmd_mapping(early_dtb_pmd, DTB_EARLY_BASE_VA + PMD_SIZE,
+>                            pa + PMD_SIZE, PMD_SIZE, PAGE_KERNEL);
+>         dtb_early_va = (void *)DTB_EARLY_BASE_VA + (dtb_pa & (PMD_SIZE - 1));
+> +#else /* CONFIG_BUILTIN_DTB */
+> +       dtb_early_va = __va(dtb_pa);
+> +#endif /* CONFIG_BUILTIN_DTB */
+>  #else
+> +#ifndef CONFIG_BUILTIN_DTB
+>         /* Create two consecutive PGD mappings for FDT early scan */
+>         pa = dtb_pa & ~(PGDIR_SIZE - 1);
+>         create_pgd_mapping(early_pg_dir, DTB_EARLY_BASE_VA,
+> @@ -514,6 +522,9 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+>         create_pgd_mapping(early_pg_dir, DTB_EARLY_BASE_VA + PGDIR_SIZE,
+>                            pa + PGDIR_SIZE, PGDIR_SIZE, PAGE_KERNEL);
+>         dtb_early_va = (void *)DTB_EARLY_BASE_VA + (dtb_pa & (PGDIR_SIZE - 1));
+> +#else /* CONFIG_BUILTIN_DTB */
+> +       dtb_early_va = __va(dtb_pa);
+> +#endif /* CONFIG_BUILTIN_DTB */
+>  #endif
+>         dtb_early_pa = dtb_pa;
+>
+> @@ -604,11 +615,7 @@ static void __init setup_vm_final(void)
+>  #else
+>  asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+>  {
+> -#ifdef CONFIG_BUILTIN_DTB
+> -       dtb_early_va = (void *) __dtb_start;
+> -#else
+>         dtb_early_va = (void *)dtb_pa;
+> -#endif
+>         dtb_early_pa = dtb_pa;
+>  }
+>
+> --
+> 2.20.1
+>
 
 _______________________________________________
 linux-riscv mailing list
