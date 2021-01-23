@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-17.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 33317C433DB
-	for <linux-riscv@archiver.kernel.org>; Sat, 23 Jan 2021 13:13:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 88712C433DB
+	for <linux-riscv@archiver.kernel.org>; Sat, 23 Jan 2021 13:35:05 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B79C622EBE
-	for <linux-riscv@archiver.kernel.org>; Sat, 23 Jan 2021 13:13:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B79C622EBE
+	by mail.kernel.org (Postfix) with ESMTPS id 3519122AAB
+	for <linux-riscv@archiver.kernel.org>; Sat, 23 Jan 2021 13:35:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3519122AAB
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,45 +23,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=oBjO7yHCLCiNV6qOpkRd05P5/mwqm2Wv09uFuTews1M=; b=x7mF7Uw7g+yyTvYSKA9fwpx+c1
-	5dWyXXwYYMw4cx32OG0dRyp4UadQgMAypb2xt905uQ+ZGNNJTWjyV3DLxwoVssXSD+to8vO4clFax
-	88mIPAr4at0rXH8S8SuNoa00M168CJcTbKAZeUL+lDfXyDvGr6pjEFzpoF8+4orMax/4aph4LDLWp
-	MwOx3/A7Sh/4T0qdVBn2/csNmboLVUDNbLZU653LZtermhkP7WlD9qbSCZBRH3/rCyVOnEZObepL5
-	MEl9rqWKEoTtWiCqpeLNcttTbxrvUIy0/JM8rJF7MIh2o+7U98+BZjP8lv/WC3talxEiX75lMlWZm
-	FcREWiqA==;
+	bh=DDIhaY3MhAm78+kc+bYPHuLH0ApUwk2gexneQk9NpXM=; b=1BqD/XXvbSE+0jBq/8x2QHHgeD
+	0Mv713FdwN8sc1qMxBmwNTwOoimucSJrJV4tjs3FajyygUGiTPNKydOD6IIZlaViZs21QRsNPVWnp
+	QYFUxPXQ1ObSErmG75+vBmlHyeXFHUOl3IIhDLh32kuABf+QrOezVAzKDwoN0dWkHXz0ZrtJhJhoy
+	oIEj7sPJ7zsuDVqNTSs5p5gcAgRzYJAZ8uldCVyDiXqNq0vARU/+DZ5s3PlHKqa5RetYGfkXXYUkg
+	GTqHUijz6u+V/IpEptjpsUmWaDU/+x8bWzeptyzBS6yxwQyID+uzSlnoWGWorfXVBl/YBnkuUSIN7
+	q3Eghk8A==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l3Ij8-0002Cb-E6; Sat, 23 Jan 2021 13:13:18 +0000
-Received: from conuserg-12.nifty.com ([210.131.2.79])
+	id 1l3J3k-0003vz-Th; Sat, 23 Jan 2021 13:34:36 +0000
+Received: from conuserg-10.nifty.com ([210.131.2.77])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l3Ij5-0002C2-DG
- for linux-riscv@lists.infradead.org; Sat, 23 Jan 2021 13:13:17 +0000
+ id 1l3J3h-0003vc-NI
+ for linux-riscv@lists.infradead.org; Sat, 23 Jan 2021 13:34:35 +0000
 Received: from localhost.localdomain (softbank126026094251.bbtec.net
  [126.26.94.251]) (authenticated)
- by conuserg-12.nifty.com with ESMTP id 10NDBvPP016300;
- Sat, 23 Jan 2021 22:11:58 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-12.nifty.com 10NDBvPP016300
+ by conuserg-10.nifty.com with ESMTP id 10NDXZc0024236;
+ Sat, 23 Jan 2021 22:33:36 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-10.nifty.com 10NDXZc0024236
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
- s=dec2015msa; t=1611407519;
- bh=Q7tcC4mt1Zp1/28EOjcXN8NS6DZeIM4iUSeIYyg4BP0=;
+ s=dec2015msa; t=1611408817;
+ bh=DGvM3I3BmHsVYFSEZSnbjTe9JRbMp/dTjTb3DAh2UqM=;
  h=From:To:Cc:Subject:Date:From;
- b=JBOL6/Ut1OXSMkNuqOkuP1mw3zKhyYpeOsl332jaZ2dhz6MaQF+1skS5IKyR0w3dX
- sIggrNvWoGTSm6rD3ezdHYmpCLST+iBpJQ9NvPhEyGXCWSuw2Fet2mUJVsjX6v5a+h
- eAQSQXm2nij2HCQhm6KCtdntWVb54GJBXngu7xr6d95uHe8bQ2xCMLuPyCgmssFVY/
- 3Lb1QDjBR8QLkbkiS3Er7V/eDG0BmkYk1euTzsw9GUPU6Txfot+YAIS2ujyU5BNQxG
- DOJjOpP18RbwqOf0HgoVxoJ294CYSfJugE6ppoFBxZyLH6z4PJ5d7DxnICwXx1TqSq
- 6sJeFFc7dRxmw==
+ b=Hx9Hz4R+DBToaPSugDtvoww3gYQDPMO+wlOHZe8aeyL1zFpZXzTHOzY/xcK5K1Lxw
+ PpabTkzRX6ehwAgZPobGLGIgcdsyBKElG6/7H7g6X+ffANMQh+zhfZ/SKDzqTwEUHz
+ rdUI3KqlByEjmY9k324Z8/2lLYexuGgqBgWQoaAD350wKymFfvlD0BA2P4XFIdLAs4
+ 6xzu5c51Ge9FjqaS3Xj9Et5zLO2H5dADm6bMAJj0NuhNnr7/+U+RBFMp0jlPwf74JT
+ UQbWvEcGFYrNTS84yfO7krWVEhmHJYEKruU7+VJyIVrLWzoEKj0rs76PYctjZrfn+x
+ D7DA+elXrLprg==
 X-Nifty-SrcIP: [126.26.94.251]
 From: Masahiro Yamada <masahiroy@kernel.org>
 To: linux-kbuild@vger.kernel.org
-Subject: [PATCH] doc: gcc-plugins: drop more stale information
-Date: Sat, 23 Jan 2021 22:11:52 +0900
-Message-Id: <20210123131152.734504-1-masahiroy@kernel.org>
+Subject: [PATCH v2] doc: gcc-plugins: drop more stale information
+Date: Sat, 23 Jan 2021 22:33:33 +0900
+Message-Id: <20210123133333.736453-1-masahiroy@kernel.org>
 X-Mailer: git-send-email 2.27.0
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210123_081315_929050_AF06D4C4 
-X-CRM114-Status: GOOD (  17.85  )
+X-CRM114-CacheID: sfid-20210123_083434_320147_795CA541 
+X-CRM114-Status: GOOD (  18.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -90,9 +90,11 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 The range of the supported GCC versions are always changing. The
 current minimal GCC version is 4.9, and commit 1e860048c53e
 ("gcc-plugins: simplify GCC plugin-dev capability test") removed the
-old code accordingly. We do not mention specific version ranges like
-"all gcc versions from 4.5 to 6.0" since we often forget to update the
-documentation when the minimal compiler version is raised.
+old code accordingly.
+
+We do not need to mention specific version ranges like "all gcc versions
+from 4.5 to 6.0" since we forget to update the documentation when we
+raise the minimal compiler version.
 
 [2] Drop the C compiler statements
 
@@ -103,14 +105,14 @@ the GCC plugin infrastructure only supports g++.
 
 As of v5.11-rc4, the infrastructure supports more architectures;
 arm, arm64, mips, powerpc, riscv, s390, um, and x86. (just grep
-"select HAVE_GCC_PLUGINS") Again, we often forget to update this
-document when a new architecture is supported. Let's just say
-"only some architectures".
+"select HAVE_GCC_PLUGINS") Again, we miss to update this document when a
+new architecture is supported. Let's just say "only some architectures".
 
 [4] Update the apt-get example
 
-We are discussing to bump the minimal version to GCC 5. Change the
-package example to gcc-10-plugin-dev while we are here.
+We are now discussing to bump the minimal version to GCC 5. The GCC 4.9
+support will be removed sooner or later. Change the package example to
+gcc-10-plugin-dev while we are here.
 
 [5] Update the build target
 
@@ -128,16 +130,23 @@ central place to collect plugin CONFIG options. In my understanding,
 this requirement no longer exists because commit 9f671e58159a ("security:
 Create "kernel hardening" config area") moved some of plugin CONFIG
 options to another file. Find an appropriate place to add the new CONFIG.
-I do not understand what was intended by the $(src)/ prefix. Remove it.
+
+The sub-directory support was never used by anyone, and removed by
+commit c17d6179ad5a ("gcc-plugins: remove unused GCC_PLUGIN_SUBDIR").
+
+Remove the useless $(src)/ prefix.
 
 Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
 ---
 
- Documentation/kbuild/gcc-plugins.rst | 30 ++++++++++++----------------
- 1 file changed, 13 insertions(+), 17 deletions(-)
+Changes in v2:
+  - Remove the info about sub-directory support
+
+ Documentation/kbuild/gcc-plugins.rst | 31 +++++++++++++---------------
+ 1 file changed, 14 insertions(+), 17 deletions(-)
 
 diff --git a/Documentation/kbuild/gcc-plugins.rst b/Documentation/kbuild/gcc-plugins.rst
-index 63379d0150e3..7ea16f93db06 100644
+index 63379d0150e3..979887558e72 100644
 --- a/Documentation/kbuild/gcc-plugins.rst
 +++ b/Documentation/kbuild/gcc-plugins.rst
 @@ -11,16 +11,13 @@ compiler [1]_. They are useful for runtime instrumentation and static analysis.
@@ -194,16 +203,17 @@ index 63379d0150e3..7ea16f93db06 100644
  
  or just run the kernel make and compile the whole kernel with
  the cyclomatic complexity GCC plugin.
-@@ -85,7 +81,7 @@ the cyclomatic complexity GCC plugin.
+@@ -85,7 +81,8 @@ the cyclomatic complexity GCC plugin.
  4. How to add a new GCC plugin
  ==============================
  
 -The GCC plugins are in $(src)/scripts/gcc-plugins/. You can use a file or a directory
 -here. It must be added to $(src)/scripts/gcc-plugins/Makefile,
 -$(src)/scripts/Makefile.gcc-plugins and $(src)/arch/Kconfig.
-+The GCC plugins are in scripts/gcc-plugins/. You can use a file or a directory
-+here. It must be added to /scripts/gcc-plugins/Makefile,
-+scripts/Makefile.gcc-plugins and a relevant Kconfig file.
++The GCC plugins are in scripts/gcc-plugins/. You need to put plugin source files
++right under scripts/gcc-plugins/. Creating subdirectories is not supported.
++It must be added to scripts/gcc-plugins/Makefile, scripts/Makefile.gcc-plugins
++and a relevant Kconfig file.
  See the cyc_complexity_plugin.c (CONFIG_GCC_PLUGIN_CYC_COMPLEXITY) GCC plugin.
 -- 
 2.27.0
