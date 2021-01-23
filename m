@@ -2,61 +2,64 @@ Return-Path: <SRS0=mxd0=G2=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	UNPARSEABLE_RELAY,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 634E7C433DB
-	for <linux-riscv@archiver.kernel.org>; Sat, 23 Jan 2021 07:34:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 00D78C433E0
+	for <linux-riscv@archiver.kernel.org>; Sat, 23 Jan 2021 11:01:40 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BFB15239D4
-	for <linux-riscv@archiver.kernel.org>; Sat, 23 Jan 2021 07:34:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BFB15239D4
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.alibaba.com
+	by mail.kernel.org (Postfix) with ESMTPS id 8122523437
+	for <linux-riscv@archiver.kernel.org>; Sat, 23 Jan 2021 11:01:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8122523437
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=x2772hZ2p5tPcxYf31AytmceGZh+2Tat7kCzLW3+jGQ=; b=WHgAPisj74mwZ+SaxMHxdSHUw
-	5MUNXkTZcwczXtqRr2q/z1uoqu5s7FrHClvci+O4q3C3NVHZsv/ZcAkJJrnSlvrGD9mQsuWau40bF
-	ouFqFyJxIleEMTON6KW5P0FucSVryzLksxtD2nfDBqHNhF2vl8I/wM7Msd0mvLSrZ+KaCsDr97X4h
-	67BpQyiko9+G31HCmBlHqlBrekIt6Vqp2PbdsRAfLdJECqN6NLS/thBRzYiJmn5c3mlYJZZX719Yg
-	usrTBGUxrYmzQTTpzv/V+A5EsHcK1ra8mjE3GjbNUDxEuUqw0jSNbdR3Ow87RkOTSd9uUzZKOTvnS
-	VJLaMT9dA==;
+	 bh=QFCDQjCyqqL8QPTRPlg7EkBC6KoX2CWCVa6vVWBEnrI=; b=BRBUe9iSJzA9eNGYkc5xy7ozJ
+	7vDmpqUxNBFFjYdLXsxLpY0QwPVLvGQoM/ZtZxQ5PI2MFEqk5f4/RgCJos8GapY7NJUHz/RDqpJ8p
+	j4xjlSZgE7Kl7M/8JzghbA/+TF99SLETD8+cGmzIjP/Ii4DFy9BM+33ecs41LgAFGnK7d7pfX3Twe
+	+6FVa8FRoNfQdTfgMDgTMRs8N3yWtxlFhthX3Yrl5nrup8t+92HJUxNnOwthnepRJs9gIEELExHWn
+	C/wtNpQWAPmogd+J9uVSSQ9cLacNSMis7LvpOsRQtvfcrFBV+8XEZ97PyJDbLN5A8ohA4C1lq0MO1
+	wWeRkXmCg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l3DQf-0003Bw-Tw; Sat, 23 Jan 2021 07:33:53 +0000
-Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
+	id 1l3GfG-0004qr-8r; Sat, 23 Jan 2021 11:01:10 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l3DQc-0003AO-6R
- for linux-riscv@lists.infradead.org; Sat, 23 Jan 2021 07:33:51 +0000
-X-Alimail-AntiSpam: AC=PASS; BC=-1|-1; BR=01201311R131e4; CH=green; DM=||false|;
- DS=||; FP=0|-1|-1|-1|0|-1|-1|-1; HT=e01e01424; MF=guoren@linux.alibaba.com;
- NM=1; PH=DS; RN=12; SR=0; TI=SMTPD_---0UMaaSVg_1611387208; 
-Received: from IT-C02Z45M7LVCF.local(mailfrom:guoren@linux.alibaba.com
- fp:SMTPD_---0UMaaSVg_1611387208) by smtp.aliyun-inc.com(127.0.0.1);
- Sat, 23 Jan 2021 15:33:28 +0800
-Subject: Re: [PATCH] RISC-V: probes: Treat the instruction stream as
- host-endian
-To: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org
-References: <20210123033429.2072716-1-palmer@dabbelt.com>
-From: Guo Ren <guoren@linux.alibaba.com>
-Message-ID: <beee96f4-2cf4-9be7-a891-3f6d5ee4baa9@linux.alibaba.com>
-Date: Sat, 23 Jan 2021 15:33:28 +0800
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:78.0)
- Gecko/20100101 Thunderbird/78.5.1
+ id 1l3GfB-0004pf-PM; Sat, 23 Jan 2021 11:01:06 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 1C54F233FC;
+ Sat, 23 Jan 2021 11:00:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1611399663;
+ bh=HKE6o3YvB1B4tteaWRG6KFCwQvpwQVukHCQUNVVJeeY=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=HKYTq7yJigGOEK8nATV4Dx0NmxniF8qJvpM8DaATKPfSpcwbXynIkCA3n3qe4gShc
+ P58WaSyJhlAC3agVkClm43lT0PT5xZ4J7SJtjlWxMDPo7Z7TJ5vikccGijHyX6Qk3T
+ csEAYzaE2dNiGaDYQSUa2ZRjDbWeimlY9AxOUezkEDzB+tFxoT4KWyZ3/mHJ42y/5p
+ pqq7kjj0H57u727QxLS0KIbNm35ZWU+0trHV9uXECzkWMwPCcm0Vf+ufzHv9e+UsoG
+ s6KF8VZU223mQTNtDCDxNRjB/Glv/5nT7EoghwQyPT8tKfrFHn5E34OlgLb+jD+RQt
+ FTlyibQtHA2wA==
+Date: Sat, 23 Jan 2021 13:00:41 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Subject: Re: [PATCH v15 03/11] riscv/Kconfig: make direct map manipulation
+ options depend on MMU
+Message-ID: <20210123110041.GE6332@kernel.org>
+References: <20210120180612.1058-4-rppt@kernel.org>
+ <mhng-5cbc9b30-ac9a-4748-bf12-8f0de4c89f79@palmerdabbelt-glaptop>
 MIME-Version: 1.0
-In-Reply-To: <20210123033429.2072716-1-palmer@dabbelt.com>
+Content-Disposition: inline
+In-Reply-To: <mhng-5cbc9b30-ac9a-4748-bf12-8f0de4c89f79@palmerdabbelt-glaptop>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210123_023350_472619_CD4C84B1 
-X-CRM114-Status: GOOD (  17.65  )
+X-CRM114-CacheID: sfid-20210123_060105_949318_BBA67A4E 
+X-CRM114-Status: GOOD (  19.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -68,51 +71,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: me@packi.ch, aou@eecs.berkeley.edu, kernel test robot <lkp@intel.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>, linux-kernel@vger.kernel.org,
- penberg@kernel.org, mhiramat@kernel.org,
- Paul Walmsley <paul.walmsley@sifive.com>, kernel-team@android.com,
- mingo@kernel.org
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Cc: mark.rutland@arm.com, david@redhat.com, peterz@infradead.org,
+ catalin.marinas@arm.com, dave.hansen@linux.intel.com, linux-mm@kvack.org,
+ linux-kselftest@vger.kernel.org, hpa@zytor.com, cl@linux.com, shuah@kernel.org,
+ tglx@linutronix.de, elena.reshetova@intel.com, linux-arch@vger.kernel.org,
+ tycho@tycho.ws, lkp@intel.com, linux-nvdimm@lists.01.org, will@kernel.org,
+ x86@kernel.org, willy@infradead.org, rppt@linux.ibm.com, mingo@redhat.com,
+ mtk.manpages@gmail.com, Arnd Bergmann <arnd@arndb.de>, jejb@linux.ibm.com,
+ bp@alien8.de, viro@zeniv.linux.org.uk, luto@kernel.org,
+ Paul Walmsley <paul.walmsley@sifive.com>, kirill@shutemov.name,
+ dan.j.williams@intel.com, linux-arm-kernel@lists.infradead.org,
+ linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ shakeelb@google.com, akpm@linux-foundation.org, rick.p.edgecombe@intel.com,
+ guro@fb.com
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QWNrZWQtYnk6IEd1byBSZW4gPGd1b3JlbkBrZXJuZWwub3JnPgoKT24gMjAyMS8xLzIzIOS4iuWN
-iDExOjM0LCBQYWxtZXIgRGFiYmVsdCB3cm90ZToKPiBGcm9tOiBQYWxtZXIgRGFiYmVsdCA8cGFs
-bWVyZGFiYmVsdEBnb29nbGUuY29tPgo+Cj4gTmVpdGhlciBvZiB0aGVzZSBhcmUgYWN0dWFsbHkg
-Y29ycmVjdDogdGhlIGluc3RydWN0aW9uIHN0cmVhbSBpcyBkZWZpbmVkCj4gKGZvciB2ZXJzaW9u
-cyBvZiB0aGUgSVNBIG1hbnVhbCBuZXdlciB0aGFuIDIuMikgYXMgYSBzdHJlYW0gb2YgMTYtYml0
-Cj4gbGl0dGxlLWVuZGlhbiBwYXJjZWxzLCB3aGljaCBpcyBkaWZmZXJlbnQgdGhhbiBqdXN0IGJl
-aW5nIGxpdHRsZS1lbmRpYW4uCj4gSW4gdGhlb3J5IHdlIHNob3VsZCByZXByZXNlbnQgdGhpcyBh
-cyBhIHR5cGUsIGJ1dCB3ZSBkb24ndCBoYXZlIGFueQo+IGNvbmNyZXRlIHBsYW5zIGZvciB0aGUg
-YmlnIGVuZGlhbiBzdHVmZiBzbyBpdCBkb2Vzbid0IHNlZW0gd29ydGggdGhlCj4gdGltZSAtLSB3
-ZSd2ZSBnb3QgdmFyaWFudHMgb2YgdGhpcyBhbGwgb3ZlciB0aGUgcGxhY2UuCj4KPiBJbnN0ZWFk
-IEknbSBqdXN0IGRyb3BwaW5nIHRoZSB1bm5lY2Vzc2FyeSB0eXBlIGNvbnZlcnNpb24sIHdoaWNo
-IGlzIGEKPiBOT1Agb24gTEUgc3lzdGVtcyBidXQgY2F1c2VzIGFuIHNwYXJzZSBlcnJvciBhcyB0
-aGUgdHlwZXMgYXJlIGFsbCBtaXhlZAo+IHVwLgo+Cj4gUmVwb3J0ZWQtYnk6IGtlcm5lbCB0ZXN0
-IHJvYm90IDxsa3BAaW50ZWwuY29tPgo+IFNpZ25lZC1vZmYtYnk6IFBhbG1lciBEYWJiZWx0IDxw
-YWxtZXJkYWJiZWx0QGdvb2dsZS5jb20+Cj4gLS0tCj4gICBhcmNoL3Jpc2N2L2tlcm5lbC9wcm9i
-ZXMvZGVjb2RlLWluc24uYyB8IDIgKy0KPiAgIGFyY2gvcmlzY3Yva2VybmVsL3Byb2Jlcy9rcHJv
-YmVzLmMgICAgIHwgMiArLQo+ICAgMiBmaWxlcyBjaGFuZ2VkLCAyIGluc2VydGlvbnMoKyksIDIg
-ZGVsZXRpb25zKC0pCj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL2Rl
-Y29kZS1pbnNuLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMvZGVjb2RlLWluc24uYwo+IGlu
-ZGV4IDA4NzZjMzA0Y2E3Ny4uMGVkMDQzYWNjODgyIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yv
-a2VybmVsL3Byb2Jlcy9kZWNvZGUtaW5zbi5jCj4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvcHJv
-YmVzL2RlY29kZS1pbnNuLmMKPiBAQCAtMTYsNyArMTYsNyBAQAo+ICAgZW51bSBwcm9iZV9pbnNu
-IF9fa3Byb2Jlcwo+ICAgcmlzY3ZfcHJvYmVfZGVjb2RlX2luc24ocHJvYmVfb3Bjb2RlX3QgKmFk
-ZHIsIHN0cnVjdCBhcmNoX3Byb2JlX2luc24gKmFwaSkKPiAgIHsKPiAtCXByb2JlX29wY29kZV90
-IGluc24gPSBsZTMyX3RvX2NwdSgqYWRkcik7Cj4gKwlwcm9iZV9vcGNvZGVfdCBpbnNuID0gKmFk
-ZHI7Cj4gICAKPiAgIAkvKgo+ICAgCSAqIFJlamVjdCBpbnN0cnVjdGlvbnMgbGlzdDoKPiBkaWZm
-IC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL2twcm9iZXMuYyBiL2FyY2gvcmlzY3Yv
-a2VybmVsL3Byb2Jlcy9rcHJvYmVzLmMKPiBpbmRleCBlNjA4OTNiZDg3ZGIuLmEyZWMxODY2MmZl
-ZSAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMva3Byb2Jlcy5jCj4gKysr
-IGIvYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL2twcm9iZXMuYwo+IEBAIC01Nyw3ICs1Nyw3IEBA
-IGludCBfX2twcm9iZXMgYXJjaF9wcmVwYXJlX2twcm9iZShzdHJ1Y3Qga3Byb2JlICpwKQo+ICAg
-CX0KPiAgIAo+ICAgCS8qIGNvcHkgaW5zdHJ1Y3Rpb24gKi8KPiAtCXAtPm9wY29kZSA9IGxlMzJf
-dG9fY3B1KCpwLT5hZGRyKTsKPiArCXAtPm9wY29kZSA9ICpwLT5hZGRyOwo+ICAgCj4gICAJLyog
-ZGVjb2RlIGluc3RydWN0aW9uICovCj4gICAJc3dpdGNoIChyaXNjdl9wcm9iZV9kZWNvZGVfaW5z
-bihwLT5hZGRyLCAmcC0+YWluc24uYXBpKSkgewoKCl9fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
-dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
-bGlzdGluZm8vbGludXgtcmlzY3YK
+On Fri, Jan 22, 2021 at 08:12:30PM -0800, Palmer Dabbelt wrote:
+> On Wed, 20 Jan 2021 10:06:04 PST (-0800), rppt@kernel.org wrote:
+> > From: Mike Rapoport <rppt@linux.ibm.com>
+> > 
+> > ARCH_HAS_SET_DIRECT_MAP and ARCH_HAS_SET_MEMORY configuration options have
+> > no meaning when CONFIG_MMU is disabled and there is no point to enable them
+> > for the nommu case.
+> > 
+> > Add an explicit dependency on MMU for these options.
+> > 
+> > Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
+> > Reported-by: kernel test robot <lkp@intel.com>
+> > ---
+> >  arch/riscv/Kconfig | 4 ++--
+> >  1 file changed, 2 insertions(+), 2 deletions(-)
+> > 
+> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > index d82303dcc6b6..d35ce19ab1fa 100644
+> > --- a/arch/riscv/Kconfig
+> > +++ b/arch/riscv/Kconfig
+> > @@ -25,8 +25,8 @@ config RISCV
+> >  	select ARCH_HAS_KCOV
+> >  	select ARCH_HAS_MMIOWB
+> >  	select ARCH_HAS_PTE_SPECIAL
+> > -	select ARCH_HAS_SET_DIRECT_MAP
+> > -	select ARCH_HAS_SET_MEMORY
+> > +	select ARCH_HAS_SET_DIRECT_MAP if MMU
+> > +	select ARCH_HAS_SET_MEMORY if MMU
+> >  	select ARCH_HAS_STRICT_KERNEL_RWX if MMU
+> >  	select ARCH_OPTIONAL_KERNEL_RWX if ARCH_HAS_STRICT_KERNEL_RWX
+> >  	select ARCH_OPTIONAL_KERNEL_RWX_DEFAULT
+> 
+> Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
+> Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
+> 
+> LMK if you want this to go in via the RISC-V tree, otherwise I'm going to
+> assume it's going in along with the rest of these.  FWIW I see these in other
+> architectures without the MMU guard.
+
+Except arm, they all always have MMU=y and arm selects only
+ARCH_HAS_SET_MEMORY and has empty stubs for those when MMU=n.
+
+Indeed I might have been over zealous adding ARCH_HAS_SET_MEMORY dependency
+on MMU, as riscv also has these stubs, but I thought that making this
+explicit is a nice thing.
+ 
+> Thanks!
+
+-- 
+Sincerely yours,
+Mike.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
