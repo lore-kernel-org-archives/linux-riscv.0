@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-13.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 46CBEC433DB
-	for <linux-riscv@archiver.kernel.org>; Sat, 23 Jan 2021 03:57:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5D103C433E0
+	for <linux-riscv@archiver.kernel.org>; Sat, 23 Jan 2021 04:07:59 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DE4E323B26
-	for <linux-riscv@archiver.kernel.org>; Sat, 23 Jan 2021 03:57:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DE4E323B26
+	by mail.kernel.org (Postfix) with ESMTPS id 0E92E23B3E
+	for <linux-riscv@archiver.kernel.org>; Sat, 23 Jan 2021 04:07:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0E92E23B3E
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,65 +23,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=9J13GulQoz9wfNZcnh5a8M3wqA+mdIPbW5Spa1mgdGo=; b=r+s6lbg0GvVk1DTC/g7nk3hKd
-	D2D2sbZF0eG0v1bC6eJCySV55gjZU9YLxdzpN9oZEj1p/Zsq4DoKs2wqNmArH7EnBhWPKGteKvQfW
-	jwvfCZFoASYVob1c8lITVkwvZsbPKVm1iG85EL3g/5059cC7beyDCzB1iv1/r3UPlWC/xcoEUusRM
-	wetDBr/JAG2Qw0ejq5CTXhRBD492qpXjqthu8iAZiVkXA4t+3BzL/diJX56kHefye+YJup7NTWj6s
-	KXF5/ozwsfhzJT40RIs3XscjeMh1bQbKAVYCbnqraU7Z0lhhVOX4vf3GsQLzYdiLgG4i70uVyaf8c
-	WghKhYMEg==;
+	 bh=iuNeGk0xALD3DSN3sBgWmG9kdue0MKEQqhqyfcQoTvU=; b=yX8/CpVn65s54XXnwqdN84+4X
+	sCJ1Rs6aojzfBH496u+RasfzTrTOlUxlxotgDpq9XE+8rBkcqHodDOZZjutB/QyGwAxHtKDPSw6Rf
+	IwxIEfUsTWH2M3LZfcAZT86Y0W0oL6PPTMboX3S99F5ZYOZYxHIgbx3/exfuucC225sDNCtxo1SiQ
+	InJbZo/JX2BwLwPfQUIMUGS0dt2b5izGZsm9TaTaYI6g3GcJ0OMZ3oyqKzyuGTX8NXNeBTb/Cw16S
+	TAmHcGU9y7A4qTzeu5zbfPUfmhH4lePK5ZIAgQKOTuFaSDpTMlRpol52xSYtMoidwontwOi2wEcH+
+	VcscSV9YQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l3A2a-0003Y2-Cy; Sat, 23 Jan 2021 03:56:48 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1l3ACz-00045R-Ew; Sat, 23 Jan 2021 04:07:33 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l3A2X-0003Xi-6Z
- for linux-riscv@lists.infradead.org; Sat, 23 Jan 2021 03:56:46 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id b5so5121693pjl.0
- for <linux-riscv@lists.infradead.org>; Fri, 22 Jan 2021 19:56:44 -0800 (PST)
+ id 1l3ACw-000450-2h
+ for linux-riscv@lists.infradead.org; Sat, 23 Jan 2021 04:07:31 +0000
+Received: by mail-pl1-x634.google.com with SMTP id s15so4394544plr.9
+ for <linux-riscv@lists.infradead.org>; Fri, 22 Jan 2021 20:07:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=ZFKvUjQEqDP7dqlPLI+l3jxa5NuIGx5+bmxfTHNs2ZM=;
- b=xk8eS4U00k+Z8ur0NGybpW7vUIoEx6pspc4cIHNb9Ty0wJuHbgD3GVQb/xwh/uiSV8
- 8xYi4Wc+933ZmNr2rrDjgiRbLdU0a9APUhC7tDxWH2CRTJvdapyXsip8djw7SJWrnwAa
- fhIZJw7YHNjsHHYB03CY0YPDo3uL0orTFDBNeC/kE8fCqzw3KbIHzm2vede8lzeLV8Xb
- Uia3xl3LIshFXOY83UN4FY+czx6wsL8OtWKF7Dba14uTVMQqck4+giiEfXx+IH1wOCt4
- FqdvrUadniai8La6s/2G3FhSnCbvAh+wUUwTILf6AyRTK9Ld+Q0meX+k/mEEdZ77lDnI
- vN6Q==
+ bh=dON7QD8aFGzRpIqb+Tlf1r6Mkw2jNplPmioEKOGnv+w=;
+ b=Rw1ZI0eE5M9j6Wu2p+jalzplqBljeDlYPfVBwOahxpaBB5wYkXEttwVWD9vhrBv99/
+ yIwC3T35XncJDrunRwdl2HwHrw2WjRKcqo7SsDrCXKZBPYSAaxaCzzWS91f/ActX0NtT
+ skJecV3FGXmtOxXncyqeuKExn3/EfZpDU7GC6pHh159DhbPwp+5InkgmPAE89rjALTpk
+ lftXpde6VUuwUoL19aHw7iiS2LBXCPn9XQ6jluQo6IxUI8YFNySfMjoKxszZnZe/3/JV
+ 7X77NyslJ/STxNQQMPGox6P3jTUtBePV+38/id0UMd95BhNZeE10omUt2qzogdS6WIHd
+ 7VSQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=ZFKvUjQEqDP7dqlPLI+l3jxa5NuIGx5+bmxfTHNs2ZM=;
- b=BoRu8h6t7nhX6VSNKHWW5mu9GS/RYc5ZveCq9/Uq3icOAM06VVeTpfe8AouOYixE3m
- DAng6zWikyKYuTvQl9dA2JPh8rXaNbKUfVI5xM/z1Q0DT5Rn7tRZzRHUynGV/FCxuejp
- Zee5NvBCmI3q2Rr2ANwp4SV0CXNVc5u3ighnvhcwy2QvLdxle6nqzo8T4z2sWx0Fq5Su
- o+QElDg5WeZqiSuoZYLo51BceqNJuAiIdAYOtRpXFKwC0RUmZYVgjxW/8/pO5VyP5VsX
- 4xoExZ5umUA+YgrsT3GahfOToJrKtRLipS/9u48Qugs+roWIwUV9IA/4bnpfJpa2Rl0V
- zlsQ==
-X-Gm-Message-State: AOAM530+ku18S+Qh2vdYg0num0XeVrZ+C8mn8gWL99hrRkyrEAT8AOv9
- LHRDXXIgAz+BG3TdF6mi8bC6Ew==
-X-Google-Smtp-Source: ABdhPJxM9hCcASZqov6JudlqdumnnZI8ha8I3iIJt9EaNAd8HOaEcV8/DV7TrtTgkRmYnRTLu0CAuw==
-X-Received: by 2002:a17:902:7596:b029:da:b7a3:cdd0 with SMTP id
- j22-20020a1709027596b02900dab7a3cdd0mr7837480pll.14.1611374202834; 
- Fri, 22 Jan 2021 19:56:42 -0800 (PST)
+ bh=dON7QD8aFGzRpIqb+Tlf1r6Mkw2jNplPmioEKOGnv+w=;
+ b=n3N1HPfrk4s0dFtPHHNueApc1BVKakDp+RHw1YTF84qPpoulZmg/d2KciU5UQucitJ
+ uZBmvbkdPjcD94jL7C6rOuII8UWdgq/K7jVDZaOk19Z0CoWcI+G5FvjP/os5Pi/7yJ96
+ xNpv8wX6H+mQwLUv7k9K5A9fDH6JVwtuJVyKgYewxOVAaTwGOaQq64Cic9BgoxyHTc/5
+ 2Rq8x+KYUzDDID09H5fuonRJuyBOlP85E3ks0H/ufBGOxo9OABEhWGSlzg/teOq/Yk7/
+ UoH1fbh+ur+htUymoedxyjJ+b827CGzdZHIH1/a50elzza2SDKwQfK55ZNHP6Zt1ZTxq
+ eThQ==
+X-Gm-Message-State: AOAM53087haeQjQ6NQBS+gJYhOGjLtPqWmdjaAyk9567IzabAnmUhPru
+ PEV+z+Ypo+yYJ71Ul3AhbJkf1w==
+X-Google-Smtp-Source: ABdhPJzoaq2GQ8/QrNb0hZ0MH2zHECgO2n9hmVITWznWNeyg/UbEI/YhJ4oBApmjOOBA0QcOzAk6LA==
+X-Received: by 2002:a17:902:e84e:b029:de:45bf:1296 with SMTP id
+ t14-20020a170902e84eb02900de45bf1296mr2260599plg.49.1611374844612; 
+ Fri, 22 Jan 2021 20:07:24 -0800 (PST)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id c5sm10690982pjo.4.2021.01.22.19.56.41
+ by smtp.gmail.com with ESMTPSA id 101sm10640260pjo.38.2021.01.22.20.07.23
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 22 Jan 2021 19:56:41 -0800 (PST)
-Date: Fri, 22 Jan 2021 19:56:41 -0800 (PST)
-X-Google-Original-Date: Fri, 22 Jan 2021 19:52:19 PST (-0800)
-Subject: Re: [PATCH v2 1/1] riscv/kasan: add KASAN_VMALLOC support
-In-Reply-To: <20210116055836.22366-2-nylon7@andestech.com>
+ Fri, 22 Jan 2021 20:07:23 -0800 (PST)
+Date: Fri, 22 Jan 2021 20:07:23 -0800 (PST)
+X-Google-Original-Date: Fri, 22 Jan 2021 19:58:36 PST (-0800)
+Subject: Re: [PATCH 06/20] clk: sifive: fu540-prci: Declare static const
+ variable 'prci_clk_fu540' where it's used
+In-Reply-To: <20210120093040.1719407-7-lee.jones@linaro.org>
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: nylon7@andestech.com
-Message-ID: <mhng-443fd141-b9a3-4be6-a056-416877f99ea4@palmerdabbelt-glaptop>
+To: lee.jones@linaro.org
+Message-ID: <mhng-d13d3ca6-2ec1-4c56-a4a8-56faafe5569c@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210122_225645_521073_2397A272 
-X-CRM114-Status: GOOD (  23.76  )
+X-CRM114-CacheID: sfid-20210122_230730_202041_2F97BA40 
+X-CRM114-Status: GOOD (  19.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -93,132 +94,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, nickhu@andestech.com, alankao@andestech.com,
- linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com, nylon7@andestech.com,
- nylon7717@gmail.com, glider@google.com,
- Paul Walmsley <paul.walmsley@sifive.com>, aryabinin@virtuozzo.com,
- linux-riscv@lists.infradead.org, dvyukov@google.com
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Cc: sboyd@kernel.org, mturquette@baylibre.com, linux-kernel@vger.kernel.org,
+ zong.li@sifive.com, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv@lists.infradead.org, lee.jones@linaro.org,
+ linux-clk@vger.kernel.org, Pragnesh.patel@sifive.com
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 15 Jan 2021 21:58:35 PST (-0800), nylon7@andestech.com wrote:
-> It references to x86/s390 architecture.
->
-> So, it doesn't map the early shadow page to cover VMALLOC space.
->
-> Prepopulate top level page table for the range that would otherwise be
-> empty.
->
-> lower levels are filled dynamically upon memory allocation while
-> booting.
->
-> Signed-off-by: Nylon Chen <nylon7@andestech.com>
-> Signed-off-by: Nick Hu <nickhu@andestech.com>
-> ---
->  arch/riscv/Kconfig         |  1 +
->  arch/riscv/mm/kasan_init.c | 57 +++++++++++++++++++++++++++++++++++++-
->  2 files changed, 57 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 81b76d44725d..15a2c8088bbe 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -57,6 +57,7 @@ config RISCV
->  	select HAVE_ARCH_JUMP_LABEL
->  	select HAVE_ARCH_JUMP_LABEL_RELATIVE
->  	select HAVE_ARCH_KASAN if MMU && 64BIT
-> +	select HAVE_ARCH_KASAN_VMALLOC if MMU && 64BIT
->  	select HAVE_ARCH_KGDB
->  	select HAVE_ARCH_KGDB_QXFER_PKT
->  	select HAVE_ARCH_MMAP_RND_BITS if MMU
-> diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
-> index 12ddd1f6bf70..4b9149f963d3 100644
-> --- a/arch/riscv/mm/kasan_init.c
-> +++ b/arch/riscv/mm/kasan_init.c
-> @@ -9,6 +9,19 @@
->  #include <linux/pgtable.h>
->  #include <asm/tlbflush.h>
->  #include <asm/fixmap.h>
-> +#include <asm/pgalloc.h>
-> +
-> +static __init void *early_alloc(size_t size, int node)
-> +{
-> +	void *ptr = memblock_alloc_try_nid(size, size,
-> +		__pa(MAX_DMA_ADDRESS), MEMBLOCK_ALLOC_ACCESSIBLE, node);
-> +
-> +	if (!ptr)
-> +		panic("%pS: Failed to allocate %zu bytes align=%zx nid=%d from=%llx\n",
-> +			__func__, size, size, node, (u64)__pa(MAX_DMA_ADDRESS));
-> +
-> +	return ptr;
-> +}
->
->  extern pgd_t early_pg_dir[PTRS_PER_PGD];
->  asmlinkage void __init kasan_early_init(void)
-> @@ -83,6 +96,40 @@ static void __init populate(void *start, void *end)
->  	memset(start, 0, end - start);
->  }
->
-> +void __init kasan_shallow_populate(void *start, void *end)
-> +{
-> +	unsigned long vaddr = (unsigned long)start & PAGE_MASK;
-> +	unsigned long vend = PAGE_ALIGN((unsigned long)end);
-> +	unsigned long pfn;
-> +	int index;
-> +	void *p;
-> +	pud_t *pud_dir, *pud_k;
-> +	pgd_t *pgd_dir, *pgd_k;
-> +	p4d_t *p4d_dir, *p4d_k;
-> +
-> +	while (vaddr < vend) {
-> +		index = pgd_index(vaddr);
-> +		pfn = csr_read(CSR_SATP) & SATP_PPN;
-> +		pgd_dir = (pgd_t *)pfn_to_virt(pfn) + index;
-> +		pgd_k = init_mm.pgd + index;
-> +		pgd_dir = pgd_offset_k(vaddr);
-> +		set_pgd(pgd_dir, *pgd_k);
-> +
-> +		p4d_dir = p4d_offset(pgd_dir, vaddr);
-> +		p4d_k  = p4d_offset(pgd_k, vaddr);
-> +
-> +		vaddr = (vaddr + PUD_SIZE) & PUD_MASK;
-> +		pud_dir = pud_offset(p4d_dir, vaddr);
-> +		pud_k = pud_offset(p4d_k, vaddr);
-> +
-> +		if (pud_present(*pud_dir)) {
-> +			p = early_alloc(PAGE_SIZE, NUMA_NO_NODE);
-> +			pud_populate(&init_mm, pud_dir, p);
-> +		}
-> +		vaddr += PAGE_SIZE;
-> +	}
-> +}
-> +
->  void __init kasan_init(void)
->  {
->  	phys_addr_t _start, _end;
-> @@ -90,7 +137,15 @@ void __init kasan_init(void)
->
->  	kasan_populate_early_shadow((void *)KASAN_SHADOW_START,
->  				    (void *)kasan_mem_to_shadow((void *)
-> -								VMALLOC_END));
-> +								VMEMMAP_END));
-> +	if (IS_ENABLED(CONFIG_KASAN_VMALLOC))
-> +		kasan_shallow_populate(
-> +			(void *)kasan_mem_to_shadow((void *)VMALLOC_START),
-> +			(void *)kasan_mem_to_shadow((void *)VMALLOC_END));
-> +	else
-> +		kasan_populate_early_shadow(
-> +			(void *)kasan_mem_to_shadow((void *)VMALLOC_START),
-> +			(void *)kasan_mem_to_shadow((void *)VMALLOC_END));
->
->  	for_each_mem_range(i, &_start, &_end) {
->  		void *start = (void *)_start;
-
-Thanks, this is on for-next.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCAyMCBKYW4gMjAyMSAwMTozMDoyNiBQU1QgKC0wODAwKSwgbGVlLmpvbmVzQGxpbmFy
+by5vcmcgd3JvdGU6Cj4gRml4ZXMgdGhlIGZvbGxvd2luZyBXPTEga2VybmVsIGJ1aWxkIHdhcm5p
+bmcocyk6Cj4KPiAgZHJpdmVycy9jbGsvc2lmaXZlL2Z1NTQwLXByY2kuaDoxNjozNTogd2Fybmlu
+Zzog4oCYcHJjaV9jbGtfZnU1NDDigJkgZGVmaW5lZCBidXQgbm90IHVzZWQgWy1XdW51c2VkLWNv
+bnN0LXZhcmlhYmxlPV0KPiAgZHJpdmVycy9jbGsvc2lmaXZlL2Z1NTQwLXByY2kuaDoxNjozNTog
+d2FybmluZzog4oCYcHJjaV9jbGtfZnU1NDDigJkgZGVmaW5lZCBidXQgbm90IHVzZWQgWy1XdW51
+c2VkLWNvbnN0LXZhcmlhYmxlPV0KPgo+IENjOiBNaWNoYWVsIFR1cnF1ZXR0ZSA8bXR1cnF1ZXR0
+ZUBiYXlsaWJyZS5jb20+Cj4gQ2M6IFN0ZXBoZW4gQm95ZCA8c2JveWRAa2VybmVsLm9yZz4KPiBD
+YzogUGF1bCBXYWxtc2xleSA8cGF1bC53YWxtc2xleUBzaWZpdmUuY29tPgo+IENjOiBQYWxtZXIg
+RGFiYmVsdCA8cGFsbWVyQGRhYmJlbHQuY29tPgo+IENjOiBQcmFnbmVzaCBQYXRlbCA8UHJhZ25l
+c2gucGF0ZWxAc2lmaXZlLmNvbT4KPiBDYzogWm9uZyBMaSA8em9uZy5saUBzaWZpdmUuY29tPgo+
+IENjOiBsaW51eC1jbGtAdmdlci5rZXJuZWwub3JnCj4gQ2M6IGxpbnV4LXJpc2N2QGxpc3RzLmlu
+ZnJhZGVhZC5vcmcKPiBTaWduZWQtb2ZmLWJ5OiBMZWUgSm9uZXMgPGxlZS5qb25lc0BsaW5hcm8u
+b3JnPgo+IC0tLQo+ICBkcml2ZXJzL2Nsay9zaWZpdmUvZnU1NDAtcHJjaS5oICB8IDUgLS0tLS0K
+PiAgZHJpdmVycy9jbGsvc2lmaXZlL3NpZml2ZS1wcmNpLmMgfCA1ICsrKysrCj4gIDIgZmlsZXMg
+Y2hhbmdlZCwgNSBpbnNlcnRpb25zKCspLCA1IGRlbGV0aW9ucygtKQo+Cj4gZGlmZiAtLWdpdCBh
+L2RyaXZlcnMvY2xrL3NpZml2ZS9mdTU0MC1wcmNpLmggYi9kcml2ZXJzL2Nsay9zaWZpdmUvZnU1
+NDAtcHJjaS5oCj4gaW5kZXggYzgyNzFlZmE3YmRjNy4uYzIyMDY3N2RjMDEwOCAxMDA2NDQKPiAt
+LS0gYS9kcml2ZXJzL2Nsay9zaWZpdmUvZnU1NDAtcHJjaS5oCj4gKysrIGIvZHJpdmVycy9jbGsv
+c2lmaXZlL2Z1NTQwLXByY2kuaAo+IEBAIC0xMyw5ICsxMyw0IEBACj4KPiAgZXh0ZXJuIHN0cnVj
+dCBfX3ByY2lfY2xvY2sgX19wcmNpX2luaXRfY2xvY2tzX2Z1NTQwW05VTV9DTE9DS19GVTU0MF07
+Cj4KPiAtc3RhdGljIGNvbnN0IHN0cnVjdCBwcmNpX2Nsa19kZXNjIHByY2lfY2xrX2Z1NTQwID0g
+ewo+IC0JLmNsa3MgPSBfX3ByY2lfaW5pdF9jbG9ja3NfZnU1NDAsCj4gLQkubnVtX2Nsa3MgPSBB
+UlJBWV9TSVpFKF9fcHJjaV9pbml0X2Nsb2Nrc19mdTU0MCksCj4gLX07Cj4gLQo+ICAjZW5kaWYg
+LyogX19TSUZJVkVfQ0xLX0ZVNTQwX1BSQ0lfSCAqLwo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2Ns
+ay9zaWZpdmUvc2lmaXZlLXByY2kuYyBiL2RyaXZlcnMvY2xrL3NpZml2ZS9zaWZpdmUtcHJjaS5j
+Cj4gaW5kZXggYzc4YjA0Mjc1MGUyMS4uMTQ5MGIwMWNlNjI5MCAxMDA2NDQKPiAtLS0gYS9kcml2
+ZXJzL2Nsay9zaWZpdmUvc2lmaXZlLXByY2kuYwo+ICsrKyBiL2RyaXZlcnMvY2xrL3NpZml2ZS9z
+aWZpdmUtcHJjaS5jCj4gQEAgLTEyLDYgKzEyLDExIEBACj4gICNpbmNsdWRlICJmdTU0MC1wcmNp
+LmgiCj4gICNpbmNsdWRlICJmdTc0MC1wcmNpLmgiCj4KPiArc3RhdGljIGNvbnN0IHN0cnVjdCBw
+cmNpX2Nsa19kZXNjIHByY2lfY2xrX2Z1NTQwID0gewo+ICsJLmNsa3MgPSBfX3ByY2lfaW5pdF9j
+bG9ja3NfZnU1NDAsCj4gKwkubnVtX2Nsa3MgPSBBUlJBWV9TSVpFKF9fcHJjaV9pbml0X2Nsb2Nr
+c19mdTU0MCksCj4gK307Cj4gKwo+ICAvKgo+ICAgKiBQcml2YXRlIGZ1bmN0aW9ucwo+ICAgKi8K
+ClRoaXMgZG9lc24ndCBsb29rIGxpa2UgbXkgc2lmaXZlLXByY2kuYywgc28gSSdtIGFzc3VtaW5n
+IGl0J3MgYWdhaW5zdCBvbmUgb2YKdGhlIGNsb2NrIHRyZWVzIGFuZCB0aGVyZWZvciBzaG91bGQg
+Z28gaW4gb3ZlciB0aGVyZS4KCkFja2VkLWJ5OiBQYWxtZXIgRGFiYmVsdCA8cGFsbWVyZGFiYmVs
+dEBnb29nbGUuY29tPgoKVGhhbmtzIQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
+LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
+by9saW51eC1yaXNjdgo=
