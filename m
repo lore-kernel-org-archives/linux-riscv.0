@@ -1,67 +1,84 @@
-Return-Path: <SRS0=nHLU=GZ=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=mxd0=G2=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.7 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-16.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 83BD7C433E0
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Jan 2021 07:30:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4AD50C433DB
+	for <linux-riscv@archiver.kernel.org>; Sat, 23 Jan 2021 03:39:21 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 39583238EE
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Jan 2021 07:30:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 39583238EE
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
+	by mail.kernel.org (Postfix) with ESMTPS id BE60223B21
+	for <linux-riscv@archiver.kernel.org>; Sat, 23 Jan 2021 03:39:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BE60223B21
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=a7qaDDEoEr60mU7UKYt2N3hYpcZUpFUOfd3KjAXdFWc=; b=eJ+xljqIagZgrmAjWbQ0p9eux
-	5R9twupJxjgHvCRPuqC0K2pCCftQd6u350wfJpisdgUN2ZpW6kCN8OeajYVtsee6fLFLeMSVy6S/V
-	RHbcWEsMXBB+NYhNsCn1+qSDNB85a1+PIEbQ9OWl9h8Nf+Al6uuInYniAgxveFiszIFsq8psRFlmS
-	mTOovmJE4N8AQ3wAgr2Jr0Zzdy/uiDvCv2N09kLa2tcIrIoZn+56DFUlnF8c3hbTHJc9AO7MIvNfi
-	iZX4yjWdOY7Y0pgu1jQ+XH5X2+cCny9of3ISF5kmydJoYZNoNPpcHP/uaTvj9Phj36kFwuphRXKB6
-	Rsqk+PzVA==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:To:From:MIME-Version:Message-Id:Date:Subject:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=c3/lDgNau0n49D+tc7LvyMJ2EksbQpr+bHDMVKYZucU=; b=exiLbsl3Yd8x7m3vE5/mqFehML
+	tJMw6WVNl5YvD2It7vCCsdjxGDEQ6CSJIxe4+Np+m+1NLtrd031KhcX0Y4vJUYmfwtlwzaPlZVr9C
+	siCvGYK6arwSm8g/vZfGnr4kXsDLcGp8bJJKXTwU+cxZt/LUVLnFyza2h9DQsPqI9gzpkvT5TWEth
+	iX66u0+jqfrJhI+dE3UD/THBWNB0R27mnS7WkteH6HRnCDPKY++Dj51HgEtqSVoCaf8fba23Qwrsk
+	sqwpro2XR6mjedqx4q97rG69yAef5xzzORl1arsz+qh4wh78gpJmx0Tvgx/IkCtEC8RUY3QZ7DwCb
+	qj3DqJzg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l2qtb-0001Bf-1z; Fri, 22 Jan 2021 07:30:15 +0000
-Received: from szxga04-in.huawei.com ([45.249.212.190])
+	id 1l39l6-0002JR-84; Sat, 23 Jan 2021 03:38:44 +0000
+Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l2qtX-00019a-6G; Fri, 22 Jan 2021 07:30:12 +0000
-Received: from DGGEMS410-HUB.china.huawei.com (unknown [172.30.72.60])
- by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4DMW851ssTzl83B;
- Fri, 22 Jan 2021 15:28:21 +0800 (CST)
-Received: from [10.174.177.244] (10.174.177.244) by
- DGGEMS410-HUB.china.huawei.com (10.3.19.210) with Microsoft SMTP Server id
- 14.3.498.0; Fri, 22 Jan 2021 15:29:44 +0800
-Subject: Re: [PATCH v3 0/4] initrd: Use unified initrd reserve function in
- ARM/RISCV
-To: Russell King - ARM Linux admin <linux@armlinux.org.uk>
-References: <20210115054606.124502-1-wangkefeng.wang@huawei.com>
- <48c006a8-a352-488c-4981-768faffbe343@huawei.com>
- <20210117100903.GB1551@shell.armlinux.org.uk>
- <cc47f8cf-8778-43ab-77de-9dd220de7c26@huawei.com>
- <20210118091733.GD1551@shell.armlinux.org.uk>
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
-Message-ID: <d911b1e6-ed0d-4a73-aee4-060b957897f8@huawei.com>
-Date: Fri, 22 Jan 2021 15:29:43 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
- Thunderbird/60.7.0
+ id 1l39l2-0002J7-3U
+ for linux-riscv@lists.infradead.org; Sat, 23 Jan 2021 03:38:41 +0000
+Received: by mail-pg1-x536.google.com with SMTP id i5so5174450pgo.1
+ for <linux-riscv@lists.infradead.org>; Fri, 22 Jan 2021 19:38:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=subject:date:message-id:mime-version:content-transfer-encoding:cc
+ :from:to; bh=rgE+B9Mrz90Zoy2CynzPCLRveYysdlsrC4gZsCIAkuM=;
+ b=1tPPgjLYT4ZzQn5b/I2jMEKDvzLt8mGpKGecfT7x9A2WpilOduevn+l3oBiBquY/1L
+ ihcAacWIxk5kPJXqiu0MvHCm34IbE2JQzUZbSfEBU/TpWu9g3L1tZEWpxMPzlSdi+/wL
+ JkvV5KsdmaocZSKZl931LEzkMjuIDVn40aS21M1XH9ZQ7FbC5JWcFKMuOdK9znG6xgoU
+ /Uzdx+DVsqpmarHy7Edg5Bagd9t8m1AsbNNoDULQ3fHbMyV3+QiyJy/Y4m0YeMIEcOfT
+ s5YPFSCj3jxG/pzsc/J3YPtiHcAczsJyShEdmiJfcJHIIFA7JSS45TNfjR5+6eWqIFNc
+ 4DvQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:subject:date:message-id:mime-version
+ :content-transfer-encoding:cc:from:to;
+ bh=rgE+B9Mrz90Zoy2CynzPCLRveYysdlsrC4gZsCIAkuM=;
+ b=ZgzcnWPskg8sZir+aevYEkTic08ahA8krabynd0ir+hhPRDOaGqypr/FBO/YtSMD6a
+ nnKf+Bp2XHO81XDvv6UPqea0WF0U/n/Xv3N1xpuv53xTSn8An2iTcvO2jnzpgsbVMGsE
+ 8HiwGoQp+wmvLjRPKVclyTEGAFozzr3sGVyG8n+JWv4ITnsDkB8qSVL0nO0fcqOIjLhE
+ S7VNfGSOVHWTkoeYQ9IjyZu42GFttH3M/AZK9Fuh+xLx4aldOlSqxJzUdcPGIDQKjO2F
+ w04NMxBksVtRbwIkH3631+f2Prfqh/dGj2OolsYxwFUusfqjH7Yp0w+jLRNZfMoxxhxo
+ 1ZFw==
+X-Gm-Message-State: AOAM530rFyYX7Z/akEVC2lsHcPc1QycrzbtrUsxBh992pnTWaM/8zDRo
+ eM9f2DtxoDVQkSXzirFjU5IYqw==
+X-Google-Smtp-Source: ABdhPJwdsmSCYteHe2T3KocLJ0IwQOD8NOx/8uEh3HWRw4w4ash8wQScLA8ymNyhTaMaP8FamxMMtw==
+X-Received: by 2002:a65:6484:: with SMTP id e4mr7846939pgv.401.1611373116212; 
+ Fri, 22 Jan 2021 19:38:36 -0800 (PST)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id 68sm10045654pfe.33.2021.01.22.19.38.35
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 22 Jan 2021 19:38:35 -0800 (PST)
+Subject: [PATCH] RISC-V: probes: Treat the instruction stream as host-endian
+Date: Fri, 22 Jan 2021 19:34:29 -0800
+Message-Id: <20210123033429.2072716-1-palmer@dabbelt.com>
+X-Mailer: git-send-email 2.30.0.280.ga3ce27912f-goog
 MIME-Version: 1.0
-In-Reply-To: <20210118091733.GD1551@shell.armlinux.org.uk>
-Content-Language: en-US
-X-Originating-IP: [10.174.177.244]
-X-CFilter-Loop: Reflected
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210122_023011_518429_F9810057 
-X-CRM114-Status: GOOD (  15.86  )
+X-CRM114-CacheID: sfid-20210122_223840_273045_4C2AA184 
+X-CRM114-Status: GOOD (  13.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -73,41 +90,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: palmerdabbelt@google.com, linux-kernel@vger.kernel.org,
- Atish Patra <atish.patra@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, guoren@kernel.org,
- linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Cc: me@packi.ch, aou@eecs.berkeley.edu, kernel test robot <lkp@intel.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>, linux-kernel@vger.kernel.org,
+ penberg@kernel.org, guoren@linux.alibaba.com,
+ Palmer Dabbelt <palmer@dabbelt.com>, mhiramat@kernel.org,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
+ kernel-team@android.com, mingo@kernel.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ck9uIDIwMjEvMS8xOCAxNzoxNywgUnVzc2VsbCBLaW5nIC0gQVJNIExpbnV4IGFkbWluIHdyb3Rl
-Ogo+IE9uIE1vbiwgSmFuIDE4LCAyMDIxIGF0IDA5OjAxOjQwQU0gKzA4MDAsIEtlZmVuZyBXYW5n
-IHdyb3RlOgo+PiBPbiAyMDIxLzEvMTcgMTg6MDksIFJ1c3NlbGwgS2luZyAtIEFSTSBMaW51eCBh
-ZG1pbiB3cm90ZToKPj4+IE9uIFN1biwgSmFuIDE3LCAyMDIxIGF0IDEyOjU3OjU1UE0gKzA4MDAs
-IEtlZmVuZyBXYW5nIHdyb3RlOgo+Pj4+IENvcnJlY3QgUnVzc2VsbCdzIG1haWwgYWRkcmVzcyAo
-ZnJvbSBsaW51eEBhcm1saW51eC5vcmcudWsgdG8KPj4+PiBybWsra2VybmVsQGFybWxpbnV4Lm9y
-Zy51aywgc2hvdWxkIHVwZGF0ZSB0aGUgTUFJTlRBSU5FUlMpCj4+PiBOby4gTUFJTlRBSU5FUlMg
-aXMgY29ycmVjdC4KPj4gSSBnb3QgZm9sbG93aW5nIG1lc3NhZ2UswqAgc28gSSBjaGVjayBtYWls
-IG9mIHlvdXIgcmVjZW50IHBhdGNoZXMsIGFuZCBzZW5kIGEKPj4gbmV3IG9uZS4KPj4KPj4gUGxl
-YXNlIGlnbm9yZSBpdCwgdGhlcmUgbWF5IGJlIHNvbWUgb3RoZXIgcHJvYmxlbXMuCj4+Cj4+ICIq
-RGVsaXZlcnkgaGFzIGZhaWxlZCB0byB0aGVzZSByZWNpcGllbnRzIG9yIGdyb3VwczoqCj4+Cj4+
-IGxpbnV4QGFybWxpbnV4Lm9yZy51ayA8bWFpbHRvOmxpbnV4QGFybWxpbnV4Lm9yZy51az4KPj4g
-QSBjb21tdW5pY2F0aW9uIGZhaWx1cmUgb2NjdXJyZWQgZHVyaW5nIHRoZSBkZWxpdmVyeSBvZiB0
-aGlzIG1lc3NhZ2UuIFBsZWFzZQo+PiB0byByZXNlbmQgdGhlIG1lc3NhZ2UgbGF0ZXIuIElmIHRo
-ZSBwcm9ibGVtIGNvbnRpbnVlcywgY29udGFjdCB5b3VyCj4+IGhlbHBkZXNrLiIKPiBUaGF0IGlz
-IGEgbW9zdCB1bmhlbHBmdWwgYm91bmNlIG1lc3NhZ2UgLSBJIHN1cHBvc2UgaXQncyBkZXNpZ25l
-ZCBmb3IKPiBub24tdGVjaG5pY2FsIHBlb3BsZSB0byBlbnN1cmUgdGhhdCB0aGUgcHJvYmxlbSBj
-YW4ndCBiZSByZXNvbHZlZC4KPgo+ID5Gcm9tIHdoYXQgSSBjYW4gc2VlIGZyb20gbXkgZW5kLCBl
-dmVyeSBhdHRlbXB0IGludm9sdmluZyB5b3VyIGVtYWlsCj4gYWRkcmVzcyBsYXN0IHdlZWsgKHdh
-bmdrZWZlbmcud2FuZ0BodWF3ZWkuY29tKSBoYXMgYmVlbiBzdWNjZXNzZnVsLCBzbwo+IEkgc3Vz
-cGVjdCB0aGUgcHJvYmxlbSBpcyBub3QgYXQgbXkgZW5kLgoKb2vvvIx0aGFuayB5b3UgZm9yIGxl
-dHRpbmcgbWUga25vdyB0aGF0IHRoZSBlbWFpbCBoYXMgYmVlbiByZWNlaXZlZCwKCmFueSBjb21t
-ZW50IGFib3V0IHRoZSBBUk0gcGFydCBpbiB0aGUgcGF0Y2hzZXTCoCA7KQoKPgo+IEluIGFueSBj
-YXNlLCBhbGwgQGFybWxpbnV4Lm9yZy51ayBhZGRyZXNzZXMgaGl0IHRoZSBzYW1lIHNlcnZlciwg
-c28KPiBpZiB0aGVyZSdzIGEgImNvbW11bmljYXRpb24gZmFpbHVyZSIgZm9yIHRoZSBkb21haW4s
-IGl0IHdvdWxkIGFmZmVjdAo+IGFsbCBsb2NhbC1wYXJ0cyBlcXVhbGx5Lgo+CgpfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
-IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
-ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+From: Palmer Dabbelt <palmerdabbelt@google.com>
+
+Neither of these are actually correct: the instruction stream is defined
+(for versions of the ISA manual newer than 2.2) as a stream of 16-bit
+little-endian parcels, which is different than just being little-endian.
+In theory we should represent this as a type, but we don't have any
+concrete plans for the big endian stuff so it doesn't seem worth the
+time -- we've got variants of this all over the place.
+
+Instead I'm just dropping the unnecessary type conversion, which is a
+NOP on LE systems but causes an sparse error as the types are all mixed
+up.
+
+Reported-by: kernel test robot <lkp@intel.com>
+Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
+---
+ arch/riscv/kernel/probes/decode-insn.c | 2 +-
+ arch/riscv/kernel/probes/kprobes.c     | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/riscv/kernel/probes/decode-insn.c b/arch/riscv/kernel/probes/decode-insn.c
+index 0876c304ca77..0ed043acc882 100644
+--- a/arch/riscv/kernel/probes/decode-insn.c
++++ b/arch/riscv/kernel/probes/decode-insn.c
+@@ -16,7 +16,7 @@
+ enum probe_insn __kprobes
+ riscv_probe_decode_insn(probe_opcode_t *addr, struct arch_probe_insn *api)
+ {
+-	probe_opcode_t insn = le32_to_cpu(*addr);
++	probe_opcode_t insn = *addr;
+ 
+ 	/*
+ 	 * Reject instructions list:
+diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
+index e60893bd87db..a2ec18662fee 100644
+--- a/arch/riscv/kernel/probes/kprobes.c
++++ b/arch/riscv/kernel/probes/kprobes.c
+@@ -57,7 +57,7 @@ int __kprobes arch_prepare_kprobe(struct kprobe *p)
+ 	}
+ 
+ 	/* copy instruction */
+-	p->opcode = le32_to_cpu(*p->addr);
++	p->opcode = *p->addr;
+ 
+ 	/* decode instruction */
+ 	switch (riscv_probe_decode_insn(p->addr, &p->ainsn.api)) {
+-- 
+2.30.0.280.ga3ce27912f-goog
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
