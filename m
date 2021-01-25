@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 47439C433E0
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Jan 2021 16:55:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 175FAC433E6
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Jan 2021 17:01:48 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B802F2223E
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Jan 2021 16:55:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B802F2223E
+	by mail.kernel.org (Postfix) with ESMTPS id CF9632223E
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Jan 2021 17:01:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CF9632223E
 Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=suse.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,43 +23,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=yEIT5pJ99GFD0IxYYeZzVchyniEu09nbBZIEvZmDtX4=; b=KPTwjXMGJFgq0AKiYlo1K+5ov
-	s2ikyIUIWi/qCEse2qJfdbltXqNXrbbAHEdOcJnlRdmULwQGRKh/HJk4tPFXCKGvchEzAYqMz6IfM
-	iUSpzLwMH98D5B9jn91DKOpm0LPbzG4/xk4y/VxDV0nKpjr+y6tPBw/u6+m3hDpU5l4Rc9krB4g9v
-	orUIDUbAqnAM346cGzpZ9EitBzwyen3IGID1h6HdKvtrTGhjM5hiVEsa5f9/qr6IScaEcakqD4YEw
-	y8n2YyqyrLT0cF4h/A8U+UPJf9ONSQnXSnnHo32SsMjNtc8ex7P4AoqGIF7y4SlGtCg1aOi+971rt
-	ogiMo/ciw==;
+	 bh=LzzeF02Hb4b5GiQsdIJ9Bdv+vuMU/FJ1ac2qd+n1hrk=; b=2TT9cIzMFtA2rE+4CaMyivLaW
+	LRNoclMadunwwarEHFEtVlve1OY1Cm42dg77X+yhLqp++2cytKeb4VpcwSnpjA0BztD6sxDau0sXe
+	v3O5TuCHCMNGQaI4mOxk062RJLgCujdT6RMD3JnZR6D4UkKPnignr/Ox2LOap+Azy6/KMJUbprRH/
+	O1XaZkqFjXWF0PE1yaTt8QjMVNV1DjNH6afSy4/A19lkgNlq6/3fCNPKO+rqa73KF/PS912jd/+5m
+	ATHrHD0kydcIK96S+Dj1YarBBBja1sWCqlHSVmhEPKv1Tc2Ra9bA3d3XbzPiLRM+4ya/rQ1ARMu/s
+	OtcHdne1g==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l458t-0004Qp-KX; Mon, 25 Jan 2021 16:55:07 +0000
+	id 1l45F5-0005i5-6L; Mon, 25 Jan 2021 17:01:31 +0000
 Received: from mx2.suse.de ([195.135.220.15])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l458g-0004M5-Mi; Mon, 25 Jan 2021 16:54:57 +0000
+ id 1l45Ez-0005fQ-1P; Mon, 25 Jan 2021 17:01:26 +0000
 X-Virus-Scanned: by amavisd-new at test-mx.suse.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
- t=1611593693; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+ t=1611594083; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
  mime-version:mime-version:content-type:content-type:
  in-reply-to:in-reply-to:references:references;
- bh=DUCMunEAlwcf5q7H1YeFZFYeq7DLFWJs3Mg8KMXP9Z0=;
- b=qPts7aTDPFTfj2b8NYdndbwpl6i5JliE2w0lBoVUP6U4zTo/URi/QcGr43vpN94WGA5dCH
- XnAz2JWBNo5ymP9pAlPpdWXCt4R7yejmS/ex2MOk+DV9LdD+lM2/Tj5CaXr9zzbw6bQq4U
- uLTmX7JwDHxFzCuXNYkpPrT28pphQ8o=
+ bh=Vhg3ZuXdxoTlKTck/oJokadNWML4/97msM+l8PPW1KQ=;
+ b=ekr2Ky1dZoRqi6ycGHVcexZtgRdu4MDaulztS70s8hHeoDI4yFro/m5BDFgGJjh7XxGRcq
+ OdP/PJmINTbjpgXdHy4MQI8TR0XvbgfyJK1DIbaE0IJT4yiv7duwl7QsRrI2lC9GQ+4fV8
+ Fl+xfN24YgfeX+iBNh+IKs3bk8PeCaI=
 Received: from relay2.suse.de (unknown [195.135.221.27])
- by mx2.suse.de (Postfix) with ESMTP id DA924ACFB;
- Mon, 25 Jan 2021 16:54:52 +0000 (UTC)
-Date: Mon, 25 Jan 2021 17:54:51 +0100
+ by mx2.suse.de (Postfix) with ESMTP id 4907CAD7A;
+ Mon, 25 Jan 2021 17:01:23 +0000 (UTC)
+Date: Mon, 25 Jan 2021 18:01:22 +0100
 From: Michal Hocko <mhocko@suse.com>
 To: Mike Rapoport <rppt@kernel.org>
-Subject: Re: [PATCH v16 08/11] secretmem: add memcg accounting
-Message-ID: <20210125165451.GT827@dhcp22.suse.cz>
+Subject: Re: [PATCH v16 06/11] mm: introduce memfd_secret system call to
+ create "secret" memory areas
+Message-ID: <20210125170122.GU827@dhcp22.suse.cz>
 References: <20210121122723.3446-1-rppt@kernel.org>
- <20210121122723.3446-9-rppt@kernel.org>
+ <20210121122723.3446-7-rppt@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20210121122723.3446-9-rppt@kernel.org>
+In-Reply-To: <20210121122723.3446-7-rppt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210125_115454_922695_4251780C 
-X-CRM114-Status: GOOD (  16.91  )
+X-CRM114-CacheID: sfid-20210125_120125_191952_F54BD2AB 
+X-CRM114-Status: GOOD (  19.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -99,35 +100,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu 21-01-21 14:27:20, Mike Rapoport wrote:
+On Thu 21-01-21 14:27:18, Mike Rapoport wrote:
 > From: Mike Rapoport <rppt@linux.ibm.com>
 > 
-> Account memory consumed by secretmem to memcg. The accounting is updated
-> when the memory is actually allocated and freed.
+> Introduce "memfd_secret" system call with the ability to create memory
+> areas visible only in the context of the owning process and not mapped not
+> only to other processes but in the kernel page tables as well.
+> 
+> The user will create a file descriptor using the memfd_secret() system
+> call. The memory areas created by mmap() calls from this file descriptor
+> will be unmapped from the kernel direct map and they will be only mapped in
+> the page table of the owning mm.
+> 
+> The secret memory remains accessible in the process context using uaccess
+> primitives, but it is not accessible using direct/linear map addresses.
+> 
+> Functions in the follow_page()/get_user_page() family will refuse to return
+> a page that belongs to the secret memory area.
+> 
+> A page that was a part of the secret memory area is cleared when it is
+> freed.
+> 
+> The following example demonstrates creation of a secret mapping (error
+> handling is omitted):
+> 
+> 	fd = memfd_secret(0);
+> 	ftruncate(fd, MAP_SIZE);
+> 	ptr = mmap(NULL, MAP_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
 
-What does this mean? What are the lifetime rules?
-
-[...]
-
-> +static int secretmem_account_pages(struct page *page, gfp_t gfp, int order)
-> +{
-> +	int err;
-> +
-> +	err = memcg_kmem_charge_page(page, gfp, order);
-> +	if (err)
-> +		return err;
-> +
-> +	/*
-> +	 * seceremem caches are unreclaimable kernel allocations, so treat
-> +	 * them as unreclaimable slab memory for VM statistics purposes
-> +	 */
-> +	mod_lruvec_page_state(page, NR_SLAB_UNRECLAIMABLE_B,
-> +			      PAGE_SIZE << order);
-
-A lot of memcg accounted memory is not reclaimable. Why do you abuse
-SLAB counter when this is not a slab owned memory? Why do you use the
-kmem accounting API when __GFP_ACCOUNT should give you the same without
-this details?
+I do not see any access control or permission model for this feature.
+Is this feature generally safe to anybody?
 -- 
 Michal Hocko
 SUSE Labs
