@@ -2,75 +2,56 @@ Return-Path: <SRS0=syY9=G4=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-7.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=no
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2E4F1C433E0
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Jan 2021 21:56:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B9B5DC433E0
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Jan 2021 23:58:51 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DA95921D94
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Jan 2021 21:56:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DA95921D94
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 2C78D22597
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Jan 2021 23:58:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2C78D22597
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sntech.de
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Ua5lgVf7USmAMkgrdBDLpq3lQhjoP8QQFP6LqYqWJqs=; b=m/CuZ1SoVrAqC+HNmXy/3/bKF
-	zqS7M/qk3a3ihxkZIijMpD5Q7NjPf1ymHrvmcwj7/UwIS9oruBlrx+LbS5aSvtKRlInWNCBJ0w3oO
-	zODUUtLMrQcWm3FitxhmVlzWNa5oAdDNKKKbV4c73fJnj7fGn/1GUFnPP9J4CpwkZF+NXThMxb3uO
-	s3ah27tOy0kGQ3MgKl0aZ3CG06ApsFNRfQFXpuogrWWx8N79ILebCrcQbDddtHQXDacnB2PZ5C+na
-	HV4UqoAOJMeeKVwBb8RofR38O9pyvDtjcIITNIrO2Ps2yGqCyzXdofJ4tuEQflAE/zkSptvej72aY
-	1lRCPoHuA==;
+	 bh=tPsfrshQZ464roKjjzhC4dPH3OtQRHd7R7QK4NtFiqQ=; b=WJAP4CMDHg3nMdblU5yjId56g
+	MCyf9oyEZFvf0feR6TuEG4J32B5s+coxKXgzXrm88ZI0VxMLntz38FkUywR4v2UZEjICEdJI6/EKj
+	4+XXbKDzm4mB8eBPAP5SnPc+zxsePfv0e4F2XaFv9aZOIkq+DB7YCLfnjYsd/p72Us//eELpg8yk7
+	i/l26PC7WS9YWELvP10TOgnYdKo/Fe1FC3u+huU1k37ShxfKlkWX1gAnyn66+xivw2NhAqk7WaBGu
+	XXo1FIhgWdQs3lSXrOHI6iI/5esLcUWg3xQNp5UagJPEQrOCdGNZxAkstZnBborpGlO9fCL5LOyGW
+	kJq2FjKqg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l49qb-00063Y-Uc; Mon, 25 Jan 2021 21:56:33 +0000
-Received: from conssluserg-05.nifty.com ([210.131.2.90])
+	id 1l4Bkg-0000ug-K8; Mon, 25 Jan 2021 23:58:34 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l49qY-00062y-LT
- for linux-riscv@lists.infradead.org; Mon, 25 Jan 2021 21:56:31 +0000
-Received: from mail-pf1-f177.google.com (mail-pf1-f177.google.com
- [209.85.210.177]) (authenticated)
- by conssluserg-05.nifty.com with ESMTP id 10PLu27R023859
- for <linux-riscv@lists.infradead.org>; Tue, 26 Jan 2021 06:56:02 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-05.nifty.com 10PLu27R023859
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
- s=dec2015msa; t=1611611762;
- bh=k13xTgp4YHfTY2q/O6bg9I8kJdCvKuXvFQLmI3+RhI0=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=dK+2GFRbXjlPKnrgk8h81RgCsjUI9MVHCbCaBBuEVQjhvutSMBuEZXNBIWmWjKSdG
- XiXo/6Mv9j7AFxAcohOluO0dJ0Ed5DUu86XQeptwtct8i9alY6b+PGo9Mmh+dOKBw2
- 7G1kNyOdVr+BTPCUuoinkmG23bwq5kxcqt2pK5epUH6NNIJpOIeVGQ5gtBNlEHNpPc
- K5UwWWH2oEt3t60j54TwiN5r+kJjJGdFC40Ppuv3cH+p+NNxPRKoLmb8/Yy8+HlEzR
- 76zaYkHH8EZqBTfn/6Q9AnQFuMwQh7Rlr8f6CmfhJjFtkWO1cFlfijPsP3u0XGFY0B
- acRIvx6RKTqRA==
-X-Nifty-SrcIP: [209.85.210.177]
-Received: by mail-pf1-f177.google.com with SMTP id y205so9200750pfc.5
- for <linux-riscv@lists.infradead.org>; Mon, 25 Jan 2021 13:56:02 -0800 (PST)
-X-Gm-Message-State: AOAM530gj5loIVHv+Dgm2bcMiSJcNVqumgvEtjcqitKQSsPkLrjx74UJ
- OnCz/S7iK7T62VTTM8M98DsJMNY/9PnWYNhfudA=
-X-Google-Smtp-Source: ABdhPJxdcIWBPAyh3WbuAUW/EWSOSODCsrlOwl2RnFKZ8jqnC8tLenx9emKykYOcLkOUSZ1xRTq+RAj98lrdZe1Yb2M=
-X-Received: by 2002:a63:1f1d:: with SMTP id f29mr2556604pgf.47.1611611761596; 
- Mon, 25 Jan 2021 13:56:01 -0800 (PST)
+ id 1l4Bix-0000BQ-6I; Mon, 25 Jan 2021 23:56:48 +0000
+Received: from ip5f5aa64a.dynamic.kabel-deutschland.de ([95.90.166.74]
+ helo=phil.fritz.box)
+ by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.92) (envelope-from <heiko@sntech.de>)
+ id 1l4Bih-00066j-UM; Tue, 26 Jan 2021 00:56:31 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: Lee Jones <lee.jones@linaro.org>
+Subject: Re: (subset) [PATCH 00/20] Rid W=1 warnings from Clock
+Date: Tue, 26 Jan 2021 00:56:22 +0100
+Message-Id: <161161878917.2050283.12124477211963150680.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.29.2
+In-Reply-To: <20210120093040.1719407-1-lee.jones@linaro.org>
+References: <20210120093040.1719407-1-lee.jones@linaro.org>
 MIME-Version: 1.0
-References: <20210123133333.736453-1-masahiroy@kernel.org>
-In-Reply-To: <20210123133333.736453-1-masahiroy@kernel.org>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Tue, 26 Jan 2021 06:55:24 +0900
-X-Gmail-Original-Message-ID: <CAK7LNASV+JWG+1vuEqFUWUk=AW8TkwwSrEGaciOkJwQ8xU0+AQ@mail.gmail.com>
-Message-ID: <CAK7LNASV+JWG+1vuEqFUWUk=AW8TkwwSrEGaciOkJwQ8xU0+AQ@mail.gmail.com>
-Subject: Re: [PATCH v2] doc: gcc-plugins: drop more stale information
-To: Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210125_165631_031481_17CDC137 
-X-CRM114-Status: GOOD (  34.51  )
+X-CRM114-CacheID: sfid-20210125_185647_341070_025EC9C6 
+X-CRM114-Status: GOOD (  13.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -82,165 +63,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Michal Marek <michal.lkml@markovi.net>, Kees Cook <keescook@chromium.org>,
- Jonathan Corbet <corbet@lwn.net>,
- "open list:DOCUMENTATION" <linux-doc@vger.kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-hardening@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
- Robert Karszniewicz <r.karszniewicz@phytec.de>,
- "open list:SIFIVE DRIVERS" <linux-riscv@lists.infradead.org>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+ Michael Turquette <mturquette@baylibre.com>,
+ Michal Simek <michal.simek@xilinx.com>, Zong Li <zong.li@sifive.com>,
+ linux-riscv@lists.infradead.org, Fabio Estevam <festevam@gmail.com>,
+ linux-clk@vger.kernel.org, Xing Zheng <zhengxing@rock-chips.com>,
+ =?UTF-8?q?Emilio=20L=C3=B3pez?= <emilio@elopez.com.ar>,
+ Gregory Clement <gregory.clement@bootlin.com>,
+ Stephen Gallimore <stephen.gallimore@st.com>,
+ linux-rockchip@lists.infradead.org, Chen-Yu Tsai <wens@csie.org>,
+ Thomas Abraham <thomas.ab@samsung.com>, bcm-kernel-feedback-list@broadcom.com,
+ NXP Linux Team <linux-imx@nxp.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Linus Walleij <linus.walleij@linaro.org>, Kees Cook <keescook@chromium.org>,
+ Arnd Bergmann <arnd@arndb.de>, Ray Jui <rjui@broadcom.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Omri Itach <omrii@marvell.com>,
+ Maxime Ripard <mripard@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ =?UTF-8?q?S=C3=B6ren=20Brinkmann?= <soren.brinkmann@xilinx.com>,
+ Jernej Skrabec <jernej.skrabec@siol.net>,
+ Scott Branden <sbranden@broadcom.com>, Tero Kristo <kristo@kernel.org>,
+ Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org,
+ Julia Lawall <Julia.Lawall@inria.fr>, Dinh Nguyen <dinguyen@kernel.org>,
+ Pankaj Dev <pankaj.dev@st.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Shawn Guo <shawnguo@kernel.org>, Pragnesh Patel <Pragnesh.patel@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jan 23, 2021 at 10:34 PM Masahiro Yamada <masahiroy@kernel.org> wrote:
->
-> [1] Drop the version information
->
-> The range of the supported GCC versions are always changing. The
-> current minimal GCC version is 4.9, and commit 1e860048c53e
-> ("gcc-plugins: simplify GCC plugin-dev capability test") removed the
-> old code accordingly.
->
-> We do not need to mention specific version ranges like "all gcc versions
-> from 4.5 to 6.0" since we forget to update the documentation when we
-> raise the minimal compiler version.
->
-> [2] Drop the C compiler statements
->
-> Since commit 77342a02ff6e ("gcc-plugins: drop support for GCC <= 4.7")
-> the GCC plugin infrastructure only supports g++.
->
-> [3] Drop supported architectures
->
-> As of v5.11-rc4, the infrastructure supports more architectures;
-> arm, arm64, mips, powerpc, riscv, s390, um, and x86. (just grep
-> "select HAVE_GCC_PLUGINS") Again, we miss to update this document when a
-> new architecture is supported. Let's just say "only some architectures".
->
-> [4] Update the apt-get example
->
-> We are now discussing to bump the minimal version to GCC 5. The GCC 4.9
-> support will be removed sooner or later. Change the package example to
-> gcc-10-plugin-dev while we are here.
->
-> [5] Update the build target
->
-> Since commit ce2fd53a10c7 ("kbuild: descend into scripts/gcc-plugins/
-> via scripts/Makefile"), "make gcc-plugins" is not supported.
-> "make scripts" builds all the enabled plugins, including some other
-> tools.
->
-> [6] Update the steps for adding a new plugin
->
-> At first, all CONFIG options for GCC plugins were located in arch/Kconfig.
-> After commit 45332b1bdfdc ("gcc-plugins: split out Kconfig entries to
-> scripts/gcc-plugins/Kconfig"), scripts/gcc-plugins/Kconfig became the
-> central place to collect plugin CONFIG options. In my understanding,
-> this requirement no longer exists because commit 9f671e58159a ("security:
-> Create "kernel hardening" config area") moved some of plugin CONFIG
-> options to another file. Find an appropriate place to add the new CONFIG.
->
-> The sub-directory support was never used by anyone, and removed by
-> commit c17d6179ad5a ("gcc-plugins: remove unused GCC_PLUGIN_SUBDIR").
->
-> Remove the useless $(src)/ prefix.
+On Wed, 20 Jan 2021 09:30:20 +0000, Lee Jones wrote:
+> This set is part of a larger effort attempting to clean-up W=1
+> kernel builds, which are currently overwhelmingly riddled with
+> niggly little warnings.
+> 
+> We should have these nailed in ~2 patchsets.
+> 
+> Lee Jones (20):
+>   clk: rockchip: clk: Demote non-conformant kernel-doc headers
+>   clk: rockchip: clk-cpu: Remove unused/undocumented struct members
+>   clk: rockchip: clk-pll: Demote kernel-doc abuses to standard comment
+>     blocks
+>   clk: rockchip: clk-half-divider: Demote non-conformant kernel-doc
+>     header
+>   clk: bcm: clk-iproc-pll: Demote kernel-doc abuse
+>   clk: sifive: fu540-prci: Declare static const variable
+>     'prci_clk_fu540' where it's used
+>   clk: socfpga: clk-pll: Remove unused variable 'rc'
+>   clk: socfpga: clk-pll-a10: Remove set but unused variable 'rc'
+>   clk: mvebu: ap-cpu-clk: Demote non-conformant kernel-doc header
+>   clk: imx: clk-imx31: Remove unused static const table 'uart_clks'
+>   clk: st: clkgen-pll: Demote unpopulated kernel-doc header
+>   clk: st: clkgen-fsyn: Fix worthy struct documentation demote partially
+>     filled one
+>   clk: ti: clockdomain: Fix description for 'omap2_init_clk_clkdm's hw
+>     param
+>   clk: sunxi: clk-sunxi: Demote a bunch of non-conformant kernel-doc
+>     headers
+>   clk: ti: dpll: Fix misnaming of '_register_dpll()'s 'user' parameter
+>   clk: ti: gate: Fix possible doc-rot in
+>     'omap36xx_gate_clk_enable_with_hsdiv_restore'
+>   clk: sunxi: clk-a10-ve: Demote obvious kernel-doc abuse
+>   clk: sunxi: clk-mod0: Demote non-conformant kernel-doc header
+>   clk: versatile: clk-icst: Fix worthy struct documentation block
+>   clk: zynq: clkc: Remove various instances of an unused variable 'clk'
+> 
+> [...]
 
+Applied, thanks!
 
-Applied to linux-kbuild.
+[01/20] clk: rockchip: clk: Demote non-conformant kernel-doc headers
+        commit: 415173712003ad7e54de7198979d68a428440ed6
+[02/20] clk: rockchip: clk-cpu: Remove unused/undocumented struct members
+        commit: 274ae6da4b3275fea32f0807e6e20715695dd210
+[03/20] clk: rockchip: clk-pll: Demote kernel-doc abuses to standard comment blocks
+        commit: eee7b95589e61bd7250cada52ddd8039c63535ef
+[04/20] clk: rockchip: clk-half-divider: Demote non-conformant kernel-doc header
+        commit: d48fbef962b095f7cc22017642fb9055d57fdb53
 
-
-
-
-> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
-> ---
->
-> Changes in v2:
->   - Remove the info about sub-directory support
->
->  Documentation/kbuild/gcc-plugins.rst | 31 +++++++++++++---------------
->  1 file changed, 14 insertions(+), 17 deletions(-)
->
-> diff --git a/Documentation/kbuild/gcc-plugins.rst b/Documentation/kbuild/gcc-plugins.rst
-> index 63379d0150e3..979887558e72 100644
-> --- a/Documentation/kbuild/gcc-plugins.rst
-> +++ b/Documentation/kbuild/gcc-plugins.rst
-> @@ -11,16 +11,13 @@ compiler [1]_. They are useful for runtime instrumentation and static analysis.
->  We can analyse, change and add further code during compilation via
->  callbacks [2]_, GIMPLE [3]_, IPA [4]_ and RTL passes [5]_.
->
-> -The GCC plugin infrastructure of the kernel supports all gcc versions from
-> -4.5 to 6.0, building out-of-tree modules, cross-compilation and building in a
-> -separate directory.
-> -Plugin source files have to be compilable by both a C and a C++ compiler as well
-> -because gcc versions 4.5 and 4.6 are compiled by a C compiler,
-> -gcc-4.7 can be compiled by a C or a C++ compiler,
-> -and versions 4.8+ can only be compiled by a C++ compiler.
-> +The GCC plugin infrastructure of the kernel supports building out-of-tree
-> +modules, cross-compilation and building in a separate directory.
-> +Plugin source files have to be compilable by a C++ compiler.
->
-> -Currently the GCC plugin infrastructure supports only the x86, arm, arm64 and
-> -powerpc architectures.
-> +Currently the GCC plugin infrastructure supports only some architectures.
-> +Grep "select HAVE_GCC_PLUGINS" to find out which architectures support
-> +GCC plugins.
->
->  This infrastructure was ported from grsecurity [6]_ and PaX [7]_.
->
-> @@ -53,8 +50,7 @@ $(src)/scripts/gcc-plugins/gcc-generate-simple_ipa-pass.h,
->  $(src)/scripts/gcc-plugins/gcc-generate-rtl-pass.h**
->
->         These headers automatically generate the registration structures for
-> -       GIMPLE, SIMPLE_IPA, IPA and RTL passes. They support all gcc versions
-> -       from 4.5 to 6.0.
-> +       GIMPLE, SIMPLE_IPA, IPA and RTL passes.
->         They should be preferred to creating the structures by hand.
->
->
-> @@ -62,9 +58,9 @@ Usage
->  =====
->
->  You must install the gcc plugin headers for your gcc version,
-> -e.g., on Ubuntu for gcc-4.9::
-> +e.g., on Ubuntu for gcc-10::
->
-> -       apt-get install gcc-4.9-plugin-dev
-> +       apt-get install gcc-10-plugin-dev
->
->  Or on Fedora::
->
-> @@ -76,7 +72,7 @@ Enable a GCC plugin based feature in the kernel config::
->
->  To compile only the plugin(s)::
->
-> -       make gcc-plugins
-> +       make scripts
->
->  or just run the kernel make and compile the whole kernel with
->  the cyclomatic complexity GCC plugin.
-> @@ -85,7 +81,8 @@ the cyclomatic complexity GCC plugin.
->  4. How to add a new GCC plugin
->  ==============================
->
-> -The GCC plugins are in $(src)/scripts/gcc-plugins/. You can use a file or a directory
-> -here. It must be added to $(src)/scripts/gcc-plugins/Makefile,
-> -$(src)/scripts/Makefile.gcc-plugins and $(src)/arch/Kconfig.
-> +The GCC plugins are in scripts/gcc-plugins/. You need to put plugin source files
-> +right under scripts/gcc-plugins/. Creating subdirectories is not supported.
-> +It must be added to scripts/gcc-plugins/Makefile, scripts/Makefile.gcc-plugins
-> +and a relevant Kconfig file.
->  See the cyc_complexity_plugin.c (CONFIG_GCC_PLUGIN_CYC_COMPLEXITY) GCC plugin.
-> --
-> 2.27.0
->
-
-
+Best regards,
 -- 
-Best Regards
-Masahiro Yamada
+Heiko Stuebner <heiko@sntech.de>
 
 _______________________________________________
 linux-riscv mailing list
