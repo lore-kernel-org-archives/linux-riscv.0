@@ -2,87 +2,61 @@ Return-Path: <SRS0=syY9=G4=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DDFDCC433DB
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Jan 2021 08:47:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 40ACAC433DB
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Jan 2021 09:29:41 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7086F22D04
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Jan 2021 08:47:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7086F22D04
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
+	by mail.kernel.org (Postfix) with ESMTPS id A591E224B1
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Jan 2021 09:29:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A591E224B1
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=6E0jlbv2yDjq7r76u+WQxRqz0qqlTQB3HfKASRIJYtk=; b=BzmFqvqukMjJEZ9iiWG7eRmqU
-	MOHWHnfKK988LwfXqCItmqqXFIHd86utUHgV3b4nTl10ChEhEmm6ac1RT+nHxbHhosKR/3pACsN6c
-	1f+bB5p0zQT0FIZZ36izQG8e9PSZo4+nvjEeQ6sCxXkGKh32dzkv+wxy3yS17dZ4QIZ5feC/t4+/M
-	bZvmqs0d4x56+KcGQkac1GF2XtnCmypkEKNOH1Ww1b1O+gqVkLFKb2B1WyHM8uRTDm6q53KjdE5q9
-	qmrVS+YrekoNc41jdPMBEX9lpX+5zlociHoHrqgBP1P2TcZ2P2v/hFLUKMn2MB68ZwdyPK5sK9lAt
-	EUaJlK6EA==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ls/TrMuTfnahcH1LmVfy0m4y3bpuGFxa0KSWwoX7kFc=; b=zfcZa4eG2sVRc0bp5UI94a1UA0
+	hbU9efLHF4jcIZcZoDIdiH4OVPmyiC7rdi0gB12CMHT7UGPyRuzPzoHqudabJ/RIjN2NSv7WhT6Dc
+	qk5KW0gRAKufL5dC/ym81r+f/y22NXyOfs3fD70ps7BvG0eD9aICs6aCZWITeAstz8pT2mW2PL7tV
+	wgJP9O8E3H/0sgmTCo535l2+S4+stW5Jv8IpdWHoDmhfAZqh695cyutaJ4MfkbS/F1HUPUDhcXytb
+	zDCt+ctmPEpWPez0NBHKcKB6mlBGc+0y70PUl/FnAhsWa69byE+Tm3VdKk4GlfUHqsuai5HlmMpaG
+	IFeP70/Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l3xXH-0004Qo-2H; Mon, 25 Jan 2021 08:47:47 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1l3yBa-0001Wl-4s; Mon, 25 Jan 2021 09:29:26 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l3xXE-0004Pk-Me
- for linux-riscv@lists.infradead.org; Mon, 25 Jan 2021 08:47:45 +0000
-Received: by mail-wr1-x435.google.com with SMTP id q7so11336765wre.13
- for <linux-riscv@lists.infradead.org>; Mon, 25 Jan 2021 00:47:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:content-transfer-encoding:in-reply-to;
- bh=L7zRLOa9/A/iQHZsxRUBd/9JtCVTjujkb4lDAg3Vr/k=;
- b=j8lsVt/e7FhY4i8Y9QQP5WgESMMeZIAWgIRZOLbW5E07ES6H7jUpfiUfE7QeFdOHa0
- ItxEt6o9YKKMy3BhwIB0kW5uFBrz/fttbgTjb5/bYkaxbsKPoXZYv85PowEdLtmYOJXO
- i/PT6SeXKYMF+Xf1vaPSeJvXcG1SyerAO2+sjQwoqfcw+B57A9ZPTvFxr+yfdII4Q3JH
- LPvpoiB8VArMarTPiLhj5CQ52Af3IVk9MO8X3HRDqdYdCu/sKjayNFtGTFQ5szcsHlk9
- UTauyFktDFvfyhx70AZGyAt8Je7Pu3nB5ZjYaZz4WomeXp7iBUH3uUNY3A/ZYZAC1n1O
- TQiw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:content-transfer-encoding
- :in-reply-to;
- bh=L7zRLOa9/A/iQHZsxRUBd/9JtCVTjujkb4lDAg3Vr/k=;
- b=CrcCA4yMio8Z2MFl2dv79rtydFIV8xZM9+k8TsO+2+ckZ5ykSc2HJtUPP2Zw0jgWlH
- FMxnE+taPJqwwP0YFQEoIkmGWCFuUaTOY90p5AnyKDnRG+9527315ysNH0qBmumSyN0W
- kfTwa0rq6NFEuzw9fiTrx0lXvYSnYemVLCpjoHpicgnjSVCWMH2DwiYifPogvXBGYkuC
- hCAruEfX4Odo+HDGRLxKkRSDw2i8SIH1kBoBll+hr5EUYKeNGSAlOKuT7HS0/fmYK7HZ
- 3nhkJNq8LuKMnNzRxXzT3YktSGk15OJLxOs61PMYyqKsgdKZ0wtlja9wHRGCCCbOIsqh
- cRzg==
-X-Gm-Message-State: AOAM533CuprkwW8BQ0ZHRdf8t05NRfUcN68FA/odQZJBcjyUhG1AW/sV
- nDHrpE0RMjqM/NPwxf0x1G87bQ==
-X-Google-Smtp-Source: ABdhPJwvAT5QrVlgVRVXIetqyDdGS4/PFt4ktrvS4hgcS34u7NUByd/Pzsn94Nh20vlcxbXW4hhjMA==
-X-Received: by 2002:adf:f009:: with SMTP id j9mr1074570wro.35.1611564461410;
- Mon, 25 Jan 2021 00:47:41 -0800 (PST)
-Received: from dell ([91.110.221.194])
- by smtp.gmail.com with ESMTPSA id i6sm13827473wrs.71.2021.01.25.00.47.40
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 25 Jan 2021 00:47:40 -0800 (PST)
-Date: Mon, 25 Jan 2021 08:47:39 +0000
-From: Lee Jones <lee.jones@linaro.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Subject: Re: [PATCH 06/20] clk: sifive: fu540-prci: Declare static const
- variable 'prci_clk_fu540' where it's used
-Message-ID: <20210125084739.GW4903@dell>
-References: <20210120093040.1719407-7-lee.jones@linaro.org>
- <mhng-d13d3ca6-2ec1-4c56-a4a8-56faafe5569c@palmerdabbelt-glaptop>
+ id 1l3yBW-0001V5-OW
+ for linux-riscv@lists.infradead.org; Mon, 25 Jan 2021 09:29:24 +0000
+Received: from dggeme708-chm.china.huawei.com (unknown [172.30.72.56])
+ by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4DPPf10VFrzW0Tk;
+ Mon, 25 Jan 2021 17:27:21 +0800 (CST)
+Received: from huawei.com (10.175.113.32) by dggeme708-chm.china.huawei.com
+ (10.1.199.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2106.2; Mon, 25
+ Jan 2021 17:29:16 +0800
+From: Chengyang Fan <cy.fan@huawei.com>
+To: <palmerdabbelt@google.com>
+Subject: [PATCH] powerpc: remove unneeded semicolons
+Date: Mon, 25 Jan 2021 17:56:28 +0800
+Message-ID: <20210125095628.1719979-1-cy.fan@huawei.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <mhng-d13d3ca6-2ec1-4c56-a4a8-56faafe5569c@palmerdabbelt-glaptop>
+X-Originating-IP: [10.175.113.32]
+X-ClientProxiedBy: dggeme710-chm.china.huawei.com (10.1.199.106) To
+ dggeme708-chm.china.huawei.com (10.1.199.104)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210125_034744_744699_366F3D0C 
-X-CRM114-Status: GOOD (  18.79  )
+X-CRM114-CacheID: sfid-20210125_042923_330677_A8202E4A 
+X-CRM114-Status: GOOD (  12.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -94,58 +68,312 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: sboyd@kernel.org, mturquette@baylibre.com, linux-kernel@vger.kernel.org,
- zong.li@sifive.com, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
- Pragnesh.patel@sifive.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: joe@perches.com, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCAyMiBKYW4gMjAyMSwgUGFsbWVyIERhYmJlbHQgd3JvdGU6Cgo+IE9uIFdlZCwgMjAg
-SmFuIDIwMjEgMDE6MzA6MjYgUFNUICgtMDgwMCksIGxlZS5qb25lc0BsaW5hcm8ub3JnIHdyb3Rl
-Ogo+ID4gRml4ZXMgdGhlIGZvbGxvd2luZyBXPTEga2VybmVsIGJ1aWxkIHdhcm5pbmcocyk6Cj4g
-PiAKPiA+ICBkcml2ZXJzL2Nsay9zaWZpdmUvZnU1NDAtcHJjaS5oOjE2OjM1OiB3YXJuaW5nOiDi
-gJhwcmNpX2Nsa19mdTU0MOKAmSBkZWZpbmVkIGJ1dCBub3QgdXNlZCBbLVd1bnVzZWQtY29uc3Qt
-dmFyaWFibGU9XQo+ID4gIGRyaXZlcnMvY2xrL3NpZml2ZS9mdTU0MC1wcmNpLmg6MTY6MzU6IHdh
-cm5pbmc6IOKAmHByY2lfY2xrX2Z1NTQw4oCZIGRlZmluZWQgYnV0IG5vdCB1c2VkIFstV3VudXNl
-ZC1jb25zdC12YXJpYWJsZT1dCj4gPiAKPiA+IENjOiBNaWNoYWVsIFR1cnF1ZXR0ZSA8bXR1cnF1
-ZXR0ZUBiYXlsaWJyZS5jb20+Cj4gPiBDYzogU3RlcGhlbiBCb3lkIDxzYm95ZEBrZXJuZWwub3Jn
-Pgo+ID4gQ2M6IFBhdWwgV2FsbXNsZXkgPHBhdWwud2FsbXNsZXlAc2lmaXZlLmNvbT4KPiA+IENj
-OiBQYWxtZXIgRGFiYmVsdCA8cGFsbWVyQGRhYmJlbHQuY29tPgo+ID4gQ2M6IFByYWduZXNoIFBh
-dGVsIDxQcmFnbmVzaC5wYXRlbEBzaWZpdmUuY29tPgo+ID4gQ2M6IFpvbmcgTGkgPHpvbmcubGlA
-c2lmaXZlLmNvbT4KPiA+IENjOiBsaW51eC1jbGtAdmdlci5rZXJuZWwub3JnCj4gPiBDYzogbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+ID4gU2lnbmVkLW9mZi1ieTogTGVlIEpvbmVz
-IDxsZWUuam9uZXNAbGluYXJvLm9yZz4KPiA+IC0tLQo+ID4gIGRyaXZlcnMvY2xrL3NpZml2ZS9m
-dTU0MC1wcmNpLmggIHwgNSAtLS0tLQo+ID4gIGRyaXZlcnMvY2xrL3NpZml2ZS9zaWZpdmUtcHJj
-aS5jIHwgNSArKysrKwo+ID4gIDIgZmlsZXMgY2hhbmdlZCwgNSBpbnNlcnRpb25zKCspLCA1IGRl
-bGV0aW9ucygtKQo+ID4gCj4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9jbGsvc2lmaXZlL2Z1NTQw
-LXByY2kuaCBiL2RyaXZlcnMvY2xrL3NpZml2ZS9mdTU0MC1wcmNpLmgKPiA+IGluZGV4IGM4Mjcx
-ZWZhN2JkYzcuLmMyMjA2NzdkYzAxMDggMTAwNjQ0Cj4gPiAtLS0gYS9kcml2ZXJzL2Nsay9zaWZp
-dmUvZnU1NDAtcHJjaS5oCj4gPiArKysgYi9kcml2ZXJzL2Nsay9zaWZpdmUvZnU1NDAtcHJjaS5o
-Cj4gPiBAQCAtMTMsOSArMTMsNCBAQAo+ID4gCj4gPiAgZXh0ZXJuIHN0cnVjdCBfX3ByY2lfY2xv
-Y2sgX19wcmNpX2luaXRfY2xvY2tzX2Z1NTQwW05VTV9DTE9DS19GVTU0MF07Cj4gPiAKPiA+IC1z
-dGF0aWMgY29uc3Qgc3RydWN0IHByY2lfY2xrX2Rlc2MgcHJjaV9jbGtfZnU1NDAgPSB7Cj4gPiAt
-CS5jbGtzID0gX19wcmNpX2luaXRfY2xvY2tzX2Z1NTQwLAo+ID4gLQkubnVtX2Nsa3MgPSBBUlJB
-WV9TSVpFKF9fcHJjaV9pbml0X2Nsb2Nrc19mdTU0MCksCj4gPiAtfTsKPiA+IC0KPiA+ICAjZW5k
-aWYgLyogX19TSUZJVkVfQ0xLX0ZVNTQwX1BSQ0lfSCAqLwo+ID4gZGlmZiAtLWdpdCBhL2RyaXZl
-cnMvY2xrL3NpZml2ZS9zaWZpdmUtcHJjaS5jIGIvZHJpdmVycy9jbGsvc2lmaXZlL3NpZml2ZS1w
-cmNpLmMKPiA+IGluZGV4IGM3OGIwNDI3NTBlMjEuLjE0OTBiMDFjZTYyOTAgMTAwNjQ0Cj4gPiAt
-LS0gYS9kcml2ZXJzL2Nsay9zaWZpdmUvc2lmaXZlLXByY2kuYwo+ID4gKysrIGIvZHJpdmVycy9j
-bGsvc2lmaXZlL3NpZml2ZS1wcmNpLmMKPiA+IEBAIC0xMiw2ICsxMiwxMSBAQAo+ID4gICNpbmNs
-dWRlICJmdTU0MC1wcmNpLmgiCj4gPiAgI2luY2x1ZGUgImZ1NzQwLXByY2kuaCIKPiA+IAo+ID4g
-K3N0YXRpYyBjb25zdCBzdHJ1Y3QgcHJjaV9jbGtfZGVzYyBwcmNpX2Nsa19mdTU0MCA9IHsKPiA+
-ICsJLmNsa3MgPSBfX3ByY2lfaW5pdF9jbG9ja3NfZnU1NDAsCj4gPiArCS5udW1fY2xrcyA9IEFS
-UkFZX1NJWkUoX19wcmNpX2luaXRfY2xvY2tzX2Z1NTQwKSwKPiA+ICt9Owo+ID4gKwo+ID4gIC8q
-Cj4gPiAgICogUHJpdmF0ZSBmdW5jdGlvbnMKPiA+ICAgKi8KPiAKPiBUaGlzIGRvZXNuJ3QgbG9v
-ayBsaWtlIG15IHNpZml2ZS1wcmNpLmMsIHNvIEknbSBhc3N1bWluZyBpdCdzIGFnYWluc3Qgb25l
-IG9mCj4gdGhlIGNsb2NrIHRyZWVzIGFuZCB0aGVyZWZvciBzaG91bGQgZ28gaW4gb3ZlciB0aGVy
-ZS4KClRoaXMgcGF0Y2ggaXMgYXBwbGllZCBhZ2FpbnN0IC1uZXh0LgoKPiBBY2tlZC1ieTogUGFs
-bWVyIERhYmJlbHQgPHBhbG1lcmRhYmJlbHRAZ29vZ2xlLmNvbT4KClRoYW5rcyBQYWxtZXIuCgot
-LSAKTGVlIEpvbmVzIFvmnY7nkLzmlq9dClNlbmlvciBUZWNobmljYWwgTGVhZCAtIERldmVsb3Bl
-ciBTZXJ2aWNlcwpMaW5hcm8ub3JnIOKUgiBPcGVuIHNvdXJjZSBzb2Z0d2FyZSBmb3IgQXJtIFNv
-Q3MKRm9sbG93IExpbmFybzogRmFjZWJvb2sgfCBUd2l0dGVyIHwgQmxvZwoKX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
-aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
-ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Remove superfluous semicolons after function definitions.
+
+Signed-off-by: Chengyang Fan <cy.fan@huawei.com>
+---
+ arch/powerpc/include/asm/book3s/32/mmu-hash.h       |  2 +-
+ arch/powerpc/include/asm/book3s/64/mmu.h            |  2 +-
+ arch/powerpc/include/asm/book3s/64/tlbflush-radix.h |  2 +-
+ arch/powerpc/include/asm/book3s/64/tlbflush.h       |  2 +-
+ arch/powerpc/include/asm/firmware.h                 |  2 +-
+ arch/powerpc/include/asm/kvm_ppc.h                  |  6 +++---
+ arch/powerpc/include/asm/paca.h                     |  6 +++---
+ arch/powerpc/include/asm/rtas.h                     |  2 +-
+ arch/powerpc/include/asm/setup.h                    |  6 +++---
+ arch/powerpc/include/asm/simple_spinlock.h          |  4 ++--
+ arch/powerpc/include/asm/smp.h                      |  2 +-
+ arch/powerpc/include/asm/xmon.h                     |  4 ++--
+ arch/powerpc/kernel/prom.c                          |  2 +-
+ arch/powerpc/kernel/setup.h                         | 12 ++++++------
+ arch/powerpc/platforms/powernv/subcore.h            |  2 +-
+ arch/powerpc/platforms/pseries/pseries.h            |  2 +-
+ 16 files changed, 29 insertions(+), 29 deletions(-)
+
+diff --git a/arch/powerpc/include/asm/book3s/32/mmu-hash.h b/arch/powerpc/include/asm/book3s/32/mmu-hash.h
+index 685c589e723f..b85f8e114a9c 100644
+--- a/arch/powerpc/include/asm/book3s/32/mmu-hash.h
++++ b/arch/powerpc/include/asm/book3s/32/mmu-hash.h
+@@ -94,7 +94,7 @@ typedef struct {
+ } mm_context_t;
+ 
+ void update_bats(void);
+-static inline void cleanup_cpu_mmu_context(void) { };
++static inline void cleanup_cpu_mmu_context(void) { }
+ 
+ /* patch sites */
+ extern s32 patch__hash_page_A0, patch__hash_page_A1, patch__hash_page_A2;
+diff --git a/arch/powerpc/include/asm/book3s/64/mmu.h b/arch/powerpc/include/asm/book3s/64/mmu.h
+index 995bbcdd0ef8..eace8c3f7b0a 100644
+--- a/arch/powerpc/include/asm/book3s/64/mmu.h
++++ b/arch/powerpc/include/asm/book3s/64/mmu.h
+@@ -239,7 +239,7 @@ static inline void setup_initial_memory_limit(phys_addr_t first_memblock_base,
+ #ifdef CONFIG_PPC_PSERIES
+ extern void radix_init_pseries(void);
+ #else
+-static inline void radix_init_pseries(void) { };
++static inline void radix_init_pseries(void) { }
+ #endif
+ 
+ #ifdef CONFIG_HOTPLUG_CPU
+diff --git a/arch/powerpc/include/asm/book3s/64/tlbflush-radix.h b/arch/powerpc/include/asm/book3s/64/tlbflush-radix.h
+index 94439e0cefc9..8b33601cdb9d 100644
+--- a/arch/powerpc/include/asm/book3s/64/tlbflush-radix.h
++++ b/arch/powerpc/include/asm/book3s/64/tlbflush-radix.h
+@@ -35,7 +35,7 @@ extern void radix__flush_pwc_lpid(unsigned int lpid);
+ extern void radix__flush_all_lpid(unsigned int lpid);
+ extern void radix__flush_all_lpid_guest(unsigned int lpid);
+ #else
+-static inline void radix__tlbiel_all(unsigned int action) { WARN_ON(1); };
++static inline void radix__tlbiel_all(unsigned int action) { WARN_ON(1); }
+ static inline void radix__flush_tlb_lpid_page(unsigned int lpid,
+ 					unsigned long addr,
+ 					unsigned long page_size)
+diff --git a/arch/powerpc/include/asm/book3s/64/tlbflush.h b/arch/powerpc/include/asm/book3s/64/tlbflush.h
+index dcb5c3839d2f..215973b4cb26 100644
+--- a/arch/powerpc/include/asm/book3s/64/tlbflush.h
++++ b/arch/powerpc/include/asm/book3s/64/tlbflush.h
+@@ -31,7 +31,7 @@ static inline void tlbiel_all(void)
+ 		hash__tlbiel_all(TLB_INVAL_SCOPE_GLOBAL);
+ }
+ #else
+-static inline void tlbiel_all(void) { BUG(); };
++static inline void tlbiel_all(void) { BUG(); }
+ #endif
+ 
+ static inline void tlbiel_all_lpid(bool radix)
+diff --git a/arch/powerpc/include/asm/firmware.h b/arch/powerpc/include/asm/firmware.h
+index aa6a5ef5d483..7604673787d6 100644
+--- a/arch/powerpc/include/asm/firmware.h
++++ b/arch/powerpc/include/asm/firmware.h
+@@ -137,7 +137,7 @@ extern unsigned int __start___fw_ftr_fixup, __stop___fw_ftr_fixup;
+ #ifdef CONFIG_PPC_PSERIES
+ void pseries_probe_fw_features(void);
+ #else
+-static inline void pseries_probe_fw_features(void) { };
++static inline void pseries_probe_fw_features(void) { }
+ #endif
+ 
+ #endif /* __ASSEMBLY__ */
+diff --git a/arch/powerpc/include/asm/kvm_ppc.h b/arch/powerpc/include/asm/kvm_ppc.h
+index 0a056c64c317..259ba4ce9ad3 100644
+--- a/arch/powerpc/include/asm/kvm_ppc.h
++++ b/arch/powerpc/include/asm/kvm_ppc.h
+@@ -627,9 +627,9 @@ extern int h_ipi_redirect;
+ static inline struct kvmppc_passthru_irqmap *kvmppc_get_passthru_irqmap(
+ 				struct kvm *kvm)
+ 	{ return NULL; }
+-static inline void kvmppc_alloc_host_rm_ops(void) {};
+-static inline void kvmppc_free_host_rm_ops(void) {};
+-static inline void kvmppc_free_pimap(struct kvm *kvm) {};
++static inline void kvmppc_alloc_host_rm_ops(void) {}
++static inline void kvmppc_free_host_rm_ops(void) {}
++static inline void kvmppc_free_pimap(struct kvm *kvm) {}
+ static inline int kvmppc_xics_rm_complete(struct kvm_vcpu *vcpu, u32 hcall)
+ 	{ return 0; }
+ static inline int kvmppc_xics_enabled(struct kvm_vcpu *vcpu)
+diff --git a/arch/powerpc/include/asm/paca.h b/arch/powerpc/include/asm/paca.h
+index 9454d29ff4b4..1a4f6da3be5f 100644
+--- a/arch/powerpc/include/asm/paca.h
++++ b/arch/powerpc/include/asm/paca.h
+@@ -285,9 +285,9 @@ extern void free_unused_pacas(void);
+ 
+ #else /* CONFIG_PPC64 */
+ 
+-static inline void allocate_paca_ptrs(void) { };
+-static inline void allocate_paca(int cpu) { };
+-static inline void free_unused_pacas(void) { };
++static inline void allocate_paca_ptrs(void) { }
++static inline void allocate_paca(int cpu) { }
++static inline void free_unused_pacas(void) { }
+ 
+ #endif /* CONFIG_PPC64 */
+ 
+diff --git a/arch/powerpc/include/asm/rtas.h b/arch/powerpc/include/asm/rtas.h
+index 332e1000ca0f..658448ca5b8a 100644
+--- a/arch/powerpc/include/asm/rtas.h
++++ b/arch/powerpc/include/asm/rtas.h
+@@ -369,7 +369,7 @@ void rtas_initialize(void);
+ #else
+ static inline int page_is_rtas_user_buf(unsigned long pfn) { return 0;}
+ static inline void pSeries_coalesce_init(void) { }
+-static inline void rtas_initialize(void) { };
++static inline void rtas_initialize(void) { }
+ #endif
+ 
+ extern int call_rtas(const char *, int, int, unsigned long *, ...);
+diff --git a/arch/powerpc/include/asm/setup.h b/arch/powerpc/include/asm/setup.h
+index a466749703f1..e89bfebd4e00 100644
+--- a/arch/powerpc/include/asm/setup.h
++++ b/arch/powerpc/include/asm/setup.h
+@@ -58,7 +58,7 @@ void do_rfi_flush_fixups(enum l1d_flush_type types);
+ #ifdef CONFIG_PPC_BARRIER_NOSPEC
+ void setup_barrier_nospec(void);
+ #else
+-static inline void setup_barrier_nospec(void) { };
++static inline void setup_barrier_nospec(void) { }
+ #endif
+ void do_uaccess_flush_fixups(enum l1d_flush_type types);
+ void do_entry_flush_fixups(enum l1d_flush_type types);
+@@ -68,13 +68,13 @@ extern bool barrier_nospec_enabled;
+ #ifdef CONFIG_PPC_BARRIER_NOSPEC
+ void do_barrier_nospec_fixups_range(bool enable, void *start, void *end);
+ #else
+-static inline void do_barrier_nospec_fixups_range(bool enable, void *start, void *end) { };
++static inline void do_barrier_nospec_fixups_range(bool enable, void *start, void *end) { }
+ #endif
+ 
+ #ifdef CONFIG_PPC_FSL_BOOK3E
+ void setup_spectre_v2(void);
+ #else
+-static inline void setup_spectre_v2(void) {};
++static inline void setup_spectre_v2(void) {}
+ #endif
+ void do_btb_flush_fixups(void);
+ 
+diff --git a/arch/powerpc/include/asm/simple_spinlock.h b/arch/powerpc/include/asm/simple_spinlock.h
+index 9c3c30534333..5b862de29dff 100644
+--- a/arch/powerpc/include/asm/simple_spinlock.h
++++ b/arch/powerpc/include/asm/simple_spinlock.h
+@@ -90,8 +90,8 @@ static inline int arch_spin_trylock(arch_spinlock_t *lock)
+ void splpar_spin_yield(arch_spinlock_t *lock);
+ void splpar_rw_yield(arch_rwlock_t *lock);
+ #else /* SPLPAR */
+-static inline void splpar_spin_yield(arch_spinlock_t *lock) {};
+-static inline void splpar_rw_yield(arch_rwlock_t *lock) {};
++static inline void splpar_spin_yield(arch_spinlock_t *lock) {}
++static inline void splpar_rw_yield(arch_rwlock_t *lock) {}
+ #endif
+ 
+ static inline void spin_yield(arch_spinlock_t *lock)
+diff --git a/arch/powerpc/include/asm/smp.h b/arch/powerpc/include/asm/smp.h
+index c4e2d53acd2b..7a13bc20f0a0 100644
+--- a/arch/powerpc/include/asm/smp.h
++++ b/arch/powerpc/include/asm/smp.h
+@@ -236,7 +236,7 @@ static inline void set_hard_smp_processor_id(int cpu, int phys)
+ #if defined(CONFIG_PPC64) && (defined(CONFIG_SMP) || defined(CONFIG_KEXEC_CORE))
+ extern void smp_release_cpus(void);
+ #else
+-static inline void smp_release_cpus(void) { };
++static inline void smp_release_cpus(void) { }
+ #endif
+ 
+ extern int smt_enabled_at_boot;
+diff --git a/arch/powerpc/include/asm/xmon.h b/arch/powerpc/include/asm/xmon.h
+index 454a7fc6113b..68bfb2361f03 100644
+--- a/arch/powerpc/include/asm/xmon.h
++++ b/arch/powerpc/include/asm/xmon.h
+@@ -17,8 +17,8 @@ struct pt_regs;
+ extern int xmon(struct pt_regs *excp);
+ extern irqreturn_t xmon_irq(int, void *);
+ #else
+-static inline void xmon_setup(void) { };
+-static inline void xmon_register_spus(struct list_head *list) { };
++static inline void xmon_setup(void) { }
++static inline void xmon_register_spus(struct list_head *list) { }
+ #endif
+ 
+ #if defined(CONFIG_XMON) && defined(CONFIG_SMP)
+diff --git a/arch/powerpc/kernel/prom.c b/arch/powerpc/kernel/prom.c
+index ae3c41730367..9a4797d1d40d 100644
+--- a/arch/powerpc/kernel/prom.c
++++ b/arch/powerpc/kernel/prom.c
+@@ -707,7 +707,7 @@ static void __init save_fscr_to_task(void)
+ 		init_task.thread.fscr = mfspr(SPRN_FSCR);
+ }
+ #else
+-static inline void save_fscr_to_task(void) {};
++static inline void save_fscr_to_task(void) {}
+ #endif
+ 
+ 
+diff --git a/arch/powerpc/kernel/setup.h b/arch/powerpc/kernel/setup.h
+index 2dd0d9cb5a20..84058bbc8fe9 100644
+--- a/arch/powerpc/kernel/setup.h
++++ b/arch/powerpc/kernel/setup.h
+@@ -14,31 +14,31 @@ void irqstack_early_init(void);
+ #ifdef CONFIG_PPC32
+ void setup_power_save(void);
+ #else
+-static inline void setup_power_save(void) { };
++static inline void setup_power_save(void) { }
+ #endif
+ 
+ #if defined(CONFIG_PPC64) && defined(CONFIG_SMP)
+ void check_smt_enabled(void);
+ #else
+-static inline void check_smt_enabled(void) { };
++static inline void check_smt_enabled(void) { }
+ #endif
+ 
+ #if defined(CONFIG_PPC_BOOK3E) && defined(CONFIG_SMP)
+ void setup_tlb_core_data(void);
+ #else
+-static inline void setup_tlb_core_data(void) { };
++static inline void setup_tlb_core_data(void) { }
+ #endif
+ 
+ #if defined(CONFIG_PPC_BOOK3E) || defined(CONFIG_BOOKE) || defined(CONFIG_40x)
+ void exc_lvl_early_init(void);
+ #else
+-static inline void exc_lvl_early_init(void) { };
++static inline void exc_lvl_early_init(void) { }
+ #endif
+ 
+ #if defined(CONFIG_PPC64) || defined(CONFIG_VMAP_STACK)
+ void emergency_stack_init(void);
+ #else
+-static inline void emergency_stack_init(void) { };
++static inline void emergency_stack_init(void) { }
+ #endif
+ 
+ #ifdef CONFIG_PPC64
+@@ -55,7 +55,7 @@ extern unsigned long spr_default_dscr;
+ #ifdef CONFIG_KVM_BOOK3S_HV_POSSIBLE
+ void kvm_cma_reserve(void);
+ #else
+-static inline void kvm_cma_reserve(void) { };
++static inline void kvm_cma_reserve(void) { }
+ #endif
+ 
+ #ifdef CONFIG_TAU
+diff --git a/arch/powerpc/platforms/powernv/subcore.h b/arch/powerpc/platforms/powernv/subcore.h
+index c8f574d1c04a..77feee8436d4 100644
+--- a/arch/powerpc/platforms/powernv/subcore.h
++++ b/arch/powerpc/platforms/powernv/subcore.h
+@@ -15,7 +15,7 @@
+ void split_core_secondary_loop(u8 *state);
+ extern void update_subcore_sibling_mask(void);
+ #else
+-static inline void update_subcore_sibling_mask(void) { };
++static inline void update_subcore_sibling_mask(void) { }
+ #endif /* CONFIG_SMP */
+ 
+ #endif /* __ASSEMBLY__ */
+diff --git a/arch/powerpc/platforms/pseries/pseries.h b/arch/powerpc/platforms/pseries/pseries.h
+index 593840847cd3..4fe48c04c6c2 100644
+--- a/arch/powerpc/platforms/pseries/pseries.h
++++ b/arch/powerpc/platforms/pseries/pseries.h
+@@ -33,7 +33,7 @@ int smp_query_cpu_stopped(unsigned int pcpu);
+ #define QCSS_HARDWARE_ERROR -1
+ #define QCSS_HARDWARE_BUSY -2
+ #else
+-static inline void smp_init_pseries(void) { };
++static inline void smp_init_pseries(void) { }
+ #endif
+ 
+ extern void pseries_kexec_cpu_down(int crash_shutdown, int secondary);
+-- 
+2.25.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
