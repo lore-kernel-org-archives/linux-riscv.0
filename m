@@ -6,14 +6,14 @@ X-Spam-Status: No, score=-4.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
 	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 84C35C433DB
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Jan 2021 21:36:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B2576C433E0
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Jan 2021 21:36:51 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0F85A22AAA
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Jan 2021 21:36:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0F85A22AAA
+	by mail.kernel.org (Postfix) with ESMTPS id 6D4AB2100A
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Jan 2021 21:36:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6D4AB2100A
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -22,45 +22,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=DGOhca+wjWYMxgavw/cC6FP0/7qw2oLpjY9mUrVPjHA=; b=mEoWPa/2njTIYPhTgib7Mf0PE
-	ItTcCgqOL1d3DzvXvEgy7jJLvzgG3EqhHvFsfVzVWdRCY1oqIwai8JFMbSbOj9iLATIe5RG+Dmp05
-	qAqVbyaHvKCiA5aWLua5SGGaOQx+0vJErDqHRxLAFdr+et1Qgw9crppngJmHtjh8aASi+grvIrTJz
-	6aylGx4EfYAdJ9xJ5vBasbEvpz50+LrH1EIHlBOKmcexBoirYOCLL5YnZBm9vMtR2qyafdwhIM62Q
-	MCbfT/QQJvY1f1Lu0zkYskYZvrU5hC88TA7rbVu9OY1B+1IqSWbIODTOLhggofQ+krQFuPmMbHwUT
-	CJq60tKUA==;
+	 bh=z2TK+5VwvphTQEMyfMrFl9LPGW4lD8Pzb/ICWj5Kr4I=; b=3cV+KDg/7iXsQdKdRDLdWeLQR
+	IqHB9k+BnZPBBUcQiaiXIe75fS094ZV1iBP/qlp0MX+6v9Tm43IcYGSZ5PTWOJSoaOzz1N1R3Y3fv
+	CMgrw7xAbbi1xHGcJxVKAtpp6+HkRDB4NSDoNxd0Dgtxa1bCB04NTP9jGP9+vjHYiIUdmq792PRR4
+	0Itno/AySYeyvyoKApLLTLr8pfoTlOkUFpofZe2lkfZcgv8SruX9uSDiVNZ5BXx5hPlvC1T3fikgi
+	DcaP9wvt0cGzET+hl6k01BqmAJ9a1LkU6Hg1bIke82CCX9OW5y+U97QsUI0cT8vQJJpdmPwk6g+Bz
+	4pJ8smjwg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l49Wb-00035a-Dz; Mon, 25 Jan 2021 21:35:53 +0000
+	id 1l49XO-0003FS-27; Mon, 25 Jan 2021 21:36:42 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l49WX-00033f-29; Mon, 25 Jan 2021 21:35:50 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 5F8A2229C6;
- Mon, 25 Jan 2021 21:35:31 +0000 (UTC)
+ id 1l49XH-0003Cl-VZ; Mon, 25 Jan 2021 21:36:37 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 743FA208C7;
+ Mon, 25 Jan 2021 21:36:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1611610543;
- bh=2Di0IbIXl1xn2Q918lq0pHS35BBSv9IAQLWTpnF3034=;
+ s=k20201202; t=1611610595;
+ bh=ajaCsDQ6e4U1hUENrIDNUbcuSNalQWKY+iQc4S18YHs=;
  h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=Cy17SSKvvNvxfTqzme3GulWvb12hmNhkF7DBhyy2a+M5IaoGf8exm+dMOhwdI3cnD
- O9Y6le+GeozBAOlFWKkpEB+vZ71maF7XrODlor4nn34mqAaY2SmcJJTy1/7R4Vzp0U
- bPshjl150D1+6AqGJJwRZluiwgpDdWOErZGjlhYbAQhuHLMYpqQxkt2okbl3QmaaEV
- +AvTUTAKQGnim5uoCQhk9nL/vcRX66pRqMexDaS2sIjDuNGgW078c+2BX0w5Eu0hmE
- oc6a5eiysTeaoVlQWOTzqTt5FOVdCY/F5kyVzE2NWYn7vW0p6El384BwmC/nQzLCGf
- IjSwSAhpZJ+aA==
-Date: Mon, 25 Jan 2021 23:35:26 +0200
+ b=cfQR8nUEYwM75PG5OUFV5JcmnnumpQwkS1CnVqcT2d4p/kUpcS/2u20YYyJroZRCW
+ Jbt8N0i9NWstZhVeQAoWuL0s1n+n5az5ZLRoklNtsiaP1TJWCjFUBgluHnK4qcx2vR
+ E16vQW+kwJovzCui9zqUqcbslF/9K9Il+/0P40Td3raK5Q2WzGx+8y38H1+/m5CZ3T
+ SSW4VXI/VuuQaVG+TxLnGPfGOo0qcOYMor1OjHyeeaSkuT9z8sM7rhBjawSDsbXbG4
+ xDuvORI7oTg4YIT62Z9kQe6ps0I6CSs8pq6QDrPQmTgAxuIU4vdgt6s4t3c2vLy5LL
+ LDqeEHslmluVA==
+Date: Mon, 25 Jan 2021 23:36:18 +0200
 From: Mike Rapoport <rppt@kernel.org>
-To: Shakeel Butt <shakeelb@google.com>
-Subject: Re: [PATCH v16 08/11] secretmem: add memcg accounting
-Message-ID: <20210125213526.GK6332@kernel.org>
+To: Michal Hocko <mhocko@suse.com>
+Subject: Re: [PATCH v16 06/11] mm: introduce memfd_secret system call to
+ create "secret" memory areas
+Message-ID: <20210125213618.GL6332@kernel.org>
 References: <20210121122723.3446-1-rppt@kernel.org>
- <20210121122723.3446-9-rppt@kernel.org>
- <20210125161706.GE308988@casper.infradead.org>
- <CALvZod7rn_5oXT6Z+iRCeMX_iMRO9G_8FnwSRGpJJwyBz5Wpnw@mail.gmail.com>
+ <20210121122723.3446-7-rppt@kernel.org>
+ <20210125170122.GU827@dhcp22.suse.cz>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CALvZod7rn_5oXT6Z+iRCeMX_iMRO9G_8FnwSRGpJJwyBz5Wpnw@mail.gmail.com>
+In-Reply-To: <20210125170122.GU827@dhcp22.suse.cz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210125_163549_267788_B60ED7BB 
-X-CRM114-Status: GOOD (  19.45  )
+X-CRM114-CacheID: sfid-20210125_163636_176269_6198399B 
+X-CRM114-Status: GOOD (  22.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -75,7 +75,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
 Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
  Peter Zijlstra <peterz@infradead.org>,
  Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, Linux MM <linux-mm@kvack.org>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
  linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
  Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
  Thomas Gleixner <tglx@linutronix.de>,
@@ -90,9 +90,9 @@ Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
  Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
  "Kirill A. Shutemov" <kirill@shutemov.name>,
  Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
- linux-api@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>,
+ linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-fsdevel <linux-fsdevel@vger.kernel.org>,
+ linux-fsdevel@vger.kernel.org, Shakeel Butt <shakeelb@google.com>,
  Andrew Morton <akpm@linux-foundation.org>,
  Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>
 Content-Type: text/plain; charset="us-ascii"
@@ -100,37 +100,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 25, 2021 at 09:18:04AM -0800, Shakeel Butt wrote:
-> On Mon, Jan 25, 2021 at 8:20 AM Matthew Wilcox <willy@infradead.org> wrote:
-> >
-> > On Thu, Jan 21, 2021 at 02:27:20PM +0200, Mike Rapoport wrote:
-> > > From: Mike Rapoport <rppt@linux.ibm.com>
-> > >
-> > > Account memory consumed by secretmem to memcg. The accounting is updated
-> > > when the memory is actually allocated and freed.
-
-I though about doing per-page accounting, but then one would be able to
-create a lot of secretmem file descriptors, use only a page from each while
-actual memory consumption will be way higher.
-
-> > I think this is wrong.  It fails to account subsequent allocators from
-> > the same PMD.  If you want to track like this, you need separate pools
-> > per memcg.
-> >
+On Mon, Jan 25, 2021 at 06:01:22PM +0100, Michal Hocko wrote:
+> On Thu 21-01-21 14:27:18, Mike Rapoport wrote:
+> > From: Mike Rapoport <rppt@linux.ibm.com>
+> > 
+> > Introduce "memfd_secret" system call with the ability to create memory
+> > areas visible only in the context of the owning process and not mapped not
+> > only to other processes but in the kernel page tables as well.
+> > 
+> > The user will create a file descriptor using the memfd_secret() system
+> > call. The memory areas created by mmap() calls from this file descriptor
+> > will be unmapped from the kernel direct map and they will be only mapped in
+> > the page table of the owning mm.
+> > 
+> > The secret memory remains accessible in the process context using uaccess
+> > primitives, but it is not accessible using direct/linear map addresses.
+> > 
+> > Functions in the follow_page()/get_user_page() family will refuse to return
+> > a page that belongs to the secret memory area.
+> > 
+> > A page that was a part of the secret memory area is cleared when it is
+> > freed.
+> > 
+> > The following example demonstrates creation of a secret mapping (error
+> > handling is omitted):
+> > 
+> > 	fd = memfd_secret(0);
+> > 	ftruncate(fd, MAP_SIZE);
+> > 	ptr = mmap(NULL, MAP_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
 > 
-> Are these secretmem pools shared between different jobs/memcgs?
+> I do not see any access control or permission model for this feature.
+> Is this feature generally safe to anybody?
 
-A secretmem pool is per anonymous file descriptor and this file descriptor
-can be shared only explicitly between several processes. So, the secretmem
-pool should not be shared between different jobs/memcg. Of course, it's
-possible to spread threads of a process across different memcgs, but in
-that case the accounting will be similar to what's happening today with
-sl*b. The first thread to cause kmalloc() will be charged for the
-allocation of the entire slab and subsequent allocations from that slab
-will not be accounted.
-
-That said, having a pool per memcg will add ton of complexity with very
-dubious value.
+The mappings obey memlock limit. Besides, this feature should be enabled
+explicitly at boot with the kernel parameter that says what is the maximal
+memory size secretmem can consume.
 
 -- 
 Sincerely yours,
