@@ -1,57 +1,68 @@
-Return-Path: <SRS0=syY9=G4=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=Tegm=G5=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-7.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=no
-	autolearn_force=no version=3.4.0
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B9B5DC433E0
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Jan 2021 23:58:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 90891C433E0
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Jan 2021 07:16:50 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 2C78D22597
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Jan 2021 23:58:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2C78D22597
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=sntech.de
+	by mail.kernel.org (Postfix) with ESMTPS id 1A2A4225AB
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Jan 2021 07:16:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1A2A4225AB
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=suse.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=tPsfrshQZ464roKjjzhC4dPH3OtQRHd7R7QK4NtFiqQ=; b=WJAP4CMDHg3nMdblU5yjId56g
-	MCyf9oyEZFvf0feR6TuEG4J32B5s+coxKXgzXrm88ZI0VxMLntz38FkUywR4v2UZEjICEdJI6/EKj
-	4+XXbKDzm4mB8eBPAP5SnPc+zxsePfv0e4F2XaFv9aZOIkq+DB7YCLfnjYsd/p72Us//eELpg8yk7
-	i/l26PC7WS9YWELvP10TOgnYdKo/Fe1FC3u+huU1k37ShxfKlkWX1gAnyn66+xivw2NhAqk7WaBGu
-	XXo1FIhgWdQs3lSXrOHI6iI/5esLcUWg3xQNp5UagJPEQrOCdGNZxAkstZnBborpGlO9fCL5LOyGW
-	kJq2FjKqg==;
+	 bh=Ccgs9xCYycp8jaj0gSHCvyXc/D5QEQE3A1Ltz5VK76Y=; b=AgbkCacWhW0zidb/JOeMhX8uU
+	0PN15IAebmnI65/JuJeEgQgLIEKOe02xaZt/SYWPDpOJSvmi4xMblYEJkpUgZ79CsBOvAxPth0yfx
+	3novdCW9vtOTsm2jFE/AaVrFnp0oIGSqtpQAOL5QkZUUgENapdvf1EokQ2MgRMfBV3Vmdwe9RYUHW
+	1Iun81HoQ/Null21LZlcaQWAR6y9bm9He03WCvcYOvrDl+MlcFbYp72FAdBvftX44aya/5tlBin/V
+	FEYhgCgpr0syNngDPUAZroKSNyF+/l/UNnFIyZ5SOP37bhq+d8ZAHElVB4iMg8ABMLmkFL13IzJqv
+	l1F2KorNQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l4Bkg-0000ug-K8; Mon, 25 Jan 2021 23:58:34 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1l4IaO-0000ef-9L; Tue, 26 Jan 2021 07:16:24 +0000
+Received: from mx2.suse.de ([195.135.220.15])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l4Bix-0000BQ-6I; Mon, 25 Jan 2021 23:56:48 +0000
-Received: from ip5f5aa64a.dynamic.kabel-deutschland.de ([95.90.166.74]
- helo=phil.fritz.box)
- by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
- (Exim 4.92) (envelope-from <heiko@sntech.de>)
- id 1l4Bih-00066j-UM; Tue, 26 Jan 2021 00:56:31 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Lee Jones <lee.jones@linaro.org>
-Subject: Re: (subset) [PATCH 00/20] Rid W=1 warnings from Clock
-Date: Tue, 26 Jan 2021 00:56:22 +0100
-Message-Id: <161161878917.2050283.12124477211963150680.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.29.2
-In-Reply-To: <20210120093040.1719407-1-lee.jones@linaro.org>
-References: <20210120093040.1719407-1-lee.jones@linaro.org>
+ id 1l4IaI-0000cv-R6; Tue, 26 Jan 2021 07:16:20 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
+ t=1611645376; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+ mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=Rfz4YhgMdQKfWEhdPjTzowRS8ZrfPb0PZUsBEItApiI=;
+ b=uSwnbNJryXqrtFn5ZDcik0uto2+MPvheE1cGTKIEOz6ZnfiLtVVNW3xYyy9RGpwnpMhlvH
+ 1N3K5WJgiIeLyB1+A5OyZuJP2Jkezi6uvJEEzgHe7uQUCBH5hRl4x8iwIwlEA1xmTBtqZQ
+ dR3KQIpKfgXY/BC62Y8U0m9xExJlGg8=
+Received: from relay2.suse.de (unknown [195.135.221.27])
+ by mx2.suse.de (Postfix) with ESMTP id 5743EAE91;
+ Tue, 26 Jan 2021 07:16:16 +0000 (UTC)
+Date: Tue, 26 Jan 2021 08:16:14 +0100
+From: Michal Hocko <mhocko@suse.com>
+To: Mike Rapoport <rppt@kernel.org>
+Subject: Re: [PATCH v16 06/11] mm: introduce memfd_secret system call to
+ create "secret" memory areas
+Message-ID: <20210126071614.GX827@dhcp22.suse.cz>
+References: <20210121122723.3446-1-rppt@kernel.org>
+ <20210121122723.3446-7-rppt@kernel.org>
+ <20210125170122.GU827@dhcp22.suse.cz>
+ <20210125213618.GL6332@kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20210125213618.GL6332@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210125_185647_341070_025EC9C6 
-X-CRM114-Status: GOOD (  13.17  )
+X-CRM114-CacheID: sfid-20210126_021619_111173_714857C8 
+X-CRM114-Status: GOOD (  29.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -63,87 +74,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Heiko Stuebner <heiko@sntech.de>,
- Michael Turquette <mturquette@baylibre.com>,
- Michal Simek <michal.simek@xilinx.com>, Zong Li <zong.li@sifive.com>,
- linux-riscv@lists.infradead.org, Fabio Estevam <festevam@gmail.com>,
- linux-clk@vger.kernel.org, Xing Zheng <zhengxing@rock-chips.com>,
- =?UTF-8?q?Emilio=20L=C3=B3pez?= <emilio@elopez.com.ar>,
- Gregory Clement <gregory.clement@bootlin.com>,
- Stephen Gallimore <stephen.gallimore@st.com>,
- linux-rockchip@lists.infradead.org, Chen-Yu Tsai <wens@csie.org>,
- Thomas Abraham <thomas.ab@samsung.com>, bcm-kernel-feedback-list@broadcom.com,
- NXP Linux Team <linux-imx@nxp.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- Linus Walleij <linus.walleij@linaro.org>, Kees Cook <keescook@chromium.org>,
- Arnd Bergmann <arnd@arndb.de>, Ray Jui <rjui@broadcom.com>,
- Sascha Hauer <s.hauer@pengutronix.de>, Omri Itach <omrii@marvell.com>,
- Maxime Ripard <mripard@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- =?UTF-8?q?S=C3=B6ren=20Brinkmann?= <soren.brinkmann@xilinx.com>,
- Jernej Skrabec <jernej.skrabec@siol.net>,
- Scott Branden <sbranden@broadcom.com>, Tero Kristo <kristo@kernel.org>,
- Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org,
- Julia Lawall <Julia.Lawall@inria.fr>, Dinh Nguyen <dinguyen@kernel.org>,
- Pankaj Dev <pankaj.dev@st.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Shawn Guo <shawnguo@kernel.org>, Pragnesh Patel <Pragnesh.patel@sifive.com>
+Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
+ Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
+ Will Deacon <will@kernel.org>, x86@kernel.org,
+ Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>, Arnd Bergmann <arnd@arndb.de>,
+ James Bottomley <jejb@linux.ibm.com>, Hagen Paul Pfeifer <hagen@jauu.net>,
+ Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-fsdevel@vger.kernel.org, Shakeel Butt <shakeelb@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 20 Jan 2021 09:30:20 +0000, Lee Jones wrote:
-> This set is part of a larger effort attempting to clean-up W=1
-> kernel builds, which are currently overwhelmingly riddled with
-> niggly little warnings.
+On Mon 25-01-21 23:36:18, Mike Rapoport wrote:
+> On Mon, Jan 25, 2021 at 06:01:22PM +0100, Michal Hocko wrote:
+> > On Thu 21-01-21 14:27:18, Mike Rapoport wrote:
+> > > From: Mike Rapoport <rppt@linux.ibm.com>
+> > > 
+> > > Introduce "memfd_secret" system call with the ability to create memory
+> > > areas visible only in the context of the owning process and not mapped not
+> > > only to other processes but in the kernel page tables as well.
+> > > 
+> > > The user will create a file descriptor using the memfd_secret() system
+> > > call. The memory areas created by mmap() calls from this file descriptor
+> > > will be unmapped from the kernel direct map and they will be only mapped in
+> > > the page table of the owning mm.
+> > > 
+> > > The secret memory remains accessible in the process context using uaccess
+> > > primitives, but it is not accessible using direct/linear map addresses.
+> > > 
+> > > Functions in the follow_page()/get_user_page() family will refuse to return
+> > > a page that belongs to the secret memory area.
+> > > 
+> > > A page that was a part of the secret memory area is cleared when it is
+> > > freed.
+> > > 
+> > > The following example demonstrates creation of a secret mapping (error
+> > > handling is omitted):
+> > > 
+> > > 	fd = memfd_secret(0);
+> > > 	ftruncate(fd, MAP_SIZE);
+> > > 	ptr = mmap(NULL, MAP_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+> > 
+> > I do not see any access control or permission model for this feature.
+> > Is this feature generally safe to anybody?
 > 
-> We should have these nailed in ~2 patchsets.
-> 
-> Lee Jones (20):
->   clk: rockchip: clk: Demote non-conformant kernel-doc headers
->   clk: rockchip: clk-cpu: Remove unused/undocumented struct members
->   clk: rockchip: clk-pll: Demote kernel-doc abuses to standard comment
->     blocks
->   clk: rockchip: clk-half-divider: Demote non-conformant kernel-doc
->     header
->   clk: bcm: clk-iproc-pll: Demote kernel-doc abuse
->   clk: sifive: fu540-prci: Declare static const variable
->     'prci_clk_fu540' where it's used
->   clk: socfpga: clk-pll: Remove unused variable 'rc'
->   clk: socfpga: clk-pll-a10: Remove set but unused variable 'rc'
->   clk: mvebu: ap-cpu-clk: Demote non-conformant kernel-doc header
->   clk: imx: clk-imx31: Remove unused static const table 'uart_clks'
->   clk: st: clkgen-pll: Demote unpopulated kernel-doc header
->   clk: st: clkgen-fsyn: Fix worthy struct documentation demote partially
->     filled one
->   clk: ti: clockdomain: Fix description for 'omap2_init_clk_clkdm's hw
->     param
->   clk: sunxi: clk-sunxi: Demote a bunch of non-conformant kernel-doc
->     headers
->   clk: ti: dpll: Fix misnaming of '_register_dpll()'s 'user' parameter
->   clk: ti: gate: Fix possible doc-rot in
->     'omap36xx_gate_clk_enable_with_hsdiv_restore'
->   clk: sunxi: clk-a10-ve: Demote obvious kernel-doc abuse
->   clk: sunxi: clk-mod0: Demote non-conformant kernel-doc header
->   clk: versatile: clk-icst: Fix worthy struct documentation block
->   clk: zynq: clkc: Remove various instances of an unused variable 'clk'
-> 
-> [...]
+> The mappings obey memlock limit. Besides, this feature should be enabled
+> explicitly at boot with the kernel parameter that says what is the maximal
+> memory size secretmem can consume.
 
-Applied, thanks!
+Why is such a model sufficient and future proof? I mean even when it has
+to be enabled by an admin it is still all or nothing approach. Mlock
+limit is not really useful because it is per mm rather than per user.
 
-[01/20] clk: rockchip: clk: Demote non-conformant kernel-doc headers
-        commit: 415173712003ad7e54de7198979d68a428440ed6
-[02/20] clk: rockchip: clk-cpu: Remove unused/undocumented struct members
-        commit: 274ae6da4b3275fea32f0807e6e20715695dd210
-[03/20] clk: rockchip: clk-pll: Demote kernel-doc abuses to standard comment blocks
-        commit: eee7b95589e61bd7250cada52ddd8039c63535ef
-[04/20] clk: rockchip: clk-half-divider: Demote non-conformant kernel-doc header
-        commit: d48fbef962b095f7cc22017642fb9055d57fdb53
+Is there any reason why this is allowed for non-privileged processes?
+Maybe this has been discussed in the past but is there any reason why
+this cannot be done by a special device which will allow to provide at
+least some permission policy?
 
-Best regards,
+Please make sure to describe all those details in the changelog.
 -- 
-Heiko Stuebner <heiko@sntech.de>
+Michal Hocko
+SUSE Labs
 
 _______________________________________________
 linux-riscv mailing list
