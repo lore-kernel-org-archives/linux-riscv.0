@@ -2,20 +2,19 @@ Return-Path: <SRS0=Tegm=G5=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-4.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CC8A6C433E0
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Jan 2021 09:20:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5D49DC433DB
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Jan 2021 09:20:57 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 71D8523109
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Jan 2021 09:20:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 71D8523109
-Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=suse.com
+	by mail.kernel.org (Postfix) with ESMTPS id F1AC423109
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Jan 2021 09:20:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F1AC423109
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
@@ -23,36 +22,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=UnopL9URkwih84krAFwX1pzWMKcBme5sYFjePD3DlJY=; b=mmCA/3pfpYIXltP3j9u7N+mb8
-	7rDA2NmC9N9j1AFE0YG/SydQzF9ZWhpUQyZH7huOusKABYrRtQi+OJyAormIEyTWEsECzYe8jGWVg
-	a9UIKM8Cb/EoXYKQ3yRGTY4j/hInb8bWTIlcU1zGlvwy/wdqWZb8GdpXIW+a63FPKa/QrPzMTOoUs
-	K6KeCGIm7fCqNzIVaZ1RTocm7f6XmT4xksLtoQCqskV8eiQeMe4HMieNXByFpsDM7npta0kV2tAVa
-	+sYDS/aBco/CdpqDH9/X5uH4u+z8qvB/vqu64eWRhkECtlyjxy+3xbz071OuI2jRpH6xsH789Lpsc
-	4WZExBcGg==;
+	 bh=et8lrKea0o5V/tEqW3czw/bi36t10gLrTK5Uit+725w=; b=rIoi7JKTE21Yb8wyJnC36l1QH
+	RELsj4qMbA9dCf7TnEjxy8q57jF5GUGW9qtEp7BF17e+SYI5PuuAja9q3fAvm0AqQbWT82JB4sPAH
+	WApmlO4ULQNOPN47OjuwuEutxwUFRLMZ4wrJ4Hm7lV2Y30Nv5TUd2/ODUdWRAFgz9oqVVt1LsLLyK
+	LNnQfIdPqTOyT9RdhWsCim6IYkxC4V/IVHL32V3Y9A3HQESwHo6IJWAM3cOl8cv4j6l8OvFtdPSxd
+	YN1fO4ui2+Gz/nPyWMdm1NqufBJyCF6wanGbyz7AdNEbF3ls8iSVirFEaw1viiLXDzGqNOiGDAEm/
+	+CWOl1vFA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l4KWc-0005U1-Nd; Tue, 26 Jan 2021 09:20:38 +0000
-Received: from mx2.suse.de ([195.135.220.15])
+	id 1l4KWh-0005VT-Cz; Tue, 26 Jan 2021 09:20:43 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l4KWR-0005Ov-IW; Tue, 26 Jan 2021 09:20:29 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
- t=1611652825; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=7Fkh8i4u2Ds7suNHQy8ffJkc7y8JY+c/ULxceSUkTds=;
- b=bqWhNQD/hZoyEpF0cNuKXozUxgro+R+IfdOU/BS2HiMG0+8sw32ccg9JoavrsQIkP6dpVh
- K1iIWCeUmEMm4VHXkiZqSBFZqfHjVghsxokwQGllYDgcYi1VKxKpTZai9iq1zdfPF7t7A3
- /qszOeSUVbFlKJZaNJgfQ/OCqYtH1GU=
-Received: from relay2.suse.de (unknown [195.135.221.27])
- by mx2.suse.de (Postfix) with ESMTP id C9DAAB291;
- Tue, 26 Jan 2021 09:20:24 +0000 (UTC)
-Date: Tue, 26 Jan 2021 10:20:23 +0100
-From: Michal Hocko <mhocko@suse.com>
-To: Mike Rapoport <rppt@kernel.org>
+ id 1l4KWT-0005QT-Pd; Tue, 26 Jan 2021 09:20:33 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id E799F23104;
+ Tue, 26 Jan 2021 09:20:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1611652828;
+ bh=bRC3SR9LJ18SWaWmVRerAdHAiKyQlnV1tKBjwhOnPS8=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=aMudgeWS8EFR4uZOodLooioJQHSO0U8pMo3JByI0WkzeCLds2rL8dDBKPdMIET6wU
+ NikHEJLu6mMPo3tSd4JLNAkh4YqDqIqAawEF4n7/5E0DpJcUj6JlJzfXjlARC2mrq+
+ CruSYC+Gj4FeoDXNsygqJGE7OxywyVzS/Nn8h+qL2ObhBOyIjfhuWkMbt9RXhvqlR9
+ sIvn3CEW/XJ7CY9dZPZIilb4D2ZP3U4aA+EJ7+3rtsmP4/R1ZB/lnI26RwNUiGucdL
+ kTLxonDh/eLTOLxPU2kPm5Hg1de9FuFM6fyMMsw0V869lvcbyEy9tpZfl7U/HLU3MC
+ 6HV9bZva2SpZg==
+Date: Tue, 26 Jan 2021 11:20:11 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Michal Hocko <mhocko@suse.com>
 Subject: Re: [PATCH v16 06/11] mm: introduce memfd_secret system call to
  create "secret" memory areas
-Message-ID: <20210126092023.GH827@dhcp22.suse.cz>
+Message-ID: <20210126092011.GP6332@kernel.org>
 References: <20210121122723.3446-1-rppt@kernel.org>
  <20210121122723.3446-7-rppt@kernel.org>
  <20210125170122.GU827@dhcp22.suse.cz>
@@ -64,8 +63,8 @@ MIME-Version: 1.0
 Content-Disposition: inline
 In-Reply-To: <20210126090013.GF827@dhcp22.suse.cz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210126_042027_924958_B9AC24A9 
-X-CRM114-Status: GOOD (  35.78  )
+X-CRM114-CacheID: sfid-20210126_042030_055927_9D3520C0 
+X-CRM114-Status: GOOD (  34.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -105,7 +104,7 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue 26-01-21 10:00:14, Michal Hocko wrote:
+On Tue, Jan 26, 2021 at 10:00:13AM +0100, Michal Hocko wrote:
 > On Tue 26-01-21 10:33:11, Mike Rapoport wrote:
 > > On Tue, Jan 26, 2021 at 08:16:14AM +0100, Michal Hocko wrote:
 > > > On Mon 25-01-21 23:36:18, Mike Rapoport wrote:
@@ -161,14 +160,21 @@ On Tue 26-01-21 10:00:14, Michal Hocko wrote:
 > Because appart from the reclaim aspect it fragments the direct mapping
 > IIUC. That might have an impact on all others, right?
 
-Also forgot to mention that you rely on a contiguous allocations and
-that can become a very scarce resource so what does prevent one abuser
-from using it all and deny the access to others. And unless I am missing
-something allocation failure would lead to OOM which cannot really help
-because the oom killer cannot compensate for the CMA reservation.
+It does fragment the direct map, but first it only splits 1G pages to 2M
+pages and as was discussed several times already it's not that clear which
+page size in the direct map is the best and this is very much workload
+dependent.
+
+These are the results of the benchmarks I've run with the default direct
+mapping covered with 1G pages, with disabled 1G pages using "nogbpages" in
+the kernel command line and with the entire direct map forced to use 4K
+pages using a simple patch to arch/x86/mm/init.c.
+
+https://docs.google.com/spreadsheets/d/1tdD-cu8e93vnfGsTFxZ5YdaEfs2E1GELlvWNOGkJV2U/edit?usp=sharing
+
 -- 
-Michal Hocko
-SUSE Labs
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
