@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 73E17C4332D
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Jan 2021 14:58:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 89989C433E0
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Jan 2021 15:07:55 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 16FBF64DEC
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Jan 2021 14:58:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 16FBF64DEC
+	by mail.kernel.org (Postfix) with ESMTPS id 31C3064DFB
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Jan 2021 15:07:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 31C3064DFB
 Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,65 +23,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=DGeSSjRRJcGw6gVDOjYl0adQ7Ha9cnG81nztuipsw8w=; b=mZio30SbR2lHD3nN6rtKeecga
-	PNvDTThV1N7avZmZs+olZsnyrTB+3AoN3xC4OY0rorI/ONqY+2LXja/7+zozKuzbHu8CZXjd5RLy0
-	nQ7sAvqY1sTu8WiB0TSWqWsez/oZUnzHzN/oIZcvgDJ4vpakmhsRdFHe+2nbb+u7kTGew3ypjqsvX
-	0Z/5EV2dw0tOAd9y/+xiRWMsyJcrS1rWw9MYCVaEdZmqMpFZXHj9y1UaaHFc+pNEbHVLtOp5SDKSQ
-	ebEOIooiwOui6z63P3iyxtCDfm4YN4RiXqJWfcOT5zyPNz6sEfH8bwDM5nKBzvFPWEncO6IG1pLFu
-	m1K09/CPg==;
+	 bh=w6K0Pb7WyWMJtQQzjvy6ddXjBUj+725YK5Xx5SU3cc0=; b=uu0uiGmrPsXyODkcTNz2QngeS
+	gxNpOunj8oJZb0qkXZ2Su4e7GRnvQTXJTQvX1EOlRYxwftQCrGDJseDJme5ahfKjnG/Bf4xpXWgQe
+	Vm2jqbYmaGoadFYM7UE405G7zadH4YO/Jftg4cvObuffQQFnHlxqnVlspwd/RVuwkhWyMCTe/BEws
+	NmDhjBZS8RFWc8yUXmLkzuFjGs62Th2TNu6trhKT2lWWXDyBNv4IEk1z5arrGdVamtfogvVyOQPnY
+	MU2NfweZRo+M6jFIT9gdVMtDs0+FF1gO7Pb1FiV4o2Yv810Ki2ppm7ZfKGvCN5QNtbhk5en4epxXP
+	2tYNc2yiA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l58k5-0001g8-Bp; Thu, 28 Jan 2021 14:57:53 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	id 1l58tc-0002vP-PE; Thu, 28 Jan 2021 15:07:44 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l58k0-0001dt-0Z
- for linux-riscv@lists.infradead.org; Thu, 28 Jan 2021 14:57:49 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id m22so7967762lfg.5
- for <linux-riscv@lists.infradead.org>; Thu, 28 Jan 2021 06:57:44 -0800 (PST)
+ id 1l58tX-0002sg-DU
+ for linux-riscv@lists.infradead.org; Thu, 28 Jan 2021 15:07:42 +0000
+Received: by mail-lf1-x133.google.com with SMTP id f1so8034642lfu.3
+ for <linux-riscv@lists.infradead.org>; Thu, 28 Jan 2021 07:07:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=6JeWN8a5WUkyxnK36YoF5ECUYQ0YQQyZ8/Qna1NsShQ=;
- b=As0f3ZjdzvdCwifWZLl1QKfjKa8UOgbj+P2sZklA3JeJHRBFMWu0H5wiflr7/g1HdC
- 3EjIecN6Px4mzk2ZBILkQfelKQTbnGwSzIocfdSMYIkirHo9CBbLzSIMXutUiAf6vvRc
- O/x3qpP8hsiEOTbNWqSjQJEQy2deXqGIeKK1Eiy110fgfCnqxwFB41oeOrAJr2xWvT1q
- RtaTVjDEtI0m7Z5lSQoJRTOt4f3/Vop3rVyNg7HaTwp/ta+UInes3JfxoRBzhApQcJVC
- zRX0Gbp2enO00BN0CoZKSrEiJpykCEajRuhij0lcxoYUBrveBZExa8KzS9ylf7cYTei3
- czvA==
+ :cc; bh=gx1FZQ1uHuDZkl2l0QuCyhlDjtM4hAvEVSjKq4XHXek=;
+ b=rNDrJmirIdtuQRNEjYCJqIahTLFcoP8DR9oYw737/DvxJ19UDGdrbCsIGle2umy0jD
+ NXWAsRT1flRccegDPvkf55kCw2DNk8SqDIL58JVr3fvRjKunbCHaj8KABu2swU23b+Tn
+ x+NU2ZIn6ek86dpsaDWMjLSj4H8o+tTQ3yC4aFlrBvOa8XcqzmKF2TQDerrN2R5pYJu+
+ fAMFlALz41f7QuqjuFdkX9Gq9MHturSOMu64f3KjxUu+KSfCnR6HUHqw812RnfVk6aYa
+ yoVqSkXCV6LgmIAb66X006PCDW1Z8Wnv3RYQ7I2XqpROsvJE5rsKOwyxmgJqOxI69qOR
+ rdKQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=6JeWN8a5WUkyxnK36YoF5ECUYQ0YQQyZ8/Qna1NsShQ=;
- b=JdF9O7NWGZIvlGfpV38v72wSFophZ8evwsosgKouKxMnxIVPKQQXjzgwllxni+Fw9M
- 28XblxkK2Ty3UHPz5GTBbgyMqBdy800FkkmPyMwPoO+EsDv01ZRa/h1rDFhjLIrpvFpq
- hRQ9RckbYTzGzu8fFjckti1hpsfE7yIGI+aQafkPNNqjo2bgODjAFQkDvMT91cMCKq8Z
- MHaITUtT6EL8iu2I80XrRLRNd2gtsbWjTq20hUU7A9DW/T1KnG0RpMWsFKvP3Uam+SxW
- 0Td5c44WscH2lRnjT78u7+6PgV4vx2zPK9Lzu1mks98eN/FXHETf8GCF7UBm2yuZL6OI
- qbjw==
-X-Gm-Message-State: AOAM5334K9+K2GrOgQSJbTQpa4AnGZwFeMLdNYJ+QbKk3tze0AfzK7hq
- 1Qb+jw9zO7mCEATIYP0oQytjGmwO1EXthydO1SosIQ==
-X-Google-Smtp-Source: ABdhPJwnMPNGU3TqSk70s7k7l99wJrsKfvMYfSXuKIgpScpKrS2rUc1hXzqqY/mlKLeMfqPqurVK8/4c/RV2TUlC8OE=
-X-Received: by 2002:ac2:4c26:: with SMTP id u6mr7622497lfq.347.1611845862683; 
- Thu, 28 Jan 2021 06:57:42 -0800 (PST)
+ bh=gx1FZQ1uHuDZkl2l0QuCyhlDjtM4hAvEVSjKq4XHXek=;
+ b=hvy5l46j0S6fUiRf2Fmwrk3m26X4wCEf7bnONm4B5ARxVPbFClJjuy84vPq9vHKXnE
+ ONCEymlIToOYJA7YjtO1f/1RmHHZSz0Cu5orfehHTDE2gb46cvygcWtOo/hRg3tp5wYe
+ DX+Rsbhl+DWzgg8DBInZ0GU9ctenFNlmzDgTeEO3A0uWJ0TyODfNNh0xTShD1d5cexA1
+ x3F75OLDgUN8XrAp6HoWVfarqeKDhA29fz+40XvXHR26OrGK6Zhl5LlIFijm4nZCj3kI
+ DPbovp4Vu16x62ZiEMiPYtlF4iULLfHFnILpQWeUbuRMRV9bhHJSA9DNNJgomMajD0Wi
+ nO/Q==
+X-Gm-Message-State: AOAM532ZB8IzUEEDad8TksRpk504NfYdpR2q7pno7pa5oPoeyH/cNXxz
+ nRjSXnxnoh9boc0jllJ1VbffibzfehXKNhgmxxYQSQ==
+X-Google-Smtp-Source: ABdhPJxzwr8HMJ6apJZ3CZOR5fR8XzuCeUvw1xC4eQd5oEBUK4Q1RF1OXJXRQ9M4PBPC4V1mLDTLd34b3MmjmhPEFbo=
+X-Received: by 2002:ac2:5a41:: with SMTP id r1mr7813210lfn.117.1611846457199; 
+ Thu, 28 Jan 2021 07:07:37 -0800 (PST)
 MIME-Version: 1.0
 References: <20210121122723.3446-1-rppt@kernel.org>
  <20210121122723.3446-9-rppt@kernel.org>
- <20210125165451.GT827@dhcp22.suse.cz> <20210125213817.GM6332@kernel.org>
- <20210126144838.GL308988@casper.infradead.org>
- <20210126150555.GU827@dhcp22.suse.cz>
- <20210127184213.GA919963@carbon.dhcp.thefacebook.com>
- <YBJuwqItjCemDN5L@dhcp22.suse.cz>
- <CALvZod7YjXvaYoZ7HXq2sDkwvpjpLBA-jhrzxa48jEuBt6zLNQ@mail.gmail.com>
- <YBLInhns9ysc4wNF@dhcp22.suse.cz>
-In-Reply-To: <YBLInhns9ysc4wNF@dhcp22.suse.cz>
+ <20210125161706.GE308988@casper.infradead.org>
+ <CALvZod7rn_5oXT6Z+iRCeMX_iMRO9G_8FnwSRGpJJwyBz5Wpnw@mail.gmail.com>
+ <20210125213526.GK6332@kernel.org>
+In-Reply-To: <20210125213526.GK6332@kernel.org>
 From: Shakeel Butt <shakeelb@google.com>
-Date: Thu, 28 Jan 2021 06:57:31 -0800
-Message-ID: <CALvZod4G3ipt84pQVHYT921hmXQTswivcrU0iqpTof4tO91GxA@mail.gmail.com>
+Date: Thu, 28 Jan 2021 07:07:26 -0800
+Message-ID: <CALvZod4__691+OBMcQMfszJzd0g3OTz95gK2vHoL+c5gw+h++Q@mail.gmail.com>
 Subject: Re: [PATCH v16 08/11] secretmem: add memcg accounting
-To: Michal Hocko <mhocko@suse.com>
+To: Mike Rapoport <rppt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210128_095748_178829_B0A2CC63 
-X-CRM114-Status: GOOD (  43.97  )
+X-CRM114-CacheID: sfid-20210128_100739_523345_150E4B61 
+X-CRM114-Status: GOOD (  22.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -115,112 +111,49 @@ Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
  linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
  linux-fsdevel <linux-fsdevel@vger.kernel.org>,
  Andrew Morton <akpm@linux-foundation.org>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>,
- Mike Rapoport <rppt@kernel.org>
+ Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 28, 2021 at 6:22 AM Michal Hocko <mhocko@suse.com> wrote:
+On Mon, Jan 25, 2021 at 1:35 PM Mike Rapoport <rppt@kernel.org> wrote:
 >
-> On Thu 28-01-21 06:05:11, Shakeel Butt wrote:
-> > On Wed, Jan 27, 2021 at 11:59 PM Michal Hocko <mhocko@suse.com> wrote:
+> On Mon, Jan 25, 2021 at 09:18:04AM -0800, Shakeel Butt wrote:
+> > On Mon, Jan 25, 2021 at 8:20 AM Matthew Wilcox <willy@infradead.org> wrote:
 > > >
-> > > On Wed 27-01-21 10:42:13, Roman Gushchin wrote:
-> > > > On Tue, Jan 26, 2021 at 04:05:55PM +0100, Michal Hocko wrote:
-> > > > > On Tue 26-01-21 14:48:38, Matthew Wilcox wrote:
-> > > > > > On Mon, Jan 25, 2021 at 11:38:17PM +0200, Mike Rapoport wrote:
-> > > > > > > I cannot use __GFP_ACCOUNT because cma_alloc() does not use gfp.
-> > > > > > > Besides, kmem accounting with __GFP_ACCOUNT does not seem
-> > > > > > > to update stats and there was an explicit request for statistics:
-> > > > > > >
-> > > > > > > https://lore.kernel.org/lkml/CALo0P13aq3GsONnZrksZNU9RtfhMsZXGWhK1n=xYJWQizCd4Zw@mail.gmail.com/
-> > > > > > >
-> > > > > > > As for (ab)using NR_SLAB_UNRECLAIMABLE_B, as it was already discussed here:
-> > > > > > >
-> > > > > > > https://lore.kernel.org/lkml/20201129172625.GD557259@kernel.org/
-> > > > > > >
-> > > > > > > I think that a dedicated stats counter would be too much at the moment and
-> > > > > > > NR_SLAB_UNRECLAIMABLE_B is the only explicit stat for unreclaimable memory.
-> > > > > >
-> > > > > > That's not true -- Mlocked is also unreclaimable.  And doesn't this
-> > > > > > feel more like mlocked memory than unreclaimable slab?  It's also
-> > > > > > Unevictable, so could be counted there instead.
-> > > > >
-> > > > > yes, that is indeed true, except the unreclaimable counter is tracking
-> > > > > the unevictable LRUs. These pages are not on any LRU and that can cause
-> > > > > some confusion. Maybe they shouldn't be so special and they should live
-> > > > > on unevistable LRU and get their stats automagically.
-> > > > >
-> > > > > I definitely do agree that this would be a better fit than NR_SLAB
-> > > > > abuse. But considering that this is somehow even more special than mlock
-> > > > > then a dedicated counter sounds as even better fit.
+> > > On Thu, Jan 21, 2021 at 02:27:20PM +0200, Mike Rapoport wrote:
+> > > > From: Mike Rapoport <rppt@linux.ibm.com>
 > > > >
-> > > > I think it depends on how large these areas will be in practice.
-> > > > If they will be measured in single or double digits MBs, a separate entry
-> > > > is hardly a good choice: because of the batching the displayed value
-> > > > will be in the noise range, plus every new vmstat item adds to the
-> > > > struct mem_cgroup size.
-> > > >
-> > > > If it will be measured in GBs, of course, a separate counter is preferred.
-> > > > So I'd suggest to go with NR_SLAB (which should have been named NR_KMEM)
-> > > > as now and conditionally switch to a separate counter later.
-> > >
-> > > I really do not think the overall usage matters when it comes to abusing
-> > > other counters. Changing this in future will be always tricky and there
-> > > always be our favorite "Can this break userspace" question. Yes we dared
-> > > to change meaning of some counters but this is not generally possible.
-> > > Just have a look how accounting shmem as a page cache has turned out
-> > > being much more tricky than many like.
-> > >
-> > > Really if a separate counter is a big deal, for which I do not see any
-> > > big reason, then this should be accounted as unevictable (as suggested
-> > > by Matthew) and ideally pages of those mappings should be sitting in the
-> > > unevictable LRU as well unless there is a strong reason against.
+> > > > Account memory consumed by secretmem to memcg. The accounting is updated
+> > > > when the memory is actually allocated and freed.
+>
+> I though about doing per-page accounting, but then one would be able to
+> create a lot of secretmem file descriptors, use only a page from each while
+> actual memory consumption will be way higher.
+>
+> > > I think this is wrong.  It fails to account subsequent allocators from
+> > > the same PMD.  If you want to track like this, you need separate pools
+> > > per memcg.
 > > >
 > >
-> > Why not decide based on the movability of these pages? If movable then
-> > unevictable LRU seems like the right way otherwise NR_SLAB.
+> > Are these secretmem pools shared between different jobs/memcgs?
 >
-> I really do not follow. If the page is unevictable then why movability
-> matters?
+> A secretmem pool is per anonymous file descriptor and this file descriptor
+> can be shared only explicitly between several processes. So, the secretmem
+> pool should not be shared between different jobs/memcg. Of course, it's
+> possible to spread threads of a process across different memcgs, but in
+> that case the accounting will be similar to what's happening today with
+> sl*b.
 
-My point was if these pages are very much similar to our existing
-definition of unevictable LRU pages then it makes more sense to
-account for these pages into unevictable stat.
+I don't think memcg accounting for sl*b works like that.
 
-> I also fail to see why NR_SLAB is even considered considering
-> this is completely outside of slab proper.
->
-> Really what is the point? What are we trying to achieve by stats? Do we
-> want to know how much secret memory is used because that is an
-> interesting/important information or do we just want to make some
-> accounting?
->
-> Just think at it from a practical point of view. I want to know how much
-> slab memory is used because it can give me an idea whether kernel is
-> consuming unexpected amount of memory. Now I have to subtract _some_
-> number to get that information. Where do I get that some number?
->
-> We have been creative with counters and it tends to kick back much more
-> often than it helps.
->
-> I really do not want this to turn into an endless bike shed but either
-> this should be accounted as a general type of memory (unevictable would
-> be a good fit because that is a userspace memory which is not
-> reclaimable) or it needs its own counter to tell how much of this
-> specific type of memory is used for this purpose.
->
+> The first thread to cause kmalloc() will be charged for the
+> allocation of the entire slab and subsequent allocations from that slab
+> will not be accounted.
 
-I suggested having a separate counter in the previous version but got
-shot down based on the not-yet-clear benefit of a separate stat for
-it.
-
-There is also an option to not add new or use existing stat at this
-moment. As there will be more clear use-cases and usage of secretmem,
-adding a new stat at that time would be much simpler than changing the
-definition of existing stats.
+The latest kernel does object level memcg accounting. So, each
+allocation from these threads will correctly charge their own memcgs.
 
 _______________________________________________
 linux-riscv mailing list
