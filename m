@@ -7,68 +7,76 @@ X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 788E0C433E0
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Jan 2021 16:24:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 887BDC433E0
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Jan 2021 17:28:12 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1886D64DED
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Jan 2021 16:24:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1886D64DED
-Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=suse.com
+	by mail.kernel.org (Postfix) with ESMTPS id 2CCA361481
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Jan 2021 17:28:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2CCA361481
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=pc/JZ+m+6y+xh7U2+6yT0rroTcG9vJBFPnIK2MggISU=; b=b8jtD7MpwY0Vt5X0X44rWg6qJ
-	TabOdzmqc8kki1sMWCsqTpZt1Xitm0gbUzjl8elrgBOsnaaN4m4G7vJbdPbJbrnJIT3UPF72THAZu
-	wR5JQuJ0sle8Oed5BWsIhwqx5ydOJK9BNmqbHUMM0RdJJP+/bUbtHYDsvZhFcWyQVbLowhcAwKaIF
-	aOrMQe9HJgPbJs0bjraHptfEFdMfq//RpP8YrseKb/IpdsT6CUg+pTtpVTQwjx5FcDY15zWCwSzmk
-	UhAL/qoh3xcV3oqogCCzA5DAYEVbTOvnR1PP7J1qx7R3lm2DFSmFpxdN2sOjtGvEonz85XNqmqUTb
-	CFSY9vcMA==;
+	 bh=1ebXC1c+UsDuImE7zqYfwynTC4KmIEUXyyGVMKUwNoY=; b=ePV5Sgwp8rmUWDXcJW74plaC6
+	z+pHDWDpU6l87yAhVoCSbPFbsP555beCM2jWJ/9MJAI1jjgzajOiPrIfHAXLofMBJ4lxfcUYobYe/
+	0q9mTvgkSNlNx1a/VrIpuSDD2pyTMuo55rgMm12q707BfqZ3JCB0ZFpf5vNTSzM6H2aos7Jx/lBMU
+	gWVDIgc4QLlVejduj89e8duHdpEAcCl8OJtfd9j6H+lX+aGwBlcVGV10TW/We2g7ZN9H0dS6OasLY
+	u93y1rWnS1BJKOHMwlclQ4LfE7Ayve+5KjVsyzXAjALQCL2/KEYYqamIfB6KoQqY3dOqT5MY3fnYM
+	badimA7TQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l5A5X-0004Wh-JP; Thu, 28 Jan 2021 16:24:07 +0000
-Received: from mx2.suse.de ([195.135.220.15])
+	id 1l5B5K-0004L7-Pw; Thu, 28 Jan 2021 17:27:58 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l5A5R-0004U1-Ga; Thu, 28 Jan 2021 16:24:02 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
- t=1611851039; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=WWmcYeElb62qutT0Kcoo6xDCdrj66eelF83EHgFDfB4=;
- b=ZJlUD8pQK2nIX/Cnj1UyvowYIjPxyyZKq5kI8NYKzxJt5tEqE9314CXd37wDkUTpPEa6Vf
- YEZQtVEmaZg8j88rldXEzhTt3tU4zmyFht8LR4yeM3dwIAsKI4509bn1BlnRgtEZNO+G8l
- DXrH4A5dU/j38+v0Vo5e/8cwta9YIu0=
-Received: from relay2.suse.de (unknown [195.135.221.27])
- by mx2.suse.de (Postfix) with ESMTP id A6C7DAC41;
- Thu, 28 Jan 2021 16:23:59 +0000 (UTC)
-Date: Thu, 28 Jan 2021 17:23:58 +0100
-From: Michal Hocko <mhocko@suse.com>
-To: Christoph Lameter <cl@linux.com>
-Subject: Re: [PATCH v16 07/11] secretmem: use PMD-size pages to amortize
- direct map fragmentation
-Message-ID: <YBLlHpJj0sjzrxFv@dhcp22.suse.cz>
-References: <20210121122723.3446-1-rppt@kernel.org>
- <20210121122723.3446-8-rppt@kernel.org>
- <20210126114657.GL827@dhcp22.suse.cz>
- <303f348d-e494-e386-d1f5-14505b5da254@redhat.com>
- <20210126120823.GM827@dhcp22.suse.cz>
- <20210128092259.GB242749@kernel.org>
- <YBK1kqL7JA7NePBQ@dhcp22.suse.cz>
- <alpine.DEB.2.22.394.2101281326360.10563@www.lameter.com>
- <YBLA7sEKn01HXd/U@dhcp22.suse.cz>
- <alpine.DEB.2.22.394.2101281549390.11861@www.lameter.com>
+ id 1l5B5G-0004Jb-Lx
+ for linux-riscv@lists.infradead.org; Thu, 28 Jan 2021 17:27:56 +0000
+Received: by mail-ej1-x629.google.com with SMTP id by1so9014891ejc.0
+ for <linux-riscv@lists.infradead.org>; Thu, 28 Jan 2021 09:27:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=QosST7j4l1ljXzY+3djf7Hi017sCNw0ib1djAQPlF10=;
+ b=VHpnpcTumkVPV+DBvq46kW6shUt0mJwFGO5HVq5K/D0NuagbejoWu9ns95BEX8A9ns
+ C3aLrfbwEBwwtpS1H8Xdtf7dJkiOjNm2MosdVyMYtML8fYXkPLFmASO3XkGbVJnWkG8X
+ fcUK5Mx7nQIbZ8bouvbdOK5/PQRo0jj5re59EffIlnjIFi3KWZy5JwfRnSOloroN6Y3I
+ 71jI6HMp2OX6zYxO9479BOUxCwZQ3PXk3xVnALXww7rua3XG1O6KerGTXVmZSQdYumWh
+ WuDzgizKb7lynLEEv4J9NWfNvC25Bdk1p6QGL1ul2K0TkFtysL4jkqUq38fYmPuC19DO
+ zYbw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=QosST7j4l1ljXzY+3djf7Hi017sCNw0ib1djAQPlF10=;
+ b=pMz5jw9xvrV0+ARe67EbtKHbQlkPxQxVyrhGSrPByMGdlWV7Rdmd07+QAo4T+BdWYT
+ Sg2+F6uMNj7RoONz0M6WKG6UjcLZAqf7suvuRSqa7n+7uryW1bXjh13HMCSa8TlwrDk/
+ 9EfMac3OZNtK03986whBFuYz2Z4uBbinVj2x0YPzOMnNdPqceYnXV4yjWbVCMZPblIfm
+ 4efLz5ymDl5r3uVICsmjE50tvLOU0vj9s0nugnXQkndCSmYmKeLbbdaAQMLCpqVhoTgk
+ dDao0m7UI9aW/XseCHUKFw4erl6/Oo70VO3pgA8Jt9fJDckrA7e1BnI91Hk7h/pVn9J8
+ bLYA==
+X-Gm-Message-State: AOAM533t4V80os7N9BN4w1qrGkIAcif78kSTmGMfK+6SxmeG/kyvJt/J
+ PKeaWMZif1TfRP1Y6Khb/ZS6yda/8W11sRI1wQ4jCw==
+X-Google-Smtp-Source: ABdhPJwI1ecVhIjuGu8sBmhkXt4myAABJcYO8AXi0IUBZfW1pptS1v5hWwtNcgxFFUl4Oc54eochR40aoUKuHqzEszg=
+X-Received: by 2002:a17:906:4c85:: with SMTP id
+ q5mr418962eju.375.1611854873287; 
+ Thu, 28 Jan 2021 09:27:53 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <alpine.DEB.2.22.394.2101281549390.11861@www.lameter.com>
+References: <CA+G9fYta_uOLktmMnZHUTK9Uqx-rjtmQSSvHFCsvQsVdZDdm8A@mail.gmail.com>
+ <CAMuHMdUzCFuuUcgMwh+numoCnr_p0tfTucybytymUceyPV0TBQ@mail.gmail.com>
+In-Reply-To: <CAMuHMdUzCFuuUcgMwh+numoCnr_p0tfTucybytymUceyPV0TBQ@mail.gmail.com>
+From: Naresh Kamboju <naresh.kamboju@linaro.org>
+Date: Thu, 28 Jan 2021 22:57:41 +0530
+Message-ID: <CA+G9fYupjtPhynZSRG36vr_n8Vsjp9u_wWdf7bAzEwnBikhy2w@mail.gmail.com>
+Subject: Re: [next] mm/nommu.c:1671:6: error: conflicting types for
+ 'filemap_map_pages'
+To: Geert Uytterhoeven <geert@linux-m68k.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210128_112401_829040_1E994066 
-X-CRM114-Status: GOOD (  24.23  )
+X-CRM114-CacheID: sfid-20210128_122755_048323_B4EBDE4F 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -80,69 +88,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
- Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
- linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- linux-riscv@lists.infradead.org, Shuah Khan <shuah@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>,
- Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
- Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
- Will Deacon <will@kernel.org>, x86@kernel.org,
- Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
- Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>, Arnd Bergmann <arnd@arndb.de>,
- James Bottomley <jejb@linux.ibm.com>, Hagen Paul Pfeifer <hagen@jauu.net>,
- Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
- linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
- Palmer Dabbelt <palmer@dabbelt.com>, linux-fsdevel@vger.kernel.org,
- Shakeel Butt <shakeelb@google.com>, Andrew Morton <akpm@linux-foundation.org>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>,
- Mike Rapoport <rppt@kernel.org>
+Cc: Stephen Rothwell <sfr@canb.auug.org.au>, Arnd Bergmann <arnd@arndb.de>,
+ Linux-sh list <linux-sh@vger.kernel.org>,
+ open list <linux-kernel@vger.kernel.org>, lkft-triage@lists.linaro.org,
+ linux-mm <linux-mm@kvack.org>,
+ Linux-Next Mailing List <linux-next@vger.kernel.org>,
+ "Kirill A . Shutemov" <kirill.shutemov@linux.intel.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>, Will Deacon <will@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu 28-01-21 15:56:36, Cristopher Lameter wrote:
-> On Thu, 28 Jan 2021, Michal Hocko wrote:
-> 
-> > > > If you kill the allocating process then yes, it would work, but your
-> > > > process might be the very last to be selected.
-> > >
-> > > OOMs are different if you have a "constrained allocation". In that case it
-> > > is the fault of the process who wanted memory with certain conditions.
-> > > That memory is not available. General memory is available though. In that
-> > > case the allocating process is killed.
+Hi Geert,
+
+On Thu, 28 Jan 2021 at 20:56, Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+>
+> Hi Naresh,
+>
+> On Thu, Jan 28, 2021 at 3:25 PM Naresh Kamboju
+> <naresh.kamboju@linaro.org> wrote:
+> > arm, sh and riscv architecture build failed on today's Linux next tag 20210128.
 > >
-> > I do not see this implementation would do anything like that. Neither
-> > anything like that implemented in the oom killer. Constrained
-> > allocations (cpusets/memcg/mempolicy) only do restrict their selection
-> > to processes which belong to the same domain. So I am not really sure
-> > what you are referring to. The is only a global knob to _always_ kill
-> > the allocating process on OOM.
-> 
-> Constrained allocations refer to allocations where the NUMA nodes are
-> restricted or something else does not allow the use of arbitrary memory.
-> The OOM killer changes its behavior.
+> > FYI,
+> > # CONFIG_MMU is not set on these failed configs.
+> > config file attached to this email.
+> >
+> > make --silent --keep-going --jobs=8 O=/home/tux  -
+> > build/.cache/tuxmake/builds/1/tmp ARCH=arm
+> > CROSS_COMPILE=arm-linux-gnueabihf- 'CC=sccache
+> > arm-linux-gnueabihf-gcc' 'HOSTCC=sccache gcc'
+> > mm/nommu.c:1671:6: error: conflicting types for 'filemap_map_pages'
+> >  1671 | void filemap_map_pages(struct vm_fault *vmf,
+> >       |      ^~~~~~~~~~~~~~~~~
+> > In file included from mm/nommu.c:20:
+> > include/linux/mm.h:2578:19: note: previous declaration of
+> > 'filemap_map_pages' was here
+> >  2578 | extern vm_fault_t filemap_map_pages(struct vm_fault *vmf,
+> >       |                   ^~~~~~~~~~~~~~~~~
+>
+> Care to give "[PATCH -next] mm/nommu: Fix return type of
+> filemap_map_pages()" a try?
+> https://lore.kernel.org/lkml/20210128100626.2257638-1-geert@linux-m68k.org/
+>
 
-Yes as described in the above paragraph.
+Thanks for your patch.
+The reported build issues got fixed now.
 
-> In the past we fell back to killing the calling process.
-
-Yeah, but this is no longer the case since 6f48d0ebd907a (more than 10
-years ago.
-
-Anyway this is not really important because if you want to kill the
-allocating task because there is no chance the fault can succed then
-there is a SIGBUS as already mentioned.
--- 
-Michal Hocko
-SUSE Labs
+- Naresh
 
 _______________________________________________
 linux-riscv mailing list
