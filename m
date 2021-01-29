@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-4.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CD8EDC433E0
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Jan 2021 08:23:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7BD0AC433E0
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Jan 2021 08:51:50 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 66BEF64DEC
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Jan 2021 08:23:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 66BEF64DEC
+	by mail.kernel.org (Postfix) with ESMTPS id 1A08D64E13
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Jan 2021 08:51:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1A08D64E13
 Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=suse.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,36 +23,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=gEQn2k0+nw6U3CTbIo6k/B8/zjsxVH2Xpe/BJ8+eVG0=; b=cQxDxU5paXP5JPirP+Y3l/R9u
-	9zJv6J48YBagWeQLmuAHgXn7djgwDAjPqoVMM1sgUWjT/ImMsrHkAtykKyEb2rK9t7ZQepmpAjYQF
-	Tc4fdfZNsGj+8iB3wCilAM/U/Ypew9tdk7/Cq/K1kcP/nLrBer+HYAV6qell3yFax9sYqpUp7Zf9n
-	1mh1c3BDW4n25QY0Kk57quOIhP+jONfMaxBTITmw6TDE/vKDh8EEEaYlRTV/WXjcwwBNUROtFw46l
-	Se5Hr729aTw4daF8xC+hUFUXghkgPhxVYvLYXt3rCP+tsjdpuJT83l1G/5Z1nkS5+5BA1RlFRDa6C
-	7mAmu73WQ==;
+	 bh=VVloBDQTlINlCbIM6eXUQuxPxL4ap70FmzMLIMcqSFY=; b=ySpgxhBxCz5BMfMGFXTh5G3n3
+	EPgWfd6H9IOcRSwa5uuYVbvq9aTj7WlMmqfsk0rR0otCvhIcyAe/rkJZsSVhxR6Utnzxj8ocH0/Yw
+	nkaPXidoxB1BYHQWR3A9tsT3Ad1Z1nq43MoInbkzTnKtYF4wngz3St5VFu26obozBlKm7I5lU5lXw
+	+KMUpyFZowtaRyQrS+LD1bmwNgQ6Rz/9OtflhDFPWmwkw4cOPCNYfThtNTn1U3SFqnCR+wNUR0QYJ
+	8XGC07QkyObm7MaZYQjbztDp7VxZDwDNFMtnN7sS+FNoWGVb7S5PmgIwO6fS3cXHadDE5NkEyP4qh
+	lU6CP3jhg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l5P3x-00043l-Th; Fri, 29 Jan 2021 08:23:29 +0000
+	id 1l5PVD-0008N7-FD; Fri, 29 Jan 2021 08:51:39 +0000
 Received: from mx2.suse.de ([195.135.220.15])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l5P3j-0003yo-8T; Fri, 29 Jan 2021 08:23:19 +0000
+ id 1l5PUs-0008Er-F6; Fri, 29 Jan 2021 08:51:21 +0000
 X-Virus-Scanned: by amavisd-new at test-mx.suse.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
- t=1611908593; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+ t=1611910277; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
  mime-version:mime-version:content-type:content-type:
  in-reply-to:in-reply-to:references:references;
- bh=s/Q67vMMYuPsjuSK9sLzU1LCeFaWe4xF/l4UFNZMONQ=;
- b=AVLJQflv/+SYkSv4ERXyiT7/jY3GzNjJm97jAboIN3LMwVBbN2x7H/KCFiEihomOMdrfsH
- gcyRhiH9LkuycXyRf5uQ6UzJ7Ci67vQ0hTzLhrvCsqWvWU3wqQc1iBhmw76ZvSCZGUhLvj
- 8w0LFU8kORoRU9LyGyyHc/SD3SCCYBo=
+ bh=oz5cMvs61w9nxAoe4HzR3mysk0/Hr5mRI47kmCm2DS0=;
+ b=JlAN3/6ogutWOafvXtaRPUY2CcqVH8YluGJuxVw3j5M8pdVfxjPuXWqJ1TpSUCsjvBL8Jh
+ hawPaBwcHUKIexzg5OBrQB9L0nFn7he5WG1sTy30AdaWWlyFyJAU8bOKTbKEvAVjrh2dU9
+ LZzhuvObvkNyN52W4YE1B2PWXA7ohhg=
 Received: from relay2.suse.de (unknown [195.135.221.27])
- by mx2.suse.de (Postfix) with ESMTP id 8D1A8AFEC;
- Fri, 29 Jan 2021 08:23:13 +0000 (UTC)
-Date: Fri, 29 Jan 2021 09:23:12 +0100
+ by mx2.suse.de (Postfix) with ESMTP id C1ABBACB0;
+ Fri, 29 Jan 2021 08:51:16 +0000 (UTC)
+Date: Fri, 29 Jan 2021 09:51:15 +0100
 From: Michal Hocko <mhocko@suse.com>
-To: James Bottomley <jejb@linux.ibm.com>
+To: Mike Rapoport <rppt@kernel.org>
 Subject: Re: [PATCH v16 07/11] secretmem: use PMD-size pages to amortize
  direct map fragmentation
-Message-ID: <YBPF8ETGBHUzxaZR@dhcp22.suse.cz>
+Message-ID: <YBPMg/C5Sb78gFEB@dhcp22.suse.cz>
 References: <20210121122723.3446-1-rppt@kernel.org>
  <20210121122723.3446-8-rppt@kernel.org>
  <20210126114657.GL827@dhcp22.suse.cz>
@@ -60,13 +60,13 @@ References: <20210121122723.3446-1-rppt@kernel.org>
  <20210126120823.GM827@dhcp22.suse.cz>
  <20210128092259.GB242749@kernel.org>
  <YBK1kqL7JA7NePBQ@dhcp22.suse.cz>
- <73738cda43236b5ac2714e228af362b67a712f5d.camel@linux.ibm.com>
+ <20210129072128.GD242749@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <73738cda43236b5ac2714e228af362b67a712f5d.camel@linux.ibm.com>
+In-Reply-To: <20210129072128.GD242749@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210129_032315_597756_C02FA41C 
-X-CRM114-Status: GOOD (  16.46  )
+X-CRM114-CacheID: sfid-20210129_035118_836103_B214B78D 
+X-CRM114-Status: GOOD (  34.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -91,47 +91,123 @@ Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
  Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
  Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
  Palmer Dabbelt <palmerdabbelt@google.com>, Arnd Bergmann <arnd@arndb.de>,
- Hagen Paul Pfeifer <hagen@jauu.net>, Borislav Petkov <bp@alien8.de>,
- Alexander Viro <viro@zeniv.linux.org.uk>, Andy Lutomirski <luto@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
+ James Bottomley <jejb@linux.ibm.com>, Hagen Paul Pfeifer <hagen@jauu.net>,
+ Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
  "Kirill A. Shutemov" <kirill@shutemov.name>,
  Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
  linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
  linux-fsdevel@vger.kernel.org, Shakeel Butt <shakeelb@google.com>,
  Andrew Morton <akpm@linux-foundation.org>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>,
- Mike Rapoport <rppt@kernel.org>
+ Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu 28-01-21 13:05:02, James Bottomley wrote:
-> Obviously the API choice could be revisited
-> but do you have anything to add over the previous discussion, or is
-> this just to get your access control?
+On Fri 29-01-21 09:21:28, Mike Rapoport wrote:
+> On Thu, Jan 28, 2021 at 02:01:06PM +0100, Michal Hocko wrote:
+> > On Thu 28-01-21 11:22:59, Mike Rapoport wrote:
+> > 
+> > > And hugetlb pools may be also depleted by anybody by calling
+> > > mmap(MAP_HUGETLB) and there is no any limiting knob for this, while
+> > > secretmem has RLIMIT_MEMLOCK.
+> > 
+> > Yes it can fail. But it would fail at the mmap time when the reservation
+> > fails. Not during the #PF time which can be at any time.
+> 
+> It may fail at $PF time as well:
+> 
+> hugetlb_fault()
+>         hugeltb_no_page()
+>                 ...
+>                 alloc_huge_page()
+>                         alloc_gigantic_page()
+>                                 cma_alloc()
+>                                         -ENOMEM; 
 
-Well, access control is certainly one thing which I still believe is
-missing. But if there is a general agreement that the direct map
-manipulation is not that critical then this will become much less of a
-problem of course.
+I would have to double check. From what I remember cma allocator is an
+optimization to increase chances to allocate hugetlb pages when
+overcommiting because pages should be normally pre-allocated in the pool
+and reserved during mmap time. But even if a hugetlb page is not pre
+allocated then this will get propagated as SIGBUS unless that has
+changed.
+  
+> > > That said, simply replacing VM_FAULT_OOM with VM_FAULT_SIGBUS makes
+> > > secretmem at least as controllable and robust than hugeltbfs even without
+> > > complex reservation at mmap() time.
+> > 
+> > Still sucks huge!
+>  
+> Any #PF can get -ENOMEM for whatever reason. Sucks huge indeed.
 
-It all boils down whether secret memory is a scarce resource. With the
-existing implementation it really is. It is effectivelly repeating
-same design errors as hugetlb did. And look now, we have a subtle and
-convoluted reservation code to track mmap requests and we have a cgroup
-controller to, guess what, have at least some control over distribution
-if the preallocated pool. See where am I coming from?
+I certainly can. But it doesn't in practice because most allocations
+will simply not fail and rather invoke OOM killer directly. Maybe there
+are cases which still might fail (higher order, weaker reclaim
+capabilities etc) but that would result in a bug in the end because the
+#PF handler would trigger the oom killer.
 
-If the secret memory is more in line with mlock without any imposed
-limit (other than available memory) in the end then, sure, using the same
-access control as mlock sounds reasonable. Btw. if this is really
-just a more restrictive mlock then is there any reason to not hook this
-into the existing mlock infrastructure (e.g. MCL_EXCLUSIVE)?
-Implications would be that direct map would be handled on instantiation/tear
-down paths, migration would deal with the same (if possible). Other than
-that it would be mlock like.
+[...]
+> > I would still like to understand whether that data is actually
+> > representative. With some underlying reasoning rather than I have run
+> > these XYZ benchmarks and numbers do not look terrible.
+> 
+> I would also very much like to see, for example, reasoning to enabling 1GB
+> pages in the direct map beyond "because we can" (commits 00d1c5e05736
+> ("x86: add gbpages switches") and ef9257668e31 ("x86: do kernel direct
+> mapping at boot using GB pages")).
+> 
+> The original Kconfig text for CONFIG_DIRECT_GBPAGES said
+> 
+>           Enable gigabyte pages support (if the CPU supports it). This can
+>           improve the kernel's performance a tiny bit by reducing TLB
+>           pressure.
+> 
+> So it is very interesting how tiny that bit was.
+
+Yeah and that sucks! Because it is leaving us with speculations now. I
+hope you do not want to repeat the same mistake now and leave somebody
+in the future in the same situation.
+
+> > > I like the idea to have a pool as an optimization rather than a hard
+> > > requirement but I don't see why would it need a careful access control. As
+> > > the direct map fragmentation is not necessarily degrades the performance
+> > > (and even sometimes it actually improves it) and even then the degradation
+> > > is small, trying a PMD_ORDER allocation for a pool and then falling back to
+> > > 4K page may be just fine.
+> > 
+> > Well, as soon as this is a scarce resource then an access control seems
+> > like a first thing to think of. Maybe it is not really necessary but
+> > then this should be really justified.
+> 
+> And what being a scarce resource here?
+
+A fixed size pool shared by all users of this feature.
+
+> If we consider lack of the direct
+> map fragmentation as this resource, there enough measures secretmem
+> implements to limit user ability to fragment the direct map, as was already
+> discussed several times. Global limit, memcg and rlimit provide enough
+> access control already.
+
+Try to do a simple excercise. You have X amout of secret memory. How do
+you distribute that to all interested users (some of them adversaries)
+based on the above. Global limit is a DoS vector potentially, memcg is a
+mixed bag of all other memory and it would become really tricky to
+enforece proportion of the X while having other memory consumed and
+rlimit is per process rather than per user.
+
+Look at how hugetlb had to develop its cgroup controler to distribute
+the pool among workloads. Then it has turned out that even reservations
+have to be per workload. Quite a convoluted stuff evolved around that
+feature because it turned out that the initial assumption that only few
+users would be using the pool simply didn't pass the reality check.
+
+As I've mentioned in other response to James. If the direct map
+manipulation is not as big of a problem as most of us dogmatically
+believed then things become much simpler. There is no need for global
+pool and you are back to mlock kinda model.
 -- 
 Michal Hocko
 SUSE Labs
