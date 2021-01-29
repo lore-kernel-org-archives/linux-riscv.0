@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6969CC433E0
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Jan 2021 19:03:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id EE092C433DB
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Jan 2021 19:05:21 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1018E64DE3
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Jan 2021 19:03:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1018E64DE3
+	by mail.kernel.org (Postfix) with ESMTPS id 9411564DFB
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Jan 2021 19:05:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9411564DFB
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,59 +23,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=q+qZ5xYi1kXDses6MKDqcW/SVL8hqyV0ImidPWE9ZHs=; b=M1lw6mmHOtxyqPVtmpekZiSpF
-	xHTBwkqKGcBU70cSZVxeeLLKGbG6WEBjiLbBu6Q/Bc5cUtFY9TugUx2xvUJv3t7+YYvExChHE4gyf
-	NBRGKUsOKtBJy93u29eHH+DJ2Lz5cX2694arap7st3ASzd5KlhrJomwJmJjqKOe3794tMyRqZn7Xp
-	AkLMdcCfCmUq1WYCFKTaJU+T1lU+aXLwzSJNwedC8mAi7HtgeVArKvO3iQcjp1oLz5yy0Tc9IYXjI
-	Z9Oi6drFTmw/U4mYQ8GLUbnxWML6O2aDbGyg0Ss0NbzUh6g3OmOlgF/kkTM8SQ+CltTgIrL+1Rsuz
-	At71NUR/Q==;
+	 bh=60+5NbyyGTesgXLX8doPCk45pQfrN2DMarMrpZk84LI=; b=D2OR8o48qf6tEhD2zFRuOSqWZ
+	OXi3M+M2UaOKpro/xhaOGTc1Tj5xkB06J0NH0pEejHpxKTHL8Dn3w/8QciI6E0+GY7xU8imjFBFzG
+	YlqXiqScX3rHeuq+zCzXW3+ZtBx0maux+4AiiVBcAr9/xRtIH0ZqhuD3aWVwXiYsWQuoalrRfX1UE
+	wmpjHuCYMcQZcVQvyseplqmg5AZZ2BI2Y7r53epvrXx64c0IEX5FL2HORgjEUPBa8HBydWJeg21jV
+	uEC5kC4wAT++pERRA08wGBdF6P1bQmXKvvjvBQap1PObcoEqjufVAoye2t43Q71x5yrICLqnccjCR
+	qtkdXQcUg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l5Z34-0006Fo-SX; Fri, 29 Jan 2021 19:03:14 +0000
-Received: from mail-io1-xd2e.google.com ([2607:f8b0:4864:20::d2e])
+	id 1l5Z4y-0006aB-Gu; Fri, 29 Jan 2021 19:05:12 +0000
+Received: from mail-io1-xd35.google.com ([2607:f8b0:4864:20::d35])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l5Z32-0006F6-Gv
- for linux-riscv@lists.infradead.org; Fri, 29 Jan 2021 19:03:13 +0000
-Received: by mail-io1-xd2e.google.com with SMTP id h11so10371940ioh.11
- for <linux-riscv@lists.infradead.org>; Fri, 29 Jan 2021 11:03:11 -0800 (PST)
+ id 1l5Z4v-0006ZS-2f
+ for linux-riscv@lists.infradead.org; Fri, 29 Jan 2021 19:05:09 +0000
+Received: by mail-io1-xd35.google.com with SMTP id u7so10396900iol.8
+ for <linux-riscv@lists.infradead.org>; Fri, 29 Jan 2021 11:05:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=atishpatra.org; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=klIusWUoJ/Hron7cItKtsF4YWgKJsObiyCX5BYQnJDY=;
- b=L0hqCSKVF1f1klLHzc+fDvxcXIISIWx8Xgji3Ai60LPe8wp/erH5Ip4dSlMt8aEWXg
- 83yjx4CoiUC6Gd1NzHPjXZB9xYg8V5hG+KbARYtP+jsQ8ZlLFti6WcSWqAOZv4Z2I+QU
- GgTsrB9wyhp5Br4QT21yEy0+j8p3ZrrBltpYQ=
+ :cc; bh=P0Q2YwM0Q9fPfFhBWrEuMIdGapoLcfD0AryeJ6s3IjA=;
+ b=rV5CaW3gbUWl2EwFuZNzJH9+C49eSAIPUGnQnQWRxa08+o1vgTkEv94GH2IOOYFr+6
+ BgseBWLTOxUpQ4F4J04LoV0VbQ23nuiIdWRmQtqc1g95VDFzQlYtc1FShMsuMflOYyyv
+ +UGjKjSgnmrKGfj/h9kJD+l7RNcUyxWNIDGMk=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=klIusWUoJ/Hron7cItKtsF4YWgKJsObiyCX5BYQnJDY=;
- b=umpOxAaj+TMKYdQTspZMu3oDqEBVEqRirq8BZ0PPWibJqkllTllo9Z6C/eo6ULfC50
- Vx28VJy/5D6MEP7FOoR/jxsj+LjGAE+Y3W2EiMyLqpi+tI+rjxeLPe9EQsa8VMhzNkzx
- CWCW2KefMHBUu/6EnphbNK3aKvYr24eiLLBWLMmP0yHAP4Z1wFkCl+KF5d1IxZgVZhDr
- 7f3Iuzhq6/6XjbYpno96oOEP6oS7Tz4uT0AuPtntSUzxzbhIuzgWnD3Sg9Sxhzl57DWy
- +w5TM5N4zh7CHlE+Wi2F/KfWimCBOBl9ljBZqvuvTUrDImC8d2Ky2C6pZXbmKMV2gxsN
- FUvw==
-X-Gm-Message-State: AOAM533E44FJ1TNuagdR9XwWwujfqSAiZ247GbGi0zqm8oQBh4hHitTG
- VHaLg40hStwI0alSU2XLeWXMQfwfdFfPcIu+jZmP
-X-Google-Smtp-Source: ABdhPJwsJqFDwcbDhscdLNvF9uM3IvbWY8aaiABfh+5ejGHdagXpZuUhm2+ApFrKJf+RQu7zPJIaUBpBFKKPQqqIzoo=
-X-Received: by 2002:a5e:aa15:: with SMTP id s21mr4241141ioe.113.1611946990366; 
- Fri, 29 Jan 2021 11:03:10 -0800 (PST)
+ bh=P0Q2YwM0Q9fPfFhBWrEuMIdGapoLcfD0AryeJ6s3IjA=;
+ b=dk5OK5ZwSLp/yiA9k7URThkPzHHUAQtP/wjXY0q1h+/a6/tR7zEvwn+Lk9Y9aeKt2l
+ rkuQVk1+rLvzsWSrVtOzmYlCO6LYYWGADAlBMvlPoSXsQrO1RcAhUFZRhRPIhE+SODbe
+ ZfW42tvfaeDBj5wPlXSSkoYMuqfdZn6QbfV37TFMM2vRtCLU6ZOrsgwLh5hIfwEItglW
+ wNjG1/GHz5VU3SHbqPltEnho52vTRo5/GlDXdFMPQQNbIjObrrU2Z9Iu8zO37rW1q0Tb
+ qAjLUSZBGuRT/k0ugZrum1Br72v66t2zArekwCDEU8m7z0x0TFNv4u/PYl4zYf0j7JoA
+ 0Qkw==
+X-Gm-Message-State: AOAM532nFBu9lh3TxbX4jEChNCymUNzFX8D9PUEhLcQst7XwovW4wEYL
+ L067ynwObQGjIh+YBSi/Q8l+hrUtO/ADGdFzeUKB
+X-Google-Smtp-Source: ABdhPJy1ZbZ+tYdJvQM/DTMXF/T+OYg3kxT2NHTvjsN873ujwbydFJMZoCZB5Svu3gDfqjiVljSyWsNwtjYDn6b6S7U=
+X-Received: by 2002:a05:6638:13c6:: with SMTP id
+ i6mr4682079jaj.141.1611947105409; 
+ Fri, 29 Jan 2021 11:05:05 -0800 (PST)
 MIME-Version: 1.0
-References: <3ba42880e5b43fc238aac8d30da271516fb281ac.camel@gmail.com>
- <CAMuHMdXFf4=7D_SLBgju2qaUzwC8dMkxq3zWDTmZ3AgWkBMQig@mail.gmail.com>
- <CAOnJCU+pwTMktUfcY_GrL6_tfk8APyh7jOh=VJtCW2B8=t4wnw@mail.gmail.com>
- <CAMuHMdWSOQkY+ZFg1FrwSZp2NX4ofzxnBgxC_se-QpfMYThcFg@mail.gmail.com>
- <CAOnJCUK8FdrhYXhFpGPfzpEy8wxpbdSQQn-D6mCPCwxYrNyuog@mail.gmail.com>
-In-Reply-To: <CAOnJCUK8FdrhYXhFpGPfzpEy8wxpbdSQQn-D6mCPCwxYrNyuog@mail.gmail.com>
+References: <20210129173105.22020-1-alex@ghiti.fr>
+In-Reply-To: <20210129173105.22020-1-alex@ghiti.fr>
 From: Atish Patra <atishp@atishpatra.org>
-Date: Fri, 29 Jan 2021 11:02:58 -0800
-Message-ID: <CAOnJCUJ-QbDHoMzrGE0QBJaBpFWMaYxJum=UUFY+UzRWLfrZ_g@mail.gmail.com>
-Subject: Re: [PATCH] riscv: Align on L1_CACHE_BYTES when STRICT_KERNEL_RWX
-To: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 29 Jan 2021 11:04:54 -0800
+Message-ID: <CAOnJCUJ3q3uiO__VsfwcmOFhvE6L4=Ht7-KBDuLFfvC8ndSwqA@mail.gmail.com>
+Subject: Re: [PATCH] riscv: virt_addr_valid must check the address belongs to
+ linear mapping
+To: Alexandre Ghiti <alex@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210129_140313_046298_C8425643 
-X-CRM114-Status: GOOD (  28.96  )
+X-CRM114-CacheID: sfid-20210129_140509_129454_167CDA03 
+X-CRM114-Status: GOOD (  16.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -87,124 +85,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Sebastien Van Cauwenberghe <svancau@gmail.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
- Zong Li <zong.li@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
+Cc: Albert Ou <aou@eecs.berkeley.edu>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>, dvyukov@google.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 11, 2021 at 11:40 AM Atish Patra <atishp@atishpatra.org> wrote:
+On Fri, Jan 29, 2021 at 9:31 AM Alexandre Ghiti <alex@ghiti.fr> wrote:
 >
-> On Sat, Jan 9, 2021 at 1:35 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> >
-> > Hi Atish,
-> >
-> > On Fri, Jan 8, 2021 at 8:12 PM Atish Patra <atishp@atishpatra.org> wrote:
-> > > On Fri, Jan 8, 2021 at 8:37 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> > > > On Mon, Nov 16, 2020 at 1:59 PM Sebastien Van Cauwenberghe
-> > > > <svancau@gmail.com> wrote:
-> > > > > From 5690c2f91d87a007babb13e2d2c9c45d1ff68b7a Mon Sep 17 00:00:00 2001
-> > > > > From: Sebastien Van Cauwenberghe <svancau@gmail.com>
-> > > > > Date: Mon, 16 Nov 2020 13:37:32 +0100
-> > > > > Subject: [PATCH] riscv: Align on L1_CACHE_BYTES when STRICT_KERNEL_RWX is
-> > > > >  disabled
-> > > > >
-> > > > > Allows the sections to be aligned on smaller boundaries and
-> > > > > therefore results in a smaller kernel image size.
-> > > > >
-> > > > > Signed-off-by: Sebastien Van Cauwenberghe <svancau@gmail.com>
-> > > >
-> > > > Thanks for your patch!
-> > > >
-> > > > > --- a/arch/riscv/include/asm/set_memory.h
-> > > > > +++ b/arch/riscv/include/asm/set_memory.h
-> > > > > @@ -27,14 +27,14 @@ int set_direct_map_default_noflush(struct page *page);
-> > > > >
-> > > > >  #endif /* __ASSEMBLY__ */
-> > > > >
-> > > > > -#ifdef CONFIG_ARCH_HAS_STRICT_KERNEL_RWX
-> > > > > +#ifdef CONFIG_STRICT_KERNEL_RWX
-> > > > >  #ifdef CONFIG_64BIT
-> > > > >  #define SECTION_ALIGN (1 << 21)
-> > > > >  #else
-> > > > >  #define SECTION_ALIGN (1 << 22)
-> > > > >  #endif
-> > > > > -#else /* !CONFIG_ARCH_HAS_STRICT_KERNEL_RWX */
-> > > > > +#else /* !CONFIG_STRICT_KERNEL_RWX */
-> > > > >  #define SECTION_ALIGN L1_CACHE_BYTES
-> > > > > -#endif /* CONFIG_ARCH_HAS_STRICT_KERNEL_RWX */
-> > > > > +#endif /* CONFIG_STRICT_KERNEL_RWX */
-> > > > >
-> > > > >  #endif /* _ASM_RISCV_SET_MEMORY_H */
-> > > >
-> > > > Since commit 19a00869028f4a28 ("RISC-V: Protect all kernel sections
-> > > > including init early"), you also need (whitespace-damaged-gmail-patch):
-> > > >
-> > > > --- a/arch/riscv/kernel/setup.c
-> > > > +++ b/arch/riscv/kernel/setup.c
-> > > > @@ -293,6 +293,8 @@ void free_initmem(void)
-> > > >         unsigned long init_begin = (unsigned long)__init_begin;
-> > > >         unsigned long init_end = (unsigned long)__init_end;
-> > > >
-> > > > -       set_memory_rw_nx(init_begin, (init_end - init_begin) >> PAGE_SHIFT);
-> > > > +       if (IS_ENABLED(CONFIG_STRICT_KERNEL_RWX))
-> > > > +               set_memory_rw_nx(init_begin,
-> > > > +                                (init_end - init_begin) >> PAGE_SHIFT);
-> > > >         free_initmem_default(POISON_FREE_INITMEM);
-> > > >  }
-> > > >
-> > >
-> > > Thanks for the fix. I guess you need to disable
-> > > CONFIG_STRICT_KERNEL_RWX explicitly
-> > > to notice this issue.
-> >
-> > Indeed.
-> >
-> > > > Else it crashes here without any kernel output.
-> > > >
-> > > > Feel free to fold this into your patch.
-> > > >
-> > >
-> > > IMO, this can be a separate patch with Fixes tag.
-> >
-> > Why? Sebastien's patch (which hasn't been applied yet) no longer works
-> > due to interaction with a commit in v5.11-rc1.
-> >
+> virt_addr_valid macro checks that a virtual address is valid, ie that
+> the address belongs to the linear mapping and that the corresponding
+>  physical page exists.
 >
-> Technically, Sebastien's patch was an improvement while this one fixes
-> an issue so that the Fixes tag can be added.
-> But the original patch was merged in this cycle only. So these changes
-> can be a single change as long as it is sent as an rc fix.
-> I am fine with either way.
+> Add the missing check that ensures the virtual address belongs to the
+> linear mapping, otherwise __virt_to_phys, when compiled with
+> CONFIG_DEBUG_VIRTUAL enabled, raises a WARN that is interpreted as a
+> kernel bug by syzbot.
 >
-> @Sebastien: Can you send the updated patch soon so that palmer can
-> pull this one as an RC fix?
+> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
+> ---
+>  arch/riscv/include/asm/page.h | 5 ++++-
+>  1 file changed, 4 insertions(+), 1 deletion(-)
 >
-
-I have sent the fixes to the mailing list with appropriate tags.
-
+> diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
+> index 2d50f76efe48..64a675c5c30a 100644
+> --- a/arch/riscv/include/asm/page.h
+> +++ b/arch/riscv/include/asm/page.h
+> @@ -135,7 +135,10 @@ extern phys_addr_t __phys_addr_symbol(unsigned long x);
 >
-> > Gr{oetje,eeting}s,
-> >
-> >                         Geert
-> >
-> > --
-> > Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-> >
-> > In personal conversations with technical people, I call myself a hacker. But
-> > when I'm talking to journalists I just say "programmer" or something like that.
-> >                                 -- Linus Torvalds
+>  #endif /* __ASSEMBLY__ */
 >
+> -#define virt_addr_valid(vaddr) (pfn_valid(virt_to_pfn(vaddr)))
+> +#define virt_addr_valid(vaddr) ({                                              \
+> +       unsigned long _addr = (unsigned long)vaddr;                             \
+> +       (unsigned long)(_addr) >= PAGE_OFFSET && pfn_valid(virt_to_pfn(_addr)); \
+> +})
 >
+>  #define VM_DATA_DEFAULT_FLAGS  VM_DATA_FLAGS_NON_EXEC
 >
 > --
-> Regards,
-> Atish
+> 2.20.1
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 
+Reviewed-by: Atish Patra <atish.patra@wdc.com>
 
 -- 
 Regards,
