@@ -2,81 +2,64 @@ Return-Path: <SRS0=fnRf=HB=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-19.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-10.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	INCLUDES_PULL_REQUEST,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+	MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EED4EC433DB
-	for <linux-riscv@archiver.kernel.org>; Sat, 30 Jan 2021 02:53:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E8977C433E0
+	for <linux-riscv@archiver.kernel.org>; Sat, 30 Jan 2021 09:33:46 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 862A464DBD
-	for <linux-riscv@archiver.kernel.org>; Sat, 30 Jan 2021 02:53:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 862A464DBD
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id C78D464DE3
+	for <linux-riscv@archiver.kernel.org>; Sat, 30 Jan 2021 09:33:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C78D464DE3
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Message-ID:To:From:Subject:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PyLm6bAI+nfI5D1hYXcu68Rm8l9OdlfBxWWUhHElS04=; b=HEtH7l9z7BoJiwcv/Pj9q/rYVR
-	UHMPGXA28e4TxHtWzDsvDJm0C3DYGx7JgK80t66NfsrfGV8xmpiAPFNXhrg6Ynnhc45CSLtl6Ee4K
-	CFdUi3exWgaXuuNcE/W+Zg00PEzeS1RyzHbW0H1FU7iF1SdBidBWfqzt2SNZiGPPpumrPGzFWjYay
-	CJ3Q9XJ6C2zNSHTIB9HsZtgH4VUSHibpz+paqCNyWxCaSXTRobMxYGCWpXlqERi7iOTjpi1bsNsd0
-	cKnwjjSKGZcRYO84jh7JTbyLHbzOImWq4H7FmmZJ9nc5jBiYujUg3U5m9qvi4qUEj+aBysF49jClS
-	tzlpjpMQ==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=50o8s+ab424Bqrxn45hSVJ/tR8abeb0n29AmWBbSPs0=; b=lFfx7S6ZD3H/HhUxE5FUjcy85
+	EpM6btmwuxiA2On2SHM6b5u5PCUNsRoRWkb6OtnkO4S7Lg8YK0kSV2cBY+VVyw5Joo6X/5LMzBWoC
+	3vQdTC7/wr6L1PdSlpyQq+VkOBFKSMHkTDED8Dt1CUp5fPTDjPpeWt+H8Pvf/pi/5/QaiKpemzpXb
+	9//KbN/otK5Mccg+KK+XWWEYKw9+/Q1K+zgjGQ9WGBx8fritgSRWTJd9+8+WUqrQye5F8QCZ5FWKJ
+	xuvqYulMYbdgPNmp0CdhzXhHmuURSKirvNzDA4X66AVCtaniDWYv/RhmJmsCKJIVH4FaLYqlH2Cuk
+	gJokJFvKA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l5gNg-00084G-1R; Sat, 30 Jan 2021 02:53:00 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	id 1l5mdF-0001Tk-Tk; Sat, 30 Jan 2021 09:33:30 +0000
+Received: from relay2-d.mail.gandi.net ([217.70.183.194])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l5gNc-00082i-6f
- for linux-riscv@lists.infradead.org; Sat, 30 Jan 2021 02:52:57 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id o7so7910887pgl.1
- for <linux-riscv@lists.infradead.org>; Fri, 29 Jan 2021 18:52:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:cc:from:to:message-id;
- bh=z0ZSRAm22becpoRJb9gtSQVe8ycgGNmfWJKMTAVmy7w=;
- b=GwLpMbfM6WAZVcr1QevQus5d4SobAJ9SIZ+mvNqxCPS66/pVg0HN0aNAdR8AcX6nSw
- q+U2qhTq1d6Is3uT/3wqIOKAkEpSuP6v7yKV9w05AGZG+nzq5EMV1kErrpPP4cu3u5FW
- UOlrZoFd1ZJIdH6mchJkoWCgCoFYgQzBl8sv8814DDmMASYUkwpgAICeYzRKtUqSEO6B
- BnT4tqtV/J54KOPQAei/GckKR6pqQyQ0hjwgiTO1rC68ZbQGhSqkkyl1IHVMfQucV+a1
- xmmJFGm7Xf6lDZM1Dq0t0K6Awx3gTJBHpw3Ot6xtLVit/Y4r/AegD3NL+nqYYq5094ed
- Z6wA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:cc:from:to:message-id;
- bh=z0ZSRAm22becpoRJb9gtSQVe8ycgGNmfWJKMTAVmy7w=;
- b=U3+/A5drqGqWQQjyVA00NslYfC5S+3QFAAqy3GU6iQSixuIN3LOslmnx9zlCwlFXgw
- 2M05wiA81Oy/PJxOmrAPywYkI9NG/ERZdeaZLh9NBd2ZWbInx/7F0/x9iGu7QvhLxz98
- p0rV6zk596+c5HU6O8vEPXK7o0pW7AmkV0koumRyoqudJhnei6umi1XWAB6jdnV1bycu
- WWOB2ROqC98lsTwZ7lM9gz/UmsuvStKMIV+ACXczMZhfvnyssNcViCQ1r+LrvxUMbqW7
- RqZbeGmH6IeNKJlaoTJvYsBWjnsuOoMggvzCBC698+cSPqiOya/9yikE2FlGbJU5ThyK
- lfBQ==
-X-Gm-Message-State: AOAM532ZT/E+mAvB+0uJIlAG3KtZZayPAwCgMdWn8NWQaq9+2GhfQlqA
- zYbB8cC9OUmjrUyJAhiwHnJGOVrkjJBBgw==
-X-Google-Smtp-Source: ABdhPJz6ksfwhE/qfo7BaGpKQo1YSgYeKx5gzN2g1HwK7oNMEiNEL+mIJm7O/+1TZKkZ8sRUWkzI9g==
-X-Received: by 2002:a63:c207:: with SMTP id b7mr7310629pgd.184.1611975172866; 
- Fri, 29 Jan 2021 18:52:52 -0800 (PST)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id p7sm9877162pfn.52.2021.01.29.18.52.50
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 29 Jan 2021 18:52:51 -0800 (PST)
-Date: Fri, 29 Jan 2021 18:52:51 -0800 (PST)
-X-Google-Original-Date: Fri, 29 Jan 2021 18:52:49 PST (-0800)
-Subject: [GIT PULL] A Single RISC-V Fix for 5.11-rc6
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <mhng-72236532-fb2c-406a-9a7e-509c579364c5@palmerdabbelt-glaptop>
+ id 1l5mdD-0001TO-J7
+ for linux-riscv@lists.infradead.org; Sat, 30 Jan 2021 09:33:28 +0000
+X-Originating-IP: 92.91.220.130
+Received: from [192.168.0.12] (130.220.91.92.rev.sfr.net [92.91.220.130])
+ (Authenticated sender: alex@ghiti.fr)
+ by relay2-d.mail.gandi.net (Postfix) with ESMTPSA id 0EDEE40008;
+ Sat, 30 Jan 2021 09:33:20 +0000 (UTC)
+Subject: Re: [RFC PATCH 00/12] Introduce sv48 support without relocable kernel
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Zong Li <zong.li@sifive.com>,
+ Anup Patel <anup@brainfault.org>, Christoph Hellwig <hch@lst.de>,
+ Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ linux-efi@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20210104195840.1593-1-alex@ghiti.fr>
+From: Alex Ghiti <alex@ghiti.fr>
+Message-ID: <f38979dc-9f8c-6fce-6b1b-70e5f110e14c@ghiti.fr>
+Date: Sat, 30 Jan 2021 04:33:20 -0500
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.6.0
+MIME-Version: 1.0
+In-Reply-To: <20210104195840.1593-1-alex@ghiti.fr>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210129_215256_398437_E016CC74 
-X-CRM114-Status: GOOD (  10.00  )
+X-CRM114-CacheID: sfid-20210130_043327_817824_7633A4B5 
+X-CRM114-Status: GOOD (  26.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -88,37 +71,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 19c329f6808995b142b3966301f217c831e7cf31:
+Hi Palmer,
 
-  Linux 5.11-rc4 (2021-01-17 16:37:05 -0800)
+On 1/4/21 2:58 PM, Alexandre Ghiti wrote:
+> This patchset, contrary to the previous versions, allows to have a single
+> kernel for sv39 and sv48 without being relocatable.
+>                                                                                   
+> The idea comes from Arnd Bergmann who suggested to do the same as x86,
+> that is mapping the kernel to the end of the address space, which allows
+> the kernel to be linked at the same address for both sv39 and sv48 and
+> then does not require to be relocated at runtime.
+>                                                                                   
+> This is an RFC because I need to at least rebase a few commits and add
+> documentation. The most interesting patches where I expect feedbacks are
+> 1/12, 2/12 and 8/12. Note that moving the kernel out of the linear
+> mapping and sv48 support can be separate patchsets, I share them together
+> today to show that it works (this patchset is rebased on top of v5.10).
+> 
+> If we agree about the overall idea, I'll rebase my relocatable patchset
+> on top of that and then KASLR implementation from Zong will be greatly
+> simplified since moving the kernel out of the linear mapping will avoid
+> to copy the kernel physically.
+>                                                                                   
+> This implements sv48 support at runtime. The kernel will try to
+> boot with 4-level page table and will fallback to 3-level if the HW does not
+> support it. Folding the 4th level into a 3-level page table has almost no
+> cost at runtime.
+>                                                                                   
+> Finally, the user can now ask for sv39 explicitly by using the device-tree
+> which will reduce memory footprint and reduce the number of memory accesses
+> in case of TLB miss.
+> 
+> Alexandre Ghiti (12):
+>    riscv: Move kernel mapping outside of linear mapping
+>    riscv: Protect the kernel linear mapping
+>    riscv: Get rid of compile time logic with MAX_EARLY_MAPPING_SIZE
+>    riscv: Allow to dynamically define VA_BITS
+>    riscv: Simplify MAXPHYSMEM config
+>    riscv: Prepare ptdump for vm layout dynamic addresses
+>    asm-generic: Prepare for riscv use of pud_alloc_one and pud_free
+>    riscv: Implement sv48 support
+>    riscv: Allow user to downgrade to sv39 when hw supports sv48
+>    riscv: Use pgtable_l4_enabled to output mmu type in cpuinfo
+>    riscv: Explicit comment about user virtual address space size
+>    riscv: Improve virtual kernel memory layout dump
+> 
+>   arch/riscv/Kconfig                      |  34 +--
+>   arch/riscv/boot/loader.lds.S            |   3 +-
+>   arch/riscv/include/asm/csr.h            |   3 +-
+>   arch/riscv/include/asm/fixmap.h         |   3 +
+>   arch/riscv/include/asm/page.h           |  33 ++-
+>   arch/riscv/include/asm/pgalloc.h        |  40 +++
+>   arch/riscv/include/asm/pgtable-64.h     | 104 ++++++-
+>   arch/riscv/include/asm/pgtable.h        |  68 +++--
+>   arch/riscv/include/asm/sparsemem.h      |   6 +-
+>   arch/riscv/kernel/cpu.c                 |  23 +-
+>   arch/riscv/kernel/head.S                |   6 +-
+>   arch/riscv/kernel/module.c              |   4 +-
+>   arch/riscv/kernel/vmlinux.lds.S         |   3 +-
+>   arch/riscv/mm/context.c                 |   2 +-
+>   arch/riscv/mm/init.c                    | 376 ++++++++++++++++++++----
+>   arch/riscv/mm/physaddr.c                |   2 +-
+>   arch/riscv/mm/ptdump.c                  |  56 +++-
+>   drivers/firmware/efi/libstub/efi-stub.c |   2 +-
+>   include/asm-generic/pgalloc.h           |  24 +-
+>   include/linux/sizes.h                   |   3 +-
+>   20 files changed, 648 insertions(+), 147 deletions(-)
+> 
 
-are available in the Git repository at:
+Any thought about the idea ? Is it going in the right direction ? I have 
+fixed quite a few things since I posted this so don't bother giving this 
+patchset a full review.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.11-rc6
+Thanks,
 
-for you to fetch changes up to 336e8eb2a3cfe2285c314cd85630076da365f6c6:
-
-  riscv: Fixup pfn_valid error with wrong max_mapnr (2021-01-22 20:18:03 -0800)
-
-----------------------------------------------------------------
-A Single RISC-V Fix for 5.11-rc6
-
-* A fix to avoid initializing max_mapnr to be too large, which may
-  manifest on NUMA systems.
-
-----------------------------------------------------------------
-Guo Ren (1):
-      riscv: Fixup pfn_valid error with wrong max_mapnr
-
- arch/riscv/mm/init.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Alex
 
 _______________________________________________
 linux-riscv mailing list
