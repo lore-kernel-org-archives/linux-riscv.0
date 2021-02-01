@@ -2,62 +2,58 @@ Return-Path: <SRS0=n5X/=HD=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 33AC1C433E0
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Feb 2021 08:00:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3C0FAC433E0
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Feb 2021 13:18:57 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E862F64E11
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Feb 2021 08:00:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E862F64E11
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
+	by mail.kernel.org (Postfix) with ESMTPS id AD84E64E95
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Feb 2021 13:18:56 +0000 (UTC)
+Authentication-Results: mail.kernel.org; dmarc=permerror header.from=codethink.co.uk
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EQtrSdprS+hosEQ7HFeU9WoOVfpVw9fa6Y5naq1a3g4=; b=L99GS8lMcqY9ijQmdRKHlauMuL
-	XZifC75qCkh1BHQOzwNJcDYEBymStP340cnICWaojWkVUTGNIxudcqm1303DWuFnzgysnZKo6xaOX
-	u+lqYYtuH+POiBGCwqRw1Ain4MfSn4nzJaWoVIlpQvAMIrGU4o2DXGehBrdpc3j9HAkli1/AT9RWW
-	d+L0F0F2A0ggj3Rsod9/MDdTK7d6M4uKd8fx360oQ4T9l2YNjJBtUnRLvznekSKcoymfcVvYmfBWG
-	r0ByoIuLfjP/YlBWs5gtdzdiln03fkFl0bTiHwtFeF4oDHZVc9CctxvKui9ChcEOGKW37Gw6uS1OK
-	CArH9EHw==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=y1dDJrb9bOgixrg0pvuvpvXOr6qwK5ME1UvuKolbWwc=; b=V6OoBJTFCwYCxKg9sg6tHmh0v
+	Vfk9Pzp0DTaXs4r+9s8nHH0pAYhRnsb9U6LN4+AO3cFqy/rWHfRs3ZrT/rdxJotg/o6kTbj1D1kDk
+	TlT93IlRlv4bOFulf5ykqfIpPidW4yWJNZTr7DZf5z5/3LelR3sYAlCg51Wo0YL16dIfd7eQs0dat
+	KW+8aKsfdM+7WzPu0bWJx92iU5EgTPJPGgyYCveSZ2iPAAAhYKyOkubsHAADmf7ky63qb6NzvRpDL
+	rKAxNi98zcPsK/6aZtingTb7kg3yqUsnYyQYFUHh9CVZ9ooqJ0Y0+4TGCiDdTzSestOOSw3UAMJGD
+	3E5RdqOSg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l6U8U-0008Ar-6c; Mon, 01 Feb 2021 08:00:38 +0000
-Received: from relay7-d.mail.gandi.net ([217.70.183.200])
+	id 1l6Z6O-0007ju-Ol; Mon, 01 Feb 2021 13:18:48 +0000
+Received: from imap3.hz.codethink.co.uk ([176.9.8.87])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l6U8R-0008AJ-7Y
- for linux-riscv@lists.infradead.org; Mon, 01 Feb 2021 08:00:36 +0000
-X-Originating-IP: 82.65.183.113
-Received: from debian.internal.upmem.com (82-65-183-113.subs.proxad.net
- [82.65.183.113]) (Authenticated sender: alex@ghiti.fr)
- by relay7-d.mail.gandi.net (Postfix) with ESMTPSA id 481CE2000E;
- Mon,  1 Feb 2021 08:00:26 +0000 (UTC)
-From: Alexandre Ghiti <alex@ghiti.fr>
-To: Andrey Ryabinin <aryabinin@virtuozzo.com>,
- Alexander Potapenko <glider@google.com>,
- Dmitry Vyukov <dvyukov@google.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- kasan-dev@googlegroups.com, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: [PATCH] riscv: Improve kasan population by using hugepages when
- possible
-Date: Mon,  1 Feb 2021 03:00:24 -0500
-Message-Id: <20210201080024.844-1-alex@ghiti.fr>
-X-Mailer: git-send-email 2.20.1
+ id 1l6Z6L-0007ic-4o
+ for linux-riscv@lists.infradead.org; Mon, 01 Feb 2021 13:18:46 +0000
+Received: from cpc79921-stkp12-2-0-cust288.10-2.cable.virginm.net
+ ([86.16.139.33] helo=[192.168.0.18])
+ by imap3.hz.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
+ id 1l6Z6E-0003lO-2b; Mon, 01 Feb 2021 13:18:38 +0000
+Subject: Re: [PATCH v3 0/2] Let illegal access to user-space memory die
+To: Palmer Dabbelt <palmer@dabbelt.com>, tesheng@andestech.com
+References: <mhng-607cbd62-adc5-45a7-adde-476741f9d63b@palmerdabbelt-glaptop>
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+Organization: Codethink Limited.
+Message-ID: <ee1f254d-a06e-9725-57d1-ce0210751c05@codethink.co.uk>
+Date: Mon, 1 Feb 2021 13:18:36 +0000
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.6.0
 MIME-Version: 1.0
+In-Reply-To: <mhng-607cbd62-adc5-45a7-adde-476741f9d63b@palmerdabbelt-glaptop>
+Content-Language: en-GB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210201_030035_470202_B402A4E9 
-X-CRM114-Status: GOOD (  15.22  )
+X-CRM114-CacheID: sfid-20210201_081845_198074_7E7C5BAB 
+X-CRM114-Status: GOOD (  13.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -69,171 +65,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Ghiti <alex@ghiti.fr>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org, peterx@redhat.com,
+ penberg@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ akpm@linux-foundation.org, walken@google.com, linux-riscv@lists.infradead.org,
+ vbabka@suse.cz
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Kasan function that populates the shadow regions used to allocate them
-page by page and did not take advantage of hugepages, so fix this by
-trying to allocate hugepages of 1GB and fallback to 2MB hugepages or 4K
-pages in case it fails.
-
-This reduces the page table memory consumption and improves TLB usage,
-as shown below:
-
-Before this patch:
-
----[ Kasan shadow start ]---
-0xffffffc000000000-0xffffffc400000000    0x00000000818ef000        16G PTE     . A . . . . R V
-0xffffffc400000000-0xffffffc447fc0000    0x00000002b7f4f000   1179392K PTE     D A . . . W R V
-0xffffffc480000000-0xffffffc800000000    0x00000000818ef000        14G PTE     . A . . . . R V
----[ Kasan shadow end ]---
-
-After this patch:
-
----[ Kasan shadow start ]---
-0xffffffc000000000-0xffffffc400000000    0x00000000818ef000        16G PTE     . A . . . . R V
-0xffffffc400000000-0xffffffc440000000    0x0000000240000000         1G PGD     D A . . . W R V
-0xffffffc440000000-0xffffffc447e00000    0x00000002b7e00000       126M PMD     D A . . . W R V
-0xffffffc447e00000-0xffffffc447fc0000    0x00000002b818f000      1792K PTE     D A . . . W R V
-0xffffffc480000000-0xffffffc800000000    0x00000000818ef000        14G PTE     . A . . . . R V
----[ Kasan shadow end ]---
-
-Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
----
- arch/riscv/mm/kasan_init.c | 101 +++++++++++++++++++++++++++----------
- 1 file changed, 73 insertions(+), 28 deletions(-)
-
-diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
-index a8a2ffd9114a..8f11b73018b1 100644
---- a/arch/riscv/mm/kasan_init.c
-+++ b/arch/riscv/mm/kasan_init.c
-@@ -47,37 +47,82 @@ asmlinkage void __init kasan_early_init(void)
- 	local_flush_tlb_all();
- }
- 
--static void __init populate(void *start, void *end)
-+static void kasan_populate_pte(pmd_t *pmd, unsigned long vaddr, unsigned long end)
-+{
-+	phys_addr_t phys_addr;
-+	pte_t *ptep = memblock_alloc(PTRS_PER_PTE * sizeof(pte_t), PAGE_SIZE);
-+
-+	do {
-+		phys_addr = memblock_phys_alloc(PAGE_SIZE, PAGE_SIZE);
-+		set_pte(ptep, pfn_pte(PFN_DOWN(phys_addr), PAGE_KERNEL));
-+	} while (ptep++, vaddr += PAGE_SIZE, vaddr != end);
-+
-+	set_pmd(pmd, pfn_pmd(PFN_DOWN(__pa(ptep)), PAGE_TABLE));
-+}
-+
-+static void kasan_populate_pmd(pgd_t *pgd, unsigned long vaddr, unsigned long end)
-+{
-+	phys_addr_t phys_addr;
-+	pmd_t *pmdp = memblock_alloc(PTRS_PER_PMD * sizeof(pmd_t), PAGE_SIZE);
-+	unsigned long next;
-+
-+	do {
-+		next = pmd_addr_end(vaddr, end);
-+
-+		if (IS_ALIGNED(vaddr, PMD_SIZE) && (next - vaddr) >= PMD_SIZE) {
-+			phys_addr = memblock_phys_alloc(PMD_SIZE, PMD_SIZE);
-+			if (phys_addr) {
-+				set_pmd(pmdp, pfn_pmd(PFN_DOWN(phys_addr), PAGE_KERNEL));
-+				continue;
-+			}
-+		}
-+
-+		kasan_populate_pte(pmdp, vaddr, end);
-+	} while (pmdp++, vaddr = next, vaddr != end);
-+
-+	/*
-+	 * Wait for the whole PGD to be populated before setting the PGD in
-+	 * the page table, otherwise, if we did set the PGD before populating
-+	 * it entirely, memblock could allocate a page at a physical address
-+	 * where KASAN is not populated yet and then we'd get a page fault.
-+	 */
-+	set_pgd(pgd, pfn_pgd(PFN_DOWN(__pa(pmdp)), PAGE_TABLE));
-+}
-+
-+static void kasan_populate_pgd(unsigned long vaddr, unsigned long end)
-+{
-+	phys_addr_t phys_addr;
-+	pgd_t *pgdp = pgd_offset_k(vaddr);
-+	unsigned long next;
-+
-+	do {
-+		next = pgd_addr_end(vaddr, end);
-+
-+		if (IS_ALIGNED(vaddr, PGDIR_SIZE) && (next - vaddr) >= PGDIR_SIZE) {
-+			phys_addr = memblock_phys_alloc(PGDIR_SIZE, PGDIR_SIZE);
-+			if (phys_addr) {
-+				set_pgd(pgdp, pfn_pgd(PFN_DOWN(phys_addr), PAGE_KERNEL));
-+				continue;
-+			}
-+		}
-+
-+		kasan_populate_pmd(pgdp, vaddr, end);
-+	} while (pgdp++, vaddr = next, vaddr != end);
-+}
-+
-+/*
-+ * This function populates KASAN shadow region focusing on hugepages in
-+ * order to minimize the page table cost and TLB usage too.
-+ * Note that start must be PGDIR_SIZE-aligned in SV39 which amounts to be
-+ * 1G aligned (that represents a 8G alignment constraint on virtual address
-+ * ranges because of KASAN_SHADOW_SCALE_SHIFT).
-+ */
-+static void __init kasan_populate(void *start, void *end)
- {
--	unsigned long i, offset;
- 	unsigned long vaddr = (unsigned long)start & PAGE_MASK;
- 	unsigned long vend = PAGE_ALIGN((unsigned long)end);
--	unsigned long n_pages = (vend - vaddr) / PAGE_SIZE;
--	unsigned long n_ptes =
--	    ((n_pages + PTRS_PER_PTE) & -PTRS_PER_PTE) / PTRS_PER_PTE;
--	unsigned long n_pmds =
--	    ((n_ptes + PTRS_PER_PMD) & -PTRS_PER_PMD) / PTRS_PER_PMD;
--
--	pte_t *pte =
--	    memblock_alloc(n_ptes * PTRS_PER_PTE * sizeof(pte_t), PAGE_SIZE);
--	pmd_t *pmd =
--	    memblock_alloc(n_pmds * PTRS_PER_PMD * sizeof(pmd_t), PAGE_SIZE);
--	pgd_t *pgd = pgd_offset_k(vaddr);
--
--	for (i = 0; i < n_pages; i++) {
--		phys_addr_t phys = memblock_phys_alloc(PAGE_SIZE, PAGE_SIZE);
--		set_pte(&pte[i], pfn_pte(PHYS_PFN(phys), PAGE_KERNEL));
--	}
--
--	for (i = 0, offset = 0; i < n_ptes; i++, offset += PTRS_PER_PTE)
--		set_pmd(&pmd[i],
--			pfn_pmd(PFN_DOWN(__pa(&pte[offset])),
--				__pgprot(_PAGE_TABLE)));
- 
--	for (i = 0, offset = 0; i < n_pmds; i++, offset += PTRS_PER_PMD)
--		set_pgd(&pgd[i],
--			pfn_pgd(PFN_DOWN(__pa(&pmd[offset])),
--				__pgprot(_PAGE_TABLE)));
-+	kasan_populate_pgd(vaddr, vend);
- 
- 	local_flush_tlb_all();
- 	memset(start, 0, end - start);
-@@ -99,7 +144,7 @@ void __init kasan_init(void)
- 		if (start >= end)
- 			break;
- 
--		populate(kasan_mem_to_shadow(start), kasan_mem_to_shadow(end));
-+		kasan_populate(kasan_mem_to_shadow(start), kasan_mem_to_shadow(end));
- 	};
- 
- 	for (i = 0; i < PTRS_PER_PTE; i++)
--- 
-2.20.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMjIvMTIvMjAyMCAwMjozNSwgUGFsbWVyIERhYmJlbHQgd3JvdGU6Cj4gT24gVGh1LCAwMyBE
+ZWMgMjAyMCAyMTo0Mjo1NyBQU1QgKC0wODAwKSwgdGVzaGVuZ0BhbmRlc3RlY2guY29tIHdyb3Rl
+Ogo+PiBBY2Nlc3NlcyB0byB1c2VyLXNwYWNlIG1lbW9yeSB3aXRob3V0IGNhbGxpbmcgdWFjY2Vz
+cyByb3V0aW5lCj4+IGxlYWRzIHRvIGhhbmdpbmcgaW4gcGFnZSBmYXVsdCBoYW5kbGVyLiBMaWtl
+IGFybTY0LCB3ZSBsZXQgaXQKPj4gZGllIGVhcmxpZXIgaW4gcGFnZSBmYXVsdCBoYW5kbGVyLgo+
+Pgo+PiBDaGFuZ2VzIGluIHYzOgo+PiDCoMKgwqDCoC1MZXQgbm9fY29udGV4dCgpIHVzZSBkaWVf
+a2VybmVsX2ZhdWx0KCkgaGVscGVyCj4+Cj4+IENoYW5nZXMgaW4gdjI6Cj4+IMKgwqDCoCAtQWRk
+IGEgZGllX2tlcm5lbF9mYXVsdCgpIGhlbHBlcgo+PiDCoMKgwqAgLVNwbGl0IG9uZSBsb25nIGxp
+bmUgY29kZSBpbnRvIHR3bwo+Pgo+PiBFcmljIExpbiAoMik6Cj4+IMKgIHJpc2N2L21tOiBJbnRy
+b2R1Y2UgYSBkaWVfa2VybmVsX2ZhdWx0KCkgaGVscGVyIGZ1bmN0aW9uCj4+IMKgIHJpc2N2L21t
+OiBQcmV2ZW50IGtlcm5lbCBtb2R1bGUgdG8gYWNjZXNzIHVzZXIgbWVtb3J5IHdpdGhvdXQgdWFj
+Y2Vzcwo+PiDCoMKgwqAgcm91dGluZXMKPj4KPj4gwqBhcmNoL3Jpc2N2L21tL2ZhdWx0LmMgfCAy
+OCArKysrKysrKysrKysrKysrKysrKysrLS0tLS0tCj4+IMKgMSBmaWxlIGNoYW5nZWQsIDIyIGlu
+c2VydGlvbnMoKyksIDYgZGVsZXRpb25zKC0pCj4gCj4gVGhhbmtzLCB0aGVzZSB3aWxsIGJlIG9u
+IGZvci1uZXh0IHdoZW4gdGhlIG1lcmdlIHdpbmRvdyBlbmRzLgoKSnVzdCB0ZXN0ZWQgdGhpcyBh
+bmQgaXQgc2VlbXMgdG8gYmUgd29ya2luZy4KCi0tIApCZW4gRG9va3MJCQkJaHR0cDovL3d3dy5j
+b2RldGhpbmsuY28udWsvClNlbmlvciBFbmdpbmVlcgkJCQlDb2RldGhpbmsgLSBQcm92aWRpbmcg
+R2VuaXVzCgpodHRwczovL3d3dy5jb2RldGhpbmsuY28udWsvcHJpdmFjeS5odG1sCgpfX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
+aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
+cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
