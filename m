@@ -2,73 +2,88 @@ Return-Path: <SRS0=Cdab=HE=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-5.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 60E28C433DB
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Feb 2021 13:32:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B795FC433DB
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Feb 2021 14:12:58 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 27B9064DBD
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Feb 2021 13:32:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 27B9064DBD
-Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=suse.com
+	by mail.kernel.org (Postfix) with ESMTPS id 657B464E2B
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Feb 2021 14:12:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 657B464E2B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:Subject:
+	From:References:To:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=mZZbEWxTLwtD5o88il3gMwIaGUG3IspPl1t3s6YNXG8=; b=ttskMbvc8n4Yu19knUROw++dw
-	BwLNouxFn7GfKYBcLd6ad9hkzbeoS9Ah/mhUn7PwoqLC41msjAi69+Ql6aqSWn8fqUZWN16bHqJ+9
-	8zd/ohOz7f74h8+XyLjzQTnz8iTMpm9HxVfN8CPtby9/uXKv7iSbLXCzdawm4Cxjlht3ieJ/EuMbM
-	ccSI6ggBZPSaR/gQJONFSVt1Cw/+0g0HCyicql862dc121/hv9/XBOl8YfiK4J9wuPm8MweQcQzh9
-	+NWyp4AcwGZ7Hzwp1OaJ/5xw1NR9e/oqXchYdGj7VSvf2Wci+sVf07SSltOn3F0wINGz8K4KHiPOz
-	fcsdep0hw==;
+	 bh=CFDEeJ02RVdAOWs74vwNw2XTAEpIvhqeEaXbrXyTSXo=; b=v4PXXc8rt8ea3yjB0crPSrvwL
+	9q5Ytn6rqZHfJaizH4o4NaMlYlSzg1MoUNYsXuT61c9ZEuYsgn/0J6Qn5DPvakG0eHlJSA+b+Lf6B
+	tFTdPOUKv+R4Lf9aUwfcLak0drpBI3aOmAmD2WT7RbwKFmdJesfAKyea/p95ecvBOhgywAWHAzwSj
+	Y3lKyqB8uQnsJMgw2D+NPcaDpAFgQavWUHPiPXPSg+/o/zB2ly7pOUWixw773wKPI/HsDODfY/3W2
+	Nl9znbAghXQo2NzlIutDholN2ftV+ZMP3cqYLORVxjmiHsw578pSGDJNrmGrYBzdqI6FdDs93mNtu
+	G4JBxxH5Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l6vn2-0001Iy-N4; Tue, 02 Feb 2021 13:32:20 +0000
-Received: from mx2.suse.de ([195.135.220.15])
+	id 1l6wQB-0006dJ-SH; Tue, 02 Feb 2021 14:12:48 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([63.128.21.124])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l6vmx-0001GM-UP; Tue, 02 Feb 2021 13:32:17 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
- t=1612272735; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
+ id 1l6wQ4-0006aC-Ih
+ for linux-riscv@lists.infradead.org; Tue, 02 Feb 2021 14:12:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1612275160;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
  in-reply-to:in-reply-to:references:references;
- bh=qhASYy52HrQdJQILCHxBxIDs1mcnSSfDvbUg8Hv9Huk=;
- b=O35yhETCIJcmvITBzmA06eT7x4pieJO9swql+e/dEuWJvoBkcPrcGAQe2sM2r3gNYCJ97G
- cutl0j+I7mXW23xuyyuYKFCdVv7+WC+a62VtrpsBAxAPUoJKjRiqBrbLEGz3xn0w2G09n8
- 8FyL2zHquLohp9unYR6VoEzGZD+347Q=
-Received: from relay2.suse.de (unknown [195.135.221.27])
- by mx2.suse.de (Postfix) with ESMTP id B66D6AF92;
- Tue,  2 Feb 2021 13:32:14 +0000 (UTC)
-Date: Tue, 2 Feb 2021 14:32:13 +0100
-From: Michal Hocko <mhocko@suse.com>
-To: David Hildenbrand <david@redhat.com>
-Subject: Re: [PATCH v16 07/11] secretmem: use PMD-size pages to amortize
- direct map fragmentation
-Message-ID: <YBlUXdwV93xMIff6@dhcp22.suse.cz>
+ bh=mAXEVjxGkaVgIUFhfXA1HRN3FgtOlJcIpAQw2h/beVM=;
+ b=eKDUxb1+pqSJGwixp0bJb9IpFbLQ2YWSNtr9y6B5b9tHnfKB8XWwqMi4lg2wcz689fqN+7
+ ixbEtjubRl8BQ3SthB9ROO4tXppvD18dReUGmXO7MA7mXPXT1SkBZZqlAPN5rjZaPaek3k
+ ft4gaH36hp6hgsL1Zdqrv2sUA+94Msc=
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-460-DO7GaD-qPMSuJ9daYkp31A-1; Tue, 02 Feb 2021 09:12:35 -0500
+X-MC-Unique: DO7GaD-qPMSuJ9daYkp31A-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com
+ [10.5.11.11])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+ (No client certificate requested)
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id B117B100A8E8;
+ Tue,  2 Feb 2021 14:12:30 +0000 (UTC)
+Received: from [10.36.114.148] (ovpn-114-148.ams2.redhat.com [10.36.114.148])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id 6CE915B4A7;
+ Tue,  2 Feb 2021 14:12:22 +0000 (UTC)
+To: Michal Hocko <mhocko@suse.com>
 References: <303f348d-e494-e386-d1f5-14505b5da254@redhat.com>
- <20210126120823.GM827@dhcp22.suse.cz>
- <20210128092259.GB242749@kernel.org>
+ <20210126120823.GM827@dhcp22.suse.cz> <20210128092259.GB242749@kernel.org>
  <YBK1kqL7JA7NePBQ@dhcp22.suse.cz>
  <73738cda43236b5ac2714e228af362b67a712f5d.camel@linux.ibm.com>
  <YBPF8ETGBHUzxaZR@dhcp22.suse.cz>
  <6de6b9f9c2d28eecc494e7db6ffbedc262317e11.camel@linux.ibm.com>
- <YBkcyQsky2scjEcP@dhcp22.suse.cz>
- <20210202124857.GN242749@kernel.org>
+ <YBkcyQsky2scjEcP@dhcp22.suse.cz> <20210202124857.GN242749@kernel.org>
  <6653288a-dd02-f9de-ef6a-e8d567d71d53@redhat.com>
+ <YBlUXdwV93xMIff6@dhcp22.suse.cz>
+From: David Hildenbrand <david@redhat.com>
+Organization: Red Hat GmbH
+Subject: Re: [PATCH v16 07/11] secretmem: use PMD-size pages to amortize
+ direct map fragmentation
+Message-ID: <211f0214-1868-a5be-9428-7acfc3b73993@redhat.com>
+Date: Tue, 2 Feb 2021 15:12:21 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <6653288a-dd02-f9de-ef6a-e8d567d71d53@redhat.com>
+In-Reply-To: <YBlUXdwV93xMIff6@dhcp22.suse.cz>
+Content-Language: en-US
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210202_083216_242520_2011C87B 
-X-CRM114-Status: GOOD (  16.26  )
+X-CRM114-CacheID: sfid-20210202_091240_784323_6FA94DCC 
+X-CRM114-Status: GOOD (  21.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -103,33 +118,51 @@ Cc: Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>,
  Andrew Morton <akpm@linux-foundation.org>,
  Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>,
  Mike Rapoport <rppt@kernel.org>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue 02-02-21 14:14:09, David Hildenbrand wrote:
-[...]
-> As already expressed, I dislike allowing user space to consume an unlimited
-> number unmovable/unmigratable allocations. We already have that in some
-> cases with huge pages (when the arch does not support migration) - but there
-> we can at least manage the consumption using the whole max/reserved/free/...
-> infrastructure. In addition, adding arch support for migration shouldn't be
-> too complicated.
+On 02.02.21 14:32, Michal Hocko wrote:
+> On Tue 02-02-21 14:14:09, David Hildenbrand wrote:
+> [...]
+>> As already expressed, I dislike allowing user space to consume an unlimited
+>> number unmovable/unmigratable allocations. We already have that in some
+>> cases with huge pages (when the arch does not support migration) - but there
+>> we can at least manage the consumption using the whole max/reserved/free/...
+>> infrastructure. In addition, adding arch support for migration shouldn't be
+>> too complicated.
+> 
+> Well, mlock is not too different here as well. Hugepages are arguably an
+> easier model because it requires an explicit pre-configuration by an
+> admin. Mlock doesn't have anything like that. Please also note that
+> while mlock pages are migrateable by default, this is not the case in
+> general because they can be configured to disalow migration to prevent
+> from minor page faults as some workloads require that (e.g. RT).
 
-Well, mlock is not too different here as well. Hugepages are arguably an
-easier model because it requires an explicit pre-configuration by an
-admin. Mlock doesn't have anything like that. Please also note that
-while mlock pages are migrateable by default, this is not the case in
-general because they can be configured to disalow migration to prevent
-from minor page faults as some workloads require that (e.g. RT).
-Another example is ramdisk or even tmpfs (with swap storage depleted or
-not configured). Both are PITA from the OOM POV but they are manageable
-if people are careful. If secretmem behaves along those existing models
-then we know what to expect at least.
+Yeah, however that is a very special case. In most cases mlock() simply 
+prevents swapping, you still have movable pages you can place anywhere 
+you like (including on ZONE_MOVABLE).
+
+> Another example is ramdisk or even tmpfs (with swap storage depleted or
+> not configured). Both are PITA from the OOM POV but they are manageable
+> if people are careful.
+
+Right, but again, special cases - e.g., tmpfs explicitly has to be resized.
+
+> If secretmem behaves along those existing models
+> then we know what to expect at least.
+
+I think secretmem behaves much more like longterm GUP right now 
+("unmigratable", "lifetime controlled by user space", "cannot go on 
+CMA/ZONE_MOVABLE"). I'd either want to reasonably well control/limit it 
+or make it behave more like mlocked pages.
+
 -- 
-Michal Hocko
-SUSE Labs
+Thanks,
+
+David / dhildenb
+
 
 _______________________________________________
 linux-riscv mailing list
