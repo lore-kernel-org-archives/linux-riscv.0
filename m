@@ -2,72 +2,93 @@ Return-Path: <SRS0=Cdab=HE=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-17.4 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,NICE_REPLY_A,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0470FC433E0
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Feb 2021 19:11:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E54B5C433E0
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Feb 2021 23:54:23 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A03A564E0A
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Feb 2021 19:11:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A03A564E0A
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 8335264F59
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Feb 2021 23:54:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8335264F59
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=udf7X06bGydWe4GFgQTbly9qpPaeUAAPyK3afISDP/k=; b=QdUswf/pcSSDJ3sCeOpLV215H
-	jZH6KpXpUp16huWkU6GceDS3KWRML2sJDR2KqzRoysOPfgUupNHkguj0cI9mWyG5LfClxEBwlCv7x
-	6dwvgpPTMffSJyF+f3coLMrtscdXR5JSucB25wTGSZqLbKK5iHW7sQF3Ro1px/YF7e9noDp+diNmT
-	N6488LKnzYrwaAP++z0iF9UH4CnUl4zXIumi7/hxWfJIfa/4Z14el3OHplmXC7HV42JoKQr/GfMpn
-	WwcDWmt3Tpjg1sdVlFTczuRpRZt70QhfH+svOPvAnfAcFhLEyop7YnJEitL24aMQcizquF60zwbTF
-	ztUNwJqRA==;
+	 bh=eUVEbXoL3/fcfe1lVDn1xtcAVGBqglbjPZDtQVePGXQ=; b=23efCRvyouz3esxEzpxz14w3q
+	RfJzpRJ7SWKf8jz/B7vzvMryn6SeShVO8ggSKpNtr8uq6YWx6CVOZbDAvBaEESj1k0gFrnTlc4Lui
+	4ti4XjBJG4sX1ZEKWTv6tBtNx/wQuFwrxz9V1v1Mx2tKUEvGVHpdo+dWpfXfq5xjYfG5n881YH+fS
+	1YaqjkKTt/XNAOe2coEGdGGK71p7abpzcyMfvCVSP3sJB2mzrDxxoGUCiJDAbytthIgRDtWr96jPi
+	PMsVyMGA+a+orP69vXnzmH6B/u6kU1wODWlaWUmVCOKrOgwdXmgPSCjz1LpT1Q6U4AAIQAc+pxZnc
+	5Md54sg5A==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l714x-0001sS-RL; Tue, 02 Feb 2021 19:11:11 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1l75Us-0005Wi-Ay; Tue, 02 Feb 2021 23:54:14 +0000
+Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l714t-0001qw-3w; Tue, 02 Feb 2021 19:11:08 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 47C6D64D87;
- Tue,  2 Feb 2021 19:10:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1612293066;
- bh=Pzyl+wYYgvPCwgJ+GvBahmfBmshzS1gdeGZydw56C1k=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=urlxNYufSkfJp0SH0EEfwFzSeIYwXDdueMnyILwXIullWx4SbMoEerX80f5OQqyLU
- Bg+fxp5cMzP5FzVAMlOPfjBauj+B1/aEKphaIK3R5lVLYCvCQesqrDIQmZvMjDXmNR
- wmsGMRNi9ZfDbI6vAJ5p7VMbSsLj4nb8l1NhazBIB10phtLBckQ1cOU2nN3vTXLilS
- uJtQ4CoJagfCIkQnsWqgtg/k3AnTkwWKwrvb5ozbBGjBggCHGi2zD+24ANJ5uL76kr
- bEh+jPfAk+q1UtVeseCuM6MVzwqCxfVLsegGHFyjAVr0PWSO8yZEm61pbzlwU5cRc5
- HnguLQxiFymVg==
-Date: Tue, 2 Feb 2021 21:10:40 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Michal Hocko <mhocko@suse.com>
-Subject: Re: [PATCH v16 07/11] secretmem: use PMD-size pages to amortize
- direct map fragmentation
-Message-ID: <20210202191040.GP242749@kernel.org>
-References: <303f348d-e494-e386-d1f5-14505b5da254@redhat.com>
- <20210126120823.GM827@dhcp22.suse.cz>
- <20210128092259.GB242749@kernel.org>
- <YBK1kqL7JA7NePBQ@dhcp22.suse.cz>
- <73738cda43236b5ac2714e228af362b67a712f5d.camel@linux.ibm.com>
- <YBPF8ETGBHUzxaZR@dhcp22.suse.cz>
- <6de6b9f9c2d28eecc494e7db6ffbedc262317e11.camel@linux.ibm.com>
- <YBkcyQsky2scjEcP@dhcp22.suse.cz>
- <20210202124857.GN242749@kernel.org>
- <YBlTMqjB06aqyGbT@dhcp22.suse.cz>
+ id 1l75Uq-0005Vi-0D
+ for linux-riscv@lists.infradead.org; Tue, 02 Feb 2021 23:54:13 +0000
+Received: by mail-qk1-x729.google.com with SMTP id r77so21709953qka.12
+ for <linux-riscv@lists.infradead.org>; Tue, 02 Feb 2021 15:54:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=subject:to:cc:references:from:message-id:date:user-agent
+ :mime-version:in-reply-to:content-language:content-transfer-encoding;
+ bh=owa7yspMu7oxtY/40pJhJawCs1eLW8zh4phVTlhRQGA=;
+ b=BOWvLBJ0dKIZx1ByJ56uFwT9ud1ZJnZHsF7ytLpr4i0CFNa6udW4Tps2e2syypWelZ
+ gk7kBxiPSAk4L4g6YiSfk6uxwWGfl873Blxi2//W5UN+ZbNSpnHlX7bEwNRegjW859hY
+ BM1vd+vffJ5tq4uH82eTSVY41HJiGySOoxQ6KIdewGi9Q1hsr0yoLqaOrYW2mV8KtoN8
+ 3DSOCWC5xtYAW43ID7NSXfQOEIlkFnK7npZchnIiK/OCy8rgMjwPhwBMfr4kFyHLCQyU
+ 5LpSzn3fmgYslRMXssdzCZ9GsIM8m2Sia2UjwZS+KawchIM1WzP3+N8Unt3fGchIzrH1
+ e+QQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:subject:to:cc:references:from:message-id:date
+ :user-agent:mime-version:in-reply-to:content-language
+ :content-transfer-encoding;
+ bh=owa7yspMu7oxtY/40pJhJawCs1eLW8zh4phVTlhRQGA=;
+ b=C8YrxqS21JPkB0Yor4y9cpzhdO3V8PXDKMlYe1Jzbw6M6UuPKC5sZuExwi9RUbO+/l
+ aK2V1dPXkvR/bjNsqbRR0qwRCJfe9uLKrwBk0/BvMUpRbQIpc86pUIqYaLfNeK1ndNwd
+ AI79/hqnfnvzu2Eh5OKcmGFNjoi2cNlI2PbTX3jJlH3VNjGMKGLabMCztpJzZJxanM9j
+ lBzXL8wnHio2FhSlUoVP4WYThhK13jcp/uYJYHiZ2nXi57NlzndHI9SQ2XtSss6hIF6x
+ 4NkQlaeo0II2VlNmP1CsQo20pCp8khinnIziWg+RiMb4BJuuY6ipgzTkyEa6usTF3+Rf
+ vnZw==
+X-Gm-Message-State: AOAM532K3jSEgNJsbtZcxsRmxoXt2nddIUBocOVypmy9wMOsAwEtle8H
+ sVrt/LKGjq5yk/41gNjptAM=
+X-Google-Smtp-Source: ABdhPJxW3GU5vDb2kFDZKMKepKJOoPG54JDdAI7VY/1e98WRrqu4W+TDTU+vuyaj3PmYsFXmEfD/Fw==
+X-Received: by 2002:a05:620a:531:: with SMTP id
+ h17mr194998qkh.93.1612310048591; 
+ Tue, 02 Feb 2021 15:54:08 -0800 (PST)
+Received: from [192.168.1.201] (pool-108-51-35-162.washdc.fios.verizon.net.
+ [108.51.35.162])
+ by smtp.googlemail.com with ESMTPSA id q25sm404003qkq.32.2021.02.02.15.54.07
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Tue, 02 Feb 2021 15:54:08 -0800 (PST)
+Subject: Re: [PATCH v14 07/16] dt-bindings: fix sifive gpio properties
+To: Atish Patra <atishp@atishpatra.org>, Damien Le Moal <damien.lemoal@wdc.com>
+References: <20210202103623.200809-1-damien.lemoal@wdc.com>
+ <20210202103623.200809-8-damien.lemoal@wdc.com>
+ <CAOnJCUKQ+yFJN9+biMMQW6Wvf=eckfcfMHVpDB74TmxWVNoEkQ@mail.gmail.com>
+From: Sean Anderson <seanga2@gmail.com>
+Message-ID: <5d565fe4-f624-ea28-177b-2fe01a678260@gmail.com>
+Date: Tue, 2 Feb 2021 18:54:07 -0500
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.12.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <YBlTMqjB06aqyGbT@dhcp22.suse.cz>
+In-Reply-To: <CAOnJCUKQ+yFJN9+biMMQW6Wvf=eckfcfMHVpDB74TmxWVNoEkQ@mail.gmail.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210202_141107_726079_3C34A5C0 
-X-CRM114-Status: GOOD (  33.90  )
+X-CRM114-CacheID: sfid-20210202_185412_084804_BA4E6921 
+X-CRM114-Status: GOOD (  20.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -79,106 +100,122 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
- Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
- linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>,
- Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
- Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
- Will Deacon <will@kernel.org>, x86@kernel.org,
- Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
- Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>, Arnd Bergmann <arnd@arndb.de>,
- James Bottomley <jejb@linux.ibm.com>, Hagen Paul Pfeifer <hagen@jauu.net>,
- Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
- linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-fsdevel@vger.kernel.org, Shakeel Butt <shakeelb@google.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>
-Content-Type: text/plain; charset="us-ascii"
+Cc: devicetree <devicetree@vger.kernel.org>, Rob Herring <robh@kernel.org>,
+ Anup Patel <anup.patel@wdc.com>, Atish Patra <atish.patra@wdc.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 02, 2021 at 02:27:14PM +0100, Michal Hocko wrote:
-> On Tue 02-02-21 14:48:57, Mike Rapoport wrote:
-> > On Tue, Feb 02, 2021 at 10:35:05AM +0100, Michal Hocko wrote:
-> > > On Mon 01-02-21 08:56:19, James Bottomley wrote:
-> > > 
-> > > I have also proposed potential ways out of this. Either the pool is not
-> > > fixed sized and you make it a regular unevictable memory (if direct map
-> > > fragmentation is not considered a major problem)
-> > 
-> > I think that the direct map fragmentation is not a major problem, and the
-> > data we have confirms it, so I'd be more than happy to entirely drop the
-> > pool, allocate memory page by page and remove each page from the direct
-> > map. 
-> > 
-> > Still, we cannot prove negative and it could happen that there is a
-> > workload that would suffer a lot from the direct map fragmentation, so
-> > having a pool of large pages upfront is better than trying to fix it
-> > afterwards. As we get more confidence that the direct map fragmentation is
-> > not an issue as it is common to believe we may remove the pool altogether.
+On 2/2/21 1:45 PM, Atish Patra wrote:
+> On Tue, Feb 2, 2021 at 2:37 AM Damien Le Moal <damien.lemoal@wdc.com> wrote:
+>>
+>> The sifive gpio IP block supports up to 32 GPIOs. Reflect that in the
 > 
-> I would drop the pool altogether and instantiate pages to the
-> unevictable LRU list and internally treat it as ramdisk/mlock so you
-> will get an accounting correctly. The feature should be still opt-in
-> (e.g. a kernel command line parameter) for now. The recent report by
-> Intel (http://lkml.kernel.org/r/213b4567-46ce-f116-9cdf-bbd0c884eb3c@linux.intel.com)
-> there is no clear win to have huge mappings in _general_ but there are
-> still workloads which benefit. 
->  
-> > I think that using PMD_ORDER allocations for the pool with a fallback to
-> > order 0 will do the job, but unfortunately I doubt we'll reach a consensus
-> > about this because dogmatic beliefs are hard to shake...
+> The spec here says 16 GPIOs
+> https://static.dev.sifive.com/FU540-C000-v1.0.pdf
 > 
-> If this is opt-in then those beliefs can be relaxed somehow. Long term
-> it makes a lot of sense to optimize for a better direct map management
-> but I do not think this is a hard requirement for an initial
-> implementation if it is not imposed to everybody by default.
->
-> > A more restrictive possibility is to still use plain PMD_ORDER allocations
-> > to fill the pool, without relying on CMA. In this case there will be no
-> > global secretmem specific pool to exhaust, but then it's possible to drain
-> > high order free blocks in a system, so CMA has an advantage of limiting
-> > secretmem pools to certain amount of memory with somewhat higher
-> > probability for high order allocation to succeed. 
-> > 
-> > > or you need a careful access control 
-> > 
-> > Do you mind elaborating what do you mean by "careful access control"?
+> Is there a updated spec available ?
+
+This GPIO device is (AFAICT) from [1]. While the version instantiated on
+SiFive's cores has 16 GPIOs, the actual number of GPIOs is configurable. In
+Canaan's version, there are 32 GPIOs. Unfortunately, I am not aware of any
+non-implementation-specific documentation for this device.
+
+--Sean
+
+[1] https://github.com/sifive/sifive-blocks/tree/master/src/main/scala/devices/gpio
+
 > 
-> As already mentioned, a mechanism to control who can use this feature -
-> e.g. make it a special device which you can access control by
-> permissions or higher level security policies. But that is really needed
-> only if the pool is fixed sized.
-  
-Let me reiterate to make sure I don't misread your suggestion.
+>> interrupts property description and maxItems. Also add the standard
+>> ngpios property to describe the number of GPIOs available on the
+>> implementation.
+>>
+>> Also add the "canaan,k210-gpiohs" compatible string to indicate the use
+>> of this gpio controller in the Canaan Kendryte K210 SoC. If this
+>> compatible string is used, do not define the clocks property as
+>> required as the K210 SoC does not have a software controllable clock
+>> for the Sifive gpio IP block.
+>>
+>> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+>> Cc: Rob Herring <robh@kernel.org>
+>> Cc: devicetree@vger.kernel.org
+>> Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
+>> ---
+>>   .../devicetree/bindings/gpio/sifive,gpio.yaml | 21 ++++++++++++++++---
+>>   1 file changed, 18 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml b/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml
+>> index ab22056f8b44..2cef18ca737c 100644
+>> --- a/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml
+>> +++ b/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml
+>> @@ -16,6 +16,7 @@ properties:
+>>         - enum:
+>>             - sifive,fu540-c000-gpio
+>>             - sifive,fu740-c000-gpio
+>> +          - canaan,k210-gpiohs
+>>         - const: sifive,gpio0
+>>
+>>     reg:
+>> @@ -23,9 +24,9 @@ properties:
+>>
+>>     interrupts:
+>>       description:
+>> -      interrupt mapping one per GPIO. Maximum 16 GPIOs.
+>> +      interrupt mapping one per GPIO. Maximum 32 GPIOs.
+>>       minItems: 1
+>> -    maxItems: 16
+>> +    maxItems: 32
+>>
+>>     interrupt-controller: true
+>>
+>> @@ -38,6 +39,10 @@ properties:
+>>     "#gpio-cells":
+>>       const: 2
+>>
+>> +  ngpios:
+>> +    minimum: 1
+>> +    maximum: 32
+>> +
+>>     gpio-controller: true
+>>
+>>   required:
+>> @@ -46,10 +51,20 @@ required:
+>>     - interrupts
+>>     - interrupt-controller
+>>     - "#interrupt-cells"
+>> -  - clocks
+>>     - "#gpio-cells"
+>>     - gpio-controller
+>>
+>> +if:
+>> +  properties:
+>> +    compatible:
+>> +      contains:
+>> +        enum:
+>> +          - sifive,fu540-c000-gpio
+>> +          - sifive,fu740-c000-gpio
+>> +then:
+>> +  required:
+>> +    - clocks
+>> +
+>>   additionalProperties: false
+>>
+>>   examples:
+>> --
+>> 2.29.2
+>>
+>>
+>> _______________________________________________
+>> linux-riscv mailing list
+>> linux-riscv@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
+> 
+> 
 
-If we make secretmem an opt-in feature with, e.g. kernel parameter, the
-pooling of large pages is unnecessary. In this case there is no limited
-resource we need to protect because secretmem will allocate page by page.
-
-Since there is no limited resource, we don't need special permissions
-to access secretmem so we can move forward with a system call that creates
-a mmapable file descriptor and save the hassle of a chardev.
-
-I cannot say I don't like this as it cuts roughly half of mm/secretmem.c :)
-
-But I must say I am still a bit concerned about that we have no provisions
-here for dealing with the direct map fragmentation even with the set goal
-to improve the direct map management in the long run...
-
--- 
-Sincerely yours,
-Mike.
 
 _______________________________________________
 linux-riscv mailing list
