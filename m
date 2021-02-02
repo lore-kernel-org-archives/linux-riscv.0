@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2C26CC433DB
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Feb 2021 17:54:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 263ECC433E0
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Feb 2021 17:55:38 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B24C264F90
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Feb 2021 17:54:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B24C264F90
+	by mail.kernel.org (Postfix) with ESMTPS id AFBC664F8D
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Feb 2021 17:55:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AFBC664F8D
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,56 +23,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=3x/utVVJs58GnTTTrdY9Vw+SUyesm2kJTQ3PUQa7Hec=; b=mggBSdO+rJ5t2LbwWm50IsFpK
-	nW7+OMoxm14T9Tn9H7JWOFkuUmXZQm5tW1XVXBRinsjSS54zlyP8EPd31eNs+ZZ/+hnNp6YNqhDdi
-	y46p2SIQtT4NrLBdaqdE1cd/3t82Ij7/T87aXQQbsm3ZqaLkzeI3Qdk8jo0FghuNvHAIa6rJak7H/
-	svvscY0iYkOv0CLDnJSiK5qTf+LJy9XPoEAaCaRzgO3iVd8Jd9bdJpZCJSn99C30y2pBmg0P+Z3Mf
-	2atYh2oX/UxI+LupBd2mSGSuvrD6Pqo4vBXeg3KFX03HGv9/O8ialWYgodWUhC5blQgaBhweZIev+
-	dMCvK1h4g==;
+	 bh=sqHdGV8J4VTMpcnC0ogjG32gMZQ57xrFHSumEpVEogg=; b=xcKtjTrFb+HoG7mXoez9BmOwF
+	rHFQdqXUBd9qqb15QQmGe/SeCTaQwex4TlWPcqAAbxzgdLnLYHfSU71UwzynqI8CihOQpR7ggvqa2
+	WrqU0cI0X2/sKtqZxTt/dbA0+kBhm/bwDm8EvtJEaVbCOsYCd81t9ozx2QWWJqgqt9mdEoKJQ4HI4
+	UtIQh2xtgtUmsLliq2YVgALLbY1EmaAfPTv5n3S1XADHaKknjOee8fKMCcf/Id/KuWoQIxb3Zuvbv
+	GOAGOoy4yAKk10uqKEffyCoBIsDGRCcnbAgMGnaVClF9gqvVELXnMZGWvtNRPZD4luXgoz6k8HOtS
+	qOiEoGfxA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l6zsZ-0001TO-FA; Tue, 02 Feb 2021 17:54:19 +0000
-Received: from mail-il1-x12e.google.com ([2607:f8b0:4864:20::12e])
+	id 1l6ztj-0001dg-9B; Tue, 02 Feb 2021 17:55:31 +0000
+Received: from mail-io1-xd35.google.com ([2607:f8b0:4864:20::d35])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l6zsW-0001Sd-JJ
- for linux-riscv@lists.infradead.org; Tue, 02 Feb 2021 17:54:17 +0000
-Received: by mail-il1-x12e.google.com with SMTP id z18so19626468ile.9
- for <linux-riscv@lists.infradead.org>; Tue, 02 Feb 2021 09:54:15 -0800 (PST)
+ id 1l6ztg-0001dE-Sx
+ for linux-riscv@lists.infradead.org; Tue, 02 Feb 2021 17:55:30 +0000
+Received: by mail-io1-xd35.google.com with SMTP id h11so22242935ioh.11
+ for <linux-riscv@lists.infradead.org>; Tue, 02 Feb 2021 09:55:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=atishpatra.org; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=em1FpT76uug6DRAz+4wTkbqjvjPRUJbYEn1f/uXEBkc=;
- b=es1uit2HfGMVdqh9KRuE00YwmSOw/LtKw9dF+RBHEuOobPOd5UB2ON0C1scC8DXQsu
- h4HTBMfoz8VswROhsBOQV+eBth0ukHUPVt9skA/puLsRkhY6FEgLMpFW9WQvQ8SUMhjm
- kxtdqUheHLj10zadoZClVE+abU2XIzfRyNRPo=
+ :cc; bh=zAwwh+o0gGboolgQvMDHmCpsBwrqp4KIQmH6QKSvEDA=;
+ b=HRu4N2bONjad5pcAUw5hnjGJYNGH6MyOSIVsgEi+ZTAZtoBHOwefxCM+Nzr/0zdqbN
+ YKDK3CuFadGYjzkbKsXvyOF+yXJS7Inp7qqJuAQ1mE8wrJxCQ+SHlTH4sTHaM/WG/ikm
+ d1n7nsRi96wadeFiEqxZROC/Iry5gdXhFnQjg=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=em1FpT76uug6DRAz+4wTkbqjvjPRUJbYEn1f/uXEBkc=;
- b=ajddc3Wygnxh+ecX2hdESH1NerRfSsmbCmEDJLTBy2/v9lGTCSmPOKDPW6nncfCId7
- 6oJemOzu6ZcIWrhTmw/1A2Y3qeArEbBkNzw09qtothvjdsuGKhjCWETKXuDG/UQmZMSt
- oLBe4FBEOg8RkQfx0U3ZOLJpZTJQ7BURw1w+NftS9YUcKDKP5QnlmpYQsSBajsHk2RAQ
- rHA1WBy0XxGBg19PDfFgMRXsBD0CguzgxJNVfSMPiGs1qxiP6fslLLF/RKWqST7cgamH
- dBTO1hCQLx9aFCpkHD/lmS/Vj0EO+VTyLtddndP89np0r1cOCB8UndV+oFRvGTLrVsIB
- /7Nw==
-X-Gm-Message-State: AOAM5335txLUhRmrs+TMLLmm2apoJhMc0Lu/dvYks3qjAHn39yUTMBIg
- 2P2Ev4GBrC3lUHEgjZOk2BsOk5GcwbauKiOJg775
-X-Google-Smtp-Source: ABdhPJxLRLtfvAv0tI0BuFoAM4y6OkPK0G+kVXthqwdJx1/kacdheNgneo0jm2r7jkxeZMPdsGkLjNOWV0cJf63cW3I=
-X-Received: by 2002:a92:cd8e:: with SMTP id r14mr18683723ilb.77.1612288454471; 
- Tue, 02 Feb 2021 09:54:14 -0800 (PST)
+ bh=zAwwh+o0gGboolgQvMDHmCpsBwrqp4KIQmH6QKSvEDA=;
+ b=qSd0NbF+SV5BY6K+wz51hTskU86s/xvjZge7GmcWBLs6RQi3lNwnaDkkgOdhPbatvX
+ 7e6+S7dy2Ihes89u+Xwx62q1GVqYUYMYfqt/JDg4lEppjTW1rReQgD0hDwZe7eB8xPZI
+ VHIzl5ItxZSWy+4wtMkOUrQZ6FW75FQSEUwR5Z992fO+AUqGtz4gHGlqQpVWexx2wrZP
+ 4qfVHcQ8498WfXq9A61cuLOHa8t74HUo9QJch6oDBORCTnxWpgYLBCG9j5v+Z1plvG9k
+ hY+Rypbq6OVKUcT9WOTjunOW8IFlwbHDzqcwUWz8Y+HrdZH2qwHvYilF21r2A5CtuzW0
+ k+4w==
+X-Gm-Message-State: AOAM532KCC5GwPcbq67nto/VT+KcTVoNXr1tV18gcrnqNM/BcUJWtd8Z
+ E6OEnM6sBNTpQf5I0gzaRcPOa38rEXJs2g4x5qFk
+X-Google-Smtp-Source: ABdhPJzLA3bGFttKBMX6Qt78WekVW5Pb5XFdYuYwpSZd/7Efhvn7Gwhipfk2lesixDKZc9FRHJFAkIlGHo3ZDNmJDpw=
+X-Received: by 2002:a05:6602:2d4d:: with SMTP id
+ d13mr9367082iow.0.1612288527189; 
+ Tue, 02 Feb 2021 09:55:27 -0800 (PST)
 MIME-Version: 1.0
 References: <20210202103623.200809-1-damien.lemoal@wdc.com>
- <20210202103623.200809-4-damien.lemoal@wdc.com>
-In-Reply-To: <20210202103623.200809-4-damien.lemoal@wdc.com>
+ <20210202103623.200809-3-damien.lemoal@wdc.com>
+In-Reply-To: <20210202103623.200809-3-damien.lemoal@wdc.com>
 From: Atish Patra <atishp@atishpatra.org>
-Date: Tue, 2 Feb 2021 09:54:02 -0800
-Message-ID: <CAOnJCUK4Pg25hAFULAZMMM6oEZugPJXw9bbNT6eo-1_+sHV2cQ@mail.gmail.com>
-Subject: Re: [PATCH v14 03/16] dt-bindings: update risc-v cpu properties
+Date: Tue, 2 Feb 2021 09:55:15 -0800
+Message-ID: <CAOnJCUKzEivmEHCdB-8XQ3Vm_tWv_auD_5VciGDagwKz_PJ4ZQ@mail.gmail.com>
+Subject: Re: [PATCH v14 02/16] dt-bindings: add Canaan boards compatible
+ strings
 To: Damien Le Moal <damien.lemoal@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210202_125416_667787_3B7A4B5D 
-X-CRM114-Status: GOOD (  17.37  )
+X-CRM114-CacheID: sfid-20210202_125528_968922_5B3ABF1E 
+X-CRM114-Status: GOOD (  16.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -84,10 +86,9 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree <devicetree@vger.kernel.org>, Rob Herring <robh@kernel.org>,
+Cc: Rob Herring <robh@kernel.org>, devicetree <devicetree@vger.kernel.org>,
  Anup Patel <anup.patel@wdc.com>, Sean Anderson <seanga2@gmail.com>,
  Atish Patra <atish.patra@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
  linux-riscv <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -96,43 +97,73 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 On Tue, Feb 2, 2021 at 2:37 AM Damien Le Moal <damien.lemoal@wdc.com> wrote:
 >
-> The Canaan Kendryte K210 SoC CPU cores are based on a rocket chip
-> version using a draft verion of the RISC-V ISA specifications. To avoid
-> any confusion with CPU cores using stable specifications, add the
-> compatible string "canaan,k210" for this SoC CPU cores.
+> Introduce the file riscv/canaan.yaml to document compatible strings
+> related to the Canaan Kendryte K210 SoC. The compatible string
+> "canaan,kendryte-k210" used to indicate the use of this SoC to the
+> early SoC init code is added. This new file also defines the compatible
+> strings of all supported boards based on this SoC.
 >
-> Also add the "riscv,none" value to the mmu-type property to allow a DT
-> to indicate that the CPU being described does not have an MMU or that
-> it has an MMU that is not usable (which is the case for the K210 SoC).
->
-> Cc: Paul Walmsley <paul.walmsley@sifive.com>
 > Cc: Rob Herring <robh@kernel.org>
 > Cc: devicetree@vger.kernel.org
 > Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
 > ---
->  Documentation/devicetree/bindings/riscv/cpus.yaml | 2 ++
->  1 file changed, 2 insertions(+)
+>  .../devicetree/bindings/riscv/canaan.yaml     | 47 +++++++++++++++++++
+>  1 file changed, 47 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/riscv/canaan.yaml
 >
-> diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
-> index eb6843f69f7c..e534f6a7cfa1 100644
-> --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-> +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-> @@ -39,6 +39,7 @@ properties:
->                - sifive,u74
->                - sifive,u5
->                - sifive,u7
-> +              - canaan,k210
->            - const: riscv
->        - const: riscv    # Simulator only
->      description:
-> @@ -56,6 +57,7 @@ properties:
->        - riscv,sv32
->        - riscv,sv39
->        - riscv,sv48
-> +      - riscv,none
->
->    riscv,isa:
->      description:
+> diff --git a/Documentation/devicetree/bindings/riscv/canaan.yaml b/Documentation/devicetree/bindings/riscv/canaan.yaml
+> new file mode 100644
+> index 000000000000..f8f3f286bd55
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/riscv/canaan.yaml
+> @@ -0,0 +1,47 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/riscv/canaan.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Canaan SoC-based boards
+> +
+> +maintainers:
+> +  - Damien Le Moal <damien.lemoal@wdc.com>
+> +
+> +description:
+> +  Canaan Kendryte K210 SoC-based boards
+> +
+> +properties:
+> +  $nodename:
+> +    const: '/'
+> +  compatible:
+> +    oneOf:
+> +      - items:
+> +          - const: sipeed,maix-bit
+> +          - const: sipeed,maix-bitm
+> +          - const: canaan,kendryte-k210
+> +
+> +      - items:
+> +          - const: sipeed,maix-go
+> +          - const: canaan,kendryte-k210
+> +
+> +      - items:
+> +          - const: sipeed,maix-dock-m1
+> +          - const: sipeed,maix-dock-m1w
+> +          - const: canaan,kendryte-k210
+> +
+> +      - items:
+> +          - const: sipeed,maixduino
+> +          - const: canaan,kendryte-k210
+> +
+> +      - items:
+> +          - const: canaan,kendryte-kd233
+> +          - const: canaan,kendryte-k210
+> +
+> +      - items:
+> +          - const: canaan,kendryte-k210
+> +
+> +additionalProperties: true
+> +
+> +...
 > --
 > 2.29.2
 >
