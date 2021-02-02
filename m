@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EBC56C433DB
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Feb 2021 18:27:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A174FC433E6
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Feb 2021 18:27:23 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7366664F68
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Feb 2021 18:27:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7366664F68
+	by mail.kernel.org (Postfix) with ESMTPS id 44ADC64F68
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Feb 2021 18:27:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 44ADC64F68
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,58 +23,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=EoLLhMjrskwQ2HDMhDE3Z92JG6s3Wj9qkuwOwhJSqm0=; b=cAddFTwKq2IguKflaQ6E/pF3I
-	RWzdVrtq7FTQouWXeDw8cqy4UfsnnqR2QFa6NL43iVI6uBGZ4XHEfdHtHwaxcViJYRPkG/QfQSoMl
-	EqvsAN3uKi3WdklIqDTNzigLcSoxOUyrul66PJPOhSHhLXzItK6OQVY5hbmxMGgvMtDVbZa2Eqqm8
-	GE/kELNMXcRpK+IO/0r890DcN6HiEmkQ/MJf0hI7Pi3baNNobiOl9NXt7re9YirTGCfT1SKmOb3Gr
-	CcBwG8XP8lJ6QpKqPIsvvqneFFCUTXSN2LLoLQ+4HkbxJQ1ZJEdFhIs9PxGxY4LUA4Q5Pj/w0cX2V
-	cQZ6+7E6w==;
+	 bh=anwzX3soLGdlWmsSWnTg95LS/2k84F7uvU9IGyPqbBw=; b=qOPCHOjUjn9PLKokhiDYWmVvM
+	5L0sgj7inpjEHzrBx0DvHVwXQP77Sxudvtu92JVQp8Pw2+O7rOoQDUWb/f7a+aCCeyHSbZeqIByuZ
+	CFRKnELf/d8wca0J3o13ivEiXpu9JydbZb4l+5sjmxzbYd6TkgG84x1OhsNU5qP3ejpXl9NhPmoyE
+	ynKljndeP2+O1N0h/ayacGtqJqxo2dUUsumgtY4f0zqVBQJC3ZflbuEoAvXrf7vUD9PHx3hcW59Uy
+	xXet6EHIkM5OEtzxb+wbVW/HM3BooKPlUfyDoybE9x/WRc0LNc8xxxhSyePL6sjWiiprxsP1k+Phb
+	DrK1lnsXQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l70OB-0005Dc-Cx; Tue, 02 Feb 2021 18:26:59 +0000
-Received: from mail-io1-xd32.google.com ([2607:f8b0:4864:20::d32])
+	id 1l70OR-0005G3-4n; Tue, 02 Feb 2021 18:27:15 +0000
+Received: from mail-io1-xd33.google.com ([2607:f8b0:4864:20::d33])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l70O9-0005DA-Uf
- for linux-riscv@lists.infradead.org; Tue, 02 Feb 2021 18:26:58 +0000
-Received: by mail-io1-xd32.google.com with SMTP id u20so8289942iot.9
- for <linux-riscv@lists.infradead.org>; Tue, 02 Feb 2021 10:26:57 -0800 (PST)
+ id 1l70OP-0005FF-1k
+ for linux-riscv@lists.infradead.org; Tue, 02 Feb 2021 18:27:14 +0000
+Received: by mail-io1-xd33.google.com with SMTP id e133so11546526iof.8
+ for <linux-riscv@lists.infradead.org>; Tue, 02 Feb 2021 10:27:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=atishpatra.org; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=lmzOT4IsDLV3fXyPYr4zxnFCLhCQEvRE3p9inRWF1PE=;
- b=HIJKflfrQ+uGL3yQoKDtRdNobK5gwelcUlTfCyyMqBeeehEpooqJdfXs2z4qZV9NpJ
- sLzmSRd8AAdWoHrb2v9DUHd8H+47iZVmvOPz8uSNF4K0xl8eU6TC4PzgF6ah8KGj8Yww
- Kcy7QueBzC2ayDWhuVOZulLwm7bgp9Yc69bug=
+ :cc; bh=sO45hddV4SFvCIJx/H8JjvwkptnOnST0NRJqIDfcvAw=;
+ b=haGA9pofOxAw8R+yTCDViL2ai4UOWRphsuuFxNbv1c/P5oAAvOOJnWQ4mrb0/1nV4j
+ uRWiFwBTmHNomtCw7p9YSXXMCzbwTOksiy8CBkvEiwWi/E5v9K01iKCu/tNjEQbtplpm
+ L1ibZ+KNu4FWS5U0Q6L/Z/bJiJAmH7BiRNWXY=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=lmzOT4IsDLV3fXyPYr4zxnFCLhCQEvRE3p9inRWF1PE=;
- b=ZYJ+RhJkMtH1AkqyWdE3ba1YdDn9dJmVc4TwiMgziUekkhibtto1dReDbEtkqbM/6m
- nF7P7MmxD00QIo+xbx1WOeC+Tw6C40EdCfer8jzWPXnfQ09rC7BJNiVIbjDiBUmgmLIS
- fSbF0Mt/GpGsMGy0WOM2NQwkonWpZd7rye7BBSLztbQ4H4in3gvIX5vxS5xi0SQrkfnd
- uLEk6Yp4aoqOotQ4Ngds3do6QcmWKQB+tUYNlhuixVqstGaww9OkAeWqUE+AVKMKpyMX
- x5Cd0/7qCUUEtKHms/K+iEj8W7yKNkQOTDiWdoDDiP50ZWo21hdkK6hCy9I57SzpunS2
- E3Fg==
-X-Gm-Message-State: AOAM530ULklNOSjryTRoLvWbW047ytNkMwtGuHhcBqeNCm0uBSP0Nqao
- uuEUvVIZyuOM3Sr2oz4awjojuXlkuz74OP4C3GWQ
-X-Google-Smtp-Source: ABdhPJynZBXpnTgaTGJ6pK5pVPFtUKnD+OjqllGoMMAGsAqSXlzGfyeDRyHGa4wFfCBupzvetmDpdhE4jdjqfRdtxw8=
-X-Received: by 2002:a05:6602:2d0d:: with SMTP id
- c13mr6403881iow.51.1612290416119; 
- Tue, 02 Feb 2021 10:26:56 -0800 (PST)
+ bh=sO45hddV4SFvCIJx/H8JjvwkptnOnST0NRJqIDfcvAw=;
+ b=OeW7uudtCixpQ/9OnsFt6YOxAAyL/X5wkYW99uSlXcjmhJeo2iqcYaqtBwIN65B6bA
+ rV7xXIiuZtPe7EPXxA8jaqB7/CQfs5XD740nkoa3MKYg1IvHp9k9udrtX0L6icJ2U1yh
+ /ITZEFLw/na80JezMWF98R5apPY3QDO+wJPjBNhy/VU/JGLeB0AxnWpBg4e1BCY9+IS7
+ KRDQMPCxkvwAgLu0+52P4AEquL/yin9gQdoDv5UYCSO4oACncsCDkdzuFOJKGu+y9CaW
+ X2xuze061UudJARrwQoxybKXvBnxJBxOFkkKiGD9FGzi4I+1FBiBzUy8vGIXolVBr8QZ
+ 1t0Q==
+X-Gm-Message-State: AOAM532sond6Gzs0T5b0iY53jeryWLopox+umaKbCFay0EFhlESlvl/I
+ SHUme0bu8oYsmafYVBj97H2yXEcEwVmLLwOVPBCv
+X-Google-Smtp-Source: ABdhPJzEtajs+ltmE06IYaBT7IB2gM2CPxjo0h1wGG8p11J07dRxyA7dSIaSzYInnkSjBfizJQJmBkC14QjGI9wF/kw=
+X-Received: by 2002:a5d:96d5:: with SMTP id r21mr18497123iol.53.1612290430810; 
+ Tue, 02 Feb 2021 10:27:10 -0800 (PST)
 MIME-Version: 1.0
 References: <20210202103623.200809-1-damien.lemoal@wdc.com>
- <20210202103623.200809-5-damien.lemoal@wdc.com>
-In-Reply-To: <20210202103623.200809-5-damien.lemoal@wdc.com>
+ <20210202103623.200809-7-damien.lemoal@wdc.com>
+In-Reply-To: <20210202103623.200809-7-damien.lemoal@wdc.com>
 From: Atish Patra <atishp@atishpatra.org>
-Date: Tue, 2 Feb 2021 10:26:45 -0800
-Message-ID: <CAOnJCUKZ82o_BihhJ-1WmUhjiiUDrUc7Wps7JRLMrDeWA012uw@mail.gmail.com>
-Subject: Re: [PATCH v14 04/16] dt-bindings: update sifive plic compatible
+Date: Tue, 2 Feb 2021 10:27:00 -0800
+Message-ID: <CAOnJCULuBKGMDt_CdijiS_zBdyN=xATaEmBy_+0wgRL0PATfsw@mail.gmail.com>
+Subject: Re: [PATCH v14 06/16] dt-bindings: update sifive uart compatible
  string
 To: Damien Le Moal <damien.lemoal@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210202_132658_017153_7ACCB098 
-X-CRM114-Status: GOOD (  18.70  )
+X-CRM114-CacheID: sfid-20210202_132713_195712_EA327967 
+X-CRM114-Status: GOOD (  15.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -98,61 +97,30 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 On Tue, Feb 2, 2021 at 2:37 AM Damien Le Moal <damien.lemoal@wdc.com> wrote:
 >
-> Add the compatible string "canaan,k210-plic" to the Sifive plic bindings
-> to indicate the use of the "sifive,plic-1.0.0" IP block in the Canaan
-> Kendryte K210 SoC. The description is also updated to reflect this
-> change, that is, that SoCs from other vendors may also use this plic
-> implementation.
+> Add the compatible string "canaan,k210-uarths" to the sifive uart
+> bindings to indicate the use of this IP block in the Canaan Kendryte
+> K210 SoC.
 >
 > Cc: Paul Walmsley <paul.walmsley@sifive.com>
 > Cc: Rob Herring <robh@kernel.org>
 > Cc: devicetree@vger.kernel.org
 > Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
 > ---
->  .../sifive,plic-1.0.0.yaml                    | 20 ++++++++++++-------
->  1 file changed, 13 insertions(+), 7 deletions(-)
+>  Documentation/devicetree/bindings/serial/sifive-serial.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 >
-> diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-> index b9a61c9f7530..3db86d329e1e 100644
-> --- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-> +++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-> @@ -8,10 +8,11 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
->  title: SiFive Platform-Level Interrupt Controller (PLIC)
+> diff --git a/Documentation/devicetree/bindings/serial/sifive-serial.yaml b/Documentation/devicetree/bindings/serial/sifive-serial.yaml
+> index 3ac5c7ff2758..5fa94dacbba9 100644
+> --- a/Documentation/devicetree/bindings/serial/sifive-serial.yaml
+> +++ b/Documentation/devicetree/bindings/serial/sifive-serial.yaml
+> @@ -20,6 +20,7 @@ properties:
+>        - enum:
+>            - sifive,fu540-c000-uart
+>            - sifive,fu740-c000-uart
+> +          - canaan,k210-uarths
+>        - const: sifive,uart0
 >
->  description:
-> -  SiFive SOCs include an implementation of the Platform-Level Interrupt Controller
-> -  (PLIC) high-level specification in the RISC-V Privileged Architecture
-> -  specification. The PLIC connects all external interrupts in the system to all
-> -  hart contexts in the system, via the external interrupt source in each hart.
-> +  SiFive other RISC-V and other SoCs include an implementation of the
-> +  Platform-Level Interrupt Controller (PLIC) high-level specification in
-> +  the RISC-V Privileged Architecture specification. The PLIC connects all
-
-The latest privilege spec doesn't specify PLIC anymore.
-
-> +  external interrupts in the system to all hart contexts in the system, via
-> +  the external interrupt source in each hart.
->
->    A hart context is a privilege mode in a hardware execution thread. For example,
->    in an 4 core system with 2-way SMT, you have 8 harts and probably at least two
-> @@ -41,9 +42,14 @@ maintainers:
->
->  properties:
->    compatible:
-> -    items:
-> -      - const: sifive,fu540-c000-plic
-> -      - const: sifive,plic-1.0.0
-> +    oneOf:
-> +      - items:
-> +          - const: sifive,fu540-c000-plic
-> +          - const: sifive,plic-1.0.0
-> +
-> +      - items:
-> +          - const: canaan,k210-plic
-> +          - const: sifive,plic-1.0.0
->
->    reg:
->      maxItems: 1
+>      description:
 > --
 > 2.29.2
 >
@@ -162,7 +130,6 @@ The latest privilege spec doesn't specify PLIC anymore.
 > linux-riscv@lists.infradead.org
 > http://lists.infradead.org/mailman/listinfo/linux-riscv
 
-other than that,
 
 Reviewed-by: Atish Patra <atish.patra@wdc.com>
 
