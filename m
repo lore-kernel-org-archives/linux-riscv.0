@@ -2,91 +2,72 @@ Return-Path: <SRS0=Cdab=HE=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,UPPERCASE_50_75,
-	URIBL_BLOCKED,USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C1128C433E0
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Feb 2021 10:37:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C0B0CC433E0
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Feb 2021 12:49:41 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6410464EBF
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Feb 2021 10:37:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6410464EBF
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	by mail.kernel.org (Postfix) with ESMTPS id 6E1FF64E7B
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Feb 2021 12:49:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6E1FF64E7B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=2UHA5Zx6N+zh8lVOtrjgyus4wAyZuKbbx0clkhIRIS8=; b=mo/dKvxHr9l9yuoFoS+DA/kff
-	WJ4tbUIWH1mcVR+E49iM5Zjn0XknbVF9XNu45NlMFxMW/rXJnczQpneCRGEPx98sbiAYUCDmsGqeC
-	LRGk1fEaEvqVVrGDrQa/E4RJiWmDdjmRdzeS6YfGMHhxGAbVSKjTNzCyX5N2tFjA2jqdhPkrHBXLH
-	In33LRWVZ6olT7z7c0F6Z1Pppsg4uaVhkoVcS3EM5lnib61blm7OdYC8TH7YGmveTuwtI9DqjH090
-	ZzQ5KIkThJ32UoQMRsUA0Fqfa2ZGjXJyWnGmEdeF8pL53v5c0T5EyqFDB8SWQL4Ol0Cwq/Oiy8tdV
-	3SCDazmHA==;
+	 bh=UnSI+Ycvr9loeqDrqciWyobwddkVYY+nwjBl6vEJzVc=; b=C09dWErks54JX6722i5l2ClLr
+	NHOifcPngAh81MvThCHSCu856cazsX6yURncZwIApON4hSYbbSbvtDCZjXHuqfrzTO5Bsa+3C2Ug9
+	oL5h3HPq6XhjycQJuLN35H2SYAg86hsqy/csHYBRg6lXXFfRVdA1aA+1Tfc5ccGazY8hQtmdmS3hx
+	bNeVqBTSR4v1tde7UrJPu4ei/ddgipB6I79ii1Fv4dW4MmjBe5N1bL6g+r4krb8c2M+GWJ/fNhgVt
+	it9ppy2sbrwg6IxcahZC7kGE6mYjD1MWvkOdIEkWaok5BntK52NYOxrUKiRQHm+xeTJIb+TiCdbUG
+	FvN1CA5iA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l6t3Z-0008NG-3y; Tue, 02 Feb 2021 10:37:13 +0000
-Received: from esa3.hgst.iphmx.com ([216.71.153.141])
+	id 1l6v7c-0003jw-RQ; Tue, 02 Feb 2021 12:49:32 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l6t3V-0008Ig-2V
- for linux-riscv@lists.infradead.org; Tue, 02 Feb 2021 10:37:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1612262228; x=1643798228;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=4XnbB3QOtetYNRnt0KEHzdhJjN/cGVbYVHe8bnOapuU=;
- b=BLSD02dfu/i3YYoqlkqVvEp0EAs2mi2w6Nz1dtaDBUGIdvMh12sv7QDR
- QpFuFvdt0CCAK/vIQZM+fgEx1SCdycXvwMoyUWo9xPPoD40lJSC3es1h2
- Ho9Q3yKufFqAkvn1K3JjKIwuYsE15Cz69EYI92uKd573IaLUl1RXVC8eu
- a+EGRPWqfGDSTHtUZLXnumI1bXtAHeWGql7nglkkcfLk+mei+4AywyT4K
- g8KC8JHEC5/dM59eKsi8N8Bedkdgc39TyyK0sz0s1rey7M6+9YTqVIKOL
- sJbsooPSZTbpICeUmeFemuxSjNVlVAml221Y3W9dckDsbE7gcyZq3Qr6a Q==;
-IronPort-SDR: YQeD/7spO5cMjNLBQieUspMm9V+kB7/0DU+E5ip8Huabk4uN8XVBW6fM7VVw5j2o5hXsTogWnI
- 3vZelZID49wy7aOo/H3ncr0ACQl8gZqj9AWzEQAkGMFBOZtVkhBbymlLs0xMgcU9cidNaImi4P
- ehl3lMq+njLbw4NB9vAoO6XYlwzqVw+ysziHDlLccrJMryki+R/q/UrMNGBKFkL36u22swu/b9
- uRbhao7LvD5FatXVBS6HbTxh1lU09NQ+vjbrR3L/DIFDF5XO832vVgvTfbMhzOUHiLB881KuIG
- gvQ=
-X-IronPort-AV: E=Sophos;i="5.79,394,1602518400"; d="scan'208";a="163357089"
-Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
- ([199.255.45.14])
- by ob1.hgst.iphmx.com with ESMTP; 02 Feb 2021 18:37:08 +0800
-IronPort-SDR: 924FovmtJ63/GQQrLeGK5UP30obAgfMgvfhg4czAEZnD3N2FWB5wMITIFq4AvqHp0nEs3hfSSJ
- WbEtBSe/3i6MBiaSRHS0kKalPzYna8GTfoQZaOfSsltD9rkHXhmOgGsAsEr2xMstBNC3X0w8hh
- H6ZJjSxd3d8qjWIykZ0qZnTKLBbvwWICqM98HUk++ay2RF5FKndwrf3EVfGe9zoAEcK2WcabaK
- oKyeJzQJqZKQV6GcjVfTlYHnLMk0SsvCMk6/lXrIbIuc+y66ZaRUTp1F3DyMvS7OtxAZqmdIuV
- WPIWdip1OGVW6aGds+mHQreF
-Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
- by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 02 Feb 2021 02:21:17 -0800
-IronPort-SDR: BDFtUYrtZ+cSYCMI2w6Y1fhvyfRqyPbPshXcotL+fbhPm8Vbiss9aV0Xm0nm5DVaRTMqLBzhgb
- joRv3rqlvsDBJJdCFqzOkGkAek81nbSFNyMXeMrJWyip6875hb5pZDQstvc0ynrW7/NlgzHx4I
- utwAyjdC13kOl9oXx2zxgULBCpJUDLHIQF7BvTKx23yZav54N/AMlXTbt3KrZsx9e3yqk7d6H0
- lFUgZvE1uHeq0M2YsbzBehoB1n2t9apOWzdE8Ix8VMznoSpfJ0TL4PdE1GsWYcDCKZlvk40e0M
- tT8=
-WDCIronportException: Internal
-Received: from wdapacbjl0003.my.asia.wdc.com (HELO twashi.fujisawa.hgst.com)
- ([10.84.71.58])
- by uls-op-cesaip01.wdc.com with ESMTP; 02 Feb 2021 02:37:08 -0800
-From: Damien Le Moal <damien.lemoal@wdc.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v14 15/16] riscv: Update Canaan Kendryte K210 defconfig
-Date: Tue,  2 Feb 2021 19:36:22 +0900
-Message-Id: <20210202103623.200809-16-damien.lemoal@wdc.com>
-X-Mailer: git-send-email 2.29.2
-In-Reply-To: <20210202103623.200809-1-damien.lemoal@wdc.com>
-References: <20210202103623.200809-1-damien.lemoal@wdc.com>
+ id 1l6v7Y-0003iU-Nv; Tue, 02 Feb 2021 12:49:30 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 4EEB964F45;
+ Tue,  2 Feb 2021 12:49:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1612270167;
+ bh=l1mxEt58DDcLUIYn/PeqqKhgepc/YzCCfJbWYo9gF+0=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=m6OTQfqwmfzsDSuhaE02irM8RXZ+6I61yxWerp81AbIHaAEqJgnUU1Tago6YYG+PZ
+ lr/J7OliC0mrwyFm+Yl+JHzEuSXK/3VdkUmPzprvLqNXJeT7c7s/R/J9ZCl2+IeFtF
+ rRdT17MK63P20HXBjgkEetlpW86oX2ThKpxrHLgmDgGybcXOIhr5G1LeWie80VfNKg
+ QlMcZq+bz+M1S4kZa3QSlb+JQ6x7L2zxJR92gCQJ28nKgn5G8407CWFGfDfkqlEtqc
+ 0FuByC2cyuzV9p6QWIQuYAV6UBnFm4EyXxopzOj5OqjOkGbbBSYsX5rFiF13qam/3d
+ 9vHDje5GpJPpg==
+Date: Tue, 2 Feb 2021 14:48:57 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Michal Hocko <mhocko@suse.com>
+Subject: Re: [PATCH v16 07/11] secretmem: use PMD-size pages to amortize
+ direct map fragmentation
+Message-ID: <20210202124857.GN242749@kernel.org>
+References: <20210121122723.3446-8-rppt@kernel.org>
+ <20210126114657.GL827@dhcp22.suse.cz>
+ <303f348d-e494-e386-d1f5-14505b5da254@redhat.com>
+ <20210126120823.GM827@dhcp22.suse.cz>
+ <20210128092259.GB242749@kernel.org>
+ <YBK1kqL7JA7NePBQ@dhcp22.suse.cz>
+ <73738cda43236b5ac2714e228af362b67a712f5d.camel@linux.ibm.com>
+ <YBPF8ETGBHUzxaZR@dhcp22.suse.cz>
+ <6de6b9f9c2d28eecc494e7db6ffbedc262317e11.camel@linux.ibm.com>
+ <YBkcyQsky2scjEcP@dhcp22.suse.cz>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <YBkcyQsky2scjEcP@dhcp22.suse.cz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210202_053709_819434_28136092 
-X-CRM114-Status: GOOD (  12.95  )
+X-CRM114-CacheID: sfid-20210202_074928_993760_5CE88225 
+X-CRM114-Status: GOOD (  18.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -98,130 +79,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Atish Patra <atish.patra@wdc.com>, Anup Patel <anup.patel@wdc.com>,
- Sean Anderson <seanga2@gmail.com>
+Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
+ Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
+ Will Deacon <will@kernel.org>, x86@kernel.org,
+ Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>, Arnd Bergmann <arnd@arndb.de>,
+ James Bottomley <jejb@linux.ibm.com>, Hagen Paul Pfeifer <hagen@jauu.net>,
+ Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-fsdevel@vger.kernel.org, Shakeel Butt <shakeelb@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Update the Kendryte k210 nommu default configuration file
-(nommu_k210_defconfig) to include device drivers for reset, reboot,
-I2C, SPI, gpio and LEDs support. Virtual Terminal support is also
-disabled as no terminal devices are supported and enabled. Disabling
-CONFIG_VT (removing the no longer needed override for
-CONFIG_VGA_CONSOLE) reduces the kernel image size by about 65 KB.
+On Tue, Feb 02, 2021 at 10:35:05AM +0100, Michal Hocko wrote:
+> On Mon 01-02-21 08:56:19, James Bottomley wrote:
+> 
+> I have also proposed potential ways out of this. Either the pool is not
+> fixed sized and you make it a regular unevictable memory (if direct map
+> fragmentation is not considered a major problem)
 
-This default configuration remains suitable for a system using an
-initramfs cpio file linked into the kernel image.
+I think that the direct map fragmentation is not a major problem, and the
+data we have confirms it, so I'd be more than happy to entirely drop the
+pool, allocate memory page by page and remove each page from the direct
+map. 
 
-Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
-Reviewed-by: Anup Patel <anup@brainfault.org>
----
- arch/riscv/configs/nommu_k210_defconfig | 44 ++++++++++++++++++++-----
- 1 file changed, 36 insertions(+), 8 deletions(-)
+Still, we cannot prove negative and it could happen that there is a
+workload that would suffer a lot from the direct map fragmentation, so
+having a pool of large pages upfront is better than trying to fix it
+afterwards. As we get more confidence that the direct map fragmentation is
+not an issue as it is common to believe we may remove the pool altogether.
 
-diff --git a/arch/riscv/configs/nommu_k210_defconfig b/arch/riscv/configs/nommu_k210_defconfig
-index 368a28cf1467..b16a2a12c82a 100644
---- a/arch/riscv/configs/nommu_k210_defconfig
-+++ b/arch/riscv/configs/nommu_k210_defconfig
-@@ -1,17 +1,19 @@
- # CONFIG_CPU_ISOLATION is not set
--CONFIG_LOG_BUF_SHIFT=15
-+CONFIG_LOG_BUF_SHIFT=13
- CONFIG_PRINTK_SAFE_LOG_BUF_SHIFT=12
- CONFIG_BLK_DEV_INITRD=y
--CONFIG_INITRAMFS_FORCE=y
-+# CONFIG_RD_GZIP is not set
- # CONFIG_RD_BZIP2 is not set
- # CONFIG_RD_LZMA is not set
- # CONFIG_RD_XZ is not set
- # CONFIG_RD_LZO is not set
- # CONFIG_RD_LZ4 is not set
-+# CONFIG_RD_ZSTD is not set
- CONFIG_CC_OPTIMIZE_FOR_SIZE=y
- # CONFIG_SYSFS_SYSCALL is not set
- # CONFIG_FHANDLE is not set
- # CONFIG_BASE_FULL is not set
-+# CONFIG_FUTEX is not set
- # CONFIG_EPOLL is not set
- # CONFIG_SIGNALFD is not set
- # CONFIG_TIMERFD is not set
-@@ -25,15 +27,17 @@ CONFIG_EMBEDDED=y
- # CONFIG_VM_EVENT_COUNTERS is not set
- # CONFIG_COMPAT_BRK is not set
- CONFIG_SLOB=y
--# CONFIG_SLAB_MERGE_DEFAULT is not set
- # CONFIG_MMU is not set
- CONFIG_SOC_CANAAN=y
-+CONFIG_SOC_CANAAN_K210_DTB_SOURCE="k210_generic"
- CONFIG_MAXPHYSMEM_2GB=y
- CONFIG_SMP=y
- CONFIG_NR_CPUS=2
- CONFIG_CMDLINE="earlycon console=ttySIF0"
- CONFIG_CMDLINE_FORCE=y
--CONFIG_JUMP_LABEL=y
-+# CONFIG_SECCOMP is not set
-+# CONFIG_STACKPROTECTOR is not set
-+# CONFIG_GCC_PLUGINS is not set
- # CONFIG_BLOCK is not set
- CONFIG_BINFMT_FLAT=y
- # CONFIG_COREDUMP is not set
-@@ -41,23 +45,47 @@ CONFIG_DEVTMPFS=y
- CONFIG_DEVTMPFS_MOUNT=y
- # CONFIG_FW_LOADER is not set
- # CONFIG_ALLOW_DEV_COREDUMP is not set
--# CONFIG_INPUT_KEYBOARD is not set
--# CONFIG_INPUT_MOUSE is not set
-+# CONFIG_INPUT is not set
- # CONFIG_SERIO is not set
-+# CONFIG_VT is not set
-+# CONFIG_UNIX98_PTYS is not set
- # CONFIG_LEGACY_PTYS is not set
- # CONFIG_LDISC_AUTOLOAD is not set
- # CONFIG_HW_RANDOM is not set
- # CONFIG_DEVMEM is not set
-+CONFIG_I2C=y
-+# CONFIG_I2C_COMPAT is not set
-+CONFIG_I2C_CHARDEV=y
-+# CONFIG_I2C_HELPER_AUTO is not set
-+CONFIG_I2C_DESIGNWARE_PLATFORM=y
-+CONFIG_SPI=y
-+# CONFIG_SPI_MEM is not set
-+CONFIG_SPI_DESIGNWARE=y
-+CONFIG_SPI_DW_MMIO=y
-+# CONFIG_GPIO_CDEV_V1 is not set
-+CONFIG_GPIO_DWAPB=y
-+CONFIG_GPIO_SIFIVE=y
-+CONFIG_POWER_RESET=y
-+CONFIG_POWER_RESET_SYSCON=y
- # CONFIG_HWMON is not set
--# CONFIG_VGA_CONSOLE is not set
--# CONFIG_HID is not set
- # CONFIG_USB_SUPPORT is not set
-+CONFIG_NEW_LEDS=y
-+CONFIG_LEDS_CLASS=y
-+CONFIG_LEDS_GPIO=y
-+CONFIG_LEDS_USER=y
- # CONFIG_VIRTIO_MENU is not set
-+# CONFIG_VHOST_MENU is not set
-+# CONFIG_SURFACE_PLATFORMS is not set
-+# CONFIG_FILE_LOCKING is not set
- # CONFIG_DNOTIFY is not set
- # CONFIG_INOTIFY_USER is not set
- # CONFIG_MISC_FILESYSTEMS is not set
- CONFIG_LSM="[]"
- CONFIG_PRINTK_TIME=y
-+# CONFIG_SYMBOLIC_ERRNAME is not set
-+# CONFIG_DEBUG_BUGVERBOSE is not set
-+# CONFIG_SECTION_MISMATCH_WARN_ONLY is not set
-+# CONFIG_FRAME_POINTER is not set
- # CONFIG_DEBUG_MISC is not set
- CONFIG_PANIC_ON_OOPS=y
- # CONFIG_SCHED_DEBUG is not set
+I think that using PMD_ORDER allocations for the pool with a fallback to
+order 0 will do the job, but unfortunately I doubt we'll reach a consensus
+about this because dogmatic beliefs are hard to shake...
+
+A more restrictive possibility is to still use plain PMD_ORDER allocations
+to fill the pool, without relying on CMA. In this case there will be no
+global secretmem specific pool to exhaust, but then it's possible to drain
+high order free blocks in a system, so CMA has an advantage of limiting
+secretmem pools to certain amount of memory with somewhat higher
+probability for high order allocation to succeed. 
+
+> or you need a careful access control 
+
+Do you mind elaborating what do you mean by "careful access control"?
+
+> or you need SIGBUS on the mmap failure (to allow at least some fallback
+> mode to caller).
+
+As I've already said, I agree that SIGBUS is way better than OOM at #PF
+time.
+And we can add some means to fail at mmap() time if the pools are running
+low.
+
 -- 
-2.29.2
-
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
