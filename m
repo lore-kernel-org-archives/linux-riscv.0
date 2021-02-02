@@ -2,65 +2,73 @@ Return-Path: <SRS0=Cdab=HE=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6FE22C433E9
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Feb 2021 08:51:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2A674C433DB
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Feb 2021 09:35:23 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7C01264F56
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Feb 2021 08:51:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7C01264F56
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
+	by mail.kernel.org (Postfix) with ESMTPS id C7C6164F09
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Feb 2021 09:35:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C7C6164F09
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=suse.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=qYCuEAP7Te0Wa9yD0nQczD8cbSLDM1cbWqs1wVUglM0=; b=1PCUxYDmplM5YUt555q3qj4t8
-	Wo+20Z6cNspYcGt3VwpSg5bFZKw6cDXSqFT1tbnCAlgZ9X6Moo51UMrJ3fGF9uXVIOI5YiP5+8IWu
-	+4I/VwFpMx5nic8+GD3GspX5rX6WF8MDo46UE++m+SQRV7mQebmaXNudryS3K2uPU/q4JrRytvJZH
-	CKt14L0HDYeHDOVgQzL1cVhuLq2QQdAnJxdO1TZLeV7ibFwMwoZyC5ZmkDKkYtFZxswMeF8g3ocvZ
-	WWx47MDP/bKjaF07sjcIjpn8XvkQFzuyV2+6GL3AW70DkPsvynT6hpcuVeAGghExoF12nB4Qncj8q
-	Y8W1YrAHw==;
+	 bh=9BzyiX46b1BlFbOph5jYI8dUMXCLe5gO1VtN74Nna9M=; b=T1iY699OQ1kmlaQSUmizCpD9A
+	eYEBeoFgLM17nN0UAF1Is6IoLjrDSZYaiV57+VLEYUZf16/A+rtEp/7OKarJUxhaxWu7Yc75vKeuo
+	p+GMzbEAhLU65P4NE5Rjz0TCXZkHJxIwVFY0OoQz4vSJn9RdKuvK7lpenrDNoWbYJyeDxNFtDp6fo
+	Uk3iRvPEXohRMt0jKvpn5nPTKrM/hCNvgA9d+YierW1zJshhJol/WD//MDyL6PR444/s392OjFOVa
+	ydgK8zWpFvAPhMdhMfIi+Wfw/y0xiXt1GlWGuUkW4PhmKoLOSZBdVmjc1q1EptXngirCir/0aw7ok
+	PGeG5irWg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l6rOh-00061q-3y; Tue, 02 Feb 2021 08:50:55 +0000
-Received: from relay1-d.mail.gandi.net ([217.70.183.193])
+	id 1l6s5a-0001xu-6K; Tue, 02 Feb 2021 09:35:14 +0000
+Received: from mx2.suse.de ([195.135.220.15])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l6rOe-000616-6y
- for linux-riscv@lists.infradead.org; Tue, 02 Feb 2021 08:50:53 +0000
-X-Originating-IP: 82.65.183.113
-Received: from [172.16.5.113] (82-65-183-113.subs.proxad.net [82.65.183.113])
- (Authenticated sender: alex@ghiti.fr)
- by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id 70341240011;
- Tue,  2 Feb 2021 08:50:45 +0000 (UTC)
-Subject: Re: [PATCH] riscv: Improve kasan population by using hugepages when
- possible
-To: Andrey Ryabinin <aryabinin@virtuozzo.com>,
- Alexander Potapenko <glider@google.com>, Dmitry Vyukov <dvyukov@google.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- kasan-dev@googlegroups.com, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20210201080024.844-1-alex@ghiti.fr>
-From: Alex Ghiti <alex@ghiti.fr>
-Message-ID: <74fef5c9-0632-3e12-e11b-81dd115a4be5@ghiti.fr>
-Date: Tue, 2 Feb 2021 03:50:45 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.7.0
+ id 1l6s5V-0001vr-Ar; Tue, 02 Feb 2021 09:35:11 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
+ t=1612258506; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+ mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=Q54UyAniLH3WTtqS2/eEFFAOsABqgVttGqq1oJHHl3o=;
+ b=pwRKjSfmAAUl4rpfKIVMY6cCCIH0A1qOnaV8W5VBLKM6omzrGDOVmq/p9akJdMt/mFgkO8
+ V2tc8GFVYU80SWASGLlyhGF0EaS9YLNXv/f0XhQU0L4onN+4ztKCsUfGmCzaoW6V54AWau
+ ShSpuMgXIb5koikt2IimucJXrn9ZlD0=
+Received: from relay2.suse.de (unknown [195.135.221.27])
+ by mx2.suse.de (Postfix) with ESMTP id 9998AB171;
+ Tue,  2 Feb 2021 09:35:06 +0000 (UTC)
+Date: Tue, 2 Feb 2021 10:35:05 +0100
+From: Michal Hocko <mhocko@suse.com>
+To: James Bottomley <jejb@linux.ibm.com>
+Subject: Re: [PATCH v16 07/11] secretmem: use PMD-size pages to amortize
+ direct map fragmentation
+Message-ID: <YBkcyQsky2scjEcP@dhcp22.suse.cz>
+References: <20210121122723.3446-1-rppt@kernel.org>
+ <20210121122723.3446-8-rppt@kernel.org>
+ <20210126114657.GL827@dhcp22.suse.cz>
+ <303f348d-e494-e386-d1f5-14505b5da254@redhat.com>
+ <20210126120823.GM827@dhcp22.suse.cz>
+ <20210128092259.GB242749@kernel.org>
+ <YBK1kqL7JA7NePBQ@dhcp22.suse.cz>
+ <73738cda43236b5ac2714e228af362b67a712f5d.camel@linux.ibm.com>
+ <YBPF8ETGBHUzxaZR@dhcp22.suse.cz>
+ <6de6b9f9c2d28eecc494e7db6ffbedc262317e11.camel@linux.ibm.com>
 MIME-Version: 1.0
-In-Reply-To: <20210201080024.844-1-alex@ghiti.fr>
-Content-Language: fr
+Content-Disposition: inline
+In-Reply-To: <6de6b9f9c2d28eecc494e7db6ffbedc262317e11.camel@linux.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210202_035052_433894_74318CB9 
-X-CRM114-Status: GOOD (  28.25  )
+X-CRM114-CacheID: sfid-20210202_043509_651058_3BE6358F 
+X-CRM114-Status: GOOD (  39.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -72,204 +80,122 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="windows-1252"; Format="flowed"
+Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
+ Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
+ Will Deacon <will@kernel.org>, x86@kernel.org,
+ Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>, Arnd Bergmann <arnd@arndb.de>,
+ Hagen Paul Pfeifer <hagen@jauu.net>, Borislav Petkov <bp@alien8.de>,
+ Alexander Viro <viro@zeniv.linux.org.uk>, Andy Lutomirski <luto@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-fsdevel@vger.kernel.org, Shakeel Butt <shakeelb@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>,
+ Mike Rapoport <rppt@kernel.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Mon 01-02-21 08:56:19, James Bottomley wrote:
+> On Fri, 2021-01-29 at 09:23 +0100, Michal Hocko wrote:
+> > On Thu 28-01-21 13:05:02, James Bottomley wrote:
+> > > Obviously the API choice could be revisited
+> > > but do you have anything to add over the previous discussion, or is
+> > > this just to get your access control?
+> > 
+> > Well, access control is certainly one thing which I still believe is
+> > missing. But if there is a general agreement that the direct map
+> > manipulation is not that critical then this will become much less of
+> > a problem of course.
+> 
+> The secret memory is a scarce resource but it's not a facility that
+> should only be available to some users.
 
-Le 2/1/21 =E0 3:00 AM, Alexandre Ghiti a =E9crit=A0:
-> Kasan function that populates the shadow regions used to allocate them
-> page by page and did not take advantage of hugepages, so fix this by
-> trying to allocate hugepages of 1GB and fallback to 2MB hugepages or 4K
-> pages in case it fails.
-> =
+How those two objectives go along? Or maybe our understanding of what
+scrace really means here. If the pool of the secret memory is very limited
+then you really need a way to stop one party from depriving others. More
+on that below.
 
-> This reduces the page table memory consumption and improves TLB usage,
-> as shown below:
-> =
+> > It all boils down whether secret memory is a scarce resource. With
+> > the existing implementation it really is. It is effectivelly
+> > repeating same design errors as hugetlb did. And look now, we have a
+> > subtle and convoluted reservation code to track mmap requests and we
+> > have a cgroup controller to, guess what, have at least some control
+> > over distribution if the preallocated pool. See where am I coming
+> > from?
+> 
+> I'm fairly sure rlimit is the correct way to control this.  The
+> subtlety in both rlimit and memcg tracking comes from deciding to
+> account under an existing category rather than having our own new one. 
+> People don't like new stuff in accounting because it requires
+> modifications to everything in userspace.  Accounting under and
+> existing limit keeps userspace the same but leads to endless arguments
+> about which limit it should be under.  It took us several patch set
+> iterations to get to a fragile consensus on this which you're now
+> disrupting for reasons you're not making clear.
 
-> Before this patch:
-> =
+I hoped I had made my points really clear. The existing scheme allows
+one users (potentially adversary) to deplete the preallocated pool
+and cause a shitstorm of OOM killer because there is no real way to
+replenish the pool from the oom killer other than randomly keep killing
+tasks until one happens to release its secret memory back to the
+pool. Is that more clear now?
 
-> ---[ Kasan shadow start ]---
-> 0xffffffc000000000-0xffffffc400000000    0x00000000818ef000        16G PT=
-E     . A . . . . R V
-> 0xffffffc400000000-0xffffffc447fc0000    0x00000002b7f4f000   1179392K PT=
-E     D A . . . W R V
-> 0xffffffc480000000-0xffffffc800000000    0x00000000818ef000        14G PT=
-E     . A . . . . R V
-> ---[ Kasan shadow end ]---
-> =
+And no, rlimit and memcg limit will not save you from that because the
+former is per process and later is hard to manage under a single limit
+which might be order of magnitude larger than the secret memory pool
+size. See the point?
 
-> After this patch:
-> =
+I have also proposed potential ways out of this. Either the pool is not
+fixed sized and you make it a regular unevictable memory (if direct map
+fragmentation is not considered a major problem) or you need a careful
+access control or you need SIGBUS on the mmap failure (to allow at least
+some fallback mode to caller).
 
-> ---[ Kasan shadow start ]---
-> 0xffffffc000000000-0xffffffc400000000    0x00000000818ef000        16G PT=
-E     . A . . . . R V
-> 0xffffffc400000000-0xffffffc440000000    0x0000000240000000         1G PG=
-D     D A . . . W R V
-> 0xffffffc440000000-0xffffffc447e00000    0x00000002b7e00000       126M PM=
-D     D A . . . W R V
-> 0xffffffc447e00000-0xffffffc447fc0000    0x00000002b818f000      1792K PT=
-E     D A . . . W R V
-> 0xffffffc480000000-0xffffffc800000000    0x00000000818ef000        14G PT=
-E     . A . . . . R V
-> ---[ Kasan shadow end ]---
-> =
+I do not see any other way around it. I might be missing some other
+ways but so far I keep hearing that the existing scheme is just fine
+because this has been discussed in the past and you have agreed it is
+ok. Without any specifics...
 
-> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
-> ---
->   arch/riscv/mm/kasan_init.c | 101 +++++++++++++++++++++++++++----------
->   1 file changed, 73 insertions(+), 28 deletions(-)
-> =
+Please keep in mind this is a user interface and it is due to careful
+scrutiny. So rather than pushing back with "you are disrupting a
+consensus" kinda feedback, please try to stay technical.
 
-> diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
-> index a8a2ffd9114a..8f11b73018b1 100644
-> --- a/arch/riscv/mm/kasan_init.c
-> +++ b/arch/riscv/mm/kasan_init.c
-> @@ -47,37 +47,82 @@ asmlinkage void __init kasan_early_init(void)
->   	local_flush_tlb_all();
->   }
->   =
+> > If the secret memory is more in line with mlock without any imposed
+> > limit (other than available memory) in the end then, sure, using the
+> > same access control as mlock sounds reasonable. Btw. if this is
+> > really just a more restrictive mlock then is there any reason to not
+> > hook this into the existing mlock infrastructure (e.g.
+> > MCL_EXCLUSIVE)? Implications would be that direct map would be
+> > handled on instantiation/tear down paths, migration would deal with
+> > the same (if possible). Other than that it would be mlock like.
+> 
+> In the very first patch set we proposed a mmap flag to do this.  Under
+> detailed probing it emerged that this suffers from several design
+> problems: the KVM people want VMM to be able to remove the secret
+> memory range from the process; there may be situations where sharing is
+> useful and some people want to be able to seal the operations.  All of
+> this ended up convincing everyone that a file descriptor based approach
+> was better than a mmap one.
 
-> -static void __init populate(void *start, void *end)
-> +static void kasan_populate_pte(pmd_t *pmd, unsigned long vaddr, unsigned=
- long end)
-> +{
-> +	phys_addr_t phys_addr;
-> +	pte_t *ptep =3D memblock_alloc(PTRS_PER_PTE * sizeof(pte_t), PAGE_SIZE);
-> +
-> +	do {
-> +		phys_addr =3D memblock_phys_alloc(PAGE_SIZE, PAGE_SIZE);
-> +		set_pte(ptep, pfn_pte(PFN_DOWN(phys_addr), PAGE_KERNEL));
-> +	} while (ptep++, vaddr +=3D PAGE_SIZE, vaddr !=3D end);
-> +
-> +	set_pmd(pmd, pfn_pmd(PFN_DOWN(__pa(ptep)), PAGE_TABLE));
-> +}
-> +
-> +static void kasan_populate_pmd(pgd_t *pgd, unsigned long vaddr, unsigned=
- long end)
-> +{
-> +	phys_addr_t phys_addr;
-> +	pmd_t *pmdp =3D memblock_alloc(PTRS_PER_PMD * sizeof(pmd_t), PAGE_SIZE);
-> +	unsigned long next;
-> +
-> +	do {
-> +		next =3D pmd_addr_end(vaddr, end);
-> +
-> +		if (IS_ALIGNED(vaddr, PMD_SIZE) && (next - vaddr) >=3D PMD_SIZE) {
-> +			phys_addr =3D memblock_phys_alloc(PMD_SIZE, PMD_SIZE);
-> +			if (phys_addr) {
-> +				set_pmd(pmdp, pfn_pmd(PFN_DOWN(phys_addr), PAGE_KERNEL));
-> +				continue;
-> +			}
-> +		}
-> +
-> +		kasan_populate_pte(pmdp, vaddr, end);
-> +	} while (pmdp++, vaddr =3D next, vaddr !=3D end);
-> +
-> +	/*
-> +	 * Wait for the whole PGD to be populated before setting the PGD in
-> +	 * the page table, otherwise, if we did set the PGD before populating
-> +	 * it entirely, memblock could allocate a page at a physical address
-> +	 * where KASAN is not populated yet and then we'd get a page fault.
-> +	 */
-> +	set_pgd(pgd, pfn_pgd(PFN_DOWN(__pa(pmdp)), PAGE_TABLE));
-
-In case the PMD was filled entirely, PFN_DOWN(__pa(pmdp)) will point to =
-
-the next physical page, which is wrong. The same problem happens on the =
-
-other levels too.
-
-I'll fix that in a v2 later today.
-
-Alex
-
-> +}
-> +
-> +static void kasan_populate_pgd(unsigned long vaddr, unsigned long end)
-> +{
-> +	phys_addr_t phys_addr;
-> +	pgd_t *pgdp =3D pgd_offset_k(vaddr);
-> +	unsigned long next;
-> +
-> +	do {
-> +		next =3D pgd_addr_end(vaddr, end);
-> +
-> +		if (IS_ALIGNED(vaddr, PGDIR_SIZE) && (next - vaddr) >=3D PGDIR_SIZE) {
-> +			phys_addr =3D memblock_phys_alloc(PGDIR_SIZE, PGDIR_SIZE);
-> +			if (phys_addr) {
-> +				set_pgd(pgdp, pfn_pgd(PFN_DOWN(phys_addr), PAGE_KERNEL));
-> +				continue;
-> +			}
-> +		}
-> +
-> +		kasan_populate_pmd(pgdp, vaddr, end);
-> +	} while (pgdp++, vaddr =3D next, vaddr !=3D end);
-> +}
-> +
-> +/*
-> + * This function populates KASAN shadow region focusing on hugepages in
-> + * order to minimize the page table cost and TLB usage too.
-> + * Note that start must be PGDIR_SIZE-aligned in SV39 which amounts to be
-> + * 1G aligned (that represents a 8G alignment constraint on virtual addr=
-ess
-> + * ranges because of KASAN_SHADOW_SCALE_SHIFT).
-> + */
-> +static void __init kasan_populate(void *start, void *end)
->   {
-> -	unsigned long i, offset;
->   	unsigned long vaddr =3D (unsigned long)start & PAGE_MASK;
->   	unsigned long vend =3D PAGE_ALIGN((unsigned long)end);
-> -	unsigned long n_pages =3D (vend - vaddr) / PAGE_SIZE;
-> -	unsigned long n_ptes =3D
-> -	    ((n_pages + PTRS_PER_PTE) & -PTRS_PER_PTE) / PTRS_PER_PTE;
-> -	unsigned long n_pmds =3D
-> -	    ((n_ptes + PTRS_PER_PMD) & -PTRS_PER_PMD) / PTRS_PER_PMD;
-> -
-> -	pte_t *pte =3D
-> -	    memblock_alloc(n_ptes * PTRS_PER_PTE * sizeof(pte_t), PAGE_SIZE);
-> -	pmd_t *pmd =3D
-> -	    memblock_alloc(n_pmds * PTRS_PER_PMD * sizeof(pmd_t), PAGE_SIZE);
-> -	pgd_t *pgd =3D pgd_offset_k(vaddr);
-> -
-> -	for (i =3D 0; i < n_pages; i++) {
-> -		phys_addr_t phys =3D memblock_phys_alloc(PAGE_SIZE, PAGE_SIZE);
-> -		set_pte(&pte[i], pfn_pte(PHYS_PFN(phys), PAGE_KERNEL));
-> -	}
-> -
-> -	for (i =3D 0, offset =3D 0; i < n_ptes; i++, offset +=3D PTRS_PER_PTE)
-> -		set_pmd(&pmd[i],
-> -			pfn_pmd(PFN_DOWN(__pa(&pte[offset])),
-> -				__pgprot(_PAGE_TABLE)));
->   =
-
-> -	for (i =3D 0, offset =3D 0; i < n_pmds; i++, offset +=3D PTRS_PER_PMD)
-> -		set_pgd(&pgd[i],
-> -			pfn_pgd(PFN_DOWN(__pa(&pmd[offset])),
-> -				__pgprot(_PAGE_TABLE)));
-> +	kasan_populate_pgd(vaddr, vend);
->   =
-
->   	local_flush_tlb_all();
->   	memset(start, 0, end - start);
-> @@ -99,7 +144,7 @@ void __init kasan_init(void)
->   		if (start >=3D end)
->   			break;
->   =
-
-> -		populate(kasan_mem_to_shadow(start), kasan_mem_to_shadow(end));
-> +		kasan_populate(kasan_mem_to_shadow(start), kasan_mem_to_shadow(end));
->   	};
->   =
-
->   	for (i =3D 0; i < PTRS_PER_PTE; i++)
-> =
-
+OK, fair enough. This belongs to the changelog IMHO. It is good to know
+why existing interfaces do not match the need.
+-- 
+Michal Hocko
+SUSE Labs
 
 _______________________________________________
 linux-riscv mailing list
