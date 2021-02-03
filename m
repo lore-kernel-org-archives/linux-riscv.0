@@ -2,80 +2,73 @@ Return-Path: <SRS0=OV2N=HF=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-19.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BFCC4C433DB
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Feb 2021 05:26:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 58E83C433DB
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Feb 2021 09:12:42 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id C197864F67
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Feb 2021 05:26:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C197864F67
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	by mail.kernel.org (Postfix) with ESMTPS id F303164F46
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Feb 2021 09:12:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F303164F46
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=suse.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=rwVOmcuguqCsCO5YgGdveLi6lTn7PfvOWPKKiZ+r5Pw=; b=IccwLAW+cKaG/zmlUVbpO5p6K
-	STGnEV4TgQtXT+2TA75vYYDLVrcV+DtvxBWopx68W5ix3oR7cZ1nzdz4F+3TT65AQQhaDnI90Ewrk
-	C3tjy5OI/c2ttOv6hg0lD+nfsyHKPLUDTHV2l3M38Xww1KGU8T8AoM4805BM1ORg1KEKGEZ2PmEzj
-	vEwR5H9t1gU4JA25B3is90inZsRMjVe062opZPFJ/+OYPWXxfaFrtvnIj0s8E7DlufrVD8zd5ficx
-	MeWmCTaJ/PefxJy6RR/XqBPb8LDjMXHyCPI9AsB80prz4v4psMLqUB2Wpz/+YL7huCxLZPpOonGQG
-	NdKJWiwUQ==;
+	 bh=SrgaHg0SFldjbOHmlca/liy/08RVIqNL8vRswRURQ/s=; b=iMPbanp5XLJZxGq7DrTVV98Wm
+	WeBhka4ob2g7TYo0bkwfatQTGQD8EepkhUcw2z3GqW5iiMyIATGr7Em2bvj2ml4W4nVMwh/rG3GiM
+	dyNmD+ex0hqLwyOi3TGuv6P21udby3bzUDPUmh5/r8f6OmEDeIv2np89OCuU+dteK7iTj0Y6gkjpa
+	E2m84L2SOvUcb8qpOcKqrsjXdLSfWx2/FYMRC0L4ylfsPQsnxy36lHETK9VhYCeSvT7oTZsEXhkQ6
+	RGVfqnp8OTXiYK/xqDLdZtWlHcckU3tsJbFgIvR8KGrGGFKIMn69joQaPsjrJ/kAa7Geln3ZT9mWg
+	F6osai12w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l7Afx-0007Nb-QI; Wed, 03 Feb 2021 05:26:01 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1l7ED9-0001nt-Ps; Wed, 03 Feb 2021 09:12:31 +0000
+Received: from mx2.suse.de ([195.135.220.15])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l7Aft-0007Mf-Li
- for linux-riscv@lists.infradead.org; Wed, 03 Feb 2021 05:25:59 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 190so4332639wmz.0
- for <linux-riscv@lists.infradead.org>; Tue, 02 Feb 2021 21:25:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=0o3byxuedXvI9otyU3P5TIkZCzMJxRQjvAkVTYenW54=;
- b=W310YMY4XVVNwPyY6gLUzKPTtYJFUNDNFhi2e4QcJ2oGeXfB97ZnALh7C25FGhoZtS
- ZuglCRRMTCU4eDNmskbgF+bjr2PwWDm+mSpaPGcScELesI4z39PiPGGJIEBAMXWeP1od
- AS4fvUee/HqfAu6lezUyaWYQOD5lL8TB7Yf+Bq3HSphjvgDDUOCEp/csCy9emjw6aGOA
- UyEngygAzdRezu8PRRObyPeXou8f2eqDvegLVMjttWlvcy7+KFZh9MhkHb0xzjOVoG3f
- qhM80iK5qwUiIGcDDMstWOBfmmvUEuXCb6i06xuIeoKm2KDILJANu0BHF4ie7DWm8lmu
- Zmhg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=0o3byxuedXvI9otyU3P5TIkZCzMJxRQjvAkVTYenW54=;
- b=jeu+Gmrelv3Q1qQJ9wvnwsoPw6i6w/zisCqZcHv1f9TW6Ahbxx/UIhISjxPy4XnX7l
- QqgY0m6jMWZGvYS0ljz9SqDD1GAR+w5DZIEvQfV+rvm/6BtNrYOOE5FKOhyX1yZjyu6E
- 3sSOmrwTp8S1g/hjkXnrCpOPaw3cSJ8pjhlW48Gx/SkTtRMOZ9GZCOnz5CmIyDkUwHQN
- YxwQoliXVkNe6eibNHfdPeDcStqSLWlkEBK9oCKV1i3DDH86In3q7BNwsOnyUnYRC4bq
- afDH1igDH1V06K8a+aHhIokEMKNXgP3InuE/VfKR7A/Rayiq1fekxIQNr/z3fKqdtj9G
- m3pQ==
-X-Gm-Message-State: AOAM532/j0bDKD8o4dDppSiWMQgB2G2x2QRuX2s8HBWAqOaQtduT+IsB
- 3glAEcsQki6mCik+sRmihhX+RoeRCIUn5oPQn8WEyw==
-X-Google-Smtp-Source: ABdhPJxgzDHUSS4ow3vHeJPDQ67R2UVmvHu7Hk1T5viuTLChUz0clj9txtpTlg7PD0HJ1xw20FnYdVsLbseXppEVIS4=
-X-Received: by 2002:a1c:9c84:: with SMTP id f126mr1155495wme.152.1612329953625; 
- Tue, 02 Feb 2021 21:25:53 -0800 (PST)
+ id 1l7ED4-0001lz-2L; Wed, 03 Feb 2021 09:12:27 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
+ t=1612343545; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+ mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=zc3hq7uDsgQ0b+vRRJzp2lKKXI9473aJH0r0Js1Sba8=;
+ b=HpVLWbDI2jrNX+ptbYXzVMjwEnvzT3tSDstsq31vn45eKVS7LJjYVzwqj1uQ2gr6lLmqUT
+ bC8zchNPhAk8QJcRoCgvPjBBGQ1e/qoJChvnC3zjw9HWM74APhhMECX1FCKKYKCE1otg6M
+ cOV8/W7XZopQR2+Wl4/NVeGMFzXcJ6g=
+Received: from relay2.suse.de (unknown [195.135.221.27])
+ by mx2.suse.de (Postfix) with ESMTP id CDE7CB0EA;
+ Wed,  3 Feb 2021 09:12:24 +0000 (UTC)
+Date: Wed, 3 Feb 2021 10:12:22 +0100
+From: Michal Hocko <mhocko@suse.com>
+To: Mike Rapoport <rppt@kernel.org>
+Subject: Re: [PATCH v16 07/11] secretmem: use PMD-size pages to amortize
+ direct map fragmentation
+Message-ID: <YBpo9mC5feVQ0mpG@dhcp22.suse.cz>
+References: <20210126120823.GM827@dhcp22.suse.cz>
+ <20210128092259.GB242749@kernel.org>
+ <YBK1kqL7JA7NePBQ@dhcp22.suse.cz>
+ <73738cda43236b5ac2714e228af362b67a712f5d.camel@linux.ibm.com>
+ <YBPF8ETGBHUzxaZR@dhcp22.suse.cz>
+ <6de6b9f9c2d28eecc494e7db6ffbedc262317e11.camel@linux.ibm.com>
+ <YBkcyQsky2scjEcP@dhcp22.suse.cz>
+ <20210202124857.GN242749@kernel.org>
+ <YBlTMqjB06aqyGbT@dhcp22.suse.cz>
+ <20210202191040.GP242749@kernel.org>
 MIME-Version: 1.0
-References: <20210121135016.34718-1-anup.patel@wdc.com>
- <mhng-c559982c-2b4c-4270-8b42-5ad5fdb3d1dd@penguin>
-In-Reply-To: <mhng-c559982c-2b4c-4270-8b42-5ad5fdb3d1dd@penguin>
-From: Anup Patel <anup@brainfault.org>
-Date: Wed, 3 Feb 2021 10:55:42 +0530
-Message-ID: <CAAhSdy14_WM7ejGPHVCg3Y0Us5b7jcDq4nPw_rmtfXy6ZnTjwQ@mail.gmail.com>
-Subject: Re: [PATCH v4] RISC-V: Implement ASID allocator
-To: Palmer Dabbelt <palmer@dabbelt.com>
+Content-Disposition: inline
+In-Reply-To: <20210202191040.GP242749@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210203_002557_837145_29AD5C5E 
-X-CRM114-Status: GOOD (  53.61  )
+X-CRM114-CacheID: sfid-20210203_041226_400440_7033D997 
+X-CRM114-Status: GOOD (  40.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -87,457 +80,119 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <Anup.Patel@wdc.com>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Atish Patra <Atish.Patra@wdc.com>, Alistair Francis <Alistair.Francis@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
+ Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
+ Will Deacon <will@kernel.org>, x86@kernel.org,
+ Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>, Arnd Bergmann <arnd@arndb.de>,
+ James Bottomley <jejb@linux.ibm.com>, Hagen Paul Pfeifer <hagen@jauu.net>,
+ Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-fsdevel@vger.kernel.org, Shakeel Butt <shakeelb@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 3, 2021 at 7:58 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
->
-> On Thu, 21 Jan 2021 05:50:16 PST (-0800), Anup Patel wrote:
-> > Currently, we do local TLB flush on every MM switch. This is very harsh on
-> > performance because we are forcing page table walks after every MM switch.
+On Tue 02-02-21 21:10:40, Mike Rapoport wrote:
+> On Tue, Feb 02, 2021 at 02:27:14PM +0100, Michal Hocko wrote:
+> > On Tue 02-02-21 14:48:57, Mike Rapoport wrote:
+> > > On Tue, Feb 02, 2021 at 10:35:05AM +0100, Michal Hocko wrote:
+> > > > On Mon 01-02-21 08:56:19, James Bottomley wrote:
+> > > > 
+> > > > I have also proposed potential ways out of this. Either the pool is not
+> > > > fixed sized and you make it a regular unevictable memory (if direct map
+> > > > fragmentation is not considered a major problem)
+> > > 
+> > > I think that the direct map fragmentation is not a major problem, and the
+> > > data we have confirms it, so I'd be more than happy to entirely drop the
+> > > pool, allocate memory page by page and remove each page from the direct
+> > > map. 
+> > > 
+> > > Still, we cannot prove negative and it could happen that there is a
+> > > workload that would suffer a lot from the direct map fragmentation, so
+> > > having a pool of large pages upfront is better than trying to fix it
+> > > afterwards. As we get more confidence that the direct map fragmentation is
+> > > not an issue as it is common to believe we may remove the pool altogether.
+> > 
+> > I would drop the pool altogether and instantiate pages to the
+> > unevictable LRU list and internally treat it as ramdisk/mlock so you
+> > will get an accounting correctly. The feature should be still opt-in
+> > (e.g. a kernel command line parameter) for now. The recent report by
+> > Intel (http://lkml.kernel.org/r/213b4567-46ce-f116-9cdf-bbd0c884eb3c@linux.intel.com)
+> > there is no clear win to have huge mappings in _general_ but there are
+> > still workloads which benefit. 
+> >  
+> > > I think that using PMD_ORDER allocations for the pool with a fallback to
+> > > order 0 will do the job, but unfortunately I doubt we'll reach a consensus
+> > > about this because dogmatic beliefs are hard to shake...
+> > 
+> > If this is opt-in then those beliefs can be relaxed somehow. Long term
+> > it makes a lot of sense to optimize for a better direct map management
+> > but I do not think this is a hard requirement for an initial
+> > implementation if it is not imposed to everybody by default.
 > >
-> > This patch implements ASID allocator for assigning an ASID to a MM context.
-> > The number of ASIDs are limited in HW so we create a logical entity named
-> > CONTEXTID for assigning to MM context. The lower bits of CONTEXTID are ASID
-> > and upper bits are VERSION number. The number of usable ASID bits supported
-> > by HW are detected at boot-time by writing 1s to ASID bits in SATP CSR.
-> >
-> > We allocate new CONTEXTID on first MM switch for a MM context where the
-> > ASID is allocated from an ASID bitmap and VERSION is provide by an atomic
-> > counter. At time of allocating new CONTEXTID, if we run out of available
-> > ASIDs then:
-> > 1. We flush the ASID bitmap
-> > 2. Increment current VERSION atomic counter
-> > 3. Re-allocate ASID from ASID bitmap
-> > 4. Flush TLB on all CPUs
-> > 5. Try CONTEXTID re-assignment on all CPUs
-> >
-> > Please note that we don't use ASID #0 because it is used at boot-time by
-> > all CPUs for initial MM context. Also, newly created context is always
-> > assigned CONTEXTID #0 (i.e. VERSION #0 and ASID #0) which is an invalid
-> > context in our implementation.
-> >
-> > Using above approach, we have virtually infinite CONTEXTIDs on-top-of
-> > limited number of HW ASIDs. This approach is inspired from ASID allocator
-> > used for Linux ARM/ARM64 but we have adapted it for RISC-V. Overall, this
-> > ASID allocator helps us reduce rate of local TLB flushes on every CPU
-> > thereby increasing performance.
-> >
-> > This patch is tested on QEMU virt machine, Spike and SiFive Unleashed
-> > board. On QEMU virt machine, we see some (3-5% approx) performance
-> > improvement with SW emulated TLBs provided by QEMU. Unfortunately,
-> > the ASID bits of the SATP CSR are not implemented on Spike and SiFive
-> > Unleashed board so we don't see any change in performance. On real
-> > HW having all ASID bits implemented, the performance gains will be
-> > much more due improved sharing of TLB among different processes.
-> >
-> > Signed-off-by: Anup Patel <anup.patel@wdc.com>
-> > ---
-> > Changes since v3:
-> > - Rebased on Linux-5.11-rc4. The previous v3 patch (almost 2 years back)
-> >   was basd on Linux-5.1-rc2
-> > - Updated implementation to consider NoMMU kernel
-> > - Converted use_asid_allocator boolean flag into static key
-> > - Improved boot-time print in asids_init() to show number of ASID bits
-> > - Access SATP CSR by number instead of old CSR name "sptbr"
-> >
-> > Changes since v2:
-> > - Move to lazy TLB flushing because we get slow path warnings if we
-> >   use flush_tlb_all()
-> > - Don't set ASID bits to all 1s in head.s. Instead just do it on
-> >   boot CPU calling asids_init() for determining number of HW ASID bits
-> > - Make CONTEXT version comparison more readable in set_mm_asid()
-> > - Fix typo in __flush_context()
-> >
-> > Changes since v1:
-> > - We adapt good aspects from Gary Guo's ASID allocator implementation
-> >   and provide due credit to him by adding his SoB.
-> > - Track ASIDs active during context flush and mark them as reserved
-> > - Set ASID bits to all 1s to simplify number of ASID bit detection
-> > - Use atomic_long_t instead of atomic64_t for being 32bit friendly
-> > - Use unsigned long instead of u64 for being 32bit friendly
-> > - Use flush_tlb_all() instead of lazy local_tlb_flush_all() at time
-> >   of context flush
-> >
-> > This patch is based on Linux-5.11-rc4 and can be found in the
-> > riscv_asid_allocator_v4 branch of https://github.com/avpatel/linux.git
-> > ---
-> >  arch/riscv/include/asm/csr.h         |   6 +
-> >  arch/riscv/include/asm/mmu.h         |   2 +
-> >  arch/riscv/include/asm/mmu_context.h |  10 +
-> >  arch/riscv/mm/context.c              | 261 ++++++++++++++++++++++++++-
-> >  4 files changed, 275 insertions(+), 4 deletions(-)
-> >
-> > diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-> > index cec462e198ce..caadfc1d7487 100644
-> > --- a/arch/riscv/include/asm/csr.h
-> > +++ b/arch/riscv/include/asm/csr.h
-> > @@ -41,10 +41,16 @@
-> >  #define SATP_PPN     _AC(0x003FFFFF, UL)
-> >  #define SATP_MODE_32 _AC(0x80000000, UL)
-> >  #define SATP_MODE    SATP_MODE_32
-> > +#define SATP_ASID_BITS       9
-> > +#define SATP_ASID_SHIFT      22
-> > +#define SATP_ASID_MASK       _AC(0x1FF, UL)
-> >  #else
-> >  #define SATP_PPN     _AC(0x00000FFFFFFFFFFF, UL)
-> >  #define SATP_MODE_39 _AC(0x8000000000000000, UL)
-> >  #define SATP_MODE    SATP_MODE_39
-> > +#define SATP_ASID_BITS       16
-> > +#define SATP_ASID_SHIFT      44
-> > +#define SATP_ASID_MASK       _AC(0xFFFF, UL)
-> >  #endif
-> >
-> >  /* Exception cause high bit - is an interrupt if set */
-> > diff --git a/arch/riscv/include/asm/mmu.h b/arch/riscv/include/asm/mmu.h
-> > index dabcf2cfb3dc..0099dc116168 100644
-> > --- a/arch/riscv/include/asm/mmu.h
-> > +++ b/arch/riscv/include/asm/mmu.h
-> > @@ -12,6 +12,8 @@
-> >  typedef struct {
-> >  #ifndef CONFIG_MMU
-> >       unsigned long   end_brk;
-> > +#else
-> > +     atomic_long_t id;
-> >  #endif
-> >       void *vdso;
-> >  #ifdef CONFIG_SMP
-> > diff --git a/arch/riscv/include/asm/mmu_context.h b/arch/riscv/include/asm/mmu_context.h
-> > index 250defa06f3a..b0659413a080 100644
-> > --- a/arch/riscv/include/asm/mmu_context.h
-> > +++ b/arch/riscv/include/asm/mmu_context.h
-> > @@ -23,6 +23,16 @@ static inline void activate_mm(struct mm_struct *prev,
-> >       switch_mm(prev, next, NULL);
-> >  }
-> >
-> > +#define init_new_context init_new_context
-> > +static inline int init_new_context(struct task_struct *tsk,
-> > +                     struct mm_struct *mm)
-> > +{
-> > +#ifdef CONFIG_MMU
-> > +     atomic_long_set(&mm->context.id, 0);
-> > +#endif
-> > +     return 0;
-> > +}
-> > +
-> >  #include <asm-generic/mmu_context.h>
-> >
-> >  #endif /* _ASM_RISCV_MMU_CONTEXT_H */
-> > diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
-> > index 613ec81a8979..6216fed8f9cc 100644
-> > --- a/arch/riscv/mm/context.c
-> > +++ b/arch/riscv/mm/context.c
-> > @@ -2,13 +2,269 @@
-> >  /*
-> >   * Copyright (C) 2012 Regents of the University of California
-> >   * Copyright (C) 2017 SiFive
-> > + * Copyright (C) 2021 Western Digital Corporation or its affiliates.
-> >   */
-> >
-> > +#include <linux/bitops.h>
-> > +#include <linux/cpumask.h>
-> >  #include <linux/mm.h>
-> > +#include <linux/percpu.h>
-> > +#include <linux/slab.h>
-> > +#include <linux/spinlock.h>
-> > +#include <linux/static_key.h>
-> >  #include <asm/tlbflush.h>
-> >  #include <asm/cacheflush.h>
-> >  #include <asm/mmu_context.h>
-> >
-> > +#ifdef CONFIG_MMU
-> > +
-> > +static DEFINE_STATIC_KEY_FALSE(use_asid_allocator);
-> > +
-> > +static unsigned long asid_bits;
-> > +static unsigned long num_asids;
-> > +static unsigned long asid_mask;
-> > +
-> > +static atomic_long_t current_version;
-> > +
-> > +static DEFINE_RAW_SPINLOCK(context_lock);
-> > +static cpumask_t context_tlb_flush_pending;
-> > +static unsigned long *context_asid_map;
-> > +
-> > +static DEFINE_PER_CPU(atomic_long_t, active_context);
-> > +static DEFINE_PER_CPU(unsigned long, reserved_context);
-> > +
-> > +static bool check_update_reserved_context(unsigned long cntx,
-> > +                                       unsigned long newcntx)
-> > +{
-> > +     int cpu;
-> > +     bool hit = false;
-> > +
-> > +     /*
-> > +      * Iterate over the set of reserved CONTEXT looking for a match.
-> > +      * If we find one, then we can update our mm to use new CONTEXT
-> > +      * (i.e. the same CONTEXT in the current_version) but we can't
-> > +      * exit the loop early, since we need to ensure that all copies
-> > +      * of the old CONTEXT are updated to reflect the mm. Failure to do
-> > +      * so could result in us missing the reserved CONTEXT in a future
-> > +      * version.
-> > +      */
-> > +     for_each_possible_cpu(cpu) {
-> > +             if (per_cpu(reserved_context, cpu) == cntx) {
-> > +                     hit = true;
-> > +                     per_cpu(reserved_context, cpu) = newcntx;
-> > +             }
-> > +     }
-> > +
-> > +     return hit;
-> > +}
-> > +
-> > +/* Note: must be called with context_lock held */
->
-> These are usually better expressed as lockdep assertions.  I don't see any
-> reason why they wouldn't work here.
+> > > A more restrictive possibility is to still use plain PMD_ORDER allocations
+> > > to fill the pool, without relying on CMA. In this case there will be no
+> > > global secretmem specific pool to exhaust, but then it's possible to drain
+> > > high order free blocks in a system, so CMA has an advantage of limiting
+> > > secretmem pools to certain amount of memory with somewhat higher
+> > > probability for high order allocation to succeed. 
+> > > 
+> > > > or you need a careful access control 
+> > > 
+> > > Do you mind elaborating what do you mean by "careful access control"?
+> > 
+> > As already mentioned, a mechanism to control who can use this feature -
+> > e.g. make it a special device which you can access control by
+> > permissions or higher level security policies. But that is really needed
+> > only if the pool is fixed sized.
+>   
+> Let me reiterate to make sure I don't misread your suggestion.
+> 
+> If we make secretmem an opt-in feature with, e.g. kernel parameter, the
+> pooling of large pages is unnecessary. In this case there is no limited
+> resource we need to protect because secretmem will allocate page by page.
 
-Okay, I will add a lockdep assertion here.
+Yes.
 
->
-> > +static void __flush_context(void)
-> > +{
-> > +     int i;
-> > +     unsigned long cntx;
-> > +
-> > +     /* Update the list of reserved ASIDs and the ASID bitmap. */
-> > +     bitmap_clear(context_asid_map, 0, num_asids);
-> > +
-> > +     /* Mark already active ASIDs as used */
-> > +     for_each_possible_cpu(i) {
-> > +             cntx = atomic_long_xchg_relaxed(&per_cpu(active_context, i), 0);
-> > +             /*
-> > +              * If this CPU has already been through a rollover, but
-> > +              * hasn't run another task in the meantime, we must preserve
-> > +              * its reserved CONTEXT, as this is the only trace we have of
-> > +              * the process it is still running.
-> > +              */
-> > +             if (cntx == 0)
-> > +                     cntx = per_cpu(reserved_context, i);
-> > +
-> > +             __set_bit(cntx & asid_mask, context_asid_map);
-> > +             per_cpu(reserved_context, i) = cntx;
-> > +     }
-> > +
-> > +     /* Mark ASID #0 as used because it is used at boot-time */
-> > +     __set_bit(0, context_asid_map);
-> > +
-> > +     /* Queue a TLB invalidation for each CPU on next context-switch */
-> > +     cpumask_setall(&context_tlb_flush_pending);
-> > +}
-> > +
-> > +/* Note: must be called with context_lock held */
-> > +static unsigned long __new_context(struct mm_struct *mm)
-> > +{
-> > +     static u32 cur_idx = 1;
-> > +     unsigned long cntx = atomic_long_read(&mm->context.id);
-> > +     unsigned long asid, ver = atomic_long_read(&current_version);
-> > +
-> > +     if (cntx != 0) {
-> > +             unsigned long newcntx = ver | (cntx & asid_mask);
-> > +
-> > +             /*
-> > +              * If our current CONTEXT was active during a rollover, we
-> > +              * can continue to use it and this was just a false alarm.
-> > +              */
-> > +             if (check_update_reserved_context(cntx, newcntx))
-> > +                     return newcntx;
-> > +
-> > +             /*
-> > +              * We had a valid CONTEXT in a previous life, so try to
-> > +              * re-use it if possible.
-> > +              */
-> > +             if (!__test_and_set_bit(cntx & asid_mask, context_asid_map))
-> > +                     return newcntx;
-> > +     }
-> > +
-> > +     /*
-> > +      * Allocate a free ASID. If we can't find one then increment
-> > +      * current_version and flush all ASIDs.
-> > +      */
-> > +     asid = find_next_zero_bit(context_asid_map, num_asids, cur_idx);
-> > +     if (asid != num_asids)
-> > +             goto set_asid;
-> > +
-> > +     /* We're out of ASIDs, so increment current_version */
-> > +     ver = atomic_long_add_return_relaxed(num_asids, &current_version);
-> > +
-> > +     /* Flush everything  */
-> > +     __flush_context();
-> > +
-> > +     /* We have more ASIDs than CPUs, so this will always succeed */
-> > +     asid = find_next_zero_bit(context_asid_map, num_asids, 1);
-> > +
-> > +set_asid:
-> > +     __set_bit(asid, context_asid_map);
-> > +     cur_idx = asid;
-> > +     return asid | ver;
-> > +}
-> > +
-> > +static void set_mm_asid(struct mm_struct *mm, unsigned int cpu)
-> > +{
-> > +     unsigned long flags;
-> > +     bool need_flush_tlb = false;
-> > +     unsigned long cntx, old_active_cntx;
-> > +
-> > +     cntx = atomic_long_read(&mm->context.id);
-> > +
-> > +     /*
-> > +      * If our active_context is non-zero and the context matches the
-> > +      * current_version, then we update the active_context entry with a
-> > +      * relaxed cmpxchg.
-> > +      *
-> > +      * Following is how we handle racing with a concurrent rollover:
-> > +      *
-> > +      * - We get a zero back from the cmpxchg and end up waiting on the
-> > +      *   lock. Taking the lock synchronises with the rollover and so
-> > +      *   we are forced to see the updated verion.
-> > +      *
-> > +      * - We get a valid context back from the cmpxchg then we continue
-> > +      *   using old ASID because __flush_context() would have marked ASID
-> > +      *   of active_context as used and next context switch we will
-> > +      *   allocate new context.
-> > +      */
-> > +     old_active_cntx = atomic_long_read(&per_cpu(active_context, cpu));
-> > +     if (old_active_cntx &&
-> > +         ((cntx & ~asid_mask) == atomic_long_read(&current_version)) &&
-> > +         atomic_long_cmpxchg_relaxed(&per_cpu(active_context, cpu),
-> > +                                     old_active_cntx, cntx))
-> > +             goto switch_mm_fast;
-> > +
-> > +     raw_spin_lock_irqsave(&context_lock, flags);
-> > +
-> > +     /* Check that our ASID belongs to the current_version. */
-> > +     cntx = atomic_long_read(&mm->context.id);
-> > +     if ((cntx & ~asid_mask) != atomic_long_read(&current_version)) {
-> > +             cntx = __new_context(mm);
-> > +             atomic_long_set(&mm->context.id, cntx);
-> > +     }
-> > +
-> > +     if (cpumask_test_and_clear_cpu(cpu, &context_tlb_flush_pending))
-> > +             need_flush_tlb = true;
-> > +
-> > +     atomic_long_set(&per_cpu(active_context, cpu), cntx);
-> > +
-> > +     raw_spin_unlock_irqrestore(&context_lock, flags);
-> > +
-> > +switch_mm_fast:
-> > +     csr_write(CSR_SATP, virt_to_pfn(mm->pgd) |
-> > +               ((cntx & asid_mask) << SATP_ASID_SHIFT) |
-> > +               SATP_MODE);
-> > +
-> > +     if (need_flush_tlb)
-> > +             local_flush_tlb_all();
-> > +}
-> > +
-> > +static void set_mm_noasid(struct mm_struct *mm)
-> > +{
-> > +     /* Switch the page table and blindly nuke entire local TLB */
-> > +     csr_write(CSR_SATP, virt_to_pfn(mm->pgd) | SATP_MODE);
-> > +     local_flush_tlb_all();
-> > +}
-> > +
-> > +static inline void set_mm(struct mm_struct *mm, unsigned int cpu)
-> > +{
-> > +     if (static_branch_unlikely(&use_asid_allocator))
-> > +             set_mm_asid(mm, cpu);
-> > +     else
-> > +             set_mm_noasid(mm);
-> > +}
-> > +
-> > +static int asids_init(void)
-> > +{
-> > +     unsigned long old;
-> > +
-> > +     /* Figure-out number of ASID bits in HW */
-> > +     old = csr_read(CSR_SATP);
-> > +     asid_bits = old | (SATP_ASID_MASK << SATP_ASID_SHIFT);
-> > +     csr_write(CSR_SATP, asid_bits);
-> > +     asid_bits = (csr_read(CSR_SATP) >> SATP_ASID_SHIFT)  & SATP_ASID_MASK;
-> > +     asid_bits = fls_long(asid_bits);
-> > +     csr_write(CSR_SATP, old);
-> > +
-> > +     /*
-> > +      * In the process of determining number of ASID bits (above)
-> > +      * we polluted the TLB of current HART so let's do TLB flushed
-> > +      * to remove unwanted TLB enteries.
-> > +      */
-> > +     local_flush_tlb_all();
-> > +
-> > +     /* Pre-compute ASID details */
-> > +     num_asids = 1 << asid_bits;
-> > +     asid_mask = num_asids - 1;
-> > +
-> > +     /*
-> > +      * Use ASID allocator only if number of HW ASIDs are
-> > +      * at-least twice more than CPUs
-> > +      */
-> > +     if (num_asids > (2 * num_possible_cpus())) {
-> > +             atomic_long_set(&current_version, num_asids);
-> > +
-> > +             context_asid_map = kcalloc(BITS_TO_LONGS(num_asids),
-> > +                                sizeof(*context_asid_map), GFP_KERNEL);
-> > +             if (!context_asid_map)
-> > +                     panic("Failed to allocate bitmap for %lu ASIDs\n",
-> > +                           num_asids);
-> > +
-> > +             __set_bit(0, context_asid_map);
-> > +
-> > +             static_branch_enable(&use_asid_allocator);
-> > +
-> > +             pr_info("ASID allocator using %lu bits (%lu entries)\n",
-> > +                     asid_bits, num_asids);
-> > +     } else {
-> > +             pr_info("ASID allocator disabled\n");
-> > +     }
-> > +
-> > +     return 0;
-> > +}
-> > +early_initcall(asids_init);
-> > +#else
-> > +static inline void set_mm(struct mm_struct *mm, unsigned int cpu)
-> > +{
-> > +     /* Nothing to do here when there is no MMU */
-> > +}
-> > +#endif
-> > +
-> >  /*
-> >   * When necessary, performs a deferred icache flush for the given MM context,
-> >   * on the local CPU.  RISC-V has no direct mechanism for instruction cache
-> > @@ -58,10 +314,7 @@ void switch_mm(struct mm_struct *prev, struct mm_struct *next,
-> >       cpumask_clear_cpu(cpu, mm_cpumask(prev));
-> >       cpumask_set_cpu(cpu, mm_cpumask(next));
-> >
-> > -#ifdef CONFIG_MMU
-> > -     csr_write(CSR_SATP, virt_to_pfn(next->pgd) | SATP_MODE);
-> > -     local_flush_tlb_all();
-> > -#endif
-> > +     set_mm(next, cpu);
-> >
-> >       flush_icache_deferred(next);
-> >  }
->
-> So I know we'd said before that we weren't going to take this until there's
-> hardware, but I think the QEMU support is good enough -- I don't really care if
-> the ISA says this might change, it's been in there for long enough.
->
-> Aside from the assertions
->
-> Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
->
-> LMK if you're going to send a v5 or you want me to just fix it up.
+> Since there is no limited resource, we don't need special permissions
+> to access secretmem so we can move forward with a system call that creates
+> a mmapable file descriptor and save the hassle of a chardev.
 
-I will send v5 in the next few hours. Thanks for the review.
+Yes, I assume you implicitly assume mlock rlimit here. Also memcg
+accounting should be in place. Wrt to the specific syscall, please
+document why existing interfaces are not a good fit as well. It would be
+also great to describe interaction with mlock itself (I assume the two
+to be incompatible - mlock will fail on and mlockall will ignore it).
 
-Best Regards,
-Anup
+> I cannot say I don't like this as it cuts roughly half of mm/secretmem.c :)
+> 
+> But I must say I am still a bit concerned about that we have no provisions
+> here for dealing with the direct map fragmentation even with the set goal
+> to improve the direct map management in the long run...
+
+Yes that is something that will be needed long term. I do not think this
+is strictly necessary for the initial submission, though. The
+implementation should be as simple as possible now and complexity added
+on top.
+-- 
+Michal Hocko
+SUSE Labs
 
 _______________________________________________
 linux-riscv mailing list
