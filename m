@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 76905C433DB
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Feb 2021 02:35:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5D988C433E0
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Feb 2021 02:35:21 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 3D1AE64F6A
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Feb 2021 02:35:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3D1AE64F6A
+	by mail.kernel.org (Postfix) with ESMTPS id 209C064F6A
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Feb 2021 02:35:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 209C064F6A
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,65 +23,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=nUEmDdfwjI66cFc95QKorOzFMAoFSSHSS2BVNKWiDNc=; b=xyiNDsfGeqfrji3Dhcxaipt9L
-	8ViHs0etfW5M8RiHxhJpbiZAs8PO3o3qkpnulzMcEePEuWhTb7CYBP/uvpiP+flnFniFntSk3MUHJ
-	3r/8WSs4FWhjGDE1Yi6OkC9u+bzWIHVxgpci1wLYfk6fNuSYYNUyWS15zTq4CIkAF2QdC0wE1kVDd
-	A7Q/rjLd1dw8J8ANNEnefN3Lns8cWEkJCziAinF7J8IlRL+zVdup2AHwcvg3so7MiNCxXAbWMkcwu
-	7lBInXPWqHvO19Tf/AvuOZfFKYr0tvAYgVLZMG6o69tMh06up0mLzLC88jIOjgOyt0ZeGcAP5HaSp
-	R7WsPsSUg==;
+	 bh=aiQrWdA+2jMqm3pVOKSSiJ9C2E43V0QE27KkLtM2Tqc=; b=ha8a7TU8X6zmh/ziUkSykxiR4
+	xeouyywhJqDyNzK2CT0mWhaamNL/iz7p4b+1zxx5r2pbN+No//LWkrjy0reKQ4mA8jmqHGlowPxks
+	rHCkogwgxYlJowLwZ0MxeFlrlP3n/Xm2PTthd9hZbzuzrbZA/auTiHuZEnLG2XYHPgFmwzedAgQtq
+	HHjaighWrj9LUHC6KO5HXkaQgg8y5ByX/njPXhwQfB1wbfQ3X30qxPKhz4BLenEJrvDczjAkoOGMP
+	i330NS/T67ARYYWL0mCoHKQu4C7it8HERvoRRd5B1HU15JV6cMQZ2xLudF7/9kxs1+IqL8diSZ/i0
+	9dUvdmgqA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l780a-0005SQ-2s; Wed, 03 Feb 2021 02:35:08 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
+	id 1l780W-0005RP-Eq; Wed, 03 Feb 2021 02:35:04 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l780V-0005QI-6r
- for linux-riscv@lists.infradead.org; Wed, 03 Feb 2021 02:35:04 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id c132so16273429pga.3
- for <linux-riscv@lists.infradead.org>; Tue, 02 Feb 2021 18:35:02 -0800 (PST)
+ id 1l780T-0005PR-6g
+ for linux-riscv@lists.infradead.org; Wed, 03 Feb 2021 02:35:02 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id lw17so2659813pjb.0
+ for <linux-riscv@lists.infradead.org>; Tue, 02 Feb 2021 18:35:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=fPQam4ndzft14C3DaSgN+91Ad7etOKCRLDjQjoeYJK8=;
- b=OTXg56iU1hkJ7HWuwulOElr299NtTWhlmzuxg05V7A+0w9gy8hR5UaKR/v+7dxkzjj
- +TleqnWVmTiaDeY9JuD5IfUYvbyG/Ijc6FxxDsalbeVNUtGy7JKzklUDbrkTHBS7dO+2
- We92Bw15uhSbI6UCreDJlwayqFGKbdYK4ggQrMcjTp7cr4WrZPmlD8DL3UaE+XD7bxHj
- irMFvCkINaLRA9hGsnQaV7h/Yr2C4o60VppLExRZ5ZvJxPSrJYXv7K513Vjy0cMP/KqI
- mSKetFvsNlk1fyBGXuYXphyzzrAwI8Jk3oVo+3YsvxNRHCJPKcjv6+ijPGEFHsqDE77j
- LVHw==
+ bh=OsVRDdfzv2cQbndm8SwipZXw//lhG27z+lIqx8n8u4I=;
+ b=ev1N4tqbQGAmcYrqbbf7aYJ1pHLWCRq5evlGjJ+X8gLY26uHoe9J+rGvi973/X3Qdq
+ M7hnsGE6k4jqow/ZvdNNcSX+BbIyhycdU6Wjh5xPUjzlOW/0+9bKGB71PdEMAGDnr6C7
+ +RuAugnZ4hlFokomD5cipwrHAAqVugFb0ivn4vpVOfEU9gwhKnUP/0IZ86LcX6ghYvj7
+ KI+27jSZgH3WUX4DC80ES/PiYfL/PS5VhBSOvnuQRExzoJx+NdLDAERKajYLZ2Bw9/HJ
+ Hzoid43wxPdtEJ0cZU0op7iwxPeyzK6kQxQaB6p6CYh9Zo7SbDJVqKDZc+TOguKFLT1j
+ 9BaQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=fPQam4ndzft14C3DaSgN+91Ad7etOKCRLDjQjoeYJK8=;
- b=FEsuWqn2ewmPhIiCCzi+shZBi/IWfoT7WrkX9ANceJ51EnXt1X/DUrQRzTICjsbh+k
- omBC8x3H7hvXAJaJ6fUYlu2DG76P2gyHEZ1Mww7eEZiaa8knceKmIhl6yhuN9A18mQfV
- 5nLj9544b2H8WTmq0489fG/7lY7AS2YzhVsMS1ayPbQz/bRRZ5HceKshFFHiSTgSV69I
- q3Aii1SezXs7z5CGf0Wts+cdkKPhx+w4y9j8DN8uFRDK1S9k1TKhiCaxGy56AO2mr7os
- QX+Dj1+zZcOdDL4v7tadQDEVx+AGME60yZU1KKzT63T01LRmHN/SnCWhNTy31xXj4XZ0
- s4YA==
-X-Gm-Message-State: AOAM5314kqyyzm/fbBioY4t/d6ctbwa3YnQ2O3bo1hr5bx5J8z5kBwS0
- j5K1uk0dMU2np44pAKdzhxDivQ==
-X-Google-Smtp-Source: ABdhPJwwzoE5DQ65GzSvq8HYxGVwxgvuO0KnV/mVnlwlTP9TGyTJNOVC4wrBFr+Is9GPBJsZDCBQVg==
-X-Received: by 2002:aa7:9402:0:b029:1c5:4e3e:11ad with SMTP id
- x2-20020aa794020000b02901c54e3e11admr965443pfo.15.1612319701181; 
- Tue, 02 Feb 2021 18:35:01 -0800 (PST)
+ bh=OsVRDdfzv2cQbndm8SwipZXw//lhG27z+lIqx8n8u4I=;
+ b=hEn2UOcNE717D2cT65BkIXQQeybqmPqX7rbeWWiMfRiYReUkIpCvdcu0SJ8/EpenbU
+ /JBfh3GielTwI2JiemgKV47zk7G8wvEzbSMPwPrBo1CjHofEBR6+2sam0v6q8Raf0pfF
+ We5i4/2Bfucpc5NQTVgZVP1CnlwDat/0oKjjlZFrfRczdjVUCG9FHqAQN9o39M0GDWCT
+ QyfUh9CC9cSFbcp+PIKM+3JBd6LbwE3vUkqkaRUB6U15NJKdpy8Ja/8yYEVgWpIChLIH
+ yrriGE/+lZoAm+DZOd7yg/GaR2I/lxXFKiP47LgC+yLoayLha1XySF9uBwFsCmYDe5SP
+ yc+g==
+X-Gm-Message-State: AOAM530+zwdUNVFeN5xhjXhk2SGNvP6Y5tuojcjtU2vk6aVee53QRaZv
+ kNpPK2+hT8sSBqz1CbxXeHbPXQ==
+X-Google-Smtp-Source: ABdhPJz1fAW3weygbL3KOp7CRNmIw8lvfQugj7PN6ZHI0VXzW5uHNSemyVGxyiaYFQNctaUPSIxSlw==
+X-Received: by 2002:a17:90a:17c8:: with SMTP id
+ q66mr848452pja.167.1612319699220; 
+ Tue, 02 Feb 2021 18:34:59 -0800 (PST)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id t206sm275715pgb.84.2021.02.02.18.34.59
+ by smtp.gmail.com with ESMTPSA id c5sm294732pfi.5.2021.02.02.18.34.57
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 02 Feb 2021 18:35:00 -0800 (PST)
-Date: Tue, 02 Feb 2021 18:35:00 -0800 (PST)
-X-Google-Original-Date: Tue, 02 Feb 2021 18:34:49 PST (-0800)
-Subject: Re: Kconfig-induced build errors: CONFIG_PAGE_OFFSET
-In-Reply-To: <mhng-9b4a74fd-62d8-421f-8150-9147da7e39b2@penguin>
+ Tue, 02 Feb 2021 18:34:58 -0800 (PST)
+Date: Tue, 02 Feb 2021 18:34:58 -0800 (PST)
+X-Google-Original-Date: Tue, 02 Feb 2021 18:33:29 PST (-0800)
+Subject: Re: [PATCH 3/3] RISC-V: Define MAXPHYSMEM_1GB only for RV32
+In-Reply-To: <20210129190038.1001626-3-atish.patra@wdc.com>
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: atishp@atishpatra.org
-Message-ID: <mhng-c04f6080-f52b-441b-a4ef-65c4559046f7@penguin>
+To: Atish Patra <Atish.Patra@wdc.com>
+Message-ID: <mhng-3aa36699-55e0-4f82-80f7-0d7248ac3b5c@penguin>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210202_213503_259487_49191650 
-X-CRM114-Status: GOOD (  18.04  )
+X-CRM114-CacheID: sfid-20210202_213501_362791_2B054E27 
+X-CRM114-Status: GOOD (  20.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -93,59 +93,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, rdunlap@infradead.org, linux-kernel@vger.kernel.org,
- geert@linux-m68k.org, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv@lists.infradead.org
+Cc: svancau@gmail.com, rdunlap@infradead.org, Anup Patel <Anup.Patel@wdc.com>,
+ linux-kernel@vger.kernel.org, Atish Patra <Atish.Patra@wdc.com>,
+ ndesaulniers@gooogle.com, aou@eecs.berkeley.edu, geert@linux-m68k.org,
+ zong.li@sifive.com, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv@lists.infradead.org, ardb@kernel.org,
+ kirill.shutemov@linux.intel.com
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 02 Feb 2021 18:27:42 PST (-0800), Palmer Dabbelt wrote:
-> On Fri, 29 Jan 2021 05:52:51 PST (-0800), geert@linux-m68k.org wrote:
->> Hi Atish,
->>
->> On Thu, Jan 28, 2021 at 9:09 PM Atish Patra <atishp@atishpatra.org> wrote:
->>> On Wed, Jan 27, 2021 at 7:18 PM Randy Dunlap <rdunlap@infradead.org> wrote:
->>> > I took a riscv-32 .config from kernel test robot (it was for a clang build)
->>> > and did a "make olddefconfig" (using gcc tools) and got build errors
->>> > due to this config item from arch/riscv/Kconfig;
->>> >
->>> >
->>> > config PAGE_OFFSET
->>> >         hex
->>> >         default 0xC0000000 if 32BIT && MAXPHYSMEM_1GB
->>> >         default 0x80000000 if 64BIT && !MMU
->>> >         default 0xffffffff80000000 if 64BIT && MAXPHYSMEM_2GB
->>> >         default 0xffffffe000000000 if 64BIT && MAXPHYSMEM_128GB
->>> >
->>> > PAGE_OFFSET is undefined for the case of 32BIT && MAXPHYSMEM_2GB.
->>>
->>> Because, RV32 doesn't support 2GB physical memory yet.
->>>
->>> The compilation errors can be fixed by not allowing MAXPHYSMEM_2GB for RV32 and
->>> MAXPHYSMEM_1GB for RV64. How about this ?
->>>
->>> --- a/arch/riscv/Kconfig
->>> +++ b/arch/riscv/Kconfig
->>> @@ -253,8 +253,10 @@ choice
->>>         default MAXPHYSMEM_128GB if 64BIT && CMODEL_MEDANY
->>>
->>>         config MAXPHYSMEM_1GB
->>> +               depends on 32BIT
->>>                 bool "1GiB"
->>>         config MAXPHYSMEM_2GB
->>> +               depends on 64BIT && CMODEL_MEDLOW
->>>                 bool "2GiB"
->>>         config MAXPHYSMEM_128GB
->>>                 depends on 64BIT && CMODEL_MEDANY
->>
->> Thanks, works fine on litex-vexriscv.
->> Tested-by: Geert Uytterhoeven <geert@linux-m68k.org>
+On Fri, 29 Jan 2021 11:00:38 PST (-0800), Atish Patra wrote:
+> MAXPHYSMEM_1GB option was added for RV32 because RV32 only supports 1GB
+> of maximum physical memory. This lead to few compilation errors reported
+> by kernel test robot which created the following configuration combination
+> which are not useful but can be configured.
 >
-> Atish: did I miss an actual patch?  I just see diff here.
+> 1. MAXPHYSMEM_1GB & RV64
+> 2, MAXPHYSMEM_2GB & RV32
+>
+> Fixes: e557793799c5 ("RISC-V: Fix maximum allowed phsyical memory for RV32")
+>
+> Fix this by restricting MAXPHYSMEM_1GB for RV32 and MAXPHYSMEM_2GB only for
+> RV64.
+>
+> Reported-by: Randy Dunlap <rdunlap@infradead.org>
+> Acked-by: Randy Dunlap <rdunlap@infradead.org>
+> Tested-by: Geert Uytterhoeven <geert@linux-m68k.org>
+> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> ---
+>  arch/riscv/Kconfig | 2 ++
+>  1 file changed, 2 insertions(+)
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index e9e2c1f0a690..e0a34eb5ed3b 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -252,8 +252,10 @@ choice
+>  	default MAXPHYSMEM_128GB if 64BIT && CMODEL_MEDANY
+>
+>  	config MAXPHYSMEM_1GB
+> +		depends on 32BIT
+>  		bool "1GiB"
+>  	config MAXPHYSMEM_2GB
+> +		depends on 64BIT && CMODEL_MEDLOW
+>  		bool "2GiB"
+>  	config MAXPHYSMEM_128GB
+>  		depends on 64BIT && CMODEL_MEDANY
 
-Never mind, I found it.  Thanks!
+Ah, I guess here's the patch :).  This is on fixes.
+
+Thanks!
 
 _______________________________________________
 linux-riscv mailing list
