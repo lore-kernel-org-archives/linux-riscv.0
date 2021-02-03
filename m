@@ -2,19 +2,19 @@ Return-Path: <SRS0=OV2N=HF=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 62EAEC433DB
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Feb 2021 03:05:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D177CC433E0
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Feb 2021 03:07:14 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1D39561606
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Feb 2021 03:05:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1D39561606
+	by mail.kernel.org (Postfix) with ESMTPS id 982EA64F49
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Feb 2021 03:07:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 982EA64F49
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,65 +23,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=JzPljhJjkO11YPLlKAHR700Y2CXophWxDQFvm30wxdk=; b=3ZjTkQ7V3gPXHMvtcmLF3qqng
-	ni7tl87TbNxgITxNhW0s/zDAUsmvKbed9l2jte0e/qfsjSx25uM1+9GbltOlVJ2wdDCUTkxt5awj3
-	AHuo9BzbUF91LIcSgIMSHcWLZoNe/gGx8jxg+bQL9zj+2Iw/egvgVbdaZCWPOXx4rpKMvX0nxt9dm
-	YBx319LJ/AHrFXUICut+u7S6x5fvCcie1Ae9LX3w9VofchWGJ0w53tGQRTaeFU8XEnBce8aYQPk/Z
-	TUOKQMD4aFx5UcLaSMV6ngbP1X//hp4kYxF9/5YhpLzH2sX8ezPYbJK/4tnVX4/RToiZ0QeOwOGcZ
-	IMs5cNzAQ==;
+	 bh=rgv2GajwdCPlNB4Ddg8FtX28ii+FgSa2BtTFZHT0YcE=; b=cBCCNyCbA0mrjNG4QnWXlL1Vk
+	S/Y94DybccLxfxfPyWxwwjFZWZeU5kKQWWQ3rRISp7HlYYErh1HYWqHkDHe2RhG0mZSU9LYHiiOM/
+	q89n5/n84eUpCq5UcpitIvApwYdmPgJejgqu7YI2Shbk6g0gfdRy/j6yKnLFBqaE98cqKs9ZCD3TL
+	C8ZP3sm5TcELaLfngehdSp0uPXewfyJwj85wd6r87vM14m9VSfvS4qeON8C7QL9pwQj+MmA4IEqRG
+	5U7sZr3waTliymT7JXMmH9k49unvi8cjNgkMsZq4fvpLvzBRSY/pywvsEESi6uI+fVMea9JNVU64D
+	u3K+t8F3A==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l78UG-0008Sc-F5; Wed, 03 Feb 2021 03:05:48 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1l78VT-0000Bn-IA; Wed, 03 Feb 2021 03:07:03 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l78UD-0008Rk-OK
- for linux-riscv@lists.infradead.org; Wed, 03 Feb 2021 03:05:46 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id m12so3537779pjs.4
- for <linux-riscv@lists.infradead.org>; Tue, 02 Feb 2021 19:05:45 -0800 (PST)
+ id 1l78VR-0000Ae-7W
+ for linux-riscv@lists.infradead.org; Wed, 03 Feb 2021 03:07:02 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id gx20so3714404pjb.1
+ for <linux-riscv@lists.infradead.org>; Tue, 02 Feb 2021 19:07:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=ZMWBq3ACFJJAx15ObrNGTwgdYr+KZMK5JwRK+RWgkj4=;
- b=UZ4hGLaf9PMkrkN83mYnxJXlf++H0dMxr/g9Y9bTLNpi0TBE2iTtTeNtV3Xb8wna5J
- 4itg59xQJS97+0zFCzOedMXSau4kmkEtJ9oFLTjn3YiT2gqSVBEopZBVP04xkHc46hKy
- 0WY+BorERSVJVGmmkD0ZLeGpapb657WKCn39plFzKSd6IQt1ivzztc8fHNXeXtvSt0Cq
- 0Q/yXBlE0WIHhTrcNXwvidyCWtKl4lLPu0J7iY/nqtnCBuwmUCSkk7NU5NB8qreOXims
- AMg4fkZojCg/uyAcQuu0jmY9AozZ1c9E0PRZVlc1hRx4tRI2+1fCs0IkY+6NhSNzVxga
- TozA==
+ bh=WBiTH8QiguqnLOv32t9GF9mOlJTuAE6/25gykx61sYM=;
+ b=M5JXY8IOoN/AO5OQf8cIeE5pJvWOwOo7jf5M5eLJ52ZDNXMRq3NNhhTha2vH5aQwYu
+ foKeKzd3GaDXSQsjcskk4mTcyvW5Xw4RnTEn7rcfjhPLh07rz8ZACCAZEg2M3C1yYT59
+ j+EyhqkermOi9e8CCoPGlhV0TA4qufUp+L4q6gdaZKYRZjBgmiDZsRXtJ6eyXUK/Oa6M
+ nnd2e/sO+Z57GFfSYQDTPlkS4PRnhl5QF5yppnmQ880G1E77/UG7jZKGIMyTtuoECB3n
+ DT2h1TAGI5KR6Ol6p7fW6qeudqA8I+4eVB/C6LbKCjWP+fEEoy/cAY2FxmNxYY/TeKC7
+ AIqg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=ZMWBq3ACFJJAx15ObrNGTwgdYr+KZMK5JwRK+RWgkj4=;
- b=jZMP2WjyCiQOA8NWjShN9UY5nrSWUUChLZmZZBx8nUqTVJoyPLw7x03ppzdcRBwy53
- sPclRa+k1pi4JjddbiUDoq74VcTvyiu+Nh4MiwZHbbYNNSMP3l6pQqcxOBtmIAmq3Ebs
- W675EovOH6gRxXJRSJTwd1X/Fyegxtj1Gh7tHKb2roIFyOdIKoe74GHEW2z5ophzZMGQ
- qXQeoh2G/oY8kh5GkKZaV6nURxS/jCYiJfKxiWFHG+v5u89Mn8r94C3v5ip5uMYsj8sI
- z6AwPh3SKbuPWqLila38aMSTD3k6rpD2uX8KyUsgduDCGOUsiCYuaVkl+6wg46TbZ+vw
- LbWQ==
-X-Gm-Message-State: AOAM5300QEsyW/rKPWopby71t11nARsC3PF9tXD52MdjxOAdLL7ey76V
- WQOU2nEabI4h0UNF5TrPRd4jkg==
-X-Google-Smtp-Source: ABdhPJzgKeAv3HDKvjGTFSaVzyDdJXRgRIHq2ify9sDpRJUoN3Yie4IWt1vmIbnRLWqV+R9QPytFYA==
-X-Received: by 2002:a17:902:241:b029:de:17d3:423e with SMTP id
- 59-20020a1709020241b02900de17d3423emr1138151plc.44.1612321543577; 
- Tue, 02 Feb 2021 19:05:43 -0800 (PST)
+ bh=WBiTH8QiguqnLOv32t9GF9mOlJTuAE6/25gykx61sYM=;
+ b=r3gPvdSRbGlaJXDCQraqx5l33++RQJArgrkAxw9aqQJk2vBaHrAbMsIVQZlPK9ruK9
+ ethPbtmP0VySaZ1V2FwDBj8JbxeK8sUjtIDW8Pib0JZe7JZTC7mlxrPp8BqQbgNfBCW4
+ E738L/xoAtdkf3MjNy4hFXBJxW9vck5j94bfkKq23btuxdjvzv6YrXmhfpN/YJvp+CjS
+ H1XDnFLC08xjdnkCJ/DV0XFiIgifc+kU1UDC62n8rp1LYyaUGNCCSjS5KeEgingRUzw8
+ 1dgrafoCVf5/oSB83yHuNYmIrWeuHFNE2EWPzj4USMOZ9M/4zcuTFoq4BpDzJheIf/yD
+ mUGA==
+X-Gm-Message-State: AOAM530LgJJsGbw+fWK7VJWslKrPa5iD3K/VKNl3Xw/Srm5EMW8vwVKr
+ rGsnODM9UqHA3l1HtrfTM8Y07dJKKiVNlA==
+X-Google-Smtp-Source: ABdhPJws1V1h8N9CDU/SagO0L0jOxEHTfE1KH2PH0XV3/QmxsiTyPbjYe2LHodfb7doMmzJ71GFU7A==
+X-Received: by 2002:a17:90b:618:: with SMTP id
+ gb24mr1013574pjb.146.1612321618953; 
+ Tue, 02 Feb 2021 19:06:58 -0800 (PST)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id n73sm329565pfd.109.2021.02.02.19.05.42
+ by smtp.gmail.com with ESMTPSA id 141sm330169pfa.65.2021.02.02.19.06.58
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 02 Feb 2021 19:05:42 -0800 (PST)
-Date: Tue, 02 Feb 2021 19:05:42 -0800 (PST)
-X-Google-Original-Date: Tue, 02 Feb 2021 19:05:31 PST (-0800)
-Subject: Re: [PATCH] riscv: kasan: remove unneeded semicolon
-In-Reply-To: <1612245119-116845-1-git-send-email-yang.lee@linux.alibaba.com>
+ Tue, 02 Feb 2021 19:06:58 -0800 (PST)
+Date: Tue, 02 Feb 2021 19:06:58 -0800 (PST)
+X-Google-Original-Date: Tue, 02 Feb 2021 19:06:42 PST (-0800)
+Subject: Re: [Announcement] Successful KVM RISC-V bring up on FPGA (Rocket
+ core with H extension)
+In-Reply-To: <CAOnJCULY7PTcyZ4d0MiC6YBW3_ZdN3tVC4jg_wAJdJs_YeCnMQ@mail.gmail.com>
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: yang.lee@linux.alibaba.com
-Message-ID: <mhng-1a6dd811-fd09-409c-a664-7bbd9f9d8315@penguin>
+To: atishp@atishpatra.org
+Message-ID: <mhng-48f94a66-52fd-4e2d-80e8-c33bc521d0f5@penguin>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210202_220545_807937_F1231AE5 
-X-CRM114-Status: GOOD (  18.71  )
+X-CRM114-CacheID: sfid-20210202_220701_299694_1F578CBE 
+X-CRM114-Status: GOOD (  20.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -93,40 +94,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, yang.lee@linux.alibaba.com,
- linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com, glider@google.com,
- Paul Walmsley <paul.walmsley@sifive.com>, aryabinin@virtuozzo.com,
- linux-riscv@lists.infradead.org, dvyukov@google.com
+Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org,
+ kvm@vger.kernel.org
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 01 Feb 2021 21:51:59 PST (-0800), yang.lee@linux.alibaba.com wrote:
-> Eliminate the following coccicheck warning:
-> ./arch/riscv/mm/kasan_init.c:103:2-3: Unneeded semicolon
+On Tue, 02 Feb 2021 00:43:51 PST (-0800), atishp@atishpatra.org wrote:
+> Hi,
+> We are glad to announce that we are able to boot Linux in KVM guest on
+> a FPGA (Rocket chip + H extension v0.6.1). We now have three
+> hypervisors working on a Hardware with H extension.
 >
-> Reported-by: Abaci Robot <abaci@linux.alibaba.com>
-> Signed-off-by: Yang Li <yang.lee@linux.alibaba.com>
-> ---
->  arch/riscv/mm/kasan_init.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> 1. KVM [1]
+> 2. Xvisor [2]
+> 3. Bao [3]
 >
-> diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
-> index a8a2ffd..fac437a 100644
-> --- a/arch/riscv/mm/kasan_init.c
-> +++ b/arch/riscv/mm/kasan_init.c
-> @@ -100,7 +100,7 @@ void __init kasan_init(void)
->  			break;
+> KVM bring up was done using Firesim and the detailed instructions will
+> be available very soon. Here are the software versions used for
+> bringup. Please find the attached boot log.
 >
->  		populate(kasan_mem_to_shadow(start), kasan_mem_to_shadow(end));
-> -	};
-> +	}
+> OpenSBI: v0.9
+> Linux kernel: 5.11-rc5 + KVM patches(v16) + few kernel fixes [4].
+> Kvmtool: Upstream + RISC-V KVMTOOL patches (v6) [5]
 >
->  	for (i = 0; i < PTRS_PER_PTE; i++)
->  		set_pte(&kasan_early_shadow_pte[i],
+> We would like to thank Sandro & Jose who implemented the H extension.
+> The Rocket-H design is available as an AFI image to be used within
+> Firesim or a stand alone FPGA board.
+>
+> We would also like to thank Andrew/John/Greg & others for defining such
+> a clean specification as we did not discover any significant issues
+> while doing the bring up. As there are no changes proposed to the H
+> extension in the last year, we believe the current version of the H
+> extension can be considered as a freeze candidate. Please let us know
+> if that is not the case.
 
-Thanks, this is on fixes.
+Congratulations!   Hopefully we can get this thing frozen, it's been a long 
+time.
 
 _______________________________________________
 linux-riscv mailing list
