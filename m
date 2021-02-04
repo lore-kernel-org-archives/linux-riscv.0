@@ -2,63 +2,72 @@ Return-Path: <SRS0=a4kH=HG=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-10.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A7007C433DB
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Feb 2021 09:17:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3EE93C433E0
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Feb 2021 09:59:30 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id E5B8D64F4D
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Feb 2021 09:17:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org E5B8D64F4D
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
+	by mail.kernel.org (Postfix) with ESMTPS id BD1EC64DDB
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Feb 2021 09:59:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BD1EC64DDB
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=qQmkv/2m6t0qun/ot+EW11TwU/zQse+OUyyDz1PpntU=; b=rIhbWeTt1eoJRY1/wh/xvZcl+
-	mGQH2TUTaQ7fzfj7MNyDIRO0xVmhbkDtBBxcltGLE/aw69OKr9KSI8csEaW+qCsoWC5m9Lmpho8BA
-	gC+YWvtpOfxw+yVSPzmScMYbOiIavB0aRsSZsbMFs1Sj9nhwbT8pwmB6YMYHmdgbU7x4D+7uW5UuH
-	ixbqrNLGqyM4AnjmSNHEe6YyELq8SU47wyU0S2+JR9BxZeogQIL09pH6lsVb5jWGWmaiqtgdchyEz
-	XO7v5/HfiTBXEHEHFCdTu1aL9EYkF5o1KQs8Egnyl26PMgD4XogrRtctzHuz21AexvMcJTWzEWiNp
-	JjoZ0zGvQ==;
+	 bh=hZ5BKFWIwQ50inOhKWrwoZgspTPv0MS152ar2N4vmlQ=; b=dQKeHhfluE+CNNS1Gk4WvEYsw
+	cNc6AHTjQlwPIAZ4oOU/CfT31hhQWo1rKibrIr2PZD0vCoc3l6LjCWbO/e5C+5SuHOIZTRn8fh7PD
+	RPWbKWfI9ZR1odq0w64TFOUfMdhWg6sM2Li9aIGhjBO/HfNiPswpvx/txOYNEyglni8t2AQh7RLTC
+	EHZMG9tiPCRIsBGAb6x5A+OUYl2ME+PvytOn1GNEHLt1qgWiEjIuH2MKbOghkx7LFpCrnYGzavAP6
+	JoTYul1PFkhuFqBiJn+owvi0pVdpBgHGXUNt4OozoL+NCJVJnpijWU4elKyWuYJnpRx6m3M5d1Hin
+	wl3KdmlVw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l7alp-0007lh-FT; Thu, 04 Feb 2021 09:17:49 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1l7bQ0-0003Iu-Lu; Thu, 04 Feb 2021 09:59:20 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l7all-0007lB-EB
- for linux-riscv@lists.infradead.org; Thu, 04 Feb 2021 09:17:47 +0000
-Received: from DGGEMS406-HUB.china.huawei.com (unknown [172.30.72.59])
- by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4DWXwJ00V6zMVS6;
- Thu,  4 Feb 2021 17:15:59 +0800 (CST)
-Received: from [10.174.177.244] (10.174.177.244) by
- DGGEMS406-HUB.china.huawei.com (10.3.19.206) with Microsoft SMTP Server id
- 14.3.498.0; Thu, 4 Feb 2021 17:17:35 +0800
-Subject: Re: [PATCH -next] RISCV: Add some depends for NUMA
-To: Atish Patra <atishp@atishpatra.org>
-References: <20210203142343.59781-1-wangkefeng.wang@huawei.com>
- <CAOnJCULd0=FoQjorjmz6EVB7_YphjGBwUCuY+ntOP6JiUb4P6w@mail.gmail.com>
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
-Message-ID: <80f2821a-1c08-ce16-b7a9-7d2debc7f16e@huawei.com>
-Date: Thu, 4 Feb 2021 17:17:34 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
- Thunderbird/60.7.0
+ id 1l7bPu-0003Gp-Qh; Thu, 04 Feb 2021 09:59:15 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id A884364F46;
+ Thu,  4 Feb 2021 09:59:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1612432752;
+ bh=Zelq6D4XZGDuPo70kYTJJgaDbDwK093nuyMe02isfTI=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=fZFn4SNNNsHZIThixqTd5WKR7HGKRGMdU+ddKY4VdNoOwSQ9sODqK3VgxpKL2A56s
+ 4I3o8KBCJHtLjeKmCDkWXpGpYpGakfGQfRhSVgtlpOrfdQ5QAi0R3o4gjlXj7MIvFC
+ Ql/7xPdKgGPYgPgsAFnGZRVBP1GrMxNjIdlhLDg3vtnKQVC0uVe1NaVVXvOSxEagFl
+ 5y6xdti/3JckXFJOMvgjQwfxD24nH4jVxSXiirTWWQrL2Wdx2stjQ2AChARA3yWjIv
+ HiCcrNO6+HU6R5Uv0EPl7S1u0uczvREvOdVTv98bo0LM7TPjMzx3LQFogyEOGejvpC
+ DeRySER1corJA==
+Date: Thu, 4 Feb 2021 11:58:55 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Michal Hocko <mhocko@suse.com>
+Subject: Re: [PATCH v16 07/11] secretmem: use PMD-size pages to amortize
+ direct map fragmentation
+Message-ID: <20210204095855.GQ242749@kernel.org>
+References: <20210128092259.GB242749@kernel.org>
+ <YBK1kqL7JA7NePBQ@dhcp22.suse.cz>
+ <73738cda43236b5ac2714e228af362b67a712f5d.camel@linux.ibm.com>
+ <YBPF8ETGBHUzxaZR@dhcp22.suse.cz>
+ <6de6b9f9c2d28eecc494e7db6ffbedc262317e11.camel@linux.ibm.com>
+ <YBkcyQsky2scjEcP@dhcp22.suse.cz>
+ <20210202124857.GN242749@kernel.org>
+ <YBlTMqjB06aqyGbT@dhcp22.suse.cz>
+ <20210202191040.GP242749@kernel.org>
+ <YBpo9mC5feVQ0mpG@dhcp22.suse.cz>
 MIME-Version: 1.0
-In-Reply-To: <CAOnJCULd0=FoQjorjmz6EVB7_YphjGBwUCuY+ntOP6JiUb4P6w@mail.gmail.com>
-Content-Language: en-US
-X-Originating-IP: [10.174.177.244]
-X-CFilter-Loop: Reflected
+Content-Disposition: inline
+In-Reply-To: <YBpo9mC5feVQ0mpG@dhcp22.suse.cz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210204_041746_236416_C091C5E1 
-X-CRM114-Status: GOOD (  12.58  )
+X-CRM114-CacheID: sfid-20210204_045915_027119_46414CE4 
+X-CRM114-Status: GOOD (  17.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -70,32 +79,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Palmer Dabbelt <palmerdabbelt@google.com>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Atish Patra <atish.patra@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
+ Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
+ Will Deacon <will@kernel.org>, x86@kernel.org,
+ Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>, Arnd Bergmann <arnd@arndb.de>,
+ James Bottomley <jejb@linux.ibm.com>, Hagen Paul Pfeifer <hagen@jauu.net>,
+ Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-fsdevel@vger.kernel.org, Shakeel Butt <shakeelb@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ck9uIDIwMjEvMi80IDM6NTksIEF0aXNoIFBhdHJhIHdyb3RlOgo+IE9uIFdlZCwgRmViIDMsIDIw
-MjEgYXQgNjoyMCBBTSBLZWZlbmcgV2FuZyA8d2FuZ2tlZmVuZy53YW5nQGh1YXdlaS5jb20+IHdy
-b3RlOgo+PiBUaGUgbnVtYSBmZWF0dXJlIGlzIHVzZWxlc3MgZm9yIHJpc2N2MzIgcGxhdGZvcm0o
-TUFYUEhZU01FTV8xR0IgaWYgMzJiaXQpLAo+PiBhbmQgaXQgc2hvdWxkIGRlcGVuZHMgb24gU01Q
-IGZlYXR1cmUsIHRoaXMgYWxzbyBmaXggdGhlIGJ1aWxkIGVycm9yLAo+Pgo+PiAgICByaXNjdjY0
-LWJ1aWxkcm9vdC1saW51eC1nbnUtbGQ6IG1tL3BhZ2VfYWxsb2MubzogaW4gZnVuY3Rpb24gYC5M
-MCAnOgo+PiAgICBwYWdlX2FsbG9jLmM6KC50ZXh0KzB4NDgwOCk6IHVuZGVmaW5lZCByZWZlcmVu
-Y2UgdG8gYG5vZGVfcmVjbGFpbV9kaXN0YW5jZScKPj4KPiBUaGFua3MgZm9yIHRoZSBmaXguIFRo
-ZSBjb21taXQgdGV4dCBpcyBhIGJpdCBhbWJpZ3VvdXMuIFRoZQo+IGNvbXBpbGF0aW9uIGlzc3Vl
-IGVycm9yIGlzIGR1ZSB0byBTTVAuCj4gUlYzMiBkZXBlbmRlbmN5IGlzIGp1c3QgYW5vdGhlciBm
-aXggIGFzIE5VTUEgaXMgbm90IHZlcnkgdXNlZnVsIGZvciBSVjMyLgoKWWVzLCB0aGUgdHdvIGRl
-cGVuZHMgZml4IGRpZmZlcmVudCBpc3N1Ze+8jHRoZSBsYWNrIG9mIFNNUCBsZWFkcyB0byB0aGUg
-CmNvbXBpbGF0aW9uIGlzc3VlLMKgIGFub3RoZXIKCmRlcGVuZCBpcyB0byByZW1vdmUgc3VwcG9y
-dCBvbiBSVjMyLgoKVGhhbmtzIGZvciB5b3VyIHJldmlldywgaWYgbmVjZXNzYXJ5LCBJIGNvdWxk
-IHJlc2VuZCB3aXRoIGNoYW5nZWxvZyAKdXBkYXRlZC4KCj4gUmV2aWV3ZWQtYnk6IEF0aXNoIFBh
-dHJhIDxhdGlzaC5wYXRyYUB3ZGMuY29tPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
-c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
-aW5mby9saW51eC1yaXNjdgo=
+On Wed, Feb 03, 2021 at 10:12:22AM +0100, Michal Hocko wrote:
+> On Tue 02-02-21 21:10:40, Mike Rapoport wrote:
+> >   
+> > Let me reiterate to make sure I don't misread your suggestion.
+> > 
+> > If we make secretmem an opt-in feature with, e.g. kernel parameter, the
+> > pooling of large pages is unnecessary. In this case there is no limited
+> > resource we need to protect because secretmem will allocate page by page.
+> 
+> Yes.
+> 
+> > Since there is no limited resource, we don't need special permissions
+> > to access secretmem so we can move forward with a system call that creates
+> > a mmapable file descriptor and save the hassle of a chardev.
+> 
+> Yes, I assume you implicitly assume mlock rlimit here.
+
+Yes.
+
+> Also memcg accounting should be in place. 
+
+Right, without pools memcg accounting is no different from other
+unevictable files.
+
+> Wrt to the specific syscall, please document why existing interfaces are
+> not a good fit as well. It would be also great to describe interaction
+> with mlock itself (I assume the two to be incompatible - mlock will fail
+> on and mlockall will ignore it).
+
+The interaction with mlock() belongs more to the man page, but I don't mind
+adding this to changelog as well.
+
+-- 
+Sincerely yours,
+Mike.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
