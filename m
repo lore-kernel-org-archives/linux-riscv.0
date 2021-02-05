@@ -2,21 +2,20 @@ Return-Path: <SRS0=lacq=HH=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-19.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EC3C3C433DB
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Feb 2021 03:44:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C0501C433E6
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Feb 2021 03:44:21 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 8798160241
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Feb 2021 03:44:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 8798160241
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	by mail.kernel.org (Postfix) with ESMTPS id 426C164E27
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Feb 2021 03:44:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 426C164E27
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
@@ -24,64 +23,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=KzvkTE37aEAUOjBpmqgSIJP1hNWEAw4R2EFgGSLkwDQ=; b=oZiYCHDQLSKWy7FEdMh85mRVr
-	vedo5UbGI12NvROefDu1D+W1+3PXtLtg0vXPVlH12NTE7ximNUDVd+v1uXRjgywCtkVv+TcIdYlQ5
-	j7lCTamgR6sW9Mo5b9ojsUgvLURPLXmb2OoQxMQpVhDU6zXQbgMRwfg/9yW1sDS3vElj8VYC18LOc
-	/+m5u/vcCNN1ra2mw5T8OP/Kcc2YV2FRYuni4l2trlktefM0lUuN6Dn8dVB0Bjdkg2gzCPwAxurVb
-	SLgUHHJcDd7q3hWjyZAz5ZGXaClIcLoTfoUO1Acb2jIwt3JWzsFu7e4JHYnWvhN1JybiJ7H3UM7hG
-	CdrmS/5bg==;
+	 bh=Vddywo+NrnALEJ0ziP3DMv9v0O0RqrOcE4E4Z00dHQ0=; b=1HJsqZZhfBt1tw/yL9zvNlRdv
+	QATjnoO0dSuVgWAx9rlzqm5wY32gG1LxeL+YBHM4GiLjqHaf+MOd1O7dFp8jwYYXdCl9oRMPvCyd/
+	6ncH9YwozRU5DJWmclMXxTGkd8WAZJpQPofQ40XT/tDwmXL5SGLPPnL7ktTUnlJ14BQxAyuT6OzI5
+	IxjhixOFOyAbBwRv1du5Gw6CECGqMmOjF5A+Ey0G/JK0WbxafND8OoAqcyAh88EQvNIcSMg/m+RdD
+	IaItDXIfxBmlJx+C9AtFC06OeTarRCbIiJw1QOz0wVZbMsAoC0L+tKOy6YrrhxjJ39NT2nnVz7pqf
+	2QMOy7uMQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l7s2U-0004sT-2I; Fri, 05 Feb 2021 03:44:10 +0000
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+	id 1l7s2U-0004se-Ft; Fri, 05 Feb 2021 03:44:10 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l7s2R-0004ro-1E
+ id 1l7s2R-0004rp-L0
  for linux-riscv@lists.infradead.org; Fri, 05 Feb 2021 03:44:08 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id n10so3580283pgl.10
- for <linux-riscv@lists.infradead.org>; Thu, 04 Feb 2021 19:44:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+Received: by mail-pj1-x102e.google.com with SMTP id z9so3038686pjl.5
+ for <linux-riscv@lists.infradead.org>; Thu, 04 Feb 2021 19:44:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=Ce3wRZ53VFzEcGR7mjHHzkiUGeDKoJv+AI04HF8Gsuw=;
- b=noyLFT6Sbi1XnfEYS6skEH1wWyd+1jr/m8kJnWiXd3weOTWVw+L99rBlIsaydcNFpX
- ZXCDy7CisXQ5x3JgOYNnv4SsWqEdlpnCDKOy8I+lC8pgD/m4o7lI6vlIk+6lY3XEMUxX
- r/1bFNGFEF5BRlFCNlfqPQGz/lLZu0sTccobc7obEZ7vTErCQ/GSFhKiPpDmrSOYze6H
- 7U3DXuKmeRp8gfZfiMBYXIUjcZr+RpaJDBjA3vLxHm6yTeuqBp96wlqiMzLv+sCs0vIJ
- rf37NWvVpvtcLmpHS1vJaXVQX1u6Cc74Hn+1Kqoj5pIdTseyJ1yeHxTh/zuWA01TR1sp
- l/ng==
+ bh=lIjxIKpIr+3Dnu86hC+KNuFISNoEm1fG3l4K0V/yLHo=;
+ b=SA7xmvPluOPT2TLwX9ixE+ww9PJrMgUpdHpBn9Zod/K7mKwcNWOAZsg7tlTbfJa4bX
+ HYc6u1MmVUMc2YM+RX4dWYCTc5v9RKt+VeXz83BqczmI4VnN1VSG5BDf/9Oel0kT33Qs
+ U1rirqtHuu9cvqae6mS+wmxBVX1PF8Wf25KNoYyLAo6+ASKt8oEqndwzTEkcJNfdEAak
+ 5MNu8R29Rox7Z5mQfRJs7pVPZhj3CMu/HaE7ep5RYWDipm54zbekqkcT9FDgU5o3IfI8
+ PwsH/5WmxCwhPN4hdEZDxLNpmTTwdtctcINS/rpVAnVp3V1tuxtsbP7wHll+jszR2nkx
+ hUwg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=Ce3wRZ53VFzEcGR7mjHHzkiUGeDKoJv+AI04HF8Gsuw=;
- b=bmWpH1OxudvkRxlqScy5P+L20wbvsIg1LV6Ps5pXhphLP0tlVN+rbb6y3fhRlpan20
- sUl5U9OEaqHA+0Eye/AWrwgkSjL+dPTO2LJA2H31bPHbIS1nWNmA0E8CJ4ggDwOxjr0F
- 1fJjKf45IZYZW0icMjNU7SeCgOg5RHv8xT4FXdeNeWjoOAacGI0rTBW8Jtmt4AKK3a4s
- 0iSu7tbIRvBXaXStC/9fmDarbHnTqoqQurE0LIVSPwNdrRn7TwqxDm7qCugefHKISAjo
- SH9GTxoequRnanZSkAj31aYKSR4uIE8lj+TjN9Nenr/TugrVafOFi8VnuafBH3cBTWOJ
- +BYA==
-X-Gm-Message-State: AOAM530gwva0oPqtWyJFT24SbAbM6F0PGvy1ZH0WMu3ggMpK1CJdmKQK
- cppoQPtlUyOoB+itfhSw7iy4j1mcNLOsS7oa
-X-Google-Smtp-Source: ABdhPJxgX+ZOFbiNZDQXD6kVNuz1ZqeFN9Mqbxh8rQqNjHPK5uQHcA9xxJlaOvNfYfY0vs7zu/7LmQ==
-X-Received: by 2002:aa7:80c6:0:b029:1b6:92ae:a199 with SMTP id
- a6-20020aa780c60000b02901b692aea199mr2507391pfn.71.1612496642231; 
- Thu, 04 Feb 2021 19:44:02 -0800 (PST)
+ bh=lIjxIKpIr+3Dnu86hC+KNuFISNoEm1fG3l4K0V/yLHo=;
+ b=EU7gNBfSBdFk+ajwwCsLDbUXvEqkUJsXY5afETkrISOSIkv8gmekUxiKGWhXi6hXo1
+ i6WJODjdGbpLpNwkHvujZaiI24KPZNWoEU6zOR3fTjGjkUzgsvQBeAbh4d/+1Jtn13+x
+ 8fpwIWZO+toTim2bytSr7vSqYiOjF5pCWrKGKDZFB3LTELGiQzZZq5Yj5TTtqcgNkojQ
+ xHhZT6SLwcnOS8CVIyf6n7hO2P1oML9CNWwm1uZUDNjn1eIBQvijFfyiLb68vYaNakzU
+ dCVYV5GJIo5kQsIdrpKGw0OKodwKfVwf9ArxSaI1wkRxLN8DTSd5MRL4xw8WzbWReJ9b
+ QNFg==
+X-Gm-Message-State: AOAM533fUTBvu4dC1R8SyjyYwYEeZ6VLpGqFJPmmjrIieLCes0Z5Wr5L
+ /ABAU/ViQADNLY0SyotX5SSo8RHUbA2zm+nW
+X-Google-Smtp-Source: ABdhPJzcXeTkJHjjOVO66HBjAKPfvOtI1GWc/GK13032qLsY1KcQW5zRNtrK8CcHWZwRFe4fwDbslQ==
+X-Received: by 2002:a17:902:e906:b029:e1:6020:42d4 with SMTP id
+ k6-20020a170902e906b02900e1602042d4mr2302130pld.78.1612496644797; 
+ Thu, 04 Feb 2021 19:44:04 -0800 (PST)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id t129sm8173372pfc.16.2021.02.04.19.44.01
+ by smtp.gmail.com with ESMTPSA id j26sm6903036pfa.35.2021.02.04.19.44.03
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 04 Feb 2021 19:44:01 -0800 (PST)
-Date: Thu, 04 Feb 2021 19:44:01 -0800 (PST)
-X-Google-Original-Date: Thu, 04 Feb 2021 19:42:53 PST (-0800)
-Subject: Re: [PATCH v5] RISC-V: Implement ASID allocator
-In-Reply-To: <20210203094907.196608-1-anup.patel@wdc.com>
-From: Palmer Dabbelt <palmerdabbelt@google.com>
-To: Anup Patel <Anup.Patel@wdc.com>
-Message-ID: <mhng-eb262eb6-f406-4013-8b07-0736e1715753@palmerdabbelt-glaptop>
+ Thu, 04 Feb 2021 19:44:03 -0800 (PST)
+Date: Thu, 04 Feb 2021 19:44:03 -0800 (PST)
+X-Google-Original-Date: Thu, 04 Feb 2021 19:43:44 PST (-0800)
+Subject: Re: [PATCH v15 00/16] RISC-V Kendryte K210 support improvements
+In-Reply-To: <20210203125913.390949-1-damien.lemoal@wdc.com>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Damien Le Moal <Damien.LeMoal@wdc.com>
+Message-ID: <mhng-d37e3acd-9523-4a5b-8c07-a89dcd0962e5@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210204_224407_131961_57AAC360 
-X-CRM114-Status: GOOD (  50.55  )
+X-CRM114-CacheID: sfid-20210204_224407_725899_013E9FE3 
+X-CRM114-Status: GOOD (  37.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -93,443 +93,204 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, anup@brainfault.org, Anup Patel <Anup.Patel@wdc.com>,
- linux-kernel@vger.kernel.org, Atish Patra <Atish.Patra@wdc.com>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
+Cc: Atish Patra <Atish.Patra@wdc.com>, linux-riscv@lists.infradead.org,
+ Anup Patel <Anup.Patel@wdc.com>, seanga2@gmail.com
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 03 Feb 2021 01:49:07 PST (-0800), Anup Patel wrote:
-> Currently, we do local TLB flush on every MM switch. This is very harsh on
-> performance because we are forcing page table walks after every MM switch.
+On Wed, 03 Feb 2021 04:58:57 PST (-0800), Damien Le Moal wrote:
+> This series of patches improves support for boards based on the Canaan
+> Kendryte K210 RISC-V dual core SoC. Minimal support for this SoC is
+> already included in the kernel. These patches complete it, enabling
+> support for most peripherals present on the SoC as well as introducing
+> device trees for the various K210 boards available on the market today
+> from SiPeed and Kendryte.
 >
-> This patch implements ASID allocator for assigning an ASID to a MM context.
-> The number of ASIDs are limited in HW so we create a logical entity named
-> CONTEXTID for assigning to MM context. The lower bits of CONTEXTID are ASID
-> and upper bits are VERSION number. The number of usable ASID bits supported
-> by HW are detected at boot-time by writing 1s to ASID bits in SATP CSR.
+> The patches here are the remaining patches not yet applied.
 >
-> We allocate new CONTEXTID on first MM switch for a MM context where the
-> ASID is allocated from an ASID bitmap and VERSION is provide by an atomic
-> counter. At time of allocating new CONTEXTID, if we run out of available
-> ASIDs then:
-> 1. We flush the ASID bitmap
-> 2. Increment current VERSION atomic counter
-> 3. Re-allocate ASID from ASID bitmap
-> 4. Flush TLB on all CPUs
-> 5. Try CONTEXTID re-assignment on all CPUs
+> Patch 1 adds the SoC clock driver.
 >
-> Please note that we don't use ASID #0 because it is used at boot-time by
-> all CPUs for initial MM context. Also, newly created context is always
-> assigned CONTEXTID #0 (i.e. VERSION #0 and ASID #0) which is an invalid
-> context in our implementation.
->
-> Using above approach, we have virtually infinite CONTEXTIDs on-top-of
-> limited number of HW ASIDs. This approach is inspired from ASID allocator
-> used for Linux ARM/ARM64 but we have adapted it for RISC-V. Overall, this
-> ASID allocator helps us reduce rate of local TLB flushes on every CPU
-> thereby increasing performance.
->
-> This patch is tested on QEMU virt machine, Spike and SiFive Unleashed
-> board. On QEMU virt machine, we see some (3-5% approx) performance
-> improvement with SW emulated TLBs provided by QEMU. Unfortunately,
-> the ASID bits of the SATP CSR are not implemented on Spike and SiFive
-> Unleashed board so we don't see any change in performance. On real HW
-> having all ASID bits implemented, the performance gains will be much
-> more due improved sharing of TLB among different processes.
->
-> Signed-off-by: Anup Patel <anup.patel@wdc.com>
-> Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
-> ---
-> Changes since v4:
-> - Rebased on Linux-5.11-rc6
-> - Used lockdep_assert_held() in __new_context() and __flush_context()
->
-> Changes since v3:
-> - Rebased on Linux-5.11-rc4. The previous v3 patch (almost 2 years back)
->   was based on Linux-5.1-rc2
-> - Updated implementation to consider NoMMU kernel
-> - Converted use_asid_allocator boolean flag into static key
-> - Improved boot-time print in asids_init() to show number of ASID bits
-> - Access SATP CSR by number instead of old CSR name "sptbr"
->
-> Changes since v2:
-> - Move to lazy TLB flushing because we get slow path warnings if we
->   use flush_tlb_all()
-> - Don't set ASID bits to all 1s in head.s. Instead just do it on
->   boot CPU calling asids_init() for determining number of HW ASID bits
-> - Make CONTEXT version comparison more readable in set_mm_asid()
-> - Fix typo in __flush_context()
->
-> Changes since v1:
-> - We adapt good aspects from Gary Guo's ASID allocator implementation
->   and provide due credit to him by adding his SoB.
-> - Track ASIDs active during context flush and mark them as reserved
-> - Set ASID bits to all 1s to simplify number of ASID bit detection
-> - Use atomic_long_t instead of atomic64_t for being 32bit friendly
-> - Use unsigned long instead of u64 for being 32bit friendly
-> - Use flush_tlb_all() instead of lazy local_tlb_flush_all() at time
->   of context flush
->
-> This patch is based on Linux-5.11-rc6 and can be found in the
-> riscv_asid_allocator_v5 branch of https://github.com/avpatel/linux.git
-> ---
->  arch/riscv/include/asm/csr.h         |   6 +
->  arch/riscv/include/asm/mmu.h         |   2 +
->  arch/riscv/include/asm/mmu_context.h |  10 +
->  arch/riscv/mm/context.c              | 265 ++++++++++++++++++++++++++-
->  4 files changed, 279 insertions(+), 4 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-> index cec462e198ce..caadfc1d7487 100644
-> --- a/arch/riscv/include/asm/csr.h
-> +++ b/arch/riscv/include/asm/csr.h
-> @@ -41,10 +41,16 @@
->  #define SATP_PPN	_AC(0x003FFFFF, UL)
->  #define SATP_MODE_32	_AC(0x80000000, UL)
->  #define SATP_MODE	SATP_MODE_32
-> +#define SATP_ASID_BITS	9
-> +#define SATP_ASID_SHIFT	22
-> +#define SATP_ASID_MASK	_AC(0x1FF, UL)
->  #else
->  #define SATP_PPN	_AC(0x00000FFFFFFFFFFF, UL)
->  #define SATP_MODE_39	_AC(0x8000000000000000, UL)
->  #define SATP_MODE	SATP_MODE_39
-> +#define SATP_ASID_BITS	16
-> +#define SATP_ASID_SHIFT	44
-> +#define SATP_ASID_MASK	_AC(0xFFFF, UL)
->  #endif
->
->  /* Exception cause high bit - is an interrupt if set */
-> diff --git a/arch/riscv/include/asm/mmu.h b/arch/riscv/include/asm/mmu.h
-> index dabcf2cfb3dc..0099dc116168 100644
-> --- a/arch/riscv/include/asm/mmu.h
-> +++ b/arch/riscv/include/asm/mmu.h
-> @@ -12,6 +12,8 @@
->  typedef struct {
->  #ifndef CONFIG_MMU
->  	unsigned long	end_brk;
-> +#else
-> +	atomic_long_t id;
->  #endif
->  	void *vdso;
->  #ifdef CONFIG_SMP
-> diff --git a/arch/riscv/include/asm/mmu_context.h b/arch/riscv/include/asm/mmu_context.h
-> index 250defa06f3a..b0659413a080 100644
-> --- a/arch/riscv/include/asm/mmu_context.h
-> +++ b/arch/riscv/include/asm/mmu_context.h
-> @@ -23,6 +23,16 @@ static inline void activate_mm(struct mm_struct *prev,
->  	switch_mm(prev, next, NULL);
->  }
->
-> +#define init_new_context init_new_context
-> +static inline int init_new_context(struct task_struct *tsk,
-> +			struct mm_struct *mm)
-> +{
-> +#ifdef CONFIG_MMU
-> +	atomic_long_set(&mm->context.id, 0);
-> +#endif
-> +	return 0;
-> +}
-> +
->  #include <asm-generic/mmu_context.h>
->
->  #endif /* _ASM_RISCV_MMU_CONTEXT_H */
-> diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
-> index 613ec81a8979..68aa312fc352 100644
-> --- a/arch/riscv/mm/context.c
-> +++ b/arch/riscv/mm/context.c
-> @@ -2,13 +2,273 @@
->  /*
->   * Copyright (C) 2012 Regents of the University of California
->   * Copyright (C) 2017 SiFive
-> + * Copyright (C) 2021 Western Digital Corporation or its affiliates.
->   */
->
-> +#include <linux/bitops.h>
-> +#include <linux/cpumask.h>
->  #include <linux/mm.h>
-> +#include <linux/percpu.h>
-> +#include <linux/slab.h>
-> +#include <linux/spinlock.h>
-> +#include <linux/static_key.h>
->  #include <asm/tlbflush.h>
->  #include <asm/cacheflush.h>
->  #include <asm/mmu_context.h>
->
-> +#ifdef CONFIG_MMU
-> +
-> +static DEFINE_STATIC_KEY_FALSE(use_asid_allocator);
-> +
-> +static unsigned long asid_bits;
-> +static unsigned long num_asids;
-> +static unsigned long asid_mask;
-> +
-> +static atomic_long_t current_version;
-> +
-> +static DEFINE_RAW_SPINLOCK(context_lock);
-> +static cpumask_t context_tlb_flush_pending;
-> +static unsigned long *context_asid_map;
-> +
-> +static DEFINE_PER_CPU(atomic_long_t, active_context);
-> +static DEFINE_PER_CPU(unsigned long, reserved_context);
-> +
-> +static bool check_update_reserved_context(unsigned long cntx,
-> +					  unsigned long newcntx)
-> +{
-> +	int cpu;
-> +	bool hit = false;
-> +
-> +	/*
-> +	 * Iterate over the set of reserved CONTEXT looking for a match.
-> +	 * If we find one, then we can update our mm to use new CONTEXT
-> +	 * (i.e. the same CONTEXT in the current_version) but we can't
-> +	 * exit the loop early, since we need to ensure that all copies
-> +	 * of the old CONTEXT are updated to reflect the mm. Failure to do
-> +	 * so could result in us missing the reserved CONTEXT in a future
-> +	 * version.
-> +	 */
-> +	for_each_possible_cpu(cpu) {
-> +		if (per_cpu(reserved_context, cpu) == cntx) {
-> +			hit = true;
-> +			per_cpu(reserved_context, cpu) = newcntx;
-> +		}
-> +	}
-> +
-> +	return hit;
-> +}
-> +
-> +static void __flush_context(void)
-> +{
-> +	int i;
-> +	unsigned long cntx;
-> +
-> +	/* Must be called with context_lock held */
-> +	lockdep_assert_held(&context_lock);
-> +
-> +	/* Update the list of reserved ASIDs and the ASID bitmap. */
-> +	bitmap_clear(context_asid_map, 0, num_asids);
-> +
-> +	/* Mark already active ASIDs as used */
-> +	for_each_possible_cpu(i) {
-> +		cntx = atomic_long_xchg_relaxed(&per_cpu(active_context, i), 0);
-> +		/*
-> +		 * If this CPU has already been through a rollover, but
-> +		 * hasn't run another task in the meantime, we must preserve
-> +		 * its reserved CONTEXT, as this is the only trace we have of
-> +		 * the process it is still running.
-> +		 */
-> +		if (cntx == 0)
-> +			cntx = per_cpu(reserved_context, i);
-> +
-> +		__set_bit(cntx & asid_mask, context_asid_map);
-> +		per_cpu(reserved_context, i) = cntx;
-> +	}
-> +
-> +	/* Mark ASID #0 as used because it is used at boot-time */
-> +	__set_bit(0, context_asid_map);
-> +
-> +	/* Queue a TLB invalidation for each CPU on next context-switch */
-> +	cpumask_setall(&context_tlb_flush_pending);
-> +}
-> +
-> +static unsigned long __new_context(struct mm_struct *mm)
-> +{
-> +	static u32 cur_idx = 1;
-> +	unsigned long cntx = atomic_long_read(&mm->context.id);
-> +	unsigned long asid, ver = atomic_long_read(&current_version);
-> +
-> +	/* Must be called with context_lock held */
-> +	lockdep_assert_held(&context_lock);
-> +
-> +	if (cntx != 0) {
-> +		unsigned long newcntx = ver | (cntx & asid_mask);
-> +
-> +		/*
-> +		 * If our current CONTEXT was active during a rollover, we
-> +		 * can continue to use it and this was just a false alarm.
-> +		 */
-> +		if (check_update_reserved_context(cntx, newcntx))
-> +			return newcntx;
-> +
-> +		/*
-> +		 * We had a valid CONTEXT in a previous life, so try to
-> +		 * re-use it if possible.
-> +		 */
-> +		if (!__test_and_set_bit(cntx & asid_mask, context_asid_map))
-> +			return newcntx;
-> +	}
-> +
-> +	/*
-> +	 * Allocate a free ASID. If we can't find one then increment
-> +	 * current_version and flush all ASIDs.
-> +	 */
-> +	asid = find_next_zero_bit(context_asid_map, num_asids, cur_idx);
-> +	if (asid != num_asids)
-> +		goto set_asid;
-> +
-> +	/* We're out of ASIDs, so increment current_version */
-> +	ver = atomic_long_add_return_relaxed(num_asids, &current_version);
-> +
-> +	/* Flush everything  */
-> +	__flush_context();
-> +
-> +	/* We have more ASIDs than CPUs, so this will always succeed */
-> +	asid = find_next_zero_bit(context_asid_map, num_asids, 1);
-> +
-> +set_asid:
-> +	__set_bit(asid, context_asid_map);
-> +	cur_idx = asid;
-> +	return asid | ver;
-> +}
-> +
-> +static void set_mm_asid(struct mm_struct *mm, unsigned int cpu)
-> +{
-> +	unsigned long flags;
-> +	bool need_flush_tlb = false;
-> +	unsigned long cntx, old_active_cntx;
-> +
-> +	cntx = atomic_long_read(&mm->context.id);
-> +
-> +	/*
-> +	 * If our active_context is non-zero and the context matches the
-> +	 * current_version, then we update the active_context entry with a
-> +	 * relaxed cmpxchg.
-> +	 *
-> +	 * Following is how we handle racing with a concurrent rollover:
-> +	 *
-> +	 * - We get a zero back from the cmpxchg and end up waiting on the
-> +	 *   lock. Taking the lock synchronises with the rollover and so
-> +	 *   we are forced to see the updated verion.
-> +	 *
-> +	 * - We get a valid context back from the cmpxchg then we continue
-> +	 *   using old ASID because __flush_context() would have marked ASID
-> +	 *   of active_context as used and next context switch we will
-> +	 *   allocate new context.
-> +	 */
-> +	old_active_cntx = atomic_long_read(&per_cpu(active_context, cpu));
-> +	if (old_active_cntx &&
-> +	    ((cntx & ~asid_mask) == atomic_long_read(&current_version)) &&
-> +	    atomic_long_cmpxchg_relaxed(&per_cpu(active_context, cpu),
-> +					old_active_cntx, cntx))
-> +		goto switch_mm_fast;
-> +
-> +	raw_spin_lock_irqsave(&context_lock, flags);
-> +
-> +	/* Check that our ASID belongs to the current_version. */
-> +	cntx = atomic_long_read(&mm->context.id);
-> +	if ((cntx & ~asid_mask) != atomic_long_read(&current_version)) {
-> +		cntx = __new_context(mm);
-> +		atomic_long_set(&mm->context.id, cntx);
-> +	}
-> +
-> +	if (cpumask_test_and_clear_cpu(cpu, &context_tlb_flush_pending))
-> +		need_flush_tlb = true;
-> +
-> +	atomic_long_set(&per_cpu(active_context, cpu), cntx);
-> +
-> +	raw_spin_unlock_irqrestore(&context_lock, flags);
-> +
-> +switch_mm_fast:
-> +	csr_write(CSR_SATP, virt_to_pfn(mm->pgd) |
-> +		  ((cntx & asid_mask) << SATP_ASID_SHIFT) |
-> +		  SATP_MODE);
-> +
-> +	if (need_flush_tlb)
-> +		local_flush_tlb_all();
-> +}
-> +
-> +static void set_mm_noasid(struct mm_struct *mm)
-> +{
-> +	/* Switch the page table and blindly nuke entire local TLB */
-> +	csr_write(CSR_SATP, virt_to_pfn(mm->pgd) | SATP_MODE);
-> +	local_flush_tlb_all();
-> +}
-> +
-> +static inline void set_mm(struct mm_struct *mm, unsigned int cpu)
-> +{
-> +	if (static_branch_unlikely(&use_asid_allocator))
-> +		set_mm_asid(mm, cpu);
-> +	else
-> +		set_mm_noasid(mm);
-> +}
-> +
-> +static int asids_init(void)
-> +{
-> +	unsigned long old;
-> +
-> +	/* Figure-out number of ASID bits in HW */
-> +	old = csr_read(CSR_SATP);
-> +	asid_bits = old | (SATP_ASID_MASK << SATP_ASID_SHIFT);
-> +	csr_write(CSR_SATP, asid_bits);
-> +	asid_bits = (csr_read(CSR_SATP) >> SATP_ASID_SHIFT)  & SATP_ASID_MASK;
-> +	asid_bits = fls_long(asid_bits);
-> +	csr_write(CSR_SATP, old);
-> +
-> +	/*
-> +	 * In the process of determining number of ASID bits (above)
-> +	 * we polluted the TLB of current HART so let's do TLB flushed
-> +	 * to remove unwanted TLB enteries.
-> +	 */
-> +	local_flush_tlb_all();
-> +
-> +	/* Pre-compute ASID details */
-> +	num_asids = 1 << asid_bits;
-> +	asid_mask = num_asids - 1;
-> +
-> +	/*
-> +	 * Use ASID allocator only if number of HW ASIDs are
-> +	 * at-least twice more than CPUs
-> +	 */
-> +	if (num_asids > (2 * num_possible_cpus())) {
-> +		atomic_long_set(&current_version, num_asids);
-> +
-> +		context_asid_map = kcalloc(BITS_TO_LONGS(num_asids),
-> +				   sizeof(*context_asid_map), GFP_KERNEL);
-> +		if (!context_asid_map)
-> +			panic("Failed to allocate bitmap for %lu ASIDs\n",
-> +			      num_asids);
-> +
-> +		__set_bit(0, context_asid_map);
-> +
-> +		static_branch_enable(&use_asid_allocator);
-> +
-> +		pr_info("ASID allocator using %lu bits (%lu entries)\n",
-> +			asid_bits, num_asids);
-> +	} else {
-> +		pr_info("ASID allocator disabled\n");
-> +	}
-> +
-> +	return 0;
-> +}
-> +early_initcall(asids_init);
-> +#else
-> +static inline void set_mm(struct mm_struct *mm, unsigned int cpu)
-> +{
-> +	/* Nothing to do here when there is no MMU */
-> +}
-> +#endif
-> +
->  /*
->   * When necessary, performs a deferred icache flush for the given MM context,
->   * on the local CPU.  RISC-V has no direct mechanism for instruction cache
-> @@ -58,10 +318,7 @@ void switch_mm(struct mm_struct *prev, struct mm_struct *next,
->  	cpumask_clear_cpu(cpu, mm_cpumask(prev));
->  	cpumask_set_cpu(cpu, mm_cpumask(next));
->
-> -#ifdef CONFIG_MMU
-> -	csr_write(CSR_SATP, virt_to_pfn(next->pgd) | SATP_MODE);
-> -	local_flush_tlb_all();
-> -#endif
-> +	set_mm(next, cpu);
->
->  	flush_icache_deferred(next);
->  }
+> Patches 2 to 8 add and update device tree bindings documentation to
+> document the K210 device tree files. In particular, patch 2 and 3
+> define compatible strings used for the SoC CPU and for the K210 based
+> boards supported.
 
-Thanks, this is on for-next.
+Looks like Rob has some comments on a handful of these, so I'll be expecting a
+v16.
+
+>
+> Patches 9 to 14 update the existing K210 base device tree and add new
+> device tree files for several K210 based boards: MAIX Bit, MAIXDUINO,
+> MAIX Dock and MAIX Go boards from SiPeed and the KD233 development
+> board from Canaan.
+>
+> Finally the last two patches updates the k210 nommu defconfig to include
+> the newly implemented drivers and provide a new default configuration
+> file enabling SD card support.
+>
+> A lot of the work on the device tree and on the K210 drivers come from
+> the work by Sean Anderson for the U-Boot project support of the K210
+> SoC. Sean also helped with debugging many aspects of the K210 support.
+>
+> A tree with all patches applied is available here:
+> https://github.com/damien-lemoal/linux, k210-sysctl-v28 branch.
+> A demonstration of this series used on a SiPeed MAIX Dock
+> board together with an I2C servo controller can be seen here:
+> https://damien-lemoal.github.io/linux-robot-arm/#example
+>
+> This tree was used to build userspace busybox environment image that is
+> then copied onto an SD card formatted with ext2:
+> https://github.com/damien-lemoal/buildroot
+> Of note is that running this userspace environment requires a revert of
+> commit 2217b982624680d19a80ebb4600d05c8586c4f96 introduced during the
+> 5.9 development cycle. Without this revert, execution of the init
+> process fails. A problem with the riscv port of elf2flt is suspected but
+> not confirmed. I am now starting to investigate this problem.
+>
+> Reviews and comments are as always much welcome.
+>
+> Changes from v14:
+> * Fixed typo in patch 4
+> * Added reviewed-by tags
+>
+> Changes from v13:
+> * Rebased on rc6
+> * Removed FPIOA driver patch as it is already queued.
+>
+> Changes from v12:
+> * Addressed Rab's comments: keep SoC specific compatible string for DT
+>   nodes reusing existing IP blocks (e.g. PLIC and CLINT).
+> * Addressed dt-bindings schema file check warnings.
+>
+> Changes from v11:
+> * Addressed Stephen's comment on the clock driver
+> * Fixed and added device tree bindings yaml files and fixed the device
+>   tree files to fix all warnings generated by make dtbs_check
+> * Rebased on riscv tree fixes + latest riscv for-next branches.
+>
+> Changes from v10:
+> * Rebased on riscv tree fixes+for-next branches. Patches already applied
+>   to these branches were removed from this series.
+> * Fixed the clock driver and pinctrl driver patch titles to indicate the
+>   correct target sub-components.
+> * Applied reviewed-by tags from Anup.
+>
+> Changes from v9:
+> * Added patch 6 to avoid DTS compilation errors after patch 9 is
+>   applied and until patch 16 is applied.
+>
+> Changes from v8:
+> * Addressed Rob's comments on the sysctl driver bindings documentation
+> * Fixed a typo in the fpios driver bindings documentation
+>
+> Changes from v7:
+> * Removed the __init annotation for the drivers reset, pinctrl and
+>   sysctl drivers probe functions as suggested by Geert. Also removed
+>   the __refdata annotation for the struct platform_driver variables of
+>   these drivers.
+>
+> Changes from v6:
+> * Annotate struct platform_driver variables with __refdata to avoid
+>   section mismatch compilation errors
+> * Add empty sentinel entry to of_device_id tables of the sysctl, reset
+>   and pinctrl drivers.
+>
+> Changes from v5:
+> * Addressed Philipp's comment on the reset controller driver
+> * Added patch 6 to reduce the size of the clock driver patch
+>   (now patch 12).
+>
+> Changes from v4:
+> * Simplified reset controller driver using of_xlate callback as
+>   suggested by Philipp
+> * Fixed compilation error when using other configs than one of the
+>   nommu_k210 defconfigs.
+> * Addressed most clock driver comments from Stephen.
+> * Removed CONFIG_GPIO_SYSFS from defconfigs
+> * Rebased on 5.10-rc7
+>
+> Changes from V3:
+> * Add one entry per driver in MAINTAINERS file
+>
+> Changes from V2:
+> * Add MAINTAINERS file entry for the SoC support, listing myself as
+>   maintainer.
+> * Removed use of postcore_initcall() for declaring the drivers, using
+>   the regular builtin_platform_driver() instead.
+> * Fixed fpio pinctrl driver bindings documentation as commented by
+>   Geert: removed input-schmitt and added input-schmitt-disable, fixed
+>   typo and added input-disable and output-disable.
+> * Fixed device tree to have cs-gpios active low, as per the default, as
+>   active high necessity was an artifact of the gpio level double
+>   inversion bug fixed recently.
+> * Removed CONFIG_VT from defconfigs to reduce the kernel image size as
+>   suggested by Geert.
+>
+> Changes from v1:
+> * Improved DT bindings documentation
+> * SPI and GPIO patches removed from this series (and being processed
+>   directly through the relevant subsystems directly)
+> * Improved device trees
+> * Various cleanup and improvments of the drivers
+>
+> Damien Le Moal (16):
+>   clk: Add RISC-V Canaan Kendryte K210 clock driver
+>   dt-bindings: add Canaan boards compatible strings
+>   dt-bindings: update risc-v cpu properties
+>   dt-bindings: update sifive plic compatible string
+>   dt-bindings: update sifive clint compatible string
+>   dt-bindings: update sifive uart compatible string
+>   dt-bindings: fix sifive gpio properties
+>   dt-bindings: add resets property to dw-apb-timer
+>   riscv: Update Canaan Kendryte K210 device tree
+>   riscv: Add SiPeed MAIX BiT board device tree
+>   riscv: Add SiPeed MAIX DOCK board device tree
+>   riscv: Add SiPeed MAIX GO board device tree
+>   riscv: Add SiPeed MAIXDUINO board device tree
+>   riscv: Add Kendryte KD233 board device tree
+>   riscv: Update Canaan Kendryte K210 defconfig
+>   riscv: Add Canaan Kendryte K210 SD card defconfig
+>
+>  .../devicetree/bindings/gpio/sifive,gpio.yaml |   21 +-
+>  .../sifive,plic-1.0.0.yaml                    |   20 +-
+>  .../devicetree/bindings/riscv/canaan.yaml     |   47 +
+>  .../devicetree/bindings/riscv/cpus.yaml       |    2 +
+>  .../bindings/serial/sifive-serial.yaml        |    1 +
+>  .../bindings/timer/sifive,clint.yaml          |   19 +-
+>  .../bindings/timer/snps,dw-apb-timer.yaml     |    3 +
+>  MAINTAINERS                                   |    1 +
+>  arch/riscv/Kconfig.socs                       |    2 +-
+>  arch/riscv/boot/dts/canaan/canaan_kd233.dts   |  177 +++
+>  arch/riscv/boot/dts/canaan/k210.dts           |   23 -
+>  arch/riscv/boot/dts/canaan/k210.dtsi          |  535 ++++++++-
+>  arch/riscv/boot/dts/canaan/k210_generic.dts   |   46 +
+>  .../riscv/boot/dts/canaan/sipeed_maix_bit.dts |  234 ++++
+>  .../boot/dts/canaan/sipeed_maix_dock.dts      |  236 ++++
+>  arch/riscv/boot/dts/canaan/sipeed_maix_go.dts |  244 ++++
+>  .../boot/dts/canaan/sipeed_maixduino.dts      |  209 ++++
+>  arch/riscv/configs/nommu_k210_defconfig       |   44 +-
+>  .../riscv/configs/nommu_k210_sdcard_defconfig |   92 ++
+>  drivers/clk/Kconfig                           |    8 +
+>  drivers/clk/Makefile                          |    1 +
+>  drivers/clk/clk-k210.c                        | 1012 +++++++++++++++++
+>  drivers/soc/canaan/Kconfig                    |   18 +-
+>  drivers/soc/canaan/Makefile                   |    2 +-
+>  drivers/soc/canaan/k210-sysctl.c              |  205 +---
+>  include/dt-bindings/clock/k210-clk.h          |    1 -
+>  include/soc/canaan/k210-sysctl.h              |    2 +
+>  27 files changed, 2950 insertions(+), 255 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/riscv/canaan.yaml
+>  create mode 100644 arch/riscv/boot/dts/canaan/canaan_kd233.dts
+>  delete mode 100644 arch/riscv/boot/dts/canaan/k210.dts
+>  create mode 100644 arch/riscv/boot/dts/canaan/k210_generic.dts
+>  create mode 100644 arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts
+>  create mode 100644 arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts
+>  create mode 100644 arch/riscv/boot/dts/canaan/sipeed_maix_go.dts
+>  create mode 100644 arch/riscv/boot/dts/canaan/sipeed_maixduino.dts
+>  create mode 100644 arch/riscv/configs/nommu_k210_sdcard_defconfig
+>  create mode 100644 drivers/clk/clk-k210.c
 
 _______________________________________________
 linux-riscv mailing list
