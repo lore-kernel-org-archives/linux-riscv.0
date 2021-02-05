@@ -2,86 +2,62 @@ Return-Path: <SRS0=lacq=HH=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.9 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3A840C433DB
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Feb 2021 07:06:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6A600C433DB
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Feb 2021 07:53:56 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id ACFFA64FB9
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Feb 2021 07:06:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org ACFFA64FB9
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id C95CE64F8C
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Feb 2021 07:53:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C95CE64F8C
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
 	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
-	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=1UMtv3K1hrExDmED/yiwMNb/KXWAPwiH2ufUq31Yf6A=; b=DEMDriwcPICf0CNtZKc70qgWh
-	qpsJGV+AshoInDsdSj2wYAQdFJx3KB6OC0b06xlXSuiwswwZ2+zMZ59udTsJoziGY61Y2A/YXhT8B
-	SYRy0yFZXHbcKYf7rPDu5WwPE7G0NmTVy61XrGmAHJQpSHsPOOuO5v+RlUFPrJ60POiYOazj8aW21
-	Ori+rDjVM0aO2wweWvgXlPrj7EPRR48LO6NbBioiMFjQ8mOIbOV5WVB9ikOSKHOnm8N9tzHwD+w65
-	LjvpwEJGdgQXq7znrobfmq23M5+pIgCQwVdmhlMOAc3Q1qP1ry3G3i/FfvuvbTokbKIvz7MiICsCw
-	B2QKf8bHg==;
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=wOHd2Yg2ySITiy6M7c+l1Vdf9zjB5wo+Nc1xj7nVK7s=; b=hoaU4ve4kYXxhhS1NGmzVXFc9
+	X9iCseaSQL6rZ98t4y3w4CyOvkJwEQcE7kS0YdKmcSrw4qdmTZQGE2WJIRNSS6ToNLfecJ2f2+6Yy
+	KqStO7aFqMJf8EG2cBMOTcTcRu1BivAkcuod6z+F4MRIIv8df5o6DX2b/BR5pRC2QrhhH+MODrcMC
+	B9MoqWDf5YbK0JTUm5KJ4MTg1YKl4kuUWUUXTHaKZ6QhJGWOenQNKDrdg1OrkkBfIcznmJvOKDxIe
+	hx7Bap5IMmJQLYCMQkFSZufWZrJFlqbcLif2gH5fOjQghWGLcNDjUGcEv0o5EEL7ITniywybzng+P
+	s0vggcdNg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l7vCV-0005bS-KS; Fri, 05 Feb 2021 07:06:43 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1l7vw0-00016r-3H; Fri, 05 Feb 2021 07:53:44 +0000
+Received: from szxga06-in.huawei.com ([45.249.212.32])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l7vCS-0005aY-KE
- for linux-riscv@lists.infradead.org; Fri, 05 Feb 2021 07:06:41 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id m12so3117914pjs.4
- for <linux-riscv@lists.infradead.org>; Thu, 04 Feb 2021 23:06:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
- h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
- :content-transfer-encoding;
- bh=MZ4P6Lw/6UiS8JyJfX3U5rtRFO+IqLNE8qsO+NPVXGk=;
- b=fjeV+W4m/Dfueub4G9bVMQnTATX1tYc2umM/k2buTydgbNxkOTmz14dNxg9/wi+TaG
- 3R6vlfL+eJiVmyerGorSI9Ot9ISmEGu/a5fp/3Fh+Yi2787Ho3Pj2xUzMysM/BpfJJoE
- R8S/1IAWO6NNC03LRzIMJ1j/OSXeyRTWttpiiVyVzOJ0BiIGv7+Axyxn7VzFzk82O/al
- QtmB+UE9IuL7dWKS3GGaoWGSMcfrFFAPwcH39HdHaXSo6QnY1KK7RbYCsnolBpHH2iM9
- jQXvZGjda+wBfrP8VbfYw0FMQaw59QpSQHNMEFy2VMgLGoPc4p334HZ/uN6+Qru8eZie
- NdGA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
- :mime-version:content-transfer-encoding;
- bh=MZ4P6Lw/6UiS8JyJfX3U5rtRFO+IqLNE8qsO+NPVXGk=;
- b=L7JTJsFrKwxd0u5jXI8TrkBarmSqdJuzlWHWq2lONysXk+GjsG39cxiYAZE1DIn7wO
- b/BJ4/Gc7ttwa/pZpyFXet4DI/mgqpEyMqYQbBGKAxjRte4jjbQcCEKZAJX9qVW/RsX4
- ICot4jIOYVBJleOPaEQRvkinAYugowKTQ7XRNU9MPgrlj06xlOdCUjmTJYmYaH6Ow6Gy
- DoGlWAd7Uk/a+W2dxCAOredfnY9E20JHAQJmWARs7w7VZ3RzK+dmjqXAdtm8cRsl5XDj
- bLrntb19n/ZtLbInwJKoIre72UfyuQRR/s/Rqh0AiUgGUUAqSi3qugIbvAyKErSAMgHK
- GPSw==
-X-Gm-Message-State: AOAM532jNyoekWJ/LN4TKVi1GKz1RrNnlwt+yXZBZCFykkVe1wMLu2FH
- H75jalUHfbT+hOOuH3lsrm6Ydg==
-X-Google-Smtp-Source: ABdhPJy+i1SyBhBl58mdtGk+jbnEdRYyq/TwOIas1FPrSVUyC1ZHmq30hMp0QYPogXZRl4PpMztVyw==
-X-Received: by 2002:a17:90b:1c0d:: with SMTP id
- oc13mr2843615pjb.156.1612508798561; 
- Thu, 04 Feb 2021 23:06:38 -0800 (PST)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
- [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id t15sm7210137pjy.37.2021.02.04.23.06.37
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 04 Feb 2021 23:06:37 -0800 (PST)
-Date: Thu, 04 Feb 2021 23:06:37 -0800 (PST)
-X-Google-Original-Date: Thu, 04 Feb 2021 23:06:06 PST (-0800)
-Subject: Re: [PATCH] selftests/vDSO: fix ABI selftest on riscv
-In-Reply-To: <20210204145042.7345-1-tklauser@distanz.ch>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: tklauser@distanz.ch, shuah@kernel.org
-Message-ID: <mhng-1ed0f9e8-84ec-4f2e-ac42-5a608726e2fe@palmerdabbelt-glaptop>
-Mime-Version: 1.0 (MHng)
+ id 1l7vvw-00015t-Pc
+ for linux-riscv@lists.infradead.org; Fri, 05 Feb 2021 07:53:42 +0000
+Received: from DGGEMS411-HUB.china.huawei.com (unknown [172.30.72.60])
+ by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4DX71J0vR6zjGhX;
+ Fri,  5 Feb 2021 15:52:20 +0800 (CST)
+Received: from [10.174.177.244] (10.174.177.244) by
+ DGGEMS411-HUB.china.huawei.com (10.3.19.211) with Microsoft SMTP Server id
+ 14.3.498.0; Fri, 5 Feb 2021 15:53:21 +0800
+Subject: Re: [PATCH -next] RISCV: Add some depends for NUMA
+To: Palmer Dabbelt <palmer@dabbelt.com>
+References: <mhng-3a9465c0-42bb-42de-ad66-855dc2e3c56f@palmerdabbelt-glaptop>
+From: Kefeng Wang <wangkefeng.wang@huawei.com>
+Message-ID: <ed095f07-8c91-903b-2859-203ca9b429fa@huawei.com>
+Date: Fri, 5 Feb 2021 15:53:21 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
+ Thunderbird/60.7.0
+MIME-Version: 1.0
+In-Reply-To: <mhng-3a9465c0-42bb-42de-ad66-855dc2e3c56f@palmerdabbelt-glaptop>
+Content-Language: en-US
+X-Originating-IP: [10.174.177.244]
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210205_020640_690710_3EDA23DE 
-X-CRM114-Status: GOOD (  18.73  )
+X-CRM114-CacheID: sfid-20210205_025341_087094_00590BB1 
+X-CRM114-Status: GOOD (  21.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -93,108 +69,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv@lists.infradead.org, vincenzo.frascino@arm.com
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Cc: Atish Patra <Atish.Patra@wdc.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 04 Feb 2021 06:50:42 PST (-0800), tklauser@distanz.ch wrote:
-> Only older versions of the RISC-V GCC toolchain define __riscv__. Check
-> for __riscv as well, which is used by newer GCC toolchains. Also set
-> VDSO_32BIT based on __riscv_xlen.
->
-> Before (on riscv64):
->
-> $ ./vdso_test_abi
-> [vDSO kselftest] VDSO_VERSION: LINUX_4
-> Could not find __vdso_gettimeofday
-> Could not find __vdso_clock_gettime
-> Could not find __vdso_clock_getres
-> clock_id: CLOCK_REALTIME [PASS]
-> Could not find __vdso_clock_gettime
-> Could not find __vdso_clock_getres
-> clock_id: CLOCK_BOOTTIME [PASS]
-> Could not find __vdso_clock_gettime
-> Could not find __vdso_clock_getres
-> clock_id: CLOCK_TAI [PASS]
-> Could not find __vdso_clock_gettime
-> Could not find __vdso_clock_getres
-> clock_id: CLOCK_REALTIME_COARSE [PASS]
-> Could not find __vdso_clock_gettime
-> Could not find __vdso_clock_getres
-> clock_id: CLOCK_MONOTONIC [PASS]
-> Could not find __vdso_clock_gettime
-> Could not find __vdso_clock_getres
-> clock_id: CLOCK_MONOTONIC_RAW [PASS]
-> Could not find __vdso_clock_gettime
-> Could not find __vdso_clock_getres
-> clock_id: CLOCK_MONOTONIC_COARSE [PASS]
-> Could not find __vdso_time
->
-> After (on riscv32):
->
-> $ ./vdso_test_abi
-> [vDSO kselftest] VDSO_VERSION: LINUX_4.15
-> The time is 1612449376.015086
-> The time is 1612449376.18340784
-> The resolution is 0 1
-> clock_id: CLOCK_REALTIME [PASS]
-> The time is 774.842586182
-> The resolution is 0 1
-> clock_id: CLOCK_BOOTTIME [PASS]
-> The time is 1612449376.22536565
-> The resolution is 0 1
-> clock_id: CLOCK_TAI [PASS]
-> The time is 1612449376.20885172
-> The resolution is 0 4000000
-> clock_id: CLOCK_REALTIME_COARSE [PASS]
-> The time is 774.845491269
-> The resolution is 0 1
-> clock_id: CLOCK_MONOTONIC [PASS]
-> The time is 774.849534200
-> The resolution is 0 1
-> clock_id: CLOCK_MONOTONIC_RAW [PASS]
-> The time is 774.842139684
-> The resolution is 0 4000000
-> clock_id: CLOCK_MONOTONIC_COARSE [PASS]
-> Could not find __vdso_time
->
-> Signed-off-by: Tobias Klauser <tklauser@distanz.ch>
-> ---
->  tools/testing/selftests/vDSO/vdso_config.h | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
->
-> diff --git a/tools/testing/selftests/vDSO/vdso_config.h b/tools/testing/selftests/vDSO/vdso_config.h
-> index 6a6fe8d4ff55..6188b16827d1 100644
-> --- a/tools/testing/selftests/vDSO/vdso_config.h
-> +++ b/tools/testing/selftests/vDSO/vdso_config.h
-> @@ -47,10 +47,12 @@
->  #elif defined(__x86_64__)
->  #define VDSO_VERSION		0
->  #define VDSO_NAMES		1
-> -#elif defined(__riscv__)
-> +#elif defined(__riscv__) || defined(__riscv)
->  #define VDSO_VERSION		5
->  #define VDSO_NAMES		1
-> +#if __riscv_xlen == 32
->  #define VDSO_32BIT		1
-> +#endif
->  #else /* nds32 */
->  #define VDSO_VERSION		4
->  #define VDSO_NAMES		1
-
-Reviewed-by: Palmer Dabbelt <palmerdabbelt@google.com>
-Acked-by: Palmer Dabbelt <palmerdabbelt@google.com>
-
-Not sure if you want this through the RISC-V tree, so I'm leaving it out for
-now and assuming it'll go through a kselftest tree.
-
-Thanks!
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Ck9uIDIwMjEvMi81IDE0OjU4LCBQYWxtZXIgRGFiYmVsdCB3cm90ZToKPiBPbiBXZWQsIDAzIEZl
+YiAyMDIxIDA2OjIzOjQzIFBTVCAoLTA4MDApLCB3YW5na2VmZW5nLndhbmdAaHVhd2VpLmNvbSAK
+PiB3cm90ZToKPj4gVGhlIG51bWEgZmVhdHVyZSBpcyB1c2VsZXNzIGZvciByaXNjdjMyIHBsYXRm
+b3JtKE1BWFBIWVNNRU1fMUdCIGlmIAo+PiAzMmJpdCksCj4KPiBJJ20gbm90IGNvbnZpbmNlZCBv
+ZiB0aGF0LsKgIFRoZXJlJ3Mgbm8gcmVhc29uIE5VTUEgc2hvdWxkbid0IHdvcmsgb24gCj4gMzIt
+Yml0LCBpdAo+IGRvZXNuJ3QgZGVwZW5kIG9uIGhhdmluZyBhIGxhcmdlIGFtb3VudCBvZiBtZW1v
+cnkganVzdCBoYXZpbmcgbm9uLXVuaWZvcm0KPiBtZW1vcnkuwqAgSSBjb3VsZCBidXkgdGhlIGFy
+Z3VtZW50IHRoYXQgYnVpbGQgYSAzMi1iaXQgTlVNQSBzeXN0ZW0gCj4gd291bGQgYmUKPiB3YWNr
+eSwgYnV0IElJVUMgaXQgd29ya3Mgbm93IGFuZCBJIGRvbid0IHNlZSBhbnkgcmVhc29uIHRvIHRo
+cm93IHRoYXQgCj4gYXdheS4KCkkgdGhpbmsgdGhlIFJWMzIgd29uJ3QgYmVuZWZpdCBmcm9tIE5V
+TUEsIHRoZXJlJ3Mgbm8gdG9vIG11Y2ggbWVtb3J5IApzdXBwb3J0IG9uIFJWMzIsCgphbmQgaXQg
+bWF5IGluY3JlYXNlIHRoZSBJbWFnZSBzaXplLMKgIHNvIEkgZGVjaWRlZCB0byBkcm9wIHN1cHBv
+cnQgZm9yIFJWMzIuCgo+Cj4+IGFuZCBpdCBzaG91bGQgZGVwZW5kcyBvbiBTTVAgZmVhdHVyZSwg
+dGhpcyBhbHNvIGZpeCB0aGUgYnVpbGQgZXJyb3IsCj4KPiBJIGNhbiBidXkgdGhhdCBDT05GSUdf
+TlVNQSBkb2Vzbid0IHJlYWxseSBtYWtlIHNlbnNlIHdpdGhvdXQgCj4gQ09ORklHX1NNUCwgYXMK
+PiB0aGVyZSdzIG5vdCBhIHdob2xlIGxvdCB0byBkbywgYnV0IEkgYWxzbyBkb24ndCBzZWUgYW55
+IHJlYXNvbiBmcm9tIAo+IGRpc2FsbG93aW5nCj4gdXNlcnMgZnJvbSBwaWNraW5nIGl0LsKgIGFy
+bTY0IGFsbG93cyAhU01QICYmIE5VTUEsIGFuZCBJIGRvbid0IHNlZSBhbnkgCj4gcmVhc29uCj4g
+aXQgd291bGRuJ3Qgd29yayBqdXN0IGFzIHdlbGwgZm9yIHVzLgoKQVJNNjQgd29uJyBzdXBwb3J0
+ICFTTVAgYWZ0ZXIgZm9sbG93aW5nIHBhdGNoLCBhbmQgZm9yIG1vc3QgCmFyY2hpdGVjdHVyZSzC
+oCB0aGUgTlVNQSBmZWF0dXJlCgpkZXBlbmRzIG9yIHNlbGVjdCBTTVAgZmVhdHVyZS4KCgpjb21t
+aXQgNGIzZGM5Njc5Y2Y3NzkzMzlkOTA0OTgwMDgwM2RmYzNjODM0MzNkMQpBdXRob3I6IFdpbGwg
+RGVhY29uIDx3aWxsQGtlcm5lbC5vcmc+CkRhdGU6wqDCoCBGcmkgTWF5IDI5IDE4OjI4OjQ0IDIw
+MTUgKzAxMDAKCiDCoMKgwqAgYXJtNjQ6IGZvcmNlIENPTkZJR19TTVA9eSBhbmQgcmVtb3ZlIHJl
+ZHVuZGFudCAjaWZkZWZzCgoKCj4KPj4gwqAgcmlzY3Y2NC1idWlsZHJvb3QtbGludXgtZ251LWxk
+OiBtbS9wYWdlX2FsbG9jLm86IGluIGZ1bmN0aW9uIGAuTDAgJzoKPj4gwqAgcGFnZV9hbGxvYy5j
+OigudGV4dCsweDQ4MDgpOiB1bmRlZmluZWQgcmVmZXJlbmNlIHRvIAo+PiBgbm9kZV9yZWNsYWlt
+X2Rpc3RhbmNlJwo+Cj4gVGhlIG9ubHkgaW5zdGFuY2Ugb2Ygbm9kZV9yZWNsYWltX2Rpc3RhbmNl
+IEkgc2VlIGluIG1tL3BhZ2VfYWxsb2MuYyBpcyAKPiBhbHJlYWR5Cj4gZ3VhcmRlZCB3aXRoIENP
+TkZJR19OVU1BLCBidXQgdGhlIGRlZmluaXRpb24gb2Ygbm9kZV9yZWNsYWltX2Rpc3RhbmNlIAo+
+IGlzbid0Lgo+IEknbGwgc2VuZCBvdXQgc29tZSBwYXRjaGVzIHRvIGFkZCB0aGUgZ3VhcmQgd2hp
+Y2ggbWlnaHQgbWFrZSBzb3J0aW5nIAo+IHRoaXMgb3V0Cj4gZWFybGllciwgYnV0IEkgZG9uJ3Qg
+c2VlIGl0IGZpeGluZyBhbnkgZmFpbHVyZXMuCj4KPgo+CgpfX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
+cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
+bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
