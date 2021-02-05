@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-14.4 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9DAD4C433E0
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Feb 2021 19:47:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BF3E7C433DB
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Feb 2021 19:47:45 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5998764FB9
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Feb 2021 19:47:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5998764FB9
+	by mail.kernel.org (Postfix) with ESMTPS id 3206764FBC
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Feb 2021 19:47:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3206764FBC
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,57 +23,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=nIGUwklCGHJGimdV11lRalsLq9sGGq/jsvWNgQp68k8=; b=fH9FpvpgfvyJvYIth7RfDkDid
-	OSNeaISLpKgblQPoiN4aCCvKXp1Wa+uvxbOyFpa2rtReiQ/Zc+GMIXBsaQ5n1FBqDR+1vyn1xQLzy
-	MPGajBcg+qWlnnYq+p5T7nqlpz+hsx5j8JwAjNdJhaHbdrxp3jgSAxak2mpKF5EtFq0Iu/NKv1f4M
-	AXeDprcsj0YfxE6P6+B1Fp+h+iJiP9s8sw/7KTLeG5byBDl0K7wex99ronnPN81shkuqkRr5lNR/v
-	DkrNWedHA4vABOWlIM2Vsnh144NTElAzC2ZHZqCKjTb+PVFuBaWEPzL5UClxI6zpjhiZxf59Ko/SJ
-	6ez8pq0jQ==;
+	 bh=jQc7CXQmNDgHKkrOEmFD/e5+f/diTlVzdvBNBoZh4M8=; b=yqUknCMcmKwIy+09UgDiec7hM
+	ZQ0+wFOYlVhQyZmdRQBKX2SG8X8r2RXkAIw9wUZR3Xu7dYTgyS9VyS/jEMzGoNB823iixNpEF+0wx
+	OJ/iECsf1HwigW9YHzWhybMjRLzmsGLUMTNkmE7zMx9XynIpmnnNCnYFQ07x7VbK5iq7ZtxbzigCI
+	TxTDPv4wI9zN7v2i0MTI4viQvTQsn92bEfC/Crvhsq781Uz8hsyR8XF8OoKMVBZUFOlVKKCnJc4mE
+	q2uiON8kzJWnefoUeIsIlV9XLmK3jVVJzOTD+T+mgq6r2YrDs39jvRQQ1XnQi+r0d3JdayDDSKpts
+	Llv4DLMMw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l874Y-0003sn-K4; Fri, 05 Feb 2021 19:47:18 +0000
-Received: from mail-ot1-f43.google.com ([209.85.210.43])
+	id 1l874r-0003v7-1Z; Fri, 05 Feb 2021 19:47:37 +0000
+Received: from mail-ot1-f49.google.com ([209.85.210.49])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l874U-0003sT-Vo
- for linux-riscv@lists.infradead.org; Fri, 05 Feb 2021 19:47:15 +0000
-Received: by mail-ot1-f43.google.com with SMTP id v1so7995063ott.10
- for <linux-riscv@lists.infradead.org>; Fri, 05 Feb 2021 11:47:14 -0800 (PST)
+ id 1l874p-0003uZ-Mh
+ for linux-riscv@lists.infradead.org; Fri, 05 Feb 2021 19:47:36 +0000
+Received: by mail-ot1-f49.google.com with SMTP id 63so8072174oty.0
+ for <linux-riscv@lists.infradead.org>; Fri, 05 Feb 2021 11:47:34 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to;
- bh=Ii5iHucEL6kK0ePeaCgZfhVcz7zPyqdUMGbV2GreKgg=;
- b=gx1gbgglP4GZPRPho+Mm3fDI+x9ZuvF3EnqZq3oNPQUHMBN51tIN/lwXpoyeic2WfY
- +V/8QLZWmHk+Q9VMmKrGwzG+SDvDS8rcX2ZcQMo8vxog9VJSiH4vt9hJVUjrqa4jznB2
- kCukbBrPAYDndkxPgNgpXd0M/RV6BNhKd3eZD7fcNN+vw6h+SqF9PJhvZ/MJlZL6cKGQ
- esPGIWHsNR7opJofwAy2WOhUyJvuVfztw2c1NZhTld8gzgPCK3Z1TofeHGE1W33C/Gt/
- l1cUE5QMrtOEkRn3b8B6WiGJeq6gt9syb9sDUXqdKpTMuL+1CfbUOvEceXqTh5nfqgGV
- 9d3Q==
-X-Gm-Message-State: AOAM533rjLnMBiepokNT7TywpIW7ZvRN37nSxX96cDyZ8eqBLeekY6cw
- 5s5l6lLhVRBOLagu3VCokA==
-X-Google-Smtp-Source: ABdhPJxTyYSkBCg5+vXUfmMAKNcY1pA6POTIcqW2OEQhLTBZsaKDoKp3H9llCmN4h4Rfs7DXl574+Q==
-X-Received: by 2002:a9d:4b07:: with SMTP id q7mr4421349otf.270.1612554433661; 
- Fri, 05 Feb 2021 11:47:13 -0800 (PST)
+ bh=4z/7XA5iPMGNQ8PQneXW9neZp9ngnApofX98s+/VZV4=;
+ b=V8ZtDGjT+WgKEhYz/0KD563u7MqHTIBwH/xwvTOTCJwnbrxiYkQnEmowbcVQP/TXR4
+ b8BslQJRMcmZfHu1FiTzjiMPtj5pnWvdcCxYMb1l6IJyqA6KxhxTp6XcWxEy5dSmKq/O
+ 0C2/Sgs7L1daFHO8jbC6MbW26A/Twae46ps1dLQgPv+6yv7Xo+apW32gZpNFLfnIe6yu
+ MYyXVmpkjn2MA5M25nj9GzPbQ7nItHHJQuw1LRclzIhBtLUwa4yirJFMxU2V1LV19BJt
+ sz2ATzwhABBy795PSGfGZ9C2cNY1/ZGfpEbsPJlEhliqzmM8mppP+4fikr9aCLlgRWg+
+ LAvQ==
+X-Gm-Message-State: AOAM531dJyWz/sm/oSJmcfaXjwvTd5fOgNNHWHLA7Xa2e+HhRqQNy5UI
+ jpXrHjhpI/thQ4tCyb77iw==
+X-Google-Smtp-Source: ABdhPJwImh6w0sBLMWw3V5TtWhQ+AZWMRJJkAzV3k+Xiy7feAu2ebjIrVoLlWnDP6J//bp+4OR/TLg==
+X-Received: by 2002:a9d:7b5a:: with SMTP id f26mr4296962oto.95.1612554454562; 
+ Fri, 05 Feb 2021 11:47:34 -0800 (PST)
 Received: from robh.at.kernel.org (24-155-109-49.dyn.grandenetworks.net.
  [24.155.109.49])
- by smtp.gmail.com with ESMTPSA id w2sm591994otq.9.2021.02.05.11.47.11
+ by smtp.gmail.com with ESMTPSA id l64sm1952247oib.13.2021.02.05.11.47.33
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 05 Feb 2021 11:47:12 -0800 (PST)
-Received: (nullmailer pid 3597172 invoked by uid 1000);
- Fri, 05 Feb 2021 19:47:11 -0000
-Date: Fri, 5 Feb 2021 13:47:11 -0600
+ Fri, 05 Feb 2021 11:47:33 -0800 (PST)
+Received: (nullmailer pid 3597936 invoked by uid 1000);
+ Fri, 05 Feb 2021 19:47:32 -0000
+Date: Fri, 5 Feb 2021 13:47:32 -0600
 From: Rob Herring <robh@kernel.org>
 To: Damien Le Moal <damien.lemoal@wdc.com>
-Subject: Re: [PATCH v16 03/16] dt-bindings: update risc-v cpu properties
-Message-ID: <20210205194711.GA3597111@robh.at.kernel.org>
+Subject: Re: [PATCH v16 04/16] dt-bindings: update sifive plic compatible
+ string
+Message-ID: <20210205194732.GA3597861@robh.at.kernel.org>
 References: <20210205065827.577285-1-damien.lemoal@wdc.com>
- <20210205065827.577285-4-damien.lemoal@wdc.com>
+ <20210205065827.577285-5-damien.lemoal@wdc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20210205065827.577285-4-damien.lemoal@wdc.com>
+In-Reply-To: <20210205065827.577285-5-damien.lemoal@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210205_144715_064065_2011CDD2 
-X-CRM114-Status: GOOD (  12.95  )
+X-CRM114-CacheID: sfid-20210205_144735_766868_9830BF89 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -94,25 +95,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 05 Feb 2021 15:58:14 +0900, Damien Le Moal wrote:
-> The Canaan Kendryte K210 SoC CPU cores are based on a rocket chip
-> version using a draft verion of the RISC-V ISA specifications. To avoid
-> any confusion with CPU cores using stable specifications, add the
-> compatible string "canaan,k210" for this SoC CPU cores.
-> 
-> Also add the "riscv,none" value to the mmu-type property to allow a DT
-> to indicate that the CPU being described does not have an MMU or that
-> it has an MMU that is not usable (which is the case for the K210 SoC).
+On Fri, 05 Feb 2021 15:58:15 +0900, Damien Le Moal wrote:
+> Add the compatible string "canaan,k210-plic" to the Sifive plic bindings
+> to indicate the use of the "sifive,plic-1.0.0" IP block in the Canaan
+> Kendryte K210 SoC. The description is also updated to reflect this
+> change, that is, that SoCs from other vendors may also use this plic
+> implementation.
 > 
 > Cc: Paul Walmsley <paul.walmsley@sifive.com>
 > Cc: Rob Herring <robh@kernel.org>
 > Cc: devicetree@vger.kernel.org
 > Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
-> Reviewed-by: Atish Patra <atish.patra@wdc.com>
-> Reviewed-by: Anup Patel <anup@brainfault.org>
 > ---
->  Documentation/devicetree/bindings/riscv/cpus.yaml | 2 ++
->  1 file changed, 2 insertions(+)
+>  .../interrupt-controller/sifive,plic-1.0.0.yaml     | 13 ++++++++-----
+>  1 file changed, 8 insertions(+), 5 deletions(-)
 > 
 
 Acked-by: Rob Herring <robh@kernel.org>
