@@ -2,166 +2,98 @@ Return-Path: <SRS0=2LT1=HI=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-12.6 required=3.0 tests=BAYES_00,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,
+	FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C7538C433DB
-	for <linux-riscv@archiver.kernel.org>; Sat,  6 Feb 2021 00:13:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 36E72C433E0
+	for <linux-riscv@archiver.kernel.org>; Sat,  6 Feb 2021 00:32:08 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6A21C64FF0
-	for <linux-riscv@archiver.kernel.org>; Sat,  6 Feb 2021 00:13:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6A21C64FF0
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	by mail.kernel.org (Postfix) with ESMTPS id 213CD64FAE
+	for <linux-riscv@archiver.kernel.org>; Sat,  6 Feb 2021 00:32:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 213CD64FAE
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=Ps3mjpE5jd0jy06kVqVxYs86gJivd9/t4nIYfxc+M6M=; b=Fa1nuuiEjFH3XQsLG4EMdvPmx
-	JNAT6WjbEy8O3JMrIhKWyml5aiyZUxNvk0npxgnY9HNtEPQHRlWGCsU130UT9OOfO5SUxNyhT1f+l
-	fnLBiOGbExfvpvq3x7IeIl+RP2+2Je/GNHsfPWwbMKepDUNWVFC7fS/PyyaVBvcdvxwpXokfV5DXF
-	vwrSRiovNuPU5u1krOjqd99xHdkP1o8fhV6Aa9pK/yFsrL8rJZmMXF+xHNUJ4TOZXZXUnLS4z7l3Z
-	nipT11g06m4pwcCEwUOB4c6LIIRZKDVQF0MKQfL2/HNlUCl/6AIJvlsgTk2EW7cEJUdOj48oS3/i2
-	F8TqIHV3g==;
+	 bh=JHmX2V7+7mvrU6RkNVzR0QF/UtjoNdtu5bzNPmmhw/I=; b=aju1K7brST/V3aEmzoYC3ls+f
+	sYxCfhWBLX0mIIScHV/ni8rrA4/8W5nbfYoJIpdRwEx6xho63WPPhP11KXFR+30wjUBQ2Ymb5z87Y
+	H1Hm4RTTKadInQ+YWMZ5+3OwpnvPeDqkFhctQbmVgZVV+5buLGtxLMeqEYrsOfeuEoG1xO/ugTBJ7
+	TiKVlqaECy8ey/rRgNFpTtfnp5eQKzmEz5r890J8hK54xcIWKohN1jNzrl0aJtL0QNMigk/QthTOX
+	UaaUw+I/jDddAHfhEqpGqz7Po+VNNl3zXXrEsDII8JMSEx29uizxPukkk7AS90xL2cImTJBXob2wy
+	aAL9v7vfQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l8BEK-00041x-Ok; Sat, 06 Feb 2021 00:13:40 +0000
-Received: from esa5.hgst.iphmx.com ([216.71.153.144])
+	id 1l8BW0-0004TH-8m; Sat, 06 Feb 2021 00:31:56 +0000
+Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l8BEI-00041Z-Eo
- for linux-riscv@lists.infradead.org; Sat, 06 Feb 2021 00:13:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1612570418; x=1644106418;
- h=from:to:cc:subject:date:message-id:references:
- in-reply-to:content-id:content-transfer-encoding: mime-version;
- bh=9QtLbDHvjNLnLiWT5BnMow5+Cbmxq2WoQVcvZgy0LPM=;
- b=StfO0M6Aadh+5eTjiE4FELEP7cBCD6/XrnaXpBll6UmwDxZs6O9/dKrD
- 05uZntcoBU7Sa+hyzwF/jwaIBvjrTmOJ3dx/4Sl4+i0h0napZY1kBVVRl
- 3NSa3Z2KH2cRwYGAR78dtonaskMEHlIZMkh3yRqXqCdw27it5kRAQlctP
- Fd4PDEcLSqix432QVtaAGQH/BojzX5d2IgOh0WuRBzrLyGWr5w6ZG9MAX
- y+uLaxYx6WmNp0zUPTwEWNc2V/I++D2izkoZHyFC5rdnWNPxWEZogtYAa
- z2hy2lebwfGy8EFeSAKEGKG6HH5IOjMBu+PA2Z/XT5n87vA2/nWD/48do Q==;
-IronPort-SDR: 5h2Gtk04RpuCSCPO7hgzReEmYIGfSh1kU24Ap6+klHjZcDYMre8gGJVQizZeC4Mh9zqsRJXIcg
- hmPUcFzlgqVM1xw7LXQu3BJGrPoiMh5//kd9etcb0XuMTmdKFCjbXrBB9mZ61dcUfvW3qh86VM
- CyvdN3cH4sOjqCvZl4G/QS2pLH2/cTR8DuerL0Q7GNO35LnWR88jdghKkRezT5rMtLpPSw3lt/
- Wg4RtADUYawKSd/m7rmL5at4minbDPzEhxo+ycSgjyBMMAOpobwfDJPP2xQwD9m+IBDKzp2o5j
- eng=
-X-IronPort-AV: E=Sophos;i="5.81,156,1610380800"; d="scan'208";a="159264311"
-Received: from mail-mw2nam12lp2044.outbound.protection.outlook.com (HELO
- NAM12-MW2-obe.outbound.protection.outlook.com) ([104.47.66.44])
- by ob1.hgst.iphmx.com with ESMTP; 06 Feb 2021 08:13:34 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=HpuUoepRJfSUKKpoPD9mN6dDjUYWOkqEO2Y0WLLeeQkuzs+0SGdQ2DWOt92kjHvzcr6Wh0EPeO6gAX0K0I5z5u17TIbjW+HPCGcwhFagXFshiA8xTIR+JbBzzTzAKD2YCDu4Bs3gpM1G1aigdXjipUyXc55GsW/w5Qr7g2jnvQMDxnyfTZ0uYAx/eERinUEMZQYZWFjJLoAv5d5m7dg9eCbamqXyMnjIwfzEweDxq/A9k1dkZ90yDqY5wPXinIgY5H+98eE0Bkad8dRFQ84JB+JPe6re63FGzNfjTi6znhanfTaHhp1Bo1GjCZOOvYVIgpeq148w6QUC2SV42nf+xw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9QtLbDHvjNLnLiWT5BnMow5+Cbmxq2WoQVcvZgy0LPM=;
- b=Sv2xlb9gx4sIos44bwj0Rbrt/2JekCo0kF4GEg1iSXQKCSY7tiRfNEQt5+BTtjO6yYX2gM1pxt8PEzgNAR4S6gvYeweeyWM1ThQc/UVuNlgRNX0cATkFLITPHCpUek9Yypbv1DoWKxFOoAFQ5tNqs6d4pTaM/ANgO1Vww1dKPVVpbyaBf9I8aq83rPqTfGhhrsTQHccY/EPW5KCk/Jtpn2+dsk9jEwU3vPU5qMPqr4ivJYJ7AEtS9RvTfBjBJuJcRGS+EVdlLCLKna/EazGyz9HKxY/OSXBXEd68kseZD2OO16hoKPVFB+AukGo/sS+4z7ZWi5O+AiagqD8XDaLzWA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
- header.d=wdc.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9QtLbDHvjNLnLiWT5BnMow5+Cbmxq2WoQVcvZgy0LPM=;
- b=TwNeQgerhhfe9B2sokhM1lKeQid0uvb1IAjYANVgVG/w9olOdSiDMR/u+oWRt7TShQ8XTDCHI5NcgjP2f3MmVAkN6jB5F5910k1BCN00MwEFAGbuKgfkF+2MrfAx8PgfkDq3ltbtaKtvLzzm4V65tt5DtooE6604HFCuj3qHdQg=
-Received: from BL0PR04MB6514.namprd04.prod.outlook.com (2603:10b6:208:1ca::23)
- by MN2PR04MB6669.namprd04.prod.outlook.com (2603:10b6:208:1e0::16)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3805.17; Sat, 6 Feb
- 2021 00:13:33 +0000
-Received: from BL0PR04MB6514.namprd04.prod.outlook.com
- ([fe80::b880:19d5:c7fe:329d]) by BL0PR04MB6514.namprd04.prod.outlook.com
- ([fe80::b880:19d5:c7fe:329d%7]) with mapi id 15.20.3825.025; Sat, 6 Feb 2021
- 00:13:33 +0000
-From: Damien Le Moal <Damien.LeMoal@wdc.com>
-To: "robh@kernel.org" <robh@kernel.org>
-Subject: Re: [PATCH v16 09/16] riscv: Update Canaan Kendryte K210 device tree
-Thread-Topic: [PATCH v16 09/16] riscv: Update Canaan Kendryte K210 device tree
-Thread-Index: AQHW+4xeGC09t/jMzkSSVnIpB80beKpKAuGAgAA/1AA=
-Date: Sat, 6 Feb 2021 00:13:33 +0000
-Message-ID: <aab05bea310fbdbac38990656647dd0fbf3c8323.camel@wdc.com>
-References: <20210205065827.577285-1-damien.lemoal@wdc.com>
- <20210205065827.577285-10-damien.lemoal@wdc.com>
- <20210205202505.GA3625674@robh.at.kernel.org>
-In-Reply-To: <20210205202505.GA3625674@robh.at.kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.38.3 (3.38.3-1.fc33) 
-authentication-results: kernel.org; dkim=none (message not signed)
- header.d=none;kernel.org; dmarc=none action=none header.from=wdc.com;
-x-originating-ip: [2400:2411:43c0:6000:8d3e:27aa:85c2:44b5]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-ht: Tenant
-x-ms-office365-filtering-correlation-id: 6fd2c449-447a-499b-12a9-08d8ca340a83
-x-ms-traffictypediagnostic: MN2PR04MB6669:
-x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <MN2PR04MB66696BDC8C9F2BD88BBA2FAEE7B19@MN2PR04MB6669.namprd04.prod.outlook.com>
-wdcipoutbound: EOP-TRUE
-x-ms-oob-tlc-oobclassifiers: OLM:9508;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: 6aj4pRucFhw+m/LA7jYbIV4jVk85i+HX2shZaenx3QYUArK1UvEnjUQmADEcSiA9AEfcrh5FRny1iO2sd/sz9qINYKU+7LH6kYCOvy7fNYQVl8chNgFq0z+vvyse6QgSokhtLVFxNEFHlSJLAlaKN/jqbg5R9gAqoIJ74COJ067tAPC45eg4i3S0zqvubUaaAbctT28lmstblmifDLBsQ+AuvTxxCSIMQQ0b6FcVUvz+RwBUkQwgxHp98h/mjOP4zGOM0uQc6+GImoS8v8HrY8T9kkV8Ag/cLTehNvs2aKBpIuy4b5DdHXrUnWJisBtFrMtCz01GqwwfcEAwWPLAjWRy/fWlgbd71NsB9YAptTFnjNFtesYq+VpQSgX+YtoALsh6a8FhG9AqT6Iy0CrP0C+1LECFP9sQSSCjSBtu0rJ1QdDr9QoNpK5Lz0cDtxbTiZSRXxv6ieL3zkXpJ6x/Rf3o4vsECsXxhRv0O7SJuTjrWipwfwu5RM2YKCvHaW+XeiJFDj6/7L7GvrrEcV+0Hg==
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:BL0PR04MB6514.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(396003)(39830400003)(366004)(346002)(376002)(8936002)(66446008)(64756008)(66476007)(66556008)(5660300002)(4326008)(76116006)(91956017)(66946007)(83380400001)(6916009)(54906003)(2906002)(8676002)(36756003)(71200400001)(6506007)(6486002)(6512007)(508600001)(86362001)(186003)(2616005);
- DIR:OUT; SFP:1102; 
-x-ms-exchange-antispam-messagedata: =?utf-8?B?ZW1NcXBqM3lLRW1iQ28zT09aTnRRNWcyZ0NKRGpYZHlRWmJySTR2R3N4VFEw?=
- =?utf-8?B?N1dNd3F2OStweGNuR050OEprSHBhNW5LZmpXVU5XdFpCUDQwRk9oOENGR1B6?=
- =?utf-8?B?V2NIbm1IZ2hSbXB3b2Z6MWZza0ZSN1g5T2pRMlB3V0V6cm9XeWNFNEczNlRy?=
- =?utf-8?B?NTY0RXpmZWVRTW1GdHFTZ1pRSnUrYWxBcXM5cjZ0VGZ2L2xRZlRDb3ZaY2JY?=
- =?utf-8?B?MnJtS2E1ZlV3VzkxTWZlY2tGUDh2bk5vand4RUdHdWV3dm9UQVZxMUZ3L1Ja?=
- =?utf-8?B?aTV5L1F4UHoyMWpxQ3JSSjlIZGxETmxXZ2htMURmdlJvSXVOSTRzWHVobUxr?=
- =?utf-8?B?YVE5aXlQVnJkVUJFTk9oQ0xoMzA4OHNCU252a0E5RDdaRmdtQUk4YjgvNXRQ?=
- =?utf-8?B?ZXhpVjllVjBvNVFiZ0pPbmFuZU9uQkRUNTdRK21BRzNUK1VrMTcvbFZSU2lz?=
- =?utf-8?B?VFpCREtDQ014elRnenlTVEYyckRJMkVYUnFkeGJQVmsyK3JsMzZFK2dGYkpk?=
- =?utf-8?B?UzJ1cG4rUUtMck9XMTB4YmJJWFdQblhiV0tKM085TTdITHdSRmFqSFBZb2ph?=
- =?utf-8?B?WDhuZWdXc0JxSHBrb3hZVXdyeXhIZFhOZUw2eFhjYkZhWGtkb2FkUEVqKzRC?=
- =?utf-8?B?Z1FhOUN2L1NnY2hWSE9hbWlobHpnRzRjcjRYbWEyRnlTWDljd2NiK0E2TUl2?=
- =?utf-8?B?K0w5R0s0Tkt1cUxtcm5BRksxelM4WjRCZWgzYy8zcGxIazd5T080TlZCazVQ?=
- =?utf-8?B?N3pHdE8xQ0duMytEZnVRVldUK1dNVmNsazVKblVHWE5BNlJ3VGVwZjFIQytD?=
- =?utf-8?B?Q0lYb1FySjBqVVRUY2JqOWVUWGhhaHpLWFJaMXNzY0ZLQm1ORVJBK25KUlNv?=
- =?utf-8?B?a2tSamQ5QXo2bEJqK283TjBGNzhwTTRmRDJXK2lGaXFjcG5UMWVhQ3d4V1Mx?=
- =?utf-8?B?UHJia3dOaTFUdXRxVWU3QitTVi9DVVFaMGs4bkYyWTlMK1A0N0dXVHNOc2pS?=
- =?utf-8?B?QnhGQ25oY0VsVWErT1ZVTHRWRzNhOUpDd0ozazRtTE5KbktHSjY1bjM0YWhJ?=
- =?utf-8?B?Si9aN0huTnBrVEFzbVZYMUxpeW1CczVrOWtNSEZncysyOEUrWDMxZStUbVZn?=
- =?utf-8?B?N1dVVnNrVWs4eGh4MitWT3liQ2RMSjR5T3VRV1k3SHdlSEIwbXNTRjVNS2s5?=
- =?utf-8?B?dktLQTRjMDg5dmR2NjFhdEhUNXhJdGZYb2tTL1M1QkloRitRM1pCYnBpRWZp?=
- =?utf-8?B?QkZPc2J3Mk5HQW0reGlEanE5dEdaYUlBZFg1YjdScTJmSG94R253NDlyOGQ1?=
- =?utf-8?B?cGN1bmNiekc0c2t1T2xUcVF2SzJLUnVrVE03UDJ0NnJBWmIzV3p6YU9ZbEZv?=
- =?utf-8?B?bWhBS3ErUFA4VmdvUmhzaVk2TWY2TVN4ZkwwQ09LMnEvRnZoMEhSenQ0eVdH?=
- =?utf-8?B?SVAvVFloVlhnWnZOY3BUK2JYOGdKRnlEUU5GSWFRRjVxWlJyR1dxL2RmMDR1?=
- =?utf-8?B?STdTS2pJQk5CbE1TWVNIZ2hXc1ZiOVRuNjA4eWJjQmQrMmhoYTllZEJOY2ZC?=
- =?utf-8?B?VUV4UWtxelhLeStsOWVHVlRUcGVobTZCY3FSdFQvMHhRMnZHdjgxM3dmR0po?=
- =?utf-8?B?cmxITGgza2N5Wmw4ZTFaVVJ0Vit5RUlzRTF2OEhuYXNURTdrR1crNFJ2VHkr?=
- =?utf-8?B?bmdzb0QwUWdvTjJJOWNYTEdQa0VaYlNpeXR0SUlCWlNNaSsxVFZJOUROWUll?=
- =?utf-8?B?K21leFNQK1M0SUJvMHZjeGpnMGJOZThROUtvTFJDdmtFYml1N2QrVnp1Y2d3?=
- =?utf-8?B?OHZOZVBsVXFnL2dDUjNWT2FVYU9MWEl2Tm16SmlMaU1PZU9RMER2TU15eVkv?=
- =?utf-8?B?Z1FHSGhhZVU3b0dzVTZOTkZSWlFoeGdiVmJGWnVoVjA4V3c9PQ==?=
-Content-ID: <F684ADD56524954B9CA435F6D61388EF@namprd04.prod.outlook.com>
+ id 1l8BVx-0004Sw-QF
+ for linux-riscv@lists.infradead.org; Sat, 06 Feb 2021 00:31:54 +0000
+Received: by mail-qt1-x832.google.com with SMTP id d15so6347303qtw.12
+ for <linux-riscv@lists.infradead.org>; Fri, 05 Feb 2021 16:31:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=subject:to:cc:references:from:message-id:date:user-agent
+ :mime-version:in-reply-to:content-language:content-transfer-encoding;
+ bh=F+SY9eK3XDXeBXzsdGe1L5Qvg1tCpCGMdSMejg6tzVs=;
+ b=Mn+/YmKCJze+tIuCNwRzJzh3WzYLX+YEiE2Qf8KN7jgKBM6IOdhE142hc5Viqualvt
+ s6dZWmGmom5ANYXCspiFKBdxMvA3U1dFa6+H/77fbqxNFPXIihA7W+bZvptSk1ptCSrL
+ 2CR7ta7FYm5sSQJFfNCVp0DsuTMaimQUGaAl8HRrxFMSqqFnYUgmxph1xgSwE41rHS/o
+ vFagQmdc8nD3QxAJ3Rxsr85Lj2wQdl6pwrAlETPK3mf8WKcnGd1oM6iWohnuyQwo+8Fn
+ wcPw3kskH7InrWkPhzkvMBgE1anSXkXX+mbihAdeCxkRPpPT3Tvoek6sBU5UOVy9op6h
+ 2EnQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:subject:to:cc:references:from:message-id:date
+ :user-agent:mime-version:in-reply-to:content-language
+ :content-transfer-encoding;
+ bh=F+SY9eK3XDXeBXzsdGe1L5Qvg1tCpCGMdSMejg6tzVs=;
+ b=jRJyg+zbSgVfmdjd7NCbv0fq3bma9tZK1262NqZKwMhtBTWUV/HZuWp9XvYmFECH4a
+ BVIUdRhDWoruUnsbkFhlpXSd6G8TeMt6y1BZZbNaOPvaGRw3pcDcTJ1l7UbgBrY8kk/G
+ j9y8qnDe5r0P85sacOS5o1MsQP4lQ+6NT8W0ZSiCPctx5YZqfqKJaa0ent7Ml+H9cPPl
+ bJi7el3UPdEmxL9uvDH27jHPvZn0uvH8azbMUayIVrRtaNbptN7MUSILJfwX2l5JpNKo
+ 4x1KcAHINiVaQvdL/Zxy9hcDXG+2y6i3bom1M1MlfXUSzisAF9JY3egsdFu6ZcBfEJSN
+ JAFQ==
+X-Gm-Message-State: AOAM530AnqmP+9WFb65Znm68AFMM6epLKBQ52KTaQ+CyvehcGVQKSYQV
+ SQ/CXlvBYeG+dpMWdEIXpKY=
+X-Google-Smtp-Source: ABdhPJzZw32OhRkgZbWp1oyQlI9huQfuTQ8fJJ/4/YbX3IMr1wcRsav642KJ1jebtZYtl/5d2yyjyw==
+X-Received: by 2002:ac8:78d:: with SMTP id l13mr6489351qth.278.1612571510570; 
+ Fri, 05 Feb 2021 16:31:50 -0800 (PST)
+Received: from [192.168.1.201] (pool-108-51-35-162.washdc.fios.verizon.net.
+ [108.51.35.162])
+ by smtp.googlemail.com with ESMTPSA id f14sm10769582qkl.76.2021.02.05.16.31.49
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Fri, 05 Feb 2021 16:31:50 -0800 (PST)
+Subject: Re: [PATCH v14 07/16] dt-bindings: fix sifive gpio properties
+To: Damien Le Moal <Damien.LeMoal@wdc.com>, "robh@kernel.org" <robh@kernel.org>
+References: <20210202103623.200809-1-damien.lemoal@wdc.com>
+ <20210202103623.200809-8-damien.lemoal@wdc.com>
+ <CAL_JsqJNqKrsB3LJvBpNmY6H3V1c5x4duqB_0p8YKit4+ZYRBw@mail.gmail.com>
+ <89cccbae5add85c7bd811f3819ea3db7061e928d.camel@wdc.com>
+ <CAL_JsqJeF364bPSNQLGujNHDkA7x8H_H7YXQFNZQ7vDzdAevcA@mail.gmail.com>
+ <c9d273c87815a89be314e4e824a365313be0d677.camel@wdc.com>
+ <CAL_JsqKnAQ+ngNkaKkDAO5Bqd=ZwNm5A4VhxvuVZxgLdxxxpSg@mail.gmail.com>
+ <6351faa35c175d38e033ce433780c03c141c0ddf.camel@wdc.com>
+ <c170e192-9e3f-5682-5a7f-ac9fc573fd9d@gmail.com>
+ <f0b7df37e67151dab5699923549de6b3fbe30367.camel@wdc.com>
+From: Sean Anderson <seanga2@gmail.com>
+Message-ID: <1726dceb-868e-68a1-38df-2f80ee233ed1@gmail.com>
+Date: Fri, 5 Feb 2021 19:31:49 -0500
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.12.0
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BL0PR04MB6514.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6fd2c449-447a-499b-12a9-08d8ca340a83
-X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Feb 2021 00:13:33.5640 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 3D5vFw28cJUNRCMC81yOPeR1q8u2FJ5eDxsJpH/VVlKo4jTZVLa8Al3UiQINdfYAKXj4WFyPgxYX+PnVXm6InQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR04MB6669
+In-Reply-To: <f0b7df37e67151dab5699923549de6b3fbe30367.camel@wdc.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210205_191338_810433_EACA3B93 
-X-CRM114-Status: GOOD (  19.42  )
+X-CRM114-CacheID: sfid-20210205_193153_966122_5187712E 
+X-CRM114-Status: GOOD (  29.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -174,88 +106,198 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- Anup Patel <Anup.Patel@wdc.com>, "seanga2@gmail.com" <seanga2@gmail.com>,
- Atish Patra <Atish.Patra@wdc.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
+ Anup Patel <Anup.Patel@wdc.com>, Atish Patra <Atish.Patra@wdc.com>,
+ "palmer@dabbelt.com" <palmer@dabbelt.com>,
+ "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
  "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2021-02-05 at 14:25 -0600, Rob Herring wrote:
-[...]
-> > +			otp0: nvmem@50420000 {
-> > +				#address-cells = <1>;
-> > +				#size-cells = <1>;
-> > +				compatible = "canaan,k210-otp";
-> > +				reg = <0x50420000 0x100>,
-> > +				      <0x88000000 0x20000>;
-> > +				reg-names = "reg", "mem";
-> > +				clocks = <&sysclk K210_CLK_ROM>;
-> > +				resets = <&sysrst K210_RST_ROM>;
-> > +				read-only;
-> > +				status = "disabled";
+On 2/5/21 6:32 PM, Damien Le Moal wrote:
+> On Fri, 2021-02-05 at 17:55 -0500, Sean Anderson wrote:
+>> On 2/5/21 5:53 PM, Damien Le Moal wrote:
+>>> On Fri, 2021-02-05 at 14:02 -0600, Rob Herring wrote:
+>>>> On Wed, Feb 3, 2021 at 6:47 PM Damien Le Moal <Damien.LeMoal@wdc.com> wrote:
+>>>>>
+>>>>> On Wed, 2021-02-03 at 14:41 -0600, Rob Herring wrote:
+>>>>>> On Wed, Feb 3, 2021 at 6:52 AM Damien Le Moal <Damien.LeMoal@wdc.com> wrote:
+>>>>>>>
+>>>>>>> On Tue, 2021-02-02 at 13:02 -0600, Rob Herring wrote:
+>>>>>>>> On Tue, Feb 2, 2021 at 4:36 AM Damien Le Moal <damien.lemoal@wdc.com> wrote:
+>>>>>>>>>
+>>>>>>>>> The sifive gpio IP block supports up to 32 GPIOs. Reflect that in the
+>>>>>>>>> interrupts property description and maxItems. Also add the standard
+>>>>>>>>> ngpios property to describe the number of GPIOs available on the
+>>>>>>>>> implementation.
+>>>>>>>>>
+>>>>>>>>> Also add the "canaan,k210-gpiohs" compatible string to indicate the use
+>>>>>>>>> of this gpio controller in the Canaan Kendryte K210 SoC. If this
+>>>>>>>>> compatible string is used, do not define the clocks property as
+>>>>>>>>> required as the K210 SoC does not have a software controllable clock
+>>>>>>>>> for the Sifive gpio IP block.
+>>>>>>>>>
+>>>>>>>>> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+>>>>>>>>> Cc: Rob Herring <robh@kernel.org>
+>>>>>>>>> Cc: devicetree@vger.kernel.org
+>>>>>>>>> Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
+>>>>>>>>> ---
+>>>>>>>>>    .../devicetree/bindings/gpio/sifive,gpio.yaml | 21 ++++++++++++++++---
+>>>>>>>>>    1 file changed, 18 insertions(+), 3 deletions(-)
+>>>>>>>>>
+>>>>>>>>> diff --git a/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml b/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml
+>>>>>>>>> index ab22056f8b44..2cef18ca737c 100644
+>>>>>>>>> --- a/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml
+>>>>>>>>> +++ b/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml
+>>>>>>>>> @@ -16,6 +16,7 @@ properties:
+>>>>>>>>>          - enum:
+>>>>>>>>>              - sifive,fu540-c000-gpio
+>>>>>>>>>              - sifive,fu740-c000-gpio
+>>>>>>>>> +          - canaan,k210-gpiohs
+>>>>>>>>>          - const: sifive,gpio0
+>>>>>>>>>
+>>>>>>>>>      reg:
+>>>>>>>>> @@ -23,9 +24,9 @@ properties:
+>>>>>>>>>
+>>>>>>>>>      interrupts:
+>>>>>>>>>        description:
+>>>>>>>>> -      interrupt mapping one per GPIO. Maximum 16 GPIOs.
+>>>>>>>>> +      interrupt mapping one per GPIO. Maximum 32 GPIOs.
+>>>>>>>>>        minItems: 1
+>>>>>>>>> -    maxItems: 16
+>>>>>>>>> +    maxItems: 32
+>>>>>>>>>
+>>>>>>>>>      interrupt-controller: true
+>>>>>>>>>
+>>>>>>>>> @@ -38,6 +39,10 @@ properties:
+>>>>>>>>>      "#gpio-cells":
+>>>>>>>>>        const: 2
+>>>>>>>>>
+>>>>>>>>> +  ngpios:
+>>>>>>>>> +    minimum: 1
+>>>>>>>>> +    maximum: 32
+>>>>>>>>
+>>>>>>>> What's the default as obviously drivers already assume something.
+>>>>>>>>
+>>>>>>>> Does a driver actually need to know this? For example, does the
+>>>>>>>> register stride change or something?
+>>>>>>>>
+>>>>>>>> Please don't add it if the only purpose is error check your DT (IOW,
+>>>>>>>> if it just checks the max cell value in gpios phandles).
+>>>>>>>
+>>>>>>> If I remove that, make dtbs_check complains. Looking at othe gpio controller
+>>>>>>> bindings, they all have it. So isn't it better to be consistent, and avoid make
+>>>>>>> dtbs_check errors ?
+>>>>>>
+>>>>>> That would mean you are already using 'ngpios' and it is undocumented
+>>>>>> (for this binding). If already in use and possibly having users then
+>>>>>> that changes things, but that's not what the commit msg says.
+>>>>>>
+>>>>>> Not *all* gpio controllers have ngpios. It's a good number, but
+>>>>>> probably more than need it though. If we wanted it everywhere, there
+>>>>>> would be a schema enforcing that.
+>>>>>
+>>>>> If I remove the minimum and maximum lines, I get this error:
+>>>>
+>>>> I never said remove minimum/maximum. The suggestion is either add
+>>>> 'default: 16' or remove 'ngpios' entirely.
+>>>>
+>>>>> ./Documentation/devicetree/bindings/gpio/sifive,gpio.yaml:42:10: [error] empty
+>>>>> value in block mapping (empty-values)
+>>>>>     CHKDT   Documentation/devicetree/bindings/processed-schema-examples.json
+>>>>> /home/damien/Projects/RISCV/linux/Documentation/devicetree/bindings/gpio/sifive
+>>>>> ,gpio.yaml: properties:ngpios: None is not of type 'object', 'boolean'
+>>>>>     SCHEMA  Documentation/devicetree/bindings/processed-schema-examples.json
+>>>>> /home/damien/Projects/RISCV/linux/Documentation/devicetree/bindings/gpio/sifive
+>>>>> ,gpio.yaml: ignoring, error in schema: properties: ngpios
+>>>>> warning: no schema found in file:
+>>>>> ./Documentation/devicetree/bindings/gpio/sifive,gpio.yaml
+>>>>
+>>>> ngpios: true
+>>>>
+>>>> or
+>>>>
+>>>> ngpios: {}
+>>>>
+>>>> Are the minimum valid values for a key. (Though not what should be done here.)
+>>>>
+>>>>>
+>>>>> If I remove the ngpios property entirely, then I get a hit on the device tree:
+>>>>>
+>>>>>     CHECK   arch/riscv/boot/dts/canaan/sipeed_maix_bit.dt.yaml
+>>>>> /linux/arch/riscv/boot/dts/canaan/sipeed_maix_bit.dt.yaml:
+>>>>> gpio-controller@38001000: 'ngpios' does not match any of the regexes: 'pinctrl-
+>>>>> [0-9]+'
+>>>>>           From schema:
+>>>>> /home/damien/Projects/RISCV/linux/Documentation/devicetree/bindings/gpio/sifive
+>>>>> ,gpio.yaml
+>>>>
+>>>> That's not upstream, right? Then fix it.
+>>>>
+>>>>> Now, If I change the property definition to this:
+>>>>>
+>>>>> diff --git a/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml
+>>>>> b/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml
+>>>>> index 2cef18ca737c..5c7865180383 100644
+>>>>> --- a/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml
+>>>>> +++ b/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml
+>>>>> @@ -40,8 +40,11 @@ properties:
+>>>>>        const: 2
+>>>>>
+>>>>>      ngpios:
+>>>>> -    minimum: 1
+>>>>> -    maximum: 32
+>>>>> +    $ref: /schemas/types.yaml#/definitions/uint32
+>>>>> +    description:
+>>>>> +      The number of GPIO pins implemented by the controller.
+>>>>> +      It is 16 for the SiFive SoCs and 32 for the Canaan K210 SoC.
+>>>>> +
+>>>>>
+>>>>>      gpio-controller: true
+>>>>>
+>>>>> Then all is OK.
+>>>>>
+>>>>> Which option should I go for here ? If we want to avoid a dtbs_check error, as
+>>>>> far as I can see, we can:
+>>>>> 1) Remove the ngpios property and remove its use from the DTS, which is not
+>>>>> nice in my opinion
+>>>>
+>>>> Again, it depends if there are users depending on it. A user being a
+>>>> GPIO driver somewhere, not a DTS file. The GPIO driver in the kernel
+>>>> doesn't need it. So u-boot? BSD?
+>>>
+>>> The Linux driver uses the number of interrupts for the number of gpios but
+>>> upstream U-Boot uses the ngpios property. So I will change this to use
+>>> "default: 16" as you suggested.
+>>
+>> There is no reasonable default for this hardware. I would much rather
+>> you keep the schema as-is, or at least go with the second option.
 > 
-> Your disabled nodes seem a bit excessive. A device should really only be 
-> disabled if it's a board level decision to use or not. I'd assume the 
-> OTP is always there and usable.
+> Since the SiFive official doc seems to say "16" as the number of gpio for this
+> controller, we could assume that to be the default. No ? But I agree that
+> clearly, the implementation can be hacked to have any number of GPIOs...
 
-Please see below.
+Keep in mind that those docs are for SiFive's particular instantiation
+of that IP, not for the IP in general. Although some parameters (e.g.
+dsWidth) have defaults, width does not.
+
+--Sean
 
 > 
-> > +
-> > +				/* Bootloader */
-> > +				firmware@00000 {
 > 
-> Drop leading 0s.
+>>
+>> --Sean
+>>
+>>>
+>>> Thanks !
+>>>
+>>>>
+>>>>> 2) Use the modification proposed above
+>>>
+>>
 > 
-> Is this memory mapped? If so, you are missing 'ranges' in the parent to 
-> make it translateable.
-> 
-> > +					reg = <0x00000 0xC200>;
-> > +				};
-> > +
-> > +				/*
-> > +				 * config string as described in RISC-V
-> > +				 * privileged spec 1.9
-> > +				 */
-> > +				config-1-9@1c000 {
-> > +					reg = <0x1C000 0x1000>;
-> > +				};
-> > +
-> > +				/*
-> > +				 * Device tree containing only registers,
-> > +				 * interrupts, and cpus
-> > +				 */
-> > +				fdt@1d000 {
-> > +					reg = <0x1D000 0x2000>;
-> > +				};
-> > +
-> > +				/* CPU/ROM credits */
-> > +				credits@1f000 {
-> > +					reg = <0x1F000 0x1000>;
-> > +				};
-> > +			};
-> > +
-> > +			dvp0: camera@50430000 {
-> > +				compatible = "canaan,k210-dvp";
-> 
-> No documented. Seems to be several of them.
 
-There are no Linux drivers for these undocumented nodes. That is why I did not
-add any documentation. make dtbs_check does not complain about that as long as
-the nodes are marked disabled. I kept these nodes to have the DTS in sync with
-U-Boot which has them. Keeping them also creates documentation for the SoC
-since this device tree is more detailed than the SoC specsheet...
-
-I removed "status = disabled;" from all nodes that have a Linux driver and kept
-it for all nodes that don't have one.
-
-
-
--- 
-Damien Le Moal
-Western Digital Research
 
 _______________________________________________
 linux-riscv mailing list
