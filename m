@@ -2,95 +2,81 @@ Return-Path: <SRS0=2LT1=HI=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.7 required=3.0 tests=BAYES_00,DKIM_SIGNED,
-	DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
-	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.7 required=3.0 tests=BAYES_00,DKIM_ADSP_CUSTOM_MED,
+	DKIM_SIGNED,DKIM_VALID,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,
+	HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1A3EEC433E0
-	for <linux-riscv@archiver.kernel.org>; Sat,  6 Feb 2021 10:02:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B5724C433E0
+	for <linux-riscv@archiver.kernel.org>; Sat,  6 Feb 2021 10:28:11 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B0F4E64E5C
-	for <linux-riscv@archiver.kernel.org>; Sat,  6 Feb 2021 10:02:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B0F4E64E5C
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmx.de
+	by mail.kernel.org (Postfix) with ESMTPS id 66C6364E68
+	for <linux-riscv@archiver.kernel.org>; Sat,  6 Feb 2021 10:28:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 66C6364E68
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=gmail.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=oVQLau4QxcuL3qM3dL8qUeahv8MNHwZ51BKD1PPCnao=; b=L7BiTvc4GlK4vFA3NiRb+ZnSYh
-	OA9oIbVtL/obcmTLNkjP0TZGrecqfv4R2nqujgDlmZpAvA6H0VdPpC/uvXdYEensEL0hN+VbmqOOR
-	UCDlgAfAZW52qDj6/d++lyh8SmAYfN7/F0Oqz4Fm9d+l8XvRWW3IIAnINg3dmGmvvQi7Z5JE1R+Wg
-	CZvWvfrdXiEDPGU0jDfVVHVM+koGKv8FOgdilHF00gPArzFZS0mFJU0Qis9Ir/cZcloMy5Kbw1t/I
-	HNefYEJ3QQ5WhGQgVwHpr088E34XVc3q4CR7JaboF+Z0WDdeK8oCyrYiMDAc/xPnoxJve0+Ed01C9
-	0eWFBCug==;
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=iO8aXg+xCHSnACEKcy7lurZY6w7WtuRSDCKmzJgQ81o=; b=FWmz3nBtHbHG7lqumyobUSRR2
+	6vDs4gNhhZjGrAmYuk4LmJYjyRwqCSFGVNsnW0k0wJGvM7tghO2eYcRSN6SDSAdAeJSryTsoBTI2n
+	lWFbP/rZVcdmATwrOSSEULXLtd9qNzQ4894PWAhgDeMCtUkuYiVR81EnyMp6SVPdgRn6qGBnFwzWD
+	pvZr4S60IHlRA7yWsEFVnvubv/fj4+XiNhBoeIAZfu083ZdNdFoLoS+i0+gtjoX+fuLDzzpdH+Okc
+	zIT2KmEKmU6edNklM3AehYtGG98EEQwSeAFjhfjUyn6YFX3qKknoUq4GyQjo0U5zfkLrSdz4YVK7P
+	RkMX9nl7Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l8KPa-0007JT-Ac; Sat, 06 Feb 2021 10:01:54 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1l8Kor-0001B9-Q5; Sat, 06 Feb 2021 10:28:01 +0000
+Received: from mail-il1-x129.google.com ([2607:f8b0:4864:20::129])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l8KPZ-0007JM-Gr
- for linux-riscv@merlin.infradead.org; Sat, 06 Feb 2021 10:01:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
- Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
- Content-Description:In-Reply-To:References;
- bh=Cx9VL93k3tyxQYx5WuPJE6jphHlH1ur0iw5UkEru2nc=; b=TwC/TzLLSiFsDYZBgP/JqPsw4a
- 6x7JsAoGYc1d4zsp2A/6sK4i8+uKPb/8XA7jVk2sgHj+iKitKRhzVOoWUQwvVTQVI7YY4yyCIHZ6G
- ordPuJLh1c/e8a5256DrQoYpBUUzZ2NK6y24UiYwnxi4ECT5BSHNUkyGcO7OMo1RkC22fFIBYalYs
- onJJ64mTdWFfzNeuzZ/Fj5gMmNKwmVJp/8fa7fNrIAHk5zmYkGUsk1yv8R4nOx3cZtyQm6CKyyU0k
- IYJT0YqIrflOjG6s1FtE91sMKd7nV6Ldo3gjhjvyVvg2ajYMmtpxGOVY4Imuvz1SezeNURfEtgtpR
- tgWA0CvQ==;
-Received: from mout.gmx.net ([212.227.15.18])
- by casper.infradead.org with esmtps (Exim 4.94 #2 (Red Hat Linux))
- id 1l8KPX-003R0p-MF
- for linux-riscv@lists.infradead.org; Sat, 06 Feb 2021 10:01:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
- s=badeba3b8450; t=1612605694;
- bh=iRGL7FWGbS8lM2q90/wYQp1C2YaJp0pAX99Mh1ZkBJI=;
- h=X-UI-Sender-Class:From:To:Cc:Subject:Date;
- b=ITSJlgqOgnjlBmQSI7u5Tr0R3RoM1ekTI+Kw9Frjs+1UxxjT1Ym1t4Gz7nXPz/6YB
- D/6TiWN9pDTE1rAnzF/WVYBCGA+5n9KSF42/Y3807m0w4s/1Hk+Q+3wX3qQk7KB7oW
- z6pB2ygKLow1Rb1l6S7eJNt8BHOMrptMeZw4airQ=
-X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
-Received: from LT02.fritz.box ([62.143.246.89]) by mail.gmx.net (mrgmx005
- [212.227.17.184]) with ESMTPSA (Nemesis) id 1MOiDd-1lHtpZ1IPH-00Q8xK; Sat, 06
- Feb 2021 11:01:34 +0100
-From: Heinrich Schuchardt <xypron.glpk@gmx.de>
-To: Ard Biesheuvel <ardb@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>
-Subject: [PATCH] docs: update EFI stub description
-Date: Sat,  6 Feb 2021 11:01:15 +0100
-Message-Id: <20210206100115.58074-1-xypron.glpk@gmx.de>
-X-Mailer: git-send-email 2.30.0
+ id 1l8Kom-0001An-2Z
+ for linux-riscv@lists.infradead.org; Sat, 06 Feb 2021 10:28:00 +0000
+Received: by mail-il1-x129.google.com with SMTP id p15so8206837ilq.8
+ for <linux-riscv@lists.infradead.org>; Sat, 06 Feb 2021 02:27:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=DVNmJAoeq9wlQbsr8Q3rhhYVpPsGp6lqUj0p5GBijlc=;
+ b=s+5gSUt+0UpRLwHFTDFQq1G9os7t1BvxRSvC/Mjk03zHgmil5eNmMTP28O17wREEON
+ 0ODxo7e/KAUFyY9McZc+XA5TebyiCL7+gtn3emZoEEJ1XrufjEY8BJ469hfrDIDd5vsE
+ nOgkW7Sn0XHeo6VC7dffMDdOlrJwZmkxosh1SKp17dVEyzrVkaJOusO8owK0bJjle7uq
+ cZk8hnf9dD2UCJUvpWL9IM6F/AVuiDqejGiTyAXZ0SAiCu2jZKuqpUjobw+II2TlOzou
+ aun649mY2g9A9FFtLuE6/f8ZI3tfmTFQmNZlFoy1hQSepm09lKRqMC1bFt1YSEquwC1U
+ nhZw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=DVNmJAoeq9wlQbsr8Q3rhhYVpPsGp6lqUj0p5GBijlc=;
+ b=GpMwathJoAqsJA2FYA5yQdYZbT/IcfMSWFD4m08NksFJLnvVFkVh1b8iSaZDykcqW0
+ 9oPEWF5h8MGcTTsiFO8cxadkODRucPTANm2V8kpwKK3BWphNqY1j2Duf0stz9LR/K6CR
+ ak+yLxfhwHZ8Ks3McNaGRh6qQeaM6gGMQxZoNdzB3FV3AGzu3vdmpEAe8ggZkUah/PUU
+ OHc1NPanGEJH+ks8ba/3icnToJ1L0YI8n6ACnsAia0dpLyjVCQEnHPt5j44Cvhbhs1I3
+ ZW9KwmZ8zZr1rWLirC2dPNmco/NHB9Aj9e5ymvRMbK0RXjOK6XIfwYZZVzeTz7jkw9vX
+ 4GAw==
+X-Gm-Message-State: AOAM530svcqmpuzrqP/sA8t3m/xI9pd/2/CpqPP67gaopdhYUIiJWjRk
+ AtWU2JRCrH1OeLI6Qe5G+l+/6Vz2cQ1rsHdJas8=
+X-Google-Smtp-Source: ABdhPJy+i1itBLCmYeachXx42HuBJD1HPhrm9+h9SkQvlzzIako81v26SyTpg40C6wIESyXd1kRYkvovuEJ6VYDVEQM=
+X-Received: by 2002:a05:6e02:1bad:: with SMTP id
+ n13mr7333713ili.260.1612607272469; 
+ Sat, 06 Feb 2021 02:27:52 -0800 (PST)
 MIME-Version: 1.0
-X-Provags-ID: V03:K1:l8qcEMLM+q98tifEQUVifOqzq8mbDrZvtjXPzNpOcEs3ylpjSaY
- 0iyi/6lmi9OUYa+jAPiVe7IobgtHDytWHPyNmBOCEVLXXnux1DTBFV3YN5/0PJWvjWcEykY
- Jg6c5v9urzKjZBsOMr7piX0bND0X2dE7duA5WNtQzp0/yG1LJvBn3OZ96ay/ix05biNDYyy
- 3ZwWD4BCotPG5LVLY7T7A==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:4MkptHc9bXA=:IiEAiAK9dOtd2NTs3c2Pem
- lSupszveXV4JXmeXK88kELbCIbnmwWJj9VL8eJl0pATLDAsYR/GAesRa2+69r92u5+jwMyGU2
- TvpdKL/EvBoUTfUoHvr3zNDnhT5KBjcufVZGxMEgQ1zkFTJuFYxp1v+3BRqLoH2gUIMlQn9B7
- ZHuMvhIpqWHvN813SqvlocCtyN9RdiW17KKnvKZKXi4Yrt2hEayK1BE8zoqCgXa/VHjGIsrDY
- U+VOqnXhq5deeEiaW7KUaSmvjIjg900irbNLfB1e7capIjXMOzPHl0uZcNHOjxCvB/n077Msq
- IjwBroqZKU9xbGZrwJwcvWZ4S2Wxh0Mb9P4t4B2Tf+hrvBXGM3gJ0Wk2oeRuLHqJhddtAniI1
- d2NdyNQShAEEv7pc0vWq5S96ijmcJA0yd80Go+0C/U3uVLF15x7jDvU0uMGRFrqF1gecq4lML
- txjlt30Rzmp+qJ9A27JWyCWVT8xUsPMAljzXoYwo/XqeA9T5lhdvQQkMy/KaEm9RND67sP878
- 3vtv+bzEsHx43RdTbQKiwkbjCVKnzz9QODLS4in4fom5RQHikS7aeLfY9C93zxCbgBL8bxeYX
- RxCYx6h064bGiyKLqY84dyqmoAJB30huZ1x8kSF4O0wSqtjiMcSwtmjkz0W1TbVub2CXYbgeM
- oADkjtJSfy81xdFCoCTRkubKt5QU8hLmeTcuifJNzRKFlEwH1OCBz4c2EkiV2xA+Wp+TjZPsg
- 9XuhpuqgDhgsy7aa/UVKcmxabtYJCt1e5SPuGCjVXwPjvNTvA33v6f5RhSteVPRIcQ4sRTWYN
- aoqDq/6yhH/n7dMNchQ94H6swcp6HxI6GcNUbIyl1XuSRftVEHPhYOyUa6YTjYY6Ap0MDrkFN
- MZQUYKOQWJfL35egQV0A==
+References: <87a6skw31l.fsf@igel.home>
+ <mhng-5072e618-a4fa-4982-a3ba-e395cde8a145@palmerdabbelt-glaptop>
+In-Reply-To: <mhng-5072e618-a4fa-4982-a3ba-e395cde8a145@palmerdabbelt-glaptop>
+From: David Abdurachmanov <david.abdurachmanov@gmail.com>
+Date: Sat, 6 Feb 2021 12:27:16 +0200
+Message-ID: <CAEn-LTpcO_mX-w_nbLKtf-0AszYPpQ=ren7Tk90OuLSZBiBhRQ@mail.gmail.com>
+Subject: Re: [PATCH v2 0/3] fix macb phy probe failure if phy-reset is not
+ handled
+To: Palmer Dabbelt <palmer@dabbelt.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210206_100152_013236_00633F21 
-X-CRM114-Status: GOOD (  17.74  )
+X-CRM114-CacheID: sfid-20210206_052756_129746_D49080D3 
+X-CRM114-Status: GOOD (  31.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -102,116 +88,143 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-efi@vger.kernel.org, linux-doc@vger.kernel.org,
- Heinrich Schuchardt <xypron.glpk@gmx.de>, linux-kernel@vger.kernel.org,
- Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
+Cc: devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
+ kernel@esmil.dk, Anup Patel <anup@brainfault.org>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Atish Patra <Atish.Patra@wdc.com>, Yash Shah <yash.shah@sifive.com>,
+ robh+dt@kernel.org, Andreas Schwab <schwab@linux-m68k.org>,
+ sagar.kadam@sifive.com, Paul Walmsley <paul.walmsley@sifive.com>,
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-* Mention RISC-V.
-* Update code references.
-* initrd= does not specify a path relative on the ESP but to the partition
-  from which the EFI stub was loaded (as specified in the loaded image
-  protocol).
-* Mention that ACPI tables and device trees are alternatives.
-* Provide the FDT GUID.
+On Fri, Feb 5, 2021 at 5:42 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+>
+> On Thu, 04 Feb 2021 02:16:54 PST (-0800), schwab@linux-m68k.org wrote:
+> > On Jan 13 2021, Palmer Dabbelt wrote:
+> >
+> >> On Tue, 10 Nov 2020 07:22:09 PST (-0800), sagar.kadam@sifive.com wrote:
+> >>> HiFive Unleashed is having VSC8541-01 ethernet phy device and requires a
+> >>> specific reset sequence of 0-1-0-1 in order to use it in unmanaged mode.
+> >>> This series addresses a corner case where phy reset is not handled by boot
+> >>> stages prior to linux.
+> >>> Somewhat similar unreliable phy probe failure was reported and discussed
+> >>> here [1].
+> >>> The macb driver fails to detect the ethernet phy device if the bootloader
+> >>> doesn't provide a proper reset sequence to the phy device or the phy itself
+> >>> is in some invalid state. Currently, the FSBL or u-boot-spl is resetting
+> >>> the phy device, and so there is no issue observed in the linux network
+> >>> setup.
+> >>>
+> >>> The series is based on linux-5.10-rc5.
+> >>> Patch 1: Add the OUI to the phy dt node to fix issue of missing mdio device
+> >>> Patch 2 and 3:
+> >>>     Resetting phy needs GPIO support so add to dt and defconfig.
+> >>>
+> >>> [1] https://lkml.org/lkml/2018/11/29/154
+> >>>
+> >>> To reproduce the issue:
+> >>> Using FSBL:
+> >>> 1. Comment out VSC8541 reset sequence in fsbl/main.c
+> >>>    from within the freedom-u540-c000-bootloader.
+> >>> 2. Build and flash fsbl.bin to micro sdcard.
+> >>>
+> >>> Using u-boot:
+> >>> 1. Comment out VSC8541 reset sequence in board/sifive/fu540/spl.c
+> >>>    from mainline u-boot source code.
+> >>> 2. Build and flash u-boot binaries to micro sdcard.
+> >>>
+> >>> Boot the board and bootlog will show network setup failure messages as:
+> >>>
+> >>> [  1.069474] libphy: MACB_mii_bus: probed
+> >>> [  1.073092] mdio_bus 10090000.ethernet-ffffffff: MDIO device at address 0
+> >>>            is missing
+> >>> .....
+> >>> [  1.979252] macb 10090000.ethernet eth0: Could not attach PHY (-19)
+> >>>
+> >>> 3. Now apply the series build, and boot kernel.
+> >>> 4. MACB and VSC8541 driver get successfully probed and the network is set
+> >>>    without any failure.
+> >>>
+> >>>
+> >>> So irrespective of whether the prior stages handle the phy reset sequence,
+> >>> the probing is successful in both the cases of cold boot and warm boot.
+> >>>
+> >>> Change History:
+> >>> ===============================
+> >>> V2:
+> >>> -Rebased v1 on linux kernel v5.10-rc3.
+> >>>
+> >>> V1:
+> >>> -Ignore 4th patch as suggested and so removed it from the series.
+> >>> -Verified this series on 5.7-rc5.
+> >>>
+> >>> V0: Base RFC patch. Verified on 5.7-rc2
+> >>>
+> >>> Sagar Shrikant Kadam (3):
+> >>>   dts: phy: fix missing mdio device and probe failure of vsc8541-01
+> >>>     device
+> >>>   dts: phy: add GPIO number and active state used for phy reset
+> >>>   riscv: defconfig: enable gpio support for HiFive Unleashed
+> >>>
+> >>>  arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts | 2 ++
+> >>>  arch/riscv/configs/defconfig                        | 2 ++
+> >>>  2 files changed, 4 insertions(+)
+> >>
+> >> David pointed out I missed these, they're on fixes.  Thanks!
+> >
+> > This is now on 5.10.12, and breaks ethernet on the Hifive Unleashed:
+> >
+> > [   12.777976] macb 10090000.ethernet: Registered clk switch 'sifive-gemgxl-mgmt'
+> > [   12.784559] macb 10090000.ethernet: GEM doesn't support hardware ptp.
+> > [   12.791629] libphy: MACB_mii_bus: probed
+> > [   12.919728] MACsec IEEE 802.1AE
+> > [   12.984676] macb 10090000.ethernet eth0: Cadence GEM rev 0x10070109 at 0x10090000 irq 16 (70:b3:d5:92:f1:07)
+> > [   14.030319] Microsemi VSC8541 SyncE 10090000.ethernet-ffffffff:00: phy_poll_reset failed: -110
+> > [   14.038986] macb 10090000.ethernet eth0: Could not attach PHY (-110)
+>
+> Sorry about that.  Looks like we forgot to add the special reset sequence to
+> the VSC8541, which the driver doesn't yet support (there's a thread about it,
+> but I guess I forgot to clean up the patch).  IIUC this should manifest on
+> master as well, so my guess is that nobody is testing the HiFive Unleashed any
+> more (probably a bad sign).
 
-Signed-off-by: Heinrich Schuchardt <xypron.glpk@gmx.de>
----
- Documentation/admin-guide/efi-stub.rst | 47 +++++++++++++++-----------
- 1 file changed, 27 insertions(+), 20 deletions(-)
+BayLibre has Unleashed connected to KernelCI. I did notice:
 
-diff --git a/Documentation/admin-guide/efi-stub.rst b/Documentation/admin-guide/efi-stub.rst
-index 833edb0d0bc4..9e1bb79e8655 100644
---- a/Documentation/admin-guide/efi-stub.rst
-+++ b/Documentation/admin-guide/efi-stub.rst
-@@ -8,15 +8,20 @@ it as an EFI executable. The code that modifies the bzImage header,
- along with the EFI-specific entry point that the firmware loader
- jumps to are collectively known as the "EFI boot stub", and live in
- arch/x86/boot/header.S and arch/x86/boot/compressed/eboot.c,
--respectively. For ARM the EFI stub is implemented in
--arch/arm/boot/compressed/efi-header.S and
--arch/arm/boot/compressed/efi-stub.c. EFI stub code that is shared
--between architectures is in drivers/firmware/efi/libstub.
-+respectively. For ARM the EFI stub entry point is implemented in
-+arch/arm/boot/compressed/efi-header.S.
+[..]
+08:24:37.572482  <3>[    2.022855] Microsemi VSC8541 SyncE
+10090000.ethernet-ffffffff:00: phy_poll_reset failed: -110
+08:24:37.574273  <3>[    2.031882] macb 10090000.ethernet eth0: Could
+not attach PHY (-110)
+08:24:37.575304  <3>[    2.037772] IP-Config: Failed to open eth0
+08:24:37.576087  <3>[    2.042087] IP-Config: No network devices available
+08:24:37.576863  <6>[    2.053662] Freeing unused kernel memory: 2144K
+08:24:37.577412  <6>[    2.057794] Run /init as init process
+[..]
 
--For arm64, there is no compressed kernel support, so the Image itself
--masquerades as a PE/COFF image and the EFI stub is linked into the
--kernel. The arm64 EFI stub lives in arch/arm64/kernel/efi-entry.S
--and drivers/firmware/efi/libstub/arm64-stub.c.
-+For ARM64 and RISC-V, there is no compressed kernel support, so the Image
-+itself masquerades as a PE/COFF image and the EFI stub is linked into the
-+kernel. The EFI stub entry point is in  arch/ARM64/kernel/efi-entry.S for
-+ARM64 and in arch/riscv/kernel/efi-header.S for RISC-V.
-+
-+EFI stub code that is shared between architectures is in
-+drivers/firmware/efi/libstub.
-+
-+The common secondary entry point efi_pe_entry() for ARM, ARM64, and RISC-V
-+into the stub is in drivers/firmware/efi/libstub/efi-stub.c while x86 uses
-+drivers/firmware/efi/libstub/x86-stub.c.
+in KCIDB.
 
- By using the EFI boot stub it's possible to boot a Linux kernel
- without the use of a conventional EFI boot loader, such as grub or
-@@ -35,7 +40,7 @@ the extension the EFI firmware loader will refuse to execute it. It's
- not possible to execute bzImage.efi from the usual Linux file systems
- because EFI firmware doesn't have support for them. For ARM the
- arch/arm/boot/zImage should be copied to the system partition, and it
--may not need to be renamed. Similarly for arm64, arch/arm64/boot/Image
-+may not need to be renamed. Similarly for ARM64, arch/arm64/boot/Image
- should be copied but not necessarily renamed.
+I don't use KernelCI extensively, but today at FOSDEM I was told that
+KernelCI also incl. "including maintainer ones".
+
+I guess the idea would be to check and ensure that all relevant trees
+are tested in KernelCI.
 
 
-@@ -55,10 +60,11 @@ multiple initrd files using the "initrd=" option. This is the only EFI
- stub-specific command line parameter, everything else is passed to the
- kernel when it boots.
-
--The path to the initrd file must be an absolute path from the
--beginning of the ESP, relative path names do not work. Also, the path
--is an EFI-style path and directory elements must be separated with
--backslashes (\). For example, given the following directory layout::
-+The path to the initrd file must be an absolute path from the beginning of
-+the partition from which the kernel was loaded, relative path names do not
-+work. Also, the path is an EFI-style path and directory elements must be
-+separated with backslashes (\). For example, given the following directory
-+layout::
-
-   fs0:>
- 	Kernels\
-@@ -83,18 +89,19 @@ is passed to bzImage.efi.
- The "dtb=" option
- -----------------
-
--For the ARM and arm64 architectures, a device tree must be provided to
--the kernel. Normally firmware shall supply the device tree via the
--EFI CONFIGURATION TABLE. However, the "dtb=" command line option can
--be used to override the firmware supplied device tree, or to supply
--one when firmware is unable to.
-+If ACPI tables are not available, a device tree must be provided to the
-+kernel. Normally the firmware shall supply the device tree as an EFI
-+configuration table with GUID b1b621d5-f19c-41a5-830b-d9152c69aae0.
-+However, the "dtb=" command line option can be used to override the
-+firmware supplied device tree, or to supply one when firmware is unable
-+to.
-
- Please note: Firmware adds runtime configuration information to the
- device tree before booting the kernel. If dtb= is used to override
- the device tree, then any runtime data provided by firmware will be
- lost. The dtb= option should only be used either as a debug tool, or
--as a last resort when a device tree is not provided in the EFI
--CONFIGURATION TABLE.
-+as a last resort when a device tree is not provided as an EFI
-+configuration table.
-
- "dtb=" is processed in the same manner as the "initrd=" option that is
- described above.
---
-2.30.0
-
+>
+> I'll send out a revert.  I looked at the GPIO driver and can't tell if it's
+> twiddling GPIO lines when probed, in which case just enabling the GPIO would
+> break the ethernet.  Hopefully we're OK with the GPIO driver enabled.
+>
+> Thanks for testing this.
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
