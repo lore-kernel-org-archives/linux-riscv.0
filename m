@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-17.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 04665C433E0
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Feb 2021 19:33:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 59DB8C433E0
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Feb 2021 19:34:56 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9BBE464E85
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Feb 2021 19:33:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9BBE464E85
+	by mail.kernel.org (Postfix) with ESMTPS id C1A2060238
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Feb 2021 19:34:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C1A2060238
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,24 +23,23 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=98obmhcY6Jsq1Z+eepThNzUyZX0i1lgLlQlZbvLH8Ss=; b=kwaTlETi7/HwUWLgTvLsCpACx
-	vDXUZ+Y7HkLLaSKReE9vZ0K5cWU6gyxjXK97tsMg+oQYX0I7n5DdsJcGc7FjJmAs2Hd4okAW+3dkU
-	ks8eNyJ3Do5CPWaLg0ZMQuwrUVD1jNBV7rLaVOKrqKF3ld/1a5IgxuH2bbXZUBPVT6C0kFiTZILx8
-	Fy0d5TclKc0mKJCySA+jYoBHtsstDwRF8dSxtY0D5I2AdX3wcWEijBmIWWtgapCiLhog/k3VbGEJq
-	XnHjxsh+Okepuz/jKJIAVqjnravYkY716Nlh2ttPAkFwHd7v6PjmKKPOgj7DUNczft5rMTejzu9nM
-	clOlhmXxw==;
+	 bh=rkXOplaLH3vCZiBfXz9UZCMlrn9kBNdFdg5BaI4YjYw=; b=oTezG724Yc8vQyLuacnU28VUL
+	SZrAecYiLwwO3WMyiKWUjn8OMVz6OitXaAGGVcFQ2cVoRiQ9gUJUzsIgRXAKISsbWf8iA8Ay5MqAQ
+	6rPJqnNS9ii/3H2F2A0ATNVkBBxoj8FRQzIltnLPj/sBKbO5aWGiDw+mCbh/edhcRQaphJghlWO8E
+	L9QVJVLBFKCBRITwja8p0QfMSalc7fBOFKe8GHe+TI32hlK6jy0SEk7GiXCfWO5A1ITI9nLga3Sg/
+	i5JsLlbiPTOkmQW89Uet3Z3KcUlvmCVhmx2Em2M0hjtwnbirFlxqfwImF+4mpRumlcwapG3HV+8Ms
+	1lFYiTJOA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l9CI1-0007NN-Ei; Mon, 08 Feb 2021 19:33:41 +0000
-Received: from relay1-d.mail.gandi.net ([217.70.183.193])
+	id 1l9CJ8-0007UY-26; Mon, 08 Feb 2021 19:34:50 +0000
+Received: from relay12.mail.gandi.net ([217.70.178.232])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l9CHy-0007Mp-AN
- for linux-riscv@lists.infradead.org; Mon, 08 Feb 2021 19:33:39 +0000
-X-Originating-IP: 2.7.49.219
+ id 1l9CIz-0007Tn-Py
+ for linux-riscv@lists.infradead.org; Mon, 08 Feb 2021 19:34:47 +0000
 Received: from debian.home (lfbn-lyo-1-457-219.w2-7.abo.wanadoo.fr
  [2.7.49.219]) (Authenticated sender: alex@ghiti.fr)
- by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id D3BB0240005;
- Mon,  8 Feb 2021 19:33:31 +0000 (UTC)
+ by relay12.mail.gandi.net (Postfix) with ESMTPSA id 863E5200008;
+ Mon,  8 Feb 2021 19:34:35 +0000 (UTC)
 From: Alexandre Ghiti <alex@ghiti.fr>
 To: Andrey Ryabinin <aryabinin@virtuozzo.com>,
  Alexander Potapenko <glider@google.com>,
@@ -49,16 +48,17 @@ To: Andrey Ryabinin <aryabinin@virtuozzo.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
  kasan-dev@googlegroups.com, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org
-Subject: [PATCH 3/4] riscv: Improve kasan population function
-Date: Mon,  8 Feb 2021 14:30:16 -0500
-Message-Id: <20210208193017.30904-4-alex@ghiti.fr>
+Subject: [PATCH 4/4] riscv: Improve kasan population by using hugepages when
+ possible
+Date: Mon,  8 Feb 2021 14:30:17 -0500
+Message-Id: <20210208193017.30904-5-alex@ghiti.fr>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20210208193017.30904-1-alex@ghiti.fr>
 References: <20210208193017.30904-1-alex@ghiti.fr>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210208_143338_560225_959B1C41 
-X-CRM114-Status: GOOD (  16.22  )
+X-CRM114-CacheID: sfid-20210208_143441_939781_025ADAE2 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -76,133 +76,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Current population code populates a whole page table without taking care
-of what could have been already allocated and without taking into account
-possible index in page table, assuming the virtual address to map is always
-aligned on the page table size, which, for example, won't be the case when
-the kernel will get pushed to the end of the address space.
+The kasan functions that populates the shadow regions used to allocate them
+page by page and did not take advantage of hugepages, so fix this by
+trying to allocate hugepages of 1GB and fallback to 2MB hugepages or 4K
+pages in case it fails.
 
-Address those problems by rewriting the kasan population function,
-splitting it into subfunctions for each different page table level.
+This reduces the page table memory consumption and improves TLB usage,
+as shown below:
+
+Before this patch:
+
+---[ Kasan shadow start ]---
+0xffffffc000000000-0xffffffc400000000    0x00000000818ef000        16G PTE     . A . . . . R V
+0xffffffc400000000-0xffffffc447fc0000    0x00000002b7f4f000   1179392K PTE     D A . . . W R V
+0xffffffc480000000-0xffffffc800000000    0x00000000818ef000        14G PTE     . A . . . . R V
+---[ Kasan shadow end ]---
+
+After this patch:
+
+---[ Kasan shadow start ]---
+0xffffffc000000000-0xffffffc400000000    0x00000000818ef000        16G PTE     . A . . . . R V
+0xffffffc400000000-0xffffffc440000000    0x0000000240000000         1G PGD     D A . . . W R V
+0xffffffc440000000-0xffffffc447e00000    0x00000002b7e00000       126M PMD     D A . . . W R V
+0xffffffc447e00000-0xffffffc447fc0000    0x00000002b818f000      1792K PTE     D A . . . W R V
+0xffffffc480000000-0xffffffc800000000    0x00000000818ef000        14G PTE     . A . . . . R V
+---[ Kasan shadow end ]---
 
 Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
 ---
- arch/riscv/mm/kasan_init.c | 91 ++++++++++++++++++++++++++------------
- 1 file changed, 63 insertions(+), 28 deletions(-)
+ arch/riscv/mm/kasan_init.c | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
 
 diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
-index 7bbe09416a2e..b7d4d9abd144 100644
+index b7d4d9abd144..2b196f512f07 100644
 --- a/arch/riscv/mm/kasan_init.c
 +++ b/arch/riscv/mm/kasan_init.c
-@@ -47,37 +47,72 @@ asmlinkage void __init kasan_early_init(void)
- 	local_flush_tlb_all();
- }
+@@ -83,6 +83,15 @@ static void kasan_populate_pmd(pgd_t *pgd, unsigned long vaddr, unsigned long en
  
--static void __init populate(void *start, void *end)
-+static void kasan_populate_pte(pmd_t *pmd, unsigned long vaddr, unsigned long end)
-+{
-+	phys_addr_t phys_addr;
-+	pte_t *ptep, *base_pte;
+ 	do {
+ 		next = pmd_addr_end(vaddr, end);
 +
-+	if (pmd_none(*pmd))
-+		base_pte = memblock_alloc(PTRS_PER_PTE * sizeof(pte_t), PAGE_SIZE);
-+	else
-+		base_pte = (pte_t *)pmd_page_vaddr(*pmd);
-+
-+	ptep = base_pte + pte_index(vaddr);
-+
-+	do {
-+		if (pte_none(*ptep)) {
-+			phys_addr = memblock_phys_alloc(PAGE_SIZE, PAGE_SIZE);
-+			set_pte(ptep, pfn_pte(PFN_DOWN(phys_addr), PAGE_KERNEL));
++		if (pmd_none(*pmdp) && IS_ALIGNED(vaddr, PMD_SIZE) && (next - vaddr) >= PMD_SIZE) {
++			phys_addr = memblock_phys_alloc(PMD_SIZE, PMD_SIZE);
++			if (phys_addr) {
++				set_pmd(pmdp, pfn_pmd(PFN_DOWN(phys_addr), PAGE_KERNEL));
++				continue;
++			}
 +		}
-+	} while (ptep++, vaddr += PAGE_SIZE, vaddr != end);
 +
-+	set_pmd(pmd, pfn_pmd(PFN_DOWN(__pa(base_pte)), PAGE_TABLE));
-+}
-+
-+static void kasan_populate_pmd(pgd_t *pgd, unsigned long vaddr, unsigned long end)
-+{
-+	phys_addr_t phys_addr;
-+	pmd_t *pmdp, *base_pmd;
-+	unsigned long next;
-+
-+	base_pmd = (pmd_t *)pgd_page_vaddr(*pgd);
-+	if (base_pmd == lm_alias(kasan_early_shadow_pmd))
-+		base_pmd = memblock_alloc(PTRS_PER_PMD * sizeof(pmd_t), PAGE_SIZE);
-+
-+	pmdp = base_pmd + pmd_index(vaddr);
-+
-+	do {
-+		next = pmd_addr_end(vaddr, end);
-+		kasan_populate_pte(pmdp, vaddr, next);
-+	} while (pmdp++, vaddr = next, vaddr != end);
-+
-+	/*
-+	 * Wait for the whole PGD to be populated before setting the PGD in
-+	 * the page table, otherwise, if we did set the PGD before populating
-+	 * it entirely, memblock could allocate a page at a physical address
-+	 * where KASAN is not populated yet and then we'd get a page fault.
-+	 */
-+	set_pgd(pgd, pfn_pgd(PFN_DOWN(__pa(base_pmd)), PAGE_TABLE));
-+}
-+
-+static void kasan_populate_pgd(unsigned long vaddr, unsigned long end)
-+{
-+	phys_addr_t phys_addr;
-+	pgd_t *pgdp = pgd_offset_k(vaddr);
-+	unsigned long next;
-+
-+	do {
-+		next = pgd_addr_end(vaddr, end);
-+		kasan_populate_pmd(pgdp, vaddr, next);
-+	} while (pgdp++, vaddr = next, vaddr != end);
-+}
-+
-+static void __init kasan_populate(void *start, void *end)
- {
--	unsigned long i, offset;
- 	unsigned long vaddr = (unsigned long)start & PAGE_MASK;
- 	unsigned long vend = PAGE_ALIGN((unsigned long)end);
--	unsigned long n_pages = (vend - vaddr) / PAGE_SIZE;
--	unsigned long n_ptes =
--	    ((n_pages + PTRS_PER_PTE) & -PTRS_PER_PTE) / PTRS_PER_PTE;
--	unsigned long n_pmds =
--	    ((n_ptes + PTRS_PER_PMD) & -PTRS_PER_PMD) / PTRS_PER_PMD;
--
--	pte_t *pte =
--	    memblock_alloc(n_ptes * PTRS_PER_PTE * sizeof(pte_t), PAGE_SIZE);
--	pmd_t *pmd =
--	    memblock_alloc(n_pmds * PTRS_PER_PMD * sizeof(pmd_t), PAGE_SIZE);
--	pgd_t *pgd = pgd_offset_k(vaddr);
--
--	for (i = 0; i < n_pages; i++) {
--		phys_addr_t phys = memblock_phys_alloc(PAGE_SIZE, PAGE_SIZE);
--		set_pte(&pte[i], pfn_pte(PHYS_PFN(phys), PAGE_KERNEL));
--	}
--
--	for (i = 0, offset = 0; i < n_ptes; i++, offset += PTRS_PER_PTE)
--		set_pmd(&pmd[i],
--			pfn_pmd(PFN_DOWN(__pa(&pte[offset])),
--				__pgprot(_PAGE_TABLE)));
+ 		kasan_populate_pte(pmdp, vaddr, next);
+ 	} while (pmdp++, vaddr = next, vaddr != end);
  
--	for (i = 0, offset = 0; i < n_pmds; i++, offset += PTRS_PER_PMD)
--		set_pgd(&pgd[i],
--			pfn_pgd(PFN_DOWN(__pa(&pmd[offset])),
--				__pgprot(_PAGE_TABLE)));
-+	kasan_populate_pgd(vaddr, vend);
+@@ -103,6 +112,21 @@ static void kasan_populate_pgd(unsigned long vaddr, unsigned long end)
  
- 	local_flush_tlb_all();
- 	memset(start, KASAN_SHADOW_INIT, end - start);
-@@ -99,7 +134,7 @@ void __init kasan_init(void)
- 		if (start >= end)
- 			break;
- 
--		populate(kasan_mem_to_shadow(start), kasan_mem_to_shadow(end));
-+		kasan_populate(kasan_mem_to_shadow(start), kasan_mem_to_shadow(end));
- 	};
- 
- 	for (i = 0; i < PTRS_PER_PTE; i++)
+ 	do {
+ 		next = pgd_addr_end(vaddr, end);
++
++		/*
++		 * pgdp can't be none since kasan_early_init initialized all KASAN
++		 * shadow region with kasan_early_shadow_pmd: if this is stillthe case,
++		 * that means we can try to allocate a hugepage as a replacement.
++		 */
++		if (pgd_page_vaddr(*pgdp) == (unsigned long)lm_alias(kasan_early_shadow_pmd) &&
++		    IS_ALIGNED(vaddr, PGDIR_SIZE) && (next - vaddr) >= PGDIR_SIZE) {
++			phys_addr = memblock_phys_alloc(PGDIR_SIZE, PGDIR_SIZE);
++			if (phys_addr) {
++				set_pgd(pgdp, pfn_pgd(PFN_DOWN(phys_addr), PAGE_KERNEL));
++				continue;
++			}
++		}
++
+ 		kasan_populate_pmd(pgdp, vaddr, next);
+ 	} while (pgdp++, vaddr = next, vaddr != end);
+ }
 -- 
 2.20.1
 
