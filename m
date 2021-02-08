@@ -2,67 +2,83 @@ Return-Path: <SRS0=+l7Y=HK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-6.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 200A6C433DB
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Feb 2021 10:52:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A17A3C433E9
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Feb 2021 10:54:27 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id AC36B64E45
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Feb 2021 10:52:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org AC36B64E45
-Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=suse.com
+	by mail.kernel.org (Postfix) with ESMTPS id 3E43A64E7C
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Feb 2021 10:54:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 3E43A64E7C
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=9hK0YlRl9SEKxHevR/wyzCzr6PbvtW5N1mMWUmZMoh8=; b=WwB0/U970tI780Gyu5SoONust
-	vAfSQksEnpYmuT1qnkpCIkvmczsVp4+RVMKinoi8im18bV1U5a3WCdPb/c1gAaobXGjhTzucJeAzx
-	sgetzz1P2FisC+pK9BS4medb36wFXaTHWI4aIhfhNDAKRBrflnFE1bVeObHWMVZ4hDMs10039EkX/
-	945FhS7JkF/tfna2e5PTjuU/vpDv0zHNHKoEhr4SOSG40dDoV1tUZ/tyb8lAdy/fAPjs7xZjfFlWh
-	fcpqZs+oFWs6XsKgG0nrDYNMhiDDMpA4SL06vfmQrvfOaSoFGjZ7T2LJ71+isUHtFZ94ne62P8/h7
-	tDQieRq1w==;
+	 bh=TW6hxSpdORctjdrpvrugS6f+BVrwDSRPynfRPVHWEp0=; b=DlaHFxuN7ep77o6HeEd7FOvMg
+	X1t96xhEm7emH7o/4xbvcnE/x3CGz93tqpPeeEq6ypSSkJFmzdBgiHLmCEytwOdCJTHbZuWWXePga
+	FoL0B/YnFinFocgw0zwkGMeW2BMhIeu9JOtP0ynv9J3Ikmi9VWCtsQi7OX2IMwxliS6u4dCFMANbr
+	261bfJ7qmO/ocvjXv5NRd5J/gNZD/1LA1teGZvlL7oInmkFkEtnGUvu7vsY47oNx6Ul/XtIFSgDWX
+	Y40tKdrKjx2EUgvzAIfSGv0jbk+G7UlJTSOw/nHORQ/3+zuW8VwxoERRG84Mj7gLsvQZNaGOPVR2H
+	vdiaOOCWA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l9492-0001MJ-2S; Mon, 08 Feb 2021 10:51:52 +0000
-Received: from mx2.suse.de ([195.135.220.15])
+	id 1l94BP-000203-KC; Mon, 08 Feb 2021 10:54:19 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([63.128.21.124])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l948x-0001KM-9j; Mon, 08 Feb 2021 10:51:48 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
- t=1612781506; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
+ id 1l94BL-0001xd-Oh
+ for linux-riscv@lists.infradead.org; Mon, 08 Feb 2021 10:54:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1612781655;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
  in-reply-to:in-reply-to:references:references;
- bh=HqDzYZJj1JL8yulwepFTzNw6Mh0UlkDMkwLo91us+Nw=;
- b=NW6cSXQt5vKQIC6IyRBjI03RsTggfacnmMQkPXVlyHTYQnhUREooi7Orv+OqfRI7917Lxz
- 3nZxkT5RnnKOC3tcopxasEwHneBW4NQ+AZ2h7Uzl6P3ycEWbNjYfJ5Lj058U4V6l82Ro1L
- 1F8EZ3u1FlnDVFRaGEZB3SZ5/MOrsnY=
-Received: from relay2.suse.de (unknown [195.135.221.27])
- by mx2.suse.de (Postfix) with ESMTP id 0DE41AC6E;
- Mon,  8 Feb 2021 10:51:46 +0000 (UTC)
-Date: Mon, 8 Feb 2021 11:51:45 +0100
-From: Michal Hocko <mhocko@suse.com>
-To: David Hildenbrand <david@redhat.com>
+ bh=IunSUa46r+GP3FYouMvaCEPySjJrYeeUPt7PmYPR+8g=;
+ b=TZbwc0RLMWV4ZhPQR1uw/L4D+gfZUpZ2pzIAlsPMHt8jR7dN/9qwWFZvcr9ZXWVtfnchGo
+ gs0Wyb/FJUK+qFZG9JHdhHAlXATJ7aBURUe+2nd3ekwJSN2xnCT9bEcAsRt+tvukY2zeqP
+ yL0s+ktLiPjXOx/ENE/HgmQdtgexXu0=
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-148-Lv4C8j0qObOwhL8hIdcnfA-1; Mon, 08 Feb 2021 05:54:11 -0500
+X-MC-Unique: Lv4C8j0qObOwhL8hIdcnfA-1
+Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com
+ [10.5.11.16])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+ (No client certificate requested)
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id A0119CC62A;
+ Mon,  8 Feb 2021 10:54:06 +0000 (UTC)
+Received: from [10.36.113.240] (ovpn-113-240.ams2.redhat.com [10.36.113.240])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id EB0CB57;
+ Mon,  8 Feb 2021 10:53:58 +0000 (UTC)
 Subject: Re: [PATCH v17 08/10] PM: hibernate: disable when there are active
  secretmem users
-Message-ID: <YCEXwUYepeQvEWTf@dhcp22.suse.cz>
+To: Michal Hocko <mhocko@suse.com>
 References: <20210208084920.2884-1-rppt@kernel.org>
- <20210208084920.2884-9-rppt@kernel.org>
- <YCEP/bmqm0DsvCYN@dhcp22.suse.cz>
+ <20210208084920.2884-9-rppt@kernel.org> <YCEP/bmqm0DsvCYN@dhcp22.suse.cz>
  <38c0cad4-ac55-28e4-81c6-4e0414f0620a@redhat.com>
+ <YCEXwUYepeQvEWTf@dhcp22.suse.cz>
+From: David Hildenbrand <david@redhat.com>
+Organization: Red Hat GmbH
+Message-ID: <a488a0bb-def5-0249-99e2-4643787cef69@redhat.com>
+Date: Mon, 8 Feb 2021 11:53:58 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <38c0cad4-ac55-28e4-81c6-4e0414f0620a@redhat.com>
+In-Reply-To: <YCEXwUYepeQvEWTf@dhcp22.suse.cz>
+Content-Language: en-US
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210208_055147_488367_03BB27F1 
-X-CRM114-Status: GOOD (  19.30  )
+X-CRM114-CacheID: sfid-20210208_055415_959021_0A010CBE 
+X-CRM114-Status: GOOD (  16.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -97,37 +113,44 @@ Cc: Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>,
  Andrew Morton <akpm@linux-foundation.org>,
  Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>,
  Mike Rapoport <rppt@kernel.org>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon 08-02-21 11:32:11, David Hildenbrand wrote:
-> On 08.02.21 11:18, Michal Hocko wrote:
-> > On Mon 08-02-21 10:49:18, Mike Rapoport wrote:
-> > > From: Mike Rapoport <rppt@linux.ibm.com>
-> > > 
-> > > It is unsafe to allow saving of secretmem areas to the hibernation
-> > > snapshot as they would be visible after the resume and this essentially
-> > > will defeat the purpose of secret memory mappings.
-> > > 
-> > > Prevent hibernation whenever there are active secret memory users.
-> > 
-> > Does this feature need any special handling? As it is effectivelly
-> > unevictable memory then it should behave the same as other mlock, ramfs
-> > which should already disable hibernation as those cannot be swapped out,
-> > no?
-> > 
-> 
-> Why should unevictable memory not go to swap when hibernating? We're merely
-> dumping all of our system RAM (including any unmovable allocations) to swap
-> storage and the system is essentially completely halted.
-> 
-My understanding is that mlock is never really made visible via swap
-storage.
+On 08.02.21 11:51, Michal Hocko wrote:
+> On Mon 08-02-21 11:32:11, David Hildenbrand wrote:
+>> On 08.02.21 11:18, Michal Hocko wrote:
+>>> On Mon 08-02-21 10:49:18, Mike Rapoport wrote:
+>>>> From: Mike Rapoport <rppt@linux.ibm.com>
+>>>>
+>>>> It is unsafe to allow saving of secretmem areas to the hibernation
+>>>> snapshot as they would be visible after the resume and this essentially
+>>>> will defeat the purpose of secret memory mappings.
+>>>>
+>>>> Prevent hibernation whenever there are active secret memory users.
+>>>
+>>> Does this feature need any special handling? As it is effectivelly
+>>> unevictable memory then it should behave the same as other mlock, ramfs
+>>> which should already disable hibernation as those cannot be swapped out,
+>>> no?
+>>>
+>>
+>> Why should unevictable memory not go to swap when hibernating? We're merely
+>> dumping all of our system RAM (including any unmovable allocations) to swap
+>> storage and the system is essentially completely halted.
+>>
+> My understanding is that mlock is never really made visible via swap
+> storage.
+
+"Using swap storage for hibernation" and "swapping at runtime" are two 
+different things. I might be wrong, though.
+
 -- 
-Michal Hocko
-SUSE Labs
+Thanks,
+
+David / dhildenb
+
 
 _______________________________________________
 linux-riscv mailing list
