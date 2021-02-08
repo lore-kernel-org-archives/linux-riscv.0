@@ -2,80 +2,59 @@ Return-Path: <SRS0=+l7Y=HK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-16.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D23CAC433E0
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Feb 2021 03:41:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 362EDC433DB
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Feb 2021 06:28:41 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7407160230
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Feb 2021 03:41:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7407160230
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+	by mail.kernel.org (Postfix) with ESMTPS id B3D2764E59
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Feb 2021 06:28:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B3D2764E59
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:References:
+	To:Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=2woN9elBa2Hb3gO91XidnQB/GYb3Pf6sUjTmJTg3hh8=; b=agOgnxdTv+4mQTiOlJ3UtsJqc
-	fL1HO2E2wWr8yJ/T+DhNWpMGRdacsxbmzQDLGA7RpjBokRwL/Grf9qHJzjq8LFSPA042dtaP1/is6
-	qVPzs2aknM2eGcdPHJik8f0RhdGSHfK8uXFtQYiz7myhT+5OjKvIOTfmb5otqdWs7RPBpY1hpFNwI
-	9z7VQO6cr2mzRibCWGlW0nEW2yOdpiBtw4Bz+8JXo+Yh7p8MRvoKQAA7w9zFFV+Ko6pwbvSPgnel1
-	syUHw/qM9CCSUIxpio/sgzs/zXlti3bl9K3lVxftNXcCD/rS9b1xnaUJm34XcQks4JhdMtzyNesp5
-	8fpnYaQdA==;
+	 bh=nk+iCDtA8SYRPe2iTUMWTeaYam3Su19eE7WZnOkFhlA=; b=s1KJlIIWgmbAMhA595IyEvH/e
+	CmN/YVIBMepw4E9gATUcHV9PW85tSf97lN66inqrGZHkHyEgpn6gnkpaF3AnGMFIp+xImmHNbDup3
+	gur0ND+Z755rlFSf/UMGeMwRrQfTzZDUJQCzKvEEJdLLqcJ/+ot/PPD71P0eqcOMszD2DtIuZxSAP
+	UJertPeeohY4AMEip1xYHVjSN0qyMy/4vYNv3LbVVqxfFJIwoQwJ+7Xhjn2C6tI9tDcNDT6ApBPtf
+	1T/FylGIIAX1ZInVfm7nE4456T5kc93kIaJrurHIExUIv2zcJU9CWyInMgBgegPUK9m0ivK50Xg44
+	c3gpK2Bpg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l8xPz-0005D6-B4; Mon, 08 Feb 2021 03:40:55 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1l9026-0005qz-BU; Mon, 08 Feb 2021 06:28:26 +0000
+Received: from relay4-d.mail.gandi.net ([217.70.183.196])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l8xPw-0005Ce-RZ
- for linux-riscv@lists.infradead.org; Mon, 08 Feb 2021 03:40:53 +0000
-Received: by mail-wm1-x336.google.com with SMTP id o10so11387293wmc.1
- for <linux-riscv@lists.infradead.org>; Sun, 07 Feb 2021 19:40:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=/gdsK4caOIpGMr0l4XNyqn2pLROX1/cb+NwSd9lkTQg=;
- b=sbfi7TrID2NQ/aDDfWK5ss7UwjrS1SJqZVXZB3rraLqnmSw/5Ro4CsY/uJA6WyvpzJ
- Fa3XvDkkzrnA8x1+oWIKCNkaOPNYo8SCMcgP7dS75AVGmHzfGaH9lW6eOhXz8jPxk9fM
- 9JSkom3BAyWvEZmkHWyVce8BFhXfYkYZtBtaCLNxsnSG2M9N5KUvgg89PVue44X3e9qz
- vp7jLLbq1rjKnmLqXGShotmT3/W6uGgLYVKgX1vBYl/1Ey1/7ODluRF4ZeDjcOnF+D4v
- 2Hw05hZpQ97ozK+sKUHYTzVlNmG000jJ2zZnsiZ9Ml19Puvn2kWvQi1Z3H0+7P7Royvr
- 6bzQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=/gdsK4caOIpGMr0l4XNyqn2pLROX1/cb+NwSd9lkTQg=;
- b=H4c4cAtj6ETBWtnz7+Vsv2QoSID/NWEqyVDgvqnNWfHOAnwskLtrggE6vT6Oz4hVSX
- BCm9IDILPM75ordber4jjReJKXkQJfNEaUTXjPgqUVARNlP0rZukc9hlTLlaHugXG46H
- yVVAmXBdf/Io8xBEe3NUaHvKwyvcg+NLy6FD3F9iFAsI078Ga3Ut3RMkPj9i2OeBj+oR
- kRuzv48/t/imLLQcMCBVKo6OsBP2PM+x47yIa8/JpkACV5+8zAGTLnuMuXzorryTQxIZ
- DuBGTIbXvfZNoEANE2zavvH+l/cUWK2ZnBtuzj/fsdRzVHBZbQvWs/uHmgzd74//tJ1L
- oTXA==
-X-Gm-Message-State: AOAM531KAzqkzM1RQqH2mESe9IwDMwEmGoduiMVCLI12pvLwvQxHmgVo
- YoVeZkdzeqBF6LtybS97RYUNAm4JFbxw/1bYlAeTmw==
-X-Google-Smtp-Source: ABdhPJzK+XtnqEe/ufd3x3qnz9TDgC8GTTKTHtosm1Gjs+jE8++Hal+BZZG+NJay2ML3rs6QyDmqBa09zAtmi8hdYr4=
-X-Received: by 2002:a1c:f60b:: with SMTP id w11mr7104209wmc.3.1612755649933;
- Sun, 07 Feb 2021 19:40:49 -0800 (PST)
+ id 1l9023-0005qE-4n
+ for linux-riscv@lists.infradead.org; Mon, 08 Feb 2021 06:28:24 +0000
+X-Originating-IP: 82.65.183.113
+Received: from [172.16.5.113] (82-65-183-113.subs.proxad.net [82.65.183.113])
+ (Authenticated sender: alex@ghiti.fr)
+ by relay4-d.mail.gandi.net (Postfix) with ESMTPSA id CCB10E0007;
+ Mon,  8 Feb 2021 06:28:13 +0000 (UTC)
+From: Alex Ghiti <alex@ghiti.fr>
+Subject: Re: [PATCH v2 1/1] riscv/kasan: add KASAN_VMALLOC support
+To: Palmer Dabbelt <palmer@dabbelt.com>, nylon7@andestech.com
+References: <mhng-443fd141-b9a3-4be6-a056-416877f99ea4@palmerdabbelt-glaptop>
+Message-ID: <2b2f3038-3e27-8763-cf78-3fbbfd2100a0@ghiti.fr>
+Date: Mon, 8 Feb 2021 01:28:13 -0500
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.7.1
 MIME-Version: 1.0
-References: <20210207231256.115130-1-damien.lemoal@wdc.com>
- <20210207231256.115130-14-damien.lemoal@wdc.com>
-In-Reply-To: <20210207231256.115130-14-damien.lemoal@wdc.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Mon, 8 Feb 2021 09:10:38 +0530
-Message-ID: <CAAhSdy27t=f9zUMGDs9DdbxEi=COOnLq7Mqd402yZyg6Z1JvcA@mail.gmail.com>
-Subject: Re: [PATCH v17 13/16] riscv: Add SiPeed MAIXDUINO board device tree
-To: Damien Le Moal <damien.lemoal@wdc.com>
+In-Reply-To: <mhng-443fd141-b9a3-4be6-a056-416877f99ea4@palmerdabbelt-glaptop>
+Content-Language: fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210207_224052_908395_7C9DBA8A 
-X-CRM114-Status: GOOD (  18.52  )
+X-CRM114-CacheID: sfid-20210208_012823_367796_057B9BA9 
+X-CRM114-Status: GOOD (  26.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -87,257 +66,193 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
- Anup Patel <anup.patel@wdc.com>, Sean Anderson <seanga2@gmail.com>,
- Atish Patra <atish.patra@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: aou@eecs.berkeley.edu, nickhu@andestech.com, alankao@andestech.com,
+ linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com, nylon7717@gmail.com,
+ glider@google.com, Paul Walmsley <paul.walmsley@sifive.com>,
+ aryabinin@virtuozzo.com, linux-riscv@lists.infradead.org, dvyukov@google.com
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="windows-1252"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 8, 2021 at 4:43 AM Damien Le Moal <damien.lemoal@wdc.com> wrote:
->
-> Add the device tree sipeed_maixduino.dts for the SiPeed MAIXDUINO board.
-> This device tree enables LEDs and spi/mmc SD card device. Additionally,
-> gpios and i2c are also enabled and mapped to the board header pins as
-> indicated on the board itself.
->
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: devicetree@vger.kernel.org
-> Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
+Hi Nylon,
 
-Looks good to me.
+Le 1/22/21 =E0 10:56 PM, Palmer Dabbelt a =E9crit=A0:
+> On Fri, 15 Jan 2021 21:58:35 PST (-0800), nylon7@andestech.com wrote:
+>> It references to x86/s390 architecture.
+>> >> So, it doesn't map the early shadow page to cover VMALLOC space.
+>>
+>> Prepopulate top level page table for the range that would otherwise be
+>> empty.
+>>
+>> lower levels are filled dynamically upon memory allocation while
+>> booting.
 
-Reviewed-by: Anup Patel <anup@brainfault.org>
+I think we can improve the changelog a bit here with something like that:
 
-Regards,
-Anup
+"KASAN vmalloc space used to be mapped using kasan early shadow page. =
 
-> ---
->  .../boot/dts/canaan/sipeed_maixduino.dts      | 209 ++++++++++++++++++
->  1 file changed, 209 insertions(+)
->  create mode 100644 arch/riscv/boot/dts/canaan/sipeed_maixduino.dts
->
-> diff --git a/arch/riscv/boot/dts/canaan/sipeed_maixduino.dts b/arch/riscv/boot/dts/canaan/sipeed_maixduino.dts
-> new file mode 100644
-> index 000000000000..804edc45eeeb
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/canaan/sipeed_maixduino.dts
-> @@ -0,0 +1,209 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +/*
-> + * Copyright (C) 2019-20 Sean Anderson <seanga2@gmail.com>
-> + * Copyright (C) 2020 Western Digital Corporation or its affiliates.
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include "k210.dtsi"
-> +
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/input/input.h>
-> +
-> +/ {
-> +       model = "SiPeed MAIXDUINO";
-> +       compatible = "sipeed,maixduino", "canaan,kendryte-k210";
-> +
-> +       chosen {
-> +               bootargs = "earlycon console=ttySIF0";
-> +               stdout-path = "serial0:115200n8";
-> +       };
-> +
-> +       gpio-keys {
-> +               compatible = "gpio-keys";
-> +
-> +               boot {
-> +                       label = "BOOT";
-> +                       linux,code = <BTN_0>;
-> +                       gpios = <&gpio0 0 GPIO_ACTIVE_LOW>;
-> +               };
-> +       };
-> +
-> +       sound {
-> +               compatible = "simple-audio-card";
-> +               simple-audio-card,format = "i2s";
-> +               status = "disabled";
-> +
-> +               simple-audio-card,cpu {
-> +                       sound-dai = <&i2s0 0>;
-> +               };
-> +
-> +               simple-audio-card,codec {
-> +                       sound-dai = <&mic>;
-> +               };
-> +       };
-> +
-> +       mic: mic {
-> +               #sound-dai-cells = <0>;
-> +               compatible = "memsensing,msm261s4030h0";
-> +               status = "disabled";
-> +       };
-> +
-> +       vcc_3v3: regulator-3v3 {
-> +               compatible = "regulator-fixed";
-> +               regulator-name = "3v3";
-> +               regulator-min-microvolt = <3300000>;
-> +               regulator-max-microvolt = <3300000>;
-> +       };
-> +};
-> +
-> +&fpioa {
-> +       status = "okay";
-> +
-> +       uarths_pinctrl: uarths-pinmux {
-> +               pinmux = <K210_FPIOA(4, K210_PCF_UARTHS_RX)>, /* Header "0" */
-> +                        <K210_FPIOA(5, K210_PCF_UARTHS_TX)>; /* Header "1" */
-> +       };
-> +
-> +       gpio_pinctrl: gpio-pinmux {
-> +               pinmux = <K210_FPIOA(8, K210_PCF_GPIO0)>,
-> +                        <K210_FPIOA(9, K210_PCF_GPIO1)>;
-> +       };
-> +
-> +       gpiohs_pinctrl: gpiohs-pinmux {
-> +               pinmux = <K210_FPIOA(16, K210_PCF_GPIOHS0)>,  /* BOOT */
-> +                        <K210_FPIOA(21, K210_PCF_GPIOHS2)>,  /* Header "2" */
-> +                        <K210_FPIOA(22, K210_PCF_GPIOHS3)>,  /* Header "3" */
-> +                        <K210_FPIOA(23, K210_PCF_GPIOHS4)>,  /* Header "4" */
-> +                        <K210_FPIOA(24, K210_PCF_GPIOHS5)>,  /* Header "5" */
-> +                        <K210_FPIOA(32, K210_PCF_GPIOHS6)>,  /* Header "6" */
-> +                        <K210_FPIOA(15, K210_PCF_GPIOHS7)>,  /* Header "7" */
-> +                        <K210_FPIOA(14, K210_PCF_GPIOHS8)>,  /* Header "8" */
-> +                        <K210_FPIOA(13, K210_PCF_GPIOHS9)>,  /* Header "9" */
-> +                        <K210_FPIOA(12, K210_PCF_GPIOHS10)>, /* Header "10" */
-> +                        <K210_FPIOA(11, K210_PCF_GPIOHS11)>, /* Header "11" */
-> +                        <K210_FPIOA(10, K210_PCF_GPIOHS12)>, /* Header "12" */
-> +                        <K210_FPIOA(3,  K210_PCF_GPIOHS13)>; /* Header "13" */
-> +       };
-> +
-> +       i2s0_pinctrl: i2s0-pinmux {
-> +               pinmux = <K210_FPIOA(18, K210_PCF_I2S0_SCLK)>,
-> +                        <K210_FPIOA(19, K210_PCF_I2S0_WS)>,
-> +                        <K210_FPIOA(20, K210_PCF_I2S0_IN_D0)>;
-> +       };
-> +
-> +       spi1_pinctrl: spi1-pinmux {
-> +               pinmux = <K210_FPIOA(26, K210_PCF_SPI1_D1)>,
-> +                        <K210_FPIOA(27, K210_PCF_SPI1_SCLK)>,
-> +                        <K210_FPIOA(28, K210_PCF_SPI1_D0)>,
-> +                        <K210_FPIOA(29, K210_PCF_GPIO2)>; /* cs */
-> +       };
-> +
-> +       i2c1_pinctrl: i2c1-pinmux {
-> +               pinmux = <K210_FPIOA(30, K210_PCF_I2C1_SCLK)>, /* Header "scl" */
-> +                        <K210_FPIOA(31, K210_PCF_I2C1_SDA)>;  /* Header "sda" */
-> +       };
-> +
-> +       i2s1_pinctrl: i2s1-pinmux {
-> +               pinmux = <K210_FPIOA(33, K210_PCF_I2S1_WS)>,
-> +                        <K210_FPIOA(34, K210_PCF_I2S1_IN_D0)>,
-> +                        <K210_FPIOA(35, K210_PCF_I2S1_SCLK)>;
-> +       };
-> +
-> +       spi0_pinctrl: spi0-pinmux {
-> +               pinmux = <K210_FPIOA(36, K210_PCF_GPIOHS20)>,  /* cs */
-> +                        <K210_FPIOA(37, K210_PCF_GPIOHS21)>,  /* rst */
-> +                        <K210_FPIOA(38, K210_PCF_GPIOHS22)>,  /* dc */
-> +                        <K210_FPIOA(39, K210_PCF_SPI0_SCLK)>; /* wr */
-> +       };
-> +
-> +       dvp_pinctrl: dvp-pinmux {
-> +               pinmux = <K210_FPIOA(40, K210_PCF_SCCB_SDA)>,
-> +                        <K210_FPIOA(41, K210_PCF_SCCB_SCLK)>,
-> +                        <K210_FPIOA(42, K210_PCF_DVP_RST)>,
-> +                        <K210_FPIOA(43, K210_PCF_DVP_VSYNC)>,
-> +                        <K210_FPIOA(44, K210_PCF_DVP_PWDN)>,
-> +                        <K210_FPIOA(45, K210_PCF_DVP_HSYNC)>,
-> +                        <K210_FPIOA(46, K210_PCF_DVP_XCLK)>,
-> +                        <K210_FPIOA(47, K210_PCF_DVP_PCLK)>;
-> +       };
-> +};
-> +
-> +&uarths0 {
-> +       pinctrl-0 = <&uarths_pinctrl>;
-> +       pinctrl-names = "default";
-> +       status = "okay";
-> +};
-> +
-> +&gpio0 {
-> +       pinctrl-0 = <&gpiohs_pinctrl>;
-> +       pinctrl-names = "default";
-> +       status = "okay";
-> +};
-> +
-> +&gpio1 {
-> +       pinctrl-0 = <&gpio_pinctrl>;
-> +       pinctrl-names = "default";
-> +       status = "okay";
-> +};
-> +
-> +&i2s0 {
-> +       #sound-dai-cells = <1>;
-> +       pinctrl-0 = <&i2s0_pinctrl>;
-> +       pinctrl-names = "default";
-> +};
-> +
-> +&i2c1 {
-> +       pinctrl-0 = <&i2c1_pinctrl>;
-> +       pinctrl-names = "default";
-> +       clock-frequency = <400000>;
-> +       status = "okay";
-> +};
-> +
-> +&dvp0 {
-> +       pinctrl-0 = <&dvp_pinctrl>;
-> +       pinctrl-names = "default";
-> +};
-> +
-> +&spi0 {
-> +       pinctrl-0 = <&spi0_pinctrl>;
-> +       pinctrl-names = "default";
-> +       num-cs = <1>;
-> +       cs-gpios = <&gpio0 20 GPIO_ACTIVE_HIGH>;
-> +
-> +       panel@0 {
-> +               compatible = "sitronix,st7789v";
-> +               reg = <0>;
-> +               reset-gpios = <&gpio0 21 GPIO_ACTIVE_LOW>;
-> +               dc-gpios = <&gpio0 22 0>;
-> +               spi-max-frequency = <15000000>;
-> +               power-supply = <&vcc_3v3>;
-> +       };
-> +};
-> +
-> +&spi1 {
-> +       pinctrl-0 = <&spi1_pinctrl>;
-> +       pinctrl-names = "default";
-> +       num-cs = <1>;
-> +       cs-gpios = <&gpio1_0 2 GPIO_ACTIVE_LOW>;
-> +       status = "okay";
-> +
-> +       slot@0 {
-> +               compatible = "mmc-spi-slot";
-> +               reg = <0>;
-> +               voltage-ranges = <3300 3300>;
-> +               spi-max-frequency = <25000000>;
-> +               broken-cd;
-> +       };
-> +};
-> +
-> +&spi3 {
-> +       spi-flash@0 {
-> +               compatible = "jedec,spi-nor";
-> +               reg = <0>;
-> +               spi-max-frequency = <50000000>;
-> +               m25p,fast-read;
-> +               broken-flash-reset;
-> +       };
-> +};
-> --
-> 2.29.2
->
->
+KASAN_VMALLOC requires the top-level of the kernel page table to be =
+
+properly populated, lower levels being filled dynamically upon memory =
+
+allocation at runtime."
+
+>>
+>> Signed-off-by: Nylon Chen <nylon7@andestech.com>
+>> Signed-off-by: Nick Hu <nickhu@andestech.com>
+>> ---
+>> =A0arch/riscv/Kconfig=A0=A0=A0=A0=A0=A0=A0=A0 |=A0 1 +
+>> =A0arch/riscv/mm/kasan_init.c | 57 +++++++++++++++++++++++++++++++++++++-
+>> =A02 files changed, 57 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+>> index 81b76d44725d..15a2c8088bbe 100644
+>> --- a/arch/riscv/Kconfig
+>> +++ b/arch/riscv/Kconfig
+>> @@ -57,6 +57,7 @@ config RISCV
+>> =A0=A0=A0=A0 select HAVE_ARCH_JUMP_LABEL
+>> =A0=A0=A0=A0 select HAVE_ARCH_JUMP_LABEL_RELATIVE
+>> =A0=A0=A0=A0 select HAVE_ARCH_KASAN if MMU && 64BIT
+>> +=A0=A0=A0 select HAVE_ARCH_KASAN_VMALLOC if MMU && 64BIT
+>> =A0=A0=A0=A0 select HAVE_ARCH_KGDB
+>> =A0=A0=A0=A0 select HAVE_ARCH_KGDB_QXFER_PKT
+>> =A0=A0=A0=A0 select HAVE_ARCH_MMAP_RND_BITS if MMU
+>> diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
+>> index 12ddd1f6bf70..4b9149f963d3 100644
+>> --- a/arch/riscv/mm/kasan_init.c
+>> +++ b/arch/riscv/mm/kasan_init.c
+>> @@ -9,6 +9,19 @@
+>> =A0#include <linux/pgtable.h>
+>> =A0#include <asm/tlbflush.h>
+>> =A0#include <asm/fixmap.h>
+>> +#include <asm/pgalloc.h>
+>> +
+>> +static __init void *early_alloc(size_t size, int node)
+>> +{
+>> +=A0=A0=A0 void *ptr =3D memblock_alloc_try_nid(size, size,
+>> +=A0=A0=A0=A0=A0=A0=A0 __pa(MAX_DMA_ADDRESS), MEMBLOCK_ALLOC_ACCESSIBLE,=
+ node);
+>> +
+>> +=A0=A0=A0 if (!ptr)
+>> +=A0=A0=A0=A0=A0=A0=A0 panic("%pS: Failed to allocate %zu bytes align=3D=
+%zx nid=3D%d =
+
+>> from=3D%llx\n",
+>> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 __func__, size, size, node, (u64)__pa=
+(MAX_DMA_ADDRESS));
+>> +
+>> +=A0=A0=A0 return ptr;
+>> +}
+>>
+>> =A0extern pgd_t early_pg_dir[PTRS_PER_PGD];
+>> =A0asmlinkage void __init kasan_early_init(void)
+>> @@ -83,6 +96,40 @@ static void __init populate(void *start, void *end)
+>> =A0=A0=A0=A0 memset(start, 0, end - start);
+>> =A0}
+>>
+>> +void __init kasan_shallow_populate(void *start, void *end)
+>> +{
+>> +=A0=A0=A0 unsigned long vaddr =3D (unsigned long)start & PAGE_MASK;
+>> +=A0=A0=A0 unsigned long vend =3D PAGE_ALIGN((unsigned long)end);
+>> +=A0=A0=A0 unsigned long pfn;
+>> +=A0=A0=A0 int index;
+>> +=A0=A0=A0 void *p;
+>> +=A0=A0=A0 pud_t *pud_dir, *pud_k;
+>> +=A0=A0=A0 pgd_t *pgd_dir, *pgd_k;
+>> +=A0=A0=A0 p4d_t *p4d_dir, *p4d_k;
+>> +
+>> +=A0=A0=A0 while (vaddr < vend) {
+>> +=A0=A0=A0=A0=A0=A0=A0 index =3D pgd_index(vaddr);
+>> +=A0=A0=A0=A0=A0=A0=A0 pfn =3D csr_read(CSR_SATP) & SATP_PPN;
+
+At this point in the boot process, we know that we use swapper_pg_dir so =
+
+no need to read SATP.
+
+>> +=A0=A0=A0=A0=A0=A0=A0 pgd_dir =3D (pgd_t *)pfn_to_virt(pfn) + index;
+
+Here, this pgd_dir assignment is overwritten 2 lines below, so no need =
+
+for it.
+
+>> +=A0=A0=A0=A0=A0=A0=A0 pgd_k =3D init_mm.pgd + index;
+>> +=A0=A0=A0=A0=A0=A0=A0 pgd_dir =3D pgd_offset_k(vaddr);
+
+pgd_offset_k(vaddr) =3D init_mm.pgd + pgd_index(vaddr) so pgd_k =3D=3D pgd_=
+dir.
+
+>> +=A0=A0=A0=A0=A0=A0=A0 set_pgd(pgd_dir, *pgd_k);
+>> +
+>> +=A0=A0=A0=A0=A0=A0=A0 p4d_dir =3D p4d_offset(pgd_dir, vaddr);
+>> +=A0=A0=A0=A0=A0=A0=A0 p4d_k=A0 =3D p4d_offset(pgd_k, vaddr);
+>> +
+>> +=A0=A0=A0=A0=A0=A0=A0 vaddr =3D (vaddr + PUD_SIZE) & PUD_MASK;
+
+Why do you increase vaddr *before* populating the first one ? And =
+
+pud_addr_end does that properly: it returns the next pud address if it =
+
+does not go beyond end address to map.
+
+>> +=A0=A0=A0=A0=A0=A0=A0 pud_dir =3D pud_offset(p4d_dir, vaddr);
+>> +=A0=A0=A0=A0=A0=A0=A0 pud_k =3D pud_offset(p4d_k, vaddr);
+>> +
+>> +=A0=A0=A0=A0=A0=A0=A0 if (pud_present(*pud_dir)) {
+>> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 p =3D early_alloc(PAGE_SIZE, NUMA_NO_=
+NODE);
+>> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 pud_populate(&init_mm, pud_dir, p);
+
+init_mm is not needed here.
+
+>> +=A0=A0=A0=A0=A0=A0=A0 }
+>> +=A0=A0=A0=A0=A0=A0=A0 vaddr +=3D PAGE_SIZE;
+
+Why do you need to add PAGE_SIZE ? vaddr already points to the next pud.
+
+It seems like this patch tries to populate userspace page table whereas =
+
+at this point in the boot process, only swapper_pg_dir is used or am I =
+
+missing something ?
+
+Thanks,
+
+Alex
+
+>> +=A0=A0=A0 }
+>> +}
+>> +
+>> =A0void __init kasan_init(void)
+>> =A0{
+>> =A0=A0=A0=A0 phys_addr_t _start, _end;
+>> @@ -90,7 +137,15 @@ void __init kasan_init(void)
+>>
+>> =A0=A0=A0=A0 kasan_populate_early_shadow((void *)KASAN_SHADOW_START,
+>> =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 (void *)kas=
+an_mem_to_shadow((void *)
+>> -=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+=A0=A0=A0=A0=A0=A0=A0=A0 VMALLOC_END));
+>> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+=A0=A0=A0=A0=A0=A0=A0=A0 VMEMMAP_END));
+>> +=A0=A0=A0 if (IS_ENABLED(CONFIG_KASAN_VMALLOC))
+>> +=A0=A0=A0=A0=A0=A0=A0 kasan_shallow_populate(
+>> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 (void *)kasan_mem_to_shadow((void *)V=
+MALLOC_START),
+>> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 (void *)kasan_mem_to_shadow((void *)V=
+MALLOC_END));
+>> +=A0=A0=A0 else
+>> +=A0=A0=A0=A0=A0=A0=A0 kasan_populate_early_shadow(
+>> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 (void *)kasan_mem_to_shadow((void *)V=
+MALLOC_START),
+>> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 (void *)kasan_mem_to_shadow((void *)V=
+MALLOC_END));
+>>
+>> =A0=A0=A0=A0 for_each_mem_range(i, &_start, &_end) {
+>> =A0=A0=A0=A0=A0=A0=A0=A0 void *start =3D (void *)_start; >
+> Thanks, this is on for-next.
+> =
+
 > _______________________________________________
 > linux-riscv mailing list
 > linux-riscv@lists.infradead.org
