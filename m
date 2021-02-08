@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-17.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
 	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AC70EC433E0
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Feb 2021 08:50:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6AB9EC433DB
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Feb 2021 08:50:19 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5BA8A64E99
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Feb 2021 08:50:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5BA8A64E99
+	by mail.kernel.org (Postfix) with ESMTPS id F3EAD64E9B
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Feb 2021 08:50:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F3EAD64E9B
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,42 +23,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=GJyUyqnQIq0VcUNO9oI7/hJXti3mVE/lgPNpwmisp9A=; b=IOh6EyX8OCV/U3tOAqjlB+qu/
-	3kOJzOLoVGV4hyRmTGxXdEdcDCyuu6+yOd2Giv1rJv+8fu/ztEj0QsAnR65d7lIKdwKu+bDuG0fSV
-	RbCbOUcHKM6kBF0nBOaMS4iNoVijofhm1+weMlrcfM7VyyD5fiw3UyDpdjyzgvr/zSZZZ69YVMohZ
-	IQJPzy5fUsQdf4llOkygtQSWhzQqxgBC3S+lxlPweodIMHXOeBtT+EudStelgF3c49fJ3hCQXFjtt
-	aquv2su+BhzSs1IFfNTCTYTKTPgRpYbhENudZbZFzAMertJZF0qX1cQAQ3KKzLVAVUpZvCT1sBhVL
-	1Lz31PXRw==;
+	 bh=oBn2NN1s25Vs4UqYG7vinPBkjgyXB/KaTDODykeZ7Nk=; b=HVd2Y0rSWclvLNPOpdReNIdF9
+	+TueMnGTR2YpNdwG4rTOoNoPYxXcZL2aQA22Tym0BqxIqxjrdmEYUnQGPfdwLwkbuXEeNl/1xST0p
+	nQPksdsPb6a3CcgG2zmaDICBKDaxLTzMi2nzZVbJdHNZ2+1cNLoacjXVXFSlQpoym4UefJZ4Hafds
+	oJnXEfMI9+nesH3lEwPFjY8XACv+Y5VUzd2Knm77J62HFh1O5vPFJw/iknlzctIpW2BaEJsGjD3dX
+	5+KtJN74YaHWZMsjpTQAhkUVIOFYuqZFFiQr7mQhVw0MMOvORzhF9rKLibj8CvYzKEL5YwTky1UFf
+	ar6jnbaAg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l92F2-000565-2Q; Mon, 08 Feb 2021 08:49:56 +0000
+	id 1l92FF-0005BL-DW; Mon, 08 Feb 2021 08:50:09 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l92Ev-00053E-Gt; Mon, 08 Feb 2021 08:49:50 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPSA id 8034464E9D;
- Mon,  8 Feb 2021 08:49:37 +0000 (UTC)
+ id 1l92F7-00057X-Jx; Mon, 08 Feb 2021 08:50:05 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 2AF2264E8B;
+ Mon,  8 Feb 2021 08:49:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1612774188;
- bh=yaiGaY9CsCce4ziujW0DI0CJqQEDns2mxFIXWr5A2d8=;
+ s=k20201202; t=1612774200;
+ bh=iee2dGZmaG4EKHM9QU8vrsOr5P0gX21AcMxI1zm4D/0=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=MCVHz/sU8tkI/zw4GzszduQhPv9gAG0nrt8AAKqY9XB66WpAzBCav7aPBYvPtpe8i
- +b6W+XWoXjbgkj2RNq2pZtZTy7Sw7O4VpJ8xxHOYJ+HRzSDuRMWwWdaNIW0XoIkA0O
- 2d5HGaYdPMBSVnsitHkg+GQK9HAiwF0kn17pFc5YSJA1tKIVa1ocq9Bk4AlctMaRCM
- 2DC9J36M7+UlrHzEQ1qSRms8CCp3cJw6pwBhw/pUN8V03P0wUE6p/usc5OIfcx/dVO
- u/vWsT69f4sq3T0N9lxJIyEpimkFjXFJ3phXtJqYGGbL+6JbT7g36464ztamPvCI60
- Wj2OVzPYFSf6g==
+ b=DNV/RxwtFv72Qaelz4AAKxK8z+dz0PjIGsnq95n5dd3yha7W96yd8XZSlnRhClIJH
+ sp7nS+U5FWmhehwN/5+Kl3QbGG1ukCDkg3DTf+UyT4V/0y+Q7kp8wem1KxwBFtoNNW
+ 14M7nrT/60RyVmmGSGI/K3GYlwpsRZ0Z+Wr62RPqAHHj3zlLWmOKXtCYmySc830/Rl
+ RzX0BlyQUfYwtSh1O5aFd63QOKMOUEDkLqh5OOtf+Ya7mBeepdILrQ1rvLAEukAAfK
+ VtEmmO0KWoVPYv2gr9t020bQoCOl63Qp4hle5kRqT9LFrmW1FKGoTlEFYCJ0UbwiaP
+ pMDJxs7sDeGUQ==
 From: Mike Rapoport <rppt@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH v17 01/10] mm: add definition of PMD_PAGE_ORDER
-Date: Mon,  8 Feb 2021 10:49:11 +0200
-Message-Id: <20210208084920.2884-2-rppt@kernel.org>
+Subject: [PATCH v17 02/10] mmap: make mlock_future_check() global
+Date: Mon,  8 Feb 2021 10:49:12 +0200
+Message-Id: <20210208084920.2884-3-rppt@kernel.org>
 X-Mailer: git-send-email 2.28.0
 In-Reply-To: <20210208084920.2884-1-rppt@kernel.org>
 References: <20210208084920.2884-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210208_034949_833012_1B4A2939 
-X-CRM114-Status: GOOD (  19.65  )
+X-CRM114-CacheID: sfid-20210208_035001_957130_792B370D 
+X-CRM114-Status: GOOD (  16.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -100,16 +100,9 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Mike Rapoport <rppt@linux.ibm.com>
 
-The definition of PMD_PAGE_ORDER denoting the number of base pages in the
-second-level leaf page is already used by DAX and maybe handy in other
-cases as well.
-
-Several architectures already have definition of PMD_ORDER as the size of
-second level page table, so to avoid conflict with these definitions use
-PMD_PAGE_ORDER name and update DAX respectively.
+It will be used by the upcoming secret memory implementation.
 
 Signed-off-by: Mike Rapoport <rppt@linux.ibm.com>
-Reviewed-by: David Hildenbrand <david@redhat.com>
 Cc: Alexander Viro <viro@zeniv.linux.org.uk>
 Cc: Andy Lutomirski <luto@kernel.org>
 Cc: Arnd Bergmann <arnd@arndb.de>
@@ -118,15 +111,18 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Christopher Lameter <cl@linux.com>
 Cc: Dan Williams <dan.j.williams@intel.com>
 Cc: Dave Hansen <dave.hansen@linux.intel.com>
+Cc: David Hildenbrand <david@redhat.com>
 Cc: Elena Reshetova <elena.reshetova@intel.com>
+Cc: Hagen Paul Pfeifer <hagen@jauu.net>
 Cc: "H. Peter Anvin" <hpa@zytor.com>
 Cc: Ingo Molnar <mingo@redhat.com>
 Cc: James Bottomley <jejb@linux.ibm.com>
 Cc: "Kirill A. Shutemov" <kirill@shutemov.name>
-Cc: Matthew Wilcox <willy@infradead.org>
 Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Matthew Wilcox <willy@infradead.org>
 Cc: Michael Kerrisk <mtk.manpages@gmail.com>
 Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Palmer Dabbelt <palmerdabbelt@google.com>
 Cc: Paul Walmsley <paul.walmsley@sifive.com>
 Cc: Peter Zijlstra <peterz@infradead.org>
 Cc: Rick Edgecombe <rick.p.edgecombe@intel.com>
@@ -136,77 +132,41 @@ Cc: Shuah Khan <shuah@kernel.org>
 Cc: Thomas Gleixner <tglx@linutronix.de>
 Cc: Tycho Andersen <tycho@tycho.ws>
 Cc: Will Deacon <will@kernel.org>
-Cc: Hagen Paul Pfeifer <hagen@jauu.net>
-Cc: Palmer Dabbelt <palmerdabbelt@google.com>
 ---
- fs/dax.c                | 11 ++++-------
- include/linux/pgtable.h |  3 +++
- 2 files changed, 7 insertions(+), 7 deletions(-)
+ mm/internal.h | 3 +++
+ mm/mmap.c     | 5 ++---
+ 2 files changed, 5 insertions(+), 3 deletions(-)
 
-diff --git a/fs/dax.c b/fs/dax.c
-index 26d5dcd2d69e..0f109eb16196 100644
---- a/fs/dax.c
-+++ b/fs/dax.c
-@@ -49,9 +49,6 @@ static inline unsigned int pe_order(enum page_entry_size pe_size)
- #define PG_PMD_COLOUR	((PMD_SIZE >> PAGE_SHIFT) - 1)
- #define PG_PMD_NR	(PMD_SIZE >> PAGE_SHIFT)
+diff --git a/mm/internal.h b/mm/internal.h
+index 9902648f2206..8e9c660f33ca 100644
+--- a/mm/internal.h
++++ b/mm/internal.h
+@@ -353,6 +353,9 @@ static inline void munlock_vma_pages_all(struct vm_area_struct *vma)
+ extern void mlock_vma_page(struct page *page);
+ extern unsigned int munlock_vma_page(struct page *page);
  
--/* The order of a PMD entry */
--#define PMD_ORDER	(PMD_SHIFT - PAGE_SHIFT)
--
- static wait_queue_head_t wait_table[DAX_WAIT_TABLE_ENTRIES];
- 
- static int __init init_dax_wait_table(void)
-@@ -98,7 +95,7 @@ static bool dax_is_locked(void *entry)
- static unsigned int dax_entry_order(void *entry)
- {
- 	if (xa_to_value(entry) & DAX_PMD)
--		return PMD_ORDER;
-+		return PMD_PAGE_ORDER;
- 	return 0;
- }
- 
-@@ -1470,7 +1467,7 @@ static vm_fault_t dax_iomap_pmd_fault(struct vm_fault *vmf, pfn_t *pfnp,
- {
- 	struct vm_area_struct *vma = vmf->vma;
- 	struct address_space *mapping = vma->vm_file->f_mapping;
--	XA_STATE_ORDER(xas, &mapping->i_pages, vmf->pgoff, PMD_ORDER);
-+	XA_STATE_ORDER(xas, &mapping->i_pages, vmf->pgoff, PMD_PAGE_ORDER);
- 	unsigned long pmd_addr = vmf->address & PMD_MASK;
- 	bool write = vmf->flags & FAULT_FLAG_WRITE;
- 	bool sync;
-@@ -1529,7 +1526,7 @@ static vm_fault_t dax_iomap_pmd_fault(struct vm_fault *vmf, pfn_t *pfnp,
- 	 * entry is already in the array, for instance), it will return
- 	 * VM_FAULT_FALLBACK.
- 	 */
--	entry = grab_mapping_entry(&xas, mapping, PMD_ORDER);
-+	entry = grab_mapping_entry(&xas, mapping, PMD_PAGE_ORDER);
- 	if (xa_is_internal(entry)) {
- 		result = xa_to_internal(entry);
- 		goto fallback;
-@@ -1695,7 +1692,7 @@ dax_insert_pfn_mkwrite(struct vm_fault *vmf, pfn_t pfn, unsigned int order)
- 	if (order == 0)
- 		ret = vmf_insert_mixed_mkwrite(vmf->vma, vmf->address, pfn);
- #ifdef CONFIG_FS_DAX_PMD
--	else if (order == PMD_ORDER)
-+	else if (order == PMD_PAGE_ORDER)
- 		ret = vmf_insert_pfn_pmd(vmf, pfn, FAULT_FLAG_WRITE);
- #endif
- 	else
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index 8fcdfa52eb4b..ea5c4102c23e 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -28,6 +28,9 @@
- #define USER_PGTABLES_CEILING	0UL
- #endif
- 
-+/* Number of base pages in a second level leaf page */
-+#define PMD_PAGE_ORDER	(PMD_SHIFT - PAGE_SHIFT)
++extern int mlock_future_check(struct mm_struct *mm, unsigned long flags,
++			      unsigned long len);
 +
  /*
-  * A page table page can be thought of an array like this: pXd_t[PTRS_PER_PxD]
-  *
+  * Clear the page's PageMlocked().  This can be useful in a situation where
+  * we want to unconditionally remove a page from the pagecache -- e.g.,
+diff --git a/mm/mmap.c b/mm/mmap.c
+index 28ef5e29152a..10b9b8b88913 100644
+--- a/mm/mmap.c
++++ b/mm/mmap.c
+@@ -1346,9 +1346,8 @@ static inline unsigned long round_hint_to_min(unsigned long hint)
+ 	return hint;
+ }
+ 
+-static inline int mlock_future_check(struct mm_struct *mm,
+-				     unsigned long flags,
+-				     unsigned long len)
++int mlock_future_check(struct mm_struct *mm, unsigned long flags,
++		       unsigned long len)
+ {
+ 	unsigned long locked, lock_limit;
+ 
 -- 
 2.28.0
 
