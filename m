@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-4.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BE5A8C433DB
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Feb 2021 12:17:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0D5E7C433DB
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Feb 2021 13:35:01 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 695D264E27
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Feb 2021 12:17:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 695D264E27
+	by mail.kernel.org (Postfix) with ESMTPS id 9406064DD5
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Feb 2021 13:35:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9406064DD5
 Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=suse.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,38 +23,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=MKysabb5GrwqPy4lvZfOv6TgoijAetK4EdTfF2HfgsI=; b=DGwEk17bKwsBshfQeBPRs236H
-	bTyKyzvVFhLCeHPAaUV1nesQpYZMVccd2COZd6AOkN9SvP7L/l5kQcwQGKNMI0GqCRmDb+EDRnc0R
-	g3Q8XB4VzhhySWEn3/XzsZYdgXr8XXiWCx/ePEEL5qBsGbPCyQI3PCjEb13aYUxj/nGifznhCh5iV
-	nO0Vig81xobCaEBOgNjphzaTGsrUAJgof8ox9zumrDN7v9V5wKcBeduirMou+q50facAVyXeJmEqv
-	JjPauGfo9U5zDlAp/+pEMuOAyx6poMjNAcq5IcJv4M+JqDbI26Fx4ItzVoaIAIa7WMu+hxsdMwe4n
-	tct+KrjXQ==;
+	 bh=1PKj6a7eQn2FvC/1gN+n6oQCr9hWSbsocGyPXDRiACM=; b=HqTjdKwxMKGniMgmwIOxWTdCE
+	mBcevLAzFJzwLsgZQwBJssR2OYvCLs/hT86S6kyyPMJjh3++3SqkiOJsOUlE3wGILC9wjoJOtfqYd
+	05fyVw0LZiSMK7RvZViJ+1t7DErq0e9UIUdaB2OymLfoTNJmIGdx+Iu9rFaeyvkSXhdKJGz4NC4Jv
+	bsI/nui5RTX2bscWpkro4itAkfPwNqNYxpZlfNF952OPWQu7W4ak8ljSqlLxlvRf4EJLY7ZxrHLW+
+	3MqThzpJ225W+CzQv2D/OOMseQhJNVz+VWtg4pc7Cpw8mPxh54GWqolHmgm5tHF76ZPoSbWPgCvuW
+	sjiM+fkUw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l95Ty-0006rD-DD; Mon, 08 Feb 2021 12:17:34 +0000
+	id 1l96gk-0006pI-Vu; Mon, 08 Feb 2021 13:34:51 +0000
 Received: from mx2.suse.de ([195.135.220.15])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l95Ts-0006op-Pc; Mon, 08 Feb 2021 12:17:29 +0000
+ id 1l96gg-0006n2-BJ; Mon, 08 Feb 2021 13:34:47 +0000
 X-Virus-Scanned: by amavisd-new at test-mx.suse.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
- t=1612786646; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+ t=1612791284; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
  mime-version:mime-version:content-type:content-type:
  in-reply-to:in-reply-to:references:references;
- bh=n+2LVFofWrDzo5XkXIbA8HqM46aC4ZldghhZ33psn6M=;
- b=KSPyq7HV9X52hHkw5B3fAQ6GHHyEdJ7l95EmFctR048cvtpwwEJSzUjnHCHT2EQT2m1fwI
- Jsts1jfz6j4PUcL+oOZWQPNH0wYw5qJxQghfmFs/AJ9ffQiRDEhRFqPxBNTbqXBqUQzMJN
- tTTWa45AKjgqUKiY3BBR4wSnVehy4C8=
+ bh=tPdxySZddbQD9qXDKMPnVWIQTa7PPiE4Qwe7qfgymrs=;
+ b=Ws1lDxg/c1OUiwJ+n1TiJoYFn0hPPDdML5K4+HkUiiEWmfvzMQjPpO3/qn1jln4ONS/kQr
+ iAi2I/2SSVcImlpMcLn9sGvyK1nH8qeEtezsgDdAsfxEiDnjlAtRKDe8fv4OppLwE1jcQF
+ IWgpduuoLm3r0wY2pkrb6rXd+NrR404=
 Received: from relay2.suse.de (unknown [195.135.221.27])
- by mx2.suse.de (Postfix) with ESMTP id 268A7AC6E;
- Mon,  8 Feb 2021 12:17:26 +0000 (UTC)
-Date: Mon, 8 Feb 2021 13:17:24 +0100
+ by mx2.suse.de (Postfix) with ESMTP id EAC5AAE47;
+ Mon,  8 Feb 2021 13:34:43 +0000 (UTC)
+Date: Mon, 8 Feb 2021 14:34:37 +0100
 From: Michal Hocko <mhocko@suse.com>
 To: David Hildenbrand <david@redhat.com>
 Subject: Re: [PATCH v17 08/10] PM: hibernate: disable when there are active
  secretmem users
-Message-ID: <YCEr1JS8k/nDbcVR@dhcp22.suse.cz>
-References: <20210208084920.2884-1-rppt@kernel.org>
- <20210208084920.2884-9-rppt@kernel.org>
+Message-ID: <YCE97c9tDkdf+A6P@dhcp22.suse.cz>
+References: <20210208084920.2884-9-rppt@kernel.org>
  <YCEP/bmqm0DsvCYN@dhcp22.suse.cz>
  <38c0cad4-ac55-28e4-81c6-4e0414f0620a@redhat.com>
  <YCEXwUYepeQvEWTf@dhcp22.suse.cz>
@@ -63,12 +62,13 @@ References: <20210208084920.2884-1-rppt@kernel.org>
  <770690dc-634a-78dd-0772-3aba1a3beba8@redhat.com>
  <21f4e742-1aab-f8ba-f0e7-40faa6d6c0bb@redhat.com>
  <5db6ac46-d4e1-3c68-22a0-94f2ecde8801@redhat.com>
+ <YCEr1JS8k/nDbcVR@dhcp22.suse.cz>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <5db6ac46-d4e1-3c68-22a0-94f2ecde8801@redhat.com>
+In-Reply-To: <YCEr1JS8k/nDbcVR@dhcp22.suse.cz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210208_071729_030165_187330E2 
-X-CRM114-Status: GOOD (  14.38  )
+X-CRM114-CacheID: sfid-20210208_083446_630282_843722DE 
+X-CRM114-Status: GOOD (  17.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -97,10 +97,10 @@ Cc: Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>,
  Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
  "Kirill A. Shutemov" <kirill@shutemov.name>,
  Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
- linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-fsdevel@vger.kernel.org, Shakeel Butt <shakeelb@google.com>,
- Andrew Morton <akpm@linux-foundation.org>,
+ linux-api@vger.kernel.org, "Rafael J. Wysocki" <rjw@rjwysocki.net>,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Palmer Dabbelt <palmer@dabbelt.com>, linux-fsdevel@vger.kernel.org,
+ Shakeel Butt <shakeelb@google.com>, Andrew Morton <akpm@linux-foundation.org>,
  Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>,
  Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
@@ -108,23 +108,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon 08-02-21 12:26:31, David Hildenbrand wrote:
-[...]
-> My F33 system happily hibernates to disk, even with an application that
-> succeeded in din doing an mlockall().
-> 
-> And it somewhat makes sense. Even my freshly-booted, idle F33 has
-> 
-> $ cat /proc/meminfo  | grep lock
-> Mlocked:            4860 kB
-> 
-> So, stopping to hibernate with mlocked memory would essentially prohibit any
-> modern Linux distro to hibernate ever.
+Btw. I do not see Rafael involved. Maybe he can add some insight to
+this. Please note that the patch in question is
+http://lkml.kernel.org/r/20210208084920.2884-9-rppt@kernel.org and
+the full series is http://lkml.kernel.org/r/20210208084920.2884-1-rppt@kernel.org
 
-My system seems to be completely fine without mlocked memory. It would
-be interesting to see who mlocks memory on your system and check whether
-the expectated mlock semantic really works for those. This should be
-documented at least.
+On Mon 08-02-21 13:17:26, Michal Hocko wrote:
+> On Mon 08-02-21 12:26:31, David Hildenbrand wrote:
+> [...]
+> > My F33 system happily hibernates to disk, even with an application that
+> > succeeded in din doing an mlockall().
+> > 
+> > And it somewhat makes sense. Even my freshly-booted, idle F33 has
+> > 
+> > $ cat /proc/meminfo  | grep lock
+> > Mlocked:            4860 kB
+> > 
+> > So, stopping to hibernate with mlocked memory would essentially prohibit any
+> > modern Linux distro to hibernate ever.
+> 
+> My system seems to be completely fine without mlocked memory. It would
+> be interesting to see who mlocks memory on your system and check whether
+> the expectated mlock semantic really works for those. This should be
+> documented at least.
+> -- 
+> Michal Hocko
+> SUSE Labs
+
 -- 
 Michal Hocko
 SUSE Labs
