@@ -2,59 +2,62 @@ Return-Path: <SRS0=+l7Y=HK=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-16.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-17.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_GIT autolearn=unavailable
+	autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 362EDC433DB
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Feb 2021 06:28:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 586A1C4332E
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Feb 2021 08:49:54 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B3D2764E59
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Feb 2021 06:28:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B3D2764E59
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
+	by mail.kernel.org (Postfix) with ESMTPS id DEEA764E9B
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Feb 2021 08:49:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DEEA764E9B
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:References:
-	To:Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=nk+iCDtA8SYRPe2iTUMWTeaYam3Su19eE7WZnOkFhlA=; b=s1KJlIIWgmbAMhA595IyEvH/e
-	CmN/YVIBMepw4E9gATUcHV9PW85tSf97lN66inqrGZHkHyEgpn6gnkpaF3AnGMFIp+xImmHNbDup3
-	gur0ND+Z755rlFSf/UMGeMwRrQfTzZDUJQCzKvEEJdLLqcJ/+ot/PPD71P0eqcOMszD2DtIuZxSAP
-	UJertPeeohY4AMEip1xYHVjSN0qyMy/4vYNv3LbVVqxfFJIwoQwJ+7Xhjn2C6tI9tDcNDT6ApBPtf
-	1T/FylGIIAX1ZInVfm7nE4456T5kc93kIaJrurHIExUIv2zcJU9CWyInMgBgegPUK9m0ivK50Xg44
-	c3gpK2Bpg==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6V0X1r2KMmklPCNSMw5F/c3Hx1uLYs/szCei6hcYi1g=; b=1YF2ftnK8vNMAYPxxQ0fbMm5Az
+	Mr4B42MF0BzQMxbXUR8QhuDoLU5SPf0xxuF5Zb2edn8Ce+M5dG6WzBMJr030eqZeuHJxKcJ8f/eHC
+	pdUkgtfcadrifKcpNDw2sY7sF2TBB6lRcPUMpsT+MKLZD1Ip7/Zu9Fpo0D8Fr/Fl6xDUYgEUdDcmY
+	OYF8VHgYSA6U2DarEhERlvXfOkVY7OGZZNzpk3v0ZQAZvnl92rlyVKuGvNukuZxcyANaq2u0LEAvk
+	/Vyidc+UIDV45JnaLxOEF11R3bLP6WKeYppBs4+NUtwTAacrHfOW1FzCufvramPujzMCoEE5xSbTd
+	m6VN5T5w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l9026-0005qz-BU; Mon, 08 Feb 2021 06:28:26 +0000
-Received: from relay4-d.mail.gandi.net ([217.70.183.196])
+	id 1l92Eq-00052Z-R4; Mon, 08 Feb 2021 08:49:44 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l9023-0005qE-4n
- for linux-riscv@lists.infradead.org; Mon, 08 Feb 2021 06:28:24 +0000
-X-Originating-IP: 82.65.183.113
-Received: from [172.16.5.113] (82-65-183-113.subs.proxad.net [82.65.183.113])
- (Authenticated sender: alex@ghiti.fr)
- by relay4-d.mail.gandi.net (Postfix) with ESMTPSA id CCB10E0007;
- Mon,  8 Feb 2021 06:28:13 +0000 (UTC)
-From: Alex Ghiti <alex@ghiti.fr>
-Subject: Re: [PATCH v2 1/1] riscv/kasan: add KASAN_VMALLOC support
-To: Palmer Dabbelt <palmer@dabbelt.com>, nylon7@andestech.com
-References: <mhng-443fd141-b9a3-4be6-a056-416877f99ea4@palmerdabbelt-glaptop>
-Message-ID: <2b2f3038-3e27-8763-cf78-3fbbfd2100a0@ghiti.fr>
-Date: Mon, 8 Feb 2021 01:28:13 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.7.1
+ id 1l92El-00050Y-0m; Mon, 08 Feb 2021 08:49:40 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 5436264E40;
+ Mon,  8 Feb 2021 08:49:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1612774176;
+ bh=wqI54+c/0wiSdDkhbqtVU15aSFrneEuHrQo30yJJfOA=;
+ h=From:To:Cc:Subject:Date:From;
+ b=CM/y7NyGxHGzTwxAfbGZvOt3f1Sm1SjTMAgOVRDrUs4b3iIiJDCrQuOV1qFvZS3AM
+ 6iDUG999RVPytEdVqOOpI8W6KVDKB3ggGttBMuwtpglgfcTUGA18Q4RoWKsRhlh9gx
+ memwEr/F0Wysgs/7Xrzh4Gw+6yHcRJ/CDxcHF4h6I87fjESF4Piql+wTJj9lvJ81OL
+ qmUprkN0Mzh0V7pa6UFO6OA7apk/H3Kuv9REp4d21rI3F/+bw3fmizYPT6sJLaRZpz
+ /Q1/SRF9IVA0WQPPzq17mV5gJTM2zScX2S9ZDgxfWRF3/1OVMhwIOveN2bSaTKfOt9
+ nzWaHkXPNMgNQ==
+From: Mike Rapoport <rppt@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>
+Subject: [PATCH v17 00/10] mm: introduce memfd_secret system call to create
+ "secret" memory areas
+Date: Mon,  8 Feb 2021 10:49:10 +0200
+Message-Id: <20210208084920.2884-1-rppt@kernel.org>
+X-Mailer: git-send-email 2.28.0
 MIME-Version: 1.0
-In-Reply-To: <mhng-443fd141-b9a3-4be6-a056-416877f99ea4@palmerdabbelt-glaptop>
-Content-Language: fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210208_012823_367796_057B9BA9 
-X-CRM114-Status: GOOD (  26.78  )
+X-CRM114-CacheID: sfid-20210208_034939_244524_E3F7F10A 
+X-CRM114-Status: GOOD (  23.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -66,197 +69,199 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, nickhu@andestech.com, alankao@andestech.com,
- linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com, nylon7717@gmail.com,
- glider@google.com, Paul Walmsley <paul.walmsley@sifive.com>,
- aryabinin@virtuozzo.com, linux-riscv@lists.infradead.org, dvyukov@google.com
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="windows-1252"; Format="flowed"
+Cc: Mark Rutland <mark.rutland@arm.com>, Michal Hocko <mhocko@suse.com>,
+ David Hildenbrand <david@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
+ Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
+ Will Deacon <will@kernel.org>, x86@kernel.org,
+ Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
+ Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
+ Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-fsdevel@vger.kernel.org, Shakeel Butt <shakeelb@google.com>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>,
+ Mike Rapoport <rppt@kernel.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Nylon,
+From: Mike Rapoport <rppt@linux.ibm.com>
 
-Le 1/22/21 =E0 10:56 PM, Palmer Dabbelt a =E9crit=A0:
-> On Fri, 15 Jan 2021 21:58:35 PST (-0800), nylon7@andestech.com wrote:
->> It references to x86/s390 architecture.
->> >> So, it doesn't map the early shadow page to cover VMALLOC space.
->>
->> Prepopulate top level page table for the range that would otherwise be
->> empty.
->>
->> lower levels are filled dynamically upon memory allocation while
->> booting.
+Hi,
 
-I think we can improve the changelog a bit here with something like that:
+@Andrew, this is based on v5.11-rc5-mmotm-2021-01-27-23-30, with secretmem
+and related patches dropped from there, I can rebase whatever way you
+prefer.
 
-"KASAN vmalloc space used to be mapped using kasan early shadow page. =
+This is an implementation of "secret" mappings backed by a file descriptor.
 
-KASAN_VMALLOC requires the top-level of the kernel page table to be =
+The file descriptor backing secret memory mappings is created using a
+dedicated memfd_secret system call The desired protection mode for the
+memory is configured using flags parameter of the system call. The mmap()
+of the file descriptor created with memfd_secret() will create a "secret"
+memory mapping. The pages in that mapping will be marked as not present in
+the direct map and will be present only in the page table of the owning mm.
 
-properly populated, lower levels being filled dynamically upon memory =
+Although normally Linux userspace mappings are protected from other users,
+such secret mappings are useful for environments where a hostile tenant is
+trying to trick the kernel into giving them access to other tenants
+mappings.
 
-allocation at runtime."
+Additionally, in the future the secret mappings may be used as a mean to
+protect guest memory in a virtual machine host.
 
->>
->> Signed-off-by: Nylon Chen <nylon7@andestech.com>
->> Signed-off-by: Nick Hu <nickhu@andestech.com>
->> ---
->> =A0arch/riscv/Kconfig=A0=A0=A0=A0=A0=A0=A0=A0 |=A0 1 +
->> =A0arch/riscv/mm/kasan_init.c | 57 +++++++++++++++++++++++++++++++++++++-
->> =A02 files changed, 57 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
->> index 81b76d44725d..15a2c8088bbe 100644
->> --- a/arch/riscv/Kconfig
->> +++ b/arch/riscv/Kconfig
->> @@ -57,6 +57,7 @@ config RISCV
->> =A0=A0=A0=A0 select HAVE_ARCH_JUMP_LABEL
->> =A0=A0=A0=A0 select HAVE_ARCH_JUMP_LABEL_RELATIVE
->> =A0=A0=A0=A0 select HAVE_ARCH_KASAN if MMU && 64BIT
->> +=A0=A0=A0 select HAVE_ARCH_KASAN_VMALLOC if MMU && 64BIT
->> =A0=A0=A0=A0 select HAVE_ARCH_KGDB
->> =A0=A0=A0=A0 select HAVE_ARCH_KGDB_QXFER_PKT
->> =A0=A0=A0=A0 select HAVE_ARCH_MMAP_RND_BITS if MMU
->> diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
->> index 12ddd1f6bf70..4b9149f963d3 100644
->> --- a/arch/riscv/mm/kasan_init.c
->> +++ b/arch/riscv/mm/kasan_init.c
->> @@ -9,6 +9,19 @@
->> =A0#include <linux/pgtable.h>
->> =A0#include <asm/tlbflush.h>
->> =A0#include <asm/fixmap.h>
->> +#include <asm/pgalloc.h>
->> +
->> +static __init void *early_alloc(size_t size, int node)
->> +{
->> +=A0=A0=A0 void *ptr =3D memblock_alloc_try_nid(size, size,
->> +=A0=A0=A0=A0=A0=A0=A0 __pa(MAX_DMA_ADDRESS), MEMBLOCK_ALLOC_ACCESSIBLE,=
- node);
->> +
->> +=A0=A0=A0 if (!ptr)
->> +=A0=A0=A0=A0=A0=A0=A0 panic("%pS: Failed to allocate %zu bytes align=3D=
-%zx nid=3D%d =
+For demonstration of secret memory usage we've created a userspace library
 
->> from=3D%llx\n",
->> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 __func__, size, size, node, (u64)__pa=
-(MAX_DMA_ADDRESS));
->> +
->> +=A0=A0=A0 return ptr;
->> +}
->>
->> =A0extern pgd_t early_pg_dir[PTRS_PER_PGD];
->> =A0asmlinkage void __init kasan_early_init(void)
->> @@ -83,6 +96,40 @@ static void __init populate(void *start, void *end)
->> =A0=A0=A0=A0 memset(start, 0, end - start);
->> =A0}
->>
->> +void __init kasan_shallow_populate(void *start, void *end)
->> +{
->> +=A0=A0=A0 unsigned long vaddr =3D (unsigned long)start & PAGE_MASK;
->> +=A0=A0=A0 unsigned long vend =3D PAGE_ALIGN((unsigned long)end);
->> +=A0=A0=A0 unsigned long pfn;
->> +=A0=A0=A0 int index;
->> +=A0=A0=A0 void *p;
->> +=A0=A0=A0 pud_t *pud_dir, *pud_k;
->> +=A0=A0=A0 pgd_t *pgd_dir, *pgd_k;
->> +=A0=A0=A0 p4d_t *p4d_dir, *p4d_k;
->> +
->> +=A0=A0=A0 while (vaddr < vend) {
->> +=A0=A0=A0=A0=A0=A0=A0 index =3D pgd_index(vaddr);
->> +=A0=A0=A0=A0=A0=A0=A0 pfn =3D csr_read(CSR_SATP) & SATP_PPN;
+https://git.kernel.org/pub/scm/linux/kernel/git/jejb/secret-memory-preloader.git
 
-At this point in the boot process, we know that we use swapper_pg_dir so =
+that does two things: the first is act as a preloader for openssl to
+redirect all the OPENSSL_malloc calls to secret memory meaning any secret
+keys get automatically protected this way and the other thing it does is
+expose the API to the user who needs it. We anticipate that a lot of the
+use cases would be like the openssl one: many toolkits that deal with
+secret keys already have special handling for the memory to try to give
+them greater protection, so this would simply be pluggable into the
+toolkits without any need for user application modification.
 
-no need to read SATP.
+Hiding secret memory mappings behind an anonymous file allows usage of
+the page cache for tracking pages allocated for the "secret" mappings as
+well as using address_space_operations for e.g. page migration callbacks.
 
->> +=A0=A0=A0=A0=A0=A0=A0 pgd_dir =3D (pgd_t *)pfn_to_virt(pfn) + index;
+The anonymous file may be also used implicitly, like hugetlb files, to
+implement mmap(MAP_SECRET) and use the secret memory areas with "native" mm
+ABIs in the future.
 
-Here, this pgd_dir assignment is overwritten 2 lines below, so no need =
+Removing of the pages from the direct map may cause its fragmentation on
+architectures that use large pages to map the physical memory which affects
+the system performance. However, the original Kconfig text for
+CONFIG_DIRECT_GBPAGES said that gigabyte pages in the direct map "... can
+improve the kernel's performance a tiny bit ..." (commit 00d1c5e05736
+("x86: add gbpages switches")) and the recent report [1] showed that "...
+although 1G mappings are a good default choice, there is no compelling
+evidence that it must be the only choice". Hence, it is sufficient to have
+secretmem disabled by default with the ability of a system administrator to
+enable it at boot time.
 
-for it.
+In addition, there is also a long term goal to improve management of the
+direct map.
 
->> +=A0=A0=A0=A0=A0=A0=A0 pgd_k =3D init_mm.pgd + index;
->> +=A0=A0=A0=A0=A0=A0=A0 pgd_dir =3D pgd_offset_k(vaddr);
+[1] https://lore.kernel.org/linux-mm/213b4567-46ce-f116-9cdf-bbd0c884eb3c@linux.intel.com/
 
-pgd_offset_k(vaddr) =3D init_mm.pgd + pgd_index(vaddr) so pgd_k =3D=3D pgd_=
-dir.
+v17:
+* Remove pool of large pages backing secretmem allocations, per Michal Hocko
+* Add secretmem pages to unevictable LRU, per Michal Hocko
+* Use GFP_HIGHUSER as secretmem mapping mask, per Michal Hocko
+* Make secretmem an opt-in feature that is disabled by default
+ 
+v16:
+* Fix memory leak intorduced in v15
+* Clean the data left from previous page user before handing the page to
+  the userspace
 
->> +=A0=A0=A0=A0=A0=A0=A0 set_pgd(pgd_dir, *pgd_k);
->> +
->> +=A0=A0=A0=A0=A0=A0=A0 p4d_dir =3D p4d_offset(pgd_dir, vaddr);
->> +=A0=A0=A0=A0=A0=A0=A0 p4d_k=A0 =3D p4d_offset(pgd_k, vaddr);
->> +
->> +=A0=A0=A0=A0=A0=A0=A0 vaddr =3D (vaddr + PUD_SIZE) & PUD_MASK;
+v15: https://lore.kernel.org/lkml/20210120180612.1058-1-rppt@kernel.org
+* Add riscv/Kconfig update to disable set_memory operations for nommu
+  builds (patch 3)
+* Update the code around add_to_page_cache() per Matthew's comments
+  (patches 6,7)
+* Add fixups for build/checkpatch errors discovered by CI systems
 
-Why do you increase vaddr *before* populating the first one ? And =
+v14: https://lore.kernel.org/lkml/20201203062949.5484-1-rppt@kernel.org
+* Finally s/mod_node_page_state/mod_lruvec_page_state/
 
-pud_addr_end does that properly: it returns the next pud address if it =
+v13: https://lore.kernel.org/lkml/20201201074559.27742-1-rppt@kernel.org
+* Added Reviewed-by, thanks Catalin and David
+* s/mod_node_page_state/mod_lruvec_page_state/ as Shakeel suggested
 
-does not go beyond end address to map.
+Older history:
+v12: https://lore.kernel.org/lkml/20201125092208.12544-1-rppt@kernel.org
+v11: https://lore.kernel.org/lkml/20201124092556.12009-1-rppt@kernel.org
+v10: https://lore.kernel.org/lkml/20201123095432.5860-1-rppt@kernel.org
+v9: https://lore.kernel.org/lkml/20201117162932.13649-1-rppt@kernel.org
+v8: https://lore.kernel.org/lkml/20201110151444.20662-1-rppt@kernel.org
+v7: https://lore.kernel.org/lkml/20201026083752.13267-1-rppt@kernel.org
+v6: https://lore.kernel.org/lkml/20200924132904.1391-1-rppt@kernel.org
+v5: https://lore.kernel.org/lkml/20200916073539.3552-1-rppt@kernel.org
+v4: https://lore.kernel.org/lkml/20200818141554.13945-1-rppt@kernel.org
+v3: https://lore.kernel.org/lkml/20200804095035.18778-1-rppt@kernel.org
+v2: https://lore.kernel.org/lkml/20200727162935.31714-1-rppt@kernel.org
+v1: https://lore.kernel.org/lkml/20200720092435.17469-1-rppt@kernel.org
+rfc-v2: https://lore.kernel.org/lkml/20200706172051.19465-1-rppt@kernel.org/
+rfc-v1: https://lore.kernel.org/lkml/20200130162340.GA14232@rapoport-lnx/
+rfc-v0: https://lore.kernel.org/lkml/1572171452-7958-1-git-send-email-rppt@kernel.org/
 
->> +=A0=A0=A0=A0=A0=A0=A0 pud_dir =3D pud_offset(p4d_dir, vaddr);
->> +=A0=A0=A0=A0=A0=A0=A0 pud_k =3D pud_offset(p4d_k, vaddr);
->> +
->> +=A0=A0=A0=A0=A0=A0=A0 if (pud_present(*pud_dir)) {
->> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 p =3D early_alloc(PAGE_SIZE, NUMA_NO_=
-NODE);
->> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 pud_populate(&init_mm, pud_dir, p);
+Arnd Bergmann (1):
+  arm64: kfence: fix header inclusion
 
-init_mm is not needed here.
+Mike Rapoport (9):
+  mm: add definition of PMD_PAGE_ORDER
+  mmap: make mlock_future_check() global
+  riscv/Kconfig: make direct map manipulation options depend on MMU
+  set_memory: allow set_direct_map_*_noflush() for multiple pages
+  set_memory: allow querying whether set_direct_map_*() is actually enabled
+  mm: introduce memfd_secret system call to create "secret" memory areas
+  PM: hibernate: disable when there are active secretmem users
+  arch, mm: wire up memfd_secret system call where relevant
+  secretmem: test: add basic selftest for memfd_secret(2)
 
->> +=A0=A0=A0=A0=A0=A0=A0 }
->> +=A0=A0=A0=A0=A0=A0=A0 vaddr +=3D PAGE_SIZE;
+ arch/arm64/include/asm/Kbuild             |   1 -
+ arch/arm64/include/asm/cacheflush.h       |   6 -
+ arch/arm64/include/asm/kfence.h           |   2 +-
+ arch/arm64/include/asm/set_memory.h       |  17 ++
+ arch/arm64/include/uapi/asm/unistd.h      |   1 +
+ arch/arm64/kernel/machine_kexec.c         |   1 +
+ arch/arm64/mm/mmu.c                       |   6 +-
+ arch/arm64/mm/pageattr.c                  |  23 +-
+ arch/riscv/Kconfig                        |   4 +-
+ arch/riscv/include/asm/set_memory.h       |   4 +-
+ arch/riscv/include/asm/unistd.h           |   1 +
+ arch/riscv/mm/pageattr.c                  |   8 +-
+ arch/x86/entry/syscalls/syscall_32.tbl    |   1 +
+ arch/x86/entry/syscalls/syscall_64.tbl    |   1 +
+ arch/x86/include/asm/set_memory.h         |   4 +-
+ arch/x86/mm/pat/set_memory.c              |   8 +-
+ fs/dax.c                                  |  11 +-
+ include/linux/pgtable.h                   |   3 +
+ include/linux/secretmem.h                 |  30 +++
+ include/linux/set_memory.h                |  16 +-
+ include/linux/syscalls.h                  |   1 +
+ include/uapi/asm-generic/unistd.h         |   6 +-
+ include/uapi/linux/magic.h                |   1 +
+ kernel/power/hibernate.c                  |   5 +-
+ kernel/power/snapshot.c                   |   4 +-
+ kernel/sys_ni.c                           |   2 +
+ mm/Kconfig                                |   3 +
+ mm/Makefile                               |   1 +
+ mm/gup.c                                  |  10 +
+ mm/internal.h                             |   3 +
+ mm/mlock.c                                |   3 +-
+ mm/mmap.c                                 |   5 +-
+ mm/secretmem.c                            | 261 +++++++++++++++++++
+ mm/vmalloc.c                              |   5 +-
+ scripts/checksyscalls.sh                  |   4 +
+ tools/testing/selftests/vm/.gitignore     |   1 +
+ tools/testing/selftests/vm/Makefile       |   3 +-
+ tools/testing/selftests/vm/memfd_secret.c | 296 ++++++++++++++++++++++
+ tools/testing/selftests/vm/run_vmtests    |  17 ++
+ 39 files changed, 726 insertions(+), 53 deletions(-)
+ create mode 100644 arch/arm64/include/asm/set_memory.h
+ create mode 100644 include/linux/secretmem.h
+ create mode 100644 mm/secretmem.c
+ create mode 100644 tools/testing/selftests/vm/memfd_secret.c
 
-Why do you need to add PAGE_SIZE ? vaddr already points to the next pud.
+-- 
+2.28.0
 
-It seems like this patch tries to populate userspace page table whereas =
-
-at this point in the boot process, only swapper_pg_dir is used or am I =
-
-missing something ?
-
-Thanks,
-
-Alex
-
->> +=A0=A0=A0 }
->> +}
->> +
->> =A0void __init kasan_init(void)
->> =A0{
->> =A0=A0=A0=A0 phys_addr_t _start, _end;
->> @@ -90,7 +137,15 @@ void __init kasan_init(void)
->>
->> =A0=A0=A0=A0 kasan_populate_early_shadow((void *)KASAN_SHADOW_START,
->> =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 (void *)kas=
-an_mem_to_shadow((void *)
->> -=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0=A0=A0 VMALLOC_END));
->> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0=A0=A0 VMEMMAP_END));
->> +=A0=A0=A0 if (IS_ENABLED(CONFIG_KASAN_VMALLOC))
->> +=A0=A0=A0=A0=A0=A0=A0 kasan_shallow_populate(
->> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 (void *)kasan_mem_to_shadow((void *)V=
-MALLOC_START),
->> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 (void *)kasan_mem_to_shadow((void *)V=
-MALLOC_END));
->> +=A0=A0=A0 else
->> +=A0=A0=A0=A0=A0=A0=A0 kasan_populate_early_shadow(
->> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 (void *)kasan_mem_to_shadow((void *)V=
-MALLOC_START),
->> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 (void *)kasan_mem_to_shadow((void *)V=
-MALLOC_END));
->>
->> =A0=A0=A0=A0 for_each_mem_range(i, &_start, &_end) {
->> =A0=A0=A0=A0=A0=A0=A0=A0 void *start =3D (void *)_start; >
-> Thanks, this is on for-next.
-> =
-
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
