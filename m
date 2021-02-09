@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-17.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0CC17C43381
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Feb 2021 12:30:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 40F03C433DB
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Feb 2021 12:30:43 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9701A64EB9
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Feb 2021 12:30:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9701A64EB9
+	by mail.kernel.org (Postfix) with ESMTPS id 9A01D64EB1
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Feb 2021 12:30:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9A01D64EB1
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,70 +23,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=WMKUUrQCbcO+nF3Bv2V20DdXycmeQ/4m+KbZtp7RNZ0=; b=f/OncH7oY4pOjBQiY75747PeZ
-	6N8ERsuMb9FDOXDc4Nq3IAo2ge2a3kpFm8BXX5Ncn8tMRZbUkjqZ+gg67UmCZn3PA0PnopbQfSJW9
-	P1Vd77gxpX8LlQOyJQGZvvHS48hZSeQnWRswCipQyZwL+hJUt0IcoJ2Ty0nRT+IjAKZ2Rywej3hmU
-	ZhcCrwNaXFTeyw0/h6NyPcGZf3iAUPm7RJaBu8TYwEbwdKOFFT/5YaYGVMpPoVanfnxwYKrYBkgVK
-	CWfsctOIhD2og4mk77LAZhSS6qZt3XGh7FBLmFmgtPEQGFNnMnBreliobf2XBHHh6i9CjSH7hOwVq
-	QjJTPDQVw==;
+	 bh=rDOsYd80hg1kW7D7IGobBsRgC2QIET2X9X+AVMYW0Ss=; b=MqfECFI6K2DHxJ9jOdw2JGAjO
+	modzrGkbJ8osLn9Y62DBwh+yF901o0/xV0xrCE17jiYWqBcB5Ryo7h06vNzaG6HA1U1BjSIUXepox
+	ubUon2e5wFfXBHW6168pq+AmbEnkZIRHnEb/9ou6NtD5uoHKOxf/4xyTY5AoGm3qrayqGD35TcuSd
+	cXsiq+3GaW/jZz5GEiuK4VBoVKbqqpMZxIyVMFT4vylnXzPvCIXTPqCXUahBuoF4DNhO76M109RDq
+	L5Kv+3UhlmO2xB2tO9hkBDH+77xEQbvwOOeqtKsqwwD/nLDrh0mx6UWvbqzqtCFmp17sbR7EK/ABX
+	YhPB0A4BQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l9SA3-00088x-Sy; Tue, 09 Feb 2021 12:30:31 +0000
+	id 1l9SA4-00089o-Sd; Tue, 09 Feb 2021 12:30:32 +0000
 Received: from esa6.hgst.iphmx.com ([216.71.154.45])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l9S9y-00086F-QS
- for linux-riscv@lists.infradead.org; Tue, 09 Feb 2021 12:30:27 +0000
+ id 1l9SA0-00085Y-3a
+ for linux-riscv@lists.infradead.org; Tue, 09 Feb 2021 12:30:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1612873827; x=1644409827;
+ t=1612873828; x=1644409828;
  h=from:to:cc:subject:date:message-id:in-reply-to:
  references:mime-version:content-transfer-encoding;
- bh=vo/OPIAjkDR1OdjdExr2oFWyf1l5b2KQ57/Uzl/0wR8=;
- b=V6/53cM+NmdxD48OjsxoTivlm/OGtcMvxgituiaIIOGchR1RT3DEsfl8
- i0USda7PexiPIOMFVMXSvpen+5ftKCm23zjBPNEQnzoXzcqa9bUOysiiJ
- G9gc6DYAytYf7OS9Nu81gWFW8nT0PGFvmadUHtzPArdJGcnIywxHvZWvT
- pY+PSKlI51FMPDTuQ9lVM8zqAYwwRRh0e61g59R/ECGmWtv4LPF1dR22L
- KC0u/Xu6csxvoGI4St8E19YQiE8M7O3Y0Js0qwdZouxad8FDv+Z7fRXrV
- fXs+gzzGE5hhfDEfE+ftSrZDrpestckSpggB7wIkxW/jVYkgvY3Yyh4eJ w==;
-IronPort-SDR: v04aH9wUTIkl8NsfnieHJQFnFTpbL8rfkGWUzlfwQU0HfWcVHpCoPqF+gWcxAp6+iOn7VZdjzb
- O/u7YRgbSvPblYwJOw3ZCMf6uv0IFhDnbbpBWNQUdUC4ygZ3hTWz7nPCYCXrcjs9YXY6dH2QgG
- J8lt+z8yW+lIoz1/YYl0zdy4gbgAz2HvMH7qmQmF08ytOUMU2oyTVsegr8QuGgRxT4s3Uvbyo9
- Z3p6e6mwLAj9bSaptJugd+auCy9zMf2C47qsKg0tQbfU+1PWimZUpFjuwYD8K8bjfvBSQwzxqy
- 7DM=
-X-IronPort-AV: E=Sophos;i="5.81,164,1610380800"; d="scan'208";a="160707551"
+ bh=AIY+mENCG0OfDogqN2TK/zkNool8y2CBwzDhCDvMBTc=;
+ b=oEqzJHDb2afh0fZoUNyFebYkHz79ttkKwYHfmQ4UH43R3geXwahh6aQC
+ ekieooyk2EKkd+v3ymFhNsE+ZqA71376cFJcnLLb9pkcz1iTC+eQMoOPg
+ BkRA4UFjRMG05+28JAr7kJT0vUvm/RYCTMxolWrJCkmiNvtlVANCam4d+
+ etbNLFUdj3HqER1evXhZBxPStfHilbVpbkhc74Sz4isy0xoyxGgxsLrj7
+ 1uJCaG3lyzy0Wq/bSg/RRIAUFfsUPMAj80frpw1yGCYD/4+1T7roGbxCI
+ AOiYDD0em3uxIBSyDJ1J+BrY4Cyo2ecEtqoM+Lmn9Re3aE4+m6TE5rWCG Q==;
+IronPort-SDR: mwscthNsz7DMN0usOU0XZlpdAHnWiTnKvzTvRPtJ5RqGPcd//dgkGPs2B8clvSu/qrH5OnCzvc
+ b/esNbhikgiKO64N97B601jgFDyNtFfodVK4Xdp0MIPESlSZIozTxfvs9xhzduQzgK5Q0FKkNg
+ lWqQAvN9Ed3462Sh3PviC9ehMnML5xVJrepAsoQ+Ay5rFrorg1Uiu4n8RYEu//CYDb5xye2jaN
+ jBCEmOlzLT7vmnARGLvRxKUC0B4hy5tFTIbJaqo6fhIniaI/FhT+4QHVe0A02RRp5HdKp1LP5Q
+ uH0=
+X-IronPort-AV: E=Sophos;i="5.81,164,1610380800"; d="scan'208";a="160707554"
 Received: from h199-255-45-15.hgst.com (HELO uls-op-cesaep02.wdc.com)
  ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 09 Feb 2021 20:30:26 +0800
-IronPort-SDR: pxJgVrEV4kBjuN1Ztc2QLGPmHY7pi5gXfrPzE69Jvd3DqId2A6LoIb/H/6s7hY9QzFdklLLZIf
- 9wk8Tt+9IDh84cplw1so+C9BSt+BGWBmSPth4uWKGhp7JTNl5IVxvFdEPy3U58qx7/p9ktF+vj
- 8JdRoLF5CVvJ8nBlOGNx7r14M2p7XQfa5t9WEV+Q4XdFi2PZ/xe4huEFoHK1MRdNtLOrX606fd
- nYyNRTw7u2A25iH7FglYjXbvZwON5p3kt1q0B1hstLOMcgSLmerOrqyWzDIC+7EGncL/tCcztX
- bPpD7+pgbcJzPY0dhnJAG8aJ
+ by ob1.hgst.iphmx.com with ESMTP; 09 Feb 2021 20:30:28 +0800
+IronPort-SDR: ErhL6eywFuQGfBrK6y+10eHSzLxHRVmN2nQAX32HaIjV4kk+ZTgMuj7cTAoVh03y/39VrAzRBj
+ bBk0D41GtZyjVCk3Z5jsU/pFSC4BTNziV1CjnkqyhtD/DUxeLRz9+w9aDJf5ph0sxcXvEkhG9B
+ BJGlpNZ1R9F0GF4S7hN6qBK7T953u57q3XzfQL1zIVPX/ykAWdlTNFgP0rsJGjirfosd0+PPQO
+ iJzBprLL4CzFTatvB5EdIKP270fgPrm4ADWLY1pLtrpwkPPlmOB1cOu7LuX8wpTrDJtLCVP2Ab
+ XDx3vnh9oNb1iOq0NA8b1rCg
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
  by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 09 Feb 2021 04:12:20 -0800
-IronPort-SDR: cMmr6H2j9YehT9FwaFBGGz/CYFJi6MAaKnxJWQyGcxrq47/gMaasKj8n1RLjDQm2RllacyRmJj
- bsxl5wMPYmTXEySnWcqEBtsyqwXfpJJPBAWKS5xDc6FtGsV1JwYJbVAkPmmiw4upY6ni55bzDr
- 8qjGeHTwwMNku7ePDQhoZyHzMcfd9tKgCbnAjKdqr4bth5cehStLn+i86d6ien0Bo5fj+DCIGK
- nXnZ87p1u/xF6UDRJ68LfPnf258f0D+JjzT9dlDfa75/l6o79+nbUs/VOgwhlQHXAfPSYgMWOA
- M9U=
+ 09 Feb 2021 04:12:21 -0800
+IronPort-SDR: lupY98j76pDHZuYYE2dQnSvWhf/sfGpMDlmBHyuIQEEnke/G2Oyg/37jDggAlx2Zd9ElclfcPk
+ c2BdbxJJx5Mxs8PkBvAz+pIAoozWNypYTFm/zP4z4oLlF51Kuykg2QgyQGn6oBJGgVofsZX4tO
+ IM1XA4IbvyPTHB8f+cWPsyoF+FE5+irbtsY9/RdjWvAW7JdO9nkTiwx4LlxMahUOspwwSSQ3nw
+ 6h6YFTUZuKh24aZXVLuIR455J5JVBfDDYEJ7sen5dHxf9F6F9rEYV3fjQuZBSAaTwIAzf3JkYJ
+ OIM=
 WDCIronportException: Internal
 Received: from phd004806.ad.shared (HELO twashi.fujisawa.hgst.com)
  ([10.84.71.69])
- by uls-op-cesaip01.wdc.com with ESMTP; 09 Feb 2021 04:30:25 -0800
+ by uls-op-cesaip01.wdc.com with ESMTP; 09 Feb 2021 04:30:27 -0800
 From: Damien Le Moal <damien.lemoal@wdc.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v18 05/16] dt-bindings: update sifive clint compatible string
-Date: Tue,  9 Feb 2021 21:30:03 +0900
-Message-Id: <20210209123014.165928-6-damien.lemoal@wdc.com>
+Subject: [PATCH v18 06/16] dt-bindings: update sifive uart compatible string
+Date: Tue,  9 Feb 2021 21:30:04 +0900
+Message-Id: <20210209123014.165928-7-damien.lemoal@wdc.com>
 X-Mailer: git-send-email 2.29.2
 In-Reply-To: <20210209123014.165928-1-damien.lemoal@wdc.com>
 References: <20210209123014.165928-1-damien.lemoal@wdc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210209_073026_991581_78616C8D 
-X-CRM114-Status: GOOD (  10.35  )
+X-CRM114-CacheID: sfid-20210209_073028_336831_E3FD96F6 
+X-CRM114-Status: GOOD (  11.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -98,56 +98,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Atish Patra <atish.patra@wdc.com>, devicetree@vger.kernel.org,
- Anup Patel <anup.patel@wdc.com>, Rob Herring <robh@kernel.org>,
- Sean Anderson <seanga2@gmail.com>
+Cc: devicetree@vger.kernel.org, Rob Herring <robh@kernel.org>,
+ Anup Patel <anup.patel@wdc.com>, Sean Anderson <seanga2@gmail.com>,
+ Atish Patra <atish.patra@wdc.com>, Paul Walmsley <paul.walmsley@sifive.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the "canaan,k210-clint" compatible string to the Sifive clint
-bindings to indicate the use of the "sifive,clint0" IP block in the
-Canaan Kendryte K210 SoC. The description of the compatible string
-property is also updated to reflect this addition.
+Add the compatible string "canaan,k210-uarths" to the sifive uart
+bindings to indicate the use of this IP block in the Canaan Kendryte
+K210 SoC.
 
-Cc: Anup Patel <anup.patel@wdc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
 Cc: Rob Herring <robh@kernel.org>
 Cc: devicetree@vger.kernel.org
 Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
+Reviewed-by: Atish Patra <atish.patra@wdc.com>
 Acked-by: Rob Herring <robh@kernel.org>
 ---
- .../devicetree/bindings/timer/sifive,clint.yaml      | 12 ++++++++----
- 1 file changed, 8 insertions(+), 4 deletions(-)
+ Documentation/devicetree/bindings/serial/sifive-serial.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-index 2a0e9cd9fbcf..a35952f48742 100644
---- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-+++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-@@ -23,15 +23,19 @@ description:
- properties:
-   compatible:
-     items:
--      - const: sifive,fu540-c000-clint
-+      - enum:
-+          - sifive,fu540-c000-clint
-+          - canaan,k210-clint
-       - const: sifive,clint0
+diff --git a/Documentation/devicetree/bindings/serial/sifive-serial.yaml b/Documentation/devicetree/bindings/serial/sifive-serial.yaml
+index 3ac5c7ff2758..5fa94dacbba9 100644
+--- a/Documentation/devicetree/bindings/serial/sifive-serial.yaml
++++ b/Documentation/devicetree/bindings/serial/sifive-serial.yaml
+@@ -20,6 +20,7 @@ properties:
+       - enum:
+           - sifive,fu540-c000-uart
+           - sifive,fu740-c000-uart
++          - canaan,k210-uarths
+       - const: sifive,uart0
  
      description:
--      Should be "sifive,<chip>-clint" and "sifive,clint<version>".
-+      Should be "<vendor>,<chip>-clint" and "sifive,clint<version>".
-       Supported compatible strings are -
-       "sifive,fu540-c000-clint" for the SiFive CLINT v0 as integrated
--      onto the SiFive FU540 chip, and "sifive,clint0" for the SiFive
--      CLINT v0 IP block with no chip integration tweaks.
-+      onto the SiFive FU540 chip, "canaan,k210-clint" for the SiFive
-+      CLINT v0 as integrated onto the Canaan Kendryte K210 chip, and
-+      "sifive,clint0" for the SiFive CLINT v0 IP block with no chip
-+      integration tweaks.
-       Please refer to sifive-blocks-ip-versioning.txt for details
- 
-   reg:
 -- 
 2.29.2
 
