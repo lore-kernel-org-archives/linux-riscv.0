@@ -2,85 +2,89 @@ Return-Path: <SRS0=3nDB=HL=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-6.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
-	autolearn=no autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-17.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 11515C433DB
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Feb 2021 10:31:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E224DC433DB
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Feb 2021 12:30:35 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 985C264D9D
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Feb 2021 10:31:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 985C264D9D
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
+	by mail.kernel.org (Postfix) with ESMTPS id 20E7664EB1
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Feb 2021 12:30:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 20E7664EB1
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:References:
-	To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=C++utn6PitSdvTirhvgdoUHuG7LSKbAmHwV9Fr/JUCc=; b=IszLgR+2A5Kv4mKl3hjVnB0Lk
-	kh8Vr5BmRplRyPzFOY0eUNY/etBg4R4DQEVeG0aSB1XndSh9FACqC4jeQmZPbCfpjFIc5MiFZFs2M
-	VHbTOQ71A1WcTwsV0eA0C+0mzGrSowafWB/n0Tj+pfsvOstpChDPrnF/UoNwehIDgADwOPF+3Mmkq
-	OrR9rQrsXNReslsGNee3ot60kiTy/mZABxdzlhhuGFOGd0BqTPVC5+VoskKmNrFr7VUKXaFyu4Qyo
-	vAZJ1q8wb1y4T5XahRsPHR3n6GxLA0qoM1Plxm4fnLJYU1U4gR44g7Rb8DNjsEjJLX9WhiZlO8aXz
-	teV6zBd2w==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wXatvVKzFlQvtHERcVzUFvY10nuvD2iueOaO8GsuKQ4=; b=DQN9PthgnNS3dVUWa+5R0ZpD4k
+	GT4dlRJRg0FstSUFVT4KbhPg2Hg+aelP6V5+cZE+AhYRPSjRu8AApK6zoxRq8jxpqmJ5QbyVfYiCm
+	bXUskRnHHsTKV79wo8vTawMOHeeKNV20RZ5022tCcX3tBlXJWqI8huhWRVObqAHkijDIYK56foiz2
+	gFkg3mW3++/Z7pwj9ztJtzn5jDZMesx9zdDlsIaGldgJXjCrKIBu4ZXsfR+RW1vymOeiktVeoz5jy
+	Gs7cd6PV8VXuEHzSIPGfHy/iJkdc5V27s5tDMtxA/riXgti9jF4l2zn7hJB9skPEyThmnT9XHvMl8
+	tBSCxVYw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l9QId-0007h2-93; Tue, 09 Feb 2021 10:31:15 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([216.205.24.124])
+	id 1l9S9w-00085S-GV; Tue, 09 Feb 2021 12:30:24 +0000
+Received: from esa2.hgst.iphmx.com ([68.232.143.124])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l9QIX-0007ea-MP
- for linux-riscv@lists.infradead.org; Tue, 09 Feb 2021 10:31:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1612866669;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=l9NmyWsJuFC0/5JNGWNXSCR8ksDc6+RfyJhTiUXWtF4=;
- b=OZiBee4/hx+0WzQCZMLlGJRIFCiAD9X3KouUn1rReCunutViiArKTZnU/OexnZuFy204c/
- LYzC+rWAwbXUxsPTNOAI49XW3mGoED+KCRwulMrjPNhrcCRxrehQrJ+7vIdt/eBaDEf9et
- AgkqIvHPCXaP23isZybVF6BdD42+aWk=
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-105-IIfTrpvSPlC2PvPZbsJlDQ-1; Tue, 09 Feb 2021 05:31:06 -0500
-X-MC-Unique: IIfTrpvSPlC2PvPZbsJlDQ-1
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com
- [10.5.11.16])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mimecast-mx01.redhat.com (Postfix) with ESMTPS id C379C107ACE4;
- Tue,  9 Feb 2021 10:31:01 +0000 (UTC)
-Received: from [10.36.113.141] (ovpn-113-141.ams2.redhat.com [10.36.113.141])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 3559C17AE2;
- Tue,  9 Feb 2021 10:30:54 +0000 (UTC)
-Subject: Re: [PATCH v17 00/10] mm: introduce memfd_secret system call to
- create "secret" memory areas
-From: David Hildenbrand <david@redhat.com>
-To: Michal Hocko <mhocko@suse.com>
-References: <20210208211326.GV242749@kernel.org>
- <1F6A73CF-158A-4261-AA6C-1F5C77F4F326@redhat.com>
- <YCJO8zLq8YkXGy8B@dhcp22.suse.cz>
- <662b5871-b461-0896-697f-5e903c23d7b9@redhat.com>
- <YCJbmR11ikrWKaU8@dhcp22.suse.cz>
- <c1e5e7b6-3360-ddc4-2ff5-0e79515ee23a@redhat.com>
-Organization: Red Hat GmbH
-Message-ID: <d733d2b5-bb9c-179d-82c2-3c07d7d97a9f@redhat.com>
-Date: Tue, 9 Feb 2021 11:30:53 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.0
+ id 1l9S9s-00083p-2S
+ for linux-riscv@lists.infradead.org; Tue, 09 Feb 2021 12:30:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1612874187; x=1644410187;
+ h=from:to:cc:subject:date:message-id:mime-version:
+ content-transfer-encoding;
+ bh=CNrWzJLgmZVR+I1aH3owEEyQ4Ao+asVqRpjDt2SbdpU=;
+ b=Zzjvwx3k8P2d1RyvhgLpUt3Kl+qFzyON5vsqW/rGLBgOEx+104kj5G5P
+ W7ASKvHypsnCy0WosVAeHvFjVoV8W+cxTZIRl0gztefVV1J4044G5+2co
+ ObOksdjdm7aYxKjM6OCqD74e9HNBO2t60CnESi8Vv3fzkjGykrQ8l0zSf
+ Daw+wXYJKp2I3IMohajKZRse4yr6ceMq2+OnffV9IotQ8LLX4GlgBQqoJ
+ Jdw84Qbjn67Y97rBja0ei05L7i8LG+SueV5LgcZcpkUfeiRt1U8rIOf+V
+ gAa3FvGZCZxNI8rHzM8FbW2f/LjYxG2ndrVdmoobFiIl31kXzB/QSqVXU A==;
+IronPort-SDR: yH+q2q38WlZxksycDIAr7TzQss9Rfrtn4AXvxQdfnFCjX2VAILA9r0/xjZ0AqKI7JsZ+KqeOfP
+ 0Ecvruori8lNi/ZlJeVmY2CbRJGBDOcXg7yz58D0P8GStPob9uH35QidXJEn+39VVUQZYpi6H/
+ Nh9va7cPNBRNPssrrtNneMGf2jeTV0LcpMscKxNOyCwqRwZ5MD7nUJVz106WKIJC0FByibbtRA
+ nvdlqY2R1mhJ0jDJ0SFQxq3sgXkUH0jRLnDgCrsmgNOOgdZxuIhFcDFUf6C6/+ds6Ip+af3wtY
+ Idc=
+X-IronPort-AV: E=Sophos;i="5.81,164,1610380800"; d="scan'208";a="263648813"
+Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com)
+ ([199.255.45.14])
+ by ob1.hgst.iphmx.com with ESMTP; 09 Feb 2021 20:36:22 +0800
+IronPort-SDR: AGHiNyBu2dvwMUaUlVjIU3yUFbY6iAGpBsig5mnxLO+FhFnqcy+ChsCGCUulULVbuif9DYgKlq
+ sFt0JkrMhktvTPPse3y+4fLzgmMcxexz1jlgK16EGgy0cmz0qu6NlN4n4cfGweFze7ADrEs5QS
+ 236+pOO+ssunaL5bj5+2fk2Xxu7mPjpm9Qf8WZ5XRzmB4nQfTT9heRG7Bw0FxlKDQ85oyOGFNc
+ xLZkWaZdSSatTxL+dkgloFElUNTHqqib9be726kEObP/CoTeIYyFaL8rdF9jbLxr5COCggepcc
+ XKQ9voOEI4WaIGsLYTN0GmtB
+Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
+ by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 09 Feb 2021 04:14:00 -0800
+IronPort-SDR: EST4u2tTB/Z0T7weMT6n0H282slizsj6k5dFwVUpOMO/HUyUooDv/iwuYbEi+DUUC7LqwyHB9C
+ 34l4otfbU4FV7XPWRIHNzPOMxQxTBBNXKmI9FE9MFsEJoLHfFXak/bV+RXT94OqF57aNl8wYPh
+ AcNRLbji87zo5zJpuQAiIFaZZZ/7oZ84QwTa2WboGg5Cis1HwiejmHaHZp0S4XJBucaiCoO85B
+ TCMKMPxpuWrW2DRZprwdFmb9yDjC6x/qNWbX5gJZ/CtrSe2CllKelO9BwqaxLfIZiaeU2mmmPq
+ 1AY=
+WDCIronportException: Internal
+Received: from phd004806.ad.shared (HELO twashi.fujisawa.hgst.com)
+ ([10.84.71.69])
+ by uls-op-cesaip01.wdc.com with ESMTP; 09 Feb 2021 04:30:16 -0800
+From: Damien Le Moal <damien.lemoal@wdc.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v18 00/16] RISC-V Kendryte K210 support improvements
+Date: Tue,  9 Feb 2021 21:29:58 +0900
+Message-Id: <20210209123014.165928-1-damien.lemoal@wdc.com>
+X-Mailer: git-send-email 2.29.2
 MIME-Version: 1.0
-In-Reply-To: <c1e5e7b6-3360-ddc4-2ff5-0e79515ee23a@redhat.com>
-Content-Language: en-US
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210209_053109_812033_9CE74A9A 
-X-CRM114-Status: GOOD (  30.16  )
+X-CRM114-CacheID: sfid-20210209_073020_332582_AD7C9810 
+X-CRM114-Status: GOOD (  24.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -92,111 +96,216 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
- linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>,
- Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
- Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
- Will Deacon <will@kernel.org>, x86@kernel.org,
- Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
- Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
- Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
- Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
- linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-fsdevel@vger.kernel.org, Shakeel Butt <shakeelb@google.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>,
- Mike Rapoport <rppt@kernel.org>
+Cc: Atish Patra <atish.patra@wdc.com>, Anup Patel <anup.patel@wdc.com>,
+ Sean Anderson <seanga2@gmail.com>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 09.02.21 11:23, David Hildenbrand wrote:
->>>> A lot of unevictable memory is a concern regardless of CMA/ZONE_MOVABLE.
->>>> As I've said it is quite easy to land at the similar situation even with
->>>> tmpfs/MAP_ANON|MAP_SHARED on swapless system. Neither of the two is
->>>> really uncommon. It would be even worse that those would be allowed to
->>>> consume both CMA/ZONE_MOVABLE.
->>>
->>> IIRC, tmpfs/MAP_ANON|MAP_SHARED memory
->>> a) Is movable, can land in ZONE_MOVABLE/CMA
->>> b) Can be limited by sizing tmpfs appropriately
->>>
->>> AFAIK, what you describe is a problem with memory overcommit, not with zone
->>> imbalances (below). Or what am I missing?
->>
->> It can be problem for both. If you have just too much of shm (do not
->> forget about MAP_SHARED|MAP_ANON which is much harder to size from an
->> admin POV) then migrateability doesn't really help because you need a
->> free memory to migrate. Without reclaimability this can easily become a
->> problem. That is why I am saying this is not really a new problem.
->> Swapless systems are not all that uncommon.
-> 
-> I get your point, it's similar but still different. "no memory in the
-> system" vs. "plenty of unusable free memory available in the system".
-> 
-> In many setups, memory for user space applications can go to
-> ZONE_MOVABLE just fine. ZONE_NORMAL etc. can be used for supporting user
-> space memory (e.g., page tables) and other kernel stuff.
-> 
-> Like, have 4GB of ZONE_MOVABLE with 2GB of ZONE_NORMAL. Have an
-> application (database) that allocates 4GB of memory. Works just fine.
-> The zone ratio ends up being a problem for example with many processes
-> (-> many page tables).
-> 
-> Not being able to put user space memory into the movable zone is a
-> special case. And we are introducing yet another special case here
-> (besides vfio, rdma, unmigratable huge pages like gigantic pages).
-> 
-> With plenty of secretmem, looking at /proc/meminfo Total vs. Free can be
-> a big lie of how your system behaves.
-> 
->>    
->>>> One has to be very careful when relying on CMA or movable zones. This is
->>>> definitely worth a comment in the kernel command line parameter
->>>> documentation. But this is not a new problem.
->>>
->>> I see the following thing worth documenting:
->>>
->>> Assume you have a system with 2GB of ZONE_NORMAL/ZONE_DMA and 4GB of
->>> ZONE_MOVABLE/CMA.
->>>
->>> Assume you make use of 1.5GB of secretmem. Your system might run into OOM
->>> any time although you still have plenty of memory on ZONE_MOVAVLE (and even
->>> swap!), simply because you are making excessive use of unmovable allocations
->>> (for user space!) in an environment where you should not make excessive use
->>> of unmovable allocations (e.g., where should page tables go?).
->>
->> yes, you are right of course and I am not really disputing this. But I
->> would argue that 2:1 Movable/Normal is something to expect problems
->> already. "Lowmem" allocations can easily trigger OOM even without secret
->> mem in the picture. It all just takes to allocate a lot of GFP_KERNEL or
->> even GFP_{HIGH}USER. Really, it is CMA/MOVABLE that are elephant in the
->> room and one has to be really careful when relying on them.
-> 
-> Right, it's all about what the setup actually needs. Sure, there are
-> cases where you need significantly more GFP_KERNEL/GFP_{HIGH}USER such
-> that a 2:1 ratio is not feasible. But I claim that these are corner cases.
-> 
-> Secretmem gives user space the option to allocate a lot of
-> GFP_{HIGH}USER memory. If I am not wrong, "ulimit -a" tells me that each
-> application on F33 can allocate 16 GiB (!) of secretmem.
+This series of patches improves support for boards based on the Canaan
+Kendryte K210 RISC-V dual core SoC. Minimal support for this SoC is
+already included in the kernel. These patches complete it, enabling
+support for most peripherals present on the SoC as well as introducing
+device trees for the various K210 boards available on the market today
+from SiPeed and Kendryte.
 
-Got to learn to do my math. It's 16 MiB - so as a default it's less 
-dangerous than I thought!
+The patches here are the remaining patches not yet applied.
+
+Patch 1 adds the SoC clock driver.
+
+Patches 2 to 8 add and update device tree bindings documentation to
+document the K210 device tree files. In particular, patch 2 and 3
+define compatible strings used for the SoC CPU and for the K210 based
+boards supported.
+
+Patches 9 to 14 update the existing K210 base device tree and add new
+device tree files for several K210 based boards: MAIX Bit, MAIXDUINO,
+MAIX Dock and MAIX Go boards from SiPeed and the KD233 development
+board from Canaan.
+
+Finally the last two patches updates the k210 nommu defconfig to include
+the newly implemented drivers and provide a new default configuration
+file enabling SD card support.
+
+A lot of the work on the device tree and on the K210 drivers come from
+the work by Sean Anderson for the U-Boot project support of the K210
+SoC. Sean also helped with debugging many aspects of the K210 support.
+
+A tree with all patches applied is available here:
+https://github.com/damien-lemoal/linux, k210-sysctl-v31 branch.
+A demonstration of this series used on a SiPeed MAIX Dock
+board together with an I2C servo controller can be seen here:
+https://damien-lemoal.github.io/linux-robot-arm/#example
+
+This tree was used to build userspace busybox environment image that is
+then copied onto an SD card formatted with ext2:
+https://github.com/damien-lemoal/buildroot
+Of note is that running this userspace environment requires a revert of
+commit 2217b982624680d19a80ebb4600d05c8586c4f96 introduced during the
+5.9 development cycle. Without this revert, execution of the init
+process fails. A problem with the riscv port of elf2flt is suspected but
+not confirmed. I am now starting to investigate this problem.
+
+Reviews and comments are as always much welcome.
+
+Changes from v17:
+* Removed teh nodes of unsupported devices with undocumented bindings
+  from the SoC k210.dtsi DTS file.
+
+Changes from v16:
+* Rebased on rc7
+* Addressed Rob's comment on patch 7
+* Added review and ack tags.
+
+Changes from v15:
+* Addressed Rob's comments on patches 4 and 5
+* Fixed patch 7 ngpios property
+* Added review and ack tags.
+
+Changes from v14:
+* Fixed typo in patch 4
+* Added reviewed-by tags
+
+Changes from v13:
+* Rebased on rc6
+* Removed FPIOA driver patch as it is already queued.
+
+Changes from v12:
+* Addressed Rab's comments: keep SoC specific compatible string for DT
+  nodes reusing existing IP blocks (e.g. PLIC and CLINT).
+* Addressed dt-bindings schema file check warnings.
+
+Changes from v11:
+* Addressed Stephen's comment on the clock driver
+* Fixed and added device tree bindings yaml files and fixed the device
+  tree files to fix all warnings generated by make dtbs_check
+* Rebased on riscv tree fixes + latest riscv for-next branches.
+
+Changes from v10:
+* Rebased on riscv tree fixes+for-next branches. Patches already applied
+  to these branches were removed from this series.
+* Fixed the clock driver and pinctrl driver patch titles to indicate the
+  correct target sub-components.
+* Applied reviewed-by tags from Anup.
+
+Changes from v9:
+* Added patch 6 to avoid DTS compilation errors after patch 9 is
+  applied and until patch 16 is applied.
+
+Changes from v8:
+* Addressed Rob's comments on the sysctl driver bindings documentation
+* Fixed a typo in the fpios driver bindings documentation
+
+Changes from v7:
+* Removed the __init annotation for the drivers reset, pinctrl and
+  sysctl drivers probe functions as suggested by Geert. Also removed
+  the __refdata annotation for the struct platform_driver variables of
+  these drivers.
+
+Changes from v6:
+* Annotate struct platform_driver variables with __refdata to avoid
+  section mismatch compilation errors
+* Add empty sentinel entry to of_device_id tables of the sysctl, reset
+  and pinctrl drivers.
+
+Changes from v5:
+* Addressed Philipp's comment on the reset controller driver
+* Added patch 6 to reduce the size of the clock driver patch
+  (now patch 12).
+
+Changes from v4:
+* Simplified reset controller driver using of_xlate callback as
+  suggested by Philipp
+* Fixed compilation error when using other configs than one of the
+  nommu_k210 defconfigs.
+* Addressed most clock driver comments from Stephen.
+* Removed CONFIG_GPIO_SYSFS from defconfigs
+* Rebased on 5.10-rc7
+
+Changes from V3:
+* Add one entry per driver in MAINTAINERS file
+
+Changes from V2:
+* Add MAINTAINERS file entry for the SoC support, listing myself as
+  maintainer.
+* Removed use of postcore_initcall() for declaring the drivers, using
+  the regular builtin_platform_driver() instead.
+* Fixed fpio pinctrl driver bindings documentation as commented by
+  Geert: removed input-schmitt and added input-schmitt-disable, fixed
+  typo and added input-disable and output-disable.
+* Fixed device tree to have cs-gpios active low, as per the default, as
+  active high necessity was an artifact of the gpio level double
+  inversion bug fixed recently.
+* Removed CONFIG_VT from defconfigs to reduce the kernel image size as
+  suggested by Geert.
+
+Changes from v1:
+* Improved DT bindings documentation
+* SPI and GPIO patches removed from this series (and being processed
+  directly through the relevant subsystems directly)
+* Improved device trees
+* Various cleanup and improvments of the drivers
+
+Damien Le Moal (16):
+  clk: Add RISC-V Canaan Kendryte K210 clock driver
+  dt-bindings: add Canaan boards compatible strings
+  dt-bindings: update risc-v cpu properties
+  dt-bindings: update sifive plic compatible string
+  dt-bindings: update sifive clint compatible string
+  dt-bindings: update sifive uart compatible string
+  dt-bindings: fix sifive gpio properties
+  dt-bindings: add resets property to dw-apb-timer
+  riscv: Update Canaan Kendryte K210 device tree
+  riscv: Add SiPeed MAIX BiT board device tree
+  riscv: Add SiPeed MAIX DOCK board device tree
+  riscv: Add SiPeed MAIX GO board device tree
+  riscv: Add SiPeed MAIXDUINO board device tree
+  riscv: Add Kendryte KD233 board device tree
+  riscv: Update Canaan Kendryte K210 defconfig
+  riscv: Add Canaan Kendryte K210 SD card defconfig
+
+ .../devicetree/bindings/gpio/sifive,gpio.yaml |   25 +-
+ .../sifive,plic-1.0.0.yaml                    |   13 +-
+ .../devicetree/bindings/riscv/canaan.yaml     |   47 +
+ .../devicetree/bindings/riscv/cpus.yaml       |    2 +
+ .../bindings/serial/sifive-serial.yaml        |    1 +
+ .../bindings/timer/sifive,clint.yaml          |   12 +-
+ .../bindings/timer/snps,dw-apb-timer.yaml     |    3 +
+ MAINTAINERS                                   |    1 +
+ arch/riscv/Kconfig.socs                       |    2 +-
+ arch/riscv/boot/dts/canaan/canaan_kd233.dts   |  172 +++
+ arch/riscv/boot/dts/canaan/k210.dts           |   23 -
+ arch/riscv/boot/dts/canaan/k210.dtsi          |  395 ++++++-
+ arch/riscv/boot/dts/canaan/k210_generic.dts   |   46 +
+ .../riscv/boot/dts/canaan/sipeed_maix_bit.dts |  229 ++++
+ .../boot/dts/canaan/sipeed_maix_dock.dts      |  231 ++++
+ arch/riscv/boot/dts/canaan/sipeed_maix_go.dts |  239 ++++
+ .../boot/dts/canaan/sipeed_maixduino.dts      |  204 ++++
+ arch/riscv/configs/nommu_k210_defconfig       |   44 +-
+ .../riscv/configs/nommu_k210_sdcard_defconfig |   92 ++
+ drivers/clk/Kconfig                           |    8 +
+ drivers/clk/Makefile                          |    1 +
+ drivers/clk/clk-k210.c                        | 1012 +++++++++++++++++
+ drivers/soc/canaan/Kconfig                    |   18 +-
+ drivers/soc/canaan/Makefile                   |    2 +-
+ drivers/soc/canaan/k210-sysctl.c              |  205 +---
+ include/dt-bindings/clock/k210-clk.h          |    1 -
+ include/soc/canaan/k210-sysctl.h              |    2 +
+ 27 files changed, 2779 insertions(+), 251 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/riscv/canaan.yaml
+ create mode 100644 arch/riscv/boot/dts/canaan/canaan_kd233.dts
+ delete mode 100644 arch/riscv/boot/dts/canaan/k210.dts
+ create mode 100644 arch/riscv/boot/dts/canaan/k210_generic.dts
+ create mode 100644 arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts
+ create mode 100644 arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts
+ create mode 100644 arch/riscv/boot/dts/canaan/sipeed_maix_go.dts
+ create mode 100644 arch/riscv/boot/dts/canaan/sipeed_maixduino.dts
+ create mode 100644 arch/riscv/configs/nommu_k210_sdcard_defconfig
+ create mode 100644 drivers/clk/clk-k210.c
 
 -- 
-Thanks,
-
-David / dhildenb
+2.29.2
 
 
 _______________________________________________
