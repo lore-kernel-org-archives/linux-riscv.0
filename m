@@ -2,78 +2,86 @@ Return-Path: <SRS0=3nDB=HL=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-6.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3CEDBC433E0
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Feb 2021 15:25:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6A07DC433DB
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Feb 2021 16:17:56 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B9D4F64EB8
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Feb 2021 15:25:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B9D4F64EB8
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 0867164EB8
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Feb 2021 16:17:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0867164EB8
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:Subject:
+	From:References:To:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=KdyoV8RzWsZf82YaBxFaE/QO7/smZCEaCOe0+eZFDGs=; b=OHnAWyYfj97gyIYYsqOBBTDoa
-	fChEu9bhhhyfexu275hV713NnvWmfKwnH8u90K9E820TT3reZRqxY1aXurdqLqhQZ5WGxO4XQjsfr
-	GMU1BdHBlURHcr3rktGQAjZJdrvaOhFZA01t/SlSNBJ4E5yDYMwmdq7z7x5SffA9MA4CyNCSLx5wU
-	4Gd8Fl7uqU9fJxS2UZxpLUlPYbXeD+TqIgNJ0vNzHuty1CuFJI4oH0ojbUA6DO3w+Ih8pmPMlyFZw
-	fYXv18d5AVMWPk74gD9Gc6D4fcFkNeyqUfF8dcdoVlOHEEQFP73Dnus+KPVBsm52iw4z938hUwwk/
-	ZA7NbU+QA==;
+	 bh=uZ9guUlBO1FciCvyJapvItkmx9IOjuj247Q1EdfIQ94=; b=GNCBvnAlf0yoeZA5Y9ASh+wv5
+	RLW9a9UbzLY+RHfV46Nqz5+GYzgVSBk4p39wnWLCtkQM4e1Gv3Ve35ksAmmVZhFBxmSqb3nwa+Kw4
+	aLAfRhT5V2PtlWFTrJWCA+cztVQorJVhxD4dYeW6IpmatveyrLz4GkpMJfaMRYeh7B0ozxnVrewdj
+	w1U9DrOVtuOrsJgi5mAhK+2eUggRSeOLYLptBEVV5hXX7yc7pY8uwVG9/r86wSAFPKPi+xyZ8h8VB
+	1T6TMMgSCYtHodoxmF5AmhXhe5EimuJ7Zin0T2/iMtux/YpRdB18AivbeBnObqD1z7dPyNUNOr25k
+	nuMj3sCQw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l9Usz-00087I-U9; Tue, 09 Feb 2021 15:25:05 +0000
-Received: from mail-ot1-f48.google.com ([209.85.210.48])
+	id 1l9Vhy-000681-PW; Tue, 09 Feb 2021 16:17:46 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([216.205.24.124])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l9Usx-00086d-48
- for linux-riscv@lists.infradead.org; Tue, 09 Feb 2021 15:25:04 +0000
-Received: by mail-ot1-f48.google.com with SMTP id d7so15519923otq.6
- for <linux-riscv@lists.infradead.org>; Tue, 09 Feb 2021 07:25:02 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=ETOckpqhgtN1CWWOx8jueiJoxzKahbBsQfwx4pm8Tk0=;
- b=nJr4lpaxKBmPRlw/fCN1TAthR4nCu07dCrYcYE7JOatUD+y4vG4HNcAamU2b2EPSxj
- /wf9RRkyzu3+uq5TAc8QPBjEf4eQCsU5j7KHfkVuh2KNnp7P5fI9odJcGIJqVq7/FmB8
- wB1aT+GODIuBbrS0AODfPDivLF46phAAJv30Suz54L+Zysii58PHCIaKT+jtAUL/JVxA
- HJsjLhJbIOx+OJilYM4TLEUoSeL82m1zWU5mPxS8ZGjvsLIgL1h3Yd0aMFc58x9iC7Dw
- gCbNzsul/6EBKqpM0vGSopPnFwv57UGdw1Ol5h5hKkhu7J91f9DzSfE8O92cxmztu2Hf
- TzYg==
-X-Gm-Message-State: AOAM533Ovu0S/GfoIZasVQP5jeZNblDSAmi8Z2pCNDFHXnbtCggFWoVM
- sTjN+BdQAAfML1LVOC/x6A==
-X-Google-Smtp-Source: ABdhPJxjZbsbC+aYdLyJyL6JGkpXwUv0RmFQEzdoSCQTpuYVZ3NOYcUg9rgaSnpmpAgXY4KX3hPSxA==
-X-Received: by 2002:a9d:961:: with SMTP id 88mr15549101otp.183.1612884302008; 
- Tue, 09 Feb 2021 07:25:02 -0800 (PST)
-Received: from robh.at.kernel.org (24-155-109-49.dyn.grandenetworks.net.
- [24.155.109.49])
- by smtp.gmail.com with ESMTPSA id e17sm4573577otf.32.2021.02.09.07.24.59
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 09 Feb 2021 07:24:59 -0800 (PST)
-Received: (nullmailer pid 3785781 invoked by uid 1000);
- Tue, 09 Feb 2021 15:24:58 -0000
-Date: Tue, 9 Feb 2021 09:24:58 -0600
-From: Rob Herring <robh@kernel.org>
-To: Damien Le Moal <damien.lemoal@wdc.com>
-Subject: Re: [PATCH v18 09/16] riscv: Update Canaan Kendryte K210 device tree
-Message-ID: <20210209152458.GA3785724@robh.at.kernel.org>
-References: <20210209123014.165928-1-damien.lemoal@wdc.com>
- <20210209123014.165928-10-damien.lemoal@wdc.com>
+ id 1l9Vhu-00066L-LA
+ for linux-riscv@lists.infradead.org; Tue, 09 Feb 2021 16:17:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1612887462;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=rPEBUfuoE8xnXkHqh37MN3V58bCQtUE2J2aM+0+7Hhg=;
+ b=Nf6OwzPQL9E+BCpfO/5dlFw2eKFDLEAZn4GqsRBaMmn6Or2fz3CZQYKrOOw4a/UIxzZHd8
+ bUa5Ue6nbIdfWSGcbzu1fxs3iL3ABVjFMZbigtveAW38TUT0HSXH0oY4NmsDRYzxc/MsiZ
+ StUK7VW+LDzBFNFN6OF85wBFajVIkB0=
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-279-uL8BkgqBNoSU9TSinWcnBQ-1; Tue, 09 Feb 2021 11:17:37 -0500
+X-MC-Unique: uL8BkgqBNoSU9TSinWcnBQ-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com
+ [10.5.11.11])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+ (No client certificate requested)
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 9332C801979;
+ Tue,  9 Feb 2021 16:17:31 +0000 (UTC)
+Received: from [10.36.113.141] (ovpn-113-141.ams2.redhat.com [10.36.113.141])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id D16AE60BD9;
+ Tue,  9 Feb 2021 16:17:23 +0000 (UTC)
+To: Michal Hocko <mhocko@suse.com>
+References: <20210208211326.GV242749@kernel.org>
+ <1F6A73CF-158A-4261-AA6C-1F5C77F4F326@redhat.com>
+ <YCJO8zLq8YkXGy8B@dhcp22.suse.cz>
+ <662b5871-b461-0896-697f-5e903c23d7b9@redhat.com>
+ <YCJbmR11ikrWKaU8@dhcp22.suse.cz>
+ <c1e5e7b6-3360-ddc4-2ff5-0e79515ee23a@redhat.com>
+ <YCKNMqu8/g0OofqU@dhcp22.suse.cz>
+From: David Hildenbrand <david@redhat.com>
+Organization: Red Hat GmbH
+Subject: Re: [PATCH v17 00/10] mm: introduce memfd_secret system call to
+ create "secret" memory areas
+Message-ID: <8cbfe2c3-cfc6-72e0-bab1-852f80e20684@redhat.com>
+Date: Tue, 9 Feb 2021 17:17:22 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20210209123014.165928-10-damien.lemoal@wdc.com>
+In-Reply-To: <YCKNMqu8/g0OofqU@dhcp22.suse.cz>
+Content-Language: en-US
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210209_102503_313670_0D7C405B 
-X-CRM114-Status: GOOD (  16.17  )
+X-CRM114-CacheID: sfid-20210209_111742_763043_01D64789 
+X-CRM114-Status: GOOD (  19.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -85,45 +93,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Anup Patel <anup.patel@wdc.com>,
- Sean Anderson <seanga2@gmail.com>, Atish Patra <atish.patra@wdc.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
+Cc: Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
+ Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
+ Will Deacon <will@kernel.org>, x86@kernel.org,
+ Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
+ Arnd Bergmann <arnd@arndb.de>, James Bottomley <jejb@linux.ibm.com>,
+ Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-fsdevel@vger.kernel.org, Shakeel Butt <shakeelb@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>,
+ Mike Rapoport <rppt@kernel.org>
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 09 Feb 2021 21:30:07 +0900, Damien Le Moal wrote:
-> Update the Canaan Kendryte K210 base device tree k210.dtsi to define
-> all supported peripherals of the SoC, their clocks and reset lines.
-> The device tree file k210.dts is renamed to k210_generic.dts and
-> becomes the default value selection of the configuration option
-> SOC_CANAAN_K210_DTB_BUILTIN_SOURCE. No device beside the serial console
-> is defined by this device tree. This makes this generic device tree
-> suitable for use with a builtin initramfs with all known K210 based
-> boards.
+On 09.02.21 14:25, Michal Hocko wrote:
+> On Tue 09-02-21 11:23:35, David Hildenbrand wrote:
+> [...]
+>> I am constantly trying to fight for making more stuff MOVABLE instead of
+>> going into the other direction (e.g., because it's easier to implement,
+>> which feels like the wrong direction).
+>>
+>> Maybe I am the only person that really cares about ZONE_MOVABLE these days
+>> :) I can't stop such new stuff from popping up, so at least I want it to be
+>> documented.
 > 
-> These changes result in the K210_CLK_ACLK clock ID to be unused and
-> removed from the dt-bindings k210-clk.h header file.
-> 
-> Most updates to the k210.dtsi file come from Sean Anderson's work on
-> U-Boot support for the K210.
-> 
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: devicetree@vger.kernel.org
-> Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
-> ---
->  arch/riscv/Kconfig.socs                     |   2 +-
->  arch/riscv/boot/dts/canaan/k210.dts         |  23 --
->  arch/riscv/boot/dts/canaan/k210.dtsi        | 395 ++++++++++++++++++--
->  arch/riscv/boot/dts/canaan/k210_generic.dts |  46 +++
->  include/dt-bindings/clock/k210-clk.h        |   1 -
->  5 files changed, 414 insertions(+), 53 deletions(-)
->  delete mode 100644 arch/riscv/boot/dts/canaan/k210.dts
->  create mode 100644 arch/riscv/boot/dts/canaan/k210_generic.dts
+> MOVABLE zone is certainly an important thing to keep working. And there
+> is still quite a lot of work on the way. But as I've said this is more
+> of a outlier than a norm. On the other hand movable zone is kinda hard
+> requirement for a lot of application and it is to be expected that
+> many features will be less than 100% compatible.  Some usecases even
+> impossible. That's why I am arguing that we should have a central
+> document where the movable zone is documented with all the potential
+> problems we have encountered over time and explicitly state which
+> features are fully/partially incompatible.
 > 
 
-Reviewed-by: Rob Herring <robh@kernel.org>
+I'll send a mail during the next weeks to gather current restrictions to 
+document them (and include my brain dump). We might see more excessive 
+use of ZONE_MOVABLE in the future and as history told us, of CMA as 
+well. We really should start documenting/caring.
+
+@Mike, it would be sufficient for me if one of your patches at least 
+mention the situation in the description like
+
+"Please note that secretmem currently behaves much more like long-term 
+GUP instead of mlocked memory; secretmem is unmovable memory directly 
+consumed/controlled by user space. secretmem cannot be placed onto 
+ZONE_MOVABLE/CMA.
+
+As long as there is no excessive use of secretmem (e.g., maximum of 16 
+MiB for selected processes) in combination with ZONE_MOVABLE/CMA, this 
+is barely a real issue. However, it is something to keep in mind when a 
+significant amount of system RAM might be used for secretmem. In the 
+future, we might support migration of secretmem and make it look much 
+more like mlocked memory instead."
+
+Just a suggestion.
+
+-- 
+Thanks,
+
+David / dhildenb
+
 
 _______________________________________________
 linux-riscv mailing list
