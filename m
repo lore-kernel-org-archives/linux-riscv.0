@@ -2,91 +2,69 @@ Return-Path: <SRS0=3nDB=HL=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-16.1 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CB888C433DB
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Feb 2021 13:14:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D2087C433E0
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Feb 2021 13:17:28 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 78DFD64ECF
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Feb 2021 13:14:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 78DFD64ECF
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
+	by mail.kernel.org (Postfix) with ESMTPS id 713A464EE3
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Feb 2021 13:17:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 713A464EE3
+Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=suse.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=XDo+UXwlIZeWBGFeZ9NCUdqYjkrIfdri5PP/i1Bufu8=; b=tpSIkDTl9nlLGoaEGEaHGkJyi
-	hquhmiKZ3Sln0IEI3z1ixxiUJpGt41Db2SvJhD9X7m4ZUR5O/L7MEtYGBE8Enn5OnwcPHZUVHCGZR
-	kXP+sAlUN1tPFmHS3fFmWdyWIVg3wjnL5hqQYneraDvNgipEMvjjmO1GaAaHWlny6ytM9bVIRy/WV
-	eh6tbqapE8l2DqgqJ5To+fUK7HRebyDgLYyx/KjSX4CScrdsfJGkYH2rayGQ1ey+K1g6ZblNBy/+d
-	eAHcq3Kv38qiLfinZGPentGVuXVG58LdgEV22HHWEvBDN9foaiREhMJFr78rmJKdauiBAZaSKVX7P
-	fQqC3XLBw==;
+	 bh=wq+VvdKW4LUJEnH6nHtJ1Ijefza+tuy66KGFUqrGNEk=; b=hYN37crS6YvFmGdNrIotrgee/
+	9hv081GiKJB77SH/MG6wG7RJW8kqimlz1qH/pi6k0fUxzgjOAnQAkCuU+npqfz3nOwtNygFnd7R5M
+	+nm7B3CtzAJOPJOiA2xIzoAJLqK4GTGRPVPUOrDoLSo6djU+PErUFg3NWa2IG/h6zlkVBEgqKZn77
+	tPLGU1rZGXk/iQdkB6UtaKaB+dwI+Ws65X3a8nOTXY/7v2GzemlMnb69Op2BsKWS7AHC32GbZLLJo
+	bCFKtTXTn+vdXeNP4XSkRuzJH33u8VS0gkMGv5XpHvDsQau/rIwVJTe189NzYNcfYcdaUwCgpXivR
+	Uu7pzGFsw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l9SqZ-00085S-KC; Tue, 09 Feb 2021 13:14:27 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1l9StN-0008H9-4e; Tue, 09 Feb 2021 13:17:21 +0000
+Received: from mx2.suse.de ([195.135.220.15])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l9SqV-00084e-Cg
- for linux-riscv@lists.infradead.org; Tue, 09 Feb 2021 13:14:26 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id j11so3066481wmi.3
- for <linux-riscv@lists.infradead.org>; Tue, 09 Feb 2021 05:14:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=subject:to:cc:references:from:message-id:date:user-agent
- :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=tfYX0wt3USJYRHS86M/jbg23A6PG2wfr98UB/n5XB70=;
- b=MI2siviaWG4FW4pqxYi7oteXhadD0+TYF41MswfCH+sUoG/vNCXv9LbrkoFmJMCa6V
- WJEPu7kCLyVPrd36IZ6KEcz/T+Mh/mUD73pwuYJXtuPuEwSCVceHAeMpt852edVEa62W
- vv2Va7YB4e+4Z94oporGZ/bRSANlVGpJwmhJy5BP3Y0Zxw84N5UDfIO0vqTVZiB8q9qM
- qGlxTSic0q/NEpwiCUXICeDNgn54pAuy1qOfLKn5i7vV2tLl3QVCRAQ6b+RiyxKhGROg
- QVFlam0EloJwd6TSuamtAQ1a8blzzoOCKu8BA14polI+4ARGiHnFbSYX5zoQTuIHUtD3
- JKLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:to:cc:references:from:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=tfYX0wt3USJYRHS86M/jbg23A6PG2wfr98UB/n5XB70=;
- b=SBFCVS2HKlBsiTKGyfL3mrkvNijPAgAFC8s8aegFjtXsc8+wr6s7m9DA+gyd0E1icf
- vUG3DOs8NOrtklrqQ/Dw7ycPHt/f3W41ov1X4xT0x2XEnh+bHhxwg1XXegEO+iClVvN7
- +mUZPZ7bbnqZfHG2E8q+zdU8IcoxQ0s/BbqCV/QXOFEJiue/dA6NHh5ZAmUZE9Mqw7pt
- gey3N3ptAja1RoaGtx0Toeh6lw0oESdZIzBAxk2qFwUxRHx/gOYaLO0wHrTrQZ1sOsvL
- UxOMdsfG1nujIHH152BHGlqOCTpnz4mxFh7aFiZPF69PM+pMPmLikQOzgrVATxLoaFR7
- q6+A==
-X-Gm-Message-State: AOAM5338VOrSozJH1RC/tP/71lFH9rY2McJgmzOYLvix/ip/NN6/wF9m
- NLVh687+3kxkZav/VjpTqFh2Gg==
-X-Google-Smtp-Source: ABdhPJw/ND+ieFVszx8C7suT7yUN54RwNU63dqlb3pI1GGY4l2n/sJa2zp3gTt5zseO+JTezpm/fAw==
-X-Received: by 2002:a05:600c:24e:: with SMTP id
- 14mr3405055wmj.87.1612876460027; 
- Tue, 09 Feb 2021 05:14:20 -0800 (PST)
-Received: from ?IPv6:2a01:e34:ed2f:f020:4cbf:512d:a355:e705?
- ([2a01:e34:ed2f:f020:4cbf:512d:a355:e705])
- by smtp.googlemail.com with ESMTPSA id n15sm35009363wrx.2.2021.02.09.05.14.18
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Tue, 09 Feb 2021 05:14:19 -0800 (PST)
-Subject: Re: [PATCH v18 08/16] dt-bindings: add resets property to dw-apb-timer
-To: Damien Le Moal <damien.lemoal@wdc.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org
-References: <20210209123014.165928-1-damien.lemoal@wdc.com>
- <20210209123014.165928-9-damien.lemoal@wdc.com>
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-Message-ID: <28fb65ca-c41a-ae15-adb9-bc0c6024f0e9@linaro.org>
-Date: Tue, 9 Feb 2021 14:14:18 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.10.0
+ id 1l9StH-0008FJ-TQ; Tue, 09 Feb 2021 13:17:17 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
+ t=1612876633; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+ mime-version:mime-version:content-type:content-type:
+ in-reply-to:in-reply-to:references:references;
+ bh=hscVwXWbZS59k2Mrx2EQB55XPrmNAr7Nf/1W616aiRA=;
+ b=phJYgl2FDdsaxXzglirq+9E/PFvQ09SmMOXMZhmQCkX3xnUui6gyQgU8pq6VCgFZRP1Nj7
+ 4ywYD8QcYFjpmTT73fbyJ99EI01XOD13cuJJ02YYNRiktCaeLBu0orc/YuPfY4sb+PIX+n
+ y3DWzu+Qklmtk5MHIoO/Fx8xciQgqDo=
+Received: from relay2.suse.de (unknown [195.135.221.27])
+ by mx2.suse.de (Postfix) with ESMTP id 9362BAD6A;
+ Tue,  9 Feb 2021 13:17:12 +0000 (UTC)
+Date: Tue, 9 Feb 2021 14:17:11 +0100
+From: Michal Hocko <mhocko@suse.com>
+To: Mike Rapoport <rppt@linux.ibm.com>
+Subject: Re: [PATCH v17 07/10] mm: introduce memfd_secret system call to
+ create "secret" memory areas
+Message-ID: <YCKLVzBR62+NtvyF@dhcp22.suse.cz>
+References: <20210208084920.2884-1-rppt@kernel.org>
+ <20210208084920.2884-8-rppt@kernel.org>
+ <YCEXMgXItY7xMbIS@dhcp22.suse.cz>
+ <20210208212605.GX242749@kernel.org>
+ <YCJMDBss8Qhha7g9@dhcp22.suse.cz>
+ <20210209090938.GP299309@linux.ibm.com>
 MIME-Version: 1.0
-In-Reply-To: <20210209123014.165928-9-damien.lemoal@wdc.com>
-Content-Language: en-US
+Content-Disposition: inline
+In-Reply-To: <20210209090938.GP299309@linux.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210209_081423_567411_C0D92199 
-X-CRM114-Status: GOOD (  15.90  )
+X-CRM114-CacheID: sfid-20210209_081716_177357_0E371719 
+X-CRM114-Status: GOOD (  40.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -98,41 +76,112 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Atish Patra <atish.patra@wdc.com>, devicetree@vger.kernel.org,
- Anup Patel <anup.patel@wdc.com>, Rob Herring <robh@kernel.org>,
- Sean Anderson <seanga2@gmail.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
+ Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
+ Will Deacon <will@kernel.org>, x86@kernel.org,
+ Matthew Wilcox <willy@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Michael Kerrisk <mtk.manpages@gmail.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>, Arnd Bergmann <arnd@arndb.de>,
+ James Bottomley <jejb@linux.ibm.com>, Hagen Paul Pfeifer <hagen@jauu.net>,
+ Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-fsdevel@vger.kernel.org, Shakeel Butt <shakeelb@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>,
+ Mike Rapoport <rppt@kernel.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMDkvMDIvMjAyMSAxMzozMCwgRGFtaWVuIExlIE1vYWwgd3JvdGU6Cj4gVGhlIFN5bm9wc2lz
-IERlc2lnbldhcmUgQVBCIHRpbWVyIGRyaXZlcgo+IChkcml2ZXJzL2Nsb2Nrc291cmNlL2R3X2Fw
-Yl90aW1lcl9vZi5jKSBpbmRpcmVjdGx5IHVzZXMgdGhlIHJlc2V0cwo+IHByb3BlcnR5IG9mIGl0
-cyBub2RlIGFzIGl0IGV4ZWN1dGVzIHRoZSBmdW5jdGlvbiBvZl9yZXNldF9jb250cm9sX2dldCgp
-Lgo+IE1ha2Ugc3VyZSB0aGF0IHRoaXMgcHJvcGVydHkgaXMgZG9jdW1lbnRlZCBpbgo+IHRpbWVy
-L3NucHMsZHctYXBiLXRpbWVyLnlhbWwgdG8gYXZvaWQgbWFrZSBkdGJzX2NoZWNrIHdhcm5pbmdz
-Lgo+IAo+IENjOiBEYW5pZWwgTGV6Y2FubyA8ZGFuaWVsLmxlemNhbm9AbGluYXJvLm9yZz4KPiBD
-YzogUm9iIEhlcnJpbmcgPHJvYmhAa2VybmVsLm9yZz4KPiBDYzogZGV2aWNldHJlZUB2Z2VyLmtl
-cm5lbC5vcmcKPiBTaWduZWQtb2ZmLWJ5OiBEYW1pZW4gTGUgTW9hbCA8ZGFtaWVuLmxlbW9hbEB3
-ZGMuY29tPgo+IFJldmlld2VkLWJ5OiBBdGlzaCBQYXRyYSA8YXRpc2gucGF0cmFAd2RjLmNvbT4K
-PiBBY2tlZC1ieTogUm9iIEhlcnJpbmcgPHJvYmhAa2VybmVsLm9yZz4KCkFja2VkLWJ5OiBEYW5p
-ZWwgTGV6Y2FubyA8ZGFuaWVsLmxlemNhbm9AbGluYXJvLm9yZz4KCgo+IC0tLQo+ICBEb2N1bWVu
-dGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvdGltZXIvc25wcyxkdy1hcGItdGltZXIueWFtbCB8
-IDMgKysrCj4gIDEgZmlsZSBjaGFuZ2VkLCAzIGluc2VydGlvbnMoKykKPiAKPiBkaWZmIC0tZ2l0
-IGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3RpbWVyL3NucHMsZHctYXBiLXRp
-bWVyLnlhbWwgYi9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvdGltZXIvc25wcyxk
-dy1hcGItdGltZXIueWFtbAo+IGluZGV4IGQ2NWZhZjI4OWE4My4uZDMzYzkyMDVhOTA5IDEwMDY0
-NAo+IC0tLSBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy90aW1lci9zbnBzLGR3
-LWFwYi10aW1lci55YW1sCj4gKysrIGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdz
-L3RpbWVyL3NucHMsZHctYXBiLXRpbWVyLnlhbWwKPiBAQCAtMjQsNiArMjQsOSBAQCBwcm9wZXJ0
-aWVzOgo+ICAgIGludGVycnVwdHM6Cj4gICAgICBtYXhJdGVtczogMQo+ICAKPiArICByZXNldHM6
-Cj4gKyAgICBtYXhJdGVtczogMQo+ICsKPiAgICBjbG9ja3M6Cj4gICAgICBtaW5JdGVtczogMQo+
-ICAgICAgaXRlbXM6Cj4gCgoKLS0gCjxodHRwOi8vd3d3LmxpbmFyby5vcmcvPiBMaW5hcm8ub3Jn
-IOKUgiBPcGVuIHNvdXJjZSBzb2Z0d2FyZSBmb3IgQVJNIFNvQ3MKCkZvbGxvdyBMaW5hcm86ICA8
-aHR0cDovL3d3dy5mYWNlYm9vay5jb20vcGFnZXMvTGluYXJvPiBGYWNlYm9vayB8CjxodHRwOi8v
-dHdpdHRlci5jb20vIyEvbGluYXJvb3JnPiBUd2l0dGVyIHwKPGh0dHA6Ly93d3cubGluYXJvLm9y
-Zy9saW5hcm8tYmxvZy8+IEJsb2cKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
-bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
-bGludXgtcmlzY3YK
+On Tue 09-02-21 11:09:38, Mike Rapoport wrote:
+> On Tue, Feb 09, 2021 at 09:47:08AM +0100, Michal Hocko wrote:
+> > On Mon 08-02-21 23:26:05, Mike Rapoport wrote:
+> > > On Mon, Feb 08, 2021 at 11:49:22AM +0100, Michal Hocko wrote:
+> > > > On Mon 08-02-21 10:49:17, Mike Rapoport wrote:
+> > [...]
+> > > > > The file descriptor based memory has several advantages over the
+> > > > > "traditional" mm interfaces, such as mlock(), mprotect(), madvise(). It
+> > > > > paves the way for VMMs to remove the secret memory range from the process;
+> > > > 
+> > > > I do not understand how it helps to remove the memory from the process
+> > > > as the interface explicitly allows to add a memory that is removed from
+> > > > all other processes via direct map.
+> > > 
+> > > The current implementation does not help to remove the memory from the
+> > > process, but using fd-backed memory seems a better interface to remove
+> > > guest memory from host mappings than mmap. As Andy nicely put it:
+> > > 
+> > > "Getting fd-backed memory into a guest will take some possibly major work in
+> > > the kernel, but getting vma-backed memory into a guest without mapping it
+> > > in the host user address space seems much, much worse."
+> > 
+> > OK, so IIUC this means that the model is to hand over memory from host
+> > to guest. I thought the guest would be under control of its address
+> > space and therefore it operates on the VMAs. This would benefit from
+> > an additional and more specific clarification.
+> 
+> How guest would operate on VMAs if the interface between host and guest is
+> virtual hardware?
+
+I have to say that I am not really familiar with this area so my view
+might be misleading or completely wrong. I thought that the HW address
+ranges are mapped to the guest process and therefore have a VMA.
+
+> If you mean qemu (or any other userspace part of VMM that uses KVM), so one
+> of the points Andy mentioned back than is to remove mappings of the guest
+> memory from the qemu process.
+>  
+> > > > > As secret memory implementation is not an extension of tmpfs or hugetlbfs,
+> > > > > usage of a dedicated system call rather than hooking new functionality into
+> > > > > memfd_create(2) emphasises that memfd_secret(2) has different semantics and
+> > > > > allows better upwards compatibility.
+> > > > 
+> > > > What is this supposed to mean? What are differences?
+> > > 
+> > > Well, the phrasing could be better indeed. That supposed to mean that
+> > > they differ in the semantics behind the file descriptor: memfd_create
+> > > implements sealing for shmem and hugetlbfs while memfd_secret implements
+> > > memory hidden from the kernel.
+> > 
+> > Right but why memfd_create model is not sufficient for the usecase?
+> > Please note that I am arguing against. To be honest I do not really care
+> > much. Using an existing scheme is usually preferable from my POV but
+> > there might be real reasons why shmem as a backing "storage" is not
+> > appropriate.
+>    
+> Citing my older email:
+> 
+>     I've hesitated whether to continue to use new flags to memfd_create() or to
+>     add a new system call and I've decided to use a new system call after I've
+>     started to look into man pages update. There would have been two completely
+>     independent descriptions and I think it would have been very confusing.
+
+Could you elaborate? Unmapping from the kernel address space can work
+both for sealed or hugetlb memfds, no? Those features are completely
+orthogonal AFAICS. With a dedicated syscall you will need to introduce
+this functionality on top if that is required. Have you considered that?
+I mean hugetlb pages are used to back guest memory very often. Is this
+something that will be a secret memory usecase?
+
+Please be really specific when giving arguments to back a new syscall
+decision.
+-- 
+Michal Hocko
+SUSE Labs
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
