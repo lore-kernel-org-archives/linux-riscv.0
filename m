@@ -2,159 +2,89 @@ Return-Path: <SRS0=bbt8=HM=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham
-	autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-17.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 61CFBC433DB
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Feb 2021 04:32:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 80D85C433E0
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Feb 2021 05:02:49 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 6D33264DD8
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Feb 2021 04:32:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 6D33264DD8
+	by mail.kernel.org (Postfix) with ESMTPS id 1AC5064E42
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Feb 2021 05:02:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1AC5064E42
 Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:Date:Subject:To:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	 bh=Yo9+NwfGPR15wC9FJjqv0ZYQBXFTtXhCJi6+IbbE+tM=; b=M7sJ7pQsqYXfBKddxSSwHJJgc
-	smPPkLZeMcPOuP9DaED1e8X+ipeM7gy00r40jz/bSQZyu+KRmVgsAwpAhVv9WQSIFffXJAQx0P4gU
-	aZs/kH9uwL3X1xK2v44iBE+iHlSBaktyDTqnTdeNm/bfZKB0UCR+nAToQdmGxj76lxzClN3TzilhZ
-	A95W1ybiafnZhme7P6TW1JZTSIOeqWxlAWmifBCsomhtTO3J5OM/IWozDzzbFP5xU6Hs5+Ucaj2bN
-	vqaNB07gowvBwG2NNEIoc9P6xZJkUKZnGIC9zwN287uHloG9av6WPj2TP/6ZKS+MSyVzjOLazSQZx
-	Dv316IeFg==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nsRtorzysUNOH4FYoA30nFrjU4//vem+DNIG/3nWBGo=; b=uccFacqnWL/jOe6jM7KcLmVTh4
+	VxAmwK7EZV8cG13JleuwbCMqVqJAlzXB+/8tCO54LoUNMYNEA/YlvfoRN70QXVuDhiqddZhuDODb+
+	aaoXnIrQCHBkGZ27NeuXm2z0oZ+820/8x8vzcz9QzrrG0DbRiCzPrXVJ9yM7RbZEQqKjtZvonnT3v
+	tFCXKpMeUGBVGx32Z/3xuoZkNL+rpBeJ5IjmPZEcOitHM0aQliKxIXc7Gdf4/Cq1cRN8Nz71f39bY
+	MG+7B9EGnUdsYeL19bTweGZSrwU6RAF9sj81Xiqz+5S5BxqwOrIjERMumJQtaOF30IbuJeLhKzpk8
+	ThHA1xVg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l9hBB-0001Yn-36; Wed, 10 Feb 2021 04:32:41 +0000
-Received: from esa4.hgst.iphmx.com ([216.71.154.42])
+	id 1l9heA-0003Fv-TJ; Wed, 10 Feb 2021 05:02:38 +0000
+Received: from esa5.hgst.iphmx.com ([216.71.153.144])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l9hB8-0001YO-Fw
- for linux-riscv@lists.infradead.org; Wed, 10 Feb 2021 04:32:40 +0000
+ id 1l9he7-0003FU-Hi
+ for linux-riscv@lists.infradead.org; Wed, 10 Feb 2021 05:02:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1612931558; x=1644467558;
- h=from:to:cc:subject:date:message-id:references:
- content-transfer-encoding:mime-version;
- bh=E0uOfDYVuzT3f+moYb0UNEx8D3NVbPLV/VBqIcE0M2c=;
- b=oaDyUGEMp7SNPbrijwYxTYx5JmUfPHbPeEKPhI/XwD+EYmOj/2RDHPC0
- TNe4YhNDwXSMAmk1/Y0gbJ7E1aUlfxJKgmvG0qltvGjPDYqhLlKT9y8jG
- nuWFrVfpCITT/bHFK3Y1WSw7Awu0MKJXd3nax5LvBAaaXGyfi5VkusSAq
- EDuAEj+nOSp/KY2bgtJvtvEPO2wiyWrG7+u01XPC7Fp75mcLdgT700lHD
- 1KhdCu3me/8jwHOWpoEPfYU0fD012p4foWFTIX1YPC6OD+iCNkMmbeHv+
- vY4XBBYi3BYb4Dewh6p/cxgeEbRpFbJXmi/oQeVzEluc+rrFkX2YkGFgo A==;
-IronPort-SDR: ADbjB0qvsnX/LAMfnXPabmLjAonWk9QagJX6rtedcB9TUJtt70/MZdLJQE3cq7eK7TYqC+QhQY
- i56UX6q9MCDCqDw86lxONwSAp06DentruC919GKZxDBuXZVp2bLsp8AwJsFQqmTLs8f7Di86rX
- x53TJ5TuFL8UFepH0YU0/LQ+kqhdUu5LvY6XbW8uwfdxEdyq7CJEWEuMbUgZBcgsJusfmQMkaU
- 8m4vvG4kdxgVX69oFuP6f3IUSSjuM6ElxTC0BUMlGrYYhYFmglv64ax1982N4JTk4yPyDCEhq2
- lsM=
-X-IronPort-AV: E=Sophos;i="5.81,167,1610380800"; d="scan'208";a="159590741"
-Received: from mail-bn8nam11lp2169.outbound.protection.outlook.com (HELO
- NAM11-BN8-obe.outbound.protection.outlook.com) ([104.47.58.169])
- by ob1.hgst.iphmx.com with ESMTP; 10 Feb 2021 12:32:36 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=PSkT24ILz8EYAcZF5SLc2HqC/mOZuXdLa182f107wdUGRebNyk5qZEVIgdJIJVcF9xY80HNMzfA1WoKTDChFYCO0a8CX3q3QcA68K7jxlmwM372XEyzLlaEM4O28Lm3xRqf9HyZNDAsNJDsavcTZOUltBV9jBy/6yxa8u3w7W7/h105yfBQOnOz4QabE6gWWWVm4WaBRMW50Mu17ov8e0qSWhiVNkl1E4azTe3yQpmsMZ5W9SOeUWsHUS8cTg7OXZdOdOyARhH78KXj30Mntr52cat67ilvjI1wOl42b3FCJ5QRrV7U4rNwC/oDYAYuMi0wJySjdEcvncMwzPMyq9A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OcPWmhYXFv2QyN/e3nbUlRyKYDPSkRWiV7fLsChD110=;
- b=f5+xtGAI2UwAcBsjDNdjXKBSvaOcnF4lDFwxAIo3ZNB5WgMBqBbH+NMys5PDV5gBrfodwZvHmXyK1fqc36lHvMito1oUcmxRb6UDXkWM2YNYBywEYwbLy41tyhJAvDucWDSQLg+z5v6b/y+MuHqL4NiMlUEeksq4Mkl8hqTvGY4nZhBQUscGp7QnfTpJEm5X638BnqFQDx2KrvQzV4aSL4RiWK/6AFtoV3YmgMJzMVVOzO4rgaFiSpsOutLGvWzvoE5MpUgG6NKfpUtdE4VuwE9H5e/w4+1TQLj8f2jZ8g3rMxg28rKZQCAbx4FaxW5bTD/1z2KwrcUwFhB2K5T8fw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
- header.d=wdc.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OcPWmhYXFv2QyN/e3nbUlRyKYDPSkRWiV7fLsChD110=;
- b=ZjEFPb1c35s4FuphYmcOGAHCovdfySW0FnBJg3ZuZHSwY88mTd2bexxBx7scrbzCl8T+qxtdD0unBWp05Ofr+d6zrcQex+3ruDBSVjpWPDIrhDYwqsgdBlTW7JjJNUK8cQGV6UxtMUeHI4dRkcCI+XmIIHZ44WPDupjZCDoY4SM=
-Received: from BL0PR04MB6514.namprd04.prod.outlook.com (2603:10b6:208:1ca::23)
- by BL0PR04MB6482.namprd04.prod.outlook.com (2603:10b6:208:1cf::10)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3846.25; Wed, 10 Feb
- 2021 04:32:35 +0000
-Received: from BL0PR04MB6514.namprd04.prod.outlook.com
- ([fe80::b880:19d5:c7fe:329d]) by BL0PR04MB6514.namprd04.prod.outlook.com
- ([fe80::b880:19d5:c7fe:329d%7]) with mapi id 15.20.3825.030; Wed, 10 Feb 2021
- 04:32:35 +0000
-From: Damien Le Moal <Damien.LeMoal@wdc.com>
-To: Stephen Boyd <sboyd@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH v18 01/16] clk: Add RISC-V Canaan Kendryte K210 clock
- driver
-Thread-Topic: [PATCH v18 01/16] clk: Add RISC-V Canaan Kendryte K210 clock
- driver
-Thread-Index: AQHW/t9XApJD7mlFuEyRKf7oQMzIIQ==
-Date: Wed, 10 Feb 2021 04:32:34 +0000
-Message-ID: <BL0PR04MB6514E16F46007EC1EEC5126EE78D9@BL0PR04MB6514.namprd04.prod.outlook.com>
-References: <20210209123014.165928-1-damien.lemoal@wdc.com>
- <20210209123014.165928-2-damien.lemoal@wdc.com>
- <161292028178.418021.10953574123293354986@swboyd.mtv.corp.google.com>
- <BL0PR04MB6514E2ED802BAE7E6350E304E78D9@BL0PR04MB6514.namprd04.prod.outlook.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: kernel.org; dkim=none (message not signed)
- header.d=none;kernel.org; dmarc=none action=none header.from=wdc.com;
-x-originating-ip: [2400:2411:43c0:6000:4d23:6652:258b:81d8]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-ht: Tenant
-x-ms-office365-filtering-correlation-id: 92baacb2-0307-4f3b-9d31-08d8cd7ce38a
-x-ms-traffictypediagnostic: BL0PR04MB6482:
-x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <BL0PR04MB6482C14313649D701F5CF845E78D9@BL0PR04MB6482.namprd04.prod.outlook.com>
-wdcipoutbound: EOP-TRUE
-x-ms-oob-tlc-oobclassifiers: OLM:10000;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: rpqt943QaAzXDgzJKi+a1eyjYnI4THNjM0vab85kJA8t2vRS86o4/RwdWAFs5OtmrYxG8ChoFyR2Zy22H7Xlu5jJXA4x4VyAVzzzE9tC5J0tix2ZiBoIFLVE5aKr7ZGLsAjmgXqQL9uAbuO9rglv2/eGtOuufOSOlE6jPZJPmHlU+wkK51BLCOG5JlOnak/Fao1YphCEOS9wsrNhMDUnt42P8t/Xyz6NMhFFnaRycnhhUzZIR73hRMUqflOebKxK74Q49TJYp4R+rPLUqDtjZPN4NH5Rg6/H6l9EF5jHGVLkTREYEQM5ZcJHTUohlM+73QvnXdxwYPwVi3j/2kHVUn3jnF0hH1CfIr4C0XiUu/zO50yFOXh5/N1ampQEKKKwsXcFiGNIDXF9HTjpbAhHPzXbYh5QCoo5Ue29fGpARwTUZs9Lkutat9q9JSoYCV0zvI8JSYKrRRkzwApD45DPQOz+VklCNA4oyFHExf/dYOayQXg+CpxMbVFKEDQogGr8EmwhefRjN+c0IOFwq1w3Sg==
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:BL0PR04MB6514.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(346002)(136003)(376002)(396003)(39850400004)(366004)(2906002)(7696005)(478600001)(4326008)(86362001)(52536014)(53546011)(54906003)(33656002)(66556008)(66446008)(6506007)(71200400001)(66476007)(64756008)(91956017)(186003)(66946007)(110136005)(76116006)(8936002)(9686003)(8676002)(316002)(5660300002)(83380400001)(55016002);
- DIR:OUT; SFP:1102; 
-x-ms-exchange-antispam-messagedata: =?us-ascii?Q?nN8s8UHOL5AIcEd4I0/uhqDyo5jrb7Td46/SoRPT/GiM8K1h+699N/nr3NmV?=
- =?us-ascii?Q?5ZzNLQGOc9wLFl6FBFty+awHpC8jIyWUM1yrGBvzqd9SFkcAxxm974asofgB?=
- =?us-ascii?Q?tjSX0QUvdWU5HL+lHMHQ1vCY45d+Pf8pG+vKxxXbPGOGl4KNFWpONwqP1JoR?=
- =?us-ascii?Q?nsTz2YMtkhiRUV9lLEyUwT0lI0hi2CeGxWr3n9Bivf7KHbPw74nfhEZIv4Cb?=
- =?us-ascii?Q?AYBZoWEDsmaS8uEVxhLZi/nKLXAKKRJpfvH2NTqu5nrqWoqLJpiNA2McsfRD?=
- =?us-ascii?Q?fzzRY4Y50BmIM3irYJx8nRMMvoIr3eKIL+eHVeje0s0Cw22gyKPp3NyrGo+d?=
- =?us-ascii?Q?+Hc3GpTqfWF8WHrWeHH6xOMu6eEvi9zqL43Ogz4EwUXvCFYHl68jPySOgGUR?=
- =?us-ascii?Q?/cGIUOw2VZU/8+Tk7f28yYepIapwcWhczkdzpoLHKABp9M5BNKAmrogVu5sH?=
- =?us-ascii?Q?kPl44DaMv5RLYTexLknDI56g0dZymRlBTNa93PopDzylg2JLCFn2qoeUnHDq?=
- =?us-ascii?Q?MdQi1l1e8YQ+GfhrYGrqoFk3J2/23HT+5CeGZAlnqsXi9dANGBDOJcPSHnfW?=
- =?us-ascii?Q?4AAtzjGD0jNqHtlkaTkhpCP2WXoLvnV/V9//QaXbV4QKOc1XCZKbQFysToam?=
- =?us-ascii?Q?0+RDCXU5HiqSr5Y0ElTxypjULI58uNYKviltYNcE2etEekXAajFrVgPuerpj?=
- =?us-ascii?Q?nmvJKa4lZ5XGCIJGyzXSUXl+Mk9BZnh9mUN6YqisB88t+2N9tkLqQp935F40?=
- =?us-ascii?Q?uxQDrza04lI2LRq3OOVVluknLf01KQW4IQgjBYd/a6CzkVfsMlYt+qfQGs38?=
- =?us-ascii?Q?4K/BwFeIUvjTVfLkxrdA3nRRAcB7uYa8hG+t0aCcuNZBWPa+CYZpdeMzyMnz?=
- =?us-ascii?Q?ZGD1btRZunltEKCUGM6YUGElw5x23pPZrhr/CwK10D2j08xhj4zmgzCR3IMe?=
- =?us-ascii?Q?sFfXIlVj+Rz9DjdW4F8lxLF6LkDJ5aP/bW6CSlha/ySfhb23ChgWE6BzMFt0?=
- =?us-ascii?Q?q+BpH/TLG4RmncMhXXAy0l6amb1wDD0ArVTxaMqph6dIMrkfk8AOlDfiwWfD?=
- =?us-ascii?Q?Gvl+Xk+ogWh3oX0ldl9ic0GX/Xu/FdjruJ2CfrPjQl3C+EAePZoFaE6lTmrw?=
- =?us-ascii?Q?So4IwiK1ZhRzSRKvHisUzNeav5qT1DSFhpgYd32ZaSgLSb59/aeZ1R+AVwc3?=
- =?us-ascii?Q?TxztxlOrVB7be5xAtRIQgFB1nG2Hg2INXJRJguakj0Uqk0QQlYpOTfpyQ9/n?=
- =?us-ascii?Q?nJOq4gxPzNJsc1IuBvhf2zArNHPvTQvBj19oUETf1NYSMtL55m+q+To+IpHQ?=
- =?us-ascii?Q?I15bblDoQPjLO8FUjL6QPr6+20n83gApuIPqrGLVadv4Ox5zs55y2DvDbnPG?=
- =?us-ascii?Q?gmJOY/WEd0PZlbZbVFev7rLbTvs2BS+eCIvGtzuNCvi51VAaPg=3D=3D?=
+ t=1612933355; x=1644469355;
+ h=from:to:cc:subject:date:message-id:mime-version:
+ content-transfer-encoding;
+ bh=VZR0Ev3jOWLSWwsJ7H6UYsZ6yqsbbh262SovkpgfsSo=;
+ b=QhjghZVCngisYJJtMoHMwuxrRro25Bbj7fW2kjEaj1aegLGyoNHRiInM
+ B7HvnDsF0HI2RKEq+f2pJs7siJJjhZY7ENfiBZOV2z2W7r7KrPNT2relX
+ rC5b0S2CsiBfbKXfYAnXtiy7SO+VNJcayzPLMEn2cRYEvWMm5ifFRTFXP
+ aRdw0dY8yeqFf0BSv3ubbTDW6ktNBuKcIdm89jw9xjn7i43HYUXd3pBtq
+ Kgm4q3oguk33Oj9ZFG8vGtQjDItx5CEqwrHjSuJ4uN8y0qUCpFp6XDA3D
+ dfG5bgM9HTSg9MA54Sa6fhGjRgcVSnjLUPv7OGb91f3P0hIyInKJllQvt g==;
+IronPort-SDR: 3UeGmAh0MOV+MGZmRjwcdNGRp5GhhkGuHsonTLY7uUjCfip8ZFmBmBI8N0+0oYFX5oJUM7r6kz
+ 4DKXlI83O+gAFOye+KjwgQHPPcn/NRwm9uF+k9ZYwFcKXAxjOg0S4Y5YcgzLFPMKgDmXx1JWmL
+ A7fY57EBi+i/M5Gm507W1fI1krrjgjTnUqK5zKxYEbflAOca4NjnUj+1gBdKl06c42J4QpXXTv
+ J4y7itdpyaJ85V+BpLolcPTcczsz505s4AObgbrzZ6blcN/KmDns826lr65Ds4SnaqKaHd5XLD
+ A8E=
+X-IronPort-AV: E=Sophos;i="5.81,167,1610380800"; d="scan'208";a="159606566"
+Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
+ ([199.255.45.14])
+ by ob1.hgst.iphmx.com with ESMTP; 10 Feb 2021 13:02:33 +0800
+IronPort-SDR: z6f8zFf4E4oKiDyIVmsgj80GQJmcdOL4FmE48GBiYwgN5QMhdXaurh5B1XOCUUBzAxkfg0uMTI
+ un/Ru51UdBrShHU4eXba2A3rJT+jv2h7uEy8iV/BVWIL6lezlURAgansZWG6RI9nSrTeJ8RL31
+ iJo65HWZ3uLx8x90uI+r5bbaxW9tA93UvqjpNkuEDsAjh++XpHFy1WkjTuiP8e4eGXJWc79e1y
+ CZNGA1Zzq3evpbO8g5Is6fl1BXGRFNctdSOSB12b9yTTXyrXePp3Fzt7qAucP6A7FqskqfEg1e
+ lCgVaqhPR+m1MAf0yg6NdS1R
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+ by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 09 Feb 2021 20:46:16 -0800
+IronPort-SDR: gOwZbM/jEjlGqGZ992uc4zxl1uF8IVxINg6YhkLsk+8NPgStpUigFK+Pz3YilMONNpx1wA60kY
+ PeZemZtJaNYB8+R9wEvAt3vcTxGAIGOS/YgdZGjU/skQ/0U2RwdBJ3C9IEah0hupLlC+/8NkKL
+ jMmZYKrq3f1Hpi916DmlGVVcNJSsKWwS3oqbmnoFqn+Lxyx8TAkPRY1ZEGdGJslKJEHSpH2eou
+ n3UsDpeQhREPBFw7Ygnr7jxRNlAdBUtwc5URJvywh5CNAepQH1npfegYdT+vt8ZLUxkrAf864l
+ 0RY=
+WDCIronportException: Internal
+Received: from hdrdzf2.ad.shared (HELO twashi.fujisawa.hgst.com)
+ ([10.84.71.72])
+ by uls-op-cesaip02.wdc.com with ESMTP; 09 Feb 2021 21:02:33 -0800
+From: Damien Le Moal <damien.lemoal@wdc.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v19 00/17] RISC-V Kendryte K210 support improvements
+Date: Wed, 10 Feb 2021 14:02:13 +0900
+Message-Id: <20210210050230.131281-1-damien.lemoal@wdc.com>
+X-Mailer: git-send-email 2.29.2
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BL0PR04MB6514.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 92baacb2-0307-4f3b-9d31-08d8cd7ce38a
-X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Feb 2021 04:32:34.9010 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 4o8hy695aKOhNDkMpvSftpcIv48g5WgdHJWEMIb8SuXgw2UFup4gmk9mPbBjCEpxJ8Si2bi1AiQNOvQypAcIWg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL0PR04MB6482
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210209_233238_916310_2DFB2680 
-X-CRM114-Status: GOOD (  16.60  )
+X-CRM114-CacheID: sfid-20210210_000235_872867_782B2D76 
+X-CRM114-Status: GOOD (  24.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -166,223 +96,245 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Atish Patra <Atish.Patra@wdc.com>,
- Michael Turquette <mturquette@baylibre.com>, Anup Patel <Anup.Patel@wdc.com>,
- "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+Cc: Atish Patra <atish.patra@wdc.com>, Anup Patel <anup.patel@wdc.com>,
  Sean Anderson <seanga2@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2021/02/10 12:15, Damien Le Moal wrote:
-> On 2021/02/10 10:24, Stephen Boyd wrote:
->> Quoting Damien Le Moal (2021-02-09 04:29:59)
->>> Add a clock provider driver for the Canaan Kendryte K210 RISC-V SoC.
->>> This new driver with the compatible string "canaan,k210-clk" implements
->>> support for the full clock structure of the K210 SoC. Since it is
->>> required for the correct operation of the SoC, this driver is
->>> selected by default for compilation when the SOC_CANAAN option is
->>> selected.
->>>
->>> With this change, the k210-sysctl driver is turned into a simple
->>> platform driver which enables its power bus clock and triggers
->>> populating its child nodes. The sysctl driver retains the SOC early
->>> initialization code, but the implementation now relies on the new
->>> function k210_clk_early_init() provided by the new clk-k210 driver.
->>>
->>> The clock structure implemented and many of the coding ideas for the
->>> driver come from the work by Sean Anderson on the K210 support for the
->>> U-Boot project.
->>>
->>> Cc: Stephen Boyd <sboyd@kernel.org>
->>> Cc: Michael Turquette <mturquette@baylibre.com>
->>> Cc: linux-clk@vger.kernel.org
->>> Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
->>> Reviewed-by: Anup Patel <anup@brainfault.org>
->>> ---
->>
->> My inbox has this one patch multiple times and no changelog here. I also
->> don't see the cover letter, so I guess I wasn't Cced? Can you please add
->> a changelog so I know if anything has changed?
-> 
-> My apologies about this. I forgot to CC you on the cover letter. Will do for the
-> next version.
-> 
-> [...]
->>> +static const struct clk_ops k210_clk_ops = {
->>> +       .enable         = k210_clk_enable,
->>> +       .disable        = k210_clk_disable,
->>> +       .recalc_rate    = k210_clk_get_rate,
->>> +};
->>
->> From here...
->>
->>> +
->>> +static void k210_register_clk(struct k210_sysclk *ksc, int id,
->>> +                             const struct clk_parent_data *parent_data,
->>> +                             int num_parents, unsigned long flags)
->>> +{
->>> +       struct k210_clk *kclk = &ksc->clks[id];
->>> +       struct clk_init_data init = {};
->>> +       int ret;
->>> +
->>> +       init.name = k210_clk_cfgs[id].name;
->>> +       init.flags = flags;
->>> +       init.parent_data = parent_data;
->>> +       init.num_parents = num_parents;
->>> +       if (num_parents > 1)
->>> +               init.ops = &k210_clk_mux_ops;
->>> +       else
->>> +               init.ops = &k210_clk_ops;
->>> +
->>> +       kclk->id = id;
->>> +       kclk->ksc = ksc;
->>> +       kclk->hw.init = &init;
->>> +
->>> +       ret = clk_hw_register(NULL, &kclk->hw);
->>> +       if (ret) {
->>> +               pr_err("%pOFP: register clock %s failed\n",
->>> +                      ksc->node, k210_clk_cfgs[id].name);
->>> +               kclk->id = -1;
->>> +       }
->>> +}
->>> +
->>> +/*
->>> + * All muxed clocks have IN0 and PLL0 as parents.
->>> + */
->>> +static inline void k210_register_mux_clk(struct k210_sysclk *ksc,
->>> +                                        const char *in0, int id)
->>> +{
->>> +       const struct clk_parent_data parent_data[2] = {
->>> +               { .name = in0 },
->>> +               { .hw = &ksc->plls[K210_PLL0].hw },
->>> +       };
->>> +
->>> +       k210_register_clk(ksc, id, parent_data, 2, 0);
->>> +}
->>> +
->>> +static inline void k210_register_in0_child(struct k210_sysclk *ksc,
->>> +                                          const char *in0, int id)
->>> +{
->>> +       const struct clk_parent_data parent_data = {
->>> +               .name = in0,
->>> +       };
->>> +
->>> +       k210_register_clk(ksc, id, &parent_data, 1, 0);
->>> +}
->>> +
->>> +static inline void k210_register_pll_child(struct k210_sysclk *ksc, int id,
->>> +                                          enum k210_pll_id pllid,
->>> +                                          unsigned long flags)
->>> +{
->>> +       const struct clk_parent_data parent_data = {
->>> +               .hw = &ksc->plls[pllid].hw,
->>> +       };
->>> +
->>> +       k210_register_clk(ksc, id, &parent_data, 1, flags);
->>> +}
->>> +
->>> +static inline void k210_register_aclk_child(struct k210_sysclk *ksc, int id,
->>> +                                           unsigned long flags)
->>> +{
->>> +       const struct clk_parent_data parent_data = {
->>> +               .hw = &ksc->aclk,
->>> +       };
->>> +
->>> +       k210_register_clk(ksc, id, &parent_data, 1, flags);
->>> +}
->>> +
->>> +static inline void k210_register_clk_child(struct k210_sysclk *ksc, int id,
->>> +                                          int parent_id)
->>> +{
->>> +       const struct clk_parent_data parent_data = {
->>> +               .hw = &ksc->clks[parent_id].hw,
->>> +       };
->>> +
->>> +       k210_register_clk(ksc, id, &parent_data, 1, 0);
->>> +}
->>
->> .. to here, shouldn't these all gain __init?
-> 
-> Yes indeed, they can. Fixed that.
-> 
->>> +
->>> +static struct clk_hw *k210_clk_hw_onecell_get(struct of_phandle_args *clkspec,
->>> +                                             void *data)
->>> +{
->>> +       struct k210_sysclk *ksc = data;
->>> +       unsigned int idx = clkspec->args[0];
->>> +
->>> +       if (idx >= K210_NUM_CLKS)
->>> +               return ERR_PTR(-EINVAL);
->>> +
->>> +       return &ksc->clks[idx].hw;
->>> +}
->>> +
->>> +static void __init k210_clk_init(struct device_node *np)
->>> +{
->>> +       struct device_node *sysctl_np;
->>> +       struct k210_sysclk *ksc;
->>> +       const char *in0;
->>> +       int i, ret;
->>> +
->>> +       ksc = kzalloc(sizeof(*ksc), GFP_KERNEL);
->>> +       if (!ksc)
->>> +               return;
->>> +
->>> +       ksc->node = np;
->>> +       spin_lock_init(&ksc->clk_lock);
->>> +       sysctl_np = of_get_parent(np);
->>> +       ksc->regs = of_iomap(sysctl_np, 0);
->>> +       of_node_put(sysctl_np);
->>> +       if (!ksc->regs) {
->>> +               pr_err("%pOFP: failed to map registers\n", np);
->>> +               return;
->>> +       }
->>> +
->>> +       in0 = of_clk_get_parent_name(np, 0);
->>
->> I'm still lost why we need to get the clk parent name here vs. using the
->> index approach and using clk_parent_data. There were some comments about
->> #clock-cells which didn't make sense to me. The fixed rate clk in DT
->> should have #clock-cells as it is a clk.
-> 
-> It is like this because I could not get your suggested approach to work. I am
-> using clk_parent_data[]->hw for specifying the parents of the clocks registered
-> by this driver. But using this data structure, I failed to figure out how to
-> specify the "in0" clock as a parent without using the clock name itself. The
-> other option I see is using fw_name (I do not understand that one) and hw, but I
-> do not have that pointer since the clock is registered by the common framework.
-> What am I missing here ?
+This series of patches improves support for boards based on the Canaan
+Kendryte K210 RISC-V dual core SoC. Minimal support for this SoC is
+already included in the kernel. These patches complete it, enabling
+support for most peripherals present on the SoC as well as introducing
+device trees for the various K210 boards available on the market today
+from SiPeed and Kendryte.
 
-Revisiting this, I think I got it. All I need to to is set ".index = 0" in
-clk_parent_data[] of the clocks that have in0 as a parent. Very simple indeed. I
-removed the ino clock name stuff.
-Testing and sending out v19.
+The patches here are the remaining patches not yet applied.
 
-Thanks !
+Patch 1 adds the SoC clock driver.
 
-> 
->>> +       if (!in0) {
->>> +               pr_err("%pOFP: undefined fixed-rate oscillator clock\n", np);
->>> +               return;
->>> +       }
->>> +
->>> +       ret = k210_register_plls(ksc, in0);
->>
->> I suspect the 'np' should be passed to these functions instead, and then
->> use of_clk_hw_register().
-> 
-> Done.
-> I also addressed all your nits. Thanks for the comments.
-> 
-> 
+Patches 2 to 9 add and update device tree bindings documentation to
+document the K210 device tree files. In particular, patch 2 and 3
+define compatible strings used for the SoC CPU and for the K210 based
+boards supported.
 
+Patches 10 to 15 update the existing K210 base device tree and add new
+device tree files for several K210 based boards: MAIX Bit, MAIXDUINO,
+MAIX Dock and MAIX Go boards from SiPeed and the KD233 development
+board from Canaan.
+
+Finally the last two patches updates the k210 nommu defconfig to include
+the newly implemented drivers and provide a new default configuration
+file enabling SD card support.
+
+A lot of the work on the device tree and on the K210 drivers come from
+the work by Sean Anderson for the U-Boot project support of the K210
+SoC. Sean also helped with debugging many aspects of the K210 support.
+
+A tree with all patches applied is available here:
+https://github.com/damien-lemoal/linux, k210-sysctl-v32 branch.
+A demonstration of this series used on a SiPeed MAIX Dock
+board together with an I2C servo controller can be seen here:
+https://damien-lemoal.github.io/linux-robot-arm/#example
+
+This tree was used to build userspace busybox environment image that is
+then copied onto an SD card formatted with ext2:
+https://github.com/damien-lemoal/buildroot
+Of note is that running this userspace environment requires a revert of
+commit 2217b982624680d19a80ebb4600d05c8586c4f96 introduced during the
+5.9 development cycle. Without this revert, execution of the init
+process fails. A problem with the riscv port of elf2flt is suspected but
+not confirmed. I am now starting to investigate this problem.
+
+Reviews and comments are as always much welcome.
+
+Changes from v18:
+* Added review and ack tags
+* Addressed Stephen's comments on the clock driver:
+  - Moved MAINTAINER file update to new patch 0002
+  - Code style nits
+  - Use of __init declarations for k210_register_xxx() functions
+  - Use of of_clk_hw_register() instead of clk_hw_register()
+  - Removed the need for in0 clock name
+
+Changes from v17:
+* Removed teh nodes of unsupported devices with undocumented bindings
+  from the SoC k210.dtsi DTS file.
+
+Changes from v16:
+* Rebased on rc7
+* Addressed Rob's comment on patch 7
+* Added review and ack tags.
+
+Changes from v15:
+* Addressed Rob's comments on patches 4 and 5
+* Fixed patch 7 ngpios property
+* Added review and ack tags.
+
+Changes from v14:
+* Fixed typo in patch 4
+* Added reviewed-by tags
+
+Changes from v13:
+* Rebased on rc6
+* Removed FPIOA driver patch as it is already queued.
+
+Changes from v12:
+* Addressed Rab's comments: keep SoC specific compatible string for DT
+  nodes reusing existing IP blocks (e.g. PLIC and CLINT).
+* Addressed dt-bindings schema file check warnings.
+
+Changes from v11:
+* Addressed Stephen's comment on the clock driver
+* Fixed and added device tree bindings yaml files and fixed the device
+  tree files to fix all warnings generated by make dtbs_check
+* Rebased on riscv tree fixes + latest riscv for-next branches.
+
+Changes from v10:
+* Rebased on riscv tree fixes+for-next branches. Patches already applied
+  to these branches were removed from this series.
+* Fixed the clock driver and pinctrl driver patch titles to indicate the
+  correct target sub-components.
+* Applied reviewed-by tags from Anup.
+
+Changes from v9:
+* Added patch 6 to avoid DTS compilation errors after patch 9 is
+  applied and until patch 16 is applied.
+
+Changes from v8:
+* Addressed Rob's comments on the sysctl driver bindings documentation
+* Fixed a typo in the fpios driver bindings documentation
+
+Changes from v7:
+* Removed the __init annotation for the drivers reset, pinctrl and
+  sysctl drivers probe functions as suggested by Geert. Also removed
+  the __refdata annotation for the struct platform_driver variables of
+  these drivers.
+
+Changes from v6:
+* Annotate struct platform_driver variables with __refdata to avoid
+  section mismatch compilation errors
+* Add empty sentinel entry to of_device_id tables of the sysctl, reset
+  and pinctrl drivers.
+
+Changes from v5:
+* Addressed Philipp's comment on the reset controller driver
+* Added patch 6 to reduce the size of the clock driver patch
+  (now patch 12).
+
+Changes from v4:
+* Simplified reset controller driver using of_xlate callback as
+  suggested by Philipp
+* Fixed compilation error when using other configs than one of the
+  nommu_k210 defconfigs.
+* Addressed most clock driver comments from Stephen.
+* Removed CONFIG_GPIO_SYSFS from defconfigs
+* Rebased on 5.10-rc7
+
+Changes from V3:
+* Add one entry per driver in MAINTAINERS file
+
+Changes from V2:
+* Add MAINTAINERS file entry for the SoC support, listing myself as
+  maintainer.
+* Removed use of postcore_initcall() for declaring the drivers, using
+  the regular builtin_platform_driver() instead.
+* Fixed fpio pinctrl driver bindings documentation as commented by
+  Geert: removed input-schmitt and added input-schmitt-disable, fixed
+  typo and added input-disable and output-disable.
+* Fixed device tree to have cs-gpios active low, as per the default, as
+  active high necessity was an artifact of the gpio level double
+  inversion bug fixed recently.
+* Removed CONFIG_VT from defconfigs to reduce the kernel image size as
+  suggested by Geert.
+
+Changes from v1:
+* Improved DT bindings documentation
+* SPI and GPIO patches removed from this series (and being processed
+  directly through the relevant subsystems directly)
+* Improved device trees
+* Various cleanup and improvments of the drivers
+
+Damien Le Moal (16):
+  clk: Add RISC-V Canaan Kendryte K210 clock driver
+  dt-bindings: add Canaan boards compatible strings
+  dt-bindings: update risc-v cpu properties
+  dt-bindings: update sifive plic compatible string
+  dt-bindings: update sifive clint compatible string
+  dt-bindings: update sifive uart compatible string
+  dt-bindings: fix sifive gpio properties
+  dt-bindings: add resets property to dw-apb-timer
+  riscv: Update Canaan Kendryte K210 device tree
+  riscv: Add SiPeed MAIX BiT board device tree
+  riscv: Add SiPeed MAIX DOCK board device tree
+  riscv: Add SiPeed MAIX GO board device tree
+  riscv: Add SiPeed MAIXDUINO board device tree
+  riscv: Add Kendryte KD233 board device tree
+  riscv: Update Canaan Kendryte K210 defconfig
+  riscv: Add Canaan Kendryte K210 SD card defconfig
+
+Damien Le Moal (17):
+  clk: Add RISC-V Canaan Kendryte K210 clock driver
+  dt-bindings: update MAINTAINERS file
+  dt-bindings: add Canaan boards compatible strings
+  dt-bindings: update risc-v cpu properties
+  dt-bindings: update sifive plic compatible string
+  dt-bindings: update sifive clint compatible string
+  dt-bindings: update sifive uart compatible string
+  dt-bindings: fix sifive gpio properties
+  dt-bindings: add resets property to dw-apb-timer
+  riscv: Update Canaan Kendryte K210 device tree
+  riscv: Add SiPeed MAIX BiT board device tree
+  riscv: Add SiPeed MAIX DOCK board device tree
+  riscv: Add SiPeed MAIX GO board device tree
+  riscv: Add SiPeed MAIXDUINO board device tree
+  riscv: Add Kendryte KD233 board device tree
+  riscv: Update Canaan Kendryte K210 defconfig
+  riscv: Add Canaan Kendryte K210 SD card defconfig
+
+ .../devicetree/bindings/gpio/sifive,gpio.yaml |   25 +-
+ .../sifive,plic-1.0.0.yaml                    |   13 +-
+ .../devicetree/bindings/riscv/canaan.yaml     |   47 +
+ .../devicetree/bindings/riscv/cpus.yaml       |    2 +
+ .../bindings/serial/sifive-serial.yaml        |    1 +
+ .../bindings/timer/sifive,clint.yaml          |   12 +-
+ .../bindings/timer/snps,dw-apb-timer.yaml     |    3 +
+ MAINTAINERS                                   |    1 +
+ arch/riscv/Kconfig.socs                       |    2 +-
+ arch/riscv/boot/dts/canaan/canaan_kd233.dts   |  172 +++
+ arch/riscv/boot/dts/canaan/k210.dts           |   23 -
+ arch/riscv/boot/dts/canaan/k210.dtsi          |  395 ++++++-
+ arch/riscv/boot/dts/canaan/k210_generic.dts   |   46 +
+ .../riscv/boot/dts/canaan/sipeed_maix_bit.dts |  229 ++++
+ .../boot/dts/canaan/sipeed_maix_dock.dts      |  231 ++++
+ arch/riscv/boot/dts/canaan/sipeed_maix_go.dts |  239 ++++
+ .../boot/dts/canaan/sipeed_maixduino.dts      |  204 ++++
+ arch/riscv/configs/nommu_k210_defconfig       |   44 +-
+ .../riscv/configs/nommu_k210_sdcard_defconfig |   92 ++
+ drivers/clk/Kconfig                           |    7 +
+ drivers/clk/Makefile                          |    1 +
+ drivers/clk/clk-k210.c                        | 1007 +++++++++++++++++
+ drivers/soc/canaan/Kconfig                    |   18 +-
+ drivers/soc/canaan/Makefile                   |    2 +-
+ drivers/soc/canaan/k210-sysctl.c              |  205 +---
+ include/dt-bindings/clock/k210-clk.h          |    1 -
+ include/soc/canaan/k210-sysctl.h              |    2 +
+ 27 files changed, 2773 insertions(+), 251 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/riscv/canaan.yaml
+ create mode 100644 arch/riscv/boot/dts/canaan/canaan_kd233.dts
+ delete mode 100644 arch/riscv/boot/dts/canaan/k210.dts
+ create mode 100644 arch/riscv/boot/dts/canaan/k210_generic.dts
+ create mode 100644 arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts
+ create mode 100644 arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts
+ create mode 100644 arch/riscv/boot/dts/canaan/sipeed_maix_go.dts
+ create mode 100644 arch/riscv/boot/dts/canaan/sipeed_maixduino.dts
+ create mode 100644 arch/riscv/configs/nommu_k210_sdcard_defconfig
+ create mode 100644 drivers/clk/clk-k210.c
 
 -- 
-Damien Le Moal
-Western Digital Research
+2.29.2
+
 
 _______________________________________________
 linux-riscv mailing list
