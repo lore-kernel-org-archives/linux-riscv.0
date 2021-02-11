@@ -1,85 +1,162 @@
-Return-Path: <SRS0=bbt8=HM=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=PCma=HN=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=unavailable autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-4.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E285FC433DB
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Feb 2021 19:05:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D83A7C433DB
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Feb 2021 02:32:54 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7BEC464E32
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Feb 2021 19:05:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7BEC464E32
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linaro.org
+	by mail.kernel.org (Postfix) with ESMTPS id 876D064D99
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Feb 2021 02:32:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 876D064D99
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Z0WxYMYRYsljvatrW44SZchcdm03J9I8v3x+zz0g+Mw=; b=Jg+pAwGt/70tIcnRXYGNImlntg
-	LQhtuGcrWk7JJhsnoY+dWNfNbTs4KMy1qfABG9u8iEjaZzwjUIWW0wbAdG8BP/rh3pg6MJSrx+Hsb
-	Cjq6yckVf78FGRLYD9KtPCM4cXeTfcemufnMn6OKEIEyr42qZgsZNqRq9naaf27HinQzERCqal/R6
-	Hn6nmJ3NPvebINudkHVtnZPOBYEFbHXThn8qqh1z7hIuB2U8+RahEMUzyqRFEegDO042ZJDAZ7tUw
-	HHCs8cEzTb/eHALKToz+3KSqSVXnkFcDuYy92bqjScX70tuYF4dIvA6f+NB6SD00GBWuHNv19wKOz
-	sVP7q0Aw==;
+	List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:Date:Subject:To:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	 bh=D1cq8wP69xfLKX3T+V9ivmwDbHll77YBQVDYRJuxr8A=; b=GPkL0JdVMsDEfOpYwQ+k2DJFv
+	rXf3aIl19Q7TGjjnCCsVHpxRcryfqgB76FAmNOsTcZJs7vKWb66fpSsNOCtSMxBibnN/KkTACd1L0
+	etOQ9gd5scF9+nx+BOqE/Dlz3+6X47rqdoNZXjz8Knk3jFD2thVlWjMbJ94GAuoWKTQ+K3pR5dJjb
+	/qBHTZRrnkeuJgdAL5ZGjkZcfllFPOw42wd/bs+j1c123tOvzymGNYMJSBR8zm4lQS280VWfudQBQ
+	zvgdY4QKm0ehObwQ20WBHUBSMCnfZ10rByZCowxCSGTAlZ+tnzsQ9NzI8ShIhDST7GvqyfZd1sFll
+	fGy0Z3acw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1l9une-0003nm-OW; Wed, 10 Feb 2021 19:05:18 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1lA1mf-0007hk-Qq; Thu, 11 Feb 2021 02:32:45 +0000
+Received: from esa3.hgst.iphmx.com ([216.71.153.141])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1l9una-0003mc-1U
- for linux-riscv@lists.infradead.org; Wed, 10 Feb 2021 19:05:15 +0000
-Received: by mail-lf1-x129.google.com with SMTP id d24so4460975lfs.8
- for <linux-riscv@lists.infradead.org>; Wed, 10 Feb 2021 11:05:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=AUZZJPcdsZ4nXWPrdOtnVl3JVvpEylf0g26f/cJWrEs=;
- b=tdvdvopNJa/CNXblKmh3zsQ94QYlwXgnTc3W2rw3GKaWji6T1d806HNk5jlGGQsE0d
- Z3BzOj8nXe/DC40o+NAgzKZEhnAAmT+MybnSvLG2UiVRby+UfPnUmHXxsNbU7/THaivB
- IJok8KZuYBmdglvY9AXbeqg2N79bWTTZAvbuVrJ/jApGhi9wm0hMJLi3kDsrycTWwkH+
- KeQqcA/kzuUA1N4LUQGmsMhnfPeZKVkijrSX1wnSYD7t5hFI06+M7TAv4qerUeyHPFAm
- 84uVebInrFDi44XE03vgB3Mbxtn8cTyAwnIJLm2UKF/hTrvWBymtDXcbDo+kC+Za5e0s
- IaxQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=AUZZJPcdsZ4nXWPrdOtnVl3JVvpEylf0g26f/cJWrEs=;
- b=dn/8w68Oj0o/mBPkdqfQvjNWQV6sQNNIUDtbQgEh160UlXmw/5SAr+3tTqRgDFK1x/
- WlRWBk+LDjrDQCJUXs/T6yQ3szGDx+DX8VKaqG3V5m2Vi8D2Aq1Vsya7ikGLNW/79fJ1
- UIcWJXi7AsD47u7O1Qd9x+UuDPSdZco2eiFQ0a15KSgxOPxhXzl/i7WBvaanjDImOgGf
- 4nd8uJ7j0sABLdB8iulTpUKYLwF9seIW8T5ivIm4YEvVIv2KX72IkG0eJ/W5iKcNoAmQ
- M/uzF6mffwiNqfhqQ/aRqWNKtqbegOZynwkozs/qGIDIsSmBkINn1cjB+hEre5a96g9g
- kKxA==
-X-Gm-Message-State: AOAM5323sB7CzC0HlvfB20phLQrch7bYaM3cxZCSWFzJpbHZRzEN9VPg
- ErpEVaZdw9sGOws0GRFrlDkddw==
-X-Google-Smtp-Source: ABdhPJx+dGCB5Wuq+4IRhfx1FPsG7SMl/CyZGsYTUvPGsDbtVXH2raDj8I9KusXJvxhAT7I/ejZXMg==
-X-Received: by 2002:a19:4843:: with SMTP id v64mr2309414lfa.178.1612983910472; 
- Wed, 10 Feb 2021 11:05:10 -0800 (PST)
-Received: from localhost (c-9b28e555.07-21-73746f28.bbcust.telenor.se.
- [85.229.40.155])
- by smtp.gmail.com with ESMTPSA id s16sm390025ljc.121.2021.02.10.11.05.09
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 10 Feb 2021 11:05:09 -0800 (PST)
-From: Anders Roxell <anders.roxell@linaro.org>
-List-Id: <soc.lore.kernel.org>
-To: soc@kernel.org
-Subject: [PATCH] arm64: defconfig: enable modern virtio pci device
-Date: Wed, 10 Feb 2021 20:05:06 +0100
-Message-Id: <20210210190506.1923684-1-anders.roxell@linaro.org>
-X-Mailer: git-send-email 2.30.0
+ id 1lA1mc-0007go-Hz
+ for linux-riscv@lists.infradead.org; Thu, 11 Feb 2021 02:32:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1613010762; x=1644546762;
+ h=from:to:cc:subject:date:message-id:references:
+ content-transfer-encoding:mime-version;
+ bh=iOQbfyBYzbs4H+5CMIzhSZOFbe7xh/6McfunzS6Ve5k=;
+ b=hwL6pZKR/wO/qy3by2x0Nu5GwtYsrdH05Ani7Hfeu1/9pMCf25vd/MA8
+ y9kkteUjuAwI+Yf2Q7QMMv2DL7IKL9SLOO35GgVsXihTj6j6pbqOjzeau
+ Z1N/5wv+Npv9CjTKhyiH4id+ufTwYiObc/h/f15KWPO5i2JLGgy2FKUqk
+ yWsjOAy5Q3aARASH8gYMtGOjbKffxI0ifn7hQhz8pjZILNmr4esEpeoFg
+ 0nkA3TUY1UO6OiF+k5pg4XJRhTOlxfgjcDosj5fx4s3BYwbW2xY4A11N5
+ 0YFCXSG6Zreowr/jBwSSA/XDtZ7ywoBPHPEwXLjUzdvNPfpFnDVzgvhft Q==;
+IronPort-SDR: gRoJOO3Sn/dEvqgRXd6IDeNc7bCy8ycxIXb1MQ5383xiSm/mFIZpl3xhFxGsaYZlOfavIpDSCN
+ hpEqSu3Xw/Nda8EcII7P9vQLukBVCCtlf6BroVdeYGHJkKPbN5Klt12/kyVnfQX21/j4Ls+RZn
+ dfx6IYShQemZx+6Z4S3UULxwuLn2eyN8PdQ1wJ8A1Hj7jZ3tPysHfWo4YMFS/1Lf2ApfMSCDfV
+ w8BLhmvOuSkQ2nREXyUSDrztYiJNaA9kJLMHfuhEGCpSv7aKxThVHR6q/Py93nZTZYP++DLoHX
+ wTc=
+X-IronPort-AV: E=Sophos;i="5.81,169,1610380800"; d="scan'208";a="164193872"
+Received: from mail-bn8nam11lp2177.outbound.protection.outlook.com (HELO
+ NAM11-BN8-obe.outbound.protection.outlook.com) ([104.47.58.177])
+ by ob1.hgst.iphmx.com with ESMTP; 11 Feb 2021 10:32:38 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=UCfoglzHgc3NG2fDRPWLFp+sIteBx8tvNQ/n+VkgLvfSbGzcdKuY5lR8f4mPBlwC/ODZvU3juvknmiuZEHgCfBWwxTHyCaupWy1WJ+VSRqGZvkA//BIZ60S42YMtHWsq0N+dmpVGHR//tPOmumgFv9eszhn98JgleDPDPoGT3pn+4P7BqOb9+kWuTtuJxn8VV7/lGpuDv/GPzHpviYulv9OeY7Ebf1pyO2Bkbn9O0C4Y2hQf+YzgywA/B2QboG507do6QWV7Fd5gmUqnFqFENy0DOUvTW9W5kJlQNZ8l1Py1IgoB4MOTTwesizZw4OBEZ4Z25Y65SUoMzTt51+3S0Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=P80sZ1xOZnp6cxmZpV32CN2ZG+qS7Gns7RGDw6dnwRs=;
+ b=mlyfo3ZJiehkmGPl96LmqpLs0/tkUkwFQzzhfdZTpEPqKcNtqANVHxQh2e62SgSleg4cnv/bIGxuCtgc2u7xJRhige6++ME1Yjm6PwXqbHuYgzO36KaTIAuV0L7PNXUHErMbAhaLC2JVfSbh5gm1knX05YNDtmE7CX0azLVFJZoBTeBsW8zRTsfGBF1Nb99g+nMZJNXmYvuXxnCNhv6IREUGUB2rKvJ/CkYoGJ2hsvGHhzmKJfBP1qZN1Sv+ndhJue6j+n/u8jMWUymfgr+M4P9lqbEnX0SNrY9iREsBxp4Jh9K/V3VzF54VotPdqd/MpC8T2KjaVfweeNulK0mq6w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
+ header.d=wdc.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=P80sZ1xOZnp6cxmZpV32CN2ZG+qS7Gns7RGDw6dnwRs=;
+ b=tBNFXu4myUdRAAoBVzjptmm7ltriHhDSCGyfLFzLiSVyFom3NATVhh/V7AAN2rwcKCr42PfVhXOotTlJAFEqcrZ0pzymlP+f4p1D/UA8YA80jTKdSD3EEubaM6MGUciQIx2aQl4BgukWuqtH8CuLUvLAXYJk4RVlH1xPNI3gtT8=
+Received: from BL0PR04MB6514.namprd04.prod.outlook.com (2603:10b6:208:1ca::23)
+ by MN2PR04MB6701.namprd04.prod.outlook.com (2603:10b6:208:1ef::12)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3846.25; Thu, 11 Feb
+ 2021 02:32:36 +0000
+Received: from BL0PR04MB6514.namprd04.prod.outlook.com
+ ([fe80::b880:19d5:c7fe:329d]) by BL0PR04MB6514.namprd04.prod.outlook.com
+ ([fe80::b880:19d5:c7fe:329d%7]) with mapi id 15.20.3846.027; Thu, 11 Feb 2021
+ 02:32:36 +0000
+From: Damien Le Moal <Damien.LeMoal@wdc.com>
+To: Stephen Boyd <sboyd@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH v18 01/16] clk: Add RISC-V Canaan Kendryte K210 clock
+ driver
+Thread-Topic: [PATCH v18 01/16] clk: Add RISC-V Canaan Kendryte K210 clock
+ driver
+Thread-Index: AQHW/t9XApJD7mlFuEyRKf7oQMzIIQ==
+Date: Thu, 11 Feb 2021 02:32:36 +0000
+Message-ID: <BL0PR04MB651451075652392825BD1E60E78C9@BL0PR04MB6514.namprd04.prod.outlook.com>
+References: <20210209123014.165928-1-damien.lemoal@wdc.com>
+ <20210209123014.165928-2-damien.lemoal@wdc.com>
+ <161292028178.418021.10953574123293354986@swboyd.mtv.corp.google.com>
+ <BL0PR04MB6514E2ED802BAE7E6350E304E78D9@BL0PR04MB6514.namprd04.prod.outlook.com>
+ <BL0PR04MB6514E16F46007EC1EEC5126EE78D9@BL0PR04MB6514.namprd04.prod.outlook.com>
+ <161301058101.1254594.1361185438418159772@swboyd.mtv.corp.google.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: kernel.org; dkim=none (message not signed)
+ header.d=none;kernel.org; dmarc=none action=none header.from=wdc.com;
+x-originating-ip: [2400:2411:43c0:6000:4d23:6652:258b:81d8]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-ht: Tenant
+x-ms-office365-filtering-correlation-id: c1238f29-4b2e-4c0c-161b-08d8ce354b5d
+x-ms-traffictypediagnostic: MN2PR04MB6701:
+x-ms-exchange-transport-forked: True
+x-microsoft-antispam-prvs: <MN2PR04MB670121D4E5192DF1CFE87B10E78C9@MN2PR04MB6701.namprd04.prod.outlook.com>
+wdcipoutbound: EOP-TRUE
+x-ms-oob-tlc-oobclassifiers: OLM:9508;
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: mBjbCM+FAsPyrVWtQ9SybUhqC0FTQtTekVgqNB2Ua1nqNqXNr/xYDvTWi968ZpzgWTcHyOkHGnSjvEjkZEbavkfS+2DAwP4yJr9zl3RpspWvAWqZtaC5G3mVcm9vMyYuhLHF51xfGH1/Ps3WZUM0yyAzyNB8XuxmOBxvfKF/6Kvt1sgIkGTKUOKnl7EYiTPD4Hh+ctULkkuw7vqzK4VswkteBudhamcV8EXNwm/B1wePkTqA42yIUdrcCF3IeK7OuLTuCiwlUZSXb+8T/oN4THeH5R2FXUKtInNzM6BonDBPy5erPOUDtoyb7cHGz4scbAcobO21Rcj1OPgCrrK22UotnEf9hsiSMadpYCf5wGYsiYvdFy5A5Y8WHdCCmnBxNtLP27SYrRA/wakfc4OgBH1JO8UYcTaUv+243dWogmw2BFzkjooAL4TSmexIRTmvt3dtXw7+XcH7Obzu9AV/1jC0ASr4eUscylb+Uv5Egw3YEjeD1eKBKiDmrghmle+KfQcLMDhOaS02iHAGiO7y0Q==
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:BL0PR04MB6514.namprd04.prod.outlook.com; PTR:; CAT:NONE;
+ SFS:(4636009)(136003)(366004)(376002)(396003)(346002)(39860400002)(4326008)(478600001)(66946007)(186003)(53546011)(71200400001)(86362001)(6506007)(7696005)(33656002)(83380400001)(8936002)(66476007)(66446008)(64756008)(66556008)(91956017)(76116006)(2906002)(8676002)(54906003)(316002)(9686003)(55016002)(110136005)(52536014)(5660300002);
+ DIR:OUT; SFP:1102; 
+x-ms-exchange-antispam-messagedata: =?us-ascii?Q?HJfcz81SKqthMCOZIzAEFCsne6HR5Kb8iZoTtqFMwEtmKKWiyBkcGugBtEOe?=
+ =?us-ascii?Q?hEdRyhenASW2rD48s0v6FvAxcRGy/y8uRC1nh0ilxePUYAziX41sVCJxUQx4?=
+ =?us-ascii?Q?FUEjBaUBlVo7DAxV6WX42q1PR4lihxZqnI62fzT3yDLRp5oNgNoXEKRWVpcJ?=
+ =?us-ascii?Q?4Svl9gmceneshAEqWVH8TdB9hEs105sM+ER6jBALMEvrh8zpOs2MWNI86sSE?=
+ =?us-ascii?Q?2vU7Skf/+sYVCeGs//cPoyiD/2nhxG42RPm995HWs8aQMD3kmgGV5ZTkMqGO?=
+ =?us-ascii?Q?5WM/fLLHr5iXO9NfYN2Zss2l32fJjTKUD+++LD4K/XyDmy26eRmTuO9nHgLR?=
+ =?us-ascii?Q?kr1C7CaApGSYKsIb0Synsx2ypU5zjnaDEtJ9qlGQppX0o0kKK1C1cS1yJihb?=
+ =?us-ascii?Q?t2yFwB0FWLmkMfWcDkyvk8bPCnZkVip20Wj/znaqes26QZ3tzxSnWZ32TpQq?=
+ =?us-ascii?Q?lguMEYdo8/3pY0wsX3dnrC2cFMMlpdZXXVhAUJp/Op3vuuqYsKavKjLCKSTm?=
+ =?us-ascii?Q?H6igLQZFcO97CKLJ71kEL3cgGKqU2g0qcZWJb7ayHpZ362K5pKdDIC/ppJlC?=
+ =?us-ascii?Q?bTs49Ja0CVN//FWcJfcMHgNcws2/Ya+PHgyxy+PijbqfjIvZSWQQhlZd6jw2?=
+ =?us-ascii?Q?mcKWWOSeMWGqUmtY7deAN2ikphE0Wc3YCxRXeY8sdIHlZMpQHN0Kz2gBc7E0?=
+ =?us-ascii?Q?xPCgSErjyg8ryUQjn7CJkqwoXhCOcJLsSZo7gmaR030GVbJoGU6etxIHz5yg?=
+ =?us-ascii?Q?ngHfF4aFrH25G+EkINOCr+XmxOIZwx3BDcQpk6m+TgSK9yi7lTZ8qmaaHcrW?=
+ =?us-ascii?Q?hb6BKJ9lwFiRZENtULQuk9vk+Olrig7P43ilXplvJBVVwxwAsG7scW5+dwI5?=
+ =?us-ascii?Q?8EhYNIeRYe6jSNl9eY0MfvVD6kdjFMMfD/YEM7dmrkNwvV9r6LQohQVw6vWU?=
+ =?us-ascii?Q?U+YXfjMSAps5HZp1Ief/gDAIUHrWcHdPiqjJIdzh0O7KLlPRchzLG4jrRGit?=
+ =?us-ascii?Q?ioPDkfonyvLLmraLLenlXXcL9zCLErq3cDXCEn+MCSpy8PnMGvaPRg5YwzsM?=
+ =?us-ascii?Q?uCIvINDiJZzj95Lxqmf+kjspn2aq0KJlWK4lWEqby1zIz9AsRUQwDu6qLGC2?=
+ =?us-ascii?Q?Dp0vQpY9Dv41laU6++9eehwh2ezbhz/BqwUo4UuSfvp1zKG7AaRtg2JhIaBA?=
+ =?us-ascii?Q?5lA6yQh+DgarfokMg3h84Cbv6XZRbv01ywpfSSRuWYHI/Et8K1rh8ynvBtFb?=
+ =?us-ascii?Q?G59ZspnwqcQDgLJwzRj/tU2WXEKuU5aDAsn7jcMwpCNQsLHXserAUPpxWDvS?=
+ =?us-ascii?Q?QwTMGfdtMndOO0KidedTvEZu9/I8zaJMDLPkyT2Q31CM4cQtY5DDHKi4vghN?=
+ =?us-ascii?Q?HmU/6U+5MVlm91yreRQZfcejHVrXFN9S16xRe8bK7oG/9cNvUQ=3D=3D?=
 MIME-Version: 1.0
+X-OriginatorOrg: wdc.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BL0PR04MB6514.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c1238f29-4b2e-4c0c-161b-08d8ce354b5d
+X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Feb 2021 02:32:36.4830 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: ln7WiQUMpkL7kGKGyCasxsXKgG+GRFr0lo+oPN560ywl5bDLPIeUx9li2AXjQyhwXX2hpWS9zG+tnp1LMc6IPQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR04MB6701
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210210_140514_103750_C1B9BE66 
-X-CRM114-Status: GOOD (  11.22  )
+X-CRM114-CacheID: sfid-20210210_213243_079701_5D3482AA 
+X-CRM114-Status: GOOD (  13.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -91,149 +168,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: chris@zankel.net, tsbogend@alpha.franken.de,
- Anders Roxell <anders.roxell@linaro.org>, mst@redhat.com, arnd@arndb.de,
- linuxppc-dev@lists.ozlabs.org, catalin.marinas@arm.com,
- linux-xtensa@linux-xtensa.org, paul.walmsley@sifive.com,
- virtualization@lists.linux-foundation.org, linux-kernel@vger.kernel.org,
- linux@armlinux.org.uk, jcmvbkbc@gmail.com, aou@eecs.berkeley.edu,
- palmer@dabbelt.com, mpe@ellerman.id.au, linux-riscv@lists.infradead.org,
- linux-mips@vger.kernel.org, will@kernel.org, jasowang@redhat.com,
- linux-arm-kernel@lists.infradead.org
+Cc: Atish Patra <Atish.Patra@wdc.com>,
+ Michael Turquette <mturquette@baylibre.com>, Anup Patel <Anup.Patel@wdc.com>,
+ "linux-clk@" <"vger.kernel.org linux-clk"@vger.kernel.org>,
+ Sean Anderson <seanga2@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Since patch ("virtio-pci: introduce modern device module") got added it
-is not possible to boot a defconfig kernel in qemu with a virtio pci
-device.  Add CONFIG_VIRTIO_PCI_MODERN=y fragment makes the kernel able
-to boot.
+On 2021/02/11 11:29, Stephen Boyd wrote:
+> Quoting Damien Le Moal (2021-02-09 20:32:34)
+>> On 2021/02/10 12:15, Damien Le Moal wrote:
+>>> On 2021/02/10 10:24, Stephen Boyd wrote:
+>>>>> +               return;
+>>>>> +       }
+>>>>> +
+>>>>> +       in0 = of_clk_get_parent_name(np, 0);
+>>>>
+>>>> I'm still lost why we need to get the clk parent name here vs. using the
+>>>> index approach and using clk_parent_data. There were some comments about
+>>>> #clock-cells which didn't make sense to me. The fixed rate clk in DT
+>>>> should have #clock-cells as it is a clk.
+>>>
+>>> It is like this because I could not get your suggested approach to work. I am
+>>> using clk_parent_data[]->hw for specifying the parents of the clocks registered
+>>> by this driver. But using this data structure, I failed to figure out how to
+>>> specify the "in0" clock as a parent without using the clock name itself. The
+>>> other option I see is using fw_name (I do not understand that one) and hw, but I
+>>> do not have that pointer since the clock is registered by the common framework.
+>>> What am I missing here ?
+>>
+>> Revisiting this, I think I got it. All I need to to is set ".index = 0" in
+>> clk_parent_data[] of the clocks that have in0 as a parent. Very simple indeed. I
+>> removed the ino clock name stuff.
+>> Testing and sending out v19.
+> 
+> Great!
 
-Signed-off-by: Anders Roxell <anders.roxell@linaro.org>
----
- arch/arm/configs/multi_v7_defconfig         | 1 +
- arch/arm64/configs/defconfig                | 1 +
- arch/mips/configs/loongson3_defconfig       | 1 +
- arch/mips/configs/malta_kvm_guest_defconfig | 1 +
- arch/powerpc/configs/guest.config           | 1 +
- arch/riscv/configs/defconfig                | 1 +
- arch/riscv/configs/rv32_defconfig           | 1 +
- arch/xtensa/configs/virt_defconfig          | 1 +
- kernel/configs/kvm_guest.config             | 1 +
- 9 files changed, 9 insertions(+)
+I posted v19 yesterday. I hope you got it.
+Your review/ack would be very welcome :)
 
-diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
-index 3823da605430..02297ed49b20 100644
---- a/arch/arm/configs/multi_v7_defconfig
-+++ b/arch/arm/configs/multi_v7_defconfig
-@@ -972,6 +972,7 @@ CONFIG_DW_DMAC=y
- CONFIG_RCAR_DMAC=y
- CONFIG_RENESAS_USB_DMAC=m
- CONFIG_VIRTIO_PCI=y
-+CONFIG_VIRTIO_PCI_MODERN=y
- CONFIG_VIRTIO_MMIO=y
- CONFIG_STAGING=y
- CONFIG_MFD_NVEC=y
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 83c28da85834..8334e9cb4608 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -910,6 +910,7 @@ CONFIG_TI_K3_UDMA_GLUE_LAYER=y
- CONFIG_VFIO=y
- CONFIG_VFIO_PCI=y
- CONFIG_VIRTIO_PCI=y
-+CONFIG_VIRTIO_PCI_MODERN=y
- CONFIG_VIRTIO_BALLOON=y
- CONFIG_VIRTIO_MMIO=y
- CONFIG_XEN_GNTDEV=y
-diff --git a/arch/mips/configs/loongson3_defconfig b/arch/mips/configs/loongson3_defconfig
-index 0e79f81217bc..ac5f2dcbffb1 100644
---- a/arch/mips/configs/loongson3_defconfig
-+++ b/arch/mips/configs/loongson3_defconfig
-@@ -324,6 +324,7 @@ CONFIG_RTC_DRV_CMOS=y
- CONFIG_RTC_DRV_GOLDFISH=y
- CONFIG_DMADEVICES=y
- CONFIG_VIRTIO_PCI=y
-+CONFIG_VIRTIO_PCI_MODERN=y
- CONFIG_VIRTIO_BALLOON=m
- CONFIG_VIRTIO_INPUT=y
- CONFIG_VIRTIO_MMIO=y
-diff --git a/arch/mips/configs/malta_kvm_guest_defconfig b/arch/mips/configs/malta_kvm_guest_defconfig
-index 9185e0a0aa45..043633cdb406 100644
---- a/arch/mips/configs/malta_kvm_guest_defconfig
-+++ b/arch/mips/configs/malta_kvm_guest_defconfig
-@@ -332,6 +332,7 @@ CONFIG_RTC_DRV_CMOS=y
- CONFIG_UIO=m
- CONFIG_UIO_CIF=m
- CONFIG_VIRTIO_PCI=y
-+CONFIG_VIRTIO_PCI_MODERN=y
- CONFIG_VIRTIO_BALLOON=y
- CONFIG_VIRTIO_MMIO=y
- CONFIG_EXT2_FS=y
-diff --git a/arch/powerpc/configs/guest.config b/arch/powerpc/configs/guest.config
-index 209f58515d88..fbff632c8633 100644
---- a/arch/powerpc/configs/guest.config
-+++ b/arch/powerpc/configs/guest.config
-@@ -5,6 +5,7 @@ CONFIG_NET_FAILOVER=y
- CONFIG_VIRTIO_CONSOLE=y
- CONFIG_VIRTIO=y
- CONFIG_VIRTIO_PCI=y
-+CONFIG_VIRTIO_PCI_MODERN=y
- CONFIG_KVM_GUEST=y
- CONFIG_EPAPR_PARAVIRT=y
- CONFIG_VIRTIO_BALLOON=y
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index 8c3d1e451703..b7fa7a1a0c6d 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -85,6 +85,7 @@ CONFIG_MMC=y
- CONFIG_MMC_SPI=y
- CONFIG_RTC_CLASS=y
- CONFIG_VIRTIO_PCI=y
-+CONFIG_VIRTIO_PCI_MODERN=y
- CONFIG_VIRTIO_BALLOON=y
- CONFIG_VIRTIO_INPUT=y
- CONFIG_VIRTIO_MMIO=y
-diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
-index 2c2cda6cc1c5..68296101fa06 100644
---- a/arch/riscv/configs/rv32_defconfig
-+++ b/arch/riscv/configs/rv32_defconfig
-@@ -84,6 +84,7 @@ CONFIG_MMC=y
- CONFIG_MMC_SPI=y
- CONFIG_RTC_CLASS=y
- CONFIG_VIRTIO_PCI=y
-+CONFIG_VIRTIO_PCI_MODERN=y
- CONFIG_VIRTIO_BALLOON=y
- CONFIG_VIRTIO_INPUT=y
- CONFIG_VIRTIO_MMIO=y
-diff --git a/arch/xtensa/configs/virt_defconfig b/arch/xtensa/configs/virt_defconfig
-index 6d1387dfa96f..7fad1c2454fd 100644
---- a/arch/xtensa/configs/virt_defconfig
-+++ b/arch/xtensa/configs/virt_defconfig
-@@ -74,6 +74,7 @@ CONFIG_FRAMEBUFFER_CONSOLE=y
- CONFIG_LOGO=y
- # CONFIG_USB_SUPPORT is not set
- CONFIG_VIRTIO_PCI=y
-+CONFIG_VIRTIO_PCI_MODERN=y
- CONFIG_VIRTIO_INPUT=y
- # CONFIG_IOMMU_SUPPORT is not set
- CONFIG_EXT3_FS=y
-diff --git a/kernel/configs/kvm_guest.config b/kernel/configs/kvm_guest.config
-index 208481d91090..8dea6df20006 100644
---- a/kernel/configs/kvm_guest.config
-+++ b/kernel/configs/kvm_guest.config
-@@ -22,6 +22,7 @@ CONFIG_S390_GUEST=y
- CONFIG_VIRTIO=y
- CONFIG_VIRTIO_MENU=y
- CONFIG_VIRTIO_PCI=y
-+CONFIG_VIRTIO_PCI_MODERN=y
- CONFIG_VIRTIO_BLK=y
- CONFIG_VIRTIO_CONSOLE=y
- CONFIG_VIRTIO_NET=y
+Thanks !
+
+
 -- 
-2.30.0
-
+Damien Le Moal
+Western Digital Research
 
 _______________________________________________
 linux-riscv mailing list
