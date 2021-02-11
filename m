@@ -2,161 +2,67 @@ Return-Path: <SRS0=PCma=HN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+X-Spam-Status: No, score=-14.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D83A7C433DB
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Feb 2021 02:32:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E80A4C433DB
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Feb 2021 02:34:45 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 876D064D99
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Feb 2021 02:32:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 876D064D99
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	by mail.kernel.org (Postfix) with ESMTPS id A735864E2E
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Feb 2021 02:34:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A735864E2E
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:Date:Subject:To:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	 bh=D1cq8wP69xfLKX3T+V9ivmwDbHll77YBQVDYRJuxr8A=; b=GPkL0JdVMsDEfOpYwQ+k2DJFv
-	rXf3aIl19Q7TGjjnCCsVHpxRcryfqgB76FAmNOsTcZJs7vKWb66fpSsNOCtSMxBibnN/KkTACd1L0
-	etOQ9gd5scF9+nx+BOqE/Dlz3+6X47rqdoNZXjz8Knk3jFD2thVlWjMbJ94GAuoWKTQ+K3pR5dJjb
-	/qBHTZRrnkeuJgdAL5ZGjkZcfllFPOw42wd/bs+j1c123tOvzymGNYMJSBR8zm4lQS280VWfudQBQ
-	zvgdY4QKm0ehObwQ20WBHUBSMCnfZ10rByZCowxCSGTAlZ+tnzsQ9NzI8ShIhDST7GvqyfZd1sFll
-	fGy0Z3acw==;
+	List-Unsubscribe:List-Id:Message-ID:Date:To:From:Subject:References:
+	In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=xOPBjNXVxJbmHNAXH9opc4P1UZDds6TLdbRhyyBYmj4=; b=EXC7uB6LyL/x0/ASqEv1qVfhj
+	w7EktrJQ0Jof8uH50PaUsCLiHKLJuhRLBzK6XMx94RIH1uKn5/MSgdQDHmsEPXOz1uVgJ5WILC0ID
+	jdCHuMcdsH9Ri7IFm3YCdsspI38Edwy7DSvQnGPqj7HYsDEJBFMVSxhs9R7BMJmk60kqRz2S4pl3Z
+	Xt2vTy6rv+xwwF6boDuBGsed47XZhDveQcmWun3LFxLH70CbXN+xVrwYJU+657aS/Zb65a4AfZD6Q
+	XUss8sApnC39RO+ewRRjn48umMs/tCRHzbhXDGBDVXytqtsRNShc2WNiRJnTnTz82eW9ixss9B3h4
+	NpGgEQ0Og==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1lA1mf-0007hk-Qq; Thu, 11 Feb 2021 02:32:45 +0000
-Received: from esa3.hgst.iphmx.com ([216.71.153.141])
+	id 1lA1oT-0007rf-Rf; Thu, 11 Feb 2021 02:34:37 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1lA1mc-0007go-Hz
- for linux-riscv@lists.infradead.org; Thu, 11 Feb 2021 02:32:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1613010762; x=1644546762;
- h=from:to:cc:subject:date:message-id:references:
- content-transfer-encoding:mime-version;
- bh=iOQbfyBYzbs4H+5CMIzhSZOFbe7xh/6McfunzS6Ve5k=;
- b=hwL6pZKR/wO/qy3by2x0Nu5GwtYsrdH05Ani7Hfeu1/9pMCf25vd/MA8
- y9kkteUjuAwI+Yf2Q7QMMv2DL7IKL9SLOO35GgVsXihTj6j6pbqOjzeau
- Z1N/5wv+Npv9CjTKhyiH4id+ufTwYiObc/h/f15KWPO5i2JLGgy2FKUqk
- yWsjOAy5Q3aARASH8gYMtGOjbKffxI0ifn7hQhz8pjZILNmr4esEpeoFg
- 0nkA3TUY1UO6OiF+k5pg4XJRhTOlxfgjcDosj5fx4s3BYwbW2xY4A11N5
- 0YFCXSG6Zreowr/jBwSSA/XDtZ7ywoBPHPEwXLjUzdvNPfpFnDVzgvhft Q==;
-IronPort-SDR: gRoJOO3Sn/dEvqgRXd6IDeNc7bCy8ycxIXb1MQ5383xiSm/mFIZpl3xhFxGsaYZlOfavIpDSCN
- hpEqSu3Xw/Nda8EcII7P9vQLukBVCCtlf6BroVdeYGHJkKPbN5Klt12/kyVnfQX21/j4Ls+RZn
- dfx6IYShQemZx+6Z4S3UULxwuLn2eyN8PdQ1wJ8A1Hj7jZ3tPysHfWo4YMFS/1Lf2ApfMSCDfV
- w8BLhmvOuSkQ2nREXyUSDrztYiJNaA9kJLMHfuhEGCpSv7aKxThVHR6q/Py93nZTZYP++DLoHX
- wTc=
-X-IronPort-AV: E=Sophos;i="5.81,169,1610380800"; d="scan'208";a="164193872"
-Received: from mail-bn8nam11lp2177.outbound.protection.outlook.com (HELO
- NAM11-BN8-obe.outbound.protection.outlook.com) ([104.47.58.177])
- by ob1.hgst.iphmx.com with ESMTP; 11 Feb 2021 10:32:38 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=UCfoglzHgc3NG2fDRPWLFp+sIteBx8tvNQ/n+VkgLvfSbGzcdKuY5lR8f4mPBlwC/ODZvU3juvknmiuZEHgCfBWwxTHyCaupWy1WJ+VSRqGZvkA//BIZ60S42YMtHWsq0N+dmpVGHR//tPOmumgFv9eszhn98JgleDPDPoGT3pn+4P7BqOb9+kWuTtuJxn8VV7/lGpuDv/GPzHpviYulv9OeY7Ebf1pyO2Bkbn9O0C4Y2hQf+YzgywA/B2QboG507do6QWV7Fd5gmUqnFqFENy0DOUvTW9W5kJlQNZ8l1Py1IgoB4MOTTwesizZw4OBEZ4Z25Y65SUoMzTt51+3S0Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=P80sZ1xOZnp6cxmZpV32CN2ZG+qS7Gns7RGDw6dnwRs=;
- b=mlyfo3ZJiehkmGPl96LmqpLs0/tkUkwFQzzhfdZTpEPqKcNtqANVHxQh2e62SgSleg4cnv/bIGxuCtgc2u7xJRhige6++ME1Yjm6PwXqbHuYgzO36KaTIAuV0L7PNXUHErMbAhaLC2JVfSbh5gm1knX05YNDtmE7CX0azLVFJZoBTeBsW8zRTsfGBF1Nb99g+nMZJNXmYvuXxnCNhv6IREUGUB2rKvJ/CkYoGJ2hsvGHhzmKJfBP1qZN1Sv+ndhJue6j+n/u8jMWUymfgr+M4P9lqbEnX0SNrY9iREsBxp4Jh9K/V3VzF54VotPdqd/MpC8T2KjaVfweeNulK0mq6w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
- header.d=wdc.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=P80sZ1xOZnp6cxmZpV32CN2ZG+qS7Gns7RGDw6dnwRs=;
- b=tBNFXu4myUdRAAoBVzjptmm7ltriHhDSCGyfLFzLiSVyFom3NATVhh/V7AAN2rwcKCr42PfVhXOotTlJAFEqcrZ0pzymlP+f4p1D/UA8YA80jTKdSD3EEubaM6MGUciQIx2aQl4BgukWuqtH8CuLUvLAXYJk4RVlH1xPNI3gtT8=
-Received: from BL0PR04MB6514.namprd04.prod.outlook.com (2603:10b6:208:1ca::23)
- by MN2PR04MB6701.namprd04.prod.outlook.com (2603:10b6:208:1ef::12)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3846.25; Thu, 11 Feb
- 2021 02:32:36 +0000
-Received: from BL0PR04MB6514.namprd04.prod.outlook.com
- ([fe80::b880:19d5:c7fe:329d]) by BL0PR04MB6514.namprd04.prod.outlook.com
- ([fe80::b880:19d5:c7fe:329d%7]) with mapi id 15.20.3846.027; Thu, 11 Feb 2021
- 02:32:36 +0000
-From: Damien Le Moal <Damien.LeMoal@wdc.com>
-To: Stephen Boyd <sboyd@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH v18 01/16] clk: Add RISC-V Canaan Kendryte K210 clock
- driver
-Thread-Topic: [PATCH v18 01/16] clk: Add RISC-V Canaan Kendryte K210 clock
- driver
-Thread-Index: AQHW/t9XApJD7mlFuEyRKf7oQMzIIQ==
-Date: Thu, 11 Feb 2021 02:32:36 +0000
-Message-ID: <BL0PR04MB651451075652392825BD1E60E78C9@BL0PR04MB6514.namprd04.prod.outlook.com>
-References: <20210209123014.165928-1-damien.lemoal@wdc.com>
- <20210209123014.165928-2-damien.lemoal@wdc.com>
- <161292028178.418021.10953574123293354986@swboyd.mtv.corp.google.com>
- <BL0PR04MB6514E2ED802BAE7E6350E304E78D9@BL0PR04MB6514.namprd04.prod.outlook.com>
- <BL0PR04MB6514E16F46007EC1EEC5126EE78D9@BL0PR04MB6514.namprd04.prod.outlook.com>
- <161301058101.1254594.1361185438418159772@swboyd.mtv.corp.google.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: kernel.org; dkim=none (message not signed)
- header.d=none;kernel.org; dmarc=none action=none header.from=wdc.com;
-x-originating-ip: [2400:2411:43c0:6000:4d23:6652:258b:81d8]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-ht: Tenant
-x-ms-office365-filtering-correlation-id: c1238f29-4b2e-4c0c-161b-08d8ce354b5d
-x-ms-traffictypediagnostic: MN2PR04MB6701:
-x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <MN2PR04MB670121D4E5192DF1CFE87B10E78C9@MN2PR04MB6701.namprd04.prod.outlook.com>
-wdcipoutbound: EOP-TRUE
-x-ms-oob-tlc-oobclassifiers: OLM:9508;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: mBjbCM+FAsPyrVWtQ9SybUhqC0FTQtTekVgqNB2Ua1nqNqXNr/xYDvTWi968ZpzgWTcHyOkHGnSjvEjkZEbavkfS+2DAwP4yJr9zl3RpspWvAWqZtaC5G3mVcm9vMyYuhLHF51xfGH1/Ps3WZUM0yyAzyNB8XuxmOBxvfKF/6Kvt1sgIkGTKUOKnl7EYiTPD4Hh+ctULkkuw7vqzK4VswkteBudhamcV8EXNwm/B1wePkTqA42yIUdrcCF3IeK7OuLTuCiwlUZSXb+8T/oN4THeH5R2FXUKtInNzM6BonDBPy5erPOUDtoyb7cHGz4scbAcobO21Rcj1OPgCrrK22UotnEf9hsiSMadpYCf5wGYsiYvdFy5A5Y8WHdCCmnBxNtLP27SYrRA/wakfc4OgBH1JO8UYcTaUv+243dWogmw2BFzkjooAL4TSmexIRTmvt3dtXw7+XcH7Obzu9AV/1jC0ASr4eUscylb+Uv5Egw3YEjeD1eKBKiDmrghmle+KfQcLMDhOaS02iHAGiO7y0Q==
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:BL0PR04MB6514.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(136003)(366004)(376002)(396003)(346002)(39860400002)(4326008)(478600001)(66946007)(186003)(53546011)(71200400001)(86362001)(6506007)(7696005)(33656002)(83380400001)(8936002)(66476007)(66446008)(64756008)(66556008)(91956017)(76116006)(2906002)(8676002)(54906003)(316002)(9686003)(55016002)(110136005)(52536014)(5660300002);
- DIR:OUT; SFP:1102; 
-x-ms-exchange-antispam-messagedata: =?us-ascii?Q?HJfcz81SKqthMCOZIzAEFCsne6HR5Kb8iZoTtqFMwEtmKKWiyBkcGugBtEOe?=
- =?us-ascii?Q?hEdRyhenASW2rD48s0v6FvAxcRGy/y8uRC1nh0ilxePUYAziX41sVCJxUQx4?=
- =?us-ascii?Q?FUEjBaUBlVo7DAxV6WX42q1PR4lihxZqnI62fzT3yDLRp5oNgNoXEKRWVpcJ?=
- =?us-ascii?Q?4Svl9gmceneshAEqWVH8TdB9hEs105sM+ER6jBALMEvrh8zpOs2MWNI86sSE?=
- =?us-ascii?Q?2vU7Skf/+sYVCeGs//cPoyiD/2nhxG42RPm995HWs8aQMD3kmgGV5ZTkMqGO?=
- =?us-ascii?Q?5WM/fLLHr5iXO9NfYN2Zss2l32fJjTKUD+++LD4K/XyDmy26eRmTuO9nHgLR?=
- =?us-ascii?Q?kr1C7CaApGSYKsIb0Synsx2ypU5zjnaDEtJ9qlGQppX0o0kKK1C1cS1yJihb?=
- =?us-ascii?Q?t2yFwB0FWLmkMfWcDkyvk8bPCnZkVip20Wj/znaqes26QZ3tzxSnWZ32TpQq?=
- =?us-ascii?Q?lguMEYdo8/3pY0wsX3dnrC2cFMMlpdZXXVhAUJp/Op3vuuqYsKavKjLCKSTm?=
- =?us-ascii?Q?H6igLQZFcO97CKLJ71kEL3cgGKqU2g0qcZWJb7ayHpZ362K5pKdDIC/ppJlC?=
- =?us-ascii?Q?bTs49Ja0CVN//FWcJfcMHgNcws2/Ya+PHgyxy+PijbqfjIvZSWQQhlZd6jw2?=
- =?us-ascii?Q?mcKWWOSeMWGqUmtY7deAN2ikphE0Wc3YCxRXeY8sdIHlZMpQHN0Kz2gBc7E0?=
- =?us-ascii?Q?xPCgSErjyg8ryUQjn7CJkqwoXhCOcJLsSZo7gmaR030GVbJoGU6etxIHz5yg?=
- =?us-ascii?Q?ngHfF4aFrH25G+EkINOCr+XmxOIZwx3BDcQpk6m+TgSK9yi7lTZ8qmaaHcrW?=
- =?us-ascii?Q?hb6BKJ9lwFiRZENtULQuk9vk+Olrig7P43ilXplvJBVVwxwAsG7scW5+dwI5?=
- =?us-ascii?Q?8EhYNIeRYe6jSNl9eY0MfvVD6kdjFMMfD/YEM7dmrkNwvV9r6LQohQVw6vWU?=
- =?us-ascii?Q?U+YXfjMSAps5HZp1Ief/gDAIUHrWcHdPiqjJIdzh0O7KLlPRchzLG4jrRGit?=
- =?us-ascii?Q?ioPDkfonyvLLmraLLenlXXcL9zCLErq3cDXCEn+MCSpy8PnMGvaPRg5YwzsM?=
- =?us-ascii?Q?uCIvINDiJZzj95Lxqmf+kjspn2aq0KJlWK4lWEqby1zIz9AsRUQwDu6qLGC2?=
- =?us-ascii?Q?Dp0vQpY9Dv41laU6++9eehwh2ezbhz/BqwUo4UuSfvp1zKG7AaRtg2JhIaBA?=
- =?us-ascii?Q?5lA6yQh+DgarfokMg3h84Cbv6XZRbv01ywpfSSRuWYHI/Et8K1rh8ynvBtFb?=
- =?us-ascii?Q?G59ZspnwqcQDgLJwzRj/tU2WXEKuU5aDAsn7jcMwpCNQsLHXserAUPpxWDvS?=
- =?us-ascii?Q?QwTMGfdtMndOO0KidedTvEZu9/I8zaJMDLPkyT2Q31CM4cQtY5DDHKi4vghN?=
- =?us-ascii?Q?HmU/6U+5MVlm91yreRQZfcejHVrXFN9S16xRe8bK7oG/9cNvUQ=3D=3D?=
+ id 1lA1oR-0007rE-Kl
+ for linux-riscv@lists.infradead.org; Thu, 11 Feb 2021 02:34:36 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id 540D664E05;
+ Thu, 11 Feb 2021 02:34:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1613010874;
+ bh=c75z1/HHs/VuwDHMvf8aKv6HXdHEhj23dCdJC6u8XJY=;
+ h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+ b=RB6BDfkwfsc8ZU9EUxx0QrmPxypCyQ2IbjLRIE3uCXnTB76Sqe0+lQWD5swKg8zrQ
+ QWjJ5LlCNbS3FpTRmrz3sKZfUuVXIXBQl/MMe3tvOOqz1BbhjdUQL+cFq8gMlvyHZj
+ LJjWHi9747PLlv8m5aenuK5fQYUaCAhTC7XYxXj9eTUhOVBk2emf3jI4Hbi2EUbvTK
+ Axs7NjJNlXmazi0yoRE6eClCM60UVgoqnscKZsWEdniRIKrtkTSa9kNEwwpyaON6J6
+ pBQQKCMHmCzqxC+cdB/jaiqyY7qE22oIF11xbI7G1FE39lel8cFKgNBjn12H+f7TDS
+ PPm3AVFVjpufQ==
 MIME-Version: 1.0
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BL0PR04MB6514.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c1238f29-4b2e-4c0c-161b-08d8ce354b5d
-X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Feb 2021 02:32:36.4830 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: ln7WiQUMpkL7kGKGyCasxsXKgG+GRFr0lo+oPN560ywl5bDLPIeUx9li2AXjQyhwXX2hpWS9zG+tnp1LMc6IPQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR04MB6701
+In-Reply-To: <20210210050230.131281-2-damien.lemoal@wdc.com>
+References: <20210210050230.131281-1-damien.lemoal@wdc.com>
+ <20210210050230.131281-2-damien.lemoal@wdc.com>
+Subject: Re: [PATCH v19 01/17] clk: Add RISC-V Canaan Kendryte K210 clock
+ driver
+From: Stephen Boyd <sboyd@kernel.org>
+To: Damien Le Moal <damien.lemoal@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv@lists.infradead.org
+Date: Wed, 10 Feb 2021 18:34:33 -0800
+Message-ID: <161301087300.1254594.18438542581140302342@swboyd.mtv.corp.google.com>
+User-Agent: alot/0.9.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210210_213243_079701_5D3482AA 
-X-CRM114-Status: GOOD (  13.13  )
+X-CRM114-CacheID: sfid-20210210_213435_823159_548E8A8B 
+X-CRM114-Status: GOOD (  26.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -168,53 +74,258 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Atish Patra <Atish.Patra@wdc.com>,
- Michael Turquette <mturquette@baylibre.com>, Anup Patel <Anup.Patel@wdc.com>,
- "linux-clk@" <"vger.kernel.org linux-clk"@vger.kernel.org>,
- Sean Anderson <seanga2@gmail.com>
+Cc: Atish Patra <atish.patra@wdc.com>,
+ Michael Turquette <mturquette@baylibre.com>, Anup Patel <anup.patel@wdc.com>,
+ linux-clk@vger.kernel.org, Sean Anderson <seanga2@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2021/02/11 11:29, Stephen Boyd wrote:
-> Quoting Damien Le Moal (2021-02-09 20:32:34)
->> On 2021/02/10 12:15, Damien Le Moal wrote:
->>> On 2021/02/10 10:24, Stephen Boyd wrote:
->>>>> +               return;
->>>>> +       }
->>>>> +
->>>>> +       in0 = of_clk_get_parent_name(np, 0);
->>>>
->>>> I'm still lost why we need to get the clk parent name here vs. using the
->>>> index approach and using clk_parent_data. There were some comments about
->>>> #clock-cells which didn't make sense to me. The fixed rate clk in DT
->>>> should have #clock-cells as it is a clk.
->>>
->>> It is like this because I could not get your suggested approach to work. I am
->>> using clk_parent_data[]->hw for specifying the parents of the clocks registered
->>> by this driver. But using this data structure, I failed to figure out how to
->>> specify the "in0" clock as a parent without using the clock name itself. The
->>> other option I see is using fw_name (I do not understand that one) and hw, but I
->>> do not have that pointer since the clock is registered by the common framework.
->>> What am I missing here ?
->>
->> Revisiting this, I think I got it. All I need to to is set ".index = 0" in
->> clk_parent_data[] of the clocks that have in0 as a parent. Very simple indeed. I
->> removed the ino clock name stuff.
->> Testing and sending out v19.
+Quoting Damien Le Moal (2021-02-09 21:02:14)
+> Add a clock provider driver for the Canaan Kendryte K210 RISC-V SoC.
+> This new driver with the compatible string "canaan,k210-clk" implements
+> support for the full clock structure of the K210 SoC. Since it is
+> required for the correct operation of the SoC, this driver is
+> selected by default for compilation when the SOC_CANAAN option is
+> selected.
 > 
-> Great!
+> With this change, the k210-sysctl driver is turned into a simple
+> platform driver which enables its power bus clock and triggers
+> populating its child nodes. The sysctl driver retains the SOC early
+> initialization code, but the implementation now relies on the new
+> function k210_clk_early_init() provided by the new clk-k210 driver.
+> 
+> The clock structure implemented and many of the coding ideas for the
+> driver come from the work by Sean Anderson on the K210 support for the
+> U-Boot project.
+> 
+> Cc: Stephen Boyd <sboyd@kernel.org>
+> Cc: Michael Turquette <mturquette@baylibre.com>
+> Cc: linux-clk@vger.kernel.org
+> Signed-off-by: Damien Le Moal <damien.lemoal@wdc.com>
+> ---
 
-I posted v19 yesterday. I hope you got it.
-Your review/ack would be very welcome :)
+No change log :/
 
-Thanks !
+Minor nitpicks but otherwise
 
+Reviewed-by: Stephen Boyd <sboyd@kernel.org>
 
--- 
-Damien Le Moal
-Western Digital Research
+>  drivers/clk/Kconfig              |    7 +
+>  drivers/clk/Makefile             |    1 +
+>  drivers/clk/clk-k210.c           | 1007 ++++++++++++++++++++++++++++++
+>  drivers/soc/canaan/Kconfig       |   18 +-
+>  drivers/soc/canaan/Makefile      |    2 +-
+>  drivers/soc/canaan/k210-sysctl.c |  205 ++----
+>  include/soc/canaan/k210-sysctl.h |    2 +
+>  7 files changed, 1064 insertions(+), 178 deletions(-)
+>  create mode 100644 drivers/clk/clk-k210.c
+> 
+> diff --git a/drivers/clk/clk-k210.c b/drivers/clk/clk-k210.c
+> new file mode 100644
+> index 000000000000..6c84abf5b2e3
+> --- /dev/null
+> +++ b/drivers/clk/clk-k210.c
+> @@ -0,0 +1,1007 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + * Copyright (C) 2019-20 Sean Anderson <seanga2@gmail.com>
+> + * Copyright (c) 2019 Western Digital Corporation or its affiliates.
+> + */
+> +#define pr_fmt(fmt)     "k210-clk: " fmt
+> +
+> +#include <linux/io.h>
+> +#include <linux/slab.h>
+> +#include <linux/spinlock.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/of.h>
+> +#include <linux/of_clk.h>
+> +#include <linux/of_platform.h>
+> +#include <linux/of_address.h>
+> +#include <linux/clk-provider.h>
+> +#include <linux/bitfield.h>
+> +#include <linux/delay.h>
+
+Some people sort this alphabetically, up to you.
+
+> +#include <soc/canaan/k210-sysctl.h>
+> +
+> +#include <dt-bindings/clock/k210-clk.h>
+> +
+[...]
+> +
+> +/*
+> + * PLL control register bits.
+> + */
+> +#define K210_PLL_CLKR          GENMASK(3, 0)
+> +#define K210_PLL_CLKF          GENMASK(9, 4)
+> +#define K210_PLL_CLKOD         GENMASK(13, 10)
+> +#define K210_PLL_BWADJ         GENMASK(19, 14)
+> +#define K210_PLL_RESET         (1 << 20)
+> +#define K210_PLL_PWRD          (1 << 21)
+> +#define K210_PLL_INTFB         (1 << 22)
+> +#define K210_PLL_BYPASS                (1 << 23)
+> +#define K210_PLL_TEST          (1 << 24)
+> +#define K210_PLL_EN            (1 << 25)
+> +#define K210_PLL_SEL           GENMASK(27, 26) /* PLL2 only */
+> +
+> +/*
+> + * PLL lock register bits.
+> + */
+> +#define K210_PLL_LOCK          0
+> +#define K210_PLL_CLEAR_SLIP    2
+> +#define K210_PLL_TEST_OUT      3
+> +
+> +/*
+> + * Clock selector register bits.
+> + */
+> +#define K210_ACLK_SEL          BIT(0)
+> +#define K210_ACLK_DIV          GENMASK(2, 1)
+> +
+> +/*
+> + * PLLs.
+> + */
+> +enum k210_pll_id {
+> +       K210_PLL0, K210_PLL1, K210_PLL2, K210_PLL_NUM
+> +};
+> +
+> +struct k210_pll {
+> +       enum k210_pll_id id;
+> +       struct k210_sysclk *ksc;
+> +       void __iomem *base;
+> +       void __iomem *reg;
+> +       void __iomem *lock;
+> +       u8 lock_shift;
+> +       u8 lock_width;
+> +       struct clk_hw hw;
+> +};
+> +#define to_k210_pll(_hw)       container_of(_hw, struct k210_pll, hw)
+> +
+> +/*
+> + * PLLs configuration: by default PLL0 runs at 780 MHz and PLL1 at 299 MHz.
+> + * The first 2 SRAM banks depend on ACLK/CPU clock which is by default PLL0
+> + * rate divided by 2. Set PLL1 to 390 MHz so that the third SRAM bank has the
+> + * same clock as the first 2.
+> + */
+> +struct k210_pll_cfg {
+> +       u32 reg;
+> +       u8 lock_shift;
+> +       u8 lock_width;
+> +       u32 r;
+> +       u32 f;
+> +       u32 od;
+> +       u32 bwadj;
+> +};
+> +
+> +static struct k210_pll_cfg k210_plls_cfg[] = {
+
+const?
+
+> +       { K210_SYSCTL_PLL0,  0, 2, 0, 59, 1, 59 }, /* 780 MHz */
+> +       { K210_SYSCTL_PLL1,  8, 1, 0, 59, 3, 59 }, /* 390 MHz */
+> +       { K210_SYSCTL_PLL2, 16, 1, 0, 22, 1, 22 }, /* 299 MHz */
+> +};
+> +
+> +/**
+> + * struct k210_sysclk - sysclk driver data
+> + * @regs: system controller registers start address
+> + * @clk_lock: clock setting spinlock
+> + * @plls: SoC PLLs descriptors
+> + * @aclk: ACLK clock
+> + * @clks: All other clocks
+> + */
+> +struct k210_sysclk {
+> +       void __iomem                    *regs;
+> +       spinlock_t                      clk_lock;
+> +       struct k210_pll                 plls[K210_PLL_NUM];
+> +       struct clk_hw                   aclk;
+> +       struct k210_clk                 clks[K210_NUM_CLKS];
+> +};
+> +
+> +#define to_k210_sysclk(_hw)    container_of(_hw, struct k210_sysclk, aclk)
+> +
+> +/*
+> + * Set ACLK parent selector: 0 for IN0, 1 for PLL0.
+> + */
+> +static void k210_aclk_set_selector(void __iomem *regs, u8 sel)
+> +{
+> +       u32 reg = readl(regs + K210_SYSCTL_SEL0);
+> +
+> +       if (sel)
+> +               reg |= K210_ACLK_SEL;
+> +       else
+> +               reg &= K210_ACLK_SEL;
+> +       writel(reg, regs + K210_SYSCTL_SEL0);
+> +}
+> +
+> +static void k210_init_pll(void __iomem *regs, enum k210_pll_id pllid,
+
+Should this have __init too?
+
+> +                         struct k210_pll *pll)
+> +{
+> +       pll->id = pllid;
+> +       pll->reg = regs + k210_plls_cfg[pllid].reg;
+> +       pll->lock = regs + K210_SYSCTL_PLL_LOCK;
+> +       pll->lock_shift = k210_plls_cfg[pllid].lock_shift;
+> +       pll->lock_width = k210_plls_cfg[pllid].lock_width;
+> +}
+> +
+> +static void k210_pll_wait_for_lock(struct k210_pll *pll)
+[....]
+> +
+> +       init.name = k210_clk_cfgs[id].name;
+> +       init.flags = flags;
+> +       init.parent_data = parent_data;
+> +       init.num_parents = num_parents;
+> +       if (num_parents > 1)
+> +               init.ops = &k210_clk_mux_ops;
+> +       else
+> +               init.ops = &k210_clk_ops;
+> +
+> +       kclk->id = id;
+> +       kclk->ksc = ksc;
+> +       kclk->hw.init = &init;
+> +
+> +       ret = of_clk_hw_register(np, &kclk->hw);
+> +       if (ret) {
+> +               pr_err("%pOFP: register clock %s failed\n",
+> +                      np, k210_clk_cfgs[id].name);
+> +               kclk->id = -1;
+> +       }
+> +}
+> +
+> +/*
+> + * All muxed clocks have IN0 and PLL0 as parents.
+> + */
+> +static inline void __init k210_register_mux_clk(struct device_node *np,
+> +                                               struct k210_sysclk *ksc, int id)
+> +{
+> +       const struct clk_parent_data parent_data[2] = {
+> +               { /* .index = 0 for in0 */ },
+
+It could be explicitly written instead of a comment, but OK.
+
+> +               { .hw = &ksc->plls[K210_PLL0].hw }
+> +       };
+> +
+> +       k210_register_clk(np, ksc, id, parent_data, 2, 0);
+> +}
+> +
+> +static inline void __init k210_register_in0_child(struct device_node *np,
+
+Maybe dropping inline would help to make shorter lines because it will
+probably be inlined by the compiler anyway.
+
+> +                                               struct k210_sysclk *ksc, int id)
+> +{
+> +       const struct clk_parent_data parent_data = {
+> +               /* .index = 0 for in0 */
+> +       };
+> +
+> +       k210_register_clk(np, ksc, id, &parent_data, 1, 0);
+> +}
 
 _______________________________________________
 linux-riscv mailing list
