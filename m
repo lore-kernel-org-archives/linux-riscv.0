@@ -2,73 +2,66 @@ Return-Path: <SRS0=PCma=HN=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-4.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-9.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,MAILING_LIST_MULTI,SPF_HELO_NONE,
+	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3DB18C433E0
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Feb 2021 12:31:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1D6DEC433E0
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Feb 2021 19:50:06 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id CF82764DEE
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Feb 2021 12:31:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org CF82764DEE
-Authentication-Results: mail.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=suse.com
+	by mail.kernel.org (Postfix) with ESMTPS id A508064E4D
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Feb 2021 19:50:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A508064E4D
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:Message-ID:Date:To:From:Subject:References:
+	In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=EKO4l/AB9S0kOqLUT0xCtx8PxsxitYtLcJ/W9N9Np5s=; b=hHGRz7ijYEBv5dq9dbrUcdZ3C
-	xG4WuGu6sENYSzbRM9IGdFXtFfhfjkLs5FZvZWhtbINM/2Y8w9ofNjtAg+pHL1nU9YVhLWZw/U/Ws
-	lMT6s18ALfTtuckvuPE/OuTjtY+pM4mwp95RiNnnL0PMXGwl3khh9/zleRCrnVTVinS9xdjW53Z6B
-	x/TPiRbbNB8JVu9+B12Cjxw8p5+GME34iaNvtxrv68x8QNy6iflmjk3ycr9hbFIStiu6mWWYVQKah
-	pPf7G8lZGjWDaDr18XmytnWed5rS+fN/ei4sBDBCCkxa0UfyseSA0VJVOteOdYhFDkdnHUckH1tCT
-	yTOiYfP0g==;
+	 bh=1MFZIMRryk2c/5s1yUpw7aZxfDBHq6nGCqBKMLIFUu8=; b=cm0VxDjmZDnJ8l4oHJY50n1tJ
+	iIFSx2PKbTfE3x3QEbQ37XaoHyRHQlBiLfTiw2Cz4KsD4Iuj+HWPQn0sxqrUzbxAEh/VFGFlfOIOG
+	PqGx04oIcuY4O+Cp/+Tzf9nn7FRCqQUBFtCIPxk6DeFmje2KqvPSlTqHHOaV/mtxUhRjM6YedcmcT
+	Am1mKL1RdZYrW/CJ+rYDaAV2nTLoTkX611Z5BM3907yx2DjwIvwDbZKEXlhQCYvzoui1YR8UFQA0e
+	ajcaI/2w9DuQuBS6dcHpVTZzvVcMnJ+MYyZfiA/FbQVlBXDRxizWcXlQxx00bM/0P6kni5yWZGUJc
+	gKha2dH8w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1lAB7U-0007It-TL; Thu, 11 Feb 2021 12:30:52 +0000
-Received: from mx2.suse.de ([195.135.220.15])
+	id 1lAHyO-0004hh-Vd; Thu, 11 Feb 2021 19:49:57 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1lAB7Q-0007GQ-7x; Thu, 11 Feb 2021 12:30:49 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
- t=1613046645; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
- mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=osI3lOxyWNnCWMwYvgacjyYRqS8PdApBu7r+l9GS1F8=;
- b=FGCfa/BPAaNMnKzWYBfMoLB55bV/2nWROmax5NShmeaFHcKLO/NerKPjx1ctr7FJZ/MDlK
- j39ZM2jnxpVR1DSUloBxejptFaGKNBgYEvf5Z1x0XO+JtJwHMbCmw7POQPPk2NJN9eW5Lk
- zmKurgl8D3XiuDQywu6d2sTB6/qoOf8=
-Received: from relay2.suse.de (unknown [195.135.221.27])
- by mx2.suse.de (Postfix) with ESMTP id A9902ACD4;
- Thu, 11 Feb 2021 12:30:45 +0000 (UTC)
-Date: Thu, 11 Feb 2021 13:30:42 +0100
-From: Michal Hocko <mhocko@suse.com>
-To: Mike Rapoport <rppt@kernel.org>
-Subject: Re: [PATCH v17 07/10] mm: introduce memfd_secret system call to
- create "secret" memory areas
-Message-ID: <YCUjck0I8qgjB24i@dhcp22.suse.cz>
-References: <20210208084920.2884-1-rppt@kernel.org>
- <20210208084920.2884-8-rppt@kernel.org>
- <YCEXMgXItY7xMbIS@dhcp22.suse.cz>
- <20210208212605.GX242749@kernel.org>
- <YCJMDBss8Qhha7g9@dhcp22.suse.cz>
- <20210209090938.GP299309@linux.ibm.com>
- <YCKLVzBR62+NtvyF@dhcp22.suse.cz>
- <20210211071319.GF242749@kernel.org>
- <YCTtSrCEvuBug2ap@dhcp22.suse.cz>
- <20210211112008.GH242749@kernel.org>
+ id 1lAHyM-0004go-M4
+ for linux-riscv@lists.infradead.org; Thu, 11 Feb 2021 19:49:55 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id D5CF864E45;
+ Thu, 11 Feb 2021 19:49:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1613072994;
+ bh=4c3MKlXhsOtiG9Oj6Oqk8T6TzpYMlcq+a7LsNrbH0Ro=;
+ h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+ b=h6qXPGVlXr+t+Pmw+UxH/mlIK9CkiJAu0o3KASyo6QZy63rMfPD4Ubh5zO8n67zrz
+ 23hC0BSTqHNUvG0k0CBpiZV05ApuKpjR1jZhWpya2++2Ugb8rY+6XKrqzLoLtKsZMb
+ rprfhEN+p9Wo/vZG+bVY5p2pCyBCmS1aE/cXHvfPsoyxZS+ULnUE3DzlWU66U9z9an
+ HrqYS2s6yaO9CD3l2mD4+W+XMGXCPHIFcHVwNdYzWka2OWa2LOxMC8EjkbK5Wro3Kz
+ z0pclVCGOK+k6X6ytZ1lE08ZKHbppZzeSoUHSbTJtjB+0GwnimZCVrCtpEQ4InJ1nN
+ fwxHhOBGwUtjg==
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20210211112008.GH242749@kernel.org>
+In-Reply-To: <20210120093040.1719407-7-lee.jones@linaro.org>
+References: <20210120093040.1719407-1-lee.jones@linaro.org>
+ <20210120093040.1719407-7-lee.jones@linaro.org>
+Subject: Re: [PATCH 06/20] clk: sifive: fu540-prci: Declare static const
+ variable 'prci_clk_fu540' where it's used
+From: Stephen Boyd <sboyd@kernel.org>
+To: lee.jones@linaro.org
+Date: Thu, 11 Feb 2021 11:49:52 -0800
+Message-ID: <161307299270.1254594.13908235432213477383@swboyd.mtv.corp.google.com>
+User-Agent: alot/0.9.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210211_073048_553615_F998FA3E 
-X-CRM114-Status: GOOD (  18.90  )
+X-CRM114-CacheID: sfid-20210211_144954_886241_6DFAE106 
+X-CRM114-Status: UNSURE (   6.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -80,74 +73,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
- Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
- linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>,
- Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
- Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
- Will Deacon <will@kernel.org>, x86@kernel.org,
- Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
- Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>, Arnd Bergmann <arnd@arndb.de>,
- James Bottomley <jejb@linux.ibm.com>, Hagen Paul Pfeifer <hagen@jauu.net>,
- Borislav Petkov <bp@alien8.de>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Andy Lutomirski <luto@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
- linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-fsdevel@vger.kernel.org, Shakeel Butt <shakeelb@google.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Michael Turquette <mturquette@baylibre.com>, linux-kernel@vger.kernel.org,
+ Palmer Dabbelt <palmer@dabbelt.com>, Zong Li <zong.li@sifive.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
+ linux-clk@vger.kernel.org, Pragnesh Patel <Pragnesh.patel@sifive.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu 11-02-21 13:20:08, Mike Rapoport wrote:
-[...]
-> Sealing is anyway controlled via fcntl() and I don't think
-> MFD_ALLOW_SEALING makes much sense for the secretmem because it is there to
-> prevent rogue file sealing in tmpfs/hugetlbfs.
-
-This doesn't really match my understanding. The primary usecase for the
-sealing is to safely and predictably coordinate over shared memory. I
-absolutely do not see why this would be incompatible with an additional
-requirement to unmap the memory from the kernel to prevent additional
-interference from the kernel side. Quite contrary it looks like a very
-nice extension to this model.
- 
-> As for the huge pages, I'm not sure at all that supporting huge pages in
-> secretmem will involve hugetlbfs.
-
-Have a look how hugetlb proliferates through our MM APIs. I strongly
-suspect this is strong signal that this won't be any different.
-
-> And even if yes, adding SECRETMEM_HUGE
-> flag seems to me less confusing than saying "from kernel x.y you can use
-> MFD_CREATE | MFD_SECRET | MFD_HUGE" etc for all possible combinations.
-
-I really fail to see your point. This is a standard model we have. It is
-quite natural that flags are added. Moreover adding a new syscall will
-not make it any less of a problem.
-
-> > I by no means do not insist one way or the other but from what I have
-> > seen so far I have a feeling that the interface hasn't been thought
-> > through enough.
-> 
-> It has been, but we have different thoughts about it ;-)
-
-Then you must be carrying a lot of implicit knowledge which I want you
-to document.
--- 
-Michal Hocko
-SUSE Labs
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+UXVvdGluZyBMZWUgSm9uZXMgKDIwMjEtMDEtMjAgMDE6MzA6MjYpCj4gRml4ZXMgdGhlIGZvbGxv
+d2luZyBXPTEga2VybmVsIGJ1aWxkIHdhcm5pbmcocyk6Cj4gCj4gIGRyaXZlcnMvY2xrL3NpZml2
+ZS9mdTU0MC1wcmNpLmg6MTY6MzU6IHdhcm5pbmc6IOKAmHByY2lfY2xrX2Z1NTQw4oCZIGRlZmlu
+ZWQgYnV0IG5vdCB1c2VkIFstV3VudXNlZC1jb25zdC12YXJpYWJsZT1dCj4gIGRyaXZlcnMvY2xr
+L3NpZml2ZS9mdTU0MC1wcmNpLmg6MTY6MzU6IHdhcm5pbmc6IOKAmHByY2lfY2xrX2Z1NTQw4oCZ
+IGRlZmluZWQgYnV0IG5vdCB1c2VkIFstV3VudXNlZC1jb25zdC12YXJpYWJsZT1dCj4gCj4gQ2M6
+IE1pY2hhZWwgVHVycXVldHRlIDxtdHVycXVldHRlQGJheWxpYnJlLmNvbT4KPiBDYzogU3RlcGhl
+biBCb3lkIDxzYm95ZEBrZXJuZWwub3JnPgo+IENjOiBQYXVsIFdhbG1zbGV5IDxwYXVsLndhbG1z
+bGV5QHNpZml2ZS5jb20+Cj4gQ2M6IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAZGFiYmVsdC5jb20+
+Cj4gQ2M6IFByYWduZXNoIFBhdGVsIDxQcmFnbmVzaC5wYXRlbEBzaWZpdmUuY29tPgo+IENjOiBa
+b25nIExpIDx6b25nLmxpQHNpZml2ZS5jb20+Cj4gQ2M6IGxpbnV4LWNsa0B2Z2VyLmtlcm5lbC5v
+cmcKPiBDYzogbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+IFNpZ25lZC1vZmYtYnk6
+IExlZSBKb25lcyA8bGVlLmpvbmVzQGxpbmFyby5vcmc+Cj4gLS0tCgpBcHBsaWVkIHRvIGNsay1u
+ZXh0CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
+eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
+Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
