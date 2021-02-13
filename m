@@ -1,71 +1,87 @@
-Return-Path: <SRS0=T1n8=HO=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=wGuT=HP=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-9.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,
-	SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-9.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BFA84C433DB
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Feb 2021 20:12:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E2F3DC433E6
+	for <linux-riscv@archiver.kernel.org>; Sat, 13 Feb 2021 00:44:15 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 5E77264E9D
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Feb 2021 20:12:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 5E77264E9D
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
+	by mail.kernel.org (Postfix) with ESMTPS id 60CD464E9C
+	for <linux-riscv@archiver.kernel.org>; Sat, 13 Feb 2021 00:44:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 60CD464E9C
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Date:Message-Id:References:In-Reply-To:From:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IFCmX+ZY4kTu+kVK6cawG17gL9Rx2zu+/rWobJEuhVM=; b=YDFW55yn+lppPw9hMi01f2lTXc
-	eLf3iDk8cpZqWj1Z42HHNSAegXf70/AiuStC7tocOoYfRmRlvgpBNxTcix3k4z2zfbAsSeZsZcI0Z
-	qQDujgWpe/wGr60awNZPppA0VAOBaj85qnsR8M8wObk5HxRwgg1GQEaJdOSpd5bewD+1zgcUUzTv6
-	rokskBtV6PAP1GlPGf5jA0GFZKooQVYUp0WlXLmuDqP79ZNIqBOor2h2HwXsyo/FRErToRU5DSGNa
-	C4ZpBjpeoo0ru1pXcjTRL0M+dv3B5lJTvYOSM+7tyKfBF6BdL9n1bRuLn7Qv0SnwCN8MMJ32ldyu4
-	IM63RpAg==;
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
+	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	 bh=QscKFBt+yXxM9d7myGfKR/uMO06Pw91ErBQCQMNklvA=; b=xlR76TWcTrBAubQbiY/nd6c/r
+	PH1s7scLEPK18Dy00kbeCmAmwUDZiICUg+wxCL8PGnbkeCWG5Xmr+/+PMesfKOJGVelqNF7kEvwgh
+	9PXRLSKHHZTZ7W9NnwYrNmf90DO77eskulxz/tGEJrwfE9scv7w4Wcoo3nZWgGD67YOiXgnskNQSY
+	ttrEhxVS1898xrR5jBTIiihPuo4RozBWYe6uGcxJz8S3zAuDoWfJQcdjx9b439C8usvTjGT8jpZ7n
+	NuG+H8E5qXWFQfCPU6JzgapOsLUm8VmzfxocrbYudwSRoV8Ual1QDIRGzOyvb4BtNGetSq6dXBoON
+	sVaetpCBg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1lAeo3-0005sM-QB; Fri, 12 Feb 2021 20:12:47 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1lAj2b-00089y-KL; Sat, 13 Feb 2021 00:44:05 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1lAeo1-0005rm-4s
- for linux-riscv@lists.infradead.org; Fri, 12 Feb 2021 20:12:45 +0000
-Received: by mail.kernel.org (Postfix) with ESMTPS id 7836964E92;
- Fri, 12 Feb 2021 20:12:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1613160763;
- bh=P8k0fC9BSG9nrXSXE+Vd61XPd/KsPVIhH5V7FyvhpF8=;
- h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
- b=RZk/KN34LM9J0f1Dh9l3maPRYb+H3KuqZ2gq7B5wSRGgfH86mCphZ5NBSvAlNVBX2
- pE2mfuAcerYIcqliIyB4Hi+Wgk77WEjAFN1ZQr7R/wlMUien2Yn4Wwy9BRLEYpbQBo
- iFIBDhPTDA0nRGq9q24IijESHz8VibCPjGYnt8Vp7sbszkIvHxQRhDo++LkXU2X6R7
- LW5zQPnU/M2S/VRvBIuVU0ZmLSee/K9ouVyMv/DOw08jGy42rioOHF8rnNKjH+gph1
- GFE6rS437S4SDcPQpO+2bh63MiDkZHEdVVRT8iG4+t0YKU/3PUilc74NV8k9aLfXXw
- SfiE58MrozYzQ==
-Subject: Re: [GIT PULL] A Single RISC-V Fix for 5.11-rc8 (or 5.11)
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <mhng-30cf4392-0de1-4d1c-89f6-d260a072350d@palmerdabbelt-glaptop>
-References: <mhng-30cf4392-0de1-4d1c-89f6-d260a072350d@palmerdabbelt-glaptop>
-X-PR-Tracked-List-Id: <linux-riscv.lists.infradead.org>
-X-PR-Tracked-Message-Id: <mhng-30cf4392-0de1-4d1c-89f6-d260a072350d@palmerdabbelt-glaptop>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
- tags/riscv-for-linus-5.11-rc8
-X-PR-Tracked-Commit-Id: 3da3cc1b5f47115b16b5ffeeb4bf09ec331b0164
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: f9516259804123c416c4a9de40bc2e14d686478e
-Message-Id: <161316076342.13717.9203449225320030174.pr-tracker-bot@kernel.org>
-Date: Fri, 12 Feb 2021 20:12:43 +0000
-To: Palmer Dabbelt <palmer@dabbelt.com>
+ id 1lAj2X-00088h-TA
+ for linux-riscv@lists.infradead.org; Sat, 13 Feb 2021 00:44:03 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id u143so546346pfc.7
+ for <linux-riscv@lists.infradead.org>; Fri, 12 Feb 2021 16:43:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=dbhUzwqGfG1hKMLbbUj/LjjWuHYf51AvOfJj5/4HJUU=;
+ b=lOvDyZuCcqdlGpIpZqJwhKAdJ8v2iA4ozRlURXedM0oL6iIOUvFhraAQSlkyBpqhx5
+ httUjscQ3/UM95/G0oBLqe5j5qxsxAJApYykpS3o/b+aNux4jCsg0Hhp4w4X68CAvGZo
+ bhaXfGbLFlH+TqiuefsFSxAj9iMMm5ygvA6eyuulXQVvqpYVU0I8a/dkZ3e2T8e66Kem
+ fPqXAX9NoXq1dac6LINFPFB5pxtnJV+H58P2Hqe5nxVSSiiQgIfjjNqDeoZPaR2vg04a
+ 1uJPv+KC0h9T2OjiE0PLBt5DcSFIGdvNuAP3ZUMWEEk/WTSzkAuixeEmTzmvmvUeifz+
+ pL3g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=dbhUzwqGfG1hKMLbbUj/LjjWuHYf51AvOfJj5/4HJUU=;
+ b=aCEKz4sT2hwT6cv9lcC9NBXxBX/ba/FWu+HQpUTxqwr/wSDkkoGr/lvjwvfZRhTkEW
+ d2fHC4i/rGrX9gp1q+1PDiU1HXtFJwEA7SmY+C5IgxWIsZSfawV44Y50hOjC9PGF+5Zg
+ z3r0YAuJ20uscPs+tejBNDXH3c9qBT2wLLk9OGjDoiB2wkFi1GT1jI4tAscFYI2EledF
+ djjgCPACwGpgBAikBOdaDRFHdWKUn2maT0QxZyhbxAvXMtYjOluLu/hT0Ud2cRNCfXpw
+ c2QM52YeEbRFNLdRuHMY6LabA1ZPHGptA2DpNm9IOeg+b2NvXbd7YLXFhJt60vWw5y3x
+ 6pyQ==
+X-Gm-Message-State: AOAM53259ikH1z9O5VjUCyYuq9qbH8Hd/SHPST169tbsLsovCY/jO/Y+
+ iNvw9SQh/Wa5J9dKNxWjk9a9/QdO5Muj1PFd
+X-Google-Smtp-Source: ABdhPJzdBhGkqACtkkAi9SNbmD9Ucwde/9QRGP1PUg2zL/AcBwjgqor8b5sJsMl3wBwUtpZjEeQ8Kw==
+X-Received: by 2002:a63:1826:: with SMTP id y38mr5577270pgl.252.1613177036325; 
+ Fri, 12 Feb 2021 16:43:56 -0800 (PST)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id n12sm9230574pff.29.2021.02.12.16.43.54
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 12 Feb 2021 16:43:55 -0800 (PST)
+Date: Fri, 12 Feb 2021 16:43:55 -0800 (PST)
+X-Google-Original-Date: Fri, 12 Feb 2021 16:43:50 PST (-0800)
+Subject: Re: [PATCH] Revert "dts: phy: add GPIO number and active state used
+ for phy reset"
+In-Reply-To: <877dngjdi1.fsf@igel.home>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: schwab@linux-m68k.org
+Message-ID: <mhng-60c8c9ad-1184-4c41-b2c4-1cf5fe057473@penguin>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210212_151245_293628_30EDC53A 
-X-CRM114-Status: UNSURE (   2.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210212_194402_343105_9E007DB8 
+X-CRM114-Status: GOOD (  13.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -77,26 +93,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org,
- Linus Torvalds <torvalds@linux-foundation.org>, linux-kernel@vger.kernel.org
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Cc: devicetree@vger.kernel.org, aou@eecs.berkeley.edu, anup@brainfault.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org, yash.shah@sifive.com,
+ robh+dt@kernel.org, sagar.kadam@sifive.com,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
+ kernel-team@android.com
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Fri, 12 Feb 2021 10:30:04 -0800 (PST):
+On Wed, 10 Feb 2021 04:47:34 PST (-0800), schwab@linux-m68k.org wrote:
+> On Feb 04 2021, Palmer Dabbelt wrote:
+>
+>> From: Palmer Dabbelt <palmerdabbelt@google.com>
+>>
+>> VSC8541 phys need a special reset sequence, which the driver doesn't
+>> currentlny support.  As a result enabling the reset via GPIO essentially
+>> guarnteees that the device won't work correctly.
+>>
+>> This reverts commit a0fa9d727043da2238432471e85de0bdb8a8df65.
+>>
+>> Fixes: a0fa9d727043 ("dts: phy: add GPIO number and active state used for phy reset")
+>> Cc: stable@vger.kernel.org
+>> Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
+>
+> This fixes ethernet on the HiFive Unleashed with 5.10.12.
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.11-rc8
-
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/f9516259804123c416c4a9de40bc2e14d686478e
-
-Thank you!
-
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+Thanks for testing.  Looks like I forgot to reply, but it's in Linus' tree and 
+should end up in stable.
 
 _______________________________________________
 linux-riscv mailing list
