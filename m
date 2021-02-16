@@ -2,89 +2,115 @@ Return-Path: <SRS0=wY1U=HS=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1B04FC433E0
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Feb 2021 13:45:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7DA16C433DB
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Feb 2021 16:26:50 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A1F3B64DA8
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Feb 2021 13:45:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A1F3B64DA8
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	by mail.kernel.org (Postfix) with ESMTPS id 04DB564D79
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Feb 2021 16:26:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 04DB564D79
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=LKPmzgdNu6ZcPx8DEelo5q3DoDcDJnyE/uQxXBBaZXY=; b=n7RqDVDk0zLYfr4RnZV0rW1wr
-	KWaioRCBHP/mqlOJRmqS6kH/oH1Q8V1KEq7KOQVjA12/APl5K0lqiwORcKV+MsJyyV759/N50G20j
-	DWb6ykgyPYq86fJ82OLlIzyMvKVMQy9gHM0Dvva0VI3O2eXH0B69DoJThhVtMYna2dqkxFZGrAVcb
-	tZ9YRvEq8PBEJbxxlAwdtgeZA2/dHx30QnReBqSquDHvw4Ps3pZGSLbWcJXCS8ZGP2zOS2De1ySzJ
-	XE3JAOMGzA3Cwh6RIZ32dVpFwuTTY1inOAnubJEPcWpKaltNJL8hWov/gzC50UP2VsVvwgaZkD92T
-	yG4lNpn0Q==;
+	Content-Type:Cc:Reply-To:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Date:To:From:
+	Subject:Message-ID:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UaLSPG79vqQaJmfGpicv7fs00xXjZshtvdyS/gYBy1g=; b=2YZ2eAy9voba66Lmu4cxuWvy5C
+	Me3Jq89KBs5ADJ+XLCye2iuu7LQ/Ue5EA9mgpMQtxCn2ss6jmumtBnxQiVdvtrQOGQAr4C1LnahfS
+	qQf6k6mhh+hmbdGLbjbFx3nmRAbqik5uLZZANv2nt9S7AoULol5OUrcmY+OEvYL+ZGGqC0Cndv2o6
+	VJZVWUUTf8ZrERqGsFMEr/FubikAymExKsaVsDQLvSsKz6xUnUPHnfIEcCbvHahP/LDPqj3r+Su69
+	+CKaVjfwujFDYZ8ZecQNYaem8uJrpD/qQiciqrTgEHODWMlc9QWIwfqEi0fFN3PwjNsuWPQUFEHZZ
+	5EIJy/0A==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1lC0fN-0007RK-JE; Tue, 16 Feb 2021 13:45:25 +0000
-Received: from mail-qk1-x72d.google.com ([2607:f8b0:4864:20::72d])
+	id 1lC3BL-000242-U0; Tue, 16 Feb 2021 16:26:36 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1lC0fK-0007Qc-QM
- for linux-riscv@lists.infradead.org; Tue, 16 Feb 2021 13:45:23 +0000
-Received: by mail-qk1-x72d.google.com with SMTP id v206so9390688qkb.3
- for <linux-riscv@lists.infradead.org>; Tue, 16 Feb 2021 05:45:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=Ru6kEOSEblzMS8sJpCTYk9Zye/4zxUZFCnZm62Z9cuQ=;
- b=jfhAl+e/pxMzGEiIHEYpgZZSrs8JccuDwXlJ0r1LamXZ0K4c4PzN+pzpyXawNj5Crk
- YAb13a/SzSu2snzfPFzQr3FSOuv5vwyb8lUObLAbDvxl2VpYx2omQMYcDuziy+KmJxZM
- BR5ZwbQsdyxOs6gNRuUok55X6qifjFAeuDaRJ97iP4x5mMjQwwVc7aouSXQmXxN+t4kk
- Zb03VtmY9yE1ou7d7B6EJ4LL1xGRW6FGQuyBp8aFoLLPSr73zbgluQk5twtUGzwp0UZX
- sEFawjGHMDAYkVVN02jnnLlspUXv9EChjR5dNbKRK/ceROAjYX5kTv3EpKhc/Tcu/W5z
- 46mw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=Ru6kEOSEblzMS8sJpCTYk9Zye/4zxUZFCnZm62Z9cuQ=;
- b=D5Dd5GOkFw3xVg4Yali3tkEjcKeQc79c7TXR1U/7DSnvFUXrRT+SxhhnhKo1M+Uso0
- 5dYA8UMKsmUacYiBFcvTIihAcHZCPh/0FH/Qrm+WX8IALCDWk+V+qHSYsBljP0P9epCp
- ObKyy4xPPYZSVqqOuw77Fp1dp64i9Vda/AW3/UZntjd+H3dKW9F64gD1+4F5LMG1pHzL
- SX1OEIr6lEJkxyJRI7RvWR920PMehcyIxM32wOx3ZMTjZ1f96NOX2fKCjtEHE0bxF1Qm
- qsdJdF8KeQcYTsg1gIjGxrbZWv7pTK+9uJHwQdi+XYsJysqkqfEELJqFtjOlkXjHHR6e
- xOmg==
-X-Gm-Message-State: AOAM5327eJHunjiCdp4WbG07G1Kq00FzNqFGHevyHb8Bus7n6pM499f/
- C2uFlUnKLU1cFt4rDg908JNnB96affIq6ZFfFjsb/Q==
-X-Google-Smtp-Source: ABdhPJyImnKIYiSh1kY4z4WN2xM8tWUEidFcQla7zPD3SMrRrsLN6zW1gm1MWiyj8qV6+icLw2LCX3iKTWtT49q/n4k=
-X-Received: by 2002:a05:620a:410f:: with SMTP id
- j15mr20063309qko.424.1613483120420; 
- Tue, 16 Feb 2021 05:45:20 -0800 (PST)
+ id 1lC3BG-00023G-HY; Tue, 16 Feb 2021 16:26:31 +0000
+Received: from pps.filterd (m0098417.ppops.net [127.0.0.1])
+ by mx0a-001b2d01.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id
+ 11GG5JmK126031; Tue, 16 Feb 2021 11:25:53 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
+ h=message-id : subject :
+ from : reply-to : to : cc : date : in-reply-to : references : content-type
+ : mime-version : content-transfer-encoding; s=pp1;
+ bh=h2KZ1bvu1a9qVnwXD9zg+LWh/Rpqhdqvt0dMmFR40Sk=;
+ b=m33wPuJK690vXBjqVMCMqh9RCEidFwXzGuc2ShVqK9ersX2esMtvNyQCFx/Q3Bw7IXy5
+ 3H+yqHjRJQxOGb/IR8R2/bRHknptt5nSYNHzbKQH9bsc+Ftv2Oyo9LoHi/5lxnBak7DN
+ RP4vf6Y1B1fAYubYAPOmMQKENehcPRSRuXwVmPQFs7nLBYt3N92YUtUSAZJw+AForp1r
+ qJ0veYMYH/UT4iGBQtO16zKZq94xmdD+30mJ+piXiJ8dcny/n4PG25w0I1NefNpJIN75
+ vK3JtaXAHMd3Cap9soRecjBnYmKFSZNxcmhBX3TJ4Fe7IAfBWnRymDy/SCrt1At9Y/HL jg== 
+Received: from pps.reinject (localhost [127.0.0.1])
+ by mx0a-001b2d01.pphosted.com with ESMTP id 36rh8xgnbj-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Tue, 16 Feb 2021 11:25:53 -0500
+Received: from m0098417.ppops.net (m0098417.ppops.net [127.0.0.1])
+ by pps.reinject (8.16.0.36/8.16.0.36) with SMTP id 11GG5sHt127555;
+ Tue, 16 Feb 2021 11:25:52 -0500
+Received: from ppma03wdc.us.ibm.com (ba.79.3fa9.ip4.static.sl-reverse.com
+ [169.63.121.186])
+ by mx0a-001b2d01.pphosted.com with ESMTP id 36rh8xgnar-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Tue, 16 Feb 2021 11:25:52 -0500
+Received: from pps.filterd (ppma03wdc.us.ibm.com [127.0.0.1])
+ by ppma03wdc.us.ibm.com (8.16.0.42/8.16.0.42) with SMTP id 11GGHgYA030474;
+ Tue, 16 Feb 2021 16:25:50 GMT
+Received: from b03cxnp08027.gho.boulder.ibm.com
+ (b03cxnp08027.gho.boulder.ibm.com [9.17.130.19])
+ by ppma03wdc.us.ibm.com with ESMTP id 36p6d8yha7-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Tue, 16 Feb 2021 16:25:50 +0000
+Received: from b03ledav004.gho.boulder.ibm.com
+ (b03ledav004.gho.boulder.ibm.com [9.17.130.235])
+ by b03cxnp08027.gho.boulder.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
+ 11GGPn4a11338136
+ (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Tue, 16 Feb 2021 16:25:49 GMT
+Received: from b03ledav004.gho.boulder.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 92C8778063;
+ Tue, 16 Feb 2021 16:25:49 +0000 (GMT)
+Received: from b03ledav004.gho.boulder.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id B00A17805C;
+ Tue, 16 Feb 2021 16:25:40 +0000 (GMT)
+Received: from jarvis.int.hansenpartnership.com (unknown [9.85.199.127])
+ by b03ledav004.gho.boulder.ibm.com (Postfix) with ESMTP;
+ Tue, 16 Feb 2021 16:25:40 +0000 (GMT)
+Message-ID: <12c3890b233c8ec8e3967352001a7b72a8e0bfd0.camel@linux.ibm.com>
+Subject: Re: [PATCH v17 07/10] mm: introduce memfd_secret system call to
+ create "secret" memory areas
+From: James Bottomley <jejb@linux.ibm.com>
+To: Michal Hocko <mhocko@suse.com>
+Date: Tue, 16 Feb 2021 08:25:39 -0800
+In-Reply-To: <YCrJjYmr7A2nO6lA@dhcp22.suse.cz>
+References: <20210214091954.GM242749@kernel.org>
+ <052DACE9-986B-424C-AF8E-D6A4277DE635@redhat.com>
+ <244f86cba227fa49ca30cd595c4e5538fe2f7c2b.camel@linux.ibm.com>
+ <YCo7TqUnBdgJGkwN@dhcp22.suse.cz>
+ <be1d821d3f0aec24ad13ca7126b4359822212eb0.camel@linux.ibm.com>
+ <YCrJjYmr7A2nO6lA@dhcp22.suse.cz>
+User-Agent: Evolution 3.34.4 
 MIME-Version: 1.0
-References: <CACT4Y+bDqMiC+ou5ghb=XB3Oyjw3p-GTDvNw4NkkQqQthw1yuQ@mail.gmail.com>
- <mhng-02b88d43-ede8-48f9-82f1-c84201acb7a8@palmerdabbelt-glaptop>
- <CACT4Y+aN3LvgaBc_zmW=t=D7ChU-jrWYnjt5sZ2GEDQhg_BC9A@mail.gmail.com>
- <CACT4Y+aC19DaNOm87EO3cER2=MEmO9pmtUxzVmRtg9YhZKuMVA@mail.gmail.com>
- <20210118145310.crnqnh6kax5jqicj@distanz.ch>
- <CACT4Y+bFV6m1LCYb1nO7ioKJK99916D76sJ+H-LgBjWx6biF5w@mail.gmail.com>
- <CACT4Y+bmDKNnykeTP9yKjje3XZjbXY3De+_e3fMFOMoe0dnARw@mail.gmail.com>
- <6e9ee3a1-0e16-b1fc-a690-f1ca8e9823a5@ghiti.fr>
- <CACT4Y+adSjve7bXRPh5UybCQx6ubOUu5RbwuT620wdcxHzVYJg@mail.gmail.com>
- <CACT4Y+ZNJBnkKHXUf=tm_yuowvZvHwN=0rmJ=7J+xFd+9r_6pQ@mail.gmail.com>
- <CACT4Y+awHrJfFo+g33AiAnCj3vq6t6PqbL-3=Qbciy6dAJfVWg@mail.gmail.com>
-In-Reply-To: <CACT4Y+awHrJfFo+g33AiAnCj3vq6t6PqbL-3=Qbciy6dAJfVWg@mail.gmail.com>
-From: Dmitry Vyukov <dvyukov@google.com>
-Date: Tue, 16 Feb 2021 14:45:08 +0100
-Message-ID: <CACT4Y+ZO35HALQevcqgFR33hUf-6NVF0Z6qFyu8XJm-3eBy4SQ@mail.gmail.com>
-Subject: Re: riscv+KASAN does not boot
-To: Alex Ghiti <alex@ghiti.fr>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.369, 18.0.761
+ definitions=2021-02-16_06:2021-02-16,
+ 2021-02-16 signatures=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ mlxscore=0 mlxlogscore=752
+ lowpriorityscore=0 clxscore=1015 adultscore=0 spamscore=0 bulkscore=0
+ suspectscore=0 phishscore=0 malwarescore=0 priorityscore=1501
+ impostorscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2009150000 definitions=main-2102160141
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210216_084522_938129_43F75F94 
-X-CRM114-Status: GOOD (  34.46  )
+X-CRM114-CacheID: sfid-20210216_112630_661782_1E427868 
+X-CRM114-Status: GOOD (  22.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -96,116 +122,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Bjorn Topel <bjorn.topel@gmail.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>, LKML <linux-kernel@vger.kernel.org>,
- nylon7@andestech.com, syzkaller <syzkaller@googlegroups.com>,
- Andreas Schwab <schwab@linux-m68k.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Tobias Klauser <tklauser@distanz.ch>,
- linux-riscv <linux-riscv@lists.infradead.org>
+Reply-To: jejb@linux.ibm.com
+Cc: Mark Rutland <mark.rutland@arm.com>, David Hildenbrand <david@redhat.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
+ Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
+ Will Deacon <will@kernel.org>, x86@kernel.org,
+ Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>, Arnd Bergmann <arnd@arndb.de>,
+ Hagen Paul Pfeifer <hagen@jauu.net>, Borislav Petkov <bp@alien8.de>,
+ Alexander Viro <viro@zeniv.linux.org.uk>, Andy Lutomirski <luto@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-fsdevel@vger.kernel.org, Shakeel Butt <shakeelb@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>,
+ Mike Rapoport <rppt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 16, 2021 at 12:25 PM Dmitry Vyukov <dvyukov@google.com> wrote:
->
-> On Tue, Feb 16, 2021 at 12:17 PM Dmitry Vyukov <dvyukov@google.com> wrote:
-> >
-> > On Fri, Jan 29, 2021 at 9:11 AM Dmitry Vyukov <dvyukov@google.com> wrote:
-> > > > I was fixing KASAN support for my sv48 patchset so I took a look at your
-> > > > issue: I built a kernel on top of the branch riscv/fixes using
-> > > > https://github.com/google/syzkaller/blob/269d24e857a757d09a898086a2fa6fa5d827c3e1/dashboard/config/linux/upstream-riscv64-kasan.config
-> > > > and Buildroot 2020.11. I have the warnings regarding the use of
-> > > > __virt_to_phys on wrong addresses (but that's normal since this function
-> > > > is used in virt_addr_valid) but not the segfaults you describe.
-> > >
-> > > Hi Alex,
-> > >
-> > > Let me try to rebuild buildroot image. Maybe there was something wrong
-> > > with my build, though, I did 'make clean' before doing. But at the
-> > > same time it worked back in June...
-> > >
-> > > Re WARNINGs, they indicate kernel bugs. I am working on setting up a
-> > > syzbot instance on riscv. If there a WARNING during boot then the
-> > > kernel will be marked as broken. No further testing will happen.
-> > > Is it a mis-use of WARN_ON? If so, could anybody please remove it or
-> > > replace it with pr_err.
-> >
-> >
-> > Hi,
-> >
-> > I've localized one issue with riscv/KASAN:
-> > KASAN breaks VDSO and that's I think the root cause of weird faults I
-> > saw earlier. The following patch fixes it.
-> > Could somebody please upstream this fix? I don't know how to add/run
-> > tests for this.
-> > Thanks
-> >
-> > diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
-> > index 0cfd6da784f84..cf3a383c1799d 100644
-> > --- a/arch/riscv/kernel/vdso/Makefile
-> > +++ b/arch/riscv/kernel/vdso/Makefile
-> > @@ -35,6 +35,7 @@ CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_FTRACE) -Os
-> >  # Disable gcov profiling for VDSO code
-> >  GCOV_PROFILE := n
-> >  KCOV_INSTRUMENT := n
-> > +KASAN_SANITIZE := n
-> >
-> >  # Force dependency
-> >  $(obj)/vdso.o: $(obj)/vdso.so
->
->
->
-> Second issue I am seeing seems to be related to text segment size.
-> I check out v5.11 and use this config:
-> https://gist.github.com/dvyukov/6af25474d455437577a84213b0cc9178
->
-> Then trying to boot it using:
-> QEMU emulator version 5.2.0 (Debian 1:5.2+dfsg-3)
-> $ qemu-system-riscv64 -machine virt -smp 2 -m 4G ...
->
-> It shows no output from the kernel whatsoever, even though I have
-> earlycon and output shows very early with other configs.
-> Kernel boots fine with defconfig and other smaller configs.
->
-> If I enable KASAN_OUTLINE and CC_OPTIMIZE_FOR_SIZE, then this config
-> also boots fine. Both of these options significantly reduce kernel
-> size. However, I can also boot the kernel without these 2 configs, if
-> I disable a whole lot of subsystem configs. This makes me think that
-> there is an issue related to kernel size somewhere in
-> qemu/bootloader/kernel bootstrap code.
-> Does it make sense to you? Can somebody reproduce what I am seeing?
+On Mon, 2021-02-15 at 20:20 +0100, Michal Hocko wrote:
+[...]
+> > >   What kind of flags are we talking about and why would that be a
+> > > problem with memfd_create interface? Could you be more specific
+> > > please?
+> > 
+> > You mean what were the ioctl flags in the patch series linked
+> > above? They were SECRETMEM_EXCLUSIVE and SECRETMEM_UNCACHED in
+> > patch 3/5. 
+> 
+> OK I see. How many potential modes are we talking about? A few or
+> potentially many?
+ 
+Well I initially thought there were two (uncached or not) until you
+came up with the migratable or non-migratable, which affects the
+security properties.  But now there's also potential for hardware
+backing, like mktme,  described by flags as well.  I suppose you could
+also use RDT to restrict which cache the data goes into: say L1 but not
+L2 on to lessen the impact of fully uncached (although the big thrust
+of uncached was to blunt hyperthread side channels).  So there is
+potential for quite a large expansion even though I'd be willing to bet
+that a lot of the modes people have thought about turn out not to be
+very effective in the field.
+
+James
 
 
-
-I am debugging the next issue with VDSO. clock_gettime is broken in
-some weird way.
-syzkaller has this function:
-
-static uint64 current_time_ms(void)
-{
-        struct timespec ts;
-        if (clock_gettime(CLOCK_MONOTONIC, &ts))
-        //if (syscall(SYS_clock_gettime, CLOCK_MONOTONIC, &ts))
-                fail("clock_gettime failed");
-        return (uint64)ts.tv_sec * 1000 + (uint64)ts.tv_nsec / 1000000;
-}
-
-When using clock_gettime it producer some nonsense that breaks all
-timeouts (in particular monotonic time goes backwards):
-pid=4343 now=836038064151457975
-pid=4343 now=836038064151457975
-pid=4343 now=836038064151457970
-pid=4343 now=836038064151457971
-
-When I tested it calling real syscall, it works as expected:
-pid=4876 now=2493379
-pid=4876 now=2493392
-pid=4876 now=2493395
-pid=4876 now=2493409
-pid=4876 now=2493414
-
-Is it a known issue? Any ideas?
 
 _______________________________________________
 linux-riscv mailing list
