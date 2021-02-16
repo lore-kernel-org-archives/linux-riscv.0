@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,
 	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 20482C433DB
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Feb 2021 11:18:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 73F92C433DB
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Feb 2021 11:25:59 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id BF83B64DDA
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Feb 2021 11:18:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org BF83B64DDA
+	by mail.kernel.org (Postfix) with ESMTPS id 2136064DA5
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Feb 2021 11:25:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 2136064DA5
 Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,46 +23,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
 	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=NGmxm/DPK14dFuYnhwUcCMHW5KnVgDH110rcy74AZ5U=; b=1zwsm0lf8Gd7G4TDvqT0TKbcq
-	9sB1nYHpLAkVK3AElfbwZ1/FIxXL45xPLo49V5Z1ZjFok1vsXfC6QBnrpe6wX/2saTA2B2UuKp/ez
-	/VbOiM9dFQmMrjdO6SHAg9hDmz6b9CE2sO9I48bCQImyhlHzRue9SgUm7F9agNdaE+l6cfaroxgxa
-	3cQCKhvZPrxOlWM2zo5eS4Z2qGUbR8K0KUGtl0+cHWEqLkqzSIdSd1SwktV+XtAtNzSviKsmNsG/a
-	JfBroZS2XqJ5cPJGvnhPgroh7U42XkeFvuR/MAUzfPE+wQJz7yLXM2FMZXNWL5jgirnDerml/tBc7
-	Ehe/Nfy/g==;
+	 bh=pUFrW9CocC912e7XX9svthhC0zM5oQBxgHLWdU5HJJI=; b=loRKnEZiMmugMaAqGt5eow5Ez
+	wtc4Pv8SjCAJHg24VBqyOQveeP7v3d7yVEvj4KWHfx7z6E0xychZi2/hySBTrzf50JV5bS6rVX2ip
+	KIoix68Byq9k4ak4O2DkBHIAfRpORpr90dDa0kK6y0HJdp7d5b+g1U/Nix41bAtvFbPdYqeLDcHkB
+	53uGO/02XZGxSLcq91pdNQ7SL/hTcfXfFWHwjoo5YR1u3vFheigEl1CAYp8dUrSYNzrTmyoOxxGEU
+	KQmwvSf4K5VBe0m6Ve6bZhw+SXi+f4pFKjQihzuk5zYAOykh6dfea7ZTy+jbslL0x8djrKnxoNeWM
+	K8DRuCr1A==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1lByMZ-00054N-1F; Tue, 16 Feb 2021 11:17:51 +0000
-Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
+	id 1lByUD-0005lC-D4; Tue, 16 Feb 2021 11:25:45 +0000
+Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1lByMU-00053P-Lk
- for linux-riscv@lists.infradead.org; Tue, 16 Feb 2021 11:17:48 +0000
-Received: by mail-qk1-x72c.google.com with SMTP id h8so9005170qkk.6
- for <linux-riscv@lists.infradead.org>; Tue, 16 Feb 2021 03:17:43 -0800 (PST)
+ id 1lByUB-0005kN-8P
+ for linux-riscv@lists.infradead.org; Tue, 16 Feb 2021 11:25:44 +0000
+Received: by mail-qt1-x82c.google.com with SMTP id d3so6801175qtr.10
+ for <linux-riscv@lists.infradead.org>; Tue, 16 Feb 2021 03:25:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=+yi48HIfDpj5+7cpoyDCNHw6yQcq1pcG1ot9n73mhd0=;
- b=YxaffVO7zp8rEiGeTbUX5Ki7tJ11g4dLfSxGlgdZKFGK+KHuDT0SyDQ4UZT9KqKHnJ
- PoA1Jd/7CZfFmqu6gfGH0WTjueyUz5dR778ADBSSVfKqYgCXQYzhrrn15o8FvpD3wahn
- cZzilJtE3Y+oxQ1168aV2Ewfth8SUlPyWcfrTkiETPp5e6qIytcY4Ru3vRwC3Ret2fnY
- s8+DxfClW49UgRZhNDCa0sxVclRXzpZQ6WqMZS3krzNGOYK6niAh5aDw2gkWU8GGQkc7
- fFfyB6OaiYnO3EsONDuqdH5L8VvZ/tfU9NlpKMSddG3pc4SkYCOC98ACXwOnK6t0+wQc
- SGWg==
+ :cc; bh=OpdMgD15nVOmxBqHmgQp5QV05JlNNLMOu1zTK5wectk=;
+ b=BJlVkeg+KiYKigJv0dLocm82YBRds4Ze0jh0m/e1C4EWOqEFjdkvw84Sy7UTocnkSP
+ 7JOD+hiV/AhOYlEahswG+drBrVpdQtpxC1+dlJNJxM4GLAWIVkzcn4FNpO6gfLpicS/C
+ ltsSOxMyOOjQtylvk7nP1UVZyj/sTEh6vHZUpkYFV37aYfCTkpt+vy/gJS5dxcxuvqTt
+ KB/tTD0d72xBCF68FnY8LslS+Vnlxl3OnQTVrVwDPMHJp1uxmg63+gfuHup/+mc2gQdi
+ +tWjbjdhol1lp+S5UW5I+3ruWIP+E3U5gNtjhiqwYauzIl0h8Og4Gh+PKIJ8pEm25uOy
+ 9Tog==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=+yi48HIfDpj5+7cpoyDCNHw6yQcq1pcG1ot9n73mhd0=;
- b=f7B/NuVQhSMXTDptRn+U74Zdxtj3Pi97uQsyAgDu3hqjb2DyOcaA8D/BqGqYGiArRg
- swKhIyC5ICT8jZwlxPlOLIvtNqG3ck/gAtb+egfd9fdXW59kWGlmdgpAXyK4I8J4L8M7
- ojXEJASKv5xBVhr4U8Gv2Z3l6KrbB/olnZhlJetUFZjwj/sxEkQHSsIrIE9xXG3aSHD1
- qQnr3Wc1Eu+yD43xfwvViTOE6Iqd9hIYHkvOSkYg2G2DCWEHmBOLYhZqyI6Iso/bwll6
- QZKFdjYDG6E1X3uCdz5UmhBGpXuDXuBRVjGRT2xtIEKNMJ9FKvfrp+G8P2p6KboNGKqY
- Oi6A==
-X-Gm-Message-State: AOAM5328DhU9FuXXsPqHWlwPERJpEDOheNjXB3xAER/hRK3kKk1EDMVV
- lbFVpWsBorCPcyCER60by8iVKF+8EG4vLc2Q6MZUVQ==
-X-Google-Smtp-Source: ABdhPJw2r0P+hO2e4Iij8XvdrpsMfa2arPuuYzhNYRXRfcj44xEPwBv3l/b8pplhPflEoRK8Fk16ikz1mbXxTpXZixg=
-X-Received: by 2002:a37:a757:: with SMTP id q84mr18474346qke.501.1613474262101; 
- Tue, 16 Feb 2021 03:17:42 -0800 (PST)
+ bh=OpdMgD15nVOmxBqHmgQp5QV05JlNNLMOu1zTK5wectk=;
+ b=ELHULBj0b5lHyEhw2MHlsvYKhU663O+A8W3brg91A3C8gxHCY5NvOhRPjqUVjVzo16
+ TswAtQzlb7qibxoczP72KdQbZIYIKnrOfXxGNKrYOlwke68k6M15KoGxmzF9gZ9H/Jzu
+ MLPNe0eKBEDWFqeXQp0+nAv6VYrv2bTSMt4/vLiP3OobRZcPRU7qDN1j5p9BdfN1H4Mc
+ /MR8gLjmqVFCNrbTcRY5LDqQtNIzDsTjBV0eZIeYX1kgrH5z7D4RdOrFpipH6CTLYbbw
+ RTF11bjqBNyk2VAwHLAtNldBuSEIPugr56tWJ+jcNADELlR8u7q+ajbn8h9G3v9sOwxu
+ nH+w==
+X-Gm-Message-State: AOAM530Q5BJCNfGvDzWQvgvcGWIqdYKcJC6v7eDntuaoloFqwyTNG0Dk
+ ve/9KVAqP800su/PraaA98GeRFxlPJcKTCLIfku52w==
+X-Google-Smtp-Source: ABdhPJwpW1GE+h0hCdOCxpmjTvpVz2L9jJNy9DdTONweY3+hgOg8KMJs8pE5xCd0rshQ3wiZ9zidYh4Xdpp/YWRYGQg=
+X-Received: by 2002:aed:3647:: with SMTP id e65mr9003272qtb.43.1613474740157; 
+ Tue, 16 Feb 2021 03:25:40 -0800 (PST)
 MIME-Version: 1.0
 References: <CACT4Y+bDqMiC+ou5ghb=XB3Oyjw3p-GTDvNw4NkkQqQthw1yuQ@mail.gmail.com>
  <mhng-02b88d43-ede8-48f9-82f1-c84201acb7a8@palmerdabbelt-glaptop>
@@ -73,15 +73,16 @@ References: <CACT4Y+bDqMiC+ou5ghb=XB3Oyjw3p-GTDvNw4NkkQqQthw1yuQ@mail.gmail.com>
  <CACT4Y+bmDKNnykeTP9yKjje3XZjbXY3De+_e3fMFOMoe0dnARw@mail.gmail.com>
  <6e9ee3a1-0e16-b1fc-a690-f1ca8e9823a5@ghiti.fr>
  <CACT4Y+adSjve7bXRPh5UybCQx6ubOUu5RbwuT620wdcxHzVYJg@mail.gmail.com>
-In-Reply-To: <CACT4Y+adSjve7bXRPh5UybCQx6ubOUu5RbwuT620wdcxHzVYJg@mail.gmail.com>
+ <CACT4Y+ZNJBnkKHXUf=tm_yuowvZvHwN=0rmJ=7J+xFd+9r_6pQ@mail.gmail.com>
+In-Reply-To: <CACT4Y+ZNJBnkKHXUf=tm_yuowvZvHwN=0rmJ=7J+xFd+9r_6pQ@mail.gmail.com>
 From: Dmitry Vyukov <dvyukov@google.com>
-Date: Tue, 16 Feb 2021 12:17:30 +0100
-Message-ID: <CACT4Y+ZNJBnkKHXUf=tm_yuowvZvHwN=0rmJ=7J+xFd+9r_6pQ@mail.gmail.com>
+Date: Tue, 16 Feb 2021 12:25:28 +0100
+Message-ID: <CACT4Y+awHrJfFo+g33AiAnCj3vq6t6PqbL-3=Qbciy6dAJfVWg@mail.gmail.com>
 Subject: Re: riscv+KASAN does not boot
 To: Alex Ghiti <alex@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210216_061746_850352_E4DA4F46 
-X-CRM114-Status: GOOD (  19.76  )
+X-CRM114-CacheID: sfid-20210216_062543_383886_C5B47671 
+X-CRM114-Status: GOOD (  30.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -104,48 +105,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 29, 2021 at 9:11 AM Dmitry Vyukov <dvyukov@google.com> wrote:
-> > I was fixing KASAN support for my sv48 patchset so I took a look at your
-> > issue: I built a kernel on top of the branch riscv/fixes using
-> > https://github.com/google/syzkaller/blob/269d24e857a757d09a898086a2fa6fa5d827c3e1/dashboard/config/linux/upstream-riscv64-kasan.config
-> > and Buildroot 2020.11. I have the warnings regarding the use of
-> > __virt_to_phys on wrong addresses (but that's normal since this function
-> > is used in virt_addr_valid) but not the segfaults you describe.
+On Tue, Feb 16, 2021 at 12:17 PM Dmitry Vyukov <dvyukov@google.com> wrote:
 >
-> Hi Alex,
+> On Fri, Jan 29, 2021 at 9:11 AM Dmitry Vyukov <dvyukov@google.com> wrote:
+> > > I was fixing KASAN support for my sv48 patchset so I took a look at your
+> > > issue: I built a kernel on top of the branch riscv/fixes using
+> > > https://github.com/google/syzkaller/blob/269d24e857a757d09a898086a2fa6fa5d827c3e1/dashboard/config/linux/upstream-riscv64-kasan.config
+> > > and Buildroot 2020.11. I have the warnings regarding the use of
+> > > __virt_to_phys on wrong addresses (but that's normal since this function
+> > > is used in virt_addr_valid) but not the segfaults you describe.
+> >
+> > Hi Alex,
+> >
+> > Let me try to rebuild buildroot image. Maybe there was something wrong
+> > with my build, though, I did 'make clean' before doing. But at the
+> > same time it worked back in June...
+> >
+> > Re WARNINGs, they indicate kernel bugs. I am working on setting up a
+> > syzbot instance on riscv. If there a WARNING during boot then the
+> > kernel will be marked as broken. No further testing will happen.
+> > Is it a mis-use of WARN_ON? If so, could anybody please remove it or
+> > replace it with pr_err.
 >
-> Let me try to rebuild buildroot image. Maybe there was something wrong
-> with my build, though, I did 'make clean' before doing. But at the
-> same time it worked back in June...
 >
-> Re WARNINGs, they indicate kernel bugs. I am working on setting up a
-> syzbot instance on riscv. If there a WARNING during boot then the
-> kernel will be marked as broken. No further testing will happen.
-> Is it a mis-use of WARN_ON? If so, could anybody please remove it or
-> replace it with pr_err.
+> Hi,
+>
+> I've localized one issue with riscv/KASAN:
+> KASAN breaks VDSO and that's I think the root cause of weird faults I
+> saw earlier. The following patch fixes it.
+> Could somebody please upstream this fix? I don't know how to add/run
+> tests for this.
+> Thanks
+>
+> diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+> index 0cfd6da784f84..cf3a383c1799d 100644
+> --- a/arch/riscv/kernel/vdso/Makefile
+> +++ b/arch/riscv/kernel/vdso/Makefile
+> @@ -35,6 +35,7 @@ CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_FTRACE) -Os
+>  # Disable gcov profiling for VDSO code
+>  GCOV_PROFILE := n
+>  KCOV_INSTRUMENT := n
+> +KASAN_SANITIZE := n
+>
+>  # Force dependency
+>  $(obj)/vdso.o: $(obj)/vdso.so
 
 
-Hi,
 
-I've localized one issue with riscv/KASAN:
-KASAN breaks VDSO and that's I think the root cause of weird faults I
-saw earlier. The following patch fixes it.
-Could somebody please upstream this fix? I don't know how to add/run
-tests for this.
+Second issue I am seeing seems to be related to text segment size.
+I check out v5.11 and use this config:
+https://gist.github.com/dvyukov/6af25474d455437577a84213b0cc9178
+
+Then trying to boot it using:
+QEMU emulator version 5.2.0 (Debian 1:5.2+dfsg-3)
+$ qemu-system-riscv64 -machine virt -smp 2 -m 4G ...
+
+It shows no output from the kernel whatsoever, even though I have
+earlycon and output shows very early with other configs.
+Kernel boots fine with defconfig and other smaller configs.
+
+If I enable KASAN_OUTLINE and CC_OPTIMIZE_FOR_SIZE, then this config
+also boots fine. Both of these options significantly reduce kernel
+size. However, I can also boot the kernel without these 2 configs, if
+I disable a whole lot of subsystem configs. This makes me think that
+there is an issue related to kernel size somewhere in
+qemu/bootloader/kernel bootstrap code.
+Does it make sense to you? Can somebody reproduce what I am seeing?
+
 Thanks
-
-diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
-index 0cfd6da784f84..cf3a383c1799d 100644
---- a/arch/riscv/kernel/vdso/Makefile
-+++ b/arch/riscv/kernel/vdso/Makefile
-@@ -35,6 +35,7 @@ CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_FTRACE) -Os
- # Disable gcov profiling for VDSO code
- GCOV_PROFILE := n
- KCOV_INSTRUMENT := n
-+KASAN_SANITIZE := n
-
- # Force dependency
- $(obj)/vdso.o: $(obj)/vdso.so
 
 _______________________________________________
 linux-riscv mailing list
