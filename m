@@ -2,20 +2,20 @@ Return-Path: <SRS0=LlRU=HV=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0F1D1C433DB
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Feb 2021 07:15:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D8AEAC433DB
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Feb 2021 07:21:14 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id B3B0D64E77
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Feb 2021 07:15:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B3B0D64E77
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	by mail.kernel.org (Postfix) with ESMTPS id 546C864E77
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Feb 2021 07:21:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 546C864E77
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
@@ -23,64 +23,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=WaT8ISsuAew21H4Z7igKxcxmdJe/tY0r2dpPEXB0b8U=; b=Dl1gakUNBrUVV3oLLhDn3gF18
-	dYs4nCHy4q/eTRyykGuZaVEq12+7QJaJz9svpLcu4boeIZGe2cYaF1Lwnb9PooZd/D9oheYCTxpL1
-	1JnxoPLf+DCJlAJiuQgdg1eMvAVbB3LkedN/4jJjyKoAecWokeoInNnDG3diu5D4ed15JNR+NzYYH
-	VUPCiyIc0+4IziO8rST0KpnaPCP+Z0vcMpRQw0h3HpS+9PNY/oMaHJpfqNRs9TtyCBN0v9kYbJfO6
-	SwP3b9DfEowEnWEJj+Ux+jBgLHyRPzZtjxkAc52cnzeid63C5b2PS86ZVSR48+p6aBO8GCHJTOvB2
-	qjZFHxNrg==;
+	 bh=BfqL/SDtk2HnlkcoBTyqauB+Un3gWzUvAl6noQmT4zk=; b=PUySHDX5a2s7Bmy+I7gTT6GdO
+	yY2L7aE7OpO2vNzQIUiJmp+b3WSLTEuHeistrp85Q9jG/CeXusX3L+Kzj90rdmW/t5Bf4rA7ss43j
+	F3Kg1Giz2zCSPpWI2vMJfTyfDqmUrEASe9MDBu3gF1cZh+JYtcetLPKXds4Pk8FqgHZXDJ5d60yUY
+	Pg1N4Bv03MebZwESSwMjykgJcbv4FpYgZNlHa/c8OM9MhTBYUl2fQFRdbtO7IB77mPZ8BqaLrCFei
+	Gs9r0fhJ3en0BF+lWGCHWxResvPuQAg3bKlQVPOqNrucGUrUwyRVpooickAnFbufKduBiU5ByUo0L
+	JU0HMu2Vw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1lD00r-00038S-C8; Fri, 19 Feb 2021 07:15:41 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1lD060-0003Ss-P7; Fri, 19 Feb 2021 07:21:00 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1lD00n-00036Y-3k
- for linux-riscv@lists.infradead.org; Fri, 19 Feb 2021 07:15:38 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id ba1so2883579plb.1
- for <linux-riscv@lists.infradead.org>; Thu, 18 Feb 2021 23:15:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+ id 1lD05y-0003SJ-2D
+ for linux-riscv@lists.infradead.org; Fri, 19 Feb 2021 07:20:59 +0000
+Received: by mail-pl1-x636.google.com with SMTP id a24so2859826plm.11
+ for <linux-riscv@lists.infradead.org>; Thu, 18 Feb 2021 23:20:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=KPZ5e+WI7QScUG4Pb9YaSk3mJ5BTJO553uiidTwwPnQ=;
- b=Km3K5boy26IbZJy6Uc0nROwK+ch9BJ2OS2wT3t1vxcrUO8w4Zw/S2U21vRVta1pw/I
- M5bB4kN0ulIs1ahQVNdykfDUUWDaL2bONzQ93NMKlT/QtFJmrlMPF07XZBq9QPDx6pxG
- V8NZfJPlSEUJNhKf7wnRz3gR5Uhoi0nvSzdKJO4ZSVl//E5I1ADEe0+Bh+0qJdUdGIhG
- kHsgep0V2bnrIUlIm98UHLjqvlXZVbguu0+V5SazmnxAj+T6H9ATroeIVn2dQ+o5Df+s
- i3pZ1SxBJt8vn1a196vWt0sMLI2nD4uP5dFBnFCm1dbizEj4h0+9iJ5Q2t+tpBbreg3Q
- m07Q==
+ bh=1GlAl/OST5BOect0GC63qFciE+OwKMNcFl5A98T7cS8=;
+ b=SXyCc/0E8NaLWy2sZhLWFntNmHiWj/iuFZnSYnfGGWpvMWl1mFKj4lteEz0srOYzfP
+ y1uuvS2HQvER9awtxefI+TwRp+WWLqVEft6k7dnBgpQy9YHVOdymVwkIcOlGGsMlI9wj
+ bv2lK+2FviU60l2cxCjpBjxGnU0liZTGDOH6zMZafkvxpOZHoWcL3eu9//0OYXi3kTxE
+ RjXlPXiAk9bxPipOwg4Gl2yYdRDq67JLGPhWwOZUzm/b5Ls9k36JcxDs2JPCQwV+ZkEW
+ H76v3RdX/punuR3LMZ5Omm6cZ1v8ElpZW4WF7ylsyCR9o39PoP4Ct1FYfqaxjl+5WjO6
+ Omdg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=KPZ5e+WI7QScUG4Pb9YaSk3mJ5BTJO553uiidTwwPnQ=;
- b=RQ0kS5C7Vnw0EKsdmLDuG3Ul6bwFS9hUpqHWHMia4Vo2h9jH3MHqZ1niHuXzkGPtRe
- Vdr+UEQKYwtvbOQfJxh/i8JWG8D8yrplhLBK2vxA5KiQ5MHinZ71Qx7lZo8Uo4VvZ24d
- gTBrI+wGfs9Z1UVme5Jpu9pV7TwV+YJGTPkSdsXDwhtzVU0Mot2gky+tkNXy1FbCjPpY
- 9syspLBabyP3drWXfDSKxgwRCc/gqwepITvep4el25RZk1WCGXotzni6+mHamgZutwRs
- /fmUyERwRlf6P7opyjjws+S3lCDyLw8Wqy/Hie6SsPiYQW35MW/1px9iC/sRFs4oMP+V
- NNcA==
-X-Gm-Message-State: AOAM533WQd80OsfDa7yjORUNG7iEGRCzDbuE3pWdRFp/qKgCltns8uE0
- 7WU5dH3AyNsL/v4pe12zzPishLaRzjJHrY5/
-X-Google-Smtp-Source: ABdhPJzA6v2v4lWVJczpXckHFjkNGIxtz3xyvqXeT7rEN/x5uvJ5Du4BqmG7cJXpvDZ/dfRErioYTA==
-X-Received: by 2002:a17:902:b009:b029:e3:6915:5475 with SMTP id
- o9-20020a170902b009b02900e369155475mr7925991plr.34.1613718933323; 
- Thu, 18 Feb 2021 23:15:33 -0800 (PST)
+ bh=1GlAl/OST5BOect0GC63qFciE+OwKMNcFl5A98T7cS8=;
+ b=qiqwY0l2wnK91puMhm19lfuPRSx3tfPDFvV+9AOsahAqAXNCtjSeZ9S933dKvZxL2r
+ QhVOhezX2i6r+dutEG0GQ6odZjV3IplU04HI/sW66TvkOCW88w79jHC6lVDoEoDEHxmU
+ InWUQouR+A7rDuH5vNVAELWt+lqWxS8/da9L0UKYkLyNqUmdd56lttuhk4yi5sgsSz1s
+ iZzXsVz3SlhMZR4KFuYTPYEQC/9wvKaOPGzfmOGEUBrCTOkc8OrK6havLRbb0MoF7l/r
+ UHzGlHJ4+Rvu1OkXbvc3xehPHFmg2TUf3G30ImwjyRXNOy9J6YuhvPeLa/bSFylwE2RB
+ OfHA==
+X-Gm-Message-State: AOAM531WnT6NnDZlV7uYgZCgrbTKC0LDDp3hbYM32rJzrDvp+IQO7Vra
+ usteHxlFp3MBkdRPtApUVCfX6hZ8Xn0ByDzP
+X-Google-Smtp-Source: ABdhPJw8KpyY07UcO63uwGYg4/Pu/8mRYeBmWhXVToOFSblEDLySTJ/jP1LEIw7rxt6GwLXGgerP7Q==
+X-Received: by 2002:a17:90a:ad97:: with SMTP id
+ s23mr7875056pjq.212.1613719255580; 
+ Thu, 18 Feb 2021 23:20:55 -0800 (PST)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id v1sm10131680pfi.99.2021.02.18.23.15.32
+ by smtp.gmail.com with ESMTPSA id w187sm7960326pfb.208.2021.02.18.23.20.54
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 18 Feb 2021 23:15:32 -0800 (PST)
-Date: Thu, 18 Feb 2021 23:15:32 -0800 (PST)
-X-Google-Original-Date: Thu, 18 Feb 2021 22:32:57 PST (-0800)
-Subject: Re: [PATCH] RISC-V: Enable CPU Hotplug in defconfigs
-In-Reply-To: <20210209054620.25005-1-anup.patel@wdc.com>
-From: Palmer Dabbelt <palmerdabbelt@google.com>
-To: Anup Patel <Anup.Patel@wdc.com>
-Message-ID: <mhng-ae92ee05-1177-4e83-9385-1e513e4883d1@palmerdabbelt-glaptop>
+ Thu, 18 Feb 2021 23:20:55 -0800 (PST)
+Date: Thu, 18 Feb 2021 23:20:55 -0800 (PST)
+X-Google-Original-Date: Thu, 18 Feb 2021 23:20:53 PST (-0800)
+Subject: Re: [PATCH v19 00/17] RISC-V Kendryte K210 support improvements
+In-Reply-To: <BL0PR04MB65149B2F9A3722043CE65E79E7849@BL0PR04MB6514.namprd04.prod.outlook.com>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Damien Le Moal <Damien.LeMoal@wdc.com>
+Message-ID: <mhng-67681b51-690a-4aaa-9fc7-13d35b2b1693@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210219_021537_243163_06743880 
-X-CRM114-Status: GOOD (  15.81  )
+X-CRM114-CacheID: sfid-20210219_022058_210028_102E8311 
+X-CRM114-Status: GOOD (  23.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -92,51 +93,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, anup@brainfault.org, Anup Patel <Anup.Patel@wdc.com>,
- linux-kernel@vger.kernel.org, Atish Patra <Atish.Patra@wdc.com>,
- Alistair Francis <Alistair.Francis@wdc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
+Cc: sboyd@kernel.org, Atish Patra <Atish.Patra@wdc.com>,
+ linux-riscv@lists.infradead.org, Anup Patel <Anup.Patel@wdc.com>,
+ seanga2@gmail.com
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 08 Feb 2021 21:46:20 PST (-0800), Anup Patel wrote:
-> The CPU hotplug support has been tested on QEMU, Spike, and SiFive
-> Unleashed so let's enable it by default in RV32 and RV64 defconfigs.
+>On Thu, 18 Feb 2021 22:54:03 PST (-0800), Damien Le Moal wrote:
+>> On 2021/02/19 15:29, Palmer Dabbelt wrote:
+>> On Tue, 09 Feb 2021 21:02:13 PST (-0800), Damien Le Moal wrote:
+>>> This series of patches improves support for boards based on the Canaan
+>>> Kendryte K210 RISC-V dual core SoC. Minimal support for this SoC is
+>>> already included in the kernel. These patches complete it, enabling
+>>> support for most peripherals present on the SoC as well as introducing
+>>> device trees for the various K210 boards available on the market today
+>>> from SiPeed and Kendryte.
+>>>
+>>> The patches here are the remaining patches not yet applied.
+>>>
+>>> Patch 1 adds the SoC clock driver.
+>> 
+>> I don't see a Review or Ack for this one, so I haven't taken it.  Not sure if I
+>> just missed it or if it's going in through the clock tree.
 >
-> Signed-off-by: Anup Patel <anup.patel@wdc.com>
-> ---
->  arch/riscv/configs/defconfig      | 1 +
->  arch/riscv/configs/rv32_defconfig | 1 +
->  2 files changed, 2 insertions(+)
+>Stephen sent his reviewed-by. It is on lore:
 >
-> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-> index 8c3d1e451703..6c0625aa96c7 100644
-> --- a/arch/riscv/configs/defconfig
-> +++ b/arch/riscv/configs/defconfig
-> @@ -17,6 +17,7 @@ CONFIG_BPF_SYSCALL=y
->  CONFIG_SOC_SIFIVE=y
->  CONFIG_SOC_VIRT=y
->  CONFIG_SMP=y
-> +CONFIG_HOTPLUG_CPU=y
->  CONFIG_JUMP_LABEL=y
->  CONFIG_MODULES=y
->  CONFIG_MODULE_UNLOAD=y
-> diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
-> index 2c2cda6cc1c5..8dd02b842fef 100644
-> --- a/arch/riscv/configs/rv32_defconfig
-> +++ b/arch/riscv/configs/rv32_defconfig
-> @@ -18,6 +18,7 @@ CONFIG_SOC_SIFIVE=y
->  CONFIG_SOC_VIRT=y
->  CONFIG_ARCH_RV32I=y
->  CONFIG_SMP=y
-> +CONFIG_HOTPLUG_CPU=y
->  CONFIG_JUMP_LABEL=y
->  CONFIG_MODULES=y
->  CONFIG_MODULE_UNLOAD=y
+>https://lore.kernel.org/linux-riscv/161301087300.1254594.18438542581140302342@swboyd.mtv.corp.google.com/
+>
+>There are a few additional nits he pointed out but I will send an incremental
+>patch for these later. I think this patch needs to go through the risc-v tree
+>since it touches the sysctl driver too.
 
-Thanks, this is on for-next.
+Thanks, it's on for-next (and in order).
+
+>
+>> 
+>>> Patches 2 to 9 add and update device tree bindings documentation to
+>>> document the K210 device tree files. In particular, patch 2 and 3
+>>> define compatible strings used for the SoC CPU and for the K210 based
+>>> boards supported.
+>>>
+>>> Patches 10 to 15 update the existing K210 base device tree and add new
+>>> device tree files for several K210 based boards: MAIX Bit, MAIXDUINO,
+>>> MAIX Dock and MAIX Go boards from SiPeed and the KD233 development
+>>> board from Canaan.
+>> 
+>> Looks like I already have patch 10.
+>
+>How come ? This version is the fixed one which removes undocumented dt nodes.
+>Did you queue an older version ?
+
+Yep -- I'd just spot checked some and didn't see a difference, but I guess I
+didn't look closly enough.  It's fixed now.
+
+Thanks!
+
+>
+>> 
+>> The other DT files have an entry for a microphone with an undocumented
+>> compatible string, which triggers checkpatch.  I've removed it, along with the
+>> audio entry that references it.  I don't really have an opinion on how that
+>> stuff is in the DT, just that we need to document whatever we put in there.  If
+>> it breaks something I'm happy to swap it out for another version, I'm not
+>> planning on sending it up until next week (I'm sening a PR this week, just with
+>> some older stuff).
+>
+>Works for me. Thanks.
+>
+>> 
+>> Thanks!
+>
+>
+>-- 
+>Damien Le Moal
+>Western Digital Research
+>
 
 _______________________________________________
 linux-riscv mailing list
