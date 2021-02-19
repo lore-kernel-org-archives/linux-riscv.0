@@ -3,19 +3,19 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
 X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7D4C8C433E0
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Feb 2021 07:15:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0F1D1C433DB
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Feb 2021 07:15:58 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 4E1CA64EC4
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Feb 2021 07:15:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 4E1CA64EC4
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
+	by mail.kernel.org (Postfix) with ESMTPS id B3B0D64E77
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Feb 2021 07:15:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B3B0D64E77
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
@@ -23,64 +23,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=Qb9L8M3jV6Pb6ApF6MSDA0FMisq3P3j4BnVoTB3Qxpc=; b=zNL1wBt4RkxXuu/3hxFcDVWLY
-	S41qpUA6X2EZtWNZCmGJTnH9EDxcS+DPcUmDb5QCAlGJCEKS9yozmpZmioMPUq5Okzm7KFTly4YF/
-	0auF0I3o6rRjqq041B3cClYiTtpWWPyYGINjoJiL7oVRSNIGc3s2OH6I83Yk4/PlG2xNX0Br0SkT/
-	+QlHG+ocq9A6w/iXwBVVXuXoIM/pm0y1GDA6CQ3jFpcbfo11J+9XxpAxeNtGJ0SuMBDR02RAkN+JB
-	EZtQ9YhClsACDYBTlCpf+eKk8oH4yFQA/sjEBObuKaG3U+bvw0Nj/K7pUeb0gxend2XR4z5il8TEi
-	jqPKWDYrg==;
+	 bh=WaT8ISsuAew21H4Z7igKxcxmdJe/tY0r2dpPEXB0b8U=; b=Dl1gakUNBrUVV3oLLhDn3gF18
+	dYs4nCHy4q/eTRyykGuZaVEq12+7QJaJz9svpLcu4boeIZGe2cYaF1Lwnb9PooZd/D9oheYCTxpL1
+	1JnxoPLf+DCJlAJiuQgdg1eMvAVbB3LkedN/4jJjyKoAecWokeoInNnDG3diu5D4ed15JNR+NzYYH
+	VUPCiyIc0+4IziO8rST0KpnaPCP+Z0vcMpRQw0h3HpS+9PNY/oMaHJpfqNRs9TtyCBN0v9kYbJfO6
+	SwP3b9DfEowEnWEJj+Ux+jBgLHyRPzZtjxkAc52cnzeid63C5b2PS86ZVSR48+p6aBO8GCHJTOvB2
+	qjZFHxNrg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1lD00o-00037l-6m; Fri, 19 Feb 2021 07:15:38 +0000
-Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
+	id 1lD00r-00038S-C8; Fri, 19 Feb 2021 07:15:41 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1lD00k-00036U-Sf
- for linux-riscv@lists.infradead.org; Fri, 19 Feb 2021 07:15:35 +0000
-Received: by mail-pg1-x531.google.com with SMTP id o7so3161733pgl.1
- for <linux-riscv@lists.infradead.org>; Thu, 18 Feb 2021 23:15:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ id 1lD00n-00036Y-3k
+ for linux-riscv@lists.infradead.org; Fri, 19 Feb 2021 07:15:38 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id ba1so2883579plb.1
+ for <linux-riscv@lists.infradead.org>; Thu, 18 Feb 2021 23:15:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=8lkt95sYDeUCTA7YkMKfu8hbBBB95/u7drARDDbQrSg=;
- b=tu8tprzG0VoPsS9SNZb6PNcZ6dgf6WslQym9zNsgOqjJAdjG5IGVSGTO4T+Rqx/46f
- mQwDxxXwf9K7lzB0Ry8T8iTt5PPiyEBYstOPltq1seJbkXVEYldKz/helr7mYm2s2uFy
- ypqYcu1IknYq2ozb2G5iNfDJ3jgBUTN4Dcbix+/lVWhL8m8GLb11Hw55lIY6l+PTCVBL
- GpNXbpgAnPibtThARk3KAKmxFBwLRqmJrqzV7Jw40n5K+lDVhE8/+Dfa4C8KwY7OpyCT
- AAKo8apgjTRu9XCCLHJA8E7PaevkKYrqGn3eItgnRfxwGOv9sM+qFxF36wpz59IrG/ty
- OjWg==
+ bh=KPZ5e+WI7QScUG4Pb9YaSk3mJ5BTJO553uiidTwwPnQ=;
+ b=Km3K5boy26IbZJy6Uc0nROwK+ch9BJ2OS2wT3t1vxcrUO8w4Zw/S2U21vRVta1pw/I
+ M5bB4kN0ulIs1ahQVNdykfDUUWDaL2bONzQ93NMKlT/QtFJmrlMPF07XZBq9QPDx6pxG
+ V8NZfJPlSEUJNhKf7wnRz3gR5Uhoi0nvSzdKJO4ZSVl//E5I1ADEe0+Bh+0qJdUdGIhG
+ kHsgep0V2bnrIUlIm98UHLjqvlXZVbguu0+V5SazmnxAj+T6H9ATroeIVn2dQ+o5Df+s
+ i3pZ1SxBJt8vn1a196vWt0sMLI2nD4uP5dFBnFCm1dbizEj4h0+9iJ5Q2t+tpBbreg3Q
+ m07Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=8lkt95sYDeUCTA7YkMKfu8hbBBB95/u7drARDDbQrSg=;
- b=Uvnwv0ZQ5UZV2BuSdRdQ0YsNYTh2Yh0P1T/FIhvxr41fX7RK5nX4IKtktKLJM3TiTT
- RdM5p5rB6/8f6VhvFJGiTHG3wNWewrfQftmx9JMJ0YjEkf/6yAl0ATRRxmfz3AMCkGV2
- M+ymSTnWwEZHPOnkOIGdDvxypLPcBp64R0gRaJyQPasyJjH+sdBMWalXVV7L/XqACLb7
- 6AGWUS/WjWgGQ2CiC6YLXxY1jP0DqevVOpo0SJgVS6+oAlaQgLrSksdtHHxUdqi9TC0p
- osnLoophTtpsBQCzn0EqPQqpHPofhtZ/QRJMl/w/TIPMPZspAXFCSMQeVZsvJBLL2DKq
- CAOw==
-X-Gm-Message-State: AOAM530B0Jpk6ZqVFmah6HhhCXXKpcQPHdWjvA2ovMXFuYtnCz5MLQ2q
- FFOOtBUwcXlQxpwFmqOIolmi9HgJT7e6wNwY
-X-Google-Smtp-Source: ABdhPJyz186f/9X/542mJSTspWidUwiw6l27WyxazjJrpOzIeAlv+wk5d3iznettXDozMVViz+tG5g==
-X-Received: by 2002:a63:1f1e:: with SMTP id f30mr7519298pgf.141.1613718931884; 
- Thu, 18 Feb 2021 23:15:31 -0800 (PST)
+ bh=KPZ5e+WI7QScUG4Pb9YaSk3mJ5BTJO553uiidTwwPnQ=;
+ b=RQ0kS5C7Vnw0EKsdmLDuG3Ul6bwFS9hUpqHWHMia4Vo2h9jH3MHqZ1niHuXzkGPtRe
+ Vdr+UEQKYwtvbOQfJxh/i8JWG8D8yrplhLBK2vxA5KiQ5MHinZ71Qx7lZo8Uo4VvZ24d
+ gTBrI+wGfs9Z1UVme5Jpu9pV7TwV+YJGTPkSdsXDwhtzVU0Mot2gky+tkNXy1FbCjPpY
+ 9syspLBabyP3drWXfDSKxgwRCc/gqwepITvep4el25RZk1WCGXotzni6+mHamgZutwRs
+ /fmUyERwRlf6P7opyjjws+S3lCDyLw8Wqy/Hie6SsPiYQW35MW/1px9iC/sRFs4oMP+V
+ NNcA==
+X-Gm-Message-State: AOAM533WQd80OsfDa7yjORUNG7iEGRCzDbuE3pWdRFp/qKgCltns8uE0
+ 7WU5dH3AyNsL/v4pe12zzPishLaRzjJHrY5/
+X-Google-Smtp-Source: ABdhPJzA6v2v4lWVJczpXckHFjkNGIxtz3xyvqXeT7rEN/x5uvJ5Du4BqmG7cJXpvDZ/dfRErioYTA==
+X-Received: by 2002:a17:902:b009:b029:e3:6915:5475 with SMTP id
+ o9-20020a170902b009b02900e369155475mr7925991plr.34.1613718933323; 
+ Thu, 18 Feb 2021 23:15:33 -0800 (PST)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id x8sm7460978pjf.55.2021.02.18.23.15.31
+ by smtp.gmail.com with ESMTPSA id v1sm10131680pfi.99.2021.02.18.23.15.32
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 18 Feb 2021 23:15:31 -0800 (PST)
-Date: Thu, 18 Feb 2021 23:15:31 -0800 (PST)
-X-Google-Original-Date: Thu, 18 Feb 2021 22:32:08 PST (-0800)
-Subject: Re: [PATCH v2] riscv: Cleanup setup_bootmem()
-In-Reply-To: <20210209010151.85751-1-wangkefeng.wang@huawei.com>
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: wangkefeng.wang@huawei.com
-Message-ID: <mhng-b8acf3e5-d496-4094-8b55-c7a6d5fa2dc5@palmerdabbelt-glaptop>
+ Thu, 18 Feb 2021 23:15:32 -0800 (PST)
+Date: Thu, 18 Feb 2021 23:15:32 -0800 (PST)
+X-Google-Original-Date: Thu, 18 Feb 2021 22:32:57 PST (-0800)
+Subject: Re: [PATCH] RISC-V: Enable CPU Hotplug in defconfigs
+In-Reply-To: <20210209054620.25005-1-anup.patel@wdc.com>
+From: Palmer Dabbelt <palmerdabbelt@google.com>
+To: Anup Patel <Anup.Patel@wdc.com>
+Message-ID: <mhng-ae92ee05-1177-4e83-9385-1e513e4883d1@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210219_021535_263958_9A896FC1 
-X-CRM114-Status: GOOD (  23.22  )
+X-CRM114-CacheID: sfid-20210219_021537_243163_06743880 
+X-CRM114-Status: GOOD (  15.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -92,72 +92,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Atish Patra <Atish.Patra@wdc.com>, linux-riscv@lists.infradead.org,
- wangkefeng.wang@huawei.com, Paul Walmsley <paul.walmsley@sifive.com>
+Cc: aou@eecs.berkeley.edu, anup@brainfault.org, Anup Patel <Anup.Patel@wdc.com>,
+ linux-kernel@vger.kernel.org, Atish Patra <Atish.Patra@wdc.com>,
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 08 Feb 2021 17:01:51 PST (-0800), wangkefeng.wang@huawei.com wrote:
-> After the following patches,
+On Mon, 08 Feb 2021 21:46:20 PST (-0800), Anup Patel wrote:
+> The CPU hotplug support has been tested on QEMU, Spike, and SiFive
+> Unleashed so let's enable it by default in RV32 and RV64 defconfigs.
 >
->   commit de043da0b9e7 ("RISC-V: Fix usage of memblock_enforce_memory_limit")
->   commit 1bd14a66ee52 ("RISC-V: Remove any memblock representing unusable memory area")
->   commit b10d6bca8720 ("arch, drivers: replace for_each_membock() with for_each_mem_range()")
->
-> some logic is useless, kill the mem_start/start/end and unneeded code.
->
-> Reviewed-by: Atish Patra <atish.patra@wdc.com>
-> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+> Signed-off-by: Anup Patel <anup.patel@wdc.com>
 > ---
-> v2:
-> - Update changelog and add RB.
+>  arch/riscv/configs/defconfig      | 1 +
+>  arch/riscv/configs/rv32_defconfig | 1 +
+>  2 files changed, 2 insertions(+)
 >
->  arch/riscv/mm/init.c | 21 ++-------------------
->  1 file changed, 2 insertions(+), 19 deletions(-)
->
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index 0b86a1a12da2..241f22348403 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -108,34 +108,17 @@ void __init mem_init(void)
->
->  void __init setup_bootmem(void)
->  {
-> -	phys_addr_t mem_start = 0;
-> -	phys_addr_t start, dram_end, end = 0;
->  	phys_addr_t vmlinux_end = __pa_symbol(&_end);
->  	phys_addr_t vmlinux_start = __pa_symbol(&_start);
-> +	phys_addr_t dram_end = memblock_end_of_DRAM();
->  	phys_addr_t max_mapped_addr = __pa(~(ulong)0);
-> -	u64 i;
-> -
-> -	/* Find the memory region containing the kernel */
-> -	for_each_mem_range(i, &start, &end) {
-> -		phys_addr_t size = end - start;
-> -		if (!mem_start)
-> -			mem_start = start;
-> -		if (start <= vmlinux_start && vmlinux_end <= end)
-> -			BUG_ON(size == 0);
-> -	}
->
-> -	/*
-> -	 * The maximal physical memory size is -PAGE_OFFSET.
-> -	 * Make sure that any memory beyond mem_start + (-PAGE_OFFSET) is removed
-> -	 * as it is unusable by kernel.
-> -	 */
-> +	/* The maximal physical memory size is -PAGE_OFFSET. */
->  	memblock_enforce_memory_limit(-PAGE_OFFSET);
->
->  	/* Reserve from the start of the kernel to the end of the kernel */
->  	memblock_reserve(vmlinux_start, vmlinux_end - vmlinux_start);
->
-> -	dram_end = memblock_end_of_DRAM();
-> -
->  	/*
->  	 * memblock allocator is not aware of the fact that last 4K bytes of
->  	 * the addressable memory can not be mapped because of IS_ERR_VALUE
+> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+> index 8c3d1e451703..6c0625aa96c7 100644
+> --- a/arch/riscv/configs/defconfig
+> +++ b/arch/riscv/configs/defconfig
+> @@ -17,6 +17,7 @@ CONFIG_BPF_SYSCALL=y
+>  CONFIG_SOC_SIFIVE=y
+>  CONFIG_SOC_VIRT=y
+>  CONFIG_SMP=y
+> +CONFIG_HOTPLUG_CPU=y
+>  CONFIG_JUMP_LABEL=y
+>  CONFIG_MODULES=y
+>  CONFIG_MODULE_UNLOAD=y
+> diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
+> index 2c2cda6cc1c5..8dd02b842fef 100644
+> --- a/arch/riscv/configs/rv32_defconfig
+> +++ b/arch/riscv/configs/rv32_defconfig
+> @@ -18,6 +18,7 @@ CONFIG_SOC_SIFIVE=y
+>  CONFIG_SOC_VIRT=y
+>  CONFIG_ARCH_RV32I=y
+>  CONFIG_SMP=y
+> +CONFIG_HOTPLUG_CPU=y
+>  CONFIG_JUMP_LABEL=y
+>  CONFIG_MODULES=y
+>  CONFIG_MODULE_UNLOAD=y
 
 Thanks, this is on for-next.
 
