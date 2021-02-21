@@ -2,61 +2,63 @@ Return-Path: <SRS0=ZPlh=HX=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-10.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
+	MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7E9AAC433DB
-	for <linux-riscv@archiver.kernel.org>; Sun, 21 Feb 2021 13:38:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B7B09C433E0
+	for <linux-riscv@archiver.kernel.org>; Sun, 21 Feb 2021 13:42:28 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0BB4B64E15
-	for <linux-riscv@archiver.kernel.org>; Sun, 21 Feb 2021 13:38:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0BB4B64E15
+	by mail.kernel.org (Postfix) with ESMTPS id 742A964E92
+	for <linux-riscv@archiver.kernel.org>; Sun, 21 Feb 2021 13:42:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 742A964E92
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
 	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:References:
-	To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=kGWA3ff/14WNCcuHSyKkRheV4RVNH/q2ejLfJaQ51N8=; b=HDFJ2kNKqsSUU4wGw+Vuk1+Xw
-	MaVXpBo7sT3CxJz6EcfZw/LV2gjrCl6EHEZ+JUQm5v3nzddiIHAtcNNo+Sm6w0iI9NZnfL5RG9mB3
-	nD0XdlvOAnuyus88POk2WVmhyEM0gO/3ue3ZpyyfhBq+0XtWCb2x7eLq34xQOD1vb4B1BTBZktV1+
-	+pjYNsJvdfe9KE+YiXLET+ufqz/P/R03Zj941kzJjxpD/ZuAM8UjPXqW/dEfbgNOC4gp9PlEOcOU1
-	Y5qD0nUfQPA80M11sd+Lw/t9HMSR5DZlkdlztQsEQvzWRFpjfMcYmUJxrlgmzLkluldapx3raS/ZP
-	HL4Dy8suw==;
+	 bh=KkhArguRcVy6gaMEAtoQCUsowcJxZq2fUU48Vl/SmI4=; b=sbP8lL/apODd2d7+YJGchUBRS
+	8lqeHJU8YBUsmTmcH278v4z8GC4K+FZhv+NK9xxPayhaFmctBb8JHqIrS8sfS3o2mWY/Q/6JCuP9o
+	OkUhSjTFji15dFhSANr3XvDcU86x1WDsHtfCNqhrtW2yoAg4gERi1YQS3BWbCLIRd8Vm8BmNZtncn
+	Q5o1nJSvtFIjB96WND0KMiR01DRnQSjTaJQe1zDYLiPBneFI4IYbDGEtFXLn/zjt4Tzqf+/DHKkac
+	gK0HDhckE6WoO1Qw6skF0P9e551bNKcAS5/VUm2TJ+dyN4sJqSpr1p/vDgfp6Lt6pTbu/INrLYuPn
+	aFcRBVMYQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1lDowF-0001s5-CA; Sun, 21 Feb 2021 13:38:19 +0000
-Received: from relay7-d.mail.gandi.net ([217.70.183.200])
+	id 1lDp09-0001z8-Hy; Sun, 21 Feb 2021 13:42:21 +0000
+Received: from relay11.mail.gandi.net ([217.70.178.231])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1lDowC-0001ri-3t
- for linux-riscv@lists.infradead.org; Sun, 21 Feb 2021 13:38:17 +0000
-X-Originating-IP: 2.7.49.219
+ id 1lDp06-0001yR-6q
+ for linux-riscv@lists.infradead.org; Sun, 21 Feb 2021 13:42:20 +0000
 Received: from [192.168.1.100] (lfbn-lyo-1-457-219.w2-7.abo.wanadoo.fr
  [2.7.49.219]) (Authenticated sender: alex@ghiti.fr)
- by relay7-d.mail.gandi.net (Postfix) with ESMTPSA id DC02E20005;
- Sun, 21 Feb 2021 13:38:04 +0000 (UTC)
-Subject: Re: [PATCH v2 1/1] riscv/kasan: add KASAN_VMALLOC support
+ by relay11.mail.gandi.net (Postfix) with ESMTPSA id C7EE1100002;
+ Sun, 21 Feb 2021 13:42:09 +0000 (UTC)
+Subject: Re: [PATCH 0/4] Kasan improvements and fixes
+To: Andrey Ryabinin <aryabinin@virtuozzo.com>,
+ Alexander Potapenko <glider@google.com>, Dmitry Vyukov <dvyukov@google.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ kasan-dev@googlegroups.com, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20210208193017.30904-1-alex@ghiti.fr>
 From: Alex Ghiti <alex@ghiti.fr>
-To: Palmer Dabbelt <palmer@dabbelt.com>, nylon7@andestech.com
-References: <mhng-443fd141-b9a3-4be6-a056-416877f99ea4@palmerdabbelt-glaptop>
- <2b2f3038-3e27-8763-cf78-3fbbfd2100a0@ghiti.fr>
- <4fa97788-157c-4059-ae3f-28ab074c5836@ghiti.fr>
-Message-ID: <e15fbf55-25db-7f91-6feb-fb081ab60cdb@ghiti.fr>
-Date: Sun, 21 Feb 2021 08:38:04 -0500
+Message-ID: <24d45989-4f4e-281c-3f58-d492f0b582e9@ghiti.fr>
+Date: Sun, 21 Feb 2021 08:42:08 -0500
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
  Thunderbird/78.7.1
 MIME-Version: 1.0
-In-Reply-To: <4fa97788-157c-4059-ae3f-28ab074c5836@ghiti.fr>
+In-Reply-To: <20210208193017.30904-1-alex@ghiti.fr>
 Content-Language: fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210221_083816_396440_72E6C5DE 
-X-CRM114-Status: GOOD (  33.84  )
+X-CRM114-CacheID: sfid-20210221_084218_395437_DAD32228 
+X-CRM114-Status: GOOD (  11.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -68,272 +70,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, nickhu@andestech.com, alankao@andestech.com,
- linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com, nylon7717@gmail.com,
- glider@google.com, Paul Walmsley <paul.walmsley@sifive.com>,
- aryabinin@virtuozzo.com, linux-riscv@lists.infradead.org, dvyukov@google.com
+Cc: linux-arch@vger.kernel.org, linux-mm@kvack.org
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="windows-1252"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Le 2/13/21 =E0 5:52 AM, Alex Ghiti a =E9crit=A0:
-> Hi Nylon, Palmer,
+Hi,
+
+Le 2/8/21 =E0 2:30 PM, Alexandre Ghiti a =E9crit=A0:
+> This small series contains some improvements for the riscv KASAN code:
 > =
 
-> Le 2/8/21 =E0 1:28 AM, Alex Ghiti a =E9crit=A0:
->> Hi Nylon,
->>
->> Le 1/22/21 =E0 10:56 PM, Palmer Dabbelt a =E9crit=A0:
->>> On Fri, 15 Jan 2021 21:58:35 PST (-0800), nylon7@andestech.com wrote:
->>>> It references to x86/s390 architecture.
->>>> >> So, it doesn't map the early shadow page to cover VMALLOC space.
->>>>
->>>> Prepopulate top level page table for the range that would otherwise be
->>>> empty.
->>>>
->>>> lower levels are filled dynamically upon memory allocation while
->>>> booting.
->>
->> I think we can improve the changelog a bit here with something like that:
->>
->> "KASAN vmalloc space used to be mapped using kasan early shadow page. =
-
->> KASAN_VMALLOC requires the top-level of the kernel page table to be =
-
->> properly populated, lower levels being filled dynamically upon memory =
-
->> allocation at runtime."
->>
->>>>
->>>> Signed-off-by: Nylon Chen <nylon7@andestech.com>
->>>> Signed-off-by: Nick Hu <nickhu@andestech.com>
->>>> ---
->>>> =A0arch/riscv/Kconfig=A0=A0=A0=A0=A0=A0=A0=A0 |=A0 1 +
->>>> =A0arch/riscv/mm/kasan_init.c | 57 +++++++++++++++++++++++++++++++++++=
-++-
->>>> =A02 files changed, 57 insertions(+), 1 deletion(-)
->>>>
->>>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
->>>> index 81b76d44725d..15a2c8088bbe 100644
->>>> --- a/arch/riscv/Kconfig
->>>> +++ b/arch/riscv/Kconfig
->>>> @@ -57,6 +57,7 @@ config RISCV
->>>> =A0=A0=A0=A0 select HAVE_ARCH_JUMP_LABEL
->>>> =A0=A0=A0=A0 select HAVE_ARCH_JUMP_LABEL_RELATIVE
->>>> =A0=A0=A0=A0 select HAVE_ARCH_KASAN if MMU && 64BIT
->>>> +=A0=A0=A0 select HAVE_ARCH_KASAN_VMALLOC if MMU && 64BIT
->>>> =A0=A0=A0=A0 select HAVE_ARCH_KGDB
->>>> =A0=A0=A0=A0 select HAVE_ARCH_KGDB_QXFER_PKT
->>>> =A0=A0=A0=A0 select HAVE_ARCH_MMAP_RND_BITS if MMU
->>>> diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
->>>> index 12ddd1f6bf70..4b9149f963d3 100644
->>>> --- a/arch/riscv/mm/kasan_init.c
->>>> +++ b/arch/riscv/mm/kasan_init.c
->>>> @@ -9,6 +9,19 @@
->>>> =A0#include <linux/pgtable.h>
->>>> =A0#include <asm/tlbflush.h>
->>>> =A0#include <asm/fixmap.h>
->>>> +#include <asm/pgalloc.h>
->>>> +
->>>> +static __init void *early_alloc(size_t size, int node)
->>>> +{
->>>> +=A0=A0=A0 void *ptr =3D memblock_alloc_try_nid(size, size,
->>>> +=A0=A0=A0=A0=A0=A0=A0 __pa(MAX_DMA_ADDRESS), MEMBLOCK_ALLOC_ACCESSIBL=
-E, node);
->>>> +
->>>> +=A0=A0=A0 if (!ptr)
->>>> +=A0=A0=A0=A0=A0=A0=A0 panic("%pS: Failed to allocate %zu bytes align=
-=3D%zx nid=3D%d =
-
->>>> from=3D%llx\n",
->>>> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 __func__, size, size, node, (u64)__=
-pa(MAX_DMA_ADDRESS));
->>>> +
->>>> +=A0=A0=A0 return ptr;
->>>> +}
->>>>
->>>> =A0extern pgd_t early_pg_dir[PTRS_PER_PGD];
->>>> =A0asmlinkage void __init kasan_early_init(void)
->>>> @@ -83,6 +96,40 @@ static void __init populate(void *start, void *end)
->>>> =A0=A0=A0=A0 memset(start, 0, end - start);
->>>> =A0}
->>>>
->>>> +void __init kasan_shallow_populate(void *start, void *end)
->>>> +{
->>>> +=A0=A0=A0 unsigned long vaddr =3D (unsigned long)start & PAGE_MASK;
->>>> +=A0=A0=A0 unsigned long vend =3D PAGE_ALIGN((unsigned long)end);
->>>> +=A0=A0=A0 unsigned long pfn;
->>>> +=A0=A0=A0 int index;
->>>> +=A0=A0=A0 void *p;
->>>> +=A0=A0=A0 pud_t *pud_dir, *pud_k;
->>>> +=A0=A0=A0 pgd_t *pgd_dir, *pgd_k;
->>>> +=A0=A0=A0 p4d_t *p4d_dir, *p4d_k;
->>>> +
->>>> +=A0=A0=A0 while (vaddr < vend) {
->>>> +=A0=A0=A0=A0=A0=A0=A0 index =3D pgd_index(vaddr);
->>>> +=A0=A0=A0=A0=A0=A0=A0 pfn =3D csr_read(CSR_SATP) & SATP_PPN;
->>
->> At this point in the boot process, we know that we use swapper_pg_dir =
-
->> so no need to read SATP.
->>
->>>> +=A0=A0=A0=A0=A0=A0=A0 pgd_dir =3D (pgd_t *)pfn_to_virt(pfn) + index;
->>
->> Here, this pgd_dir assignment is overwritten 2 lines below, so no need =
-
->> for it.
->>
->>>> +=A0=A0=A0=A0=A0=A0=A0 pgd_k =3D init_mm.pgd + index;
->>>> +=A0=A0=A0=A0=A0=A0=A0 pgd_dir =3D pgd_offset_k(vaddr);
->>
->> pgd_offset_k(vaddr) =3D init_mm.pgd + pgd_index(vaddr) so pgd_k =3D=3D p=
-gd_dir.
->>
->>>> +=A0=A0=A0=A0=A0=A0=A0 set_pgd(pgd_dir, *pgd_k);
->>>> +
->>>> +=A0=A0=A0=A0=A0=A0=A0 p4d_dir =3D p4d_offset(pgd_dir, vaddr);
->>>> +=A0=A0=A0=A0=A0=A0=A0 p4d_k=A0 =3D p4d_offset(pgd_k, vaddr);
->>>> +
->>>> +=A0=A0=A0=A0=A0=A0=A0 vaddr =3D (vaddr + PUD_SIZE) & PUD_MASK;
->>
->> Why do you increase vaddr *before* populating the first one ? And =
-
->> pud_addr_end does that properly: it returns the next pud address if it =
-
->> does not go beyond end address to map.
->>
->>>> +=A0=A0=A0=A0=A0=A0=A0 pud_dir =3D pud_offset(p4d_dir, vaddr);
->>>> +=A0=A0=A0=A0=A0=A0=A0 pud_k =3D pud_offset(p4d_k, vaddr);
->>>> +
->>>> +=A0=A0=A0=A0=A0=A0=A0 if (pud_present(*pud_dir)) {
->>>> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 p =3D early_alloc(PAGE_SIZE, NUMA_N=
-O_NODE);
->>>> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 pud_populate(&init_mm, pud_dir, p);
->>
->> init_mm is not needed here.
->>
->>>> +=A0=A0=A0=A0=A0=A0=A0 }
->>>> +=A0=A0=A0=A0=A0=A0=A0 vaddr +=3D PAGE_SIZE;
->>
->> Why do you need to add PAGE_SIZE ? vaddr already points to the next pud.
->>
->> It seems like this patch tries to populate userspace page table =
-
->> whereas at this point in the boot process, only swapper_pg_dir is used =
-
->> or am I missing something ?
->>
->> Thanks,
->>
->> Alex
+> - it brings a better readability of the code (patch 1/2)
+> - it fixes oversight regarding page table population which I uncovered
+>    while working on my sv48 patchset (patch 3)
+> - it helps to have better performance by using hugepages when possible
+>    (patch 4)
 > =
 
-> I implemented this morning a version that fixes all the comments I made =
-
-> earlier. I was able to insert test_kasan_module on both sv39 and sv48 =
-
-> without any modification: set_pgd "goes through" all the unused page =
-
-> table levels, whereas p*d_populate are noop for unused levels.
+> Alexandre Ghiti (4):
+>    riscv: Improve kasan definitions
+>    riscv: Use KASAN_SHADOW_INIT define for kasan memory initialization
+>    riscv: Improve kasan population function
+>    riscv: Improve kasan population by using hugepages when possible
 > =
 
-> If you have any comment, do not hesitate.
+>   arch/riscv/include/asm/kasan.h |  22 +++++-
+>   arch/riscv/mm/kasan_init.c     | 119 ++++++++++++++++++++++++---------
+>   2 files changed, 108 insertions(+), 33 deletions(-)
 > =
 
-> diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
-> index adbf94b7e68a..d643b222167c 100644
-> --- a/arch/riscv/mm/kasan_init.c
-> +++ b/arch/riscv/mm/kasan_init.c
-> @@ -195,6 +195,31 @@ static void __init kasan_populate(void *start, void =
 
-> *end)
->  =A0=A0=A0=A0=A0=A0=A0 memset(start, KASAN_SHADOW_INIT, end - start);
->  =A0}
-> =
+I'm cc-ing linux-arch and linux-mm to get more chance to have reviewers =
 
-> =
-
-> +void __init kasan_shallow_populate_pgd(unsigned long vaddr, unsigned =
-
-> long end)
-> +{
-> +=A0=A0=A0=A0=A0=A0 unsigned long next;
-> +=A0=A0=A0=A0=A0=A0 void *p;
-> +=A0=A0=A0=A0=A0=A0 pgd_t *pgd_k =3D pgd_offset_k(vaddr);
-> +
-> +=A0=A0=A0=A0=A0=A0 do {
-> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 next =3D pgd_addr_end(vaddr, =
-end);
-> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 if (pgd_page_vaddr(*pgd_k) =
-=3D=3D (unsigned =
-
-> long)lm_alias(kasan_early_shadow_pgd_next)) {
-> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 p =3D=
- memblock_alloc(PAGE_SIZE, PAGE_SIZE);
-> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 set_p=
-gd(pgd_k, pfn_pgd(PFN_DOWN(__pa(p)), =
-
-> PAGE_TABLE));
-> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 }
-> +=A0=A0=A0=A0=A0=A0 } while (pgd_k++, vaddr =3D next, vaddr !=3D end);
-> +}
-> +
-
-This way of going through the page table seems to be largely used across =
-
-the kernel (cf KASAN population functions of arm64/x86) so I do think =
-
-this patch brings value to Nylon and Nick's patch.
-
-I can propose a real patch if you agree and I'll add a co-developed by =
-
-Nylon/Nick since this only 'improves' theirs.
+on this series.
 
 Thanks,
 
 Alex
-
-> +void __init kasan_shallow_populate(void *start, void *end)
-> +{
-> +=A0=A0=A0=A0=A0=A0 unsigned long vaddr =3D (unsigned long)start & PAGE_M=
-ASK;
-> +=A0=A0=A0=A0=A0=A0 unsigned long vend =3D PAGE_ALIGN((unsigned long)end);
-> +
-> +=A0=A0=A0=A0=A0=A0 kasan_shallow_populate_pgd(vaddr, vend);
-> +
-> +=A0=A0=A0=A0=A0=A0 local_flush_tlb_all();
-> +}
-> +
->  =A0void __init kasan_init(void)
->  =A0{
->  =A0=A0=A0=A0=A0=A0=A0 phys_addr_t _start, _end;
-> @@ -206,7 +231,15 @@ void __init kasan_init(void)
->  =A0=A0=A0=A0=A0=A0=A0=A0 */
->  =A0=A0=A0=A0=A0=A0=A0 kasan_populate_early_shadow((void *)KASAN_SHADOW_S=
-TART,
->  =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 (void *)kasan_mem_to_shadow((void *)
-> - VMALLOC_END));
-> + VMEMMAP_END));
-> +=A0=A0=A0=A0=A0=A0 if (IS_ENABLED(CONFIG_KASAN_VMALLOC))
-> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 kasan_shallow_populate(
-> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 (void=
- *)kasan_mem_to_shadow((void *)VMALLOC_START),
-> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 (void=
- *)kasan_mem_to_shadow((void *)VMALLOC_END));
-> +=A0=A0=A0=A0=A0=A0 else
-> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 kasan_populate_early_shadow(
-> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 (void=
- *)kasan_mem_to_shadow((void *)VMALLOC_START),
-> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 (void=
- *)kasan_mem_to_shadow((void *)VMALLOC_END));
-> =
-
-> =
-
->  =A0=A0=A0=A0=A0=A0=A0 /* Populate the linear mapping */
->  =A0=A0=A0=A0=A0=A0=A0 for_each_mem_range(i, &_start, &_end) {
 
 _______________________________________________
 linux-riscv mailing list
