@@ -2,58 +2,78 @@ Return-Path: <SRS0=ZPlh=HX=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
+	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
+	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B0BDCC433E0
-	for <linux-riscv@archiver.kernel.org>; Sun, 21 Feb 2021 14:23:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DD77DC433E0
+	for <linux-riscv@archiver.kernel.org>; Sun, 21 Feb 2021 15:38:50 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id A119F60C41
-	for <linux-riscv@archiver.kernel.org>; Sun, 21 Feb 2021 14:23:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org A119F60C41
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
+	by mail.kernel.org (Postfix) with ESMTPS id 7EA4164F03
+	for <linux-riscv@archiver.kernel.org>; Sun, 21 Feb 2021 15:38:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7EA4164F03
+Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jehqXbR0T/dHqiIuDFIul4EJWLHpiRILQBpozbsDrfE=; b=RlFTVh++dHmM2hd37l/WBHFVYQ
-	CtMBNfXBsAWXeZaQrsHLUwJMYB+9iGYqonck1ucjby0ua1e3sqWvl+YcLNjBeDj7ucPQdoRnEQkfq
-	TTXNasnrc2pUx629Lye4IBC/Ukm66zRpFhqULPagL3ayi3T/WXJ91thWxNjtjCOMDPjz9TsAvAUFG
-	1lHd3D9XLNGA31lDbaeFzrNlAv7YRnxfQgoDl9OaoqiH3OjzilqyLFA6qmOkMmgzPbQPxO4wTEmv0
-	mjw6LrdIaBuOtAZ87oS1Slfzkg9NHoRyDOgcDAr/YE0OILYKI7AlSnEZHZ29iRq7nFokQC2eDB9cx
-	NbxBEfCg==;
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=z3kM/zwj9AnQWh/d1R1cXUioxdol0IibTFcgi5X1X5I=; b=RurNrU4mcO36O4uZ0Ix0bnVob
+	EUrEFrs5QEbJeaotFzVoSyI+NWZhC1LSMRQyTM/dUy8yVQ+QzgleGzYuKnq8e09X9qrdNM2b+rQ9S
+	WFM4C1ZeIakGhISJz+7T/rb8e64rhi3YGSEMnOnSRlaBImcFIC9DUcU88+jTIIE7DI/3YDa4szpEP
+	i9qSggTkKLeNrDHtbPdiS6DzjSHosI2naebSOAf+5YGvT2JUwzha2nsA5QTLjVhAjEZDjs66FS0bV
+	Fv1n7S38Zx97BH2FMN43kQdllwZAOBO0Vj1qOdTUK0k4orxBv8dGm8WP4x+n7bdnFCKNCMGDZIBSV
+	axP0e6S7w==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1lDpdD-0003or-Ja; Sun, 21 Feb 2021 14:22:43 +0000
-Received: from relay8-d.mail.gandi.net ([217.70.183.201])
+	id 1lDqoe-0007pD-6R; Sun, 21 Feb 2021 15:38:36 +0000
+Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1lDpdA-0003o0-LD
- for linux-riscv@lists.infradead.org; Sun, 21 Feb 2021 14:22:42 +0000
-X-Originating-IP: 2.7.49.219
-Received: from debian.home (lfbn-lyo-1-457-219.w2-7.abo.wanadoo.fr
- [2.7.49.219]) (Authenticated sender: alex@ghiti.fr)
- by relay8-d.mail.gandi.net (Postfix) with ESMTPSA id C6A621BF207;
- Sun, 21 Feb 2021 14:22:34 +0000 (UTC)
-From: Alexandre Ghiti <alex@ghiti.fr>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>,
- Dmitry Vyukov <dvyukov@google.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH] riscv: Get rid of MAX_EARLY_MAPPING_SIZE
-Date: Sun, 21 Feb 2021 09:22:33 -0500
-Message-Id: <20210221142233.3661-1-alex@ghiti.fr>
-X-Mailer: git-send-email 2.20.1
+ id 1lDqoc-0007oj-AQ
+ for linux-riscv@lists.infradead.org; Sun, 21 Feb 2021 15:38:35 +0000
+Received: by mail-qt1-x834.google.com with SMTP id v3so7565988qtw.4
+ for <linux-riscv@lists.infradead.org>; Sun, 21 Feb 2021 07:38:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=3GKaoGR/KXVQs4D+Moaoy5AaMPodEWc16wY0BNQoFag=;
+ b=ROTfgQfNz1rCye1xd3kcex7CsikFHCq4FPx79+ONWYSEfTzCkNOU2o8lq0KDTeZWk+
+ gv1dPsHH+lqqIA8x7Yr8pZ/oi6ARknsk+JJqjC3gCnOVOmQTWFbJ09in+qD3kjlF7uLm
+ b39WcYsFfEWOlP0du7C/FAedCr9kTRHv89MNL4qRL5jdVxKPbzaFSczjxFCK52G+GjWc
+ jERgNJZS5+hLyqizpVgjdWl+6DJMedkoS4m7HU5XRnWIP8xMkJowdu66KrFHqmj7/IQ5
+ Wt7hXWOg+IsOGLPPaogd2LLeaq0BG9juGh1A2rz1Ku4mQBCo7o4HU3EVja2yYb+i+LkV
+ T54w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=3GKaoGR/KXVQs4D+Moaoy5AaMPodEWc16wY0BNQoFag=;
+ b=DX6luZQPurx7AS8mdRb3C9vwwCLGbrSzbtWVR9u/9Sq0HRd8l8jfpLpL+tp0ClOBhm
+ WIasG+pvs9Ze45kVD3GiRLCOkO8Di8BnTKT/GF6nYSV0/Jl0gGpUdG2yVPZ8FmGNedyg
+ 7FvDMJUG+J2YsIhTdcSYUUXC54B7gGdJ5vwFADxlPd0OfhFg+A/0PohFNIUf9P+gb9YQ
+ TseviDNT3wmZ4GRwNn253J+WVR3STQy6HInhOSdVFU7CVJVVCklUWazphv2fv8tz9zY1
+ QVz7SQzBqiL7NekWD/LUaEk+eg8lbks21Wv+BoWjl9gbVTKxxpnt7CcTZ5CwjX0UyK6A
+ aYOw==
+X-Gm-Message-State: AOAM532nDbEMvE2PJ4y49zrGZkBDGPQk4Q44sK0LR2Awo8IrMOVeAmEI
+ KQ4K+K3DFt5GbtEj+YwYb6cvpfq044UsEvpSU1145A==
+X-Google-Smtp-Source: ABdhPJw/NiOpFR5jg8h1f+PTLGcbyf+j0YjorHfz4N81OkCwtHyksWxjcW/X3GeWitKoQXpZ62xBLmCkvgS6/EWpVZ0=
+X-Received: by 2002:ac8:7512:: with SMTP id u18mr16425751qtq.290.1613921910580; 
+ Sun, 21 Feb 2021 07:38:30 -0800 (PST)
 MIME-Version: 1.0
+References: <20210221142233.3661-1-alex@ghiti.fr>
+In-Reply-To: <20210221142233.3661-1-alex@ghiti.fr>
+From: Dmitry Vyukov <dvyukov@google.com>
+Date: Sun, 21 Feb 2021 16:38:19 +0100
+Message-ID: <CACT4Y+Y9Ax=3XnE1NaN1+Qz7oh209nncz7xULQ2Tf8BmUqmVAw@mail.gmail.com>
+Subject: Re: [PATCH] riscv: Get rid of MAX_EARLY_MAPPING_SIZE
+To: Alexandre Ghiti <alex@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210221_092240_929046_6F97401C 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20210221_103834_451879_EA753F74 
+X-CRM114-Status: GOOD (  24.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -65,70 +85,220 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Ghiti <alex@ghiti.fr>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
+ LKML <linux-kernel@vger.kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QXQgZWFybHkgYm9vdCBzdGFnZSwgd2UgaGF2ZSBhIHdob2xlIFBHRElSIHRvIG1hcCB0aGUga2Vy
-bmVsLCBzbyB0aGVyZQppcyBubyBuZWVkIHRvIHJlc3RyaWN0IHRoZSBlYXJseSBtYXBwaW5nIHNp
-emUgdG8gMTI4TUIuIFJlbW92aW5nIHRoaXMKZGVmaW5lIGFsc28gYWxsb3dzIHVzIHRvIHNpbXBs
-aWZ5IHNvbWUgY29tcGlsZSB0aW1lIGxvZ2ljLgoKVGhpcyBmaXhlcyBsYXJnZSBrZXJuZWwgbWFw
-cGluZ3Mgd2l0aCBhIHNpemUgZ3JlYXRlciB0aGFuIDEyOE1CLCBhcyBpdAppcyB0aGUgY2FzZSBm
-b3Igc3l6Ym90IGtlcm5lbHMgd2hvc2Ugc2l6ZSB3YXMganVzdCB+MTMwTUIuCgpOb3RlIHRoYXQg
-b24gcnY2NCwgZm9yIG5vdywgd2UgYXJlIHRoZW4gbGltaXRlZCB0byBQR0RJUiBzaXplIGZvciBl
-YXJseQptYXBwaW5nIGFzIHdlIGNhbid0IHVzZSBQR0QgbWFwcGluZ3PCoChzZWUgWzFdKS4gVGhh
-dCBzaG91bGQgYmUgZW5vdWdoCmdpdmVuIHRoZSByZWxhdGl2ZSBzbWFsbCBzaXplIG9mIHN5emJv
-dCBrZXJuZWxzIGNvbXBhcmVkIHRvIFBHRElSX1NJWkUKd2hpY2ggaXMgMUdCLgoKWzFdIGh0dHBz
-Oi8vbG9yZS5rZXJuZWwub3JnL2xrbWwvMjAyMDA2MDMxNTM2MDguMzAwNTYtMS1hbGV4QGdoaXRp
-LmZyLwoKUmVwb3J0ZWQtYnk6IERtaXRyeSBWeXVrb3YgPGR2eXVrb3ZAZ29vZ2xlLmNvbT4KU2ln
-bmVkLW9mZi1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4QGdoaXRpLmZyPgotLS0KIGFyY2gvcmlz
-Y3YvbW0vaW5pdC5jIHwgMjEgKysrKystLS0tLS0tLS0tLS0tLS0tCiAxIGZpbGUgY2hhbmdlZCwg
-NSBpbnNlcnRpb25zKCspLCAxNiBkZWxldGlvbnMoLSkKCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2
-L21tL2luaXQuYyBiL2FyY2gvcmlzY3YvbW0vaW5pdC5jCmluZGV4IGY5Zjk1NjhkNjg5ZS4uZjgx
-ZjgxM2I5NjAzIDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L21tL2luaXQuYworKysgYi9hcmNoL3Jp
-c2N2L21tL2luaXQuYwpAQCAtMjI2LDggKzIyNiw2IEBAIHBnZF90IHN3YXBwZXJfcGdfZGlyW1BU
-UlNfUEVSX1BHRF0gX19wYWdlX2FsaWduZWRfYnNzOwogcGdkX3QgdHJhbXBvbGluZV9wZ19kaXJb
-UFRSU19QRVJfUEdEXSBfX3BhZ2VfYWxpZ25lZF9ic3M7CiBwdGVfdCBmaXhtYXBfcHRlW1BUUlNf
-UEVSX1BURV0gX19wYWdlX2FsaWduZWRfYnNzOwogCi0jZGVmaW5lIE1BWF9FQVJMWV9NQVBQSU5H
-X1NJWkUJU1pfMTI4TQotCiBwZ2RfdCBlYXJseV9wZ19kaXJbUFRSU19QRVJfUEdEXSBfX2luaXRk
-YXRhIF9fYWxpZ25lZChQQUdFX1NJWkUpOwogCiB2b2lkIF9fc2V0X2ZpeG1hcChlbnVtIGZpeGVk
-X2FkZHJlc3NlcyBpZHgsIHBoeXNfYWRkcl90IHBoeXMsIHBncHJvdF90IHByb3QpCkBAIC0zMDIs
-MTMgKzMwMCw3IEBAIHN0YXRpYyB2b2lkIF9faW5pdCBjcmVhdGVfcHRlX21hcHBpbmcocHRlX3Qg
-KnB0ZXAsCiAKIHBtZF90IHRyYW1wb2xpbmVfcG1kW1BUUlNfUEVSX1BNRF0gX19wYWdlX2FsaWdu
-ZWRfYnNzOwogcG1kX3QgZml4bWFwX3BtZFtQVFJTX1BFUl9QTURdIF9fcGFnZV9hbGlnbmVkX2Jz
-czsKLQotI2lmIE1BWF9FQVJMWV9NQVBQSU5HX1NJWkUgPCBQR0RJUl9TSVpFCi0jZGVmaW5lIE5V
-TV9FQVJMWV9QTURTCQkxVUwKLSNlbHNlCi0jZGVmaW5lIE5VTV9FQVJMWV9QTURTCQkoMVVMICsg
-TUFYX0VBUkxZX01BUFBJTkdfU0laRSAvIFBHRElSX1NJWkUpCi0jZW5kaWYKLXBtZF90IGVhcmx5
-X3BtZFtQVFJTX1BFUl9QTUQgKiBOVU1fRUFSTFlfUE1EU10gX19pbml0ZGF0YSBfX2FsaWduZWQo
-UEFHRV9TSVpFKTsKK3BtZF90IGVhcmx5X3BtZFtQVFJTX1BFUl9QTURdIF9faW5pdGRhdGEgX19h
-bGlnbmVkKFBBR0VfU0laRSk7CiBwbWRfdCBlYXJseV9kdGJfcG1kW1BUUlNfUEVSX1BNRF0gX19p
-bml0ZGF0YSBfX2FsaWduZWQoUEFHRV9TSVpFKTsKIAogc3RhdGljIHBtZF90ICpfX2luaXQgZ2V0
-X3BtZF92aXJ0X2Vhcmx5KHBoeXNfYWRkcl90IHBhKQpAQCAtMzMwLDExICszMjIsOSBAQCBzdGF0
-aWMgcG1kX3QgKmdldF9wbWRfdmlydF9sYXRlKHBoeXNfYWRkcl90IHBhKQogCiBzdGF0aWMgcGh5
-c19hZGRyX3QgX19pbml0IGFsbG9jX3BtZF9lYXJseSh1aW50cHRyX3QgdmEpCiB7Ci0JdWludHB0
-cl90IHBtZF9udW07CisJQlVHX09OKCh2YSAtIFBBR0VfT0ZGU0VUKSA+PiBQR0RJUl9TSElGVCk7
-CiAKLQlwbWRfbnVtID0gKHZhIC0gUEFHRV9PRkZTRVQpID4+IFBHRElSX1NISUZUOwotCUJVR19P
-TihwbWRfbnVtID49IE5VTV9FQVJMWV9QTURTKTsKLQlyZXR1cm4gKHVpbnRwdHJfdCkmZWFybHlf
-cG1kW3BtZF9udW0gKiBQVFJTX1BFUl9QTURdOworCXJldHVybiAodWludHB0cl90KWVhcmx5X3Bt
-ZDsKIH0KIAogc3RhdGljIHBoeXNfYWRkcl90IF9faW5pdCBhbGxvY19wbWRfZml4bWFwKHVpbnRw
-dHJfdCB2YSkKQEAgLTQ1Miw3ICs0NDIsNyBAQCBhc21saW5rYWdlIHZvaWQgX19pbml0IHNldHVw
-X3ZtKHVpbnRwdHJfdCBkdGJfcGEpCiAJdWludHB0cl90IHZhLCBwYSwgZW5kX3ZhOwogCXVpbnRw
-dHJfdCBsb2FkX3BhID0gKHVpbnRwdHJfdCkoJl9zdGFydCk7CiAJdWludHB0cl90IGxvYWRfc3og
-PSAodWludHB0cl90KSgmX2VuZCkgLSBsb2FkX3BhOwotCXVpbnRwdHJfdCBtYXBfc2l6ZSA9IGJl
-c3RfbWFwX3NpemUobG9hZF9wYSwgTUFYX0VBUkxZX01BUFBJTkdfU0laRSk7CisJdWludHB0cl90
-IG1hcF9zaXplOwogI2lmbmRlZiBfX1BBR0VUQUJMRV9QTURfRk9MREVECiAJcG1kX3QgZml4X2Jt
-YXBfc3BtZCwgZml4X2JtYXBfZXBtZDsKICNlbmRpZgpAQCAtNDY0LDEyICs0NTQsMTEgQEAgYXNt
-bGlua2FnZSB2b2lkIF9faW5pdCBzZXR1cF92bSh1aW50cHRyX3QgZHRiX3BhKQogCSAqIEVuZm9y
-Y2UgYm9vdCBhbGlnbm1lbnQgcmVxdWlyZW1lbnRzIG9mIFJWMzIgYW5kCiAJICogUlY2NCBieSBv
-bmx5IGFsbG93aW5nIFBNRCBvciBQR0QgbWFwcGluZ3MuCiAJICovCi0JQlVHX09OKG1hcF9zaXpl
-ID09IFBBR0VfU0laRSk7CisJbWFwX3NpemUgPSBQTURfU0laRTsKIAogCS8qIFNhbml0eSBjaGVj
-ayBhbGlnbm1lbnQgYW5kIHNpemUgKi8KIAlCVUdfT04oKFBBR0VfT0ZGU0VUICUgUEdESVJfU0la
-RSkgIT0gMCk7CiAJQlVHX09OKChsb2FkX3BhICUgbWFwX3NpemUpICE9IDApOwotCUJVR19PTihs
-b2FkX3N6ID4gTUFYX0VBUkxZX01BUFBJTkdfU0laRSk7CiAKIAlwdF9vcHMuYWxsb2NfcHRlID0g
-YWxsb2NfcHRlX2Vhcmx5OwogCXB0X29wcy5nZXRfcHRlX3ZpcnQgPSBnZXRfcHRlX3ZpcnRfZWFy
-bHk7Ci0tIAoyLjIwLjEKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+On Sun, Feb 21, 2021 at 3:22 PM Alexandre Ghiti <alex@ghiti.fr> wrote:
+>
+> At early boot stage, we have a whole PGDIR to map the kernel, so there
+> is no need to restrict the early mapping size to 128MB. Removing this
+> define also allows us to simplify some compile time logic.
+>
+> This fixes large kernel mappings with a size greater than 128MB, as it
+> is the case for syzbot kernels whose size was just ~130MB.
+>
+> Note that on rv64, for now, we are then limited to PGDIR size for early
+> mapping as we can't use PGD mappings (see [1]). That should be enough
+> given the relative small size of syzbot kernels compared to PGDIR_SIZE
+> which is 1GB.
+>
+> [1] https://lore.kernel.org/lkml/20200603153608.30056-1-alex@ghiti.fr/
+
+I've applied this patch to (as it contains the HEAD fix):
+
+commit f49815047c1a3e3644a0ba38f3825c5cde8a0922 (HEAD, riscv/for-next)
+Author: Tobias Klauser <tklauser@distanz.ch>
+Date:   Tue Feb 16 18:33:05 2021 +0100
+    riscv: Disable KSAN_SANITIZE for vDSO
+
+and the kernel started booting with my large config.
+It quickly crashed (see below), but at least it started booting, so
+it's an improvement.
+
+Tested-by: Dmitry Vyukov <dvyukov@google.com>
+
+Linux version 5.11.0-rc2-00069-gf49815047c1a-dirty
+(dvyukov@dvyukov-desk.muc.corp.google.com) (riscv64-linux-gnu-gcc
+(Debian 10.2.1-6+build1) 10.2.1 20210110, GNU ld (GNU Binutils for
+Debian) 2.35.1) #34 SMP PREEMPT Sun Feb 21 15:51:40 CET 2021
+OF: fdt: Ignoring memory range 0x80000000 - 0x80200000
+Machine model: riscv-virtio,qemu
+earlycon: ns16550a0 at MMIO 0x0000000010000000 (options '')
+printk: bootconsole [ns16550a0] enabled
+efi: UEFI not found.
+cma: Reserved 16 MiB at 0x00000000fec00000
+Zone ranges:
+  DMA32    [mem 0x0000000080200000-0x00000000ffffffff]
+  Normal   empty
+Movable zone start for each node
+Early memory node ranges
+  node   0: [mem 0x0000000080200000-0x00000000ffffffff]
+Zeroed struct page in unavailable ranges: 512 pages
+Initmem setup node 0 [mem 0x0000000080200000-0x00000000ffffffff]
+SBI specification v0.2 detected
+SBI implementation ID=0x1 Version=0x8
+SBI v0.2 TIME extension detected
+SBI v0.2 IPI extension detected
+SBI v0.2 RFENCE extension detected
+software IO TLB: mapped [mem 0x00000000f7c00000-0x00000000fbc00000] (64MB)
+------------[ cut here ]------------
+DEBUG_LOCKS_WARN_ON(early_boot_irqs_disabled)
+WARNING: CPU: 0 PID: 0 at kernel/locking/lockdep.c:4085
+lockdep_hardirqs_on_prepare+0x384/0x388 kernel/locking/lockdep.c:4085
+Modules linked in:
+CPU: 0 PID: 0 Comm: swapper Not tainted 5.11.0-rc2-00069-gf49815047c1a-dirty #34
+Hardware name: riscv-virtio,qemu (DT)
+epc : lockdep_hardirqs_on_prepare+0x384/0x388 kernel/locking/lockdep.c:4085
+ ra : lockdep_hardirqs_on_prepare+0x384/0x388 kernel/locking/lockdep.c:4085
+epc : ffffffe0000c125a ra : ffffffe0000c125a sp : ffffffe006603ce0
+ gp : ffffffe006c338f0 tp : ffffffe006689e00 t0 : ffffffe00669a9a8
+ t1 : ffffffc400cc0738 t2 : 0000000000000000 s0 : ffffffe006603d20
+ s1 : ffffffe006689e00 a0 : 000000000000002d a1 : 00000000000f0000
+ a2 : 0000000000000002 a3 : ffffffe0000d2718 a4 : 0000000000000000
+ a5 : 0000000000000000 a6 : 0000000000f00000 a7 : ffffffe0066039c7
+ s2 : ffffffe004a337c0 s3 : ffffffe0076fa1b8 s4 : 0000000000000000
+ s5 : ffffffe006689e00 s6 : 0000000000000001 s7 : ffffffe07fcfc000
+ s8 : ffffffe07fcfd000 s9 : ffffffe006c3c0d0 s10: fffffffffffff000
+ s11: ffffffe004a1fbb8 t3 : 000000002d2d2d2d t4 : ffffffc400cc0737
+ t5 : ffffffc400cc0739 t6 : ffffffe0066039c8
+status: 0000000000000100 badaddr: 0000000000000000 cause: 0000000000000003
+Call Trace:
+[<ffffffe0000c125a>] lockdep_hardirqs_on_prepare+0x384/0x388
+kernel/locking/lockdep.c:4085
+[<ffffffe0001b7dc0>] trace_hardirqs_on+0x116/0x174
+kernel/trace/trace_preemptirq.c:49
+[<ffffffe00000550a>] _save_context+0xa2/0xe2
+[<ffffffe004807908>] local_flush_tlb_all
+arch/riscv/include/asm/tlbflush.h:16 [inline]
+[<ffffffe004807908>] populate arch/riscv/mm/kasan_init.c:95 [inline]
+[<ffffffe004807908>] kasan_init+0x23e/0x31a arch/riscv/mm/kasan_init.c:157
+irq event stamp: 0
+hardirqs last  enabled at (0): [<0000000000000000>] 0x0
+hardirqs last disabled at (0): [<0000000000000000>] 0x0
+softirqs last  enabled at (0): [<0000000000000000>] 0x0
+softirqs last disabled at (0): [<0000000000000000>] 0x0
+random: get_random_bytes called from init_oops_id kernel/panic.c:546
+[inline] with crng_init=0
+random: get_random_bytes called from init_oops_id kernel/panic.c:543
+[inline] with crng_init=0
+random: get_random_bytes called from print_oops_end_marker
+kernel/panic.c:556 [inline] with crng_init=0
+random: get_random_bytes called from __warn+0x1be/0x20a
+kernel/panic.c:613 with crng_init=0
+---[ end trace 0000000000000000 ]---
+Unable to handle kernel paging request at virtual address dfffffc810040000
+Oops [#1]
+Modules linked in:
+CPU: 0 PID: 0 Comm: swapper Tainted: G        W
+5.11.0-rc2-00069-gf49815047c1a-dirty #34
+Hardware name: riscv-virtio,qemu (DT)
+epc : __memset+0x60/0xfc arch/riscv/lib/memset.S:67
+ ra : populate arch/riscv/mm/kasan_init.c:96 [inline]
+ ra : kasan_init+0x256/0x31a arch/riscv/mm/kasan_init.c:157
+epc : ffffffe001791cf0 ra : ffffffe004807920 sp : ffffffe006603e80
+ gp : ffffffe006c338f0 tp : ffffffe006689e00 t0 : dfffffc810040000
+ t1 : ffffffe004a1fc80 t2 : 0000000000000000 s0 : ffffffe006603f30
+ s1 : 0000000000000001 a0 : dfffffc810040000 a1 : 0000000000000000
+ a2 : 000000000ffc0000 a3 : dfffffc820000000 a4 : 0000000000000000
+ a5 : dfffffc820000000 a6 : 0000000000f00000 a7 : ffffffe004a1fcaf
+ s2 : dfffffc810040000 s3 : 000000000000ffc0 s4 : dfffffc800000000
+ s5 : ffffffe006c46908 s6 : 0000000000000001 s7 : ffffffe07fcfc000
+ s8 : ffffffe07fcfd000 s9 : ffffffe006c3c0d0 s10: fffffffffffff000
+ s11: ffffffe004a1fbb8 t3 : 0000000000000000 t4 : 0000000000000001
+ t5 : ffffffc400943f96 t6 : ffffffe006603b98
+status: 0000000000000100 badaddr: dfffffc810040000 cause: 000000000000000f
+Call Trace:
+[<ffffffe001791cf0>] __memset+0x60/0xfc arch/riscv/lib/memset.S:65
+[<ffffffe004805e7a>] setup_arch+0x6c4/0x6f2 arch/riscv/kernel/setup.c:271
+[<ffffffe0048010ea>] start_kernel+0xca/0x5d6 init/main.c:871
+---[ end trace f68728a0d3053b52 ]---
+
+
+
+
+
+> Reported-by: Dmitry Vyukov <dvyukov@google.com>
+> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
+> ---
+>  arch/riscv/mm/init.c | 21 +++++----------------
+>  1 file changed, 5 insertions(+), 16 deletions(-)
+>
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index f9f9568d689e..f81f813b9603 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -226,8 +226,6 @@ pgd_t swapper_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
+>  pgd_t trampoline_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
+>  pte_t fixmap_pte[PTRS_PER_PTE] __page_aligned_bss;
+>
+> -#define MAX_EARLY_MAPPING_SIZE SZ_128M
+> -
+>  pgd_t early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
+>
+>  void __set_fixmap(enum fixed_addresses idx, phys_addr_t phys, pgprot_t prot)
+> @@ -302,13 +300,7 @@ static void __init create_pte_mapping(pte_t *ptep,
+>
+>  pmd_t trampoline_pmd[PTRS_PER_PMD] __page_aligned_bss;
+>  pmd_t fixmap_pmd[PTRS_PER_PMD] __page_aligned_bss;
+> -
+> -#if MAX_EARLY_MAPPING_SIZE < PGDIR_SIZE
+> -#define NUM_EARLY_PMDS         1UL
+> -#else
+> -#define NUM_EARLY_PMDS         (1UL + MAX_EARLY_MAPPING_SIZE / PGDIR_SIZE)
+> -#endif
+> -pmd_t early_pmd[PTRS_PER_PMD * NUM_EARLY_PMDS] __initdata __aligned(PAGE_SIZE);
+> +pmd_t early_pmd[PTRS_PER_PMD] __initdata __aligned(PAGE_SIZE);
+>  pmd_t early_dtb_pmd[PTRS_PER_PMD] __initdata __aligned(PAGE_SIZE);
+>
+>  static pmd_t *__init get_pmd_virt_early(phys_addr_t pa)
+> @@ -330,11 +322,9 @@ static pmd_t *get_pmd_virt_late(phys_addr_t pa)
+>
+>  static phys_addr_t __init alloc_pmd_early(uintptr_t va)
+>  {
+> -       uintptr_t pmd_num;
+> +       BUG_ON((va - PAGE_OFFSET) >> PGDIR_SHIFT);
+>
+> -       pmd_num = (va - PAGE_OFFSET) >> PGDIR_SHIFT;
+> -       BUG_ON(pmd_num >= NUM_EARLY_PMDS);
+> -       return (uintptr_t)&early_pmd[pmd_num * PTRS_PER_PMD];
+> +       return (uintptr_t)early_pmd;
+>  }
+>
+>  static phys_addr_t __init alloc_pmd_fixmap(uintptr_t va)
+> @@ -452,7 +442,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+>         uintptr_t va, pa, end_va;
+>         uintptr_t load_pa = (uintptr_t)(&_start);
+>         uintptr_t load_sz = (uintptr_t)(&_end) - load_pa;
+> -       uintptr_t map_size = best_map_size(load_pa, MAX_EARLY_MAPPING_SIZE);
+> +       uintptr_t map_size;
+>  #ifndef __PAGETABLE_PMD_FOLDED
+>         pmd_t fix_bmap_spmd, fix_bmap_epmd;
+>  #endif
+> @@ -464,12 +454,11 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+>          * Enforce boot alignment requirements of RV32 and
+>          * RV64 by only allowing PMD or PGD mappings.
+>          */
+> -       BUG_ON(map_size == PAGE_SIZE);
+> +       map_size = PMD_SIZE;
+>
+>         /* Sanity check alignment and size */
+>         BUG_ON((PAGE_OFFSET % PGDIR_SIZE) != 0);
+>         BUG_ON((load_pa % map_size) != 0);
+> -       BUG_ON(load_sz > MAX_EARLY_MAPPING_SIZE);
+>
+>         pt_ops.alloc_pte = alloc_pte_early;
+>         pt_ops.get_pte_virt = get_pte_virt_early;
+> --
+> 2.20.1
+>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
