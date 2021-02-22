@@ -2,61 +2,90 @@ Return-Path: <SRS0=ovIN=HY=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-5.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A187BC433DB
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Feb 2021 08:11:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D7180C433E0
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Feb 2021 09:39:26 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 0468C64E76
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Feb 2021 08:11:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 0468C64E76
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
+	by mail.kernel.org (Postfix) with ESMTPS id 860EF64E44
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Feb 2021 09:39:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 860EF64E44
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=redhat.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
 	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:References:
-	To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:Subject:
+	From:References:To:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=JEmZ3Onn+Wp7r4GKYnup4G866AEY9pqhy3ncAO4OpKU=; b=rGtHGqqvqZRTbOPYD6EhmOmSM
-	yHRWaXuWFytYmxh3di+AWlRolqWVAKCx/GCWgPr6a4u3otoZtxLcsdd+c3nT8U1EgAWgpgGA+3Si2
-	XHGwlwVJMsm5enK+92QFtvjHRCn+mjQjXx9X6yPtTWi+H29kcHEZg19sQ493jLHKPYXC0Igz7sNwA
-	piUjgClibiIN3qWEXlCZJW2CL24nVbzHfZzhtfxK6vvl6twhd4pvmkkHQEdgbaz9ouEDx99KQcu1x
-	/D7dgvDMMn0xrD4aTacBqFCts2lolVMmHjAqMVUPmJfQCMGIMj07xBGshwodBeZSdtDsWoJxQlOZF
-	Rxpzs8riw==;
+	 bh=QIeMZxHvF6Wukx6Oi+FEALQLmh0J0e+74SRXBIQw8XA=; b=TlVNUV24tdWz7S/SJvlaUq+2c
+	1AIVvAYZKdUe+gg8phagr2TeAZyXudLdRDO1HxkZd8RPx8LMjSwXdJPjN8+q2JjDfnfx2ENHD8sNP
+	JHWNTHj/ihIkDNWmJHXRDFinXxW47VNsCseSDQ1tK1QhVlignnHH8BiRZA30/vcU484aPe1j4lbrl
+	GCNGSzEhdii5iiroV2FsLITDRiKmDLnbOGax/75+8SyHC2LjRMQcT9VeC26BeTK9NMpxCyhtesgBe
+	7LsPaIDqF4L5JCOo/PuZzgjiRoY0GYO81physJir+v7AeYooELIvBrxCAfnS03Sb9eGELTSqJuJgM
+	I3BJq/Ypg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1lE6JJ-0001va-Gt; Mon, 22 Feb 2021 08:11:17 +0000
-Received: from relay4-d.mail.gandi.net ([217.70.183.196])
+	id 1lE7gO-0001k8-MQ; Mon, 22 Feb 2021 09:39:12 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1lE6JG-0001vB-7n
- for linux-riscv@lists.infradead.org; Mon, 22 Feb 2021 08:11:15 +0000
-X-Originating-IP: 81.185.166.122
-Received: from [192.168.43.237] (122.166.185.81.rev.sfr.net [81.185.166.122])
- (Authenticated sender: alex@ghiti.fr)
- by relay4-d.mail.gandi.net (Postfix) with ESMTPSA id 7CAABE000F;
- Mon, 22 Feb 2021 08:11:05 +0000 (UTC)
-Subject: Re: [PATCH] riscv: Get rid of MAX_EARLY_MAPPING_SIZE
-From: Alex Ghiti <alex@ghiti.fr>
-To: Dmitry Vyukov <dvyukov@google.com>
-References: <20210221142233.3661-1-alex@ghiti.fr>
- <CACT4Y+Y9Ax=3XnE1NaN1+Qz7oh209nncz7xULQ2Tf8BmUqmVAw@mail.gmail.com>
- <49980664-5121-fa58-8120-5f127288add6@ghiti.fr>
-Message-ID: <d33a4e55-d8bb-3841-6f07-3f320527c4ff@ghiti.fr>
-Date: Mon, 22 Feb 2021 03:11:05 -0500
+ id 1lE7gI-0001hQ-T7
+ for linux-riscv@lists.infradead.org; Mon, 22 Feb 2021 09:39:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1613986746;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=DFxc+0us/i36TuhQU4VjFE7oonKp2pd6VcvaTnTkT80=;
+ b=NcY7trNoTvvWTG8xIfRbed/PeUCWvMP3Sfrwm7MBila42VYi0pvtbDYNujlR9amHOZBE28
+ anDccbeCtfEECO1yUIzOj0V+OOwFImMSM6t+ElED0OOK4fV+STgh6jV92AVvJnEUS5KLfT
+ dkIRKsib5h6JdFZHOCzp9n3O+ff5aFc=
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-60-uAjoBBddN9WmOEycYhZwYw-1; Mon, 22 Feb 2021 04:39:00 -0500
+X-MC-Unique: uAjoBBddN9WmOEycYhZwYw-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com
+ [10.5.11.22])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+ (No client certificate requested)
+ by mimecast-mx01.redhat.com (Postfix) with ESMTPS id D047D18A2F09;
+ Mon, 22 Feb 2021 09:38:20 +0000 (UTC)
+Received: from [10.36.115.16] (ovpn-115-16.ams2.redhat.com [10.36.115.16])
+ by smtp.corp.redhat.com (Postfix) with ESMTP id BABB110589DD;
+ Mon, 22 Feb 2021 09:38:11 +0000 (UTC)
+To: jejb@linux.ibm.com, Michal Hocko <mhocko@suse.com>
+References: <20210214091954.GM242749@kernel.org>
+ <052DACE9-986B-424C-AF8E-D6A4277DE635@redhat.com>
+ <244f86cba227fa49ca30cd595c4e5538fe2f7c2b.camel@linux.ibm.com>
+ <YCo7TqUnBdgJGkwN@dhcp22.suse.cz>
+ <be1d821d3f0aec24ad13ca7126b4359822212eb0.camel@linux.ibm.com>
+ <YCrJjYmr7A2nO6lA@dhcp22.suse.cz>
+ <12c3890b233c8ec8e3967352001a7b72a8e0bfd0.camel@linux.ibm.com>
+ <dfd7db5c-a8c7-0676-59f8-70aa6bcaabe7@redhat.com>
+ <000cfaa0a9a09f07c5e50e573393cda301d650c9.camel@linux.ibm.com>
+ <5a8567a9-6940-c23f-0927-e4b5c5db0d5e@redhat.com>
+ <b58debfe598331791ecc238a6bf8d2cf1762203a.camel@linux.ibm.com>
+From: David Hildenbrand <david@redhat.com>
+Organization: Red Hat GmbH
+Subject: Re: [PATCH v17 07/10] mm: introduce memfd_secret system call to
+ create "secret" memory areas
+Message-ID: <304e4c9d-81aa-20ac-cfbe-245ed0de9a86@redhat.com>
+Date: Mon, 22 Feb 2021 10:38:10 +0100
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.7.1
+ Thunderbird/78.7.0
 MIME-Version: 1.0
-In-Reply-To: <49980664-5121-fa58-8120-5f127288add6@ghiti.fr>
-Content-Language: fr
+In-Reply-To: <b58debfe598331791ecc238a6bf8d2cf1762203a.camel@linux.ibm.com>
+Content-Language: en-US
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210222_031114_509742_FACEDE1A 
-X-CRM114-Status: GOOD (  24.67  )
+X-CRM114-CacheID: sfid-20210222_043906_994185_76E5CF6D 
+X-CRM114-Status: GOOD (  25.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -68,289 +97,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
- LKML <linux-kernel@vger.kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+Cc: Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, linux-mm@kvack.org,
+ linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Elena Reshetova <elena.reshetova@intel.com>, linux-arch@vger.kernel.org,
+ Tycho Andersen <tycho@tycho.ws>, linux-nvdimm@lists.01.org,
+ Will Deacon <will@kernel.org>, x86@kernel.org,
+ Matthew Wilcox <willy@infradead.org>, Mike Rapoport <rppt@linux.ibm.com>,
+ Ingo Molnar <mingo@redhat.com>, Michael Kerrisk <mtk.manpages@gmail.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>, Arnd Bergmann <arnd@arndb.de>,
+ Hagen Paul Pfeifer <hagen@jauu.net>, Borislav Petkov <bp@alien8.de>,
+ Alexander Viro <viro@zeniv.linux.org.uk>, Andy Lutomirski <luto@kernel.org>,
  Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="windows-1252"; Format="flowed"
+ "Kirill A. Shutemov" <kirill@shutemov.name>,
+ Dan Williams <dan.j.williams@intel.com>, linux-arm-kernel@lists.infradead.org,
+ linux-api@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-fsdevel@vger.kernel.org, Shakeel Butt <shakeelb@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>,
+ Mike Rapoport <rppt@kernel.org>
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Le 2/22/21 =E0 12:40 AM, Alex Ghiti a =E9crit=A0:
-> Hi Dmitry,
-> =
-
-> Le 2/21/21 =E0 10:38 AM, Dmitry Vyukov a =E9crit=A0:
->> On Sun, Feb 21, 2021 at 3:22 PM Alexandre Ghiti <alex@ghiti.fr> wrote:
+On 17.02.21 17:19, James Bottomley wrote:
+> On Tue, 2021-02-16 at 18:16 +0100, David Hildenbrand wrote:
+> [...]
+>>>>    The discussion regarding migratability only really popped up
+>>>> because this is a user-visible thing and not being able to
+>>>> migrate can be a real problem (fragmentation, ZONE_MOVABLE, ...).
 >>>
->>> At early boot stage, we have a whole PGDIR to map the kernel, so there
->>> is no need to restrict the early mapping size to 128MB. Removing this
->>> define also allows us to simplify some compile time logic.
->>>
->>> This fixes large kernel mappings with a size greater than 128MB, as it
->>> is the case for syzbot kernels whose size was just ~130MB.
->>>
->>> Note that on rv64, for now, we are then limited to PGDIR size for early
->>> mapping as we can't use PGD mappings (see [1]). That should be enough
->>> given the relative small size of syzbot kernels compared to PGDIR_SIZE
->>> which is 1GB.
->>>
->>> [1] https://lore.kernel.org/lkml/20200603153608.30056-1-alex@ghiti.fr/
+>>> I think the biggest use will potentially come from hardware
+>>> acceleration.  If it becomes simple to add say encryption to a
+>>> secret page with no cost, then no flag needed.  However, if we only
+>>> have a limited number of keys so once we run out no more encrypted
+>>> memory then it becomes a costly resource and users might want a
+>>> choice of being backed by encryption or not.
 >>
->> I've applied this patch to (as it contains the HEAD fix):
->>
->> commit f49815047c1a3e3644a0ba38f3825c5cde8a0922 (HEAD, riscv/for-next)
->> Author: Tobias Klauser <tklauser@distanz.ch>
->> Date:=A0=A0 Tue Feb 16 18:33:05 2021 +0100
->> =A0=A0=A0=A0 riscv: Disable KSAN_SANITIZE for vDSO
->>
->> and the kernel started booting with my large config.
->> It quickly crashed (see below), but at least it started booting, so
->> it's an improvement.
->>
->> Tested-by: Dmitry Vyukov <dvyukov@google.com>
-> =
+>> Right. But wouldn't HW support with configurable keys etc. need more
+>> syscall parameters (meaning, even memefd_secret() as it is would not
+>> be sufficient?). I suspect the simplistic flag approach might not
+>> be sufficient. I might be wrong because I have no clue about MKTME
+>> and friends.
+> 
+> The theory I was operating under is key management is automatic and
+> hidden, but key scarcity can't be, so if you flag requesting hardware
+> backing then you either get success (the kernel found a key) or failure
+> (the kernel is out of keys).  If we actually want to specify the key
+> then we need an extra argument and we *must* have a new system call.
+> 
+>> Anyhow, I still think extending memfd_create() might just be good
+>> enough - at least for now.
+> 
+> I really think this is the wrong approach for a user space ABI.  If we
+> think we'll ever need to move to a separate syscall, we should begin
+> with one.  The pain of trying to shift userspace from memfd_create to a
+> new syscall would be enormous.  It's not impossible (see clone3) but
+> it's a pain we should avoid if we know it's coming.
 
-> Thanks for that.
-> =
+Sorry for the late reply, there is just too much going on :)
 
->>
->> Linux version 5.11.0-rc2-00069-gf49815047c1a-dirty
->> (dvyukov@dvyukov-desk.muc.corp.google.com) (riscv64-linux-gnu-gcc
->> (Debian 10.2.1-6+build1) 10.2.1 20210110, GNU ld (GNU Binutils for
->> Debian) 2.35.1) #34 SMP PREEMPT Sun Feb 21 15:51:40 CET 2021
->> OF: fdt: Ignoring memory range 0x80000000 - 0x80200000
->> Machine model: riscv-virtio,qemu
->> earlycon: ns16550a0 at MMIO 0x0000000010000000 (options '')
->> printk: bootconsole [ns16550a0] enabled
->> efi: UEFI not found.
->> cma: Reserved 16 MiB at 0x00000000fec00000
->> Zone ranges:
->> =A0=A0 DMA32=A0=A0=A0 [mem 0x0000000080200000-0x00000000ffffffff]
->> =A0=A0 Normal=A0=A0 empty
->> Movable zone start for each node
->> Early memory node ranges
->> =A0=A0 node=A0=A0 0: [mem 0x0000000080200000-0x00000000ffffffff]
->> Zeroed struct page in unavailable ranges: 512 pages
->> Initmem setup node 0 [mem 0x0000000080200000-0x00000000ffffffff]
->> SBI specification v0.2 detected
->> SBI implementation ID=3D0x1 Version=3D0x8
->> SBI v0.2 TIME extension detected
->> SBI v0.2 IPI extension detected
->> SBI v0.2 RFENCE extension detected
->> software IO TLB: mapped [mem 0x00000000f7c00000-0x00000000fbc00000] =
+*If* we ever realize we need to pass more parameters we can easily have 
+a new syscall for that purpose. *Then*, we know how that syscall will 
+look like. Right now, it's just pure speculation.
 
->> (64MB)
->> ------------[ cut here ]------------
->> DEBUG_LOCKS_WARN_ON(early_boot_irqs_disabled)
->> WARNING: CPU: 0 PID: 0 at kernel/locking/lockdep.c:4085
->> lockdep_hardirqs_on_prepare+0x384/0x388 kernel/locking/lockdep.c:4085
->> Modules linked in:
->> CPU: 0 PID: 0 Comm: swapper Not tainted =
+Until then, going with memfd_create() works just fine IMHO.
 
->> 5.11.0-rc2-00069-gf49815047c1a-dirty #34
->> Hardware name: riscv-virtio,qemu (DT)
->> epc : lockdep_hardirqs_on_prepare+0x384/0x388 =
+The worst think that could happen is that we might not be able to create 
+all fancy sectremem flavors in the future via memfd_create() but only 
+via different, highly specialized syscall. I don't see a real problem 
+with that.
 
->> kernel/locking/lockdep.c:4085
->> =A0 ra : lockdep_hardirqs_on_prepare+0x384/0x388 =
+-- 
+Thanks,
 
->> kernel/locking/lockdep.c:4085
->> epc : ffffffe0000c125a ra : ffffffe0000c125a sp : ffffffe006603ce0
->> =A0 gp : ffffffe006c338f0 tp : ffffffe006689e00 t0 : ffffffe00669a9a8
->> =A0 t1 : ffffffc400cc0738 t2 : 0000000000000000 s0 : ffffffe006603d20
->> =A0 s1 : ffffffe006689e00 a0 : 000000000000002d a1 : 00000000000f0000
->> =A0 a2 : 0000000000000002 a3 : ffffffe0000d2718 a4 : 0000000000000000
->> =A0 a5 : 0000000000000000 a6 : 0000000000f00000 a7 : ffffffe0066039c7
->> =A0 s2 : ffffffe004a337c0 s3 : ffffffe0076fa1b8 s4 : 0000000000000000
->> =A0 s5 : ffffffe006689e00 s6 : 0000000000000001 s7 : ffffffe07fcfc000
->> =A0 s8 : ffffffe07fcfd000 s9 : ffffffe006c3c0d0 s10: fffffffffffff000
->> =A0 s11: ffffffe004a1fbb8 t3 : 000000002d2d2d2d t4 : ffffffc400cc0737
->> =A0 t5 : ffffffc400cc0739 t6 : ffffffe0066039c8
->> status: 0000000000000100 badaddr: 0000000000000000 cause: =
+David / dhildenb
 
->> 0000000000000003
->> Call Trace:
->> [<ffffffe0000c125a>] lockdep_hardirqs_on_prepare+0x384/0x388
->> kernel/locking/lockdep.c:4085
->> [<ffffffe0001b7dc0>] trace_hardirqs_on+0x116/0x174
->> kernel/trace/trace_preemptirq.c:49
->> [<ffffffe00000550a>] _save_context+0xa2/0xe2
->> [<ffffffe004807908>] local_flush_tlb_all
->> arch/riscv/include/asm/tlbflush.h:16 [inline]
->> [<ffffffe004807908>] populate arch/riscv/mm/kasan_init.c:95 [inline]
->> [<ffffffe004807908>] kasan_init+0x23e/0x31a =
-
->> arch/riscv/mm/kasan_init.c:157
->> irq event stamp: 0
->> hardirqs last=A0 enabled at (0): [<0000000000000000>] 0x0
->> hardirqs last disabled at (0): [<0000000000000000>] 0x0
->> softirqs last=A0 enabled at (0): [<0000000000000000>] 0x0
->> softirqs last disabled at (0): [<0000000000000000>] 0x0
->> random: get_random_bytes called from init_oops_id kernel/panic.c:546
->> [inline] with crng_init=3D0
->> random: get_random_bytes called from init_oops_id kernel/panic.c:543
->> [inline] with crng_init=3D0
->> random: get_random_bytes called from print_oops_end_marker
->> kernel/panic.c:556 [inline] with crng_init=3D0
->> random: get_random_bytes called from __warn+0x1be/0x20a
->> kernel/panic.c:613 with crng_init=3D0
->> ---[ end trace 0000000000000000 ]---
->> Unable to handle kernel paging request at virtual address =
-
->> dfffffc810040000
->> Oops [#1]
->> Modules linked in:
->> CPU: 0 PID: 0 Comm: swapper Tainted: G=A0=A0=A0=A0=A0=A0=A0 W
->> 5.11.0-rc2-00069-gf49815047c1a-dirty #34
->> Hardware name: riscv-virtio,qemu (DT)
->> epc : __memset+0x60/0xfc arch/riscv/lib/memset.S:67
->> =A0 ra : populate arch/riscv/mm/kasan_init.c:96 [inline]
->> =A0 ra : kasan_init+0x256/0x31a arch/riscv/mm/kasan_init.c:157
->> epc : ffffffe001791cf0 ra : ffffffe004807920 sp : ffffffe006603e80
->> =A0 gp : ffffffe006c338f0 tp : ffffffe006689e00 t0 : dfffffc810040000
->> =A0 t1 : ffffffe004a1fc80 t2 : 0000000000000000 s0 : ffffffe006603f30
->> =A0 s1 : 0000000000000001 a0 : dfffffc810040000 a1 : 0000000000000000
->> =A0 a2 : 000000000ffc0000 a3 : dfffffc820000000 a4 : 0000000000000000
->> =A0 a5 : dfffffc820000000 a6 : 0000000000f00000 a7 : ffffffe004a1fcaf
->> =A0 s2 : dfffffc810040000 s3 : 000000000000ffc0 s4 : dfffffc800000000
->> =A0 s5 : ffffffe006c46908 s6 : 0000000000000001 s7 : ffffffe07fcfc000
->> =A0 s8 : ffffffe07fcfd000 s9 : ffffffe006c3c0d0 s10: fffffffffffff000
->> =A0 s11: ffffffe004a1fbb8 t3 : 0000000000000000 t4 : 0000000000000001
->> =A0 t5 : ffffffc400943f96 t6 : ffffffe006603b98
->> status: 0000000000000100 badaddr: dfffffc810040000 cause: =
-
->> 000000000000000f
->> Call Trace:
->> [<ffffffe001791cf0>] __memset+0x60/0xfc arch/riscv/lib/memset.S:65
->> [<ffffffe004805e7a>] setup_arch+0x6c4/0x6f2 arch/riscv/kernel/setup.c:271
->> [<ffffffe0048010ea>] start_kernel+0xca/0x5d6 init/main.c:871
->> ---[ end trace f68728a0d3053b52 ]---
->>
->>
-> =
-
-> Ok this issue lies in for-next as I had no problem getting to init on =
-
-> both master and my sv48 patchset, I'm taking a look at that !
-> =
-
-> Thanks,
-> =
-
-> Alex
-> =
-
-
-I fixed that in my patch "riscv: Pass virtual addresses to =
-
-kasan_mem_to_shadow", it should hopefully be ok now, I was able to boot =
-
-correctly to userspace with this.
-
-Thanks again,
-
-Alex
-
->>
->>
->>
->>> Reported-by: Dmitry Vyukov <dvyukov@google.com>
->>> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
->>> ---
->>> =A0 arch/riscv/mm/init.c | 21 +++++----------------
->>> =A0 1 file changed, 5 insertions(+), 16 deletions(-)
->>>
->>> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
->>> index f9f9568d689e..f81f813b9603 100644
->>> --- a/arch/riscv/mm/init.c
->>> +++ b/arch/riscv/mm/init.c
->>> @@ -226,8 +226,6 @@ pgd_t swapper_pg_dir[PTRS_PER_PGD] =
-
->>> __page_aligned_bss;
->>> =A0 pgd_t trampoline_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
->>> =A0 pte_t fixmap_pte[PTRS_PER_PTE] __page_aligned_bss;
->>>
->>> -#define MAX_EARLY_MAPPING_SIZE SZ_128M
->>> -
->>> =A0 pgd_t early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
->>>
->>> =A0 void __set_fixmap(enum fixed_addresses idx, phys_addr_t phys, =
-
->>> pgprot_t prot)
->>> @@ -302,13 +300,7 @@ static void __init create_pte_mapping(pte_t *ptep,
->>>
->>> =A0 pmd_t trampoline_pmd[PTRS_PER_PMD] __page_aligned_bss;
->>> =A0 pmd_t fixmap_pmd[PTRS_PER_PMD] __page_aligned_bss;
->>> -
->>> -#if MAX_EARLY_MAPPING_SIZE < PGDIR_SIZE
->>> -#define NUM_EARLY_PMDS=A0=A0=A0=A0=A0=A0=A0=A0 1UL
->>> -#else
->>> -#define NUM_EARLY_PMDS=A0=A0=A0=A0=A0=A0=A0=A0 (1UL + MAX_EARLY_MAPPIN=
-G_SIZE / =
-
->>> PGDIR_SIZE)
->>> -#endif
->>> -pmd_t early_pmd[PTRS_PER_PMD * NUM_EARLY_PMDS] __initdata =
-
->>> __aligned(PAGE_SIZE);
->>> +pmd_t early_pmd[PTRS_PER_PMD] __initdata __aligned(PAGE_SIZE);
->>> =A0 pmd_t early_dtb_pmd[PTRS_PER_PMD] __initdata __aligned(PAGE_SIZE);
->>>
->>> =A0 static pmd_t *__init get_pmd_virt_early(phys_addr_t pa)
->>> @@ -330,11 +322,9 @@ static pmd_t *get_pmd_virt_late(phys_addr_t pa)
->>>
->>> =A0 static phys_addr_t __init alloc_pmd_early(uintptr_t va)
->>> =A0 {
->>> -=A0=A0=A0=A0=A0=A0 uintptr_t pmd_num;
->>> +=A0=A0=A0=A0=A0=A0 BUG_ON((va - PAGE_OFFSET) >> PGDIR_SHIFT);
->>>
->>> -=A0=A0=A0=A0=A0=A0 pmd_num =3D (va - PAGE_OFFSET) >> PGDIR_SHIFT;
->>> -=A0=A0=A0=A0=A0=A0 BUG_ON(pmd_num >=3D NUM_EARLY_PMDS);
->>> -=A0=A0=A0=A0=A0=A0 return (uintptr_t)&early_pmd[pmd_num * PTRS_PER_PMD=
-];
->>> +=A0=A0=A0=A0=A0=A0 return (uintptr_t)early_pmd;
->>> =A0 }
->>>
->>> =A0 static phys_addr_t __init alloc_pmd_fixmap(uintptr_t va)
->>> @@ -452,7 +442,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
->>> =A0=A0=A0=A0=A0=A0=A0=A0 uintptr_t va, pa, end_va;
->>> =A0=A0=A0=A0=A0=A0=A0=A0 uintptr_t load_pa =3D (uintptr_t)(&_start);
->>> =A0=A0=A0=A0=A0=A0=A0=A0 uintptr_t load_sz =3D (uintptr_t)(&_end) - loa=
-d_pa;
->>> -=A0=A0=A0=A0=A0=A0 uintptr_t map_size =3D best_map_size(load_pa, =
-
->>> MAX_EARLY_MAPPING_SIZE);
->>> +=A0=A0=A0=A0=A0=A0 uintptr_t map_size;
->>> =A0 #ifndef __PAGETABLE_PMD_FOLDED
->>> =A0=A0=A0=A0=A0=A0=A0=A0 pmd_t fix_bmap_spmd, fix_bmap_epmd;
->>> =A0 #endif
->>> @@ -464,12 +454,11 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
->>> =A0=A0=A0=A0=A0=A0=A0=A0=A0 * Enforce boot alignment requirements of RV=
-32 and
->>> =A0=A0=A0=A0=A0=A0=A0=A0=A0 * RV64 by only allowing PMD or PGD mappings.
->>> =A0=A0=A0=A0=A0=A0=A0=A0=A0 */
->>> -=A0=A0=A0=A0=A0=A0 BUG_ON(map_size =3D=3D PAGE_SIZE);
->>> +=A0=A0=A0=A0=A0=A0 map_size =3D PMD_SIZE;
->>>
->>> =A0=A0=A0=A0=A0=A0=A0=A0 /* Sanity check alignment and size */
->>> =A0=A0=A0=A0=A0=A0=A0=A0 BUG_ON((PAGE_OFFSET % PGDIR_SIZE) !=3D 0);
->>> =A0=A0=A0=A0=A0=A0=A0=A0 BUG_ON((load_pa % map_size) !=3D 0);
->>> -=A0=A0=A0=A0=A0=A0 BUG_ON(load_sz > MAX_EARLY_MAPPING_SIZE);
->>>
->>> =A0=A0=A0=A0=A0=A0=A0=A0 pt_ops.alloc_pte =3D alloc_pte_early;
->>> =A0=A0=A0=A0=A0=A0=A0=A0 pt_ops.get_pte_virt =3D get_pte_virt_early;
->>> -- =
-
->>> 2.20.1
->>>
->>
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-riscv
->>
 
 _______________________________________________
 linux-riscv mailing list
