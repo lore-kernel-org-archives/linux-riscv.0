@@ -1,79 +1,68 @@
-Return-Path: <SRS0=ZPlh=HX=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
+Return-Path: <SRS0=ovIN=HY=lists.infradead.org=linux-riscv-bounces+linux-riscv=archiver.kernel.org@kernel.org>
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_ADSP_CUSTOM_MED,DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,
-	INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-15.5 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DD77DC433E0
-	for <linux-riscv@archiver.kernel.org>; Sun, 21 Feb 2021 15:38:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 840E1C433E0
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Feb 2021 01:39:12 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 7EA4164F03
-	for <linux-riscv@archiver.kernel.org>; Sun, 21 Feb 2021 15:38:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 7EA4164F03
-Authentication-Results: mail.kernel.org; dmarc=fail (p=reject dis=none) header.from=google.com
+	by mail.kernel.org (Postfix) with ESMTPS id 01FAF64E12
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Feb 2021 01:39:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 01FAF64E12
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=andestech.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=z3kM/zwj9AnQWh/d1R1cXUioxdol0IibTFcgi5X1X5I=; b=RurNrU4mcO36O4uZ0Ix0bnVob
-	EUrEFrs5QEbJeaotFzVoSyI+NWZhC1LSMRQyTM/dUy8yVQ+QzgleGzYuKnq8e09X9qrdNM2b+rQ9S
-	WFM4C1ZeIakGhISJz+7T/rb8e64rhi3YGSEMnOnSRlaBImcFIC9DUcU88+jTIIE7DI/3YDa4szpEP
-	i9qSggTkKLeNrDHtbPdiS6DzjSHosI2naebSOAf+5YGvT2JUwzha2nsA5QTLjVhAjEZDjs66FS0bV
-	Fv1n7S38Zx97BH2FMN43kQdllwZAOBO0Vj1qOdTUK0k4orxBv8dGm8WP4x+n7bdnFCKNCMGDZIBSV
-	axP0e6S7w==;
+	 bh=YLBRfs82oHeupiPiWCn587mVowDEHnu6pDl+ycBTJYk=; b=jatZhKS8Nua8Be3MJ0TqPtLgx
+	1iAUFp/Nt+AqG8Kd5XvOFWIpWFmWrP/Q2oCxuwDiEzDdElNdF1J3TYxeMBMPav3GcmXyzbzZjWwJB
+	88vd8menKsj4ldh/nqKbOYZiMziUf+X1/m12+O2InpVI2fCZA1pOxB/U3JG20XLAdDmEzem5kjBDd
+	BOCu/Z+/UvXt8BMw1v7cWKNnJN7w23bnDCa73IHSKoybsx8yZByN4WXvciDQIcHYLoQH6ZIpMN6UX
+	bU16ep3MK9IbcvNAL10hYv0HbVtvo6U4SouKNYJ5tn25zJ2C8SzC7YvgK3+pChOab75+JbaPnkQQp
+	eNXrRp7pg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1lDqoe-0007pD-6R; Sun, 21 Feb 2021 15:38:36 +0000
-Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
+	id 1lE0Ba-0006ke-HZ; Mon, 22 Feb 2021 01:38:54 +0000
+Received: from exmail.andestech.com ([60.248.187.195]
+ helo=ATCSQR.andestech.com)
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1lDqoc-0007oj-AQ
- for linux-riscv@lists.infradead.org; Sun, 21 Feb 2021 15:38:35 +0000
-Received: by mail-qt1-x834.google.com with SMTP id v3so7565988qtw.4
- for <linux-riscv@lists.infradead.org>; Sun, 21 Feb 2021 07:38:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=3GKaoGR/KXVQs4D+Moaoy5AaMPodEWc16wY0BNQoFag=;
- b=ROTfgQfNz1rCye1xd3kcex7CsikFHCq4FPx79+ONWYSEfTzCkNOU2o8lq0KDTeZWk+
- gv1dPsHH+lqqIA8x7Yr8pZ/oi6ARknsk+JJqjC3gCnOVOmQTWFbJ09in+qD3kjlF7uLm
- b39WcYsFfEWOlP0du7C/FAedCr9kTRHv89MNL4qRL5jdVxKPbzaFSczjxFCK52G+GjWc
- jERgNJZS5+hLyqizpVgjdWl+6DJMedkoS4m7HU5XRnWIP8xMkJowdu66KrFHqmj7/IQ5
- Wt7hXWOg+IsOGLPPaogd2LLeaq0BG9juGh1A2rz1Ku4mQBCo7o4HU3EVja2yYb+i+LkV
- T54w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=3GKaoGR/KXVQs4D+Moaoy5AaMPodEWc16wY0BNQoFag=;
- b=DX6luZQPurx7AS8mdRb3C9vwwCLGbrSzbtWVR9u/9Sq0HRd8l8jfpLpL+tp0ClOBhm
- WIasG+pvs9Ze45kVD3GiRLCOkO8Di8BnTKT/GF6nYSV0/Jl0gGpUdG2yVPZ8FmGNedyg
- 7FvDMJUG+J2YsIhTdcSYUUXC54B7gGdJ5vwFADxlPd0OfhFg+A/0PohFNIUf9P+gb9YQ
- TseviDNT3wmZ4GRwNn253J+WVR3STQy6HInhOSdVFU7CVJVVCklUWazphv2fv8tz9zY1
- QVz7SQzBqiL7NekWD/LUaEk+eg8lbks21Wv+BoWjl9gbVTKxxpnt7CcTZ5CwjX0UyK6A
- aYOw==
-X-Gm-Message-State: AOAM532nDbEMvE2PJ4y49zrGZkBDGPQk4Q44sK0LR2Awo8IrMOVeAmEI
- KQ4K+K3DFt5GbtEj+YwYb6cvpfq044UsEvpSU1145A==
-X-Google-Smtp-Source: ABdhPJw/NiOpFR5jg8h1f+PTLGcbyf+j0YjorHfz4N81OkCwtHyksWxjcW/X3GeWitKoQXpZ62xBLmCkvgS6/EWpVZ0=
-X-Received: by 2002:ac8:7512:: with SMTP id u18mr16425751qtq.290.1613921910580; 
- Sun, 21 Feb 2021 07:38:30 -0800 (PST)
+ id 1lE0BX-0006ir-BQ
+ for linux-riscv@lists.infradead.org; Mon, 22 Feb 2021 01:38:53 +0000
+Received: from mail.andestech.com (atcpcs16.andestech.com [10.0.1.222])
+ by ATCSQR.andestech.com with ESMTP id 11M1WPsm063709;
+ Mon, 22 Feb 2021 09:32:25 +0800 (GMT-8)
+ (envelope-from nylon7@andestech.com)
+Received: from andestech.com (10.0.15.65) by ATCPCS16.andestech.com
+ (10.0.1.222) with Microsoft SMTP Server id 14.3.487.0; Mon, 22 Feb 2021
+ 09:37:55 +0800
+Date: Mon, 22 Feb 2021 09:37:55 +0800
+From: Nylon Chen <nylon7@andestech.com>
+To: Alex Ghiti <alex@ghiti.fr>
+Subject: Re: [PATCH v2 1/1] riscv/kasan: add KASAN_VMALLOC support
+Message-ID: <20210222013754.GA7626@andestech.com>
+References: <mhng-443fd141-b9a3-4be6-a056-416877f99ea4@palmerdabbelt-glaptop>
+ <2b2f3038-3e27-8763-cf78-3fbbfd2100a0@ghiti.fr>
+ <4fa97788-157c-4059-ae3f-28ab074c5836@ghiti.fr>
+ <e15fbf55-25db-7f91-6feb-fb081ab60cdb@ghiti.fr>
 MIME-Version: 1.0
-References: <20210221142233.3661-1-alex@ghiti.fr>
-In-Reply-To: <20210221142233.3661-1-alex@ghiti.fr>
-From: Dmitry Vyukov <dvyukov@google.com>
-Date: Sun, 21 Feb 2021 16:38:19 +0100
-Message-ID: <CACT4Y+Y9Ax=3XnE1NaN1+Qz7oh209nncz7xULQ2Tf8BmUqmVAw@mail.gmail.com>
-Subject: Re: [PATCH] riscv: Get rid of MAX_EARLY_MAPPING_SIZE
-To: Alexandre Ghiti <alex@ghiti.fr>
+Content-Disposition: inline
+In-Reply-To: <e15fbf55-25db-7f91-6feb-fb081ab60cdb@ghiti.fr>
+User-Agent: Mutt/1.5.24 (2015-08-30)
+X-Originating-IP: [10.0.15.65]
+X-DNSRBL: 
+X-MAIL: ATCSQR.andestech.com 11M1WPsm063709
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210221_103834_451879_EA753F74 
-X-CRM114-Status: GOOD (  24.46  )
+X-CRM114-CacheID: sfid-20210221_203851_793652_D70E1F60 
+X-CRM114-Status: GOOD (  42.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -85,220 +74,176 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
- LKML <linux-kernel@vger.kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+ Nick Chun-Ming =?utf-8?B?SHUo6IOh5bO76YqYKQ==?= <nickhu@andestech.com>,
+ Alan Quey-Liang =?utf-8?B?S2FvKOmrmOmtgeiJryk=?= <alankao@andestech.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "kasan-dev@googlegroups.com" <kasan-dev@googlegroups.com>,
+ "nylon7717@gmail.com" <nylon7717@gmail.com>,
+ "aryabinin@virtuozzo.com" <aryabinin@virtuozzo.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ "glider@google.com" <glider@google.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "dvyukov@google.com" <dvyukov@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Feb 21, 2021 at 3:22 PM Alexandre Ghiti <alex@ghiti.fr> wrote:
->
-> At early boot stage, we have a whole PGDIR to map the kernel, so there
-> is no need to restrict the early mapping size to 128MB. Removing this
-> define also allows us to simplify some compile time logic.
->
-> This fixes large kernel mappings with a size greater than 128MB, as it
-> is the case for syzbot kernels whose size was just ~130MB.
->
-> Note that on rv64, for now, we are then limited to PGDIR size for early
-> mapping as we can't use PGD mappings (see [1]). That should be enough
-> given the relative small size of syzbot kernels compared to PGDIR_SIZE
-> which is 1GB.
->
-> [1] https://lore.kernel.org/lkml/20200603153608.30056-1-alex@ghiti.fr/
-
-I've applied this patch to (as it contains the HEAD fix):
-
-commit f49815047c1a3e3644a0ba38f3825c5cde8a0922 (HEAD, riscv/for-next)
-Author: Tobias Klauser <tklauser@distanz.ch>
-Date:   Tue Feb 16 18:33:05 2021 +0100
-    riscv: Disable KSAN_SANITIZE for vDSO
-
-and the kernel started booting with my large config.
-It quickly crashed (see below), but at least it started booting, so
-it's an improvement.
-
-Tested-by: Dmitry Vyukov <dvyukov@google.com>
-
-Linux version 5.11.0-rc2-00069-gf49815047c1a-dirty
-(dvyukov@dvyukov-desk.muc.corp.google.com) (riscv64-linux-gnu-gcc
-(Debian 10.2.1-6+build1) 10.2.1 20210110, GNU ld (GNU Binutils for
-Debian) 2.35.1) #34 SMP PREEMPT Sun Feb 21 15:51:40 CET 2021
-OF: fdt: Ignoring memory range 0x80000000 - 0x80200000
-Machine model: riscv-virtio,qemu
-earlycon: ns16550a0 at MMIO 0x0000000010000000 (options '')
-printk: bootconsole [ns16550a0] enabled
-efi: UEFI not found.
-cma: Reserved 16 MiB at 0x00000000fec00000
-Zone ranges:
-  DMA32    [mem 0x0000000080200000-0x00000000ffffffff]
-  Normal   empty
-Movable zone start for each node
-Early memory node ranges
-  node   0: [mem 0x0000000080200000-0x00000000ffffffff]
-Zeroed struct page in unavailable ranges: 512 pages
-Initmem setup node 0 [mem 0x0000000080200000-0x00000000ffffffff]
-SBI specification v0.2 detected
-SBI implementation ID=0x1 Version=0x8
-SBI v0.2 TIME extension detected
-SBI v0.2 IPI extension detected
-SBI v0.2 RFENCE extension detected
-software IO TLB: mapped [mem 0x00000000f7c00000-0x00000000fbc00000] (64MB)
-------------[ cut here ]------------
-DEBUG_LOCKS_WARN_ON(early_boot_irqs_disabled)
-WARNING: CPU: 0 PID: 0 at kernel/locking/lockdep.c:4085
-lockdep_hardirqs_on_prepare+0x384/0x388 kernel/locking/lockdep.c:4085
-Modules linked in:
-CPU: 0 PID: 0 Comm: swapper Not tainted 5.11.0-rc2-00069-gf49815047c1a-dirty #34
-Hardware name: riscv-virtio,qemu (DT)
-epc : lockdep_hardirqs_on_prepare+0x384/0x388 kernel/locking/lockdep.c:4085
- ra : lockdep_hardirqs_on_prepare+0x384/0x388 kernel/locking/lockdep.c:4085
-epc : ffffffe0000c125a ra : ffffffe0000c125a sp : ffffffe006603ce0
- gp : ffffffe006c338f0 tp : ffffffe006689e00 t0 : ffffffe00669a9a8
- t1 : ffffffc400cc0738 t2 : 0000000000000000 s0 : ffffffe006603d20
- s1 : ffffffe006689e00 a0 : 000000000000002d a1 : 00000000000f0000
- a2 : 0000000000000002 a3 : ffffffe0000d2718 a4 : 0000000000000000
- a5 : 0000000000000000 a6 : 0000000000f00000 a7 : ffffffe0066039c7
- s2 : ffffffe004a337c0 s3 : ffffffe0076fa1b8 s4 : 0000000000000000
- s5 : ffffffe006689e00 s6 : 0000000000000001 s7 : ffffffe07fcfc000
- s8 : ffffffe07fcfd000 s9 : ffffffe006c3c0d0 s10: fffffffffffff000
- s11: ffffffe004a1fbb8 t3 : 000000002d2d2d2d t4 : ffffffc400cc0737
- t5 : ffffffc400cc0739 t6 : ffffffe0066039c8
-status: 0000000000000100 badaddr: 0000000000000000 cause: 0000000000000003
-Call Trace:
-[<ffffffe0000c125a>] lockdep_hardirqs_on_prepare+0x384/0x388
-kernel/locking/lockdep.c:4085
-[<ffffffe0001b7dc0>] trace_hardirqs_on+0x116/0x174
-kernel/trace/trace_preemptirq.c:49
-[<ffffffe00000550a>] _save_context+0xa2/0xe2
-[<ffffffe004807908>] local_flush_tlb_all
-arch/riscv/include/asm/tlbflush.h:16 [inline]
-[<ffffffe004807908>] populate arch/riscv/mm/kasan_init.c:95 [inline]
-[<ffffffe004807908>] kasan_init+0x23e/0x31a arch/riscv/mm/kasan_init.c:157
-irq event stamp: 0
-hardirqs last  enabled at (0): [<0000000000000000>] 0x0
-hardirqs last disabled at (0): [<0000000000000000>] 0x0
-softirqs last  enabled at (0): [<0000000000000000>] 0x0
-softirqs last disabled at (0): [<0000000000000000>] 0x0
-random: get_random_bytes called from init_oops_id kernel/panic.c:546
-[inline] with crng_init=0
-random: get_random_bytes called from init_oops_id kernel/panic.c:543
-[inline] with crng_init=0
-random: get_random_bytes called from print_oops_end_marker
-kernel/panic.c:556 [inline] with crng_init=0
-random: get_random_bytes called from __warn+0x1be/0x20a
-kernel/panic.c:613 with crng_init=0
----[ end trace 0000000000000000 ]---
-Unable to handle kernel paging request at virtual address dfffffc810040000
-Oops [#1]
-Modules linked in:
-CPU: 0 PID: 0 Comm: swapper Tainted: G        W
-5.11.0-rc2-00069-gf49815047c1a-dirty #34
-Hardware name: riscv-virtio,qemu (DT)
-epc : __memset+0x60/0xfc arch/riscv/lib/memset.S:67
- ra : populate arch/riscv/mm/kasan_init.c:96 [inline]
- ra : kasan_init+0x256/0x31a arch/riscv/mm/kasan_init.c:157
-epc : ffffffe001791cf0 ra : ffffffe004807920 sp : ffffffe006603e80
- gp : ffffffe006c338f0 tp : ffffffe006689e00 t0 : dfffffc810040000
- t1 : ffffffe004a1fc80 t2 : 0000000000000000 s0 : ffffffe006603f30
- s1 : 0000000000000001 a0 : dfffffc810040000 a1 : 0000000000000000
- a2 : 000000000ffc0000 a3 : dfffffc820000000 a4 : 0000000000000000
- a5 : dfffffc820000000 a6 : 0000000000f00000 a7 : ffffffe004a1fcaf
- s2 : dfffffc810040000 s3 : 000000000000ffc0 s4 : dfffffc800000000
- s5 : ffffffe006c46908 s6 : 0000000000000001 s7 : ffffffe07fcfc000
- s8 : ffffffe07fcfd000 s9 : ffffffe006c3c0d0 s10: fffffffffffff000
- s11: ffffffe004a1fbb8 t3 : 0000000000000000 t4 : 0000000000000001
- t5 : ffffffc400943f96 t6 : ffffffe006603b98
-status: 0000000000000100 badaddr: dfffffc810040000 cause: 000000000000000f
-Call Trace:
-[<ffffffe001791cf0>] __memset+0x60/0xfc arch/riscv/lib/memset.S:65
-[<ffffffe004805e7a>] setup_arch+0x6c4/0x6f2 arch/riscv/kernel/setup.c:271
-[<ffffffe0048010ea>] start_kernel+0xca/0x5d6 init/main.c:871
----[ end trace f68728a0d3053b52 ]---
-
-
-
-
-
-> Reported-by: Dmitry Vyukov <dvyukov@google.com>
-> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
-> ---
->  arch/riscv/mm/init.c | 21 +++++----------------
->  1 file changed, 5 insertions(+), 16 deletions(-)
->
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index f9f9568d689e..f81f813b9603 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -226,8 +226,6 @@ pgd_t swapper_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
->  pgd_t trampoline_pg_dir[PTRS_PER_PGD] __page_aligned_bss;
->  pte_t fixmap_pte[PTRS_PER_PTE] __page_aligned_bss;
->
-> -#define MAX_EARLY_MAPPING_SIZE SZ_128M
-> -
->  pgd_t early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
->
->  void __set_fixmap(enum fixed_addresses idx, phys_addr_t phys, pgprot_t prot)
-> @@ -302,13 +300,7 @@ static void __init create_pte_mapping(pte_t *ptep,
->
->  pmd_t trampoline_pmd[PTRS_PER_PMD] __page_aligned_bss;
->  pmd_t fixmap_pmd[PTRS_PER_PMD] __page_aligned_bss;
-> -
-> -#if MAX_EARLY_MAPPING_SIZE < PGDIR_SIZE
-> -#define NUM_EARLY_PMDS         1UL
-> -#else
-> -#define NUM_EARLY_PMDS         (1UL + MAX_EARLY_MAPPING_SIZE / PGDIR_SIZE)
-> -#endif
-> -pmd_t early_pmd[PTRS_PER_PMD * NUM_EARLY_PMDS] __initdata __aligned(PAGE_SIZE);
-> +pmd_t early_pmd[PTRS_PER_PMD] __initdata __aligned(PAGE_SIZE);
->  pmd_t early_dtb_pmd[PTRS_PER_PMD] __initdata __aligned(PAGE_SIZE);
->
->  static pmd_t *__init get_pmd_virt_early(phys_addr_t pa)
-> @@ -330,11 +322,9 @@ static pmd_t *get_pmd_virt_late(phys_addr_t pa)
->
->  static phys_addr_t __init alloc_pmd_early(uintptr_t va)
->  {
-> -       uintptr_t pmd_num;
-> +       BUG_ON((va - PAGE_OFFSET) >> PGDIR_SHIFT);
->
-> -       pmd_num = (va - PAGE_OFFSET) >> PGDIR_SHIFT;
-> -       BUG_ON(pmd_num >= NUM_EARLY_PMDS);
-> -       return (uintptr_t)&early_pmd[pmd_num * PTRS_PER_PMD];
-> +       return (uintptr_t)early_pmd;
->  }
->
->  static phys_addr_t __init alloc_pmd_fixmap(uintptr_t va)
-> @@ -452,7 +442,7 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
->         uintptr_t va, pa, end_va;
->         uintptr_t load_pa = (uintptr_t)(&_start);
->         uintptr_t load_sz = (uintptr_t)(&_end) - load_pa;
-> -       uintptr_t map_size = best_map_size(load_pa, MAX_EARLY_MAPPING_SIZE);
-> +       uintptr_t map_size;
->  #ifndef __PAGETABLE_PMD_FOLDED
->         pmd_t fix_bmap_spmd, fix_bmap_epmd;
->  #endif
-> @@ -464,12 +454,11 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
->          * Enforce boot alignment requirements of RV32 and
->          * RV64 by only allowing PMD or PGD mappings.
->          */
-> -       BUG_ON(map_size == PAGE_SIZE);
-> +       map_size = PMD_SIZE;
->
->         /* Sanity check alignment and size */
->         BUG_ON((PAGE_OFFSET % PGDIR_SIZE) != 0);
->         BUG_ON((load_pa % map_size) != 0);
-> -       BUG_ON(load_sz > MAX_EARLY_MAPPING_SIZE);
->
->         pt_ops.alloc_pte = alloc_pte_early;
->         pt_ops.get_pte_virt = get_pte_virt_early;
-> --
-> 2.20.1
->
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQWxleCwgUGFsbWVyCgpTb3JyeSBJIG1pc3NlZCB0aGlzIG1lc3NhZ2UuCk9uIFN1biwgRmVi
+IDIxLCAyMDIxIGF0IDA5OjM4OjA0UE0gKzA4MDAsIEFsZXggR2hpdGkgd3JvdGU6Cj4gTGUgMi8x
+My8yMSDDoCA1OjUyIEFNLCBBbGV4IEdoaXRpIGEgw6ljcml0wqA6Cj4gPiBIaSBOeWxvbiwgUGFs
+bWVyLAo+ID4gCj4gPiBMZSAyLzgvMjEgw6AgMToyOCBBTSwgQWxleCBHaGl0aSBhIMOpY3JpdMKg
+Ogo+ID4+IEhpIE55bG9uLAo+ID4+Cj4gPj4gTGUgMS8yMi8yMSDDoCAxMDo1NiBQTSwgUGFsbWVy
+IERhYmJlbHQgYSDDqWNyaXTCoDoKPiA+Pj4gT24gRnJpLCAxNSBKYW4gMjAyMSAyMTo1ODozNSBQ
+U1QgKC0wODAwKSwgbnlsb243QGFuZGVzdGVjaC5jb20gd3JvdGU6Cj4gPj4+PiBJdCByZWZlcmVu
+Y2VzIHRvIHg4Ni9zMzkwIGFyY2hpdGVjdHVyZS4KPiA+Pj4+ID4+IFNvLCBpdCBkb2Vzbid0IG1h
+cCB0aGUgZWFybHkgc2hhZG93IHBhZ2UgdG8gY292ZXIgVk1BTExPQyBzcGFjZS4KPiA+Pj4+Cj4g
+Pj4+PiBQcmVwb3B1bGF0ZSB0b3AgbGV2ZWwgcGFnZSB0YWJsZSBmb3IgdGhlIHJhbmdlIHRoYXQg
+d291bGQgb3RoZXJ3aXNlIGJlCj4gPj4+PiBlbXB0eS4KPiA+Pj4+Cj4gPj4+PiBsb3dlciBsZXZl
+bHMgYXJlIGZpbGxlZCBkeW5hbWljYWxseSB1cG9uIG1lbW9yeSBhbGxvY2F0aW9uIHdoaWxlCj4g
+Pj4+PiBib290aW5nLgo+ID4+Cj4gPj4gSSB0aGluayB3ZSBjYW4gaW1wcm92ZSB0aGUgY2hhbmdl
+bG9nIGEgYml0IGhlcmUgd2l0aCBzb21ldGhpbmcgbGlrZSB0aGF0Ogo+ID4+Cj4gPj4gIktBU0FO
+IHZtYWxsb2Mgc3BhY2UgdXNlZCB0byBiZSBtYXBwZWQgdXNpbmcga2FzYW4gZWFybHkgc2hhZG93
+IHBhZ2UuIAo+ID4+IEtBU0FOX1ZNQUxMT0MgcmVxdWlyZXMgdGhlIHRvcC1sZXZlbCBvZiB0aGUg
+a2VybmVsIHBhZ2UgdGFibGUgdG8gYmUgCj4gPj4gcHJvcGVybHkgcG9wdWxhdGVkLCBsb3dlciBs
+ZXZlbHMgYmVpbmcgZmlsbGVkIGR5bmFtaWNhbGx5IHVwb24gbWVtb3J5IAo+ID4+IGFsbG9jYXRp
+b24gYXQgcnVudGltZS4iCj4gPj4KPiA+Pj4+Cj4gPj4+PiBTaWduZWQtb2ZmLWJ5OiBOeWxvbiBD
+aGVuIDxueWxvbjdAYW5kZXN0ZWNoLmNvbT4KPiA+Pj4+IFNpZ25lZC1vZmYtYnk6IE5pY2sgSHUg
+PG5pY2todUBhbmRlc3RlY2guY29tPgo+ID4+Pj4gLS0tCj4gPj4+PiDCoGFyY2gvcmlzY3YvS2Nv
+bmZpZ8KgwqDCoMKgwqDCoMKgwqAgfMKgIDEgKwo+ID4+Pj4gwqBhcmNoL3Jpc2N2L21tL2thc2Fu
+X2luaXQuYyB8IDU3ICsrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKystCj4gPj4+
+PiDCoDIgZmlsZXMgY2hhbmdlZCwgNTcgaW5zZXJ0aW9ucygrKSwgMSBkZWxldGlvbigtKQo+ID4+
+Pj4KPiA+Pj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L0tjb25maWcgYi9hcmNoL3Jpc2N2L0tj
+b25maWcKPiA+Pj4+IGluZGV4IDgxYjc2ZDQ0NzI1ZC4uMTVhMmM4MDg4YmJlIDEwMDY0NAo+ID4+
+Pj4gLS0tIGEvYXJjaC9yaXNjdi9LY29uZmlnCj4gPj4+PiArKysgYi9hcmNoL3Jpc2N2L0tjb25m
+aWcKPiA+Pj4+IEBAIC01Nyw2ICs1Nyw3IEBAIGNvbmZpZyBSSVNDVgo+ID4+Pj4gwqDCoMKgwqAg
+c2VsZWN0IEhBVkVfQVJDSF9KVU1QX0xBQkVMCj4gPj4+PiDCoMKgwqDCoCBzZWxlY3QgSEFWRV9B
+UkNIX0pVTVBfTEFCRUxfUkVMQVRJVkUKPiA+Pj4+IMKgwqDCoMKgIHNlbGVjdCBIQVZFX0FSQ0hf
+S0FTQU4gaWYgTU1VICYmIDY0QklUCj4gPj4+PiArwqDCoMKgIHNlbGVjdCBIQVZFX0FSQ0hfS0FT
+QU5fVk1BTExPQyBpZiBNTVUgJiYgNjRCSVQKPiA+Pj4+IMKgwqDCoMKgIHNlbGVjdCBIQVZFX0FS
+Q0hfS0dEQgo+ID4+Pj4gwqDCoMKgwqAgc2VsZWN0IEhBVkVfQVJDSF9LR0RCX1FYRkVSX1BLVAo+
+ID4+Pj4gwqDCoMKgwqAgc2VsZWN0IEhBVkVfQVJDSF9NTUFQX1JORF9CSVRTIGlmIE1NVQo+ID4+
+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvbW0va2FzYW5faW5pdC5jIGIvYXJjaC9yaXNjdi9t
+bS9rYXNhbl9pbml0LmMKPiA+Pj4+IGluZGV4IDEyZGRkMWY2YmY3MC4uNGI5MTQ5Zjk2M2QzIDEw
+MDY0NAo+ID4+Pj4gLS0tIGEvYXJjaC9yaXNjdi9tbS9rYXNhbl9pbml0LmMKPiA+Pj4+ICsrKyBi
+L2FyY2gvcmlzY3YvbW0va2FzYW5faW5pdC5jCj4gPj4+PiBAQCAtOSw2ICs5LDE5IEBACj4gPj4+
+PiDCoCNpbmNsdWRlIDxsaW51eC9wZ3RhYmxlLmg+Cj4gPj4+PiDCoCNpbmNsdWRlIDxhc20vdGxi
+Zmx1c2guaD4KPiA+Pj4+IMKgI2luY2x1ZGUgPGFzbS9maXhtYXAuaD4KPiA+Pj4+ICsjaW5jbHVk
+ZSA8YXNtL3BnYWxsb2MuaD4KPiA+Pj4+ICsKPiA+Pj4+ICtzdGF0aWMgX19pbml0IHZvaWQgKmVh
+cmx5X2FsbG9jKHNpemVfdCBzaXplLCBpbnQgbm9kZSkKPiA+Pj4+ICt7Cj4gPj4+PiArwqDCoMKg
+IHZvaWQgKnB0ciA9IG1lbWJsb2NrX2FsbG9jX3RyeV9uaWQoc2l6ZSwgc2l6ZSwKPiA+Pj4+ICvC
+oMKgwqDCoMKgwqDCoCBfX3BhKE1BWF9ETUFfQUREUkVTUyksIE1FTUJMT0NLX0FMTE9DX0FDQ0VT
+U0lCTEUsIG5vZGUpOwo+ID4+Pj4gKwo+ID4+Pj4gK8KgwqDCoCBpZiAoIXB0cikKPiA+Pj4+ICvC
+oMKgwqDCoMKgwqDCoCBwYW5pYygiJXBTOiBGYWlsZWQgdG8gYWxsb2NhdGUgJXp1IGJ5dGVzIGFs
+aWduPSV6eCBuaWQ9JWQgCj4gPj4+PiBmcm9tPSVsbHhcbiIsCj4gPj4+PiArwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoCBfX2Z1bmNfXywgc2l6ZSwgc2l6ZSwgbm9kZSwgKHU2NClfX3BhKE1BWF9ETUFf
+QUREUkVTUykpOwo+ID4+Pj4gKwo+ID4+Pj4gK8KgwqDCoCByZXR1cm4gcHRyOwo+ID4+Pj4gK30K
+PiA+Pj4+Cj4gPj4+PiDCoGV4dGVybiBwZ2RfdCBlYXJseV9wZ19kaXJbUFRSU19QRVJfUEdEXTsK
+PiA+Pj4+IMKgYXNtbGlua2FnZSB2b2lkIF9faW5pdCBrYXNhbl9lYXJseV9pbml0KHZvaWQpCj4g
+Pj4+PiBAQCAtODMsNiArOTYsNDAgQEAgc3RhdGljIHZvaWQgX19pbml0IHBvcHVsYXRlKHZvaWQg
+KnN0YXJ0LCB2b2lkICplbmQpCj4gPj4+PiDCoMKgwqDCoCBtZW1zZXQoc3RhcnQsIDAsIGVuZCAt
+IHN0YXJ0KTsKPiA+Pj4+IMKgfQo+ID4+Pj4KPiA+Pj4+ICt2b2lkIF9faW5pdCBrYXNhbl9zaGFs
+bG93X3BvcHVsYXRlKHZvaWQgKnN0YXJ0LCB2b2lkICplbmQpCj4gPj4+PiArewo+ID4+Pj4gK8Kg
+wqDCoCB1bnNpZ25lZCBsb25nIHZhZGRyID0gKHVuc2lnbmVkIGxvbmcpc3RhcnQgJiBQQUdFX01B
+U0s7Cj4gPj4+PiArwqDCoMKgIHVuc2lnbmVkIGxvbmcgdmVuZCA9IFBBR0VfQUxJR04oKHVuc2ln
+bmVkIGxvbmcpZW5kKTsKPiA+Pj4+ICvCoMKgwqAgdW5zaWduZWQgbG9uZyBwZm47Cj4gPj4+PiAr
+wqDCoMKgIGludCBpbmRleDsKPiA+Pj4+ICvCoMKgwqAgdm9pZCAqcDsKPiA+Pj4+ICvCoMKgwqAg
+cHVkX3QgKnB1ZF9kaXIsICpwdWRfazsKPiA+Pj4+ICvCoMKgwqAgcGdkX3QgKnBnZF9kaXIsICpw
+Z2RfazsKPiA+Pj4+ICvCoMKgwqAgcDRkX3QgKnA0ZF9kaXIsICpwNGRfazsKPiA+Pj4+ICsKPiA+
+Pj4+ICvCoMKgwqAgd2hpbGUgKHZhZGRyIDwgdmVuZCkgewo+ID4+Pj4gK8KgwqDCoMKgwqDCoMKg
+IGluZGV4ID0gcGdkX2luZGV4KHZhZGRyKTsKPiA+Pj4+ICvCoMKgwqDCoMKgwqDCoCBwZm4gPSBj
+c3JfcmVhZChDU1JfU0FUUCkgJiBTQVRQX1BQTjsKPiA+Pgo+ID4+IEF0IHRoaXMgcG9pbnQgaW4g
+dGhlIGJvb3QgcHJvY2Vzcywgd2Uga25vdyB0aGF0IHdlIHVzZSBzd2FwcGVyX3BnX2RpciAKPiA+
+PiBzbyBubyBuZWVkIHRvIHJlYWQgU0FUUC4KPiA+Pgo+ID4+Pj4gK8KgwqDCoMKgwqDCoMKgIHBn
+ZF9kaXIgPSAocGdkX3QgKilwZm5fdG9fdmlydChwZm4pICsgaW5kZXg7Cj4gPj4KPiA+PiBIZXJl
+LCB0aGlzIHBnZF9kaXIgYXNzaWdubWVudCBpcyBvdmVyd3JpdHRlbiAyIGxpbmVzIGJlbG93LCBz
+byBubyBuZWVkIAo+ID4+IGZvciBpdC4KPiA+Pgo+ID4+Pj4gK8KgwqDCoMKgwqDCoMKgIHBnZF9r
+ID0gaW5pdF9tbS5wZ2QgKyBpbmRleDsKPiA+Pj4+ICvCoMKgwqDCoMKgwqDCoCBwZ2RfZGlyID0g
+cGdkX29mZnNldF9rKHZhZGRyKTsKPiA+Pgo+ID4+IHBnZF9vZmZzZXRfayh2YWRkcikgPSBpbml0
+X21tLnBnZCArIHBnZF9pbmRleCh2YWRkcikgc28gcGdkX2sgPT0gcGdkX2Rpci4KPiA+Pgo+ID4+
+Pj4gK8KgwqDCoMKgwqDCoMKgIHNldF9wZ2QocGdkX2RpciwgKnBnZF9rKTsKPiA+Pj4+ICsKPiA+
+Pj4+ICvCoMKgwqDCoMKgwqDCoCBwNGRfZGlyID0gcDRkX29mZnNldChwZ2RfZGlyLCB2YWRkcik7
+Cj4gPj4+PiArwqDCoMKgwqDCoMKgwqAgcDRkX2vCoCA9IHA0ZF9vZmZzZXQocGdkX2ssIHZhZGRy
+KTsKPiA+Pj4+ICsKPiA+Pj4+ICvCoMKgwqDCoMKgwqDCoCB2YWRkciA9ICh2YWRkciArIFBVRF9T
+SVpFKSAmIFBVRF9NQVNLOwo+ID4+Cj4gPj4gV2h5IGRvIHlvdSBpbmNyZWFzZSB2YWRkciAqYmVm
+b3JlKiBwb3B1bGF0aW5nIHRoZSBmaXJzdCBvbmUgPyBBbmQgCj4gPj4gcHVkX2FkZHJfZW5kIGRv
+ZXMgdGhhdCBwcm9wZXJseTogaXQgcmV0dXJucyB0aGUgbmV4dCBwdWQgYWRkcmVzcyBpZiBpdCAK
+PiA+PiBkb2VzIG5vdCBnbyBiZXlvbmQgZW5kIGFkZHJlc3MgdG8gbWFwLgo+ID4+Cj4gPj4+PiAr
+wqDCoMKgwqDCoMKgwqAgcHVkX2RpciA9IHB1ZF9vZmZzZXQocDRkX2RpciwgdmFkZHIpOwo+ID4+
+Pj4gK8KgwqDCoMKgwqDCoMKgIHB1ZF9rID0gcHVkX29mZnNldChwNGRfaywgdmFkZHIpOwo+ID4+
+Pj4gKwo+ID4+Pj4gK8KgwqDCoMKgwqDCoMKgIGlmIChwdWRfcHJlc2VudCgqcHVkX2RpcikpIHsK
+PiA+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHAgPSBlYXJseV9hbGxvYyhQQUdFX1NJWkUs
+IE5VTUFfTk9fTk9ERSk7Cj4gPj4+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBwdWRfcG9wdWxh
+dGUoJmluaXRfbW0sIHB1ZF9kaXIsIHApOwo+ID4+Cj4gPj4gaW5pdF9tbSBpcyBub3QgbmVlZGVk
+IGhlcmUuCj4gPj4KPiA+Pj4+ICvCoMKgwqDCoMKgwqDCoCB9Cj4gPj4+PiArwqDCoMKgwqDCoMKg
+wqAgdmFkZHIgKz0gUEFHRV9TSVpFOwo+ID4+Cj4gPj4gV2h5IGRvIHlvdSBuZWVkIHRvIGFkZCBQ
+QUdFX1NJWkUgPyB2YWRkciBhbHJlYWR5IHBvaW50cyB0byB0aGUgbmV4dCBwdWQuCj4gPj4KPiA+
+PiBJdCBzZWVtcyBsaWtlIHRoaXMgcGF0Y2ggdHJpZXMgdG8gcG9wdWxhdGUgdXNlcnNwYWNlIHBh
+Z2UgdGFibGUgCj4gPj4gd2hlcmVhcyBhdCB0aGlzIHBvaW50IGluIHRoZSBib290IHByb2Nlc3Ms
+IG9ubHkgc3dhcHBlcl9wZ19kaXIgaXMgdXNlZCAKPiA+PiBvciBhbSBJIG1pc3Npbmcgc29tZXRo
+aW5nID8KPiA+Pgo+ID4+IFRoYW5rcywKPiA+Pgo+ID4+IEFsZXgKPiA+IAo+ID4gSSBpbXBsZW1l
+bnRlZCB0aGlzIG1vcm5pbmcgYSB2ZXJzaW9uIHRoYXQgZml4ZXMgYWxsIHRoZSBjb21tZW50cyBJ
+IG1hZGUgCj4gPiBlYXJsaWVyLiBJIHdhcyBhYmxlIHRvIGluc2VydCB0ZXN0X2thc2FuX21vZHVs
+ZSBvbiBib3RoIHN2MzkgYW5kIHN2NDggCj4gPiB3aXRob3V0IGFueSBtb2RpZmljYXRpb246IHNl
+dF9wZ2QgImdvZXMgdGhyb3VnaCIgYWxsIHRoZSB1bnVzZWQgcGFnZSAKPiA+IHRhYmxlIGxldmVs
+cywgd2hlcmVhcyBwKmRfcG9wdWxhdGUgYXJlIG5vb3AgZm9yIHVudXNlZCBsZXZlbHMuCj4gPiAK
+PiA+IElmIHlvdSBoYXZlIGFueSBjb21tZW50LCBkbyBub3QgaGVzaXRhdGUuCj4gPiAKPiA+IGRp
+ZmYgLS1naXQgYS9hcmNoL3Jpc2N2L21tL2thc2FuX2luaXQuYyBiL2FyY2gvcmlzY3YvbW0va2Fz
+YW5faW5pdC5jCj4gPiBpbmRleCBhZGJmOTRiN2U2OGEuLmQ2NDNiMjIyMTY3YyAxMDA2NDQKPiA+
+IC0tLSBhL2FyY2gvcmlzY3YvbW0va2FzYW5faW5pdC5jCj4gPiArKysgYi9hcmNoL3Jpc2N2L21t
+L2thc2FuX2luaXQuYwo+ID4gQEAgLTE5NSw2ICsxOTUsMzEgQEAgc3RhdGljIHZvaWQgX19pbml0
+IGthc2FuX3BvcHVsYXRlKHZvaWQgKnN0YXJ0LCB2b2lkIAo+ID4gKmVuZCkKPiA+ICDCoMKgwqDC
+oMKgwqDCoCBtZW1zZXQoc3RhcnQsIEtBU0FOX1NIQURPV19JTklULCBlbmQgLSBzdGFydCk7Cj4g
+PiAgwqB9Cj4gPiAKPiA+IAo+ID4gK3ZvaWQgX19pbml0IGthc2FuX3NoYWxsb3dfcG9wdWxhdGVf
+cGdkKHVuc2lnbmVkIGxvbmcgdmFkZHIsIHVuc2lnbmVkIAo+ID4gbG9uZyBlbmQpCj4gPiArewo+
+ID4gK8KgwqDCoMKgwqDCoCB1bnNpZ25lZCBsb25nIG5leHQ7Cj4gPiArwqDCoMKgwqDCoMKgIHZv
+aWQgKnA7Cj4gPiArwqDCoMKgwqDCoMKgIHBnZF90ICpwZ2RfayA9IHBnZF9vZmZzZXRfayh2YWRk
+cik7Cj4gPiArCj4gPiArwqDCoMKgwqDCoMKgIGRvIHsKPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgIG5leHQgPSBwZ2RfYWRkcl9lbmQodmFkZHIsIGVuZCk7Cj4gPiArwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoCBpZiAocGdkX3BhZ2VfdmFkZHIoKnBnZF9rKSA9PSAodW5zaWdu
+ZWQgCj4gPiBsb25nKWxtX2FsaWFzKGthc2FuX2Vhcmx5X3NoYWRvd19wZ2RfbmV4dCkpIHsKPiA+
+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBwID0gbWVtYmxv
+Y2tfYWxsb2MoUEFHRV9TSVpFLCBQQUdFX1NJWkUpOwo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHNldF9wZ2QocGdkX2ssIHBmbl9wZ2QoUEZOX0RPV04o
+X19wYShwKSksIAo+ID4gUEFHRV9UQUJMRSkpOwo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqAgfQo+ID4gK8KgwqDCoMKgwqDCoCB9IHdoaWxlIChwZ2RfaysrLCB2YWRkciA9IG5leHQs
+IHZhZGRyICE9IGVuZCk7Cj4gPiArfQo+ID4gKwo+IAo+IFRoaXMgd2F5IG9mIGdvaW5nIHRocm91
+Z2ggdGhlIHBhZ2UgdGFibGUgc2VlbXMgdG8gYmUgbGFyZ2VseSB1c2VkIGFjcm9zcyAKPiB0aGUg
+a2VybmVsIChjZiBLQVNBTiBwb3B1bGF0aW9uIGZ1bmN0aW9ucyBvZiBhcm02NC94ODYpIHNvIEkg
+ZG8gdGhpbmsgCj4gdGhpcyBwYXRjaCBicmluZ3MgdmFsdWUgdG8gTnlsb24gYW5kIE5pY2sncyBw
+YXRjaC4KPiAKPiBJIGNhbiBwcm9wb3NlIGEgcmVhbCBwYXRjaCBpZiB5b3UgYWdyZWUgYW5kIEkn
+bGwgYWRkIGEgY28tZGV2ZWxvcGVkIGJ5IAo+IE55bG9uL05pY2sgc2luY2UgdGhpcyBvbmx5ICdp
+bXByb3ZlcycgdGhlaXJzLgo+IAo+IFRoYW5rcywKPiAKPiBBbGV4Cj4KSSBhZ3JlZSB3aXRoIHlv
+dXIgcHJvcG9zYWwsIGJ1dCB3aGVuIEkgdHJ5IHlvdXIgcGF0Y2ggdGhhdCBpdCBkb3Nlbid0IHdv
+cmsKYmVjYXVzZSBga2FzYW5fZWFybHlfc2hhZG93X3BnZF9uZXh0YCBmdW5jdGlvbiB3YXNuJ3Qg
+ZGVmaW5lLgoKRG8geW91IGhhdmUgY29tcGxldGUgcGF0Y2g/IG9yIGp1c3QgSSBtaXNzZWQgc29t
+ZSBjb250ZW50Pwo+ID4gK3ZvaWQgX19pbml0IGthc2FuX3NoYWxsb3dfcG9wdWxhdGUodm9pZCAq
+c3RhcnQsIHZvaWQgKmVuZCkKPiA+ICt7Cj4gPiArwqDCoMKgwqDCoMKgIHVuc2lnbmVkIGxvbmcg
+dmFkZHIgPSAodW5zaWduZWQgbG9uZylzdGFydCAmIFBBR0VfTUFTSzsKPiA+ICvCoMKgwqDCoMKg
+wqAgdW5zaWduZWQgbG9uZyB2ZW5kID0gUEFHRV9BTElHTigodW5zaWduZWQgbG9uZyllbmQpOwo+
+ID4gKwo+ID4gK8KgwqDCoMKgwqDCoCBrYXNhbl9zaGFsbG93X3BvcHVsYXRlX3BnZCh2YWRkciwg
+dmVuZCk7Cj4gPiArCj4gPiArwqDCoMKgwqDCoMKgIGxvY2FsX2ZsdXNoX3RsYl9hbGwoKTsKPiA+
+ICt9Cj4gPiArCj4gPiAgwqB2b2lkIF9faW5pdCBrYXNhbl9pbml0KHZvaWQpCj4gPiAgwqB7Cj4g
+PiAgwqDCoMKgwqDCoMKgwqAgcGh5c19hZGRyX3QgX3N0YXJ0LCBfZW5kOwo+ID4gQEAgLTIwNiw3
+ICsyMzEsMTUgQEAgdm9pZCBfX2luaXQga2FzYW5faW5pdCh2b2lkKQo+ID4gIMKgwqDCoMKgwqDC
+oMKgwqAgKi8KPiA+ICDCoMKgwqDCoMKgwqDCoCBrYXNhbl9wb3B1bGF0ZV9lYXJseV9zaGFkb3co
+KHZvaWQgKilLQVNBTl9TSEFET1dfU1RBUlQsCj4gPiAgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAodm9pZCAqKWth
+c2FuX21lbV90b19zaGFkb3coKHZvaWQgKikKPiA+IC0gVk1BTExPQ19FTkQpKTsKPiA+ICsgVk1F
+TU1BUF9FTkQpKTsKPiA+ICvCoMKgwqDCoMKgwqAgaWYgKElTX0VOQUJMRUQoQ09ORklHX0tBU0FO
+X1ZNQUxMT0MpKQo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAga2FzYW5fc2hhbGxv
+d19wb3B1bGF0ZSgKPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoCAodm9pZCAqKWthc2FuX21lbV90b19zaGFkb3coKHZvaWQgKilWTUFMTE9DX1NUQVJUKSwK
+PiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAodm9pZCAq
+KWthc2FuX21lbV90b19zaGFkb3coKHZvaWQgKilWTUFMTE9DX0VORCkpOwo+ID4gK8KgwqDCoMKg
+wqDCoCBlbHNlCj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBrYXNhbl9wb3B1bGF0
+ZV9lYXJseV9zaGFkb3coCj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqAgKHZvaWQgKilrYXNhbl9tZW1fdG9fc2hhZG93KCh2b2lkICopVk1BTExPQ19TVEFS
+VCksCj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgKHZv
+aWQgKilrYXNhbl9tZW1fdG9fc2hhZG93KCh2b2lkICopVk1BTExPQ19FTkQpKTsKPiA+IAo+ID4g
+Cj4gPiAgwqDCoMKgwqDCoMKgwqAgLyogUG9wdWxhdGUgdGhlIGxpbmVhciBtYXBwaW5nICovCj4g
+PiAgwqDCoMKgwqDCoMKgwqAgZm9yX2VhY2hfbWVtX3JhbmdlKGksICZfc3RhcnQsICZfZW5kKSB7
+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
+aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
+bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
