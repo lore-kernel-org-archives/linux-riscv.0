@@ -2,113 +2,85 @@ Return-Path: <SRS0=ovIN=HY=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-10.2 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,USER_AGENT_SANE_1
+	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9FA5AC433E0
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Feb 2021 19:24:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 576A7C433DB
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Feb 2021 20:23:01 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 1932B64DA1
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Feb 2021 19:24:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1932B64DA1
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.ibm.com
+	by mail.kernel.org (Postfix) with ESMTPS id DD6A464E07
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Feb 2021 20:23:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DD6A464E07
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:Reply-To:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Date:To:From:
-	Subject:Message-ID:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iNrlTrH4KckGPIh4KW1MQohfM3zonxaiUuYzD+4JSAc=; b=TVEDaJSfRdhxI04QMHI2tx6JIg
-	B7wLYs0UMztYbKVPCdlBEjvgo5IPJG9HZ4mCCk4ESENETR1VDSCER/35jbzsu4Gbe7qIGuLHvV5Xp
-	dIegvW4j/7n2BWHcoJEojnFv6FIUC4llatinttT3dVQiKxVKG/YKiQtJakgKJdn9mDv11pPZsELIc
-	DS9Q6UWGYP51BLs2+sCl2qHXeUG1sDvhwohJY1tSuUiJE7mM1ERvT64yD8vCuW7wt6CNHQTIs6Hly
-	eXTDQxCqzAhb+PKlzRMdqJ8SKShkY133xRIjU4pdn3uTnnfTqZF8c94S8uJzYllDAGzQpI1zZ/3NM
-	0d0X98lQ==;
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=R55bCUlOFkc3unH4VbPnOOxNkklIcdYloh1eys2NWFM=; b=LIYVWOP2qYZrgQZJ3+aCK2eFG
+	viE6391bK7QbY3a3IVnPWkf+cpmLxY8sbWNlSDphgsrBo8G/+eYBQdGSoSuem39V8+DgQt3kdS6fz
+	NWYK5s9ZMXmtzjVw+S0j4PzCou2Zor5SRCtyv4wUaAGCEgewxd/dMLoenzc6878EN5T18+m96YONa
+	EsNh0Xq1fK2lApfYEvSTxPCOHoL+V1rwgOm0B0ISwTG5SMrXQL7cniI56TyYI1s+3UsxoVZbgnYgN
+	pRIm0v8cBuZuttbBQlL0PbdWsxsvPMcSqQ/picKWuLUnqJKh9UI6kvXgypaC6z3tNA9zJGV3qMoRW
+	i2wpLIq2g==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1lEGoD-0000uq-DO; Mon, 22 Feb 2021 19:23:53 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1lEHjF-0007rF-5J; Mon, 22 Feb 2021 20:22:49 +0000
+Received: from mail-oi1-x234.google.com ([2607:f8b0:4864:20::234])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1lEGoA-0000u0-CW; Mon, 22 Feb 2021 19:23:51 +0000
-Received: from pps.filterd (m0098409.ppops.net [127.0.0.1])
- by mx0a-001b2d01.pphosted.com (8.16.0.43/8.16.0.43) with SMTP id
- 11MJEpp1109474; Mon, 22 Feb 2021 14:22:06 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com;
- h=message-id : subject :
- from : reply-to : to : cc : date : in-reply-to : references : content-type
- : mime-version : content-transfer-encoding; s=pp1;
- bh=KAyj3eKLFKOMnwU1Es38+VsKyGm7gMDhy7ENyWKcDm4=;
- b=bn8IhK//XUxSeVLKRWaudUpoZzL3HN5vnUn4dYDpyPFm9aPCaPnD+QiwGxLCGeTzELxl
- PppAlRy+arUk88Dhx2rNqZySKY6ng2azqgGEVWR2grK/HbTghTHlijIE6pTMcJB3Vg/1
- GSPfdff6vMuq186WZnDTsg+gUMVvggORWXLF/f2a3vzpjKTMKAwgSXW3kjfo0kJ5ca75
- 10nkRQpUwTmxScPMGE5eZkL9fMfmn6thoNYthm6uAKXwqpRPs90KjqwDpJUUI4LRrd6O
- Q+BXIG4P3y9Geq5ul5vQRFgctbObacFSkjKUgekkyuvlqcgR4IITzI9pxcRVpdvK/lGJ 9A== 
-Received: from pps.reinject (localhost [127.0.0.1])
- by mx0a-001b2d01.pphosted.com with ESMTP id 36vjkkgbyp-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Mon, 22 Feb 2021 14:22:05 -0500
-Received: from m0098409.ppops.net (m0098409.ppops.net [127.0.0.1])
- by pps.reinject (8.16.0.43/8.16.0.43) with SMTP id 11MJFWXD164416;
- Mon, 22 Feb 2021 14:22:04 -0500
-Received: from ppma05wdc.us.ibm.com (1b.90.2fa9.ip4.static.sl-reverse.com
- [169.47.144.27])
- by mx0a-001b2d01.pphosted.com with ESMTP id 36vjkkgbwh-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Mon, 22 Feb 2021 14:22:03 -0500
-Received: from pps.filterd (ppma05wdc.us.ibm.com [127.0.0.1])
- by ppma05wdc.us.ibm.com (8.16.0.42/8.16.0.42) with SMTP id 11MJLub8006699;
- Mon, 22 Feb 2021 19:22:00 GMT
-Received: from b03cxnp07029.gho.boulder.ibm.com
- (b03cxnp07029.gho.boulder.ibm.com [9.17.130.16])
- by ppma05wdc.us.ibm.com with ESMTP id 36tt29gytt-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Mon, 22 Feb 2021 19:22:00 +0000
-Received: from b03ledav004.gho.boulder.ibm.com
- (b03ledav004.gho.boulder.ibm.com [9.17.130.235])
- by b03cxnp07029.gho.boulder.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
- 11MJLxGN50266622
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Mon, 22 Feb 2021 19:21:59 GMT
-Received: from b03ledav004.gho.boulder.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 795D87806D;
- Mon, 22 Feb 2021 19:21:59 +0000 (GMT)
-Received: from b03ledav004.gho.boulder.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id B698978060;
- Mon, 22 Feb 2021 19:21:51 +0000 (GMT)
-Received: from jarvis.int.hansenpartnership.com (unknown [9.80.227.153])
- by b03ledav004.gho.boulder.ibm.com (Postfix) with ESMTP;
- Mon, 22 Feb 2021 19:21:51 +0000 (GMT)
-Message-ID: <22003fc92c16852debfdd35293475e7093d2bc67.camel@linux.ibm.com>
-Subject: Re: [PATCH v17 08/10] PM: hibernate: disable when there are active
- secretmem users
-From: James Bottomley <jejb@linux.ibm.com>
-To: Dan Williams <dan.j.williams@intel.com>, Mike Rapoport <rppt@kernel.org>
-Date: Mon, 22 Feb 2021 11:21:50 -0800
-In-Reply-To: <CAPcyv4hCXZFmeMkKxN54Yw3ZbvoYQ3Z9y9Ayv42i6u+24Bkmqg@mail.gmail.com>
-References: <20210208084920.2884-1-rppt@kernel.org>
- <20210208084920.2884-9-rppt@kernel.org>
- <20210222073452.GA30403@codon.org.uk> <20210222102359.GE1447004@kernel.org>
- <CAPcyv4hCXZFmeMkKxN54Yw3ZbvoYQ3Z9y9Ayv42i6u+24Bkmqg@mail.gmail.com>
-User-Agent: Evolution 3.34.4 
+ id 1lEHjB-0007pf-DZ
+ for linux-riscv@lists.infradead.org; Mon, 22 Feb 2021 20:22:46 +0000
+Received: by mail-oi1-x234.google.com with SMTP id 12so12560161oij.6
+ for <linux-riscv@lists.infradead.org>; Mon, 22 Feb 2021 12:22:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=sender:date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to:user-agent;
+ bh=/zUxZgcnCvVVMkZxer/qPy4+yli90D8nt9Ux36SsgZs=;
+ b=RWQBFkXyeMNOQjeD1Kc3RRJXVGMl+74YDUp15mHVrPVrFqPIzO5GHeGTQltOzbV63o
+ ZIZwc381bzxr+hOfu7xK0ZpTJS+QEcA36DpQIJJp9zNGxH2jAJiHXyphz6abXKbbqAY9
+ Ag9sTLSRayloTm2xtfgbS/Fumoq+OI5m0VCNwjDCkGwXvhpMdRiWX5hB2XTzZXgy+0Fo
+ /WivJH383We+IVL4jo5lybgXDiVoEHGqQEjeYriyAy9JzIdTIi0RW0nRlBo/Pe2fZiNg
+ E6AS+9QZ4kfxoL9LqQ5wec6FHBNp1/Ac8+9kYxnkBk/dvKL+esnye86WXfIA+xaD+N4J
+ 4aRg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:sender:date:from:to:cc:subject:message-id
+ :references:mime-version:content-disposition:in-reply-to:user-agent;
+ bh=/zUxZgcnCvVVMkZxer/qPy4+yli90D8nt9Ux36SsgZs=;
+ b=mVLrvDSn5DIcWHvUXf87+lUFoCJ6NyME1qOPnKamVVxtlfJdgV+4VkTYyQsTPS13+Q
+ T86L0CJUk9SA5kvQnr/igt9lEPwv1Cp3SBxV8OA0lInoQPKUf9gNY0GIVnuhIj7rpIMU
+ 0ELW9tcyXiYud1IJgTccD7zk5PxNKeEcKu4gxJSLW7ebmWYlrb4HhWqaQOwkeGMyBb0u
+ 3/PEESKHKrQNb8OY6EEWtpBEyTYrH82u33L+K79EQqorBp6B/JZQdxNTkdxId+ESBspG
+ sEOyB4W57uKgFWEJ/rDV6Q9X4LLQefi1ckGzqZ/5gWlkxGx4eOmq36QbrGo2w8wY5uEt
+ 3YpA==
+X-Gm-Message-State: AOAM530IhjtXyNa2VkYK2g2I72wRGcM6TVa6ZIGQ5AK7Z8LT0XKooyNM
+ FgsevY8t+gZHr/zNGqnP7YM=
+X-Google-Smtp-Source: ABdhPJyxynC/qUkfM9m2BbNUu+GDqexEdkig67h42a2PSQnnYl4vRIFk9jQHpyhBm0haU5y+2ztEUA==
+X-Received: by 2002:aca:3507:: with SMTP id c7mr7877911oia.26.1614025363323;
+ Mon, 22 Feb 2021 12:22:43 -0800 (PST)
+Received: from localhost ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
+ by smtp.gmail.com with ESMTPSA id q132sm2393106oif.32.2021.02.22.12.22.42
+ (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+ Mon, 22 Feb 2021 12:22:42 -0800 (PST)
+Date: Mon, 22 Feb 2021 12:22:41 -0800
+From: Guenter Roeck <linux@roeck-us.net>
+To: Atish Patra <atish.patra@wdc.com>
+Subject: Re: [PATCH] RISC-V: Add a non-void return for sbi v02 functions
+Message-ID: <20210222202241.GA82802@roeck-us.net>
+References: <20210204052643.1608586-1-atish.patra@wdc.com>
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.369, 18.0.761
- definitions=2021-02-22_06:2021-02-22,
- 2021-02-22 signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- mlxscore=0 phishscore=0
- lowpriorityscore=0 mlxlogscore=999 priorityscore=1501 malwarescore=0
- clxscore=1011 spamscore=0 suspectscore=0 bulkscore=0 impostorscore=0
- adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2009150000 definitions=main-2102220168
+Content-Disposition: inline
+In-Reply-To: <20210204052643.1608586-1-atish.patra@wdc.com>
+User-Agent: Mutt/1.9.4 (2018-02-28)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210222_142350_583932_9A112FD7 
-X-CRM114-Status: GOOD (  29.11  )
+X-CRM114-CacheID: sfid-20210222_152245_590492_305CFB64 
+X-CRM114-Status: GOOD (  15.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -120,74 +92,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: jejb@linux.ibm.com
-Cc: Mark Rutland <mark.rutland@arm.com>, Michal Hocko <mhocko@suse.com>,
- David Hildenbrand <david@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, Linux MM <linux-mm@kvack.org>,
- linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Christopher Lameter <cl@linux.com>, Shuah Khan <shuah@kernel.org>,
- linux-riscv@lists.infradead.org, Elena Reshetova <elena.reshetova@intel.com>,
- linux-arch <linux-arch@vger.kernel.org>, Tycho Andersen <tycho@tycho.ws>,
- linux-nvdimm <linux-nvdimm@lists.01.org>, Will Deacon <will@kernel.org>,
- X86 ML <x86@kernel.org>, Matthew Wilcox <willy@infradead.org>,
- Mike Rapoport <rppt@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
- Michael Kerrisk <mtk.manpages@gmail.com>,
- Matthew Garrett <mjg59@srcf.ucam.org>,
- Palmer Dabbelt <palmerdabbelt@google.com>, Arnd Bergmann <arnd@arndb.de>,
- Hagen Paul Pfeifer <hagen@jauu.net>, Borislav Petkov <bp@alien8.de>,
- Alexander Viro <viro@zeniv.linux.org.uk>, Andy Lutomirski <luto@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- "Kirill A. Shutemov" <kirill@shutemov.name>,
- Thomas Gleixner <tglx@linutronix.de>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- Linux API <linux-api@vger.kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- linux-fsdevel <linux-fsdevel@vger.kernel.org>,
- Shakeel Butt <shakeelb@google.com>, Andrew Morton <akpm@linux-foundation.org>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>, Roman Gushchin <guro@fb.com>
+Cc: Kefeng Wang <wangkefeng.wang@huawei.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Anup Patel <anup.patel@wdc.com>, linux-kernel@vger.kernel.org,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2021-02-22 at 11:17 -0800, Dan Williams wrote:
-> On Mon, Feb 22, 2021 at 2:24 AM Mike Rapoport <rppt@kernel.org>
-> wrote:
-> > On Mon, Feb 22, 2021 at 07:34:52AM +0000, Matthew Garrett wrote:
-> > > On Mon, Feb 08, 2021 at 10:49:18AM +0200, Mike Rapoport wrote:
-> > > 
-> > > > It is unsafe to allow saving of secretmem areas to the
-> > > > hibernation snapshot as they would be visible after the resume
-> > > > and this essentially will defeat the purpose of secret memory
-> > > > mappings.
-> > > 
-> > > Sorry for being a bit late to this - from the point of view of
-> > > running processes (and even the kernel once resume is complete),
-> > > hibernation is effectively equivalent to suspend to RAM. Why do
-> > > they need to be handled differently here?
-> > 
-> > Hibernation leaves a copy of the data on the disk which we want to
-> > prevent.
+On Wed, Feb 03, 2021 at 09:26:43PM -0800, Atish Patra wrote:
+> SBI v0.2 functions can return an error code from SBI implementation.
+> We are already processing the SBI error code and coverts it to the Linux
+> error code.
 > 
-> Why not document that users should use data at rest protection
-> mechanisms for their hibernation device? Just because secretmem can't
-> assert its disclosure guarantee does not mean the hibernation device
-> is untrustworthy.
+> Propagate to the error code to the caller as well. As of now, kvm is the
+> only user of these error codes.
+> 
+> Signed-off-by: Atish Patra <atish.patra@wdc.com>
+> ---
+...
+>  #else /* CONFIG_RISCV_SBI */
+> -static inline void sbi_remote_fence_i(const unsigned long *hart_mask) {}
+> +static inline int sbi_remote_fence_i(const unsigned long *hart_mask) {}
 
-It's not just data at rest.  Part of the running security guarantees
-are that the kernel never gets access to the data.  To support
-hibernate and swap we have to break that, so it reduces the runtime
-security posture as well as the data at rest one.
+Error log:
+In file included from arch/riscv/kernel/setup.c:29:
+arch/riscv/include/asm/sbi.h: In function 'sbi_remote_fence_i':
+arch/riscv/include/asm/sbi.h:150:1: error: no return statement in function returning non-void
 
-This argues we could do it with a per region flags (something like less
-secure or more secure mappings), but when you give users that choice
-most of them rarely choose less secure.
-
-James
-
-
+Guenter
 
 _______________________________________________
 linux-riscv mailing list
