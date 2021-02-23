@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
 	autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 987A7C433E6
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 93AECC433DB
 	for <linux-riscv@archiver.kernel.org>; Tue, 23 Feb 2021 02:58:39 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 20C9F64DF3
+	by mail.kernel.org (Postfix) with ESMTPS id 20F3F64E4A
 	for <linux-riscv@archiver.kernel.org>; Tue, 23 Feb 2021 02:58:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 20C9F64DF3
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 20F3F64E4A
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,65 +23,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:In-Reply-To:Subject:
 	Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	 bh=oLQ7PIol/ucSZk9OFiTjpFIUjJvKHrqIfQk4tm8bAJE=; b=Ku81+0T1Es1O5piMy8+SRkQBW
-	PN3yv5ONEgOCODMW+WY0vxWuerbwkWFIcunW7T53g2xdl0+Y77ZfqrzibdLYE01qDGuBecP8p0CRj
-	dCLLioQAzhfukTzbykZ93f+iJ6upESxWiJkhKkPIX7Ip31dPIU67a1L3HTRJMzrqZUpfs09ILHdw5
-	+310bfoSndgbT4r+RZVdkA8M2/pxuta70bqpMx801DYfnkpoCpZqihLBIzb7fOk1QfCbhdD8tJmte
-	6W8fe84MxBPW7VFjVGbFBeaVkE3Do1R7wh6mTHzbdvAif0VhseI0cwEuev3ZrfsvAPOU3FUT174IG
-	81Pu/1Fbw==;
+	 bh=LyPvWXY2ex9qTlohjRD1PN42mLDxWnS5yDWw3Mpo5kQ=; b=SYV1jqNJQQbcnPwrj7S14tesV
+	08rA58JuXt3FtKd1O8tfI327nbjvjlVsK7n2KMjPih4FvvsO3/D5uEqm/yowEBlhTOL5tMml5kQey
+	wYZhNNJW7dk9lQSuCim4+P+ZR4mRTnIXU5wpfVUZiOtg5N9agagfZ8xCDP2kYMhdBpeG4553PrLb0
+	6NGsRGn2Z86x2FQQzrX2pl+pT4Iv6twlqBsMAMDAIMeP5xV5FgzKk1w2NzoaRaQFMWvRpY5ZzfRYA
+	6CwVmLQxEq3tRQLPqVzGD8t3JfOsCH3yyvLLBp7mDqA9O14l3RXHLrnHAxsRkJknXwD6JGzlLthIx
+	8baeuvUeg==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1lENu7-0000ZD-6M; Tue, 23 Feb 2021 02:58:27 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1lENu6-0000Yu-Eq; Tue, 23 Feb 2021 02:58:26 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1lENu4-0000Xg-7V
- for linux-riscv@lists.infradead.org; Tue, 23 Feb 2021 02:58:25 +0000
-Received: by mail-pf1-x435.google.com with SMTP id x129so3155091pfx.7
- for <linux-riscv@lists.infradead.org>; Mon, 22 Feb 2021 18:58:23 -0800 (PST)
+ id 1lENu3-0000XO-2J
+ for linux-riscv@lists.infradead.org; Tue, 23 Feb 2021 02:58:24 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id u11so8943382plg.13
+ for <linux-riscv@lists.infradead.org>; Mon, 22 Feb 2021 18:58:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
  h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
  :content-transfer-encoding;
- bh=2wngzZ6mx+/Vpq7Q62N18mbJmvOCii5bU10fpk/sXk4=;
- b=xAg0RMNyoNjVqBWz98xEBHilAwyiq4dVzFeg6Dcn2mxnsprTZuZVDvmhFj0hnOYlF9
- kXlJkDzFE7W19jKisQdSIOBFhB5ZyAX+x7RPnmHddiQkoxm+FsBr1OgI+GOUyIxapFIw
- Qop4NoeEVYKNQuyPBSRrhi5oTHNEnZRUnmEUOjmrGCTG55UX6AWVD6TfAKxPC4o7SB0h
- NuN4D+8LUliVI0usdqOe2ETZbzBuy3kB2aurjf6FBarGPRuwJTLJqv8+3XNlUAHAx+0z
- mA2e0IeGQjEyhPBZ2jbfCaqT1k+8c6FbuLToyM7pt16FeBXPqeXfr5jV0miqzHIeMGN8
- e5Hw==
+ bh=CjGqwkyVdOUjMU+Osg0oifDQj76K6GurWtUd7NJehmk=;
+ b=fTW6i4gdM2obLimij+JFj3ntaPTwvLB9LjMmcTjo80nsNH8VXX4WNnFpTCGnne9AHV
+ qjnlo+QofPbzQWHkrJXdwa1fzqxqrnB8LZzp5zFCURkf8Wy03P9xcW5EPPwbqvqSlN+g
+ okL1wUv3JKsatvsOLK4rixUhUBV956To9jwh9CTm4YFu6IgRKsFw59uKT56dNvFMairN
+ mA8thPoCr2WreDAWn361qDac7cJ5w4/Hwh0E5OPY/DfbcB2y+5pij9hM2PYIaKymREpn
+ wqvCAuELFJkLdvhq9A2p7+9LnWwWRXgiB/L809GZOzJs2kgRakJNeelcMphuoej0tfIm
+ 7Tcg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
  :mime-version:content-transfer-encoding;
- bh=2wngzZ6mx+/Vpq7Q62N18mbJmvOCii5bU10fpk/sXk4=;
- b=oKZkGydDS9gCNAmwbKrRATjZRTdHnx4LYFmYktmGkeynT4IgPhKaKJCqp8rzQvPL8e
- /+i4xzzSUykani6itrWTEdh5901BO6LXA3I0dL9b0+VJbUI9qrpcTj3E5jJvATs+GqzB
- qcO4F8ITmyY3Sf0O6s/Lruns6h7+8u9ZiusrUmUZ2hOUfYbfh1YlBjzRrBoLniiOFl1k
- dus6etNb7uCxdVaQwZEC3C1RHfs8vbcpnmQSB9AoYvnTP7YvsPFH8U3+3WxDPRyPVTi9
- MItksnRhoxux9ihPTtUg5MqTUNX/XoFrR6xJ7UGa3bpn+xQwI3lxsXYMvzGoGfBKLh/S
- ENog==
-X-Gm-Message-State: AOAM5332Xg8cse1Le7YyrTsUkS99QSpNuW+sdXWYNR3Srr6XgtxqcIu/
- KuW+OZERbkayW/1MsBlk4CTSdAL8HMisKfgk
-X-Google-Smtp-Source: ABdhPJw1AaHpGEYHoBeg/cY+uSWG/zywCJNkfv/3STu7tc190XSaa8k+yi7WYSOLbrSsLV5/tlXPkQ==
-X-Received: by 2002:a62:e401:0:b029:1ec:fdce:b052 with SMTP id
- r1-20020a62e4010000b02901ecfdceb052mr24176262pfh.79.1614049101866; 
- Mon, 22 Feb 2021 18:58:21 -0800 (PST)
+ bh=CjGqwkyVdOUjMU+Osg0oifDQj76K6GurWtUd7NJehmk=;
+ b=JZCvdTSC0A9ODRCs6FimdaXfaYt3ZkNM0RMcUq9S8vIMEseAX/SYt2prvyfFo6NPnz
+ U2Oye4oo5PrIbzngauc6/mpdJIJ2Nw+GWLjMUJftcQZR/f4hirNSqDhBJK4eeHhbtiXA
+ DqoNxFsuInmCuNsvjYfPrHBCToMkzJEI3faVEerfQT6myc8BIt8VMh6L2RWXouD+V9NK
+ hI5PZrTj92gI/SHVw5BQ5iLqb50gxlEKvOF7EmgE3Blt5iaU10ZTduyKExYZdVOLgIgy
+ T1dmeiaVr25HeGnc9NjRMmG/VV2HC4hNgGsGVeLNFmyLasGTIlpExHB/LjJ0BnQ49AZ1
+ bTZg==
+X-Gm-Message-State: AOAM531iWl6rFOKh/T2jXqa6PxQlhxgTfSZ7uziNx1oMD+zNlQ3dtnu6
+ KwzDWx3k6xSOBusn0fDv3NxiZg==
+X-Google-Smtp-Source: ABdhPJxxijb0gsLekm5CEtAUePwNAVm4vwpXa59OIi8JYMbQ7S+nv1HiGkaz0VwCoKnCI/D7CufSZw==
+X-Received: by 2002:a17:90a:8c84:: with SMTP id
+ b4mr26336255pjo.21.1614049100590; 
+ Mon, 22 Feb 2021 18:58:20 -0800 (PST)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223])
- by smtp.gmail.com with ESMTPSA id o20sm874032pjt.43.2021.02.22.18.58.21
+ by smtp.gmail.com with ESMTPSA id j26sm20162062pfa.35.2021.02.22.18.58.19
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 22 Feb 2021 18:58:21 -0800 (PST)
-Date: Mon, 22 Feb 2021 18:58:21 -0800 (PST)
-X-Google-Original-Date: Mon, 22 Feb 2021 18:39:01 PST (-0800)
-Subject: Re: [PATCH] soc: canaan: Sort the Makefile alphabetically
-In-Reply-To: <BL0PR04MB651408C561B5E4B6889F6841E7809@BL0PR04MB6514.namprd04.prod.outlook.com>
+ Mon, 22 Feb 2021 18:58:20 -0800 (PST)
+Date: Mon, 22 Feb 2021 18:58:20 -0800 (PST)
+X-Google-Original-Date: Mon, 22 Feb 2021 18:36:27 PST (-0800)
+Subject: Re: [PATCH] riscv: Pass virtual addresses to kasan_mem_to_shadow
+In-Reply-To: <20210222080734.31631-1-alex@ghiti.fr>
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Damien Le Moal <Damien.LeMoal@wdc.com>
-Message-ID: <mhng-987a3cd7-9d3e-4471-b47a-67aa97629e7b@palmerdabbelt-glaptop>
+To: alex@ghiti.fr
+Message-ID: <mhng-ed9c69f4-96ab-417c-90da-4c03a48d1268@palmerdabbelt-glaptop>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210222_215824_410597_913309F6 
-X-CRM114-Status: GOOD (  21.13  )
+X-CRM114-CacheID: sfid-20210222_215823_292353_E8C88727 
+X-CRM114-Status: GOOD (  18.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -93,57 +93,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: peng.fan@nxp.com, linux-kernel@vger.kernel.org, joel@jms.id.au,
- pczarnecki@internships.antmicro.com, linux-riscv@lists.infradead.org,
- leonard.crestez@nxp.com, kernel-team@android.com
+Cc: aou@eecs.berkeley.edu, alex@ghiti.fr, linux-kernel@vger.kernel.org,
+ kasan-dev@googlegroups.com, glider@google.com, rppt@kernel.org,
+ Paul Walmsley <paul.walmsley@sifive.com>, aryabinin@virtuozzo.com,
+ akpm@linux-foundation.org, linux-riscv@lists.infradead.org, dvyukov@google.com
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 22 Feb 2021 18:31:43 PST (-0800), Damien Le Moal wrote:
-> On 2021/02/23 11:19, Palmer Dabbelt wrote:
-> From: Palmer Dabbelt <palmerdabbelt@google.com>
-> 
-> The rest of these are alphabetically sorted, and leaving it this way
-> causes a merge conflict.
-> 
-> Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
-> 
-> ---
-> 
-> I missed this when reviewing these patches, but happened across it when
-> test merging from Linus' tree.  It goes back a way so I'm hesitant to
-> rebase this one out just for cleanliness, but if I have to go back that
-> far before sending the merge window PR I'll squash it in.
-> ---
->  drivers/soc/Makefile | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/soc/Makefile b/drivers/soc/Makefile
-> index fa7071246546..34b23645be14 100644
-> --- a/drivers/soc/Makefile
-> +++ b/drivers/soc/Makefile
-> @@ -7,6 +7,7 @@ obj-$(CONFIG_ARCH_ACTIONS)	+= actions/
->  obj-y				+= aspeed/
->  obj-$(CONFIG_ARCH_AT91)		+= atmel/
->  obj-y				+= bcm/
-> +obj-$(CONFIG_SOC_CANAAN)	+= canaan/
->  obj-$(CONFIG_ARCH_DOVE)		+= dove/
->  obj-$(CONFIG_MACH_DOVE)		+= dove/
->  obj-y				+= fsl/
-> @@ -29,4 +30,3 @@ obj-$(CONFIG_ARCH_U8500)	+= ux500/
->  obj-$(CONFIG_PLAT_VERSATILE)	+= versatile/
->  obj-y				+= xilinx/
->  obj-$(CONFIG_ARCH_ZX)		+= zte/
-> -obj-$(CONFIG_SOC_CANAAN)	+= canaan/
-> 
+On Mon, 22 Feb 2021 00:07:34 PST (-0800), alex@ghiti.fr wrote:
+> kasan_mem_to_shadow translates virtual addresses to kasan shadow
+> addresses whereas for_each_mem_range returns physical addresses: it is
+> then required to use __va on those addresses before passing them to
+> kasan_mem_to_shadow.
 >
-> Yes. Should have sent that... Thanks.
+> Fixes: b10d6bca8720 ("arch, drivers: replace for_each_membock() with for_each_mem_range()")
+> Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
+> ---
+>  arch/riscv/mm/kasan_init.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 >
-> Reviewed-by: Damien Le Moal <damien.lemoal@wdc.com>
+> diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
+> index 4b9149f963d3..6d3b88f2c566 100644
+> --- a/arch/riscv/mm/kasan_init.c
+> +++ b/arch/riscv/mm/kasan_init.c
+> @@ -148,8 +148,8 @@ void __init kasan_init(void)
+>  			(void *)kasan_mem_to_shadow((void *)VMALLOC_END));
+>
+>  	for_each_mem_range(i, &_start, &_end) {
+> -		void *start = (void *)_start;
+> -		void *end = (void *)_end;
+> +		void *start = (void *)__va(_start);
+> +		void *end = (void *)__va(_end);
+>
+>  		if (start >= end)
+>  			break;
 
-No problem, it's on for-next.
+Thanks, but unless I'm missing something this is already in Linus' tree as
+c25a053e1577 ("riscv: Fix KASAN memory mapping.").
 
 _______________________________________________
 linux-riscv mailing list
