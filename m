@@ -7,14 +7,14 @@ X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
 	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 36F70C433DB
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Feb 2021 08:06:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 81D71C433E0
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Feb 2021 08:07:52 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9359564EBA
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Feb 2021 08:06:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9359564EBA
+	by mail.kernel.org (Postfix) with ESMTPS id 1285E64EBA
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Feb 2021 08:07:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 1285E64EBA
 Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -23,23 +23,24 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=lO0HJD/WqKksupXpo5OPLBllm+4MW8Oac87bdtCQGpI=; b=u4kVcbtfJoxsVnMWF+/RqK0FR
-	g1YSGLFTHKkIQii/KHNFtIpV268l2vh1uwQBQvLwOmExq6AQIBhvBgCAgMSAzy1DwDEH7zTAXYtDg
-	w7h8T/TVH3K4fxupPVa8dgfr4dOYqvOBOtK2BW0Vy0ojOdmk+D8WH8Dw8RwlHzoiI8LLWxiwu5SL9
-	CXB34Hs7Cl/QUtJ9EcDC/k7AIJ9LDUbZ74hY3H68bNfW1+v++SozuqCgzSbIDJKrwBufPw72hPG6j
-	WU0ujLJKF/qH7Mml60miJtdFygD3IOBOaLTiJwdrcncVyKyVZGv+eky7MfeKyrwmhAfw9VowDBbKr
-	hBvWvExBQ==;
+	 bh=gZ91p6i3WPmozwVVlB0/awzfJVe4gdduU0SN0l2VXmw=; b=U74BPUUHUTdNxrrgVkLtGWd9Z
+	oHPAq3CL4IHA6m8icRfn5+tXjplebq5/WpEHkjZq3IrLMUnXNnc4PXLox6Sh3SBRQgGC9c3EQaIDk
+	2ePjsKg3R7fEzkNb2PSKgCznFuBT5WKx5NXYK9FPRldiwe/YZYvs7kXBycm+73M6ofO0t+rD9foKs
+	hYJsSYkiofPoDdAsXe1BxzzN4a+1OH6RDkG+ro/z7Qw2Zx6FW4/9y0bMndcH1AC/iJoFKkf1VVphO
+	axdKFmABXKbD6P+5J3E+/79vACZaEMfKZZmTwnVXEMxO/sFyvFVUV0jw172RjOhIb+B7aD+RMSDg+
+	D19ma3jWQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1lFBfG-0007Qv-0s; Thu, 25 Feb 2021 08:06:26 +0000
-Received: from relay11.mail.gandi.net ([217.70.178.231])
+	id 1lFBgR-0007Xf-OR; Thu, 25 Feb 2021 08:07:39 +0000
+Received: from relay5-d.mail.gandi.net ([217.70.183.197])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1lFBfD-0007Q1-7e
- for linux-riscv@lists.infradead.org; Thu, 25 Feb 2021 08:06:25 +0000
+ id 1lFBgO-0007Wo-Ir
+ for linux-riscv@lists.infradead.org; Thu, 25 Feb 2021 08:07:37 +0000
+X-Originating-IP: 81.185.161.35
 Received: from localhost.localdomain (35.161.185.81.rev.sfr.net
  [81.185.161.35]) (Authenticated sender: alex@ghiti.fr)
- by relay11.mail.gandi.net (Postfix) with ESMTPSA id AE3EC100003;
- Thu, 25 Feb 2021 08:06:13 +0000 (UTC)
+ by relay5-d.mail.gandi.net (Postfix) with ESMTPSA id 8DAD41C0006;
+ Thu, 25 Feb 2021 08:07:26 +0000 (UTC)
 From: Alexandre Ghiti <alex@ghiti.fr>
 To: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
@@ -48,16 +49,17 @@ To: Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
  Dmitry Vyukov <dvyukov@google.com>, linux-doc@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  kasan-dev@googlegroups.com, linux-arch@vger.kernel.org, linux-mm@kvack.org
-Subject: [PATCH 1/3] riscv: Move kernel mapping outside of linear mapping
-Date: Thu, 25 Feb 2021 03:04:51 -0500
-Message-Id: <20210225080453.1314-2-alex@ghiti.fr>
+Subject: [PATCH 2/3] Documentation: riscv: Add documentation that describes
+ the VM layout
+Date: Thu, 25 Feb 2021 03:04:52 -0500
+Message-Id: <20210225080453.1314-3-alex@ghiti.fr>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20210225080453.1314-1-alex@ghiti.fr>
 References: <20210225080453.1314-1-alex@ghiti.fr>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210225_030623_625821_B1FD6F6D 
-X-CRM114-Status: GOOD (  28.12  )
+X-CRM114-CacheID: sfid-20210225_030736_831815_F33B7390 
+X-CRM114-Status: GOOD (  14.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -70,502 +72,91 @@ List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
 Cc: Alexandre Ghiti <alex@ghiti.fr>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is a preparatory patch for relocatable kernel and sv48 support.
-
-The kernel used to be linked at PAGE_OFFSET address therefore we could use
-the linear mapping for the kernel mapping. But the relocated kernel base
-address will be different from PAGE_OFFSET and since in the linear mapping,
-two different virtual addresses cannot point to the same physical address,
-the kernel mapping needs to lie outside the linear mapping so that we don't
-have to copy it at the same physical offset.
-
-The kernel mapping is moved to the last 2GB of the address space, BPF
-is now always after the kernel and modules use the 2GB memory range right
-before the kernel, so BPF and modules regions do not overlap. KASLR
-implementation will simply have to move the kernel in the last 2GB range
-and just take care of leaving enough space for BPF.
-
-In addition, by moving the kernel to the end of the address space, both
-sv39 and sv48 kernels will be exactly the same without needing to be
-relocated at runtime.
-
-Suggested-by: Arnd Bergmann <arnd@arndb.de>
-Signed-off-by: Alexandre Ghiti <alex@ghiti.fr>
----
- arch/riscv/boot/loader.lds.S        |  3 +-
- arch/riscv/include/asm/page.h       | 18 ++++++-
- arch/riscv/include/asm/pgtable.h    | 37 +++++++++----
- arch/riscv/include/asm/set_memory.h |  1 +
- arch/riscv/kernel/head.S            |  3 +-
- arch/riscv/kernel/module.c          |  6 +--
- arch/riscv/kernel/setup.c           |  3 ++
- arch/riscv/kernel/vmlinux.lds.S     |  3 +-
- arch/riscv/mm/fault.c               | 13 +++++
- arch/riscv/mm/init.c                | 81 +++++++++++++++++++++++------
- arch/riscv/mm/kasan_init.c          |  9 ++++
- arch/riscv/mm/physaddr.c            |  2 +-
- 12 files changed, 141 insertions(+), 38 deletions(-)
-
-diff --git a/arch/riscv/boot/loader.lds.S b/arch/riscv/boot/loader.lds.S
-index 47a5003c2e28..62d94696a19c 100644
---- a/arch/riscv/boot/loader.lds.S
-+++ b/arch/riscv/boot/loader.lds.S
-@@ -1,13 +1,14 @@
- /* SPDX-License-Identifier: GPL-2.0 */
- 
- #include <asm/page.h>
-+#include <asm/pgtable.h>
- 
- OUTPUT_ARCH(riscv)
- ENTRY(_start)
- 
- SECTIONS
- {
--	. = PAGE_OFFSET;
-+	. = KERNEL_LINK_ADDR;
- 
- 	.payload : {
- 		*(.payload)
-diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
-index e49d51b97bc1..6557535dc2da 100644
---- a/arch/riscv/include/asm/page.h
-+++ b/arch/riscv/include/asm/page.h
-@@ -90,15 +90,29 @@ typedef struct page *pgtable_t;
- 
- #ifdef CONFIG_MMU
- extern unsigned long va_pa_offset;
-+extern unsigned long va_kernel_pa_offset;
- extern unsigned long pfn_base;
- #define ARCH_PFN_OFFSET		(pfn_base)
- #else
- #define va_pa_offset		0
-+#define va_kernel_pa_offset	0
- #define ARCH_PFN_OFFSET		(PAGE_OFFSET >> PAGE_SHIFT)
- #endif /* CONFIG_MMU */
- 
--#define __pa_to_va_nodebug(x)	((void *)((unsigned long) (x) + va_pa_offset))
--#define __va_to_pa_nodebug(x)	((unsigned long)(x) - va_pa_offset)
-+extern unsigned long kernel_virt_addr;
-+extern uintptr_t load_pa, load_sz, load_sz_pmd;
-+
-+#define linear_mapping_pa_to_va(x)	((void *)((unsigned long)(x) + va_pa_offset))
-+#define __pa_to_va_nodebug(x)		linear_mapping_pa_to_va(x)
-+
-+#define linear_mapping_va_to_pa(x)	((unsigned long)(x) - va_pa_offset)
-+#define kernel_mapping_va_to_pa(x)	\
-+	((unsigned long)(x) - va_kernel_pa_offset)
-+#define __va_to_pa_nodebug(x)	({						\
-+	unsigned long _x = x;							\
-+	(_x < kernel_virt_addr) ?						\
-+		linear_mapping_va_to_pa(_x) : kernel_mapping_va_to_pa(_x);	\
-+	})
- 
- #ifdef CONFIG_DEBUG_VIRTUAL
- extern phys_addr_t __virt_to_phys(unsigned long x);
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 25e90cf0bde4..50c068993591 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -11,23 +11,30 @@
- 
- #include <asm/pgtable-bits.h>
- 
--#ifndef __ASSEMBLY__
--
--/* Page Upper Directory not used in RISC-V */
--#include <asm-generic/pgtable-nopud.h>
--#include <asm/page.h>
--#include <asm/tlbflush.h>
--#include <linux/mm_types.h>
-+#ifndef CONFIG_MMU
-+#define KERNEL_LINK_ADDR	PAGE_OFFSET
-+#else
- 
--#ifdef CONFIG_MMU
-+#define ADDRESS_SPACE_END	(UL(-1))
-+/*
-+ * Leave 2GB for kernel and BPF at the end of the address space
-+ */
-+#define KERNEL_LINK_ADDR	(ADDRESS_SPACE_END - SZ_2G + 1)
- 
- #define VMALLOC_SIZE     (KERN_VIRT_SIZE >> 1)
- #define VMALLOC_END      (PAGE_OFFSET - 1)
- #define VMALLOC_START    (PAGE_OFFSET - VMALLOC_SIZE)
- 
-+/* KASLR should leave at least 128MB for BPF after the kernel */
- #define BPF_JIT_REGION_SIZE	(SZ_128M)
--#define BPF_JIT_REGION_START	(PAGE_OFFSET - BPF_JIT_REGION_SIZE)
--#define BPF_JIT_REGION_END	(VMALLOC_END)
-+#define BPF_JIT_REGION_START	PFN_ALIGN((unsigned long)&_end)
-+#define BPF_JIT_REGION_END	(BPF_JIT_REGION_START + BPF_JIT_REGION_SIZE)
-+
-+/* Modules always live before the kernel */
-+#ifdef CONFIG_64BIT
-+#define MODULES_VADDR	(PFN_ALIGN((unsigned long)&_end) - SZ_2G)
-+#define MODULES_END	(PFN_ALIGN((unsigned long)&_start))
-+#endif
- 
- /*
-  * Roughly size the vmemmap space to be large enough to fit enough
-@@ -57,9 +64,16 @@
- #define FIXADDR_SIZE     PGDIR_SIZE
- #endif
- #define FIXADDR_START    (FIXADDR_TOP - FIXADDR_SIZE)
--
- #endif
- 
-+#ifndef __ASSEMBLY__
-+
-+/* Page Upper Directory not used in RISC-V */
-+#include <asm-generic/pgtable-nopud.h>
-+#include <asm/page.h>
-+#include <asm/tlbflush.h>
-+#include <linux/mm_types.h>
-+
- #ifdef CONFIG_64BIT
- #include <asm/pgtable-64.h>
- #else
-@@ -485,6 +499,7 @@ static inline int ptep_clear_flush_young(struct vm_area_struct *vma,
- 
- #define kern_addr_valid(addr)   (1) /* FIXME */
- 
-+extern char _start[];
- extern void *dtb_early_va;
- extern uintptr_t dtb_early_pa;
- void setup_bootmem(void);
-diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
-index 9fa510707012..03df05bc639a 100644
---- a/arch/riscv/include/asm/set_memory.h
-+++ b/arch/riscv/include/asm/set_memory.h
-@@ -17,6 +17,7 @@ int set_memory_x(unsigned long addr, int numpages);
- int set_memory_nx(unsigned long addr, int numpages);
- int set_memory_rw_nx(unsigned long addr, int numpages);
- void protect_kernel_text_data(void);
-+void protect_kernel_linear_mapping_text_rodata(void);
- #else
- static inline int set_memory_ro(unsigned long addr, int numpages) { return 0; }
- static inline int set_memory_rw(unsigned long addr, int numpages) { return 0; }
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index f5a9bad86e58..6cb05f22e52a 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -69,7 +69,8 @@ pe_head_start:
- #ifdef CONFIG_MMU
- relocate:
- 	/* Relocate return address */
--	li a1, PAGE_OFFSET
-+	la a1, kernel_virt_addr
-+	REG_L a1, 0(a1)
- 	la a2, _start
- 	sub a1, a1, a2
- 	add ra, ra, a1
-diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
-index 104fba889cf7..ce153771e5e9 100644
---- a/arch/riscv/kernel/module.c
-+++ b/arch/riscv/kernel/module.c
-@@ -408,12 +408,10 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
- }
- 
- #if defined(CONFIG_MMU) && defined(CONFIG_64BIT)
--#define VMALLOC_MODULE_START \
--	 max(PFN_ALIGN((unsigned long)&_end - SZ_2G), VMALLOC_START)
- void *module_alloc(unsigned long size)
- {
--	return __vmalloc_node_range(size, 1, VMALLOC_MODULE_START,
--				    VMALLOC_END, GFP_KERNEL,
-+	return __vmalloc_node_range(size, 1, MODULES_VADDR,
-+				    MODULES_END, GFP_KERNEL,
- 				    PAGE_KERNEL_EXEC, 0, NUMA_NO_NODE,
- 				    __builtin_return_address(0));
- }
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index 4945b5085241..c8ea6a72faf6 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -263,6 +263,9 @@ void __init setup_arch(char **cmdline_p)
- 
- 	if (IS_ENABLED(CONFIG_STRICT_KERNEL_RWX))
- 		protect_kernel_text_data();
-+
-+	protect_kernel_linear_mapping_text_rodata();
-+
- #ifdef CONFIG_SWIOTLB
- 	swiotlb_init(1);
- #endif
-diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
-index de03cb22d0e9..0726c05e0336 100644
---- a/arch/riscv/kernel/vmlinux.lds.S
-+++ b/arch/riscv/kernel/vmlinux.lds.S
-@@ -4,7 +4,8 @@
-  * Copyright (C) 2017 SiFive
-  */
- 
--#define LOAD_OFFSET PAGE_OFFSET
-+#include <asm/pgtable.h>
-+#define LOAD_OFFSET KERNEL_LINK_ADDR
- #include <asm/vmlinux.lds.h>
- #include <asm/page.h>
- #include <asm/cache.h>
-diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
-index 8f17519208c7..1b14d523a95c 100644
---- a/arch/riscv/mm/fault.c
-+++ b/arch/riscv/mm/fault.c
-@@ -231,6 +231,19 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
- 		return;
- 	}
- 
-+#ifdef CONFIG_64BIT
-+	/*
-+	 * Modules in 64bit kernels lie in their own virtual region which is not
-+	 * in the vmalloc region, but dealing with page faults in this region
-+	 * or the vmalloc region amounts to doing the same thing: checking that
-+	 * the mapping exists in init_mm.pgd and updating user page table, so
-+	 * just use vmalloc_fault.
-+	 */
-+	if (unlikely(addr >= MODULES_VADDR && addr < MODULES_END)) {
-+		vmalloc_fault(regs, code, addr);
-+		return;
-+	}
-+#endif
- 	/* Enable interrupts if they were enabled in the parent context. */
- 	if (likely(regs->status & SR_PIE))
- 		local_irq_enable();
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 3e044f11cef6..18792937cf31 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -25,6 +25,9 @@
- 
- #include "../kernel/head.h"
- 
-+unsigned long kernel_virt_addr = KERNEL_LINK_ADDR;
-+EXPORT_SYMBOL(kernel_virt_addr);
-+
- unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)]
- 							__page_aligned_bss;
- EXPORT_SYMBOL(empty_zero_page);
-@@ -88,6 +91,8 @@ static void print_vm_layout(void)
- 		  (unsigned long)VMALLOC_END);
- 	print_mlm("lowmem", (unsigned long)PAGE_OFFSET,
- 		  (unsigned long)high_memory);
-+	print_mlm("kernel", (unsigned long)KERNEL_LINK_ADDR,
-+		  (unsigned long)ADDRESS_SPACE_END);
- }
- #else
- static void print_vm_layout(void) { }
-@@ -130,8 +135,13 @@ void __init setup_bootmem(void)
- 	 */
- 	memblock_enforce_memory_limit(-PAGE_OFFSET);
- 
--	/* Reserve from the start of the kernel to the end of the kernel */
--	memblock_reserve(vmlinux_start, vmlinux_end - vmlinux_start);
-+	/*
-+	 * Reserve from the start of the kernel to the end of the kernel
-+	 * and make sure we align the reservation on PMD_SIZE since we will
-+	 * map the kernel in the linear mapping as read-only: we do not want
-+	 * any allocation to happen between _end and the next pmd aligned page.
-+	 */
-+	memblock_reserve(load_pa, load_sz_pmd);
- 
- 	max_pfn = PFN_DOWN(memblock_end_of_DRAM());
- 	max_low_pfn = max_pfn;
-@@ -156,8 +166,12 @@ void __init setup_bootmem(void)
- #ifdef CONFIG_MMU
- static struct pt_alloc_ops pt_ops;
- 
-+/* Offset between linear mapping virtual address and kernel load address */
- unsigned long va_pa_offset;
- EXPORT_SYMBOL(va_pa_offset);
-+/* Offset between kernel mapping virtual address and kernel load address */
-+unsigned long va_kernel_pa_offset;
-+EXPORT_SYMBOL(va_kernel_pa_offset);
- unsigned long pfn_base;
- EXPORT_SYMBOL(pfn_base);
- 
-@@ -261,7 +275,7 @@ static pmd_t *get_pmd_virt_late(phys_addr_t pa)
- 
- static phys_addr_t __init alloc_pmd_early(uintptr_t va)
- {
--	BUG_ON((va - PAGE_OFFSET) >> PGDIR_SHIFT);
-+	BUG_ON((va - kernel_virt_addr) >> PGDIR_SHIFT);
- 
- 	return (uintptr_t)early_pmd;
- }
-@@ -376,17 +390,37 @@ static uintptr_t __init best_map_size(phys_addr_t base, phys_addr_t size)
- #error "setup_vm() is called from head.S before relocate so it should not use absolute addressing."
- #endif
- 
-+uintptr_t load_pa, load_sz, load_sz_pmd;
-+EXPORT_SYMBOL(load_pa);
-+EXPORT_SYMBOL(load_sz);
-+EXPORT_SYMBOL(load_sz_pmd);
-+
-+static void __init create_kernel_page_table(pgd_t *pgdir, uintptr_t map_size)
-+{
-+	uintptr_t va, end_va;
-+
-+	end_va = kernel_virt_addr + load_sz;
-+	for (va = kernel_virt_addr; va < end_va; va += map_size)
-+		create_pgd_mapping(pgdir, va,
-+				   load_pa + (va - kernel_virt_addr),
-+				   map_size, PAGE_KERNEL_EXEC);
-+}
-+
- asmlinkage void __init setup_vm(uintptr_t dtb_pa)
- {
--	uintptr_t va, pa, end_va;
--	uintptr_t load_pa = (uintptr_t)(&_start);
--	uintptr_t load_sz = (uintptr_t)(&_end) - load_pa;
-+	uintptr_t pa;
- 	uintptr_t map_size;
- #ifndef __PAGETABLE_PMD_FOLDED
- 	pmd_t fix_bmap_spmd, fix_bmap_epmd;
- #endif
- 
-+	load_pa = (uintptr_t)(&_start);
-+	load_sz = (uintptr_t)(&_end) - load_pa;
-+	load_sz_pmd = (load_sz + PMD_SIZE - 1) & PMD_MASK;
-+
- 	va_pa_offset = PAGE_OFFSET - load_pa;
-+	va_kernel_pa_offset = kernel_virt_addr - load_pa;
-+
- 	pfn_base = PFN_DOWN(load_pa);
- 
- 	/*
-@@ -414,26 +448,22 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
- 	create_pmd_mapping(fixmap_pmd, FIXADDR_START,
- 			   (uintptr_t)fixmap_pte, PMD_SIZE, PAGE_TABLE);
- 	/* Setup trampoline PGD and PMD */
--	create_pgd_mapping(trampoline_pg_dir, PAGE_OFFSET,
-+	create_pgd_mapping(trampoline_pg_dir, kernel_virt_addr,
- 			   (uintptr_t)trampoline_pmd, PGDIR_SIZE, PAGE_TABLE);
--	create_pmd_mapping(trampoline_pmd, PAGE_OFFSET,
-+	create_pmd_mapping(trampoline_pmd, kernel_virt_addr,
- 			   load_pa, PMD_SIZE, PAGE_KERNEL_EXEC);
- #else
- 	/* Setup trampoline PGD */
--	create_pgd_mapping(trampoline_pg_dir, PAGE_OFFSET,
-+	create_pgd_mapping(trampoline_pg_dir, kernel_virt_addr,
- 			   load_pa, PGDIR_SIZE, PAGE_KERNEL_EXEC);
- #endif
- 
- 	/*
--	 * Setup early PGD covering entire kernel which will allows
-+	 * Setup early PGD covering entire kernel which will allow
- 	 * us to reach paging_init(). We map all memory banks later
- 	 * in setup_vm_final() below.
- 	 */
--	end_va = PAGE_OFFSET + load_sz;
--	for (va = PAGE_OFFSET; va < end_va; va += map_size)
--		create_pgd_mapping(early_pg_dir, va,
--				   load_pa + (va - PAGE_OFFSET),
--				   map_size, PAGE_KERNEL_EXEC);
-+	create_kernel_page_table(early_pg_dir, map_size);
- 
- #ifndef __PAGETABLE_PMD_FOLDED
- 	/* Setup early PMD for DTB */
-@@ -496,6 +526,20 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
- #endif
- }
- 
-+void protect_kernel_linear_mapping_text_rodata(void)
-+{
-+	unsigned long text_start = (unsigned long)lm_alias(_start);
-+	unsigned long init_text_start = (unsigned long)lm_alias(__init_text_begin);
-+	unsigned long rodata_start = (unsigned long)lm_alias(__start_rodata);
-+	unsigned long data_start = (unsigned long)lm_alias(_data);
-+
-+	set_memory_ro(text_start, (init_text_start - text_start) >> PAGE_SHIFT);
-+	set_memory_nx(text_start, (init_text_start - text_start) >> PAGE_SHIFT);
-+
-+	set_memory_ro(rodata_start, (data_start - rodata_start) >> PAGE_SHIFT);
-+	set_memory_nx(rodata_start, (data_start - rodata_start) >> PAGE_SHIFT);
-+}
-+
- static void __init setup_vm_final(void)
- {
- 	uintptr_t va, map_size;
-@@ -517,7 +561,7 @@ static void __init setup_vm_final(void)
- 			   __pa_symbol(fixmap_pgd_next),
- 			   PGDIR_SIZE, PAGE_TABLE);
- 
--	/* Map all memory banks */
-+	/* Map all memory banks in the linear mapping */
- 	for_each_mem_range(i, &start, &end) {
- 		if (start >= end)
- 			break;
-@@ -529,10 +573,13 @@ static void __init setup_vm_final(void)
- 		for (pa = start; pa < end; pa += map_size) {
- 			va = (uintptr_t)__va(pa);
- 			create_pgd_mapping(swapper_pg_dir, va, pa,
--					   map_size, PAGE_KERNEL_EXEC);
-+					   map_size, PAGE_KERNEL);
- 		}
- 	}
- 
-+	/* Map the kernel */
-+	create_kernel_page_table(swapper_pg_dir, PMD_SIZE);
-+
- 	/* Clear fixmap PTE and PMD mappings */
- 	clear_fixmap(FIX_PTE);
- 	clear_fixmap(FIX_PMD);
-diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
-index 171569df4334..89622785d500 100644
---- a/arch/riscv/mm/kasan_init.c
-+++ b/arch/riscv/mm/kasan_init.c
-@@ -172,6 +172,10 @@ void __init kasan_init(void)
- 	phys_addr_t _start, _end;
- 	u64 i;
- 
-+	/*
-+	 * Populate all kernel virtual address space with kasan_early_shadow_page
-+	 * except for the linear mapping and the modules/kernel/BPF mapping.
-+	 */
- 	kasan_populate_early_shadow((void *)KASAN_SHADOW_START,
- 				    (void *)kasan_mem_to_shadow((void *)
- 								VMEMMAP_END));
-@@ -184,6 +188,7 @@ void __init kasan_init(void)
- 			(void *)kasan_mem_to_shadow((void *)VMALLOC_START),
- 			(void *)kasan_mem_to_shadow((void *)VMALLOC_END));
- 
-+	/* Populate the linear mapping */
- 	for_each_mem_range(i, &_start, &_end) {
- 		void *start = (void *)_start;
- 		void *end = (void *)_end;
-@@ -194,6 +199,10 @@ void __init kasan_init(void)
- 		kasan_populate(kasan_mem_to_shadow(start), kasan_mem_to_shadow(end));
- 	};
- 
-+	/* Populate kernel, BPF, modules mapping */
-+	kasan_populate(kasan_mem_to_shadow((const void *)MODULES_VADDR),
-+		       kasan_mem_to_shadow((const void *)BPF_JIT_REGION_END));
-+
- 	for (i = 0; i < PTRS_PER_PTE; i++)
- 		set_pte(&kasan_early_shadow_pte[i],
- 			mk_pte(virt_to_page(kasan_early_shadow_page),
-diff --git a/arch/riscv/mm/physaddr.c b/arch/riscv/mm/physaddr.c
-index e8e4dcd39fed..35703d5ef5fd 100644
---- a/arch/riscv/mm/physaddr.c
-+++ b/arch/riscv/mm/physaddr.c
-@@ -23,7 +23,7 @@ EXPORT_SYMBOL(__virt_to_phys);
- 
- phys_addr_t __phys_addr_symbol(unsigned long x)
- {
--	unsigned long kernel_start = (unsigned long)PAGE_OFFSET;
-+	unsigned long kernel_start = (unsigned long)kernel_virt_addr;
- 	unsigned long kernel_end = (unsigned long)_end;
- 
- 	/*
--- 
-2.20.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VGhpcyBuZXcgZG9jdW1lbnQgcHJlc2VudHMgdGhlIFJJU0MtViB2aXJ0dWFsIG1lbW9yeSBsYXlv
+dXQgYW5kIGlzIGJhc2VkCm9uZSB0aGUgeDg2IG9uZTogaXQgZGVzY3JpYmVzIHRoZSBkaWZmZXJl
+bnQgbGltaXRzIG9mIHRoZSBkaWZmZXJlbnQgcmVnaW9ucwpvZiB0aGUgdmlydHVhbCBhZGRyZXNz
+IHNwYWNlLgoKU2lnbmVkLW9mZi1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4QGdoaXRpLmZyPgot
+LS0KIERvY3VtZW50YXRpb24vcmlzY3YvaW5kZXgucnN0ICAgICB8ICAxICsKIERvY3VtZW50YXRp
+b24vcmlzY3Yvdm0tbGF5b3V0LnJzdCB8IDYxICsrKysrKysrKysrKysrKysrKysrKysrKysrKysr
+KysKIDIgZmlsZXMgY2hhbmdlZCwgNjIgaW5zZXJ0aW9ucygrKQogY3JlYXRlIG1vZGUgMTAwNjQ0
+IERvY3VtZW50YXRpb24vcmlzY3Yvdm0tbGF5b3V0LnJzdAoKZGlmZiAtLWdpdCBhL0RvY3VtZW50
+YXRpb24vcmlzY3YvaW5kZXgucnN0IGIvRG9jdW1lbnRhdGlvbi9yaXNjdi9pbmRleC5yc3QKaW5k
+ZXggNmU2ZTM5NDgyNTAyLi5lYTkxNWMxOTYwNDggMTAwNjQ0Ci0tLSBhL0RvY3VtZW50YXRpb24v
+cmlzY3YvaW5kZXgucnN0CisrKyBiL0RvY3VtZW50YXRpb24vcmlzY3YvaW5kZXgucnN0CkBAIC02
+LDYgKzYsNyBAQCBSSVNDLVYgYXJjaGl0ZWN0dXJlCiAgICAgOm1heGRlcHRoOiAxCiAKICAgICBi
+b290LWltYWdlLWhlYWRlcgorICAgIHZtLWxheW91dAogICAgIHBtdQogICAgIHBhdGNoLWFjY2Vw
+dGFuY2UKIApkaWZmIC0tZ2l0IGEvRG9jdW1lbnRhdGlvbi9yaXNjdi92bS1sYXlvdXQucnN0IGIv
+RG9jdW1lbnRhdGlvbi9yaXNjdi92bS1sYXlvdXQucnN0Cm5ldyBmaWxlIG1vZGUgMTAwNjQ0Cmlu
+ZGV4IDAwMDAwMDAwMDAwMC4uZThlNTY5ZTI2ODZhCi0tLSAvZGV2L251bGwKKysrIGIvRG9jdW1l
+bnRhdGlvbi9yaXNjdi92bS1sYXlvdXQucnN0CkBAIC0wLDAgKzEsNjEgQEAKKz09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT0KK1ZpcnR1YWwgTWVtb3J5IExheW91dCBvbiBSSVND
+LVYgTGludXgKKz09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0KKworOkF1dGhv
+cjogQWxleGFuZHJlIEdoaXRpIDxhbGV4QGdoaXRpLmZyPgorOkRhdGU6IDEyIEZlYnJ1YXJ5IDIw
+MjEKKworVGhpcyBkb2N1bWVudCBkZXNjcmliZXMgdGhlIHZpcnR1YWwgbWVtb3J5IGxheW91dCB1
+c2VkIGJ5IHRoZSBSSVNDLVYgTGludXgKK0tlcm5lbC4KKworUklTQy1WIExpbnV4IEtlcm5lbCAz
+MmJpdAorPT09PT09PT09PT09PT09PT09PT09PT09PQorCitSSVNDLVYgTGludXggS2VybmVsIFNW
+MzIKKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQorCitUT0RPCisKK1JJU0MtViBMaW51eCBLZXJu
+ZWwgNjRiaXQKKz09PT09PT09PT09PT09PT09PT09PT09PT0KKworVGhlIFJJU0MtViBwcml2aWxl
+Z2VkIGFyY2hpdGVjdHVyZSBkb2N1bWVudCBzdGF0ZXMgdGhhdCB0aGUgNjRiaXQgYWRkcmVzc2Vz
+CisibXVzdCBoYXZlIGJpdHMgNjPigJM0OCBhbGwgZXF1YWwgdG8gYml0IDQ3LCBvciBlbHNlIGEg
+cGFnZS1mYXVsdCBleGNlcHRpb24gd2lsbAorb2NjdXIuIjogdGhhdCBzcGxpdHMgdGhlIHZpcnR1
+YWwgYWRkcmVzcyBzcGFjZSBpbnRvIDIgaGFsdmVzIHNlcGFyYXRlZCBieSBhIHZlcnkKK2JpZyBo
+b2xlLCB0aGUgbG93ZXIgaGFsZiBpcyB3aGVyZSB0aGUgdXNlcnNwYWNlIHJlc2lkZXMsIHRoZSB1
+cHBlciBoYWxmIGlzIHdoZXJlCit0aGUgUklTQy1WIExpbnV4IEtlcm5lbCByZXNpZGVzLgorCitS
+SVNDLVYgTGludXggS2VybmVsIFNWMzkKKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQorCis6Ogor
+CisgID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PQorICAgICAgU3RhcnQgYWRkciAgICB8ICAgT2Zmc2V0ICAgfCAgICAgRW5kIGFk
+ZHIgICAgIHwgIFNpemUgICB8IFZNIGFyZWEgZGVzY3JpcHRpb24KKyAgPT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09CisgICAgICAg
+ICAgICAgICAgICAgIHwgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgfCAgICAgICAgIHwK
+KyAgIDAwMDAwMDAwMDAwMDAwMDAgfCAgICAwICAgICAgIHwgMDAwMDAwM2ZmZmZmZmZmZiB8ICAy
+NTYgR0IgfCB1c2VyLXNwYWNlIHZpcnR1YWwgbWVtb3J5LCBkaWZmZXJlbnQgcGVyIG1tCisgIF9f
+X19fX19fX19fX19fX19fX3xfX19fX19fX19fX198X19fX19fX19fX19fX19fX19ffF9fX19fX19f
+X3xfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fXworICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgfCAgICAgICAgICAgICAgICAg
+IHwgICAgICAgICB8CisgICAwMDAwMDA0MDAwMDAwMDAwIHwgKzI1NiAgICBHQiB8IGZmZmZmZmJm
+ZmZmZmZmZmYgfCB+MTZNIFRCIHwgLi4uIGh1Z2UsIGFsbW9zdCA2NCBiaXRzIHdpZGUgaG9sZSBv
+ZiBub24tY2Fub25pY2FsCisgICAgICAgICAgICAgICAgICAgIHwgICAgICAgICAgICB8ICAgICAg
+ICAgICAgICAgICAgfCAgICAgICAgIHwgICAgIHZpcnR1YWwgbWVtb3J5IGFkZHJlc3NlcyB1cCB0
+byB0aGUgLTI1NiBHQgorICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgfCAgICAgICAg
+ICAgICAgICAgIHwgICAgICAgICB8ICAgICBzdGFydGluZyBvZmZzZXQgb2Yga2VybmVsIG1hcHBp
+bmdzLgorICBfX19fX19fX19fX19fX19fX198X19fX19fX19fX19ffF9fX19fX19fX19fX19fX19f
+X3xfX19fX19fX198X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX18KKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgfAorICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8IEtlcm5lbC1zcGFjZSB2aXJ0dWFsIG1lbW9y
+eSwgc2hhcmVkIGJldHdlZW4gYWxsIHByb2Nlc3NlczoKKyAgX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19ffF9fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCisgICAgICAgICAgICAg
+ICAgICAgIHwgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgfCAgICAgICAgIHwKKyAgIGZm
+ZmZmZmMwMDAwMDAwMDAgfCAtMjU2ICAgIEdCIHwgZmZmZmZmYzdmZmZmZmZmZiB8ICAgMzIgR0Ig
+fCBrYXNhbgorICAgZmZmZmZmY2VmZWUwMDAwMCB8IC0xOTYgICAgR0IgfCBmZmZmZmZjZWZlZmZm
+ZmZmIHwgICAgMiBNQiB8IGZpeG1hcAorICAgZmZmZmZmY2VmZjAwMDAwMCB8IC0xOTYgICAgR0Ig
+fCBmZmZmZmZjZWZmZmZmZmZmIHwgICAxNiBNQiB8IFBDSSBpbworICAgZmZmZmZmY2YwMDAwMDAw
+MCB8IC0xOTYgICAgR0IgfCBmZmZmZmZjZmZmZmZmZmZmIHwgICAgNCBHQiB8IHZtZW1tYXAKKyAg
+IGZmZmZmZmQwMDAwMDAwMDAgfCAtMTkyICAgIEdCIHwgZmZmZmZmZGZmZmZmZmZmZiB8ICAgNjQg
+R0IgfCB2bWFsbG9jL2lvcmVtYXAgc3BhY2UKKyAgIGZmZmZmZmUwMDAwMDAwMDAgfCAtMTI4ICAg
+IEdCIHwgZmZmZmZmZmY3ZmZmZmZmZiB8ICAxMjYgR0IgfCBkaXJlY3QgbWFwcGluZyBvZiBhbGwg
+cGh5c2ljYWwgbWVtb3J5CisgIF9fX19fX19fX19fX19fX19fX3xfX19fX19fX19fX198X19fX19f
+X19fX19fX19fX19ffF9fX19fX19fX3xfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX18KKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfAorICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8CisgIF9fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX3xfX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KKyAg
+ICAgICAgICAgICAgICAgICAgfCAgICAgICAgICAgIHwgICAgICAgICAgICAgICAgICB8ICAgICAg
+ICAgfAorICAgZmZmZmZmZmYwMDAwMDAwMCB8ICAgLTQgICAgR0IgfCBmZmZmZmZmZjdmZmZmZmZm
+IHwgICAgMiBHQiB8IG1vZHVsZXMKKyAgIGZmZmZmZmZmODAwMDAwMDAgfCAgIC0yICAgIEdCIHwg
+ZmZmZmZmZmZmZmZmZmZmZiB8ICAgIDIgR0IgfCBrZXJuZWwsIEJQRgorICBfX19fX19fX19fX19f
+X19fX198X19fX19fX19fX19ffF9fX19fX19fX19fX19fX19fX3xfX19fX19fX198X19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCi0tIAoy
+LjIwLjEKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
+aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
+dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
