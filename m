@@ -2,79 +2,84 @@ Return-Path: <SRS0=eKgb=H4=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-13.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_PATCH,
-	MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED
-	autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6FFEFC433E0
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Feb 2021 19:43:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 95EE6C433E0
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Feb 2021 20:27:02 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DA62564F1B
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Feb 2021 19:43:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DA62564F1B
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
+	by mail.kernel.org (Postfix) with ESMTPS id 14AAD64EF0
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Feb 2021 20:27:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 14AAD64EF0
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=dabbelt.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=x/aqzGeq6WD1fLu/xFMbWrEx4/y3ICA8FGsrh6h5T2o=; b=aVOClUKYghHyONpmIiT0QsPmi
-	7Go8Nf6HGQV5zPwtBsUKQzmPcENlRSh50DtkgttkCW61rp+UbzbH5JsnfOxIumI89NEdBbZhgbB35
-	RqquW7UoQeeqhKdq+dv2jh6BnNE3995/W/PFTo+hgfal2sWDsFWwNLeemxGImQT+jfXEBPOvvGZst
-	mFzfmy+AoCPCnDwWmMqHEVZAjRhqic/nNHnJab8863n+egKZiFxtwT3V0wPRoEwoOGyIJwrfOd9MO
-	XGBPcVQCcU1OhxqRG9BxF2pbcJnzVYKy5LSU6zMSl5U7yEjRAFb0N4kFW2p602NX9HHXstkghRXtV
-	0A7PMxE9Q==;
+	List-Unsubscribe:List-Id:To:From:MIME-Version:Message-Id:Date:Subject:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=O2ReQBUiAb5eV17j6Ii8Up7dBqc45CysVJvSk3AEs28=; b=3YcOD7sh70jOgTQTNVVsDFz3xI
+	VcWcx6QBQ/5+7QMgqWD3PRfo+B/hv470uIC0xEuaUbV/R1+VXWnL+z+0aAFM5nJdNoPAvJwhQ/sDs
+	7/vUy5nxsBsa4F64s2SarbUPDap9gOWSoZi5kYWqy5LXFrNq3bjbkozqVHdoCqNdJN5nDJ5RSMstw
+	PxJs7rj8/zOtZcjhv4a1UO1AarzuXBsImYPJBxyy33kS9GBjZpVdVzGXyU5IgqcIEfFAOVr/3GGYL
+	qpcEpt0IsCkQPP+C65/Ng2vxgRej51X3iYwiygLG4hIRxpNcupF4Lqao7oQTPe0MrYeJsVtPOKDVC
+	YYN71sjw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1lFj1V-000226-0Z; Fri, 26 Feb 2021 19:43:37 +0000
-Received: from mail-il1-x134.google.com ([2607:f8b0:4864:20::134])
+	id 1lFjhG-00059J-Qb; Fri, 26 Feb 2021 20:26:46 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1lFj1T-00021Q-GZ
- for linux-riscv@lists.infradead.org; Fri, 26 Feb 2021 19:43:36 +0000
-Received: by mail-il1-x134.google.com with SMTP id v8so5391035ilh.12
- for <linux-riscv@lists.infradead.org>; Fri, 26 Feb 2021 11:43:33 -0800 (PST)
+ id 1lFjhD-00058I-U5
+ for linux-riscv@lists.infradead.org; Fri, 26 Feb 2021 20:26:45 +0000
+Received: by mail-pl1-x636.google.com with SMTP id e9so5900289plh.3
+ for <linux-riscv@lists.infradead.org>; Fri, 26 Feb 2021 12:26:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=7nQgQdVxzCnygvmyr7XzmI9Y87BNsqr8+LRCIrqPVOU=;
- b=MfY8kMClqiFIJcCusiF8ttnXu4ZoQYb9jLsnO3mdL64dpXRJGtgXba1m9oXp5iasWZ
- llQQyWf8ip79oy+Pj8rhXb4khhifyJVfiLDy8BeZYOE+SQgvWW9tP0E0wOrxOIbG+9MM
- T+mDKl4sBBFqPDEvHjKcwYn68NQM4q5bCcJcU=
+ d=dabbelt-com.20150623.gappssmtp.com; s=20150623;
+ h=subject:date:message-id:mime-version:content-transfer-encoding:cc
+ :from:to; bh=guVHHoMFBPvp3OxDd+0aUouYbsfZ7/NT4oJJzvE5m3I=;
+ b=tmsnCi2SAI9vkwFeBe40zYshNyCWCZE7X8sGuYNqxij1IEt1YnWoTUFFUkj/c/g32i
+ 8V4XS2Guu5UkPjW8hCSjPKVihbVlPM5WjHZI0QBO3VLpli+WVIf0ype0AOd2Ta1U5rud
+ OndTiVmTBNUyTSNDmfRJPC3d8wcbesqtyKTda15dGJ+be6pwN0/pnixlyBoc2tKO6y1A
+ zDTgfTJYPQdw9Cj6KbV4HidpmXkyygLejbILc9+TElN5Si8xUGFBn4affgQjxMrCOZe/
+ o+Zz3YgTO5UtDG+/oKZKACWaYgee+zd3QmSr0lMuPNSnlXuMhaRSn1alAeLMP2RCqF/c
+ xm2w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=7nQgQdVxzCnygvmyr7XzmI9Y87BNsqr8+LRCIrqPVOU=;
- b=Pqd3XIuCvbNmof3HEr5rh7ddi2tDlAGDdRSuI6RficACREOFhJZhL9TZjFrGLWL9lV
- 6PIlvJdW1/cp25/IRuxIEbo/Z0Ao4yLCoqyvxvk300J9VI16sCFNxJLOo2Ya5DaN0gv0
- jSbfcaAVxhTZZ4JBxcXxEfkpGSj3cEZqSjvxF0hO5X6TrlBQrY1iez/m3tjwwUVG/s2K
- VXAUEPWVsZw6qvNORbinEKoFOiVpJdKV6DEa2Kd2Gshln0zfdyM0Cvj3K2UD7kTVlNLw
- nUINFVGTwC3LsWkEDRj+G69rMDlFMo1aSY6nAkL+A8YMMFFZOCekk2FZ+jSVBxDIbT+A
- W5ag==
-X-Gm-Message-State: AOAM5327kQuXKA1ZyZvjd1CUo0OToc/AoqIpj0mGGa4NecU1Tjk3weh8
- eZK5t2gfVBaKV++r6/3y17xM225HHUwPQTDb9hrYUY7bFc2R
-X-Google-Smtp-Source: ABdhPJzYDv6D5ONb3zbIXZYSGU8bolm9zrWPEHcck1L2SRZ25z6jby4x1ZeeTlXHH7JrXq/FxNNzPA/JGRVShETttw8=
-X-Received: by 2002:a05:6e02:1608:: with SMTP id
- t8mr3784291ilu.79.1614368611817; 
- Fri, 26 Feb 2021 11:43:31 -0800 (PST)
+ h=x-gm-message-state:subject:date:message-id:mime-version
+ :content-transfer-encoding:cc:from:to;
+ bh=guVHHoMFBPvp3OxDd+0aUouYbsfZ7/NT4oJJzvE5m3I=;
+ b=Qqa0kL4VXSdheI3oEqSJEVPPGXzrKJoAyNuc0JALkyAic7PRhv1CMJooxzQifHZTwA
+ /8aVa6NmD5FFjB4DKJKePrWMdkZzAi/62zj6GGKIsgB+qooAg94BdeNPbcKDQ4bcPSKC
+ vjV16vQq3u/GMNjDh4Kjkf9NWGqw4LhEAYZQyGoG7N0vkHmEjGt8fe4IhqxKH/J+4IK9
+ nHUFtsP1qDUtw19jbZTA9GYQkoA9J5qJQDgZwtWek+Qv5gKOr8lJ9PTBqI+FfmFmdcSq
+ 86+WjVyvhB5AvFamoj+3ORqgLqM7QDQDnFi+2XMOfZ36g/fBEkNlOP7et/NtULpR1JTY
+ cxNw==
+X-Gm-Message-State: AOAM530NVPL0BoS3anatMrC3/3PUddLJFp+Pb8SpdTGT1BCSb30UZseW
+ 8t4GhoAv06769Ui3CtiIkYJnAA==
+X-Google-Smtp-Source: ABdhPJx6qgv10L36CmoL36zIpvtjDdnUKZd9v2cpy5GzwjbwW1kOzDHzIgLTxXrHfFTL+LqSOnBx5w==
+X-Received: by 2002:a17:902:e781:b029:e4:3bd3:3b00 with SMTP id
+ cp1-20020a170902e781b02900e43bd33b00mr4850293plb.70.1614371189701; 
+ Fri, 26 Feb 2021 12:26:29 -0800 (PST)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223])
+ by smtp.gmail.com with ESMTPSA id a15sm95297pju.34.2021.02.26.12.26.28
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 26 Feb 2021 12:26:29 -0800 (PST)
+Subject: [PATCH] RISC-V: Make NUMA depend on SMP
+Date: Fri, 26 Feb 2021 12:25:51 -0800
+Message-Id: <20210226202550.512012-1-palmer@dabbelt.com>
+X-Mailer: git-send-email 2.30.1.766.gb4fecdf3b7-goog
 MIME-Version: 1.0
-References: <6039178e.nIA6K0eHFcbkwcNB%lkp@intel.com>
- <20210226111336.91a89c0f5230eae69196f71e@linux-foundation.org>
-In-Reply-To: <20210226111336.91a89c0f5230eae69196f71e@linux-foundation.org>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Fri, 26 Feb 2021 11:43:21 -0800
-Message-ID: <CAOnJCULoVsPJajC0XD43_Ux9=U1HvYhJcJRTUDyKAkGqvTi_cA@mail.gmail.com>
-Subject: Re: [linux-next:master] BUILD REGRESSION
- d01f2f7e35573049673b71e18be7abfe3f80323f
-To: Andrew Morton <akpm@linux-foundation.org>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: akpm@linux-foundation.org, atishp@atishpatra.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210226_144335_564085_4D1ABB52 
-X-CRM114-Status: GOOD (  14.65  )
+X-CRM114-CacheID: sfid-20210226_152644_076574_23A12143 
+X-CRM114-Status: GOOD (  12.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -86,70 +91,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, kernel test robot <lkp@intel.com>,
- Linux Memory Management List <linux-mm@kvack.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
+Cc: aou@eecs.berkeley.edu, Palmer Dabbelt <palmerdabbelt@google.com>,
+ linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
+ kernel-team@android.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 26, 2021 at 11:13 AM Andrew Morton
-<akpm@linux-foundation.org> wrote:
->
-> On Fri, 26 Feb 2021 23:45:18 +0800 kernel test robot <lkp@intel.com> wrote:
->
-> > tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-> > branch HEAD: d01f2f7e35573049673b71e18be7abfe3f80323f  Add linux-next specific files for 20210226
-> >
-> > ...
-> >
-> > page_alloc.c:(.text+0xe028): undefined reference to `node_reclaim_distance'
-> > riscv32-linux-ld: page_alloc.c:(.text+0xe02c): undefined reference to `node_reclaim_distance'
-> >
-> > ...
-> >
-> > |-- riscv-randconfig-p001-20210226
-> > |   |-- page_alloc.c:(.text):undefined-reference-to-node_reclaim_distance
-> > |   `-- riscv32-linux-ld:page_alloc.c:(.text):undefined-reference-to-node_reclaim_distance
->
-> I assume the riscv randconfig managed to create a .config with
-> CONFIG_NUMA=n, CONFIG_SMP=y.  Configuration doesn't make a lot of
-> sense, unless someone has a single-CPU machine with cpuless nodes...
->
-> Could the riscv maintainers please test and merge this?
->
+From: Palmer Dabbelt <palmerdabbelt@google.com>
 
-Yeah. This was discussed a week back.
-http://lists.infradead.org/pipermail/linux-riscv/2021-February/004640.html
+In theory these are orthogonal, but in practice all NUMA systems are
+SMP.  NUMA && !SMP doesn't build, everyone else is coupling them, and I
+don't really see any value in supporting that configuration.
 
-@Palmer Dabbelt Is the fix merged in the PR ?
+Fixes: 4f0e8eef772e ("riscv: Add numa support for riscv64 platform")
+Suggested-by: Andrew Morton <akpm@linux-foundation.org>
+Suggested-by: Atish Patra <atishp@atishpatra.org>
+Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
+---
+This is on fixes.
+---
+ arch/riscv/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-> --- a/arch/riscv/Kconfig~a
-> +++ a/arch/riscv/Kconfig
-> @@ -314,6 +314,7 @@ endchoice
->  # Common NUMA Features
->  config NUMA
->         bool "NUMA Memory Allocation and Scheduler Support"
-> +       depends on SMP
->         select GENERIC_ARCH_NUMA
->         select OF_NUMA
->         select ARCH_SUPPORTS_NUMA_BALANCING
-> _
->
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
-
-
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index a998babc1237..85d626b8ce5e 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -314,6 +314,7 @@ endchoice
+ # Common NUMA Features
+ config NUMA
+ 	bool "NUMA Memory Allocation and Scheduler Support"
++	depends on SMP
+ 	select GENERIC_ARCH_NUMA
+ 	select OF_NUMA
+ 	select ARCH_SUPPORTS_NUMA_BALANCING
 -- 
-Regards,
-Atish
+2.30.1.766.gb4fecdf3b7-goog
+
 
 _______________________________________________
 linux-riscv mailing list
