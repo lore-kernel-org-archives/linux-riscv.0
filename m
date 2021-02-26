@@ -2,59 +2,72 @@ Return-Path: <SRS0=eKgb=H4=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-15.6 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,
-	URIBL_BLOCKED,USER_AGENT_SANE_1 autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-14.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=ham autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1BE40C433E0
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Feb 2021 06:15:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C2967C433DB
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Feb 2021 06:22:01 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 18E2664EDB
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Feb 2021 06:15:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 18E2664EDB
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=ghiti.fr
+	by mail.kernel.org (Postfix) with ESMTPS id 39C1564ECE
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Feb 2021 06:22:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 39C1564ECE
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=2n+BthEiP3nv9G/qB5nPbkHIrkm1W/OST3zQnMdW5m4=; b=LMvHY+8iojVqwBbOMWTmeSYlR
-	w5Vos/rI4C9COPsGaYeO/13kRI8Z2ei5/TqLSAnp/0pQDYgxowS+vt9+Ey36mDAWVmIeE/Ko+Wbys
-	m9t4OhSeoP5HVsyvq5AUdGGc9sY0p+nLgp72O3h1R9XYgl4gBCk55bi54TwP0i9pAZp6LX9OqJkrp
-	qZVwRmN0jh88aHOTEkQZHdI6R/BWycm0FrBXADoWuKT/2lmr8nelYjfozRVMNnRx1cAhF4qgBLiDB
-	2+Tmbsi5QVUnK/vbWtdTKgkSONRbug74bMmy3lKwMGVP8eafmTLJ7YOvT8eomzfPwrvGFwYouqCmo
-	SfDihXelw==;
+	 bh=HUcAKArUIZVQfMwCdc2xYH/91yC62rMf1L1feVBDZtg=; b=ctpBC6HtII+JUNdESTLmjWlVL
+	zGunccCHspA51KYZWQ+m2O8iS22mJhWCwsrKP6eG7nI1uQUsCqt+rpLWzuIprdHkPY0dem4oUrGnb
+	tDeHCwc/rI9FpBK1DNsmJskn4NiTs7ZavcpugoYAGReAiipwl/j0TgEQvpJZC+x7EnuINIZtnpw08
+	A4WO0UobXJVzjlWS79ItHYlGnILtq82kjFI8IV8+nvf3xCE2xTZFkgoZSj1xnG/xlUUV2bq9d6nwP
+	PmNwmCEOxXC3ItJ16HIXBu144SlS3Nxoyk1bUpikB74SZIGSoA3bSLyydXnRA49RX5tTnvKgvejfJ
+	TxXDfuukA==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1lFWOo-0001fV-Uw; Fri, 26 Feb 2021 06:14:50 +0000
-Received: from relay7-d.mail.gandi.net ([217.70.183.200])
+	id 1lFWVX-0001qd-6c; Fri, 26 Feb 2021 06:21:47 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1lFWOk-0001f4-Ts
- for linux-riscv@lists.infradead.org; Fri, 26 Feb 2021 06:14:48 +0000
-X-Originating-IP: 2.7.49.219
-Received: from [192.168.1.12] (lfbn-lyo-1-457-219.w2-7.abo.wanadoo.fr
- [2.7.49.219]) (Authenticated sender: alex@ghiti.fr)
- by relay7-d.mail.gandi.net (Postfix) with ESMTPSA id 90ECF20003;
- Fri, 26 Feb 2021 06:14:37 +0000 (UTC)
-Subject: Re: [PATCH] riscv: Add KASAN_VMALLOC support
-To: Palmer Dabbelt <palmer@dabbelt.com>
-References: <mhng-ea9a6037-0f18-41d5-8c01-6c16b14b6a63@palmerdabbelt-glaptop>
-From: Alex Ghiti <alex@ghiti.fr>
-Message-ID: <e3754d1e-f61f-f7d7-b159-52af2817428d@ghiti.fr>
-Date: Fri, 26 Feb 2021 01:14:36 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.7.1
+ id 1lFWVU-0001qH-Rs
+ for linux-riscv@lists.infradead.org; Fri, 26 Feb 2021 06:21:45 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id D208764EF0
+ for <linux-riscv@lists.infradead.org>; Fri, 26 Feb 2021 06:21:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1614320503;
+ bh=BX4ANU+deMF/gCnboQiDGoO4O8tphEU0zGUoRnCR8+g=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=qfHHydEIR/PrCEjFmvW05eOKcqgxnIKVRlNys0hmd4Jt6eF4++8eqlDkNDxD8fMb7
+ z9uFv19hoTaovxU4em4pKiE/pnRtfkxl+Od1tBuqagziI9T7rTErCnaDEtPlyaiPLU
+ SlXlvcZCqdeHj+zE5MfwcqLUwvG4NiEBiM3xrXnoQ59mPLoY3iFTRm+r4i0KULpw2V
+ T4jamGddsxz0q0TNA60vkOYo/tJWe4AWQgCWoj/68JBPzCtlP0esZmvOZVuhaN51WO
+ PRZyjsEEfQqRJAM1cTQmxTlGjW+L2V3MeCXFP4gYjw5wQ4h7NtLN7GBDdGF06i3+ie
+ VZuhpgLH/pU2Q==
+Received: by mail-lj1-f170.google.com with SMTP id h4so9164247ljl.0
+ for <linux-riscv@lists.infradead.org>; Thu, 25 Feb 2021 22:21:42 -0800 (PST)
+X-Gm-Message-State: AOAM530gyucmUZ+BpDz6xok3N5W8xePzrgtTWJd+TNiuokd8x3W+1Yjm
+ f0PRd7US5PmNf+WkyQC7QfiChwieKxVg6ccDQJs=
+X-Google-Smtp-Source: ABdhPJz6GQ02m5yKncjhLrHyBdN+zIU3XRAYgog6pHcVmxWLyha3SvidqvgQS/WKsUsg1QE4UoT+9SSgSw5aoCdPnI4=
+X-Received: by 2002:a2e:919a:: with SMTP id f26mr793595ljg.508.1614320500903; 
+ Thu, 25 Feb 2021 22:21:40 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <mhng-ea9a6037-0f18-41d5-8c01-6c16b14b6a63@palmerdabbelt-glaptop>
-Content-Language: fr
+References: <20210225142841.3385428-1-arnd@kernel.org>
+ <20210225142841.3385428-2-arnd@kernel.org>
+In-Reply-To: <20210225142841.3385428-2-arnd@kernel.org>
+From: Guo Ren <guoren@kernel.org>
+Date: Fri, 26 Feb 2021 14:21:29 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQriSy2rLHkvJ+YwHtyBE3BwneZQ-FqwSUzLjSRc9gRcA@mail.gmail.com>
+Message-ID: <CAJF2gTQriSy2rLHkvJ+YwHtyBE3BwneZQ-FqwSUzLjSRc9gRcA@mail.gmail.com>
+Subject: Re: [PATCH 2/2] Documentation: features: refresh feature list
+To: Arnd Bergmann <arnd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210226_011447_174060_DABDC31E 
-X-CRM114-Status: GOOD (  27.04  )
+X-CRM114-CacheID: sfid-20210226_012145_081799_76FB199A 
+X-CRM114-Status: GOOD (  15.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -66,102 +79,199 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: aou@eecs.berkeley.edu, nickhu@andestech.com, linux-kernel@vger.kernel.org,
- kasan-dev@googlegroups.com, nylon7@andestech.com, glider@google.com,
- Paul Walmsley <paul.walmsley@sifive.com>, aryabinin@virtuozzo.com,
- linux-riscv@lists.infradead.org, dvyukov@google.com
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Cc: =?UTF-8?Q?Patrick_St=C3=A4hlin?= <me@packi.ch>,
+ Albert Ou <aou@eecs.berkeley.edu>, linux-csky@vger.kernel.org,
+ Arnd Bergmann <arnd@arndb.de>, Jonathan Corbet <corbet@lwn.net>,
+ David Daney <david.daney@cavium.com>, linux-doc@vger.kernel.org,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Ralf Baechle <ralf@linux-mips.org>, Pekka Enberg <penberg@kernel.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Masami Hiramatsu <mhiramat@kernel.org>,
+ Zong Li <zong.li@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Xingxing Su <suxingxing@loongson.cn>, Tiezhu Yang <yangtiezhu@loongson.cn>,
+ Archer Yan <ayan@wavecomp.com>, Youling Tang <tangyouling@loongson.cn>,
+ linux-riscv <linux-riscv@lists.infradead.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgUGFsbWVyLAoKTGUgMi8yNi8yMSDDoCAxMjozMiBBTSwgUGFsbWVyIERhYmJlbHQgYSDDqWNy
-aXTCoDoKPiBPbiBXZWQsIDI0IEZlYiAyMDIxIDIzOjQ4OjEzIFBTVCAoLTA4MDApLCBhbGV4QGdo
-aXRpLmZyIHdyb3RlOgo+PiBMZSAyLzI1LzIxIMOgIDI6NDIgQU0sIEFsZXhhbmRyZSBHaGl0aSBh
-IMOpY3JpdMKgOgo+Pj4gUG9wdWxhdGUgdGhlIHRvcC1sZXZlbCBvZiB0aGUga2VybmVsIHBhZ2Ug
-dGFibGUgdG8gaW1wbGVtZW50IAo+Pj4gS0FTQU5fVk1BTExPQywKPj4+IGxvd2VyIGxldmVscyBh
-cmUgZmlsbGVkIGR5bmFtaWNhbGx5IHVwb24gbWVtb3J5IGFsbG9jYXRpb24gYXQgcnVudGltZS4K
-Pj4+Cj4+PiBDby1kZXZlbG9wZWQtYnk6IE55bG9uIENoZW4gPG55bG9uN0BhbmRlc3RlY2guY29t
-Pgo+Pj4gU2lnbmVkLW9mZi1ieTogTnlsb24gQ2hlbiA8bnlsb243QGFuZGVzdGVjaC5jb20+Cj4+
-PiBDby1kZXZlbG9wZWQtYnk6IE5pY2sgSHUgPG5pY2todUBhbmRlc3RlY2guY29tPgo+Pj4gU2ln
-bmVkLW9mZi1ieTogTmljayBIdSA8bmlja2h1QGFuZGVzdGVjaC5jb20+Cj4+PiBTaWduZWQtb2Zm
-LWJ5OiBBbGV4YW5kcmUgR2hpdGkgPGFsZXhAZ2hpdGkuZnI+Cj4+PiAtLS0KPj4+IMKgIGFyY2gv
-cmlzY3YvS2NvbmZpZ8KgwqDCoMKgwqDCoMKgwqAgfMKgIDEgKwo+Pj4gwqAgYXJjaC9yaXNjdi9t
-bS9rYXNhbl9pbml0LmMgfCAzNSArKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrLQo+
-Pj4gwqAgMiBmaWxlcyBjaGFuZ2VkLCAzNSBpbnNlcnRpb25zKCspLCAxIGRlbGV0aW9uKC0pCj4+
-Pgo+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvS2NvbmZpZyBiL2FyY2gvcmlzY3YvS2NvbmZp
-Zwo+Pj4gaW5kZXggOGVhZGQxY2JkNTI0Li4zODMyYTUzN2M1ZDYgMTAwNjQ0Cj4+PiAtLS0gYS9h
-cmNoL3Jpc2N2L0tjb25maWcKPj4+ICsrKyBiL2FyY2gvcmlzY3YvS2NvbmZpZwo+Pj4gQEAgLTU3
-LDYgKzU3LDcgQEAgY29uZmlnIFJJU0NWCj4+PiDCoMKgwqDCoMKgIHNlbGVjdCBIQVZFX0FSQ0hf
-SlVNUF9MQUJFTAo+Pj4gwqDCoMKgwqDCoCBzZWxlY3QgSEFWRV9BUkNIX0pVTVBfTEFCRUxfUkVM
-QVRJVkUKPj4+IMKgwqDCoMKgwqAgc2VsZWN0IEhBVkVfQVJDSF9LQVNBTiBpZiBNTVUgJiYgNjRC
-SVQKPj4+ICvCoMKgwqAgc2VsZWN0IEhBVkVfQVJDSF9LQVNBTl9WTUFMTE9DIGlmIE1NVSAmJiA2
-NEJJVAo+Pj4gwqDCoMKgwqDCoCBzZWxlY3QgSEFWRV9BUkNIX0tHREIKPj4+IMKgwqDCoMKgwqAg
-c2VsZWN0IEhBVkVfQVJDSF9LR0RCX1FYRkVSX1BLVAo+Pj4gwqDCoMKgwqDCoCBzZWxlY3QgSEFW
-RV9BUkNIX01NQVBfUk5EX0JJVFMgaWYgTU1VCj4+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9t
-bS9rYXNhbl9pbml0LmMgYi9hcmNoL3Jpc2N2L21tL2thc2FuX2luaXQuYwo+Pj4gaW5kZXggNzE5
-YjZlNGQ2MDc1Li4xNzE1NjlkZjQzMzQgMTAwNjQ0Cj4+PiAtLS0gYS9hcmNoL3Jpc2N2L21tL2th
-c2FuX2luaXQuYwo+Pj4gKysrIGIvYXJjaC9yaXNjdi9tbS9rYXNhbl9pbml0LmMKPj4+IEBAIC0x
-NDIsNiArMTQyLDMxIEBAIHN0YXRpYyB2b2lkIF9faW5pdCBrYXNhbl9wb3B1bGF0ZSh2b2lkICpz
-dGFydCwgCj4+PiB2b2lkICplbmQpCj4+PiDCoMKgwqDCoMKgIG1lbXNldChzdGFydCwgS0FTQU5f
-U0hBRE9XX0lOSVQsIGVuZCAtIHN0YXJ0KTsKPj4+IMKgIH0KPj4+Cj4+PiArdm9pZCBfX2luaXQg
-a2FzYW5fc2hhbGxvd19wb3B1bGF0ZV9wZ2QodW5zaWduZWQgbG9uZyB2YWRkciwgdW5zaWduZWQg
-Cj4+PiBsb25nIGVuZCkKPj4+ICt7Cj4+PiArwqDCoMKgIHVuc2lnbmVkIGxvbmcgbmV4dDsKPj4+
-ICvCoMKgwqAgdm9pZCAqcDsKPj4+ICvCoMKgwqAgcGdkX3QgKnBnZF9rID0gcGdkX29mZnNldF9r
-KHZhZGRyKTsKPj4+ICsKPj4+ICvCoMKgwqAgZG8gewo+Pj4gK8KgwqDCoMKgwqDCoMKgIG5leHQg
-PSBwZ2RfYWRkcl9lbmQodmFkZHIsIGVuZCk7Cj4+PiArwqDCoMKgwqDCoMKgwqAgaWYgKHBnZF9w
-YWdlX3ZhZGRyKCpwZ2RfaykgPT0gKHVuc2lnbmVkIAo+Pj4gbG9uZylsbV9hbGlhcyhrYXNhbl9l
-YXJseV9zaGFkb3dfcG1kKSkgewo+Pj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgcCA9IG1lbWJs
-b2NrX2FsbG9jKFBBR0VfU0laRSwgUEFHRV9TSVpFKTsKPj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgIHNldF9wZ2QocGdkX2ssIHBmbl9wZ2QoUEZOX0RPV04oX19wYShwKSksIFBBR0VfVEFCTEUp
-KTsKPj4+ICvCoMKgwqDCoMKgwqDCoCB9Cj4+PiArwqDCoMKgIH0gd2hpbGUgKHBnZF9rKyssIHZh
-ZGRyID0gbmV4dCwgdmFkZHIgIT0gZW5kKTsKPj4+ICt9Cj4+PiArCj4+PiArdm9pZCBfX2luaXQg
-a2FzYW5fc2hhbGxvd19wb3B1bGF0ZSh2b2lkICpzdGFydCwgdm9pZCAqZW5kKQo+Pj4gK3sKPj4+
-ICvCoMKgwqAgdW5zaWduZWQgbG9uZyB2YWRkciA9ICh1bnNpZ25lZCBsb25nKXN0YXJ0ICYgUEFH
-RV9NQVNLOwo+Pj4gK8KgwqDCoCB1bnNpZ25lZCBsb25nIHZlbmQgPSBQQUdFX0FMSUdOKCh1bnNp
-Z25lZCBsb25nKWVuZCk7Cj4+PiArCj4+PiArwqDCoMKgIGthc2FuX3NoYWxsb3dfcG9wdWxhdGVf
-cGdkKHZhZGRyLCB2ZW5kKTsKPj4+ICsKPj4+ICvCoMKgwqAgbG9jYWxfZmx1c2hfdGxiX2FsbCgp
-Owo+Pj4gK30KPj4+ICsKPj4+IMKgIHZvaWQgX19pbml0IGthc2FuX2luaXQodm9pZCkKPj4+IMKg
-IHsKPj4+IMKgwqDCoMKgwqAgcGh5c19hZGRyX3QgX3N0YXJ0LCBfZW5kOwo+Pj4gQEAgLTE0OSw3
-ICsxNzQsMTUgQEAgdm9pZCBfX2luaXQga2FzYW5faW5pdCh2b2lkKQo+Pj4KPj4+IMKgwqDCoMKg
-wqAga2FzYW5fcG9wdWxhdGVfZWFybHlfc2hhZG93KCh2b2lkICopS0FTQU5fU0hBRE9XX1NUQVJU
-LAo+Pj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgICh2b2lkICop
-a2FzYW5fbWVtX3RvX3NoYWRvdygodm9pZCAqKQo+Pj4gLcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIFZNQUxMT0NfRU5EKSk7Cj4+
-PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqAgVk1FTU1BUF9FTkQpKTsKPj4+ICvCoMKgwqAgaWYgKElTX0VOQUJMRUQoQ09ORklH
-X0tBU0FOX1ZNQUxMT0MpKQo+Pj4gK8KgwqDCoMKgwqDCoMKgIGthc2FuX3NoYWxsb3dfcG9wdWxh
-dGUoCj4+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAodm9pZCAqKWthc2FuX21lbV90b19zaGFk
-b3coKHZvaWQgKilWTUFMTE9DX1NUQVJUKSwKPj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgICh2
-b2lkICopa2FzYW5fbWVtX3RvX3NoYWRvdygodm9pZCAqKVZNQUxMT0NfRU5EKSk7Cj4+PiArwqDC
-oMKgIGVsc2UKPj4+ICvCoMKgwqDCoMKgwqDCoCBrYXNhbl9wb3B1bGF0ZV9lYXJseV9zaGFkb3co
-Cj4+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAodm9pZCAqKWthc2FuX21lbV90b19zaGFkb3co
-KHZvaWQgKilWTUFMTE9DX1NUQVJUKSwKPj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgICh2b2lk
-ICopa2FzYW5fbWVtX3RvX3NoYWRvdygodm9pZCAqKVZNQUxMT0NfRU5EKSk7Cj4+Pgo+Pj4gwqDC
-oMKgwqDCoCBmb3JfZWFjaF9tZW1fcmFuZ2UoaSwgJl9zdGFydCwgJl9lbmQpIHsKPj4+IMKgwqDC
-oMKgwqDCoMKgwqDCoCB2b2lkICpzdGFydCA9ICh2b2lkICopX3N0YXJ0Owo+Pj4KPj4KPj4gUGFs
-bWVyLCB0aGlzIGNvbW1pdCBzaG91bGQgcmVwbGFjZSAoaWYgZXZlcnlvbmUgYWdyZWVzKSBOeWxv
-biBhbmQgTmljaydzCj4+IENvbW1pdCBlMTc4ZDY3MGYyNTEgKCJyaXNjdi9rYXNhbjogYWRkIEtB
-U0FOX1ZNQUxMT0Mgc3VwcG9ydCIpIHRoYXQgaXMKPj4gYWxyZWFkeSBpbiBmb3ItbmV4dC4KPiAK
-PiBTb3JyeSwgYnV0IGl0J3Mgd2F5IHRvbyBsYXRlIHRvIGJlIHJlYmFzaW5nIHRoaW5ncy7CoCBJ
-IGNhbiBnZXQgdHJ5aW5nIHRvIAo+IGhhdmUKPiB0aGUgaGlzdG9yeSBjbGVhbiwgYnV0IGluIHRo
-aXMgY2FzZSB3ZSdyZSBiZXR0ZXIgb2ZmIGhhdmluZyB0aGlzIGFzIGFuIAo+IGV4cGxpY2l0Cj4g
-Zml4IHBhdGNoIC0tIGNoYW5naW5nIGhhc2hlcyB0aGlzIGxhdGUgaW4gdGhlIHByb2Nlc3MgbWVz
-c2VzIHdpdGggYWxsIHRoZQo+IHRlc3RpbmcuCj4gCj4gSSdtIG5vdCBzdXJlIHdoYXQgdGhlIGlz
-c3VlIGFjdHVhbGx5IGlzLCBzbyBpdCdkIGJlIGdyZWF0IGlmIHlvdSBjb3VsZCAKPiBzZW5kIHRo
-ZQo+IGZpeCBwYXRjaC7CoCBJZiBub3QgdGhlbiBMTUsgYW5kIEknbGwgdHJ5IHRvIGZpZ3VyZSBv
-dXQgd2hhdCdzIGdvaW5nIG9uLiAgCj4gRWl0aGVyCj4gd2F5LCBoYXZpbmcgdGhlIGZpeCB3aWxs
-IG1ha2Ugc3VyZSB0aGlzIGdldHMgdGVzdGVkIHByb3Blcmx5IGFzIHdoYXRldmVyJ3MKPiBnb2lu
-ZyBvbiBpc24ndCBmYWlsaW5nIGZvciBtZS4KPiAKCk55bG9uJ3MgcGF0Y2ggaXMgZnVuY3Rpb25h
-bCBhcyBpcywgYnV0IGFzIEkgbWVudGlvbmVkIGhlcmUgCmh0dHBzOi8vcGF0Y2h3b3JrLmtlcm5l
-bC5vcmcvcHJvamVjdC9saW51eC1yaXNjdi9wYXRjaC8yMDIxMDExNjA1NTgzNi4yMjM2Ni0yLW55
-bG9uN0BhbmRlc3RlY2guY29tLywgCml0IGRvZXMgdW5uZWNlc3NhcnkgdGhpbmdzIChsaWtlIHRy
-eWluZyB0byB3YWxrIGEgdXNlciBwYWdlIHRhYmxlIHRoYXQgCmRvZXMgbm90IGV4aXN0IGF0IHRo
-aXMgcG9pbnQgaW4gdGhlIGJvb3QgcHJvY2VzcykuCgpBbnl3YXksIEkgd2lsbCBzZW5kIGFub3Ro
-ZXIgcGF0Y2ggcmViYXNlZCBvbiB0b3Agb2YgTnlsb24ncy4KClRoYW5rcywKCkFsZXgKCgo+IF9f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gbGludXgtcmlz
-Y3YgbWFpbGluZyBsaXN0Cj4gbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+IGh0dHA6
-Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YKCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Thx Arnd,
+
+I'm very glad to see C-SKY & RISC-V features updated.
+
+Signed-off-by: Guo Ren <guoren@kernel.org>
+
+On Thu, Feb 25, 2021 at 10:29 PM Arnd Bergmann <arnd@kernel.org> wrote:
+>
+> From: Arnd Bergmann <arnd@arndb.de>
+>
+> Run the update script to document the recent feature additions
+> on riscv, mips and csky.
+>
+> Fixes: c109f42450ec ("csky: Add kmemleak support")
+> Fixes: 8b3165e54566 ("MIPS: Enable GCOV")
+> Fixes: 1ddc96bd42da ("MIPS: kernel: Support extracting off-line stack traces from user-space with perf")
+> Fixes: 74784081aac8 ("riscv: Add uprobes supported")
+> Fixes: 829adda597fe ("riscv: Add KPROBES_ON_FTRACE supported")
+> Fixes: c22b0bcb1dd0 ("riscv: Add kprobes supported")
+> Fixes: dcdc7a53a890 ("RISC-V: Implement ptrace regs and stack API")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
+>  Documentation/features/debug/gcov-profile-all/arch-support.txt  | 2 +-
+>  Documentation/features/debug/kmemleak/arch-support.txt          | 2 +-
+>  Documentation/features/debug/kprobes-on-ftrace/arch-support.txt | 2 +-
+>  Documentation/features/debug/kprobes/arch-support.txt           | 2 +-
+>  Documentation/features/debug/kretprobes/arch-support.txt        | 2 +-
+>  Documentation/features/debug/uprobes/arch-support.txt           | 2 +-
+>  Documentation/features/perf/kprobes-event/arch-support.txt      | 2 +-
+>  Documentation/features/perf/perf-regs/arch-support.txt          | 2 +-
+>  Documentation/features/perf/perf-stackdump/arch-support.txt     | 2 +-
+>  Documentation/features/sched/numa-balancing/arch-support.txt    | 2 +-
+>  10 files changed, 10 insertions(+), 10 deletions(-)
+>
+> diff --git a/Documentation/features/debug/gcov-profile-all/arch-support.txt b/Documentation/features/debug/gcov-profile-all/arch-support.txt
+> index 416c70345946..b39c1a5de3f3 100644
+> --- a/Documentation/features/debug/gcov-profile-all/arch-support.txt
+> +++ b/Documentation/features/debug/gcov-profile-all/arch-support.txt
+> @@ -16,7 +16,7 @@
+>      |        ia64: | TODO |
+>      |        m68k: | TODO |
+>      |  microblaze: |  ok  |
+> -    |        mips: | TODO |
+> +    |        mips: |  ok  |
+>      |       nds32: | TODO |
+>      |       nios2: | TODO |
+>      |    openrisc: | TODO |
+> diff --git a/Documentation/features/debug/kmemleak/arch-support.txt b/Documentation/features/debug/kmemleak/arch-support.txt
+> index 915185634611..e9ac415f8aec 100644
+> --- a/Documentation/features/debug/kmemleak/arch-support.txt
+> +++ b/Documentation/features/debug/kmemleak/arch-support.txt
+> @@ -10,7 +10,7 @@
+>      |         arc: |  ok  |
+>      |         arm: |  ok  |
+>      |       arm64: |  ok  |
+> -    |        csky: | TODO |
+> +    |        csky: |  ok  |
+>      |       h8300: | TODO |
+>      |     hexagon: | TODO |
+>      |        ia64: | TODO |
+> diff --git a/Documentation/features/debug/kprobes-on-ftrace/arch-support.txt b/Documentation/features/debug/kprobes-on-ftrace/arch-support.txt
+> index aade7816cb87..96156e8802a7 100644
+> --- a/Documentation/features/debug/kprobes-on-ftrace/arch-support.txt
+> +++ b/Documentation/features/debug/kprobes-on-ftrace/arch-support.txt
+> @@ -22,7 +22,7 @@
+>      |    openrisc: | TODO |
+>      |      parisc: |  ok  |
+>      |     powerpc: |  ok  |
+> -    |       riscv: | TODO |
+> +    |       riscv: |  ok  |
+>      |        s390: |  ok  |
+>      |          sh: | TODO |
+>      |       sparc: | TODO |
+> diff --git a/Documentation/features/debug/kprobes/arch-support.txt b/Documentation/features/debug/kprobes/arch-support.txt
+> index 4b663c124d1c..ee95ed61909a 100644
+> --- a/Documentation/features/debug/kprobes/arch-support.txt
+> +++ b/Documentation/features/debug/kprobes/arch-support.txt
+> @@ -22,7 +22,7 @@
+>      |    openrisc: | TODO |
+>      |      parisc: |  ok  |
+>      |     powerpc: |  ok  |
+> -    |       riscv: | TODO |
+> +    |       riscv: |  ok  |
+>      |        s390: |  ok  |
+>      |          sh: |  ok  |
+>      |       sparc: |  ok  |
+> diff --git a/Documentation/features/debug/kretprobes/arch-support.txt b/Documentation/features/debug/kretprobes/arch-support.txt
+> index 5449bb808442..612cb97d47b8 100644
+> --- a/Documentation/features/debug/kretprobes/arch-support.txt
+> +++ b/Documentation/features/debug/kretprobes/arch-support.txt
+> @@ -22,7 +22,7 @@
+>      |    openrisc: | TODO |
+>      |      parisc: |  ok  |
+>      |     powerpc: |  ok  |
+> -    |       riscv: | TODO |
+> +    |       riscv: |  ok  |
+>      |        s390: |  ok  |
+>      |          sh: |  ok  |
+>      |       sparc: |  ok  |
+> diff --git a/Documentation/features/debug/uprobes/arch-support.txt b/Documentation/features/debug/uprobes/arch-support.txt
+> index 2820177787e1..8bd5548a4485 100644
+> --- a/Documentation/features/debug/uprobes/arch-support.txt
+> +++ b/Documentation/features/debug/uprobes/arch-support.txt
+> @@ -22,7 +22,7 @@
+>      |    openrisc: | TODO |
+>      |      parisc: | TODO |
+>      |     powerpc: |  ok  |
+> -    |       riscv: | TODO |
+> +    |       riscv: |  ok  |
+>      |        s390: |  ok  |
+>      |          sh: | TODO |
+>      |       sparc: |  ok  |
+> diff --git a/Documentation/features/perf/kprobes-event/arch-support.txt b/Documentation/features/perf/kprobes-event/arch-support.txt
+> index 75739a0007e0..78f3fe080f0e 100644
+> --- a/Documentation/features/perf/kprobes-event/arch-support.txt
+> +++ b/Documentation/features/perf/kprobes-event/arch-support.txt
+> @@ -22,7 +22,7 @@
+>      |    openrisc: | TODO |
+>      |      parisc: |  ok  |
+>      |     powerpc: |  ok  |
+> -    |       riscv: | TODO |
+> +    |       riscv: |  ok  |
+>      |        s390: |  ok  |
+>      |          sh: |  ok  |
+>      |       sparc: |  ok  |
+> diff --git a/Documentation/features/perf/perf-regs/arch-support.txt b/Documentation/features/perf/perf-regs/arch-support.txt
+> index ea8b6d96633a..5bf3b1854a1f 100644
+> --- a/Documentation/features/perf/perf-regs/arch-support.txt
+> +++ b/Documentation/features/perf/perf-regs/arch-support.txt
+> @@ -16,7 +16,7 @@
+>      |        ia64: | TODO |
+>      |        m68k: | TODO |
+>      |  microblaze: | TODO |
+> -    |        mips: | TODO |
+> +    |        mips: |  ok  |
+>      |       nds32: | TODO |
+>      |       nios2: | TODO |
+>      |    openrisc: | TODO |
+> diff --git a/Documentation/features/perf/perf-stackdump/arch-support.txt b/Documentation/features/perf/perf-stackdump/arch-support.txt
+> index 87165861037e..d88659bb4fc1 100644
+> --- a/Documentation/features/perf/perf-stackdump/arch-support.txt
+> +++ b/Documentation/features/perf/perf-stackdump/arch-support.txt
+> @@ -16,7 +16,7 @@
+>      |        ia64: | TODO |
+>      |        m68k: | TODO |
+>      |  microblaze: | TODO |
+> -    |        mips: | TODO |
+> +    |        mips: |  ok  |
+>      |       nds32: | TODO |
+>      |       nios2: | TODO |
+>      |    openrisc: | TODO |
+> diff --git a/Documentation/features/sched/numa-balancing/arch-support.txt b/Documentation/features/sched/numa-balancing/arch-support.txt
+> index bfcfaff67a1b..9affb7c2c500 100644
+> --- a/Documentation/features/sched/numa-balancing/arch-support.txt
+> +++ b/Documentation/features/sched/numa-balancing/arch-support.txt
+> @@ -22,7 +22,7 @@
+>      |    openrisc: |  ..  |
+>      |      parisc: |  ..  |
+>      |     powerpc: |  ok  |
+> -    |       riscv: | TODO |
+> +    |       riscv: |  ok  |
+>      |        s390: |  ok  |
+>      |          sh: |  ..  |
+>      |       sparc: | TODO |
+> --
+> 2.29.2
+>
+
+
+-- 
+Best Regards
+ Guo Ren
+
+ML: https://lore.kernel.org/linux-csky/
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
