@@ -2,65 +2,79 @@ Return-Path: <SRS0=HRg9=H7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-5.3 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
 	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	NICE_REPLY_A,SPF_HELO_NONE,SPF_PASS,USER_AGENT_SANE_1 autolearn=no
-	autolearn_force=no version=3.4.0
+	SPF_HELO_NONE,SPF_PASS autolearn=no autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 22FDAC433E0
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Mar 2021 14:44:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 304AFC433E0
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Mar 2021 18:15:08 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id D52AF6146D
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Mar 2021 14:43:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D52AF6146D
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=huawei.com
+	by mail.kernel.org (Postfix) with ESMTPS id B25F460249
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Mar 2021 18:15:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org B25F460249
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=mRG2p2oXVCFJ0Z+hvXlqZ7/WYe2x/WZqt+TZ7J7ohms=; b=TbYMEKsls0p5tWxYZm3K6m2wK
-	sepbfs0AfOhZWDQqiJhgzGiqLXwGHcxt/Apc8kdkFGB2VQGeZZgZKTYGw/uQEVHIu42gjrwmq86dk
-	WdIgQA9YSR9Tv/MHM35j6co6dPoeo0GkxNR9wjb6Lw1U6C3XkKTcsRBw0FGyT6NwFFvz9n3FPWhNB
-	G9FKneB8GmPl6esUZGQSW/NJpH5uYBjA02eA5LdgeleSZR6gzbQYowhOcikYUG5fKuVEratm33sBC
-	HVui1Q5L1xpJgqjBs6jXDgTboLxRMquRW9m4bPkK4xYf2r+zVzCWFNOuchb2Hkr4rbqsqAyp1ymGh
-	3phbXwcbw==;
+	 bh=MnEFywXlHd11LARMRGKASLP/g98iWh1fW+9CJN6bLoQ=; b=TmwaNm49lBRG5vZyCyKR0o9Aw
+	a7vM5HS+BQ0j/YgIT9fG2JmiCFvSlQepz8Jhc4Nu4L5nqc5AEWY2ZvIVM6HYKGPhidv1K2aae3pC4
+	i/3kpWi7cYKwySJVH7AEAYhhpfwzV4IJ70a6Px/8z24gXcGjDQNneRIFdTnB9PIyybwnVp2Z6SuAh
+	RGAaWiDbQS602eB6TJjTafuttj7vNceT1h5NBQvdDQ3RY9Qa9YzMZS4NJGxhXg9lWO9t8ZHtUB5b9
+	bMs2Fg1wjfthMa/HzsdUIfVMVPsiD/Ggp5C0Pt8DizJ9h8+v8vqKJbTz3mtaJOBCsj3i3Og8PGH/G
+	MVh12RAWQ==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1lGjm2-0003Y5-Pb; Mon, 01 Mar 2021 14:43:50 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1lGn4G-0006bD-Mr; Mon, 01 Mar 2021 18:14:52 +0000
+Received: from mail-il1-x12e.google.com ([2607:f8b0:4864:20::12e])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1lGjlw-0003VK-OJ
- for linux-riscv@lists.infradead.org; Mon, 01 Mar 2021 14:43:48 +0000
-Received: from DGGEMS409-HUB.china.huawei.com (unknown [172.30.72.60])
- by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4Dq2yD5YsWzMgg5;
- Mon,  1 Mar 2021 22:41:24 +0800 (CST)
-Received: from [10.174.177.244] (10.174.177.244) by
- DGGEMS409-HUB.china.huawei.com (10.3.19.209) with Microsoft SMTP Server id
- 14.3.498.0; Mon, 1 Mar 2021 22:43:30 +0800
-Subject: Re: question about RISCV EFI stub support
-To: Atish Patra <atishp@atishpatra.org>
+ id 1lGn4D-0006ag-JR
+ for linux-riscv@lists.infradead.org; Mon, 01 Mar 2021 18:14:50 +0000
+Received: by mail-il1-x12e.google.com with SMTP id i18so15509145ilq.13
+ for <linux-riscv@lists.infradead.org>; Mon, 01 Mar 2021 10:14:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=atishpatra.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=d5wZyeKwxq96svsdSpBs6kMLZlDR0VgeU8/y6O5qhho=;
+ b=JT1/gI5ZKDkbgUvPcQM48mfzZSwa1fkUSOlltJFcJqMtmKwT66OQVgi8JQpe1T/8By
+ b9ZMKUEoRKQLeDJK34sI2EvDvr5e71yPvo31kSa3qUjYe+To1O3VSN8iTOYgV+0d1ZDz
+ 7pH5X6AX+wfxkTFDqOt2ADVxTInuGT3qZuu90=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=d5wZyeKwxq96svsdSpBs6kMLZlDR0VgeU8/y6O5qhho=;
+ b=JRSnU5kGG46vT6mDu7hqg1rpnq6i4hMGqX/Ge3exDq2j4IWb/kprMxaih5V76Zavh1
+ 44qVHEGOe3Thx/3UbEEkD+j6+TgMXWydmN43Yt77UQ+2M8i96Bs1B6V+k/huyrzSByJ6
+ Qt+R8TPdkSEGdTdN1xn/Mc0o5zCl8m+PW0tSokZsn4uKCbFu7xOd648ajuBL52o7fRj3
+ 6aZliQMpY3PLdxPohtXV3PDL25QRklYNeT1Dv/l3mAs6SVfIFlhvMywDBXVu89RBkdid
+ iXGq++kySjCGh9PyO+HIonN8vUH9n+lxxg/xioIs6WByLoh353vCf3/SNoWK7KYD35AG
+ 67nA==
+X-Gm-Message-State: AOAM5332J/N7wNJ2KGHta9mUKgEEIJXfwyxt3HInGB7Go7SJCt8YMTUR
+ RNusHpWZqAG40vTVM5yWsm6sih4orPPW8TTTnS8g4tTZyKZq
+X-Google-Smtp-Source: ABdhPJylbq73EKSh3MrNscbv1CwFUrOWbMPoaJUBsH5Q1r7P7jjwJSAV20RVuvKcOWfszb+pUAoWNKUfOnLHS1lrmPE=
+X-Received: by 2002:a92:ce4e:: with SMTP id a14mr14503089ilr.219.1614622486203; 
+ Mon, 01 Mar 2021 10:14:46 -0800 (PST)
+MIME-Version: 1.0
 References: <350c7458-c77b-56de-de5e-8c96ce9c16ae@huawei.com>
  <CAOnJCU+v=O1u1yK0UD7JYJAhzGmFmCLQk4yP8aZuJX-QoT5UWg@mail.gmail.com>
  <89b97904-e069-35cd-0a42-217cafe17e15@huawei.com>
  <CAOnJCU+HWA2znErbiiqEVWMkKtEfsyhXEwGEy_x2PqDzff4PXg@mail.gmail.com>
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
-Message-ID: <6bf9e8b6-55bf-f480-c316-d69fe6018ca0@huawei.com>
-Date: Mon, 1 Mar 2021 22:43:27 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
- Thunderbird/60.7.0
-MIME-Version: 1.0
-In-Reply-To: <CAOnJCU+HWA2znErbiiqEVWMkKtEfsyhXEwGEy_x2PqDzff4PXg@mail.gmail.com>
-Content-Language: en-US
-X-Originating-IP: [10.174.177.244]
-X-CFilter-Loop: Reflected
+ <6bf9e8b6-55bf-f480-c316-d69fe6018ca0@huawei.com>
+In-Reply-To: <6bf9e8b6-55bf-f480-c316-d69fe6018ca0@huawei.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Mon, 1 Mar 2021 10:14:35 -0800
+Message-ID: <CAOnJCUK3ee2agzmK8AzGAD_YFoLT1KoM0MpwWiyq-59fOcV9bQ@mail.gmail.com>
+Subject: Re: question about RISCV EFI stub support
+To: Kefeng Wang <wangkefeng.wang@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210301_094347_280342_540C44D7 
-X-CRM114-Status: GOOD (  14.17  )
+X-CRM114-CacheID: sfid-20210301_131449_770810_8A535E63 
+X-CRM114-Status: GOOD (  24.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -76,44 +90,87 @@ Cc: Atish Patra <atish.patra@wdc.com>,
  linux-riscv <linux-riscv@lists.infradead.org>,
  Palmer Dabbelt <palmerdabbelt@google.com>, Palmer Dabbelt <palmer@dabbelt.com>,
  Ard Biesheuvel <ardb@kernel.org>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-KyBQYWxtZXIsIHNvcnJ5IGZvcmdldCBhZGQgdG8gY2MgbGlzdC4uLgoKT24gMjAyMS8yLzI1IDEw
-OjAwLCBBdGlzaCBQYXRyYSB3cm90ZToKPiBPbiBXZWQsIEZlYiAyNCwgMjAyMSBhdCA1OjI5IFBN
-IEtlZmVuZyBXYW5nIDx3YW5na2VmZW5nLndhbmdAaHVhd2VpLmNvbT4gd3JvdGU6Cj4+Cj4+IE9u
-IDIwMjEvMi8yNSA3OjM1LCBBdGlzaCBQYXRyYSB3cm90ZToKPj4+IE9uIFdlZCwgRmViIDI0LCAy
-MDIxIGF0IDM6MTQgQU0gS2VmZW5nIFdhbmcgPHdhbmdrZWZlbmcud2FuZ0BodWF3ZWkuY29tPiB3
-cm90ZToKPj4+PiBIaSBBdGlzaCBhbmQgQXJkLAo+Pj4+Cj4+Pj4gVGhlIGNvbW1pdCAiY2I3ZDJk
-ZDU2MTJhIFJJU0MtVjogQWRkIFBFL0NPRkYgaGVhZGVyIGZvciBFRkkgc3R1YiIgdXNlCj4+Pj4g
-Yy5saSB0bwo+Pj4+Cj4+Pj4gYWRkIE1hZ2ljICJNWiIgc2lnbmF0dXJlIGZvciBQRS9DT0ZGIGhl
-YWRlciwgd2hpY2ggc2VsZWN0IFJJU0NWX0lTQV9DLAo+Pj4+IGJ1dCAiQyIKPj4+Pgo+Pj4+IHRv
-IHRoZSBJU0EgaXMgb3B0aW9uYWwsICBhbmQgaWYgIkMiIGlzIG5vdCBzdXBwb3J0ICwgIEVGSSBi
-b290IGlzIG5vdAo+Pj4+IHN1cHBvcnRlZC4KPj4+Pgo+Pj4+IENvdWxkIHdlIHVzZSAiLndvcmQg
-TVpfTUFHSUMiIGxpa2UgeDg2IGNvZGUgb3Igc29tZSBvdGhlciB3YXkgdG8gc3VwcG9ydAo+Pj4+
-ICJNWiIgc2lnbmF0dXJlPwo+Pj4+Cj4+PiAud29yZCB3b24ndCB3b3JrIGJ1dCAuc2hvcnQgd2ls
-bC4gV2l0aCAud29yZCwgeW91IGVuZCB1cCAwMDAwIGluIHRoZSAyCj4+PiBieXRlcyB3aGljaCBj
-YW4gYmUgaW50ZXJwcmV0ZWQgYXMgaWxsZWdhbCBpbnN0cnVjdGlvbi4KPj4gWWVzLCBzaG91bGQg
-dXNlICIuc2hvcnQiIGluIFJWLgo+Pj4gSSBndWVzcyB5b3VyIGxhcmdlciBvYmplY3RpdmUgaXMg
-dG8gbWFrZSB0aGUgQyBleHRlbnNpb24gb3B0aW9uYWwgYW5kCj4+PiBub3QgZW5hYmxlZCBieSBk
-ZWZhdWx0IGZvciB0aGUgTGludXgga2VybmVsLgo+PiAiQyIgZXh0ZW5zaW9uIGlzIG9wdGlvbmFs
-LCBhbmQgdGhlIHVwc3RyZWFtIGtlcm5lbCBoYXMgdGhlIFJJU0NWX0lTQV9DIHdoaWNoCj4+Cj4+
-IGNvdWxkIGJlIGNvbmZpZ3VyYWJsZS4gIGFuZCBJIHRoaW5rIHRoZSBFRklfU1RVQiBzaG91bGQg
-bm90IGRlcGVuZCBvcgo+PiBzZWxlY3QgaXQsCj4+Cj4+IGFuZCBtYXliZSB3ZSBvbmx5IHdhbnQg
-dG8gc3VwcG9ydCBSVjY0RyBpbiBzb21lIGNhc2VzLCAgd2hhdCdzIHlvdXIgb3B0aW9uPwo+Pgo+
-IEkgdGhpbmsgUklTQ1ZfSVNBX0Mgd2FzIGVuYWJsZWQgYnkgZGVmYXVsdCBqdXN0IHRvIGdlbmVy
-YXRlIGEgc21hbGxlcgo+IGJpbmFyeSBzaXplLgo+IEBwYWxtZXIgOiB3YXMgdGhlcmUgYW55IG90
-aGVyIHJlYXNvbiA/CgpBbnkgY29tbWVudCBhYm91dCB0aGUgdG9vIGlzc3VlLAoKMSnCoCBkaXJl
-Y3RseSB1c2UgLnNob3V0IE1aX01BR0lDIHRvIGRlY291cGxlIEVGSV9TVFVCIGFuZCBSSVNDVl9J
-U0FfQy4KCjIpwqAgZG9uJ3Qgc2V0IFJJU0NWX0lTQV9DwqAgdG8gZGVmYXVsdCB5Cgo+Pj4gRG8g
-eW91IGp1c3Qgd2FudCBpdCBmb3IgYSBjdXN0b20ga2VybmVsIG9yIHRoZSB1cHN0cmVhbSBrZXJu
-ZWwgPwo+Pj4KPj4+PiBUaGFua3MsCj4+Pj4KPj4+PiBLZWZlbmcKPj4+Pgo+Pj4+Cj4+Pj4gX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPj4+PiBsaW51eC1y
-aXNjdiBtYWlsaW5nIGxpc3QKPj4+PiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj4+
-Pj4gaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
-dgo+Pj4KPgo+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
-ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
-Cg==
+On Mon, Mar 1, 2021 at 6:43 AM Kefeng Wang <wangkefeng.wang@huawei.com> wrote:
+>
+> + Palmer, sorry forget add to cc list...
+>
+> On 2021/2/25 10:00, Atish Patra wrote:
+> > On Wed, Feb 24, 2021 at 5:29 PM Kefeng Wang <wangkefeng.wang@huawei.com> wrote:
+> >>
+> >> On 2021/2/25 7:35, Atish Patra wrote:
+> >>> On Wed, Feb 24, 2021 at 3:14 AM Kefeng Wang <wangkefeng.wang@huawei.com> wrote:
+> >>>> Hi Atish and Ard,
+> >>>>
+> >>>> The commit "cb7d2dd5612a RISC-V: Add PE/COFF header for EFI stub" use
+> >>>> c.li to
+> >>>>
+> >>>> add Magic "MZ" signature for PE/COFF header, which select RISCV_ISA_C,
+> >>>> but "C"
+> >>>>
+> >>>> to the ISA is optional,  and if "C" is not support ,  EFI boot is not
+> >>>> supported.
+> >>>>
+> >>>> Could we use ".word MZ_MAGIC" like x86 code or some other way to support
+> >>>> "MZ" signature?
+> >>>>
+> >>> .word won't work but .short will. With .word, you end up 0000 in the 2
+> >>> bytes which can be interpreted as illegal instruction.
+> >> Yes, should use ".short" in RV.
+> >>> I guess your larger objective is to make the C extension optional and
+> >>> not enabled by default for the Linux kernel.
+> >> "C" extension is optional, and the upstream kernel has the RISCV_ISA_C which
+> >>
+> >> could be configurable.  and I think the EFI_STUB should not depend or
+> >> select it,
+> >>
+> >> and maybe we only want to support RV64G in some cases,  what's your option?
+> >>
+> > I think RISCV_ISA_C was enabled by default just to generate a smaller
+> > binary size.
+> > @palmer : was there any other reason ?
+>
+> Any comment about the too issue,
+>
+> 1)  directly use .shout MZ_MAGIC to decouple EFI_STUB and RISCV_ISA_C.
+>
+> 2)  don't set RISCV_ISA_C  to default y
+>
+
+The first one is fine but I am not sure if we shouldn't set
+RISCV_ISA_C to default y.
+RISC-V Linux kernel always maintained RV64GC as the minimum required
+ISAs required and I don't see any
+good reason to change it.
+
+Is there any solid use case where you want to support only RV64G ?
+
+> >>> Do you just want it for a custom kernel or the upstream kernel ?
+> >>>
+> >>>> Thanks,
+> >>>>
+> >>>> Kefeng
+> >>>>
+> >>>>
+> >>>> _______________________________________________
+> >>>> linux-riscv mailing list
+> >>>> linux-riscv@lists.infradead.org
+> >>>> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> >>>
+> >
+> >
+
+
+
+-- 
+Regards,
+Atish
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
