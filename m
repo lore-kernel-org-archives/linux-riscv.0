@@ -2,158 +2,61 @@ Return-Path: <SRS0=HRg9=H7=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-21.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,MENTIONS_GIT_HOSTING,MSGID_FROM_MTA_HEADER,
+X-Spam-Status: No, score=-17.0 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,INCLUDES_CR_TRAILER,INCLUDES_PATCH,MAILING_LIST_MULTI,
 	SPF_HELO_NONE,SPF_PASS,USER_AGENT_GIT autolearn=ham autolearn_force=no
 	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 70A17C433E0
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Mar 2021 11:59:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 11DA6C433DB
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Mar 2021 14:29:52 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id DB71E64DBD
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Mar 2021 11:59:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org DB71E64DBD
-Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=wdc.com
+	by mail.kernel.org (Postfix) with ESMTPS id C4F8364DF5
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Mar 2021 14:29:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org C4F8364DF5
+Authentication-Results: mail.kernel.org; dmarc=fail (p=none dis=none) header.from=kernel.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=j7e5qFnLgamtMVp3L9iYL4kVtQtl0a3vXpyWJK2J64k=; b=dSgpg9N5TPOdxWzRTKOzQwILJ9
-	8Vp/qZt8Voq2wQnf0upSYswDkuKTDUeGDaPv39THQB1hWwODjM1TMkCm/E5p4UFN/Cpn5I3oMhOUi
-	d9HnK7iN9t0+X3Lhm2bLdw/ih2Aa3Srh6JgVHVXat4W6c+ylMs13f3kWFRxW18sfbn+TuTuZioae3
-	5cntEisBQHOgjaCEfAWSJt/K4wGqmRQ8ITun0xp0XqPhuKBIbEYjP5IHbnoT8Nmxp+8WJDiUj9Fon
-	PgSRq2HZuYm2SpdzYgl/RTwwam9fQ3eZKWeKA2wQcmHsm9fWUszuQrqFnnX8Hpu7GJGgSoluzOS4P
-	lvvvAhVQ==;
+	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VHiaSK0nMyxZngrX/e3Q5GIaVAGcazHJ48d0JHnLdO4=; b=unB4V2gLx6D94/zAH0IN7+Wv75
+	bWsfJRUF+KkHB31n9D8IyEynUxMReUrsMStWjPfnOMxOdmPAb3+i9jEx6scQQWC6m4EM33kLst3ms
+	cE6P33gIcjR2rD7RPeh8CO/Hj+8AVaSdr9cJMragnQ3OFqcr5XBTfwJf4gzZNvlmUd4U1dXmGWfj3
+	gEmMMTWBumU9qMDE6mjh8S3sKUzwUQQ94ntT9vGHUpUxePTwVbDykKxbx8UmTLWctrmtWJ6DrER0f
+	mO7i9AhrI/hEMsJjPc45GHJhi3UqHhi67xkcfv9ZXddwYHk0+QmoqyDt2/QiYZboMQVdtTxQ0PjNi
+	vjQPZ2ig==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1lGhCh-0001un-47; Mon, 01 Mar 2021 11:59:11 +0000
-Received: from esa1.hgst.iphmx.com ([68.232.141.245])
+	id 1lGjYD-0000Rf-Mi; Mon, 01 Mar 2021 14:29:33 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1lGhCc-0001uF-QT
- for linux-riscv@lists.infradead.org; Mon, 01 Mar 2021 11:59:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1614599946; x=1646135946;
- h=from:to:cc:subject:date:message-id:
- content-transfer-encoding:mime-version;
- bh=MmOfVbyBMNouM0u0R5TqshV/taZnLCuuS7KZ80fyvsQ=;
- b=iTwticxrOa8s+dgoEsgAJfKBRTkj+vJAFs3BEASbATSHnHSn+9qllJYN
- CdU4zv3TF2AFho7A0R8PgyuVzqhid4Dci63brIT7JBmupnoWWpNdL8g0s
- w8OsdKwKtGiCz9CQ2tSMHc3udksEt1paC7B+4mmw7EEZrApDyhpue8o6q
- Fu4rfe+qGxCJC+JjDn8FELh7v2CW2zLmqsDI7DHgDgyXIh1ViWaSEDyl/
- YukdQp0TinadjuMIYvOf+t7ejQLvDCZsZ8BSxaRB4oZX9EB2wDyyl69jb
- FIzbgu3Ve/RkP8uUV8yLSP37VPwUZBsX4VFxp0lLyeAVoGgW60NSyavwQ w==;
-IronPort-SDR: TqZ63/8i48z26AJOWZPWQ4q9dHhj+aNXaZNff7UgImjJArvrJBy0YLxOsu9kdRKYTWJsyUsIhm
- A/jzdBUXQOMGW7nzm5LUHhyqLPZmZCG3kgKm0biWESpc1p9z+iPvCAZcjiCDwUz6uhA4ikeWbD
- 72RraVVXzs5B9S31E88hlxnsrXtMOipmm0wXOB7zyVTTHpmvaCUkdyUDFNPSxjXP/aIjRlcbet
- R8FDeZ79BoI/3+4PaKqzGxU0gHnft3BLR3nF0S00V7SJVgxtAY5RueV6HbMHTurw/7FXf6onBF
- Rrw=
-X-IronPort-AV: E=Sophos;i="5.81,215,1610380800"; d="scan'208";a="271656927"
-Received: from mail-bn7nam10lp2102.outbound.protection.outlook.com (HELO
- NAM10-BN7-obe.outbound.protection.outlook.com) ([104.47.70.102])
- by ob1.hgst.iphmx.com with ESMTP; 01 Mar 2021 19:59:02 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=BgIVVUPzEv2EDPkMlvX+WVC2sVdZfrq8aEGDGlOLw+aw0mYgfU2wGf15tzz713KiLlu8ui2B+5ZdqvQZT8aQsiidB3L3IDbWekMz94MHNb5dBL/E1JdYFsXwaBc6IqbxWt24demE5cJ/mk/fYiNRG+kwbgufNdDQW8+Ep7mFekDWXuImlxltM8mn43TgIyWFaPu9ph8GjxcYkhAB10Dk8o6PJMDc9d9u6PLBxUwIZryMGNQZx0f303bJK0Ws2BbIQtZvbG2d8NMgC5VorzMLQzso79IL6enydz0ZOaEjx09XV/D7otRJ1iW79hy8KGiYYD8Oe5MzEVYTu1bSufBi1w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iGxkxvvXkkIvji7ApwCtffWmhzeE5KjyCaZYElDEak0=;
- b=UABiYNowf7tkPshk8nzTKNnNqhinAfCg/n4o8PIKt0MaSo7UzKkqe9SQjhWY0G4m2SdKr09eay3a4MI2Evaixkp967kVrw0SegMHUr09M5s/kf6zBNV0SbDantPsWm2+RyjiTSlmPwGMfHi0eac+4klKLGZwiwQrxj8WbkNmO3E5m2UIa/YBck8xCOzRKyL72dVE8XUUJpE8LqFpBYkX0gjEGuwWIrJV98+4lcc/eeWmj0ejYaPWgudB6dbJiTMykqWVjfoU+0c48AtrgHmQQJ89bdFU7sh5tUwB/y4zo13MY2qixu0nZZvtIuDjG7misbk/Tm8F5KakcbC8KUcXvg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
- header.d=wdc.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iGxkxvvXkkIvji7ApwCtffWmhzeE5KjyCaZYElDEak0=;
- b=FULwKc+CwF0wNhUGUbEymSCX1/RZ5DYU20qi9fDqL5QR7gP5YpOvC5r0ZTW196K0HhlGLz6mZSVAaowHW8n/jcW4576ptqajnmQ4EZw5sYhB1Le+FDNFiNpozFWzvUK2fi2g3Qg79N8hUc+p8iKA2mKVUGKgM+YnXBXikv4NapE=
-Authentication-Results: dabbelt.com; dkim=none (message not signed)
- header.d=none;dabbelt.com; dmarc=none action=none header.from=wdc.com;
-Received: from DM6PR04MB6201.namprd04.prod.outlook.com (2603:10b6:5:127::32)
- by DM6PR04MB5835.namprd04.prod.outlook.com (2603:10b6:5:163::28) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3890.19; Mon, 1 Mar
- 2021 11:58:59 +0000
-Received: from DM6PR04MB6201.namprd04.prod.outlook.com
- ([fe80::38c0:cc46:192b:1868]) by DM6PR04MB6201.namprd04.prod.outlook.com
- ([fe80::38c0:cc46:192b:1868%7]) with mapi id 15.20.3890.028; Mon, 1 Mar 2021
- 11:58:59 +0000
-From: Anup Patel <anup.patel@wdc.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
-Subject: [PATCH v4] RISC-V: Use SBI SRST extension when available
-Date: Mon,  1 Mar 2021 17:28:33 +0530
-Message-Id: <20210301115833.382364-1-anup.patel@wdc.com>
-X-Mailer: git-send-email 2.25.1
-X-Originating-IP: [122.171.192.176]
-X-ClientProxiedBy: MAXPR01CA0079.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a00:49::21) To DM6PR04MB6201.namprd04.prod.outlook.com
- (2603:10b6:5:127::32)
-MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-Received: from wdc.com (122.171.192.176) by
- MAXPR01CA0079.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00:49::21) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.3890.19 via Frontend Transport; Mon, 1 Mar 2021 11:58:56 +0000
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-HT: Tenant
-X-MS-Office365-Filtering-Correlation-Id: d34d5cd8-e7c6-4209-bd62-08d8dca965d6
-X-MS-TrafficTypeDiagnostic: DM6PR04MB5835:
-X-MS-Exchange-MinimumUrlDomainAge: github.com#4892
-X-MS-Exchange-Transport-Forked: True
-X-Microsoft-Antispam-PRVS: <DM6PR04MB58358691CB05D77B530F97A58D9A9@DM6PR04MB5835.namprd04.prod.outlook.com>
-WDCIPOUTBOUND: EOP-TRUE
-X-MS-Oob-TLC-OOBClassifiers: OLM:3968;
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: AuSChSA5aF3l7luwbakoZotNdx16lcRVgf2visLZENmuwQWbbKRZQc3PB7IeRTh57vRNeXl7YyvwxF5lsep9Ot0a8rmfzENj8isW8Ru3C4T9cCnUbkwguHEKBvvCaPI+5YYD1kozmbkEJoUKUudzjXehB+zVAAU7nnuw7oYCk17QsHq36MVPeSK2SqBzXaDxqaUPeb75me6DWPxYtbWuhjNH/qkw7NlnyxK9zb53/zkLiMjC42acYwxc9HNG/oCtHHlvY/ay9HUtEhgQJBpo0nLm+5R/IDit1mpcqjCe4tO5s311jk6mE/9AgwUGXuPg1Hfv01jHj4vO8AsXRxJJLoi8VFGEI0y524pGhNkXm1D3LGqFETHQqcmwt3NoDuWN480ln7LdQffx6ky6cl+xVfl2TiOWDNOKPNZLS2DJdJWbt57IINsJi/9R9DjUkP/OnKnuumR8DbFnf59p4GGirKdjjwNxLAbXcTzlRQr1ti+mR47dSUIIjiCGjlq148VcxLNwCf7xbFmJFbUAu65DfZ9BXst/qlHI9QbELBKm0R45T/Tl9GOVouH7a+fVQab/6V9QYmbN+VHr0FDlXc+nOp+qlt9px8ETVDzQvq8XTuM=
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:DM6PR04MB6201.namprd04.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(4636009)(376002)(39860400002)(346002)(396003)(136003)(366004)(110136005)(478600001)(8936002)(54906003)(8676002)(5660300002)(316002)(36756003)(52116002)(966005)(83380400001)(26005)(16526019)(86362001)(44832011)(186003)(7696005)(956004)(4326008)(1076003)(55016002)(2616005)(66556008)(6666004)(66946007)(66476007)(2906002)(8886007);
- DIR:OUT; SFP:1102; 
-X-MS-Exchange-AntiSpam-MessageData: =?us-ascii?Q?c5wCc/x3rrQbK9/X19ReP6ApZGLIrOceNXzhWgybl/5mPetZ/eah+Nn4zisK?=
- =?us-ascii?Q?b5NUFUq4cjeR5FaXNBLHyIduyoFXMFDO3DhW5XlP6EN6reRAM9C95zPh/If/?=
- =?us-ascii?Q?+YWD9s7z4irgoD4Pu++lvo+6JzHcETjFDMgNaU8j5QrffCRIsYOpaAbsGkMB?=
- =?us-ascii?Q?UVeT3P/j3/yCQCMPnJsPHp7YwE6VhlGMOE707+z7Q5trYb63QI+mD6LQ0iHT?=
- =?us-ascii?Q?k8mFWTeDVIHRzXo0UjelcXPIylWYXoq8Ckib82t1gxkh6UjKUzBTGtq1byA+?=
- =?us-ascii?Q?kSReGhtFiFdg3JnArAFF70wfEZmj1zwHMaS8jvNKlWTQ2+NPJyWfzUMmb5mG?=
- =?us-ascii?Q?cFB58yMK1vjLkSchoUwlRArWiVcY+FO6lnvy1c2/DlVAsKHKpmHfnHWCa2gX?=
- =?us-ascii?Q?Er+4YeAZCxwp+4n10vjksUmXgLvvaAVvGULw2gZVtIps5VcXHNladaw4w8Bc?=
- =?us-ascii?Q?I8+57iEX4q0BtH9c1CGU2SIAuGyeKy1nPo/GMb1n9PmxSiTQTGeqgOWnWjEP?=
- =?us-ascii?Q?pLk2hjbbf/blvWWtQatVIzhPw/KI0DUHltPMvMW3lxcPzGjwakd40gXPtb8F?=
- =?us-ascii?Q?sd2iPQOl9PoGt+i9TPwNtu5ixSWSLWEu6NdBLf81EULbTrQHJGXy3TEJGB7n?=
- =?us-ascii?Q?KZiUUudyl/8zZiQpV5lUEMBTt4dJgux+aNlAqwvZjBsweCLZSNxKei4BB86f?=
- =?us-ascii?Q?qxpWouz4e/aNYfJMtLRhCZQlbjbVEjL0lo0btcV+RRToyLv/AqryOLXM3m8z?=
- =?us-ascii?Q?VoDAf7CfkbgkaVkBLOmlna7c2yIDCjZ/7flgGcAgEZ35KvNV5QUmxzE0xGxi?=
- =?us-ascii?Q?qPhCfUiKS1cOJmpv8OkUC/S/NpfKu7/S3cNnotXYPXRkr+PfCC7yBQaxd80P?=
- =?us-ascii?Q?pVV2oTNaLDCyZfL8UG3RRzZiH/zZsuoLICSGIWVr6nwUXBzNI8nVeHrFrafI?=
- =?us-ascii?Q?37weT1zfST6QraAKMYB/uOaNI1GzJcWlSGoVO2cyJYDSXTGxgpyUf4UXtWAM?=
- =?us-ascii?Q?g2AnopZ+znix35Ee7G3+OvU5eMPNOqg9rvOoeOsWXIVf0Uc1TEeRFZuo040v?=
- =?us-ascii?Q?UgwwnU1QAW7n+7raEvv/Kizl/dOO1JYHpROeWjVMoAli87GYogQhH5INapJT?=
- =?us-ascii?Q?XFit0W/ATe3PCW8/6dr0d5V/p7zYOtuW05jmbrx1JlaCf2xZcL5GS2xrhGLF?=
- =?us-ascii?Q?g6yrZnE5wfLsuazATIp3/IIxKbaWP/zyz0Xchx96W0WUB2Bol0Bcwkdo/Iwk?=
- =?us-ascii?Q?FOMxfZRVyo4t1AsfWR81Njru6TrQRmJn07R6TWyOWg14NVtKyhpJLTnxaPqZ?=
- =?us-ascii?Q?AdabtFZNmGDje9LvNdPmVJ7r?=
-X-OriginatorOrg: wdc.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d34d5cd8-e7c6-4209-bd62-08d8dca965d6
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR04MB6201.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Mar 2021 11:58:59.1079 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: b61c8803-16f3-4c35-9b17-6f65f441df86
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: idCp7LXoVPRmtJbbwNU7OL/xSwTV9F0zk9j0a5DtD9x9bJnMNW7yQ2LIzisBejl3qqipmiA7QaKEqSyfXj0y6w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR04MB5835
+ id 1lGjYA-0000QN-TW
+ for linux-riscv@lists.infradead.org; Mon, 01 Mar 2021 14:29:31 +0000
+Received: by mail.kernel.org (Postfix) with ESMTPSA id E189E64DF1;
+ Mon,  1 Mar 2021 14:29:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1614608970;
+ bh=En1eyk16wHgUtzj4bgZ6Lkm3+BcNkeqwMyBsqff5YVU=;
+ h=From:To:Cc:Subject:Date:From;
+ b=OXGPx7au4zoBbOrwHe2jnofxmBHdN4aamSiTgzpqK4KIuDZo88YLBPceJgG7j1C1K
+ /6RannAhzjdydeHtqvbqEK66DqPXuPSFcZLf+PcqELnIJ5+I//1W19FPfl1NVl/YQj
+ kXWcMY/BuWyA9SSPhfRl5ICU/DCUw8XKePBvmNs+BrHkxgjDKst6NGYbq3rjorl0Lh
+ 7d7hex16pmBcCijQXdqjgEsoFPGz7CyoSWcMMlKGTKC6gjRXDdGA8p1AQyoaGRr4Y+
+ FsczAFUGC17IJzc9oMqSDS8HXVGP+Xf6IghdM0ytNT7ajoc0gGB9TfkvULFbIxAffr
+ A4c0uzbWpqavA==
+From: guoren@kernel.org
+To: guoren@kernel.org
+Subject: [PATCH 1/4] irqchip: riscv: Using CPUHP_AP_ONLINE_DYN
+Date: Mon,  1 Mar 2021 14:28:19 +0000
+Message-Id: <1614608902-85038-1-git-send-email-guoren@kernel.org>
+X-Mailer: git-send-email 2.7.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210301_065907_199853_95F2CB5A 
-X-CRM114-Status: GOOD (  17.07  )
+X-CRM114-CacheID: sfid-20210301_092931_058239_BDDE5676 
+X-CRM114-Status: GOOD (  11.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -165,145 +68,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <anup@brainfault.org>, Anup Patel <anup.patel@wdc.com>,
- linux-kernel@vger.kernel.org, Atish Patra <atish.patra@wdc.com>,
- Alistair Francis <Alistair.Francis@wdc.com>, linux-riscv@lists.infradead.org
+Cc: linux-arch@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>,
+ Arnd Bergmann <arnd@arndb.de>, Peter Zijlstra <peterz@infradead.org>,
+ Palmer Dabbelt <palmerdabbelt@google.com>, linux-kernel@vger.kernel.org,
+ linux-csky@vger.kernel.org, Christoph Hellwig <hch@lst.de>,
+ Atish Patra <atish.patra@wdc.com>, Anup Patel <anup.patel@wdc.com>,
+ linux-riscv@lists.infradead.org,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ Thomas Gleixner <tglx@linutronix.de>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The SBI SRST extension provides a standard way to poweroff and
-reboot the system irrespective to whether Linux RISC-V S-mode
-is running natively (HS-mode) or inside Guest/VM (VS-mode).
+From: Guo Ren <guoren@linux.alibaba.com>
 
-The SBI SRST extension is available in latest SBI v0.3-draft
-specification at: https://github.com/riscv/riscv-sbi-doc.
+Remove RISC-V irqchip custom definitions in hotplug.h:
+ - CPUHP_AP_IRQ_RISCV_STARTING
+ - CPUHP_AP_IRQ_SIFIVE_PLIC_STARTING
 
-This patch extends Linux RISC-V SBI implementation to detect
-and use SBI SRST extension.
+For coding convention.
 
-Signed-off-by: Anup Patel <anup.patel@wdc.com>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Palmer Dabbelt <palmerdabbelt@google.com>
+Cc: Anup Patel <anup.patel@wdc.com>
+Cc: Atish Patra <atish.patra@wdc.com>
+Cc: Christoph Hellwig <hch@lst.de>
+Tested-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Link: https://lore.kernel.org/lkml/CAHk-=wjM+kCsKqNdb=c0hKsv=J7-3Q1zmM15vp6_=8S5XfGMtA@mail.gmail.com/
 ---
- arch/riscv/include/asm/sbi.h | 16 ++++++++++++++
- arch/riscv/kernel/sbi.c      | 41 +++++++++++++++++++++++++++++++++---
- 2 files changed, 54 insertions(+), 3 deletions(-)
+ drivers/irqchip/irq-riscv-intc.c  | 2 +-
+ drivers/irqchip/irq-sifive-plic.c | 2 +-
+ include/linux/cpuhotplug.h        | 2 --
+ 3 files changed, 2 insertions(+), 4 deletions(-)
 
-diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-index 99895d9c3bdd..8add0209c9c7 100644
---- a/arch/riscv/include/asm/sbi.h
-+++ b/arch/riscv/include/asm/sbi.h
-@@ -27,6 +27,7 @@ enum sbi_ext_id {
- 	SBI_EXT_IPI = 0x735049,
- 	SBI_EXT_RFENCE = 0x52464E43,
- 	SBI_EXT_HSM = 0x48534D,
-+	SBI_EXT_SRST = 0x53525354,
- };
+diff --git a/drivers/irqchip/irq-riscv-intc.c b/drivers/irqchip/irq-riscv-intc.c
+index 8017f6d..2c37f3a 100644
+--- a/drivers/irqchip/irq-riscv-intc.c
++++ b/drivers/irqchip/irq-riscv-intc.c
+@@ -125,7 +125,7 @@ static int __init riscv_intc_init(struct device_node *node,
+ 		return rc;
+ 	}
  
- enum sbi_ext_base_fid {
-@@ -70,6 +71,21 @@ enum sbi_hsm_hart_status {
- 	SBI_HSM_HART_STATUS_STOP_PENDING,
- };
- 
-+enum sbi_ext_srst_fid {
-+	SBI_EXT_SRST_RESET = 0,
-+};
-+
-+enum sbi_srst_reset_type {
-+	SBI_SRST_RESET_TYPE_SHUTDOWN = 0,
-+	SBI_SRST_RESET_TYPE_COLD_REBOOT,
-+	SBI_SRST_RESET_TYPE_WARM_REBOOT,
-+};
-+
-+enum sbi_srst_reset_reason {
-+	SBI_SRST_RESET_REASON_NONE = 0,
-+	SBI_SRST_RESET_REASON_SYS_FAILURE,
-+};
-+
- #define SBI_SPEC_VERSION_DEFAULT	0x1
- #define SBI_SPEC_VERSION_MAJOR_SHIFT	24
- #define SBI_SPEC_VERSION_MAJOR_MASK	0x7f
-diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-index f4a7db3d309e..49155588e56c 100644
---- a/arch/riscv/kernel/sbi.c
-+++ b/arch/riscv/kernel/sbi.c
-@@ -7,6 +7,7 @@
- 
- #include <linux/init.h>
- #include <linux/pm.h>
-+#include <linux/reboot.h>
- #include <asm/sbi.h>
- #include <asm/smp.h>
- 
-@@ -501,6 +502,32 @@ int sbi_remote_hfence_vvma_asid(const unsigned long *hart_mask,
- }
- EXPORT_SYMBOL(sbi_remote_hfence_vvma_asid);
- 
-+static void sbi_srst_reset(unsigned long type, unsigned long reason)
-+{
-+	sbi_ecall(SBI_EXT_SRST, SBI_EXT_SRST_RESET, type, reason,
-+		  0, 0, 0, 0);
-+	pr_warn("%s: type=0x%lx reason=0x%lx failed\n",
-+		__func__, type, reason);
-+}
-+
-+static int sbi_srst_reboot(struct notifier_block *this,
-+			   unsigned long mode, void *cmd)
-+{
-+	sbi_srst_reset((mode == REBOOT_WARM || mode == REBOOT_SOFT) ?
-+		       SBI_SRST_RESET_TYPE_WARM_REBOOT :
-+		       SBI_SRST_RESET_TYPE_COLD_REBOOT,
-+		       SBI_SRST_RESET_REASON_NONE);
-+	return NOTIFY_DONE;
-+}
-+
-+static struct notifier_block sbi_srst_reboot_nb;
-+
-+static void sbi_srst_power_off(void)
-+{
-+	sbi_srst_reset(SBI_SRST_RESET_TYPE_SHUTDOWN,
-+		       SBI_SRST_RESET_REASON_NONE);
-+}
-+
- /**
-  * sbi_probe_extension() - Check if an SBI extension ID is supported or not.
-  * @extid: The extension ID to be probed.
-@@ -577,22 +604,30 @@ void __init sbi_init(void)
- 			sbi_get_firmware_id(), sbi_get_firmware_version());
- 		if (sbi_probe_extension(SBI_EXT_TIME) > 0) {
- 			__sbi_set_timer = __sbi_set_timer_v02;
--			pr_info("SBI v0.2 TIME extension detected\n");
-+			pr_info("SBI TIME extension detected\n");
- 		} else {
- 			__sbi_set_timer = __sbi_set_timer_v01;
- 		}
- 		if (sbi_probe_extension(SBI_EXT_IPI) > 0) {
- 			__sbi_send_ipi	= __sbi_send_ipi_v02;
--			pr_info("SBI v0.2 IPI extension detected\n");
-+			pr_info("SBI IPI extension detected\n");
- 		} else {
- 			__sbi_send_ipi	= __sbi_send_ipi_v01;
- 		}
- 		if (sbi_probe_extension(SBI_EXT_RFENCE) > 0) {
- 			__sbi_rfence	= __sbi_rfence_v02;
--			pr_info("SBI v0.2 RFENCE extension detected\n");
-+			pr_info("SBI RFENCE extension detected\n");
- 		} else {
- 			__sbi_rfence	= __sbi_rfence_v01;
- 		}
-+		if (sbi_probe_extension(SBI_EXT_SRST) > 0 &&
-+		    sbi_minor_version() >= 3) {
-+			pr_info("SBI SRST extension detected\n");
-+			pm_power_off = sbi_srst_power_off;
-+			sbi_srst_reboot_nb.notifier_call = sbi_srst_reboot;
-+			sbi_srst_reboot_nb.priority = 192;
-+			register_restart_handler(&sbi_srst_reboot_nb);
-+		}
- 	} else {
- 		__sbi_set_timer = __sbi_set_timer_v01;
- 		__sbi_send_ipi	= __sbi_send_ipi_v01;
+-	cpuhp_setup_state(CPUHP_AP_IRQ_RISCV_STARTING,
++	cpuhp_setup_state(CPUHP_AP_ONLINE_DYN,
+ 			  "irqchip/riscv/intc:starting",
+ 			  riscv_intc_cpu_starting,
+ 			  riscv_intc_cpu_dying);
+diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+index 6f432d2..f499f1b 100644
+--- a/drivers/irqchip/irq-sifive-plic.c
++++ b/drivers/irqchip/irq-sifive-plic.c
+@@ -375,7 +375,7 @@ static int __init plic_init(struct device_node *node,
+ 	 */
+ 	handler = this_cpu_ptr(&plic_handlers);
+ 	if (handler->present && !plic_cpuhp_setup_done) {
+-		cpuhp_setup_state(CPUHP_AP_IRQ_SIFIVE_PLIC_STARTING,
++		cpuhp_setup_state(CPUHP_AP_ONLINE_DYN,
+ 				  "irqchip/sifive/plic:starting",
+ 				  plic_starting_cpu, plic_dying_cpu);
+ 		plic_cpuhp_setup_done = true;
+diff --git a/include/linux/cpuhotplug.h b/include/linux/cpuhotplug.h
+index f14adb8..14f49fd 100644
+--- a/include/linux/cpuhotplug.h
++++ b/include/linux/cpuhotplug.h
+@@ -103,8 +103,6 @@ enum cpuhp_state {
+ 	CPUHP_AP_IRQ_ARMADA_XP_STARTING,
+ 	CPUHP_AP_IRQ_BCM2836_STARTING,
+ 	CPUHP_AP_IRQ_MIPS_GIC_STARTING,
+-	CPUHP_AP_IRQ_RISCV_STARTING,
+-	CPUHP_AP_IRQ_SIFIVE_PLIC_STARTING,
+ 	CPUHP_AP_ARM_MVEBU_COHERENCY,
+ 	CPUHP_AP_MICROCODE_LOADER,
+ 	CPUHP_AP_PERF_X86_AMD_UNCORE_STARTING,
 -- 
-2.25.1
+2.7.4
 
 
 _______________________________________________
