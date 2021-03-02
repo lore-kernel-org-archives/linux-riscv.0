@@ -2,82 +2,59 @@ Return-Path: <SRS0=b61k=IA=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
-	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
-	version=3.4.0
+X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
+	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
+	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 31B3EC433E0
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Mar 2021 08:20:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C535FC433E0
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Mar 2021 08:48:38 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id 9AEB964DE5
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Mar 2021 08:20:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9AEB964DE5
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
+	by mail.kernel.org (Postfix) with ESMTPS id D0DFF64D74
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Mar 2021 08:48:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org D0DFF64D74
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=hisilicon.com
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
 	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
-	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=WUG9Q/efNiyhWW6Yq0JFaXWfL/NkT1zdmKoEm8bvlXw=; b=PxR7gzOr+xiTWByZ6ra5fokxC
-	eKzEECE/cHSbjYOEUyaRjuQIDtMoXbIVuO5ZbGc8oq0b7YmZ22u9+AZInZu7O/OoLSSQHiPMUzqRv
-	aZnICrY7r3bzNazf5D+p2AMw8348NSdAdY2QYMYwCCz6Xq7bu3KruPw7VYgcCCfJHpB3duj5koSpN
-	/akTsURYqIdvj862ps5IrhxOayWOm7lbtq0+uNgo3u7AkaQ6fdPnJvNXNEYYI4MEfXK8rt4QHt2YS
-	B9MgMd15zbavyqycIixKiJr2TOtvYEowflJC1ueARoYG57KD9A14pZ8mPI/2Vvv5bjqCmzFZm1+pN
-	GddcikQ8Q==;
+	List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rmWQkvOlvDWaDTHBWjIqGyoxH7f2/27Yaj5eRG5xKqM=; b=KVvjtf1kyAQV5Chjin+IwKYHyF
+	Qpv4dR94yfSAESfNrLqCd5rphBLIKgNj/P7chBxjpteLb5PKIQjXwh7cY1P3waG9zI+1cq19m29Ti
+	IhaoEqmacy8TJHPvqlgsWomxxaV4fYflCfQbOmyW+xJipa527rZkQkexuXUGZPhjFHbN82ZcFhNWu
+	qWQgZ+6jN1YgR5vdtuRoU6MpNPCHXM3mi1w8cD0f2iE4l2w/janaHhqZLjFOiOCI0Fu0PFhummS8d
+	qzzV3t0W/tFkEllWC/BTK1YmJRFs073zACKfYrOyN7TD6Hdrn4j48zkn7shHiTKDVhRBpOcRGC9OR
+	dAzwrcuw==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1lH0GZ-0001dJ-Vn; Tue, 02 Mar 2021 08:20:28 +0000
-Received: from mail-io1-xd2a.google.com ([2607:f8b0:4864:20::d2a])
+	id 1lH0he-0004Jt-U3; Tue, 02 Mar 2021 08:48:27 +0000
+Received: from szxga06-in.huawei.com ([45.249.212.32])
  by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1lH0GX-0001ca-FG
- for linux-riscv@lists.infradead.org; Tue, 02 Mar 2021 08:20:26 +0000
-Received: by mail-io1-xd2a.google.com with SMTP id a7so20780069iok.12
- for <linux-riscv@lists.infradead.org>; Tue, 02 Mar 2021 00:20:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=sDuDnsFMqV9+X0Jh1lVYmTLzTGbGc2E8CItu/iD22aM=;
- b=UmOKbW0MuoTT1MQU4B9OwehFVPMZxAeTU+KHFRl2tygI6MchE/YxSLsC1m4AxqgzPq
- biv8aKgN54ojUsmK9tU2TBdY4WVFprgz8/s+LhTTcecJZde6CvnIFMhk16RFpzo54c1h
- cRGbJmyb4AHG04Si4xoTNP7ee82WH5SwqWtcM=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=sDuDnsFMqV9+X0Jh1lVYmTLzTGbGc2E8CItu/iD22aM=;
- b=NWlJfYL0XcTZwfSMIdp2OCqK4EVSl1NTm4k7c/yBg6s6kike+JLTBqTJunMQSBPEWs
- UbV3iTsf6n8ob3+SAYI8qc6Cx0XpZTHMgmQxQdWvPFCWIJP5YsvQJHCN4junwoTkgcsP
- 5LbtyyOhKwysZr1ojPUCw+/bXJ95cSzDbdHyfN87JGvKHHfc1TQ1+q9ChLiCVAzpuBZQ
- zZlU7RGWYZd28Jru7+C+ISaRwJeKkxC3RP27qdrfNWC48963mLkIQXZFqfaYC46Hz16R
- Ju3YvPBPmKKQVIzHC5s1mSK98EqPqLVo3eVVNrC1Fdy6RyZ5xxI3AEIHWmiuYtc2O46m
- uLdA==
-X-Gm-Message-State: AOAM532iJGBJ8m6hS0bnVrSnYjqxVJVtWioYeKlFIhpTrk2CV2o8CYdH
- VcsoXdIsjtgPpTtQpMBQqM4x1vVErDv7F6z6JCoX
-X-Google-Smtp-Source: ABdhPJyhieS4GgZoXIF8uYedg6POZWDvPfwF5BddAlbTPNOHuXnXFl25QoUF16QeVxrbXLSxG/dSzwv7wGlu8XEdX7o=
-X-Received: by 2002:a05:6602:2d0d:: with SMTP id
- c13mr17266978iow.51.1614673223374; 
- Tue, 02 Mar 2021 00:20:23 -0800 (PST)
+ id 1lH0hb-0004I0-NE
+ for linux-riscv@lists.infradead.org; Tue, 02 Mar 2021 08:48:25 +0000
+Received: from DGGEMS405-HUB.china.huawei.com (unknown [172.30.72.60])
+ by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4DqW2m1B9dzjTLc;
+ Tue,  2 Mar 2021 16:46:56 +0800 (CST)
+Received: from SWX921481.china.huawei.com (10.126.203.44) by
+ DGGEMS405-HUB.china.huawei.com (10.3.19.205) with Microsoft SMTP Server id
+ 14.3.498.0; Tue, 2 Mar 2021 16:48:12 +0800
+From: Barry Song <song.bao.hua@hisilicon.com>
+To: <corbet@lwn.net>, <linux-doc@vger.kernel.org>
+Subject: [PATCH] Documentation/admin-guide: kernel-parameters: correct the
+ architectures for numa_balancing
+Date: Tue, 2 Mar 2021 21:41:59 +1300
+Message-ID: <20210302084159.33688-1-song.bao.hua@hisilicon.com>
+X-Mailer: git-send-email 2.21.0.windows.1
 MIME-Version: 1.0
-References: <350c7458-c77b-56de-de5e-8c96ce9c16ae@huawei.com>
- <CAOnJCU+v=O1u1yK0UD7JYJAhzGmFmCLQk4yP8aZuJX-QoT5UWg@mail.gmail.com>
- <89b97904-e069-35cd-0a42-217cafe17e15@huawei.com>
- <CAOnJCU+HWA2znErbiiqEVWMkKtEfsyhXEwGEy_x2PqDzff4PXg@mail.gmail.com>
- <6bf9e8b6-55bf-f480-c316-d69fe6018ca0@huawei.com>
- <CAMj1kXGi3=pDA_WTXRuBifrxku728p_A55wsQ+MTAJDe2sZQNA@mail.gmail.com>
-In-Reply-To: <CAMj1kXGi3=pDA_WTXRuBifrxku728p_A55wsQ+MTAJDe2sZQNA@mail.gmail.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Tue, 2 Mar 2021 00:20:12 -0800
-Message-ID: <CAOnJCULm4gGxikjN4eArY2n-7i2T30q=08uODP_sFXjzUkRz2Q@mail.gmail.com>
-Subject: Re: question about RISCV EFI stub support
-To: Ard Biesheuvel <ardb@kernel.org>
+X-Originating-IP: [10.126.203.44]
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210302_032025_550175_5DDA8652 
-X-CRM114-Status: GOOD (  23.70  )
+X-CRM114-CacheID: sfid-20210302_034824_277065_DB779A76 
+X-CRM114-Status: GOOD (  10.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -89,76 +66,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Atish Patra <atish.patra@wdc.com>, Kefeng Wang <wangkefeng.wang@huawei.com>,
- Palmer Dabbelt <palmerdabbelt@google.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv <linux-riscv@lists.infradead.org>
+Cc: Barry Song <song.bao.hua@hisilicon.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Thomas Gleixner <tglx@linutronix.de>, "Paul E. McKenney" <paulmck@kernel.org>,
+ Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+ Viresh Kumar <viresh.kumar@linaro.org>, Randy Dunlap <rdunlap@infradead.org>,
+ linux-kernel@vger.kernel.org, Peter
+ Zijlstra <peterz@infradead.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Mel Gorman <mgorman@suse.de>, Paul
+ Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Mike Kravetz <mike.kravetz@oracle.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 1, 2021 at 10:16 AM Ard Biesheuvel <ardb@kernel.org> wrote:
->
-> On Mon, 1 Mar 2021 at 15:43, Kefeng Wang <wangkefeng.wang@huawei.com> wrote:
-> >
-> > + Palmer, sorry forget add to cc list...
-> >
-> > On 2021/2/25 10:00, Atish Patra wrote:
-> > > On Wed, Feb 24, 2021 at 5:29 PM Kefeng Wang <wangkefeng.wang@huawei.com> wrote:
-> > >>
-> > >> On 2021/2/25 7:35, Atish Patra wrote:
-> > >>> On Wed, Feb 24, 2021 at 3:14 AM Kefeng Wang <wangkefeng.wang@huawei.com> wrote:
-> > >>>> Hi Atish and Ard,
-> > >>>>
-> > >>>> The commit "cb7d2dd5612a RISC-V: Add PE/COFF header for EFI stub" use
-> > >>>> c.li to
-> > >>>>
-> > >>>> add Magic "MZ" signature for PE/COFF header, which select RISCV_ISA_C,
-> > >>>> but "C"
-> > >>>>
-> > >>>> to the ISA is optional,  and if "C" is not support ,  EFI boot is not
-> > >>>> supported.
-> > >>>>
-> > >>>> Could we use ".word MZ_MAGIC" like x86 code or some other way to support
-> > >>>> "MZ" signature?
-> > >>>>
-> > >>> .word won't work but .short will. With .word, you end up 0000 in the 2
-> > >>> bytes which can be interpreted as illegal instruction.
-> > >> Yes, should use ".short" in RV.
-> > >>> I guess your larger objective is to make the C extension optional and
-> > >>> not enabled by default for the Linux kernel.
-> > >> "C" extension is optional, and the upstream kernel has the RISCV_ISA_C which
-> > >>
-> > >> could be configurable.  and I think the EFI_STUB should not depend or
-> > >> select it,
-> > >>
-> > >> and maybe we only want to support RV64G in some cases,  what's your option?
-> > >>
-> > > I think RISCV_ISA_C was enabled by default just to generate a smaller
-> > > binary size.
-> > > @palmer : was there any other reason ?
-> >
-> > Any comment about the too issue,
-> >
-> > 1)  directly use .shout MZ_MAGIC to decouple EFI_STUB and RISCV_ISA_C.
-> >
-> > 2)  don't set RISCV_ISA_C  to default y
-> >
->
-> But doesn't that break non-EFI boot with the same image? The opcode
-> still needs to be executable, and have close-to-NOP semantics.
+X86 isn't the only architecture supporting NUMA_BALANCING. ARM64, PPC,
+S390 and RISCV also support it:
 
-Correct. It will break non-EFI boot for the hardware if the platform
-doesn't support C extension.
-Theoretically, we can decouple EFI_STUB & RISCV_ISA_C. But that's
-useless as the hardware has to support C anyways.
-Apologies for not seeing this through.
+arch$ git grep NUMA_BALANCING
+arm64/Kconfig:  select ARCH_SUPPORTS_NUMA_BALANCING
+arm64/configs/defconfig:CONFIG_NUMA_BALANCING=y
+arm64/include/asm/pgtable.h:#ifdef CONFIG_NUMA_BALANCING
+powerpc/configs/powernv_defconfig:CONFIG_NUMA_BALANCING=y
+powerpc/configs/ppc64_defconfig:CONFIG_NUMA_BALANCING=y
+powerpc/configs/pseries_defconfig:CONFIG_NUMA_BALANCING=y
+powerpc/include/asm/book3s/64/pgtable.h:#ifdef CONFIG_NUMA_BALANCING
+powerpc/include/asm/book3s/64/pgtable.h:#ifdef CONFIG_NUMA_BALANCING
+powerpc/include/asm/book3s/64/pgtable.h:#endif /* CONFIG_NUMA_BALANCING */
+powerpc/include/asm/book3s/64/pgtable.h:#ifdef CONFIG_NUMA_BALANCING
+powerpc/include/asm/book3s/64/pgtable.h:#endif /* CONFIG_NUMA_BALANCING */
+powerpc/include/asm/nohash/pgtable.h:#ifdef CONFIG_NUMA_BALANCING
+powerpc/include/asm/nohash/pgtable.h:#endif /* CONFIG_NUMA_BALANCING */
+powerpc/platforms/Kconfig.cputype:      select ARCH_SUPPORTS_NUMA_BALANCING
+riscv/Kconfig:  select ARCH_SUPPORTS_NUMA_BALANCING
+riscv/include/asm/pgtable.h:#ifdef CONFIG_NUMA_BALANCING
+s390/Kconfig:   select ARCH_SUPPORTS_NUMA_BALANCING
+s390/configs/debug_defconfig:CONFIG_NUMA_BALANCING=y
+s390/configs/defconfig:CONFIG_NUMA_BALANCING=y
+s390/include/asm/pgtable.h:#ifdef CONFIG_NUMA_BALANCING
+x86/Kconfig:    select ARCH_SUPPORTS_NUMA_BALANCING     if X86_64
+x86/include/asm/pgtable.h:#ifdef CONFIG_NUMA_BALANCING
+x86/include/asm/pgtable.h:#endif /* CONFIG_NUMA_BALANCING */
 
-If a platform doesn't have a C extension, they can not use the EFI
-booting method.
+On the other hand, setup_numabalancing() is implemented in mm/mempolicy.c
+which doesn't depend on architectures.
+
+Cc: Mel Gorman <mgorman@suse.de>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: "Paul E. McKenney" <paulmck@kernel.org>
+Cc: Randy Dunlap <rdunlap@infradead.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+Cc: Viresh Kumar <viresh.kumar@linaro.org>
+Cc: Mike Kravetz <mike.kravetz@oracle.com>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Signed-off-by: Barry Song <song.bao.hua@hisilicon.com>
+---
+ Documentation/admin-guide/kernel-parameters.rst | 1 +
+ Documentation/admin-guide/kernel-parameters.txt | 3 ++-
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/admin-guide/kernel-parameters.rst b/Documentation/admin-guide/kernel-parameters.rst
+index 1132796a8d96..24302cad174a 100644
+--- a/Documentation/admin-guide/kernel-parameters.rst
++++ b/Documentation/admin-guide/kernel-parameters.rst
+@@ -140,6 +140,7 @@ parameter is applicable::
+ 	PPT	Parallel port support is enabled.
+ 	PS2	Appropriate PS/2 support is enabled.
+ 	RAM	RAM disk support is enabled.
++	RISCV	RISCV architecture is enabled.
+ 	RDT	Intel Resource Director Technology.
+ 	S390	S390 architecture is enabled.
+ 	SCSI	Appropriate SCSI support is enabled.
+diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+index 04545725f187..371a02ae1e21 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -3472,7 +3472,8 @@
+ 
+ 	nr_uarts=	[SERIAL] maximum number of UARTs to be registered.
+ 
+-	numa_balancing=	[KNL,X86] Enable or disable automatic NUMA balancing.
++	numa_balancing=	[KNL,ARM64,PPC,RISCV,S390,X86] Enable or disable automatic
++			NUMA balancing.
+ 			Allowed values are enable and disable
+ 
+ 	numa_zonelist_order= [KNL, BOOT] Select zonelist order for NUMA.
 -- 
-Regards,
-Atish
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
