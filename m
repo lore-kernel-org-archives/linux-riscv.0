@@ -2,72 +2,82 @@ Return-Path: <SRS0=b61k=IA=lists.infradead.org=linux-riscv-bounces+linux-riscv=a
 X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 X-Spam-Level: 
-X-Spam-Status: No, score=-16.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
-	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,INCLUDES_CR_TRAILER,
-	INCLUDES_PATCH,MAILING_LIST_MULTI,SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED,
-	USER_AGENT_GIT autolearn=ham autolearn_force=no version=3.4.0
+X-Spam-Status: No, score=-3.8 required=3.0 tests=BAYES_00,DKIMWL_WL_HIGH,
+	DKIM_SIGNED,DKIM_VALID,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,
+	SPF_HELO_NONE,SPF_PASS,URIBL_BLOCKED autolearn=no autolearn_force=no
+	version=3.4.0
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 99232C433DB
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Mar 2021 07:28:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 31B3EC433E0
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Mar 2021 08:20:40 +0000 (UTC)
 Received: from merlin.infradead.org (merlin.infradead.org [205.233.59.134])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPS id F135D60295
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Mar 2021 07:28:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org F135D60295
-Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=loongson.cn
+	by mail.kernel.org (Postfix) with ESMTPS id 9AEB964DE5
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Mar 2021 08:20:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 mail.kernel.org 9AEB964DE5
+Authentication-Results: mail.kernel.org; dmarc=none (p=none dis=none) header.from=atishpatra.org
 Authentication-Results: mail.kernel.org; spf=none smtp.mailfrom=linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=merlin.20170209; h=Sender:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dsvVSQq4rtVQJ+eBWmFlGFKjyPX/dQ+KNkQvI9VFB6Y=; b=0GrqJ+SiIBgWUm/PP8wT2RCMx2
-	5hzJY7LHFJVlYa2FgJo0fbuYdPOi4xd5Prq9oAzqlLKQnXX084sLVNWvoe3gO/CbHc2sQiggtmWpU
-	yZdcBD1/81Hhn+/jk/DkpJxlYaix031ho7APtOmidkmv42hm2e1Gs9so0p2E/m5j8bKGv+p4+9WdN
-	Rg6R19S1BrdsZkGAwu3j7vtsSOFkfyRi00VnpeWlZIET8ho0vketLJVbPt0IobV8biJjJOmmKLC6m
-	avzPlxp/PObEUlAdQOQLZwDhC8sez7Epk9w7aQoIw2bblAHlVqpoIgTyFcoNepL+D5Qmw7sc4EPgn
-	7J2q00sw==;
+	Content-Type:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:In-Reply-To:
+	References:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=WUG9Q/efNiyhWW6Yq0JFaXWfL/NkT1zdmKoEm8bvlXw=; b=PxR7gzOr+xiTWByZ6ra5fokxC
+	eKzEECE/cHSbjYOEUyaRjuQIDtMoXbIVuO5ZbGc8oq0b7YmZ22u9+AZInZu7O/OoLSSQHiPMUzqRv
+	aZnICrY7r3bzNazf5D+p2AMw8348NSdAdY2QYMYwCCz6Xq7bu3KruPw7VYgcCCfJHpB3duj5koSpN
+	/akTsURYqIdvj862ps5IrhxOayWOm7lbtq0+uNgo3u7AkaQ6fdPnJvNXNEYYI4MEfXK8rt4QHt2YS
+	B9MgMd15zbavyqycIixKiJr2TOtvYEowflJC1ueARoYG57KD9A14pZ8mPI/2Vvv5bjqCmzFZm1+pN
+	GddcikQ8Q==;
 Received: from localhost ([::1] helo=merlin.infradead.org)
 	by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1lGzSK-0005aD-Pr; Tue, 02 Mar 2021 07:28:32 +0000
-Received: from mail.loongson.cn ([114.242.206.163] helo=loongson.cn)
- by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
- id 1lGzSH-0005Z8-8y
- for linux-riscv@lists.infradead.org; Tue, 02 Mar 2021 07:28:30 +0000
-Received: from linux.localdomain (unknown [113.200.148.30])
- by mail.loongson.cn (Coremail) with SMTP id AQAAf9Dxr_AR6T1ggTMTAA--.7754S2;
- Tue, 02 Mar 2021 15:28:18 +0800 (CST)
-From: Tiezhu Yang <yangtiezhu@loongson.cn>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Subject: [PATCH] riscv: Return -EFAULT if copy_to_user() failed in signal.c
-Date: Tue,  2 Mar 2021 15:28:17 +0800
-Message-Id: <1614670097-28536-1-git-send-email-yangtiezhu@loongson.cn>
-X-Mailer: git-send-email 2.1.0
-X-CM-TRANSID: AQAAf9Dxr_AR6T1ggTMTAA--.7754S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Wr17Wry3Jry7CF1DGrykXwb_yoW8Jr1DpF
- 4UCa4xKrW8GrnruF9ayw1kW34rJ3saqa4xKr90k3W3AFs0qr45t34vqa4jqF4rJFyrCrs0
- ka4qkrWYkw48WrJanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
- 9KBjDU0xBIdaVrnRJUUUvlb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I2
- 0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
- A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
- jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwV
- C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
- 0VAKzVAqx4xG6I80ewAv7VACjcxG62k0Y48FwI0_Jr0_Gr1lYx0E2Ix0cI8IcVAFwI0_Jr
- 0_Jr4lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0E
- wIxGrwCY02Avz4vE14v_GF4l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
- 1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
- 14v26r126r1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
- IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWrZr1j6s0DMIIF0xvE
- x4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvj
- DU0xZFpf9x07jV1vsUUUUU=
-X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
+	id 1lH0GZ-0001dJ-Vn; Tue, 02 Mar 2021 08:20:28 +0000
+Received: from mail-io1-xd2a.google.com ([2607:f8b0:4864:20::d2a])
+ by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1lH0GX-0001ca-FG
+ for linux-riscv@lists.infradead.org; Tue, 02 Mar 2021 08:20:26 +0000
+Received: by mail-io1-xd2a.google.com with SMTP id a7so20780069iok.12
+ for <linux-riscv@lists.infradead.org>; Tue, 02 Mar 2021 00:20:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=atishpatra.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=sDuDnsFMqV9+X0Jh1lVYmTLzTGbGc2E8CItu/iD22aM=;
+ b=UmOKbW0MuoTT1MQU4B9OwehFVPMZxAeTU+KHFRl2tygI6MchE/YxSLsC1m4AxqgzPq
+ biv8aKgN54ojUsmK9tU2TBdY4WVFprgz8/s+LhTTcecJZde6CvnIFMhk16RFpzo54c1h
+ cRGbJmyb4AHG04Si4xoTNP7ee82WH5SwqWtcM=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=sDuDnsFMqV9+X0Jh1lVYmTLzTGbGc2E8CItu/iD22aM=;
+ b=NWlJfYL0XcTZwfSMIdp2OCqK4EVSl1NTm4k7c/yBg6s6kike+JLTBqTJunMQSBPEWs
+ UbV3iTsf6n8ob3+SAYI8qc6Cx0XpZTHMgmQxQdWvPFCWIJP5YsvQJHCN4junwoTkgcsP
+ 5LbtyyOhKwysZr1ojPUCw+/bXJ95cSzDbdHyfN87JGvKHHfc1TQ1+q9ChLiCVAzpuBZQ
+ zZlU7RGWYZd28Jru7+C+ISaRwJeKkxC3RP27qdrfNWC48963mLkIQXZFqfaYC46Hz16R
+ Ju3YvPBPmKKQVIzHC5s1mSK98EqPqLVo3eVVNrC1Fdy6RyZ5xxI3AEIHWmiuYtc2O46m
+ uLdA==
+X-Gm-Message-State: AOAM532iJGBJ8m6hS0bnVrSnYjqxVJVtWioYeKlFIhpTrk2CV2o8CYdH
+ VcsoXdIsjtgPpTtQpMBQqM4x1vVErDv7F6z6JCoX
+X-Google-Smtp-Source: ABdhPJyhieS4GgZoXIF8uYedg6POZWDvPfwF5BddAlbTPNOHuXnXFl25QoUF16QeVxrbXLSxG/dSzwv7wGlu8XEdX7o=
+X-Received: by 2002:a05:6602:2d0d:: with SMTP id
+ c13mr17266978iow.51.1614673223374; 
+ Tue, 02 Mar 2021 00:20:23 -0800 (PST)
+MIME-Version: 1.0
+References: <350c7458-c77b-56de-de5e-8c96ce9c16ae@huawei.com>
+ <CAOnJCU+v=O1u1yK0UD7JYJAhzGmFmCLQk4yP8aZuJX-QoT5UWg@mail.gmail.com>
+ <89b97904-e069-35cd-0a42-217cafe17e15@huawei.com>
+ <CAOnJCU+HWA2znErbiiqEVWMkKtEfsyhXEwGEy_x2PqDzff4PXg@mail.gmail.com>
+ <6bf9e8b6-55bf-f480-c316-d69fe6018ca0@huawei.com>
+ <CAMj1kXGi3=pDA_WTXRuBifrxku728p_A55wsQ+MTAJDe2sZQNA@mail.gmail.com>
+In-Reply-To: <CAMj1kXGi3=pDA_WTXRuBifrxku728p_A55wsQ+MTAJDe2sZQNA@mail.gmail.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Tue, 2 Mar 2021 00:20:12 -0800
+Message-ID: <CAOnJCULm4gGxikjN4eArY2n-7i2T30q=08uODP_sFXjzUkRz2Q@mail.gmail.com>
+Subject: Re: question about RISCV EFI stub support
+To: Ard Biesheuvel <ardb@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20210302_022829_857307_ABC1E52D 
-X-CRM114-Status: UNSURE (   9.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20210302_032025_550175_5DDA8652 
+X-CRM114-Status: GOOD (  23.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -79,50 +89,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-MIME-Version: 1.0
+Cc: Atish Patra <atish.patra@wdc.com>, Kefeng Wang <wangkefeng.wang@huawei.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-copy_to_user() returns the amount left to copy, it should return -EFAULT
-if copy to user failed.
+On Mon, Mar 1, 2021 at 10:16 AM Ard Biesheuvel <ardb@kernel.org> wrote:
+>
+> On Mon, 1 Mar 2021 at 15:43, Kefeng Wang <wangkefeng.wang@huawei.com> wrote:
+> >
+> > + Palmer, sorry forget add to cc list...
+> >
+> > On 2021/2/25 10:00, Atish Patra wrote:
+> > > On Wed, Feb 24, 2021 at 5:29 PM Kefeng Wang <wangkefeng.wang@huawei.com> wrote:
+> > >>
+> > >> On 2021/2/25 7:35, Atish Patra wrote:
+> > >>> On Wed, Feb 24, 2021 at 3:14 AM Kefeng Wang <wangkefeng.wang@huawei.com> wrote:
+> > >>>> Hi Atish and Ard,
+> > >>>>
+> > >>>> The commit "cb7d2dd5612a RISC-V: Add PE/COFF header for EFI stub" use
+> > >>>> c.li to
+> > >>>>
+> > >>>> add Magic "MZ" signature for PE/COFF header, which select RISCV_ISA_C,
+> > >>>> but "C"
+> > >>>>
+> > >>>> to the ISA is optional,  and if "C" is not support ,  EFI boot is not
+> > >>>> supported.
+> > >>>>
+> > >>>> Could we use ".word MZ_MAGIC" like x86 code or some other way to support
+> > >>>> "MZ" signature?
+> > >>>>
+> > >>> .word won't work but .short will. With .word, you end up 0000 in the 2
+> > >>> bytes which can be interpreted as illegal instruction.
+> > >> Yes, should use ".short" in RV.
+> > >>> I guess your larger objective is to make the C extension optional and
+> > >>> not enabled by default for the Linux kernel.
+> > >> "C" extension is optional, and the upstream kernel has the RISCV_ISA_C which
+> > >>
+> > >> could be configurable.  and I think the EFI_STUB should not depend or
+> > >> select it,
+> > >>
+> > >> and maybe we only want to support RV64G in some cases,  what's your option?
+> > >>
+> > > I think RISCV_ISA_C was enabled by default just to generate a smaller
+> > > binary size.
+> > > @palmer : was there any other reason ?
+> >
+> > Any comment about the too issue,
+> >
+> > 1)  directly use .shout MZ_MAGIC to decouple EFI_STUB and RISCV_ISA_C.
+> >
+> > 2)  don't set RISCV_ISA_C  to default y
+> >
+>
+> But doesn't that break non-EFI boot with the same image? The opcode
+> still needs to be executable, and have close-to-NOP semantics.
 
-Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
----
- arch/riscv/kernel/signal.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+Correct. It will break non-EFI boot for the hardware if the platform
+doesn't support C extension.
+Theoretically, we can decouple EFI_STUB & RISCV_ISA_C. But that's
+useless as the hardware has to support C anyways.
+Apologies for not seeing this through.
 
-diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
-index 65942b3..2238fc5 100644
---- a/arch/riscv/kernel/signal.c
-+++ b/arch/riscv/kernel/signal.c
-@@ -67,7 +67,7 @@ static long save_fp_state(struct pt_regs *regs,
- 	fstate_save(current, regs);
- 	err = __copy_to_user(state, &current->thread.fstate, sizeof(*state));
- 	if (unlikely(err))
--		return err;
-+		return -EFAULT;
- 
- 	/* We support no other extension state at this time. */
- 	for (i = 0; i < ARRAY_SIZE(sc_fpregs->q.reserved); i++) {
-@@ -140,8 +140,12 @@ static long setup_sigcontext(struct rt_sigframe __user *frame,
- {
- 	struct sigcontext __user *sc = &frame->uc.uc_mcontext;
- 	long err;
-+
- 	/* sc_regs is structured the same as the start of pt_regs */
- 	err = __copy_to_user(&sc->sc_regs, regs, sizeof(sc->sc_regs));
-+	if (unlikely(err))
-+		return -EFAULT;
-+
- 	/* Save the floating-point state. */
- 	if (has_fpu)
- 		err |= save_fp_state(regs, &sc->sc_fpregs);
+If a platform doesn't have a C extension, they can not use the EFI
+booting method.
 -- 
-2.1.0
-
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
